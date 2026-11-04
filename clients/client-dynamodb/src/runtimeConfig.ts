@@ -6,6 +6,7 @@ import { NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS } from "@aws-sdk/core/acco
 import {
   createDefaultUserAgentProvider,
   emitWarningIfUnsupportedVersion as awsCheckVersion,
+  getDefaultSocketTimeout,
   NODE_APP_ID_CONFIG_OPTIONS,
 } from "@aws-sdk/core/client";
 import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
@@ -54,6 +55,7 @@ export const getRuntimeConfig = (config: DynamoDBClientConfig) => {
     authSchemePreference: config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
+    defaultSocketTimeout: getDefaultSocketTimeout(config?.requestHandler, 300_000),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
     endpointDiscoveryEnabledProvider: config?.endpointDiscoveryEnabledProvider ?? loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS, loaderConfig),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(Retry.v2026 ? { ...NODE_MAX_ATTEMPT_CONFIG_OPTIONS, default: 4 } : NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),

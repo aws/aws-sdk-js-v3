@@ -2,7 +2,11 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
-import { createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS } from "@aws-sdk/core/client";
+import {
+  createDefaultUserAgentProvider,
+  getDefaultSocketTimeout,
+  NODE_APP_ID_CONFIG_OPTIONS,
+} from "@aws-sdk/core/client";
 import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode } from "@smithy/core/client";
@@ -43,6 +47,7 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     authSchemePreference: config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentials: config?.credentials ?? credentialDefaultProvider(),
+    defaultSocketTimeout: getDefaultSocketTimeout(config?.requestHandler, 300_000),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({clientVersion: packageInfo.version}),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
     region: config?.region ?? loadNodeConfig(

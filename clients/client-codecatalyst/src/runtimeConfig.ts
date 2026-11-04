@@ -5,6 +5,7 @@ import packageInfo from "../package.json"; // eslint-disable-line
 import {
   createDefaultUserAgentProvider,
   emitWarningIfUnsupportedVersion as awsCheckVersion,
+  getDefaultSocketTimeout,
   NODE_APP_ID_CONFIG_OPTIONS,
 } from "@aws-sdk/core/client";
 import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
@@ -51,6 +52,7 @@ export const getRuntimeConfig = (config: CodeCatalystClientConfig) => {
     defaultsMode,
     authSchemePreference: config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
+    defaultSocketTimeout: getDefaultSocketTimeout(config?.requestHandler, 900_000),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
