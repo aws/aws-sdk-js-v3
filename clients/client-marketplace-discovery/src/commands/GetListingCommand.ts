@@ -131,7 +131,7 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * //     reviewSourceSummaries: [ // ReviewSourceSummaryList // required
  * //       { // ReviewSourceSummary
  * //         sourceName: "STRING_VALUE", // required
- * //         sourceId: "AWS_MARKETPLACE", // required
+ * //         sourceId: "AWS_MARKETPLACE" || "G2" || "PEERSPOT", // required
  * //         sourceUrl: "STRING_VALUE",
  * //         averageRating: "STRING_VALUE", // required
  * //         totalReviews: Number("long"), // required
@@ -276,6 +276,20 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  *         sourceName: "AWS Marketplace",
  *         sourceUrl: "https://aws.amazon.com/marketplace/reviews/prodview-sampleSaasId",
  *         totalReviews: 128
+ *       },
+ *       {
+ *         averageRating: "4.6",
+ *         sourceId: "G2",
+ *         sourceName: "G2",
+ *         sourceUrl: "https://www.g2.com/products/sample-product/reviews",
+ *         totalReviews: 1368
+ *       },
+ *       {
+ *         averageRating: "4.2",
+ *         sourceId: "PEERSPOT",
+ *         sourceName: "PeerSpot",
+ *         sourceUrl: "https://www.peerspot.com/products/sample-product-reviews",
+ *         totalReviews: 19
  *       }
  *     ]
  *   },

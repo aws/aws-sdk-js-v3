@@ -105,6 +105,8 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
  */
 export const ReviewSourceId = {
   AWS_MARKETPLACE: "AWS_MARKETPLACE",
+  G2: "G2",
+  PEERSPOT: "PEERSPOT",
 } as const;
 /**
  * @public

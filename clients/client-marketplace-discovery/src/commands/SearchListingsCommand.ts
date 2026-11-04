@@ -85,7 +85,7 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  * //         reviewSourceSummaries: [ // ReviewSourceSummaryList // required
  * //           { // ReviewSourceSummary
  * //             sourceName: "STRING_VALUE", // required
- * //             sourceId: "AWS_MARKETPLACE", // required
+ * //             sourceId: "AWS_MARKETPLACE" || "G2" || "PEERSPOT", // required
  * //             sourceUrl: "STRING_VALUE",
  * //             averageRating: "STRING_VALUE", // required
  * //             totalReviews: Number("long"), // required
@@ -232,6 +232,18 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  *             sourceId: "AWS_MARKETPLACE",
  *             sourceName: "AWS Marketplace",
  *             totalReviews: 100
+ *           },
+ *           {
+ *             averageRating: "4.6",
+ *             sourceId: "G2",
+ *             sourceName: "G2",
+ *             totalReviews: 1368
+ *           },
+ *           {
+ *             averageRating: "4.2",
+ *             sourceId: "PEERSPOT",
+ *             sourceName: "PeerSpot",
+ *             totalReviews: 19
  *           }
  *         ]
  *       },

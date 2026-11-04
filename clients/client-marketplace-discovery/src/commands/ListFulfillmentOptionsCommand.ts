@@ -380,39 +380,6 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * *\/
  * ```
  *
- * @example List API Fulfillment Options with Dynamic Endpoint
- * ```javascript
- * //
- * const input = {
- *   locale: "en-US",
- *   productId: "prod-sampleApiDynamicId"
- * };
- * const command = new ListFulfillmentOptionsCommand(input);
- * const response = await client.send(command);
- * /* response is
- * {
- *   fulfillmentOptions: [
- *     {
- *       apiFulfillmentOption: {
- *         awsSupportedServices: [
- *           {
- *             description: "A managed service that enables you to develop, deploy, and maintain AI agents seamlessly.",
- *             displayName: "Amazon Bedrock AgentCore",
- *             supportedServiceType: "BEDROCK_AGENTCORE"
- *           }
- *         ],
- *         fulfillmentOptionDisplayName: "API-Based Agents & Tools",
- *         fulfillmentOptionId: "fo-sampleApiDynamicId",
- *         fulfillmentOptionType: "API",
- *         usageInstructions: "Deploy to your preferred region using the dynamic endpoint."
- *       }
- *     }
- *   ],
- *   locale: "en-US"
- * }
- * *\/
- * ```
- *
  * @example List CloudFormation Template Fulfillment Options
  * ```javascript
  * //

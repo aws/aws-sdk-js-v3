@@ -612,13 +612,13 @@ export interface Resource {
  */
 export interface ReviewSourceSummary {
   /**
-   * <p>The name of the review source, such as AWS Marketplace.</p>
+   * <p>The name of the review source. This field has one of the following values:</p> <ul> <li> <p>AWS Marketplace</p> </li> <li> <p>G2</p> </li> <li> <p>PeerSpot</p> </li> </ul>
    * @public
    */
   sourceName: string | undefined;
 
   /**
-   * <p>The machine-readable identifier of the review source.</p>
+   * <p>The machine-readable identifier of the review source. This field has one of the following values:</p> <ul> <li> <p> <code>AWS_MARKETPLACE</code> – The reviews come from AWS Marketplace.</p> </li> <li> <p> <code>G2</code> – The reviews come from G2.</p> </li> <li> <p> <code>PEERSPOT</code> – The reviews come from PeerSpot.</p> </li> </ul>
    * @public
    */
   sourceId: ReviewSourceId | undefined;
@@ -648,7 +648,7 @@ export interface ReviewSourceSummary {
  */
 export interface ReviewSummary {
   /**
-   * <p>Review summaries from different sources, such as AWS Marketplace.</p>
+   * <p>Review summaries from different sources, such as AWS Marketplace, G2, and PeerSpot.</p>
    * @public
    */
   reviewSourceSummaries: ReviewSourceSummary[] | undefined;
