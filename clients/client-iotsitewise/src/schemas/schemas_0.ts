@@ -2083,8 +2083,8 @@ export var CreateDashboardResponse$: StaticStructureSchema = [3, n0, _CDRr,
 ];
 export var CreateDatasetExportJobRequest$: StaticStructureSchema = [3, n0, _CDEJR,
   0,
-  [_wN, _dSU, _in, _eRL, _cT],
-  [[0, 1], 0, () => ProcessingInput$, () => ExportErrorReportLocation$, [0, 4]], 4
+  [_wN, _dSU, _in, _eRL, _cT, _jN],
+  [[0, 1], 0, () => ProcessingInput$, () => ExportErrorReportLocation$, [0, 4], 0], 4
 ];
 export var CreateDatasetExportJobResponse$: StaticStructureSchema = [3, n0, _CDEJRr,
   0,
@@ -2548,8 +2548,8 @@ export var DescribeDatasetExportJobRequest$: StaticStructureSchema = [3, n0, _DD
 ];
 export var DescribeDatasetExportJobResponse$: StaticStructureSchema = [3, n0, _DDEJRe,
   0,
-  [_jI, _wN, _st, _sA, _dSU, _eRL, _in, _cAo],
-  [0, 0, 0, 4, 0, () => ExportErrorReportLocation$, () => ProcessingInput$, 4], 7
+  [_jI, _wN, _st, _sA, _dSU, _eRL, _in, _jN, _cAo],
+  [0, 0, 0, 4, 0, () => ExportErrorReportLocation$, () => ProcessingInput$, 0, 4], 7
 ];
 export var DescribeDatasetRequest$: StaticStructureSchema = [3, n0, _DDRescr,
   0,
@@ -2818,8 +2818,8 @@ export var ExportErrorReportLocation$: StaticStructureSchema = [3, n0, _EERL,
 ];
 export var ExportJobSummary$: StaticStructureSchema = [3, n0, _EJSx,
   0,
-  [_jI, _st, _sA, _dSU, _cAo],
-  [0, 0, 4, 0, 4], 4
+  [_jI, _st, _sA, _dSU, _jN, _cAo],
+  [0, 0, 4, 0, 0, 4], 4
 ];
 export var ExpressionVariable$: StaticStructureSchema = [3, n0, _EV,
   0,

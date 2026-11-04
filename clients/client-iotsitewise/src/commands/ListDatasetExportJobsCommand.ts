@@ -44,6 +44,7 @@ export interface ListDatasetExportJobsCommandOutput extends ListDatasetExportJob
  * //   jobs: [ // ExportJobSummaryList // required
  * //     { // ExportJobSummary
  * //       jobId: "STRING_VALUE", // required
+ * //       jobName: "STRING_VALUE",
  * //       status: "SUBMITTED" || "RUNNING" || "COMPLETED" || "COMPLETED_WITH_ERRORS" || "FAILED", // required
  * //       startedAt: new Date("TIMESTAMP"), // required
  * //       completedAt: new Date("TIMESTAMP"),

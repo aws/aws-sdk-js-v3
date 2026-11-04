@@ -3362,6 +3362,12 @@ export interface ExportJobSummary {
   jobId: string | undefined;
 
   /**
+   * <p>The name of the dataset export job.</p>
+   * @public
+   */
+  jobName?: string | undefined;
+
+  /**
    * <p>The current status of the dataset export job.</p>
    * @public
    */

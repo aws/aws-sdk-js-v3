@@ -4822,6 +4822,13 @@ export interface CreateDatasetExportJobRequest {
   input: ProcessingInput | undefined;
 
   /**
+   * <p>An optional name for the export job. When omitted, one will be created based on type of job
+   * and start time.</p>
+   * @public
+   */
+  jobName?: string | undefined;
+
+  /**
    * <p>The location where the error report will be written on failure.</p>
    * @public
    */
@@ -7925,6 +7932,12 @@ export interface DescribeDatasetExportJobResponse {
    * @public
    */
   workspaceName: string | undefined;
+
+  /**
+   * <p>The name of the dataset export job.</p>
+   * @public
+   */
+  jobName?: string | undefined;
 
   /**
    * <p>The current status of the dataset export job.</p>

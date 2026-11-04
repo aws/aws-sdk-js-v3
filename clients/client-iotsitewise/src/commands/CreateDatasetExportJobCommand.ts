@@ -77,6 +77,7 @@ export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExport
  *       ],
  *     },
  *   },
+ *   jobName: "STRING_VALUE",
  *   errorReportLocation: { // ExportErrorReportLocation
  *     s3Uri: "STRING_VALUE", // required
  *   },
