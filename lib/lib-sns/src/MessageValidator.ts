@@ -2,6 +2,7 @@ import { createVerify } from "node:crypto";
 
 import { CertificateCache, type CertificateFetcher } from "./certificate";
 import {
+  DEFAULT_CERTIFICATE_TIMEOUT_MS,
   DEFAULT_ENCODING,
   DEFAULT_HOST_PATTERN,
   LAMBDA_MESSAGE_KEYS,
@@ -47,7 +48,10 @@ export class MessageValidator {
 
     this._hostPattern = opts.hostPattern ?? DEFAULT_HOST_PATTERN;
     this.encoding = opts.encoding ?? encoding ?? DEFAULT_ENCODING;
-    this._certificates = new CertificateCache(certificateFetcher);
+    this._certificates = new CertificateCache(
+      certificateFetcher,
+      opts.certificateTimeoutMs ?? DEFAULT_CERTIFICATE_TIMEOUT_MS
+    );
   }
 
   /**
@@ -84,6 +88,10 @@ export class MessageValidator {
       message = hash;
     }
 
+    if (typeof message !== "object" || message === null || Array.isArray(message)) {
+      throw new SNSValidationError("The message must be a JSON object.");
+    }
+
     message = convertLambdaMessage(message);
 
     if (!("Type" in message)) {
@@ -96,6 +104,11 @@ export class MessageValidator {
 
     if (!validateMessageStructure(message)) {
       throw new SNSValidationError("Message missing required keys.");
+    }
+
+    const nonStringField = findNonStringSignedValue(message);
+    if (nonStringField !== null) {
+      throw new SNSValidationError(`The message field "${nonStringField}" must be a string.`);
     }
 
     const fieldWithNewline = validateSignedValues(message);
@@ -173,13 +186,22 @@ function validateMessageStructure(message: SNSMessage): boolean {
 
 /**
  * Returns the first signed field (other than Message/Subject) containing a
- * newline, or null. A newline in a signed field would let an attacker shift the
- * canonical string boundaries, so SNS forbids it.
+ * newline, or null. SNS does not allow newlines in these fields.
  */
 function validateSignedValues(message: SNSMessage): string | null {
   const signableKeys = SIGNABLE_KEYS_BY_TYPE[message.Type as SNSMessageType];
   for (const key of signableKeys) {
     if (key in message && key !== "Message" && key !== "Subject" && /[\r\n]/.test(message[key] as string)) {
+      return key;
+    }
+  }
+  return null;
+}
+
+function findNonStringSignedValue(message: SNSMessage): string | null {
+  const signableKeys = SIGNABLE_KEYS_BY_TYPE[message.Type as SNSMessageType];
+  for (const key of signableKeys) {
+    if (key in message && typeof message[key] !== "string") {
       return key;
     }
   }
@@ -196,5 +218,13 @@ function validateUrl(urlToValidate: string | undefined, hostPattern: RegExp): bo
   } catch {
     return false;
   }
-  return parsed.protocol === "https:" && parsed.pathname.endsWith(".pem") && hostPattern.test(parsed.host);
+  return (
+    parsed.protocol === "https:" &&
+    !parsed.username &&
+    !parsed.password &&
+    !parsed.search &&
+    !parsed.hash &&
+    parsed.pathname.endsWith(".pem") &&
+    hostPattern.test(parsed.host)
+  );
 }

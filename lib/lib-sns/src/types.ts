@@ -35,7 +35,7 @@ export type SNSMessageType = "Notification" | "SubscriptionConfirmation" | "Unsu
 export interface MessageValidatorOptions {
   /**
    * Validates that a message's certificate originates from a trusted domain.
-   * @defaultValue /^sns\.[a-zA-Z0-9\-]{3,}\.amazonaws\.com(\.cn)?$/
+   * @defaultValue {@link DEFAULT_HOST_PATTERN}
    */
   hostPattern?: RegExp;
 
@@ -44,6 +44,12 @@ export interface MessageValidatorOptions {
    * @defaultValue "utf8"
    */
   encoding?: BufferEncoding;
+
+  /**
+   * Total deadline for fetching the signing certificate.
+   * @defaultValue 10_000
+   */
+  certificateTimeoutMs?: number;
 }
 
 /**
