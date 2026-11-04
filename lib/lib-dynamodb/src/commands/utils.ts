@@ -1,5 +1,6 @@
 import type { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
+import { writeKey } from "@smithy/core/serde";
 
 /**
  * @internal
@@ -32,6 +33,13 @@ const NEXT_LEVEL = "*";
  */
 export type KeyNodes = KeyNodeSelf | KeyNodeChildren;
 
+const setKey = (object: any, key: string, value: any) => {
+  if (key === "__proto__") {
+    writeKey(object);
+  }
+  object[key] = value;
+};
+
 const processObj = (obj: any, processFunc: Function, keyNodes?: KeyNodes): any => {
   if (obj !== undefined) {
     if (keyNodes == null) {
@@ -53,7 +61,7 @@ const processObj = (obj: any, processFunc: Function, keyNodes?: KeyNodes): any =
         return Object.entries(obj ?? {}).reduce(
           (acc, [k, v]) => {
             if (typeof v !== "function") {
-              acc[k] = processObj(v, processFunc, keyNodes[NEXT_LEVEL]);
+              setKey(acc, k, processObj(v, processFunc, keyNodes[NEXT_LEVEL]));
             }
             return acc;
           },
@@ -73,7 +81,7 @@ const processKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodeChil
     accumulator = {};
     for (const [k, v] of Object.entries(obj)) {
       if (typeof v !== "function") {
-        accumulator[k] = v;
+        setKey(accumulator, k, v);
       }
     }
   }
@@ -84,7 +92,7 @@ const processKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodeChil
     }
     const processedValue = processObj(obj[nodeKey], processFunc, nodes);
     if (processedValue !== undefined && typeof processedValue !== "function") {
-      accumulator[nodeKey] = processedValue;
+      setKey(accumulator, nodeKey, processedValue);
     }
   }
 
@@ -101,7 +109,7 @@ const processAllKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodes
     }
     const processedValue = processObj(value, processFunc, keyNodes);
     if (processedValue !== undefined && typeof processedValue !== "function") {
-      acc[key] = processedValue;
+      setKey(acc, key, processedValue);
     }
     return acc;
   }, {} as any);
