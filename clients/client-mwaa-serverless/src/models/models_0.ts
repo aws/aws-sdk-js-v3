@@ -324,7 +324,7 @@ export interface S3Location {
   ObjectKey: string | undefined;
 
   /**
-   * <p>The version ID of the object in Amazon S3. If not specified, the latest version is used.</p>
+   * <p>Specifies the version ID of the object in Amazon S3. If you don't specify a version, we use the latest version.</p>
    * @public
    */
   VersionId?: string | undefined;
@@ -387,7 +387,7 @@ export interface DefinitionS3Location {
   ObjectKey: string | undefined;
 
   /**
-   * <p>Optional. The version ID of the workflow definition file in Amazon S3. If not specified, the latest version is used.</p>
+   * <p>Optional. The version ID of the workflow definition file in Amazon S3. If you don't specify a version, we use the latest version.</p>
    * @public
    */
   VersionId?: string | undefined;
@@ -409,6 +409,18 @@ export interface EncryptionConfiguration {
    * @public
    */
   KmsKeyId?: string | undefined;
+}
+
+/**
+ * <p>Contains the environment variables that tasks in a workflow use during execution.</p>
+ * @public
+ */
+export interface Environment {
+  /**
+   * <p>A map of environment variable names to values. Your workflow tasks use these variables while they run. You can specify up to 50 environment variables. Each name must be between 1 and 128 characters, start with a letter, and contain only letters, numbers, and underscores. Each value can be up to 255 characters.</p> <p>Names that start with <code>AWS_</code> or <code>AIRFLOW__</code> are reserved. You can use the following Apache Airflow secrets backend settings, which are exceptions:</p> <ul> <li> <p> <code>AIRFLOW__WORKERS__SECRETS_BACKEND</code> – The secrets backend class that workers use.</p> </li> <li> <p> <code>AIRFLOW__WORKERS__SECRETS_BACKEND_KWARGS</code> – The keyword arguments for the secrets backend, as a JSON string.</p> </li> <li> <p> <code>AIRFLOW__WORKERS__SECRETS_BACKEND_KWARG__*</code> – Names with this prefix, for additional secrets backend configuration.</p> </li> </ul> <p>If you set <code>EncryptionConfiguration</code> to use a customer managed AWS KMS key, we encrypt the environment variables with that key. Otherwise, we store them with default encryption at rest.</p>
+   * @public
+   */
+  Variables?: Record<string, string> | undefined;
 }
 
 /**
@@ -504,6 +516,12 @@ export interface CreateWorkflowRequest {
    * @public
    */
   NetworkConfiguration?: NetworkConfiguration | undefined;
+
+  /**
+   * <p>The environment variables to set for tasks in the workflow. If you don't specify this parameter, the workflow has no environment variables.</p>
+   * @public
+   */
+  Environment?: Environment | undefined;
 
   /**
    * <p>A map of tags to assign to the workflow resource. Tags are key-value pairs that are used for resource organization and cost allocation.</p>
@@ -729,6 +747,12 @@ export interface GetWorkflowResponse {
   NetworkConfiguration?: NetworkConfiguration | undefined;
 
   /**
+   * <p>The environment variables that tasks in the workflow use during execution.</p>
+   * @public
+   */
+  Environment?: Environment | undefined;
+
+  /**
    * <p>The trigger mode for the workflow execution.</p>
    * @public
    */
@@ -880,6 +904,12 @@ export interface UpdateWorkflowRequest {
    * @public
    */
   NetworkConfiguration?: NetworkConfiguration | undefined;
+
+  /**
+   * <p>The environment variables to set for tasks in the workflow.</p> <important> <p>The variables that you specify replace all existing environment variables for the workflow. If you don't specify this parameter, the workflow has no environment variables. To keep existing environment variables, include them in the request.</p> </important>
+   * @public
+   */
+  Environment?: Environment | undefined;
 
   /**
    * <p>The trigger mode for the workflow execution.</p>
@@ -1188,7 +1218,7 @@ export interface StartWorkflowRunRequest {
   OverrideParameters?: Record<string, __DocumentType> | undefined;
 
   /**
-   * <p>Optional. The specific version of the workflow to execute. If not specified, the latest version is used.</p>
+   * <p>Optional. The specific version of the workflow to execute. If you don't specify a version, we use the latest version.</p>
    * @public
    */
   WorkflowVersion?: string | undefined;

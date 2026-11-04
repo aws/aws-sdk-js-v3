@@ -16,6 +16,7 @@ import {
   EncryptionConfiguration$,
   EncryptionType,
   EngineVersion,
+  Environment$,
   GetTaskInstance$,
   GetTaskInstanceCommand,
   GetTaskInstanceRequest$,
@@ -147,6 +148,7 @@ assert(typeof DefinitionS3Location$ === "object");
 assert(typeof DeleteWorkflowRequest$ === "object");
 assert(typeof DeleteWorkflowResponse$ === "object");
 assert(typeof EncryptionConfiguration$ === "object");
+assert(typeof Environment$ === "object");
 assert(typeof GetTaskInstanceRequest$ === "object");
 assert(typeof GetTaskInstanceResponse$ === "object");
 assert(typeof GetWorkflowRequest$ === "object");

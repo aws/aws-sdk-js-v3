@@ -19,10 +19,13 @@ const _DW = "DeleteWorkflow";
 const _DWR = "DeleteWorkflowRequest";
 const _DWRe = "DeleteWorkflowResponse";
 const _Du = "Duration";
+const _E = "Environment";
 const _EA = "EndedAt";
 const _EC = "EncryptionConfiguration";
 const _EM = "ErrorMessage";
 const _EV = "EngineVersion";
+const _EVM = "EnvironmentVariablesMap";
+const _EVV = "EnvironmentVariableValue";
 const _FL = "FieldList";
 const _GTI = "GetTaskInstance";
 const _GTIR = "GetTaskInstanceRequest";
@@ -114,6 +117,7 @@ const _URRn = "UntagResourceResponse";
 const _UW = "UpdateWorkflow";
 const _UWR = "UpdateWorkflowRequest";
 const _UWRp = "UpdateWorkflowResponse";
+const _V = "Variables";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFa = "ValidationExceptionFields";
@@ -155,6 +159,7 @@ import type {
   StaticListSchema,
   StaticMapSchema,
   StaticOperationSchema,
+  StaticSimpleSchema,
   StaticStructureSchema,
   StaticUnionSchema,
 } from "@smithy/types";
@@ -233,10 +238,11 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var EnvironmentVariableValue: StaticSimpleSchema = [0, n0, _EVV, 8, 0];
 export var CreateWorkflowRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
-  [_N, _DSL, _RAo, _CT, _C, _D, _EC, _LC, _EV, _NC, _T, _TM],
-  [0, () => DefinitionS3Location$, 0, [0, 4], () => Code$, 0, () => EncryptionConfiguration$, () => LoggingConfiguration$, 1, () => NetworkConfiguration$, 128 | 0, 0], 3
+  [_N, _DSL, _RAo, _CT, _C, _D, _EC, _LC, _EV, _NC, _E, _T, _TM],
+  [0, () => DefinitionS3Location$, 0, [0, 4], () => Code$, 0, () => EncryptionConfiguration$, () => LoggingConfiguration$, 1, () => NetworkConfiguration$, [() => Environment$, 0], 128 | 0, 0], 3
 ];
 export var CreateWorkflowResponse$: StaticStructureSchema = [3, n0, _CWRr,
   0,
@@ -263,6 +269,11 @@ export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   [_Ty, _KKI],
   [0, 0], 1
 ];
+export var Environment$: StaticStructureSchema = [3, n0, _E,
+  0,
+  [_V],
+  [[() => EnvironmentVariablesMap, 0]]
+];
 export var GetTaskInstanceRequest$: StaticStructureSchema = [3, n0, _GTIR,
   0,
   [_WA, _TII, _RIu],
@@ -280,8 +291,8 @@ export var GetWorkflowRequest$: StaticStructureSchema = [3, n0, _GWR,
 ];
 export var GetWorkflowResponse$: StaticStructureSchema = [3, n0, _GWRe,
   0,
-  [_WA, _WV, _N, _D, _CA, _MA, _EC, _LC, _EV, _WS, _DSL, _C, _CSA, _SCc, _RAo, _NC, _TM, _WD],
-  [0, 0, 0, 0, 5, 5, () => EncryptionConfiguration$, () => LoggingConfiguration$, 1, 0, () => DefinitionS3Location$, () => Code$, 5, () => ScheduleConfiguration$, 0, () => NetworkConfiguration$, 0, 0], 1
+  [_WA, _WV, _N, _D, _CA, _MA, _EC, _LC, _EV, _WS, _DSL, _C, _CSA, _SCc, _RAo, _NC, _E, _TM, _WD],
+  [0, 0, 0, 0, 5, 5, () => EncryptionConfiguration$, () => LoggingConfiguration$, 1, 0, () => DefinitionS3Location$, () => Code$, 5, () => ScheduleConfiguration$, 0, () => NetworkConfiguration$, [() => Environment$, 0], 0, 0], 1
 ];
 export var GetWorkflowRunRequest$: StaticStructureSchema = [3, n0, _GWRR,
   0,
@@ -415,8 +426,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateWorkflowRequest$: StaticStructureSchema = [3, n0, _UWR,
   0,
-  [_WA, _DSL, _RAo, _C, _D, _LC, _EV, _NC, _TM],
-  [[0, 1], () => DefinitionS3Location$, 0, () => Code$, 0, () => LoggingConfiguration$, 1, () => NetworkConfiguration$, 0], 3
+  [_WA, _DSL, _RAo, _C, _D, _LC, _EV, _NC, _E, _TM],
+  [[0, 1], () => DefinitionS3Location$, 0, () => Code$, 0, () => LoggingConfiguration$, 1, () => NetworkConfiguration$, [() => Environment$, 0], 0], 3
 ];
 export var UpdateWorkflowResponse$: StaticStructureSchema = [3, n0, _UWRp,
   0,
@@ -467,6 +478,12 @@ var WorkflowSummaries: StaticListSchema = [1, n0, _WSor,
 ];
 var WorkflowVersionSummaries: StaticListSchema = [1, n0, _WVSo,
   0, () => WorkflowVersionSummary$
+];
+var EnvironmentVariablesMap: StaticMapSchema = [2, n0, _EVM,
+  0, [0,
+    0]
+  , [() => EnvironmentVariableValue,
+    0]
 ];
 var GenericMap = 128 | 0;
 var ObjectMap: StaticMapSchema = [2, n0, _OM,

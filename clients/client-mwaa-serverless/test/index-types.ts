@@ -61,6 +61,7 @@ export type {
   DeleteWorkflowRequest,
   DeleteWorkflowResponse,
   EncryptionConfiguration,
+  Environment,
   GetTaskInstanceRequest,
   GetTaskInstanceResponse,
   GetWorkflowRequest,

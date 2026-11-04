@@ -60,6 +60,11 @@ export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __M
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   Environment: { // Environment
+ *     Variables: { // EnvironmentVariablesMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
  *   TriggerMode: "STRING_VALUE",
  * };
  * const command = new UpdateWorkflowCommand(input);

@@ -65,6 +65,11 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   Environment: { // Environment
+ *     Variables: { // EnvironmentVariablesMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
  *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },

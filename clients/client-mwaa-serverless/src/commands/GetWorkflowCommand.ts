@@ -79,6 +79,11 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * //       "STRING_VALUE",
  * //     ],
  * //   },
+ * //   Environment: { // Environment
+ * //     Variables: { // EnvironmentVariablesMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
  * //   TriggerMode: "STRING_VALUE",
  * //   WorkflowDefinition: "STRING_VALUE",
  * // };
