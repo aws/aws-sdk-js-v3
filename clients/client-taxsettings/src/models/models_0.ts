@@ -234,6 +234,30 @@ export interface ChileAdditionalInfo {
 }
 
 /**
+ * <p>Contains additional tax information associated with your Tax Registration Number (TRN) in Colombia, derived from your Registro Único Tributario (RUT) document.</p>
+ * @public
+ */
+export interface ColombiaAdditionalInfo {
+  /**
+   * <p>The DIAN fiscal responsibility codes from Box 53 of the RUT document (for example, <code>48</code> for value-added tax (VAT) responsibility).</p>
+   * @public
+   */
+  responsibilityCodes?: string[] | undefined;
+
+  /**
+   * <p>The taxpayer category from Box 24 of the RUT document (<code>1</code> for a legal entity, <code>2</code> for a natural person).</p>
+   * @public
+   */
+  taxpayerTypeCode?: string | undefined;
+
+  /**
+   * <p>The issue date of the RUT document from Box 61, in <code>YYYY-MM-DD</code> format.</p>
+   * @public
+   */
+  issueDate?: string | undefined;
+}
+
+/**
  * <p>Additional tax information to specify for a TRN in Egypt.</p>
  * @public
  */
@@ -843,6 +867,30 @@ export interface AdditionalInfoResponse {
    * @public
    */
   mexicoAdditionalInfo?: MexicoAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information associated with your Tax Registration Number (TRN) in Colombia.</p>
+   * @public
+   */
+  colombiaAdditionalInfo?: ColombiaAdditionalInfo | undefined;
+}
+
+/**
+ * <p>The reason that a tax registration was rejected.</p>
+ * @public
+ */
+export interface TaxRegistrationStatusReason {
+  /**
+   * <p>A code that identifies the rejection reason (for example, <code>NIT_MISMATCH</code> or <code>ENCRYPTED_PDF</code>). If the reason isn't recognized, the value is <code>OTHER</code>. New codes might be added in the future.</p>
+   * @public
+   */
+  code?: string | undefined;
+
+  /**
+   * <p>A description of the rejection reason in English.</p>
+   * @public
+   */
+  message?: string | undefined;
 }
 
 /**
@@ -887,7 +935,7 @@ export interface TaxRegistrationWithJurisdiction {
   legalName: string | undefined;
 
   /**
-   * <p>The status of your TRN. This can be either <code>Verified</code>, <code>Pending</code>, <code>Deleted</code>, or <code>Rejected</code>. </p>
+   * <p>The status of your TRN. This can be either <code>Verified</code>, <code>Pending</code>, <code>Deleted</code>, or <code>Rejected</code>. If the status is <code>Rejected</code>, see <code>statusReason</code> for the reason. </p>
    * @public
    */
   status: TaxRegistrationStatus | undefined;
@@ -915,6 +963,12 @@ export interface TaxRegistrationWithJurisdiction {
    * @public
    */
   additionalTaxInformation?: AdditionalInfoResponse | undefined;
+
+  /**
+   * <p>The reason that your TRN was rejected. This is returned only when <code>status</code> is <code>Rejected</code>.</p>
+   * @public
+   */
+  statusReason?: TaxRegistrationStatusReason | undefined;
 
   /**
    * <p> The jurisdiction associated with your TRN information. </p>
@@ -1634,7 +1688,7 @@ export interface TaxRegistration {
   legalName: string | undefined;
 
   /**
-   * <p> The status of your TRN. This can be either <code>Verified</code>, <code>Pending</code>, <code>Deleted</code>, or <code>Rejected</code>. </p>
+   * <p> The status of your TRN. This can be either <code>Verified</code>, <code>Pending</code>, <code>Deleted</code>, or <code>Rejected</code>. If the status is <code>Rejected</code>, see <code>statusReason</code> for the reason. </p>
    * @public
    */
   status: TaxRegistrationStatus | undefined;
@@ -1662,6 +1716,12 @@ export interface TaxRegistration {
    * @public
    */
   additionalTaxInformation?: AdditionalInfoResponse | undefined;
+
+  /**
+   * <p>The reason that your TRN was rejected. This is returned only when <code>status</code> is <code>Rejected</code>.</p>
+   * @public
+   */
+  statusReason?: TaxRegistrationStatusReason | undefined;
 
   /**
    * <p> The legal address associated with your TRN registration. </p>

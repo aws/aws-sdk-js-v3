@@ -31,6 +31,7 @@ import {
   CaseCreationLimitExceededException$,
   ChileAdditionalInfo$,
   ChileDocumentType,
+  ColombiaAdditionalInfo$,
   ConflictException,
   ConflictException$,
   CustomerType,
@@ -143,6 +144,7 @@ import {
   TaxRegistrationEntry$,
   TaxRegistrationNumberType,
   TaxRegistrationStatus,
+  TaxRegistrationStatusReason$,
   TaxRegistrationType,
   TaxRegistrationWithJurisdiction$,
   TaxSettings,
@@ -216,6 +218,7 @@ assert(typeof BelgiumAdditionalInfo$ === "object");
 assert(typeof BrazilAdditionalInfo$ === "object");
 assert(typeof CanadaAdditionalInfo$ === "object");
 assert(typeof ChileAdditionalInfo$ === "object");
+assert(typeof ColombiaAdditionalInfo$ === "object");
 assert(typeof DeleteSupplementalTaxRegistrationRequest$ === "object");
 assert(typeof DeleteSupplementalTaxRegistrationResponse$ === "object");
 assert(typeof DeleteTaxRegistrationRequest$ === "object");
@@ -277,6 +280,7 @@ assert(typeof TaxRegistration$ === "object");
 assert(typeof TaxRegistrationDocFile$ === "object");
 assert(typeof TaxRegistrationDocument$ === "object");
 assert(typeof TaxRegistrationEntry$ === "object");
+assert(typeof TaxRegistrationStatusReason$ === "object");
 assert(typeof TaxRegistrationWithJurisdiction$ === "object");
 assert(typeof TurkeyAdditionalInfo$ === "object");
 assert(typeof UkraineAdditionalInfo$ === "object");

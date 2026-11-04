@@ -215,12 +215,17 @@ export type UzbekistanTaxRegistrationNumberType =
  * @enum
  */
 export const TaxRegistrationType = {
+  CDI: "CDI",
+  CI: "CI",
   CNPJ: "CNPJ",
   CPF: "CPF",
+  CUIT: "CUIT",
   GST: "GST",
+  NIE: "NIE",
   NIP: "NIP",
   NRIC: "NRIC",
   PAN: "PAN",
+  RUT: "RUT",
   SST: "SST",
   TIN: "TIN",
   VAT: "VAT",

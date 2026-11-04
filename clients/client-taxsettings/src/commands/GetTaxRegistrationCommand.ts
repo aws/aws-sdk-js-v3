@@ -40,7 +40,7 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * // { // GetTaxRegistrationResponse
  * //   taxRegistration: { // TaxRegistration
  * //     registrationId: "STRING_VALUE", // required
- * //     registrationType: "VAT" || "GST" || "CPF" || "CNPJ" || "SST" || "TIN" || "NRIC" || "PAN" || "NIP", // required
+ * //     registrationType: "VAT" || "GST" || "CPF" || "CNPJ" || "SST" || "TIN" || "NRIC" || "PAN" || "NIP" || "CUIT" || "CDI" || "RUT" || "NIE" || "CI", // required
  * //     legalName: "STRING_VALUE", // required
  * //     status: "Verified" || "Pending" || "Deleted" || "Rejected", // required
  * //     sector: "Business" || "Individual" || "Government",
@@ -169,6 +169,17 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * //         taxRegimeFullName: "STRING_VALUE",
  * //         cfdiUsageCode: "STRING_VALUE",
  * //       },
+ * //       colombiaAdditionalInfo: { // ColombiaAdditionalInfo
+ * //         responsibilityCodes: [ // ColombiaResponsabilidadesList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         taxpayerTypeCode: "STRING_VALUE",
+ * //         issueDate: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     statusReason: { // TaxRegistrationStatusReason
+ * //       code: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
  * //     },
  * //     legalAddress: { // Address
  * //       addressLine1: "STRING_VALUE",
