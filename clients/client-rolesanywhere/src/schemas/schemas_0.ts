@@ -73,6 +73,7 @@ const _SS = "SubjectSummary";
 const _SSR = "ScalarSubjectRequest";
 const _SSu = "SubjectSummaries";
 const _STAR = "ScalarTrustAnchorRequest";
+const _SUE = "ServiceUnavailableException";
 const _T = "Tag";
 const _TAD = "TrustAnchorDetail";
 const _TADR = "TrustAnchorDetailResponse";
@@ -104,6 +105,7 @@ const _cAr = "createdAt";
 const _cB = "configuredBy";
 const _cBr = "createdBy";
 const _cD = "crlData";
+const _cDRE = "crlDpRevocationEnabled";
 const _cF = "certificateField";
 const _cI = "crlId";
 const _ch = "channel";
@@ -136,6 +138,7 @@ const _pS = "pageSize";
 const _pr = "properties";
 const _pro = "profiles";
 const _rA = "roleArns";
+const _rAS = "retryAfterSeconds";
 const _rAe = "resourceArn";
 const _rIP = "requireInstanceProperties";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.rolesanywhere";
@@ -146,6 +149,7 @@ const _sI = "subjectId";
 const _sN = "serialNumber";
 const _sP = "sessionPolicy";
 const _sT = "sourceType";
+const _se = "server";
 const _so = "source";
 const _sp = "specifiers";
 const _spe = "specifier";
@@ -179,6 +183,7 @@ import type {
 import {
   AccessDeniedException,
   ResourceNotFoundException,
+  ServiceUnavailableException,
   TooManyTagsException,
   ValidationException,
 } from "../models/errors";
@@ -201,6 +206,12 @@ export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   [0]
 ];
 n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m, _rAS],
+  [0, 1], 1
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
@@ -236,8 +247,8 @@ export var CreateProfileRequest$: StaticStructureSchema = [3, n0, _CPR,
 ];
 export var CreateTrustAnchorRequest$: StaticStructureSchema = [3, n0, _CTAR,
   0,
-  [_n, _so, _en, _t, _nS],
-  [0, () => Source$, 2, [() => TagList, 0], () => NotificationSettings], 2
+  [_n, _so, _en, _cDRE, _t, _nS],
+  [0, () => Source$, 2, 2, [() => TagList, 0], () => NotificationSettings], 2
 ];
 export var CredentialSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
@@ -426,8 +437,8 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TrustAnchorDetail$: StaticStructureSchema = [3, n0, _TAD,
   0,
-  [_tAI, _tAA, _n, _so, _en, _cAr, _uA, _nS],
-  [0, 0, 0, () => Source$, 2, 5, 5, () => NotificationSettingDetails]
+  [_tAI, _tAA, _n, _so, _en, _cDRE, _cAr, _uA, _nS],
+  [0, 0, 0, () => Source$, 2, 2, 5, 5, () => NotificationSettingDetails]
 ];
 export var TrustAnchorDetailResponse$: StaticStructureSchema = [3, n0, _TADR,
   0,
@@ -456,8 +467,8 @@ export var UpdateProfileRequest$: StaticStructureSchema = [3, n0, _UPR,
 ];
 export var UpdateTrustAnchorRequest$: StaticStructureSchema = [3, n0, _UTAR,
   0,
-  [_tAI, _n, _so],
-  [[0, 1], 0, () => Source$], 1
+  [_tAI, _n, _so, _cDRE],
+  [[0, 1], 0, () => Source$, 2], 1
 ];
 var AttributeMappings: StaticListSchema = [1, n0, _AMt,
   0, () => AttributeMapping$

@@ -89,6 +89,9 @@ export interface PutAttributeMappingCommandOutput extends PutAttributeMappingRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed due to a temporary failure of the service.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *

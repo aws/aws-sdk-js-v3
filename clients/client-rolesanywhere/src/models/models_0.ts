@@ -333,6 +333,12 @@ export interface CreateTrustAnchorRequest {
   enabled?: boolean | undefined;
 
   /**
+   * <p>Specifies whether the trust anchor checks certificate revocation status against CRL distribution points.</p>
+   * @public
+   */
+  crlDpRevocationEnabled?: boolean | undefined;
+
+  /**
    * <p>The tags to attach to the trust anchor.</p>
    * @public
    */
@@ -415,6 +421,12 @@ export interface TrustAnchorDetail {
    * @public
    */
   enabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the trust anchor checks certificate revocation status against CRL distribution points.</p>
+   * @public
+   */
+  crlDpRevocationEnabled?: boolean | undefined;
 
   /**
    * <p>The ISO-8601 timestamp when the trust anchor was created. </p>
@@ -1137,6 +1149,12 @@ export interface UpdateTrustAnchorRequest {
    * @public
    */
   source?: Source | undefined;
+
+  /**
+   * <p>Specifies whether the trust anchor checks certificate revocation status against CRL distribution points.</p>
+   * @public
+   */
+  crlDpRevocationEnabled?: boolean | undefined;
 }
 
 /**

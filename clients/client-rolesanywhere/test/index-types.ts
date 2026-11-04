@@ -146,6 +146,7 @@ export type {
   UpdateTrustAnchorRequest,
   AccessDeniedException,
   ResourceNotFoundException,
+  ServiceUnavailableException,
   TooManyTagsException,
   ValidationException,
   RolesAnywhereServiceException,

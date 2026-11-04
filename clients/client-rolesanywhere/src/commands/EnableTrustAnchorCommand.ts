@@ -50,6 +50,7 @@ export interface EnableTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * //       },
  * //     },
  * //     enabled: true || false,
+ * //     crlDpRevocationEnabled: true || false,
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //     notificationSettings: [ // NotificationSettingDetails
@@ -77,6 +78,9 @@ export interface EnableTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed due to a temporary failure of the service.</p>
  *
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>

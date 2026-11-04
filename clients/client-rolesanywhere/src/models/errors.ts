@@ -25,6 +25,35 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * <p>The request has failed due to a temporary failure of the service.</p>
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rolesanywhere#ServiceUnavailableException";
+  readonly name = "ServiceUnavailableException" as const;
+  readonly $fault = "server" as const;
+  $retryable = {};
+  /**
+   * <p>The recommended number of seconds after which the client should retry the request.</p>
+   * @public
+   */
+  retryAfterSeconds?: number | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
  * <p>Validation exception error.</p>
  * @public
  */

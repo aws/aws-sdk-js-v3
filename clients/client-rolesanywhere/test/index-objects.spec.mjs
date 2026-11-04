@@ -96,6 +96,8 @@ import {
   ScalarProfileRequest$,
   ScalarSubjectRequest$,
   ScalarTrustAnchorRequest$,
+  ServiceUnavailableException,
+  ServiceUnavailableException$,
   Source$,
   SourceData$,
   SubjectDetail$,
@@ -251,6 +253,8 @@ assert(AccessDeniedException.prototype instanceof RolesAnywhereServiceException)
 assert(typeof AccessDeniedException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof RolesAnywhereServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
+assert(ServiceUnavailableException.prototype instanceof RolesAnywhereServiceException);
+assert(typeof ServiceUnavailableException$ === "object");
 assert(TooManyTagsException.prototype instanceof RolesAnywhereServiceException);
 assert(typeof TooManyTagsException$ === "object");
 assert(ValidationException.prototype instanceof RolesAnywhereServiceException);

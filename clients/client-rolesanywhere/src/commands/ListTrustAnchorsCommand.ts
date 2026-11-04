@@ -53,6 +53,7 @@ export interface ListTrustAnchorsCommandOutput extends ListTrustAnchorsResponse,
  * //         },
  * //       },
  * //       enabled: true || false,
+ * //       crlDpRevocationEnabled: true || false,
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       notificationSettings: [ // NotificationSettingDetails
@@ -78,6 +79,9 @@ export interface ListTrustAnchorsCommandOutput extends ListTrustAnchorsResponse,
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed due to a temporary failure of the service.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>

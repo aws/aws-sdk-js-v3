@@ -42,6 +42,7 @@ export interface UpdateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  *       acmPcaArn: "STRING_VALUE",
  *     },
  *   },
+ *   crlDpRevocationEnabled: true || false,
  * };
  * const command = new UpdateTrustAnchorCommand(input);
  * const response = await client.send(command);
@@ -58,6 +59,7 @@ export interface UpdateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * //       },
  * //     },
  * //     enabled: true || false,
+ * //     crlDpRevocationEnabled: true || false,
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //     notificationSettings: [ // NotificationSettingDetails
@@ -85,6 +87,9 @@ export interface UpdateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed due to a temporary failure of the service.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>

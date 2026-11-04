@@ -42,6 +42,7 @@ export interface CreateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  *     },
  *   },
  *   enabled: true || false,
+ *   crlDpRevocationEnabled: true || false,
  *   tags: [ // TagList
  *     { // Tag
  *       key: "STRING_VALUE", // required
@@ -72,6 +73,7 @@ export interface CreateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * //       },
  * //     },
  * //     enabled: true || false,
+ * //     crlDpRevocationEnabled: true || false,
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //     notificationSettings: [ // NotificationSettingDetails
@@ -96,6 +98,9 @@ export interface CreateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed due to a temporary failure of the service.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
