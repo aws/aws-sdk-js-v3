@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { KinesisStreamingDestinationInput, KinesisStreamingDestinationOutput } from "../models/models_0";
 import { EnableKinesisStreamingDestination$ } from "../schemas/schemas_0";
 
@@ -112,7 +112,7 @@ export interface EnableKinesisStreamingDestinationCommandOutput extends KinesisS
  * @public
  */
 export class EnableKinesisStreamingDestinationCommand extends command<EnableKinesisStreamingDestinationCommandInput, EnableKinesisStreamingDestinationCommandOutput>(
-  _ep2,
+  _ep3,
   _mw0,
   "EnableKinesisStreamingDestination",
   EnableKinesisStreamingDestination$

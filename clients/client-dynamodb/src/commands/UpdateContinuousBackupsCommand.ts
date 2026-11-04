@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { UpdateContinuousBackupsInput, UpdateContinuousBackupsOutput } from "../models/models_0";
 import { UpdateContinuousBackups$ } from "../schemas/schemas_0";
 
@@ -93,7 +93,7 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  * @public
  */
 export class UpdateContinuousBackupsCommand extends command<UpdateContinuousBackupsCommandInput, UpdateContinuousBackupsCommandOutput>(
-  _ep2,
+  _ep3,
   _mw0,
   "UpdateContinuousBackups",
   UpdateContinuousBackups$

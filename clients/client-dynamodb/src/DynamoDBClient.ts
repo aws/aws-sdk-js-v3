@@ -72,6 +72,10 @@ import type {
 } from "./commands/BatchExecuteStatementCommand";
 import type { BatchGetItemCommandInput, BatchGetItemCommandOutput } from "./commands/BatchGetItemCommand";
 import type { BatchWriteItemCommandInput, BatchWriteItemCommandOutput } from "./commands/BatchWriteItemCommand";
+import type {
+  CancelBulkOperationCommandInput,
+  CancelBulkOperationCommandOutput,
+} from "./commands/CancelBulkOperationCommand";
 import type { CreateBackupCommandInput, CreateBackupCommandOutput } from "./commands/CreateBackupCommand";
 import type {
   CreateGlobalTableCommandInput,
@@ -86,6 +90,10 @@ import type {
 } from "./commands/DeleteResourcePolicyCommand";
 import type { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import type { DescribeBackupCommandInput, DescribeBackupCommandOutput } from "./commands/DescribeBackupCommand";
+import type {
+  DescribeBulkOperationCommandInput,
+  DescribeBulkOperationCommandOutput,
+} from "./commands/DescribeBulkOperationCommand";
 import type {
   DescribeContinuousBackupsCommandInput,
   DescribeContinuousBackupsCommandOutput,
@@ -148,6 +156,10 @@ import type {
 import type { ImportTableCommandInput, ImportTableCommandOutput } from "./commands/ImportTableCommand";
 import type { ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand";
 import type {
+  ListBulkOperationsCommandInput,
+  ListBulkOperationsCommandOutput,
+} from "./commands/ListBulkOperationsCommand";
+import type {
   ListContributorInsightsCommandInput,
   ListContributorInsightsCommandOutput,
 } from "./commands/ListContributorInsightsCommand";
@@ -175,6 +187,10 @@ import type {
 } from "./commands/RestoreTableToPointInTimeCommand";
 import type { ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
 import type { SearchVectorsCommandInput, SearchVectorsCommandOutput } from "./commands/SearchVectorsCommand";
+import type {
+  StartBulkPutItemsCommandInput,
+  StartBulkPutItemsCommandOutput,
+} from "./commands/StartBulkPutItemsCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { TransactGetItemsCommandInput, TransactGetItemsCommandOutput } from "./commands/TransactGetItemsCommand";
 import type {
@@ -227,6 +243,7 @@ export type ServiceInputTypes =
   | BatchExecuteStatementCommandInput
   | BatchGetItemCommandInput
   | BatchWriteItemCommandInput
+  | CancelBulkOperationCommandInput
   | CreateBackupCommandInput
   | CreateGlobalTableCommandInput
   | CreateTableCommandInput
@@ -235,6 +252,7 @@ export type ServiceInputTypes =
   | DeleteResourcePolicyCommandInput
   | DeleteTableCommandInput
   | DescribeBackupCommandInput
+  | DescribeBulkOperationCommandInput
   | DescribeContinuousBackupsCommandInput
   | DescribeContributorInsightsCommandInput
   | DescribeEndpointsCommandInput
@@ -256,6 +274,7 @@ export type ServiceInputTypes =
   | GetResourcePolicyCommandInput
   | ImportTableCommandInput
   | ListBackupsCommandInput
+  | ListBulkOperationsCommandInput
   | ListContributorInsightsCommandInput
   | ListExportsCommandInput
   | ListGlobalTablesCommandInput
@@ -269,6 +288,7 @@ export type ServiceInputTypes =
   | RestoreTableToPointInTimeCommandInput
   | ScanCommandInput
   | SearchVectorsCommandInput
+  | StartBulkPutItemsCommandInput
   | TagResourceCommandInput
   | TransactGetItemsCommandInput
   | TransactWriteItemsCommandInput
@@ -290,6 +310,7 @@ export type ServiceOutputTypes =
   | BatchExecuteStatementCommandOutput
   | BatchGetItemCommandOutput
   | BatchWriteItemCommandOutput
+  | CancelBulkOperationCommandOutput
   | CreateBackupCommandOutput
   | CreateGlobalTableCommandOutput
   | CreateTableCommandOutput
@@ -298,6 +319,7 @@ export type ServiceOutputTypes =
   | DeleteResourcePolicyCommandOutput
   | DeleteTableCommandOutput
   | DescribeBackupCommandOutput
+  | DescribeBulkOperationCommandOutput
   | DescribeContinuousBackupsCommandOutput
   | DescribeContributorInsightsCommandOutput
   | DescribeEndpointsCommandOutput
@@ -319,6 +341,7 @@ export type ServiceOutputTypes =
   | GetResourcePolicyCommandOutput
   | ImportTableCommandOutput
   | ListBackupsCommandOutput
+  | ListBulkOperationsCommandOutput
   | ListContributorInsightsCommandOutput
   | ListExportsCommandOutput
   | ListGlobalTablesCommandOutput
@@ -332,6 +355,7 @@ export type ServiceOutputTypes =
   | RestoreTableToPointInTimeCommandOutput
   | ScanCommandOutput
   | SearchVectorsCommandOutput
+  | StartBulkPutItemsCommandOutput
   | TagResourceCommandOutput
   | TransactGetItemsCommandOutput
   | TransactWriteItemsCommandOutput

@@ -279,6 +279,90 @@ export type ReturnItemCollectionMetrics =
  * @public
  * @enum
  */
+export const BulkOperationStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type BulkOperationStatus = (typeof BulkOperationStatus)[keyof typeof BulkOperationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputCompressionType = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+  ZSTD: "ZSTD",
+} as const;
+/**
+ * @public
+ */
+export type InputCompressionType = (typeof InputCompressionType)[keyof typeof InputCompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BulkOperationInputFormat = {
+  DYNAMODB_JSON: "DYNAMODB_JSON",
+  ION: "ION",
+} as const;
+/**
+ * @public
+ */
+export type BulkOperationInputFormat = (typeof BulkOperationInputFormat)[keyof typeof BulkOperationInputFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const OutputTypeEnum = {
+  CONDITION_CHECK_FAILURE: "CONDITION_CHECK_FAILURE",
+  ERROR: "ERROR",
+} as const;
+/**
+ * @public
+ */
+export type OutputTypeEnum = (typeof OutputTypeEnum)[keyof typeof OutputTypeEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3SseAlgorithm = {
+  AES256: "AES256",
+  KMS: "KMS",
+} as const;
+/**
+ * @public
+ */
+export type S3SseAlgorithm = (typeof S3SseAlgorithm)[keyof typeof S3SseAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const BulkOperationPerformanceTier = {
+  ACCELERATED: "ACCELERATED",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type BulkOperationPerformanceTier =
+  (typeof BulkOperationPerformanceTier)[keyof typeof BulkOperationPerformanceTier];
+
+/**
+ * @public
+ * @enum
+ */
 export const ComparisonOperator = {
   BEGINS_WITH: "BEGINS_WITH",
   BETWEEN: "BETWEEN",
@@ -578,19 +662,6 @@ export type ExportViewType = (typeof ExportViewType)[keyof typeof ExportViewType
  * @public
  * @enum
  */
-export const S3SseAlgorithm = {
-  AES256: "AES256",
-  KMS: "KMS",
-} as const;
-/**
- * @public
- */
-export type S3SseAlgorithm = (typeof S3SseAlgorithm)[keyof typeof S3SseAlgorithm];
-
-/**
- * @public
- * @enum
- */
 export const ImportStatus = {
   CANCELLED: "CANCELLED",
   CANCELLING: "CANCELLING",
@@ -602,20 +673,6 @@ export const ImportStatus = {
  * @public
  */
 export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
-
-/**
- * @public
- * @enum
- */
-export const InputCompressionType = {
-  GZIP: "GZIP",
-  NONE: "NONE",
-  ZSTD: "ZSTD",
-} as const;
-/**
- * @public
- */
-export type InputCompressionType = (typeof InputCompressionType)[keyof typeof InputCompressionType];
 
 /**
  * @public

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { CreateBackupInput, CreateBackupOutput } from "../models/models_0";
 import { CreateBackup$ } from "../schemas/schemas_0";
 
@@ -133,7 +133,7 @@ export interface CreateBackupCommandOutput extends CreateBackupOutput, __Metadat
  * @public
  */
 export class CreateBackupCommand extends command<CreateBackupCommandInput, CreateBackupCommandOutput>(
-  _ep2,
+  _ep3,
   _mw0,
   "CreateBackup",
   CreateBackup$

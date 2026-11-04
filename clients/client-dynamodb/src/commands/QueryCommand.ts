@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { QueryInput, QueryOutput } from "../models/models_0";
 import { Query$ } from "../schemas/schemas_0";
 
@@ -326,7 +326,7 @@ export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
  * @public
  */
 export class QueryCommand extends command<QueryCommandInput, QueryCommandOutput>(
-  _ep2,
+  _ep3,
   _mw0,
   "Query",
   Query$

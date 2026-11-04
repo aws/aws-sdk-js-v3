@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep10, _mw0, command } from "../commandBuilder";
+import { _ep11, _mw0, command } from "../commandBuilder";
 import type { RestoreTableFromBackupInput, RestoreTableFromBackupOutput } from "../models/models_0";
 import { RestoreTableFromBackup$ } from "../schemas/schemas_0";
 
@@ -406,7 +406,7 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * @public
  */
 export class RestoreTableFromBackupCommand extends command<RestoreTableFromBackupCommandInput, RestoreTableFromBackupCommandOutput>(
-  _ep10,
+  _ep11,
   _mw0,
   "RestoreTableFromBackup",
   RestoreTableFromBackup$

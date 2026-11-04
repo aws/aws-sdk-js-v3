@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { DescribeTimeToLiveInput, DescribeTimeToLiveOutput } from "../models/models_0";
 import { DescribeTimeToLive$ } from "../schemas/schemas_0";
 
@@ -68,7 +68,7 @@ export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutpu
  * @public
  */
 export class DescribeTimeToLiveCommand extends command<DescribeTimeToLiveCommandInput, DescribeTimeToLiveCommandOutput>(
-  _ep2,
+  _ep3,
   _mw0,
   "DescribeTimeToLive",
   DescribeTimeToLive$

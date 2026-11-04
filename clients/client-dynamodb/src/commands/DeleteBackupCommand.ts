@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep4, _mw0, command } from "../commandBuilder";
+import { _ep5, _mw0, command } from "../commandBuilder";
 import type { DeleteBackupInput, DeleteBackupOutput } from "../models/models_0";
 import { DeleteBackup$ } from "../schemas/schemas_0";
 
@@ -201,7 +201,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __Metadat
  * @public
  */
 export class DeleteBackupCommand extends command<DeleteBackupCommandInput, DeleteBackupCommandOutput>(
-  _ep4,
+  _ep5,
   _mw0,
   "DeleteBackup",
   DeleteBackup$

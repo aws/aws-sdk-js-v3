@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep9, _mw0, command } from "../commandBuilder";
+import { _ep10, _mw0, command } from "../commandBuilder";
 import type { ImportTableInput, ImportTableOutput } from "../models/models_0";
 import { ImportTable$ } from "../schemas/schemas_0";
 
@@ -301,7 +301,7 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  * @public
  */
 export class ImportTableCommand extends command<ImportTableCommandInput, ImportTableCommandOutput>(
-  _ep9,
+  _ep10,
   _mw0,
   "ImportTable",
   ImportTable$

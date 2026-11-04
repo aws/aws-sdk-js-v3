@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { CreateTableInput, CreateTableOutput } from "../models/models_0";
 import { CreateTable$ } from "../schemas/schemas_0";
 
@@ -427,7 +427,7 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * @public
  */
 export class CreateTableCommand extends command<CreateTableCommandInput, CreateTableCommandOutput>(
-  _ep2,
+  _ep3,
   _mw0,
   "CreateTable",
   CreateTable$

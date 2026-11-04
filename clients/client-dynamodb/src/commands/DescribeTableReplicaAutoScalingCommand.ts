@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { DescribeTableReplicaAutoScalingInput, DescribeTableReplicaAutoScalingOutput } from "../models/models_0";
 import { DescribeTableReplicaAutoScaling$ } from "../schemas/schemas_0";
 
@@ -146,7 +146,7 @@ export interface DescribeTableReplicaAutoScalingCommandOutput extends DescribeTa
  * @public
  */
 export class DescribeTableReplicaAutoScalingCommand extends command<DescribeTableReplicaAutoScalingCommandInput, DescribeTableReplicaAutoScalingCommandOutput>(
-  _ep2,
+  _ep3,
   _mw0,
   "DescribeTableReplicaAutoScaling",
   DescribeTableReplicaAutoScaling$

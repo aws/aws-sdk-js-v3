@@ -28,69 +28,76 @@ export const _ep1: EndpointParameterInstructions = {
  * @internal
  */
 export const _ep2: EndpointParameterInstructions = {
-  ResourceArn: { type: "contextParams", name: "TableName" },
+  ResourceArn: { type: "contextParams", name: "BulkOperationArn" },
 };
 
 /**
  * @internal
  */
 export const _ep3: EndpointParameterInstructions = {
-  ResourceArn: { type: "contextParams", name: "GlobalTableName" },
+  ResourceArn: { type: "contextParams", name: "TableName" },
 };
 
 /**
  * @internal
  */
 export const _ep4: EndpointParameterInstructions = {
-  ResourceArn: { type: "contextParams", name: "BackupArn" },
+  ResourceArn: { type: "contextParams", name: "GlobalTableName" },
 };
 
 /**
  * @internal
  */
 export const _ep5: EndpointParameterInstructions = {
-  ResourceArn: { type: "contextParams", name: "ResourceArn" },
+  ResourceArn: { type: "contextParams", name: "BackupArn" },
 };
 
 /**
  * @internal
  */
 export const _ep6: EndpointParameterInstructions = {
-  ResourceArn: { type: "contextParams", name: "ExportArn" },
+  ResourceArn: { type: "contextParams", name: "ResourceArn" },
 };
 
 /**
  * @internal
  */
 export const _ep7: EndpointParameterInstructions = {
-  ResourceArn: { type: "contextParams", name: "ImportArn" },
+  ResourceArn: { type: "contextParams", name: "ExportArn" },
 };
 
 /**
  * @internal
  */
 export const _ep8: EndpointParameterInstructions = {
-  ResourceArn: { type: "contextParams", name: "TableArn" },
+  ResourceArn: { type: "contextParams", name: "ImportArn" },
 };
 
 /**
  * @internal
  */
 export const _ep9: EndpointParameterInstructions = {
-  ResourceArn: { type: "operationContextParams", get: (input?: any) => input?.TableCreationParameters?.TableName },
+  ResourceArn: { type: "contextParams", name: "TableArn" },
 };
 
 /**
  * @internal
  */
 export const _ep10: EndpointParameterInstructions = {
-  ResourceArn: { type: "contextParams", name: "TargetTableName" },
+  ResourceArn: { type: "operationContextParams", get: (input?: any) => input?.TableCreationParameters?.TableName },
 };
 
 /**
  * @internal
  */
 export const _ep11: EndpointParameterInstructions = {
+  ResourceArn: { type: "contextParams", name: "TargetTableName" },
+};
+
+/**
+ * @internal
+ */
+export const _ep12: EndpointParameterInstructions = {
   IsSearchOperation: { type: "staticContextParams", value: true },
   ResourceArn: { type: "contextParams", name: "TableName" },
 };
@@ -98,14 +105,14 @@ export const _ep11: EndpointParameterInstructions = {
 /**
  * @internal
  */
-export const _ep12: EndpointParameterInstructions = {
+export const _ep13: EndpointParameterInstructions = {
   ResourceArnList: { type: "operationContextParams", get: (input?: any) => input?.TransactItems?.map((obj: any) => obj?.Get?.TableName) },
 };
 
 /**
  * @internal
  */
-export const _ep13: EndpointParameterInstructions = {
+export const _ep14: EndpointParameterInstructions = {
   ResourceArnList: { type: "operationContextParams", get: (input?: any) => input?.TransactItems?.map((obj: any) => [obj?.ConditionCheck?.TableName,obj?.Put?.TableName,obj?.Delete?.TableName,obj?.Update?.TableName].filter((i) => i)).flat() },
 };
 

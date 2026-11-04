@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./waitForBulkOperationCompleted";
 export * from "./waitForContributorInsightsEnabled";
 export * from "./waitForExportCompleted";
 export * from "./waitForImportCompleted";

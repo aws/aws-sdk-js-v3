@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { UpdateTimeToLiveInput, UpdateTimeToLiveOutput } from "../models/models_0";
 import { UpdateTimeToLive$ } from "../schemas/schemas_0";
 
@@ -131,7 +131,7 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  * @public
  */
 export class UpdateTimeToLiveCommand extends command<UpdateTimeToLiveCommandInput, UpdateTimeToLiveCommandOutput>(
-  _ep2,
+  _ep3,
   _mw0,
   "UpdateTimeToLive",
   UpdateTimeToLive$

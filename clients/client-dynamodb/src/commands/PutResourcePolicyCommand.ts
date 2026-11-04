@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep5, _mw0, command } from "../commandBuilder";
+import { _ep6, _mw0, command } from "../commandBuilder";
 import type { PutResourcePolicyInput, PutResourcePolicyOutput } from "../models/models_0";
 import { PutResourcePolicy$ } from "../schemas/schemas_0";
 
@@ -129,7 +129,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  * @public
  */
 export class PutResourcePolicyCommand extends command<PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput>(
-  _ep5,
+  _ep6,
   _mw0,
   "PutResourcePolicy",
   PutResourcePolicy$

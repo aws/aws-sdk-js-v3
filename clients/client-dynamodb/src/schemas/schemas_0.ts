@@ -47,7 +47,20 @@ const _BMO = "BillingModeOverride";
 const _BMS = "BillingModeSummary";
 const _BN = "BackupName";
 const _BNFE = "BackupNotFoundException";
+const _BOA = "BulkOperationArn";
+const _BOB = "BulkOperationBytes";
+const _BOD = "BulkOperationDescription";
 const _BOOL = "BOOL";
+const _BOS = "BulkOperationStatus";
+const _BOSL = "BulkOperationsSummaryList";
+const _BOSu = "BulkOperationSummary";
+const _BOTD = "BulkOperationTableDetail";
+const _BOTDu = "BulkOperationTableDetails";
+const _BOU = "BulkOperationUsage";
+const _BOUM = "BulkOperationUsageMultiple";
+const _BOVB = "BulkOperationVectorBytes";
+const _BPB = "BulkPutBytes";
+const _BPVB = "BulkPutVectorBytes";
 const _BS = "BackupStatus";
 const _BSB = "BackupSizeBytes";
 const _BSBi = "BilledSizeBytes";
@@ -68,6 +81,9 @@ const _CB = "CreateBackup";
 const _CBD = "ContinuousBackupsDescription";
 const _CBI = "CreateBackupInput";
 const _CBO = "CreateBackupOutput";
+const _CBOI = "CancelBulkOperationInput";
+const _CBOO = "CancelBulkOperationOutput";
+const _CBOa = "CancelBulkOperation";
 const _CBS = "ContinuousBackupsStatus";
 const _CBUE = "ContinuousBackupsUnavailableException";
 const _CC = "ConsumedCapacity";
@@ -116,7 +132,10 @@ const _DB = "DeleteBackup";
 const _DBI = "DeleteBackupInput";
 const _DBIe = "DescribeBackupInput";
 const _DBO = "DeleteBackupOutput";
+const _DBOI = "DescribeBulkOperationInput";
+const _DBOO = "DescribeBulkOperationOutput";
 const _DBOe = "DescribeBackupOutput";
+const _DBOes = "DescribeBulkOperation";
 const _DBe = "DescribeBackup";
 const _DCB = "DescribeContinuousBackups";
 const _DCBI = "DescribeContinuousBackupsInput";
@@ -232,6 +251,7 @@ const _FC = "FailureCode";
 const _FCM = "FilterConditionMap";
 const _FE = "FailureException";
 const _FEi = "FilterExpression";
+const _FIC = "FailedItemCount";
 const _FM = "FailureMessage";
 const _FS = "FilterSpecification";
 const _G = "Get";
@@ -307,6 +327,7 @@ const _IRL = "ItemResponseList";
 const _IRTE = "InvalidRestoreTimeException";
 const _IS = "IndexStatus";
 const _ISB = "IndexSizeBytes";
+const _ISC = "InputS3Configuration";
 const _ISE = "InternalServerError";
 const _ISL = "ImportSummaryList";
 const _ISm = "ImportSummary";
@@ -336,6 +357,9 @@ const _LAV = "ListAttributeValue";
 const _LB = "ListBackups";
 const _LBI = "ListBackupsInput";
 const _LBO = "ListBackupsOutput";
+const _LBOI = "ListBulkOperationsInput";
+const _LBOO = "ListBulkOperationsOutput";
+const _LBOi = "ListBulkOperations";
 const _LCI = "ListContributorInsights";
 const _LCII = "ListContributorInsightsInput";
 const _LCIO = "ListContributorInsightsOutput";
@@ -391,9 +415,12 @@ const _NT = "NextToken";
 const _NULL = "NULL";
 const _ODT = "OnDemandThroughput";
 const _ODTO = "OnDemandThroughputOverride";
+const _OSC = "OutputS3Configuration";
+const _OT = "OutputType";
 const _P = "Parameters";
 const _PE = "ProjectionExpression";
 const _PI = "PutItem";
+const _PIB = "ProcessedInputBytes";
 const _PIC = "ProcessedItemCount";
 const _PII = "PutItemInput";
 const _PIIAM = "PutItemInputAttributeMap";
@@ -420,11 +447,12 @@ const _PSB = "ProcessedSizeBytes";
 const _PSP = "PreparedStatementParameters";
 const _PSa = "ParameterizedStatement";
 const _PSar = "ParameterizedStatements";
-const _PT = "ProvisionedThroughput";
+const _PT = "PerformanceTier";
 const _PTD = "ProvisionedThroughputDescription";
 const _PTEE = "ProvisionedThroughputExceededException";
 const _PTO = "ProvisionedThroughputOverride";
-const _PTr = "ProjectionType";
+const _PTr = "ProvisionedThroughput";
+const _PTro = "ProjectionType";
 const _PWCASS = "ProvisionedWriteCapacityAutoScalingSettings";
 const _PWCASSU = "ProvisionedWriteCapacityAutoScalingSettingsUpdate";
 const _PWCASU = "ProvisionedWriteCapacityAutoScalingUpdate";
@@ -517,6 +545,9 @@ const _SA = "StreamArn";
 const _SB = "S3Bucket";
 const _SBA = "SourceBackupArn";
 const _SBO = "S3BucketOwner";
+const _SBPI = "StartBulkPutItems";
+const _SBPII = "StartBulkPutItemsInput";
+const _SBPIO = "StartBulkPutItemsOutput";
 const _SBS = "S3BucketSource";
 const _SC = "ScannedCount";
 const _SCE = "SearchConditionExpression";
@@ -525,6 +556,7 @@ const _SE = "StreamEnabled";
 const _SERGB = "SizeEstimateRangeGB";
 const _SF = "ScanFilter";
 const _SI = "ScanInput";
+const _SIBBM = "SecondaryIndexesBulkBytesMap";
 const _SIC = "ScaleInCooldown";
 const _SICM = "SecondaryIndexesCapacityMap";
 const _SIF = "ScanIndexForward";
@@ -577,7 +609,8 @@ const _TCEr = "TransactionConflictException";
 const _TCO = "TableClassOverride";
 const _TCP = "TableCreationParameters";
 const _TCS = "TableClassSummary";
-const _TD = "TableDescription";
+const _TD = "TableDetails";
+const _TDa = "TableDescription";
 const _TE = "ThrottlingException";
 const _TGI = "TransactGetItem";
 const _TGII = "TransactGetItemsInput";
@@ -585,6 +618,7 @@ const _TGIL = "TransactGetItemList";
 const _TGIO = "TransactGetItemsOutput";
 const _TGIr = "TransactGetItems";
 const _TI = "TableId";
+const _TIB = "TotalInputBytes";
 const _TIPE = "TransactionInProgressException";
 const _TIUE = "TableInUseException";
 const _TIr = "TransactItems";
@@ -663,6 +697,7 @@ const _VA = "VectorAttribute";
 const _VAD = "VectorAttributeDefinition";
 const _VC = "VectorCapacity";
 const _VI = "VectorIndexes";
+const _VIBVBM = "VectorIndexesBulkVectorBytesMap";
 const _VICM = "VectorIndexesCapacityMap";
 const _VID = "VectorIndexDescription";
 const _VIDL = "VectorIndexDescriptionList";
@@ -1079,6 +1114,46 @@ export var BillingModeSummary$: StaticStructureSchema = [3, n0, _BMS,
   [_BM, _LUTPPRDT],
   [0, 4]
 ];
+export var BulkOperationBytes$: StaticStructureSchema = [3, n0, _BOB,
+  0,
+  [_BPB],
+  [1]
+];
+export var BulkOperationDescription$: StaticStructureSchema = [3, n0, _BOD,
+  0,
+  [_BOA, _BOS, _TD, _CT, _ISC, _OSC, _ST, _ET, _PIC, _PIB, _TIB, _BOU, _FIC, _FC, _FM, _MWRU, _PT],
+  [0, 0, () => BulkOperationTableDetails, 0, () => InputS3Configuration$, () => OutputS3Configuration$, 4, 4, 1, 1, 1, () => BulkOperationUsageMultiple, 1, 0, 0, 1, 0]
+];
+export var BulkOperationSummary$: StaticStructureSchema = [3, n0, _BOSu,
+  0,
+  [_BOA, _BOS, _ST, _ET],
+  [0, 0, 4, 4], 3
+];
+export var BulkOperationTableDetail$: StaticStructureSchema = [3, n0, _BOTD,
+  0,
+  [_TN, _TI],
+  [0, 0]
+];
+export var BulkOperationUsage$: StaticStructureSchema = [3, n0, _BOU,
+  0,
+  [_TN, _BPB, _T, _LSI, _GSI, _VI],
+  [0, 1, () => BulkOperationBytes$, () => SecondaryIndexesBulkBytesMap, () => SecondaryIndexesBulkBytesMap, () => VectorIndexesBulkVectorBytesMap]
+];
+export var BulkOperationVectorBytes$: StaticStructureSchema = [3, n0, _BOVB,
+  0,
+  [_BPVB],
+  [1]
+];
+export var CancelBulkOperationInput$: StaticStructureSchema = [3, n0, _CBOI,
+  0,
+  [_BOA],
+  [0], 1
+];
+export var CancelBulkOperationOutput$: StaticStructureSchema = [3, n0, _CBOO,
+  0,
+  [_BOA, _BOS],
+  [0, 0], 2
+];
 export var CancellationReason$: StaticStructureSchema = [3, n0, _CRa,
   0,
   [_I, _C, _M],
@@ -1126,7 +1201,7 @@ export var CreateBackupOutput$: StaticStructureSchema = [3, n0, _CBO,
 ];
 export var CreateGlobalSecondaryIndexAction$: StaticStructureSchema = [3, n0, _CGSIA,
   0,
-  [_IN, _KS, _Pr, _PT, _ODT, _WT],
+  [_IN, _KS, _Pr, _PTr, _ODT, _WT],
   [0, () => KeySchema, () => Projection$, () => ProvisionedThroughput$, () => OnDemandThroughput$, () => WarmThroughput$], 3
 ];
 export var CreateGlobalTableInput$: StaticStructureSchema = [3, n0, _CGTI,
@@ -1156,12 +1231,12 @@ export var CreateReplicationGroupMemberAction$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateTableInput$: StaticStructureSchema = [3, n0, _CTI,
   0,
-  [_TN, _ADt, _KS, _LSI, _GSI, _BM, _PT, _SS, _SSES, _Ta, _TC, _DPE, _WT, _RP, _ODT, _GTSA, _GTSRM, _VI],
+  [_TN, _ADt, _KS, _LSI, _GSI, _BM, _PTr, _SS, _SSES, _Ta, _TC, _DPE, _WT, _RP, _ODT, _GTSA, _GTSRM, _VI],
   [0, () => AttributeDefinitions, () => KeySchema, () => LocalSecondaryIndexList, () => GlobalSecondaryIndexList, 0, () => ProvisionedThroughput$, () => StreamSpecification$, () => SSESpecification$, () => TagList, 0, 2, () => WarmThroughput$, 0, () => OnDemandThroughput$, 0, 0, () => VectorIndexList], 1
 ];
 export var CreateTableOutput$: StaticStructureSchema = [3, n0, _CTO,
   0,
-  [_TD],
+  [_TDa],
   [() => TableDescription$]
 ];
 export var CreateVectorIndexAction$: StaticStructureSchema = [3, n0, _CVIA,
@@ -1241,7 +1316,7 @@ export var DeleteTableInput$: StaticStructureSchema = [3, n0, _DTI,
 ];
 export var DeleteTableOutput$: StaticStructureSchema = [3, n0, _DTO,
   0,
-  [_TD],
+  [_TDa],
   [() => TableDescription$]
 ];
 export var DeleteVectorIndexAction$: StaticStructureSchema = [3, n0, _DVIA,
@@ -1258,6 +1333,16 @@ export var DescribeBackupOutput$: StaticStructureSchema = [3, n0, _DBOe,
   0,
   [_BD],
   [() => BackupDescription$]
+];
+export var DescribeBulkOperationInput$: StaticStructureSchema = [3, n0, _DBOI,
+  0,
+  [_BOA],
+  [0], 1
+];
+export var DescribeBulkOperationOutput$: StaticStructureSchema = [3, n0, _DBOO,
+  0,
+  [_BOD],
+  [() => BulkOperationDescription$], 1
 ];
 export var DescribeContinuousBackupsInput$: StaticStructureSchema = [3, n0, _DCBI,
   0,
@@ -1476,7 +1561,7 @@ export var GetResourcePolicyOutput$: StaticStructureSchema = [3, n0, _GRPO,
 ];
 export var GlobalSecondaryIndex$: StaticStructureSchema = [3, n0, _GSIl,
   0,
-  [_IN, _KS, _Pr, _PT, _ODT, _WT],
+  [_IN, _KS, _Pr, _PTr, _ODT, _WT],
   [0, () => KeySchema, () => Projection$, () => ProvisionedThroughput$, () => OnDemandThroughput$, () => WarmThroughput$], 3
 ];
 export var GlobalSecondaryIndexAutoScalingUpdate$: StaticStructureSchema = [3, n0, _GSIASU,
@@ -1486,12 +1571,12 @@ export var GlobalSecondaryIndexAutoScalingUpdate$: StaticStructureSchema = [3, n
 ];
 export var GlobalSecondaryIndexDescription$: StaticStructureSchema = [3, n0, _GSID,
   0,
-  [_IN, _KS, _Pr, _IS, _B, _PT, _ISB, _IC, _IAn, _ODT, _WT],
+  [_IN, _KS, _Pr, _IS, _B, _PTr, _ISB, _IC, _IAn, _ODT, _WT],
   [0, () => KeySchema, () => Projection$, 0, 2, () => ProvisionedThroughputDescription$, 1, 1, 0, () => OnDemandThroughput$, () => GlobalSecondaryIndexWarmThroughputDescription$]
 ];
 export var GlobalSecondaryIndexInfo$: StaticStructureSchema = [3, n0, _GSII,
   0,
-  [_IN, _KS, _Pr, _PT, _ODT],
+  [_IN, _KS, _Pr, _PTr, _ODT],
   [0, () => KeySchema, () => Projection$, () => ProvisionedThroughput$, () => OnDemandThroughput$]
 ];
 export var GlobalSecondaryIndexUpdate$: StaticStructureSchema = [3, n0, _GSIU,
@@ -1559,6 +1644,11 @@ export var InputFormatOptions$: StaticStructureSchema = [3, n0, _IFO,
   [_Cs],
   [() => CsvOptions$]
 ];
+export var InputS3Configuration$: StaticStructureSchema = [3, n0, _ISC,
+  0,
+  [_SB, _IF, _SBO, _SKP, _ICT],
+  [0, 0, 0, 0, 0], 2
+];
 export var ItemCollectionMetrics$: StaticStructureSchema = [3, n0, _ICM,
   0,
   [_ICK, _SERGB],
@@ -1603,6 +1693,16 @@ export var ListBackupsOutput$: StaticStructureSchema = [3, n0, _LBO,
   0,
   [_BSac, _LEBA],
   [() => BackupSummaries, 0]
+];
+export var ListBulkOperationsInput$: StaticStructureSchema = [3, n0, _LBOI,
+  0,
+  [_MR, _NT],
+  [1, 0]
+];
+export var ListBulkOperationsOutput$: StaticStructureSchema = [3, n0, _LBOO,
+  0,
+  [_BOSL, _NT],
+  [() => BulkOperationsSummaryList, 0]
 ];
 export var ListContributorInsightsInput$: StaticStructureSchema = [3, n0, _LCII,
   0,
@@ -1689,6 +1789,11 @@ export var OnDemandThroughputOverride$: StaticStructureSchema = [3, n0, _ODTO,
   [_MRRU],
   [1]
 ];
+export var OutputS3Configuration$: StaticStructureSchema = [3, n0, _OSC,
+  0,
+  [_OT, _SBO, _SB, _SKP, _SSA, _SSKKI],
+  [64 | 0, 0, 0, 0, 0, 0], 1
+];
 export var ParameterizedStatement$: StaticStructureSchema = [3, n0, _PSa,
   0,
   [_St, _P, _RVOCCF],
@@ -1706,10 +1811,10 @@ export var PointInTimeRecoverySpecification$: StaticStructureSchema = [3, n0, _P
 ];
 export var Projection$: StaticStructureSchema = [3, n0, _Pr,
   0,
-  [_PTr, _NKA],
+  [_PTro, _NKA],
   [0, 64 | 0]
 ];
-export var ProvisionedThroughput$: StaticStructureSchema = [3, n0, _PT,
+export var ProvisionedThroughput$: StaticStructureSchema = [3, n0, _PTr,
   0,
   [_RCU, _WCU],
   [1, 1], 2
@@ -1846,7 +1951,7 @@ export var RestoreTableFromBackupInput$: StaticStructureSchema = [3, n0, _RTFBI,
 ];
 export var RestoreTableFromBackupOutput$: StaticStructureSchema = [3, n0, _RTFBO,
   0,
-  [_TD],
+  [_TDa],
   [() => TableDescription$]
 ];
 export var RestoreTableToPointInTimeInput$: StaticStructureSchema = [3, n0, _RTTPITI,
@@ -1856,7 +1961,7 @@ export var RestoreTableToPointInTimeInput$: StaticStructureSchema = [3, n0, _RTT
 ];
 export var RestoreTableToPointInTimeOutput$: StaticStructureSchema = [3, n0, _RTTPITO,
   0,
-  [_TD],
+  [_TDa],
   [() => TableDescription$]
 ];
 export var S3BucketSource$: StaticStructureSchema = [3, n0, _SBS,
@@ -1896,7 +2001,7 @@ export var SearchVectorsOutput$: StaticStructureSchema = [3, n0, _SVO,
 ];
 export var SourceTableDetails$: StaticStructureSchema = [3, n0, _STD,
   0,
-  [_TN, _TI, _KS, _TCDT, _PT, _TA, _TSB, _ODT, _IC, _BM],
+  [_TN, _TI, _KS, _TCDT, _PTr, _TA, _TSB, _ODT, _IC, _BM],
   [0, 0, () => KeySchema, 4, () => ProvisionedThroughput$, 0, 1, () => OnDemandThroughput$, 1, 0], 5
 ];
 export var SourceTableFeatureDetails$: StaticStructureSchema = [3, n0, _STFD,
@@ -1913,6 +2018,16 @@ export var SSESpecification$: StaticStructureSchema = [3, n0, _SSES,
   0,
   [_Ena, _SSETy, _KMSMKI],
   [2, 0, 0]
+];
+export var StartBulkPutItemsInput$: StaticStructureSchema = [3, n0, _SBPII,
+  0,
+  [_ISC, _OSC, _TN, _CT, _MWRU, _PT],
+  [() => InputS3Configuration$, () => OutputS3Configuration$, 0, [0, 4], 1, 0], 3
+];
+export var StartBulkPutItemsOutput$: StaticStructureSchema = [3, n0, _SBPIO,
+  0,
+  [_BOD],
+  [() => BulkOperationDescription$], 1
 ];
 export var StreamSpecification$: StaticStructureSchema = [3, n0, _SS,
   0,
@@ -1931,12 +2046,12 @@ export var TableClassSummary$: StaticStructureSchema = [3, n0, _TCS,
 ];
 export var TableCreationParameters$: StaticStructureSchema = [3, n0, _TCP,
   0,
-  [_TN, _ADt, _KS, _BM, _PT, _ODT, _SSES, _GSI, _VI],
+  [_TN, _ADt, _KS, _BM, _PTr, _ODT, _SSES, _GSI, _VI],
   [0, () => AttributeDefinitions, () => KeySchema, 0, () => ProvisionedThroughput$, () => OnDemandThroughput$, () => SSESpecification$, () => GlobalSecondaryIndexList, () => VectorIndexList], 3
 ];
-export var TableDescription$: StaticStructureSchema = [3, n0, _TD,
+export var TableDescription$: StaticStructureSchema = [3, n0, _TDa,
   0,
-  [_ADt, _TN, _KS, _TSa, _CDT, _PT, _TSB, _IC, _TA, _TI, _BMS, _LSI, _GSI, _SS, _LSL, _LSA, _GTV, _Rep, _GTW, _GTSRM, _RSes, _SSED, _AS, _TCS, _DPE, _DPEi, _ODT, _WT, _MRC, _VI],
+  [_ADt, _TN, _KS, _TSa, _CDT, _PTr, _TSB, _IC, _TA, _TI, _BMS, _LSI, _GSI, _SS, _LSL, _LSA, _GTV, _Rep, _GTW, _GTSRM, _RSes, _SSED, _AS, _TCS, _DPE, _DPEi, _ODT, _WT, _MRC, _VI],
   [() => AttributeDefinitions, 0, () => KeySchema, 0, 4, () => ProvisionedThroughputDescription$, 1, 1, 0, 0, () => BillingModeSummary$, () => LocalSecondaryIndexDescriptionList, () => GlobalSecondaryIndexDescriptionList, () => StreamSpecification$, 0, 0, 0, () => ReplicaDescriptionList, () => GlobalTableWitnessDescriptionList, 0, () => RestoreSummary$, () => SSEDescription$, () => ArchivalSummary$, () => TableClassSummary$, 2, 2, () => OnDemandThroughput$, () => TableWarmThroughputDescription$, 0, () => VectorIndexDescriptionList]
 ];
 export var TableWarmThroughputDescription$: StaticStructureSchema = [3, n0, _TWTD,
@@ -2031,7 +2146,7 @@ export var UpdateContributorInsightsOutput$: StaticStructureSchema = [3, n0, _UC
 ];
 export var UpdateGlobalSecondaryIndexAction$: StaticStructureSchema = [3, n0, _UGSIA,
   0,
-  [_IN, _PT, _ODT, _WT],
+  [_IN, _PTr, _ODT, _WT],
   [0, () => ProvisionedThroughput$, () => OnDemandThroughput$, () => WarmThroughput$], 1
 ];
 export var UpdateGlobalTableInput$: StaticStructureSchema = [3, n0, _UGTI,
@@ -2086,12 +2201,12 @@ export var UpdateReplicationGroupMemberAction$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateTableInput$: StaticStructureSchema = [3, n0, _UTI,
   0,
-  [_TN, _ADt, _BM, _PT, _GSIUl, _SS, _SSES, _RUe, _TC, _DPE, _MRC, _GTWU, _ODT, _WT, _GTSRM, _DPEi, _VIU],
+  [_TN, _ADt, _BM, _PTr, _GSIUl, _SS, _SSES, _RUe, _TC, _DPE, _MRC, _GTWU, _ODT, _WT, _GTSRM, _DPEi, _VIU],
   [0, () => AttributeDefinitions, 0, () => ProvisionedThroughput$, () => GlobalSecondaryIndexUpdateList, () => StreamSpecification$, () => SSESpecification$, () => ReplicationGroupUpdateList, 0, 2, 0, () => GlobalTableWitnessGroupUpdateList, () => OnDemandThroughput$, () => WarmThroughput$, 0, 2, () => VectorIndexUpdateList], 1
 ];
 export var UpdateTableOutput$: StaticStructureSchema = [3, n0, _UTO,
   0,
-  [_TD],
+  [_TDa],
   [() => TableDescription$]
 ];
 export var UpdateTableReplicaAutoScalingInput$: StaticStructureSchema = [3, n0, _UTRASI,
@@ -2169,6 +2284,15 @@ var BackupSummaries: StaticListSchema = [1, n0, _BSac,
   0, () => BackupSummary$
 ];
 var BinarySetAttributeValue = 64 | 21;
+var BulkOperationsSummaryList: StaticListSchema = [1, n0, _BOSL,
+  0, () => BulkOperationSummary$
+];
+var BulkOperationTableDetails: StaticListSchema = [1, n0, _BOTDu,
+  0, () => BulkOperationTableDetail$
+];
+var BulkOperationUsageMultiple: StaticListSchema = [1, n0, _BOUM,
+  0, () => BulkOperationUsage$
+];
 var CancellationReasonList: StaticListSchema = [1, n0, _CRL,
   0, () => CancellationReason$
 ];
@@ -2249,6 +2373,7 @@ var LocalSecondaryIndexList: StaticListSchema = [1, n0, _LSIL,
 ];
 var NonKeyAttributeNameList = 64 | 0;
 var NumberSetAttributeValue = 64 | 0;
+var OutputTypeList = 64 | 0;
 var ParameterizedStatements: StaticListSchema = [1, n0, _PSar,
   0, () => ParameterizedStatement$
 ];
@@ -2385,8 +2510,14 @@ var MapAttributeValue: StaticMapSchema = [2, n0, _MAV,
 var PutItemInputAttributeMap: StaticMapSchema = [2, n0, _PIIAM,
   0, 0, () => AttributeValue$
 ];
+var SecondaryIndexesBulkBytesMap: StaticMapSchema = [2, n0, _SIBBM,
+  0, 0, () => BulkOperationBytes$
+];
 var SecondaryIndexesCapacityMap: StaticMapSchema = [2, n0, _SICM,
   0, 0, () => Capacity$
+];
+var VectorIndexesBulkVectorBytesMap: StaticMapSchema = [2, n0, _VIBVBM,
+  0, 0, () => BulkOperationVectorBytes$
 ];
 var VectorIndexesCapacityMap: StaticMapSchema = [2, n0, _VICM,
   0, 0, () => VectorCapacity$
@@ -2404,6 +2535,9 @@ export var BatchGetItem$: StaticOperationSchema = [9, n0, _BGI,
 ];
 export var BatchWriteItem$: StaticOperationSchema = [9, n0, _BWI,
   0, () => BatchWriteItemInput$, () => BatchWriteItemOutput$
+];
+export var CancelBulkOperation$: StaticOperationSchema = [9, n0, _CBOa,
+  0, () => CancelBulkOperationInput$, () => CancelBulkOperationOutput$
 ];
 export var CreateBackup$: StaticOperationSchema = [9, n0, _CB,
   0, () => CreateBackupInput$, () => CreateBackupOutput$
@@ -2428,6 +2562,9 @@ export var DeleteTable$: StaticOperationSchema = [9, n0, _DT,
 ];
 export var DescribeBackup$: StaticOperationSchema = [9, n0, _DBe,
   0, () => DescribeBackupInput$, () => DescribeBackupOutput$
+];
+export var DescribeBulkOperation$: StaticOperationSchema = [9, n0, _DBOes,
+  0, () => DescribeBulkOperationInput$, () => DescribeBulkOperationOutput$
 ];
 export var DescribeContinuousBackups$: StaticOperationSchema = [9, n0, _DCB,
   0, () => DescribeContinuousBackupsInput$, () => DescribeContinuousBackupsOutput$
@@ -2492,6 +2629,9 @@ export var ImportTable$: StaticOperationSchema = [9, n0, _IT,
 export var ListBackups$: StaticOperationSchema = [9, n0, _LB,
   0, () => ListBackupsInput$, () => ListBackupsOutput$
 ];
+export var ListBulkOperations$: StaticOperationSchema = [9, n0, _LBOi,
+  0, () => ListBulkOperationsInput$, () => ListBulkOperationsOutput$
+];
 export var ListContributorInsights$: StaticOperationSchema = [9, n0, _LCI,
   0, () => ListContributorInsightsInput$, () => ListContributorInsightsOutput$
 ];
@@ -2530,6 +2670,9 @@ export var Scan$: StaticOperationSchema = [9, n0, _Sca,
 ];
 export var SearchVectors$: StaticOperationSchema = [9, n0, _SVe,
   0, () => SearchVectorsInput$, () => SearchVectorsOutput$
+];
+export var StartBulkPutItems$: StaticOperationSchema = [9, n0, _SBPI,
+  0, () => StartBulkPutItemsInput$, () => StartBulkPutItemsOutput$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TRa,
   0, () => TagResourceInput$, () => __Unit

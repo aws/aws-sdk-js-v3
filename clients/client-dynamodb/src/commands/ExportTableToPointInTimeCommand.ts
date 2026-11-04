@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep8, _mw0, command } from "../commandBuilder";
+import { _ep9, _mw0, command } from "../commandBuilder";
 import type { ExportTableToPointInTimeInput, ExportTableToPointInTimeOutput } from "../models/models_0";
 import { ExportTableToPointInTime$ } from "../schemas/schemas_0";
 
@@ -240,7 +240,7 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  * @public
  */
 export class ExportTableToPointInTimeCommand extends command<ExportTableToPointInTimeCommandInput, ExportTableToPointInTimeCommandOutput>(
-  _ep8,
+  _ep9,
   _mw0,
   "ExportTableToPointInTime",
   ExportTableToPointInTime$

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep10, _mw0, command } from "../commandBuilder";
+import { _ep11, _mw0, command } from "../commandBuilder";
 import type { RestoreTableToPointInTimeInput, RestoreTableToPointInTimeOutput } from "../models/models_0";
 import { RestoreTableToPointInTime$ } from "../schemas/schemas_0";
 
@@ -440,7 +440,7 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * @public
  */
 export class RestoreTableToPointInTimeCommand extends command<RestoreTableToPointInTimeCommandInput, RestoreTableToPointInTimeCommandOutput>(
-  _ep10,
+  _ep11,
   _mw0,
   "RestoreTableToPointInTime",
   RestoreTableToPointInTime$

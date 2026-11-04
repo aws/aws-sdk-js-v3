@@ -7,6 +7,9 @@ import type {
   BackupTypeFilter,
   BatchStatementErrorCodeEnum,
   BillingMode,
+  BulkOperationInputFormat,
+  BulkOperationPerformanceTier,
+  BulkOperationStatus,
   ComparisonOperator,
   ConditionalOperator,
   ContinuousBackupsStatus,
@@ -27,6 +30,7 @@ import type {
   InputFormat,
   KeyType,
   MultiRegionConsistency,
+  OutputTypeEnum,
   PointInTimeRecoveryStatus,
   ProjectionType,
   ReplicaStatus,
@@ -1314,6 +1318,439 @@ export interface BillingModeSummary {
    * @public
    */
   LastUpdateToPayPerRequestDateTime?: Date | undefined;
+}
+
+/**
+ * <p>Contains the bulk put bytes used during a bulk operation.</p>
+ * @public
+ */
+export interface BulkOperationBytes {
+  /**
+   * <p>The number of bulk put bytes.</p>
+   * @public
+   */
+  BulkPutBytes?: number | undefined;
+}
+
+/**
+ * <p>Contains the bulk put vector bytes used by a vector index during a bulk
+ *             operation.</p>
+ * @public
+ */
+export interface BulkOperationVectorBytes {
+  /**
+   * <p>The number of bulk put vector bytes used on the vector index.</p>
+   * @public
+   */
+  BulkPutVectorBytes?: number | undefined;
+}
+
+/**
+ * <p>Contains the bytes used during a bulk operation, including a breakdown for the table
+ *             and its indexes.</p>
+ * @public
+ */
+export interface BulkOperationUsage {
+  /**
+   * <p>The name or ARN of the table associated with the reported usage.</p>
+   * @public
+   */
+  TableName?: string | undefined;
+
+  /**
+   * <p>The total number of bulk put bytes used by the operation. This value excludes bulk put
+   *             vector bytes.</p>
+   * @public
+   */
+  BulkPutBytes?: number | undefined;
+
+  /**
+   * <p>The number of bulk put bytes for the table, excluding its indexes.</p>
+   * @public
+   */
+  Table?: BulkOperationBytes | undefined;
+
+  /**
+   * <p>The bulk put bytes used on each local secondary index affected by the operation, keyed
+   *             by index name.</p>
+   * @public
+   */
+  LocalSecondaryIndexes?: Record<string, BulkOperationBytes> | undefined;
+
+  /**
+   * <p>The bulk put bytes used on each global secondary index affected by the operation,
+   *             keyed by index name.</p>
+   * @public
+   */
+  GlobalSecondaryIndexes?: Record<string, BulkOperationBytes> | undefined;
+
+  /**
+   * <p>The bulk put vector bytes used on each vector index affected by the operation, keyed
+   *             by index name.</p>
+   * @public
+   */
+  VectorIndexes?: Record<string, BulkOperationVectorBytes> | undefined;
+}
+
+/**
+ * <p>Contains the Amazon S3 location and format settings for bulk operation input.
+ *             The <code>S3Bucket</code> and <code>InputFormat</code> fields are required.</p>
+ * @public
+ */
+export interface InputS3Configuration {
+  /**
+   * <p>The Amazon Web Services account ID of the input bucket owner. If you omit this value,
+   *                 DynamoDB uses the Amazon Web Services account ID of the requester.</p>
+   *          <note>
+   *             <p>
+   *                <code>S3BucketOwner</code> is required when the bucket is owned by another Amazon Web Services account.</p>
+   *          </note>
+   * @public
+   */
+  S3BucketOwner?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 bucket that contains the input objects.</p>
+   * @public
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * <p>An optional key prefix that limits the input to matching objects in the Amazon S3 bucket.</p>
+   * @public
+   */
+  S3KeyPrefix?: string | undefined;
+
+  /**
+   * <p>The format of the input objects. <code>DYNAMODB_JSON</code> uses JSON Lines, with one
+   *             JSON record per line. <code>ION</code> uses a sequence of Ion structs.</p>
+   * @public
+   */
+  InputFormat: BulkOperationInputFormat | undefined;
+
+  /**
+   * <p>The compression type of the input objects. Valid values are <code>GZIP</code>,
+   *                 <code>ZSTD</code>, and <code>NONE</code>. If you don't specify a value, DynamoDB uses <code>NONE</code>.</p>
+   * @public
+   */
+  InputCompressionType?: InputCompressionType | undefined;
+}
+
+/**
+ * <p>Contains the Amazon S3 location, encryption settings, and output types for a
+ *             bulk operation. The <code>S3Bucket</code> and <code>OutputType</code> fields are
+ *             required.</p>
+ * @public
+ */
+export interface OutputS3Configuration {
+  /**
+   * <p>The Amazon Web Services account ID of the output bucket owner. If you omit this value,
+   *                 DynamoDB uses the Amazon Web Services account ID of the requester.</p>
+   *          <note>
+   *             <p>
+   *                <code>S3BucketOwner</code> is required when the bucket is owned by another Amazon Web Services account.</p>
+   *          </note>
+   * @public
+   */
+  S3BucketOwner?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 bucket where DynamoDB writes output
+   *             records.</p>
+   * @public
+   */
+  S3Bucket?: string | undefined;
+
+  /**
+   * <p>An optional key prefix under which DynamoDB writes the output records.</p>
+   * @public
+   */
+  S3KeyPrefix?: string | undefined;
+
+  /**
+   * <p>The server-side encryption algorithm for the output objects. Valid values are
+   *                 <code>AES256</code> and <code>KMS</code>. If you don't specify a value, Amazon S3 applies the destination bucket's default encryption settings.</p>
+   * @public
+   */
+  S3SseAlgorithm?: S3SseAlgorithm | undefined;
+
+  /**
+   * <p>The identifier of the KMS key that encrypts the output objects. Specify
+   *             this value when <code>S3SseAlgorithm</code> is <code>KMS</code>. Don't specify it when the
+   *             algorithm is <code>AES256</code>.</p>
+   * @public
+   */
+  S3SseKmsKeyId?: string | undefined;
+
+  /**
+   * <p>The following values describe the types of output that DynamoDB writes for
+   *             individual input items. Include one or both values.</p>
+   *          <dl>
+   *             <dt>
+   *                     ERROR
+   *                 </dt>
+   *             <dd>
+   *                <p>Reports input records or input objects that DynamoDB couldn't
+   *                         process. This includes malformed input and item validation failures, such as
+   *                         a missing or incorrectly typed primary key attribute or an item that exceeds
+   *                         a DynamoDB limit.</p>
+   *             </dd>
+   *             <dt>
+   *                     CONDITION_CHECK_FAILURE
+   *                 </dt>
+   *             <dd>
+   *                <p>Reports the attempted item and, when present, the existing item for a
+   *                         write whose condition expression evaluates to false.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  OutputType: OutputTypeEnum[] | undefined;
+}
+
+/**
+ * <p>Contains identifying information for a table associated with a bulk operation.</p>
+ * @public
+ */
+export interface BulkOperationTableDetail {
+  /**
+   * <p>The name or ARN of the table associated with the bulk operation.</p>
+   * @public
+   */
+  TableName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the table associated with the bulk operation.</p>
+   * @public
+   */
+  TableId?: string | undefined;
+}
+
+/**
+ * <p>Contains detailed information about a bulk operation.</p>
+ * @public
+ */
+export interface BulkOperationDescription {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bulk operation.</p>
+   * @public
+   */
+  BulkOperationArn?: string | undefined;
+
+  /**
+   * <p>The current status of the bulk operation can be one of the following values:</p>
+   *          <dl>
+   *             <dt>
+   *                     IN_PROGRESS
+   *                 </dt>
+   *             <dd>
+   *                <p>DynamoDB is processing the input.</p>
+   *             </dd>
+   *             <dt>
+   *                     COMPLETED
+   *                 </dt>
+   *             <dd>
+   *                <p>The bulk operation finished without parsing or validation errors.
+   *                         Condition-check failures do not cause the operation to complete with
+   *                         errors.</p>
+   *             </dd>
+   *             <dt>
+   *                     COMPLETED_WITH_ERRORS
+   *                 </dt>
+   *             <dd>
+   *                <p>The bulk operation finished, but DynamoDB couldn't process at
+   *                         least one input item because of a parsing or validation error. When you
+   *                         enable <code>ERROR</code> output, DynamoDB writes the details to the
+   *                         configured Amazon S3 output location.</p>
+   *             </dd>
+   *             <dt>
+   *                     CANCELLING
+   *                 </dt>
+   *             <dd>
+   *                <p>DynamoDB accepted a cancellation request and is stopping the
+   *                         operation.</p>
+   *             </dd>
+   *             <dt>
+   *                     CANCELLED
+   *                 </dt>
+   *             <dd>
+   *                <p>DynamoDB stopped the operation after a cancellation
+   *                         request.</p>
+   *             </dd>
+   *             <dt>
+   *                     FAILED
+   *                 </dt>
+   *             <dd>
+   *                <p>The bulk operation failed. DynamoDB might write some items
+   *                         before the operation reaches this status. See <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BulkOperationDescription.html#DDB-Type-BulkOperationDescription-FailureCode">FailureCode</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BulkOperationDescription.html#DDB-Type-BulkOperationDescription-FailureMessage">FailureMessage</a> for details.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  BulkOperationStatus?: BulkOperationStatus | undefined;
+
+  /**
+   * <p>A list containing identifying information for the table targeted by the bulk
+   *             operation.</p>
+   * @public
+   */
+  TableDetails?: BulkOperationTableDetail[] | undefined;
+
+  /**
+   * <p>The idempotency token associated with the start request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 input configuration associated with the bulk operation.</p>
+   * @public
+   */
+  InputS3Configuration?: InputS3Configuration | undefined;
+
+  /**
+   * <p>The Amazon S3 output configuration associated with the bulk operation.</p>
+   * @public
+   */
+  OutputS3Configuration?: OutputS3Configuration | undefined;
+
+  /**
+   * <p>The time when DynamoDB accepted the start request.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The time when the operation reached a terminal status. DynamoDB omits this
+   *             value while the operation remains in progress.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The number of input items that DynamoDB has processed. This count includes
+   *             successful writes, parsing or validation failures, and condition-check failures.</p>
+   * @public
+   */
+  ProcessedItemCount?: number | undefined;
+
+  /**
+   * <p>The number of bytes that DynamoDB has read from the Amazon S3 input
+   *             objects.</p>
+   * @public
+   */
+  ProcessedInputBytes?: number | undefined;
+
+  /**
+   * <p>The total size, in bytes, of the Amazon S3 input objects. DynamoDB
+   *             omits this value until the initial input-size calculation completes.</p>
+   * @public
+   */
+  TotalInputBytes?: number | undefined;
+
+  /**
+   * <p>Usage information for the table and its indexes.</p>
+   * @public
+   */
+  BulkOperationUsage?: BulkOperationUsage[] | undefined;
+
+  /**
+   * <p>The number of processed input items that failed because of parsing or validation
+   *             errors. This count is included in <code>ProcessedItemCount</code>. Condition-check
+   *             failures do not increase this count.</p>
+   * @public
+   */
+  FailedItemCount?: number | undefined;
+
+  /**
+   * <p>A code that identifies why the bulk operation failed or was cancelled. DynamoDB returns this value only when <code>BulkOperationStatus</code> is
+   *                 <code>FAILED</code> or <code>CANCELLED</code>.</p>
+   * @public
+   */
+  FailureCode?: string | undefined;
+
+  /**
+   * <p>A message that describes why the bulk operation failed or was cancelled. DynamoDB returns this value only when <code>BulkOperationStatus</code> is
+   *                 <code>FAILED</code> or <code>CANCELLED</code>.</p>
+   * @public
+   */
+  FailureMessage?: string | undefined;
+
+  /**
+   * <p>The maximum write request unit rate configured for the bulk operation.</p>
+   * @public
+   */
+  MaxWriteRequestUnits?: number | undefined;
+
+  /**
+   * <p>The performance tier selected for the bulk operation. Valid values are
+   *                 <code>STANDARD</code> and <code>ACCELERATED</code>. If the start request omitted this
+   *             value, DynamoDB uses <code>STANDARD</code>.</p>
+   * @public
+   */
+  PerformanceTier?: BulkOperationPerformanceTier | undefined;
+}
+
+/**
+ * <p>Contains summary information about a bulk operation.</p>
+ * @public
+ */
+export interface BulkOperationSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bulk operation.</p>
+   * @public
+   */
+  BulkOperationArn: string | undefined;
+
+  /**
+   * <p>The current status of the bulk operation.</p>
+   * @public
+   */
+  BulkOperationStatus: BulkOperationStatus | undefined;
+
+  /**
+   * <p>The time when DynamoDB accepted the start request.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The time when the operation reached a terminal status. DynamoDB omits this
+   *             value while the operation remains in progress.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelBulkOperationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bulk operation to cancel.</p>
+   * @public
+   */
+  BulkOperationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelBulkOperationOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bulk operation for which DynamoDB
+   *             accepted the cancellation request.</p>
+   * @public
+   */
+  BulkOperationArn: string | undefined;
+
+  /**
+   * <p>The status returned after DynamoDB accepts the cancellation request. This
+   *             value is <code>CANCELLING</code>. Use <code>DescribeBulkOperation</code> to determine when
+   *             the operation reaches <code>CANCELLED</code>.</p>
+   * @public
+   */
+  BulkOperationStatus: BulkOperationStatus | undefined;
 }
 
 /**
@@ -3881,6 +4318,28 @@ export interface DescribeBackupOutput {
 /**
  * @public
  */
+export interface DescribeBulkOperationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bulk operation to describe.</p>
+   * @public
+   */
+  BulkOperationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBulkOperationOutput {
+  /**
+   * <p>Contains detailed information about the bulk operation.</p>
+   * @public
+   */
+  BulkOperationDescription: BulkOperationDescription | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeContinuousBackupsInput {
   /**
    * <p>Name of the table for which the customer wants to check the continuous backups and
@@ -5164,6 +5623,46 @@ export interface ListBackupsOutput {
 /**
  * @public
  */
+export interface ListBulkOperationsInput {
+  /**
+   * <p>The maximum number of bulk operation summaries to return in one page. If you don't
+   *             specify a value, DynamoDB uses 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>An optional string that, if supplied, must be copied from the output of a previous
+   *             call to <code>ListBulkOperations</code>. When provided in this manner, the API fetches
+   *             the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBulkOperationsOutput {
+  /**
+   * <p>A list of bulk operation summaries for the current Amazon Web Services account and
+   *                 Amazon Web Services Region.</p>
+   * @public
+   */
+  BulkOperationsSummaryList?: BulkOperationSummary[] | undefined;
+
+  /**
+   * <p>If this value is returned, there are additional results to be displayed. To retrieve
+   *             them, call <code>ListBulkOperations</code> again, with <code>NextToken</code> set to this
+   *             value.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListContributorInsightsInput {
   /**
    * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this
@@ -5773,6 +6272,70 @@ export interface RestoreTableToPointInTimeOutput {
    * @public
    */
   TableDescription?: TableDescription | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartBulkPutItemsInput {
+  /**
+   * <p>A unique, case-sensitive identifier that ensures the bulk operation starts no more
+   *             than one time. During the 8 hours after the initial request, repeated requests that use
+   *             the same token and parameters return the same bulk operation. If a request reuses the
+   *             token with different parameters, DynamoDB returns an
+   *                 <code>IdempotentParameterMismatchException</code>. If you omit the token, an Amazon Web Services SDK automatically generates one.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 location, data format, and compression settings for the input
+   *             objects.</p>
+   * @public
+   */
+  InputS3Configuration: InputS3Configuration | undefined;
+
+  /**
+   * <p>The Amazon S3 location, encryption settings, and output types for the bulk
+   *             operation.</p>
+   * @public
+   */
+  OutputS3Configuration: OutputS3Configuration | undefined;
+
+  /**
+   * <p>The name or ARN of the existing DynamoDB table that receives the
+   *             items.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The maximum rate, in write request units per second, at which the bulk operation
+   *             attempts to write. The value must be at least 1,024. With this setting, you limit only
+   *             the bulk operation; the table's provisioned or on-demand capacity settings don't
+   *             change. The actual write rate can be lower.</p>
+   * @public
+   */
+  MaxWriteRequestUnits?: number | undefined;
+
+  /**
+   * <p>The performance tier for the bulk operation. Valid values are
+   *                 <code>STANDARD</code> and <code>ACCELERATED</code>. If you don't specify a value,
+   *             the operation uses <code>STANDARD</code>.</p>
+   * @public
+   */
+  PerformanceTier?: BulkOperationPerformanceTier | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartBulkPutItemsOutput {
+  /**
+   * <p>Contains detailed information about a bulk operation.</p>
+   * @public
+   */
+  BulkOperationDescription: BulkOperationDescription | undefined;
 }
 
 /**
@@ -9296,10 +9859,9 @@ export interface SearchVectorsInput {
    * <p>A condition expression used to filter the vector search results. The expression can
    *             reference attributes defined in the vector index search schema, including
    *             <code>HASH</code> and <code>INLINE_FILTER</code> key elements.</p>
-   *          <p>Only the equality operator (<code>=</code>) is supported for <code>HASH</code>
-   *             attributes. Comparison and range operators are supported for
-   *             <code>INLINE_FILTER</code> attributes. Only top-level attributes from the search
-   *             schema can be referenced.</p>
+   *          <p>The <code>HASH</code> and <code>INLINE_FILTER</code> attributes support only
+   *             the equality operator (<code>=</code>). You can reference only top-level attributes
+   *             from the search schema.</p>
    * @public
    */
   SearchConditionExpression?: string | undefined;

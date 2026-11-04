@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep3, _mw0, command } from "../commandBuilder";
+import { _ep4, _mw0, command } from "../commandBuilder";
 import type { UpdateGlobalTableSettingsInput, UpdateGlobalTableSettingsOutput } from "../models/models_0";
 import { UpdateGlobalTableSettings$ } from "../schemas/schemas_0";
 
@@ -268,7 +268,7 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  * @public
  */
 export class UpdateGlobalTableSettingsCommand extends command<UpdateGlobalTableSettingsCommandInput, UpdateGlobalTableSettingsCommandOutput>(
-  _ep3,
+  _ep4,
   _mw0,
   "UpdateGlobalTableSettings",
   UpdateGlobalTableSettings$

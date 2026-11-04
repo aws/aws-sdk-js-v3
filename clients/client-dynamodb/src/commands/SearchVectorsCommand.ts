@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep11, _mw0, command } from "../commandBuilder";
+import { _ep12, _mw0, command } from "../commandBuilder";
 import type { SearchVectorsInput, SearchVectorsOutput } from "../models/models_0";
 import { SearchVectors$ } from "../schemas/schemas_0";
 
@@ -280,7 +280,7 @@ export interface SearchVectorsCommandOutput extends SearchVectorsOutput, __Metad
  * @public
  */
 export class SearchVectorsCommand extends command<SearchVectorsCommandInput, SearchVectorsCommandOutput>(
-  _ep11,
+  _ep12,
   _mw0,
   "SearchVectors",
   SearchVectors$

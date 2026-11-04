@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep6, _mw0, command } from "../commandBuilder";
+import { _ep7, _mw0, command } from "../commandBuilder";
 import type { DescribeExportInput, DescribeExportOutput } from "../models/models_0";
 import { DescribeExport$ } from "../schemas/schemas_0";
 
@@ -159,7 +159,7 @@ export interface DescribeExportCommandOutput extends DescribeExportOutput, __Met
  * @public
  */
 export class DescribeExportCommand extends command<DescribeExportCommandInput, DescribeExportCommandOutput>(
-  _ep6,
+  _ep7,
   _mw0,
   "DescribeExport",
   DescribeExport$

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep5, _mw0, command } from "../commandBuilder";
+import { _ep6, _mw0, command } from "../commandBuilder";
 import type { TagResourceInput } from "../models/models_0";
 import { TagResource$ } from "../schemas/schemas_0";
 
@@ -127,7 +127,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @public
  */
 export class TagResourceCommand extends command<TagResourceCommandInput, TagResourceCommandOutput>(
-  _ep5,
+  _ep6,
   _mw0,
   "TagResource",
   TagResource$

@@ -39,6 +39,19 @@ import {
   BatchWriteItemOutput$,
   BillingMode,
   BillingModeSummary$,
+  BulkOperationBytes$,
+  BulkOperationDescription$,
+  BulkOperationInputFormat,
+  BulkOperationPerformanceTier,
+  BulkOperationStatus,
+  BulkOperationSummary$,
+  BulkOperationTableDetail$,
+  BulkOperationUsage$,
+  BulkOperationVectorBytes$,
+  CancelBulkOperation$,
+  CancelBulkOperationCommand,
+  CancelBulkOperationInput$,
+  CancelBulkOperationOutput$,
   CancellationReason$,
   Capacity$,
   ComparisonOperator,
@@ -101,6 +114,10 @@ import {
   DescribeBackupCommand,
   DescribeBackupInput$,
   DescribeBackupOutput$,
+  DescribeBulkOperation$,
+  DescribeBulkOperationCommand,
+  DescribeBulkOperationInput$,
+  DescribeBulkOperationOutput$,
   DescribeContinuousBackups$,
   DescribeContinuousBackupsCommand,
   DescribeContinuousBackupsInput$,
@@ -234,6 +251,7 @@ import {
   InputCompressionType,
   InputFormat,
   InputFormatOptions$,
+  InputS3Configuration$,
   InternalServerError,
   InternalServerError$,
   InvalidEndpointException,
@@ -258,6 +276,10 @@ import {
   ListBackupsCommand,
   ListBackupsInput$,
   ListBackupsOutput$,
+  ListBulkOperations$,
+  ListBulkOperationsCommand,
+  ListBulkOperationsInput$,
+  ListBulkOperationsOutput$,
   ListContributorInsights$,
   ListContributorInsightsCommand,
   ListContributorInsightsInput$,
@@ -288,6 +310,9 @@ import {
   MultiRegionConsistency,
   OnDemandThroughput$,
   OnDemandThroughputOverride$,
+  OutputS3Configuration$,
+  OutputTypeEnum,
+  paginateListBulkOperations,
   paginateListContributorInsights,
   paginateListExports,
   paginateListImports,
@@ -384,6 +409,10 @@ import {
   SSESpecification$,
   SSEStatus,
   SSEType,
+  StartBulkPutItems$,
+  StartBulkPutItemsCommand,
+  StartBulkPutItemsInput$,
+  StartBulkPutItemsOutput$,
   StreamSpecification$,
   StreamViewType,
   TableAlreadyExistsException,
@@ -475,12 +504,14 @@ import {
   VectorIndexDescription$,
   VectorIndexInfo$,
   VectorIndexUpdate$,
+  waitForBulkOperationCompleted,
   waitForContributorInsightsEnabled,
   waitForExportCompleted,
   waitForImportCompleted,
   waitForKinesisStreamingDestinationActive,
   waitForTableExists,
   waitForTableNotExists,
+  waitUntilBulkOperationCompleted,
   waitUntilContributorInsightsEnabled,
   waitUntilExportCompleted,
   waitUntilImportCompleted,
@@ -502,6 +533,8 @@ assert(typeof BatchGetItemCommand === "function");
 assert(typeof BatchGetItem$ === "object");
 assert(typeof BatchWriteItemCommand === "function");
 assert(typeof BatchWriteItem$ === "object");
+assert(typeof CancelBulkOperationCommand === "function");
+assert(typeof CancelBulkOperation$ === "object");
 assert(typeof CreateBackupCommand === "function");
 assert(typeof CreateBackup$ === "object");
 assert(typeof CreateGlobalTableCommand === "function");
@@ -518,6 +551,8 @@ assert(typeof DeleteTableCommand === "function");
 assert(typeof DeleteTable$ === "object");
 assert(typeof DescribeBackupCommand === "function");
 assert(typeof DescribeBackup$ === "object");
+assert(typeof DescribeBulkOperationCommand === "function");
+assert(typeof DescribeBulkOperation$ === "object");
 assert(typeof DescribeContinuousBackupsCommand === "function");
 assert(typeof DescribeContinuousBackups$ === "object");
 assert(typeof DescribeContributorInsightsCommand === "function");
@@ -560,6 +595,8 @@ assert(typeof ImportTableCommand === "function");
 assert(typeof ImportTable$ === "object");
 assert(typeof ListBackupsCommand === "function");
 assert(typeof ListBackups$ === "object");
+assert(typeof ListBulkOperationsCommand === "function");
+assert(typeof ListBulkOperations$ === "object");
 assert(typeof ListContributorInsightsCommand === "function");
 assert(typeof ListContributorInsights$ === "object");
 assert(typeof ListExportsCommand === "function");
@@ -586,6 +623,8 @@ assert(typeof ScanCommand === "function");
 assert(typeof Scan$ === "object");
 assert(typeof SearchVectorsCommand === "function");
 assert(typeof SearchVectors$ === "object");
+assert(typeof StartBulkPutItemsCommand === "function");
+assert(typeof StartBulkPutItems$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof TransactGetItemsCommand === "function");
@@ -636,6 +675,14 @@ assert(typeof BatchStatementResponse$ === "object");
 assert(typeof BatchWriteItemInput$ === "object");
 assert(typeof BatchWriteItemOutput$ === "object");
 assert(typeof BillingModeSummary$ === "object");
+assert(typeof BulkOperationBytes$ === "object");
+assert(typeof BulkOperationDescription$ === "object");
+assert(typeof BulkOperationSummary$ === "object");
+assert(typeof BulkOperationTableDetail$ === "object");
+assert(typeof BulkOperationUsage$ === "object");
+assert(typeof BulkOperationVectorBytes$ === "object");
+assert(typeof CancelBulkOperationInput$ === "object");
+assert(typeof CancelBulkOperationOutput$ === "object");
 assert(typeof CancellationReason$ === "object");
 assert(typeof Capacity$ === "object");
 assert(typeof Condition$ === "object");
@@ -672,6 +719,8 @@ assert(typeof DeleteTableOutput$ === "object");
 assert(typeof DeleteVectorIndexAction$ === "object");
 assert(typeof DescribeBackupInput$ === "object");
 assert(typeof DescribeBackupOutput$ === "object");
+assert(typeof DescribeBulkOperationInput$ === "object");
+assert(typeof DescribeBulkOperationOutput$ === "object");
 assert(typeof DescribeContinuousBackupsInput$ === "object");
 assert(typeof DescribeContinuousBackupsOutput$ === "object");
 assert(typeof DescribeContributorInsightsInput$ === "object");
@@ -732,6 +781,7 @@ assert(typeof ImportTableInput$ === "object");
 assert(typeof ImportTableOutput$ === "object");
 assert(typeof IncrementalExportSpecification$ === "object");
 assert(typeof InputFormatOptions$ === "object");
+assert(typeof InputS3Configuration$ === "object");
 assert(typeof ItemCollectionMetrics$ === "object");
 assert(typeof ItemResponse$ === "object");
 assert(typeof KeysAndAttributes$ === "object");
@@ -741,6 +791,8 @@ assert(typeof KinesisStreamingDestinationInput$ === "object");
 assert(typeof KinesisStreamingDestinationOutput$ === "object");
 assert(typeof ListBackupsInput$ === "object");
 assert(typeof ListBackupsOutput$ === "object");
+assert(typeof ListBulkOperationsInput$ === "object");
+assert(typeof ListBulkOperationsOutput$ === "object");
 assert(typeof ListContributorInsightsInput$ === "object");
 assert(typeof ListContributorInsightsOutput$ === "object");
 assert(typeof ListExportsInput$ === "object");
@@ -758,6 +810,7 @@ assert(typeof LocalSecondaryIndexDescription$ === "object");
 assert(typeof LocalSecondaryIndexInfo$ === "object");
 assert(typeof OnDemandThroughput$ === "object");
 assert(typeof OnDemandThroughputOverride$ === "object");
+assert(typeof OutputS3Configuration$ === "object");
 assert(typeof ParameterizedStatement$ === "object");
 assert(typeof PointInTimeRecoveryDescription$ === "object");
 assert(typeof PointInTimeRecoverySpecification$ === "object");
@@ -803,6 +856,8 @@ assert(typeof SourceTableDetails$ === "object");
 assert(typeof SourceTableFeatureDetails$ === "object");
 assert(typeof SSEDescription$ === "object");
 assert(typeof SSESpecification$ === "object");
+assert(typeof StartBulkPutItemsInput$ === "object");
+assert(typeof StartBulkPutItemsOutput$ === "object");
 assert(typeof StreamSpecification$ === "object");
 assert(typeof TableAutoScalingDescription$ === "object");
 assert(typeof TableClassSummary$ === "object");
@@ -859,6 +914,9 @@ assert(typeof BackupType === "object");
 assert(typeof BackupTypeFilter === "object");
 assert(typeof BatchStatementErrorCodeEnum === "object");
 assert(typeof BillingMode === "object");
+assert(typeof BulkOperationInputFormat === "object");
+assert(typeof BulkOperationPerformanceTier === "object");
+assert(typeof BulkOperationStatus === "object");
 assert(typeof ComparisonOperator === "object");
 assert(typeof ConditionalOperator === "object");
 assert(typeof ContinuousBackupsStatus === "object");
@@ -879,6 +937,7 @@ assert(typeof InputCompressionType === "object");
 assert(typeof InputFormat === "object");
 assert(typeof KeyType === "object");
 assert(typeof MultiRegionConsistency === "object");
+assert(typeof OutputTypeEnum === "object");
 assert(typeof PointInTimeRecoveryStatus === "object");
 assert(typeof ProjectionType === "object");
 assert(typeof ReplicaStatus === "object");
@@ -971,12 +1030,14 @@ assert(TransactionInProgressException.prototype instanceof DynamoDBServiceExcept
 assert(typeof TransactionInProgressException$ === "object");
 assert(DynamoDBServiceException.prototype instanceof Error);
 // waiters
+assert(typeof waitForBulkOperationCompleted === "function");
 assert(typeof waitForContributorInsightsEnabled === "function");
 assert(typeof waitForExportCompleted === "function");
 assert(typeof waitForImportCompleted === "function");
 assert(typeof waitForKinesisStreamingDestinationActive === "function");
 assert(typeof waitForTableExists === "function");
 assert(typeof waitForTableNotExists === "function");
+assert(typeof waitUntilBulkOperationCompleted === "function");
 assert(typeof waitUntilContributorInsightsEnabled === "function");
 assert(typeof waitUntilExportCompleted === "function");
 assert(typeof waitUntilImportCompleted === "function");
@@ -984,6 +1045,7 @@ assert(typeof waitUntilKinesisStreamingDestinationActive === "function");
 assert(typeof waitUntilTableExists === "function");
 assert(typeof waitUntilTableNotExists === "function");
 // paginators
+assert(typeof paginateListBulkOperations === "function");
 assert(typeof paginateListContributorInsights === "function");
 assert(typeof paginateListExports === "function");
 assert(typeof paginateListImports === "function");

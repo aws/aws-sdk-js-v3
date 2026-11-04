@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep13, _mw0, command } from "../commandBuilder";
+import { _ep14, _mw0, command } from "../commandBuilder";
 import type { TransactWriteItemsInput, TransactWriteItemsOutput } from "../models/models_0";
 import { TransactWriteItems$ } from "../schemas/schemas_0";
 
@@ -650,7 +650,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  * @public
  */
 export class TransactWriteItemsCommand extends command<TransactWriteItemsCommandInput, TransactWriteItemsCommandOutput>(
-  _ep13,
+  _ep14,
   _mw0,
   "TransactWriteItems",
   TransactWriteItems$

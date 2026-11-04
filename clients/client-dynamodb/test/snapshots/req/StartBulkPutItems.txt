@@ -1,0 +1,41 @@
+POST https://dynamodb.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.0
+x-amz-target: DynamoDB_20120810.StartBulkPutItems
+content-length: 596
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/dynamodb#_.__ m/E,P,e
+host: dynamodb.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: d4685a78b74933365a15ce15b18d6f87a1ea5ed8383b5e121b3c17b95b0cbb23
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[Uint8Array (json)]
+{
+  "InputS3Configuration": {
+    "S3Bucket": "__S3Bucket__",
+    "InputFormat": "__InputFormat__",
+    "S3BucketOwner": "__S3BucketOwner__",
+    "S3KeyPrefix": "__S3KeyPrefix__",
+    "InputCompressionType": "__InputCompressionType__"
+  },
+  "OutputS3Configuration": {
+    "OutputType": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "S3BucketOwner": "__S3BucketOwner__",
+    "S3Bucket": "__S3Bucket__",
+    "S3KeyPrefix": "__S3KeyPrefix__",
+    "S3SseAlgorithm": "__S3SseAlgorithm__",
+    "S3SseKmsKeyId": "__S3SseKmsKeyId__"
+  },
+  "TableName": "__TableName__",
+  "ClientToken": "1111abcd-uuid-uuid-uuid-000000001111",
+  "MaxWriteRequestUnits": 0,
+  "PerformanceTier": "__PerformanceTier__"
+}

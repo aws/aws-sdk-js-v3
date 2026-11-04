@@ -24,6 +24,11 @@ import {
   BatchWriteItemCommand,
 } from "./commands/BatchWriteItemCommand";
 import {
+  type CancelBulkOperationCommandInput,
+  type CancelBulkOperationCommandOutput,
+  CancelBulkOperationCommand,
+} from "./commands/CancelBulkOperationCommand";
+import {
   type CreateBackupCommandInput,
   type CreateBackupCommandOutput,
   CreateBackupCommand,
@@ -63,6 +68,11 @@ import {
   type DescribeBackupCommandOutput,
   DescribeBackupCommand,
 } from "./commands/DescribeBackupCommand";
+import {
+  type DescribeBulkOperationCommandInput,
+  type DescribeBulkOperationCommandOutput,
+  DescribeBulkOperationCommand,
+} from "./commands/DescribeBulkOperationCommand";
 import {
   type DescribeContinuousBackupsCommandInput,
   type DescribeContinuousBackupsCommandOutput,
@@ -165,6 +175,11 @@ import {
   ListBackupsCommand,
 } from "./commands/ListBackupsCommand";
 import {
+  type ListBulkOperationsCommandInput,
+  type ListBulkOperationsCommandOutput,
+  ListBulkOperationsCommand,
+} from "./commands/ListBulkOperationsCommand";
+import {
   type ListContributorInsightsCommandInput,
   type ListContributorInsightsCommandOutput,
   ListContributorInsightsCommand,
@@ -217,6 +232,11 @@ import {
   type SearchVectorsCommandOutput,
   SearchVectorsCommand,
 } from "./commands/SearchVectorsCommand";
+import {
+  type StartBulkPutItemsCommandInput,
+  type StartBulkPutItemsCommandOutput,
+  StartBulkPutItemsCommand,
+} from "./commands/StartBulkPutItemsCommand";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -285,12 +305,14 @@ import {
 import { DynamoDBClient } from "./DynamoDBClient";
 import type { DynamoDBServiceException } from "./models/DynamoDBServiceException";
 import type { ResourceNotFoundException } from "./models/errors";
+import { paginateListBulkOperations } from "./pagination/ListBulkOperationsPaginator";
 import { paginateListContributorInsights } from "./pagination/ListContributorInsightsPaginator";
 import { paginateListExports } from "./pagination/ListExportsPaginator";
 import { paginateListImports } from "./pagination/ListImportsPaginator";
 import { paginateListTables } from "./pagination/ListTablesPaginator";
 import { paginateQuery } from "./pagination/QueryPaginator";
 import { paginateScan } from "./pagination/ScanPaginator";
+import { waitUntilBulkOperationCompleted } from "./waiters/waitForBulkOperationCompleted";
 import { waitUntilContributorInsightsEnabled } from "./waiters/waitForContributorInsightsEnabled";
 import { waitUntilExportCompleted } from "./waiters/waitForExportCompleted";
 import { waitUntilImportCompleted } from "./waiters/waitForImportCompleted";
@@ -302,6 +324,7 @@ const commands = {
   BatchExecuteStatementCommand,
   BatchGetItemCommand,
   BatchWriteItemCommand,
+  CancelBulkOperationCommand,
   CreateBackupCommand,
   CreateGlobalTableCommand,
   CreateTableCommand,
@@ -310,6 +333,7 @@ const commands = {
   DeleteResourcePolicyCommand,
   DeleteTableCommand,
   DescribeBackupCommand,
+  DescribeBulkOperationCommand,
   DescribeContinuousBackupsCommand,
   DescribeContributorInsightsCommand,
   DescribeEndpointsCommand,
@@ -331,6 +355,7 @@ const commands = {
   GetResourcePolicyCommand,
   ImportTableCommand,
   ListBackupsCommand,
+  ListBulkOperationsCommand,
   ListContributorInsightsCommand,
   ListExportsCommand,
   ListGlobalTablesCommand,
@@ -344,6 +369,7 @@ const commands = {
   RestoreTableToPointInTimeCommand,
   ScanCommand,
   SearchVectorsCommand,
+  StartBulkPutItemsCommand,
   TagResourceCommand,
   TransactGetItemsCommand,
   TransactWriteItemsCommand,
@@ -359,6 +385,7 @@ const commands = {
   UpdateTimeToLiveCommand,
 };
 const paginators = {
+  paginateListBulkOperations,
   paginateListContributorInsights,
   paginateListExports,
   paginateListImports,
@@ -367,6 +394,7 @@ const paginators = {
   paginateScan,
 };
 const waiters = {
+  waitUntilBulkOperationCompleted,
   waitUntilContributorInsightsEnabled,
   waitUntilExportCompleted,
   waitUntilImportCompleted,
@@ -432,6 +460,23 @@ export interface DynamoDB {
     args: BatchWriteItemCommandInput,
     options: DynamoDBRequestOptions,
     cb: (err: any, data?: BatchWriteItemCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelBulkOperationCommand}
+   */
+  cancelBulkOperation(
+    args: CancelBulkOperationCommandInput,
+    options?: DynamoDBRequestOptions
+  ): Promise<CancelBulkOperationCommandOutput>;
+  cancelBulkOperation(
+    args: CancelBulkOperationCommandInput,
+    cb: (err: any, data?: CancelBulkOperationCommandOutput) => void
+  ): void;
+  cancelBulkOperation(
+    args: CancelBulkOperationCommandInput,
+    options: DynamoDBRequestOptions,
+    cb: (err: any, data?: CancelBulkOperationCommandOutput) => void
   ): void;
 
   /**
@@ -568,6 +613,23 @@ export interface DynamoDB {
     args: DescribeBackupCommandInput,
     options: DynamoDBRequestOptions,
     cb: (err: any, data?: DescribeBackupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeBulkOperationCommand}
+   */
+  describeBulkOperation(
+    args: DescribeBulkOperationCommandInput,
+    options?: DynamoDBRequestOptions
+  ): Promise<DescribeBulkOperationCommandOutput>;
+  describeBulkOperation(
+    args: DescribeBulkOperationCommandInput,
+    cb: (err: any, data?: DescribeBulkOperationCommandOutput) => void
+  ): void;
+  describeBulkOperation(
+    args: DescribeBulkOperationCommandInput,
+    options: DynamoDBRequestOptions,
+    cb: (err: any, data?: DescribeBulkOperationCommandOutput) => void
   ): void;
 
   /**
@@ -931,6 +993,24 @@ export interface DynamoDB {
   ): void;
 
   /**
+   * @see {@link ListBulkOperationsCommand}
+   */
+  listBulkOperations(): Promise<ListBulkOperationsCommandOutput>;
+  listBulkOperations(
+    args: ListBulkOperationsCommandInput,
+    options?: DynamoDBRequestOptions
+  ): Promise<ListBulkOperationsCommandOutput>;
+  listBulkOperations(
+    args: ListBulkOperationsCommandInput,
+    cb: (err: any, data?: ListBulkOperationsCommandOutput) => void
+  ): void;
+  listBulkOperations(
+    args: ListBulkOperationsCommandInput,
+    options: DynamoDBRequestOptions,
+    cb: (err: any, data?: ListBulkOperationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListContributorInsightsCommand}
    */
   listContributorInsights(): Promise<ListContributorInsightsCommandOutput>;
@@ -1157,6 +1237,23 @@ export interface DynamoDB {
   ): void;
 
   /**
+   * @see {@link StartBulkPutItemsCommand}
+   */
+  startBulkPutItems(
+    args: StartBulkPutItemsCommandInput,
+    options?: DynamoDBRequestOptions
+  ): Promise<StartBulkPutItemsCommandOutput>;
+  startBulkPutItems(
+    args: StartBulkPutItemsCommandInput,
+    cb: (err: any, data?: StartBulkPutItemsCommandOutput) => void
+  ): void;
+  startBulkPutItems(
+    args: StartBulkPutItemsCommandInput,
+    options: DynamoDBRequestOptions,
+    cb: (err: any, data?: StartBulkPutItemsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(
@@ -1378,6 +1475,17 @@ export interface DynamoDB {
   ): void;
 
   /**
+   * @see {@link ListBulkOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBulkOperationsCommandOutput}.
+   */
+  paginateListBulkOperations(
+    args?: ListBulkOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBulkOperationsCommandOutput>;
+
+  /**
    * @see {@link ListContributorInsightsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1442,6 +1550,16 @@ export interface DynamoDB {
     args: ScanCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ScanCommandOutput>;
+
+  /**
+   * @see {@link DescribeBulkOperationCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilBulkOperationCompleted(
+    args: DescribeBulkOperationCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DynamoDB>, "client">
+  ): Promise<WaiterResult<DescribeBulkOperationCommandOutput>>;
 
   /**
    * @see {@link DescribeContributorInsightsCommand}

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep12, _mw0, command } from "../commandBuilder";
+import { _ep13, _mw0, command } from "../commandBuilder";
 import type { TransactGetItemsInput, TransactGetItemsOutput } from "../models/models_0";
 import { TransactGetItems$ } from "../schemas/schemas_0";
 
@@ -487,7 +487,7 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  * @public
  */
 export class TransactGetItemsCommand extends command<TransactGetItemsCommandInput, TransactGetItemsCommandOutput>(
-  _ep12,
+  _ep13,
   _mw0,
   "TransactGetItems",
   TransactGetItems$

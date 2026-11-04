@@ -86,7 +86,7 @@ const _data={
     ["{Endpoint}",G],
     [a,"Invalid Configuration: FIPS and local endpoint are not supported"],
     [a,"Invalid Configuration: Dualstack and local endpoint are not supported"],
-    ["http://localhost:8000",{authSchemes:[{signingRegion:"us-east-1",name:"sigv4",signingName:m}]}],
+    ["http://localhost:8000",{authSchemes:[{name:"sigv4",signingName:m,signingRegion:"us-east-1"}]}],
     [a,"Invalid Configuration: AccountIdEndpointMode is required and FIPS is enabled, but FIPS account endpoints are not supported"],
     ["https://search-dynamodb-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",G],
     ["https://dynamodb-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",G],
