@@ -92,6 +92,7 @@ export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __M
  * //     SourceOptionGroup: "STRING_VALUE",
  * //     SourceAccountId: "STRING_VALUE",
  * //     CopyTimestamp: new Date("TIMESTAMP"),
+ * //     SourceRegion: "STRING_VALUE",
  * //   },
  * // };
  *

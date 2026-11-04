@@ -1298,6 +1298,24 @@ export interface CopyDBParameterGroupResult {
 }
 
 /**
+ * <p>The tags to apply to resources when creating or modifying a DB instance or DB cluster, or when copying a DB instance snapshot. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.</p>
+ * @public
+ */
+export interface TagSpecification {
+  /**
+   * <p>The type of resource to tag on creation.</p> <p>Valid Values: </p> <ul> <li> <p> <code>auto-backup</code> - The DB instance's automated backup.</p> </li> <li> <p> <code>cluster-auto-backup</code> - The DB cluster's automated backup.</p> </li> <li> <p> <code>og</code> - The copied option group. Valid only for <code>CopyDBSnapshot</code>.</p> </li> </ul>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>A list of tags.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS resources</a> in the <i>Amazon RDS User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS resources</a> in the <i>Amazon Aurora User Guide</i>. </p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
  * <p/>
  * @public
  */
@@ -1357,7 +1375,7 @@ export interface CopyDBSnapshotMessage {
   SnapshotTarget?: string | undefined;
 
   /**
-   * <p>Specifies whether to copy the DB option group associated with the source DB snapshot to the target Amazon Web Services account and associate with the target DB snapshot. The associated option group can be copied only with cross-account snapshot copy calls.</p>
+   * <p>Specifies whether to copy the DB option group associated with the source DB snapshot to the target Amazon Web Services account or Amazon Web Services Region and associate it with the target DB snapshot.</p>
    * @public
    */
   CopyOptionGroup?: boolean | undefined;
@@ -1367,6 +1385,12 @@ export interface CopyDBSnapshotMessage {
    * @public
    */
   SnapshotAvailabilityZone?: string | undefined;
+
+  /**
+   * <p>Tags to assign to the copied option group. By default, the copied option group isn't tagged.</p> <p>Valid Values: </p> <ul> <li> <p> <code>og</code> - The copied option group.</p> </li> </ul> <p>Constraints:</p> <ul> <li> <p>Can only be specified when <code>CopyOptionGroup</code> is <code>true</code> </p> </li> </ul>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
 }
 
 /**
@@ -1912,6 +1936,12 @@ export interface OptionGroup {
    * @public
    */
   CopyTimestamp?: Date | undefined;
+
+  /**
+   * <p>Specifies the Amazon Web Services Region for the option group from which this option group is copied.</p>
+   * @public
+   */
+  SourceRegion?: string | undefined;
 }
 
 /**
@@ -2782,24 +2812,6 @@ export interface ServerlessV2ScalingConfiguration {
    * @public
    */
   SecondsUntilAutoPause?: number | undefined;
-}
-
-/**
- * <p>The tags to apply to resources when creating or modifying a DB instance or DB cluster. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.</p>
- * @public
- */
-export interface TagSpecification {
-  /**
-   * <p>The type of resource to tag on creation.</p> <p>Valid Values: </p> <ul> <li> <p> <code>auto-backup</code> - The DB instance's automated backup.</p> </li> <li> <p> <code>cluster-auto-backup</code> - The DB cluster's automated backup.</p> </li> </ul>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>A list of tags.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS resources</a> in the <i>Amazon RDS User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS resources</a> in the <i>Amazon Aurora User Guide</i>. </p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -11396,6 +11408,12 @@ export interface OptionGroupOption {
    * @public
    */
   CopyableCrossAccount?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the option can be copied across Amazon Web Services Regions.</p>
+   * @public
+   */
+  CopyableCrossRegion?: boolean | undefined;
 }
 
 /**

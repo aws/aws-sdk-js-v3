@@ -93,6 +93,7 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
  * //         },
  * //       ],
  * //       CopyableCrossAccount: true || false,
+ * //       CopyableCrossRegion: true || false,
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

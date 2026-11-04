@@ -97,6 +97,7 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
  * //       SourceOptionGroup: "STRING_VALUE",
  * //       SourceAccountId: "STRING_VALUE",
  * //       CopyTimestamp: new Date("TIMESTAMP"),
+ * //       SourceRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

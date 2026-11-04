@@ -64,6 +64,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <CopyTimestamp>
             2000-01-01T04:59:59.999Z
         </CopyTimestamp>
+        <SourceRegion>
+            __SourceRegion__
+        </SourceRegion>
     </OptionGroup>
 </CreateOptionGroupResult>
 

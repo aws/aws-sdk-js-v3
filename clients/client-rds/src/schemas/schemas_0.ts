@@ -123,6 +123,7 @@ const _CCDBEV = "CreateCustomDBEngineVersion";
 const _CCDBEVF = "CreateCustomDBEngineVersionFault";
 const _CCDBEVM = "CreateCustomDBEngineVersionMessage";
 const _CCPAZ = "CommittedCapacityPerAvailabilityZone";
+const _CCR = "CopyableCrossRegion";
 const _CCT = "ClusterCreateTime";
 const _CCu = "CurrencyCode";
 const _CD = "CertificateDetails";
@@ -2869,8 +2870,8 @@ export var CopyDBParameterGroupResult$: StaticStructureSchema = [3, n0, _CDBPGR,
 ];
 export var CopyDBSnapshotMessage$: StaticStructureSchema = [3, n0, _CDBSM,
   0,
-  [_SDBSI, _TDBSI, _KKI, _T, _CTo, _PSU, _OGN, _TCAZ, _STn, _COG, _SAZ],
-  [0, 0, 0, [() => TagList, 0], 2, [() => SensitiveString, 0], 0, 0, 0, 2, 0], 2
+  [_SDBSI, _TDBSI, _KKI, _T, _CTo, _PSU, _OGN, _TCAZ, _STn, _COG, _SAZ, _TS],
+  [0, 0, 0, [() => TagList, 0], 2, [() => SensitiveString, 0], 0, 0, 0, 2, 0, [() => TagSpecificationList, 0]], 2
 ];
 export var CopyDBSnapshotResult$: StaticStructureSchema = [3, n0, _CDBSR,
   0,
@@ -4284,8 +4285,8 @@ export var OptionConfiguration$: StaticStructureSchema = [3, n0, _OC,
 ];
 export var OptionGroup$: StaticStructureSchema = [3, n0, _OG,
   0,
-  [_OGN, _OGD, _EN, _MEV, _Op, _AVANVIM, _VI, _OGA, _SOG, _SAI, _CTop],
-  [0, 0, 0, 0, [() => OptionsList, 0], 2, 0, 0, 0, 0, 4]
+  [_OGN, _OGD, _EN, _MEV, _Op, _AVANVIM, _VI, _OGA, _SOG, _SAI, _CTop, _SR],
+  [0, 0, 0, 0, [() => OptionsList, 0], 2, 0, 0, 0, 0, 4, 0]
 ];
 export var OptionGroupMembership$: StaticStructureSchema = [3, n0, _OGMp,
   0,
@@ -4294,8 +4295,8 @@ export var OptionGroupMembership$: StaticStructureSchema = [3, n0, _OGMp,
 ];
 export var OptionGroupOption$: StaticStructureSchema = [3, n0, _OGO,
   0,
-  [_N, _D, _EN, _MEV, _MRMEV, _PR, _DPe, _ODO, _OCW, _Pe, _Per, _RAMEVU, _VO, _SOVD, _OGOS, _OGOV, _CCA],
-  [0, 0, 0, 0, 0, 2, 1, [() => OptionsDependedOn, 0], [() => OptionsConflictsWith, 0], 2, 2, 2, 2, 2, [() => OptionGroupOptionSettingsList, 0], [() => OptionGroupOptionVersionsList, 0], 2]
+  [_N, _D, _EN, _MEV, _MRMEV, _PR, _DPe, _ODO, _OCW, _Pe, _Per, _RAMEVU, _VO, _SOVD, _OGOS, _OGOV, _CCA, _CCR],
+  [0, 0, 0, 0, 0, 2, 1, [() => OptionsDependedOn, 0], [() => OptionsConflictsWith, 0], 2, 2, 2, 2, 2, [() => OptionGroupOptionSettingsList, 0], [() => OptionGroupOptionVersionsList, 0], 2, 2]
 ];
 export var OptionGroupOptionSetting$: StaticStructureSchema = [3, n0, _OGOSp,
   0,

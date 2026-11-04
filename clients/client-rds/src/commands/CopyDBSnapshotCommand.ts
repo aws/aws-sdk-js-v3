@@ -49,6 +49,17 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  *   SnapshotTarget: "STRING_VALUE",
  *   CopyOptionGroup: true || false,
  *   SnapshotAvailabilityZone: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "STRING_VALUE",
+ *       Tags: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new CopyDBSnapshotCommand(input);
  * const response = await client.send(command);
