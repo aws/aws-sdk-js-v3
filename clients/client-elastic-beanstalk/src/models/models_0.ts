@@ -3,6 +3,7 @@ import type {
   ActionHistoryStatus,
   ActionStatus,
   ActionType,
+  AmiArchitecture,
   ApplicationVersionStatus,
   ArchitectureType,
   ComputeType,
@@ -1386,6 +1387,8 @@ export interface ImageConfiguration {
    *       application version.</p>
    *          <p>If you specify <code>Build</code>, also specify the request's <code>SourceBundle</code>
    *       parameter, and don't specify <code>Source</code>.</p>
+   *          <p>To build the image when you create the application version instead of on first deployment,
+   *       also set <code>Process</code> to <code>true</code>.</p>
    * @public
    */
   Build?: ImageBuildConfiguration | undefined;
@@ -1457,6 +1460,10 @@ export interface CreateApplicationVersionMessage {
    *       to an environment.</p>
    *          <p>You must turn processing on for application versions that you create using CodeBuild or CodeCommit. For application versions built from a source bundle
    *       in Amazon S3, processing is optional.</p>
+   *          <p>For application versions with <code>ImageConfiguration.Build</code>, <code>Process</code>
+   *       determines when Elastic Beanstalk builds the container image. Set it to <code>true</code> to build the
+   *       image when you create the application version. If you don't, Elastic Beanstalk builds the image when you
+   *       first deploy the application version to an environment.</p>
    *          <note>
    *             <p>The <code>Process</code> option validates Elastic Beanstalk configuration files. It doesn't validate your application's configuration files, like proxy server
    *         or Docker configuration.</p>
@@ -3535,6 +3542,25 @@ export interface CustomAmi {
 }
 
 /**
+ * <p>An AMI that Elastic Beanstalk uses by default for a platform version and processor
+ *       architecture.</p>
+ * @public
+ */
+export interface DefaultAmi {
+  /**
+   * <p>The processor architecture of the AMI.</p>
+   * @public
+   */
+  Architecture?: AmiArchitecture | undefined;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+}
+
+/**
  * <p>A framework supported by the platform.</p>
  * @public
  */
@@ -3666,10 +3692,22 @@ export interface PlatformDescription {
   Frameworks?: PlatformFramework[] | undefined;
 
   /**
-   * <p>The custom AMIs supported by the platform version.</p>
+   * <p>The AMIs of the platform version, by virtualization type. For Elastic Beanstalk managed platforms,
+   *       these are the default <code>x86_64</code> AMIs; for custom platforms, the <code>hvm</code>
+   *       entry is the AMI built for the platform version. To find a managed platform's default AMIs
+   *       for every supported processor architecture, including <code>arm64</code>, use <code>DefaultAmiList</code>.</p>
    * @public
    */
   CustomAmiList?: CustomAmi[] | undefined;
+
+  /**
+   * <p>The AMIs that Elastic Beanstalk uses by default for the platform version, one for each supported
+   *       processor architecture. When an environment doesn't specify a custom AMI, Elastic Beanstalk chooses the
+   *       default AMI that matches the environment's architecture.</p>
+   *          <p>This list isn't returned for custom platforms.</p>
+   * @public
+   */
+  DefaultAmiList?: DefaultAmi[] | undefined;
 
   /**
    * <p>The tiers supported by the platform version.</p>

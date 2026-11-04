@@ -5,6 +5,7 @@ import {
   ActionHistoryStatus,
   ActionStatus,
   ActionType,
+  AmiArchitecture,
   ApplicationDescription$,
   ApplicationDescriptionMessage$,
   ApplicationDescriptionsMessage$,
@@ -67,6 +68,7 @@ import {
   CreateStorageLocationCommand,
   CreateStorageLocationResultMessage$,
   CustomAmi$,
+  DefaultAmi$,
   DeleteApplication$,
   DeleteApplicationCommand,
   DeleteApplicationMessage$,
@@ -432,6 +434,7 @@ assert(typeof CreatePlatformVersionRequest$ === "object");
 assert(typeof CreatePlatformVersionResult$ === "object");
 assert(typeof CreateStorageLocationResultMessage$ === "object");
 assert(typeof CustomAmi$ === "object");
+assert(typeof DefaultAmi$ === "object");
 assert(typeof DeleteApplicationMessage$ === "object");
 assert(typeof DeleteApplicationVersionMessage$ === "object");
 assert(typeof DeleteConfigurationTemplateMessage$ === "object");
@@ -530,6 +533,7 @@ assert(typeof ValidationMessage$ === "object");
 assert(typeof ActionHistoryStatus === "object");
 assert(typeof ActionStatus === "object");
 assert(typeof ActionType === "object");
+assert(typeof AmiArchitecture === "object");
 assert(typeof ApplicationVersionStatus === "object");
 assert(typeof ArchitectureType === "object");
 assert(typeof ComputeType === "object");

@@ -95,16 +95,18 @@ const _CTo = "ComputeType";
 const _Ca = "Causes";
 const _Co = "Color";
 const _D = "Description";
-const _DA = "DeleteApplication";
+const _DA = "DefaultAmi";
 const _DAA = "DescribeAccountAttributes";
 const _DAAR = "DescribeAccountAttributesResult";
+const _DAL = "DefaultAmiList";
 const _DAM = "DeleteApplicationMessage";
 const _DAMe = "DescribeApplicationsMessage";
 const _DAV = "DeleteApplicationVersion";
 const _DAVM = "DeleteApplicationVersionMessage";
 const _DAVMe = "DescribeApplicationVersionsMessage";
 const _DAVe = "DescribeApplicationVersions";
-const _DAe = "DescribeApplications";
+const _DAe = "DeleteApplication";
+const _DAes = "DescribeApplications";
 const _DC = "DateCreated";
 const _DCO = "DescribeConfigurationOptions";
 const _DCOM = "DescribeConfigurationOptionsMessage";
@@ -788,6 +790,11 @@ export var CustomAmi$: StaticStructureSchema = [3, n0, _CAu,
   [_VTi, _II],
   [0, 0]
 ];
+export var DefaultAmi$: StaticStructureSchema = [3, n0, _DA,
+  0,
+  [_Ar, _II],
+  [0, 0]
+];
 export var DeleteApplicationMessage$: StaticStructureSchema = [3, n0, _DAM,
   0,
   [_AN, _TEBF],
@@ -1090,8 +1097,8 @@ export var PlatformBranchSummary$: StaticStructureSchema = [3, n0, _PBS,
 ];
 export var PlatformDescription$: StaticStructureSchema = [3, n0, _PD,
   0,
-  [_PA, _PO, _PN, _PV, _SSN, _PSl, _DC, _DU, _PC, _D, _Ma, _OSN, _OSV, _PL, _Fr, _CAL, _STL, _SAL, _PLS, _PBN, _PBLS],
-  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, () => PlatformProgrammingLanguages, () => PlatformFrameworks, () => CustomAmiList, 64 | 0, 64 | 0, 0, 0, 0]
+  [_PA, _PO, _PN, _PV, _SSN, _PSl, _DC, _DU, _PC, _D, _Ma, _OSN, _OSV, _PL, _Fr, _CAL, _DAL, _STL, _SAL, _PLS, _PBN, _PBLS],
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, () => PlatformProgrammingLanguages, () => PlatformFrameworks, () => CustomAmiList, () => DefaultAmiList, 64 | 0, 64 | 0, 0, 0, 0]
 ];
 export var PlatformFilter$: StaticStructureSchema = [3, n0, _PF,
   0,
@@ -1288,6 +1295,9 @@ var ConfigurationTemplateNamesList = 64 | 0;
 var CustomAmiList: StaticListSchema = [1, n0, _CAL,
   0, () => CustomAmi$
 ];
+var DefaultAmiList: StaticListSchema = [1, n0, _DAL,
+  0, () => DefaultAmi$
+];
 var EnvironmentDescriptionsList: StaticListSchema = [1, n0, _EDL,
   0, () => EnvironmentDescription$
 ];
@@ -1406,7 +1416,7 @@ export var CreatePlatformVersion$: StaticOperationSchema = [9, n0, _CPV,
 export var CreateStorageLocation$: StaticOperationSchema = [9, n0, _CSL,
   0, () => __Unit, () => CreateStorageLocationResultMessage$
 ];
-export var DeleteApplication$: StaticOperationSchema = [9, n0, _DA,
+export var DeleteApplication$: StaticOperationSchema = [9, n0, _DAe,
   0, () => DeleteApplicationMessage$, () => __Unit
 ];
 export var DeleteApplicationVersion$: StaticOperationSchema = [9, n0, _DAV,
@@ -1424,7 +1434,7 @@ export var DeletePlatformVersion$: StaticOperationSchema = [9, n0, _DPV,
 export var DescribeAccountAttributes$: StaticOperationSchema = [9, n0, _DAA,
   0, () => __Unit, () => DescribeAccountAttributesResult$
 ];
-export var DescribeApplications$: StaticOperationSchema = [9, n0, _DAe,
+export var DescribeApplications$: StaticOperationSchema = [9, n0, _DAes,
   0, () => DescribeApplicationsMessage$, () => ApplicationDescriptionsMessage$
 ];
 export var DescribeApplicationVersions$: StaticOperationSchema = [9, n0, _DAVe,

@@ -81,6 +81,12 @@ export interface DescribePlatformVersionCommandOutput extends DescribePlatformVe
  * //         ImageId: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     DefaultAmiList: [ // DefaultAmiList
+ * //       { // DefaultAmi
+ * //         Architecture: "x86_64" || "arm64",
+ * //         ImageId: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     SupportedTierList: [ // SupportedTierList
  * //       "STRING_VALUE",
  * //     ],

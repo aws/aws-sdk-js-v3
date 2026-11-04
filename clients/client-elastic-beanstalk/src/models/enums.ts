@@ -46,6 +46,19 @@ export type ActionType = (typeof ActionType)[keyof typeof ActionType];
  * @public
  * @enum
  */
+export const AmiArchitecture = {
+  ARM64: "arm64",
+  X86_64: "x86_64",
+} as const;
+/**
+ * @public
+ */
+export type AmiArchitecture = (typeof AmiArchitecture)[keyof typeof AmiArchitecture];
+
+/**
+ * @public
+ * @enum
+ */
 export const ArchitectureType = {
   amd64: "amd64",
   arm64: "arm64",
