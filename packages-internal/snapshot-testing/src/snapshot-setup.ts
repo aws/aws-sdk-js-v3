@@ -14,6 +14,7 @@ export const setup = () => {
   Object.assign(customFields, {
     PredictEndpoint: "https://localhost",
     ChecksumAlgorithm: "CRC64NVME",
+    checksumAlgorithm: "CRC64NVME",
     AccountId: "123456789012",
     accountId: "123456789012",
     OutpostId: "OutpostId",
