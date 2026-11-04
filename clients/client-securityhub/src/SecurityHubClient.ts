@@ -334,6 +334,15 @@ import type {
   GetSecurityControlDefinitionCommandInput,
   GetSecurityControlDefinitionCommandOutput,
 } from "./commands/GetSecurityControlDefinitionCommand";
+import type {
+  GetSoftwareResourcesV2CommandInput,
+  GetSoftwareResourcesV2CommandOutput,
+} from "./commands/GetSoftwareResourcesV2Command";
+import type {
+  GetSoftwareStatisticsV2CommandInput,
+  GetSoftwareStatisticsV2CommandOutput,
+} from "./commands/GetSoftwareStatisticsV2Command";
+import type { GetSoftwareV2CommandInput, GetSoftwareV2CommandOutput } from "./commands/GetSoftwareV2Command";
 import type { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
 import type {
   ListAggregatorsV2CommandInput,
@@ -550,6 +559,9 @@ export type ServiceInputTypes =
   | GetResourcesTrendsV2CommandInput
   | GetResourcesV2CommandInput
   | GetSecurityControlDefinitionCommandInput
+  | GetSoftwareResourcesV2CommandInput
+  | GetSoftwareStatisticsV2CommandInput
+  | GetSoftwareV2CommandInput
   | InviteMembersCommandInput
   | ListAggregatorsV2CommandInput
   | ListAutomationRulesCommandInput
@@ -678,6 +690,9 @@ export type ServiceOutputTypes =
   | GetResourcesTrendsV2CommandOutput
   | GetResourcesV2CommandOutput
   | GetSecurityControlDefinitionCommandOutput
+  | GetSoftwareResourcesV2CommandOutput
+  | GetSoftwareStatisticsV2CommandOutput
+  | GetSoftwareV2CommandOutput
   | InviteMembersCommandOutput
   | ListAggregatorsV2CommandOutput
   | ListAutomationRulesCommandOutput

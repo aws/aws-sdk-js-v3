@@ -15,6 +15,8 @@ export * from "./GetRecommendedPolicyV2Paginator";
 export * from "./GetRemediationsV2Paginator";
 export * from "./GetResourcesTrendsV2Paginator";
 export * from "./GetResourcesV2Paginator";
+export * from "./GetSoftwareResourcesV2Paginator";
+export * from "./GetSoftwareV2Paginator";
 export * from "./ListAggregatorsV2Paginator";
 export * from "./ListConfigurationPoliciesPaginator";
 export * from "./ListConfigurationPolicyAssociationsPaginator";

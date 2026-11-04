@@ -985,6 +985,18 @@ import {
   GetSecurityControlDefinitionCommand,
   GetSecurityControlDefinitionRequest$,
   GetSecurityControlDefinitionResponse$,
+  GetSoftwareResourcesV2$,
+  GetSoftwareResourcesV2Command,
+  GetSoftwareResourcesV2Request$,
+  GetSoftwareResourcesV2Response$,
+  GetSoftwareStatisticsV2$,
+  GetSoftwareStatisticsV2Command,
+  GetSoftwareStatisticsV2Request$,
+  GetSoftwareStatisticsV2Response$,
+  GetSoftwareV2$,
+  GetSoftwareV2Command,
+  GetSoftwareV2Request$,
+  GetSoftwareV2Response$,
   GranularityField,
   GroupByField,
   GroupByResult$,
@@ -1157,6 +1169,8 @@ import {
   paginateGetRemediationsV2,
   paginateGetResourcesTrendsV2,
   paginateGetResourcesV2,
+  paginateGetSoftwareResourcesV2,
+  paginateGetSoftwareV2,
   paginateListAggregatorsV2,
   paginateListConfigurationPolicies,
   paginateListConfigurationPolicyAssociations,
@@ -1312,7 +1326,16 @@ import {
   SeverityTrendsCount$,
   SeverityUpdate$,
   Signal$,
+  SoftwareCompositeFilter$,
+  SoftwareFilters$,
+  SoftwareGroupByField,
+  SoftwareGroupByRule$,
   SoftwarePackage$,
+  SoftwareResourceResult$,
+  SoftwareResult$,
+  SoftwareScopes$,
+  SoftwareStringField,
+  SoftwareStringFilter$,
   SortCriterion$,
   SortOrder,
   Standard$,
@@ -1625,6 +1648,12 @@ assert(typeof GetResourcesV2Command === "function");
 assert(typeof GetResourcesV2$ === "object");
 assert(typeof GetSecurityControlDefinitionCommand === "function");
 assert(typeof GetSecurityControlDefinition$ === "object");
+assert(typeof GetSoftwareResourcesV2Command === "function");
+assert(typeof GetSoftwareResourcesV2$ === "object");
+assert(typeof GetSoftwareStatisticsV2Command === "function");
+assert(typeof GetSoftwareStatisticsV2$ === "object");
+assert(typeof GetSoftwareV2Command === "function");
+assert(typeof GetSoftwareV2$ === "object");
 assert(typeof InviteMembersCommand === "function");
 assert(typeof InviteMembers$ === "object");
 assert(typeof ListAggregatorsV2Command === "function");
@@ -2472,6 +2501,12 @@ assert(typeof GetResourcesV2Request$ === "object");
 assert(typeof GetResourcesV2Response$ === "object");
 assert(typeof GetSecurityControlDefinitionRequest$ === "object");
 assert(typeof GetSecurityControlDefinitionResponse$ === "object");
+assert(typeof GetSoftwareResourcesV2Request$ === "object");
+assert(typeof GetSoftwareResourcesV2Response$ === "object");
+assert(typeof GetSoftwareStatisticsV2Request$ === "object");
+assert(typeof GetSoftwareStatisticsV2Response$ === "object");
+assert(typeof GetSoftwareV2Request$ === "object");
+assert(typeof GetSoftwareV2Response$ === "object");
 assert(typeof GroupByResult$ === "object");
 assert(typeof GroupByRule$ === "object");
 assert(typeof GroupByValue$ === "object");
@@ -2663,7 +2698,14 @@ assert(typeof Severity$ === "object");
 assert(typeof SeverityTrendsCount$ === "object");
 assert(typeof SeverityUpdate$ === "object");
 assert(typeof Signal$ === "object");
+assert(typeof SoftwareCompositeFilter$ === "object");
+assert(typeof SoftwareFilters$ === "object");
+assert(typeof SoftwareGroupByRule$ === "object");
 assert(typeof SoftwarePackage$ === "object");
+assert(typeof SoftwareResourceResult$ === "object");
+assert(typeof SoftwareResult$ === "object");
+assert(typeof SoftwareScopes$ === "object");
+assert(typeof SoftwareStringFilter$ === "object");
 assert(typeof SortCriterion$ === "object");
 assert(typeof Standard$ === "object");
 assert(typeof StandardsControl$ === "object");
@@ -2829,6 +2871,8 @@ assert(typeof SecurityControlsProvider === "object");
 assert(typeof SecurityHubFeature === "object");
 assert(typeof SeverityLabel === "object");
 assert(typeof SeverityRating === "object");
+assert(typeof SoftwareGroupByField === "object");
+assert(typeof SoftwareStringField === "object");
 assert(typeof SortOrder === "object");
 assert(typeof StandardsControlsUpdatable === "object");
 assert(typeof StandardsProvider === "object");
@@ -2894,6 +2938,8 @@ assert(typeof paginateGetRecommendedPolicyV2 === "function");
 assert(typeof paginateGetRemediationsV2 === "function");
 assert(typeof paginateGetResourcesTrendsV2 === "function");
 assert(typeof paginateGetResourcesV2 === "function");
+assert(typeof paginateGetSoftwareResourcesV2 === "function");
+assert(typeof paginateGetSoftwareV2 === "function");
 assert(typeof paginateListAggregatorsV2 === "function");
 assert(typeof paginateListConfigurationPolicies === "function");
 assert(typeof paginateListConfigurationPolicyAssociations === "function");

@@ -1952,6 +1952,15 @@ const _GSCD = "GetSecurityControlDefinition";
 const _GSCDR = "GetSecurityControlDefinitionRequest";
 const _GSCDRe = "GetSecurityControlDefinitionResponse";
 const _GSI = "GlobalSecondaryIndexes";
+const _GSRV = "GetSoftwareResourcesV2";
+const _GSRVR = "GetSoftwareResourcesV2Request";
+const _GSRVRe = "GetSoftwareResourcesV2Response";
+const _GSSV = "GetSoftwareStatisticsV2";
+const _GSSVR = "GetSoftwareStatisticsV2Request";
+const _GSSVRe = "GetSoftwareStatisticsV2Response";
+const _GSV = "GetSoftwareV2";
+const _GSVR = "GetSoftwareV2Request";
+const _GSVRe = "GetSoftwareV2Response";
 const _GTV = "GlobalTableVersion";
 const _Gi = "Gid";
 const _Gr = "Groups";
@@ -2665,6 +2674,7 @@ const _PMi = "PidMode";
 const _PMo = "PortMappings";
 const _PN = "PortName";
 const _PNa = "PartitionNumber";
+const _PNac = "PackageName";
 const _PNag = "PageNumber";
 const _PNar = "ParameterName";
 const _PNo = "PolicyName";
@@ -2725,7 +2735,8 @@ const _PVN = "ProductV2Name";
 const _PVS = "PropagatingVgwSet";
 const _PVSD = "PropagatingVgwSetDetails";
 const _PVSL = "PropagatingVgwSetList";
-const _PVa = "ParameterValue";
+const _PVa = "PackageVersion";
+const _PVar = "ParameterValue";
 const _PVr = "ProductsV2";
 const _PVro = "ProductV2";
 const _Pa = "Packaging";
@@ -2819,7 +2830,8 @@ const _RCeso = "ResourceConfig";
 const _RCesou = "ResourceCategory";
 const _RCesour = "ResourceCriticality";
 const _RCesourc = "ResourcesCount";
-const _RCesource = "ResourceCriteria";
+const _RCesource = "ResourceCount";
+const _RCesourcer = "ResourceCriteria";
 const _RCo = "RoutingConfig";
 const _RD = "RootDirectory";
 const _RDCTD = "ResourceDetailCaptureTimeDt";
@@ -3104,6 +3116,8 @@ const _SCCPe = "SecurityControlCustomParameters";
 const _SCD = "SecurityControlDefinition";
 const _SCDe = "SecurityControlDefinitions";
 const _SCDt = "StandardsControlDescription";
+const _SCF = "SoftwareCompositeFilter";
+const _SCFL = "SoftwareCompositeFilterList";
 const _SCGN = "SnapshotCopyGrantName";
 const _SCI = "SslCertificateId";
 const _SCIe = "SecurityControlIds";
@@ -3171,8 +3185,11 @@ const _SFDA = "StatelessFragmentDefaultActions";
 const _SFFRA = "SqsFailureFeedbackRoleArn";
 const _SFL = "StringFilterList";
 const _SFe = "SelectedFields";
+const _SFo = "SoftwareFilters";
 const _SFt = "StringFilter";
 const _SG = "SecurityGroups";
+const _SGBR = "SoftwareGroupByRule";
+const _SGBRo = "SoftwareGroupByRules";
 const _SGI = "SecurityGroupIds";
 const _SGIS = "SecurityGroupIdSet";
 const _SGS = "SecurityGroupSet";
@@ -3218,6 +3235,7 @@ const _SLH = "SourceLayerHash";
 const _SLi = "SignalsList";
 const _SLo = "S3Logs";
 const _SLof = "SoftLimit";
+const _SLoft = "SoftwareList";
 const _SLt = "StartLine";
 const _SLtr = "StringList";
 const _SM = "StatusMessage";
@@ -3265,9 +3283,13 @@ const _SRGR = "StatefulRuleGroupReferences";
 const _SRGRt = "StatelessRuleGroupReferences";
 const _SRL = "StatusReasonsList";
 const _SRO = "StaticRoutesOnly";
+const _SRR = "SoftwareResourceResult";
+const _SRRL = "SoftwareResourceResultList";
 const _SRe = "ServiceRegistries";
 const _SRev = "SeverityRating";
 const _SRo = "SourceRegion";
+const _SRof = "SoftwareResources";
+const _SRoft = "SoftwareResult";
 const _SRt = "StateReason";
 const _SRta = "StatusReasons";
 const _SRtat = "StatefulRules";
@@ -3280,6 +3302,8 @@ const _SSE = "ServerSideEncryption";
 const _SSEA = "SSEAlgorithm";
 const _SSEC = "ServerSideEncryptionConfiguration";
 const _SSEKMSKI = "SSEKMSKeyId";
+const _SSF = "SoftwareStringFilter";
+const _SSFL = "SoftwareStringFilterList";
 const _SSFRA = "SqsSuccessFeedbackRoleArn";
 const _SSG = "SourceSecurityGroup";
 const _SSI = "SnapshotScheduleIdentifier";
@@ -3297,6 +3321,7 @@ const _SSS = "SnapshotScheduleState";
 const _SSSPA = "SelfServiceSamlProviderArn";
 const _SSc = "SchedulingStrategy";
 const _SSe = "ServiceState";
+const _SSo = "SoftwareScopes";
 const _SSt = "StreamSpecification";
 const _SSta = "StandardsSubscriptions";
 const _SStan = "StandardsSubscription";
@@ -3348,6 +3373,7 @@ const _Si = "Size";
 const _Sig = "Signals";
 const _Sign = "Signal";
 const _So = "Source";
+const _Sof = "Software";
 const _Sou = "Sources";
 const _Sp = "Specification";
 const _St = "Status";
@@ -7598,6 +7624,36 @@ export var GetSecurityControlDefinitionResponse$: StaticStructureSchema = [3, n0
   [_SCD],
   [() => SecurityControlDefinition$], 1
 ];
+export var GetSoftwareResourcesV2Request$: StaticStructureSchema = [3, n0, _GSRVR,
+  0,
+  [_PNac, _PTa, _PVa, _Filt, _Sco, _SCor, _NTe, _MRa],
+  [0, 0, 0, () => SoftwareFilters$, () => SoftwareScopes$, () => SortCriteria, 0, 1], 2
+];
+export var GetSoftwareResourcesV2Response$: StaticStructureSchema = [3, n0, _GSRVRe,
+  0,
+  [_SRof, _NTe],
+  [() => SoftwareResourceResultList, 0], 1
+];
+export var GetSoftwareStatisticsV2Request$: StaticStructureSchema = [3, n0, _GSSVR,
+  0,
+  [_GBR, _Sco, _SOo, _MSR],
+  [() => SoftwareGroupByRules, () => SoftwareScopes$, 0, 1], 1
+];
+export var GetSoftwareStatisticsV2Response$: StaticStructureSchema = [3, n0, _GSSVRe,
+  0,
+  [_GBRr],
+  [() => GroupByResults], 1
+];
+export var GetSoftwareV2Request$: StaticStructureSchema = [3, n0, _GSVR,
+  0,
+  [_Filt, _Sco, _SCor, _NTe, _MRa],
+  [() => SoftwareFilters$, () => SoftwareScopes$, () => SortCriteria, 0, 1]
+];
+export var GetSoftwareV2Response$: StaticStructureSchema = [3, n0, _GSVRe,
+  0,
+  [_Sof, _NTe],
+  [() => SoftwareList, 0], 1
+];
 export var GroupByResult$: StaticStructureSchema = [3, n0, _GBRro,
   0,
   [_GBF, _GBV],
@@ -8523,10 +8579,45 @@ export var Signal$: StaticStructureSchema = [3, n0, _Sign,
   [_T, _I, _Ti, _PA, _RIesou, _SIi, _N, _CA, _UA, _FSA, _LSAa, _Se, _Cou, _AIct, _EIndp],
   [0, 0, 0, 0, 64 | 0, () => IndicatorsList, 0, 1, 1, 1, 1, 1, 1, 64 | 0, 64 | 0]
 ];
+export var SoftwareCompositeFilter$: StaticStructureSchema = [3, n0, _SCF,
+  0,
+  [_SF, _NCF, _Oper],
+  [() => SoftwareStringFilterList, () => SoftwareCompositeFilterList, 0]
+];
+export var SoftwareFilters$: StaticStructureSchema = [3, n0, _SFo,
+  0,
+  [_CFo, _COo],
+  [() => SoftwareCompositeFilterList, 0]
+];
+export var SoftwareGroupByRule$: StaticStructureSchema = [3, n0, _SGBR,
+  0,
+  [_GBF, _Filt],
+  [0, () => SoftwareFilters$], 1
+];
 export var SoftwarePackage$: StaticStructureSchema = [3, n0, _SPof,
   0,
   [_N, _V, _Ep, _Rel, _Arc, _PMa, _FPil, _FIV, _Rem, _SLH, _SLA],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+export var SoftwareResourceResult$: StaticStructureSchema = [3, n0, _SRR,
+  0,
+  [_AIc, _RT, _Reg, _RI, _RPe, _ROOI, _ROAI, _RCP, _RR],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0], 4
+];
+export var SoftwareResult$: StaticStructureSchema = [3, n0, _SRoft,
+  0,
+  [_PNac, _PTa, _RCesource, _PVa],
+  [0, 0, 1, 0], 3
+];
+export var SoftwareScopes$: StaticStructureSchema = [3, n0, _SSo,
+  0,
+  [_AOw],
+  [() => AwsOrganizationScopeList]
+];
+export var SoftwareStringFilter$: StaticStructureSchema = [3, n0, _SSF,
+  0,
+  [_FNie, _Fil],
+  [0, () => StringFilter$]
 ];
 export var SortCriterion$: StaticStructureSchema = [3, n0, _SCort,
   0,
@@ -9742,8 +9833,23 @@ var SensitiveDataResultList: StaticListSchema = [1, n0, _SDRL,
 var SignalsList: StaticListSchema = [1, n0, _SLi,
   0, () => Signal$
 ];
+var SoftwareCompositeFilterList: StaticListSchema = [1, n0, _SCFL,
+  0, () => SoftwareCompositeFilter$
+];
+var SoftwareGroupByRules: StaticListSchema = [1, n0, _SGBRo,
+  0, () => SoftwareGroupByRule$
+];
+var SoftwareList: StaticListSchema = [1, n0, _SLoft,
+  0, () => SoftwareResult$
+];
 var SoftwarePackageList: StaticListSchema = [1, n0, _SPL,
   0, () => SoftwarePackage$
+];
+var SoftwareResourceResultList: StaticListSchema = [1, n0, _SRRL,
+  0, () => SoftwareResourceResult$
+];
+var SoftwareStringFilterList: StaticListSchema = [1, n0, _SSFL,
+  0, () => SoftwareStringFilter$
 ];
 var SortCriteria: StaticListSchema = [1, n0, _SCor,
   0, () => SortCriterion$
@@ -9851,7 +9957,7 @@ export var ConfigurationOptions$: StaticUnionSchema = [4, n0, _COon,
 ];
 export var Criteria$: StaticUnionSchema = [4, n0, _Cr,
   0,
-  [_OFC, _RCesource],
+  [_OFC, _RCesourcer],
   [() => OcsfFindingFilters$, () => ResourcesFilters$]
 ];
 export var CspmProviderConfiguration$: StaticUnionSchema = [4, n0, _CPC,
@@ -9884,7 +9990,7 @@ export var ExportOutputSummary$: StaticUnionSchema = [4, n0, _EOS,
   [_Fin],
   [() => FindingsOutputSummary$]
 ];
-export var ParameterValue$: StaticUnionSchema = [4, n0, _PVa,
+export var ParameterValue$: StaticUnionSchema = [4, n0, _PVar,
   0,
   [_Inte, _ILnt, _Dou, _Str, _SLtr, _Bo, _Enu, _ELnu],
   [1, 64 | 1, 1, 0, 64 | 0, 2, 0, 64 | 0]
@@ -10173,6 +10279,15 @@ export var GetResourcesV2$: StaticOperationSchema = [9, n0, _GRVe,
 ];
 export var GetSecurityControlDefinition$: StaticOperationSchema = [9, n0, _GSCD,
   { [_h]: ["GET", "/securityControl/definition", 200] }, () => GetSecurityControlDefinitionRequest$, () => GetSecurityControlDefinitionResponse$
+];
+export var GetSoftwareResourcesV2$: StaticOperationSchema = [9, n0, _GSRV,
+  { [_h]: ["POST", "/softwarev2/resources", 200] }, () => GetSoftwareResourcesV2Request$, () => GetSoftwareResourcesV2Response$
+];
+export var GetSoftwareStatisticsV2$: StaticOperationSchema = [9, n0, _GSSV,
+  { [_h]: ["POST", "/softwarev2/statistics", 200] }, () => GetSoftwareStatisticsV2Request$, () => GetSoftwareStatisticsV2Response$
+];
+export var GetSoftwareV2$: StaticOperationSchema = [9, n0, _GSV,
+  { [_h]: ["POST", "/softwarev2", 200] }, () => GetSoftwareV2Request$, () => GetSoftwareV2Response$
 ];
 export var InviteMembers$: StaticOperationSchema = [9, n0, _IMn,
   { [_h]: ["POST", "/members/invite", 200] }, () => InviteMembersRequest$, () => InviteMembersResponse$

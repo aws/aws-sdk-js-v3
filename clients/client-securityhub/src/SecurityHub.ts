@@ -433,6 +433,21 @@ import {
   GetSecurityControlDefinitionCommand,
 } from "./commands/GetSecurityControlDefinitionCommand";
 import {
+  type GetSoftwareResourcesV2CommandInput,
+  type GetSoftwareResourcesV2CommandOutput,
+  GetSoftwareResourcesV2Command,
+} from "./commands/GetSoftwareResourcesV2Command";
+import {
+  type GetSoftwareStatisticsV2CommandInput,
+  type GetSoftwareStatisticsV2CommandOutput,
+  GetSoftwareStatisticsV2Command,
+} from "./commands/GetSoftwareStatisticsV2Command";
+import {
+  type GetSoftwareV2CommandInput,
+  type GetSoftwareV2CommandOutput,
+  GetSoftwareV2Command,
+} from "./commands/GetSoftwareV2Command";
+import {
   type InviteMembersCommandInput,
   type InviteMembersCommandOutput,
   InviteMembersCommand,
@@ -637,6 +652,8 @@ import { paginateGetRecommendedPolicyV2 } from "./pagination/GetRecommendedPolic
 import { paginateGetRemediationsV2 } from "./pagination/GetRemediationsV2Paginator";
 import { paginateGetResourcesTrendsV2 } from "./pagination/GetResourcesTrendsV2Paginator";
 import { paginateGetResourcesV2 } from "./pagination/GetResourcesV2Paginator";
+import { paginateGetSoftwareResourcesV2 } from "./pagination/GetSoftwareResourcesV2Paginator";
+import { paginateGetSoftwareV2 } from "./pagination/GetSoftwareV2Paginator";
 import { paginateListAggregatorsV2 } from "./pagination/ListAggregatorsV2Paginator";
 import { paginateListConfigurationPolicies } from "./pagination/ListConfigurationPoliciesPaginator";
 import { paginateListConfigurationPolicyAssociations } from "./pagination/ListConfigurationPolicyAssociationsPaginator";
@@ -738,6 +755,9 @@ const commands = {
   GetResourcesTrendsV2Command,
   GetResourcesV2Command,
   GetSecurityControlDefinitionCommand,
+  GetSoftwareResourcesV2Command,
+  GetSoftwareStatisticsV2Command,
+  GetSoftwareV2Command,
   InviteMembersCommand,
   ListAggregatorsV2Command,
   ListAutomationRulesCommand,
@@ -793,6 +813,8 @@ const paginators = {
   paginateGetRemediationsV2,
   paginateGetResourcesTrendsV2,
   paginateGetResourcesV2,
+  paginateGetSoftwareResourcesV2,
+  paginateGetSoftwareV2,
   paginateListAggregatorsV2,
   paginateListConfigurationPolicies,
   paginateListConfigurationPolicyAssociations,
@@ -2285,6 +2307,58 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link GetSoftwareResourcesV2Command}
+   */
+  getSoftwareResourcesV2(
+    args: GetSoftwareResourcesV2CommandInput,
+    options?: SecurityHubRequestOptions
+  ): Promise<GetSoftwareResourcesV2CommandOutput>;
+  getSoftwareResourcesV2(
+    args: GetSoftwareResourcesV2CommandInput,
+    cb: (err: any, data?: GetSoftwareResourcesV2CommandOutput) => void
+  ): void;
+  getSoftwareResourcesV2(
+    args: GetSoftwareResourcesV2CommandInput,
+    options: SecurityHubRequestOptions,
+    cb: (err: any, data?: GetSoftwareResourcesV2CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSoftwareStatisticsV2Command}
+   */
+  getSoftwareStatisticsV2(
+    args: GetSoftwareStatisticsV2CommandInput,
+    options?: SecurityHubRequestOptions
+  ): Promise<GetSoftwareStatisticsV2CommandOutput>;
+  getSoftwareStatisticsV2(
+    args: GetSoftwareStatisticsV2CommandInput,
+    cb: (err: any, data?: GetSoftwareStatisticsV2CommandOutput) => void
+  ): void;
+  getSoftwareStatisticsV2(
+    args: GetSoftwareStatisticsV2CommandInput,
+    options: SecurityHubRequestOptions,
+    cb: (err: any, data?: GetSoftwareStatisticsV2CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSoftwareV2Command}
+   */
+  getSoftwareV2(): Promise<GetSoftwareV2CommandOutput>;
+  getSoftwareV2(
+    args: GetSoftwareV2CommandInput,
+    options?: SecurityHubRequestOptions
+  ): Promise<GetSoftwareV2CommandOutput>;
+  getSoftwareV2(
+    args: GetSoftwareV2CommandInput,
+    cb: (err: any, data?: GetSoftwareV2CommandOutput) => void
+  ): void;
+  getSoftwareV2(
+    args: GetSoftwareV2CommandInput,
+    options: SecurityHubRequestOptions,
+    cb: (err: any, data?: GetSoftwareV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link InviteMembersCommand}
    */
   inviteMembers(
@@ -3110,6 +3184,28 @@ export interface SecurityHub {
     args?: GetResourcesV2CommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<GetResourcesV2CommandOutput>;
+
+  /**
+   * @see {@link GetSoftwareResourcesV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSoftwareResourcesV2CommandOutput}.
+   */
+  paginateGetSoftwareResourcesV2(
+    args: GetSoftwareResourcesV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSoftwareResourcesV2CommandOutput>;
+
+  /**
+   * @see {@link GetSoftwareV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSoftwareV2CommandOutput}.
+   */
+  paginateGetSoftwareV2(
+    args?: GetSoftwareV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSoftwareV2CommandOutput>;
 
   /**
    * @see {@link ListAggregatorsV2Command}

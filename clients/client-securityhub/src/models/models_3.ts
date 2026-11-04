@@ -43,6 +43,8 @@ import type {
   SecurityControlsProvider,
   SecurityHubFeature,
   SeverityRating,
+  SoftwareGroupByField,
+  SoftwareStringField,
   SortOrder,
   TargetType,
 } from "./enums";
@@ -1458,6 +1460,173 @@ export interface GetSecurityControlDefinitionResponse {
    * @public
    */
   SecurityControlDefinition: SecurityControlDefinition | undefined;
+}
+
+/**
+ * <p>Enables filtering of software packages based on string field values.</p>
+ * @public
+ */
+export interface SoftwareStringFilter {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  FieldName?: SoftwareStringField | undefined;
+
+  /**
+   * <p>The string value and comparison operator to filter on. Supported comparisons are <code>EQUALS</code>, <code>NOT_EQUALS</code>, <code>PREFIX</code>, and <code>PREFIX_NOT_EQUALS</code>.</p>
+   * @public
+   */
+  Filter?: StringFilter | undefined;
+}
+
+/**
+ * <p>Defines the data boundary for a software query. Scopes determine which organizational units or organizations to retrieve data from.</p>
+ * @public
+ */
+export interface SoftwareScopes {
+  /**
+   * <p>A list of Organizations scopes to include in the query results. Each entry in the list specifies an organization or organizational unit to include for the delegated administrator's account. If the list specifies multiple entries, the entries are combined using OR logic.</p>
+   * @public
+   */
+  AwsOrganizations?: AwsOrganizationScope[] | undefined;
+}
+
+/**
+ * <p>Provides information about a resource that contains a software package.</p>
+ * @public
+ */
+export interface SoftwareResourceResult {
+  /**
+   * <p>The Amazon Web Services account that recorded the resource data in Security Hub.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The type of resource, for example <code>AWS::EC2::Instance</code> or <code>AWS::Lambda::Function</code>.</p>
+   * @public
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region that recorded the resource data in Security Hub.</p>
+   * @public
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>The unique identifier for a resource.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The cloud provider where the resource exists. Valid values are <code>AWS</code> and <code>Azure</code>.</p>
+   * @public
+   */
+  ResourceProvider?: string | undefined;
+
+  /**
+   * <p>The identifier of the cloud organization that owns the resource. For Amazon Web Services resources, this is the Organizations ID. For Azure resources, this is the Azure tenant ID.</p>
+   * @public
+   */
+  ResourceOwnerOrgId?: string | undefined;
+
+  /**
+   * <p>The identifier of the cloud account that owns the resource. For Amazon Web Services resources, this is the Amazon Web Services account ID. For Azure resources, this is the Azure subscription ID.</p>
+   * @public
+   */
+  ResourceOwnerAccountId?: string | undefined;
+
+  /**
+   * <p>The cloud partition where the resource exists. For Amazon Web Services, valid values include <code>aws</code>, <code>aws-cn</code>, and <code>aws-us-gov</code>. This field isn't returned for cloud providers that don't use partitions.</p>
+   * @public
+   */
+  ResourceCloudPartition?: string | undefined;
+
+  /**
+   * <p>The native cloud region where the resource is located. For Amazon Web Services, this is an Amazon Web Services Region (for example, <code>us-east-1</code>). For Azure resources, this is the Azure region (for example, <code>westus2</code>).</p>
+   * @public
+   */
+  ResourceRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSoftwareResourcesV2Response {
+  /**
+   * <p>An array of resources that contain the specified software package.</p>
+   * @public
+   */
+  SoftwareResources: SoftwareResourceResult[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.
+   *          Otherwise, this parameter is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSoftwareStatisticsV2Response {
+  /**
+   * <p>The aggregated statistics about software based on the specified grouping rule.</p>
+   * @public
+   */
+  GroupByResults: GroupByResult[] | undefined;
+}
+
+/**
+ * <p>Provides information about a software package installed on one or more of your resources.</p>
+ * @public
+ */
+export interface SoftwareResult {
+  /**
+   * <p>The name of the software package.</p>
+   * @public
+   */
+  PackageName: string | undefined;
+
+  /**
+   * <p>The version of the software package.</p>
+   * @public
+   */
+  PackageVersion?: string | undefined;
+
+  /**
+   * <p>The type of the software package, for example <code>operating-system</code>, <code>application</code>, or <code>library</code>.</p>
+   * @public
+   */
+  PackageType: string | undefined;
+
+  /**
+   * <p>The number of resources that contain this software package. To list these resources, call <code>GetSoftwareResourcesV2</code>.</p>
+   * @public
+   */
+  ResourceCount: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSoftwareV2Response {
+  /**
+   * <p>An array of software packages returned by the operation.</p>
+   * @public
+   */
+  Software: SoftwareResult[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.
+   *          Otherwise, this parameter is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3429,6 +3598,33 @@ export interface ResourcesTrendsCompositeFilter {
 }
 
 /**
+ * <p>Enables the creation of criteria for software packages in Security Hub.</p>
+ * @public
+ */
+export interface SoftwareCompositeFilter {
+  /**
+   * <p>Enables filtering based on string field values.</p>
+   * @public
+   */
+  StringFilters?: SoftwareStringFilter[] | undefined;
+
+  /**
+   * <p>Provides an additional level of filtering, creating a three-layer nested structure.
+   *          The first layer is a <code>CompositeFilters</code> array with a <code>CompositeOperator</code> (<code>AND</code>/<code>OR</code>).
+   *          The second layer is a <code>CompositeFilter</code> object that contains direct filters and <code>NestedCompositeFilters</code>.
+   *          The third layer is <code>NestedCompositeFilters</code>, which contains additional filter conditions.</p>
+   * @public
+   */
+  NestedCompositeFilters?: SoftwareCompositeFilter[] | undefined;
+
+  /**
+   * <p>The logical operator used to combine multiple filter conditions.</p>
+   * @public
+   */
+  Operator?: AllowedOperators | undefined;
+}
+
+/**
  * <p>The structure that defines filters to apply to findings trend data queries.</p>
  * @public
  */
@@ -3495,6 +3691,24 @@ export interface ResourcesTrendsFilters {
 
   /**
    * <p>The logical operator (AND, OR) to apply between multiple composite filters.</p>
+   * @public
+   */
+  CompositeOperator?: AllowedOperators | undefined;
+}
+
+/**
+ * <p>Enables filtering of software packages and the resources that contain them.</p>
+ * @public
+ */
+export interface SoftwareFilters {
+  /**
+   * <p>A collection of complex filtering conditions that can be applied to software packages.</p>
+   * @public
+   */
+  CompositeFilters?: SoftwareCompositeFilter[] | undefined;
+
+  /**
+   * <p>The logical operator used to combine multiple filter conditions in the structure.</p>
    * @public
    */
   CompositeOperator?: AllowedOperators | undefined;
@@ -3689,6 +3903,106 @@ export interface GetResourcesV2Request {
 }
 
 /**
+ * @public
+ */
+export interface GetSoftwareResourcesV2Request {
+  /**
+   * <p>The name of the software package, for example <code>openssl</code>. This value must match the <code>PackageName</code> returned by <code>GetSoftwareV2</code>.</p>
+   * @public
+   */
+  PackageName: string | undefined;
+
+  /**
+   * <p>The type of the software package, for example <code>operating-system</code>, <code>application</code>, or <code>library</code>. This value must match the <code>PackageType</code> returned by <code>GetSoftwareV2</code>.</p>
+   * @public
+   */
+  PackageType: string | undefined;
+
+  /**
+   * <p>The version of the software package, for example <code>3.0.8</code>. If you omit this value, the response includes resources that contain any version of the package.</p>
+   * @public
+   */
+  PackageVersion?: string | undefined;
+
+  /**
+   * <p>Filters the returned resources based on a set of criteria. You can nest composite filters up to three levels deep.</p>
+   * @public
+   */
+  Filters?: SoftwareFilters | undefined;
+
+  /**
+   * <p>Limits the results to resources from specific organizational units or from the delegated administrator's organization.
+   *          Only the delegated administrator account can use this parameter. Other accounts receive an <code>AccessDeniedException</code>.</p>
+   *          <p>This parameter is optional. If you omit it, the delegated administrator sees resources from all accounts across the entire organization. Other accounts see only their own resources.</p>
+   *          <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If multiple entries are specified, the entries are combined using OR logic.</p>
+   * @public
+   */
+  Scopes?: SoftwareScopes | undefined;
+
+  /**
+   * <p>The resource attribute used to sort the list of returned resources, for example <code>Region</code> or <code>ResourceType</code>. You can specify one sort criterion.</p>
+   * @public
+   */
+  SortCriteria?: SortCriterion[] | undefined;
+
+  /**
+   * <p>The token required for pagination.
+   *          On your first call, set the value of this parameter to <code>NULL</code>.
+   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   *          <p>A token expires one hour after it's issued. If you change the request parameters between calls, the token is no longer valid and the request fails with a <code>ValidationException</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Valid values are 1–100. The default is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSoftwareV2Request {
+  /**
+   * <p>Filters software packages based on a set of criteria. You can nest composite filters up to three levels deep.</p>
+   * @public
+   */
+  Filters?: SoftwareFilters | undefined;
+
+  /**
+   * <p>Limits the results to software on resources from specific organizational units or from the delegated administrator's organization.
+   *          Only the delegated administrator account can use this parameter. Other accounts receive an <code>AccessDeniedException</code>.</p>
+   *          <p>This parameter is optional. If you omit it, the delegated administrator sees software from all accounts across the entire organization. Other accounts see only software on their own resources.</p>
+   *          <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If multiple entries are specified, the entries are combined using OR logic.</p>
+   * @public
+   */
+  Scopes?: SoftwareScopes | undefined;
+
+  /**
+   * <p>The software attributes used to sort the list of returned software packages. You can't sort by <code>ResourceCount</code>.</p>
+   * @public
+   */
+  SortCriteria?: SortCriterion[] | undefined;
+
+  /**
+   * <p>The token required for pagination.
+   *          On your first call, set the value of this parameter to <code>NULL</code>.
+   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   *          <p>A token expires one hour after it's issued. If you change <code>Filters</code> or <code>SortCriteria</code> between calls, the token is no longer valid and the request fails with a <code>ValidationException</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Valid values are 1–100. The default is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
  * <p>Defines the how the finding attribute should be grouped.</p>
  * @public
  */
@@ -3722,6 +4036,24 @@ export interface ResourceGroupByRule {
    * @public
    */
   Filters?: ResourcesFilters | undefined;
+}
+
+/**
+ * <p>Defines the configuration for organizing and categorizing software packages installed on your resources.</p>
+ * @public
+ */
+export interface SoftwareGroupByRule {
+  /**
+   * <p>Specifies the attribute that software statistics should be grouped by.</p>
+   * @public
+   */
+  GroupByField: SoftwareGroupByField | undefined;
+
+  /**
+   * <p>The criteria used to select the software packages included in the statistics. You can nest composite filters up to three levels deep.</p>
+   * @public
+   */
+  Filters?: SoftwareFilters | undefined;
 }
 
 /**
@@ -3897,6 +4229,38 @@ export interface GetResourcesStatisticsV2Request {
 
   /**
    * <p>The maximum number of results to be returned.</p>
+   * @public
+   */
+  MaxStatisticResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSoftwareStatisticsV2Request {
+  /**
+   * <p>How software statistics should be aggregated and organized in the response.</p>
+   * @public
+   */
+  GroupByRules: SoftwareGroupByRule[] | undefined;
+
+  /**
+   * <p>Limits the results to software on resources from specific organizational units or from the delegated administrator's organization.
+   *          Only the delegated administrator account can use this parameter. Other accounts receive an <code>AccessDeniedException</code>.</p>
+   *          <p>This parameter is optional. If you omit it, the delegated administrator sees statistics from all accounts across the entire organization. Other accounts see only statistics for software on their own resources.</p>
+   *          <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If multiple entries are specified, the entries are combined using OR logic.</p>
+   * @public
+   */
+  Scopes?: SoftwareScopes | undefined;
+
+  /**
+   * <p>Sorts aggregated statistics by count. The default is descending, which returns the values with the highest counts first.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The maximum number of grouping values to return. Valid values are 1–400. The default is 400.</p>
    * @public
    */
   MaxStatisticResults?: number | undefined;

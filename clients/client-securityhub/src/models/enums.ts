@@ -1759,3 +1759,49 @@ export const RegionAvailabilityStatus = {
  * @public
  */
 export type RegionAvailabilityStatus = (typeof RegionAvailabilityStatus)[keyof typeof RegionAvailabilityStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SoftwareStringField = {
+  ACCOUNT_ID: "AccountId",
+  PACKAGE_NAME: "PackageName",
+  PACKAGE_TYPE: "PackageType",
+  PACKAGE_VERSION: "PackageVersion",
+  REGION: "Region",
+  RESOURCE_CLOUD_PARTITION: "ResourceCloudPartition",
+  RESOURCE_ID: "ResourceId",
+  RESOURCE_OWNER_ACCOUNT_ID: "ResourceOwnerAccountId",
+  RESOURCE_OWNER_ORG_ID: "ResourceOwnerOrgId",
+  RESOURCE_PROVIDER: "ResourceProvider",
+  RESOURCE_REGION: "ResourceRegion",
+  RESOURCE_TYPE: "ResourceType",
+} as const;
+/**
+ * @public
+ */
+export type SoftwareStringField = (typeof SoftwareStringField)[keyof typeof SoftwareStringField];
+
+/**
+ * @public
+ * @enum
+ */
+export const SoftwareGroupByField = {
+  ACCOUNT_ID: "AccountId",
+  PACKAGE_NAME: "PackageName",
+  PACKAGE_TYPE: "PackageType",
+  PACKAGE_VERSION: "PackageVersion",
+  REGION: "Region",
+  RESOURCE_CLOUD_PARTITION: "ResourceCloudPartition",
+  RESOURCE_ID: "ResourceId",
+  RESOURCE_OWNER_ACCOUNT_ID: "ResourceOwnerAccountId",
+  RESOURCE_OWNER_ORG_ID: "ResourceOwnerOrgId",
+  RESOURCE_PROVIDER: "ResourceProvider",
+  RESOURCE_REGION: "ResourceRegion",
+  RESOURCE_TYPE: "ResourceType",
+} as const;
+/**
+ * @public
+ */
+export type SoftwareGroupByField = (typeof SoftwareGroupByField)[keyof typeof SoftwareGroupByField];
