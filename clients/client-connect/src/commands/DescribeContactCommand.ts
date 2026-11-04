@@ -412,6 +412,12 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //     },
+ * //     Cases: [ // CaseEntries
+ * //       { // CaseEntry
+ * //         CaseId: "STRING_VALUE",
+ * //         CaseReferenceNumber: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     ContactDetails: { // ContactDetails
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",

@@ -18,6 +18,7 @@ import type {
   EvaluationFormVersionStatus,
   InitiateAs,
   NotificationStatus,
+  ParticipantTimerAction,
   ParticipantTimerType,
   QueueStatus,
   RoutingCriteriaStepStatus,
@@ -71,6 +72,7 @@ import type {
 import type {
   AttributeCondition,
   AutoAcceptConfig,
+  CaseEntry,
   ChatMetrics,
   ContactDetails,
   ContactEvaluation,
@@ -131,7 +133,6 @@ import type {
   NumberCondition,
   ParticipantConfiguration,
   ParticipantDetails,
-  ParticipantTimerValue,
   PersistentChat,
   PromptSearchFilter,
   QueueInfoInput,
@@ -150,6 +151,62 @@ import type {
   WorkspaceAssociationSearchFilter,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * <p>The value of the timer. Either the timer action (<code>Unset</code> to delete the timer), or the duration of the
+ *    timer in minutes. Only one value can be set.</p>
+ *          <p>For more information about how chat timeouts work, see
+ *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ * @public
+ */
+export type ParticipantTimerValue =
+  | ParticipantTimerValue.ParticipantTimerActionMember
+  | ParticipantTimerValue.ParticipantTimerDurationInMinutesMember
+  | ParticipantTimerValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ParticipantTimerValue {
+  /**
+   * <p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a timer.</p>
+   * @public
+   */
+  export interface ParticipantTimerActionMember {
+    ParticipantTimerAction: ParticipantTimerAction;
+    ParticipantTimerDurationInMinutes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The duration of a timer, in minutes. </p>
+   * @public
+   */
+  export interface ParticipantTimerDurationInMinutesMember {
+    ParticipantTimerAction?: never;
+    ParticipantTimerDurationInMinutes: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ParticipantTimerAction?: never;
+    ParticipantTimerDurationInMinutes?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ParticipantTimerAction: (value: ParticipantTimerAction) => T;
+    ParticipantTimerDurationInMinutes: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * <p>Configuration information for the timer. After the timer configuration is set, it persists for the duration of
@@ -5426,6 +5483,12 @@ export interface Contact {
    * @public
    */
   TaskTemplateInfo?: TaskTemplateInfoV2 | undefined;
+
+  /**
+   * <p>A list of cases associated with the contact. This field is populated when one or more cases have been linked to the contact.</p>
+   * @public
+   */
+  Cases?: CaseEntry[] | undefined;
 
   /**
    * <p>A map of string key/value pairs that contain user-defined attributes which are lightly typed within the contact.

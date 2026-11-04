@@ -1537,6 +1537,7 @@ export type {
   BooleanCondition,
   CalculationComponent,
   Campaign,
+  CaseEntry,
   CaseSlaConfiguration,
   CategoriesAttributeAndCondition,
   CategoriesAttributeFilter,

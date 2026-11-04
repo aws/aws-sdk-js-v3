@@ -2874,6 +2874,24 @@ export interface DescribeContactRequest {
 }
 
 /**
+ * <p>Information about a case associated with a contact.</p>
+ * @public
+ */
+export interface CaseEntry {
+  /**
+   * <p>Unique identifier of the case in UUID format.</p>
+   * @public
+   */
+  CaseId?: string | undefined;
+
+  /**
+   * <p>A friendly number for the case. Reference numbers are not guaranteed to be unique.</p>
+   * @public
+   */
+  CaseReferenceNumber?: string | undefined;
+}
+
+/**
  * <p>Information about a participant's interactions in a contact.</p>
  * @public
  */
@@ -8160,46 +8178,4 @@ export interface DataTableValueEvaluationSet {
    * @public
    */
   AttributeNames: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface EvaluateDataTableValuesRequest {
-  /**
-   * <p>The unique identifier for the Amazon Connect instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias.</p>
-   * @public
-   */
-  DataTableId: string | undefined;
-
-  /**
-   * <p>A list of value evaluation sets specifying which primary values and attributes to evaluate.</p>
-   * @public
-   */
-  Values: DataTableValueEvaluationSet[] | undefined;
-
-  /**
-   * <p>Optional IANA timezone identifier to use when resolving time based dynamic values. Defaults to the data table
-   *    time zone if not provided.</p>
-   * @public
-   */
-  TimeZone?: string | undefined;
-
-  /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of data table values to return in one page of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }

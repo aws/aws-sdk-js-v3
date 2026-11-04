@@ -409,6 +409,8 @@ const _CEF = "CreateEvaluationForm";
 const _CEFR = "CreateEvaluationFormRequest";
 const _CEFRr = "CreateEvaluationFormResponse";
 const _CEPP = "ChatEntryPointParameters";
+const _CEa = "CaseEntry";
+const _CEas = "CaseEntries";
 const _CEh = "ChatEvent";
 const _CEo = "ContactEvaluations";
 const _CEon = "ContactEvaluation";
@@ -479,6 +481,7 @@ const _CIR = "CreateInstanceRequest";
 const _CIRr = "CreateInstanceResponse";
 const _CIT = "ContactInteractionType";
 const _CIa = "CampaignId";
+const _CIas = "CaseId";
 const _CIr = "CreateInstance";
 const _CIu = "CustomerId";
 const _CL = "CcList";
@@ -546,6 +549,7 @@ const _CQM = "CustomerQualityMetrics";
 const _CQR = "CreateQueueRequest";
 const _CQRr = "CreateQueueResponse";
 const _CR = "ContactReferences";
+const _CRN = "CaseReferenceNumber";
 const _CRP = "CreateRoutingProfile";
 const _CRPR = "CreateRoutingProfileRequest";
 const _CRPRr = "CreateRoutingProfileResponse";
@@ -623,6 +627,7 @@ const _Ca = "Capabilities";
 const _Cal = "Calculation";
 const _Cam = "Campaign";
 const _Can = "Canvas";
+const _Cas = "Cases";
 const _Cat = "Category";
 const _Cate = "Categories";
 const _Ch = "Channels";
@@ -3959,6 +3964,11 @@ export var Campaign$: StaticStructureSchema = [3, n0, _Cam,
   [_CIa],
   [0]
 ];
+export var CaseEntry$: StaticStructureSchema = [3, n0, _CEa,
+  0,
+  [_CIas, _CRN],
+  [0, 0]
+];
 export var CaseSlaConfiguration$: StaticStructureSchema = [3, n0, _CSC,
   0,
   [_N, _T, _TSM, _FIie, _TFV],
@@ -4056,8 +4066,8 @@ export var ConnectionData$: StaticStructureSchema = [3, n0, _CD,
 ];
 export var Contact$: StaticStructureSchema = [3, n0, _Cont,
   0,
-  [_A, _I, _ICI, _PCI, _CAI, _IM, _N, _D, _C, _QIu, _AI, _IT, _DT, _LUT, _LPT, _LRT, _RST, _TPC, _TPDIS, _STc, _RCI, _WIi, _CIu, _CEu, _SE, _QTAS, _QP, _Ta, _CTST, _RCo, _Cu, _Cam, _AMDS, _CVA, _QM, _CMh, _DD, _AER, _SAe, _Rec, _DR, _CEo, _TTI, _CDo, _OSu, _Attr, _NCe, _GRM],
-  [0, 0, 0, 0, 0, 0, [() => Name, 0], [() => Description, 0], 0, () => QueueInfo$, () => AgentInfo$, 4, 4, 4, 4, 4, 4, 1, 1, 4, 0, () => WisdomInfo$, 0, () => EndpointInfo$, () => EndpointInfo$, 1, 1, 128 | 0, 4, () => RoutingCriteria$, () => Customer$, () => Campaign$, 0, () => CustomerVoiceActivity$, () => QualityMetrics$, () => ChatMetrics$, () => DisconnectDetails$, () => AdditionalEmailRecipients$, () => SegmentAttributes, () => Recordings, 0, () => ContactEvaluations, () => TaskTemplateInfoV2$, () => ContactDetails$, () => OutboundStrategy$, 128 | 0, () => NextContacts, () => GlobalResiliencyMetadata$]
+  [_A, _I, _ICI, _PCI, _CAI, _IM, _N, _D, _C, _QIu, _AI, _IT, _DT, _LUT, _LPT, _LRT, _RST, _TPC, _TPDIS, _STc, _RCI, _WIi, _CIu, _CEu, _SE, _QTAS, _QP, _Ta, _CTST, _RCo, _Cu, _Cam, _AMDS, _CVA, _QM, _CMh, _DD, _AER, _SAe, _Rec, _DR, _CEo, _TTI, _Cas, _CDo, _OSu, _Attr, _NCe, _GRM],
+  [0, 0, 0, 0, 0, 0, [() => Name, 0], [() => Description, 0], 0, () => QueueInfo$, () => AgentInfo$, 4, 4, 4, 4, 4, 4, 1, 1, 4, 0, () => WisdomInfo$, 0, () => EndpointInfo$, () => EndpointInfo$, 1, 1, 128 | 0, 4, () => RoutingCriteria$, () => Customer$, () => Campaign$, 0, () => CustomerVoiceActivity$, () => QualityMetrics$, () => ChatMetrics$, () => DisconnectDetails$, () => AdditionalEmailRecipients$, () => SegmentAttributes, () => Recordings, 0, () => ContactEvaluations, () => TaskTemplateInfoV2$, () => CaseEntries, () => ContactDetails$, () => OutboundStrategy$, 128 | 0, () => NextContacts, () => GlobalResiliencyMetadata$]
 ];
 export var ContactAnalysis$: StaticStructureSchema = [3, n0, _CAo,
   0,
@@ -10085,6 +10095,9 @@ var BatchUpdateDataTableValueSuccessResultList: StaticListSchema = [1, n0, _BUDT
 ];
 var CalculationComponentList: StaticListSchema = [1, n0, _CCL,
   0, () => CalculationComponent$
+];
+var CaseEntries: StaticListSchema = [1, n0, _CEas,
+  0, () => CaseEntry$
 ];
 var CategoriesAttributeOrConditionList: StaticListSchema = [1, n0, _CAOCL,
   0, () => CategoriesAttributeAndCondition$

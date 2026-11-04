@@ -106,6 +106,7 @@ import type {
 import type {
   Attribute,
   DataTableAttribute,
+  DataTableValueEvaluationSet,
   EvaluationContactParticipant,
   EvaluationScore,
   ExtensionConfiguration,
@@ -118,6 +119,48 @@ import type {
   TaskTemplateDefaults,
   TaskTemplateField,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface EvaluateDataTableValuesRequest {
+  /**
+   * <p>The unique identifier for the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias.</p>
+   * @public
+   */
+  DataTableId: string | undefined;
+
+  /**
+   * <p>A list of value evaluation sets specifying which primary values and attributes to evaluate.</p>
+   * @public
+   */
+  Values: DataTableValueEvaluationSet[] | undefined;
+
+  /**
+   * <p>Optional IANA timezone identifier to use when resolving time based dynamic values. Defaults to the data table
+   *    time zone if not provided.</p>
+   * @public
+   */
+  TimeZone?: string | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of data table values to return in one page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * <p>A data table evaluated value.</p>
@@ -11556,40 +11599,4 @@ export interface ListUsersRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains summary information about a user.</p>
- * @public
- */
-export interface UserSummary {
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user account.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The Connect Customer user name of the user account.</p>
-   * @public
-   */
-  Username?: string | undefined;
-
-  /**
-   * <p>The timestamp when this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
 }

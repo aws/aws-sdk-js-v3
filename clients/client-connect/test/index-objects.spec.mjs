@@ -197,6 +197,7 @@ import {
   BooleanCondition$,
   CalculationComponent$,
   Campaign$,
+  CaseEntry$,
   CaseSlaConfiguration$,
   CategoriesAttributeAndCondition$,
   CategoriesAttributeFilter$,
@@ -3436,6 +3437,7 @@ assert(typeof BatchUpdateDataTableValueSuccessResult$ === "object");
 assert(typeof BooleanCondition$ === "object");
 assert(typeof CalculationComponent$ === "object");
 assert(typeof Campaign$ === "object");
+assert(typeof CaseEntry$ === "object");
 assert(typeof CaseSlaConfiguration$ === "object");
 assert(typeof CategoriesAttributeAndCondition$ === "object");
 assert(typeof CategoriesAttributeFilter$ === "object");

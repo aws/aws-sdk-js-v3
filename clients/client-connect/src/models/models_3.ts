@@ -48,7 +48,6 @@ import type {
   OutboundMessageSourceType,
   OverrideType,
   ParticipantRole,
-  ParticipantTimerAction,
   PerformanceCategoryName,
   PhoneNumberCountryCode,
   PhoneNumberType,
@@ -128,7 +127,42 @@ import type {
   View,
   VoiceEnhancementConfig,
 } from "./models_1";
-import type { UserSummary } from "./models_2";
+
+/**
+ * <p>Contains summary information about a user.</p>
+ * @public
+ */
+export interface UserSummary {
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user account.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The Connect Customer user name of the user account.</p>
+   * @public
+   */
+  Username?: string | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
 
 /**
  * @public
@@ -7726,59 +7760,3 @@ export interface UpdateParticipantAuthenticationRequest {
  * @public
  */
 export interface UpdateParticipantAuthenticationResponse {}
-
-/**
- * <p>The value of the timer. Either the timer action (<code>Unset</code> to delete the timer), or the duration of the
- *    timer in minutes. Only one value can be set.</p>
- *          <p>For more information about how chat timeouts work, see
- *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
- * @public
- */
-export type ParticipantTimerValue =
-  | ParticipantTimerValue.ParticipantTimerActionMember
-  | ParticipantTimerValue.ParticipantTimerDurationInMinutesMember
-  | ParticipantTimerValue.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ParticipantTimerValue {
-  /**
-   * <p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a timer.</p>
-   * @public
-   */
-  export interface ParticipantTimerActionMember {
-    ParticipantTimerAction: ParticipantTimerAction;
-    ParticipantTimerDurationInMinutes?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The duration of a timer, in minutes. </p>
-   * @public
-   */
-  export interface ParticipantTimerDurationInMinutesMember {
-    ParticipantTimerAction?: never;
-    ParticipantTimerDurationInMinutes: number;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    ParticipantTimerAction?: never;
-    ParticipantTimerDurationInMinutes?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    ParticipantTimerAction: (value: ParticipantTimerAction) => T;
-    ParticipantTimerDurationInMinutes: (value: number) => T;
-    _: (name: string, value: any) => T;
-  }
-}
