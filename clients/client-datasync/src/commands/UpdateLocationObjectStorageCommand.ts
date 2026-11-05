@@ -43,6 +43,17 @@ export interface UpdateLocationObjectStorageCommandOutput extends UpdateLocation
  *   ServerHostname: "STRING_VALUE",
  *   AccessKey: "STRING_VALUE",
  *   SecretKey: "STRING_VALUE",
+ *   FederatedIdentity: { // ObjectStorageFederatedIdentityConfig
+ *     AwsIamRole: "STRING_VALUE",
+ *     ExternalIdentity: { // ObjectStorageExternalIdentityConfig
+ *       GoogleOidc: { // GoogleOidcConfig
+ *         ProjectName: "STRING_VALUE", // required
+ *         ProjectNumber: "STRING_VALUE", // required
+ *         IdentityPoolName: "STRING_VALUE", // required
+ *         IdentityProviderName: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
  *   AgentArns: [ // AgentArnList
  *     "STRING_VALUE",
  *   ],

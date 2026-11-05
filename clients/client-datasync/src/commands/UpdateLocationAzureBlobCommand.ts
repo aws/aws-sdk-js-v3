@@ -37,9 +37,16 @@ export interface UpdateLocationAzureBlobCommandOutput extends UpdateLocationAzur
  * const input = { // UpdateLocationAzureBlobRequest
  *   LocationArn: "STRING_VALUE", // required
  *   Subdirectory: "STRING_VALUE",
- *   AuthenticationType: "SAS" || "NONE",
+ *   AuthenticationType: "SAS" || "NONE" || "OIDC",
  *   SasConfiguration: { // AzureBlobSasConfiguration
  *     Token: "STRING_VALUE", // required
+ *   },
+ *   FederatedIdentity: { // AzureFederatedIdentityConfig
+ *     AwsIamRole: "STRING_VALUE",
+ *     AzureOidc: { // AzureOidcConfig
+ *       TenantId: "STRING_VALUE", // required
+ *       ClientId: "STRING_VALUE", // required
+ *     },
  *   },
  *   BlobType: "BLOCK",
  *   AccessTier: "HOT" || "COOL" || "ARCHIVE",

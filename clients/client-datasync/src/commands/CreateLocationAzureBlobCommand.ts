@@ -38,9 +38,16 @@ export interface CreateLocationAzureBlobCommandOutput extends CreateLocationAzur
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationAzureBlobRequest
  *   ContainerUrl: "STRING_VALUE", // required
- *   AuthenticationType: "SAS" || "NONE", // required
+ *   AuthenticationType: "SAS" || "NONE" || "OIDC", // required
  *   SasConfiguration: { // AzureBlobSasConfiguration
  *     Token: "STRING_VALUE", // required
+ *   },
+ *   FederatedIdentity: { // AzureFederatedIdentityConfig
+ *     AwsIamRole: "STRING_VALUE",
+ *     AzureOidc: { // AzureOidcConfig
+ *       TenantId: "STRING_VALUE", // required
+ *       ClientId: "STRING_VALUE", // required
+ *     },
  *   },
  *   BlobType: "BLOCK",
  *   AccessTier: "HOT" || "COOL" || "ARCHIVE",

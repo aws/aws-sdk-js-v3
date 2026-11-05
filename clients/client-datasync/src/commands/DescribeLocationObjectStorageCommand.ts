@@ -42,6 +42,17 @@ export interface DescribeLocationObjectStorageCommandOutput extends DescribeLoca
  * //   LocationArn: "STRING_VALUE",
  * //   LocationUri: "STRING_VALUE",
  * //   AccessKey: "STRING_VALUE",
+ * //   FederatedIdentity: { // ObjectStorageFederatedIdentityConfig
+ * //     AwsIamRole: "STRING_VALUE",
+ * //     ExternalIdentity: { // ObjectStorageExternalIdentityConfig
+ * //       GoogleOidc: { // GoogleOidcConfig
+ * //         ProjectName: "STRING_VALUE", // required
+ * //         ProjectNumber: "STRING_VALUE", // required
+ * //         IdentityPoolName: "STRING_VALUE", // required
+ * //         IdentityProviderName: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   },
  * //   ServerPort: Number("int"),
  * //   ServerProtocol: "HTTPS" || "HTTP",
  * //   AgentArns: [ // AgentArnList

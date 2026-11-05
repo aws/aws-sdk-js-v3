@@ -123,6 +123,51 @@ export interface AzureBlobSasConfiguration {
 }
 
 /**
+ * <p>External identity parameters for Azure Blob Storage.</p>
+ * @public
+ */
+export interface AzureOidcConfig {
+  /**
+   * <p>Azure tenant ID string.</p>
+   * @public
+   */
+  TenantId: string | undefined;
+
+  /**
+   * <p>Azure client ID string.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+}
+
+/**
+ * <p>Specifies federated identity parameters that allow DataSync to obtain an OpenID Connect token
+ *       for access to customer Azure Blob Storage. The token allows for temporary, short-term access to the
+ *       storage. DataSync automatically refreshes the token to assure uninterrupted access to the storage.</p>
+ *          <note>
+ *             <p>Federated identity parameters are an alternative to the <code>SasConfiguration</code> credentials
+ *         that are expected to be valid long-term (e.g. at least for the duration of DataSync task execution).
+ *         Do not specify federated identity and the SAS configuration for the same Azure Blob location.
+ *       </p>
+ *          </note>
+ * @public
+ */
+export interface AzureFederatedIdentityConfig {
+  /**
+   * <p>Specifies the ARN for an Amazon Web Services role that allows DataSync to invoke STS GetWebIdentityToken API on behalf
+   *       of the customer account and to obtain Amazon Web Services STS JWT (web token).</p>
+   * @public
+   */
+  AwsIamRole?: string | undefined;
+
+  /**
+   * <p>External identity parameters for Azure Blob Storage.</p>
+   * @public
+   */
+  AzureOidc?: AzureOidcConfig | undefined;
+}
+
+/**
  * <p>CancelTaskExecutionRequest</p>
  * @public
  */
@@ -299,8 +344,8 @@ export interface CreateLocationAzureBlobRequest {
 
   /**
    * <p>Specifies the authentication method DataSync uses to access your Azure Blob
-   *       Storage. DataSync can access blob storage using a shared access signature
-   *       (SAS).</p>
+   *       Storage. DataSync can access blob storage using a shared access signature (SAS) or
+   *       an OpenID Connect (OIDC) token.</p>
    * @public
    */
   AuthenticationType: AzureBlobAuthenticationType | undefined;
@@ -317,6 +362,15 @@ export interface CreateLocationAzureBlobRequest {
    * @public
    */
   SasConfiguration?: AzureBlobSasConfiguration | undefined;
+
+  /**
+   * <p>Specifies the federated identity configuration that allows DataSync to access
+   *       your Azure Blob Storage using an OpenID Connect (OIDC) token instead of a shared access
+   *       signature (SAS). Provide either <code>FederatedIdentity</code> or
+   *         <code>SasConfiguration</code>, but not both.</p>
+   * @public
+   */
+  FederatedIdentity?: AzureFederatedIdentityConfig | undefined;
 
   /**
    * <p>Specifies the type of blob that you want your objects or files to be when transferring
@@ -1350,6 +1404,77 @@ export interface CreateLocationNfsResponse {
 }
 
 /**
+ * <p>External identity parameters for Google Cloud Storage.</p>
+ * @public
+ */
+export interface GoogleOidcConfig {
+  /**
+   * <p>Human-readable project name (e.g. "my-project").</p>
+   * @public
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>Numeric project ID as a string (e.g. "123456789").</p>
+   * @public
+   */
+  ProjectNumber: string | undefined;
+
+  /**
+   * <p>Human-readable pool name (e.g. "my-pool").</p>
+   * @public
+   */
+  IdentityPoolName: string | undefined;
+
+  /**
+   * <p>Human-readable provider name (e.g. "my-oidc-provider").</p>
+   * @public
+   */
+  IdentityProviderName: string | undefined;
+}
+
+/**
+ * <p>Specifies cloud-provider-specific external identity parameters used when exchanging the
+ *       Amazon Web Services web token for an OpenID Connect token at the object storage provider.</p>
+ * @public
+ */
+export interface ObjectStorageExternalIdentityConfig {
+  /**
+   * <p>External identity parameters for Google Cloud Storage.</p>
+   * @public
+   */
+  GoogleOidc?: GoogleOidcConfig | undefined;
+}
+
+/**
+ * <p>Specifies federated identity parameters that allow DataSync to obtain OpenID Connect token
+ *       for access to customer object storage. The token allows for temporary, short-term access to the
+ *       storage. DataSync automatically refreshes the token to assure uninterrupted access to the storage.</p>
+ *          <note>
+ *             <p>Federated identity parameters are an alternative to the <code>AccessKey</code>/<code>SecretKey</code>
+ *         credentials that are expected to be valid long-term (e.g. at least for the duration of DataSync task execution).
+ *         Do not specify federated identity and the key parameters for the same object storage location.
+ *       </p>
+ *          </note>
+ * @public
+ */
+export interface ObjectStorageFederatedIdentityConfig {
+  /**
+   * <p>Specifies the ARN for an Amazon Web Services role that allows DataSync to invoke STS GetWebIdentityToken API on behalf
+   *       of the customer account and to obtain Amazon Web Services STS JWT (web token).</p>
+   * @public
+   */
+  AwsIamRole?: string | undefined;
+
+  /**
+   * <p>Specifies cloud-provider-specific external identity parameters used when exchanging the
+   *       Amazon Web Services web token for an OpenID Connect token at the object storage provider.</p>
+   * @public
+   */
+  ExternalIdentity?: ObjectStorageExternalIdentityConfig | undefined;
+}
+
+/**
  * <p>CreateLocationObjectStorageRequest</p>
  * @public
  */
@@ -1407,6 +1532,15 @@ export interface CreateLocationObjectStorageRequest {
    * @public
    */
   SecretKey?: string | undefined;
+
+  /**
+   * <p>Specifies the federated identity configuration that allows DataSync to access
+   *       your object storage using an OpenID Connect (OIDC) token instead of a long-term access key and
+   *       secret key. Provide either <code>FederatedIdentity</code> or the
+   *         <code>AccessKey</code>/<code>SecretKey</code> credentials, but not both.</p>
+   * @public
+   */
+  FederatedIdentity?: ObjectStorageFederatedIdentityConfig | undefined;
 
   /**
    * <p>(Optional) Specifies the Amazon Resource Names (ARNs) of the DataSync agents
@@ -2580,9 +2714,7 @@ export interface CreateTaskRequest {
    *                   <code>ENHANCED</code> - Transfer virtually unlimited numbers of objects with higher
    *           performance than Basic mode. Enhanced mode tasks optimize the data transfer process by
    *           listing, preparing, transferring, and verifying data in parallel. Enhanced mode is
-   *           currently available for transfers between Amazon S3 locations, transfers between
-   *           Azure Blob and Amazon S3 without an agent, and transfers between other clouds and
-   *             Amazon S3 without an agent.</p>
+   *           currently available for all transfers except those that use Amazon S3 on Outposts.</p>
    *                <note>
    *                   <p>To create an Enhanced mode task, the IAM role that you use to call
    *             the <code>CreateTask</code> operation must have the
@@ -2817,10 +2949,18 @@ export interface DescribeLocationAzureBlobResponse {
 
   /**
    * <p>The authentication method DataSync uses to access your Azure Blob Storage.
-   *         DataSync can access blob storage using a shared access signature (SAS).</p>
+   *         DataSync can access blob storage using a shared access signature (SAS) or an
+   *       OpenID Connect (OIDC) token.</p>
    * @public
    */
   AuthenticationType?: AzureBlobAuthenticationType | undefined;
+
+  /**
+   * <p>The federated identity configuration that DataSync uses to access your Azure
+   *       Blob Storage using an OpenID Connect (OIDC) token.</p>
+   * @public
+   */
+  FederatedIdentity?: AzureFederatedIdentityConfig | undefined;
 
   /**
    * <p>The type of blob that you want your objects or files to be when transferring them into
@@ -3389,6 +3529,13 @@ export interface DescribeLocationObjectStorageResponse {
    * @public
    */
   AccessKey?: string | undefined;
+
+  /**
+   * <p>The federated identity configuration that DataSync uses to access your object
+   *       storage using an OpenID Connect (OIDC) token.</p>
+   * @public
+   */
+  FederatedIdentity?: ObjectStorageFederatedIdentityConfig | undefined;
 
   /**
    * <p>The port that your object storage server accepts inbound network traffic on (for example,
@@ -5082,8 +5229,8 @@ export interface UpdateLocationAzureBlobRequest {
 
   /**
    * <p>Specifies the authentication method DataSync uses to access your Azure Blob
-   *       Storage. DataSync can access blob storage using a shared access signature
-   *       (SAS).</p>
+   *       Storage. DataSync can access blob storage using a shared access signature (SAS) or
+   *       an OpenID Connect (OIDC) token.</p>
    * @public
    */
   AuthenticationType?: AzureBlobAuthenticationType | undefined;
@@ -5094,6 +5241,15 @@ export interface UpdateLocationAzureBlobRequest {
    * @public
    */
   SasConfiguration?: AzureBlobSasConfiguration | undefined;
+
+  /**
+   * <p>Specifies the federated identity configuration that allows DataSync to access
+   *       your Azure Blob Storage using an OpenID Connect (OIDC) token instead of a shared access
+   *       signature (SAS). Provide either <code>FederatedIdentity</code> or
+   *         <code>SasConfiguration</code>, but not both.</p>
+   * @public
+   */
+  FederatedIdentity?: AzureFederatedIdentityConfig | undefined;
 
   /**
    * <p>Specifies the type of blob that you want your objects or files to be when transferring
@@ -5676,6 +5832,15 @@ export interface UpdateLocationObjectStorageRequest {
    * @public
    */
   SecretKey?: string | undefined;
+
+  /**
+   * <p>Specifies the federated identity configuration that allows DataSync to access
+   *       your object storage using an OpenID Connect (OIDC) token instead of a long-term access key and
+   *       secret key. Provide either <code>FederatedIdentity</code> or the
+   *         <code>AccessKey</code>/<code>SecretKey</code> credentials, but not both.</p>
+   * @public
+   */
+  FederatedIdentity?: ObjectStorageFederatedIdentityConfig | undefined;
 
   /**
    * <p>(Optional) Specifies the Amazon Resource Names (ARNs) of the DataSync agents

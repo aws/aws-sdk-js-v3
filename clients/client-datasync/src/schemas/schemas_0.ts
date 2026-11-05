@@ -4,11 +4,15 @@ const _AAg = "AgentArns";
 const _ABSC = "AzureBlobSasConfiguration";
 const _ABST = "AzureBlobSasToken";
 const _ADFD = "AtDestinationForDelete";
+const _AFIC = "AzureFederatedIdentityConfig";
+const _AIR = "AwsIamRole";
 const _AK = "ActivationKey";
 const _AKc = "AccessKey";
 const _AL = "AgentList";
 const _ALE = "AgentListEntry";
 const _AN = "AgentName";
+const _AO = "AzureOidc";
+const _AOC = "AzureOidcConfig";
 const _APA = "AccessPointArn";
 const _AS = "AtSource";
 const _AT = "AuthenticationType";
@@ -26,6 +30,7 @@ const _BW = "BytesWritten";
 const _CA = "CreateAgent";
 const _CAR = "CreateAgentRequest";
 const _CARr = "CreateAgentResponse";
+const _CI = "ClientId";
 const _CLAB = "CreateLocationAzureBlob";
 const _CLABR = "CreateLocationAzureBlobRequest";
 const _CLABRr = "CreateLocationAzureBlobResponse";
@@ -142,6 +147,7 @@ const _EFTD = "EstimatedFilesToDelete";
 const _EFTDs = "EstimatedFoldersToDelete";
 const _EFTT = "EstimatedFilesToTransfer";
 const _EFTTs = "EstimatedFoldersToTransfer";
+const _EI = "ExternalIdentity";
 const _ET = "EndpointType";
 const _ETn = "EndTime";
 const _F = "Filters";
@@ -150,6 +156,7 @@ const _FDo = "FoldersDeleted";
 const _FF = "FilesFailed";
 const _FFA = "FsxFilesystemArn";
 const _FFo = "FoldersFailed";
+const _FI = "FederatedIdentity";
 const _FL = "FilesListed";
 const _FLi = "FilterList";
 const _FLo = "FoldersListed";
@@ -171,11 +178,15 @@ const _FV = "FilesVerified";
 const _FVo = "FoldersVerified";
 const _Fo = "Format";
 const _G = "Gid";
+const _GO = "GoogleOidc";
+const _GOC = "GoogleOidcConfig";
 const _H = "Hostname";
 const _HNN = "HdfsNameNode";
 const _HNNL = "HdfsNameNodeList";
 const _I = "Includes";
 const _IE = "InternalException";
+const _IPN = "IdentityPoolName";
+const _IPNd = "IdentityProviderName";
 const _IRE = "InvalidRequestException";
 const _ITE = "InTransitEncryption";
 const _ITL = "InputTagList";
@@ -229,6 +240,8 @@ const _OM = "OverwriteMode";
 const _OMb = "ObjectMetadata";
 const _OO = "OverrideOptions";
 const _OPC = "OnPremConfig";
+const _OSEIC = "ObjectStorageExternalIdentityConfig";
+const _OSFIC = "ObjectStorageFederatedIdentityConfig";
 const _OSSK = "ObjectStorageSecretKey";
 const _OT = "ObjectTags";
 const _OTL = "OutputTagList";
@@ -242,6 +255,8 @@ const _PDF = "PreserveDeletedFiles";
 const _PDr = "PrepareDuration";
 const _PLC = "PrivateLinkConfig";
 const _PLE = "PrivateLinkEndpoint";
+const _PN = "ProjectName";
+const _PNr = "ProjectNumber";
 const _PP = "PosixPermissions";
 const _PS = "PrepareStatus";
 const _Pa = "Password";
@@ -311,6 +326,7 @@ const _TELE = "TaskExecutionListEntry";
 const _TERD = "TaskExecutionResultDetail";
 const _TF = "TaskFilter";
 const _TFa = "TaskFilters";
+const _TI = "TenantId";
 const _TL = "TaskList";
 const _TLE = "TagListEntry";
 const _TLEa = "TaskListEntry";
@@ -445,6 +461,16 @@ export var AzureBlobSasConfiguration$: StaticStructureSchema = [3, n0, _ABSC,
   [_T],
   [[() => AzureBlobSasToken, 0]], 1
 ];
+export var AzureFederatedIdentityConfig$: StaticStructureSchema = [3, n0, _AFIC,
+  0,
+  [_AIR, _AO],
+  [0, () => AzureOidcConfig$]
+];
+export var AzureOidcConfig$: StaticStructureSchema = [3, n0, _AOC,
+  0,
+  [_TI, _CI],
+  [0, 0], 2
+];
 export var CancelTaskExecutionRequest$: StaticStructureSchema = [3, n0, _CTER,
   0,
   [_TEA],
@@ -472,8 +498,8 @@ export var CreateAgentResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateLocationAzureBlobRequest$: StaticStructureSchema = [3, n0, _CLABR,
   0,
-  [_CU, _AT, _SC, _BT, _ATc, _Su, _AAg, _Ta, _CSC, _CSCu],
-  [0, 0, [() => AzureBlobSasConfiguration$, 0], 0, 0, 0, 64 | 0, () => InputTagList, () => CmkSecretConfig$, () => CustomSecretConfig$], 2
+  [_CU, _AT, _SC, _FI, _BT, _ATc, _Su, _AAg, _Ta, _CSC, _CSCu],
+  [0, 0, [() => AzureBlobSasConfiguration$, 0], () => AzureFederatedIdentityConfig$, 0, 0, 0, 64 | 0, () => InputTagList, () => CmkSecretConfig$, () => CustomSecretConfig$], 2
 ];
 export var CreateLocationAzureBlobResponse$: StaticStructureSchema = [3, n0, _CLABRr,
   0,
@@ -552,8 +578,8 @@ export var CreateLocationNfsResponse$: StaticStructureSchema = [3, n0, _CLNRr,
 ];
 export var CreateLocationObjectStorageRequest$: StaticStructureSchema = [3, n0, _CLOSR,
   0,
-  [_SH, _BN, _SPe, _SPer, _Su, _AKc, _SK, _AAg, _Ta, _SCe, _CSC, _CSCu],
-  [0, 0, 1, 0, 0, 0, [() => ObjectStorageSecretKey, 0], 64 | 0, () => InputTagList, 21, () => CmkSecretConfig$, () => CustomSecretConfig$], 2
+  [_SH, _BN, _SPe, _SPer, _Su, _AKc, _SK, _FI, _AAg, _Ta, _SCe, _CSC, _CSCu],
+  [0, 0, 1, 0, 0, 0, [() => ObjectStorageSecretKey, 0], () => ObjectStorageFederatedIdentityConfig$, 64 | 0, () => InputTagList, 21, () => CmkSecretConfig$, () => CustomSecretConfig$], 2
 ];
 export var CreateLocationObjectStorageResponse$: StaticStructureSchema = [3, n0, _CLOSRr,
   0,
@@ -642,8 +668,8 @@ export var DescribeLocationAzureBlobRequest$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribeLocationAzureBlobResponse$: StaticStructureSchema = [3, n0, _DLABRe,
   0,
-  [_LA, _LU, _AT, _BT, _ATc, _AAg, _CT, _MSC, _CSC, _CSCu],
-  [0, 0, 0, 0, 0, 64 | 0, 4, () => ManagedSecretConfig$, () => CmkSecretConfig$, () => CustomSecretConfig$]
+  [_LA, _LU, _AT, _FI, _BT, _ATc, _AAg, _CT, _MSC, _CSC, _CSCu],
+  [0, 0, 0, () => AzureFederatedIdentityConfig$, 0, 0, 64 | 0, 4, () => ManagedSecretConfig$, () => CmkSecretConfig$, () => CustomSecretConfig$]
 ];
 export var DescribeLocationEfsRequest$: StaticStructureSchema = [3, n0, _DLER,
   0,
@@ -722,8 +748,8 @@ export var DescribeLocationObjectStorageRequest$: StaticStructureSchema = [3, n0
 ];
 export var DescribeLocationObjectStorageResponse$: StaticStructureSchema = [3, n0, _DLOSRe,
   0,
-  [_LA, _LU, _AKc, _SPe, _SPer, _AAg, _CT, _SCe, _MSC, _CSC, _CSCu],
-  [0, 0, 0, 1, 0, 64 | 0, 4, 21, () => ManagedSecretConfig$, () => CmkSecretConfig$, () => CustomSecretConfig$]
+  [_LA, _LU, _AKc, _FI, _SPe, _SPer, _AAg, _CT, _SCe, _MSC, _CSC, _CSCu],
+  [0, 0, 0, () => ObjectStorageFederatedIdentityConfig$, 1, 0, 64 | 0, 4, 21, () => ManagedSecretConfig$, () => CmkSecretConfig$, () => CustomSecretConfig$]
 ];
 export var DescribeLocationS3Request$: StaticStructureSchema = [3, n0, _DLSR,
   0,
@@ -799,6 +825,11 @@ export var FsxUpdateProtocolSmb$: StaticStructureSchema = [3, n0, _FUPS,
   0,
   [_D, _MO, _Pa, _U, _CSC, _CSCu],
   [0, () => SmbMountOptions$, [() => SmbPassword, 0], 0, () => CmkSecretConfig$, () => CustomSecretConfig$]
+];
+export var GoogleOidcConfig$: StaticStructureSchema = [3, n0, _GOC,
+  0,
+  [_PN, _PNr, _IPN, _IPNd],
+  [0, 0, 0, 0], 4
 ];
 export var HdfsNameNode$: StaticStructureSchema = [3, n0, _HNN,
   0,
@@ -879,6 +910,16 @@ export var NfsMountOptions$: StaticStructureSchema = [3, n0, _NMO,
   0,
   [_Ve],
   [0]
+];
+export var ObjectStorageExternalIdentityConfig$: StaticStructureSchema = [3, n0, _OSEIC,
+  0,
+  [_GO],
+  [() => GoogleOidcConfig$]
+];
+export var ObjectStorageFederatedIdentityConfig$: StaticStructureSchema = [3, n0, _OSFIC,
+  0,
+  [_AIR, _EI],
+  [0, () => ObjectStorageExternalIdentityConfig$]
 ];
 export var OnPremConfig$: StaticStructureSchema = [3, n0, _OPC,
   0,
@@ -1052,8 +1093,8 @@ export var UpdateAgentResponse$: StaticStructureSchema = [3, n0, _UARp,
 ];
 export var UpdateLocationAzureBlobRequest$: StaticStructureSchema = [3, n0, _ULABR,
   0,
-  [_LA, _Su, _AT, _SC, _BT, _ATc, _AAg, _CSC, _CSCu],
-  [0, 0, 0, [() => AzureBlobSasConfiguration$, 0], 0, 0, 64 | 0, () => CmkSecretConfig$, () => CustomSecretConfig$], 1
+  [_LA, _Su, _AT, _SC, _FI, _BT, _ATc, _AAg, _CSC, _CSCu],
+  [0, 0, 0, [() => AzureBlobSasConfiguration$, 0], () => AzureFederatedIdentityConfig$, 0, 0, 64 | 0, () => CmkSecretConfig$, () => CustomSecretConfig$], 1
 ];
 export var UpdateLocationAzureBlobResponse$: StaticStructureSchema = [3, n0, _ULABRp,
   0,
@@ -1132,8 +1173,8 @@ export var UpdateLocationNfsResponse$: StaticStructureSchema = [3, n0, _ULNRp,
 ];
 export var UpdateLocationObjectStorageRequest$: StaticStructureSchema = [3, n0, _ULOSR,
   0,
-  [_LA, _SPe, _SPer, _Su, _SH, _AKc, _SK, _AAg, _SCe, _CSC, _CSCu],
-  [0, 1, 0, 0, 0, 0, [() => ObjectStorageSecretKey, 0], 64 | 0, 21, () => CmkSecretConfig$, () => CustomSecretConfig$], 1
+  [_LA, _SPe, _SPer, _Su, _SH, _AKc, _SK, _FI, _AAg, _SCe, _CSC, _CSCu],
+  [0, 1, 0, 0, 0, 0, [() => ObjectStorageSecretKey, 0], () => ObjectStorageFederatedIdentityConfig$, 64 | 0, 21, () => CmkSecretConfig$, () => CustomSecretConfig$], 1
 ];
 export var UpdateLocationObjectStorageResponse$: StaticStructureSchema = [3, n0, _ULOSRp,
   0,

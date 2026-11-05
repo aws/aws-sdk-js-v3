@@ -45,6 +45,7 @@ export type AzureAccessTier = (typeof AzureAccessTier)[keyof typeof AzureAccessT
  */
 export const AzureBlobAuthenticationType = {
   NONE: "NONE",
+  OIDC: "OIDC",
   SAS: "SAS",
 } as const;
 /**

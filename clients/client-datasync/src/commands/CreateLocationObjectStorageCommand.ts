@@ -43,6 +43,17 @@ export interface CreateLocationObjectStorageCommandOutput extends CreateLocation
  *   BucketName: "STRING_VALUE", // required
  *   AccessKey: "STRING_VALUE",
  *   SecretKey: "STRING_VALUE",
+ *   FederatedIdentity: { // ObjectStorageFederatedIdentityConfig
+ *     AwsIamRole: "STRING_VALUE",
+ *     ExternalIdentity: { // ObjectStorageExternalIdentityConfig
+ *       GoogleOidc: { // GoogleOidcConfig
+ *         ProjectName: "STRING_VALUE", // required
+ *         ProjectNumber: "STRING_VALUE", // required
+ *         IdentityPoolName: "STRING_VALUE", // required
+ *         IdentityProviderName: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
  *   AgentArns: [ // AgentArnList
  *     "STRING_VALUE",
  *   ],

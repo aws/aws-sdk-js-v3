@@ -6,6 +6,8 @@ import {
   AzureBlobAuthenticationType,
   AzureBlobSasConfiguration$,
   AzureBlobType,
+  AzureFederatedIdentityConfig$,
+  AzureOidcConfig$,
   CancelTaskExecution$,
   CancelTaskExecutionCommand,
   CancelTaskExecutionRequest$,
@@ -146,6 +148,7 @@ import {
   FsxUpdateProtocol$,
   FsxUpdateProtocolSmb$,
   Gid,
+  GoogleOidcConfig$,
   HdfsAuthenticationType,
   HdfsDataTransferProtection,
   HdfsNameNode$,
@@ -186,6 +189,8 @@ import {
   NfsMountOptions$,
   NfsVersion,
   ObjectMetadata,
+  ObjectStorageExternalIdentityConfig$,
+  ObjectStorageFederatedIdentityConfig$,
   ObjectStorageServerProtocol,
   ObjectTags,
   ObjectVersionIds,
@@ -425,6 +430,8 @@ assert(typeof UpdateTaskExecution$ === "object");
 // structural schemas
 assert(typeof AgentListEntry$ === "object");
 assert(typeof AzureBlobSasConfiguration$ === "object");
+assert(typeof AzureFederatedIdentityConfig$ === "object");
+assert(typeof AzureOidcConfig$ === "object");
 assert(typeof CancelTaskExecutionRequest$ === "object");
 assert(typeof CancelTaskExecutionResponse$ === "object");
 assert(typeof CmkSecretConfig$ === "object");
@@ -496,6 +503,7 @@ assert(typeof FsxProtocolNfs$ === "object");
 assert(typeof FsxProtocolSmb$ === "object");
 assert(typeof FsxUpdateProtocol$ === "object");
 assert(typeof FsxUpdateProtocolSmb$ === "object");
+assert(typeof GoogleOidcConfig$ === "object");
 assert(typeof HdfsNameNode$ === "object");
 assert(typeof ListAgentsRequest$ === "object");
 assert(typeof ListAgentsResponse$ === "object");
@@ -512,6 +520,8 @@ assert(typeof LocationListEntry$ === "object");
 assert(typeof ManagedSecretConfig$ === "object");
 assert(typeof ManifestConfig$ === "object");
 assert(typeof NfsMountOptions$ === "object");
+assert(typeof ObjectStorageExternalIdentityConfig$ === "object");
+assert(typeof ObjectStorageFederatedIdentityConfig$ === "object");
 assert(typeof OnPremConfig$ === "object");
 assert(typeof Options$ === "object");
 assert(typeof Platform$ === "object");
