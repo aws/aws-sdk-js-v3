@@ -111,6 +111,11 @@ export interface UpdateKnowledgeBaseTemplateUriCommandOutput extends UpdateKnowl
  * //     },
  * //     serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  * //       kmsKeyId: "STRING_VALUE",
+ * //       replicaKmsKeys: [ // ReplicaKmsKeyList
+ * //         { // ReplicaKmsKey
+ * //           arn: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //     description: "STRING_VALUE",
  * //     tags: { // Tags
@@ -120,6 +125,8 @@ export interface UpdateKnowledgeBaseTemplateUriCommandOutput extends UpdateKnowl
  * //     ingestionFailureReasons: [ // FailureReason
  * //       "STRING_VALUE",
  * //     ],
+ * //     lastModifiedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedRegion: "STRING_VALUE",
  * //   },
  * // };
  *

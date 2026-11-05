@@ -321,6 +321,20 @@ export type AssistantType = (typeof AssistantType)[keyof typeof AssistantType];
  * @public
  * @enum
  */
+export const AssistantGlobalResiliencyStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type AssistantGlobalResiliencyStatus =
+  (typeof AssistantGlobalResiliencyStatus)[keyof typeof AssistantGlobalResiliencyStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const AssistantCapabilityType = {
   V1: "V1",
   V2: "V2",
@@ -475,6 +489,19 @@ export const CrossRegionStatus = {
  * @public
  */
 export type CrossRegionStatus = (typeof CrossRegionStatus)[keyof typeof CrossRegionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const GlobalResiliencyStatus = {
+  SUPPORTED: "SUPPORTED",
+  UNSUPPORTED: "UNSUPPORTED",
+} as const;
+/**
+ * @public
+ */
+export type GlobalResiliencyStatus = (typeof GlobalResiliencyStatus)[keyof typeof GlobalResiliencyStatus];
 
 /**
  * @public
@@ -650,6 +677,25 @@ export const MessageType = {
  * @public
  */
 export type MessageType = (typeof MessageType)[keyof typeof MessageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UnprocessableContentReason = {
+  /**
+   * The AI inference model is temporarily unavailable.
+   */
+  AI_INFERENCE_MODEL_UNAVAILABLE: "AI_INFERENCE_MODEL_UNAVAILABLE",
+  /**
+   * The orchestration failed for a reason not covered by a more specific value.
+   */
+  ORCHESTRATION_ERROR: "ORCHESTRATION_ERROR",
+} as const;
+/**
+ * @public
+ */
+export type UnprocessableContentReason = (typeof UnprocessableContentReason)[keyof typeof UnprocessableContentReason];
 
 /**
  * @public

@@ -54,6 +54,7 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * //       modelLifecycle: "STRING_VALUE",
  * //       legacyTimestamp: new Date("TIMESTAMP"),
  * //       endOfLifeTimestamp: new Date("TIMESTAMP"),
+ * //       globalResiliencyStatus: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

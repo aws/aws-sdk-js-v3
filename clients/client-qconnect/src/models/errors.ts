@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
+import type { UnprocessableContentReason } from "./enums";
 import { QConnectServiceException as __BaseException } from "./QConnectServiceException";
 
 /**
@@ -210,6 +211,12 @@ export class UnprocessableContentException extends __BaseException {
   readonly name = "UnprocessableContentException" as const;
   readonly $fault = "client" as const;
   /**
+   * The reason the content could not be processed.
+   * @public
+   */
+  reason?: UnprocessableContentReason | undefined;
+
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<UnprocessableContentException, __BaseException>) {
@@ -219,6 +226,7 @@ export class UnprocessableContentException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, UnprocessableContentException.prototype);
+    this.reason = opts.reason;
   }
 }
 

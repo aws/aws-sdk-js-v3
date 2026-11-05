@@ -58,6 +58,8 @@ export interface GetAssistantAssociationCommandOutput extends GetAssistantAssoci
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     lastModifiedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedRegion: "STRING_VALUE",
  * //   },
  * // };
  *

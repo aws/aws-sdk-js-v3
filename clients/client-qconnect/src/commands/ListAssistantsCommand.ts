@@ -52,6 +52,11 @@ export interface ListAssistantsCommandOutput extends ListAssistantsResponse, __M
  * //       },
  * //       serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  * //         kmsKeyId: "STRING_VALUE",
+ * //         replicaKmsKeys: [ // ReplicaKmsKeyList
+ * //           { // ReplicaKmsKey
+ * //             arn: "STRING_VALUE", // required
+ * //           },
+ * //         ],
  * //       },
  * //       integrationConfiguration: { // AssistantIntegrationConfiguration
  * //         topicIntegrationArn: "STRING_VALUE",
@@ -71,6 +76,8 @@ export interface ListAssistantsCommandOutput extends ListAssistantsResponse, __M
  * //           orchestratorUseCase: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       lastModifiedTime: new Date("TIMESTAMP"),
+ * //       lastModifiedRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

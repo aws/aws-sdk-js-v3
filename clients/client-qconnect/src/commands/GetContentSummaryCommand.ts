@@ -55,6 +55,9 @@ export interface GetContentSummaryCommandOutput extends GetContentSummaryRespons
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     lastModifiedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedRegion: "STRING_VALUE",
+ * //     fileHash: "STRING_VALUE",
  * //   },
  * // };
  *

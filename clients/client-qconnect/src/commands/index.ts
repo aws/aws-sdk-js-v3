@@ -69,6 +69,8 @@ export * from "./ListTagsForResourceCommand";
 export * from "./NotifyRecommendationsReceivedCommand";
 export * from "./PutFeedbackCommand";
 export * from "./QueryAssistantCommand";
+export * from "./RegisterAssistantReplicaKeyCommand";
+export * from "./RegisterKnowledgeBaseReplicaKeyCommand";
 export * from "./RemoveAssistantAIAgentCommand";
 export * from "./RemoveKnowledgeBaseTemplateUriCommand";
 export * from "./RenderMessageTemplateCommand";

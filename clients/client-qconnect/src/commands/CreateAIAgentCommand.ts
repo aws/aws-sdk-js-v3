@@ -570,6 +570,8 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  * //       },
  * //     },
  * //     modifiedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedRegion: "STRING_VALUE",
  * //     description: "STRING_VALUE",
  * //     visibilityStatus: "STRING_VALUE", // required
  * //     tags: { // Tags

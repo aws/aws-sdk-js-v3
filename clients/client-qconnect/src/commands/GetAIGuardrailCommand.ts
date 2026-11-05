@@ -111,6 +111,8 @@ export interface GetAIGuardrailCommandOutput extends GetAIGuardrailResponse, __M
  * //     },
  * //     status: "STRING_VALUE",
  * //     modifiedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedRegion: "STRING_VALUE",
  * //   },
  * //   versionNumber: Number("long"),
  * // };

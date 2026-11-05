@@ -111,11 +111,18 @@ export interface ListKnowledgeBasesCommandOutput extends ListKnowledgeBasesRespo
  * //       },
  * //       serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  * //         kmsKeyId: "STRING_VALUE",
+ * //         replicaKmsKeys: [ // ReplicaKmsKeyList
+ * //           { // ReplicaKmsKey
+ * //             arn: "STRING_VALUE", // required
+ * //           },
+ * //         ],
  * //       },
  * //       description: "STRING_VALUE",
  * //       tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       lastModifiedTime: new Date("TIMESTAMP"),
+ * //       lastModifiedRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

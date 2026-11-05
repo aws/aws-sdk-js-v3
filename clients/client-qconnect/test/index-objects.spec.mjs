@@ -42,6 +42,7 @@ import {
   AssistantCapabilityConfiguration$,
   AssistantCapabilityType,
   AssistantData$,
+  AssistantGlobalResiliencyStatus,
   AssistantIntegrationConfiguration$,
   AssistantStatus,
   AssistantSummary$,
@@ -297,6 +298,7 @@ import {
   GetSessionCommand,
   GetSessionRequest$,
   GetSessionResponse$,
+  GlobalResiliencyStatus,
   GroupingConfiguration$,
   GuardrailAction,
   GuardrailContentFilterConfig$,
@@ -530,6 +532,14 @@ import {
   RecommendationTriggerType,
   RecommendationType,
   ReferenceType,
+  RegisterAssistantReplicaKey$,
+  RegisterAssistantReplicaKeyCommand,
+  RegisterAssistantReplicaKeyRequest$,
+  RegisterAssistantReplicaKeyResponse$,
+  RegisterKnowledgeBaseReplicaKey$,
+  RegisterKnowledgeBaseReplicaKeyCommand,
+  RegisterKnowledgeBaseReplicaKeyRequest$,
+  RegisterKnowledgeBaseReplicaKeyResponse$,
   Relevance,
   RelevanceLevel,
   RemoveAssistantAIAgent$,
@@ -545,6 +555,7 @@ import {
   RenderMessageTemplateCommand,
   RenderMessageTemplateRequest$,
   RenderMessageTemplateResponse$,
+  ReplicaKmsKey$,
   RequestTimeoutException,
   RequestTimeoutException$,
   ResourceNotFoundException,
@@ -653,6 +664,7 @@ import {
   UnauthorizedException$,
   UnprocessableContentException,
   UnprocessableContentException$,
+  UnprocessableContentReason,
   UntagResource$,
   UntagResourceCommand,
   UntagResourceRequest$,
@@ -860,6 +872,10 @@ assert(typeof PutFeedbackCommand === "function");
 assert(typeof PutFeedback$ === "object");
 assert(typeof QueryAssistantCommand === "function");
 assert(typeof QueryAssistant$ === "object");
+assert(typeof RegisterAssistantReplicaKeyCommand === "function");
+assert(typeof RegisterAssistantReplicaKey$ === "object");
+assert(typeof RegisterKnowledgeBaseReplicaKeyCommand === "function");
+assert(typeof RegisterKnowledgeBaseReplicaKey$ === "object");
 assert(typeof RemoveAssistantAIAgentCommand === "function");
 assert(typeof RemoveAssistantAIAgent$ === "object");
 assert(typeof RemoveKnowledgeBaseTemplateUriCommand === "function");
@@ -1208,6 +1224,10 @@ assert(typeof RankingData$ === "object");
 assert(typeof RecommendationData$ === "object");
 assert(typeof RecommendationTrigger$ === "object");
 assert(typeof RecommendationTriggerData$ === "object");
+assert(typeof RegisterAssistantReplicaKeyRequest$ === "object");
+assert(typeof RegisterAssistantReplicaKeyResponse$ === "object");
+assert(typeof RegisterKnowledgeBaseReplicaKeyRequest$ === "object");
+assert(typeof RegisterKnowledgeBaseReplicaKeyResponse$ === "object");
 assert(typeof RemoveAssistantAIAgentRequest$ === "object");
 assert(typeof RemoveAssistantAIAgentResponse$ === "object");
 assert(typeof RemoveKnowledgeBaseTemplateUriRequest$ === "object");
@@ -1215,6 +1235,7 @@ assert(typeof RemoveKnowledgeBaseTemplateUriResponse$ === "object");
 assert(typeof RenderingConfiguration$ === "object");
 assert(typeof RenderMessageTemplateRequest$ === "object");
 assert(typeof RenderMessageTemplateResponse$ === "object");
+assert(typeof ReplicaKmsKey$ === "object");
 assert(typeof ResultData$ === "object");
 assert(typeof RetrievalConfiguration$ === "object");
 assert(typeof RetrievalFilterConfiguration$ === "object");
@@ -1319,6 +1340,7 @@ assert(typeof AIPromptAPIFormat === "object");
 assert(typeof AIPromptTemplateType === "object");
 assert(typeof AIPromptType === "object");
 assert(typeof AssistantCapabilityType === "object");
+assert(typeof AssistantGlobalResiliencyStatus === "object");
 assert(typeof AssistantStatus === "object");
 assert(typeof AssistantType === "object");
 assert(typeof AssociationType === "object");
@@ -1333,6 +1355,7 @@ assert(typeof CrossRegionStatus === "object");
 assert(typeof ExternalSource === "object");
 assert(typeof FilterField === "object");
 assert(typeof FilterOperator === "object");
+assert(typeof GlobalResiliencyStatus === "object");
 assert(typeof GuardrailAction === "object");
 assert(typeof GuardrailContentFilterType === "object");
 assert(typeof GuardrailContextualGroundingFilterType === "object");
@@ -1384,6 +1407,7 @@ assert(typeof SyncStatus === "object");
 assert(typeof TargetType === "object");
 assert(typeof ToolOverrideInputValueType === "object");
 assert(typeof ToolType === "object");
+assert(typeof UnprocessableContentReason === "object");
 assert(typeof VisibilityStatus === "object");
 assert(typeof WebScopeType === "object");
 assert(typeof WhatsAppSourceConfigurationStatus === "object");

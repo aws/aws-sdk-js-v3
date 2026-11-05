@@ -52,6 +52,8 @@ export interface ListAIPromptVersionsCommandOutput extends ListAIPromptVersionsR
  * //         type: "STRING_VALUE", // required
  * //         aiPromptArn: "STRING_VALUE", // required
  * //         modifiedTime: new Date("TIMESTAMP"),
+ * //         lastModifiedTime: new Date("TIMESTAMP"),
+ * //         lastModifiedRegion: "STRING_VALUE",
  * //         templateType: "STRING_VALUE", // required
  * //         modelId: "STRING_VALUE", // required
  * //         apiFormat: "STRING_VALUE", // required

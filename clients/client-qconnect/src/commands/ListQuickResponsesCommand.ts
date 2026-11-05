@@ -51,6 +51,7 @@ export interface ListQuickResponsesCommandOutput extends ListQuickResponsesRespo
  * //       status: "STRING_VALUE", // required
  * //       createdTime: new Date("TIMESTAMP"), // required
  * //       lastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       lastModifiedRegion: "STRING_VALUE",
  * //       description: "STRING_VALUE",
  * //       lastModifiedBy: "STRING_VALUE",
  * //       isActive: true || false,

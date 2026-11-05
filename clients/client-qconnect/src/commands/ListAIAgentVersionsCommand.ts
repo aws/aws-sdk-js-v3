@@ -52,6 +52,8 @@ export interface ListAIAgentVersionsCommandOutput extends ListAIAgentVersionsRes
  * //         type: "STRING_VALUE", // required
  * //         aiAgentArn: "STRING_VALUE", // required
  * //         modifiedTime: new Date("TIMESTAMP"),
+ * //         lastModifiedTime: new Date("TIMESTAMP"),
+ * //         lastModifiedRegion: "STRING_VALUE",
  * //         visibilityStatus: "STRING_VALUE", // required
  * //         configuration: { // AIAgentConfiguration Union: only one key present
  * //           manualSearchAIAgentConfiguration: { // ManualSearchAIAgentConfiguration

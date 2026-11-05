@@ -8,19 +8,20 @@ import type {
   AIPromptTemplateType,
   AIPromptType,
   AssistantCapabilityType,
+  AssistantGlobalResiliencyStatus,
   AssistantStatus,
   AssistantType,
   AssociationType,
   ChannelSubtype,
   ChunkingStrategy,
   ContentAssociationType,
-  ContentDisposition,
   ContentStatus,
   ConversationStatus,
   ConversationStatusReason,
   CrossRegionStatus,
   FilterField,
   FilterOperator,
+  GlobalResiliencyStatus,
   GuardrailAction,
   GuardrailContentFilterType,
   GuardrailContextualGroundingFilterType,
@@ -1365,6 +1366,18 @@ export interface AIAgentData {
   modifiedTime?: Date | undefined;
 
   /**
+   * <p>The timestamp when the AI Agent was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the AI Agent was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
+
+  /**
    * <p>The description of the AI Agent.</p>
    * @public
    */
@@ -1611,6 +1624,18 @@ export interface AIAgentSummary {
    * @public
    */
   modifiedTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the AI Agent was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the AI Agent was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
 
   /**
    * <p>The visibility status of the AI Agent.</p>
@@ -2211,6 +2236,18 @@ export interface AIGuardrailData {
    * @public
    */
   modifiedTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the AI Guardrail was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the AI Guardrail was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
 }
 
 /**
@@ -2417,6 +2454,18 @@ export interface AIGuardrailSummary {
    * @public
    */
   modifiedTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the AI Guardrail was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the AI Guardrail was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
 
   /**
    * <p>The visibility status of the AI Guardrail.</p>
@@ -2860,6 +2909,18 @@ export interface AIPromptData {
   modifiedTime?: Date | undefined;
 
   /**
+   * <p>The timestamp when the AI Prompt was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the AI Prompt was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
+
+  /**
    * <p>The description of the AI Prompt.</p>
    * @public
    */
@@ -3106,6 +3167,18 @@ export interface AIPromptSummary {
    * @public
    */
   modifiedTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the AI Prompt was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the AI Prompt was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
 
   /**
    * <p>The type of the prompt template for this AI Prompt.</p>
@@ -3560,6 +3633,18 @@ export interface AssistantAssociationData {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp when the assistant association was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the assistant association was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
 }
 
 /**
@@ -3692,6 +3777,18 @@ export interface AssistantAssociationSummary {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp when the assistant association was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the assistant association was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
 }
 
 /**
@@ -3712,6 +3809,18 @@ export interface ListAssistantAssociationsResponse {
 }
 
 /**
+ * <p>Contains information about the KMS key used to encrypt data in a replica Amazon Web Services Region, including its Amazon Resource Name (ARN).</p>
+ * @public
+ */
+export interface ReplicaKmsKey {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key in the replica Region.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
  * <p>The configuration information for the customer managed key used for encryption.</p>
  * @public
  */
@@ -3721,6 +3830,12 @@ export interface ServerSideEncryptionConfiguration {
    * @public
    */
   kmsKeyId?: string | undefined;
+
+  /**
+   * <p>The list of KMS keys used to encrypt data for this resource's replicas in other Amazon Web Services Regions. Each entry corresponds to a Region where a replica is configured.</p>
+   * @public
+   */
+  replicaKmsKeys?: ReplicaKmsKey[] | undefined;
 }
 
 /**
@@ -3882,6 +3997,31 @@ export interface AssistantData {
    * @public
    */
   orchestratorConfigurationList?: OrchestratorConfigurationEntry[] | undefined;
+
+  /**
+   * <p>The timestamp when the assistant was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the assistant was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
+
+  /**
+   * Whether Amazon Connect Global Resiliency replicates the Connect instance this assistant is
+   * associated with, and so whether resources created under this assistant must satisfy the
+   * replication group's model parity constraint. Answered from the ACGR side per request rather
+   * than stored, so it reflects the customer's replication state now.
+   *
+   * Absent means "not applicable or not known" - never read an absent field as DISABLED. It is
+   * absent on the operations that return an assistant which is not yet associated with a Connect
+   * instance, because replication cannot be established until it is.
+   * @public
+   */
+  assistantGlobalResiliencyStatus?: AssistantGlobalResiliencyStatus | undefined;
 }
 
 /**
@@ -4601,6 +4741,18 @@ export interface AssistantSummary {
    * @public
    */
   orchestratorConfigurationList?: OrchestratorConfigurationEntry[] | undefined;
+
+  /**
+   * <p>The timestamp when the assistant was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the assistant was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
 }
 
 /**
@@ -4707,6 +4859,14 @@ export interface ModelSummary {
    * @public
    */
   endOfLifeTimestamp?: Date | undefined;
+
+  /**
+   * Whether this model is published in every Region of the caller's Amazon Connect Global
+   * Resiliency replication group, and so can be referenced by an AI Prompt that replicates.
+   * Present only for callers to which global resiliency applies.
+   * @public
+   */
+  globalResiliencyStatus?: GlobalResiliencyStatus | undefined;
 }
 
 /**
@@ -5118,6 +5278,40 @@ export interface QueryAssistantRequest {
    * @public
    */
   overrideKnowledgeBaseSearchType?: KnowledgeBaseSearchType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterAssistantReplicaKeyRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The replica Region KMS key to register for the assistant.</p>
+   * @public
+   */
+  replicaKmsKey: ReplicaKmsKey | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterAssistantReplicaKeyResponse {
+  /**
+   * <p>The assistant data.</p>
+   * @public
+   */
+  assistant: AssistantData | undefined;
 }
 
 /**
@@ -7106,6 +7300,24 @@ export interface ContentData {
    * @public
    */
   urlExpiry: Date | undefined;
+
+  /**
+   * <p>The timestamp when the content was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the content was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
+
+  /**
+   * <p>The Base64-encoded SHA-256 hash of the content file. Amazon Connect Global Resiliency returns this field only for replicated content.</p>
+   * @public
+   */
+  fileHash?: string | undefined;
 }
 
 /**
@@ -7256,6 +7468,24 @@ export interface ContentSummary {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp when the content was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the content was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
+
+  /**
+   * <p>The Base64-encoded SHA-256 hash of the content file. Amazon Connect Global Resiliency returns this field only for replicated content.</p>
+   * @public
+   */
+  fileHash?: string | undefined;
 }
 
 /**
@@ -7732,6 +7962,18 @@ export interface KnowledgeBaseData {
    * @public
    */
   ingestionFailureReasons?: string[] | undefined;
+
+  /**
+   * <p>The timestamp when the knowledge base was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the knowledge base was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
 }
 
 /**
@@ -9002,98 +9244,4 @@ export interface MessageTemplateData {
    * @public
    */
   tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMessageTemplateResponse {
-  /**
-   * <p>The message template.</p>
-   * @public
-   */
-  messageTemplate?: MessageTemplateData | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMessageTemplateAttachmentRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The presentation information for the attachment file.</p>
-   * @public
-   */
-  contentDisposition: ContentDisposition | undefined;
-
-  /**
-   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The body of the attachment file being uploaded. It should be encoded using base64 encoding.</p>
-   * @public
-   */
-  body: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * <p>Information about the message template attachment.</p>
- * @public
- */
-export interface MessageTemplateAttachment {
-  /**
-   * <p>The presentation information for the attachment file.</p>
-   * @public
-   */
-  contentDisposition: ContentDisposition | undefined;
-
-  /**
-   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The timestamp when the attachment file was uploaded.</p>
-   * @public
-   */
-  uploadedTime: Date | undefined;
-
-  /**
-   * <p>A pre-signed Amazon S3 URL that can be used to download the attachment file.</p>
-   * @public
-   */
-  url: string | undefined;
-
-  /**
-   * <p>The expiration time of the pre-signed Amazon S3 URL.</p>
-   * @public
-   */
-  urlExpiry: Date | undefined;
-
-  /**
-   * <p>The identifier of the attachment file.</p>
-   * @public
-   */
-  attachmentId: string | undefined;
 }

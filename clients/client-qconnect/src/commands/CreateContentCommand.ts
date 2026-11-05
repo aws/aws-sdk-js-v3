@@ -68,6 +68,9 @@ export interface CreateContentCommandOutput extends CreateContentResponse, __Met
  * //     linkOutUri: "STRING_VALUE",
  * //     url: "STRING_VALUE", // required
  * //     urlExpiry: new Date("TIMESTAMP"), // required
+ * //     lastModifiedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedRegion: "STRING_VALUE",
+ * //     fileHash: "STRING_VALUE",
  * //   },
  * // };
  *

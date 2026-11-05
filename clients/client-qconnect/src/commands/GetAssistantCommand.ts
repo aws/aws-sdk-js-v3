@@ -50,6 +50,11 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  * //     },
  * //     serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  * //       kmsKeyId: "STRING_VALUE",
+ * //       replicaKmsKeys: [ // ReplicaKmsKeyList
+ * //         { // ReplicaKmsKey
+ * //           arn: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //     integrationConfiguration: { // AssistantIntegrationConfiguration
  * //       topicIntegrationArn: "STRING_VALUE",
@@ -69,6 +74,9 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  * //         orchestratorUseCase: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     lastModifiedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedRegion: "STRING_VALUE",
+ * //     assistantGlobalResiliencyStatus: "STRING_VALUE",
  * //   },
  * // };
  *

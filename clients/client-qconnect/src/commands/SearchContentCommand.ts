@@ -66,6 +66,9 @@ export interface SearchContentCommandOutput extends SearchContentResponse, __Met
  * //       tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       lastModifiedTime: new Date("TIMESTAMP"),
+ * //       lastModifiedRegion: "STRING_VALUE",
+ * //       fileHash: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

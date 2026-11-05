@@ -173,6 +173,8 @@ export interface UpdateAIGuardrailCommandOutput extends UpdateAIGuardrailRespons
  * //     },
  * //     status: "STRING_VALUE",
  * //     modifiedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedRegion: "STRING_VALUE",
  * //   },
  * // };
  *

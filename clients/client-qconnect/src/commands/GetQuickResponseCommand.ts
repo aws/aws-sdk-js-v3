@@ -49,6 +49,7 @@ export interface GetQuickResponseCommandOutput extends GetQuickResponseResponse,
  * //     status: "STRING_VALUE", // required
  * //     createdTime: new Date("TIMESTAMP"), // required
  * //     lastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     lastModifiedRegion: "STRING_VALUE",
  * //     contents: { // QuickResponseContents
  * //       plainText: { // QuickResponseContentProvider Union: only one key present
  * //         content: "STRING_VALUE",

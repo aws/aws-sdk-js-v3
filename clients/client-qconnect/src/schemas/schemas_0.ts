@@ -456,6 +456,9 @@ const _R = "Retrieve";
 const _RAAIA = "RemoveAssistantAIAgent";
 const _RAAIAR = "RemoveAssistantAIAgentRequest";
 const _RAAIARe = "RemoveAssistantAIAgentResponse";
+const _RARK = "RegisterAssistantReplicaKey";
+const _RARKR = "RegisterAssistantReplicaKeyRequest";
+const _RARKRe = "RegisterAssistantReplicaKeyResponse";
 const _RC = "RenderingConfiguration";
 const _RCe = "RetrievalConfiguration";
 const _RD = "RankingData";
@@ -465,9 +468,14 @@ const _RE = "RetrieveError";
 const _REL = "RetrieveErrorList";
 const _RFC = "RetrievalFilterConfiguration";
 const _RFL = "RetrievalFilterList";
+const _RKBRK = "RegisterKnowledgeBaseReplicaKey";
+const _RKBRKR = "RegisterKnowledgeBaseReplicaKeyRequest";
+const _RKBRKRe = "RegisterKnowledgeBaseReplicaKeyResponse";
 const _RKBTU = "RemoveKnowledgeBaseTemplateUri";
 const _RKBTUR = "RemoveKnowledgeBaseTemplateUriRequest";
 const _RKBTURe = "RemoveKnowledgeBaseTemplateUriResponse";
+const _RKK = "ReplicaKmsKey";
+const _RKKL = "ReplicaKmsKeyList";
 const _RL = "RecommendationList";
 const _RMT = "RenderMessageTemplate";
 const _RMTR = "RenderMessageTemplateRequest";
@@ -650,6 +658,7 @@ const _aGAIGI = "answerGenerationAIGuardrailId";
 const _aGAIPI = "answerGenerationAIPromptId";
 const _aGAi = "aiGuardrailAssessment";
 const _aGI = "aiGuardrailId";
+const _aGRS = "assistantGlobalResiliencyStatus";
 const _aGS = "aiGuardrailSummary";
 const _aGSi = "aiGuardrailSummaries";
 const _aGVS = "aiGuardrailVersionSummaries";
@@ -688,7 +697,8 @@ const _addres = "address";
 const _adm = "adm";
 const _an = "annotations";
 const _ap = "apns";
-const _ar = "arguments";
+const _ar = "arn";
+const _arg = "arguments";
 const _as = "assistant";
 const _at = "attachment";
 const _att = "attachments";
@@ -817,6 +827,7 @@ const _ex = "excerpt";
 const _exa = "examples";
 const _f = "field";
 const _fC = "filtersConfig";
+const _fH = "fileHash";
 const _fI = "flowId";
 const _fN = "firstName";
 const _fRR = "failedRecordReport";
@@ -836,6 +847,7 @@ const _gI = "generationId";
 const _gIu = "guardrailId";
 const _gN = "guardrailName";
 const _gR = "generativeReference";
+const _gRS = "globalResiliencyStatus";
 const _gT = "greaterThan";
 const _gTOE = "greaterThanOrEquals";
 const _h = "highlights";
@@ -896,6 +908,7 @@ const _lC = "levelConfigurations";
 const _lCMT = "lastContentModificationTime";
 const _lCi = "listContains";
 const _lMB = "lastModifiedBy";
+const _lMR = "lastModifiedRegion";
 const _lMT = "lastModifiedTime";
 const _lN = "lastName";
 const _lOU = "linkOutUri";
@@ -1032,6 +1045,8 @@ const _rIe = "recommendationId";
 const _rIec = "recommendationIds";
 const _rIeq = "requestId";
 const _rIes = "resultId";
+const _rKK = "replicaKmsKey";
+const _rKKe = "replicaKmsKeys";
 const _rL = "relevanceLevel";
 const _rLa = "rateLimit";
 const _rM = "requestModel";
@@ -1265,8 +1280,8 @@ export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
 n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
 export var UnprocessableContentException$: StaticErrorSchema = [-3, n0, _UCE,
   { [_e]: _c, [_hE]: 422 },
-  [_m],
-  [0]
+  [_m, _r],
+  [0, 0]
 ];
 n0_registry.registerError(UnprocessableContentException$, UnprocessableContentException);
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
@@ -1341,13 +1356,13 @@ export var AIAgentConfigurationData$: StaticStructureSchema = [3, n0, _AIACD,
 ];
 export var AIAgentData$: StaticStructureSchema = [3, n0, _AIAD,
   0,
-  [_aI, _aA, _aAI, _aAA, _n, _t, _co, _vS, _mT, _d, _ta, _o, _st],
-  [0, 0, 0, 0, 0, 0, [() => AIAgentConfiguration$, 0], 0, 4, 0, 128 | 0, 0, 0], 8
+  [_aI, _aA, _aAI, _aAA, _n, _t, _co, _vS, _mT, _lMT, _lMR, _d, _ta, _o, _st],
+  [0, 0, 0, 0, 0, 0, [() => AIAgentConfiguration$, 0], 0, 4, 4, 0, 0, 128 | 0, 0, 0], 8
 ];
 export var AIAgentSummary$: StaticStructureSchema = [3, n0, _AIAS,
   0,
-  [_n, _aI, _aA, _aAI, _t, _aAA, _vS, _mT, _co, _o, _d, _st, _ta],
-  [0, 0, 0, 0, 0, 0, 0, 4, [() => AIAgentConfiguration$, 0], 0, 0, 0, 128 | 0], 7
+  [_n, _aI, _aA, _aAI, _t, _aAA, _vS, _mT, _lMT, _lMR, _co, _o, _d, _st, _ta],
+  [0, 0, 0, 0, 0, 0, 0, 4, 4, 0, [() => AIAgentConfiguration$, 0], 0, 0, 0, 128 | 0], 7
 ];
 export var AIAgentVersionSummary$: StaticStructureSchema = [3, n0, _AIAVS,
   0,
@@ -1371,8 +1386,8 @@ export var AIGuardrailContextualGroundingPolicyConfig$: StaticStructureSchema = 
 ];
 export var AIGuardrailData$: StaticStructureSchema = [3, n0, _AIGDu,
   0,
-  [_aI, _aA, _aGA, _aGI, _n, _vS, _bIM, _bOM, _d, _tPC, _cPC, _wPC, _sIPC, _cGPC, _ta, _st, _mT],
-  [0, 0, 0, 0, 0, 0, [() => AIGuardrailBlockedMessaging, 0], [() => AIGuardrailBlockedMessaging, 0], [() => AIGuardrailDescription, 0], [() => AIGuardrailTopicPolicyConfig$, 0], [() => AIGuardrailContentPolicyConfig$, 0], [() => AIGuardrailWordPolicyConfig$, 0], [() => AIGuardrailSensitiveInformationPolicyConfig$, 0], [() => AIGuardrailContextualGroundingPolicyConfig$, 0], 128 | 0, 0, 4], 8
+  [_aI, _aA, _aGA, _aGI, _n, _vS, _bIM, _bOM, _d, _tPC, _cPC, _wPC, _sIPC, _cGPC, _ta, _st, _mT, _lMT, _lMR],
+  [0, 0, 0, 0, 0, 0, [() => AIGuardrailBlockedMessaging, 0], [() => AIGuardrailBlockedMessaging, 0], [() => AIGuardrailDescription, 0], [() => AIGuardrailTopicPolicyConfig$, 0], [() => AIGuardrailContentPolicyConfig$, 0], [() => AIGuardrailWordPolicyConfig$, 0], [() => AIGuardrailSensitiveInformationPolicyConfig$, 0], [() => AIGuardrailContextualGroundingPolicyConfig$, 0], 128 | 0, 0, 4, 4, 0], 8
 ];
 export var AIGuardrailSensitiveInformationPolicyConfig$: StaticStructureSchema = [3, n0, _AIGSIPC,
   0,
@@ -1381,8 +1396,8 @@ export var AIGuardrailSensitiveInformationPolicyConfig$: StaticStructureSchema =
 ];
 export var AIGuardrailSummary$: StaticStructureSchema = [3, n0, _AIGS,
   0,
-  [_n, _aI, _aA, _aGI, _aGA, _vS, _mT, _d, _st, _ta],
-  [0, 0, 0, 0, 0, 0, 4, [() => AIGuardrailDescription, 0], 0, 128 | 0], 6
+  [_n, _aI, _aA, _aGI, _aGA, _vS, _mT, _lMT, _lMR, _d, _st, _ta],
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, [() => AIGuardrailDescription, 0], 0, 128 | 0], 6
 ];
 export var AIGuardrailTopicPolicyConfig$: StaticStructureSchema = [3, n0, _AIGTPC,
   0,
@@ -1401,8 +1416,8 @@ export var AIGuardrailWordPolicyConfig$: StaticStructureSchema = [3, n0, _AIGWPC
 ];
 export var AIPromptData$: StaticStructureSchema = [3, n0, _AIPD,
   0,
-  [_aI, _aA, _aPI, _aPA, _n, _t, _tT, _mI, _aF, _tCe, _vS, _iC, _mT, _d, _ta, _o, _st],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, [() => AIPromptTemplateConfiguration$, 0], 0, [() => AIPromptInferenceConfiguration$, 0], 4, 0, 128 | 0, 0, 0], 11
+  [_aI, _aA, _aPI, _aPA, _n, _t, _tT, _mI, _aF, _tCe, _vS, _iC, _mT, _lMT, _lMR, _d, _ta, _o, _st],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, [() => AIPromptTemplateConfiguration$, 0], 0, [() => AIPromptInferenceConfiguration$, 0], 4, 4, 0, 0, 128 | 0, 0, 0], 11
 ];
 export var AIPromptInferenceConfiguration$: StaticStructureSchema = [3, n0, _AIPIC,
   0,
@@ -1411,8 +1426,8 @@ export var AIPromptInferenceConfiguration$: StaticStructureSchema = [3, n0, _AIP
 ];
 export var AIPromptSummary$: StaticStructureSchema = [3, n0, _AIPS,
   0,
-  [_n, _aI, _aA, _aPI, _t, _aPA, _tT, _mI, _aF, _vS, _mT, _o, _d, _st, _ta],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 128 | 0], 10
+  [_n, _aI, _aA, _aPI, _t, _aPA, _tT, _mI, _aF, _vS, _mT, _lMT, _lMR, _o, _d, _st, _ta],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 128 | 0], 10
 ];
 export var AIPromptVersionSummary$: StaticStructureSchema = [3, n0, _AIPVS,
   0,
@@ -1441,13 +1456,13 @@ export var AppIntegrationsConfiguration$: StaticStructureSchema = [3, n0, _AIC,
 ];
 export var AssistantAssociationData$: StaticStructureSchema = [3, n0, _AAD,
   0,
-  [_aAIs, _aAAs, _aI, _aA, _aT, _aD, _ta],
-  [0, 0, 0, 0, 0, () => AssistantAssociationOutputData$, 128 | 0], 6
+  [_aAIs, _aAAs, _aI, _aA, _aT, _aD, _ta, _lMT, _lMR],
+  [0, 0, 0, 0, 0, () => AssistantAssociationOutputData$, 128 | 0, 4, 0], 6
 ];
 export var AssistantAssociationSummary$: StaticStructureSchema = [3, n0, _AAS,
   0,
-  [_aAIs, _aAAs, _aI, _aA, _aT, _aD, _ta],
-  [0, 0, 0, 0, 0, () => AssistantAssociationOutputData$, 128 | 0], 6
+  [_aAIs, _aAAs, _aI, _aA, _aT, _aD, _ta, _lMT, _lMR],
+  [0, 0, 0, 0, 0, () => AssistantAssociationOutputData$, 128 | 0, 4, 0], 6
 ];
 export var AssistantCapabilityConfiguration$: StaticStructureSchema = [3, n0, _ACC,
   0,
@@ -1456,8 +1471,8 @@ export var AssistantCapabilityConfiguration$: StaticStructureSchema = [3, n0, _A
 ];
 export var AssistantData$: StaticStructureSchema = [3, n0, _AD,
   0,
-  [_aI, _aA, _n, _t, _st, _d, _ta, _sSEC, _iCn, _cC, _aAC, _oCL],
-  [0, 0, 0, 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration$, () => AssistantIntegrationConfiguration$, () => AssistantCapabilityConfiguration$, () => AIAgentConfigurationMap, () => OrchestratorConfigurationList], 5
+  [_aI, _aA, _n, _t, _st, _d, _ta, _sSEC, _iCn, _cC, _aAC, _oCL, _lMT, _lMR, _aGRS],
+  [0, 0, 0, 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration$, () => AssistantIntegrationConfiguration$, () => AssistantCapabilityConfiguration$, () => AIAgentConfigurationMap, () => OrchestratorConfigurationList, 4, 0, 0], 5
 ];
 export var AssistantIntegrationConfiguration$: StaticStructureSchema = [3, n0, _AICs,
   0,
@@ -1466,8 +1481,8 @@ export var AssistantIntegrationConfiguration$: StaticStructureSchema = [3, n0, _
 ];
 export var AssistantSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_aI, _aA, _n, _t, _st, _d, _ta, _sSEC, _iCn, _cC, _aAC, _oCL],
-  [0, 0, 0, 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration$, () => AssistantIntegrationConfiguration$, () => AssistantCapabilityConfiguration$, () => AIAgentConfigurationMap, () => OrchestratorConfigurationList], 5
+  [_aI, _aA, _n, _t, _st, _d, _ta, _sSEC, _iCn, _cC, _aAC, _oCL, _lMT, _lMR],
+  [0, 0, 0, 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration$, () => AssistantIntegrationConfiguration$, () => AssistantCapabilityConfiguration$, () => AIAgentConfigurationMap, () => OrchestratorConfigurationList, 4, 0], 5
 ];
 export var AssociationConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
@@ -1526,8 +1541,8 @@ export var ContentAssociationSummary$: StaticStructureSchema = [3, n0, _CAS,
 ];
 export var ContentData$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_cAo, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _st, _me, _u, _uE, _ta, _lOU],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, [() => Url, 0], 7, 128 | 0, 0], 12
+  [_cAo, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _st, _me, _u, _uE, _ta, _lOU, _lMT, _lMR, _fH],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, [() => Url, 0], 7, 128 | 0, 0, 4, 0, 0], 12
 ];
 export var ContentDataDetails$: StaticStructureSchema = [3, n0, _CDD,
   0,
@@ -1541,8 +1556,8 @@ export var ContentReference$: StaticStructureSchema = [3, n0, _CR,
 ];
 export var ContentSummary$: StaticStructureSchema = [3, n0, _CSo,
   0,
-  [_cAo, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _st, _me, _ta],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0], 10
+  [_cAo, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _st, _me, _ta, _lMT, _lMR, _fH],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0, 4, 0, 0], 10
 ];
 export var ConversationContext$: StaticStructureSchema = [3, n0, _CCon,
   0,
@@ -2241,13 +2256,13 @@ export var KnowledgeBaseAssociationData$: StaticStructureSchema = [3, n0, _KBAD,
 ];
 export var KnowledgeBaseData$: StaticStructureSchema = [3, n0, _KBD,
   0,
-  [_kBI, _kBA, _n, _kBT, _st, _lCMT, _vIC, _sC, _rCe, _sSEC, _d, _ta, _iSn, _iFR],
-  [0, 0, 0, 0, 0, 7, () => VectorIngestionConfiguration$, [() => SourceConfiguration$, 0], () => RenderingConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0, 0, 64 | 0], 5
+  [_kBI, _kBA, _n, _kBT, _st, _lCMT, _vIC, _sC, _rCe, _sSEC, _d, _ta, _iSn, _iFR, _lMT, _lMR],
+  [0, 0, 0, 0, 0, 7, () => VectorIngestionConfiguration$, [() => SourceConfiguration$, 0], () => RenderingConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0, 0, 64 | 0, 4, 0], 5
 ];
 export var KnowledgeBaseSummary$: StaticStructureSchema = [3, n0, _KBS,
   0,
-  [_kBI, _kBA, _n, _kBT, _st, _sC, _vIC, _rCe, _sSEC, _d, _ta],
-  [0, 0, 0, 0, 0, [() => SourceConfiguration$, 0], () => VectorIngestionConfiguration$, () => RenderingConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0], 5
+  [_kBI, _kBA, _n, _kBT, _st, _sC, _vIC, _rCe, _sSEC, _d, _ta, _lMT, _lMR],
+  [0, 0, 0, 0, 0, [() => SourceConfiguration$, 0], () => VectorIngestionConfiguration$, () => RenderingConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0, 4, 0], 5
 ];
 export var ListAIAgentsRequest$: StaticStructureSchema = [3, n0, _LAIAR,
   0,
@@ -2511,8 +2526,8 @@ export var MessageTemplateVersionSummary$: StaticStructureSchema = [3, n0, _MTVS
 ];
 export var ModelSummary$: StaticStructureSchema = [3, n0, _MS,
   0,
-  [_mI, _dN, _cRS, _sPCu, _sAIPT, _mL, _lT, _eOLT],
-  [0, 0, 0, 2, 64 | 0, 0, 4, 4], 2
+  [_mI, _dN, _cRS, _sPCu, _sAIPT, _mL, _lT, _eOLT, _gRS],
+  [0, 0, 0, 2, 64 | 0, 0, 4, 4, 0], 2
 ];
 export var MultiAgentInstruction$: StaticStructureSchema = [3, n0, _MAI,
   8,
@@ -2641,8 +2656,8 @@ export var QuickResponseContents$: StaticStructureSchema = [3, n0, _QRCu,
 ];
 export var QuickResponseData$: StaticStructureSchema = [3, n0, _QRD,
   0,
-  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _st, _cTr, _lMT, _cont, _d, _gC, _sK, _lMB, _iA, _ch, _la, _ta],
-  [0, 0, 0, 0, 0, 0, 0, 7, 7, [() => QuickResponseContents$, 0], 0, [() => GroupingConfiguration$, 0], 0, 0, 2, [() => Channels, 0], 0, 128 | 0], 9
+  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _st, _cTr, _lMT, _lMR, _cont, _d, _gC, _sK, _lMB, _iA, _ch, _la, _ta],
+  [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, [() => QuickResponseContents$, 0], 0, [() => GroupingConfiguration$, 0], 0, 0, 2, [() => Channels, 0], 0, 128 | 0], 9
 ];
 export var QuickResponseFilterField$: StaticStructureSchema = [3, n0, _QRFF,
   0,
@@ -2666,13 +2681,13 @@ export var QuickResponseSearchExpression$: StaticStructureSchema = [3, n0, _QRSE
 ];
 export var QuickResponseSearchResultData$: StaticStructureSchema = [3, n0, _QRSRD,
   0,
-  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _st, _cont, _cTr, _lMT, _iA, _d, _gC, _sK, _lMB, _ch, _la, _aNI, _aItt, _ta],
-  [0, 0, 0, 0, 0, 0, 0, [() => QuickResponseContents$, 0], 7, 7, 2, 0, [() => GroupingConfiguration$, 0], 0, 0, [() => Channels, 0], 0, [() => ContactAttributeKeys, 0], [() => ContactAttributeKeys, 0], 128 | 0], 11
+  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _st, _cont, _cTr, _lMT, _iA, _lMR, _d, _gC, _sK, _lMB, _ch, _la, _aNI, _aItt, _ta],
+  [0, 0, 0, 0, 0, 0, 0, [() => QuickResponseContents$, 0], 7, 7, 2, 0, 0, [() => GroupingConfiguration$, 0], 0, 0, [() => Channels, 0], 0, [() => ContactAttributeKeys, 0], [() => ContactAttributeKeys, 0], 128 | 0], 11
 ];
 export var QuickResponseSummary$: StaticStructureSchema = [3, n0, _QRS,
   0,
-  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _st, _cTr, _lMT, _d, _lMB, _iA, _ch, _ta],
-  [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 2, [() => Channels, 0], 128 | 0], 9
+  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _st, _cTr, _lMT, _lMR, _d, _lMB, _iA, _ch, _ta],
+  [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 0, 2, [() => Channels, 0], 128 | 0], 9
 ];
 export var RankingData$: StaticStructureSchema = [3, n0, _RD,
   0,
@@ -2688,6 +2703,26 @@ export var RecommendationTrigger$: StaticStructureSchema = [3, n0, _RT,
   0,
   [_id, _t, _so, _da, _rIec],
   [0, 0, 0, [() => RecommendationTriggerData$, 0], 64 | 0], 5
+];
+export var RegisterAssistantReplicaKeyRequest$: StaticStructureSchema = [3, n0, _RARKR,
+  0,
+  [_aI, _rKK, _cTl],
+  [[0, 1], () => ReplicaKmsKey$, [0, 4]], 2
+];
+export var RegisterAssistantReplicaKeyResponse$: StaticStructureSchema = [3, n0, _RARKRe,
+  0,
+  [_as],
+  [() => AssistantData$], 1
+];
+export var RegisterKnowledgeBaseReplicaKeyRequest$: StaticStructureSchema = [3, n0, _RKBRKR,
+  0,
+  [_kBI, _rKK, _cTl],
+  [[0, 1], () => ReplicaKmsKey$, [0, 4]], 2
+];
+export var RegisterKnowledgeBaseReplicaKeyResponse$: StaticStructureSchema = [3, n0, _RKBRKRe,
+  0,
+  [_kB],
+  [[() => KnowledgeBaseData$, 0]], 1
 ];
 export var RemoveAssistantAIAgentRequest$: StaticStructureSchema = [3, n0, _RAAIAR,
   0,
@@ -2723,6 +2758,11 @@ export var RenderMessageTemplateResponse$: StaticStructureSchema = [3, n0, _RMTR
   0,
   [_con, _sCS, _aNI, _att],
   [[() => MessageTemplateContentProvider$, 0], [() => MessageTemplateSourceConfigurationSummary$, 0], [() => MessageTemplateAttributeKeyList, 0], [() => MessageTemplateAttachmentList, 0]]
+];
+export var ReplicaKmsKey$: StaticStructureSchema = [3, n0, _RKK,
+  0,
+  [_ar],
+  [0], 1
 ];
 export var ResultData$: StaticStructureSchema = [3, n0, _RDes,
   0,
@@ -2836,8 +2876,8 @@ export var SendMessageResponse$: StaticStructureSchema = [3, n0, _SMRe,
 ];
 export var ServerSideEncryptionConfiguration$: StaticStructureSchema = [3, n0, _SSEC,
   0,
-  [_kKI],
-  [0]
+  [_kKI, _rKKe],
+  [0, () => ReplicaKmsKeyList]
 ];
 export var SessionData$: StaticStructureSchema = [3, n0, _SD,
   0,
@@ -2911,7 +2951,7 @@ export var SpanToolResultValue$: StaticStructureSchema = [3, n0, _STRV,
 ];
 export var SpanToolUseValue$: StaticStructureSchema = [3, n0, _STUV,
   0,
-  [_tUI, _n, _ar],
+  [_tUI, _n, _arg],
   [0, 0, [() => JSONDocument, 0]], 3
 ];
 export var StartContentUploadRequest$: StaticStructureSchema = [3, n0, _SCUR,
@@ -3382,6 +3422,9 @@ var RecommendationTriggerList: StaticListSchema = [1, n0, _RTL,
   0, [() => RecommendationTrigger$,
     0]
 ];
+var ReplicaKmsKeyList: StaticListSchema = [1, n0, _RKKL,
+  0, () => ReplicaKmsKey$
+];
 var RetrievalFilterList: StaticListSchema = [1, n0, _RFL,
   0, () => RetrievalFilterConfiguration$
 ];
@@ -3828,6 +3871,12 @@ export var PutFeedback$: StaticOperationSchema = [9, n0, _PF,
 ];
 export var QueryAssistant$: StaticOperationSchema = [9, n0, _QA,
   { [_htt]: ["POST", "/assistants/{assistantId}/query", 200] }, () => QueryAssistantRequest$, () => QueryAssistantResponse$
+];
+export var RegisterAssistantReplicaKey$: StaticOperationSchema = [9, n0, _RARK,
+  { [_htt]: ["PUT", "/assistants/{assistantId}/replicaKey", 200] }, () => RegisterAssistantReplicaKeyRequest$, () => RegisterAssistantReplicaKeyResponse$
+];
+export var RegisterKnowledgeBaseReplicaKey$: StaticOperationSchema = [9, n0, _RKBRK,
+  { [_htt]: ["PUT", "/knowledgeBases/{knowledgeBaseId}/replicaKey", 200] }, () => RegisterKnowledgeBaseReplicaKeyRequest$, () => RegisterKnowledgeBaseReplicaKeyResponse$
 ];
 export var RemoveAssistantAIAgent$: StaticOperationSchema = [9, n0, _RAAIA,
   { [_htt]: ["DELETE", "/assistants/{assistantId}/aiagentConfiguration", 204] }, () => RemoveAssistantAIAgentRequest$, () => RemoveAssistantAIAgentResponse$

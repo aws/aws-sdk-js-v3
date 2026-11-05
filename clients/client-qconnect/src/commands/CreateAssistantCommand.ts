@@ -42,6 +42,11 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  *   },
  *   serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  *     kmsKeyId: "STRING_VALUE",
+ *     replicaKmsKeys: [ // ReplicaKmsKeyList
+ *       { // ReplicaKmsKey
+ *         arn: "STRING_VALUE", // required
+ *       },
+ *     ],
  *   },
  * };
  * const command = new CreateAssistantCommand(input);
@@ -59,6 +64,11 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  * //     },
  * //     serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  * //       kmsKeyId: "STRING_VALUE",
+ * //       replicaKmsKeys: [ // ReplicaKmsKeyList
+ * //         { // ReplicaKmsKey
+ * //           arn: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //     integrationConfiguration: { // AssistantIntegrationConfiguration
  * //       topicIntegrationArn: "STRING_VALUE",
@@ -78,6 +88,9 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  * //         orchestratorUseCase: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     lastModifiedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedRegion: "STRING_VALUE",
+ * //     assistantGlobalResiliencyStatus: "STRING_VALUE",
  * //   },
  * // };
  *

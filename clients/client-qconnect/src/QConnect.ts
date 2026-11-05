@@ -354,6 +354,16 @@ import {
   QueryAssistantCommand,
 } from "./commands/QueryAssistantCommand";
 import {
+  type RegisterAssistantReplicaKeyCommandInput,
+  type RegisterAssistantReplicaKeyCommandOutput,
+  RegisterAssistantReplicaKeyCommand,
+} from "./commands/RegisterAssistantReplicaKeyCommand";
+import {
+  type RegisterKnowledgeBaseReplicaKeyCommandInput,
+  type RegisterKnowledgeBaseReplicaKeyCommandOutput,
+  RegisterKnowledgeBaseReplicaKeyCommand,
+} from "./commands/RegisterKnowledgeBaseReplicaKeyCommand";
+import {
   type RemoveAssistantAIAgentCommandInput,
   type RemoveAssistantAIAgentCommandOutput,
   RemoveAssistantAIAgentCommand,
@@ -565,6 +575,8 @@ const commands = {
   NotifyRecommendationsReceivedCommand,
   PutFeedbackCommand,
   QueryAssistantCommand,
+  RegisterAssistantReplicaKeyCommand,
+  RegisterKnowledgeBaseReplicaKeyCommand,
   RemoveAssistantAIAgentCommand,
   RemoveKnowledgeBaseTemplateUriCommand,
   RenderMessageTemplateCommand,
@@ -1814,6 +1826,40 @@ export interface QConnect {
     args: QueryAssistantCommandInput,
     options: QConnectRequestOptions,
     cb: (err: any, data?: QueryAssistantCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterAssistantReplicaKeyCommand}
+   */
+  registerAssistantReplicaKey(
+    args: RegisterAssistantReplicaKeyCommandInput,
+    options?: QConnectRequestOptions
+  ): Promise<RegisterAssistantReplicaKeyCommandOutput>;
+  registerAssistantReplicaKey(
+    args: RegisterAssistantReplicaKeyCommandInput,
+    cb: (err: any, data?: RegisterAssistantReplicaKeyCommandOutput) => void
+  ): void;
+  registerAssistantReplicaKey(
+    args: RegisterAssistantReplicaKeyCommandInput,
+    options: QConnectRequestOptions,
+    cb: (err: any, data?: RegisterAssistantReplicaKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterKnowledgeBaseReplicaKeyCommand}
+   */
+  registerKnowledgeBaseReplicaKey(
+    args: RegisterKnowledgeBaseReplicaKeyCommandInput,
+    options?: QConnectRequestOptions
+  ): Promise<RegisterKnowledgeBaseReplicaKeyCommandOutput>;
+  registerKnowledgeBaseReplicaKey(
+    args: RegisterKnowledgeBaseReplicaKeyCommandInput,
+    cb: (err: any, data?: RegisterKnowledgeBaseReplicaKeyCommandOutput) => void
+  ): void;
+  registerKnowledgeBaseReplicaKey(
+    args: RegisterKnowledgeBaseReplicaKeyCommandInput,
+    options: QConnectRequestOptions,
+    cb: (err: any, data?: RegisterKnowledgeBaseReplicaKeyCommandOutput) => void
   ): void;
 
   /**

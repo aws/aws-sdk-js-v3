@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CreateMessageTemplateRequest, CreateMessageTemplateResponse } from "../models/models_0";
+import type { CreateMessageTemplateRequest } from "../models/models_0";
+import type { CreateMessageTemplateResponse } from "../models/models_1";
 import { CreateMessageTemplate$ } from "../schemas/schemas_0";
 
 /**

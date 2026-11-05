@@ -89,6 +89,7 @@ export interface SearchQuickResponsesCommandOutput extends SearchQuickResponsesR
  * //       },
  * //       createdTime: new Date("TIMESTAMP"), // required
  * //       lastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       lastModifiedRegion: "STRING_VALUE",
  * //       isActive: true || false, // required
  * //       description: "STRING_VALUE",
  * //       groupingConfiguration: { // GroupingConfiguration

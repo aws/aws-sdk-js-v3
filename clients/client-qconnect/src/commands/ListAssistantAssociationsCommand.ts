@@ -60,6 +60,8 @@ export interface ListAssistantAssociationsCommandOutput extends ListAssistantAss
  * //       tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       lastModifiedTime: new Date("TIMESTAMP"),
+ * //       lastModifiedRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

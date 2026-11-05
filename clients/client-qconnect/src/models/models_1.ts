@@ -3,6 +3,7 @@ import type {
   AIAgentType,
   AIPromptType,
   ChannelSubtype,
+  ContentDisposition,
   ExternalSource,
   ImportJobStatus,
   ImportJobType,
@@ -40,7 +41,6 @@ import type {
   IntentDetectedDataDetails,
   KnowledgeBaseData,
   KnowledgeSource,
-  MessageTemplateAttachment,
   MessageTemplateAttributes,
   MessageTemplateContentProvider,
   MessageTemplateData,
@@ -52,6 +52,7 @@ import type {
   RankingData,
   RecommendationTrigger,
   RenderingConfiguration,
+  ReplicaKmsKey,
   SearchExpression,
   ServerSideEncryptionConfiguration,
   SourceConfiguration,
@@ -63,6 +64,100 @@ import type {
   SuggestedMessageDataDetails,
   VectorIngestionConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: MessageTemplateData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateAttachmentRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The presentation information for the attachment file.</p>
+   * @public
+   */
+  contentDisposition: ContentDisposition | undefined;
+
+  /**
+   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The body of the attachment file being uploaded. It should be encoded using base64 encoding.</p>
+   * @public
+   */
+  body: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Information about the message template attachment.</p>
+ * @public
+ */
+export interface MessageTemplateAttachment {
+  /**
+   * <p>The presentation information for the attachment file.</p>
+   * @public
+   */
+  contentDisposition: ContentDisposition | undefined;
+
+  /**
+   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The timestamp when the attachment file was uploaded.</p>
+   * @public
+   */
+  uploadedTime: Date | undefined;
+
+  /**
+   * <p>A pre-signed Amazon S3 URL that can be used to download the attachment file.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>The expiration time of the pre-signed Amazon S3 URL.</p>
+   * @public
+   */
+  urlExpiry: Date | undefined;
+
+  /**
+   * <p>The identifier of the attachment file.</p>
+   * @public
+   */
+  attachmentId: string | undefined;
+}
 
 /**
  * @public
@@ -478,6 +573,12 @@ export interface QuickResponseData {
    * @public
    */
   lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the quick response was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
 
   /**
    * <p>The contents of the quick response.</p>
@@ -1102,6 +1203,18 @@ export interface KnowledgeBaseSummary {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp when the knowledge base was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the knowledge base was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
 }
 
 /**
@@ -1590,6 +1703,12 @@ export interface QuickResponseSummary {
   lastModifiedTime: Date | undefined;
 
   /**
+   * <p>The Amazon Web Services Region where the quick response was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
+
+  /**
    * <p>The description of the quick response.</p>
    * @public
    */
@@ -1735,6 +1854,40 @@ export interface UpdateQuickResponseResponse {
    * @public
    */
   quickResponse?: QuickResponseData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterKnowledgeBaseReplicaKeyRequest {
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The replica Region KMS key to register for the knowledge base.</p>
+   * @public
+   */
+  replicaKmsKey: ReplicaKmsKey | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterKnowledgeBaseReplicaKeyResponse {
+  /**
+   * <p>Information about the knowledge base.</p>
+   * @public
+   */
+  knowledgeBase: KnowledgeBaseData | undefined;
 }
 
 /**
@@ -2268,6 +2421,12 @@ export interface QuickResponseSearchResultData {
    * @public
    */
   lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the quick response was last modified.</p>
+   * @public
+   */
+  lastModifiedRegion?: string | undefined;
 
   /**
    * <p>Whether the quick response is active.</p>

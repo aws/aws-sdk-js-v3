@@ -242,6 +242,14 @@ import type {
 import type { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
 import type { QueryAssistantCommandInput, QueryAssistantCommandOutput } from "./commands/QueryAssistantCommand";
 import type {
+  RegisterAssistantReplicaKeyCommandInput,
+  RegisterAssistantReplicaKeyCommandOutput,
+} from "./commands/RegisterAssistantReplicaKeyCommand";
+import type {
+  RegisterKnowledgeBaseReplicaKeyCommandInput,
+  RegisterKnowledgeBaseReplicaKeyCommandOutput,
+} from "./commands/RegisterKnowledgeBaseReplicaKeyCommand";
+import type {
   RemoveAssistantAIAgentCommandInput,
   RemoveAssistantAIAgentCommandOutput,
 } from "./commands/RemoveAssistantAIAgentCommand";
@@ -389,6 +397,8 @@ export type ServiceInputTypes =
   | NotifyRecommendationsReceivedCommandInput
   | PutFeedbackCommandInput
   | QueryAssistantCommandInput
+  | RegisterAssistantReplicaKeyCommandInput
+  | RegisterKnowledgeBaseReplicaKeyCommandInput
   | RemoveAssistantAIAgentCommandInput
   | RemoveKnowledgeBaseTemplateUriCommandInput
   | RenderMessageTemplateCommandInput
@@ -488,6 +498,8 @@ export type ServiceOutputTypes =
   | NotifyRecommendationsReceivedCommandOutput
   | PutFeedbackCommandOutput
   | QueryAssistantCommandOutput
+  | RegisterAssistantReplicaKeyCommandOutput
+  | RegisterKnowledgeBaseReplicaKeyCommandOutput
   | RemoveAssistantAIAgentCommandOutput
   | RemoveKnowledgeBaseTemplateUriCommandOutput
   | RenderMessageTemplateCommandOutput

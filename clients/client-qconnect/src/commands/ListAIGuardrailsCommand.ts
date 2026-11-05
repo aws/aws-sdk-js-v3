@@ -48,6 +48,8 @@ export interface ListAIGuardrailsCommandOutput extends ListAIGuardrailsResponse,
  * //       aiGuardrailId: "STRING_VALUE", // required
  * //       aiGuardrailArn: "STRING_VALUE", // required
  * //       modifiedTime: new Date("TIMESTAMP"),
+ * //       lastModifiedTime: new Date("TIMESTAMP"),
+ * //       lastModifiedRegion: "STRING_VALUE",
  * //       visibilityStatus: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
  * //       status: "STRING_VALUE",

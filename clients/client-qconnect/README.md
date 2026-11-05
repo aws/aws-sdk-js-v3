@@ -671,6 +671,20 @@ QueryAssistant
 </details>
 <details>
 <summary>
+RegisterAssistantReplicaKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/RegisterAssistantReplicaKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/RegisterAssistantReplicaKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/RegisterAssistantReplicaKeyCommandOutput/)
+</details>
+<details>
+<summary>
+RegisterKnowledgeBaseReplicaKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/RegisterKnowledgeBaseReplicaKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/RegisterKnowledgeBaseReplicaKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/RegisterKnowledgeBaseReplicaKeyCommandOutput/)
+</details>
+<details>
+<summary>
 RemoveAssistantAIAgent
 </summary>
 

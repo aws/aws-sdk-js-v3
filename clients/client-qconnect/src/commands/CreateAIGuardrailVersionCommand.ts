@@ -113,6 +113,8 @@ export interface CreateAIGuardrailVersionCommandOutput extends CreateAIGuardrail
  * //     },
  * //     status: "STRING_VALUE",
  * //     modifiedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedRegion: "STRING_VALUE",
  * //   },
  * //   versionNumber: Number("long"),
  * // };
