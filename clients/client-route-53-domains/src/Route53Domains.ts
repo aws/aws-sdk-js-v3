@@ -143,6 +143,11 @@ import {
   ResendOperationAuthorizationCommand,
 } from "./commands/ResendOperationAuthorizationCommand";
 import {
+  type RestoreDomainCommandInput,
+  type RestoreDomainCommandOutput,
+  RestoreDomainCommand,
+} from "./commands/RestoreDomainCommand";
+import {
   type RetrieveDomainAuthCodeCommandInput,
   type RetrieveDomainAuthCodeCommandOutput,
   RetrieveDomainAuthCodeCommand,
@@ -216,6 +221,7 @@ const commands = {
   RenewDomainCommand,
   ResendContactReachabilityEmailCommand,
   ResendOperationAuthorizationCommand,
+  RestoreDomainCommand,
   RetrieveDomainAuthCodeCommand,
   TransferDomainCommand,
   TransferDomainToAnotherAwsAccountCommand,
@@ -702,6 +708,23 @@ export interface Route53Domains {
     args: ResendOperationAuthorizationCommandInput,
     options: Route53DomainsRequestOptions,
     cb: (err: any, data?: ResendOperationAuthorizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RestoreDomainCommand}
+   */
+  restoreDomain(
+    args: RestoreDomainCommandInput,
+    options?: Route53DomainsRequestOptions
+  ): Promise<RestoreDomainCommandOutput>;
+  restoreDomain(
+    args: RestoreDomainCommandInput,
+    cb: (err: any, data?: RestoreDomainCommandOutput) => void
+  ): void;
+  restoreDomain(
+    args: RestoreDomainCommandInput,
+    options: Route53DomainsRequestOptions,
+    cb: (err: any, data?: RestoreDomainCommandOutput) => void
   ): void;
 
   /**

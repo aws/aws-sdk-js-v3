@@ -135,6 +135,7 @@ import type {
   ResendOperationAuthorizationCommandInput,
   ResendOperationAuthorizationCommandOutput,
 } from "./commands/ResendOperationAuthorizationCommand";
+import type { RestoreDomainCommandInput, RestoreDomainCommandOutput } from "./commands/RestoreDomainCommand";
 import type {
   RetrieveDomainAuthCodeCommandInput,
   RetrieveDomainAuthCodeCommandOutput,
@@ -203,6 +204,7 @@ export type ServiceInputTypes =
   | RenewDomainCommandInput
   | ResendContactReachabilityEmailCommandInput
   | ResendOperationAuthorizationCommandInput
+  | RestoreDomainCommandInput
   | RetrieveDomainAuthCodeCommandInput
   | TransferDomainCommandInput
   | TransferDomainToAnotherAwsAccountCommandInput
@@ -243,6 +245,7 @@ export type ServiceOutputTypes =
   | RenewDomainCommandOutput
   | ResendContactReachabilityEmailCommandOutput
   | ResendOperationAuthorizationCommandOutput
+  | RestoreDomainCommandOutput
   | RetrieveDomainAuthCodeCommandOutput
   | TransferDomainCommandOutput
   | TransferDomainToAnotherAwsAccountCommandOutput

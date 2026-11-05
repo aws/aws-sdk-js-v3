@@ -371,6 +371,13 @@ ResendOperationAuthorization
 </details>
 <details>
 <summary>
+RestoreDomain
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/RestoreDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/RestoreDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/RestoreDomainCommandOutput/)
+</details>
+<details>
+<summary>
 RetrieveDomainAuthCode
 </summary>
 

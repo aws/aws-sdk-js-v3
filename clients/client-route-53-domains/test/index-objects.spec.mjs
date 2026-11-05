@@ -144,6 +144,10 @@ import {
   ResendOperationAuthorization$,
   ResendOperationAuthorizationCommand,
   ResendOperationAuthorizationRequest$,
+  RestoreDomain$,
+  RestoreDomainCommand,
+  RestoreDomainRequest$,
+  RestoreDomainResponse$,
   RetrieveDomainAuthCode$,
   RetrieveDomainAuthCodeCommand,
   RetrieveDomainAuthCodeRequest$,
@@ -250,6 +254,8 @@ assert(typeof ResendContactReachabilityEmailCommand === "function");
 assert(typeof ResendContactReachabilityEmail$ === "object");
 assert(typeof ResendOperationAuthorizationCommand === "function");
 assert(typeof ResendOperationAuthorization$ === "object");
+assert(typeof RestoreDomainCommand === "function");
+assert(typeof RestoreDomain$ === "object");
 assert(typeof RetrieveDomainAuthCodeCommand === "function");
 assert(typeof RetrieveDomainAuthCode$ === "object");
 assert(typeof TransferDomainCommand === "function");
@@ -333,6 +339,8 @@ assert(typeof RenewDomainResponse$ === "object");
 assert(typeof ResendContactReachabilityEmailRequest$ === "object");
 assert(typeof ResendContactReachabilityEmailResponse$ === "object");
 assert(typeof ResendOperationAuthorizationRequest$ === "object");
+assert(typeof RestoreDomainRequest$ === "object");
+assert(typeof RestoreDomainResponse$ === "object");
 assert(typeof RetrieveDomainAuthCodeRequest$ === "object");
 assert(typeof RetrieveDomainAuthCodeResponse$ === "object");
 assert(typeof SortCondition$ === "object");

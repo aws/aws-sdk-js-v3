@@ -3115,6 +3115,42 @@ export interface ResendOperationAuthorizationRequest {
 }
 
 /**
+ * <p>A <code>RestoreDomain</code> request includes the name of the domain that you want to
+ * 			restore and, optionally, the maximum price that you agree to pay.</p>
+ * @public
+ */
+export interface RestoreDomainRequest {
+  /**
+   * <p>The name of the domain that you want to restore. The domain must have been registered
+   * 			to the Amazon Web Services account that submits the request.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>Specifies the maximum price that you agree to pay to restore the domain name. This element is
+   * 			required if the domain has registry premium pricing, and optional if the domain
+   * 			is priced at the standard rate for its TLD. If you include it and the restoration
+   * 			price is more than <code>MaxPrice</code>, the request fails.</p>
+   * @public
+   */
+  Consent?: Consent | undefined;
+}
+
+/**
+ * <p>The <code>RestoreDomain</code> response includes the following element.</p>
+ * @public
+ */
+export interface RestoreDomainResponse {
+  /**
+   * <p>Identifier for tracking the progress of the request. To query the operation status,
+   * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
+   * @public
+   */
+  OperationId?: string | undefined;
+}
+
+/**
  * <p>A request for the authorization code for the specified domain. To transfer a domain to
  * 			another registrar, you provide this value to the new registrar.</p>
  * @public

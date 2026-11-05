@@ -26,6 +26,7 @@ export * from "./RejectDomainTransferFromAnotherAwsAccountCommand";
 export * from "./RenewDomainCommand";
 export * from "./ResendContactReachabilityEmailCommand";
 export * from "./ResendOperationAuthorizationCommand";
+export * from "./RestoreDomainCommand";
 export * from "./RetrieveDomainAuthCodeCommand";
 export * from "./TransferDomainCommand";
 export * from "./TransferDomainToAnotherAwsAccountCommand";

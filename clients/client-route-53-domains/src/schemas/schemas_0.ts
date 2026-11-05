@@ -179,10 +179,13 @@ const _RDR = "RegisterDomainRequest";
 const _RDRe = "RegisterDomainResponse";
 const _RDRen = "RenewDomainRequest";
 const _RDRene = "RenewDomainResponse";
+const _RDRes = "RestoreDomainRequest";
+const _RDRest = "RestoreDomainResponse";
 const _RDTFAAA = "RejectDomainTransferFromAnotherAwsAccount";
 const _RDTFAAAR = "RejectDomainTransferFromAnotherAwsAccountRequest";
 const _RDTFAAARe = "RejectDomainTransferFromAnotherAwsAccountResponse";
 const _RDe = "RenewDomain";
+const _RDes = "RestoreDomain";
 const _RN = "RegistrarName";
 const _ROA = "ResendOperationAuthorization";
 const _ROAR = "ResendOperationAuthorizationRequest";
@@ -685,6 +688,16 @@ export var ResendOperationAuthorizationRequest$: StaticStructureSchema = [3, n0,
   [_OI],
   [0], 1
 ];
+export var RestoreDomainRequest$: StaticStructureSchema = [3, n0, _RDRes,
+  0,
+  [_DN, _Co],
+  [0, () => Consent$], 1
+];
+export var RestoreDomainResponse$: StaticStructureSchema = [3, n0, _RDRest,
+  0,
+  [_OI],
+  [0]
+];
 export var RetrieveDomainAuthCodeRequest$: StaticStructureSchema = [3, n0, _RDACR,
   0,
   [_DN],
@@ -893,6 +906,9 @@ export var ResendContactReachabilityEmail$: StaticOperationSchema = [9, n0, _RCR
 ];
 export var ResendOperationAuthorization$: StaticOperationSchema = [9, n0, _ROA,
   0, () => ResendOperationAuthorizationRequest$, () => __Unit
+];
+export var RestoreDomain$: StaticOperationSchema = [9, n0, _RDes,
+  0, () => RestoreDomainRequest$, () => RestoreDomainResponse$
 ];
 export var RetrieveDomainAuthCode$: StaticOperationSchema = [9, n0, _RDAC,
   0, () => RetrieveDomainAuthCodeRequest$, () => RetrieveDomainAuthCodeResponse$
