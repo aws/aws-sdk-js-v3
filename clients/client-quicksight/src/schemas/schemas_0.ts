@@ -776,6 +776,7 @@ const _CMF = "CalculatedMeasureField";
 const _CMFa = "CategoricalMeasureField";
 const _CMKUE = "CustomerManagedKeyUnavailableException";
 const _CMO = "ContextMenuOption";
+const _CMRA = "CustomerManagedRoleArn";
 const _CMSDS = "CreateMySqlDataSource";
 const _CMo = "ComparisonMethod";
 const _CMol = "ColumnMetadata";
@@ -1364,6 +1365,9 @@ const _DRF = "DateRangeFilter";
 const _DRM = "DeleteRoleMembership";
 const _DRMR = "DeleteRoleMembershipRequest";
 const _DRMRe = "DeleteRoleMembershipResponse";
+const _DRP = "DescribeResourcePermissions";
+const _DRPR = "DescribeResourcePermissionsRequest";
+const _DRPRe = "DescribeResourcePermissionsResponse";
 const _DRS = "DeleteRefreshSchedule";
 const _DRSR = "DeleteRefreshScheduleRequest";
 const _DRSRe = "DeleteRefreshScheduleResponse";
@@ -3083,6 +3087,7 @@ const _RTef = "RefreshType";
 const _RTel = "RelationalTable";
 const _RTes = "ResultType";
 const _RTi = "RichText";
+const _RTo = "RoleType";
 const _RU = "RedirectUrl";
 const _RUCFC = "RegisteredUserConsoleFeatureConfigurations";
 const _RUDEC = "RegisteredUserDashboardEmbeddingConfiguration";
@@ -4290,7 +4295,10 @@ const _URLS = "URLStyling";
 const _URLT = "URLTemplate";
 const _URLTa = "URLTarget";
 const _URMDS = "UpdateRedshiftManualDataSource";
+const _URP = "UpdateResourcePermissions";
 const _URPL = "UpdateResourcePermissionList";
+const _URPR = "UpdateResourcePermissionsRequest";
+const _URPRp = "UpdateResourcePermissionsResponse";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _URS = "UpdateRefreshSchedule";
@@ -8098,6 +8106,16 @@ export var DescribeRefreshScheduleResponse$: StaticStructureSchema = [3, n0, _DR
   0,
   [_RSe, _St, _RI, _A],
   [() => RefreshSchedule$, [1, 32], 0, 0]
+];
+export var DescribeResourcePermissionsRequest$: StaticStructureSchema = [3, n0, _DRPR,
+  0,
+  [_AAI],
+  [[0, 1]], 1
+];
+export var DescribeResourcePermissionsResponse$: StaticStructureSchema = [3, n0, _DRPRe,
+  0,
+  [_RTo, _CMRA, _RI, _St],
+  [0, 0, 0, [1, 32]]
 ];
 export var DescribeRoleCustomPermissionRequest$: StaticStructureSchema = [3, n0, _DRCPRes,
   0,
@@ -13099,6 +13117,16 @@ export var UpdateRefreshScheduleResponse$: StaticStructureSchema = [3, n0, _URSR
   [_St, _RI, _SI, _A],
   [[1, 32], 0, 0, 0]
 ];
+export var UpdateResourcePermissionsRequest$: StaticStructureSchema = [3, n0, _URPR,
+  0,
+  [_AAI, _RTo, _CMRA],
+  [[0, 1], 0, 0], 3
+];
+export var UpdateResourcePermissionsResponse$: StaticStructureSchema = [3, n0, _URPRp,
+  0,
+  [_RTo, _CMRA, _RI, _St],
+  [0, 0, 0, [1, 32]]
+];
 export var UpdateRoleCustomPermissionRequest$: StaticStructureSchema = [3, n0, _URCPR,
   0,
   [_CPN, _Ro, _AAI, _Na],
@@ -15292,6 +15320,9 @@ export var DescribeQuickSightQSearchConfiguration$: StaticOperationSchema = [9, 
 export var DescribeRefreshSchedule$: StaticOperationSchema = [9, n0, _DRSe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}", 200] }, () => DescribeRefreshScheduleRequest$, () => DescribeRefreshScheduleResponse$
 ];
+export var DescribeResourcePermissions$: StaticOperationSchema = [9, n0, _DRP,
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/account-resource-permissions", 200] }, () => DescribeResourcePermissionsRequest$, () => DescribeResourcePermissionsResponse$
+];
 export var DescribeRoleCustomPermission$: StaticOperationSchema = [9, n0, _DRCPe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission", 200] }, () => DescribeRoleCustomPermissionRequest$, () => DescribeRoleCustomPermissionResponse$
 ];
@@ -15723,6 +15754,9 @@ export var UpdateQuickSightQSearchConfiguration$: StaticOperationSchema = [9, n0
 ];
 export var UpdateRefreshSchedule$: StaticOperationSchema = [9, n0, _URS,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules", 200] }, () => UpdateRefreshScheduleRequest$, () => UpdateRefreshScheduleResponse$
+];
+export var UpdateResourcePermissions$: StaticOperationSchema = [9, n0, _URP,
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/account-resource-permissions", 200] }, () => UpdateResourcePermissionsRequest$, () => UpdateResourcePermissionsResponse$
 ];
 export var UpdateRoleCustomPermission$: StaticOperationSchema = [9, n0, _URCP,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission", 200] }, () => UpdateRoleCustomPermissionRequest$, () => UpdateRoleCustomPermissionResponse$

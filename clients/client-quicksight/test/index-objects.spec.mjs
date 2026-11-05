@@ -1024,6 +1024,10 @@ import {
   DescribeRefreshScheduleCommand,
   DescribeRefreshScheduleRequest$,
   DescribeRefreshScheduleResponse$,
+  DescribeResourcePermissions$,
+  DescribeResourcePermissionsCommand,
+  DescribeResourcePermissionsRequest$,
+  DescribeResourcePermissionsResponse$,
   DescribeRoleCustomPermission$,
   DescribeRoleCustomPermissionCommand,
   DescribeRoleCustomPermissionRequest$,
@@ -2117,6 +2121,7 @@ import {
   SeriesItem$,
   ServiceAccountCredentials$,
   ServiceNowParameters$,
+  ServiceRoleType,
   ServiceType,
   SessionLifetimeInMinutesInvalidException,
   SessionLifetimeInMinutesInvalidException$,
@@ -2606,6 +2611,10 @@ import {
   UpdateRefreshScheduleCommand,
   UpdateRefreshScheduleRequest$,
   UpdateRefreshScheduleResponse$,
+  UpdateResourcePermissions$,
+  UpdateResourcePermissionsCommand,
+  UpdateResourcePermissionsRequest$,
+  UpdateResourcePermissionsResponse$,
   UpdateRoleCustomPermission$,
   UpdateRoleCustomPermissionCommand,
   UpdateRoleCustomPermissionRequest$,
@@ -3038,6 +3047,8 @@ assert(typeof DescribeQuickSightQSearchConfigurationCommand === "function");
 assert(typeof DescribeQuickSightQSearchConfiguration$ === "object");
 assert(typeof DescribeRefreshScheduleCommand === "function");
 assert(typeof DescribeRefreshSchedule$ === "object");
+assert(typeof DescribeResourcePermissionsCommand === "function");
+assert(typeof DescribeResourcePermissions$ === "object");
 assert(typeof DescribeRoleCustomPermissionCommand === "function");
 assert(typeof DescribeRoleCustomPermission$ === "object");
 assert(typeof DescribeSelfUpgradeConfigurationCommand === "function");
@@ -3326,6 +3337,8 @@ assert(typeof UpdateQuickSightQSearchConfigurationCommand === "function");
 assert(typeof UpdateQuickSightQSearchConfiguration$ === "object");
 assert(typeof UpdateRefreshScheduleCommand === "function");
 assert(typeof UpdateRefreshSchedule$ === "object");
+assert(typeof UpdateResourcePermissionsCommand === "function");
+assert(typeof UpdateResourcePermissions$ === "object");
 assert(typeof UpdateRoleCustomPermissionCommand === "function");
 assert(typeof UpdateRoleCustomPermission$ === "object");
 assert(typeof UpdateSelfUpgradeCommand === "function");
@@ -4013,6 +4026,8 @@ assert(typeof DescribeQuickSightQSearchConfigurationRequest$ === "object");
 assert(typeof DescribeQuickSightQSearchConfigurationResponse$ === "object");
 assert(typeof DescribeRefreshScheduleRequest$ === "object");
 assert(typeof DescribeRefreshScheduleResponse$ === "object");
+assert(typeof DescribeResourcePermissionsRequest$ === "object");
+assert(typeof DescribeResourcePermissionsResponse$ === "object");
 assert(typeof DescribeRoleCustomPermissionRequest$ === "object");
 assert(typeof DescribeRoleCustomPermissionResponse$ === "object");
 assert(typeof DescribeSelfUpgradeConfigurationRequest$ === "object");
@@ -5022,6 +5037,8 @@ assert(typeof UpdateQuickSightQSearchConfigurationRequest$ === "object");
 assert(typeof UpdateQuickSightQSearchConfigurationResponse$ === "object");
 assert(typeof UpdateRefreshScheduleRequest$ === "object");
 assert(typeof UpdateRefreshScheduleResponse$ === "object");
+assert(typeof UpdateResourcePermissionsRequest$ === "object");
+assert(typeof UpdateResourcePermissionsResponse$ === "object");
 assert(typeof UpdateRoleCustomPermissionRequest$ === "object");
 assert(typeof UpdateRoleCustomPermissionResponse$ === "object");
 assert(typeof UpdateSelfUpgradeConfigurationRequest$ === "object");
@@ -5355,6 +5372,7 @@ assert(typeof SelectedTooltipType === "object");
 assert(typeof SelfUpgradeAdminAction === "object");
 assert(typeof SelfUpgradeRequestStatus === "object");
 assert(typeof SelfUpgradeStatus === "object");
+assert(typeof ServiceRoleType === "object");
 assert(typeof ServiceType === "object");
 assert(typeof SharingModel === "object");
 assert(typeof SheetContentType === "object");

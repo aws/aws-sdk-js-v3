@@ -34,6 +34,7 @@ import type {
   SearchFilterOperator,
   SelfUpgradeAdminAction,
   SelfUpgradeStatus,
+  ServiceRoleType,
   ServiceType,
   SpaceQuickSightResourceType,
   SpaceQuickSightSearchFilterName,
@@ -176,10 +177,116 @@ import type {
   SessionTag,
   SnapshotConfiguration,
   SpaceQuickSightResourceDetails,
-  SpaceSummary,
   TemplateError,
   User,
 } from "./models_4";
+
+/**
+ * <p>A summary of an Amazon QuickSight space.</p>
+ * @public
+ */
+export interface SpaceSummary {
+  /**
+   * <p>The ID of the space.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The ARN of the space.</p>
+   * @public
+   */
+  spaceArn?: string | undefined;
+
+  /**
+   * <p>The display name of the space.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the space.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The date and time that the space was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The total consumed source size in bytes.</p>
+   * @public
+   */
+  consumedSourceSize?: number | undefined;
+
+  /**
+   * <p>The number of consumed source documents.</p>
+   * @public
+   */
+  consumedSourceDocCount?: number | undefined;
+
+  /**
+   * <p>The date and time that the space was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The user who created the space.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The ARN of the user who created the space.</p>
+   * @public
+   */
+  createdByArn?: string | undefined;
+
+  /**
+   * <p>The number of resources in the space.</p>
+   * @public
+   */
+  resourcesCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSpacesResponse {
+  /**
+   * <p>The ID of the space.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The ARN of the space.</p>
+   * @public
+   */
+  spaceArn?: string | undefined;
+
+  /**
+   * <p>A list of space summaries.</p>
+   * @public
+   */
+  SpaceSummaries: SpaceSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
 
 /**
  * @public
@@ -6022,6 +6129,91 @@ export interface UpdateRefreshScheduleResponse {
    * @public
    */
   Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateResourcePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account whose service role configuration you want to
+   *             update.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The type of service role that you want Amazon Quick Sight to use. The only supported value for this
+   *             operation is <code>CUSTOMER_MANAGED</code>. Requests that specify
+   *             <code>QUICKSIGHT_MANAGED</code> are rejected.</p>
+   * @public
+   */
+  RoleType: ServiceRoleType | undefined;
+
+  /**
+   * <p>The ARN of the customer-managed role that you want Amazon Quick Sight to use. To use this
+   *             operation, you must have the
+   *             <code>iam:PassRole</code> permission for the role.</p>
+   *          <p>Configure the role as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The role must belong to the Amazon Web Services account specified by
+   *                     <code>AwsAccountId</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Configure the role trust policy to allow the Amazon Quick Sight service principal to call
+   *                     <code>sts:AssumeRole</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Attach a permissions policy that allows access to the resources that you want
+   *                     Amazon Quick Sight to use.</p>
+   *             </li>
+   *             <li>
+   *                <p>To use features that rely on session tags, configure the role trust policy to
+   *                     allow the Amazon Quick Sight service principal to call <code>sts:TagSession</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If the role doesn't exist or its trust policy doesn't allow
+   *             <code>sts:AssumeRole</code>, the request returns an
+   *             <code>AccessDeniedException</code>.</p>
+   *          <p>When you call this operation, Amazon Quick Sight attempts to assume the role with session tags
+   *             and records whether the attempt succeeds. If you later add or remove
+   *             <code>sts:TagSession</code> from the trust policy, call this operation again with the
+   *             same role ARN to refresh the stored capability.</p>
+   * @public
+   */
+  CustomerManagedRoleArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateResourcePermissionsResponse {
+  /**
+   * <p>The type of service role that Amazon Quick Sight uses for your account after the update.
+   *             This value is <code>CUSTOMER_MANAGED</code>.</p>
+   * @public
+   */
+  RoleType?: ServiceRoleType | undefined;
+
+  /**
+   * <p>The ARN of the customer-managed role that Amazon Quick Sight uses for your account after
+   *             the update.</p>
+   * @public
+   */
+  CustomerManagedRoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
 }
 
 /**

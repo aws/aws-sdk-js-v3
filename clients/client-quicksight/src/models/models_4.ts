@@ -45,6 +45,7 @@ import type {
   Role,
   SelfUpgradeRequestStatus,
   SelfUpgradeStatus,
+  ServiceRoleType,
   SharingModel,
   SnapshotJobStatus,
   SortOrder,
@@ -3877,6 +3878,49 @@ export interface DescribeRefreshScheduleResponse {
    * @public
    */
   Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeResourcePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account whose service role configuration you want to
+   *             describe.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeResourcePermissionsResponse {
+  /**
+   * <p>The type of service role that Amazon Quick Sight uses for your account.</p>
+   * @public
+   */
+  RoleType?: ServiceRoleType | undefined;
+
+  /**
+   * <p>The ARN of the customer-managed role that Amazon Quick Sight uses for your account. Amazon Quick Sight
+   *             returns this value only when <code>RoleType</code> is
+   *             <code>CUSTOMER_MANAGED</code>.</p>
+   * @public
+   */
+  CustomerManagedRoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
 }
 
 /**
@@ -9127,111 +9171,4 @@ export interface ListSpacesRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * <p>A summary of an Amazon QuickSight space.</p>
- * @public
- */
-export interface SpaceSummary {
-  /**
-   * <p>The ID of the space.</p>
-   * @public
-   */
-  spaceId: string | undefined;
-
-  /**
-   * <p>The ARN of the space.</p>
-   * @public
-   */
-  spaceArn?: string | undefined;
-
-  /**
-   * <p>The display name of the space.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The description of the space.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The date and time that the space was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The total consumed source size in bytes.</p>
-   * @public
-   */
-  consumedSourceSize?: number | undefined;
-
-  /**
-   * <p>The number of consumed source documents.</p>
-   * @public
-   */
-  consumedSourceDocCount?: number | undefined;
-
-  /**
-   * <p>The date and time that the space was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The user who created the space.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The ARN of the user who created the space.</p>
-   * @public
-   */
-  createdByArn?: string | undefined;
-
-  /**
-   * <p>The number of resources in the space.</p>
-   * @public
-   */
-  resourcesCount?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSpacesResponse {
-  /**
-   * <p>The ID of the space.</p>
-   * @public
-   */
-  spaceId: string | undefined;
-
-  /**
-   * <p>The ARN of the space.</p>
-   * @public
-   */
-  spaceArn?: string | undefined;
-
-  /**
-   * <p>A list of space summaries.</p>
-   * @public
-   */
-  SpaceSummaries: SpaceSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
 }

@@ -2464,7 +2464,7 @@ export interface OAuthClientCredentials {
  */
 export interface OneDriveClientCredentials {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used to encrypt the OneDrive certificate credentials. This field is required.</p>
+   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to encrypt the OneDrive certificate credentials. This field is required.</p>
    * @public
    */
   KmsKeyArn: string | undefined;
@@ -2506,7 +2506,7 @@ export interface ServiceAccountCredentials {
  */
 export interface SharePointClientCredentials {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used to encrypt the SharePoint certificate credentials. This field is required.</p>
+   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to encrypt the SharePoint certificate credentials. This field is required.</p>
    * @public
    */
   KmsKeyArn: string | undefined;

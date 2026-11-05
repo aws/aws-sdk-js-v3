@@ -674,6 +674,11 @@ import {
   DescribeRefreshScheduleCommand,
 } from "./commands/DescribeRefreshScheduleCommand";
 import {
+  type DescribeResourcePermissionsCommandInput,
+  type DescribeResourcePermissionsCommandOutput,
+  DescribeResourcePermissionsCommand,
+} from "./commands/DescribeResourcePermissionsCommand";
+import {
   type DescribeRoleCustomPermissionCommandInput,
   type DescribeRoleCustomPermissionCommandOutput,
   DescribeRoleCustomPermissionCommand,
@@ -1382,6 +1387,11 @@ import {
   UpdateRefreshScheduleCommand,
 } from "./commands/UpdateRefreshScheduleCommand";
 import {
+  type UpdateResourcePermissionsCommandInput,
+  type UpdateResourcePermissionsCommandOutput,
+  UpdateResourcePermissionsCommand,
+} from "./commands/UpdateResourcePermissionsCommand";
+import {
   type UpdateRoleCustomPermissionCommandInput,
   type UpdateRoleCustomPermissionCommandOutput,
   UpdateRoleCustomPermissionCommand,
@@ -1674,6 +1684,7 @@ const commands = {
   DescribeQPersonalizationConfigurationCommand,
   DescribeQuickSightQSearchConfigurationCommand,
   DescribeRefreshScheduleCommand,
+  DescribeResourcePermissionsCommand,
   DescribeRoleCustomPermissionCommand,
   DescribeSelfUpgradeConfigurationCommand,
   DescribeSpaceCommand,
@@ -1818,6 +1829,7 @@ const commands = {
   UpdateQPersonalizationConfigurationCommand,
   UpdateQuickSightQSearchConfigurationCommand,
   UpdateRefreshScheduleCommand,
+  UpdateResourcePermissionsCommand,
   UpdateRoleCustomPermissionCommand,
   UpdateSelfUpgradeCommand,
   UpdateSelfUpgradeConfigurationCommand,
@@ -4178,6 +4190,23 @@ export interface QuickSight {
     args: DescribeRefreshScheduleCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeRefreshScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeResourcePermissionsCommand}
+   */
+  describeResourcePermissions(
+    args: DescribeResourcePermissionsCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<DescribeResourcePermissionsCommandOutput>;
+  describeResourcePermissions(
+    args: DescribeResourcePermissionsCommandInput,
+    cb: (err: any, data?: DescribeResourcePermissionsCommandOutput) => void
+  ): void;
+  describeResourcePermissions(
+    args: DescribeResourcePermissionsCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: DescribeResourcePermissionsCommandOutput) => void
   ): void;
 
   /**
@@ -6627,6 +6656,23 @@ export interface QuickSight {
     args: UpdateRefreshScheduleCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateRefreshScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateResourcePermissionsCommand}
+   */
+  updateResourcePermissions(
+    args: UpdateResourcePermissionsCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<UpdateResourcePermissionsCommandOutput>;
+  updateResourcePermissions(
+    args: UpdateResourcePermissionsCommandInput,
+    cb: (err: any, data?: UpdateResourcePermissionsCommandOutput) => void
+  ): void;
+  updateResourcePermissions(
+    args: UpdateResourcePermissionsCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: UpdateResourcePermissionsCommandOutput) => void
   ): void;
 
   /**

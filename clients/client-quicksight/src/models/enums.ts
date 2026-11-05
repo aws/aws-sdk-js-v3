@@ -4331,6 +4331,19 @@ export type QSearchStatus = (typeof QSearchStatus)[keyof typeof QSearchStatus];
  * @public
  * @enum
  */
+export const ServiceRoleType = {
+  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
+  QUICKSIGHT_MANAGED: "QUICKSIGHT_MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type ServiceRoleType = (typeof ServiceRoleType)[keyof typeof ServiceRoleType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SelfUpgradeStatus = {
   ADMIN_APPROVAL: "ADMIN_APPROVAL",
   AUTO_APPROVAL: "AUTO_APPROVAL",

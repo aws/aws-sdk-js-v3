@@ -453,6 +453,10 @@ import type {
   DescribeRefreshScheduleCommandOutput,
 } from "./commands/DescribeRefreshScheduleCommand";
 import type {
+  DescribeResourcePermissionsCommandInput,
+  DescribeResourcePermissionsCommandOutput,
+} from "./commands/DescribeResourcePermissionsCommand";
+import type {
   DescribeRoleCustomPermissionCommandInput,
   DescribeRoleCustomPermissionCommandOutput,
 } from "./commands/DescribeRoleCustomPermissionCommand";
@@ -864,6 +868,10 @@ import type {
   UpdateRefreshScheduleCommandOutput,
 } from "./commands/UpdateRefreshScheduleCommand";
 import type {
+  UpdateResourcePermissionsCommandInput,
+  UpdateResourcePermissionsCommandOutput,
+} from "./commands/UpdateResourcePermissionsCommand";
+import type {
   UpdateRoleCustomPermissionCommandInput,
   UpdateRoleCustomPermissionCommandOutput,
 } from "./commands/UpdateRoleCustomPermissionCommand";
@@ -1075,6 +1083,7 @@ export type ServiceInputTypes =
   | DescribeQPersonalizationConfigurationCommandInput
   | DescribeQuickSightQSearchConfigurationCommandInput
   | DescribeRefreshScheduleCommandInput
+  | DescribeResourcePermissionsCommandInput
   | DescribeRoleCustomPermissionCommandInput
   | DescribeSelfUpgradeConfigurationCommandInput
   | DescribeSpaceCommandInput
@@ -1219,6 +1228,7 @@ export type ServiceInputTypes =
   | UpdateQPersonalizationConfigurationCommandInput
   | UpdateQuickSightQSearchConfigurationCommandInput
   | UpdateRefreshScheduleCommandInput
+  | UpdateResourcePermissionsCommandInput
   | UpdateRoleCustomPermissionCommandInput
   | UpdateSPICECapacityConfigurationCommandInput
   | UpdateSelfUpgradeCommandInput
@@ -1379,6 +1389,7 @@ export type ServiceOutputTypes =
   | DescribeQPersonalizationConfigurationCommandOutput
   | DescribeQuickSightQSearchConfigurationCommandOutput
   | DescribeRefreshScheduleCommandOutput
+  | DescribeResourcePermissionsCommandOutput
   | DescribeRoleCustomPermissionCommandOutput
   | DescribeSelfUpgradeConfigurationCommandOutput
   | DescribeSpaceCommandOutput
@@ -1523,6 +1534,7 @@ export type ServiceOutputTypes =
   | UpdateQPersonalizationConfigurationCommandOutput
   | UpdateQuickSightQSearchConfigurationCommandOutput
   | UpdateRefreshScheduleCommandOutput
+  | UpdateResourcePermissionsCommandOutput
   | UpdateRoleCustomPermissionCommandOutput
   | UpdateSPICECapacityConfigurationCommandOutput
   | UpdateSelfUpgradeCommandOutput
