@@ -44,8 +44,8 @@ export interface GetMicrovmImageBuildCommandOutput extends GetMicrovmImageBuildO
  * //   imageVersion: "STRING_VALUE", // required
  * //   buildId: "STRING_VALUE", // required
  * //   buildState: "PENDING" || "IN_PROGRESS" || "SUCCESSFUL" || "FAILED", // required
- * //   architecture: "ARM_64", // required
- * //   chipset: "GRAVITON", // required
+ * //   architecture: "ARM_64" || "X86_64", // required
+ * //   chipset: "GRAVITON" || "INTEL", // required
  * //   chipsetGeneration: "STRING_VALUE", // required
  * //   stateReason: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required

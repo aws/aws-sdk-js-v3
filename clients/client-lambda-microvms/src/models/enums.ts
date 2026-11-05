@@ -5,6 +5,7 @@
  */
 export const Architecture = {
   ARM_64: "ARM_64",
+  X86_64: "X86_64",
 } as const;
 /**
  * @public
@@ -47,6 +48,7 @@ export type Capability = (typeof Capability)[keyof typeof Capability];
  */
 export const Chipset = {
   GRAVITON: "GRAVITON",
+  INTEL: "INTEL",
 } as const;
 /**
  * @public
@@ -153,6 +155,7 @@ export const ManagedMicrovmImageVersionStatus = {
    * <p>The version is deprecated. Do not use this version for new MicroVM images. Existing MicroVM images that use this version will continue to function.</p>
    */
   DEPRECATED: "DEPRECATED",
+  RECALLED: "RECALLED",
 } as const;
 /**
  * @public

@@ -52,7 +52,7 @@ export interface CreateMicrovmImageCommandOutput extends CreateMicrovmImageRespo
  *   ],
  *   cpuConfigurations: [ // CpuConfigurationList
  *     { // CpuConfiguration
- *       architecture: "ARM_64", // required
+ *       architecture: "ARM_64" || "X86_64", // required
  *     },
  *   ],
  *   resources: [ // ResourcesList
@@ -119,7 +119,7 @@ export interface CreateMicrovmImageCommandOutput extends CreateMicrovmImageRespo
  * //   ],
  * //   cpuConfigurations: [ // CpuConfigurationList
  * //     { // CpuConfiguration
- * //       architecture: "ARM_64", // required
+ * //       architecture: "ARM_64" || "X86_64", // required
  * //     },
  * //   ],
  * //   resources: [ // ResourcesList

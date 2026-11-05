@@ -37,8 +37,8 @@ export interface ListMicrovmImageBuildsCommandOutput extends ListMicrovmImageBui
  *   nextToken: "STRING_VALUE",
  *   imageIdentifier: "STRING_VALUE", // required
  *   imageVersion: "STRING_VALUE", // required
- *   architecture: "ARM_64",
- *   chipset: "GRAVITON",
+ *   architecture: "ARM_64" || "X86_64",
+ *   chipset: "GRAVITON" || "INTEL",
  *   chipsetGeneration: "STRING_VALUE",
  * };
  * const command = new ListMicrovmImageBuildsCommand(input);
@@ -51,8 +51,8 @@ export interface ListMicrovmImageBuildsCommandOutput extends ListMicrovmImageBui
  * //       imageVersion: "STRING_VALUE", // required
  * //       buildId: "STRING_VALUE", // required
  * //       buildState: "PENDING" || "IN_PROGRESS" || "SUCCESSFUL" || "FAILED", // required
- * //       architecture: "ARM_64", // required
- * //       chipset: "GRAVITON", // required
+ * //       architecture: "ARM_64" || "X86_64", // required
+ * //       chipset: "GRAVITON" || "INTEL", // required
  * //       chipsetGeneration: "STRING_VALUE", // required
  * //       stateReason: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"), // required

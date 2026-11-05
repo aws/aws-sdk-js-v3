@@ -32,6 +32,7 @@ export class ConflictException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.lambdamicrovms#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
+  $retryable = {};
   /**
    * <p>The identifier of the resource that caused the conflict.</p>
    * @public

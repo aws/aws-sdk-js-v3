@@ -45,7 +45,12 @@ export interface ListManagedMicrovmImageVersionsCommandOutput extends ListManage
  * //     { // ManagedMicrovmImageVersion
  * //       imageArn: "STRING_VALUE", // required
  * //       imageVersion: "STRING_VALUE", // required
- * //       status: "AVAILABLE" || "DEPRECATED",
+ * //       status: "AVAILABLE" || "DEPRECATED" || "RECALLED",
+ * //       supportedCpuConfigurations: [ // CpuConfigurationList
+ * //         { // CpuConfiguration
+ * //           architecture: "ARM_64" || "X86_64", // required
+ * //         },
+ * //       ],
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },

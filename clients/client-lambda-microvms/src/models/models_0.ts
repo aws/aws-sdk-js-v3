@@ -427,7 +427,7 @@ export interface CreateMicrovmImageRequest {
   logging?: Logging | undefined;
 
   /**
-   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
+   * <p>The list of egress network connectors available to the MicroVM at image build time.</p>
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
@@ -558,7 +558,7 @@ export interface CreateMicrovmImageResponse {
   logging?: Logging | undefined;
 
   /**
-   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
+   * <p>The list of egress network connectors available to the MicroVM at image build time.</p>
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
@@ -820,7 +820,7 @@ export interface GetMicrovmResponse {
   ingressNetworkConnectors?: string[] | undefined;
 
   /**
-   * <p>The list of egress network connectors configured for the MicroVM.</p>
+   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
@@ -1060,7 +1060,7 @@ export interface GetMicrovmImageVersionOutput {
   logging?: Logging | undefined;
 
   /**
-   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
+   * <p>The list of egress network connectors available to the MicroVM at image build time.</p>
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
@@ -1333,7 +1333,7 @@ export interface RunMicrovmRequest {
   ingressNetworkConnectors?: string[] | undefined;
 
   /**
-   * <p>The list of egress network connectors to configure for the MicroVM.</p>
+   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
@@ -1464,7 +1464,7 @@ export interface RunMicrovmResponse {
   ingressNetworkConnectors?: string[] | undefined;
 
   /**
-   * <p>The list of egress network connectors configured for the MicroVM.</p>
+   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
@@ -1547,6 +1547,12 @@ export interface ManagedMicrovmImageVersion {
    * @public
    */
   status?: ManagedMicrovmImageVersionStatus | undefined;
+
+  /**
+   * CPU configurations supported by this managed base image version.
+   * @public
+   */
+  supportedCpuConfigurations?: CpuConfiguration[] | undefined;
 
   /**
    * <p>The timestamp when the version was created.</p>
@@ -1849,7 +1855,7 @@ export interface MicrovmImageVersionSummary {
   logging?: Logging | undefined;
 
   /**
-   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
+   * <p>The list of egress network connectors available to the MicroVM at image build time.</p>
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
@@ -1991,7 +1997,7 @@ export interface UpdateMicrovmImageRequest {
   logging?: Logging | undefined;
 
   /**
-   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
+   * <p>The list of egress network connectors available to the MicroVM at image build time.</p>
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
@@ -2116,7 +2122,7 @@ export interface UpdateMicrovmImageResponse {
   logging?: Logging | undefined;
 
   /**
-   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
+   * <p>The list of egress network connectors available to the MicroVM at image build time.</p>
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
@@ -2228,7 +2234,7 @@ export interface UpdateMicrovmImageVersionResponse {
   logging?: Logging | undefined;
 
   /**
-   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
+   * <p>The list of egress network connectors available to the MicroVM at image build time.</p>
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;

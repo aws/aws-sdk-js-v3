@@ -197,6 +197,7 @@ const _s = "smithy.ts.sdk.synthetic.com.amazonaws.lambdamicrovms";
 const _sA = "startedAt";
 const _sB = "snapshotBuild";
 const _sC = "serviceCode";
+const _sCC = "supportedCpuConfigurations";
 const _sDS = "suspendedDurationSeconds";
 const _sP = "startPort";
 const _sR = "stateReason";
@@ -526,8 +527,8 @@ export var ManagedMicrovmImageSummary$: StaticStructureSchema = [3, n0, _MMIS,
 ];
 export var ManagedMicrovmImageVersion$: StaticStructureSchema = [3, n0, _MMIV,
   0,
-  [_iA, _iV, _cAr, _sta, _uA],
-  [0, 0, 4, 0, 4], 3
+  [_iA, _iV, _cAr, _sta, _sCC, _uA],
+  [0, 0, 4, 0, () => CpuConfigurationList, 4], 3
 ];
 export var MicrovmHooks$: StaticStructureSchema = [3, n0, _MH,
   0,

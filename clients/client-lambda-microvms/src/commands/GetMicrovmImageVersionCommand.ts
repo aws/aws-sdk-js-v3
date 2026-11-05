@@ -58,7 +58,7 @@ export interface GetMicrovmImageVersionCommandOutput extends GetMicrovmImageVers
  * //   ],
  * //   cpuConfigurations: [ // CpuConfigurationList
  * //     { // CpuConfiguration
- * //       architecture: "ARM_64", // required
+ * //       architecture: "ARM_64" || "X86_64", // required
  * //     },
  * //   ],
  * //   resources: [ // ResourcesList

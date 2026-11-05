@@ -59,7 +59,7 @@ export interface UpdateMicrovmImageVersionCommandOutput extends UpdateMicrovmIma
  * //   ],
  * //   cpuConfigurations: [ // CpuConfigurationList
  * //     { // CpuConfiguration
- * //       architecture: "ARM_64", // required
+ * //       architecture: "ARM_64" || "X86_64", // required
  * //     },
  * //   ],
  * //   resources: [ // ResourcesList
