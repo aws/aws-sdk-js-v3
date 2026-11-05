@@ -274,6 +274,7 @@ import {
   GitLabRepositoryResource$,
   GitLabResourceCapabilities$,
   GitLabTokenType,
+  GroupMetadata$,
   HttpVerification$,
   IdCConfiguration$,
   ImportSecurityRequirements$,
@@ -970,6 +971,7 @@ assert(typeof GitLabIntegrationInput$ === "object");
 assert(typeof GitLabRepositoryMetadata$ === "object");
 assert(typeof GitLabRepositoryResource$ === "object");
 assert(typeof GitLabResourceCapabilities$ === "object");
+assert(typeof GroupMetadata$ === "object");
 assert(typeof HttpVerification$ === "object");
 assert(typeof IdCConfiguration$ === "object");
 assert(typeof ImportSecurityRequirementsInput$ === "object");

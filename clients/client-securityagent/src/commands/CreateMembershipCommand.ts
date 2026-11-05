@@ -23,7 +23,7 @@ export interface CreateMembershipCommandInput extends CreateMembershipRequest {}
 export interface CreateMembershipCommandOutput extends CreateMembershipResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new membership, granting a user access to an agent space within an application.</p>
+ * <p>Creates a new membership, granting a user or group access to an agent space within an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -36,7 +36,7 @@ export interface CreateMembershipCommandOutput extends CreateMembershipResponse,
  *   applicationId: "STRING_VALUE", // required
  *   agentSpaceId: "STRING_VALUE", // required
  *   membershipId: "STRING_VALUE", // required
- *   memberType: "USER", // required
+ *   memberType: "USER" || "GROUP", // required
  *   config: { // MembershipConfig Union: only one key present
  *     user: { // UserConfig
  *       role: "MEMBER",

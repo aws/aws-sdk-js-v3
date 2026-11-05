@@ -503,6 +503,7 @@ export type {
   GitLabRepositoryMetadata,
   GitLabRepositoryResource,
   GitLabResourceCapabilities,
+  GroupMetadata,
   HttpVerification,
   IdCConfiguration,
   ImportSecurityRequirementsInput,

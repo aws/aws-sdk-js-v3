@@ -5355,7 +5355,7 @@ export interface CreateMembershipRequest {
   membershipId: string | undefined;
 
   /**
-   * <p>The type of member. Currently, only USER is supported.</p>
+   * <p>The type of member. Use USER for an individual user or GROUP for an IAM Identity Center group. All members of a group have access to the agent space.</p>
    * @public
    */
   memberType: MembershipType | undefined;
@@ -7072,6 +7072,24 @@ export interface GitLabResourceCapabilities {
 }
 
 /**
+ * <p>Contains metadata about an IAM Identity Center group member, including the group display name and description.</p>
+ * @public
+ */
+export interface GroupMetadata {
+  /**
+   * <p>The display name of the group.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The description of the group.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
  * <p>A document used as source material for importing security requirements.</p>
  * @public
  */
@@ -8413,6 +8431,7 @@ export interface UserMetadata {
  * @public
  */
 export type MemberMetadata =
+  | MemberMetadata.GroupMember
   | MemberMetadata.UserMember
   | MemberMetadata.$UnknownMember;
 
@@ -8426,6 +8445,17 @@ export namespace MemberMetadata {
    */
   export interface UserMember {
     user: UserMetadata;
+    group?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The group metadata for the member.</p>
+   * @public
+   */
+  export interface GroupMember {
+    user?: never;
+    group: GroupMetadata;
     $unknown?: never;
   }
 
@@ -8434,6 +8464,7 @@ export namespace MemberMetadata {
    */
   export interface $UnknownMember {
     user?: never;
+    group?: never;
     $unknown: [string, any];
   }
 
@@ -8443,6 +8474,7 @@ export namespace MemberMetadata {
    */
   export interface Visitor<T> {
     user: (value: UserMetadata) => T;
+    group: (value: GroupMetadata) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -9953,22 +9985,4 @@ export interface StartPentestJobOutput {
    * @public
    */
   agentSpaceId?: string | undefined;
-}
-
-/**
- * <p>Input for starting a threat model job.</p>
- * @public
- */
-export interface StartThreatModelJobInput {
-  /**
-   * <p>The unique identifier of the agent space.</p>
-   * @public
-   */
-  agentSpaceId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the threat model to start a job for.</p>
-   * @public
-   */
-  threatModelId: string | undefined;
 }

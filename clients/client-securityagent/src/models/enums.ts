@@ -867,6 +867,10 @@ export type UserRole = (typeof UserRole)[keyof typeof UserRole];
  */
 export const MembershipType = {
   /**
+   * <p>IAM Identity Center group member. All members of the group have access to the agent space.</p>
+   */
+  GROUP: "GROUP",
+  /**
    * <p>Human user member.</p>
    */
   USER: "USER",
@@ -1049,6 +1053,10 @@ export const MembershipTypeFilter = {
    * <p>Show all member types.</p>
    */
   ALL: "ALL",
+  /**
+   * <p>Show only group members.</p>
+   */
+  GROUP: "GROUP",
   /**
    * <p>Show only user members.</p>
    */

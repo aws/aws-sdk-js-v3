@@ -35,7 +35,7 @@ export interface ListMembershipsCommandOutput extends ListMembershipsResponse, _
  * const input = { // ListMembershipsRequest
  *   applicationId: "STRING_VALUE", // required
  *   agentSpaceId: "STRING_VALUE", // required
- *   memberType: "USER" || "ALL",
+ *   memberType: "USER" || "GROUP" || "ALL",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };
@@ -47,7 +47,7 @@ export interface ListMembershipsCommandOutput extends ListMembershipsResponse, _
  * //       membershipId: "STRING_VALUE", // required
  * //       applicationId: "STRING_VALUE", // required
  * //       agentSpaceId: "STRING_VALUE", // required
- * //       memberType: "USER", // required
+ * //       memberType: "USER" || "GROUP", // required
  * //       config: { // MembershipConfig Union: only one key present
  * //         user: { // UserConfig
  * //           role: "MEMBER",
@@ -57,6 +57,10 @@ export interface ListMembershipsCommandOutput extends ListMembershipsResponse, _
  * //         user: { // UserMetadata
  * //           username: "STRING_VALUE", // required
  * //           email: "STRING_VALUE", // required
+ * //         },
+ * //         group: { // GroupMetadata
+ * //           displayName: "STRING_VALUE",
+ * //           description: "STRING_VALUE",
  * //         },
  * //       },
  * //       createdAt: new Date("TIMESTAMP"), // required

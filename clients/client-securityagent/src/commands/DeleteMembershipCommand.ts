@@ -23,7 +23,7 @@ export interface DeleteMembershipCommandInput extends DeleteMembershipRequest {}
 export interface DeleteMembershipCommandOutput extends DeleteMembershipResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a membership, revoking a user's access to an agent space.</p>
+ * <p>Deletes a membership, revoking a user's or group's access to an agent space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -36,7 +36,7 @@ export interface DeleteMembershipCommandOutput extends DeleteMembershipResponse,
  *   applicationId: "STRING_VALUE", // required
  *   agentSpaceId: "STRING_VALUE", // required
  *   membershipId: "STRING_VALUE", // required
- *   memberType: "USER",
+ *   memberType: "USER" || "GROUP",
  * };
  * const command = new DeleteMembershipCommand(input);
  * const response = await client.send(command);

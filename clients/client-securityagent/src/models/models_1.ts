@@ -31,6 +31,24 @@ import type {
 } from "./models_0";
 
 /**
+ * <p>Input for starting a threat model job.</p>
+ * @public
+ */
+export interface StartThreatModelJobInput {
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model to start a job for.</p>
+   * @public
+   */
+  threatModelId: string | undefined;
+}
+
+/**
  * <p>Output for the StartThreatModelJob operation.</p>
  * @public
  */

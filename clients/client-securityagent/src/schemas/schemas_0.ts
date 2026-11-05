@@ -245,6 +245,7 @@ const _GLII = "GitLabIntegrationInput";
 const _GLRC = "GitLabResourceCapabilities";
 const _GLRM = "GitLabRepositoryMetadata";
 const _GLRR = "GitLabRepositoryResource";
+const _GM = "GroupMetadata";
 const _GSRP = "GetSecurityRequirementPack";
 const _GSRPI = "GetSecurityRequirementPackInput";
 const _GSRPO = "GetSecurityRequirementPackOutput";
@@ -642,12 +643,13 @@ const _fi = "findings";
 const _fil = "filter";
 const _filt = "filters";
 const _fo = "format";
-const _g = "github";
+const _g = "group";
 const _gI = "groupId";
 const _gPS = "generalPurposeScanning";
 const _gR = "githubRepository";
 const _gRi = "gitlabRepository";
-const _gi = "gitlab";
+const _gi = "github";
+const _git = "gitlab";
 const _h = "http";
 const _hA = "hostAddress";
 const _hCS = "headCommitSha";
@@ -1786,6 +1788,11 @@ export var GitLabResourceCapabilities$: StaticStructureSchema = [3, n0, _GLRC,
   [_tFG, _lC, _rC],
   [() => TriggerFilterGroups, 2, 2]
 ];
+export var GroupMetadata$: StaticStructureSchema = [3, n0, _GM,
+  0,
+  [_dNi, _d],
+  [0, 0]
+];
 export var HttpVerification$: StaticStructureSchema = [3, n0, _HV,
   0,
   [_to, _rP],
@@ -2859,8 +2866,8 @@ export var IntegrationFilter$: StaticUnionSchema = [4, n0, _IF,
 ];
 export var MemberMetadata$: StaticUnionSchema = [4, n0, _MM,
   0,
-  [_use],
-  [() => UserMetadata$]
+  [_use, _g],
+  [() => UserMetadata$, () => GroupMetadata$]
 ];
 export var MembershipConfig$: StaticUnionSchema = [4, n0, _MC,
   0,
@@ -2874,12 +2881,12 @@ export var PrivateConnectionMode$: StaticUnionSchema = [4, n0, _PCM,
 ];
 export var ProviderInput$: StaticUnionSchema = [4, n0, _PI,
   0,
-  [_g, _gi, _bi, _confl, _aDO, _bDC, _j],
+  [_gi, _git, _bi, _confl, _aDO, _bDC, _j],
   [() => GitHubIntegrationInput$, [() => GitLabIntegrationInput$, 0], () => BitbucketIntegrationInput$, () => ConfluenceIntegrationInput$, () => AzureDevOpsIntegrationInput$, () => BitbucketDataCenterIntegrationInput$, () => JiraIntegrationInput$]
 ];
 export var ProviderResourceCapabilities$: StaticUnionSchema = [4, n0, _PRC,
   0,
-  [_g, _gi, _bi, _confl, _aDO, _j],
+  [_gi, _git, _bi, _confl, _aDO, _j],
   [() => GitHubResourceCapabilities$, () => GitLabResourceCapabilities$, () => BitbucketResourceCapabilities$, () => ConfluenceResourceCapabilities$, () => AzureDevOpsResourceCapabilities$, () => JiraResourceCapabilities$]
 ];
 export var AddArtifact$: StaticOperationSchema = [9, n0, _AA,
