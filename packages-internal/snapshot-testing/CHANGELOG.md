@@ -67,6 +67,13 @@
 
 
 
+
+# 3.0.68 (2026-11-04)
+### Bug Fixes
+* **snapshot-testing:** add camelCase checksumAlgorithm to customFields ([#8403](https://github.com/aws/aws-sdk-js-v3/issues/8403)) ([0bde7a7](https://github.com/aws/aws-sdk-js-v3/commit/0bde7a791084dfefae6a98ddcf7c9e8da8da3754))
+
+
+
 # 3.0.67 (2026-11-04)
 ### Chores
 * **snapshot-testing:** update dependencies.

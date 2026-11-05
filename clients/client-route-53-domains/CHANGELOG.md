@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1162.0...v3.1163.0) (2026-11-05)
+
+
+### Features
+
+* **client-route-53-domains:** Route 53 Domains now supports restoring domains. This release adds the RestoreDomain API to self-serve domain restoration. ([ce3d5a2](https://github.com/aws/aws-sdk-js-v3/commit/ce3d5a2c52fb6ff5f38deb43a1fe9840d8653875))
+
+
+
+
+
 # [3.1162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1161.0...v3.1162.0) (2026-11-04)
 
 

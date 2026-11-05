@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1162.0...v3.1163.0) (2026-11-05)
+
+
+### Bug Fixes
+
+* **snapshot-testing:** add camelCase checksumAlgorithm to customFields ([#8403](https://github.com/aws/aws-sdk-js-v3/issues/8403)) ([0bde7a7](https://github.com/aws/aws-sdk-js-v3/commit/0bde7a791084dfefae6a98ddcf7c9e8da8da3754))
+
+
+### Features
+
+* **client-account-access-runtime:** Adds SDK support for Account Access user portal operations, enabling users to list out and get credentials for role assignments configured in AWS IAM Account Access Manager. ([0372bae](https://github.com/aws/aws-sdk-js-v3/commit/0372bae5d00f3659a7c183606f221e02fed39aae))
+* **client-agent-registry-control:** Adds support for OAuth2 Authorization Server Metadata (RFC 8414) discovery URLs in custom JWT authorizer. ([0b9b8f4](https://github.com/aws/aws-sdk-js-v3/commit/0b9b8f4d9d928788f80fa814bef9280e9508ee81))
+* **client-appintegrations:** This release adds a LastModifiedRegion field to GetApplication and ListApplications so customers can see which Region an application was last modified in. ([878faaf](https://github.com/aws/aws-sdk-js-v3/commit/878faafef566362b26d2c17ae24e4e49be97ca5b))
+* **client-bedrock-agent-runtime:** Amazon Bedrock Managed Knowledge Base now supports an optional mediaId parameter in GetDocumentContent that you can use to retrieve images embedded in source documents. ([0740a76](https://github.com/aws/aws-sdk-js-v3/commit/0740a76b248fde0c43cfbcd7bfaa74f4a8eae340))
+* **client-bedrock-agentcore-control:** Adds support for OAuth2 Authorization Server Metadata (RFC 8414) discovery URLs in custom JWT authorizer and OAuth2 credential provider configurations. ([950c852](https://github.com/aws/aws-sdk-js-v3/commit/950c852a275f9e28ded410f551295ba1434b8234))
+* **client-cloudwatch-logs:** Adds account-level retention policies with dry run preview and the Essentials log group class to Amazon CloudWatch Logs ([da8a2a2](https://github.com/aws/aws-sdk-js-v3/commit/da8a2a29240a37570faad687aa16ffdae50b16dc))
+* **client-datasync:** Adds support for federated identity on Azure Blob Storage and object storage locations, enabling DataSync to authenticate to Azure and Google Cloud Storage using Workload Identity Federation (WIF) over OpenID Connect (OIDC) instead of stored long-lived credentials. ([9a8be11](https://github.com/aws/aws-sdk-js-v3/commit/9a8be11b3653ce3f4b181474baf2d2e458869516))
+* **client-glue:** AWS Glue Spark ETL jobs can now auto-upgrade to the latest version. Set GlueVersion to Auto, then track progress with the AutoVersionStatus field in GetJob. Use StartJobUpgradeAnalysis to approve or decline an upgrade, GetJobUpgradeAnalysis to view details, and StopJobUpgradeAnalysis to stop it. ([b04dd0b](https://github.com/aws/aws-sdk-js-v3/commit/b04dd0b0abe202ef5a7c556eaca6fb59dccc1f04))
+* **client-lambda-microvms:** AWS Lambda MicroVMs now support the x86-64 CPU architecture, which you can select in addition to ARM64 (Graviton) when launching a MicroVM. ([928e07c](https://github.com/aws/aws-sdk-js-v3/commit/928e07cc9646f4984f02076f8d7ec88a0a070e71))
+* **client-qconnect:** Adds support for real-time agent assistance and self-service with Amazon Connect Global Resiliency, including cross-Region replication of supported AI agent resources and configurations. ([d3305fb](https://github.com/aws/aws-sdk-js-v3/commit/d3305fbdf8da10bcd1392e25eb2b38d713f496f9))
+* **client-quicksight:** Amazon QuickSight adds APIs to view account service role settings and switch to or replace a customer-managed IAM role. ([98371e6](https://github.com/aws/aws-sdk-js-v3/commit/98371e6085ffceedf9d7c590063c8c5d01b6b5ea))
+* **client-route-53-domains:** Route 53 Domains now supports restoring domains. This release adds the RestoreDomain API to self-serve domain restoration. ([ce3d5a2](https://github.com/aws/aws-sdk-js-v3/commit/ce3d5a2c52fb6ff5f38deb43a1fe9840d8653875))
+* **client-sagemaker:** Fixed the ImageDeleted and ImageVersionDeleted waiters to succeed on the ResourceNotFound error returned by DescribeImage and DescribeImageVersion ([6cc7711](https://github.com/aws/aws-sdk-js-v3/commit/6cc77117a88a9a6993133da290abefbbb2f3ec7e))
+* **client-securityagent:** Adds support for IAM Identity Center groups as Agent Space members. CreateMembership, DeleteMembership, and ListMemberships now accept the GROUP member type. ListMemberships can filter by USER, GROUP, or ALL, and returns group display name and description. ([a8e028e](https://github.com/aws/aws-sdk-js-v3/commit/a8e028e727e7fd6dddaf2578d75a370f3546462a))
+* **client-wafv2:** AWS WAF customers who monetize AI traffic on Web ACLs can now configure payments through connected accounts (Stripe). ([9e7dd06](https://github.com/aws/aws-sdk-js-v3/commit/9e7dd06f31f29ee8a0e27bf57b2d4dfaed701ae9))
+* **clients:** update client endpoints as of 2026-11-05 ([57e9f14](https://github.com/aws/aws-sdk-js-v3/commit/57e9f1430f258a21837a60c7a6f903974f53116a))
+
+
+
+
+
 # [3.1162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1161.0...v3.1162.0) (2026-11-04)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1162.0...v3.1163.0) (2026-11-05)
+
+
+### Features
+
+* **client-quicksight:** Amazon QuickSight adds APIs to view account service role settings and switch to or replace a customer-managed IAM role. ([98371e6](https://github.com/aws/aws-sdk-js-v3/commit/98371e6085ffceedf9d7c590063c8c5d01b6b5ea))
+
+
+
+
+
 # [3.1162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1161.0...v3.1162.0) (2026-11-04)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1162.0...v3.1163.0) (2026-11-05)
+
+
+### Features
+
+* **client-wafv2:** AWS WAF customers who monetize AI traffic on Web ACLs can now configure payments through connected accounts (Stripe). ([9e7dd06](https://github.com/aws/aws-sdk-js-v3/commit/9e7dd06f31f29ee8a0e27bf57b2d4dfaed701ae9))
+
+
+
+
+
 # [3.1162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1161.0...v3.1162.0) (2026-11-04)
 
 
