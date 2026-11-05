@@ -26,6 +26,9 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * <p>Returns information about log groups, including data sources that ingest into each log
  *       group. You can return all your log groups or filter the results by prefix. The results are
  *       ASCII-sorted by log group name.</p>
+ *          <p>If an account-level retention policy applies to a log group, <code>retentionInDays</code>
+ *       shows the retention period from that policy, and <code>retentionPolicyName</code> shows the
+ *       name of the policy.</p>
  *          <p>CloudWatch Logs doesn't support IAM policies that control access to the
  *         <code>DescribeLogGroups</code> action by using the
  *           <code>aws:ResourceTag/<i>key-name</i>
@@ -55,7 +58,7 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  *   nextToken: "STRING_VALUE",
  *   limit: Number("int"),
  *   includeLinkedAccounts: true || false,
- *   logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY",
+ *   logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY" || "ESSENTIALS",
  *   logGroupIdentifiers: [ // DescribeLogGroupsLogGroupIdentifiers
  *     "STRING_VALUE",
  *   ],
@@ -76,7 +79,7 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * //       inheritedProperties: [ // InheritedProperties
  * //         "ACCOUNT_DATA_PROTECTION",
  * //       ],
- * //       logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY",
+ * //       logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY" || "ESSENTIALS",
  * //       logGroupArn: "STRING_VALUE",
  * //       deletionProtectionEnabled: true || false,
  * //       bearerTokenAuthenticationEnabled: true || false,

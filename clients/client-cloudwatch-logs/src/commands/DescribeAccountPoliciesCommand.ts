@@ -45,6 +45,10 @@ export interface DescribeAccountPoliciesCommandOutput extends DescribeAccountPol
  *                <p>To see field index policies, you must have the <code>logs:DescribeIndexPolicies</code>
  *           and <code>logs:DescribeAccountPolicies</code> permissions.</p>
  *             </li>
+ *             <li>
+ *                <p>To see retention policies, you must have the <code>logs:DescribeAccountPolicies</code>
+ *           permission.</p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

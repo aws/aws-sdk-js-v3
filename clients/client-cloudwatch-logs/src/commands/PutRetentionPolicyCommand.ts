@@ -26,6 +26,14 @@ export interface PutRetentionPolicyCommandOutput extends __MetadataBearer {}
  * <p>Sets the retention of the specified log group. With a retention policy, you can
  *       configure the number of days for which to retain log events in the specified log
  *       group.</p>
+ *          <p>Account-level retention policies created with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a> override the retention that you
+ *       set with <code>PutRetentionPolicy</code>. If an account-level retention policy applies to the
+ *       log group, this operation succeeds and CloudWatch Logs saves the retention period that you
+ *       specify, but the retention period from the account-level policy continues to determine when
+ *       log events in the log group expire. <code>DescribeLogGroups</code> returns the retention period
+ *       from the policy in <code>retentionInDays</code> and the name of the policy in
+ *         <code>retentionPolicyName</code>. The retention period that you set with this operation takes
+ *       effect if the account-level policy no longer applies to the log group.</p>
  *          <note>
  *             <p>CloudWatch Logs doesn't immediately delete log events when they reach their retention
  *         setting. It typically takes up to 72 hours after that before log events are deleted, but in

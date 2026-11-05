@@ -47,7 +47,7 @@ export interface ListAggregateLogGroupSummariesCommandOutput extends ListAggrega
  *     "STRING_VALUE",
  *   ],
  *   includeLinkedAccounts: true || false,
- *   logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY",
+ *   logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY" || "ESSENTIALS",
  *   logGroupNamePattern: "STRING_VALUE",
  *   dataSources: [ // DataSourceFilters
  *     { // DataSourceFilter

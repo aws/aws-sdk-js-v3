@@ -160,6 +160,7 @@ export type DeliverySourceConfigurationSchemaValueType =
  */
 export const LogGroupClass = {
   DELIVERY: "DELIVERY",
+  ESSENTIALS: "ESSENTIALS",
   INFREQUENT_ACCESS: "INFREQUENT_ACCESS",
   STANDARD: "STANDARD",
 } as const;

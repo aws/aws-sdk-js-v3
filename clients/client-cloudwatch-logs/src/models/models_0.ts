@@ -1267,7 +1267,7 @@ export interface CreateLogGroupRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Use this parameter to specify the log group class for this log group. There are three
+   * <p>Use this parameter to specify the log group class for this log group. There are four
    *       classes:</p>
    *          <ul>
    *             <li>
@@ -1275,6 +1275,10 @@ export interface CreateLogGroupRequest {
    *             </li>
    *             <li>
    *                <p>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs
+   *           features and incurs lower costs.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>Essentials</code> log class supports a subset of CloudWatch Logs
    *           features and incurs lower costs.</p>
    *             </li>
    *             <li>
@@ -3354,13 +3358,19 @@ export interface DescribeLogGroupsRequest {
   /**
    * <p>Use this parameter to limit the results to only those log groups in the specified log
    *       group class. If you omit this parameter, log groups of all classes can be returned.</p>
-   *          <p>Specifies the log group class for this log group. There are three classes:</p>
+   *          <p>If you specify either <code>INFREQUENT_ACCESS</code> or <code>ESSENTIALS</code>, the
+   *       results include log groups in both the Infrequent Access and Essentials log classes.</p>
+   *          <p>Specifies the log group class for this log group. There are four classes:</p>
    *          <ul>
    *             <li>
    *                <p>The <code>Standard</code> log class supports all CloudWatch Logs features.</p>
    *             </li>
    *             <li>
    *                <p>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs
+   *           features and incurs lower costs.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>Essentials</code> log class supports a subset of CloudWatch Logs
    *           features and incurs lower costs.</p>
    *             </li>
    *             <li>
@@ -3462,13 +3472,17 @@ export interface LogGroup {
   inheritedProperties?: InheritedProperty[] | undefined;
 
   /**
-   * <p>This specifies the log group class for this log group. There are three classes:</p>
+   * <p>This specifies the log group class for this log group. There are four classes:</p>
    *          <ul>
    *             <li>
    *                <p>The <code>Standard</code> log class supports all CloudWatch Logs features.</p>
    *             </li>
    *             <li>
    *                <p>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs
+   *           features and incurs lower costs.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>Essentials</code> log class supports a subset of CloudWatch Logs
    *           features and incurs lower costs.</p>
    *             </li>
    *             <li>
@@ -3479,7 +3493,7 @@ export interface LogGroup {
    *           queries.</p>
    *             </li>
    *          </ul>
-   *          <p>For details about the features supported by the Standard and Infrequent Access classes,
+   *          <p>For details about the features supported by the Standard, Infrequent Access, and Essentials classes,
    *       see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log classes</a>
    *          </p>
    * @public
@@ -8128,6 +8142,36 @@ export interface PutAccountPolicyRequest {
    *          <p>You can use <code>FieldsV2</code> to specify the type for each field. Supported types are
    *         <code>FIELD_INDEX</code> and <code>FACET</code>. Field names within <code>Fields</code> and
    *         <code>FieldsV2</code> must be mutually exclusive.</p>
+   *          <p>
+   *             <b>Retention policy</b>
+   *          </p>
+   *          <p>A retention policy must include the following attributes in a JSON block:</p>
+   *          <dl>
+   *             <dt>retentionInDays</dt>
+   *             <dd>
+   *                <p>The number of days to retain log events. Valid values are 30, 60, 90, 120, 150, 180,
+   *             365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653. To retain log events
+   *             indefinitely, specify the string <code>NEVER_EXPIRE</code>.</p>
+   *             </dd>
+   *             <dt>enforcementMode</dt>
+   *             <dd>
+   *                <p>Specifies which log groups the policy applies to. Valid values are
+   *               <code>NEW_ONLY</code> and <code>RETROACTIVE</code>.</p>
+   *                <p>
+   *                   <code>RETROACTIVE</code> applies the policy to every log group that matches the
+   *             selection criteria, including log groups that existed before you created the
+   *             policy.</p>
+   *                <p>
+   *                   <code>NEW_ONLY</code> applies the policy only to log groups that are created after
+   *             you create the policy. Log groups that already existed when you created the policy keep
+   *             their own retention period.</p>
+   *             </dd>
+   *          </dl>
+   *          <p>The following is an example of a retention policy document.</p>
+   *          <p>
+   *             <code>"policyDocument": "\{\"retentionInDays\": 90, \"enforcementMode\":
+   *         \"RETROACTIVE\"\}"</code>
+   *          </p>
    * @public
    */
   policyDocument: string | undefined;
@@ -8150,8 +8194,9 @@ export interface PutAccountPolicyRequest {
    * <p>Use this parameter to apply the new policy to a subset of log groups in the account or a
    *       data source name and type combination.  </p>
    *          <p>Specifying <code>selectionCriteria</code> is valid only when you specify
-   *         <code>SUBSCRIPTION_FILTER_POLICY</code>, <code>FIELD_INDEX_POLICY</code> or
-   *         <code>TRANSFORMER_POLICY</code>for <code>policyType</code>.</p>
+   *         <code>SUBSCRIPTION_FILTER_POLICY</code>, <code>FIELD_INDEX_POLICY</code>,
+   *         <code>TRANSFORMER_POLICY</code>, or <code>RETENTION_POLICY</code> for
+   *         <code>policyType</code>.</p>
    *          <ul>
    *             <li>
    *                <p>If <code>policyType</code> is <code>SUBSCRIPTION_FILTER_POLICY</code>, the only
@@ -8182,6 +8227,12 @@ export interface PutAccountPolicyRequest {
    *                <p>When you specify <code>selectionCriteria</code> for a field index policy you can
    *         use either <code>LogGroupNamePrefix</code> by itself or <code>DataSourceName</code> and
    *           <code>DataSourceType</code> together.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>policyType</code> is <code>RETENTION_POLICY</code>, the only supported
+   *             <code>selectionCriteria</code> filter is <code>LogGroupNamePrefix</code>. If you omit
+   *             <code>selectionCriteria</code>, the retention policy applies to all log groups in the
+   *           account.</p>
    *             </li>
    *          </ul>
    *          <p>The <code>selectionCriteria</code> string can be up to 25KB in length. The length is

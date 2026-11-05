@@ -26,6 +26,9 @@ export interface DeleteAccountPolicyCommandOutput extends DeleteAccountPolicyRes
  * <p>Deletes a CloudWatch Logs account policy. This stops the account-wide policy from
  *       applying to log groups or data sources in the account. If you delete a data protection policy
  *       or subscription filter policy, any log-group level policies of those types remain in effect.
+ *       If you delete a retention policy, the log groups that it applied to use their own retention
+ *       setting, unless another retention policy applies to them. Deleting a retention policy does not
+ *       restore log events that CloudWatch Logs has already deleted.
  *       This operation supports deletion of data source-based field index policies, including facet
  *       configurations, in addition to log group-based policies.</p>
  *          <p>To use this operation, you must be signed on with the correct permissions depending on the
@@ -51,6 +54,13 @@ export interface DeleteAccountPolicyCommandOutput extends DeleteAccountPolicyRes
  *                <p>If you delete a field index policy that included facet configurations, those facets
  *           will no longer be available for interactive exploration in the CloudWatch Logs Insights
  *           console. However, facet data is retained for up to 30 days.</p>
+ *             </li>
+ *             <li>
+ *                <p>To delete a retention policy, you must have the
+ *             <code>logs:DeleteRetentionPolicy</code> and <code>logs:DeleteAccountPolicy</code>
+ *           permissions. To preview the impact of deleting a retention policy, specify
+ *             <code>true</code> for <code>dryRun</code>. A dry run requires the same
+ *           permissions as the operation that it previews, and no additional permissions.</p>
  *             </li>
  *          </ul>
  *          <p>If you delete a field index policy, the indexing of the log events that happened before

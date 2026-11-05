@@ -24,8 +24,9 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
 
 /**
  * <p>Creates an account-level data protection policy, subscription filter policy, field index
- *       policy, transformer policy, or metric extraction policy that applies to all log groups, a
- *       subset of log groups, or a data source name and type combination in the account. Account-level
+ *       policy, transformer policy, metric extraction policy, or retention policy that applies to all
+ *       log groups, a subset of log groups, or a data source name and type combination in the
+ *       account. Account-level
  *       policies are Region-specific: a policy applies only to log groups in the Region where you
  *       create it. To apply a policy across multiple Regions, create the policy separately in each
  *       Region.</p>
@@ -76,6 +77,11 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *           account-level only and have no log-group-level equivalent, so no conflict resolution
  *           applies.</p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <i>Retention policies</i> — An account-level retention policy overrides
+ *           the retention setting of the log group.</p>
+ *             </li>
  *          </ul>
  *          <p>For field index policies, you can configure indexed fields as <i>facets</i>
  *       to enable interactive exploration of your logs. Facets provide value distributions and counts
@@ -112,6 +118,11 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *                <p>To create a metric extraction policy, you must have the
  *             <code>logs:PutMetricExtractionPolicy</code> and <code>logs:PutAccountPolicy</code>
  *           permissions.</p>
+ *             </li>
+ *             <li>
+ *                <p>To create a retention policy, you must have the <code>logs:PutRetentionPolicy</code>
+ *           and <code>logs:PutAccountPolicy</code> permissions. A dry run requires the same
+ *           permissions as the operation that it previews, and no additional permissions.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -486,6 +497,49 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *             <code>"/aws/lambda"</code>.</p>
  *             </li>
  *          </ul>
+ *          <p>
+ *             <b>Retention policy</b>
+ *          </p>
+ *          <p>A retention policy sets the retention period for log groups in your account. You can use an
+ *       account-level retention policy to set a default retention period for all log groups in the
+ *       account, or for a subset of log groups that you specify with the
+ *         <code>selectionCriteria</code> parameter. CloudWatch Logs automatically deletes log events
+ *       that are older than the retention period.</p>
+ *          <p>Each account can have up to 20 account-level retention policies in each Region. To scope a
+ *       retention policy to a subset of log groups, use <code>LogGroupNamePrefix</code> in
+ *         <code>selectionCriteria</code>. Retention policies support log group name prefixes only. If
+ *       you omit <code>selectionCriteria</code>, the policy applies
+ *       to all log groups in the account.</p>
+ *          <p>Unlike other account-level policy types, retention policies can have overlapping selection
+ *       criteria. When more than one retention policy applies to a log group, the policy with the
+ *       longest retention period is used. A policy that specifies <code>NEVER_EXPIRE</code> is treated
+ *       as the longest retention period. This lets you set a baseline retention period for the account,
+ *       apply longer retention periods to specific log groups, and exempt specific log groups from
+ *       expiring at all. If two policies that apply to the same log group specify the same retention
+ *       period, the policy that was created first is the one reported in
+ *         <code>retentionPolicyName</code>.</p>
+ *          <note>
+ *             <p>Account-level retention policies require a minimum retention period of 30 days.</p>
+ *          </note>
+ *          <note>
+ *             <p>A retention policy takes effect 24 hours after you create it. If you update a policy, the
+ *         new retention period takes effect 24 hours after the update, and the previous retention
+ *         period stays in effect until then. During this period, <code>DescribeLogGroups</code> and log
+ *         event expiration use the retention period that is currently in effect, but a dry run reports
+ *         the impact as if the policy were already in effect.</p>
+ *          </note>
+ *          <p>Before you create, update, or delete a retention policy, you can specify
+ *         <code>true</code> for <code>dryRun</code> to preview how many log groups would have a longer,
+ *       shorter, or unchanged retention period. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DryRunResult.html">DryRunResult</a>.</p>
+ *          <important>
+ *             <p>An account-level retention policy replaces the retention period set on a log group,
+ *         including when the log group's own retention period is longer. For example, if a log group is
+ *         set to retain log events for 10 years and you create a retention policy that sets a 90-day
+ *         retention period for that log group, CloudWatch Logs deletes the log events in that log group
+ *         that are older than 90 days. Specify <code>true</code> for <code>dryRun</code> to see which
+ *         log groups would have a shorter retention period before you create or update the
+ *         policy.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

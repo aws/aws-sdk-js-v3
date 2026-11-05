@@ -43,7 +43,7 @@ export interface ListLogGroupsCommandOutput extends ListLogGroupsResponse, __Met
  * const client = new CloudWatchLogsClient(config);
  * const input = { // ListLogGroupsRequest
  *   logGroupNamePattern: "STRING_VALUE",
- *   logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY",
+ *   logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY" || "ESSENTIALS",
  *   includeLinkedAccounts: true || false,
  *   accountIdentifiers: [ // AccountIds
  *     "STRING_VALUE",
@@ -75,7 +75,7 @@ export interface ListLogGroupsCommandOutput extends ListLogGroupsResponse, __Met
  * //     { // LogGroupSummary
  * //       logGroupName: "STRING_VALUE",
  * //       logGroupArn: "STRING_VALUE",
- * //       logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY",
+ * //       logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY" || "ESSENTIALS",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
