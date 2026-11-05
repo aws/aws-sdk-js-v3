@@ -1157,6 +1157,22 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *         },
  *       ],
  *     },
+ *     ConnectedAccountConfigs: [ // ConnectedAccountConfigs
+ *       { // ConnectedAccountConfig
+ *         ConnectedAccountArn: "STRING_VALUE", // required
+ *         PaymentNetworks: [ // ConnectedAccountPaymentNetworks // required
+ *           { // ConnectedAccountChainConfig
+ *             Chain: "BASE" || "SOLANA", // required
+ *             Prices: [ // ConnectedAccountPrices // required
+ *               { // ConnectedAccountPrice
+ *                 Amount: "STRING_VALUE", // required
+ *                 Currency: "USDC", // required
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
  *     CurrencyMode: "REAL" || "TEST",
  *   },
  * };

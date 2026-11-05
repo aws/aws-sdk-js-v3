@@ -5,6 +5,7 @@ import type {
   BlockchainChain,
   BodyParsingFallbackBehavior,
   ComparisonOperator,
+  ConnectedAccountChain,
   CountryCode,
   CryptoCurrency,
   Currency,
@@ -3724,6 +3725,71 @@ export interface CustomResponseBody {
 }
 
 /**
+ * <p>The price per request for a connected account payment network, specifying the amount and cryptocurrency.</p>
+ * @public
+ */
+export interface ConnectedAccountPrice {
+  /**
+   * <p>The price per request as a decimal string in the specified currency. Valid values range from 0.01 to 999999.99 USDC, with up to two decimal places. Sub-cent amounts are not supported.</p>
+   * @public
+   */
+  Amount: string | undefined;
+
+  /**
+   * <p>The cryptocurrency for payment. Currently only <code>USDC</code> is supported.</p>
+   * @public
+   */
+  Currency: CryptoCurrency | undefined;
+}
+
+/**
+ * <p>A per-network configuration for a connected account, specifying the blockchain network and the price per request. Unlike <code>PaymentNetwork</code>, you do not provide a wallet address; the receiving address is managed for the connected account.</p>
+ * @public
+ */
+export interface ConnectedAccountChainConfig {
+  /**
+   * <p>The blockchain network for receiving payments through the connected account. Test networks are not supported for connected accounts.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BASE</code> - Base mainnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SOLANA</code> - Solana mainnet.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Chain: ConnectedAccountChain | undefined;
+
+  /**
+   * <p>The price configuration for this network. Currently supports a single price entry in USDC.</p>
+   * @public
+   */
+  Prices: ConnectedAccountPrice[] | undefined;
+}
+
+/**
+ * <p>A connected account configuration for AI bot monetization. Specifies the connected account that payments settle to and the per-network pricing. Settlement through a connected account is an alternative to the self-managed wallets in <code>CryptoConfig</code>; wallet addresses are managed for the connected account rather than configured by you. If the referenced connected account is not active or not enabled for crypto settlement, the <code>CreateWebACL</code>, <code>UpdateWebACL</code>, <code>CreateRuleGroup</code>, or <code>UpdateRuleGroup</code> request that includes it is rejected. Specifically, a request that references the account is rejected with <code>WAFInvalidOperationException</code> if the account or its crypto settlement capability isn't active, <code>WAFNonexistentItemException</code> if the ARN no longer exists, <code>AccessDeniedException</code> if you don't have <code>payments:GetConnectedAccount</code>, or <code>WAFInvalidParameterException</code> if the ARN is invalid or the partition is unsupported. Connected accounts are available only in the commercial Amazon Web Services partition.</p>
+ * @public
+ */
+export interface ConnectedAccountConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connected account that payments settle to. You obtain this ARN from Payment preferences > Connected accounts in the Amazon Web Services Billing and Cost Management console. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-connected-accounts.html">Managing connected accounts</a>. The connected account must be active and enabled for crypto settlement; otherwise the request is rejected. To use a connected account, you must have the <code>payments:GetConnectedAccount</code> permission on this ARN.</p>
+   * @public
+   */
+  ConnectedAccountArn: string | undefined;
+
+  /**
+   * <p>The per-network configurations for the connected account. You can specify 1 to 2 networks. Each entry specifies a blockchain network and the price for each request.</p>
+   * @public
+   */
+  PaymentNetworks: ConnectedAccountChainConfig[] | undefined;
+}
+
+/**
  * <p>The price per request for a payment network, specifying the amount and cryptocurrency.</p>
  * @public
  */
@@ -3779,7 +3845,7 @@ export interface CryptoConfig {
 }
 
 /**
- * <p>The monetization configuration for a web ACL or rule group. Specifies the cryptocurrency payment networks and currency mode for AI bot monetization. You must provide this configuration when any rule in the web ACL or rule group uses the <code>Monetize</code> action.</p>
+ * <p>The monetization configuration for a web ACL or rule group. Specifies the payment settlement options (self-managed crypto wallets in <code>CryptoConfig</code>, a connected account in <code>ConnectedAccountConfigs</code>, or both) and the currency mode for artificial intelligence (AI) bot monetization. You must provide this configuration when any rule in the web ACL or rule group uses the <code>Monetize</code> action.</p>
  * @public
  */
 export interface MonetizationConfig {
@@ -3790,7 +3856,24 @@ export interface MonetizationConfig {
   CryptoConfig?: CryptoConfig | undefined;
 
   /**
-   * <p>Specifies whether the configuration uses real or test currency. Set to <code>REAL</code> to settle payments in USDC on production blockchain networks (Base, Solana). Set to <code>TEST</code> to settle on testnet networks (Base Sepolia, Solana Devnet) with tokens that have no monetary value. If not specified, defaults to <code>REAL</code>.</p>
+   * <p>The connected account configurations for settling AI bot payments through a connected account with a supported third-party payment provider (Stripe), as an alternative to the self-managed wallets in <code>CryptoConfig</code>. You can provide <code>CryptoConfig</code>, <code>ConnectedAccountConfigs</code>, or both; however, a given blockchain network (chain) can be used by only one of them. Currently supports exactly one connected account.</p>
+   * @public
+   */
+  ConnectedAccountConfigs?: ConnectedAccountConfig[] | undefined;
+
+  /**
+   * <p>Specifies whether the configuration uses real or test currency. If not specified, defaults to <code>REAL</code>. Connected account configurations support production settlement only; <code>TEST</code> is not supported when <code>ConnectedAccountConfigs</code> is present.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>REAL</code> - Settle payments in USDC on production blockchain networks (Base, Solana).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TEST</code> - Settle on testnet networks (Base Sepolia, Solana Devnet) with tokens that have no monetary value.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CurrencyMode?: CurrencyMode | undefined;
@@ -9621,7 +9704,7 @@ export interface WebACL {
   ApplicationConfig?: ApplicationConfig | undefined;
 
   /**
-   * <p>The monetization configuration for the web ACL. Required when any rule in the web ACL uses the <code>Monetize</code> action. Specifies the cryptocurrency payment networks and currency mode for AI bot monetization.</p>
+   * <p>The monetization configuration for the web ACL. Required when any rule in the web ACL uses the <code>Monetize</code> action. Specifies the payment settlement options and currency mode for AI bot monetization.</p>
    * @public
    */
   MonetizationConfig?: MonetizationConfig | undefined;

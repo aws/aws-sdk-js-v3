@@ -41,6 +41,10 @@ import {
   ClientSideActionConfig$,
   ComparisonOperator,
   Condition$,
+  ConnectedAccountChain,
+  ConnectedAccountChainConfig$,
+  ConnectedAccountConfig$,
+  ConnectedAccountPrice$,
   CookieMatchPattern$,
   Cookies$,
   CountAction$,
@@ -638,6 +642,9 @@ assert(typeof CheckCapacityResponse$ === "object");
 assert(typeof ClientSideAction$ === "object");
 assert(typeof ClientSideActionConfig$ === "object");
 assert(typeof Condition$ === "object");
+assert(typeof ConnectedAccountChainConfig$ === "object");
+assert(typeof ConnectedAccountConfig$ === "object");
+assert(typeof ConnectedAccountPrice$ === "object");
 assert(typeof CookieMatchPattern$ === "object");
 assert(typeof Cookies$ === "object");
 assert(typeof CountAction$ === "object");
@@ -884,6 +891,7 @@ assert(typeof AssociatedResourceType === "object");
 assert(typeof BlockchainChain === "object");
 assert(typeof BodyParsingFallbackBehavior === "object");
 assert(typeof ComparisonOperator === "object");
+assert(typeof ConnectedAccountChain === "object");
 assert(typeof CountryCode === "object");
 assert(typeof CryptoCurrency === "object");
 assert(typeof Currency === "object");

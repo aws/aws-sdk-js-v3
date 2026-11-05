@@ -714,16 +714,14 @@ export type ResponseContentType = (typeof ResponseContentType)[keyof typeof Resp
  * @public
  * @enum
  */
-export const BlockchainChain = {
+export const ConnectedAccountChain = {
   BASE: "BASE",
-  BASE_SEPOLIA: "BASE_SEPOLIA",
   SOLANA: "SOLANA",
-  SOLANA_DEVNET: "SOLANA_DEVNET",
 } as const;
 /**
  * @public
  */
-export type BlockchainChain = (typeof BlockchainChain)[keyof typeof BlockchainChain];
+export type ConnectedAccountChain = (typeof ConnectedAccountChain)[keyof typeof ConnectedAccountChain];
 
 /**
  * @public
@@ -736,6 +734,21 @@ export const CryptoCurrency = {
  * @public
  */
 export type CryptoCurrency = (typeof CryptoCurrency)[keyof typeof CryptoCurrency];
+
+/**
+ * @public
+ * @enum
+ */
+export const BlockchainChain = {
+  BASE: "BASE",
+  BASE_SEPOLIA: "BASE_SEPOLIA",
+  SOLANA: "SOLANA",
+  SOLANA_DEVNET: "SOLANA_DEVNET",
+} as const;
+/**
+ * @public
+ */
+export type BlockchainChain = (typeof BlockchainChain)[keyof typeof BlockchainChain];
 
 /**
  * @public

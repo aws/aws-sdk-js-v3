@@ -47,9 +47,16 @@ const _Be = "Behavior";
 const _Bl = "Block";
 const _C = "Capacity";
 const _CA = "CaptchaAction";
+const _CAA = "ConnectedAccountArn";
+const _CAC = "ConnectedAccountConfig";
+const _CACC = "ConnectedAccountChainConfig";
+const _CACo = "ConnectedAccountConfigs";
+const _CAP = "ConnectedAccountPrice";
 const _CAPIK = "CreateAPIKey";
 const _CAPIKR = "CreateAPIKeyRequest";
 const _CAPIKRr = "CreateAPIKeyResponse";
+const _CAPN = "ConnectedAccountPaymentNetworks";
+const _CAPo = "ConnectedAccountPrices";
 const _CAh = "ChallengeAction";
 const _CAo = "CountAction";
 const _CC = "CaptchaConfig";
@@ -426,8 +433,8 @@ const _Pe = "Percentage";
 const _Pl = "Platform";
 const _Po = "Policy";
 const _Pos = "Position";
-const _Pr = "Priority";
-const _Pri = "Prices";
+const _Pr = "Prices";
+const _Pri = "Priority";
 const _Pric = "Price";
 const _QA = "QueryArgument";
 const _QS = "QueryString";
@@ -979,6 +986,21 @@ export var Condition$: StaticStructureSchema = [3, n0, _Co,
   [_AC, _LNC],
   [() => ActionCondition$, () => LabelNameCondition$]
 ];
+export var ConnectedAccountChainConfig$: StaticStructureSchema = [3, n0, _CACC,
+  0,
+  [_Cha, _Pr],
+  [0, () => ConnectedAccountPrices], 2
+];
+export var ConnectedAccountConfig$: StaticStructureSchema = [3, n0, _CAC,
+  0,
+  [_CAA, _PN],
+  [0, () => ConnectedAccountPaymentNetworks], 2
+];
+export var ConnectedAccountPrice$: StaticStructureSchema = [3, n0, _CAP,
+  0,
+  [_Am, _Cu],
+  [0, 0], 2
+];
 export var CookieMatchPattern$: StaticStructureSchema = [3, n0, _CMP,
   0,
   [_Al, _IC, _EC],
@@ -1246,7 +1268,7 @@ export var FilterSource$: StaticStructureSchema = [3, n0, _FS,
 ];
 export var FirewallManagerRuleGroup$: StaticStructureSchema = [3, n0, _FMRG,
   0,
-  [_N, _Pr, _FMS, _OA, _VC],
+  [_N, _Pri, _FMS, _OA, _VC],
   [0, 1, () => FirewallManagerStatement$, () => OverrideAction$, () => VisibilityConfig$], 5
 ];
 export var FirewallManagerStatement$: StaticStructureSchema = [3, n0, _FMS,
@@ -1716,8 +1738,8 @@ export var MobileSdkRelease$: StaticStructureSchema = [3, n0, _MSR,
 ];
 export var MonetizationConfig$: StaticStructureSchema = [3, n0, _MC,
   0,
-  [_CCr, _CM],
-  [() => CryptoConfig$, 0]
+  [_CCr, _CACo, _CM],
+  [() => CryptoConfig$, () => ConnectedAccountConfigs, 0]
 ];
 export var MonetizationFilter$: StaticStructureSchema = [3, n0, _MF,
   0,
@@ -1766,7 +1788,7 @@ export var PathStatistics$: StaticStructureSchema = [3, n0, _PSa,
 ];
 export var PaymentNetwork$: StaticStructureSchema = [3, n0, _PNa,
   0,
-  [_Cha, _WA, _Pri],
+  [_Cha, _WA, _Pr],
   [0, 0, () => Prices], 3
 ];
 export var PhoneNumberField$: StaticStructureSchema = [3, n0, _PNF,
@@ -1776,7 +1798,7 @@ export var PhoneNumberField$: StaticStructureSchema = [3, n0, _PNF,
 ];
 export var PreParseTextTransformation$: StaticStructureSchema = [3, n0, _PPTTr,
   0,
-  [_Pr, _Ty],
+  [_Pri, _Ty],
   [1, 0], 2
 ];
 export var Price$: StaticStructureSchema = [3, n0, _Pric,
@@ -1976,7 +1998,7 @@ export var RevenuePathStatistics$: StaticStructureSchema = [3, n0, _RPSe,
 ];
 export var Rule$: StaticStructureSchema = [3, n0, _Rul,
   0,
-  [_N, _Pr, _St, _VC, _A, _OA, _RL, _CC, _CCh],
+  [_N, _Pri, _St, _VC, _A, _OA, _RL, _CC, _CCh],
   [0, 1, () => Statement$, () => VisibilityConfig$, () => RuleAction$, () => OverrideAction$, () => Labels, () => CaptchaConfig$, () => ChallengeConfig$], 4
 ];
 export var RuleAction$: StaticStructureSchema = [3, n0, _RAu,
@@ -2071,7 +2093,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TextTransformation$: StaticStructureSchema = [3, n0, _TTe,
   0,
-  [_Pr, _Ty],
+  [_Pri, _Ty],
   [1, 0], 2
 ];
 export var TimeWindow$: StaticStructureSchema = [3, n0, _TW,
@@ -2197,6 +2219,15 @@ var BotStatisticsList: StaticListSchema = [1, n0, _BSL,
 var Conditions: StaticListSchema = [1, n0, _Cond,
   0, () => Condition$
 ];
+var ConnectedAccountConfigs: StaticListSchema = [1, n0, _CACo,
+  0, () => ConnectedAccountConfig$
+];
+var ConnectedAccountPaymentNetworks: StaticListSchema = [1, n0, _CAPN,
+  0, () => ConnectedAccountChainConfig$
+];
+var ConnectedAccountPrices: StaticListSchema = [1, n0, _CAPo,
+  0, () => ConnectedAccountPrice$
+];
 var CookieNames = 64 | 0;
 var CountryCodes = 64 | 0;
 var CustomHTTPHeaders: StaticListSchema = [1, n0, _CHTTPHu,
@@ -2271,7 +2302,7 @@ var PhoneNumberFields: StaticListSchema = [1, n0, _PNFh,
 var PreParseTextTransformations: StaticListSchema = [1, n0, _PPTT,
   0, () => PreParseTextTransformation$
 ];
-var Prices: StaticListSchema = [1, n0, _Pri,
+var Prices: StaticListSchema = [1, n0, _Pr,
   0, () => Price$
 ];
 var RateBasedStatementCustomKeys: StaticListSchema = [1, n0, _RBSCKa,
