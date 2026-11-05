@@ -774,6 +774,7 @@ const _mI = "memoryId";
 const _mII = "modelInvocationInput";
 const _mIO = "modelInvocationOutput";
 const _mIa = "maxItems";
+const _mIe = "mediaId";
 const _mK = "metadataKey";
 const _mL = "maximumLength";
 const _mNOR = "maxNumberOfResults";
@@ -1807,8 +1808,8 @@ export var GetAgentMemoryResponse$: StaticStructureSchema = [3, n0, _GAMRe,
 ];
 export var GetDocumentContentRequest$: StaticStructureSchema = [3, n0, _GDCR,
   0,
-  [_kBI, _dSI, _dI, _oF, _uC],
-  [[0, 1], [0, 1], [0, 1], 0, [() => UserContext$, 0]], 3
+  [_kBI, _dSI, _dI, _mIe, _oF, _uC],
+  [[0, 1], [0, 1], [0, 1], 0, 0, [() => UserContext$, 0]], 3
 ];
 export var GetDocumentContentResponse$: StaticStructureSchema = [3, n0, _GDCRe,
   0,

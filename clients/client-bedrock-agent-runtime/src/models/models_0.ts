@@ -6736,7 +6736,13 @@ export interface GetDocumentContentRequest {
   documentId: string | undefined;
 
   /**
-   * <p>The output format for the document content. <code>RAW</code> returns the original file. <code>EXTRACTED</code> returns parsed text as JSON. Defaults to <code>RAW</code>.</p>
+   * <p>The unique identifier (in UUID format) of an image embedded in the specified document. Set this parameter to the <code>_media_id</code> value in the metadata of the corresponding <code>Retrieve</code> result. If you specify this parameter, the response contains a pre-signed URL for the image instead of the document, and you must omit <code>outputFormat</code> or set it to <code>RAW</code>.</p>
+   * @public
+   */
+  mediaId?: string | undefined;
+
+  /**
+   * <p>The output format for the content. You can specify one of the following values:</p> <dl> <dt>RAW</dt> <dd> <p>Returns the original document, or the selected image if you specify <code>mediaId</code>.</p> </dd> <dt>EXTRACTED</dt> <dd> <p>Returns parsed document text as JSON.</p> </dd> </dl> <p>If you omit this parameter, the default is <code>RAW</code>. You can't use <code>EXTRACTED</code> with <code>mediaId</code>.</p>
    * @public
    */
   outputFormat?: DocumentOutputFormat | undefined;
@@ -6753,19 +6759,19 @@ export interface GetDocumentContentRequest {
  */
 export interface GetDocumentContentResponse {
   /**
-   * <p>The MIME type of the document content. For <code>RAW</code> format, this is the original file type (for example, <code>application/pdf</code>). For <code>EXTRACTED</code> format, this is always <code>application/json</code>.</p>
+   * <p>The MIME type of the returned content. For <code>RAW</code> format, this is the original file type (for example, <code>application/pdf</code>), or the image type (for example, <code>image/png</code>) if you specify <code>mediaId</code>. For <code>EXTRACTED</code> format, this is always <code>application/json</code>.</p>
    * @public
    */
   mimeType: string | undefined;
 
   /**
-   * <p>A pre-signed URL for downloading the document content. The URL expires after 5 minutes.</p>
+   * <p>A pre-signed URL for downloading the document content, or the selected image if you specify <code>mediaId</code>. The URL expires after 5 minutes.</p>
    * @public
    */
   presignedUrl: string | undefined;
 
   /**
-   * <p>The size of the document content in bytes available at the pre-signed URL.</p>
+   * <p>The size, in bytes, of the content available at the pre-signed URL.</p>
    * @public
    */
   documentContentLength?: number | undefined;

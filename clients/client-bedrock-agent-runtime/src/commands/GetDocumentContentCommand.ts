@@ -23,7 +23,7 @@ export interface GetDocumentContentCommandInput extends GetDocumentContentReques
 export interface GetDocumentContentCommandOutput extends GetDocumentContentResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the content of an ingested document from a knowledge base. Returns a pre-signed URL for secure document access.</p>
+ * <p>Retrieves the content of an ingested document from a knowledge base, or of an image embedded in the document. Returns a pre-signed URL for downloading the content. Use this operation to display the source of a <code>Retrieve</code> result.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -36,6 +36,7 @@ export interface GetDocumentContentCommandOutput extends GetDocumentContentRespo
  *   knowledgeBaseId: "STRING_VALUE", // required
  *   dataSourceId: "STRING_VALUE", // required
  *   documentId: "STRING_VALUE", // required
+ *   mediaId: "STRING_VALUE",
  *   outputFormat: "RAW" || "EXTRACTED",
  *   userContext: { // UserContext
  *     userId: "STRING_VALUE", // required
