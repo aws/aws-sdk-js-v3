@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { PutSchemaVersionMetadataInput, PutSchemaVersionMetadataResponse } from "../models/models_2";
+import type { PutSchemaVersionMetadataInput, PutSchemaVersionMetadataResponse } from "../models/models_3";
 import { PutSchemaVersionMetadata$ } from "../schemas/schemas_0";
 
 /**

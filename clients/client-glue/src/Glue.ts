@@ -739,6 +739,11 @@ import {
 } from "./commands/GetJobRunsCommand";
 import { type GetJobsCommandInput, type GetJobsCommandOutput, GetJobsCommand } from "./commands/GetJobsCommand";
 import {
+  type GetJobUpgradeAnalysisCommandInput,
+  type GetJobUpgradeAnalysisCommandOutput,
+  GetJobUpgradeAnalysisCommand,
+} from "./commands/GetJobUpgradeAnalysisCommand";
+import {
   type GetMappingCommandInput,
   type GetMappingCommandOutput,
   GetMappingCommand,
@@ -1251,6 +1256,11 @@ import {
   StartJobRunCommand,
 } from "./commands/StartJobRunCommand";
 import {
+  type StartJobUpgradeAnalysisCommandInput,
+  type StartJobUpgradeAnalysisCommandOutput,
+  StartJobUpgradeAnalysisCommand,
+} from "./commands/StartJobUpgradeAnalysisCommand";
+import {
   type StartMaterializedViewRefreshTaskRunCommandInput,
   type StartMaterializedViewRefreshTaskRunCommandOutput,
   StartMaterializedViewRefreshTaskRunCommand,
@@ -1295,6 +1305,11 @@ import {
   type StopCrawlerScheduleCommandOutput,
   StopCrawlerScheduleCommand,
 } from "./commands/StopCrawlerScheduleCommand";
+import {
+  type StopJobUpgradeAnalysisCommandInput,
+  type StopJobUpgradeAnalysisCommandOutput,
+  StopJobUpgradeAnalysisCommand,
+} from "./commands/StopJobUpgradeAnalysisCommand";
 import {
   type StopMaterializedViewRefreshTaskRunCommandInput,
   type StopMaterializedViewRefreshTaskRunCommandOutput,
@@ -1692,6 +1707,7 @@ const commands = {
   GetJobRunCommand,
   GetJobRunsCommand,
   GetJobsCommand,
+  GetJobUpgradeAnalysisCommand,
   GetMappingCommand,
   GetMaterializedViewRefreshTaskRunCommand,
   GetMLTaskRunCommand,
@@ -1800,6 +1816,7 @@ const commands = {
   StartExportLabelsTaskRunCommand,
   StartImportLabelsTaskRunCommand,
   StartJobRunCommand,
+  StartJobUpgradeAnalysisCommand,
   StartMaterializedViewRefreshTaskRunCommand,
   StartMLEvaluationTaskRunCommand,
   StartMLLabelingSetGenerationTaskRunCommand,
@@ -1809,6 +1826,7 @@ const commands = {
   StopColumnStatisticsTaskRunScheduleCommand,
   StopCrawlerCommand,
   StopCrawlerScheduleCommand,
+  StopJobUpgradeAnalysisCommand,
   StopMaterializedViewRefreshTaskRunCommand,
   StopSessionCommand,
   StopTriggerCommand,
@@ -4499,6 +4517,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link GetJobUpgradeAnalysisCommand}
+   */
+  getJobUpgradeAnalysis(
+    args: GetJobUpgradeAnalysisCommandInput,
+    options?: GlueRequestOptions
+  ): Promise<GetJobUpgradeAnalysisCommandOutput>;
+  getJobUpgradeAnalysis(
+    args: GetJobUpgradeAnalysisCommandInput,
+    cb: (err: any, data?: GetJobUpgradeAnalysisCommandOutput) => void
+  ): void;
+  getJobUpgradeAnalysis(
+    args: GetJobUpgradeAnalysisCommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: GetJobUpgradeAnalysisCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetMappingCommand}
    */
   getMapping(
@@ -6372,6 +6407,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link StartJobUpgradeAnalysisCommand}
+   */
+  startJobUpgradeAnalysis(
+    args: StartJobUpgradeAnalysisCommandInput,
+    options?: GlueRequestOptions
+  ): Promise<StartJobUpgradeAnalysisCommandOutput>;
+  startJobUpgradeAnalysis(
+    args: StartJobUpgradeAnalysisCommandInput,
+    cb: (err: any, data?: StartJobUpgradeAnalysisCommandOutput) => void
+  ): void;
+  startJobUpgradeAnalysis(
+    args: StartJobUpgradeAnalysisCommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: StartJobUpgradeAnalysisCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartMaterializedViewRefreshTaskRunCommand}
    */
   startMaterializedViewRefreshTaskRun(
@@ -6522,6 +6574,23 @@ export interface Glue {
     args: StopCrawlerScheduleCommandInput,
     options: GlueRequestOptions,
     cb: (err: any, data?: StopCrawlerScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopJobUpgradeAnalysisCommand}
+   */
+  stopJobUpgradeAnalysis(
+    args: StopJobUpgradeAnalysisCommandInput,
+    options?: GlueRequestOptions
+  ): Promise<StopJobUpgradeAnalysisCommandOutput>;
+  stopJobUpgradeAnalysis(
+    args: StopJobUpgradeAnalysisCommandInput,
+    cb: (err: any, data?: StopJobUpgradeAnalysisCommandOutput) => void
+  ): void;
+  stopJobUpgradeAnalysis(
+    args: StopJobUpgradeAnalysisCommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: StopJobUpgradeAnalysisCommandOutput) => void
   ): void;
 
   /**

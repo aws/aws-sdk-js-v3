@@ -63,6 +63,7 @@ import type {
   AuthenticationConfiguration,
   AuthenticationConfigurationInput,
   Blueprint,
+  CatalogInput,
   Column,
   ConnectionsList,
   Crawler,
@@ -85,6 +86,29 @@ import type {
   TableOptimizerConfiguration,
   TargetRedshiftCatalog,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateCatalogRequest {
+  /**
+   * <p>The name of the catalog to create.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A <code>CatalogInput</code> object that defines the metadata for the catalog.</p>
+   * @public
+   */
+  CatalogInput: CatalogInput | undefined;
+
+  /**
+   * <p>A map array of key-value pairs, not more than 50 pairs. Each key is a UTF-8 string, not less than 1 or more than 128 bytes long. Each value is a UTF-8 string, not more than 256 bytes long. The tags you assign to the catalog.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
 
 /**
  * @public
@@ -8718,15 +8742,4 @@ export interface Database {
    * @public
    */
   FederatedDatabase?: FederatedDatabase | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDatabaseResponse {
-  /**
-   * <p>The definition of the specified database in the Data Catalog.</p>
-   * @public
-   */
-  Database?: Database | undefined;
 }

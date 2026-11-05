@@ -14,6 +14,7 @@ import {
   AmazonRedshiftNodeData$,
   AmazonRedshiftSource$,
   AmazonRedshiftTarget$,
+  AnalysisType,
   AnnotationError$,
   ApplyMapping$,
   AssetFormEntry$,
@@ -31,6 +32,8 @@ import {
   AuthenticationType,
   AuthorizationCodeProperties$,
   AutoDataQuality$,
+  AutoUpgradeMetadata$,
+  AutoUpgradeStatus,
   BackfillError$,
   BackfillErrorCode,
   BasicAuthenticationCredentials$,
@@ -892,6 +895,10 @@ import {
   GetJobsCommand,
   GetJobsRequest$,
   GetJobsResponse$,
+  GetJobUpgradeAnalysis$,
+  GetJobUpgradeAnalysisCommand,
+  GetJobUpgradeAnalysisRequest$,
+  GetJobUpgradeAnalysisResponse$,
   GetMapping$,
   GetMappingCommand,
   GetMappingRequest$,
@@ -1714,6 +1721,10 @@ import {
   StartJobRunCommand,
   StartJobRunRequest$,
   StartJobRunResponse$,
+  StartJobUpgradeAnalysis$,
+  StartJobUpgradeAnalysisCommand,
+  StartJobUpgradeAnalysisRequest$,
+  StartJobUpgradeAnalysisResponse$,
   StartMaterializedViewRefreshTaskRun$,
   StartMaterializedViewRefreshTaskRunCommand,
   StartMaterializedViewRefreshTaskRunRequest$,
@@ -1742,6 +1753,7 @@ import {
   StatisticEvaluationLevel,
   StatisticModelResult$,
   StatisticSummary$,
+  Status,
   StatusDetails$,
   StopColumnStatisticsTaskRun$,
   StopColumnStatisticsTaskRunCommand,
@@ -1759,6 +1771,10 @@ import {
   StopCrawlerScheduleCommand,
   StopCrawlerScheduleRequest$,
   StopCrawlerScheduleResponse$,
+  StopJobUpgradeAnalysis$,
+  StopJobUpgradeAnalysisCommand,
+  StopJobUpgradeAnalysisRequest$,
+  StopJobUpgradeAnalysisResponse$,
   StopMaterializedViewRefreshTaskRun$,
   StopMaterializedViewRefreshTaskRunCommand,
   StopMaterializedViewRefreshTaskRunRequest$,
@@ -1977,6 +1993,7 @@ import {
   UpdateWorkflowRequest$,
   UpdateWorkflowResponse$,
   UpdateXMLClassifierRequest$,
+  UpgradeConsent,
   UpsertRedshiftTargetOptions$,
   UsageProfileDefinition$,
   UserDefinedFunction$,
@@ -2307,6 +2324,8 @@ assert(typeof GetJobRunsCommand === "function");
 assert(typeof GetJobRuns$ === "object");
 assert(typeof GetJobsCommand === "function");
 assert(typeof GetJobs$ === "object");
+assert(typeof GetJobUpgradeAnalysisCommand === "function");
+assert(typeof GetJobUpgradeAnalysis$ === "object");
 assert(typeof GetMappingCommand === "function");
 assert(typeof GetMapping$ === "object");
 assert(typeof GetMaterializedViewRefreshTaskRunCommand === "function");
@@ -2523,6 +2542,8 @@ assert(typeof StartImportLabelsTaskRunCommand === "function");
 assert(typeof StartImportLabelsTaskRun$ === "object");
 assert(typeof StartJobRunCommand === "function");
 assert(typeof StartJobRun$ === "object");
+assert(typeof StartJobUpgradeAnalysisCommand === "function");
+assert(typeof StartJobUpgradeAnalysis$ === "object");
 assert(typeof StartMaterializedViewRefreshTaskRunCommand === "function");
 assert(typeof StartMaterializedViewRefreshTaskRun$ === "object");
 assert(typeof StartMLEvaluationTaskRunCommand === "function");
@@ -2541,6 +2562,8 @@ assert(typeof StopCrawlerCommand === "function");
 assert(typeof StopCrawler$ === "object");
 assert(typeof StopCrawlerScheduleCommand === "function");
 assert(typeof StopCrawlerSchedule$ === "object");
+assert(typeof StopJobUpgradeAnalysisCommand === "function");
+assert(typeof StopJobUpgradeAnalysis$ === "object");
 assert(typeof StopMaterializedViewRefreshTaskRunCommand === "function");
 assert(typeof StopMaterializedViewRefreshTaskRun$ === "object");
 assert(typeof StopSessionCommand === "function");
@@ -2640,6 +2663,7 @@ assert(typeof AuthenticationConfiguration$ === "object");
 assert(typeof AuthenticationConfigurationInput$ === "object");
 assert(typeof AuthorizationCodeProperties$ === "object");
 assert(typeof AutoDataQuality$ === "object");
+assert(typeof AutoUpgradeMetadata$ === "object");
 assert(typeof BackfillError$ === "object");
 assert(typeof BasicAuthenticationCredentials$ === "object");
 assert(typeof BasicAuthenticationProperties$ === "object");
@@ -3119,6 +3143,8 @@ assert(typeof GetJobRunsRequest$ === "object");
 assert(typeof GetJobRunsResponse$ === "object");
 assert(typeof GetJobsRequest$ === "object");
 assert(typeof GetJobsResponse$ === "object");
+assert(typeof GetJobUpgradeAnalysisRequest$ === "object");
+assert(typeof GetJobUpgradeAnalysisResponse$ === "object");
 assert(typeof GetMappingRequest$ === "object");
 assert(typeof GetMappingResponse$ === "object");
 assert(typeof GetMaterializedViewRefreshTaskRunRequest$ === "object");
@@ -3542,6 +3568,8 @@ assert(typeof StartImportLabelsTaskRunResponse$ === "object");
 assert(typeof StartingEventBatchCondition$ === "object");
 assert(typeof StartJobRunRequest$ === "object");
 assert(typeof StartJobRunResponse$ === "object");
+assert(typeof StartJobUpgradeAnalysisRequest$ === "object");
+assert(typeof StartJobUpgradeAnalysisResponse$ === "object");
 assert(typeof StartMaterializedViewRefreshTaskRunRequest$ === "object");
 assert(typeof StartMaterializedViewRefreshTaskRunResponse$ === "object");
 assert(typeof StartMLEvaluationTaskRunRequest$ === "object");
@@ -3567,6 +3595,8 @@ assert(typeof StopCrawlerRequest$ === "object");
 assert(typeof StopCrawlerResponse$ === "object");
 assert(typeof StopCrawlerScheduleRequest$ === "object");
 assert(typeof StopCrawlerScheduleResponse$ === "object");
+assert(typeof StopJobUpgradeAnalysisRequest$ === "object");
+assert(typeof StopJobUpgradeAnalysisResponse$ === "object");
 assert(typeof StopMaterializedViewRefreshTaskRunRequest$ === "object");
 assert(typeof StopMaterializedViewRefreshTaskRunResponse$ === "object");
 assert(typeof StopSessionRequest$ === "object");
@@ -3705,7 +3735,9 @@ assert(typeof XMLClassifier$ === "object");
 assert(typeof AdditionalOptionKeys === "object");
 assert(typeof AggFunction === "object");
 assert(typeof AllowFullTableExternalDataAccessEnum === "object");
+assert(typeof AnalysisType === "object");
 assert(typeof AuthenticationType === "object");
+assert(typeof AutoUpgradeStatus === "object");
 assert(typeof BackfillErrorCode === "object");
 assert(typeof BlueprintRunState === "object");
 assert(typeof BlueprintStatus === "object");
@@ -3831,6 +3863,7 @@ assert(typeof SourceControlProvider === "object");
 assert(typeof StartingPosition === "object");
 assert(typeof StatementState === "object");
 assert(typeof StatisticEvaluationLevel === "object");
+assert(typeof Status === "object");
 assert(typeof SubObjectSourceType === "object");
 assert(typeof TableAttributes === "object");
 assert(typeof TableOptimizerEventType === "object");
@@ -3849,6 +3882,7 @@ assert(typeof UnionType === "object");
 assert(typeof UnnestSpec === "object");
 assert(typeof UpdateBehavior === "object");
 assert(typeof UpdateCatalogBehavior === "object");
+assert(typeof UpgradeConsent === "object");
 assert(typeof ViewDialect === "object");
 assert(typeof ViewUpdateAction === "object");
 assert(typeof WorkerType === "object");

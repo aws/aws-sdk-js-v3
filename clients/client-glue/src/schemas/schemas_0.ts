@@ -41,6 +41,7 @@ const _AI = "AssetIdentifier";
 const _AIO = "AdditionalIcebergOptions";
 const _AITBR = "AddIdleTimeBetweenReads";
 const _AIc = "AccountId";
+const _AIn = "AnalysisId";
 const _AKKI = "AwsKmsKeyId";
 const _AL = "AverageLength";
 const _ALc = "ActionList";
@@ -84,6 +85,7 @@ const _ATn = "AnalyzedTime";
 const _ATu = "AuthenticationType";
 const _ATut = "AuthenticationTypes";
 const _ATuth = "AuthToken";
+const _AUM = "AutoUpgradeMetadata";
 const _AUPRC = "AreaUnderPRCurve";
 const _AV = "AllowedValue";
 const _AVc = "ActualValue";
@@ -1111,6 +1113,9 @@ const _GJRet = "GetJobsRequest";
 const _GJReto = "GetJobsResponse";
 const _GJRetob = "GetJobRun";
 const _GJRetobu = "GetJobRuns";
+const _GJUA = "GetJobUpgradeAnalysis";
+const _GJUAR = "GetJobUpgradeAnalysisRequest";
+const _GJUARe = "GetJobUpgradeAnalysisResponse";
 const _GJe = "GetJobs";
 const _GM = "GetMapping";
 const _GMLT = "GetMLTransform";
@@ -2217,6 +2222,12 @@ const _SJR = "StartJobRun";
 const _SJRR = "StartJobRunRequest";
 const _SJRRt = "StartJobRunResponse";
 const _SJS = "S3JsonSource";
+const _SJUA = "StartJobUpgradeAnalysis";
+const _SJUAR = "StartJobUpgradeAnalysisRequest";
+const _SJUARt = "StartJobUpgradeAnalysisResponse";
+const _SJUARto = "StopJobUpgradeAnalysisRequest";
+const _SJUARtop = "StopJobUpgradeAnalysisResponse";
+const _SJUAt = "StopJobUpgradeAnalysis";
 const _SL = "S3Location";
 const _SLD = "SchemaListDefinition";
 const _SLI = "SchemaListItem";
@@ -2324,7 +2335,7 @@ const _STtar = "StartingTimestamp";
 const _STtart = "StartTrigger";
 const _STto = "StopTrigger";
 const _SU = "SensitiveUrl";
-const _SV = "SparkVersion";
+const _SV = "SourceVersion";
 const _SVE = "SchemaVersionErrors";
 const _SVEI = "SchemaVersionErrorItem";
 const _SVEL = "SchemaVersionErrorList";
@@ -2333,6 +2344,7 @@ const _SVL = "SchemaVersionList";
 const _SVLI = "SchemaVersionListItem";
 const _SVN = "SchemaVersionNumber";
 const _SVS = "SchemaVersionStatus";
+const _SVp = "SparkVersion";
 const _SVt = "StringValue";
 const _SVu = "SupportedValues";
 const _SWR = "StartWorkflowRun";
@@ -2463,10 +2475,11 @@ const _TUPM = "TokenUrlParametersMap";
 const _TUa = "TablesUpdated";
 const _TUab = "TableUuid";
 const _TUr = "TriggerUpdate";
-const _TV = "TableVersion";
+const _TV = "TargetVersion";
 const _TVE = "TableVersionError";
 const _TVEa = "TableVersionErrors";
-const _TVa = "TableVersions";
+const _TVa = "TableVersion";
+const _TVab = "TableVersions";
 const _Ta = "Table";
 const _Tab = "Tables";
 const _Tag = "Tags";
@@ -2679,6 +2692,10 @@ const _Wo = "Workflow";
 const _XMLC = "XMLClassifier";
 const _YEA = "YarnEndpointAddress";
 const _ZRSIP = "ZeppelinRemoteSparkInterpreterPort";
+const _aI = "analysisId";
+const _aT = "analysisType";
+const _aUES = "autoUpgradeEvaluationSummary";
+const _aUESu = "autoUpgradeEligibilitySummary";
 const _c = "client";
 const _cC = "compactionConfiguration";
 const _cEF = "cleanExpiredFiles";
@@ -2690,6 +2707,7 @@ const _co = "configuration";
 const _dFT = "deleteFileThreshold";
 const _dN = "databaseName";
 const _e = "error";
+const _eM = "errorMessage";
 const _eT = "eventType";
 const _eTn = "endTimestamp";
 const _en = "enabled";
@@ -2701,7 +2719,8 @@ const _hQ = "httpQuery";
 const _iC = "icebergConfiguration";
 const _iFN = "iterableFormName";
 const _iI = "itemIdentifier";
-const _jN = "jsonName";
+const _jN = "jobName";
+const _jNs = "jsonName";
 const _k = "key";
 const _l = "location";
 const _lR = "lastRun";
@@ -2722,11 +2741,15 @@ const _sA = "scanAll";
 const _sR = "scanRate";
 const _sRPID = "snapshotRetentionPeriodInDays";
 const _sT = "startTimestamp";
+const _sV = "sourceVersion";
 const _se = "server";
-const _st = "strategy";
+const _st = "status";
+const _str = "strategy";
 const _t = "type";
 const _tN = "tableName";
 const _tO = "tableOptimizer";
+const _tV = "targetVersion";
+const _uC = "upgradeConsent";
 const _v = "value";
 const _vC = "vpcConfiguration";
 const n0 = "com.amazonaws.glue";
@@ -3224,6 +3247,11 @@ export var AutoDataQuality$: StaticStructureSchema = [3, n0, _ADQ,
   0,
   [_IE, _EC],
   [2, 0]
+];
+export var AutoUpgradeMetadata$: StaticStructureSchema = [3, n0, _AUM,
+  0,
+  [_TV, _SV, _St, _AIn],
+  [0, 0, 0, 0]
 ];
 export var BackfillError$: StaticStructureSchema = [3, n0, _BE,
   0,
@@ -4392,7 +4420,7 @@ export var DataQualityTargetTable$: StaticStructureSchema = [3, n0, _DQTT,
 ];
 export var DataQualityTelemetry$: StaticStructureSchema = [3, n0, _DQT,
   0,
-  [_VH, _FE, _LV, _SV, _HRV, _Eng],
+  [_VH, _FE, _LV, _SVp, _HRV, _Eng],
   [1, 128 | 0, 0, 0, 0, 0]
 ];
 export var DataSource$: StaticStructureSchema = [3, n0, _DSa,
@@ -5620,6 +5648,16 @@ export var GetJobsResponse$: StaticStructureSchema = [3, n0, _GJReto,
   [_J, _NTe],
   [[() => JobList, 0], 0]
 ];
+export var GetJobUpgradeAnalysisRequest$: StaticStructureSchema = [3, n0, _GJUAR,
+  0,
+  [_aI, _jN],
+  [0, 0], 2
+];
+export var GetJobUpgradeAnalysisResponse$: StaticStructureSchema = [3, n0, _GJUARe,
+  0,
+  [_jN, _aI, _st, _tV, _sV, _aT, _aUES, _eM, _aUESu],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0], 4
+];
 export var GetMappingRequest$: StaticStructureSchema = [3, n0, _GMR,
   0,
   [_So, _Si, _L],
@@ -5818,7 +5856,7 @@ export var GetSessionEndpointRequest$: StaticStructureSchema = [3, n0, _GSER,
 export var GetSessionEndpointResponse$: StaticStructureSchema = [3, n0, _GSERe,
   0,
   [_SCp],
-  [[() => SessionEndpoint$, { [_jN]: _SC_ }]], 1
+  [[() => SessionEndpoint$, { [_jNs]: _SC_ }]], 1
 ];
 export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSRe,
   0,
@@ -5897,7 +5935,7 @@ export var GetTableVersionRequest$: StaticStructureSchema = [3, n0, _GTVR,
 ];
 export var GetTableVersionResponse$: StaticStructureSchema = [3, n0, _GTVRe,
   0,
-  [_TV],
+  [_TVa],
   [() => TableVersion$]
 ];
 export var GetTableVersionsRequest$: StaticStructureSchema = [3, n0, _GTVRet,
@@ -5907,7 +5945,7 @@ export var GetTableVersionsRequest$: StaticStructureSchema = [3, n0, _GTVRet,
 ];
 export var GetTableVersionsResponse$: StaticStructureSchema = [3, n0, _GTVReta,
   0,
-  [_TVa, _NTe],
+  [_TVab, _NTe],
   [() => GetTableVersionsList, 0]
 ];
 export var GetTagsRequest$: StaticStructureSchema = [3, n0, _GTRetag,
@@ -6097,7 +6135,7 @@ export var HudiTarget$: StaticStructureSchema = [3, n0, _HTu,
 ];
 export var IcebergCompactionConfiguration$: StaticStructureSchema = [3, n0, _ICC,
   0,
-  [_st, _mIF, _dFT],
+  [_str, _mIF, _dFT],
   [0, 1, 1]
 ];
 export var IcebergCompactionMetrics$: StaticStructureSchema = [3, n0, _ICM,
@@ -6297,8 +6335,8 @@ export var JdbcTarget$: StaticStructureSchema = [3, n0, _JTdb,
 ];
 export var Job$: StaticStructureSchema = [3, n0, _Job,
   0,
-  [_N, _JM, _JRQE, _D, _LUog, _Rol, _CO, _LMO, _EP, _Comm, _DA, _NOA, _Conn, _MR, _ACl, _T, _MCax, _WT, _NOW, _SC, _NP, _GV, _CGCNo, _ECx, _SCD, _MWa, _PN],
-  [0, 0, 2, 0, 0, 0, 4, 4, () => ExecutionProperty$, () => JobCommand$, 128 | 0, 128 | 0, () => ConnectionsList$, 1, 1, 1, 1, 0, 1, 0, () => NotificationProperty$, 0, [() => CodeGenConfigurationNodes, 0], 0, () => SourceControlDetails$, 0, 0]
+  [_N, _JM, _JRQE, _D, _LUog, _Rol, _CO, _LMO, _EP, _Comm, _DA, _NOA, _Conn, _MR, _ACl, _T, _MCax, _WT, _NOW, _SC, _NP, _GV, _CGCNo, _ECx, _SCD, _MWa, _PN, _AUM],
+  [0, 0, 2, 0, 0, 0, 4, 4, () => ExecutionProperty$, () => JobCommand$, 128 | 0, 128 | 0, () => ConnectionsList$, 1, 1, 1, 1, 0, 1, 0, () => NotificationProperty$, 0, [() => CodeGenConfigurationNodes, 0], 0, () => SourceControlDetails$, 0, 0, () => AutoUpgradeMetadata$]
 ];
 export var JobBookmarkEntry$: StaticStructureSchema = [3, n0, _JBEo,
   0,
@@ -7720,6 +7758,16 @@ export var StartJobRunResponse$: StaticStructureSchema = [3, n0, _SJRRt,
   [_JRI],
   [0]
 ];
+export var StartJobUpgradeAnalysisRequest$: StaticStructureSchema = [3, n0, _SJUAR,
+  0,
+  [_jN, _aI, _uC],
+  [0, 0, 0], 1
+];
+export var StartJobUpgradeAnalysisResponse$: StaticStructureSchema = [3, n0, _SJUARt,
+  0,
+  [_aI, _jN],
+  [0, 0]
+];
 export var StartMaterializedViewRefreshTaskRunRequest$: StaticStructureSchema = [3, n0, _SMVRTRR,
   0,
   [_CI, _DN, _TN, _FRu],
@@ -7845,6 +7893,16 @@ export var StopCrawlerScheduleResponse$: StaticStructureSchema = [3, n0, _SCSRto
   [],
   []
 ];
+export var StopJobUpgradeAnalysisRequest$: StaticStructureSchema = [3, n0, _SJUARto,
+  0,
+  [_jN, _aI],
+  [0, 0], 2
+];
+export var StopJobUpgradeAnalysisResponse$: StaticStructureSchema = [3, n0, _SJUARtop,
+  0,
+  [],
+  []
+];
 export var StopMaterializedViewRefreshTaskRunRequest$: StaticStructureSchema = [3, n0, _SMVRTRRto,
   0,
   [_CI, _DN, _TN],
@@ -7950,7 +8008,7 @@ export var TableStatus$: StaticStructureSchema = [3, n0, _TSa,
   [_RBe, _UBpd, _RTeq, _UT, _A, _Sta, _Er, _Det],
   [0, 0, 4, 4, 0, 0, () => ErrorDetail$, () => StatusDetails$]
 ];
-export var TableVersion$: StaticStructureSchema = [3, n0, _TV,
+export var TableVersion$: StaticStructureSchema = [3, n0, _TVa,
   0,
   [_Ta, _VIe],
   [() => Table$, 0]
@@ -9633,6 +9691,9 @@ export var GetJobRuns$: StaticOperationSchema = [9, n0, _GJRetobu,
 export var GetJobs$: StaticOperationSchema = [9, n0, _GJe,
   0, () => GetJobsRequest$, () => GetJobsResponse$
 ];
+export var GetJobUpgradeAnalysis$: StaticOperationSchema = [9, n0, _GJUA,
+  0, () => GetJobUpgradeAnalysisRequest$, () => GetJobUpgradeAnalysisResponse$
+];
 export var GetMapping$: StaticOperationSchema = [9, n0, _GM,
   0, () => GetMappingRequest$, () => GetMappingResponse$
 ];
@@ -9957,6 +10018,9 @@ export var StartImportLabelsTaskRun$: StaticOperationSchema = [9, n0, _SILTR,
 export var StartJobRun$: StaticOperationSchema = [9, n0, _SJR,
   0, () => StartJobRunRequest$, () => StartJobRunResponse$
 ];
+export var StartJobUpgradeAnalysis$: StaticOperationSchema = [9, n0, _SJUA,
+  0, () => StartJobUpgradeAnalysisRequest$, () => StartJobUpgradeAnalysisResponse$
+];
 export var StartMaterializedViewRefreshTaskRun$: StaticOperationSchema = [9, n0, _SMVRTR,
   0, () => StartMaterializedViewRefreshTaskRunRequest$, () => StartMaterializedViewRefreshTaskRunResponse$
 ];
@@ -9983,6 +10047,9 @@ export var StopCrawler$: StaticOperationSchema = [9, n0, _SCto,
 ];
 export var StopCrawlerSchedule$: StaticOperationSchema = [9, n0, _SCSto,
   0, () => StopCrawlerScheduleRequest$, () => StopCrawlerScheduleResponse$
+];
+export var StopJobUpgradeAnalysis$: StaticOperationSchema = [9, n0, _SJUAt,
+  0, () => StopJobUpgradeAnalysisRequest$, () => StopJobUpgradeAnalysisResponse$
 ];
 export var StopMaterializedViewRefreshTaskRun$: StaticOperationSchema = [9, n0, _SMVRTRt,
   0, () => StopMaterializedViewRefreshTaskRunRequest$, () => StopMaterializedViewRefreshTaskRunResponse$

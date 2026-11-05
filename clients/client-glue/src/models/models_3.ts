@@ -26,6 +26,7 @@ import type {
   SourceControlAuthStrategy,
   SourceControlProvider,
   TableOptimizerType,
+  UpgradeConsent,
   ViewUpdateAction,
   WorkerType,
 } from "./enums";
@@ -36,6 +37,7 @@ import type {
   AmazonRedshiftTarget,
   AthenaConnectorSource,
   AuthenticationConfigurationInput,
+  AutoUpgradeMetadata,
   BasicCatalogTarget,
   CatalogDeltaSource,
   CatalogHudiSource,
@@ -165,6 +167,112 @@ import type {
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface PutSchemaVersionMetadataInput {
+  /**
+   * <p>The unique ID for the schema.</p>
+   * @public
+   */
+  SchemaId?: SchemaId | undefined;
+
+  /**
+   * <p>The version number of the schema.</p>
+   * @public
+   */
+  SchemaVersionNumber?: SchemaVersionNumber | undefined;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   * @public
+   */
+  SchemaVersionId?: string | undefined;
+
+  /**
+   * <p>The metadata key's corresponding value.</p>
+   * @public
+   */
+  MetadataKeyValue: MetadataKeyValuePair | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutSchemaVersionMetadataResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the schema.</p>
+   * @public
+   */
+  SchemaArn?: string | undefined;
+
+  /**
+   * <p>The name for the schema.</p>
+   * @public
+   */
+  SchemaName?: string | undefined;
+
+  /**
+   * <p>The name for the registry.</p>
+   * @public
+   */
+  RegistryName?: string | undefined;
+
+  /**
+   * <p>The latest version of the schema.</p>
+   * @public
+   */
+  LatestVersion?: boolean | undefined;
+
+  /**
+   * <p>The version number of the schema.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   * @public
+   */
+  SchemaVersionId?: string | undefined;
+
+  /**
+   * <p>The metadata key.</p>
+   * @public
+   */
+  MetadataKey?: string | undefined;
+
+  /**
+   * <p>The value of the metadata key.</p>
+   * @public
+   */
+  MetadataValue?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutWorkflowRunPropertiesRequest {
+  /**
+   * <p>Name of the workflow which was run.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ID of the workflow run for which the run properties should be updated.</p>
+   * @public
+   */
+  RunId: string | undefined;
+
+  /**
+   * <p>The properties to put for the specified run.</p>
+   *          <p>Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to use them within the workflow run.</p>
+   * @public
+   */
+  RunProperties: Record<string, string> | undefined;
+}
 
 /**
  * @public
@@ -1688,6 +1796,47 @@ export interface StartJobRunResponse {
 /**
  * @public
  */
+export interface StartJobUpgradeAnalysisRequest {
+  /**
+   * <p>The name of the job associated with the analysis to resume.</p>
+   * @public
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the upgrade analysis. The analysis must be in
+   *          <code>WAITING_FOR_CONSENT</code> status.</p>
+   * @public
+   */
+  analysisId?: string | undefined;
+
+  /**
+   * <p>The customer's decision on whether to proceed with the upgrade.</p>
+   * @public
+   */
+  upgradeConsent?: UpgradeConsent | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartJobUpgradeAnalysisResponse {
+  /**
+   * <p>The unique identifier of the upgrade analysis.</p>
+   * @public
+   */
+  analysisId?: string | undefined;
+
+  /**
+   * <p>The name of the job associated with this analysis.</p>
+   * @public
+   */
+  jobName?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartMaterializedViewRefreshTaskRunRequest {
   /**
    * <p>The ID of the Data Catalog where the table reside. If none is supplied, the account ID is used by default.</p>
@@ -1914,6 +2063,28 @@ export interface StopCrawlerScheduleRequest {
  * @public
  */
 export interface StopCrawlerScheduleResponse {}
+
+/**
+ * @public
+ */
+export interface StopJobUpgradeAnalysisRequest {
+  /**
+   * <p>The name of the job associated with the analysis.</p>
+   * @public
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the analysis to stop.</p>
+   * @public
+   */
+  analysisId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopJobUpgradeAnalysisResponse {}
 
 /**
  * @public
@@ -5635,6 +5806,12 @@ export interface Job {
    * @public
    */
   ProfileName?: string | undefined;
+
+  /**
+   * <text>The auto-upgrade assessment information for a job configured with glueVersion=auto. This field is null when the job is not configured to auto.</text>
+   * @public
+   */
+  AutoUpgradeMetadata?: AutoUpgradeMetadata | undefined;
 }
 
 /**

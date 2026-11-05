@@ -1239,6 +1239,13 @@ GetJobs
 </details>
 <details>
 <summary>
+GetJobUpgradeAnalysis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetJobUpgradeAnalysisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetJobUpgradeAnalysisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetJobUpgradeAnalysisCommandOutput/)
+</details>
+<details>
+<summary>
 GetMapping
 </summary>
 
@@ -1995,6 +2002,13 @@ StartJobRun
 </details>
 <details>
 <summary>
+StartJobUpgradeAnalysis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/StartJobUpgradeAnalysisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StartJobUpgradeAnalysisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StartJobUpgradeAnalysisCommandOutput/)
+</details>
+<details>
+<summary>
 StartMaterializedViewRefreshTaskRun
 </summary>
 
@@ -2055,6 +2069,13 @@ StopCrawlerSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/StopCrawlerScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StopCrawlerScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StopCrawlerScheduleCommandOutput/)
+</details>
+<details>
+<summary>
+StopJobUpgradeAnalysis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/StopJobUpgradeAnalysisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StopJobUpgradeAnalysisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StopJobUpgradeAnalysisCommandOutput/)
 </details>
 <details>
 <summary>

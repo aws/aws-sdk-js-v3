@@ -4,6 +4,7 @@ import type {
   AggFunction,
   AllowFullTableExternalDataAccessEnum,
   AuthenticationType,
+  AutoUpgradeStatus,
   BlueprintStatus,
   CompactionStrategy,
   CompressionType,
@@ -1083,6 +1084,36 @@ export interface AutoDataQuality {
    * @public
    */
   EvaluationContext?: string | undefined;
+}
+
+/**
+ * <text>The auto-upgrade assessment information for a job configured with glueVersion=auto.</text>
+ * @public
+ */
+export interface AutoUpgradeMetadata {
+  /**
+   * <text>The target Glue runtime version the job is being upgraded to.</text>
+   * @public
+   */
+  TargetVersion?: string | undefined;
+
+  /**
+   * <text>The source Glue runtime version the job was running before auto-version was enabled.</text>
+   * @public
+   */
+  SourceVersion?: string | undefined;
+
+  /**
+   * <text>The current auto-upgrade lifecycle status (OBSERVING, UPGRADING, UPGRADE_SUCCEEDED, UPGRADE_FAILED, STOPPED, WAITING_FOR_CONSENT).</text>
+   * @public
+   */
+  Status?: AutoUpgradeStatus | undefined;
+
+  /**
+   * <text>The unique identifier of the auto-upgrade assessment analysis.</text>
+   * @public
+   */
+  AnalysisId?: string | undefined;
 }
 
 /**
@@ -10407,27 +10438,4 @@ export interface CatalogInput {
    * @public
    */
   OverwriteChildResourcePermissionsWithDefault?: OverwriteChildResourcePermissionsWithDefaultEnum | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCatalogRequest {
-  /**
-   * <p>The name of the catalog to create.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A <code>CatalogInput</code> object that defines the metadata for the catalog.</p>
-   * @public
-   */
-  CatalogInput: CatalogInput | undefined;
-
-  /**
-   * <p>A map array of key-value pairs, not more than 50 pairs. Each key is a UTF-8 string, not less than 1 or more than 128 bytes long. Each value is a UTF-8 string, not more than 256 bytes long. The tags you assign to the catalog.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
 }

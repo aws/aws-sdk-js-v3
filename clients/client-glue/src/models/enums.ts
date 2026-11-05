@@ -57,6 +57,18 @@ export type AllowFullTableExternalDataAccessEnum =
  * @public
  * @enum
  */
+export const AnalysisType = {
+  AUTO_UPGRADE: "AUTO_UPGRADE",
+} as const;
+/**
+ * @public
+ */
+export type AnalysisType = (typeof AnalysisType)[keyof typeof AnalysisType];
+
+/**
+ * @public
+ * @enum
+ */
 export const InclusionAnnotationValue = {
   EXCLUDE: "EXCLUDE",
   INCLUDE: "INCLUDE",
@@ -139,6 +151,23 @@ export const OAuth2GrantType = {
  * @public
  */
 export type OAuth2GrantType = (typeof OAuth2GrantType)[keyof typeof OAuth2GrantType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoUpgradeStatus = {
+  OBSERVING: "OBSERVING",
+  STOPPED: "STOPPED",
+  UPGRADE_FAILED: "UPGRADE_FAILED",
+  UPGRADE_SUCCEEDED: "UPGRADE_SUCCEEDED",
+  UPGRADING: "UPGRADING",
+  WAITING_FOR_CONSENT: "WAITING_FOR_CONSENT",
+} as const;
+/**
+ * @public
+ */
+export type AutoUpgradeStatus = (typeof AutoUpgradeStatus)[keyof typeof AutoUpgradeStatus];
 
 /**
  * @public
@@ -1945,6 +1974,24 @@ export type RecommendationMode = (typeof RecommendationMode)[keyof typeof Recomm
  * @public
  * @enum
  */
+export const Status = {
+  FAILED: "FAILED",
+  OBSERVING: "OBSERVING",
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMEOUT: "TIMEOUT",
+  UPGRADING: "UPGRADING",
+  WAITING_FOR_CONSENT: "WAITING_FOR_CONSENT",
+} as const;
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ * @enum
+ */
 export const MaterializedViewRefreshType = {
   FULL: "FULL",
   INCREMENTAL: "INCREMENTAL",
@@ -2376,6 +2423,19 @@ export const Sort = {
  * @public
  */
 export type Sort = (typeof Sort)[keyof typeof Sort];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpgradeConsent = {
+  APPROVE: "APPROVE",
+  DECLINE: "DECLINE",
+} as const;
+/**
+ * @public
+ */
+export type UpgradeConsent = (typeof UpgradeConsent)[keyof typeof UpgradeConsent];
 
 /**
  * @public

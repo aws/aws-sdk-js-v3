@@ -445,6 +445,10 @@ import type { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobC
 import type { GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
 import type { GetJobRunsCommandInput, GetJobRunsCommandOutput } from "./commands/GetJobRunsCommand";
 import type { GetJobsCommandInput, GetJobsCommandOutput } from "./commands/GetJobsCommand";
+import type {
+  GetJobUpgradeAnalysisCommandInput,
+  GetJobUpgradeAnalysisCommandOutput,
+} from "./commands/GetJobUpgradeAnalysisCommand";
 import type { GetMappingCommandInput, GetMappingCommandOutput } from "./commands/GetMappingCommand";
 import type {
   GetMaterializedViewRefreshTaskRunCommandInput,
@@ -728,6 +732,10 @@ import type {
 } from "./commands/StartImportLabelsTaskRunCommand";
 import type { StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand";
 import type {
+  StartJobUpgradeAnalysisCommandInput,
+  StartJobUpgradeAnalysisCommandOutput,
+} from "./commands/StartJobUpgradeAnalysisCommand";
+import type {
   StartMaterializedViewRefreshTaskRunCommandInput,
   StartMaterializedViewRefreshTaskRunCommandOutput,
 } from "./commands/StartMaterializedViewRefreshTaskRunCommand";
@@ -754,6 +762,10 @@ import type {
   StopCrawlerScheduleCommandInput,
   StopCrawlerScheduleCommandOutput,
 } from "./commands/StopCrawlerScheduleCommand";
+import type {
+  StopJobUpgradeAnalysisCommandInput,
+  StopJobUpgradeAnalysisCommandOutput,
+} from "./commands/StopJobUpgradeAnalysisCommand";
 import type {
   StopMaterializedViewRefreshTaskRunCommandInput,
   StopMaterializedViewRefreshTaskRunCommandOutput,
@@ -1008,6 +1020,7 @@ export type ServiceInputTypes =
   | GetJobCommandInput
   | GetJobRunCommandInput
   | GetJobRunsCommandInput
+  | GetJobUpgradeAnalysisCommandInput
   | GetJobsCommandInput
   | GetMLTaskRunCommandInput
   | GetMLTaskRunsCommandInput
@@ -1117,6 +1130,7 @@ export type ServiceInputTypes =
   | StartExportLabelsTaskRunCommandInput
   | StartImportLabelsTaskRunCommandInput
   | StartJobRunCommandInput
+  | StartJobUpgradeAnalysisCommandInput
   | StartMLEvaluationTaskRunCommandInput
   | StartMLLabelingSetGenerationTaskRunCommandInput
   | StartMaterializedViewRefreshTaskRunCommandInput
@@ -1126,6 +1140,7 @@ export type ServiceInputTypes =
   | StopColumnStatisticsTaskRunScheduleCommandInput
   | StopCrawlerCommandInput
   | StopCrawlerScheduleCommandInput
+  | StopJobUpgradeAnalysisCommandInput
   | StopMaterializedViewRefreshTaskRunCommandInput
   | StopSessionCommandInput
   | StopTriggerCommandInput
@@ -1319,6 +1334,7 @@ export type ServiceOutputTypes =
   | GetJobCommandOutput
   | GetJobRunCommandOutput
   | GetJobRunsCommandOutput
+  | GetJobUpgradeAnalysisCommandOutput
   | GetJobsCommandOutput
   | GetMLTaskRunCommandOutput
   | GetMLTaskRunsCommandOutput
@@ -1428,6 +1444,7 @@ export type ServiceOutputTypes =
   | StartExportLabelsTaskRunCommandOutput
   | StartImportLabelsTaskRunCommandOutput
   | StartJobRunCommandOutput
+  | StartJobUpgradeAnalysisCommandOutput
   | StartMLEvaluationTaskRunCommandOutput
   | StartMLLabelingSetGenerationTaskRunCommandOutput
   | StartMaterializedViewRefreshTaskRunCommandOutput
@@ -1437,6 +1454,7 @@ export type ServiceOutputTypes =
   | StopColumnStatisticsTaskRunScheduleCommandOutput
   | StopCrawlerCommandOutput
   | StopCrawlerScheduleCommandOutput
+  | StopJobUpgradeAnalysisCommandOutput
   | StopMaterializedViewRefreshTaskRunCommandOutput
   | StopSessionCommandOutput
   | StopTriggerCommandOutput

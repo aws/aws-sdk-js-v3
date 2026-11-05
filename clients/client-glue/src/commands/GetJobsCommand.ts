@@ -1293,6 +1293,12 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * //       },
  * //       MaintenanceWindow: "STRING_VALUE",
  * //       ProfileName: "STRING_VALUE",
+ * //       AutoUpgradeMetadata: { // AutoUpgradeMetadata
+ * //         TargetVersion: "STRING_VALUE",
+ * //         SourceVersion: "STRING_VALUE",
+ * //         Status: "OBSERVING" || "UPGRADING" || "UPGRADE_SUCCEEDED" || "UPGRADE_FAILED" || "STOPPED" || "WAITING_FOR_CONSENT",
+ * //         AnalysisId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -2,6 +2,7 @@
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
+  AnalysisType,
   BackfillErrorCode,
   CatalogEncryptionMode,
   Compatibility,
@@ -40,6 +41,7 @@ import type {
   SortDirectionType,
   StatementState,
   StatisticEvaluationLevel,
+  Status,
   TableAttributes,
   TableOptimizerType,
   TableResourceShareType,
@@ -107,6 +109,17 @@ import type {
   TransformEncryption,
   TransformParameters,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetDatabaseResponse {
+  /**
+   * <p>The definition of the specified database in the Data Catalog.</p>
+   * @public
+   */
+  Database?: Database | undefined;
+}
 
 /**
  * @public
@@ -1562,6 +1575,89 @@ export interface GetJobsRequest {
    * @public
    */
   MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJobUpgradeAnalysisRequest {
+  /**
+   * <p>The unique identifier of the upgrade analysis to retrieve.</p>
+   * @public
+   */
+  analysisId: string | undefined;
+
+  /**
+   * <p>The name of the job associated with the analysis.</p>
+   * @public
+   */
+  jobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJobUpgradeAnalysisResponse {
+  /**
+   * <p>The name of the job associated with this analysis.</p>
+   * @public
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the upgrade analysis.</p>
+   * @public
+   */
+  analysisId: string | undefined;
+
+  /**
+   * <p>The current status of the analysis.</p>
+   * @public
+   */
+  status: Status | undefined;
+
+  /**
+   * <p>The Glue version the job was running before the upgrade, for
+   *          example <code>4.0</code>.</p>
+   * @public
+   */
+  sourceVersion?: string | undefined;
+
+  /**
+   * <p>The Glue version the job will be upgraded to, for example
+   *          <code>6.0</code>.</p>
+   * @public
+   */
+  targetVersion: string | undefined;
+
+  /**
+   * <p>The type of upgrade analysis. For auto-upgrade jobs, this value is
+   *          <code>AUTO_UPGRADE</code>.</p>
+   * @public
+   */
+  analysisType?: AnalysisType | undefined;
+
+  /**
+   * <p>The Amazon S3 URI of the terminal-state evaluation summary, available
+   *          once the analysis reaches a terminal status (<code>SUCCEEDED</code> or
+   *          <code>FAILED</code>).</p>
+   * @public
+   */
+  autoUpgradeEvaluationSummary?: string | undefined;
+
+  /**
+   * <p>The reason the analysis did not complete.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 URI of the consent report summarizing upgrade assessment
+   *          findings. Populated when the analysis reaches <code>WAITING_FOR_CONSENT</code> and
+   *          remains available in all subsequent states.</p>
+   * @public
+   */
+  autoUpgradeEligibilitySummary?: string | undefined;
 }
 
 /**
@@ -8777,110 +8873,4 @@ export interface MetadataKeyValuePair {
    * @public
    */
   MetadataValue?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutSchemaVersionMetadataInput {
-  /**
-   * <p>The unique ID for the schema.</p>
-   * @public
-   */
-  SchemaId?: SchemaId | undefined;
-
-  /**
-   * <p>The version number of the schema.</p>
-   * @public
-   */
-  SchemaVersionNumber?: SchemaVersionNumber | undefined;
-
-  /**
-   * <p>The unique version ID of the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>The metadata key's corresponding value.</p>
-   * @public
-   */
-  MetadataKeyValue: MetadataKeyValuePair | undefined;
-}
-
-/**
- * @public
- */
-export interface PutSchemaVersionMetadataResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the schema.</p>
-   * @public
-   */
-  SchemaArn?: string | undefined;
-
-  /**
-   * <p>The name for the schema.</p>
-   * @public
-   */
-  SchemaName?: string | undefined;
-
-  /**
-   * <p>The name for the registry.</p>
-   * @public
-   */
-  RegistryName?: string | undefined;
-
-  /**
-   * <p>The latest version of the schema.</p>
-   * @public
-   */
-  LatestVersion?: boolean | undefined;
-
-  /**
-   * <p>The version number of the schema.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The unique version ID of the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>The metadata key.</p>
-   * @public
-   */
-  MetadataKey?: string | undefined;
-
-  /**
-   * <p>The value of the metadata key.</p>
-   * @public
-   */
-  MetadataValue?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutWorkflowRunPropertiesRequest {
-  /**
-   * <p>Name of the workflow which was run.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The ID of the workflow run for which the run properties should be updated.</p>
-   * @public
-   */
-  RunId: string | undefined;
-
-  /**
-   * <p>The properties to put for the specified run.</p>
-   *          <p>Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to use them within the workflow run.</p>
-   * @public
-   */
-  RunProperties: Record<string, string> | undefined;
 }
