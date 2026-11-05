@@ -121,6 +121,7 @@ const _LEIARi = "ListEventIntegrationAssociationsResponse";
 const _LEIR = "ListEventIntegrationsRequest";
 const _LEIRi = "ListEventIntegrationsResponse";
 const _LES = "LastExecutionStatus";
+const _LMR = "LastModifiedRegion";
 const _LMT = "LastModifiedTime";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
@@ -297,8 +298,8 @@ export var ApplicationSourceConfig$: StaticStructureSchema = [3, n0, _ASC,
 ];
 export var ApplicationSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_A, _I, _N, _Na, _CT, _LMT, _IS, _AT],
-  [0, 0, 0, 0, 4, 4, 2, 0]
+  [_A, _I, _N, _Na, _CT, _LMT, _LMR, _IS, _AT],
+  [0, 0, 0, 0, 4, 4, 0, 2, 0]
 ];
 export var AuthConfig$: StaticStructureSchema = [3, n0, _ACu,
   0,
@@ -427,8 +428,8 @@ export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
 ];
 export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
-  [_A, _I, _N, _Na, _D, _ASC, _Su, _P, _CT, _LMT, _T, _Pe, _IS, _IT, _AC, _IC, _AT, _ACu],
-  [0, 0, 0, 0, 0, () => ApplicationSourceConfig$, () => SubscriptionList, () => PublicationList, 4, 4, 128 | 0, 64 | 0, 2, 1, () => ApplicationConfig$, () => IframeConfig$, 0, () => AuthConfig$]
+  [_A, _I, _N, _Na, _D, _ASC, _Su, _P, _CT, _LMT, _LMR, _T, _Pe, _IS, _IT, _AC, _IC, _AT, _ACu],
+  [0, 0, 0, 0, 0, () => ApplicationSourceConfig$, () => SubscriptionList, () => PublicationList, 4, 4, 0, 128 | 0, 64 | 0, 2, 1, () => ApplicationConfig$, () => IframeConfig$, 0, () => AuthConfig$]
 ];
 export var GetDataIntegrationRequest$: StaticStructureSchema = [3, n0, _GDIR,
   0,

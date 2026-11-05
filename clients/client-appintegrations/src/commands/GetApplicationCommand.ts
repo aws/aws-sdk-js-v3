@@ -66,6 +66,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //   ],
  * //   CreatedTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastModifiedRegion: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

@@ -188,7 +188,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request conflicts with the current state of the resource. Verify the application's current state and retry the request.</p>
+ * <p>The request conflicts with the current state of the resource. Verify the resource's current state and retry the request.</p>
  * @public
  */
 export class ConflictException extends __BaseException {

@@ -770,6 +770,12 @@ export interface GetApplicationResponse {
   LastModifiedTime?: Date | undefined;
 
   /**
+   * <p>The Amazon Web Services Region where the application was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
@@ -1077,6 +1083,12 @@ export interface ApplicationSummary {
    * @public
    */
   LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the application was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
 
   /**
    * <p>Indicates whether the application is a service.</p>
