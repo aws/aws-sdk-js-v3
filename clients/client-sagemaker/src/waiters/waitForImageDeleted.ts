@@ -12,6 +12,7 @@ import {
   type DescribeImageCommandOutput,
   DescribeImageCommand,
 } from "../commands/DescribeImageCommand";
+import type { ResourceNotFound } from "../models/errors";
 import type { SageMakerServiceException } from "../models/SageMakerServiceException";
 import type { SageMakerClient } from "../SageMakerClient";
 
@@ -30,7 +31,7 @@ const checkState = async (client: SageMakerClient, input: DescribeImageCommandIn
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name === "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFound") {
       return { state: WaiterState.SUCCESS, reason };
     }
     if (exception.name === "ValidationException") {
@@ -58,8 +59,8 @@ export const waitForImageDeleted = async (
 export const waitUntilImageDeleted = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeImageCommandInput
-): Promise<WaiterResult<SageMakerServiceException>> => {
+): Promise<WaiterResult<ResourceNotFound>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result) as WaiterResult<SageMakerServiceException>;
+  return checkExceptions(result) as WaiterResult<ResourceNotFound>;
 };

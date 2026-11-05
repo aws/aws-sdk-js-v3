@@ -1997,6 +1997,7 @@ import {
   type UpdateWorkteamCommandOutput,
   UpdateWorkteamCommand,
 } from "./commands/UpdateWorkteamCommand";
+import type { ResourceNotFound } from "./models/errors";
 import type { SageMakerServiceException } from "./models/SageMakerServiceException";
 import { paginateCreateHubContentPresignedUrls } from "./pagination/CreateHubContentPresignedUrlsPaginator";
 import {
@@ -10724,7 +10725,7 @@ export interface SageMaker {
   waitUntilImageDeleted(
     args: DescribeImageCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult<SageMakerServiceException>>;
+  ): Promise<WaiterResult<ResourceNotFound>>;
 
   /**
    * @see {@link DescribeImageCommand}
@@ -10754,7 +10755,7 @@ export interface SageMaker {
   waitUntilImageVersionDeleted(
     args: DescribeImageVersionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult<SageMakerServiceException>>;
+  ): Promise<WaiterResult<ResourceNotFound>>;
 
   /**
    * @see {@link DescribeNotebookInstanceCommand}
