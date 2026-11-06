@@ -372,6 +372,8 @@ const _MC = "MemoryConfiguration";
 const _MCCFVD = "MissingConnectionConfigurationFlowValidationDetails";
 const _MCEFVD = "MalformedConditionExpressionFlowValidationDetails";
 const _MCFR = "MetadataConfigurationForReranking";
+const _MCe = "MetadataConfiguration";
+const _MCet = "MetadataConfigurations";
 const _MDAC = "MongoDbAtlasConfiguration";
 const _MDAFM = "MongoDbAtlasFieldMapping";
 const _MDCFVD = "MissingDefaultConditionFlowValidationDetails";
@@ -379,6 +381,7 @@ const _MEC = "MediaExtractionConfiguration";
 const _MENFVD = "MissingEndingNodesFlowValidationDetails";
 const _MKBC = "ManagedKnowledgeBaseConfiguration";
 const _MKBCC = "ManagedKnowledgeBaseConnectorConfiguration";
+const _MKN = "MetadataKeyName";
 const _MLCNFVD = "MissingLoopControllerNodeFlowValidationDetails";
 const _MLCNFVDu = "MultipleLoopControllerNodesFlowValidationDetails";
 const _MLINFVD = "MissingLoopInputNodeFlowValidationDetails";
@@ -862,7 +865,8 @@ const _mC = "memoryConfiguration";
 const _mCC = "missingConnectionConfiguration";
 const _mCE = "malformedConditionExpression";
 const _mCa = "maxConcurrency";
-const _mCe = "metadataConfiguration";
+const _mCe = "metadataConfigurations";
+const _mCet = "metadataConfiguration";
 const _mCo = "modelConfiguration";
 const _mDAC = "mongoDbAtlasConfiguration";
 const _mDC = "missingDefaultCondition";
@@ -1028,6 +1032,7 @@ const _sVC = "s3VectorsConfiguration";
 const _s_ = "s3";
 const _sc = "scope";
 const _se = "server";
+const _sea = "searchability";
 const _sev = "severity";
 const _so = "source";
 const _sq = "sql";
@@ -1198,6 +1203,7 @@ var InlineCode: StaticSimpleSchema = [0, n0, _IC, 8, 0];
 var Instruction: StaticSimpleSchema = [0, n0, _I, 8, 0];
 var Key: StaticSimpleSchema = [0, n0, _K, 8, 0];
 var KnowledgeBaseTextPrompt: StaticSimpleSchema = [0, n0, _KBTP, 8, 0];
+var MetadataKeyName: StaticSimpleSchema = [0, n0, _MKN, 8, 0];
 var NumberValue: StaticSimpleSchema = [0, n0, _NV, 8, 1];
 var OpenSearchManagedClusterIndexName: StaticSimpleSchema = [0, n0, _OSMCIN, 8, 0];
 var Payload: StaticSimpleSchema = [0, n0, _P, 8, 0];
@@ -2160,8 +2166,8 @@ export var KendraKnowledgeBaseConfiguration$: StaticStructureSchema = [3, n0, _K
 ];
 export var KnowledgeBase$: StaticStructureSchema = [3, n0, _KB,
   0,
-  [_kBI, _n, _kBA, _rAo, _kBC, _st, _cA, _uA, _d, _sCt, _fR],
-  [0, 0, 0, 0, [() => KnowledgeBaseConfiguration$, 0], 0, 5, 5, 0, [() => StorageConfiguration$, 0], 64 | 0], 8
+  [_kBI, _n, _kBA, _rAo, _kBC, _st, _cA, _uA, _d, _sCt, _fR, _mCe],
+  [0, 0, 0, 0, [() => KnowledgeBaseConfiguration$, 0], 0, 5, 5, 0, [() => StorageConfiguration$, 0], 64 | 0, [() => MetadataConfigurations, 0]], 8
 ];
 export var KnowledgeBaseConfiguration$: StaticStructureSchema = [3, n0, _KBC,
   0,
@@ -2457,6 +2463,11 @@ export var MetadataAttributeValue$: StaticStructureSchema = [3, n0, _MAV,
   0,
   [_t, _nV, _bV, _sV, _sLV],
   [0, [() => NumberValue, 0], 2, [() => StringValue, 0], [() => StringListValue, 0]], 1
+];
+export var MetadataConfiguration$: StaticStructureSchema = [3, n0, _MCe,
+  0,
+  [_n, _t, _sea],
+  [[() => MetadataKeyName, 0], 0, 0], 3
 ];
 export var MetadataConfigurationForReranking$: StaticStructureSchema = [3, n0, _MCFR,
   0,
@@ -3145,8 +3156,8 @@ export var UpdateFlowResponse$: StaticStructureSchema = [3, n0, _UFRp,
 ];
 export var UpdateKnowledgeBaseRequest$: StaticStructureSchema = [3, n0, _UKBR,
   0,
-  [_kBI, _n, _rAo, _kBC, _d, _sCt],
-  [[0, 1], 0, 0, [() => KnowledgeBaseConfiguration$, 0], 0, [() => StorageConfiguration$, 0]], 4
+  [_kBI, _n, _rAo, _kBC, _d, _sCt, _mCe],
+  [[0, 1], 0, 0, [() => KnowledgeBaseConfiguration$, 0], 0, [() => StorageConfiguration$, 0], [() => MetadataConfigurations, 0]], 4
 ];
 export var UpdateKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _UKBRp,
   0,
@@ -3205,7 +3216,7 @@ export var VectorKnowledgeBaseConfiguration$: StaticStructureSchema = [3, n0, _V
 ];
 export var VectorSearchBedrockRerankingConfiguration$: StaticStructureSchema = [3, n0, _VSBRC,
   0,
-  [_mCo, _nORR, _mCe],
+  [_mCo, _nORR, _mCet],
   [() => VectorSearchBedrockRerankingModelConfiguration$, 1, [() => MetadataConfigurationForReranking$, 0]], 1
 ];
 export var VectorSearchBedrockRerankingModelConfiguration$: StaticStructureSchema = [3, n0, _VSBRMC,
@@ -3386,6 +3397,10 @@ var Messages: StaticListSchema = [1, n0, _Me,
 ];
 var MetadataAttributes: StaticListSchema = [1, n0, _MAe,
   0, [() => MetadataAttribute$,
+    0]
+];
+var MetadataConfigurations: StaticListSchema = [1, n0, _MCet,
+  0, [() => MetadataConfiguration$,
     0]
 ];
 var PatternObjectFilterList: StaticListSchema = [1, n0, _POFL,

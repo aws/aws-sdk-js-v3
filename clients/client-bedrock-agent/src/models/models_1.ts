@@ -6,6 +6,7 @@ import type {
   AgentStatus,
   EmbeddingDataType,
   EmbeddingModelType,
+  FieldType,
   FlowNodeType,
   FlowStatus,
   IncludedData,
@@ -24,6 +25,7 @@ import type {
   RetrievalInstructionFieldName,
   RetrievalInstructionLastTransitionStatus,
   RetrievalInstructionStatus,
+  SearchableStatus,
   SupplementalDataStorageLocationType,
   VpcConfigurationStatus,
   VpcProtocol,
@@ -1212,6 +1214,30 @@ export interface CreateKnowledgeBaseRequest {
 }
 
 /**
+ * <p>Contains the configuration of a single custom metadata field in a knowledge base, including its name, data type, and whether the field is searchable.</p>
+ * @public
+ */
+export interface MetadataConfiguration {
+  /**
+   * <p>The name of the custom metadata field.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The data type of the custom metadata field. Valid values are <code>STRING</code> and <code>STRING_LIST</code>.</p>
+   * @public
+   */
+  type: FieldType | undefined;
+
+  /**
+   * <p>Specifies whether the custom metadata field is searchable. Valid values:</p> <ul> <li> <p> <code>ENABLED</code> – The field is searchable.</p> </li> <li> <p> <code>DISABLED</code> – The field is not searchable.</p> </li> </ul>
+   * @public
+   */
+  searchability: SearchableStatus | undefined;
+}
+
+/**
  * <p>Contains information about a knowledge base.</p>
  * @public
  */
@@ -1281,6 +1307,12 @@ export interface KnowledgeBase {
    * @public
    */
   failureReasons?: string[] | undefined;
+
+  /**
+   * <p>The custom metadata field configurations of the knowledge base. Each configuration specifies whether its field is searchable (<code>ENABLED</code> or <code>DISABLED</code>).</p> <p>If the update fails, the knowledge base status becomes <code>UPDATE_UNSUCCESSFUL</code>, the field configurations revert to their previous values, and <code>failureReasons</code> describes the cause. You can retry the update from <code>UPDATE_UNSUCCESSFUL</code>.</p>
+   * @public
+   */
+  metadataConfigurations?: MetadataConfiguration[] | undefined;
 }
 
 /**
@@ -1607,6 +1639,12 @@ export interface UpdateKnowledgeBaseRequest {
    * @public
    */
   storageConfiguration?: StorageConfiguration | undefined;
+
+  /**
+   * <p>Specifies up to 30 custom metadata field configurations for a managed knowledge base.</p> <p>The list that you specify replaces the existing configurations. The update removes any configuration that you leave out, and its field is no longer searchable. An empty list removes all configurations. If you don't specify a list, the existing configurations don't change.</p>
+   * @public
+   */
+  metadataConfigurations?: MetadataConfiguration[] | undefined;
 }
 
 /**

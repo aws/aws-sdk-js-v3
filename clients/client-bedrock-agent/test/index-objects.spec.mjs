@@ -220,6 +220,7 @@ import {
   EnrichmentStrategyConfiguration$,
   EnrichmentStrategyMethod,
   FieldForReranking$,
+  FieldType,
   FixedSizeChunkingConfiguration$,
   FlowAliasConcurrencyConfiguration$,
   FlowAliasRoutingConfigurationListItem$,
@@ -448,6 +449,7 @@ import {
   Message$,
   MetadataAttribute$,
   MetadataAttributeValue$,
+  MetadataConfiguration$,
   MetadataConfigurationForReranking$,
   MetadataSourceType,
   MetadataValueType,
@@ -583,6 +585,7 @@ import {
   SalesforceCrawlerConfiguration$,
   SalesforceDataSourceConfiguration$,
   SalesforceSourceConfiguration$,
+  SearchableStatus,
   SeedUrl$,
   SemanticChunkingConfiguration$,
   ServerSideEncryptionConfiguration$,
@@ -1156,6 +1159,7 @@ assert(typeof MemoryConfiguration$ === "object");
 assert(typeof Message$ === "object");
 assert(typeof MetadataAttribute$ === "object");
 assert(typeof MetadataAttributeValue$ === "object");
+assert(typeof MetadataConfiguration$ === "object");
 assert(typeof MetadataConfigurationForReranking$ === "object");
 assert(typeof MismatchedNodeInputTypeFlowValidationDetails$ === "object");
 assert(typeof MismatchedNodeOutputTypeFlowValidationDetails$ === "object");
@@ -1361,6 +1365,7 @@ assert(typeof EmbeddingDataType === "object");
 assert(typeof EmbeddingModelType === "object");
 assert(typeof EnabledOrDisabledState === "object");
 assert(typeof EnrichmentStrategyMethod === "object");
+assert(typeof FieldType === "object");
 assert(typeof FlowConnectionType === "object");
 assert(typeof FlowNodeInputCategory === "object");
 assert(typeof FlowNodeIODataType === "object");
@@ -1403,6 +1408,7 @@ assert(typeof RetrievalInstructionFieldName === "object");
 assert(typeof RetrievalInstructionLastTransitionStatus === "object");
 assert(typeof RetrievalInstructionStatus === "object");
 assert(typeof SalesforceAuthType === "object");
+assert(typeof SearchableStatus === "object");
 assert(typeof SharePointAuthType === "object");
 assert(typeof SharePointHostType === "object");
 assert(typeof SortOrder === "object");

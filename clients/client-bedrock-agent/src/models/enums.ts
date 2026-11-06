@@ -1133,6 +1133,32 @@ export type KnowledgeBaseStorageType = (typeof KnowledgeBaseStorageType)[keyof t
  * @public
  * @enum
  */
+export const SearchableStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type SearchableStatus = (typeof SearchableStatus)[keyof typeof SearchableStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const FieldType = {
+  STRING: "STRING",
+  STRING_LIST: "STRING_LIST",
+} as const;
+/**
+ * @public
+ */
+export type FieldType = (typeof FieldType)[keyof typeof FieldType];
+
+/**
+ * @public
+ * @enum
+ */
 export const KnowledgeBaseStatus = {
   ACTIVE: "ACTIVE",
   CREATING: "CREATING",

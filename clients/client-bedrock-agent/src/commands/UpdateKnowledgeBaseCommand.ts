@@ -256,6 +256,13 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  *       indexName: "STRING_VALUE",
  *     },
  *   },
+ *   metadataConfigurations: [ // MetadataConfigurations
+ *     { // MetadataConfiguration
+ *       name: "STRING_VALUE", // required
+ *       type: "STRING" || "STRING_LIST", // required
+ *       searchability: "ENABLED" || "DISABLED", // required
+ *     },
+ *   ],
  * };
  * const command = new UpdateKnowledgeBaseCommand(input);
  * const response = await client.send(command);
@@ -490,6 +497,13 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //     updatedAt: new Date("TIMESTAMP"), // required
  * //     failureReasons: [ // FailureReasons
  * //       "STRING_VALUE",
+ * //     ],
+ * //     metadataConfigurations: [ // MetadataConfigurations
+ * //       { // MetadataConfiguration
+ * //         name: "STRING_VALUE", // required
+ * //         type: "STRING" || "STRING_LIST", // required
+ * //         searchability: "ENABLED" || "DISABLED", // required
+ * //       },
  * //     ],
  * //   },
  * // };

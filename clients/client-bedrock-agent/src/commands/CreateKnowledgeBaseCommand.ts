@@ -494,6 +494,13 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * //     failureReasons: [ // FailureReasons
  * //       "STRING_VALUE",
  * //     ],
+ * //     metadataConfigurations: [ // MetadataConfigurations
+ * //       { // MetadataConfiguration
+ * //         name: "STRING_VALUE", // required
+ * //         type: "STRING" || "STRING_LIST", // required
+ * //         searchability: "ENABLED" || "DISABLED", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
