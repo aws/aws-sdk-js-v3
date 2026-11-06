@@ -28,7 +28,8 @@ This directory holds four scripts:
 
 ```
   --out         Output directory       [string] [default: ./lambda-provided-sdk]
-  --zip-name    Name of the zip        [string] [default: lambda-provided-js-sdk.zip]
+  --zip-name    Name of the zip
+                      [string] [default: aws-sdk-js-v3-lambda-nodejs-runtimes.zip]
   --tree-only   Assemble the tree, skip the zip and checksum          [boolean]
   --skip-legacy Skip the deprecated forwarders and declared deps      [boolean]
 ```
@@ -45,20 +46,20 @@ The run prints a numbered step for each stage. Steps `4b` and `5b` through `5d` 
 verification gates; any of them failing aborts the build before the zip is written.
 
 ```console
-1. 513 publishable workspace packages
-2. copied 70387 published files
-3. copied runtime closure: 89 external entries
+1. 514 publishable workspace packages
+2. copied 70399 published files; stripped workspace: from 506 manifests
+3. copied runtime closure: 101 external packages
 4. 46 forwarders generated, 43 declared packages copied
 4b. verified 47 deprecated packages against their recorded exports
 5. layout applied (@aws-sdk/node_modules + root @smithy symlink)
-5a. trimmed 1206 dist-es/dist-types dirs (281.8 MB reclaimed)
-5b. tree is self-contained: 4342 dependency edges across 751 packages
+5a. trimmed 1208 dist-es/dist-types dirs (281.9 MB reclaimed)
+5b. tree is self-contained: 4343 dependency edges across 752 packages
 5c. 172 subpaths across 27 packages resolve
-5d. 735 main entries load from the tree (16 exempt)
+5d. 736 main entries load from the tree (16 exempt)
     smoke test passed: 4 packages
-6. metadata.json
-7. lambda-provided-js-sdk.zip  33.5 MB
-8. lambda-provided-js-sdk.zip.sha256  594ccbd6...
+6. metadata.json  sdkVersion 3.1157.0, commit 7b0fa8722
+7. aws-sdk-js-v3-lambda-nodejs-runtimes.zip  32.9 MB
+8. aws-sdk-js-v3-lambda-nodejs-runtimes.zip.sha256  54bfa91f...
 ```
 
 `--tree-only` is the fast path while iterating. `--skip-legacy` produces an incomplete tree
@@ -67,8 +68,8 @@ and is for debugging only.
 ### Output
 
 ```
-lambda-provided-js-sdk.zip
-lambda-provided-js-sdk.zip.sha256   sha256sum format
+aws-sdk-js-v3-lambda-nodejs-runtimes.zip
+aws-sdk-js-v3-lambda-nodejs-runtimes.zip.sha256   sha256sum format
 metadata.json                       sdkVersion, gitCommit, builtAt, package counts
 shim-targets.json                   the deprecated-package mapping, for auditing
 ```
@@ -128,7 +129,11 @@ mapping changes.
 ```console
 node ./scripts/generate-lambda-provided-sdk/extract-shim-targets.mjs \
   --snapshot /path/to/api-snapshot.json
+make format
 ```
+
+The generator writes expanded JSON arrays, which the repo formatter collapses, so run
+`make format` afterwards or the format check fails.
 
 ## Troubleshooting
 

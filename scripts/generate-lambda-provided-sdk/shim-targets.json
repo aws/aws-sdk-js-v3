@@ -12,7 +12,7 @@
     "",
     "`exports` is the symbol set the Lambda payload's cumulative API snapshot requires. It",
     "is a floor, not an exact set: the assembler asserts at least these are present. The",
-    "full snapshot lives in AwsSdkJavaScriptForLambda and remains authoritative.",
+    "full snapshot is maintained outside this repo and remains authoritative.",
     "",
     "`source` records how each target was determined: the commit hash for the automated",
     "extraction, `manual` for packages deprecated before it, `corrected` where the",

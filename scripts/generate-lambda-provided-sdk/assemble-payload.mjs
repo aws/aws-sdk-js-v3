@@ -341,10 +341,7 @@ export const assemblePayload = () => {
   rmSync(outDir, { recursive: true, force: true });
   mkdirSync(nodeModulesDir, { recursive: true });
 
-  writeFileSync(
-    join(outDir, OUTPUT_SENTINEL),
-    `Created by scripts/generate-lambda-provided-sdk. Safe to delete.\n`
-  );
+  writeFileSync(join(outDir, OUTPUT_SENTINEL), `Created by scripts/generate-lambda-provided-sdk. Safe to delete.\n`);
 
   // 1. Enumerate publishable workspace packages.
   const workspacePackages = new Map();

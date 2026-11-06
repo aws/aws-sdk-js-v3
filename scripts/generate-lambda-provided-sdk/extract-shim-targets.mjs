@@ -8,7 +8,7 @@
  *
  * @example
  * ```
- * node extract-shim-targets.mjs --snapshot ~/AwsSdkJavaScriptForLambda/lambda-provided-sdk-api-snapshot.json
+ * node extract-shim-targets.mjs --snapshot /path/to/api-snapshot.json
  * ```
  */
 
@@ -36,7 +36,7 @@ const SNAPSHOT = option("snapshot");
 const COMMIT = option("commit") ?? "bb2232f76f4";
 
 if (!SNAPSHOT) {
-  die("usage: extract-shim-targets.mjs --snapshot <lambda-provided-sdk-api-snapshot.json> [--commit <sha>]");
+  die("usage: extract-shim-targets.mjs --snapshot <api-snapshot.json> [--commit <sha>]");
 }
 if (!existsSync(/** @type {string} */ (SNAPSHOT))) die(`no snapshot at ${SNAPSHOT}`);
 
@@ -143,7 +143,7 @@ writeFileSync(
         "",
         "`exports` is the symbol set the Lambda payload's cumulative API snapshot requires. It",
         "is a floor, not an exact set: the assembler asserts at least these are present. The",
-        "full snapshot lives in AwsSdkJavaScriptForLambda and remains authoritative.",
+        "full snapshot is maintained outside this repo and remains authoritative.",
         "",
         "`source` records how each target was determined: the commit hash for the automated",
         "extraction, `manual` for packages deprecated before it, `corrected` where the",
