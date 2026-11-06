@@ -300,6 +300,9 @@ const _DCCR = "DeleteCloudConnectorRequest";
 const _DCCRe = "DeleteCloudConnectorResult";
 const _DD = "DocumentDescription";
 const _DDC = "DuplicateDocumentContent";
+const _DDHMC = "DeregisterDefaultHostManagementConfiguration";
+const _DDHMCR = "DeregisterDefaultHostManagementConfigurationRequest";
+const _DDHMCRe = "DeregisterDefaultHostManagementConfigurationResult";
 const _DDP = "DescribeDocumentPermission";
 const _DDPR = "DescribeDocumentPermissionRequest";
 const _DDPRe = "DescribeDocumentPermissionResponse";
@@ -1081,6 +1084,7 @@ const _PLa = "PatchList";
 const _PM = "ParameterMetadata";
 const _PML = "ParameterMetadataList";
 const _PMVLE = "ParameterMaxVersionLimitExceeded";
+const _PMe = "PermissionModel";
 const _PMr = "ProviderMessage";
 const _PN = "ParameterNames";
 const _PNF = "ParameterNotFound";
@@ -1156,6 +1160,9 @@ const _RCem = "RemainingCount";
 const _RCes = "ResponseCode";
 const _RCu = "RunCommand";
 const _RD = "RegistrationDate";
+const _RDHMC = "RegisterDefaultHostManagementConfiguration";
+const _RDHMCR = "RegisterDefaultHostManagementConfigurationRequest";
+const _RDHMCRe = "RegisterDefaultHostManagementConfigurationResult";
 const _RDPB = "RegisterDefaultPatchBaseline";
 const _RDPBR = "RegisterDefaultPatchBaselineRequest";
 const _RDPBRe = "RegisterDefaultPatchBaselineResult";
@@ -3012,6 +3019,16 @@ export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe
   [],
   []
 ];
+export var DeregisterDefaultHostManagementConfigurationRequest$: StaticStructureSchema = [3, n0, _DDHMCR,
+  0,
+  [],
+  []
+];
+export var DeregisterDefaultHostManagementConfigurationResult$: StaticStructureSchema = [3, n0, _DDHMCRe,
+  0,
+  [],
+  []
+];
 export var DeregisterManagedInstanceRequest$: StaticStructureSchema = [3, n0, _DMIR,
   0,
   [_II],
@@ -4427,6 +4444,16 @@ export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   [_PI, _PH],
   [0, 0]
 ];
+export var RegisterDefaultHostManagementConfigurationRequest$: StaticStructureSchema = [3, n0, _RDHMCR,
+  0,
+  [_PMe, _RA, _Ov],
+  [0, 0, 2], 1
+];
+export var RegisterDefaultHostManagementConfigurationResult$: StaticStructureSchema = [3, n0, _RDHMCRe,
+  0,
+  [_RA],
+  [0]
+];
 export var RegisterDefaultPatchBaselineRequest$: StaticStructureSchema = [3, n0, _RDPBR,
   0,
   [_BI],
@@ -5575,6 +5602,9 @@ export var DeleteResourceDataSync$: StaticOperationSchema = [9, n0, _DRDS,
 export var DeleteResourcePolicy$: StaticOperationSchema = [9, n0, _DRP,
   0, () => DeleteResourcePolicyRequest$, () => DeleteResourcePolicyResponse$
 ];
+export var DeregisterDefaultHostManagementConfiguration$: StaticOperationSchema = [9, n0, _DDHMC,
+  2, () => DeregisterDefaultHostManagementConfigurationRequest$, () => DeregisterDefaultHostManagementConfigurationResult$
+];
 export var DeregisterManagedInstance$: StaticOperationSchema = [9, n0, _DMI,
   0, () => DeregisterManagedInstanceRequest$, () => DeregisterManagedInstanceResult$
 ];
@@ -5847,6 +5877,9 @@ export var PutParameter$: StaticOperationSchema = [9, n0, _PP,
 ];
 export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
   0, () => PutResourcePolicyRequest$, () => PutResourcePolicyResponse$
+];
+export var RegisterDefaultHostManagementConfiguration$: StaticOperationSchema = [9, n0, _RDHMC,
+  2, () => RegisterDefaultHostManagementConfigurationRequest$, () => RegisterDefaultHostManagementConfigurationResult$
 ];
 export var RegisterDefaultPatchBaseline$: StaticOperationSchema = [9, n0, _RDPB,
   0, () => RegisterDefaultPatchBaselineRequest$, () => RegisterDefaultPatchBaselineResult$

@@ -25,6 +25,13 @@ export interface DeleteParametersCommandOutput extends DeleteParametersResult, _
 /**
  * <p>Delete a list of parameters. After deleting a parameter, wait for at least 30 seconds to
  *    create a parameter with the same name.</p>
+ *          <important>
+ *             <p>This operation is authorized against the <code>ssm:DeleteParameters</code> action, not
+ *     against <code>ssm:DeleteParameter</code>. Denying <code>ssm:DeleteParameter</code> for a
+ *     parameter doesn't prevent a principal from deleting that parameter with this operation. For more
+ *     information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-restrict-parameter-access.html">Restricting access to
+ *      specific parameters and paths</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -407,6 +407,13 @@ DeleteResourcePolicy
 </details>
 <details>
 <summary>
+DeregisterDefaultHostManagementConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/DeregisterDefaultHostManagementConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/DeregisterDefaultHostManagementConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/DeregisterDefaultHostManagementConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
 DeregisterManagedInstance
 </summary>
 
@@ -1041,6 +1048,13 @@ PutResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/PutResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/PutResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/PutResourcePolicyCommandOutput/)
+</details>
+<details>
+<summary>
+RegisterDefaultHostManagementConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/RegisterDefaultHostManagementConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/RegisterDefaultHostManagementConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/RegisterDefaultHostManagementConfigurationCommandOutput/)
 </details>
 <details>
 <summary>

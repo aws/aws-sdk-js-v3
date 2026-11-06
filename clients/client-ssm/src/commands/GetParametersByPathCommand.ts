@@ -24,6 +24,18 @@ export interface GetParametersByPathCommandOutput extends GetParametersByPathRes
 
 /**
  * <p>Retrieve information about one or more parameters under a specified level in a hierarchy. </p>
+ *          <important>
+ *             <p>This operation is authorized against the <code>ssm:GetParametersByPath</code> action for
+ *     the path that you specify in the request. It isn't authorized against the individual parameters
+ *     that it returns, and it isn't authorized against <code>ssm:GetParameter</code>. A principal who
+ *     is allowed to call this operation for the path <code>/a</code> with <code>Recursive</code> set
+ *     to <code>true</code> receives every parameter under that path, including <code>/a/b</code>,
+ *     even if a policy explicitly denies access to <code>/a/b</code>.</p>
+ *             <p>To prevent a parameter from being returned by this operation, deny the
+ *      <code>ssm:GetParametersByPath</code> action on every ancestor path that could include the
+ *     parameter in its results. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-restrict-parameter-access.html">Restricting access to
+ *      specific parameters and paths</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *          </important>
  *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
  *    in the request, the response includes information up to the limit specified. The number of items
  *    returned, however, can be between zero and the value of <code>MaxResults</code>. If the service

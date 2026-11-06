@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetParametersRequest, GetParametersResult } from "../models/models_0";
+import type { GetParametersRequest, GetParametersResult } from "../models/models_1";
 import { GetParameters$ } from "../schemas/schemas_0";
 
 /**
@@ -28,6 +28,13 @@ export interface GetParametersCommandOutput extends GetParametersResult, __Metad
  *             <p>To get information about a single parameter, you can use the <a>GetParameter</a>
  *     operation instead.</p>
  *          </note>
+ *          <important>
+ *             <p>This operation is authorized against the <code>ssm:GetParameters</code> action, not against
+ *      <code>ssm:GetParameter</code>. Denying <code>ssm:GetParameter</code> for a parameter doesn't
+ *     prevent a principal from retrieving that parameter with this operation. To restrict access to a
+ *     parameter value, deny every action that can return it. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-retrieval-authorization.html">How Parameter Store
+ *      authorizes parameter retrieval</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *          </important>
  *          <p>Parameter names can't contain spaces. The service removes any spaces specified for the
  *    beginning or end of a parameter name. If the specified name for a parameter contains spaces
  *    between characters, the request fails with a <code>ValidationException</code> error.</p>

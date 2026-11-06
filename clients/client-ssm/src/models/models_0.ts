@@ -3747,6 +3747,16 @@ export interface DeleteResourcePolicyResponse {}
 /**
  * @public
  */
+export interface DeregisterDefaultHostManagementConfigurationRequest {}
+
+/**
+ * @public
+ */
+export interface DeregisterDefaultHostManagementConfigurationResult {}
+
+/**
+ * @public
+ */
 export interface DeregisterManagedInstanceRequest {
   /**
    * <p>The ID assigned to the managed node when you registered it using the activation process.
@@ -12183,49 +12193,4 @@ export interface GetParameterHistoryResult {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetParametersRequest {
-  /**
-   * <p>The names or Amazon Resource Names (ARNs) of the parameters that you want to query. For
-   *    parameters shared with you from another account, you must use the full ARNs.</p>
-   *          <p>To query by parameter label, use <code>"Name": "name:label"</code>. To query by parameter
-   *    version, use <code>"Name": "name:version"</code>.</p>
-   *          <note>
-   *             <p>The results for <code>GetParameters</code> requests are listed in alphabetical order in
-   *     query responses.</p>
-   *          </note>
-   *          <p>For information about shared parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working with
-   *     shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   * @public
-   */
-  Names: string[] | undefined;
-
-  /**
-   * <p>Return decrypted secure string value. Return decrypted values for secure string parameters.
-   *    This flag is ignored for <code>String</code> and <code>StringList</code> parameter types.</p>
-   * @public
-   */
-  WithDecryption?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetParametersResult {
-  /**
-   * <p>A list of details for a parameter.</p>
-   * @public
-   */
-  Parameters?: Parameter[] | undefined;
-
-  /**
-   * <p>A list of parameters that aren't formatted correctly or don't run during an
-   *    execution.</p>
-   * @public
-   */
-  InvalidParameters?: string[] | undefined;
 }

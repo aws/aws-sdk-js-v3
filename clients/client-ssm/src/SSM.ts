@@ -144,6 +144,11 @@ import {
   DeleteResourcePolicyCommand,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeregisterDefaultHostManagementConfigurationCommandInput,
+  type DeregisterDefaultHostManagementConfigurationCommandOutput,
+  DeregisterDefaultHostManagementConfigurationCommand,
+} from "./commands/DeregisterDefaultHostManagementConfigurationCommand";
+import {
   type DeregisterManagedInstanceCommandInput,
   type DeregisterManagedInstanceCommandOutput,
   DeregisterManagedInstanceCommand,
@@ -595,6 +600,11 @@ import {
   PutResourcePolicyCommand,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type RegisterDefaultHostManagementConfigurationCommandInput,
+  type RegisterDefaultHostManagementConfigurationCommandOutput,
+  RegisterDefaultHostManagementConfigurationCommand,
+} from "./commands/RegisterDefaultHostManagementConfigurationCommand";
+import {
   type RegisterDefaultPatchBaselineCommandInput,
   type RegisterDefaultPatchBaselineCommandOutput,
   RegisterDefaultPatchBaselineCommand,
@@ -858,6 +868,7 @@ const commands = {
   DeletePatchBaselineCommand,
   DeleteResourceDataSyncCommand,
   DeleteResourcePolicyCommand,
+  DeregisterDefaultHostManagementConfigurationCommand,
   DeregisterManagedInstanceCommand,
   DeregisterPatchBaselineForPatchGroupCommand,
   DeregisterTargetFromMaintenanceWindowCommand,
@@ -949,6 +960,7 @@ const commands = {
   PutInventoryCommand,
   PutParameterCommand,
   PutResourcePolicyCommand,
+  RegisterDefaultHostManagementConfigurationCommand,
   RegisterDefaultPatchBaselineCommand,
   RegisterPatchBaselineForPatchGroupCommand,
   RegisterTargetWithMaintenanceWindowCommand,
@@ -1508,6 +1520,24 @@ export interface SSM {
     args: DeleteResourcePolicyCommandInput,
     options: SSMRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterDefaultHostManagementConfigurationCommand}
+   */
+  deregisterDefaultHostManagementConfiguration(): Promise<DeregisterDefaultHostManagementConfigurationCommandOutput>;
+  deregisterDefaultHostManagementConfiguration(
+    args: DeregisterDefaultHostManagementConfigurationCommandInput,
+    options?: SSMRequestOptions
+  ): Promise<DeregisterDefaultHostManagementConfigurationCommandOutput>;
+  deregisterDefaultHostManagementConfiguration(
+    args: DeregisterDefaultHostManagementConfigurationCommandInput,
+    cb: (err: any, data?: DeregisterDefaultHostManagementConfigurationCommandOutput) => void
+  ): void;
+  deregisterDefaultHostManagementConfiguration(
+    args: DeregisterDefaultHostManagementConfigurationCommandInput,
+    options: SSMRequestOptions,
+    cb: (err: any, data?: DeregisterDefaultHostManagementConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -3085,6 +3115,23 @@ export interface SSM {
     args: PutResourcePolicyCommandInput,
     options: SSMRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterDefaultHostManagementConfigurationCommand}
+   */
+  registerDefaultHostManagementConfiguration(
+    args: RegisterDefaultHostManagementConfigurationCommandInput,
+    options?: SSMRequestOptions
+  ): Promise<RegisterDefaultHostManagementConfigurationCommandOutput>;
+  registerDefaultHostManagementConfiguration(
+    args: RegisterDefaultHostManagementConfigurationCommandInput,
+    cb: (err: any, data?: RegisterDefaultHostManagementConfigurationCommandOutput) => void
+  ): void;
+  registerDefaultHostManagementConfiguration(
+    args: RegisterDefaultHostManagementConfigurationCommandInput,
+    options: SSMRequestOptions,
+    cb: (err: any, data?: RegisterDefaultHostManagementConfigurationCommandOutput) => void
   ): void;
 
   /**

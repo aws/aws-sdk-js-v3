@@ -31,6 +31,12 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
  *             <p>To get information about more than one parameter at a time, use the <a>GetParameters</a> operation.</p>
  *          </note>
  *          <note>
+ *             <p>This operation is authorized against the <code>ssm:GetParameter</code> action. Denying that
+ *     action alone doesn't restrict <a>GetParameters</a>, <a>GetParameterHistory</a>, or <a>GetParametersByPath</a>, each of which is
+ *     authorized against its own action. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-retrieval-authorization.html">How Parameter Store
+ *      authorizes parameter retrieval</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *          </note>
+ *          <note>
  *             <p>Parameter Store throughput defines the number of API transactions per second (TPS) that
  *     Systems Manager can process. This applies to <code>GetParameter</code>,
  *     <code>GetParameters</code>, and <code>PutParameter</code> API calls for your Amazon Web Services account and

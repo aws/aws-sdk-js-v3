@@ -1566,6 +1566,19 @@ export type ComplianceUploadType = (typeof ComplianceUploadType)[keyof typeof Co
  * @public
  * @enum
  */
+export const DHMCPermissionModel = {
+  SELF_MANAGED: "SELF_MANAGED",
+  SERVICE_MANAGED: "SERVICE_MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type DHMCPermissionModel = (typeof DHMCPermissionModel)[keyof typeof DHMCPermissionModel];
+
+/**
+ * @public
+ * @enum
+ */
 export const SignalType = {
   APPROVE: "Approve",
   REJECT: "Reject",

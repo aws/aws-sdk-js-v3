@@ -133,6 +133,10 @@ import type {
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import type {
+  DeregisterDefaultHostManagementConfigurationCommandInput,
+  DeregisterDefaultHostManagementConfigurationCommandOutput,
+} from "./commands/DeregisterDefaultHostManagementConfigurationCommand";
+import type {
   DeregisterManagedInstanceCommandInput,
   DeregisterManagedInstanceCommandOutput,
 } from "./commands/DeregisterManagedInstanceCommand";
@@ -434,6 +438,10 @@ import type {
   PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import type {
+  RegisterDefaultHostManagementConfigurationCommandInput,
+  RegisterDefaultHostManagementConfigurationCommandOutput,
+} from "./commands/RegisterDefaultHostManagementConfigurationCommand";
+import type {
   RegisterDefaultPatchBaselineCommandInput,
   RegisterDefaultPatchBaselineCommandOutput,
 } from "./commands/RegisterDefaultPatchBaselineCommand";
@@ -593,6 +601,7 @@ export type ServiceInputTypes =
   | DeletePatchBaselineCommandInput
   | DeleteResourceDataSyncCommandInput
   | DeleteResourcePolicyCommandInput
+  | DeregisterDefaultHostManagementConfigurationCommandInput
   | DeregisterManagedInstanceCommandInput
   | DeregisterPatchBaselineForPatchGroupCommandInput
   | DeregisterTargetFromMaintenanceWindowCommandInput
@@ -684,6 +693,7 @@ export type ServiceInputTypes =
   | PutInventoryCommandInput
   | PutParameterCommandInput
   | PutResourcePolicyCommandInput
+  | RegisterDefaultHostManagementConfigurationCommandInput
   | RegisterDefaultPatchBaselineCommandInput
   | RegisterPatchBaselineForPatchGroupCommandInput
   | RegisterTargetWithMaintenanceWindowCommandInput
@@ -750,6 +760,7 @@ export type ServiceOutputTypes =
   | DeletePatchBaselineCommandOutput
   | DeleteResourceDataSyncCommandOutput
   | DeleteResourcePolicyCommandOutput
+  | DeregisterDefaultHostManagementConfigurationCommandOutput
   | DeregisterManagedInstanceCommandOutput
   | DeregisterPatchBaselineForPatchGroupCommandOutput
   | DeregisterTargetFromMaintenanceWindowCommandOutput
@@ -841,6 +852,7 @@ export type ServiceOutputTypes =
   | PutInventoryCommandOutput
   | PutParameterCommandOutput
   | PutResourcePolicyCommandOutput
+  | RegisterDefaultHostManagementConfigurationCommandOutput
   | RegisterDefaultPatchBaselineCommandOutput
   | RegisterPatchBaselineForPatchGroupCommandOutput
   | RegisterTargetWithMaintenanceWindowCommandOutput

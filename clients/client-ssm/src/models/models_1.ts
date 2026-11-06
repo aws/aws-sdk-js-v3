@@ -12,6 +12,7 @@ import type {
   ComplianceSeverity,
   ComplianceStatus,
   ComplianceUploadType,
+  DHMCPermissionModel,
   DocumentFilterKey,
   DocumentFormat,
   DocumentHashType,
@@ -96,6 +97,51 @@ import type {
 /**
  * @public
  */
+export interface GetParametersRequest {
+  /**
+   * <p>The names or Amazon Resource Names (ARNs) of the parameters that you want to query. For
+   *    parameters shared with you from another account, you must use the full ARNs.</p>
+   *          <p>To query by parameter label, use <code>"Name": "name:label"</code>. To query by parameter
+   *    version, use <code>"Name": "name:version"</code>.</p>
+   *          <note>
+   *             <p>The results for <code>GetParameters</code> requests are listed in alphabetical order in
+   *     query responses.</p>
+   *          </note>
+   *          <p>For information about shared parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working with
+   *     shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   * @public
+   */
+  Names: string[] | undefined;
+
+  /**
+   * <p>Return decrypted secure string value. Return decrypted values for secure string parameters.
+   *    This flag is ignored for <code>String</code> and <code>StringList</code> parameter types.</p>
+   * @public
+   */
+  WithDecryption?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetParametersResult {
+  /**
+   * <p>A list of details for a parameter.</p>
+   * @public
+   */
+  Parameters?: Parameter[] | undefined;
+
+  /**
+   * <p>A list of parameters that aren't formatted correctly or don't run during an
+   *    execution.</p>
+   * @public
+   */
+  InvalidParameters?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetParametersByPathRequest {
   /**
    * <p>The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy
@@ -110,13 +156,6 @@ export interface GetParametersByPathRequest {
 
   /**
    * <p>Retrieve all parameters within a hierarchy.</p>
-   *          <important>
-   *             <p>If a user has access to a path, then the user can access all levels of that path. For
-   *     example, if a user has permission to access path <code>/a</code>, then the user can also access
-   *      <code>/a/b</code>. Even if a user has explicitly been denied access in IAM for
-   *     parameter <code>/a/b</code>, they can still call the GetParametersByPath API operation
-   *     recursively for <code>/a</code> and view <code>/a/b</code>.</p>
-   *          </important>
    * @public
    */
   Recursive?: boolean | undefined;
@@ -4575,6 +4614,79 @@ export interface PutResourcePolicyResponse {
    * @public
    */
   PolicyHash?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterDefaultHostManagementConfigurationRequest {
+  /**
+   * <p>The permission model that determines how the IAM role for Default Host
+   *    Management Configuration is provided.</p>
+   *          <p>The permission model can be one of the following values:</p>
+   *          <dl>
+   *             <dt>SERVICE_MANAGED</dt>
+   *             <dd>
+   *                <p>Amazon Web Services Systems Manager creates and manages the role on your behalf.</p>
+   *             </dd>
+   *             <dt>SELF_MANAGED</dt>
+   *             <dd>
+   *                <p>You provide the role to register in <code>RoleArn</code>.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  PermissionModel: DHMCPermissionModel | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the self-managed IAM role that you register
+   *    for Default Host Management Configuration. The requirement for this value depends on the
+   *    permission model:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If <code>PermissionModel</code> is <code>SELF_MANAGED</code>, this value is
+   *      required.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>PermissionModel</code> is <code>SERVICE_MANAGED</code>, this value must not be
+   *      set.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>Specifies whether to override the role that is currently registered for Default Host
+   *    Management Configuration. The default is <code>false</code>, which acts as a guardrail against
+   *    accidentally replacing an existing configuration. Set this to <code>true</code> to replace the
+   *    currently registered role.</p>
+   * @public
+   */
+  Overwrite?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterDefaultHostManagementConfigurationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role registered for Default Host
+   *    Management Configuration. The value depends on the permission model:</p>
+   *          <dl>
+   *             <dt>SERVICE_MANAGED</dt>
+   *             <dd>
+   *                <p>The ARN of the role that Amazon Web Services Systems Manager created in the IAM reserved
+   *       path.</p>
+   *             </dd>
+   *             <dt>SELF_MANAGED</dt>
+   *             <dd>
+   *                <p>The <code>RoleArn</code> that you provided.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  RoleArn?: string | undefined;
 }
 
 /**

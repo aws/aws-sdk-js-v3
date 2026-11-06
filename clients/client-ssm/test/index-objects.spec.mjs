@@ -211,6 +211,10 @@ import {
   DeleteResourcePolicyRequest$,
   DeleteResourcePolicyResponse$,
   DeletionMode,
+  DeregisterDefaultHostManagementConfiguration$,
+  DeregisterDefaultHostManagementConfigurationCommand,
+  DeregisterDefaultHostManagementConfigurationRequest$,
+  DeregisterDefaultHostManagementConfigurationResult$,
   DeregisterManagedInstance$,
   DeregisterManagedInstanceCommand,
   DeregisterManagedInstanceRequest$,
@@ -361,6 +365,7 @@ import {
   DescribeSessionsCommand,
   DescribeSessionsRequest$,
   DescribeSessionsResponse$,
+  DHMCPermissionModel,
   DisassociateOpsItemRelatedItem$,
   DisassociateOpsItemRelatedItemCommand,
   DisassociateOpsItemRelatedItemRequest$,
@@ -977,6 +982,10 @@ import {
   PutResourcePolicyRequest$,
   PutResourcePolicyResponse$,
   RebootOption,
+  RegisterDefaultHostManagementConfiguration$,
+  RegisterDefaultHostManagementConfigurationCommand,
+  RegisterDefaultHostManagementConfigurationRequest$,
+  RegisterDefaultHostManagementConfigurationResult$,
   RegisterDefaultPatchBaseline$,
   RegisterDefaultPatchBaselineCommand,
   RegisterDefaultPatchBaselineRequest$,
@@ -1284,6 +1293,8 @@ assert(typeof DeleteResourceDataSyncCommand === "function");
 assert(typeof DeleteResourceDataSync$ === "object");
 assert(typeof DeleteResourcePolicyCommand === "function");
 assert(typeof DeleteResourcePolicy$ === "object");
+assert(typeof DeregisterDefaultHostManagementConfigurationCommand === "function");
+assert(typeof DeregisterDefaultHostManagementConfiguration$ === "object");
 assert(typeof DeregisterManagedInstanceCommand === "function");
 assert(typeof DeregisterManagedInstance$ === "object");
 assert(typeof DeregisterPatchBaselineForPatchGroupCommand === "function");
@@ -1466,6 +1477,8 @@ assert(typeof PutParameterCommand === "function");
 assert(typeof PutParameter$ === "object");
 assert(typeof PutResourcePolicyCommand === "function");
 assert(typeof PutResourcePolicy$ === "object");
+assert(typeof RegisterDefaultHostManagementConfigurationCommand === "function");
+assert(typeof RegisterDefaultHostManagementConfiguration$ === "object");
 assert(typeof RegisterDefaultPatchBaselineCommand === "function");
 assert(typeof RegisterDefaultPatchBaseline$ === "object");
 assert(typeof RegisterPatchBaselineForPatchGroupCommand === "function");
@@ -1632,6 +1645,8 @@ assert(typeof DeleteResourceDataSyncRequest$ === "object");
 assert(typeof DeleteResourceDataSyncResult$ === "object");
 assert(typeof DeleteResourcePolicyRequest$ === "object");
 assert(typeof DeleteResourcePolicyResponse$ === "object");
+assert(typeof DeregisterDefaultHostManagementConfigurationRequest$ === "object");
+assert(typeof DeregisterDefaultHostManagementConfigurationResult$ === "object");
 assert(typeof DeregisterManagedInstanceRequest$ === "object");
 assert(typeof DeregisterManagedInstanceResult$ === "object");
 assert(typeof DeregisterPatchBaselineForPatchGroupRequest$ === "object");
@@ -1918,6 +1933,8 @@ assert(typeof PutParameterRequest$ === "object");
 assert(typeof PutParameterResult$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResponse$ === "object");
+assert(typeof RegisterDefaultHostManagementConfigurationRequest$ === "object");
+assert(typeof RegisterDefaultHostManagementConfigurationResult$ === "object");
 assert(typeof RegisterDefaultPatchBaselineRequest$ === "object");
 assert(typeof RegisterDefaultPatchBaselineResult$ === "object");
 assert(typeof RegisterPatchBaselineForPatchGroupRequest$ === "object");
@@ -2045,6 +2062,7 @@ assert(typeof ComplianceUploadType === "object");
 assert(typeof ConnectionStatus === "object");
 assert(typeof DeletionMode === "object");
 assert(typeof DescribeActivationsFilterKeys === "object");
+assert(typeof DHMCPermissionModel === "object");
 assert(typeof DocumentFilterKey === "object");
 assert(typeof DocumentFormat === "object");
 assert(typeof DocumentHashType === "object");

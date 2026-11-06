@@ -33,6 +33,17 @@ export interface GetParameterHistoryCommandOutput extends GetParameterHistoryRes
  *      <code>GetParameterHistory</code> retrieves whatever the original key alias was
  *     referencing.</p>
  *          </important>
+ *          <important>
+ *             <p>This operation is authorized against the <code>ssm:GetParameterHistory</code> action, not
+ *     against <code>ssm:GetParameter</code>. Because parameter history includes every version of a
+ *     parameter, including the current one, a principal who is denied
+ *     <code>ssm:GetParameter</code>, <code>ssm:GetParameters</code>, and
+ *      <code>ssm:GetParametersByPath</code> but allowed <code>ssm:GetParameterHistory</code> can still
+ *     read the current value. To restrict access to a parameter value, deny every action that can
+ *     return it. For more information, see
+ *      <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-retrieval-authorization.html">How Parameter Store
+ *      authorizes parameter retrieval</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
