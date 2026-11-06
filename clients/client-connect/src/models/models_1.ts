@@ -99,11 +99,9 @@ import type {
   ParticipantCapabilities,
   PredefinedAttributeValues,
   PreEvaluationFilters,
-  PrimaryValue,
   QuickConnectConfig,
   ReadOnlyFieldInfo,
   RecurrenceConfig,
-  RequiredFieldInfo,
   RoutingProfileQueueReference,
   RuleAction,
   RuleTriggerEventSource,
@@ -112,6 +110,18 @@ import type {
   TaskTemplateFieldIdentifier,
   Validation,
 } from "./models_0";
+
+/**
+ * <p>Information about a required field.</p>
+ * @public
+ */
+export interface RequiredFieldInfo {
+  /**
+   * <p>The unique identifier for the field.</p>
+   * @public
+   */
+  Id?: TaskTemplateFieldIdentifier | undefined;
+}
 
 /**
  * <p>Describes constraints that apply to the template fields.</p>
@@ -8161,21 +8171,3 @@ export interface DismissUserContactRequest {
  * @public
  */
 export interface DismissUserContactResponse {}
-
-/**
- * <p>A data table value evaluation set.</p>
- * @public
- */
-export interface DataTableValueEvaluationSet {
-  /**
-   * <p>The set's primary values.</p>
-   * @public
-   */
-  PrimaryValues?: PrimaryValue[] | undefined;
-
-  /**
-   * <p>The set's attribute names.</p>
-   * @public
-   */
-  AttributeNames: string[] | undefined;
-}

@@ -129,6 +129,30 @@ import type {
 } from "./models_1";
 
 /**
+ * @public
+ */
+export interface ListUsersRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
  * <p>Contains summary information about a user.</p>
  * @public
  */
@@ -7755,8 +7779,3 @@ export interface UpdateParticipantAuthenticationRequest {
    */
   ErrorDescription?: string | undefined;
 }
-
-/**
- * @public
- */
-export interface UpdateParticipantAuthenticationResponse {}

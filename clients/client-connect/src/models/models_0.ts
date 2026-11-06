@@ -7223,6 +7223,12 @@ export interface CreateCaseActionDefinition {
 }
 
 /**
+ * <p>End associated emails related to a case.</p>
+ * @public
+ */
+export interface EndAssociatedEmailsActionDefinition {}
+
+/**
  * <p>End associated tasks related to a case.</p>
  * @public
  */
@@ -7502,6 +7508,13 @@ export interface RuleAction {
    * @public
    */
   EndAssociatedTasksAction?: EndAssociatedTasksActionDefinition | undefined;
+
+  /**
+   * <p>Information about the end associated emails action.</p>
+   *          <p>Supported only for <code>TriggerEventSource</code> values: <code>OnCaseUpdate</code>.</p>
+   * @public
+   */
+  EndAssociatedEmailsAction?: EndAssociatedEmailsActionDefinition | undefined;
 
   /**
    * <p>Information about the submit automated evaluation action.</p>
@@ -7914,18 +7927,6 @@ export interface InvisibleFieldInfo {
 export interface ReadOnlyFieldInfo {
   /**
    * <p>Identifier of the read-only field.</p>
-   * @public
-   */
-  Id?: TaskTemplateFieldIdentifier | undefined;
-}
-
-/**
- * <p>Information about a required field.</p>
- * @public
- */
-export interface RequiredFieldInfo {
-  /**
-   * <p>The unique identifier for the field.</p>
    * @public
    */
   Id?: TaskTemplateFieldIdentifier | undefined;

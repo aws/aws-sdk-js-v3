@@ -153,6 +153,11 @@ import type {
 } from "./models_3";
 
 /**
+ * @public
+ */
+export interface UpdateParticipantAuthenticationResponse {}
+
+/**
  * <p>The value of the timer. Either the timer action (<code>Unset</code> to delete the timer), or the duration of the
  *    timer in minutes. Only one value can be set.</p>
  *          <p>For more information about how chat timeouts work, see

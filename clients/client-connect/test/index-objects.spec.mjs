@@ -892,6 +892,7 @@ import {
   EmptyFieldValue$,
   EncryptionConfig$,
   EncryptionType,
+  EndAssociatedEmailsActionDefinition$,
   EndAssociatedTasksActionDefinition$,
   Endpoint$,
   EndpointInfo$,
@@ -3797,6 +3798,7 @@ assert(typeof EmailRecipient$ === "object");
 assert(typeof EmailReference$ === "object");
 assert(typeof EmptyFieldValue$ === "object");
 assert(typeof EncryptionConfig$ === "object");
+assert(typeof EndAssociatedEmailsActionDefinition$ === "object");
 assert(typeof EndAssociatedTasksActionDefinition$ === "object");
 assert(typeof Endpoint$ === "object");
 assert(typeof EndpointInfo$ === "object");

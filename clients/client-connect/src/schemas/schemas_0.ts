@@ -1007,6 +1007,8 @@ const _EACL = "EmailAddressConfigList";
 const _EACm = "EmailAddressConfig";
 const _EAD = "EvaluationAnswerData";
 const _EADN = "EmailAddressDisplayName";
+const _EAEA = "EndAssociatedEmailsAction";
+const _EAEAD = "EndAssociatedEmailsActionDefinition";
 const _EAI = "EmailAddressId";
 const _EAIM = "EvaluationAnswersInputMap";
 const _EAIm = "EmailAddressesId";
@@ -5754,6 +5756,11 @@ export var EncryptionConfig$: StaticStructureSchema = [3, n0, _ECn,
   [_ETnc, _KI],
   [0, 0], 2
 ];
+export var EndAssociatedEmailsActionDefinition$: StaticStructureSchema = [3, n0, _EAEAD,
+  0,
+  [],
+  []
+];
 export var EndAssociatedTasksActionDefinition$: StaticStructureSchema = [3, n0, _EATAD,
   0,
   [],
@@ -8166,8 +8173,8 @@ export var Rule$: StaticStructureSchema = [3, n0, _Ru,
 ];
 export var RuleAction$: StaticStructureSchema = [3, n0, _RAul,
   0,
-  [_AT, _TAa, _EBA, _ACCA, _SNAe, _CCA, _UCAp, _ASA, _EATA, _SAEA, _EIA, _SIANA],
-  [0, () => TaskActionDefinition$, () => EventBridgeActionDefinition$, () => AssignContactCategoryActionDefinition$, () => SendNotificationActionDefinition$, () => CreateCaseActionDefinition$, () => UpdateCaseActionDefinition$, () => AssignSlaActionDefinition$, () => EndAssociatedTasksActionDefinition$, () => SubmitAutoEvaluationActionDefinition$, () => ExtractInformationActionDefinition$, () => SendInAppNotificationActionDefinition$], 1
+  [_AT, _TAa, _EBA, _ACCA, _SNAe, _CCA, _UCAp, _ASA, _EATA, _EAEA, _SAEA, _EIA, _SIANA],
+  [0, () => TaskActionDefinition$, () => EventBridgeActionDefinition$, () => AssignContactCategoryActionDefinition$, () => SendNotificationActionDefinition$, () => CreateCaseActionDefinition$, () => UpdateCaseActionDefinition$, () => AssignSlaActionDefinition$, () => EndAssociatedTasksActionDefinition$, () => EndAssociatedEmailsActionDefinition$, () => SubmitAutoEvaluationActionDefinition$, () => ExtractInformationActionDefinition$, () => SendInAppNotificationActionDefinition$], 1
 ];
 export var RuleAttributeAndCondition$: StaticStructureSchema = [3, n0, _RAAC,
   0,

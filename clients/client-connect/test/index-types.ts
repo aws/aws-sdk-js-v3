@@ -1897,6 +1897,7 @@ export type {
   EmailReference,
   EmptyFieldValue,
   EncryptionConfig,
+  EndAssociatedEmailsActionDefinition,
   EndAssociatedTasksActionDefinition,
   Endpoint,
   EndpointInfo,
