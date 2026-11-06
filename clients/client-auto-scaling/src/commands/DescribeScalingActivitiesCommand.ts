@@ -46,6 +46,7 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
  *   ],
  *   AutoScalingGroupName: "STRING_VALUE",
  *   IncludeDeletedGroups: true || false,
+ *   IncludeManagedResources: true || false,
  *   MaxRecords: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   Filters: [ // Filters

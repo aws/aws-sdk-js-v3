@@ -40,6 +40,7 @@ export interface DescribeNotificationConfigurationsCommandOutput extends Describ
  *   AutoScalingGroupNames: [ // AutoScalingGroupNames
  *     "STRING_VALUE",
  *   ],
+ *   IncludeManagedResources: true || false,
  *   NextToken: "STRING_VALUE",
  *   MaxRecords: Number("int"),
  * };

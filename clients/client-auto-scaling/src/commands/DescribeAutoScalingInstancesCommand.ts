@@ -36,6 +36,7 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  *   InstanceIds: [ // InstanceIds
  *     "STRING_VALUE",
  *   ],
+ *   IncludeManagedResources: true || false,
  *   MaxRecords: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

@@ -3236,6 +3236,14 @@ export interface AutoScalingGroupNamesType {
   IncludeInstances?: boolean | undefined;
 
   /**
+   * <p>
+   *             Specifies whether to include managed Auto Scaling groups in the response. When set to <code>true</code> (default), the response includes managed Auto Scaling groups.
+   *         </p>
+   * @public
+   */
+  IncludeManagedResources?: boolean | undefined;
+
+  /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
    * @public
@@ -3245,6 +3253,7 @@ export interface AutoScalingGroupNamesType {
   /**
    * <p>The maximum number of items to return with this call. The default value is
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
+   *          <p>A response can contain fewer items than the value specified by <code>MaxRecords</code>, even when more items are available. To retrieve the additional items, use the <code>NextToken</code> value in a subsequent call rather than relying on the number of items in the response.</p>
    * @public
    */
   MaxRecords?: number | undefined;
@@ -4041,8 +4050,17 @@ export interface DescribeAutoScalingInstancesType {
   InstanceIds?: string[] | undefined;
 
   /**
+   * <p>
+   *             Specifies whether to include managed Auto Scaling instances in the response. When set to <code>true</code> (default), the response includes managed Auto Scaling instances.
+   *         </p>
+   * @public
+   */
+  IncludeManagedResources?: boolean | undefined;
+
+  /**
    * <p>The maximum number of items to return with this call. The default value is
    *                 <code>50</code> and the maximum value is <code>50</code>.</p>
+   *          <p>A response can contain fewer items than the value specified by <code>MaxRecords</code>, even when more items are available. To retrieve the additional items, use the <code>NextToken</code> value in a subsequent call rather than relying on the number of items in the response.</p>
    * @public
    */
   MaxRecords?: number | undefined;
@@ -4967,8 +4985,11 @@ export interface LoadBalancerState {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>InService</code> - At least one Auto Scaling instance passed an <code>ELB</code>
-   *                     health check.</p>
+   *                   <code>InService</code> - At least one Auto Scaling instance passed an
+   *                     <code>ELB</code> health check. Note that the load balancer enters this
+   *                     state immediately if you attach it in the
+   *                     <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html">CreateAutoScalingGroup</a>
+   *                     API call.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5058,8 +5079,11 @@ export interface LoadBalancerTargetGroupState {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>InService</code> - At least one Auto Scaling instance passed an <code>ELB</code>
-   *                     health check.</p>
+   *                   <code>InService</code> - At least one Auto Scaling instance passed an
+   *                     <code>ELB</code> health check. Note that the target group enters this
+   *                     state immediately if you attach it in the
+   *                     <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html">CreateAutoScalingGroup</a>
+   *                     API call.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5323,6 +5347,14 @@ export interface DescribeNotificationConfigurationsType {
   AutoScalingGroupNames?: string[] | undefined;
 
   /**
+   * <p>
+   *             Specifies whether to include notification configurations for managed Auto Scaling groups in the response. When set to <code>true</code> (default), the response includes notification configurations for managed Auto Scaling groups.
+   *         </p>
+   * @public
+   */
+  IncludeManagedResources?: boolean | undefined;
+
+  /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
    * @public
@@ -5332,6 +5364,7 @@ export interface DescribeNotificationConfigurationsType {
   /**
    * <p>The maximum number of items to return with this call. The default value is
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
+   *          <p>A response can contain fewer items than the value specified by <code>MaxRecords</code>, even when more items are available. To retrieve the additional items, use the <code>NextToken</code> value in a subsequent call rather than relying on the number of items in the response.</p>
    * @public
    */
   MaxRecords?: number | undefined;
@@ -5365,6 +5398,14 @@ export interface DescribePoliciesType {
   PolicyTypes?: string[] | undefined;
 
   /**
+   * <p>
+   *             Specifies whether to include scaling policies for managed Auto Scaling groups in the response. When set to <code>true</code> (default), the response includes scaling policies for managed Auto Scaling groups.
+   *         </p>
+   * @public
+   */
+  IncludeManagedResources?: boolean | undefined;
+
+  /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
    * @public
@@ -5374,6 +5415,7 @@ export interface DescribePoliciesType {
   /**
    * <p>The maximum number of items to be returned with each call. The default value is
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
+   *          <p>A response can contain fewer items than the value specified by <code>MaxRecords</code>, even when more items are available. To retrieve the additional items, use the <code>NextToken</code> value in a subsequent call rather than relying on the number of items in the response.</p>
    * @public
    */
   MaxRecords?: number | undefined;
@@ -6422,8 +6464,17 @@ export interface DescribeScalingActivitiesType {
   IncludeDeletedGroups?: boolean | undefined;
 
   /**
+   * <p>
+   *             Specifies whether to include scaling activities for managed Auto Scaling groups in the response. When set to <code>true</code> (default), the response includes scaling activities for managed Auto Scaling groups.
+   *         </p>
+   * @public
+   */
+  IncludeManagedResources?: boolean | undefined;
+
+  /**
    * <p>The maximum number of items to return with this call. The default value is
    *                 <code>100</code> and the maximum value is <code>100</code>.</p>
+   *          <p>A response can contain fewer items than the value specified by <code>MaxRecords</code>, even when more items are available. To retrieve the additional items, use the <code>NextToken</code> value in a subsequent call rather than relying on the number of items in the response.</p>
    * @public
    */
   MaxRecords?: number | undefined;
@@ -6590,6 +6641,14 @@ export interface DescribeScheduledActionsType {
   EndTime?: Date | undefined;
 
   /**
+   * <p>
+   *             Specifies whether to include scheduled actions for managed Auto Scaling groups in the response. When set to <code>true</code> (default), the response includes scheduled actions for managed Auto Scaling groups.
+   *         </p>
+   * @public
+   */
+  IncludeManagedResources?: boolean | undefined;
+
+  /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
    * @public
@@ -6599,6 +6658,7 @@ export interface DescribeScheduledActionsType {
   /**
    * <p>The maximum number of items to return with this call. The default value is
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
+   *          <p>A response can contain fewer items than the value specified by <code>MaxRecords</code>, even when more items are available. To retrieve the additional items, use the <code>NextToken</code> value in a subsequent call rather than relying on the number of items in the response.</p>
    * @public
    */
   MaxRecords?: number | undefined;
@@ -6715,6 +6775,14 @@ export interface DescribeTagsType {
   Filters?: Filter[] | undefined;
 
   /**
+   * <p>
+   *             Specifies whether to include tags for managed Auto Scaling groups in the response. When set to <code>true</code> (default), the response includes tags for managed Auto Scaling groups.
+   *         </p>
+   * @public
+   */
+  IncludeManagedResources?: boolean | undefined;
+
+  /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
    * @public
@@ -6724,6 +6792,7 @@ export interface DescribeTagsType {
   /**
    * <p>The maximum number of items to return with this call. The default value is
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
+   *          <p>A response can contain fewer items than the value specified by <code>MaxRecords</code>, even when more items are available. To retrieve the additional items, use the <code>NextToken</code> value in a subsequent call rather than relying on the number of items in the response.</p>
    * @public
    */
   MaxRecords?: number | undefined;

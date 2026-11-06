@@ -267,6 +267,7 @@ const _ILP = "InstanceLifecyclePolicy";
 const _IM = "InstanceMonitoring";
 const _IMO = "InstanceMetadataOptions";
 const _IMP = "InstanceMaintenancePolicy";
+const _IMR = "IncludeManagedResources";
 const _INT = "InvalidNextToken";
 const _IPME = "IdempotentParameterMismatchError";
 const _IR = "InstanceRefreshes";
@@ -799,8 +800,8 @@ export var AutoScalingGroup$: StaticStructureSchema = [3, n0, _ASG,
 ];
 export var AutoScalingGroupNamesType$: StaticStructureSchema = [3, n0, _ASGNT,
   0,
-  [_ASGNu, _IIn, _NT, _MR, _F],
-  [64 | 0, 2, 0, 1, () => Filters]
+  [_ASGNu, _IIn, _IMR, _NT, _MR, _F],
+  [64 | 0, 2, 2, 0, 1, () => Filters]
 ];
 export var AutoScalingGroupsType$: StaticStructureSchema = [3, n0, _ASGT,
   0,
@@ -989,8 +990,8 @@ export var DescribeAdjustmentTypesAnswer$: StaticStructureSchema = [3, n0, _DATA
 ];
 export var DescribeAutoScalingInstancesType$: StaticStructureSchema = [3, n0, _DASIT,
   0,
-  [_II, _MR, _NT],
-  [64 | 0, 1, 0]
+  [_II, _IMR, _MR, _NT],
+  [64 | 0, 2, 1, 0]
 ];
 export var DescribeAutoScalingNotificationTypesAnswer$: StaticStructureSchema = [3, n0, _DASNTA,
   0,
@@ -1054,28 +1055,28 @@ export var DescribeNotificationConfigurationsAnswer$: StaticStructureSchema = [3
 ];
 export var DescribeNotificationConfigurationsType$: StaticStructureSchema = [3, n0, _DNCTe,
   0,
-  [_ASGNu, _NT, _MR],
-  [64 | 0, 0, 1]
+  [_ASGNu, _IMR, _NT, _MR],
+  [64 | 0, 2, 0, 1]
 ];
 export var DescribePoliciesType$: StaticStructureSchema = [3, n0, _DPTe,
   0,
-  [_ASGN, _PNo, _PTo, _NT, _MR],
-  [0, 64 | 0, 64 | 0, 0, 1]
+  [_ASGN, _PNo, _PTo, _IMR, _NT, _MR],
+  [0, 64 | 0, 64 | 0, 2, 0, 1]
 ];
 export var DescribeScalingActivitiesType$: StaticStructureSchema = [3, n0, _DSATe,
   0,
-  [_AIc, _ASGN, _IDG, _MR, _NT, _F],
-  [64 | 0, 0, 2, 1, 0, () => Filters]
+  [_AIc, _ASGN, _IDG, _IMR, _MR, _NT, _F],
+  [64 | 0, 0, 2, 2, 1, 0, () => Filters]
 ];
 export var DescribeScheduledActionsType$: StaticStructureSchema = [3, n0, _DSATes,
   0,
-  [_ASGN, _SAN, _ST, _ETn, _NT, _MR],
-  [0, 64 | 0, 4, 4, 0, 1]
+  [_ASGN, _SAN, _ST, _ETn, _IMR, _NT, _MR],
+  [0, 64 | 0, 4, 4, 2, 0, 1]
 ];
 export var DescribeTagsType$: StaticStructureSchema = [3, n0, _DTTe,
   0,
-  [_F, _NT, _MR],
-  [() => Filters, 0, 1]
+  [_F, _IMR, _NT, _MR],
+  [() => Filters, 2, 0, 1]
 ];
 export var DescribeTerminationPolicyTypesAnswer$: StaticStructureSchema = [3, n0, _DTPTA,
   0,

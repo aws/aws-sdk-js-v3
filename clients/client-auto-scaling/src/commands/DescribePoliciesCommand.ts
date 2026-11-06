@@ -40,6 +40,7 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  *   PolicyTypes: [ // PolicyTypes
  *     "STRING_VALUE",
  *   ],
+ *   IncludeManagedResources: true || false,
  *   NextToken: "STRING_VALUE",
  *   MaxRecords: Number("int"),
  * };

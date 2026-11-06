@@ -44,6 +44,7 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  *     "STRING_VALUE",
  *   ],
  *   IncludeInstances: true || false,
+ *   IncludeManagedResources: true || false,
  *   NextToken: "STRING_VALUE",
  *   MaxRecords: Number("int"),
  *   Filters: [ // Filters

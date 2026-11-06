@@ -49,6 +49,7 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  *       ],
  *     },
  *   ],
+ *   IncludeManagedResources: true || false,
  *   NextToken: "STRING_VALUE",
  *   MaxRecords: Number("int"),
  * };

@@ -42,6 +42,7 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  *   ],
  *   StartTime: new Date("TIMESTAMP"),
  *   EndTime: new Date("TIMESTAMP"),
+ *   IncludeManagedResources: true || false,
  *   NextToken: "STRING_VALUE",
  *   MaxRecords: Number("int"),
  * };
