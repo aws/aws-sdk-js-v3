@@ -606,6 +606,7 @@ const _RSIPE = "RegionSetupInProgressException";
 const _RSIR = "ReleaseStaticIpRequest";
 const _RSIRe = "ReleaseStaticIpResult";
 const _S = "Session";
+const _SB = "SensitiveBase64";
 const _SCMV = "SendContactMethodVerification";
 const _SCMVR = "SendContactMethodVerificationRequest";
 const _SCMVRe = "SendContactMethodVerificationResult";
@@ -1317,12 +1318,13 @@ export const errorTypeRegistries = [
 ]
 var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
 var IAMAccessKeyId: StaticSimpleSchema = [0, n0, _IAMAKI, 8, 0];
+var SensitiveBase64: StaticSimpleSchema = [0, n0, _SB, 8, 0];
 var SensitiveNonEmptyString: StaticSimpleSchema = [0, n0, _SNES, 8, 0];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AccessKey$: StaticStructureSchema = [3, n0, _AK,
   0,
   [_aKI, _sAK, _st, _cA, _lU],
-  [[() => IAMAccessKeyId, 0], 0, 0, 4, () => AccessKeyLastUsed$]
+  [[() => IAMAccessKeyId, 0], [() => SensitiveNonEmptyString, 0], 0, 4, () => AccessKeyLastUsed$]
 ];
 export var AccessKeyLastUsed$: StaticStructureSchema = [3, n0, _AKLU,
   0,
@@ -1582,7 +1584,7 @@ export var ContainerServicePower$: StaticStructureSchema = [3, n0, _CSP,
 export var ContainerServiceRegistryLogin$: StaticStructureSchema = [3, n0, _CSRL,
   0,
   [_us, _pas, _eA, _re],
-  [0, 0, 4, 0]
+  [0, [() => SensitiveString, 0], 4, 0]
 ];
 export var ContainerServicesListResult$: StaticStructureSchema = [3, n0, _CSLR,
   0,
@@ -1682,7 +1684,7 @@ export var CreateContainerServiceRegistryLoginRequest$: StaticStructureSchema = 
 export var CreateContainerServiceRegistryLoginResult$: StaticStructureSchema = [3, n0, _CCSRLRr,
   0,
   [_rL],
-  [() => ContainerServiceRegistryLogin$]
+  [[() => ContainerServiceRegistryLogin$, 0]]
 ];
 export var CreateContainerServiceRequest$: StaticStructureSchema = [3, n0, _CCSR,
   0,
@@ -1802,7 +1804,7 @@ export var CreateKeyPairRequest$: StaticStructureSchema = [3, n0, _CKPR,
 export var CreateKeyPairResult$: StaticStructureSchema = [3, n0, _CKPRr,
   0,
   [_kP, _pKB, _pKBr, _op],
-  [() => KeyPair$, 0, 0, () => Operation$]
+  [() => KeyPair$, 0, [() => SensitiveBase64, 0], () => Operation$]
 ];
 export var CreateLoadBalancerRequest$: StaticStructureSchema = [3, n0, _CLBR,
   0,
@@ -2182,7 +2184,7 @@ export var DownloadDefaultKeyPairRequest$: StaticStructureSchema = [3, n0, _DDKP
 export var DownloadDefaultKeyPairResult$: StaticStructureSchema = [3, n0, _DDKPRo,
   0,
   [_pKB, _pKBr, _cA],
-  [0, 0, 4]
+  [0, [() => SensitiveBase64, 0], 4]
 ];
 export var EnableAddOnRequest$: StaticStructureSchema = [3, n0, _EAOR,
   0,
@@ -2537,7 +2539,7 @@ export var GetInstanceAccessDetailsRequest$: StaticStructureSchema = [3, n0, _GI
 export var GetInstanceAccessDetailsResult$: StaticStructureSchema = [3, n0, _GIADRe,
   0,
   [_aD],
-  [() => InstanceAccessDetails$]
+  [[() => InstanceAccessDetails$, 0]]
 ];
 export var GetInstanceMetricDataRequest$: StaticStructureSchema = [3, n0, _GIMDR,
   0,
@@ -2817,7 +2819,7 @@ export var GetRelationalDatabaseRequest$: StaticStructureSchema = [3, n0, _GRDR,
 export var GetRelationalDatabaseResult$: StaticStructureSchema = [3, n0, _GRDRe,
   0,
   [_rDe],
-  [() => RelationalDatabase$]
+  [[() => RelationalDatabase$, 0]]
 ];
 export var GetRelationalDatabaseSnapshotRequest$: StaticStructureSchema = [3, n0, _GRDSR,
   0,
@@ -2847,7 +2849,7 @@ export var GetRelationalDatabasesRequest$: StaticStructureSchema = [3, n0, _GRDR
 export var GetRelationalDatabasesResult$: StaticStructureSchema = [3, n0, _GRDRete,
   0,
   [_rDel, _nPT],
-  [() => RelationalDatabaseList, 0]
+  [[() => RelationalDatabaseList, 0], 0]
 ];
 export var GetSetupHistoryRequest$: StaticStructureSchema = [3, n0, _GSHR,
   0,
@@ -2912,7 +2914,7 @@ export var Instance$: StaticStructureSchema = [3, n0, _I,
 export var InstanceAccessDetails$: StaticStructureSchema = [3, n0, _IAD,
   0,
   [_cK, _eA, _iApd, _iAp, _pas, _pD, _pKr, _pro, _iN, _us, _hK],
-  [0, 4, 0, 64 | 0, 0, () => PasswordData$, 0, 0, 0, 0, () => HostKeysList]
+  [0, 4, 0, 64 | 0, [() => SensitiveString, 0], [() => PasswordData$, 0], [() => SensitiveString, 0], 0, 0, 0, () => HostKeysList]
 ];
 export var InstanceAttributeUpdates$: StaticStructureSchema = [3, n0, _IAU,
   0,
@@ -3092,7 +3094,7 @@ export var PartnerInfo$: StaticStructureSchema = [3, n0, _PI,
 export var PasswordData$: StaticStructureSchema = [3, n0, _PD,
   0,
   [_ciph, _kPN],
-  [0, 0]
+  [[() => SensitiveString, 0], 0]
 ];
 export var PeerVpcRequest$: StaticStructureSchema = [3, n0, _PVR,
   0,
@@ -3112,7 +3114,7 @@ export var PendingMaintenanceAction$: StaticStructureSchema = [3, n0, _PMA,
 export var PendingModifiedRelationalDatabaseValues$: StaticStructureSchema = [3, n0, _PMRDV,
   0,
   [_mUP, _eV, _bRE],
-  [0, 0, 2]
+  [[() => SensitiveString, 0], 0, 2]
 ];
 export var PortInfo$: StaticStructureSchema = [3, n0, _PIo,
   0,
@@ -3202,7 +3204,7 @@ export var RegisteredDomainDelegationInfo$: StaticStructureSchema = [3, n0, _RDD
 export var RelationalDatabase$: StaticStructureSchema = [3, n0, _RD,
   0,
   [_n, _a, _sC, _cA, _l, _rT, _ta, _rDBIe, _rDBI, _mDN, _h, _stat, _sAZ, _bRE, _pMV, _eng, _eV, _lRT, _mU, _pAS, _pBW, _pMW, _pAu, _mE, _pMA, _cCI],
-  [0, 0, 0, 4, () => ResourceLocation$, 0, () => TagList, 0, 0, 0, () => RelationalDatabaseHardware$, 0, 0, 2, () => PendingModifiedRelationalDatabaseValues$, 0, 0, 4, 0, 0, 0, 0, 2, () => RelationalDatabaseEndpoint$, () => PendingMaintenanceActionList, 0]
+  [0, 0, 0, 4, () => ResourceLocation$, 0, () => TagList, 0, 0, 0, () => RelationalDatabaseHardware$, 0, 0, 2, [() => PendingModifiedRelationalDatabaseValues$, 0], 0, 0, 4, 0, 0, 0, 0, 2, () => RelationalDatabaseEndpoint$, () => PendingMaintenanceActionList, 0]
 ];
 export var RelationalDatabaseBlueprint$: StaticStructureSchema = [3, n0, _RDB,
   0,
@@ -3800,7 +3802,8 @@ var RelationalDatabaseEventList: StaticListSchema = [1, n0, _RDEL,
   0, () => RelationalDatabaseEvent$
 ];
 var RelationalDatabaseList: StaticListSchema = [1, n0, _RDL,
-  0, () => RelationalDatabase$
+  0, [() => RelationalDatabase$,
+    0]
 ];
 var RelationalDatabaseParameterList: StaticListSchema = [1, n0, _RDPL,
   0, () => RelationalDatabaseParameter$
