@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1164.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1163.0...v3.1164.0) (2026-11-06)
+
+
+### Features
+
+* **client-athena:** Added support for Athena System Tables which writes Athena usage data to AWS S3 managed tables in Apache Iceberg format. Adds CreateSystemTableConfiguration, UpdateSystemTableConfiguration, DeleteSystemTableConfiguration, GetSystemTableConfiguration, and ListSystemTableStatuses. ([2f076d9](https://github.com/aws/aws-sdk-js-v3/commit/2f076d9e7de9025a518a3f2ac814239edfe47e74))
+
+
+
+
+
 # [3.1163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1162.0...v3.1163.0) (2026-11-05)
 
 **Note:** Version bump only for package @aws-sdk/client-athena

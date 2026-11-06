@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1164.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1163.0...v3.1164.0) (2026-11-06)
+
+
+### Features
+
+* **client-mediaconvert:** Smart subtitling uses AWS Elemental Inference to generate captions from your content's audio, in embedded, burn-in, DVB-Sub, IMSC, SMI, SRT, teletext, TTML, or WebVTT outputs. Also fixes HEVC passthrough writing an incomplete codecs string to DASH and HLS manifests. ([cfc598f](https://github.com/aws/aws-sdk-js-v3/commit/cfc598fce31adbb5717d610fccf008ab2a9f7bfe))
+
+
+
+
+
 # [3.1163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1162.0...v3.1163.0) (2026-11-05)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert

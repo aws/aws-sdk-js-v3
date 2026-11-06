@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1164.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1163.0...v3.1164.0) (2026-11-06)
+
+
+### Features
+
+* **client-auto-scaling:** Amazon EC2 Auto Scaling now lets you exclude managed resources from describe API responses using the new optional IncludeManagedResources parameter. Set this parameter to false to exclude managed resources from the response. By default, managed resources are included. ([5f8c11a](https://github.com/aws/aws-sdk-js-v3/commit/5f8c11ace9930e40549739720aaa27a110b08eab))
+
+
+
+
+
 # [3.1163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1162.0...v3.1163.0) (2026-11-05)
 
 **Note:** Version bump only for package @aws-sdk/client-auto-scaling

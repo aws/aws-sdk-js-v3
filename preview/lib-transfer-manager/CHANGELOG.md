@@ -18,6 +18,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 0.2.6 (2026-11-06)
+### Chores
+* **lib-transfer-manager:** update dependencies.
+
+
+
 # 0.2.5 (2026-11-04)
 ### Chores
 * **lib-transfer-manager:** update dependencies.

@@ -12,6 +12,13 @@
 
 
 
+
+# 0.1.11 (2026-11-06)
+### Chores
+* **dynamic-client:** update dependencies.
+
+
+
 # 0.1.10 (2026-11-04)
 ### Chores
 * **dynamic-client:** update dependencies.

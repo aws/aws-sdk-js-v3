@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1164.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1163.0...v3.1164.0) (2026-11-06)
+
+
+### Features
+
+* **client-athena:** Added support for Athena System Tables which writes Athena usage data to AWS S3 managed tables in Apache Iceberg format. Adds CreateSystemTableConfiguration, UpdateSystemTableConfiguration, DeleteSystemTableConfiguration, GetSystemTableConfiguration, and ListSystemTableStatuses. ([2f076d9](https://github.com/aws/aws-sdk-js-v3/commit/2f076d9e7de9025a518a3f2ac814239edfe47e74))
+* **client-auto-scaling:** Amazon EC2 Auto Scaling now lets you exclude managed resources from describe API responses using the new optional IncludeManagedResources parameter. Set this parameter to false to exclude managed resources from the response. By default, managed resources are included. ([5f8c11a](https://github.com/aws/aws-sdk-js-v3/commit/5f8c11ace9930e40549739720aaa27a110b08eab))
+* **client-bedrock-agent:** Add support for configuring searchability for metadata fields via UpdateKnowledgeBase request for Managed Knowledge Base. Once a field is marked as searchable it can be queried via query text and is factored into Managed Knowledge Base's ranking algorithm. ([c980a42](https://github.com/aws/aws-sdk-js-v3/commit/c980a42b41f2f64066c865e03d43eb180fd58d90))
+* **client-connectcases:** Amazon Connect Cases adds two Bulk Case Actions operations. BatchCreateRelatedItem adds a Comment-type related item to up to 100 cases per request, BatchUpdateCase updates fields (title, status, customer ID, custom) on up to 100 cases. Same domain, per-case success and failure results returned. ([f44ef09](https://github.com/aws/aws-sdk-js-v3/commit/f44ef09443acac2e00acdaaba76e43bb45a3a46d))
+* **client-connect:** Rules in Amazon Connect now support ending email contacts associated to a case based on case events. ([cf923d5](https://github.com/aws/aws-sdk-js-v3/commit/cf923d5dd8e4e5e3725b3a462fc9f03d076dcb6e))
+* **client-datazone:** Adds support for updating OAuth 2.0 connection settings with UpdateConnection. ([b324b9a](https://github.com/aws/aws-sdk-js-v3/commit/b324b9a06ea31913b6f1a266db4d2b9f8a4d53b4))
+* **client-eks-auth:** Added workloadIdentityProviderArn to the AssumeRoleForPodIdentity API response. ([2ea374e](https://github.com/aws/aws-sdk-js-v3/commit/2ea374e6cadcbe9c34ab0df69b4e055984b9dd2a))
+* **client-glue:** Adds support for user-defined functions governed by AWS Lake Formation. ([bc94b9f](https://github.com/aws/aws-sdk-js-v3/commit/bc94b9f6c463a2522b99d293e50905b72010f871))
+* **client-lightsail:** Marking fields as sensitive in GetInstanceAccessDetails, CreateKeyPair, DownloadDefaultKeyPair, CreateBucketAccessKey, CreateContainerServiceRegistryLogin, and GetRelationalDatabase responses. ([da2578c](https://github.com/aws/aws-sdk-js-v3/commit/da2578c327e09a347ef5bd29b7781bedfb8fc74d))
+* **client-mediaconvert:** Smart subtitling uses AWS Elemental Inference to generate captions from your content's audio, in embedded, burn-in, DVB-Sub, IMSC, SMI, SRT, teletext, TTML, or WebVTT outputs. Also fixes HEVC passthrough writing an incomplete codecs string to DASH and HLS manifests. ([cfc598f](https://github.com/aws/aws-sdk-js-v3/commit/cfc598fce31adbb5717d610fccf008ab2a9f7bfe))
+* **client-ram:** Adds support for using managed permission template parameters, discovering shared customer-managed permissions, and managing customer-managed permission deprecation. ([87c5566](https://github.com/aws/aws-sdk-js-v3/commit/87c5566c7552538287647f1017cc580df9c756ba))
+* **client-ssm:** AWS Systems Manager now provides two new APIs - RegisterDefaultHostManagementConfiguration and DeregisterDefaultHostManagementConfiguration - along with a new DefaultHostManagementConfiguration CloudFormation resource type. ([99097cd](https://github.com/aws/aws-sdk-js-v3/commit/99097cdf7466b1e50e3e17896dd793e0b5e32111))
+
+
+
+
+
 # [3.1163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1162.0...v3.1163.0) (2026-11-05)
 
 

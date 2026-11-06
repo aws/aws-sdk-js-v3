@@ -87,6 +87,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.980.1 (2026-11-06)
+### Chores
+* **util-endpoints:** update aws partitions.json ([616248b](https://github.com/aws/aws-sdk-js-v3/commit/616248b7da687d9f8c0bebba75c9d4f64883bb5b))
+
+
+
 # 3.980.0 (2026-11-04)
 ### Features
 * **codegen:** add a default socket timeout per service ([#8396](https://github.com/aws/aws-sdk-js-v3/issues/8396)) ([8f62478](https://github.com/aws/aws-sdk-js-v3/commit/8f62478cf179dc3e0807dae1721a669e08d98074))

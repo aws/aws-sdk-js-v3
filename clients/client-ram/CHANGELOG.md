@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1164.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1163.0...v3.1164.0) (2026-11-06)
+
+
+### Features
+
+* **client-ram:** Adds support for using managed permission template parameters, discovering shared customer-managed permissions, and managing customer-managed permission deprecation. ([87c5566](https://github.com/aws/aws-sdk-js-v3/commit/87c5566c7552538287647f1017cc580df9c756ba))
+
+
+
+
+
 # [3.1163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1162.0...v3.1163.0) (2026-11-05)
 
 **Note:** Version bump only for package @aws-sdk/client-ram

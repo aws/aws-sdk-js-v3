@@ -72,6 +72,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.70 (2026-11-06)
+### Chores
+* **middleware-sdk-rds:** update dependencies.
+
+
+
 # 3.972.69 (2026-11-04)
 ### Chores
 * **middleware-sdk-rds:** update dependencies.
