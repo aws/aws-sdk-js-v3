@@ -991,6 +991,7 @@ export type {
   FunctionType,
   GlueRecordType,
   GlueResourceType,
+  GovernanceMode,
   HTTPMethod,
   HudiTargetCompressionType,
   HyperTargetCompressionType,

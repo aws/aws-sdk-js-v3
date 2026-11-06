@@ -45,8 +45,11 @@ export interface CreateUserDefinedFunctionCommandOutput extends CreateUserDefine
  *       { // ResourceUri
  *         ResourceType: "JAR" || "FILE" || "ARCHIVE",
  *         Uri: "STRING_VALUE",
+ *         LastModified: new Date("TIMESTAMP"),
  *       },
  *     ],
+ *     ArtifactLocation: "STRING_VALUE",
+ *     GovernanceMode: "IAM_ONLY" || "LAKE_FORMATION",
  *   },
  * };
  * const command = new CreateUserDefinedFunctionCommand(input);

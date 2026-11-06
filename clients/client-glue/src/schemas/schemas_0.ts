@@ -47,6 +47,7 @@ const _AL = "AverageLength";
 const _ALc = "ActionList";
 const _ALd = "AdditionalLocations";
 const _ALn = "AnnotationList";
+const _ALr = "ArtifactLocation";
 const _AM = "ApplyMapping";
 const _AMg = "AggregatedMetrics";
 const _AN = "AttachmentName";
@@ -1117,7 +1118,7 @@ const _GJUA = "GetJobUpgradeAnalysis";
 const _GJUAR = "GetJobUpgradeAnalysisRequest";
 const _GJUARe = "GetJobUpgradeAnalysisResponse";
 const _GJe = "GetJobs";
-const _GM = "GetMapping";
+const _GM = "GovernanceMode";
 const _GMLT = "GetMLTransform";
 const _GMLTR = "GetMLTransformRequest";
 const _GMLTRR = "GetMLTaskRunRequest";
@@ -1135,6 +1136,7 @@ const _GMRe = "GetMappingResponse";
 const _GMVRTR = "GetMaterializedViewRefreshTaskRun";
 const _GMVRTRR = "GetMaterializedViewRefreshTaskRunRequest";
 const _GMVRTRRe = "GetMaterializedViewRefreshTaskRunResponse";
+const _GMe = "GetMapping";
 const _GN = "GroupName";
 const _GP = "GrokPattern";
 const _GPI = "GetPartitionIndexes";
@@ -1558,6 +1560,7 @@ const _LJ = "ListJobs";
 const _LJR = "ListJobsRequest";
 const _LJRi = "ListJobsResponse";
 const _LL = "LowerLimit";
+const _LM = "LastModified";
 const _LMA = "LastModifiedAfter";
 const _LMB = "LastModifiedBefore";
 const _LMLT = "ListMLTransforms";
@@ -7260,8 +7263,8 @@ export var ResetJobBookmarkResponse$: StaticStructureSchema = [3, n0, _RJBRe,
 ];
 export var ResourceUri$: StaticStructureSchema = [3, n0, _RUe,
   0,
-  [_RTes, _Uri],
-  [0, 0]
+  [_RTes, _Uri, _LM],
+  [0, 0, 4]
 ];
 export var ResponseConfiguration$: StaticStructureSchema = [3, n0, _RCes,
   0,
@@ -8510,13 +8513,13 @@ export var UsageProfileDefinition$: StaticStructureSchema = [3, n0, _UPD,
 ];
 export var UserDefinedFunction$: StaticStructureSchema = [3, n0, _UDF,
   0,
-  [_FNu, _DN, _CNl, _ON, _FTu, _OT, _CTr, _RUes, _CI],
-  [0, 0, 0, 0, 0, 0, 4, () => ResourceUriList, 0]
+  [_FNu, _DN, _CNl, _ON, _FTu, _OT, _CTr, _RUes, _ALr, _GM, _CI],
+  [0, 0, 0, 0, 0, 0, 4, () => ResourceUriList, 0, 0, 0]
 ];
 export var UserDefinedFunctionInput$: StaticStructureSchema = [3, n0, _UDFI,
   0,
-  [_FNu, _CNl, _ON, _FTu, _OT, _RUes],
-  [0, 0, 0, 0, 0, () => ResourceUriList]
+  [_FNu, _CNl, _ON, _FTu, _OT, _RUes, _ALr, _GM],
+  [0, 0, 0, 0, 0, () => ResourceUriList, 0, 0]
 ];
 export var ViewDefinition$: StaticStructureSchema = [3, n0, _VD,
   0,
@@ -9694,7 +9697,7 @@ export var GetJobs$: StaticOperationSchema = [9, n0, _GJe,
 export var GetJobUpgradeAnalysis$: StaticOperationSchema = [9, n0, _GJUA,
   0, () => GetJobUpgradeAnalysisRequest$, () => GetJobUpgradeAnalysisResponse$
 ];
-export var GetMapping$: StaticOperationSchema = [9, n0, _GM,
+export var GetMapping$: StaticOperationSchema = [9, n0, _GMe,
   0, () => GetMappingRequest$, () => GetMappingResponse$
 ];
 export var GetMaterializedViewRefreshTaskRun$: StaticOperationSchema = [9, n0, _GMVRTR,

@@ -19,6 +19,7 @@ import type {
   FieldName,
   FilterOperator,
   FunctionType,
+  GovernanceMode,
   InclusionAnnotationValue,
   IntegrationStatus,
   Language,
@@ -5341,6 +5342,23 @@ export interface UserDefinedFunction {
    * @public
    */
   ResourceUris?: ResourceUri[] | undefined;
+
+  /**
+   * <p>The Amazon S3 location that contains the function's artifacts. This location must be registered
+   *       with Lake Formation. Glue returns this field only for functions whose
+   *       <code>GovernanceMode</code> is <code>LAKE_FORMATION</code>.</p>
+   * @public
+   */
+  ArtifactLocation?: string | undefined;
+
+  /**
+   * <p>How access to the function is governed. <code>IAM_ONLY</code> means access is controlled by IAM
+   *       permissions only. <code>LAKE_FORMATION</code> means Lake Formation permissions (<code>EXECUTE</code>,
+   *       <code>DESCRIBE</code>, <code>ALTER</code>, and <code>DROP</code>) also control who can run, describe, update,
+   *       and delete the function.</p>
+   * @public
+   */
+  GovernanceMode?: GovernanceMode | undefined;
 
   /**
    * <p>The ID of the Data Catalog in which the function resides.</p>

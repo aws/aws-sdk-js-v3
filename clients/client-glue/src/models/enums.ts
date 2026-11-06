@@ -1647,6 +1647,19 @@ export type FunctionType = (typeof FunctionType)[keyof typeof FunctionType];
  * @public
  * @enum
  */
+export const GovernanceMode = {
+  IAM_ONLY: "IAM_ONLY",
+  LAKE_FORMATION: "LAKE_FORMATION",
+} as const;
+/**
+ * @public
+ */
+export type GovernanceMode = (typeof GovernanceMode)[keyof typeof GovernanceMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const PrincipalType = {
   GROUP: "GROUP",
   ROLE: "ROLE",

@@ -25,6 +25,7 @@ import type {
   FilterMode,
   FunctionType,
   GlueResourceType,
+  GovernanceMode,
   HTTPMethod,
   IcebergNullOrder,
   IcebergSortDirection,
@@ -3953,6 +3954,14 @@ export interface ResourceUri {
    * @public
    */
   Uri?: string | undefined;
+
+  /**
+   * <p>The time at which the resource was last modified in Amazon S3. Glue records this
+   *       value when you create or update a function whose <code>GovernanceMode</code> is <code>LAKE_FORMATION</code>.
+   *       Analytics engines use it to verify that the resource hasn't changed. This is an output-only field.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
 }
 
 /**
@@ -3995,6 +4004,39 @@ export interface UserDefinedFunctionInput {
    * @public
    */
   ResourceUris?: ResourceUri[] | undefined;
+
+  /**
+   * <p>The Amazon S3 location that contains the function's artifacts. Required when
+   *       <code>GovernanceMode</code> is <code>LAKE_FORMATION</code>. You must register the location with
+   *       Lake Formation, and every resource URI must be under this location.</p>
+   * @public
+   */
+  ArtifactLocation?: string | undefined;
+
+  /**
+   * <p>How access to the function is governed. Specify <code>LAKE_FORMATION</code> to manage access to the
+   *       function with Lake Formation permissions. If you don't specify a value, the default is
+   *       <code>IAM_ONLY</code>. You can't change the governance mode after the function is created.</p>
+   *          <p>When <code>GovernanceMode</code> is <code>LAKE_FORMATION</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You must be a data lake administrator or have all permissions on the Data Catalog with the
+   *         grant option.</p>
+   *             </li>
+   *             <li>
+   *                <p>You must have the <code>DATA_LOCATION_ACCESS</code> permission on the
+   *         <code>ArtifactLocation</code>, unless you're a data lake administrator.</p>
+   *             </li>
+   *             <li>
+   *                <p>You must specify from 1 to 10 resource URIs, each under the <code>ArtifactLocation</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can't rename the function.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  GovernanceMode?: GovernanceMode | undefined;
 }
 
 /**

@@ -1080,6 +1080,7 @@ import {
   GlueServiceException,
   GlueStudioSchemaColumn$,
   GlueTable$,
+  GovernanceMode,
   GovernedCatalogSource$,
   GovernedCatalogTarget$,
   GrokClassifier$,
@@ -3794,6 +3795,7 @@ assert(typeof FilterValueType === "object");
 assert(typeof FunctionType === "object");
 assert(typeof GlueRecordType === "object");
 assert(typeof GlueResourceType === "object");
+assert(typeof GovernanceMode === "object");
 assert(typeof HTTPMethod === "object");
 assert(typeof HudiTargetCompressionType === "object");
 assert(typeof HyperTargetCompressionType === "object");
