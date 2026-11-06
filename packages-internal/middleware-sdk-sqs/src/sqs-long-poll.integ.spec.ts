@@ -5,7 +5,7 @@ import { StandardRetryStrategy } from "@aws-sdk/config/retryStrategy";
 import { Retry } from "@smithy/core/retry";
 import type { RetryErrorInfo, StandardRetryBackoffStrategy, StandardRetryToken } from "@smithy/types";
 import { performance } from "node:perf_hooks";
-import { beforeEach, describe, expect, test as it } from "vitest";
+import { describe, expect, test as it } from "vitest";
 
 class DeterministicRetryBackoffStrategy implements StandardRetryBackoffStrategy {
   protected x: number = Retry.delay();
@@ -23,10 +23,6 @@ class DeterministicRetryBackoffStrategy implements StandardRetryBackoffStrategy 
 }
 
 describe("SQS", () => {
-  beforeEach(() => {
-    Retry.v2026 = true;
-  });
-
   describe("long poll", () => {
     function createRetryableErrorResponse() {
       return new HttpResponse({
@@ -64,7 +60,7 @@ describe("SQS", () => {
       // Drain capacity so that on the 3rd retry, quota is exhausted
       // and the long-poll backoff path is triggered.
       (sqs.config as any).retryStrategy().then((s: any) => {
-        // cost per transient retry = 14 (Retry.cost() when v2026=true).
+        // cost per transient retry = 14 (Retry.cost()).
         // Set capacity to allow 2 retries but not a 3rd.
         s.capacity = 28;
       });
