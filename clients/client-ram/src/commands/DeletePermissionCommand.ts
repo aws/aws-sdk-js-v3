@@ -43,7 +43,7 @@ export interface DeletePermissionCommandOutput extends DeletePermissionResponse,
  * // { // DeletePermissionResponse
  * //   returnValue: true || false,
  * //   clientToken: "STRING_VALUE",
- * //   permissionStatus: "ATTACHABLE" || "UNATTACHABLE" || "DELETING" || "DELETED",
+ * //   permissionStatus: "ATTACHABLE" || "UNATTACHABLE" || "DELETING" || "DELETED" || "DEPRECATED",
  * // };
  *
  * ```

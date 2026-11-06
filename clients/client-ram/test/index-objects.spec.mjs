@@ -149,10 +149,15 @@ import {
   paginateListSourceAssociations,
   PermissionAlreadyExistsException,
   PermissionAlreadyExistsException$,
+  PermissionArnAndTemplateParameters$,
   PermissionFeatureSet,
   PermissionLimitExceededException,
   PermissionLimitExceededException$,
   PermissionStatus,
+  PermissionTemplateParameter$,
+  PermissionTemplateParameterDeclaration$,
+  PermissionTemplateParameterInput$,
+  PermissionTemplateParameterType,
   PermissionType,
   PermissionTypeFilter,
   PermissionVersionsLimitExceededException,
@@ -236,6 +241,11 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UpdatePermission$,
+  UpdatePermissionCommand,
+  UpdatePermissionRequest$,
+  UpdatePermissionResponse$,
+  UpdatePermissionStatus,
   UpdateResourceShare$,
   UpdateResourceShareCommand,
   UpdateResourceShareRequest$,
@@ -314,6 +324,8 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdatePermissionCommand === "function");
+assert(typeof UpdatePermission$ === "object");
 assert(typeof UpdateResourceShareCommand === "function");
 assert(typeof UpdateResourceShare$ === "object");
 // structural schemas
@@ -373,6 +385,10 @@ assert(typeof ListResourceTypesRequest$ === "object");
 assert(typeof ListResourceTypesResponse$ === "object");
 assert(typeof ListSourceAssociationsRequest$ === "object");
 assert(typeof ListSourceAssociationsResponse$ === "object");
+assert(typeof PermissionArnAndTemplateParameters$ === "object");
+assert(typeof PermissionTemplateParameter$ === "object");
+assert(typeof PermissionTemplateParameterDeclaration$ === "object");
+assert(typeof PermissionTemplateParameterInput$ === "object");
 assert(typeof Principal$ === "object");
 assert(typeof PromotePermissionCreatedFromPolicyRequest$ === "object");
 assert(typeof PromotePermissionCreatedFromPolicyResponse$ === "object");
@@ -399,11 +415,14 @@ assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof UpdatePermissionRequest$ === "object");
+assert(typeof UpdatePermissionResponse$ === "object");
 assert(typeof UpdateResourceShareRequest$ === "object");
 assert(typeof UpdateResourceShareResponse$ === "object");
 // enums
 assert(typeof PermissionFeatureSet === "object");
 assert(typeof PermissionStatus === "object");
+assert(typeof PermissionTemplateParameterType === "object");
 assert(typeof PermissionType === "object");
 assert(typeof PermissionTypeFilter === "object");
 assert(typeof ReplacePermissionAssociationsWorkStatus === "object");
@@ -416,6 +435,7 @@ assert(typeof ResourceShareFeatureSet === "object");
 assert(typeof ResourceShareInvitationStatus === "object");
 assert(typeof ResourceShareStatus === "object");
 assert(typeof ResourceStatus === "object");
+assert(typeof UpdatePermissionStatus === "object");
 // errors
 assert(IdempotentParameterMismatchException.prototype instanceof RAMServiceException);
 assert(typeof IdempotentParameterMismatchException$ === "object");

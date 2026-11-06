@@ -40,6 +40,13 @@ export interface CreatePermissionVersionCommandOutput extends CreatePermissionVe
  * const input = { // CreatePermissionVersionRequest
  *   permissionArn: "STRING_VALUE", // required
  *   policyTemplate: "STRING_VALUE", // required
+ *   permissionTemplateParameters: [ // PermissionTemplateParameterDeclarationList
+ *     { // PermissionTemplateParameterDeclaration
+ *       name: "STRING_VALUE",
+ *       type: "STRING" || "STRING_LIST",
+ *       description: "STRING_VALUE",
+ *     },
+ *   ],
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreatePermissionVersionCommand(input);
@@ -52,18 +59,26 @@ export interface CreatePermissionVersionCommandOutput extends CreatePermissionVe
  * //     name: "STRING_VALUE",
  * //     resourceType: "STRING_VALUE",
  * //     permission: "STRING_VALUE",
+ * //     permissionTemplateParameters: [ // PermissionTemplateParameterDeclarationList
+ * //       { // PermissionTemplateParameterDeclaration
+ * //         name: "STRING_VALUE",
+ * //         type: "STRING" || "STRING_LIST",
+ * //         description: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     creationTime: new Date("TIMESTAMP"),
  * //     lastUpdatedTime: new Date("TIMESTAMP"),
  * //     isResourceTypeDefault: true || false,
  * //     permissionType: "CUSTOMER_MANAGED" || "AWS_MANAGED",
  * //     featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
- * //     status: "ATTACHABLE" || "UNATTACHABLE" || "DELETING" || "DELETED",
+ * //     status: "ATTACHABLE" || "UNATTACHABLE" || "DELETING" || "DELETED" || "DEPRECATED",
  * //     tags: [ // TagList
  * //       { // Tag
  * //         key: "STRING_VALUE",
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     resourceOwner: "SELF" || "OTHER-ACCOUNTS",
  * //   },
  * //   clientToken: "STRING_VALUE",
  * // };
@@ -96,6 +111,9 @@ export interface CreatePermissionVersionCommandOutput extends CreatePermissionVe
  *
  * @throws {@link MalformedPolicyTemplateException} (client fault)
  *  <p>The operation failed because the policy template that you provided isn't valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The operation failed because the requested operation isn't permitted.</p>
  *
  * @throws {@link PermissionVersionsLimitExceededException} (client fault)
  *  <p>The operation failed because it would exceed the limit for the number of versions you

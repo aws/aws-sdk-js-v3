@@ -54,6 +54,20 @@ export type ResourceShareInvitationStatus =
  * @public
  * @enum
  */
+export const PermissionTemplateParameterType = {
+  STRING: "STRING",
+  STRING_LIST: "STRING_LIST",
+} as const;
+/**
+ * @public
+ */
+export type PermissionTemplateParameterType =
+  (typeof PermissionTemplateParameterType)[keyof typeof PermissionTemplateParameterType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PermissionFeatureSet = {
   CREATED_FROM_POLICY: "CREATED_FROM_POLICY",
   PROMOTING_TO_STANDARD: "PROMOTING_TO_STANDARD",
@@ -81,10 +95,24 @@ export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType
  * @public
  * @enum
  */
+export const ResourceOwner = {
+  OTHER_ACCOUNTS: "OTHER-ACCOUNTS",
+  SELF: "SELF",
+} as const;
+/**
+ * @public
+ */
+export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
+
+/**
+ * @public
+ * @enum
+ */
 export const PermissionStatus = {
   ATTACHABLE: "ATTACHABLE",
   DELETED: "DELETED",
   DELETING: "DELETING",
+  DEPRECATED: "DEPRECATED",
   UNATTACHABLE: "UNATTACHABLE",
 } as const;
 /**
@@ -121,19 +149,6 @@ export const ResourceShareStatus = {
  * @public
  */
 export type ResourceShareStatus = (typeof ResourceShareStatus)[keyof typeof ResourceShareStatus];
-
-/**
- * @public
- * @enum
- */
-export const ResourceOwner = {
-  OTHER_ACCOUNTS: "OTHER-ACCOUNTS",
-  SELF: "SELF",
-} as const;
-/**
- * @public
- */
-export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
 
 /**
  * @public
@@ -206,3 +221,16 @@ export const ReplacePermissionAssociationsWorkStatus = {
  */
 export type ReplacePermissionAssociationsWorkStatus =
   (typeof ReplacePermissionAssociationsWorkStatus)[keyof typeof ReplacePermissionAssociationsWorkStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdatePermissionStatus = {
+  ATTACHABLE: "ATTACHABLE",
+  DEPRECATED: "DEPRECATED",
+} as const;
+/**
+ * @public
+ */
+export type UpdatePermissionStatus = (typeof UpdatePermissionStatus)[keyof typeof UpdatePermissionStatus];

@@ -166,6 +166,7 @@ import type {
 } from "./commands/SetDefaultPermissionVersionCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdatePermissionCommandInput, UpdatePermissionCommandOutput } from "./commands/UpdatePermissionCommand";
 import type {
   UpdateResourceShareCommandInput,
   UpdateResourceShareCommandOutput,
@@ -219,6 +220,7 @@ export type ServiceInputTypes =
   | SetDefaultPermissionVersionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdatePermissionCommandInput
   | UpdateResourceShareCommandInput;
 
 /**
@@ -259,6 +261,7 @@ export type ServiceOutputTypes =
   | SetDefaultPermissionVersionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdatePermissionCommandOutput
   | UpdateResourceShareCommandOutput;
 
 /**

@@ -24,6 +24,12 @@ export interface GetPermissionCommandOutput extends GetPermissionResponse, __Met
 
 /**
  * <p>Retrieves the contents of a managed permission in JSON format.</p>
+ *          <p>If the permission has template parameters, you can include the
+ *             <code>permissionTemplateParameters</code> parameter in your request. The operation then
+ *             renders the returned policy with the specified values in place of the template parameter
+ *             placeholders. If you omit <code>permissionTemplateParameters</code>, the operation
+ *             returns the raw policy template with <code>@\{parameterName\}</code> placeholders
+ *             unchanged.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -35,6 +41,14 @@ export interface GetPermissionCommandOutput extends GetPermissionResponse, __Met
  * const input = { // GetPermissionRequest
  *   permissionArn: "STRING_VALUE", // required
  *   permissionVersion: Number("int"),
+ *   permissionTemplateParameters: [ // PermissionTemplateParameterInputList
+ *     { // PermissionTemplateParameterInput
+ *       name: "STRING_VALUE",
+ *       values: [ // PermissionTemplateParameterValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new GetPermissionCommand(input);
  * const response = await client.send(command);
@@ -46,18 +60,26 @@ export interface GetPermissionCommandOutput extends GetPermissionResponse, __Met
  * //     name: "STRING_VALUE",
  * //     resourceType: "STRING_VALUE",
  * //     permission: "STRING_VALUE",
+ * //     permissionTemplateParameters: [ // PermissionTemplateParameterDeclarationList
+ * //       { // PermissionTemplateParameterDeclaration
+ * //         name: "STRING_VALUE",
+ * //         type: "STRING" || "STRING_LIST",
+ * //         description: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     creationTime: new Date("TIMESTAMP"),
  * //     lastUpdatedTime: new Date("TIMESTAMP"),
  * //     isResourceTypeDefault: true || false,
  * //     permissionType: "CUSTOMER_MANAGED" || "AWS_MANAGED",
  * //     featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
- * //     status: "ATTACHABLE" || "UNATTACHABLE" || "DELETING" || "DELETED",
+ * //     status: "ATTACHABLE" || "UNATTACHABLE" || "DELETING" || "DELETED" || "DEPRECATED",
  * //     tags: [ // TagList
  * //       { // Tag
  * //         key: "STRING_VALUE",
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     resourceOwner: "SELF" || "OTHER-ACCOUNTS",
  * //   },
  * // };
  *

@@ -33,4 +33,5 @@ export * from "./ReplacePermissionAssociationsCommand";
 export * from "./SetDefaultPermissionVersionCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdatePermissionCommand";
 export * from "./UpdateResourceShareCommand";

@@ -61,6 +61,19 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  *   sources: [ // SourceArnOrAccountList
  *     "STRING_VALUE",
  *   ],
+ *   permissionTemplateParameters: [ // PermissionArnAndTemplateParametersList
+ *     { // PermissionArnAndTemplateParameters
+ *       permissionArn: "STRING_VALUE",
+ *       permissionTemplateParameters: [ // PermissionTemplateParameterInputList
+ *         { // PermissionTemplateParameterInput
+ *           name: "STRING_VALUE",
+ *           values: [ // PermissionTemplateParameterValueList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
  *   resourceShareConfiguration: { // ResourceShareConfiguration
  *     retainSharingOnAccountLeaveOrganization: true || false,
  *   },

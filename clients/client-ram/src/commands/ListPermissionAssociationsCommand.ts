@@ -48,6 +48,8 @@ export interface ListPermissionAssociationsCommandOutput extends ListPermissionA
  *   resourceType: "STRING_VALUE",
  *   featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
  *   defaultVersion: true || false,
+ *   resourceOwner: "SELF" || "OTHER-ACCOUNTS",
+ *   resourceShareArn: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
@@ -64,6 +66,16 @@ export interface ListPermissionAssociationsCommandOutput extends ListPermissionA
  * //       featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
  * //       lastUpdatedTime: new Date("TIMESTAMP"),
  * //       resourceShareArn: "STRING_VALUE",
+ * //       permissionTemplateParameters: [ // PermissionTemplateParameterList
+ * //         { // PermissionTemplateParameter
+ * //           name: "STRING_VALUE",
+ * //           type: "STRING" || "STRING_LIST",
+ * //           description: "STRING_VALUE",
+ * //           values: [ // PermissionTemplateParameterValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

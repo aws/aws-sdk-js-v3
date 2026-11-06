@@ -45,7 +45,7 @@ export interface DeletePermissionVersionCommandOutput extends DeletePermissionVe
  * // { // DeletePermissionVersionResponse
  * //   returnValue: true || false,
  * //   clientToken: "STRING_VALUE",
- * //   permissionStatus: "ATTACHABLE" || "UNATTACHABLE" || "DELETING" || "DELETED",
+ * //   permissionStatus: "ATTACHABLE" || "UNATTACHABLE" || "DELETING" || "DELETED" || "DEPRECATED",
  * // };
  *
  * ```

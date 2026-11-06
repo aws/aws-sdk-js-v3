@@ -42,9 +42,11 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * const client = new RAMClient(config);
  * const input = { // ListPermissionsRequest
  *   resourceType: "STRING_VALUE",
+ *   resourceOwner: "SELF" || "OTHER-ACCOUNTS",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   permissionType: "ALL" || "AWS_MANAGED" || "CUSTOMER_MANAGED",
+ *   permissionStatus: "ATTACHABLE" || "UNATTACHABLE" || "DELETING" || "DELETED" || "DEPRECATED",
  * };
  * const command = new ListPermissionsCommand(input);
  * const response = await client.send(command);
@@ -62,12 +64,23 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * //       isResourceTypeDefault: true || false,
  * //       permissionType: "CUSTOMER_MANAGED" || "AWS_MANAGED",
  * //       featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
+ * //       permissionTemplateParameters: [ // PermissionTemplateParameterList
+ * //         { // PermissionTemplateParameter
+ * //           name: "STRING_VALUE",
+ * //           type: "STRING" || "STRING_LIST",
+ * //           description: "STRING_VALUE",
+ * //           values: [ // PermissionTemplateParameterValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
  * //       tags: [ // TagList
  * //         { // Tag
  * //           key: "STRING_VALUE",
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       resourceOwner: "SELF" || "OTHER-ACCOUNTS",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

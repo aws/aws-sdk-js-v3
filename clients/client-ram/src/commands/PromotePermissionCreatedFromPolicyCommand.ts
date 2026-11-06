@@ -86,12 +86,23 @@ export interface PromotePermissionCreatedFromPolicyCommandOutput extends Promote
  * //     isResourceTypeDefault: true || false,
  * //     permissionType: "CUSTOMER_MANAGED" || "AWS_MANAGED",
  * //     featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
+ * //     permissionTemplateParameters: [ // PermissionTemplateParameterList
+ * //       { // PermissionTemplateParameter
+ * //         name: "STRING_VALUE",
+ * //         type: "STRING" || "STRING_LIST",
+ * //         description: "STRING_VALUE",
+ * //         values: [ // PermissionTemplateParameterValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
  * //     tags: [ // TagList
  * //       { // Tag
  * //         key: "STRING_VALUE",
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     resourceOwner: "SELF" || "OTHER-ACCOUNTS",
  * //   },
  * //   clientToken: "STRING_VALUE",
  * // };

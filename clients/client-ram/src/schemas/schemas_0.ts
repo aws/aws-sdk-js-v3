@@ -96,6 +96,8 @@ const _MPTE = "MalformedPolicyTemplateException";
 const _MRPE = "MissingRequiredParameterException";
 const _ONPE = "OperationNotPermittedException";
 const _P = "Principal";
+const _PAATP = "PermissionArnAndTemplateParameters";
+const _PAATPL = "PermissionArnAndTemplateParametersList";
 const _PAEE = "PermissionAlreadyExistsException";
 const _PAL = "PermissionArnList";
 const _PAOIL = "PrincipalArnOrIdList";
@@ -108,6 +110,13 @@ const _PPCFPRr = "PromotePermissionCreatedFromPolicyResponse";
 const _PRSCFP = "PromoteResourceShareCreatedFromPolicy";
 const _PRSCFPR = "PromoteResourceShareCreatedFromPolicyRequest";
 const _PRSCFPRr = "PromoteResourceShareCreatedFromPolicyResponse";
+const _PTP = "PermissionTemplateParameter";
+const _PTPD = "PermissionTemplateParameterDeclaration";
+const _PTPDL = "PermissionTemplateParameterDeclarationList";
+const _PTPI = "PermissionTemplateParameterInput";
+const _PTPIL = "PermissionTemplateParameterInputList";
+const _PTPL = "PermissionTemplateParameterList";
+const _PTPVL = "PermissionTemplateParameterValueList";
 const _PVLEE = "PermissionVersionsLimitExceededException";
 const _R = "Resource";
 const _RAL = "ResourceArnList";
@@ -157,7 +166,10 @@ const _TPVE = "TagPolicyViolationException";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
+const _UP = "UpdatePermission";
 const _UPPE = "UnmatchedPolicyPermissionException";
+const _UPR = "UpdatePermissionRequest";
+const _UPRp = "UpdatePermissionResponse";
 const _UR = "UntagResource";
 const _URE = "UnknownResourceException";
 const _URR = "UntagResourceRequest";
@@ -174,6 +186,7 @@ const _aT = "associationType";
 const _c = "client";
 const _cT = "clientToken";
 const _cTr = "creationTime";
+const _d = "description";
 const _dV = "defaultVersion";
 const _e = "error";
 const _ex = "external";
@@ -199,6 +212,7 @@ const _pA = "permissionArn";
 const _pAe = "permissionArns";
 const _pS = "permissionStatus";
 const _pT = "policyTemplate";
+const _pTP = "permissionTemplateParameters";
 const _pTe = "permissionType";
 const _pV = "permissionVersion";
 const _pe = "permission";
@@ -251,8 +265,9 @@ const _tPA = "toPermissionArn";
 const _tPV = "toPermissionVersion";
 const _tV = "tagValues";
 const _ty = "type";
-const _v = "version";
+const _v = "values";
 const _va = "value";
+const _ve = "version";
 const _wI = "workIds";
 const _xN = "xmlName";
 const n0 = "com.amazonaws.ram";
@@ -487,8 +502,8 @@ export var AcceptResourceShareInvitationResponse$: StaticStructureSchema = [3, n
 ];
 export var AssociatedPermission$: StaticStructureSchema = [3, n0, _AP,
   0,
-  [_a, _pV, _dV, _rT, _st, _fS, _lUT, _rSA],
-  [0, 0, 2, 0, 0, 0, 4, 0]
+  [_a, _pV, _dV, _rT, _st, _fS, _lUT, _rSA, _pTP],
+  [0, 0, 2, 0, 0, 0, 4, 0, [() => PermissionTemplateParameterList, 0]]
 ];
 export var AssociatedSource$: StaticStructureSchema = [3, n0, _AS,
   0,
@@ -497,8 +512,8 @@ export var AssociatedSource$: StaticStructureSchema = [3, n0, _AS,
 ];
 export var AssociateResourceSharePermissionRequest$: StaticStructureSchema = [3, n0, _ARSPR,
   0,
-  [_rSA, _pA, _r, _cT, _pV],
-  [0, 0, 2, 0, 1], 2
+  [_rSA, _pA, _pTP, _r, _cT, _pV],
+  [0, 0, [() => PermissionTemplateParameterInputList, 0], 2, 0, 1], 2
 ];
 export var AssociateResourceSharePermissionResponse$: StaticStructureSchema = [3, n0, _ARSPRs,
   0,
@@ -517,28 +532,28 @@ export var AssociateResourceShareResponse$: StaticStructureSchema = [3, n0, _ARS
 ];
 export var CreatePermissionRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_n, _rT, _pT, _cT, _t],
-  [0, 0, 0, 0, () => TagList], 3
+  [_n, _rT, _pT, _pTP, _cT, _t],
+  [0, 0, 0, [() => PermissionTemplateParameterDeclarationList, 0], 0, () => TagList], 3
 ];
 export var CreatePermissionResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
   [_pe, _cT],
-  [() => ResourceSharePermissionSummary$, 0]
+  [[() => ResourceSharePermissionSummary$, 0], 0]
 ];
 export var CreatePermissionVersionRequest$: StaticStructureSchema = [3, n0, _CPVR,
   0,
-  [_pA, _pT, _cT],
-  [0, 0, 0], 2
+  [_pA, _pT, _pTP, _cT],
+  [0, 0, [() => PermissionTemplateParameterDeclarationList, 0], 0], 2
 ];
 export var CreatePermissionVersionResponse$: StaticStructureSchema = [3, n0, _CPVRr,
   0,
   [_pe, _cT],
-  [() => ResourceSharePermissionDetail$, 0]
+  [[() => ResourceSharePermissionDetail$, 0], 0]
 ];
 export var CreateResourceShareRequest$: StaticStructureSchema = [3, n0, _CRSR,
   0,
-  [_n, _rA, _p, _t, _aEP, _cT, _pAe, _so, _rSC],
-  [0, [() => ResourceArnList, 0], [() => PrincipalArnOrIdList, 0], () => TagList, 2, 0, [() => PermissionArnList, 0], [() => SourceArnOrAccountList, 0], () => ResourceShareConfiguration$], 1
+  [_n, _rA, _p, _t, _aEP, _cT, _pAe, _so, _pTP, _rSC],
+  [0, [() => ResourceArnList, 0], [() => PrincipalArnOrIdList, 0], () => TagList, 2, 0, [() => PermissionArnList, 0], [() => SourceArnOrAccountList, 0], [() => PermissionArnAndTemplateParametersList, 0], () => ResourceShareConfiguration$], 1
 ];
 export var CreateResourceShareResponse$: StaticStructureSchema = [3, n0, _CRSRr,
   0,
@@ -607,13 +622,13 @@ export var EnableSharingWithAwsOrganizationResponse$: StaticStructureSchema = [3
 ];
 export var GetPermissionRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
-  [_pA, _pV],
-  [0, 1], 1
+  [_pA, _pV, _pTP],
+  [0, 1, [() => PermissionTemplateParameterInputList, 0]], 1
 ];
 export var GetPermissionResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
   [_pe],
-  [() => ResourceSharePermissionDetail$]
+  [[() => ResourceSharePermissionDetail$, 0]]
 ];
 export var GetResourcePoliciesRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
@@ -667,8 +682,8 @@ export var ListPendingInvitationResourcesResponse$: StaticStructureSchema = [3, 
 ];
 export var ListPermissionAssociationsRequest$: StaticStructureSchema = [3, n0, _LPAR,
   0,
-  [_pA, _pV, _aS, _rT, _fS, _dV, _nT, _mR],
-  [0, 1, 0, 0, 0, 2, 0, 1]
+  [_pA, _pV, _aS, _rT, _fS, _dV, _rO, _rSA, _nT, _mR],
+  [0, 1, 0, 0, 0, 2, 0, 0, 0, 1]
 ];
 export var ListPermissionAssociationsResponse$: StaticStructureSchema = [3, n0, _LPARi,
   0,
@@ -677,8 +692,8 @@ export var ListPermissionAssociationsResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var ListPermissionsRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
-  [_rT, _nT, _mR, _pTe],
-  [0, 0, 1, 0]
+  [_rT, _rO, _nT, _mR, _pTe, _pS],
+  [0, 0, 0, 1, 0, 0]
 ];
 export var ListPermissionsResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
@@ -755,6 +770,26 @@ export var ListSourceAssociationsResponse$: StaticStructureSchema = [3, n0, _LSA
   [_sA, _nT],
   [[() => AssociatedSourceList, 0], 0]
 ];
+export var PermissionArnAndTemplateParameters$: StaticStructureSchema = [3, n0, _PAATP,
+  0,
+  [_pA, _pTP],
+  [0, [() => PermissionTemplateParameterInputList, 0]]
+];
+export var PermissionTemplateParameter$: StaticStructureSchema = [3, n0, _PTP,
+  0,
+  [_n, _ty, _d, _v],
+  [0, 0, 0, [() => PermissionTemplateParameterValueList, 0]]
+];
+export var PermissionTemplateParameterDeclaration$: StaticStructureSchema = [3, n0, _PTPD,
+  0,
+  [_n, _ty, _d],
+  [0, 0, 0]
+];
+export var PermissionTemplateParameterInput$: StaticStructureSchema = [3, n0, _PTPI,
+  0,
+  [_n, _v],
+  [0, [() => PermissionTemplateParameterValueList, 0]]
+];
 export var Principal$: StaticStructureSchema = [3, n0, _P,
   0,
   [_i, _rSA, _cTr, _lUT, _ex],
@@ -768,7 +803,7 @@ export var PromotePermissionCreatedFromPolicyRequest$: StaticStructureSchema = [
 export var PromotePermissionCreatedFromPolicyResponse$: StaticStructureSchema = [3, n0, _PPCFPRr,
   0,
   [_pe, _cT],
-  [() => ResourceSharePermissionSummary$, 0]
+  [[() => ResourceSharePermissionSummary$, 0], 0]
 ];
 export var PromoteResourceShareCreatedFromPolicyRequest$: StaticStructureSchema = [3, n0, _PRSCFPR,
   0,
@@ -792,18 +827,18 @@ export var RejectResourceShareInvitationResponse$: StaticStructureSchema = [3, n
 ];
 export var ReplacePermissionAssociationsRequest$: StaticStructureSchema = [3, n0, _RPAR,
   0,
-  [_fPA, _tPA, _fPV, _cT],
-  [0, 0, 1, 0], 2
+  [_fPA, _tPA, _fPV, _pTP, _cT],
+  [0, 0, 1, [() => PermissionTemplateParameterInputList, 0], 0], 2
 ];
 export var ReplacePermissionAssociationsResponse$: StaticStructureSchema = [3, n0, _RPARe,
   0,
   [_rPAWe, _cT],
-  [() => ReplacePermissionAssociationsWork$, 0]
+  [[() => ReplacePermissionAssociationsWork$, 0], 0]
 ];
 export var ReplacePermissionAssociationsWork$: StaticStructureSchema = [3, n0, _RPAW,
   0,
-  [_i, _fPA, _fPV, _tPA, _tPV, _st, _sM, _cTr, _lUT],
-  [0, 0, 0, 0, 0, 0, 0, 4, 4]
+  [_i, _fPA, _fPV, _tPA, _tPV, _pTP, _st, _sM, _cTr, _lUT],
+  [0, 0, 0, 0, 0, [() => PermissionTemplateParameterList, 0], 0, 0, 4, 4]
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
@@ -832,13 +867,13 @@ export var ResourceShareInvitation$: StaticStructureSchema = [3, n0, _RSI,
 ];
 export var ResourceSharePermissionDetail$: StaticStructureSchema = [3, n0, _RSPD,
   0,
-  [_a, _v, _dV, _n, _rT, _pe, _cTr, _lUT, _iRTD, _pTe, _fS, _st, _t],
-  [0, 0, 2, 0, 0, 0, 4, 4, 2, 0, 0, 0, () => TagList]
+  [_a, _ve, _dV, _n, _rT, _pe, _pTP, _cTr, _lUT, _iRTD, _pTe, _fS, _st, _t, _rO],
+  [0, 0, 2, 0, 0, 0, [() => PermissionTemplateParameterDeclarationList, 0], 4, 4, 2, 0, 0, 0, () => TagList, 0]
 ];
 export var ResourceSharePermissionSummary$: StaticStructureSchema = [3, n0, _RSPS,
   0,
-  [_a, _v, _dV, _n, _rT, _st, _cTr, _lUT, _iRTD, _pTe, _fS, _t],
-  [0, 0, 2, 0, 0, 0, 4, 4, 2, 0, 0, () => TagList]
+  [_a, _ve, _dV, _n, _rT, _st, _cTr, _lUT, _iRTD, _pTe, _fS, _pTP, _t, _rO],
+  [0, 0, 2, 0, 0, 0, 4, 4, 2, 0, 0, [() => PermissionTemplateParameterList, 0], () => TagList, 0]
 ];
 export var ServiceNameAndResourceType$: StaticStructureSchema = [3, n0, _SNART,
   0,
@@ -885,6 +920,16 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
+export var UpdatePermissionRequest$: StaticStructureSchema = [3, n0, _UPR,
+  0,
+  [_pA, _st, _cT],
+  [0, 0, 0], 2
+];
+export var UpdatePermissionResponse$: StaticStructureSchema = [3, n0, _UPRp,
+  0,
+  [_cT, _pS],
+  [0, 0]
+];
 export var UpdateResourceShareRequest$: StaticStructureSchema = [3, n0, _URSR,
   0,
   [_rSA, _n, _aEP, _cT],
@@ -903,7 +948,27 @@ var AssociatedSourceList: StaticListSchema = [1, n0, _ASL,
   0, [() => AssociatedSource$,
     { [_xN]: _it }]
 ];
+var PermissionArnAndTemplateParametersList: StaticListSchema = [1, n0, _PAATPL,
+  0, [() => PermissionArnAndTemplateParameters$,
+    { [_xN]: _it }]
+];
 var PermissionArnList: StaticListSchema = [1, n0, _PAL,
+  0, [0,
+    { [_xN]: _it }]
+];
+var PermissionTemplateParameterDeclarationList: StaticListSchema = [1, n0, _PTPDL,
+  0, [() => PermissionTemplateParameterDeclaration$,
+    { [_xN]: _it }]
+];
+var PermissionTemplateParameterInputList: StaticListSchema = [1, n0, _PTPIL,
+  0, [() => PermissionTemplateParameterInput$,
+    { [_xN]: _it }]
+];
+var PermissionTemplateParameterList: StaticListSchema = [1, n0, _PTPL,
+  0, [() => PermissionTemplateParameter$,
+    { [_xN]: _it }]
+];
+var PermissionTemplateParameterValueList: StaticListSchema = [1, n0, _PTPVL,
   0, [0,
     { [_xN]: _it }]
 ];
@@ -1076,6 +1141,9 @@ export var TagResource$: StaticOperationSchema = [9, n0, _TR,
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   { [_h]: ["POST", "/untagresource", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdatePermission$: StaticOperationSchema = [9, n0, _UP,
+  { [_h]: ["POST", "/updatepermission", 200] }, () => UpdatePermissionRequest$, () => UpdatePermissionResponse$
 ];
 export var UpdateResourceShare$: StaticOperationSchema = [9, n0, _URS,
   { [_h]: ["POST", "/updateresourceshare", 200] }, () => UpdateResourceShareRequest$, () => UpdateResourceShareResponse$

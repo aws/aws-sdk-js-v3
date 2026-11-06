@@ -2,6 +2,7 @@
 import type {
   PermissionFeatureSet,
   PermissionStatus,
+  PermissionTemplateParameterType,
   PermissionType,
   PermissionTypeFilter,
   ReplacePermissionAssociationsWorkStatus,
@@ -14,6 +15,7 @@ import type {
   ResourceShareInvitationStatus,
   ResourceShareStatus,
   ResourceStatus,
+  UpdatePermissionStatus,
 } from "./enums";
 
 /**
@@ -318,6 +320,27 @@ export interface AssociateResourceShareResponse {
 }
 
 /**
+ * <p>Contains the name and values to assign to a template parameter when associating a permission template with a resource share.</p>
+ * @public
+ */
+export interface PermissionTemplateParameterInput {
+  /**
+   * <p>The name of the template parameter to assign a value to. This must match a parameter
+   *             name declared in the permission template.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The values to assign to the template parameter. For <code>STRING</code> type
+   *             parameters, provide a single value. For <code>STRING_LIST</code> type parameters,
+   *             provide one or more values.</p>
+   * @public
+   */
+  values?: string[] | undefined;
+}
+
+/**
  * @public
  */
 export interface AssociateResourceSharePermissionRequest {
@@ -335,6 +358,14 @@ export interface AssociateResourceSharePermissionRequest {
    * @public
    */
   permissionArn: string | undefined;
+
+  /**
+   * <p>Specifies the template parameter values for the permission being associated. You must
+   *             provide values for all parameters declared in the permission template. This parameter is
+   *             required only if the specified permission has template parameters.</p>
+   * @public
+   */
+  permissionTemplateParameters?: PermissionTemplateParameterInput[] | undefined;
 
   /**
    * <p>Specifies whether the specified permission should replace the existing permission
@@ -402,6 +433,45 @@ export interface AssociateResourceSharePermissionResponse {
    * @public
    */
   clientToken?: string | undefined;
+}
+
+/**
+ * <p>Describes a template parameter declaration for a customer managed permission. Each declaration defines a
+ *             named placeholder that can be used in the permission's policy template.</p>
+ * @public
+ */
+export interface PermissionTemplateParameterDeclaration {
+  /**
+   * <p>The name of the template parameter. This name is used as the placeholder in the
+   *             policy template using the syntax <code>@\{parameterName\}</code>.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The type of the template parameter. This can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STRING</code> – A single string value that is substituted
+   *                     directly into the template.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STRING_LIST</code> – One or more string values that expand to
+   *                     an array in the rendered policy.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  type?: PermissionTemplateParameterType | undefined;
+
+  /**
+   * <p>A description of the template parameter that helps consumers understand what value to
+   *             provide.</p>
+   * @public
+   */
+  description?: string | undefined;
 }
 
 /**
@@ -492,6 +562,15 @@ export interface CreatePermissionRequest {
   policyTemplate: string | undefined;
 
   /**
+   * <p>Specifies a list of template parameter declarations for this permission. Each
+   *             declaration defines a named placeholder that can be used in the policy template using
+   *             the syntax <code>@\{parameterName\}</code>. Template parameters can only appear in
+   *             Condition Key and Condition Value fields of the policy. When you associate this permission with a resource share, you must provide values for all declared parameters.</p>
+   * @public
+   */
+  permissionTemplateParameters?: PermissionTemplateParameterDeclaration[] | undefined;
+
+  /**
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -513,6 +592,49 @@ export interface CreatePermissionRequest {
    * @public
    */
   tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Contains the declaration of a template parameter for a customer managed permission. When returned in the context of a permission association, it also includes the values assigned to that parameter.</p>
+ * @public
+ */
+export interface PermissionTemplateParameter {
+  /**
+   * <p>The name of the template parameter.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The type of the template parameter. This can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STRING</code> – A single string value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STRING_LIST</code> – One or more string values.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  type?: PermissionTemplateParameterType | undefined;
+
+  /**
+   * <p>A description of the template parameter.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The values assigned to this template parameter in the context of a permission
+   *             association. This field is present only when the parameter has been assigned values
+   *             (for example, in the response from <a>ListPermissionAssociations</a> or
+   *             <a>ListResourceSharePermissions</a>).</p>
+   * @public
+   */
+  values?: string[] | undefined;
 }
 
 /**
@@ -633,10 +755,37 @@ export interface ResourceSharePermissionSummary {
   featureSet?: PermissionFeatureSet | undefined;
 
   /**
+   * <p>The list of template parameters defined for this permission, including their names,
+   *             types, descriptions, and values. This field is present only if the permission is a
+   *             template with declared parameters. When returned in the context of a permission
+   *             association, the values are also included.</p>
+   * @public
+   */
+  permissionTemplateParameters?: PermissionTemplateParameter[] | undefined;
+
+  /**
    * <p>A list of the tag key value pairs currently attached to the permission.</p>
    * @public
    */
   tags?: Tag[] | undefined;
+
+  /**
+   * <p>The owner of the permission. This can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SELF</code> – The permission is owned by the current
+   *                     account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OTHER-ACCOUNTS</code> – The permission is owned by another
+   *                     account and shared with the current account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  resourceOwner?: ResourceOwner | undefined;
 }
 
 /**
@@ -707,6 +856,15 @@ export interface CreatePermissionVersionRequest {
   policyTemplate: string | undefined;
 
   /**
+   * <p>Specifies a list of template parameter declarations for this version of the
+   *             permission. Each declaration defines a named placeholder that can be used in the policy
+   *             template. Because each version is independent, you can define the same or
+   *             a different set of template parameters for each version.</p>
+   * @public
+   */
+  permissionTemplateParameters?: PermissionTemplateParameterDeclaration[] | undefined;
+
+  /**
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -766,6 +924,14 @@ export interface ResourceSharePermissionDetail {
    * @public
    */
   permission?: string | undefined;
+
+  /**
+   * <p>The list of template parameter declarations defined for this permission. Each
+   *             declaration includes the parameter name, type, and description. This field is present
+   *             only if the permission is a template with declared parameters.</p>
+   * @public
+   */
+  permissionTemplateParameters?: PermissionTemplateParameterDeclaration[] | undefined;
 
   /**
    * <p>The date and time when the permission was created.</p>
@@ -862,6 +1028,11 @@ export interface ResourceSharePermissionDetail {
    *                <p>
    *                   <code>DELETED</code> – This permission or version is deleted.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEPRECATED</code> – The permission owner deprecated this permission. It can't be associated with new resource shares, but existing
+   *                     associations continue to function.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -872,6 +1043,24 @@ export interface ResourceSharePermissionDetail {
    * @public
    */
   tags?: Tag[] | undefined;
+
+  /**
+   * <p>The owner of the permission. This can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SELF</code> – The permission is owned by the current
+   *                     account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OTHER-ACCOUNTS</code> – The permission is owned by another
+   *                     account and shared with the current account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  resourceOwner?: ResourceOwner | undefined;
 }
 
 /**
@@ -879,7 +1068,7 @@ export interface ResourceSharePermissionDetail {
  */
 export interface CreatePermissionVersionResponse {
   /**
-   * <p>Information about a RAM managed permission.</p>
+   * <p>The details of the new permission version, including its <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a>, version number, status, and policy document.</p>
    * @public
    */
   permission?: ResourceSharePermissionDetail | undefined;
@@ -892,6 +1081,25 @@ export interface CreatePermissionVersionResponse {
    * @public
    */
   clientToken?: string | undefined;
+}
+
+/**
+ * <p>Contains a permission ARN and its associated template parameter values. The <a>CreateResourceShare</a> operation uses this structure when associating permissions that have template parameters.</p>
+ * @public
+ */
+export interface PermissionArnAndTemplateParameters {
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the permission to associate with the resource share.</p>
+   * @public
+   */
+  permissionArn?: string | undefined;
+
+  /**
+   * <p>The list of template parameter values to assign for this permission. You must provide
+   *             values for all parameters declared in the permission template.</p>
+   * @public
+   */
+  permissionTemplateParameters?: PermissionTemplateParameterInput[] | undefined;
 }
 
 /**
@@ -1012,6 +1220,15 @@ export interface CreateResourceShareRequest {
    * @public
    */
   sources?: string[] | undefined;
+
+  /**
+   * <p>Specifies the template parameter values for each permission being associated that has
+   *             template parameters. Each entry maps a permission ARN to the parameter values to use
+   *             when rendering the permission template for this resource share. You must provide values for all
+   *             parameters declared in each permission template.</p>
+   * @public
+   */
+  permissionTemplateParameters?: PermissionArnAndTemplateParameters[] | undefined;
 
   /**
    * <p>Specifies the configuration of this resource share.</p>
@@ -1520,6 +1737,19 @@ export interface GetPermissionRequest {
    * @public
    */
   permissionVersion?: number | undefined;
+
+  /**
+   * <p>Specifies the template parameter values to use when rendering the permission's policy
+   *             template. Each entry supplies a parameter name and its values. When you provide this
+   *             parameter, the response contains the rendered policy with the specified values
+   *             in place of the template parameter placeholders.</p>
+   *          <p>For <code>STRING</code> type parameters, provide a single value. For
+   *             <code>STRING_LIST</code> type parameters, provide one or more values.</p>
+   *          <p>You can specify this parameter only for permissions that declare template parameters.
+   *             You must provide values for all parameters declared in the permission template.</p>
+   * @public
+   */
+  permissionTemplateParameters?: PermissionTemplateParameterInput[] | undefined;
 }
 
 /**
@@ -2106,6 +2336,33 @@ export interface ListPermissionAssociationsRequest {
   defaultVersion?: boolean | undefined;
 
   /**
+   * <p>Specifies that you want to list only those associations with resource shares owned by a specific
+   *             entity:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SELF</code> – returns only associations with resource shares owned by the
+   *                     calling account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OTHER-ACCOUNTS</code> – returns only associations with resource shares
+   *                     owned by other Amazon Web Services accounts.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify this parameter, the default is <code>SELF</code>.</p>
+   * @public
+   */
+  resourceOwner?: ResourceOwner | undefined;
+
+  /**
+   * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share for which you want to retrieve permission
+   *             associations.</p>
+   * @public
+   */
+  resourceShareArn?: string | undefined;
+
+  /**
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
@@ -2183,6 +2440,11 @@ export interface AssociatedPermission {
    *                <p>
    *                   <code>DELETED</code> – This permission or version is deleted.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEPRECATED</code> – The permission owner deprecated this permission. It can't be associated with new resource shares, but existing
+   *                     associations continue to function.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -2234,6 +2496,13 @@ export interface AssociatedPermission {
    * @public
    */
   resourceShareArn?: string | undefined;
+
+  /**
+   * <p>The template parameter values provided when the permission was associated with this
+   *             resource share. If the permission has no declared template parameters, this member doesn't appear in the response.</p>
+   * @public
+   */
+  permissionTemplateParameters?: PermissionTemplateParameter[] | undefined;
 }
 
 /**
@@ -2270,6 +2539,24 @@ export interface ListPermissionsRequest {
    * @public
    */
   resourceType?: string | undefined;
+
+  /**
+   * <p>Specifies that you want to list only permissions owned by a specific entity:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SELF</code> – returns only permissions owned by the calling
+   *                     account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OTHER-ACCOUNTS</code> – returns only permissions shared with the
+   *                     calling account by other accounts.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  resourceOwner?: ResourceOwner | undefined;
 
   /**
    * <p>Specifies that you want to receive the next page of results. Valid
@@ -2315,6 +2602,15 @@ export interface ListPermissionsRequest {
    * @public
    */
   permissionType?: PermissionTypeFilter | undefined;
+
+  /**
+   * <p>Specifies that you want to filter the results to include only permissions with the
+   *             specified status. For example, use <code>ATTACHABLE</code> to list only permissions that
+   *             can be associated with resource shares, or <code>DEPRECATED</code> to list only
+   *             deprecated permissions.</p>
+   * @public
+   */
+  permissionStatus?: PermissionStatus | undefined;
 }
 
 /**
@@ -2665,6 +2961,13 @@ export interface ReplacePermissionAssociationsWork {
    * @public
    */
   toPermissionVersion?: string | undefined;
+
+  /**
+   * <p>The template parameter values to apply when replacing the permission. This field is
+   *             present only if the target permission is a template with declared parameters.</p>
+   * @public
+   */
+  permissionTemplateParameters?: PermissionTemplateParameter[] | undefined;
 
   /**
    * <p>Specifies the current status of the background tasks for the specified ID. The output
@@ -3176,7 +3479,7 @@ export interface PromotePermissionCreatedFromPolicyRequest {
  */
 export interface PromotePermissionCreatedFromPolicyResponse {
   /**
-   * <p>Information about an RAM permission.</p>
+   * <p>The details of the promoted customer managed permission, including its <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a>, version, and status.</p>
    * @public
    */
   permission?: ResourceSharePermissionSummary | undefined;
@@ -3287,6 +3590,15 @@ export interface ReplacePermissionAssociationsRequest {
    * @public
    */
   toPermissionArn: string | undefined;
+
+  /**
+   * <p>Specifies the template parameter values to apply when replacing the permission. You
+   *             must provide values for all parameters declared in the target permission template. This
+   *             parameter is required only if the target permission (<code>toPermissionArn</code>) has
+   *             template parameters.</p>
+   * @public
+   */
+  permissionTemplateParameters?: PermissionTemplateParameterInput[] | undefined;
 
   /**
    * <p>Specifies a unique, case-sensitive identifier that you provide to
@@ -3445,6 +3757,72 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdatePermissionRequest {
+  /**
+   * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the customer managed permission that you want to update.</p>
+   * @public
+   */
+  permissionArn: string | undefined;
+
+  /**
+   * <p>Specifies the new status for the permission. This can be one of the following
+   *             values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ATTACHABLE</code> – Restores a previously deprecated permission
+   *                     so it can be associated with resource shares again.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEPRECATED</code> – Deprecates the permission so it can no
+   *                     longer be associated with new resource shares.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status: UpdatePermissionStatus | undefined;
+
+  /**
+   * <p>Specifies a unique, case-sensitive identifier that you provide to
+   *              ensure the idempotency of the request. This lets you safely retry the request without
+   *              accidentally performing the same operation a second time. Passing the same value to a
+   *              later call to an operation requires that you also pass the same value for all other
+   *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
+   *              value.</a>.</p>
+   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
+   *              you.</p>
+   *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
+   *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
+   *              error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePermissionResponse {
+  /**
+   * <p>The idempotency identifier associated with this request. If you
+   *              want to repeat the same operation in an idempotent manner then you must include this
+   *              value in the <code>clientToken</code> request parameter of that later call. All other
+   *              parameters must also have the same values that you used in the first call.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The updated status of the permission.</p>
+   * @public
+   */
+  permissionStatus?: UpdatePermissionStatus | undefined;
+}
 
 /**
  * @public

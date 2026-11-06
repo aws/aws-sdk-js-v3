@@ -61,6 +61,16 @@ export interface ListReplacePermissionAssociationsWorkCommandOutput extends List
  * //       fromPermissionVersion: "STRING_VALUE",
  * //       toPermissionArn: "STRING_VALUE",
  * //       toPermissionVersion: "STRING_VALUE",
+ * //       permissionTemplateParameters: [ // PermissionTemplateParameterList
+ * //         { // PermissionTemplateParameter
+ * //           name: "STRING_VALUE",
+ * //           type: "STRING" || "STRING_LIST",
+ * //           description: "STRING_VALUE",
+ * //           values: [ // PermissionTemplateParameterValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
  * //       status: "IN_PROGRESS" || "COMPLETED" || "FAILED",
  * //       statusMessage: "STRING_VALUE",
  * //       creationTime: new Date("TIMESTAMP"),

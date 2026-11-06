@@ -50,6 +50,14 @@ export interface ReplacePermissionAssociationsCommandOutput extends ReplacePermi
  *   fromPermissionArn: "STRING_VALUE", // required
  *   fromPermissionVersion: Number("int"),
  *   toPermissionArn: "STRING_VALUE", // required
+ *   permissionTemplateParameters: [ // PermissionTemplateParameterInputList
+ *     { // PermissionTemplateParameterInput
+ *       name: "STRING_VALUE",
+ *       values: [ // PermissionTemplateParameterValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new ReplacePermissionAssociationsCommand(input);
@@ -61,6 +69,16 @@ export interface ReplacePermissionAssociationsCommandOutput extends ReplacePermi
  * //     fromPermissionVersion: "STRING_VALUE",
  * //     toPermissionArn: "STRING_VALUE",
  * //     toPermissionVersion: "STRING_VALUE",
+ * //     permissionTemplateParameters: [ // PermissionTemplateParameterList
+ * //       { // PermissionTemplateParameter
+ * //         name: "STRING_VALUE",
+ * //         type: "STRING" || "STRING_LIST",
+ * //         description: "STRING_VALUE",
+ * //         values: [ // PermissionTemplateParameterValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
  * //     status: "IN_PROGRESS" || "COMPLETED" || "FAILED",
  * //     statusMessage: "STRING_VALUE",
  * //     creationTime: new Date("TIMESTAMP"),

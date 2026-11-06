@@ -41,6 +41,14 @@ export interface AssociateResourceSharePermissionCommandOutput extends Associate
  * const input = { // AssociateResourceSharePermissionRequest
  *   resourceShareArn: "STRING_VALUE", // required
  *   permissionArn: "STRING_VALUE", // required
+ *   permissionTemplateParameters: [ // PermissionTemplateParameterInputList
+ *     { // PermissionTemplateParameterInput
+ *       name: "STRING_VALUE",
+ *       values: [ // PermissionTemplateParameterValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  *   replace: true || false,
  *   clientToken: "STRING_VALUE",
  *   permissionVersion: Number("int"),

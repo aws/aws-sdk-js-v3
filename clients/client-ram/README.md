@@ -438,6 +438,13 @@ UntagResource
 </details>
 <details>
 <summary>
+UpdatePermission
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/UpdatePermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/UpdatePermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/UpdatePermissionCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateResourceShare
 </summary>
 

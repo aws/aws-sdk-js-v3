@@ -178,6 +178,11 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdatePermissionCommandInput,
+  type UpdatePermissionCommandOutput,
+  UpdatePermissionCommand,
+} from "./commands/UpdatePermissionCommand";
+import {
   type UpdateResourceShareCommandInput,
   type UpdateResourceShareCommandOutput,
   UpdateResourceShareCommand,
@@ -235,6 +240,7 @@ const commands = {
   SetDefaultPermissionVersionCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdatePermissionCommand,
   UpdateResourceShareCommand,
 };
 const paginators = {
@@ -845,6 +851,23 @@ export interface RAM {
     args: UntagResourceCommandInput,
     options: RAMRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePermissionCommand}
+   */
+  updatePermission(
+    args: UpdatePermissionCommandInput,
+    options?: RAMRequestOptions
+  ): Promise<UpdatePermissionCommandOutput>;
+  updatePermission(
+    args: UpdatePermissionCommandInput,
+    cb: (err: any, data?: UpdatePermissionCommandOutput) => void
+  ): void;
+  updatePermission(
+    args: UpdatePermissionCommandInput,
+    options: RAMRequestOptions,
+    cb: (err: any, data?: UpdatePermissionCommandOutput) => void
   ): void;
 
   /**
