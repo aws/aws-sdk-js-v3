@@ -7,6 +7,15 @@ const _AEL = "AuditEventsList";
 const _AEPB = "AuditEventPerformedBy";
 const _BC = "BooleanCondition";
 const _BCL = "BooleanConditionList";
+const _BCRI = "BatchCreateRelatedItem";
+const _BCRIEE = "BatchCreateRelatedItemErrorEntry";
+const _BCRIEEL = "BatchCreateRelatedItemErrorEntryList";
+const _BCRII = "BatchCreateRelatedItemIdentifier";
+const _BCRIIL = "BatchCreateRelatedItemIdentifierList";
+const _BCRIR = "BatchCreateRelatedItemRequest";
+const _BCRIRa = "BatchCreateRelatedItemResponse";
+const _BCRISE = "BatchCreateRelatedItemSuccessEntry";
+const _BCRISEL = "BatchCreateRelatedItemSuccessEntryList";
 const _BGCR = "BatchGetCaseRule";
 const _BGCREL = "BatchGetCaseRuleErrorList";
 const _BGCRL = "BatchGetCaseRuleList";
@@ -23,6 +32,15 @@ const _BO = "BooleanOperands";
 const _BPFO = "BatchPutFieldOptions";
 const _BPFOR = "BatchPutFieldOptionsRequest";
 const _BPFORa = "BatchPutFieldOptionsResponse";
+const _BUC = "BatchUpdateCase";
+const _BUCEE = "BatchUpdateCaseErrorEntry";
+const _BUCEEL = "BatchUpdateCaseErrorEntryList";
+const _BUCI = "BatchUpdateCaseIdentifier";
+const _BUCIL = "BatchUpdateCaseIdentifierList";
+const _BUCR = "BatchUpdateCaseRequest";
+const _BUCRa = "BatchUpdateCaseResponse";
+const _BUCSE = "BatchUpdateCaseSuccessEntry";
+const _BUCSEL = "BatchUpdateCaseSuccessEntryList";
 const _C = "Contact";
 const _CC = "CommentContent";
 const _CCC = "ConnectCaseContent";
@@ -53,7 +71,9 @@ const _CFa = "CaseFilter";
 const _CFo = "ContactFilter";
 const _CFr = "CreateField";
 const _CFu = "CustomFilter";
+const _CI = "CaseIdentifier";
 const _CIC = "CustomInputContent";
+const _CIU = "CaseIdentifierUnion";
 const _CL = "CreateLayout";
 const _CLR = "CreateLayoutRequest";
 const _CLRr = "CreateLayoutResponse";
@@ -68,9 +88,10 @@ const _CRS = "CaseRuleSummary";
 const _CRSL = "CaseRuleSummaryList";
 const _CS = "CaseSummary";
 const _CSL = "CaseSummaryList";
-const _CT = "CreateTemplate";
+const _CT = "CaseTitle";
 const _CTR = "CreateTemplateRequest";
 const _CTRr = "CreateTemplateResponse";
+const _CTr = "CreateTemplate";
 const _CUC = "CommentUpdateContent";
 const _CUCu = "CustomUpdateContent";
 const _DC = "DeleteCase";
@@ -108,6 +129,7 @@ const _FFi = "FieldFilter";
 const _FG = "FieldGroup";
 const _FI = "FieldIdentifier";
 const _FIL = "FieldIdentifierList";
+const _FIU = "FieldIdentifierUnion";
 const _FIi = "FieldItem";
 const _FL = "FieldList";
 const _FO = "FieldOption";
@@ -118,6 +140,8 @@ const _FOL = "FieldOptionsList";
 const _FS = "FieldSummary";
 const _FSL = "FieldSummaryList";
 const _FV = "FieldValue";
+const _FVI = "FieldValueInput";
+const _FVIL = "FieldValueInputList";
 const _FVL = "FieldValueList";
 const _FVU = "FieldValueUnion";
 const _GC = "GetCase";
@@ -271,20 +295,22 @@ const _cD = "caseData";
 const _cE = "customEntity";
 const _cFI = "childFieldId";
 const _cFOV = "childFieldOptionValues";
-const _cI = "caseId";
+const _cI = "caseIdentifier";
+const _cIa = "caseId";
+const _cIu = "customerId";
 const _cR = "caseRules";
 const _cRA = "caseRuleArn";
 const _cRI = "caseRuleId";
-const _cT = "contentType";
+const _cT = "clientToken";
 const _cTST = "connectedToSystemTime";
-const _cTl = "clientToken";
-const _cTo = "completionTime";
+const _cTo = "contentType";
+const _cTom = "completionTime";
 const _cTr = "createdTime";
 const _ca = "cases";
 const _ch = "channel";
-const _co = "conditions";
+const _co = "content";
 const _com = "comment";
-const _con = "content";
+const _con = "conditions";
 const _cont = "contains";
 const _conta = "contact";
 const _cu = "custom";
@@ -302,6 +328,7 @@ const _eB = "eventBridge";
 const _eC = "errorCode";
 const _eFI = "eventFieldId";
 const _eI = "eventId";
+const _eM = "errorMessage";
 const _eT = "equalTo";
 const _eV = "emptyValue";
 const _en = "enabled";
@@ -309,8 +336,11 @@ const _er = "errors";
 const _f = "fields";
 const _fA = "fieldArn";
 const _fAi = "fileArn";
+const _fC = "failedCases";
 const _fG = "fieldGroup";
-const _fI = "fieldId";
+const _fI = "failedItems";
+const _fIi = "fieldId";
+const _fIie = "fieldIdentifier";
 const _fO = "fieldOptions";
 const _fi = "filters";
 const _fie = "field";
@@ -364,14 +394,18 @@ const _rIA = "relatedItemArn";
 const _rID = "relatedItemData";
 const _rII = "relatedItemId";
 const _rIT = "relatedItemType";
-const _rIe = "relatedItems";
+const _rIe = "referenceId";
+const _rIel = "relatedItems";
+const _rN = "referenceNumber";
 const _rT = "resourceType";
 const _rTu = "ruleType";
 const _re = "required";
 const _ru = "rule";
 const _rul = "rules";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.connectcases";
-const _sC = "slaConfiguration";
+const _sC = "successfulCases";
+const _sCl = "slaConfiguration";
+const _sI = "successfulItems";
 const _sIC = "slaInputConfiguration";
 const _sO = "sortOrder";
 const _sP = "sortProperty";
@@ -398,6 +432,7 @@ const _ta = "tags";
 const _tag = "tag";
 const _te = "templates";
 const _tex = "text";
+const _ti = "title";
 const _u = "user";
 const _uA = "userArn";
 const _uAV = "userArnValue";
@@ -485,6 +520,7 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var CaseTitle: StaticSimpleSchema = [0, n0, _CT, 8, 0];
 var CustomEntity: StaticSimpleSchema = [0, n0, _CEu, 8, 0];
 var SlaName: StaticSimpleSchema = [0, n0, _SN, 8, 0];
 export var AuditEvent$: StaticStructureSchema = [3, n0, _AE,
@@ -506,6 +542,31 @@ export var BasicLayout$: StaticStructureSchema = [3, n0, _BL,
   0,
   [_tP, _mI],
   [() => LayoutSections$, () => LayoutSections$]
+];
+export var BatchCreateRelatedItemErrorEntry$: StaticStructureSchema = [3, n0, _BCRIEE,
+  0,
+  [_cI, _eC, _eM],
+  [() => CaseIdentifier$, 0, 0], 3
+];
+export var BatchCreateRelatedItemIdentifier$: StaticStructureSchema = [3, n0, _BCRII,
+  0,
+  [_cI],
+  [() => CaseIdentifierUnion$], 1
+];
+export var BatchCreateRelatedItemRequest$: StaticStructureSchema = [3, n0, _BCRIR,
+  0,
+  [_dI, _co, _ca, _pB, _cT],
+  [0, [() => RelatedItemInputContent$, 0], () => BatchCreateRelatedItemIdentifierList, [() => UserUnion$, 0], [0, 4]], 3
+];
+export var BatchCreateRelatedItemResponse$: StaticStructureSchema = [3, n0, _BCRIRa,
+  0,
+  [_sI, _fI],
+  [() => BatchCreateRelatedItemSuccessEntryList, () => BatchCreateRelatedItemErrorEntryList], 2
+];
+export var BatchCreateRelatedItemSuccessEntry$: StaticStructureSchema = [3, n0, _BCRISE,
+  0,
+  [_cI, _rII, _rIA],
+  [() => CaseIdentifier$, 0, 0], 3
 ];
 export var BatchGetCaseRuleRequest$: StaticStructureSchema = [3, n0, _BGCRR,
   0,
@@ -529,13 +590,38 @@ export var BatchGetFieldResponse$: StaticStructureSchema = [3, n0, _BGFRa,
 ];
 export var BatchPutFieldOptionsRequest$: StaticStructureSchema = [3, n0, _BPFOR,
   0,
-  [_dI, _fI, _o],
+  [_dI, _fIi, _o],
   [[0, 1], [0, 1], () => FieldOptionsList], 3
 ];
 export var BatchPutFieldOptionsResponse$: StaticStructureSchema = [3, n0, _BPFORa,
   0,
   [_er],
   [() => FieldOptionErrorList]
+];
+export var BatchUpdateCaseErrorEntry$: StaticStructureSchema = [3, n0, _BUCEE,
+  0,
+  [_cI, _eC, _eM],
+  [() => CaseIdentifier$, 0, 0], 3
+];
+export var BatchUpdateCaseIdentifier$: StaticStructureSchema = [3, n0, _BUCI,
+  0,
+  [_cI],
+  [() => CaseIdentifierUnion$], 1
+];
+export var BatchUpdateCaseRequest$: StaticStructureSchema = [3, n0, _BUCR,
+  0,
+  [_dI, _ca, _f, _pB, _ti, _st, _cIu, _cT],
+  [0, () => BatchUpdateCaseIdentifierList, () => FieldValueInputList, [() => UserUnion$, 0], [() => CaseTitle, 0], 0, 0, [0, 4]], 3
+];
+export var BatchUpdateCaseResponse$: StaticStructureSchema = [3, n0, _BUCRa,
+  0,
+  [_sC, _fC],
+  [() => BatchUpdateCaseSuccessEntryList, () => BatchUpdateCaseErrorEntryList], 2
+];
+export var BatchUpdateCaseSuccessEntry$: StaticStructureSchema = [3, n0, _BUCSE,
+  0,
+  [_cI],
+  [() => CaseIdentifier$], 1
 ];
 export var BooleanOperands$: StaticStructureSchema = [3, n0, _BO,
   0,
@@ -546,6 +632,11 @@ export var CaseEventIncludedData$: StaticStructureSchema = [3, n0, _CEID,
   0,
   [_f],
   [() => FieldIdentifierList], 1
+];
+export var CaseIdentifier$: StaticStructureSchema = [3, n0, _CI,
+  0,
+  [_cIa, _rN, _rIe],
+  [0, 0, 0]
 ];
 export var CaseRuleError$: StaticStructureSchema = [3, n0, _CRE,
   0,
@@ -564,12 +655,12 @@ export var CaseRuleSummary$: StaticStructureSchema = [3, n0, _CRS,
 ];
 export var CaseSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_cI, _tI],
+  [_cIa, _tI],
   [0, 0], 2
 ];
 export var CommentContent$: StaticStructureSchema = [3, n0, _CC,
   0,
-  [_b, _cT],
+  [_b, _cTo],
   [0, 0], 2
 ];
 export var CommentFilter$: StaticStructureSchema = [3, n0, _CF,
@@ -579,27 +670,27 @@ export var CommentFilter$: StaticStructureSchema = [3, n0, _CF,
 ];
 export var CommentUpdateContent$: StaticStructureSchema = [3, n0, _CUC,
   0,
-  [_b, _cT],
+  [_b, _cTo],
   [0, 0], 2
 ];
 export var CompoundCondition$: StaticStructureSchema = [3, n0, _CCo,
   0,
-  [_co],
+  [_con],
   [() => BooleanConditionList], 1
 ];
 export var ConnectCaseContent$: StaticStructureSchema = [3, n0, _CCC,
   0,
-  [_cI],
+  [_cIa],
   [0], 1
 ];
 export var ConnectCaseFilter$: StaticStructureSchema = [3, n0, _CCF,
   0,
-  [_cI],
+  [_cIa],
   [0]
 ];
 export var ConnectCaseInputContent$: StaticStructureSchema = [3, n0, _CCIC,
   0,
-  [_cI],
+  [_cIa],
   [0], 1
 ];
 export var Contact$: StaticStructureSchema = [3, n0, _C,
@@ -619,12 +710,12 @@ export var ContactFilter$: StaticStructureSchema = [3, n0, _CFo,
 ];
 export var CreateCaseRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_dI, _tI, _f, _cTl, _pB, _ta],
+  [_dI, _tI, _f, _cT, _pB, _ta],
   [[0, 1], 0, () => FieldValueList, [0, 4], [() => UserUnion$, 0], 128 | 0], 3
 ];
 export var CreateCaseResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_cI, _cAa],
+  [_cIa, _cAa],
   [0, 0], 2
 ];
 export var CreateCaseRuleRequest$: StaticStructureSchema = [3, n0, _CCRR,
@@ -654,12 +745,12 @@ export var CreateFieldRequest$: StaticStructureSchema = [3, n0, _CFR,
 ];
 export var CreateFieldResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
-  [_fI, _fA],
+  [_fIi, _fA],
   [0, 0], 2
 ];
 export var CreateLayoutRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
-  [_dI, _n, _con],
+  [_dI, _n, _co],
   [[0, 1], 0, () => LayoutContent$], 3
 ];
 export var CreateLayoutResponse$: StaticStructureSchema = [3, n0, _CLRr,
@@ -669,7 +760,7 @@ export var CreateLayoutResponse$: StaticStructureSchema = [3, n0, _CLRr,
 ];
 export var CreateRelatedItemRequest$: StaticStructureSchema = [3, n0, _CRIR,
   0,
-  [_dI, _cI, _t, _con, _pB],
+  [_dI, _cIa, _t, _co, _pB],
   [[0, 1], [0, 1], 0, [() => RelatedItemInputContent$, 0], [() => UserUnion$, 0]], 4
 ];
 export var CreateRelatedItemResponse$: StaticStructureSchema = [3, n0, _CRIRr,
@@ -709,7 +800,7 @@ export var CustomUpdateContent$: StaticStructureSchema = [3, n0, _CUCu,
 ];
 export var DeleteCaseRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
-  [_dI, _cI],
+  [_dI, _cIa],
   [[0, 1], [0, 1]], 2
 ];
 export var DeleteCaseResponse$: StaticStructureSchema = [3, n0, _DCRe,
@@ -739,7 +830,7 @@ export var DeleteDomainResponse$: StaticStructureSchema = [3, n0, _DDRe,
 ];
 export var DeleteFieldRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
-  [_dI, _fI],
+  [_dI, _fIi],
   [[0, 1], [0, 1]], 2
 ];
 export var DeleteFieldResponse$: StaticStructureSchema = [3, n0, _DFRe,
@@ -759,7 +850,7 @@ export var DeleteLayoutResponse$: StaticStructureSchema = [3, n0, _DLRe,
 ];
 export var DeleteRelatedItemRequest$: StaticStructureSchema = [3, n0, _DRIR,
   0,
-  [_dI, _cI, _rII],
+  [_dI, _cIa, _rII],
   [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteRelatedItemResponse$: StaticStructureSchema = [3, n0, _DRIRe,
@@ -839,13 +930,18 @@ export var FieldOptionsCaseRule$: StaticStructureSchema = [3, n0, _FOCR,
 ];
 export var FieldSummary$: StaticStructureSchema = [3, n0, _FS,
   0,
-  [_fI, _fA, _n, _t, _na, _a],
+  [_fIi, _fA, _n, _t, _na, _a],
   [0, 0, 0, 0, 0, () => FieldAttributes$], 5
 ];
 export var FieldValue$: StaticStructureSchema = [3, n0, _FV,
   0,
   [_i, _v],
   [0, () => FieldValueUnion$], 2
+];
+export var FieldValueInput$: StaticStructureSchema = [3, n0, _FVI,
+  0,
+  [_fIie, _v],
+  [() => FieldIdentifierUnion$, () => FieldValueUnion$], 2
 ];
 export var FileContent$: StaticStructureSchema = [3, n0, _FC,
   0,
@@ -859,7 +955,7 @@ export var FileFilter$: StaticStructureSchema = [3, n0, _FF,
 ];
 export var GetCaseAuditEventsRequest$: StaticStructureSchema = [3, n0, _GCAER,
   0,
-  [_cI, _dI, _mR, _nT],
+  [_cIa, _dI, _mR, _nT],
   [[0, 1], [0, 1], 1, 0], 2
 ];
 export var GetCaseAuditEventsResponse$: StaticStructureSchema = [3, n0, _GCAERe,
@@ -879,7 +975,7 @@ export var GetCaseEventConfigurationResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var GetCaseRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
-  [_cI, _dI, _f, _nT],
+  [_cIa, _dI, _f, _nT],
   [[0, 1], [0, 1], () => FieldIdentifierList, 0], 3
 ];
 export var GetCaseResponse$: StaticStructureSchema = [3, n0, _GCRe,
@@ -904,7 +1000,7 @@ export var GetDomainResponse$: StaticStructureSchema = [3, n0, _GDRe,
 ];
 export var GetFieldResponse$: StaticStructureSchema = [3, n0, _GFR,
   0,
-  [_fI, _n, _fA, _t, _na, _d, _ta, _de, _cTr, _lMT, _a],
+  [_fIi, _n, _fA, _t, _na, _d, _ta, _de, _cTr, _lMT, _a],
   [0, 0, 0, 0, 0, 0, [() => Tags, 0], 2, 5, 5, () => FieldAttributes$], 5
 ];
 export var GetLayoutRequest$: StaticStructureSchema = [3, n0, _GLR,
@@ -914,7 +1010,7 @@ export var GetLayoutRequest$: StaticStructureSchema = [3, n0, _GLR,
 ];
 export var GetLayoutResponse$: StaticStructureSchema = [3, n0, _GLRe,
   0,
-  [_lI, _lA, _n, _con, _ta, _de, _cTr, _lMT],
+  [_lI, _lA, _n, _co, _ta, _de, _cTr, _lMT],
   [0, 0, 0, () => LayoutContent$, [() => Tags, 0], 2, 5, 5], 4
 ];
 export var GetTemplateRequest$: StaticStructureSchema = [3, n0, _GTR,
@@ -929,7 +1025,7 @@ export var GetTemplateResponse$: StaticStructureSchema = [3, n0, _GTRe,
 ];
 export var HiddenCaseRule$: StaticStructureSchema = [3, n0, _HCR,
   0,
-  [_dV, _co],
+  [_dV, _con],
   [2, () => BooleanConditionList], 2
 ];
 export var LayoutConfiguration$: StaticStructureSchema = [3, n0, _LC,
@@ -979,7 +1075,7 @@ export var ListDomainsResponse$: StaticStructureSchema = [3, n0, _LDRi,
 ];
 export var ListFieldOptionsRequest$: StaticStructureSchema = [3, n0, _LFOR,
   0,
-  [_dI, _fI, _mR, _nT, _va],
+  [_dI, _fIi, _mR, _nT, _va],
   [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [64 | 0, { [_hQ]: _va }]], 2
 ];
 export var ListFieldOptionsResponse$: StaticStructureSchema = [3, n0, _LFORi,
@@ -1049,12 +1145,12 @@ export var RelatedItemEventIncludedData$: StaticStructureSchema = [3, n0, _RIEID
 ];
 export var RequiredCaseRule$: StaticStructureSchema = [3, n0, _RCR,
   0,
-  [_dV, _co],
+  [_dV, _con],
   [2, () => BooleanConditionList], 2
 ];
 export var RequiredField$: StaticStructureSchema = [3, n0, _RF,
   0,
-  [_fI],
+  [_fIi],
   [0], 1
 ];
 export var SearchAllRelatedItemsRequest$: StaticStructureSchema = [3, n0, _SARIR,
@@ -1064,12 +1160,12 @@ export var SearchAllRelatedItemsRequest$: StaticStructureSchema = [3, n0, _SARIR
 ];
 export var SearchAllRelatedItemsResponse$: StaticStructureSchema = [3, n0, _SARIRe,
   0,
-  [_rIe, _nT],
+  [_rIel, _nT],
   [[() => SearchAllRelatedItemsResponseItemList, 0], 0], 1
 ];
 export var SearchAllRelatedItemsResponseItem$: StaticStructureSchema = [3, n0, _SARIRI,
   0,
-  [_rII, _cI, _t, _aT, _con, _pB, _ta],
+  [_rII, _cIa, _t, _aT, _co, _pB, _ta],
   [0, 0, 0, 5, [() => RelatedItemContent$, 0], [() => UserUnion$, 0], [() => Tags, 0]], 5
 ];
 export var SearchAllRelatedItemsSort$: StaticStructureSchema = [3, n0, _SARIS,
@@ -1089,32 +1185,32 @@ export var SearchCasesResponse$: StaticStructureSchema = [3, n0, _SCRe,
 ];
 export var SearchCasesResponseItem$: StaticStructureSchema = [3, n0, _SCRI,
   0,
-  [_cI, _tI, _f, _ta],
+  [_cIa, _tI, _f, _ta],
   [0, 0, () => FieldValueList, [() => Tags, 0]], 3
 ];
 export var SearchRelatedItemsRequest$: StaticStructureSchema = [3, n0, _SRIR,
   0,
-  [_dI, _cI, _mR, _nT, _fi],
+  [_dI, _cIa, _mR, _nT, _fi],
   [[0, 1], [0, 1], 1, 0, [() => RelatedItemFilterList, 0]], 2
 ];
 export var SearchRelatedItemsResponse$: StaticStructureSchema = [3, n0, _SRIRe,
   0,
-  [_rIe, _nT],
+  [_rIel, _nT],
   [[() => SearchRelatedItemsResponseItemList, 0], 0], 1
 ];
 export var SearchRelatedItemsResponseItem$: StaticStructureSchema = [3, n0, _SRIRI,
   0,
-  [_rII, _t, _aT, _con, _ta, _pB],
+  [_rII, _t, _aT, _co, _ta, _pB],
   [0, 0, 5, [() => RelatedItemContent$, 0], [() => Tags, 0], [() => UserUnion$, 0]], 4
 ];
 export var SlaConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
-  [_n, _t, _st, _tT, _fI, _tFV, _cTo],
+  [_n, _t, _st, _tT, _fIi, _tFV, _cTom],
   [[() => SlaName, 0], 0, 0, 5, 0, () => SlaFieldValueUnionList, 5], 4
 ];
 export var SlaContent$: StaticStructureSchema = [3, n0, _SCl,
   0,
-  [_sC],
+  [_sCl],
   [[() => SlaConfiguration$, 0]], 1
 ];
 export var SlaFilter$: StaticStructureSchema = [3, n0, _SF,
@@ -1124,12 +1220,12 @@ export var SlaFilter$: StaticStructureSchema = [3, n0, _SF,
 ];
 export var SlaInputConfiguration$: StaticStructureSchema = [3, n0, _SIC,
   0,
-  [_n, _t, _tSM, _fI, _tFV],
+  [_n, _t, _tSM, _fIi, _tFV],
   [[() => SlaName, 0], 0, 1, 0, () => SlaFieldValueUnionList], 3
 ];
 export var Sort$: StaticStructureSchema = [3, n0, _S,
   0,
-  [_fI, _sO],
+  [_fIi, _sO],
   [0, 0], 2
 ];
 export var TagPropagationConfiguration$: StaticStructureSchema = [3, n0, _TPC,
@@ -1149,7 +1245,7 @@ export var TagValue$: StaticStructureSchema = [3, n0, _TV,
 ];
 export var TemplateRule$: StaticStructureSchema = [3, n0, _TR,
   0,
-  [_cRI, _fI],
+  [_cRI, _fIi],
   [0, 0], 1
 ];
 export var TemplateSummary$: StaticStructureSchema = [3, n0, _TS,
@@ -1169,7 +1265,7 @@ export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
 ];
 export var UpdateCaseRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_dI, _cI, _f, _pB],
+  [_dI, _cIa, _f, _pB],
   [[0, 1], [0, 1], () => FieldValueList, [() => UserUnion$, 0]], 3
 ];
 export var UpdateCaseResponse$: StaticStructureSchema = [3, n0, _UCRp,
@@ -1189,7 +1285,7 @@ export var UpdateCaseRuleResponse$: StaticStructureSchema = [3, n0, _UCRRp,
 ];
 export var UpdateFieldRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
-  [_dI, _fI, _n, _d, _a],
+  [_dI, _fIi, _n, _d, _a],
   [[0, 1], [0, 1], 0, 0, () => FieldAttributes$], 2
 ];
 export var UpdateFieldResponse$: StaticStructureSchema = [3, n0, _UFRp,
@@ -1199,7 +1295,7 @@ export var UpdateFieldResponse$: StaticStructureSchema = [3, n0, _UFRp,
 ];
 export var UpdateLayoutRequest$: StaticStructureSchema = [3, n0, _ULR,
   0,
-  [_dI, _lI, _n, _con],
+  [_dI, _lI, _n, _co],
   [[0, 1], [0, 1], 0, () => LayoutContent$], 2
 ];
 export var UpdateLayoutResponse$: StaticStructureSchema = [3, n0, _ULRp,
@@ -1209,12 +1305,12 @@ export var UpdateLayoutResponse$: StaticStructureSchema = [3, n0, _ULRp,
 ];
 export var UpdateRelatedItemRequest$: StaticStructureSchema = [3, n0, _URIR,
   0,
-  [_dI, _cI, _rII, _con, _pB],
+  [_dI, _cIa, _rII, _co, _pB],
   [[0, 1], [0, 1], [0, 1], () => RelatedItemUpdateContent$, [() => UserUnion$, 0]], 4
 ];
 export var UpdateRelatedItemResponse$: StaticStructureSchema = [3, n0, _URIRp,
   0,
-  [_rII, _rIA, _t, _con, _aT, _ta, _lUU, _cB],
+  [_rII, _rIA, _t, _co, _aT, _ta, _lUU, _cB],
   [0, 0, 0, [() => RelatedItemContent$, 0], 5, [() => Tags, 0], [() => UserUnion$, 0], [() => UserUnion$, 0]], 5
 ];
 export var UpdateTemplateRequest$: StaticStructureSchema = [3, n0, _UTR,
@@ -1235,6 +1331,15 @@ var AuditEventsList: StaticListSchema = [1, n0, _AEL,
   { [_sp]: 1 }, [() => AuditEvent$,
     0]
 ];
+var BatchCreateRelatedItemErrorEntryList: StaticListSchema = [1, n0, _BCRIEEL,
+  0, () => BatchCreateRelatedItemErrorEntry$
+];
+var BatchCreateRelatedItemIdentifierList: StaticListSchema = [1, n0, _BCRIIL,
+  0, () => BatchCreateRelatedItemIdentifier$
+];
+var BatchCreateRelatedItemSuccessEntryList: StaticListSchema = [1, n0, _BCRISEL,
+  0, () => BatchCreateRelatedItemSuccessEntry$
+];
 var BatchGetCaseRuleErrorList: StaticListSchema = [1, n0, _BGCREL,
   0, () => CaseRuleError$
 ];
@@ -1252,6 +1357,15 @@ var BatchGetFieldIdentifierList: StaticListSchema = [1, n0, _BGFIL,
 var BatchGetFieldList: StaticListSchema = [1, n0, _BGFL,
   0, [() => GetFieldResponse$,
     0]
+];
+var BatchUpdateCaseErrorEntryList: StaticListSchema = [1, n0, _BUCEEL,
+  0, () => BatchUpdateCaseErrorEntry$
+];
+var BatchUpdateCaseIdentifierList: StaticListSchema = [1, n0, _BUCIL,
+  0, () => BatchUpdateCaseIdentifier$
+];
+var BatchUpdateCaseSuccessEntryList: StaticListSchema = [1, n0, _BUCSEL,
+  0, () => BatchUpdateCaseSuccessEntry$
 ];
 var BooleanConditionList: StaticListSchema = [1, n0, _BCL,
   0, () => BooleanCondition$
@@ -1289,6 +1403,9 @@ var FieldOptionsList: StaticListSchema = [1, n0, _FOL,
 ];
 var FieldSummaryList: StaticListSchema = [1, n0, _FSL,
   0, () => FieldSummary$
+];
+var FieldValueInputList: StaticListSchema = [1, n0, _FVIL,
+  0, () => FieldValueInput$
 ];
 var FieldValueList: StaticListSchema = [1, n0, _FVL,
   0, () => FieldValue$
@@ -1362,6 +1479,11 @@ export var CaseFilter$: StaticUnionSchema = [4, n0, _CFa,
   [_fie, _no, _tag, _aA, _oA],
   [() => FieldFilter$, () => CaseFilter$, () => TagFilter$, () => CaseFilterList, () => CaseFilterList]
 ];
+export var CaseIdentifierUnion$: StaticUnionSchema = [4, n0, _CIU,
+  0,
+  [_cIa, _rIe],
+  [0, 0]
+];
 export var CaseRuleDetails$: StaticUnionSchema = [4, n0, _CRD,
   0,
   [_re, _fO, _h],
@@ -1382,6 +1504,11 @@ export var FieldFilter$: StaticUnionSchema = [4, n0, _FFi,
   [_eT, _cont, _gT, _gTOET, _lT, _lTOET],
   [() => FieldValue$, () => FieldValue$, () => FieldValue$, () => FieldValue$, () => FieldValue$, () => FieldValue$]
 ];
+export var FieldIdentifierUnion$: StaticUnionSchema = [4, n0, _FIU,
+  0,
+  [_i, _n],
+  [0, 0]
+];
 export var FieldValueUnion$: StaticUnionSchema = [4, n0, _FVU,
   0,
   [_sV, _dVo, _bV, _eV, _uAV],
@@ -1394,7 +1521,7 @@ export var LayoutContent$: StaticUnionSchema = [4, n0, _LCa,
 ];
 export var OperandOne$: StaticUnionSchema = [4, n0, _OO,
   0,
-  [_fI],
+  [_fIi],
   [0]
 ];
 export var OperandTwo$: StaticUnionSchema = [4, n0, _OT,
@@ -1442,6 +1569,9 @@ export var UserUnion$: StaticUnionSchema = [4, n0, _UU,
   [_uA, _cE],
   [0, [() => CustomEntity, 0]]
 ];
+export var BatchCreateRelatedItem$: StaticOperationSchema = [9, n0, _BCRI,
+  { [_ht]: ["POST", "/cases:batchCreateRelatedItem", 200] }, () => BatchCreateRelatedItemRequest$, () => BatchCreateRelatedItemResponse$
+];
 export var BatchGetCaseRule$: StaticOperationSchema = [9, n0, _BGCR,
   { [_ht]: ["POST", "/domains/{domainId}/rules-batch", 200] }, () => BatchGetCaseRuleRequest$, () => BatchGetCaseRuleResponse$
 ];
@@ -1450,6 +1580,9 @@ export var BatchGetField$: StaticOperationSchema = [9, n0, _BGF,
 ];
 export var BatchPutFieldOptions$: StaticOperationSchema = [9, n0, _BPFO,
   { [_ht]: ["PUT", "/domains/{domainId}/fields/{fieldId}/options", 200] }, () => BatchPutFieldOptionsRequest$, () => BatchPutFieldOptionsResponse$
+];
+export var BatchUpdateCase$: StaticOperationSchema = [9, n0, _BUC,
+  { [_ht]: ["PUT", "/cases:batchUpdateCase", 200] }, () => BatchUpdateCaseRequest$, () => BatchUpdateCaseResponse$
 ];
 export var CreateCase$: StaticOperationSchema = [9, n0, _CCr,
   { [_ht]: ["POST", "/domains/{domainId}/cases", 200] }, () => CreateCaseRequest$, () => CreateCaseResponse$
@@ -1469,7 +1602,7 @@ export var CreateLayout$: StaticOperationSchema = [9, n0, _CL,
 export var CreateRelatedItem$: StaticOperationSchema = [9, n0, _CRIr,
   { [_ht]: ["POST", "/domains/{domainId}/cases/{caseId}/related-items/", 200] }, () => CreateRelatedItemRequest$, () => CreateRelatedItemResponse$
 ];
-export var CreateTemplate$: StaticOperationSchema = [9, n0, _CT,
+export var CreateTemplate$: StaticOperationSchema = [9, n0, _CTr,
   { [_ht]: ["POST", "/domains/{domainId}/templates", 200] }, () => CreateTemplateRequest$, () => CreateTemplateResponse$
 ];
 export var DeleteCase$: StaticOperationSchema = [9, n0, _DC,

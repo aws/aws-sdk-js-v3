@@ -8,6 +8,11 @@ import type {
 } from "@smithy/types";
 
 import {
+  type BatchCreateRelatedItemCommandInput,
+  type BatchCreateRelatedItemCommandOutput,
+  BatchCreateRelatedItemCommand,
+} from "./commands/BatchCreateRelatedItemCommand";
+import {
   type BatchGetCaseRuleCommandInput,
   type BatchGetCaseRuleCommandOutput,
   BatchGetCaseRuleCommand,
@@ -22,6 +27,11 @@ import {
   type BatchPutFieldOptionsCommandOutput,
   BatchPutFieldOptionsCommand,
 } from "./commands/BatchPutFieldOptionsCommand";
+import {
+  type BatchUpdateCaseCommandInput,
+  type BatchUpdateCaseCommandOutput,
+  BatchUpdateCaseCommand,
+} from "./commands/BatchUpdateCaseCommand";
 import {
   type CreateCaseCommandInput,
   type CreateCaseCommandOutput,
@@ -225,9 +235,11 @@ import { paginateSearchCases } from "./pagination/SearchCasesPaginator";
 import { paginateSearchRelatedItems } from "./pagination/SearchRelatedItemsPaginator";
 
 const commands = {
+  BatchCreateRelatedItemCommand,
   BatchGetCaseRuleCommand,
   BatchGetFieldCommand,
   BatchPutFieldOptionsCommand,
+  BatchUpdateCaseCommand,
   CreateCaseCommand,
   CreateCaseRuleCommand,
   CreateDomainCommand,
@@ -293,6 +305,23 @@ export interface ConnectCasesRequestOptions extends __HttpHandlerOptions {
 
 export interface ConnectCases {
   /**
+   * @see {@link BatchCreateRelatedItemCommand}
+   */
+  batchCreateRelatedItem(
+    args: BatchCreateRelatedItemCommandInput,
+    options?: ConnectCasesRequestOptions
+  ): Promise<BatchCreateRelatedItemCommandOutput>;
+  batchCreateRelatedItem(
+    args: BatchCreateRelatedItemCommandInput,
+    cb: (err: any, data?: BatchCreateRelatedItemCommandOutput) => void
+  ): void;
+  batchCreateRelatedItem(
+    args: BatchCreateRelatedItemCommandInput,
+    options: ConnectCasesRequestOptions,
+    cb: (err: any, data?: BatchCreateRelatedItemCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchGetCaseRuleCommand}
    */
   batchGetCaseRule(
@@ -341,6 +370,23 @@ export interface ConnectCases {
     args: BatchPutFieldOptionsCommandInput,
     options: ConnectCasesRequestOptions,
     cb: (err: any, data?: BatchPutFieldOptionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdateCaseCommand}
+   */
+  batchUpdateCase(
+    args: BatchUpdateCaseCommandInput,
+    options?: ConnectCasesRequestOptions
+  ): Promise<BatchUpdateCaseCommandOutput>;
+  batchUpdateCase(
+    args: BatchUpdateCaseCommandInput,
+    cb: (err: any, data?: BatchUpdateCaseCommandOutput) => void
+  ): void;
+  batchUpdateCase(
+    args: BatchUpdateCaseCommandInput,
+    options: ConnectCasesRequestOptions,
+    cb: (err: any, data?: BatchUpdateCaseCommandOutput) => void
   ): void;
 
   /**
@@ -1158,7 +1204,7 @@ export interface ConnectCases {
 }
 
 /**
- * <ul> <li> <p> <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Cases.html">Cases actions</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Cases.html">Cases data types</a> </p> </li> </ul> <p>With Amazon Connect Cases, your agents can track and manage customer issues that require multiple interactions, follow-up tasks, and teams in your contact center. A case represents a customer issue. It records the issue, the steps and interactions taken to resolve the issue, and the outcome. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Amazon Connect Cases</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * <ul> <li> <p> <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Cases.html">Cases actions</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Cases.html">Cases data types</a> </p> </li> </ul> <p>With Connect Customer Cases, your agents can track and manage customer issues that require multiple interactions, follow-up tasks, and teams in your contact center. A case represents a customer issue. It records the issue, the steps and interactions taken to resolve the issue, and the outcome. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Connect Customer Cases</a> in the <i>Connect Customer Administrator Guide</i>.</p>
  * @public
  */
 export class ConnectCases extends ConnectCasesClient implements ConnectCases {}

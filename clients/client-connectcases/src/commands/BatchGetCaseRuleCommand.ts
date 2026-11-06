@@ -23,7 +23,7 @@ export interface BatchGetCaseRuleCommandInput extends BatchGetCaseRuleRequest {}
 export interface BatchGetCaseRuleCommandOutput extends BatchGetCaseRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a batch of case rules. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
+ * <p>Gets a batch of case rules. In the Connect Customer admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

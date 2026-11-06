@@ -23,7 +23,7 @@ export interface ListCaseRulesCommandInput extends ListCaseRulesRequest {}
 export interface ListCaseRulesCommandOutput extends ListCaseRulesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all case rules in a Cases domain. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
+ * <p>Lists all case rules in a Cases domain. In the Connect Customer admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

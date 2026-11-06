@@ -16,6 +16,113 @@ import type {
 } from "./enums";
 
 /**
+ * <p>Identifies a case by its case ID or its reference ID. Specify only one member.</p>
+ * @public
+ */
+export type CaseIdentifierUnion =
+  | CaseIdentifierUnion.CaseIdMember
+  | CaseIdentifierUnion.ReferenceIdMember
+  | CaseIdentifierUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CaseIdentifierUnion {
+  /**
+   * <p>The unique identifier of the case.</p>
+   * @public
+   */
+  export interface CaseIdMember {
+    caseId: string;
+    referenceId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The reference ID of the case. Reference IDs are unique within a domain, and uniqueness isn't case sensitive.</p>
+   * @public
+   */
+  export interface ReferenceIdMember {
+    caseId?: never;
+    referenceId: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    caseId?: never;
+    referenceId?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    caseId: (value: string) => T;
+    referenceId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Identifies a case to associate the related item with in a <code>BatchCreateRelatedItem</code> request.</p>
+ * @public
+ */
+export interface BatchCreateRelatedItemIdentifier {
+  /**
+   * <p>The identifier of the case to associate the related item with. Specify either the case ID or the reference ID.</p>
+   * @public
+   */
+  caseIdentifier: CaseIdentifierUnion | undefined;
+}
+
+/**
+ * <p>Represents the content of a <code>Comment</code> to be returned to agents.</p>
+ * @public
+ */
+export interface CommentContent {
+  /**
+   * <p>Text in the body of a <code>Comment</code> on a case.</p>
+   * @public
+   */
+  body: string | undefined;
+
+  /**
+   * <p>Type of the text in the box of a <code>Comment</code> on a case.</p>
+   * @public
+   */
+  contentType: CommentBodyTextType | undefined;
+}
+
+/**
+ * <p>Represents the content of a <code>ConnectCase</code> related item.</p>
+ * @public
+ */
+export interface ConnectCaseInputContent {
+  /**
+   * <p>A unique identifier of the case.</p>
+   * @public
+   */
+  caseId: string | undefined;
+}
+
+/**
+ * <p>An object that represents an Connect Customer contact object. </p>
+ * @public
+ */
+export interface Contact {
+  /**
+   * <p>A unique identifier of a contact in Connect Customer.</p>
+   * @public
+   */
+  contactArn: string | undefined;
+}
+
+/**
  * <p>An empty value. You cannot set <code>EmptyFieldValue</code> on a field that is required on a case template.</p> <p>This structure will never have any data members. It signifies an empty value on a case field.</p>
  * @public
  */
@@ -147,6 +254,234 @@ export interface FieldValue {
 }
 
 /**
+ * <p>Represents the content of a <code>Custom</code> related item.</p>
+ * @public
+ */
+export interface CustomInputContent {
+  /**
+   * <p>List of field values for the <code>Custom</code> related item.</p>
+   * @public
+   */
+  fields: FieldValue[] | undefined;
+}
+
+/**
+ * <p>An object that represents a content of an Connect Customer file object.</p>
+ * @public
+ */
+export interface FileContent {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a File in Connect Customer.</p>
+   * @public
+   */
+  fileArn: string | undefined;
+}
+
+/**
+ * <p>Represents the input configuration of an SLA being created.</p>
+ * @public
+ */
+export interface SlaInputConfiguration {
+  /**
+   * <p>Name of an SLA.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Type of SLA.</p>
+   * @public
+   */
+  type: SlaType | undefined;
+
+  /**
+   * <p>Unique identifier of a field.</p>
+   * @public
+   */
+  fieldId?: string | undefined;
+
+  /**
+   * <p>Represents a list of target field values for the fieldId specified in SlaInputConfiguration. The SLA is considered met if any one of these target field values matches the actual field value.</p>
+   * @public
+   */
+  targetFieldValues?: FieldValueUnion[] | undefined;
+
+  /**
+   * <p>Target duration in minutes within which an SLA should be completed.</p>
+   * @public
+   */
+  targetSlaMinutes: number | undefined;
+}
+
+/**
+ * <p>Represents the content of an SLA.</p>
+ * @public
+ */
+export type SlaInputContent =
+  | SlaInputContent.SlaInputConfigurationMember
+  | SlaInputContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SlaInputContent {
+  /**
+   * <p>Represents an input SLA configuration.</p>
+   * @public
+   */
+  export interface SlaInputConfigurationMember {
+    slaInputConfiguration: SlaInputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    slaInputConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    slaInputConfiguration: (value: SlaInputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Represents the content of a related item to be created.</p>
+ * @public
+ */
+export type RelatedItemInputContent =
+  | RelatedItemInputContent.CommentMember
+  | RelatedItemInputContent.ConnectCaseMember
+  | RelatedItemInputContent.ContactMember
+  | RelatedItemInputContent.CustomMember
+  | RelatedItemInputContent.FileMember
+  | RelatedItemInputContent.SlaMember
+  | RelatedItemInputContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RelatedItemInputContent {
+  /**
+   * <p>Object representing a contact in Connect Customer as an API request field.</p>
+   * @public
+   */
+  export interface ContactMember {
+    contact: Contact;
+    comment?: never;
+    file?: never;
+    sla?: never;
+    connectCase?: never;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents the content of a comment to be returned to agents.</p>
+   * @public
+   */
+  export interface CommentMember {
+    contact?: never;
+    comment: CommentContent;
+    file?: never;
+    sla?: never;
+    connectCase?: never;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A file of related items.</p>
+   * @public
+   */
+  export interface FileMember {
+    contact?: never;
+    comment?: never;
+    file: FileContent;
+    sla?: never;
+    connectCase?: never;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents the content of an SLA to be created.</p>
+   * @public
+   */
+  export interface SlaMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla: SlaInputContent;
+    connectCase?: never;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents the Connect Customer case to be created as a related item.</p>
+   * @public
+   */
+  export interface ConnectCaseMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla?: never;
+    connectCase: ConnectCaseInputContent;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents the content of a <code>Custom</code> type related item.</p>
+   * @public
+   */
+  export interface CustomMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla?: never;
+    connectCase?: never;
+    custom: CustomInputContent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla?: never;
+    connectCase?: never;
+    custom?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    contact: (value: Contact) => T;
+    comment: (value: CommentContent) => T;
+    file: (value: FileContent) => T;
+    sla: (value: SlaInputContent) => T;
+    connectCase: (value: ConnectCaseInputContent) => T;
+    custom: (value: CustomInputContent) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Represents the entity that performed the action.</p>
  * @public
  */
@@ -160,7 +495,7 @@ export type UserUnion =
  */
 export namespace UserUnion {
   /**
-   * <p>Represents the Amazon Connect ARN of the user.</p>
+   * <p>Represents the Connect Customer ARN of the user.</p>
    * @public
    */
   export interface UserArnMember {
@@ -202,6 +537,319 @@ export namespace UserUnion {
 /**
  * @public
  */
+export interface BatchCreateRelatedItemRequest {
+  /**
+   * <p>The unique identifier of the Cases domain. </p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The content of the related item to be created. The same content is applied to every case in the request. Only comment content is supported for batch creation.</p>
+   * @public
+   */
+  content: RelatedItemInputContent | undefined;
+
+  /**
+   * <p>The list of cases to associate the related item with. All cases must belong to the same domain.</p>
+   * @public
+   */
+  cases: BatchCreateRelatedItemIdentifier[] | undefined;
+
+  /**
+   * <p>The entity that created the related item.</p>
+   * @public
+   */
+  performedBy?: UserUnion | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p> <p>If you retry a request with the same client token, the service returns the original response instead of processing the request again. If you reuse a client token with different request parameters, the request fails with a <code>ConflictException</code>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>The identifiers of a case that a batch operation returns.</p>
+ * @public
+ */
+export interface CaseIdentifier {
+  /**
+   * <p>The unique identifier of the case.</p>
+   * @public
+   */
+  caseId?: string | undefined;
+
+  /**
+   * <p>The reference number of the case. Reference numbers aren't guaranteed to be unique. <code>BatchUpdateCase</code> and <code>BatchCreateRelatedItem</code> don't return this value.</p>
+   * @public
+   */
+  referenceNumber?: string | undefined;
+
+  /**
+   * <p>The reference ID of the case. Cases created before reference IDs were available don't have one.</p>
+   * @public
+   */
+  referenceId?: string | undefined;
+}
+
+/**
+ * <p>Information about a related item that wasn't created.</p>
+ * @public
+ */
+export interface BatchCreateRelatedItemErrorEntry {
+  /**
+   * <p>The identifiers of the case that the related item wasn't created for.</p>
+   * @public
+   */
+  caseIdentifier: CaseIdentifier | undefined;
+
+  /**
+   * <p>The error code. For possible values, see <code>failedItems</code>.</p>
+   * @public
+   */
+  errorCode: string | undefined;
+
+  /**
+   * <p>A message that describes the error.</p>
+   * @public
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * <p>Information about a related item that was created.</p>
+ * @public
+ */
+export interface BatchCreateRelatedItemSuccessEntry {
+  /**
+   * <p>The identifiers of the case that the related item is associated with.</p>
+   * @public
+   */
+  caseIdentifier: CaseIdentifier | undefined;
+
+  /**
+   * <p>The unique identifier of the related item.</p>
+   * @public
+   */
+  relatedItemId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the related item.</p>
+   * @public
+   */
+  relatedItemArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateRelatedItemResponse {
+  /**
+   * <p>The list of related items that were successfully created and associated with their cases.</p>
+   * @public
+   */
+  successfulItems: BatchCreateRelatedItemSuccessEntry[] | undefined;
+
+  /**
+   * <p>The list of related items that were not created. Each entry includes an error code and message. Possible error codes include:</p> <ul> <li> <p> <code>CASE_NOT_FOUND</code> - No case exists with the specified case ID.</p> </li> <li> <p> <code>VALIDATION_ERROR</code> - The request contains invalid input.</p> </li> <li> <p> <code>CONFLICT</code> - Another operation is in progress on the case, such as a concurrent update or a merge of the case into another case.</p> </li> <li> <p> <code>THROTTLED</code> - The request rate exceeded the allowed limit.</p> </li> <li> <p> <code>ACCESS_DENIED</code> - The caller lacks permission to perform the operation.</p> </li> <li> <p> <code>SERVICE_QUOTA_EXCEEDED</code> - The request exceeded a service quota.</p> </li> <li> <p> <code>DOMAIN_NOT_FOUND</code> - The case domain was deleted while the request was being processed.</p> </li> <li> <p> <code>INTERNAL_ERROR</code> - An unexpected error occurred on the server.</p> </li> </ul>
+   * @public
+   */
+  failedItems: BatchCreateRelatedItemErrorEntry[] | undefined;
+}
+
+/**
+ * <p>Identifies a case to update in a <code>BatchUpdateCase</code> request.</p>
+ * @public
+ */
+export interface BatchUpdateCaseIdentifier {
+  /**
+   * <p>The identifier of the case to update. Specify either the case ID or the reference ID.</p>
+   * @public
+   */
+  caseIdentifier: CaseIdentifierUnion | undefined;
+}
+
+/**
+ * <p>Identifies a field by its ID or by its name. Specify only one member. Identifying a field by name is supported only in <code>BatchUpdateCase</code>.</p>
+ * @public
+ */
+export type FieldIdentifierUnion =
+  | FieldIdentifierUnion.IdMember
+  | FieldIdentifierUnion.NameMember
+  | FieldIdentifierUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FieldIdentifierUnion {
+  /**
+   * <p>The unique identifier of the field.</p>
+   * @public
+   */
+  export interface IdMember {
+    id: string;
+    name?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  export interface NameMember {
+    id?: never;
+    name: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    id?: never;
+    name?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    id: (value: string) => T;
+    name: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A field and the value to set for it.</p>
+ * @public
+ */
+export interface FieldValueInput {
+  /**
+   * <p>The field to update, identified by field ID or field name.</p>
+   * @public
+   */
+  fieldIdentifier: FieldIdentifierUnion | undefined;
+
+  /**
+   * <p>The value to set for the field.</p>
+   * @public
+   */
+  value: FieldValueUnion | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateCaseRequest {
+  /**
+   * <p>The unique identifier of the Cases domain. </p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The list of cases to update. All cases must belong to the same domain.</p>
+   * @public
+   */
+  cases: BatchUpdateCaseIdentifier[] | undefined;
+
+  /**
+   * <p>An array of objects, each with a <code>fieldIdentifier</code> and a <code>value</code>. You can identify each field by its ID or by its name; identifying a field by name is supported only in <code>BatchUpdateCase</code>. The same field values are applied to every case in the request. This field must be present, but can be an empty list when you provide the top-level <code>title</code>, <code>status</code>, or <code>customerId</code> parameters. Do not include <code>title</code>, <code>status</code>, or <code>customerId</code> in this list; set those values only through their top-level parameters. Duplicating them in <code>fields</code> results in a validation error.</p>
+   * @public
+   */
+  fields: FieldValueInput[] | undefined;
+
+  /**
+   * <p>The entity that performed the action.</p>
+   * @public
+   */
+  performedBy?: UserUnion | undefined;
+
+  /**
+   * <p>The title to apply to all cases in the request.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The status to apply to all cases in the request.</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>The ARN of the customer profile to associate with all cases in the request.</p>
+   * @public
+   */
+  customerId?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p> <p>If you retry a request with the same client token, the service returns the original response instead of processing the request again. If you reuse a client token with different request parameters, the request fails with a <code>ConflictException</code>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Information about a case that wasn't updated.</p>
+ * @public
+ */
+export interface BatchUpdateCaseErrorEntry {
+  /**
+   * <p>The identifiers of the case that wasn't updated.</p>
+   * @public
+   */
+  caseIdentifier: CaseIdentifier | undefined;
+
+  /**
+   * <p>The error code. For possible values, see <code>failedCases</code>.</p>
+   * @public
+   */
+  errorCode: string | undefined;
+
+  /**
+   * <p>A message that describes the error.</p>
+   * @public
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * <p>Information about a case that was updated.</p>
+ * @public
+ */
+export interface BatchUpdateCaseSuccessEntry {
+  /**
+   * <p>The identifiers of the updated case.</p>
+   * @public
+   */
+  caseIdentifier: CaseIdentifier | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateCaseResponse {
+  /**
+   * <p>The list of cases that were successfully updated.</p>
+   * @public
+   */
+  successfulCases: BatchUpdateCaseSuccessEntry[] | undefined;
+
+  /**
+   * <p>The list of cases that were not updated. Each entry includes an error code and message. Possible error codes include:</p> <ul> <li> <p> <code>CASE_NOT_FOUND</code> - No case exists with the specified case ID.</p> </li> <li> <p> <code>VALIDATION_ERROR</code> - The request contains invalid input.</p> </li> <li> <p> <code>CONFLICT</code> - Another operation is in progress on the case, such as a concurrent update or a merge of the case into another case.</p> </li> <li> <p> <code>THROTTLED</code> - The request rate exceeded the allowed limit.</p> </li> <li> <p> <code>ACCESS_DENIED</code> - The caller lacks permission to perform the operation.</p> </li> <li> <p> <code>SERVICE_QUOTA_EXCEEDED</code> - The request exceeded a service quota.</p> </li> <li> <p> <code>DOMAIN_NOT_FOUND</code> - The case domain was deleted while the request was being processed.</p> </li> <li> <p> <code>INTERNAL_ERROR</code> - An unexpected error occurred on the server.</p> </li> </ul>
+   * @public
+   */
+  failedCases: BatchUpdateCaseErrorEntry[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateCaseRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -234,7 +882,7 @@ export interface CreateCaseRequest {
   performedBy?: UserUnion | undefined;
 
   /**
-   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * <p>A map of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -343,7 +991,7 @@ export interface GetCaseResponse {
   nextToken?: string | undefined;
 
   /**
-   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * <p>A map of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
   tags?: Record<string, string | null> | undefined;
@@ -597,7 +1245,7 @@ export interface ListCasesForContactRequest {
   domainId: string | undefined;
 
   /**
-   * <p>A unique identifier of a contact in Amazon Connect.</p>
+   * <p>A unique identifier of a contact in Connect Customer.</p>
    * @public
    */
   contactArn: string | undefined;
@@ -648,276 +1296,6 @@ export interface ListCasesForContactResponse {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * <p>Represents the content of a <code>Comment</code> to be returned to agents.</p>
- * @public
- */
-export interface CommentContent {
-  /**
-   * <p>Text in the body of a <code>Comment</code> on a case.</p>
-   * @public
-   */
-  body: string | undefined;
-
-  /**
-   * <p>Type of the text in the box of a <code>Comment</code> on a case.</p>
-   * @public
-   */
-  contentType: CommentBodyTextType | undefined;
-}
-
-/**
- * <p>Represents the content of a <code>ConnectCase</code> related item.</p>
- * @public
- */
-export interface ConnectCaseInputContent {
-  /**
-   * <p>A unique identifier of the case.</p>
-   * @public
-   */
-  caseId: string | undefined;
-}
-
-/**
- * <p>An object that represents an Amazon Connect contact object. </p>
- * @public
- */
-export interface Contact {
-  /**
-   * <p>A unique identifier of a contact in Amazon Connect.</p>
-   * @public
-   */
-  contactArn: string | undefined;
-}
-
-/**
- * <p>Represents the content of a <code>Custom</code> related item.</p>
- * @public
- */
-export interface CustomInputContent {
-  /**
-   * <p>List of field values for the <code>Custom</code> related item.</p>
-   * @public
-   */
-  fields: FieldValue[] | undefined;
-}
-
-/**
- * <p>An object that represents a content of an Amazon Connect file object.</p>
- * @public
- */
-export interface FileContent {
-  /**
-   * <p>The Amazon Resource Name (ARN) of a File in Amazon Connect.</p>
-   * @public
-   */
-  fileArn: string | undefined;
-}
-
-/**
- * <p>Represents the input configuration of an SLA being created.</p>
- * @public
- */
-export interface SlaInputConfiguration {
-  /**
-   * <p>Name of an SLA.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>Type of SLA.</p>
-   * @public
-   */
-  type: SlaType | undefined;
-
-  /**
-   * <p>Unique identifier of a field.</p>
-   * @public
-   */
-  fieldId?: string | undefined;
-
-  /**
-   * <p>Represents a list of target field values for the fieldId specified in SlaInputConfiguration. The SLA is considered met if any one of these target field values matches the actual field value.</p>
-   * @public
-   */
-  targetFieldValues?: FieldValueUnion[] | undefined;
-
-  /**
-   * <p>Target duration in minutes within which an SLA should be completed.</p>
-   * @public
-   */
-  targetSlaMinutes: number | undefined;
-}
-
-/**
- * <p>Represents the content of an SLA.</p>
- * @public
- */
-export type SlaInputContent =
-  | SlaInputContent.SlaInputConfigurationMember
-  | SlaInputContent.$UnknownMember;
-
-/**
- * @public
- */
-export namespace SlaInputContent {
-  /**
-   * <p>Represents an input SLA configuration.</p>
-   * @public
-   */
-  export interface SlaInputConfigurationMember {
-    slaInputConfiguration: SlaInputConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    slaInputConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    slaInputConfiguration: (value: SlaInputConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Represents the content of a related item to be created.</p>
- * @public
- */
-export type RelatedItemInputContent =
-  | RelatedItemInputContent.CommentMember
-  | RelatedItemInputContent.ConnectCaseMember
-  | RelatedItemInputContent.ContactMember
-  | RelatedItemInputContent.CustomMember
-  | RelatedItemInputContent.FileMember
-  | RelatedItemInputContent.SlaMember
-  | RelatedItemInputContent.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RelatedItemInputContent {
-  /**
-   * <p>Object representing a contact in Amazon Connect as an API request field.</p>
-   * @public
-   */
-  export interface ContactMember {
-    contact: Contact;
-    comment?: never;
-    file?: never;
-    sla?: never;
-    connectCase?: never;
-    custom?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Represents the content of a comment to be returned to agents.</p>
-   * @public
-   */
-  export interface CommentMember {
-    contact?: never;
-    comment: CommentContent;
-    file?: never;
-    sla?: never;
-    connectCase?: never;
-    custom?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A file of related items.</p>
-   * @public
-   */
-  export interface FileMember {
-    contact?: never;
-    comment?: never;
-    file: FileContent;
-    sla?: never;
-    connectCase?: never;
-    custom?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Represents the content of an SLA to be created.</p>
-   * @public
-   */
-  export interface SlaMember {
-    contact?: never;
-    comment?: never;
-    file?: never;
-    sla: SlaInputContent;
-    connectCase?: never;
-    custom?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Represents the Amazon Connect case to be created as a related item.</p>
-   * @public
-   */
-  export interface ConnectCaseMember {
-    contact?: never;
-    comment?: never;
-    file?: never;
-    sla?: never;
-    connectCase: ConnectCaseInputContent;
-    custom?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Represents the content of a <code>Custom</code> type related item.</p>
-   * @public
-   */
-  export interface CustomMember {
-    contact?: never;
-    comment?: never;
-    file?: never;
-    sla?: never;
-    connectCase?: never;
-    custom: CustomInputContent;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    contact?: never;
-    comment?: never;
-    file?: never;
-    sla?: never;
-    connectCase?: never;
-    custom?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    contact: (value: Contact) => T;
-    comment: (value: CommentContent) => T;
-    file: (value: FileContent) => T;
-    sla: (value: SlaInputContent) => T;
-    connectCase: (value: ConnectCaseInputContent) => T;
-    custom: (value: CustomInputContent) => T;
-    _: (name: string, value: any) => T;
-  }
 }
 
 /**
@@ -1030,7 +1408,7 @@ export interface ContactFilter {
   channel?: string[] | undefined;
 
   /**
-   * <p>A unique identifier of a contact in Amazon Connect.</p>
+   * <p>A unique identifier of a contact in Connect Customer.</p>
    * @public
    */
   contactArn?: string | undefined;
@@ -1208,12 +1586,12 @@ export interface ConnectCaseContent {
 }
 
 /**
- * <p>An object that represents a content of an Amazon Connect contact object.</p>
+ * <p>An object that represents a content of an Connect Customer contact object.</p>
  * @public
  */
 export interface ContactContent {
   /**
-   * <p>A unique identifier of a contact in Amazon Connect.</p>
+   * <p>A unique identifier of a contact in Connect Customer.</p>
    * @public
    */
   contactArn: string | undefined;
@@ -1377,7 +1755,7 @@ export namespace RelatedItemContent {
   }
 
   /**
-   * <p>Represents the Amazon Connect case to be created as a related item.</p>
+   * <p>Represents the Connect Customer case to be created as a related item.</p>
    * @public
    */
   export interface ConnectCaseMember {
@@ -1462,7 +1840,7 @@ export interface SearchRelatedItemsResponseItem {
   content: RelatedItemContent | undefined;
 
   /**
-   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * <p>A map of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
   tags?: Record<string, string | null> | undefined;
@@ -1644,7 +2022,7 @@ export interface UpdateRelatedItemResponse {
   associationTime: Date | undefined;
 
   /**
-   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * <p>A map of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
   tags?: Record<string, string | null> | undefined;
@@ -1731,7 +2109,7 @@ export interface Sort {
   fieldId: string | undefined;
 
   /**
-   * <p>A structured set of sort terms</p>
+   * <p>Whether results should be sorted in ascending or descending order.</p>
    * @public
    */
   sortOrder: Order | undefined;
@@ -1761,7 +2139,7 @@ export interface SearchCasesResponseItem {
   fields: FieldValue[] | undefined;
 
   /**
-   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * <p>A map of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
   tags?: Record<string, string | null> | undefined;
@@ -1896,7 +2274,7 @@ export interface FieldOptionsCaseRule {
 }
 
 /**
- * <p>Represents the left hand operand in the condition. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
+ * <p>Represents the left hand operand in the condition. In the Connect Customer admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
 export type OperandOne =
@@ -1935,13 +2313,13 @@ export namespace OperandOne {
 }
 
 /**
- * <p>Represents an empty operand value. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
+ * <p>Represents an empty operand value. In the Connect Customer admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
 export interface EmptyOperandValue {}
 
 /**
- * <p>Represents the right hand operand in the condition. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
+ * <p>Represents the right hand operand in the condition. In the Connect Customer admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
 export type OperandTwo =
@@ -2028,7 +2406,7 @@ export namespace OperandTwo {
 }
 
 /**
- * <p>Boolean operands for a condition. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
+ * <p>Boolean operands for a condition. In the Connect Customer admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
 export interface BooleanOperands {
@@ -2052,7 +2430,7 @@ export interface BooleanOperands {
 }
 
 /**
- * <p>Error for batch describe case rules API failure. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
+ * <p>Error for batch describe case rules API failure. In the Connect Customer admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
 export interface CaseRuleError {
@@ -2138,7 +2516,7 @@ export interface ListCaseRulesRequest {
 }
 
 /**
- * <p>Summary information of this case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
+ * <p>Summary information of this case rule. In the Connect Customer admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
 export interface CaseRuleSummary {
@@ -2373,7 +2751,7 @@ export interface GetDomainResponse {
   domainStatus: DomainStatus | undefined;
 
   /**
-   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * <p>A map of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
   tags?: Record<string, string | null> | undefined;
@@ -2519,7 +2897,7 @@ export interface SearchAllRelatedItemsResponseItem {
   performedBy?: UserUnion | undefined;
 
   /**
-   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * <p>A map of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
   tags?: Record<string, string | null> | undefined;
@@ -2676,7 +3054,7 @@ export interface GetFieldResponse {
   namespace: FieldNamespace | undefined;
 
   /**
-   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * <p>A map of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
   tags?: Record<string, string | null> | undefined;
@@ -3299,7 +3677,7 @@ export interface GetLayoutResponse {
   content: LayoutContent | undefined;
 
   /**
-   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * <p>A map of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
   tags?: Record<string, string | null> | undefined;
@@ -3437,7 +3815,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * <p>A map of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
   tags?: Record<string, string | null> | undefined;
@@ -3454,7 +3832,7 @@ export interface TagResourceRequest {
   arn: string | undefined;
 
   /**
-   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * <p>A map of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
   tags: Record<string, string | null> | undefined;
@@ -3485,7 +3863,7 @@ export interface RequiredField {
 }
 
 /**
- * <p>An association representing a case rule acting upon a field. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
+ * <p>An association representing a case rule acting upon a field. In the Connect Customer admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
 export interface TemplateRule {
@@ -3549,7 +3927,7 @@ export interface CreateTemplateRequest {
   layoutConfiguration?: LayoutConfiguration | undefined;
 
   /**
-   * <p>A list of fields that must contain a value for a case to be successfully created with this template.</p>
+   * <p>A list of fields that must contain a value for a case to be successfully created with this template.</p> <p>To require a Customer Profile when creating cases, include <code>customer_id</code> in this list. If <code>customer_id</code> is omitted, the Customer Profile field is optional and can be added, changed, or removed after case creation.</p>
    * @public
    */
   requiredFields?: RequiredField[] | undefined;
@@ -3670,7 +4048,7 @@ export interface GetTemplateResponse {
   requiredFields?: RequiredField[] | undefined;
 
   /**
-   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * <p>A map of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
   tags?: Record<string, string | null> | undefined;
@@ -3829,7 +4207,7 @@ export interface UpdateTemplateRequest {
   layoutConfiguration?: LayoutConfiguration | undefined;
 
   /**
-   * <p>A list of fields that must contain a value for a case to be successfully created with this template.</p>
+   * <p>A list of fields that must contain a value for a case to be successfully created with this template.</p> <p>To require a Customer Profile when creating cases, include <code>customer_id</code> in this list. If <code>customer_id</code> is omitted, the Customer Profile field is optional and can be added, changed, or removed after case creation.</p>
    * @public
    */
   requiredFields?: RequiredField[] | undefined;
@@ -4070,7 +4448,7 @@ export namespace CustomFieldsFilter {
 }
 
 /**
- * <p>Boolean condition for a rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
+ * <p>Boolean condition for a rule. In the Connect Customer admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
 export type BooleanCondition =
@@ -4157,7 +4535,7 @@ export namespace BooleanCondition {
 }
 
 /**
- * <p>A compound condition that combines multiple boolean conditions using logical operators. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
+ * <p>A compound condition that combines multiple boolean conditions using logical operators. In the Connect Customer admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
 export interface CompoundCondition {
@@ -4199,7 +4577,7 @@ export interface HiddenCaseRule {
 }
 
 /**
- * <p>Required rule type, used to indicate whether a field is required. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
+ * <p>Required rule type, used to indicate whether a field is required. In the Connect Customer admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
 export interface RequiredCaseRule {
@@ -4337,7 +4715,7 @@ export namespace RelatedItemTypeFilter {
   }
 
   /**
-   * <p>Represents the Amazon Connect case to be created as a related item.</p>
+   * <p>Represents the Connect Customer case to be created as a related item.</p>
    * @public
    */
   export interface ConnectCaseMember {
@@ -4463,7 +4841,7 @@ export interface SearchRelatedItemsRequest {
 }
 
 /**
- * <p>Represents what rule type should take place, under what conditions. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
+ * <p>Represents what rule type should take place, under what conditions. In the Connect Customer admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
 export type CaseRuleDetails =
@@ -4561,7 +4939,7 @@ export interface CreateCaseRuleRequest {
 }
 
 /**
- * <p>Detailed case rule information. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
+ * <p>Detailed case rule information. In the Connect Customer admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
 export interface GetCaseRuleResponse {
@@ -4614,7 +4992,7 @@ export interface GetCaseRuleResponse {
   lastModifiedTime?: Date | undefined;
 
   /**
-   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * <p>A map of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
   tags?: Record<string, string | null> | undefined;

@@ -54,12 +54,17 @@ import {
   defaultConnectCasesHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import type {
+  BatchCreateRelatedItemCommandInput,
+  BatchCreateRelatedItemCommandOutput,
+} from "./commands/BatchCreateRelatedItemCommand";
 import type { BatchGetCaseRuleCommandInput, BatchGetCaseRuleCommandOutput } from "./commands/BatchGetCaseRuleCommand";
 import type { BatchGetFieldCommandInput, BatchGetFieldCommandOutput } from "./commands/BatchGetFieldCommand";
 import type {
   BatchPutFieldOptionsCommandInput,
   BatchPutFieldOptionsCommandOutput,
 } from "./commands/BatchPutFieldOptionsCommand";
+import type { BatchUpdateCaseCommandInput, BatchUpdateCaseCommandOutput } from "./commands/BatchUpdateCaseCommand";
 import type { CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
 import type { CreateCaseRuleCommandInput, CreateCaseRuleCommandOutput } from "./commands/CreateCaseRuleCommand";
 import type { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
@@ -145,9 +150,11 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchCreateRelatedItemCommandInput
   | BatchGetCaseRuleCommandInput
   | BatchGetFieldCommandInput
   | BatchPutFieldOptionsCommandInput
+  | BatchUpdateCaseCommandInput
   | CreateCaseCommandInput
   | CreateCaseRuleCommandInput
   | CreateDomainCommandInput
@@ -193,9 +200,11 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchCreateRelatedItemCommandOutput
   | BatchGetCaseRuleCommandOutput
   | BatchGetFieldCommandOutput
   | BatchPutFieldOptionsCommandOutput
+  | BatchUpdateCaseCommandOutput
   | CreateCaseCommandOutput
   | CreateCaseRuleCommandOutput
   | CreateDomainCommandOutput
@@ -429,7 +438,7 @@ export type ConnectCasesClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface ConnectCasesClientResolvedConfig extends ConnectCasesClientResolvedConfigType {}
 
 /**
- * <ul> <li> <p> <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Cases.html">Cases actions</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Cases.html">Cases data types</a> </p> </li> </ul> <p>With Amazon Connect Cases, your agents can track and manage customer issues that require multiple interactions, follow-up tasks, and teams in your contact center. A case represents a customer issue. It records the issue, the steps and interactions taken to resolve the issue, and the outcome. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Amazon Connect Cases</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * <ul> <li> <p> <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Cases.html">Cases actions</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Cases.html">Cases data types</a> </p> </li> </ul> <p>With Connect Customer Cases, your agents can track and manage customer issues that require multiple interactions, follow-up tasks, and teams in your contact center. A case represents a customer issue. It records the issue, the steps and interactions taken to resolve the issue, and the outcome. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Connect Customer Cases</a> in the <i>Connect Customer Administrator Guide</i>.</p>
  * @public
  */
 export class ConnectCasesClient extends __Client<

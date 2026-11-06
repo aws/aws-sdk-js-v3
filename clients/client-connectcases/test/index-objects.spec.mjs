@@ -7,6 +7,13 @@ import {
   AuditEventPerformedBy$,
   AuditEventType,
   BasicLayout$,
+  BatchCreateRelatedItem$,
+  BatchCreateRelatedItemCommand,
+  BatchCreateRelatedItemErrorEntry$,
+  BatchCreateRelatedItemIdentifier$,
+  BatchCreateRelatedItemRequest$,
+  BatchCreateRelatedItemResponse$,
+  BatchCreateRelatedItemSuccessEntry$,
   BatchGetCaseRule$,
   BatchGetCaseRuleCommand,
   BatchGetCaseRuleRequest$,
@@ -19,10 +26,19 @@ import {
   BatchPutFieldOptionsCommand,
   BatchPutFieldOptionsRequest$,
   BatchPutFieldOptionsResponse$,
+  BatchUpdateCase$,
+  BatchUpdateCaseCommand,
+  BatchUpdateCaseErrorEntry$,
+  BatchUpdateCaseIdentifier$,
+  BatchUpdateCaseRequest$,
+  BatchUpdateCaseResponse$,
+  BatchUpdateCaseSuccessEntry$,
   BooleanCondition$,
   BooleanOperands$,
   CaseEventIncludedData$,
   CaseFilter$,
+  CaseIdentifier$,
+  CaseIdentifierUnion$,
   CaseRuleDetails$,
   CaseRuleError$,
   CaseRuleIdentifier$,
@@ -116,6 +132,7 @@ import {
   FieldFilter$,
   FieldGroup$,
   FieldIdentifier$,
+  FieldIdentifierUnion$,
   FieldItem$,
   FieldNamespace,
   FieldOption$,
@@ -124,6 +141,7 @@ import {
   FieldSummary$,
   FieldType,
   FieldValue$,
+  FieldValueInput$,
   FieldValueUnion$,
   FileContent$,
   FileFilter$,
@@ -300,12 +318,16 @@ import assert from "node:assert";
 assert(typeof ConnectCasesClient === "function");
 assert(typeof ConnectCases === "function");
 // commands
+assert(typeof BatchCreateRelatedItemCommand === "function");
+assert(typeof BatchCreateRelatedItem$ === "object");
 assert(typeof BatchGetCaseRuleCommand === "function");
 assert(typeof BatchGetCaseRule$ === "object");
 assert(typeof BatchGetFieldCommand === "function");
 assert(typeof BatchGetField$ === "object");
 assert(typeof BatchPutFieldOptionsCommand === "function");
 assert(typeof BatchPutFieldOptions$ === "object");
+assert(typeof BatchUpdateCaseCommand === "function");
+assert(typeof BatchUpdateCase$ === "object");
 assert(typeof CreateCaseCommand === "function");
 assert(typeof CreateCase$ === "object");
 assert(typeof CreateCaseRuleCommand === "function");
@@ -392,16 +414,28 @@ assert(typeof AuditEventField$ === "object");
 assert(typeof AuditEventFieldValueUnion$ === "object");
 assert(typeof AuditEventPerformedBy$ === "object");
 assert(typeof BasicLayout$ === "object");
+assert(typeof BatchCreateRelatedItemErrorEntry$ === "object");
+assert(typeof BatchCreateRelatedItemIdentifier$ === "object");
+assert(typeof BatchCreateRelatedItemRequest$ === "object");
+assert(typeof BatchCreateRelatedItemResponse$ === "object");
+assert(typeof BatchCreateRelatedItemSuccessEntry$ === "object");
 assert(typeof BatchGetCaseRuleRequest$ === "object");
 assert(typeof BatchGetCaseRuleResponse$ === "object");
 assert(typeof BatchGetFieldRequest$ === "object");
 assert(typeof BatchGetFieldResponse$ === "object");
 assert(typeof BatchPutFieldOptionsRequest$ === "object");
 assert(typeof BatchPutFieldOptionsResponse$ === "object");
+assert(typeof BatchUpdateCaseErrorEntry$ === "object");
+assert(typeof BatchUpdateCaseIdentifier$ === "object");
+assert(typeof BatchUpdateCaseRequest$ === "object");
+assert(typeof BatchUpdateCaseResponse$ === "object");
+assert(typeof BatchUpdateCaseSuccessEntry$ === "object");
 assert(typeof BooleanCondition$ === "object");
 assert(typeof BooleanOperands$ === "object");
 assert(typeof CaseEventIncludedData$ === "object");
 assert(typeof CaseFilter$ === "object");
+assert(typeof CaseIdentifier$ === "object");
+assert(typeof CaseIdentifierUnion$ === "object");
 assert(typeof CaseRuleDetails$ === "object");
 assert(typeof CaseRuleError$ === "object");
 assert(typeof CaseRuleIdentifier$ === "object");
@@ -460,12 +494,14 @@ assert(typeof FieldError$ === "object");
 assert(typeof FieldFilter$ === "object");
 assert(typeof FieldGroup$ === "object");
 assert(typeof FieldIdentifier$ === "object");
+assert(typeof FieldIdentifierUnion$ === "object");
 assert(typeof FieldItem$ === "object");
 assert(typeof FieldOption$ === "object");
 assert(typeof FieldOptionError$ === "object");
 assert(typeof FieldOptionsCaseRule$ === "object");
 assert(typeof FieldSummary$ === "object");
 assert(typeof FieldValue$ === "object");
+assert(typeof FieldValueInput$ === "object");
 assert(typeof FieldValueUnion$ === "object");
 assert(typeof FileContent$ === "object");
 assert(typeof FileFilter$ === "object");

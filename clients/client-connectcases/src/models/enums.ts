@@ -3,6 +3,30 @@
  * @public
  * @enum
  */
+export const CommentBodyTextType = {
+  PLAINTEXT: "Text/Plain",
+} as const;
+/**
+ * @public
+ */
+export type CommentBodyTextType = (typeof CommentBodyTextType)[keyof typeof CommentBodyTextType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SlaType = {
+  CASE_FIELD: "CaseField",
+} as const;
+/**
+ * @public
+ */
+export type SlaType = (typeof SlaType)[keyof typeof SlaType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RelatedItemType = {
   COMMENT: "Comment",
   CONNECT_CASE: "ConnectCase",
@@ -31,30 +55,6 @@ export const AuditEventType = {
  * @public
  */
 export type AuditEventType = (typeof AuditEventType)[keyof typeof AuditEventType];
-
-/**
- * @public
- * @enum
- */
-export const CommentBodyTextType = {
-  PLAINTEXT: "Text/Plain",
-} as const;
-/**
- * @public
- */
-export type CommentBodyTextType = (typeof CommentBodyTextType)[keyof typeof CommentBodyTextType];
-
-/**
- * @public
- * @enum
- */
-export const SlaType = {
-  CASE_FIELD: "CaseField",
-} as const;
-/**
- * @public
- */
-export type SlaType = (typeof SlaType)[keyof typeof SlaType];
 
 /**
  * @public
