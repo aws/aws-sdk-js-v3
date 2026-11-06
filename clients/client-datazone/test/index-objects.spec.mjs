@@ -881,6 +881,7 @@ import {
   OAuth2ClientApplication$,
   OAuth2GrantType,
   OAuth2Properties$,
+  OAuth2PropertiesPatch$,
   OpenLineageRunEventSummary$,
   OpenLineageRunState,
   OutputLocation$,
@@ -2202,6 +2203,7 @@ assert(typeof NotInExpression$ === "object");
 assert(typeof NotLikeExpression$ === "object");
 assert(typeof OAuth2ClientApplication$ === "object");
 assert(typeof OAuth2Properties$ === "object");
+assert(typeof OAuth2PropertiesPatch$ === "object");
 assert(typeof OpenLineageRunEventSummary$ === "object");
 assert(typeof OutputLocation$ === "object");
 assert(typeof OverrideDomainUnitOwnersPolicyGrantDetail$ === "object");

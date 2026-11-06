@@ -52,7 +52,6 @@ import type {
   ResourceTagSource,
   RuleScopeSelectionMode,
   S3Permission,
-  Status,
   SubscriptionRequestStatus,
   SubscriptionStatus,
   TargetEntityType,
@@ -4695,6 +4694,36 @@ export interface AuthenticationConfigurationInput {
 }
 
 /**
+ * <p>Contains the OAuth2 properties, such as the client application, grant type, and token URL, that you want to update for a connection.</p>
+ * @public
+ */
+export interface OAuth2PropertiesPatch {
+  /**
+   * <p>The OAuth2 grant type of the OAuth2 properties to update.</p>
+   * @public
+   */
+  oAuth2GrantType?: OAuth2GrantType | undefined;
+
+  /**
+   * <p>The OAuth2 client application of the OAuth2 properties to update.</p>
+   * @public
+   */
+  oAuth2ClientApplication?: OAuth2ClientApplication | undefined;
+
+  /**
+   * <p>The OAuth2 token URL of the OAuth2 properties to update.</p>
+   * @public
+   */
+  tokenUrl?: string | undefined;
+
+  /**
+   * <p>The OAuth2 token URL parameter map of the OAuth2 properties to update, for example the scope. If you specify an empty map, the existing parameters are kept.</p>
+   * @public
+   */
+  tokenUrlParametersMap?: Record<string, string> | undefined;
+}
+
+/**
  * <p>The authentication configuration patch of a connection. </p>
  * @public
  */
@@ -4710,6 +4739,12 @@ export interface AuthenticationConfigurationPatch {
    * @public
    */
   basicAuthenticationCredentials?: BasicAuthenticationCredentials | undefined;
+
+  /**
+   * <p>The OAuth2 properties, such as the client application, grant type, and token URL, that you want to update for a connection. Only the properties that you specify are updated; the connection keeps its existing values for the properties that you omit.</p>
+   * @public
+   */
+  oAuth2Properties?: OAuth2PropertiesPatch | undefined;
 }
 
 /**
@@ -12002,63 +12037,4 @@ export interface ResourceTagParameter {
    * @public
    */
   isValueEditable: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateProjectProfileInput {
-  /**
-   * <p>A domain ID of the project profile.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>Project profile name.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description of a project profile.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Project profile status.</p>
-   * @public
-   */
-  status?: Status | undefined;
-
-  /**
-   * <p>The resource tags of the project profile.</p>
-   * @public
-   */
-  projectResourceTags?: ResourceTagParameter[] | undefined;
-
-  /**
-   * <p>Specifies whether custom project resource tags are supported.</p>
-   * @public
-   */
-  allowCustomProjectResourceTags?: boolean | undefined;
-
-  /**
-   * <p>Field viewable through the UI that provides a project user with the allowed resource tag specifications.</p>
-   * @public
-   */
-  projectResourceTagsDescription?: string | undefined;
-
-  /**
-   * <p>Environment configurations of the project profile.</p>
-   * @public
-   */
-  environmentConfigurations?: EnvironmentConfiguration[] | undefined;
-
-  /**
-   * <p>A domain unit ID of the project profile.</p>
-   * @public
-   */
-  domainUnitIdentifier?: string | undefined;
 }

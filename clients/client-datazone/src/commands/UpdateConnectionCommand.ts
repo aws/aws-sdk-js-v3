@@ -66,6 +66,17 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  *             userName: "STRING_VALUE",
  *             password: "STRING_VALUE",
  *           },
+ *           oAuth2Properties: { // OAuth2PropertiesPatch
+ *             oAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER",
+ *             oAuth2ClientApplication: { // OAuth2ClientApplication
+ *               userManagedClientApplicationClientId: "STRING_VALUE",
+ *               aWSManagedClientApplicationReference: "STRING_VALUE",
+ *             },
+ *             tokenUrl: "STRING_VALUE",
+ *             tokenUrlParametersMap: { // TokenUrlParametersMap
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
  *         },
  *       },
  *     },
@@ -120,6 +131,17 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  *           basicAuthenticationCredentials: {
  *             userName: "STRING_VALUE",
  *             password: "STRING_VALUE",
+ *           },
+ *           oAuth2Properties: {
+ *             oAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER",
+ *             oAuth2ClientApplication: {
+ *               userManagedClientApplicationClientId: "STRING_VALUE",
+ *               aWSManagedClientApplicationReference: "STRING_VALUE",
+ *             },
+ *             tokenUrl: "STRING_VALUE",
+ *             tokenUrlParametersMap: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
  *           },
  *         },
  *       },

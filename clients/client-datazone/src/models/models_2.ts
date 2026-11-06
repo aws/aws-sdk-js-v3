@@ -112,6 +112,11 @@ import type {
 /**
  * @public
  */
+export interface DeleteNotebookOutput {}
+
+/**
+ * @public
+ */
 export interface GetNotebookInput {
   /**
    * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.</p>

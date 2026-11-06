@@ -1205,6 +1205,7 @@ export type {
   NotLikeExpression,
   OAuth2ClientApplication,
   OAuth2Properties,
+  OAuth2PropertiesPatch,
   OpenLineageRunEventSummary,
   OutputLocation,
   OverrideDomainUnitOwnersPolicyGrantDetail,

@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DeleteNotebookInput, DeleteNotebookOutput } from "../models/models_1";
+import type { DeleteNotebookInput } from "../models/models_1";
+import type { DeleteNotebookOutput } from "../models/models_2";
 import { DeleteNotebook$ } from "../schemas/schemas_0";
 
 /**

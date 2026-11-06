@@ -120,6 +120,65 @@ import type {
 /**
  * @public
  */
+export interface CreateProjectProfileInput {
+  /**
+   * <p>A domain ID of the project profile.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>Project profile name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of a project profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Project profile status.</p>
+   * @public
+   */
+  status?: Status | undefined;
+
+  /**
+   * <p>The resource tags of the project profile.</p>
+   * @public
+   */
+  projectResourceTags?: ResourceTagParameter[] | undefined;
+
+  /**
+   * <p>Specifies whether custom project resource tags are supported.</p>
+   * @public
+   */
+  allowCustomProjectResourceTags?: boolean | undefined;
+
+  /**
+   * <p>Field viewable through the UI that provides a project user with the allowed resource tag specifications.</p>
+   * @public
+   */
+  projectResourceTagsDescription?: string | undefined;
+
+  /**
+   * <p>Environment configurations of the project profile.</p>
+   * @public
+   */
+  environmentConfigurations?: EnvironmentConfiguration[] | undefined;
+
+  /**
+   * <p>A domain unit ID of the project profile.</p>
+   * @public
+   */
+  domainUnitIdentifier?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateProjectProfileOutput {
   /**
    * <p>The ID of the domain where a project profile is created.</p>
@@ -11201,8 +11260,3 @@ export interface DeleteNotebookInput {
    */
   identifier: string | undefined;
 }
-
-/**
- * @public
- */
-export interface DeleteNotebookOutput {}

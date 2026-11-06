@@ -775,6 +775,7 @@ const _NSL = "NotebookSummaryList";
 const _NSU = "NotebookS3Uri";
 const _OACA = "OAuth2ClientApplication";
 const _OAP = "OAuth2Properties";
+const _OAPP = "OAuth2PropertiesPatch";
 const _ODUOPGD = "OverrideDomainUnitOwnersPolicyGrantDetail";
 const _OGP = "OwnerGroupProperties";
 const _OGPO = "OwnerGroupPropertiesOutput";
@@ -2206,8 +2207,8 @@ export var AuthenticationConfigurationInput$: StaticStructureSchema = [3, n0, _A
 ];
 export var AuthenticationConfigurationPatch$: StaticStructureSchema = [3, n0, _ACP,
   0,
-  [_sA, _bAC],
-  [0, [() => BasicAuthenticationCredentials$, 0]]
+  [_sA, _bAC, _oAP],
+  [0, [() => BasicAuthenticationCredentials$, 0], () => OAuth2PropertiesPatch$]
 ];
 export var AuthorizationCodeProperties$: StaticStructureSchema = [3, n0, _ACPu,
   0,
@@ -4398,6 +4399,11 @@ export var OAuth2Properties$: StaticStructureSchema = [3, n0, _OAP,
   0,
   [_oAGT, _oACA, _tUo, _tUPM, _aCP, _oAC],
   [0, () => OAuth2ClientApplication$, 0, 128 | 0, () => AuthorizationCodeProperties$, [() => GlueOAuth2Credentials$, 0]]
+];
+export var OAuth2PropertiesPatch$: StaticStructureSchema = [3, n0, _OAPP,
+  0,
+  [_oAGT, _oACA, _tUo, _tUPM],
+  [0, () => OAuth2ClientApplication$, 0, 128 | 0]
 ];
 export var OpenLineageRunEventSummary$: StaticStructureSchema = [3, n0, _OLRES,
   0,
