@@ -41,6 +41,7 @@ const _sT = "sessionToken";
 const _se = "server";
 const _su = "subject";
 const _t = "token";
+const _wIPA = "workloadIdentityProviderArn";
 const _z = "zone";
 const n0 = "com.amazonaws.eksauth";
 
@@ -147,8 +148,8 @@ export var AssumeRoleForPodIdentityRequest$: StaticStructureSchema = [3, n0, _AR
 ];
 export var AssumeRoleForPodIdentityResponse$: StaticStructureSchema = [3, n0, _ARFPIRs,
   0,
-  [_su, _au, _pIA, _aRU, _cr],
-  [() => Subject$, 0, () => PodIdentityAssociation$, () => AssumedRoleUser$, [() => Credentials$, 0]], 5
+  [_su, _au, _pIA, _aRU, _cr, _wIPA],
+  [() => Subject$, 0, () => PodIdentityAssociation$, () => AssumedRoleUser$, [() => Credentials$, 0], 0], 5
 ];
 export var Credentials$: StaticStructureSchema = [3, n0, _C,
   8,

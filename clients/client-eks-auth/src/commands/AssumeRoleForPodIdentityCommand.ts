@@ -61,6 +61,7 @@ export interface AssumeRoleForPodIdentityCommandOutput extends AssumeRoleForPodI
  * //     accessKeyId: "STRING_VALUE", // required
  * //     expiration: new Date("TIMESTAMP"), // required
  * //   },
+ * //   workloadIdentityProviderArn: "STRING_VALUE",
  * // };
  *
  * ```

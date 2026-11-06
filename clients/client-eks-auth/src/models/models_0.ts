@@ -151,4 +151,10 @@ export interface AssumeRoleForPodIdentityResponse {
    * @public
    */
   credentials: Credentials | undefined;
+
+  /**
+   * <p>The ARN of the workload identity provider for the returned credentials. Returned only for associations with workload identity enabled.</p>
+   * @public
+   */
+  workloadIdentityProviderArn?: string | undefined;
 }
