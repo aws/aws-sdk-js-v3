@@ -149,6 +149,30 @@ export type ThrottleReason = (typeof ThrottleReason)[keyof typeof ThrottleReason
  * @public
  * @enum
  */
+export const SystemTableName = {
+  ALL: "ALL",
+} as const;
+/**
+ * @public
+ */
+export type SystemTableName = (typeof SystemTableName)[keyof typeof SystemTableName];
+
+/**
+ * @public
+ * @enum
+ */
+export const SystemTableType = {
+  QUERY_EXECUTIONS: "QUERY_EXECUTIONS",
+} as const;
+/**
+ * @public
+ */
+export type SystemTableType = (typeof SystemTableType)[keyof typeof SystemTableType];
+
+/**
+ * @public
+ * @enum
+ */
 export const NotebookType = {
   IPYNB: "IPYNB",
 } as const;

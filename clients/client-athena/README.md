@@ -261,6 +261,13 @@ CreatePresignedNotebookUrl
 </details>
 <details>
 <summary>
+CreateSystemTableConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/CreateSystemTableConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreateSystemTableConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreateSystemTableConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
 CreateWorkGroup
 </summary>
 
@@ -300,6 +307,13 @@ DeletePreparedStatement
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/DeletePreparedStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeletePreparedStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeletePreparedStatementCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteSystemTableConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/DeleteSystemTableConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeleteSystemTableConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeleteSystemTableConfigurationCommandOutput/)
 </details>
 <details>
 <summary>
@@ -436,6 +450,13 @@ GetSessionStatus
 </details>
 <details>
 <summary>
+GetSystemTableConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetSystemTableConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetSystemTableConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetSystemTableConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
 GetTableMetadata
 </summary>
 
@@ -545,6 +566,13 @@ ListSessions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListSessionsCommandOutput/)
+</details>
+<details>
+<summary>
+ListSystemTableStatuses
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListSystemTableStatusesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListSystemTableStatusesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListSystemTableStatusesCommandOutput/)
 </details>
 <details>
 <summary>
@@ -671,6 +699,13 @@ UpdatePreparedStatement
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/UpdatePreparedStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdatePreparedStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdatePreparedStatementCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateSystemTableConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/UpdateSystemTableConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdateSystemTableConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdateSystemTableConfigurationCommandOutput/)
 </details>
 <details>
 <summary>

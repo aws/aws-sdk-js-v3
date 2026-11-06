@@ -12,6 +12,7 @@ export * from "./ListNamedQueriesPaginator";
 export * from "./ListPreparedStatementsPaginator";
 export * from "./ListQueryExecutionsPaginator";
 export * from "./ListSessionsPaginator";
+export * from "./ListSystemTableStatusesPaginator";
 export * from "./ListTableMetadataPaginator";
 export * from "./ListTagsForResourcePaginator";
 export * from "./ListWorkGroupsPaginator";

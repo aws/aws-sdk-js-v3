@@ -122,6 +122,12 @@ export interface GetWorkGroupCommandOutput extends GetWorkGroupOutput, __Metadat
  * //         CreateUserLevelPrefix: true || false,
  * //         AuthenticationType: "DIRECTORY_IDENTITY", // required
  * //       },
+ * //       SystemTableStatuses: [ // SystemTableStatusList
+ * //         { // SystemTableStatus
+ * //           TableName: "QUERY_EXECUTIONS", // required
+ * //           Enabled: true || false, // required
+ * //         },
+ * //       ],
  * //     },
  * //     Description: "STRING_VALUE",
  * //     CreationTime: new Date("TIMESTAMP"),

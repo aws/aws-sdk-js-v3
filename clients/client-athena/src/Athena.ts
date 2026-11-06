@@ -59,6 +59,11 @@ import {
   CreatePresignedNotebookUrlCommand,
 } from "./commands/CreatePresignedNotebookUrlCommand";
 import {
+  type CreateSystemTableConfigurationCommandInput,
+  type CreateSystemTableConfigurationCommandOutput,
+  CreateSystemTableConfigurationCommand,
+} from "./commands/CreateSystemTableConfigurationCommand";
+import {
   type CreateWorkGroupCommandInput,
   type CreateWorkGroupCommandOutput,
   CreateWorkGroupCommand,
@@ -88,6 +93,11 @@ import {
   type DeletePreparedStatementCommandOutput,
   DeletePreparedStatementCommand,
 } from "./commands/DeletePreparedStatementCommand";
+import {
+  type DeleteSystemTableConfigurationCommandInput,
+  type DeleteSystemTableConfigurationCommandOutput,
+  DeleteSystemTableConfigurationCommand,
+} from "./commands/DeleteSystemTableConfigurationCommand";
 import {
   type DeleteWorkGroupCommandInput,
   type DeleteWorkGroupCommandOutput,
@@ -184,6 +194,11 @@ import {
   GetSessionStatusCommand,
 } from "./commands/GetSessionStatusCommand";
 import {
+  type GetSystemTableConfigurationCommandInput,
+  type GetSystemTableConfigurationCommandOutput,
+  GetSystemTableConfigurationCommand,
+} from "./commands/GetSystemTableConfigurationCommand";
+import {
   type GetTableMetadataCommandInput,
   type GetTableMetadataCommandOutput,
   GetTableMetadataCommand,
@@ -263,6 +278,11 @@ import {
   type ListSessionsCommandOutput,
   ListSessionsCommand,
 } from "./commands/ListSessionsCommand";
+import {
+  type ListSystemTableStatusesCommandInput,
+  type ListSystemTableStatusesCommandOutput,
+  ListSystemTableStatusesCommand,
+} from "./commands/ListSystemTableStatusesCommand";
 import {
   type ListTableMetadataCommandInput,
   type ListTableMetadataCommandOutput,
@@ -354,6 +374,11 @@ import {
   UpdatePreparedStatementCommand,
 } from "./commands/UpdatePreparedStatementCommand";
 import {
+  type UpdateSystemTableConfigurationCommandInput,
+  type UpdateSystemTableConfigurationCommandOutput,
+  UpdateSystemTableConfigurationCommand,
+} from "./commands/UpdateSystemTableConfigurationCommand";
+import {
   type UpdateWorkGroupCommandInput,
   type UpdateWorkGroupCommandOutput,
   UpdateWorkGroupCommand,
@@ -370,6 +395,7 @@ import { paginateListNamedQueries } from "./pagination/ListNamedQueriesPaginator
 import { paginateListPreparedStatements } from "./pagination/ListPreparedStatementsPaginator";
 import { paginateListQueryExecutions } from "./pagination/ListQueryExecutionsPaginator";
 import { paginateListSessions } from "./pagination/ListSessionsPaginator";
+import { paginateListSystemTableStatuses } from "./pagination/ListSystemTableStatusesPaginator";
 import { paginateListTableMetadata } from "./pagination/ListTableMetadataPaginator";
 import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
 import { paginateListWorkGroups } from "./pagination/ListWorkGroupsPaginator";
@@ -385,12 +411,14 @@ const commands = {
   CreateNotebookCommand,
   CreatePreparedStatementCommand,
   CreatePresignedNotebookUrlCommand,
+  CreateSystemTableConfigurationCommand,
   CreateWorkGroupCommand,
   DeleteCapacityReservationCommand,
   DeleteDataCatalogCommand,
   DeleteNamedQueryCommand,
   DeleteNotebookCommand,
   DeletePreparedStatementCommand,
+  DeleteSystemTableConfigurationCommand,
   DeleteWorkGroupCommand,
   ExportNotebookCommand,
   GetCalculationExecutionCommand,
@@ -410,6 +438,7 @@ const commands = {
   GetSessionCommand,
   GetSessionEndpointCommand,
   GetSessionStatusCommand,
+  GetSystemTableConfigurationCommand,
   GetTableMetadataCommand,
   GetWorkGroupCommand,
   ImportNotebookCommand,
@@ -426,6 +455,7 @@ const commands = {
   ListPreparedStatementsCommand,
   ListQueryExecutionsCommand,
   ListSessionsCommand,
+  ListSystemTableStatusesCommand,
   ListTableMetadataCommand,
   ListTagsForResourceCommand,
   ListWorkGroupsCommand,
@@ -444,6 +474,7 @@ const commands = {
   UpdateNotebookCommand,
   UpdateNotebookMetadataCommand,
   UpdatePreparedStatementCommand,
+  UpdateSystemTableConfigurationCommand,
   UpdateWorkGroupCommand,
 };
 const paginators = {
@@ -459,6 +490,7 @@ const paginators = {
   paginateListPreparedStatements,
   paginateListQueryExecutions,
   paginateListSessions,
+  paginateListSystemTableStatuses,
   paginateListTableMetadata,
   paginateListTagsForResource,
   paginateListWorkGroups,
@@ -643,6 +675,23 @@ export interface Athena {
   ): void;
 
   /**
+   * @see {@link CreateSystemTableConfigurationCommand}
+   */
+  createSystemTableConfiguration(
+    args: CreateSystemTableConfigurationCommandInput,
+    options?: AthenaRequestOptions
+  ): Promise<CreateSystemTableConfigurationCommandOutput>;
+  createSystemTableConfiguration(
+    args: CreateSystemTableConfigurationCommandInput,
+    cb: (err: any, data?: CreateSystemTableConfigurationCommandOutput) => void
+  ): void;
+  createSystemTableConfiguration(
+    args: CreateSystemTableConfigurationCommandInput,
+    options: AthenaRequestOptions,
+    cb: (err: any, data?: CreateSystemTableConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateWorkGroupCommand}
    */
   createWorkGroup(
@@ -742,6 +791,23 @@ export interface Athena {
     args: DeletePreparedStatementCommandInput,
     options: AthenaRequestOptions,
     cb: (err: any, data?: DeletePreparedStatementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSystemTableConfigurationCommand}
+   */
+  deleteSystemTableConfiguration(
+    args: DeleteSystemTableConfigurationCommandInput,
+    options?: AthenaRequestOptions
+  ): Promise<DeleteSystemTableConfigurationCommandOutput>;
+  deleteSystemTableConfiguration(
+    args: DeleteSystemTableConfigurationCommandInput,
+    cb: (err: any, data?: DeleteSystemTableConfigurationCommandOutput) => void
+  ): void;
+  deleteSystemTableConfiguration(
+    args: DeleteSystemTableConfigurationCommandInput,
+    options: AthenaRequestOptions,
+    cb: (err: any, data?: DeleteSystemTableConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1068,6 +1134,23 @@ export interface Athena {
   ): void;
 
   /**
+   * @see {@link GetSystemTableConfigurationCommand}
+   */
+  getSystemTableConfiguration(
+    args: GetSystemTableConfigurationCommandInput,
+    options?: AthenaRequestOptions
+  ): Promise<GetSystemTableConfigurationCommandOutput>;
+  getSystemTableConfiguration(
+    args: GetSystemTableConfigurationCommandInput,
+    cb: (err: any, data?: GetSystemTableConfigurationCommandOutput) => void
+  ): void;
+  getSystemTableConfiguration(
+    args: GetSystemTableConfigurationCommandInput,
+    options: AthenaRequestOptions,
+    cb: (err: any, data?: GetSystemTableConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTableMetadataCommand}
    */
   getTableMetadata(
@@ -1343,6 +1426,24 @@ export interface Athena {
     args: ListSessionsCommandInput,
     options: AthenaRequestOptions,
     cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSystemTableStatusesCommand}
+   */
+  listSystemTableStatuses(): Promise<ListSystemTableStatusesCommandOutput>;
+  listSystemTableStatuses(
+    args: ListSystemTableStatusesCommandInput,
+    options?: AthenaRequestOptions
+  ): Promise<ListSystemTableStatusesCommandOutput>;
+  listSystemTableStatuses(
+    args: ListSystemTableStatusesCommandInput,
+    cb: (err: any, data?: ListSystemTableStatusesCommandOutput) => void
+  ): void;
+  listSystemTableStatuses(
+    args: ListSystemTableStatusesCommandInput,
+    options: AthenaRequestOptions,
+    cb: (err: any, data?: ListSystemTableStatusesCommandOutput) => void
   ): void;
 
   /**
@@ -1653,6 +1754,23 @@ export interface Athena {
   ): void;
 
   /**
+   * @see {@link UpdateSystemTableConfigurationCommand}
+   */
+  updateSystemTableConfiguration(
+    args: UpdateSystemTableConfigurationCommandInput,
+    options?: AthenaRequestOptions
+  ): Promise<UpdateSystemTableConfigurationCommandOutput>;
+  updateSystemTableConfiguration(
+    args: UpdateSystemTableConfigurationCommandInput,
+    cb: (err: any, data?: UpdateSystemTableConfigurationCommandOutput) => void
+  ): void;
+  updateSystemTableConfiguration(
+    args: UpdateSystemTableConfigurationCommandInput,
+    options: AthenaRequestOptions,
+    cb: (err: any, data?: UpdateSystemTableConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateWorkGroupCommand}
    */
   updateWorkGroup(
@@ -1800,6 +1918,17 @@ export interface Athena {
     args: ListSessionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListSessionsCommandOutput>;
+
+  /**
+   * @see {@link ListSystemTableStatusesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSystemTableStatusesCommandOutput}.
+   */
+  paginateListSystemTableStatuses(
+    args?: ListSystemTableStatusesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSystemTableStatusesCommandOutput>;
 
   /**
    * @see {@link ListTableMetadataCommand}

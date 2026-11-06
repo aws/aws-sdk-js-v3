@@ -116,6 +116,12 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  *       CreateUserLevelPrefix: true || false,
  *       AuthenticationType: "DIRECTORY_IDENTITY", // required
  *     },
+ *     SystemTableStatuses: [ // SystemTableStatusList
+ *       { // SystemTableStatus
+ *         TableName: "QUERY_EXECUTIONS", // required
+ *         Enabled: true || false, // required
+ *       },
+ *     ],
  *   },
  *   Description: "STRING_VALUE",
  *   Tags: [ // TagList

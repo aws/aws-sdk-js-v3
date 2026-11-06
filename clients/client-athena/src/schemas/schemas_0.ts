@@ -26,6 +26,7 @@ const _CAC = "CapacityAssignmentConfiguration";
 const _CAL = "CapacityAssignmentsList";
 const _CAa = "CapacityAssignment";
 const _CAap = "CapacityAssignments";
+const _CAr = "CreatedAt";
 const _CB = "CodeBlock";
 const _CC = "CalculationConfiguration";
 const _CCEC = "CustomerContentEncryptionConfiguration";
@@ -66,6 +67,9 @@ const _CRT = "ClientRequestToken";
 const _CRa = "CapacityReservation";
 const _CRap = "CapacityReservations";
 const _CS = "CalculationStatistics";
+const _CSTC = "CreateSystemTableConfiguration";
+const _CSTCI = "CreateSystemTableConfigurationInput";
+const _CSTCO = "CreateSystemTableConfigurationOutput";
 const _CSa = "CalculationStatus";
 const _CSal = "CalculationSummary";
 const _CSas = "CaseSensitive";
@@ -115,6 +119,9 @@ const _DPS = "DeletePreparedStatement";
 const _DPSI = "DeletePreparedStatementInput";
 const _DPSO = "DeletePreparedStatementOutput";
 const _DSIB = "DataScannedInBytes";
+const _DSTC = "DeleteSystemTableConfiguration";
+const _DSTCI = "DeleteSystemTableConfigurationInput";
+const _DSTCO = "DeleteSystemTableConfigurationOutput";
 const _DWG = "DeleteWorkGroup";
 const _DWGI = "DeleteWorkGroupInput";
 const _DWGO = "DeleteWorkGroupOutput";
@@ -209,13 +216,16 @@ const _GSRe = "GetSessionResponse";
 const _GSS = "GetSessionStatus";
 const _GSSR = "GetSessionStatusRequest";
 const _GSSRe = "GetSessionStatusResponse";
+const _GSTC = "GetSystemTableConfiguration";
+const _GSTCI = "GetSystemTableConfigurationInput";
+const _GSTCO = "GetSystemTableConfigurationOutput";
 const _GTM = "GetTableMetadata";
 const _GTMI = "GetTableMetadataInput";
 const _GTMO = "GetTableMetadataOutput";
 const _GWG = "GetWorkGroup";
 const _GWGI = "GetWorkGroupInput";
 const _GWGO = "GetWorkGroupOutput";
-const _I = "Identifier";
+const _I = "Items";
 const _IB = "InputBytes";
 const _ICAA = "IdentityCenterApplicationArn";
 const _ICC = "IdentityCenterConfiguration";
@@ -228,8 +238,10 @@ const _IRE = "InvalidRequestException";
 const _ISDT = "IdleSinceDateTime";
 const _ISE = "InternalServerException";
 const _ITS = "IdleTimeoutSeconds";
+const _Id = "Identifier";
 const _K = "Key";
 const _KK = "KmsKey";
+const _KKA = "KmsKeyArn";
 const _L = "Label";
 const _LA = "LastAllocation";
 const _LADPUS = "ListApplicationDPUSizes";
@@ -256,6 +268,7 @@ const _LEVI = "ListEngineVersionsInput";
 const _LEVO = "ListEngineVersionsOutput";
 const _LG = "LogGroup";
 const _LL = "LogLocation";
+const _LMA = "LastModifiedAt";
 const _LMDT = "LastModifiedDateTime";
 const _LMT = "LastModifiedTime";
 const _LNM = "ListNotebookMetadata";
@@ -278,6 +291,9 @@ const _LSAT = "LastSuccessfulAllocationTime";
 const _LSNP = "LogStreamNamePrefix";
 const _LSR = "ListSessionsRequest";
 const _LSRi = "ListSessionsResponse";
+const _LSTS = "ListSystemTableStatuses";
+const _LSTSI = "ListSystemTableStatusesInput";
+const _LSTSO = "ListSystemTableStatusesOutput";
 const _LT = "LogTypes";
 const _LTFR = "ListTagsForResource";
 const _LTFRI = "ListTagsForResourceInput";
@@ -432,6 +448,9 @@ const _SSes = "SessionStatus";
 const _SSess = "SessionSummary";
 const _SSt = "StartSession";
 const _ST = "StatementType";
+const _STS = "SystemTableStatus";
+const _STSL = "SystemTableStatusList";
+const _STSy = "SystemTableStatuses";
 const _STu = "SubstatementType";
 const _Sc = "Scale";
 const _Se = "Sessions";
@@ -489,6 +508,9 @@ const _UQEIn = "UnprocessedQueryExecutionId";
 const _UR = "UntagResource";
 const _URI = "UntagResourceInput";
 const _URO = "UntagResourceOutput";
+const _USTC = "UpdateSystemTableConfiguration";
+const _USTCI = "UpdateSystemTableConfigurationInput";
+const _USTCO = "UpdateSystemTableConfigurationOutput";
 const _UWG = "UpdateWorkGroup";
 const _UWGI = "UpdateWorkGroupInput";
 const _UWGO = "UpdateWorkGroupOutput";
@@ -760,6 +782,16 @@ export var CreatePresignedNotebookUrlResponse$: StaticStructureSchema = [3, n0, 
   [_NU, _AT, _ATET],
   [0, 0, 1], 3
 ];
+export var CreateSystemTableConfigurationInput$: StaticStructureSchema = [3, n0, _CSTCI,
+  0,
+  [_TN, _CRT, _KKA, _Ta],
+  [0, [0, 4], 0, () => TagList], 1
+];
+export var CreateSystemTableConfigurationOutput$: StaticStructureSchema = [3, n0, _CSTCO,
+  0,
+  [_TN, _KKA, _CAr, _LMA],
+  [0, 0, 4, 4]
+];
 export var CreateWorkGroupInput$: StaticStructureSchema = [3, n0, _CWGI,
   0,
   [_N, _Con, _D, _Ta],
@@ -841,6 +873,16 @@ export var DeletePreparedStatementInput$: StaticStructureSchema = [3, n0, _DPSI,
   [0, 0], 2
 ];
 export var DeletePreparedStatementOutput$: StaticStructureSchema = [3, n0, _DPSO,
+  0,
+  [],
+  []
+];
+export var DeleteSystemTableConfigurationInput$: StaticStructureSchema = [3, n0, _DSTCI,
+  0,
+  [_TN],
+  [0], 1
+];
+export var DeleteSystemTableConfigurationOutput$: StaticStructureSchema = [3, n0, _DSTCO,
   0,
   [],
   []
@@ -1060,6 +1102,16 @@ export var GetSessionStatusResponse$: StaticStructureSchema = [3, n0, _GSSRe,
   [_SI, _St],
   [0, () => SessionStatus$]
 ];
+export var GetSystemTableConfigurationInput$: StaticStructureSchema = [3, n0, _GSTCI,
+  0,
+  [_TN],
+  [0], 1
+];
+export var GetSystemTableConfigurationOutput$: StaticStructureSchema = [3, n0, _GSTCO,
+  0,
+  [_TN, _KKA, _CAr, _LMA],
+  [0, 0, 4, 4]
+];
 export var GetTableMetadataInput$: StaticStructureSchema = [3, n0, _GTMI,
   0,
   [_CN, _DN, _TN, _WG],
@@ -1225,6 +1277,16 @@ export var ListSessionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
   [_NT, _Se],
   [0, () => SessionsList]
 ];
+export var ListSystemTableStatusesInput$: StaticStructureSchema = [3, n0, _LSTSI,
+  0,
+  [_NT, _MR],
+  [0, 1]
+];
+export var ListSystemTableStatusesOutput$: StaticStructureSchema = [3, n0, _LSTSO,
+  0,
+  [_I, _NT],
+  [() => SystemTableStatusList, 0], 1
+];
 export var ListTableMetadataInput$: StaticStructureSchema = [3, n0, _LTMI,
   0,
   [_CN, _DN, _Ex, _NT, _MR, _WG],
@@ -1362,7 +1424,7 @@ export var QueryStage$: StaticStructureSchema = [3, n0, _QSue,
 ];
 export var QueryStagePlanNode$: StaticStructureSchema = [3, n0, _QSPN,
   0,
-  [_N, _I, _Ch, _RSe],
+  [_N, _Id, _Ch, _RSe],
   [0, 0, () => QueryStagePlanNodes, 64 | 0]
 ];
 export var ResultConfiguration$: StaticStructureSchema = [3, n0, _RC,
@@ -1480,6 +1542,11 @@ export var StopQueryExecutionOutput$: StaticStructureSchema = [3, n0, _SQEOt,
   [],
   []
 ];
+export var SystemTableStatus$: StaticStructureSchema = [3, n0, _STS,
+  0,
+  [_TN, _E],
+  [0, 2], 2
+];
 export var TableMetadata$: StaticStructureSchema = [3, n0, _TM,
   0,
   [_N, _CTr, _LAT, _TT, _Col, _PK, _Pa],
@@ -1595,6 +1662,16 @@ export var UpdatePreparedStatementOutput$: StaticStructureSchema = [3, n0, _UPSO
   [],
   []
 ];
+export var UpdateSystemTableConfigurationInput$: StaticStructureSchema = [3, n0, _USTCI,
+  0,
+  [_TN, _KKA],
+  [0, 0], 1
+];
+export var UpdateSystemTableConfigurationOutput$: StaticStructureSchema = [3, n0, _USTCO,
+  0,
+  [_TN, _KKA, _CAr, _LMA],
+  [0, 0, 4, 4]
+];
 export var UpdateWorkGroupInput$: StaticStructureSchema = [3, n0, _UWGI,
   0,
   [_WG, _D, _CU, _S],
@@ -1612,8 +1689,8 @@ export var WorkGroup$: StaticStructureSchema = [3, n0, _WG,
 ];
 export var WorkGroupConfiguration$: StaticStructureSchema = [3, n0, _WGC,
   0,
-  [_RC, _MQRC, _EWGC, _PCWME, _BSCPQ, _RPE, _EV, _ACdd, _ER, _MC, _ECng, _CCEC, _EMEC, _ICC, _QRSAGC],
-  [() => ResultConfiguration$, () => ManagedQueryResultsConfiguration$, 2, 2, 1, 2, () => EngineVersion$, 0, 0, () => MonitoringConfiguration$, () => EngineConfiguration$, () => CustomerContentEncryptionConfiguration$, 2, () => IdentityCenterConfiguration$, () => QueryResultsS3AccessGrantsConfiguration$]
+  [_RC, _MQRC, _EWGC, _PCWME, _BSCPQ, _RPE, _EV, _ACdd, _ER, _MC, _ECng, _CCEC, _EMEC, _ICC, _QRSAGC, _STSy],
+  [() => ResultConfiguration$, () => ManagedQueryResultsConfiguration$, 2, 2, 1, 2, () => EngineVersion$, 0, 0, () => MonitoringConfiguration$, () => EngineConfiguration$, () => CustomerContentEncryptionConfiguration$, 2, () => IdentityCenterConfiguration$, () => QueryResultsS3AccessGrantsConfiguration$, () => SystemTableStatusList]
 ];
 export var WorkGroupConfigurationUpdates$: StaticStructureSchema = [3, n0, _WGCU,
   0,
@@ -1698,6 +1775,9 @@ var SessionsList: StaticListSchema = [1, n0, _SL,
 ];
 var StringList = 64 | 0;
 var SupportedDPUSizeList = 64 | 1;
+var SystemTableStatusList: StaticListSchema = [1, n0, _STSL,
+  0, () => SystemTableStatus$
+];
 var TableMetadataList: StaticListSchema = [1, n0, _TML,
   0, () => TableMetadata$
 ];
@@ -1752,6 +1832,9 @@ export var CreatePreparedStatement$: StaticOperationSchema = [9, n0, _CPS,
 export var CreatePresignedNotebookUrl$: StaticOperationSchema = [9, n0, _CPNU,
   0, () => CreatePresignedNotebookUrlRequest$, () => CreatePresignedNotebookUrlResponse$
 ];
+export var CreateSystemTableConfiguration$: StaticOperationSchema = [9, n0, _CSTC,
+  0, () => CreateSystemTableConfigurationInput$, () => CreateSystemTableConfigurationOutput$
+];
 export var CreateWorkGroup$: StaticOperationSchema = [9, n0, _CWG,
   0, () => CreateWorkGroupInput$, () => CreateWorkGroupOutput$
 ];
@@ -1769,6 +1852,9 @@ export var DeleteNotebook$: StaticOperationSchema = [9, n0, _DNe,
 ];
 export var DeletePreparedStatement$: StaticOperationSchema = [9, n0, _DPS,
   0, () => DeletePreparedStatementInput$, () => DeletePreparedStatementOutput$
+];
+export var DeleteSystemTableConfiguration$: StaticOperationSchema = [9, n0, _DSTC,
+  2, () => DeleteSystemTableConfigurationInput$, () => DeleteSystemTableConfigurationOutput$
 ];
 export var DeleteWorkGroup$: StaticOperationSchema = [9, n0, _DWG,
   2, () => DeleteWorkGroupInput$, () => DeleteWorkGroupOutput$
@@ -1827,6 +1913,9 @@ export var GetSessionEndpoint$: StaticOperationSchema = [9, n0, _GSE,
 export var GetSessionStatus$: StaticOperationSchema = [9, n0, _GSS,
   0, () => GetSessionStatusRequest$, () => GetSessionStatusResponse$
 ];
+export var GetSystemTableConfiguration$: StaticOperationSchema = [9, n0, _GSTC,
+  0, () => GetSystemTableConfigurationInput$, () => GetSystemTableConfigurationOutput$
+];
 export var GetTableMetadata$: StaticOperationSchema = [9, n0, _GTM,
   0, () => GetTableMetadataInput$, () => GetTableMetadataOutput$
 ];
@@ -1874,6 +1963,9 @@ export var ListQueryExecutions$: StaticOperationSchema = [9, n0, _LQE,
 ];
 export var ListSessions$: StaticOperationSchema = [9, n0, _LS,
   0, () => ListSessionsRequest$, () => ListSessionsResponse$
+];
+export var ListSystemTableStatuses$: StaticOperationSchema = [9, n0, _LSTS,
+  0, () => ListSystemTableStatusesInput$, () => ListSystemTableStatusesOutput$
 ];
 export var ListTableMetadata$: StaticOperationSchema = [9, n0, _LTMi,
   0, () => ListTableMetadataInput$, () => ListTableMetadataOutput$
@@ -1928,6 +2020,9 @@ export var UpdateNotebookMetadata$: StaticOperationSchema = [9, n0, _UNM,
 ];
 export var UpdatePreparedStatement$: StaticOperationSchema = [9, n0, _UPS,
   0, () => UpdatePreparedStatementInput$, () => UpdatePreparedStatementOutput$
+];
+export var UpdateSystemTableConfiguration$: StaticOperationSchema = [9, n0, _USTC,
+  2, () => UpdateSystemTableConfigurationInput$, () => UpdateSystemTableConfigurationOutput$
 ];
 export var UpdateWorkGroup$: StaticOperationSchema = [9, n0, _UWG,
   0, () => UpdateWorkGroupInput$, () => UpdateWorkGroupOutput$

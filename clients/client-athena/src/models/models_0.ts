@@ -17,6 +17,8 @@ import type {
   S3AclOption,
   SessionState,
   StatementType,
+  SystemTableName,
+  SystemTableType,
   WorkGroupState,
 } from "./enums";
 
@@ -1453,6 +1455,71 @@ export interface CreatePresignedNotebookUrlResponse {
 }
 
 /**
+ * @public
+ */
+export interface CreateSystemTableConfigurationInput {
+  /**
+   * <p>A unique case-sensitive string used to ensure the request to create the system table
+   *             configuration is idempotent (executes only once). If another
+   *             <code>CreateSystemTableConfiguration</code> request is received with the same client
+   *             token but different parameters, the request fails with an
+   *             <code>InvalidRequestException</code>.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The system table configuration to create. The only accepted value is <code>ALL</code>,
+   *             the reserved keyword that enables all system tables for the account.</p>
+   * @public
+   */
+  TableName: SystemTableName | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use
+   *             for encrypting the system table data.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The tags to add to the system table configuration.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSystemTableConfigurationOutput {
+  /**
+   * <p>The system table configuration that was created. Always <code>ALL</code>.</p>
+   * @public
+   */
+  TableName?: SystemTableName | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used
+   *             for encrypting the system table data.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The date and time the system table configuration was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the system table configuration was last modified.</p>
+   * @public
+   */
+  LastModifiedAt?: Date | undefined;
+}
+
+/**
  * <p>Specifies the customer managed KMS key that is used to encrypt the user's data stores
  *             in Athena. When an Amazon Web Services managed key is used, this value is
  *             null. This setting does not apply to Athena SQL workgroups.</p>
@@ -1658,6 +1725,25 @@ export interface MonitoringConfiguration {
 }
 
 /**
+ * <p>The enablement status of a single system table. Because system tables are enabled at
+ *             the account level, every status reflects the same account-wide state.</p>
+ * @public
+ */
+export interface SystemTableStatus {
+  /**
+   * <p>The name of the system table, such as <code>QUERY_EXECUTIONS</code>.</p>
+   * @public
+   */
+  TableName: SystemTableType | undefined;
+
+  /**
+   * <p>Indicates whether the system table is enabled for the account.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
  * <p>The configuration of the workgroup, which includes the location in Amazon S3
  *             where query and calculation results are stored, the encryption option, if any, used for
  *             query and calculation results, whether the Amazon CloudWatch Metrics are enabled for
@@ -1791,6 +1877,13 @@ export interface WorkGroupConfiguration {
    * @public
    */
   QueryResultsS3AccessGrantsConfiguration?: QueryResultsS3AccessGrantsConfiguration | undefined;
+
+  /**
+   * <p>The read-only enablement status of each system table for the account. This field is
+   *             returned by <a>GetWorkGroup</a> and is ignored on write.</p>
+   * @public
+   */
+  SystemTableStatuses?: SystemTableStatus[] | undefined;
 }
 
 /**
@@ -1938,6 +2031,23 @@ export interface DeletePreparedStatementInput {
  * @public
  */
 export interface DeletePreparedStatementOutput {}
+
+/**
+ * @public
+ */
+export interface DeleteSystemTableConfigurationInput {
+  /**
+   * <p>The system table configuration to delete. The only accepted value is
+   *             <code>ALL</code>.</p>
+   * @public
+   */
+  TableName: SystemTableName | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSystemTableConfigurationOutput {}
 
 /**
  * @public
@@ -3144,6 +3254,48 @@ export interface GetSessionStatusResponse {
 /**
  * @public
  */
+export interface GetSystemTableConfigurationInput {
+  /**
+   * <p>The system table configuration to retrieve. The only accepted value is
+   *             <code>ALL</code>.</p>
+   * @public
+   */
+  TableName: SystemTableName | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSystemTableConfigurationOutput {
+  /**
+   * <p>The system table configuration. Always <code>ALL</code>.</p>
+   * @public
+   */
+  TableName?: SystemTableName | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used
+   *             for encrypting the system table data.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The date and time the system table configuration was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the system table configuration was last modified.</p>
+   * @public
+   */
+  LastModifiedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetTableMetadataInput {
   /**
    * <p>The name of the data catalog that contains the database and table metadata to
@@ -4325,6 +4477,43 @@ export interface ListSessionsResponse {
 /**
  * @public
  */
+export interface ListSystemTableStatusesInput {
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Specifies the maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSystemTableStatusesOutput {
+  /**
+   * <p>The list of system tables and their enablement status for the current account.</p>
+   * @public
+   */
+  Items: SystemTableStatus[] | undefined;
+
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the NextToken from the response object of the previous page call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTableMetadataInput {
   /**
    * <p>The name of the data catalog for which table metadata should be returned.</p>
@@ -4698,6 +4887,8 @@ export interface StartQueryExecutionInput {
    *             running in provisioned capacity. If not specified, Athena uses default values (Default value for min is 4 and for max is Minimum of 124 and allocated DPUs).</p>
    *          <p>To specify minimum and maximum DPU values for Capacity Reservations queries, the workgroup containing <code>EngineConfiguration</code> should have the following values: The name of
    *             the <code>Classifications</code> should be <code>athena-query-engine-properties</code>, with the only allowed properties as <code>max-dpu-count</code> and <code>min-dpu-count</code>.</p>
+   *          <p>
+   *             <b>Note:</b> When using StartQueryExecution, only the Classifications field applies. Do not specify the other fields (AdditionalConfigs, CoordinatorDpuSize, DefaultExecutorDpuSize, MaxConcurrentDpus, and SparkProperties), as these are used only with StartSession to configure Apache Spark-based sessions.</p>
    * @public
    */
   EngineConfiguration?: EngineConfiguration | undefined;
@@ -5223,6 +5414,56 @@ export interface UpdatePreparedStatementInput {
  * @public
  */
 export interface UpdatePreparedStatementOutput {}
+
+/**
+ * @public
+ */
+export interface UpdateSystemTableConfigurationInput {
+  /**
+   * <p>The system table configuration to update. The only accepted value is
+   *             <code>ALL</code>.</p>
+   * @public
+   */
+  TableName: SystemTableName | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use
+   *             for encrypting the system table data. The encryption key is immutable while the system
+   *             table exists, so a change takes effect only after the table has been deleted.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSystemTableConfigurationOutput {
+  /**
+   * <p>The system table configuration. Always <code>ALL</code>.</p>
+   * @public
+   */
+  TableName?: SystemTableName | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used
+   *             for encrypting the system table data.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The date and time the system table configuration was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the system table configuration was last modified.</p>
+   * @public
+   */
+  LastModifiedAt?: Date | undefined;
+}
 
 /**
  * <p>Updates the configuration for managed query results.</p>

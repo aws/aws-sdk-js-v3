@@ -64,6 +64,10 @@ import {
   CreatePresignedNotebookUrlCommand,
   CreatePresignedNotebookUrlRequest$,
   CreatePresignedNotebookUrlResponse$,
+  CreateSystemTableConfiguration$,
+  CreateSystemTableConfigurationCommand,
+  CreateSystemTableConfigurationInput$,
+  CreateSystemTableConfigurationOutput$,
   CreateWorkGroup$,
   CreateWorkGroupCommand,
   CreateWorkGroupInput$,
@@ -95,6 +99,10 @@ import {
   DeletePreparedStatementCommand,
   DeletePreparedStatementInput$,
   DeletePreparedStatementOutput$,
+  DeleteSystemTableConfiguration$,
+  DeleteSystemTableConfigurationCommand,
+  DeleteSystemTableConfigurationInput$,
+  DeleteSystemTableConfigurationOutput$,
   DeleteWorkGroup$,
   DeleteWorkGroupCommand,
   DeleteWorkGroupInput$,
@@ -179,6 +187,10 @@ import {
   GetSessionStatusCommand,
   GetSessionStatusRequest$,
   GetSessionStatusResponse$,
+  GetSystemTableConfiguration$,
+  GetSystemTableConfigurationCommand,
+  GetSystemTableConfigurationInput$,
+  GetSystemTableConfigurationOutput$,
   GetTableMetadata$,
   GetTableMetadataCommand,
   GetTableMetadataInput$,
@@ -248,6 +260,10 @@ import {
   ListSessionsCommand,
   ListSessionsRequest$,
   ListSessionsResponse$,
+  ListSystemTableStatuses$,
+  ListSystemTableStatusesCommand,
+  ListSystemTableStatusesInput$,
+  ListSystemTableStatusesOutput$,
   ListTableMetadata$,
   ListTableMetadataCommand,
   ListTableMetadataInput$,
@@ -283,6 +299,7 @@ import {
   paginateListPreparedStatements,
   paginateListQueryExecutions,
   paginateListSessions,
+  paginateListSystemTableStatuses,
   paginateListTableMetadata,
   paginateListTagsForResource,
   paginateListWorkGroups,
@@ -344,6 +361,9 @@ import {
   StopQueryExecutionCommand,
   StopQueryExecutionInput$,
   StopQueryExecutionOutput$,
+  SystemTableName,
+  SystemTableStatus$,
+  SystemTableType,
   TableMetadata$,
   Tag$,
   TagResource$,
@@ -388,6 +408,10 @@ import {
   UpdatePreparedStatementCommand,
   UpdatePreparedStatementInput$,
   UpdatePreparedStatementOutput$,
+  UpdateSystemTableConfiguration$,
+  UpdateSystemTableConfigurationCommand,
+  UpdateSystemTableConfigurationInput$,
+  UpdateSystemTableConfigurationOutput$,
   UpdateWorkGroup$,
   UpdateWorkGroupCommand,
   UpdateWorkGroupInput$,
@@ -423,6 +447,8 @@ assert(typeof CreatePreparedStatementCommand === "function");
 assert(typeof CreatePreparedStatement$ === "object");
 assert(typeof CreatePresignedNotebookUrlCommand === "function");
 assert(typeof CreatePresignedNotebookUrl$ === "object");
+assert(typeof CreateSystemTableConfigurationCommand === "function");
+assert(typeof CreateSystemTableConfiguration$ === "object");
 assert(typeof CreateWorkGroupCommand === "function");
 assert(typeof CreateWorkGroup$ === "object");
 assert(typeof DeleteCapacityReservationCommand === "function");
@@ -435,6 +461,8 @@ assert(typeof DeleteNotebookCommand === "function");
 assert(typeof DeleteNotebook$ === "object");
 assert(typeof DeletePreparedStatementCommand === "function");
 assert(typeof DeletePreparedStatement$ === "object");
+assert(typeof DeleteSystemTableConfigurationCommand === "function");
+assert(typeof DeleteSystemTableConfiguration$ === "object");
 assert(typeof DeleteWorkGroupCommand === "function");
 assert(typeof DeleteWorkGroup$ === "object");
 assert(typeof ExportNotebookCommand === "function");
@@ -473,6 +501,8 @@ assert(typeof GetSessionEndpointCommand === "function");
 assert(typeof GetSessionEndpoint$ === "object");
 assert(typeof GetSessionStatusCommand === "function");
 assert(typeof GetSessionStatus$ === "object");
+assert(typeof GetSystemTableConfigurationCommand === "function");
+assert(typeof GetSystemTableConfiguration$ === "object");
 assert(typeof GetTableMetadataCommand === "function");
 assert(typeof GetTableMetadata$ === "object");
 assert(typeof GetWorkGroupCommand === "function");
@@ -505,6 +535,8 @@ assert(typeof ListQueryExecutionsCommand === "function");
 assert(typeof ListQueryExecutions$ === "object");
 assert(typeof ListSessionsCommand === "function");
 assert(typeof ListSessions$ === "object");
+assert(typeof ListSystemTableStatusesCommand === "function");
+assert(typeof ListSystemTableStatuses$ === "object");
 assert(typeof ListTableMetadataCommand === "function");
 assert(typeof ListTableMetadata$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
@@ -541,6 +573,8 @@ assert(typeof UpdateNotebookMetadataCommand === "function");
 assert(typeof UpdateNotebookMetadata$ === "object");
 assert(typeof UpdatePreparedStatementCommand === "function");
 assert(typeof UpdatePreparedStatement$ === "object");
+assert(typeof UpdateSystemTableConfigurationCommand === "function");
+assert(typeof UpdateSystemTableConfiguration$ === "object");
 assert(typeof UpdateWorkGroupCommand === "function");
 assert(typeof UpdateWorkGroup$ === "object");
 // structural schemas
@@ -580,6 +614,8 @@ assert(typeof CreatePreparedStatementInput$ === "object");
 assert(typeof CreatePreparedStatementOutput$ === "object");
 assert(typeof CreatePresignedNotebookUrlRequest$ === "object");
 assert(typeof CreatePresignedNotebookUrlResponse$ === "object");
+assert(typeof CreateSystemTableConfigurationInput$ === "object");
+assert(typeof CreateSystemTableConfigurationOutput$ === "object");
 assert(typeof CreateWorkGroupInput$ === "object");
 assert(typeof CreateWorkGroupOutput$ === "object");
 assert(typeof CustomerContentEncryptionConfiguration$ === "object");
@@ -597,6 +633,8 @@ assert(typeof DeleteNotebookInput$ === "object");
 assert(typeof DeleteNotebookOutput$ === "object");
 assert(typeof DeletePreparedStatementInput$ === "object");
 assert(typeof DeletePreparedStatementOutput$ === "object");
+assert(typeof DeleteSystemTableConfigurationInput$ === "object");
+assert(typeof DeleteSystemTableConfigurationOutput$ === "object");
 assert(typeof DeleteWorkGroupInput$ === "object");
 assert(typeof DeleteWorkGroupOutput$ === "object");
 assert(typeof EncryptionConfiguration$ === "object");
@@ -640,6 +678,8 @@ assert(typeof GetSessionRequest$ === "object");
 assert(typeof GetSessionResponse$ === "object");
 assert(typeof GetSessionStatusRequest$ === "object");
 assert(typeof GetSessionStatusResponse$ === "object");
+assert(typeof GetSystemTableConfigurationInput$ === "object");
+assert(typeof GetSystemTableConfigurationOutput$ === "object");
 assert(typeof GetTableMetadataInput$ === "object");
 assert(typeof GetTableMetadataOutput$ === "object");
 assert(typeof GetWorkGroupInput$ === "object");
@@ -673,6 +713,8 @@ assert(typeof ListQueryExecutionsInput$ === "object");
 assert(typeof ListQueryExecutionsOutput$ === "object");
 assert(typeof ListSessionsRequest$ === "object");
 assert(typeof ListSessionsResponse$ === "object");
+assert(typeof ListSystemTableStatusesInput$ === "object");
+assert(typeof ListSystemTableStatusesOutput$ === "object");
 assert(typeof ListTableMetadataInput$ === "object");
 assert(typeof ListTableMetadataOutput$ === "object");
 assert(typeof ListTagsForResourceInput$ === "object");
@@ -724,6 +766,7 @@ assert(typeof StopCalculationExecutionRequest$ === "object");
 assert(typeof StopCalculationExecutionResponse$ === "object");
 assert(typeof StopQueryExecutionInput$ === "object");
 assert(typeof StopQueryExecutionOutput$ === "object");
+assert(typeof SystemTableStatus$ === "object");
 assert(typeof TableMetadata$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceInput$ === "object");
@@ -747,6 +790,8 @@ assert(typeof UpdateNotebookMetadataOutput$ === "object");
 assert(typeof UpdateNotebookOutput$ === "object");
 assert(typeof UpdatePreparedStatementInput$ === "object");
 assert(typeof UpdatePreparedStatementOutput$ === "object");
+assert(typeof UpdateSystemTableConfigurationInput$ === "object");
+assert(typeof UpdateSystemTableConfigurationOutput$ === "object");
 assert(typeof UpdateWorkGroupInput$ === "object");
 assert(typeof UpdateWorkGroupOutput$ === "object");
 assert(typeof WorkGroup$ === "object");
@@ -771,6 +816,8 @@ assert(typeof QueryResultType === "object");
 assert(typeof S3AclOption === "object");
 assert(typeof SessionState === "object");
 assert(typeof StatementType === "object");
+assert(typeof SystemTableName === "object");
+assert(typeof SystemTableType === "object");
 assert(typeof ThrottleReason === "object");
 assert(typeof WorkGroupState === "object");
 // errors
@@ -800,6 +847,7 @@ assert(typeof paginateListNamedQueries === "function");
 assert(typeof paginateListPreparedStatements === "function");
 assert(typeof paginateListQueryExecutions === "function");
 assert(typeof paginateListSessions === "function");
+assert(typeof paginateListSystemTableStatuses === "function");
 assert(typeof paginateListTableMetadata === "function");
 assert(typeof paginateListTagsForResource === "function");
 assert(typeof paginateListWorkGroups === "function");

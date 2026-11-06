@@ -88,6 +88,10 @@ import type {
   CreatePresignedNotebookUrlCommandInput,
   CreatePresignedNotebookUrlCommandOutput,
 } from "./commands/CreatePresignedNotebookUrlCommand";
+import type {
+  CreateSystemTableConfigurationCommandInput,
+  CreateSystemTableConfigurationCommandOutput,
+} from "./commands/CreateSystemTableConfigurationCommand";
 import type { CreateWorkGroupCommandInput, CreateWorkGroupCommandOutput } from "./commands/CreateWorkGroupCommand";
 import type {
   DeleteCapacityReservationCommandInput,
@@ -103,6 +107,10 @@ import type {
   DeletePreparedStatementCommandInput,
   DeletePreparedStatementCommandOutput,
 } from "./commands/DeletePreparedStatementCommand";
+import type {
+  DeleteSystemTableConfigurationCommandInput,
+  DeleteSystemTableConfigurationCommandOutput,
+} from "./commands/DeleteSystemTableConfigurationCommand";
 import type { DeleteWorkGroupCommandInput, DeleteWorkGroupCommandOutput } from "./commands/DeleteWorkGroupCommand";
 import type { ExportNotebookCommandInput, ExportNotebookCommandOutput } from "./commands/ExportNotebookCommand";
 import type {
@@ -155,6 +163,10 @@ import type {
   GetSessionEndpointCommandOutput,
 } from "./commands/GetSessionEndpointCommand";
 import type { GetSessionStatusCommandInput, GetSessionStatusCommandOutput } from "./commands/GetSessionStatusCommand";
+import type {
+  GetSystemTableConfigurationCommandInput,
+  GetSystemTableConfigurationCommandOutput,
+} from "./commands/GetSystemTableConfigurationCommand";
 import type { GetTableMetadataCommandInput, GetTableMetadataCommandOutput } from "./commands/GetTableMetadataCommand";
 import type { GetWorkGroupCommandInput, GetWorkGroupCommandOutput } from "./commands/GetWorkGroupCommand";
 import type { ImportNotebookCommandInput, ImportNotebookCommandOutput } from "./commands/ImportNotebookCommand";
@@ -195,6 +207,10 @@ import type {
   ListQueryExecutionsCommandOutput,
 } from "./commands/ListQueryExecutionsCommand";
 import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
+import type {
+  ListSystemTableStatusesCommandInput,
+  ListSystemTableStatusesCommandOutput,
+} from "./commands/ListSystemTableStatusesCommand";
 import type {
   ListTableMetadataCommandInput,
   ListTableMetadataCommandOutput,
@@ -246,6 +262,10 @@ import type {
   UpdatePreparedStatementCommandInput,
   UpdatePreparedStatementCommandOutput,
 } from "./commands/UpdatePreparedStatementCommand";
+import type {
+  UpdateSystemTableConfigurationCommandInput,
+  UpdateSystemTableConfigurationCommandOutput,
+} from "./commands/UpdateSystemTableConfigurationCommand";
 import type { UpdateWorkGroupCommandInput, UpdateWorkGroupCommandOutput } from "./commands/UpdateWorkGroupCommand";
 import {
   type ClientInputEndpointParameters,
@@ -272,12 +292,14 @@ export type ServiceInputTypes =
   | CreateNotebookCommandInput
   | CreatePreparedStatementCommandInput
   | CreatePresignedNotebookUrlCommandInput
+  | CreateSystemTableConfigurationCommandInput
   | CreateWorkGroupCommandInput
   | DeleteCapacityReservationCommandInput
   | DeleteDataCatalogCommandInput
   | DeleteNamedQueryCommandInput
   | DeleteNotebookCommandInput
   | DeletePreparedStatementCommandInput
+  | DeleteSystemTableConfigurationCommandInput
   | DeleteWorkGroupCommandInput
   | ExportNotebookCommandInput
   | GetCalculationExecutionCodeCommandInput
@@ -297,6 +319,7 @@ export type ServiceInputTypes =
   | GetSessionCommandInput
   | GetSessionEndpointCommandInput
   | GetSessionStatusCommandInput
+  | GetSystemTableConfigurationCommandInput
   | GetTableMetadataCommandInput
   | GetWorkGroupCommandInput
   | ImportNotebookCommandInput
@@ -313,6 +336,7 @@ export type ServiceInputTypes =
   | ListPreparedStatementsCommandInput
   | ListQueryExecutionsCommandInput
   | ListSessionsCommandInput
+  | ListSystemTableStatusesCommandInput
   | ListTableMetadataCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkGroupsCommandInput
@@ -331,6 +355,7 @@ export type ServiceInputTypes =
   | UpdateNotebookCommandInput
   | UpdateNotebookMetadataCommandInput
   | UpdatePreparedStatementCommandInput
+  | UpdateSystemTableConfigurationCommandInput
   | UpdateWorkGroupCommandInput;
 
 /**
@@ -347,12 +372,14 @@ export type ServiceOutputTypes =
   | CreateNotebookCommandOutput
   | CreatePreparedStatementCommandOutput
   | CreatePresignedNotebookUrlCommandOutput
+  | CreateSystemTableConfigurationCommandOutput
   | CreateWorkGroupCommandOutput
   | DeleteCapacityReservationCommandOutput
   | DeleteDataCatalogCommandOutput
   | DeleteNamedQueryCommandOutput
   | DeleteNotebookCommandOutput
   | DeletePreparedStatementCommandOutput
+  | DeleteSystemTableConfigurationCommandOutput
   | DeleteWorkGroupCommandOutput
   | ExportNotebookCommandOutput
   | GetCalculationExecutionCodeCommandOutput
@@ -372,6 +399,7 @@ export type ServiceOutputTypes =
   | GetSessionCommandOutput
   | GetSessionEndpointCommandOutput
   | GetSessionStatusCommandOutput
+  | GetSystemTableConfigurationCommandOutput
   | GetTableMetadataCommandOutput
   | GetWorkGroupCommandOutput
   | ImportNotebookCommandOutput
@@ -388,6 +416,7 @@ export type ServiceOutputTypes =
   | ListPreparedStatementsCommandOutput
   | ListQueryExecutionsCommandOutput
   | ListSessionsCommandOutput
+  | ListSystemTableStatusesCommandOutput
   | ListTableMetadataCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkGroupsCommandOutput
@@ -406,6 +435,7 @@ export type ServiceOutputTypes =
   | UpdateNotebookCommandOutput
   | UpdateNotebookMetadataCommandOutput
   | UpdatePreparedStatementCommandOutput
+  | UpdateSystemTableConfigurationCommandOutput
   | UpdateWorkGroupCommandOutput;
 
 /**
