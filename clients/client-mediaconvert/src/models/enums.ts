@@ -1623,6 +1623,19 @@ export type WebvttStylePassthrough = (typeof WebvttStylePassthrough)[keyof typeo
  * @public
  * @enum
  */
+export const CaptionSource = {
+  INPUT_CAPTION_SELECTOR: "INPUT_CAPTION_SELECTOR",
+  SMART_SUBTITLE: "SMART_SUBTITLE",
+} as const;
+/**
+ * @public
+ */
+export type CaptionSource = (typeof CaptionSource)[keyof typeof CaptionSource];
+
+/**
+ * @public
+ * @enum
+ */
 export const CmafIntervalCadence = {
   FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
   FOLLOW_IFRAME: "FOLLOW_IFRAME",
@@ -1684,6 +1697,7 @@ export type DashIsoIntervalCadence = (typeof DashIsoIntervalCadence)[keyof typeo
  */
 export const ElementalInferenceFeature = {
   SMART_CROP: "SMART_CROP",
+  SMART_SUBTITLE: "SMART_SUBTITLE",
 } as const;
 /**
  * @public

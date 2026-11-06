@@ -71,6 +71,7 @@ import type {
   BurnInSubtitleStylePassthrough,
   BurninSubtitleTeletextSpacing,
   CaptionDestinationType,
+  CaptionSource,
   CaptionSourceByteRateLimit,
   CaptionSourceConvertPaintOnToPopOn,
   CaptionSourceType,
@@ -2157,6 +2158,12 @@ export interface CaptionDestinationSettings {
  */
 export interface CaptionDescription {
   /**
+   * Specifies the audio selector or audio selector group that MediaConvert uses to generate Smart subtitles. The audio selector you choose must exist in all inputs for the job. If MediaConvert can't detect speech in the audio, it can't generate subtitles. Required when source is SMART_SUBTITLE; not allowed otherwise.
+   * @public
+   */
+  AudioSourceNames?: string[] | undefined;
+
+  /**
    * Specifies which "Caption Selector":#inputs-caption_selector to use from each input when generating captions. The name should be of the format "Caption Selector <N>", which denotes that the Nth Caption Selector will be used from each input.
    * @public
    */
@@ -2185,6 +2192,12 @@ export interface CaptionDescription {
    * @public
    */
   LanguageDescription?: string | undefined;
+
+  /**
+   * Specify the source of the captions for this caption description. Choose Captions input source (INPUT_CAPTION_SELECTOR) to use a caption selector from your input. Choose Smart subtitling (SMART_SUBTITLE) to have MediaConvert and Elemental Inference generate subtitles automatically from an audio source that you specify.
+   * @public
+   */
+  Source?: CaptionSource | undefined;
 }
 
 /**
@@ -2374,12 +2387,12 @@ export interface DashIsoImageBasedTrickPlayVariant {
 }
 
 /**
- * Elemental Inference Feed.
+ * An AWS Elemental Inference Feed.
  * @public
  */
 export interface ElementalInferenceFeed {
   /**
-   * Feed ARN.
+   * The ARN of an AWS Elemental Inference Feed.
    * @public
    */
   Arn?: string | undefined;
@@ -3985,10 +3998,34 @@ export interface ElementalInferenceConfiguration {
   Features?: ElementalInferenceFeature[] | undefined;
 
   /**
-   * A list of Elemental Inference feeds used by this job.
+   * A list of Elemental Inference feeds created during this job.
    * @public
    */
   Feeds?: ElementalInferenceFeed[] | undefined;
+}
+
+/**
+ * The source of your Elemental Inference Feed configuration.
+ * @public
+ */
+export interface ElementalInferenceFeedConfigurationSource {
+  /**
+   * The ARN of an Elemental Inference Feed.
+   * @public
+   */
+  FeedArn?: string | undefined;
+}
+
+/**
+ * The Elemental Inference settings used in this job.
+ * @public
+ */
+export interface ElementalInferenceSettings {
+  /**
+   * Optional. The source of your Elemental Inference Feed configuration. MediaConvert will reference this configuration source when you specify job settings which use Elemental Inference.
+   * @public
+   */
+  FeedConfigurationSource?: ElementalInferenceFeedConfigurationSource | undefined;
 }
 
 /**
@@ -9249,7 +9286,7 @@ export interface JobSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -9403,6 +9440,12 @@ export interface Job {
    * @public
    */
   ElementalInferenceConfiguration?: ElementalInferenceConfiguration | undefined;
+
+  /**
+   * The Elemental Inference settings used in this job.
+   * @public
+   */
+  ElementalInferenceSettings?: ElementalInferenceSettings | undefined;
 
   /**
    * Error code for the job
@@ -9621,7 +9664,7 @@ export interface JobTemplateSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -9715,6 +9758,12 @@ export interface JobTemplate {
    * @public
    */
   Description?: string | undefined;
+
+  /**
+   * The Elemental Inference settings used in this job.
+   * @public
+   */
+  ElementalInferenceSettings?: ElementalInferenceSettings | undefined;
 
   /**
    * Optional list of hop destinations.
@@ -10678,6 +10727,12 @@ export interface CreateJobRequest {
   ClientRequestToken?: string | undefined;
 
   /**
+   * The Elemental Inference settings used in this job.
+   * @public
+   */
+  ElementalInferenceSettings?: ElementalInferenceSettings | undefined;
+
+  /**
    * Optional. Use queue hopping to avoid overly long waits in the backlog of the queue that you submit your job to. Specify an alternate queue and the maximum time that your job will wait in the initial queue before hopping. For more information about this feature, see the AWS Elemental MediaConvert User Guide.
    * @public
    */
@@ -10776,6 +10831,12 @@ export interface CreateJobTemplateRequest {
    * @public
    */
   Description?: string | undefined;
+
+  /**
+   * The Elemental Inference settings used in this job.
+   * @public
+   */
+  ElementalInferenceSettings?: ElementalInferenceSettings | undefined;
 
   /**
    * Optional. Use queue hopping to avoid overly long waits in the backlog of the queue that you submit your job to. Specify an alternate queue and the maximum time that your job will wait in the initial queue before hopping. For more information about this feature, see the AWS Elemental MediaConvert User Guide.
@@ -11762,6 +11823,12 @@ export interface UpdateJobTemplateRequest {
    * @public
    */
   Description?: string | undefined;
+
+  /**
+   * The Elemental Inference settings used in this job.
+   * @public
+   */
+  ElementalInferenceSettings?: ElementalInferenceSettings | undefined;
 
   /**
    * Optional list of hop destinations.

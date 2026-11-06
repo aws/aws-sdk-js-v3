@@ -111,6 +111,7 @@ import {
   CaptionDestinationSettings$,
   CaptionDestinationType,
   CaptionSelector$,
+  CaptionSource,
   CaptionSourceByteRateLimit,
   CaptionSourceConvertPaintOnToPopOn,
   CaptionSourceFramerate$,
@@ -302,7 +303,9 @@ import {
   ElementalInferenceConfiguration$,
   ElementalInferenceFeature,
   ElementalInferenceFeed$,
+  ElementalInferenceFeedConfigurationSource$,
   ElementalInferenceFeedManagementState,
+  ElementalInferenceSettings$,
   EmbeddedConvert608To708,
   EmbeddedDestinationSettings$,
   EmbeddedSourceSettings$,
@@ -1030,6 +1033,8 @@ assert(typeof Eac3AtmosSettings$ === "object");
 assert(typeof Eac3Settings$ === "object");
 assert(typeof ElementalInferenceConfiguration$ === "object");
 assert(typeof ElementalInferenceFeed$ === "object");
+assert(typeof ElementalInferenceFeedConfigurationSource$ === "object");
+assert(typeof ElementalInferenceSettings$ === "object");
 assert(typeof EmbeddedDestinationSettings$ === "object");
 assert(typeof EmbeddedSourceSettings$ === "object");
 assert(typeof EncryptionContractConfiguration$ === "object");
@@ -1293,6 +1298,7 @@ assert(typeof BurninSubtitleShadowColor === "object");
 assert(typeof BurnInSubtitleStylePassthrough === "object");
 assert(typeof BurninSubtitleTeletextSpacing === "object");
 assert(typeof CaptionDestinationType === "object");
+assert(typeof CaptionSource === "object");
 assert(typeof CaptionSourceByteRateLimit === "object");
 assert(typeof CaptionSourceConvertPaintOnToPopOn === "object");
 assert(typeof CaptionSourceType === "object");
