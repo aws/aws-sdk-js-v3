@@ -165,7 +165,7 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler<XhrHttpH
           reject(new Error("XMLHttpRequest timed out."));
         });
         xhr.addEventListener("readystatechange", () => {
-          const isArrayBuffer: boolean = xhr.responseType === "arraybuffer" && xhr.response;
+          const isArrayBuffer: boolean = xhr.responseType === "arraybuffer";
           const isText = !isArrayBuffer && typeof xhr.responseText === "string";
 
           if (isText && !stream) {
