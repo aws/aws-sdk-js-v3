@@ -59,6 +59,15 @@ describe(getUpdatedSystemClockOffset.name, () => {
     });
   });
 
+  describe("invalid Date header guard", () => {
+    it.each(["", "not a date", `${new Date(0).toUTCString()}, ${new Date(0).toUTCString()}`])(
+      "returns currentSystemClockOffset unchanged for %j",
+      (clockTime) => {
+        expect(getUpdatedSystemClockOffset(clockTime, mockSystemClockOffset)).toEqual(mockSystemClockOffset);
+      }
+    );
+  });
+
   describe("elapsed > 15 min guard", () => {
     it("returns currentSystemClockOffset unchanged when elapsed exceeds 15 minutes", () => {
       const T = mockClockTime.getTime();
