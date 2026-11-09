@@ -351,7 +351,7 @@ export interface HostInfoForCreate {
   keyName: string | undefined;
 
   /**
-   * <p>The EC2 instance type that represents the host.</p>
+   * <p>The EC2 instance type that represents the host.</p> <note> <p>With VCF 5.2.x, you can use only the <code>i4i.metal</code>, <code>i7i.metal-24xl</code>, and <code>i7i.metal-48xl</code> instance types. All of these instance types are supported with <code>vcfVersion</code> set to <code>SELF_DEPLOYED</code>.</p> </note>
    * @public
    */
   instanceType: _InstanceType | undefined;
