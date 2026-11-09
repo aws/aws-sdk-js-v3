@@ -183,6 +183,11 @@ import {
   CreateDatabaseCommand,
 } from "./commands/CreateDatabaseCommand";
 import {
+  type CreateDataQualityEvaluationConfigCommandInput,
+  type CreateDataQualityEvaluationConfigCommandOutput,
+  CreateDataQualityEvaluationConfigCommand,
+} from "./commands/CreateDataQualityEvaluationConfigCommand";
+import {
   type CreateDataQualityRulesetCommandInput,
   type CreateDataQualityRulesetCommandOutput,
   CreateDataQualityRulesetCommand,
@@ -363,6 +368,11 @@ import {
   type DeleteDatabaseCommandOutput,
   DeleteDatabaseCommand,
 } from "./commands/DeleteDatabaseCommand";
+import {
+  type DeleteDataQualityEvaluationConfigCommandInput,
+  type DeleteDataQualityEvaluationConfigCommandOutput,
+  DeleteDataQualityEvaluationConfigCommand,
+} from "./commands/DeleteDataQualityEvaluationConfigCommand";
 import {
   type DeleteDataQualityRulesetCommandInput,
   type DeleteDataQualityRulesetCommandOutput,
@@ -645,6 +655,11 @@ import {
   type GetDataflowGraphCommandOutput,
   GetDataflowGraphCommand,
 } from "./commands/GetDataflowGraphCommand";
+import {
+  type GetDataQualityEvaluationConfigCommandInput,
+  type GetDataQualityEvaluationConfigCommandOutput,
+  GetDataQualityEvaluationConfigCommand,
+} from "./commands/GetDataQualityEvaluationConfigCommand";
 import {
   type GetDataQualityModelCommandInput,
   type GetDataQualityModelCommandOutput,
@@ -973,6 +988,11 @@ import {
   type ListCustomEntityTypesCommandOutput,
   ListCustomEntityTypesCommand,
 } from "./commands/ListCustomEntityTypesCommand";
+import {
+  type ListDataQualityEvaluationConfigsCommandInput,
+  type ListDataQualityEvaluationConfigsCommandOutput,
+  ListDataQualityEvaluationConfigsCommand,
+} from "./commands/ListDataQualityEvaluationConfigsCommand";
 import {
   type ListDataQualityResultsCommandInput,
   type ListDataQualityResultsCommandOutput,
@@ -1401,6 +1421,11 @@ import {
   UpdateDatabaseCommand,
 } from "./commands/UpdateDatabaseCommand";
 import {
+  type UpdateDataQualityEvaluationConfigCommandInput,
+  type UpdateDataQualityEvaluationConfigCommandOutput,
+  UpdateDataQualityEvaluationConfigCommand,
+} from "./commands/UpdateDataQualityEvaluationConfigCommand";
+import {
   type UpdateDataQualityRulesetCommandInput,
   type UpdateDataQualityRulesetCommandOutput,
   UpdateDataQualityRulesetCommand,
@@ -1526,6 +1551,7 @@ import { paginateListColumnStatisticsTaskRuns } from "./pagination/ListColumnSta
 import { paginateListConnectionTypes } from "./pagination/ListConnectionTypesPaginator";
 import { paginateListCrawlers } from "./pagination/ListCrawlersPaginator";
 import { paginateListCustomEntityTypes } from "./pagination/ListCustomEntityTypesPaginator";
+import { paginateListDataQualityEvaluationConfigs } from "./pagination/ListDataQualityEvaluationConfigsPaginator";
 import { paginateListDataQualityResults } from "./pagination/ListDataQualityResultsPaginator";
 import { paginateListDataQualityResultsV2 } from "./pagination/ListDataQualityResultsV2Paginator";
 import {
@@ -1591,6 +1617,7 @@ const commands = {
   CreateCrawlerCommand,
   CreateCustomEntityTypeCommand,
   CreateDatabaseCommand,
+  CreateDataQualityEvaluationConfigCommand,
   CreateDataQualityRulesetCommand,
   CreateDevEndpointCommand,
   CreateGlossaryCommand,
@@ -1628,6 +1655,7 @@ const commands = {
   DeleteCrawlerCommand,
   DeleteCustomEntityTypeCommand,
   DeleteDatabaseCommand,
+  DeleteDataQualityEvaluationConfigCommand,
   DeleteDataQualityRulesetCommand,
   DeleteDevEndpointCommand,
   DeleteFormTypeCommand,
@@ -1686,6 +1714,7 @@ const commands = {
   GetDataCatalogEncryptionSettingsCommand,
   GetDataCatalogExportConfigurationCommand,
   GetDataflowGraphCommand,
+  GetDataQualityEvaluationConfigCommand,
   GetDataQualityModelCommand,
   GetDataQualityModelResultCommand,
   GetDataQualityResultCommand,
@@ -1758,6 +1787,7 @@ const commands = {
   ListCrawlersCommand,
   ListCrawlsCommand,
   ListCustomEntityTypesCommand,
+  ListDataQualityEvaluationConfigsCommand,
   ListDataQualityResultsCommand,
   ListDataQualityResultsV2Command,
   ListDataQualityRuleRecommendationRunsCommand,
@@ -1845,6 +1875,7 @@ const commands = {
   UpdateCrawlerCommand,
   UpdateCrawlerScheduleCommand,
   UpdateDatabaseCommand,
+  UpdateDataQualityEvaluationConfigCommand,
   UpdateDataQualityRulesetCommand,
   UpdateDevEndpointCommand,
   UpdateGlossaryCommand,
@@ -1896,6 +1927,7 @@ const paginators = {
   paginateListConnectionTypes,
   paginateListCrawlers,
   paginateListCustomEntityTypes,
+  paginateListDataQualityEvaluationConfigs,
   paginateListDataQualityResults,
   paginateListDataQualityResultsV2,
   paginateListDataQualityRuleRecommendationRuns,
@@ -2527,6 +2559,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link CreateDataQualityEvaluationConfigCommand}
+   */
+  createDataQualityEvaluationConfig(
+    args: CreateDataQualityEvaluationConfigCommandInput,
+    options?: GlueRequestOptions
+  ): Promise<CreateDataQualityEvaluationConfigCommandOutput>;
+  createDataQualityEvaluationConfig(
+    args: CreateDataQualityEvaluationConfigCommandInput,
+    cb: (err: any, data?: CreateDataQualityEvaluationConfigCommandOutput) => void
+  ): void;
+  createDataQualityEvaluationConfig(
+    args: CreateDataQualityEvaluationConfigCommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: CreateDataQualityEvaluationConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateDataQualityRulesetCommand}
    */
   createDataQualityRuleset(
@@ -3154,6 +3203,23 @@ export interface Glue {
     args: DeleteDatabaseCommandInput,
     options: GlueRequestOptions,
     cb: (err: any, data?: DeleteDatabaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDataQualityEvaluationConfigCommand}
+   */
+  deleteDataQualityEvaluationConfig(
+    args: DeleteDataQualityEvaluationConfigCommandInput,
+    options?: GlueRequestOptions
+  ): Promise<DeleteDataQualityEvaluationConfigCommandOutput>;
+  deleteDataQualityEvaluationConfig(
+    args: DeleteDataQualityEvaluationConfigCommandInput,
+    cb: (err: any, data?: DeleteDataQualityEvaluationConfigCommandOutput) => void
+  ): void;
+  deleteDataQualityEvaluationConfig(
+    args: DeleteDataQualityEvaluationConfigCommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: DeleteDataQualityEvaluationConfigCommandOutput) => void
   ): void;
 
   /**
@@ -4154,6 +4220,23 @@ export interface Glue {
     args: GetDataflowGraphCommandInput,
     options: GlueRequestOptions,
     cb: (err: any, data?: GetDataflowGraphCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDataQualityEvaluationConfigCommand}
+   */
+  getDataQualityEvaluationConfig(
+    args: GetDataQualityEvaluationConfigCommandInput,
+    options?: GlueRequestOptions
+  ): Promise<GetDataQualityEvaluationConfigCommandOutput>;
+  getDataQualityEvaluationConfig(
+    args: GetDataQualityEvaluationConfigCommandInput,
+    cb: (err: any, data?: GetDataQualityEvaluationConfigCommandOutput) => void
+  ): void;
+  getDataQualityEvaluationConfig(
+    args: GetDataQualityEvaluationConfigCommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: GetDataQualityEvaluationConfigCommandOutput) => void
   ): void;
 
   /**
@@ -5394,6 +5477,24 @@ export interface Glue {
     args: ListCustomEntityTypesCommandInput,
     options: GlueRequestOptions,
     cb: (err: any, data?: ListCustomEntityTypesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataQualityEvaluationConfigsCommand}
+   */
+  listDataQualityEvaluationConfigs(): Promise<ListDataQualityEvaluationConfigsCommandOutput>;
+  listDataQualityEvaluationConfigs(
+    args: ListDataQualityEvaluationConfigsCommandInput,
+    options?: GlueRequestOptions
+  ): Promise<ListDataQualityEvaluationConfigsCommandOutput>;
+  listDataQualityEvaluationConfigs(
+    args: ListDataQualityEvaluationConfigsCommandInput,
+    cb: (err: any, data?: ListDataQualityEvaluationConfigsCommandOutput) => void
+  ): void;
+  listDataQualityEvaluationConfigs(
+    args: ListDataQualityEvaluationConfigsCommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: ListDataQualityEvaluationConfigsCommandOutput) => void
   ): void;
 
   /**
@@ -6902,6 +7003,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link UpdateDataQualityEvaluationConfigCommand}
+   */
+  updateDataQualityEvaluationConfig(
+    args: UpdateDataQualityEvaluationConfigCommandInput,
+    options?: GlueRequestOptions
+  ): Promise<UpdateDataQualityEvaluationConfigCommandOutput>;
+  updateDataQualityEvaluationConfig(
+    args: UpdateDataQualityEvaluationConfigCommandInput,
+    cb: (err: any, data?: UpdateDataQualityEvaluationConfigCommandOutput) => void
+  ): void;
+  updateDataQualityEvaluationConfig(
+    args: UpdateDataQualityEvaluationConfigCommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: UpdateDataQualityEvaluationConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateDataQualityRulesetCommand}
    */
   updateDataQualityRuleset(
@@ -7562,6 +7680,17 @@ export interface Glue {
     args?: ListCustomEntityTypesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListCustomEntityTypesCommandOutput>;
+
+  /**
+   * @see {@link ListDataQualityEvaluationConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataQualityEvaluationConfigsCommandOutput}.
+   */
+  paginateListDataQualityEvaluationConfigs(
+    args?: ListDataQualityEvaluationConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataQualityEvaluationConfigsCommandOutput>;
 
   /**
    * @see {@link ListDataQualityResultsCommand}

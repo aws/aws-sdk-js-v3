@@ -156,6 +156,10 @@ import type {
 } from "./commands/CreateCustomEntityTypeCommand";
 import type { CreateDatabaseCommandInput, CreateDatabaseCommandOutput } from "./commands/CreateDatabaseCommand";
 import type {
+  CreateDataQualityEvaluationConfigCommandInput,
+  CreateDataQualityEvaluationConfigCommandOutput,
+} from "./commands/CreateDataQualityEvaluationConfigCommand";
+import type {
   CreateDataQualityRulesetCommandInput,
   CreateDataQualityRulesetCommandOutput,
 } from "./commands/CreateDataQualityRulesetCommand";
@@ -246,6 +250,10 @@ import type {
   DeleteCustomEntityTypeCommandOutput,
 } from "./commands/DeleteCustomEntityTypeCommand";
 import type { DeleteDatabaseCommandInput, DeleteDatabaseCommandOutput } from "./commands/DeleteDatabaseCommand";
+import type {
+  DeleteDataQualityEvaluationConfigCommandInput,
+  DeleteDataQualityEvaluationConfigCommandOutput,
+} from "./commands/DeleteDataQualityEvaluationConfigCommand";
 import type {
   DeleteDataQualityRulesetCommandInput,
   DeleteDataQualityRulesetCommandOutput,
@@ -394,6 +402,10 @@ import type {
   GetDataCatalogExportConfigurationCommandOutput,
 } from "./commands/GetDataCatalogExportConfigurationCommand";
 import type { GetDataflowGraphCommandInput, GetDataflowGraphCommandOutput } from "./commands/GetDataflowGraphCommand";
+import type {
+  GetDataQualityEvaluationConfigCommandInput,
+  GetDataQualityEvaluationConfigCommandOutput,
+} from "./commands/GetDataQualityEvaluationConfigCommand";
 import type {
   GetDataQualityModelCommandInput,
   GetDataQualityModelCommandOutput,
@@ -565,6 +577,10 @@ import type {
   ListCustomEntityTypesCommandInput,
   ListCustomEntityTypesCommandOutput,
 } from "./commands/ListCustomEntityTypesCommand";
+import type {
+  ListDataQualityEvaluationConfigsCommandInput,
+  ListDataQualityEvaluationConfigsCommandOutput,
+} from "./commands/ListDataQualityEvaluationConfigsCommand";
 import type {
   ListDataQualityResultsCommandInput,
   ListDataQualityResultsCommandOutput,
@@ -800,6 +816,10 @@ import type {
 } from "./commands/UpdateCrawlerScheduleCommand";
 import type { UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput } from "./commands/UpdateDatabaseCommand";
 import type {
+  UpdateDataQualityEvaluationConfigCommandInput,
+  UpdateDataQualityEvaluationConfigCommandOutput,
+} from "./commands/UpdateDataQualityEvaluationConfigCommand";
+import type {
   UpdateDataQualityRulesetCommandInput,
   UpdateDataQualityRulesetCommandOutput,
 } from "./commands/UpdateDataQualityRulesetCommand";
@@ -904,6 +924,7 @@ export type ServiceInputTypes =
   | CreateConnectionCommandInput
   | CreateCrawlerCommandInput
   | CreateCustomEntityTypeCommandInput
+  | CreateDataQualityEvaluationConfigCommandInput
   | CreateDataQualityRulesetCommandInput
   | CreateDatabaseCommandInput
   | CreateDevEndpointCommandInput
@@ -941,6 +962,7 @@ export type ServiceInputTypes =
   | DeleteConnectionTypeCommandInput
   | DeleteCrawlerCommandInput
   | DeleteCustomEntityTypeCommandInput
+  | DeleteDataQualityEvaluationConfigCommandInput
   | DeleteDataQualityRulesetCommandInput
   | DeleteDatabaseCommandInput
   | DeleteDevEndpointCommandInput
@@ -997,6 +1019,7 @@ export type ServiceInputTypes =
   | GetDashboardUrlCommandInput
   | GetDataCatalogEncryptionSettingsCommandInput
   | GetDataCatalogExportConfigurationCommandInput
+  | GetDataQualityEvaluationConfigCommandInput
   | GetDataQualityModelCommandInput
   | GetDataQualityModelResultCommandInput
   | GetDataQualityResultCommandInput
@@ -1072,6 +1095,7 @@ export type ServiceInputTypes =
   | ListCrawlersCommandInput
   | ListCrawlsCommandInput
   | ListCustomEntityTypesCommandInput
+  | ListDataQualityEvaluationConfigsCommandInput
   | ListDataQualityResultsCommandInput
   | ListDataQualityResultsV2CommandInput
   | ListDataQualityRuleRecommendationRunsCommandInput
@@ -1158,6 +1182,7 @@ export type ServiceInputTypes =
   | UpdateConnectionCommandInput
   | UpdateCrawlerCommandInput
   | UpdateCrawlerScheduleCommandInput
+  | UpdateDataQualityEvaluationConfigCommandInput
   | UpdateDataQualityRulesetCommandInput
   | UpdateDatabaseCommandInput
   | UpdateDevEndpointCommandInput
@@ -1218,6 +1243,7 @@ export type ServiceOutputTypes =
   | CreateConnectionCommandOutput
   | CreateCrawlerCommandOutput
   | CreateCustomEntityTypeCommandOutput
+  | CreateDataQualityEvaluationConfigCommandOutput
   | CreateDataQualityRulesetCommandOutput
   | CreateDatabaseCommandOutput
   | CreateDevEndpointCommandOutput
@@ -1255,6 +1281,7 @@ export type ServiceOutputTypes =
   | DeleteConnectionTypeCommandOutput
   | DeleteCrawlerCommandOutput
   | DeleteCustomEntityTypeCommandOutput
+  | DeleteDataQualityEvaluationConfigCommandOutput
   | DeleteDataQualityRulesetCommandOutput
   | DeleteDatabaseCommandOutput
   | DeleteDevEndpointCommandOutput
@@ -1311,6 +1338,7 @@ export type ServiceOutputTypes =
   | GetDashboardUrlCommandOutput
   | GetDataCatalogEncryptionSettingsCommandOutput
   | GetDataCatalogExportConfigurationCommandOutput
+  | GetDataQualityEvaluationConfigCommandOutput
   | GetDataQualityModelCommandOutput
   | GetDataQualityModelResultCommandOutput
   | GetDataQualityResultCommandOutput
@@ -1386,6 +1414,7 @@ export type ServiceOutputTypes =
   | ListCrawlersCommandOutput
   | ListCrawlsCommandOutput
   | ListCustomEntityTypesCommandOutput
+  | ListDataQualityEvaluationConfigsCommandOutput
   | ListDataQualityResultsCommandOutput
   | ListDataQualityResultsV2CommandOutput
   | ListDataQualityRuleRecommendationRunsCommandOutput
@@ -1472,6 +1501,7 @@ export type ServiceOutputTypes =
   | UpdateConnectionCommandOutput
   | UpdateCrawlerCommandOutput
   | UpdateCrawlerScheduleCommandOutput
+  | UpdateDataQualityEvaluationConfigCommandOutput
   | UpdateDataQualityRulesetCommandOutput
   | UpdateDatabaseCommandOutput
   | UpdateDevEndpointCommandOutput

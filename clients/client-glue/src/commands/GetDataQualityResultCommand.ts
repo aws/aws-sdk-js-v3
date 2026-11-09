@@ -39,6 +39,8 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * const response = await client.send(command);
  * // { // GetDataQualityResultResponse
  * //   ResultId: "STRING_VALUE",
+ * //   EvaluationRunMode: "ON_DEMAND" || "EVALUATION_CONFIG",
+ * //   DataQualityEvaluationConfig: "STRING_VALUE",
  * //   ProfileId: "STRING_VALUE",
  * //   Score: Number("double"),
  * //   DataSource: { // DataSource

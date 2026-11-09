@@ -11,14 +11,17 @@ import type {
   DatabaseAttributes,
   DataFormat,
   DataQualityEngine,
+  DataQualityEvaluationConfigLevel,
+  DataQualityEvaluationConfigManagedRuleset,
+  DataQualityEvaluationConfigTrigger,
+  DataQualityEvaluationRunMode,
   DataQualityModelStatus,
-  EnableHybridValues,
-  ExistCondition,
   ExportSetting,
   ExportStatus,
   FieldName,
   FilterOperator,
   FunctionType,
+  GlueResourceType,
   GovernanceMode,
   InclusionAnnotationValue,
   IntegrationStatus,
@@ -60,6 +63,7 @@ import type {
   AssetTypeFormReference,
   AssetTypeItem,
   AuditContext,
+  Crawler,
   CustomEntityType,
   DataQualityAggregatedMetrics,
   DataQualityAnalyzerResult,
@@ -74,6 +78,7 @@ import type {
   JobRun,
   Partition,
   PartitionValueList,
+  PrincipalPermissions,
   QuerySessionContext,
   SchemaId,
   StatisticAnnotation,
@@ -89,9 +94,12 @@ import type {
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
-  Database,
+  DatabaseIdentifier,
+  DataQualityEvaluationConfigAdditionalRunOptions,
+  DataQualityEvaluationConfigDataSource,
   DataQualityTargetTable,
   EncryptionConfiguration,
+  FederatedDatabase,
   IcebergPartitionSpec,
   IcebergSchema,
   IcebergSortOrder,
@@ -110,6 +118,174 @@ import type {
   TransformEncryption,
   TransformParameters,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetCrawlersResponse {
+  /**
+   * <p>A list of crawler metadata.</p>
+   * @public
+   */
+  Crawlers?: Crawler[] | undefined;
+
+  /**
+   * <p>A continuation token, if the returned list has not reached the end
+   *       of those defined in this customer account.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCustomEntityTypeRequest {
+  /**
+   * <p>The name of the custom pattern that you want to retrieve.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCustomEntityTypeResponse {
+  /**
+   * <p>The name of the custom pattern that you retrieved.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A regular expression string that is used for detecting sensitive data in a custom pattern.</p>
+   * @public
+   */
+  RegexString?: string | undefined;
+
+  /**
+   * <p>A list of context words if specified when you created the custom pattern. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p>
+   * @public
+   */
+  ContextWords?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDashboardUrlRequest {
+  /**
+   * <p>The unique identifier of the resource for which to retrieve the dashboard URL.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource. Valid values are <code>SESSION</code> and <code>JOB</code>.</p>
+   * @public
+   */
+  ResourceType: GlueResourceType | undefined;
+
+  /**
+   * <p>The origin of the request. </p>
+   * @public
+   */
+  RequestOrigin?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDashboardUrlResponse {
+  /**
+   * <p>The URL for the Spark monitoring dashboard.</p>
+   * @public
+   */
+  Url: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDatabaseRequest {
+  /**
+   * <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services
+   *       account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the database to retrieve. For Hive compatibility, this
+   *       should be all lowercase.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * <p>The <code>Database</code> object represents a logical grouping of tables that might reside
+ *       in a Hive metastore or an RDBMS.</p>
+ * @public
+ */
+export interface Database {
+  /**
+   * <p>The name of the database. For Hive compatibility, this is folded to lowercase when it is
+   *       stored.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the database.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The location of the database (for example, an HDFS path).</p>
+   * @public
+   */
+  LocationUri?: string | undefined;
+
+  /**
+   * <p>These key-value pairs define parameters and properties
+   *       of the database.</p>
+   * @public
+   */
+  Parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>The time at which the metadata database was created in the catalog.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>Creates a set of default permissions on the table for principals. Used by Lake Formation. Not used in the normal course of Glue operations.</p>
+   * @public
+   */
+  CreateTableDefaultPermissions?: PrincipalPermissions[] | undefined;
+
+  /**
+   * <p>A <code>DatabaseIdentifier</code> structure that describes a target database for resource linking.</p>
+   * @public
+   */
+  TargetDatabase?: DatabaseIdentifier | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog in which the database resides.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>A <code>FederatedDatabase</code> structure that references an entity outside the Glue Data Catalog.</p>
+   * @public
+   */
+  FederatedDatabase?: FederatedDatabase | undefined;
+}
 
 /**
  * @public
@@ -383,6 +559,144 @@ export interface GetDataflowGraphResponse {
 /**
  * @public
  */
+export interface GetDataQualityEvaluationConfigRequest {
+  /**
+   * <p>The name of the data quality evaluation configuration.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataQualityEvaluationConfigResponse {
+  /**
+   * <p>The name of the data quality evaluation configuration.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The evaluation run mode of the configuration's results, which is <code>EVALUATION_CONFIG</code>.</p>
+   * @public
+   */
+  EvaluationRunMode?: DataQualityEvaluationRunMode | undefined;
+
+  /**
+   * <p>The time when the configuration was created.</p>
+   * @public
+   */
+  CreatedOn?: Date | undefined;
+
+  /**
+   * <p>The time when the configuration was last modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date | undefined;
+
+  /**
+   * <p>The Glue Data Catalog hierarchical level that the configuration applies to.</p>
+   * @public
+   */
+  Level?: DataQualityEvaluationConfigLevel | undefined;
+
+  /**
+   * <p>The catalog, database, or table that the configuration applies to.</p>
+   * @public
+   */
+  DataSource?: DataQualityEvaluationConfigDataSource | undefined;
+
+  /**
+   * <p>The name of the data quality ruleset that tables are evaluated with.</p>
+   * @public
+   */
+  RulesetName?: string | undefined;
+
+  /**
+   * <p>The built-in ruleset that tables are evaluated with.</p>
+   * @public
+   */
+  ManagedRulesetName?: DataQualityEvaluationConfigManagedRuleset | undefined;
+
+  /**
+   * <p>When the configuration evaluates tables:</p>
+   *          <dl>
+   *             <dt>ONCE</dt>
+   *             <dd>
+   *                <p>Each table is evaluated one time, including when tables are added to a database or catalog.</p>
+   *             </dd>
+   *             <dt>SCHEDULE</dt>
+   *             <dd>
+   *                <p>Each table is evaluated on the cron or rate expression in <code>ScheduleExpression</code>.</p>
+   *             </dd>
+   *             <dt>METADATA_CHANGE</dt>
+   *             <dd>
+   *                <p>A table is evaluated whenever its Glue Data Catalog metadata changes.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  Triggers?: DataQualityEvaluationConfigTrigger[] | undefined;
+
+  /**
+   * <p>The cron or rate expression, in UTC, for the <code>SCHEDULE</code> trigger.</p>
+   * @public
+   */
+  ScheduleExpression?: string | undefined;
+
+  /**
+   * <p>The time from which the schedule runs, inclusive.</p>
+   * @public
+   */
+  StartAt?: Date | undefined;
+
+  /**
+   * <p>The time at which the schedule stops running, exclusive.</p>
+   * @public
+   */
+  EndAt?: Date | undefined;
+
+  /**
+   * <p>Specifies whether evaluations are paused.</p>
+   * @public
+   */
+  PauseRuns?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that evaluation runs assume.</p>
+   * @public
+   */
+  Role?: string | undefined;
+
+  /**
+   * <p>The number of <code>G.1X</code> workers to be used in the run. The default is 5.</p>
+   * @public
+   */
+  NumberOfWorkers?: number | undefined;
+
+  /**
+   * <p>The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
+   * @public
+   */
+  Timeout?: number | undefined;
+
+  /**
+   * <p>Additional run options you can specify for an evaluation run.</p>
+   * @public
+   */
+  AdditionalRunOptions?: DataQualityEvaluationConfigAdditionalRunOptions | undefined;
+
+  /**
+   * <p>A map of reference strings to additional data sources you can specify for an evaluation run.</p>
+   * @public
+   */
+  AdditionalDataSources?: Record<string, DataSource> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetDataQualityModelRequest {
   /**
    * <p>The Statistic ID.</p>
@@ -526,6 +840,18 @@ export interface GetDataQualityResultResponse {
   ResultId?: string | undefined;
 
   /**
+   * <p>How the evaluation run that produced the result started: <code>ON_DEMAND</code> for a run started by <code>StartDataQualityRulesetEvaluationRun</code>, or <code>EVALUATION_CONFIG</code> for a run started by a data quality evaluation configuration. Not returned for results that no evaluation run produced, such as results from any ETL job.</p>
+   * @public
+   */
+  EvaluationRunMode?: DataQualityEvaluationRunMode | undefined;
+
+  /**
+   * <p>The name of the data quality evaluation configuration that started the evaluation run, returned when <code>EvaluationRunMode</code> is <code>EVALUATION_CONFIG</code>.</p>
+   * @public
+   */
+  DataQualityEvaluationConfig?: string | undefined;
+
+  /**
    * <p>The Profile ID for the data quality result.</p>
    * @public
    */
@@ -630,6 +956,18 @@ export interface GetDataQualityResultV2Response {
    * @public
    */
   ResultId?: string | undefined;
+
+  /**
+   * <p>How the evaluation run that produced the result started: <code>ON_DEMAND</code> for a run started by <code>StartDataQualityRulesetEvaluationRun</code>, or <code>EVALUATION_CONFIG</code> for a run started by a data quality evaluation configuration. Not returned for results that no evaluation run produced, such as results from any ETL job.</p>
+   * @public
+   */
+  EvaluationRunMode?: DataQualityEvaluationRunMode | undefined;
+
+  /**
+   * <p>The name of the data quality evaluation configuration that started the evaluation run, returned when <code>EvaluationRunMode</code> is <code>EVALUATION_CONFIG</code>.</p>
+   * @public
+   */
+  DataQualityEvaluationConfig?: string | undefined;
 
   /**
    * <p>The table associated with the data quality result, if any.</p>
@@ -6089,6 +6427,142 @@ export interface ListCustomEntityTypesResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListDataQualityEvaluationConfigsRequest {
+  /**
+   * <p>Lists only the configurations that apply to this level.</p>
+   * @public
+   */
+  Level?: DataQualityEvaluationConfigLevel | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A paginated token to offset the results. If you don't specify a token, the operation returns results starting from the beginning of the list.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Identifies the Glue Data Catalog tables that a data quality evaluation configuration applies to.</p>
+ * @public
+ */
+export interface DataQualityEvaluationConfigListGlueTables {
+  /**
+   * <p>A unique identifier for the Glue Data Catalog.</p>
+   * @public
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>A database name in the Glue Data Catalog.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>For the <code>CATALOG</code> and <code>DATABASE</code> levels, a glob pattern, such as <code>orders_*</code>, that selects tables. If you don't specify a pattern, every table at the level is in scope. For the <code>TABLE</code> level, the name of the table.</p>
+   * @public
+   */
+  TableNamePattern?: string | undefined;
+}
+
+/**
+ * <p>The data source that a data quality evaluation configuration applies to.</p>
+ * @public
+ */
+export interface DataQualityEvaluationConfigListDataSource {
+  /**
+   * <p>The Glue Data Catalog tables that the configuration applies to.</p>
+   * @public
+   */
+  GlueTables?: DataQualityEvaluationConfigListGlueTables | undefined;
+}
+
+/**
+ * <p>Describes a data quality evaluation configuration.</p>
+ * @public
+ */
+export interface DataQualityEvaluationConfigListDetails {
+  /**
+   * <p>The name of the data quality evaluation configuration.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The evaluation run mode of the configuration's results, which is <code>EVALUATION_CONFIG</code>.</p>
+   * @public
+   */
+  EvaluationRunMode?: DataQualityEvaluationRunMode | undefined;
+
+  /**
+   * <p>The time when the configuration was created.</p>
+   * @public
+   */
+  CreatedOn?: Date | undefined;
+
+  /**
+   * <p>The time when the configuration was last modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date | undefined;
+
+  /**
+   * <p>The Glue Data Catalog hierarchical level that the configuration applies to.</p>
+   * @public
+   */
+  Level?: DataQualityEvaluationConfigLevel | undefined;
+
+  /**
+   * <p>The catalog, database, or table that the configuration applies to.</p>
+   * @public
+   */
+  DataSource?: DataQualityEvaluationConfigListDataSource | undefined;
+
+  /**
+   * <p>The name of the data quality ruleset that tables are evaluated with.</p>
+   * @public
+   */
+  RulesetName?: string | undefined;
+
+  /**
+   * <p>The built-in ruleset that tables are evaluated with.</p>
+   * @public
+   */
+  ManagedRulesetName?: DataQualityEvaluationConfigManagedRuleset | undefined;
+
+  /**
+   * <p>Specifies whether evaluations are paused.</p>
+   * @public
+   */
+  PauseRuns?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataQualityEvaluationConfigsResponse {
+  /**
+   * <p>A list of <code>DataQualityEvaluationConfigListDetails</code> objects.</p>
+   * @public
+   */
+  DataQualityEvaluationConfigs?: DataQualityEvaluationConfigListDetails[] | undefined;
+
+  /**
+   * <p>A pagination token, if more results are available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * <p>Criteria used to return data quality results.</p>
  * @public
  */
@@ -6122,6 +6596,18 @@ export interface DataQualityResultFilterCriteria {
    * @public
    */
   StartedBefore?: Date | undefined;
+
+  /**
+   * <p>Filter results by how their evaluation run started: <code>ON_DEMAND</code> or <code>EVALUATION_CONFIG</code>. Results that no evaluation run produced match neither value.</p>
+   * @public
+   */
+  EvaluationRunMode?: DataQualityEvaluationRunMode | undefined;
+
+  /**
+   * <p>Filter results by the evaluation configuration name which started the evaluation run.</p>
+   * @public
+   */
+  DataQualityEvaluationConfig?: string | undefined;
 }
 
 /**
@@ -6157,6 +6643,18 @@ export interface DataQualityResultDescription {
    * @public
    */
   ResultId?: string | undefined;
+
+  /**
+   * <p>How the evaluation run that produced the result started: <code>ON_DEMAND</code> for a run started by <code>StartDataQualityRulesetEvaluationRun</code>, or <code>EVALUATION_CONFIG</code> for a run started by a data quality evaluation configuration. Not returned for results that no evaluation run produced, such as results from any ETL job.</p>
+   * @public
+   */
+  EvaluationRunMode?: DataQualityEvaluationRunMode | undefined;
+
+  /**
+   * <p>The name of the data quality evaluation configuration that started the evaluation run, returned when <code>EvaluationRunMode</code> is <code>EVALUATION_CONFIG</code>.</p>
+   * @public
+   */
+  DataQualityEvaluationConfig?: string | undefined;
 
   /**
    * <p>The table name associated with the data quality result.</p>
@@ -6235,6 +6733,18 @@ export interface DataQualityResultsV2FilterCriteria {
    * @public
    */
   EvaluationContext?: string | undefined;
+
+  /**
+   * <p>Filter results by how their evaluation run started: <code>ON_DEMAND</code> or <code>EVALUATION_CONFIG</code>. Results that no evaluation run produced match neither value.</p>
+   * @public
+   */
+  EvaluationRunMode?: DataQualityEvaluationRunMode | undefined;
+
+  /**
+   * <p>Filter results by the evaluation configuration name which started the evaluation run.</p>
+   * @public
+   */
+  DataQualityEvaluationConfig?: string | undefined;
 }
 
 /**
@@ -6270,6 +6780,18 @@ export interface DataQualityResultsV2Description {
    * @public
    */
   ResultId?: string | undefined;
+
+  /**
+   * <p>How the evaluation run that produced the result started: <code>ON_DEMAND</code> for a run started by <code>StartDataQualityRulesetEvaluationRun</code>, or <code>EVALUATION_CONFIG</code> for a run started by a data quality evaluation configuration. Not returned for results that no evaluation run produced, such as results from any ETL job.</p>
+   * @public
+   */
+  EvaluationRunMode?: DataQualityEvaluationRunMode | undefined;
+
+  /**
+   * <p>The name of the data quality evaluation configuration that started the evaluation run, returned when <code>EvaluationRunMode</code> is <code>EVALUATION_CONFIG</code>.</p>
+   * @public
+   */
+  DataQualityEvaluationConfig?: string | undefined;
 
   /**
    * <p>The table associated with the data quality result, if any.</p>
@@ -8349,14 +8871,44 @@ export interface DataQualityConfigurationV2 {
 }
 
 /**
+ * <p></p>
  * @public
  */
 export interface DataQualityTelemetry {
+  /**
+   * <p></p>
+   * @public
+   */
   VcpuHours?: number | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
   FlagsEnabled?: Record<string, string> | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
   LibraryVersion?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
   SparkVersion?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
   HostRuntimeVersion?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
   Engine?: DataQualityEngine | undefined;
 }
 
@@ -8460,6 +9012,10 @@ export interface PublishDataQualityResultV2Request {
    */
   DataQualitySecurityConfiguration?: string | undefined;
 
+  /**
+   * <p></p>
+   * @public
+   */
   Telemetry?: DataQualityTelemetry | undefined;
 }
 
@@ -8571,324 +9127,4 @@ export interface PutAssetTypeRequest {
    * @public
    */
   ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutAssetTypeResponse {
-  /**
-   * <p>The identifier of the asset type.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The name of the asset type.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The forms that make up the asset type, keyed by form name.</p>
-   * @public
-   */
-  Forms?: Record<string, AssetTypeFormReference> | undefined;
-}
-
-/**
- * @public
- */
-export interface PutAttachmentRequest {
-  /**
-   * <p>The unique identifier of the asset to attach the form to.</p>
-   * @public
-   */
-  AssetIdentifier: string | undefined;
-
-  /**
-   * <p>The name of the iterable form. When specified along with <code>itemIdentifier</code>, the attachment targets an item within the iterable form rather than the asset itself.</p>
-   * @public
-   */
-  IterableFormName?: string | undefined;
-
-  /**
-   * <p>The identifier of the item within the iterable form. Required when <code>iterableFormName</code> is specified.</p>
-   * @public
-   */
-  ItemIdentifier?: string | undefined;
-
-  /**
-   * <p>The name of the attachment.</p>
-   * @public
-   */
-  AttachmentName: string | undefined;
-
-  /**
-   * <p>The JSON content of the form, conforming to the schema of the specified form type.</p>
-   * @public
-   */
-  Content: string | undefined;
-
-  /**
-   * <p>The identifier of the form type for this attachment.</p>
-   * @public
-   */
-  FormTypeId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutAttachmentResponse {
-  /**
-   * <p>The unique identifier of the asset.</p>
-   * @public
-   */
-  AssetIdentifier?: string | undefined;
-
-  /**
-   * <p>The name of the iterable form, if the attachment targets an item.</p>
-   * @public
-   */
-  IterableFormName?: string | undefined;
-
-  /**
-   * <p>The identifier of the item within the iterable form, if applicable.</p>
-   * @public
-   */
-  ItemIdentifier?: string | undefined;
-
-  /**
-   * <p>The name of the attachment.</p>
-   * @public
-   */
-  AttachmentName?: string | undefined;
-
-  /**
-   * <p>The identifier of the form type for this attachment.</p>
-   * @public
-   */
-  FormTypeId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutDataCatalogEncryptionSettingsRequest {
-  /**
-   * <p>The ID of the Data Catalog to set the security configuration for. If none is provided, the
-   *       Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The security configuration to set.</p>
-   * @public
-   */
-  DataCatalogEncryptionSettings: DataCatalogEncryptionSettings | undefined;
-}
-
-/**
- * @public
- */
-export interface PutDataCatalogEncryptionSettingsResponse {}
-
-/**
- * @public
- */
-export interface PutDataCatalogExportConfigurationInput {
-  /**
-   * <p>The export setting for the data catalog. Specify <code>ENABLED</code> to start exporting catalog metadata to S3 Tables, or <code>DISABLED</code> to stop exporting. This field is required.</p>
-   * @public
-   */
-  ExportSetting: ExportSetting | undefined;
-
-  /**
-   * <p>The encryption configuration for the exported data. If not specified, the default encryption settings are used.</p>
-   * @public
-   */
-  EncryptionConfiguration?: ExportEncryptionConfiguration | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * <p>The export configuration returned by the <code>PutDataCatalogExportConfiguration</code> operation.</p>
- * @public
- */
-export interface PutDataCatalogExportConfigurationOutput {
-  /**
-   * <p>The export setting for the data catalog.</p>
-   * @public
-   */
-  ExportSetting?: ExportSetting | undefined;
-
-  /**
-   * <p>The encryption configuration for the exported data.</p>
-   * @public
-   */
-  EncryptionConfiguration?: ExportEncryptionConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface PutDataQualityProfileAnnotationRequest {
-  /**
-   * <p>The ID of the data quality monitoring profile to annotate.</p>
-   * @public
-   */
-  ProfileId: string | undefined;
-
-  /**
-   * <p>The inclusion annotation value to apply to the profile.</p>
-   * @public
-   */
-  InclusionAnnotation: InclusionAnnotationValue | undefined;
-}
-
-/**
- * <p>Left blank.</p>
- * @public
- */
-export interface PutDataQualityProfileAnnotationResponse {}
-
-/**
- * @public
- */
-export interface PutFormTypeRequest {
-  /**
-   * <p>The name of the form type. Must start with an uppercase letter.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The Smithy IDL schema definition for the form type.</p>
-   * @public
-   */
-  Schema: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutFormTypeResponse {
-  /**
-   * <p>The identifier of the form type.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The name of the form type.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The Smithy IDL schema of the form type.</p>
-   * @public
-   */
-  Schema?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutResourcePolicyRequest {
-  /**
-   * <p>Contains the policy document to set, in JSON format.</p>
-   * @public
-   */
-  PolicyInJson: string | undefined;
-
-  /**
-   * <p>Do not use. For internal use only.</p>
-   * @public
-   */
-  ResourceArn?: string | undefined;
-
-  /**
-   * <p>The hash value returned when the previous policy was set using
-   *         <code>PutResourcePolicy</code>. Its purpose is to prevent concurrent modifications of a
-   *       policy. Do not use this parameter if no previous policy has been set.</p>
-   * @public
-   */
-  PolicyHashCondition?: string | undefined;
-
-  /**
-   * <p>A value of <code>MUST_EXIST</code> is used to update a policy. A value of
-   *         <code>NOT_EXIST</code> is used to create a new policy. If a value of <code>NONE</code> or a
-   *       null value is used, the call does not depend on the existence of a policy.</p>
-   * @public
-   */
-  PolicyExistsCondition?: ExistCondition | undefined;
-
-  /**
-   * <p>If <code>'TRUE'</code>, indicates that you are using both methods to grant cross-account
-   *       access to Data Catalog resources:</p>
-   *          <ul>
-   *             <li>
-   *                <p>By directly updating the resource policy with <code>PutResourePolicy</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>By using the <b>Grant permissions</b> command on the Amazon Web Services Management Console.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Must be set to <code>'TRUE'</code> if you have already used the Management Console to
-   *       grant cross-account access, otherwise the call fails. Default is 'FALSE'.</p>
-   * @public
-   */
-  EnableHybrid?: EnableHybridValues | undefined;
-}
-
-/**
- * @public
- */
-export interface PutResourcePolicyResponse {
-  /**
-   * <p>A hash of the policy that has just been set. This must
-   *       be included in a subsequent call that overwrites or updates
-   *       this policy.</p>
-   * @public
-   */
-  PolicyHash?: string | undefined;
-}
-
-/**
- * <p>A structure containing a key value pair for metadata.</p>
- * @public
- */
-export interface MetadataKeyValuePair {
-  /**
-   * <p>A metadata key.</p>
-   * @public
-   */
-  MetadataKey?: string | undefined;
-
-  /**
-   * <p>A metadata key’s corresponding value.</p>
-   * @public
-   */
-  MetadataValue?: string | undefined;
 }

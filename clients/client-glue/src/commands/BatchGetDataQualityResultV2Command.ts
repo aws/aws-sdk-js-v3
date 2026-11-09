@@ -43,6 +43,8 @@ export interface BatchGetDataQualityResultV2CommandOutput extends BatchGetDataQu
  * //   Results: [ // DataQualityResultV2List // required
  * //     { // DataQualityResultV2Item
  * //       ResultId: "STRING_VALUE", // required
+ * //       EvaluationRunMode: "ON_DEMAND" || "EVALUATION_CONFIG",
+ * //       DataQualityEvaluationConfig: "STRING_VALUE",
  * //       DataSource: { // DataSource
  * //         GlueTable: { // GlueTable
  * //           DatabaseName: "STRING_VALUE", // required

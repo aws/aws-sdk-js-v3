@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutDataCatalogExportConfigurationInput,
   PutDataCatalogExportConfigurationOutput,
-} from "../models/models_2";
+} from "../models/models_3";
 import { PutDataCatalogExportConfiguration$ } from "../schemas/schemas_0";
 
 /**

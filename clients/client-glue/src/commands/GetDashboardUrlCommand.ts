@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetDashboardUrlRequest, GetDashboardUrlResponse } from "../models/models_1";
+import type { GetDashboardUrlRequest, GetDashboardUrlResponse } from "../models/models_2";
 import { GetDashboardUrl$ } from "../schemas/schemas_0";
 
 /**

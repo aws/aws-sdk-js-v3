@@ -59,6 +59,8 @@ export interface ListDataQualityResultsCommandOutput extends ListDataQualityResu
  *     JobRunId: "STRING_VALUE",
  *     StartedAfter: new Date("TIMESTAMP"),
  *     StartedBefore: new Date("TIMESTAMP"),
+ *     EvaluationRunMode: "ON_DEMAND" || "EVALUATION_CONFIG",
+ *     DataQualityEvaluationConfig: "STRING_VALUE",
  *   },
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
@@ -69,6 +71,8 @@ export interface ListDataQualityResultsCommandOutput extends ListDataQualityResu
  * //   Results: [ // DataQualityResultDescriptionList // required
  * //     { // DataQualityResultDescription
  * //       ResultId: "STRING_VALUE",
+ * //       EvaluationRunMode: "ON_DEMAND" || "EVALUATION_CONFIG",
+ * //       DataQualityEvaluationConfig: "STRING_VALUE",
  * //       DataSource: { // DataSource
  * //         GlueTable: { // GlueTable
  * //           DatabaseName: "STRING_VALUE", // required

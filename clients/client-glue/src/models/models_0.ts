@@ -14,6 +14,7 @@ import type {
   CrawlState,
   DataFormat,
   DataOperation,
+  DataQualityEvaluationRunMode,
   DataQualityRuleResultStatus,
   DdbExportType,
   DeleteBehavior,
@@ -2897,6 +2898,18 @@ export interface DataQualityResult {
   ResultId?: string | undefined;
 
   /**
+   * <p>How the evaluation run that produced the result started: <code>ON_DEMAND</code> for a run started by <code>StartDataQualityRulesetEvaluationRun</code>, or <code>EVALUATION_CONFIG</code> for a run started by a data quality evaluation configuration. Not returned for results that no evaluation run produced, such as results from any ETL job.</p>
+   * @public
+   */
+  EvaluationRunMode?: DataQualityEvaluationRunMode | undefined;
+
+  /**
+   * <p>The name of the data quality evaluation configuration that started the evaluation run, returned when <code>EvaluationRunMode</code> is <code>EVALUATION_CONFIG</code>.</p>
+   * @public
+   */
+  DataQualityEvaluationConfig?: string | undefined;
+
+  /**
    * <p>The Profile ID for the data quality result.</p>
    * @public
    */
@@ -3019,6 +3032,18 @@ export interface DataQualityResultV2Item {
    * @public
    */
   ResultId: string | undefined;
+
+  /**
+   * <p>How the evaluation run that produced the result started: <code>ON_DEMAND</code> for a run started by <code>StartDataQualityRulesetEvaluationRun</code>, or <code>EVALUATION_CONFIG</code> for a run started by a data quality evaluation configuration. Not returned for results that no evaluation run produced, such as results from any ETL job.</p>
+   * @public
+   */
+  EvaluationRunMode?: DataQualityEvaluationRunMode | undefined;
+
+  /**
+   * <p>The name of the data quality evaluation configuration that started the evaluation run, returned when <code>EvaluationRunMode</code> is <code>EVALUATION_CONFIG</code>.</p>
+   * @public
+   */
+  DataQualityEvaluationConfig?: string | undefined;
 
   /**
    * <p>The table associated with the data quality result, if any.</p>

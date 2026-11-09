@@ -19,12 +19,16 @@ import type {
   DataFormat,
   DataOperation,
   DataQualityEncryptionMode,
+  DataQualityEvaluationConfigLevel,
+  DataQualityEvaluationConfigManagedRuleset,
+  DataQualityEvaluationConfigTrigger,
+  DataQualityEvaluationRunMode,
+  DQCompositeRuleEvaluationMethod,
   ExecutionStatus,
   FieldDataType,
   FieldFilterOperator,
   FilterMode,
   FunctionType,
-  GlueResourceType,
   GovernanceMode,
   HTTPMethod,
   IcebergNullOrder,
@@ -36,6 +40,8 @@ import type {
   LastRefreshType,
   MetadataOperation,
   MLUserDataEncryptionModeString,
+  ObservationConfiguration,
+  ObservationMode,
   PrincipalType,
   PropertyLocation,
   PropertyType,
@@ -69,17 +75,22 @@ import type {
   ConnectionsList,
   Crawler,
   CrawlerTargets,
+  DataQualityRuleResultsOptions,
+  DataSource,
   ErrorDetail,
   EventBatchingCondition,
   FederatedCatalog,
   GlueTable,
   LakeFormationConfiguration,
   LineageConfiguration,
+  ObservationResultsOptions,
   PartitionInput,
   Predicate,
   PrincipalPermissions,
+  ProfilingResultsOptions,
   Property,
   RecrawlPolicy,
+  RowLevelResultsOptions,
   Schedule,
   SchemaChangePolicy,
   SchemaId,
@@ -883,6 +894,281 @@ export interface CreateDatabaseRequest {
  * @public
  */
 export interface CreateDatabaseResponse {}
+
+/**
+ * <p>Additional run options for each evaluation of a data quality evaluation configuration.</p>
+ * @public
+ */
+export interface DataQualityEvaluationConfigAdditionalRunOptions {
+  /**
+   * <p>Specifies whether to enable CloudWatch metrics.</p>
+   * @public
+   */
+  CloudWatchMetricsEnabled?: boolean | undefined;
+
+  /**
+   * <p>Prefix for Amazon S3 to store results.</p>
+   * @public
+   */
+  ResultsS3Prefix?: string | undefined;
+
+  /**
+   * <p>Set the evaluation method for composite rules in the ruleset to ROW/COLUMN</p>
+   * @public
+   */
+  CompositeRuleEvaluationMethod?: DQCompositeRuleEvaluationMethod | undefined;
+
+  /**
+   * <p>The configuration for writing row-level evaluation results to a Glue Data Catalog table.</p>
+   * @public
+   */
+  RowLevelResults?: RowLevelResultsOptions | undefined;
+
+  /**
+   * <p>The configuration for writing profiling results to a Glue Data Catalog table.</p>
+   * @public
+   */
+  ProfilingResults?: ProfilingResultsOptions | undefined;
+
+  /**
+   * <p>The scope of the observation for the evaluation run. Specifies whether anomaly detection is enabled or disabled.</p>
+   * @public
+   */
+  ObservationScope?: ObservationConfiguration | undefined;
+
+  /**
+   * <p>The observation mode for the evaluation run. Specifies how anomaly detection bounds are calculated.</p>
+   * @public
+   */
+  ObservationMode?: ObservationMode | undefined;
+
+  /**
+   * <p>The configuration for writing rule results to a Glue Data Catalog table.</p>
+   * @public
+   */
+  DataQualityRuleResults?: DataQualityRuleResultsOptions | undefined;
+
+  /**
+   * <p>The configuration for writing observation results to a Glue Data Catalog table.</p>
+   * @public
+   */
+  ObservationResults?: ObservationResultsOptions | undefined;
+
+  /**
+   * <p>A custom prefix for the CloudWatch log group names. When specified, evaluation run logs are written to <code><CustomLogGroupPrefix>/error</code> and <code><CustomLogGroupPrefix>/output</code> instead of the default <code>/aws-glue/data-quality/error</code> and <code>/aws-glue/data-quality/output</code> log groups.</p>
+   * @public
+   */
+  CustomLogGroupPrefix?: string | undefined;
+}
+
+/**
+ * <p>Identifies the Glue Data Catalog tables that a data quality evaluation configuration applies to.</p>
+ * @public
+ */
+export interface DataQualityEvaluationConfigGlueTables {
+  /**
+   * <p>A unique identifier for the Glue Data Catalog.</p>
+   * @public
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>A database name in the Glue Data Catalog.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>For the <code>CATALOG</code> and <code>DATABASE</code> levels, a glob pattern, such as <code>orders_*</code>, that selects tables. If you don't specify a pattern, every table at the level is in scope. For the <code>TABLE</code> level, the name of the table.</p>
+   * @public
+   */
+  TableNamePattern?: string | undefined;
+
+  /**
+   * <p>SQL Query of SparkSQL format that can be used to pre-process the data for the table in Glue Data Catalog,
+   *     before running the Data Quality Operation.</p>
+   *          <p>For the <code>CATALOG</code> and <code>DATABASE</code> levels, use the <code>\{\{DATABASE_NAME\}\}</code> and <code>\{\{TABLE_NAME\}\}</code> placeholders, which are filled in for each table.</p>
+   * @public
+   */
+  PreProcessingQuery?: string | undefined;
+
+  /**
+   * <p>The name of the connection to the Glue Data Catalog.</p>
+   * @public
+   */
+  ConnectionName?: string | undefined;
+
+  /**
+   * <p>Options for reading the table. The following keys are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>pushDownPredicate</code>: to filter on partitions without having to list and read all the files in your dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>catalogPartitionPredicate</code>: to use server-side partition pruning using partition indexes in the Glue Data Catalog.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AdditionalOptions?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The data source that a data quality evaluation configuration applies to.</p>
+ * @public
+ */
+export interface DataQualityEvaluationConfigDataSource {
+  /**
+   * <p>The Glue Data Catalog tables that the configuration applies to.</p>
+   * @public
+   */
+  GlueTables?: DataQualityEvaluationConfigGlueTables | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataQualityEvaluationConfigRequest {
+  /**
+   * <p>A name for the data quality evaluation configuration. The name must be unique within your account.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Glue Data Catalog hierarchical level that the configuration applies to. Valid values are <code>CATALOG</code>, <code>DATABASE</code>, and <code>TABLE</code>.</p>
+   * @public
+   */
+  Level: DataQualityEvaluationConfigLevel | undefined;
+
+  /**
+   * <p>The catalog, database, or table that the configuration applies to, as specified by <code>Level</code>.</p>
+   * @public
+   */
+  DataSource: DataQualityEvaluationConfigDataSource | undefined;
+
+  /**
+   * <p>The name of a Data Quality Definition Language (DQDL) ruleset, containing analyzers, rules, or both, to evaluate tables with. You create the ruleset using the <code>CreateDataQualityRuleset</code> API. Specify either <code>RulesetName</code> or <code>ManagedRulesetName</code>, not both.</p>
+   * @public
+   */
+  RulesetName?: string | undefined;
+
+  /**
+   * <p>A built-in ruleset that profiles each table, used when <code>RulesetName</code> is not set. The default is <code>SIMPLE</code>. Choose from the following built-in rulesets:</p>
+   *          <dl>
+   *             <dt>SIMPLE</dt>
+   *             <dd>
+   *                <p>Row count and column count, completeness, minimum, and maximum for every column, mean, sum, and standard deviation for numeric columns, and column length for string columns.</p>
+   *             </dd>
+   *             <dt>ADVANCED</dt>
+   *             <dd>
+   *                <p>Every statistic in <code>SIMPLE</code>, plus distribution, uniqueness, and distinct values count.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  ManagedRulesetName?: DataQualityEvaluationConfigManagedRuleset | undefined;
+
+  /**
+   * <p>When the configuration evaluates tables. You can choose one or more triggers, and each table is evaluated at most once an hour. The default is <code>ONCE</code>. Choose from the following triggers:</p>
+   *          <dl>
+   *             <dt>ONCE</dt>
+   *             <dd>
+   *                <p>Evaluates each table one time, including when tables are added to a database or catalog.</p>
+   *             </dd>
+   *             <dt>SCHEDULE</dt>
+   *             <dd>
+   *                <p>Evaluates each table on the cron or rate expression in <code>ScheduleExpression</code>, between the optional <code>StartAt</code> and <code>EndAt</code> times.</p>
+   *             </dd>
+   *             <dt>METADATA_CHANGE</dt>
+   *             <dd>
+   *                <p>Evaluates a table whenever its Glue Data Catalog metadata changes, such as a schema change or an Apache Iceberg commit.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  Triggers?: DataQualityEvaluationConfigTrigger[] | undefined;
+
+  /**
+   * <p>A cron or rate expression, in UTC, for the <code>SCHEDULE</code> trigger, for example <code>cron(0 6 * * ? *)</code>. The schedule can run at most once an hour.</p>
+   * @public
+   */
+  ScheduleExpression?: string | undefined;
+
+  /**
+   * <p>The time from which the schedule runs, inclusive.</p>
+   * @public
+   */
+  StartAt?: Date | undefined;
+
+  /**
+   * <p>The time at which the schedule stops running, exclusive.</p>
+   * @public
+   */
+  EndAt?: Date | undefined;
+
+  /**
+   * <p>The IAM role that evaluations assume. You can specify the role name or the role Amazon Resource Name (ARN).</p>
+   *          <p>The role must allow the <code>glue.amazonaws.com</code> service principal to assume it, and needs permissions to read the catalog (<code>glue:GetCatalog</code>, <code>glue:GetDatabase</code>, <code>glue:GetTable</code>, <code>glue:SearchTables</code>, and <code>glue:GetPartitions</code>), read and create rulesets (<code>glue:GetDataQualityRuleset</code> and <code>glue:CreateDataQualityRuleset</code>), start evaluations (<code>glue:StartDataQualityRulesetEvaluationRun</code>, <code>glue:PublishDataQuality</code>, and <code>iam:PassRole</code> on the role itself), read the tables' data in Amazon S3, and write logs to Amazon CloudWatch Logs. If a catalog-level or database-level configuration applies to an Amazon S3 Tables catalog, the role also needs <code>s3tables:ListTableBuckets</code> and <code>s3tables:ListTables</code>. If you use Lake Formation, the role needs the <code>DESCRIBE</code> permission on the tables.</p>
+   * @public
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>The number of <code>G.1X</code> workers to be used in the run. The default is 5.</p>
+   * @public
+   */
+  NumberOfWorkers?: number | undefined;
+
+  /**
+   * <p>The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
+   * @public
+   */
+  Timeout?: number | undefined;
+
+  /**
+   * <p>Additional run options you can specify for an evaluation run.</p>
+   * @public
+   */
+  AdditionalRunOptions?: DataQualityEvaluationConfigAdditionalRunOptions | undefined;
+
+  /**
+   * <p>A map of reference strings to additional data sources you can specify for an evaluation run.</p>
+   * @public
+   */
+  AdditionalDataSources?: Record<string, DataSource> | undefined;
+
+  /**
+   * <p>A list of tags applied to the data quality evaluation configuration.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the operation completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataQualityEvaluationConfigResponse {
+  /**
+   * <p>The name of the data quality evaluation configuration.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The evaluation run mode of the configuration's results, which is <code>EVALUATION_CONFIG</code>.</p>
+   * @public
+   */
+  EvaluationRunMode?: DataQualityEvaluationRunMode | undefined;
+}
 
 /**
  * <p>An object representing an Glue table.</p>
@@ -4458,6 +4744,22 @@ export interface DeleteDatabaseRequest {
  * @public
  */
 export interface DeleteDatabaseResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteDataQualityEvaluationConfigRequest {
+  /**
+   * <p>The name of the data quality evaluation configuration to delete.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataQualityEvaluationConfigResponse {}
 
 /**
  * @public
@@ -8616,172 +8918,4 @@ export interface GetCrawlersRequest {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCrawlersResponse {
-  /**
-   * <p>A list of crawler metadata.</p>
-   * @public
-   */
-  Crawlers?: Crawler[] | undefined;
-
-  /**
-   * <p>A continuation token, if the returned list has not reached the end
-   *       of those defined in this customer account.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCustomEntityTypeRequest {
-  /**
-   * <p>The name of the custom pattern that you want to retrieve.</p>
-   * @public
-   */
-  Name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCustomEntityTypeResponse {
-  /**
-   * <p>The name of the custom pattern that you retrieved.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A regular expression string that is used for detecting sensitive data in a custom pattern.</p>
-   * @public
-   */
-  RegexString?: string | undefined;
-
-  /**
-   * <p>A list of context words if specified when you created the custom pattern. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p>
-   * @public
-   */
-  ContextWords?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDashboardUrlRequest {
-  /**
-   * <p>The unique identifier of the resource for which to retrieve the dashboard URL.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource. Valid values are <code>SESSION</code> and <code>JOB</code>.</p>
-   * @public
-   */
-  ResourceType: GlueResourceType | undefined;
-
-  /**
-   * <p>The origin of the request. </p>
-   * @public
-   */
-  RequestOrigin?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDashboardUrlResponse {
-  /**
-   * <p>The URL for the Spark monitoring dashboard.</p>
-   * @public
-   */
-  Url: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDatabaseRequest {
-  /**
-   * <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services
-   *       account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The name of the database to retrieve. For Hive compatibility, this
-   *       should be all lowercase.</p>
-   * @public
-   */
-  Name: string | undefined;
-}
-
-/**
- * <p>The <code>Database</code> object represents a logical grouping of tables that might reside
- *       in a Hive metastore or an RDBMS.</p>
- * @public
- */
-export interface Database {
-  /**
-   * <p>The name of the database. For Hive compatibility, this is folded to lowercase when it is
-   *       stored.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A description of the database.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The location of the database (for example, an HDFS path).</p>
-   * @public
-   */
-  LocationUri?: string | undefined;
-
-  /**
-   * <p>These key-value pairs define parameters and properties
-   *       of the database.</p>
-   * @public
-   */
-  Parameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>The time at which the metadata database was created in the catalog.</p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>Creates a set of default permissions on the table for principals. Used by Lake Formation. Not used in the normal course of Glue operations.</p>
-   * @public
-   */
-  CreateTableDefaultPermissions?: PrincipalPermissions[] | undefined;
-
-  /**
-   * <p>A <code>DatabaseIdentifier</code> structure that describes a target database for resource linking.</p>
-   * @public
-   */
-  TargetDatabase?: DatabaseIdentifier | undefined;
-
-  /**
-   * <p>The ID of the Data Catalog in which the database resides.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>A <code>FederatedDatabase</code> structure that references an entity outside the Glue Data Catalog.</p>
-   * @public
-   */
-  FederatedDatabase?: FederatedDatabase | undefined;
 }

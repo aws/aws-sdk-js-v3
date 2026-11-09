@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetCustomEntityTypeRequest, GetCustomEntityTypeResponse } from "../models/models_1";
+import type { GetCustomEntityTypeRequest, GetCustomEntityTypeResponse } from "../models/models_2";
 import { GetCustomEntityType$ } from "../schemas/schemas_0";
 
 /**

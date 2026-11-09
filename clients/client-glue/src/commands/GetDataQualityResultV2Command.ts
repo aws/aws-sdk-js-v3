@@ -39,6 +39,8 @@ export interface GetDataQualityResultV2CommandOutput extends GetDataQualityResul
  * const response = await client.send(command);
  * // { // GetDataQualityResultV2Response
  * //   ResultId: "STRING_VALUE",
+ * //   EvaluationRunMode: "ON_DEMAND" || "EVALUATION_CONFIG",
+ * //   DataQualityEvaluationConfig: "STRING_VALUE",
  * //   DataSource: { // DataSource
  * //     GlueTable: { // GlueTable
  * //       DatabaseName: "STRING_VALUE", // required

@@ -29,6 +29,7 @@ export * from "./ListColumnStatisticsTaskRunsPaginator";
 export * from "./ListConnectionTypesPaginator";
 export * from "./ListCrawlersPaginator";
 export * from "./ListCustomEntityTypesPaginator";
+export * from "./ListDataQualityEvaluationConfigsPaginator";
 export * from "./ListDataQualityResultsPaginator";
 export * from "./ListDataQualityResultsV2Paginator";
 export * from "./ListDataQualityRuleRecommendationRunsPaginator";

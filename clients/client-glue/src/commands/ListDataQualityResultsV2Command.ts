@@ -61,6 +61,8 @@ export interface ListDataQualityResultsV2CommandOutput extends ListDataQualityRe
  *       "<keys>": "STRING_VALUE",
  *     },
  *     EvaluationContext: "STRING_VALUE",
+ *     EvaluationRunMode: "ON_DEMAND" || "EVALUATION_CONFIG",
+ *     DataQualityEvaluationConfig: "STRING_VALUE",
  *   },
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
@@ -71,6 +73,8 @@ export interface ListDataQualityResultsV2CommandOutput extends ListDataQualityRe
  * //   Results: [ // DataQualityResultsV2DescriptionList // required
  * //     { // DataQualityResultsV2Description
  * //       ResultId: "STRING_VALUE",
+ * //       EvaluationRunMode: "ON_DEMAND" || "EVALUATION_CONFIG",
+ * //       DataQualityEvaluationConfig: "STRING_VALUE",
  * //       DataSource: { // DataSource
  * //         GlueTable: { // GlueTable
  * //           DatabaseName: "STRING_VALUE", // required

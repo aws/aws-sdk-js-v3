@@ -9,9 +9,17 @@ import type {
   ContentType,
   CsvHeaderOption,
   CsvSerdeOption,
+  DataQualityEvaluationConfigLevel,
+  DataQualityEvaluationConfigManagedRuleset,
+  DataQualityEvaluationConfigTrigger,
+  DataQualityEvaluationRunMode,
+  EnableHybridValues,
   ExecutionClass,
+  ExistCondition,
+  ExportSetting,
   HTTPMethod,
   IcebergUpdateAction,
+  InclusionAnnotationValue,
   IntegrationType,
   JobMode,
   Permission,
@@ -35,6 +43,7 @@ import type {
   Aggregate,
   AmazonRedshiftSource,
   AmazonRedshiftTarget,
+  AssetTypeFormReference,
   AthenaConnectorSource,
   AuthenticationConfigurationInput,
   AutoUpgradeMetadata,
@@ -140,6 +149,8 @@ import type {
   ConnectionInput,
   ConnectorProperty,
   DatabaseInput,
+  DataQualityEvaluationConfigAdditionalRunOptions,
+  DataQualityEvaluationConfigDataSource,
   FederatedTable,
   IcebergPartitionSpec,
   IcebergSchema,
@@ -158,15 +169,336 @@ import type {
 } from "./models_1";
 import type {
   ColumnRowFilter,
+  DataCatalogEncryptionSettings,
   DataQualityRuleRecommendationRunAdditionalRunOptions,
+  ExportEncryptionConfiguration,
   IcebergTableMetadata,
   JobBookmarkEntry,
-  MetadataKeyValuePair,
   RLSProperties,
   SchemaVersionNumber,
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface PutAssetTypeResponse {
+  /**
+   * <p>The identifier of the asset type.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The name of the asset type.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The forms that make up the asset type, keyed by form name.</p>
+   * @public
+   */
+  Forms?: Record<string, AssetTypeFormReference> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAttachmentRequest {
+  /**
+   * <p>The unique identifier of the asset to attach the form to.</p>
+   * @public
+   */
+  AssetIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the iterable form. When specified along with <code>itemIdentifier</code>, the attachment targets an item within the iterable form rather than the asset itself.</p>
+   * @public
+   */
+  IterableFormName?: string | undefined;
+
+  /**
+   * <p>The identifier of the item within the iterable form. Required when <code>iterableFormName</code> is specified.</p>
+   * @public
+   */
+  ItemIdentifier?: string | undefined;
+
+  /**
+   * <p>The name of the attachment.</p>
+   * @public
+   */
+  AttachmentName: string | undefined;
+
+  /**
+   * <p>The JSON content of the form, conforming to the schema of the specified form type.</p>
+   * @public
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>The identifier of the form type for this attachment.</p>
+   * @public
+   */
+  FormTypeId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAttachmentResponse {
+  /**
+   * <p>The unique identifier of the asset.</p>
+   * @public
+   */
+  AssetIdentifier?: string | undefined;
+
+  /**
+   * <p>The name of the iterable form, if the attachment targets an item.</p>
+   * @public
+   */
+  IterableFormName?: string | undefined;
+
+  /**
+   * <p>The identifier of the item within the iterable form, if applicable.</p>
+   * @public
+   */
+  ItemIdentifier?: string | undefined;
+
+  /**
+   * <p>The name of the attachment.</p>
+   * @public
+   */
+  AttachmentName?: string | undefined;
+
+  /**
+   * <p>The identifier of the form type for this attachment.</p>
+   * @public
+   */
+  FormTypeId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDataCatalogEncryptionSettingsRequest {
+  /**
+   * <p>The ID of the Data Catalog to set the security configuration for. If none is provided, the
+   *       Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The security configuration to set.</p>
+   * @public
+   */
+  DataCatalogEncryptionSettings: DataCatalogEncryptionSettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDataCatalogEncryptionSettingsResponse {}
+
+/**
+ * @public
+ */
+export interface PutDataCatalogExportConfigurationInput {
+  /**
+   * <p>The export setting for the data catalog. Specify <code>ENABLED</code> to start exporting catalog metadata to S3 Tables, or <code>DISABLED</code> to stop exporting. This field is required.</p>
+   * @public
+   */
+  ExportSetting: ExportSetting | undefined;
+
+  /**
+   * <p>The encryption configuration for the exported data. If not specified, the default encryption settings are used.</p>
+   * @public
+   */
+  EncryptionConfiguration?: ExportEncryptionConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * <p>The export configuration returned by the <code>PutDataCatalogExportConfiguration</code> operation.</p>
+ * @public
+ */
+export interface PutDataCatalogExportConfigurationOutput {
+  /**
+   * <p>The export setting for the data catalog.</p>
+   * @public
+   */
+  ExportSetting?: ExportSetting | undefined;
+
+  /**
+   * <p>The encryption configuration for the exported data.</p>
+   * @public
+   */
+  EncryptionConfiguration?: ExportEncryptionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDataQualityProfileAnnotationRequest {
+  /**
+   * <p>The ID of the data quality monitoring profile to annotate.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
+
+  /**
+   * <p>The inclusion annotation value to apply to the profile.</p>
+   * @public
+   */
+  InclusionAnnotation: InclusionAnnotationValue | undefined;
+}
+
+/**
+ * <p>Left blank.</p>
+ * @public
+ */
+export interface PutDataQualityProfileAnnotationResponse {}
+
+/**
+ * @public
+ */
+export interface PutFormTypeRequest {
+  /**
+   * <p>The name of the form type. Must start with an uppercase letter.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Smithy IDL schema definition for the form type.</p>
+   * @public
+   */
+  Schema: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutFormTypeResponse {
+  /**
+   * <p>The identifier of the form type.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The name of the form type.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The Smithy IDL schema of the form type.</p>
+   * @public
+   */
+  Schema?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>Contains the policy document to set, in JSON format.</p>
+   * @public
+   */
+  PolicyInJson: string | undefined;
+
+  /**
+   * <p>Do not use. For internal use only.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The hash value returned when the previous policy was set using
+   *         <code>PutResourcePolicy</code>. Its purpose is to prevent concurrent modifications of a
+   *       policy. Do not use this parameter if no previous policy has been set.</p>
+   * @public
+   */
+  PolicyHashCondition?: string | undefined;
+
+  /**
+   * <p>A value of <code>MUST_EXIST</code> is used to update a policy. A value of
+   *         <code>NOT_EXIST</code> is used to create a new policy. If a value of <code>NONE</code> or a
+   *       null value is used, the call does not depend on the existence of a policy.</p>
+   * @public
+   */
+  PolicyExistsCondition?: ExistCondition | undefined;
+
+  /**
+   * <p>If <code>'TRUE'</code>, indicates that you are using both methods to grant cross-account
+   *       access to Data Catalog resources:</p>
+   *          <ul>
+   *             <li>
+   *                <p>By directly updating the resource policy with <code>PutResourePolicy</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>By using the <b>Grant permissions</b> command on the Amazon Web Services Management Console.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Must be set to <code>'TRUE'</code> if you have already used the Management Console to
+   *       grant cross-account access, otherwise the call fails. Default is 'FALSE'.</p>
+   * @public
+   */
+  EnableHybrid?: EnableHybridValues | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>A hash of the policy that has just been set. This must
+   *       be included in a subsequent call that overwrites or updates
+   *       this policy.</p>
+   * @public
+   */
+  PolicyHash?: string | undefined;
+}
+
+/**
+ * <p>A structure containing a key value pair for metadata.</p>
+ * @public
+ */
+export interface MetadataKeyValuePair {
+  /**
+   * <p>A metadata key.</p>
+   * @public
+   */
+  MetadataKey?: string | undefined;
+
+  /**
+   * <p>A metadata key’s corresponding value.</p>
+   * @public
+   */
+  MetadataValue?: string | undefined;
+}
 
 /**
  * @public
@@ -2948,6 +3280,236 @@ export interface UpdateDatabaseRequest {
  * @public
  */
 export interface UpdateDatabaseResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateDataQualityEvaluationConfigRequest {
+  /**
+   * <p>The name of the data quality evaluation configuration to update.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The database or table that the configuration applies to. Replaces the current data source.</p>
+   * @public
+   */
+  DataSource?: DataQualityEvaluationConfigDataSource | undefined;
+
+  /**
+   * <p>The name of a Data Quality Definition Language (DQDL) ruleset, containing analyzers, rules, or both, to evaluate tables with. You create the ruleset using the <code>CreateDataQualityRuleset</code> API. Specify either <code>RulesetName</code> or <code>ManagedRulesetName</code>, not both.</p>
+   * @public
+   */
+  RulesetName?: string | undefined;
+
+  /**
+   * <p>A built-in ruleset, <code>SIMPLE</code> or <code>ADVANCED</code>, that profiles each table.</p>
+   * @public
+   */
+  ManagedRulesetName?: DataQualityEvaluationConfigManagedRuleset | undefined;
+
+  /**
+   * <p>When the configuration evaluates tables. Replaces the current triggers. Choose from the following triggers:</p>
+   *          <dl>
+   *             <dt>ONCE</dt>
+   *             <dd>
+   *                <p>Evaluates each table one time, including when tables are added to a database or catalog.</p>
+   *             </dd>
+   *             <dt>SCHEDULE</dt>
+   *             <dd>
+   *                <p>Evaluates each table on the cron or rate expression in <code>ScheduleExpression</code>, between the optional <code>StartAt</code> and <code>EndAt</code> times.</p>
+   *             </dd>
+   *             <dt>METADATA_CHANGE</dt>
+   *             <dd>
+   *                <p>Evaluates a table whenever its Glue Data Catalog metadata changes, such as a schema change or an Apache Iceberg commit.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  Triggers?: DataQualityEvaluationConfigTrigger[] | undefined;
+
+  /**
+   * <p>A cron or rate expression, in UTC, for the <code>SCHEDULE</code> trigger, for example <code>cron(0 6 * * ? *)</code>. The schedule can run at most once an hour.</p>
+   * @public
+   */
+  ScheduleExpression?: string | undefined;
+
+  /**
+   * <p>The time from which the schedule runs, inclusive.</p>
+   * @public
+   */
+  StartAt?: Date | undefined;
+
+  /**
+   * <p>The time at which the schedule stops running, exclusive.</p>
+   * @public
+   */
+  EndAt?: Date | undefined;
+
+  /**
+   * <p>Specifies whether to pause the configuration. While paused, the configuration evaluates nothing, including tables added to the catalog or database.</p>
+   * @public
+   */
+  PauseRuns?: boolean | undefined;
+
+  /**
+   * <p>The IAM role that evaluations assume. You can specify the role name or the role Amazon Resource Name (ARN). The role needs the trust policy and permissions described for <code>CreateDataQualityEvaluationConfig</code>.</p>
+   * @public
+   */
+  Role?: string | undefined;
+
+  /**
+   * <p>The number of <code>G.1X</code> workers to be used in the run. The default is 5.</p>
+   * @public
+   */
+  NumberOfWorkers?: number | undefined;
+
+  /**
+   * <p>The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
+   * @public
+   */
+  Timeout?: number | undefined;
+
+  /**
+   * <p>Additional run options you can specify for an evaluation run.</p>
+   * @public
+   */
+  AdditionalRunOptions?: DataQualityEvaluationConfigAdditionalRunOptions | undefined;
+
+  /**
+   * <p>A map of reference strings to additional data sources you can specify for an evaluation run.</p>
+   * @public
+   */
+  AdditionalDataSources?: Record<string, DataSource> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDataQualityEvaluationConfigResponse {
+  /**
+   * <p>The name of the data quality evaluation configuration.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The evaluation run mode of the configuration's results, which is <code>EVALUATION_CONFIG</code>.</p>
+   * @public
+   */
+  EvaluationRunMode?: DataQualityEvaluationRunMode | undefined;
+
+  /**
+   * <p>The time when the configuration was created.</p>
+   * @public
+   */
+  CreatedOn?: Date | undefined;
+
+  /**
+   * <p>The time when the configuration was last modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date | undefined;
+
+  /**
+   * <p>The Glue Data Catalog hierarchical level that the configuration applies to.</p>
+   * @public
+   */
+  Level?: DataQualityEvaluationConfigLevel | undefined;
+
+  /**
+   * <p>The catalog, database, or table that the configuration applies to.</p>
+   * @public
+   */
+  DataSource?: DataQualityEvaluationConfigDataSource | undefined;
+
+  /**
+   * <p>The name of the data quality ruleset that tables are evaluated with.</p>
+   * @public
+   */
+  RulesetName?: string | undefined;
+
+  /**
+   * <p>The built-in ruleset that tables are evaluated with.</p>
+   * @public
+   */
+  ManagedRulesetName?: DataQualityEvaluationConfigManagedRuleset | undefined;
+
+  /**
+   * <p>When the configuration evaluates tables:</p>
+   *          <dl>
+   *             <dt>ONCE</dt>
+   *             <dd>
+   *                <p>Each table is evaluated one time, including when tables are added to a database or catalog.</p>
+   *             </dd>
+   *             <dt>SCHEDULE</dt>
+   *             <dd>
+   *                <p>Each table is evaluated on the cron or rate expression in <code>ScheduleExpression</code>.</p>
+   *             </dd>
+   *             <dt>METADATA_CHANGE</dt>
+   *             <dd>
+   *                <p>A table is evaluated whenever its Glue Data Catalog metadata changes.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  Triggers?: DataQualityEvaluationConfigTrigger[] | undefined;
+
+  /**
+   * <p>The cron or rate expression, in UTC, for the <code>SCHEDULE</code> trigger.</p>
+   * @public
+   */
+  ScheduleExpression?: string | undefined;
+
+  /**
+   * <p>The time from which the schedule runs, inclusive.</p>
+   * @public
+   */
+  StartAt?: Date | undefined;
+
+  /**
+   * <p>The time at which the schedule stops running, exclusive.</p>
+   * @public
+   */
+  EndAt?: Date | undefined;
+
+  /**
+   * <p>Specifies whether evaluations are paused.</p>
+   * @public
+   */
+  PauseRuns?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that evaluation runs assume.</p>
+   * @public
+   */
+  Role?: string | undefined;
+
+  /**
+   * <p>The number of <code>G.1X</code> workers to be used in the run. The default is 5.</p>
+   * @public
+   */
+  NumberOfWorkers?: number | undefined;
+
+  /**
+   * <p>The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
+   * @public
+   */
+  Timeout?: number | undefined;
+
+  /**
+   * <p>Additional run options you can specify for an evaluation run.</p>
+   * @public
+   */
+  AdditionalRunOptions?: DataQualityEvaluationConfigAdditionalRunOptions | undefined;
+
+  /**
+   * <p>A map of reference strings to additional data sources you can specify for an evaluation run.</p>
+   * @public
+   */
+  AdditionalDataSources?: Record<string, DataSource> | undefined;
+}
 
 /**
  * @public

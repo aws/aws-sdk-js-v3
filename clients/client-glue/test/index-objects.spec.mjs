@@ -290,6 +290,10 @@ import {
   CreateDatabaseCommand,
   CreateDatabaseRequest$,
   CreateDatabaseResponse$,
+  CreateDataQualityEvaluationConfig$,
+  CreateDataQualityEvaluationConfigCommand,
+  CreateDataQualityEvaluationConfigRequest$,
+  CreateDataQualityEvaluationConfigResponse$,
   CreateDataQualityRuleset$,
   CreateDataQualityRulesetCommand,
   CreateDataQualityRulesetRequest$,
@@ -410,7 +414,17 @@ import {
   DataQualityEncryption$,
   DataQualityEncryptionMode,
   DataQualityEngine,
+  DataQualityEvaluationConfigAdditionalRunOptions$,
+  DataQualityEvaluationConfigDataSource$,
+  DataQualityEvaluationConfigGlueTables$,
+  DataQualityEvaluationConfigLevel,
+  DataQualityEvaluationConfigListDataSource$,
+  DataQualityEvaluationConfigListDetails$,
+  DataQualityEvaluationConfigListGlueTables$,
+  DataQualityEvaluationConfigManagedRuleset,
+  DataQualityEvaluationConfigTrigger,
   DataQualityEvaluationRunAdditionalRunOptions$,
+  DataQualityEvaluationRunMode,
   DataQualityGlueTable$,
   DataQualityMetricValues$,
   DataQualityModelStatus,
@@ -499,6 +513,10 @@ import {
   DeleteDatabaseCommand,
   DeleteDatabaseRequest$,
   DeleteDatabaseResponse$,
+  DeleteDataQualityEvaluationConfig$,
+  DeleteDataQualityEvaluationConfigCommand,
+  DeleteDataQualityEvaluationConfigRequest$,
+  DeleteDataQualityEvaluationConfigResponse$,
   DeleteDataQualityRuleset$,
   DeleteDataQualityRulesetCommand,
   DeleteDataQualityRulesetRequest$,
@@ -811,6 +829,10 @@ import {
   GetDataflowGraphCommand,
   GetDataflowGraphRequest$,
   GetDataflowGraphResponse$,
+  GetDataQualityEvaluationConfig$,
+  GetDataQualityEvaluationConfigCommand,
+  GetDataQualityEvaluationConfigRequest$,
+  GetDataQualityEvaluationConfigResponse$,
   GetDataQualityModel$,
   GetDataQualityModelCommand,
   GetDataQualityModelRequest$,
@@ -1222,6 +1244,10 @@ import {
   ListCustomEntityTypesCommand,
   ListCustomEntityTypesRequest$,
   ListCustomEntityTypesResponse$,
+  ListDataQualityEvaluationConfigs$,
+  ListDataQualityEvaluationConfigsCommand,
+  ListDataQualityEvaluationConfigsRequest$,
+  ListDataQualityEvaluationConfigsResponse$,
   ListDataQualityResults$,
   ListDataQualityResultsCommand,
   ListDataQualityResultsRequest$,
@@ -1422,6 +1448,7 @@ import {
   paginateListConnectionTypes,
   paginateListCrawlers,
   paginateListCustomEntityTypes,
+  paginateListDataQualityEvaluationConfigs,
   paginateListDataQualityResults,
   paginateListDataQualityResultsV2,
   paginateListDataQualityRuleRecommendationRuns,
@@ -1908,6 +1935,10 @@ import {
   UpdateDatabaseCommand,
   UpdateDatabaseRequest$,
   UpdateDatabaseResponse$,
+  UpdateDataQualityEvaluationConfig$,
+  UpdateDataQualityEvaluationConfigCommand,
+  UpdateDataQualityEvaluationConfigRequest$,
+  UpdateDataQualityEvaluationConfigResponse$,
   UpdateDataQualityRuleset$,
   UpdateDataQualityRulesetCommand,
   UpdateDataQualityRulesetRequest$,
@@ -2093,6 +2124,8 @@ assert(typeof CreateCustomEntityTypeCommand === "function");
 assert(typeof CreateCustomEntityType$ === "object");
 assert(typeof CreateDatabaseCommand === "function");
 assert(typeof CreateDatabase$ === "object");
+assert(typeof CreateDataQualityEvaluationConfigCommand === "function");
+assert(typeof CreateDataQualityEvaluationConfig$ === "object");
 assert(typeof CreateDataQualityRulesetCommand === "function");
 assert(typeof CreateDataQualityRuleset$ === "object");
 assert(typeof CreateDevEndpointCommand === "function");
@@ -2167,6 +2200,8 @@ assert(typeof DeleteCustomEntityTypeCommand === "function");
 assert(typeof DeleteCustomEntityType$ === "object");
 assert(typeof DeleteDatabaseCommand === "function");
 assert(typeof DeleteDatabase$ === "object");
+assert(typeof DeleteDataQualityEvaluationConfigCommand === "function");
+assert(typeof DeleteDataQualityEvaluationConfig$ === "object");
 assert(typeof DeleteDataQualityRulesetCommand === "function");
 assert(typeof DeleteDataQualityRuleset$ === "object");
 assert(typeof DeleteDevEndpointCommand === "function");
@@ -2283,6 +2318,8 @@ assert(typeof GetDataCatalogExportConfigurationCommand === "function");
 assert(typeof GetDataCatalogExportConfiguration$ === "object");
 assert(typeof GetDataflowGraphCommand === "function");
 assert(typeof GetDataflowGraph$ === "object");
+assert(typeof GetDataQualityEvaluationConfigCommand === "function");
+assert(typeof GetDataQualityEvaluationConfig$ === "object");
 assert(typeof GetDataQualityModelCommand === "function");
 assert(typeof GetDataQualityModel$ === "object");
 assert(typeof GetDataQualityModelResultCommand === "function");
@@ -2427,6 +2464,8 @@ assert(typeof ListCrawlsCommand === "function");
 assert(typeof ListCrawls$ === "object");
 assert(typeof ListCustomEntityTypesCommand === "function");
 assert(typeof ListCustomEntityTypes$ === "object");
+assert(typeof ListDataQualityEvaluationConfigsCommand === "function");
+assert(typeof ListDataQualityEvaluationConfigs$ === "object");
 assert(typeof ListDataQualityResultsCommand === "function");
 assert(typeof ListDataQualityResults$ === "object");
 assert(typeof ListDataQualityResultsV2Command === "function");
@@ -2601,6 +2640,8 @@ assert(typeof UpdateCrawlerScheduleCommand === "function");
 assert(typeof UpdateCrawlerSchedule$ === "object");
 assert(typeof UpdateDatabaseCommand === "function");
 assert(typeof UpdateDatabase$ === "object");
+assert(typeof UpdateDataQualityEvaluationConfigCommand === "function");
+assert(typeof UpdateDataQualityEvaluationConfig$ === "object");
 assert(typeof UpdateDataQualityRulesetCommand === "function");
 assert(typeof UpdateDataQualityRuleset$ === "object");
 assert(typeof UpdateDevEndpointCommand === "function");
@@ -2810,6 +2851,8 @@ assert(typeof CreateCustomEntityTypeRequest$ === "object");
 assert(typeof CreateCustomEntityTypeResponse$ === "object");
 assert(typeof CreateDatabaseRequest$ === "object");
 assert(typeof CreateDatabaseResponse$ === "object");
+assert(typeof CreateDataQualityEvaluationConfigRequest$ === "object");
+assert(typeof CreateDataQualityEvaluationConfigResponse$ === "object");
 assert(typeof CreateDataQualityRulesetRequest$ === "object");
 assert(typeof CreateDataQualityRulesetResponse$ === "object");
 assert(typeof CreateDevEndpointRequest$ === "object");
@@ -2877,6 +2920,12 @@ assert(typeof DataQualityAggregatedMetrics$ === "object");
 assert(typeof DataQualityAnalyzerResult$ === "object");
 assert(typeof DataQualityConfigurationV2$ === "object");
 assert(typeof DataQualityEncryption$ === "object");
+assert(typeof DataQualityEvaluationConfigAdditionalRunOptions$ === "object");
+assert(typeof DataQualityEvaluationConfigDataSource$ === "object");
+assert(typeof DataQualityEvaluationConfigGlueTables$ === "object");
+assert(typeof DataQualityEvaluationConfigListDataSource$ === "object");
+assert(typeof DataQualityEvaluationConfigListDetails$ === "object");
+assert(typeof DataQualityEvaluationConfigListGlueTables$ === "object");
 assert(typeof DataQualityEvaluationRunAdditionalRunOptions$ === "object");
 assert(typeof DataQualityGlueTable$ === "object");
 assert(typeof DataQualityMetricValues$ === "object");
@@ -2934,6 +2983,8 @@ assert(typeof DeleteCustomEntityTypeRequest$ === "object");
 assert(typeof DeleteCustomEntityTypeResponse$ === "object");
 assert(typeof DeleteDatabaseRequest$ === "object");
 assert(typeof DeleteDatabaseResponse$ === "object");
+assert(typeof DeleteDataQualityEvaluationConfigRequest$ === "object");
+assert(typeof DeleteDataQualityEvaluationConfigResponse$ === "object");
 assert(typeof DeleteDataQualityRulesetRequest$ === "object");
 assert(typeof DeleteDataQualityRulesetResponse$ === "object");
 assert(typeof DeleteDevEndpointRequest$ === "object");
@@ -3102,6 +3153,8 @@ assert(typeof GetDataCatalogExportConfigurationInput$ === "object");
 assert(typeof GetDataCatalogExportConfigurationOutput$ === "object");
 assert(typeof GetDataflowGraphRequest$ === "object");
 assert(typeof GetDataflowGraphResponse$ === "object");
+assert(typeof GetDataQualityEvaluationConfigRequest$ === "object");
+assert(typeof GetDataQualityEvaluationConfigResponse$ === "object");
 assert(typeof GetDataQualityModelRequest$ === "object");
 assert(typeof GetDataQualityModelResponse$ === "object");
 assert(typeof GetDataQualityModelResultRequest$ === "object");
@@ -3314,6 +3367,8 @@ assert(typeof ListCrawlsRequest$ === "object");
 assert(typeof ListCrawlsResponse$ === "object");
 assert(typeof ListCustomEntityTypesRequest$ === "object");
 assert(typeof ListCustomEntityTypesResponse$ === "object");
+assert(typeof ListDataQualityEvaluationConfigsRequest$ === "object");
+assert(typeof ListDataQualityEvaluationConfigsResponse$ === "object");
 assert(typeof ListDataQualityResultsRequest$ === "object");
 assert(typeof ListDataQualityResultsResponse$ === "object");
 assert(typeof ListDataQualityResultsV2Request$ === "object");
@@ -3672,6 +3727,8 @@ assert(typeof UpdateCrawlerScheduleResponse$ === "object");
 assert(typeof UpdateCsvClassifierRequest$ === "object");
 assert(typeof UpdateDatabaseRequest$ === "object");
 assert(typeof UpdateDatabaseResponse$ === "object");
+assert(typeof UpdateDataQualityEvaluationConfigRequest$ === "object");
+assert(typeof UpdateDataQualityEvaluationConfigResponse$ === "object");
 assert(typeof UpdateDataQualityRulesetRequest$ === "object");
 assert(typeof UpdateDataQualityRulesetResponse$ === "object");
 assert(typeof UpdateDevEndpointRequest$ === "object");
@@ -3769,6 +3826,10 @@ assert(typeof DataFormat === "object");
 assert(typeof DataOperation === "object");
 assert(typeof DataQualityEncryptionMode === "object");
 assert(typeof DataQualityEngine === "object");
+assert(typeof DataQualityEvaluationConfigLevel === "object");
+assert(typeof DataQualityEvaluationConfigManagedRuleset === "object");
+assert(typeof DataQualityEvaluationConfigTrigger === "object");
+assert(typeof DataQualityEvaluationRunMode === "object");
 assert(typeof DataQualityModelStatus === "object");
 assert(typeof DataQualityRuleResultStatus === "object");
 assert(typeof DdbExportType === "object");
@@ -4019,6 +4080,7 @@ assert(typeof paginateListColumnStatisticsTaskRuns === "function");
 assert(typeof paginateListConnectionTypes === "function");
 assert(typeof paginateListCrawlers === "function");
 assert(typeof paginateListCustomEntityTypes === "function");
+assert(typeof paginateListDataQualityEvaluationConfigs === "function");
 assert(typeof paginateListDataQualityResults === "function");
 assert(typeof paginateListDataQualityResultsV2 === "function");
 assert(typeof paginateListDataQualityRuleRecommendationRuns === "function");

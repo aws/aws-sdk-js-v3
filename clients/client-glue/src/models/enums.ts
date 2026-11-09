@@ -297,6 +297,20 @@ export type JdbcMetadataEntry = (typeof JdbcMetadataEntry)[keyof typeof JdbcMeta
  * @public
  * @enum
  */
+export const DataQualityEvaluationRunMode = {
+  EVALUATION_CONFIG: "EVALUATION_CONFIG",
+  ON_DEMAND: "ON_DEMAND",
+} as const;
+/**
+ * @public
+ */
+export type DataQualityEvaluationRunMode =
+  (typeof DataQualityEvaluationRunMode)[keyof typeof DataQualityEvaluationRunMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const DataQualityRuleResultStatus = {
   ERROR: "ERROR",
   FAIL: "FAIL",
@@ -1332,6 +1346,50 @@ export const ConnectionStatus = {
  * @public
  */
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataQualityEvaluationConfigLevel = {
+  CATALOG: "CATALOG",
+  DATABASE: "DATABASE",
+  TABLE: "TABLE",
+} as const;
+/**
+ * @public
+ */
+export type DataQualityEvaluationConfigLevel =
+  (typeof DataQualityEvaluationConfigLevel)[keyof typeof DataQualityEvaluationConfigLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataQualityEvaluationConfigManagedRuleset = {
+  ADVANCED: "ADVANCED",
+  SIMPLE: "SIMPLE",
+} as const;
+/**
+ * @public
+ */
+export type DataQualityEvaluationConfigManagedRuleset =
+  (typeof DataQualityEvaluationConfigManagedRuleset)[keyof typeof DataQualityEvaluationConfigManagedRuleset];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataQualityEvaluationConfigTrigger = {
+  METADATA_CHANGE: "METADATA_CHANGE",
+  ONCE: "ONCE",
+  SCHEDULE: "SCHEDULE",
+} as const;
+/**
+ * @public
+ */
+export type DataQualityEvaluationConfigTrigger =
+  (typeof DataQualityEvaluationConfigTrigger)[keyof typeof DataQualityEvaluationConfigTrigger];
 
 /**
  * @public
