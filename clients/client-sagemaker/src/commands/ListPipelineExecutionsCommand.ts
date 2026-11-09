@@ -40,6 +40,7 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  *   SortOrder: "Ascending" || "Descending",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   PipelineVersionAlias: "STRING_VALUE",
  * };
  * const command = new ListPipelineExecutionsCommand(input);
  * const response = await client.send(command);
@@ -52,6 +53,9 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * //       PipelineExecutionDescription: "STRING_VALUE",
  * //       PipelineExecutionDisplayName: "STRING_VALUE",
  * //       PipelineExecutionFailureReason: "STRING_VALUE",
+ * //       PipelineVersionAliases: [ // PipelineVersionAliasList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

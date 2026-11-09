@@ -37,6 +37,14 @@ export interface UpdatePipelineVersionCommandOutput extends UpdatePipelineVersio
  *   PipelineVersionId: Number("long"), // required
  *   PipelineVersionDisplayName: "STRING_VALUE",
  *   PipelineVersionDescription: "STRING_VALUE",
+ *   PipelineVersionAliasOperations: { // AliasOperations
+ *     Add: [ // PipelineVersionAliasList
+ *       "STRING_VALUE",
+ *     ],
+ *     Remove: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new UpdatePipelineVersionCommand(input);
  * const response = await client.send(command);

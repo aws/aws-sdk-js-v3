@@ -2474,6 +2474,24 @@ export interface AlgorithmValidationSpecification {
 }
 
 /**
+ * <p>The aliases to add to and remove from a pipeline version. An alias can't appear in both lists. After the update, the version can have up to 10 aliases.</p>
+ * @public
+ */
+export interface AliasOperations {
+  /**
+   * <p>The aliases to add to the pipeline version. If you assigned an alias to another version of the same pipeline, you must remove it from that version before you add it here.</p>
+   * @public
+   */
+  Add?: string[] | undefined;
+
+  /**
+   * <p>The aliases to remove from the pipeline version.</p>
+   * @public
+   */
+  Remove?: string[] | undefined;
+}
+
+/**
  * <p>A collection of settings that configure the Amazon Q experience within the domain.</p>
  * @public
  */
@@ -8171,34 +8189,4 @@ export interface ClusterRestrictedInstanceGroupsConfig {
    * @public
    */
   SharedEnvironmentConfig: ClusterSharedEnvironmentConfig | undefined;
-}
-
-/**
- * <p>The shared environment configuration details for the restricted instance groups (RIG).</p>
- * @public
- */
-export interface ClusterSharedEnvironmentConfigDetails {
-  /**
-   * <p>The current Amazon FSx for Lustre file system configuration in the shared environment.</p>
-   * @public
-   */
-  CurrentFSxLustreConfig?: FSxLustreConfig | undefined;
-
-  /**
-   * <p>The desired Amazon FSx for Lustre file system configuration in the shared environment.</p>
-   * @public
-   */
-  DesiredFSxLustreConfig?: FSxLustreConfig | undefined;
-
-  /**
-   * <p>The current deletion policy for the Amazon FSx for Lustre file system in the shared environment.</p>
-   * @public
-   */
-  CurrentFSxLustreDeletionPolicy?: ClusterFSxLustreDeletionPolicy | undefined;
-
-  /**
-   * <p>The desired deletion policy for the Amazon FSx for Lustre file system in the shared environment.</p>
-   * @public
-   */
-  DesiredFSxLustreDeletionPolicy?: ClusterFSxLustreDeletionPolicy | undefined;
 }

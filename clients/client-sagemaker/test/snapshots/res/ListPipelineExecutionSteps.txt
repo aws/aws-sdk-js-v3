@@ -236,6 +236,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "StepName": "__StepName__",
             "Index": 0
           }
+        },
+        "HubContent": {
+          "HubArn": "__HubArn__",
+          "HubContentArn": "__HubContentArn__"
         }
       },
       "AttemptCount": 0,
@@ -455,6 +459,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "StepName": "__StepName__",
             "Index": 0
           }
+        },
+        "HubContent": {
+          "HubArn": "__HubArn__",
+          "HubContentArn": "__HubContentArn__"
         }
       },
       "AttemptCount": 0,
@@ -674,6 +682,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "StepName": "__StepName__",
             "Index": 0
           }
+        },
+        "HubContent": {
+          "HubArn": "__HubArn__",
+          "HubContentArn": "__HubContentArn__"
         }
       },
       "AttemptCount": 0,
@@ -901,6 +913,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             StepName: "__StepName__",
             Index: (number) 0
           }
+        },
+        HubContent: {
+          HubArn: "__HubArn__",
+          HubContentArn: "__HubContentArn__"
         }
       },
       AttemptCount: (number) 0,
@@ -1120,6 +1136,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             StepName: "__StepName__",
             Index: (number) 0
           }
+        },
+        HubContent: {
+          HubArn: "__HubArn__",
+          HubContentArn: "__HubContentArn__"
         }
       },
       AttemptCount: (number) 0,
@@ -1339,6 +1359,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             StepName: "__StepName__",
             Index: (number) 0
           }
+        },
+        HubContent: {
+          HubArn: "__HubArn__",
+          HubContentArn: "__HubContentArn__"
         }
       },
       AttemptCount: (number) 0,

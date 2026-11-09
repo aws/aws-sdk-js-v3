@@ -81,7 +81,13 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "MLflowConfig": {
     "MlflowResourceArn": "__MlflowResourceArn__",
     "MlflowExperimentName": "__MlflowExperimentName__"
-  }
+  },
+  "PipelineVersionAliases": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "RoleArn": "__RoleArn__"
 }
 
 
@@ -141,6 +147,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     MlflowResourceArn: "__MlflowResourceArn__",
     MlflowExperimentName: "__MlflowExperimentName__"
   },
+  PipelineVersionAliases: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  RoleArn: "__RoleArn__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

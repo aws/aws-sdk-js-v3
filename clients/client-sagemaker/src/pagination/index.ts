@@ -15,6 +15,7 @@ export * from "./ListAssociationsPaginator";
 export * from "./ListAutoMLJobsPaginator";
 export * from "./ListCandidatesForAutoMLJobPaginator";
 export * from "./ListClusterEventsPaginator";
+export * from "./ListClusterExtensionsPaginator";
 export * from "./ListClusterNodesPaginator";
 export * from "./ListClustersPaginator";
 export * from "./ListClusterSchedulerConfigsPaginator";

@@ -4895,6 +4895,25 @@ export type StageStatus = (typeof StageStatus)[keyof typeof StageStatus];
  * @public
  * @enum
  */
+export const ExtensionStatus = {
+  ACTIVE: "Active",
+  CREATE_FAILED: "CreateFailed",
+  CREATING: "Creating",
+  DEGRADED: "Degraded",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATING: "Updating",
+} as const;
+/**
+ * @public
+ */
+export type ExtensionStatus = (typeof ExtensionStatus)[keyof typeof ExtensionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const SchedulerConfigComponent = {
   FAIR_SHARE: "FairShare",
   IDLE_RESOURCE_SHARING: "IdleResourceSharing",
@@ -6835,6 +6854,19 @@ export const StepStatus = {
  * @public
  */
 export type StepStatus = (typeof StepStatus)[keyof typeof StepStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PipelineManagedBy = {
+  AWS: "AWS",
+  CUSTOMER: "CUSTOMER",
+} as const;
+/**
+ * @public
+ */
+export type PipelineManagedBy = (typeof PipelineManagedBy)[keyof typeof PipelineManagedBy];
 
 /**
  * @public

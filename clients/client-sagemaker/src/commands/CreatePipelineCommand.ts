@@ -53,6 +53,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  *   ParallelismConfiguration: { // ParallelismConfiguration
  *     MaxParallelExecutionSteps: Number("int"), // required
  *   },
+ *   PipelineVersionAliases: [ // PipelineVersionAliasList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);

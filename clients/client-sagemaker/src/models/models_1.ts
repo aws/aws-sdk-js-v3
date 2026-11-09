@@ -15,6 +15,7 @@ import type {
   AwsManagedHumanLoopRequestSource,
   CapacityReservationPreference,
   ClusterConfigMode,
+  ClusterFSxLustreDeletionPolicy,
   ClusterImageVersionStatus,
   ClusterInstanceType,
   ClusterNodeProvisioningMode,
@@ -158,7 +159,6 @@ import type {
   ClusterInstanceStorageConfig,
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupsConfig,
-  ClusterSharedEnvironmentConfigDetails,
   CodeEditorAppImageConfig,
   ComputeQuotaResourceConfig,
   FSxLustreConfig,
@@ -177,6 +177,36 @@ import type {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>The shared environment configuration details for the restricted instance groups (RIG).</p>
+ * @public
+ */
+export interface ClusterSharedEnvironmentConfigDetails {
+  /**
+   * <p>The current Amazon FSx for Lustre file system configuration in the shared environment.</p>
+   * @public
+   */
+  CurrentFSxLustreConfig?: FSxLustreConfig | undefined;
+
+  /**
+   * <p>The desired Amazon FSx for Lustre file system configuration in the shared environment.</p>
+   * @public
+   */
+  DesiredFSxLustreConfig?: FSxLustreConfig | undefined;
+
+  /**
+   * <p>The current deletion policy for the Amazon FSx for Lustre file system in the shared environment.</p>
+   * @public
+   */
+  CurrentFSxLustreDeletionPolicy?: ClusterFSxLustreDeletionPolicy | undefined;
+
+  /**
+   * <p>The desired deletion policy for the Amazon FSx for Lustre file system in the shared environment.</p>
+   * @public
+   */
+  DesiredFSxLustreDeletionPolicy?: ClusterFSxLustreDeletionPolicy | undefined;
+}
 
 /**
  * <p>The output configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>
@@ -2053,6 +2083,58 @@ export interface CreateClusterResponse {
    * @public
    */
   ClusterArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateClusterExtensionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster on which to install the extension. The cluster must use Slurm as the orchestrator and have <code>NodeProvisioningMode</code> set to <code>Continuous</code>.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The name of the extension to install, for example <code>sagemaker-observability</code>.</p>
+   * @public
+   */
+  ExtensionName: string | undefined;
+
+  /**
+   * <p>The version of the extension to install, in <code>MAJOR.MINOR.PATCH</code> format, for example <code>1.0.0</code>. If you don't specify a version, SageMaker HyperPod installs the latest available version of the extension.</p>
+   * @public
+   */
+  ExtensionVersion?: string | undefined;
+
+  /**
+   * <p>The configuration settings for the extension, as a JSON object serialized as a string, for example <code>\{"metricsProvider":\{"nodeMetrics":\{"level":"ADVANCED"\}\}\}</code>. Each extension version defines which settings it accepts. SageMaker HyperPod validates the settings against that definition, and rejects the request if a setting is unknown or has an invalid value. Settings that you omit use the extension's default values. If you omit <code>ConfigurationValues</code>, all settings use their default values.</p>
+   * @public
+   */
+  ConfigurationValues?: string | undefined;
+
+  /**
+   * <p>Custom tags for managing the extension as an Amazon Web Services resource. You can add tags to your extension in the same way you add them in other Amazon Web Services services that support tagging. To learn more about tagging Amazon Web Services resources in general, see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging Amazon Web Services Resources User Guide</a>. To use this operation to add tags when you create an extension, you must have the <code>sagemaker:AddTags</code> permission.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide so that the operation completes no more than one time. This token is valid for 8 hours. If you retry the request with the same client token and the same parameters within this time, the API returns the Amazon Resource Name (ARN) of the extension that the original request created, without creating a duplicate. If you use the same client token with different parameters, the request fails.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateClusterExtensionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extension that you created. Use this ARN to describe, update, or delete the extension.</p>
+   * @public
+   */
+  ExtensionArn: string | undefined;
 }
 
 /**
@@ -8473,111 +8555,4 @@ export interface ModelQualityAppSpecification {
    * @public
    */
   Environment?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
- * @public
- */
-export interface ModelQualityBaselineConfig {
-  /**
-   * <p>The name of the job that performs baselining for the monitoring job.</p>
-   * @public
-   */
-  BaseliningJobName?: string | undefined;
-
-  /**
-   * <p>The constraints resource for a monitoring job.</p>
-   * @public
-   */
-  ConstraintsResource?: MonitoringConstraintsResource | undefined;
-}
-
-/**
- * <p>The input for the model quality monitoring job. Currently endpoints are supported for input for model quality monitoring jobs.</p>
- * @public
- */
-export interface ModelQualityJobInput {
-  /**
-   * <p>Input object for the endpoint</p>
-   * @public
-   */
-  EndpointInput?: EndpointInput | undefined;
-
-  /**
-   * <p>Input object for the batch transform job.</p>
-   * @public
-   */
-  BatchTransformInput?: BatchTransformInput | undefined;
-
-  /**
-   * <p>The ground truth label provided for the model.</p>
-   * @public
-   */
-  GroundTruthS3Input: MonitoringGroundTruthS3Input | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelQualityJobDefinitionRequest {
-  /**
-   * <p>The name of the monitoring job definition.</p>
-   * @public
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>Specifies the constraints and baselines for the monitoring job.</p>
-   * @public
-   */
-  ModelQualityBaselineConfig?: ModelQualityBaselineConfig | undefined;
-
-  /**
-   * <p>The container that runs the monitoring job.</p>
-   * @public
-   */
-  ModelQualityAppSpecification: ModelQualityAppSpecification | undefined;
-
-  /**
-   * <p>A list of the inputs that are monitored. Currently endpoints are supported.</p>
-   * @public
-   */
-  ModelQualityJobInput: ModelQualityJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   * @public
-   */
-  ModelQualityJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   * @public
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Specifies the network configuration for the monitoring job.</p>
-   * @public
-   */
-  NetworkConfig?: MonitoringNetworkConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   * @public
-   */
-  StoppingCondition?: MonitoringStoppingCondition | undefined;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
 }

@@ -56,6 +56,8 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  *   },
  *   PipelineVersionId: Number("long"),
  *   MlflowExperimentName: "STRING_VALUE",
+ *   PipelineVersionAlias: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
  * };
  * const command = new StartPipelineExecutionCommand(input);
  * const response = await client.send(command);

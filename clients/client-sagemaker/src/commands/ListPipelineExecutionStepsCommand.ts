@@ -206,6 +206,10 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * //             Index: Number("int"),
  * //           },
  * //         },
+ * //         HubContent: { // HubContentStepMetadata
+ * //           HubArn: "STRING_VALUE",
+ * //           HubContentArn: "STRING_VALUE",
+ * //         },
  * //       },
  * //       AttemptCount: Number("int"),
  * //       SelectiveExecutionResult: { // SelectiveExecutionResult

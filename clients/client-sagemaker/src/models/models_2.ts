@@ -15,7 +15,6 @@ import type {
   AutoMLJobStatus,
   AutoMLProblemTypeConfigName,
   BatchStrategy,
-  CapacityReservationPreference,
   CaptureStatus,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
@@ -30,8 +29,8 @@ import type {
   EdgePresetDeploymentStatus,
   EdgePresetDeploymentType,
   EnabledOrDisabled,
-  EndpointStatus,
   EvaluationType,
+  ExtensionStatus,
   FeatureStatus,
   HomeEfsFileSystemCreation,
   HubContentType,
@@ -54,7 +53,6 @@ import type {
   ProcessingS3DataType,
   ProcessingS3InputMode,
   ProcessingS3UploadMode,
-  ProductionVariantAcceleratorType,
   ProductionVariantInstanceType,
   RecommendationStatus,
   RedshiftResultCompressionType,
@@ -75,7 +73,6 @@ import type {
   WorkforceIpAddressType,
 } from "./enums";
 import type {
-  AcceleratorPartitionLayout,
   ActionSource,
   AIAdapterSource,
   AIBenchmarkNetworkConfig,
@@ -94,7 +91,6 @@ import type {
   AlgorithmValidationSpecification,
   AppSpecification,
   ArtifactSource,
-  AsyncInferenceConfig,
   AthenaDatasetDefinition,
   AutoMLCandidate,
   AutoMLChannel,
@@ -146,27 +142,25 @@ import type {
   ComputeQuotaConfig,
   ComputeQuotaTarget,
   ContextSource,
-  DataCaptureConfig,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DefaultSpaceSettings,
-  DeploymentConfig,
   DeviceSelectionConfig,
   DomainSettings,
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EndpointInput,
-  ExplainerConfig,
   GitConfig,
   InputConfig,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
-  MetricsConfig,
   ModelDeployConfig,
+  ModelQualityAppSpecification,
   MonitoringConstraintsResource,
+  MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
@@ -174,15 +168,118 @@ import type {
   MonitoringStoppingCondition,
   NeoVpcConfig,
   OutputConfig,
-  ProductionVariant,
-  ProductionVariantManagedInstanceScaling,
-  ProductionVariantRoutingConfig,
-  ProductionVariantServerlessConfig,
   RetryStrategy,
   SchedulerConfig,
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
+ * @public
+ */
+export interface ModelQualityBaselineConfig {
+  /**
+   * <p>The name of the job that performs baselining for the monitoring job.</p>
+   * @public
+   */
+  BaseliningJobName?: string | undefined;
+
+  /**
+   * <p>The constraints resource for a monitoring job.</p>
+   * @public
+   */
+  ConstraintsResource?: MonitoringConstraintsResource | undefined;
+}
+
+/**
+ * <p>The input for the model quality monitoring job. Currently endpoints are supported for input for model quality monitoring jobs.</p>
+ * @public
+ */
+export interface ModelQualityJobInput {
+  /**
+   * <p>Input object for the endpoint</p>
+   * @public
+   */
+  EndpointInput?: EndpointInput | undefined;
+
+  /**
+   * <p>Input object for the batch transform job.</p>
+   * @public
+   */
+  BatchTransformInput?: BatchTransformInput | undefined;
+
+  /**
+   * <p>The ground truth label provided for the model.</p>
+   * @public
+   */
+  GroundTruthS3Input: MonitoringGroundTruthS3Input | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelQualityJobDefinitionRequest {
+  /**
+   * <p>The name of the monitoring job definition.</p>
+   * @public
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>Specifies the constraints and baselines for the monitoring job.</p>
+   * @public
+   */
+  ModelQualityBaselineConfig?: ModelQualityBaselineConfig | undefined;
+
+  /**
+   * <p>The container that runs the monitoring job.</p>
+   * @public
+   */
+  ModelQualityAppSpecification: ModelQualityAppSpecification | undefined;
+
+  /**
+   * <p>A list of the inputs that are monitored. Currently endpoints are supported.</p>
+   * @public
+   */
+  ModelQualityJobInput: ModelQualityJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   * @public
+   */
+  ModelQualityJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   * @public
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Specifies the network configuration for the monitoring job.</p>
+   * @public
+   */
+  NetworkConfig?: MonitoringNetworkConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   * @public
+   */
+  StoppingCondition?: MonitoringStoppingCondition | undefined;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
 
 /**
  * @public
@@ -1287,6 +1384,12 @@ export interface CreatePipelineRequest {
    * @public
    */
   ParallelismConfiguration?: ParallelismConfiguration | undefined;
+
+  /**
+   * <p>The aliases to assign to the first version of the pipeline. You can use an alias instead of a pipeline version ID to start an execution, describe the pipeline, or list its executions. Each alias can contain 1-128 letters, numbers, periods (.), hyphens (-), and underscores (_), and can't consist of numbers only. An alias must be unique within the pipeline, and a version can have up to 10 aliases.</p>
+   * @public
+   */
+  PipelineVersionAliases?: string[] | undefined;
 }
 
 /**
@@ -4110,6 +4213,34 @@ export interface DeleteClusterResponse {
 /**
  * @public
  */
+export interface DeleteClusterExtensionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster on which the extension is installed.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extension to delete.</p>
+   * @public
+   */
+  ExtensionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteClusterExtensionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extension that is being deleted.</p>
+   * @public
+   */
+  ExtensionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteClusterSchedulerConfigRequest {
   /**
    * <p>ID of the cluster policy.</p>
@@ -6294,6 +6425,112 @@ export interface DescribeClusterEventResponse {
 /**
  * @public
  */
+export interface DescribeClusterExtensionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster on which the extension is installed.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extension to describe. <code>CreateClusterExtension</code> returns this ARN, and <code>ListClusterExtensions</code> lists it. If you delete an extension and create it again, the new extension has a new ARN.</p>
+   * @public
+   */
+  ExtensionArn: string | undefined;
+}
+
+/**
+ * <p>Details of an extension installed on a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ExtensionDetails {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster on which the extension is installed.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extension.</p>
+   * @public
+   */
+  ExtensionArn: string | undefined;
+
+  /**
+   * <p>The name of the extension.</p>
+   * @public
+   */
+  ExtensionName: string | undefined;
+
+  /**
+   * <p>The version of the extension. While SageMaker HyperPod creates or updates the extension, some nodes might still run a different version. To see how many nodes run this version, see <code>NodeSummary</code>.</p>
+   * @public
+   */
+  ExtensionVersion: string | undefined;
+
+  /**
+   * <p>The status of the extension can be one of the following values:</p> <dl> <dt>Creating</dt> <dd> <p>SageMaker HyperPod is installing the extension on the cluster's nodes.</p> </dd> <dt>Active</dt> <dd> <p>The extension runs its current version and configuration on all of the cluster's nodes.</p> </dd> <dt>Updating</dt> <dd> <p>SageMaker HyperPod is applying a configuration change or version update to the cluster's nodes.</p> </dd> <dt>Degraded</dt> <dd> <p>The extension runs its current version and configuration on some of the cluster's nodes but not all of them. Or, at least one node recently reported that the extension is unhealthy.</p> </dd> <dt>CreateFailed</dt> <dd> <p>SageMaker HyperPod couldn't install the extension on any of the cluster's nodes.</p> </dd> <dt>UpdateFailed</dt> <dd> <p>SageMaker HyperPod couldn't apply the update on any of the cluster's nodes.</p> </dd> <dt>Deleting</dt> <dd> <p>SageMaker HyperPod is removing the extension from the cluster's nodes.</p> </dd> <dt>DeleteFailed</dt> <dd> <p>SageMaker HyperPod couldn't remove the extension from any of the cluster's nodes.</p> </dd> </dl>
+   * @public
+   */
+  Status: ExtensionStatus | undefined;
+
+  /**
+   * <p>The configuration of the extension, as a JSON object serialized as a string. The configuration includes the default value of every setting that you didn't specify.</p>
+   * @public
+   */
+  ConfigurationValues?: string | undefined;
+
+  /**
+   * <p>The time when the extension was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The time when the extension was last updated.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * <p>A summary of an extension's installation across the nodes of a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ExtensionNodeSummary {
+  /**
+   * <p>The number of nodes in your cluster that the extension targets. SageMaker HyperPod targets every running node in your cluster, including nodes that you add after you create the extension.</p>
+   * @public
+   */
+  TotalCount: number | undefined;
+
+  /**
+   * <p>The number of nodes that are running the extension's current version and configuration. While SageMaker HyperPod creates or updates the extension, <code>ActiveCount</code> is lower than <code>TotalCount</code>.</p>
+   * @public
+   */
+  ActiveCount: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterExtensionResponse {
+  /**
+   * <p>The details of the extension.</p>
+   * @public
+   */
+  ExtensionDetails: ExtensionDetails | undefined;
+
+  /**
+   * <p>A summary of how many nodes in your cluster the extension targets, and how many of them run the extension's current version and configuration.</p>
+   * @public
+   */
+  NodeSummary?: ExtensionNodeSummary | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeClusterNodeRequest {
   /**
    * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster in which the node is.</p>
@@ -7532,492 +7769,4 @@ export interface ProductionVariantStatus {
    * @public
    */
   StartTime?: Date | undefined;
-}
-
-/**
- * <p>The production variant summary for a deployment when an endpoint is creating or updating with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> operations. Describes the <code>VariantStatus </code>, weight and capacity for a production variant associated with an endpoint. </p>
- * @public
- */
-export interface PendingProductionVariantSummary {
-  /**
-   * <p>The name of the variant.</p>
-   * @public
-   */
-  VariantName: string | undefined;
-
-  /**
-   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this <code>ProductionVariant</code>.</p>
-   * @public
-   */
-  DeployedImages?: DeployedImage[] | undefined;
-
-  /**
-   * <p>The weight associated with the variant.</p>
-   * @public
-   */
-  CurrentWeight?: number | undefined;
-
-  /**
-   * <p>The requested weight for the variant in this deployment, as specified in the endpoint configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
-   * @public
-   */
-  DesiredWeight?: number | undefined;
-
-  /**
-   * <p>The number of instances associated with the variant.</p>
-   * @public
-   */
-  CurrentInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances requested in this deployment, as specified in the endpoint configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
-   * @public
-   */
-  DesiredInstanceCount?: number | undefined;
-
-  /**
-   * <p>The type of instances associated with the variant.</p>
-   * @public
-   */
-  InstanceType?: ProductionVariantInstanceType | undefined;
-
-  /**
-   * <p>A list of instance pools for the production variant. Each pool indicates the instance type and the current number of instances of that type.</p>
-   * @public
-   */
-  InstancePools?: InstancePoolSummary[] | undefined;
-
-  /**
-   * <p>This parameter is no longer supported. Elastic Inference (EI) is no longer available.</p> <p>This parameter was used to specify the size of the EI instance to use for the production variant.</p>
-   * @public
-   */
-  AcceleratorType?: ProductionVariantAcceleratorType | undefined;
-
-  /**
-   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
-   * @public
-   */
-  VariantStatus?: ProductionVariantStatus[] | undefined;
-
-  /**
-   * <p>The serverless configuration for the endpoint.</p>
-   * @public
-   */
-  CurrentServerlessConfig?: ProductionVariantServerlessConfig | undefined;
-
-  /**
-   * <p>The serverless configuration requested for this deployment, as specified in the endpoint configuration for the endpoint.</p>
-   * @public
-   */
-  DesiredServerlessConfig?: ProductionVariantServerlessConfig | undefined;
-
-  /**
-   * <p>Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic. </p>
-   * @public
-   */
-  ManagedInstanceScaling?: ProductionVariantManagedInstanceScaling | undefined;
-
-  /**
-   * <p>Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.</p>
-   * @public
-   */
-  RoutingConfig?: ProductionVariantRoutingConfig | undefined;
-
-  /**
-   * <p>The accelerator partition layout that SageMaker is applying to this production variant. On NVIDIA GPUs, the profiles are Multi-Instance GPU (MIG) profiles. SageMaker returns the accelerator partition layout as you provided it in the pending deployment configuration, without normalization.</p>
-   * @public
-   */
-  AcceleratorPartitionLayouts?: AcceleratorPartitionLayout[] | undefined;
-}
-
-/**
- * <p>The summary of an in-progress deployment when an endpoint is creating or updating with a new endpoint configuration.</p>
- * @public
- */
-export interface PendingDeploymentSummary {
-  /**
-   * <p>The name of the endpoint configuration used in the deployment. </p>
-   * @public
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html">PendingProductionVariantSummary</a> objects, one for each model hosted behind this endpoint for the in-progress deployment.</p>
-   * @public
-   */
-  ProductionVariants?: PendingProductionVariantSummary[] | undefined;
-
-  /**
-   * <p>The start time of the deployment.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html">PendingProductionVariantSummary</a> objects, one for each model hosted behind this endpoint in shadow mode with production traffic replicated from the model specified on <code>ProductionVariants</code> for the in-progress deployment.</p>
-   * @public
-   */
-  ShadowProductionVariants?: PendingProductionVariantSummary[] | undefined;
-}
-
-/**
- * <p>The EC2 capacity reservations that are shared to an ML capacity reservation.</p>
- * @public
- */
-export interface Ec2CapacityReservation {
-  /**
-   * <p>The unique identifier for an EC2 capacity reservation that's part of the ML capacity reservation.</p>
-   * @public
-   */
-  Ec2CapacityReservationId?: string | undefined;
-
-  /**
-   * <p>The number of instances that you allocated to the EC2 capacity reservation.</p>
-   * @public
-   */
-  TotalInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances that are currently available in the EC2 capacity reservation.</p>
-   * @public
-   */
-  AvailableInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances from the EC2 capacity reservation that are being used by the endpoint.</p>
-   * @public
-   */
-  UsedByCurrentEndpoint?: number | undefined;
-}
-
-/**
- * <p>Details about an ML capacity reservation.</p>
- * @public
- */
-export interface ProductionVariantCapacityReservationSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.</p>
-   * @public
-   */
-  MlReservationArn?: string | undefined;
-
-  /**
-   * <p>The option that you chose for the capacity reservation. SageMaker AI supports the following options:</p> <dl> <dt>capacity-reservations-only</dt> <dd> <p>SageMaker AI launches instances only into an ML capacity reservation. If no capacity is available, the instances fail to launch.</p> </dd> </dl>
-   * @public
-   */
-  CapacityReservationPreference?: CapacityReservationPreference | undefined;
-
-  /**
-   * <p>The number of instances that you allocated to the ML capacity reservation.</p>
-   * @public
-   */
-  TotalInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances that are currently available in the ML capacity reservation.</p>
-   * @public
-   */
-  AvailableInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances from the ML capacity reservation that are being used by the endpoint.</p>
-   * @public
-   */
-  UsedByCurrentEndpoint?: number | undefined;
-
-  /**
-   * <p>The EC2 capacity reservations that are shared to this ML capacity reservation, if any.</p>
-   * @public
-   */
-  Ec2CapacityReservations?: Ec2CapacityReservation[] | undefined;
-}
-
-/**
- * <p>Describes weight and capacities for a production variant associated with an endpoint. If you sent a request to the <code>UpdateEndpointWeightsAndCapacities</code> API and the endpoint status is <code>Updating</code>, you get different desired and current values. </p>
- * @public
- */
-export interface ProductionVariantSummary {
-  /**
-   * <p>The name of the variant.</p>
-   * @public
-   */
-  VariantName: string | undefined;
-
-  /**
-   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this <code>ProductionVariant</code>.</p>
-   * @public
-   */
-  DeployedImages?: DeployedImage[] | undefined;
-
-  /**
-   * <p>The weight associated with the variant.</p>
-   * @public
-   */
-  CurrentWeight?: number | undefined;
-
-  /**
-   * <p>The requested weight, as specified in the <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
-   * @public
-   */
-  DesiredWeight?: number | undefined;
-
-  /**
-   * <p>The number of instances associated with the variant.</p>
-   * @public
-   */
-  CurrentInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances requested in the <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
-   * @public
-   */
-  DesiredInstanceCount?: number | undefined;
-
-  /**
-   * <p>A list of instance pools for the production variant. Each pool indicates the instance type and the current number of instances of that type.</p>
-   * @public
-   */
-  InstancePools?: InstancePoolSummary[] | undefined;
-
-  /**
-   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
-   * @public
-   */
-  VariantStatus?: ProductionVariantStatus[] | undefined;
-
-  /**
-   * <p>The serverless configuration for the endpoint.</p>
-   * @public
-   */
-  CurrentServerlessConfig?: ProductionVariantServerlessConfig | undefined;
-
-  /**
-   * <p>The serverless configuration requested for the endpoint update.</p>
-   * @public
-   */
-  DesiredServerlessConfig?: ProductionVariantServerlessConfig | undefined;
-
-  /**
-   * <p>Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic. </p>
-   * @public
-   */
-  ManagedInstanceScaling?: ProductionVariantManagedInstanceScaling | undefined;
-
-  /**
-   * <p>Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.</p>
-   * @public
-   */
-  RoutingConfig?: ProductionVariantRoutingConfig | undefined;
-
-  /**
-   * <p>Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. </p>
-   * @public
-   */
-  CapacityReservationConfig?: ProductionVariantCapacityReservationSummary | undefined;
-
-  /**
-   * <p>The accelerator partition layout that SageMaker applies to this production variant. On NVIDIA GPUs, the profiles are Multi-Instance GPU (MIG) profiles. SageMaker returns the accelerator partition layout as you provided it when you created the variant, without normalization.</p>
-   * @public
-   */
-  AcceleratorPartitionLayouts?: AcceleratorPartitionLayout[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEndpointOutput {
-  /**
-   * <p>Name of the endpoint.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   * @public
-   */
-  EndpointArn: string | undefined;
-
-  /**
-   * <p>The name of the endpoint configuration associated with this endpoint.</p>
-   * @public
-   */
-  EndpointConfigName?: string | undefined;
-
-  /**
-   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html">ProductionVariantSummary</a> objects, one for each model hosted behind this endpoint.</p>
-   * @public
-   */
-  ProductionVariants?: ProductionVariantSummary[] | undefined;
-
-  /**
-   * <p>The currently active data capture configuration used by your Endpoint.</p>
-   * @public
-   */
-  DataCaptureConfig?: DataCaptureConfigSummary | undefined;
-
-  /**
-   * <p>The status of the endpoint.</p> <ul> <li> <p> <code>OutOfService</code>: Endpoint is not available to take incoming requests.</p> </li> <li> <p> <code>Creating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> is executing.</p> </li> <li> <p> <code>Updating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> is executing.</p> </li> <li> <p> <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This maintenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count.</p> </li> <li> <p> <code>RollingBack</code>: Endpoint fails to scale up or down or change its variant weight and is in the process of rolling back to its previous configuration. Once the rollback completes, endpoint returns to an <code>InService</code> status. This transitional status only applies to an endpoint that has autoscaling enabled and is undergoing variant weight or capacity changes as part of an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> call or when the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> operation is called explicitly.</p> </li> <li> <p> <code>InService</code>: Endpoint is available to process incoming requests.</p> </li> <li> <p> <code>Deleting</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is executing.</p> </li> <li> <p> <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use the <code>FailureReason</code> value returned by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> for information about the failure. <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is the only operation that can be performed on a failed endpoint.</p> </li> <li> <p> <code>UpdateRollbackFailed</code>: Both the rolling deployment and auto-rollback failed. Your endpoint is in service with a mix of the old and new endpoint configurations. For information about how to remedy this issue and restore the endpoint's status to <code>InService</code>, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails-rolling.html">Rolling Deployments</a>.</p> </li> </ul>
-   * @public
-   */
-  EndpointStatus: EndpointStatus | undefined;
-
-  /**
-   * <p>If the status of the endpoint is <code>Failed</code>, the reason why it failed. </p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>A timestamp that shows when the endpoint was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp that shows when the endpoint was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The most recent deployment configuration for the endpoint.</p>
-   * @public
-   */
-  LastDeploymentConfig?: DeploymentConfig | undefined;
-
-  /**
-   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html"> <code>CreateEndpointConfig</code> </a> API.</p>
-   * @public
-   */
-  AsyncInferenceConfig?: AsyncInferenceConfig | undefined;
-
-  /**
-   * <p>Returns the summary of an in-progress deployment. This field is only returned when the endpoint is creating or updating with a new endpoint configuration.</p>
-   * @public
-   */
-  PendingDeploymentSummary?: PendingDeploymentSummary | undefined;
-
-  /**
-   * <p>The configuration parameters for an explainer.</p>
-   * @public
-   */
-  ExplainerConfig?: ExplainerConfig | undefined;
-
-  /**
-   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html">ProductionVariantSummary</a> objects, one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on <code>ProductionVariants</code>.</p>
-   * @public
-   */
-  ShadowProductionVariants?: ProductionVariantSummary[] | undefined;
-
-  /**
-   * <p>The configuration parameters for utilization metrics.</p>
-   * @public
-   */
-  MetricsConfig?: MetricsConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEndpointConfigInput {
-  /**
-   * <p>The name of the endpoint configuration.</p>
-   * @public
-   */
-  EndpointConfigName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEndpointConfigOutput {
-  /**
-   * <p>Name of the SageMaker endpoint configuration.</p>
-   * @public
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint configuration.</p>
-   * @public
-   */
-  EndpointConfigArn: string | undefined;
-
-  /**
-   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want to host at this endpoint.</p>
-   * @public
-   */
-  ProductionVariants: ProductionVariant[] | undefined;
-
-  /**
-   * <p>Configuration to control how SageMaker AI captures inference data.</p>
-   * @public
-   */
-  DataCaptureConfig?: DataCaptureConfig | undefined;
-
-  /**
-   * <p>Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage volume attached to the instance.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>A timestamp that shows when the endpoint configuration was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html"> <code>CreateEndpointConfig</code> </a> API.</p>
-   * @public
-   */
-  AsyncInferenceConfig?: AsyncInferenceConfig | undefined;
-
-  /**
-   * <p>The configuration parameters for an explainer.</p>
-   * @public
-   */
-  ExplainerConfig?: ExplainerConfig | undefined;
-
-  /**
-   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on <code>ProductionVariants</code>.</p>
-   * @public
-   */
-  ShadowProductionVariants?: ProductionVariant[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that you assigned to the endpoint configuration.</p>
-   * @public
-   */
-  ExecutionRoleArn?: string | undefined;
-
-  /**
-   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
-   * @public
-   */
-  VpcConfig?: VpcConfig | undefined;
-
-  /**
-   * <p>Indicates whether all model containers deployed to the endpoint are isolated. If they are, no inbound or outbound network calls can be made to or from the model containers.</p>
-   * @public
-   */
-  EnableNetworkIsolation?: boolean | undefined;
-
-  /**
-   * <p>The configuration parameters for utilization metrics.</p>
-   * @public
-   */
-  MetricsConfig?: MetricsConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExperimentRequest {
-  /**
-   * <p>The name of the experiment to describe.</p>
-   * @public
-   */
-  ExperimentName: string | undefined;
 }

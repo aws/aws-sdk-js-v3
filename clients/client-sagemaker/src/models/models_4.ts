@@ -3,11 +3,11 @@ import type {
   _InstanceType,
   AccountDefaultStatus,
   ActionStatus,
-  ActivationState,
   AppType,
   BatchStrategy,
-  ClusterNodeProvisioningMode,
-  ClusterNodeRecovery,
+  CodeRepositorySortBy,
+  CodeRepositorySortOrder,
+  CompilationJobStatus,
   CrossAccountFilterOption,
   Direction,
   EdgePackagingJobStatus,
@@ -38,6 +38,7 @@ import type {
   JobStatus,
   LabelingJobStatus,
   LineageType,
+  ListCompilationJobsSortBy,
   ListDeviceFleetsSortBy,
   ListEdgeDeploymentPlansSortBy,
   ListEdgePackagingJobsSortBy,
@@ -82,6 +83,7 @@ import type {
   PartnerAppStatus,
   PartnerAppType,
   PipelineExecutionStatus,
+  PipelineManagedBy,
   PipelineStatus,
   ProcessingJobStatus,
   ProjectSortBy,
@@ -95,11 +97,14 @@ import type {
   ResourceCatalogSortBy,
   ResourceCatalogSortOrder,
   SageMakerResourceName,
+  SchedulerResourceStatus,
   ScheduleStatus,
   SecondaryStatus,
   SharingType,
   SkipModelValidation,
   SortBy,
+  SortClusterSchedulerConfigBy,
+  SortContextsBy,
   SortExperimentsBy,
   SortInferenceExperimentsBy,
   SortLineageGroupsBy,
@@ -107,6 +112,7 @@ import type {
   SortOrder,
   SortPipelineExecutionsBy,
   SortPipelinesBy,
+  SortQuotaBy,
   SortTrackingServerBy,
   SortTrialComponentsBy,
   SortTrialsBy,
@@ -148,12 +154,7 @@ import type {
   CheckpointConfig,
   ClarifyCheckStepMetadata,
   CleanupStepMetadata,
-  ClusterAutoScalingConfig,
-  ClusterInstanceGroupSpecification,
-  ClusterOrchestrator,
-  ClusterRestrictedInstanceGroupsConfig,
   CodeEditorAppImageConfig,
-  DeploymentConfiguration,
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
@@ -169,12 +170,14 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
-  ClusterRestrictedInstanceGroupSpecification,
-  ClusterTieredStorageConfig,
-  ComputeQuotaConfig,
-  ComputeQuotaTarget,
+  ClusterSchedulerConfigSummary,
+  ClusterSummary,
+  CodeRepositorySummary,
+  CompilationJobSummary,
+  ComputeQuotaSummary,
   ConditionStepMetadata,
   ContainerDefinition,
+  ContextSummary,
   DriftCheckBaselines,
   InferenceExecutionConfig,
   ManagedConfiguration,
@@ -187,7 +190,6 @@ import type {
   ModelPackageValidationSpecification,
   ModelVariantConfig,
   RetryStrategy,
-  SchedulerConfig,
   SourceAlgorithmSpecification,
   TtlDuration,
   UiTemplate,
@@ -243,9 +245,9 @@ import type {
   Filter,
   FlowDefinitionSummary,
   ForEachStepMetadata,
-  GitConfigForUpdate,
   HubContent,
   HubContentInfo,
+  HubContentStepMetadata,
   HubInfo,
   HumanTaskUiSummary,
   HyperParameterTrainingJobSummary,
@@ -271,7 +273,6 @@ import type {
   MetricData,
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
-  MonitoringJobDefinitionSummary,
   PipelineExperimentConfig,
   ReservedCapacitySummary,
   SecondaryStatusTransition,
@@ -286,6 +287,486 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListClustersResponse {
+  /**
+   * <p>If the result of the previous <code>ListClusters</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of clusters, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The summaries of listed SageMaker HyperPod clusters.</p>
+   * @public
+   */
+  ClusterSummaries: ClusterSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListClusterSchedulerConfigsRequest {
+  /**
+   * <p>Filter for after this creation time. The input for this parameter is a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>Filter for before this creation time. The input for this parameter is a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>Filter for name containing this string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>Filter for ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>Filter for status.</p>
+   * @public
+   */
+  Status?: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>Filter for sorting the list by a given value. For example, sort by name, creation time, or status.</p>
+   * @public
+   */
+  SortBy?: SortClusterSchedulerConfigBy | undefined;
+
+  /**
+   * <p>The order of the list. By default, listed in <code>Descending</code> order according to by <code>SortBy</code>. To change the list order, you can specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of cluster policies to list.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListClusterSchedulerConfigsResponse {
+  /**
+   * <p>Summaries of the cluster policies.</p>
+   * @public
+   */
+  ClusterSchedulerConfigSummaries?: ClusterSchedulerConfigSummary[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCodeRepositoriesInput {
+  /**
+   * <p>A filter that returns only Git repositories that were created after the specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only Git repositories that were created before the specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only Git repositories that were last modified after the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only Git repositories that were last modified before the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>The maximum number of Git repositories to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A string in the Git repositories name. This filter returns only repositories whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the response includes a <code>NextToken</code>. To get the next set of Git repositories, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The field to sort results by. The default is <code>Name</code>.</p>
+   * @public
+   */
+  SortBy?: CodeRepositorySortBy | undefined;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: CodeRepositorySortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCodeRepositoriesOutput {
+  /**
+   * <p>Gets a list of summaries of the Git repositories. Each summary specifies the following values for the repository: </p> <ul> <li> <p>Name</p> </li> <li> <p>Amazon Resource Name (ARN)</p> </li> <li> <p>Creation time</p> </li> <li> <p>Last modified time</p> </li> <li> <p>Configuration information, including the URL location of the repository and the ARN of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the repository.</p> </li> </ul>
+   * @public
+   */
+  CodeRepositorySummaryList: CodeRepositorySummary[] | undefined;
+
+  /**
+   * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the response includes a <code>NextToken</code>. To get the next set of Git repositories, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCompilationJobsRequest {
+  /**
+   * <p>If the result of the previous <code>ListCompilationJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of model compilation jobs, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of model compilation jobs to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A filter that returns the model compilation jobs that were created after a specified time. </p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns the model compilation jobs that were created before a specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns the model compilation jobs that were modified after a specified time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns the model compilation jobs that were modified before a specified time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns the model compilation jobs whose name contains a specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A filter that retrieves model compilation jobs with a specific <code>CompilationJobStatus</code> status.</p>
+   * @public
+   */
+  StatusEquals?: CompilationJobStatus | undefined;
+
+  /**
+   * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: ListCompilationJobsSortBy | undefined;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCompilationJobsResponse {
+  /**
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CompilationJobSummary.html">CompilationJobSummary</a> objects, each describing a model compilation job. </p>
+   * @public
+   */
+  CompilationJobSummaries: CompilationJobSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker AI returns this <code>NextToken</code>. To retrieve the next set of model compilation jobs, use this token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListComputeQuotasRequest {
+  /**
+   * <p>Filter for after this creation time. The input for this parameter is a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>Filter for before this creation time. The input for this parameter is a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>Filter for name containing this string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>Filter for status.</p>
+   * @public
+   */
+  Status?: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>Filter for ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>Filter for sorting the list by a given value. For example, sort by name, creation time, or status.</p>
+   * @public
+   */
+  SortBy?: SortQuotaBy | undefined;
+
+  /**
+   * <p>The order of the list. By default, listed in <code>Descending</code> order according to by <code>SortBy</code>. To change the list order, you can specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of compute allocation definitions to list.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListComputeQuotasResponse {
+  /**
+   * <p>Summaries of the compute allocation definitions.</p>
+   * @public
+   */
+  ComputeQuotaSummaries?: ComputeQuotaSummary[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContextsRequest {
+  /**
+   * <p>A filter that returns only contexts with the specified source URI.</p>
+   * @public
+   */
+  SourceUri?: string | undefined;
+
+  /**
+   * <p>A filter that returns only contexts of the specified type.</p>
+   * @public
+   */
+  ContextType?: string | undefined;
+
+  /**
+   * <p>A filter that returns only contexts created on or after the specified time.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only contexts created on or before the specified time.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: SortContextsBy | undefined;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the previous call to <code>ListContexts</code> didn't return the full set of contexts, the call returns a token for getting the next set of contexts.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of contexts to return in the response. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContextsResponse {
+  /**
+   * <p>A list of contexts and their properties.</p>
+   * @public
+   */
+  ContextSummaries?: ContextSummary[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of contexts, if there are any.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataQualityJobDefinitionsRequest {
+  /**
+   * <p>A filter that lists the data quality job definitions associated with the specified endpoint.</p>
+   * @public
+   */
+  EndpointName?: string | undefined;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: MonitoringJobDefinitionSortKey | undefined;
+
+  /**
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order. The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListDataQualityJobDefinitions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of transform jobs, use the token in the next request.&gt;</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of data quality monitoring job definitions to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A string in the data quality monitoring job definition name. This filter returns only data quality monitoring job definitions whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A filter that returns only data quality monitoring job definitions created before the specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only data quality monitoring job definitions created after the specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+}
+
+/**
+ * <p>Summary information about a monitoring job.</p>
+ * @public
+ */
+export interface MonitoringJobDefinitionSummary {
+  /**
+   * <p>The name of the monitoring job.</p>
+   * @public
+   */
+  MonitoringJobDefinitionName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitoring job.</p>
+   * @public
+   */
+  MonitoringJobDefinitionArn: string | undefined;
+
+  /**
+   * <p>The time that the monitoring job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The name of the endpoint that the job monitors.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+}
 
 /**
  * @public
@@ -4445,6 +4926,12 @@ export interface ListPipelineExecutionsRequest {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>The alias of a pipeline version. The response includes only the executions of the version that has this alias when you make the request. If no version of the pipeline has this alias, the request fails with a <code>ResourceNotFound</code> error.</p>
+   * @public
+   */
+  PipelineVersionAlias?: string | undefined;
 }
 
 /**
@@ -4487,6 +4974,12 @@ export interface PipelineExecutionSummary {
    * @public
    */
   PipelineExecutionFailureReason?: string | undefined;
+
+  /**
+   * <p>The aliases currently assigned to the pipeline version that the execution ran.</p>
+   * @public
+   */
+  PipelineVersionAliases?: string[] | undefined;
 }
 
 /**
@@ -4839,6 +5332,12 @@ export interface PipelineExecutionStepMetadata {
    * @public
    */
   ForEach?: ForEachStepMetadata | undefined;
+
+  /**
+   * <p>The metadata for the HubContent step execution.</p>
+   * @public
+   */
+  HubContent?: HubContentStepMetadata | undefined;
 }
 
 /**
@@ -5051,6 +5550,12 @@ export interface ListPipelinesRequest {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters the pipelines by who manages them. Specify <code>AWS</code> to return pipelines that AWS manages, or <code>CUSTOMER</code> to return pipelines that you created. If you don't specify a value, the response includes both.</p>
+   * @public
+   */
+  ManagedBy?: PipelineManagedBy | undefined;
 }
 
 /**
@@ -5205,6 +5710,12 @@ export interface PipelineVersionSummary {
    * @public
    */
   LastExecutionPipelineExecutionArn?: string | undefined;
+
+  /**
+   * <p>The aliases assigned to the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionAliases?: string[] | undefined;
 }
 
 /**
@@ -8244,6 +8755,12 @@ export interface PipelineVersion {
    * @public
    */
   LastExecutedPipelineExecutionStatus?: PipelineExecutionStatus | undefined;
+
+  /**
+   * <p>The aliases assigned to the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionAliases?: string[] | undefined;
 }
 
 /**
@@ -10014,7 +10531,7 @@ export interface StartPipelineExecutionRequest {
   SelectiveExecutionConfig?: SelectiveExecutionConfig | undefined;
 
   /**
-   * <p>The ID of the pipeline version to start execution from.</p>
+   * <p>The ID of the pipeline version to start execution from. You can't specify this with <code>PipelineVersionAlias</code>.</p>
    * @public
    */
   PipelineVersionId?: number | undefined;
@@ -10024,6 +10541,18 @@ export interface StartPipelineExecutionRequest {
    * @public
    */
   MlflowExperimentName?: string | undefined;
+
+  /**
+   * <p>The alias of the pipeline version to start the execution from. You can't specify this with <code>PipelineVersionId</code>. If no version of the pipeline has this alias, the request fails with a <code>ResourceNotFound</code> error.</p>
+   * @public
+   */
+  PipelineVersionAlias?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the execution uses. You must specify this parameter when you start an execution of a pipeline that AWS manages. You can't specify it for a pipeline that you create, because its executions use the pipeline's role.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -10482,316 +11011,4 @@ export interface UpdateAppImageConfigResponse {
    * @public
    */
   AppImageConfigArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateArtifactRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the artifact to update.</p>
-   * @public
-   */
-  ArtifactArn: string | undefined;
-
-  /**
-   * <p>The new name for the artifact.</p>
-   * @public
-   */
-  ArtifactName?: string | undefined;
-
-  /**
-   * <p>The new list of properties. Overwrites the current property list.</p>
-   * @public
-   */
-  Properties?: Record<string, string> | undefined;
-
-  /**
-   * <p>A list of properties to remove.</p>
-   * @public
-   */
-  PropertiesToRemove?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateArtifactResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
-   * @public
-   */
-  ArtifactArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateClusterRequest {
-  /**
-   * <p>Specify the name of the SageMaker HyperPod cluster you want to update.</p>
-   * @public
-   */
-  ClusterName: string | undefined;
-
-  /**
-   * <p>Specify the instance groups to update.</p>
-   * @public
-   */
-  InstanceGroups?: ClusterInstanceGroupSpecification[] | undefined;
-
-  /**
-   * <p>The specialized instance groups for training models like Amazon Nova to be created in the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  RestrictedInstanceGroups?: ClusterRestrictedInstanceGroupSpecification[] | undefined;
-
-  /**
-   * <p>The configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  RestrictedInstanceGroupsConfig?: ClusterRestrictedInstanceGroupsConfig | undefined;
-
-  /**
-   * <p>Updates the configuration for managed tier checkpointing on the HyperPod cluster. For example, you can enable or disable the feature and modify the percentage of cluster memory allocated for checkpoint storage.</p>
-   * @public
-   */
-  TieredStorageConfig?: ClusterTieredStorageConfig | undefined;
-
-  /**
-   * <p>The node recovery mode to be applied to the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  NodeRecovery?: ClusterNodeRecovery | undefined;
-
-  /**
-   * <p>Specify the names of the instance groups to delete. Use a single <code>,</code> as the separator between multiple names.</p>
-   * @public
-   */
-  InstanceGroupsToDelete?: string[] | undefined;
-
-  /**
-   * <p>Determines how instance provisioning is handled during cluster operations. In <code>Continuous</code> mode, the cluster provisions available instances incrementally and retries until the target count is reached. The cluster becomes operational once cluster-level resources are ready. Use <code>CurrentCount</code> and <code>TargetCount</code> in <code>DescribeCluster</code> to track provisioning progress.</p>
-   * @public
-   */
-  NodeProvisioningMode?: ClusterNodeProvisioningMode | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that HyperPod assumes for cluster autoscaling operations. Cannot be updated while autoscaling is enabled.</p>
-   * @public
-   */
-  ClusterRole?: string | undefined;
-
-  /**
-   * <p>Updates the autoscaling configuration for the cluster. Use to enable or disable automatic node scaling.</p>
-   * @public
-   */
-  AutoScaling?: ClusterAutoScalingConfig | undefined;
-
-  /**
-   * <p>The type of orchestrator used for the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  Orchestrator?: ClusterOrchestrator | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateClusterResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  ClusterArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateClusterSchedulerConfigRequest {
-  /**
-   * <p>ID of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigId: string | undefined;
-
-  /**
-   * <p>Target version.</p>
-   * @public
-   */
-  TargetVersion: number | undefined;
-
-  /**
-   * <p>Cluster policy configuration.</p>
-   * @public
-   */
-  SchedulerConfig?: SchedulerConfig | undefined;
-
-  /**
-   * <p>Description of the cluster policy.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateClusterSchedulerConfigResponse {
-  /**
-   * <p>ARN of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigArn: string | undefined;
-
-  /**
-   * <p>Version of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigVersion: number | undefined;
-}
-
-/**
- * <p>The configuration that describes specifications of the instance groups to update.</p>
- * @public
- */
-export interface UpdateClusterSoftwareInstanceGroupSpecification {
-  /**
-   * <p>The name of the instance group to update.</p>
-   * @public
-   */
-  InstanceGroupName: string | undefined;
-
-  /**
-   * <p>The version of the HyperPod-managed AMI to update to for the instance group. Uses semantic versioning in the format <code>MAJOR.MINOR.PATCH</code>.</p>
-   * @public
-   */
-  ImageReleaseVersion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateClusterSoftwareRequest {
-  /**
-   * <p>Specify the name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster you want to update for security patching.</p>
-   * @public
-   */
-  ClusterName: string | undefined;
-
-  /**
-   * <p>The array of instance groups for which to update AMI versions.</p>
-   * @public
-   */
-  InstanceGroups?: UpdateClusterSoftwareInstanceGroupSpecification[] | undefined;
-
-  /**
-   * <p>The configuration to use when updating the AMI versions.</p>
-   * @public
-   */
-  DeploymentConfig?: DeploymentConfiguration | undefined;
-
-  /**
-   * <p>When configuring your HyperPod cluster, you can specify an image ID using one of the following options:</p> <ul> <li> <p> <code>HyperPodPublicAmiId</code>: Use a HyperPod public AMI</p> </li> <li> <p> <code>CustomAmiId</code>: Use your custom AMI</p> </li> <li> <p> <code>default</code>: Use the default latest system image</p> </li> </ul> <p>If you choose to use a custom AMI (<code>CustomAmiId</code>), ensure it meets the following requirements:</p> <ul> <li> <p>Encryption: The custom AMI must be unencrypted.</p> </li> <li> <p>Ownership: The custom AMI must be owned by the same Amazon Web Services account that is creating the HyperPod cluster.</p> </li> <li> <p>Volume support: Only the primary AMI snapshot volume is supported; additional AMI volumes are not supported.</p> </li> </ul> <p>When updating the instance group's AMI through the <code>UpdateClusterSoftware</code> operation, if an instance group uses a custom AMI, you must provide an <code>ImageId</code> or use the default as input. Note that if you don't specify an instance group in your <code>UpdateClusterSoftware</code> request, then all of the instance groups are patched with the specified image.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateClusterSoftwareResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster being updated for security patching.</p>
-   * @public
-   */
-  ClusterArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateCodeRepositoryInput {
-  /**
-   * <p>The name of the Git repository to update.</p>
-   * @public
-   */
-  CodeRepositoryName: string | undefined;
-
-  /**
-   * <p>The configuration of the git repository, including the URL and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the repository. The secret must have a staging label of <code>AWSCURRENT</code> and must be in the following format:</p> <p> <code>\{"username": <i>UserName</i>, "password": <i>Password</i>\}</code> </p>
-   * @public
-   */
-  GitConfig?: GitConfigForUpdate | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateCodeRepositoryOutput {
-  /**
-   * <p>The ARN of the Git repository.</p>
-   * @public
-   */
-  CodeRepositoryArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateComputeQuotaRequest {
-  /**
-   * <p>ID of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaId: string | undefined;
-
-  /**
-   * <p>Target version.</p>
-   * @public
-   */
-  TargetVersion: number | undefined;
-
-  /**
-   * <p>Configuration of the compute allocation definition. This includes the resource sharing option, and the setting to preempt low priority tasks.</p>
-   * @public
-   */
-  ComputeQuotaConfig?: ComputeQuotaConfig | undefined;
-
-  /**
-   * <p>The target entity to allocate compute resources to.</p>
-   * @public
-   */
-  ComputeQuotaTarget?: ComputeQuotaTarget | undefined;
-
-  /**
-   * <p>The state of the compute allocation being described. Use to enable or disable compute allocation.</p> <p>Default is <code>Enabled</code>.</p>
-   * @public
-   */
-  ActivationState?: ActivationState | undefined;
-
-  /**
-   * <p>Description of the compute allocation definition.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateComputeQuotaResponse {
-  /**
-   * <p>ARN of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaArn: string | undefined;
-
-  /**
-   * <p>Version of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaVersion: number | undefined;
 }

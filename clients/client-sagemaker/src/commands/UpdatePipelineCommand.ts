@@ -46,6 +46,9 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  *   ParallelismConfiguration: { // ParallelismConfiguration
  *     MaxParallelExecutionSteps: Number("int"), // required
  *   },
+ *   PipelineVersionAliases: [ // PipelineVersionAliasList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UpdatePipelineCommand(input);
  * const response = await client.send(command);

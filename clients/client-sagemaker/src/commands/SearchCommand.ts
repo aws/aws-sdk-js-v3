@@ -1630,6 +1630,9 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         LastExecutedPipelineExecutionArn: "STRING_VALUE",
  * //         LastExecutedPipelineExecutionDisplayName: "STRING_VALUE",
  * //         LastExecutedPipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded" || "CompletedWithFailures",
+ * //         PipelineVersionAliases: [ // PipelineVersionAliasList
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       FeatureGroup: { // FeatureGroup
  * //         FeatureGroupArn: "STRING_VALUE",

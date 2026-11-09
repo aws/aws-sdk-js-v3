@@ -86,6 +86,10 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  * //     MlflowResourceArn: "STRING_VALUE",
  * //     MlflowExperimentName: "STRING_VALUE",
  * //   },
+ * //   PipelineVersionAliases: [ // PipelineVersionAliasList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   RoleArn: "STRING_VALUE",
  * // };
  *
  * ```

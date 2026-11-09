@@ -35,7 +35,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "PipelineExecutionStatus": "__PipelineExecutionStatus__",
       "PipelineExecutionDescription": "__PipelineExecutionDescription__",
       "PipelineExecutionDisplayName": "__PipelineExecutionDisplayName__",
-      "PipelineExecutionFailureReason": "__PipelineExecutionFailureReason__"
+      "PipelineExecutionFailureReason": "__PipelineExecutionFailureReason__",
+      "PipelineVersionAliases": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     },
     {
       "PipelineExecutionArn": "__PipelineExecutionArn__",
@@ -43,7 +48,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "PipelineExecutionStatus": "__PipelineExecutionStatus__",
       "PipelineExecutionDescription": "__PipelineExecutionDescription__",
       "PipelineExecutionDisplayName": "__PipelineExecutionDisplayName__",
-      "PipelineExecutionFailureReason": "__PipelineExecutionFailureReason__"
+      "PipelineExecutionFailureReason": "__PipelineExecutionFailureReason__",
+      "PipelineVersionAliases": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     },
     {
       "PipelineExecutionArn": "__PipelineExecutionArn__",
@@ -51,7 +61,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "PipelineExecutionStatus": "__PipelineExecutionStatus__",
       "PipelineExecutionDescription": "__PipelineExecutionDescription__",
       "PipelineExecutionDisplayName": "__PipelineExecutionDisplayName__",
-      "PipelineExecutionFailureReason": "__PipelineExecutionFailureReason__"
+      "PipelineExecutionFailureReason": "__PipelineExecutionFailureReason__",
+      "PipelineVersionAliases": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     }
   ],
   "NextToken": "__NextToken__"
@@ -67,7 +82,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       PipelineExecutionStatus: "__PipelineExecutionStatus__",
       PipelineExecutionDescription: "__PipelineExecutionDescription__",
       PipelineExecutionDisplayName: "__PipelineExecutionDisplayName__",
-      PipelineExecutionFailureReason: "__PipelineExecutionFailureReason__"
+      PipelineExecutionFailureReason: "__PipelineExecutionFailureReason__",
+      PipelineVersionAliases: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     },
     {
       PipelineExecutionArn: "__PipelineExecutionArn__",
@@ -75,7 +95,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       PipelineExecutionStatus: "__PipelineExecutionStatus__",
       PipelineExecutionDescription: "__PipelineExecutionDescription__",
       PipelineExecutionDisplayName: "__PipelineExecutionDisplayName__",
-      PipelineExecutionFailureReason: "__PipelineExecutionFailureReason__"
+      PipelineExecutionFailureReason: "__PipelineExecutionFailureReason__",
+      PipelineVersionAliases: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     },
     {
       PipelineExecutionArn: "__PipelineExecutionArn__",
@@ -83,7 +108,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       PipelineExecutionStatus: "__PipelineExecutionStatus__",
       PipelineExecutionDescription: "__PipelineExecutionDescription__",
       PipelineExecutionDisplayName: "__PipelineExecutionDisplayName__",
-      PipelineExecutionFailureReason: "__PipelineExecutionFailureReason__"
+      PipelineExecutionFailureReason: "__PipelineExecutionFailureReason__",
+      PipelineVersionAliases: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     }
   ],
   NextToken: "__NextToken__",

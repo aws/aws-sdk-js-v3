@@ -4911,7 +4911,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         },
         "LastExecutedPipelineExecutionArn": "__LastExecutedPipelineExecutionArn__",
         "LastExecutedPipelineExecutionDisplayName": "__LastExecutedPipelineExecutionDisplayName__",
-        "LastExecutedPipelineExecutionStatus": "__LastExecutedPipelineExecutionStatus__"
+        "LastExecutedPipelineExecutionStatus": "__LastExecutedPipelineExecutionStatus__",
+        "PipelineVersionAliases": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
       },
       "FeatureGroup": {
         "FeatureGroupArn": "__FeatureGroupArn__",
@@ -13394,7 +13399,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         },
         "LastExecutedPipelineExecutionArn": "__LastExecutedPipelineExecutionArn__",
         "LastExecutedPipelineExecutionDisplayName": "__LastExecutedPipelineExecutionDisplayName__",
-        "LastExecutedPipelineExecutionStatus": "__LastExecutedPipelineExecutionStatus__"
+        "LastExecutedPipelineExecutionStatus": "__LastExecutedPipelineExecutionStatus__",
+        "PipelineVersionAliases": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
       },
       "FeatureGroup": {
         "FeatureGroupArn": "__FeatureGroupArn__",
@@ -21877,7 +21887,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         },
         "LastExecutedPipelineExecutionArn": "__LastExecutedPipelineExecutionArn__",
         "LastExecutedPipelineExecutionDisplayName": "__LastExecutedPipelineExecutionDisplayName__",
-        "LastExecutedPipelineExecutionStatus": "__LastExecutedPipelineExecutionStatus__"
+        "LastExecutedPipelineExecutionStatus": "__LastExecutedPipelineExecutionStatus__",
+        "PipelineVersionAliases": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
       },
       "FeatureGroup": {
         "FeatureGroupArn": "__FeatureGroupArn__",
@@ -30372,7 +30387,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         },
         LastExecutedPipelineExecutionArn: "__LastExecutedPipelineExecutionArn__",
         LastExecutedPipelineExecutionDisplayName: "__LastExecutedPipelineExecutionDisplayName__",
-        LastExecutedPipelineExecutionStatus: "__LastExecutedPipelineExecutionStatus__"
+        LastExecutedPipelineExecutionStatus: "__LastExecutedPipelineExecutionStatus__",
+        PipelineVersionAliases: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
       },
       FeatureGroup: {
         FeatureGroupArn: "__FeatureGroupArn__",
@@ -38855,7 +38875,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         },
         LastExecutedPipelineExecutionArn: "__LastExecutedPipelineExecutionArn__",
         LastExecutedPipelineExecutionDisplayName: "__LastExecutedPipelineExecutionDisplayName__",
-        LastExecutedPipelineExecutionStatus: "__LastExecutedPipelineExecutionStatus__"
+        LastExecutedPipelineExecutionStatus: "__LastExecutedPipelineExecutionStatus__",
+        PipelineVersionAliases: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
       },
       FeatureGroup: {
         FeatureGroupArn: "__FeatureGroupArn__",
@@ -47338,7 +47363,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         },
         LastExecutedPipelineExecutionArn: "__LastExecutedPipelineExecutionArn__",
         LastExecutedPipelineExecutionDisplayName: "__LastExecutedPipelineExecutionDisplayName__",
-        LastExecutedPipelineExecutionStatus: "__LastExecutedPipelineExecutionStatus__"
+        LastExecutedPipelineExecutionStatus: "__LastExecutedPipelineExecutionStatus__",
+        PipelineVersionAliases: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
       },
       FeatureGroup: {
         FeatureGroupArn: "__FeatureGroupArn__",

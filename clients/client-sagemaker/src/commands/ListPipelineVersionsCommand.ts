@@ -51,6 +51,9 @@ export interface ListPipelineVersionsCommandOutput extends ListPipelineVersionsR
  * //       PipelineVersionDescription: "STRING_VALUE",
  * //       PipelineVersionDisplayName: "STRING_VALUE",
  * //       LastExecutionPipelineExecutionArn: "STRING_VALUE",
+ * //       PipelineVersionAliases: [ // PipelineVersionAliasList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -26,6 +26,7 @@ const _ACNVRt = "AttachClusterNodeVolumeResponse";
 const _ACR = "AdditionalCodeRepositories";
 const _ACRE = "AdditionalCodeRepositoryEquals";
 const _ACc = "AccessConfig";
+const _ACct = "ActiveCount";
 const _ACl = "AlgorithmsConfig";
 const _ACp = "ApplicationConfig";
 const _ACt = "AttemptCount";
@@ -179,7 +180,8 @@ const _ANlg = "AlgorithmName";
 const _ANp = "AppName";
 const _ANr = "ArtifactName";
 const _ANt = "AttributeNames";
-const _AO = "ActiveOperations";
+const _AO = "AliasOperations";
+const _AOc = "ActiveOperations";
 const _AOm = "AmiOverride";
 const _AP = "AutoParameter";
 const _APC = "AcceleratorPartitionConfig";
@@ -264,7 +266,8 @@ const _Ac = "Accelerators";
 const _Acc = "Accelerator";
 const _Acce = "Accept";
 const _Act = "Actions";
-const _Ad = "Advisory";
+const _Ad = "Add";
+const _Adv = "Advisory";
 const _Ag = "Aggregation";
 const _Al = "Alarms";
 const _Ali = "Aliases";
@@ -399,6 +402,9 @@ const _CBS = "CalculatedBaselineStatistics";
 const _CBr = "CreatedBefore";
 const _CC = "ClientConfig";
 const _CCC = "CurrentCopyCount";
+const _CCE = "CreateClusterExtension";
+const _CCER = "CreateClusterExtensionRequest";
+const _CCERr = "CreateClusterExtensionResponse";
 const _CCJ = "CreateCompilationJob";
 const _CCJR = "CreateCompilationJobRequest";
 const _CCJRr = "CreateCompilationJobResponse";
@@ -832,6 +838,7 @@ const _CUPR = "CreateUserProfileRequest";
 const _CUPRr = "CreateUserProfileResponse";
 const _CUTP = "CfnUpdateTemplateProvider";
 const _CUp = "CpuUtilization";
+const _CV = "ConfigurationValues";
 const _CVED = "CurrentVersionEolDate";
 const _CW = "CurrentWeight";
 const _CWL = "CloudWatchLogs";
@@ -934,9 +941,15 @@ const _DCCat = "DataCacheConfig";
 const _DCCe = "DesiredCopyCount";
 const _DCDSU = "DataCapturedDestinationS3Uri";
 const _DCE = "DriftCheckExplainability";
-const _DCER = "DescribeClusterEventRequest";
-const _DCERe = "DescribeClusterEventResponse";
-const _DCEe = "DescribeClusterEvent";
+const _DCER = "DeleteClusterExtensionRequest";
+const _DCERe = "DeleteClusterExtensionResponse";
+const _DCERes = "DescribeClusterEventRequest";
+const _DCEResc = "DescribeClusterEventResponse";
+const _DCERescr = "DescribeClusterExtensionRequest";
+const _DCERescri = "DescribeClusterExtensionResponse";
+const _DCEe = "DeleteClusterExtension";
+const _DCEes = "DescribeClusterEvent";
+const _DCEesc = "DescribeClusterExtension";
 const _DCJ = "DeleteCompilationJob";
 const _DCJR = "DeleteCompilationJobRequest";
 const _DCJRe = "DescribeCompilationJobRequest";
@@ -1405,8 +1418,9 @@ const _Do = "Domain";
 const _Dol = "Dollars";
 const _Dom = "Domains";
 const _E = "Environment";
-const _EA = "EndpointArn";
+const _EA = "ExtensionArn";
 const _EAMVU = "EnableAutoMinorVersionUpgrade";
+const _EAn = "EndpointArn";
 const _EAv = "EvaluatorArn";
 const _EAx = "ExperimentArn";
 const _EAxp = "ExportArtifacts";
@@ -1453,6 +1467,7 @@ const _EDSST = "EdgeDeploymentStageStartTime";
 const _EDSd = "EdgeDeploymentStatus";
 const _EDn = "EndDate";
 const _EDr = "ErrorDetails";
+const _EDx = "ExtensionDetails";
 const _EE = "EfaEnis";
 const _EEM = "EnableEnhancedMetrics";
 const _EET = "ExtensionEndTime";
@@ -1491,9 +1506,11 @@ const _EMnd = "EndpointMetrics";
 const _EMnf = "EnforcementMode";
 const _EMv = "EventMetadata";
 const _EMx = "ExitMessage";
-const _EN = "EndpointName";
+const _EN = "ExtensionName";
 const _ENE = "EndpointNameEquals";
 const _ENI = "EnableNetworkIsolation";
+const _ENS = "ExtensionNodeSummary";
+const _ENn = "EndpointName";
 const _ENx = "ExperimentName";
 const _EOC = "EdgeOutputConfig";
 const _EOCn = "EndpointOutputConfiguration";
@@ -1542,6 +1559,8 @@ const _ESn = "EndpointSummary";
 const _ESx = "ExperimentSource";
 const _ESxp = "ExperimentSummary";
 const _ESxpe = "ExperimentSummaries";
+const _ESxt = "ExtensionSummary";
+const _ESxte = "ExtensionSummaries";
 const _ET = "ETag";
 const _ETA = "EventTimeAfter";
 const _ETB = "EventTimeBefore";
@@ -1559,6 +1578,7 @@ const _ETva = "EvaluationType";
 const _EV = "EnvironmentVariables";
 const _EVC = "EbsVolumeConfig";
 const _EVSIG = "EbsVolumeSizeInGb";
+const _EVx = "ExtensionVersion";
 const _Ed = "Edge";
 const _Edg = "Edges";
 const _Ef = "Effect";
@@ -1571,6 +1591,7 @@ const _Err = "Errors";
 const _Ev = "Events";
 const _Ex = "Explainability";
 const _Exp = "Experiment";
+const _Ext = "Extensions";
 const _F = "Framework";
 const _FA = "FeaturesAttribute";
 const _FALMA = "FinalActiveLearningModelArn";
@@ -1691,6 +1712,7 @@ const _HCM = "HubContentMarkdown";
 const _HCN = "HubContentName";
 const _HCS = "HubContentStatus";
 const _HCSK = "HubContentSearchKeywords";
+const _HCSM = "HubContentStepMetadata";
 const _HCSu = "HubContentSummaries";
 const _HCT = "HubContentType";
 const _HCV = "HubContentVersion";
@@ -2015,6 +2037,9 @@ const _LCCSU = "LabelCategoryConfigS3Uri";
 const _LCE = "ListClusterEvents";
 const _LCER = "ListClusterEventsRequest";
 const _LCERi = "ListClusterEventsResponse";
+const _LCERis = "ListClusterExtensionsRequest";
+const _LCERist = "ListClusterExtensionsResponse";
+const _LCEi = "ListClusterExtensions";
 const _LCFAMLJ = "ListCandidatesForAutoMLJob";
 const _LCFAMLJR = "ListCandidatesForAutoMLJobRequest";
 const _LCFAMLJRi = "ListCandidatesForAutoMLJobResponse";
@@ -2341,13 +2366,14 @@ const _MASoni = "MonitoringAppSpecification";
 const _MAo = "ModelArtifacts";
 const _MAod = "ModelArtifact";
 const _MAodi = "ModifiedAfter";
-const _MB = "ModifiedBefore";
+const _MB = "ManagedBy";
 const _MBAS = "ModelBiasAppSpecification";
 const _MBBC = "ModelBiasBaselineConfig";
 const _MBC = "MonitoringBaselineConfig";
 const _MBJI = "ModelBiasJobInput";
 const _MBJOC = "ModelBiasJobOutputConfig";
 const _MBS = "MaximumBatchSize";
+const _MBo = "ModifiedBefore";
 const _MC = "MlflowConfig";
 const _MCA = "ModelCardArn";
 const _MCC = "ModelCardContent";
@@ -2663,6 +2689,7 @@ const _NPM = "NodeProvisioningMode";
 const _NPN = "NestedPropertyName";
 const _NR = "NodeRecovery";
 const _NRE = "NonRetryableError";
+const _NS = "NodeSummary";
 const _NT = "NodeType";
 const _NTA = "NodesToAdd";
 const _NTAo = "NotificationTopicArn";
@@ -2888,6 +2915,9 @@ const _PTr = "ProblemType";
 const _PUAC = "PresignedUrlAccessConfig";
 const _PUST = "PerUnitStorageThroughput";
 const _PV = "ProductionVariants";
+const _PVA = "PipelineVersionAliases";
+const _PVAO = "PipelineVersionAliasOperations";
+const _PVAi = "PipelineVersionAlias";
 const _PVCDC = "ProductionVariantCoreDumpConfig";
 const _PVCRC = "ProductionVariantCapacityReservationConfig";
 const _PVCRS = "ProductionVariantCapacityReservationSummary";
@@ -2939,7 +2969,7 @@ const _QLR = "QueryLineageRequest";
 const _QLRu = "QueryLineageResponse";
 const _QPA = "QProfileArn";
 const _QS = "QueryString";
-const _R = "Report";
+const _R = "Remove";
 const _RA = "ResourceArn";
 const _RAC = "RepositoryAuthConfig";
 const _RAM = "RepositoryAccessMode";
@@ -3063,8 +3093,9 @@ const _RV = "RootVolume";
 const _RWT = "RecordWrapperType";
 const _Ra = "Range";
 const _Ran = "Rank";
-const _Re = "Recommendations";
+const _Re = "Report";
 const _Rea = "Reason";
+const _Rec = "Recommendations";
 const _Reg = "Regex";
 const _Rel = "Relation";
 const _Rep = "Repository";
@@ -3434,6 +3465,7 @@ const _TCUPC = "TargetCpuUtilizationPerCore";
 const _TCa = "TargetCount";
 const _TCas = "TaskCount";
 const _TCh = "ThroughputConfig";
+const _TCo = "TotalCount";
 const _TCr = "TrialComponent";
 const _TCra = "TrainingChannels";
 const _TD = "TaskDescription";
@@ -3603,6 +3635,9 @@ const _UARpda = "UpdateArtifactResponse";
 const _UAp = "UpdateArtifact";
 const _UBCE = "UsedByCurrentEndpoint";
 const _UC = "UiConfig";
+const _UCE = "UpdateClusterExtension";
+const _UCER = "UpdateClusterExtensionRequest";
+const _UCERp = "UpdateClusterExtensionResponse";
 const _UCQ = "UpdateComputeQuota";
 const _UCQR = "UpdateComputeQuotaRequest";
 const _UCQRp = "UpdateComputeQuotaResponse";
@@ -4154,6 +4189,11 @@ export var AlgorithmValidationSpecification$: StaticStructureSchema = [3, n0, _A
   [_VR, _VP],
   [0, () => AlgorithmValidationProfiles], 2
 ];
+export var AliasOperations$: StaticStructureSchema = [3, n0, _AO,
+  0,
+  [_Ad, _R],
+  [64 | 0, 64 | 0]
+];
 export var AmazonQSettings$: StaticStructureSchema = [3, n0, _AQS,
   0,
   [_St, _QPA],
@@ -4536,7 +4576,7 @@ export var BestObjectiveNotImproving$: StaticStructureSchema = [3, n0, _BONI,
 ];
 export var Bias$: StaticStructureSchema = [3, n0, _B,
   0,
-  [_R, _PTR, _PTRo],
+  [_Re, _PTR, _PTRo],
   [() => MetricsSource$, () => MetricsSource$, () => MetricsSource$]
 ];
 export var BillableTokenUsage$: StaticStructureSchema = [3, n0, _BTU,
@@ -4766,7 +4806,7 @@ export var ClusterFsxOpenZfsConfig$: StaticStructureSchema = [3, n0, _CFOZC,
 ];
 export var ClusterInstanceGroupDetails$: StaticStructureSchema = [3, n0, _CIGD,
   0,
-  [_CCu, _TCa, _MCi, _IGN, _ITn, _IRn, _ITD, _LCC, _ERx, _TPC, _ISC, _OSDHC, _St, _TPA, _TPS, _OVC, _SUC, _APCu, _CII, _DII, _CIRV, _DIRV, _IVS, _AO, _KC, _CRa, _TSC, _SUS, _ASUC, _SCl, _NIe],
+  [_CCu, _TCa, _MCi, _IGN, _ITn, _IRn, _ITD, _LCC, _ERx, _TPC, _ISC, _OSDHC, _St, _TPA, _TPS, _OVC, _SUC, _APCu, _CII, _DII, _CIRV, _DIRV, _IVS, _AOc, _KC, _CRa, _TSC, _SUS, _ASUC, _SCl, _NIe],
   [1, 1, 1, 0, 0, () => ClusterInstanceRequirementDetails$, () => ClusterInstanceTypeDetails, () => ClusterLifeCycleConfig$, 0, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, () => ClusterAutoPatchConfigDetails$, 0, 0, 0, 0, 0, 128 | 1, () => ClusterKubernetesConfigDetails$, () => ClusterCapacityRequirements$, 1, 0, () => DeploymentConfiguration$, () => ClusterSlurmConfigDetails$, () => ClusterNetworkInterfaceDetails$]
 ];
 export var ClusterInstanceGroupSpecification$: StaticStructureSchema = [3, n0, _CIGS,
@@ -5144,6 +5184,16 @@ export var CreateAutoMLJobV2Response$: StaticStructureSchema = [3, n0, _CAMLJVRr
   [_AMLJAu],
   [0], 1
 ];
+export var CreateClusterExtensionRequest$: StaticStructureSchema = [3, n0, _CCER,
+  0,
+  [_CAl, _EN, _EVx, _CV, _Ta, _CTl],
+  [0, 0, 0, 0, () => TagList, [0, 4]], 2
+];
+export var CreateClusterExtensionResponse$: StaticStructureSchema = [3, n0, _CCERr,
+  0,
+  [_EA],
+  [0], 1
+];
 export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCRr,
   0,
   [_CNl, _IG, _RIG, _RIGC, _VC, _Ta, _Or, _NR, _TSCi, _NPM, _CRl, _ASu],
@@ -5261,12 +5311,12 @@ export var CreateEndpointConfigOutput$: StaticStructureSchema = [3, n0, _CECO,
 ];
 export var CreateEndpointInput$: StaticStructureSchema = [3, n0, _CEI,
   0,
-  [_EN, _ECN, _DCe, _Ta],
+  [_ENn, _ECN, _DCe, _Ta],
   [0, 0, () => DeploymentConfig$, () => TagList], 2
 ];
 export var CreateEndpointOutput$: StaticStructureSchema = [3, n0, _CEO,
   0,
-  [_EA],
+  [_EAn],
   [0], 1
 ];
 export var CreateExperimentRequest$: StaticStructureSchema = [3, n0, _CER,
@@ -5371,7 +5421,7 @@ export var CreateImageVersionResponse$: StaticStructureSchema = [3, n0, _CIVRr,
 ];
 export var CreateInferenceComponentInput$: StaticStructureSchema = [3, n0, _CICI,
   0,
-  [_ICN, _EN, _VN, _Spe, _Spec, _RC, _Ta],
+  [_ICN, _ENn, _VN, _Spe, _Spec, _RC, _Ta],
   [0, 0, 0, () => InferenceComponentSpecification$, () => InferenceComponentSpecificationList, () => InferenceComponentRuntimeConfig$, () => TagList], 2
 ];
 export var CreateInferenceComponentOutput$: StaticStructureSchema = [3, n0, _CICO,
@@ -5381,7 +5431,7 @@ export var CreateInferenceComponentOutput$: StaticStructureSchema = [3, n0, _CIC
 ];
 export var CreateInferenceExperimentRequest$: StaticStructureSchema = [3, n0, _CIER,
   0,
-  [_N, _T, _RAo, _EN, _MVod, _SMC, _Sc, _D, _DSCa, _KK, _Ta],
+  [_N, _T, _RAo, _ENn, _MVod, _SMC, _Sc, _D, _DSCa, _KK, _Ta],
   [0, 0, 0, 0, () => ModelVariantConfigList, () => ShadowModeConfig$, () => InferenceExperimentSchedule$, 0, () => InferenceExperimentDataStorageConfig$, 0, () => TagList], 6
 ];
 export var CreateInferenceExperimentResponse$: StaticStructureSchema = [3, n0, _CIERr,
@@ -5581,8 +5631,8 @@ export var CreatePartnerAppResponse$: StaticStructureSchema = [3, n0, _CPARr,
 ];
 export var CreatePipelineRequest$: StaticStructureSchema = [3, n0, _CPRr,
   0,
-  [_PNi, _RAo, _PDN, _PD, _PDSL, _PDi, _CRT, _Ta, _PCa],
-  [0, 0, 0, 0, () => PipelineDefinitionS3Location$, 0, [0, 4], () => TagList, () => ParallelismConfiguration$], 2
+  [_PNi, _RAo, _PDN, _PD, _PDSL, _PDi, _CRT, _Ta, _PCa, _PVA],
+  [0, 0, 0, 0, () => PipelineDefinitionS3Location$, 0, [0, 4], () => TagList, () => ParallelismConfiguration$, 64 | 0], 2
 ];
 export var CreatePipelineResponse$: StaticStructureSchema = [3, n0, _CPRre,
   0,
@@ -5781,7 +5831,7 @@ export var CustomPosixUserConfig$: StaticStructureSchema = [3, n0, _CPUC,
 ];
 export var DatabaseConfigurationMetadata$: StaticStructureSchema = [3, n0, _DCM,
   0,
-  [_RSo, _Ad, _FM],
+  [_RSo, _Adv, _FM],
   [0, 0, 0]
 ];
 export var DataCaptureConfig$: StaticStructureSchema = [3, n0, _DCC,
@@ -5939,6 +5989,16 @@ export var DeleteAssociationResponse$: StaticStructureSchema = [3, n0, _DARelete
   [_SA, _DA],
   [0, 0]
 ];
+export var DeleteClusterExtensionRequest$: StaticStructureSchema = [3, n0, _DCER,
+  0,
+  [_CAl, _EA],
+  [0, 0], 2
+];
+export var DeleteClusterExtensionResponse$: StaticStructureSchema = [3, n0, _DCERe,
+  0,
+  [_EA],
+  [0], 1
+];
 export var DeleteClusterRequest$: StaticStructureSchema = [3, n0, _DCRe,
   0,
   [_CNl],
@@ -6011,7 +6071,7 @@ export var DeleteEndpointConfigInput$: StaticStructureSchema = [3, n0, _DECI,
 ];
 export var DeleteEndpointInput$: StaticStructureSchema = [3, n0, _DEI,
   0,
-  [_EN],
+  [_ENn],
   [0], 1
 ];
 export var DeleteExperimentRequest$: StaticStructureSchema = [3, n0, _DER,
@@ -6371,7 +6431,7 @@ export var DescribeAIRecommendationJobRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var DescribeAIRecommendationJobResponse$: StaticStructureSchema = [3, n0, _DAIRJResc,
   0,
-  [_AIRJN, _AIRJA, _AIRJSe, _MS, _OCu, _AIWCI, _RAo, _CT, _FR, _ISn, _OM, _PT, _Re, _CSom, _ASd, _STt, _ETn, _Ta],
+  [_AIRJN, _AIRJA, _AIRJSe, _MS, _OCu, _AIWCI, _RAo, _CT, _FR, _ISn, _OM, _PT, _Rec, _CSom, _ASd, _STt, _ETn, _Ta],
   [0, 0, 0, () => AIModelSource$, () => AIRecommendationOutputResult$, 0, 0, 4, 0, () => AIRecommendationInferenceSpecification$, 2, () => AIRecommendationPerformanceTarget$, () => AIRecommendationList, () => AIRecommendationComputeSpec$, () => AIAdapterSource$, 4, 4, () => TagList], 8
 ];
 export var DescribeAIWorkloadConfigRequest$: StaticStructureSchema = [3, n0, _DAIWCRes,
@@ -6444,15 +6504,25 @@ export var DescribeAutoMLJobV2Response$: StaticStructureSchema = [3, n0, _DAMLJV
   [_AMLJN, _AMLJAu, _AMLJIDC, _ODC, _RAo, _CT, _LMT, _AMLJSu, _AMLJSS, _AMLJO, _AMLPTC, _AMLPTCN, _ETn, _FR, _PFR, _BC, _AMLJA, _RAe, _MDC, _MDR, _DSC, _SC, _AMLCC],
   [0, 0, () => AutoMLJobInputDataConfig, () => AutoMLOutputDataConfig$, 0, 4, 4, 0, 0, () => AutoMLJobObjective$, () => AutoMLProblemTypeConfig$, 0, 4, 0, () => AutoMLPartialFailureReasons, () => AutoMLCandidate$, () => AutoMLJobArtifacts$, () => AutoMLResolvedAttributes$, () => ModelDeployConfig$, () => ModelDeployResult$, () => AutoMLDataSplitConfig$, () => AutoMLSecurityConfig$, () => AutoMLComputeConfig$], 9
 ];
-export var DescribeClusterEventRequest$: StaticStructureSchema = [3, n0, _DCER,
+export var DescribeClusterEventRequest$: StaticStructureSchema = [3, n0, _DCERes,
   0,
   [_EI, _CNl],
   [0, 0], 2
 ];
-export var DescribeClusterEventResponse$: StaticStructureSchema = [3, n0, _DCERe,
+export var DescribeClusterEventResponse$: StaticStructureSchema = [3, n0, _DCEResc,
   0,
   [_ED],
   [() => ClusterEventDetail$]
+];
+export var DescribeClusterExtensionRequest$: StaticStructureSchema = [3, n0, _DCERescr,
+  0,
+  [_CAl, _EA],
+  [0, 0], 2
+];
+export var DescribeClusterExtensionResponse$: StaticStructureSchema = [3, n0, _DCERescri,
+  0,
+  [_EDx, _NS],
+  [() => ExtensionDetails$, () => ExtensionNodeSummary$], 1
 ];
 export var DescribeClusterNodeRequest$: StaticStructureSchema = [3, n0, _DCNR,
   0,
@@ -6596,12 +6666,12 @@ export var DescribeEndpointConfigOutput$: StaticStructureSchema = [3, n0, _DECO,
 ];
 export var DescribeEndpointInput$: StaticStructureSchema = [3, n0, _DEIe,
   0,
-  [_EN],
+  [_ENn],
   [0], 1
 ];
 export var DescribeEndpointOutput$: StaticStructureSchema = [3, n0, _DEO,
   0,
-  [_EN, _EA, _ES, _CT, _LMT, _ECN, _PV, _DCC, _FR, _LDC, _AIC, _PDS, _ECx, _SPV, _MCe],
+  [_ENn, _EAn, _ES, _CT, _LMT, _ECN, _PV, _DCC, _FR, _LDC, _AIC, _PDS, _ECx, _SPV, _MCe],
   [0, 0, 0, 4, 4, 0, () => ProductionVariantSummaryList, () => DataCaptureConfigSummary$, 0, () => DeploymentConfig$, () => AsyncInferenceConfig$, () => PendingDeploymentSummary$, () => ExplainerConfig$, () => ProductionVariantSummaryList, () => MetricsConfig$], 5
 ];
 export var DescribeExperimentRequest$: StaticStructureSchema = [3, n0, _DERes,
@@ -6711,7 +6781,7 @@ export var DescribeInferenceComponentInput$: StaticStructureSchema = [3, n0, _DI
 ];
 export var DescribeInferenceComponentOutput$: StaticStructureSchema = [3, n0, _DICO,
   0,
-  [_ICN, _ICA, _EN, _EA, _CT, _LMT, _VN, _FR, _Spe, _Spec, _RC, _ICS, _LDC],
+  [_ICN, _ICA, _ENn, _EAn, _CT, _LMT, _VN, _FR, _Spe, _Spec, _RC, _ICS, _LDC],
   [0, 0, 0, 0, 4, 4, 0, 0, () => InferenceComponentSpecificationSummary$, () => InferenceComponentSpecificationSummaryList, () => InferenceComponentRuntimeConfigSummary$, 0, () => InferenceComponentDeploymentConfig$], 6
 ];
 export var DescribeInferenceExperimentRequest$: StaticStructureSchema = [3, n0, _DIERes,
@@ -6881,7 +6951,7 @@ export var DescribeMonitoringScheduleRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var DescribeMonitoringScheduleResponse$: StaticStructureSchema = [3, n0, _DMSRes,
   0,
-  [_MSA, _MSN, _MSS, _CT, _LMT, _MSC, _MTo, _FR, _EN, _LMES],
+  [_MSA, _MSN, _MSS, _CT, _LMT, _MSC, _MTo, _FR, _ENn, _LMES],
   [0, 0, 0, 4, 4, () => MonitoringScheduleConfig$, 0, 0, 0, () => MonitoringExecutionSummary$], 6
 ];
 export var DescribeNotebookInstanceInput$: StaticStructureSchema = [3, n0, _DNIIe,
@@ -6941,18 +7011,18 @@ export var DescribePipelineExecutionRequest$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribePipelineExecutionResponse$: StaticStructureSchema = [3, n0, _DPERe,
   0,
-  [_PAi, _PEA, _PEDN, _PES, _PED, _PEC, _FR, _CT, _LMT, _CB, _LMB, _PCa, _SECe, _PVI, _MLCf],
-  [0, 0, 0, 0, 0, () => PipelineExperimentConfig$, 0, 4, 4, () => UserContext$, () => UserContext$, () => ParallelismConfiguration$, () => SelectiveExecutionConfig$, 1, () => MLflowConfiguration$]
+  [_PAi, _PEA, _PEDN, _PES, _PED, _PEC, _FR, _CT, _LMT, _CB, _LMB, _PCa, _SECe, _PVI, _MLCf, _PVA, _RAo],
+  [0, 0, 0, 0, 0, () => PipelineExperimentConfig$, 0, 4, 4, () => UserContext$, () => UserContext$, () => ParallelismConfiguration$, () => SelectiveExecutionConfig$, 1, () => MLflowConfiguration$, 64 | 0, 0]
 ];
 export var DescribePipelineRequest$: StaticStructureSchema = [3, n0, _DPRes,
   0,
-  [_PNi, _PVI],
-  [0, 1], 1
+  [_PNi, _PVI, _PVAi],
+  [0, 1, 0], 1
 ];
 export var DescribePipelineResponse$: StaticStructureSchema = [3, n0, _DPResc,
   0,
-  [_PAi, _PNi, _PDN, _PD, _PDi, _RAo, _PSi, _CT, _LMT, _LRT, _CB, _LMB, _PCa, _PVDN, _PVD],
-  [0, 0, 0, 0, 0, 0, 0, 4, 4, 4, () => UserContext$, () => UserContext$, () => ParallelismConfiguration$, 0, 0]
+  [_PAi, _PNi, _PDN, _PD, _PDi, _RAo, _PSi, _CT, _LMT, _LRT, _CB, _LMB, _PCa, _PVDN, _PVD, _PVA],
+  [0, 0, 0, 0, 0, 0, 0, 4, 4, 4, () => UserContext$, () => UserContext$, () => ParallelismConfiguration$, 0, 0, 64 | 0]
 ];
 export var DescribeProcessingJobRequest$: StaticStructureSchema = [3, n0, _DPJRe,
   0,
@@ -7346,7 +7416,7 @@ export var EnableSagemakerServicecatalogPortfolioOutput$: StaticStructureSchema 
 ];
 export var Endpoint$: StaticStructureSchema = [3, n0, _En,
   0,
-  [_EN, _EA, _ECN, _ES, _CT, _LMT, _PV, _DCC, _FR, _MSon, _Ta, _SPV],
+  [_ENn, _EAn, _ECN, _ES, _CT, _LMT, _PV, _DCC, _FR, _MSon, _Ta, _SPV],
   [0, 0, 0, 0, 4, 4, () => ProductionVariantSummaryList, () => DataCaptureConfigSummary$, 0, () => MonitoringScheduleList, () => TagList, () => ProductionVariantSummaryList], 6
 ];
 export var EndpointConfigStepMetadata$: StaticStructureSchema = [3, n0, _ECSM,
@@ -7361,12 +7431,12 @@ export var EndpointConfigSummary$: StaticStructureSchema = [3, n0, _ECS,
 ];
 export var EndpointInfo$: StaticStructureSchema = [3, n0, _EInd,
   0,
-  [_EN],
+  [_ENn],
   [0]
 ];
 export var EndpointInput$: StaticStructureSchema = [3, n0, _EIn,
   0,
-  [_EN, _LP, _SIM, _SDDT, _FA, _IA, _PA, _PTA, _STO, _ETO, _EFA],
+  [_ENn, _LP, _SIM, _SDDT, _FA, _IA, _PA, _PTA, _STO, _ETO, _EFA],
   [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0], 2
 ];
 export var EndpointInputConfiguration$: StaticStructureSchema = [3, n0, _EIC,
@@ -7376,12 +7446,12 @@ export var EndpointInputConfiguration$: StaticStructureSchema = [3, n0, _EIC,
 ];
 export var EndpointMetadata$: StaticStructureSchema = [3, n0, _EMn,
   0,
-  [_EN, _ECN, _ES, _FR],
+  [_ENn, _ECN, _ES, _FR],
   [0, 0, 0, 0], 1
 ];
 export var EndpointOutputConfiguration$: StaticStructureSchema = [3, n0, _EOCn,
   0,
-  [_EN, _VN, _ITn, _IIC, _SCe],
+  [_ENn, _VN, _ITn, _IIC, _SCe],
   [0, 0, 0, 1, () => ProductionVariantServerlessConfig$], 2
 ];
 export var EndpointPerformance$: StaticStructureSchema = [3, n0, _EPnd,
@@ -7396,7 +7466,7 @@ export var EndpointStepMetadata$: StaticStructureSchema = [3, n0, _ESM,
 ];
 export var EndpointSummary$: StaticStructureSchema = [3, n0, _ESn,
   0,
-  [_EN, _EA, _CT, _LMT, _ES],
+  [_ENn, _EAn, _CT, _LMT, _ES],
   [0, 0, 4, 4, 0], 5
 ];
 export var EnvironmentConfig$: StaticStructureSchema = [3, n0, _ECn,
@@ -7451,7 +7521,7 @@ export var ExperimentSummary$: StaticStructureSchema = [3, n0, _ESxp,
 ];
 export var Explainability$: StaticStructureSchema = [3, n0, _Ex,
   0,
-  [_R],
+  [_Re],
   [() => MetricsSource$]
 ];
 export var ExplainerConfig$: StaticStructureSchema = [3, n0, _ECx,
@@ -7468,6 +7538,21 @@ export var ExtendTrainingPlanResponse$: StaticStructureSchema = [3, n0, _ETPRx,
   0,
   [_TPE],
   [() => TrainingPlanExtensions], 1
+];
+export var ExtensionDetails$: StaticStructureSchema = [3, n0, _EDx,
+  0,
+  [_CAl, _EA, _EN, _EVx, _St, _CV, _CT, _LMT],
+  [0, 0, 0, 0, 0, 0, 4, 4], 5
+];
+export var ExtensionNodeSummary$: StaticStructureSchema = [3, n0, _ENS,
+  0,
+  [_TCo, _ACct],
+  [1, 1], 2
+];
+export var ExtensionSummary$: StaticStructureSchema = [3, n0, _ESxt,
+  0,
+  [_EA, _EN, _EVx, _St, _CT],
+  [0, 0, 0, 0, 4], 4
 ];
 export var FailStepMetadata$: StaticStructureSchema = [3, n0, _FSM,
   0,
@@ -7611,12 +7696,12 @@ export var GetSagemakerServicecatalogPortfolioStatusOutput$: StaticStructureSche
 ];
 export var GetScalingConfigurationRecommendationRequest$: StaticStructureSchema = [3, n0, _GSCRR,
   0,
-  [_IRJN, _RIe, _EN, _TCUPC, _SPO],
+  [_IRJN, _RIe, _ENn, _TCUPC, _SPO],
   [0, 0, 0, 1, () => ScalingPolicyObjective$], 1
 ];
 export var GetScalingConfigurationRecommendationResponse$: StaticStructureSchema = [3, n0, _GSCRRe,
   0,
-  [_IRJN, _RIe, _EN, _TCUPC, _SPO, _Me, _DSCy],
+  [_IRJN, _RIe, _ENn, _TCUPC, _SPO, _Me, _DSCy],
   [0, 0, 0, 1, () => ScalingPolicyObjective$, () => ScalingPolicyMetric$, () => DynamicScalingConfiguration$]
 ];
 export var GetSearchSuggestionsRequest$: StaticStructureSchema = [3, n0, _GSSR,
@@ -7668,6 +7753,11 @@ export var HubContentInfo$: StaticStructureSchema = [3, n0, _HCI,
   0,
   [_HCN, _HCA, _HCV, _HCT, _DSV, _HCS, _CT, _SMPHCA, _HCDN, _HCDu, _SSu, _HCSK, _OCT],
   [0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 64 | 0, 4], 7
+];
+export var HubContentStepMetadata$: StaticStructureSchema = [3, n0, _HCSM,
+  0,
+  [_HA, _HCA],
+  [0, 0]
 ];
 export var HubInfo$: StaticStructureSchema = [3, n0, _HI,
   0,
@@ -7931,7 +8021,7 @@ export var InferenceComponentStartupParameters$: StaticStructureSchema = [3, n0,
 ];
 export var InferenceComponentSummary$: StaticStructureSchema = [3, n0, _ICSnf,
   0,
-  [_CT, _ICA, _ICN, _EA, _EN, _VN, _LMT, _ICS],
+  [_CT, _ICA, _ICN, _EAn, _ENn, _VN, _LMT, _ICS],
   [4, 0, 0, 0, 0, 0, 4, 0], 7
 ];
 export var InferenceExecutionConfig$: StaticStructureSchema = [3, n0, _IEC,
@@ -8344,6 +8434,16 @@ export var ListClusterEventsResponse$: StaticStructureSchema = [3, n0, _LCERi,
   [_NTe, _Ev],
   [0, () => ClusterEventSummaries]
 ];
+export var ListClusterExtensionsRequest$: StaticStructureSchema = [3, n0, _LCERis,
+  0,
+  [_CAl, _MR, _NTe, _CTA, _CTB],
+  [0, 1, 0, 4, 4], 1
+];
+export var ListClusterExtensionsResponse$: StaticStructureSchema = [3, n0, _LCERist,
+  0,
+  [_Ext, _NTe],
+  [() => ExtensionSummaries, 0], 1
+];
 export var ListClusterNodesRequest$: StaticStructureSchema = [3, n0, _LCNR,
   0,
   [_CNl, _CTA, _CTB, _IGNC, _MR, _NTe, _SBo, _SO, _INLI],
@@ -8416,7 +8516,7 @@ export var ListContextsResponse$: StaticStructureSchema = [3, n0, _LCRist,
 ];
 export var ListDataQualityJobDefinitionsRequest$: StaticStructureSchema = [3, n0, _LDQJDR,
   0,
-  [_EN, _SBo, _SO, _NTe, _MR, _NCa, _CTB, _CTA],
+  [_ENn, _SBo, _SO, _NTe, _MR, _NCa, _CTB, _CTA],
   [0, 0, 0, 0, 1, 0, 4, 4]
 ];
 export var ListDataQualityJobDefinitionsResponse$: StaticStructureSchema = [3, n0, _LDQJDRi,
@@ -8706,7 +8806,7 @@ export var ListMlflowTrackingServersResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var ListModelBiasJobDefinitionsRequest$: StaticStructureSchema = [3, n0, _LMBJDR,
   0,
-  [_EN, _SBo, _SO, _NTe, _MR, _NCa, _CTB, _CTA],
+  [_ENn, _SBo, _SO, _NTe, _MR, _NCa, _CTB, _CTA],
   [0, 0, 0, 0, 1, 0, 4, 4]
 ];
 export var ListModelBiasJobDefinitionsResponse$: StaticStructureSchema = [3, n0, _LMBJDRi,
@@ -8746,7 +8846,7 @@ export var ListModelCardVersionsResponse$: StaticStructureSchema = [3, n0, _LMCV
 ];
 export var ListModelExplainabilityJobDefinitionsRequest$: StaticStructureSchema = [3, n0, _LMEJDR,
   0,
-  [_EN, _SBo, _SO, _NTe, _MR, _NCa, _CTB, _CTA],
+  [_ENn, _SBo, _SO, _NTe, _MR, _NCa, _CTB, _CTA],
   [0, 0, 0, 0, 1, 0, 4, 4]
 ];
 export var ListModelExplainabilityJobDefinitionsResponse$: StaticStructureSchema = [3, n0, _LMEJDRi,
@@ -8786,7 +8886,7 @@ export var ListModelPackagesOutput$: StaticStructureSchema = [3, n0, _LMPO,
 ];
 export var ListModelQualityJobDefinitionsRequest$: StaticStructureSchema = [3, n0, _LMQJDR,
   0,
-  [_EN, _SBo, _SO, _NTe, _MR, _NCa, _CTB, _CTA],
+  [_ENn, _SBo, _SO, _NTe, _MR, _NCa, _CTB, _CTA],
   [0, 0, 0, 0, 1, 0, 4, 4]
 ];
 export var ListModelQualityJobDefinitionsResponse$: StaticStructureSchema = [3, n0, _LMQJDRi,
@@ -8826,7 +8926,7 @@ export var ListMonitoringAlertsResponse$: StaticStructureSchema = [3, n0, _LMARi
 ];
 export var ListMonitoringExecutionsRequest$: StaticStructureSchema = [3, n0, _LMER,
   0,
-  [_MSN, _EN, _SBo, _SO, _NTe, _MR, _STB, _STAc, _CTB, _CTA, _LMTB, _LMTA, _SE, _MJDN, _MTE],
+  [_MSN, _ENn, _SBo, _SO, _NTe, _MR, _STB, _STAc, _CTB, _CTA, _LMTB, _LMTA, _SE, _MJDN, _MTE],
   [0, 0, 0, 0, 0, 1, 4, 4, 4, 4, 4, 4, 0, 0, 0]
 ];
 export var ListMonitoringExecutionsResponse$: StaticStructureSchema = [3, n0, _LMERi,
@@ -8836,7 +8936,7 @@ export var ListMonitoringExecutionsResponse$: StaticStructureSchema = [3, n0, _L
 ];
 export var ListMonitoringSchedulesRequest$: StaticStructureSchema = [3, n0, _LMSR,
   0,
-  [_EN, _SBo, _SO, _NTe, _MR, _NCa, _CTB, _CTA, _LMTB, _LMTA, _SE, _MJDN, _MTE],
+  [_ENn, _SBo, _SO, _NTe, _MR, _NCa, _CTB, _CTA, _LMTB, _LMTA, _SE, _MJDN, _MTE],
   [0, 0, 0, 0, 1, 0, 4, 4, 4, 4, 0, 0, 0]
 ];
 export var ListMonitoringSchedulesResponse$: StaticStructureSchema = [3, n0, _LMSRi,
@@ -8886,8 +8986,8 @@ export var ListPartnerAppsResponse$: StaticStructureSchema = [3, n0, _LPARi,
 ];
 export var ListPipelineExecutionsRequest$: StaticStructureSchema = [3, n0, _LPER,
   0,
-  [_PNi, _CAre, _CBr, _SBo, _SO, _NTe, _MR],
-  [0, 4, 4, 0, 0, 0, 1], 1
+  [_PNi, _CAre, _CBr, _SBo, _SO, _NTe, _MR, _PVAi],
+  [0, 4, 4, 0, 0, 0, 1, 0], 1
 ];
 export var ListPipelineExecutionsResponse$: StaticStructureSchema = [3, n0, _LPERi,
   0,
@@ -8916,8 +9016,8 @@ export var ListPipelineParametersForExecutionResponse$: StaticStructureSchema = 
 ];
 export var ListPipelinesRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
-  [_PNP, _CAre, _CBr, _SBo, _SO, _NTe, _MR],
-  [0, 4, 4, 0, 0, 0, 1]
+  [_PNP, _CAre, _CBr, _SBo, _SO, _NTe, _MR, _MB],
+  [0, 4, 4, 0, 0, 0, 1, 0]
 ];
 export var ListPipelinesResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
@@ -9276,7 +9376,7 @@ export var ModelConfiguration$: StaticStructureSchema = [3, n0, _MCodel,
 ];
 export var ModelDashboardEndpoint$: StaticStructureSchema = [3, n0, _MDE,
   0,
-  [_EN, _EA, _CT, _LMT, _ES],
+  [_ENn, _EAn, _CT, _LMT, _ES],
   [0, 0, 4, 4, 0], 5
 ];
 export var ModelDashboardIndicatorAction$: StaticStructureSchema = [3, n0, _MDIA,
@@ -9296,7 +9396,7 @@ export var ModelDashboardModelCard$: StaticStructureSchema = [3, n0, _MDMC,
 ];
 export var ModelDashboardMonitoringSchedule$: StaticStructureSchema = [3, n0, _MDMS,
   0,
-  [_MSA, _MSN, _MSS, _MTo, _FR, _CT, _LMT, _MSC, _EN, _MASo, _LMES, _BTI],
+  [_MSA, _MSN, _MSS, _MTo, _FR, _CT, _LMT, _MSC, _ENn, _MASo, _LMES, _BTI],
   [0, 0, 0, 0, 0, 4, 4, () => MonitoringScheduleConfig$, 0, () => MonitoringAlertSummaryList, () => MonitoringExecutionSummary$, () => BatchTransformInput$]
 ];
 export var ModelDataQuality$: StaticStructureSchema = [3, n0, _MDQ,
@@ -9311,12 +9411,12 @@ export var ModelDataSource$: StaticStructureSchema = [3, n0, _MDS,
 ];
 export var ModelDeployConfig$: StaticStructureSchema = [3, n0, _MDC,
   0,
-  [_AGEN, _EN],
+  [_AGEN, _ENn],
   [2, 0]
 ];
 export var ModelDeployResult$: StaticStructureSchema = [3, n0, _MDR,
   0,
-  [_EN],
+  [_ENn],
   [0]
 ];
 export var ModelDigests$: StaticStructureSchema = [3, n0, _MDo,
@@ -9551,7 +9651,7 @@ export var MonitoringDatasetFormat$: StaticStructureSchema = [3, n0, _MDF,
 ];
 export var MonitoringExecutionSummary$: StaticStructureSchema = [3, n0, _MESo,
   0,
-  [_MSN, _STch, _CT, _LMT, _MESon, _PJA, _EN, _FR, _MJDN, _MTo],
+  [_MSN, _STch, _CT, _LMT, _MESon, _PJA, _ENn, _FR, _MJDN, _MTo],
   [0, 4, 4, 4, 0, 0, 0, 0, 0, 0], 5
 ];
 export var MonitoringGroundTruthS3Input$: StaticStructureSchema = [3, n0, _MGTSI,
@@ -9571,7 +9671,7 @@ export var MonitoringJobDefinition$: StaticStructureSchema = [3, n0, _MJD,
 ];
 export var MonitoringJobDefinitionSummary$: StaticStructureSchema = [3, n0, _MJDS,
   0,
-  [_MJDN, _MJDA, _CT, _EN],
+  [_MJDN, _MJDA, _CT, _ENn],
   [0, 0, 4, 0], 4
 ];
 export var MonitoringJsonDatasetFormat$: StaticStructureSchema = [3, n0, _MJDF,
@@ -9611,7 +9711,7 @@ export var MonitoringS3Output$: StaticStructureSchema = [3, n0, _MSO,
 ];
 export var MonitoringSchedule$: StaticStructureSchema = [3, n0, _MSoni,
   0,
-  [_MSA, _MSN, _MSS, _MTo, _FR, _CT, _LMT, _MSC, _EN, _LMES, _Ta],
+  [_MSA, _MSN, _MSS, _MTo, _FR, _CT, _LMT, _MSC, _ENn, _LMES, _Ta],
   [0, 0, 0, 0, 0, 4, 4, () => MonitoringScheduleConfig$, 0, () => MonitoringExecutionSummary$, () => TagList]
 ];
 export var MonitoringScheduleConfig$: StaticStructureSchema = [3, n0, _MSC,
@@ -9621,7 +9721,7 @@ export var MonitoringScheduleConfig$: StaticStructureSchema = [3, n0, _MSC,
 ];
 export var MonitoringScheduleSummary$: StaticStructureSchema = [3, n0, _MSSon,
   0,
-  [_MSN, _MSA, _CT, _LMT, _MSS, _EN, _MJDN, _MTo],
+  [_MSN, _MSA, _CT, _LMT, _MSS, _ENn, _MJDN, _MTo],
   [0, 0, 4, 4, 0, 0, 0, 0], 5
 ];
 export var MonitoringStatisticsResource$: StaticStructureSchema = [3, n0, _MSR,
@@ -9871,13 +9971,13 @@ export var PipelineExecutionStep$: StaticStructureSchema = [3, n0, _PESipe,
 ];
 export var PipelineExecutionStepMetadata$: StaticStructureSchema = [3, n0, _PESM,
   0,
-  [_TJ, _PJ, _TJr, _TJu, _Mode, _RMe, _Cond, _Cal, _Lam, _EMR, _EMRS, _QC, _CCla, _Fai, _AMLJ, _En, _ECndpo, _BCM, _BCMD, _BPMT, _BMI, _ICnfer, _Lin, _J, _At, _Cl, _FE],
-  [() => TrainingJobStepMetadata$, () => ProcessingJobStepMetadata$, () => TransformJobStepMetadata$, () => TuningJobStepMetaData$, () => ModelStepMetadata$, () => RegisterModelStepMetadata$, () => ConditionStepMetadata$, () => CallbackStepMetadata$, () => LambdaStepMetadata$, () => EMRStepMetadata$, () => EMRServerlessStepMetadata$, () => QualityCheckStepMetadata$, () => ClarifyCheckStepMetadata$, () => FailStepMetadata$, () => AutoMLJobStepMetadata$, () => EndpointStepMetadata$, () => EndpointConfigStepMetadata$, () => BedrockCustomModelMetadata$, () => BedrockCustomModelDeploymentMetadata$, () => BedrockProvisionedModelThroughputMetadata$, () => BedrockModelImportMetadata$, () => InferenceComponentMetadata$, () => LineageMetadata$, () => JobStepMetadata$, () => AthenaStepMetadata$, () => CleanupStepMetadata$, () => ForEachStepMetadata$]
+  [_TJ, _PJ, _TJr, _TJu, _Mode, _RMe, _Cond, _Cal, _Lam, _EMR, _EMRS, _QC, _CCla, _Fai, _AMLJ, _En, _ECndpo, _BCM, _BCMD, _BPMT, _BMI, _ICnfer, _Lin, _J, _At, _Cl, _FE, _HC],
+  [() => TrainingJobStepMetadata$, () => ProcessingJobStepMetadata$, () => TransformJobStepMetadata$, () => TuningJobStepMetaData$, () => ModelStepMetadata$, () => RegisterModelStepMetadata$, () => ConditionStepMetadata$, () => CallbackStepMetadata$, () => LambdaStepMetadata$, () => EMRStepMetadata$, () => EMRServerlessStepMetadata$, () => QualityCheckStepMetadata$, () => ClarifyCheckStepMetadata$, () => FailStepMetadata$, () => AutoMLJobStepMetadata$, () => EndpointStepMetadata$, () => EndpointConfigStepMetadata$, () => BedrockCustomModelMetadata$, () => BedrockCustomModelDeploymentMetadata$, () => BedrockProvisionedModelThroughputMetadata$, () => BedrockModelImportMetadata$, () => InferenceComponentMetadata$, () => LineageMetadata$, () => JobStepMetadata$, () => AthenaStepMetadata$, () => CleanupStepMetadata$, () => ForEachStepMetadata$, () => HubContentStepMetadata$]
 ];
 export var PipelineExecutionSummary$: StaticStructureSchema = [3, n0, _PESipel,
   0,
-  [_PEA, _STt, _PES, _PED, _PEDN, _PEFR],
-  [0, 4, 0, 0, 0, 0]
+  [_PEA, _STt, _PES, _PED, _PEDN, _PEFR, _PVA],
+  [0, 4, 0, 0, 0, 0, 64 | 0]
 ];
 export var PipelineExperimentConfig$: StaticStructureSchema = [3, n0, _PEC,
   0,
@@ -9891,13 +9991,13 @@ export var PipelineSummary$: StaticStructureSchema = [3, n0, _PSipe,
 ];
 export var PipelineVersion$: StaticStructureSchema = [3, n0, _PVi,
   0,
-  [_PAi, _PVI, _PVDN, _PVD, _CT, _LMT, _CB, _LMB, _LEPEA, _LEPEDN, _LEPES],
-  [0, 1, 0, 0, 4, 4, () => UserContext$, () => UserContext$, 0, 0, 0]
+  [_PAi, _PVI, _PVDN, _PVD, _CT, _LMT, _CB, _LMB, _LEPEA, _LEPEDN, _LEPES, _PVA],
+  [0, 1, 0, 0, 4, 4, () => UserContext$, () => UserContext$, 0, 0, 0, 64 | 0]
 ];
 export var PipelineVersionSummary$: StaticStructureSchema = [3, n0, _PVSi,
   0,
-  [_PAi, _PVI, _CT, _PVD, _PVDN, _LEPEAa],
-  [0, 1, 4, 0, 0, 0]
+  [_PAi, _PVI, _CT, _PVD, _PVDN, _LEPEAa, _PVA],
+  [0, 1, 4, 0, 0, 0, 64 | 0]
 ];
 export var PlacementSpecification$: StaticStructureSchema = [3, n0, _PSlace,
   0,
@@ -10111,7 +10211,7 @@ export var QualityCheckStepMetadata$: StaticStructureSchema = [3, n0, _QCSM,
 ];
 export var QueryFilters$: StaticStructureSchema = [3, n0, _QF,
   0,
-  [_Ty, _LTi, _CBr, _CAre, _MB, _MAodi, _Pr],
+  [_Ty, _LTi, _CBr, _CAre, _MBo, _MAodi, _Pr],
   [64 | 0, 64 | 0, 4, 4, 4, 4, 128 | 0]
 ];
 export var QueryLineageRequest$: StaticStructureSchema = [3, n0, _QLR,
@@ -10626,8 +10726,8 @@ export var StartNotebookInstanceInput$: StaticStructureSchema = [3, n0, _SNII,
 ];
 export var StartPipelineExecutionRequest$: StaticStructureSchema = [3, n0, _SPER,
   0,
-  [_PNi, _PEDN, _PP, _PED, _CRT, _PCa, _SECe, _PVI, _MEN],
-  [0, 0, () => ParameterList, 0, [0, 4], () => ParallelismConfiguration$, () => SelectiveExecutionConfig$, 1, 0], 1
+  [_PNi, _PEDN, _PP, _PED, _CRT, _PCa, _SECe, _PVI, _MEN, _PVAi, _RAo],
+  [0, 0, () => ParameterList, 0, [0, 4], () => ParallelismConfiguration$, () => SelectiveExecutionConfig$, 1, 0, 0, 0], 1
 ];
 export var StartPipelineExecutionResponse$: StaticStructureSchema = [3, n0, _SPERt,
   0,
@@ -11194,6 +11294,16 @@ export var UpdateArtifactResponse$: StaticStructureSchema = [3, n0, _UARpda,
   [_AAr],
   [0]
 ];
+export var UpdateClusterExtensionRequest$: StaticStructureSchema = [3, n0, _UCER,
+  0,
+  [_CAl, _EA, _EVx, _CV, _CTl],
+  [0, 0, 0, 0, [0, 4]], 2
+];
+export var UpdateClusterExtensionResponse$: StaticStructureSchema = [3, n0, _UCERp,
+  0,
+  [_EA],
+  [0], 1
+];
 export var UpdateClusterRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_CNl, _IG, _RIG, _RIGC, _TSCi, _NR, _IGTD, _NPM, _CRl, _ASu, _Or],
@@ -11281,22 +11391,22 @@ export var UpdateDomainResponse$: StaticStructureSchema = [3, n0, _UDRpd,
 ];
 export var UpdateEndpointInput$: StaticStructureSchema = [3, n0, _UEI,
   0,
-  [_EN, _ECN, _RAVP, _ERVP, _DCe, _RDCet],
+  [_ENn, _ECN, _RAVP, _ERVP, _DCe, _RDCet],
   [0, 0, 2, () => VariantPropertyList, () => DeploymentConfig$, 2], 2
 ];
 export var UpdateEndpointOutput$: StaticStructureSchema = [3, n0, _UEO,
   0,
-  [_EA],
+  [_EAn],
   [0], 1
 ];
 export var UpdateEndpointWeightsAndCapacitiesInput$: StaticStructureSchema = [3, n0, _UEWACI,
   0,
-  [_EN, _DWACe],
+  [_ENn, _DWACe],
   [0, () => DesiredWeightAndCapacityList], 2
 ];
 export var UpdateEndpointWeightsAndCapacitiesOutput$: StaticStructureSchema = [3, n0, _UEWACO,
   0,
-  [_EA],
+  [_EAn],
   [0], 1
 ];
 export var UpdateExperimentRequest$: StaticStructureSchema = [3, n0, _UER,
@@ -11506,8 +11616,8 @@ export var UpdatePipelineExecutionResponse$: StaticStructureSchema = [3, n0, _UP
 ];
 export var UpdatePipelineRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_PNi, _PDN, _PD, _PDSL, _PDi, _RAo, _PCa],
-  [0, 0, 0, () => PipelineDefinitionS3Location$, 0, 0, () => ParallelismConfiguration$], 1
+  [_PNi, _PDN, _PD, _PDSL, _PDi, _RAo, _PCa, _PVA],
+  [0, 0, 0, () => PipelineDefinitionS3Location$, 0, 0, () => ParallelismConfiguration$, 64 | 0], 1
 ];
 export var UpdatePipelineResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -11516,8 +11626,8 @@ export var UpdatePipelineResponse$: StaticStructureSchema = [3, n0, _UPRp,
 ];
 export var UpdatePipelineVersionRequest$: StaticStructureSchema = [3, n0, _UPVR,
   0,
-  [_PAi, _PVI, _PVDN, _PVD],
-  [0, 1, 0, 0], 2
+  [_PAi, _PVI, _PVDN, _PVD, _PVAO],
+  [0, 1, 0, 0, () => AliasOperations$], 2
 ];
 export var UpdatePipelineVersionResponse$: StaticStructureSchema = [3, n0, _UPVRp,
   0,
@@ -12051,6 +12161,9 @@ var ExpectedPerformanceList: StaticListSchema = [1, n0, _EPL,
 var ExperimentSummaries: StaticListSchema = [1, n0, _ESxpe,
   0, () => ExperimentSummary$
 ];
+var ExtensionSummaries: StaticListSchema = [1, n0, _ESxte,
+  0, () => ExtensionSummary$
+];
 var FeatureAdditions: StaticListSchema = [1, n0, _FAe,
   0, () => FeatureDefinition$
 ];
@@ -12355,6 +12468,7 @@ var PipelineExecutionSummaryList: StaticListSchema = [1, n0, _PESLi,
 var PipelineSummaryList: StaticListSchema = [1, n0, _PSLi,
   0, () => PipelineSummary$
 ];
+var PipelineVersionAliasList = 64 | 0;
 var PipelineVersionSummaryList: StaticListSchema = [1, n0, _PVSL,
   0, () => PipelineVersionSummary$
 ];
@@ -12742,6 +12856,9 @@ export var CreateAutoMLJobV2$: StaticOperationSchema = [9, n0, _CAMLJV,
 export var CreateCluster$: StaticOperationSchema = [9, n0, _CCr,
   0, () => CreateClusterRequest$, () => CreateClusterResponse$
 ];
+export var CreateClusterExtension$: StaticOperationSchema = [9, n0, _CCE,
+  0, () => CreateClusterExtensionRequest$, () => CreateClusterExtensionResponse$
+];
 export var CreateClusterSchedulerConfig$: StaticOperationSchema = [9, n0, _CCSC,
   0, () => CreateClusterSchedulerConfigRequest$, () => CreateClusterSchedulerConfigResponse$
 ];
@@ -12958,6 +13075,9 @@ export var DeleteAssociation$: StaticOperationSchema = [9, n0, _DAeletes,
 export var DeleteCluster$: StaticOperationSchema = [9, n0, _DCel,
   0, () => DeleteClusterRequest$, () => DeleteClusterResponse$
 ];
+export var DeleteClusterExtension$: StaticOperationSchema = [9, n0, _DCEe,
+  0, () => DeleteClusterExtensionRequest$, () => DeleteClusterExtensionResponse$
+];
 export var DeleteClusterSchedulerConfig$: StaticOperationSchema = [9, n0, _DCSC,
   0, () => DeleteClusterSchedulerConfigRequest$, () => __Unit
 ];
@@ -13153,8 +13273,11 @@ export var DescribeAutoMLJobV2$: StaticOperationSchema = [9, n0, _DAMLJV,
 export var DescribeCluster$: StaticOperationSchema = [9, n0, _DCes,
   0, () => DescribeClusterRequest$, () => DescribeClusterResponse$
 ];
-export var DescribeClusterEvent$: StaticOperationSchema = [9, n0, _DCEe,
+export var DescribeClusterEvent$: StaticOperationSchema = [9, n0, _DCEes,
   0, () => DescribeClusterEventRequest$, () => DescribeClusterEventResponse$
+];
+export var DescribeClusterExtension$: StaticOperationSchema = [9, n0, _DCEesc,
+  0, () => DescribeClusterExtensionRequest$, () => DescribeClusterExtensionResponse$
 ];
 export var DescribeClusterNode$: StaticOperationSchema = [9, n0, _DCN,
   0, () => DescribeClusterNodeRequest$, () => DescribeClusterNodeResponse$
@@ -13425,6 +13548,9 @@ export var ListCandidatesForAutoMLJob$: StaticOperationSchema = [9, n0, _LCFAMLJ
 ];
 export var ListClusterEvents$: StaticOperationSchema = [9, n0, _LCE,
   0, () => ListClusterEventsRequest$, () => ListClusterEventsResponse$
+];
+export var ListClusterExtensions$: StaticOperationSchema = [9, n0, _LCEi,
+  0, () => ListClusterExtensionsRequest$, () => ListClusterExtensionsResponse$
 ];
 export var ListClusterNodes$: StaticOperationSchema = [9, n0, _LCNi,
   0, () => ListClusterNodesRequest$, () => ListClusterNodesResponse$
@@ -13782,6 +13908,9 @@ export var UpdateArtifact$: StaticOperationSchema = [9, n0, _UAp,
 ];
 export var UpdateCluster$: StaticOperationSchema = [9, n0, _UCp,
   0, () => UpdateClusterRequest$, () => UpdateClusterResponse$
+];
+export var UpdateClusterExtension$: StaticOperationSchema = [9, n0, _UCE,
+  0, () => UpdateClusterExtensionRequest$, () => UpdateClusterExtensionResponse$
 ];
 export var UpdateClusterSchedulerConfig$: StaticOperationSchema = [9, n0, _UCSC,
   0, () => UpdateClusterSchedulerConfigRequest$, () => UpdateClusterSchedulerConfigResponse$

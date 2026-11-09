@@ -62,7 +62,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "MaxParallelExecutionSteps": 0
   },
   "PipelineVersionDisplayName": "__PipelineVersionDisplayName__",
-  "PipelineVersionDescription": "__PipelineVersionDescription__"
+  "PipelineVersionDescription": "__PipelineVersionDescription__",
+  "PipelineVersionAliases": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ]
 }
 
 
@@ -103,6 +108,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   },
   PipelineVersionDisplayName: "__PipelineVersionDisplayName__",
   PipelineVersionDescription: "__PipelineVersionDescription__",
+  PipelineVersionAliases: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

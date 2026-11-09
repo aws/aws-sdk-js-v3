@@ -14,11 +14,9 @@ import type {
   BatchStrategy,
   CandidateSortBy,
   CandidateStatus,
+  CapacityReservationPreference,
   ClusterEventResourceType,
   ClusterSortBy,
-  CodeRepositorySortBy,
-  CodeRepositorySortOrder,
-  CompilationJobStatus,
   DetailedModelPackageStatus,
   DeviceDeploymentStatus,
   DirectInternetAccess,
@@ -28,6 +26,7 @@ import type {
   EventSortBy,
   ExecutionRoleIdentityConfig,
   ExecutionStatus,
+  ExtensionStatus,
   FeatureGroupStatus,
   FeatureType,
   FlowDefinitionStatus,
@@ -58,7 +57,6 @@ import type {
   ListAIBenchmarkJobsSortBy,
   ListAIRecommendationJobsSortBy,
   ListAIWorkloadConfigsSortBy,
-  ListCompilationJobsSortBy,
   MaintenanceStatus,
   ManagedStorageType,
   MlflowAppStatus,
@@ -71,7 +69,6 @@ import type {
   ModelPackageStatus,
   ModelRegistrationMode,
   ModelVariantStatus,
-  MonitoringJobDefinitionSortKey,
   MonitoringType,
   NotebookInstanceAcceleratorType,
   NotebookInstanceStatus,
@@ -87,6 +84,7 @@ import type {
   PipelineStatus,
   ProcessingJobStatus,
   Processor,
+  ProductionVariantAcceleratorType,
   ProductionVariantInstanceType,
   ProfilingStatus,
   ProjectStatus,
@@ -101,17 +99,13 @@ import type {
   RuleEvaluationStatus,
   SageMakerResourceName,
   SagemakerServicecatalogStatus,
-  SchedulerResourceStatus,
   ScheduleStatus,
   SecondaryStatus,
   SkipModelValidation,
   SortActionsBy,
   SortArtifactsBy,
   SortAssociationsBy,
-  SortClusterSchedulerConfigBy,
-  SortContextsBy,
   SortOrder,
-  SortQuotaBy,
   SpaceStatus,
   StudioLifecycleConfigAppType,
   ThroughputMode,
@@ -130,6 +124,7 @@ import type {
   WorkforceStatus,
 } from "./enums";
 import type {
+  AcceleratorPartitionLayout,
   ActionSummary,
   AdditionalInferenceSpecificationDefinition,
   AgentVersion,
@@ -145,6 +140,7 @@ import type {
   ArtifactSummary,
   AssociationInfo,
   AssociationSummary,
+  AsyncInferenceConfig,
   AutoMLCandidate,
   AutoMLJobSummary,
   AutoRollbackConfig,
@@ -171,19 +167,16 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
-  ClusterSchedulerConfigSummary,
-  ClusterSummary,
-  CodeRepositorySummary,
   CognitoConfig,
-  CompilationJobSummary,
-  ComputeQuotaSummary,
   ContainerDefinition,
   ContainerMetricsConfig,
-  ContextSummary,
+  DataCaptureConfig,
+  DeploymentConfig,
   DockerSettings,
   DriftCheckBaselines,
   EdgeOutputConfig,
   EndpointInfo,
+  ExplainerConfig,
   FeatureDefinition,
   FlowDefinitionOutputConfig,
   HubS3StorageConfig,
@@ -206,6 +199,7 @@ import type {
   LabelingJobStoppingConditions,
   ManagedConfiguration,
   MetadataProperties,
+  MetricsConfig,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
@@ -221,14 +215,15 @@ import type {
   ModelPackageSecurityConfig,
   ModelPackageValidationSpecification,
   ModelQualityAppSpecification,
-  ModelQualityBaselineConfig,
-  ModelQualityJobInput,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
   MonitoringStoppingCondition,
   OfflineStoreConfig,
   OnlineStoreConfig,
+  ProductionVariant,
+  ProductionVariantManagedInstanceScaling,
+  ProductionVariantRoutingConfig,
   ProductionVariantServerlessConfig,
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
@@ -252,12 +247,15 @@ import type {
   ExperimentConfig,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
+  InstancePoolSummary,
   LoraConfig,
   MemberDefinition,
   MlflowConfig,
   ModelArtifacts,
   ModelClientConfig,
   ModelPackageConfig,
+  ModelQualityBaselineConfig,
+  ModelQualityJobInput,
   MonitoringScheduleConfig,
   NetworkConfig,
   NotebookInstanceLifecycleHook,
@@ -274,7 +272,7 @@ import type {
   ProcessingOutputConfig,
   ProcessingResources,
   ProcessingStoppingCondition,
-  ProductionVariantSummary,
+  ProductionVariantStatus,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   RemoteDebugConfig,
@@ -291,6 +289,494 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * <p>The production variant summary for a deployment when an endpoint is creating or updating with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> operations. Describes the <code>VariantStatus </code>, weight and capacity for a production variant associated with an endpoint. </p>
+ * @public
+ */
+export interface PendingProductionVariantSummary {
+  /**
+   * <p>The name of the variant.</p>
+   * @public
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this <code>ProductionVariant</code>.</p>
+   * @public
+   */
+  DeployedImages?: DeployedImage[] | undefined;
+
+  /**
+   * <p>The weight associated with the variant.</p>
+   * @public
+   */
+  CurrentWeight?: number | undefined;
+
+  /**
+   * <p>The requested weight for the variant in this deployment, as specified in the endpoint configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
+   * @public
+   */
+  DesiredWeight?: number | undefined;
+
+  /**
+   * <p>The number of instances associated with the variant.</p>
+   * @public
+   */
+  CurrentInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances requested in this deployment, as specified in the endpoint configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
+   * @public
+   */
+  DesiredInstanceCount?: number | undefined;
+
+  /**
+   * <p>The type of instances associated with the variant.</p>
+   * @public
+   */
+  InstanceType?: ProductionVariantInstanceType | undefined;
+
+  /**
+   * <p>A list of instance pools for the production variant. Each pool indicates the instance type and the current number of instances of that type.</p>
+   * @public
+   */
+  InstancePools?: InstancePoolSummary[] | undefined;
+
+  /**
+   * <p>This parameter is no longer supported. Elastic Inference (EI) is no longer available.</p> <p>This parameter was used to specify the size of the EI instance to use for the production variant.</p>
+   * @public
+   */
+  AcceleratorType?: ProductionVariantAcceleratorType | undefined;
+
+  /**
+   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
+   * @public
+   */
+  VariantStatus?: ProductionVariantStatus[] | undefined;
+
+  /**
+   * <p>The serverless configuration for the endpoint.</p>
+   * @public
+   */
+  CurrentServerlessConfig?: ProductionVariantServerlessConfig | undefined;
+
+  /**
+   * <p>The serverless configuration requested for this deployment, as specified in the endpoint configuration for the endpoint.</p>
+   * @public
+   */
+  DesiredServerlessConfig?: ProductionVariantServerlessConfig | undefined;
+
+  /**
+   * <p>Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic. </p>
+   * @public
+   */
+  ManagedInstanceScaling?: ProductionVariantManagedInstanceScaling | undefined;
+
+  /**
+   * <p>Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.</p>
+   * @public
+   */
+  RoutingConfig?: ProductionVariantRoutingConfig | undefined;
+
+  /**
+   * <p>The accelerator partition layout that SageMaker is applying to this production variant. On NVIDIA GPUs, the profiles are Multi-Instance GPU (MIG) profiles. SageMaker returns the accelerator partition layout as you provided it in the pending deployment configuration, without normalization.</p>
+   * @public
+   */
+  AcceleratorPartitionLayouts?: AcceleratorPartitionLayout[] | undefined;
+}
+
+/**
+ * <p>The summary of an in-progress deployment when an endpoint is creating or updating with a new endpoint configuration.</p>
+ * @public
+ */
+export interface PendingDeploymentSummary {
+  /**
+   * <p>The name of the endpoint configuration used in the deployment. </p>
+   * @public
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html">PendingProductionVariantSummary</a> objects, one for each model hosted behind this endpoint for the in-progress deployment.</p>
+   * @public
+   */
+  ProductionVariants?: PendingProductionVariantSummary[] | undefined;
+
+  /**
+   * <p>The start time of the deployment.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html">PendingProductionVariantSummary</a> objects, one for each model hosted behind this endpoint in shadow mode with production traffic replicated from the model specified on <code>ProductionVariants</code> for the in-progress deployment.</p>
+   * @public
+   */
+  ShadowProductionVariants?: PendingProductionVariantSummary[] | undefined;
+}
+
+/**
+ * <p>The EC2 capacity reservations that are shared to an ML capacity reservation.</p>
+ * @public
+ */
+export interface Ec2CapacityReservation {
+  /**
+   * <p>The unique identifier for an EC2 capacity reservation that's part of the ML capacity reservation.</p>
+   * @public
+   */
+  Ec2CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The number of instances that you allocated to the EC2 capacity reservation.</p>
+   * @public
+   */
+  TotalInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances that are currently available in the EC2 capacity reservation.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances from the EC2 capacity reservation that are being used by the endpoint.</p>
+   * @public
+   */
+  UsedByCurrentEndpoint?: number | undefined;
+}
+
+/**
+ * <p>Details about an ML capacity reservation.</p>
+ * @public
+ */
+export interface ProductionVariantCapacityReservationSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.</p>
+   * @public
+   */
+  MlReservationArn?: string | undefined;
+
+  /**
+   * <p>The option that you chose for the capacity reservation. SageMaker AI supports the following options:</p> <dl> <dt>capacity-reservations-only</dt> <dd> <p>SageMaker AI launches instances only into an ML capacity reservation. If no capacity is available, the instances fail to launch.</p> </dd> </dl>
+   * @public
+   */
+  CapacityReservationPreference?: CapacityReservationPreference | undefined;
+
+  /**
+   * <p>The number of instances that you allocated to the ML capacity reservation.</p>
+   * @public
+   */
+  TotalInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances that are currently available in the ML capacity reservation.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances from the ML capacity reservation that are being used by the endpoint.</p>
+   * @public
+   */
+  UsedByCurrentEndpoint?: number | undefined;
+
+  /**
+   * <p>The EC2 capacity reservations that are shared to this ML capacity reservation, if any.</p>
+   * @public
+   */
+  Ec2CapacityReservations?: Ec2CapacityReservation[] | undefined;
+}
+
+/**
+ * <p>Describes weight and capacities for a production variant associated with an endpoint. If you sent a request to the <code>UpdateEndpointWeightsAndCapacities</code> API and the endpoint status is <code>Updating</code>, you get different desired and current values. </p>
+ * @public
+ */
+export interface ProductionVariantSummary {
+  /**
+   * <p>The name of the variant.</p>
+   * @public
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this <code>ProductionVariant</code>.</p>
+   * @public
+   */
+  DeployedImages?: DeployedImage[] | undefined;
+
+  /**
+   * <p>The weight associated with the variant.</p>
+   * @public
+   */
+  CurrentWeight?: number | undefined;
+
+  /**
+   * <p>The requested weight, as specified in the <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
+   * @public
+   */
+  DesiredWeight?: number | undefined;
+
+  /**
+   * <p>The number of instances associated with the variant.</p>
+   * @public
+   */
+  CurrentInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances requested in the <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
+   * @public
+   */
+  DesiredInstanceCount?: number | undefined;
+
+  /**
+   * <p>A list of instance pools for the production variant. Each pool indicates the instance type and the current number of instances of that type.</p>
+   * @public
+   */
+  InstancePools?: InstancePoolSummary[] | undefined;
+
+  /**
+   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
+   * @public
+   */
+  VariantStatus?: ProductionVariantStatus[] | undefined;
+
+  /**
+   * <p>The serverless configuration for the endpoint.</p>
+   * @public
+   */
+  CurrentServerlessConfig?: ProductionVariantServerlessConfig | undefined;
+
+  /**
+   * <p>The serverless configuration requested for the endpoint update.</p>
+   * @public
+   */
+  DesiredServerlessConfig?: ProductionVariantServerlessConfig | undefined;
+
+  /**
+   * <p>Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic. </p>
+   * @public
+   */
+  ManagedInstanceScaling?: ProductionVariantManagedInstanceScaling | undefined;
+
+  /**
+   * <p>Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.</p>
+   * @public
+   */
+  RoutingConfig?: ProductionVariantRoutingConfig | undefined;
+
+  /**
+   * <p>Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. </p>
+   * @public
+   */
+  CapacityReservationConfig?: ProductionVariantCapacityReservationSummary | undefined;
+
+  /**
+   * <p>The accelerator partition layout that SageMaker applies to this production variant. On NVIDIA GPUs, the profiles are Multi-Instance GPU (MIG) profiles. SageMaker returns the accelerator partition layout as you provided it when you created the variant, without normalization.</p>
+   * @public
+   */
+  AcceleratorPartitionLayouts?: AcceleratorPartitionLayout[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEndpointOutput {
+  /**
+   * <p>Name of the endpoint.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * @public
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * <p>The name of the endpoint configuration associated with this endpoint.</p>
+   * @public
+   */
+  EndpointConfigName?: string | undefined;
+
+  /**
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html">ProductionVariantSummary</a> objects, one for each model hosted behind this endpoint.</p>
+   * @public
+   */
+  ProductionVariants?: ProductionVariantSummary[] | undefined;
+
+  /**
+   * <p>The currently active data capture configuration used by your Endpoint.</p>
+   * @public
+   */
+  DataCaptureConfig?: DataCaptureConfigSummary | undefined;
+
+  /**
+   * <p>The status of the endpoint.</p> <ul> <li> <p> <code>OutOfService</code>: Endpoint is not available to take incoming requests.</p> </li> <li> <p> <code>Creating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> is executing.</p> </li> <li> <p> <code>Updating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> is executing.</p> </li> <li> <p> <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This maintenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count.</p> </li> <li> <p> <code>RollingBack</code>: Endpoint fails to scale up or down or change its variant weight and is in the process of rolling back to its previous configuration. Once the rollback completes, endpoint returns to an <code>InService</code> status. This transitional status only applies to an endpoint that has autoscaling enabled and is undergoing variant weight or capacity changes as part of an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> call or when the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> operation is called explicitly.</p> </li> <li> <p> <code>InService</code>: Endpoint is available to process incoming requests.</p> </li> <li> <p> <code>Deleting</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is executing.</p> </li> <li> <p> <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use the <code>FailureReason</code> value returned by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> for information about the failure. <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is the only operation that can be performed on a failed endpoint.</p> </li> <li> <p> <code>UpdateRollbackFailed</code>: Both the rolling deployment and auto-rollback failed. Your endpoint is in service with a mix of the old and new endpoint configurations. For information about how to remedy this issue and restore the endpoint's status to <code>InService</code>, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails-rolling.html">Rolling Deployments</a>.</p> </li> </ul>
+   * @public
+   */
+  EndpointStatus: EndpointStatus | undefined;
+
+  /**
+   * <p>If the status of the endpoint is <code>Failed</code>, the reason why it failed. </p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the endpoint was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp that shows when the endpoint was last modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The most recent deployment configuration for the endpoint.</p>
+   * @public
+   */
+  LastDeploymentConfig?: DeploymentConfig | undefined;
+
+  /**
+   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html"> <code>CreateEndpointConfig</code> </a> API.</p>
+   * @public
+   */
+  AsyncInferenceConfig?: AsyncInferenceConfig | undefined;
+
+  /**
+   * <p>Returns the summary of an in-progress deployment. This field is only returned when the endpoint is creating or updating with a new endpoint configuration.</p>
+   * @public
+   */
+  PendingDeploymentSummary?: PendingDeploymentSummary | undefined;
+
+  /**
+   * <p>The configuration parameters for an explainer.</p>
+   * @public
+   */
+  ExplainerConfig?: ExplainerConfig | undefined;
+
+  /**
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html">ProductionVariantSummary</a> objects, one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on <code>ProductionVariants</code>.</p>
+   * @public
+   */
+  ShadowProductionVariants?: ProductionVariantSummary[] | undefined;
+
+  /**
+   * <p>The configuration parameters for utilization metrics.</p>
+   * @public
+   */
+  MetricsConfig?: MetricsConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEndpointConfigInput {
+  /**
+   * <p>The name of the endpoint configuration.</p>
+   * @public
+   */
+  EndpointConfigName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEndpointConfigOutput {
+  /**
+   * <p>Name of the SageMaker endpoint configuration.</p>
+   * @public
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint configuration.</p>
+   * @public
+   */
+  EndpointConfigArn: string | undefined;
+
+  /**
+   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want to host at this endpoint.</p>
+   * @public
+   */
+  ProductionVariants: ProductionVariant[] | undefined;
+
+  /**
+   * <p>Configuration to control how SageMaker AI captures inference data.</p>
+   * @public
+   */
+  DataCaptureConfig?: DataCaptureConfig | undefined;
+
+  /**
+   * <p>Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage volume attached to the instance.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the endpoint configuration was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html"> <code>CreateEndpointConfig</code> </a> API.</p>
+   * @public
+   */
+  AsyncInferenceConfig?: AsyncInferenceConfig | undefined;
+
+  /**
+   * <p>The configuration parameters for an explainer.</p>
+   * @public
+   */
+  ExplainerConfig?: ExplainerConfig | undefined;
+
+  /**
+   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on <code>ProductionVariants</code>.</p>
+   * @public
+   */
+  ShadowProductionVariants?: ProductionVariant[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that you assigned to the endpoint configuration.</p>
+   * @public
+   */
+  ExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  VpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>Indicates whether all model containers deployed to the endpoint are isolated. If they are, no inbound or outbound network calls can be made to or from the model containers.</p>
+   * @public
+   */
+  EnableNetworkIsolation?: boolean | undefined;
+
+  /**
+   * <p>The configuration parameters for utilization metrics.</p>
+   * @public
+   */
+  MetricsConfig?: MetricsConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeExperimentRequest {
+  /**
+   * <p>The name of the experiment to describe.</p>
+   * @public
+   */
+  ExperimentName: string | undefined;
+}
 
 /**
  * <p>The source of the experiment.</p>
@@ -4476,10 +4962,16 @@ export interface DescribePipelineRequest {
   PipelineName: string | undefined;
 
   /**
-   * <p>The ID of the pipeline version to describe.</p>
+   * <p>The ID of the pipeline version to describe. You can't specify this with <code>PipelineVersionAlias</code>.</p>
    * @public
    */
   PipelineVersionId?: number | undefined;
+
+  /**
+   * <p>The alias of the pipeline version to describe. You can't specify this with <code>PipelineVersionId</code>. If no version of the pipeline has this alias, the request fails with a <code>ResourceNotFound</code> error. If you specify neither, SageMaker describes the latest version of the pipeline.</p>
+   * @public
+   */
+  PipelineVersionAlias?: string | undefined;
 }
 
 /**
@@ -4575,6 +5067,12 @@ export interface DescribePipelineResponse {
    * @public
    */
   PipelineVersionDescription?: string | undefined;
+
+  /**
+   * <p>The aliases assigned to the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionAliases?: string[] | undefined;
 }
 
 /**
@@ -4775,6 +5273,18 @@ export interface DescribePipelineExecutionResponse {
    * @public
    */
   MLflowConfig?: MLflowConfiguration | undefined;
+
+  /**
+   * <p>The aliases currently assigned to the pipeline version that the execution ran.</p>
+   * @public
+   */
+  PipelineVersionAliases?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the execution uses. SageMaker returns this value only for executions of pipelines that AWS manages.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -8386,6 +8896,42 @@ export interface ExtendTrainingPlanResponse {
 }
 
 /**
+ * <p>A summary of an extension installed on a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ExtensionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extension.</p>
+   * @public
+   */
+  ExtensionArn: string | undefined;
+
+  /**
+   * <p>The name of the extension.</p>
+   * @public
+   */
+  ExtensionName: string | undefined;
+
+  /**
+   * <p>The version of the extension.</p>
+   * @public
+   */
+  ExtensionVersion: string | undefined;
+
+  /**
+   * <p>The status of the extension. For the meaning of each status, see <code>ExtensionDetails</code>.</p>
+   * @public
+   */
+  Status: ExtensionStatus | undefined;
+
+  /**
+   * <p>The time when the extension was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+}
+
+/**
  * <p>The container for the metadata for Fail step.</p>
  * @public
  */
@@ -9253,6 +9799,24 @@ export interface HubContentInfo {
    * @public
    */
   OriginalCreationTime?: Date | undefined;
+}
+
+/**
+ * <p>The hub and the hub content that a HubContent step imported.</p>
+ * @public
+ */
+export interface HubContentStepMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub that the step imported the content into.</p>
+   * @public
+   */
+  HubArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub content that was imported by this step execution.</p>
+   * @public
+   */
+  HubContentArn?: string | undefined;
 }
 
 /**
@@ -11342,6 +11906,58 @@ export interface ListClusterEventsResponse {
 /**
  * @public
  */
+export interface ListClusterExtensionsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster whose extensions you want to list.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The maximum number of extensions to return in the response. If you don't specify a value, SageMaker HyperPod returns up to 100 extensions.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListClusterExtensions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of extensions, use the token in the next request. When you use the <code>CreationTimeAfter</code> or <code>CreationTimeBefore</code> filters, a response can contain fewer extensions than <code>MaxResults</code>, or none, and still include a <code>NextToken</code>. Continue until the response doesn't include a <code>NextToken</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A filter that returns extensions created at or after the specified time. Timestamps are formatted according to the ISO 8601 standard.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns extensions created at or before the specified time. The acceptable formats are the same as the timestamp formats for <code>CreationTimeAfter</code>.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListClusterExtensionsResponse {
+  /**
+   * <p>The list of extensions installed on the cluster.</p>
+   * @public
+   */
+  Extensions: ExtensionSummary[] | undefined;
+
+  /**
+   * <p>The next token specified for listing extensions on a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListClusterNodesRequest {
   /**
    * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster in which you want to retrieve the list of nodes.</p>
@@ -11466,484 +12082,4 @@ export interface ListClustersRequest {
    * @public
    */
   TrainingPlanArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClustersResponse {
-  /**
-   * <p>If the result of the previous <code>ListClusters</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of clusters, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The summaries of listed SageMaker HyperPod clusters.</p>
-   * @public
-   */
-  ClusterSummaries: ClusterSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClusterSchedulerConfigsRequest {
-  /**
-   * <p>Filter for after this creation time. The input for this parameter is a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>Filter for before this creation time. The input for this parameter is a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>Filter for name containing this string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>Filter for ARN of the cluster.</p>
-   * @public
-   */
-  ClusterArn?: string | undefined;
-
-  /**
-   * <p>Filter for status.</p>
-   * @public
-   */
-  Status?: SchedulerResourceStatus | undefined;
-
-  /**
-   * <p>Filter for sorting the list by a given value. For example, sort by name, creation time, or status.</p>
-   * @public
-   */
-  SortBy?: SortClusterSchedulerConfigBy | undefined;
-
-  /**
-   * <p>The order of the list. By default, listed in <code>Descending</code> order according to by <code>SortBy</code>. To change the list order, you can specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of cluster policies to list.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClusterSchedulerConfigsResponse {
-  /**
-   * <p>Summaries of the cluster policies.</p>
-   * @public
-   */
-  ClusterSchedulerConfigSummaries?: ClusterSchedulerConfigSummary[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCodeRepositoriesInput {
-  /**
-   * <p>A filter that returns only Git repositories that were created after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only Git repositories that were created before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only Git repositories that were last modified after the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only Git repositories that were last modified before the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The maximum number of Git repositories to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A string in the Git repositories name. This filter returns only repositories whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the response includes a <code>NextToken</code>. To get the next set of Git repositories, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The field to sort results by. The default is <code>Name</code>.</p>
-   * @public
-   */
-  SortBy?: CodeRepositorySortBy | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: CodeRepositorySortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCodeRepositoriesOutput {
-  /**
-   * <p>Gets a list of summaries of the Git repositories. Each summary specifies the following values for the repository: </p> <ul> <li> <p>Name</p> </li> <li> <p>Amazon Resource Name (ARN)</p> </li> <li> <p>Creation time</p> </li> <li> <p>Last modified time</p> </li> <li> <p>Configuration information, including the URL location of the repository and the ARN of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the repository.</p> </li> </ul>
-   * @public
-   */
-  CodeRepositorySummaryList: CodeRepositorySummary[] | undefined;
-
-  /**
-   * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the response includes a <code>NextToken</code>. To get the next set of Git repositories, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCompilationJobsRequest {
-  /**
-   * <p>If the result of the previous <code>ListCompilationJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of model compilation jobs, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of model compilation jobs to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A filter that returns the model compilation jobs that were created after a specified time. </p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns the model compilation jobs that were created before a specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns the model compilation jobs that were modified after a specified time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns the model compilation jobs that were modified before a specified time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns the model compilation jobs whose name contains a specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that retrieves model compilation jobs with a specific <code>CompilationJobStatus</code> status.</p>
-   * @public
-   */
-  StatusEquals?: CompilationJobStatus | undefined;
-
-  /**
-   * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: ListCompilationJobsSortBy | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCompilationJobsResponse {
-  /**
-   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CompilationJobSummary.html">CompilationJobSummary</a> objects, each describing a model compilation job. </p>
-   * @public
-   */
-  CompilationJobSummaries: CompilationJobSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker AI returns this <code>NextToken</code>. To retrieve the next set of model compilation jobs, use this token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListComputeQuotasRequest {
-  /**
-   * <p>Filter for after this creation time. The input for this parameter is a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>Filter for before this creation time. The input for this parameter is a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>Filter for name containing this string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>Filter for status.</p>
-   * @public
-   */
-  Status?: SchedulerResourceStatus | undefined;
-
-  /**
-   * <p>Filter for ARN of the cluster.</p>
-   * @public
-   */
-  ClusterArn?: string | undefined;
-
-  /**
-   * <p>Filter for sorting the list by a given value. For example, sort by name, creation time, or status.</p>
-   * @public
-   */
-  SortBy?: SortQuotaBy | undefined;
-
-  /**
-   * <p>The order of the list. By default, listed in <code>Descending</code> order according to by <code>SortBy</code>. To change the list order, you can specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of compute allocation definitions to list.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListComputeQuotasResponse {
-  /**
-   * <p>Summaries of the compute allocation definitions.</p>
-   * @public
-   */
-  ComputeQuotaSummaries?: ComputeQuotaSummary[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContextsRequest {
-  /**
-   * <p>A filter that returns only contexts with the specified source URI.</p>
-   * @public
-   */
-  SourceUri?: string | undefined;
-
-  /**
-   * <p>A filter that returns only contexts of the specified type.</p>
-   * @public
-   */
-  ContextType?: string | undefined;
-
-  /**
-   * <p>A filter that returns only contexts created on or after the specified time.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only contexts created on or before the specified time.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortContextsBy | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListContexts</code> didn't return the full set of contexts, the call returns a token for getting the next set of contexts.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of contexts to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContextsResponse {
-  /**
-   * <p>A list of contexts and their properties.</p>
-   * @public
-   */
-  ContextSummaries?: ContextSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of contexts, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDataQualityJobDefinitionsRequest {
-  /**
-   * <p>A filter that lists the data quality job definitions associated with the specified endpoint.</p>
-   * @public
-   */
-  EndpointName?: string | undefined;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: MonitoringJobDefinitionSortKey | undefined;
-
-  /**
-   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order. The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListDataQualityJobDefinitions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of transform jobs, use the token in the next request.&gt;</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of data quality monitoring job definitions to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A string in the data quality monitoring job definition name. This filter returns only data quality monitoring job definitions whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that returns only data quality monitoring job definitions created before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only data quality monitoring job definitions created after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-}
-
-/**
- * <p>Summary information about a monitoring job.</p>
- * @public
- */
-export interface MonitoringJobDefinitionSummary {
-  /**
-   * <p>The name of the monitoring job.</p>
-   * @public
-   */
-  MonitoringJobDefinitionName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring job.</p>
-   * @public
-   */
-  MonitoringJobDefinitionArn: string | undefined;
-
-  /**
-   * <p>The time that the monitoring job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The name of the endpoint that the job monitors.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
 }

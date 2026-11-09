@@ -77,6 +77,7 @@ import {
   AlgorithmSummary$,
   AlgorithmValidationProfile$,
   AlgorithmValidationSpecification$,
+  AliasOperations$,
   AmazonQSettings$,
   AnnotationConsolidationConfig$,
   AppDetails$,
@@ -397,6 +398,10 @@ import {
   CreateAutoMLJobV2Response$,
   CreateCluster$,
   CreateClusterCommand,
+  CreateClusterExtension$,
+  CreateClusterExtensionCommand,
+  CreateClusterExtensionRequest$,
+  CreateClusterExtensionResponse$,
   CreateClusterRequest$,
   CreateClusterResponse$,
   CreateClusterSchedulerConfig$,
@@ -708,6 +713,10 @@ import {
   DeleteAssociationResponse$,
   DeleteCluster$,
   DeleteClusterCommand,
+  DeleteClusterExtension$,
+  DeleteClusterExtensionCommand,
+  DeleteClusterExtensionRequest$,
+  DeleteClusterExtensionResponse$,
   DeleteClusterRequest$,
   DeleteClusterResponse$,
   DeleteClusterSchedulerConfig$,
@@ -943,6 +952,10 @@ import {
   DescribeClusterEventCommand,
   DescribeClusterEventRequest$,
   DescribeClusterEventResponse$,
+  DescribeClusterExtension$,
+  DescribeClusterExtensionCommand,
+  DescribeClusterExtensionRequest$,
+  DescribeClusterExtensionResponse$,
   DescribeClusterNode$,
   DescribeClusterNodeCommand,
   DescribeClusterNodeRequest$,
@@ -1306,6 +1319,10 @@ import {
   ExtendTrainingPlanCommand,
   ExtendTrainingPlanRequest$,
   ExtendTrainingPlanResponse$,
+  ExtensionDetails$,
+  ExtensionNodeSummary$,
+  ExtensionStatus,
+  ExtensionSummary$,
   FailStepMetadata$,
   FailureHandlingPolicy,
   FairShare,
@@ -1375,6 +1392,7 @@ import {
   HubContentInfo$,
   HubContentSortBy,
   HubContentStatus,
+  HubContentStepMetadata$,
   HubContentSupportStatus,
   HubContentType,
   HubInfo$,
@@ -1582,6 +1600,10 @@ import {
   ListClusterEventsCommand,
   ListClusterEventsRequest$,
   ListClusterEventsResponse$,
+  ListClusterExtensions$,
+  ListClusterExtensionsCommand,
+  ListClusterExtensionsRequest$,
+  ListClusterExtensionsResponse$,
   ListClusterNodes$,
   ListClusterNodesCommand,
   ListClusterNodesRequest$,
@@ -2109,6 +2131,7 @@ import {
   paginateListAutoMLJobs,
   paginateListCandidatesForAutoMLJob,
   paginateListClusterEvents,
+  paginateListClusterExtensions,
   paginateListClusterNodes,
   paginateListClusters,
   paginateListClusterSchedulerConfigs,
@@ -2211,6 +2234,7 @@ import {
   PipelineExecutionStepMetadata$,
   PipelineExecutionSummary$,
   PipelineExperimentConfig$,
+  PipelineManagedBy,
   PipelineStatus,
   PipelineSummary$,
   PipelineVersion$,
@@ -2680,6 +2704,10 @@ import {
   UpdateArtifactResponse$,
   UpdateCluster$,
   UpdateClusterCommand,
+  UpdateClusterExtension$,
+  UpdateClusterExtensionCommand,
+  UpdateClusterExtensionRequest$,
+  UpdateClusterExtensionResponse$,
   UpdateClusterRequest$,
   UpdateClusterResponse$,
   UpdateClusterSchedulerConfig$,
@@ -2945,6 +2973,8 @@ assert(typeof CreateAutoMLJobV2Command === "function");
 assert(typeof CreateAutoMLJobV2$ === "object");
 assert(typeof CreateClusterCommand === "function");
 assert(typeof CreateCluster$ === "object");
+assert(typeof CreateClusterExtensionCommand === "function");
+assert(typeof CreateClusterExtension$ === "object");
 assert(typeof CreateClusterSchedulerConfigCommand === "function");
 assert(typeof CreateClusterSchedulerConfig$ === "object");
 assert(typeof CreateCodeRepositoryCommand === "function");
@@ -3089,6 +3119,8 @@ assert(typeof DeleteAssociationCommand === "function");
 assert(typeof DeleteAssociation$ === "object");
 assert(typeof DeleteClusterCommand === "function");
 assert(typeof DeleteCluster$ === "object");
+assert(typeof DeleteClusterExtensionCommand === "function");
+assert(typeof DeleteClusterExtension$ === "object");
 assert(typeof DeleteClusterSchedulerConfigCommand === "function");
 assert(typeof DeleteClusterSchedulerConfig$ === "object");
 assert(typeof DeleteCodeRepositoryCommand === "function");
@@ -3221,6 +3253,8 @@ assert(typeof DescribeClusterCommand === "function");
 assert(typeof DescribeCluster$ === "object");
 assert(typeof DescribeClusterEventCommand === "function");
 assert(typeof DescribeClusterEvent$ === "object");
+assert(typeof DescribeClusterExtensionCommand === "function");
+assert(typeof DescribeClusterExtension$ === "object");
 assert(typeof DescribeClusterNodeCommand === "function");
 assert(typeof DescribeClusterNode$ === "object");
 assert(typeof DescribeClusterSchedulerConfigCommand === "function");
@@ -3401,6 +3435,8 @@ assert(typeof ListCandidatesForAutoMLJobCommand === "function");
 assert(typeof ListCandidatesForAutoMLJob$ === "object");
 assert(typeof ListClusterEventsCommand === "function");
 assert(typeof ListClusterEvents$ === "object");
+assert(typeof ListClusterExtensionsCommand === "function");
+assert(typeof ListClusterExtensions$ === "object");
 assert(typeof ListClusterNodesCommand === "function");
 assert(typeof ListClusterNodes$ === "object");
 assert(typeof ListClustersCommand === "function");
@@ -3639,6 +3675,8 @@ assert(typeof UpdateArtifactCommand === "function");
 assert(typeof UpdateArtifact$ === "object");
 assert(typeof UpdateClusterCommand === "function");
 assert(typeof UpdateCluster$ === "object");
+assert(typeof UpdateClusterExtensionCommand === "function");
+assert(typeof UpdateClusterExtension$ === "object");
 assert(typeof UpdateClusterSchedulerConfigCommand === "function");
 assert(typeof UpdateClusterSchedulerConfig$ === "object");
 assert(typeof UpdateClusterSoftwareCommand === "function");
@@ -3780,6 +3818,7 @@ assert(typeof AlgorithmStatusItem$ === "object");
 assert(typeof AlgorithmSummary$ === "object");
 assert(typeof AlgorithmValidationProfile$ === "object");
 assert(typeof AlgorithmValidationSpecification$ === "object");
+assert(typeof AliasOperations$ === "object");
 assert(typeof AmazonQSettings$ === "object");
 assert(typeof AnnotationConsolidationConfig$ === "object");
 assert(typeof AppDetails$ === "object");
@@ -3982,6 +4021,8 @@ assert(typeof CreateAutoMLJobRequest$ === "object");
 assert(typeof CreateAutoMLJobResponse$ === "object");
 assert(typeof CreateAutoMLJobV2Request$ === "object");
 assert(typeof CreateAutoMLJobV2Response$ === "object");
+assert(typeof CreateClusterExtensionRequest$ === "object");
+assert(typeof CreateClusterExtensionResponse$ === "object");
 assert(typeof CreateClusterRequest$ === "object");
 assert(typeof CreateClusterResponse$ === "object");
 assert(typeof CreateClusterSchedulerConfigRequest$ === "object");
@@ -4143,6 +4184,8 @@ assert(typeof DeleteArtifactRequest$ === "object");
 assert(typeof DeleteArtifactResponse$ === "object");
 assert(typeof DeleteAssociationRequest$ === "object");
 assert(typeof DeleteAssociationResponse$ === "object");
+assert(typeof DeleteClusterExtensionRequest$ === "object");
+assert(typeof DeleteClusterExtensionResponse$ === "object");
 assert(typeof DeleteClusterRequest$ === "object");
 assert(typeof DeleteClusterResponse$ === "object");
 assert(typeof DeleteClusterSchedulerConfigRequest$ === "object");
@@ -4246,6 +4289,8 @@ assert(typeof DescribeAutoMLJobV2Request$ === "object");
 assert(typeof DescribeAutoMLJobV2Response$ === "object");
 assert(typeof DescribeClusterEventRequest$ === "object");
 assert(typeof DescribeClusterEventResponse$ === "object");
+assert(typeof DescribeClusterExtensionRequest$ === "object");
+assert(typeof DescribeClusterExtensionResponse$ === "object");
 assert(typeof DescribeClusterNodeRequest$ === "object");
 assert(typeof DescribeClusterNodeResponse$ === "object");
 assert(typeof DescribeClusterRequest$ === "object");
@@ -4450,6 +4495,9 @@ assert(typeof Explainability$ === "object");
 assert(typeof ExplainerConfig$ === "object");
 assert(typeof ExtendTrainingPlanRequest$ === "object");
 assert(typeof ExtendTrainingPlanResponse$ === "object");
+assert(typeof ExtensionDetails$ === "object");
+assert(typeof ExtensionNodeSummary$ === "object");
+assert(typeof ExtensionSummary$ === "object");
 assert(typeof FailStepMetadata$ === "object");
 assert(typeof FeatureDefinition$ === "object");
 assert(typeof FeatureGroup$ === "object");
@@ -4490,6 +4538,7 @@ assert(typeof HubAccessConfig$ === "object");
 assert(typeof HubContent$ === "object");
 assert(typeof HubContentDependency$ === "object");
 assert(typeof HubContentInfo$ === "object");
+assert(typeof HubContentStepMetadata$ === "object");
 assert(typeof HubInfo$ === "object");
 assert(typeof HubS3StorageConfig$ === "object");
 assert(typeof HumanLoopActivationConditionsConfig$ === "object");
@@ -4625,6 +4674,8 @@ assert(typeof ListCandidatesForAutoMLJobRequest$ === "object");
 assert(typeof ListCandidatesForAutoMLJobResponse$ === "object");
 assert(typeof ListClusterEventsRequest$ === "object");
 assert(typeof ListClusterEventsResponse$ === "object");
+assert(typeof ListClusterExtensionsRequest$ === "object");
+assert(typeof ListClusterExtensionsResponse$ === "object");
 assert(typeof ListClusterNodesRequest$ === "object");
 assert(typeof ListClusterNodesResponse$ === "object");
 assert(typeof ListClusterSchedulerConfigsRequest$ === "object");
@@ -5199,6 +5250,8 @@ assert(typeof UpdateAppImageConfigRequest$ === "object");
 assert(typeof UpdateAppImageConfigResponse$ === "object");
 assert(typeof UpdateArtifactRequest$ === "object");
 assert(typeof UpdateArtifactResponse$ === "object");
+assert(typeof UpdateClusterExtensionRequest$ === "object");
+assert(typeof UpdateClusterExtensionResponse$ === "object");
 assert(typeof UpdateClusterRequest$ === "object");
 assert(typeof UpdateClusterResponse$ === "object");
 assert(typeof UpdateClusterSchedulerConfigRequest$ === "object");
@@ -5418,6 +5471,7 @@ assert(typeof EventSortBy === "object");
 assert(typeof ExecutionRoleIdentityConfig === "object");
 assert(typeof ExecutionRoleSessionNameMode === "object");
 assert(typeof ExecutionStatus === "object");
+assert(typeof ExtensionStatus === "object");
 assert(typeof FailureHandlingPolicy === "object");
 assert(typeof FairShare === "object");
 assert(typeof FeatureGroupSortBy === "object");
@@ -5551,6 +5605,7 @@ assert(typeof PartnerAppStatus === "object");
 assert(typeof PartnerAppType === "object");
 assert(typeof Peft === "object");
 assert(typeof PipelineExecutionStatus === "object");
+assert(typeof PipelineManagedBy === "object");
 assert(typeof PipelineStatus === "object");
 assert(typeof PreemptTeamTasks === "object");
 assert(typeof ProblemType === "object");
@@ -5727,6 +5782,7 @@ assert(typeof paginateListAssociations === "function");
 assert(typeof paginateListAutoMLJobs === "function");
 assert(typeof paginateListCandidatesForAutoMLJob === "function");
 assert(typeof paginateListClusterEvents === "function");
+assert(typeof paginateListClusterExtensions === "function");
 assert(typeof paginateListClusterNodes === "function");
 assert(typeof paginateListClusterSchedulerConfigs === "function");
 assert(typeof paginateListClusters === "function");

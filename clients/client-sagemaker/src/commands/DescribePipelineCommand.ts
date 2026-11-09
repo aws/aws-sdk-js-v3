@@ -35,6 +35,7 @@ export interface DescribePipelineCommandOutput extends DescribePipelineResponse,
  * const input = { // DescribePipelineRequest
  *   PipelineName: "STRING_VALUE", // required
  *   PipelineVersionId: Number("long"),
+ *   PipelineVersionAlias: "STRING_VALUE",
  * };
  * const command = new DescribePipelineCommand(input);
  * const response = await client.send(command);
@@ -74,6 +75,9 @@ export interface DescribePipelineCommandOutput extends DescribePipelineResponse,
  * //   },
  * //   PipelineVersionDisplayName: "STRING_VALUE",
  * //   PipelineVersionDescription: "STRING_VALUE",
+ * //   PipelineVersionAliases: [ // PipelineVersionAliasList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```

@@ -40,6 +40,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  *   SortOrder: "Ascending" || "Descending",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   ManagedBy: "AWS" || "CUSTOMER",
  * };
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);

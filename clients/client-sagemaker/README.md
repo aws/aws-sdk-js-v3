@@ -328,6 +328,13 @@ CreateCluster
 </details>
 <details>
 <summary>
+CreateClusterExtension
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/CreateClusterExtensionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/CreateClusterExtensionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/CreateClusterExtensionCommandOutput/)
+</details>
+<details>
+<summary>
 CreateClusterSchedulerConfig
 </summary>
 
@@ -832,6 +839,13 @@ DeleteCluster
 </details>
 <details>
 <summary>
+DeleteClusterExtension
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/DeleteClusterExtensionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DeleteClusterExtensionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DeleteClusterExtensionCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteClusterSchedulerConfig
 </summary>
 
@@ -1291,6 +1305,13 @@ DescribeClusterEvent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/DescribeClusterEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DescribeClusterEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DescribeClusterEventCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeClusterExtension
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/DescribeClusterExtensionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DescribeClusterExtensionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DescribeClusterExtensionCommandOutput/)
 </details>
 <details>
 <summary>
@@ -1921,6 +1942,13 @@ ListClusterEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/ListClusterEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/ListClusterEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/ListClusterEventsCommandOutput/)
+</details>
+<details>
+<summary>
+ListClusterExtensions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/ListClusterExtensionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/ListClusterExtensionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/ListClusterExtensionsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -2754,6 +2782,13 @@ UpdateCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/UpdateClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/UpdateClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/UpdateClusterCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateClusterExtension
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/UpdateClusterExtensionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/UpdateClusterExtensionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/UpdateClusterExtensionCommandOutput/)
 </details>
 <details>
 <summary>

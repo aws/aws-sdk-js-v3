@@ -115,6 +115,10 @@ import type {
 } from "./commands/CreateAutoMLJobV2Command";
 import type { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import type {
+  CreateClusterExtensionCommandInput,
+  CreateClusterExtensionCommandOutput,
+} from "./commands/CreateClusterExtensionCommand";
+import type {
   CreateClusterSchedulerConfigCommandInput,
   CreateClusterSchedulerConfigCommandOutput,
 } from "./commands/CreateClusterSchedulerConfigCommand";
@@ -337,6 +341,10 @@ import type {
 } from "./commands/DeleteAssociationCommand";
 import type { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import type {
+  DeleteClusterExtensionCommandInput,
+  DeleteClusterExtensionCommandOutput,
+} from "./commands/DeleteClusterExtensionCommand";
+import type {
   DeleteClusterSchedulerConfigCommandInput,
   DeleteClusterSchedulerConfigCommandOutput,
 } from "./commands/DeleteClusterSchedulerConfigCommand";
@@ -531,6 +539,10 @@ import type {
   DescribeClusterEventCommandInput,
   DescribeClusterEventCommandOutput,
 } from "./commands/DescribeClusterEventCommand";
+import type {
+  DescribeClusterExtensionCommandInput,
+  DescribeClusterExtensionCommandOutput,
+} from "./commands/DescribeClusterExtensionCommand";
 import type {
   DescribeClusterNodeCommandInput,
   DescribeClusterNodeCommandOutput,
@@ -828,6 +840,10 @@ import type {
   ListClusterEventsCommandInput,
   ListClusterEventsCommandOutput,
 } from "./commands/ListClusterEventsCommand";
+import type {
+  ListClusterExtensionsCommandInput,
+  ListClusterExtensionsCommandOutput,
+} from "./commands/ListClusterExtensionsCommand";
 import type { ListClusterNodesCommandInput, ListClusterNodesCommandOutput } from "./commands/ListClusterNodesCommand";
 import type {
   ListClusterSchedulerConfigsCommandInput,
@@ -1182,6 +1198,10 @@ import type {
 import type { UpdateArtifactCommandInput, UpdateArtifactCommandOutput } from "./commands/UpdateArtifactCommand";
 import type { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
 import type {
+  UpdateClusterExtensionCommandInput,
+  UpdateClusterExtensionCommandOutput,
+} from "./commands/UpdateClusterExtensionCommand";
+import type {
   UpdateClusterSchedulerConfigCommandInput,
   UpdateClusterSchedulerConfigCommandOutput,
 } from "./commands/UpdateClusterSchedulerConfigCommand";
@@ -1330,6 +1350,7 @@ export type ServiceInputTypes =
   | CreateAutoMLJobCommandInput
   | CreateAutoMLJobV2CommandInput
   | CreateClusterCommandInput
+  | CreateClusterExtensionCommandInput
   | CreateClusterSchedulerConfigCommandInput
   | CreateCodeRepositoryCommandInput
   | CreateCompilationJobCommandInput
@@ -1402,6 +1423,7 @@ export type ServiceInputTypes =
   | DeleteArtifactCommandInput
   | DeleteAssociationCommandInput
   | DeleteClusterCommandInput
+  | DeleteClusterExtensionCommandInput
   | DeleteClusterSchedulerConfigCommandInput
   | DeleteCodeRepositoryCommandInput
   | DeleteCompilationJobCommandInput
@@ -1468,6 +1490,7 @@ export type ServiceInputTypes =
   | DescribeAutoMLJobV2CommandInput
   | DescribeClusterCommandInput
   | DescribeClusterEventCommandInput
+  | DescribeClusterExtensionCommandInput
   | DescribeClusterNodeCommandInput
   | DescribeClusterSchedulerConfigCommandInput
   | DescribeCodeRepositoryCommandInput
@@ -1558,6 +1581,7 @@ export type ServiceInputTypes =
   | ListAutoMLJobsCommandInput
   | ListCandidatesForAutoMLJobCommandInput
   | ListClusterEventsCommandInput
+  | ListClusterExtensionsCommandInput
   | ListClusterNodesCommandInput
   | ListClusterSchedulerConfigsCommandInput
   | ListClustersCommandInput
@@ -1677,6 +1701,7 @@ export type ServiceInputTypes =
   | UpdateAppImageConfigCommandInput
   | UpdateArtifactCommandInput
   | UpdateClusterCommandInput
+  | UpdateClusterExtensionCommandInput
   | UpdateClusterSchedulerConfigCommandInput
   | UpdateClusterSoftwareCommandInput
   | UpdateCodeRepositoryCommandInput
@@ -1744,6 +1769,7 @@ export type ServiceOutputTypes =
   | CreateAutoMLJobCommandOutput
   | CreateAutoMLJobV2CommandOutput
   | CreateClusterCommandOutput
+  | CreateClusterExtensionCommandOutput
   | CreateClusterSchedulerConfigCommandOutput
   | CreateCodeRepositoryCommandOutput
   | CreateCompilationJobCommandOutput
@@ -1816,6 +1842,7 @@ export type ServiceOutputTypes =
   | DeleteArtifactCommandOutput
   | DeleteAssociationCommandOutput
   | DeleteClusterCommandOutput
+  | DeleteClusterExtensionCommandOutput
   | DeleteClusterSchedulerConfigCommandOutput
   | DeleteCodeRepositoryCommandOutput
   | DeleteCompilationJobCommandOutput
@@ -1882,6 +1909,7 @@ export type ServiceOutputTypes =
   | DescribeAutoMLJobV2CommandOutput
   | DescribeClusterCommandOutput
   | DescribeClusterEventCommandOutput
+  | DescribeClusterExtensionCommandOutput
   | DescribeClusterNodeCommandOutput
   | DescribeClusterSchedulerConfigCommandOutput
   | DescribeCodeRepositoryCommandOutput
@@ -1972,6 +2000,7 @@ export type ServiceOutputTypes =
   | ListAutoMLJobsCommandOutput
   | ListCandidatesForAutoMLJobCommandOutput
   | ListClusterEventsCommandOutput
+  | ListClusterExtensionsCommandOutput
   | ListClusterNodesCommandOutput
   | ListClusterSchedulerConfigsCommandOutput
   | ListClustersCommandOutput
@@ -2091,6 +2120,7 @@ export type ServiceOutputTypes =
   | UpdateAppImageConfigCommandOutput
   | UpdateArtifactCommandOutput
   | UpdateClusterCommandOutput
+  | UpdateClusterExtensionCommandOutput
   | UpdateClusterSchedulerConfigCommandOutput
   | UpdateClusterSoftwareCommandOutput
   | UpdateCodeRepositoryCommandOutput

@@ -106,6 +106,11 @@ import {
   CreateClusterCommand,
 } from "./commands/CreateClusterCommand";
 import {
+  type CreateClusterExtensionCommandInput,
+  type CreateClusterExtensionCommandOutput,
+  CreateClusterExtensionCommand,
+} from "./commands/CreateClusterExtensionCommand";
+import {
   type CreateClusterSchedulerConfigCommandInput,
   type CreateClusterSchedulerConfigCommandOutput,
   CreateClusterSchedulerConfigCommand,
@@ -454,6 +459,11 @@ import {
   DeleteClusterCommand,
 } from "./commands/DeleteClusterCommand";
 import {
+  type DeleteClusterExtensionCommandInput,
+  type DeleteClusterExtensionCommandOutput,
+  DeleteClusterExtensionCommand,
+} from "./commands/DeleteClusterExtensionCommand";
+import {
   type DeleteClusterSchedulerConfigCommandInput,
   type DeleteClusterSchedulerConfigCommandOutput,
   DeleteClusterSchedulerConfigCommand,
@@ -775,6 +785,11 @@ import {
   type DescribeClusterEventCommandOutput,
   DescribeClusterEventCommand,
 } from "./commands/DescribeClusterEventCommand";
+import {
+  type DescribeClusterExtensionCommandInput,
+  type DescribeClusterExtensionCommandOutput,
+  DescribeClusterExtensionCommand,
+} from "./commands/DescribeClusterExtensionCommand";
 import {
   type DescribeClusterNodeCommandInput,
   type DescribeClusterNodeCommandOutput,
@@ -1221,6 +1236,11 @@ import {
   type ListClusterEventsCommandOutput,
   ListClusterEventsCommand,
 } from "./commands/ListClusterEventsCommand";
+import {
+  type ListClusterExtensionsCommandInput,
+  type ListClusterExtensionsCommandOutput,
+  ListClusterExtensionsCommand,
+} from "./commands/ListClusterExtensionsCommand";
 import {
   type ListClusterNodesCommandInput,
   type ListClusterNodesCommandOutput,
@@ -1797,6 +1817,11 @@ import {
   UpdateClusterCommand,
 } from "./commands/UpdateClusterCommand";
 import {
+  type UpdateClusterExtensionCommandInput,
+  type UpdateClusterExtensionCommandOutput,
+  UpdateClusterExtensionCommand,
+} from "./commands/UpdateClusterExtensionCommand";
+import {
   type UpdateClusterSchedulerConfigCommandInput,
   type UpdateClusterSchedulerConfigCommandOutput,
   UpdateClusterSchedulerConfigCommand,
@@ -2016,6 +2041,7 @@ import { paginateListAssociations } from "./pagination/ListAssociationsPaginator
 import { paginateListAutoMLJobs } from "./pagination/ListAutoMLJobsPaginator";
 import { paginateListCandidatesForAutoMLJob } from "./pagination/ListCandidatesForAutoMLJobPaginator";
 import { paginateListClusterEvents } from "./pagination/ListClusterEventsPaginator";
+import { paginateListClusterExtensions } from "./pagination/ListClusterExtensionsPaginator";
 import { paginateListClusterNodes } from "./pagination/ListClusterNodesPaginator";
 import { paginateListClusterSchedulerConfigs } from "./pagination/ListClusterSchedulerConfigsPaginator";
 import { paginateListClusters } from "./pagination/ListClustersPaginator";
@@ -2138,6 +2164,7 @@ const commands = {
   CreateAutoMLJobCommand,
   CreateAutoMLJobV2Command,
   CreateClusterCommand,
+  CreateClusterExtensionCommand,
   CreateClusterSchedulerConfigCommand,
   CreateCodeRepositoryCommand,
   CreateCompilationJobCommand,
@@ -2210,6 +2237,7 @@ const commands = {
   DeleteArtifactCommand,
   DeleteAssociationCommand,
   DeleteClusterCommand,
+  DeleteClusterExtensionCommand,
   DeleteClusterSchedulerConfigCommand,
   DeleteCodeRepositoryCommand,
   DeleteCompilationJobCommand,
@@ -2276,6 +2304,7 @@ const commands = {
   DescribeAutoMLJobV2Command,
   DescribeClusterCommand,
   DescribeClusterEventCommand,
+  DescribeClusterExtensionCommand,
   DescribeClusterNodeCommand,
   DescribeClusterSchedulerConfigCommand,
   DescribeCodeRepositoryCommand,
@@ -2366,6 +2395,7 @@ const commands = {
   ListAutoMLJobsCommand,
   ListCandidatesForAutoMLJobCommand,
   ListClusterEventsCommand,
+  ListClusterExtensionsCommand,
   ListClusterNodesCommand,
   ListClustersCommand,
   ListClusterSchedulerConfigsCommand,
@@ -2485,6 +2515,7 @@ const commands = {
   UpdateAppImageConfigCommand,
   UpdateArtifactCommand,
   UpdateClusterCommand,
+  UpdateClusterExtensionCommand,
   UpdateClusterSchedulerConfigCommand,
   UpdateClusterSoftwareCommand,
   UpdateCodeRepositoryCommand,
@@ -2543,6 +2574,7 @@ const paginators = {
   paginateListAutoMLJobs,
   paginateListCandidatesForAutoMLJob,
   paginateListClusterEvents,
+  paginateListClusterExtensions,
   paginateListClusterNodes,
   paginateListClusters,
   paginateListClusterSchedulerConfigs,
@@ -3000,6 +3032,23 @@ export interface SageMaker {
     args: CreateClusterCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateClusterExtensionCommand}
+   */
+  createClusterExtension(
+    args: CreateClusterExtensionCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<CreateClusterExtensionCommandOutput>;
+  createClusterExtension(
+    args: CreateClusterExtensionCommandInput,
+    cb: (err: any, data?: CreateClusterExtensionCommandOutput) => void
+  ): void;
+  createClusterExtension(
+    args: CreateClusterExtensionCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: CreateClusterExtensionCommandOutput) => void
   ): void;
 
   /**
@@ -4229,6 +4278,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DeleteClusterExtensionCommand}
+   */
+  deleteClusterExtension(
+    args: DeleteClusterExtensionCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<DeleteClusterExtensionCommandOutput>;
+  deleteClusterExtension(
+    args: DeleteClusterExtensionCommandInput,
+    cb: (err: any, data?: DeleteClusterExtensionCommandOutput) => void
+  ): void;
+  deleteClusterExtension(
+    args: DeleteClusterExtensionCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: DeleteClusterExtensionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteClusterSchedulerConfigCommand}
    */
   deleteClusterSchedulerConfig(
@@ -5348,6 +5414,23 @@ export interface SageMaker {
     args: DescribeClusterEventCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeClusterEventCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeClusterExtensionCommand}
+   */
+  describeClusterExtension(
+    args: DescribeClusterExtensionCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<DescribeClusterExtensionCommandOutput>;
+  describeClusterExtension(
+    args: DescribeClusterExtensionCommandInput,
+    cb: (err: any, data?: DescribeClusterExtensionCommandOutput) => void
+  ): void;
+  describeClusterExtension(
+    args: DescribeClusterExtensionCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: DescribeClusterExtensionCommandOutput) => void
   ): void;
 
   /**
@@ -6891,6 +6974,23 @@ export interface SageMaker {
     args: ListClusterEventsCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: ListClusterEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListClusterExtensionsCommand}
+   */
+  listClusterExtensions(
+    args: ListClusterExtensionsCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<ListClusterExtensionsCommandOutput>;
+  listClusterExtensions(
+    args: ListClusterExtensionsCommandInput,
+    cb: (err: any, data?: ListClusterExtensionsCommandOutput) => void
+  ): void;
+  listClusterExtensions(
+    args: ListClusterExtensionsCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: ListClusterExtensionsCommandOutput) => void
   ): void;
 
   /**
@@ -8979,6 +9079,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link UpdateClusterExtensionCommand}
+   */
+  updateClusterExtension(
+    args: UpdateClusterExtensionCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<UpdateClusterExtensionCommandOutput>;
+  updateClusterExtension(
+    args: UpdateClusterExtensionCommandInput,
+    cb: (err: any, data?: UpdateClusterExtensionCommandOutput) => void
+  ): void;
+  updateClusterExtension(
+    args: UpdateClusterExtensionCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: UpdateClusterExtensionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateClusterSchedulerConfigCommand}
    */
   updateClusterSchedulerConfig(
@@ -9839,6 +9956,17 @@ export interface SageMaker {
     args: ListClusterEventsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListClusterEventsCommandOutput>;
+
+  /**
+   * @see {@link ListClusterExtensionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClusterExtensionsCommandOutput}.
+   */
+  paginateListClusterExtensions(
+    args: ListClusterExtensionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClusterExtensionsCommandOutput>;
 
   /**
    * @see {@link ListClusterNodesCommand}

@@ -2,9 +2,12 @@
 import type {
   _InstanceType,
   AccountDefaultStatus,
+  ActivationState,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
   BooleanOperator,
+  ClusterNodeProvisioningMode,
+  ClusterNodeRecovery,
   CrossAccountFilterOption,
   HomeEfsFileSystemCreation,
   HubContentSupportStatus,
@@ -30,11 +33,21 @@ import type {
 } from "./enums";
 import type {
   AdditionalInferenceSpecificationDefinition,
+  AliasOperations,
   CfnUpdateTemplateProvider,
+  ClusterAutoScalingConfig,
+  ClusterInstanceGroupSpecification,
+  ClusterOrchestrator,
+  ClusterRestrictedInstanceGroupsConfig,
+  DeploymentConfiguration,
   InferenceSpecification,
   Tag,
 } from "./models_0";
 import type {
+  ClusterRestrictedInstanceGroupSpecification,
+  ClusterTieredStorageConfig,
+  ComputeQuotaConfig,
+  ComputeQuotaTarget,
   DefaultSpaceSettings,
   DeploymentConfig,
   EdgeOutputConfig,
@@ -46,6 +59,7 @@ import type {
   ModelLifeCycle,
   ModelPackageModelCard,
   ModelVariantConfig,
+  SchedulerConfig,
   ShadowModeConfig,
   UserSettings,
 } from "./models_1";
@@ -77,6 +91,7 @@ import type {
   DomainSettingsForUpdate,
   FeatureParameter,
   Filter,
+  GitConfigForUpdate,
   InferenceComponentDeploymentConfig,
   Workforce,
   Workteam,
@@ -89,6 +104,364 @@ import type {
   ResourceConfigForUpdate,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateArtifactRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the artifact to update.</p>
+   * @public
+   */
+  ArtifactArn: string | undefined;
+
+  /**
+   * <p>The new name for the artifact.</p>
+   * @public
+   */
+  ArtifactName?: string | undefined;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+
+  /**
+   * <p>A list of properties to remove.</p>
+   * @public
+   */
+  PropertiesToRemove?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateArtifactResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
+   * @public
+   */
+  ArtifactArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClusterRequest {
+  /**
+   * <p>Specify the name of the SageMaker HyperPod cluster you want to update.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>Specify the instance groups to update.</p>
+   * @public
+   */
+  InstanceGroups?: ClusterInstanceGroupSpecification[] | undefined;
+
+  /**
+   * <p>The specialized instance groups for training models like Amazon Nova to be created in the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  RestrictedInstanceGroups?: ClusterRestrictedInstanceGroupSpecification[] | undefined;
+
+  /**
+   * <p>The configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  RestrictedInstanceGroupsConfig?: ClusterRestrictedInstanceGroupsConfig | undefined;
+
+  /**
+   * <p>Updates the configuration for managed tier checkpointing on the HyperPod cluster. For example, you can enable or disable the feature and modify the percentage of cluster memory allocated for checkpoint storage.</p>
+   * @public
+   */
+  TieredStorageConfig?: ClusterTieredStorageConfig | undefined;
+
+  /**
+   * <p>The node recovery mode to be applied to the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  NodeRecovery?: ClusterNodeRecovery | undefined;
+
+  /**
+   * <p>Specify the names of the instance groups to delete. Use a single <code>,</code> as the separator between multiple names.</p>
+   * @public
+   */
+  InstanceGroupsToDelete?: string[] | undefined;
+
+  /**
+   * <p>Determines how instance provisioning is handled during cluster operations. In <code>Continuous</code> mode, the cluster provisions available instances incrementally and retries until the target count is reached. The cluster becomes operational once cluster-level resources are ready. Use <code>CurrentCount</code> and <code>TargetCount</code> in <code>DescribeCluster</code> to track provisioning progress.</p>
+   * @public
+   */
+  NodeProvisioningMode?: ClusterNodeProvisioningMode | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that HyperPod assumes for cluster autoscaling operations. Cannot be updated while autoscaling is enabled.</p>
+   * @public
+   */
+  ClusterRole?: string | undefined;
+
+  /**
+   * <p>Updates the autoscaling configuration for the cluster. Use to enable or disable automatic node scaling.</p>
+   * @public
+   */
+  AutoScaling?: ClusterAutoScalingConfig | undefined;
+
+  /**
+   * <p>The type of orchestrator used for the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  Orchestrator?: ClusterOrchestrator | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClusterResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClusterExtensionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster on which the extension is installed.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extension to update.</p>
+   * @public
+   */
+  ExtensionArn: string | undefined;
+
+  /**
+   * <p>The version to update the extension to, in <code>MAJOR.MINOR.PATCH</code> format. The version must be later than the extension's current version. If you omit this parameter, the extension keeps its current version.</p>
+   * @public
+   */
+  ExtensionVersion?: string | undefined;
+
+  /**
+   * <p>The configuration changes to apply, as a JSON object serialized as a string. Settings that you include are changed, settings that you omit are unchanged, and a setting with the value <code>null</code> returns to its default value. The resulting configuration must be valid for the target extension version. If you omit <code>ConfigurationValues</code>, the configuration is unchanged.</p>
+   * @public
+   */
+  ConfigurationValues?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide so that the request is idempotent. If you send the same update more than once, SageMaker HyperPod applies it once and doesn't return an error.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClusterExtensionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extension that is being updated. To track the update, call <code>DescribeClusterExtension</code>.</p>
+   * @public
+   */
+  ExtensionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClusterSchedulerConfigRequest {
+  /**
+   * <p>ID of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigId: string | undefined;
+
+  /**
+   * <p>Target version.</p>
+   * @public
+   */
+  TargetVersion: number | undefined;
+
+  /**
+   * <p>Cluster policy configuration.</p>
+   * @public
+   */
+  SchedulerConfig?: SchedulerConfig | undefined;
+
+  /**
+   * <p>Description of the cluster policy.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClusterSchedulerConfigResponse {
+  /**
+   * <p>ARN of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigArn: string | undefined;
+
+  /**
+   * <p>Version of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigVersion: number | undefined;
+}
+
+/**
+ * <p>The configuration that describes specifications of the instance groups to update.</p>
+ * @public
+ */
+export interface UpdateClusterSoftwareInstanceGroupSpecification {
+  /**
+   * <p>The name of the instance group to update.</p>
+   * @public
+   */
+  InstanceGroupName: string | undefined;
+
+  /**
+   * <p>The version of the HyperPod-managed AMI to update to for the instance group. Uses semantic versioning in the format <code>MAJOR.MINOR.PATCH</code>.</p>
+   * @public
+   */
+  ImageReleaseVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClusterSoftwareRequest {
+  /**
+   * <p>Specify the name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster you want to update for security patching.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>The array of instance groups for which to update AMI versions.</p>
+   * @public
+   */
+  InstanceGroups?: UpdateClusterSoftwareInstanceGroupSpecification[] | undefined;
+
+  /**
+   * <p>The configuration to use when updating the AMI versions.</p>
+   * @public
+   */
+  DeploymentConfig?: DeploymentConfiguration | undefined;
+
+  /**
+   * <p>When configuring your HyperPod cluster, you can specify an image ID using one of the following options:</p> <ul> <li> <p> <code>HyperPodPublicAmiId</code>: Use a HyperPod public AMI</p> </li> <li> <p> <code>CustomAmiId</code>: Use your custom AMI</p> </li> <li> <p> <code>default</code>: Use the default latest system image</p> </li> </ul> <p>If you choose to use a custom AMI (<code>CustomAmiId</code>), ensure it meets the following requirements:</p> <ul> <li> <p>Encryption: The custom AMI must be unencrypted.</p> </li> <li> <p>Ownership: The custom AMI must be owned by the same Amazon Web Services account that is creating the HyperPod cluster.</p> </li> <li> <p>Volume support: Only the primary AMI snapshot volume is supported; additional AMI volumes are not supported.</p> </li> </ul> <p>When updating the instance group's AMI through the <code>UpdateClusterSoftware</code> operation, if an instance group uses a custom AMI, you must provide an <code>ImageId</code> or use the default as input. Note that if you don't specify an instance group in your <code>UpdateClusterSoftware</code> request, then all of the instance groups are patched with the specified image.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClusterSoftwareResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster being updated for security patching.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCodeRepositoryInput {
+  /**
+   * <p>The name of the Git repository to update.</p>
+   * @public
+   */
+  CodeRepositoryName: string | undefined;
+
+  /**
+   * <p>The configuration of the git repository, including the URL and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the repository. The secret must have a staging label of <code>AWSCURRENT</code> and must be in the following format:</p> <p> <code>\{"username": <i>UserName</i>, "password": <i>Password</i>\}</code> </p>
+   * @public
+   */
+  GitConfig?: GitConfigForUpdate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCodeRepositoryOutput {
+  /**
+   * <p>The ARN of the Git repository.</p>
+   * @public
+   */
+  CodeRepositoryArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateComputeQuotaRequest {
+  /**
+   * <p>ID of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaId: string | undefined;
+
+  /**
+   * <p>Target version.</p>
+   * @public
+   */
+  TargetVersion: number | undefined;
+
+  /**
+   * <p>Configuration of the compute allocation definition. This includes the resource sharing option, and the setting to preempt low priority tasks.</p>
+   * @public
+   */
+  ComputeQuotaConfig?: ComputeQuotaConfig | undefined;
+
+  /**
+   * <p>The target entity to allocate compute resources to.</p>
+   * @public
+   */
+  ComputeQuotaTarget?: ComputeQuotaTarget | undefined;
+
+  /**
+   * <p>The state of the compute allocation being described. Use to enable or disable compute allocation.</p> <p>Default is <code>Enabled</code>.</p>
+   * @public
+   */
+  ActivationState?: ActivationState | undefined;
+
+  /**
+   * <p>Description of the compute allocation definition.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateComputeQuotaResponse {
+  /**
+   * <p>ARN of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaArn: string | undefined;
+
+  /**
+   * <p>Version of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaVersion: number | undefined;
+}
 
 /**
  * @public
@@ -1478,6 +1851,12 @@ export interface UpdatePipelineRequest {
    * @public
    */
   ParallelismConfiguration?: ParallelismConfiguration | undefined;
+
+  /**
+   * <p>The aliases to assign to the new pipeline version that this update creates. You can specify aliases only when the update changes the pipeline definition. To change the aliases of an existing version, use <code>UpdatePipelineVersion</code>.</p> <p>An alias must be unique within the pipeline. To move an alias from an existing version to the new version, first remove the alias from the existing version with <code>UpdatePipelineVersion</code>.</p>
+   * @public
+   */
+  PipelineVersionAliases?: string[] | undefined;
 }
 
 /**
@@ -1564,6 +1943,12 @@ export interface UpdatePipelineVersionRequest {
    * @public
    */
   PipelineVersionDescription?: string | undefined;
+
+  /**
+   * <p>The aliases to add to or remove from the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionAliasOperations?: AliasOperations | undefined;
 }
 
 /**
