@@ -60,10 +60,10 @@
     "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.87",
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.51",
     "@aws-sdk/types": "workspace:^3.975.0",
-    "@smithy/core": "^3.38.0",
-    "@smithy/fetch-http-handler": "^5.8.0",
-    "@smithy/node-http-handler": "^4.14.0",
-    "@smithy/types": "^4.19.0",
+    "@smithy/core": "^3.39.0",
+    "@smithy/fetch-http-handler": "^5.8.1",
+    "@smithy/node-http-handler": "^4.14.2",
+    "@smithy/types": "^4.20.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
