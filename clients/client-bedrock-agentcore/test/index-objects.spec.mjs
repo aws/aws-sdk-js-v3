@@ -141,6 +141,7 @@ import {
   DeleteRecommendationResponse$,
   Descriptors$,
   DescriptorType,
+  DomainFilter$,
   DuplicateIdException,
   DuplicateIdException$,
   EfsConfiguration$,
@@ -348,6 +349,10 @@ import {
   InvokeHarnessRequest$,
   InvokeHarnessResponse$,
   InvokeHarnessStreamOutput$,
+  InvokeWebSearch$,
+  InvokeWebSearchCommand,
+  InvokeWebSearchInput$,
+  InvokeWebSearchOutput$,
   KeyPressArguments$,
   KeyPressResult$,
   KeyShortcutArguments$,
@@ -483,6 +488,7 @@ import {
   ProxyBypass$,
   ProxyConfiguration$,
   ProxyCredentials$,
+  PublishedDateFilter$,
   RecommendationConfig$,
   RecommendationEvaluationConfig$,
   RecommendationEvaluatorReference$,
@@ -534,6 +540,8 @@ import {
   ServiceException$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  ServiceUnavailableException,
+  ServiceUnavailableException$,
   SessionFilter$,
   SessionFilterConfig$,
   SessionFinding$,
@@ -633,6 +641,8 @@ import {
   VariantConfiguration$,
   VariantResult$,
   ViewPort$,
+  WebSearchFilters$,
+  WebSearchResult$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -719,6 +729,8 @@ assert(typeof InvokeCodeInterpreterCommand === "function");
 assert(typeof InvokeCodeInterpreter$ === "object");
 assert(typeof InvokeHarnessCommand === "function");
 assert(typeof InvokeHarness$ === "object");
+assert(typeof InvokeWebSearchCommand === "function");
+assert(typeof InvokeWebSearch$ === "object");
 assert(typeof ListABTestsCommand === "function");
 assert(typeof ListABTests$ === "object");
 assert(typeof ListActorsCommand === "function");
@@ -861,6 +873,7 @@ assert(typeof DeletePaymentSessionResponse$ === "object");
 assert(typeof DeleteRecommendationRequest$ === "object");
 assert(typeof DeleteRecommendationResponse$ === "object");
 assert(typeof Descriptors$ === "object");
+assert(typeof DomainFilter$ === "object");
 assert(typeof EfsConfiguration$ === "object");
 assert(typeof EmbeddedCryptoWallet$ === "object");
 assert(typeof EvaluateRequest$ === "object");
@@ -998,6 +1011,8 @@ assert(typeof InvokeCodeInterpreterResponse$ === "object");
 assert(typeof InvokeHarnessRequest$ === "object");
 assert(typeof InvokeHarnessResponse$ === "object");
 assert(typeof InvokeHarnessStreamOutput$ === "object");
+assert(typeof InvokeWebSearchInput$ === "object");
+assert(typeof InvokeWebSearchOutput$ === "object");
 assert(typeof KeyPressArguments$ === "object");
 assert(typeof KeyPressResult$ === "object");
 assert(typeof KeyShortcutArguments$ === "object");
@@ -1082,6 +1097,7 @@ assert(typeof Proxy$ === "object");
 assert(typeof ProxyBypass$ === "object");
 assert(typeof ProxyConfiguration$ === "object");
 assert(typeof ProxyCredentials$ === "object");
+assert(typeof PublishedDateFilter$ === "object");
 assert(typeof RecommendationConfig$ === "object");
 assert(typeof RecommendationEvaluationConfig$ === "object");
 assert(typeof RecommendationEvaluatorReference$ === "object");
@@ -1172,6 +1188,8 @@ assert(typeof Variant$ === "object");
 assert(typeof VariantConfiguration$ === "object");
 assert(typeof VariantResult$ === "object");
 assert(typeof ViewPort$ === "object");
+assert(typeof WebSearchFilters$ === "object");
+assert(typeof WebSearchResult$ === "object");
 // enums
 assert(typeof ABTestExecutionStatus === "object");
 assert(typeof ABTestStatus === "object");
@@ -1252,6 +1270,8 @@ assert(ServiceException.prototype instanceof BedrockAgentCoreServiceException);
 assert(typeof ServiceException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof BedrockAgentCoreServiceException);
 assert(typeof ServiceQuotaExceededException$ === "object");
+assert(ServiceUnavailableException.prototype instanceof BedrockAgentCoreServiceException);
+assert(typeof ServiceUnavailableException$ === "object");
 assert(SubscriptionRequiredException.prototype instanceof BedrockAgentCoreServiceException);
 assert(typeof SubscriptionRequiredException$ === "object");
 assert(ThrottledException.prototype instanceof BedrockAgentCoreServiceException);

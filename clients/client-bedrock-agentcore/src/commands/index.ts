@@ -39,6 +39,7 @@ export * from "./InvokeAgentRuntimeCommandCommand";
 export * from "./InvokeBrowserCommand";
 export * from "./InvokeCodeInterpreterCommand";
 export * from "./InvokeHarnessCommand";
+export * from "./InvokeWebSearchCommand";
 export * from "./ListABTestsCommand";
 export * from "./ListActorsCommand";
 export * from "./ListBatchEvaluationsCommand";

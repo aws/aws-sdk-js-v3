@@ -185,6 +185,7 @@ import type {
   InvokeCodeInterpreterCommandOutput,
 } from "./commands/InvokeCodeInterpreterCommand";
 import type { InvokeHarnessCommandInput, InvokeHarnessCommandOutput } from "./commands/InvokeHarnessCommand";
+import type { InvokeWebSearchCommandInput, InvokeWebSearchCommandOutput } from "./commands/InvokeWebSearchCommand";
 import type { ListABTestsCommandInput, ListABTestsCommandOutput } from "./commands/ListABTestsCommand";
 import type { ListActorsCommandInput, ListActorsCommandOutput } from "./commands/ListActorsCommand";
 import type {
@@ -330,6 +331,7 @@ export type ServiceInputTypes =
   | InvokeBrowserCommandInput
   | InvokeCodeInterpreterCommandInput
   | InvokeHarnessCommandInput
+  | InvokeWebSearchCommandInput
   | ListABTestsCommandInput
   | ListActorsCommandInput
   | ListBatchEvaluationsCommandInput
@@ -402,6 +404,7 @@ export type ServiceOutputTypes =
   | InvokeBrowserCommandOutput
   | InvokeCodeInterpreterCommandOutput
   | InvokeHarnessCommandOutput
+  | InvokeWebSearchCommandOutput
   | ListABTestsCommandOutput
   | ListActorsCommandOutput
   | ListBatchEvaluationsCommandOutput

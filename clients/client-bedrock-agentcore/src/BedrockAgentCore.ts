@@ -197,6 +197,11 @@ import {
   InvokeHarnessCommand,
 } from "./commands/InvokeHarnessCommand";
 import {
+  type InvokeWebSearchCommandInput,
+  type InvokeWebSearchCommandOutput,
+  InvokeWebSearchCommand,
+} from "./commands/InvokeWebSearchCommand";
+import {
   type ListABTestsCommandInput,
   type ListABTestsCommandOutput,
   ListABTestsCommand,
@@ -384,6 +389,7 @@ const commands = {
   InvokeBrowserCommand,
   InvokeCodeInterpreterCommand,
   InvokeHarnessCommand,
+  InvokeWebSearchCommand,
   ListABTestsCommand,
   ListActorsCommand,
   ListBatchEvaluationsCommand,
@@ -1112,6 +1118,23 @@ export interface BedrockAgentCore {
     args: InvokeHarnessCommandInput,
     options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: InvokeHarnessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InvokeWebSearchCommand}
+   */
+  invokeWebSearch(
+    args: InvokeWebSearchCommandInput,
+    options?: BedrockAgentCoreRequestOptions
+  ): Promise<InvokeWebSearchCommandOutput>;
+  invokeWebSearch(
+    args: InvokeWebSearchCommandInput,
+    cb: (err: any, data?: InvokeWebSearchCommandOutput) => void
+  ): void;
+  invokeWebSearch(
+    args: InvokeWebSearchCommandInput,
+    options: BedrockAgentCoreRequestOptions,
+    cb: (err: any, data?: InvokeWebSearchCommandOutput) => void
   ): void;
 
   /**

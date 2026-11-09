@@ -111,6 +111,7 @@ const _DCPSRe = "DeleteCapacityProviderSessionResponse";
 const _DE = "DeleteEvent";
 const _DEI = "DeleteEventInput";
 const _DEO = "DeleteEventOutput";
+const _DF = "DomainFilter";
 const _DIE = "DuplicateIdException";
 const _DMR = "DeleteMemoryRecord";
 const _DMRI = "DeleteMemoryRecordInput";
@@ -328,6 +329,9 @@ const _IRCL = "InsightRootCauseList";
 const _IRL = "InsightResultList";
 const _ISE = "InternalServerException";
 const _ISSL = "InsightSampleSessionList";
+const _IWS = "InvokeWebSearch";
+const _IWSI = "InvokeWebSearchInput";
+const _IWSO = "InvokeWebSearchOutput";
 const _KPA = "KeyPressArguments";
 const _KPR = "KeyPressResult";
 const _KSA = "KeyShortcutArguments";
@@ -431,6 +435,7 @@ const _PB = "ProxyBypass";
 const _PC = "ProxyConfiguration";
 const _PCr = "ProxyCredentials";
 const _PD = "PaymentDocument";
+const _PDF = "PublishedDateFilter";
 const _PI = "PaymentInstrument";
 const _PID = "PaymentInstrumentDetails";
 const _PIS = "PaymentInstrumentSummary";
@@ -551,6 +556,7 @@ const _ST = "SensitiveText";
 const _STI = "SessionTraceIds";
 const _STIL = "SessionTraceIdsList";
 const _SU = "StreamUpdate";
+const _SUE = "ServiceUnavailableException";
 const _Sp = "Spans";
 const _TA = "ToolArguments";
 const _TB = "TokenBalance";
@@ -597,6 +603,9 @@ const _VP = "ViewPort";
 const _VR = "VariantResult";
 const _VRL = "VariantResultList";
 const _WITT = "WorkloadIdentityTokenType";
+const _WSF = "WebSearchFilters";
+const _WSR = "WebSearchResult";
+const _WSRL = "WebSearchResultList";
 const _XABAPAN = "X-Amzn-Bedrock-AgentCore-Payments-Agent-Name";
 const _XABAPUI = "X-Amzn-Bedrock-AgentCore-Payments-User-Id";
 const _XABARSEU = "X-Amzn-Bedrock-AgentCore-Runtime-Session-Endpoint-Url";
@@ -722,6 +731,7 @@ const _cr = "credentials";
 const _cu = "currency";
 const _cus = "custom";
 const _d = "description";
+const _dF = "domainFilter";
 const _dJ = "developerJwt";
 const _dP = "domainPatterns";
 const _dPi = "directoryPath";
@@ -784,6 +794,7 @@ const _eve = "event";
 const _even = "events";
 const _evi = "evidence";
 const _ex = "explanation";
+const _exc = "exclude";
 const _ext = "extensions";
 const _f = "filters";
 const _fA = "forceAuthentication";
@@ -834,8 +845,9 @@ const _iSs = "isSignificant";
 const _iT = "idempotencyToken";
 const _iTn = "inputTokens";
 const _iWAT = "includeWalletAuthToken";
-const _in = "input";
+const _in = "include";
 const _inl = "inline";
+const _inp = "input";
 const _it = "items";
 const _j = "jobs";
 const _jI = "jobId";
@@ -929,11 +941,15 @@ const _oa = "oauth";
 const _p = "payload";
 const _pA = "providerArn";
 const _pAL = "permit2AllowanceLimit";
+const _pAu = "publishedAfter";
+const _pAub = "publishedAt";
+const _pB = "publishedBefore";
 const _pC = "profileConfiguration";
 const _pCI = "paymentConnectorId";
 const _pCa = "paymentCredential";
 const _pCe = "percentChange";
 const _pCr = "proxyConfiguration";
+const _pDF = "publishedDateFilter";
 const _pI = "profileIdentifier";
 const _pID = "paymentInstrumentDetails";
 const _pII = "paymentInstrumentId";
@@ -965,6 +981,7 @@ const _prom = "prompt";
 const _q = "qualifier";
 const _r = "reason";
 const _rA = "roleArn";
+const _rAS = "retryAfterSeconds";
 const _rAe = "recommendationArn";
 const _rAec = "recordArn";
 const _rAeg = "registryArn";
@@ -1127,6 +1144,7 @@ const _tel = "telegram";
 const _tem = "temperature";
 const _ti = "timeout";
 const _tim = "timestamp";
+const _tit = "title";
 const _to = "token";
 const _too = "tools";
 const _tr = "traceparent";
@@ -1160,6 +1178,7 @@ const _wAT = "walletAuthToken";
 const _wATo = "workloadAccessToken";
 const _wIT = "workloadIdentityToken";
 const _wN = "workloadName";
+const _wSI = "webSearchId";
 const _wi = "width";
 const _x = "x";
 const _xabsi = "x-amzn-browser-session-id";
@@ -1191,6 +1210,7 @@ import {
   RuntimeClientError,
   ServiceException,
   ServiceQuotaExceededException,
+  ServiceUnavailableException,
   SubscriptionRequiredException,
   ThrottledException,
   ThrottlingException,
@@ -1263,6 +1283,12 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   [0]
 ];
 n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m, _rAS],
+  [0, 1], 1
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SubscriptionRequiredException$: StaticErrorSchema = [-3, n0, _SRE,
   { [_e]: _c, [_hE]: 403 },
   [_m, _sU, _pN],
@@ -1724,6 +1750,11 @@ export var Descriptors$: StaticStructureSchema = [3, n0, _De,
   [_mc, _a, _cus, _aSg],
   [() => McpDescriptor$, () => A2aDescriptor$, () => CustomDescriptor$, () => AgentSkillsDescriptor$]
 ];
+export var DomainFilter$: StaticStructureSchema = [3, n0, _DF,
+  0,
+  [_in, _exc],
+  [64 | 0, 64 | 0]
+];
 export var EfsConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_aPA, _mP, _fSA],
@@ -2036,7 +2067,7 @@ export var GetWorkloadAccessTokenResponse$: StaticStructureSchema = [3, n0, _GWA
 ];
 export var GroundTruthTurn$: StaticStructureSchema = [3, n0, _GTT,
   0,
-  [_in, _eRx],
+  [_inp, _eRx],
   [() => GroundTruthTurnInput$, () => EvaluationContent$]
 ];
 export var HarnessAgentCoreBrowserConfig$: StaticStructureSchema = [3, n0, _HACBC,
@@ -2181,12 +2212,12 @@ export var HarnessToolResultMetadataBlockDelta$: StaticStructureSchema = [3, n0,
 ];
 export var HarnessToolUseBlock$: StaticStructureSchema = [3, n0, _HTUB,
   0,
-  [_n, _tUI, _in, _t, _sNe],
+  [_n, _tUI, _inp, _t, _sNe],
   [0, 0, [() => SensitiveJson, 0], 0, 0], 3
 ];
 export var HarnessToolUseBlockDelta$: StaticStructureSchema = [3, n0, _HTUBD,
   0,
-  [_in],
+  [_inp],
   [[() => SensitiveText, 0]], 1
 ];
 export var HarnessToolUseBlockStart$: StaticStructureSchema = [3, n0, _HTUBS,
@@ -2293,6 +2324,16 @@ export var InvokeHarnessResponse$: StaticStructureSchema = [3, n0, _IHRn,
   0,
   [_stre],
   [[() => InvokeHarnessStreamOutput$, 16]], 1
+];
+export var InvokeWebSearchInput$: StaticStructureSchema = [3, n0, _IWSI,
+  0,
+  [_wSI, _sQ, _mRa, _f],
+  [[0, 1], 0, 1, () => WebSearchFilters$], 2
+];
+export var InvokeWebSearchOutput$: StaticStructureSchema = [3, n0, _IWSO,
+  0,
+  [_resu],
+  [() => WebSearchResultList], 1
 ];
 export var KeyPressArguments$: StaticStructureSchema = [3, n0, _KPA,
   0,
@@ -2628,6 +2669,11 @@ export var ProxyConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
   [_pro, _by],
   [() => Proxies, () => ProxyBypass$], 1
+];
+export var PublishedDateFilter$: StaticStructureSchema = [3, n0, _PDF,
+  0,
+  [_pAu, _pB],
+  [5, 5]
 ];
 export var RecommendationEvaluationConfig$: StaticStructureSchema = [3, n0, _REC,
   0,
@@ -3024,6 +3070,16 @@ export var ViewPort$: StaticStructureSchema = [3, n0, _VP,
   [_wi, _he],
   [1, 1], 2
 ];
+export var WebSearchFilters$: StaticStructureSchema = [3, n0, _WSF,
+  0,
+  [_dF, _pDF],
+  [() => DomainFilter$, () => PublishedDateFilter$]
+];
+export var WebSearchResult$: StaticStructureSchema = [3, n0, _WSR,
+  0,
+  [_te, _tit, _url, _pAub],
+  [0, 0, 0, 5], 1
+];
 var __Unit = "unit" as const;
 var ABTestSummaryList: StaticListSchema = [1, n0, _ABTSL,
   0, () => ABTestSummary$
@@ -3062,6 +3118,7 @@ var ConfigurationBundleToolEntryList: StaticListSchema = [1, n0, _CBTEL,
 var ContentBlockList: StaticListSchema = [1, n0, _CBL,
   0, () => ContentBlock$
 ];
+var DomainList = 64 | 0;
 var DomainPatterns = 64 | 0;
 var ErrorDetailsList = 64 | 0;
 var EvaluationContentList: StaticListSchema = [1, n0, _ECL,
@@ -3284,6 +3341,9 @@ var VariantList: StaticListSchema = [1, n0, _VL,
 ];
 var VariantResultList: StaticListSchema = [1, n0, _VRL,
   0, () => VariantResult$
+];
+var WebSearchResultList: StaticListSchema = [1, n0, _WSRL,
+  0, () => WebSearchResult$
 ];
 var WwwAuthenticateHeaderList = 64 | 0;
 var CustomRequestParametersType: StaticMapSchema = [2, n0, _CRPT,
@@ -3734,6 +3794,9 @@ export var InvokeCodeInterpreter$: StaticOperationSchema = [9, n0, _ICI,
 ];
 export var InvokeHarness$: StaticOperationSchema = [9, n0, _IH,
   { [_ht]: ["POST", "/harnesses/invoke", 200] }, () => InvokeHarnessRequest$, () => InvokeHarnessResponse$
+];
+export var InvokeWebSearch$: StaticOperationSchema = [9, n0, _IWS,
+  { [_ht]: ["POST", "/web-search/{webSearchId}/invoke", 200] }, () => InvokeWebSearchInput$, () => InvokeWebSearchOutput$
 ];
 export var ListABTests$: StaticOperationSchema = [9, n0, _LABT,
   { [_ht]: ["GET", "/ab-tests", 200] }, () => ListABTestsRequest$, () => ListABTestsResponse$

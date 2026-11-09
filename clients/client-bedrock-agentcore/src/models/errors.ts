@@ -242,6 +242,35 @@ export class DuplicateIdException extends __BaseException {
 }
 
 /**
+ * <p>The service can't handle the request right now. Retry the request. If the response includes <code>retryAfterSeconds</code>, wait that many seconds before you retry.</p>
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcore#ServiceUnavailableException";
+  readonly name = "ServiceUnavailableException" as const;
+  readonly $fault = "server" as const;
+  $retryable = {};
+  /**
+   * <p>The number of seconds to wait before you retry the request.</p>
+   * @public
+   */
+  retryAfterSeconds?: number | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
  * <p>The service encountered an internal error. Try your request again later.</p>
  * @public
  */

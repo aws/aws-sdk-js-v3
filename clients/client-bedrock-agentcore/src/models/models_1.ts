@@ -18,20 +18,205 @@ import type {
   PaymentStatus,
   PaymentType,
   RegistryRecordStatus,
+  Role,
 } from "./enums";
 import type {
   A2aDescriptor,
   ActorSummary,
   AgentSkillsDescriptor,
   Branch,
-  Conversational,
-  ExtractionConfig,
   MemoryContent,
-  MemoryJsonData,
   MemoryRecordMetadataValue,
-  MetadataValue,
-  PayloadType,
 } from "./models_0";
+
+/**
+ * <p>The configuration for extraction behavior. Use this structure to specify namespace variable keys and their values for namespace substitution during long-term memory extraction.</p>
+ * @public
+ */
+export interface ExtractionConfig {
+  /**
+   * <p>A map of <code>namespaceKeys</code> to their values. The service substitutes these values into <code>namespaceTemplates</code> during long-term memory extraction to control namespace hierarchy.</p>
+   * @public
+   */
+  namespaceVariables?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Value associated with the <code>eventMetadata</code> key.</p>
+ * @public
+ */
+export type MetadataValue =
+  | MetadataValue.StringValueMember
+  | MetadataValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MetadataValue {
+  /**
+   * <p>Value associated with the <code>eventMetadata</code> key.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    stringValue: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Contains the content of a memory item.</p>
+ * @public
+ */
+export type Content =
+  | Content.TextMember
+  | Content.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Content {
+  /**
+   * <p>The text content of the memory item.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Contains conversational content for an event payload.</p>
+ * @public
+ */
+export interface Conversational {
+  /**
+   * <p>The content of the conversation message.</p>
+   * @public
+   */
+  content: Content | undefined;
+
+  /**
+   * <p>The role of the participant in the conversation (for example, "user" or "assistant").</p>
+   * @public
+   */
+  role: Role | undefined;
+}
+
+/**
+ * <p>Contains non-conversational, JSON-formatted content for an event payload. JSON payloads are extracted into long-term memory.</p>
+ * @public
+ */
+export interface MemoryJsonData {
+  /**
+   * <p>The JSON content of the payload. Accepts any JSON value, including objects, arrays, strings, numbers, booleans, and null. The maximum size is 100 KB.</p>
+   * @public
+   */
+  content: __DocumentType | undefined;
+}
+
+/**
+ * <p>Contains the payload content for an event.</p>
+ * @public
+ */
+export type PayloadType =
+  | PayloadType.BlobMember
+  | PayloadType.ConversationalMember
+  | PayloadType.JsonMember
+  | PayloadType.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PayloadType {
+  /**
+   * <p>The conversational content of the payload.</p>
+   * @public
+   */
+  export interface ConversationalMember {
+    conversational: Conversational;
+    blob?: never;
+    json?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The binary content of the payload.</p>
+   * @public
+   */
+  export interface BlobMember {
+    conversational?: never;
+    blob: __DocumentType;
+    json?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The JSON content of the payload. Use this type to store non-conversational, JSON-formatted data, such as behavioral events, activity logs, or system events.</p>
+   * @public
+   */
+  export interface JsonMember {
+    conversational?: never;
+    blob?: never;
+    json: MemoryJsonData;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    conversational?: never;
+    blob?: never;
+    json?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    conversational: (value: Conversational) => T;
+    blob: (value: __DocumentType) => T;
+    json: (value: MemoryJsonData) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * @public

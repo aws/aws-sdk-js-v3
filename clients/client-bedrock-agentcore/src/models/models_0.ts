@@ -38,7 +38,6 @@ import type {
   RecordExpiryAction,
   ResourceContentType,
   ResultDestination,
-  Role,
   ScreenshotFormat,
   SessionStatus,
   TaskStatus,
@@ -9600,6 +9599,132 @@ export interface InvokeHarnessResponse {
 }
 
 /**
+ * <p>The domains to include in or exclude from the results. A root domain also matches its subdomains. For example, <code>example.com</code> also matches <code>docs.example.com</code>.</p>
+ * @public
+ */
+export interface DomainFilter {
+  /**
+   * <p>The domains to return results from. Results from other domains are not returned.</p>
+   * @public
+   */
+  include?: string[] | undefined;
+
+  /**
+   * <p>The domains to never return results from.</p>
+   * @public
+   */
+  exclude?: string[] | undefined;
+}
+
+/**
+ * <p>A publication time range for the results. Both bounds are optional, and both are inclusive. If <code>publishedAfter</code> is later than <code>publishedBefore</code>, the request fails with a <code>ValidationException</code>.</p>
+ * @public
+ */
+export interface PublishedDateFilter {
+  /**
+   * <p>The earliest publication time of the results, inclusive.</p>
+   * @public
+   */
+  publishedAfter?: Date | undefined;
+
+  /**
+   * <p>The latest publication time of the results, inclusive. A date without a time, such as one passed to the AWS CLI, means midnight UTC. To include a whole day, use the last second of that day, for example <code>2026-01-31T23:59:59Z</code>.</p>
+   * @public
+   */
+  publishedBefore?: Date | undefined;
+}
+
+/**
+ * <p>The filters to apply to a web search.</p>
+ * @public
+ */
+export interface WebSearchFilters {
+  /**
+   * <p>The domains to include in or exclude from the results.</p>
+   * @public
+   */
+  domainFilter?: DomainFilter | undefined;
+
+  /**
+   * <p>The publication time range of the results.</p>
+   * @public
+   */
+  publishedDateFilter?: PublishedDateFilter | undefined;
+}
+
+/**
+ * <p>Request for the <code>InvokeWebSearch</code> operation.</p>
+ * @public
+ */
+export interface InvokeWebSearchInput {
+  /**
+   * <p>The identifier of the web search tool to invoke. The Amazon Web Services-managed web search tool is <code>web-search.v1</code>.</p>
+   * @public
+   */
+  webSearchId: string | undefined;
+
+  /**
+   * <p>The text to search for.</p>
+   * @public
+   */
+  searchQuery: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Defaults to 25.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The filters to apply to the search results.</p>
+   * @public
+   */
+  filters?: WebSearchFilters | undefined;
+}
+
+/**
+ * <p>A web search result.</p>
+ * @public
+ */
+export interface WebSearchResult {
+  /**
+   * <p>The title of the page.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The URL of the page.</p>
+   * @public
+   */
+  url?: string | undefined;
+
+  /**
+   * <p>A text extract from the page.</p>
+   * @public
+   */
+  text: string | undefined;
+
+  /**
+   * <p>The time the page was published. This field is absent when the publication time is not known.</p>
+   * @public
+   */
+  publishedAt?: Date | undefined;
+}
+
+/**
+ * <p>Response for the <code>InvokeWebSearch</code> operation.</p>
+ * @public
+ */
+export interface InvokeWebSearchOutput {
+  /**
+   * <p>The search results, in ranked order.</p>
+   * @public
+   */
+  results: WebSearchResult[] | undefined;
+}
+
+/**
  * <p>Specifies the record expiry (long-term memory time-to-live) applied to the records in a batch request. Provide exactly one of <code>recordExpiryDurationDays</code> or <code>action</code>. Set <code>recordExpiryDurationDays</code> to configure or update the expiry, or set <code>action</code> to <code>REMOVE</code> to remove a previously configured expiry.</p>
  * @public
  */
@@ -10058,193 +10183,4 @@ export interface Branch {
    * @public
    */
   name: string | undefined;
-}
-
-/**
- * <p>The configuration for extraction behavior. Use this structure to specify namespace variable keys and their values for namespace substitution during long-term memory extraction.</p>
- * @public
- */
-export interface ExtractionConfig {
-  /**
-   * <p>A map of <code>namespaceKeys</code> to their values. The service substitutes these values into <code>namespaceTemplates</code> during long-term memory extraction to control namespace hierarchy.</p>
-   * @public
-   */
-  namespaceVariables?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Value associated with the <code>eventMetadata</code> key.</p>
- * @public
- */
-export type MetadataValue =
-  | MetadataValue.StringValueMember
-  | MetadataValue.$UnknownMember;
-
-/**
- * @public
- */
-export namespace MetadataValue {
-  /**
-   * <p>Value associated with the <code>eventMetadata</code> key.</p>
-   * @public
-   */
-  export interface StringValueMember {
-    stringValue: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    stringValue?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    stringValue: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Contains the content of a memory item.</p>
- * @public
- */
-export type Content =
-  | Content.TextMember
-  | Content.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Content {
-  /**
-   * <p>The text content of the memory item.</p>
-   * @public
-   */
-  export interface TextMember {
-    text: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    text?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    text: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Contains conversational content for an event payload.</p>
- * @public
- */
-export interface Conversational {
-  /**
-   * <p>The content of the conversation message.</p>
-   * @public
-   */
-  content: Content | undefined;
-
-  /**
-   * <p>The role of the participant in the conversation (for example, "user" or "assistant").</p>
-   * @public
-   */
-  role: Role | undefined;
-}
-
-/**
- * <p>Contains non-conversational, JSON-formatted content for an event payload. JSON payloads are extracted into long-term memory.</p>
- * @public
- */
-export interface MemoryJsonData {
-  /**
-   * <p>The JSON content of the payload. Accepts any JSON value, including objects, arrays, strings, numbers, booleans, and null. The maximum size is 100 KB.</p>
-   * @public
-   */
-  content: __DocumentType | undefined;
-}
-
-/**
- * <p>Contains the payload content for an event.</p>
- * @public
- */
-export type PayloadType =
-  | PayloadType.BlobMember
-  | PayloadType.ConversationalMember
-  | PayloadType.JsonMember
-  | PayloadType.$UnknownMember;
-
-/**
- * @public
- */
-export namespace PayloadType {
-  /**
-   * <p>The conversational content of the payload.</p>
-   * @public
-   */
-  export interface ConversationalMember {
-    conversational: Conversational;
-    blob?: never;
-    json?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The binary content of the payload.</p>
-   * @public
-   */
-  export interface BlobMember {
-    conversational?: never;
-    blob: __DocumentType;
-    json?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The JSON content of the payload. Use this type to store non-conversational, JSON-formatted data, such as behavioral events, activity logs, or system events.</p>
-   * @public
-   */
-  export interface JsonMember {
-    conversational?: never;
-    blob?: never;
-    json: MemoryJsonData;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    conversational?: never;
-    blob?: never;
-    json?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    conversational: (value: Conversational) => T;
-    blob: (value: __DocumentType) => T;
-    json: (value: MemoryJsonData) => T;
-    _: (name: string, value: any) => T;
-  }
 }
