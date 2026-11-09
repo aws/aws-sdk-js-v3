@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1164.0...v3.1165.0) (2026-11-09)
+
+
+### Bug Fixes
+
+* **core/httpAuthSchemes:** ignore invalid date when calculating offset ([#8409](https://github.com/aws/aws-sdk-js-v3/issues/8409)) ([2b73e89](https://github.com/aws/aws-sdk-js-v3/commit/2b73e8984461d3f59a89a68058e50d1f201eb8e0))
+
+
+### Features
+
+* **client-batch:** Adds support for additional Amazon EKS security context settings in AWS Batch. Pod-level settings include fsGroup, runAsUser, runAsGroup, runAsNonRoot, and seccompProfile. Container-level settings add Linux capabilities and seccompProfile to existing runAsUser, runAsGroup, and runAsNonRoot support. ([cdb45c0](https://github.com/aws/aws-sdk-js-v3/commit/cdb45c03840efca463da0fd1c0336f46c9277706))
+* **client-bedrock-agentcore:** Adds the InvokeWebSearch API, which searches the web using the AWS-managed web search and returns ranked results with a text extract from each page. Results can be filtered by domain and by publication time. ([e11d1b7](https://github.com/aws/aws-sdk-js-v3/commit/e11d1b7019d2ca1ecead4f58919f73b745ef268c))
+* **client-datazone:** Adds support for Workday Data Connect and Workday Live Data Query connection types in Amazon DataZone connection APIs. ([7c093d3](https://github.com/aws/aws-sdk-js-v3/commit/7c093d33bb72f2568b46968eefdc84c3589a7c82))
+* **client-ecs:** Amazon ECS Managed Instances now supports isolated and confidential tasks, which run in AWS Nitro Sandboxes. Configure them with trustedExecutionConfiguration in task definitions and nitroEnclavesEnabled in capacity providers. ([b788769](https://github.com/aws/aws-sdk-js-v3/commit/b788769894fcf0d39d72670c0ab68505a49bcb29))
+* **client-elasticsearch-service:** Adds cloned blue-green upgrades for Amazon OpenSearch Service domains. UpgradeElasticsearchDomain accepts DeploymentStrategyOptions to upgrade on a cloned cluster, the new UpdateClone API shifts search traffic, cuts over and sets retention, and DescribeDomainChangeProgress reports upgrade details. ([0face45](https://github.com/aws/aws-sdk-js-v3/commit/0face45da23f618c5fe9595556fd673bbfb51347))
+* **client-evs:** Amazon EVS adds support for r7i.metal-24xl and r7i.metal-48xl EC2 bare metal instance types for self-deployed VMware Cloud Foundation environments. These diskless instance types use customer-connected external NFS storage, such as Amazon FSx for NetApp ONTAP, instead of local NVMe and vSAN. ([b7895bf](https://github.com/aws/aws-sdk-js-v3/commit/b7895bf74a83f9421d74f393a08c6c601dc4aa30))
+* **client-glue:** We are releasing five new APIs to allow customers to enable Catalog-level data quality monitoring in AWS Glue Data Catalog, a new feature to perform data quality evaluation on collections of GDC tables selected by the customer, on a schedule or event-driven basis, using a custom or managed ruleset. ([0ae4edf](https://github.com/aws/aws-sdk-js-v3/commit/0ae4edf668711959df2ce99e4fbf5030ce397577))
+* **client-opensearch:** Adds cloned blue-green upgrades for Amazon OpenSearch Service domains. UpgradeDomain accepts DeploymentStrategyOptions to upgrade on a cloned cluster, the new UpdateClone API shifts search traffic, cuts over and sets retention, and DescribeDomainChangeProgress reports the upgrade details. ([8f619bc](https://github.com/aws/aws-sdk-js-v3/commit/8f619bcbe33d8e9cb4a9053ad6e3089b29a91e37))
+* **client-s3-control:** Adds support for cross-account access grants with InstanceScope parameter for GetDataAccess and ListCallerAccessGrants operations in S3 Access Grants. ([4ff9e78](https://github.com/aws/aws-sdk-js-v3/commit/4ff9e78f368e29027fc5ba13c65c723eac0c52d4))
+* **client-sagemaker:** Adds support for pipelines that AWS manages, filter ListPipelines by ManagedBy and run them with your own role via RoleArn on StartPipelineExecution. Adds pipeline version aliases to reference versions by name. Adds HubContent step metadata to ListPipelineExecutionSteps. ([f4f613e](https://github.com/aws/aws-sdk-js-v3/commit/f4f613e3f7c952a3f2845c435312b783035ba482))
+* **client-signin:** Adds the CreateBearerToken API, which exchanges your IAM credentials for a bearer token that can be used to access supported AWS services. ([487affb](https://github.com/aws/aws-sdk-js-v3/commit/487affb5d1c009e59eac12f2b88db2bc614481be))
+* **clients:** update client endpoints as of 2026-11-09 ([bc21b51](https://github.com/aws/aws-sdk-js-v3/commit/bc21b51bca01f717397369cf05518873f5299d8a))
+
+
+
+
+
 # [3.1164.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1163.0...v3.1164.0) (2026-11-06)
 
 

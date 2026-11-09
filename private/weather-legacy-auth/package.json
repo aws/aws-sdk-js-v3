@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/weather-legacy-auth",
-  "version": "3.1164.0",
+  "version": "3.1165.0",
   "private": true,
   "description": "@aws-sdk/weather-legacy-auth client",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/weather-legacy-auth",
@@ -44,11 +44,11 @@
     "clean": "premove dist-cjs dist-es dist-types"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.980.1",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.94",
-    "@aws-sdk/middleware-signing": "workspace:^3.973.11",
-    "@aws-sdk/middleware-token": "workspace:^3.972.37",
-    "@aws-sdk/types": "workspace:^3.975.0",
+    "@aws-sdk/core": "workspace:^3.980.2",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.95",
+    "@aws-sdk/middleware-signing": "workspace:^3.973.12",
+    "@aws-sdk/middleware-token": "workspace:^3.972.38",
+    "@aws-sdk/types": "workspace:^3.975.1",
     "@smithy/core": "^3.39.0",
     "@smithy/fetch-http-handler": "^5.8.1",
     "@smithy/node-http-handler": "^4.14.2",

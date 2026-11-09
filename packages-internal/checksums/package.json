@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/checksums",
-  "version": "3.1002.3",
+  "version": "3.1002.4",
   "description": "Checksum algorithms and flexible checksums middleware for the AWS SDK",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/checksums",
   "license": "Apache-2.0",
@@ -122,8 +122,8 @@
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.980.1",
-    "@aws-sdk/types": "workspace:^3.975.0",
+    "@aws-sdk/core": "workspace:^3.980.2",
+    "@aws-sdk/types": "workspace:^3.975.1",
     "@smithy/core": "^3.39.0",
     "@smithy/types": "^4.20.0",
     "tslib": "^2.6.2"

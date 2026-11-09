@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-ini",
-  "version": "3.973.27",
+  "version": "3.973.28",
   "description": "AWS credential provider that sources credentials from ~/.aws/credentials and ~/.aws/config",
   "keywords": [
     "aws",
@@ -45,15 +45,15 @@
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.980.1",
-    "@aws-sdk/credential-provider-env": "workspace:^3.972.82",
-    "@aws-sdk/credential-provider-http": "workspace:^3.972.84",
-    "@aws-sdk/credential-provider-login": "workspace:^3.972.89",
-    "@aws-sdk/credential-provider-process": "workspace:^3.972.82",
-    "@aws-sdk/credential-provider-sso": "workspace:^3.973.26",
-    "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.88",
-    "@aws-sdk/nested-clients": "workspace:^3.998.1",
-    "@aws-sdk/types": "workspace:^3.975.0",
+    "@aws-sdk/core": "workspace:^3.980.2",
+    "@aws-sdk/credential-provider-env": "workspace:^3.972.83",
+    "@aws-sdk/credential-provider-http": "workspace:^3.972.85",
+    "@aws-sdk/credential-provider-login": "workspace:^3.972.90",
+    "@aws-sdk/credential-provider-process": "workspace:^3.972.83",
+    "@aws-sdk/credential-provider-sso": "workspace:^3.973.27",
+    "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.89",
+    "@aws-sdk/nested-clients": "workspace:^3.998.2",
+    "@aws-sdk/types": "workspace:^3.975.1",
     "@smithy/core": "^3.39.0",
     "@smithy/credential-provider-imds": "^4.5.2",
     "@smithy/types": "^4.20.0",

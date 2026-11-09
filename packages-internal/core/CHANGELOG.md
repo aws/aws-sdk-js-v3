@@ -88,6 +88,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.980.2 (2026-11-09)
+### Bug Fixes
+* **core/httpAuthSchemes:** ignore invalid date when calculating offset ([#8409](https://github.com/aws/aws-sdk-js-v3/issues/8409)) ([2b73e89](https://github.com/aws/aws-sdk-js-v3/commit/2b73e8984461d3f59a89a68058e50d1f201eb8e0))
+### Chores
+* **codegen:** Upgrade to Smithy 1.74.1 ([#8407](https://github.com/aws/aws-sdk-js-v3/issues/8407)) ([bb818ca](https://github.com/aws/aws-sdk-js-v3/commit/bb818ca944e735d449b6f061141b91d92290f161))
+
+
+
 # 3.980.1 (2026-11-06)
 ### Chores
 * **util-endpoints:** update aws partitions.json ([616248b](https://github.com/aws/aws-sdk-js-v3/commit/616248b7da687d9f8c0bebba75c9d4f64883bb5b))

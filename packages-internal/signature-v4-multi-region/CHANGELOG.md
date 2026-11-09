@@ -54,6 +54,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.52 (2026-11-08)
+### Chores
+* **codegen:** Upgrade to Smithy 1.74.1 ([#8407](https://github.com/aws/aws-sdk-js-v3/issues/8407)) ([bb818ca](https://github.com/aws/aws-sdk-js-v3/commit/bb818ca944e735d449b6f061141b91d92290f161))
+
+
+
 # 3.996.51 (2026-10-29)
 ### Chores
 * **codegen:** sync to new smithy handler changes ([#8390](https://github.com/aws/aws-sdk-js-v3/issues/8390)) ([f393101](https://github.com/aws/aws-sdk-js-v3/commit/f393101c0e651bd0c9fda6ff24b7ede3b5e96869))

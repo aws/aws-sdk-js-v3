@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1164.0...v3.1165.0) (2026-11-09)
+
+
+### Features
+
+* **client-datazone:** Adds support for Workday Data Connect and Workday Live Data Query connection types in Amazon DataZone connection APIs. ([7c093d3](https://github.com/aws/aws-sdk-js-v3/commit/7c093d33bb72f2568b46968eefdc84c3589a7c82))
+
+
+
+
+
 # [3.1164.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1163.0...v3.1164.0) (2026-11-06)
 
 

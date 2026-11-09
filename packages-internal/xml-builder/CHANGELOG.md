@@ -26,6 +26,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.43 (2026-11-08)
+### Chores
+* **codegen:** Upgrade to Smithy 1.74.1 ([#8407](https://github.com/aws/aws-sdk-js-v3/issues/8407)) ([bb818ca](https://github.com/aws/aws-sdk-js-v3/commit/bb818ca944e735d449b6f061141b91d92290f161))
+
+
+
 # 3.972.42 (2026-10-28)
 ### Chores
 * readability, require braces for control flow ([#8389](https://github.com/aws/aws-sdk-js-v3/issues/8389)) ([2a16014](https://github.com/aws/aws-sdk-js-v3/commit/2a160140cbf5822f1a33bf93145d288ecf734597))
