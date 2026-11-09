@@ -2,6 +2,9 @@
 export type {
   SigninClient,
   Signin,
+  CreateBearerTokenCommand,
+  CreateBearerTokenCommandInput,
+  CreateBearerTokenCommandOutput,
   CreateOAuth2TokenCommand,
   CreateOAuth2TokenCommandInput,
   CreateOAuth2TokenCommandOutput,
@@ -40,6 +43,8 @@ export type {
   RevokeOAuth2TokenWithIAMCommandOutput,
   OAuth2ErrorCode,
   AccessToken,
+  CreateBearerTokenRequest,
+  CreateBearerTokenResponse,
   CreateOAuth2TokenRequest,
   CreateOAuth2TokenRequestBody,
   CreateOAuth2TokenResponse,

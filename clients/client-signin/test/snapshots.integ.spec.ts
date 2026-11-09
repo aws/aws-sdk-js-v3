@@ -6,6 +6,8 @@ import { describe, expect, test as it, vi } from "vitest";
 import {
   AccessDeniedException$,
   ConflictException$,
+  CreateBearerToken$,
+  CreateBearerTokenCommand,
   CreateOAuth2Token$,
   CreateOAuth2TokenCommand,
   CreateOAuth2TokenWithIAM$,
@@ -59,6 +61,7 @@ describe("SigninClient" + ` (${mode})`, () => {
       return Promise.resolve();
     },
     schemas: new Map<any, any>([
+      [CreateBearerToken$, CreateBearerTokenCommand],
       [CreateOAuth2Token$, CreateOAuth2TokenCommand],
       [CreateOAuth2TokenWithIAM$, CreateOAuth2TokenWithIAMCommand],
       [CreateOAuth2TokenWithTokenExchange$, CreateOAuth2TokenWithTokenExchangeCommand],

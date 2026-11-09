@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep1, _mw0, command } from "../commandBuilder";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateOAuth2TokenWithTokenExchangeRequest,
   CreateOAuth2TokenWithTokenExchangeResponse,
@@ -84,7 +84,7 @@ export interface CreateOAuth2TokenWithTokenExchangeCommandOutput extends CreateO
  * @public
  */
 export class CreateOAuth2TokenWithTokenExchangeCommand extends command<CreateOAuth2TokenWithTokenExchangeCommandInput, CreateOAuth2TokenWithTokenExchangeCommandOutput>(
-  _ep1,
+  _ep0,
   _mw0,
   "CreateOAuth2TokenWithTokenExchange",
   CreateOAuth2TokenWithTokenExchange$

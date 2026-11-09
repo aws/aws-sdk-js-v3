@@ -24,6 +24,57 @@ export interface AccessToken {
 }
 
 /**
+ * Input structure for CreateBearerToken operation
+ * @public
+ */
+export interface CreateBearerTokenRequest {
+  /**
+   * The grant type. Must be "client_credentials".
+   * @public
+   */
+  grantType: string | undefined;
+
+  /**
+   * The AWS service the bearer token is for.
+   * Example: "ecr.amazonaws.com".
+   * @public
+   */
+  resource: string | undefined;
+
+  /**
+   * The requested token lifetime in seconds, from 300 (5 minutes) up to the maximum allowed for the service, currently 43200 (12 hours). If omitted, the token is valid for 12 hours.
+   * @public
+   */
+  durationSeconds?: number | undefined;
+}
+
+/**
+ * Output structure for CreateBearerToken operation
+ *
+ * Contains the bearer token, its type, and its lifetime.
+ * @public
+ */
+export interface CreateBearerTokenResponse {
+  /**
+   * The bearer token. Present it to the AWS service named in the request.
+   * @public
+   */
+  accessToken: string | undefined;
+
+  /**
+   * The token type. Always "Bearer".
+   * @public
+   */
+  tokenType: string | undefined;
+
+  /**
+   * Token lifetime in seconds.
+   * @public
+   */
+  expiresIn: number | undefined;
+}
+
+/**
  * The request body for creating an OAuth 2.0 token. Supports both the authorization code and
  * refresh token flows, selected by the "grant_type" parameter.
  * @public

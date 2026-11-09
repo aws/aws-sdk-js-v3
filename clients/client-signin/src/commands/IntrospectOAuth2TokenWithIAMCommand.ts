@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep1, _mw0, command } from "../commandBuilder";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { IntrospectOAuth2TokenWithIAMRequest, IntrospectOAuth2TokenWithIAMResponse } from "../models/models_0";
 import { IntrospectOAuth2TokenWithIAM$ } from "../schemas/schemas_0";
 
@@ -85,7 +85,7 @@ export interface IntrospectOAuth2TokenWithIAMCommandOutput extends IntrospectOAu
  * @public
  */
 export class IntrospectOAuth2TokenWithIAMCommand extends command<IntrospectOAuth2TokenWithIAMCommandInput, IntrospectOAuth2TokenWithIAMCommandOutput>(
-  _ep1,
+  _ep0,
   _mw0,
   "IntrospectOAuth2TokenWithIAM",
   IntrospectOAuth2TokenWithIAM$

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./CreateBearerTokenCommand";
 export * from "./CreateOAuth2TokenCommand";
 export * from "./CreateOAuth2TokenWithIAMCommand";
 export * from "./CreateOAuth2TokenWithTokenExchangeCommand";

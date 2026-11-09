@@ -8,6 +8,11 @@ import type {
 } from "@smithy/types";
 
 import {
+  type CreateBearerTokenCommandInput,
+  type CreateBearerTokenCommandOutput,
+  CreateBearerTokenCommand,
+} from "./commands/CreateBearerTokenCommand";
+import {
   type CreateOAuth2TokenCommandInput,
   type CreateOAuth2TokenCommandOutput,
   CreateOAuth2TokenCommand,
@@ -71,6 +76,7 @@ import { paginateListResourcePermissionStatements } from "./pagination/ListResou
 import { SigninClient } from "./SigninClient";
 
 const commands = {
+  CreateBearerTokenCommand,
   CreateOAuth2TokenCommand,
   CreateOAuth2TokenWithIAMCommand,
   CreateOAuth2TokenWithTokenExchangeCommand,
@@ -96,6 +102,23 @@ export interface SigninRequestOptions extends __HttpHandlerOptions {
 }
 
 export interface Signin {
+  /**
+   * @see {@link CreateBearerTokenCommand}
+   */
+  createBearerToken(
+    args: CreateBearerTokenCommandInput,
+    options?: SigninRequestOptions
+  ): Promise<CreateBearerTokenCommandOutput>;
+  createBearerToken(
+    args: CreateBearerTokenCommandInput,
+    cb: (err: any, data?: CreateBearerTokenCommandOutput) => void
+  ): void;
+  createBearerToken(
+    args: CreateBearerTokenCommandInput,
+    options: SigninRequestOptions,
+    cb: (err: any, data?: CreateBearerTokenCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateOAuth2TokenCommand}
    */

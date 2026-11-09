@@ -16,14 +16,14 @@ export const command = makeBuilder<SigninClientResolvedConfig, ServiceInputTypes
  * @internal
  */
 export const _ep0: EndpointParameterInstructions = {
-  IsControlPlane: { type: "staticContextParams", value: false },
+  IsOAuthEndpoint: { type: "staticContextParams", value: true },
 };
 
 /**
  * @internal
  */
 export const _ep1: EndpointParameterInstructions = {
-  IsOAuthEndpoint: { type: "staticContextParams", value: true },
+  IsControlPlane: { type: "staticContextParams", value: false },
 };
 
 /**

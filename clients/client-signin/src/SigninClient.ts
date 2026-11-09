@@ -55,6 +55,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  CreateBearerTokenCommandInput,
+  CreateBearerTokenCommandOutput,
+} from "./commands/CreateBearerTokenCommand";
+import type {
   CreateOAuth2TokenCommandInput,
   CreateOAuth2TokenCommandOutput,
 } from "./commands/CreateOAuth2TokenCommand";
@@ -117,6 +121,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateBearerTokenCommandInput
   | CreateOAuth2TokenCommandInput
   | CreateOAuth2TokenWithIAMCommandInput
   | CreateOAuth2TokenWithTokenExchangeCommandInput
@@ -134,6 +139,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateBearerTokenCommandOutput
   | CreateOAuth2TokenCommandOutput
   | CreateOAuth2TokenWithIAMCommandOutput
   | CreateOAuth2TokenWithTokenExchangeCommandOutput

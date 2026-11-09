@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep1, _mw0, command } from "../commandBuilder";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RevokeOAuth2TokenWithIAMRequest, RevokeOAuth2TokenWithIAMResponse } from "../models/models_0";
 import { RevokeOAuth2TokenWithIAM$ } from "../schemas/schemas_0";
 
@@ -66,7 +66,7 @@ export interface RevokeOAuth2TokenWithIAMCommandOutput extends RevokeOAuth2Token
  * @public
  */
 export class RevokeOAuth2TokenWithIAMCommand extends command<RevokeOAuth2TokenWithIAMCommandInput, RevokeOAuth2TokenWithIAMCommandOutput>(
-  _ep1,
+  _ep0,
   _mw0,
   "RevokeOAuth2TokenWithIAM",
   RevokeOAuth2TokenWithIAM$

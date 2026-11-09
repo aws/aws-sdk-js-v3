@@ -4,6 +4,10 @@ import {
   AccessToken$,
   ConflictException,
   ConflictException$,
+  CreateBearerToken$,
+  CreateBearerTokenCommand,
+  CreateBearerTokenRequest$,
+  CreateBearerTokenResponse$,
   CreateOAuth2Token$,
   CreateOAuth2TokenCommand,
   CreateOAuth2TokenRequest$,
@@ -84,6 +88,8 @@ import assert from "node:assert";
 assert(typeof SigninClient === "function");
 assert(typeof Signin === "function");
 // commands
+assert(typeof CreateBearerTokenCommand === "function");
+assert(typeof CreateBearerToken$ === "object");
 assert(typeof CreateOAuth2TokenCommand === "function");
 assert(typeof CreateOAuth2Token$ === "object");
 assert(typeof CreateOAuth2TokenWithIAMCommand === "function");
@@ -110,6 +116,8 @@ assert(typeof RevokeOAuth2TokenWithIAMCommand === "function");
 assert(typeof RevokeOAuth2TokenWithIAM$ === "object");
 // structural schemas
 assert(typeof AccessToken$ === "object");
+assert(typeof CreateBearerTokenRequest$ === "object");
+assert(typeof CreateBearerTokenResponse$ === "object");
 assert(typeof CreateOAuth2TokenRequest$ === "object");
 assert(typeof CreateOAuth2TokenRequestBody$ === "object");
 assert(typeof CreateOAuth2TokenResponse$ === "object");

@@ -181,6 +181,13 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CreateBearerToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/CreateBearerTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/CreateBearerTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/CreateBearerTokenCommandOutput/)
+</details>
+<details>
+<summary>
 CreateOAuth2Token
 </summary>
 

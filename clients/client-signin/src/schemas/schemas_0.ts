@@ -3,6 +3,9 @@ const _ADE = "AccessDeniedException";
 const _AT = "AccessToken";
 const _C = "Condition";
 const _CB = "ConditionBlock";
+const _CBT = "CreateBearerToken";
+const _CBTR = "CreateBearerTokenRequest";
+const _CBTRr = "CreateBearerTokenResponse";
 const _CE = "ConflictException";
 const _COAT = "CreateOAuth2Token";
 const _COATR = "CreateOAuth2TokenRequest";
@@ -82,6 +85,8 @@ const _cV = "codeVerifier";
 const _ci = "client_id";
 const _co = "code";
 const _con = "condition";
+const _d = "duration";
+const _dS = "durationSeconds";
 const _e = "error";
 const _eI = "expiresIn";
 const _eP = "excludedPrincipal";
@@ -251,6 +256,16 @@ export var AccessToken$: StaticStructureSchema = [3, n0, _AT,
   [_aKI, _sAK, _sT],
   [[0, { [_jN]: _aKI }], [0, { [_jN]: _sAK }], [0, { [_jN]: _sT }]], 3
 ];
+export var CreateBearerTokenRequest$: StaticStructureSchema = [3, n0, _CBTR,
+  0,
+  [_gT, _r, _dS],
+  [[0, { [_jN]: _gt }], 0, [1, { [_jN]: _d }]], 2
+];
+export var CreateBearerTokenResponse$: StaticStructureSchema = [3, n0, _CBTRr,
+  0,
+  [_aT, _tT, _eI],
+  [[() => OAuthAccessToken, { [_jN]: _at }], [0, { [_jN]: _tt }], [1, { [_jN]: _ei }]], 3
+];
 export var CreateOAuth2TokenRequest$: StaticStructureSchema = [3, n0, _COATR,
   0,
   [_tI],
@@ -412,6 +427,9 @@ var ConditionBlock: StaticMapSchema = [2, n0, _CB,
   0, 0, [2, n0, _C, 0, 0, 64 | 0]
 ];
 var Principal = 128 | 0;
+export var CreateBearerToken$: StaticOperationSchema = [9, n0, _CBT,
+  { [_h]: ["POST", "/v1/token?x-amz-token-request-type=bearer", 200] }, () => CreateBearerTokenRequest$, () => CreateBearerTokenResponse$
+];
 export var CreateOAuth2Token$: StaticOperationSchema = [9, n0, _COAT,
   { [_h]: ["POST", "/v1/token", 200] }, () => CreateOAuth2TokenRequest$, () => CreateOAuth2TokenResponse$
 ];
