@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   AccessType,
+  AttestationPolicyStatus,
   AvailabilityZoneRebalancing,
   Compatibility,
   Connectivity,
@@ -11,6 +12,7 @@ import type {
   GatewayRouteStatus,
   HealthStatus,
   IpcMode,
+  IsolationMode,
   LaunchType,
   ManagedAgentName,
   ManagedResourceStatus,
@@ -63,13 +65,26 @@ import type {
   RuntimePlatform,
   ServiceConnectAccessLogConfiguration,
   ServiceConnectContainerConfiguration,
-  ServiceConnectTestTrafficRules,
+  ServiceConnectTestTrafficHeaderRules,
   SharingStrategy,
   Tag,
   TaskDefinition,
   TaskDefinitionPlacementConstraint,
+  TrustedExecutionConfiguration,
   Volume,
 } from "./models_0";
+
+/**
+ * <p>The test traffic routing configuration for Amazon ECS blue/green deployments. This configuration allows you to define rules for routing specific traffic to the new service revision during the deployment process, allowing for safe testing before full production traffic shift.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-blue-green.html">Service Connect for Amazon ECS blue/green deployments</a> in the <i> Amazon Elastic Container Service Developer Guide</i>.</p>
+ * @public
+ */
+export interface ServiceConnectTestTrafficRules {
+  /**
+   * <p>The HTTP header-based routing rules that determine which requests should be routed to the new service version during blue/green deployment testing. These rules provide fine-grained control over test traffic routing based on request headers.</p>
+   * @public
+   */
+  header: ServiceConnectTestTrafficHeaderRules | undefined;
+}
 
 /**
  * <p>Each alias ("endpoint") is a fully-qualified name and port number that other tasks ("clients") can use to connect to this service.</p> <p>Each name and port mapping must be unique within the namespace.</p> <p>Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -2992,7 +3007,7 @@ export interface RegisterTaskDefinitionRequest {
   inferenceAccelerators?: InferenceAccelerator[] | undefined;
 
   /**
-   * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html">Using data volumes in tasks</a> in the <i>Amazon ECS Developer Guide</i>.</p> <note> <p>For tasks using the Fargate launch type, the task requires the following platforms:</p> <ul> <li> <p>Linux platform version <code>1.4.0</code> or later.</p> </li> <li> <p>Windows platform version <code>1.0.0</code> or later.</p> </li> </ul> </note>
+   * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html">Using data volumes in tasks</a> in the <i>Amazon ECS Developer Guide</i>.</p> <note> <p>For tasks using the Fargate launch type, the task requires the following platforms:</p> <ul> <li> <p>Linux platform version <code>1.4.0</code> or later.</p> </li> </ul> </note>
    * @public
    */
   ephemeralStorage?: EphemeralStorage | undefined;
@@ -3008,6 +3023,12 @@ export interface RegisterTaskDefinitionRequest {
    * @public
    */
   enableFaultInjection?: boolean | undefined;
+
+  /**
+   * <p>The trusted execution configuration for tasks that use this task definition, including the isolation mode and, if configured, an attestation policy.</p> <note> <p>Trusted execution is supported only for Amazon ECS Managed Instances.</p> </note>
+   * @public
+   */
+  trustedExecutionConfiguration?: TrustedExecutionConfiguration | undefined;
 }
 
 /**
@@ -3362,10 +3383,28 @@ export interface TaskOverride {
   taskRoleArn?: string | undefined;
 
   /**
-   * <p>The ephemeral storage setting override for the task.</p> <note> <p>This parameter is only supported for tasks hosted on Fargate that use the following platform versions:</p> <ul> <li> <p>Linux platform version <code>1.4.0</code> or later.</p> </li> <li> <p>Windows platform version <code>1.0.0</code> or later.</p> </li> </ul> </note>
+   * <p>The ephemeral storage setting override for the task.</p> <note> <p>This parameter is only supported for tasks hosted on Fargate that use the following platform versions:</p> <ul> <li> <p>Linux platform version <code>1.4.0</code> or later.</p> </li> </ul> </note>
    * @public
    */
   ephemeralStorage?: EphemeralStorage | undefined;
+}
+
+/**
+ * <p>A summary of the trusted execution configuration for a task. This is a read-only view of the isolation configuration that was set on the task definition. Use it to see a task's isolation configuration in the response to <code>DescribeTasks</code>, <code>RunTask</code>, or <code>StopTask</code> without calling <code>DescribeTaskDefinition</code>. This summary never includes the attestation policy itself.</p> <note> <p>Trusted execution is supported only for Amazon ECS Managed Instances.</p> </note>
+ * @public
+ */
+export interface TrustedExecutionSummary {
+  /**
+   * <p>The isolation mode that the task runs in. This value mirrors the <code>isolationMode</code> that was set in the task definition's <code>TrustedExecutionConfiguration</code>.</p> <ul> <li> <p> <code>SHARED</code>: The task shares the underlying Amazon EC2 instance with other tasks. This is the default isolation mode.</p> </li> <li> <p> <code>ISOLATED_SANDBOX</code>: The task runs in its own <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-nitro-sandboxes.html">Nitro Sandbox</a>, which is a lightweight virtual machine that is isolated by the Amazon Web Services Nitro System. Each task's sandbox is isolated from every other task's sandbox on the same Amazon EC2 instance, so one task can't access another task's memory or storage. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/isolated-confidential-tasks.html">Isolated and confidential tasks</a> in <i>Amazon Elastic Container Service Developer Guide</i>.</p> </li> <li> <p> <code>CONFIDENTIAL_SANDBOX</code>: The task runs in its own <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-nitro-sandboxes.html">Nitro Sandbox</a>, which is a lightweight virtual machine that is isolated by the Amazon Web Services Nitro System, with cryptographic attestation. The host can't access the sandbox's memory or storage, and only the approved workload can decrypt data that you encrypt with your Key Management Service key. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/isolated-confidential-tasks.html">Isolated and confidential tasks</a> in <i>Amazon Elastic Container Service Developer Guide</i>.</p> </li> </ul>
+   * @public
+   */
+  isolationMode: IsolationMode | undefined;
+
+  /**
+   * <p>The status of the attestation policy for the task. This value is present only for tasks that use the <code>CONFIDENTIAL_SANDBOX</code> isolation mode.</p>
+   * @public
+   */
+  attestationPolicyStatus?: AttestationPolicyStatus | undefined;
 }
 
 /**
@@ -3596,6 +3635,12 @@ export interface Task {
    * @public
    */
   fargateEphemeralStorage?: TaskEphemeralStorage | undefined;
+
+  /**
+   * <p>A summary of the trusted execution configuration for the task, including the isolation mode. This is a read-only view of the configuration that was set on the task definition.</p> <note> <p>Trusted execution is supported only for Amazon ECS Managed Instances.</p> </note>
+   * @public
+   */
+  trustedExecutionSummary?: TrustedExecutionSummary | undefined;
 }
 
 /**

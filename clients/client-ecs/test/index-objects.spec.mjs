@@ -17,6 +17,7 @@ import {
   AssociateGatewayWithClusterResponse$,
   Attachment$,
   AttachmentStateChange$,
+  AttestationPolicyStatus,
   Attribute$,
   AttributeLimitExceededException,
   AttributeLimitExceededException$,
@@ -395,6 +396,7 @@ import {
   InvalidParameterException,
   InvalidParameterException$,
   IpcMode,
+  IsolationMode,
   KernelCapabilities$,
   KeyValuePair$,
   LaunchType,
@@ -712,6 +714,8 @@ import {
   Tmpfs$,
   TotalLocalStorageGBRequest$,
   TransportProtocol,
+  TrustedExecutionConfiguration$,
+  TrustedExecutionSummary$,
   Ulimit$,
   UlimitName,
   UnsupportedFeatureException,
@@ -1356,6 +1360,8 @@ assert(typeof ThresholdConfiguration$ === "object");
 assert(typeof TimeoutConfiguration$ === "object");
 assert(typeof Tmpfs$ === "object");
 assert(typeof TotalLocalStorageGBRequest$ === "object");
+assert(typeof TrustedExecutionConfiguration$ === "object");
+assert(typeof TrustedExecutionSummary$ === "object");
 assert(typeof Ulimit$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
@@ -1402,6 +1408,7 @@ assert(typeof AccessType === "object");
 assert(typeof AgentUpdateStatus === "object");
 assert(typeof ApplicationProtocol === "object");
 assert(typeof AssignPublicIp === "object");
+assert(typeof AttestationPolicyStatus === "object");
 assert(typeof AutoRepairActionsStatus === "object");
 assert(typeof AvailabilityZoneRebalancing === "object");
 assert(typeof BareMetal === "object");
@@ -1463,6 +1470,7 @@ assert(typeof InstanceGeneration === "object");
 assert(typeof InstanceHealthCheckState === "object");
 assert(typeof InstanceHealthCheckType === "object");
 assert(typeof IpcMode === "object");
+assert(typeof IsolationMode === "object");
 assert(typeof LaunchType === "object");
 assert(typeof LocalStorage === "object");
 assert(typeof LocalStorageType === "object");

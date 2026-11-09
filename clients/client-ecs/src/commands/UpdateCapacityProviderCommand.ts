@@ -120,7 +120,7 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  *           "amazon-web-services" || "amd" || "nvidia" || "xilinx" || "habana",
  *         ],
  *         acceleratorNames: [ // AcceleratorNameSet
- *           "a100" || "inferentia" || "k520" || "k80" || "m60" || "radeon-pro-v520" || "t4" || "vu9p" || "v100" || "a10g" || "h100" || "t4g",
+ *           "a100" || "inferentia" || "k520" || "k80" || "m60" || "radeon-pro-v520" || "t4" || "vu9p" || "v100" || "a10g" || "h100" || "t4g" || "l40s" || "l4",
  *         ],
  *         acceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
  *           min: Number("int"),
@@ -244,7 +244,7 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * //             "amazon-web-services" || "amd" || "nvidia" || "xilinx" || "habana",
  * //           ],
  * //           acceleratorNames: [ // AcceleratorNameSet
- * //             "a100" || "inferentia" || "k520" || "k80" || "m60" || "radeon-pro-v520" || "t4" || "vu9p" || "v100" || "a10g" || "h100" || "t4g",
+ * //             "a100" || "inferentia" || "k520" || "k80" || "m60" || "radeon-pro-v520" || "t4" || "vu9p" || "v100" || "a10g" || "h100" || "t4g" || "l40s" || "l4",
  * //           ],
  * //           acceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
  * //             min: Number("int"),
@@ -264,6 +264,7 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * //           reservationGroupArn: "STRING_VALUE",
  * //           reservationPreference: "RESERVATIONS_ONLY" || "RESERVATIONS_FIRST" || "RESERVATIONS_EXCLUDED",
  * //         },
+ * //         nitroEnclavesEnabled: true || false,
  * //       },
  * //       propagateTags: "CAPACITY_PROVIDER" || "NONE",
  * //       infrastructureOptimization: { // InfrastructureOptimization

@@ -320,6 +320,10 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * //         sizeInGiB: Number("int"),
  * //         kmsKeyId: "STRING_VALUE",
  * //       },
+ * //       trustedExecutionSummary: { // TrustedExecutionSummary
+ * //         isolationMode: "SHARED" || "ISOLATED_SANDBOX" || "CONFIDENTIAL_SANDBOX", // required
+ * //         attestationPolicyStatus: "CONFIGURED",
+ * //       },
  * //     },
  * //   ],
  * //   failures: [ // Failures

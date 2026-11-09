@@ -573,7 +573,9 @@ const _TD = "TaskDefinition";
 const _TDL = "TaskDefinitionList";
 const _TDPC = "TaskDefinitionPlacementConstraint";
 const _TDPCa = "TaskDefinitionPlacementConstraints";
+const _TEC = "TrustedExecutionConfiguration";
 const _TES = "TaskEphemeralStorage";
+const _TESr = "TrustedExecutionSummary";
 const _TL = "TmpfsList";
 const _TLSGBR = "TotalLocalStorageGBRequest";
 const _TMEBSVC = "TaskManagedEBSVolumeConfiguration";
@@ -675,6 +677,8 @@ const _aPA = "accessPointArn";
 const _aPAA = "awsPcaAuthorityArn";
 const _aPI = "assignPublicIp";
 const _aPIc = "accessPointId";
+const _aPS = "attestationPolicyStatus";
+const _aPt = "attestationPolicy";
 const _aRC = "autoRepairConfiguration";
 const _aS = "actionsStatus";
 const _aSC = "activeServicesCount";
@@ -934,6 +938,7 @@ const _iIDS = "instanceIdentityDocumentSignature";
 const _iLT = "instanceLaunchTemplate";
 const _iM = "ipcMode";
 const _iMTP = "instanceMetadataTagsPropagation";
+const _iMs = "isolationMode";
 const _iO = "infrastructureOptimization";
 const _iP = "ingressPaths";
 const _iPE = "initProcessEnabled";
@@ -1031,6 +1036,7 @@ const _nB = "networkBindings";
 const _nBG = "networkBandwidthGbps";
 const _nC = "networkConfiguration";
 const _nDI = "neuronDeviceIds";
+const _nEE = "nitroEnclavesEnabled";
 const _nI = "networkInterfaces";
 const _nIC = "networkInterfaceCount";
 const _nM = "networkMode";
@@ -1227,7 +1233,9 @@ const _tDR = "targetDaemonRevision";
 const _tDRA = "targetDaemonRevisionArn";
 const _tDa = "taskDefinitions";
 const _tE = "telemetryEndpoint";
+const _tEC = "trustedExecutionConfiguration";
 const _tEP = "transitEncryptionPort";
+const _tES = "trustedExecutionSummary";
 const _tEr = "transitEncryption";
 const _tG = "targetGroups";
 const _tGA = "targetGroupArn";
@@ -2553,8 +2561,8 @@ export var InstanceHealthCheckResult$: StaticStructureSchema = [3, n0, _IHCR,
 ];
 export var InstanceLaunchTemplate$: StaticStructureSchema = [3, n0, _ILT,
   0,
-  [_eIPA, _nC, _sCto, _lSCo, _mo, _cOT, _iMTP, _iR, _fE, _cRa],
-  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, () => ManagedInstancesLocalStorageConfiguration$, 0, 0, 2, [() => InstanceRequirementsRequest$, 0], 2, () => CapacityReservationRequest$], 2
+  [_eIPA, _nC, _sCto, _lSCo, _mo, _cOT, _iMTP, _iR, _fE, _cRa, _nEE],
+  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, () => ManagedInstancesLocalStorageConfiguration$, 0, 0, 2, [() => InstanceRequirementsRequest$, 0], 2, () => CapacityReservationRequest$, 2], 2
 ];
 export var InstanceLaunchTemplateUpdate$: StaticStructureSchema = [3, n0, _ILTU,
   0,
@@ -3018,8 +3026,8 @@ export var RegisterDaemonTaskDefinitionResponse$: StaticStructureSchema = [3, n0
 ];
 export var RegisterTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _RTDR,
   0,
-  [_f, _cD, _tRA, _eRA, _nM, _vo, _pCl, _rCe, _cp, _me, _ta, _pMi, _iM, _pCr, _iAn, _eSp, _rPu, _eFI],
-  [0, [() => ContainerDefinitions, 0], 0, 0, 0, () => VolumeList, () => TaskDefinitionPlacementConstraints, 64 | 0, 0, 0, () => Tags, 0, 0, () => ProxyConfiguration$, () => InferenceAccelerators, () => EphemeralStorage$, () => RuntimePlatform$, 2], 2
+  [_f, _cD, _tRA, _eRA, _nM, _vo, _pCl, _rCe, _cp, _me, _ta, _pMi, _iM, _pCr, _iAn, _eSp, _rPu, _eFI, _tEC],
+  [0, [() => ContainerDefinitions, 0], 0, 0, 0, () => VolumeList, () => TaskDefinitionPlacementConstraints, 64 | 0, 0, 0, () => Tags, 0, 0, () => ProxyConfiguration$, () => InferenceAccelerators, () => EphemeralStorage$, () => RuntimePlatform$, 2, () => TrustedExecutionConfiguration$], 2
 ];
 export var RegisterTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _RTDRe,
   0,
@@ -3303,13 +3311,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var Task$: StaticStructureSchema = [3, n0, _Ta,
   0,
-  [_a, _at, _aZ, _cPN, _cA, _conn, _cAon, _cIA, _conta, _cp, _cAr, _dSe, _eEC, _eSA, _gr, _hS, _iAn, _lS, _lT, _me, _ov, _pV, _pF, _pSA, _pSAu, _sA, _sB, _sCtop, _sAt, _sRt, _sAto, _ta, _tA, _tDA, _ve, _eSp, _fES],
-  [() => Attachments, () => Attributes, 0, 0, 0, 0, 4, 0, () => Containers, 0, 4, 0, 2, 4, 0, 0, () => InferenceAccelerators, 0, 0, 0, [() => TaskOverride$, 0], 0, 0, 4, 4, 4, 0, 0, 4, 0, 4, () => Tags, 0, 0, 1, () => EphemeralStorage$, () => TaskEphemeralStorage$]
+  [_a, _at, _aZ, _cPN, _cA, _conn, _cAon, _cIA, _conta, _cp, _cAr, _dSe, _eEC, _eSA, _gr, _hS, _iAn, _lS, _lT, _me, _ov, _pV, _pF, _pSA, _pSAu, _sA, _sB, _sCtop, _sAt, _sRt, _sAto, _ta, _tA, _tDA, _ve, _eSp, _fES, _tES],
+  [() => Attachments, () => Attributes, 0, 0, 0, 0, 4, 0, () => Containers, 0, 4, 0, 2, 4, 0, 0, () => InferenceAccelerators, 0, 0, 0, [() => TaskOverride$, 0], 0, 0, 4, 4, 4, 0, 0, 4, 0, 4, () => Tags, 0, 0, 1, () => EphemeralStorage$, () => TaskEphemeralStorage$, () => TrustedExecutionSummary$]
 ];
 export var TaskDefinition$: StaticStructureSchema = [3, n0, _TD,
   0,
-  [_tDA, _cD, _f, _tRA, _eRA, _nM, _re, _vo, _st, _rAeq, _pCl, _comp, _rPu, _rCe, _cp, _me, _iAn, _pMi, _iM, _pCr, _rAe, _dAer, _dRAe, _rB, _eSp, _eFI],
-  [0, [() => ContainerDefinitions, 0], 0, 0, 0, 0, 1, () => VolumeList, 0, () => RequiresAttributes, () => TaskDefinitionPlacementConstraints, 64 | 0, () => RuntimePlatform$, 64 | 0, 0, 0, () => InferenceAccelerators, 0, 0, () => ProxyConfiguration$, 4, 4, 4, 0, () => EphemeralStorage$, 2]
+  [_tDA, _cD, _f, _tRA, _eRA, _nM, _re, _vo, _st, _rAeq, _pCl, _comp, _rPu, _rCe, _cp, _me, _iAn, _pMi, _iM, _pCr, _rAe, _dAer, _dRAe, _rB, _eSp, _eFI, _tEC],
+  [0, [() => ContainerDefinitions, 0], 0, 0, 0, 0, 1, () => VolumeList, 0, () => RequiresAttributes, () => TaskDefinitionPlacementConstraints, 64 | 0, () => RuntimePlatform$, 64 | 0, 0, 0, () => InferenceAccelerators, 0, 0, () => ProxyConfiguration$, 4, 4, 4, 0, () => EphemeralStorage$, 2, () => TrustedExecutionConfiguration$]
 ];
 export var TaskDefinitionPlacementConstraint$: StaticStructureSchema = [3, n0, _TDPC,
   0,
@@ -3365,6 +3373,16 @@ export var TotalLocalStorageGBRequest$: StaticStructureSchema = [3, n0, _TLSGBR,
   0,
   [_mi, _ma],
   [1, 1]
+];
+export var TrustedExecutionConfiguration$: StaticStructureSchema = [3, n0, _TEC,
+  0,
+  [_iMs, _aPt],
+  [0, 0], 1
+];
+export var TrustedExecutionSummary$: StaticStructureSchema = [3, n0, _TESr,
+  0,
+  [_iMs, _aPS],
+  [0, 0], 1
 ];
 export var Ulimit$: StaticStructureSchema = [3, n0, _U,
   0,

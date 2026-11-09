@@ -26,6 +26,8 @@ export const AcceleratorName = {
   INFERENTIA: "inferentia",
   K520: "k520",
   K80: "k80",
+  L4: "l4",
+  L40S: "l40s",
   M60: "m60",
   RADEON_PRO_V520: "radeon-pro-v520",
   T4: "t4",
@@ -1022,6 +1024,29 @@ export type TaskDefinitionStatus = (typeof TaskDefinitionStatus)[keyof typeof Ta
  * @public
  * @enum
  */
+export const IsolationMode = {
+  /**
+   * <p>The task runs in its own <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-nitro-sandboxes.html">Nitro Sandbox</a>, which is a lightweight virtual machine that is isolated by the Amazon Web Services Nitro System, with cryptographic attestation. The host can't access the sandbox's memory or storage. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/isolated-confidential-tasks.html">Isolated and confidential tasks</a> in <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  CONFIDENTIAL_SANDBOX: "CONFIDENTIAL_SANDBOX",
+  /**
+   * <p>The task runs in its own <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-nitro-sandboxes.html">Nitro Sandbox</a>, which is a lightweight virtual machine that is isolated by the Amazon Web Services Nitro System. Each task's sandbox is isolated from every other task's sandbox on the same Amazon EC2 instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/isolated-confidential-tasks.html">Isolated and confidential tasks</a> in <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  ISOLATED_SANDBOX: "ISOLATED_SANDBOX",
+  /**
+   * <p>The task shares the underlying Amazon EC2 instance with other tasks. This is the default isolation mode.</p>
+   */
+  SHARED: "SHARED",
+} as const;
+/**
+ * @public
+ */
+export type IsolationMode = (typeof IsolationMode)[keyof typeof IsolationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const Scope = {
   SHARED: "shared",
   TASK: "task",
@@ -1828,6 +1853,21 @@ export const TaskStopCode = {
  * @public
  */
 export type TaskStopCode = (typeof TaskStopCode)[keyof typeof TaskStopCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AttestationPolicyStatus = {
+  /**
+   * <p>An attestation policy is configured for the task.</p>
+   */
+  CONFIGURED: "CONFIGURED",
+} as const;
+/**
+ * @public
+ */
+export type AttestationPolicyStatus = (typeof AttestationPolicyStatus)[keyof typeof AttestationPolicyStatus];
 
 /**
  * @public

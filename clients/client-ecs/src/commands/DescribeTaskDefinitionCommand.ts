@@ -325,6 +325,10 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * //       sizeInGiB: Number("int"), // required
  * //     },
  * //     enableFaultInjection: true || false,
+ * //     trustedExecutionConfiguration: { // TrustedExecutionConfiguration
+ * //       isolationMode: "SHARED" || "ISOLATED_SANDBOX" || "CONFIDENTIAL_SANDBOX", // required
+ * //       attestationPolicy: "STRING_VALUE",
+ * //     },
  * //   },
  * //   tags: [ // Tags
  * //     { // Tag

@@ -304,6 +304,10 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *     operatingSystemFamily: "WINDOWS_SERVER_2019_FULL" || "WINDOWS_SERVER_2019_CORE" || "WINDOWS_SERVER_2016_FULL" || "WINDOWS_SERVER_2004_CORE" || "WINDOWS_SERVER_2022_CORE" || "WINDOWS_SERVER_2022_FULL" || "WINDOWS_SERVER_2025_CORE" || "WINDOWS_SERVER_2025_FULL" || "WINDOWS_SERVER_20H2_CORE" || "LINUX",
  *   },
  *   enableFaultInjection: true || false,
+ *   trustedExecutionConfiguration: { // TrustedExecutionConfiguration
+ *     isolationMode: "SHARED" || "ISOLATED_SANDBOX" || "CONFIDENTIAL_SANDBOX", // required
+ *     attestationPolicy: "STRING_VALUE",
+ *   },
  * };
  * const command = new RegisterTaskDefinitionCommand(input);
  * const response = await client.send(command);
@@ -592,6 +596,10 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * //       sizeInGiB: Number("int"), // required
  * //     },
  * //     enableFaultInjection: true || false,
+ * //     trustedExecutionConfiguration: { // TrustedExecutionConfiguration
+ * //       isolationMode: "SHARED" || "ISOLATED_SANDBOX" || "CONFIDENTIAL_SANDBOX", // required
+ * //       attestationPolicy: "STRING_VALUE",
+ * //     },
  * //   },
  * //   tags: [ // Tags
  * //     { // Tag

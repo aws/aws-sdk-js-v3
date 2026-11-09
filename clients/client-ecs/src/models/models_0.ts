@@ -64,6 +64,7 @@ import type {
   InstanceHealthCheckState,
   InstanceHealthCheckType,
   IpcMode,
+  IsolationMode,
   LaunchType,
   LocalStorage,
   LocalStorageType,
@@ -661,6 +662,12 @@ export interface InstanceLaunchTemplate {
    * @public
    */
   capacityReservations?: CapacityReservationRequest | undefined;
+
+  /**
+   * <p>Specifies whether instances that this capacity provider launches have <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-nitro-sandboxes.html">Nitro Sandbox</a> enabled. Enable this setting to run tasks that use the <code>ISOLATED_SANDBOX</code> or <code>CONFIDENTIAL_SANDBOX</code> isolation mode.</p> <p>When you enable this setting, the capacity provider must include at least one instance type that supports Nitro Sandbox. You can't enable this setting together with local storage (the <code>useLocalStorage</code> setting in <code>localStorageConfiguration</code>).</p> <p>The default value is <code>false</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/isolated-confidential-tasks.html">Isolated and confidential tasks</a> in <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * @public
+   */
+  nitroEnclavesEnabled?: boolean | undefined;
 }
 
 /**
@@ -3990,7 +3997,7 @@ export interface ContainerDependency {
 }
 
 /**
- * <p>A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a <code>.env</code> file extension. Each line in an environment file should contain an environment variable in <code>VARIABLE=VALUE</code> format. Lines beginning with <code>#</code> are treated as comments and are ignored.</p> <p>If there are environment variables specified using the <code>environment</code> parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/use-environment-file.html">Use a file to pass environment variables to a container</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <p>Environment variable files are objects in Amazon S3 and all Amazon S3 security considerations apply. </p> <p>You must use the following platforms for the Fargate launch type:</p> <ul> <li> <p>Linux platform version <code>1.4.0</code> or later.</p> </li> <li> <p>Windows platform version <code>1.0.0</code> or later.</p> </li> </ul> <p>Consider the following when using the Fargate launch type:</p> <ul> <li> <p>The file is handled like a native Docker env-file.</p> </li> <li> <p>There is no support for shell escape handling.</p> </li> <li> <p>The container entry point interperts the <code>VARIABLE</code> values.</p> </li> </ul>
+ * <p>A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a <code>.env</code> file extension. Each line in an environment file should contain an environment variable in <code>VARIABLE=VALUE</code> format. Lines beginning with <code>#</code> are treated as comments and are ignored.</p> <p>If there are environment variables specified using the <code>environment</code> parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/use-environment-file.html">Use a file to pass environment variables to a container</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <p>Environment variable files are objects in Amazon S3 and all Amazon S3 security considerations apply. </p> <p>You must use the following platforms for the Fargate launch type:</p> <ul> <li> <p>Linux platform version <code>1.4.0</code> or later.</p> </li> </ul> <p>Consider the following when using the Fargate launch type:</p> <ul> <li> <p>The file is handled like a native Docker env-file.</p> </li> <li> <p>There is no support for shell escape handling.</p> </li> <li> <p>The container entry point interperts the <code>VARIABLE</code> values.</p> </li> </ul>
  * @public
  */
 export interface EnvironmentFile {
@@ -5348,7 +5355,7 @@ export interface ContainerDefinition {
 }
 
 /**
- * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html">Using data volumes in tasks</a> in the <i>Amazon ECS Developer Guide;</i>.</p> <note> <p>For tasks using the Fargate launch type, the task requires the following platforms:</p> <ul> <li> <p>Linux platform version <code>1.4.0</code> or later.</p> </li> <li> <p>Windows platform version <code>1.0.0</code> or later.</p> </li> </ul> </note>
+ * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html">Using data volumes in tasks</a> in the <i>Amazon ECS Developer Guide;</i>.</p> <note> <p>For tasks using the Fargate launch type, the task requires the following platforms:</p> <ul> <li> <p>Linux platform version <code>1.4.0</code> or later.</p> </li> </ul> </note>
  * @public
  */
 export interface EphemeralStorage {
@@ -5437,6 +5444,24 @@ export interface RuntimePlatform {
    * @public
    */
   operatingSystemFamily?: OSFamily | undefined;
+}
+
+/**
+ * <p>The trusted execution configuration for a task. This configuration controls the isolation mode and attestation policy. You set this configuration when you register a task definition.</p> <note> <p>Trusted execution is supported only for Amazon ECS Managed Instances.</p> </note>
+ * @public
+ */
+export interface TrustedExecutionConfiguration {
+  /**
+   * <p>The isolation mode for tasks that use this task definition. The isolation mode determines how a task is isolated from other tasks on the same Amazon EC2 instance.</p> <ul> <li> <p> <code>SHARED</code>: The task shares the underlying Amazon EC2 instance with other tasks. This is the default isolation mode.</p> </li> <li> <p> <code>ISOLATED_SANDBOX</code>: The task runs in its own <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-nitro-sandboxes.html">Nitro Sandbox</a>, which is a lightweight virtual machine that is isolated by the Amazon Web Services Nitro System. Each task's sandbox is isolated from every other task's sandbox on the same Amazon EC2 instance, so one task can't access another task's memory or storage. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/isolated-confidential-tasks.html">Isolated and confidential tasks</a> in <i>Amazon Elastic Container Service Developer Guide</i>.</p> </li> <li> <p> <code>CONFIDENTIAL_SANDBOX</code>: The task runs in its own <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-nitro-sandboxes.html">Nitro Sandbox</a>, which is a lightweight virtual machine that is isolated by the Amazon Web Services Nitro System, with cryptographic attestation. The host can't access the sandbox's memory or storage, and only the approved workload can decrypt data that you encrypt with your Key Management Service key. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/isolated-confidential-tasks.html">Isolated and confidential tasks</a> in <i>Amazon Elastic Container Service Developer Guide</i>.</p> </li> </ul>
+   * @public
+   */
+  isolationMode: IsolationMode | undefined;
+
+  /**
+   * <p>The base64-encoded attestation policy envelope for the task. The policy specifies which containers are allowed to run and the runtime configuration that is cryptographically attested. This parameter is required when <code>isolationMode</code> is <code>CONFIDENTIAL_SANDBOX</code>.</p>
+   * @public
+   */
+  attestationPolicy?: string | undefined;
 }
 
 /**
@@ -5811,6 +5836,12 @@ export interface TaskDefinition {
    * @public
    */
   enableFaultInjection?: boolean | undefined;
+
+  /**
+   * <p>The trusted execution configuration for tasks that use this task definition, including the isolation mode and, if configured, an attestation policy.</p> <note> <p>Trusted execution is supported only for Amazon ECS Managed Instances.</p> </note>
+   * @public
+   */
+  trustedExecutionConfiguration?: TrustedExecutionConfiguration | undefined;
 }
 
 /**
@@ -8808,16 +8839,4 @@ export interface ServiceConnectTestTrafficHeaderRules {
    * @public
    */
   value?: ServiceConnectTestTrafficHeaderMatchRules | undefined;
-}
-
-/**
- * <p>The test traffic routing configuration for Amazon ECS blue/green deployments. This configuration allows you to define rules for routing specific traffic to the new service revision during the deployment process, allowing for safe testing before full production traffic shift.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-blue-green.html">Service Connect for Amazon ECS blue/green deployments</a> in the <i> Amazon Elastic Container Service Developer Guide</i>.</p>
- * @public
- */
-export interface ServiceConnectTestTrafficRules {
-  /**
-   * <p>The HTTP header-based routing rules that determine which requests should be routed to the new service version during blue/green deployment testing. These rules provide fine-grained control over test traffic routing based on request headers.</p>
-   * @public
-   */
-  header: ServiceConnectTestTrafficHeaderRules | undefined;
 }

@@ -342,6 +342,10 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * //         sizeInGiB: Number("int"),
  * //         kmsKeyId: "STRING_VALUE",
  * //       },
+ * //       trustedExecutionSummary: { // TrustedExecutionSummary
+ * //         isolationMode: "SHARED" || "ISOLATED_SANDBOX" || "CONFIDENTIAL_SANDBOX", // required
+ * //         attestationPolicyStatus: "CONFIGURED",
+ * //       },
  * //     },
  * //   ],
  * //   failures: [ // Failures

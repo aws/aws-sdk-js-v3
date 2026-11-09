@@ -214,6 +214,10 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * //       sizeInGiB: Number("int"),
  * //       kmsKeyId: "STRING_VALUE",
  * //     },
+ * //     trustedExecutionSummary: { // TrustedExecutionSummary
+ * //       isolationMode: "SHARED" || "ISOLATED_SANDBOX" || "CONFIDENTIAL_SANDBOX", // required
+ * //       attestationPolicyStatus: "CONFIGURED",
+ * //     },
  * //   },
  * // };
  *
