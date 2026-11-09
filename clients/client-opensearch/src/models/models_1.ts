@@ -7,7 +7,10 @@ import type {
   ActionType,
   AWSServicePrincipal,
   CapabilityStatus,
+  CutoverStatus,
+  CutoverTarget,
   DataSourceStatus,
+  DeploymentStrategyOverride,
   DomainUseCase,
   DryRunMode,
   EngineMode,
@@ -15,10 +18,14 @@ import type {
   IPAddressType,
   LogType,
   MaintenanceType,
+  OpenSearchPartitionInstanceType,
   PackageScopeOperationEnum,
   ReplicationStatus,
+  RetentionAction,
   ScheduleAt,
   ScheduledBy,
+  TrafficSplitStatus,
+  TrafficStrategy,
 } from "./enums";
 import type {
   AdvancedSecurityOptionsInput,
@@ -46,7 +53,7 @@ import type {
   IamIdentityCenterOptionsInput,
   IdentityCenterOptionsInput,
   InboundConnection,
-  InstanceTypeDetails,
+  Insight,
   LogPublishingOption,
   MigrationError,
   MigrationSource,
@@ -61,10 +68,135 @@ import type {
   SnapshotOptions,
   SoftwareUpdateOptions,
   Tag,
+  TrafficPercents,
   VpcEndpoint,
   VpcEndpointSummary,
   VPCOptions,
 } from "./models_0";
+
+/**
+ * <p>The result of a <code>ListInsights</code> request. Contains the list of insights and
+ *             a pagination token for retrieving the next page of results.</p>
+ * @public
+ */
+export interface ListInsightsResponse {
+  /**
+   * <p>The list of insights returned for the specified entity.</p>
+   * @public
+   */
+  Insights?: Insight[] | undefined;
+
+  /**
+   * <p>When <code>NextToken</code> is returned, there are more results available. The value
+   *             of <code>NextToken</code> is a unique pagination token for each page. Send the request
+   *             again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInstanceTypeDetailsRequest {
+  /**
+   * <p>The version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or
+   *             OpenSearch_X.Y. Defaults to the latest version of OpenSearch.</p>
+   * @public
+   */
+  EngineVersion: string | undefined;
+
+  /**
+   * <p>The name of the domain.</p>
+   * @public
+   */
+  DomainName?: string | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the maximum number of results to return. You can
+   *             use <code>nextToken</code> to get the next page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If your initial <code>ListInstanceTypeDetails</code> operation returns a
+   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
+   *             subsequent <code>ListInstanceTypeDetails</code> operations, which returns results in the
+   *             next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the Availability Zones for the domain.</p>
+   * @public
+   */
+  RetrieveAZs?: boolean | undefined;
+
+  /**
+   * <p>An optional parameter that lists information for a given instance type.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+}
+
+/**
+ * <p>Lists all instance types and available features for a given OpenSearch or Elasticsearch
+ *    version.</p>
+ * @public
+ */
+export interface InstanceTypeDetails {
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: OpenSearchPartitionInstanceType | undefined;
+
+  /**
+   * <p>Whether encryption at rest and node-to-node encryption are supported for the instance
+   *    type.</p>
+   * @public
+   */
+  EncryptionEnabled?: boolean | undefined;
+
+  /**
+   * <p>Whether Amazon Cognito access is supported for the instance type.</p>
+   * @public
+   */
+  CognitoEnabled?: boolean | undefined;
+
+  /**
+   * <p>Whether logging is supported for the instance type.</p>
+   * @public
+   */
+  AppLogsEnabled?: boolean | undefined;
+
+  /**
+   * <p>Whether fine-grained access control is supported for the instance type.</p>
+   * @public
+   */
+  AdvancedSecurityEnabled?: boolean | undefined;
+
+  /**
+   * <p>Whether UltraWarm is supported for the instance type.</p>
+   * @public
+   */
+  WarmEnabled?: boolean | undefined;
+
+  /**
+   * <p>Whether the instance acts as a data node, a dedicated master node, or an UltraWarm
+   *    node.</p>
+   * @public
+   */
+  InstanceRole?: string[] | undefined;
+
+  /**
+   * <p>The supported Availability Zones for the instance type.</p>
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+}
 
 /**
  * @public
@@ -1279,6 +1411,197 @@ export interface UpdateApplicationResponse {
 }
 
 /**
+ * <p>The cutover to perform for a cloned blue/green upgrade.</p>
+ * @public
+ */
+export interface CutoverRequestOptions {
+  /**
+   * <p>The cluster to cut over to. <code>ClonedCluster</code> makes the cloned cluster serve the domain. <code>PrimaryCluster</code> keeps the primary cluster and ends the upgrade.</p>
+   * @public
+   */
+  Target: CutoverTarget | undefined;
+}
+
+/**
+ * <p>Controls how long the cluster that you cut over from is kept after cutover completes. Specify exactly one of <code>RetentionInHours</code> or <code>RetentionAction</code>.</p>
+ * @public
+ */
+export type RetentionOptions =
+  | RetentionOptions.RetentionActionMember
+  | RetentionOptions.RetentionInHoursMember
+  | RetentionOptions.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RetentionOptions {
+  /**
+   * <p>The number of hours to keep the cluster that you cut over from. The retention period starts when cutover completes. The minimum is 1 hour. In an <code>UpdateClone</code> response after cutover completes, this value is the number of hours remaining in the retention period, rounded up.</p>
+   * @public
+   */
+  export interface RetentionInHoursMember {
+    RetentionInHours: number;
+    RetentionAction?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Ends the retention period now. Valid only after cutover completes.</p>
+   * @public
+   */
+  export interface RetentionActionMember {
+    RetentionInHours?: never;
+    RetentionAction: RetentionAction;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    RetentionInHours?: never;
+    RetentionAction?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    RetentionInHours: (value: number) => T;
+    RetentionAction: (value: RetentionAction) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The traffic shift to perform for a cloned blue/green upgrade.</p>
+ * @public
+ */
+export interface TrafficSplitRequestOptions {
+  /**
+   * <p>The traffic shifting strategy. The only valid value is <code>ShiftReadTrafficPercent</code>.</p>
+   * @public
+   */
+  Strategy: TrafficStrategy | undefined;
+
+  /**
+   * <p>The percentage of search traffic, from 0 to 100, to send to the cloned cluster. The rest goes to the primary cluster.</p>
+   * @public
+   */
+  CloneReadTrafficPercent: number | undefined;
+}
+
+/**
+ * <p>Container for the request parameters to the <code>UpdateClone</code> operation.</p>
+ * @public
+ */
+export interface UpdateCloneRequest {
+  /**
+   * <p>The name of the domain that has a cloned blue/green upgrade in progress.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>Shifts a percentage of search traffic from the primary cluster to the cloned cluster.</p>
+   * @public
+   */
+  TrafficSplitOptions?: TrafficSplitRequestOptions | undefined;
+
+  /**
+   * <p>Cuts the domain over to the cloned cluster or back to the primary cluster.</p>
+   * @public
+   */
+  CutoverOptions?: CutoverRequestOptions | undefined;
+
+  /**
+   * <p>Changes the retention period, or ends it after cutover completes.</p>
+   * @public
+   */
+  RetentionOptions?: RetentionOptions | undefined;
+}
+
+/**
+ * <p>The cutover target and status for a cloned blue/green upgrade.</p>
+ * @public
+ */
+export interface CutoverOptions {
+  /**
+   * <p>The cluster that the domain is cutting over to.</p>
+   * @public
+   */
+  Target: CutoverTarget | undefined;
+
+  /**
+   * <p>The status of the cutover.</p>
+   * @public
+   */
+  Status: CutoverStatus | undefined;
+}
+
+/**
+ * <p>The traffic split and status for a cloned blue/green upgrade.</p>
+ * @public
+ */
+export interface TrafficSplitOptions {
+  /**
+   * <p>The traffic split currently in effect.</p>
+   * @public
+   */
+  Current: TrafficPercents | undefined;
+
+  /**
+   * <p>The requested traffic split.</p>
+   * @public
+   */
+  Target: TrafficPercents | undefined;
+
+  /**
+   * <p>The status of the traffic shift.</p>
+   * @public
+   */
+  Status: TrafficSplitStatus | undefined;
+}
+
+/**
+ * <p>Container for the response returned by the <code>UpdateClone</code> operation.</p>
+ * @public
+ */
+export interface UpdateCloneResponse {
+  /**
+   * <p>The name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the configuration change. Use it with <code>DescribeDomainChangeProgress</code> to track the change.</p>
+   * @public
+   */
+  ChangeId: string | undefined;
+
+  /**
+   * <p>The requested cutover target and the status of the cutover.</p>
+   * @public
+   */
+  CutoverOptions?: CutoverOptions | undefined;
+
+  /**
+   * <p>The current and requested traffic split, and the status of the traffic shift.</p>
+   * @public
+   */
+  TrafficSplitOptions?: TrafficSplitOptions | undefined;
+
+  /**
+   * <p>The retention settings for the upgrade.</p>
+   * @public
+   */
+  RetentionOptions?: RetentionOptions | undefined;
+}
+
+/**
  * <p>Container for the parameters to the <code>UpdateDataSource</code> operation.</p>
  * @public
  */
@@ -1856,6 +2179,36 @@ export interface UpdateVpcEndpointResponse {
 }
 
 /**
+ * <p>Options for a cloned blue/green upgrade.</p>
+ * @public
+ */
+export interface ClonedBlueGreenOptions {
+  /**
+   * <p>How long to keep the cluster that you cut over from after cutover completes. When you start the upgrade, only <code>RetentionInHours</code> is accepted.</p>
+   * @public
+   */
+  RetentionOptions?: RetentionOptions | undefined;
+}
+
+/**
+ * <p>Overrides the deployment strategy for a single operation, such as a version upgrade.</p>
+ * @public
+ */
+export interface DeploymentStrategyOverrideOptions {
+  /**
+   * <p>The deployment strategy to use for this operation. The only valid value is <code>ClonedBlueGreen</code>, which creates a cloned cluster on the target version next to the primary cluster so that you can validate it and shift traffic to it before you cut over.</p>
+   * @public
+   */
+  DeploymentStrategy: DeploymentStrategyOverride | undefined;
+
+  /**
+   * <p>Options that apply when <code>DeploymentStrategy</code> is <code>ClonedBlueGreen</code>.</p>
+   * @public
+   */
+  ClonedBlueGreenOptions?: ClonedBlueGreenOptions | undefined;
+}
+
+/**
  * <p>Container for the request parameters to the <code>UpgradeDomain</code>
  *             operation.</p>
  * @public
@@ -1889,6 +2242,12 @@ export interface UpgradeDomainRequest {
    * @public
    */
   AdvancedOptions?: Record<string, string> | undefined;
+
+  /**
+   * <p>Overrides the deployment strategy for this upgrade. To run a cloned blue/green upgrade, set <code>DeploymentStrategy</code> to <code>ClonedBlueGreen</code>.</p>
+   * @public
+   */
+  DeploymentStrategyOptions?: DeploymentStrategyOverrideOptions | undefined;
 }
 
 /**
@@ -1925,6 +2284,12 @@ export interface UpgradeDomainResponse {
    * @public
    */
   AdvancedOptions?: Record<string, string> | undefined;
+
+  /**
+   * <p>The deployment strategy override used for the upgrade.</p>
+   * @public
+   */
+  DeploymentStrategyOptions?: DeploymentStrategyOverrideOptions | undefined;
 
   /**
    * <p>Container for information about a configuration change happening on a domain.</p>

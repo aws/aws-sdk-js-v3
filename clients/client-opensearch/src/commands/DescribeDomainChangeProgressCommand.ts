@@ -62,6 +62,17 @@ export interface DescribeDomainChangeProgressCommandOutput extends DescribeDomai
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
  * //     ConfigChangeStatus: "Pending" || "Initializing" || "Validating" || "ValidationFailed" || "ApplyingChanges" || "Completed" || "PendingUserInput" || "Cancelled",
  * //     InitiatedBy: "CUSTOMER" || "SERVICE",
+ * //     ClonedBlueGreenUpgradeDetails: { // ClonedBlueGreenUpgradeDetails
+ * //       TrafficSplit: { // TrafficPercents
+ * //         PrimaryReadTrafficPercent: Number("int"), // required
+ * //         CloneReadTrafficPercent: Number("int"), // required
+ * //       },
+ * //       ScheduledAction: { // ClonedBlueGreenScheduledAction
+ * //         Action: "AutomaticCutoverToPrimaryCluster" || "DeletePrimaryCluster",
+ * //         ScheduledTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       RetentionInHours: Number("int"),
+ * //     },
  * //     ValidationFailures: [ // ValidationFailures
  * //       { // ValidationFailure
  * //         Code: "STRING_VALUE",

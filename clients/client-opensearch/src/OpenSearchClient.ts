@@ -330,6 +330,7 @@ import type {
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
+import type { UpdateCloneCommandInput, UpdateCloneCommandOutput } from "./commands/UpdateCloneCommand";
 import type { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import type {
   UpdateDirectQueryDataSourceCommandInput,
@@ -462,6 +463,7 @@ export type ServiceInputTypes =
   | StartServiceSoftwareUpdateCommandInput
   | SwitchoverReplicationCommandInput
   | UpdateApplicationCommandInput
+  | UpdateCloneCommandInput
   | UpdateDataSourceCommandInput
   | UpdateDirectQueryDataSourceCommandInput
   | UpdateDomainConfigCommandInput
@@ -569,6 +571,7 @@ export type ServiceOutputTypes =
   | StartServiceSoftwareUpdateCommandOutput
   | SwitchoverReplicationCommandOutput
   | UpdateApplicationCommandOutput
+  | UpdateCloneCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateDirectQueryDataSourceCommandOutput
   | UpdateDomainConfigCommandOutput

@@ -461,6 +461,11 @@ import {
   UpdateApplicationCommand,
 } from "./commands/UpdateApplicationCommand";
 import {
+  type UpdateCloneCommandInput,
+  type UpdateCloneCommandOutput,
+  UpdateCloneCommand,
+} from "./commands/UpdateCloneCommand";
+import {
   type UpdateDataSourceCommandInput,
   type UpdateDataSourceCommandOutput,
   UpdateDataSourceCommand,
@@ -616,6 +621,7 @@ const commands = {
   StartServiceSoftwareUpdateCommand,
   SwitchoverReplicationCommand,
   UpdateApplicationCommand,
+  UpdateCloneCommand,
   UpdateDataSourceCommand,
   UpdateDirectQueryDataSourceCommand,
   UpdateDomainConfigCommand,
@@ -2243,6 +2249,23 @@ export interface OpenSearch {
     args: UpdateApplicationCommandInput,
     options: OpenSearchRequestOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCloneCommand}
+   */
+  updateClone(
+    args: UpdateCloneCommandInput,
+    options?: OpenSearchRequestOptions
+  ): Promise<UpdateCloneCommandOutput>;
+  updateClone(
+    args: UpdateCloneCommandInput,
+    cb: (err: any, data?: UpdateCloneCommandOutput) => void
+  ): void;
+  updateClone(
+    args: UpdateCloneCommandInput,
+    options: OpenSearchRequestOptions,
+    cb: (err: any, data?: UpdateCloneCommandOutput) => void
   ): void;
 
   /**

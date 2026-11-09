@@ -835,6 +835,20 @@ export type AutoTuneType = (typeof AutoTuneType)[keyof typeof AutoTuneType];
  * @public
  * @enum
  */
+export const ClonedBlueGreenScheduledActionType = {
+  AUTOMATIC_CUTOVER_TO_PRIMARY: "AutomaticCutoverToPrimaryCluster",
+  DELETE_PRIMARY_CLUSTER: "DeletePrimaryCluster",
+} as const;
+/**
+ * @public
+ */
+export type ClonedBlueGreenScheduledActionType =
+  (typeof ClonedBlueGreenScheduledActionType)[keyof typeof ClonedBlueGreenScheduledActionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const OverallChangeStatus = {
   COMPLETED: "COMPLETED",
   FAILED: "FAILED",
@@ -1278,6 +1292,72 @@ export type ScheduleAt = (typeof ScheduleAt)[keyof typeof ScheduleAt];
  * @public
  * @enum
  */
+export const CutoverTarget = {
+  CLONED_CLUSTER: "ClonedCluster",
+  PRIMARY_CLUSTER: "PrimaryCluster",
+} as const;
+/**
+ * @public
+ */
+export type CutoverTarget = (typeof CutoverTarget)[keyof typeof CutoverTarget];
+
+/**
+ * @public
+ * @enum
+ */
+export const RetentionAction = {
+  DELETE_PRIMARY_CLUSTER: "DeletePrimaryCluster",
+  ROLLBACK_TO_PRIMARY_CLUSTER: "RollbackToPrimaryCluster",
+} as const;
+/**
+ * @public
+ */
+export type RetentionAction = (typeof RetentionAction)[keyof typeof RetentionAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrafficStrategy = {
+  SHIFT_READ_TRAFFIC_PERCENT: "ShiftReadTrafficPercent",
+} as const;
+/**
+ * @public
+ */
+export type TrafficStrategy = (typeof TrafficStrategy)[keyof typeof TrafficStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const CutoverStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+} as const;
+/**
+ * @public
+ */
+export type CutoverStatus = (typeof CutoverStatus)[keyof typeof CutoverStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrafficSplitStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+} as const;
+/**
+ * @public
+ */
+export type TrafficSplitStatus = (typeof TrafficSplitStatus)[keyof typeof TrafficSplitStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const DryRunMode = {
   Basic: "Basic",
   Verbose: "Verbose",
@@ -1300,3 +1380,15 @@ export const PackageScopeOperationEnum = {
  * @public
  */
 export type PackageScopeOperationEnum = (typeof PackageScopeOperationEnum)[keyof typeof PackageScopeOperationEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentStrategyOverride = {
+  CLONED_BLUE_GREEN: "ClonedBlueGreen",
+} as const;
+/**
+ * @public
+ */
+export type DeploymentStrategyOverride = (typeof DeploymentStrategyOverride)[keyof typeof DeploymentStrategyOverride];

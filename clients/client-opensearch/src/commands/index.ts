@@ -92,6 +92,7 @@ export * from "./StartMigrationCommand";
 export * from "./StartServiceSoftwareUpdateCommand";
 export * from "./SwitchoverReplicationCommand";
 export * from "./UpdateApplicationCommand";
+export * from "./UpdateCloneCommand";
 export * from "./UpdateDataSourceCommand";
 export * from "./UpdateDirectQueryDataSourceCommand";
 export * from "./UpdateDomainConfigCommand";

@@ -836,6 +836,13 @@ UpdateApplication
 </details>
 <details>
 <summary>
+UpdateClone
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/UpdateCloneCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/UpdateCloneCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/UpdateCloneCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateDataSource
 </summary>
 

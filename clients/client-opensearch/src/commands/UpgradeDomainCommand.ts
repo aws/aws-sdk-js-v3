@@ -40,6 +40,15 @@ export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __Met
  *   AdvancedOptions: { // AdvancedOptions
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   DeploymentStrategyOptions: { // DeploymentStrategyOverrideOptions
+ *     DeploymentStrategy: "ClonedBlueGreen", // required
+ *     ClonedBlueGreenOptions: { // ClonedBlueGreenOptions
+ *       RetentionOptions: { // RetentionOptions Union: only one key present
+ *         RetentionInHours: Number("int"),
+ *         RetentionAction: "RollbackToPrimaryCluster" || "DeletePrimaryCluster",
+ *       },
+ *     },
+ *   },
  * };
  * const command = new UpgradeDomainCommand(input);
  * const response = await client.send(command);
@@ -50,6 +59,15 @@ export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __Met
  * //   PerformCheckOnly: true || false,
  * //   AdvancedOptions: { // AdvancedOptions
  * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   DeploymentStrategyOptions: { // DeploymentStrategyOverrideOptions
+ * //     DeploymentStrategy: "ClonedBlueGreen", // required
+ * //     ClonedBlueGreenOptions: { // ClonedBlueGreenOptions
+ * //       RetentionOptions: { // RetentionOptions Union: only one key present
+ * //         RetentionInHours: Number("int"),
+ * //         RetentionAction: "RollbackToPrimaryCluster" || "DeletePrimaryCluster",
+ * //       },
+ * //     },
  * //   },
  * //   ChangeProgressDetails: { // ChangeProgressDetails
  * //     ChangeId: "STRING_VALUE",

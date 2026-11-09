@@ -10,6 +10,7 @@ import type {
   AWSServicePrincipal,
   CapabilityFailureReason,
   CapabilityStatus,
+  ClonedBlueGreenScheduledActionType,
   ConfigChangeStatus,
   ConnectionMode,
   DataSourceAttachmentStatus,
@@ -4815,6 +4816,66 @@ export interface ChangeProgressStage {
 }
 
 /**
+ * <p>An action that the service takes automatically at a scheduled time during a cloned blue/green upgrade.</p>
+ * @public
+ */
+export interface ClonedBlueGreenScheduledAction {
+  /**
+   * <p>The action that the service takes.</p>
+   * @public
+   */
+  Action?: ClonedBlueGreenScheduledActionType | undefined;
+
+  /**
+   * <p>The time at which the service takes the action.</p>
+   * @public
+   */
+  ScheduledTime?: Date | undefined;
+}
+
+/**
+ * <p>The split of search traffic between the primary and cloned clusters.</p>
+ * @public
+ */
+export interface TrafficPercents {
+  /**
+   * <p>The percentage of search traffic sent to the primary cluster.</p>
+   * @public
+   */
+  PrimaryReadTrafficPercent: number | undefined;
+
+  /**
+   * <p>The percentage of search traffic sent to the cloned cluster.</p>
+   * @public
+   */
+  CloneReadTrafficPercent: number | undefined;
+}
+
+/**
+ * <p>The state of a cloned blue/green upgrade. Members that don't apply are omitted.</p>
+ * @public
+ */
+export interface ClonedBlueGreenUpgradeDetails {
+  /**
+   * <p>The current split of search traffic between the primary and cloned clusters.</p>
+   * @public
+   */
+  TrafficSplit?: TrafficPercents | undefined;
+
+  /**
+   * <p>The action that the service takes automatically if you don't act before the scheduled time.</p>
+   * @public
+   */
+  ScheduledAction?: ClonedBlueGreenScheduledAction | undefined;
+
+  /**
+   * <p>The retention period, in hours, for the cluster that you cut over from.</p>
+   * @public
+   */
+  RetentionInHours?: number | undefined;
+}
+
+/**
  * <p>A validation failure that occurred as the result of a pre-update validation check
  *             (verbose dry run) on a domain.</p>
  * @public
@@ -4906,6 +4967,12 @@ export interface ChangeProgressStatusDetails {
    * @public
    */
   InitiatedBy?: InitiatedBy | undefined;
+
+  /**
+   * <p>Details about a cloned blue/green upgrade, when the change is one.</p>
+   * @public
+   */
+  ClonedBlueGreenUpgradeDetails?: ClonedBlueGreenUpgradeDetails | undefined;
 
   /**
    * <p>The validation failures that occurred as a result of the configuration change.</p>
@@ -8578,128 +8645,4 @@ export interface Insight {
    * @public
    */
   IsExperimental?: boolean | undefined;
-}
-
-/**
- * <p>The result of a <code>ListInsights</code> request. Contains the list of insights and
- *             a pagination token for retrieving the next page of results.</p>
- * @public
- */
-export interface ListInsightsResponse {
-  /**
-   * <p>The list of insights returned for the specified entity.</p>
-   * @public
-   */
-  Insights?: Insight[] | undefined;
-
-  /**
-   * <p>When <code>NextToken</code> is returned, there are more results available. The value
-   *             of <code>NextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInstanceTypeDetailsRequest {
-  /**
-   * <p>The version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or
-   *             OpenSearch_X.Y. Defaults to the latest version of OpenSearch.</p>
-   * @public
-   */
-  EngineVersion: string | undefined;
-
-  /**
-   * <p>The name of the domain.</p>
-   * @public
-   */
-  DomainName?: string | undefined;
-
-  /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can
-   *             use <code>nextToken</code> to get the next page of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If your initial <code>ListInstanceTypeDetails</code> operation returns a
-   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
-   *             subsequent <code>ListInstanceTypeDetails</code> operations, which returns results in the
-   *             next page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>An optional parameter that specifies the Availability Zones for the domain.</p>
-   * @public
-   */
-  RetrieveAZs?: boolean | undefined;
-
-  /**
-   * <p>An optional parameter that lists information for a given instance type.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-}
-
-/**
- * <p>Lists all instance types and available features for a given OpenSearch or Elasticsearch
- *    version.</p>
- * @public
- */
-export interface InstanceTypeDetails {
-  /**
-   * <p>The instance type.</p>
-   * @public
-   */
-  InstanceType?: OpenSearchPartitionInstanceType | undefined;
-
-  /**
-   * <p>Whether encryption at rest and node-to-node encryption are supported for the instance
-   *    type.</p>
-   * @public
-   */
-  EncryptionEnabled?: boolean | undefined;
-
-  /**
-   * <p>Whether Amazon Cognito access is supported for the instance type.</p>
-   * @public
-   */
-  CognitoEnabled?: boolean | undefined;
-
-  /**
-   * <p>Whether logging is supported for the instance type.</p>
-   * @public
-   */
-  AppLogsEnabled?: boolean | undefined;
-
-  /**
-   * <p>Whether fine-grained access control is supported for the instance type.</p>
-   * @public
-   */
-  AdvancedSecurityEnabled?: boolean | undefined;
-
-  /**
-   * <p>Whether UltraWarm is supported for the instance type.</p>
-   * @public
-   */
-  WarmEnabled?: boolean | undefined;
-
-  /**
-   * <p>Whether the instance acts as a data node, a dedicated master node, or an UltraWarm
-   *    node.</p>
-   * @public
-   */
-  InstanceRole?: string[] | undefined;
-
-  /**
-   * <p>The supported Availability Zones for the instance type.</p>
-   * @public
-   */
-  AvailabilityZones?: string[] | undefined;
 }

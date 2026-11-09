@@ -92,6 +92,10 @@ import {
   ChangeProgressDetails$,
   ChangeProgressStage$,
   ChangeProgressStatusDetails$,
+  ClonedBlueGreenOptions$,
+  ClonedBlueGreenScheduledAction$,
+  ClonedBlueGreenScheduledActionType,
+  ClonedBlueGreenUpgradeDetails$,
   CloudWatchDirectQueryDataSource$,
   ClusterConfig$,
   ClusterConfigStatus$,
@@ -133,6 +137,10 @@ import {
   CreateVpcEndpointRequest$,
   CreateVpcEndpointResponse$,
   CrossClusterSearchConnectionProperties$,
+  CutoverOptions$,
+  CutoverRequestOptions$,
+  CutoverStatus,
+  CutoverTarget,
   DataSource$,
   DataSourceAttachmentStatus,
   DataSourceAttachmentSummary$,
@@ -180,6 +188,8 @@ import {
   DeploymentStrategy,
   DeploymentStrategyOptions$,
   DeploymentStrategyOptionsStatus$,
+  DeploymentStrategyOverride,
+  DeploymentStrategyOverrideOptions$,
   DeregisterCapability$,
   DeregisterCapabilityCommand,
   DeregisterCapabilityRequest$,
@@ -580,6 +590,8 @@ import {
   ResourceAlreadyExistsException$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  RetentionAction,
+  RetentionOptions$,
   RevokeVpcEndpointAccess$,
   RevokeVpcEndpointAccessCommand,
   RevokeVpcEndpointAccessRequest$,
@@ -640,10 +652,19 @@ import {
   ThrottlingException$,
   TimeUnit,
   TLSSecurityPolicy,
+  TrafficPercents$,
+  TrafficSplitOptions$,
+  TrafficSplitRequestOptions$,
+  TrafficSplitStatus,
+  TrafficStrategy,
   UpdateApplication$,
   UpdateApplicationCommand,
   UpdateApplicationRequest$,
   UpdateApplicationResponse$,
+  UpdateClone$,
+  UpdateCloneCommand,
+  UpdateCloneRequest$,
+  UpdateCloneResponse$,
   UpdateDataSource$,
   UpdateDataSourceCommand,
   UpdateDataSourceRequest$,
@@ -895,6 +916,8 @@ assert(typeof SwitchoverReplicationCommand === "function");
 assert(typeof SwitchoverReplication$ === "object");
 assert(typeof UpdateApplicationCommand === "function");
 assert(typeof UpdateApplication$ === "object");
+assert(typeof UpdateCloneCommand === "function");
+assert(typeof UpdateClone$ === "object");
 assert(typeof UpdateDataSourceCommand === "function");
 assert(typeof UpdateDataSource$ === "object");
 assert(typeof UpdateDirectQueryDataSourceCommand === "function");
@@ -970,6 +993,9 @@ assert(typeof CategoryDiffResult$ === "object");
 assert(typeof ChangeProgressDetails$ === "object");
 assert(typeof ChangeProgressStage$ === "object");
 assert(typeof ChangeProgressStatusDetails$ === "object");
+assert(typeof ClonedBlueGreenOptions$ === "object");
+assert(typeof ClonedBlueGreenScheduledAction$ === "object");
+assert(typeof ClonedBlueGreenUpgradeDetails$ === "object");
 assert(typeof CloudWatchDirectQueryDataSource$ === "object");
 assert(typeof ClusterConfig$ === "object");
 assert(typeof ClusterConfigStatus$ === "object");
@@ -993,6 +1019,8 @@ assert(typeof CreatePackageResponse$ === "object");
 assert(typeof CreateVpcEndpointRequest$ === "object");
 assert(typeof CreateVpcEndpointResponse$ === "object");
 assert(typeof CrossClusterSearchConnectionProperties$ === "object");
+assert(typeof CutoverOptions$ === "object");
+assert(typeof CutoverRequestOptions$ === "object");
 assert(typeof DataSource$ === "object");
 assert(typeof DataSourceAttachmentSummary$ === "object");
 assert(typeof DataSourceDetails$ === "object");
@@ -1016,6 +1044,7 @@ assert(typeof DeleteVpcEndpointRequest$ === "object");
 assert(typeof DeleteVpcEndpointResponse$ === "object");
 assert(typeof DeploymentStrategyOptions$ === "object");
 assert(typeof DeploymentStrategyOptionsStatus$ === "object");
+assert(typeof DeploymentStrategyOverrideOptions$ === "object");
 assert(typeof DeregisterCapabilityRequest$ === "object");
 assert(typeof DeregisterCapabilityResponse$ === "object");
 assert(typeof DescribeDataSourceAttachmentRequest$ === "object");
@@ -1217,6 +1246,7 @@ assert(typeof RemoveTagsRequest$ === "object");
 assert(typeof ReplicationPeer$ === "object");
 assert(typeof ReservedInstance$ === "object");
 assert(typeof ReservedInstanceOffering$ === "object");
+assert(typeof RetentionOptions$ === "object");
 assert(typeof RevokeVpcEndpointAccessRequest$ === "object");
 assert(typeof RevokeVpcEndpointAccessResponse$ === "object");
 assert(typeof RollbackServiceSoftwareOptions$ === "object");
@@ -1249,8 +1279,13 @@ assert(typeof StorageTypeLimit$ === "object");
 assert(typeof SwitchoverReplicationRequest$ === "object");
 assert(typeof SwitchoverReplicationResponse$ === "object");
 assert(typeof Tag$ === "object");
+assert(typeof TrafficPercents$ === "object");
+assert(typeof TrafficSplitOptions$ === "object");
+assert(typeof TrafficSplitRequestOptions$ === "object");
 assert(typeof UpdateApplicationRequest$ === "object");
 assert(typeof UpdateApplicationResponse$ === "object");
+assert(typeof UpdateCloneRequest$ === "object");
+assert(typeof UpdateCloneResponse$ === "object");
 assert(typeof UpdateDataSourceRequest$ === "object");
 assert(typeof UpdateDataSourceResponse$ === "object");
 assert(typeof UpdateDirectQueryDataSourceRequest$ === "object");
@@ -1295,12 +1330,16 @@ assert(typeof AutoTuneType === "object");
 assert(typeof AWSServicePrincipal === "object");
 assert(typeof CapabilityFailureReason === "object");
 assert(typeof CapabilityStatus === "object");
+assert(typeof ClonedBlueGreenScheduledActionType === "object");
 assert(typeof ConfigChangeStatus === "object");
 assert(typeof ConnectionMode === "object");
+assert(typeof CutoverStatus === "object");
+assert(typeof CutoverTarget === "object");
 assert(typeof DataSourceAttachmentStatus === "object");
 assert(typeof DataSourceStatus === "object");
 assert(typeof DeploymentStatus === "object");
 assert(typeof DeploymentStrategy === "object");
+assert(typeof DeploymentStrategyOverride === "object");
 assert(typeof DescribePackagesFilterName === "object");
 assert(typeof DiffFieldPolicy === "object");
 assert(typeof DiffStatus === "object");
@@ -1350,6 +1389,7 @@ assert(typeof ReplicationRole === "object");
 assert(typeof ReplicationStatus === "object");
 assert(typeof RequirementLevel === "object");
 assert(typeof ReservedInstancePaymentOption === "object");
+assert(typeof RetentionAction === "object");
 assert(typeof RolesKeyIdCOption === "object");
 assert(typeof RollbackOnDisable === "object");
 assert(typeof ScheduleAt === "object");
@@ -1360,6 +1400,8 @@ assert(typeof SkipUnavailableStatus === "object");
 assert(typeof SubjectKeyIdCOption === "object");
 assert(typeof TimeUnit === "object");
 assert(typeof TLSSecurityPolicy === "object");
+assert(typeof TrafficSplitStatus === "object");
+assert(typeof TrafficStrategy === "object");
 assert(typeof UpgradeStatus === "object");
 assert(typeof UpgradeStep === "object");
 assert(typeof ValidationFailureSeverity === "object");
