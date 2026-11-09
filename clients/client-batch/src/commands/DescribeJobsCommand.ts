@@ -463,6 +463,18 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //                       allowPrivilegeEscalation: true || false,
  * //                       readOnlyRootFilesystem: true || false,
  * //                       runAsNonRoot: true || false,
+ * //                       capabilities: { // EksContainerLinuxCapabilities
+ * //                         add: [ // EksContainerLinuxCapabilityList
+ * //                           "STRING_VALUE",
+ * //                         ],
+ * //                         drop: [
+ * //                           "STRING_VALUE",
+ * //                         ],
+ * //                       },
+ * //                       seccompProfile: { // EksSeccompProfile
+ * //                         type: "RuntimeDefault" || "Localhost" || "Unconfined", // required
+ * //                         localhostProfile: "STRING_VALUE",
+ * //                       },
  * //                     },
  * //                   },
  * //                 ],
@@ -502,6 +514,18 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //                       allowPrivilegeEscalation: true || false,
  * //                       readOnlyRootFilesystem: true || false,
  * //                       runAsNonRoot: true || false,
+ * //                       capabilities: {
+ * //                         add: [
+ * //                           "STRING_VALUE",
+ * //                         ],
+ * //                         drop: [
+ * //                           "STRING_VALUE",
+ * //                         ],
+ * //                       },
+ * //                       seccompProfile: {
+ * //                         type: "RuntimeDefault" || "Localhost" || "Unconfined", // required
+ * //                         localhostProfile: "STRING_VALUE",
+ * //                       },
  * //                     },
  * //                   },
  * //                 ],
@@ -535,6 +559,16 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //                   namespace: "STRING_VALUE",
  * //                 },
  * //                 shareProcessNamespace: true || false,
+ * //                 securityContext: { // EksPodSecurityContext
+ * //                   runAsUser: Number("long"),
+ * //                   runAsGroup: Number("long"),
+ * //                   runAsNonRoot: true || false,
+ * //                   seccompProfile: {
+ * //                     type: "RuntimeDefault" || "Localhost" || "Unconfined", // required
+ * //                     localhostProfile: "STRING_VALUE",
+ * //                   },
+ * //                   fsGroup: Number("long"),
+ * //                 },
  * //               },
  * //             },
  * //             consumableResourceProperties: { // ConsumableResourceProperties
@@ -614,6 +648,13 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //                 allowPrivilegeEscalation: true || false,
  * //                 readOnlyRootFilesystem: true || false,
  * //                 runAsNonRoot: true || false,
+ * //                 capabilities: {
+ * //                   add: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   drop: "<EksContainerLinuxCapabilityList>",
+ * //                 },
+ * //                 seccompProfile: "<EksSeccompProfile>",
  * //               },
  * //             },
  * //           ],
@@ -655,6 +696,11 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //                 allowPrivilegeEscalation: true || false,
  * //                 readOnlyRootFilesystem: true || false,
  * //                 runAsNonRoot: true || false,
+ * //                 capabilities: {
+ * //                   add: "<EksContainerLinuxCapabilityList>",
+ * //                   drop: "<EksContainerLinuxCapabilityList>",
+ * //                 },
+ * //                 seccompProfile: "<EksSeccompProfile>",
  * //               },
  * //             },
  * //           ],
@@ -690,6 +736,13 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //             namespace: "STRING_VALUE",
  * //           },
  * //           shareProcessNamespace: true || false,
+ * //           securityContext: {
+ * //             runAsUser: Number("long"),
+ * //             runAsGroup: Number("long"),
+ * //             runAsNonRoot: true || false,
+ * //             seccompProfile: "<EksSeccompProfile>",
+ * //             fsGroup: Number("long"),
+ * //           },
  * //         },
  * //       },
  * //       eksAttempts: [ // EksAttemptDetails

@@ -113,6 +113,7 @@ const _ECDk = "EksContainerDetails";
 const _ECEV = "EksContainerEnvironmentVariable";
 const _ECEVk = "EksContainerEnvironmentVariables";
 const _ECL = "Ec2ConfigurationList";
+const _ECLC = "EksContainerLinuxCapabilities";
 const _ECO = "EksContainerOverride";
 const _ECOL = "EksContainerOverrideList";
 const _ECRR = "EksContainerResourceRequirements";
@@ -138,9 +139,11 @@ const _EPOk = "EksPropertiesOverride";
 const _EPP = "EksPodProperties";
 const _EPPD = "EksPodPropertiesDetail";
 const _EPPO = "EksPodPropertiesOverride";
+const _EPSC = "EksPodSecurityContext";
 const _EPVC = "EksPersistentVolumeClaim";
 const _EPk = "EksProperties";
 const _ES = "EcsSettings";
+const _ESP = "EksSeccompProfile";
 const _ESk = "EksSecret";
 const _ESp = "EphemeralStorage";
 const _ETD = "EcsTaskDetails";
@@ -380,6 +383,7 @@ const _aQ = "availableQuantity";
 const _aS = "allocationStrategy";
 const _aSC = "activeShareCount";
 const _ac = "action";
+const _ad = "add";
 const _an = "annotations";
 const _ar = "arns";
 const _arg = "args";
@@ -421,17 +425,19 @@ const _cT = "capacityTags";
 const _cTl = "clientToken";
 const _cU = "capacityUnit";
 const _cUa = "capacityUsage";
+const _ca = "capabilities";
 const _co = "container";
 const _cod = "code";
 const _com = "command";
 const _con = "containers";
 const _cond = "condition";
 const _cont = "context";
-const _d = "devices";
+const _d = "drop";
 const _dC = "desiredvCpus";
 const _dO = "dependsOn";
 const _dP = "dnsPolicy";
 const _dS = "desiredState";
+const _de = "devices";
 const _e = "error";
 const _eA = "eksAttempts";
 const _eC = "exitCode";
@@ -460,6 +466,7 @@ const _es = "essential";
 const _f = "filters";
 const _fC = "firelensConfiguration";
 const _fE = "fipsEnabled";
+const _fG = "fsGroup";
 const _fOQ = "frontOfQueue";
 const _fOQS = "frontOfQuotaShares";
 const _fP = "fairsharePolicy";
@@ -526,6 +533,7 @@ const _lA = "latestAttempt";
 const _lC = "logConfiguration";
 const _lD = "logDriver";
 const _lP = "linuxParameters";
+const _lPo = "localhostProfile";
 const _lSC = "localStorageConfiguration";
 const _lSN = "logStreamName";
 const _lT = "launchTemplate";
@@ -654,6 +662,7 @@ const _sPN = "shareProcessNamespace";
 const _sPO = "schedulingPriorityOverride";
 const _sPc = "schedulingPolicies";
 const _sPch = "schedulingPriority";
+const _sPe = "seccompProfile";
 const _sPo = "sourcePath";
 const _sPu = "subPath";
 const _sR = "statusReason";
@@ -1191,6 +1200,11 @@ export var EksContainerEnvironmentVariable$: StaticStructureSchema = [3, n0, _EC
   [_n, _va],
   [0, 0], 1
 ];
+export var EksContainerLinuxCapabilities$: StaticStructureSchema = [3, n0, _ECLC,
+  0,
+  [_ad, _d],
+  [64 | 0, 64 | 0]
+];
 export var EksContainerOverride$: StaticStructureSchema = [3, n0, _ECO,
   0,
   [_n, _im, _com, _arg, _env, _re],
@@ -1203,8 +1217,8 @@ export var EksContainerResourceRequirements$: StaticStructureSchema = [3, n0, _E
 ];
 export var EksContainerSecurityContext$: StaticStructureSchema = [3, n0, _ECSC,
   0,
-  [_rAU, _rAG, _p, _aPE, _rORF, _rANR],
-  [1, 1, 2, 2, 2, 2]
+  [_rAU, _rAG, _p, _aPE, _rORF, _rANR, _ca, _sPe],
+  [1, 1, 2, 2, 2, 2, () => EksContainerLinuxCapabilities$, () => EksSeccompProfile$]
 ];
 export var EksContainerVolumeMount$: StaticStructureSchema = [3, n0, _ECVM,
   0,
@@ -1233,18 +1247,23 @@ export var EksPersistentVolumeClaim$: StaticStructureSchema = [3, n0, _EPVC,
 ];
 export var EksPodProperties$: StaticStructureSchema = [3, n0, _EPP,
   0,
-  [_sAN, _hN, _dP, _iPS, _con, _iC, _vo, _met, _sPN],
-  [0, 2, 0, () => ImagePullSecrets, () => EksContainers, () => EksContainers, () => EksVolumes, () => EksMetadata$, 2]
+  [_sAN, _hN, _dP, _iPS, _con, _iC, _vo, _met, _sPN, _sC],
+  [0, 2, 0, () => ImagePullSecrets, () => EksContainers, () => EksContainers, () => EksVolumes, () => EksMetadata$, 2, () => EksPodSecurityContext$]
 ];
 export var EksPodPropertiesDetail$: StaticStructureSchema = [3, n0, _EPPD,
   0,
-  [_sAN, _hN, _dP, _iPS, _con, _iC, _vo, _pN, _nN, _met, _sPN],
-  [0, 2, 0, () => ImagePullSecrets, () => EksContainerDetails, () => EksContainerDetails, () => EksVolumes, 0, 0, () => EksMetadata$, 2]
+  [_sAN, _hN, _dP, _iPS, _con, _iC, _vo, _pN, _nN, _met, _sPN, _sC],
+  [0, 2, 0, () => ImagePullSecrets, () => EksContainerDetails, () => EksContainerDetails, () => EksVolumes, 0, 0, () => EksMetadata$, 2, () => EksPodSecurityContext$]
 ];
 export var EksPodPropertiesOverride$: StaticStructureSchema = [3, n0, _EPPO,
   0,
   [_con, _iC, _met],
   [() => EksContainerOverrideList, () => EksContainerOverrideList, () => EksMetadata$]
+];
+export var EksPodSecurityContext$: StaticStructureSchema = [3, n0, _EPSC,
+  0,
+  [_rAU, _rAG, _rANR, _sPe, _fG],
+  [1, 1, 2, () => EksSeccompProfile$, 1]
 ];
 export var EksProperties$: StaticStructureSchema = [3, n0, _EPk,
   0,
@@ -1260,6 +1279,11 @@ export var EksPropertiesOverride$: StaticStructureSchema = [3, n0, _EPOk,
   0,
   [_pP],
   [() => EksPodPropertiesOverride$]
+];
+export var EksSeccompProfile$: StaticStructureSchema = [3, n0, _ESP,
+  0,
+  [_ty, _lPo],
+  [0, 0], 1
 ];
 export var EksSecret$: StaticStructureSchema = [3, n0, _ESk,
   0,
@@ -1438,7 +1462,7 @@ export var LaunchTemplateSpecificationOverride$: StaticStructureSchema = [3, n0,
 ];
 export var LinuxParameters$: StaticStructureSchema = [3, n0, _LP,
   0,
-  [_d, _iPE, _sMS, _tm, _mS, _sw],
+  [_de, _iPE, _sMS, _tm, _mS, _sw],
   [() => DevicesList, 2, 1, () => TmpfsList, 1, 1]
 ];
 export var ListConsumableResourcesRequest$: StaticStructureSchema = [3, n0, _LCRR,
@@ -2006,6 +2030,7 @@ var EksContainerDetails: StaticListSchema = [1, n0, _ECDk,
 var EksContainerEnvironmentVariables: StaticListSchema = [1, n0, _ECEVk,
   0, () => EksContainerEnvironmentVariable$
 ];
+var EksContainerLinuxCapabilityList = 64 | 0;
 var EksContainerOverrideList: StaticListSchema = [1, n0, _ECOL,
   0, () => EksContainerOverride$
 ];

@@ -14,6 +14,7 @@ import type {
   EFSTransitEncryption,
   EksAccessEntryDesiredState,
   EksAccessEntryStatus,
+  EksSeccompProfileType,
   FirelensConfigurationType,
   JobDefinitionType,
   JobQueueType,
@@ -4603,6 +4604,68 @@ export interface EksContainerResourceRequirements {
 }
 
 /**
+ * <p>The Linux capabilities for the container. For more information, see <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-capabilities-for-a-container">Set capabilities for a container</a> in the <i>Kubernetes
+ *    documentation</i>.</p>
+ * @public
+ */
+export interface EksContainerLinuxCapabilities {
+  /**
+   * <p>The Linux capabilities to add to the default capability set for the container. This
+   *    parameter contains up to 64 values. Specify capability names without the <code>CAP_</code>
+   *    prefix.</p>
+   * @public
+   */
+  add?: string[] | undefined;
+
+  /**
+   * <p>The Linux capabilities to remove from the default capability set for the container. This
+   *    parameter contains up to 64 values. Specify capability names without the <code>CAP_</code>
+   *    prefix.</p>
+   * @public
+   */
+  drop?: string[] | undefined;
+}
+
+/**
+ * <p>The Linux seccomp profile for a pod or container. For more information, see <a href="https://kubernetes.io/docs/tutorials/security/seccomp/">Restrict a Container's
+ *     Syscalls with seccomp</a> in the <i>Kubernetes documentation</i>.</p>
+ * @public
+ */
+export interface EksSeccompProfile {
+  /**
+   * <p>The seccomp profile type can be one of the following values:</p>
+   *          <dl>
+   *             <dt>RuntimeDefault</dt>
+   *             <dd>
+   *                <p>The <code>RuntimeDefault</code> value uses the container runtime's default seccomp
+   *       profile.</p>
+   *             </dd>
+   *             <dt>Unconfined</dt>
+   *             <dd>
+   *                <p>The <code>Unconfined</code> value doesn't filter the container with seccomp.</p>
+   *             </dd>
+   *             <dt>Localhost</dt>
+   *             <dd>
+   *                <p>The <code>Localhost</code> value uses a custom profile at the path specified by
+   *        <code>localhostProfile</code>.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  type: EksSeccompProfileType | undefined;
+
+  /**
+   * <p>The path of the profile on the node, relative to the configured seccomp profile location.
+   *    You must specify this parameter when <code>type</code> is <code>Localhost</code>. Don't set this
+   *    parameter for any other type. You are responsible for ensuring that the profile exists on every
+   *    eligible worker node. For information about providing files to Amazon EKS nodes, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/eks-launch-templates.html">Use a launch template with
+   *     Batch on Amazon EKS</a> in the <i>Batch User Guide</i>.</p>
+   * @public
+   */
+  localhostProfile?: string | undefined;
+}
+
+/**
  * <p>The security context for a job. For more information, see <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Configure a
  *     security context for a pod or container</a> in the <i>Kubernetes
  *     documentation</i>.</p>
@@ -4612,8 +4675,9 @@ export interface EksContainerSecurityContext {
   /**
    * <p>When this parameter is specified, the container is run as the specified user ID
    *     (<code>uid</code>). If this parameter isn't specified, the default is the user that's specified
-   *    in the image metadata. This parameter maps to <code>RunAsUser</code> and <code>MustRanAs</code>
-   *    policy in the <a href="https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups">Users
+   *    in the image metadata. The supported value range is <code>0</code> through
+   *     <code>2147483647</code>. This parameter maps to <code>RunAsUser</code> and
+   *     <code>MustRunAs</code> policy in the <a href="https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups">Users
    *     and groups pod security policies</a> in the <i>Kubernetes
    *    documentation</i>.</p>
    * @public
@@ -4623,8 +4687,9 @@ export interface EksContainerSecurityContext {
   /**
    * <p>When this parameter is specified, the container is run as the specified group ID
    *     (<code>gid</code>). If this parameter isn't specified, the default is the group that's specified
-   *    in the image metadata. This parameter maps to <code>RunAsGroup</code> and <code>MustRunAs</code>
-   *    policy in the <a href="https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups">Users
+   *    in the image metadata. The supported value range is <code>0</code> through
+   *     <code>2147483647</code>. This parameter maps to <code>RunAsGroup</code> and
+   *     <code>MustRunAs</code> policy in the <a href="https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups">Users
    *     and groups pod security policies</a> in the <i>Kubernetes
    *    documentation</i>.</p>
    * @public
@@ -4666,6 +4731,23 @@ export interface EksContainerSecurityContext {
    * @public
    */
   runAsNonRoot?: boolean | undefined;
+
+  /**
+   * <p>Adds or removes Linux capabilities from the container's default capability set.
+   *    With Linux capabilities, you can grant specific privileges without granting full root
+   *    permissions.</p>
+   * @public
+   */
+  capabilities?: EksContainerLinuxCapabilities | undefined;
+
+  /**
+   * <p>The seccomp profile for the container. A container-level seccomp profile overrides the
+   *    profile in the pod security context, which defines security settings that apply to all
+   *    containers in the pod unless a container overrides them. If this parameter isn't specified,
+   *    the container uses the pod security context's seccomp profile when one is specified.</p>
+   * @public
+   */
+  seccompProfile?: EksSeccompProfile | undefined;
 }
 
 /**
@@ -4886,6 +4968,53 @@ export interface EksMetadata {
    * @public
    */
   namespace?: string | undefined;
+}
+
+/**
+ * <p>The security context for the pod. The settings apply to all containers in the pod when
+ *    the container does not specify an overriding value. For more information, see <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod">Set the security context for a Pod</a> in the <i>Kubernetes
+ *    documentation</i>.</p>
+ * @public
+ */
+export interface EksPodSecurityContext {
+  /**
+   * <p>The user ID that runs containers in the pod when a container does not specify its own
+   *    user ID. The supported value range is <code>0</code> through
+   *     <code>2147483647</code>.</p>
+   * @public
+   */
+  runAsUser?: number | undefined;
+
+  /**
+   * <p>The primary group ID that runs containers in the pod when a container does not specify
+   *    its own group ID. The supported value range is <code>0</code> through
+   *     <code>2147483647</code>.</p>
+   * @public
+   */
+  runAsGroup?: number | undefined;
+
+  /**
+   * <p>Specifies whether Kubernetes validates that containers in the pod don't run as the root user
+   *    unless a container specifies an overriding value.</p>
+   * @public
+   */
+  runAsNonRoot?: boolean | undefined;
+
+  /**
+   * <p>The default seccomp profile for containers in the pod. A container-level seccomp profile
+   *    overrides this value.</p>
+   * @public
+   */
+  seccompProfile?: EksSeccompProfile | undefined;
+
+  /**
+   * <p>A special supplemental group that is applied to all containers in the pod. Some volume
+   *    types allow Kubernetes to change the ownership and permissions of the volume contents to this group
+   *    when the volume is mounted. The supported value range is <code>0</code> through
+   *     <code>2147483647</code>.</p>
+   * @public
+   */
+  fsGroup?: number | undefined;
 }
 
 /**
@@ -5122,6 +5251,13 @@ export interface EksPodProperties {
    * @public
    */
   shareProcessNamespace?: boolean | undefined;
+
+  /**
+   * <p>The security context to apply to the pod. The settings apply to all containers in the
+   *    pod unless an individual container specifies an overriding value.</p>
+   * @public
+   */
+  securityContext?: EksPodSecurityContext | undefined;
 }
 
 /**
@@ -5389,8 +5525,9 @@ export interface JobDefinition {
    *     <code>containerProperties</code>, <code>ecsProperties</code>, or
    *    <code>eksProperties</code>.</p>
    *          <note>
-   *             <p>If the job runs on Fargate resources, don't specify <code>nodeProperties</code>. Use
-   *      <code>containerProperties</code> instead.</p>
+   *             <p>If the job runs on Fargate resources, don't specify <code>nodeProperties</code>. We
+   *     recommend <code>ecsProperties</code>, which supports both single-container and multi-container
+   *     jobs. <code>containerProperties</code> is also supported for single-container jobs.</p>
    *          </note>
    * @public
    */
@@ -6657,6 +6794,13 @@ export interface EksPodPropertiesDetail {
    * @public
    */
   shareProcessNamespace?: boolean | undefined;
+
+  /**
+   * <p>The security context applied to the pod. The settings apply to all containers in the
+   *    pod unless an individual container specifies an overriding value.</p>
+   * @public
+   */
+  securityContext?: EksPodSecurityContext | undefined;
 }
 
 /**
@@ -8936,7 +9080,10 @@ export interface RegisterJobDefinitionRequest {
    *       specified for Amazon EKS-based job definitions.</p>
    *          <note>
    *             <p>If the job runs on Fargate resources, then you must not specify
-   *           <code>nodeProperties</code>; use only <code>containerProperties</code>.</p>
+   *           <code>nodeProperties</code>. We recommend <code>ecsProperties</code>, which supports both
+   *           single-container and multi-container jobs. <code>containerProperties</code> is also
+   *           supported for single-container jobs. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-container-jobs.html">Multi-container jobs</a> in the
+   *             <i>Batch User Guide</i>.</p>
    *          </note>
    * @public
    */
@@ -8948,7 +9095,9 @@ export interface RegisterJobDefinitionRequest {
    *         Jobs</a> in the <i>Batch User Guide</i>.</p>
    *          <note>
    *             <p>If the job runs on Fargate resources, then you must not specify
-   *           <code>nodeProperties</code>; use <code>containerProperties</code> instead.</p>
+   *           <code>nodeProperties</code>. We recommend <code>ecsProperties</code>, which supports both
+   *           single-container and multi-container jobs. <code>containerProperties</code> is also
+   *           supported for single-container jobs.</p>
    *          </note>
    *          <note>
    *             <p>If the job runs on Amazon EKS resources, then you must not specify

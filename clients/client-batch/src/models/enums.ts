@@ -394,6 +394,20 @@ export type FirelensConfigurationType = (typeof FirelensConfigurationType)[keyof
  * @public
  * @enum
  */
+export const EksSeccompProfileType = {
+  LOCALHOST: "Localhost",
+  RUNTIME_DEFAULT: "RuntimeDefault",
+  UNCONFINED: "Unconfined",
+} as const;
+/**
+ * @public
+ */
+export type EksSeccompProfileType = (typeof EksSeccompProfileType)[keyof typeof EksSeccompProfileType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PlatformCapability = {
   EC2: "EC2",
   FARGATE: "FARGATE",

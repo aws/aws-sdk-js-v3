@@ -154,6 +154,7 @@ import {
   EksContainer$,
   EksContainerDetail$,
   EksContainerEnvironmentVariable$,
+  EksContainerLinuxCapabilities$,
   EksContainerOverride$,
   EksContainerResourceRequirements$,
   EksContainerSecurityContext$,
@@ -165,9 +166,12 @@ import {
   EksPodProperties$,
   EksPodPropertiesDetail$,
   EksPodPropertiesOverride$,
+  EksPodSecurityContext$,
   EksProperties$,
   EksPropertiesDetail$,
   EksPropertiesOverride$,
+  EksSeccompProfile$,
+  EksSeccompProfileType,
   EksSecret$,
   EksVolume$,
   EphemeralStorage$,
@@ -586,6 +590,7 @@ assert(typeof EksConfigurationUpdate$ === "object");
 assert(typeof EksContainer$ === "object");
 assert(typeof EksContainerDetail$ === "object");
 assert(typeof EksContainerEnvironmentVariable$ === "object");
+assert(typeof EksContainerLinuxCapabilities$ === "object");
 assert(typeof EksContainerOverride$ === "object");
 assert(typeof EksContainerResourceRequirements$ === "object");
 assert(typeof EksContainerSecurityContext$ === "object");
@@ -597,9 +602,11 @@ assert(typeof EksPersistentVolumeClaim$ === "object");
 assert(typeof EksPodProperties$ === "object");
 assert(typeof EksPodPropertiesDetail$ === "object");
 assert(typeof EksPodPropertiesOverride$ === "object");
+assert(typeof EksPodSecurityContext$ === "object");
 assert(typeof EksProperties$ === "object");
 assert(typeof EksPropertiesDetail$ === "object");
 assert(typeof EksPropertiesOverride$ === "object");
+assert(typeof EksSeccompProfile$ === "object");
 assert(typeof EksSecret$ === "object");
 assert(typeof EksVolume$ === "object");
 assert(typeof EphemeralStorage$ === "object");
@@ -756,6 +763,7 @@ assert(typeof EFSAuthorizationConfigIAM === "object");
 assert(typeof EFSTransitEncryption === "object");
 assert(typeof EksAccessEntryDesiredState === "object");
 assert(typeof EksAccessEntryStatus === "object");
+assert(typeof EksSeccompProfileType === "object");
 assert(typeof FirelensConfigurationType === "object");
 assert(typeof JobDefinitionType === "object");
 assert(typeof JobQueueType === "object");
