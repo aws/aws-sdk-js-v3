@@ -23,7 +23,7 @@ export interface UpdateDesignationCommandInput extends UpdateDesignationInput {}
 export interface UpdateDesignationCommandOutput extends UpdateDesignationOutput, __MetadataBearer {}
 
 /**
- * Updates an existing designation. Managed designations cannot be modified.
+ * <p>Updates an existing user-created designation. Managed designations cannot be modified. Omit a field to leave its current value unchanged.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

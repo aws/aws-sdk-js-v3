@@ -23,8 +23,7 @@ export interface CreateDesignationCommandInput extends CreateDesignationInput {}
 export interface CreateDesignationCommandOutput extends CreateDesignationOutput, __MetadataBearer {}
 
 /**
- * Creates a new user-defined designation with a Cedar permit policy.
- * The designation defines a named role that can be assigned to project members.
+ * <p>Creates a new user-defined designation with a Cedar permit policy. The designation defines a named role that can be assigned to project members through <code>CreateProjectMembership</code> or granted through <code>AddPolicyGrant</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

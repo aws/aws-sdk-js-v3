@@ -23,8 +23,7 @@ export interface DeleteDesignationCommandInput extends DeleteDesignationInput {}
 export interface DeleteDesignationCommandOutput extends DeleteDesignationOutput, __MetadataBearer {}
 
 /**
- * Deletes a designation. Managed designations cannot be deleted.
- * This operation is idempotent.
+ * <p>Deletes a user-created designation. Managed designations cannot be deleted. The call fails if the designation has <code>deletionProtection</code> enabled or if any project member still holds it. This operation is idempotent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

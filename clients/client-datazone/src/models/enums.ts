@@ -346,6 +346,14 @@ export const GlueConnectionType = {
   SQLSERVER: "SQLSERVER",
   TERADATA: "TERADATA",
   VERTICA: "VERTICA",
+  /**
+   * <p>A Workday Data Connect (Iceberg REST) catalog connection type.</p>
+   */
+  WORKDAYICEBERGRESTCATALOG: "WORKDAYICEBERGRESTCATALOG",
+  /**
+   * <p>A Workday Live Data Query connection type.</p>
+   */
+  WORKDAYLDQ: "WORKDAYLDQ",
 } as const;
 /**
  * @public
@@ -528,6 +536,14 @@ export const ConnectionType = {
   TERADATA: "TERADATA",
   VERTICA: "VERTICA",
   VPC: "VPC",
+  /**
+   * <p>A Workday Data Connect (Iceberg REST) catalog connection type.</p>
+   */
+  WORKDAYICEBERGRESTCATALOG: "WORKDAYICEBERGRESTCATALOG",
+  /**
+   * <p>A Workday Live Data Query connection type.</p>
+   */
+  WORKDAYLDQ: "WORKDAYLDQ",
   WORKFLOWS_MWAA: "WORKFLOWS_MWAA",
 } as const;
 /**

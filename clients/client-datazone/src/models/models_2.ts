@@ -4171,13 +4171,13 @@ export interface UpdateDesignationInput {
   description?: string | undefined;
 
   /**
-   * The updated Cedar permit policy.
+   * <p>The updated Cedar permit policy. Omit to keep the existing policy.</p>
    * @public
    */
   policy?: string | undefined;
 
   /**
-   * Whether deletion protection is enabled for this designation. Omit to keep the existing value.
+   * <p>Specifies whether deletion protection is enabled for this designation. Omit to keep the existing value.</p>
    * @public
    */
   deletionProtection?: boolean | undefined;
@@ -4214,22 +4214,19 @@ export interface UpdateDesignationOutput {
   description?: string | undefined;
 
   /**
-   * The classification of this designation. MANAGED designations are
-   * system-defined and cannot be modified or deleted.
+   * <p>The classification of this designation. Valid values:</p> <ul> <li> <p> <code>MANAGED</code> — System-defined designations that cannot be modified or deleted.</p> </li> <li> <p> <code>USER_CREATED</code> — Designations created through <code>CreateDesignation</code>.</p> </li> </ul>
    * @public
    */
   designationType: DesignationType | undefined;
 
   /**
-   * The Cedar permit policy that governs what actions holders of this
-   * designation are allowed to perform.
+   * <p>The Cedar permit policy that governs the actions holders of this designation are allowed to perform.</p>
    * @public
    */
   policy: string | undefined;
 
   /**
-   * Whether deletion protection is enabled for this designation. When true,
-   * DeleteDesignation is rejected until protection is disabled via UpdateDesignation.
+   * <p>Specifies whether deletion protection is enabled for this designation. When <code>true</code>, <code>DeleteDesignation</code> is rejected until protection is disabled through <code>UpdateDesignation</code>.</p>
    * @public
    */
   deletionProtection: boolean | undefined;

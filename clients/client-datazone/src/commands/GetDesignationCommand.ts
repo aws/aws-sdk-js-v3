@@ -23,7 +23,7 @@ export interface GetDesignationCommandInput extends GetDesignationInput {}
 export interface GetDesignationCommandOutput extends GetDesignationOutput, __MetadataBearer {}
 
 /**
- * Gets the details of a designation, including its Cedar policy.
+ * <p>Gets the details of a designation, including its Cedar permit policy. Returns the full designation record for both system-managed and user-created designations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

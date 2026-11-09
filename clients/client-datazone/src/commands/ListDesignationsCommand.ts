@@ -23,8 +23,7 @@ export interface ListDesignationsCommandInput extends ListDesignationsInput {}
 export interface ListDesignationsCommandOutput extends ListDesignationsOutput, __MetadataBearer {}
 
 /**
- * Lists the designations in a domain. Returns system-managed designations
- * first, followed by user-created designations sorted alphabetically by name.
+ * <p>Lists the designations in a domain. The response returns system-managed designations first, followed by user-created designations in alphabetical order by name. Results are paginated. Use <code>nextToken</code> to retrieve additional pages of results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

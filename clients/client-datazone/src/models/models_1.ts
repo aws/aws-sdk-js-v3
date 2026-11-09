@@ -5380,22 +5380,19 @@ export interface GetDesignationOutput {
   description?: string | undefined;
 
   /**
-   * The classification of this designation. MANAGED designations are
-   * system-defined and cannot be modified or deleted.
+   * <p>The classification of this designation. Valid values:</p> <ul> <li> <p> <code>MANAGED</code> — System-defined designations that cannot be modified or deleted.</p> </li> <li> <p> <code>USER_CREATED</code> — Designations created through <code>CreateDesignation</code>.</p> </li> </ul>
    * @public
    */
   designationType: DesignationType | undefined;
 
   /**
-   * The Cedar permit policy that governs what actions holders of this
-   * designation are allowed to perform.
+   * <p>The Cedar permit policy that governs the actions holders of this designation are allowed to perform.</p>
    * @public
    */
   policy: string | undefined;
 
   /**
-   * Whether deletion protection is enabled for this designation. When true,
-   * DeleteDesignation is rejected until protection is disabled via UpdateDesignation.
+   * <p>Specifies whether deletion protection is enabled for this designation. When <code>true</code>, <code>DeleteDesignation</code> is rejected until protection is disabled through <code>UpdateDesignation</code>.</p>
    * @public
    */
   deletionProtection: boolean | undefined;
@@ -7996,7 +7993,7 @@ export interface ListDesignationsInput {
 }
 
 /**
- * Summary representation of a designation returned by list operations.
+ * <p>The summary representation of a designation returned by <code>ListDesignations</code>. The summary omits the Cedar permit policy. Call <code>GetDesignation</code> to retrieve the full designation record including the policy.</p>
  * @public
  */
 export interface DesignationSummary {
@@ -8025,13 +8022,13 @@ export interface DesignationSummary {
   description?: string | undefined;
 
   /**
-   * The classification of this designation.
+   * <p>The classification of this designation. Valid values:</p> <ul> <li> <p> <code>MANAGED</code> — System-defined designation.</p> </li> <li> <p> <code>USER_CREATED</code> — User-created designation.</p> </li> </ul>
    * @public
    */
   designationType?: DesignationType | undefined;
 
   /**
-   * Whether deletion protection is enabled for this designation.
+   * <p>Specifies whether deletion protection is enabled for this designation. When <code>true</code>, <code>DeleteDesignation</code> is rejected until protection is disabled through <code>UpdateDesignation</code>.</p>
    * @public
    */
   deletionProtection: boolean | undefined;
