@@ -53,6 +53,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             __GranteeIdentifier__
         </GranteeIdentifier>
     </Grantee>
+    <MatchedInstanceArn>
+        __MatchedInstanceArn__
+    </MatchedInstanceArn>
 </GetDataAccessResult>
 
 
@@ -69,6 +72,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     GranteeType: "__GranteeType__",
     GranteeIdentifier: "__GranteeIdentifier__"
   },
+  MatchedInstanceArn: "__MatchedInstanceArn__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

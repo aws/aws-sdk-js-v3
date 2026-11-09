@@ -278,6 +278,7 @@ import {
   IdempotencyException,
   IdempotencyException$,
   Include$,
+  InstanceScope,
   InternalServiceException,
   InternalServiceException$,
   InvalidNextTokenException,
@@ -1114,6 +1115,7 @@ assert(typeof ExpirationStatus === "object");
 assert(typeof Format === "object");
 assert(typeof GeneratedManifestFormat === "object");
 assert(typeof GranteeType === "object");
+assert(typeof InstanceScope === "object");
 assert(typeof JobManifestFieldName === "object");
 assert(typeof JobManifestFormat === "object");
 assert(typeof JobReportFormat === "object");

@@ -1,5 +1,5 @@
 GET https://123456789012.s3-control.us-east-1.amazonaws.com 
-/v20180820/accessgrantsinstance/dataaccess?target=__Target__&permission=__Permission__&durationSeconds=0&privilege=__Privilege__&targetType=__TargetType__&auditContext=__AuditContext__
+/v20180820/accessgrantsinstance/dataaccess?target=__Target__&permission=__Permission__&durationSeconds=0&privilege=__Privilege__&targetType=__TargetType__&auditContext=__AuditContext__&instanceScope=__InstanceScope__
 
 x-amz-account-id: 123456789012
 content-md5: 1B2M2Y8AsgTpgAmY7PhCfg==

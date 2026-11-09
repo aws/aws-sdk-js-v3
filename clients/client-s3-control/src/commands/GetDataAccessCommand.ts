@@ -23,7 +23,7 @@ export interface GetDataAccessCommandInput extends GetDataAccessRequest {}
 export interface GetDataAccessCommandOutput extends GetDataAccessResult, __MetadataBearer {}
 
 /**
- * <p>Returns a temporary access credential from S3 Access Grants to the grantee or client application. The <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_Credentials.html">temporary credential</a> is an Amazon Web Services STS token that grants them access to the S3 data. </p>
+ * <p>Returns a temporary access credential from S3 Access Grants to the grantee or client application. The <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_Credentials.html">temporary credential</a> is an Amazon Web Services STS token that grants them access to the S3 data. By default, S3 Access Grants searches for a matching grant in the instance of the Amazon Web Services account ID in the request. To also search instances shared with the caller through Amazon Web Services Resource Access Manager (RAM), set the <code>InstanceScope</code> parameter to <code>ALL</code>.</p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
@@ -50,6 +50,7 @@ export interface GetDataAccessCommandOutput extends GetDataAccessResult, __Metad
  *   Privilege: "Minimal" || "Default",
  *   TargetType: "Object",
  *   AuditContext: "STRING_VALUE",
+ *   InstanceScope: "SELF" || "ALL",
  * };
  * const command = new GetDataAccessCommand(input);
  * const response = await client.send(command);
@@ -65,6 +66,7 @@ export interface GetDataAccessCommandOutput extends GetDataAccessResult, __Metad
  * //     GranteeType: "DIRECTORY_USER" || "DIRECTORY_GROUP" || "IAM",
  * //     GranteeIdentifier: "STRING_VALUE",
  * //   },
+ * //   MatchedInstanceArn: "STRING_VALUE",
  * // };
  *
  * ```

@@ -334,6 +334,7 @@ const _INTE = "InvalidNextTokenException";
 const _IP = "IsPublic";
 const _IPA = "IgnorePublicAcls";
 const _IRE = "InvalidRequestException";
+const _IS = "InstanceScope";
 const _ISE = "InternalServiceException";
 const _ISV = "InvocationSchemaVersion";
 const _Id = "Id";
@@ -437,6 +438,7 @@ const _MFA = "MFA";
 const _MFAD = "MFADelete";
 const _MG = "ManifestGenerator";
 const _MGT = "MatchedGrantTarget";
+const _MIA = "MatchedInstanceArn";
 const _MOA = "MatchObjectAge";
 const _MOL = "ManifestOutputLocation";
 const _MOS = "MatchObjectSize";
@@ -762,6 +764,7 @@ const _hH = "httpHeader";
 const _hL = "hostLabel";
 const _hP = "httpPayload";
 const _hQ = "httpQuery";
+const _iS = "instanceScope";
 const _jS = "jobStatuses";
 const _l = "locationscope";
 const _mR = "maxResults";
@@ -1476,13 +1479,13 @@ export var GetBucketVersioningResult$: StaticStructureSchema = [3, n0, _GBVRe,
 ];
 export var GetDataAccessRequest$: StaticStructureSchema = [3, n0, _GDAR,
   0,
-  [_Ta, _P, _AI, _DS, _Pri, _TT, _AC],
-  [[0, { [_hQ]: _t }], [0, { [_hQ]: _p }], [0, { [_hL]: 1, [_hH]: _xaai }], [1, { [_hQ]: _dS }], [0, { [_hQ]: _pr }], [0, { [_hQ]: _tT }], [0, { [_hQ]: _aC }]], 2
+  [_Ta, _P, _AI, _DS, _Pri, _TT, _AC, _IS],
+  [[0, { [_hQ]: _t }], [0, { [_hQ]: _p }], [0, { [_hL]: 1, [_hH]: _xaai }], [1, { [_hQ]: _dS }], [0, { [_hQ]: _pr }], [0, { [_hQ]: _tT }], [0, { [_hQ]: _aC }], [0, { [_hQ]: _iS }]], 2
 ];
 export var GetDataAccessResult$: StaticStructureSchema = [3, n0, _GDARe,
   0,
-  [_Cr, _MGT, _G],
-  [[() => Credentials$, 0], 0, () => Grantee$]
+  [_Cr, _MGT, _G, _MIA],
+  [[() => Credentials$, 0], 0, () => Grantee$, 0]
 ];
 export var GetJobTaggingRequest$: StaticStructureSchema = [3, n0, _GJTR,
   0,
@@ -1751,13 +1754,13 @@ export var ListAccessPointsResult$: StaticStructureSchema = [3, n0, _LAPRi,
 ];
 export var ListCallerAccessGrantsEntry$: StaticStructureSchema = [3, n0, _LCAGE,
   0,
-  [_P, _GS, _AA],
-  [0, 0, 0]
+  [_P, _GS, _AA, _AGIA],
+  [0, 0, 0, 0]
 ];
 export var ListCallerAccessGrantsRequest$: StaticStructureSchema = [3, n0, _LCAGR,
   0,
-  [_AI, _GS, _NT, _MR, _ABA],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, { [_hQ]: _gra }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [2, { [_hQ]: _aBA }]]
+  [_AI, _GS, _NT, _MR, _ABA, _IS],
+  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, { [_hQ]: _gra }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [2, { [_hQ]: _aBA }], [0, { [_hQ]: _iS }]]
 ];
 export var ListCallerAccessGrantsResult$: StaticStructureSchema = [3, n0, _LCAGRi,
   0,

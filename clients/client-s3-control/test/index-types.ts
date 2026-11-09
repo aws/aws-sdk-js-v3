@@ -305,6 +305,7 @@ export type {
   Format,
   GeneratedManifestFormat,
   GranteeType,
+  InstanceScope,
   JobManifestFieldName,
   JobManifestFormat,
   JobReportFormat,

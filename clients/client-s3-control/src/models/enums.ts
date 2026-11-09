@@ -697,6 +697,19 @@ export type BucketVersioningStatus = (typeof BucketVersioningStatus)[keyof typeo
  * @public
  * @enum
  */
+export const InstanceScope = {
+  ALL: "ALL",
+  SELF: "SELF",
+} as const;
+/**
+ * @public
+ */
+export type InstanceScope = (typeof InstanceScope)[keyof typeof InstanceScope];
+
+/**
+ * @public
+ * @enum
+ */
 export const Privilege = {
   Default: "Default",
   Minimal: "Minimal",
