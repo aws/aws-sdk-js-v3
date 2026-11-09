@@ -46,6 +46,7 @@ export * from "./RejectInboundCrossClusterSearchConnectionCommand";
 export * from "./RemoveTagsCommand";
 export * from "./RevokeVpcEndpointAccessCommand";
 export * from "./StartElasticsearchServiceSoftwareUpdateCommand";
+export * from "./UpdateCloneCommand";
 export * from "./UpdateElasticsearchDomainConfigCommand";
 export * from "./UpdatePackageCommand";
 export * from "./UpdateVpcEndpointCommand";

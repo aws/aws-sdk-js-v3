@@ -235,6 +235,11 @@ import {
   StartElasticsearchServiceSoftwareUpdateCommand,
 } from "./commands/StartElasticsearchServiceSoftwareUpdateCommand";
 import {
+  type UpdateCloneCommandInput,
+  type UpdateCloneCommandOutput,
+  UpdateCloneCommand,
+} from "./commands/UpdateCloneCommand";
+import {
   type UpdateElasticsearchDomainConfigCommandInput,
   type UpdateElasticsearchDomainConfigCommandOutput,
   UpdateElasticsearchDomainConfigCommand,
@@ -324,6 +329,7 @@ const commands = {
   RemoveTagsCommand,
   RevokeVpcEndpointAccessCommand,
   StartElasticsearchServiceSoftwareUpdateCommand,
+  UpdateCloneCommand,
   UpdateElasticsearchDomainConfigCommand,
   UpdatePackageCommand,
   UpdateVpcEndpointCommand,
@@ -1159,6 +1165,23 @@ export interface ElasticsearchService {
     args: StartElasticsearchServiceSoftwareUpdateCommandInput,
     options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: StartElasticsearchServiceSoftwareUpdateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCloneCommand}
+   */
+  updateClone(
+    args: UpdateCloneCommandInput,
+    options?: ElasticsearchServiceRequestOptions
+  ): Promise<UpdateCloneCommandOutput>;
+  updateClone(
+    args: UpdateCloneCommandInput,
+    cb: (err: any, data?: UpdateCloneCommandOutput) => void
+  ): void;
+  updateClone(
+    args: UpdateCloneCommandInput,
+    options: ElasticsearchServiceRequestOptions,
+    cb: (err: any, data?: UpdateCloneCommandOutput) => void
   ): void;
 
   /**

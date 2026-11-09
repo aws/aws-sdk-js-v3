@@ -36,6 +36,15 @@ export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElastics
  *   DomainName: "STRING_VALUE", // required
  *   TargetVersion: "STRING_VALUE", // required
  *   PerformCheckOnly: true || false,
+ *   DeploymentStrategyOptions: { // DeploymentStrategyOverrideOptions
+ *     DeploymentStrategy: "ClonedBlueGreen", // required
+ *     ClonedBlueGreenOptions: { // ClonedBlueGreenOptions
+ *       RetentionOptions: { // RetentionOptions Union: only one key present
+ *         RetentionInHours: Number("int"),
+ *         RetentionAction: "RollbackToPrimaryCluster" || "DeletePrimaryCluster",
+ *       },
+ *     },
+ *   },
  * };
  * const command = new UpgradeElasticsearchDomainCommand(input);
  * const response = await client.send(command);
@@ -43,6 +52,15 @@ export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElastics
  * //   DomainName: "STRING_VALUE",
  * //   TargetVersion: "STRING_VALUE",
  * //   PerformCheckOnly: true || false,
+ * //   DeploymentStrategyOptions: { // DeploymentStrategyOverrideOptions
+ * //     DeploymentStrategy: "ClonedBlueGreen", // required
+ * //     ClonedBlueGreenOptions: { // ClonedBlueGreenOptions
+ * //       RetentionOptions: { // RetentionOptions Union: only one key present
+ * //         RetentionInHours: Number("int"),
+ * //         RetentionAction: "RollbackToPrimaryCluster" || "DeletePrimaryCluster",
+ * //       },
+ * //     },
+ * //   },
  * //   ChangeProgressDetails: { // ChangeProgressDetails
  * //     ChangeId: "STRING_VALUE",
  * //     Message: "STRING_VALUE",

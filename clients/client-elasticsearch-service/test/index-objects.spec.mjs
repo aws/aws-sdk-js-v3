@@ -51,6 +51,10 @@ import {
   ChangeProgressDetails$,
   ChangeProgressStage$,
   ChangeProgressStatusDetails$,
+  ClonedBlueGreenOptions$,
+  ClonedBlueGreenScheduledAction$,
+  ClonedBlueGreenScheduledActionType,
+  ClonedBlueGreenUpgradeDetails$,
   CognitoOptions$,
   CognitoOptionsStatus$,
   ColdStorageOptions$,
@@ -74,6 +78,10 @@ import {
   CreateVpcEndpointCommand,
   CreateVpcEndpointRequest$,
   CreateVpcEndpointResponse$,
+  CutoverOptions$,
+  CutoverRequestOptions$,
+  CutoverStatus,
+  CutoverTarget,
   DeleteElasticsearchDomain$,
   DeleteElasticsearchDomainCommand,
   DeleteElasticsearchDomainRequest$,
@@ -100,6 +108,8 @@ import {
   DeploymentStrategy,
   DeploymentStrategyOptions$,
   DeploymentStrategyOptionsStatus$,
+  DeploymentStrategyOverride,
+  DeploymentStrategyOverrideOptions$,
   DescribeDomainAutoTunes$,
   DescribeDomainAutoTunesCommand,
   DescribeDomainAutoTunesRequest$,
@@ -304,6 +314,8 @@ import {
   ResourceAlreadyExistsException$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  RetentionAction,
+  RetentionOptions$,
   RevokeVpcEndpointAccess$,
   RevokeVpcEndpointAccessCommand,
   RevokeVpcEndpointAccessRequest$,
@@ -327,6 +339,15 @@ import {
   Tag$,
   TimeUnit,
   TLSSecurityPolicy,
+  TrafficPercents$,
+  TrafficSplitOptions$,
+  TrafficSplitRequestOptions$,
+  TrafficSplitStatus,
+  TrafficStrategy,
+  UpdateClone$,
+  UpdateCloneCommand,
+  UpdateCloneRequest$,
+  UpdateCloneResponse$,
   UpdateElasticsearchDomainConfig$,
   UpdateElasticsearchDomainConfigCommand,
   UpdateElasticsearchDomainConfigRequest$,
@@ -460,6 +481,8 @@ assert(typeof RevokeVpcEndpointAccessCommand === "function");
 assert(typeof RevokeVpcEndpointAccess$ === "object");
 assert(typeof StartElasticsearchServiceSoftwareUpdateCommand === "function");
 assert(typeof StartElasticsearchServiceSoftwareUpdate$ === "object");
+assert(typeof UpdateCloneCommand === "function");
+assert(typeof UpdateClone$ === "object");
 assert(typeof UpdateElasticsearchDomainConfigCommand === "function");
 assert(typeof UpdateElasticsearchDomainConfig$ === "object");
 assert(typeof UpdatePackageCommand === "function");
@@ -502,6 +525,9 @@ assert(typeof CancelledChangeProperty$ === "object");
 assert(typeof ChangeProgressDetails$ === "object");
 assert(typeof ChangeProgressStage$ === "object");
 assert(typeof ChangeProgressStatusDetails$ === "object");
+assert(typeof ClonedBlueGreenOptions$ === "object");
+assert(typeof ClonedBlueGreenScheduledAction$ === "object");
+assert(typeof ClonedBlueGreenUpgradeDetails$ === "object");
 assert(typeof CognitoOptions$ === "object");
 assert(typeof CognitoOptionsStatus$ === "object");
 assert(typeof ColdStorageOptions$ === "object");
@@ -514,6 +540,8 @@ assert(typeof CreatePackageRequest$ === "object");
 assert(typeof CreatePackageResponse$ === "object");
 assert(typeof CreateVpcEndpointRequest$ === "object");
 assert(typeof CreateVpcEndpointResponse$ === "object");
+assert(typeof CutoverOptions$ === "object");
+assert(typeof CutoverRequestOptions$ === "object");
 assert(typeof DeleteElasticsearchDomainRequest$ === "object");
 assert(typeof DeleteElasticsearchDomainResponse$ === "object");
 assert(typeof DeleteInboundCrossClusterSearchConnectionRequest$ === "object");
@@ -526,6 +554,7 @@ assert(typeof DeleteVpcEndpointRequest$ === "object");
 assert(typeof DeleteVpcEndpointResponse$ === "object");
 assert(typeof DeploymentStrategyOptions$ === "object");
 assert(typeof DeploymentStrategyOptionsStatus$ === "object");
+assert(typeof DeploymentStrategyOverrideOptions$ === "object");
 assert(typeof DescribeDomainAutoTunesRequest$ === "object");
 assert(typeof DescribeDomainAutoTunesResponse$ === "object");
 assert(typeof DescribeDomainChangeProgressRequest$ === "object");
@@ -623,6 +652,7 @@ assert(typeof RejectInboundCrossClusterSearchConnectionResponse$ === "object");
 assert(typeof RemoveTagsRequest$ === "object");
 assert(typeof ReservedElasticsearchInstance$ === "object");
 assert(typeof ReservedElasticsearchInstanceOffering$ === "object");
+assert(typeof RetentionOptions$ === "object");
 assert(typeof RevokeVpcEndpointAccessRequest$ === "object");
 assert(typeof RevokeVpcEndpointAccessResponse$ === "object");
 assert(typeof SAMLIdp$ === "object");
@@ -637,6 +667,11 @@ assert(typeof StartElasticsearchServiceSoftwareUpdateResponse$ === "object");
 assert(typeof StorageType$ === "object");
 assert(typeof StorageTypeLimit$ === "object");
 assert(typeof Tag$ === "object");
+assert(typeof TrafficPercents$ === "object");
+assert(typeof TrafficSplitOptions$ === "object");
+assert(typeof TrafficSplitRequestOptions$ === "object");
+assert(typeof UpdateCloneRequest$ === "object");
+assert(typeof UpdateCloneResponse$ === "object");
 assert(typeof UpdateElasticsearchDomainConfigRequest$ === "object");
 assert(typeof UpdateElasticsearchDomainConfigResponse$ === "object");
 assert(typeof UpdatePackageRequest$ === "object");
@@ -659,9 +694,13 @@ assert(typeof ZoneAwarenessConfig$ === "object");
 assert(typeof AutoTuneDesiredState === "object");
 assert(typeof AutoTuneState === "object");
 assert(typeof AutoTuneType === "object");
+assert(typeof ClonedBlueGreenScheduledActionType === "object");
 assert(typeof ConfigChangeStatus === "object");
+assert(typeof CutoverStatus === "object");
+assert(typeof CutoverTarget === "object");
 assert(typeof DeploymentStatus === "object");
 assert(typeof DeploymentStrategy === "object");
+assert(typeof DeploymentStrategyOverride === "object");
 assert(typeof DescribePackagesFilterName === "object");
 assert(typeof DomainEngineMode === "object");
 assert(typeof DomainPackageStatus === "object");
@@ -682,11 +721,14 @@ assert(typeof PauseState === "object");
 assert(typeof PrincipalType === "object");
 assert(typeof PropertyValueType === "object");
 assert(typeof ReservedElasticsearchInstancePaymentOption === "object");
+assert(typeof RetentionAction === "object");
 assert(typeof RollbackOnDisable === "object");
 assert(typeof ScheduledAutoTuneActionType === "object");
 assert(typeof ScheduledAutoTuneSeverityType === "object");
 assert(typeof TimeUnit === "object");
 assert(typeof TLSSecurityPolicy === "object");
+assert(typeof TrafficSplitStatus === "object");
+assert(typeof TrafficStrategy === "object");
 assert(typeof UpgradeStatus === "object");
 assert(typeof UpgradeStep === "object");
 assert(typeof VolumeType === "object");

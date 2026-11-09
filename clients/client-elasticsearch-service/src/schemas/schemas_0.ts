@@ -53,6 +53,9 @@ const _BE = "BaseException";
 const _C = "Created";
 const _CA = "ConnectionAlias";
 const _CAr = "CreatedAt";
+const _CBGO = "ClonedBlueGreenOptions";
+const _CBGSA = "ClonedBlueGreenScheduledAction";
+const _CBGUD = "ClonedBlueGreenUpgradeDetails";
 const _CC = "CurrencyCode";
 const _CCI = "CancelledChangeIds";
 const _CCP = "CancelledChangeProperties";
@@ -86,6 +89,7 @@ const _COCCSC = "CreateOutboundCrossClusterSearchConnection";
 const _COCCSCR = "CreateOutboundCrossClusterSearchConnectionRequest";
 const _COCCSCRr = "CreateOutboundCrossClusterSearchConnectionResponse";
 const _COS = "CognitoOptionsStatus";
+const _COu = "CutoverOptions";
 const _CP = "CompletedProperties";
 const _CPD = "ChangeProgressDetails";
 const _CPR = "CreatePackageRequest";
@@ -96,6 +100,8 @@ const _CPSL = "ChangeProgressStageList";
 const _CPSh = "ChangeProgressStages";
 const _CPSha = "ChangeProgressStatus";
 const _CPr = "CreatePackage";
+const _CRO = "CutoverRequestOptions";
+const _CRTP = "CloneReadTrafficPercent";
 const _CS = "ConnectionStatus";
 const _CSO = "ColdStorageOptions";
 const _CT = "ClientToken";
@@ -107,6 +113,7 @@ const _CVM = "CompatibleVersionsMap";
 const _CVu = "CurrentVersion";
 const _CWLLGA = "CloudWatchLogsLogGroupArn";
 const _Ca = "Cancellable";
+const _Cu = "Current";
 const _D = "Duration";
 const _DA = "DomainArn";
 const _DC = "DomainConfig";
@@ -183,6 +190,7 @@ const _DRR = "DryRunResults";
 const _DS = "DesiredState";
 const _DSL = "DomainStatusList";
 const _DSO = "DeploymentStrategyOptions";
+const _DSOO = "DeploymentStrategyOverrideOptions";
 const _DSOS = "DeploymentStrategyOptionsStatus";
 const _DSe = "DeploymentStrategy";
 const _DSo = "DomainStatus";
@@ -337,6 +345,7 @@ const _PPr = "ProgressPercent";
 const _PREIO = "PurchaseReservedElasticsearchInstanceOffering";
 const _PREIOR = "PurchaseReservedElasticsearchInstanceOfferingRequest";
 const _PREIORu = "PurchaseReservedElasticsearchInstanceOfferingResponse";
+const _PRTP = "PrimaryReadTrafficPercent";
 const _PS = "PackageSource";
 const _PSa = "PackageStatus";
 const _PT = "PrincipalType";
@@ -350,6 +359,7 @@ const _Pro = "Processing";
 const _R = "Region";
 const _RA = "RoleArn";
 const _RAEE = "ResourceAlreadyExistsException";
+const _RAe = "RetentionAction";
 const _RC = "RecurringCharge";
 const _RCA = "RecurringChargeAmount";
 const _RCF = "RecurringChargeFrequency";
@@ -366,9 +376,11 @@ const _REIe = "ReservedElasticsearchInstance";
 const _RICCSC = "RejectInboundCrossClusterSearchConnection";
 const _RICCSCR = "RejectInboundCrossClusterSearchConnectionRequest";
 const _RICCSCRe = "RejectInboundCrossClusterSearchConnectionResponse";
+const _RIH = "RetentionInHours";
 const _RK = "RolesKey";
 const _RN = "ReservationName";
 const _RNFE = "ResourceNotFoundException";
+const _RO = "RetentionOptions";
 const _ROD = "RollbackOnDisable";
 const _RP = "ReferencePath";
 const _RT = "RemoveTags";
@@ -383,6 +395,7 @@ const _SAMLO = "SAMLOptions";
 const _SAMLOI = "SAMLOptionsInput";
 const _SAMLOO = "SAMLOptionsOutput";
 const _SATD = "ScheduledAutoTuneDetails";
+const _SAc = "ScheduledAction";
 const _SBN = "S3BucketName";
 const _SC = "StatusCode";
 const _SDI = "SourceDomainInfo";
@@ -406,24 +419,34 @@ const _STLt = "StorageTypeLimit";
 const _STLto = "StorageTypeList";
 const _STM = "SessionTimeoutMinutes";
 const _STN = "StorageTypeName";
+const _STc = "ScheduledTime";
 const _STt = "StorageTypes";
 const _STta = "StartTimestamp";
 const _STto = "StorageType";
 const _SV = "SourceVersion";
 const _Se = "Severity";
 const _St = "State";
-const _T = "Throughput";
+const _Str = "Strategy";
+const _T = "Target";
 const _TK = "TagKeys";
 const _TL = "TagList";
 const _TLSSP = "TLSSecurityPolicy";
 const _TNOS = "TotalNumberOfStages";
+const _TP = "TrafficPercents";
+const _TS = "TrafficSplit";
+const _TSO = "TrafficSplitOptions";
+const _TSRO = "TrafficSplitRequestOptions";
 const _TV = "TargetVersions";
 const _TVa = "TargetVersion";
 const _Ta = "Tag";
+const _Th = "Throughput";
 const _U = "Username";
 const _UA = "UpdateAvailable";
 const _UC = "UseCase";
+const _UCR = "UpdateCloneRequest";
+const _UCRp = "UpdateCloneResponse";
 const _UCS = "UseCaseStatus";
+const _UCp = "UpdateClone";
 const _UD = "UpdateDate";
 const _UED = "UpgradeElasticsearchDomain";
 const _UEDC = "UpdateElasticsearchDomainConfig";
@@ -506,6 +529,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ElasticsearchServiceServiceException } from "../models/ElasticsearchServiceServiceException";
@@ -767,8 +791,23 @@ export var ChangeProgressStage$: StaticStructureSchema = [3, n0, _CPS,
 ];
 export var ChangeProgressStatusDetails$: StaticStructureSchema = [3, n0, _CPSD,
   0,
-  [_CI, _ST, _S, _PP, _CP, _TNOS, _CPSh, _CCS, _LUT, _IB],
-  [0, 4, 0, 64 | 0, 64 | 0, 1, () => ChangeProgressStageList, 0, 4, 0]
+  [_CI, _ST, _S, _PP, _CP, _TNOS, _CPSh, _CCS, _LUT, _IB, _CBGUD],
+  [0, 4, 0, 64 | 0, 64 | 0, 1, () => ChangeProgressStageList, 0, 4, 0, () => ClonedBlueGreenUpgradeDetails$]
+];
+export var ClonedBlueGreenOptions$: StaticStructureSchema = [3, n0, _CBGO,
+  0,
+  [_RO],
+  [() => RetentionOptions$]
+];
+export var ClonedBlueGreenScheduledAction$: StaticStructureSchema = [3, n0, _CBGSA,
+  0,
+  [_Ac, _STc],
+  [0, 4]
+];
+export var ClonedBlueGreenUpgradeDetails$: StaticStructureSchema = [3, n0, _CBGUD,
+  0,
+  [_TS, _SAc, _RIH],
+  [() => TrafficPercents$, () => ClonedBlueGreenScheduledAction$, 1]
 ];
 export var CognitoOptions$: StaticStructureSchema = [3, n0, _CO,
   0,
@@ -830,6 +869,16 @@ export var CreateVpcEndpointResponse$: StaticStructureSchema = [3, n0, _CVERr,
   [_VEp],
   [() => VpcEndpoint$], 1
 ];
+export var CutoverOptions$: StaticStructureSchema = [3, n0, _COu,
+  0,
+  [_T, _S],
+  [0, 0], 2
+];
+export var CutoverRequestOptions$: StaticStructureSchema = [3, n0, _CRO,
+  0,
+  [_T],
+  [0], 1
+];
 export var DeleteElasticsearchDomainRequest$: StaticStructureSchema = [3, n0, _DEDR,
   0,
   [_DN],
@@ -889,6 +938,11 @@ export var DeploymentStrategyOptionsStatus$: StaticStructureSchema = [3, n0, _DS
   0,
   [_O, _S],
   [() => DeploymentStrategyOptions$, () => OptionStatus$], 2
+];
+export var DeploymentStrategyOverrideOptions$: StaticStructureSchema = [3, n0, _DSOO,
+  0,
+  [_DSe, _CBGO],
+  [0, () => ClonedBlueGreenOptions$], 1
 ];
 export var DescribeDomainAutoTunesRequest$: StaticStructureSchema = [3, n0, _DDATR,
   0,
@@ -1062,7 +1116,7 @@ export var Duration$: StaticStructureSchema = [3, n0, _D,
 ];
 export var EBSOptions$: StaticStructureSchema = [3, n0, _EBSO,
   0,
-  [_EBSE, _VT, _VS, _I, _T],
+  [_EBSE, _VT, _VS, _I, _Th],
   [2, 0, 1, 1, 1]
 ];
 export var EBSOptionsStatus$: StaticStructureSchema = [3, n0, _EBSOS,
@@ -1445,6 +1499,31 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   [_K, _V],
   [0, 0], 2
 ];
+export var TrafficPercents$: StaticStructureSchema = [3, n0, _TP,
+  0,
+  [_PRTP, _CRTP],
+  [1, 1], 2
+];
+export var TrafficSplitOptions$: StaticStructureSchema = [3, n0, _TSO,
+  0,
+  [_Cu, _T, _S],
+  [() => TrafficPercents$, () => TrafficPercents$, 0], 3
+];
+export var TrafficSplitRequestOptions$: StaticStructureSchema = [3, n0, _TSRO,
+  0,
+  [_Str, _CRTP],
+  [0, 1], 2
+];
+export var UpdateCloneRequest$: StaticStructureSchema = [3, n0, _UCR,
+  0,
+  [_DN, _TSO, _COu, _RO],
+  [[0, 1], () => TrafficSplitRequestOptions$, () => CutoverRequestOptions$, () => RetentionOptions$], 1
+];
+export var UpdateCloneResponse$: StaticStructureSchema = [3, n0, _UCRp,
+  0,
+  [_DN, _CI, _COu, _TSO, _RO],
+  [0, 0, () => CutoverOptions$, () => TrafficSplitOptions$, () => RetentionOptions$], 2
+];
 export var UpdateElasticsearchDomainConfigRequest$: StaticStructureSchema = [3, n0, _UEDCR,
   0,
   [_DN, _ECC, _EBSO, _SO, _VPCO, _CO, _AO, _APc, _LPO, _DEO, _ASO, _NTNEO, _EARO, _ATO, _DR, _DSO, _ASPO, _UC, _EMn],
@@ -1477,13 +1556,13 @@ export var UpdateVpcEndpointResponse$: StaticStructureSchema = [3, n0, _UVERp,
 ];
 export var UpgradeElasticsearchDomainRequest$: StaticStructureSchema = [3, n0, _UEDR,
   0,
-  [_DN, _TVa, _PCO],
-  [0, 0, 2], 2
+  [_DN, _TVa, _PCO, _DSO],
+  [0, 0, 2, () => DeploymentStrategyOverrideOptions$], 2
 ];
 export var UpgradeElasticsearchDomainResponse$: StaticStructureSchema = [3, n0, _UEDRp,
   0,
-  [_DN, _TVa, _PCO, _CPD],
-  [0, 0, 2, () => ChangeProgressDetails$]
+  [_DN, _TVa, _PCO, _DSO, _CPD],
+  [0, 0, 2, () => DeploymentStrategyOverrideOptions$, () => ChangeProgressDetails$]
 ];
 export var UpgradeHistory$: StaticStructureSchema = [3, n0, _UHp,
   0,
@@ -1641,6 +1720,11 @@ var LimitsByRole: StaticMapSchema = [2, n0, _LBR,
 var LogPublishingOptions: StaticMapSchema = [2, n0, _LPO,
   0, 0, () => LogPublishingOption$
 ];
+export var RetentionOptions$: StaticUnionSchema = [4, n0, _RO,
+  0,
+  [_RIH, _RAe],
+  [1, 0]
+];
 export var AcceptInboundCrossClusterSearchConnection$: StaticOperationSchema = [9, n0, _AICCSC,
   { [_h]: ["PUT", "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/accept", 200] }, () => AcceptInboundCrossClusterSearchConnectionRequest$, () => AcceptInboundCrossClusterSearchConnectionResponse$
 ];
@@ -1781,6 +1865,9 @@ export var RevokeVpcEndpointAccess$: StaticOperationSchema = [9, n0, _RVEA,
 ];
 export var StartElasticsearchServiceSoftwareUpdate$: StaticOperationSchema = [9, n0, _SESSU,
   { [_h]: ["POST", "/2015-01-01/es/serviceSoftwareUpdate/start", 200] }, () => StartElasticsearchServiceSoftwareUpdateRequest$, () => StartElasticsearchServiceSoftwareUpdateResponse$
+];
+export var UpdateClone$: StaticOperationSchema = [9, n0, _UCp,
+  { [_h]: ["POST", "/2015-01-01/es/domain/{DomainName}/clone", 200] }, () => UpdateCloneRequest$, () => UpdateCloneResponse$
 ];
 export var UpdateElasticsearchDomainConfig$: StaticOperationSchema = [9, n0, _UEDC,
   { [_h]: ["POST", "/2015-01-01/es/domain/{DomainName}/config", 200] }, () => UpdateElasticsearchDomainConfigRequest$, () => UpdateElasticsearchDomainConfigResponse$

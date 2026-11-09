@@ -3,9 +3,13 @@ import type {
   AutoTuneDesiredState,
   AutoTuneState,
   AutoTuneType,
+  ClonedBlueGreenScheduledActionType,
   ConfigChangeStatus,
+  CutoverStatus,
+  CutoverTarget,
   DeploymentStatus,
   DeploymentStrategy,
+  DeploymentStrategyOverride,
   DescribePackagesFilterName,
   DomainEngineMode,
   DomainPackageStatus,
@@ -26,11 +30,14 @@ import type {
   PrincipalType,
   PropertyValueType,
   ReservedElasticsearchInstancePaymentOption,
+  RetentionAction,
   RollbackOnDisable,
   ScheduledAutoTuneActionType,
   ScheduledAutoTuneSeverityType,
   TimeUnit,
   TLSSecurityPolicy,
+  TrafficSplitStatus,
+  TrafficStrategy,
   UpgradeStatus,
   UpgradeStep,
   VolumeType,
@@ -2343,6 +2350,66 @@ export interface ChangeProgressStage {
 }
 
 /**
+ * <p>An action that the service takes automatically at a scheduled time during a cloned blue/green upgrade.</p>
+ * @public
+ */
+export interface ClonedBlueGreenScheduledAction {
+  /**
+   * <p>The action that the service takes.</p>
+   * @public
+   */
+  Action?: ClonedBlueGreenScheduledActionType | undefined;
+
+  /**
+   * <p>The time at which the service takes the action.</p>
+   * @public
+   */
+  ScheduledTime?: Date | undefined;
+}
+
+/**
+ * <p>The split of search traffic between the primary and cloned clusters.</p>
+ * @public
+ */
+export interface TrafficPercents {
+  /**
+   * <p>The percentage of search traffic sent to the primary cluster.</p>
+   * @public
+   */
+  PrimaryReadTrafficPercent: number | undefined;
+
+  /**
+   * <p>The percentage of search traffic sent to the cloned cluster.</p>
+   * @public
+   */
+  CloneReadTrafficPercent: number | undefined;
+}
+
+/**
+ * <p>The state of a cloned blue/green upgrade. Members that don't apply are omitted.</p>
+ * @public
+ */
+export interface ClonedBlueGreenUpgradeDetails {
+  /**
+   * <p>The current split of search traffic between the primary and cloned clusters.</p>
+   * @public
+   */
+  TrafficSplit?: TrafficPercents | undefined;
+
+  /**
+   * <p>The action that the service takes automatically if you don't act before the scheduled time.</p>
+   * @public
+   */
+  ScheduledAction?: ClonedBlueGreenScheduledAction | undefined;
+
+  /**
+   * <p>The retention period, in hours, for the cluster that you cut over from.</p>
+   * @public
+   */
+  RetentionInHours?: number | undefined;
+}
+
+/**
  * <p>The progress details of a specific domain configuration change.</p>
  * @public
  */
@@ -2406,6 +2473,12 @@ export interface ChangeProgressStatusDetails {
    * @public
    */
   InitiatedBy?: InitiatedBy | undefined;
+
+  /**
+   * <p>Details about a cloned blue/green upgrade, when the change is one.</p>
+   * @public
+   */
+  ClonedBlueGreenUpgradeDetails?: ClonedBlueGreenUpgradeDetails | undefined;
 }
 
 /**
@@ -4685,6 +4758,197 @@ export interface StartElasticsearchServiceSoftwareUpdateResponse {
 }
 
 /**
+ * <p>The cutover to perform for a cloned blue/green upgrade.</p>
+ * @public
+ */
+export interface CutoverRequestOptions {
+  /**
+   * <p>The cluster to cut over to. <code>ClonedCluster</code> makes the cloned cluster serve the domain. <code>PrimaryCluster</code> keeps the primary cluster and ends the upgrade.</p>
+   * @public
+   */
+  Target: CutoverTarget | undefined;
+}
+
+/**
+ * <p>Controls how long the cluster that you cut over from is kept after cutover completes. Specify exactly one of <code>RetentionInHours</code> or <code>RetentionAction</code>.</p>
+ * @public
+ */
+export type RetentionOptions =
+  | RetentionOptions.RetentionActionMember
+  | RetentionOptions.RetentionInHoursMember
+  | RetentionOptions.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RetentionOptions {
+  /**
+   * <p>The number of hours to keep the cluster that you cut over from. The retention period starts when cutover completes. The minimum is 1 hour. In an <code>UpdateClone</code> response after cutover completes, this value is the number of hours remaining in the retention period, rounded up.</p>
+   * @public
+   */
+  export interface RetentionInHoursMember {
+    RetentionInHours: number;
+    RetentionAction?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Ends the retention period now. Valid only after cutover completes.</p>
+   * @public
+   */
+  export interface RetentionActionMember {
+    RetentionInHours?: never;
+    RetentionAction: RetentionAction;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    RetentionInHours?: never;
+    RetentionAction?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    RetentionInHours: (value: number) => T;
+    RetentionAction: (value: RetentionAction) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The traffic shift to perform for a cloned blue/green upgrade.</p>
+ * @public
+ */
+export interface TrafficSplitRequestOptions {
+  /**
+   * <p>The traffic shifting strategy. The only valid value is <code>ShiftReadTrafficPercent</code>.</p>
+   * @public
+   */
+  Strategy: TrafficStrategy | undefined;
+
+  /**
+   * <p>The percentage of search traffic, from 0 to 100, to send to the cloned cluster. The rest goes to the primary cluster.</p>
+   * @public
+   */
+  CloneReadTrafficPercent: number | undefined;
+}
+
+/**
+ * <p>Container for the request parameters to the <code>UpdateClone</code> operation.</p>
+ * @public
+ */
+export interface UpdateCloneRequest {
+  /**
+   * <p>The name of the domain that has a cloned blue/green upgrade in progress.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>Shifts a percentage of search traffic from the primary cluster to the cloned cluster.</p>
+   * @public
+   */
+  TrafficSplitOptions?: TrafficSplitRequestOptions | undefined;
+
+  /**
+   * <p>Cuts the domain over to the cloned cluster or back to the primary cluster.</p>
+   * @public
+   */
+  CutoverOptions?: CutoverRequestOptions | undefined;
+
+  /**
+   * <p>Changes the retention period, or ends it after cutover completes.</p>
+   * @public
+   */
+  RetentionOptions?: RetentionOptions | undefined;
+}
+
+/**
+ * <p>The cutover target and status for a cloned blue/green upgrade.</p>
+ * @public
+ */
+export interface CutoverOptions {
+  /**
+   * <p>The cluster that the domain is cutting over to.</p>
+   * @public
+   */
+  Target: CutoverTarget | undefined;
+
+  /**
+   * <p>The status of the cutover.</p>
+   * @public
+   */
+  Status: CutoverStatus | undefined;
+}
+
+/**
+ * <p>The traffic split and status for a cloned blue/green upgrade.</p>
+ * @public
+ */
+export interface TrafficSplitOptions {
+  /**
+   * <p>The traffic split currently in effect.</p>
+   * @public
+   */
+  Current: TrafficPercents | undefined;
+
+  /**
+   * <p>The requested traffic split.</p>
+   * @public
+   */
+  Target: TrafficPercents | undefined;
+
+  /**
+   * <p>The status of the traffic shift.</p>
+   * @public
+   */
+  Status: TrafficSplitStatus | undefined;
+}
+
+/**
+ * <p>Container for the response returned by the <code>UpdateClone</code> operation.</p>
+ * @public
+ */
+export interface UpdateCloneResponse {
+  /**
+   * <p>The name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the configuration change. Use it with <code>DescribeDomainChangeProgress</code> to track the change.</p>
+   * @public
+   */
+  ChangeId: string | undefined;
+
+  /**
+   * <p>The requested cutover target and the status of the cutover.</p>
+   * @public
+   */
+  CutoverOptions?: CutoverOptions | undefined;
+
+  /**
+   * <p>The current and requested traffic split, and the status of the traffic shift.</p>
+   * @public
+   */
+  TrafficSplitOptions?: TrafficSplitOptions | undefined;
+
+  /**
+   * <p>The retention settings for the upgrade.</p>
+   * @public
+   */
+  RetentionOptions?: RetentionOptions | undefined;
+}
+
+/**
  * <p>Container for the parameters to the <code><a>UpdateElasticsearchDomain</a></code> operation. Specifies the type and number of instances in the domain cluster.</p>
  * @public
  */
@@ -4942,6 +5206,36 @@ export interface UpdateVpcEndpointResponse {
 }
 
 /**
+ * <p>Options for a cloned blue/green upgrade.</p>
+ * @public
+ */
+export interface ClonedBlueGreenOptions {
+  /**
+   * <p>How long to keep the cluster that you cut over from after cutover completes. When you start the upgrade, only <code>RetentionInHours</code> is accepted.</p>
+   * @public
+   */
+  RetentionOptions?: RetentionOptions | undefined;
+}
+
+/**
+ * <p>Overrides the deployment strategy for a single operation, such as a version upgrade.</p>
+ * @public
+ */
+export interface DeploymentStrategyOverrideOptions {
+  /**
+   * <p>The deployment strategy to use for this operation. The only valid value is <code>ClonedBlueGreen</code>, which creates a cloned cluster on the target version next to the primary cluster so that you can validate it and shift traffic to it before you cut over.</p>
+   * @public
+   */
+  DeploymentStrategy: DeploymentStrategyOverride | undefined;
+
+  /**
+   * <p>Options that apply when <code>DeploymentStrategy</code> is <code>ClonedBlueGreen</code>.</p>
+   * @public
+   */
+  ClonedBlueGreenOptions?: ClonedBlueGreenOptions | undefined;
+}
+
+/**
  * <p>
  *       Container for request parameters to
  *       <code>
@@ -4972,6 +5266,12 @@ export interface UpgradeElasticsearchDomainRequest {
    * @public
    */
   PerformCheckOnly?: boolean | undefined;
+
+  /**
+   * <p>Overrides the deployment strategy for this upgrade. To run a cloned blue/green upgrade, set <code>DeploymentStrategy</code> to <code>ClonedBlueGreen</code>.</p>
+   * @public
+   */
+  DeploymentStrategyOptions?: DeploymentStrategyOverrideOptions | undefined;
 }
 
 /**
@@ -5005,6 +5305,12 @@ export interface UpgradeElasticsearchDomainResponse {
    * @public
    */
   PerformCheckOnly?: boolean | undefined;
+
+  /**
+   * <p>The deployment strategy override used for the upgrade.</p>
+   * @public
+   */
+  DeploymentStrategyOptions?: DeploymentStrategyOverrideOptions | undefined;
 
   /**
    * <p>Specifies change details of the domain configuration change.</p>

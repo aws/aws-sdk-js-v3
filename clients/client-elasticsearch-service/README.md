@@ -516,6 +516,13 @@ StartElasticsearchServiceSoftwareUpdate
 </details>
 <details>
 <summary>
+UpdateClone
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/UpdateCloneCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/UpdateCloneCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/UpdateCloneCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateElasticsearchDomainConfig
 </summary>
 

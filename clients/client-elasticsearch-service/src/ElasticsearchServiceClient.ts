@@ -212,6 +212,7 @@ import type {
   StartElasticsearchServiceSoftwareUpdateCommandInput,
   StartElasticsearchServiceSoftwareUpdateCommandOutput,
 } from "./commands/StartElasticsearchServiceSoftwareUpdateCommand";
+import type { UpdateCloneCommandInput, UpdateCloneCommandOutput } from "./commands/UpdateCloneCommand";
 import type {
   UpdateElasticsearchDomainConfigCommandInput,
   UpdateElasticsearchDomainConfigCommandOutput,
@@ -287,6 +288,7 @@ export type ServiceInputTypes =
   | RemoveTagsCommandInput
   | RevokeVpcEndpointAccessCommandInput
   | StartElasticsearchServiceSoftwareUpdateCommandInput
+  | UpdateCloneCommandInput
   | UpdateElasticsearchDomainConfigCommandInput
   | UpdatePackageCommandInput
   | UpdateVpcEndpointCommandInput
@@ -343,6 +345,7 @@ export type ServiceOutputTypes =
   | RemoveTagsCommandOutput
   | RevokeVpcEndpointAccessCommandOutput
   | StartElasticsearchServiceSoftwareUpdateCommandOutput
+  | UpdateCloneCommandOutput
   | UpdateElasticsearchDomainConfigCommandOutput
   | UpdatePackageCommandOutput
   | UpdateVpcEndpointCommandOutput
