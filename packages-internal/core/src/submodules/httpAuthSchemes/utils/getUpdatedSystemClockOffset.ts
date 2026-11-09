@@ -7,6 +7,7 @@
  *
  * The candidate is discarded if:
  *   - An Age header is present
+ *   - The Date header cannot be parsed
  *   - elapsed > 15 minutes
  *
  * The candidate is recorded unconditionally when not
@@ -31,6 +32,10 @@ export const getUpdatedSystemClockOffset = (
   }
 
   const serverTime = Date.parse(clockTime);
+  // A NaN offset makes every later signing date invalid.
+  if (Number.isNaN(serverTime)) {
+    return currentSystemClockOffset;
+  }
   const timeResponseReceived = Date.now();
 
   // Discard if the request took too long to trust the measurement.
