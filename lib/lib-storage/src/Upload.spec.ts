@@ -1088,4 +1088,82 @@ describe(Upload.name, () => {
       }).not.toThrow();
     });
   });
+
+  describe("CompleteMultipartUpload failure", () => {
+    const completeCommand = { input: { UploadId: "mockuploadId" }, complete: true };
+    const abortCommand = { input: { UploadId: "mockuploadId" }, abort: true };
+
+    // Simulates an upload whose parts all succeeded, so the next step is CompleteMultipartUpload.
+    const createUpload = (client: S3, options: { leavePartsOnError?: boolean } = {}) => {
+      const upload = new Upload({ params, client, ...options });
+      Object.assign(upload as any, {
+        __doConcurrentUpload: vi.fn().mockResolvedValue(undefined),
+        uploadedParts: [{ PartNumber: 1, ETag: "etag1" }],
+        isMultiPart: true,
+        uploadId: "mockuploadId",
+        abortMultipartUploadCommand: abortCommand,
+      });
+      return upload;
+    };
+
+    const clientFailingComplete = (completeError: Error) => {
+      const client = new S3({});
+      client.send = vi.fn().mockImplementation(async (command) => {
+        if (command === completeCommand) {
+          throw completeError;
+        }
+        return command;
+      });
+      return client;
+    };
+
+    beforeEach(() => {
+      vi.mocked(CompleteMultipartUploadCommand).mockImplementation(function () {
+        return completeCommand;
+      });
+    });
+
+    it.each(["PreconditionFailed", "InvalidPart", "InvalidPartOrder", "EntityTooSmall"])(
+      "aborts the multipart upload and rethrows %s (leavePartsOnError=false)",
+      async (name) => {
+        const completeError = Object.assign(new Error(name), { name });
+        const client = clientFailingComplete(completeError);
+
+        await expect(createUpload(client).done()).rejects.toBe(completeError);
+
+        expect(client.send).toHaveBeenCalledWith(completeCommand);
+        expect(client.send).toHaveBeenLastCalledWith(abortCommand);
+      }
+    );
+
+    it("rethrows the CompleteMultipartUpload error when the abort also fails", async () => {
+      const completeError = Object.assign(new Error("InvalidPart"), { name: "InvalidPart" });
+      const abortError = Object.assign(new Error("AccessDenied"), { name: "AccessDenied" });
+      const client = new S3({});
+      client.send = vi.fn().mockImplementation(async (command) => {
+        if (command === completeCommand) {
+          throw completeError;
+        }
+        if (command === abortCommand) {
+          throw abortError;
+        }
+        return command;
+      });
+
+      await expect(createUpload(client).done()).rejects.toBe(completeError);
+
+      expect(completeError.cause).toBe(abortError);
+      expect(client.send).toHaveBeenCalledWith(completeCommand);
+      expect(client.send).toHaveBeenLastCalledWith(abortCommand);
+    });
+
+    it("does not abort the multipart upload when leavePartsOnError=true", async () => {
+      const completeError = Object.assign(new Error("PreconditionFailed"), { name: "PreconditionFailed" });
+      const client = clientFailingComplete(completeError);
+
+      await expect(createUpload(client, { leavePartsOnError: true }).done()).rejects.toBe(completeError);
+
+      expect(client.send).not.toHaveBeenCalledWith(abortCommand);
+    });
+  });
 });
