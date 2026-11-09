@@ -36,7 +36,7 @@ This directory holds four scripts:
 
 ```console
 # from project root
-yarn generate:lambda-provided-sdk --out /tmp/payload
+yarn generate:lambda-provided-sdk --out ~/payload
 ```
 
 Write the output somewhere with room for it: the tree is ~130 MB before zipping, and the
@@ -88,7 +88,7 @@ is not included: it asserts the pre-layout tree, which a finished payload is not
 ```
 
 ```console
-node ./scripts/generate-lambda-provided-sdk/verify-payload.mjs --tree /tmp/payload
+node ./scripts/generate-lambda-provided-sdk/verify-payload.mjs --tree ~/payload
 ```
 
 Exits non-zero and names the offending packages if a gate fails.
@@ -104,8 +104,8 @@ exit code is returned unchanged.
 ```
 
 ```console
-node ./scripts/generate-lambda-provided-sdk/scan-payload.mjs --tree /tmp/payload
-node ./scripts/generate-lambda-provided-sdk/scan-payload.mjs --tree /tmp/payload --severity HIGH,CRITICAL
+node ./scripts/generate-lambda-provided-sdk/scan-payload.mjs --tree ~/payload
+node ./scripts/generate-lambda-provided-sdk/scan-payload.mjs --tree ~/payload --severity HIGH,CRITICAL
 ```
 
 The `rootfs` subcommand matters: the payload ships no lockfile, so `trivy fs` finds no
