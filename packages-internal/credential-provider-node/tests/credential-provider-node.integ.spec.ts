@@ -649,10 +649,14 @@ describe("credential-provider-node integration test", () => {
           },
         }),
       });
-      await sts.getCallerIdentity({});
-      const credentials = await sts.config.credentials();
-      delete process.env.AWS_LOGIN_CACHE_DIRECTORY;
-      await fsPromises.rm(dir, { recursive: true, force: true });
+      let credentials;
+      try {
+        await sts.getCallerIdentity({});
+        credentials = await sts.config.credentials();
+      } finally {
+        delete process.env.AWS_LOGIN_CACHE_DIRECTORY;
+        await fsPromises.rm(dir, { recursive: true, force: true });
+      }
       expect(credentials).toEqual({
         accessKeyId: "LOGIN_ACCESS_KEY_ID",
         secretAccessKey: "LOGIN_SECRET_ACCESS_KEY",
