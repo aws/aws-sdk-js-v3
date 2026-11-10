@@ -409,7 +409,18 @@ to input.params.ContentLength in bytes.
           Parts: this.uploadedParts,
         },
       };
-      result = await this.client.send(new CompleteMultipartUploadCommand(uploadCompleteParams));
+      try {
+        result = await this.client.send(new CompleteMultipartUploadCommand(uploadCompleteParams));
+      } catch (e) {
+        // Throw the original error. If the abort fails too, attach it as the cause, since
+        // the uploaded parts stay in the bucket.
+        await this.markUploadAsAborted().catch((abortError) => {
+          if (e instanceof Error && e.cause === undefined) {
+            e.cause = abortError;
+          }
+        });
+        throw e;
+      }
       if (typeof result?.Location === "string" && result.Location.includes("%2F")) {
         result.Location = result.Location.replace(/%2F/g, "/");
       }
