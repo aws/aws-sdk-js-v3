@@ -189,6 +189,19 @@ export type TableBucketType = (typeof TableBucketType)[keyof typeof TableBucketT
  * @public
  * @enum
  */
+export const PartitionDateSource = {
+  DELIVERY_TIME: "DeliveryTime",
+  EVENT_TIME: "EventTime",
+} as const;
+/**
+ * @public
+ */
+export type PartitionDateSource = (typeof PartitionDateSource)[keyof typeof PartitionDateSource];
+
+/**
+ * @public
+ * @enum
+ */
 export const TableBucketMaintenanceType = {
   ICEBERG_UNREFERENCED_FILE_REMOVAL: "icebergUnreferencedFileRemoval",
 } as const;

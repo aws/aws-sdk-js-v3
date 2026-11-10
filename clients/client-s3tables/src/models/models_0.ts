@@ -17,6 +17,7 @@ import type {
   MigrationState,
   MigrationType,
   OpenTableFormat,
+  PartitionDateSource,
   ReplicationStatus,
   SchemaV2FieldType,
   SSEAlgorithm,
@@ -1130,6 +1131,88 @@ export interface GetTableBucketEncryptionResponse {
    * @public
    */
   encryptionConfiguration: EncryptionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTableBucketLoggingRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * @public
+   */
+  tableBucketARN: string | undefined;
+}
+
+/**
+ * <p>Amazon S3 keys for log objects are partitioned in the following format: <code>[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceTableBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]</code> </p>
+ * @public
+ */
+export interface PartitionedPrefix {
+  /**
+   * <p>The date to use for the log object key partitions. Valid values are <code>EventTime</code>, the time that the requests in the log were made, and <code>DeliveryTime</code>, the time that the log was delivered.</p>
+   * @public
+   */
+  partitionDateSource: PartitionDateSource | undefined;
+}
+
+/**
+ * <p>The key format of the log objects. Only <code>partitionedPrefix</code> is supported.</p>
+ * @public
+ */
+export interface TargetObjectKeyFormat {
+  /**
+   * <p>Partitions log object keys by date.</p>
+   * @public
+   */
+  partitionedPrefix: PartitionedPrefix | undefined;
+}
+
+/**
+ * <p>Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a table bucket.</p>
+ * @public
+ */
+export interface LoggingEnabled {
+  /**
+   * <p>The name of the general purpose bucket that logs are delivered to. The bucket must be in the same Amazon Web Services Region and owned by the same Amazon Web Services account as the table bucket. The bucket can't use SSE-KMS or DSSE-KMS default encryption, can't have S3 Object Lock enabled, and can't have Requester Pays enabled. You can deliver logs from multiple table buckets to the same target bucket. In this case, choose a different <code>targetPrefix</code> for each table bucket so that you can tell their log objects apart.</p>
+   * @public
+   */
+  targetBucket: string | undefined;
+
+  /**
+   * <p>The prefix for the keys of the log objects that are delivered to the target bucket.</p>
+   * @public
+   */
+  targetPrefix: string | undefined;
+
+  /**
+   * <p>The key format of the log objects. Log object keys are always partitioned by date.</p>
+   * @public
+   */
+  targetObjectKeyFormat: TargetObjectKeyFormat | undefined;
+}
+
+/**
+ * <p>The server access logging status of a table bucket. To enable logging, specify <code>loggingEnabled</code>. To disable logging, specify an empty <code>TableBucketLoggingStatus</code>.</p>
+ * @public
+ */
+export interface TableBucketLoggingStatus {
+  /**
+   * <p>Where logs for the table bucket are delivered and how the log objects are named. Must be populated to enable logging.</p>
+   * @public
+   */
+  loggingEnabled?: LoggingEnabled | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTableBucketLoggingResponse {
+  /**
+   * <p>The logging status of the table bucket. If logging is disabled, <code>loggingEnabled</code> is absent.</p>
+   * @public
+   */
+  tableBucketLoggingStatus: TableBucketLoggingStatus | undefined;
 }
 
 /**
@@ -2820,6 +2903,23 @@ export interface PutTableBucketEncryptionRequest {
    * @public
    */
   encryptionConfiguration: EncryptionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutTableBucketLoggingRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * @public
+   */
+  tableBucketARN: string | undefined;
+
+  /**
+   * <p>The logging status to apply to the table bucket. To disable logging, specify an empty <code>tableBucketLoggingStatus</code>.</p>
+   * @public
+   */
+  tableBucketLoggingStatus: TableBucketLoggingStatus | undefined;
 }
 
 /**

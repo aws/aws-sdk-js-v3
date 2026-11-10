@@ -101,6 +101,10 @@ import type {
   GetTableBucketEncryptionCommandOutput,
 } from "./commands/GetTableBucketEncryptionCommand";
 import type {
+  GetTableBucketLoggingCommandInput,
+  GetTableBucketLoggingCommandOutput,
+} from "./commands/GetTableBucketLoggingCommand";
+import type {
   GetTableBucketMaintenanceConfigurationCommandInput,
   GetTableBucketMaintenanceConfigurationCommandOutput,
 } from "./commands/GetTableBucketMaintenanceConfigurationCommand";
@@ -177,6 +181,10 @@ import type {
   PutTableBucketEncryptionCommandInput,
   PutTableBucketEncryptionCommandOutput,
 } from "./commands/PutTableBucketEncryptionCommand";
+import type {
+  PutTableBucketLoggingCommandInput,
+  PutTableBucketLoggingCommandOutput,
+} from "./commands/PutTableBucketLoggingCommand";
 import type {
   PutTableBucketMaintenanceConfigurationCommandInput,
   PutTableBucketMaintenanceConfigurationCommandOutput,
@@ -260,6 +268,7 @@ export type ServiceInputTypes =
   | GetNamespaceCommandInput
   | GetTableBucketCommandInput
   | GetTableBucketEncryptionCommandInput
+  | GetTableBucketLoggingCommandInput
   | GetTableBucketMaintenanceConfigurationCommandInput
   | GetTableBucketMetricsConfigurationCommandInput
   | GetTableBucketPolicyCommandInput
@@ -283,6 +292,7 @@ export type ServiceInputTypes =
   | ListTablesCommandInput
   | ListTagsForResourceCommandInput
   | PutTableBucketEncryptionCommandInput
+  | PutTableBucketLoggingCommandInput
   | PutTableBucketMaintenanceConfigurationCommandInput
   | PutTableBucketMetricsConfigurationCommandInput
   | PutTableBucketPolicyCommandInput
@@ -320,6 +330,7 @@ export type ServiceOutputTypes =
   | GetNamespaceCommandOutput
   | GetTableBucketCommandOutput
   | GetTableBucketEncryptionCommandOutput
+  | GetTableBucketLoggingCommandOutput
   | GetTableBucketMaintenanceConfigurationCommandOutput
   | GetTableBucketMetricsConfigurationCommandOutput
   | GetTableBucketPolicyCommandOutput
@@ -343,6 +354,7 @@ export type ServiceOutputTypes =
   | ListTablesCommandOutput
   | ListTagsForResourceCommandOutput
   | PutTableBucketEncryptionCommandOutput
+  | PutTableBucketLoggingCommandOutput
   | PutTableBucketMaintenanceConfigurationCommandOutput
   | PutTableBucketMetricsConfigurationCommandOutput
   | PutTableBucketPolicyCommandOutput

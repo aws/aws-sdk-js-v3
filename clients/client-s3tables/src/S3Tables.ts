@@ -88,6 +88,11 @@ import {
   GetTableBucketEncryptionCommand,
 } from "./commands/GetTableBucketEncryptionCommand";
 import {
+  type GetTableBucketLoggingCommandInput,
+  type GetTableBucketLoggingCommandOutput,
+  GetTableBucketLoggingCommand,
+} from "./commands/GetTableBucketLoggingCommand";
+import {
   type GetTableBucketMaintenanceConfigurationCommandInput,
   type GetTableBucketMaintenanceConfigurationCommandOutput,
   GetTableBucketMaintenanceConfigurationCommand,
@@ -199,6 +204,11 @@ import {
   PutTableBucketEncryptionCommand,
 } from "./commands/PutTableBucketEncryptionCommand";
 import {
+  type PutTableBucketLoggingCommandInput,
+  type PutTableBucketLoggingCommandOutput,
+  PutTableBucketLoggingCommand,
+} from "./commands/PutTableBucketLoggingCommand";
+import {
   type PutTableBucketMaintenanceConfigurationCommandInput,
   type PutTableBucketMaintenanceConfigurationCommandOutput,
   PutTableBucketMaintenanceConfigurationCommand,
@@ -302,6 +312,7 @@ const commands = {
   GetTableCommand,
   GetTableBucketCommand,
   GetTableBucketEncryptionCommand,
+  GetTableBucketLoggingCommand,
   GetTableBucketMaintenanceConfigurationCommand,
   GetTableBucketMetricsConfigurationCommand,
   GetTableBucketPolicyCommand,
@@ -324,6 +335,7 @@ const commands = {
   ListTablesCommand,
   ListTagsForResourceCommand,
   PutTableBucketEncryptionCommand,
+  PutTableBucketLoggingCommand,
   PutTableBucketMaintenanceConfigurationCommand,
   PutTableBucketMetricsConfigurationCommand,
   PutTableBucketPolicyCommand,
@@ -644,6 +656,23 @@ export interface S3Tables {
     args: GetTableBucketEncryptionCommandInput,
     options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableBucketEncryptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTableBucketLoggingCommand}
+   */
+  getTableBucketLogging(
+    args: GetTableBucketLoggingCommandInput,
+    options?: S3TablesRequestOptions
+  ): Promise<GetTableBucketLoggingCommandOutput>;
+  getTableBucketLogging(
+    args: GetTableBucketLoggingCommandInput,
+    cb: (err: any, data?: GetTableBucketLoggingCommandOutput) => void
+  ): void;
+  getTableBucketLogging(
+    args: GetTableBucketLoggingCommandInput,
+    options: S3TablesRequestOptions,
+    cb: (err: any, data?: GetTableBucketLoggingCommandOutput) => void
   ): void;
 
   /**
@@ -1021,6 +1050,23 @@ export interface S3Tables {
     args: PutTableBucketEncryptionCommandInput,
     options: S3TablesRequestOptions,
     cb: (err: any, data?: PutTableBucketEncryptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutTableBucketLoggingCommand}
+   */
+  putTableBucketLogging(
+    args: PutTableBucketLoggingCommandInput,
+    options?: S3TablesRequestOptions
+  ): Promise<PutTableBucketLoggingCommandOutput>;
+  putTableBucketLogging(
+    args: PutTableBucketLoggingCommandInput,
+    cb: (err: any, data?: PutTableBucketLoggingCommandOutput) => void
+  ): void;
+  putTableBucketLogging(
+    args: PutTableBucketLoggingCommandInput,
+    options: S3TablesRequestOptions,
+    cb: (err: any, data?: PutTableBucketLoggingCommandOutput) => void
   ): void;
 
   /**

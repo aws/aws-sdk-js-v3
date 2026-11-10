@@ -67,6 +67,10 @@ import {
   GetTableBucketEncryptionCommand,
   GetTableBucketEncryptionRequest$,
   GetTableBucketEncryptionResponse$,
+  GetTableBucketLogging$,
+  GetTableBucketLoggingCommand,
+  GetTableBucketLoggingRequest$,
+  GetTableBucketLoggingResponse$,
   GetTableBucketMaintenanceConfiguration$,
   GetTableBucketMaintenanceConfigurationCommand,
   GetTableBucketMaintenanceConfigurationRequest$,
@@ -175,6 +179,7 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  LoggingEnabled$,
   MaintenanceSettings$,
   MaintenanceStatus,
   ManagedTableInformation$,
@@ -203,10 +208,15 @@ import {
   paginateListTableBuckets,
   paginateListTableMigrations,
   paginateListTables,
+  PartitionDateSource,
+  PartitionedPrefix$,
   PlanningStats$,
   PutTableBucketEncryption$,
   PutTableBucketEncryptionCommand,
   PutTableBucketEncryptionRequest$,
+  PutTableBucketLogging$,
+  PutTableBucketLoggingCommand,
+  PutTableBucketLoggingRequest$,
   PutTableBucketMaintenanceConfiguration$,
   PutTableBucketMaintenanceConfigurationCommand,
   PutTableBucketMaintenanceConfigurationRequest$,
@@ -262,6 +272,7 @@ import {
   SyncTableMigrationCommand,
   SyncTableMigrationRequest$,
   SyncTableMigrationResponse$,
+  TableBucketLoggingStatus$,
   TableBucketMaintenanceConfigurationValue$,
   TableBucketMaintenanceSettings$,
   TableBucketMaintenanceType,
@@ -288,6 +299,7 @@ import {
   TagResourceCommand,
   TagResourceRequest$,
   TagResourceResponse$,
+  TargetObjectKeyFormat$,
   TooManyRequestsException,
   TooManyRequestsException$,
   UnmatchedSourceFieldsPolicy,
@@ -343,6 +355,8 @@ assert(typeof GetTableBucketCommand === "function");
 assert(typeof GetTableBucket$ === "object");
 assert(typeof GetTableBucketEncryptionCommand === "function");
 assert(typeof GetTableBucketEncryption$ === "object");
+assert(typeof GetTableBucketLoggingCommand === "function");
+assert(typeof GetTableBucketLogging$ === "object");
 assert(typeof GetTableBucketMaintenanceConfigurationCommand === "function");
 assert(typeof GetTableBucketMaintenanceConfiguration$ === "object");
 assert(typeof GetTableBucketMetricsConfigurationCommand === "function");
@@ -387,6 +401,8 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof PutTableBucketEncryptionCommand === "function");
 assert(typeof PutTableBucketEncryption$ === "object");
+assert(typeof PutTableBucketLoggingCommand === "function");
+assert(typeof PutTableBucketLogging$ === "object");
 assert(typeof PutTableBucketMaintenanceConfigurationCommand === "function");
 assert(typeof PutTableBucketMaintenanceConfiguration$ === "object");
 assert(typeof PutTableBucketMetricsConfigurationCommand === "function");
@@ -444,6 +460,8 @@ assert(typeof GetNamespaceRequest$ === "object");
 assert(typeof GetNamespaceResponse$ === "object");
 assert(typeof GetTableBucketEncryptionRequest$ === "object");
 assert(typeof GetTableBucketEncryptionResponse$ === "object");
+assert(typeof GetTableBucketLoggingRequest$ === "object");
+assert(typeof GetTableBucketLoggingResponse$ === "object");
 assert(typeof GetTableBucketMaintenanceConfigurationRequest$ === "object");
 assert(typeof GetTableBucketMaintenanceConfigurationResponse$ === "object");
 assert(typeof GetTableBucketMetricsConfigurationRequest$ === "object");
@@ -502,6 +520,7 @@ assert(typeof ListTablesRequest$ === "object");
 assert(typeof ListTablesResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof LoggingEnabled$ === "object");
 assert(typeof MaintenanceSettings$ === "object");
 assert(typeof ManagedTableInformation$ === "object");
 assert(typeof MigrationCompactionSettings$ === "object");
@@ -515,8 +534,10 @@ assert(typeof MigrationStats$ === "object");
 assert(typeof MigrationSummary$ === "object");
 assert(typeof MigrationTableProperties$ === "object");
 assert(typeof NamespaceSummary$ === "object");
+assert(typeof PartitionedPrefix$ === "object");
 assert(typeof PlanningStats$ === "object");
 assert(typeof PutTableBucketEncryptionRequest$ === "object");
+assert(typeof PutTableBucketLoggingRequest$ === "object");
 assert(typeof PutTableBucketMaintenanceConfigurationRequest$ === "object");
 assert(typeof PutTableBucketMetricsConfigurationRequest$ === "object");
 assert(typeof PutTableBucketPolicyRequest$ === "object");
@@ -541,6 +562,7 @@ assert(typeof StartTableMigrationResponse$ === "object");
 assert(typeof StorageClassConfiguration$ === "object");
 assert(typeof SyncTableMigrationRequest$ === "object");
 assert(typeof SyncTableMigrationResponse$ === "object");
+assert(typeof TableBucketLoggingStatus$ === "object");
 assert(typeof TableBucketMaintenanceConfigurationValue$ === "object");
 assert(typeof TableBucketMaintenanceSettings$ === "object");
 assert(typeof TableBucketReplicationConfiguration$ === "object");
@@ -558,6 +580,7 @@ assert(typeof TableReplicationRule$ === "object");
 assert(typeof TableSummary$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
+assert(typeof TargetObjectKeyFormat$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateTableMetadataLocationRequest$ === "object");
@@ -580,6 +603,7 @@ assert(typeof MigrationSourceType === "object");
 assert(typeof MigrationState === "object");
 assert(typeof MigrationType === "object");
 assert(typeof OpenTableFormat === "object");
+assert(typeof PartitionDateSource === "object");
 assert(typeof ReplicationStatus === "object");
 assert(typeof SchemaV2FieldType === "object");
 assert(typeof SSEAlgorithm === "object");

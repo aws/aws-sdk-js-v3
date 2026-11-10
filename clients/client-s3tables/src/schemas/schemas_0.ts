@@ -43,6 +43,9 @@ const _GTB = "GetTableBucket";
 const _GTBE = "GetTableBucketEncryption";
 const _GTBER = "GetTableBucketEncryptionRequest";
 const _GTBERe = "GetTableBucketEncryptionResponse";
+const _GTBL = "GetTableBucketLogging";
+const _GTBLR = "GetTableBucketLoggingRequest";
+const _GTBLRe = "GetTableBucketLoggingResponse";
 const _GTBMC = "GetTableBucketMaintenanceConfiguration";
 const _GTBMCR = "GetTableBucketMaintenanceConfigurationRequest";
 const _GTBMCRe = "GetTableBucketMaintenanceConfigurationResponse";
@@ -109,6 +112,7 @@ const _ISMS = "IcebergSnapshotManagementSettings";
 const _ISO = "IcebergSortOrder";
 const _ISV = "IcebergSchemaV2";
 const _IUFRS = "IcebergUnreferencedFileRemovalSettings";
+const _LE = "LoggingEnabled";
 const _LN = "ListNamespaces";
 const _LNR = "ListNamespacesRequest";
 const _LNRi = "ListNamespacesResponse";
@@ -142,9 +146,12 @@ const _MTP = "MigrationTableProperties";
 const _NFE = "NotFoundException";
 const _NS = "NamespaceSummary";
 const _NSL = "NamespaceSummaryList";
+const _PP = "PartitionedPrefix";
 const _PS = "PlanningStats";
 const _PTBE = "PutTableBucketEncryption";
 const _PTBER = "PutTableBucketEncryptionRequest";
+const _PTBL = "PutTableBucketLogging";
+const _PTBLR = "PutTableBucketLoggingRequest";
 const _PTBMC = "PutTableBucketMaintenanceConfiguration";
 const _PTBMCR = "PutTableBucketMaintenanceConfigurationRequest";
 const _PTBMCRu = "PutTableBucketMetricsConfigurationRequest";
@@ -185,6 +192,7 @@ const _STMRyn = "SyncTableMigrationResponse";
 const _STMy = "SyncTableMigration";
 const _SVF = "SchemaV2Field";
 const _SVFL = "SchemaV2FieldList";
+const _TBLS = "TableBucketLoggingStatus";
 const _TBMC = "TableBucketMaintenanceConfiguration";
 const _TBMCV = "TableBucketMaintenanceConfigurationValue";
 const _TBMS = "TableBucketMaintenanceSettings";
@@ -200,6 +208,7 @@ const _TMJS = "TableMaintenanceJobStatus";
 const _TMJSV = "TableMaintenanceJobStatusValue";
 const _TMRE = "TooManyRequestsException";
 const _TMS = "TableMaintenanceSettings";
+const _TOKF = "TargetObjectKeyFormat";
 const _TR = "TagResource";
 const _TRC = "TableReplicationConfiguration";
 const _TRECV = "TableRecordExpirationConfigurationValue";
@@ -272,6 +281,7 @@ const _ifi = "identifier-field-ids";
 const _jN = "jsonName";
 const _k = "key";
 const _kKA = "kmsKeyArn";
+const _lE = "loggingEnabled";
 const _lRT = "lastRunTimestamp";
 const _lSRU = "lastSuccessfulReplicatedUpdate";
 const _m = "message";
@@ -316,6 +326,8 @@ const _oS = "objectsScanned";
 const _oi = "order-id";
 const _p = "properties";
 const _pC = "partitionCount";
+const _pDS = "partitionDateSource";
+const _pP = "partitionedPrefix";
 const _pS = "planningStats";
 const _pSa = "partitionSpec";
 const _pr = "prefix";
@@ -359,10 +371,14 @@ const _tARN = "tableARN";
 const _tB = "tableBuckets";
 const _tBARN = "tableBucketARN";
 const _tBI = "tableBucketId";
+const _tBLS = "tableBucketLoggingStatus";
+const _tBa = "targetBucket";
 const _tCR = "tableCompatibilityReport";
 const _tFSMB = "targetFileSizeMB";
 const _tK = "tagKeys";
 const _tN = "tableName";
+const _tOKF = "targetObjectKeyFormat";
+const _tP = "targetPrefix";
 const _ta = "tables";
 const _ti = "timestamp";
 const _tr = "transform";
@@ -581,6 +597,16 @@ export var GetTableBucketEncryptionResponse$: StaticStructureSchema = [3, n0, _G
   0,
   [_eC],
   [() => EncryptionConfiguration$], 1
+];
+export var GetTableBucketLoggingRequest$: StaticStructureSchema = [3, n0, _GTBLR,
+  0,
+  [_tBARN],
+  [[0, 1]], 1
+];
+export var GetTableBucketLoggingResponse$: StaticStructureSchema = [3, n0, _GTBLRe,
+  0,
+  [_tBLS],
+  [() => TableBucketLoggingStatus$], 1
 ];
 export var GetTableBucketMaintenanceConfigurationRequest$: StaticStructureSchema = [3, n0, _GTBMCR,
   0,
@@ -872,6 +898,11 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_t],
   [128 | 0]
 ];
+export var LoggingEnabled$: StaticStructureSchema = [3, n0, _LE,
+  0,
+  [_tBa, _tP, _tOKF],
+  [0, 0, () => TargetObjectKeyFormat$], 3
+];
 export var MaintenanceSettings$: StaticStructureSchema = [3, n0, _MS,
   0,
   [_iC, _iSM],
@@ -937,6 +968,11 @@ export var NamespaceSummary$: StaticStructureSchema = [3, n0, _NS,
   [_n, _cA, _cB, _oAI, _nI, _tBI],
   [64 | 0, 5, 0, 0, 0, 0], 4
 ];
+export var PartitionedPrefix$: StaticStructureSchema = [3, n0, _PP,
+  0,
+  [_pDS],
+  [0], 1
+];
 export var PlanningStats$: StaticStructureSchema = [3, n0, _PS,
   0,
   [_oS, _oP, _pC],
@@ -946,6 +982,11 @@ export var PutTableBucketEncryptionRequest$: StaticStructureSchema = [3, n0, _PT
   0,
   [_tBARN, _eC],
   [[0, 1], () => EncryptionConfiguration$], 2
+];
+export var PutTableBucketLoggingRequest$: StaticStructureSchema = [3, n0, _PTBLR,
+  0,
+  [_tBARN, _tBLS],
+  [[0, 1], () => TableBucketLoggingStatus$], 2
 ];
 export var PutTableBucketMaintenanceConfigurationRequest$: StaticStructureSchema = [3, n0, _PTBMCR,
   0,
@@ -1062,6 +1103,11 @@ export var SyncTableMigrationResponse$: StaticStructureSchema = [3, n0, _STMRyn,
   [_mI, _sta],
   [0, 0], 2
 ];
+export var TableBucketLoggingStatus$: StaticStructureSchema = [3, n0, _TBLS,
+  0,
+  [_lE],
+  [() => LoggingEnabled$]
+];
 export var TableBucketMaintenanceConfigurationValue$: StaticStructureSchema = [3, n0, _TBMCV,
   0,
   [_st, _set],
@@ -1131,6 +1177,11 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRag,
   0,
   [],
   []
+];
+export var TargetObjectKeyFormat$: StaticStructureSchema = [3, n0, _TOKF,
+  0,
+  [_pP],
+  [() => PartitionedPrefix$], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
@@ -1287,6 +1338,9 @@ export var GetTableBucket$: StaticOperationSchema = [9, n0, _GTB,
 export var GetTableBucketEncryption$: StaticOperationSchema = [9, n0, _GTBE,
   { [_h]: ["GET", "/buckets/{tableBucketARN}/encryption", 200] }, () => GetTableBucketEncryptionRequest$, () => GetTableBucketEncryptionResponse$
 ];
+export var GetTableBucketLogging$: StaticOperationSchema = [9, n0, _GTBL,
+  { [_h]: ["GET", "/buckets/{tableBucketARN}/logging", 200] }, () => GetTableBucketLoggingRequest$, () => GetTableBucketLoggingResponse$
+];
 export var GetTableBucketMaintenanceConfiguration$: StaticOperationSchema = [9, n0, _GTBMC,
   { [_h]: ["GET", "/buckets/{tableBucketARN}/maintenance", 200] }, () => GetTableBucketMaintenanceConfigurationRequest$, () => GetTableBucketMaintenanceConfigurationResponse$
 ];
@@ -1352,6 +1406,9 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 ];
 export var PutTableBucketEncryption$: StaticOperationSchema = [9, n0, _PTBE,
   { [_h]: ["PUT", "/buckets/{tableBucketARN}/encryption", 200] }, () => PutTableBucketEncryptionRequest$, () => __Unit
+];
+export var PutTableBucketLogging$: StaticOperationSchema = [9, n0, _PTBL,
+  { [_h]: ["PUT", "/buckets/{tableBucketARN}/logging", 204] }, () => PutTableBucketLoggingRequest$, () => __Unit
 ];
 export var PutTableBucketMaintenanceConfiguration$: StaticOperationSchema = [9, n0, _PTBMC,
   { [_h]: ["PUT", "/buckets/{tableBucketARN}/maintenance/{type}", 204] }, () => PutTableBucketMaintenanceConfigurationRequest$, () => __Unit

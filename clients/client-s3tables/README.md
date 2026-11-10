@@ -300,6 +300,13 @@ GetTableBucketEncryption
 </details>
 <details>
 <summary>
+GetTableBucketLogging
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3tables/command/GetTableBucketLoggingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3tables/Interface/GetTableBucketLoggingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3tables/Interface/GetTableBucketLoggingCommandOutput/)
+</details>
+<details>
+<summary>
 GetTableBucketMaintenanceConfiguration
 </summary>
 
@@ -451,6 +458,13 @@ PutTableBucketEncryption
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3tables/command/PutTableBucketEncryptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3tables/Interface/PutTableBucketEncryptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3tables/Interface/PutTableBucketEncryptionCommandOutput/)
+</details>
+<details>
+<summary>
+PutTableBucketLogging
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3tables/command/PutTableBucketLoggingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3tables/Interface/PutTableBucketLoggingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3tables/Interface/PutTableBucketLoggingCommandOutput/)
 </details>
 <details>
 <summary>
