@@ -52,7 +52,7 @@
     "@aws-sdk/credential-provider-sso": "workspace:^3.973.27",
     "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.89",
     "@aws-sdk/types": "workspace:^3.975.1",
-    "@smithy/core": "^3.39.0",
+    "@smithy/core": "^3.40.0",
     "@smithy/credential-provider-imds": "^4.5.2",
     "@smithy/types": "^4.20.0",
     "tslib": "^2.6.2"
