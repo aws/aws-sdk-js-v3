@@ -365,6 +365,7 @@ import {
   GameSessionPlacementState,
   GameSessionQueue$,
   GameSessionQueueDestination$,
+  GameSessionQueueLogConfiguration$,
   GameSessionStatus,
   GameSessionStatusReason,
   GetComputeAccess$,
@@ -471,6 +472,8 @@ import {
   LocationState$,
   LocationUpdateStatus,
   LogConfiguration$,
+  LogDeliveryDestination$,
+  LogDeliveryDestinationType,
   LogDestination,
   ManagedCapacityConfiguration$,
   MatchedPlayerSession$,
@@ -1121,6 +1124,7 @@ assert(typeof GameSessionDetail$ === "object");
 assert(typeof GameSessionPlacement$ === "object");
 assert(typeof GameSessionQueue$ === "object");
 assert(typeof GameSessionQueueDestination$ === "object");
+assert(typeof GameSessionQueueLogConfiguration$ === "object");
 assert(typeof GetComputeAccessInput$ === "object");
 assert(typeof GetComputeAccessOutput$ === "object");
 assert(typeof GetComputeAuthTokenInput$ === "object");
@@ -1170,6 +1174,7 @@ assert(typeof LocationConfiguration$ === "object");
 assert(typeof LocationModel$ === "object");
 assert(typeof LocationState$ === "object");
 assert(typeof LogConfiguration$ === "object");
+assert(typeof LogDeliveryDestination$ === "object");
 assert(typeof ManagedCapacityConfiguration$ === "object");
 assert(typeof MatchedPlayerSession$ === "object");
 assert(typeof MatchmakingConfiguration$ === "object");
@@ -1317,6 +1322,7 @@ assert(typeof LinuxCapability === "object");
 assert(typeof ListComputeInputStatus === "object");
 assert(typeof LocationFilter === "object");
 assert(typeof LocationUpdateStatus === "object");
+assert(typeof LogDeliveryDestinationType === "object");
 assert(typeof LogDestination === "object");
 assert(typeof MatchmakingConfigurationStatus === "object");
 assert(typeof MetricName === "object");

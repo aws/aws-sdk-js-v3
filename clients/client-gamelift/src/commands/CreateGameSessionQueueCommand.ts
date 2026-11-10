@@ -25,9 +25,9 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
 /**
  * <p>
  *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Creates a placement queue that processes requests for new game sessions. A queue uses
- *             FleetIQ algorithms to locate the best available placement locations for a new game
- *             session, and then prompts the game server process to start a new game session.</p>
+ *          <p>Creates a placement queue that processes requests for new game sessions. A queue
+ *             finds the best available game server, then prompts it to start a new game
+ *             session.</p>
  *          <p>A game session queue is configured with a set of destinations (Amazon GameLift Servers fleets or
  *             aliases) that determine where the queue can place new game sessions. These destinations
  *             can span multiple Amazon Web Services Regions, can use different instance types, and can include both
@@ -101,6 +101,22 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  *                   <li>
  *                      <p>
  *                         <code>PlayerLatencyPolicies</code>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>Create a queue that delivers game session placement insight logs to one or
+ *                     more log destinations.</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>Required parameters <code>Name</code> and
+ *                             <code>Destinations</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>LogConfiguration</code>
  *                      </p>
  *                   </li>
  *                </ul>
@@ -180,6 +196,14 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   LogConfiguration: { // GameSessionQueueLogConfiguration
+ *     DeliveryDestinations: [ // LogDeliveryDestinationList // required
+ *       { // LogDeliveryDestination
+ *         LogDestination: "CLOUDWATCH" || "S3" || "FIREHOSE", // required
+ *         DestinationArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new CreateGameSessionQueueCommand(input);
  * const response = await client.send(command);
@@ -214,6 +238,14 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  * //     },
  * //     CustomEventData: "STRING_VALUE",
  * //     NotificationTarget: "STRING_VALUE",
+ * //     LogConfiguration: { // GameSessionQueueLogConfiguration
+ * //       DeliveryDestinations: [ // LogDeliveryDestinationList // required
+ * //         { // LogDeliveryDestination
+ * //           LogDestination: "CLOUDWATCH" || "S3" || "FIREHOSE", // required
+ * //           DestinationArn: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

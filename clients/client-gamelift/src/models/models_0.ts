@@ -45,6 +45,7 @@ import type {
   ListComputeInputStatus,
   LocationFilter,
   LocationUpdateStatus,
+  LogDeliveryDestinationType,
   LogDestination,
   MatchmakingConfigurationStatus,
   MetricName,
@@ -4500,6 +4501,63 @@ export interface FilterConfiguration {
 }
 
 /**
+ * <p>A single destination that receives game session placement insight logs for a game
+ *             session queue.</p>
+ *          <note>
+ *             <p>Amazon CloudWatch Logs vended log charges apply to each destination. Amazon S3 and Amazon Data Firehose
+ *                 destinations also incur their own service charges. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p>
+ *          </note>
+ * @public
+ */
+export interface LogDeliveryDestination {
+  /**
+   * <p>The type of Amazon Web Services resource that receives the game session placement insight logs.
+   *             This value is required. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CLOUDWATCH</code> -- an Amazon CloudWatch Logs log group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> -- an Amazon S3 bucket.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIREHOSE</code> -- an Amazon Data Firehose delivery stream.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LogDestination: LogDeliveryDestinationType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that receives the game session
+   *             placement insight logs. This resource must match the type that you specify in
+   *             <code>LogDestination</code>. This value is required for <code>FIREHOSE</code>
+   *             destinations. For <code>CLOUDWATCH</code> and <code>S3</code>, you can omit this value;
+   *             Amazon GameLift Servers then creates a destination resource of the specified type on your behalf.</p>
+   * @public
+   */
+  DestinationArn?: string | undefined;
+}
+
+/**
+ * <p>A configuration that delivers game session placement insight logs to one or more
+ *             destinations of your choice.</p>
+ * @public
+ */
+export interface GameSessionQueueLogConfiguration {
+  /**
+   * <p>The destinations that receive game session placement insight logs for the
+   *             queue. You can specify up to 3 destinations. Each destination must have a unique
+   *             ARN.</p>
+   * @public
+   */
+  DeliveryDestinations: LogDeliveryDestination[] | undefined;
+}
+
+/**
  * <p>Sets a latency cap for individual players when placing a game session. With a latency
  *             policy in force, a game session cannot be placed in a fleet location where a player
  *             reports latency higher than the cap. Latency policies are used only with placement
@@ -4637,7 +4695,7 @@ export interface CreateGameSessionQueueInput {
 
   /**
    * <p>Custom settings to use when prioritizing destinations and locations for game session placements. This
-   *             configuration replaces the FleetIQ default prioritization process. Priority types that are not explicitly
+   *             configuration replaces the default prioritization process. Priority types that are not explicitly
    *             named will be automatically applied at the end of the prioritization process. </p>
    * @public
    */
@@ -4666,6 +4724,16 @@ export interface CreateGameSessionQueueInput {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>An optional configuration that delivers game session placement insight logs to one
+   *             or more destinations of your choice. Use these logs to diagnose why a game session
+   *             placement is <code>FULFILLED</code>, <code>CANCELLED</code>, <code>TIMED_OUT</code>, or
+   *             <code>FAILED</code>, which locations were evaluated, and the latency and cost factors
+   *             that influenced each decision.</p>
+   * @public
+   */
+  LogConfiguration?: GameSessionQueueLogConfiguration | undefined;
 }
 
 /**
@@ -4722,7 +4790,7 @@ export interface GameSessionQueue {
 
   /**
    * <p>Custom settings to use when prioritizing destinations and locations for game session placements. This
-   *             configuration replaces the FleetIQ default prioritization process. Priority types that are not explicitly
+   *             configuration replaces the default prioritization process. Priority types that are not explicitly
    *             named will be automatically applied at the end of the prioritization process. </p>
    * @public
    */
@@ -4742,6 +4810,16 @@ export interface GameSessionQueue {
    * @public
    */
   NotificationTarget?: string | undefined;
+
+  /**
+   * <p>An optional configuration that delivers game session placement insight logs to one
+   *             or more destinations of your choice. Use these logs to diagnose why a game session
+   *             placement is <code>FULFILLED</code>, <code>CANCELLED</code>, <code>TIMED_OUT</code>, or
+   *             <code>FAILED</code>, which locations were evaluated, and the latency and cost factors
+   *             that influenced each decision.</p>
+   * @public
+   */
+  LogConfiguration?: GameSessionQueueLogConfiguration | undefined;
 }
 
 /**
@@ -6068,32 +6146,69 @@ export interface DeleteVpcPeeringConnectionInput {
 export interface DeleteVpcPeeringConnectionOutput {}
 
 /**
- * <p>Set of rules for processing a deployment for a container fleet update.</p>
+ * <p>Set of rules for processing a deployment for a container fleet update. For how
+ *             Amazon GameLift Servers validates and rolls out a deployment, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/containers-deployment-validation.html">Container fleet deployments</a>.</p>
  * @public
  */
 export interface DeploymentConfiguration {
   /**
    * <p>Determines how fleet deployment activity affects active game sessions on the fleet.
-   *             With protection, a deployment honors game session protection, and delays actions that
-   *             would interrupt a protected active game session until the game session ends. Without
-   *             protection, deployment activity can shut down all running tasks, including active game
-   *             sessions, regardless of game session protection. </p>
+   *             A protected game session can't be terminated while it's active; a fleet sets the default
+   *             protection for its new game sessions with <code>NewGameSessionProtectionPolicy</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>WITH_PROTECTION</code> -- The deployment honors game session protection,
+   *                     and delays actions that would interrupt a protected active game session until the
+   *                     game session ends.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IGNORE_PROTECTION</code> -- The deployment replaces containers
+   *                     regardless of game session activity, including active game sessions. This option
+   *                     is useful during development and testing.</p>
+   *             </li>
+   *          </ul>
+   *          <p>This setting also affects how long deployment validation can take. When the fleet's
+   *                 <code>NewGameSessionProtectionPolicy</code> is <code>FullProtection</code> and the
+   *             deployment uses <code>WITH_PROTECTION</code>, validation waits for protected game
+   *             sessions to end.</p>
+   *          <p>Default value: <code>WITH_PROTECTION</code>
+   *          </p>
    * @public
    */
   ProtectionStrategy?: DeploymentProtectionStrategy | undefined;
 
   /**
-   * <p>Sets a minimum level of healthy tasks to maintain during deployment activity. </p>
+   * <p>Sets the minimum percentage of the fleet's game server container groups to keep
+   *             healthy during deployment activity. A low value favors deployment speed; a high value
+   *             favors game server availability. For example, if the fleet runs 20 game server container
+   *             groups and this value is 75, Amazon GameLift Servers keeps at least 15 of them healthy, so it replaces no
+   *             more than 5 at a time.</p>
+   *          <p>Default value: 75</p>
    * @public
    */
   MinimumHealthyPercentage?: number | undefined;
 
   /**
-   * <p>Determines what actions to take if a deployment fails. If the fleet is multi-location,
-   *             this strategy applies across all fleet locations. With a rollback strategy, updated
-   *             fleet instances are rolled back to the last successful deployment. Alternatively, you
-   *             can maintain a few impaired containers for the purpose of debugging, while all other
-   *             tasks return to the last successful deployment.</p>
+   * <p>Determines what actions to take if a deployment fails validation. If the fleet is
+   *             multi-location, this strategy applies across all fleet locations.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ROLLBACK</code> -- Returns all of the fleet's containers to the last
+   *                     successful deployment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MAINTAIN</code> -- Keeps the containers that failed validation in place
+   *                     so that you can inspect them, and returns all other containers to the last
+   *                     successful deployment. Use this option when you're deploying a container image
+   *                     that you want to be able to debug on failure.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default value: <code>MAINTAIN</code>
+   *          </p>
    * @public
    */
   ImpairmentStrategy?: DeploymentImpairmentStrategy | undefined;
@@ -6823,36 +6938,49 @@ export interface FleetDeployment {
   RollbackPerInstanceBinaryArn?: string | undefined;
 
   /**
-   * <p>The status of fleet deployment activity in the location. </p>
+   * <p>The status of the fleet deployment. For per-location status, see
+   *                 <code>LocationalDeployment</code>.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>IN_PROGRESS</code> -- The deployment is in progress.</p>
+   *                   <code>PENDING</code> -- Amazon GameLift Servers has accepted the deployment and hasn't started
+   *                     it yet.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IMPAIRED</code> -- The deployment failed and the fleet has some impaired
-   *                     containers. </p>
+   *                   <code>IN_PROGRESS</code> -- The deployment is in progress. This status covers
+   *                     validation as well as the replacement of the fleet's containers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>COMPLETE</code> -- The deployment has completed successfully.</p>
+   *                   <code>IMPAIRED</code> -- The deployment failed validation, and the fleet kept
+   *                     the containers that failed validation so that you can inspect them. A deployment
+   *                     reaches this status when its impairment strategy is <code>MAINTAIN</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETE</code> -- The deployment has completed successfully in every
+   *                     fleet location.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>ROLLBACK_IN_PROGRESS</code> -- The deployment failed and rollback has
-   *                     been initiated.</p>
+   *                     been initiated. A deployment reaches this status when its impairment strategy is
+   *                         <code>ROLLBACK</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ROLLBACK_IN_COMPLETE</code> -- The deployment failed and rollback has
-   *                     been completed.</p>
+   *                   <code>ROLLBACK_COMPLETE</code> -- The deployment failed and rollback has been
+   *                     completed. The fleet is running the configuration from the last successful
+   *                     deployment.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CANCELLED</code> -- The deployment was cancelled.</p>
+   *                   <code>CANCELLED</code> -- The deployment was cancelled because a new deployment
+   *                     started for the same fleet.</p>
    *             </li>
    *          </ul>
+   *          <p>For how to debug an impaired deployment or cancel one, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/containers-deployment-validation.html">Container fleet deployments</a>.</p>
    * @public
    */
   DeploymentStatus?: DeploymentStatus | undefined;
@@ -6882,30 +7010,38 @@ export interface LocationalDeployment {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>IN_PROGRESS</code> -- The deployment is in progress.</p>
+   *                   <code>IN_PROGRESS</code> -- The deployment is in progress in the location. This
+   *                     status covers validation as well as the replacement of the location's
+   *                     containers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IMPAIRED</code> -- The deployment failed and the fleet has some impaired
-   *                     containers. </p>
+   *                   <code>IMPAIRED</code> -- The deployment failed validation in the location, and
+   *                     the location kept the containers that failed validation so that you can inspect
+   *                     them. A location reaches this status when the deployment's impairment strategy is
+   *                         <code>MAINTAIN</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>COMPLETE</code> -- The deployment has completed successfully.</p>
+   *                   <code>COMPLETE</code> -- The deployment has completed successfully in the
+   *                     location.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>ROLLBACK_IN_PROGRESS</code> -- The deployment failed and rollback has
-   *                     been initiated.</p>
+   *                     been initiated in the location. A location reaches this status when the
+   *                     deployment's impairment strategy is <code>ROLLBACK</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ROLLBACK_IN_COMPLETE</code> -- The deployment failed and rollback has
-   *                     been completed.</p>
+   *                   <code>ROLLBACK_COMPLETE</code> -- The deployment failed and rollback has been
+   *                     completed in the location. The location is running the configuration from the
+   *                     last successful deployment.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CANCELLED</code> -- The deployment was cancelled.</p>
+   *                   <code>CANCELLED</code> -- The deployment was cancelled because a new deployment
+   *                     started for the same fleet.</p>
    *             </li>
    *          </ul>
    * @public
@@ -11384,38 +11520,4 @@ export interface UpdateAliasInput {
    * @public
    */
   RoutingStrategy?: RoutingStrategy | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateAliasOutput {
-  /**
-   * <p>The updated alias resource.</p>
-   * @public
-   */
-  Alias?: Alias | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateBuildInput {
-  /**
-   * <p>A unique identifier for the build to update. You can use either the build ID or ARN value. </p>
-   * @public
-   */
-  BuildId: string | undefined;
-
-  /**
-   * <p>A descriptive label that is associated with a build. Build names do not need to be unique. </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Version information that is associated with a build or script. Version strings do not need to be unique.</p>
-   * @public
-   */
-  Version?: string | undefined;
 }

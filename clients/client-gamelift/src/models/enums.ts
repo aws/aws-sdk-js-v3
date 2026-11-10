@@ -1256,6 +1256,20 @@ export type GameSessionStatusReason = (typeof GameSessionStatusReason)[keyof typ
  * @public
  * @enum
  */
+export const LogDeliveryDestinationType = {
+  CLOUDWATCH: "CLOUDWATCH",
+  FIREHOSE: "FIREHOSE",
+  S3: "S3",
+} as const;
+/**
+ * @public
+ */
+export type LogDeliveryDestinationType = (typeof LogDeliveryDestinationType)[keyof typeof LogDeliveryDestinationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PriorityType = {
   COST: "COST",
   DESTINATION: "DESTINATION",

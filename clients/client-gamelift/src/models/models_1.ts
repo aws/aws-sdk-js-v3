@@ -13,6 +13,7 @@ import type {
   ProtectionPolicy,
 } from "./enums";
 import type {
+  Alias,
   AnywhereConfiguration,
   Build,
   ConnectionPortRange,
@@ -31,6 +32,7 @@ import type {
   InstanceDefinition,
   IpPermission,
   LogConfiguration,
+  LogDeliveryDestination,
   ManagedCapacityConfiguration,
   MatchmakingConfiguration,
   PlayerLatencyPolicy,
@@ -41,6 +43,40 @@ import type {
   Script,
   SupportContainerDefinitionInput,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateAliasOutput {
+  /**
+   * <p>The updated alias resource.</p>
+   * @public
+   */
+  Alias?: Alias | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBuildInput {
+  /**
+   * <p>A unique identifier for the build to update. You can use either the build ID or ARN value. </p>
+   * @public
+   */
+  BuildId: string | undefined;
+
+  /**
+   * <p>A descriptive label that is associated with a build. Build names do not need to be unique. </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Version information that is associated with a build or script. Version strings do not need to be unique.</p>
+   * @public
+   */
+  Version?: string | undefined;
+}
 
 /**
  * @public
@@ -759,7 +795,7 @@ export interface UpdateGameSessionQueueInput {
 
   /**
    * <p>Custom settings to use when prioritizing destinations and locations for game session placements. This
-   *             configuration replaces the FleetIQ default prioritization process. Priority types that are not explicitly
+   *             configuration replaces the default prioritization process. Priority types that are not explicitly
    *             named will be automatically applied at the end of the prioritization process. To remove an existing priority configuration, pass in an empty set.</p>
    * @public
    */
@@ -779,6 +815,20 @@ export interface UpdateGameSessionQueueInput {
    * @public
    */
   NotificationTarget?: string | undefined;
+
+  /**
+   * <p>Log delivery destinations to add to the queue's log configuration
+   *             (<code>LogConfiguration</code>).</p>
+   * @public
+   */
+  AddLogDeliveryDestinations?: LogDeliveryDestination[] | undefined;
+
+  /**
+   * <p>Log delivery destinations to remove from the queue's log configuration
+   *             (<code>LogConfiguration</code>).</p>
+   * @public
+   */
+  RemoveLogDeliveryDestinations?: LogDeliveryDestination[] | undefined;
 }
 
 /**

@@ -7,6 +7,7 @@ const _AGSC = "ActiveGameSessionCount";
 const _AI = "AliasId";
 const _AKI = "AccessKeyId";
 const _AL = "AccessLevel";
+const _ALDD = "AddLogDeliveryDestinations";
 const _ALl = "AllowedLocations";
 const _ALli = "AliasList";
 const _AM = "AcceptMatch";
@@ -190,6 +191,7 @@ const _DCOe = "DescribeComputeOutput";
 const _DCe = "DeregisterCompute";
 const _DCes = "DescribeCompute";
 const _DD = "DeploymentDetails";
+const _DDe = "DeliveryDestinations";
 const _DECIL = "DescribeEC2InstanceLimits";
 const _DECILI = "DescribeEC2InstanceLimitsInput";
 const _DECILO = "DescribeEC2InstanceLimitsOutput";
@@ -418,6 +420,7 @@ const _GSQAa = "GameSessionQueueArn";
 const _GSQD = "GameSessionQueueDestination";
 const _GSQDL = "GameSessionQueueDestinationList";
 const _GSQL = "GameSessionQueueList";
+const _GSQLC = "GameSessionQueueLogConfiguration";
 const _GSQN = "GameSessionQueueName";
 const _GSQa = "GameSessionQueues";
 const _GSR = "GameSessionRegion";
@@ -494,6 +497,8 @@ const _LCi = "LinuxCapabilities";
 const _LCis = "ListCompute";
 const _LCo = "LocationConfiguration";
 const _LD = "LocationalDeployments";
+const _LDD = "LogDeliveryDestination";
+const _LDDL = "LogDeliveryDestinationList";
 const _LDI = "LatestDeploymentId";
 const _LDo = "LocationalDeployment";
 const _LDog = "LogDestination";
@@ -664,6 +669,7 @@ const _RGSO = "RegisterGameServerOutput";
 const _RI = "ResourceId";
 const _RID = "ResolvedImageDigest";
 const _RIe = "RegionIdentifier";
+const _RLDD = "RemoveLogDeliveryDestinations";
 const _RPIBA = "RollbackPerInstanceBinaryArn";
 const _RS = "RoutingStrategy";
 const _RSA = "RuleSetArn";
@@ -1223,8 +1229,8 @@ export var CreateGameSessionOutput$: StaticStructureSchema = [3, n0, _CGSOr,
 ];
 export var CreateGameSessionQueueInput$: StaticStructureSchema = [3, n0, _CGSQI,
   0,
-  [_N, _TIS, _PLP, _De, _FC, _PC, _CED, _NT, _Ta],
-  [0, 1, () => PlayerLatencyPolicyList, () => GameSessionQueueDestinationList, () => FilterConfiguration$, () => PriorityConfiguration$, [() => QueueCustomEventData, 0], 0, () => TagList], 1
+  [_N, _TIS, _PLP, _De, _FC, _PC, _CED, _NT, _Ta, _LC],
+  [0, 1, () => PlayerLatencyPolicyList, () => GameSessionQueueDestinationList, () => FilterConfiguration$, () => PriorityConfiguration$, [() => QueueCustomEventData, 0], 0, () => TagList, () => GameSessionQueueLogConfiguration$], 1
 ];
 export var CreateGameSessionQueueOutput$: StaticStructureSchema = [3, n0, _CGSQO,
   0,
@@ -1903,13 +1909,18 @@ export var GameSessionPlacement$: StaticStructureSchema = [3, n0, _GSP,
 ];
 export var GameSessionQueue$: StaticStructureSchema = [3, n0, _GSQ,
   0,
-  [_N, _GSQAa, _TIS, _PLP, _De, _FC, _PC, _CED, _NT],
-  [0, 0, 1, () => PlayerLatencyPolicyList, () => GameSessionQueueDestinationList, () => FilterConfiguration$, () => PriorityConfiguration$, [() => QueueCustomEventData, 0], 0]
+  [_N, _GSQAa, _TIS, _PLP, _De, _FC, _PC, _CED, _NT, _LC],
+  [0, 0, 1, () => PlayerLatencyPolicyList, () => GameSessionQueueDestinationList, () => FilterConfiguration$, () => PriorityConfiguration$, [() => QueueCustomEventData, 0], 0, () => GameSessionQueueLogConfiguration$]
 ];
 export var GameSessionQueueDestination$: StaticStructureSchema = [3, n0, _GSQD,
   0,
   [_DA],
   [0]
+];
+export var GameSessionQueueLogConfiguration$: StaticStructureSchema = [3, n0, _GSQLC,
+  0,
+  [_DDe],
+  [() => LogDeliveryDestinationList], 1
 ];
 export var GetComputeAccessInput$: StaticStructureSchema = [3, n0, _GCAI,
   0,
@@ -2155,6 +2166,11 @@ export var LogConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_LDog, _SBN, _LGA],
   [0, 0, 0]
+];
+export var LogDeliveryDestination$: StaticStructureSchema = [3, n0, _LDD,
+  0,
+  [_LDog, _DA],
+  [0, 0], 1
 ];
 export var ManagedCapacityConfiguration$: StaticStructureSchema = [3, n0, _MCC,
   0,
@@ -2583,8 +2599,8 @@ export var UpdateGameSessionOutput$: StaticStructureSchema = [3, n0, _UGSOp,
 ];
 export var UpdateGameSessionQueueInput$: StaticStructureSchema = [3, n0, _UGSQI,
   0,
-  [_N, _TIS, _PLP, _De, _FC, _PC, _CED, _NT],
-  [0, 1, () => PlayerLatencyPolicyList, () => GameSessionQueueDestinationList, () => FilterConfiguration$, () => PriorityConfiguration$, [() => QueueCustomEventData, 0], 0], 1
+  [_N, _TIS, _PLP, _De, _FC, _PC, _CED, _NT, _ALDD, _RLDD],
+  [0, 1, () => PlayerLatencyPolicyList, () => GameSessionQueueDestinationList, () => FilterConfiguration$, () => PriorityConfiguration$, [() => QueueCustomEventData, 0], 0, () => LogDeliveryDestinationList, () => LogDeliveryDestinationList], 1
 ];
 export var UpdateGameSessionQueueOutput$: StaticStructureSchema = [3, n0, _UGSQO,
   0,
@@ -2783,6 +2799,9 @@ var LocationModelList: StaticListSchema = [1, n0, _LML,
 var LocationOrderOverrideList = 64 | 0;
 var LocationStateList: StaticListSchema = [1, n0, _LSL,
   0, () => LocationState$
+];
+var LogDeliveryDestinationList: StaticListSchema = [1, n0, _LDDL,
+  0, () => LogDeliveryDestination$
 ];
 var MatchedPlayerSessionList: StaticListSchema = [1, n0, _MPSL,
   0, [() => MatchedPlayerSession$,

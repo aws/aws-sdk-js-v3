@@ -73,6 +73,18 @@ export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQu
  *   },
  *   CustomEventData: "STRING_VALUE",
  *   NotificationTarget: "STRING_VALUE",
+ *   AddLogDeliveryDestinations: [ // LogDeliveryDestinationList
+ *     { // LogDeliveryDestination
+ *       LogDestination: "CLOUDWATCH" || "S3" || "FIREHOSE", // required
+ *       DestinationArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   RemoveLogDeliveryDestinations: [
+ *     {
+ *       LogDestination: "CLOUDWATCH" || "S3" || "FIREHOSE", // required
+ *       DestinationArn: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new UpdateGameSessionQueueCommand(input);
  * const response = await client.send(command);
@@ -107,6 +119,14 @@ export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQu
  * //     },
  * //     CustomEventData: "STRING_VALUE",
  * //     NotificationTarget: "STRING_VALUE",
+ * //     LogConfiguration: { // GameSessionQueueLogConfiguration
+ * //       DeliveryDestinations: [ // LogDeliveryDestinationList // required
+ * //         { // LogDeliveryDestination
+ * //           LogDestination: "CLOUDWATCH" || "S3" || "FIREHOSE", // required
+ * //           DestinationArn: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

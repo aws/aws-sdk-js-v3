@@ -85,6 +85,14 @@ export interface DescribeGameSessionQueuesCommandOutput extends DescribeGameSess
  * //       },
  * //       CustomEventData: "STRING_VALUE",
  * //       NotificationTarget: "STRING_VALUE",
+ * //       LogConfiguration: { // GameSessionQueueLogConfiguration
+ * //         DeliveryDestinations: [ // LogDeliveryDestinationList // required
+ * //           { // LogDeliveryDestination
+ * //             LogDestination: "CLOUDWATCH" || "S3" || "FIREHOSE", // required
+ * //             DestinationArn: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
