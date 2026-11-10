@@ -1541,8 +1541,8 @@ export var Rule$: StaticStructureSchema = [3, n0, _Ru,
 ];
 export var Run$: StaticStructureSchema = [3, n0, _Run,
   0,
-  [_a, _n, _t, _pl, _cr, _sta, _res, _star, _st, _cou, _m, _tJ, _cJ, _bM, _dM, _nP, _dPe, _pRU, _rCe, _see, _aU, _eC, _jTM, _dPA, _loc, _rad, _loca, _cAP, _wU, _sAR, _tSA, _dSR, _vC, _eRA, _eV, _iT, _ins],
-  [0, 0, 0, 0, 4, 0, 0, 4, 4, () => Counters$, 0, 1, 1, 0, () => DeviceMinutes$, () => NetworkProfile$, () => DeviceProxy$, 0, 0, 1, 0, 1, 1, 0, 0, () => Radios$, () => Location$, () => CustomerArtifactPaths$, 0, 2, 0, () => DeviceSelectionResult$, () => VpcConfig$, 0, () => EnvironmentVariables, 64 | 0, [() => RunInsights$, 0]]
+  [_a, _n, _t, _pl, _cr, _sta, _res, _star, _st, _cou, _m, _tJ, _cJ, _bM, _dM, _nP, _dPe, _pRU, _rCe, _see, _aU, _eC, _jTM, _dPA, _loc, _rad, _loca, _cAP, _wU, _sAR, _tSA, _tPA, _dSR, _vC, _eRA, _eV, _iT, _ins],
+  [0, 0, 0, 0, 4, 0, 0, 4, 4, () => Counters$, 0, 1, 1, 0, () => DeviceMinutes$, () => NetworkProfile$, () => DeviceProxy$, 0, 0, 1, 0, 1, 1, 0, 0, () => Radios$, () => Location$, () => CustomerArtifactPaths$, 0, 2, 0, 0, () => DeviceSelectionResult$, () => VpcConfig$, 0, () => EnvironmentVariables, 64 | 0, [() => RunInsights$, 0]]
 ];
 export var RunInsights$: StaticStructureSchema = [3, n0, _RI,
   0,

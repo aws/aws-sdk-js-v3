@@ -199,6 +199,9 @@ export interface Artifact {
    *             <li>
    *                <p>TESTSPEC_OUTPUT</p>
    *             </li>
+   *             <li>
+   *                <p>DEVICE_CONNECT_COMMAND_LOG</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -1011,7 +1014,7 @@ export interface CreateRemoteAccessSessionConfiguration {
    *             <li>
    *                <p>
    *                   <code>appium:version</code>: The major version of the Appium server to use for
-   *                     the session (for example, 2 or 3). The service may reject the selected version
+   *                     the session (for example, 2 or 3). The service might reject the selected version
    *                     if it is not available for the selected device.</p>
    *             </li>
    *          </ul>
@@ -2496,10 +2499,12 @@ export interface ScheduleRunConfiguration {
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The types of insights to generate for a run. Specify one or more values to opt in to
-   *             insights generation when scheduling a run.</p>
-   *          <p>Insights are currently supported for custom mode runs with Instrumentation, Appium Java TestNG,
-   *             and XCTest UI test types.</p>
+   * <p>The types of insights to generate for a run. If you do not specify a value, the default is
+   *             <code>TEST_REPORT</code> for runs that support insights.</p>
+   *          <p>Specify <code>NONE</code> if you do not want the service to generate insights for the run.
+   *             You cannot combine <code>NONE</code> with any other value.</p>
+   *          <p>Insights are supported for custom mode runs of all test types except Appium Ruby and
+   *             Appium Web Ruby.</p>
    * @public
    */
   insightsTypes?: InsightsType[] | undefined;
@@ -3988,6 +3993,13 @@ export interface Run {
    * @public
    */
   testSpecArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the test package the run was scheduled with. This field is not returned for
+   *             test types that do not use a test package, such as <code>BUILTIN_FUZZ</code>.</p>
+   * @public
+   */
+  testPackageArn?: string | undefined;
 
   /**
    * <p>The results of a device filter used to select the devices for a test run.</p>

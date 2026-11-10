@@ -118,6 +118,7 @@ export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer 
  * //       webUrl: "STRING_VALUE",
  * //       skipAppResign: true || false,
  * //       testSpecArn: "STRING_VALUE",
+ * //       testPackageArn: "STRING_VALUE",
  * //       deviceSelectionResult: { // DeviceSelectionResult
  * //         filters: [ // DeviceFilters
  * //           { // DeviceFilter
@@ -148,7 +149,7 @@ export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer 
  * //         },
  * //       ],
  * //       insightsTypes: [ // InsightsTypes
- * //         "TEST_REPORT",
+ * //         "TEST_REPORT" || "NONE",
  * //       ],
  * //       insights: { // RunInsights
  * //         status: "PENDING" || "RUNNING" || "COMPLETED" || "SKIPPED" || "ERRORED",
