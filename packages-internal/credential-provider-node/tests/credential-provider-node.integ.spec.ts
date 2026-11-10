@@ -15,9 +15,9 @@ import { AdaptiveRetryStrategy, StandardRetryStrategy } from "@smithy/core/retry
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import type { HttpRequest, MiddlewareStack, ParsedIniData } from "@smithy/types";
 import child_process from "node:child_process";
-import { createHash } from "node:crypto";
+import { createHash, generateKeyPairSync } from "node:crypto";
 import { promises as fsPromises } from "node:fs";
-import { homedir } from "node:os";
+import { homedir, tmpdir } from "node:os";
 import { join } from "node:path";
 import { PassThrough } from "node:stream";
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
@@ -605,6 +605,60 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "LOGIN_SESSION_TOKEN",
         accountId: "123456789012",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: {
+          CREDENTIALS_PROFILE_LOGIN: "AC",
+          CREDENTIALS_LOGIN: "AD",
+        },
+      });
+    });
+
+    it("should refresh login credentials in the token's signInRegion when clientConfig.region is shared with STS", async () => {
+      const mockLoginSession = "arn:aws:sts::123456789012:assumed-role/Admin/admin";
+      const loginSessionHash = createHash("sha256").update(Buffer.from(mockLoginSession, "utf8")).digest("hex");
+      const dir = await fsPromises.mkdtemp(join(tmpdir(), "aws-sdk-login-test-"));
+      process.env.AWS_LOGIN_CACHE_DIRECTORY = dir;
+      const { privateKey } = generateKeyPairSync("ec", { namedCurve: "prime256v1" });
+
+      const mockToken = {
+        accessToken: {
+          accessKeyId: "EXPIRED_ACCESS_KEY_ID",
+          secretAccessKey: "EXPIRED_SECRET_ACCESS_KEY",
+          sessionToken: "EXPIRED_SESSION_TOKEN",
+          accountId: "123456789012",
+          expiresAt: "2020-01-01T00:00:00.000Z",
+        },
+        clientId: "test-client-id",
+        refreshToken: "test-refresh-token",
+        dpopKey: privateKey.export({ type: "sec1", format: "pem" }),
+        signInRegion: "eu-west-1",
+      };
+
+      await fsPromises.writeFile(join(dir, `${loginSessionHash}.json`), JSON.stringify(mockToken), "utf8");
+
+      setIniProfileData({
+        default: {
+          region: "ap-northeast-2",
+          login_session: mockLoginSession,
+        },
+      });
+      sts = new STS({
+        region: "us-west-2",
+        credentials: defaultProvider({
+          clientConfig: {
+            region: "us-west-2",
+          },
+        }),
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      delete process.env.AWS_LOGIN_CACHE_DIRECTORY;
+      await fsPromises.rm(dir, { recursive: true, force: true });
+      expect(credentials).toEqual({
+        accessKeyId: "LOGIN_ACCESS_KEY_ID",
+        secretAccessKey: "LOGIN_SECRET_ACCESS_KEY",
+        sessionToken: "LOGIN_SESSION_TOKEN_eu-west-1",
+        accountId: "123456789012",
+        expiration: expect.any(Date),
         $source: {
           CREDENTIALS_PROFILE_LOGIN: "AC",
           CREDENTIALS_LOGIN: "AD",

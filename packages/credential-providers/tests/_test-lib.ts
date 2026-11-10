@@ -496,18 +496,19 @@ export class MockNodeHttpHandler {
       body.write(`{
           "IdentityId":"${region}:COGNITO_IDENTITY_ID"
         }`);
-    } else if (request.path?.includes("/v1/token") && request.headers["dpop"]) {
+    } else if (request.path?.includes("/v1/token") && request.headers["DPoP"]) {
+      // Sign-In hosts put the region first, e.g. us-east-1.signin.aws.amazon.com
+      const signinRegion = request.hostname.match(/^(.*?)\.signin\./)?.[1] ?? "unknown";
+      // tokenOutput is the HTTP payload, so its members are the top-level body.
       body.write(
         JSON.stringify({
-          tokenOutput: {
-            accessToken: {
-              accessKeyId: "LOGIN_ACCESS_KEY_ID",
-              secretAccessKey: "LOGIN_SECRET_ACCESS_KEY",
-              sessionToken: `LOGIN_SESSION_TOKEN_${region}`,
-            },
-            refreshToken: "REFRESHED_TOKEN",
-            expiresIn: 900,
+          accessToken: {
+            accessKeyId: "LOGIN_ACCESS_KEY_ID",
+            secretAccessKey: "LOGIN_SECRET_ACCESS_KEY",
+            sessionToken: `LOGIN_SESSION_TOKEN_${signinRegion}`,
           },
+          refreshToken: "REFRESHED_TOKEN",
+          expiresIn: 900,
         })
       );
     } else if (request.hostname.startsWith("s3.")) {
