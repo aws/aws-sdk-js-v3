@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1165.0...v3.1166.0) (2026-11-10)
+
+
+### Bug Fixes
+
+* **lib-storage:** abort multipart upload when complete fails ([#8412](https://github.com/aws/aws-sdk-js-v3/issues/8412)) ([213c20e](https://github.com/aws/aws-sdk-js-v3/commit/213c20e48e40451c847c2a6f5c9d4626637798b8))
+
+
+### Features
+
+* **client-arc-region-switch:** Adds RetryableConflictException to UpdatePlan so AWS SDKs automatically retry updates that conflict with a concurrent change. ([0178cce](https://github.com/aws/aws-sdk-js-v3/commit/0178cce19c5a3da7d595805ddae006b1a7e92de0))
+* **client-bedrock-agentcore-control:** Amazon Bedrock AgentCore Gateway now supports domainOverride so JWT-authorized gateways can advertise your public domain in OAuth discovery behind a proxy or custom domain. AgentCore Runtime adds warmup lifecycle hooks and specifying runtime memory via hooksConfiguration and resourceConfigurations. ([6f57f3f](https://github.com/aws/aws-sdk-js-v3/commit/6f57f3f4eca6c9102171bdca82186ec6c3f80ec2))
+* **client-cloudwatchomni:** Release of GetSpaceDataAccess API - Used to get temporary credentials, limited to the requested actions, for working with data in a space. ([4ccd7f1](https://github.com/aws/aws-sdk-js-v3/commit/4ccd7f15a25d8f140a681dc60f762f35cbfde530))
+* **client-connect:** Amazon Connect now returns Contact Lens conversational analytics configuration in the DescribeContact API. Customers can retrieve a contact's analytics, redaction, summarization, and sentiment settings, consistent with the configuration already available in contact trace records and contact events. ([c5c66cd](https://github.com/aws/aws-sdk-js-v3/commit/c5c66cda9d5ce744f233c77d603b53d56c7dcfbe))
+* **client-device-farm:** Adds the NONE insights type to disable insights generation for a run, a testPackageArn field in run details, and a new artifact type for device connect command logs. ([9807385](https://github.com/aws/aws-sdk-js-v3/commit/9807385f68dfe6e14a4363e29d2a65190b8dbfa7))
+* **client-gamelift:** Amazon GameLift Servers adds game session placement insights. Logs show how the queue's priority configuration, along with player latency and cost data, are applied to each placement request. Use game session placement insights to diagnose why game session placements succeed, fail, or time out. ([4b44664](https://github.com/aws/aws-sdk-js-v3/commit/4b44664c4b8e019a64d96e52cb6242ee5eef7587))
+* **client-lakeformation:** Adds support for governing AWS Glue user-defined functions with Lake Formation permissions. This release adds the UserDefinedFunction and AnyResource resources, the EXECUTE permission, and the GetTemporaryGlueFunctionCredentials and GetGlueFunctionSessionContext APIs. ([4f954b0](https://github.com/aws/aws-sdk-js-v3/commit/4f954b0049d0deda3ca354322014c08d33a122f8))
+* **client-marketplace-agreement:** This release adds the freeTrialSummary.trialEndTime field to DescribeAgreement and the freeTrialEndTime field to SearchAgreements results, so you can see when an agreement's free trial ends. ([7edd979](https://github.com/aws/aws-sdk-js-v3/commit/7edd9796e9dff23da129e0974d8132a06ddbf26f))
+* **client-network-firewall:** Firewall Policy V2 for Network Firewall ([485af6f](https://github.com/aws/aws-sdk-js-v3/commit/485af6faeb3be71ec65b11227011ebcdca6377dc))
+* **client-pcs:** Added support for configuring AMIs, Amazon EC2 security groups, SSH key pairs, and launch template modes when creating or updating AWS PCS compute node groups. ([f4ea18e](https://github.com/aws/aws-sdk-js-v3/commit/f4ea18e72b8d220bf60bdf92ff3f8b0fdbda3020))
+* **client-route53profiles:** Adds support for having multiple profiles on one VPC. This is done using a priority system to handle conflicts on the dataplane. ([babcd4d](https://github.com/aws/aws-sdk-js-v3/commit/babcd4d84bce28f88a9de25767831d4c454dfb24))
+* **client-s3tables:** Adds support for server access logging for Amazon S3 table buckets with the new PutTableBucketLogging and GetTableBucketLogging APIs. ([308d826](https://github.com/aws/aws-sdk-js-v3/commit/308d82686d4b164457ab86004d99144371899a38))
+* **client-verifiedpermissions:** Inconsequential changes to model formatting ([bca234e](https://github.com/aws/aws-sdk-js-v3/commit/bca234e801ea5e77bfe6b8ec2dca150de1738161))
+* **clients:** enable 2026 new retry behavior by default ([#8413](https://github.com/aws/aws-sdk-js-v3/issues/8413)) ([4123c92](https://github.com/aws/aws-sdk-js-v3/commit/4123c92b58b4f92bda6075e762fd12260289b8be))
+
+
+
+
+
 # [3.1165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1164.0...v3.1165.0) (2026-11-09)
 
 

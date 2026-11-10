@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1165.0...v3.1166.0) (2026-11-10)
+
+
+### Features
+
+* **client-pcs:** Added support for configuring AMIs, Amazon EC2 security groups, SSH key pairs, and launch template modes when creating or updating AWS PCS compute node groups. ([f4ea18e](https://github.com/aws/aws-sdk-js-v3/commit/f4ea18e72b8d220bf60bdf92ff3f8b0fdbda3020))
+
+
+
+
+
 # [3.1165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1164.0...v3.1165.0) (2026-11-09)
 
 **Note:** Version bump only for package @aws-sdk/client-pcs

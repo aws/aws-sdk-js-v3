@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/snapshot-testing",
-  "version": "3.0.70",
+  "version": "3.0.71",
   "private": true,
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/snapshot-testing",
   "license": "Apache-2.0",
@@ -38,7 +38,7 @@
     "test": "exit 0"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.980.2",
+    "@aws-sdk/core": "workspace:^3.981.0",
     "@smithy/core": "^3.40.0",
     "@smithy/snapshot-testing": "^2.4.0",
     "@smithy/types": "^4.20.0",

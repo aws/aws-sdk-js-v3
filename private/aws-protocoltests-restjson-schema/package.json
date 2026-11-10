@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/aws-protocoltests-restjson-schema",
-  "version": "3.1165.0",
+  "version": "3.1166.0",
   "private": true,
   "description": "@aws-sdk/aws-protocoltests-restjson-schema client",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-protocoltests-restjson-schema",
@@ -48,10 +48,10 @@
     "test:integration:watch": "yarn g:vitest watch --passWithNoTests -c vitest.config.integ.mts"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.980.2",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.95",
-    "@aws-sdk/eventstream-handler-node": "workspace:^3.972.41",
-    "@aws-sdk/middleware-eventstream": "workspace:^3.972.37",
+    "@aws-sdk/core": "workspace:^3.981.0",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.96",
+    "@aws-sdk/eventstream-handler-node": "workspace:^3.972.42",
+    "@aws-sdk/middleware-eventstream": "workspace:^3.972.38",
     "@aws-sdk/types": "workspace:^3.975.1",
     "@smithy/core": "^3.40.0",
     "@smithy/fetch-http-handler": "^5.8.1",

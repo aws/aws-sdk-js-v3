@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1165.0...v3.1166.0) (2026-11-10)
+
+
+### Features
+
+* **client-s3tables:** Adds support for server access logging for Amazon S3 table buckets with the new PutTableBucketLogging and GetTableBucketLogging APIs. ([308d826](https://github.com/aws/aws-sdk-js-v3/commit/308d82686d4b164457ab86004d99144371899a38))
+
+
+
+
+
 # [3.1165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1164.0...v3.1165.0) (2026-11-09)
 
 **Note:** Version bump only for package @aws-sdk/client-s3tables

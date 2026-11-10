@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1165.0...v3.1166.0) (2026-11-10)
+
+
+### Bug Fixes
+
+* **lib-storage:** abort multipart upload when complete fails ([#8412](https://github.com/aws/aws-sdk-js-v3/issues/8412)) ([213c20e](https://github.com/aws/aws-sdk-js-v3/commit/213c20e48e40451c847c2a6f5c9d4626637798b8))
+
+
+
+
+
 # [3.1165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1164.0...v3.1165.0) (2026-11-09)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage

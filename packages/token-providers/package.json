@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/token-providers",
-  "version": "3.1165.0",
+  "version": "3.1166.0",
   "description": "A collection of token providers",
   "keywords": [
     "aws",
@@ -48,8 +48,8 @@
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.980.2",
-    "@aws-sdk/nested-clients": "workspace:^3.998.2",
+    "@aws-sdk/core": "workspace:^3.981.0",
+    "@aws-sdk/nested-clients": "workspace:^3.998.3",
     "@aws-sdk/types": "workspace:^3.975.1",
     "@smithy/core": "^3.40.0",
     "@smithy/types": "^4.20.0",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1165.0...v3.1166.0) (2026-11-10)
+
+
+### Features
+
+* **client-route53profiles:** Adds support for having multiple profiles on one VPC. This is done using a priority system to handle conflicts on the dataplane. ([babcd4d](https://github.com/aws/aws-sdk-js-v3/commit/babcd4d84bce28f88a9de25767831d4c454dfb24))
+
+
+
+
+
 # [3.1165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1164.0...v3.1165.0) (2026-11-09)
 
 **Note:** Version bump only for package @aws-sdk/client-route53profiles

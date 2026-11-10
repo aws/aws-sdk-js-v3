@@ -89,6 +89,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.981.0 (2026-11-10)
+### Features
+* **clients:** enable 2026 new retry behavior by default ([#8413](https://github.com/aws/aws-sdk-js-v3/issues/8413)) ([4123c92](https://github.com/aws/aws-sdk-js-v3/commit/4123c92b58b4f92bda6075e762fd12260289b8be))
+### Chores
+* **codegen:** sync for 2026 retry defaults ([#8415](https://github.com/aws/aws-sdk-js-v3/issues/8415)) ([4fd26c2](https://github.com/aws/aws-sdk-js-v3/commit/4fd26c205f8b01b7755b426c7149e4038690563f))
+
+
+
 # 3.980.2 (2026-11-09)
 ### Bug Fixes
 * **core/httpAuthSchemes:** ignore invalid date when calculating offset ([#8409](https://github.com/aws/aws-sdk-js-v3/issues/8409)) ([2b73e89](https://github.com/aws/aws-sdk-js-v3/commit/2b73e8984461d3f59a89a68058e50d1f201eb8e0))
