@@ -111,6 +111,8 @@ exit code is returned unchanged.
   --trivy  Path to the trivy binary     [string] [default: trivy, or $TRIVY_BIN]
 ```
 
+Note, the script requires Trivy to be installed. Scan using the following command:
+
 ```console
 node ./scripts/generate-lambda-provided-sdk/scan-payload.mjs --tree ~/payload
 node ./scripts/generate-lambda-provided-sdk/scan-payload.mjs --tree ~/payload --severity HIGH,CRITICAL

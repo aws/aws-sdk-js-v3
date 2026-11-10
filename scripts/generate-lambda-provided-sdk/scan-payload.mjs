@@ -12,8 +12,8 @@
  *
  * @example
  * ```
- * node scripts/generate-lambda-provided-sdk/scan-payload.mjs --tree /tmp/out
- * node scripts/generate-lambda-provided-sdk/scan-payload.mjs --tree /tmp/out --severity HIGH,CRITICAL
+ * node scripts/generate-lambda-provided-sdk/scan-payload.mjs --tree ~/payload
+ * node scripts/generate-lambda-provided-sdk/scan-payload.mjs --tree ~/payload --severity HIGH,CRITICAL
  * ```
  */
 
@@ -47,7 +47,12 @@ const tree = /** @type {string} */ (treeArg).replace(/\/+$/, "");
 const nodeModules = tree.endsWith("node_modules") ? tree : join(tree, "node_modules");
 if (!existsSync(nodeModules)) die(`no node_modules at ${nodeModules}`);
 
-const { status, error } = spawnSync(trivy, ["rootfs", "--scanners", "vuln", ...argv, nodeModules], {
+// Presentation defaults. `--table-mode detailed` is the one that matters: without it
+// trivy prefixes a summary row per scanned package, ~1700 lines for a payload this size.
+// Caller arguments come after these, so passing the same flag overrides the default.
+const OUTPUT_DEFAULTS = ["--quiet", "--table-mode", "detailed"];
+
+const { status, error } = spawnSync(trivy, ["rootfs", "--scanners", "vuln", ...OUTPUT_DEFAULTS, ...argv, nodeModules], {
   stdio: "inherit",
 });
 
