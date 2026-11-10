@@ -36,7 +36,6 @@ import type {
   OverrideType,
   PassthroughProtocolType,
   PaymentCredentialProviderVendorType,
-  PaymentsAuthorizerType,
   RecordExpiryAction,
   RestApiMethod,
   ResultDestination,
@@ -50,18 +49,246 @@ import type {
 import type {
   Action,
   AuthorizerConfiguration,
-  Condition,
   ContainerConfiguration,
   FilesystemConfiguration,
   LifecycleConfiguration,
+  MatchModels,
+  MatchPaths,
+  MatchPrincipalEntry,
   NetworkConfiguration,
   PrivateEndpoint,
   PrivateEndpointOverride,
   Secret,
   SecretReference,
-  SystemManagedBlock,
   Unit,
 } from "./models_0";
+
+/**
+ * <p>A condition that matches requests based on the caller's identity.</p>
+ * @public
+ */
+export interface MatchPrincipals {
+  /**
+   * <p>A list of principal entries. The condition is met if any of the entries match the caller's identity.</p>
+   * @public
+   */
+  anyOf: MatchPrincipalEntry[] | undefined;
+}
+
+/**
+ * <p>A condition that determines when a gateway rule applies. Conditions can match on principals, request paths, or the requested model.</p>
+ * @public
+ */
+export type Condition =
+  | Condition.MatchModelsMember
+  | Condition.MatchPathsMember
+  | Condition.MatchPrincipalsMember
+  | Condition.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Condition {
+  /**
+   * <p>A condition that matches on the identity of the caller making the request.</p>
+   * @public
+   */
+  export interface MatchPrincipalsMember {
+    matchPrincipals: MatchPrincipals;
+    matchPaths?: never;
+    matchModels?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A condition that matches on the request path.</p>
+   * @public
+   */
+  export interface MatchPathsMember {
+    matchPrincipals?: never;
+    matchPaths: MatchPaths;
+    matchModels?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A condition that matches on the model requested in an inference request.</p>
+   * @public
+   */
+  export interface MatchModelsMember {
+    matchPrincipals?: never;
+    matchPaths?: never;
+    matchModels: MatchModels;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    matchPrincipals?: never;
+    matchPaths?: never;
+    matchModels?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    matchPrincipals: (value: MatchPrincipals) => T;
+    matchPaths: (value: MatchPaths) => T;
+    matchModels: (value: MatchModels) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateGatewayRuleRequest {
+  /**
+   * <p>The identifier of the gateway to create a rule for.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first. Must be between 1 and 1,000,000.</p>
+   * @public
+   */
+  priority: number | undefined;
+
+  /**
+   * <p>The conditions that must be met for the rule to apply. Conditions can match on principals (IAM ARNs) or request paths.</p>
+   * @public
+   */
+  conditions?: Condition[] | undefined;
+
+  /**
+   * <p>The actions to take when the rule conditions are met. Actions can route to a specific target or apply a configuration bundle override.</p>
+   * @public
+   */
+  actions: Action[] | undefined;
+
+  /**
+   * <p>The description of the gateway rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * <p>System-managed metadata for rules created by automated processes such as A/B tests.</p>
+ * @public
+ */
+export interface SystemManagedBlock {
+  /**
+   * <p>The identifier of the system or process that manages this rule.</p>
+   * @public
+   */
+  managedBy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateGatewayRuleResponse {
+  /**
+   * <p>The unique identifier of the gateway rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway that the rule belongs to.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.</p>
+   * @public
+   */
+  priority: number | undefined;
+
+  /**
+   * <p>The conditions that must be met for the rule to apply.</p>
+   * @public
+   */
+  conditions?: Condition[] | undefined;
+
+  /**
+   * <p>The actions to take when the rule conditions are met.</p>
+   * @public
+   */
+  actions: Action[] | undefined;
+
+  /**
+   * <p>The description of the gateway rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the rule was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The current status of the rule.</p>
+   * @public
+   */
+  status: GatewayRuleStatus | undefined;
+
+  /**
+   * <p>System-managed metadata for rules created by automated processes.</p>
+   * @public
+   */
+  system?: SystemManagedBlock | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGatewayRuleRequest {
+  /**
+   * <p>The identifier of the gateway containing the rule.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the rule to delete.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGatewayRuleResponse {
+  /**
+   * <p>The unique identifier of the deleted rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The status of the rule deletion operation.</p>
+   * @public
+   */
+  status: GatewayRuleStatus | undefined;
+}
 
 /**
  * @public
@@ -5446,7 +5673,7 @@ export interface CreateMemoryInput {
   memoryExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>The duration after which memory events expire. Specified as an ISO 8601 duration.</p>
+   * <p>The number of days after which memory events expire, between 7 and 3650 days.</p>
    * @public
    */
   eventExpiryDuration: number | undefined;
@@ -7019,7 +7246,7 @@ export interface UpdateMemoryInput {
   description?: string | undefined;
 
   /**
-   * <p>The number of days after which memory events will expire, between 7 and 365 days.</p>
+   * <p>The number of days after which memory events expire, between 7 and 3650 days.</p>
    * @public
    */
   eventExpiryDuration?: number | undefined;
@@ -9760,238 +9987,4 @@ export interface GetPaymentCredentialProviderRequest {
    * @public
    */
   name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPaymentCredentialProviderResponse {
-  /**
-   * <p>The name of the payment credential provider.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the payment credential provider.</p>
-   * @public
-   */
-  credentialProviderArn: string | undefined;
-
-  /**
-   * <p>The vendor type for the payment credential provider.</p>
-   * @public
-   */
-  credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
-
-  /**
-   * <p>Output configuration (contains secret ARNs, excludes actual secret values).</p>
-   * @public
-   */
-  providerConfigurationOutput: PaymentProviderConfigurationOutput | undefined;
-
-  /**
-   * <p>The timestamp when the payment credential provider was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the payment credential provider was last updated.</p>
-   * @public
-   */
-  lastUpdatedTime: Date | undefined;
-
-  /**
-   * <p>The tags associated with the payment credential provider.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPaymentCredentialProvidersRequest {
-  /**
-   * <p>Pagination token.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Maximum number of results to return.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Contains summary information about a payment credential provider.</p>
- * @public
- */
-export interface PaymentCredentialProviderItem {
-  /**
-   * <p>The name of the payment credential provider.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The vendor type for the payment credential provider.</p>
-   * @public
-   */
-  credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the payment credential provider.</p>
-   * @public
-   */
-  credentialProviderArn: string | undefined;
-
-  /**
-   * <p>The timestamp when the payment credential provider was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the payment credential provider was last updated.</p>
-   * @public
-   */
-  lastUpdatedTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPaymentCredentialProvidersResponse {
-  /**
-   * <p>The list of payment credential providers.</p>
-   * @public
-   */
-  credentialProviders: PaymentCredentialProviderItem[] | undefined;
-
-  /**
-   * <p>Pagination token for the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePaymentCredentialProviderRequest {
-  /**
-   * <p>The name of the payment credential provider to update.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).</p>
-   * @public
-   */
-  credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
-
-  /**
-   * <p>Configuration specific to the vendor, including API credentials.</p>
-   * @public
-   */
-  providerConfigurationInput: PaymentProviderConfigurationInput | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePaymentCredentialProviderResponse {
-  /**
-   * <p>The name of the updated payment credential provider.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The vendor type for the updated payment credential provider.</p>
-   * @public
-   */
-  credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated payment credential provider.</p>
-   * @public
-   */
-  credentialProviderArn: string | undefined;
-
-  /**
-   * <p>Output configuration (contains secret ARNs, excludes actual secret values).</p>
-   * @public
-   */
-  providerConfigurationOutput: PaymentProviderConfigurationOutput | undefined;
-
-  /**
-   * <p>The timestamp when the payment credential provider was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the payment credential provider was last updated.</p>
-   * @public
-   */
-  lastUpdatedTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePaymentManagerRequest {
-  /**
-   * <p>The name of the payment manager.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description of the payment manager.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The type of authorizer to use for the payment manager.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
-   * @public
-   */
-  authorizerType: PaymentsAuthorizerType | undefined;
-
-  /**
-   * <p>The authorizer configuration for the payment manager.</p>
-   * @public
-   */
-  authorizerConfiguration?: AuthorizerConfiguration | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the payment manager assumes to access resources on your behalf.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>A map of tag keys and values to assign to the payment manager.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the customer managed KMS key to use for encrypting sensitive payment manager data at rest. If you don't specify a key, the data is encrypted with an Amazon Web Services owned key.</p>
-   * @public
-   */
-  kmsKeyArn?: string | undefined;
 }

@@ -165,6 +165,18 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *     idleRuntimeSessionTimeout: Number("int"),
  *     maxLifetime: Number("int"),
  *   },
+ *   hooksConfiguration: { // RuntimeHooksConfiguration
+ *     build: { // BuildLifecycleHooks
+ *       warmup: { // LifecycleHook
+ *         action: { // LifecycleHookAction Union: only one key present
+ *           httpPost: { // HttpPostLifecycleHookAction
+ *             path: "STRING_VALUE", // required
+ *             port: Number("int"),
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
  *   metadataConfiguration: { // RuntimeMetadataConfiguration
  *     requireMMDSV2: true || false, // required
  *   },
@@ -201,6 +213,11 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *         from: Number("int"), // required
  *         to: Number("int"), // required
  *       },
+ *     },
+ *   ],
+ *   resourceConfigurations: [ // ResourceConfigurations
+ *     { // ResourceConfiguration
+ *       minimumMemoryInMiB: Number("int"), // required
  *     },
  *   ],
  *   clientToken: "STRING_VALUE",

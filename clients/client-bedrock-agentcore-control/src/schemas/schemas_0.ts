@@ -37,6 +37,7 @@ const _Ac = "Action";
 const _BEMC = "BedrockEvaluatorModelConfig";
 const _BEP = "BrowserEnterprisePolicy";
 const _BEPr = "BrowserEnterprisePolicies";
+const _BLH = "BuildLifecycleHooks";
 const _BNC = "BrowserNetworkConfiguration";
 const _BPGRL = "BatchPutGatewayRateLimits";
 const _BPGRLR = "BatchPutGatewayRateLimitsRequest";
@@ -282,6 +283,7 @@ const _DMI = "DeleteMemoryInput";
 const _DMO = "DeleteMemoryOutput";
 const _DMSI = "DeleteMemoryStrategyInput";
 const _DMSL = "DeleteMemoryStrategiesList";
+const _DO = "DomainOverride";
 const _DOCP = "DeleteOauth2CredentialProvider";
 const _DOCPR = "DeleteOauth2CredentialProviderRequest";
 const _DOCPRe = "DeleteOauth2CredentialProviderResponse";
@@ -538,6 +540,7 @@ const _HMCa = "HarnessModelConfiguration";
 const _HMMC = "HarnessManagedMemoryConfiguration";
 const _HOAAB = "HarnessOpenAiApiBase";
 const _HOAMC = "HarnessOpenAiModelConfig";
+const _HPLHA = "HttpPostLifecycleHookAction";
 const _HRMC = "HarnessRemoteMcpConfig";
 const _HRMU = "HarnessRemoteMcpUrl";
 const _HS = "HarnessSummary";
@@ -657,7 +660,8 @@ const _LGRis = "ListGatewayRules";
 const _LGT = "ListGatewayTargets";
 const _LGTR = "ListGatewayTargetsRequest";
 const _LGTRi = "ListGatewayTargetsResponse";
-const _LH = "ListHarnesses";
+const _LH = "LifecycleHook";
+const _LHA = "LifecycleHookAction";
 const _LHE = "ListHarnessEndpoints";
 const _LHER = "ListHarnessEndpointsRequest";
 const _LHERi = "ListHarnessEndpointsResponse";
@@ -666,6 +670,7 @@ const _LHRi = "ListHarnessesResponse";
 const _LHV = "ListHarnessVersions";
 const _LHVR = "ListHarnessVersionsRequest";
 const _LHVRi = "ListHarnessVersionsResponse";
+const _LHi = "ListHarnesses";
 const _LIC = "LambdaInterceptorConfiguration";
 const _LM = "ListMemories";
 const _LMI = "ListMemoriesInput";
@@ -839,8 +844,11 @@ const _RCa = "RateConfigs";
 const _RCe = "ReasoningConfiguration";
 const _RCec = "RecordingConfig";
 const _RCef = "ReflectionConfiguration";
+const _RCes = "ResourceConfiguration";
+const _RCeso = "ResourceConfigurations";
 const _RES = "RecordExpirySpecification";
-const _RHC = "RequestHeaderConfiguration";
+const _RHC = "RuntimeHooksConfiguration";
+const _RHCe = "RequestHeaderConfiguration";
 const _RL = "ResourceLocation";
 const _RLEE = "ResourceLimitExceededException";
 const _RMC = "RuntimeMetadataConfiguration";
@@ -1107,6 +1115,7 @@ const _aCl = "allowedClients";
 const _aCp = "approvalConfiguration";
 const _aCu = "authorizerConfiguration";
 const _aD = "authorizationData";
+const _aDl = "alternateDomains";
 const _aE = "authorizationEndpoint";
 const _aF = "apiFormat";
 const _aG = "apiGateway";
@@ -1194,7 +1203,8 @@ const _bSr = "browserSummaries";
 const _bTC = "beforeToolCall";
 const _bV = "bundleVersion";
 const _bVo = "booleanValue";
-const _bu = "bucket";
+const _bu = "build";
+const _buc = "bucket";
 const _c = "client";
 const _cA = "createdAt";
 const _cAM = "clientAuthenticationMethod";
@@ -1284,6 +1294,7 @@ const _cu = "custom";
 const _d = "description";
 const _dA = "datasetArn";
 const _dC = "deletedCount";
+const _dD = "defaultDomain";
 const _dI = "datasetId";
 const _dIi = "dimensionInstruction";
 const _dK = "dimensionKeys";
@@ -1293,6 +1304,7 @@ const _dMS = "deleteMemoryStrategies";
 const _dN = "datasetName";
 const _dNe = "deviceName";
 const _dNi = "dimensionName";
+const _dO = "domainOverride";
 const _dRS = "dimensionRatingScale";
 const _dRU = "defaultReturnUrl";
 const _dS = "draftStatus";
@@ -1306,6 +1318,7 @@ const _dV = "datasetVersion";
 const _dVo = "doubleValue";
 const _da = "datasets";
 const _de = "definition";
+const _def = "default";
 const _der = "derived";
 const _des = "descriptors";
 const _di = "dimensions";
@@ -1389,11 +1402,13 @@ const _gR = "gatewayRules";
 const _gT = "grantType";
 const _gU = "gatewayUrl";
 const _h = "hooks";
+const _hC = "hooksConfiguration";
 const _hCWS = "historicalContextWindowSize";
 const _hE = "httpError";
 const _hEo = "hostingEnvironments";
 const _hI = "harnessId";
 const _hN = "harnessName";
+const _hP = "httpPost";
 const _hQ = "httpQuery";
 const _hV = "harnessVersion";
 const _hVa = "harnessVersions";
@@ -1436,6 +1451,7 @@ const _io = "iops";
 const _is = "issuer";
 const _it = "items";
 const _jK = "jsonKey";
+const _jN = "jsonName";
 const _k = "key";
 const _kC = "kmsConfiguration";
 const _kKA = "kmsKeyArn";
@@ -1492,6 +1508,7 @@ const _mIe = "memoryId";
 const _mL = "maxLifetime";
 const _mM = "modelMapping";
 const _mMC = "managedMemoryConfiguration";
+const _mMIMB = "minimumMemoryInMiB";
 const _mMS = "modifyMemoryStrategies";
 const _mMa = "matchModels";
 const _mN = "metricsNamespace";
@@ -1622,9 +1639,10 @@ const _rAI = "restApiId";
 const _rAe = "recordArn";
 const _rAeg = "registryArn";
 const _rAes = "resourceArn";
-const _rC = "reflectionConfiguration";
+const _rC = "resourceConfigurations";
 const _rCI = "resourceConfigurationIdentifier";
-const _rCe = "retrievalConfig";
+const _rCe = "reflectionConfiguration";
+const _rCet = "retrievalConfig";
 const _rD = "resultDestination";
 const _rDo = "routingDomain";
 const _rE = "runtimeEndpoints";
@@ -1821,7 +1839,7 @@ const _ve = "version";
 const _ver = "versions";
 const _vi = "view";
 const _vo = "volumes";
-const _w = "weight";
+const _w = "warmup";
 const _wAA = "webAclArn";
 const _wC = "wafConfiguration";
 const _wI = "workloadIdentities";
@@ -1834,6 +1852,7 @@ const _wSA = "walletSecretArn";
 const _wSC = "walletSecretConfig";
 const _wSJK = "walletSecretJsonKey";
 const _wSS = "walletSecretSource";
+const _we = "weight";
 const n0 = "com.amazonaws.bedrockagentcorecontrol";
 
 // smithy-typescript generated code
@@ -2149,6 +2168,11 @@ export var BrowserSummary$: StaticStructureSchema = [3, n0, _BS,
   [_bI, _bA, _st, _cA, _n, _d, _lUA],
   [0, 0, 0, 5, 0, [() => Description, 0], 5], 4
 ];
+export var BuildLifecycleHooks$: StaticStructureSchema = [3, n0, _BLH,
+  0,
+  [_w],
+  [() => LifecycleHook$]
+];
 export var CapacityProviderConfiguration$: StaticStructureSchema = [3, n0, _CPC,
   0,
   [_cPAa],
@@ -2316,8 +2340,8 @@ export var CreateAgentRuntimeEndpointResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _CARR,
   0,
-  [_aRN, _aRAg, _rA, _nC, _cT, _d, _aCu, _rHC, _pC, _lC, _eV, _fC, _cPC, _ta, _pVl, _aP],
-  [0, () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [0, 4], [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, [() => EnvironmentVariablesMap, 0], () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 128 | 0, 0, () => AllowedPorts], 3
+  [_aRN, _aRAg, _rA, _nC, _cT, _d, _aCu, _rHC, _pC, _lC, _hC, _eV, _fC, _cPC, _ta, _pVl, _aP, _rC],
+  [0, () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [0, 4], [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, () => RuntimeHooksConfiguration$, [() => EnvironmentVariablesMap, 0], () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 128 | 0, 0, () => AllowedPorts, () => ResourceConfigurations], 3
 ];
 export var CreateAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _CARRr,
   0,
@@ -2436,13 +2460,13 @@ export var CreateGatewayRateLimitResponse$: StaticStructureSchema = [3, n0, _CGR
 ];
 export var CreateGatewayRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
-  [_n, _rA, _aT, _d, _cT, _pT, _pC, _aCu, _kKA, _iCnt, _pEC, _eL, _ta],
-  [0, 0, 0, [() => GatewayDescription, 0], [0, 4], 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, 0, 128 | 0], 3
+  [_n, _rA, _aT, _d, _cT, _pT, _pC, _aCu, _kKA, _iCnt, _pEC, _eL, _ta, _dO],
+  [0, 0, 0, [() => GatewayDescription, 0], [0, 4], 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, 0, 128 | 0, [() => DomainOverride$, 0]], 3
 ];
 export var CreateGatewayResponse$: StaticStructureSchema = [3, n0, _CGRr,
   0,
-  [_gA, _gIa, _cA, _uA, _st, _n, _aT, _gU, _sRt, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC],
-  [0, 0, 5, 5, 0, 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0, 0, () => WafConfiguration$], 7
+  [_gA, _gIa, _cA, _uA, _st, _n, _aT, _gU, _sRt, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC, _dO],
+  [0, 0, 5, 5, 0, 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0, 0, () => WafConfiguration$, [() => DomainOverride$, 0]], 7
 ];
 export var CreateGatewayRuleRequest$: StaticStructureSchema = [3, n0, _CGRR,
   0,
@@ -2959,6 +2983,11 @@ export var Descriptors$: StaticStructureSchema = [3, n0, _Des,
   [_mc, _aa, _cu, _aSg],
   [() => McpDescriptor$, () => A2aDescriptor$, () => CustomDescriptor$, () => AgentSkillsDescriptor$]
 ];
+export var DomainOverride$: StaticStructureSchema = [3, n0, _DO,
+  0,
+  [_dD, _aDl],
+  [[0, { [_jN]: _def }], 64 | 0], 1
+];
 export var EbsVolumeConfiguration$: StaticStructureSchema = [3, n0, _EVC,
   0,
   [_n, _sGB, _vT, _io, _th, _enc, _kKI, _sI],
@@ -3001,7 +3030,7 @@ export var EpisodicExtractionOverride$: StaticStructureSchema = [3, n0, _EEO,
 ];
 export var EpisodicMemoryStrategyInput$: StaticStructureSchema = [3, n0, _EMSI,
   0,
-  [_n, _d, _na, _nT, _rC, _mRS, _rES],
+  [_n, _d, _na, _nT, _rCe, _mRS, _rES],
   [0, [() => Description, 0], 64 | 0, 64 | 0, [() => EpisodicReflectionConfigurationInput$, 0], [() => MemoryRecordSchema$, 0], () => RecordExpirySpecification$], 1
 ];
 export var EpisodicOverrideConfigurationInput$: StaticStructureSchema = [3, n0, _EOCI,
@@ -3131,8 +3160,8 @@ export var GetAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _GARR,
 ];
 export var GetAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
-  [_aRA, _aRN, _aRI, _aRV, _cA, _lUA, _rA, _st, _lC, _nC, _fR, _d, _wID, _aRAg, _pC, _eV, _aCu, _rHC, _mC, _fC, _cPC, _pVl, _aP],
-  [0, 0, 0, 0, 5, 5, 0, 0, () => LifecycleConfiguration$, () => NetworkConfiguration$, 0, [() => Description, 0], () => WorkloadIdentityDetails$, () => AgentRuntimeArtifact$, () => ProtocolConfiguration$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => RuntimeMetadataConfiguration$, () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 0, () => AllowedPorts], 9
+  [_aRA, _aRN, _aRI, _aRV, _cA, _lUA, _rA, _st, _lC, _nC, _hC, _fR, _d, _wID, _aRAg, _pC, _eV, _aCu, _rHC, _mC, _fC, _cPC, _pVl, _aP, _rC],
+  [0, 0, 0, 0, 5, 5, 0, 0, () => LifecycleConfiguration$, () => NetworkConfiguration$, () => RuntimeHooksConfiguration$, 0, [() => Description, 0], () => WorkloadIdentityDetails$, () => AgentRuntimeArtifact$, () => ProtocolConfiguration$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => RuntimeMetadataConfiguration$, () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 0, () => AllowedPorts, () => ResourceConfigurations], 9
 ];
 export var GetApiKeyCredentialProviderRequest$: StaticStructureSchema = [3, n0, _GAKCPR,
   0,
@@ -3251,8 +3280,8 @@ export var GetGatewayRequest$: StaticStructureSchema = [3, n0, _GGR,
 ];
 export var GetGatewayResponse$: StaticStructureSchema = [3, n0, _GGRe,
   0,
-  [_gA, _gIa, _cA, _uA, _st, _n, _aT, _gU, _sRt, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC],
-  [0, 0, 5, 5, 0, 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0, 0, () => WafConfiguration$], 7
+  [_gA, _gIa, _cA, _uA, _st, _n, _aT, _gU, _sRt, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC, _dO],
+  [0, 0, 5, 5, 0, 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0, 0, () => WafConfiguration$, [() => DomainOverride$, 0]], 7
 ];
 export var GetGatewayRuleRequest$: StaticStructureSchema = [3, n0, _GGRR,
   0,
@@ -3516,7 +3545,7 @@ export var HarnessAgentCoreGatewayConfig$: StaticStructureSchema = [3, n0, _HACG
 ];
 export var HarnessAgentCoreMemoryConfiguration$: StaticStructureSchema = [3, n0, _HACMC,
   0,
-  [_ar, _aI, _mCe, _rCe],
+  [_ar, _aI, _mCe, _rCet],
   [0, 0, 1, () => HarnessAgentCoreMemoryRetrievalConfigs], 1
 ];
 export var HarnessAgentCoreMemoryRetrievalConfig$: StaticStructureSchema = [3, n0, _HACMRC,
@@ -3674,6 +3703,11 @@ export var HttpConnectorTargetConfiguration$: StaticStructureSchema = [3, n0, _H
   [_so, _par],
   [() => HttpConnectorSource$, 128 | 0], 1
 ];
+export var HttpPostLifecycleHookAction$: StaticStructureSchema = [3, n0, _HPLHA,
+  0,
+  [_p, _por],
+  [0, 1], 1
+];
 export var IamCredentialProvider$: StaticStructureSchema = [3, n0, _ICP,
   0,
   [_ser, _reg],
@@ -3808,6 +3842,11 @@ export var LifecycleConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_iRST, _mL],
   [1, 1]
+];
+export var LifecycleHook$: StaticStructureSchema = [3, n0, _LH,
+  0,
+  [_act],
+  [() => LifecycleHookAction$], 1
 ];
 export var LimitEntry$: StaticStructureSchema = [3, n0, _LE,
   0,
@@ -4599,6 +4638,11 @@ export var ResetTokenVaultKeyMaterialResponse$: StaticStructureSchema = [3, n0, 
   [_tVI, _kC, _lMD],
   [0, () => KmsConfiguration$, 4], 3
 ];
+export var ResourceConfiguration$: StaticStructureSchema = [3, n0, _RCes,
+  0,
+  [_mMIMB],
+  [1], 1
+];
 export var RootVolumeConfiguration$: StaticStructureSchema = [3, n0, _RVC,
   0,
   [_vT, _io, _th, _enc, _kKI, _fSGB],
@@ -4618,6 +4662,11 @@ export var Rule$: StaticStructureSchema = [3, n0, _R,
   0,
   [_sCa, _filt, _sCes],
   [() => SamplingConfig$, () => FilterList, () => SessionConfig$], 1
+];
+export var RuntimeHooksConfiguration$: StaticStructureSchema = [3, n0, _RHC,
+  0,
+  [_bu],
+  [() => BuildLifecycleHooks$]
 ];
 export var RuntimeMetadataConfiguration$: StaticStructureSchema = [3, n0, _RMC,
   0,
@@ -4651,7 +4700,7 @@ export var S3FilesConfiguration$: StaticStructureSchema = [3, n0, _SFC,
 ];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
-  [_bu, _pre, _vI],
+  [_buc, _pre, _vI],
   [0, 0, 0], 2
 ];
 export var S3Source$: StaticStructureSchema = [3, n0, _SS,
@@ -4916,7 +4965,7 @@ export var TargetSummary$: StaticStructureSchema = [3, n0, _TS,
 ];
 export var TargetTrafficSplitEntry$: StaticStructureSchema = [3, n0, _TTSE,
   0,
-  [_tN, _n, _w, _mod, _fa, _d, _meta],
+  [_tN, _n, _we, _mod, _fa, _d, _meta],
   [[() => TargetName, 0], 0, 1, 0, [() => Fallback$, 0], 0, 128 | 0], 3
 ];
 export var TimeBasedTrigger$: StaticStructureSchema = [3, n0, _TBT,
@@ -4956,7 +5005,7 @@ export var ToolsDefinition$: StaticStructureSchema = [3, n0, _TDoo,
 ];
 export var TrafficSplitEntry$: StaticStructureSchema = [3, n0, _TSE,
   0,
-  [_n, _w, _cBo, _d, _meta],
+  [_n, _we, _cBo, _d, _meta],
   [0, 1, () => ConfigurationBundleReference$, 0, 128 | 0], 3
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
@@ -4981,8 +5030,8 @@ export var UpdateAgentRuntimeEndpointResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _UARR,
   0,
-  [_aRI, _aRAg, _rA, _nC, _d, _aCu, _rHC, _pC, _lC, _mC, _eV, _fC, _cPC, _pVl, _aP, _cT],
-  [[0, 1], () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, () => RuntimeMetadataConfiguration$, [() => EnvironmentVariablesMap, 0], () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 0, () => AllowedPorts, [0, 4]], 3
+  [_aRI, _aRAg, _rA, _nC, _d, _aCu, _rHC, _pC, _lC, _hC, _mC, _eV, _fC, _cPC, _pVl, _aP, _rC, _cT],
+  [[0, 1], () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, () => RuntimeHooksConfiguration$, () => RuntimeMetadataConfiguration$, [() => EnvironmentVariablesMap, 0], () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 0, () => AllowedPorts, () => ResourceConfigurations, [0, 4]], 3
 ];
 export var UpdateAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _UARRp,
   0,
@@ -5166,13 +5215,13 @@ export var UpdateGatewayRateLimitResponse$: StaticStructureSchema = [3, n0, _UGR
 ];
 export var UpdateGatewayRequest$: StaticStructureSchema = [3, n0, _UGR,
   0,
-  [_gI, _n, _rA, _aT, _d, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _eL, _wC],
-  [[0, 1], 0, 0, 0, [() => GatewayDescription, 0], 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, 0, () => WafConfiguration$], 4
+  [_gI, _n, _rA, _aT, _d, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _eL, _wC, _dO],
+  [[0, 1], 0, 0, 0, [() => GatewayDescription, 0], 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, 0, () => WafConfiguration$, [() => DomainOverride$, 0]], 4
 ];
 export var UpdateGatewayResponse$: StaticStructureSchema = [3, n0, _UGRp,
   0,
-  [_gA, _gIa, _cA, _uA, _st, _n, _aT, _gU, _sRt, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC],
-  [0, 0, 5, 5, 0, 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0, 0, () => WafConfiguration$], 7
+  [_gA, _gIa, _cA, _uA, _st, _n, _aT, _gU, _sRt, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC, _dO],
+  [0, 0, 5, 5, 0, 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0, 0, () => WafConfiguration$, [() => DomainOverride$, 0]], 7
 ];
 export var UpdateGatewayRuleRequest$: StaticStructureSchema = [3, n0, _UGRR,
   0,
@@ -5722,6 +5771,7 @@ var PrivateEndpointManagedResources: StaticListSchema = [1, n0, _PEMR,
 var PrivateEndpointOverrides: StaticListSchema = [1, n0, _PEOr,
   0, () => PrivateEndpointOverride$
 ];
+var PublicDomainNameList = 64 | 0;
 var RateConfigs: StaticListSchema = [1, n0, _RCa,
   0, () => RateConfig$
 ];
@@ -5738,6 +5788,9 @@ var RegistrySummaryList: StaticListSchema = [1, n0, _RSL,
 ];
 var RequestHeaderAllowlist = 64 | 0;
 var RequiredProperties = 64 | 0;
+var ResourceConfigurations: StaticListSchema = [1, n0, _RCeso,
+  0, () => ResourceConfiguration$
+];
 var ResourceOauth2ReturnUrlListType = 64 | 0;
 var ResponseListType = 64 | 0;
 var RestApiMethods = 64 | 0;
@@ -6107,6 +6160,11 @@ export var LaunchTemplateSource$: StaticUnionSchema = [4, n0, _LTS,
   [_lP],
   [() => LaunchParameters$]
 ];
+export var LifecycleHookAction$: StaticUnionSchema = [4, n0, _LHA,
+  0,
+  [_hP],
+  [() => HttpPostLifecycleHookAction$]
+];
 export var MatchPrincipalEntry$: StaticUnionSchema = [4, n0, _MPEa,
   0,
   [_iPa],
@@ -6202,7 +6260,7 @@ export var RegistryRecordCredentialProviderUnion$: StaticUnionSchema = [4, n0, _
   [_oCP, _iCP],
   [() => RegistryRecordOAuthCredentialProvider$, () => RegistryRecordIamCredentialProvider$]
 ];
-export var RequestHeaderConfiguration$: StaticUnionSchema = [4, n0, _RHC,
+export var RequestHeaderConfiguration$: StaticUnionSchema = [4, n0, _RHCe,
   0,
   [_rHA],
   [64 | 0]
@@ -6618,7 +6676,7 @@ export var ListGatewayTargets$: StaticOperationSchema = [9, n0, _LGT,
 export var ListHarnessEndpoints$: StaticOperationSchema = [9, n0, _LHE,
   { [_ht]: ["GET", "/harnesses/{harnessId}/endpoints", 200] }, () => ListHarnessEndpointsRequest$, () => ListHarnessEndpointsResponse$
 ];
-export var ListHarnesses$: StaticOperationSchema = [9, n0, _LH,
+export var ListHarnesses$: StaticOperationSchema = [9, n0, _LHi,
   { [_ht]: ["GET", "/harnesses", 200] }, () => ListHarnessesRequest$, () => ListHarnessesResponse$
 ];
 export var ListHarnessVersions$: StaticOperationSchema = [9, n0, _LHV,

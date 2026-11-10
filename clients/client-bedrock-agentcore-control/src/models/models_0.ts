@@ -34,7 +34,6 @@ import type {
   GatewayPolicyEngineMode,
   GatewayProtocolType,
   GatewayRateLimitStatus,
-  GatewayRuleStatus,
   GatewayStatus,
   InboundTokenClaimValueType,
   IncludedData,
@@ -1834,6 +1833,99 @@ export namespace FilesystemConfiguration {
 }
 
 /**
+ * <p>A lifecycle hook action that sends an HTTP <code>POST</code> request to the agent's container. The path and port can't conflict with a path that your agent already serves for AgentCore Runtime, such as the protocol's invocation path or the health check path.</p>
+ * @public
+ */
+export interface HttpPostLifecycleHookAction {
+  /**
+   * <p>The path in the agent's container that AgentCore Runtime sends the <code>POST</code> request to.</p>
+   * @public
+   */
+  path: string | undefined;
+
+  /**
+   * <p>The port in the agent's container that AgentCore Runtime sends the <code>POST</code> request to. If you don't specify a port, the default is the runtime's server port: the port in the protocol configuration if one is set, otherwise the protocol's default port.</p>
+   * @public
+   */
+  port?: number | undefined;
+}
+
+/**
+ * <p>The action that a lifecycle hook runs. Specify exactly one member. Currently, <code>httpPost</code> is the only supported action.</p>
+ * @public
+ */
+export type LifecycleHookAction =
+  | LifecycleHookAction.HttpPostMember
+  | LifecycleHookAction.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace LifecycleHookAction {
+  /**
+   * <p>Sends an HTTP <code>POST</code> request to your agent's container on the specified port and path to run the hook. The hook succeeds if your container returns a <code>2xx</code> response. The hook fails if your container returns any other response or doesn't respond before the hook times out.</p>
+   * @public
+   */
+  export interface HttpPostMember {
+    httpPost: HttpPostLifecycleHookAction;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    httpPost?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    httpPost: (value: HttpPostLifecycleHookAction) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A lifecycle hook, which defines the action that AgentCore Runtime runs at a point in the runtime's lifecycle.</p>
+ * @public
+ */
+export interface LifecycleHook {
+  /**
+   * <p>The action that AgentCore Runtime runs for the hook. Specify exactly one action.</p>
+   * @public
+   */
+  action: LifecycleHookAction | undefined;
+}
+
+/**
+ * <p>The lifecycle hooks that run when you create or update the AgentCore Runtime, before any sessions are created.</p>
+ * @public
+ */
+export interface BuildLifecycleHooks {
+  /**
+   * <p>The hook that warms up your agent before any sessions are created. Use this hook to load the resources that your sessions need, such as models, libraries, or caches. Your hook must complete within 120 seconds.</p>
+   * @public
+   */
+  warmup?: LifecycleHook | undefined;
+}
+
+/**
+ * <p>The lifecycle hooks that AgentCore Runtime runs at fixed points in the runtime's lifecycle.</p>
+ * @public
+ */
+export interface RuntimeHooksConfiguration {
+  /**
+   * <p>The hooks that run when you create or update the AgentCore Runtime, before any sessions are created.</p>
+   * @public
+   */
+  build?: BuildLifecycleHooks | undefined;
+}
+
+/**
  * <p>LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.</p>
  * @public
  */
@@ -1957,6 +2049,18 @@ export namespace RequestHeaderConfiguration {
 }
 
 /**
+ * <p>The resource configuration for an AgentCore Runtime.</p>
+ * @public
+ */
+export interface ResourceConfiguration {
+  /**
+   * <p>The minimum amount of memory, in mebibytes, to allocate to the AgentCore Runtime.</p>
+   * @public
+   */
+  minimumMemoryInMiB: number | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateAgentRuntimeRequest {
@@ -2021,6 +2125,12 @@ export interface CreateAgentRuntimeRequest {
   lifecycleConfiguration?: LifecycleConfiguration | undefined;
 
   /**
+   * <p>The lifecycle hooks configuration for the AgentCore Runtime. Use lifecycle hooks to run actions in the agent's container at fixed points in the runtime's lifecycle, such as warming up the agent before sessions are created.</p>
+   * @public
+   */
+  hooksConfiguration?: RuntimeHooksConfiguration | undefined;
+
+  /**
    * <p>Environment variables to set in the AgentCore Runtime environment.</p>
    * @public
    */
@@ -2055,6 +2165,12 @@ export interface CreateAgentRuntimeRequest {
    * @public
    */
   allowedPorts?: AllowedPort[] | undefined;
+
+  /**
+   * <p>The resource configurations for the AgentCore Runtime, such as the minimum amount of memory to allocate to the runtime. You can specify at most one resource configuration.</p>
+   * @public
+   */
+  resourceConfigurations?: ResourceConfiguration[] | undefined;
 }
 
 /**
@@ -2250,6 +2366,12 @@ export interface GetAgentRuntimeResponse {
   lifecycleConfiguration: LifecycleConfiguration | undefined;
 
   /**
+   * <p>The lifecycle hooks configuration for the AgentCore Runtime.</p>
+   * @public
+   */
+  hooksConfiguration?: RuntimeHooksConfiguration | undefined;
+
+  /**
    * <p>The reason for failure if the AgentCore Runtime is in a failed state.</p>
    * @public
    */
@@ -2326,6 +2448,12 @@ export interface GetAgentRuntimeResponse {
    * @public
    */
   allowedPorts?: AllowedPort[] | undefined;
+
+  /**
+   * <p>The resource configurations for the AgentCore Runtime.</p>
+   * @public
+   */
+  resourceConfigurations?: ResourceConfiguration[] | undefined;
 }
 
 /**
@@ -2509,6 +2637,12 @@ export interface UpdateAgentRuntimeRequest {
   lifecycleConfiguration?: LifecycleConfiguration | undefined;
 
   /**
+   * <p>The updated lifecycle hooks configuration for the AgentCore Runtime.</p>
+   * @public
+   */
+  hooksConfiguration?: RuntimeHooksConfiguration | undefined;
+
+  /**
    * <p>The updated configuration for microVM Metadata Service (MMDS) settings for the AgentCore Runtime.</p>
    * @public
    */
@@ -2543,6 +2677,12 @@ export interface UpdateAgentRuntimeRequest {
    * @public
    */
   allowedPorts?: AllowedPort[] | undefined;
+
+  /**
+   * <p>The updated resource configurations for the AgentCore Runtime. You can specify at most one resource configuration.</p>
+   * @public
+   */
+  resourceConfigurations?: ResourceConfiguration[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
@@ -8257,6 +8397,24 @@ export interface UpdateGatewayRateLimitResponse {
 }
 
 /**
+ * <p>The public domain names for a gateway that clients reach through your own proxy or custom domain. When you configure a domain override, the gateway advertises these domains instead of the inbound Host header in the URLs that it returns for OAuth discovery, such as the protected resource metadata and the <code>WWW-Authenticate</code> challenge.</p>
+ * @public
+ */
+export interface DomainOverride {
+  /**
+   * <p>The default public domain name for the gateway. The gateway advertises this domain when a request doesn't select a specific domain.</p>
+   * @public
+   */
+  defaultDomain: string | undefined;
+
+  /**
+   * <p>Additional public domain names for the gateway, up to 10. Don't repeat the default domain or list a domain more than once. A request can select one of these domains, or the default domain, with the <code>x-amzn-bedrock-agentcore-gateway-domain</code> header. The gateway rejects a request that selects a domain that isn't configured.</p>
+   * @public
+   */
+  alternateDomains?: string[] | undefined;
+}
+
+/**
  * <p>A selector that identifies a payload field to exclude from the interceptor input.</p>
  * @public
  */
@@ -8604,6 +8762,12 @@ export interface CreateGatewayRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header. Specify this when clients reach the gateway through your own proxy or custom domain.</p>
+   * @public
+   */
+  domainOverride?: DomainOverride | undefined;
 }
 
 /**
@@ -8777,6 +8941,12 @@ export interface CreateGatewayResponse {
    * @public
    */
   wafConfiguration?: WafConfiguration | undefined;
+
+  /**
+   * <p>The public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header.</p>
+   * @public
+   */
+  domainOverride?: DomainOverride | undefined;
 }
 
 /**
@@ -8959,6 +9129,12 @@ export interface GetGatewayResponse {
    * @public
    */
   wafConfiguration?: WafConfiguration | undefined;
+
+  /**
+   * <p>The public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header.</p>
+   * @public
+   */
+  domainOverride?: DomainOverride | undefined;
 }
 
 /**
@@ -9136,6 +9312,12 @@ export interface UpdateGatewayRequest {
    * @public
    */
   wafConfiguration?: WafConfiguration | undefined;
+
+  /**
+   * <p>The updated public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header. Specify this when clients reach the gateway through your own proxy or custom domain.</p>
+   * @public
+   */
+  domainOverride?: DomainOverride | undefined;
 }
 
 /**
@@ -9273,6 +9455,12 @@ export interface UpdateGatewayResponse {
    * @public
    */
   wafConfiguration?: WafConfiguration | undefined;
+
+  /**
+   * <p>The public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header.</p>
+   * @public
+   */
+  domainOverride?: DomainOverride | undefined;
 }
 
 /**
@@ -9372,233 +9560,6 @@ export namespace MatchPrincipalEntry {
     iamPrincipal: (value: IamPrincipal) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * <p>A condition that matches requests based on the caller's identity.</p>
- * @public
- */
-export interface MatchPrincipals {
-  /**
-   * <p>A list of principal entries. The condition is met if any of the entries match the caller's identity.</p>
-   * @public
-   */
-  anyOf: MatchPrincipalEntry[] | undefined;
-}
-
-/**
- * <p>A condition that determines when a gateway rule applies. Conditions can match on principals, request paths, or the requested model.</p>
- * @public
- */
-export type Condition =
-  | Condition.MatchModelsMember
-  | Condition.MatchPathsMember
-  | Condition.MatchPrincipalsMember
-  | Condition.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Condition {
-  /**
-   * <p>A condition that matches on the identity of the caller making the request.</p>
-   * @public
-   */
-  export interface MatchPrincipalsMember {
-    matchPrincipals: MatchPrincipals;
-    matchPaths?: never;
-    matchModels?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A condition that matches on the request path.</p>
-   * @public
-   */
-  export interface MatchPathsMember {
-    matchPrincipals?: never;
-    matchPaths: MatchPaths;
-    matchModels?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A condition that matches on the model requested in an inference request.</p>
-   * @public
-   */
-  export interface MatchModelsMember {
-    matchPrincipals?: never;
-    matchPaths?: never;
-    matchModels: MatchModels;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    matchPrincipals?: never;
-    matchPaths?: never;
-    matchModels?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    matchPrincipals: (value: MatchPrincipals) => T;
-    matchPaths: (value: MatchPaths) => T;
-    matchModels: (value: MatchModels) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateGatewayRuleRequest {
-  /**
-   * <p>The identifier of the gateway to create a rule for.</p>
-   * @public
-   */
-  gatewayIdentifier: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first. Must be between 1 and 1,000,000.</p>
-   * @public
-   */
-  priority: number | undefined;
-
-  /**
-   * <p>The conditions that must be met for the rule to apply. Conditions can match on principals (IAM ARNs) or request paths.</p>
-   * @public
-   */
-  conditions?: Condition[] | undefined;
-
-  /**
-   * <p>The actions to take when the rule conditions are met. Actions can route to a specific target or apply a configuration bundle override.</p>
-   * @public
-   */
-  actions: Action[] | undefined;
-
-  /**
-   * <p>The description of the gateway rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-}
-
-/**
- * <p>System-managed metadata for rules created by automated processes such as A/B tests.</p>
- * @public
- */
-export interface SystemManagedBlock {
-  /**
-   * <p>The identifier of the system or process that manages this rule.</p>
-   * @public
-   */
-  managedBy: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateGatewayRuleResponse {
-  /**
-   * <p>The unique identifier of the gateway rule.</p>
-   * @public
-   */
-  ruleId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway that the rule belongs to.</p>
-   * @public
-   */
-  gatewayArn: string | undefined;
-
-  /**
-   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.</p>
-   * @public
-   */
-  priority: number | undefined;
-
-  /**
-   * <p>The conditions that must be met for the rule to apply.</p>
-   * @public
-   */
-  conditions?: Condition[] | undefined;
-
-  /**
-   * <p>The actions to take when the rule conditions are met.</p>
-   * @public
-   */
-  actions: Action[] | undefined;
-
-  /**
-   * <p>The description of the gateway rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the rule was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The current status of the rule.</p>
-   * @public
-   */
-  status: GatewayRuleStatus | undefined;
-
-  /**
-   * <p>System-managed metadata for rules created by automated processes.</p>
-   * @public
-   */
-  system?: SystemManagedBlock | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGatewayRuleRequest {
-  /**
-   * <p>The identifier of the gateway containing the rule.</p>
-   * @public
-   */
-  gatewayIdentifier: string | undefined;
-
-  /**
-   * <p>The unique identifier of the rule to delete.</p>
-   * @public
-   */
-  ruleId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGatewayRuleResponse {
-  /**
-   * <p>The unique identifier of the deleted rule.</p>
-   * @public
-   */
-  ruleId: string | undefined;
-
-  /**
-   * <p>The status of the rule deletion operation.</p>
-   * @public
-   */
-  status: GatewayRuleStatus | undefined;
 }
 
 /**

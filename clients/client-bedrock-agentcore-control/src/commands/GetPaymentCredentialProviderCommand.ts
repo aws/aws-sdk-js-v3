@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetPaymentCredentialProviderRequest, GetPaymentCredentialProviderResponse } from "../models/models_1";
+import type { GetPaymentCredentialProviderRequest } from "../models/models_1";
+import type { GetPaymentCredentialProviderResponse } from "../models/models_2";
 import { GetPaymentCredentialProvider$ } from "../schemas/schemas_0";
 
 /**

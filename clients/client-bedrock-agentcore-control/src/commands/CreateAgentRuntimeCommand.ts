@@ -166,6 +166,18 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *     idleRuntimeSessionTimeout: Number("int"),
  *     maxLifetime: Number("int"),
  *   },
+ *   hooksConfiguration: { // RuntimeHooksConfiguration
+ *     build: { // BuildLifecycleHooks
+ *       warmup: { // LifecycleHook
+ *         action: { // LifecycleHookAction Union: only one key present
+ *           httpPost: { // HttpPostLifecycleHookAction
+ *             path: "STRING_VALUE", // required
+ *             port: Number("int"),
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
  *   environmentVariables: { // EnvironmentVariablesMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -200,6 +212,11 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *         from: Number("int"), // required
  *         to: Number("int"), // required
  *       },
+ *     },
+ *   ],
+ *   resourceConfigurations: [ // ResourceConfigurations
+ *     { // ResourceConfiguration
+ *       minimumMemoryInMiB: Number("int"), // required
  *     },
  *   ],
  * };

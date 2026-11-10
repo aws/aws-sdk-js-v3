@@ -52,6 +52,7 @@ import {
   BrowserSigningConfigOutput$,
   BrowserStatus,
   BrowserSummary$,
+  BuildLifecycleHooks$,
   CapacityProviderConfiguration$,
   CapacityProviderStatus,
   CapacityProviderStatusCode,
@@ -381,6 +382,7 @@ import {
   Descriptors$,
   DescriptorType,
   DimensionRatingScale$,
+  DomainOverride$,
   DraftStatus,
   EbsVolumeConfiguration$,
   EbsVolumeType,
@@ -642,6 +644,7 @@ import {
   HttpApiSchemaConfiguration$,
   HttpConnectorSource$,
   HttpConnectorTargetConfiguration$,
+  HttpPostLifecycleHookAction$,
   HttpTargetConfiguration$,
   IamCredentialProvider$,
   IamPrincipal$,
@@ -680,6 +683,8 @@ import {
   LaunchTemplateSource$,
   LicenseSpecification$,
   LifecycleConfiguration$,
+  LifecycleHook$,
+  LifecycleHookAction$,
   LimitEntry$,
   LinkedinOauth2ProviderConfigInput$,
   LinkedinOauth2ProviderConfigOutput$,
@@ -1018,6 +1023,7 @@ import {
   ResetTokenVaultKeyMaterialRequest$,
   ResetTokenVaultKeyMaterialResponse$,
   Resource$,
+  ResourceConfiguration$,
   ResourceLimitExceededException,
   ResourceLimitExceededException$,
   ResourceLocation$,
@@ -1035,6 +1041,7 @@ import {
   RotatePaymentConnectorCredentialsResponse$,
   RouteToTargetAction$,
   Rule$,
+  RuntimeHooksConfiguration$,
   RuntimeMetadataConfiguration$,
   RuntimeTargetConfiguration$,
   S3CertificateConfiguration$,
@@ -1694,6 +1701,7 @@ assert(typeof BrowserProfileSummary$ === "object");
 assert(typeof BrowserSigningConfigInput$ === "object");
 assert(typeof BrowserSigningConfigOutput$ === "object");
 assert(typeof BrowserSummary$ === "object");
+assert(typeof BuildLifecycleHooks$ === "object");
 assert(typeof CapacityProviderConfiguration$ === "object");
 assert(typeof CapacityProviderSummary$ === "object");
 assert(typeof CapacityProviderVolumeConfiguration$ === "object");
@@ -1879,6 +1887,7 @@ assert(typeof DeleteWorkloadIdentityResponse$ === "object");
 assert(typeof DerivedEvaluatorConfig$ === "object");
 assert(typeof Descriptors$ === "object");
 assert(typeof DimensionRatingScale$ === "object");
+assert(typeof DomainOverride$ === "object");
 assert(typeof EbsVolumeConfiguration$ === "object");
 assert(typeof Ec2Configuration$ === "object");
 assert(typeof EfsAccessPointConfiguration$ === "object");
@@ -2042,6 +2051,7 @@ assert(typeof HostingEnvironment$ === "object");
 assert(typeof HttpApiSchemaConfiguration$ === "object");
 assert(typeof HttpConnectorSource$ === "object");
 assert(typeof HttpConnectorTargetConfiguration$ === "object");
+assert(typeof HttpPostLifecycleHookAction$ === "object");
 assert(typeof HttpTargetConfiguration$ === "object");
 assert(typeof IamCredentialProvider$ === "object");
 assert(typeof IamPrincipal$ === "object");
@@ -2074,6 +2084,8 @@ assert(typeof LaunchParameters$ === "object");
 assert(typeof LaunchTemplateSource$ === "object");
 assert(typeof LicenseSpecification$ === "object");
 assert(typeof LifecycleConfiguration$ === "object");
+assert(typeof LifecycleHook$ === "object");
+assert(typeof LifecycleHookAction$ === "object");
 assert(typeof LimitEntry$ === "object");
 assert(typeof LinkedinOauth2ProviderConfigInput$ === "object");
 assert(typeof LinkedinOauth2ProviderConfigOutput$ === "object");
@@ -2253,12 +2265,14 @@ assert(typeof RequestHeaderConfiguration$ === "object");
 assert(typeof ResetTokenVaultKeyMaterialRequest$ === "object");
 assert(typeof ResetTokenVaultKeyMaterialResponse$ === "object");
 assert(typeof Resource$ === "object");
+assert(typeof ResourceConfiguration$ === "object");
 assert(typeof ResourceLocation$ === "object");
 assert(typeof RootVolumeConfiguration$ === "object");
 assert(typeof RotatePaymentConnectorCredentialsRequest$ === "object");
 assert(typeof RotatePaymentConnectorCredentialsResponse$ === "object");
 assert(typeof RouteToTargetAction$ === "object");
 assert(typeof Rule$ === "object");
+assert(typeof RuntimeHooksConfiguration$ === "object");
 assert(typeof RuntimeMetadataConfiguration$ === "object");
 assert(typeof RuntimeTargetConfiguration$ === "object");
 assert(typeof S3CertificateConfiguration$ === "object");

@@ -63,6 +63,18 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //     idleRuntimeSessionTimeout: Number("int"),
  * //     maxLifetime: Number("int"),
  * //   },
+ * //   hooksConfiguration: { // RuntimeHooksConfiguration
+ * //     build: { // BuildLifecycleHooks
+ * //       warmup: { // LifecycleHook
+ * //         action: { // LifecycleHookAction Union: only one key present
+ * //           httpPost: { // HttpPostLifecycleHookAction
+ * //             path: "STRING_VALUE", // required
+ * //             port: Number("int"),
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   },
  * //   failureReason: "STRING_VALUE",
  * //   description: "STRING_VALUE",
  * //   workloadIdentityDetails: { // WorkloadIdentityDetails
@@ -217,6 +229,11 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //         from: Number("int"), // required
  * //         to: Number("int"), // required
  * //       },
+ * //     },
+ * //   ],
+ * //   resourceConfigurations: [ // ResourceConfigurations
+ * //     { // ResourceConfiguration
+ * //       minimumMemoryInMiB: Number("int"), // required
  * //     },
  * //   ],
  * // };

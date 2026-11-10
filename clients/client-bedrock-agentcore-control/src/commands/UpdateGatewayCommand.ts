@@ -176,6 +176,12 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  *   wafConfiguration: { // WafConfiguration
  *     failureMode: "FAIL_CLOSE" || "FAIL_OPEN",
  *   },
+ *   domainOverride: { // DomainOverride
+ *     defaultDomain: "STRING_VALUE", // required
+ *     alternateDomains: [ // PublicDomainNameList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new UpdateGatewayCommand(input);
  * const response = await client.send(command);
@@ -334,6 +340,12 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  * //   webAclArn: "STRING_VALUE",
  * //   wafConfiguration: { // WafConfiguration
  * //     failureMode: "FAIL_CLOSE" || "FAIL_OPEN",
+ * //   },
+ * //   domainOverride: { // DomainOverride
+ * //     defaultDomain: "STRING_VALUE", // required
+ * //     alternateDomains: [ // PublicDomainNameList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

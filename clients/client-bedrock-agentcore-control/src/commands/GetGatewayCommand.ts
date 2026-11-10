@@ -193,6 +193,12 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * //   wafConfiguration: { // WafConfiguration
  * //     failureMode: "FAIL_CLOSE" || "FAIL_OPEN",
  * //   },
+ * //   domainOverride: { // DomainOverride
+ * //     defaultDomain: "STRING_VALUE", // required
+ * //     alternateDomains: [ // PublicDomainNameList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```

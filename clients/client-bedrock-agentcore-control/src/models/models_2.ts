@@ -7,6 +7,7 @@ import type {
   PaymentConnectorProvisionMode,
   PaymentConnectorStatus,
   PaymentConnectorType,
+  PaymentCredentialProviderVendorType,
   PaymentManagerStatus,
   PaymentsAuthorizerType,
   PolicyEngineStatus,
@@ -46,9 +47,245 @@ import type {
   ManagedResourceDetails,
   McpServerTargetConfiguration,
   MetadataConfiguration,
+  PaymentProviderConfigurationInput,
+  PaymentProviderConfigurationOutput,
   S3Configuration,
   UpdatedAuthorizerConfiguration,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetPaymentCredentialProviderResponse {
+  /**
+   * <p>The name of the payment credential provider.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the payment credential provider.</p>
+   * @public
+   */
+  credentialProviderArn: string | undefined;
+
+  /**
+   * <p>The vendor type for the payment credential provider.</p>
+   * @public
+   */
+  credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
+
+  /**
+   * <p>Output configuration (contains secret ARNs, excludes actual secret values).</p>
+   * @public
+   */
+  providerConfigurationOutput: PaymentProviderConfigurationOutput | undefined;
+
+  /**
+   * <p>The timestamp when the payment credential provider was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the payment credential provider was last updated.</p>
+   * @public
+   */
+  lastUpdatedTime: Date | undefined;
+
+  /**
+   * <p>The tags associated with the payment credential provider.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPaymentCredentialProvidersRequest {
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Maximum number of results to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information about a payment credential provider.</p>
+ * @public
+ */
+export interface PaymentCredentialProviderItem {
+  /**
+   * <p>The name of the payment credential provider.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The vendor type for the payment credential provider.</p>
+   * @public
+   */
+  credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the payment credential provider.</p>
+   * @public
+   */
+  credentialProviderArn: string | undefined;
+
+  /**
+   * <p>The timestamp when the payment credential provider was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the payment credential provider was last updated.</p>
+   * @public
+   */
+  lastUpdatedTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPaymentCredentialProvidersResponse {
+  /**
+   * <p>The list of payment credential providers.</p>
+   * @public
+   */
+  credentialProviders: PaymentCredentialProviderItem[] | undefined;
+
+  /**
+   * <p>Pagination token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePaymentCredentialProviderRequest {
+  /**
+   * <p>The name of the payment credential provider to update.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).</p>
+   * @public
+   */
+  credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
+
+  /**
+   * <p>Configuration specific to the vendor, including API credentials.</p>
+   * @public
+   */
+  providerConfigurationInput: PaymentProviderConfigurationInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePaymentCredentialProviderResponse {
+  /**
+   * <p>The name of the updated payment credential provider.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The vendor type for the updated payment credential provider.</p>
+   * @public
+   */
+  credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated payment credential provider.</p>
+   * @public
+   */
+  credentialProviderArn: string | undefined;
+
+  /**
+   * <p>Output configuration (contains secret ARNs, excludes actual secret values).</p>
+   * @public
+   */
+  providerConfigurationOutput: PaymentProviderConfigurationOutput | undefined;
+
+  /**
+   * <p>The timestamp when the payment credential provider was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the payment credential provider was last updated.</p>
+   * @public
+   */
+  lastUpdatedTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePaymentManagerRequest {
+  /**
+   * <p>The name of the payment manager.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the payment manager.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The type of authorizer to use for the payment manager.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * @public
+   */
+  authorizerType: PaymentsAuthorizerType | undefined;
+
+  /**
+   * <p>The authorizer configuration for the payment manager.</p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the payment manager assumes to access resources on your behalf.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to the payment manager.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer managed KMS key to use for encrypting sensitive payment manager data at rest. If you don't specify a key, the data is encrypted with an Amazon Web Services owned key.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
 
 /**
  * @public

@@ -169,6 +169,12 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *   },
  *   exceptionLevel: "DEBUG",
  *   tags: "<TagsMap>",
+ *   domainOverride: { // DomainOverride
+ *     defaultDomain: "STRING_VALUE", // required
+ *     alternateDomains: [ // PublicDomainNameList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new CreateGatewayCommand(input);
  * const response = await client.send(command);
@@ -327,6 +333,12 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * //   webAclArn: "STRING_VALUE",
  * //   wafConfiguration: { // WafConfiguration
  * //     failureMode: "FAIL_CLOSE" || "FAIL_OPEN",
+ * //   },
+ * //   domainOverride: { // DomainOverride
+ * //     defaultDomain: "STRING_VALUE", // required
+ * //     alternateDomains: [ // PublicDomainNameList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *
