@@ -9,6 +9,8 @@ import {
   AllRowsWildcard$,
   AlreadyExistsException,
   AlreadyExistsException$,
+  AnyResource$,
+  AnyResourceSupportedTypes,
   ApplicationStatus,
   AssumeDecoratedRoleWithSAML$,
   AssumeDecoratedRoleWithSAMLCommand,
@@ -159,6 +161,10 @@ import {
   GetEffectivePermissionsForPathCommand,
   GetEffectivePermissionsForPathRequest$,
   GetEffectivePermissionsForPathResponse$,
+  GetGlueFunctionSessionContext$,
+  GetGlueFunctionSessionContextCommand,
+  GetGlueFunctionSessionContextRequest$,
+  GetGlueFunctionSessionContextResponse$,
   GetLFTag$,
   GetLFTagCommand,
   GetLFTagExpression$,
@@ -191,6 +197,10 @@ import {
   GetTemporaryDataLocationCredentialsCommand,
   GetTemporaryDataLocationCredentialsRequest$,
   GetTemporaryDataLocationCredentialsResponse$,
+  GetTemporaryGlueFunctionCredentials$,
+  GetTemporaryGlueFunctionCredentialsCommand,
+  GetTemporaryGlueFunctionCredentialsRequest$,
+  GetTemporaryGlueFunctionCredentialsResponse$,
   GetTemporaryGluePartitionCredentials$,
   GetTemporaryGluePartitionCredentialsCommand,
   GetTemporaryGluePartitionCredentialsRequest$,
@@ -400,6 +410,8 @@ import {
   UpdateTableStorageOptimizerCommand,
   UpdateTableStorageOptimizerRequest$,
   UpdateTableStorageOptimizerResponse$,
+  UserDefinedFunctionResource$,
+  UserDefinedFunctionWildcard$,
   VerificationStatus,
   VirtualObject$,
   WorkUnitRange$,
@@ -472,6 +484,8 @@ assert(typeof GetDataLakeSettingsCommand === "function");
 assert(typeof GetDataLakeSettings$ === "object");
 assert(typeof GetEffectivePermissionsForPathCommand === "function");
 assert(typeof GetEffectivePermissionsForPath$ === "object");
+assert(typeof GetGlueFunctionSessionContextCommand === "function");
+assert(typeof GetGlueFunctionSessionContext$ === "object");
 assert(typeof GetLFTagCommand === "function");
 assert(typeof GetLFTag$ === "object");
 assert(typeof GetLFTagExpressionCommand === "function");
@@ -488,6 +502,8 @@ assert(typeof GetTableObjectsCommand === "function");
 assert(typeof GetTableObjects$ === "object");
 assert(typeof GetTemporaryDataLocationCredentialsCommand === "function");
 assert(typeof GetTemporaryDataLocationCredentials$ === "object");
+assert(typeof GetTemporaryGlueFunctionCredentialsCommand === "function");
+assert(typeof GetTemporaryGlueFunctionCredentials$ === "object");
 assert(typeof GetTemporaryGluePartitionCredentialsCommand === "function");
 assert(typeof GetTemporaryGluePartitionCredentials$ === "object");
 assert(typeof GetTemporaryGlueTableCredentialsCommand === "function");
@@ -555,6 +571,7 @@ assert(typeof AddLFTagsToResourceRequest$ === "object");
 assert(typeof AddLFTagsToResourceResponse$ === "object");
 assert(typeof AddObjectInput$ === "object");
 assert(typeof AllRowsWildcard$ === "object");
+assert(typeof AnyResource$ === "object");
 assert(typeof AssumeDecoratedRoleWithSAMLRequest$ === "object");
 assert(typeof AssumeDecoratedRoleWithSAMLResponse$ === "object");
 assert(typeof AttachRLSPolicyRequest$ === "object");
@@ -633,6 +650,8 @@ assert(typeof GetDataLakeSettingsRequest$ === "object");
 assert(typeof GetDataLakeSettingsResponse$ === "object");
 assert(typeof GetEffectivePermissionsForPathRequest$ === "object");
 assert(typeof GetEffectivePermissionsForPathResponse$ === "object");
+assert(typeof GetGlueFunctionSessionContextRequest$ === "object");
+assert(typeof GetGlueFunctionSessionContextResponse$ === "object");
 assert(typeof GetLFTagExpressionRequest$ === "object");
 assert(typeof GetLFTagExpressionResponse$ === "object");
 assert(typeof GetLFTagRequest$ === "object");
@@ -649,6 +668,8 @@ assert(typeof GetTableObjectsRequest$ === "object");
 assert(typeof GetTableObjectsResponse$ === "object");
 assert(typeof GetTemporaryDataLocationCredentialsRequest$ === "object");
 assert(typeof GetTemporaryDataLocationCredentialsResponse$ === "object");
+assert(typeof GetTemporaryGlueFunctionCredentialsRequest$ === "object");
+assert(typeof GetTemporaryGlueFunctionCredentialsResponse$ === "object");
 assert(typeof GetTemporaryGluePartitionCredentialsRequest$ === "object");
 assert(typeof GetTemporaryGluePartitionCredentialsResponse$ === "object");
 assert(typeof GetTemporaryGlueTableCredentialsRequest$ === "object");
@@ -744,10 +765,13 @@ assert(typeof UpdateTableObjectsRequest$ === "object");
 assert(typeof UpdateTableObjectsResponse$ === "object");
 assert(typeof UpdateTableStorageOptimizerRequest$ === "object");
 assert(typeof UpdateTableStorageOptimizerResponse$ === "object");
+assert(typeof UserDefinedFunctionResource$ === "object");
+assert(typeof UserDefinedFunctionWildcard$ === "object");
 assert(typeof VirtualObject$ === "object");
 assert(typeof WorkUnitRange$ === "object");
 assert(typeof WriteOperation$ === "object");
 // enums
+assert(typeof AnyResourceSupportedTypes === "object");
 assert(typeof ApplicationStatus === "object");
 assert(typeof ComparisonOperator === "object");
 assert(typeof CredentialsScope === "object");

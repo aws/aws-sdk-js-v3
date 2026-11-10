@@ -157,6 +157,11 @@ import {
   type GetEffectivePermissionsForPathCommandOutput,
   GetEffectivePermissionsForPathCommand,
 } from "./commands/GetEffectivePermissionsForPathCommand";
+import {
+  type GetGlueFunctionSessionContextCommandInput,
+  type GetGlueFunctionSessionContextCommandOutput,
+  GetGlueFunctionSessionContextCommand,
+} from "./commands/GetGlueFunctionSessionContextCommand";
 import { type GetLFTagCommandInput, type GetLFTagCommandOutput, GetLFTagCommand } from "./commands/GetLFTagCommand";
 import {
   type GetLFTagExpressionCommandInput,
@@ -193,6 +198,11 @@ import {
   type GetTemporaryDataLocationCredentialsCommandOutput,
   GetTemporaryDataLocationCredentialsCommand,
 } from "./commands/GetTemporaryDataLocationCredentialsCommand";
+import {
+  type GetTemporaryGlueFunctionCredentialsCommandInput,
+  type GetTemporaryGlueFunctionCredentialsCommandOutput,
+  GetTemporaryGlueFunctionCredentialsCommand,
+} from "./commands/GetTemporaryGlueFunctionCredentialsCommand";
 import {
   type GetTemporaryGluePartitionCredentialsCommandInput,
   type GetTemporaryGluePartitionCredentialsCommandOutput,
@@ -396,6 +406,7 @@ const commands = {
   GetDataLakePrincipalCommand,
   GetDataLakeSettingsCommand,
   GetEffectivePermissionsForPathCommand,
+  GetGlueFunctionSessionContextCommand,
   GetLFTagCommand,
   GetLFTagExpressionCommand,
   GetQueryStateCommand,
@@ -404,6 +415,7 @@ const commands = {
   GetRLSPolicyCommand,
   GetTableObjectsCommand,
   GetTemporaryDataLocationCredentialsCommand,
+  GetTemporaryGlueFunctionCredentialsCommand,
   GetTemporaryGluePartitionCredentialsCommand,
   GetTemporaryGlueTableCredentialsCommand,
   GetWorkUnitResultsCommand,
@@ -980,6 +992,23 @@ export interface LakeFormation {
   ): void;
 
   /**
+   * @see {@link GetGlueFunctionSessionContextCommand}
+   */
+  getGlueFunctionSessionContext(
+    args: GetGlueFunctionSessionContextCommandInput,
+    options?: LakeFormationRequestOptions
+  ): Promise<GetGlueFunctionSessionContextCommandOutput>;
+  getGlueFunctionSessionContext(
+    args: GetGlueFunctionSessionContextCommandInput,
+    cb: (err: any, data?: GetGlueFunctionSessionContextCommandOutput) => void
+  ): void;
+  getGlueFunctionSessionContext(
+    args: GetGlueFunctionSessionContextCommandInput,
+    options: LakeFormationRequestOptions,
+    cb: (err: any, data?: GetGlueFunctionSessionContextCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetLFTagCommand}
    */
   getLFTag(
@@ -1114,6 +1143,23 @@ export interface LakeFormation {
     args: GetTemporaryDataLocationCredentialsCommandInput,
     options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetTemporaryDataLocationCredentialsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTemporaryGlueFunctionCredentialsCommand}
+   */
+  getTemporaryGlueFunctionCredentials(
+    args: GetTemporaryGlueFunctionCredentialsCommandInput,
+    options?: LakeFormationRequestOptions
+  ): Promise<GetTemporaryGlueFunctionCredentialsCommandOutput>;
+  getTemporaryGlueFunctionCredentials(
+    args: GetTemporaryGlueFunctionCredentialsCommandInput,
+    cb: (err: any, data?: GetTemporaryGlueFunctionCredentialsCommandOutput) => void
+  ): void;
+  getTemporaryGlueFunctionCredentials(
+    args: GetTemporaryGlueFunctionCredentialsCommandInput,
+    options: LakeFormationRequestOptions,
+    cb: (err: any, data?: GetTemporaryGlueFunctionCredentialsCommandOutput) => void
   ): void;
 
   /**

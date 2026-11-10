@@ -3,6 +3,18 @@
  * @public
  * @enum
  */
+export const AnyResourceSupportedTypes = {
+  TABLE: "TABLE",
+} as const;
+/**
+ * @public
+ */
+export type AnyResourceSupportedTypes = (typeof AnyResourceSupportedTypes)[keyof typeof AnyResourceSupportedTypes];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceType = {
   DATABASE: "DATABASE",
   TABLE: "TABLE",
@@ -42,6 +54,7 @@ export const Permission = {
   DELETE: "DELETE",
   DESCRIBE: "DESCRIBE",
   DROP: "DROP",
+  EXECUTE: "EXECUTE",
   GRANT_WITH_LF_TAG_EXPRESSION: "GRANT_WITH_LF_TAG_EXPRESSION",
   INSERT: "INSERT",
   SELECT: "SELECT",
@@ -169,6 +182,7 @@ export type ResourceShareType = (typeof ResourceShareType)[keyof typeof Resource
  * @enum
  */
 export const DataLakeResourceType = {
+  ANY_RESOURCE: "ANY_RESOURCE",
   CATALOG: "CATALOG",
   DATABASE: "DATABASE",
   DATA_LOCATION: "DATA_LOCATION",
@@ -178,6 +192,7 @@ export const DataLakeResourceType = {
   LF_TAG_POLICY_DATABASE: "LF_TAG_POLICY_DATABASE",
   LF_TAG_POLICY_TABLE: "LF_TAG_POLICY_TABLE",
   TABLE: "TABLE",
+  USER_DEFINED_FUNCTION: "USER_DEFINED_FUNCTION",
 } as const;
 /**
  * @public

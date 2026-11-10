@@ -41,8 +41,12 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *   Principal: { // DataLakePrincipal
  *     DataLakePrincipalIdentifier: "STRING_VALUE",
  *   },
- *   ResourceType: "CATALOG" || "DATABASE" || "TABLE" || "DATA_LOCATION" || "LF_TAG" || "LF_TAG_POLICY" || "LF_TAG_POLICY_DATABASE" || "LF_TAG_POLICY_TABLE" || "LF_NAMED_TAG_EXPRESSION",
+ *   ResourceType: "ANY_RESOURCE" || "CATALOG" || "DATABASE" || "TABLE" || "DATA_LOCATION" || "LF_TAG" || "LF_TAG_POLICY" || "LF_TAG_POLICY_DATABASE" || "LF_TAG_POLICY_TABLE" || "LF_NAMED_TAG_EXPRESSION" || "USER_DEFINED_FUNCTION",
  *   Resource: { // Resource
+ *     AnyResource: { // AnyResource
+ *       CatalogId: "STRING_VALUE",
+ *       ResourceType: "TABLE", // required
+ *     },
  *     Catalog: { // CatalogResource
  *       Id: "STRING_VALUE",
  *     },
@@ -107,6 +111,12 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required
  *     },
+ *     UserDefinedFunction: { // UserDefinedFunctionResource
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE",
+ *       UserDefinedFunctionWildcard: {},
+ *     },
  *   },
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
@@ -121,6 +131,10 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * //         DataLakePrincipalIdentifier: "STRING_VALUE",
  * //       },
  * //       Resource: { // Resource
+ * //         AnyResource: { // AnyResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           ResourceType: "TABLE", // required
+ * //         },
  * //         Catalog: { // CatalogResource
  * //           Id: "STRING_VALUE",
  * //         },
@@ -185,15 +199,21 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * //           CatalogId: "STRING_VALUE",
  * //           Name: "STRING_VALUE", // required
  * //         },
+ * //         UserDefinedFunction: { // UserDefinedFunctionResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           DatabaseName: "STRING_VALUE", // required
+ * //           Name: "STRING_VALUE",
+ * //           UserDefinedFunctionWildcard: {},
+ * //         },
  * //       },
  * //       Condition: { // Condition
  * //         Expression: "STRING_VALUE",
  * //       },
  * //       Permissions: [ // PermissionList
- * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
+ * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER" || "EXECUTE",
  * //       ],
  * //       PermissionsWithGrantOption: [
- * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
+ * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER" || "EXECUTE",
  * //       ],
  * //       AdditionalDetails: { // DetailsMap
  * //         ResourceShare: [ // ResourceShareList

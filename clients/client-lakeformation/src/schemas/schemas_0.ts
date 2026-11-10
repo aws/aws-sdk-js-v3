@@ -20,6 +20,7 @@ const _ALFTTRR = "AddLFTagsToResourceRequest";
 const _ALFTTRRd = "AddLFTagsToResourceResponse";
 const _AO = "AddObject";
 const _AOI = "AddObjectInput";
+const _AR = "AnyResource";
 const _ARLSP = "AttachRLSPolicy";
 const _ARLSPR = "AttachRLSPolicyRequest";
 const _ARLSPRt = "AttachRLSPolicyResponse";
@@ -179,6 +180,9 @@ const _GEE = "GlueEncryptionException";
 const _GEPFP = "GetEffectivePermissionsForPath";
 const _GEPFPR = "GetEffectivePermissionsForPathRequest";
 const _GEPFPRe = "GetEffectivePermissionsForPathResponse";
+const _GGFSC = "GetGlueFunctionSessionContext";
+const _GGFSCR = "GetGlueFunctionSessionContextRequest";
+const _GGFSCRe = "GetGlueFunctionSessionContextResponse";
 const _GLFT = "GetLFTag";
 const _GLFTE = "GetLFTagExpression";
 const _GLFTER = "GetLFTagExpressionRequest";
@@ -203,6 +207,9 @@ const _GRLSPRe = "GetRLSPolicyResponse";
 const _GTDLC = "GetTemporaryDataLocationCredentials";
 const _GTDLCR = "GetTemporaryDataLocationCredentialsRequest";
 const _GTDLCRe = "GetTemporaryDataLocationCredentialsResponse";
+const _GTGFC = "GetTemporaryGlueFunctionCredentials";
+const _GTGFCR = "GetTemporaryGlueFunctionCredentialsRequest";
+const _GTGFCRe = "GetTemporaryGlueFunctionCredentialsResponse";
 const _GTGPC = "GetTemporaryGluePartitionCredentials";
 const _GTGPCR = "GetTemporaryGluePartitionCredentialsRequest";
 const _GTGPCRe = "GetTemporaryGluePartitionCredentialsResponse";
@@ -356,6 +363,7 @@ const _S = "Size";
 const _SAK = "SecretAccessKey";
 const _SALFT = "ShowAssignedLFTags";
 const _SAMLA = "SAMLAssertion";
+const _SCI = "SessionContextId";
 const _SD = "SetDefault";
 const _SDBLFT = "SearchDatabasesByLFTags";
 const _SDBLFTR = "SearchDatabasesByLFTagsRequest";
@@ -426,6 +434,11 @@ const _U = "Uri";
 const _UDCF = "UpdateDataCellsFilter";
 const _UDCFR = "UpdateDataCellsFilterRequest";
 const _UDCFRp = "UpdateDataCellsFilterResponse";
+const _UDF = "UserDefinedFunction";
+const _UDFA = "UserDefinedFunctionArns";
+const _UDFAs = "UserDefinedFunctionArn";
+const _UDFR = "UserDefinedFunctionResource";
+const _UDFW = "UserDefinedFunctionWildcard";
 const _ULFICC = "UpdateLakeFormationIdentityCenterConfiguration";
 const _ULFICCR = "UpdateLakeFormationIdentityCenterConfigurationRequest";
 const _ULFICCRp = "UpdateLakeFormationIdentityCenterConfigurationResponse";
@@ -665,6 +678,11 @@ export var AllRowsWildcard$: StaticStructureSchema = [3, n0, _ARW,
   0,
   [],
   []
+];
+export var AnyResource$: StaticStructureSchema = [3, n0, _AR,
+  0,
+  [_RT, _CI],
+  [0, 0], 1
 ];
 export var AssumeDecoratedRoleWithSAMLRequest$: StaticStructureSchema = [3, n0, _ADRWSAMLR,
   0,
@@ -1056,6 +1074,16 @@ export var GetEffectivePermissionsForPathResponse$: StaticStructureSchema = [3, 
   [_Pe, _NT],
   [() => PrincipalResourcePermissionsList, 0]
 ];
+export var GetGlueFunctionSessionContextRequest$: StaticStructureSchema = [3, n0, _GGFSCR,
+  0,
+  [_UDFA, _DS],
+  [64 | 0, 1], 1
+];
+export var GetGlueFunctionSessionContextResponse$: StaticStructureSchema = [3, n0, _GGFSCRe,
+  0,
+  [_SCI, _E],
+  [0, 4]
+];
 export var GetLFTagExpressionRequest$: StaticStructureSchema = [3, n0, _GLFTER,
   0,
   [_N, _CI],
@@ -1135,6 +1163,16 @@ export var GetTemporaryDataLocationCredentialsResponse$: StaticStructureSchema =
   0,
   [_Cr, _ADL, _CS],
   [() => TemporaryCredentials$, 64 | 0, 0]
+];
+export var GetTemporaryGlueFunctionCredentialsRequest$: StaticStructureSchema = [3, n0, _GTGFCR,
+  0,
+  [_UDFAs, _AC],
+  [0, () => AuditContext$], 1
+];
+export var GetTemporaryGlueFunctionCredentialsResponse$: StaticStructureSchema = [3, n0, _GTGFCRe,
+  0,
+  [_AKI, _SAK, _ST, _E],
+  [0, 0, 0, 4]
 ];
 export var GetTemporaryGluePartitionCredentialsRequest$: StaticStructureSchema = [3, n0, _GTGPCR,
   0,
@@ -1398,8 +1436,8 @@ export var RemoveLFTagsFromResourceResponse$: StaticStructureSchema = [3, n0, _R
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_Ca, _Da, _Ta, _TWC, _DLa, _DCF, _LFTa, _LFTPa, _LFTEa, _RLSP],
-  [() => CatalogResource$, () => DatabaseResource$, () => TableResource$, () => TableWithColumnsResource$, () => DataLocationResource$, () => DataCellsFilterResource$, () => LFTagKeyResource$, () => LFTagPolicyResource$, () => LFTagExpressionResource$, () => RLSPolicyResource$]
+  [_AR, _Ca, _Da, _Ta, _TWC, _DLa, _DCF, _LFTa, _LFTPa, _LFTEa, _RLSP, _UDF],
+  [() => AnyResource$, () => CatalogResource$, () => DatabaseResource$, () => TableResource$, () => TableWithColumnsResource$, () => DataLocationResource$, () => DataCellsFilterResource$, () => LFTagKeyResource$, () => LFTagPolicyResource$, () => LFTagExpressionResource$, () => RLSPolicyResource$, () => UserDefinedFunctionResource$]
 ];
 export var ResourceInfo$: StaticStructureSchema = [3, n0, _RI,
   0,
@@ -1601,6 +1639,16 @@ export var UpdateTableStorageOptimizerResponse$: StaticStructureSchema = [3, n0,
   [_Re],
   [0]
 ];
+export var UserDefinedFunctionResource$: StaticStructureSchema = [3, n0, _UDFR,
+  0,
+  [_DN, _CI, _N, _UDFW],
+  [0, 0, 0, () => UserDefinedFunctionWildcard$], 1
+];
+export var UserDefinedFunctionWildcard$: StaticStructureSchema = [3, n0, _UDFW,
+  0,
+  [],
+  []
+];
 export var VirtualObject$: StaticStructureSchema = [3, n0, _VO,
   0,
   [_U, _ET],
@@ -1673,6 +1721,7 @@ var PrincipalResourcePermissionsList: StaticListSchema = [1, n0, _PRPL,
 var RedshiftServiceIntegrations: StaticListSchema = [1, n0, _RSI,
   0, () => RedshiftScopeUnion$
 ];
+var ResourceArnList = 64 | 0;
 var ResourceInfoList: StaticListSchema = [1, n0, _RIL,
   0, () => ResourceInfo$
 ];
@@ -1819,6 +1868,9 @@ export var GetDataLakeSettings$: StaticOperationSchema = [9, n0, _GDLS,
 export var GetEffectivePermissionsForPath$: StaticOperationSchema = [9, n0, _GEPFP,
   { [_h]: ["POST", "/GetEffectivePermissionsForPath", 200] }, () => GetEffectivePermissionsForPathRequest$, () => GetEffectivePermissionsForPathResponse$
 ];
+export var GetGlueFunctionSessionContext$: StaticOperationSchema = [9, n0, _GGFSC,
+  { [_h]: ["POST", "/GetGlueFunctionSessionContext", 200] }, () => GetGlueFunctionSessionContextRequest$, () => GetGlueFunctionSessionContextResponse$
+];
 export var GetLFTag$: StaticOperationSchema = [9, n0, _GLFT,
   { [_h]: ["POST", "/GetLFTag", 200] }, () => GetLFTagRequest$, () => GetLFTagResponse$
 ];
@@ -1842,6 +1894,9 @@ export var GetTableObjects$: StaticOperationSchema = [9, n0, _GTO,
 ];
 export var GetTemporaryDataLocationCredentials$: StaticOperationSchema = [9, n0, _GTDLC,
   { [_h]: ["POST", "/GetTemporaryDataLocationCredentials", 200] }, () => GetTemporaryDataLocationCredentialsRequest$, () => GetTemporaryDataLocationCredentialsResponse$
+];
+export var GetTemporaryGlueFunctionCredentials$: StaticOperationSchema = [9, n0, _GTGFC,
+  { [_h]: ["POST", "/GetTemporaryGlueFunctionCredentials", 200] }, () => GetTemporaryGlueFunctionCredentialsRequest$, () => GetTemporaryGlueFunctionCredentialsResponse$
 ];
 export var GetTemporaryGluePartitionCredentials$: StaticOperationSchema = [9, n0, _GTGPC,
   { [_h]: ["POST", "/GetTemporaryGluePartitionCredentials", 200] }, () => GetTemporaryGluePartitionCredentialsRequest$, () => GetTemporaryGluePartitionCredentialsResponse$

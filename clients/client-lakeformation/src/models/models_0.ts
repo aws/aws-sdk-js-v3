@@ -2,6 +2,7 @@
 import type { StreamingBlobTypes } from "@smithy/types";
 
 import type {
+  AnyResourceSupportedTypes,
   ApplicationStatus,
   ComparisonOperator,
   CredentialsScope,
@@ -43,6 +44,25 @@ export interface LFTagPair {
    * @public
    */
   TagValues: string[] | undefined;
+}
+
+/**
+ * <p>Represents all resources of the specified type in a Data Catalog, including resources that are created after
+ *       the grant.</p>
+ * @public
+ */
+export interface AnyResource {
+  /**
+   * <p>The ID of the Data Catalog. By default, it's your account ID.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The type of resource that the grant covers. The only supported value is <code>TABLE</code>.</p>
+   * @public
+   */
+  ResourceType: AnyResourceSupportedTypes | undefined;
 }
 
 /**
@@ -322,10 +342,61 @@ export interface TableWithColumnsResource {
 }
 
 /**
+ * <p>A wildcard object representing every user-defined function in a database.</p>
+ * @public
+ */
+export interface UserDefinedFunctionWildcard {}
+
+/**
+ * <p>Identifies a user-defined function, or all user-defined functions in a database, as a resource that you can
+ *       grant permissions on. You can grant permissions only on functions whose <code>GovernanceMode</code> is
+ *       <code>LAKE_FORMATION</code>.</p>
+ * @public
+ */
+export interface UserDefinedFunctionResource {
+  /**
+   * <p>The ID of the Data Catalog. By default, it's your account ID.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the database that contains the function.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the function.</p>
+   *          <p>Exactly one of <code>UserDefinedFunctionResource$Name</code> or
+   *       <code>UserDefinedFunctionResource$UserDefinedFunctionWildcard</code> is required.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A wildcard object representing every user-defined function in the database, including functions created
+   *       after the grant.</p>
+   *          <p>Exactly one of <code>UserDefinedFunctionResource$Name</code> or
+   *       <code>UserDefinedFunctionResource$UserDefinedFunctionWildcard</code> is required.</p>
+   * @public
+   */
+  UserDefinedFunctionWildcard?: UserDefinedFunctionWildcard | undefined;
+}
+
+/**
  * <p>A structure for the resource.</p>
  * @public
  */
 export interface Resource {
+  /**
+   * <p>All resources of the specified type in a Data Catalog. When you grant or revoke permissions on this
+   *       resource, the principal must be a user-defined function whose <code>GovernanceMode</code> is
+   *       <code>LAKE_FORMATION</code>, and the Data Catalog must be in your account.</p>
+   * @public
+   */
+  AnyResource?: AnyResource | undefined;
+
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
    * @public
@@ -385,6 +456,36 @@ export interface Resource {
    * @public
    */
   RLSPolicy?: RLSPolicyResource | undefined;
+
+  /**
+   * <p>The user-defined function that you want to grant or revoke permissions on. The function's
+   *       <code>GovernanceMode</code> must be <code>LAKE_FORMATION</code>. You can grant the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EXECUTE</code> – Use the function in a job, and get credentials to download its
+   *         artifacts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DESCRIBE</code> – View the function's definition.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALTER</code> – Update the function.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DROP</code> – Delete the function.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code> – All of the preceding permissions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UserDefinedFunction?: UserDefinedFunctionResource | undefined;
 }
 
 /**
@@ -1947,6 +2048,42 @@ export interface GetEffectivePermissionsForPathResponse {
 /**
  * @public
  */
+export interface GetGlueFunctionSessionContextRequest {
+  /**
+   * <p>The ARNs of one or more user-defined functions to include in the session context, each in the format
+   *       <code>arn:aws:glue:<i>region</i>:<i>account-id</i>:userDefinedFunction/<i>database-name</i>/<i>function-name</i>
+   *             </code>.</p>
+   * @public
+   */
+  UserDefinedFunctionArns: string[] | undefined;
+
+  /**
+   * <p>The number of seconds the session context is valid. The default is 86,400 (24 hours).</p>
+   * @public
+   */
+  DurationSeconds?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGlueFunctionSessionContextResponse {
+  /**
+   * <p>The ID of the session context.</p>
+   * @public
+   */
+  SessionContextId?: string | undefined;
+
+  /**
+   * <p>The date and time when the session context expires.</p>
+   * @public
+   */
+  Expiration?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetLFTagRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -2499,6 +2636,55 @@ export interface GetTemporaryDataLocationCredentialsResponse {
    * @public
    */
   CredentialsScope?: CredentialsScope | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTemporaryGlueFunctionCredentialsRequest {
+  /**
+   * <p>The ARN of the user-defined function whose artifacts you want to download, in the format
+   *       <code>arn:aws:glue:<i>region</i>:<i>account-id</i>:userDefinedFunction/<i>database-name</i>/<i>function-name</i>
+   *             </code>.</p>
+   * @public
+   */
+  UserDefinedFunctionArn: string | undefined;
+
+  /**
+   * <p>Context for the request, such as the column names and query ID, that Lake Formation uses for
+   *       auditing.</p>
+   * @public
+   */
+  AuditContext?: AuditContext | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTemporaryGlueFunctionCredentialsResponse {
+  /**
+   * <p>The access key ID for the temporary credentials.</p>
+   * @public
+   */
+  AccessKeyId?: string | undefined;
+
+  /**
+   * <p>The secret key for the temporary credentials.</p>
+   * @public
+   */
+  SecretAccessKey?: string | undefined;
+
+  /**
+   * <p>The session token for the temporary credentials.</p>
+   * @public
+   */
+  SessionToken?: string | undefined;
+
+  /**
+   * <p>The date and time when the temporary credentials expire.</p>
+   * @public
+   */
+  Expiration?: Date | undefined;
 }
 
 /**

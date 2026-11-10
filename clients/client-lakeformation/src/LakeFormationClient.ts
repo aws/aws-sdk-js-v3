@@ -154,6 +154,10 @@ import type {
   GetEffectivePermissionsForPathCommandInput,
   GetEffectivePermissionsForPathCommandOutput,
 } from "./commands/GetEffectivePermissionsForPathCommand";
+import type {
+  GetGlueFunctionSessionContextCommandInput,
+  GetGlueFunctionSessionContextCommandOutput,
+} from "./commands/GetGlueFunctionSessionContextCommand";
 import type { GetLFTagCommandInput, GetLFTagCommandOutput } from "./commands/GetLFTagCommand";
 import type {
   GetLFTagExpressionCommandInput,
@@ -174,6 +178,10 @@ import type {
   GetTemporaryDataLocationCredentialsCommandInput,
   GetTemporaryDataLocationCredentialsCommandOutput,
 } from "./commands/GetTemporaryDataLocationCredentialsCommand";
+import type {
+  GetTemporaryGlueFunctionCredentialsCommandInput,
+  GetTemporaryGlueFunctionCredentialsCommandOutput,
+} from "./commands/GetTemporaryGlueFunctionCredentialsCommand";
 import type {
   GetTemporaryGluePartitionCredentialsCommandInput,
   GetTemporaryGluePartitionCredentialsCommandOutput,
@@ -307,6 +315,7 @@ export type ServiceInputTypes =
   | GetDataLakePrincipalCommandInput
   | GetDataLakeSettingsCommandInput
   | GetEffectivePermissionsForPathCommandInput
+  | GetGlueFunctionSessionContextCommandInput
   | GetLFTagCommandInput
   | GetLFTagExpressionCommandInput
   | GetQueryStateCommandInput
@@ -315,6 +324,7 @@ export type ServiceInputTypes =
   | GetResourceLFTagsCommandInput
   | GetTableObjectsCommandInput
   | GetTemporaryDataLocationCredentialsCommandInput
+  | GetTemporaryGlueFunctionCredentialsCommandInput
   | GetTemporaryGluePartitionCredentialsCommandInput
   | GetTemporaryGlueTableCredentialsCommandInput
   | GetWorkUnitResultsCommandInput
@@ -381,6 +391,7 @@ export type ServiceOutputTypes =
   | GetDataLakePrincipalCommandOutput
   | GetDataLakeSettingsCommandOutput
   | GetEffectivePermissionsForPathCommandOutput
+  | GetGlueFunctionSessionContextCommandOutput
   | GetLFTagCommandOutput
   | GetLFTagExpressionCommandOutput
   | GetQueryStateCommandOutput
@@ -389,6 +400,7 @@ export type ServiceOutputTypes =
   | GetResourceLFTagsCommandOutput
   | GetTableObjectsCommandOutput
   | GetTemporaryDataLocationCredentialsCommandOutput
+  | GetTemporaryGlueFunctionCredentialsCommandOutput
   | GetTemporaryGluePartitionCredentialsCommandOutput
   | GetTemporaryGlueTableCredentialsCommandOutput
   | GetWorkUnitResultsCommandOutput

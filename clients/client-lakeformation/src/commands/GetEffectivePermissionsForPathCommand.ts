@@ -48,6 +48,10 @@ export interface GetEffectivePermissionsForPathCommandOutput extends GetEffectiv
  * //         DataLakePrincipalIdentifier: "STRING_VALUE",
  * //       },
  * //       Resource: { // Resource
+ * //         AnyResource: { // AnyResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           ResourceType: "TABLE", // required
+ * //         },
  * //         Catalog: { // CatalogResource
  * //           Id: "STRING_VALUE",
  * //         },
@@ -112,15 +116,21 @@ export interface GetEffectivePermissionsForPathCommandOutput extends GetEffectiv
  * //           CatalogId: "STRING_VALUE",
  * //           Name: "STRING_VALUE", // required
  * //         },
+ * //         UserDefinedFunction: { // UserDefinedFunctionResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           DatabaseName: "STRING_VALUE", // required
+ * //           Name: "STRING_VALUE",
+ * //           UserDefinedFunctionWildcard: {},
+ * //         },
  * //       },
  * //       Condition: { // Condition
  * //         Expression: "STRING_VALUE",
  * //       },
  * //       Permissions: [ // PermissionList
- * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
+ * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER" || "EXECUTE",
  * //       ],
  * //       PermissionsWithGrantOption: [
- * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
+ * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER" || "EXECUTE",
  * //       ],
  * //       AdditionalDetails: { // DetailsMap
  * //         ResourceShare: [ // ResourceShareList

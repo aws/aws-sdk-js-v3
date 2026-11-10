@@ -392,6 +392,13 @@ GetEffectivePermissionsForPath
 </details>
 <details>
 <summary>
+GetGlueFunctionSessionContext
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetGlueFunctionSessionContextCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetGlueFunctionSessionContextCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetGlueFunctionSessionContextCommandOutput/)
+</details>
+<details>
+<summary>
 GetLFTag
 </summary>
 
@@ -445,6 +452,13 @@ GetTemporaryDataLocationCredentials
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetTemporaryDataLocationCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetTemporaryDataLocationCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetTemporaryDataLocationCredentialsCommandOutput/)
+</details>
+<details>
+<summary>
+GetTemporaryGlueFunctionCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetTemporaryGlueFunctionCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetTemporaryGlueFunctionCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetTemporaryGlueFunctionCredentialsCommandOutput/)
 </details>
 <details>
 <summary>

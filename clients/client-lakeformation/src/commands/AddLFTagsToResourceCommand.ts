@@ -35,6 +35,10 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  * const input = { // AddLFTagsToResourceRequest
  *   CatalogId: "STRING_VALUE",
  *   Resource: { // Resource
+ *     AnyResource: { // AnyResource
+ *       CatalogId: "STRING_VALUE",
+ *       ResourceType: "TABLE", // required
+ *     },
  *     Catalog: { // CatalogResource
  *       Id: "STRING_VALUE",
  *     },
@@ -98,6 +102,12 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  *     RLSPolicy: { // RLSPolicyResource
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required
+ *     },
+ *     UserDefinedFunction: { // UserDefinedFunctionResource
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE",
+ *       UserDefinedFunctionWildcard: {},
  *     },
  *   },
  *   LFTags: [ // LFTagsList // required
