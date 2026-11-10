@@ -94,6 +94,10 @@ import type {
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
+  UpdateProfileAssociationCommandInput,
+  UpdateProfileAssociationCommandOutput,
+} from "./commands/UpdateProfileAssociationCommand";
+import type {
   UpdateProfileResourceAssociationCommandInput,
   UpdateProfileResourceAssociationCommandOutput,
 } from "./commands/UpdateProfileResourceAssociationCommand";
@@ -127,6 +131,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateProfileAssociationCommandInput
   | UpdateProfileResourceAssociationCommandInput;
 
 /**
@@ -148,6 +153,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateProfileAssociationCommandOutput
   | UpdateProfileResourceAssociationCommandOutput;
 
 /**
@@ -342,9 +348,7 @@ export type Route53ProfilesClientResolvedConfigType = __SmithyResolvedConfigurat
 export interface Route53ProfilesClientResolvedConfig extends Route53ProfilesClientResolvedConfigType {}
 
 /**
- * <p>
- *  With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs and AWS accounts
- * </p>
+ * <p> With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs and Amazon Web Services accounts </p>
  * @public
  */
 export class Route53ProfilesClient extends __Client<

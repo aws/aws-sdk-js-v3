@@ -83,6 +83,11 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateProfileAssociationCommandInput,
+  type UpdateProfileAssociationCommandOutput,
+  UpdateProfileAssociationCommand,
+} from "./commands/UpdateProfileAssociationCommand";
+import {
   type UpdateProfileResourceAssociationCommandInput,
   type UpdateProfileResourceAssociationCommandOutput,
   UpdateProfileResourceAssociationCommand,
@@ -108,6 +113,7 @@ const commands = {
   ListTagsForResourceCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateProfileAssociationCommand,
   UpdateProfileResourceAssociationCommand,
 };
 const paginators = {
@@ -382,6 +388,23 @@ export interface Route53Profiles {
   ): void;
 
   /**
+   * @see {@link UpdateProfileAssociationCommand}
+   */
+  updateProfileAssociation(
+    args: UpdateProfileAssociationCommandInput,
+    options?: Route53ProfilesRequestOptions
+  ): Promise<UpdateProfileAssociationCommandOutput>;
+  updateProfileAssociation(
+    args: UpdateProfileAssociationCommandInput,
+    cb: (err: any, data?: UpdateProfileAssociationCommandOutput) => void
+  ): void;
+  updateProfileAssociation(
+    args: UpdateProfileAssociationCommandInput,
+    options: Route53ProfilesRequestOptions,
+    cb: (err: any, data?: UpdateProfileAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateProfileResourceAssociationCommand}
    */
   updateProfileResourceAssociation(
@@ -433,9 +456,7 @@ export interface Route53Profiles {
 }
 
 /**
- * <p>
- *  With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs and AWS accounts
- * </p>
+ * <p> With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs and Amazon Web Services accounts </p>
  * @public
  */
 export class Route53Profiles extends Route53ProfilesClient implements Route53Profiles {}

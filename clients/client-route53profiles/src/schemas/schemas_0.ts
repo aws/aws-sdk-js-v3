@@ -55,7 +55,7 @@ const _MT = "ModificationTime";
 const _N = "Name";
 const _NT = "NextToken";
 const _OI = "OwnerId";
-const _P = "Profile";
+const _P = "Priority";
 const _PA = "ProfileAssociation";
 const _PAI = "ProfileAssociationId";
 const _PAr = "ProfileAssociations";
@@ -66,6 +66,7 @@ const _PRAr = "ProfileResourceAssociations";
 const _PS = "ProfileSummaries";
 const _PSL = "ProfileSummaryList";
 const _PSr = "ProfileSummary";
+const _Pr = "Profile";
 const _RA = "ResourceArn";
 const _REE = "ResourceExistsException";
 const _RI = "ResourceId";
@@ -83,6 +84,9 @@ const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _Ta = "Tag";
+const _UPA = "UpdateProfileAssociation";
+const _UPAR = "UpdateProfileAssociationRequest";
+const _UPARp = "UpdateProfileAssociationResponse";
 const _UPRA = "UpdateProfileResourceAssociation";
 const _UPRAR = "UpdateProfileResourceAssociationRequest";
 const _UPRARp = "UpdateProfileResourceAssociationResponse";
@@ -98,6 +102,7 @@ const _hQ = "httpQuery";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _pI = "profileId";
+const _rA = "resourceArn";
 const _rI = "resourceId";
 const _rT = "resourceType";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.route53profiles";
@@ -204,8 +209,8 @@ export const errorTypeRegistries = [
 ]
 export var AssociateProfileRequest$: StaticStructureSchema = [3, n0, _APR,
   0,
-  [_PI, _RI, _N, _T],
-  [0, 0, 0, () => TagList], 3
+  [_PI, _RI, _N, _T, _P],
+  [0, 0, 0, () => TagList, 1], 3
 ];
 export var AssociateProfileResponse$: StaticStructureSchema = [3, n0, _APRs,
   0,
@@ -229,7 +234,7 @@ export var CreateProfileRequest$: StaticStructureSchema = [3, n0, _CPR,
 ];
 export var CreateProfileResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
-  [_P],
+  [_Pr],
   [() => Profile$]
 ];
 export var DeleteProfileRequest$: StaticStructureSchema = [3, n0, _DPR,
@@ -239,7 +244,7 @@ export var DeleteProfileRequest$: StaticStructureSchema = [3, n0, _DPR,
 ];
 export var DeleteProfileResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
-  [_P],
+  [_Pr],
   [() => Profile$]
 ];
 export var DisassociateProfileRequest$: StaticStructureSchema = [3, n0, _DPRi,
@@ -289,7 +294,7 @@ export var GetProfileResourceAssociationResponse$: StaticStructureSchema = [3, n
 ];
 export var GetProfileResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
-  [_P],
+  [_Pr],
   [() => Profile$]
 ];
 export var ListProfileAssociationsRequest$: StaticStructureSchema = [3, n0, _LPAR,
@@ -304,8 +309,8 @@ export var ListProfileAssociationsResponse$: StaticStructureSchema = [3, n0, _LP
 ];
 export var ListProfileResourceAssociationsRequest$: StaticStructureSchema = [3, n0, _LPRAR,
   0,
-  [_PI, _RT, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _rT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+  [_PI, _RT, _RA, _MR, _NT],
+  [[0, 1], [0, { [_hQ]: _rT }], [0, { [_hQ]: _rA }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListProfileResourceAssociationsResponse$: StaticStructureSchema = [3, n0, _LPRARi,
   0,
@@ -332,15 +337,15 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_T],
   [128 | 0], 1
 ];
-export var Profile$: StaticStructureSchema = [3, n0, _P,
+export var Profile$: StaticStructureSchema = [3, n0, _Pr,
   0,
   [_I, _A, _N, _OI, _S, _SM, _SS, _CTr, _MT, _CT],
   [0, 0, 0, 0, 0, 0, 0, 4, 4, 0]
 ];
 export var ProfileAssociation$: StaticStructureSchema = [3, n0, _PA,
   0,
-  [_I, _N, _OI, _PI, _RI, _S, _SM, _CTr, _MT],
-  [0, 0, 0, 0, 0, 0, 0, 4, 4]
+  [_I, _N, _OI, _PI, _RI, _S, _SM, _CTr, _MT, _P],
+  [0, 0, 0, 0, 0, 0, 0, 4, 4, 1]
 ];
 export var ProfileResourceAssociation$: StaticStructureSchema = [3, n0, _PRA,
   0,
@@ -376,6 +381,16 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
   [],
   []
+];
+export var UpdateProfileAssociationRequest$: StaticStructureSchema = [3, n0, _UPAR,
+  0,
+  [_PAI, _N, _P],
+  [[0, 1], 0, 1], 1
+];
+export var UpdateProfileAssociationResponse$: StaticStructureSchema = [3, n0, _UPARp,
+  0,
+  [_PA],
+  [() => ProfileAssociation$], 1
 ];
 export var UpdateProfileResourceAssociationRequest$: StaticStructureSchema = [3, n0, _UPRAR,
   0,
@@ -445,6 +460,9 @@ export var TagResource$: StaticOperationSchema = [9, n0, _TR,
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] }, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateProfileAssociation$: StaticOperationSchema = [9, n0, _UPA,
+  { [_h]: ["PATCH", "/profileassociation/{ProfileAssociationId}", 200] }, () => UpdateProfileAssociationRequest$, () => UpdateProfileAssociationResponse$
 ];
 export var UpdateProfileResourceAssociation$: StaticOperationSchema = [9, n0, _UPRA,
   { [_h]: ["PATCH", "/profileresourceassociation/{ProfileResourceAssociationId}", 200] }, () => UpdateProfileResourceAssociationRequest$, () => UpdateProfileResourceAssociationResponse$

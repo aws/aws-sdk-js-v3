@@ -6,9 +6,7 @@
 
 AWS SDK for JavaScript Route53Profiles Client for Node.js, Browser and React Native.
 
-<p>
-With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs and AWS accounts
-</p>
+<p> With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs and Amazon Web Services accounts </p>
 
 ## Installing
 
@@ -285,6 +283,13 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/UntagResourceCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateProfileAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/UpdateProfileAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/UpdateProfileAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/UpdateProfileAssociationCommandOutput/)
 </details>
 <details>
 <summary>

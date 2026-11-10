@@ -4,9 +4,7 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { Route53ProfilesServiceException as __BaseException } from "./Route53ProfilesServiceException";
 
 /**
- * <p>
- *   The current account doesn't have the IAM permissions required to perform the specified operation.
- * </p>
+ * <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,9 +27,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>
- * The request you submitted conflicts with an existing request.
- * </p>
+ * <p> The request you submitted conflicts with an existing request. </p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -54,9 +50,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>
- *   One or more parameters in this request are not valid.
- * </p>
+ * <p> One or more parameters in this request are not valid. </p>
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -65,9 +59,7 @@ export class InvalidParameterException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>
-   *       The parameter field name for the invalid parameter exception.
-   *     </p>
+   * <p> The parameter field name for the invalid parameter exception. </p>
    * @public
    */
   FieldName?: string | undefined;
@@ -87,9 +79,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>
- *   The request caused one or more limits to be exceeded.
- * </p>
+ * <p> The request caused one or more limits to be exceeded. </p>
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -98,9 +88,7 @@ export class LimitExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>
-   *       The resource type that caused the limits to be exceeded.
-   *     </p>
+   * <p> The resource type that caused the limits to be exceeded. </p>
    * @public
    */
   ResourceType?: string | undefined;
@@ -120,9 +108,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>
- *  The resource you are trying to associate, has already been associated.
- * </p>
+ * <p> The resource you are trying to associate, has already been associated. </p>
  * @public
  */
 export class ResourceExistsException extends __BaseException {
@@ -131,9 +117,7 @@ export class ResourceExistsException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>
-   *       The resource type that caused the resource exists exception.
-   *     </p>
+   * <p> The resource type that caused the resource exists exception. </p>
    * @public
    */
   ResourceType?: string | undefined;
@@ -153,9 +137,7 @@ export class ResourceExistsException extends __BaseException {
 }
 
 /**
- * <p>
- * The resource you are associating is not found.
- * </p>
+ * <p> The resource you are associating is not found. </p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -164,9 +146,7 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>
-   *       The resource type that caused the resource not found exception.
-   *     </p>
+   * <p> The resource type that caused the resource not found exception. </p>
    * @public
    */
   ResourceType?: string | undefined;
@@ -186,15 +166,16 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>
- *   The request was throttled. Try again in a few minutes.
- * </p>
+ * <p> The request was throttled. Try again in a few minutes. </p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.route53profiles#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
+  $retryable = {
+    throttling: true,
+  };
   Message?: string | undefined;
   /**
    * @internal
@@ -211,9 +192,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>
- *   You have provided an invalid command.
- * </p>
+ * <p> You have provided an invalid command. </p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -236,15 +215,14 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>
- * An internal server error occured. Retry your request.
- * </p>
+ * <p> An internal server error occured. Retry your request. </p>
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.route53profiles#InternalServiceErrorException";
   readonly name = "InternalServiceErrorException" as const;
   readonly $fault = "client" as const;
+  $retryable = {};
   Message?: string | undefined;
   /**
    * @internal
@@ -261,9 +239,7 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
- * <p>
- * The <code>NextToken</code> you provided isn;t valid.
- * </p>
+ * <p> The <code>NextToken</code> you provided isn;t valid. </p>
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {

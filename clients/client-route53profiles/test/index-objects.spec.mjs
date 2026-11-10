@@ -90,6 +90,10 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UpdateProfileAssociation$,
+  UpdateProfileAssociationCommand,
+  UpdateProfileAssociationRequest$,
+  UpdateProfileAssociationResponse$,
   UpdateProfileResourceAssociation$,
   UpdateProfileResourceAssociationCommand,
   UpdateProfileResourceAssociationRequest$,
@@ -132,6 +136,8 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateProfileAssociationCommand === "function");
+assert(typeof UpdateProfileAssociation$ === "object");
 assert(typeof UpdateProfileResourceAssociationCommand === "function");
 assert(typeof UpdateProfileResourceAssociation$ === "object");
 // structural schemas
@@ -170,6 +176,8 @@ assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof UpdateProfileAssociationRequest$ === "object");
+assert(typeof UpdateProfileAssociationResponse$ === "object");
 assert(typeof UpdateProfileResourceAssociationRequest$ === "object");
 assert(typeof UpdateProfileResourceAssociationResponse$ === "object");
 // enums

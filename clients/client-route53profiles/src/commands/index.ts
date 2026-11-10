@@ -14,4 +14,5 @@ export * from "./ListProfilesCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateProfileAssociationCommand";
 export * from "./UpdateProfileResourceAssociationCommand";

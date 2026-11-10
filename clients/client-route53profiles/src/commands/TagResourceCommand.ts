@@ -23,9 +23,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *   Adds one or more tags to a specified resource.
- * </p>
+ * <p> Adds one or more tags to a specified resource. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,24 +51,16 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link Route53ProfilesClientResolvedConfig | config} for Route53ProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *   The current account doesn't have the IAM permissions required to perform the specified operation.
- * </p>
+ *  <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- * The resource you are associating is not found.
- * </p>
+ *  <p> The resource you are associating is not found. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *   The request was throttled. Try again in a few minutes.
- * </p>
+ *  <p> The request was throttled. Try again in a few minutes. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *   You have provided an invalid command.
- * </p>
+ *  <p> You have provided an invalid command. </p>
  *
  * @throws {@link Route53ProfilesServiceException}
  * <p>Base exception class for all service exceptions from Route53Profiles service.</p>
