@@ -4,6 +4,7 @@ export * from "./GetAnalysisReportResultsPaginator";
 export * from "./ListAnalysisReportsPaginator";
 export * from "./ListContainerAssociationsPaginator";
 export * from "./ListFirewallPoliciesPaginator";
+export * from "./ListFirewallPoliciesV2Paginator";
 export * from "./ListFirewallsPaginator";
 export * from "./ListFlowOperationResultsPaginator";
 export * from "./ListFlowOperationsPaginator";

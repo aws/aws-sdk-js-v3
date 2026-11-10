@@ -49,6 +49,11 @@ import {
   CreateFirewallPolicyCommand,
 } from "./commands/CreateFirewallPolicyCommand";
 import {
+  type CreateFirewallPolicyV2CommandInput,
+  type CreateFirewallPolicyV2CommandOutput,
+  CreateFirewallPolicyV2Command,
+} from "./commands/CreateFirewallPolicyV2Command";
+import {
   type CreateProxyCommandInput,
   type CreateProxyCommandOutput,
   CreateProxyCommand,
@@ -98,6 +103,11 @@ import {
   type DeleteFirewallPolicyCommandOutput,
   DeleteFirewallPolicyCommand,
 } from "./commands/DeleteFirewallPolicyCommand";
+import {
+  type DeleteFirewallPolicyV2CommandInput,
+  type DeleteFirewallPolicyV2CommandOutput,
+  DeleteFirewallPolicyV2Command,
+} from "./commands/DeleteFirewallPolicyV2Command";
 import {
   type DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
   type DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput,
@@ -163,6 +173,11 @@ import {
   type DescribeFirewallPolicyCommandOutput,
   DescribeFirewallPolicyCommand,
 } from "./commands/DescribeFirewallPolicyCommand";
+import {
+  type DescribeFirewallPolicyV2CommandInput,
+  type DescribeFirewallPolicyV2CommandOutput,
+  DescribeFirewallPolicyV2Command,
+} from "./commands/DescribeFirewallPolicyV2Command";
 import {
   type DescribeFlowOperationCommandInput,
   type DescribeFlowOperationCommandOutput,
@@ -258,6 +273,11 @@ import {
   type ListFirewallPoliciesCommandOutput,
   ListFirewallPoliciesCommand,
 } from "./commands/ListFirewallPoliciesCommand";
+import {
+  type ListFirewallPoliciesV2CommandInput,
+  type ListFirewallPoliciesV2CommandOutput,
+  ListFirewallPoliciesV2Command,
+} from "./commands/ListFirewallPoliciesV2Command";
 import {
   type ListFirewallsCommandInput,
   type ListFirewallsCommandOutput,
@@ -384,6 +404,11 @@ import {
   UpdateFirewallPolicyCommand,
 } from "./commands/UpdateFirewallPolicyCommand";
 import {
+  type UpdateFirewallPolicyV2CommandInput,
+  type UpdateFirewallPolicyV2CommandOutput,
+  UpdateFirewallPolicyV2Command,
+} from "./commands/UpdateFirewallPolicyV2Command";
+import {
   type UpdateLoggingConfigurationCommandInput,
   type UpdateLoggingConfigurationCommandOutput,
   UpdateLoggingConfigurationCommand,
@@ -439,6 +464,7 @@ import { paginateGetAnalysisReportResults } from "./pagination/GetAnalysisReport
 import { paginateListAnalysisReports } from "./pagination/ListAnalysisReportsPaginator";
 import { paginateListContainerAssociations } from "./pagination/ListContainerAssociationsPaginator";
 import { paginateListFirewallPolicies } from "./pagination/ListFirewallPoliciesPaginator";
+import { paginateListFirewallPoliciesV2 } from "./pagination/ListFirewallPoliciesV2Paginator";
 import { paginateListFirewalls } from "./pagination/ListFirewallsPaginator";
 import { paginateListFlowOperationResults } from "./pagination/ListFlowOperationResultsPaginator";
 import { paginateListFlowOperations } from "./pagination/ListFlowOperationsPaginator";
@@ -460,6 +486,7 @@ const commands = {
   CreateContainerAssociationCommand,
   CreateFirewallCommand,
   CreateFirewallPolicyCommand,
+  CreateFirewallPolicyV2Command,
   CreateProxyCommand,
   CreateProxyConfigurationCommand,
   CreateProxyRuleGroupCommand,
@@ -470,6 +497,7 @@ const commands = {
   DeleteContainerAssociationCommand,
   DeleteFirewallCommand,
   DeleteFirewallPolicyCommand,
+  DeleteFirewallPolicyV2Command,
   DeleteNetworkFirewallTransitGatewayAttachmentCommand,
   DeleteProxyCommand,
   DeleteProxyConfigurationCommand,
@@ -483,6 +511,7 @@ const commands = {
   DescribeFirewallCommand,
   DescribeFirewallMetadataCommand,
   DescribeFirewallPolicyCommand,
+  DescribeFirewallPolicyV2Command,
   DescribeFlowOperationCommand,
   DescribeLoggingConfigurationCommand,
   DescribeProxyCommand,
@@ -502,6 +531,7 @@ const commands = {
   ListAnalysisReportsCommand,
   ListContainerAssociationsCommand,
   ListFirewallPoliciesCommand,
+  ListFirewallPoliciesV2Command,
   ListFirewallsCommand,
   ListFlowOperationResultsCommand,
   ListFlowOperationsCommand,
@@ -527,6 +557,7 @@ const commands = {
   UpdateFirewallEncryptionConfigurationCommand,
   UpdateFirewallPolicyCommand,
   UpdateFirewallPolicyChangeProtectionCommand,
+  UpdateFirewallPolicyV2Command,
   UpdateLoggingConfigurationCommand,
   UpdateProxyCommand,
   UpdateProxyConfigurationCommand,
@@ -543,6 +574,7 @@ const paginators = {
   paginateListAnalysisReports,
   paginateListContainerAssociations,
   paginateListFirewallPolicies,
+  paginateListFirewallPoliciesV2,
   paginateListFirewalls,
   paginateListFlowOperationResults,
   paginateListFlowOperations,
@@ -700,6 +732,23 @@ export interface NetworkFirewall {
     args: CreateFirewallPolicyCommandInput,
     options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: CreateFirewallPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateFirewallPolicyV2Command}
+   */
+  createFirewallPolicyV2(
+    args: CreateFirewallPolicyV2CommandInput,
+    options?: NetworkFirewallRequestOptions
+  ): Promise<CreateFirewallPolicyV2CommandOutput>;
+  createFirewallPolicyV2(
+    args: CreateFirewallPolicyV2CommandInput,
+    cb: (err: any, data?: CreateFirewallPolicyV2CommandOutput) => void
+  ): void;
+  createFirewallPolicyV2(
+    args: CreateFirewallPolicyV2CommandInput,
+    options: NetworkFirewallRequestOptions,
+    cb: (err: any, data?: CreateFirewallPolicyV2CommandOutput) => void
   ): void;
 
   /**
@@ -873,6 +922,24 @@ export interface NetworkFirewall {
     args: DeleteFirewallPolicyCommandInput,
     options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DeleteFirewallPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteFirewallPolicyV2Command}
+   */
+  deleteFirewallPolicyV2(): Promise<DeleteFirewallPolicyV2CommandOutput>;
+  deleteFirewallPolicyV2(
+    args: DeleteFirewallPolicyV2CommandInput,
+    options?: NetworkFirewallRequestOptions
+  ): Promise<DeleteFirewallPolicyV2CommandOutput>;
+  deleteFirewallPolicyV2(
+    args: DeleteFirewallPolicyV2CommandInput,
+    cb: (err: any, data?: DeleteFirewallPolicyV2CommandOutput) => void
+  ): void;
+  deleteFirewallPolicyV2(
+    args: DeleteFirewallPolicyV2CommandInput,
+    options: NetworkFirewallRequestOptions,
+    cb: (err: any, data?: DeleteFirewallPolicyV2CommandOutput) => void
   ): void;
 
   /**
@@ -1102,6 +1169,24 @@ export interface NetworkFirewall {
     args: DescribeFirewallPolicyCommandInput,
     options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeFirewallPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeFirewallPolicyV2Command}
+   */
+  describeFirewallPolicyV2(): Promise<DescribeFirewallPolicyV2CommandOutput>;
+  describeFirewallPolicyV2(
+    args: DescribeFirewallPolicyV2CommandInput,
+    options?: NetworkFirewallRequestOptions
+  ): Promise<DescribeFirewallPolicyV2CommandOutput>;
+  describeFirewallPolicyV2(
+    args: DescribeFirewallPolicyV2CommandInput,
+    cb: (err: any, data?: DescribeFirewallPolicyV2CommandOutput) => void
+  ): void;
+  describeFirewallPolicyV2(
+    args: DescribeFirewallPolicyV2CommandInput,
+    options: NetworkFirewallRequestOptions,
+    cb: (err: any, data?: DescribeFirewallPolicyV2CommandOutput) => void
   ): void;
 
   /**
@@ -1436,6 +1521,24 @@ export interface NetworkFirewall {
     args: ListFirewallPoliciesCommandInput,
     options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListFirewallPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFirewallPoliciesV2Command}
+   */
+  listFirewallPoliciesV2(): Promise<ListFirewallPoliciesV2CommandOutput>;
+  listFirewallPoliciesV2(
+    args: ListFirewallPoliciesV2CommandInput,
+    options?: NetworkFirewallRequestOptions
+  ): Promise<ListFirewallPoliciesV2CommandOutput>;
+  listFirewallPoliciesV2(
+    args: ListFirewallPoliciesV2CommandInput,
+    cb: (err: any, data?: ListFirewallPoliciesV2CommandOutput) => void
+  ): void;
+  listFirewallPoliciesV2(
+    args: ListFirewallPoliciesV2CommandInput,
+    options: NetworkFirewallRequestOptions,
+    cb: (err: any, data?: ListFirewallPoliciesV2CommandOutput) => void
   ): void;
 
   /**
@@ -1874,6 +1977,23 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link UpdateFirewallPolicyV2Command}
+   */
+  updateFirewallPolicyV2(
+    args: UpdateFirewallPolicyV2CommandInput,
+    options?: NetworkFirewallRequestOptions
+  ): Promise<UpdateFirewallPolicyV2CommandOutput>;
+  updateFirewallPolicyV2(
+    args: UpdateFirewallPolicyV2CommandInput,
+    cb: (err: any, data?: UpdateFirewallPolicyV2CommandOutput) => void
+  ): void;
+  updateFirewallPolicyV2(
+    args: UpdateFirewallPolicyV2CommandInput,
+    options: NetworkFirewallRequestOptions,
+    cb: (err: any, data?: UpdateFirewallPolicyV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateLoggingConfigurationCommand}
    */
   updateLoggingConfiguration(): Promise<UpdateLoggingConfigurationCommandOutput>;
@@ -2088,6 +2208,17 @@ export interface NetworkFirewall {
     args?: ListFirewallPoliciesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListFirewallPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListFirewallPoliciesV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFirewallPoliciesV2CommandOutput}.
+   */
+  paginateListFirewallPoliciesV2(
+    args?: ListFirewallPoliciesV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFirewallPoliciesV2CommandOutput>;
 
   /**
    * @see {@link ListFirewallsCommand}

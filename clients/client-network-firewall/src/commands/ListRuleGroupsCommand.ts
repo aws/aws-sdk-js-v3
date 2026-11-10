@@ -40,7 +40,7 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  *   Scope: "MANAGED" || "ACCOUNT",
  *   ManagedType: "AWS_MANAGED_THREAT_SIGNATURES" || "AWS_MANAGED_DOMAIN_LISTS" || "ACTIVE_THREAT_DEFENSE" || "PARTNER_MANAGED",
  *   SubscriptionStatus: "NOT_SUBSCRIBED" || "SUBSCRIBED",
- *   Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN",
+ *   Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN" || "FIREWALL" || "IPS",
  * };
  * const command = new ListRuleGroupsCommand(input);
  * const response = await client.send(command);

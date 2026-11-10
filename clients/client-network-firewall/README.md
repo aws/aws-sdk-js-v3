@@ -323,6 +323,13 @@ CreateFirewallPolicy
 </details>
 <details>
 <summary>
+CreateFirewallPolicyV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/CreateFirewallPolicyV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/CreateFirewallPolicyV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/CreateFirewallPolicyV2CommandOutput/)
+</details>
+<details>
+<summary>
 CreateProxy
 </summary>
 
@@ -390,6 +397,13 @@ DeleteFirewallPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/DeleteFirewallPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/DeleteFirewallPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/DeleteFirewallPolicyCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteFirewallPolicyV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/DeleteFirewallPolicyV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/DeleteFirewallPolicyV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/DeleteFirewallPolicyV2CommandOutput/)
 </details>
 <details>
 <summary>
@@ -481,6 +495,13 @@ DescribeFirewallPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/DescribeFirewallPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/DescribeFirewallPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/DescribeFirewallPolicyCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeFirewallPolicyV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/DescribeFirewallPolicyV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/DescribeFirewallPolicyV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/DescribeFirewallPolicyV2CommandOutput/)
 </details>
 <details>
 <summary>
@@ -614,6 +635,13 @@ ListFirewallPolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/ListFirewallPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/ListFirewallPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/ListFirewallPoliciesCommandOutput/)
+</details>
+<details>
+<summary>
+ListFirewallPoliciesV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/ListFirewallPoliciesV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/ListFirewallPoliciesV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/ListFirewallPoliciesV2CommandOutput/)
 </details>
 <details>
 <summary>
@@ -789,6 +817,13 @@ UpdateFirewallPolicyChangeProtection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/UpdateFirewallPolicyChangeProtectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/UpdateFirewallPolicyChangeProtectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/UpdateFirewallPolicyChangeProtectionCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateFirewallPolicyV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/UpdateFirewallPolicyV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/UpdateFirewallPolicyV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/UpdateFirewallPolicyV2CommandOutput/)
 </details>
 <details>
 <summary>

@@ -37,7 +37,7 @@ export interface DescribeRuleGroupSummaryCommandOutput extends DescribeRuleGroup
  * const input = { // DescribeRuleGroupSummaryRequest
  *   RuleGroupName: "STRING_VALUE",
  *   RuleGroupArn: "STRING_VALUE",
- *   Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN",
+ *   Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN" || "FIREWALL" || "IPS",
  * };
  * const command = new DescribeRuleGroupSummaryCommand(input);
  * const response = await client.send(command);

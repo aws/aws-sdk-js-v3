@@ -35,7 +35,7 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * const input = { // DeleteRuleGroupRequest
  *   RuleGroupName: "STRING_VALUE",
  *   RuleGroupArn: "STRING_VALUE",
- *   Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN",
+ *   Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN" || "FIREWALL" || "IPS",
  * };
  * const command = new DeleteRuleGroupCommand(input);
  * const response = await client.send(command);
@@ -45,7 +45,7 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * //     RuleGroupName: "STRING_VALUE", // required
  * //     RuleGroupId: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE",
- * //     Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN",
+ * //     Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN" || "FIREWALL" || "IPS",
  * //     Capacity: Number("int"),
  * //     RuleGroupStatus: "ACTIVE" || "DELETING" || "ERROR" || "UPDATING",
  * //     Tags: [ // TagList

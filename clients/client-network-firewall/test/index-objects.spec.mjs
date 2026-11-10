@@ -4,6 +4,7 @@ import {
   AcceptNetworkFirewallTransitGatewayAttachmentRequest$,
   AcceptNetworkFirewallTransitGatewayAttachmentResponse$,
   ActionDefinition$,
+  ActionScope,
   Address$,
   AnalysisReport$,
   AnalysisResult$,
@@ -48,6 +49,10 @@ import {
   CreateFirewallPolicyCommand,
   CreateFirewallPolicyRequest$,
   CreateFirewallPolicyResponse$,
+  CreateFirewallPolicyV2$,
+  CreateFirewallPolicyV2Command,
+  CreateFirewallPolicyV2Request$,
+  CreateFirewallPolicyV2Response$,
   CreateFirewallRequest$,
   CreateFirewallResponse$,
   CreateProxy$,
@@ -91,6 +96,10 @@ import {
   DeleteFirewallPolicyCommand,
   DeleteFirewallPolicyRequest$,
   DeleteFirewallPolicyResponse$,
+  DeleteFirewallPolicyV2$,
+  DeleteFirewallPolicyV2Command,
+  DeleteFirewallPolicyV2Request$,
+  DeleteFirewallPolicyV2Response$,
   DeleteFirewallRequest$,
   DeleteFirewallResponse$,
   DeleteNetworkFirewallTransitGatewayAttachment$,
@@ -143,6 +152,10 @@ import {
   DescribeFirewallPolicyCommand,
   DescribeFirewallPolicyRequest$,
   DescribeFirewallPolicyResponse$,
+  DescribeFirewallPolicyV2$,
+  DescribeFirewallPolicyV2Command,
+  DescribeFirewallPolicyV2Request$,
+  DescribeFirewallPolicyV2Response$,
   DescribeFirewallRequest$,
   DescribeFirewallResponse$,
   DescribeFlowOperation$,
@@ -218,6 +231,15 @@ import {
   FirewallPolicyErrorCode,
   FirewallPolicyMetadata$,
   FirewallPolicyResponse$,
+  FirewallPolicyV2$,
+  FirewallPolicyV2Metadata$,
+  FirewallPolicyV2Response$,
+  FirewallRule$,
+  FirewallRuleAction,
+  FirewallRuleGroup$,
+  FirewallRuleGroupEntry$,
+  FirewallRuleProtocol,
+  FirewallRulesSource$,
   FirewallStatus$,
   FirewallStatusValue,
   Flow$,
@@ -234,6 +256,7 @@ import {
   GetAnalysisReportResultsResponse$,
   Header$,
   Hits$,
+  HookKey,
   IdentifiedType,
   InsufficientCapacityException,
   InsufficientCapacityException$,
@@ -251,6 +274,10 @@ import {
   IPSet$,
   IPSetMetadata$,
   IPSetReference$,
+  IpsRuleGroup$,
+  IpsRuleGroupEntry$,
+  IpsRuleGroupOverride$,
+  IpsRulesSource$,
   LimitExceededException,
   LimitExceededException$,
   ListAnalysisReports$,
@@ -268,6 +295,10 @@ import {
   ListFirewallPoliciesCommand,
   ListFirewallPoliciesRequest$,
   ListFirewallPoliciesResponse$,
+  ListFirewallPoliciesV2$,
+  ListFirewallPoliciesV2Command,
+  ListFirewallPoliciesV2Request$,
+  ListFirewallPoliciesV2Response$,
   ListFirewalls$,
   ListFirewallsCommand,
   ListFirewallsRequest$,
@@ -326,6 +357,7 @@ import {
   paginateListAnalysisReports,
   paginateListContainerAssociations,
   paginateListFirewallPolicies,
+  paginateListFirewallPoliciesV2,
   paginateListFirewalls,
   paginateListFlowOperationResults,
   paginateListFlowOperations,
@@ -338,6 +370,8 @@ import {
   paginateListVpcEndpointAssociations,
   PerObjectStatus$,
   PerObjectSyncStatus,
+  PolicyDefaultAction,
+  PolicyMode,
   PolicyVariables$,
   PortRange$,
   PortSet$,
@@ -386,8 +420,10 @@ import {
   RuleGroupRequestPhase,
   RuleGroupResponse$,
   RuleGroupType,
+  RuleMetadata$,
   RuleOption$,
   RuleOrder,
+  RuleOutputFormat,
   RulesSource$,
   RulesSourceList$,
   RuleSummary$,
@@ -410,6 +446,7 @@ import {
   StartFlowFlushResponse$,
   StatefulAction,
   StatefulEngineOptions$,
+  StatefulEngineOptionsV2$,
   StatefulRule$,
   StatefulRuleDirection,
   StatefulRuleGroupOverride$,
@@ -420,6 +457,7 @@ import {
   StatelessRuleGroupReference$,
   StatelessRulesAndCustomActions$,
   StreamExceptionPolicy,
+  StreamExceptionPolicyV2,
   SubnetMapping$,
   SubscriptionStatus,
   Summary$,
@@ -484,6 +522,10 @@ import {
   UpdateFirewallPolicyCommand,
   UpdateFirewallPolicyRequest$,
   UpdateFirewallPolicyResponse$,
+  UpdateFirewallPolicyV2$,
+  UpdateFirewallPolicyV2Command,
+  UpdateFirewallPolicyV2Request$,
+  UpdateFirewallPolicyV2Response$,
   UpdateLoggingConfiguration$,
   UpdateLoggingConfigurationCommand,
   UpdateLoggingConfigurationRequest$,
@@ -552,6 +594,8 @@ assert(typeof CreateFirewallCommand === "function");
 assert(typeof CreateFirewall$ === "object");
 assert(typeof CreateFirewallPolicyCommand === "function");
 assert(typeof CreateFirewallPolicy$ === "object");
+assert(typeof CreateFirewallPolicyV2Command === "function");
+assert(typeof CreateFirewallPolicyV2$ === "object");
 assert(typeof CreateProxyCommand === "function");
 assert(typeof CreateProxy$ === "object");
 assert(typeof CreateProxyConfigurationCommand === "function");
@@ -572,6 +616,8 @@ assert(typeof DeleteFirewallCommand === "function");
 assert(typeof DeleteFirewall$ === "object");
 assert(typeof DeleteFirewallPolicyCommand === "function");
 assert(typeof DeleteFirewallPolicy$ === "object");
+assert(typeof DeleteFirewallPolicyV2Command === "function");
+assert(typeof DeleteFirewallPolicyV2$ === "object");
 assert(typeof DeleteNetworkFirewallTransitGatewayAttachmentCommand === "function");
 assert(typeof DeleteNetworkFirewallTransitGatewayAttachment$ === "object");
 assert(typeof DeleteProxyCommand === "function");
@@ -598,6 +644,8 @@ assert(typeof DescribeFirewallMetadataCommand === "function");
 assert(typeof DescribeFirewallMetadata$ === "object");
 assert(typeof DescribeFirewallPolicyCommand === "function");
 assert(typeof DescribeFirewallPolicy$ === "object");
+assert(typeof DescribeFirewallPolicyV2Command === "function");
+assert(typeof DescribeFirewallPolicyV2$ === "object");
 assert(typeof DescribeFlowOperationCommand === "function");
 assert(typeof DescribeFlowOperation$ === "object");
 assert(typeof DescribeLoggingConfigurationCommand === "function");
@@ -636,6 +684,8 @@ assert(typeof ListContainerAssociationsCommand === "function");
 assert(typeof ListContainerAssociations$ === "object");
 assert(typeof ListFirewallPoliciesCommand === "function");
 assert(typeof ListFirewallPolicies$ === "object");
+assert(typeof ListFirewallPoliciesV2Command === "function");
+assert(typeof ListFirewallPoliciesV2$ === "object");
 assert(typeof ListFirewallsCommand === "function");
 assert(typeof ListFirewalls$ === "object");
 assert(typeof ListFlowOperationResultsCommand === "function");
@@ -686,6 +736,8 @@ assert(typeof UpdateFirewallPolicyCommand === "function");
 assert(typeof UpdateFirewallPolicy$ === "object");
 assert(typeof UpdateFirewallPolicyChangeProtectionCommand === "function");
 assert(typeof UpdateFirewallPolicyChangeProtection$ === "object");
+assert(typeof UpdateFirewallPolicyV2Command === "function");
+assert(typeof UpdateFirewallPolicyV2$ === "object");
 assert(typeof UpdateLoggingConfigurationCommand === "function");
 assert(typeof UpdateLoggingConfiguration$ === "object");
 assert(typeof UpdateProxyCommand === "function");
@@ -736,6 +788,8 @@ assert(typeof CreateContainerAssociationRequest$ === "object");
 assert(typeof CreateContainerAssociationResponse$ === "object");
 assert(typeof CreateFirewallPolicyRequest$ === "object");
 assert(typeof CreateFirewallPolicyResponse$ === "object");
+assert(typeof CreateFirewallPolicyV2Request$ === "object");
+assert(typeof CreateFirewallPolicyV2Response$ === "object");
 assert(typeof CreateFirewallRequest$ === "object");
 assert(typeof CreateFirewallResponse$ === "object");
 assert(typeof CreateProxyConfigurationRequest$ === "object");
@@ -759,6 +813,8 @@ assert(typeof DeleteContainerAssociationRequest$ === "object");
 assert(typeof DeleteContainerAssociationResponse$ === "object");
 assert(typeof DeleteFirewallPolicyRequest$ === "object");
 assert(typeof DeleteFirewallPolicyResponse$ === "object");
+assert(typeof DeleteFirewallPolicyV2Request$ === "object");
+assert(typeof DeleteFirewallPolicyV2Response$ === "object");
 assert(typeof DeleteFirewallRequest$ === "object");
 assert(typeof DeleteFirewallResponse$ === "object");
 assert(typeof DeleteNetworkFirewallTransitGatewayAttachmentRequest$ === "object");
@@ -785,6 +841,8 @@ assert(typeof DescribeFirewallMetadataRequest$ === "object");
 assert(typeof DescribeFirewallMetadataResponse$ === "object");
 assert(typeof DescribeFirewallPolicyRequest$ === "object");
 assert(typeof DescribeFirewallPolicyResponse$ === "object");
+assert(typeof DescribeFirewallPolicyV2Request$ === "object");
+assert(typeof DescribeFirewallPolicyV2Response$ === "object");
 assert(typeof DescribeFirewallRequest$ === "object");
 assert(typeof DescribeFirewallResponse$ === "object");
 assert(typeof DescribeFlowOperationRequest$ === "object");
@@ -826,6 +884,13 @@ assert(typeof FirewallPolicy$ === "object");
 assert(typeof FirewallPolicyError$ === "object");
 assert(typeof FirewallPolicyMetadata$ === "object");
 assert(typeof FirewallPolicyResponse$ === "object");
+assert(typeof FirewallPolicyV2$ === "object");
+assert(typeof FirewallPolicyV2Metadata$ === "object");
+assert(typeof FirewallPolicyV2Response$ === "object");
+assert(typeof FirewallRule$ === "object");
+assert(typeof FirewallRuleGroup$ === "object");
+assert(typeof FirewallRuleGroupEntry$ === "object");
+assert(typeof FirewallRulesSource$ === "object");
 assert(typeof FirewallStatus$ === "object");
 assert(typeof Flow$ === "object");
 assert(typeof FlowFilter$ === "object");
@@ -839,6 +904,10 @@ assert(typeof Hits$ === "object");
 assert(typeof IPSet$ === "object");
 assert(typeof IPSetMetadata$ === "object");
 assert(typeof IPSetReference$ === "object");
+assert(typeof IpsRuleGroup$ === "object");
+assert(typeof IpsRuleGroupEntry$ === "object");
+assert(typeof IpsRuleGroupOverride$ === "object");
+assert(typeof IpsRulesSource$ === "object");
 assert(typeof ListAnalysisReportsRequest$ === "object");
 assert(typeof ListAnalysisReportsResponse$ === "object");
 assert(typeof ListContainerAssociationsRequest$ === "object");
@@ -847,6 +916,8 @@ assert(typeof ListenerProperty$ === "object");
 assert(typeof ListenerPropertyRequest$ === "object");
 assert(typeof ListFirewallPoliciesRequest$ === "object");
 assert(typeof ListFirewallPoliciesResponse$ === "object");
+assert(typeof ListFirewallPoliciesV2Request$ === "object");
+assert(typeof ListFirewallPoliciesV2Response$ === "object");
 assert(typeof ListFirewallsRequest$ === "object");
 assert(typeof ListFirewallsResponse$ === "object");
 assert(typeof ListFlowOperationResultsRequest$ === "object");
@@ -903,6 +974,7 @@ assert(typeof RuleDefinition$ === "object");
 assert(typeof RuleGroup$ === "object");
 assert(typeof RuleGroupMetadata$ === "object");
 assert(typeof RuleGroupResponse$ === "object");
+assert(typeof RuleMetadata$ === "object");
 assert(typeof RuleOption$ === "object");
 assert(typeof RulesSource$ === "object");
 assert(typeof RulesSourceList$ === "object");
@@ -919,6 +991,7 @@ assert(typeof StartFlowCaptureResponse$ === "object");
 assert(typeof StartFlowFlushRequest$ === "object");
 assert(typeof StartFlowFlushResponse$ === "object");
 assert(typeof StatefulEngineOptions$ === "object");
+assert(typeof StatefulEngineOptionsV2$ === "object");
 assert(typeof StatefulRule$ === "object");
 assert(typeof StatefulRuleGroupOverride$ === "object");
 assert(typeof StatefulRuleGroupReference$ === "object");
@@ -960,6 +1033,8 @@ assert(typeof UpdateFirewallPolicyChangeProtectionRequest$ === "object");
 assert(typeof UpdateFirewallPolicyChangeProtectionResponse$ === "object");
 assert(typeof UpdateFirewallPolicyRequest$ === "object");
 assert(typeof UpdateFirewallPolicyResponse$ === "object");
+assert(typeof UpdateFirewallPolicyV2Request$ === "object");
+assert(typeof UpdateFirewallPolicyV2Response$ === "object");
 assert(typeof UpdateLoggingConfigurationRequest$ === "object");
 assert(typeof UpdateLoggingConfigurationResponse$ === "object");
 assert(typeof UpdateProxyConfigurationRequest$ === "object");
@@ -985,6 +1060,7 @@ assert(typeof VpcEndpointAssociation$ === "object");
 assert(typeof VpcEndpointAssociationMetadata$ === "object");
 assert(typeof VpcEndpointAssociationStatus$ === "object");
 // enums
+assert(typeof ActionScope === "object");
 assert(typeof AttachmentStatus === "object");
 assert(typeof ConfigurationSyncState === "object");
 assert(typeof ContainerAssociationStatus === "object");
@@ -993,10 +1069,13 @@ assert(typeof DNSExpiryExceptionPolicy === "object");
 assert(typeof EnabledAnalysisType === "object");
 assert(typeof EncryptionType === "object");
 assert(typeof FirewallPolicyErrorCode === "object");
+assert(typeof FirewallRuleAction === "object");
+assert(typeof FirewallRuleProtocol === "object");
 assert(typeof FirewallStatusValue === "object");
 assert(typeof FlowOperationStatus === "object");
 assert(typeof FlowOperationType === "object");
 assert(typeof GeneratedRulesType === "object");
+assert(typeof HookKey === "object");
 assert(typeof IdentifiedType === "object");
 assert(typeof IPAddressType === "object");
 assert(typeof ListenerPropertyType === "object");
@@ -1005,6 +1084,8 @@ assert(typeof LogType === "object");
 assert(typeof NatGatewayAttachmentStatus === "object");
 assert(typeof OverrideAction === "object");
 assert(typeof PerObjectSyncStatus === "object");
+assert(typeof PolicyDefaultAction === "object");
+assert(typeof PolicyMode === "object");
 assert(typeof ProxyModifyState === "object");
 assert(typeof ProxyRulePhaseAction === "object");
 assert(typeof ProxyState === "object");
@@ -1016,10 +1097,12 @@ assert(typeof Route53ResolvedIPValidationAction === "object");
 assert(typeof RuleGroupRequestPhase === "object");
 assert(typeof RuleGroupType === "object");
 assert(typeof RuleOrder === "object");
+assert(typeof RuleOutputFormat === "object");
 assert(typeof StatefulAction === "object");
 assert(typeof StatefulRuleDirection === "object");
 assert(typeof StatefulRuleProtocol === "object");
 assert(typeof StreamExceptionPolicy === "object");
+assert(typeof StreamExceptionPolicyV2 === "object");
 assert(typeof SubscriptionStatus === "object");
 assert(typeof SummaryRuleOption === "object");
 assert(typeof TargetType === "object");
@@ -1060,6 +1143,7 @@ assert(typeof paginateGetAnalysisReportResults === "function");
 assert(typeof paginateListAnalysisReports === "function");
 assert(typeof paginateListContainerAssociations === "function");
 assert(typeof paginateListFirewallPolicies === "function");
+assert(typeof paginateListFirewallPoliciesV2 === "function");
 assert(typeof paginateListFirewalls === "function");
 assert(typeof paginateListFlowOperationResults === "function");
 assert(typeof paginateListFlowOperations === "function");

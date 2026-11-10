@@ -80,6 +80,10 @@ import type {
   CreateFirewallPolicyCommandInput,
   CreateFirewallPolicyCommandOutput,
 } from "./commands/CreateFirewallPolicyCommand";
+import type {
+  CreateFirewallPolicyV2CommandInput,
+  CreateFirewallPolicyV2CommandOutput,
+} from "./commands/CreateFirewallPolicyV2Command";
 import type { CreateProxyCommandInput, CreateProxyCommandOutput } from "./commands/CreateProxyCommand";
 import type {
   CreateProxyConfigurationCommandInput,
@@ -108,6 +112,10 @@ import type {
   DeleteFirewallPolicyCommandInput,
   DeleteFirewallPolicyCommandOutput,
 } from "./commands/DeleteFirewallPolicyCommand";
+import type {
+  DeleteFirewallPolicyV2CommandInput,
+  DeleteFirewallPolicyV2CommandOutput,
+} from "./commands/DeleteFirewallPolicyV2Command";
 import type {
   DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
   DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput,
@@ -148,6 +156,10 @@ import type {
   DescribeFirewallPolicyCommandInput,
   DescribeFirewallPolicyCommandOutput,
 } from "./commands/DescribeFirewallPolicyCommand";
+import type {
+  DescribeFirewallPolicyV2CommandInput,
+  DescribeFirewallPolicyV2CommandOutput,
+} from "./commands/DescribeFirewallPolicyV2Command";
 import type {
   DescribeFlowOperationCommandInput,
   DescribeFlowOperationCommandOutput,
@@ -221,6 +233,10 @@ import type {
   ListFirewallPoliciesCommandInput,
   ListFirewallPoliciesCommandOutput,
 } from "./commands/ListFirewallPoliciesCommand";
+import type {
+  ListFirewallPoliciesV2CommandInput,
+  ListFirewallPoliciesV2CommandOutput,
+} from "./commands/ListFirewallPoliciesV2Command";
 import type { ListFirewallsCommandInput, ListFirewallsCommandOutput } from "./commands/ListFirewallsCommand";
 import type {
   ListFlowOperationResultsCommandInput,
@@ -301,6 +317,10 @@ import type {
   UpdateFirewallPolicyCommandOutput,
 } from "./commands/UpdateFirewallPolicyCommand";
 import type {
+  UpdateFirewallPolicyV2CommandInput,
+  UpdateFirewallPolicyV2CommandOutput,
+} from "./commands/UpdateFirewallPolicyV2Command";
+import type {
   UpdateLoggingConfigurationCommandInput,
   UpdateLoggingConfigurationCommandOutput,
 } from "./commands/UpdateLoggingConfigurationCommand";
@@ -354,6 +374,7 @@ export type ServiceInputTypes =
   | CreateContainerAssociationCommandInput
   | CreateFirewallCommandInput
   | CreateFirewallPolicyCommandInput
+  | CreateFirewallPolicyV2CommandInput
   | CreateProxyCommandInput
   | CreateProxyConfigurationCommandInput
   | CreateProxyRuleGroupCommandInput
@@ -364,6 +385,7 @@ export type ServiceInputTypes =
   | DeleteContainerAssociationCommandInput
   | DeleteFirewallCommandInput
   | DeleteFirewallPolicyCommandInput
+  | DeleteFirewallPolicyV2CommandInput
   | DeleteNetworkFirewallTransitGatewayAttachmentCommandInput
   | DeleteProxyCommandInput
   | DeleteProxyConfigurationCommandInput
@@ -377,6 +399,7 @@ export type ServiceInputTypes =
   | DescribeFirewallCommandInput
   | DescribeFirewallMetadataCommandInput
   | DescribeFirewallPolicyCommandInput
+  | DescribeFirewallPolicyV2CommandInput
   | DescribeFlowOperationCommandInput
   | DescribeLoggingConfigurationCommandInput
   | DescribeProxyCommandInput
@@ -396,6 +419,7 @@ export type ServiceInputTypes =
   | ListAnalysisReportsCommandInput
   | ListContainerAssociationsCommandInput
   | ListFirewallPoliciesCommandInput
+  | ListFirewallPoliciesV2CommandInput
   | ListFirewallsCommandInput
   | ListFlowOperationResultsCommandInput
   | ListFlowOperationsCommandInput
@@ -421,6 +445,7 @@ export type ServiceInputTypes =
   | UpdateFirewallEncryptionConfigurationCommandInput
   | UpdateFirewallPolicyChangeProtectionCommandInput
   | UpdateFirewallPolicyCommandInput
+  | UpdateFirewallPolicyV2CommandInput
   | UpdateLoggingConfigurationCommandInput
   | UpdateProxyCommandInput
   | UpdateProxyConfigurationCommandInput
@@ -444,6 +469,7 @@ export type ServiceOutputTypes =
   | CreateContainerAssociationCommandOutput
   | CreateFirewallCommandOutput
   | CreateFirewallPolicyCommandOutput
+  | CreateFirewallPolicyV2CommandOutput
   | CreateProxyCommandOutput
   | CreateProxyConfigurationCommandOutput
   | CreateProxyRuleGroupCommandOutput
@@ -454,6 +480,7 @@ export type ServiceOutputTypes =
   | DeleteContainerAssociationCommandOutput
   | DeleteFirewallCommandOutput
   | DeleteFirewallPolicyCommandOutput
+  | DeleteFirewallPolicyV2CommandOutput
   | DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput
   | DeleteProxyCommandOutput
   | DeleteProxyConfigurationCommandOutput
@@ -467,6 +494,7 @@ export type ServiceOutputTypes =
   | DescribeFirewallCommandOutput
   | DescribeFirewallMetadataCommandOutput
   | DescribeFirewallPolicyCommandOutput
+  | DescribeFirewallPolicyV2CommandOutput
   | DescribeFlowOperationCommandOutput
   | DescribeLoggingConfigurationCommandOutput
   | DescribeProxyCommandOutput
@@ -486,6 +514,7 @@ export type ServiceOutputTypes =
   | ListAnalysisReportsCommandOutput
   | ListContainerAssociationsCommandOutput
   | ListFirewallPoliciesCommandOutput
+  | ListFirewallPoliciesV2CommandOutput
   | ListFirewallsCommandOutput
   | ListFlowOperationResultsCommandOutput
   | ListFlowOperationsCommandOutput
@@ -511,6 +540,7 @@ export type ServiceOutputTypes =
   | UpdateFirewallEncryptionConfigurationCommandOutput
   | UpdateFirewallPolicyChangeProtectionCommandOutput
   | UpdateFirewallPolicyCommandOutput
+  | UpdateFirewallPolicyV2CommandOutput
   | UpdateLoggingConfigurationCommandOutput
   | UpdateProxyCommandOutput
   | UpdateProxyConfigurationCommandOutput

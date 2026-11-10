@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  ActionScope,
   AttachmentStatus,
   ConfigurationSyncState,
   ContainerAssociationStatus,
@@ -8,10 +9,13 @@ import type {
   EnabledAnalysisType,
   EncryptionType,
   FirewallPolicyErrorCode,
+  FirewallRuleAction,
+  FirewallRuleProtocol,
   FirewallStatusValue,
   FlowOperationStatus,
   FlowOperationType,
   GeneratedRulesType,
+  HookKey,
   IdentifiedType,
   IPAddressType,
   ListenerPropertyType,
@@ -20,6 +24,8 @@ import type {
   NatGatewayAttachmentStatus,
   OverrideAction,
   PerObjectSyncStatus,
+  PolicyDefaultAction,
+  PolicyMode,
   ProxyModifyState,
   ProxyRulePhaseAction,
   ProxyState,
@@ -31,10 +37,12 @@ import type {
   RuleGroupRequestPhase,
   RuleGroupType,
   RuleOrder,
+  RuleOutputFormat,
   StatefulAction,
   StatefulRuleDirection,
   StatefulRuleProtocol,
   StreamExceptionPolicy,
+  StreamExceptionPolicyV2,
   SubscriptionStatus,
   SummaryRuleOption,
   TargetType,
@@ -337,8 +345,8 @@ export interface AnalysisResult {
 }
 
 /**
- * <p>Defines the mapping between an Availability Zone and a firewall endpoint for a transit gateway-attached firewall. Each mapping represents where the firewall can process traffic. You use these mappings when calling <a>CreateFirewall</a>, <a>AssociateAvailabilityZones</a>, and <a>DisassociateAvailabilityZones</a>.</p>
- *          <p>To retrieve the current Availability Zone mappings for a firewall, use <a>DescribeFirewall</a>.</p>
+ * <p>Defines the mapping between an Availability Zone and a firewall endpoint for a transit gateway-attached firewall. Each mapping represents where the firewall can process traffic. You use these mappings when calling <code>CreateFirewall</code>, <code>AssociateAvailabilityZones</code>, and <code>DisassociateAvailabilityZones</code>.</p>
+ *          <p>To retrieve the current Availability Zone mappings for a firewall, use <code>DescribeFirewall</code>.</p>
  * @public
  */
 export interface AvailabilityZoneMapping {
@@ -479,7 +487,7 @@ export interface AssociateFirewallPolicyResponse {
 
 /**
  * <p>The ID for a subnet that's used in an association with a firewall. This is used in
- *       <a>CreateFirewall</a>, <a>AssociateSubnets</a>, and <a>CreateVpcEndpointAssociation</a>. Network Firewall
+ *       <code>CreateFirewall</code>, <code>AssociateSubnets</code>, and <code>CreateVpcEndpointAssociation</code>. Network Firewall
  *          creates an instance of the associated firewall in each subnet that you specify, to filter
  *          traffic in the subnet's Availability Zone.</p>
  * @public
@@ -1211,7 +1219,7 @@ export interface EncryptionConfiguration {
 }
 
 /**
- * <p>A NAT gateway that a proxy mode firewall uses to proxy traffic. This is used in <a>CreateFirewall</a> when <code>NoSourcePreservation</code> is <code>TRUE</code>. </p>
+ * <p>A NAT gateway that a proxy mode firewall uses to proxy traffic. This is used in <code>CreateFirewall</code> when <code>NoSourcePreservation</code> is <code>TRUE</code>. </p>
  * @public
  */
 export interface NatGatewayMapping {
@@ -1253,8 +1261,8 @@ export interface ProxySettings {
 }
 
 /**
- * <p>The VPC and subnets for a proxy mode firewall endpoint. This is used in <a>CreateFirewall</a> when <code>NoSourcePreservation</code> is <code>TRUE</code>, to specify where Network Firewall creates the firewall endpoint. </p>
- *          <p>This differs from <a>VpcEndpointAssociation</a>, which defines additional secondary endpoints for a firewall in other VPCs. </p>
+ * <p>Contains the VPC and subnets for a proxy mode firewall endpoint. You use it in <code>CreateFirewall</code> when <code>NoSourcePreservation</code> is <code>TRUE</code>, to specify where Network Firewall creates the firewall endpoint. </p>
+ *          <p>This differs from <code>VpcEndpointAssociation</code>, which defines additional secondary endpoints for a firewall in other VPCs. </p>
  * @public
  */
 export interface VpcEndpoint {
@@ -1864,6 +1872,9 @@ export interface PolicyVariables {
  *          domains, also configure stateful rule groups that use the
  *          <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> target type or the
  *          <code>aws_route_53_resolved_domain</code> rule keyword.</p>
+ *          <important>
+ *             <p>Enabling or disabling resolved IP validation, or changing <code>DNSFirewallRuleGroupId</code>, may require a restart of the stateful engine in order to apply the change. When this occurs, existing connections will be treated according to your stream exception policy configuration. Changes to <code>Action</code>, <code>DNSExpiryExceptionPolicy</code>, <code>SourceIPRanges</code>, and <code>BypassDestinationValidationIPRanges</code> don't require a restart.</p>
+ *          </important>
  * @public
  */
 export interface Route53ResolvedIPValidation {
@@ -1904,7 +1915,9 @@ export interface Route53ResolvedIPValidation {
    *          <p>Changing this value swaps the managed rule group association. Network Firewall processes
    *             the swap asynchronously. Each policy can have only one managed Route 53 Resolver DNS
    *             Firewall association. While a swap is in progress, Network Firewall rejects further changes to this setting. Wait
-   *             until the swap completes, then retry.</p>
+   *             until the swap completes, then retry. The change may also require a restart of the stateful
+   *             engine. When this occurs, existing connections will be treated according to your stream
+   *             exception policy configuration.</p>
    * @public
    */
   DNSFirewallRuleGroupId: string | undefined;
@@ -2276,8 +2289,8 @@ export interface FirewallPolicy {
   /**
    * <p>The settings that enable resolved IP validation for the policy. Resolved IP validation
    *          verifies that a connection's destination IP address is one that the Amazon Route 53 Resolver
-   *          returned in a DNS response for a domain. The response must come from a VPC that's associated
-   *          with the Route 53 Resolver DNS Firewall rule group that you specify. This checks how the
+   *          returned in a DNS response for a domain. A VPC that's associated with the Route 53 Resolver
+   *          DNS Firewall rule group that you specify must send the response. This checks how the
    *          destination IP address was obtained, instead of relying only on the domain that the client
    *          asserts in its TLS Server Name Indication (SNI) or HTTP <code>Host</code> header. For more
    *          information, see <a>Route53ResolvedIPValidation</a>.</p>
@@ -2493,6 +2506,692 @@ export interface CreateFirewallPolicyResponse {
    * @public
    */
   FirewallPolicyResponse: FirewallPolicyResponse | undefined;
+}
+
+/**
+ * <p>Configures one or more IP set references for a Suricata-compatible rule group. This is used in <a>CreateRuleGroup</a> or <a>UpdateRuleGroup</a>. An IP set reference is a rule variable that references resources that you create and manage in another Amazon Web Services service, such as an Amazon VPC prefix list. Network Firewall IP set references enable you to dynamically update the contents of your rules. When you create, update, or delete the resource you are referencing in your rule, Network Firewall automatically updates the rule's content with the changes. For more information about IP set references in Network Firewall, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references">Using IP set references</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ *          <p>
+ *         Network Firewall currently supports <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Amazon VPC prefix lists</a> and <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-referencing-resource-groups">resource groups</a> in IP set references.
+ *       </p>
+ * @public
+ */
+export interface IPSetReference {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you are referencing in your rule group.</p>
+   * @public
+   */
+  ReferenceArn?: string | undefined;
+}
+
+/**
+ * <p>Contains a set of IP set references.</p>
+ * @public
+ */
+export interface ReferenceSets {
+  /**
+   * <p>The list of IP set references.</p>
+   * @public
+   */
+  IPSetReferences?: Record<string, IPSetReference> | undefined;
+}
+
+/**
+ * <p>Metadata for a single firewall engine rule. Use it to disable a rule without removing it and to attach a description. When you describe a rule group in <code>RULES_STRING</code> format, Network Firewall renders a disabled rule and its description as <code>#</code> comment lines above the rule.</p>
+ * @public
+ */
+export interface RuleMetadata {
+  /**
+   * <p>Specifies whether the rule is active. The default is <code>TRUE</code>. When you set this to <code>FALSE</code>, Network Firewall keeps the rule in the rule group but doesn't evaluate it against traffic and doesn't count it toward the rule group's consumed capacity.</p>
+   * @public
+   */
+  RuleEnabled?: boolean | undefined;
+
+  /**
+   * <p>A description of the rule, up to 512 characters. The description can span multiple lines. A description line can't itself look like a firewall rule; to disable a rule, set <code>RuleEnabled</code> to <code>FALSE</code> instead.</p>
+   * @public
+   */
+  RuleDescription?: string | undefined;
+}
+
+/**
+ * <p>Additional settings for a stateful rule. This is part of the <a>StatefulRule</a> configuration.</p>
+ * @public
+ */
+export interface RuleOption {
+  /**
+   * <p>The keyword for the Suricata compatible rule option. You must include a <code>sid</code> (signature ID), and can optionally include other keywords. For information about Suricata compatible keywords, see <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html#rule-options">Rule options</a> in the Suricata documentation.</p>
+   * @public
+   */
+  Keyword: string | undefined;
+
+  /**
+   * <p>The settings of the Suricata compatible rule option. Rule options have zero or more setting values, and the number of possible and required settings depends on the <code>Keyword</code>. For more information about the settings for specific options, see <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html#rule-options">Rule options</a>.</p>
+   * @public
+   */
+  Settings?: string[] | undefined;
+}
+
+/**
+ * <p>A single structured firewall engine rule, for use in a firewall engine rule group or as an embedded rule in a Next Generation policy. A firewall rule accepts, drops, or rejects traffic at a connection-state hook. For more information about authoring firewall engine rules, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-v2.html">Rule groups for a firewall using a Next Generation policy</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ * @public
+ */
+export interface FirewallRule {
+  /**
+   * <p>The action that the firewall engine takes on traffic that matches the rule. The firewall engine supports the following actions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACCEPT</code> - Allow the traffic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DROP</code> - Block the traffic and discontinue inspection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECT</code> - Block the traffic and send a TCP reset packet back to the client.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECT_DST</code> - Block the traffic and send a TCP reset packet to the destination.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECT_BOTH</code> - Block the traffic and send a TCP reset packet to both the client and the destination.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You combine the action with an action scope, for example <code>accept:flow</code>. To send accepted traffic straight to its destination and skip the IPS engine, pair an accept action with the <code>BypassIPSEnabled</code> setting. For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-v2.html">Rule groups for a firewall using a Next Generation policy</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   * @public
+   */
+  Action: FirewallRuleAction | undefined;
+
+  /**
+   * <p>The scope that controls how much of the matched traffic the action applies to. The valid scopes depend on the action: <code>ACCEPT</code> supports all four scopes, and <code>DROP</code>, <code>REJECT</code>, <code>REJECT_DST</code>, and <code>REJECT_BOTH</code> support only <code>PACKET</code> and <code>FLOW</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PACKET</code> - The current packet only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HOOK</code> - The current hook only. The firewall engine evaluates the connection again at the next hook.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TX</code> - The current transaction. The firewall engine continues to evaluate later transactions on the connection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FLOW</code> - The entire connection. For an accept action, the connection skips the firewall engine's remaining hooks and advances to the IPS engine.</p>
+   *             </li>
+   *          </ul>
+   *          <p>In a Suricata-compatible rule string, you write the scope in lowercase, for example <code>accept:flow</code>.</p>
+   * @public
+   */
+  ActionScope: ActionScope | undefined;
+
+  /**
+   * <p>The connection-state hook at which the firewall engine evaluates the rule. The hook encodes both the protocol and the connection state, for example a TCP hook or a TLS <code>client_hello</code> hook. For the hooks that the firewall engine supports and how they map to the connection lifecycle, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-v2.html">Rule groups for a firewall using a Next Generation policy</a> in the <i>Network Firewall Developer Guide</i> and the <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/firewall/firewall-design.html">Suricata firewall mode documentation</a>.</p>
+   * @public
+   */
+  Hook: HookKey | undefined;
+
+  /**
+   * <p>The protocol of the rule's hook. The protocol is derived from the hook and must match the hook's protocol prefix. Network Firewall rejects a rule whose protocol doesn't match its hook.</p>
+   * @public
+   */
+  Protocol: FirewallRuleProtocol | undefined;
+
+  /**
+   * <p>The source IP addresses and address ranges to inspect for, in CIDR notation. A firewall rule always compiles to a forward-direction rule, so you express inbound compared to outbound traffic through the source and destination addresses.</p>
+   * @public
+   */
+  SourceIPs?: string | undefined;
+
+  /**
+   * <p>The destination IP addresses and address ranges to inspect for, in CIDR notation. A firewall rule always compiles to a forward-direction rule, so you express inbound compared to outbound traffic through the source and destination addresses.</p>
+   * @public
+   */
+  DestIPs?: string | undefined;
+
+  /**
+   * <p>The source ports to inspect for.</p>
+   * @public
+   */
+  SourcePorts?: string | undefined;
+
+  /**
+   * <p>The destination ports to inspect for.</p>
+   * @public
+   */
+  DestPorts?: string | undefined;
+
+  /**
+   * <p>Additional options for the rule. These are the Suricata <code>RuleOptions</code> settings, such as the signature ID (<code>sid</code>) and match keywords.</p>
+   * @public
+   */
+  RuleOptions?: RuleOption[] | undefined;
+
+  /**
+   * <p>Whether Network Firewall automatically accepts the earlier application-layer hooks that a connection must pass to reach this rule's hook. Because the firewall engine is drop by default, accepting prior hooks lets you author a single rule for the hook you care about, instead of also authoring a rule for each earlier hook. This setting accepts the earlier application-layer hooks only; it doesn't accept the TCP layer. For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-v2.html">Rule groups for a firewall using a Next Generation policy</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   * @public
+   */
+  AcceptPriorHooks?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the rule also generates an alert log for the traffic that it matches. Turning on alerting adds a secondary alert action to the rule, so that Network Firewall logs the match in addition to taking the rule's primary action.</p>
+   * @public
+   */
+  AlertEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether an accepted connection bypasses the IPS engine. By default, traffic that the firewall engine accepts advances to the IPS engine for threat inspection. When you turn on this setting for an accept rule, the accepted traffic goes straight to its destination without IPS inspection. You can set the bypass only on accept rules, and it uses the same scope as the rule's accept action; only the <code>flow</code> and <code>packet</code> scopes support a bypass. For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-v2.html">Rule groups for a firewall using a Next Generation policy</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   * @public
+   */
+  BypassIPSEnabled?: boolean | undefined;
+
+  /**
+   * <p>Optional metadata for the rule: whether the rule is enabled and a description. Metadata doesn't change how the rule matches or acts on traffic.</p>
+   * @public
+   */
+  RuleMetadata?: RuleMetadata | undefined;
+}
+
+/**
+ * <p>Stateful inspection criteria for a domain list rule group. </p>
+ *          <p>For HTTPS traffic, domain filtering is SNI-based. It uses the server name indicator extension of the TLS handshake.</p>
+ *          <p>By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the <code>HOME_NET</code> rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see <a>RuleVariables</a> in this guide and
+ *       <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html">Stateful domain list rule groups in Network Firewall</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ * @public
+ */
+export interface RulesSourceList {
+  /**
+   * <p>The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Explicit names. For example, <code>abc.example.com</code> matches only the domain <code>abc.example.com</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Names that use a domain wildcard, which you indicate with an initial '<code>.</code>'. For example,<code>.example.com</code> matches <code>example.com</code> and matches all subdomains of <code>example.com</code>, such as <code>abc.example.com</code> and <code>www.example.com</code>. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Targets: string[] | undefined;
+
+  /**
+   * <p>The types of matching to perform against the domains in <code>Targets</code>. You can specify any combination of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> – Match the domain against the domain that the Amazon Route 53 Resolver resolved the connection's destination IP address for.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HTTP_HOST</code> – Match the domain against the <code>Host</code> header of HTTP traffic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TLS_SNI</code> – Match the domain against the Server Name Indication (SNI) of HTTPS traffic.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> matches on how the destination IP address was resolved, rather than on the domain that the client asserts in its TLS SNI or HTTP <code>Host</code> header. This target type takes effect when you configure resolved IP validation on the firewall policy. For more information, see <a>Route53ResolvedIPValidation</a>.</p>
+   *          <p>Whether you include <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> changes what the generated rules match, together with <code>GeneratedRulesType</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Combining <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> with <code>TLS_SNI</code> or <code>HTTP_HOST</code> in an <code>ALLOWLIST</code> requires both conditions to match. The SNI or <code>Host</code> header must match the domain, <b>and</b> the Route 53 Resolver must have resolved the destination IP address for that domain. Network Firewall allows traffic only in that case. Traffic that matches one condition, such as a spoofed <code>Host</code> header sent to an unresolved IP address, is not allowed.</p>
+   *             </li>
+   *             <li>
+   *                <p>In a <code>DENYLIST</code>, or when <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> is the only target type, Network Firewall evaluates each condition independently: a match on either the domain (SNI or <code>Host</code>) or the resolved destination IP address triggers the rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>When you don't include <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code>, the generated rules match only on the SNI or <code>Host</code> header, without checking how the destination IP address was resolved.</p>
+   *             </li>
+   *          </ul>
+   *          <p>An <code>ALLOWLIST</code> whose only target type is <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> is additive: it allows matching traffic but doesn't generate a default rule that drops non-matching traffic. Only the <code>TLS_SNI</code> and <code>HTTP_HOST</code> target types generate that default drop. To allow only the resolved domains and drop all other traffic, include a protocol target type as well.</p>
+   * @public
+   */
+  TargetTypes: TargetType[] | undefined;
+
+  /**
+   * <p>Whether you want to apply allow, reject, alert, or drop behavior to the domains in your target list.</p>
+   *          <note>
+   *             <p>When logging is enabled and you choose Alert, traffic that matches the domain specifications
+   *             generates an alert in the firewall's logs. Then, traffic either passes, is rejected, or drops based on other rules in the firewall policy.</p>
+   *          </note>
+   * @public
+   */
+  GeneratedRulesType: GeneratedRulesType | undefined;
+}
+
+/**
+ * <p>The source of the rules for a firewall engine rule group. You provide the rules as a single Suricata-compatible rule string, as a list of structured firewall rules, or as a list of domain names to generate rules from.</p>
+ * @public
+ */
+export interface FirewallRulesSource {
+  /**
+   * <p>Firewall engine rules, provided as a single Suricata-compatible rule string in firewall mode. Use this to provide rules that you've already written in the Suricata firewall-mode format. For the rule format, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-v2.html">Rule groups for a firewall using a Next Generation policy</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   * @public
+   */
+  RulesString?: string | undefined;
+
+  /**
+   * <p>An array of individual firewall engine rules, provided as structured rules rather than as a rule string.</p>
+   * @public
+   */
+  FirewallRules?: FirewallRule[] | undefined;
+
+  /**
+   * <p>Stateful inspection criteria for a domain list, specified as the list of domain names that Network Firewall generates firewall engine rules from.</p>
+   * @public
+   */
+  RulesSourceList?: RulesSourceList | undefined;
+}
+
+/**
+ * <p>A set of port ranges for use in the rules in a rule group. </p>
+ * @public
+ */
+export interface PortSet {
+  /**
+   * <p>The set of port ranges.
+   *       </p>
+   * @public
+   */
+  Definition?: string[] | undefined;
+}
+
+/**
+ * <p>Settings that are available for use in the rules in the <a>RuleGroup</a>
+ *          where this is defined. See <a>CreateRuleGroup</a> or <a>UpdateRuleGroup</a> for usage.</p>
+ * @public
+ */
+export interface RuleVariables {
+  /**
+   * <p>A list of IP addresses and address ranges, in CIDR notation. </p>
+   * @public
+   */
+  IPSets?: Record<string, IPSet> | undefined;
+
+  /**
+   * <p>A list of port ranges. </p>
+   * @public
+   */
+  PortSets?: Record<string, PortSet> | undefined;
+}
+
+/**
+ * <p>The object that defines a firewall engine rule group, for use in a Next Generation policy. A firewall engine rule group provides access-control rules that the firewall engine evaluates at connection-state hooks. You provide the rules as a Suricata-compatible rule string, as structured firewall rules, or generated from a list of domain names. For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-v2.html">Rule groups for a firewall using a Next Generation policy</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ * @public
+ */
+export interface FirewallRuleGroup {
+  /**
+   * <p>The stateful inspection criteria for the firewall engine rule group.</p>
+   * @public
+   */
+  RulesSource: FirewallRulesSource | undefined;
+
+  /**
+   * <p>Settings that are available for use in the rules in the firewall engine rule group, such as IP set and port variables that the rules reference.</p>
+   * @public
+   */
+  RuleVariables?: RuleVariables | undefined;
+
+  /**
+   * <p>The list of a rule group's reference sets. Firewall engine rule groups don't support IP set references (reference sets); this setting applies to IPS engine rule groups. To use CIDR ranges in firewall engine rules, use rule variables instead.</p>
+   * @public
+   */
+  ReferenceSets?: ReferenceSets | undefined;
+}
+
+/**
+ * <p>A single entry in the firewall section of a Next Generation policy. An entry either references an existing firewall engine rule group by ARN or embeds a rule group directly in the policy, and it carries the priority that sets the rule group's evaluation order within the firewall section.</p>
+ * @public
+ */
+export interface FirewallRuleGroupEntry {
+  /**
+   * <p>The priority of the rule group entry within the firewall section. Network Firewall evaluates the firewall section's entries in order of increasing priority value. Each entry in the firewall section must have a unique priority.</p>
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an existing firewall engine rule group to reference in this entry. Provide either <code>ResourceArn</code> to reference an existing rule group or <code>InlineRuleGroup</code> to embed a rule group in the policy.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>A firewall engine rule group defined directly in the policy, instead of referenced by ARN. Provide either <code>InlineRuleGroup</code> to embed a rule group or <code>ResourceArn</code> to reference an existing rule group. An embedded rule group can't use a domain list rules source; to filter on a domain list, reference a standalone rule group by ARN instead.</p>
+   * @public
+   */
+  InlineRuleGroup?: FirewallRuleGroup | undefined;
+}
+
+/**
+ * <p>The source of the rules for an IPS engine rule group.</p>
+ * @public
+ */
+export interface IpsRulesSource {
+  /**
+   * <p>IPS engine rules, provided as a single Suricata-compatible rule string. For the rule format, see <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html">Rules Format</a> on the Suricata website.</p>
+   * @public
+   */
+  RulesString?: string | undefined;
+}
+
+/**
+ * <p>The object that defines an IPS engine rule group, for use in a Next Generation policy. An IPS engine rule group provides threat-detection rules that the IPS engine evaluates in the context of the traffic flow. You provide the rules as a Suricata-compatible rule string. For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-v2.html">Rule groups for a firewall using a Next Generation policy</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ * @public
+ */
+export interface IpsRuleGroup {
+  /**
+   * <p>The stateful inspection criteria for the IPS engine rule group.</p>
+   * @public
+   */
+  RulesSource: IpsRulesSource | undefined;
+
+  /**
+   * <p>Settings that are available for use in the rules in the IPS engine rule group.</p>
+   * @public
+   */
+  RuleVariables?: RuleVariables | undefined;
+
+  /**
+   * <p>The list of a rule group's reference sets.</p>
+   * @public
+   */
+  ReferenceSets?: ReferenceSets | undefined;
+}
+
+/**
+ * <p>The setting that allows the policy owner to change the behavior of an IPS engine rule group within a Next Generation policy.</p>
+ * @public
+ */
+export interface IpsRuleGroupOverride {
+  /**
+   * <p>The action that changes the rule group from <code>DROP</code> to <code>ALERT</code>. This only applies to managed rule groups.</p>
+   * @public
+   */
+  Action?: OverrideAction | undefined;
+}
+
+/**
+ * <p>A single entry in the IPS section of a Next Generation policy. An entry either references an existing IPS engine rule group by ARN or embeds a rule group directly in the policy. IPS section entries don't use a priority.</p>
+ * @public
+ */
+export interface IpsRuleGroupEntry {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an existing IPS engine rule group to reference in this entry. Provide either <code>ResourceArn</code> to reference an existing rule group or <code>InlineRuleGroup</code> to embed a rule group in the policy.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>An IPS engine rule group defined directly in the policy, instead of referenced by ARN. Provide either <code>InlineRuleGroup</code> to embed a rule group or <code>ResourceArn</code> to reference an existing rule group.</p>
+   * @public
+   */
+  InlineRuleGroup?: IpsRuleGroup | undefined;
+
+  /**
+   * <p>The setting that allows the policy owner to change the behavior of the IPS engine rule group within this policy, such as changing a managed rule group's action from <code>DROP</code> to <code>ALERT</code>.</p>
+   * @public
+   */
+  Override?: IpsRuleGroupOverride | undefined;
+}
+
+/**
+ * <p>Configuration settings for the handling of stateful traffic in a Next Generation policy.</p>
+ * @public
+ */
+export interface StatefulEngineOptionsV2 {
+  /**
+   * <p>How Network Firewall handles traffic on a network connection that breaks midstream. A Next Generation policy supports <code>DROP</code> and <code>REJECT</code>. For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/stream-exception-policy.html">Stream exception policy options in your firewall policy</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   * @public
+   */
+  StreamExceptionPolicy?: StreamExceptionPolicyV2 | undefined;
+
+  /**
+   * <p>The amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.</p>
+   * @public
+   */
+  FlowTimeouts?: FlowTimeouts | undefined;
+}
+
+/**
+ * <p>The object that defines a Next Generation policy. This, along with the <a>FirewallPolicyV2Response</a>, define the policy.</p>
+ *          <p>A Next Generation policy defines how the firewall engine and IPS engine inspect and control your VPC network traffic. You define the policy as a firewall section and an IPS section, each a collection of rule groups, along with policy-wide settings such as the policy mode and default actions. For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-policies-v2.html">Next Generation policies</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ * @public
+ */
+export interface FirewallPolicyV2 {
+  /**
+   * <p>The firewall section of the policy—the rule groups that the firewall engine evaluates. Each entry references an existing firewall engine rule group or embeds a rule group directly in the policy, and each entry has a unique priority that sets its evaluation order within the section.</p>
+   * @public
+   */
+  FirewallRuleGroupEntries?: FirewallRuleGroupEntry[] | undefined;
+
+  /**
+   * <p>The IPS section of the policy—the rule groups that the IPS engine evaluates. Each entry references an existing IPS engine rule group or embeds a rule group directly in the policy. IPS section entries don't use a priority.</p>
+   * @public
+   */
+  IpsRuleGroupEntries?: IpsRuleGroupEntry[] | undefined;
+
+  /**
+   * <p>Indicates whether the policy's engines enforce their verdicts or only report them. In <code>ENFORCE</code> mode, the firewall engine and IPS engine apply their verdicts to traffic. In <code>MONITOR</code> mode, the engines evaluate traffic and generate logs and metrics, but don't block traffic, so you can observe how a policy would behave before you enforce it. For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-policies-v2.html">Next Generation policies</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   * @public
+   */
+  PolicyMode?: PolicyMode | undefined;
+
+  /**
+   * <p>The action that the firewall engine takes on traffic that doesn't match any firewall engine rule at a hook. The firewall engine is drop by default. You can set the default action to one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DROP</code> - Block the traffic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACCEPT</code> - Allow the traffic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECT</code> - Block the traffic and send a TCP reset packet back to the client.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALERT</code> - Allow the traffic and generate an alert log for the traffic that reaches the default action at every hook. This is distinct from setting the policy mode to <code>MONITOR</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-policies-v2.html">Next Generation policies</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   * @public
+   */
+  FirewallDefaultAction?: PolicyDefaultAction | undefined;
+
+  /**
+   * <p>Additional options governing how the engines handle stateful traffic, such as the stream exception policy and flow timeouts.</p>
+   * @public
+   */
+  StatefulEngineOptions?: StatefulEngineOptionsV2 | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration to use to decrypt traffic for inspection. Next Generation policies support session holding only. For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Inspecting SSL/TLS traffic with TLS inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   * @public
+   */
+  TLSInspectionConfigurationArn?: string | undefined;
+
+  /**
+   * <p>Contains variables that you can use to override default Suricata settings in your Next Generation policy.</p>
+   * @public
+   */
+  PolicyVariables?: PolicyVariables | undefined;
+
+  /**
+   * <p>The settings that enable resolved IP validation for the Next Generation policy.
+   *          Resolved IP validation verifies that a connection's destination IP address is one that the
+   *          Amazon Route 53 Resolver returned in a DNS response for a domain. A VPC that's associated with
+   *          the Route 53 Resolver DNS Firewall rule group that you specify must send the response.
+   *          This checks how the destination IP address was obtained, instead of relying only on the
+   *          domain that the client asserts in its TLS Server Name Indication (SNI) or HTTP
+   *          <code>Host</code> header. For more information, see
+   *          <a>Route53ResolvedIPValidation</a>.</p>
+   * @public
+   */
+  Route53ResolvedIPValidation?: Route53ResolvedIPValidation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateFirewallPolicyV2Request {
+  /**
+   * <p>The descriptive name of the Next Generation policy. You can't change the name of a firewall policy after you create it.</p>
+   * @public
+   */
+  FirewallPolicyV2Name: string | undefined;
+
+  /**
+   * <p>The rule groups and other settings that define the Next Generation policy.</p>
+   * @public
+   */
+  FirewallPolicyV2: FirewallPolicyV2 | undefined;
+
+  /**
+   * <p>A description of the firewall policy.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The key:value pairs to associate with the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Indicates whether you want Network Firewall to just check the validity of the request, rather than run the request. </p>
+   *          <p>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully,
+   *          but doesn't actually make the requested changes. The call returns the value that the request would return if you ran it with
+   *          dry run set to <code>FALSE</code>, but doesn't make additions or changes to your resources. This option allows you to make sure that you have
+   *          the required permissions to run the request and that your request parameters are valid. </p>
+   *          <p>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your resources. </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A complex type that contains settings for encryption of your firewall policy resources.</p>
+   * @public
+   */
+  EncryptionConfiguration?: EncryptionConfiguration | undefined;
+}
+
+/**
+ * <p>The high-level properties of a Next Generation policy. This includes the policy's identity, status, consumed capacity, and association count. Network Firewall returns this object in response to the Next Generation policy operations. To retrieve the policy's rule groups and settings, use the <code>FirewallPolicyV2</code> object.</p>
+ * @public
+ */
+export interface FirewallPolicyV2Response {
+  /**
+   * <p>The descriptive name of the Next Generation policy. You can't change the name of a firewall policy after you create it.</p>
+   * @public
+   */
+  FirewallPolicyV2Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Next Generation policy.</p>
+   * @public
+   */
+  FirewallPolicyV2Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Next Generation policy. Network Firewall assigns this identifier when you create the policy.</p>
+   * @public
+   */
+  FirewallPolicyV2Id: string | undefined;
+
+  /**
+   * <p>A description of the Next Generation policy.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The current status of the Next Generation policy. A policy must be in the <code>ACTIVE</code> state before you can use it in a firewall.</p>
+   * @public
+   */
+  FirewallPolicyV2Status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the Next Generation policy.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The key-value tag pairs that are associated with the Next Generation policy.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The number of firewall engine rule capacity units that the policy's firewall section currently consumes.</p>
+   * @public
+   */
+  ConsumedFirewallRuleCapacity?: number | undefined;
+
+  /**
+   * <p>The number of IPS engine rule capacity units that the policy's IPS section currently consumes.</p>
+   * @public
+   */
+  ConsumedIpsRuleCapacity?: number | undefined;
+
+  /**
+   * <p>The number of IPS domain list capacity units that the policy's IPS section currently consumes.</p>
+   * @public
+   */
+  ConsumedIpsDomainCapacity?: number | undefined;
+
+  /**
+   * <p>The number of firewalls that are associated with the Next Generation policy.</p>
+   * @public
+   */
+  NumberOfAssociations?: number | undefined;
+
+  /**
+   * <p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your Next Generation policy.</p>
+   * @public
+   */
+  EncryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>Any configuration errors that apply to the Next Generation policy. Network Firewall detects these errors asynchronously, after you create or update the policy, so an error can appear after the request that caused it has already succeeded. Each entry describes the problem and how to resolve it, and Network Firewall clears it automatically after you resolve the problem.</p>
+   * @public
+   */
+  Errors?: FirewallPolicyError[] | undefined;
+
+  /**
+   * <p>The last time that the Next Generation policy was changed.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateFirewallPolicyV2Response {
+  /**
+   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
+   *          <p>To make changes to the policy, you provide the token in your request. Network Firewall uses the token to ensure that the policy hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall policy again to get a current copy of it with current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   * @public
+   */
+  UpdateToken: string | undefined;
+
+  /**
+   * <p>The high-level properties of the Next Generation policy. This, along with the <a>FirewallPolicyV2</a>, define the policy. You can retrieve all objects for a Next Generation policy by calling <a>DescribeFirewallPolicyV2</a>.</p>
+   * @public
+   */
+  FirewallPolicyV2Response: FirewallPolicyV2Response | undefined;
 }
 
 /**
@@ -3058,101 +3757,6 @@ export interface CreateProxyRulesResponse {
 }
 
 /**
- * <p>Configures one or more IP set references for a Suricata-compatible rule group. This is used in <a>CreateRuleGroup</a> or <a>UpdateRuleGroup</a>. An IP set reference is a rule variable that references resources that you create and manage in another Amazon Web Services service, such as an Amazon VPC prefix list. Network Firewall IP set references enable you to dynamically update the contents of your rules. When you create, update, or delete the resource you are referencing in your rule, Network Firewall automatically updates the rule's content with the changes. For more information about IP set references in Network Firewall, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references">Using IP set references</a> in the <i>Network Firewall Developer Guide</i>.</p>
- *          <p>
- *         Network Firewall currently supports <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Amazon VPC prefix lists</a> and <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-referencing-resource-groups">resource groups</a> in IP set references.
- *       </p>
- * @public
- */
-export interface IPSetReference {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you are referencing in your rule group.</p>
-   * @public
-   */
-  ReferenceArn?: string | undefined;
-}
-
-/**
- * <p>Contains a set of IP set references.</p>
- * @public
- */
-export interface ReferenceSets {
-  /**
-   * <p>The list of IP set references.</p>
-   * @public
-   */
-  IPSetReferences?: Record<string, IPSetReference> | undefined;
-}
-
-/**
- * <p>Stateful inspection criteria for a domain list rule group. </p>
- *          <p>For HTTPS traffic, domain filtering is SNI-based. It uses the server name indicator extension of the TLS handshake.</p>
- *          <p>By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the <code>HOME_NET</code> rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see <a>RuleVariables</a> in this guide and
- *       <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html">Stateful domain list rule groups in Network Firewall</a> in the <i>Network Firewall Developer Guide</i>.</p>
- * @public
- */
-export interface RulesSourceList {
-  /**
-   * <p>The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Explicit names. For example, <code>abc.example.com</code> matches only the domain <code>abc.example.com</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Names that use a domain wildcard, which you indicate with an initial '<code>.</code>'. For example,<code>.example.com</code> matches <code>example.com</code> and matches all subdomains of <code>example.com</code>, such as <code>abc.example.com</code> and <code>www.example.com</code>. </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Targets: string[] | undefined;
-
-  /**
-   * <p>The types of matching to perform against the domains in <code>Targets</code>. You can specify any combination of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> – Match the domain against the domain that the Amazon Route 53 Resolver resolved the connection's destination IP address for.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HTTP_HOST</code> – Match the domain against the <code>Host</code> header of HTTP traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TLS_SNI</code> – Match the domain against the Server Name Indication (SNI) of HTTPS traffic.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> matches on how the destination IP address was resolved, rather than on the domain that the client asserts in its TLS SNI or HTTP <code>Host</code> header. This target type takes effect when you configure resolved IP validation on the firewall policy. For more information, see <a>Route53ResolvedIPValidation</a>.</p>
-   *          <p>Whether you include <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> changes what the generated rules match, together with <code>GeneratedRulesType</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Combining <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> with <code>TLS_SNI</code> or <code>HTTP_HOST</code> in an <code>ALLOWLIST</code> requires both conditions to match. The SNI or <code>Host</code> header must match the domain, <b>and</b> the Route 53 Resolver must have resolved the destination IP address for that domain. Network Firewall allows traffic only in that case. Traffic that matches one condition, such as a spoofed <code>Host</code> header sent to an unresolved IP address, is not allowed.</p>
-   *             </li>
-   *             <li>
-   *                <p>In a <code>DENYLIST</code>, or when <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> is the only target type, Network Firewall evaluates each condition independently: a match on either the domain (SNI or <code>Host</code>) or the resolved destination IP address triggers the rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you don't include <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code>, the generated rules match only on the SNI or <code>Host</code> header, without checking how the destination IP address was resolved.</p>
-   *             </li>
-   *          </ul>
-   *          <p>An <code>ALLOWLIST</code> whose only target type is <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> is additive: it allows matching traffic but doesn't generate a default rule that drops non-matching traffic. Only the <code>TLS_SNI</code> and <code>HTTP_HOST</code> target types generate that default drop. To allow only the resolved domains and drop all other traffic, include a protocol target type as well.</p>
-   * @public
-   */
-  TargetTypes: TargetType[] | undefined;
-
-  /**
-   * <p>Whether you want to apply allow, reject, alert, or drop behavior to the domains in your target list.</p>
-   *          <note>
-   *             <p>When logging is enabled and you choose Alert, traffic that matches the domain specifications
-   *             generates an alert in the firewall's logs. Then, traffic either passes, is rejected, or drops based on other rules in the firewall policy.</p>
-   *          </note>
-   * @public
-   */
-  GeneratedRulesType: GeneratedRulesType | undefined;
-}
-
-/**
  * <p>The basic rule criteria for Network Firewall to use to inspect packet headers in stateful
  *          traffic flow inspection. Traffic flows that match the criteria are a match for the
  *          corresponding <a>StatefulRule</a>. </p>
@@ -3242,28 +3846,10 @@ export interface Header {
 }
 
 /**
- * <p>Additional settings for a stateful rule. This is part of the <a>StatefulRule</a> configuration.</p>
- * @public
- */
-export interface RuleOption {
-  /**
-   * <p>The keyword for the Suricata compatible rule option. You must include a <code>sid</code> (signature ID), and can optionally include other keywords. For information about Suricata compatible keywords, see <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html#rule-options">Rule options</a> in the Suricata documentation.</p>
-   * @public
-   */
-  Keyword: string | undefined;
-
-  /**
-   * <p>The settings of the Suricata compatible rule option. Rule options have zero or more setting values, and the number of possible and required settings depends on the <code>Keyword</code>. For more information about the settings for specific options, see <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html#rule-options">Rule options</a>.</p>
-   * @public
-   */
-  Settings?: string[] | undefined;
-}
-
-/**
  * <p>A single Suricata rules specification, for use in a stateful rule group.
  *        Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options.
  *        For information about the Suricata <code>Rules</code> format, see
- *                                         <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html">Rules Format</a>. </p>
+ *                                         <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html">Rules Format</a> on the Suricata website. </p>
  * @public
  */
 export interface StatefulRule {
@@ -3556,7 +4142,7 @@ export interface RulesSource {
    * <p>An array of individual stateful rules inspection criteria to be used together in a stateful rule group.
    *        Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options.
    *        For information about the Suricata <code>Rules</code> format, see
-   *                                         <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html">Rules Format</a>. </p>
+   *                                         <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html">Rules Format</a> on the Suricata website. </p>
    * @public
    */
   StatefulRules?: StatefulRule[] | undefined;
@@ -3566,38 +4152,6 @@ export interface RulesSource {
    * @public
    */
   StatelessRulesAndCustomActions?: StatelessRulesAndCustomActions | undefined;
-}
-
-/**
- * <p>A set of port ranges for use in the rules in a rule group. </p>
- * @public
- */
-export interface PortSet {
-  /**
-   * <p>The set of port ranges.
-   *       </p>
-   * @public
-   */
-  Definition?: string[] | undefined;
-}
-
-/**
- * <p>Settings that are available for use in the rules in the <a>RuleGroup</a>
- *          where this is defined. See <a>CreateRuleGroup</a> or <a>UpdateRuleGroup</a> for usage.</p>
- * @public
- */
-export interface RuleVariables {
-  /**
-   * <p>A list of IP addresses and address ranges, in CIDR notation. </p>
-   * @public
-   */
-  IPSets?: Record<string, IPSet> | undefined;
-
-  /**
-   * <p>A list of port ranges. </p>
-   * @public
-   */
-  PortSets?: Record<string, PortSet> | undefined;
 }
 
 /**
@@ -3710,6 +4264,18 @@ export interface CreateRuleGroupRequest {
   RuleGroup?: RuleGroup | undefined;
 
   /**
+   * <p>An object that defines the rules in a firewall engine rule group, for use in a Next Generation policy.</p>
+   * @public
+   */
+  FirewallRuleGroup?: FirewallRuleGroup | undefined;
+
+  /**
+   * <p>An object that defines the rules in an IPS engine rule group, for use in a Next Generation policy.</p>
+   * @public
+   */
+  IpsRuleGroup?: IpsRuleGroup | undefined;
+
+  /**
    * <p>A string containing stateful rule group rules specifications in Suricata flat format, with one rule
    * per line. Use this to import your existing Suricata compatible rule groups. </p>
    *          <note>
@@ -3722,8 +4288,25 @@ export interface CreateRuleGroupRequest {
   Rules?: string | undefined;
 
   /**
-   * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
-   * stateless rules. If it is stateful, it contains stateful rules. </p>
+   * <p>Indicates the type of the rule group. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STATELESS</code> - Stateless rules, for use in a Classic Network Firewall policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STATEFUL</code> - Stateful rules, for use in a Classic Network Firewall policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIREWALL</code> - Firewall engine rules, for use in a Next Generation policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPS</code> - IPS engine rules, for use in a Next Generation policy.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Type: RuleGroupType | undefined;
@@ -3873,8 +4456,25 @@ export interface RuleGroupResponse {
   Description?: string | undefined;
 
   /**
-   * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
-   * stateless rules. If it is stateful, it contains stateful rules. </p>
+   * <p>Indicates the type of the rule group. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STATELESS</code> - Stateless rules, for use in a Classic Network Firewall policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STATEFUL</code> - Stateful rules, for use in a Classic Network Firewall policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIREWALL</code> - Firewall engine rules, for use in a Next Generation policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPS</code> - IPS engine rules, for use in a Next Generation policy.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Type?: RuleGroupType | undefined;
@@ -4241,7 +4841,7 @@ export interface CreateVpcEndpointAssociationRequest {
 
   /**
    * <p>The ID for a subnet that's used in an association with a firewall. This is used in
-   *       <a>CreateFirewall</a>, <a>AssociateSubnets</a>, and <a>CreateVpcEndpointAssociation</a>. Network Firewall
+   *       <code>CreateFirewall</code>, <code>AssociateSubnets</code>, and <code>CreateVpcEndpointAssociation</code>. Network Firewall
    *          creates an instance of the associated firewall in each subnet that you specify, to filter
    *          traffic in the subnet's Availability Zone.</p>
    * @public
@@ -4318,7 +4918,7 @@ export interface VpcEndpointAssociation {
 
   /**
    * <p>The ID for a subnet that's used in an association with a firewall. This is used in
-   *       <a>CreateFirewall</a>, <a>AssociateSubnets</a>, and <a>CreateVpcEndpointAssociation</a>. Network Firewall
+   *       <code>CreateFirewall</code>, <code>AssociateSubnets</code>, and <code>CreateVpcEndpointAssociation</code>. Network Firewall
    *          creates an instance of the associated firewall in each subnet that you specify, to filter
    *          traffic in the subnet's Availability Zone.</p>
    * @public
@@ -4487,6 +5087,36 @@ export interface DeleteFirewallPolicyResponse {
    * @public
    */
   FirewallPolicyResponse: FirewallPolicyResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFirewallPolicyV2Request {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Next Generation policy.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallPolicyV2Arn?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the Next Generation policy. You can't change the name of a firewall policy after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallPolicyV2Name?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFirewallPolicyV2Response {
+  /**
+   * <p>The high-level properties of the Next Generation policy that you asked to delete.</p>
+   * @public
+   */
+  FirewallPolicyV2Response: FirewallPolicyV2Response | undefined;
 }
 
 /**
@@ -4747,8 +5377,25 @@ export interface DeleteRuleGroupRequest {
   RuleGroupArn?: string | undefined;
 
   /**
-   * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
-   * stateless rules. If it is stateful, it contains stateful rules. </p>
+   * <p>Indicates the type of the rule group. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STATELESS</code> - Stateless rules, for use in a Classic Network Firewall policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STATEFUL</code> - Stateful rules, for use in a Classic Network Firewall policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIREWALL</code> - Firewall engine rules, for use in a Next Generation policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPS</code> - IPS engine rules, for use in a Next Generation policy.</p>
+   *             </li>
+   *          </ul>
    *          <note>
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
@@ -5070,6 +5717,55 @@ export interface DescribeFirewallPolicyResponse {
    * @public
    */
   FirewallPolicy?: FirewallPolicy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFirewallPolicyV2Request {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Next Generation policy.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallPolicyV2Arn?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the Next Generation policy. You can't change the name of a firewall policy after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallPolicyV2Name?: string | undefined;
+
+  /**
+   * <p>The format in which to return the rules of any firewall engine rule groups that are embedded in the policy. Specify <code>FIREWALL_RULES</code> for structured <code>FirewallRule</code> objects or <code>RULES_STRING</code> for a Suricata-compatible firewall-mode rule string. If you don't specify a format, Network Firewall returns each embedded rule group in the format you provided it in. Referenced rule groups aren't affected.</p>
+   * @public
+   */
+  RuleOutputFormat?: RuleOutputFormat | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFirewallPolicyV2Response {
+  /**
+   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
+   *          <p>To make changes to the policy, you provide the token in your request. Network Firewall uses the token to ensure that the policy hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall policy again to get a current copy of it with current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   * @public
+   */
+  UpdateToken: string | undefined;
+
+  /**
+   * <p>The high-level properties of the Next Generation policy. This, along with the <a>FirewallPolicyV2</a>, define the policy.</p>
+   * @public
+   */
+  FirewallPolicyV2Response: FirewallPolicyV2Response | undefined;
+
+  /**
+   * <p>The rule groups and other settings that define the specified Next Generation policy.</p>
+   * @public
+   */
+  FirewallPolicyV2?: FirewallPolicyV2 | undefined;
 }
 
 /**
@@ -5686,8 +6382,25 @@ export interface DescribeRuleGroupRequest {
   RuleGroupArn?: string | undefined;
 
   /**
-   * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
-   * stateless rules. If it is stateful, it contains stateful rules. </p>
+   * <p>Indicates the type of the rule group. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STATELESS</code> - Stateless rules, for use in a Classic Network Firewall policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STATEFUL</code> - Stateful rules, for use in a Classic Network Firewall policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIREWALL</code> - Firewall engine rules, for use in a Next Generation policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPS</code> - IPS engine rules, for use in a Next Generation policy.</p>
+   *             </li>
+   *          </ul>
    *          <note>
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
@@ -5700,6 +6413,23 @@ export interface DescribeRuleGroupRequest {
    * @public
    */
   AnalyzeRuleGroup?: boolean | undefined;
+
+  /**
+   * <p>For a firewall engine rule group, the format in which to return the rules. Specify one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FIREWALL_RULES</code> - Returns the rules as structured <code>FirewallRule</code> objects.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RULES_STRING</code> - Returns the rules as a Suricata-compatible firewall-mode rule string.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a format, Network Firewall returns the rules in the format you provided them in. This setting applies only to <code>FIREWALL</code> and <code>IPS</code> rule groups; IPS engine rule groups support only <code>RULES_STRING</code>.</p>
+   * @public
+   */
+  RuleOutputFormat?: RuleOutputFormat | undefined;
 }
 
 /**
@@ -5723,6 +6453,18 @@ export interface DescribeRuleGroupResponse {
    * @public
    */
   RuleGroup?: RuleGroup | undefined;
+
+  /**
+   * <p>The object that defines the rules in a firewall engine rule group, for use in a Next Generation policy.</p>
+   * @public
+   */
+  FirewallRuleGroup?: FirewallRuleGroup | undefined;
+
+  /**
+   * <p>The object that defines the rules in an IPS engine rule group, for use in a Next Generation policy.</p>
+   * @public
+   */
+  IpsRuleGroup?: IpsRuleGroup | undefined;
 
   /**
    * <p>The high-level properties of a rule group. This, along with the <a>RuleGroup</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
@@ -5750,8 +6492,25 @@ export interface DescribeRuleGroupMetadataRequest {
   RuleGroupArn?: string | undefined;
 
   /**
-   * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
-   * stateless rules. If it is stateful, it contains stateful rules. </p>
+   * <p>Indicates the type of the rule group. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STATELESS</code> - Stateless rules, for use in a Classic Network Firewall policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STATEFUL</code> - Stateful rules, for use in a Classic Network Firewall policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIREWALL</code> - Firewall engine rules, for use in a Next Generation policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPS</code> - IPS engine rules, for use in a Next Generation policy.</p>
+   *             </li>
+   *          </ul>
    *          <note>
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
@@ -5786,8 +6545,25 @@ export interface DescribeRuleGroupMetadataResponse {
   Description?: string | undefined;
 
   /**
-   * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
-   * stateless rules. If it is stateful, it contains stateful rules. </p>
+   * <p>Indicates the type of the rule group. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STATELESS</code> - Stateless rules, for use in a Classic Network Firewall policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STATEFUL</code> - Stateful rules, for use in a Classic Network Firewall policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIREWALL</code> - Firewall engine rules, for use in a Next Generation policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPS</code> - IPS engine rules, for use in a Next Generation policy.</p>
+   *             </li>
+   *          </ul>
    *          <note>
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
@@ -6260,6 +7036,24 @@ export interface FirewallPolicyMetadata {
 }
 
 /**
+ * <p>High-level information about a Next Generation policy, returned in a list of policies. To retrieve the policy's full properties, rule groups, and settings, use the Next Generation policy describe operation.</p>
+ * @public
+ */
+export interface FirewallPolicyV2Metadata {
+  /**
+   * <p>The descriptive name of the Next Generation policy. You can't change the name of a firewall policy after you create it.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Next Generation policy.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
  * <p>Any number of arrays, where each array is a single flow identified in the scope of the operation.
  * If multiple flows were in the scope of the operation, multiple <code>Flows</code> arrays are returned.</p>
  * @public
@@ -6576,6 +7370,46 @@ export interface ListFirewallPoliciesResponse {
    * @public
    */
   FirewallPolicies?: FirewallPolicyMetadata[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFirewallPoliciesV2Request {
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
+   *           objects are available, in the response, Network Firewall provides a
+   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFirewallPoliciesV2Response {
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The metadata for the Next Generation policies. Depending on your setting for max results and the number of firewall policies that you have, this might not be the full list.</p>
+   * @public
+   */
+  FirewallPoliciesV2: FirewallPolicyV2Metadata[] | undefined;
 }
 
 /**
@@ -8247,6 +9081,79 @@ export interface UpdateFirewallPolicyChangeProtectionResponse {
 /**
  * @public
  */
+export interface UpdateFirewallPolicyV2Request {
+  /**
+   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
+   *          <p>To make changes to the policy, you provide the token in your request. Network Firewall uses the token to ensure that the policy hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall policy again to get a current copy of it with current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   * @public
+   */
+  UpdateToken: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Next Generation policy.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallPolicyV2Arn?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the Next Generation policy. You can't change the name of a firewall policy after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallPolicyV2Name?: string | undefined;
+
+  /**
+   * <p>The updated rule groups and other settings that define the Next Generation policy.</p>
+   * @public
+   */
+  FirewallPolicyV2: FirewallPolicyV2 | undefined;
+
+  /**
+   * <p>A description of the firewall policy.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates whether you want Network Firewall to just check the validity of the request, rather than run the request. </p>
+   *          <p>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully,
+   *          but doesn't actually make the requested changes. The call returns the value that the request would return if you ran it with
+   *          dry run set to <code>FALSE</code>, but doesn't make additions or changes to your resources. This option allows you to make sure that you have
+   *          the required permissions to run the request and that your request parameters are valid. </p>
+   *          <p>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your resources. </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A complex type that contains settings for encryption of your firewall policy resources.</p>
+   * @public
+   */
+  EncryptionConfiguration?: EncryptionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFirewallPolicyV2Response {
+  /**
+   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
+   *          <p>To make changes to the policy, you provide the token in your request. Network Firewall uses the token to ensure that the policy hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall policy again to get a current copy of it with current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   * @public
+   */
+  UpdateToken: string | undefined;
+
+  /**
+   * <p>The high-level properties of the Next Generation policy. This, along with the <a>FirewallPolicyV2</a>, define the policy. You can retrieve all objects for a Next Generation policy by calling <a>DescribeFirewallPolicyV2</a>.</p>
+   * @public
+   */
+  FirewallPolicyV2Response: FirewallPolicyV2Response | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateLoggingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -8790,6 +9697,18 @@ export interface UpdateRuleGroupRequest {
   RuleGroup?: RuleGroup | undefined;
 
   /**
+   * <p>An object that defines the rules in a firewall engine rule group, for use in a Next Generation policy.</p>
+   * @public
+   */
+  FirewallRuleGroup?: FirewallRuleGroup | undefined;
+
+  /**
+   * <p>An object that defines the rules in an IPS engine rule group, for use in a Next Generation policy.</p>
+   * @public
+   */
+  IpsRuleGroup?: IpsRuleGroup | undefined;
+
+  /**
    * <p>A string containing stateful rule group rules specifications in Suricata flat format, with one rule
    * per line. Use this to import your existing Suricata compatible rule groups. </p>
    *          <note>
@@ -8802,8 +9721,25 @@ export interface UpdateRuleGroupRequest {
   Rules?: string | undefined;
 
   /**
-   * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
-   * stateless rules. If it is stateful, it contains stateful rules. </p>
+   * <p>Indicates the type of the rule group. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STATELESS</code> - Stateless rules, for use in a Classic Network Firewall policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STATEFUL</code> - Stateful rules, for use in a Classic Network Firewall policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIREWALL</code> - Firewall engine rules, for use in a Next Generation policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPS</code> - IPS engine rules, for use in a Next Generation policy.</p>
+   *             </li>
+   *          </ul>
    *          <note>
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
