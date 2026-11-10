@@ -11,6 +11,7 @@ export default defineConfig({
       "packages-internal/body-checksum-browser/src/index.spec.ts",
       "packages-internal/middleware-websocket/src/ws-eventstream/**/*.spec.ts",
       "packages-internal/credential-provider-cognito-identity/src/localStorage.spec.ts",
+      "packages-internal/core/src/submodules/client/middleware-logger/lazyLog.browser.spec.ts",
       "packages-internal/signature-v4-multi-region/src/SignatureV4MultiRegion.browser.spec.ts",
       "packages-internal/xml-builder/src/xml-parser.spec.ts",
     ],
