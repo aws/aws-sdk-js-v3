@@ -97,7 +97,13 @@ export class LoginCredentialsFetcher {
       ? undefined
       : this.callerClientConfig?.requestHandler;
 
-    const region = this.profileData.region ?? (await this.callerClientConfig?.region?.()) ?? process.env.AWS_REGION;
+    // Redeem the refresh token in the region it was issued in, when the cached token records it.
+    const signInRegion =
+      typeof freshToken.signInRegion === "string" && freshToken.signInRegion.length > 0
+        ? freshToken.signInRegion
+        : undefined;
+    const region =
+      signInRegion ?? this.profileData.region ?? (await this.callerClientConfig?.region?.()) ?? process.env.AWS_REGION;
 
     const client = new SigninClient({
       credentials: {
@@ -109,6 +115,8 @@ export class LoginCredentialsFetcher {
       logger,
       userAgentAppId,
       ...this.init?.clientConfig,
+      // clientConfig can be shared with other credential providers, so the token's signInRegion wins.
+      ...(signInRegion && { region: signInRegion }),
     });
 
     // Add DPoP interceptor to update the proof with the actual resolved endpoint

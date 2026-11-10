@@ -1,5 +1,7 @@
+import { SigninClient } from "@aws-sdk/nested-clients/signin";
 import { CredentialsProviderError } from "@smithy/core/config";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { HttpRequest } from "@smithy/core/protocols";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { LoginCredentialsFetcher } from "./LoginCredentialsFetcher";
 
@@ -298,6 +300,125 @@ describe("LoginCredentialsFetcher", () => {
     expect(result.sessionToken).toBe("FRESH_SESSION");
     // Should NOT have called the API since the re-read token was fresh
     expect(mockClient.send).not.toHaveBeenCalled();
+  });
+
+  describe("refresh region selection", () => {
+    const refreshResponse = {
+      tokenOutput: {
+        accessToken: {
+          accessKeyId: "NEWREFRESHEDKEY",
+          secretAccessKey: "newRefreshedSecretKey",
+          sessionToken: "newRefreshedSessionToken",
+        },
+        refreshToken: "new_refresh_token",
+        expiresIn: 900,
+      },
+    };
+    const callerClientConfig = { region: async () => "ap-southeast-1" } as any;
+    const profileWithRegion = { ...mockProfile, region: "us-east-1" };
+    let originalAwsRegion: string | undefined;
+
+    beforeEach(() => {
+      originalAwsRegion = process.env.AWS_REGION;
+      process.env.AWS_REGION = "us-west-2";
+      mockWriteFile.mockReset();
+      mockWriteFile.mockResolvedValue(undefined);
+      mockMkdir.mockResolvedValue(undefined);
+      mockClient.send.mockResolvedValue(refreshResponse);
+    });
+
+    afterEach(() => {
+      if (originalAwsRegion === undefined) {
+        delete process.env.AWS_REGION;
+      } else {
+        process.env.AWS_REGION = originalAwsRegion;
+      }
+    });
+
+    const refreshWith = async (
+      token: object,
+      profile: Record<string, string> = profileWithRegion,
+      init?: ConstructorParameters<typeof LoginCredentialsFetcher>[1]
+    ) => {
+      mockReadFile.mockResolvedValue(JSON.stringify(token));
+      const fetcher = new LoginCredentialsFetcher(profile, init, callerClientConfig);
+      vi.spyOn(fetcher as any, "generateDpop").mockResolvedValue("mock-dpop-proof");
+      const result = await fetcher.loadCredentials();
+      expect(vi.mocked(SigninClient)).toHaveBeenCalledTimes(1);
+      return { fetcher, result, clientConfig: vi.mocked(SigninClient).mock.calls[0][0] as any };
+    };
+
+    const writtenToken = () => JSON.parse(mockWriteFile.mock.calls[0][1] as string);
+
+    it("should use signInRegion over profile, caller client, and AWS_REGION", async () => {
+      const { clientConfig, result } = await refreshWith({ ...mockExpiredCreds, signInRegion: "eu-west-2" });
+      expect(clientConfig.region).toBe("eu-west-2");
+      expect(result.accessKeyId).toBe("NEWREFRESHEDKEY");
+    });
+
+    it("should keep the existing region chain when signInRegion is absent", async () => {
+      const { clientConfig } = await refreshWith(mockExpiredCreds);
+      expect(clientConfig.region).toBe("us-east-1");
+      expect(writtenToken()).not.toHaveProperty("signInRegion");
+    });
+
+    it("should fall back to the caller client region when signInRegion is absent and the profile has none", async () => {
+      const { clientConfig } = await refreshWith(mockExpiredCreds, mockProfile);
+      expect(clientConfig.region).toBe("ap-southeast-1");
+    });
+
+    it.each(["", null, 123])("should treat signInRegion %j as absent", async (signInRegion) => {
+      const { clientConfig } = await refreshWith({ ...mockExpiredCreds, signInRegion });
+      expect(clientConfig.region).toBe("us-east-1");
+    });
+
+    it("should keep signInRegion in the saved token", async () => {
+      await refreshWith({ ...mockExpiredCreds, signInRegion: "eu-west-2" });
+      const saved = writtenToken();
+      expect(saved.signInRegion).toBe("eu-west-2");
+      expect(saved.refreshToken).toBe("new_refresh_token");
+    });
+
+    it("should load a token with signInRegion and no profile region, and refresh in that region", async () => {
+      const { clientConfig } = await refreshWith({ ...mockExpiredCreds, signInRegion: "eu-west-2" }, mockProfile);
+      expect(clientConfig.region).toBe("eu-west-2");
+    });
+
+    it("should use signInRegion over init.clientConfig.region", async () => {
+      const { clientConfig } = await refreshWith(
+        { ...mockExpiredCreds, signInRegion: "eu-west-2" },
+        profileWithRegion,
+        {
+          clientConfig: { region: "us-gov-west-1" },
+        }
+      );
+      expect(clientConfig.region).toBe("eu-west-2");
+    });
+
+    it("should use init.clientConfig.region when signInRegion is absent", async () => {
+      const { clientConfig } = await refreshWith(mockExpiredCreds, profileWithRegion, {
+        clientConfig: { region: "us-gov-west-1" },
+      });
+      expect(clientConfig.region).toBe("us-gov-west-1");
+    });
+
+    it("should build the DPoP htu from the resolved request endpoint", async () => {
+      const { fetcher } = await refreshWith({ ...mockExpiredCreds, signInRegion: "eu-west-2" });
+      const middleware = mockClient.middlewareStack.add.mock.calls[0][0];
+      const next = vi.fn().mockResolvedValue({ output: {}, response: {} });
+      const request = new HttpRequest({
+        method: "POST",
+        protocol: "https:",
+        hostname: "eu-west-2.signin.aws.amazon.com",
+        path: "/v1/token",
+      });
+      await middleware(next)({ input: {}, request });
+      expect((fetcher as any).generateDpop).toHaveBeenLastCalledWith(
+        "POST",
+        "https://eu-west-2.signin.aws.amazon.com/v1/token"
+      );
+      expect(request.headers.DPoP).toBe("mock-dpop-proof");
+    });
   });
 
   describe("DER to Raw Signature Conversion", () => {
