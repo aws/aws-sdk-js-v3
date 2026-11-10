@@ -3608,6 +3608,60 @@ export interface GetSpaceCredentialsForOrganizationOutput {
 }
 
 /**
+ * One requested scope: an explicit list of actions for one service. All actions in an
+ * entry share one service prefix. The same service may appear in more than one entry.
+ * @public
+ */
+export interface DataAccessTarget {
+  /**
+   * The actions of one service, each with its service prefix, for example "logs:StartQuery".
+   * @public
+   */
+  actions: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSpaceDataAccessInput {
+  /**
+   * The unique ID of the space to return credentials for.
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * The actions to include in the credentials, grouped by service.
+   * @public
+   */
+  targetScopes: DataAccessTarget[] | undefined;
+
+  /**
+   * The lifetime of the credentials, in seconds. Defaults to 3600.
+   * @public
+   */
+  durationSeconds?: number | undefined;
+
+  /**
+   * Caller-supplied key-value pairs that are recorded for auditing. They do not
+   * affect authorization or the permissions of the credentials.
+   * @public
+   */
+  auditContext?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSpaceDataAccessOutput {
+  /**
+   * The temporary AWS credentials for the space.
+   * @public
+   */
+  credentials: AwsCredentials | undefined;
+}
+
+/**
  * @public
  */
 export interface GetTelemetryQueryResultsRequest {

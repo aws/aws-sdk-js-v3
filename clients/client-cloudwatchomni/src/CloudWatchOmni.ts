@@ -162,6 +162,11 @@ import {
   GetSpaceCredentialsForOrganizationCommand,
 } from "./commands/GetSpaceCredentialsForOrganizationCommand";
 import {
+  type GetSpaceDataAccessCommandInput,
+  type GetSpaceDataAccessCommandOutput,
+  GetSpaceDataAccessCommand,
+} from "./commands/GetSpaceDataAccessCommand";
+import {
   type GetTelemetryQueryResultsCommandInput,
   type GetTelemetryQueryResultsCommandOutput,
   GetTelemetryQueryResultsCommand,
@@ -345,6 +350,7 @@ const commands = {
   GetOmniDashboardCommand,
   GetSpaceCommand,
   GetSpaceCredentialsForOrganizationCommand,
+  GetSpaceDataAccessCommand,
   GetTelemetryQueryResultsCommand,
   GetViewCommand,
   ListAccessGrantsCommand,
@@ -960,6 +966,23 @@ export interface CloudWatchOmni {
     args: GetSpaceCredentialsForOrganizationCommandInput,
     options: CloudWatchOmniRequestOptions,
     cb: (err: any, data?: GetSpaceCredentialsForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSpaceDataAccessCommand}
+   */
+  getSpaceDataAccess(
+    args: GetSpaceDataAccessCommandInput,
+    options?: CloudWatchOmniRequestOptions
+  ): Promise<GetSpaceDataAccessCommandOutput>;
+  getSpaceDataAccess(
+    args: GetSpaceDataAccessCommandInput,
+    cb: (err: any, data?: GetSpaceDataAccessCommandOutput) => void
+  ): void;
+  getSpaceDataAccess(
+    args: GetSpaceDataAccessCommandInput,
+    options: CloudWatchOmniRequestOptions,
+    cb: (err: any, data?: GetSpaceDataAccessCommandOutput) => void
   ): void;
 
   /**

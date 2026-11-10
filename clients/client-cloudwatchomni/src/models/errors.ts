@@ -225,3 +225,25 @@ export class ValidationException extends __BaseException {
     this.errorCode = opts.errorCode;
   }
 }
+
+/**
+ * The requested actions produce a credential that exceeds the maximum size. Request fewer
+ * actions.
+ * @public
+ */
+export class PolicyTooLargeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchomni#PolicyTooLargeException";
+  readonly name = "PolicyTooLargeException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyTooLargeException, __BaseException>) {
+    super({
+      name: "PolicyTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyTooLargeException.prototype);
+  }
+}

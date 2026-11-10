@@ -139,6 +139,10 @@ import type {
   GetSpaceCredentialsForOrganizationCommandOutput,
 } from "./commands/GetSpaceCredentialsForOrganizationCommand";
 import type {
+  GetSpaceDataAccessCommandInput,
+  GetSpaceDataAccessCommandOutput,
+} from "./commands/GetSpaceDataAccessCommand";
+import type {
   GetTelemetryQueryResultsCommandInput,
   GetTelemetryQueryResultsCommandOutput,
 } from "./commands/GetTelemetryQueryResultsCommand";
@@ -262,6 +266,7 @@ export type ServiceInputTypes =
   | GetOmniDashboardCommandInput
   | GetSpaceCommandInput
   | GetSpaceCredentialsForOrganizationCommandInput
+  | GetSpaceDataAccessCommandInput
   | GetTelemetryQueryResultsCommandInput
   | GetViewCommandInput
   | ListAccessGrantsCommandInput
@@ -328,6 +333,7 @@ export type ServiceOutputTypes =
   | GetOmniDashboardCommandOutput
   | GetSpaceCommandOutput
   | GetSpaceCredentialsForOrganizationCommandOutput
+  | GetSpaceDataAccessCommandOutput
   | GetTelemetryQueryResultsCommandOutput
   | GetViewCommandOutput
   | ListAccessGrantsCommandOutput

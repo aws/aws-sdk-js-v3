@@ -66,6 +66,8 @@ const _DAO = "DeleteAlertOutput";
 const _DAP = "DeleteAccessProfile";
 const _DAPI = "DeleteAccessProfileInput";
 const _DAPO = "DeleteAccessProfileOutput";
+const _DAT = "DataAccessTarget";
+const _DATL = "DataAccessTargetList";
 const _DD = "DeleteDomain";
 const _DDAGFO = "DeleteDomainAccessGrantForOrganization";
 const _DDAGFOI = "DeleteDomainAccessGrantForOrganizationInput";
@@ -133,6 +135,9 @@ const _GS = "GetSpace";
 const _GSCFO = "GetSpaceCredentialsForOrganization";
 const _GSCFOI = "GetSpaceCredentialsForOrganizationInput";
 const _GSCFOO = "GetSpaceCredentialsForOrganizationOutput";
+const _GSDA = "GetSpaceDataAccess";
+const _GSDAI = "GetSpaceDataAccessInput";
+const _GSDAO = "GetSpaceDataAccessOutput";
 const _GSI = "GetSpaceInput";
 const _GSO = "GetSpaceOutput";
 const _GTQR = "GetTelemetryQueryResults";
@@ -220,6 +225,7 @@ const _PICO = "PutIntelligenceConfigurationOutput";
 const _PR = "PartialResults";
 const _PSR = "PrincipalSearchResult";
 const _PSRL = "PrincipalSearchResultList";
+const _PTLE = "PolicyTooLargeException";
 const _QS = "QueryStatistics";
 const _R = "Rule";
 const _RL = "RowList";
@@ -289,8 +295,9 @@ const _VS = "ViewSummary";
 const _VSL = "ViewSummaryList";
 const _a = "arn";
 const _aA = "alertArn";
-const _aC = "authCode";
+const _aC = "auditContext";
 const _aCERA = "agentCoreEvaluationRoleArn";
+const _aCu = "authCode";
 const _aG = "accessGrant";
 const _aI = "accountId";
 const _aIl = "alertId";
@@ -342,6 +349,7 @@ const _dIa = "dashboardId";
 const _dLU = "deepLinkUrl";
 const _dN = "displayName";
 const _dP = "destinationPort";
+const _dS = "durationSeconds";
 const _dSN = "dataSetName";
 const _da = "data";
 const _de = "definition";
@@ -504,6 +512,7 @@ const _tF = "thresholdField";
 const _tM = "thresholdMode";
 const _tR = "telemetryRule";
 const _tS = "ttlSeconds";
+const _tSa = "targetScopes";
 const _tSr = "trafficStats";
 const _tT = "telemetryType";
 const _ta = "target";
@@ -537,6 +546,7 @@ import {
   AccessDeniedException,
   ConflictException,
   InternalServerException,
+  PolicyTooLargeException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ThrottlingException,
@@ -566,6 +576,12 @@ export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   [0, 0], 1
 ];
 n0_registry.registerError(InternalServerException$, InternalServerException);
+export var PolicyTooLargeException$: StaticErrorSchema = [-3, n0, _PTLE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(PolicyTooLargeException$, PolicyTooLargeException);
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rT, _rI, _eC],
@@ -799,6 +815,11 @@ export var CreateViewResponse$: StaticStructureSchema = [3, n0, _CVRr,
   0,
   [_n, _ty, _de, _cA, _uA, _a, _d],
   [0, 0, 0, 4, 4, 0, 0], 6
+];
+export var DataAccessTarget$: StaticStructureSchema = [3, n0, _DAT,
+  0,
+  [_ac],
+  [64 | 0], 1
 ];
 export var DeleteAccessGrantInput$: StaticStructureSchema = [3, n0, _DAGI,
   0,
@@ -1050,6 +1071,16 @@ export var GetSpaceCredentialsForOrganizationOutput$: StaticStructureSchema = [3
   [_cre],
   [[() => AwsCredentials$, 0]], 1
 ];
+export var GetSpaceDataAccessInput$: StaticStructureSchema = [3, n0, _GSDAI,
+  0,
+  [_sI, _tSa, _dS, _aC],
+  [0, () => DataAccessTargetList, 1, 128 | 0], 2
+];
+export var GetSpaceDataAccessOutput$: StaticStructureSchema = [3, n0, _GSDAO,
+  0,
+  [_cre],
+  [[() => AwsCredentials$, 0]], 1
+];
 export var GetSpaceInput$: StaticStructureSchema = [3, n0, _GSI,
   0,
   [_sI],
@@ -1287,7 +1318,7 @@ export var OAuthClientCredential$: StaticStructureSchema = [3, n0, _OACC,
 ];
 export var OAuthCodeCredential$: StaticStructureSchema = [3, n0, _OACCu,
   8,
-  [_aC],
+  [_aCu],
   [0], 1
 ];
 export var OmniDashboard$: StaticStructureSchema = [3, n0, _ODm,
@@ -1540,6 +1571,10 @@ var AlertStateList = 64 | 0;
 var AlertSummaryList: StaticListSchema = [1, n0, _ASL,
   0, () => AlertSummary$
 ];
+var DataAccessActionList = 64 | 0;
+var DataAccessTargetList: StaticListSchema = [1, n0, _DATL,
+  0, () => DataAccessTarget$
+];
 var DomainSummaryList: StaticListSchema = [1, n0, _DSL,
   0, () => DomainSummary$
 ];
@@ -1621,6 +1656,7 @@ var ContextConditionsMap: StaticMapSchema = [2, n0, _CCM,
   0, 0, 64 | 0
 ];
 var ContextGraphAttributeMap = 128 | 0;
+var DataAccessAuditContext = 128 | 0;
 var IntelligenceTagMap = 128 | 0;
 var LogMetadataAttributeMap = 128 | 0;
 var MetadataAttributeMap = 128 | 0;
@@ -1747,6 +1783,9 @@ export var GetSpace$: StaticOperationSchema = [9, n0, _GS,
 ];
 export var GetSpaceCredentialsForOrganization$: StaticOperationSchema = [9, n0, _GSCFO,
   0, () => GetSpaceCredentialsForOrganizationInput$, () => GetSpaceCredentialsForOrganizationOutput$
+];
+export var GetSpaceDataAccess$: StaticOperationSchema = [9, n0, _GSDA,
+  0, () => GetSpaceDataAccessInput$, () => GetSpaceDataAccessOutput$
 ];
 export var GetTelemetryQueryResults$: StaticOperationSchema = [9, n0, _GTQR,
   0, () => GetTelemetryQueryResultsRequest$, () => GetTelemetryQueryResultsResponse$

@@ -32,6 +32,7 @@ export * from "./GetIntelligenceConfigurationCommand";
 export * from "./GetOmniDashboardCommand";
 export * from "./GetSpaceCommand";
 export * from "./GetSpaceCredentialsForOrganizationCommand";
+export * from "./GetSpaceDataAccessCommand";
 export * from "./GetTelemetryQueryResultsCommand";
 export * from "./GetViewCommand";
 export * from "./ListAccessGrantsCommand";

@@ -77,6 +77,7 @@ import {
   CreateViewCommand,
   CreateViewRequest$,
   CreateViewResponse$,
+  DataAccessTarget$,
   DeleteAccessGrant$,
   DeleteAccessGrantCommand,
   DeleteAccessGrantInput$,
@@ -174,6 +175,10 @@ import {
   GetSpaceCredentialsForOrganizationCommand,
   GetSpaceCredentialsForOrganizationInput$,
   GetSpaceCredentialsForOrganizationOutput$,
+  GetSpaceDataAccess$,
+  GetSpaceDataAccessCommand,
+  GetSpaceDataAccessInput$,
+  GetSpaceDataAccessOutput$,
   GetSpaceInput$,
   GetSpaceOutput$,
   GetTelemetryQueryResults$,
@@ -286,6 +291,8 @@ import {
   paginateListViews,
   paginateSearchPrincipals,
   PartialResults$,
+  PolicyTooLargeException,
+  PolicyTooLargeException$,
   PrincipalSearchResult$,
   PrincipalType,
   PutIntelligenceConfiguration$,
@@ -447,6 +454,8 @@ assert(typeof GetSpaceCommand === "function");
 assert(typeof GetSpace$ === "object");
 assert(typeof GetSpaceCredentialsForOrganizationCommand === "function");
 assert(typeof GetSpaceCredentialsForOrganization$ === "object");
+assert(typeof GetSpaceDataAccessCommand === "function");
+assert(typeof GetSpaceDataAccess$ === "object");
 assert(typeof GetTelemetryQueryResultsCommand === "function");
 assert(typeof GetTelemetryQueryResults$ === "object");
 assert(typeof GetViewCommand === "function");
@@ -543,6 +552,7 @@ assert(typeof CreateSpaceInput$ === "object");
 assert(typeof CreateSpaceOutput$ === "object");
 assert(typeof CreateViewRequest$ === "object");
 assert(typeof CreateViewResponse$ === "object");
+assert(typeof DataAccessTarget$ === "object");
 assert(typeof DeleteAccessGrantInput$ === "object");
 assert(typeof DeleteAccessGrantOutput$ === "object");
 assert(typeof DeleteAccessProfileInput$ === "object");
@@ -593,6 +603,8 @@ assert(typeof GetOmniDashboardInput$ === "object");
 assert(typeof GetOmniDashboardOutput$ === "object");
 assert(typeof GetSpaceCredentialsForOrganizationInput$ === "object");
 assert(typeof GetSpaceCredentialsForOrganizationOutput$ === "object");
+assert(typeof GetSpaceDataAccessInput$ === "object");
+assert(typeof GetSpaceDataAccessOutput$ === "object");
 assert(typeof GetSpaceInput$ === "object");
 assert(typeof GetSpaceOutput$ === "object");
 assert(typeof GetTelemetryQueryResultsRequest$ === "object");
@@ -734,6 +746,8 @@ assert(ConflictException.prototype instanceof CloudWatchOmniServiceException);
 assert(typeof ConflictException$ === "object");
 assert(InternalServerException.prototype instanceof CloudWatchOmniServiceException);
 assert(typeof InternalServerException$ === "object");
+assert(PolicyTooLargeException.prototype instanceof CloudWatchOmniServiceException);
+assert(typeof PolicyTooLargeException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof CloudWatchOmniServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof CloudWatchOmniServiceException);

@@ -415,6 +415,13 @@ GetSpaceCredentialsForOrganization
 </details>
 <details>
 <summary>
+GetSpaceDataAccess
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatchomni/command/GetSpaceDataAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatchomni/Interface/GetSpaceDataAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatchomni/Interface/GetSpaceDataAccessCommandOutput/)
+</details>
+<details>
+<summary>
 GetTelemetryQueryResults
 </summary>
 
