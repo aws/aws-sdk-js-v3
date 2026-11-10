@@ -464,6 +464,27 @@ describe("convertToAttr", () => {
     it(`testing empty Map`, () => {
       expect(convertToAttr(new Map())).toEqual({ M: {} });
     });
+
+    it("preserves __proto__ from objects as an own property", () => {
+      const input = JSON.parse(`{"__proto__":{"polluted":true},"nested":{"__proto__":"value"}}`);
+      const output = convertToAttr(input) as { M: Record<string, any> };
+
+      expect(Object.getPrototypeOf(output.M)).toBe(Object.prototype);
+      expect(Object.prototype.hasOwnProperty.call(output.M, "__proto__")).toBe(true);
+      expect(output.M.__proto__).toEqual({ M: { polluted: { BOOL: true } } });
+      expect(output.M.polluted).toBeUndefined();
+      expect(Object.prototype.hasOwnProperty.call(output.M.nested.M, "__proto__")).toBe(true);
+      expect(output.M.nested.M.__proto__).toEqual({ S: "value" });
+      expect(({} as any).polluted).toBeUndefined();
+    });
+
+    it("preserves __proto__ from maps as an own property", () => {
+      const output = convertToAttr(new Map([["__proto__", "value"]])) as { M: Record<string, any> };
+
+      expect(Object.getPrototypeOf(output.M)).toBe(Object.prototype);
+      expect(Object.prototype.hasOwnProperty.call(output.M, "__proto__")).toBe(true);
+      expect(output.M.__proto__).toEqual({ S: "value" });
+    });
   });
 
   describe("string", () => {

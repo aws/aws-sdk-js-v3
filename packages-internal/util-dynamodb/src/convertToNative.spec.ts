@@ -227,6 +227,22 @@ describe("convertToNative", () => {
       expect(convertToNative({ M: input }, { wrapNumbers: true })).toEqual(output);
     });
 
+    it("preserves __proto__ as an own property", () => {
+      const input = JSON.parse(
+        `{"__proto__":{"M":{"polluted":{"BOOL":true}}},"nested":{"M":{"__proto__":{"S":"value"}}}}`
+      );
+      const output = convertToNative({ M: input }) as Record<string, any>;
+
+      expect(Object.getPrototypeOf(output)).toBe(Object.prototype);
+      expect(Object.prototype.hasOwnProperty.call(output, "__proto__")).toBe(true);
+      expect(output.__proto__).toEqual({ polluted: true });
+      expect(output.polluted).toBeUndefined();
+      expect(Object.getPrototypeOf(output.nested)).toBe(Object.prototype);
+      expect(Object.prototype.hasOwnProperty.call(output.nested, "__proto__")).toBe(true);
+      expect(output.nested.__proto__).toBe("value");
+      expect(({} as any).polluted).toBeUndefined();
+    });
+
     it(`testing map with big objects`, () => {
       const input = Array.from(Array(100000).keys()).reduce(
         (acc, index) => {

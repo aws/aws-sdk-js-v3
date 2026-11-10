@@ -2,6 +2,7 @@ import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import type { NativeAttributeValue, NumberValue as INumberValue } from "./models";
 import { NumberValue } from "./NumberValue";
+import { setKey } from "./setKey";
 import type { unmarshallOptions } from "./unmarshall";
 
 /**
@@ -79,10 +80,7 @@ const convertMap = (
   map: Record<string, AttributeValue>,
   options?: unmarshallOptions
 ): Record<string, NativeAttributeValue> =>
-  Object.entries(map).reduce(
-    (acc: Record<string, NativeAttributeValue>, [key, value]: [string, AttributeValue]) => (
-      (acc[key] = convertToNative(value, options)),
-      acc
-    ),
-    {}
-  );
+  Object.entries(map).reduce((acc: Record<string, NativeAttributeValue>, [key, value]: [string, AttributeValue]) => {
+    setKey(acc, key, convertToNative(value, options));
+    return acc;
+  }, {});
