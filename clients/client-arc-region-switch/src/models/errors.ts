@@ -109,6 +109,42 @@ export class IllegalStateException extends __BaseException {
 }
 
 /**
+ * <p>The request conflicted with a concurrent modification of the same resource and did not take effect.</p>
+ * @public
+ */
+export class RetryableConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.arcregionswitch#RetryableConflictException";
+  readonly name = "RetryableConflictException" as const;
+  readonly $fault = "client" as const;
+  $retryable = {};
+  /**
+   * <p>The identifier of the resource involved in the concurrent modification.</p>
+   * @public
+   */
+  resourceId?: string | undefined;
+
+  /**
+   * <p>The type of the resource involved in the concurrent modification.</p>
+   * @public
+   */
+  resourceType?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RetryableConflictException, __BaseException>) {
+    super({
+      name: "RetryableConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RetryableConflictException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
  * <p>The client token was already used with different request parameters. A client token must map to the same parameters for every request. To retry this operation, provide a new client token.</p>
  * @public
  */

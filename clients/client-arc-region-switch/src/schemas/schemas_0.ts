@@ -104,6 +104,7 @@ const _PW = "PlanWarnings";
 const _RARC = "RegionAndRoutingControls";
 const _RC = "ReportConfiguration";
 const _RCCRRC = "RdsCreateCrossRegionReplicaConfiguration";
+const _RCE = "RetryableConflictException";
 const _RESMM = "RegionEventSourceMappingMap";
 const _RHC = "Route53HealthCheck";
 const _RHCC = "Route53HealthCheckConfiguration";
@@ -355,6 +356,7 @@ import {
   IllegalStateException,
   InternalServerException,
   ResourceNotFoundException,
+  RetryableConflictException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
@@ -398,6 +400,12 @@ export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   [0], 1
 ];
 n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RetryableConflictException$: StaticErrorSchema = [-3, n0, _RCE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 1
+];
+n0_registry.registerError(RetryableConflictException$, RetryableConflictException);
 /**
  * TypeRegistry instances containing modeled errors.
  * @internal

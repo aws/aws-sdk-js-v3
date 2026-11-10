@@ -1167,6 +1167,9 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
  *
+ * @throws {@link RetryableConflictException} (client fault)
+ *  <p>The request conflicted with a concurrent modification of the same resource and did not take effect.</p>
+ *
  * @throws {@link ARCRegionSwitchServiceException}
  * <p>Base exception class for all service exceptions from ARCRegionSwitch service.</p>
  *

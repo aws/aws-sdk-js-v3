@@ -159,6 +159,8 @@ import {
   ResourceNotFoundException$,
   ResourceWarning$,
   ResourceWarningStatus,
+  RetryableConflictException,
+  RetryableConflictException$,
   Route53HealthCheck$,
   Route53HealthCheckConfiguration$,
   Route53HealthCheckStatus,
@@ -418,6 +420,8 @@ assert(InternalServerException.prototype instanceof ARCRegionSwitchServiceExcept
 assert(typeof InternalServerException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof ARCRegionSwitchServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
+assert(RetryableConflictException.prototype instanceof ARCRegionSwitchServiceException);
+assert(typeof RetryableConflictException$ === "object");
 assert(ARCRegionSwitchServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForPlanEvaluationStatusPassed === "function");

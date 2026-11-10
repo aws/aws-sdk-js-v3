@@ -215,6 +215,7 @@ export type {
   IllegalStateException,
   InternalServerException,
   ResourceNotFoundException,
+  RetryableConflictException,
   ARCRegionSwitchServiceException,
   waitForPlanEvaluationStatusPassed,
   waitForPlanExecutionCompleted,
