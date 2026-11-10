@@ -166,6 +166,7 @@ const _iIPA = "iamInstanceProfileArn";
 const _iT = "instanceType";
 const _jA = "jwtAuth";
 const _jK = "jwtKey";
+const _lTM = "launchTemplateMode";
 const _m = "message";
 const _mA = "modifiedAt";
 const _mIC = "minInstanceCount";
@@ -208,6 +209,7 @@ const _sCl = "slurmConfiguration";
 const _sDITIS = "scaleDownIdleTimeInSeconds";
 const _sGI = "securityGroupIds";
 const _sI = "subnetIds";
+const _sKN = "sshKeyName";
 const _sL = "scriptLocation";
 const _sO = "spotOptions";
 const _sR = "slurmRest";
@@ -343,8 +345,8 @@ export var ClusterSummary$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var ComputeNodeGroup$: StaticStructureSchema = [3, n0, _CNG,
   0,
-  [_n, _i, _a, _cI, _cA, _mA, _st, _sI, _cLT, _iIPA, _sCc, _iC, _aI, _pO, _sO, _sCl, _nLA, _eI],
-  [0, 0, 0, 0, 5, 5, 0, 64 | 0, () => CustomLaunchTemplate$, 0, () => ScalingConfiguration$, () => InstanceList, 0, 0, () => SpotOptions$, () => ComputeNodeGroupSlurmConfiguration$, () => NodeLifecycleActions$, () => ErrorInfoList], 12
+  [_n, _i, _a, _cI, _cA, _mA, _st, _sI, _iIPA, _sCc, _iC, _aI, _sGI, _sKN, _pO, _lTM, _cLT, _sO, _sCl, _nLA, _eI],
+  [0, 0, 0, 0, 5, 5, 0, 64 | 0, 0, () => ScalingConfiguration$, () => InstanceList, 0, 64 | 0, 0, 0, 0, () => CustomLaunchTemplate$, () => SpotOptions$, () => ComputeNodeGroupSlurmConfiguration$, () => NodeLifecycleActions$, () => ErrorInfoList], 11
 ];
 export var ComputeNodeGroupConfiguration$: StaticStructureSchema = [3, n0, _CNGC,
   0,
@@ -378,8 +380,8 @@ export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateComputeNodeGroupRequest$: StaticStructureSchema = [3, n0, _CCNGR,
   0,
-  [_cIl, _cNGN, _sI, _cLT, _iIPA, _sCc, _iC, _aI, _pO, _sO, _sCl, _nLA, _cT, _t],
-  [0, 0, 64 | 0, () => CustomLaunchTemplate$, 0, () => ScalingConfigurationRequest$, () => InstanceList, 0, 0, () => SpotOptions$, () => ComputeNodeGroupSlurmConfigurationRequest$, () => NodeLifecycleActionsRequest$, [0, 4], 128 | 0], 7
+  [_cIl, _cNGN, _sI, _iIPA, _sCc, _iC, _aI, _sGI, _sKN, _pO, _lTM, _cLT, _sO, _sCl, _nLA, _cT, _t],
+  [0, 0, 64 | 0, 0, () => ScalingConfigurationRequest$, () => InstanceList, 0, 64 | 0, 0, 0, 0, () => CustomLaunchTemplate$, () => SpotOptions$, () => ComputeNodeGroupSlurmConfigurationRequest$, () => NodeLifecycleActionsRequest$, [0, 4], 128 | 0], 6
 ];
 export var CreateComputeNodeGroupResponse$: StaticStructureSchema = [3, n0, _CCNGRr,
   0,
@@ -683,8 +685,8 @@ export var UpdateClusterSlurmConfigurationRequest$: StaticStructureSchema = [3, 
 ];
 export var UpdateComputeNodeGroupRequest$: StaticStructureSchema = [3, n0, _UCNGR,
   0,
-  [_cIl, _cNGIo, _aI, _sI, _cLT, _pO, _sO, _sCc, _iIPA, _sCl, _nLA, _cT],
-  [0, 0, 0, 64 | 0, () => CustomLaunchTemplate$, 0, () => SpotOptions$, () => ScalingConfigurationRequest$, 0, () => UpdateComputeNodeGroupSlurmConfigurationRequest$, () => UpdateNodeLifecycleActionsRequest$, [0, 4]], 2
+  [_cIl, _cNGIo, _aI, _sGI, _sKN, _sI, _lTM, _cLT, _pO, _sO, _sCc, _iIPA, _sCl, _nLA, _cT],
+  [0, 0, 0, 64 | 0, 0, 64 | 0, 0, () => CustomLaunchTemplate$, 0, () => SpotOptions$, () => ScalingConfigurationRequest$, 0, () => UpdateComputeNodeGroupSlurmConfigurationRequest$, () => UpdateNodeLifecycleActionsRequest$, [0, 4]], 2
 ];
 export var UpdateComputeNodeGroupResponse$: StaticStructureSchema = [3, n0, _UCNGRp,
   0,
@@ -763,6 +765,7 @@ var QueueList: StaticListSchema = [1, n0, _QL,
   0, () => QueueSummary$
 ];
 var SecurityGroupIdList = 64 | 0;
+var SecurityGroupIdListOrEmpty = 64 | 0;
 var SlurmCustomSettings: StaticListSchema = [1, n0, _SCSlu,
   0, () => SlurmCustomSetting$
 ];

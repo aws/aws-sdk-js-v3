@@ -16,6 +16,19 @@ export type AccountingMode = (typeof AccountingMode)[keyof typeof AccountingMode
  * @public
  * @enum
  */
+export const LaunchTemplateMode = {
+  CUSTOM: "CUSTOM",
+  MANAGED: "MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type LaunchTemplateMode = (typeof LaunchTemplateMode)[keyof typeof LaunchTemplateMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ScriptCachingPolicy = {
   CACHE_ONCE: "CACHE_ONCE",
   REFRESH_ON_REBOOT: "REFRESH_ON_REBOOT",

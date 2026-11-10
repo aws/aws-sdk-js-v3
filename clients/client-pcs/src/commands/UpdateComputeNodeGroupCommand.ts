@@ -33,12 +33,17 @@ export interface UpdateComputeNodeGroupCommandOutput extends UpdateComputeNodeGr
  * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // UpdateComputeNodeGroupRequest
+ *   amiId: "STRING_VALUE",
+ *   securityGroupIds: [ // SecurityGroupIdListOrEmpty
+ *     "STRING_VALUE",
+ *   ],
+ *   sshKeyName: "STRING_VALUE",
  *   clusterIdentifier: "STRING_VALUE", // required
  *   computeNodeGroupIdentifier: "STRING_VALUE", // required
- *   amiId: "STRING_VALUE",
  *   subnetIds: [ // StringList
  *     "STRING_VALUE",
  *   ],
+ *   launchTemplateMode: "CUSTOM" || "MANAGED",
  *   customLaunchTemplate: { // CustomLaunchTemplate
  *     id: "STRING_VALUE", // required
  *     version: "STRING_VALUE", // required
@@ -107,6 +112,11 @@ export interface UpdateComputeNodeGroupCommandOutput extends UpdateComputeNodeGr
  * const response = await client.send(command);
  * // { // UpdateComputeNodeGroupResponse
  * //   computeNodeGroup: { // ComputeNodeGroup
+ * //     amiId: "STRING_VALUE",
+ * //     securityGroupIds: [ // SecurityGroupIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     sshKeyName: "STRING_VALUE",
  * //     name: "STRING_VALUE", // required
  * //     id: "STRING_VALUE", // required
  * //     arn: "STRING_VALUE", // required
@@ -114,11 +124,11 @@ export interface UpdateComputeNodeGroupCommandOutput extends UpdateComputeNodeGr
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     modifiedAt: new Date("TIMESTAMP"), // required
  * //     status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED" || "UPDATE_FAILED" || "DELETED" || "SUSPENDING" || "SUSPENDED" || "RESUMING", // required
- * //     amiId: "STRING_VALUE",
  * //     subnetIds: [ // SubnetIdList // required
  * //       "STRING_VALUE",
  * //     ],
  * //     purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK" || "INTERRUPTIBLE_CAPACITY_RESERVATION",
+ * //     launchTemplateMode: "CUSTOM" || "MANAGED",
  * //     customLaunchTemplate: { // CustomLaunchTemplate
  * //       id: "STRING_VALUE", // required
  * //       version: "STRING_VALUE", // required

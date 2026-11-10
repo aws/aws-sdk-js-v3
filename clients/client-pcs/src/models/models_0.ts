@@ -5,6 +5,7 @@ import type {
   ComputeNodeGroupStatus,
   EndpointType,
   ExecutionPolicy,
+  LaunchTemplateMode,
   NetworkType,
   OnError,
   PurchaseOption,
@@ -53,18 +54,18 @@ export interface AccountingRequest {
 }
 
 /**
- * <p>An Amazon EC2 launch template PCS uses to launch compute nodes.</p>
+ * <p>An Amazon EC2 launch template PCS uses to launch compute nodes. The structure contains the launch template ID and version.</p>
  * @public
  */
 export interface CustomLaunchTemplate {
   /**
-   * <p>The ID of the EC2 launch template to use to provision instances.</p> <p> Example: <code>lt-xxxx</code> </p>
+   * <p>The ID of the EC2 launch template to use to provision instances. Specify this value together with <code>version</code>.</p> <p> Example: <code>lt-xxxx</code> </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The version of the EC2 launch template to use to provision instances.</p>
+   * <p>The version of the EC2 launch template to use to provision instances. Specify this value together with <code>id</code>.</p>
    * @public
    */
   version: string | undefined;
@@ -255,6 +256,24 @@ export interface SpotOptions {
  */
 export interface CreateComputeNodeGroupRequest {
   /**
+   * <p> The ID of the Amazon Machine Image (AMI) that PCS uses to launch compute nodes (Amazon EC2 instances). This value overrides the AMI ID in the custom launch template. If you don't provide this value, PCS uses the AMI ID specified in the custom launch template. You must provide this value if <code>launchTemplateMode</code> is <code>MANAGED</code>.</p>
+   * @public
+   */
+  amiId?: string | undefined;
+
+  /**
+   * <p>The IDs of the EC2 security groups to configure directly on the compute node group. The security groups must be in the same VPC as the cluster. PCS uses these security groups instead of the security groups in the custom launch template. You can't specify this value if the custom launch template defines network interfaces. If you don't provide this value, PCS uses the security groups in the custom launch template. You must provide this value if <code>launchTemplateMode</code> is <code>MANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_cng_instance-settings.html">Configuring instance settings for compute node groups in PCS</a> in the <i>PCS User Guide</i>.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The name of the EC2 key pair to configure directly on the compute node group. The key pair must exist in your account and Amazon Web Services Region. PCS uses this key pair instead of the key pair in the custom launch template. If you don't provide this value, PCS uses the key pair in the custom launch template, if one is specified. You must have permission for <code>ec2:DescribeKeyPairs</code>. If you delete the key pair later, future instance launches can fail. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_cng_instance-settings.html">Configuring instance settings for compute node groups in PCS</a> in the <i>PCS User Guide</i>.</p>
+   * @public
+   */
+  sshKeyName?: string | undefined;
+
+  /**
    * <p>The name or ID of the cluster to create a compute node group in.</p>
    * @public
    */
@@ -265,12 +284,6 @@ export interface CreateComputeNodeGroupRequest {
    * @public
    */
   computeNodeGroupName: string | undefined;
-
-  /**
-   * <p> The ID of the Amazon Machine Image (AMI) that PCS uses to launch compute nodes (Amazon EC2 instances). If you don't provide this value, PCS uses the AMI ID specified in the custom launch template.</p>
-   * @public
-   */
-  amiId?: string | undefined;
 
   /**
    * <p>The list of subnet IDs where the compute node group launches instances. Subnets must be in the same VPC as the cluster.</p>
@@ -285,10 +298,16 @@ export interface CreateComputeNodeGroupRequest {
   purchaseOption?: PurchaseOption | undefined;
 
   /**
-   * <p>An Amazon EC2 launch template PCS uses to launch compute nodes.</p>
+   * <p>Specifies whether the compute node group uses a custom launch template or a launch template that PCS manages. The default value is <code>CUSTOM</code>.</p> <p>If the value is <code>CUSTOM</code>, provide <code>customLaunchTemplate</code>. If the value is <code>MANAGED</code>, omit <code>customLaunchTemplate</code> and provide <code>amiId</code> and <code>securityGroupIds</code>.</p>
    * @public
    */
-  customLaunchTemplate: CustomLaunchTemplate | undefined;
+  launchTemplateMode?: LaunchTemplateMode | undefined;
+
+  /**
+   * <p>The custom Amazon EC2 launch template to associate with the compute node group. Specify the launch template <code>id</code> and <code>version</code> when <code>launchTemplateMode</code> is <code>CUSTOM</code>. Don't specify this value when <code>launchTemplateMode</code> is <code>MANAGED</code>.</p>
+   * @public
+   */
+  customLaunchTemplate?: CustomLaunchTemplate | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have the <code>pcs:RegisterComputeNodeGroupInstance</code> permission and the role name must start with <code>AWSPCS</code> or must have the path <code>/aws-pcs/</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/security-instance-profiles.html">IAM instance profiles for PCS</a> in the <i>PCS User Guide</i>.</p>
@@ -327,7 +346,7 @@ export interface CreateComputeNodeGroupRequest {
   nodeLifecycleActions?: NodeLifecycleActionsRequest | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate one for you.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -423,6 +442,24 @@ export interface ComputeNodeGroupSlurmConfiguration {
  */
 export interface ComputeNodeGroup {
   /**
+   * <p>The ID of the Amazon Machine Image (AMI) that PCS uses to launch instances. If not present, PCS uses the AMI ID specified in the custom launch template.</p>
+   * @public
+   */
+  amiId?: string | undefined;
+
+  /**
+   * <p>The IDs of the EC2 security groups configured directly on the compute node group. PCS uses these security groups instead of the security groups in the custom launch template. This value isn't present if security groups aren't configured directly on the compute node group. In that case, PCS uses the security groups in the custom launch template.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The name of the EC2 key pair configured directly on the compute node group. PCS uses this key pair instead of the key pair in the custom launch template. This value isn't present if a key pair isn't configured directly on the compute node group. In that case, PCS uses the key pair in the custom launch template, if one is specified.</p>
+   * @public
+   */
+  sshKeyName?: string | undefined;
+
+  /**
    * <p>The name that identifies the compute node group.</p>
    * @public
    */
@@ -465,12 +502,6 @@ export interface ComputeNodeGroup {
   status: ComputeNodeGroupStatus | undefined;
 
   /**
-   * <p>The ID of the Amazon Machine Image (AMI) that PCS uses to launch instances. If not provided, PCS uses the AMI ID specified in the custom launch template.</p>
-   * @public
-   */
-  amiId?: string | undefined;
-
-  /**
    * <p>The list of subnet IDs where instances are provisioned by the compute node group. The subnets must be in the same VPC as the cluster.</p>
    * @public
    */
@@ -483,10 +514,16 @@ export interface ComputeNodeGroup {
   purchaseOption?: PurchaseOption | undefined;
 
   /**
-   * <p>An Amazon EC2 launch template PCS uses to launch compute nodes.</p>
+   * <p>Indicates whether the compute node group uses a custom launch template or a launch template that PCS manages. The default value is <code>CUSTOM</code>.</p> <p>Valid values:</p> <ul> <li> <p> <code>CUSTOM</code> – The compute node group uses the launch template in <code>customLaunchTemplate</code>.</p> </li> <li> <p> <code>MANAGED</code> – PCS creates and manages the launch template.</p> </li> </ul>
    * @public
    */
-  customLaunchTemplate: CustomLaunchTemplate | undefined;
+  launchTemplateMode?: LaunchTemplateMode | undefined;
+
+  /**
+   * <p>The custom Amazon EC2 launch template associated with the compute node group. This value is present when <code>launchTemplateMode</code> is <code>CUSTOM</code> and isn't present when <code>launchTemplateMode</code> is <code>MANAGED</code>.</p>
+   * @public
+   */
+  customLaunchTemplate?: CustomLaunchTemplate | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have the <code>pcs:RegisterComputeNodeGroupInstance</code> permission and the role name must start with <code>AWSPCS</code> or must have the path <code>/aws-pcs/</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/security-instance-profiles.html">IAM instance profiles for PCS</a> in the <i>PCS User Guide</i>.</p>
@@ -577,7 +614,7 @@ export interface DeleteComputeNodeGroupRequest {
   computeNodeGroupIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate one for you.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -751,6 +788,24 @@ export interface UpdateComputeNodeGroupSlurmConfigurationRequest {
  */
 export interface UpdateComputeNodeGroupRequest {
   /**
+   * <p>The ID of the Amazon Machine Image (AMI) that PCS uses to launch instances. This value overrides the AMI ID in the custom launch template. Specify an empty string (<code>""</code>) to remove the AMI ID from the compute node group and use the AMI ID specified in the custom launch template. Omit this value to leave the current setting unchanged.</p>
+   * @public
+   */
+  amiId?: string | undefined;
+
+  /**
+   * <p>The IDs of the EC2 security groups to configure directly on the compute node group. The security groups must be in the same VPC as the cluster. PCS uses these security groups instead of the security groups in the custom launch template. You can't specify this value if the custom launch template defines network interfaces. Specify an empty list (<code>[]</code>) to remove the security groups from the compute node group and use the security groups in the custom launch template. Omit this value to leave the current setting unchanged.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The name of the EC2 key pair to configure directly on the compute node group. The key pair must exist in your account and Amazon Web Services Region. PCS uses this key pair instead of the key pair in the custom launch template. Specify an empty string (<code>""</code>) to remove the key pair from the compute node group and use the key pair in the custom launch template. Omit this value to leave the current setting unchanged. You must have permission for <code>ec2:DescribeKeyPairs</code> to specify a key pair. If you delete the key pair later, future instance launches can fail.</p>
+   * @public
+   */
+  sshKeyName?: string | undefined;
+
+  /**
    * <p>The name or ID of the cluster of the compute node group.</p>
    * @public
    */
@@ -763,19 +818,19 @@ export interface UpdateComputeNodeGroupRequest {
   computeNodeGroupIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Machine Image (AMI) that PCS uses to launch instances. If not provided, PCS uses the AMI ID specified in the custom launch template.</p>
-   * @public
-   */
-  amiId?: string | undefined;
-
-  /**
    * <p>The list of subnet IDs where the compute node group provisions instances. The subnets must be in the same VPC as the cluster.</p>
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>An Amazon EC2 launch template PCS uses to launch compute nodes.</p>
+   * <p>Specifies whether the compute node group uses a custom launch template or a launch template that PCS manages. Omit this value to keep the current mode.</p> <p>Valid values:</p> <ul> <li> <p> <code>CUSTOM</code> – Use a custom launch template. To switch from <code>MANAGED</code>, also provide <code>customLaunchTemplate</code>. If the compute node group already uses <code>CUSTOM</code> and you omit <code>customLaunchTemplate</code>, the existing launch template is unchanged.</p> </li> <li> <p> <code>MANAGED</code> – Use a launch template created and managed by PCS. Omit <code>customLaunchTemplate</code>. Switching to this mode removes the custom launch template association but doesn't delete the launch template.</p> </li> </ul> <p>When switching to <code>MANAGED</code>, the compute node group must have <code>amiId</code> and <code>securityGroupIds</code> configured. You can set these values in the same request.</p>
+   * @public
+   */
+  launchTemplateMode?: LaunchTemplateMode | undefined;
+
+  /**
+   * <p>The custom Amazon EC2 launch template to associate with the compute node group. To set or change the custom launch template, specify <code>id</code> and <code>version</code>. If you provide this value and omit <code>launchTemplateMode</code>, the compute node group must already use <code>CUSTOM</code> mode. To switch from <code>MANAGED</code> to <code>CUSTOM</code>, specify <code>launchTemplateMode</code> as <code>CUSTOM</code> and provide this value. If the compute node group already uses <code>CUSTOM</code>, omit this value while also omitting <code>launchTemplateMode</code>, or while specifying <code>CUSTOM</code>, to keep the existing custom launch template. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_cng_instance-settings-migrate.html">Migrating a compute node group from a custom launch template</a> in the <i>PCS User Guide</i>.</p>
    * @public
    */
   customLaunchTemplate?: CustomLaunchTemplate | undefined;
@@ -817,7 +872,7 @@ export interface UpdateComputeNodeGroupRequest {
   nodeLifecycleActions?: UpdateNodeLifecycleActionsRequest | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate one for you.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1001,7 +1056,7 @@ export interface CreateClusterRequest {
   slurmConfiguration?: ClusterSlurmConfigurationRequest | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate one for you.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1305,7 +1360,7 @@ export interface DeleteClusterRequest {
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate one for you.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1467,7 +1522,7 @@ export interface CreateQueueRequest {
   slurmConfiguration?: QueueSlurmConfigurationRequest | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate one for you.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1585,7 +1640,7 @@ export interface DeleteQueueRequest {
   queueIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate one for you.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1753,7 +1808,7 @@ export interface UpdateQueueRequest {
   slurmConfiguration?: UpdateQueueSlurmConfigurationRequest | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate one for you.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1935,7 +1990,7 @@ export interface UpdateClusterRequest {
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate one for you.</p>
    * @public
    */
   clientToken?: string | undefined;

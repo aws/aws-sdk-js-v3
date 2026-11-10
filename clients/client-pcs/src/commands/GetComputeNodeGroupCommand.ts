@@ -40,6 +40,11 @@ export interface GetComputeNodeGroupCommandOutput extends GetComputeNodeGroupRes
  * const response = await client.send(command);
  * // { // GetComputeNodeGroupResponse
  * //   computeNodeGroup: { // ComputeNodeGroup
+ * //     amiId: "STRING_VALUE",
+ * //     securityGroupIds: [ // SecurityGroupIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     sshKeyName: "STRING_VALUE",
  * //     name: "STRING_VALUE", // required
  * //     id: "STRING_VALUE", // required
  * //     arn: "STRING_VALUE", // required
@@ -47,11 +52,11 @@ export interface GetComputeNodeGroupCommandOutput extends GetComputeNodeGroupRes
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     modifiedAt: new Date("TIMESTAMP"), // required
  * //     status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED" || "UPDATE_FAILED" || "DELETED" || "SUSPENDING" || "SUSPENDED" || "RESUMING", // required
- * //     amiId: "STRING_VALUE",
  * //     subnetIds: [ // SubnetIdList // required
  * //       "STRING_VALUE",
  * //     ],
  * //     purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK" || "INTERRUPTIBLE_CAPACITY_RESERVATION",
+ * //     launchTemplateMode: "CUSTOM" || "MANAGED",
  * //     customLaunchTemplate: { // CustomLaunchTemplate
  * //       id: "STRING_VALUE", // required
  * //       version: "STRING_VALUE", // required

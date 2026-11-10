@@ -64,6 +64,7 @@ export type {
   ComputeNodeGroupStatus,
   EndpointType,
   ExecutionPolicy,
+  LaunchTemplateMode,
   NetworkType,
   OnError,
   PurchaseOption,

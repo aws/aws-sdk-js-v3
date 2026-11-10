@@ -64,6 +64,7 @@ import {
   InternalServerException$,
   JwtAuth$,
   JwtKey$,
+  LaunchTemplateMode,
   ListClusters$,
   ListClustersCommand,
   ListClustersRequest$,
@@ -293,6 +294,7 @@ assert(typeof ClusterStatus === "object");
 assert(typeof ComputeNodeGroupStatus === "object");
 assert(typeof EndpointType === "object");
 assert(typeof ExecutionPolicy === "object");
+assert(typeof LaunchTemplateMode === "object");
 assert(typeof NetworkType === "object");
 assert(typeof OnError === "object");
 assert(typeof PurchaseOption === "object");

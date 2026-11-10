@@ -23,7 +23,7 @@ export interface CreateComputeNodeGroupCommandInput extends CreateComputeNodeGro
 export interface CreateComputeNodeGroupCommandOutput extends CreateComputeNodeGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a managed set of compute nodes. You associate a compute node group with a cluster through 1 or more PCS queues or as part of the login fleet. A compute node group includes the definition of the compute properties and lifecycle management. PCS uses the information you provide to this API action to launch compute nodes in your account. You can only specify subnets in the same Amazon VPC as your cluster. You receive billing charges for the compute nodes that PCS launches in your account. You must already have a launch template before you call this API. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch an instance from a launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>.</p>
+ * <p>Creates a managed set of compute nodes. You associate a compute node group with a cluster through 1 or more PCS queues or as part of the login fleet. A compute node group includes the definition of the compute properties and lifecycle management. PCS uses the information you provide to this API action to launch compute nodes in your account. You can only specify subnets in the same Amazon VPC as your cluster. You receive billing charges for the compute nodes that PCS launches in your account. You can configure common instance settings, such as the AMI, security groups, and SSH key pair, directly on the compute node group, or you can provide a custom EC2 launch template. To use a launch template that PCS manages, set <code>launchTemplateMode</code> to <code>MANAGED</code> and don't provide <code>customLaunchTemplate</code>. In this case, you must specify <code>amiId</code> and <code>securityGroupIds</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_cng_instance-settings.html">Configuring instance settings for compute node groups in PCS</a> in the <i>PCS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -33,13 +33,18 @@ export interface CreateComputeNodeGroupCommandOutput extends CreateComputeNodeGr
  * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // CreateComputeNodeGroupRequest
+ *   amiId: "STRING_VALUE",
+ *   securityGroupIds: [ // SecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   sshKeyName: "STRING_VALUE",
  *   clusterIdentifier: "STRING_VALUE", // required
  *   computeNodeGroupName: "STRING_VALUE", // required
- *   amiId: "STRING_VALUE",
  *   subnetIds: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
  *   purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK" || "INTERRUPTIBLE_CAPACITY_RESERVATION",
+ *   launchTemplateMode: "CUSTOM" || "MANAGED",
  *   customLaunchTemplate: { // CustomLaunchTemplate
  *     id: "STRING_VALUE", // required
  *     version: "STRING_VALUE", // required
@@ -115,6 +120,11 @@ export interface CreateComputeNodeGroupCommandOutput extends CreateComputeNodeGr
  * const response = await client.send(command);
  * // { // CreateComputeNodeGroupResponse
  * //   computeNodeGroup: { // ComputeNodeGroup
+ * //     amiId: "STRING_VALUE",
+ * //     securityGroupIds: [ // SecurityGroupIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     sshKeyName: "STRING_VALUE",
  * //     name: "STRING_VALUE", // required
  * //     id: "STRING_VALUE", // required
  * //     arn: "STRING_VALUE", // required
@@ -122,11 +132,11 @@ export interface CreateComputeNodeGroupCommandOutput extends CreateComputeNodeGr
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     modifiedAt: new Date("TIMESTAMP"), // required
  * //     status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED" || "UPDATE_FAILED" || "DELETED" || "SUSPENDING" || "SUSPENDED" || "RESUMING", // required
- * //     amiId: "STRING_VALUE",
  * //     subnetIds: [ // SubnetIdList // required
  * //       "STRING_VALUE",
  * //     ],
  * //     purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK" || "INTERRUPTIBLE_CAPACITY_RESERVATION",
+ * //     launchTemplateMode: "CUSTOM" || "MANAGED",
  * //     customLaunchTemplate: { // CustomLaunchTemplate
  * //       id: "STRING_VALUE", // required
  * //       version: "STRING_VALUE", // required
