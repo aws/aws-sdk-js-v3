@@ -459,6 +459,42 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //       OriginRegion: "STRING_VALUE",
  * //       TrafficDistributionGroupId: "STRING_VALUE",
  * //     },
+ * //     ContactLens: { // ContactLens
+ * //       ConversationalAnalytics: { // ConversationalAnalytics
+ * //         Configuration: { // ConversationalAnalyticsConfiguration
+ * //           Enabled: true || false,
+ * //           LanguageLocale: "STRING_VALUE",
+ * //           LanguageLocales: [ // LanguageLocales
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ChannelConfiguration: { // ContactLensChannelConfiguration
+ * //             AnalyticsModes: [ // ContactLensAnalyticsModeList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           RedactionConfiguration: { // ContactLensRedactionConfiguration
+ * //             Behavior: "STRING_VALUE",
+ * //             Policy: "STRING_VALUE",
+ * //             Entities: [ // ContactLensRedactionEntitiesList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             MaskMode: "STRING_VALUE",
+ * //           },
+ * //           SummaryConfiguration: { // ContactLensSummaryConfiguration
+ * //             SummaryModes: [ // ContactLensSummaryModeList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           SentimentConfiguration: { // ContactLensSentimentConfiguration
+ * //             Behavior: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         ContactAnalysisReferenceState: { // ContactAnalysisReferenceState
+ * //           Status: "STRING_VALUE",
+ * //           StatusReason: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *

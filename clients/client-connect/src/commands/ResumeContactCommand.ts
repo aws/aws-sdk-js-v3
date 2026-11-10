@@ -23,7 +23,7 @@ export interface ResumeContactCommandInput extends ResumeContactRequest {}
 export interface ResumeContactCommandOutput extends ResumeContactResponse, __MetadataBearer {}
 
 /**
- * <p>Allows resuming a task contact in a paused state.</p>
+ * <p>Resumes a task or email contact in a paused state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

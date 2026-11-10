@@ -237,6 +237,7 @@ import {
   Contact$,
   ContactAnalysis$,
   ContactAnalysisReference$,
+  ContactAnalysisReferenceState$,
   ContactConfiguration$,
   ContactDataRequest$,
   ContactDetails$,
@@ -275,6 +276,11 @@ import {
   ContactFlowVersionSummary$,
   ContactInitiationMethod,
   ContactInteractionType,
+  ContactLens$,
+  ContactLensChannelConfiguration$,
+  ContactLensRedactionConfiguration$,
+  ContactLensSentimentConfiguration$,
+  ContactLensSummaryConfiguration$,
   ContactMediaProcessingFailureMode,
   ContactMetricInfo$,
   ContactMetricName,
@@ -297,6 +303,8 @@ import {
   ControlPlaneAttributeFilter$,
   ControlPlaneTagFilter$,
   ControlPlaneUserAttributeFilter$,
+  ConversationalAnalytics$,
+  ConversationalAnalyticsConfiguration$,
   CreateAgentStatus$,
   CreateAgentStatusCommand,
   CreateAgentStatusRequest$,
@@ -3461,6 +3469,7 @@ assert(typeof ConnectionData$ === "object");
 assert(typeof Contact$ === "object");
 assert(typeof ContactAnalysis$ === "object");
 assert(typeof ContactAnalysisReference$ === "object");
+assert(typeof ContactAnalysisReferenceState$ === "object");
 assert(typeof ContactConfiguration$ === "object");
 assert(typeof ContactDataRequest$ === "object");
 assert(typeof ContactDetails$ === "object");
@@ -3487,6 +3496,11 @@ assert(typeof ContactFlowSearchFilter$ === "object");
 assert(typeof ContactFlowSummary$ === "object");
 assert(typeof ContactFlowTypeCondition$ === "object");
 assert(typeof ContactFlowVersionSummary$ === "object");
+assert(typeof ContactLens$ === "object");
+assert(typeof ContactLensChannelConfiguration$ === "object");
+assert(typeof ContactLensRedactionConfiguration$ === "object");
+assert(typeof ContactLensSentimentConfiguration$ === "object");
+assert(typeof ContactLensSummaryConfiguration$ === "object");
 assert(typeof ContactMetricInfo$ === "object");
 assert(typeof ContactMetricResult$ === "object");
 assert(typeof ContactMetricValue$ === "object");
@@ -3499,6 +3513,8 @@ assert(typeof ContentAttributes$ === "object");
 assert(typeof ControlPlaneAttributeFilter$ === "object");
 assert(typeof ControlPlaneTagFilter$ === "object");
 assert(typeof ControlPlaneUserAttributeFilter$ === "object");
+assert(typeof ConversationalAnalytics$ === "object");
+assert(typeof ConversationalAnalyticsConfiguration$ === "object");
 assert(typeof CreateAgentStatusRequest$ === "object");
 assert(typeof CreateAgentStatusResponse$ === "object");
 assert(typeof CreateAttachedFileRequest$ === "object");

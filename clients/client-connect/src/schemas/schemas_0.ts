@@ -320,9 +320,10 @@ const _C = "Channel";
 const _CA = "ContactArn";
 const _CAAC = "CategoriesAttributeAndCondition";
 const _CAACo = "CommonAttributeAndCondition";
-const _CAC = "CreateAuthCode";
+const _CAC = "ConversationalAnalyticsConfiguration";
 const _CACR = "CreateAuthCodeRequest";
 const _CACRr = "CreateAuthCodeResponse";
+const _CACr = "CreateAuthCode";
 const _CAF = "CategoriesAttributeFilter";
 const _CAFR = "CreateAttachedFileRequest";
 const _CAFRr = "CreateAttachedFileResponse";
@@ -335,12 +336,14 @@ const _CAIo = "ContactAgentId";
 const _CAOCL = "CategoriesAttributeOrConditionList";
 const _CAOCLo = "CommonAttributeOrConditionList";
 const _CAR = "ContactAnalysisReference";
+const _CARS = "ContactAnalysisReferenceState";
 const _CAS = "CreateAgentStatus";
 const _CASR = "CreateAgentStatusRequest";
 const _CASRr = "CreateAgentStatusResponse";
 const _CAc = "CcAddresses";
 const _CAo = "ContactAnalysis";
-const _CAon = "ContentAttributes";
+const _CAon = "ConversationalAnalytics";
+const _CAont = "ContentAttributes";
 const _CAonv = "ConversationAbandon";
 const _CAr = "CreatedAt";
 const _CAu = "CustomAttributes";
@@ -485,6 +488,10 @@ const _CIas = "CaseId";
 const _CIr = "CreateInstance";
 const _CIu = "CustomerId";
 const _CL = "CcList";
+const _CLCC = "ContactLensChannelConfiguration";
+const _CLRC = "ContactLensRedactionConfiguration";
+const _CLSC = "ContactLensSentimentConfiguration";
+const _CLSCo = "ContactLensSummaryConfiguration";
 const _CLo = "ContactLens";
 const _CM = "ChatMessage";
 const _CMD = "CurrentMetricData";
@@ -642,7 +649,8 @@ const _Con = "Content";
 const _Conc = "Concurrency";
 const _Cond = "Condition";
 const _Condi = "Conditions";
-const _Conf = "Config";
+const _Conf = "Configuration";
+const _Confi = "Config";
 const _Cons = "Constraints";
 const _Cont = "Contact";
 const _Conta = "Contacts";
@@ -1601,6 +1609,7 @@ const _LLBRi = "ListLexBotsResponse";
 const _LLF = "ListLambdaFunctions";
 const _LLFR = "ListLambdaFunctionsRequest";
 const _LLFRi = "ListLambdaFunctionsResponse";
+const _LLa = "LanguageLocales";
 const _LM = "ListMetrics";
 const _LMB = "LastModifiedBy";
 const _LMR = "LastModifiedRegion";
@@ -2501,7 +2510,7 @@ const _SQEE = "ServiceQuotaExceededException";
 const _SQEER = "ServiceQuotaExceededExceptionReason";
 const _SQR = "SearchQueuesRequest";
 const _SQRe = "SearchQueuesResponse";
-const _SR = "ServiceRole";
+const _SR = "StatusReason";
 const _SRC = "SearchableRoutingCriteria";
 const _SRCS = "SearchableRoutingCriteriaStep";
 const _SRCSL = "SearchableRoutingCriteriaStepList";
@@ -2514,10 +2523,10 @@ const _SRRe = "SearchRulesResponse";
 const _SRT = "SearchResourceTags";
 const _SRTR = "SearchResourceTagsRequest";
 const _SRTRe = "SearchResourceTagsResponse";
-const _SRe = "SearchRules";
+const _SRe = "ServiceRole";
+const _SRea = "SearchRules";
 const _SRo = "SourceRegion";
-const _SRt = "StatusReason";
-const _SRtr = "StringReference";
+const _SRt = "StringReference";
 const _SRu = "SuccessfulRequest";
 const _SS = "ScoringStrategy";
 const _SSA = "SearchableSegmentAttributes";
@@ -4068,8 +4077,8 @@ export var ConnectionData$: StaticStructureSchema = [3, n0, _CD,
 ];
 export var Contact$: StaticStructureSchema = [3, n0, _Cont,
   0,
-  [_A, _I, _ICI, _PCI, _CAI, _IM, _N, _D, _C, _QIu, _AI, _IT, _DT, _LUT, _LPT, _LRT, _RST, _TPC, _TPDIS, _STc, _RCI, _WIi, _CIu, _CEu, _SE, _QTAS, _QP, _Ta, _CTST, _RCo, _Cu, _Cam, _AMDS, _CVA, _QM, _CMh, _DD, _AER, _SAe, _Rec, _DR, _CEo, _TTI, _Cas, _CDo, _OSu, _Attr, _NCe, _GRM],
-  [0, 0, 0, 0, 0, 0, [() => Name, 0], [() => Description, 0], 0, () => QueueInfo$, () => AgentInfo$, 4, 4, 4, 4, 4, 4, 1, 1, 4, 0, () => WisdomInfo$, 0, () => EndpointInfo$, () => EndpointInfo$, 1, 1, 128 | 0, 4, () => RoutingCriteria$, () => Customer$, () => Campaign$, 0, () => CustomerVoiceActivity$, () => QualityMetrics$, () => ChatMetrics$, () => DisconnectDetails$, () => AdditionalEmailRecipients$, () => SegmentAttributes, () => Recordings, 0, () => ContactEvaluations, () => TaskTemplateInfoV2$, () => CaseEntries, () => ContactDetails$, () => OutboundStrategy$, 128 | 0, () => NextContacts, () => GlobalResiliencyMetadata$]
+  [_A, _I, _ICI, _PCI, _CAI, _IM, _N, _D, _C, _QIu, _AI, _IT, _DT, _LUT, _LPT, _LRT, _RST, _TPC, _TPDIS, _STc, _RCI, _WIi, _CIu, _CEu, _SE, _QTAS, _QP, _Ta, _CTST, _RCo, _Cu, _Cam, _AMDS, _CVA, _QM, _CMh, _DD, _AER, _SAe, _Rec, _DR, _CEo, _TTI, _Cas, _CDo, _OSu, _Attr, _NCe, _GRM, _CLo],
+  [0, 0, 0, 0, 0, 0, [() => Name, 0], [() => Description, 0], 0, () => QueueInfo$, () => AgentInfo$, 4, 4, 4, 4, 4, 4, 1, 1, 4, 0, () => WisdomInfo$, 0, () => EndpointInfo$, () => EndpointInfo$, 1, 1, 128 | 0, 4, () => RoutingCriteria$, () => Customer$, () => Campaign$, 0, () => CustomerVoiceActivity$, () => QualityMetrics$, () => ChatMetrics$, () => DisconnectDetails$, () => AdditionalEmailRecipients$, () => SegmentAttributes, () => Recordings, 0, () => ContactEvaluations, () => TaskTemplateInfoV2$, () => CaseEntries, () => ContactDetails$, () => OutboundStrategy$, 128 | 0, () => NextContacts, () => GlobalResiliencyMetadata$, () => ContactLens$]
 ];
 export var ContactAnalysis$: StaticStructureSchema = [3, n0, _CAo,
   0,
@@ -4080,6 +4089,11 @@ export var ContactAnalysisReference$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_N, _V, _St, _A, _AMn, _IR],
   [0, 0, 0, 0, 0, 2]
+];
+export var ContactAnalysisReferenceState$: StaticStructureSchema = [3, n0, _CARS,
+  0,
+  [_St, _SR],
+  [0, 0]
 ];
 export var ContactConfiguration$: StaticStructureSchema = [3, n0, _CCon,
   0,
@@ -4211,6 +4225,31 @@ export var ContactFlowVersionSummary$: StaticStructureSchema = [3, n0, _CFVS,
   [_A, _VD, _Ve, _LMT, _LMR],
   [0, 0, 1, 4, 0]
 ];
+export var ContactLens$: StaticStructureSchema = [3, n0, _CLo,
+  0,
+  [_CAon],
+  [() => ConversationalAnalytics$]
+];
+export var ContactLensChannelConfiguration$: StaticStructureSchema = [3, n0, _CLCC,
+  0,
+  [_AMna],
+  [64 | 0]
+];
+export var ContactLensRedactionConfiguration$: StaticStructureSchema = [3, n0, _CLRC,
+  0,
+  [_Be, _Po, _Ent, _MM],
+  [0, 0, 64 | 0, 0]
+];
+export var ContactLensSentimentConfiguration$: StaticStructureSchema = [3, n0, _CLSC,
+  0,
+  [_Be],
+  [0]
+];
+export var ContactLensSummaryConfiguration$: StaticStructureSchema = [3, n0, _CLSCo,
+  0,
+  [_SM],
+  [64 | 0]
+];
 export var ContactMetricInfo$: StaticStructureSchema = [3, n0, _CMI,
   0,
   [_N],
@@ -4246,7 +4285,7 @@ export var ContactSearchSummarySegmentAttributeValue$: StaticStructureSchema = [
   [_VS, _VM],
   [0, () => SegmentAttributeValueMap]
 ];
-export var ContentAttributes$: StaticStructureSchema = [3, n0, _CAon,
+export var ContentAttributes$: StaticStructureSchema = [3, n0, _CAont,
   0,
   [_RCe],
   [() => RecommenderConfig$]
@@ -4265,6 +4304,16 @@ export var ControlPlaneUserAttributeFilter$: StaticStructureSchema = [3, n0, _CP
   0,
   [_OC, _ACnd, _TCa, _HGC],
   [() => AttributeOrConditionList, () => AttributeAndCondition$, () => TagCondition$, () => HierarchyGroupCondition$]
+];
+export var ConversationalAnalytics$: StaticStructureSchema = [3, n0, _CAon,
+  0,
+  [_Conf, _CARS],
+  [() => ConversationalAnalyticsConfiguration$, () => ContactAnalysisReferenceState$]
+];
+export var ConversationalAnalyticsConfiguration$: StaticStructureSchema = [3, n0, _CAC,
+  0,
+  [_En, _LL, _LLa, _CCh, _RC, _SCu, _SCe],
+  [2, 0, 64 | 0, () => ContactLensChannelConfiguration$, () => ContactLensRedactionConfiguration$, () => ContactLensSummaryConfiguration$, () => ContactLensSentimentConfiguration$]
 ];
 export var CreateAgentStatusRequest$: StaticStructureSchema = [3, n0, _CASR,
   0,
@@ -4423,7 +4472,7 @@ export var CreateExtractionDefinitionResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateHoursOfOperationOverrideRequest$: StaticStructureSchema = [3, n0, _CHOOOR,
   0,
-  [_II, _HOOI, _N, _Conf, _EF, _ETf, _D, _RCec, _OT],
+  [_II, _HOOI, _N, _Confi, _EF, _ETf, _D, _RCec, _OT],
   [[0, 1], [0, 1], 0, () => HoursOfOperationOverrideConfigList, 0, 0, 0, () => RecurrenceConfig$, 0], 6
 ];
 export var CreateHoursOfOperationOverrideResponse$: StaticStructureSchema = [3, n0, _CHOOORr,
@@ -4433,7 +4482,7 @@ export var CreateHoursOfOperationOverrideResponse$: StaticStructureSchema = [3, 
 ];
 export var CreateHoursOfOperationRequest$: StaticStructureSchema = [3, n0, _CHOOR,
   0,
-  [_II, _N, _TZ, _Conf, _D, _PHOOC, _Ta],
+  [_II, _N, _TZ, _Confi, _D, _PHOOC, _Ta],
   [[0, 1], 0, 0, () => HoursOfOperationConfigList, 0, () => ParentHoursOfOperationConfigList, 128 | 0], 4
 ];
 export var CreateHoursOfOperationResponse$: StaticStructureSchema = [3, n0, _CHOORr,
@@ -6458,7 +6507,7 @@ export var HistoricalMetricResult$: StaticStructureSchema = [3, n0, _HMR,
 ];
 export var HoursOfOperation$: StaticStructureSchema = [3, n0, _HOO,
   0,
-  [_HOOI, _HOOA, _N, _D, _TZ, _Conf, _PHOO, _Ta, _LMT, _LMR],
+  [_HOOI, _HOOA, _N, _D, _TZ, _Confi, _PHOO, _Ta, _LMT, _LMR],
   [0, 0, 0, 0, 0, () => HoursOfOperationConfigList, () => ParentHoursOfOperationsList, 128 | 0, 4, 0]
 ];
 export var HoursOfOperationConfig$: StaticStructureSchema = [3, n0, _HOOC,
@@ -6468,7 +6517,7 @@ export var HoursOfOperationConfig$: StaticStructureSchema = [3, n0, _HOOC,
 ];
 export var HoursOfOperationOverride$: StaticStructureSchema = [3, n0, _HOOO,
   0,
-  [_HOOOI, _HOOI, _HOOA, _N, _D, _Conf, _EF, _ETf, _RCec, _OT],
+  [_HOOOI, _HOOI, _HOOA, _N, _D, _Confi, _EF, _ETf, _RCec, _OT],
   [0, 0, 0, 0, 0, () => HoursOfOperationOverrideConfigList, 0, 0, () => RecurrenceConfig$, 0]
 ];
 export var HoursOfOperationOverrideConfig$: StaticStructureSchema = [3, n0, _HOOOC,
@@ -6553,7 +6602,7 @@ export var InputPredefinedAttributeConfiguration$: StaticStructureSchema = [3, n
 ];
 export var Instance$: StaticStructureSchema = [3, n0, _In,
   0,
-  [_I, _A, _IMT, _IAn, _CTre, _SR, _ISn, _SRt, _ICE, _OCE, _IAU, _Ta],
+  [_I, _A, _IMT, _IAn, _CTre, _SRe, _ISn, _SR, _ICE, _OCE, _IAU, _Ta],
   [0, 0, 0, [() => DirectoryAlias, 0], 4, 0, 0, () => InstanceStatusReason$, 2, 2, 0, 128 | 0]
 ];
 export var InstanceStatusReason$: StaticStructureSchema = [3, n0, _ISR,
@@ -6568,7 +6617,7 @@ export var InstanceStorageConfig$: StaticStructureSchema = [3, n0, _ISC,
 ];
 export var InstanceSummary$: StaticStructureSchema = [3, n0, _ISns,
   0,
-  [_I, _A, _IMT, _IAn, _CTre, _SR, _ISn, _ICE, _OCE, _IAU],
+  [_I, _A, _IMT, _IAn, _CTre, _SRe, _ISn, _ICE, _OCE, _IAU],
   [0, 0, 0, [() => DirectoryAlias, 0], 4, 0, 0, 2, 2, 0]
 ];
 export var IntegrationAssociationSummary$: StaticStructureSchema = [3, n0, _IAS,
@@ -7593,7 +7642,7 @@ export var OutboundRawMessage$: StaticStructureSchema = [3, n0, _ORM,
 ];
 export var OutboundStrategy$: StaticStructureSchema = [3, n0, _OSu,
   0,
-  [_T, _Conf],
+  [_T, _Confi],
   [0, () => OutboundStrategyConfig$], 1
 ];
 export var OutboundStrategyConfig$: StaticStructureSchema = [3, n0, _OSC,
@@ -8028,7 +8077,7 @@ export var RedactionConfiguration$: StaticStructureSchema = [3, n0, _RC,
 ];
 export var Reference$: StaticStructureSchema = [3, n0, _Refe,
   0,
-  [_T, _V, _St, _A, _SRt],
+  [_T, _V, _St, _A, _SR],
   [0, 0, 0, 0, 0], 1
 ];
 export var ReleasePhoneNumberRequest$: StaticStructureSchema = [3, n0, _RPNR,
@@ -8911,7 +8960,7 @@ export var StringCondition$: StaticStructureSchema = [3, n0, _SC,
   [_FNi, _V, _CTo],
   [0, 0, 0]
 ];
-export var StringReference$: StaticStructureSchema = [3, n0, _SRtr,
+export var StringReference$: StaticStructureSchema = [3, n0, _SRt,
   0,
   [_N, _V],
   [0, 0]
@@ -9368,12 +9417,12 @@ export var UpdateExtractionDefinitionResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateHoursOfOperationOverrideRequest$: StaticStructureSchema = [3, n0, _UHOOOR,
   0,
-  [_II, _HOOI, _HOOOI, _N, _D, _Conf, _EF, _ETf, _RCec, _OT],
+  [_II, _HOOI, _HOOOI, _N, _D, _Confi, _EF, _ETf, _RCec, _OT],
   [[0, 1], [0, 1], [0, 1], 0, 0, () => HoursOfOperationOverrideConfigList, 0, 0, () => RecurrenceConfig$, 0], 3
 ];
 export var UpdateHoursOfOperationRequest$: StaticStructureSchema = [3, n0, _UHOOR,
   0,
-  [_II, _HOOI, _N, _D, _TZ, _Conf],
+  [_II, _HOOI, _N, _D, _TZ, _Confi],
   [[0, 1], [0, 1], 0, 0, 0, () => HoursOfOperationConfigList], 2
 ];
 export var UpdateInstanceAttributeRequest$: StaticStructureSchema = [3, n0, _UIAR,
@@ -10165,6 +10214,9 @@ var ContactFlowTypes = 64 | 0;
 var ContactFlowVersionSummaryList: StaticListSchema = [1, n0, _CFVSL,
   0, () => ContactFlowVersionSummary$
 ];
+var ContactLensAnalyticsModeList = 64 | 0;
+var ContactLensRedactionEntitiesList = 64 | 0;
+var ContactLensSummaryModeList = 64 | 0;
 var ContactMetricResults: StaticListSchema = [1, n0, _CMRo,
   0, () => ContactMetricResult$
 ];
@@ -10414,6 +10466,7 @@ var InvisibleTaskTemplateFields: StaticListSchema = [1, n0, _ITTF,
 ];
 var IpCidrList = 64 | 0;
 var IsolatedRegionsList = 64 | 0;
+var LanguageLocales = 64 | 0;
 var LexBotConfigList: StaticListSchema = [1, n0, _LBCL,
   0, () => LexBotConfig$
 ];
@@ -11120,7 +11173,7 @@ export var CreateAgentStatus$: StaticOperationSchema = [9, n0, _CAS,
 export var CreateAttachedFile$: StaticOperationSchema = [9, n0, _CAFr,
   { [_h]: ["PUT", "/attached-files/{InstanceId}/files", 200] }, () => CreateAttachedFileRequest$, () => CreateAttachedFileResponse$
 ];
-export var CreateAuthCode$: StaticOperationSchema = [9, n0, _CAC,
+export var CreateAuthCode$: StaticOperationSchema = [9, n0, _CACr,
   { [_h]: ["POST", "/auth/code/{InstanceId}", 200] }, () => CreateAuthCodeRequest$, () => CreateAuthCodeResponse$
 ];
 export var CreateContact$: StaticOperationSchema = [9, n0, _CCr,
@@ -11894,7 +11947,7 @@ export var SearchResourceTags$: StaticOperationSchema = [9, n0, _SRT,
 export var SearchRoutingProfiles$: StaticOperationSchema = [9, n0, _SRP,
   { [_h]: ["POST", "/search-routing-profiles", 200] }, () => SearchRoutingProfilesRequest$, () => SearchRoutingProfilesResponse$
 ];
-export var SearchRules$: StaticOperationSchema = [9, n0, _SRe,
+export var SearchRules$: StaticOperationSchema = [9, n0, _SRea,
   { [_h]: ["POST", "/search-rules", 200] }, () => SearchRulesRequest$, () => SearchRulesResponse$
 ];
 export var SearchSecurityProfiles$: StaticOperationSchema = [9, n0, _SSP,

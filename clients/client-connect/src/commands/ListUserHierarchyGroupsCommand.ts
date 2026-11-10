@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListUserHierarchyGroupsRequest, ListUserHierarchyGroupsResponse } from "../models/models_2";
+import type { ListUserHierarchyGroupsRequest, ListUserHierarchyGroupsResponse } from "../models/models_3";
 import { ListUserHierarchyGroups$ } from "../schemas/schemas_0";
 
 /**

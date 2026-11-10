@@ -17,6 +17,7 @@ import type {
   EvaluationFormValidationStatus,
   EvaluationFormVersionStatus,
   InitiateAs,
+  LocaleCode,
   NotificationStatus,
   ParticipantTimerAction,
   ParticipantTimerType,
@@ -27,6 +28,7 @@ import type {
   TaskTemplateStatus,
   TestCaseStatus,
   TimerEligibleParticipantRoles,
+  UpdateOutboundEmailMessageSourceType,
   ViewStatus,
   ViewType,
   Visibility,
@@ -76,6 +78,7 @@ import type {
   ChatMetrics,
   ContactDetails,
   ContactEvaluation,
+  ContactLens,
   Customer,
   CustomerVoiceActivity,
   DisconnectDetails,
@@ -151,6 +154,158 @@ import type {
   WorkspaceAssociationSearchFilter,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateMetricMetadataResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateNotificationContentRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the notification to update.</p>
+   * @public
+   */
+  NotificationId: string | undefined;
+
+  /**
+   * <p>The updated localized content of the notification. A map of locale codes and values. Maximum 500 visible
+   *    characters per locale.</p>
+   * @public
+   */
+  Content: Partial<Record<LocaleCode, string>> | undefined;
+}
+
+/**
+ * <p>The response from updating notification content.</p>
+ * @public
+ */
+export interface UpdateNotificationContentResponse {}
+
+/**
+ * <p>Contains the raw body content of an outbound email draft.</p>
+ * @public
+ */
+export interface UpdateOutboundRawMessage {
+  /**
+   * <p>The email message body.</p>
+   * @public
+   */
+  Body: string | undefined;
+
+  /**
+   * <p>The content type of the email body. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>text/plain</code> – Plain text content.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>text/html</code> – HTML-formatted content.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ContentType: string | undefined;
+}
+
+/**
+ * <p>Contains the updated body content for an outbound email draft.</p>
+ * @public
+ */
+export interface UpdateOutboundEmailContent {
+  /**
+   * <p>The message source type. The only supported value is <code>RAW</code>.</p>
+   * @public
+   */
+  MessageSourceType: UpdateOutboundEmailMessageSourceType | undefined;
+
+  /**
+   * <p>The raw email body content.</p>
+   * @public
+   */
+  RawMessage: UpdateOutboundRawMessage | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOutboundEmailContactMessageRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Connect Customer. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The email message body to update on the outbound email draft.</p>
+   * @public
+   */
+  EmailMessage: UpdateOutboundEmailContent | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOutboundEmailContactMessageResponse {
+  /**
+   * <p>The identifier of the contact in this instance of Connect Customer. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateParticipantAuthenticationRequest {
+  /**
+   * <p>The <code>state</code> query parameter that was provided by Cognito in the <code>redirectUri</code>. This will
+   *    also match the <code>state</code> parameter provided in the <code>AuthenticationUrl</code> from the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetAuthenticationUrl.html">GetAuthenticationUrl</a>
+   *    response.</p>
+   * @public
+   */
+  State: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The <code>code</code> query parameter provided by Cognito in the <code>redirectUri</code>.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>The <code>error</code> query parameter provided by Cognito in the <code>redirectUri</code>.</p>
+   * @public
+   */
+  Error?: string | undefined;
+
+  /**
+   * <p>The <code>error_description</code> parameter provided by Cognito in the <code>redirectUri</code>.</p>
+   * @public
+   */
+  ErrorDescription?: string | undefined;
+}
 
 /**
  * @public
@@ -5525,6 +5680,13 @@ export interface Contact {
    * @public
    */
   GlobalResiliencyMetadata?: GlobalResiliencyMetadata | undefined;
+
+  /**
+   * <p>Information about the conversational analytics configuration applied to the contact. This field is present only for contacts
+   *    where conversational analytics is enabled in the contact flow.</p>
+   * @public
+   */
+  ContactLens?: ContactLens | undefined;
 }
 
 /**

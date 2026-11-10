@@ -40,13 +40,9 @@ import type {
   IntervalPeriod,
   LexVersion,
   ListFlowAssociationResourceType,
-  LocaleCode,
   MediaType,
   MetricStatus,
   MetricType,
-  NotificationPriority,
-  NotificationSource,
-  NotificationStatus,
   OperationalStatus,
   ParticipantRole,
   PhoneNumberCountryCode,
@@ -90,6 +86,7 @@ import type {
   CreatedByInfo,
   DataTableLockVersion,
   Distribution,
+  FailedBatchAssociationSummary,
   FlowAssociationSummary,
   FlowModule,
   InstanceStorageConfig,
@@ -100,8 +97,8 @@ import type {
   PrimaryValueResponse,
   QueueReference,
   SecurityProfileItem,
+  SuccessfulBatchAssociationSummary,
   TagCondition,
-  UserProficiency,
 } from "./models_0";
 import type {
   Attribute,
@@ -109,7 +106,6 @@ import type {
   EvaluationContactParticipant,
   EvaluationScore,
   ExtensionConfiguration,
-  HierarchyGroupSummary,
   HoursOfOperationOverride,
   HoursOfOperationsIdentifier,
   Notification,
@@ -118,6 +114,146 @@ import type {
   TaskTemplateDefaults,
   TaskTemplateField,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface DisassociateTrafficDistributionGroupUserRequest {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN of the traffic distribution group.</p>
+   * @public
+   */
+  TrafficDistributionGroupId: string | undefined;
+
+  /**
+   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTrafficDistributionGroupUserResponse {}
+
+/**
+ * <p>Information about proficiency to be disassociated from the user.</p>
+ * @public
+ */
+export interface UserProficiencyDisassociate {
+  /**
+   * <p>The name of user's proficiency.</p>
+   * @public
+   */
+  AttributeName: string | undefined;
+
+  /**
+   * <p>The value of user's proficiency.</p>
+   * @public
+   */
+  AttributeValue: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateUserProficienciesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
+   *    instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The proficiencies to disassociate from the user.</p>
+   * @public
+   */
+  UserProficiencies: UserProficiencyDisassociate[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateWorkspaceRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the workspace.</p>
+   * @public
+   */
+  WorkspaceId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the resources to disassociate from the workspace.</p>
+   * @public
+   */
+  ResourceArns: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateWorkspaceResponse {
+  /**
+   * <p>A list of resources that were successfully disassociated from the workspace.</p>
+   * @public
+   */
+  SuccessfulList?: SuccessfulBatchAssociationSummary[] | undefined;
+
+  /**
+   * <p>A list of resources that failed to be disassociated from the workspace, including error details.</p>
+   * @public
+   */
+  FailedList?: FailedBatchAssociationSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DismissUserContactRequest {
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact.</p>
+   * @public
+   */
+  ContactId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DismissUserContactResponse {}
 
 /**
  * <p>A data table value evaluation set.</p>
@@ -11368,228 +11504,4 @@ export interface UseCase {
    * @public
    */
   UseCaseType?: UseCaseType | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUseCasesResponse {
-  /**
-   * <p>The use cases.</p>
-   * @public
-   */
-  UseCaseSummaryList?: UseCase[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserHierarchyGroupsRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserHierarchyGroupsResponse {
-  /**
-   * <p>Information about the hierarchy groups.</p>
-   * @public
-   */
-  UserHierarchyGroupSummaryList?: HierarchyGroupSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserNotificationsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page. Valid range is 1-1000.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The identifier of the user.</p>
-   * @public
-   */
-  UserId: string | undefined;
-}
-
-/**
- * <p>Summary information about a notification for a specific user, including the user's read status.</p>
- * @public
- */
-export interface UserNotificationSummary {
-  /**
-   * <p>The unique identifier for the notification.</p>
-   * @public
-   */
-  NotificationId?: string | undefined;
-
-  /**
-   * <p>The status of the notification for this user. Valid values are READ, UNREAD, and HIDDEN.</p>
-   * @public
-   */
-  NotificationStatus?: NotificationStatus | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The identifier of the recipient user.</p>
-   * @public
-   */
-  RecipientId?: string | undefined;
-
-  /**
-   * <p>The localized content of the notification.</p>
-   * @public
-   */
-  Content?: Partial<Record<LocaleCode, string>> | undefined;
-
-  /**
-   * <p>The priority level of the notification.</p>
-   * @public
-   */
-  Priority?: NotificationPriority | undefined;
-
-  /**
-   * <p>The source that created the notification. Valid values are CUSTOMER, RULES, and SYSTEM.</p>
-   * @public
-   */
-  Source?: NotificationSource | undefined;
-
-  /**
-   * <p>The timestamp when the notification was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp when the notification expires.</p>
-   * @public
-   */
-  ExpiresAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserNotificationsResponse {
-  /**
-   * <p>A list of notifications sent to the specified user.</p>
-   * @public
-   */
-  UserNotifications?: UserNotificationSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results. If present, there are more results available.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserProficienciesRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserProficienciesResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the user proficiencies.</p>
-   * @public
-   */
-  UserProficiencyList?: UserProficiency[] | undefined;
-
-  /**
-   * <p>The last time that the user's proficiencies are were modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The region in which a user's proficiencies were last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
 }

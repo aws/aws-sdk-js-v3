@@ -23,7 +23,7 @@ export interface PauseContactCommandInput extends PauseContactRequest {}
 export interface PauseContactCommandOutput extends PauseContactResponse, __MetadataBearer {}
 
 /**
- * <p>Allows pausing an ongoing task contact.</p>
+ * <p>Pauses an ongoing task or email contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

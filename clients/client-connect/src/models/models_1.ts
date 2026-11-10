@@ -84,7 +84,6 @@ import type {
   ExternalInvocationConfiguration,
   ExtractionConfiguration,
   ExtractionDefinitionDisplay,
-  FailedBatchAssociationSummary,
   GranularAccessControlConfiguration,
   HoursOfOperationConfig,
   HoursOfOperationOverrideConfig,
@@ -106,7 +105,6 @@ import type {
   RuleAction,
   RuleTriggerEventSource,
   SecurityProfileItem,
-  SuccessfulBatchAssociationSummary,
   TaskTemplateFieldIdentifier,
   Validation,
 } from "./models_0";
@@ -3107,6 +3105,249 @@ export interface ContactEvaluation {
    * @public
    */
   ExportLocation?: string | undefined;
+}
+
+/**
+ * <p>The per-channel conversational analytics configuration for a contact.</p>
+ * @public
+ */
+export interface ContactLensChannelConfiguration {
+  /**
+   * <p>The conversational analytics modes enabled for the channel. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>RealTime</code> – Real-time analysis is enabled during the contact. Voice channel only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PostContact</code> – Post-contact analysis is enabled after the contact ends. Voice channel only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ContactLens</code> – Conversational analytics is enabled for the contact. Chat channel only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AnalyticsModes?: string[] | undefined;
+}
+
+/**
+ * <p>The redaction configuration for conversational analytics transcripts.</p>
+ * @public
+ */
+export interface ContactLensRedactionConfiguration {
+  /**
+   * <p>Specifies whether redaction is enabled for sensitive data, such as personal information, in the conversational analytics
+   *    output. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Enable</code> – Redaction is applied according to the other values in this object.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Disable</code> – Redaction is not applied, and all other values in this object are ignored.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Behavior?: string | undefined;
+
+  /**
+   * <p>The redaction policy that determines which versions of the transcript are stored. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>None</code> – No redaction is applied.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RedactedOnly</code> – Only the redacted transcript is stored.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RedactedAndOriginal</code> – Both the redacted and the original transcript are stored.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Policy?: string | undefined;
+
+  /**
+   * <p>The entity types to redact from the transcript (for example, <code>NAME</code>, <code>EMAIL</code>,
+   *    <code>ADDRESS</code>).</p>
+   * @public
+   */
+  Entities?: string[] | undefined;
+
+  /**
+   * <p>How sensitive information is masked in the transcript. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PII</code> – All redacted entities are replaced with the <code>[PII]</code> string.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EntityType</code> – All redacted entities are replaced with the label of the entity. For example, when
+   *      the <code>EMAIL</code> entity is configured for redaction, emails in the transcript are replaced with the
+   *      <code>[EMAIL]</code> string.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MaskMode?: string | undefined;
+}
+
+/**
+ * <p>The conversational analytics sentiment analysis configuration for a contact.</p>
+ * @public
+ */
+export interface ContactLensSentimentConfiguration {
+  /**
+   * <p>Specifies whether sentiment analysis is enabled for the contact. The default value is <code>Disable</code>. Valid
+   *    values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Enable</code> – Sentiment analysis is performed on the contact.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Disable</code> – Sentiment analysis is not performed on the contact.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Behavior?: string | undefined;
+}
+
+/**
+ * <p>The conversational analytics summary configuration for a contact.</p>
+ * @public
+ */
+export interface ContactLensSummaryConfiguration {
+  /**
+   * <p>The conversational analytics summary modes enabled for the contact. Valid values: <code>PostContact</code> |
+   *    <code>AutomatedInteraction</code> | <code>ContactChain</code>.</p>
+   * @public
+   */
+  SummaryModes?: string[] | undefined;
+}
+
+/**
+ * <p>The conversational analytics configuration settings for a contact.</p>
+ * @public
+ */
+export interface ConversationalAnalyticsConfiguration {
+  /**
+   * <p>Specifies whether conversational analytics is enabled for the contact.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The language locale that conversational analytics uses to analyze the contact (for example, <code>en-US</code>).</p>
+   * @public
+   */
+  LanguageLocale?: string | undefined;
+
+  /**
+   * <p>The language locales that conversational analytics uses to analyze the contact (for example, <code>en-US</code> and <code>es-ES</code>).</p>
+   * @public
+   */
+  LanguageLocales?: string[] | undefined;
+
+  /**
+   * <p>The per-channel conversational analytics settings for the contact.</p>
+   * @public
+   */
+  ChannelConfiguration?: ContactLensChannelConfiguration | undefined;
+
+  /**
+   * <p>The redaction configuration for the contact transcript.</p>
+   * @public
+   */
+  RedactionConfiguration?: ContactLensRedactionConfiguration | undefined;
+
+  /**
+   * <p>The summary configuration for the contact.</p>
+   * @public
+   */
+  SummaryConfiguration?: ContactLensSummaryConfiguration | undefined;
+
+  /**
+   * <p>The sentiment analysis configuration for the contact.</p>
+   * @public
+   */
+  SentimentConfiguration?: ContactLensSentimentConfiguration | undefined;
+}
+
+/**
+ * <p>The current processing state of conversational analytics for a contact, including the analysis status and, when
+ *    applicable, the reason for that status.</p>
+ * @public
+ */
+export interface ContactAnalysisReferenceState {
+  /**
+   * <p>The status of conversational analytics processing for the contact. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>REQUESTED</code> – Analysis has been requested for the contact and has not finished.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> – Analysis finished successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – Analysis did not finish successfully. See <code>StatusReason</code> for the cause.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The reason for the current analysis status. This value is populated only when the status is
+   *    <code>FAILED</code>.</p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+}
+
+/**
+ * <p>Contains the conversational analytics configuration and state for a contact.</p>
+ * @public
+ */
+export interface ConversationalAnalytics {
+  /**
+   * <p>The conversational analytics settings that apply to the contact.</p>
+   * @public
+   */
+  Configuration?: ConversationalAnalyticsConfiguration | undefined;
+
+  /**
+   * <p>The current state of conversational analytics processing for the contact.</p>
+   * @public
+   */
+  ContactAnalysisReferenceState?: ContactAnalysisReferenceState | undefined;
+}
+
+/**
+ * <p>Information about the conversational analytics configuration applied to the contact. This field is present only for contacts
+ *    where conversational analytics is enabled in the contact flow.</p>
+ * @public
+ */
+export interface ContactLens {
+  /**
+   * <p>The conversational analytics configuration applied to the contact.</p>
+   * @public
+   */
+  ConversationalAnalytics?: ConversationalAnalytics | undefined;
 }
 
 /**
@@ -8031,143 +8272,3 @@ export interface DisassociateSecurityProfilesRequest {
    */
   EntityArn: string | undefined;
 }
-
-/**
- * @public
- */
-export interface DisassociateTrafficDistributionGroupUserRequest {
-  /**
-   * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN of the traffic distribution group.</p>
-   * @public
-   */
-  TrafficDistributionGroupId: string | undefined;
-
-  /**
-   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTrafficDistributionGroupUserResponse {}
-
-/**
- * <p>Information about proficiency to be disassociated from the user.</p>
- * @public
- */
-export interface UserProficiencyDisassociate {
-  /**
-   * <p>The name of user's proficiency.</p>
-   * @public
-   */
-  AttributeName: string | undefined;
-
-  /**
-   * <p>The value of user's proficiency.</p>
-   * @public
-   */
-  AttributeValue: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateUserProficienciesRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The proficiencies to disassociate from the user.</p>
-   * @public
-   */
-  UserProficiencies: UserProficiencyDisassociate[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateWorkspaceRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the workspace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the resources to disassociate from the workspace.</p>
-   * @public
-   */
-  ResourceArns: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateWorkspaceResponse {
-  /**
-   * <p>A list of resources that were successfully disassociated from the workspace.</p>
-   * @public
-   */
-  SuccessfulList?: SuccessfulBatchAssociationSummary[] | undefined;
-
-  /**
-   * <p>A list of resources that failed to be disassociated from the workspace, including error details.</p>
-   * @public
-   */
-  FailedList?: FailedBatchAssociationSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DismissUserContactRequest {
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DismissUserContactResponse {}

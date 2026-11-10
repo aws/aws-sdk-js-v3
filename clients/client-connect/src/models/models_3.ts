@@ -43,6 +43,8 @@ import type {
   MetricUnit,
   MonitorCapability,
   NotificationPriority,
+  NotificationSource,
+  NotificationStatus,
   NotificationType,
   NumberComparisonType,
   OutboundMessageSourceType,
@@ -68,7 +70,6 @@ import type {
   TestCaseExecutionStatus,
   TrafficType,
   TrendIndicator,
-  UpdateOutboundEmailMessageSourceType,
   ViewStatus,
   ViewType,
   Visibility,
@@ -101,6 +102,7 @@ import type {
   RuleTriggerEventSource,
   StringCondition,
   TagCondition,
+  UserProficiency,
   Validation,
 } from "./models_0";
 import type {
@@ -112,6 +114,7 @@ import type {
   EvaluationNote,
   ExtensionConfiguration,
   HierarchyGroup,
+  HierarchyGroupSummary,
   HoursOfOperation,
   HoursOfOperationOverride,
   MetricDefinition,
@@ -127,6 +130,231 @@ import type {
   View,
   VoiceEnhancementConfig,
 } from "./models_1";
+import type { UseCase } from "./models_2";
+
+/**
+ * @public
+ */
+export interface ListUseCasesResponse {
+  /**
+   * <p>The use cases.</p>
+   * @public
+   */
+  UseCaseSummaryList?: UseCase[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUserHierarchyGroupsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUserHierarchyGroupsResponse {
+  /**
+   * <p>Information about the hierarchy groups.</p>
+   * @public
+   */
+  UserHierarchyGroupSummaryList?: HierarchyGroupSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUserNotificationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. Valid range is 1-1000.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The identifier of the user.</p>
+   * @public
+   */
+  UserId: string | undefined;
+}
+
+/**
+ * <p>Summary information about a notification for a specific user, including the user's read status.</p>
+ * @public
+ */
+export interface UserNotificationSummary {
+  /**
+   * <p>The unique identifier for the notification.</p>
+   * @public
+   */
+  NotificationId?: string | undefined;
+
+  /**
+   * <p>The status of the notification for this user. Valid values are READ, UNREAD, and HIDDEN.</p>
+   * @public
+   */
+  NotificationStatus?: NotificationStatus | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The identifier of the recipient user.</p>
+   * @public
+   */
+  RecipientId?: string | undefined;
+
+  /**
+   * <p>The localized content of the notification.</p>
+   * @public
+   */
+  Content?: Partial<Record<LocaleCode, string>> | undefined;
+
+  /**
+   * <p>The priority level of the notification.</p>
+   * @public
+   */
+  Priority?: NotificationPriority | undefined;
+
+  /**
+   * <p>The source that created the notification. Valid values are CUSTOMER, RULES, and SYSTEM.</p>
+   * @public
+   */
+  Source?: NotificationSource | undefined;
+
+  /**
+   * <p>The timestamp when the notification was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the notification expires.</p>
+   * @public
+   */
+  ExpiresAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUserNotificationsResponse {
+  /**
+   * <p>A list of notifications sent to the specified user.</p>
+   * @public
+   */
+  UserNotifications?: UserNotificationSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. If present, there are more results available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUserProficienciesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
+   *    instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUserProficienciesResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the user proficiencies.</p>
+   * @public
+   */
+  UserProficiencyList?: UserProficiency[] | undefined;
+
+  /**
+   * <p>The last time that the user's proficiencies are were modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The region in which a user's proficiencies were last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
 
 /**
  * @public
@@ -6564,7 +6792,8 @@ export interface UpdateAuthenticationProfileRequest {
 }
 
 /**
- * Additional recipients for UpdateContact, allowing an empty list to clear CC recipients.
+ * <p>The additional recipients of an outbound email that you can update. An empty list of
+ *    <code>CcEmailAddresses</code> clears the existing CC recipients.</p>
  * @public
  */
 export interface NullableAdditionalRecipients {
@@ -7626,156 +7855,4 @@ export interface UpdateMetricMetadataRequest {
    * @public
    */
   Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMetricMetadataResponse {}
-
-/**
- * @public
- */
-export interface UpdateNotificationContentRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the notification to update.</p>
-   * @public
-   */
-  NotificationId: string | undefined;
-
-  /**
-   * <p>The updated localized content of the notification. A map of locale codes and values. Maximum 500 visible
-   *    characters per locale.</p>
-   * @public
-   */
-  Content: Partial<Record<LocaleCode, string>> | undefined;
-}
-
-/**
- * <p>The response from updating notification content.</p>
- * @public
- */
-export interface UpdateNotificationContentResponse {}
-
-/**
- * <p>Contains the raw body content of an outbound email draft.</p>
- * @public
- */
-export interface UpdateOutboundRawMessage {
-  /**
-   * <p>The email message body.</p>
-   * @public
-   */
-  Body: string | undefined;
-
-  /**
-   * <p>The content type of the email body. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>text/plain</code> – Plain text content.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>text/html</code> – HTML-formatted content.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ContentType: string | undefined;
-}
-
-/**
- * <p>Contains the updated body content for an outbound email draft.</p>
- * @public
- */
-export interface UpdateOutboundEmailContent {
-  /**
-   * <p>The message source type. The only supported value is <code>RAW</code>.</p>
-   * @public
-   */
-  MessageSourceType: UpdateOutboundEmailMessageSourceType | undefined;
-
-  /**
-   * <p>The raw email body content.</p>
-   * @public
-   */
-  RawMessage: UpdateOutboundRawMessage | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateOutboundEmailContactMessageRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Connect Customer. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The email message body to update on the outbound email draft.</p>
-   * @public
-   */
-  EmailMessage: UpdateOutboundEmailContent | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateOutboundEmailContactMessageResponse {
-  /**
-   * <p>The identifier of the contact in this instance of Connect Customer. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateParticipantAuthenticationRequest {
-  /**
-   * <p>The <code>state</code> query parameter that was provided by Cognito in the <code>redirectUri</code>. This will
-   *    also match the <code>state</code> parameter provided in the <code>AuthenticationUrl</code> from the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetAuthenticationUrl.html">GetAuthenticationUrl</a>
-   *    response.</p>
-   * @public
-   */
-  State: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The <code>code</code> query parameter provided by Cognito in the <code>redirectUri</code>.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>The <code>error</code> query parameter provided by Cognito in the <code>redirectUri</code>.</p>
-   * @public
-   */
-  Error?: string | undefined;
-
-  /**
-   * <p>The <code>error_description</code> parameter provided by Cognito in the <code>redirectUri</code>.</p>
-   * @public
-   */
-  ErrorDescription?: string | undefined;
 }

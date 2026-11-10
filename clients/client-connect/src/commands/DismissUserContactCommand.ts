@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DismissUserContactRequest, DismissUserContactResponse } from "../models/models_1";
+import type { DismissUserContactRequest, DismissUserContactResponse } from "../models/models_2";
 import { DismissUserContact$ } from "../schemas/schemas_0";
 
 /**
