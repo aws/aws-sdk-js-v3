@@ -47,7 +47,7 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.980.2",
     "@aws-sdk/credential-provider-node": "workspace:^3.972.95",
-    "@smithy/core": "^3.39.0",
+    "@smithy/core": "^3.40.0",
     "@smithy/node-http-handler": "^4.14.2",
     "@smithy/typecheck": "^1.3.2",
     "@smithy/types": "^4.20.0",

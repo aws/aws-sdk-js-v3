@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.975.1",
-    "@smithy/core": "^3.39.0",
+    "@smithy/core": "^3.40.0",
     "@smithy/types": "^4.20.0",
     "tslib": "^2.6.2"
   },
