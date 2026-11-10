@@ -42,28 +42,35 @@ yarn generate:lambda-provided-sdk --out ~/payload
 Write the output somewhere with room for it: the tree is ~130 MB before zipping, and the
 assembler deletes `--out` before writing to it.
 
-The run prints a numbered step for each stage. Steps `4b` and `5b` through `5d` are the
-verification gates; any of them failing aborts the build before the zip is written.
+The run prints an `assembling` phase, then a `verifying` phase in which every gate reports
+`ok` with what it checked; any gate failing aborts the build before the zip is written.
 
 ```console
-1. 514 publishable workspace packages
-2. copied 70399 published files; stripped workspace: from 506 manifests
-3. copied runtime closure: 101 external packages
-4. 46 forwarders generated, 43 declared packages copied
-4b. verified 47 deprecated packages against their recorded exports
-5. layout applied (@aws-sdk/node_modules + root @smithy symlink)
-5a. trimmed 1208 dist-es/dist-types dirs (281.9 MB reclaimed)
-5b. tree is self-contained: 4343 dependency edges across 752 packages
-5c. 172 subpaths across 27 packages resolve
-5d. 736 main entries load from the tree (16 exempt)
-    smoke test passed: 4 packages
-6. metadata.json  sdkVersion 3.1157.0, commit 7b0fa8722
-7. aws-sdk-js-v3-lambda-nodejs-runtimes.zip  32.9 MB
-8. aws-sdk-js-v3-lambda-nodejs-runtimes.zip.sha256  54bfa91f...
+assembling
+  workspace packages      514
+  published files      70,399 (stripped workspace: from 506 manifests)
+  runtime closure         101 external
+  forwarders               46 generated, 43 copied
+  layout                      @aws-sdk/node_modules + root @smithy symlink
+  trimmed               1,208 dirs, 281.9 MB reclaimed
+
+verifying
+  ok  forwarder exports       47 packages
+  ok  tree self-contained  4,343 edges across 752 packages
+  ok  subpath exports        172 subpaths across 27 packages (skipped 3 pattern keys, 1 not require-reachable)
+  ok  main entries           736 loaded, 16 exempt (7 core-module names, 5 exports maps with no require-reachable ".", 4 types-only)
+  ok  smoke test               4 packages
+
+aws-sdk-js-v3-lambda-nodejs-runtimes.zip   32.9 MB
+  sha256       3ffff6d23c3b646b314f256a2067af80e9fb28b5586286722845a225e199bc73
+  sdkVersion   3.1157.0 @ 951db7429
 ```
 
-`--tree-only` is the fast path while iterating. `--skip-legacy` produces an incomplete tree
-and is for debugging only.
+The run also echoes each child process it starts, which interleaves with the gate lines.
+
+`--tree-only` is the fast path while iterating; it stops after the gates and prints the
+path to the tree in place of the artifact block. `--skip-legacy` produces an incomplete
+tree and is for debugging only, and its run has no forwarder lines.
 
 ### Output
 
@@ -80,8 +87,9 @@ tool that preserves symlinks; standard `unzip` does.
 
 ## Verifying a built payload
 
-Runs the same gates the assembler runs, against a payload that already exists. Step `4b`
-is not included: it asserts the pre-layout tree, which a finished payload is not.
+Runs the same gates the assembler runs, against a payload that already exists. The
+forwarder-exports gate is not included: it asserts the pre-layout tree, which a finished
+payload is not.
 
 ```
   --tree  Payload directory, or its node_modules           [string] [required]

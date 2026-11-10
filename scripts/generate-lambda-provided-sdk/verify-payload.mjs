@@ -23,6 +23,18 @@ const execFileSync = (cmd, args, opts) => {
 export const OUTPUT_SENTINEL = ".aws-sdk-js-v3-lambda-nodejs-runtimes-output";
 
 /**
+ * One gate's success line: `ok` marker, label column, right-aligned count. ASCII only,
+ * so it reads the same in a CodeBuild log.
+ *
+ * @param {string} label
+ * @param {number} count
+ * @param {string} note
+ * @returns {string}
+ */
+export const gateLine = (label, count, note) =>
+  `  ok  ${label.padEnd(19)}${count.toLocaleString("en-US").padStart(7)} ${note}`;
+
+/**
  * Resolve --out to one absolute path and decide whether it is safe to wipe, or throw.
  * Returns a path the assembler may clear: only a directory this script created, never
  * the repo, your home, or someone else's work.
@@ -166,7 +178,7 @@ export const verifyTreeComplete = ({ outDir }) => {
     );
   }
 
-  console.log(`5b. tree is self-contained: ${edges} dependency edges across ${packages.length} packages`);
+  console.log(gateLine("tree self-contained", edges, `edges across ${packages.length} packages`));
 };
 
 // A CJS `require()` matches only these. An entry offering only `import`/`types`/`module`/
@@ -349,8 +361,12 @@ export const verifySubpathExports = ({ outDir }) => {
 
   const packageCount = new Set(requests.map((request) => request.package)).size;
   console.log(
-    `5c. ${requests.length} subpaths across ${packageCount} packages resolve ` +
-      `(skipped ${patternKeys} pattern keys, ${unreachable} not require-reachable)`
+    gateLine(
+      "subpath exports",
+      requests.length,
+      `subpaths across ${packageCount} packages ` +
+        `(skipped ${patternKeys} pattern keys, ${unreachable} not require-reachable)`
+    )
   );
 };
 
@@ -506,9 +522,12 @@ export const verifyMainEntries = ({ outDir }) => {
 
   const exemptTotal = exempt.builtin + exempt.noDot + exempt.types;
   console.log(
-    `5d. ${targets.length} main entries load from the tree (${exemptTotal} exempt: ` +
-      `${exempt.builtin} core-module names, ${exempt.noDot} exports maps with no ` +
-      `require-reachable ".", ${exempt.types} types-only)`
+    gateLine(
+      "main entries",
+      targets.length,
+      `loaded, ${exemptTotal} exempt (${exempt.builtin} core-module names, ` +
+        `${exempt.noDot} exports maps with no require-reachable ".", ${exempt.types} types-only)`
+    )
   );
 };
 
@@ -524,7 +543,7 @@ export const smokeTest = ({ outDir }) => {
   writeFileSync(
     consumer,
     targets.map((t) => `require(${JSON.stringify(t)});`).join("\n") +
-      `\nconsole.log("smoke test passed: ${targets.length} packages");\n`
+      `\nconsole.log(${JSON.stringify(gateLine("smoke test", targets.length, "packages"))});\n`
   );
   try {
     execFileSync(process.execPath, [consumer], { stdio: "inherit" });
@@ -542,6 +561,7 @@ export const smokeTest = ({ outDir }) => {
  * cannot drift from the tree.
  *
  * @param {{ shims: Record<string, any>, outDir: string, legacyDepsPackage: string }} options
+ * @returns {number} packages verified; the caller reports it in the verifying phase.
  */
 export const verifyShimExports = ({ shims, outDir, legacyDepsPackage }) => {
   // __exportStar copies whatever the target exports, so a forwarder aimed at the wrong
@@ -585,7 +605,7 @@ export const verifyShimExports = ({ shims, outDir, legacyDepsPackage }) => {
   if (shortfalls.length) {
     throw new Error(`deprecated packages are not usable as recorded:\n  ` + shortfalls.join("\n  "));
   }
-  console.log(`4b. verified ${Object.keys(shims).length} deprecated packages against their recorded exports`);
+  return Object.keys(shims).length;
 };
 
 // ---------------------------------------------------------------- cli

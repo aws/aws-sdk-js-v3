@@ -35,6 +35,7 @@ import { fileURLToPath } from "node:url";
 
 import { getWorkspacePaths } from "../utils/getWorkspacePaths.mjs";
 import {
+  gateLine,
   OUTPUT_SENTINEL,
   resolveOutDir,
   smokeTest,
@@ -92,6 +93,12 @@ const execFileSync = (cmd, args, opts) => {
 };
 
 const log = (...args) => console.log(...args);
+
+// For logging per step
+const step = (label, count, note = "") => {
+  const cell = typeof count === "number" ? count.toLocaleString("en-US") : count;
+  log(`  ${label.padEnd(18)}${cell.padStart(9)}${note ? ` ${note}` : ""}`);
+};
 
 // ---------------------------------------------------------------- manifests
 
@@ -343,6 +350,8 @@ export const assemblePayload = () => {
 
   writeFileSync(join(outDir, OUTPUT_SENTINEL), `Created by scripts/generate-lambda-provided-sdk. Safe to delete.\n`);
 
+  log("assembling");
+
   // 1. Enumerate publishable workspace packages.
   const workspacePackages = new Map();
   for (const pkgDir of getWorkspacePaths()) {
@@ -359,7 +368,7 @@ export const assemblePayload = () => {
     }
     workspacePackages.set(manifest.name, { dir: pkgDir, manifest });
   }
-  log(`1. ${workspacePackages.size} publishable workspace packages`);
+  step("workspace packages", workspacePackages.size);
 
   // 2. Copy each one as npm would publish it, then fix its manifest.
   let fileCount = 0;
@@ -372,7 +381,7 @@ export const assemblePayload = () => {
       rewritten += 1;
     }
   }
-  log(`2. copied ${fileCount} published files; stripped workspace: from ${rewritten} manifests`);
+  step("published files", fileCount, `(stripped workspace: from ${rewritten} manifests)`);
 
   // 3. Copy the runtime dependency closure out of the root node_modules.
   const seen = new Set();
@@ -382,7 +391,7 @@ export const assemblePayload = () => {
     }
   }
   const external = seen.size;
-  log(`3. copied runtime closure: ${external} external packages`);
+  step("runtime closure", external, "external");
 
   // 4. Add the deprecated packages this workspace cannot produce. Two mechanisms:
   //
@@ -397,8 +406,9 @@ export const assemblePayload = () => {
   //   private/aws-lambda-provided-sdk-deps, which this step reads the list from.
 
   let legacyAdded = 0;
+  let verifiedShims = 0;
   if (skipLegacy) {
-    log(`4. SKIPPED legacy packages — tree is incomplete and will fail the compatibility gates`);
+    log(`  SKIPPED legacy packages — tree is incomplete and will fail the compatibility gates`);
   } else {
     const { awsSdkShims } = JSON.parse(readFileSync(join(__dirname, "shim-targets.json"), "utf-8"));
 
@@ -494,21 +504,27 @@ export const assemblePayload = () => {
     }
 
     legacyAdded = copied + generated;
-    log(`4. ${generated} forwarders generated, ${copied} declared packages copied`);
+    step("forwarders", generated, `generated, ${copied} copied`);
 
     // 4b. Assert every forwarder delivers what the compatibility snapshot records.
     // Runs before applyLayout(): every package still sits directly under
-    // node_modules and resolves from the output root.
-    verifyShimExports({ shims: awsSdkShims, outDir, legacyDepsPackage });
+    // node_modules and resolves from the output root. Its line is reported with the
+    // other gates below.
+    verifiedShims = verifyShimExports({ shims: awsSdkShims, outDir, legacyDepsPackage });
   }
 
   // 5. Rearrange into the layout consumers expect.
   applyLayout();
-  log(`5. layout applied (@aws-sdk/node_modules + root @smithy symlink)`);
+  step("layout", "", "@aws-sdk/node_modules + root @smithy symlink");
 
   // 5a. Drop the ESM and type builds; no CJS consumer in the payload can reach them.
   const { dirs, bytes } = trimScopedBuilds();
-  log(`5a. trimmed ${dirs} dist-es/dist-types dirs (${(bytes / 1024 / 1024).toFixed(1)} MB reclaimed)`);
+  step("trimmed", dirs, `dirs, ${(bytes / 1024 / 1024).toFixed(1)} MB reclaimed`);
+
+  log("\nverifying");
+  if (!skipLegacy) {
+    log(gateLine("forwarder exports", verifiedShims, "packages"));
+  }
 
   // 5b. Prove the tree is self-contained.
   // These four run after the layout move: non-@aws-sdk packages are under
@@ -535,6 +551,7 @@ export const assemblePayload = () => {
       return execFileSync("git", args, {
         cwd: rootDir,
         encoding: "utf-8",
+        stdio: ["ignore", "pipe", "ignore"],
       }).trim();
     } catch {
       return fallback;
@@ -563,8 +580,6 @@ export const assemblePayload = () => {
   // are auditable without reading the SDK repo at the matching commit.
   copyFileSync(join(__dirname, "shim-targets.json"), join(outDir, "shim-targets.json"));
 
-  log(`6. metadata.json  sdkVersion ${metadata.sdkVersion}, commit ${metadata.gitCommit.slice(0, 9)}`);
-
   // 7. Zip, and checksum the exact bytes that will be uploaded.
   const zipPath = join(outDir, zipName);
   execFileSync("zip", ["-ryq", zipPath, "node_modules", "metadata.json", "shim-targets.json"], { cwd: outDir });
@@ -574,6 +589,8 @@ export const assemblePayload = () => {
   });
   writeFileSync(join(outDir, `${zipName}.sha256`), checksum);
 
-  log(`7. ${zipName}  ${(statSync(zipPath).size / 1024 / 1024).toFixed(1)} MB`);
-  log(`8. ${zipName}.sha256  ${checksum.trim().split(/\s+/)[0]}`);
+  // 8. The artifact, and what identifies it.
+  log(`\n${zipName}   ${(statSync(zipPath).size / 1024 / 1024).toFixed(1)} MB`);
+  log(`  ${"sha256".padEnd(13)}${checksum.trim().split(/\s+/)[0]}`);
+  log(`  ${"sdkVersion".padEnd(13)}${metadata.sdkVersion} @ ${metadata.gitCommit.slice(0, 9)}`);
 };
