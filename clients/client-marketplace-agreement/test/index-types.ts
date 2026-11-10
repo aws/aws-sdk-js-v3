@@ -144,6 +144,7 @@ export type {
   FixedPercentage,
   FixedUpfrontPricingTerm,
   FreeTrialPricingTerm,
+  FreeTrialSummary,
   GetAgreementCancellationRequestInput,
   GetAgreementCancellationRequestOutput,
   GetAgreementEntitlementsInput,

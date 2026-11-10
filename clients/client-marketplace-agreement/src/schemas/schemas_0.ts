@@ -74,6 +74,7 @@ const _F = "Filter";
 const _FL = "FilterList";
 const _FP = "FixedPercentage";
 const _FTPT = "FreeTrialPricingTerm";
+const _FTS = "FreeTrialSummary";
 const _FUPT = "FixedUpfrontPricingTerm";
 const _GACR = "GetAgreementCancellationRequest";
 const _GACRI = "GetAgreementCancellationRequestInput";
@@ -251,7 +252,9 @@ const _en = "entitlements";
 const _er = "errors";
 const _f = "fields";
 const _fP = "fixedPercentage";
+const _fTET = "freeTrialEndTime";
 const _fTPT = "freeTrialPricingTerm";
+const _fTS = "freeTrialSummary";
 const _fUPT = "fixedUpfrontPricingTerm";
 const _fi = "filters";
 const _g = "grants";
@@ -347,6 +350,7 @@ const _t = "type";
 const _tA = "totalAmount";
 const _tC = "taxConfiguration";
 const _tE = "taxEstimation";
+const _tET = "trialEndTime";
 const _tI = "termId";
 const _tT = "termTemplates";
 const _ti = "time";
@@ -498,8 +502,8 @@ export var AgreementInvoiceLineItemGroupSummary$: StaticStructureSchema = [3, n0
 ];
 export var AgreementViewSummary$: StaticStructureSchema = [3, n0, _AVS,
   0,
-  [_aI, _aTc, _sT, _eT, _lUT, _aT, _a, _p, _pS, _st, _en, _iAI, _eTBT, _eTBRC],
-  [0, 4, 4, 4, 4, 0, () => Acceptor$, () => Proposer$, () => ProposalSummary$, 0, () => EntitlementList, 0, 0, 0]
+  [_aI, _aTc, _sT, _eT, _lUT, _aT, _a, _p, _pS, _st, _en, _iAI, _eTBT, _eTBRC, _fTET],
+  [0, 4, 4, 4, 4, 0, () => Acceptor$, () => Proposer$, () => ProposalSummary$, 0, () => EntitlementList, 0, 0, 0, 4]
 ];
 export var BatchCreateBillingAdjustmentError$: StaticStructureSchema = [3, n0, _BCBAE,
   0,
@@ -613,8 +617,8 @@ export var DescribeAgreementInput$: StaticStructureSchema = [3, n0, _DAI,
 ];
 export var DescribeAgreementOutput$: StaticStructureSchema = [3, n0, _DAO,
   0,
-  [_aI, _a, _p, _sT, _eT, _aTc, _aT, _eCs, _pS, _st, _iAI, _eTB],
-  [0, () => Acceptor$, () => Proposer$, 4, 4, 4, 0, () => EstimatedCharges$, () => ProposalSummary$, 0, 0, () => EndTimeBehavior$]
+  [_aI, _a, _p, _sT, _eT, _aTc, _aT, _eCs, _pS, _st, _iAI, _eTB, _fTS],
+  [0, () => Acceptor$, () => Proposer$, 4, 4, 4, 0, () => EstimatedCharges$, () => ProposalSummary$, 0, 0, () => EndTimeBehavior$, () => FreeTrialSummary$]
 ];
 export var Dimension$: StaticStructureSchema = [3, n0, _D,
   0,
@@ -670,6 +674,11 @@ export var FreeTrialPricingTerm$: StaticStructureSchema = [3, n0, _FTPT,
   0,
   [_t, _id, _du, _g],
   [0, 0, 0, () => GrantList]
+];
+export var FreeTrialSummary$: StaticStructureSchema = [3, n0, _FTS,
+  0,
+  [_tET],
+  [4]
 ];
 export var GetAgreementCancellationRequestInput$: StaticStructureSchema = [3, n0, _GACRI,
   0,

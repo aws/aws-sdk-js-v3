@@ -488,7 +488,7 @@ export interface FreeTrialPricingTerm {
   id?: string | undefined;
 
   /**
-   * <p>Duration of the free trial period (5–31 days). </p>
+   * <p>Duration of the free trial period. The allowed duration depends on the product type. For SaaS products, the free trial lasts 7 to 90 days.</p>
    * @public
    */
   duration?: string | undefined;
@@ -1751,6 +1751,12 @@ export interface AgreementViewSummary {
    * @public
    */
   endTimeBehaviorReasonCode?: EndTimeBehaviorReasonCode | undefined;
+
+  /**
+   * <p>The date and time when the free trial of the agreement ends. This field is present only when the agreement includes a free trial.</p> <p>For an agreement that includes both a free trial and usage-based pricing, the agreement converts to paid usage at this time.</p>
+   * @public
+   */
+  freeTrialEndTime?: Date | undefined;
 }
 
 /**
@@ -2430,6 +2436,18 @@ export interface EstimatedCharges {
 }
 
 /**
+ * <p>Contains details about the free trial of an agreement, including when the free trial ends.</p>
+ * @public
+ */
+export interface FreeTrialSummary {
+  /**
+   * <p>The date and time when the free trial ends. For an agreement that includes both a free trial and usage-based pricing, the agreement converts to paid usage at this time.</p>
+   * @public
+   */
+  trialEndTime?: Date | undefined;
+}
+
+/**
  * @public
  */
 export interface DescribeAgreementOutput {
@@ -2504,6 +2522,12 @@ export interface DescribeAgreementOutput {
    * @public
    */
   endTimeBehavior?: EndTimeBehavior | undefined;
+
+  /**
+   * <p>The free trial details of the agreement. This field is present only when the agreement includes a free trial.</p>
+   * @public
+   */
+  freeTrialSummary?: FreeTrialSummary | undefined;
 }
 
 /**

@@ -72,6 +72,9 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementOutput,
  * //       offerId: "STRING_VALUE",
  * //     },
  * //   },
+ * //   freeTrialSummary: { // FreeTrialSummary
+ * //     trialEndTime: new Date("TIMESTAMP"),
+ * //   },
  * // };
  *
  * ```

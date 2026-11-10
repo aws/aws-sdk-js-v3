@@ -78,6 +78,7 @@ import {
   FixedPercentage$,
   FixedUpfrontPricingTerm$,
   FreeTrialPricingTerm$,
+  FreeTrialSummary$,
   GetAgreementCancellationRequest$,
   GetAgreementCancellationRequestCommand,
   GetAgreementCancellationRequestInput$,
@@ -313,6 +314,7 @@ assert(typeof Filter$ === "object");
 assert(typeof FixedPercentage$ === "object");
 assert(typeof FixedUpfrontPricingTerm$ === "object");
 assert(typeof FreeTrialPricingTerm$ === "object");
+assert(typeof FreeTrialSummary$ === "object");
 assert(typeof GetAgreementCancellationRequestInput$ === "object");
 assert(typeof GetAgreementCancellationRequestOutput$ === "object");
 assert(typeof GetAgreementEntitlementsInput$ === "object");
