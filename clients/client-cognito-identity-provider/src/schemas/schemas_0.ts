@@ -77,6 +77,9 @@ const _ALTt = "AttributeListType";
 const _ALUAE = "AdminListUserAuthEvents";
 const _ALUAER = "AdminListUserAuthEventsRequest";
 const _ALUAERd = "AdminListUserAuthEventsResponse";
+const _ALUS = "AdminListUserSessions";
+const _ALUSR = "AdminListUserSessionsRequest";
+const _ALUSRd = "AdminListUserSessionsResponse";
 const _AM = "AnalyticsMetadata";
 const _AMT = "AnalyticsMetadataType";
 const _AMc = "AcrMapping";
@@ -99,6 +102,9 @@ const _ARUFGR = "AdminRemoveUserFromGroupRequest";
 const _ARUP = "AdminResetUserPassword";
 const _ARUPR = "AdminResetUserPasswordRequest";
 const _ARUPRd = "AdminResetUserPasswordResponse";
+const _ARUS = "AdminRevokeUserSession";
+const _ARUSR = "AdminRevokeUserSessionRequest";
+const _ARUSRd = "AdminRevokeUserSessionResponse";
 const _ARVBU = "AttributesRequireVerificationBeforeUpdate";
 const _ASAF = "AdvancedSecurityAdditionalFlows";
 const _ASAFT = "AdvancedSecurityAdditionalFlowsType";
@@ -182,6 +188,7 @@ const _CDT = "ContextDataType";
 const _CDo = "CompletionDate";
 const _CDon = "ConfirmDevice";
 const _CDr = "CreationDate";
+const _CDre = "CreateDate";
 const _CDu = "CustomDomain";
 const _CELVCT = "CustomEmailLambdaVersionConfigType";
 const _CES = "CustomEmailSender";
@@ -233,6 +240,7 @@ const _CSMSLVCT = "CustomSMSLambdaVersionConfigType";
 const _CSMSS = "CustomSMSSender";
 const _CSN = "ConfigurationSetName";
 const _CSS = "CSS";
+const _CSSOSCT = "ClientSSOSessionConfigType";
 const _CSSV = "CSSVersion";
 const _CST = "ClientSecretType";
 const _CSU = "ConfirmSignUp";
@@ -480,9 +488,15 @@ const _GUAVCRe = "GetUserAttributeVerificationCodeResponse";
 const _GUIC = "GetUICustomization";
 const _GUICR = "GetUICustomizationRequest";
 const _GUICRe = "GetUICustomizationResponse";
+const _GUPCSC = "GetUserPoolClientSessionConfiguration";
+const _GUPCSCR = "GetUserPoolClientSessionConfigurationRequest";
+const _GUPCSCRe = "GetUserPoolClientSessionConfigurationResponse";
 const _GUPMC = "GetUserPoolMfaConfig";
 const _GUPMCR = "GetUserPoolMfaConfigRequest";
 const _GUPMCRe = "GetUserPoolMfaConfigResponse";
+const _GUPSC = "GetUserPoolSessionConfiguration";
+const _GUPSCR = "GetUserPoolSessionConfigurationRequest";
+const _GUPSCRe = "GetUserPoolSessionConfigurationResponse";
 const _GUR = "GetUserRequest";
 const _GURe = "GetUserResponse";
 const _Gr = "Group";
@@ -497,6 +511,7 @@ const _IAR = "InitiateAuthRequest";
 const _IARn = "InitiateAuthResponse";
 const _IAn = "InitiateAuth";
 const _IC = "IssuerConfiguration";
+const _ICS = "IsCurrentSession";
 const _ICT = "IssuerConfigurationType";
 const _IEE = "InternalErrorException";
 const _IEI = "InEntityId";
@@ -532,6 +547,7 @@ const _KMSKID = "KMSKeyID";
 const _KT = "KeyType";
 const _L = "Limit";
 const _LA = "LowAction";
+const _LAD = "LastActiveDate";
 const _LAa = "LambdaArn";
 const _LC = "LambdaConfig";
 const _LCLT = "LogConfigurationListType";
@@ -552,9 +568,11 @@ const _LGA = "LogGroupArn";
 const _LGR = "ListGroupsRequest";
 const _LGRi = "ListGroupsResponse";
 const _LIP = "ListIdentityProviders";
+const _LIPA = "LastIPAddress";
 const _LIPR = "ListIdentityProvidersRequest";
 const _LIPRi = "ListIdentityProvidersResponse";
 const _LL = "LogLevel";
+const _LLa = "LastLocation";
 const _LMD = "LastModifiedDate";
 const _LRS = "ListResourceServers";
 const _LRSR = "ListResourceServersRequest";
@@ -588,6 +606,9 @@ const _LUPRis = "ListUserPoolReplicas";
 const _LUR = "ListUsersRequest";
 const _LURL = "LogoutURLs";
 const _LURi = "ListUsersResponse";
+const _LUS = "ListUserSessions";
+const _LUSR = "ListUserSessionsRequest";
+const _LUSRi = "ListUserSessionsResponse";
 const _LV = "LambdaVersion";
 const _LWAC = "ListWebAuthnCredentials";
 const _LWACR = "ListWebAuthnCredentialsRequest";
@@ -610,9 +631,11 @@ const _MLBT = "ManagedLoginBrandingType";
 const _MLV = "ManagedLoginVersion";
 const _MLa = "MaxLength";
 const _MLi = "MinLength";
+const _MPU = "MaxPerUser";
 const _MR = "MaxResults";
 const _MTT = "MessageTemplateType";
 const _MV = "MinValue";
+const _MVM = "MaxValidityMinutes";
 const _MVa = "MaxValue";
 const _Mu = "Mutable";
 const _N = "Notify";
@@ -629,6 +652,7 @@ const _NT = "NextToken";
 const _Na = "Name";
 const _OI = "OriginationIdentity";
 const _ONEE = "OperationNotEnabledException";
+const _OSI = "OriginSessionId";
 const _P = "Password";
 const _PA = "PreAuthentication";
 const _PAN = "ProviderAttributeName";
@@ -672,6 +696,7 @@ const _Pro = "Provider";
 const _Prov = "Providers";
 const _R = "Routing";
 const _RA = "RoleArn";
+const _RAS = "RevokeAssociatedSessions";
 const _RAe = "ReadAttributes";
 const _RAes = "ResourceArn";
 const _RC = "RiskConfiguration";
@@ -718,6 +743,9 @@ const _RTe = "ReplyTo";
 const _RTev = "RevokeToken";
 const _RTo = "RoutingType";
 const _RU = "RequireUppercase";
+const _RUS = "RevokeUserSession";
+const _RUSR = "RevokeUserSessionRequest";
+const _RUSRe = "RevokeUserSessionResponse";
 const _Re = "Region";
 const _Req = "Required";
 const _Ro = "Role";
@@ -741,9 +769,12 @@ const _SCm = "SmsConfiguration";
 const _SCo = "S3Configuration";
 const _SD = "ScopeDescription";
 const _SDNEE = "ScopeDoesNotExistException";
+const _SDT = "SessionDescriptionType";
 const _SDt = "StartDate";
 const _SH = "SecretHash";
 const _SHT = "SecretHashType";
+const _SI = "SessionId";
+const _SIAT = "SessionIpAddressType";
 const _SIP = "SupportedIdentityProviders";
 const _SIPRL = "SkippedIPRangeList";
 const _SIPT = "SignInPolicyType";
@@ -751,6 +782,8 @@ const _SIPi = "SignInPolicy";
 const _SLDC = "SetLogDeliveryConfiguration";
 const _SLDCR = "SetLogDeliveryConfigurationRequest";
 const _SLDCRe = "SetLogDeliveryConfigurationResponse";
+const _SLT = "SessionLocationType";
+const _SLTe = "SessionsListType";
 const _SM = "SmsMessage";
 const _SMC = "SmsMfaConfiguration";
 const _SMCT = "SmsMfaConfigType";
@@ -767,6 +800,7 @@ const _SRC = "SetRiskConfiguration";
 const _SRCR = "SetRiskConfigurationRequest";
 const _SRCRe = "SetRiskConfigurationResponse";
 const _SRn = "SnsRegion";
+const _SSOS = "SSOSession";
 const _ST = "SessionType";
 const _STMC = "SoftwareTokenMfaConfiguration";
 const _STMCT = "SoftwareTokenMfaConfigType";
@@ -787,9 +821,15 @@ const _SUIJt = "StopUserImportJob";
 const _SUMFAP = "SetUserMFAPreference";
 const _SUMFAPR = "SetUserMFAPreferenceRequest";
 const _SUMFAPRe = "SetUserMFAPreferenceResponse";
+const _SUPCSC = "SetUserPoolClientSessionConfiguration";
+const _SUPCSCR = "SetUserPoolClientSessionConfigurationRequest";
+const _SUPCSCRe = "SetUserPoolClientSessionConfigurationResponse";
 const _SUPMC = "SetUserPoolMfaConfig";
 const _SUPMCR = "SetUserPoolMfaConfigRequest";
 const _SUPMCRe = "SetUserPoolMfaConfigResponse";
+const _SUPSC = "SetUserPoolSessionConfiguration";
+const _SUPSCR = "SetUserPoolSessionConfigurationRequest";
+const _SUPSCRe = "SetUserPoolSessionConfigurationResponse";
 const _SUR = "SignUpRequest";
 const _SURi = "SignUpResponse";
 const _SUS = "SetUserSettings";
@@ -804,8 +844,9 @@ const _SWARRt = "StartWebAuthnRegistrationResponse";
 const _Sa = "Salt";
 const _Sc = "Scopes";
 const _Sch = "Schema";
-const _Se = "Settings";
+const _Se = "Sessions";
 const _Sec = "Secret";
+const _Set = "Settings";
 const _St = "Status";
 const _Su = "Subject";
 const _T = "Terms";
@@ -826,6 +867,7 @@ const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TS = "TermsSource";
+const _TSo = "TokenSession";
 const _TT = "TokenType";
 const _TTe = "TermsType";
 const _TVU = "TokenValidityUnits";
@@ -908,6 +950,7 @@ const _UPRT = "UserPoolReplicaType";
 const _UPRs = "UserPoolReplicas";
 const _UPT = "UserPoolTags";
 const _UPTE = "UserPoolTaggingException";
+const _UPTSCT = "UserPoolTokenSessionConfigType";
 const _UPTs = "UserPoolTier";
 const _UPTse = "UserPoolType";
 const _UPs = "UserPools";
@@ -918,6 +961,7 @@ const _URS = "UpdateResourceServer";
 const _URSR = "UpdateResourceServerRequest";
 const _URSRp = "UpdateResourceServerResponse";
 const _US = "UserStatus";
+const _UST = "UserSessionTracking";
 const _USs = "UserSub";
 const _UT = "UsernameType";
 const _UTR = "UpdateTermsRequest";
@@ -1429,6 +1473,7 @@ var ClientSecretType: StaticSimpleSchema = [0, n0, _CST, 8, 0];
 var PasswordType: StaticSimpleSchema = [0, n0, _PT, 8, 0];
 var SecretCodeType: StaticSimpleSchema = [0, n0, _SCT, 8, 0];
 var SecretHashType: StaticSimpleSchema = [0, n0, _SHT, 8, 0];
+var SessionIpAddressType: StaticSimpleSchema = [0, n0, _SIAT, 8, 0];
 var SessionType: StaticSimpleSchema = [0, n0, _ST, 8, 0];
 var SoftwareTokenMFAUserCodeType: StaticSimpleSchema = [0, n0, _STMFAUCT, 8, 0];
 var TokenModelType: StaticSimpleSchema = [0, n0, _TMT, 8, 0];
@@ -1648,6 +1693,16 @@ export var AdminListUserAuthEventsResponse$: StaticStructureSchema = [3, n0, _AL
   [_AE, _NT],
   [() => AuthEventsType, 0]
 ];
+export var AdminListUserSessionsRequest$: StaticStructureSchema = [3, n0, _ALUSR,
+  0,
+  [_UPI, _U, _NT],
+  [0, [() => UsernameType, 0], 0], 2
+];
+export var AdminListUserSessionsResponse$: StaticStructureSchema = [3, n0, _ALUSRd,
+  0,
+  [_Se, _NT],
+  [[() => SessionsListType, 0], 0]
+];
 export var AdminRemoveUserFromGroupRequest$: StaticStructureSchema = [3, n0, _ARUFGR,
   0,
   [_UPI, _U, _GN],
@@ -1672,6 +1727,16 @@ export var AdminRespondToAuthChallengeResponse$: StaticStructureSchema = [3, n0,
   0,
   [_CN, _S, _CP, _AR, _AC],
   [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType$, 0], 64 | 0]
+];
+export var AdminRevokeUserSessionRequest$: StaticStructureSchema = [3, n0, _ARUSR,
+  0,
+  [_UPI, _U, _SI, _RAS],
+  [0, [() => UsernameType, 0], 0, 0], 3
+];
+export var AdminRevokeUserSessionResponse$: StaticStructureSchema = [3, n0, _ARUSRd,
+  0,
+  [],
+  []
 ];
 export var AdminSetUserMFAPreferenceRequest$: StaticStructureSchema = [3, n0, _ASUMFAPR,
   0,
@@ -1813,6 +1878,11 @@ export var ClientSecretDescriptorType$: StaticStructureSchema = [3, n0, _CSDT,
   [_CSI, _CSV, _CSCD],
   [0, [() => ClientSecretType, 0], 4]
 ];
+export var ClientSSOSessionConfigType$: StaticStructureSchema = [3, n0, _CSSOSCT,
+  0,
+  [_MVM],
+  [1], 1
+];
 export var CloudWatchLogsConfigurationType$: StaticStructureSchema = [3, n0, _CWLCT,
   0,
   [_LGA],
@@ -1900,7 +1970,7 @@ export var CreateIdentityProviderResponse$: StaticStructureSchema = [3, n0, _CIP
 ];
 export var CreateManagedLoginBrandingRequest$: StaticStructureSchema = [3, n0, _CMLBR,
   0,
-  [_UPI, _CI, _UCPV, _Se, _As],
+  [_UPI, _CI, _UCPV, _Set, _As],
   [0, [() => ClientIdType, 0], 2, 15, () => AssetListType], 2
 ];
 export var CreateManagedLoginBrandingResponse$: StaticStructureSchema = [3, n0, _CMLBRr,
@@ -2393,6 +2463,16 @@ export var GetUserAuthFactorsResponse$: StaticStructureSchema = [3, n0, _GUAFRe,
   [_U, _PMS, _UMFASL, _CUAF],
   [[() => UsernameType, 0], 0, 64 | 0, 64 | 0], 1
 ];
+export var GetUserPoolClientSessionConfigurationRequest$: StaticStructureSchema = [3, n0, _GUPCSCR,
+  0,
+  [_UPI, _CI],
+  [0, [() => ClientIdType, 0]], 2
+];
+export var GetUserPoolClientSessionConfigurationResponse$: StaticStructureSchema = [3, n0, _GUPCSCRe,
+  0,
+  [_UPI, _CI, _SSOS],
+  [0, [() => ClientIdType, 0], () => ClientSSOSessionConfigType$]
+];
 export var GetUserPoolMfaConfigRequest$: StaticStructureSchema = [3, n0, _GUPMCR,
   0,
   [_UPI],
@@ -2402,6 +2482,16 @@ export var GetUserPoolMfaConfigResponse$: StaticStructureSchema = [3, n0, _GUPMC
   0,
   [_SMC, _STMC, _EMC, _MC, _WAC],
   [() => SmsMfaConfigType$, () => SoftwareTokenMfaConfigType$, () => EmailMfaConfigType$, 0, () => WebAuthnConfigurationType$]
+];
+export var GetUserPoolSessionConfigurationRequest$: StaticStructureSchema = [3, n0, _GUPSCR,
+  0,
+  [_UPI],
+  [0], 1
+];
+export var GetUserPoolSessionConfigurationResponse$: StaticStructureSchema = [3, n0, _GUPSCRe,
+  0,
+  [_UPI, _UST, _TSo],
+  [0, 0, () => UserPoolTokenSessionConfigType$]
 ];
 export var GetUserRequest$: StaticStructureSchema = [3, n0, _GUR,
   0,
@@ -2588,6 +2678,16 @@ export var ListUserPoolsResponse$: StaticStructureSchema = [3, n0, _LUPRi,
   [_UPs, _NT],
   [() => UserPoolListType, 0]
 ];
+export var ListUserSessionsRequest$: StaticStructureSchema = [3, n0, _LUSR,
+  0,
+  [_ATc, _NT],
+  [[() => TokenModelType, 0], 0], 1
+];
+export var ListUserSessionsResponse$: StaticStructureSchema = [3, n0, _LUSRi,
+  0,
+  [_Se, _NT],
+  [[() => SessionsListType, 0], 0]
+];
 export var ListUsersInGroupRequest$: StaticStructureSchema = [3, n0, _LUIGR,
   0,
   [_UPI, _GN, _L, _NT],
@@ -2630,7 +2730,7 @@ export var LogDeliveryConfigurationType$: StaticStructureSchema = [3, n0, _LDCT,
 ];
 export var ManagedLoginBrandingType$: StaticStructureSchema = [3, n0, _MLBT,
   0,
-  [_MLBI, _UPI, _UCPV, _Se, _As, _CDr, _LMD],
+  [_MLBI, _UPI, _UCPV, _Set, _As, _CDr, _LMD],
   [0, 0, 2, 15, () => AssetListType, 4, 4]
 ];
 export var MessageTemplateType$: StaticStructureSchema = [3, n0, _MTT,
@@ -2725,10 +2825,20 @@ export var RespondToAuthChallengeResponse$: StaticStructureSchema = [3, n0, _RTA
 ];
 export var RevokeTokenRequest$: StaticStructureSchema = [3, n0, _RTRe,
   0,
-  [_To, _CI, _CS],
-  [[() => TokenModelType, 0], [() => ClientIdType, 0], [() => ClientSecretType, 0]], 2
+  [_To, _CI, _CS, _RAS],
+  [[() => TokenModelType, 0], [() => ClientIdType, 0], [() => ClientSecretType, 0], 0], 2
 ];
 export var RevokeTokenResponse$: StaticStructureSchema = [3, n0, _RTRev,
+  0,
+  [],
+  []
+];
+export var RevokeUserSessionRequest$: StaticStructureSchema = [3, n0, _RUSR,
+  0,
+  [_ATc, _SI, _RAS],
+  [[() => TokenModelType, 0], 0, 0], 2
+];
+export var RevokeUserSessionResponse$: StaticStructureSchema = [3, n0, _RUSRe,
   0,
   [],
   []
@@ -2757,6 +2867,16 @@ export var SchemaAttributeType$: StaticStructureSchema = [3, n0, _SAT,
   0,
   [_Na, _ADT, _DOA, _Mu, _Req, _NAC, _SAC],
   [0, 0, 2, 2, 2, () => NumberAttributeConstraintsType$, () => StringAttributeConstraintsType$]
+];
+export var SessionDescriptionType$: StaticStructureSchema = [3, n0, _SDT,
+  0,
+  [_SI, _ST, _CI, _CDre, _LAD, _DT, _LIPA, _LLa, _OSI, _ICS],
+  [0, 0, [() => ClientIdType, 0], 4, 4, 0, [() => SessionIpAddressType, 0], () => SessionLocationType$, 0, 2]
+];
+export var SessionLocationType$: StaticStructureSchema = [3, n0, _SLT,
+  0,
+  [_Ci, _Co],
+  [0, 0]
 ];
 export var SetLogDeliveryConfigurationRequest$: StaticStructureSchema = [3, n0, _SLDCR,
   0,
@@ -2798,6 +2918,16 @@ export var SetUserMFAPreferenceResponse$: StaticStructureSchema = [3, n0, _SUMFA
   [],
   []
 ];
+export var SetUserPoolClientSessionConfigurationRequest$: StaticStructureSchema = [3, n0, _SUPCSCR,
+  0,
+  [_UPI, _CI, _SSOS],
+  [0, [() => ClientIdType, 0], () => ClientSSOSessionConfigType$], 3
+];
+export var SetUserPoolClientSessionConfigurationResponse$: StaticStructureSchema = [3, n0, _SUPCSCRe,
+  0,
+  [_UPI, _CI, _SSOS],
+  [0, [() => ClientIdType, 0], () => ClientSSOSessionConfigType$]
+];
 export var SetUserPoolMfaConfigRequest$: StaticStructureSchema = [3, n0, _SUPMCR,
   0,
   [_UPI, _SMC, _STMC, _EMC, _MC, _WAC],
@@ -2807,6 +2937,16 @@ export var SetUserPoolMfaConfigResponse$: StaticStructureSchema = [3, n0, _SUPMC
   0,
   [_SMC, _STMC, _EMC, _MC, _WAC],
   [() => SmsMfaConfigType$, () => SoftwareTokenMfaConfigType$, () => EmailMfaConfigType$, 0, () => WebAuthnConfigurationType$]
+];
+export var SetUserPoolSessionConfigurationRequest$: StaticStructureSchema = [3, n0, _SUPSCR,
+  0,
+  [_UPI, _UST, _TSo],
+  [0, 0, () => UserPoolTokenSessionConfigType$], 3
+];
+export var SetUserPoolSessionConfigurationResponse$: StaticStructureSchema = [3, n0, _SUPSCRe,
+  0,
+  [_UPI, _UST, _TSo],
+  [0, 0, () => UserPoolTokenSessionConfigType$]
 ];
 export var SetUserSettingsRequest$: StaticStructureSchema = [3, n0, _SUSR,
   0,
@@ -2975,7 +3115,7 @@ export var UpdateIdentityProviderResponse$: StaticStructureSchema = [3, n0, _UIP
 ];
 export var UpdateManagedLoginBrandingRequest$: StaticStructureSchema = [3, n0, _UMLBR,
   0,
-  [_UPI, _MLBI, _UCPV, _Se, _As],
+  [_UPI, _MLBI, _UCPV, _Set, _As],
   [0, 0, 2, 15, () => AssetListType]
 ];
 export var UpdateManagedLoginBrandingResponse$: StaticStructureSchema = [3, n0, _UMLBRp,
@@ -3113,6 +3253,11 @@ export var UserPoolReplicaType$: StaticStructureSchema = [3, n0, _UPRT,
   [_RN, _St, _Ro, _UPA],
   [0, 0, 0, 0]
 ];
+export var UserPoolTokenSessionConfigType$: StaticStructureSchema = [3, n0, _UPTSCT,
+  0,
+  [_MPU],
+  [1], 1
+];
 export var UserPoolType$: StaticStructureSchema = [3, n0, _UPTse,
   0,
   [_Id, _Na, _Po, _DP, _LC, _St, _LMD, _CDr, _SAc, _AVA, _AAl, _UAs, _SVM, _EVM, _EVS, _VMT, _SAM, _UAUS, _MC, _DC, _ENOU, _EC, _SCm, _UPT, _SCF, _ECF, _Do, _CDu, _ACUC, _UPAO, _UC, _Ar, _ARS, _UPTs, _KC, _IC, _ACc],
@@ -3237,6 +3382,10 @@ var SchemaAttributesListType: StaticListSchema = [1, n0, _SALT,
 ];
 var ScopeListType = 64 | 0;
 var SearchedAttributeNamesListType = 64 | 0;
+var SessionsListType: StaticListSchema = [1, n0, _SLTe,
+  0, [() => SessionDescriptionType$,
+    0]
+];
 var SkippedIPRangeListType = 64 | 0;
 var SupportedIdentityProvidersListType = 64 | 0;
 var TermsDescriptionListType: StaticListSchema = [1, n0, _TDLT,
@@ -3344,6 +3493,9 @@ export var AdminListGroupsForUser$: StaticOperationSchema = [9, n0, _ALGFU,
 export var AdminListUserAuthEvents$: StaticOperationSchema = [9, n0, _ALUAE,
   0, () => AdminListUserAuthEventsRequest$, () => AdminListUserAuthEventsResponse$
 ];
+export var AdminListUserSessions$: StaticOperationSchema = [9, n0, _ALUS,
+  0, () => AdminListUserSessionsRequest$, () => AdminListUserSessionsResponse$
+];
 export var AdminRemoveUserFromGroup$: StaticOperationSchema = [9, n0, _ARUFG,
   0, () => AdminRemoveUserFromGroupRequest$, () => __Unit
 ];
@@ -3352,6 +3504,9 @@ export var AdminResetUserPassword$: StaticOperationSchema = [9, n0, _ARUP,
 ];
 export var AdminRespondToAuthChallenge$: StaticOperationSchema = [9, n0, _ARTAC,
   0, () => AdminRespondToAuthChallengeRequest$, () => AdminRespondToAuthChallengeResponse$
+];
+export var AdminRevokeUserSession$: StaticOperationSchema = [9, n0, _ARUS,
+  0, () => AdminRevokeUserSessionRequest$, () => AdminRevokeUserSessionResponse$
 ];
 export var AdminSetUserMFAPreference$: StaticOperationSchema = [9, n0, _ASUMFAP,
   0, () => AdminSetUserMFAPreferenceRequest$, () => AdminSetUserMFAPreferenceResponse$
@@ -3539,8 +3694,14 @@ export var GetUserAttributeVerificationCode$: StaticOperationSchema = [9, n0, _G
 export var GetUserAuthFactors$: StaticOperationSchema = [9, n0, _GUAF,
   0, () => GetUserAuthFactorsRequest$, () => GetUserAuthFactorsResponse$
 ];
+export var GetUserPoolClientSessionConfiguration$: StaticOperationSchema = [9, n0, _GUPCSC,
+  0, () => GetUserPoolClientSessionConfigurationRequest$, () => GetUserPoolClientSessionConfigurationResponse$
+];
 export var GetUserPoolMfaConfig$: StaticOperationSchema = [9, n0, _GUPMC,
   0, () => GetUserPoolMfaConfigRequest$, () => GetUserPoolMfaConfigResponse$
+];
+export var GetUserPoolSessionConfiguration$: StaticOperationSchema = [9, n0, _GUPSC,
+  0, () => GetUserPoolSessionConfigurationRequest$, () => GetUserPoolSessionConfigurationResponse$
 ];
 export var GlobalSignOut$: StaticOperationSchema = [9, n0, _GSO,
   0, () => GlobalSignOutRequest$, () => GlobalSignOutResponse$
@@ -3584,6 +3745,9 @@ export var ListUserPools$: StaticOperationSchema = [9, n0, _LUP,
 export var ListUsers$: StaticOperationSchema = [9, n0, _LU,
   0, () => ListUsersRequest$, () => ListUsersResponse$
 ];
+export var ListUserSessions$: StaticOperationSchema = [9, n0, _LUS,
+  0, () => ListUserSessionsRequest$, () => ListUserSessionsResponse$
+];
 export var ListUsersInGroup$: StaticOperationSchema = [9, n0, _LUIG,
   0, () => ListUsersInGroupRequest$, () => ListUsersInGroupResponse$
 ];
@@ -3599,6 +3763,9 @@ export var RespondToAuthChallenge$: StaticOperationSchema = [9, n0, _RTAC,
 export var RevokeToken$: StaticOperationSchema = [9, n0, _RTev,
   0, () => RevokeTokenRequest$, () => RevokeTokenResponse$
 ];
+export var RevokeUserSession$: StaticOperationSchema = [9, n0, _RUS,
+  0, () => RevokeUserSessionRequest$, () => RevokeUserSessionResponse$
+];
 export var SetLogDeliveryConfiguration$: StaticOperationSchema = [9, n0, _SLDC,
   0, () => SetLogDeliveryConfigurationRequest$, () => SetLogDeliveryConfigurationResponse$
 ];
@@ -3611,8 +3778,14 @@ export var SetUICustomization$: StaticOperationSchema = [9, n0, _SUIC,
 export var SetUserMFAPreference$: StaticOperationSchema = [9, n0, _SUMFAP,
   0, () => SetUserMFAPreferenceRequest$, () => SetUserMFAPreferenceResponse$
 ];
+export var SetUserPoolClientSessionConfiguration$: StaticOperationSchema = [9, n0, _SUPCSC,
+  0, () => SetUserPoolClientSessionConfigurationRequest$, () => SetUserPoolClientSessionConfigurationResponse$
+];
 export var SetUserPoolMfaConfig$: StaticOperationSchema = [9, n0, _SUPMC,
   0, () => SetUserPoolMfaConfigRequest$, () => SetUserPoolMfaConfigResponse$
+];
+export var SetUserPoolSessionConfiguration$: StaticOperationSchema = [9, n0, _SUPSC,
+  0, () => SetUserPoolSessionConfigurationRequest$, () => SetUserPoolSessionConfigurationResponse$
 ];
 export var SetUserSettings$: StaticOperationSchema = [9, n0, _SUS,
   0, () => SetUserSettingsRequest$, () => SetUserSettingsResponse$

@@ -168,6 +168,10 @@ export const defaultCognitoIdentityProviderHttpAuthSchemeProvider: CognitoIdenti
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     };
+    case "ListUserSessions": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    };
     case "ListWebAuthnCredentials": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
@@ -181,6 +185,10 @@ export const defaultCognitoIdentityProviderHttpAuthSchemeProvider: CognitoIdenti
       break;
     };
     case "RevokeToken": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    };
+    case "RevokeUserSession": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     };

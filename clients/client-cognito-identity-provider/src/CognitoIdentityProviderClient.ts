@@ -114,6 +114,10 @@ import type {
   AdminListUserAuthEventsCommandOutput,
 } from "./commands/AdminListUserAuthEventsCommand";
 import type {
+  AdminListUserSessionsCommandInput,
+  AdminListUserSessionsCommandOutput,
+} from "./commands/AdminListUserSessionsCommand";
+import type {
   AdminRemoveUserFromGroupCommandInput,
   AdminRemoveUserFromGroupCommandOutput,
 } from "./commands/AdminRemoveUserFromGroupCommand";
@@ -125,6 +129,10 @@ import type {
   AdminRespondToAuthChallengeCommandInput,
   AdminRespondToAuthChallengeCommandOutput,
 } from "./commands/AdminRespondToAuthChallengeCommand";
+import type {
+  AdminRevokeUserSessionCommandInput,
+  AdminRevokeUserSessionCommandOutput,
+} from "./commands/AdminRevokeUserSessionCommand";
 import type {
   AdminSetUserMFAPreferenceCommandInput,
   AdminSetUserMFAPreferenceCommandOutput,
@@ -317,9 +325,17 @@ import type {
 } from "./commands/GetUserAuthFactorsCommand";
 import type { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import type {
+  GetUserPoolClientSessionConfigurationCommandInput,
+  GetUserPoolClientSessionConfigurationCommandOutput,
+} from "./commands/GetUserPoolClientSessionConfigurationCommand";
+import type {
   GetUserPoolMfaConfigCommandInput,
   GetUserPoolMfaConfigCommandOutput,
 } from "./commands/GetUserPoolMfaConfigCommand";
+import type {
+  GetUserPoolSessionConfigurationCommandInput,
+  GetUserPoolSessionConfigurationCommandOutput,
+} from "./commands/GetUserPoolSessionConfigurationCommand";
 import type { GlobalSignOutCommandInput, GlobalSignOutCommandOutput } from "./commands/GlobalSignOutCommand";
 import type { InitiateAuthCommandInput, InitiateAuthCommandOutput } from "./commands/InitiateAuthCommand";
 import type { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
@@ -355,6 +371,7 @@ import type {
 } from "./commands/ListUserPoolReplicasCommand";
 import type { ListUserPoolsCommandInput, ListUserPoolsCommandOutput } from "./commands/ListUserPoolsCommand";
 import type { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import type { ListUserSessionsCommandInput, ListUserSessionsCommandOutput } from "./commands/ListUserSessionsCommand";
 import type { ListUsersInGroupCommandInput, ListUsersInGroupCommandOutput } from "./commands/ListUsersInGroupCommand";
 import type {
   ListWebAuthnCredentialsCommandInput,
@@ -369,6 +386,10 @@ import type {
   RespondToAuthChallengeCommandOutput,
 } from "./commands/RespondToAuthChallengeCommand";
 import type { RevokeTokenCommandInput, RevokeTokenCommandOutput } from "./commands/RevokeTokenCommand";
+import type {
+  RevokeUserSessionCommandInput,
+  RevokeUserSessionCommandOutput,
+} from "./commands/RevokeUserSessionCommand";
 import type {
   SetLogDeliveryConfigurationCommandInput,
   SetLogDeliveryConfigurationCommandOutput,
@@ -386,9 +407,17 @@ import type {
   SetUserMFAPreferenceCommandOutput,
 } from "./commands/SetUserMFAPreferenceCommand";
 import type {
+  SetUserPoolClientSessionConfigurationCommandInput,
+  SetUserPoolClientSessionConfigurationCommandOutput,
+} from "./commands/SetUserPoolClientSessionConfigurationCommand";
+import type {
   SetUserPoolMfaConfigCommandInput,
   SetUserPoolMfaConfigCommandOutput,
 } from "./commands/SetUserPoolMfaConfigCommand";
+import type {
+  SetUserPoolSessionConfigurationCommandInput,
+  SetUserPoolSessionConfigurationCommandOutput,
+} from "./commands/SetUserPoolSessionConfigurationCommand";
 import type { SetUserSettingsCommandInput, SetUserSettingsCommandOutput } from "./commands/SetUserSettingsCommand";
 import type { SignUpCommandInput, SignUpCommandOutput } from "./commands/SignUpCommand";
 import type {
@@ -491,9 +520,11 @@ export type ServiceInputTypes =
   | AdminListDevicesCommandInput
   | AdminListGroupsForUserCommandInput
   | AdminListUserAuthEventsCommandInput
+  | AdminListUserSessionsCommandInput
   | AdminRemoveUserFromGroupCommandInput
   | AdminResetUserPasswordCommandInput
   | AdminRespondToAuthChallengeCommandInput
+  | AdminRevokeUserSessionCommandInput
   | AdminSetUserMFAPreferenceCommandInput
   | AdminSetUserPasswordCommandInput
   | AdminSetUserSettingsCommandInput
@@ -556,7 +587,9 @@ export type ServiceInputTypes =
   | GetUserAttributeVerificationCodeCommandInput
   | GetUserAuthFactorsCommandInput
   | GetUserCommandInput
+  | GetUserPoolClientSessionConfigurationCommandInput
   | GetUserPoolMfaConfigCommandInput
+  | GetUserPoolSessionConfigurationCommandInput
   | GlobalSignOutCommandInput
   | InitiateAuthCommandInput
   | ListDevicesCommandInput
@@ -570,17 +603,21 @@ export type ServiceInputTypes =
   | ListUserPoolClientsCommandInput
   | ListUserPoolReplicasCommandInput
   | ListUserPoolsCommandInput
+  | ListUserSessionsCommandInput
   | ListUsersCommandInput
   | ListUsersInGroupCommandInput
   | ListWebAuthnCredentialsCommandInput
   | ResendConfirmationCodeCommandInput
   | RespondToAuthChallengeCommandInput
   | RevokeTokenCommandInput
+  | RevokeUserSessionCommandInput
   | SetLogDeliveryConfigurationCommandInput
   | SetRiskConfigurationCommandInput
   | SetUICustomizationCommandInput
   | SetUserMFAPreferenceCommandInput
+  | SetUserPoolClientSessionConfigurationCommandInput
   | SetUserPoolMfaConfigCommandInput
+  | SetUserPoolSessionConfigurationCommandInput
   | SetUserSettingsCommandInput
   | SignUpCommandInput
   | StartUserImportJobCommandInput
@@ -628,9 +665,11 @@ export type ServiceOutputTypes =
   | AdminListDevicesCommandOutput
   | AdminListGroupsForUserCommandOutput
   | AdminListUserAuthEventsCommandOutput
+  | AdminListUserSessionsCommandOutput
   | AdminRemoveUserFromGroupCommandOutput
   | AdminResetUserPasswordCommandOutput
   | AdminRespondToAuthChallengeCommandOutput
+  | AdminRevokeUserSessionCommandOutput
   | AdminSetUserMFAPreferenceCommandOutput
   | AdminSetUserPasswordCommandOutput
   | AdminSetUserSettingsCommandOutput
@@ -693,7 +732,9 @@ export type ServiceOutputTypes =
   | GetUserAttributeVerificationCodeCommandOutput
   | GetUserAuthFactorsCommandOutput
   | GetUserCommandOutput
+  | GetUserPoolClientSessionConfigurationCommandOutput
   | GetUserPoolMfaConfigCommandOutput
+  | GetUserPoolSessionConfigurationCommandOutput
   | GlobalSignOutCommandOutput
   | InitiateAuthCommandOutput
   | ListDevicesCommandOutput
@@ -707,17 +748,21 @@ export type ServiceOutputTypes =
   | ListUserPoolClientsCommandOutput
   | ListUserPoolReplicasCommandOutput
   | ListUserPoolsCommandOutput
+  | ListUserSessionsCommandOutput
   | ListUsersCommandOutput
   | ListUsersInGroupCommandOutput
   | ListWebAuthnCredentialsCommandOutput
   | ResendConfirmationCodeCommandOutput
   | RespondToAuthChallengeCommandOutput
   | RevokeTokenCommandOutput
+  | RevokeUserSessionCommandOutput
   | SetLogDeliveryConfigurationCommandOutput
   | SetRiskConfigurationCommandOutput
   | SetUICustomizationCommandOutput
   | SetUserMFAPreferenceCommandOutput
+  | SetUserPoolClientSessionConfigurationCommandOutput
   | SetUserPoolMfaConfigCommandOutput
+  | SetUserPoolSessionConfigurationCommandOutput
   | SetUserSettingsCommandOutput
   | SignUpCommandOutput
   | StartUserImportJobCommandOutput

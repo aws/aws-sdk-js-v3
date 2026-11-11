@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { SetUICustomizationRequest, SetUICustomizationResponse } from "../models/models_0";
+import type { SetUICustomizationRequest, SetUICustomizationResponse } from "../models/models_1";
 import { SetUICustomization$ } from "../schemas/schemas_0";
 
 /**

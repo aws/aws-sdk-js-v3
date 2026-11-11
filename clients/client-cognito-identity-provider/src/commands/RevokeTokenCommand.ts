@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { RevokeTokenRequest, RevokeTokenResponse } from "../models/models_0";
+import type { RevokeTokenRequest, RevokeTokenResponse } from "../models/models_1";
 import { RevokeToken$ } from "../schemas/schemas_0";
 
 /**
@@ -44,6 +44,7 @@ export interface RevokeTokenCommandOutput extends RevokeTokenResponse, __Metadat
  *   Token: "STRING_VALUE", // required
  *   ClientId: "STRING_VALUE", // required
  *   ClientSecret: "STRING_VALUE",
+ *   RevokeAssociatedSessions: "NONE" || "LINKED",
  * };
  * const command = new RevokeTokenCommand(input);
  * const response = await client.send(command);

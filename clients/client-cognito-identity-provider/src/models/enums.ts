@@ -252,6 +252,33 @@ export type EventType = (typeof EventType)[keyof typeof EventType];
  * @public
  * @enum
  */
+export const SessionTypeType = {
+  SSO: "SSO",
+  TOKEN: "TOKEN",
+} as const;
+/**
+ * @public
+ */
+export type SessionTypeType = (typeof SessionTypeType)[keyof typeof SessionTypeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RevokeAssociatedSessionsType = {
+  LINKED: "LINKED",
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type RevokeAssociatedSessionsType =
+  (typeof RevokeAssociatedSessionsType)[keyof typeof RevokeAssociatedSessionsType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DeviceRememberedStatusType = {
   NOT_REMEMBERED: "not_remembered",
   REMEMBERED: "remembered",
@@ -847,6 +874,19 @@ export const UserVerificationType = {
  * @public
  */
 export type UserVerificationType = (typeof UserVerificationType)[keyof typeof UserVerificationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UserSessionTrackingType = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type UserSessionTrackingType = (typeof UserSessionTrackingType)[keyof typeof UserSessionTrackingType];
 
 /**
  * @public

@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { RespondToAuthChallengeRequest, RespondToAuthChallengeResponse } from "../models/models_0";
+import type { RespondToAuthChallengeRequest, RespondToAuthChallengeResponse } from "../models/models_1";
 import { RespondToAuthChallenge$ } from "../schemas/schemas_0";
 
 /**

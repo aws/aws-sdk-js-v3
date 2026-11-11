@@ -109,6 +109,11 @@ import {
   AdminListUserAuthEventsCommand,
 } from "./commands/AdminListUserAuthEventsCommand";
 import {
+  type AdminListUserSessionsCommandInput,
+  type AdminListUserSessionsCommandOutput,
+  AdminListUserSessionsCommand,
+} from "./commands/AdminListUserSessionsCommand";
+import {
   type AdminRemoveUserFromGroupCommandInput,
   type AdminRemoveUserFromGroupCommandOutput,
   AdminRemoveUserFromGroupCommand,
@@ -123,6 +128,11 @@ import {
   type AdminRespondToAuthChallengeCommandOutput,
   AdminRespondToAuthChallengeCommand,
 } from "./commands/AdminRespondToAuthChallengeCommand";
+import {
+  type AdminRevokeUserSessionCommandInput,
+  type AdminRevokeUserSessionCommandOutput,
+  AdminRevokeUserSessionCommand,
+} from "./commands/AdminRevokeUserSessionCommand";
 import {
   type AdminSetUserMFAPreferenceCommandInput,
   type AdminSetUserMFAPreferenceCommandOutput,
@@ -422,10 +432,20 @@ import {
 } from "./commands/GetUserAuthFactorsCommand";
 import { type GetUserCommandInput, type GetUserCommandOutput, GetUserCommand } from "./commands/GetUserCommand";
 import {
+  type GetUserPoolClientSessionConfigurationCommandInput,
+  type GetUserPoolClientSessionConfigurationCommandOutput,
+  GetUserPoolClientSessionConfigurationCommand,
+} from "./commands/GetUserPoolClientSessionConfigurationCommand";
+import {
   type GetUserPoolMfaConfigCommandInput,
   type GetUserPoolMfaConfigCommandOutput,
   GetUserPoolMfaConfigCommand,
 } from "./commands/GetUserPoolMfaConfigCommand";
+import {
+  type GetUserPoolSessionConfigurationCommandInput,
+  type GetUserPoolSessionConfigurationCommandOutput,
+  GetUserPoolSessionConfigurationCommand,
+} from "./commands/GetUserPoolSessionConfigurationCommand";
 import {
   type GlobalSignOutCommandInput,
   type GlobalSignOutCommandOutput,
@@ -489,6 +509,11 @@ import {
 } from "./commands/ListUserPoolsCommand";
 import { type ListUsersCommandInput, type ListUsersCommandOutput, ListUsersCommand } from "./commands/ListUsersCommand";
 import {
+  type ListUserSessionsCommandInput,
+  type ListUserSessionsCommandOutput,
+  ListUserSessionsCommand,
+} from "./commands/ListUserSessionsCommand";
+import {
   type ListUsersInGroupCommandInput,
   type ListUsersInGroupCommandOutput,
   ListUsersInGroupCommand,
@@ -514,6 +539,11 @@ import {
   RevokeTokenCommand,
 } from "./commands/RevokeTokenCommand";
 import {
+  type RevokeUserSessionCommandInput,
+  type RevokeUserSessionCommandOutput,
+  RevokeUserSessionCommand,
+} from "./commands/RevokeUserSessionCommand";
+import {
   type SetLogDeliveryConfigurationCommandInput,
   type SetLogDeliveryConfigurationCommandOutput,
   SetLogDeliveryConfigurationCommand,
@@ -534,10 +564,20 @@ import {
   SetUserMFAPreferenceCommand,
 } from "./commands/SetUserMFAPreferenceCommand";
 import {
+  type SetUserPoolClientSessionConfigurationCommandInput,
+  type SetUserPoolClientSessionConfigurationCommandOutput,
+  SetUserPoolClientSessionConfigurationCommand,
+} from "./commands/SetUserPoolClientSessionConfigurationCommand";
+import {
   type SetUserPoolMfaConfigCommandInput,
   type SetUserPoolMfaConfigCommandOutput,
   SetUserPoolMfaConfigCommand,
 } from "./commands/SetUserPoolMfaConfigCommand";
+import {
+  type SetUserPoolSessionConfigurationCommandInput,
+  type SetUserPoolSessionConfigurationCommandOutput,
+  SetUserPoolSessionConfigurationCommand,
+} from "./commands/SetUserPoolSessionConfigurationCommand";
 import {
   type SetUserSettingsCommandInput,
   type SetUserSettingsCommandOutput,
@@ -675,9 +715,11 @@ const commands = {
   AdminListDevicesCommand,
   AdminListGroupsForUserCommand,
   AdminListUserAuthEventsCommand,
+  AdminListUserSessionsCommand,
   AdminRemoveUserFromGroupCommand,
   AdminResetUserPasswordCommand,
   AdminRespondToAuthChallengeCommand,
+  AdminRevokeUserSessionCommand,
   AdminSetUserMFAPreferenceCommand,
   AdminSetUserPasswordCommand,
   AdminSetUserSettingsCommand,
@@ -740,7 +782,9 @@ const commands = {
   GetUserCommand,
   GetUserAttributeVerificationCodeCommand,
   GetUserAuthFactorsCommand,
+  GetUserPoolClientSessionConfigurationCommand,
   GetUserPoolMfaConfigCommand,
+  GetUserPoolSessionConfigurationCommand,
   GlobalSignOutCommand,
   InitiateAuthCommand,
   ListDevicesCommand,
@@ -755,16 +799,20 @@ const commands = {
   ListUserPoolReplicasCommand,
   ListUserPoolsCommand,
   ListUsersCommand,
+  ListUserSessionsCommand,
   ListUsersInGroupCommand,
   ListWebAuthnCredentialsCommand,
   ResendConfirmationCodeCommand,
   RespondToAuthChallengeCommand,
   RevokeTokenCommand,
+  RevokeUserSessionCommand,
   SetLogDeliveryConfigurationCommand,
   SetRiskConfigurationCommand,
   SetUICustomizationCommand,
   SetUserMFAPreferenceCommand,
+  SetUserPoolClientSessionConfigurationCommand,
   SetUserPoolMfaConfigCommand,
+  SetUserPoolSessionConfigurationCommand,
   SetUserSettingsCommand,
   SignUpCommand,
   StartUserImportJobCommand,
@@ -1149,6 +1197,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link AdminListUserSessionsCommand}
+   */
+  adminListUserSessions(
+    args: AdminListUserSessionsCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<AdminListUserSessionsCommandOutput>;
+  adminListUserSessions(
+    args: AdminListUserSessionsCommandInput,
+    cb: (err: any, data?: AdminListUserSessionsCommandOutput) => void
+  ): void;
+  adminListUserSessions(
+    args: AdminListUserSessionsCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: AdminListUserSessionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link AdminRemoveUserFromGroupCommand}
    */
   adminRemoveUserFromGroup(
@@ -1197,6 +1262,23 @@ export interface CognitoIdentityProvider {
     args: AdminRespondToAuthChallengeCommandInput,
     options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminRespondToAuthChallengeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AdminRevokeUserSessionCommand}
+   */
+  adminRevokeUserSession(
+    args: AdminRevokeUserSessionCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<AdminRevokeUserSessionCommandOutput>;
+  adminRevokeUserSession(
+    args: AdminRevokeUserSessionCommandInput,
+    cb: (err: any, data?: AdminRevokeUserSessionCommandOutput) => void
+  ): void;
+  adminRevokeUserSession(
+    args: AdminRevokeUserSessionCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: AdminRevokeUserSessionCommandOutput) => void
   ): void;
 
   /**
@@ -2255,6 +2337,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link GetUserPoolClientSessionConfigurationCommand}
+   */
+  getUserPoolClientSessionConfiguration(
+    args: GetUserPoolClientSessionConfigurationCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<GetUserPoolClientSessionConfigurationCommandOutput>;
+  getUserPoolClientSessionConfiguration(
+    args: GetUserPoolClientSessionConfigurationCommandInput,
+    cb: (err: any, data?: GetUserPoolClientSessionConfigurationCommandOutput) => void
+  ): void;
+  getUserPoolClientSessionConfiguration(
+    args: GetUserPoolClientSessionConfigurationCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: GetUserPoolClientSessionConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetUserPoolMfaConfigCommand}
    */
   getUserPoolMfaConfig(
@@ -2269,6 +2368,23 @@ export interface CognitoIdentityProvider {
     args: GetUserPoolMfaConfigCommandInput,
     options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetUserPoolMfaConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetUserPoolSessionConfigurationCommand}
+   */
+  getUserPoolSessionConfiguration(
+    args: GetUserPoolSessionConfigurationCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<GetUserPoolSessionConfigurationCommandOutput>;
+  getUserPoolSessionConfiguration(
+    args: GetUserPoolSessionConfigurationCommandInput,
+    cb: (err: any, data?: GetUserPoolSessionConfigurationCommandOutput) => void
+  ): void;
+  getUserPoolSessionConfiguration(
+    args: GetUserPoolSessionConfigurationCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: GetUserPoolSessionConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -2510,6 +2626,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link ListUserSessionsCommand}
+   */
+  listUserSessions(
+    args: ListUserSessionsCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<ListUserSessionsCommandOutput>;
+  listUserSessions(
+    args: ListUserSessionsCommandInput,
+    cb: (err: any, data?: ListUserSessionsCommandOutput) => void
+  ): void;
+  listUserSessions(
+    args: ListUserSessionsCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: ListUserSessionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListUsersInGroupCommand}
    */
   listUsersInGroup(
@@ -2595,6 +2728,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link RevokeUserSessionCommand}
+   */
+  revokeUserSession(
+    args: RevokeUserSessionCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<RevokeUserSessionCommandOutput>;
+  revokeUserSession(
+    args: RevokeUserSessionCommandInput,
+    cb: (err: any, data?: RevokeUserSessionCommandOutput) => void
+  ): void;
+  revokeUserSession(
+    args: RevokeUserSessionCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: RevokeUserSessionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SetLogDeliveryConfigurationCommand}
    */
   setLogDeliveryConfiguration(
@@ -2663,6 +2813,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link SetUserPoolClientSessionConfigurationCommand}
+   */
+  setUserPoolClientSessionConfiguration(
+    args: SetUserPoolClientSessionConfigurationCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<SetUserPoolClientSessionConfigurationCommandOutput>;
+  setUserPoolClientSessionConfiguration(
+    args: SetUserPoolClientSessionConfigurationCommandInput,
+    cb: (err: any, data?: SetUserPoolClientSessionConfigurationCommandOutput) => void
+  ): void;
+  setUserPoolClientSessionConfiguration(
+    args: SetUserPoolClientSessionConfigurationCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: SetUserPoolClientSessionConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SetUserPoolMfaConfigCommand}
    */
   setUserPoolMfaConfig(
@@ -2677,6 +2844,23 @@ export interface CognitoIdentityProvider {
     args: SetUserPoolMfaConfigCommandInput,
     options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: SetUserPoolMfaConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SetUserPoolSessionConfigurationCommand}
+   */
+  setUserPoolSessionConfiguration(
+    args: SetUserPoolSessionConfigurationCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<SetUserPoolSessionConfigurationCommandOutput>;
+  setUserPoolSessionConfiguration(
+    args: SetUserPoolSessionConfigurationCommandInput,
+    cb: (err: any, data?: SetUserPoolSessionConfigurationCommandOutput) => void
+  ): void;
+  setUserPoolSessionConfiguration(
+    args: SetUserPoolSessionConfigurationCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: SetUserPoolSessionConfigurationCommandOutput) => void
   ): void;
 
   /**

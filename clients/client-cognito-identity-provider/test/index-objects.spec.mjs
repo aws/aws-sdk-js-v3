@@ -85,6 +85,10 @@ import {
   AdminListUserAuthEventsCommand,
   AdminListUserAuthEventsRequest$,
   AdminListUserAuthEventsResponse$,
+  AdminListUserSessions$,
+  AdminListUserSessionsCommand,
+  AdminListUserSessionsRequest$,
+  AdminListUserSessionsResponse$,
   AdminRemoveUserFromGroup$,
   AdminRemoveUserFromGroupCommand,
   AdminRemoveUserFromGroupRequest$,
@@ -96,6 +100,10 @@ import {
   AdminRespondToAuthChallengeCommand,
   AdminRespondToAuthChallengeRequest$,
   AdminRespondToAuthChallengeResponse$,
+  AdminRevokeUserSession$,
+  AdminRevokeUserSessionCommand,
+  AdminRevokeUserSessionRequest$,
+  AdminRevokeUserSessionResponse$,
   AdminSetUserMFAPreference$,
   AdminSetUserMFAPreferenceCommand,
   AdminSetUserMFAPreferenceRequest$,
@@ -155,6 +163,7 @@ import {
   ChangePasswordResponse$,
   ClientAuthenticationResultType$,
   ClientSecretDescriptorType$,
+  ClientSSOSessionConfigType$,
   CloudWatchLogsConfigurationType$,
   CodeDeliveryDetailsType$,
   CodeDeliveryFailureException,
@@ -416,10 +425,18 @@ import {
   GetUserAuthFactorsRequest$,
   GetUserAuthFactorsResponse$,
   GetUserCommand,
+  GetUserPoolClientSessionConfiguration$,
+  GetUserPoolClientSessionConfigurationCommand,
+  GetUserPoolClientSessionConfigurationRequest$,
+  GetUserPoolClientSessionConfigurationResponse$,
   GetUserPoolMfaConfig$,
   GetUserPoolMfaConfigCommand,
   GetUserPoolMfaConfigRequest$,
   GetUserPoolMfaConfigResponse$,
+  GetUserPoolSessionConfiguration$,
+  GetUserPoolSessionConfigurationCommand,
+  GetUserPoolSessionConfigurationRequest$,
+  GetUserPoolSessionConfigurationResponse$,
   GetUserRequest$,
   GetUserResponse$,
   GlobalSignOut$,
@@ -513,6 +530,10 @@ import {
   ListUserPoolsResponse$,
   ListUsers$,
   ListUsersCommand,
+  ListUserSessions$,
+  ListUserSessionsCommand,
+  ListUserSessionsRequest$,
+  ListUserSessionsResponse$,
   ListUsersInGroup$,
   ListUsersInGroupCommand,
   ListUsersInGroupRequest$,
@@ -584,10 +605,15 @@ import {
   RespondToAuthChallengeCommand,
   RespondToAuthChallengeRequest$,
   RespondToAuthChallengeResponse$,
+  RevokeAssociatedSessionsType,
   RevokeToken$,
   RevokeTokenCommand,
   RevokeTokenRequest$,
   RevokeTokenResponse$,
+  RevokeUserSession$,
+  RevokeUserSessionCommand,
+  RevokeUserSessionRequest$,
+  RevokeUserSessionResponse$,
   RiskConfigurationType$,
   RiskDecisionType,
   RiskExceptionConfigurationType$,
@@ -600,6 +626,9 @@ import {
   SecurityPolicyType,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  SessionDescriptionType$,
+  SessionLocationType$,
+  SessionTypeType,
   SetLogDeliveryConfiguration$,
   SetLogDeliveryConfigurationCommand,
   SetLogDeliveryConfigurationRequest$,
@@ -616,10 +645,18 @@ import {
   SetUserMFAPreferenceCommand,
   SetUserMFAPreferenceRequest$,
   SetUserMFAPreferenceResponse$,
+  SetUserPoolClientSessionConfiguration$,
+  SetUserPoolClientSessionConfigurationCommand,
+  SetUserPoolClientSessionConfigurationRequest$,
+  SetUserPoolClientSessionConfigurationResponse$,
   SetUserPoolMfaConfig$,
   SetUserPoolMfaConfigCommand,
   SetUserPoolMfaConfigRequest$,
   SetUserPoolMfaConfigResponse$,
+  SetUserPoolSessionConfiguration$,
+  SetUserPoolSessionConfigurationCommand,
+  SetUserPoolSessionConfigurationRequest$,
+  SetUserPoolSessionConfigurationResponse$,
   SetUserSettings$,
   SetUserSettingsCommand,
   SetUserSettingsRequest$,
@@ -766,7 +803,9 @@ import {
   UserPoolTaggingException,
   UserPoolTaggingException$,
   UserPoolTierType,
+  UserPoolTokenSessionConfigType$,
   UserPoolType$,
+  UserSessionTrackingType,
   UserStatusType,
   UserType$,
   UserVerificationType,
@@ -845,12 +884,16 @@ assert(typeof AdminListGroupsForUserCommand === "function");
 assert(typeof AdminListGroupsForUser$ === "object");
 assert(typeof AdminListUserAuthEventsCommand === "function");
 assert(typeof AdminListUserAuthEvents$ === "object");
+assert(typeof AdminListUserSessionsCommand === "function");
+assert(typeof AdminListUserSessions$ === "object");
 assert(typeof AdminRemoveUserFromGroupCommand === "function");
 assert(typeof AdminRemoveUserFromGroup$ === "object");
 assert(typeof AdminResetUserPasswordCommand === "function");
 assert(typeof AdminResetUserPassword$ === "object");
 assert(typeof AdminRespondToAuthChallengeCommand === "function");
 assert(typeof AdminRespondToAuthChallenge$ === "object");
+assert(typeof AdminRevokeUserSessionCommand === "function");
+assert(typeof AdminRevokeUserSession$ === "object");
 assert(typeof AdminSetUserMFAPreferenceCommand === "function");
 assert(typeof AdminSetUserMFAPreference$ === "object");
 assert(typeof AdminSetUserPasswordCommand === "function");
@@ -975,8 +1018,12 @@ assert(typeof GetUserAttributeVerificationCodeCommand === "function");
 assert(typeof GetUserAttributeVerificationCode$ === "object");
 assert(typeof GetUserAuthFactorsCommand === "function");
 assert(typeof GetUserAuthFactors$ === "object");
+assert(typeof GetUserPoolClientSessionConfigurationCommand === "function");
+assert(typeof GetUserPoolClientSessionConfiguration$ === "object");
 assert(typeof GetUserPoolMfaConfigCommand === "function");
 assert(typeof GetUserPoolMfaConfig$ === "object");
+assert(typeof GetUserPoolSessionConfigurationCommand === "function");
+assert(typeof GetUserPoolSessionConfiguration$ === "object");
 assert(typeof GlobalSignOutCommand === "function");
 assert(typeof GlobalSignOut$ === "object");
 assert(typeof InitiateAuthCommand === "function");
@@ -1005,6 +1052,8 @@ assert(typeof ListUserPoolsCommand === "function");
 assert(typeof ListUserPools$ === "object");
 assert(typeof ListUsersCommand === "function");
 assert(typeof ListUsers$ === "object");
+assert(typeof ListUserSessionsCommand === "function");
+assert(typeof ListUserSessions$ === "object");
 assert(typeof ListUsersInGroupCommand === "function");
 assert(typeof ListUsersInGroup$ === "object");
 assert(typeof ListWebAuthnCredentialsCommand === "function");
@@ -1015,6 +1064,8 @@ assert(typeof RespondToAuthChallengeCommand === "function");
 assert(typeof RespondToAuthChallenge$ === "object");
 assert(typeof RevokeTokenCommand === "function");
 assert(typeof RevokeToken$ === "object");
+assert(typeof RevokeUserSessionCommand === "function");
+assert(typeof RevokeUserSession$ === "object");
 assert(typeof SetLogDeliveryConfigurationCommand === "function");
 assert(typeof SetLogDeliveryConfiguration$ === "object");
 assert(typeof SetRiskConfigurationCommand === "function");
@@ -1023,8 +1074,12 @@ assert(typeof SetUICustomizationCommand === "function");
 assert(typeof SetUICustomization$ === "object");
 assert(typeof SetUserMFAPreferenceCommand === "function");
 assert(typeof SetUserMFAPreference$ === "object");
+assert(typeof SetUserPoolClientSessionConfigurationCommand === "function");
+assert(typeof SetUserPoolClientSessionConfiguration$ === "object");
 assert(typeof SetUserPoolMfaConfigCommand === "function");
 assert(typeof SetUserPoolMfaConfig$ === "object");
+assert(typeof SetUserPoolSessionConfigurationCommand === "function");
+assert(typeof SetUserPoolSessionConfiguration$ === "object");
 assert(typeof SetUserSettingsCommand === "function");
 assert(typeof SetUserSettings$ === "object");
 assert(typeof SignUpCommand === "function");
@@ -1113,11 +1168,15 @@ assert(typeof AdminListGroupsForUserRequest$ === "object");
 assert(typeof AdminListGroupsForUserResponse$ === "object");
 assert(typeof AdminListUserAuthEventsRequest$ === "object");
 assert(typeof AdminListUserAuthEventsResponse$ === "object");
+assert(typeof AdminListUserSessionsRequest$ === "object");
+assert(typeof AdminListUserSessionsResponse$ === "object");
 assert(typeof AdminRemoveUserFromGroupRequest$ === "object");
 assert(typeof AdminResetUserPasswordRequest$ === "object");
 assert(typeof AdminResetUserPasswordResponse$ === "object");
 assert(typeof AdminRespondToAuthChallengeRequest$ === "object");
 assert(typeof AdminRespondToAuthChallengeResponse$ === "object");
+assert(typeof AdminRevokeUserSessionRequest$ === "object");
+assert(typeof AdminRevokeUserSessionResponse$ === "object");
 assert(typeof AdminSetUserMFAPreferenceRequest$ === "object");
 assert(typeof AdminSetUserMFAPreferenceResponse$ === "object");
 assert(typeof AdminSetUserPasswordRequest$ === "object");
@@ -1146,6 +1205,7 @@ assert(typeof ChangePasswordRequest$ === "object");
 assert(typeof ChangePasswordResponse$ === "object");
 assert(typeof ClientAuthenticationResultType$ === "object");
 assert(typeof ClientSecretDescriptorType$ === "object");
+assert(typeof ClientSSOSessionConfigType$ === "object");
 assert(typeof CloudWatchLogsConfigurationType$ === "object");
 assert(typeof CodeDeliveryDetailsType$ === "object");
 assert(typeof CompleteWebAuthnRegistrationRequest$ === "object");
@@ -1262,8 +1322,12 @@ assert(typeof GetUserAttributeVerificationCodeRequest$ === "object");
 assert(typeof GetUserAttributeVerificationCodeResponse$ === "object");
 assert(typeof GetUserAuthFactorsRequest$ === "object");
 assert(typeof GetUserAuthFactorsResponse$ === "object");
+assert(typeof GetUserPoolClientSessionConfigurationRequest$ === "object");
+assert(typeof GetUserPoolClientSessionConfigurationResponse$ === "object");
 assert(typeof GetUserPoolMfaConfigRequest$ === "object");
 assert(typeof GetUserPoolMfaConfigResponse$ === "object");
+assert(typeof GetUserPoolSessionConfigurationRequest$ === "object");
+assert(typeof GetUserPoolSessionConfigurationResponse$ === "object");
 assert(typeof GetUserRequest$ === "object");
 assert(typeof GetUserResponse$ === "object");
 assert(typeof GlobalSignOutRequest$ === "object");
@@ -1301,6 +1365,8 @@ assert(typeof ListUserPoolReplicasRequest$ === "object");
 assert(typeof ListUserPoolReplicasResponse$ === "object");
 assert(typeof ListUserPoolsRequest$ === "object");
 assert(typeof ListUserPoolsResponse$ === "object");
+assert(typeof ListUserSessionsRequest$ === "object");
+assert(typeof ListUserSessionsResponse$ === "object");
 assert(typeof ListUsersInGroupRequest$ === "object");
 assert(typeof ListUsersInGroupResponse$ === "object");
 assert(typeof ListUsersRequest$ === "object");
@@ -1330,11 +1396,15 @@ assert(typeof RespondToAuthChallengeRequest$ === "object");
 assert(typeof RespondToAuthChallengeResponse$ === "object");
 assert(typeof RevokeTokenRequest$ === "object");
 assert(typeof RevokeTokenResponse$ === "object");
+assert(typeof RevokeUserSessionRequest$ === "object");
+assert(typeof RevokeUserSessionResponse$ === "object");
 assert(typeof RiskConfigurationType$ === "object");
 assert(typeof RiskExceptionConfigurationType$ === "object");
 assert(typeof RoutingType$ === "object");
 assert(typeof S3ConfigurationType$ === "object");
 assert(typeof SchemaAttributeType$ === "object");
+assert(typeof SessionDescriptionType$ === "object");
+assert(typeof SessionLocationType$ === "object");
 assert(typeof SetLogDeliveryConfigurationRequest$ === "object");
 assert(typeof SetLogDeliveryConfigurationResponse$ === "object");
 assert(typeof SetRiskConfigurationRequest$ === "object");
@@ -1343,8 +1413,12 @@ assert(typeof SetUICustomizationRequest$ === "object");
 assert(typeof SetUICustomizationResponse$ === "object");
 assert(typeof SetUserMFAPreferenceRequest$ === "object");
 assert(typeof SetUserMFAPreferenceResponse$ === "object");
+assert(typeof SetUserPoolClientSessionConfigurationRequest$ === "object");
+assert(typeof SetUserPoolClientSessionConfigurationResponse$ === "object");
 assert(typeof SetUserPoolMfaConfigRequest$ === "object");
 assert(typeof SetUserPoolMfaConfigResponse$ === "object");
+assert(typeof SetUserPoolSessionConfigurationRequest$ === "object");
+assert(typeof SetUserPoolSessionConfigurationResponse$ === "object");
 assert(typeof SetUserSettingsRequest$ === "object");
 assert(typeof SetUserSettingsResponse$ === "object");
 assert(typeof SignInPolicyType$ === "object");
@@ -1406,6 +1480,7 @@ assert(typeof UserPoolClientType$ === "object");
 assert(typeof UserPoolDescriptionType$ === "object");
 assert(typeof UserPoolPolicyType$ === "object");
 assert(typeof UserPoolReplicaType$ === "object");
+assert(typeof UserPoolTokenSessionConfigType$ === "object");
 assert(typeof UserPoolType$ === "object");
 assert(typeof UserType$ === "object");
 assert(typeof VerificationMessageTemplateType$ === "object");
@@ -1460,9 +1535,11 @@ assert(typeof PreventUserExistenceErrorTypes === "object");
 assert(typeof RecoveryOptionNameType === "object");
 assert(typeof ReplicaRoleType === "object");
 assert(typeof ReplicaStatusType === "object");
+assert(typeof RevokeAssociatedSessionsType === "object");
 assert(typeof RiskDecisionType === "object");
 assert(typeof RiskLevelType === "object");
 assert(typeof SecurityPolicyType === "object");
+assert(typeof SessionTypeType === "object");
 assert(typeof StatusType === "object");
 assert(typeof TermsEnforcementType === "object");
 assert(typeof TermsSourceType === "object");
@@ -1472,6 +1549,7 @@ assert(typeof UserImportJobStatusType === "object");
 assert(typeof UsernameAttributeType === "object");
 assert(typeof UserPoolMfaType === "object");
 assert(typeof UserPoolTierType === "object");
+assert(typeof UserSessionTrackingType === "object");
 assert(typeof UserStatusType === "object");
 assert(typeof UserVerificationType === "object");
 assert(typeof VerifiedAttributeType === "object");
