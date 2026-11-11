@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1166.0...v3.1167.0) (2026-11-11)
+
+
+### Features
+
+* **client-codedeploy:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([ed0aa94](https://github.com/aws/aws-sdk-js-v3/commit/ed0aa944aff22ccd889d7b5c7d5f3c9307714e66))
+
+
+
+
+
 # [3.1166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1165.0...v3.1166.0) (2026-11-10)
 
 **Note:** Version bump only for package @aws-sdk/client-codedeploy

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-api-gateway",
-  "version": "3.1166.0",
+  "version": "3.1167.0",
   "description": "AWS SDK for JavaScript Api Gateway Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-api-gateway",
   "license": "Apache-2.0",
@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.981.0",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.96",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.97",
     "@aws-sdk/middleware-sdk-api-gateway": "workspace:^3.972.37",
     "@aws-sdk/types": "workspace:^3.975.1",
     "@smithy/core": "^3.40.0",

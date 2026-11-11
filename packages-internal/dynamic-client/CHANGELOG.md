@@ -15,6 +15,13 @@
 
 
 
+
+# 0.1.14 (2026-11-11)
+### Chores
+* **dynamic-client:** update dependencies.
+
+
+
 # 0.1.13 (2026-11-10)
 ### Chores
 * **codegen:** sync for 2026 retry defaults ([#8415](https://github.com/aws/aws-sdk-js-v3/issues/8415)) ([4fd26c2](https://github.com/aws/aws-sdk-js-v3/commit/4fd26c205f8b01b7755b426c7149e4038690563f))

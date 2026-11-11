@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-providers",
-  "version": "3.1166.0",
+  "version": "3.1167.0",
   "description": "A collection of credential providers, without requiring service clients like STS, Cognito",
   "keywords": [
     "aws",
@@ -58,9 +58,9 @@
     "@aws-sdk/credential-provider-cognito-identity": "workspace:^3.972.83",
     "@aws-sdk/credential-provider-env": "workspace:^3.972.84",
     "@aws-sdk/credential-provider-http": "workspace:^3.972.86",
-    "@aws-sdk/credential-provider-ini": "workspace:^3.973.29",
-    "@aws-sdk/credential-provider-login": "workspace:^3.972.91",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.96",
+    "@aws-sdk/credential-provider-ini": "workspace:^3.973.30",
+    "@aws-sdk/credential-provider-login": "workspace:^3.972.92",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.97",
     "@aws-sdk/credential-provider-process": "workspace:^3.972.84",
     "@aws-sdk/credential-provider-sso": "workspace:^3.973.28",
     "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.90",

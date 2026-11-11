@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1166.0...v3.1167.0) (2026-11-11)
+
+
+### Bug Fixes
+
+* **credential-provider-login:** refresh in the cached sign-in region ([#8416](https://github.com/aws/aws-sdk-js-v3/issues/8416)) ([2e6bf67](https://github.com/aws/aws-sdk-js-v3/commit/2e6bf67db25456ea7afa6a6d0ab9369e0272fccc))
+
+
+
+
+
 # [3.1166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1165.0...v3.1166.0) (2026-11-10)
 
 **Note:** Version bump only for package @aws-sdk/credential-providers

@@ -94,6 +94,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.92 (2026-11-11)
+### Bug Fixes
+* **credential-provider-login:** refresh in the cached sign-in region ([#8416](https://github.com/aws/aws-sdk-js-v3/issues/8416)) ([2e6bf67](https://github.com/aws/aws-sdk-js-v3/commit/2e6bf67db25456ea7afa6a6d0ab9369e0272fccc))
+
+
+
 # 3.972.91 (2026-11-10)
 ### Chores
 * **codegen:** sync for 2026 retry defaults ([#8415](https://github.com/aws/aws-sdk-js-v3/issues/8415)) ([4fd26c2](https://github.com/aws/aws-sdk-js-v3/commit/4fd26c205f8b01b7755b426c7149e4038690563f))

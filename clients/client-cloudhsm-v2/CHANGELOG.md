@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1166.0...v3.1167.0) (2026-11-11)
+
+
+### Features
+
+* **client-cloudhsm-v2:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([ac0ad71](https://github.com/aws/aws-sdk-js-v3/commit/ac0ad71f58cd2490e25134ad434c6704ac9f659b))
+
+
+
+
+
 # [3.1166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1165.0...v3.1166.0) (2026-11-10)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudhsm-v2

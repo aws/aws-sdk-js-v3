@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1166.0...v3.1167.0) (2026-11-11)
+
+
+### Features
+
+* **client-connectcases:** This release adds APIs that allow customers to merge cases to consolidate case history, and get the status of an ongoing case merge operation. ([489f630](https://github.com/aws/aws-sdk-js-v3/commit/489f63000e131f4c8acf7d481972de9fdfd9ef39))
+
+
+
+
+
 # [3.1166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1165.0...v3.1166.0) (2026-11-10)
 
 **Note:** Version bump only for package @aws-sdk/client-connectcases

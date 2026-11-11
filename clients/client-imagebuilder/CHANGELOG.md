@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1166.0...v3.1167.0) (2026-11-11)
+
+
+### Features
+
+* **client-imagebuilder:** Update list operations to support wildcard name filtering and page sizes up to 100 results via MaxResults ([79ca029](https://github.com/aws/aws-sdk-js-v3/commit/79ca0296cd94098d4270951dab170f2e794b5b5d))
+
+
+
+
+
 # [3.1166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1165.0...v3.1166.0) (2026-11-10)
 
 **Note:** Version bump only for package @aws-sdk/client-imagebuilder

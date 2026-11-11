@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1166.0...v3.1167.0) (2026-11-11)
+
+
+### Bug Fixes
+
+* **credential-provider-login:** refresh in the cached sign-in region ([#8416](https://github.com/aws/aws-sdk-js-v3/issues/8416)) ([2e6bf67](https://github.com/aws/aws-sdk-js-v3/commit/2e6bf67db25456ea7afa6a6d0ab9369e0272fccc))
+
+
+### Features
+
+* **client-acm-pca:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([8c5beb2](https://github.com/aws/aws-sdk-js-v3/commit/8c5beb28e43e73e36a36a013705ef6f590e8ae02))
+* **client-bedrock-agentcore-control:** Adds private certificate authority (CA) support for AgentCore Identity custom OAuth2.0 credential providers and custom JWT authorizers, enabling connections to IdPs with private CAs. Support SigV4 request signing (cryptographically signed) in the Bedrock AgentCore Harness MCP connector tool. ([2ec0007](https://github.com/aws/aws-sdk-js-v3/commit/2ec00073977214469a790b5d3b6e631b3342df60))
+* **client-bedrock-agentcore:** Support SigV4 request signing (cryptographically signed) in the Bedrock AgentCore Harness MCP connector tool. ([b54250f](https://github.com/aws/aws-sdk-js-v3/commit/b54250fbc7699d5db13c1ee20e660c5856b44330))
+* **client-cloudhsm-v2:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([ac0ad71](https://github.com/aws/aws-sdk-js-v3/commit/ac0ad71f58cd2490e25134ad434c6704ac9f659b))
+* **client-codebuild:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([7a8a7fb](https://github.com/aws/aws-sdk-js-v3/commit/7a8a7fb8aba243c7744e22ff6a826c8fdc2d5e8e))
+* **client-codedeploy:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([ed0aa94](https://github.com/aws/aws-sdk-js-v3/commit/ed0aa944aff22ccd889d7b5c7d5f3c9307714e66))
+* **client-codepipeline:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([02b3bdd](https://github.com/aws/aws-sdk-js-v3/commit/02b3bddc052a92b498affd70975f8f456d979bb4))
+* **client-cognito-identity-provider:** This release adds session management operations that let user pool administrators and users list and revoke active sessions, and configure session tracking, per-user session limits, and SSO session validity per app client. ([99c3857](https://github.com/aws/aws-sdk-js-v3/commit/99c385758608a269165997d94d2fb36dc5d13e09))
+* **client-comprehend:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([2a6706b](https://github.com/aws/aws-sdk-js-v3/commit/2a6706ba2ffd35519713c1ba8859eb8563177f52))
+* **client-config-service:** AWS Config now supports connectors for Google Cloud. PutConnector accepts a Google Cloud connector configuration, and ListConnectors returns Google Cloud connector details. ([a7b3ae1](https://github.com/aws/aws-sdk-js-v3/commit/a7b3ae1585dcdaf3d75cbb3c28515c3aebe2515a))
+* **client-connect:** Added support for 96 new languages for AI-powered automated evaluations. Chat interactions support all 96 languages. Voice interactions support 57 languages, those with transcription available through post-call conversational analytics. ([6813675](https://github.com/aws/aws-sdk-js-v3/commit/6813675fa2469f1e5329b5ef58eb37bdfc0ccfc3))
+* **client-connectcases:** This release adds APIs that allow customers to merge cases to consolidate case history, and get the status of an ongoing case merge operation. ([489f630](https://github.com/aws/aws-sdk-js-v3/commit/489f63000e131f4c8acf7d481972de9fdfd9ef39))
+* **client-datasync:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([ba233b3](https://github.com/aws/aws-sdk-js-v3/commit/ba233b311ca9981b5164fdbcd8ff806ef6d4a898))
+* **client-direct-connect:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([659b280](https://github.com/aws/aws-sdk-js-v3/commit/659b280c2c11571c75c743ff0a0e695d089fa61c))
+* **client-directory-service:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([467e157](https://github.com/aws/aws-sdk-js-v3/commit/467e1572936b872ce953c396f4d7c5e791b3fe46))
+* **client-ec2:** Adds support for AWS Cloud WAN Flow Logs. The CreateFlowLogs API now accepts CoreNetwork, CoreNetworkEdge, and CoreNetworkAttachment resource types, enabling customers to capture information about IP traffic traversing their Cloud WAN core networks. ([c3c8697](https://github.com/aws/aws-sdk-js-v3/commit/c3c8697b1e8087a44beee2df81be10f38b042885))
+* **client-identitystore:** Updated ApiRestrictSourceVpcs in NetworkConfiguration to accept VPC ARNs in addition to VPC IDs. ([4cd903c](https://github.com/aws/aws-sdk-js-v3/commit/4cd903c31fc7c7eb2c1368fae8aa1bbaa2f20b87))
+* **client-imagebuilder:** Update list operations to support wildcard name filtering and page sizes up to 100 results via MaxResults ([79ca029](https://github.com/aws/aws-sdk-js-v3/commit/79ca0296cd94098d4270951dab170f2e794b5b5d))
+* **client-kinesis-analytics-v2:** This release adds support for Enhanced Snapshots in Amazon Managed Service for Apache Flink, enabling application state to be managed as a standalone resource that customers can export, import, and reuse across applications. ([7af41f7](https://github.com/aws/aws-sdk-js-v3/commit/7af41f74582871a2f9ba8099bfec505fb52470df))
+* **client-marketplace-metering:** AWS Marketplace Metering Service adds decimal quantity support to the MeterUsage and BatchMeterUsage APIs. This includes new request fields UsageQuantityAsDecimal (MeterUsage), QuantityAsDecimal (BatchMeterUsage), and AllocatedUsageQuantityAsDecimal (UsageAllocation for both APIs). ([67801c0](https://github.com/aws/aws-sdk-js-v3/commit/67801c03074a0c68f294487cba35942b081fddd7))
+* **client-mediapackagev2:** This release adds the BandwidthReportingMode setting to DASH manifest configurations, which lets you choose whether the bandwidth attribute of video Representations in the DASH manifest reports the average (default) or peak bitrate of the video track. ([73c6b0a](https://github.com/aws/aws-sdk-js-v3/commit/73c6b0a340197a2c8ccc87f29ff8ecdc9808dca0))
+* **client-memorydb:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([0a14dc3](https://github.com/aws/aws-sdk-js-v3/commit/0a14dc32c58723710b657affc32097e60ebc13f3))
+* **client-network-firewall:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([b807f71](https://github.com/aws/aws-sdk-js-v3/commit/b807f712e6b996f4ce43c6173e9972905543f3c4))
+* **client-resource-groups-tagging-api:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([d517065](https://github.com/aws/aws-sdk-js-v3/commit/d51706538d7f3d60afaf923367ea07520b82f661))
+* **client-route-53-domains:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([d2408e9](https://github.com/aws/aws-sdk-js-v3/commit/d2408e961b97110442fb0901c0a1bf9782482d29))
+* **client-service-catalog:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([d2328ce](https://github.com/aws/aws-sdk-js-v3/commit/d2328cee2c8cc160e2431a1a9878ca64b55179f4))
+* **client-servicediscovery:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([4616167](https://github.com/aws/aws-sdk-js-v3/commit/46161676a082bb1d6dec2e499dee6f30960ea70e))
+* **client-shield:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([967edd9](https://github.com/aws/aws-sdk-js-v3/commit/967edd98e02efc0756424097c24bd80a1e32dfd8))
+* **client-textract:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([7b46d6e](https://github.com/aws/aws-sdk-js-v3/commit/7b46d6edc5e195151953d2d43f15b33dbacdaeba))
+* **client-transcribe:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([9c2e627](https://github.com/aws/aws-sdk-js-v3/commit/9c2e6275042027025d0c8c406bddf209a94b00e1))
+* **client-workspaces:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([f27b4f8](https://github.com/aws/aws-sdk-js-v3/commit/f27b4f80b2f071109adf860d184f67e01f4d7165))
+* **clients:** update client endpoints as of 2026-11-11 ([2059d84](https://github.com/aws/aws-sdk-js-v3/commit/2059d849fcc8bb61ef86f7bca660de3d5db83ce7))
+
+
+
+
+
 # [3.1166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1165.0...v3.1166.0) (2026-11-10)
 
 
