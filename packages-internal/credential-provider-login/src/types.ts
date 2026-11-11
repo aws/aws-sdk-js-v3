@@ -13,7 +13,9 @@ export interface FromLoginCredentialsInit extends CredentialProviderOptions, Sha
   profile?: string;
 
   /**
-   * Login client configuration for token refresh operations
+   * Login client configuration for token refresh operations.
+   * The `signInRegion` recorded in the cached token overrides a `region` set here.
+   * A `region` set here applies when the token has no `signInRegion`.
    */
   clientConfig?: SigninClientConfig;
 
@@ -39,6 +41,7 @@ export interface LoginToken {
   refreshToken: string;
   idToken: string;
   dpopKey: string; // DPoP private key PEM
+  signInRegion?: string; // region the token was issued in
 }
 
 /**
