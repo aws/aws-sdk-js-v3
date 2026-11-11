@@ -500,6 +500,7 @@ export type {
   FailedRemediationBatch,
   FailedRemediationExceptionBatch,
   FieldInfo,
+  GcpConnectorConfiguration,
   GetAggregateComplianceDetailsByConfigRuleRequest,
   GetAggregateComplianceDetailsByConfigRuleResponse,
   GetAggregateConfigRuleComplianceSummaryRequest,

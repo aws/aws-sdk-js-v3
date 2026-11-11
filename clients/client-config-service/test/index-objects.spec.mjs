@@ -267,6 +267,7 @@ import {
   FailedRemediationBatch$,
   FailedRemediationExceptionBatch$,
   FieldInfo$,
+  GcpConnectorConfiguration$,
   GetAggregateComplianceDetailsByConfigRule$,
   GetAggregateComplianceDetailsByConfigRuleCommand,
   GetAggregateComplianceDetailsByConfigRuleRequest$,
@@ -1065,6 +1066,7 @@ assert(typeof FailedDeleteRemediationExceptionsBatch$ === "object");
 assert(typeof FailedRemediationBatch$ === "object");
 assert(typeof FailedRemediationExceptionBatch$ === "object");
 assert(typeof FieldInfo$ === "object");
+assert(typeof GcpConnectorConfiguration$ === "object");
 assert(typeof GetAggregateComplianceDetailsByConfigRuleRequest$ === "object");
 assert(typeof GetAggregateComplianceDetailsByConfigRuleResponse$ === "object");
 assert(typeof GetAggregateConfigRuleComplianceSummaryRequest$ === "object");

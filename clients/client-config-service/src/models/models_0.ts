@@ -1126,13 +1126,31 @@ export interface RecordingMode {
  */
 export interface ScopeConfiguration {
   /**
-   * <p>The type of scope for the third-party cloud resources. Valid values include <code>tenant</code> and <code>subscription</code>.</p>
+   * <p>The type of scope for the third-party cloud resources. Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>tenant</code> – Applies to all resources in an Azure tenant</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subscription</code> – Applies to resources in the Azure subscriptions you specify</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>organization</code> – Applies to all resources in a Google Cloud organization</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>project</code> – Applies to resources in the Google Cloud projects you specify</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   scopeType: string | undefined;
 
   /**
-   * <p>The list of specific scope values for the third-party cloud resources. For example, a list of Azure subscriptions or management groups.</p>
+   * <p>The list of specific scope values for the third-party cloud resources. For example, a list of Azure subscription IDs, or a list of Google Cloud project IDs. Don't specify <code>scopeValues</code> when <code>scopeType</code> is <code>tenant</code> or <code>organization</code>.</p>
    * @public
    */
   scopeValues?: string[] | undefined;
@@ -2715,7 +2733,17 @@ export interface ConfigurationRecorderSummary {
   recordingScope: RecordingScope | undefined;
 
   /**
-   * <p>For service-linked configuration recorders that record resources from a third-party cloud service provider, indicates the cloud service provider. Currently, <code>AZURE</code> is supported.</p>
+   * <p>For service-linked configuration recorders that record resources from a third-party cloud service provider, indicates the cloud service provider. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AZURE</code> – The recorder records resources from Microsoft Azure</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GCP</code> – The recorder records resources from Google Cloud</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   provider?: Provider | undefined;
@@ -3074,6 +3102,32 @@ export interface ConformancePackStatusDetail {
 }
 
 /**
+ * <p>The configuration details for connecting to Google Cloud.</p>
+ * @public
+ */
+export interface GcpConnectorConfiguration {
+  /**
+   * <p>The ID of the Google Cloud organization that contains the connector's management project, which is the project of the service account in <code>serviceAccountEmail</code>.</p>
+   *          <p>Required if the management project belongs to an organization. A connector needs an organization ID to record an entire organization or more than one project. Omit it only if the management project doesn't belong to an organization. In that case, the connector can record only the management project.</p>
+   * @public
+   */
+  gcpOrganizationId?: string | undefined;
+
+  /**
+   * <p>The email address of the Google Cloud service account that Config uses to access your Google Cloud resources. The format is <code>SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com</code>.</p>
+   *          <p>The project that contains this service account is the connector's management project. If the connector has no <code>gcpOrganizationId</code>, it can record only the management project.</p>
+   * @public
+   */
+  serviceAccountEmail: string | undefined;
+
+  /**
+   * <p>The full resource name of the Google Cloud workload identity pool provider that trusts Config. The format is <code>projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/PROVIDER_ID</code>.</p>
+   * @public
+   */
+  workloadIdentityPoolProvider: string | undefined;
+}
+
+/**
  * <p>The provider-specific configuration for connecting to the third-party cloud service provider. You must specify exactly one provider configuration.</p>
  * @public
  */
@@ -3083,6 +3137,12 @@ export interface ConnectorConfiguration {
    * @public
    */
   azure?: AzureConnectorConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a Google Cloud connector.</p>
+   * @public
+   */
+  gcp?: GcpConnectorConfiguration | undefined;
 }
 
 /**
@@ -3127,7 +3187,17 @@ export interface ConnectorFilter {
   filterName?: ConnectorFilterName | undefined;
 
   /**
-   * <p>The value of the filter. For <code>provider</code>, valid values include: <code>AZURE</code>.</p>
+   * <p>The value of the filter. For <code>provider</code>, valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AZURE</code> – The connector is for Microsoft Azure</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GCP</code> – The connector is for Google Cloud</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   filterValues?: string[] | undefined;
@@ -3151,16 +3221,38 @@ export interface ConnectorSummary {
   name: string | undefined;
 
   /**
-   * <p>The third-party cloud service provider. Currently, <code>AZURE</code> is supported.</p>
+   * <p>The third-party cloud service provider. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AZURE</code> – The connector is for Microsoft Azure</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GCP</code> – The connector is for Google Cloud</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   provider: Provider | undefined;
 
   /**
-   * <p>The Azure tenant identifier for the connector.</p>
+   * <p>The Azure tenant identifier for the connector. Returned only for Azure connectors.</p>
    * @public
    */
-  tenantIdentifier: string | undefined;
+  tenantIdentifier?: string | undefined;
+
+  /**
+   * <p>The Google Cloud organization ID for the connector. Returned only for Google Cloud connectors.</p>
+   * @public
+   */
+  gcpOrganizationId?: string | undefined;
+
+  /**
+   * <p>The email address of the Google Cloud service account for the connector. Returned only for Google Cloud connectors.</p>
+   * @public
+   */
+  serviceAccountEmail?: string | undefined;
 
   /**
    * <p>The date and time that the connector was created.</p>
@@ -8900,68 +8992,4 @@ export interface TagResourceRequest {
    * @public
    */
   Tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationRecorder</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigRule</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OrganizationConfigRule</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConformancePack</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OrganizationConformancePack</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationAggregator</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AggregationAuthorization</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>StoredQuery</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Connector</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The keys of the tags to be removed.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
 }

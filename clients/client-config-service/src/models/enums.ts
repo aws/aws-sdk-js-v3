@@ -855,6 +855,7 @@ export type RecorderStatus = (typeof RecorderStatus)[keyof typeof RecorderStatus
  */
 export const Provider = {
   AZURE: "AZURE",
+  GCP: "GCP",
 } as const;
 /**
  * @public

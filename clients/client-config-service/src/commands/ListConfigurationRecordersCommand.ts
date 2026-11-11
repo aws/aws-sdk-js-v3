@@ -53,7 +53,7 @@ export interface ListConfigurationRecordersCommandOutput extends ListConfigurati
  * //       name: "STRING_VALUE", // required
  * //       servicePrincipal: "STRING_VALUE",
  * //       recordingScope: "INTERNAL" || "PAID", // required
- * //       provider: "AZURE",
+ * //       provider: "AZURE" || "GCP",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

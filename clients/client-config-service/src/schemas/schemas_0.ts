@@ -348,6 +348,7 @@ const _GARCR = "GetAggregateResourceConfigRequest";
 const _GARCRe = "GetAggregateResourceConfigResponse";
 const _GBK = "GroupByKey";
 const _GC = "GetConnector";
+const _GCC = "GcpConnectorConfiguration";
 const _GCDBCR = "GetComplianceDetailsByConfigRule";
 const _GCDBCRR = "GetComplianceDetailsByConfigRuleRequest";
 const _GCDBCRRe = "GetComplianceDetailsByConfigRuleResponse";
@@ -770,6 +771,8 @@ const _eT = "earlierTime";
 const _fN = "filterName";
 const _fV = "filterValue";
 const _fVi = "filterValues";
+const _g = "gcp";
+const _gOI = "gcpOrganizationId";
 const _hE = "httpError";
 const _iDR = "includeDeletedResources";
 const _iGRT = "includeGlobalResourceTypes";
@@ -811,6 +814,7 @@ const _rT = "resourceType";
 const _rTe = "resourceTypes";
 const _re = "recording";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.configservice";
+const _sAE = "serviceAccountEmail";
 const _sBN = "s3BucketName";
 const _sC = "supplementaryConfiguration";
 const _sCc = "scopeConfiguration";
@@ -826,6 +830,7 @@ const _tI = "tenantIdentifier";
 const _uO = "useOnly";
 const _uRK = "unprocessedResourceKeys";
 const _v = "version";
+const _wIPP = "workloadIdentityPoolProvider";
 const n0 = "com.amazonaws.configservice";
 
 // smithy-typescript generated code
@@ -1527,8 +1532,8 @@ export var Connector$: StaticStructureSchema = [3, n0, _Con,
 ];
 export var ConnectorConfiguration$: StaticStructureSchema = [3, n0, _CCo,
   0,
-  [_az],
-  [() => AzureConnectorConfiguration$]
+  [_az, _g],
+  [() => AzureConnectorConfiguration$, () => GcpConnectorConfiguration$]
 ];
 export var ConnectorFilter$: StaticStructureSchema = [3, n0, _CF,
   0,
@@ -1537,8 +1542,8 @@ export var ConnectorFilter$: StaticStructureSchema = [3, n0, _CF,
 ];
 export var ConnectorSummary$: StaticStructureSchema = [3, n0, _CSo,
   0,
-  [_a, _n, _p, _tI, _cT],
-  [0, 0, 0, 0, 4], 5
+  [_a, _n, _p, _cT, _tI, _gOI, _sAE],
+  [0, 0, 0, 4, 0, 0, 0], 4
 ];
 export var CustomPolicyDetails$: StaticStructureSchema = [3, n0, _CPDu,
   0,
@@ -2009,6 +2014,11 @@ export var FieldInfo$: StaticStructureSchema = [3, n0, _FIi,
   0,
   [_N],
   [0]
+];
+export var GcpConnectorConfiguration$: StaticStructureSchema = [3, n0, _GCC,
+  0,
+  [_sAE, _wIPP, _gOI],
+  [0, 0, 0], 2
 ];
 export var GetAggregateComplianceDetailsByConfigRuleRequest$: StaticStructureSchema = [3, n0, _GACDBCRR,
   0,

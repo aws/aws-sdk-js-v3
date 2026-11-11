@@ -52,6 +52,11 @@ export interface PutConnectorCommandOutput extends PutConnectorResponse, __Metad
  *       tenantIdentifier: "STRING_VALUE", // required
  *       clientIdentifier: "STRING_VALUE", // required
  *     },
+ *     gcp: { // GcpConnectorConfiguration
+ *       gcpOrganizationId: "STRING_VALUE",
+ *       serviceAccountEmail: "STRING_VALUE", // required
+ *       workloadIdentityPoolProvider: "STRING_VALUE", // required
+ *     },
  *   },
  *   Tags: [ // TagsList
  *     { // Tag

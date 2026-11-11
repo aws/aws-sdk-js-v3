@@ -51,8 +51,10 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * //     { // ConnectorSummary
  * //       arn: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
- * //       provider: "AZURE", // required
- * //       tenantIdentifier: "STRING_VALUE", // required
+ * //       provider: "AZURE" || "GCP", // required
+ * //       tenantIdentifier: "STRING_VALUE",
+ * //       gcpOrganizationId: "STRING_VALUE",
+ * //       serviceAccountEmail: "STRING_VALUE",
  * //       createdTime: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],
