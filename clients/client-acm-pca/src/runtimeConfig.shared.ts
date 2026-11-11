@@ -17,7 +17,7 @@ import { errorTypeRegistries } from "./schemas/schemas_0";
  */
 export const getRuntimeConfig = (config: ACMPCAClientConfig) => {
   return {
-    apiVersion: "",
+    apiVersion: "2017-08-22",
     base64Decoder: config?.base64Decoder ?? fromBase64,
     base64Encoder: config?.base64Encoder ?? toBase64,
     disableHostPrefix: config?.disableHostPrefix ?? false,
@@ -37,6 +37,7 @@ export const getRuntimeConfig = (config: ACMPCAClientConfig) => {
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.acmpca",
       errorTypeRegistries,
+      version: "2017-08-22",
       serviceTarget: "ACMPrivateCA",
     },
     serviceId: config?.serviceId ?? "ACM PCA",
