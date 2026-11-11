@@ -96,6 +96,10 @@ import type {
 } from "./commands/GetCaseEventConfigurationCommand";
 import type { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
 import type { GetLayoutCommandInput, GetLayoutCommandOutput } from "./commands/GetLayoutCommand";
+import type {
+  GetMergeCasesStatusCommandInput,
+  GetMergeCasesStatusCommandOutput,
+} from "./commands/GetMergeCasesStatusCommand";
 import type { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
 import type { ListCaseRulesCommandInput, ListCaseRulesCommandOutput } from "./commands/ListCaseRulesCommand";
 import type {
@@ -124,6 +128,7 @@ import type {
   SearchRelatedItemsCommandInput,
   SearchRelatedItemsCommandOutput,
 } from "./commands/SearchRelatedItemsCommand";
+import type { StartMergeCasesCommandInput, StartMergeCasesCommandOutput } from "./commands/StartMergeCasesCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateCaseCommandInput, UpdateCaseCommandOutput } from "./commands/UpdateCaseCommand";
@@ -174,6 +179,7 @@ export type ServiceInputTypes =
   | GetCaseEventConfigurationCommandInput
   | GetDomainCommandInput
   | GetLayoutCommandInput
+  | GetMergeCasesStatusCommandInput
   | GetTemplateCommandInput
   | ListCaseRulesCommandInput
   | ListCasesForContactCommandInput
@@ -187,6 +193,7 @@ export type ServiceInputTypes =
   | SearchAllRelatedItemsCommandInput
   | SearchCasesCommandInput
   | SearchRelatedItemsCommandInput
+  | StartMergeCasesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateCaseCommandInput
@@ -224,6 +231,7 @@ export type ServiceOutputTypes =
   | GetCaseEventConfigurationCommandOutput
   | GetDomainCommandOutput
   | GetLayoutCommandOutput
+  | GetMergeCasesStatusCommandOutput
   | GetTemplateCommandOutput
   | ListCaseRulesCommandOutput
   | ListCasesForContactCommandOutput
@@ -237,6 +245,7 @@ export type ServiceOutputTypes =
   | SearchAllRelatedItemsCommandOutput
   | SearchCasesCommandOutput
   | SearchRelatedItemsCommandOutput
+  | StartMergeCasesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateCaseCommandOutput

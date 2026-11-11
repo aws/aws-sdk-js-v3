@@ -116,6 +116,11 @@ import {
 import { type GetDomainCommandInput, type GetDomainCommandOutput, GetDomainCommand } from "./commands/GetDomainCommand";
 import { type GetLayoutCommandInput, type GetLayoutCommandOutput, GetLayoutCommand } from "./commands/GetLayoutCommand";
 import {
+  type GetMergeCasesStatusCommandInput,
+  type GetMergeCasesStatusCommandOutput,
+  GetMergeCasesStatusCommand,
+} from "./commands/GetMergeCasesStatusCommand";
+import {
   type GetTemplateCommandInput,
   type GetTemplateCommandOutput,
   GetTemplateCommand,
@@ -180,6 +185,11 @@ import {
   type SearchRelatedItemsCommandOutput,
   SearchRelatedItemsCommand,
 } from "./commands/SearchRelatedItemsCommand";
+import {
+  type StartMergeCasesCommandInput,
+  type StartMergeCasesCommandOutput,
+  StartMergeCasesCommand,
+} from "./commands/StartMergeCasesCommand";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -259,6 +269,7 @@ const commands = {
   GetCaseEventConfigurationCommand,
   GetDomainCommand,
   GetLayoutCommand,
+  GetMergeCasesStatusCommand,
   GetTemplateCommand,
   ListCaseRulesCommand,
   ListCasesForContactCommand,
@@ -272,6 +283,7 @@ const commands = {
   SearchAllRelatedItemsCommand,
   SearchCasesCommand,
   SearchRelatedItemsCommand,
+  StartMergeCasesCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateCaseCommand,
@@ -713,6 +725,23 @@ export interface ConnectCases {
   ): void;
 
   /**
+   * @see {@link GetMergeCasesStatusCommand}
+   */
+  getMergeCasesStatus(
+    args: GetMergeCasesStatusCommandInput,
+    options?: ConnectCasesRequestOptions
+  ): Promise<GetMergeCasesStatusCommandOutput>;
+  getMergeCasesStatus(
+    args: GetMergeCasesStatusCommandInput,
+    cb: (err: any, data?: GetMergeCasesStatusCommandOutput) => void
+  ): void;
+  getMergeCasesStatus(
+    args: GetMergeCasesStatusCommandInput,
+    options: ConnectCasesRequestOptions,
+    cb: (err: any, data?: GetMergeCasesStatusCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTemplateCommand}
    */
   getTemplate(
@@ -932,6 +961,23 @@ export interface ConnectCases {
     args: SearchRelatedItemsCommandInput,
     options: ConnectCasesRequestOptions,
     cb: (err: any, data?: SearchRelatedItemsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMergeCasesCommand}
+   */
+  startMergeCases(
+    args: StartMergeCasesCommandInput,
+    options?: ConnectCasesRequestOptions
+  ): Promise<StartMergeCasesCommandOutput>;
+  startMergeCases(
+    args: StartMergeCasesCommandInput,
+    cb: (err: any, data?: StartMergeCasesCommandOutput) => void
+  ): void;
+  startMergeCases(
+    args: StartMergeCasesCommandInput,
+    options: ConnectCasesRequestOptions,
+    cb: (err: any, data?: StartMergeCasesCommandOutput) => void
   ): void;
 
   /**

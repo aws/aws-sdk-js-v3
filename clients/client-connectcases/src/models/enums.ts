@@ -46,6 +46,7 @@ export type RelatedItemType = (typeof RelatedItemType)[keyof typeof RelatedItemT
  */
 export const AuditEventType = {
   CASE_CREATED: "Case.Created",
+  CASE_MERGED: "Case.Merged",
   CASE_UPDATED: "Case.Updated",
   RELATED_ITEM_CREATED: "RelatedItem.Created",
   RELATED_ITEM_DELETED: "RelatedItem.Deleted",
@@ -55,6 +56,25 @@ export const AuditEventType = {
  * @public
  */
 export type AuditEventType = (typeof AuditEventType)[keyof typeof AuditEventType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MergeStatus = {
+  /**
+   * The merge finished and this case was the secondary. The case is closed and permanently read-only, but can be deleted.
+   */
+  COMPLETED: "COMPLETED",
+  /**
+   * The merge is running. The primary and secondary cases can't be modified until it finishes.
+   */
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type MergeStatus = (typeof MergeStatus)[keyof typeof MergeStatus];
 
 /**
  * @public

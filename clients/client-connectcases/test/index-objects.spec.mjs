@@ -6,6 +6,7 @@ import {
   AuditEventFieldValueUnion$,
   AuditEventPerformedBy$,
   AuditEventType,
+  AuditMergeMetadata$,
   BasicLayout$,
   BatchCreateRelatedItem$,
   BatchCreateRelatedItemCommand,
@@ -138,6 +139,7 @@ import {
   FieldOption$,
   FieldOptionError$,
   FieldOptionsCaseRule$,
+  FieldsConfiguration$,
   FieldSummary$,
   FieldType,
   FieldValue$,
@@ -167,6 +169,10 @@ import {
   GetLayoutCommand,
   GetLayoutRequest$,
   GetLayoutResponse$,
+  GetMergeCasesStatus$,
+  GetMergeCasesStatusCommand,
+  GetMergeCasesStatusRequest$,
+  GetMergeCasesStatusResponse$,
   GetTemplate$,
   GetTemplateCommand,
   GetTemplateRequest$,
@@ -210,6 +216,7 @@ import {
   ListTemplatesCommand,
   ListTemplatesRequest$,
   ListTemplatesResponse$,
+  MergeStatus,
   OperandOne$,
   OperandTwo$,
   Order,
@@ -233,6 +240,7 @@ import {
   RelatedItemContent$,
   RelatedItemEventIncludedData$,
   RelatedItemInputContent$,
+  RelatedItemsConfiguration$,
   RelatedItemType,
   RelatedItemTypeFilter$,
   RelatedItemUpdateContent$,
@@ -269,6 +277,10 @@ import {
   SlaStatus,
   SlaType,
   Sort$,
+  StartMergeCases$,
+  StartMergeCasesCommand,
+  StartMergeCasesRequest$,
+  StartMergeCasesResponse$,
   TagFilter$,
   TagPropagationConfiguration$,
   TagPropagationResourceType,
@@ -366,6 +378,8 @@ assert(typeof GetDomainCommand === "function");
 assert(typeof GetDomain$ === "object");
 assert(typeof GetLayoutCommand === "function");
 assert(typeof GetLayout$ === "object");
+assert(typeof GetMergeCasesStatusCommand === "function");
+assert(typeof GetMergeCasesStatus$ === "object");
 assert(typeof GetTemplateCommand === "function");
 assert(typeof GetTemplate$ === "object");
 assert(typeof ListCaseRulesCommand === "function");
@@ -392,6 +406,8 @@ assert(typeof SearchCasesCommand === "function");
 assert(typeof SearchCases$ === "object");
 assert(typeof SearchRelatedItemsCommand === "function");
 assert(typeof SearchRelatedItems$ === "object");
+assert(typeof StartMergeCasesCommand === "function");
+assert(typeof StartMergeCases$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -413,6 +429,7 @@ assert(typeof AuditEvent$ === "object");
 assert(typeof AuditEventField$ === "object");
 assert(typeof AuditEventFieldValueUnion$ === "object");
 assert(typeof AuditEventPerformedBy$ === "object");
+assert(typeof AuditMergeMetadata$ === "object");
 assert(typeof BasicLayout$ === "object");
 assert(typeof BatchCreateRelatedItemErrorEntry$ === "object");
 assert(typeof BatchCreateRelatedItemIdentifier$ === "object");
@@ -499,6 +516,7 @@ assert(typeof FieldItem$ === "object");
 assert(typeof FieldOption$ === "object");
 assert(typeof FieldOptionError$ === "object");
 assert(typeof FieldOptionsCaseRule$ === "object");
+assert(typeof FieldsConfiguration$ === "object");
 assert(typeof FieldSummary$ === "object");
 assert(typeof FieldValue$ === "object");
 assert(typeof FieldValueInput$ === "object");
@@ -517,6 +535,8 @@ assert(typeof GetDomainResponse$ === "object");
 assert(typeof GetFieldResponse$ === "object");
 assert(typeof GetLayoutRequest$ === "object");
 assert(typeof GetLayoutResponse$ === "object");
+assert(typeof GetMergeCasesStatusRequest$ === "object");
+assert(typeof GetMergeCasesStatusResponse$ === "object");
 assert(typeof GetTemplateRequest$ === "object");
 assert(typeof GetTemplateResponse$ === "object");
 assert(typeof HiddenCaseRule$ === "object");
@@ -548,6 +568,7 @@ assert(typeof PutCaseEventConfigurationResponse$ === "object");
 assert(typeof RelatedItemContent$ === "object");
 assert(typeof RelatedItemEventIncludedData$ === "object");
 assert(typeof RelatedItemInputContent$ === "object");
+assert(typeof RelatedItemsConfiguration$ === "object");
 assert(typeof RelatedItemTypeFilter$ === "object");
 assert(typeof RelatedItemUpdateContent$ === "object");
 assert(typeof RequiredCaseRule$ === "object");
@@ -569,6 +590,8 @@ assert(typeof SlaFilter$ === "object");
 assert(typeof SlaInputConfiguration$ === "object");
 assert(typeof SlaInputContent$ === "object");
 assert(typeof Sort$ === "object");
+assert(typeof StartMergeCasesRequest$ === "object");
+assert(typeof StartMergeCasesResponse$ === "object");
 assert(typeof TagFilter$ === "object");
 assert(typeof TagPropagationConfiguration$ === "object");
 assert(typeof TagResourceRequest$ === "object");
@@ -596,6 +619,7 @@ assert(typeof CommentBodyTextType === "object");
 assert(typeof DomainStatus === "object");
 assert(typeof FieldNamespace === "object");
 assert(typeof FieldType === "object");
+assert(typeof MergeStatus === "object");
 assert(typeof Order === "object");
 assert(typeof RelatedItemType === "object");
 assert(typeof RuleType === "object");

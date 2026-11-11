@@ -23,7 +23,7 @@ export interface DeleteRelatedItemCommandInput extends DeleteRelatedItemRequest 
 export interface DeleteRelatedItemCommandOutput extends DeleteRelatedItemResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the related item resource under a case.</p> <note> <p>This API cannot be used on a FILE type related attachment. To delete this type of file, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteAttachedFile.html">DeleteAttachedFile</a> API</p> </note>
+ * <p>Deletes the related item resource under a case.</p> <note> <p>This API cannot be used on a FILE type related attachment. To delete this type of file, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteAttachedFile.html">DeleteAttachedFile</a> API</p> </note> <p>If the case is the secondary case of a merge that is running, the request fails with a <code>ConflictException</code>. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_StartMergeCases.html">StartMergeCases</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,6 +51,9 @@ export interface DeleteRelatedItemCommandOutput extends DeleteRelatedItemRespons
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>We couldn't process your request because of an issue with the server. Try again later.</p>

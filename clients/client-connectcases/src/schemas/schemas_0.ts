@@ -5,6 +5,7 @@ const _AEFL = "AuditEventFieldList";
 const _AEFVU = "AuditEventFieldValueUnion";
 const _AEL = "AuditEventsList";
 const _AEPB = "AuditEventPerformedBy";
+const _AMM = "AuditMergeMetadata";
 const _BC = "BooleanCondition";
 const _BCL = "BooleanConditionList";
 const _BCRI = "BatchCreateRelatedItem";
@@ -122,7 +123,9 @@ const _EFV = "EmptyFieldValue";
 const _EID = "EventIncludedData";
 const _EOV = "EmptyOperandValue";
 const _FA = "FieldAttributes";
-const _FC = "FileContent";
+const _FC = "FieldsConfiguration";
+const _FCL = "FieldsConfigurationList";
+const _FCi = "FileContent";
 const _FE = "FieldError";
 const _FF = "FileFilter";
 const _FFi = "FieldFilter";
@@ -161,6 +164,9 @@ const _GFR = "GetFieldResponse";
 const _GL = "GetLayout";
 const _GLR = "GetLayoutRequest";
 const _GLRe = "GetLayoutResponse";
+const _GMCS = "GetMergeCasesStatus";
+const _GMCSR = "GetMergeCasesStatusRequest";
+const _GMCSRe = "GetMergeCasesStatusResponse";
 const _GT = "GetTemplate";
 const _GTR = "GetTemplateRequest";
 const _GTRe = "GetTemplateResponse";
@@ -206,7 +212,8 @@ const _RA = "Retry-After";
 const _RCR = "RequiredCaseRule";
 const _RF = "RequiredField";
 const _RFL = "RequiredFieldList";
-const _RIC = "RelatedItemContent";
+const _RIC = "RelatedItemsConfiguration";
+const _RICe = "RelatedItemContent";
 const _RIEID = "RelatedItemEventIncludedData";
 const _RIFL = "RelatedItemFilterList";
 const _RIIC = "RelatedItemInputContent";
@@ -234,6 +241,9 @@ const _SIC = "SlaInputConfiguration";
 const _SICl = "SlaInputContent";
 const _SL = "SectionsList";
 const _SLo = "SortList";
+const _SMC = "StartMergeCases";
+const _SMCR = "StartMergeCasesRequest";
+const _SMCRt = "StartMergeCasesResponse";
 const _SN = "SlaName";
 const _SQEE = "ServiceQuotaExceededException";
 const _SRI = "SearchRelatedItems";
@@ -311,8 +321,8 @@ const _ch = "channel";
 const _co = "content";
 const _com = "comment";
 const _con = "conditions";
-const _cont = "contains";
-const _conta = "contact";
+const _cont = "contact";
+const _conta = "contains";
 const _cu = "custom";
 const _d = "description";
 const _dA = "domainArn";
@@ -337,10 +347,12 @@ const _f = "fields";
 const _fA = "fieldArn";
 const _fAi = "fileArn";
 const _fC = "failedCases";
+const _fCi = "fieldsConfiguration";
 const _fG = "fieldGroup";
 const _fI = "failedItems";
 const _fIi = "fieldId";
-const _fIie = "fieldIdentifier";
+const _fIie = "fieldIds";
+const _fIiel = "fieldIdentifier";
 const _fO = "fieldOptions";
 const _fi = "filters";
 const _fie = "field";
@@ -368,7 +380,9 @@ const _lT = "lessThan";
 const _lTOET = "lessThanOrEqualTo";
 const _lUU = "lastUpdatedUser";
 const _m = "message";
+const _mEI = "mergeEventId";
 const _mI = "moreInfo";
+const _mM = "mergeMetadata";
 const _mR = "maxResults";
 const _n = "name";
 const _nET = "notEqualTo";
@@ -383,6 +397,7 @@ const _oT = "operandTwo";
 const _oV = "oldValue";
 const _pB = "performedBy";
 const _pCFOM = "parentChildFieldOptionsMappings";
+const _pCI = "primaryCaseId";
 const _pFI = "parentFieldId";
 const _pFOV = "parentFieldOptionValue";
 const _pT = "performedTime";
@@ -391,6 +406,7 @@ const _rAS = "retryAfterSeconds";
 const _rF = "requiredFields";
 const _rI = "resourceId";
 const _rIA = "relatedItemArn";
+const _rIC = "relatedItemsConfiguration";
 const _rID = "relatedItemData";
 const _rII = "relatedItemId";
 const _rIT = "relatedItemType";
@@ -404,6 +420,9 @@ const _ru = "rule";
 const _rul = "rules";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.connectcases";
 const _sC = "successfulCases";
+const _sCI = "secondaryCaseId";
+const _sCIe = "secondaryCaseIds";
+const _sCIo = "sourceCaseId";
 const _sCl = "slaConfiguration";
 const _sI = "successfulItems";
 const _sIC = "slaInputConfiguration";
@@ -525,8 +544,8 @@ var CustomEntity: StaticSimpleSchema = [0, n0, _CEu, 8, 0];
 var SlaName: StaticSimpleSchema = [0, n0, _SN, 8, 0];
 export var AuditEvent$: StaticStructureSchema = [3, n0, _AE,
   0,
-  [_eI, _t, _pT, _f, _rIT, _pB],
-  [0, 0, 5, [() => AuditEventFieldList, 0], 0, [() => AuditEventPerformedBy$, 0]], 4
+  [_eI, _t, _pT, _f, _rIT, _pB, _mM],
+  [0, 0, 5, [() => AuditEventFieldList, 0], 0, [() => AuditEventPerformedBy$, 0], () => AuditMergeMetadata$], 4
 ];
 export var AuditEventField$: StaticStructureSchema = [3, n0, _AEF,
   0,
@@ -537,6 +556,11 @@ export var AuditEventPerformedBy$: StaticStructureSchema = [3, n0, _AEPB,
   0,
   [_iPA, _u],
   [0, [() => UserUnion$, 0]], 1
+];
+export var AuditMergeMetadata$: StaticStructureSchema = [3, n0, _AMM,
+  0,
+  [_mEI, _pCI, _sCI],
+  [0, 0, 0], 3
 ];
 export var BasicLayout$: StaticStructureSchema = [3, n0, _BL,
   0,
@@ -928,6 +952,11 @@ export var FieldOptionsCaseRule$: StaticStructureSchema = [3, n0, _FOCR,
   [_pCFOM, _pFI, _cFI],
   [() => ParentChildFieldOptionsMappingList, 0, 0], 1
 ];
+export var FieldsConfiguration$: StaticStructureSchema = [3, n0, _FC,
+  0,
+  [_fIie, _sCIo],
+  [() => FieldIdentifierList, 0], 2
+];
 export var FieldSummary$: StaticStructureSchema = [3, n0, _FS,
   0,
   [_fIi, _fA, _n, _t, _na, _a],
@@ -940,10 +969,10 @@ export var FieldValue$: StaticStructureSchema = [3, n0, _FV,
 ];
 export var FieldValueInput$: StaticStructureSchema = [3, n0, _FVI,
   0,
-  [_fIie, _v],
+  [_fIiel, _v],
   [() => FieldIdentifierUnion$, () => FieldValueUnion$], 2
 ];
-export var FileContent$: StaticStructureSchema = [3, n0, _FC,
+export var FileContent$: StaticStructureSchema = [3, n0, _FCi,
   0,
   [_fAi],
   [0], 1
@@ -1012,6 +1041,16 @@ export var GetLayoutResponse$: StaticStructureSchema = [3, n0, _GLRe,
   0,
   [_lI, _lA, _n, _co, _ta, _de, _cTr, _lMT],
   [0, 0, 0, () => LayoutContent$, [() => Tags, 0], 2, 5, 5], 4
+];
+export var GetMergeCasesStatusRequest$: StaticStructureSchema = [3, n0, _GMCSR,
+  0,
+  [_dI, _cIa],
+  [[0, 1], [0, 1]], 2
+];
+export var GetMergeCasesStatusResponse$: StaticStructureSchema = [3, n0, _GMCSRe,
+  0,
+  [_st, _pCI, _sCIe],
+  [0, 0, 64 | 0], 1
 ];
 export var GetTemplateRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
@@ -1143,6 +1182,11 @@ export var RelatedItemEventIncludedData$: StaticStructureSchema = [3, n0, _RIEID
   [_iC],
   [2], 1
 ];
+export var RelatedItemsConfiguration$: StaticStructureSchema = [3, n0, _RIC,
+  0,
+  [_com, _cC, _cont, _cu],
+  [2, 2, 2, 2]
+];
 export var RequiredCaseRule$: StaticStructureSchema = [3, n0, _RCR,
   0,
   [_dV, _con],
@@ -1227,6 +1271,16 @@ export var Sort$: StaticStructureSchema = [3, n0, _S,
   0,
   [_fIi, _sO],
   [0, 0], 2
+];
+export var StartMergeCasesRequest$: StaticStructureSchema = [3, n0, _SMCR,
+  0,
+  [_dI, _cIa, _sCIe, _fCi, _rIC, _pB],
+  [[0, 1], [0, 1], 64 | 0, () => FieldsConfigurationList, () => RelatedItemsConfiguration$, [() => UserUnion$, 0]], 3
+];
+export var StartMergeCasesResponse$: StaticStructureSchema = [3, n0, _SMCRt,
+  0,
+  [],
+  []
 ];
 export var TagPropagationConfiguration$: StaticStructureSchema = [3, n0, _TPC,
   0,
@@ -1373,6 +1427,7 @@ var BooleanConditionList: StaticListSchema = [1, n0, _BCL,
 var CaseFilterList: StaticListSchema = [1, n0, _CFL,
   0, () => CaseFilter$
 ];
+var CaseIdList = 64 | 0;
 var CaseRuleIdentifierList: StaticListSchema = [1, n0, _CRIL,
   0, () => CaseRuleIdentifier$
 ];
@@ -1400,6 +1455,9 @@ var FieldOptionErrorList: StaticListSchema = [1, n0, _FOEL,
 ];
 var FieldOptionsList: StaticListSchema = [1, n0, _FOL,
   0, () => FieldOption$
+];
+var FieldsConfigurationList: StaticListSchema = [1, n0, _FCL,
+  0, () => FieldsConfiguration$
 ];
 var FieldSummaryList: StaticListSchema = [1, n0, _FSL,
   0, () => FieldSummary$
@@ -1501,7 +1559,7 @@ export var FieldAttributes$: StaticUnionSchema = [4, n0, _FA,
 ];
 export var FieldFilter$: StaticUnionSchema = [4, n0, _FFi,
   0,
-  [_eT, _cont, _gT, _gTOET, _lT, _lTOET],
+  [_eT, _conta, _gT, _gTOET, _lT, _lTOET],
   [() => FieldValue$, () => FieldValue$, () => FieldValue$, () => FieldValue$, () => FieldValue$, () => FieldValue$]
 ];
 export var FieldIdentifierUnion$: StaticUnionSchema = [4, n0, _FIU,
@@ -1529,19 +1587,19 @@ export var OperandTwo$: StaticUnionSchema = [4, n0, _OT,
   [_sV, _bV, _dVo, _eV],
   [0, 2, 1, () => EmptyOperandValue$]
 ];
-export var RelatedItemContent$: StaticUnionSchema = [4, n0, _RIC,
+export var RelatedItemContent$: StaticUnionSchema = [4, n0, _RICe,
   0,
-  [_conta, _com, _file, _sl, _cC, _cu],
+  [_cont, _com, _file, _sl, _cC, _cu],
   [() => ContactContent$, () => CommentContent$, () => FileContent$, [() => SlaContent$, 0], () => ConnectCaseContent$, () => CustomContent$]
 ];
 export var RelatedItemInputContent$: StaticUnionSchema = [4, n0, _RIIC,
   0,
-  [_conta, _com, _file, _sl, _cC, _cu],
+  [_cont, _com, _file, _sl, _cC, _cu],
   [() => Contact$, () => CommentContent$, () => FileContent$, [() => SlaInputContent$, 0], () => ConnectCaseInputContent$, () => CustomInputContent$]
 ];
 export var RelatedItemTypeFilter$: StaticUnionSchema = [4, n0, _RITF,
   0,
-  [_conta, _com, _file, _sl, _cC, _cu],
+  [_cont, _com, _file, _sl, _cC, _cu],
   [() => ContactFilter$, () => CommentFilter$, () => FileFilter$, [() => SlaFilter$, 0], () => ConnectCaseFilter$, () => CustomFilter$]
 ];
 export var RelatedItemUpdateContent$: StaticUnionSchema = [4, n0, _RIUC,
@@ -1641,6 +1699,9 @@ export var GetDomain$: StaticOperationSchema = [9, n0, _GD,
 export var GetLayout$: StaticOperationSchema = [9, n0, _GL,
   { [_ht]: ["POST", "/domains/{domainId}/layouts/{layoutId}", 200] }, () => GetLayoutRequest$, () => GetLayoutResponse$
 ];
+export var GetMergeCasesStatus$: StaticOperationSchema = [9, n0, _GMCS,
+  { [_ht]: ["POST", "/domains/{domainId}/cases/{caseId}/merge-status", 200] }, () => GetMergeCasesStatusRequest$, () => GetMergeCasesStatusResponse$
+];
 export var GetTemplate$: StaticOperationSchema = [9, n0, _GT,
   { [_ht]: ["POST", "/domains/{domainId}/templates/{templateId}", 200] }, () => GetTemplateRequest$, () => GetTemplateResponse$
 ];
@@ -1679,6 +1740,9 @@ export var SearchCases$: StaticOperationSchema = [9, n0, _SCe,
 ];
 export var SearchRelatedItems$: StaticOperationSchema = [9, n0, _SRI,
   { [_ht]: ["POST", "/domains/{domainId}/cases/{caseId}/related-items-search", 200] }, () => SearchRelatedItemsRequest$, () => SearchRelatedItemsResponse$
+];
+export var StartMergeCases$: StaticOperationSchema = [9, n0, _SMC,
+  { [_ht]: ["POST", "/domains/{domainId}/cases/{caseId}/merge", 200] }, () => StartMergeCasesRequest$, () => StartMergeCasesResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TRa,
   { [_ht]: ["POST", "/tags/{arn}", 200] }, () => TagResourceRequest$, () => __Unit

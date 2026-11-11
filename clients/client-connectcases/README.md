@@ -349,6 +349,13 @@ GetLayout
 </details>
 <details>
 <summary>
+GetMergeCasesStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/GetMergeCasesStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetMergeCasesStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetMergeCasesStatusCommandOutput/)
+</details>
+<details>
+<summary>
 GetTemplate
 </summary>
 
@@ -437,6 +444,13 @@ SearchRelatedItems
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/SearchRelatedItemsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/SearchRelatedItemsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/SearchRelatedItemsCommandOutput/)
+</details>
+<details>
+<summary>
+StartMergeCases
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/StartMergeCasesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/StartMergeCasesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/StartMergeCasesCommandOutput/)
 </details>
 <details>
 <summary>

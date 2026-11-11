@@ -23,7 +23,7 @@ export interface DeleteCaseCommandInput extends DeleteCaseRequest {}
 export interface DeleteCaseCommandOutput extends DeleteCaseResponse, __MetadataBearer {}
 
 /**
- * <p> The DeleteCase API permanently deletes a case and all its associated resources from the cases data store. After a successful deletion, you cannot:</p> <ul> <li> <p>Retrieve related items</p> </li> <li> <p>Access audit history</p> </li> <li> <p>Perform any operations that require the CaseID</p> </li> </ul> <important> <p>This action is irreversible. After you delete a case, you cannot recover its data.</p> </important>
+ * <p> The DeleteCase API permanently deletes a case and all its associated resources from the cases data store. After a successful deletion, you cannot:</p> <ul> <li> <p>Retrieve related items</p> </li> <li> <p>Access audit history</p> </li> <li> <p>Perform any operations that require the CaseID</p> </li> </ul> <p>You can't delete a case while it's part of a merge that is running, as either the primary or the secondary case. The request fails with a <code>ConflictException</code>. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_StartMergeCases.html">StartMergeCases</a>.</p> <important> <p>This action is irreversible. After you delete a case, you cannot recover its data.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +50,9 @@ export interface DeleteCaseCommandOutput extends DeleteCaseResponse, __MetadataB
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>We couldn't process your request because of an issue with the server. Try again later.</p>

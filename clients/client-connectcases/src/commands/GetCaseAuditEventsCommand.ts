@@ -74,6 +74,11 @@ export interface GetCaseAuditEventsCommandOutput extends GetCaseAuditEventsRespo
  * //         },
  * //         iamPrincipalArn: "STRING_VALUE", // required
  * //       },
+ * //       mergeMetadata: { // AuditMergeMetadata
+ * //         mergeEventId: "STRING_VALUE", // required
+ * //         primaryCaseId: "STRING_VALUE", // required
+ * //         secondaryCaseId: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * // };

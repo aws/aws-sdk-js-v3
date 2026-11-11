@@ -5,6 +5,7 @@ import type {
   DomainStatus,
   FieldNamespace,
   FieldType,
+  MergeStatus,
   Order,
   RelatedItemType,
   RuleType,
@@ -1158,6 +1159,30 @@ export interface AuditEventField {
 }
 
 /**
+ * <p>Information about the merge that produced an audit event.</p>
+ * @public
+ */
+export interface AuditMergeMetadata {
+  /**
+   * <p>The unique identifier of the merge. All audit events produced by the same merge, on both cases, have the same value. Use it to group the changes that a merge made.</p>
+   * @public
+   */
+  mergeEventId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the primary case of the merge.</p>
+   * @public
+   */
+  primaryCaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the secondary case of the merge.</p>
+   * @public
+   */
+  secondaryCaseId: string | undefined;
+}
+
+/**
  * <p>Information of the user which performed the audit.</p>
  * @public
  */
@@ -1187,7 +1212,7 @@ export interface AuditEvent {
   eventId: string | undefined;
 
   /**
-   * <p>The type of audit history event.</p> <p>Valid Values: <code>Case.Created</code> | <code>Case.Updated</code> | <code>RelatedItem.Created</code> | <code>RelatedItem.Updated</code> | <code>RelatedItem.Deleted</code> </p>
+   * <p>The type of audit history event.</p> <p>Valid Values: <code>Case.Created</code> | <code>Case.Updated</code> | <code>RelatedItem.Created</code> | <code>RelatedItem.Updated</code> | <code>RelatedItem.Deleted</code> | <code>Case.Merged</code> </p> <p> <code>Case.Merged</code> summarizes a merge on each of the two cases that took part in it.</p>
    * @public
    */
   type: AuditEventType | undefined;
@@ -1215,6 +1240,12 @@ export interface AuditEvent {
    * @public
    */
   performedBy?: AuditEventPerformedBy | undefined;
+
+  /**
+   * <p>Information about the merge that produced this audit event. Present only on audit events produced by a merge. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_StartMergeCases.html">StartMergeCases</a>.</p>
+   * @public
+   */
+  mergeMetadata?: AuditMergeMetadata | undefined;
 }
 
 /**
@@ -1232,6 +1263,46 @@ export interface GetCaseAuditEventsResponse {
    * @public
    */
   auditEvents: (AuditEvent | null)[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMergeCasesStatusRequest {
+  /**
+   * <p>The unique identifier of the Cases domain. </p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the case. This can be the primary case or the secondary case of a merge.</p>
+   * @public
+   */
+  caseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMergeCasesStatusResponse {
+  /**
+   * <p>The merge status of the case.</p>
+   * @public
+   */
+  status: MergeStatus | undefined;
+
+  /**
+   * <p>The unique identifier of the primary case of the merge.</p>
+   * @public
+   */
+  primaryCaseId?: string | undefined;
+
+  /**
+   * <p>The unique identifiers of the secondary cases of the merge.</p>
+   * @public
+   */
+  secondaryCaseIds?: string[] | undefined;
 }
 
 /**
@@ -2167,6 +2238,100 @@ export interface SearchCasesResponse {
    */
   totalCount?: number | undefined;
 }
+
+/**
+ * <p>Specifies the fields whose values to take from the secondary case when you merge cases.</p>
+ * @public
+ */
+export interface FieldsConfiguration {
+  /**
+   * <p>The fields whose values to take from the source case. Each field must exist on the source case and must be a field that can be merged. Don't list the same field more than once.</p>
+   * @public
+   */
+  fieldIds: FieldIdentifier[] | undefined;
+
+  /**
+   * <p>The unique identifier of the case to take the field values from. This must be the secondary case.</p>
+   * @public
+   */
+  sourceCaseId: string | undefined;
+}
+
+/**
+ * <p>Specifies which types of related items to move from the secondary case to the primary case when you merge cases. Moved related items keep their related item ID, creator, association time, and tags.</p>
+ * @public
+ */
+export interface RelatedItemsConfiguration {
+  /**
+   * <p>Whether to move Comment related items to the primary case.</p>
+   * @public
+   */
+  comment?: boolean | undefined;
+
+  /**
+   * <p>Whether to move Case related items to the primary case. If the primary case already links to the same case, the secondary case's link is removed instead of moved.</p>
+   * @public
+   */
+  connectCase?: boolean | undefined;
+
+  /**
+   * <p>Whether to move Contact related items to the primary case. If the same contact is related to both cases, the primary case keeps its related item and gets any tag keys that only the secondary case's related item has.</p>
+   * @public
+   */
+  contact?: boolean | undefined;
+
+  /**
+   * <p>Whether to move Custom related items to the primary case.</p>
+   * @public
+   */
+  custom?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMergeCasesRequest {
+  /**
+   * <p>The unique identifier of the Cases domain. </p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the primary case. The primary case remains active and receives the merged field values and related items. The cases can use different templates, and the primary case keeps its template.</p>
+   * @public
+   */
+  caseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the secondary case to merge into the primary case. The secondary case is closed when the merge finishes. Specify exactly one case ID.</p>
+   * @public
+   */
+  secondaryCaseIds: string[] | undefined;
+
+  /**
+   * <p>The fields whose values to take from the secondary case. You can only merge custom fields and the following system fields: <code>assigned_queue</code>, <code>assigned_user</code>, <code>summary</code>, and <code>case_reason</code>. If you select any other system field, the request fails with a <code>ValidationException</code>.</p> <p>For each field that can be merged, the merge works as follows:</p> <ul> <li> <p>If you select the field, the primary case gets the secondary case's value. If the secondary case's value is empty, the primary case's value is cleared.</p> </li> <li> <p>If you don't select the field and the primary case has a value for it, the primary case keeps its value.</p> </li> <li> <p>If you don't select the field and the primary case doesn't have the field, or its value is empty, the primary case gets the secondary case's value. This applies even when the field isn't on the primary case's template.</p> </li> </ul> <p>Field values are read from both cases when the merge runs, so changes that you make to the primary case after you start the merge are taken into account.</p> <p>Specify at most one entry, and set its <code>sourceCaseId</code> to the secondary case ID.</p>
+   * @public
+   */
+  fieldsConfiguration?: FieldsConfiguration[] | undefined;
+
+  /**
+   * <p>The types of related items to move from the secondary case to the primary case. Related items of a type that you don't select, or set to <code>false</code>, stay on the closed secondary case. If you omit this parameter, no related items are moved.</p> <p>File, SLA, and work plan related items are never moved. They stay on the secondary case.</p>
+   * @public
+   */
+  relatedItemsConfiguration?: RelatedItemsConfiguration | undefined;
+
+  /**
+   * <p>The user who performed the merge. If you provide <code>userArn</code>, you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">DescribeUser</a> permission on the ARN of that user.</p>
+   * @public
+   */
+  performedBy?: UserUnion | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMergeCasesResponse {}
 
 /**
  * @public
