@@ -214,6 +214,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *         ],
  *       },
  *       Compactness: "STANDARD" || "NONE",
+ *       BandwidthReportingMode: "AVERAGE" || "MAX",
  *       AudioTimelinePattern: "NONE" || "PATTERNED",
  *       SubtitleConfiguration: { // DashSubtitleConfiguration
  *         TtmlConfiguration: { // DashTtmlConfiguration
@@ -447,6 +448,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //         ],
  * //       },
  * //       Compactness: "STANDARD" || "NONE",
+ * //       BandwidthReportingMode: "AVERAGE" || "MAX",
  * //       AudioTimelinePattern: "NONE" || "PATTERNED",
  * //       SubtitleConfiguration: { // DashSubtitleConfiguration
  * //         TtmlConfiguration: { // DashTtmlConfiguration

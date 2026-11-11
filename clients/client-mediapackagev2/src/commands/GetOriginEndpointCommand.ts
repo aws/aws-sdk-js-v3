@@ -227,6 +227,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         ],
  * //       },
  * //       Compactness: "STANDARD" || "NONE",
+ * //       BandwidthReportingMode: "AVERAGE" || "MAX",
  * //       AudioTimelinePattern: "NONE" || "PATTERNED",
  * //       SubtitleConfiguration: { // DashSubtitleConfiguration
  * //         TtmlConfiguration: { // DashTtmlConfiguration

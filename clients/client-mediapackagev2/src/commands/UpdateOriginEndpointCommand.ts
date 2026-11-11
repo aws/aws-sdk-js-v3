@@ -213,6 +213,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         ],
  *       },
  *       Compactness: "STANDARD" || "NONE",
+ *       BandwidthReportingMode: "AVERAGE" || "MAX",
  *       AudioTimelinePattern: "NONE" || "PATTERNED",
  *       SubtitleConfiguration: { // DashSubtitleConfiguration
  *         TtmlConfiguration: { // DashTtmlConfiguration
@@ -477,6 +478,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         ],
  * //       },
  * //       Compactness: "STANDARD" || "NONE",
+ * //       BandwidthReportingMode: "AVERAGE" || "MAX",
  * //       AudioTimelinePattern: "NONE" || "PATTERNED",
  * //       SubtitleConfiguration: { // DashSubtitleConfiguration
  * //         TtmlConfiguration: { // DashTtmlConfiguration

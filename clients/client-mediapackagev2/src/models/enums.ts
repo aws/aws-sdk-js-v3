@@ -279,6 +279,19 @@ export type DashAudioTimelinePattern = (typeof DashAudioTimelinePattern)[keyof t
  * @public
  * @enum
  */
+export const DashBandwidthReportingMode = {
+  AVERAGE: "AVERAGE",
+  MAX: "MAX",
+} as const;
+/**
+ * @public
+ */
+export type DashBandwidthReportingMode = (typeof DashBandwidthReportingMode)[keyof typeof DashBandwidthReportingMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const DashCompactness = {
   NONE: "NONE",
   STANDARD: "STANDARD",

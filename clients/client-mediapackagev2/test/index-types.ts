@@ -100,6 +100,7 @@ export type {
   ContentKeyPeriodTiming,
   CustomAdType,
   DashAudioTimelinePattern,
+  DashBandwidthReportingMode,
   DashCompactness,
   DashDrmSignaling,
   DashPeriodTrigger,

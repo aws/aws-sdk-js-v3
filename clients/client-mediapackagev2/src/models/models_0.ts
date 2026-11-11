@@ -7,6 +7,7 @@ import type {
   ContentKeyPeriodTiming,
   CustomAdType,
   DashAudioTimelinePattern,
+  DashBandwidthReportingMode,
   DashCompactness,
   DashDrmSignaling,
   DashPeriodTrigger,
@@ -1084,6 +1085,12 @@ export interface CreateDashManifestConfiguration {
   Compactness?: DashCompactness | undefined;
 
   /**
+   * <p>Specifies how MediaPackage calculates the <code>bandwidth</code> attribute of regular (non-iFrame) video <code>Representation</code> elements in the DASH manifest. Audio, subtitle, image, and iFrame-only (trick-play) representations are unchanged.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>AVERAGE</code> – MediaPackage reports the average bitrate of the source video track. This is the default.</p> </li> <li> <p> <code>MAX</code> – MediaPackage reports the peak bitrate of the video stream.</p> </li> </ul> <p>For information about bandwidth reporting, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/dash-bandwidth-reporting.html">DASH bandwidth reporting</a> in the <i>Elemental MediaPackage v2 User Guide</i>.</p>
+   * @public
+   */
+  BandwidthReportingMode?: DashBandwidthReportingMode | undefined;
+
+  /**
    * <p>How MediaPackage represents the audio timeline in the DASH manifest. This setting applies DASH Segment Duration Patternization, as defined in the MPEG-DASH specification, to audio adaptation sets. When set to <code>PATTERNED</code>, MediaPackage uses a pattern-based segment template for audio, which reduces manifest size by expressing repeating segment durations as a pattern instead of listing each segment individually. When set to <code>NONE</code>, the manifest contains an explicit timeline that lists each audio segment.</p> <p>Valid values: <code>NONE</code> | <code>PATTERNED</code> </p> <p>For information about audio timeline patterns, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/dash-audio-timeline-pattern.html">DASH audio timeline pattern</a> in the <i>Elemental MediaPackage v2 User Guide</i>.</p>
    * @public
    */
@@ -1735,6 +1742,12 @@ export interface GetDashManifestConfiguration {
    * @public
    */
   Compactness?: DashCompactness | undefined;
+
+  /**
+   * <p>Specifies how MediaPackage calculates the <code>bandwidth</code> attribute of regular (non-iFrame) video <code>Representation</code> elements in the DASH manifest. Audio, subtitle, image, and iFrame-only (trick-play) representations are unchanged.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>AVERAGE</code> – MediaPackage reports the average bitrate of the source video track. This is the default.</p> </li> <li> <p> <code>MAX</code> – MediaPackage reports the peak bitrate of the video stream.</p> </li> </ul> <p>For information about bandwidth reporting, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/dash-bandwidth-reporting.html">DASH bandwidth reporting</a> in the <i>Elemental MediaPackage v2 User Guide</i>.</p>
+   * @public
+   */
+  BandwidthReportingMode?: DashBandwidthReportingMode | undefined;
 
   /**
    * <p>How MediaPackage represents the audio timeline in the DASH manifest, using DASH Segment Duration Patternization for audio adaptation sets. <code>PATTERNED</code> indicates that MediaPackage uses a pattern-based segment template for audio, reducing manifest size. <code>NONE</code> indicates that the manifest contains an explicit timeline for each audio segment.</p>

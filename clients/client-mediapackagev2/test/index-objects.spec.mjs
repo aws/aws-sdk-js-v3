@@ -40,6 +40,7 @@ import {
   CustomAdType,
   DashAudioTimelinePattern,
   DashAvailabilityStartTimeConfiguration$,
+  DashBandwidthReportingMode,
   DashBaseUrl$,
   DashCompactness,
   DashDrmSignaling,
@@ -410,6 +411,7 @@ assert(typeof ContainerType === "object");
 assert(typeof ContentKeyPeriodTiming === "object");
 assert(typeof CustomAdType === "object");
 assert(typeof DashAudioTimelinePattern === "object");
+assert(typeof DashBandwidthReportingMode === "object");
 assert(typeof DashCompactness === "object");
 assert(typeof DashDrmSignaling === "object");
 assert(typeof DashPeriodTrigger === "object");
