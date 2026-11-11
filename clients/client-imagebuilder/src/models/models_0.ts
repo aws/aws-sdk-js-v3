@@ -4300,6 +4300,10 @@ export interface Filter {
 
   /**
    * <p>The filter values. Filter values are case-sensitive.</p>
+   *          <p>The <code>name</code> filter can use a wildcard: <code>web*</code> matches names that
+   * 			begin with <code>web</code>, and <code>*web*</code> matches names that contain
+   * 			<code>web</code>. The wildcard isn't supported in other positions or in other
+   * 			filters.</p>
    * @public
    */
   values?: string[] | undefined;
@@ -6557,7 +6561,9 @@ export interface ListComponentBuildVersionsRequest {
   componentVersionArn?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -6670,7 +6676,9 @@ export interface ListComponentsRequest {
   byName?: boolean | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -6754,7 +6762,9 @@ export interface ListContainerRecipesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -6803,7 +6813,9 @@ export interface ListDistributionConfigurationsRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -6889,7 +6901,9 @@ export interface ListImageBuildVersionsRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7065,7 +7079,9 @@ export interface ListImagePackagesRequest {
   imageBuildVersionArn: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7155,7 +7171,9 @@ export interface ListImagePipelineImagesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7236,7 +7254,9 @@ export interface ListImagePipelinesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7310,7 +7330,9 @@ export interface ListImageRecipesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7451,7 +7473,9 @@ export interface ListImagesRequest {
   byName?: boolean | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7865,7 +7889,9 @@ export interface ListImageScanFindingsRequest {
   filters?: ImageScanFindingsFilter[] | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8212,7 +8238,9 @@ export interface ListInfrastructureConfigurationsRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8343,7 +8371,9 @@ export interface ListLifecycleExecutionResourcesRequest {
   parentResourceId?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8524,7 +8554,9 @@ export interface ListLifecycleExecutionResourcesResponse {
  */
 export interface ListLifecycleExecutionsRequest {
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8579,7 +8611,9 @@ export interface ListLifecyclePoliciesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8707,7 +8741,9 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListWaitingWorkflowStepsRequest {
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8807,7 +8843,9 @@ export interface ListWorkflowBuildVersionsRequest {
   workflowVersionArn?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8911,7 +8949,9 @@ export interface ListWorkflowBuildVersionsResponse {
  */
 export interface ListWorkflowExecutionsRequest {
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -9096,7 +9136,9 @@ export interface ListWorkflowsRequest {
   byName?: boolean | undefined;
 
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -9181,7 +9223,9 @@ export interface ListWorkflowsResponse {
  */
 export interface ListWorkflowStepExecutionsRequest {
   /**
-   * <p>The maximum number of items to return in a single request.</p>
+   * <p>The maximum number of items to return in a single request. If you don't specify
+   * 	a value, Image Builder returns up to 25 items. The largest page size that you can request is 100 items.
+   * 	A page can contain fewer items than the maximum, with a <code>nextToken</code> to continue paging.</p>
    * @public
    */
   maxResults?: number | undefined;
