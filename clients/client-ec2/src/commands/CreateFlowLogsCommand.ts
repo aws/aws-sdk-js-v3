@@ -52,7 +52,7 @@ export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __Met
  *   ResourceIds: [ // FlowLogResourceIds // required
  *     "STRING_VALUE",
  *   ],
- *   ResourceType: "VPC" || "Subnet" || "NetworkInterface" || "TransitGateway" || "TransitGatewayAttachment" || "RegionalNatGateway", // required
+ *   ResourceType: "VPC" || "Subnet" || "NetworkInterface" || "TransitGateway" || "TransitGatewayAttachment" || "RegionalNatGateway" || "CoreNetwork" || "CoreNetworkEdge" || "CoreNetworkAttachment", // required
  *   TrafficType: "ACCEPT" || "REJECT" || "ALL",
  *   LogDestinationType: "cloud-watch-logs" || "s3" || "kinesis-data-firehose",
  *   LogDestination: "STRING_VALUE",

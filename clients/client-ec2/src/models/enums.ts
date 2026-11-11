@@ -3725,6 +3725,9 @@ export type LogDestinationType = (typeof LogDestinationType)[keyof typeof LogDes
  * @enum
  */
 export const FlowLogsResourceType = {
+  CoreNetwork: "CoreNetwork",
+  CoreNetworkAttachment: "CoreNetworkAttachment",
+  CoreNetworkEdge: "CoreNetworkEdge",
   NetworkInterface: "NetworkInterface",
   RegionalNatGateway: "RegionalNatGateway",
   Subnet: "Subnet",
