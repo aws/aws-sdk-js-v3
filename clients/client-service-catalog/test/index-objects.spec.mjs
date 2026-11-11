@@ -341,11 +341,15 @@ import {
   paginateListPortfolios,
   paginateListPortfoliosForProduct,
   paginateListPrincipalsForPortfolio,
+  paginateListProvisionedProductPlans,
   paginateListProvisioningArtifactsForServiceAction,
+  paginateListRecordHistory,
   paginateListResourcesForTagOption,
   paginateListServiceActions,
   paginateListServiceActionsForProvisioningArtifact,
+  paginateListStackInstancesForProvisionedProduct,
   paginateListTagOptions,
+  paginateScanProvisionedProducts,
   paginateSearchProducts,
   paginateSearchProductsAsAdmin,
   paginateSearchProvisionedProducts,
@@ -989,11 +993,15 @@ assert(typeof paginateListPortfolioAccess === "function");
 assert(typeof paginateListPortfolios === "function");
 assert(typeof paginateListPortfoliosForProduct === "function");
 assert(typeof paginateListPrincipalsForPortfolio === "function");
+assert(typeof paginateListProvisionedProductPlans === "function");
 assert(typeof paginateListProvisioningArtifactsForServiceAction === "function");
+assert(typeof paginateListRecordHistory === "function");
 assert(typeof paginateListResourcesForTagOption === "function");
 assert(typeof paginateListServiceActions === "function");
 assert(typeof paginateListServiceActionsForProvisioningArtifact === "function");
+assert(typeof paginateListStackInstancesForProvisionedProduct === "function");
 assert(typeof paginateListTagOptions === "function");
+assert(typeof paginateScanProvisionedProducts === "function");
 assert(typeof paginateSearchProducts === "function");
 assert(typeof paginateSearchProductsAsAdmin === "function");
 assert(typeof paginateSearchProvisionedProducts === "function");

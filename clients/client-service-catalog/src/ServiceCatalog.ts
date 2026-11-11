@@ -468,15 +468,21 @@ import { paginateListPortfolioAccess } from "./pagination/ListPortfolioAccessPag
 import { paginateListPortfoliosForProduct } from "./pagination/ListPortfoliosForProductPaginator";
 import { paginateListPortfolios } from "./pagination/ListPortfoliosPaginator";
 import { paginateListPrincipalsForPortfolio } from "./pagination/ListPrincipalsForPortfolioPaginator";
+import { paginateListProvisionedProductPlans } from "./pagination/ListProvisionedProductPlansPaginator";
 import {
   paginateListProvisioningArtifactsForServiceAction,
 } from "./pagination/ListProvisioningArtifactsForServiceActionPaginator";
+import { paginateListRecordHistory } from "./pagination/ListRecordHistoryPaginator";
 import { paginateListResourcesForTagOption } from "./pagination/ListResourcesForTagOptionPaginator";
 import {
   paginateListServiceActionsForProvisioningArtifact,
 } from "./pagination/ListServiceActionsForProvisioningArtifactPaginator";
 import { paginateListServiceActions } from "./pagination/ListServiceActionsPaginator";
+import {
+  paginateListStackInstancesForProvisionedProduct,
+} from "./pagination/ListStackInstancesForProvisionedProductPaginator";
 import { paginateListTagOptions } from "./pagination/ListTagOptionsPaginator";
+import { paginateScanProvisionedProducts } from "./pagination/ScanProvisionedProductsPaginator";
 import { paginateSearchProductsAsAdmin } from "./pagination/SearchProductsAsAdminPaginator";
 import { paginateSearchProducts } from "./pagination/SearchProductsPaginator";
 import { paginateSearchProvisionedProducts } from "./pagination/SearchProvisionedProductsPaginator";
@@ -586,11 +592,15 @@ const paginators = {
   paginateListPortfolios,
   paginateListPortfoliosForProduct,
   paginateListPrincipalsForPortfolio,
+  paginateListProvisionedProductPlans,
   paginateListProvisioningArtifactsForServiceAction,
+  paginateListRecordHistory,
   paginateListResourcesForTagOption,
   paginateListServiceActions,
   paginateListServiceActionsForProvisioningArtifact,
+  paginateListStackInstancesForProvisionedProduct,
   paginateListTagOptions,
+  paginateScanProvisionedProducts,
   paginateSearchProducts,
   paginateSearchProductsAsAdmin,
   paginateSearchProvisionedProducts,
@@ -2275,6 +2285,17 @@ export interface ServiceCatalog {
   ): Paginator<ListPrincipalsForPortfolioCommandOutput>;
 
   /**
+   * @see {@link ListProvisionedProductPlansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProvisionedProductPlansCommandOutput}.
+   */
+  paginateListProvisionedProductPlans(
+    args?: ListProvisionedProductPlansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProvisionedProductPlansCommandOutput>;
+
+  /**
    * @see {@link ListProvisioningArtifactsForServiceActionCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2284,6 +2305,17 @@ export interface ServiceCatalog {
     args: ListProvisioningArtifactsForServiceActionCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListProvisioningArtifactsForServiceActionCommandOutput>;
+
+  /**
+   * @see {@link ListRecordHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecordHistoryCommandOutput}.
+   */
+  paginateListRecordHistory(
+    args?: ListRecordHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecordHistoryCommandOutput>;
 
   /**
    * @see {@link ListResourcesForTagOptionCommand}
@@ -2319,6 +2351,17 @@ export interface ServiceCatalog {
   ): Paginator<ListServiceActionsForProvisioningArtifactCommandOutput>;
 
   /**
+   * @see {@link ListStackInstancesForProvisionedProductCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStackInstancesForProvisionedProductCommandOutput}.
+   */
+  paginateListStackInstancesForProvisionedProduct(
+    args: ListStackInstancesForProvisionedProductCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStackInstancesForProvisionedProductCommandOutput>;
+
+  /**
    * @see {@link ListTagOptionsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2328,6 +2371,17 @@ export interface ServiceCatalog {
     args?: ListTagOptionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListTagOptionsCommandOutput>;
+
+  /**
+   * @see {@link ScanProvisionedProductsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ScanProvisionedProductsCommandOutput}.
+   */
+  paginateScanProvisionedProducts(
+    args?: ScanProvisionedProductsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ScanProvisionedProductsCommandOutput>;
 
   /**
    * @see {@link SearchProductsCommand}
