@@ -61,10 +61,10 @@ export interface CreateApplicationSnapshotCommandOutput extends CreateApplicatio
  *  <p>The number of allowed resources has been exceeded.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The application is not available for this operation.</p>
+ *  <p>The application or snapshot is not available for this operation.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *  <p>The specified application, snapshot, or snapshot operation can't be found.</p>
  *
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this

@@ -90,6 +90,7 @@ import type {
   CreateApplicationSnapshotCommandInput,
   CreateApplicationSnapshotCommandOutput,
 } from "./commands/CreateApplicationSnapshotCommand";
+import type { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
 import type {
   DeleteApplicationCloudWatchLoggingOptionCommandInput,
   DeleteApplicationCloudWatchLoggingOptionCommandOutput,
@@ -118,6 +119,7 @@ import type {
   DeleteApplicationVpcConfigurationCommandInput,
   DeleteApplicationVpcConfigurationCommandOutput,
 } from "./commands/DeleteApplicationVpcConfigurationCommand";
+import type { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
 import type {
   DescribeApplicationCommandInput,
   DescribeApplicationCommandOutput,
@@ -134,10 +136,17 @@ import type {
   DescribeApplicationVersionCommandInput,
   DescribeApplicationVersionCommandOutput,
 } from "./commands/DescribeApplicationVersionCommand";
+import type { DescribeSnapshotCommandInput, DescribeSnapshotCommandOutput } from "./commands/DescribeSnapshotCommand";
+import type {
+  DescribeSnapshotOperationCommandInput,
+  DescribeSnapshotOperationCommandOutput,
+} from "./commands/DescribeSnapshotOperationCommand";
 import type {
   DiscoverInputSchemaCommandInput,
   DiscoverInputSchemaCommandOutput,
 } from "./commands/DiscoverInputSchemaCommand";
+import type { ExportSnapshotCommandInput, ExportSnapshotCommandOutput } from "./commands/ExportSnapshotCommand";
+import type { ImportSnapshotCommandInput, ImportSnapshotCommandOutput } from "./commands/ImportSnapshotCommand";
 import type {
   ListApplicationOperationsCommandInput,
   ListApplicationOperationsCommandOutput,
@@ -151,6 +160,11 @@ import type {
   ListApplicationVersionsCommandInput,
   ListApplicationVersionsCommandOutput,
 } from "./commands/ListApplicationVersionsCommand";
+import type {
+  ListSnapshotOperationsCommandInput,
+  ListSnapshotOperationsCommandOutput,
+} from "./commands/ListSnapshotOperationsCommand";
+import type { ListSnapshotsCommandInput, ListSnapshotsCommandOutput } from "./commands/ListSnapshotsCommand";
 import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -195,6 +209,7 @@ export type ServiceInputTypes =
   | CreateApplicationCommandInput
   | CreateApplicationPresignedUrlCommandInput
   | CreateApplicationSnapshotCommandInput
+  | CreateSnapshotCommandInput
   | DeleteApplicationCloudWatchLoggingOptionCommandInput
   | DeleteApplicationCommandInput
   | DeleteApplicationInputProcessingConfigurationCommandInput
@@ -202,15 +217,22 @@ export type ServiceInputTypes =
   | DeleteApplicationReferenceDataSourceCommandInput
   | DeleteApplicationSnapshotCommandInput
   | DeleteApplicationVpcConfigurationCommandInput
+  | DeleteSnapshotCommandInput
   | DescribeApplicationCommandInput
   | DescribeApplicationOperationCommandInput
   | DescribeApplicationSnapshotCommandInput
   | DescribeApplicationVersionCommandInput
+  | DescribeSnapshotCommandInput
+  | DescribeSnapshotOperationCommandInput
   | DiscoverInputSchemaCommandInput
+  | ExportSnapshotCommandInput
+  | ImportSnapshotCommandInput
   | ListApplicationOperationsCommandInput
   | ListApplicationSnapshotsCommandInput
   | ListApplicationVersionsCommandInput
   | ListApplicationsCommandInput
+  | ListSnapshotOperationsCommandInput
+  | ListSnapshotsCommandInput
   | ListTagsForResourceCommandInput
   | RollbackApplicationCommandInput
   | StartApplicationCommandInput
@@ -233,6 +255,7 @@ export type ServiceOutputTypes =
   | CreateApplicationCommandOutput
   | CreateApplicationPresignedUrlCommandOutput
   | CreateApplicationSnapshotCommandOutput
+  | CreateSnapshotCommandOutput
   | DeleteApplicationCloudWatchLoggingOptionCommandOutput
   | DeleteApplicationCommandOutput
   | DeleteApplicationInputProcessingConfigurationCommandOutput
@@ -240,15 +263,22 @@ export type ServiceOutputTypes =
   | DeleteApplicationReferenceDataSourceCommandOutput
   | DeleteApplicationSnapshotCommandOutput
   | DeleteApplicationVpcConfigurationCommandOutput
+  | DeleteSnapshotCommandOutput
   | DescribeApplicationCommandOutput
   | DescribeApplicationOperationCommandOutput
   | DescribeApplicationSnapshotCommandOutput
   | DescribeApplicationVersionCommandOutput
+  | DescribeSnapshotCommandOutput
+  | DescribeSnapshotOperationCommandOutput
   | DiscoverInputSchemaCommandOutput
+  | ExportSnapshotCommandOutput
+  | ImportSnapshotCommandOutput
   | ListApplicationOperationsCommandOutput
   | ListApplicationSnapshotsCommandOutput
   | ListApplicationVersionsCommandOutput
   | ListApplicationsCommandOutput
+  | ListSnapshotOperationsCommandOutput
+  | ListSnapshotsCommandOutput
   | ListTagsForResourceCommandOutput
   | RollbackApplicationCommandOutput
   | StartApplicationCommandOutput

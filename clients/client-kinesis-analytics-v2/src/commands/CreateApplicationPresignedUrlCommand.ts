@@ -67,10 +67,10 @@ export interface CreateApplicationPresignedUrlCommandOutput extends CreateApplic
  *  <p>The specified input parameter value is not valid.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The application is not available for this operation.</p>
+ *  <p>The application or snapshot is not available for this operation.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *  <p>The specified application, snapshot, or snapshot operation can't be found.</p>
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>

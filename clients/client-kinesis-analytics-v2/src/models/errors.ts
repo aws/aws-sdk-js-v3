@@ -4,7 +4,7 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { KinesisAnalyticsV2ServiceException as __BaseException } from "./KinesisAnalyticsV2ServiceException";
 
 /**
- * <p>Exception thrown as a result of concurrent modifications to an application. This error can
+ * <p>Exception thrown as a result of concurrent modifications to an application or snapshot. This error can
  *       be the result of attempting to modify an application without using the current application
  *       ID.</p>
  * @public
@@ -98,7 +98,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The application is not available for this operation.</p>
+ * <p>The application or snapshot is not available for this operation.</p>
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -121,7 +121,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>Specified application can't be found.</p>
+ * <p>The specified application, snapshot, or snapshot operation can't be found.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

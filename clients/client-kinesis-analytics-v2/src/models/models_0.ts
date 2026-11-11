@@ -13,7 +13,14 @@ import type {
   OperationStatus,
   RecordFormatType,
   RuntimeEnvironment,
+  SnapshotFormat,
+  SnapshotInitiator,
+  SnapshotInitiatorOperation,
+  SnapshotMode,
+  SnapshotOperation,
+  SnapshotOperationStatus,
   SnapshotStatus,
+  StorageLocationType,
   UrlType,
 } from "./enums";
 
@@ -1503,6 +1510,13 @@ export interface ApplicationSnapshotConfiguration {
    * @public
    */
   SnapshotsEnabled: boolean | undefined;
+
+  /**
+   * <p>Specifies the snapshot mode for a Managed Service for Apache Flink application. To use enhanced snapshots, specify <code>ENHANCED_SNAPSHOTS</code>. If you don't specify this parameter, the application uses <code>APPLICATION_SNAPSHOTS_LEGACY</code>. For more information, see <a href="https://docs.aws.amazon.com/managed-flink/latest/java/how-snapshots.html">Enhanced Snapshots</a>.</p>
+   *          <p>To use <code>ENHANCED_SNAPSHOTS</code>, the application must use Apache Flink version 1.20 or later.</p>
+   * @public
+   */
+  SnapshotMode?: SnapshotMode | undefined;
 }
 
 /**
@@ -1985,6 +1999,12 @@ export interface ApplicationSnapshotConfigurationDescription {
    * @public
    */
   SnapshotsEnabled: boolean | undefined;
+
+  /**
+   * <p>Describes the snapshot mode of a Managed Service for Apache Flink application.</p>
+   * @public
+   */
+  SnapshotMode?: SnapshotMode | undefined;
 }
 
 /**
@@ -2200,6 +2220,12 @@ export interface ApplicationRestoreConfiguration {
    * @public
    */
   SnapshotName?: string | undefined;
+
+  /**
+   * <p>The identifier of an existing enhanced snapshot of application state to use to restart an application. The application uses this value if <code>RESTORE_FROM_CUSTOM_SNAPSHOT</code> is specified for the <code>ApplicationRestoreType</code> and <code>SnapshotMode</code> is <code>ENHANCED_SNAPSHOTS</code>.</p>
+   * @public
+   */
+  SnapshotArn?: string | undefined;
 }
 
 /**
@@ -2489,6 +2515,14 @@ export interface ApplicationSnapshotConfigurationUpdate {
    * @public
    */
   SnapshotsEnabledUpdate: boolean | undefined;
+
+  /**
+   * <p>Describes updates to the snapshot mode of a Managed Service for Apache Flink application. You can update the snapshot mode from <code>APPLICATION_SNAPSHOTS_LEGACY</code> to <code>ENHANCED_SNAPSHOTS</code>. You can't use <code>UpdateApplication</code> to change the snapshot mode back to <code>APPLICATION_SNAPSHOTS_LEGACY</code>.</p>
+   *          <p>To return to <code>APPLICATION_SNAPSHOTS_LEGACY</code>, use <code>RollbackApplication</code>. After you update an application that uses <code>ENHANCED_SNAPSHOTS</code>, you can't roll it back to <code>APPLICATION_SNAPSHOTS_LEGACY</code>.</p>
+   *          <p>To use <code>ENHANCED_SNAPSHOTS</code>, the application must use Apache Flink version 1.20 or later.</p>
+   * @public
+   */
+  SnapshotModeUpdate?: SnapshotMode | undefined;
 }
 
 /**
@@ -3334,6 +3368,24 @@ export interface ApplicationMaintenanceConfigurationUpdate {
 }
 
 /**
+ * <p>Describes the application operation that initiated a snapshot operation. To get information about the application operation, use <code>DescribeApplicationOperation</code>.</p>
+ * @public
+ */
+export interface ApplicationOperationDescription {
+  /**
+   * <p>The operation ID of the request.</p>
+   * @public
+   */
+  ApplicationOperationId?: string | undefined;
+
+  /**
+   * <p>The name of the application.</p>
+   * @public
+   */
+  ApplicationName?: string | undefined;
+}
+
+/**
  * <p>A description of the aplication operation that provides information about the updates that were made to the application.</p>
  * @public
  */
@@ -3695,6 +3747,64 @@ export interface CreateApplicationSnapshotResponse {}
 /**
  * @public
  */
+export interface CreateSnapshotRequest {
+  /**
+   * <p>The name of the application.</p>
+   * @public
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>The name of the enhanced snapshot. The name must be unique among the snapshots in your account and Region. You can't reuse the name of an existing snapshot, including a snapshot in the <code>FAILED</code> status, until you delete that snapshot. Names that begin with <code>SYSTEMSNAPSHOT</code> are reserved.</p>
+   * @public
+   */
+  SnapshotName: string | undefined;
+
+  /**
+   * <p>A summary description of the snapshot.</p>
+   * @public
+   */
+  SnapshotDescription?: string | undefined;
+
+  /**
+   * <p>A list of one or more tags to assign to the snapshot. A tag is a key-value pair that identifies a snapshot. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSnapshotResponse {
+  /**
+   * <p>The ARN of the enhanced snapshot.</p>
+   * @public
+   */
+  SnapshotArn: string | undefined;
+
+  /**
+   * <p>The status of the snapshot. When Managed Service for Apache Flink accepts the request, the status is <code>CREATING</code>.</p>
+   * @public
+   */
+  SnapshotStatus: SnapshotStatus | undefined;
+
+  /**
+   * <p>The ID of the snapshot operation. You can use this value with <code>DescribeSnapshotOperation</code> to track the progress of the operation.</p>
+   * @public
+   */
+  SnapshotOperationId: string | undefined;
+
+  /**
+   * <p>The status of the snapshot operation.</p>
+   * @public
+   */
+  SnapshotOperationStatus: SnapshotOperationStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
    * <p>The name of the application to delete.</p>
@@ -4013,6 +4123,52 @@ export interface DeleteApplicationVpcConfigurationResponse {
 /**
  * @public
  */
+export interface DeleteSnapshotRequest {
+  /**
+   * <p>The name of the enhanced snapshot to delete.</p>
+   * @public
+   */
+  SnapshotName: string | undefined;
+
+  /**
+   * <p>The creation timestamp of the enhanced snapshot to delete. Use the <code>DescribeSnapshot</code> operation to get this value.</p>
+   * @public
+   */
+  SnapshotCreationTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSnapshotResponse {
+  /**
+   * <p>The ARN of the enhanced snapshot.</p>
+   * @public
+   */
+  SnapshotArn: string | undefined;
+
+  /**
+   * <p>The status of the snapshot. When Managed Service for Apache Flink accepts the request, the status is <code>DELETING</code>. If a snapshot operation, such as an export, uses the snapshot, the status stays <code>DELETING</code> until that operation finishes and Managed Service for Apache Flink deletes the snapshot.</p>
+   * @public
+   */
+  SnapshotStatus: SnapshotStatus | undefined;
+
+  /**
+   * <p>The ID of the snapshot operation. You can use this value with <code>DescribeSnapshotOperation</code> to track the progress of the operation.</p>
+   * @public
+   */
+  SnapshotOperationId: string | undefined;
+
+  /**
+   * <p>The status of the snapshot operation.</p>
+   * @public
+   */
+  SnapshotOperationStatus: SnapshotOperationStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeApplicationRequest {
   /**
    * <p>The name of the application.</p>
@@ -4170,6 +4326,380 @@ export interface DescribeApplicationVersionResponse {
 }
 
 /**
+ * @public
+ */
+export interface DescribeSnapshotRequest {
+  /**
+   * <p>The name of the enhanced snapshot. You can retrieve this value using <code>ListSnapshots</code>.</p>
+   * @public
+   */
+  SnapshotName: string | undefined;
+}
+
+/**
+ * <p>Specifies the encryption configuration of snapshot data.</p>
+ * @public
+ */
+export interface SnapshotEncryptionConfiguration {
+  /**
+   * <p>The KMS key used for encryption. <code>KeyId</code> is used only when <code>KeyType</code> is <code>CUSTOMER_MANAGED_KEY</code>.</p>
+   * @public
+   */
+  KeyId?: string | undefined;
+
+  /**
+   * <p>Specifies the type of key used for encryption.</p>
+   * @public
+   */
+  KeyType: KeyType | undefined;
+}
+
+/**
+ * <p>Specifies an Amazon S3 bucket and key prefix.</p>
+ * @public
+ */
+export interface S3PrefixLocation {
+  /**
+   * <p>The ARN of the Amazon S3 bucket.</p>
+   * @public
+   */
+  BucketARN: string | undefined;
+
+  /**
+   * <p>The key prefix in the Amazon S3 bucket.</p>
+   * @public
+   */
+  KeyPrefix: string | undefined;
+}
+
+/**
+ * <p>Describes the application that an enhanced snapshot was created from.</p>
+ * @public
+ */
+export interface SourceApplicationDescription {
+  /**
+   * <p>The name of the application.</p>
+   * @public
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>The timestamp that indicates when the source application was created.</p>
+   * @public
+   */
+  ApplicationCreationTimestamp: Date | undefined;
+
+  /**
+   * <p>The version ID of the source application when the snapshot was created.</p>
+   * @public
+   */
+  ApplicationVersionId: number | undefined;
+}
+
+/**
+ * <p>Describes the source of an enhanced snapshot. For a snapshot that was created from an application, <code>SourceApplicationDescription</code> is present. For an imported snapshot, <code>S3PrefixLocation</code> is present.</p>
+ * @public
+ */
+export interface SnapshotSourceDescription {
+  /**
+   * <p>The Amazon S3 location that the snapshot was imported from. This field is present only if <code>SnapshotInitiatorOperation</code> is <code>ImportSnapshot</code>.</p>
+   * @public
+   */
+  S3PrefixLocation?: S3PrefixLocation | undefined;
+
+  /**
+   * <p>Describes the application that the snapshot was created from. This field is not present for imported snapshots.</p>
+   * @public
+   */
+  SourceApplicationDescription?: SourceApplicationDescription | undefined;
+}
+
+/**
+ * <p>Provides details about an enhanced snapshot.</p>
+ * @public
+ */
+export interface SnapshotInfoDetails {
+  /**
+   * <p>The name of the enhanced snapshot.</p>
+   * @public
+   */
+  SnapshotName: string | undefined;
+
+  /**
+   * <p>The ARN of the enhanced snapshot.</p>
+   * @public
+   */
+  SnapshotArn: string | undefined;
+
+  /**
+   * <p>The summary description of the snapshot.</p>
+   * @public
+   */
+  SnapshotDescription?: string | undefined;
+
+  /**
+   * <p>The status of the enhanced snapshot.</p>
+   * @public
+   */
+  SnapshotStatus: SnapshotStatus | undefined;
+
+  /**
+   * <p>The timestamp that indicates when the snapshot was created.</p>
+   * @public
+   */
+  SnapshotCreationTimestamp: Date | undefined;
+
+  /**
+   * <p>The Flink runtime of the application that the snapshot was created from. This field is not present for imported snapshots.</p>
+   * @public
+   */
+  RuntimeEnvironment?: RuntimeEnvironment | undefined;
+
+  /**
+   * <p>The size of the snapshot, in bytes. The value is <code>0</code> until the snapshot status is <code>READY</code>.</p>
+   * @public
+   */
+  SnapshotSizeInBytes?: number | undefined;
+
+  /**
+   * <p>Describes the encryption settings of data at rest for the snapshot.</p>
+   * @public
+   */
+  SnapshotEncryptionConfigurationDescription?: SnapshotEncryptionConfiguration | undefined;
+
+  /**
+   * <p>Indicates who initiated the snapshot. <code>USER</code> indicates a snapshot that you created or imported. <code>SYSTEM</code> indicates a snapshot that Managed Service for Apache Flink created.</p>
+   * @public
+   */
+  SnapshotInitiator: SnapshotInitiator | undefined;
+
+  /**
+   * <p>The operation that created the snapshot.</p>
+   * @public
+   */
+  SnapshotInitiatorOperation: SnapshotInitiatorOperation | undefined;
+
+  /**
+   * <p>Describes the source of the snapshot.</p>
+   * @public
+   */
+  SnapshotSourceDescription: SnapshotSourceDescription | undefined;
+
+  /**
+   * <p>The format of the snapshot.</p>
+   * @public
+   */
+  SnapshotFormat: SnapshotFormat | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapshotResponse {
+  /**
+   * <p>An object containing information about the enhanced snapshot.</p>
+   * @public
+   */
+  SnapshotInfoDetails: SnapshotInfoDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapshotOperationRequest {
+  /**
+   * <p>The name of the enhanced snapshot.</p>
+   * @public
+   */
+  SnapshotName: string | undefined;
+
+  /**
+   * <p>The ID of the snapshot operation. You can retrieve this value using <code>ListSnapshotOperations</code>.</p>
+   * @public
+   */
+  SnapshotOperationId: string | undefined;
+}
+
+/**
+ * <p>Describes the encryption configuration of snapshot data for a snapshot operation.</p>
+ * @public
+ */
+export interface EncryptionConfigurationDescription {
+  /**
+   * <p>The KMS key used for encryption.</p>
+   * @public
+   */
+  KeyId?: string | undefined;
+
+  /**
+   * <p>Specifies the type of key used for encryption.</p>
+   * @public
+   */
+  KeyType: KeyType | undefined;
+}
+
+/**
+ * <p>Describes an Amazon S3 bucket and key prefix for a snapshot operation.</p>
+ * @public
+ */
+export interface SnapshotOperationS3PrefixLocation {
+  /**
+   * <p>The ARN of the Amazon S3 bucket.</p>
+   * @public
+   */
+  BucketARN: string | undefined;
+
+  /**
+   * <p>The key prefix in the Amazon S3 bucket that you specified in the request.</p>
+   * @public
+   */
+  KeyPrefix: string | undefined;
+
+  /**
+   * <p>The full key prefix that the exported snapshot data was written to. This value includes the unique prefix that Managed Service for Apache Flink appends to <code>KeyPrefix</code>. This field is present only after an <code>ExportSnapshot</code> operation completes successfully.</p>
+   * @public
+   */
+  ExportedPrefix?: string | undefined;
+}
+
+/**
+ * <p>Describes the location of snapshot data for a snapshot operation.</p>
+ * @public
+ */
+export interface SnapshotOperationLocationDescription {
+  /**
+   * <p>The type of the location. The only supported value is <code>S3</code>.</p>
+   * @public
+   */
+  LocationType: StorageLocationType | undefined;
+
+  /**
+   * <p>Describes the Amazon S3 bucket and key prefix of the location.</p>
+   * @public
+   */
+  S3PrefixLocation: SnapshotOperationS3PrefixLocation | undefined;
+}
+
+/**
+ * <p>A description of the error that caused a snapshot operation to fail.</p>
+ * @public
+ */
+export interface SnapshotErrorInfo {
+  /**
+   * <p>The error code that identifies the cause of the failure.</p>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>An error message that is returned when an operation fails.</p>
+   * @public
+   */
+  ErrorString?: string | undefined;
+}
+
+/**
+ * <p>Provides a description of the snapshot operation failure.</p>
+ * @public
+ */
+export interface SnapshotOperationFailureDetails {
+  /**
+   * <p>A description of the error that caused the snapshot operation to fail.</p>
+   * @public
+   */
+  ErrorInfo?: SnapshotErrorInfo | undefined;
+}
+
+/**
+ * <p>A description of a snapshot operation that provides information about the operation that was performed on an enhanced snapshot.</p>
+ * @public
+ */
+export interface SnapshotOperationInfoDetails {
+  /**
+   * <p>The ID of the snapshot operation.</p>
+   * @public
+   */
+  SnapshotOperationId: string | undefined;
+
+  /**
+   * <p>The type of operation that was performed on the snapshot.</p>
+   * @public
+   */
+  SnapshotOperation: SnapshotOperation | undefined;
+
+  /**
+   * <p>The status of the snapshot operation.</p>
+   * @public
+   */
+  SnapshotOperationStatus: SnapshotOperationStatus | undefined;
+
+  /**
+   * <p>The ARN of the enhanced snapshot.</p>
+   * @public
+   */
+  SnapshotArn: string | undefined;
+
+  /**
+   * <p>Describes the encryption configuration of the source data. This field is present only for <code>ImportSnapshot</code> operation.</p>
+   * @public
+   */
+  SourceEncryptionConfigurationDescription?: EncryptionConfigurationDescription | undefined;
+
+  /**
+   * <p>Describes the encryption configuration of the destination data. This field is present only for <code>ImportSnapshot</code> and <code>ExportSnapshot</code> operations.</p>
+   * @public
+   */
+  DestinationEncryptionConfigurationDescription?: EncryptionConfigurationDescription | undefined;
+
+  /**
+   * <p>Describes the location that the snapshot data was read from. This field is present only for <code>ImportSnapshot</code> operations.</p>
+   * @public
+   */
+  SnapshotSourceLocationDescription?: SnapshotOperationLocationDescription | undefined;
+
+  /**
+   * <p>Describes the location that the snapshot data was written to. This field is present only for <code>ExportSnapshot</code> operations, after the operation completes.</p>
+   * @public
+   */
+  SnapshotDestinationLocationDescription?: SnapshotOperationLocationDescription | undefined;
+
+  /**
+   * <p>Describes the application operation that initiated the snapshot operation. This field is present only for <code>SystemCreateSnapshot</code> operations.</p>
+   * @public
+   */
+  ApplicationOperationDescription?: ApplicationOperationDescription | undefined;
+
+  /**
+   * <p>The timestamp that indicates when the operation was created.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp that indicates when the operation finished. This field is present only after the operation completes.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>Provides a description of the operation failure. This field is present only if <code>SnapshotOperationStatus</code> is <code>FAILED</code>.</p>
+   * @public
+   */
+  SnapshotOperationFailureDetails?: SnapshotOperationFailureDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapshotOperationResponse {
+  /**
+   * <p>An object containing information about the snapshot operation.</p>
+   * @public
+   */
+  SnapshotOperationInfoDetails: SnapshotOperationInfoDetails | undefined;
+}
+
+/**
  * <p>For a SQL-based Kinesis Data Analytics application, provides a description of an
  *       Amazon S3 data source, including the Amazon Resource Name (ARN) of the S3 bucket and the name
  *       of the Amazon S3 object that contains the data.</p>
@@ -4258,6 +4788,170 @@ export interface DiscoverInputSchemaResponse {
    * @public
    */
   RawInputRecords?: string[] | undefined;
+}
+
+/**
+ * <p>Describes the destination of the exported snapshot data.</p>
+ * @public
+ */
+export interface ExportDestinationConfiguration {
+  /**
+   * <p>The type of the destination location. The only supported value is <code>S3</code>.</p>
+   * @public
+   */
+  DestinationType: StorageLocationType | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that Managed Service for Apache Flink assumes to write the snapshot data to the destination location. For information about the permissions that this role requires, see <a href="https://docs.aws.amazon.com/managed-flink/latest/java/snapshots-import-export.html">Import and export</a>.</p>
+   * @public
+   */
+  ExportRoleArn: string | undefined;
+
+  /**
+   * <p>The encryption configuration of the exported snapshot data. If you don't specify this parameter, Managed Service for Apache Flink uses a key of type <code>AWS_OWNED_KEY</code>. If you specify a KMS key, you must specify the key ARN.</p>
+   * @public
+   */
+  DestinationEncryptionConfiguration?: SnapshotEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket and key prefix to export the snapshot data to. Managed Service for Apache Flink writes the data under a unique prefix that it appends to the key prefix that you specify. After the export completes, use <code>DescribeSnapshotOperation</code> to get the full prefix. The bucket must be owned by your account and must be in the same Region as the request.</p>
+   * @public
+   */
+  DestinationS3PrefixLocation: S3PrefixLocation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportSnapshotRequest {
+  /**
+   * <p>The name of the enhanced snapshot to export.</p>
+   * @public
+   */
+  SnapshotName: string | undefined;
+
+  /**
+   * <p>Describes the location, IAM role, and encryption configuration of the export destination.</p>
+   * @public
+   */
+  ExportDestinationConfiguration: ExportDestinationConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportSnapshotResponse {
+  /**
+   * <p>The ID of the snapshot operation. You can use this value with <code>DescribeSnapshotOperation</code> to track the progress of the export.</p>
+   * @public
+   */
+  SnapshotOperationId: string | undefined;
+
+  /**
+   * <p>The status of the snapshot operation.</p>
+   * @public
+   */
+  SnapshotOperationStatus: SnapshotOperationStatus | undefined;
+}
+
+/**
+ * <p>Describes the source of the savepoint data to import.</p>
+ * @public
+ */
+export interface ImportSourceConfiguration {
+  /**
+   * <p>The type of the source location. The only supported value is <code>S3</code>.</p>
+   * @public
+   */
+  SourceType: StorageLocationType | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that Managed Service for Apache Flink assumes to read the savepoint data from the source location. For information about the permissions that this role requires, see <a href="https://docs.aws.amazon.com/managed-flink/latest/java/snapshots-import-export.html">Import and export</a>.</p>
+   * @public
+   */
+  ImportRoleArn: string | undefined;
+
+  /**
+   * <p>The encryption configuration of the savepoint data at the source location. If you don't specify this parameter, Managed Service for Apache Flink uses a key of type <code>AWS_OWNED_KEY</code>. If you specify a KMS key, you must specify the key ARN.</p>
+   * @public
+   */
+  SourceEncryptionConfiguration?: SnapshotEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket and key prefix that contain the savepoint data to import. The bucket must be owned by your account and must be in the same Region as the request.</p>
+   * @public
+   */
+  SourceS3PrefixLocation: S3PrefixLocation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportSnapshotRequest {
+  /**
+   * <p>The name of the enhanced snapshot. The name must be unique among the snapshots in your account and Region. You can't reuse the name of an existing snapshot, including a snapshot in the <code>FAILED</code> status, until you delete that snapshot. Names that begin with <code>SYSTEMSNAPSHOT</code> are reserved.</p>
+   * @public
+   */
+  SnapshotName: string | undefined;
+
+  /**
+   * <p>Describes the location, IAM role, and encryption configuration of the savepoint data to import.</p>
+   * @public
+   */
+  ImportSourceConfiguration: ImportSourceConfiguration | undefined;
+
+  /**
+   * <p>The encryption configuration of the imported snapshot. If you don't specify this parameter, the snapshot is encrypted using a key of type <code>AWS_OWNED_KEY</code>. If you specify a KMS key, you must specify the key ARN.</p>
+   * @public
+   */
+  DestinationEncryptionConfiguration?: SnapshotEncryptionConfiguration | undefined;
+
+  /**
+   * <p>A summary description of the snapshot.</p>
+   * @public
+   */
+  SnapshotDescription?: string | undefined;
+
+  /**
+   * <p>The format of the snapshot being imported.</p>
+   * @public
+   */
+  SnapshotFormat?: SnapshotFormat | undefined;
+
+  /**
+   * <p>A list of one or more tags to assign to the snapshot. A tag is a key-value pair that identifies a snapshot. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportSnapshotResponse {
+  /**
+   * <p>The ARN of the enhanced snapshot.</p>
+   * @public
+   */
+  SnapshotArn: string | undefined;
+
+  /**
+   * <p>The status of the snapshot. When Managed Service for Apache Flink accepts the request, the status is <code>CREATING</code>.</p>
+   * @public
+   */
+  SnapshotStatus: SnapshotStatus | undefined;
+
+  /**
+   * <p>The ID of the snapshot operation. You can use this value with <code>DescribeSnapshotOperation</code> to track the progress of the import.</p>
+   * @public
+   */
+  SnapshotOperationId: string | undefined;
+
+  /**
+   * <p>The status of the snapshot operation.</p>
+   * @public
+   */
+  SnapshotOperationStatus: SnapshotOperationStatus | undefined;
 }
 
 /**
@@ -4435,6 +5129,206 @@ export interface ListApplicationVersionsResponse {
    * <p>The pagination token for the next set of results, or <code>null</code> if there are no additional results.
    *       To retrieve the next set of items, pass this token into a subsequent invocation of this operation. For more information about pagination, see
    *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the Amazon Command Line Interface's Pagination Options</a>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSnapshotOperationsRequest {
+  /**
+   * <p>The name of the enhanced snapshot.</p>
+   * @public
+   */
+  SnapshotName: string | undefined;
+
+  /**
+   * <p>Use this parameter to list only the operations of the specified type.</p>
+   * @public
+   */
+  SnapshotOperation?: SnapshotOperation | undefined;
+
+  /**
+   * <p>Use this parameter to list only the operations with the specified status.</p>
+   * @public
+   */
+  SnapshotOperationStatus?: SnapshotOperationStatus | undefined;
+
+  /**
+   * <p>The maximum number of snapshot operations to list.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Provides summary information about an operation that was performed on an enhanced snapshot.</p>
+ * @public
+ */
+export interface SnapshotOperationInfo {
+  /**
+   * <p>The ID of the snapshot operation.</p>
+   * @public
+   */
+  SnapshotOperationId: string | undefined;
+
+  /**
+   * <p>The type of operation that was performed on the snapshot.</p>
+   * @public
+   */
+  SnapshotOperation: SnapshotOperation | undefined;
+
+  /**
+   * <p>The status of the snapshot operation.</p>
+   * @public
+   */
+  SnapshotOperationStatus: SnapshotOperationStatus | undefined;
+
+  /**
+   * <p>The timestamp that indicates when the operation was created.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp that indicates when the operation finished. This field is present only after the operation completes.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSnapshotOperationsResponse {
+  /**
+   * <p>A list of <code>SnapshotOperationInfo</code> objects.</p>
+   * @public
+   */
+  SnapshotOperationInfoList: SnapshotOperationInfo[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSnapshotsRequest {
+  /**
+   * <p>The name of the application.</p>
+   * @public
+   */
+  SourceApplicationName?: string | undefined;
+
+  /**
+   * <p>Use this parameter to list only the snapshots with the specified initiator.</p>
+   * @public
+   */
+  SnapshotInitiator?: SnapshotInitiator | undefined;
+
+  /**
+   * <p>Use this parameter to list only the snapshots that were created by the specified operation.</p>
+   * @public
+   */
+  SnapshotInitiatorOperation?: SnapshotInitiatorOperation | undefined;
+
+  /**
+   * <p>Use this parameter to list only the snapshots with the specified status.</p>
+   * @public
+   */
+  SnapshotStatus?: SnapshotStatus | undefined;
+
+  /**
+   * <p>The maximum number of snapshots to list.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Provides summary information about an enhanced snapshot.</p>
+ * @public
+ */
+export interface SnapshotInfo {
+  /**
+   * <p>The name of the enhanced snapshot.</p>
+   * @public
+   */
+  SnapshotName: string | undefined;
+
+  /**
+   * <p>The ARN of the enhanced snapshot.</p>
+   * @public
+   */
+  SnapshotArn: string | undefined;
+
+  /**
+   * <p>The status of the enhanced snapshot.</p>
+   * @public
+   */
+  SnapshotStatus: SnapshotStatus | undefined;
+
+  /**
+   * <p>The timestamp that indicates when the snapshot was created.</p>
+   * @public
+   */
+  SnapshotCreationTimestamp: Date | undefined;
+
+  /**
+   * <p>Indicates who initiated the snapshot. <code>USER</code> indicates a snapshot that you created or imported. <code>SYSTEM</code> indicates a snapshot that Managed Service for Apache Flink created.</p>
+   * @public
+   */
+  SnapshotInitiator: SnapshotInitiator | undefined;
+
+  /**
+   * <p>The operation that created the snapshot.</p>
+   * @public
+   */
+  SnapshotInitiatorOperation: SnapshotInitiatorOperation | undefined;
+
+  /**
+   * <p>The name of the application.</p>
+   * @public
+   */
+  SourceApplicationName?: string | undefined;
+
+  /**
+   * <p>The format of the snapshot.</p>
+   * @public
+   */
+  SnapshotFormat: SnapshotFormat | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSnapshotsResponse {
+  /**
+   * <p>A list of <code>SnapshotInfo</code> objects.</p>
+   * @public
+   */
+  SnapshotInfoList: SnapshotInfo[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
   NextToken?: string | undefined;

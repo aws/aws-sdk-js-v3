@@ -174,6 +174,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *     },
  *     ApplicationSnapshotConfiguration: { // ApplicationSnapshotConfiguration
  *       SnapshotsEnabled: true || false, // required
+ *       SnapshotMode: "APPLICATION_SNAPSHOTS_LEGACY" || "ENHANCED_SNAPSHOTS",
  *     },
  *     ApplicationSystemRollbackConfiguration: { // ApplicationSystemRollbackConfiguration
  *       RollbackEnabled: true || false, // required
@@ -375,6 +376,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * //         ApplicationRestoreConfigurationDescription: { // ApplicationRestoreConfiguration
  * //           ApplicationRestoreType: "SKIP_RESTORE_FROM_SNAPSHOT" || "RESTORE_FROM_LATEST_SNAPSHOT" || "RESTORE_FROM_CUSTOM_SNAPSHOT", // required
  * //           SnapshotName: "STRING_VALUE",
+ * //           SnapshotArn: "STRING_VALUE",
  * //         },
  * //         FlinkRunConfigurationDescription: { // FlinkRunConfiguration
  * //           AllowNonRestoredState: true || false,
@@ -413,6 +415,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * //       },
  * //       ApplicationSnapshotConfigurationDescription: { // ApplicationSnapshotConfigurationDescription
  * //         SnapshotsEnabled: true || false, // required
+ * //         SnapshotMode: "APPLICATION_SNAPSHOTS_LEGACY" || "ENHANCED_SNAPSHOTS",
  * //       },
  * //       ApplicationSystemRollbackConfigurationDescription: { // ApplicationSystemRollbackConfigurationDescription
  * //         RollbackEnabled: true || false, // required
@@ -498,7 +501,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *       error.</p>
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modifications to an application. This error can
+ *  <p>Exception thrown as a result of concurrent modifications to an application or snapshot. This error can
  *       be the result of attempting to modify an application without using the current application
  *       ID.</p>
  *
@@ -512,7 +515,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *  <p>The number of allowed resources has been exceeded.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The application is not available for this operation.</p>
+ *  <p>The application or snapshot is not available for this operation.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>Application created with too many tags, or too many tags added to an application. Note that the maximum

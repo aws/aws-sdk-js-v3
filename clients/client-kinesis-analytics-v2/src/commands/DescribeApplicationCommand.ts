@@ -176,6 +176,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //         ApplicationRestoreConfigurationDescription: { // ApplicationRestoreConfiguration
  * //           ApplicationRestoreType: "SKIP_RESTORE_FROM_SNAPSHOT" || "RESTORE_FROM_LATEST_SNAPSHOT" || "RESTORE_FROM_CUSTOM_SNAPSHOT", // required
  * //           SnapshotName: "STRING_VALUE",
+ * //           SnapshotArn: "STRING_VALUE",
  * //         },
  * //         FlinkRunConfigurationDescription: { // FlinkRunConfiguration
  * //           AllowNonRestoredState: true || false,
@@ -214,6 +215,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //       },
  * //       ApplicationSnapshotConfigurationDescription: { // ApplicationSnapshotConfigurationDescription
  * //         SnapshotsEnabled: true || false, // required
+ * //         SnapshotMode: "APPLICATION_SNAPSHOTS_LEGACY" || "ENHANCED_SNAPSHOTS",
  * //       },
  * //       ApplicationSystemRollbackConfigurationDescription: { // ApplicationSystemRollbackConfigurationDescription
  * //         RollbackEnabled: true || false, // required
@@ -301,7 +303,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  *  <p>The request JSON is not valid for the operation.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *  <p>The specified application, snapshot, or snapshot operation can't be found.</p>
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>

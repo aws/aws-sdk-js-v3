@@ -66,7 +66,7 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  *  <p>The specified input parameter value is not valid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *  <p>The specified application, snapshot, or snapshot operation can't be found.</p>
  *
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this

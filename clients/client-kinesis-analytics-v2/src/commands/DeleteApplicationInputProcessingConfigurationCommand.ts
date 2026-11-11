@@ -56,7 +56,7 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput exte
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modifications to an application. This error can
+ *  <p>Exception thrown as a result of concurrent modifications to an application or snapshot. This error can
  *       be the result of attempting to modify an application without using the current application
  *       ID.</p>
  *
@@ -67,10 +67,10 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput exte
  *  <p>The request JSON is not valid for the operation.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The application is not available for this operation.</p>
+ *  <p>The application or snapshot is not available for this operation.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *  <p>The specified application, snapshot, or snapshot operation can't be found.</p>
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>

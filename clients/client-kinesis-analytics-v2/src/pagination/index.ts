@@ -4,3 +4,5 @@ export * from "./ListApplicationOperationsPaginator";
 export * from "./ListApplicationsPaginator";
 export * from "./ListApplicationSnapshotsPaginator";
 export * from "./ListApplicationVersionsPaginator";
+export * from "./ListSnapshotOperationsPaginator";
+export * from "./ListSnapshotsPaginator";

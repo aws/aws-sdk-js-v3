@@ -22,6 +22,7 @@ const _ACC = "ApplicationCodeConfiguration";
 const _ACCD = "ApplicationCodeConfigurationDescription";
 const _ACCU = "ApplicationCodeConfigurationUpdate";
 const _ACD = "ApplicationConfigurationDescription";
+const _ACT = "ApplicationCreationTimestamp";
 const _ACU = "ApplicationConfigurationUpdate";
 const _AD = "ApplicationDetail";
 const _ADp = "ApplicationDescription";
@@ -37,9 +38,11 @@ const _AMWST = "ApplicationMaintenanceWindowStartTime";
 const _AMWSTU = "ApplicationMaintenanceWindowStartTimeUpdate";
 const _AN = "ApplicationName";
 const _ANRS = "AllowNonRestoredState";
-const _AOI = "ApplicationOperationInfo";
+const _AOD = "ApplicationOperationDescription";
+const _AOI = "ApplicationOperationId";
 const _AOID = "ApplicationOperationInfoDetails";
 const _AOIL = "ApplicationOperationInfoList";
+const _AOIp = "ApplicationOperationInfo";
 const _ARC = "ApplicationRestoreConfiguration";
 const _ARCD = "ApplicationRestoreConfigurationDescription";
 const _ART = "ApplicationRestoreType";
@@ -107,7 +110,10 @@ const _CMD = "CodeMD5";
 const _CME = "ConcurrentModificationException";
 const _CP = "CurrentParallelism";
 const _CS = "CodeSize";
+const _CSR = "CreateSnapshotRequest";
+const _CSRr = "CreateSnapshotResponse";
 const _CSVMP = "CSVMappingParameters";
+const _CSr = "CreateSnapshot";
 const _CT = "ConditionalToken";
 const _CTU = "ConfigurationTypeUpdate";
 const _CTo = "ConfigurationType";
@@ -159,16 +165,37 @@ const _DAVCRe = "DeleteApplicationVpcConfigurationResponse";
 const _DAVR = "DescribeApplicationVersionRequest";
 const _DAVRe = "DescribeApplicationVersionResponse";
 const _DAe = "DescribeApplication";
+const _DEC = "DestinationEncryptionConfiguration";
+const _DECD = "DestinationEncryptionConfigurationDescription";
 const _DIS = "DiscoverInputSchema";
 const _DISR = "DiscoverInputSchemaRequest";
 const _DISRi = "DiscoverInputSchemaResponse";
 const _DS = "DestinationSchema";
+const _DSO = "DescribeSnapshotOperation";
+const _DSOR = "DescribeSnapshotOperationRequest";
+const _DSORe = "DescribeSnapshotOperationResponse";
+const _DSPL = "DestinationS3PrefixLocation";
+const _DSR = "DeleteSnapshotRequest";
+const _DSRe = "DeleteSnapshotResponse";
+const _DSRes = "DescribeSnapshotRequest";
+const _DSResc = "DescribeSnapshotResponse";
 const _DSU = "DestinationSchemaUpdate";
+const _DSe = "DeleteSnapshot";
+const _DSes = "DescribeSnapshot";
+const _DT = "DestinationType";
+const _EC = "ErrorCode";
+const _ECD = "EncryptionConfigurationDescription";
+const _EDC = "ExportDestinationConfiguration";
 const _EI = "ErrorInfo";
 const _EP = "EnvironmentProperties";
 const _EPD = "EnvironmentPropertyDescriptions";
 const _EPU = "EnvironmentPropertyUpdates";
+const _EPx = "ExportedPrefix";
+const _ERA = "ExportRoleArn";
 const _ES = "ErrorString";
+const _ESR = "ExportSnapshotRequest";
+const _ESRx = "ExportSnapshotResponse";
+const _ESx = "ExportSnapshot";
 const _ET = "EndTime";
 const _F = "Force";
 const _FAC = "FlinkApplicationConfiguration";
@@ -198,11 +225,16 @@ const _IPC = "InputProcessingConfiguration";
 const _IPCD = "InputProcessingConfigurationDescription";
 const _IPCU = "InputProcessingConfigurationUpdate";
 const _IPU = "InputParallelismUpdate";
+const _IRA = "ImportRoleArn";
 const _IRE = "InvalidRequestException";
 const _IS = "InputSchema";
+const _ISC = "ImportSourceConfiguration";
 const _ISP = "InputStartingPosition";
 const _ISPC = "InputStartingPositionConfiguration";
+const _ISR = "ImportSnapshotRequest";
+const _ISRm = "ImportSnapshotResponse";
 const _ISU = "InputSchemaUpdate";
+const _ISm = "ImportSnapshot";
 const _IU = "InputUpdate";
 const _IUn = "InputUpdates";
 const _In = "Inputs";
@@ -217,6 +249,7 @@ const _KFOD = "KinesisFirehoseOutputDescription";
 const _KFOU = "KinesisFirehoseOutputUpdate";
 const _KI = "KeyId";
 const _KIU = "KeyIdUpdate";
+const _KP = "KeyPrefix";
 const _KSI = "KinesisStreamsInput";
 const _KSID = "KinesisStreamsInputDescription";
 const _KSIU = "KinesisStreamsInputUpdate";
@@ -244,8 +277,15 @@ const _LLU = "LogLevelUpdate";
 const _LO = "LambdaOutput";
 const _LOD = "LambdaOutputDescription";
 const _LOU = "LambdaOutputUpdate";
+const _LS = "ListSnapshots";
 const _LSARN = "LogStreamARN";
 const _LSARNU = "LogStreamARNUpdate";
+const _LSO = "ListSnapshotOperations";
+const _LSOR = "ListSnapshotOperationsRequest";
+const _LSORi = "ListSnapshotOperationsResponse";
+const _LSR = "ListSnapshotsRequest";
+const _LSRi = "ListSnapshotsResponse";
+const _LT = "LocationType";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -333,16 +373,19 @@ const _RRD = "RecordRowDelimiter";
 const _RRP = "RecordRowPath";
 const _RS = "ReferenceSchema";
 const _RSU = "ReferenceSchemaUpdate";
-const _SA = "StartApplication";
+const _SA = "SnapshotArn";
 const _SAC = "SqlApplicationConfiguration";
 const _SACD = "SqlApplicationConfigurationDescription";
 const _SACLD = "S3ApplicationCodeLocationDescription";
 const _SACU = "SqlApplicationConfigurationUpdate";
+const _SAD = "SourceApplicationDescription";
+const _SAN = "SourceApplicationName";
 const _SAR = "StartApplicationRequest";
 const _SARt = "StartApplicationResponse";
 const _SARto = "StopApplicationRequest";
 const _SARtop = "StopApplicationResponse";
-const _SAt = "StopApplication";
+const _SAt = "StartApplication";
+const _SAto = "StopApplication";
 const _SC = "S3Configuration";
 const _SCBL = "S3ContentBaseLocation";
 const _SCBLD = "S3ContentBaseLocationDescription";
@@ -351,26 +394,56 @@ const _SCL = "S3ContentLocation";
 const _SCLD = "S3ContentLocationDescription";
 const _SCLU = "S3ContentLocationUpdate";
 const _SCT = "SnapshotCreationTimestamp";
-const _SD = "SnapshotDetails";
+const _SD = "SnapshotDescription";
+const _SDLD = "SnapshotDestinationLocationDescription";
+const _SDn = "SnapshotDetails";
 const _SE = "SnapshotsEnabled";
+const _SEC = "SourceEncryptionConfiguration";
+const _SECD = "SnapshotEncryptionConfigurationDescription";
+const _SECDo = "SourceEncryptionConfigurationDescription";
+const _SECn = "SnapshotEncryptionConfiguration";
 const _SEDIS = "SessionExpirationDurationInSeconds";
+const _SEI = "SnapshotErrorInfo";
 const _SER = "ServiceExecutionRole";
 const _SERU = "ServiceExecutionRoleUpdate";
 const _SEU = "SnapshotsEnabledUpdate";
+const _SF = "SnapshotFormat";
 const _SGI = "SecurityGroupIds";
 const _SGIU = "SecurityGroupIdUpdates";
-const _SI = "SubnetIds";
+const _SI = "SnapshotInitiator";
+const _SID = "SnapshotInfoDetails";
+const _SIL = "SnapshotInfoList";
+const _SIO = "SnapshotInitiatorOperation";
 const _SIU = "SubnetIdUpdates";
+const _SIn = "SnapshotInfo";
+const _SIu = "SubnetIds";
+const _SM = "SnapshotMode";
+const _SMU = "SnapshotModeUpdate";
 const _SN = "SnapshotName";
+const _SO = "SnapshotOperation";
+const _SOFD = "SnapshotOperationFailureDetails";
+const _SOI = "SnapshotOperationId";
+const _SOID = "SnapshotOperationInfoDetails";
+const _SOIL = "SnapshotOperationInfoList";
+const _SOIn = "SnapshotOperationInfo";
+const _SOLD = "SnapshotOperationLocationDescription";
+const _SOS = "SnapshotOperationStatus";
+const _SOSPL = "SnapshotOperationS3PrefixLocation";
+const _SPL = "S3PrefixLocation";
 const _SRC = "SqlRunConfigurations";
 const _SRCq = "SqlRunConfiguration";
 const _SRDS = "S3ReferenceDataSource";
 const _SRDSD = "S3ReferenceDataSourceDescription";
 const _SRDSU = "S3ReferenceDataSourceUpdate";
-const _SS = "SnapshotSummaries";
-const _SSn = "SnapshotStatus";
+const _SS = "SnapshotStatus";
+const _SSD = "SnapshotSourceDescription";
+const _SSIB = "SnapshotSizeInBytes";
+const _SSLD = "SnapshotSourceLocationDescription";
+const _SSPL = "SourceS3PrefixLocation";
+const _SSn = "SnapshotSummaries";
 const _SSo = "SourceSchema";
 const _ST = "StartTime";
+const _STo = "SourceType";
 const _STq = "SqlType";
 const _SUE = "ServiceUnavailableException";
 const _T = "Tags";
@@ -661,7 +734,12 @@ export var ApplicationMaintenanceConfigurationUpdate$: StaticStructureSchema = [
   [_AMWSTU],
   [0], 1
 ];
-export var ApplicationOperationInfo$: StaticStructureSchema = [3, n0, _AOI,
+export var ApplicationOperationDescription$: StaticStructureSchema = [3, n0, _AOD,
+  0,
+  [_AOI, _AN],
+  [0, 0]
+];
+export var ApplicationOperationInfo$: StaticStructureSchema = [3, n0, _AOIp,
   0,
   [_Op, _OI, _ST, _ET, _OS],
   [0, 0, 4, 4, 0]
@@ -673,23 +751,23 @@ export var ApplicationOperationInfoDetails$: StaticStructureSchema = [3, n0, _AO
 ];
 export var ApplicationRestoreConfiguration$: StaticStructureSchema = [3, n0, _ARC,
   0,
-  [_ART, _SN],
-  [0, 0], 1
+  [_ART, _SN, _SA],
+  [0, 0, 0], 1
 ];
 export var ApplicationSnapshotConfiguration$: StaticStructureSchema = [3, n0, _ASC,
   0,
-  [_SE],
-  [2], 1
+  [_SE, _SM],
+  [2, 0], 1
 ];
 export var ApplicationSnapshotConfigurationDescription$: StaticStructureSchema = [3, n0, _ASCD,
   0,
-  [_SE],
-  [2], 1
+  [_SE, _SM],
+  [2, 0], 1
 ];
 export var ApplicationSnapshotConfigurationUpdate$: StaticStructureSchema = [3, n0, _ASCU,
   0,
-  [_SEU],
-  [2], 1
+  [_SEU, _SMU],
+  [2, 0], 1
 ];
 export var ApplicationSummary$: StaticStructureSchema = [3, n0, _ASp,
   0,
@@ -811,6 +889,16 @@ export var CreateApplicationSnapshotResponse$: StaticStructureSchema = [3, n0, _
   [],
   []
 ];
+export var CreateSnapshotRequest$: StaticStructureSchema = [3, n0, _CSR,
+  0,
+  [_AN, _SN, _SD, _T],
+  [0, 0, 0, () => Tags], 2
+];
+export var CreateSnapshotResponse$: StaticStructureSchema = [3, n0, _CSRr,
+  0,
+  [_SA, _SS, _SOI, _SOS],
+  [0, 0, 0, 0], 4
+];
 export var CSVMappingParameters$: StaticStructureSchema = [3, n0, _CSVMP,
   0,
   [_RRD, _RCDe],
@@ -896,6 +984,16 @@ export var DeleteApplicationVpcConfigurationResponse$: StaticStructureSchema = [
   [_AARN, _AVI, _OI],
   [0, 1, 0]
 ];
+export var DeleteSnapshotRequest$: StaticStructureSchema = [3, n0, _DSR,
+  0,
+  [_SN, _SCT],
+  [0, 4], 2
+];
+export var DeleteSnapshotResponse$: StaticStructureSchema = [3, n0, _DSRe,
+  0,
+  [_SA, _SS, _SOI, _SOS],
+  [0, 0, 0, 0], 4
+];
 export var DeployAsApplicationConfiguration$: StaticStructureSchema = [3, n0, _DAAC,
   0,
   [_SCL],
@@ -938,7 +1036,7 @@ export var DescribeApplicationSnapshotRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var DescribeApplicationSnapshotResponse$: StaticStructureSchema = [3, n0, _DASResc,
   0,
-  [_SD],
+  [_SDn],
   [() => SnapshotDetails$], 1
 ];
 export var DescribeApplicationVersionRequest$: StaticStructureSchema = [3, n0, _DAVR,
@@ -950,6 +1048,26 @@ export var DescribeApplicationVersionResponse$: StaticStructureSchema = [3, n0, 
   0,
   [_AVD],
   [() => ApplicationDetail$]
+];
+export var DescribeSnapshotOperationRequest$: StaticStructureSchema = [3, n0, _DSOR,
+  0,
+  [_SN, _SOI],
+  [0, 0], 2
+];
+export var DescribeSnapshotOperationResponse$: StaticStructureSchema = [3, n0, _DSORe,
+  0,
+  [_SOID],
+  [() => SnapshotOperationInfoDetails$], 1
+];
+export var DescribeSnapshotRequest$: StaticStructureSchema = [3, n0, _DSRes,
+  0,
+  [_SN],
+  [0], 1
+];
+export var DescribeSnapshotResponse$: StaticStructureSchema = [3, n0, _DSResc,
+  0,
+  [_SID],
+  [() => SnapshotInfoDetails$], 1
 ];
 export var DestinationSchema$: StaticStructureSchema = [3, n0, _DS,
   0,
@@ -965,6 +1083,11 @@ export var DiscoverInputSchemaResponse$: StaticStructureSchema = [3, n0, _DISRi,
   0,
   [_IS, _PIRa, _PIR, _RIR],
   [() => SourceSchema$, [1, n0, _PIRa, 0, 64 | 0], 64 | 0, 64 | 0]
+];
+export var EncryptionConfigurationDescription$: StaticStructureSchema = [3, n0, _ECD,
+  0,
+  [_KT, _KI],
+  [0, 0], 1
 ];
 export var EnvironmentProperties$: StaticStructureSchema = [3, n0, _EP,
   0,
@@ -985,6 +1108,21 @@ export var ErrorInfo$: StaticStructureSchema = [3, n0, _EI,
   0,
   [_ES],
   [0]
+];
+export var ExportDestinationConfiguration$: StaticStructureSchema = [3, n0, _EDC,
+  0,
+  [_DT, _ERA, _DSPL, _DEC],
+  [0, 0, () => S3PrefixLocation$, () => SnapshotEncryptionConfiguration$], 3
+];
+export var ExportSnapshotRequest$: StaticStructureSchema = [3, n0, _ESR,
+  0,
+  [_SN, _EDC],
+  [0, () => ExportDestinationConfiguration$], 2
+];
+export var ExportSnapshotResponse$: StaticStructureSchema = [3, n0, _ESRx,
+  0,
+  [_SOI, _SOS],
+  [0, 0], 2
 ];
 export var FlinkApplicationConfiguration$: StaticStructureSchema = [3, n0, _FAC,
   0,
@@ -1020,6 +1158,21 @@ export var GlueDataCatalogConfigurationUpdate$: StaticStructureSchema = [3, n0, 
   0,
   [_DARNU],
   [0], 1
+];
+export var ImportSnapshotRequest$: StaticStructureSchema = [3, n0, _ISR,
+  0,
+  [_SN, _ISC, _DEC, _SD, _SF, _T],
+  [0, () => ImportSourceConfiguration$, () => SnapshotEncryptionConfiguration$, 0, 0, () => Tags], 2
+];
+export var ImportSnapshotResponse$: StaticStructureSchema = [3, n0, _ISRm,
+  0,
+  [_SA, _SS, _SOI, _SOS],
+  [0, 0, 0, 0], 4
+];
+export var ImportSourceConfiguration$: StaticStructureSchema = [3, n0, _ISC,
+  0,
+  [_STo, _IRA, _SSPL, _SEC],
+  [0, 0, () => S3PrefixLocation$, () => SnapshotEncryptionConfiguration$], 3
 ];
 export var Input$: StaticStructureSchema = [3, n0, _I,
   0,
@@ -1183,7 +1336,7 @@ export var ListApplicationSnapshotsRequest$: StaticStructureSchema = [3, n0, _LA
 ];
 export var ListApplicationSnapshotsResponse$: StaticStructureSchema = [3, n0, _LASRi,
   0,
-  [_SS, _NT],
+  [_SSn, _NT],
   [() => SnapshotSummaries, 0]
 ];
 export var ListApplicationsRequest$: StaticStructureSchema = [3, n0, _LAR,
@@ -1205,6 +1358,26 @@ export var ListApplicationVersionsResponse$: StaticStructureSchema = [3, n0, _LA
   0,
   [_AVSp, _NT],
   [() => ApplicationVersionSummaries, 0]
+];
+export var ListSnapshotOperationsRequest$: StaticStructureSchema = [3, n0, _LSOR,
+  0,
+  [_SN, _SO, _SOS, _L, _NT],
+  [0, 0, 0, 1, 0], 1
+];
+export var ListSnapshotOperationsResponse$: StaticStructureSchema = [3, n0, _LSORi,
+  0,
+  [_SOIL, _NT],
+  [() => SnapshotOperationInfoList, 0], 1
+];
+export var ListSnapshotsRequest$: StaticStructureSchema = [3, n0, _LSR,
+  0,
+  [_SAN, _SI, _SIO, _SS, _L, _NT],
+  [0, 0, 0, 0, 1, 0]
+];
+export var ListSnapshotsResponse$: StaticStructureSchema = [3, n0, _LSRi,
+  0,
+  [_SIL, _NT],
+  [() => SnapshotInfoList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
@@ -1366,6 +1539,11 @@ export var S3ContentLocationUpdate$: StaticStructureSchema = [3, n0, _SCLU,
   [_BARNU, _FKU, _OVU],
   [0, 0, 0]
 ];
+export var S3PrefixLocation$: StaticStructureSchema = [3, n0, _SPL,
+  0,
+  [_BARN, _KP],
+  [0, 0], 2
+];
 export var S3ReferenceDataSource$: StaticStructureSchema = [3, n0, _SRDS,
   0,
   [_BARN, _FK],
@@ -1381,10 +1559,65 @@ export var S3ReferenceDataSourceUpdate$: StaticStructureSchema = [3, n0, _SRDSU,
   [_BARNU, _FKU],
   [0, 0]
 ];
-export var SnapshotDetails$: StaticStructureSchema = [3, n0, _SD,
+export var SnapshotDetails$: StaticStructureSchema = [3, n0, _SDn,
   0,
-  [_SN, _SSn, _AVI, _SCT, _RE, _AECD],
+  [_SN, _SS, _AVI, _SCT, _RE, _AECD],
   [0, 0, 1, 4, 0, () => ApplicationEncryptionConfigurationDescription$], 3
+];
+export var SnapshotEncryptionConfiguration$: StaticStructureSchema = [3, n0, _SECn,
+  0,
+  [_KT, _KI],
+  [0, 0], 1
+];
+export var SnapshotErrorInfo$: StaticStructureSchema = [3, n0, _SEI,
+  0,
+  [_EC, _ES],
+  [0, 0]
+];
+export var SnapshotInfo$: StaticStructureSchema = [3, n0, _SIn,
+  0,
+  [_SN, _SA, _SS, _SCT, _SI, _SIO, _SF, _SAN],
+  [0, 0, 0, 4, 0, 0, 0, 0], 7
+];
+export var SnapshotInfoDetails$: StaticStructureSchema = [3, n0, _SID,
+  0,
+  [_SN, _SA, _SS, _SCT, _SI, _SIO, _SSD, _SF, _SD, _RE, _SSIB, _SECD],
+  [0, 0, 0, 4, 0, 0, () => SnapshotSourceDescription$, 0, 0, 0, 1, () => SnapshotEncryptionConfiguration$], 8
+];
+export var SnapshotOperationFailureDetails$: StaticStructureSchema = [3, n0, _SOFD,
+  0,
+  [_EI],
+  [() => SnapshotErrorInfo$]
+];
+export var SnapshotOperationInfo$: StaticStructureSchema = [3, n0, _SOIn,
+  0,
+  [_SOI, _SO, _SOS, _ST, _ET],
+  [0, 0, 0, 4, 4], 3
+];
+export var SnapshotOperationInfoDetails$: StaticStructureSchema = [3, n0, _SOID,
+  0,
+  [_SOI, _SO, _SOS, _SA, _SECDo, _DECD, _SSLD, _SDLD, _AOD, _ST, _ET, _SOFD],
+  [0, 0, 0, 0, () => EncryptionConfigurationDescription$, () => EncryptionConfigurationDescription$, () => SnapshotOperationLocationDescription$, () => SnapshotOperationLocationDescription$, () => ApplicationOperationDescription$, 4, 4, () => SnapshotOperationFailureDetails$], 4
+];
+export var SnapshotOperationLocationDescription$: StaticStructureSchema = [3, n0, _SOLD,
+  0,
+  [_LT, _SPL],
+  [0, () => SnapshotOperationS3PrefixLocation$], 2
+];
+export var SnapshotOperationS3PrefixLocation$: StaticStructureSchema = [3, n0, _SOSPL,
+  0,
+  [_BARN, _KP, _EPx],
+  [0, 0, 0], 2
+];
+export var SnapshotSourceDescription$: StaticStructureSchema = [3, n0, _SSD,
+  0,
+  [_SPL, _SAD],
+  [() => S3PrefixLocation$, () => SourceApplicationDescription$]
+];
+export var SourceApplicationDescription$: StaticStructureSchema = [3, n0, _SAD,
+  0,
+  [_AN, _ACT, _AVI],
+  [0, 4, 1], 3
 ];
 export var SourceSchema$: StaticStructureSchema = [3, n0, _SSo,
   0,
@@ -1478,12 +1711,12 @@ export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
 ];
 export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
   0,
-  [_SI, _SGI],
+  [_SIu, _SGI],
   [64 | 0, 64 | 0], 2
 ];
 export var VpcConfigurationDescription$: StaticStructureSchema = [3, n0, _VCD,
   0,
-  [_VCI, _VI, _SI, _SGI],
+  [_VCI, _VI, _SIu, _SGI],
   [0, 0, 64 | 0, 64 | 0], 4
 ];
 export var VpcConfigurationUpdate$: StaticStructureSchema = [3, n0, _VCUp,
@@ -1586,7 +1819,13 @@ var ReferenceDataSourceUpdates: StaticListSchema = [1, n0, _RDSUe,
   0, () => ReferenceDataSourceUpdate$
 ];
 var SecurityGroupIds = 64 | 0;
-var SnapshotSummaries: StaticListSchema = [1, n0, _SS,
+var SnapshotInfoList: StaticListSchema = [1, n0, _SIL,
+  0, () => SnapshotInfo$
+];
+var SnapshotOperationInfoList: StaticListSchema = [1, n0, _SOIL,
+  0, () => SnapshotOperationInfo$
+];
+var SnapshotSummaries: StaticListSchema = [1, n0, _SSn,
   0, () => SnapshotDetails$
 ];
 var SqlRunConfigurations: StaticListSchema = [1, n0, _SRC,
@@ -1634,6 +1873,9 @@ export var CreateApplicationPresignedUrl$: StaticOperationSchema = [9, n0, _CAPU
 export var CreateApplicationSnapshot$: StaticOperationSchema = [9, n0, _CAS,
   0, () => CreateApplicationSnapshotRequest$, () => CreateApplicationSnapshotResponse$
 ];
+export var CreateSnapshot$: StaticOperationSchema = [9, n0, _CSr,
+  0, () => CreateSnapshotRequest$, () => CreateSnapshotResponse$
+];
 export var DeleteApplication$: StaticOperationSchema = [9, n0, _DA,
   0, () => DeleteApplicationRequest$, () => DeleteApplicationResponse$
 ];
@@ -1655,6 +1897,9 @@ export var DeleteApplicationSnapshot$: StaticOperationSchema = [9, n0, _DAS,
 export var DeleteApplicationVpcConfiguration$: StaticOperationSchema = [9, n0, _DAVC,
   0, () => DeleteApplicationVpcConfigurationRequest$, () => DeleteApplicationVpcConfigurationResponse$
 ];
+export var DeleteSnapshot$: StaticOperationSchema = [9, n0, _DSe,
+  0, () => DeleteSnapshotRequest$, () => DeleteSnapshotResponse$
+];
 export var DescribeApplication$: StaticOperationSchema = [9, n0, _DAe,
   0, () => DescribeApplicationRequest$, () => DescribeApplicationResponse$
 ];
@@ -1667,8 +1912,20 @@ export var DescribeApplicationSnapshot$: StaticOperationSchema = [9, n0, _DASe,
 export var DescribeApplicationVersion$: StaticOperationSchema = [9, n0, _DAV,
   0, () => DescribeApplicationVersionRequest$, () => DescribeApplicationVersionResponse$
 ];
+export var DescribeSnapshot$: StaticOperationSchema = [9, n0, _DSes,
+  0, () => DescribeSnapshotRequest$, () => DescribeSnapshotResponse$
+];
+export var DescribeSnapshotOperation$: StaticOperationSchema = [9, n0, _DSO,
+  0, () => DescribeSnapshotOperationRequest$, () => DescribeSnapshotOperationResponse$
+];
 export var DiscoverInputSchema$: StaticOperationSchema = [9, n0, _DIS,
   0, () => DiscoverInputSchemaRequest$, () => DiscoverInputSchemaResponse$
+];
+export var ExportSnapshot$: StaticOperationSchema = [9, n0, _ESx,
+  0, () => ExportSnapshotRequest$, () => ExportSnapshotResponse$
+];
+export var ImportSnapshot$: StaticOperationSchema = [9, n0, _ISm,
+  0, () => ImportSnapshotRequest$, () => ImportSnapshotResponse$
 ];
 export var ListApplicationOperations$: StaticOperationSchema = [9, n0, _LAO,
   0, () => ListApplicationOperationsRequest$, () => ListApplicationOperationsResponse$
@@ -1682,16 +1939,22 @@ export var ListApplicationSnapshots$: StaticOperationSchema = [9, n0, _LAS,
 export var ListApplicationVersions$: StaticOperationSchema = [9, n0, _LAV,
   0, () => ListApplicationVersionsRequest$, () => ListApplicationVersionsResponse$
 ];
+export var ListSnapshotOperations$: StaticOperationSchema = [9, n0, _LSO,
+  0, () => ListSnapshotOperationsRequest$, () => ListSnapshotOperationsResponse$
+];
+export var ListSnapshots$: StaticOperationSchema = [9, n0, _LS,
+  0, () => ListSnapshotsRequest$, () => ListSnapshotsResponse$
+];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
 export var RollbackApplication$: StaticOperationSchema = [9, n0, _RA,
   0, () => RollbackApplicationRequest$, () => RollbackApplicationResponse$
 ];
-export var StartApplication$: StaticOperationSchema = [9, n0, _SA,
+export var StartApplication$: StaticOperationSchema = [9, n0, _SAt,
   0, () => StartApplicationRequest$, () => StartApplicationResponse$
 ];
-export var StopApplication$: StaticOperationSchema = [9, n0, _SAt,
+export var StopApplication$: StaticOperationSchema = [9, n0, _SAto,
   0, () => StopApplicationRequest$, () => StopApplicationResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,

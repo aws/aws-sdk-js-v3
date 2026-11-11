@@ -36,6 +36,7 @@ import {
   ApplicationMaintenanceConfigurationDescription$,
   ApplicationMaintenanceConfigurationUpdate$,
   ApplicationMode,
+  ApplicationOperationDescription$,
   ApplicationOperationInfo$,
   ApplicationOperationInfoDetails$,
   ApplicationRestoreConfiguration$,
@@ -81,6 +82,10 @@ import {
   CreateApplicationSnapshotCommand,
   CreateApplicationSnapshotRequest$,
   CreateApplicationSnapshotResponse$,
+  CreateSnapshot$,
+  CreateSnapshotCommand,
+  CreateSnapshotRequest$,
+  CreateSnapshotResponse$,
   CSVMappingParameters$,
   CustomArtifactConfiguration$,
   CustomArtifactConfigurationDescription$,
@@ -112,6 +117,10 @@ import {
   DeleteApplicationVpcConfigurationCommand,
   DeleteApplicationVpcConfigurationRequest$,
   DeleteApplicationVpcConfigurationResponse$,
+  DeleteSnapshot$,
+  DeleteSnapshotCommand,
+  DeleteSnapshotRequest$,
+  DeleteSnapshotResponse$,
   DeployAsApplicationConfiguration$,
   DeployAsApplicationConfigurationDescription$,
   DeployAsApplicationConfigurationUpdate$,
@@ -131,15 +140,29 @@ import {
   DescribeApplicationVersionCommand,
   DescribeApplicationVersionRequest$,
   DescribeApplicationVersionResponse$,
+  DescribeSnapshot$,
+  DescribeSnapshotCommand,
+  DescribeSnapshotOperation$,
+  DescribeSnapshotOperationCommand,
+  DescribeSnapshotOperationRequest$,
+  DescribeSnapshotOperationResponse$,
+  DescribeSnapshotRequest$,
+  DescribeSnapshotResponse$,
   DestinationSchema$,
   DiscoverInputSchema$,
   DiscoverInputSchemaCommand,
   DiscoverInputSchemaRequest$,
   DiscoverInputSchemaResponse$,
+  EncryptionConfigurationDescription$,
   EnvironmentProperties$,
   EnvironmentPropertyDescriptions$,
   EnvironmentPropertyUpdates$,
   ErrorInfo$,
+  ExportDestinationConfiguration$,
+  ExportSnapshot$,
+  ExportSnapshotCommand,
+  ExportSnapshotRequest$,
+  ExportSnapshotResponse$,
   FlinkApplicationConfiguration$,
   FlinkApplicationConfigurationDescription$,
   FlinkApplicationConfigurationUpdate$,
@@ -147,6 +170,11 @@ import {
   GlueDataCatalogConfiguration$,
   GlueDataCatalogConfigurationDescription$,
   GlueDataCatalogConfigurationUpdate$,
+  ImportSnapshot$,
+  ImportSnapshotCommand,
+  ImportSnapshotRequest$,
+  ImportSnapshotResponse$,
+  ImportSourceConfiguration$,
   Input$,
   InputDescription$,
   InputLambdaProcessor$,
@@ -205,6 +233,14 @@ import {
   ListApplicationVersionsCommand,
   ListApplicationVersionsRequest$,
   ListApplicationVersionsResponse$,
+  ListSnapshotOperations$,
+  ListSnapshotOperationsCommand,
+  ListSnapshotOperationsRequest$,
+  ListSnapshotOperationsResponse$,
+  ListSnapshots$,
+  ListSnapshotsCommand,
+  ListSnapshotsRequest$,
+  ListSnapshotsResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -225,6 +261,8 @@ import {
   paginateListApplications,
   paginateListApplicationSnapshots,
   paginateListApplicationVersions,
+  paginateListSnapshotOperations,
+  paginateListSnapshots,
   ParallelismConfiguration$,
   ParallelismConfigurationDescription$,
   ParallelismConfigurationUpdate$,
@@ -256,13 +294,31 @@ import {
   S3ContentBaseLocationUpdate$,
   S3ContentLocation$,
   S3ContentLocationUpdate$,
+  S3PrefixLocation$,
   S3ReferenceDataSource$,
   S3ReferenceDataSourceDescription$,
   S3ReferenceDataSourceUpdate$,
   ServiceUnavailableException,
   ServiceUnavailableException$,
   SnapshotDetails$,
+  SnapshotEncryptionConfiguration$,
+  SnapshotErrorInfo$,
+  SnapshotFormat,
+  SnapshotInfo$,
+  SnapshotInfoDetails$,
+  SnapshotInitiator,
+  SnapshotInitiatorOperation,
+  SnapshotMode,
+  SnapshotOperation,
+  SnapshotOperationFailureDetails$,
+  SnapshotOperationInfo$,
+  SnapshotOperationInfoDetails$,
+  SnapshotOperationLocationDescription$,
+  SnapshotOperationS3PrefixLocation$,
+  SnapshotOperationStatus,
+  SnapshotSourceDescription$,
   SnapshotStatus,
+  SourceApplicationDescription$,
   SourceSchema$,
   SqlApplicationConfiguration$,
   SqlApplicationConfigurationDescription$,
@@ -276,6 +332,7 @@ import {
   StopApplicationCommand,
   StopApplicationRequest$,
   StopApplicationResponse$,
+  StorageLocationType,
   Tag$,
   TagResource$,
   TagResourceCommand,
@@ -333,6 +390,8 @@ assert(typeof CreateApplicationPresignedUrlCommand === "function");
 assert(typeof CreateApplicationPresignedUrl$ === "object");
 assert(typeof CreateApplicationSnapshotCommand === "function");
 assert(typeof CreateApplicationSnapshot$ === "object");
+assert(typeof CreateSnapshotCommand === "function");
+assert(typeof CreateSnapshot$ === "object");
 assert(typeof DeleteApplicationCommand === "function");
 assert(typeof DeleteApplication$ === "object");
 assert(typeof DeleteApplicationCloudWatchLoggingOptionCommand === "function");
@@ -347,6 +406,8 @@ assert(typeof DeleteApplicationSnapshotCommand === "function");
 assert(typeof DeleteApplicationSnapshot$ === "object");
 assert(typeof DeleteApplicationVpcConfigurationCommand === "function");
 assert(typeof DeleteApplicationVpcConfiguration$ === "object");
+assert(typeof DeleteSnapshotCommand === "function");
+assert(typeof DeleteSnapshot$ === "object");
 assert(typeof DescribeApplicationCommand === "function");
 assert(typeof DescribeApplication$ === "object");
 assert(typeof DescribeApplicationOperationCommand === "function");
@@ -355,8 +416,16 @@ assert(typeof DescribeApplicationSnapshotCommand === "function");
 assert(typeof DescribeApplicationSnapshot$ === "object");
 assert(typeof DescribeApplicationVersionCommand === "function");
 assert(typeof DescribeApplicationVersion$ === "object");
+assert(typeof DescribeSnapshotCommand === "function");
+assert(typeof DescribeSnapshot$ === "object");
+assert(typeof DescribeSnapshotOperationCommand === "function");
+assert(typeof DescribeSnapshotOperation$ === "object");
 assert(typeof DiscoverInputSchemaCommand === "function");
 assert(typeof DiscoverInputSchema$ === "object");
+assert(typeof ExportSnapshotCommand === "function");
+assert(typeof ExportSnapshot$ === "object");
+assert(typeof ImportSnapshotCommand === "function");
+assert(typeof ImportSnapshot$ === "object");
 assert(typeof ListApplicationOperationsCommand === "function");
 assert(typeof ListApplicationOperations$ === "object");
 assert(typeof ListApplicationsCommand === "function");
@@ -365,6 +434,10 @@ assert(typeof ListApplicationSnapshotsCommand === "function");
 assert(typeof ListApplicationSnapshots$ === "object");
 assert(typeof ListApplicationVersionsCommand === "function");
 assert(typeof ListApplicationVersions$ === "object");
+assert(typeof ListSnapshotOperationsCommand === "function");
+assert(typeof ListSnapshotOperations$ === "object");
+assert(typeof ListSnapshotsCommand === "function");
+assert(typeof ListSnapshots$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof RollbackApplicationCommand === "function");
@@ -406,6 +479,7 @@ assert(typeof ApplicationEncryptionConfigurationDescription$ === "object");
 assert(typeof ApplicationEncryptionConfigurationUpdate$ === "object");
 assert(typeof ApplicationMaintenanceConfigurationDescription$ === "object");
 assert(typeof ApplicationMaintenanceConfigurationUpdate$ === "object");
+assert(typeof ApplicationOperationDescription$ === "object");
 assert(typeof ApplicationOperationInfo$ === "object");
 assert(typeof ApplicationOperationInfoDetails$ === "object");
 assert(typeof ApplicationRestoreConfiguration$ === "object");
@@ -436,6 +510,8 @@ assert(typeof CreateApplicationRequest$ === "object");
 assert(typeof CreateApplicationResponse$ === "object");
 assert(typeof CreateApplicationSnapshotRequest$ === "object");
 assert(typeof CreateApplicationSnapshotResponse$ === "object");
+assert(typeof CreateSnapshotRequest$ === "object");
+assert(typeof CreateSnapshotResponse$ === "object");
 assert(typeof CSVMappingParameters$ === "object");
 assert(typeof CustomArtifactConfiguration$ === "object");
 assert(typeof CustomArtifactConfigurationDescription$ === "object");
@@ -453,6 +529,8 @@ assert(typeof DeleteApplicationSnapshotRequest$ === "object");
 assert(typeof DeleteApplicationSnapshotResponse$ === "object");
 assert(typeof DeleteApplicationVpcConfigurationRequest$ === "object");
 assert(typeof DeleteApplicationVpcConfigurationResponse$ === "object");
+assert(typeof DeleteSnapshotRequest$ === "object");
+assert(typeof DeleteSnapshotResponse$ === "object");
 assert(typeof DeployAsApplicationConfiguration$ === "object");
 assert(typeof DeployAsApplicationConfigurationDescription$ === "object");
 assert(typeof DeployAsApplicationConfigurationUpdate$ === "object");
@@ -464,13 +542,21 @@ assert(typeof DescribeApplicationSnapshotRequest$ === "object");
 assert(typeof DescribeApplicationSnapshotResponse$ === "object");
 assert(typeof DescribeApplicationVersionRequest$ === "object");
 assert(typeof DescribeApplicationVersionResponse$ === "object");
+assert(typeof DescribeSnapshotOperationRequest$ === "object");
+assert(typeof DescribeSnapshotOperationResponse$ === "object");
+assert(typeof DescribeSnapshotRequest$ === "object");
+assert(typeof DescribeSnapshotResponse$ === "object");
 assert(typeof DestinationSchema$ === "object");
 assert(typeof DiscoverInputSchemaRequest$ === "object");
 assert(typeof DiscoverInputSchemaResponse$ === "object");
+assert(typeof EncryptionConfigurationDescription$ === "object");
 assert(typeof EnvironmentProperties$ === "object");
 assert(typeof EnvironmentPropertyDescriptions$ === "object");
 assert(typeof EnvironmentPropertyUpdates$ === "object");
 assert(typeof ErrorInfo$ === "object");
+assert(typeof ExportDestinationConfiguration$ === "object");
+assert(typeof ExportSnapshotRequest$ === "object");
+assert(typeof ExportSnapshotResponse$ === "object");
 assert(typeof FlinkApplicationConfiguration$ === "object");
 assert(typeof FlinkApplicationConfigurationDescription$ === "object");
 assert(typeof FlinkApplicationConfigurationUpdate$ === "object");
@@ -478,6 +564,9 @@ assert(typeof FlinkRunConfiguration$ === "object");
 assert(typeof GlueDataCatalogConfiguration$ === "object");
 assert(typeof GlueDataCatalogConfigurationDescription$ === "object");
 assert(typeof GlueDataCatalogConfigurationUpdate$ === "object");
+assert(typeof ImportSnapshotRequest$ === "object");
+assert(typeof ImportSnapshotResponse$ === "object");
+assert(typeof ImportSourceConfiguration$ === "object");
 assert(typeof Input$ === "object");
 assert(typeof InputDescription$ === "object");
 assert(typeof InputLambdaProcessor$ === "object");
@@ -515,6 +604,10 @@ assert(typeof ListApplicationsRequest$ === "object");
 assert(typeof ListApplicationsResponse$ === "object");
 assert(typeof ListApplicationVersionsRequest$ === "object");
 assert(typeof ListApplicationVersionsResponse$ === "object");
+assert(typeof ListSnapshotOperationsRequest$ === "object");
+assert(typeof ListSnapshotOperationsResponse$ === "object");
+assert(typeof ListSnapshotsRequest$ === "object");
+assert(typeof ListSnapshotsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof MappingParameters$ === "object");
@@ -547,10 +640,22 @@ assert(typeof S3ContentBaseLocationDescription$ === "object");
 assert(typeof S3ContentBaseLocationUpdate$ === "object");
 assert(typeof S3ContentLocation$ === "object");
 assert(typeof S3ContentLocationUpdate$ === "object");
+assert(typeof S3PrefixLocation$ === "object");
 assert(typeof S3ReferenceDataSource$ === "object");
 assert(typeof S3ReferenceDataSourceDescription$ === "object");
 assert(typeof S3ReferenceDataSourceUpdate$ === "object");
 assert(typeof SnapshotDetails$ === "object");
+assert(typeof SnapshotEncryptionConfiguration$ === "object");
+assert(typeof SnapshotErrorInfo$ === "object");
+assert(typeof SnapshotInfo$ === "object");
+assert(typeof SnapshotInfoDetails$ === "object");
+assert(typeof SnapshotOperationFailureDetails$ === "object");
+assert(typeof SnapshotOperationInfo$ === "object");
+assert(typeof SnapshotOperationInfoDetails$ === "object");
+assert(typeof SnapshotOperationLocationDescription$ === "object");
+assert(typeof SnapshotOperationS3PrefixLocation$ === "object");
+assert(typeof SnapshotSourceDescription$ === "object");
+assert(typeof SourceApplicationDescription$ === "object");
 assert(typeof SourceSchema$ === "object");
 assert(typeof SqlApplicationConfiguration$ === "object");
 assert(typeof SqlApplicationConfigurationDescription$ === "object");
@@ -592,7 +697,14 @@ assert(typeof MetricsLevel === "object");
 assert(typeof OperationStatus === "object");
 assert(typeof RecordFormatType === "object");
 assert(typeof RuntimeEnvironment === "object");
+assert(typeof SnapshotFormat === "object");
+assert(typeof SnapshotInitiator === "object");
+assert(typeof SnapshotInitiatorOperation === "object");
+assert(typeof SnapshotMode === "object");
+assert(typeof SnapshotOperation === "object");
+assert(typeof SnapshotOperationStatus === "object");
 assert(typeof SnapshotStatus === "object");
+assert(typeof StorageLocationType === "object");
 assert(typeof UrlType === "object");
 // errors
 assert(CodeValidationException.prototype instanceof KinesisAnalyticsV2ServiceException);
@@ -627,4 +739,6 @@ assert(typeof paginateListApplicationOperations === "function");
 assert(typeof paginateListApplicationSnapshots === "function");
 assert(typeof paginateListApplicationVersions === "function");
 assert(typeof paginateListApplications === "function");
+assert(typeof paginateListSnapshotOperations === "function");
+assert(typeof paginateListSnapshots === "function");
 console.log(`KinesisAnalyticsV2 index test passed.`);

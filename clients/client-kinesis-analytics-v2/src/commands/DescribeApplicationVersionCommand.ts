@@ -177,6 +177,7 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  * //         ApplicationRestoreConfigurationDescription: { // ApplicationRestoreConfiguration
  * //           ApplicationRestoreType: "SKIP_RESTORE_FROM_SNAPSHOT" || "RESTORE_FROM_LATEST_SNAPSHOT" || "RESTORE_FROM_CUSTOM_SNAPSHOT", // required
  * //           SnapshotName: "STRING_VALUE",
+ * //           SnapshotArn: "STRING_VALUE",
  * //         },
  * //         FlinkRunConfigurationDescription: { // FlinkRunConfiguration
  * //           AllowNonRestoredState: true || false,
@@ -215,6 +216,7 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  * //       },
  * //       ApplicationSnapshotConfigurationDescription: { // ApplicationSnapshotConfigurationDescription
  * //         SnapshotsEnabled: true || false, // required
+ * //         SnapshotMode: "APPLICATION_SNAPSHOTS_LEGACY" || "ENHANCED_SNAPSHOTS",
  * //       },
  * //       ApplicationSystemRollbackConfigurationDescription: { // ApplicationSystemRollbackConfigurationDescription
  * //         RollbackEnabled: true || false, // required
@@ -299,7 +301,7 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  *  <p>The specified input parameter value is not valid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *  <p>The specified application, snapshot, or snapshot operation can't be found.</p>
  *
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this

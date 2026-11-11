@@ -56,6 +56,19 @@ export type KeyType = (typeof KeyType)[keyof typeof KeyType];
  * @public
  * @enum
  */
+export const SnapshotMode = {
+  APPLICATION_SNAPSHOTS_LEGACY: "APPLICATION_SNAPSHOTS_LEGACY",
+  ENHANCED_SNAPSHOTS: "ENHANCED_SNAPSHOTS",
+} as const;
+/**
+ * @public
+ */
+export type SnapshotMode = (typeof SnapshotMode)[keyof typeof SnapshotMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ConfigurationType = {
   CUSTOM: "CUSTOM",
   DEFAULT: "DEFAULT",
@@ -214,6 +227,21 @@ export type UrlType = (typeof UrlType)[keyof typeof UrlType];
  * @public
  * @enum
  */
+export const SnapshotOperationStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
+/**
+ * @public
+ */
+export type SnapshotOperationStatus = (typeof SnapshotOperationStatus)[keyof typeof SnapshotOperationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const SnapshotStatus = {
   CREATING: "CREATING",
   DELETING: "DELETING",
@@ -224,3 +252,70 @@ export const SnapshotStatus = {
  * @public
  */
 export type SnapshotStatus = (typeof SnapshotStatus)[keyof typeof SnapshotStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotFormat = {
+  CANONICAL: "CANONICAL",
+} as const;
+/**
+ * @public
+ */
+export type SnapshotFormat = (typeof SnapshotFormat)[keyof typeof SnapshotFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotInitiator = {
+  SYSTEM: "SYSTEM",
+  USER: "USER",
+} as const;
+/**
+ * @public
+ */
+export type SnapshotInitiator = (typeof SnapshotInitiator)[keyof typeof SnapshotInitiator];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotInitiatorOperation = {
+  CreateSnapshot: "CreateSnapshot",
+  ImportSnapshot: "ImportSnapshot",
+  SystemCreateSnapshot: "SystemCreateSnapshot",
+} as const;
+/**
+ * @public
+ */
+export type SnapshotInitiatorOperation = (typeof SnapshotInitiatorOperation)[keyof typeof SnapshotInitiatorOperation];
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageLocationType = {
+  S3: "S3",
+} as const;
+/**
+ * @public
+ */
+export type StorageLocationType = (typeof StorageLocationType)[keyof typeof StorageLocationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotOperation = {
+  CreateSnapshot: "CreateSnapshot",
+  DeleteSnapshot: "DeleteSnapshot",
+  ExportSnapshot: "ExportSnapshot",
+  ImportSnapshot: "ImportSnapshot",
+  SystemCreateSnapshot: "SystemCreateSnapshot",
+} as const;
+/**
+ * @public
+ */
+export type SnapshotOperation = (typeof SnapshotOperation)[keyof typeof SnapshotOperation];

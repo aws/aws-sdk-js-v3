@@ -53,6 +53,11 @@ import {
   CreateApplicationSnapshotCommand,
 } from "./commands/CreateApplicationSnapshotCommand";
 import {
+  type CreateSnapshotCommandInput,
+  type CreateSnapshotCommandOutput,
+  CreateSnapshotCommand,
+} from "./commands/CreateSnapshotCommand";
+import {
   type DeleteApplicationCloudWatchLoggingOptionCommandInput,
   type DeleteApplicationCloudWatchLoggingOptionCommandOutput,
   DeleteApplicationCloudWatchLoggingOptionCommand,
@@ -88,6 +93,11 @@ import {
   DeleteApplicationVpcConfigurationCommand,
 } from "./commands/DeleteApplicationVpcConfigurationCommand";
 import {
+  type DeleteSnapshotCommandInput,
+  type DeleteSnapshotCommandOutput,
+  DeleteSnapshotCommand,
+} from "./commands/DeleteSnapshotCommand";
+import {
   type DescribeApplicationCommandInput,
   type DescribeApplicationCommandOutput,
   DescribeApplicationCommand,
@@ -108,10 +118,30 @@ import {
   DescribeApplicationVersionCommand,
 } from "./commands/DescribeApplicationVersionCommand";
 import {
+  type DescribeSnapshotCommandInput,
+  type DescribeSnapshotCommandOutput,
+  DescribeSnapshotCommand,
+} from "./commands/DescribeSnapshotCommand";
+import {
+  type DescribeSnapshotOperationCommandInput,
+  type DescribeSnapshotOperationCommandOutput,
+  DescribeSnapshotOperationCommand,
+} from "./commands/DescribeSnapshotOperationCommand";
+import {
   type DiscoverInputSchemaCommandInput,
   type DiscoverInputSchemaCommandOutput,
   DiscoverInputSchemaCommand,
 } from "./commands/DiscoverInputSchemaCommand";
+import {
+  type ExportSnapshotCommandInput,
+  type ExportSnapshotCommandOutput,
+  ExportSnapshotCommand,
+} from "./commands/ExportSnapshotCommand";
+import {
+  type ImportSnapshotCommandInput,
+  type ImportSnapshotCommandOutput,
+  ImportSnapshotCommand,
+} from "./commands/ImportSnapshotCommand";
 import {
   type ListApplicationOperationsCommandInput,
   type ListApplicationOperationsCommandOutput,
@@ -132,6 +162,16 @@ import {
   type ListApplicationVersionsCommandOutput,
   ListApplicationVersionsCommand,
 } from "./commands/ListApplicationVersionsCommand";
+import {
+  type ListSnapshotOperationsCommandInput,
+  type ListSnapshotOperationsCommandOutput,
+  ListSnapshotOperationsCommand,
+} from "./commands/ListSnapshotOperationsCommand";
+import {
+  type ListSnapshotsCommandInput,
+  type ListSnapshotsCommandOutput,
+  ListSnapshotsCommand,
+} from "./commands/ListSnapshotsCommand";
 import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
@@ -177,6 +217,8 @@ import { paginateListApplicationOperations } from "./pagination/ListApplicationO
 import { paginateListApplicationSnapshots } from "./pagination/ListApplicationSnapshotsPaginator";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
 import { paginateListApplicationVersions } from "./pagination/ListApplicationVersionsPaginator";
+import { paginateListSnapshotOperations } from "./pagination/ListSnapshotOperationsPaginator";
+import { paginateListSnapshots } from "./pagination/ListSnapshotsPaginator";
 
 const commands = {
   AddApplicationCloudWatchLoggingOptionCommand,
@@ -188,6 +230,7 @@ const commands = {
   CreateApplicationCommand,
   CreateApplicationPresignedUrlCommand,
   CreateApplicationSnapshotCommand,
+  CreateSnapshotCommand,
   DeleteApplicationCommand,
   DeleteApplicationCloudWatchLoggingOptionCommand,
   DeleteApplicationInputProcessingConfigurationCommand,
@@ -195,15 +238,22 @@ const commands = {
   DeleteApplicationReferenceDataSourceCommand,
   DeleteApplicationSnapshotCommand,
   DeleteApplicationVpcConfigurationCommand,
+  DeleteSnapshotCommand,
   DescribeApplicationCommand,
   DescribeApplicationOperationCommand,
   DescribeApplicationSnapshotCommand,
   DescribeApplicationVersionCommand,
+  DescribeSnapshotCommand,
+  DescribeSnapshotOperationCommand,
   DiscoverInputSchemaCommand,
+  ExportSnapshotCommand,
+  ImportSnapshotCommand,
   ListApplicationOperationsCommand,
   ListApplicationsCommand,
   ListApplicationSnapshotsCommand,
   ListApplicationVersionsCommand,
+  ListSnapshotOperationsCommand,
+  ListSnapshotsCommand,
   ListTagsForResourceCommand,
   RollbackApplicationCommand,
   StartApplicationCommand,
@@ -218,6 +268,8 @@ const paginators = {
   paginateListApplications,
   paginateListApplicationSnapshots,
   paginateListApplicationVersions,
+  paginateListSnapshotOperations,
+  paginateListSnapshots,
 };
 
 /**
@@ -382,6 +434,23 @@ export interface KinesisAnalyticsV2 {
   ): void;
 
   /**
+   * @see {@link CreateSnapshotCommand}
+   */
+  createSnapshot(
+    args: CreateSnapshotCommandInput,
+    options?: KinesisAnalyticsV2RequestOptions
+  ): Promise<CreateSnapshotCommandOutput>;
+  createSnapshot(
+    args: CreateSnapshotCommandInput,
+    cb: (err: any, data?: CreateSnapshotCommandOutput) => void
+  ): void;
+  createSnapshot(
+    args: CreateSnapshotCommandInput,
+    options: KinesisAnalyticsV2RequestOptions,
+    cb: (err: any, data?: CreateSnapshotCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteApplicationCommand}
    */
   deleteApplication(
@@ -501,6 +570,23 @@ export interface KinesisAnalyticsV2 {
   ): void;
 
   /**
+   * @see {@link DeleteSnapshotCommand}
+   */
+  deleteSnapshot(
+    args: DeleteSnapshotCommandInput,
+    options?: KinesisAnalyticsV2RequestOptions
+  ): Promise<DeleteSnapshotCommandOutput>;
+  deleteSnapshot(
+    args: DeleteSnapshotCommandInput,
+    cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
+  ): void;
+  deleteSnapshot(
+    args: DeleteSnapshotCommandInput,
+    options: KinesisAnalyticsV2RequestOptions,
+    cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeApplicationCommand}
    */
   describeApplication(
@@ -569,6 +655,40 @@ export interface KinesisAnalyticsV2 {
   ): void;
 
   /**
+   * @see {@link DescribeSnapshotCommand}
+   */
+  describeSnapshot(
+    args: DescribeSnapshotCommandInput,
+    options?: KinesisAnalyticsV2RequestOptions
+  ): Promise<DescribeSnapshotCommandOutput>;
+  describeSnapshot(
+    args: DescribeSnapshotCommandInput,
+    cb: (err: any, data?: DescribeSnapshotCommandOutput) => void
+  ): void;
+  describeSnapshot(
+    args: DescribeSnapshotCommandInput,
+    options: KinesisAnalyticsV2RequestOptions,
+    cb: (err: any, data?: DescribeSnapshotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeSnapshotOperationCommand}
+   */
+  describeSnapshotOperation(
+    args: DescribeSnapshotOperationCommandInput,
+    options?: KinesisAnalyticsV2RequestOptions
+  ): Promise<DescribeSnapshotOperationCommandOutput>;
+  describeSnapshotOperation(
+    args: DescribeSnapshotOperationCommandInput,
+    cb: (err: any, data?: DescribeSnapshotOperationCommandOutput) => void
+  ): void;
+  describeSnapshotOperation(
+    args: DescribeSnapshotOperationCommandInput,
+    options: KinesisAnalyticsV2RequestOptions,
+    cb: (err: any, data?: DescribeSnapshotOperationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DiscoverInputSchemaCommand}
    */
   discoverInputSchema(
@@ -583,6 +703,40 @@ export interface KinesisAnalyticsV2 {
     args: DiscoverInputSchemaCommandInput,
     options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: DiscoverInputSchemaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExportSnapshotCommand}
+   */
+  exportSnapshot(
+    args: ExportSnapshotCommandInput,
+    options?: KinesisAnalyticsV2RequestOptions
+  ): Promise<ExportSnapshotCommandOutput>;
+  exportSnapshot(
+    args: ExportSnapshotCommandInput,
+    cb: (err: any, data?: ExportSnapshotCommandOutput) => void
+  ): void;
+  exportSnapshot(
+    args: ExportSnapshotCommandInput,
+    options: KinesisAnalyticsV2RequestOptions,
+    cb: (err: any, data?: ExportSnapshotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ImportSnapshotCommand}
+   */
+  importSnapshot(
+    args: ImportSnapshotCommandInput,
+    options?: KinesisAnalyticsV2RequestOptions
+  ): Promise<ImportSnapshotCommandOutput>;
+  importSnapshot(
+    args: ImportSnapshotCommandInput,
+    cb: (err: any, data?: ImportSnapshotCommandOutput) => void
+  ): void;
+  importSnapshot(
+    args: ImportSnapshotCommandInput,
+    options: KinesisAnalyticsV2RequestOptions,
+    cb: (err: any, data?: ImportSnapshotCommandOutput) => void
   ): void;
 
   /**
@@ -652,6 +806,41 @@ export interface KinesisAnalyticsV2 {
     args: ListApplicationVersionsCommandInput,
     options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: ListApplicationVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSnapshotOperationsCommand}
+   */
+  listSnapshotOperations(
+    args: ListSnapshotOperationsCommandInput,
+    options?: KinesisAnalyticsV2RequestOptions
+  ): Promise<ListSnapshotOperationsCommandOutput>;
+  listSnapshotOperations(
+    args: ListSnapshotOperationsCommandInput,
+    cb: (err: any, data?: ListSnapshotOperationsCommandOutput) => void
+  ): void;
+  listSnapshotOperations(
+    args: ListSnapshotOperationsCommandInput,
+    options: KinesisAnalyticsV2RequestOptions,
+    cb: (err: any, data?: ListSnapshotOperationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSnapshotsCommand}
+   */
+  listSnapshots(): Promise<ListSnapshotsCommandOutput>;
+  listSnapshots(
+    args: ListSnapshotsCommandInput,
+    options?: KinesisAnalyticsV2RequestOptions
+  ): Promise<ListSnapshotsCommandOutput>;
+  listSnapshots(
+    args: ListSnapshotsCommandInput,
+    cb: (err: any, data?: ListSnapshotsCommandOutput) => void
+  ): void;
+  listSnapshots(
+    args: ListSnapshotsCommandInput,
+    options: KinesisAnalyticsV2RequestOptions,
+    cb: (err: any, data?: ListSnapshotsCommandOutput) => void
   ): void;
 
   /**
@@ -833,6 +1022,28 @@ export interface KinesisAnalyticsV2 {
     args: ListApplicationVersionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListApplicationVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListSnapshotOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSnapshotOperationsCommandOutput}.
+   */
+  paginateListSnapshotOperations(
+    args: ListSnapshotOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSnapshotOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSnapshotsCommandOutput}.
+   */
+  paginateListSnapshots(
+    args?: ListSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSnapshotsCommandOutput>;
 }
 
 /**

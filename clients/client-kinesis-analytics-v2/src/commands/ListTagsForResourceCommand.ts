@@ -56,7 +56,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modifications to an application. This error can
+ *  <p>Exception thrown as a result of concurrent modifications to an application or snapshot. This error can
  *       be the result of attempting to modify an application without using the current application
  *       ID.</p>
  *
@@ -64,7 +64,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *  <p>The specified input parameter value is not valid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *  <p>The specified application, snapshot, or snapshot operation can't be found.</p>
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
