@@ -542,6 +542,7 @@ const _HOAAB = "HarnessOpenAiApiBase";
 const _HOAMC = "HarnessOpenAiModelConfig";
 const _HPLHA = "HttpPostLifecycleHookAction";
 const _HRMC = "HarnessRemoteMcpConfig";
+const _HRMOA = "HarnessRemoteMcpOutboundAuth";
 const _HRMU = "HarnessRemoteMcpUrl";
 const _HS = "HarnessSummary";
 const _HSASS = "HarnessSkillAwsSkillsSource";
@@ -2635,8 +2636,8 @@ export var CustomDescriptor$: StaticStructureSchema = [3, n0, _CD,
 ];
 export var CustomJWTAuthorizerConfiguration$: StaticStructureSchema = [3, n0, _CJWTAC,
   0,
-  [_dU, _aAl, _aCl, _aS, _aSM, _cCu, _pE, _pEO, _aWC],
-  [0, 64 | 0, 64 | 0, 64 | 0, 128 | 0, () => CustomClaimValidationsType, () => PrivateEndpoint$, () => PrivateEndpointOverrides, () => AllowedWorkloadConfiguration$], 1
+  [_dU, _aAl, _aCl, _aS, _aSM, _cCu, _pE, _pEO, _cCe, _aWC],
+  [0, 64 | 0, 64 | 0, 64 | 0, 128 | 0, () => CustomClaimValidationsType, () => PrivateEndpoint$, () => PrivateEndpointOverrides, () => CertificateConfigurationList, () => AllowedWorkloadConfiguration$], 1
 ];
 export var CustomMemoryStrategyInput$: StaticStructureSchema = [3, n0, _CMSI,
   0,
@@ -2645,13 +2646,13 @@ export var CustomMemoryStrategyInput$: StaticStructureSchema = [3, n0, _CMSI,
 ];
 export var CustomOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _COPCI,
   0,
-  [_oD, _cI, _cS, _cSC, _cSS, _oBOTEC, _cAM, _pKJC, _pE, _pEO],
-  [() => Oauth2Discovery$, 0, [() => DefaultClientSecretType, 0], () => SecretReference$, 0, () => OnBehalfOfTokenExchangeConfigType$, 0, [() => PrivateKeyJwtConfig$, 0], () => PrivateEndpoint$, () => PrivateEndpointOverrides], 1
+  [_oD, _cI, _cS, _cSC, _cSS, _oBOTEC, _cAM, _pKJC, _pE, _pEO, _cCe],
+  [() => Oauth2Discovery$, 0, [() => DefaultClientSecretType, 0], () => SecretReference$, 0, () => OnBehalfOfTokenExchangeConfigType$, 0, [() => PrivateKeyJwtConfig$, 0], () => PrivateEndpoint$, () => PrivateEndpointOverrides, () => CertificateConfigurationList], 1
 ];
 export var CustomOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _COPCO,
   0,
-  [_oD, _cI, _oBOTEC, _cAM, _pE, _pEO, _pKJC],
-  [() => Oauth2Discovery$, 0, () => OnBehalfOfTokenExchangeConfigType$, 0, () => PrivateEndpoint$, () => PrivateEndpointOverrides, [() => PrivateKeyJwtConfig$, 0]], 1
+  [_oD, _cI, _oBOTEC, _cAM, _pE, _pEO, _cCe, _pKJC],
+  [() => Oauth2Discovery$, 0, () => OnBehalfOfTokenExchangeConfigType$, 0, () => PrivateEndpoint$, () => PrivateEndpointOverrides, () => CertificateConfigurationList, [() => PrivateKeyJwtConfig$, 0]], 1
 ];
 export var CustomTransformConfiguration$: StaticStructureSchema = [3, n0, _CTCu,
   0,
@@ -3630,8 +3631,8 @@ export var HarnessOpenAiModelConfig$: StaticStructureSchema = [3, n0, _HOAMC,
 ];
 export var HarnessRemoteMcpConfig$: StaticStructureSchema = [3, n0, _HRMC,
   0,
-  [_u, _he],
-  [[() => HarnessRemoteMcpUrl, 0], [() => HttpHeadersMap, 0]], 1
+  [_u, _he, _oA],
+  [[() => HarnessRemoteMcpUrl, 0], [() => HttpHeadersMap, 0], () => HarnessRemoteMcpOutboundAuth$], 1
 ];
 export var HarnessSkillAwsSkillsSource$: StaticStructureSchema = [3, n0, _HSASS,
   0,
@@ -6114,6 +6115,11 @@ export var HarnessModelConfiguration$: StaticUnionSchema = [4, n0, _HMCa,
   0,
   [_bMC, _oAMC, _gMC, _lLMC],
   [() => HarnessBedrockModelConfig$, [() => HarnessOpenAiModelConfig$, 0], () => HarnessGeminiModelConfig$, [() => HarnessLiteLlmModelConfig$, 0]]
+];
+export var HarnessRemoteMcpOutboundAuth$: StaticUnionSchema = [4, n0, _HRMOA,
+  0,
+  [_aIw, _no],
+  [() => IamCredentialProvider$, () => __Unit]
 ];
 export var HarnessSkill$: StaticUnionSchema = [4, n0, _HSarn,
   0,

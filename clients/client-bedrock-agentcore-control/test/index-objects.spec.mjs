@@ -623,6 +623,7 @@ import {
   HarnessOpenAiApiFormat,
   HarnessOpenAiModelConfig$,
   HarnessRemoteMcpConfig$,
+  HarnessRemoteMcpOutboundAuth$,
   HarnessSkill$,
   HarnessSkillAwsSkillsSource$,
   HarnessSkillGitAuth$,
@@ -2033,6 +2034,7 @@ assert(typeof HarnessMemoryConfiguration$ === "object");
 assert(typeof HarnessModelConfiguration$ === "object");
 assert(typeof HarnessOpenAiModelConfig$ === "object");
 assert(typeof HarnessRemoteMcpConfig$ === "object");
+assert(typeof HarnessRemoteMcpOutboundAuth$ === "object");
 assert(typeof HarnessSkill$ === "object");
 assert(typeof HarnessSkillAwsSkillsSource$ === "object");
 assert(typeof HarnessSkillGitAuth$ === "object");

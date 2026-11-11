@@ -120,6 +120,17 @@ export interface GetOauth2CredentialProviderCommandOutput extends GetOauth2Crede
  * //           },
  * //         },
  * //       ],
+ * //       certificateConfigurations: [ // CertificateConfigurationList
+ * //         { // CertificateConfiguration Union: only one key present
+ * //           s3: { // S3CertificateConfiguration
+ * //             uri: "STRING_VALUE", // required
+ * //             bucketOwnerAccountId: "STRING_VALUE",
+ * //           },
+ * //           secretsManager: { // SecretsManagerCertificateConfiguration
+ * //             secretArn: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       ],
  * //       privateKeyJwtConfig: { // PrivateKeyJwtConfig
  * //         privateKeySource: { // PrivateKeySource Union: only one key present
  * //           kmsKeySource: { // KmsKeySourceType

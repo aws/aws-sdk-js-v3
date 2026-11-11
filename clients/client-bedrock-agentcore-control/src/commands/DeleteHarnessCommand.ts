@@ -102,6 +102,13 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * //             headers: { // HttpHeadersMap
  * //               "<keys>": "STRING_VALUE",
  * //             },
+ * //             outboundAuth: { // HarnessRemoteMcpOutboundAuth Union: only one key present
+ * //               awsIam: { // IamCredentialProvider
+ * //                 service: "STRING_VALUE", // required
+ * //                 region: "STRING_VALUE",
+ * //               },
+ * //               none: {},
+ * //             },
  * //           },
  * //           agentCoreBrowser: { // HarnessAgentCoreBrowserConfig
  * //             browserArn: "STRING_VALUE",
@@ -291,6 +298,17 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * //                 },
  * //                 routingDomain: "STRING_VALUE",
  * //               },
+ * //             },
+ * //           },
+ * //         ],
+ * //         certificateConfigurations: [ // CertificateConfigurationList
+ * //           { // CertificateConfiguration Union: only one key present
+ * //             s3: { // S3CertificateConfiguration
+ * //               uri: "STRING_VALUE", // required
+ * //               bucketOwnerAccountId: "STRING_VALUE",
+ * //             },
+ * //             secretsManager: { // SecretsManagerCertificateConfiguration
+ * //               secretArn: "STRING_VALUE", // required
  * //             },
  * //           },
  * //         ],

@@ -141,6 +141,17 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * //           },
  * //         },
  * //       ],
+ * //       certificateConfigurations: [ // CertificateConfigurationList
+ * //         { // CertificateConfiguration Union: only one key present
+ * //           s3: { // S3CertificateConfiguration
+ * //             uri: "STRING_VALUE", // required
+ * //             bucketOwnerAccountId: "STRING_VALUE",
+ * //           },
+ * //           secretsManager: { // SecretsManagerCertificateConfiguration
+ * //             secretArn: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       ],
  * //       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
  * //         hostingEnvironments: [ // HostingEnvironmentListType
  * //           { // HostingEnvironment

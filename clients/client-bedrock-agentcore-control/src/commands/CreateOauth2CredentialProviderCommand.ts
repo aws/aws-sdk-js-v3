@@ -128,6 +128,17 @@ export interface CreateOauth2CredentialProviderCommandOutput extends CreateOauth
  *           },
  *         },
  *       ],
+ *       certificateConfigurations: [ // CertificateConfigurationList
+ *         { // CertificateConfiguration Union: only one key present
+ *           s3: { // S3CertificateConfiguration
+ *             uri: "STRING_VALUE", // required
+ *             bucketOwnerAccountId: "STRING_VALUE",
+ *           },
+ *           secretsManager: { // SecretsManagerCertificateConfiguration
+ *             secretArn: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       ],
  *     },
  *     googleOauth2ProviderConfig: { // GoogleOauth2ProviderConfigInput
  *       clientId: "STRING_VALUE", // required
@@ -277,6 +288,17 @@ export interface CreateOauth2CredentialProviderCommandOutput extends CreateOauth
  * //               },
  * //               routingDomain: "STRING_VALUE",
  * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       certificateConfigurations: [ // CertificateConfigurationList
+ * //         { // CertificateConfiguration Union: only one key present
+ * //           s3: { // S3CertificateConfiguration
+ * //             uri: "STRING_VALUE", // required
+ * //             bucketOwnerAccountId: "STRING_VALUE",
+ * //           },
+ * //           secretsManager: { // SecretsManagerCertificateConfiguration
+ * //             secretArn: "STRING_VALUE", // required
  * //           },
  * //         },
  * //       ],

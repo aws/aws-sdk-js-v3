@@ -43,7 +43,6 @@ import type {
   NetworkMode,
   OperatingSystem,
   Period,
-  PrincipalMatchOperator,
   Provider,
   ResourceType,
   SearchType,
@@ -1322,6 +1321,89 @@ export interface AllowedWorkloadConfiguration {
 }
 
 /**
+ * <p>A reference to a PEM-encoded private CA certificate stored as an Amazon S3 object.</p>
+ * @public
+ */
+export interface S3CertificateConfiguration {
+  /**
+   * <p>The URI of the Amazon S3 object that contains the PEM-encoded certificate.</p>
+   * @public
+   */
+  uri: string | undefined;
+
+  /**
+   * <p>The account ID of the Amazon S3 bucket owner. This ID is used for cross-account access to the bucket.</p>
+   * @public
+   */
+  bucketOwnerAccountId?: string | undefined;
+}
+
+/**
+ * <p>A reference to a PEM-encoded private CA certificate stored in an Amazon Web Services Secrets Manager secret.</p>
+ * @public
+ */
+export interface SecretsManagerCertificateConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the PEM-encoded certificate.</p>
+   * @public
+   */
+  secretArn: string | undefined;
+}
+
+/**
+ * <p>A reference to a private certificate authority (CA) certificate that AgentCore uses to verify TLS connections to an endpoint, such as a gateway target or an identity provider, that presents a certificate issued by a private CA that is not trusted by default. Specify exactly one certificate source. The configuration is a reference only and never contains the certificate content.</p>
+ * @public
+ */
+export type CertificateConfiguration =
+  | CertificateConfiguration.S3Member
+  | CertificateConfiguration.SecretsManagerMember
+  | CertificateConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CertificateConfiguration {
+  /**
+   * <p>The Amazon S3 location of the PEM-encoded private CA certificate.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: S3CertificateConfiguration;
+    secretsManager?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon Web Services Secrets Manager location of the PEM-encoded private CA certificate.</p>
+   * @public
+   */
+  export interface SecretsManagerMember {
+    s3?: never;
+    secretsManager: SecretsManagerCertificateConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    secretsManager?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: S3CertificateConfiguration) => T;
+    secretsManager: (value: SecretsManagerCertificateConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The value or values to match for.</p> <ul> <li> <p>Include a <code>matchValueString</code> with the <code>EQUALS</code> operator to specify a string that matches the claim field value.</p> </li> <li> <p>Include a <code>matchValueArray</code> to specify an array of string values. You can use the following operators:</p> <ul> <li> <p>Use <code>CONTAINS</code> to yield a match if the claim field value is in the array.</p> </li> <li> <p>Use <code>CONTAINS_ANY</code> to yield a match if the claim field value contains any of the strings in the array.</p> </li> </ul> </li> </ul>
  * @public
  */
@@ -1620,6 +1702,12 @@ export interface CustomJWTAuthorizerConfiguration {
    * @public
    */
   privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
+
+  /**
+   * <p>The private certificate authority (CA) configurations for the identity provider. Use this to have AgentCore Identity trust a private CA when establishing TLS connections to identity provider endpoints. You can specify only one certificate authority configuration in this list. Provide the certificate by reference to an Amazon S3 object or an Amazon Web Services Secrets Manager secret. You can use this only together with <code>privateEndpoint</code>.</p>
+   * @public
+   */
+  certificateConfigurations?: CertificateConfiguration[] | undefined;
 
   /**
    * <p>The configuration that restricts which workloads in the request's identity chain are allowed to invoke the target, identified by their hosting environments and workload identities. At launch, this is supported only for AgentCore Runtime targets, and the allowed workloads are AgentCore Gateways.</p>
@@ -9491,75 +9579,6 @@ export interface MatchModels {
    * @public
    */
   anyOf: MatchModelEntry[] | undefined;
-}
-
-/**
- * <p>A condition that matches requests based on the request path.</p>
- * @public
- */
-export interface MatchPaths {
-  /**
-   * <p>A list of path patterns. The condition is met if the request path matches any of the patterns.</p>
-   * @public
-   */
-  anyOf: string[] | undefined;
-}
-
-/**
- * <p>An IAM principal specification for rule matching.</p>
- * @public
- */
-export interface IamPrincipal {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM principal. Supports user, role, and assumed-role ARNs. Wildcards can be used with the <code>StringLike</code> operator.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The match operator. <code>StringEquals</code> requires an exact match. <code>StringLike</code> supports wildcard patterns using <code>*</code> and <code>?</code>.</p>
-   * @public
-   */
-  operator?: PrincipalMatchOperator | undefined;
-}
-
-/**
- * <p>Union for principal matching. Currently supports IAM principal ARN glob matching.</p>
- * @public
- */
-export type MatchPrincipalEntry =
-  | MatchPrincipalEntry.IamPrincipalMember
-  | MatchPrincipalEntry.$UnknownMember;
-
-/**
- * @public
- */
-export namespace MatchPrincipalEntry {
-  /**
-   * <p>An IAM principal to match against, specified by ARN.</p>
-   * @public
-   */
-  export interface IamPrincipalMember {
-    iamPrincipal: IamPrincipal;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    iamPrincipal?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    iamPrincipal: (value: IamPrincipal) => T;
-    _: (name: string, value: any) => T;
-  }
 }
 
 /**

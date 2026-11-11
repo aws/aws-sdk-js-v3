@@ -36,6 +36,7 @@ import type {
   OverrideType,
   PassthroughProtocolType,
   PaymentCredentialProviderVendorType,
+  PrincipalMatchOperator,
   RecordExpiryAction,
   RestApiMethod,
   ResultDestination,
@@ -49,12 +50,11 @@ import type {
 import type {
   Action,
   AuthorizerConfiguration,
+  CertificateConfiguration,
   ContainerConfiguration,
   FilesystemConfiguration,
   LifecycleConfiguration,
   MatchModels,
-  MatchPaths,
-  MatchPrincipalEntry,
   NetworkConfiguration,
   PrivateEndpoint,
   PrivateEndpointOverride,
@@ -62,6 +62,75 @@ import type {
   SecretReference,
   Unit,
 } from "./models_0";
+
+/**
+ * <p>A condition that matches requests based on the request path.</p>
+ * @public
+ */
+export interface MatchPaths {
+  /**
+   * <p>A list of path patterns. The condition is met if the request path matches any of the patterns.</p>
+   * @public
+   */
+  anyOf: string[] | undefined;
+}
+
+/**
+ * <p>An IAM principal specification for rule matching.</p>
+ * @public
+ */
+export interface IamPrincipal {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM principal. Supports user, role, and assumed-role ARNs. Wildcards can be used with the <code>StringLike</code> operator.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The match operator. <code>StringEquals</code> requires an exact match. <code>StringLike</code> supports wildcard patterns using <code>*</code> and <code>?</code>.</p>
+   * @public
+   */
+  operator?: PrincipalMatchOperator | undefined;
+}
+
+/**
+ * <p>Union for principal matching. Currently supports IAM principal ARN glob matching.</p>
+ * @public
+ */
+export type MatchPrincipalEntry =
+  | MatchPrincipalEntry.IamPrincipalMember
+  | MatchPrincipalEntry.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MatchPrincipalEntry {
+  /**
+   * <p>An IAM principal to match against, specified by ARN.</p>
+   * @public
+   */
+  export interface IamPrincipalMember {
+    iamPrincipal: IamPrincipal;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    iamPrincipal?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    iamPrincipal: (value: IamPrincipal) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * <p>A condition that matches requests based on the caller's identity.</p>
@@ -586,89 +655,6 @@ export interface UpdateGatewayRuleResponse {
    * @public
    */
   updatedAt?: Date | undefined;
-}
-
-/**
- * <p>A reference to a PEM-encoded private CA certificate stored as an Amazon S3 object.</p>
- * @public
- */
-export interface S3CertificateConfiguration {
-  /**
-   * <p>The URI of the Amazon S3 object that contains the PEM-encoded certificate.</p>
-   * @public
-   */
-  uri: string | undefined;
-
-  /**
-   * <p>The account ID of the Amazon S3 bucket owner. This ID is used for cross-account access to the bucket.</p>
-   * @public
-   */
-  bucketOwnerAccountId?: string | undefined;
-}
-
-/**
- * <p>A reference to a PEM-encoded private CA certificate stored in an Amazon Web Services Secrets Manager secret.</p>
- * @public
- */
-export interface SecretsManagerCertificateConfiguration {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the PEM-encoded certificate.</p>
-   * @public
-   */
-  secretArn: string | undefined;
-}
-
-/**
- * <p>A reference to a private certificate authority (CA) certificate that the gateway uses to verify TLS connections to the target endpoint. Use this when the target presents a certificate issued by a private CA that is not trusted by default. Specify exactly one certificate source. The configuration is a reference only and never contains the certificate content.</p>
- * @public
- */
-export type CertificateConfiguration =
-  | CertificateConfiguration.S3Member
-  | CertificateConfiguration.SecretsManagerMember
-  | CertificateConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CertificateConfiguration {
-  /**
-   * <p>The Amazon S3 location of the PEM-encoded private CA certificate.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: S3CertificateConfiguration;
-    secretsManager?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The Amazon Web Services Secrets Manager location of the PEM-encoded private CA certificate.</p>
-   * @public
-   */
-  export interface SecretsManagerMember {
-    s3?: never;
-    secretsManager: SecretsManagerCertificateConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    secretsManager?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    s3: (value: S3CertificateConfiguration) => T;
-    secretsManager: (value: SecretsManagerCertificateConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
 }
 
 /**
@@ -2199,7 +2185,7 @@ export interface UpdateHarnessEndpointResponse {
  */
 export interface HarnessAgentCoreRuntimeEnvironmentRequest {
   /**
-   * <p>LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.</p>
+   * <p>The lifecycle configuration for the harness's runtime environment. For a harness, <code>idleRuntimeSessionTimeout</code> and <code>maxLifetime</code> each accept a value between 60 and 28800 seconds (8 hours), and <code>idleRuntimeSessionTimeout</code> must be less than or equal to <code>maxLifetime</code>. Values above 28800 seconds are rejected with a <code>ValidationException</code>.</p>
    * @public
    */
   lifecycleConfiguration?: LifecycleConfiguration | undefined;
@@ -3331,6 +3317,59 @@ export interface HarnessInlineFunctionConfig {
 }
 
 /**
+ * <p>Authentication method for calling a remote MCP server.</p>
+ * @public
+ */
+export type HarnessRemoteMcpOutboundAuth =
+  | HarnessRemoteMcpOutboundAuth.AwsIamMember
+  | HarnessRemoteMcpOutboundAuth.NoneMember
+  | HarnessRemoteMcpOutboundAuth.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessRemoteMcpOutboundAuth {
+  /**
+   * <p>Sign requests to the remote MCP server with Signature Version 4 (SigV4) using the harness execution role. If you don't specify a Region, the harness Region is used.</p>
+   * @public
+   */
+  export interface AwsIamMember {
+    awsIam: IamCredentialProvider;
+    none?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>No authentication.</p>
+   * @public
+   */
+  export interface NoneMember {
+    awsIam?: never;
+    none: Unit;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    awsIam?: never;
+    none?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    awsIam: (value: IamCredentialProvider) => T;
+    none: (value: Unit) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Configuration for connecting to a remote MCP server.</p>
  * @public
  */
@@ -3346,6 +3385,12 @@ export interface HarnessRemoteMcpConfig {
    * @public
    */
   headers?: Record<string, string> | undefined;
+
+  /**
+   * <p>How the harness authenticates to this MCP server. Defaults to no authentication.</p>
+   * @public
+   */
+  outboundAuth?: HarnessRemoteMcpOutboundAuth | undefined;
 }
 
 /**
@@ -3729,7 +3774,7 @@ export interface HarnessAgentCoreRuntimeEnvironment {
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.</p>
+   * <p>The lifecycle configuration for the harness's runtime environment. For a harness, <code>idleRuntimeSessionTimeout</code> and <code>maxLifetime</code> each accept a value between 60 and 28800 seconds (8 hours), and <code>idleRuntimeSessionTimeout</code> must be less than or equal to <code>maxLifetime</code>.</p>
    * @public
    */
   lifecycleConfiguration: LifecycleConfiguration | undefined;
@@ -7611,6 +7656,12 @@ export interface CustomOauth2ProviderConfigInput {
    * @public
    */
   privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
+
+  /**
+   * <p>The private certificate authority (CA) configurations for the identity provider. Use this to have AgentCore Identity trust a private CA when establishing TLS connections to identity provider endpoints. You can specify only one certificate authority configuration in this list. Provide the certificate by reference to an Amazon S3 object or an Amazon Web Services Secrets Manager secret. You can use this only together with <code>privateEndpoint</code>.</p>
+   * @public
+   */
+  certificateConfigurations?: CertificateConfiguration[] | undefined;
 }
 
 /**
@@ -8141,6 +8192,12 @@ export interface CustomOauth2ProviderConfigOutput {
    * @public
    */
   privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
+
+  /**
+   * <p>The private certificate authority (CA) configurations for the identity provider. Use this to have AgentCore Identity trust a private CA when establishing TLS connections to identity provider endpoints. You can specify only one certificate authority configuration in this list. Provide the certificate by reference to an Amazon S3 object or an Amazon Web Services Secrets Manager secret. You can use this only together with <code>privateEndpoint</code>.</p>
+   * @public
+   */
+  certificateConfigurations?: CertificateConfiguration[] | undefined;
 
   /**
    * <p>The configuration for private_key_jwt client authentication used by this OAuth2 credential provider.</p>
@@ -9977,14 +10034,3 @@ export interface DeletePaymentCredentialProviderRequest {
  * @public
  */
 export interface DeletePaymentCredentialProviderResponse {}
-
-/**
- * @public
- */
-export interface GetPaymentCredentialProviderRequest {
-  /**
-   * <p>The name of the payment credential provider to retrieve.</p>
-   * @public
-   */
-  name: string | undefined;
-}

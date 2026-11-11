@@ -28,6 +28,7 @@ import type {
   A2aDescriptor,
   AgentSkillsDescriptor,
   AuthorizerConfiguration,
+  CertificateConfiguration,
   PrivateEndpoint,
   SkillDefinition,
   SkillMdDefinition,
@@ -38,7 +39,6 @@ import type {
   ApiGatewayTargetConfiguration,
   ApiSchemaConfiguration,
   AuthorizationData,
-  CertificateConfiguration,
   ConnectorTargetConfiguration,
   CredentialProviderConfiguration,
   HttpTargetConfiguration,
@@ -52,6 +52,17 @@ import type {
   S3Configuration,
   UpdatedAuthorizerConfiguration,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetPaymentCredentialProviderRequest {
+  /**
+   * <p>The name of the payment credential provider to retrieve.</p>
+   * @public
+   */
+  name: string | undefined;
+}
 
 /**
  * @public

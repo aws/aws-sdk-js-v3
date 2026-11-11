@@ -996,6 +996,7 @@ export type {
   HarnessModelConfiguration,
   HarnessOpenAiModelConfig,
   HarnessRemoteMcpConfig,
+  HarnessRemoteMcpOutboundAuth,
   HarnessSkill,
   HarnessSkillAwsSkillsSource,
   HarnessSkillGitAuth,
