@@ -66,6 +66,8 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  *             </li>
  *          </ul>
  *          <p>If you submit records more than six hours after events occur, the records won't be accepted. The timestamp in your request determines when an event is recorded.</p>
+ *          <p>To report fractional usage, use <code>UsageQuantityAsDecimal</code> instead of
+ *                 <code>UsageQuantity</code>.</p>
  *          <p>You can optionally include multiple usage allocations, to provide customers with usage data split into buckets by tags that you define or allow the customer to define.</p>
  *          <p>For Amazon Web Services Regions that support <code>MeterUsage</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#meterusage-region-support-ec2">MeterUsage Region support for Amazon EC2</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#meterusage-region-support-ecs-eks">MeterUsage Region support for Amazon ECS and Amazon EKS</a>. </p>
  * @example
@@ -81,10 +83,12 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  *   Timestamp: new Date("TIMESTAMP"), // required
  *   UsageDimension: "STRING_VALUE", // required
  *   UsageQuantity: Number("int"),
+ *   UsageQuantityAsDecimal: "STRING_VALUE",
  *   DryRun: true || false,
  *   UsageAllocations: [ // UsageAllocations
  *     { // UsageAllocation
- *       AllocatedUsageQuantity: Number("int"), // required
+ *       AllocatedUsageQuantity: Number("int"),
+ *       AllocatedUsageQuantityAsDecimal: "STRING_VALUE",
  *       Tags: [ // TagList
  *         { // Tag
  *           Key: "STRING_VALUE", // required
@@ -116,7 +120,9 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * @throws {@link DuplicateRequestException} (client fault)
  *  <p>A metering record has already been emitted by the same EC2 instance, ECS task, or EKS
  *             pod for the given {<code>usageDimension</code>, <code>timestamp</code>} with a different
- *                 <code>usageQuantity</code>.</p>
+ *                 <code>usageQuantity</code>. Quantities are compared by value, so a whole-number and a
+ *             decimal quantity with the same value (for example, <code>17</code> and
+ *                 <code>17.00</code>) are not different.</p>
  *
  * @throws {@link IdempotencyConflictException} (client fault)
  *  <p>The <code>ClientToken</code> is being used for multiple requests.</p>
@@ -138,7 +144,9 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  *  <p>The tag is invalid, or the number of tags is greater than 5.</p>
  *
  * @throws {@link InvalidUsageAllocationsException} (client fault)
- *  <p>Sum of allocated usage quantities is not equal to the usage quantity.</p>
+ *  <p>Sum of allocated usage quantities is not equal to the usage quantity, or the
+ *             allocations don't use the same type of quantity (whole number or decimal) as the usage
+ *             quantity.</p>
  *
  * @throws {@link InvalidUsageDimensionException} (client fault)
  *  <p>The usage dimension does not match one of the <code>UsageDimensions</code> associated

@@ -1,5 +1,6 @@
 const _AI = "AgreementId";
 const _AUQ = "AllocatedUsageQuantity";
+const _AUQAD = "AllocatedUsageQuantityAsDecimal";
 const _BMU = "BatchMeterUsage";
 const _BMUR = "BatchMeterUsageRequest";
 const _BMURa = "BatchMeterUsageResult";
@@ -37,6 +38,7 @@ const _PKRT = "PublicKeyRotationTimestamp";
 const _PKV = "PublicKeyVersion";
 const _PNSE = "PlatformNotSupportedException";
 const _Q = "Quantity";
+const _QAD = "QuantityAsDecimal";
 const _R = "Results";
 const _RC = "ResolveCustomer";
 const _RCR = "ResolveCustomerRequest";
@@ -57,6 +59,7 @@ const _UA = "UsageAllocations";
 const _UAs = "UsageAllocation";
 const _UD = "UsageDimension";
 const _UQ = "UsageQuantity";
+const _UQAD = "UsageQuantityAsDecimal";
 const _UR = "UsageRecords";
 const _URL = "UsageRecordList";
 const _URR = "UsageRecordResult";
@@ -244,8 +247,8 @@ export var Metadata$: StaticStructureSchema = [3, n0, _M,
 ];
 export var MeterUsageRequest$: StaticStructureSchema = [3, n0, _MUR,
   0,
-  [_PC, _T, _UD, _UQ, _DR, _UA, _CT],
-  [0, 4, 0, 1, 2, () => UsageAllocations, [0, 4]], 3
+  [_PC, _T, _UD, _UQ, _UQAD, _DR, _UA, _CT],
+  [0, 4, 0, 1, 0, 2, () => UsageAllocations, [0, 4]], 3
 ];
 export var MeterUsageResult$: StaticStructureSchema = [3, n0, _MURe,
   0,
@@ -279,13 +282,13 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
 ];
 export var UsageAllocation$: StaticStructureSchema = [3, n0, _UAs,
   0,
-  [_AUQ, _Tag],
-  [1, () => TagList], 1
+  [_AUQ, _AUQAD, _Tag],
+  [1, 0, () => TagList]
 ];
 export var UsageRecord$: StaticStructureSchema = [3, n0, _URs,
   0,
-  [_T, _D, _CI, _Q, _UA, _CAWSAI, _LA],
-  [4, 0, 0, 1, () => UsageAllocations, 0, 0], 2
+  [_T, _D, _CI, _Q, _QAD, _UA, _CAWSAI, _LA],
+  [4, 0, 0, 1, 0, () => UsageAllocations, 0, 0], 2
 ];
 export var UsageRecordResult$: StaticStructureSchema = [3, n0, _URR,
   0,

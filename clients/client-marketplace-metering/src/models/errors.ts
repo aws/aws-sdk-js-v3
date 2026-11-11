@@ -133,7 +133,9 @@ export class InvalidTagException extends __BaseException {
 }
 
 /**
- * <p>Sum of allocated usage quantities is not equal to the usage quantity.</p>
+ * <p>Sum of allocated usage quantities is not equal to the usage quantity, or the
+ *             allocations don't use the same type of quantity (whole number or decimal) as the usage
+ *             quantity.</p>
  * @public
  */
 export class InvalidUsageAllocationsException extends __BaseException {
@@ -246,7 +248,9 @@ export class CustomerNotEntitledException extends __BaseException {
 /**
  * <p>A metering record has already been emitted by the same EC2 instance, ECS task, or EKS
  *             pod for the given \{<code>usageDimension</code>, <code>timestamp</code>\} with a different
- *                 <code>usageQuantity</code>.</p>
+ *                 <code>usageQuantity</code>. Quantities are compared by value, so a whole-number and a
+ *             decimal quantity with the same value (for example, <code>17</code> and
+ *                 <code>17.00</code>) are not different.</p>
  * @public
  */
 export class DuplicateRequestException extends __BaseException {

@@ -65,6 +65,8 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *       their usage of your product so they can perform cost allocation in the Amazon Web Services Billing and
  *       Cost Management console. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/metering-for-usage.html#saas-vendor-metered-tagging">Vendor-metered tagging</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-batchmeterusage-tagging">BatchMeterUsage with usage allocation tagging code example</a> in the
  *         <i>Amazon Web Services Marketplace Seller Guide</i>.</p>
+ *          <p>To report fractional usage, use <code>QuantityAsDecimal</code> instead of
+ *                 <code>Quantity</code> in each <code>UsageRecord</code>.</p>
  *          <p>
  *             <code>BatchMeterUsage</code> returns a list of
  *         <code>UsageRecordResult</code> objects, which have each
@@ -92,9 +94,11 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *       CustomerIdentifier: "STRING_VALUE",
  *       Dimension: "STRING_VALUE", // required
  *       Quantity: Number("int"),
+ *       QuantityAsDecimal: "STRING_VALUE",
  *       UsageAllocations: [ // UsageAllocations
  *         { // UsageAllocation
- *           AllocatedUsageQuantity: Number("int"), // required
+ *           AllocatedUsageQuantity: Number("int"),
+ *           AllocatedUsageQuantityAsDecimal: "STRING_VALUE",
  *           Tags: [ // TagList
  *             { // Tag
  *               Key: "STRING_VALUE", // required
@@ -119,9 +123,11 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * //         CustomerIdentifier: "STRING_VALUE",
  * //         Dimension: "STRING_VALUE", // required
  * //         Quantity: Number("int"),
+ * //         QuantityAsDecimal: "STRING_VALUE",
  * //         UsageAllocations: [ // UsageAllocations
  * //           { // UsageAllocation
- * //             AllocatedUsageQuantity: Number("int"), // required
+ * //             AllocatedUsageQuantity: Number("int"),
+ * //             AllocatedUsageQuantityAsDecimal: "STRING_VALUE",
  * //             Tags: [ // TagList
  * //               { // Tag
  * //                 Key: "STRING_VALUE", // required
@@ -143,9 +149,11 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * //       CustomerIdentifier: "STRING_VALUE",
  * //       Dimension: "STRING_VALUE", // required
  * //       Quantity: Number("int"),
+ * //       QuantityAsDecimal: "STRING_VALUE",
  * //       UsageAllocations: [
  * //         {
- * //           AllocatedUsageQuantity: Number("int"), // required
+ * //           AllocatedUsageQuantity: Number("int"),
+ * //           AllocatedUsageQuantityAsDecimal: "STRING_VALUE",
  * //           Tags: [
  * //             {
  * //               Key: "STRING_VALUE", // required
@@ -190,7 +198,9 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *  <p>The tag is invalid, or the number of tags is greater than 5.</p>
  *
  * @throws {@link InvalidUsageAllocationsException} (client fault)
- *  <p>Sum of allocated usage quantities is not equal to the usage quantity.</p>
+ *  <p>Sum of allocated usage quantities is not equal to the usage quantity, or the
+ *             allocations don't use the same type of quantity (whole number or decimal) as the usage
+ *             quantity.</p>
  *
  * @throws {@link InvalidUsageDimensionException} (client fault)
  *  <p>The usage dimension does not match one of the <code>UsageDimensions</code> associated
