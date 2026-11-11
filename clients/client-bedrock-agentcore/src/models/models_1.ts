@@ -24,10 +24,45 @@ import type {
   A2aDescriptor,
   ActorSummary,
   AgentSkillsDescriptor,
-  Branch,
   MemoryContent,
   MemoryRecordMetadataValue,
+  MemoryRecordOutput,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface BatchUpdateMemoryRecordsOutput {
+  /**
+   * <p>A list of memory records that were successfully updated during the batch operation.</p>
+   * @public
+   */
+  successfulRecords: MemoryRecordOutput[] | undefined;
+
+  /**
+   * <p>A list of memory records that failed to be updated, including error details for each failure.</p>
+   * @public
+   */
+  failedRecords: MemoryRecordOutput[] | undefined;
+}
+
+/**
+ * <p>Contains information about a branch in an AgentCore Memory resource. Branches allow for organizing events into different conversation threads or paths.</p>
+ * @public
+ */
+export interface Branch {
+  /**
+   * <p>The identifier of the root event for this branch.</p>
+   * @public
+   */
+  rootEventId?: string | undefined;
+
+  /**
+   * <p>The name of the branch.</p>
+   * @public
+   */
+  name: string | undefined;
+}
 
 /**
  * <p>The configuration for extraction behavior. Use this structure to specify namespace variable keys and their values for namespace substitution during long-term memory extraction.</p>

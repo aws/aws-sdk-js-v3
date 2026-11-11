@@ -285,6 +285,7 @@ import {
   HarnessReasoningContentBlockDelta$,
   HarnessReasoningTextBlock$,
   HarnessRemoteMcpConfig$,
+  HarnessRemoteMcpOutboundAuth$,
   HarnessSkill$,
   HarnessSkillAwsSkillsSource$,
   HarnessSkillGitAuth$,
@@ -307,6 +308,7 @@ import {
   HarnessToolUseBlockStart$,
   HarnessToolUseStatus,
   HarnessToolUseType,
+  IamCredentialProvider$,
   IngestData$,
   IngestDataCommand,
   IngestDataInput$,
@@ -970,6 +972,7 @@ assert(typeof HarnessReasoningContentBlock$ === "object");
 assert(typeof HarnessReasoningContentBlockDelta$ === "object");
 assert(typeof HarnessReasoningTextBlock$ === "object");
 assert(typeof HarnessRemoteMcpConfig$ === "object");
+assert(typeof HarnessRemoteMcpOutboundAuth$ === "object");
 assert(typeof HarnessSkill$ === "object");
 assert(typeof HarnessSkillAwsSkillsSource$ === "object");
 assert(typeof HarnessSkillGitAuth$ === "object");
@@ -988,6 +991,7 @@ assert(typeof HarnessToolResultMetadataBlockDelta$ === "object");
 assert(typeof HarnessToolUseBlock$ === "object");
 assert(typeof HarnessToolUseBlockDelta$ === "object");
 assert(typeof HarnessToolUseBlockStart$ === "object");
+assert(typeof IamCredentialProvider$ === "object");
 assert(typeof IngestDataInput$ === "object");
 assert(typeof IngestDataOutput$ === "object");
 assert(typeof IngestPayloadType$ === "object");

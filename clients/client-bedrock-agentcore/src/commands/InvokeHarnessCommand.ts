@@ -129,6 +129,13 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  *           headers: { // HttpHeadersMap
  *             "<keys>": "STRING_VALUE",
  *           },
+ *           outboundAuth: { // HarnessRemoteMcpOutboundAuth Union: only one key present
+ *             awsIam: { // IamCredentialProvider
+ *               service: "STRING_VALUE", // required
+ *               region: "STRING_VALUE",
+ *             },
+ *             none: {},
+ *           },
  *         },
  *         agentCoreBrowser: { // HarnessAgentCoreBrowserConfig
  *           browserArn: "STRING_VALUE",

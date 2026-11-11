@@ -8561,6 +8561,77 @@ export interface HarnessInlineFunctionConfig {
 }
 
 /**
+ * <p>An IAM credential provider for authenticating requests. This structure contains the configuration for authenticating with a target endpoint using IAM credentials and SigV4 signing.</p>
+ * @public
+ */
+export interface IamCredentialProvider {
+  /**
+   * <p>The name of the Amazon Web Services service used for SigV4 signing. This value identifies the service to authenticate with when sending requests to the target endpoint.</p>
+   * @public
+   */
+  service: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region used for SigV4 signing. If not specified, defaults to the Region of the resource that makes the request.</p>
+   * @public
+   */
+  region?: string | undefined;
+}
+
+/**
+ * <p>Authentication method for calling a remote MCP server.</p>
+ * @public
+ */
+export type HarnessRemoteMcpOutboundAuth =
+  | HarnessRemoteMcpOutboundAuth.AwsIamMember
+  | HarnessRemoteMcpOutboundAuth.NoneMember
+  | HarnessRemoteMcpOutboundAuth.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessRemoteMcpOutboundAuth {
+  /**
+   * <p>Sign requests to the remote MCP server with Signature Version 4 (SigV4) using the harness execution role. If you don't specify a Region, the harness Region is used.</p>
+   * @public
+   */
+  export interface AwsIamMember {
+    awsIam: IamCredentialProvider;
+    none?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>No authentication.</p>
+   * @public
+   */
+  export interface NoneMember {
+    awsIam?: never;
+    none: Unit;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    awsIam?: never;
+    none?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    awsIam: (value: IamCredentialProvider) => T;
+    none: (value: Unit) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Configuration for connecting to a remote MCP server.</p>
  * @public
  */
@@ -8576,6 +8647,12 @@ export interface HarnessRemoteMcpConfig {
    * @public
    */
   headers?: Record<string, string> | undefined;
+
+  /**
+   * <p>How the harness authenticates to this MCP server. Defaults to no authentication.</p>
+   * @public
+   */
+  outboundAuth?: HarnessRemoteMcpOutboundAuth | undefined;
 }
 
 /**
@@ -10148,39 +10225,4 @@ export interface BatchUpdateMemoryRecordsInput {
    * @public
    */
   recordExpirySpecification?: RecordExpirySpecification | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchUpdateMemoryRecordsOutput {
-  /**
-   * <p>A list of memory records that were successfully updated during the batch operation.</p>
-   * @public
-   */
-  successfulRecords: MemoryRecordOutput[] | undefined;
-
-  /**
-   * <p>A list of memory records that failed to be updated, including error details for each failure.</p>
-   * @public
-   */
-  failedRecords: MemoryRecordOutput[] | undefined;
-}
-
-/**
- * <p>Contains information about a branch in an AgentCore Memory resource. Branches allow for organizing events into different conversation threads or paths.</p>
- * @public
- */
-export interface Branch {
-  /**
-   * <p>The identifier of the root event for this branch.</p>
-   * @public
-   */
-  rootEventId?: string | undefined;
-
-  /**
-   * <p>The name of the branch.</p>
-   * @public
-   */
-  name: string | undefined;
 }

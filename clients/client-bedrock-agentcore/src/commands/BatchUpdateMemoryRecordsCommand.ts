@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { BatchUpdateMemoryRecordsInput, BatchUpdateMemoryRecordsOutput } from "../models/models_0";
+import type { BatchUpdateMemoryRecordsInput } from "../models/models_0";
+import type { BatchUpdateMemoryRecordsOutput } from "../models/models_1";
 import { BatchUpdateMemoryRecords$ } from "../schemas/schemas_0";
 
 /**

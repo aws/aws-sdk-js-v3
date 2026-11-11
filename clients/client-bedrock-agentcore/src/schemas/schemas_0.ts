@@ -264,6 +264,7 @@ const _HOAMC = "HarnessOpenAiModelConfig";
 const _HRCB = "HarnessReasoningContentBlock";
 const _HRCBD = "HarnessReasoningContentBlockDelta";
 const _HRMC = "HarnessRemoteMcpConfig";
+const _HRMOA = "HarnessRemoteMcpOutboundAuth";
 const _HRMU = "HarnessRemoteMcpUrl";
 const _HRTB = "HarnessReasoningTextBlock";
 const _HS = "HarnessSkills";
@@ -306,6 +307,7 @@ const _ICBL = "InputContentBlockList";
 const _ICI = "InvokeCodeInterpreter";
 const _ICIR = "InvokeCodeInterpreterRequest";
 const _ICIRn = "InvokeCodeInterpreterResponse";
+const _ICP = "IamCredentialProvider";
 const _ID = "InsightDescription";
 const _IDI = "IngestDataInput";
 const _IDO = "IngestDataOutput";
@@ -1019,6 +1021,7 @@ const _rU = "redirectUrl";
 const _rUI = "runtimeUserId";
 const _re = "recommendation";
 const _rec = "records";
+const _reg = "region";
 const _res = "resource";
 const _reso = "resources";
 const _resp = "response";
@@ -1089,6 +1092,7 @@ const _sco = "score";
 const _scr = "screenshot";
 const _se = "server";
 const _sen = "sensitive";
+const _ser = "service";
 const _si = "size";
 const _sig = "signals";
 const _sign = "signature";
@@ -2157,8 +2161,8 @@ export var HarnessReasoningTextBlock$: StaticStructureSchema = [3, n0, _HRTB,
 ];
 export var HarnessRemoteMcpConfig$: StaticStructureSchema = [3, n0, _HRMC,
   0,
-  [_url, _h],
-  [[() => HarnessRemoteMcpUrl, 0], [() => HttpHeadersMap, 0]], 1
+  [_url, _h, _oA],
+  [[() => HarnessRemoteMcpUrl, 0], [() => HttpHeadersMap, 0], () => HarnessRemoteMcpOutboundAuth$], 1
 ];
 export var HarnessSkillAwsSkillsSource$: StaticStructureSchema = [3, n0, _HSASS,
   0,
@@ -2224,6 +2228,11 @@ export var HarnessToolUseBlockStart$: StaticStructureSchema = [3, n0, _HTUBS,
   0,
   [_tUI, _n, _t, _sNe],
   [0, 0, 0, 0], 2
+];
+export var IamCredentialProvider$: StaticStructureSchema = [3, n0, _ICP,
+  0,
+  [_ser, _reg],
+  [0, 0], 1
 ];
 export var IngestDataInput$: StaticStructureSchema = [3, n0, _IDI,
   0,
@@ -3494,6 +3503,11 @@ export var HarnessReasoningContentBlockDelta$: StaticUnionSchema = [4, n0, _HRCB
   8,
   [_te, _rCed, _sign],
   [0, [() => Body, 0], 0]
+];
+export var HarnessRemoteMcpOutboundAuth$: StaticUnionSchema = [4, n0, _HRMOA,
+  0,
+  [_aIw, _no],
+  [() => IamCredentialProvider$, () => __Unit]
 ];
 export var HarnessSkill$: StaticUnionSchema = [4, n0, _HSa,
   0,
