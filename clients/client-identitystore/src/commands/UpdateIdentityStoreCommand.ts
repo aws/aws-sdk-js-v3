@@ -36,7 +36,7 @@ export interface UpdateIdentityStoreCommandOutput extends UpdateIdentityStoreRes
  *   IdentityStoreId: "STRING_VALUE", // required
  *   NetworkConfiguration: { // NetworkConfiguration
  *     VpceAccessRequired: true || false, // required
- *     ApiRestrictSourceVpcs: [ // VpcIdList
+ *     ApiRestrictSourceVpcs: [ // VpcArnList
  *       "STRING_VALUE",
  *     ],
  *     ApiAllowSourceIps: [ // IpCidrList

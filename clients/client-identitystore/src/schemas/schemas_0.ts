@@ -618,7 +618,7 @@ var Users: StaticListSchema = [1, n0, _U,
   0, [() => User$,
     0]
 ];
-var VpcIdList = 64 | 0;
+var VpcArnList = 64 | 0;
 var Extensions = 128 | 15;
 export var AlternateIdentifier$: StaticUnionSchema = [4, n0, _AI,
   0,

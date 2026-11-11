@@ -42,7 +42,7 @@ export interface DescribeIdentityStoreCommandOutput extends DescribeIdentityStor
  * //   IdentityStoreArn: "STRING_VALUE", // required
  * //   NetworkConfiguration: { // NetworkConfigurationDetails
  * //     VpceAccessRequired: true || false, // required
- * //     ApiRestrictSourceVpcs: [ // VpcIdList
+ * //     ApiRestrictSourceVpcs: [ // VpcArnList
  * //       "STRING_VALUE",
  * //     ],
  * //     ApiAllowSourceIps: [ // IpCidrList
