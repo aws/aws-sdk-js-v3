@@ -2,6 +2,7 @@ const _A = "Arn";
 const _ACO = "AirflowConfigurationOptions";
 const _ADE = "AccessDeniedException";
 const _AI = "AirflowIdentity";
+const _AOU = "AddOrUpdate";
 const _AV = "AirflowVersion";
 const _B = "Body";
 const _CA = "CreatedAt";
@@ -39,11 +40,13 @@ const _Er = "Error";
 const _GE = "GetEnvironment";
 const _GEI = "GetEnvironmentInput";
 const _GEO = "GetEnvironmentOutput";
+const _ICC = "IdentityCenterConfiguration";
 const _II = "IamIdentity";
 const _IRA = "InvokeRestApi";
 const _IRAR = "InvokeRestApiRequest";
 const _IRARn = "InvokeRestApiResponse";
 const _ISE = "InternalServerException";
+const _ISI = "IdentityStoreId";
 const _KK = "KmsKey";
 const _LC = "LoggingConfiguration";
 const _LCI = "LoggingConfigurationInput";
@@ -79,6 +82,7 @@ const _PMO = "PublishMetricsOutput";
 const _PSOV = "PluginsS3ObjectVersion";
 const _PSP = "PluginsS3Path";
 const _QP = "QueryParameters";
+const _R = "Remove";
 const _RA = "ResourceArn";
 const _RACE = "RestApiClientException";
 const _RAR = "RestApiResponse";
@@ -98,17 +102,21 @@ const _SRA = "ServiceRoleArn";
 const _SS = "StatisticSet";
 const _SSSOV = "StartupScriptS3ObjectVersion";
 const _SSSP = "StartupScriptS3Path";
+const _SU = "StartUrl";
 const _SUE = "ServiceUnavailableException";
 const _SV = "StatisticValues";
 const _So = "Source";
 const _St = "Status";
 const _Su = "Sum";
 const _T = "Token";
+const _TC = "TeamConfig";
 const _TL = "TaskLogs";
+const _TM = "TeamMap";
 const _TR = "TagResource";
 const _TRI = "TagResourceInput";
 const _TRO = "TagResourceOutput";
 const _Ta = "Tags";
+const _Te = "Teams";
 const _Ti = "Timestamp";
 const _U = "Unit";
 const _UE = "UpdateError";
@@ -119,6 +127,7 @@ const _UNCI = "UpdateNetworkConfigurationInput";
 const _UR = "UntagResource";
 const _URI = "UntagResourceInput";
 const _URO = "UntagResourceOutput";
+const _UTI = "UpdateTeamsInput";
 const _V = "Value";
 const _VE = "ValidationException";
 const _WAM = "WebserverAccessMode";
@@ -236,8 +245,8 @@ export var CreateCliTokenResponse$: StaticStructureSchema = [3, n0, _CCTRr,
 ];
 export var CreateEnvironmentInput$: StaticStructureSchema = [3, n0, _CEI,
   0,
-  [_N, _ERA, _SBA, _DSP, _NC, _PSP, _PSOV, _RSP, _RSOV, _SSSP, _SSSOV, _ACO, _EC, _MW, _KK, _AV, _LC, _WMWS, _Ta, _WAM, _MWi, _S, _EM, _MWin, _MWa],
-  [[0, 1], 0, 0, 0, () => NetworkConfiguration$, 0, 0, 0, 0, 0, 0, [() => AirflowConfigurationOptions, 0], 0, 1, 0, 0, () => LoggingConfigurationInput$, 0, 128 | 0, 0, 1, 1, 0, 1, 1], 5
+  [_N, _ERA, _SBA, _DSP, _NC, _PSP, _PSOV, _RSP, _RSOV, _SSSP, _SSSOV, _ACO, _EC, _MW, _KK, _AV, _LC, _WMWS, _Ta, _WAM, _MWi, _S, _EM, _MWin, _MWa, _ICC, _Te],
+  [[0, 1], 0, 0, 0, () => NetworkConfiguration$, 0, 0, 0, 0, 0, 0, [() => AirflowConfigurationOptions, 0], 0, 1, 0, 0, () => LoggingConfigurationInput$, 0, 128 | 0, 0, 1, 1, 0, 1, 1, () => IdentityCenterConfiguration$, () => TeamMap], 5
 ];
 export var CreateEnvironmentOutput$: StaticStructureSchema = [3, n0, _CEO,
   0,
@@ -271,8 +280,8 @@ export var Dimension$: StaticStructureSchema = [3, n0, _D,
 ];
 export var Environment$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_N, _St, _A, _CA, _WU, _ERA, _SRA, _KK, _AV, _SBA, _DSP, _PSP, _PSOV, _RSP, _RSOV, _SSSP, _SSSOV, _ACO, _EC, _MW, _NC, _LC, _LU, _WMWS, _Ta, _WAM, _MWi, _S, _WVES, _DVES, _CEQ, _EM, _MWin, _MWa],
-  [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, [() => AirflowConfigurationOptions, 0], 0, 1, () => NetworkConfiguration$, () => LoggingConfiguration$, () => LastUpdate$, 0, 128 | 0, 0, 1, 1, 0, 0, 0, 0, 1, 1]
+  [_N, _St, _A, _CA, _WU, _ERA, _SRA, _KK, _AV, _SBA, _DSP, _PSP, _PSOV, _RSP, _RSOV, _SSSP, _SSSOV, _ACO, _EC, _MW, _NC, _LC, _LU, _WMWS, _Ta, _WAM, _MWi, _S, _WVES, _DVES, _CEQ, _EM, _MWin, _MWa, _ICC, _Te],
+  [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, [() => AirflowConfigurationOptions, 0], 0, 1, () => NetworkConfiguration$, () => LoggingConfiguration$, () => LastUpdate$, 0, 128 | 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, () => IdentityCenterConfiguration$, () => TeamMap]
 ];
 export var GetEnvironmentInput$: StaticStructureSchema = [3, n0, _GEI,
   0,
@@ -283,6 +292,11 @@ export var GetEnvironmentOutput$: StaticStructureSchema = [3, n0, _GEO,
   0,
   [_E],
   [[() => Environment$, 0]]
+];
+export var IdentityCenterConfiguration$: StaticStructureSchema = [3, n0, _ICC,
+  0,
+  [_SU, _ISI],
+  [0, 0]
 ];
 export var InvokeRestApiRequest$: StaticStructureSchema = [3, n0, _IRAR,
   0,
@@ -374,6 +388,11 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   [],
   []
 ];
+export var TeamConfig$: StaticStructureSchema = [3, n0, _TC,
+  0,
+  [_SBA, _DSP],
+  [0, 0], 2
+];
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RA, _tK],
@@ -386,8 +405,8 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 ];
 export var UpdateEnvironmentInput$: StaticStructureSchema = [3, n0, _UEI,
   0,
-  [_N, _ERA, _ACO, _AV, _DSP, _EC, _LC, _MW, _MWi, _MWa, _MWin, _WRS, _NC, _PSP, _PSOV, _RSP, _RSOV, _S, _SBA, _SSSP, _SSSOV, _WAM, _WMWS],
-  [[0, 1], 0, [() => AirflowConfigurationOptions, 0], 0, 0, 0, () => LoggingConfigurationInput$, 1, 1, 1, 1, 0, () => UpdateNetworkConfigurationInput$, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0], 1
+  [_N, _ERA, _ACO, _AV, _DSP, _EC, _LC, _MW, _MWi, _MWa, _MWin, _WRS, _NC, _PSP, _PSOV, _RSP, _RSOV, _S, _SBA, _SSSP, _SSSOV, _WAM, _WMWS, _ICC, _Te],
+  [[0, 1], 0, [() => AirflowConfigurationOptions, 0], 0, 0, 0, () => LoggingConfigurationInput$, 1, 1, 1, 1, 0, () => UpdateNetworkConfigurationInput$, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, () => IdentityCenterConfiguration$, () => UpdateTeamsInput$], 1
 ];
 export var UpdateEnvironmentOutput$: StaticStructureSchema = [3, n0, _UEO,
   0,
@@ -404,6 +423,11 @@ export var UpdateNetworkConfigurationInput$: StaticStructureSchema = [3, n0, _UN
   [_SGI],
   [64 | 0], 1
 ];
+export var UpdateTeamsInput$: StaticStructureSchema = [3, n0, _UTI,
+  0,
+  [_AOU, _R],
+  [() => TeamMap, 64 | 0]
+];
 var Dimensions: StaticListSchema = [1, n0, _Di,
   0, () => Dimension$
 ];
@@ -414,6 +438,7 @@ var MetricData: StaticListSchema = [1, n0, _MDe,
 var SecurityGroupList = 64 | 0;
 var SubnetList = 64 | 0;
 var TagKeyList = 64 | 0;
+var TeamNameList = 64 | 0;
 var AirflowConfigurationOptions: StaticMapSchema = [2, n0, _ACO,
   8, [0,
     0]
@@ -421,6 +446,9 @@ var AirflowConfigurationOptions: StaticMapSchema = [2, n0, _ACO,
     0]
 ];
 var TagMap = 128 | 0;
+var TeamMap: StaticMapSchema = [2, n0, _TM,
+  0, 0, () => TeamConfig$
+];
 export var CreateCliToken$: StaticOperationSchema = [9, n0, _CCT,
   { [_en]: ["env."], [_h]: ["POST", "/clitoken/{Name}", 200] }, () => CreateCliTokenRequest$, () => CreateCliTokenResponse$
 ];

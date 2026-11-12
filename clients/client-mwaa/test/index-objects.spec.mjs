@@ -25,6 +25,7 @@ import {
   GetEnvironmentCommand,
   GetEnvironmentInput$,
   GetEnvironmentOutput$,
+  IdentityCenterConfiguration$,
   InternalServerException,
   InternalServerException$,
   InvokeRestApi$,
@@ -69,6 +70,7 @@ import {
   TagResourceCommand,
   TagResourceInput$,
   TagResourceOutput$,
+  TeamConfig$,
   Unit,
   UntagResource$,
   UntagResourceCommand,
@@ -81,6 +83,7 @@ import {
   UpdateError$,
   UpdateNetworkConfigurationInput$,
   UpdateStatus,
+  UpdateTeamsInput$,
   ValidationException,
   ValidationException$,
   WebserverAccessMode,
@@ -128,6 +131,7 @@ assert(typeof Dimension$ === "object");
 assert(typeof Environment$ === "object");
 assert(typeof GetEnvironmentInput$ === "object");
 assert(typeof GetEnvironmentOutput$ === "object");
+assert(typeof IdentityCenterConfiguration$ === "object");
 assert(typeof InvokeRestApiRequest$ === "object");
 assert(typeof InvokeRestApiResponse$ === "object");
 assert(typeof LastUpdate$ === "object");
@@ -146,12 +150,14 @@ assert(typeof PublishMetricsOutput$ === "object");
 assert(typeof StatisticSet$ === "object");
 assert(typeof TagResourceInput$ === "object");
 assert(typeof TagResourceOutput$ === "object");
+assert(typeof TeamConfig$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
 assert(typeof UpdateEnvironmentInput$ === "object");
 assert(typeof UpdateEnvironmentOutput$ === "object");
 assert(typeof UpdateError$ === "object");
 assert(typeof UpdateNetworkConfigurationInput$ === "object");
+assert(typeof UpdateTeamsInput$ === "object");
 // enums
 assert(typeof EndpointManagement === "object");
 assert(typeof EnvironmentStatus === "object");

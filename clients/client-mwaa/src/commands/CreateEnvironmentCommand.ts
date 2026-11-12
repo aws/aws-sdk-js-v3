@@ -90,6 +90,16 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *   EndpointManagement: "STRING_VALUE",
  *   MinWebservers: Number("int"),
  *   MaxWebservers: Number("int"),
+ *   IdentityCenterConfiguration: { // IdentityCenterConfiguration
+ *     StartUrl: "STRING_VALUE",
+ *     IdentityStoreId: "STRING_VALUE",
+ *   },
+ *   Teams: { // TeamMap
+ *     "<keys>": { // TeamConfig
+ *       SourceBucketArn: "STRING_VALUE", // required
+ *       DagS3Path: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);

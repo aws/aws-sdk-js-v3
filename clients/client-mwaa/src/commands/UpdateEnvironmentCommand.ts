@@ -83,6 +83,21 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *   StartupScriptS3ObjectVersion: "STRING_VALUE",
  *   WebserverAccessMode: "STRING_VALUE",
  *   WeeklyMaintenanceWindowStart: "STRING_VALUE",
+ *   IdentityCenterConfiguration: { // IdentityCenterConfiguration
+ *     StartUrl: "STRING_VALUE",
+ *     IdentityStoreId: "STRING_VALUE",
+ *   },
+ *   Teams: { // UpdateTeamsInput
+ *     AddOrUpdate: { // TeamMap
+ *       "<keys>": { // TeamConfig
+ *         SourceBucketArn: "STRING_VALUE", // required
+ *         DagS3Path: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     Remove: [ // TeamNameList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);

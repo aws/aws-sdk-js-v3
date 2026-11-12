@@ -41,6 +41,24 @@ export interface CreateCliTokenResponse {
 }
 
 /**
+ * <p>Describes the Amazon Web Services IAM Identity Center configuration used to authenticate users to the Apache Airflow web UI for your Amazon MWAA environment.</p>
+ * @public
+ */
+export interface IdentityCenterConfiguration {
+  /**
+   * <p>The Amazon Web Services access portal URL of the IAM Identity Center instance associated with your environment. For example, <code>https://my-portal.awsapps.com/start</code>.</p>
+   * @public
+   */
+  StartUrl?: string | undefined;
+
+  /**
+   * <p>The identifier of the identity store associated with the IAM Identity Center instance for your environment. For example, <code>d-1234567890</code>.</p>
+   * @public
+   */
+  IdentityStoreId?: string | undefined;
+}
+
+/**
  * <p>Enables the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>) and defines the log level to send to CloudWatch Logs (e.g. <code>INFO</code>).</p>
  * @public
  */
@@ -110,6 +128,24 @@ export interface NetworkConfiguration {
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
+}
+
+/**
+ * <p>Describes the configuration for a single team in Apache Airflow multi-team support on your Amazon MWAA environment. A team configuration defines the Amazon S3 location of the DAG code for the team. The team name that maps to this configuration must match the display name of an Amazon Web Services IAM Identity Center group associated with your environment. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/multi-team-environments.html">Apache Airflow multi-team environments</a>.</p>
+ * @public
+ */
+export interface TeamConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where the team's DAG code and supporting files are stored. For example, <code>arn:aws:s3:::my-airflow-bucket-unique-name</code>. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html">Create an Amazon S3 bucket for Amazon MWAA</a>.</p>
+   * @public
+   */
+  SourceBucketArn: string | undefined;
+
+  /**
+   * <p>The relative path to the DAGs folder for the team in the team's Amazon S3 bucket. For example, <code>dags/team-a</code>. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html">Adding or updating DAGs</a>.</p> <p>DAG folders can't overlap. A team folder can't be inside the global folder or another team's folder, and the global folder can't be inside a team folder. Amazon Managed Workflows for Apache Airflow (Amazon MWAA) compares folder paths as Amazon S3 prefixes, so the trailing slash matters:</p> <ul> <li> <p> <code>s3://amzn-s3-demo-bucket/dags/</code> and <code>s3://amzn-s3-demo-bucket/dags/team-a/</code> overlap, because the first path is a prefix of the second.</p> </li> <li> <p> <code>s3://amzn-s3-demo-bucket/dags/</code> and <code>s3://amzn-s3-demo-bucket/dags-team-a/</code> don't overlap.</p> </li> <li> <p> <code>s3://amzn-s3-demo-bucket/teams/team-a/</code> and <code>s3://amzn-s3-demo-bucket/teams/team-b/</code> don't overlap.</p> </li> </ul>
+   * @public
+   */
+  DagS3Path: string | undefined;
 }
 
 /**
@@ -266,6 +302,18 @@ export interface CreateEnvironmentInput {
    * @public
    */
   MaxWebservers?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services IAM Identity Center configuration used to authenticate users to the Apache Airflow web UI for your environment.</p>
+   * @public
+   */
+  IdentityCenterConfiguration?: IdentityCenterConfiguration | undefined;
+
+  /**
+   * <p>A map of teams to configure for Apache Airflow multi-team support on your Amazon MWAA environment. Each entry maps a team name to a object that defines the Amazon S3 location of that team's DAG code. The team name must match the display name of an Amazon Web Services IAM Identity Center group that you associate with your environment, so you must configure IAM Identity Center for the environment before you add teams. You can configure between <code>1</code> and <code>20</code> teams. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/multi-team-environments.html">Apache Airflow multi-team environments</a>.</p>
+   * @public
+   */
+  Teams?: Record<string, TeamConfig> | undefined;
 }
 
 /**
@@ -668,6 +716,18 @@ export interface Environment {
    * @public
    */
   MaxWebservers?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services IAM Identity Center configuration used to authenticate users to the Apache Airflow web UI for your environment.</p>
+   * @public
+   */
+  IdentityCenterConfiguration?: IdentityCenterConfiguration | undefined;
+
+  /**
+   * <p>The teams configured for Apache Airflow multi-team support on your Amazon MWAA environment. Each entry maps a team name to its settings, which define the Amazon S3 location of that team's DAG code. Each team name matches the display name of the Amazon Web Services IAM Identity Center group associated with the team. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/multi-team-environments.html">Apache Airflow multi-team environments</a>.</p>
+   * @public
+   */
+  Teams?: Record<string, TeamConfig> | undefined;
 }
 
 /**
@@ -972,6 +1032,24 @@ export interface UpdateNetworkConfigurationInput {
 }
 
 /**
+ * <p>Defines the changes to the teams configured for Apache Airflow multi-team support when you update your Amazon MWAA environment. Use <code>AddOrUpdate</code> to add or modify teams, and <code>Remove</code> to remove teams by name.</p>
+ * @public
+ */
+export interface UpdateTeamsInput {
+  /**
+   * <p>A map of teams to add to your environment, or to update if they already exist. Each entry maps a team name to its settings. Each team name must match the display name of an Amazon Web Services IAM Identity Center group associated with your environment. You can configure between <code>1</code> and <code>20</code> teams.</p>
+   * @public
+   */
+  AddOrUpdate?: Record<string, TeamConfig> | undefined;
+
+  /**
+   * <p>A list of team names to remove from your environment. For example, <code>team-a</code>. You can remove between <code>1</code> and <code>20</code> teams in a single update. Removing a team does not delete the team's DAG code from Amazon S3.</p>
+   * @public
+   */
+  Remove?: string[] | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateEnvironmentInput {
@@ -1112,6 +1190,18 @@ export interface UpdateEnvironmentInput {
    * @public
    */
   WeeklyMaintenanceWindowStart?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services IAM Identity Center configuration used to authenticate users to the Apache Airflow web UI for your environment.</p>
+   * @public
+   */
+  IdentityCenterConfiguration?: IdentityCenterConfiguration | undefined;
+
+  /**
+   * <p>Updates the teams configured for Apache Airflow multi-team support on your Amazon MWAA environment. Use <code>AddOrUpdate</code> to add new teams or change the configuration of existing teams, and <code>Remove</code> to remove teams by name. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/multi-team-environments.html">Apache Airflow multi-team environments</a>.</p>
+   * @public
+   */
+  Teams?: UpdateTeamsInput | undefined;
 }
 
 /**
