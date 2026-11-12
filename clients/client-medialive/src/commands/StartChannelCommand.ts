@@ -563,6 +563,7 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * //                   WatermarkIdLength: "ID_2048" || "ID_512",
  * //                 },
  * //               },
+ * //               CaptionLanguageSetting: "AUTO" || "NONE",
  * //             },
  * //           },
  * //           MsSmoothGroupSettings: { // MsSmoothGroupSettings

@@ -566,6 +566,7 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //                   WatermarkIdLength: "ID_2048" || "ID_512",
  * //                 },
  * //               },
+ * //               CaptionLanguageSetting: "AUTO" || "NONE",
  * //             },
  * //           },
  * //           MsSmoothGroupSettings: { // MsSmoothGroupSettings

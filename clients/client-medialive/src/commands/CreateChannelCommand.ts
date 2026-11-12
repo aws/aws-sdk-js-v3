@@ -552,6 +552,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *                   WatermarkIdLength: "ID_2048" || "ID_512",
  *                 },
  *               },
+ *               CaptionLanguageSetting: "AUTO" || "NONE",
  *             },
  *           },
  *           MsSmoothGroupSettings: { // MsSmoothGroupSettings
@@ -2084,6 +2085,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //                     WatermarkIdLength: "ID_2048" || "ID_512",
  * //                   },
  * //                 },
+ * //                 CaptionLanguageSetting: "AUTO" || "NONE",
  * //               },
  * //             },
  * //             MsSmoothGroupSettings: { // MsSmoothGroupSettings

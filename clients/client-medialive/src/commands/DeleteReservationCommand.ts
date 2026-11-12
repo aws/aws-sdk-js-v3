@@ -23,7 +23,7 @@ export interface DeleteReservationCommandInput extends DeleteReservationRequest 
 export interface DeleteReservationCommandOutput extends DeleteReservationResponse, __MetadataBearer {}
 
 /**
- * Delete an expired reservation.
+ * Delete an expired reservation, or cancel an active reservation during the calendar month (UTC) in which you purchased it. You can't cancel an active reservation that you purchased in an earlier month, including one that renewed automatically. You also can't cancel an active reservation during the last hour of the month, from 23:00 UTC on the last day of the month.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

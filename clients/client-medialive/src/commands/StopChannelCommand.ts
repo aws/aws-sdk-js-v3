@@ -563,6 +563,7 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * //                   WatermarkIdLength: "ID_2048" || "ID_512",
  * //                 },
  * //               },
+ * //               CaptionLanguageSetting: "AUTO" || "NONE",
  * //             },
  * //           },
  * //           MsSmoothGroupSettings: { // MsSmoothGroupSettings

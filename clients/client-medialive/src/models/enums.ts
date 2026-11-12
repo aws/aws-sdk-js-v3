@@ -3127,6 +3127,20 @@ export type HlsTsFileMode = (typeof HlsTsFileMode)[keyof typeof HlsTsFileMode];
  * @public
  * @enum
  */
+export const MediaPackageV2CaptionLanguageSetting = {
+  AUTO: "AUTO",
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type MediaPackageV2CaptionLanguageSetting =
+  (typeof MediaPackageV2CaptionLanguageSetting)[keyof typeof MediaPackageV2CaptionLanguageSetting];
+
+/**
+ * @public
+ * @enum
+ */
 export const SmoothGroupAudioOnlyTimecodeControl = {
   PASSTHROUGH: "PASSTHROUGH",
   USE_CONFIGURED_CLOCK: "USE_CONFIGURED_CLOCK",

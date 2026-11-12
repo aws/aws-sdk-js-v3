@@ -610,6 +610,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                     WatermarkIdLength: "ID_2048" || "ID_512",
  * //                   },
  * //                 },
+ * //                 CaptionLanguageSetting: "AUTO" || "NONE",
  * //               },
  * //             },
  * //             MsSmoothGroupSettings: { // MsSmoothGroupSettings

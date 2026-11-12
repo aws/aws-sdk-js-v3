@@ -629,6 +629,7 @@ export type {
   M3u8TimedMetadataBehavior,
   MaintenanceDay,
   MediaConnectRouterOutputEncryptionType,
+  MediaPackageV2CaptionLanguageSetting,
   MotionGraphicsInsertion,
   Mp2CodingMode,
   Mpeg2AdaptiveQuantization,

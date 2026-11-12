@@ -4537,8 +4537,8 @@ export var MediaPackageV2DestinationSettings$: StaticStructureSchema = [3, n0, _
 ];
 export var MediaPackageV2GroupSettings$: StaticStructureSchema = [3, n0, _MPVGS,
   0,
-  [_CLMa, _IB, _KB, _NIB, _STc, _SL, _SLU, _TMIF, _TMIP, _TMP, _AD, _WSa],
-  [[() => __listOfCaptionLanguageMapping, { [_jN]: _cLM }], [0, { [_jN]: _iB }], [0, { [_jN]: _kB }], [0, { [_jN]: _nIB }], [0, { [_jN]: _sTc }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLU }], [0, { [_jN]: _tMIF }], [1, { [_jN]: _tMIP }], [0, { [_jN]: _tMP }], [() => __listOfMediaPackageAdditionalDestinations, { [_jN]: _aDd }], [() => MediaPackageV2WatermarkingSettings$, { [_jN]: _wSa }]]
+  [_CLMa, _IB, _KB, _NIB, _STc, _SL, _SLU, _TMIF, _TMIP, _TMP, _AD, _WSa, _CLS],
+  [[() => __listOfCaptionLanguageMapping, { [_jN]: _cLM }], [0, { [_jN]: _iB }], [0, { [_jN]: _kB }], [0, { [_jN]: _nIB }], [0, { [_jN]: _sTc }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLU }], [0, { [_jN]: _tMIF }], [1, { [_jN]: _tMIP }], [0, { [_jN]: _tMP }], [() => __listOfMediaPackageAdditionalDestinations, { [_jN]: _aDd }], [() => MediaPackageV2WatermarkingSettings$, { [_jN]: _wSa }], [0, { [_jN]: _cLS }]]
 ];
 export var MediaPackageV2WatermarkingSettings$: StaticStructureSchema = [3, n0, _MPVWS,
   0,

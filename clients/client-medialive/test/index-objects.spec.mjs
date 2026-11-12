@@ -825,6 +825,7 @@ import {
   MediaPackageOutputDestinationSettings$,
   MediaPackageOutputSettings$,
   MediaPackageV2AbWatermarkerIrdetoSettings$,
+  MediaPackageV2CaptionLanguageSetting,
   MediaPackageV2DestinationSettings$,
   MediaPackageV2GroupSettings$,
   MediaPackageV2WatermarkingSettings$,
@@ -2406,6 +2407,7 @@ assert(typeof M3u8Scte35Behavior === "object");
 assert(typeof M3u8TimedMetadataBehavior === "object");
 assert(typeof MaintenanceDay === "object");
 assert(typeof MediaConnectRouterOutputEncryptionType === "object");
+assert(typeof MediaPackageV2CaptionLanguageSetting === "object");
 assert(typeof MotionGraphicsInsertion === "object");
 assert(typeof Mp2CodingMode === "object");
 assert(typeof Mpeg2AdaptiveQuantization === "object");
