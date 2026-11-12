@@ -204,6 +204,8 @@ export type {
   IdentityProvider,
   IntegrationStatus,
   IntegrationType,
+  MetricAggregationTemporality,
+  MetricMonotonicity,
   NodeCategory,
   NodeType,
   NotificationStatus,

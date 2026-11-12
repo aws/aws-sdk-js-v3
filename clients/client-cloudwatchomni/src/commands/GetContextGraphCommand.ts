@@ -158,6 +158,8 @@ export interface GetContextGraphCommandOutput extends GetContextGraphOutput, __M
  * //               description: "STRING_VALUE",
  * //               unit: "STRING_VALUE",
  * //             },
+ * //             aggregationTemporality: "delta" || "cumulative",
+ * //             monotonicity: "monotonic" || "non_monotonic",
  * //           },
  * //         ],
  * //         semantics: { // NodeSemantics
@@ -232,6 +234,8 @@ export interface GetContextGraphCommandOutput extends GetContextGraphOutput, __M
  * //                   description: "STRING_VALUE",
  * //                   unit: "STRING_VALUE",
  * //                 },
+ * //                 aggregationTemporality: "delta" || "cumulative",
+ * //                 monotonicity: "monotonic" || "non_monotonic",
  * //               },
  * //             ],
  * //             semantics: {
@@ -363,6 +367,66 @@ export interface GetContextGraphCommandOutput extends GetContextGraphOutput, __M
  *       nodeType: "SERVICE",
  *       signalTypes: [
  *         "TRACES"
+ *       ],
+ *       sources: [
+ *         "TELEMETRY"
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example Return metric aggregation metadata
+ * ```javascript
+ * // The following example returns aggregation metadata for a metric stream observed on a service over a one-hour window. The metric attributes identify its producing service and instrumentation scope; additional data point dimensions can identify multiple time series. Payloads are shown as JSON; on the wire they are CBOR-encoded.
+ * const input = {
+ *   depth: 0,
+ *   endTime: "2026-09-16T01:00:00Z",
+ *   includeMetadata: true,
+ *   maxResults: 1,
+ *   nodeFilters: {
+ *     nodeId: "svc:checkout-service"
+ *   },
+ *   startTime: "2026-09-16T00:00:00Z"
+ * };
+ * const command = new GetContextGraphCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nodes: [
+ *     {
+ *       firstObservedAt: "2026-09-16T00:03:00Z",
+ *       lastObservedAt: "2026-09-16T00:58:00Z",
+ *       metadata: {
+ *         metrics: [
+ *           {
+ *             aggregationTemporality: "cumulative",
+ *             attributes: {
+ *               @instrumentation.@name: "otel.cloudwatch.spanmetrics",
+ *               @resource.service.name: "checkout-service",
+ *               @resource.service.namespace: "ecommerce"
+ *             },
+ *             metricType: "sum",
+ *             monotonicity: "monotonic",
+ *             name: "traces.span.metrics.calls",
+ *             semantics: {
+ *               unit: "{request}"
+ *             }
+ *           }
+ *         ]
+ *       },
+ *       name: "checkout-service",
+ *       nodeId: "svc:checkout-service",
+ *       nodeProperties: {
+ *         cloudProvider: "aws",
+ *         namespace: "ecommerce",
+ *         region: "us-east-1",
+ *         sourceAccountId: "123456789012"
+ *       },
+ *       nodeType: "SERVICE",
+ *       signalTypes: [
+ *         "METRICS"
  *       ],
  *       sources: [
  *         "TELEMETRY"

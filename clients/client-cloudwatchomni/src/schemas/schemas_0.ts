@@ -308,6 +308,7 @@ const _aN = "alternateNames";
 const _aP = "accessProfile";
 const _aS = "assumeStatus";
 const _aT = "authType";
+const _aTg = "aggregationTemporality";
 const _aU = "authorizationUrl";
 const _ac = "actions";
 const _al = "alert";
@@ -412,6 +413,7 @@ const _mR = "maxResults";
 const _mT = "metricType";
 const _me = "metadata";
 const _met = "metrics";
+const _mo = "monotonicity";
 const _n = "name";
 const _nD = "noData";
 const _nE = "notificationsEnabled";
@@ -1263,8 +1265,8 @@ export var Metadata$: StaticStructureSchema = [3, n0, _M,
 ];
 export var MetricMetadata$: StaticStructureSchema = [3, n0, _MM,
   0,
-  [_n, _pS, _mT, _at, _sem],
-  [0, 0, 0, 128 | 0, () => MetricSemantics$]
+  [_n, _pS, _mT, _at, _sem, _aTg, _mo],
+  [0, 0, 0, 128 | 0, () => MetricSemantics$, 0, 0]
 ];
 export var MetricSemantics$: StaticStructureSchema = [3, n0, _MS,
   0,

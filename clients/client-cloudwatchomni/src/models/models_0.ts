@@ -16,6 +16,8 @@ import type {
   IdentityProvider,
   IntegrationStatus,
   IntegrationType,
+  MetricAggregationTemporality,
+  MetricMonotonicity,
   NodeCategory,
   NodeType,
   NotificationStatus,
@@ -2994,7 +2996,7 @@ export interface MetricSemantics {
 }
 
 /**
- * A single metric observed on a context graph node.
+ * A single metric observed on a context graph node or edge.
  * @public
  */
 export interface MetricMetadata {
@@ -3023,9 +3025,9 @@ export interface MetricMetadata {
    * Per-metric qualifying attributes used to query this metric's telemetry. Keys are the
    * metric store's own label names, not bare OTel attribute names: service identity arrives
    * as "@resource.service.name" and "@resource.service.namespace", and the instrumentation
-   * scope as "@instrumentation.@name", while span-derived metrics label the service as a
-   * bare "service.name". Cloud provider, account and region are not repeated per metric —
-   * read those from the node. Values are RAW, deliberately NOT the node's normalized or
+   * scope as "@instrumentation.@name". Span-derived metrics can additionally carry the service
+   * as a bare data point "service.name" label. Cloud provider, account and region are not
+   * repeated per metric — read those from the node. Values are RAW, deliberately NOT the node's
    * merged identity, so a selector built from them matches the emitted series. A merged node
    * can carry different values per metric, which is why these live here rather than on the
    * node.
@@ -3038,6 +3040,21 @@ export interface MetricMetadata {
    * @public
    */
   semantics?: MetricSemantics | undefined;
+
+  /**
+   * Aggregation temporality for the selected metric stream represented by this metadata entry.
+   * Present when known, including cumulative for OTel Summary metrics. Absent for Gauge metrics
+   * or when the information is unavailable.
+   * @public
+   */
+  aggregationTemporality?: MetricAggregationTemporality | undefined;
+
+  /**
+   * Whether the selected Sum metric stream represented by this metadata entry is a non-negative
+   * accumulation. Absent for metrics other than Sum or when the information is unavailable.
+   * @public
+   */
+  monotonicity?: MetricMonotonicity | undefined;
 }
 
 /**

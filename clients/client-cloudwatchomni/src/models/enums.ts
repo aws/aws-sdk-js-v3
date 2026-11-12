@@ -611,6 +611,45 @@ export type NodeType = (typeof NodeType)[keyof typeof NodeType];
  * @public
  * @enum
  */
+export const MetricAggregationTemporality = {
+  /**
+   * Each data point contains values accumulated since a fixed start time or stream reset.
+   */
+  CUMULATIVE: "cumulative",
+  /**
+   * Each data point contains values accumulated since the preceding reporting interval.
+   */
+  DELTA: "delta",
+} as const;
+/**
+ * @public
+ */
+export type MetricAggregationTemporality =
+  (typeof MetricAggregationTemporality)[keyof typeof MetricAggregationTemporality];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricMonotonicity = {
+  /**
+   * Delta values are non-negative; cumulative values do not decrease except at a stream reset.
+   */
+  MONOTONIC: "monotonic",
+  /**
+   * Delta values can be negative; cumulative values can increase or decrease.
+   */
+  NON_MONOTONIC: "non_monotonic",
+} as const;
+/**
+ * @public
+ */
+export type MetricMonotonicity = (typeof MetricMonotonicity)[keyof typeof MetricMonotonicity];
+
+/**
+ * @public
+ * @enum
+ */
 export const Signal = {
   CONFIG: "CONFIG",
   LOGS: "LOGS",

@@ -250,7 +250,9 @@ import {
   ListViewsResponse$,
   LogMetadata$,
   Metadata$,
+  MetricAggregationTemporality,
   MetricMetadata$,
+  MetricMonotonicity,
   MetricSemantics$,
   NoData$,
   Node$,
@@ -720,6 +722,8 @@ assert(typeof EncryptionStrategy === "object");
 assert(typeof IdentityProvider === "object");
 assert(typeof IntegrationStatus === "object");
 assert(typeof IntegrationType === "object");
+assert(typeof MetricAggregationTemporality === "object");
+assert(typeof MetricMonotonicity === "object");
 assert(typeof NodeCategory === "object");
 assert(typeof NodeType === "object");
 assert(typeof NotificationStatus === "object");
