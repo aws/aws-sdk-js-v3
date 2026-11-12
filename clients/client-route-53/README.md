@@ -267,6 +267,13 @@ CreateQueryLoggingConfig
 </details>
 <details>
 <summary>
+CreateResourceRecordSetProtections
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53/command/CreateResourceRecordSetProtectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/CreateResourceRecordSetProtectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/CreateResourceRecordSetProtectionsCommandOutput/)
+</details>
+<details>
+<summary>
 CreateReusableDelegationSet
 </summary>
 
@@ -341,6 +348,13 @@ DeleteQueryLoggingConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53/command/DeleteQueryLoggingConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/DeleteQueryLoggingConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/DeleteQueryLoggingConfigCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteResourceRecordSetProtections
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53/command/DeleteResourceRecordSetProtectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/DeleteResourceRecordSetProtectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/DeleteResourceRecordSetProtectionsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -579,6 +593,13 @@ ListQueryLoggingConfigs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53/command/ListQueryLoggingConfigsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/ListQueryLoggingConfigsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/ListQueryLoggingConfigsCommandOutput/)
+</details>
+<details>
+<summary>
+ListResourceRecordSetProtections
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53/command/ListResourceRecordSetProtectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/ListResourceRecordSetProtectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/ListResourceRecordSetProtectionsCommandOutput/)
 </details>
 <details>
 <summary>

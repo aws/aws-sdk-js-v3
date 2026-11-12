@@ -1,0 +1,158 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListResourceRecordSetProtectionsResponse xmlns="https://placeholder.amazonaws.com">
+    <ResourceRecordSetProtections>
+        <ResourceRecordSetProtection>
+            <RecordName>
+                __RecordName__
+            </RecordName>
+            <RecordType>
+                __RecordType__
+            </RecordType>
+            <Comment>
+                __Comment__
+            </Comment>
+        </ResourceRecordSetProtection>
+        <ResourceRecordSetProtection>
+            <RecordName>
+                __RecordName__
+            </RecordName>
+            <RecordType>
+                __RecordType__
+            </RecordType>
+            <Comment>
+                __Comment__
+            </Comment>
+        </ResourceRecordSetProtection>
+        <ResourceRecordSetProtection>
+            <RecordName>
+                __RecordName__
+            </RecordName>
+            <RecordType>
+                __RecordType__
+            </RecordType>
+            <Comment>
+                __Comment__
+            </Comment>
+        </ResourceRecordSetProtection>
+    </ResourceRecordSetProtections>
+    <NextToken>
+        __NextToken__
+    </NextToken>
+</ListResourceRecordSetProtectionsResponse>
+
+
+--- [output object] ---
+{
+  ResourceRecordSetProtections: [
+    {
+      RecordName: "__RecordName__",
+      RecordType: "__RecordType__",
+      Comment: "__Comment__"
+    },
+    {
+      RecordName: "__RecordName__",
+      RecordType: "__RecordType__",
+      Comment: "__Comment__"
+    },
+    {
+      RecordName: "__RecordName__",
+      RecordType: "__RecordType__",
+      Comment: "__Comment__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListResourceRecordSetProtectionsResponse xmlns="https://placeholder.amazonaws.com">
+    <ResourceRecordSetProtections>
+        <ResourceRecordSetProtection>
+            <RecordName>
+                __RecordName__
+            </RecordName>
+            <RecordType>
+                __RecordType__
+            </RecordType>
+            <Comment>
+                __Comment__
+            </Comment>
+        </ResourceRecordSetProtection>
+        <ResourceRecordSetProtection>
+            <RecordName>
+                __RecordName__
+            </RecordName>
+            <RecordType>
+                __RecordType__
+            </RecordType>
+            <Comment>
+                __Comment__
+            </Comment>
+        </ResourceRecordSetProtection>
+        <ResourceRecordSetProtection>
+            <RecordName>
+                __RecordName__
+            </RecordName>
+            <RecordType>
+                __RecordType__
+            </RecordType>
+            <Comment>
+                __Comment__
+            </Comment>
+        </ResourceRecordSetProtection>
+    </ResourceRecordSetProtections>
+    <NextToken>
+        __NextToken__
+    </NextToken>
+</ListResourceRecordSetProtectionsResponse>
+
+
+--- [output object] ---
+{
+  ResourceRecordSetProtections: [
+    {
+      RecordName: "__RecordName__",
+      RecordType: "__RecordType__",
+      Comment: "__Comment__"
+    },
+    {
+      RecordName: "__RecordName__",
+      RecordType: "__RecordType__",
+      Comment: "__Comment__"
+    },
+    {
+      RecordName: "__RecordName__",
+      RecordType: "__RecordType__",
+      Comment: "__Comment__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

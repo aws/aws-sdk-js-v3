@@ -92,6 +92,10 @@ import type {
   CreateQueryLoggingConfigCommandOutput,
 } from "./commands/CreateQueryLoggingConfigCommand";
 import type {
+  CreateResourceRecordSetProtectionsCommandInput,
+  CreateResourceRecordSetProtectionsCommandOutput,
+} from "./commands/CreateResourceRecordSetProtectionsCommand";
+import type {
   CreateReusableDelegationSetCommandInput,
   CreateReusableDelegationSetCommandOutput,
 } from "./commands/CreateReusableDelegationSetCommand";
@@ -132,6 +136,10 @@ import type {
   DeleteQueryLoggingConfigCommandInput,
   DeleteQueryLoggingConfigCommandOutput,
 } from "./commands/DeleteQueryLoggingConfigCommand";
+import type {
+  DeleteResourceRecordSetProtectionsCommandInput,
+  DeleteResourceRecordSetProtectionsCommandOutput,
+} from "./commands/DeleteResourceRecordSetProtectionsCommand";
 import type {
   DeleteReusableDelegationSetCommandInput,
   DeleteReusableDelegationSetCommandOutput,
@@ -236,6 +244,10 @@ import type {
   ListQueryLoggingConfigsCommandOutput,
 } from "./commands/ListQueryLoggingConfigsCommand";
 import type {
+  ListResourceRecordSetProtectionsCommandInput,
+  ListResourceRecordSetProtectionsCommandOutput,
+} from "./commands/ListResourceRecordSetProtectionsCommand";
+import type {
   ListResourceRecordSetsCommandInput,
   ListResourceRecordSetsCommandOutput,
 } from "./commands/ListResourceRecordSetsCommand";
@@ -321,6 +333,7 @@ export type ServiceInputTypes =
   | CreateHostedZoneCommandInput
   | CreateKeySigningKeyCommandInput
   | CreateQueryLoggingConfigCommandInput
+  | CreateResourceRecordSetProtectionsCommandInput
   | CreateReusableDelegationSetCommandInput
   | CreateTrafficPolicyCommandInput
   | CreateTrafficPolicyInstanceCommandInput
@@ -332,6 +345,7 @@ export type ServiceInputTypes =
   | DeleteHostedZoneCommandInput
   | DeleteKeySigningKeyCommandInput
   | DeleteQueryLoggingConfigCommandInput
+  | DeleteResourceRecordSetProtectionsCommandInput
   | DeleteReusableDelegationSetCommandInput
   | DeleteTrafficPolicyCommandInput
   | DeleteTrafficPolicyInstanceCommandInput
@@ -366,6 +380,7 @@ export type ServiceInputTypes =
   | ListHostedZonesByVPCCommandInput
   | ListHostedZonesCommandInput
   | ListQueryLoggingConfigsCommandInput
+  | ListResourceRecordSetProtectionsCommandInput
   | ListResourceRecordSetsCommandInput
   | ListReusableDelegationSetsCommandInput
   | ListTagsForResourceCommandInput
@@ -397,6 +412,7 @@ export type ServiceOutputTypes =
   | CreateHostedZoneCommandOutput
   | CreateKeySigningKeyCommandOutput
   | CreateQueryLoggingConfigCommandOutput
+  | CreateResourceRecordSetProtectionsCommandOutput
   | CreateReusableDelegationSetCommandOutput
   | CreateTrafficPolicyCommandOutput
   | CreateTrafficPolicyInstanceCommandOutput
@@ -408,6 +424,7 @@ export type ServiceOutputTypes =
   | DeleteHostedZoneCommandOutput
   | DeleteKeySigningKeyCommandOutput
   | DeleteQueryLoggingConfigCommandOutput
+  | DeleteResourceRecordSetProtectionsCommandOutput
   | DeleteReusableDelegationSetCommandOutput
   | DeleteTrafficPolicyCommandOutput
   | DeleteTrafficPolicyInstanceCommandOutput
@@ -442,6 +459,7 @@ export type ServiceOutputTypes =
   | ListHostedZonesByVPCCommandOutput
   | ListHostedZonesCommandOutput
   | ListQueryLoggingConfigsCommandOutput
+  | ListResourceRecordSetProtectionsCommandOutput
   | ListResourceRecordSetsCommandOutput
   | ListReusableDelegationSetsCommandOutput
   | ListTagsForResourceCommandOutput

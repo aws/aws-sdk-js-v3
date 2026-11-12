@@ -3145,6 +3145,96 @@ export interface CreateQueryLoggingConfigResponse {
 }
 
 /**
+ * <p>A protection to create for the resource record sets in a hosted zone that have the specified name and type.</p>
+ * @public
+ */
+export interface ResourceRecordSetProtectionConfig {
+  /**
+   * <p>The name of the resource record sets to protect, for example, <code>www.example.com</code>. The name must be the name of the hosted zone or a subdomain of it.</p>
+   * @public
+   */
+  RecordName: string | undefined;
+
+  /**
+   * <p>The DNS record type of the resource record sets to protect. You can't protect records of type <code>DNAME</code> or of the DNSSEC record types that Route 53 manages.</p>
+   * @public
+   */
+  RecordType: RRType | undefined;
+
+  /**
+   * <p>An optional comment about the protection, for example, the reason that the resource record sets are protected. The comment can be up to 256 characters long. If you don't specify a comment, the protection doesn't have a comment. When Route 53 rejects a <code>ChangeResourceRecordSets</code> request because of this protection, the error message includes the comment, so don't include sensitive information.</p>
+   * @public
+   */
+  Comment?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateResourceRecordSetProtectionsRequest {
+  /**
+   * <p>The ID of the hosted zone that contains the resource record sets that you want to protect.</p>
+   * @public
+   */
+  HostedZoneId: string | undefined;
+
+  /**
+   * <p>The protections to create. Each entry specifies a resource record set name and type, and an optional comment. The list must contain at least one entry and can contain up to 100 entries. Each name and type can appear only once in the list.</p>
+   * @public
+   */
+  Protections: ResourceRecordSetProtectionConfig[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateResourceRecordSetProtectionsResponse {}
+
+/**
+ * <p>Describes one entry in a <code>CreateResourceRecordSetProtections</code> or <code>DeleteResourceRecordSetProtections</code> request that Route 53 couldn't process.</p>
+ * @public
+ */
+export interface ProtectionError {
+  /**
+   * <p>The name in the failing entry.</p>
+   * @public
+   */
+  RecordName: string | undefined;
+
+  /**
+   * <p>The record type in the failing entry.</p>
+   * @public
+   */
+  RecordType: RRType | undefined;
+
+  /**
+   * <p>The reason that the entry failed. Valid values include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>InvalidInput</code> means that the entry isn't valid. For example, the name isn't a valid DNS name, the name isn't in the hosted zone, the record type can't be protected, or the same name and type appear more than once in the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ProtectionAlreadyExists</code> means that a protection already exists for the name and type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ProtectionNotFound</code> means that no protection exists for the name and type.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>A message that explains why Route 53 couldn't process the entry.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateReusableDelegationSetRequest {
@@ -3647,6 +3737,46 @@ export interface DeleteQueryLoggingConfigRequest {
  * @public
  */
 export interface DeleteQueryLoggingConfigResponse {}
+
+/**
+ * <p>The name and type that identify a resource record set protection.</p>
+ * @public
+ */
+export interface ResourceRecordSetProtectionKey {
+  /**
+   * <p>The name of the protected resource record sets.</p>
+   * @public
+   */
+  RecordName: string | undefined;
+
+  /**
+   * <p>The DNS record type of the protected resource record sets.</p>
+   * @public
+   */
+  RecordType: RRType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourceRecordSetProtectionsRequest {
+  /**
+   * <p>The ID of the hosted zone that contains the protections that you want to delete.</p>
+   * @public
+   */
+  HostedZoneId: string | undefined;
+
+  /**
+   * <p>The name and type of each protection to delete. The list must contain at least one entry and can contain up to 100 entries. Each name and type can appear only once in the list.</p>
+   * @public
+   */
+  Protections: ResourceRecordSetProtectionKey[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourceRecordSetProtectionsResponse {}
 
 /**
  * <p>A request to delete a reusable delegation set.</p>
@@ -5410,6 +5540,84 @@ export interface ListQueryLoggingConfigsResponse {
    * 			configurations by submitting another <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html">ListQueryLoggingConfigs</a> request. Get the value of <code>NextToken</code>
    * 			that Amazon Route 53 returned in the previous response and include it in
    * 				<code>NextToken</code> in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceRecordSetProtectionsRequest {
+  /**
+   * <p>The ID of the hosted zone that contains the protections that you want to list.</p>
+   * @public
+   */
+  HostedZoneId: string | undefined;
+
+  /**
+   * <p>The first resource record set name that you want Route 53 to list protections for. If you don't specify a value, the list starts with the first protection in the hosted zone.</p>
+   *          <p>If you specify <code>NextToken</code>, Route 53 ignores <code>StartRecordName</code>.</p>
+   * @public
+   */
+  StartRecordName?: string | undefined;
+
+  /**
+   * <p>The first resource record set type, within the name specified by <code>StartRecordName</code>, that you want Route 53 to list protections for. If you specify <code>StartRecordType</code>, you must also specify <code>StartRecordName</code>.</p>
+   *          <p>If you specify <code>NextToken</code>, Route 53 ignores <code>StartRecordType</code>.</p>
+   * @public
+   */
+  StartRecordType?: RRType | undefined;
+
+  /**
+   * <p>The maximum number of protections that you want Route 53 to return in this response. If you don't specify a value, or if you specify a value greater than 300, Route 53 returns up to 300 protections.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the response to a previous <code>ListResourceRecordSetProtections</code> request included a <code>NextToken</code> element, specify that value here to get the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A protection for the resource record sets in a hosted zone that have the specified name and type. While the protection exists, Route 53 rejects <code>ChangeResourceRecordSets</code> requests that create, update, or delete those resource record sets.</p>
+ * @public
+ */
+export interface ResourceRecordSetProtection {
+  /**
+   * <p>The name of the protected resource record sets.</p>
+   * @public
+   */
+  RecordName: string | undefined;
+
+  /**
+   * <p>The DNS record type of the protected resource record sets.</p>
+   * @public
+   */
+  RecordType: RRType | undefined;
+
+  /**
+   * <p>The comment that was specified when the protection was created, if any.</p>
+   * @public
+   */
+  Comment?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceRecordSetProtectionsResponse {
+  /**
+   * <p>The protections in the hosted zone. The list is empty if the hosted zone has no protections.</p>
+   * @public
+   */
+  ResourceRecordSetProtections: ResourceRecordSetProtection[] | undefined;
+
+  /**
+   * <p>If there are more protections to list, a token that you can specify in the <code>NextToken</code> parameter of another request to get the next page of results. If there are no more protections to list, the response doesn't include <code>NextToken</code>.</p>
    * @public
    */
   NextToken?: string | undefined;

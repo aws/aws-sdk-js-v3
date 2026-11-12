@@ -73,6 +73,10 @@ import {
   CreateQueryLoggingConfigCommand,
   CreateQueryLoggingConfigRequest$,
   CreateQueryLoggingConfigResponse$,
+  CreateResourceRecordSetProtections$,
+  CreateResourceRecordSetProtectionsCommand,
+  CreateResourceRecordSetProtectionsRequest$,
+  CreateResourceRecordSetProtectionsResponse$,
   CreateReusableDelegationSet$,
   CreateReusableDelegationSetCommand,
   CreateReusableDelegationSetRequest$,
@@ -128,6 +132,10 @@ import {
   DeleteQueryLoggingConfigCommand,
   DeleteQueryLoggingConfigRequest$,
   DeleteQueryLoggingConfigResponse$,
+  DeleteResourceRecordSetProtections$,
+  DeleteResourceRecordSetProtectionsCommand,
+  DeleteResourceRecordSetProtectionsRequest$,
+  DeleteResourceRecordSetProtectionsResponse$,
   DeleteReusableDelegationSet$,
   DeleteReusableDelegationSetCommand,
   DeleteReusableDelegationSetRequest$,
@@ -286,6 +294,8 @@ import {
   InvalidKMSArn$,
   InvalidPaginationToken,
   InvalidPaginationToken$,
+  InvalidResourceRecordSetProtectionBatch,
+  InvalidResourceRecordSetProtectionBatch$,
   InvalidSigningStatus,
   InvalidSigningStatus$,
   InvalidTrafficPolicyDocument,
@@ -342,6 +352,10 @@ import {
   ListQueryLoggingConfigsCommand,
   ListQueryLoggingConfigsRequest$,
   ListQueryLoggingConfigsResponse$,
+  ListResourceRecordSetProtections$,
+  ListResourceRecordSetProtectionsCommand,
+  ListResourceRecordSetProtectionsRequest$,
+  ListResourceRecordSetProtectionsResponse$,
   ListResourceRecordSets$,
   ListResourceRecordSetsCommand,
   ListResourceRecordSetsRequest$,
@@ -415,8 +429,12 @@ import {
   paginateListHealthChecks,
   paginateListHostedZones,
   paginateListQueryLoggingConfigs,
+  paginateListResourceRecordSetProtections,
   PriorRequestNotComplete,
   PriorRequestNotComplete$,
+  ProtectionAlreadyExists,
+  ProtectionAlreadyExists$,
+  ProtectionError$,
   PublicZoneVPCAssociation,
   PublicZoneVPCAssociation$,
   QueryLoggingConfig$,
@@ -426,6 +444,9 @@ import {
   ResourceRecord$,
   ResourceRecordSet$,
   ResourceRecordSetFailover,
+  ResourceRecordSetProtection$,
+  ResourceRecordSetProtectionConfig$,
+  ResourceRecordSetProtectionKey$,
   ResourceRecordSetRegion,
   ResourceTagSet$,
   ReusableDelegationSetLimit$,
@@ -521,6 +542,8 @@ assert(typeof CreateKeySigningKeyCommand === "function");
 assert(typeof CreateKeySigningKey$ === "object");
 assert(typeof CreateQueryLoggingConfigCommand === "function");
 assert(typeof CreateQueryLoggingConfig$ === "object");
+assert(typeof CreateResourceRecordSetProtectionsCommand === "function");
+assert(typeof CreateResourceRecordSetProtections$ === "object");
 assert(typeof CreateReusableDelegationSetCommand === "function");
 assert(typeof CreateReusableDelegationSet$ === "object");
 assert(typeof CreateTrafficPolicyCommand === "function");
@@ -543,6 +566,8 @@ assert(typeof DeleteKeySigningKeyCommand === "function");
 assert(typeof DeleteKeySigningKey$ === "object");
 assert(typeof DeleteQueryLoggingConfigCommand === "function");
 assert(typeof DeleteQueryLoggingConfig$ === "object");
+assert(typeof DeleteResourceRecordSetProtectionsCommand === "function");
+assert(typeof DeleteResourceRecordSetProtections$ === "object");
 assert(typeof DeleteReusableDelegationSetCommand === "function");
 assert(typeof DeleteReusableDelegationSet$ === "object");
 assert(typeof DeleteTrafficPolicyCommand === "function");
@@ -611,6 +636,8 @@ assert(typeof ListHostedZonesByVPCCommand === "function");
 assert(typeof ListHostedZonesByVPC$ === "object");
 assert(typeof ListQueryLoggingConfigsCommand === "function");
 assert(typeof ListQueryLoggingConfigs$ === "object");
+assert(typeof ListResourceRecordSetProtectionsCommand === "function");
+assert(typeof ListResourceRecordSetProtections$ === "object");
 assert(typeof ListResourceRecordSetsCommand === "function");
 assert(typeof ListResourceRecordSets$ === "object");
 assert(typeof ListReusableDelegationSetsCommand === "function");
@@ -677,6 +704,8 @@ assert(typeof CreateKeySigningKeyRequest$ === "object");
 assert(typeof CreateKeySigningKeyResponse$ === "object");
 assert(typeof CreateQueryLoggingConfigRequest$ === "object");
 assert(typeof CreateQueryLoggingConfigResponse$ === "object");
+assert(typeof CreateResourceRecordSetProtectionsRequest$ === "object");
+assert(typeof CreateResourceRecordSetProtectionsResponse$ === "object");
 assert(typeof CreateReusableDelegationSetRequest$ === "object");
 assert(typeof CreateReusableDelegationSetResponse$ === "object");
 assert(typeof CreateTrafficPolicyInstanceRequest$ === "object");
@@ -700,6 +729,8 @@ assert(typeof DeleteKeySigningKeyRequest$ === "object");
 assert(typeof DeleteKeySigningKeyResponse$ === "object");
 assert(typeof DeleteQueryLoggingConfigRequest$ === "object");
 assert(typeof DeleteQueryLoggingConfigResponse$ === "object");
+assert(typeof DeleteResourceRecordSetProtectionsRequest$ === "object");
+assert(typeof DeleteResourceRecordSetProtectionsResponse$ === "object");
 assert(typeof DeleteReusableDelegationSetRequest$ === "object");
 assert(typeof DeleteReusableDelegationSetResponse$ === "object");
 assert(typeof DeleteTrafficPolicyInstanceRequest$ === "object");
@@ -785,6 +816,8 @@ assert(typeof ListHostedZonesRequest$ === "object");
 assert(typeof ListHostedZonesResponse$ === "object");
 assert(typeof ListQueryLoggingConfigsRequest$ === "object");
 assert(typeof ListQueryLoggingConfigsResponse$ === "object");
+assert(typeof ListResourceRecordSetProtectionsRequest$ === "object");
+assert(typeof ListResourceRecordSetProtectionsResponse$ === "object");
 assert(typeof ListResourceRecordSetsRequest$ === "object");
 assert(typeof ListResourceRecordSetsResponse$ === "object");
 assert(typeof ListReusableDelegationSetsRequest$ === "object");
@@ -806,9 +839,13 @@ assert(typeof ListTrafficPolicyVersionsResponse$ === "object");
 assert(typeof ListVPCAssociationAuthorizationsRequest$ === "object");
 assert(typeof ListVPCAssociationAuthorizationsResponse$ === "object");
 assert(typeof LocationSummary$ === "object");
+assert(typeof ProtectionError$ === "object");
 assert(typeof QueryLoggingConfig$ === "object");
 assert(typeof ResourceRecord$ === "object");
 assert(typeof ResourceRecordSet$ === "object");
+assert(typeof ResourceRecordSetProtection$ === "object");
+assert(typeof ResourceRecordSetProtectionConfig$ === "object");
+assert(typeof ResourceRecordSetProtectionKey$ === "object");
 assert(typeof ResourceTagSet$ === "object");
 assert(typeof ReusableDelegationSetLimit$ === "object");
 assert(typeof StatusReport$ === "object");
@@ -913,6 +950,8 @@ assert(InvalidKMSArn.prototype instanceof Route53ServiceException);
 assert(typeof InvalidKMSArn$ === "object");
 assert(InvalidPaginationToken.prototype instanceof Route53ServiceException);
 assert(typeof InvalidPaginationToken$ === "object");
+assert(InvalidResourceRecordSetProtectionBatch.prototype instanceof Route53ServiceException);
+assert(typeof InvalidResourceRecordSetProtectionBatch$ === "object");
 assert(InvalidSigningStatus.prototype instanceof Route53ServiceException);
 assert(typeof InvalidSigningStatus$ === "object");
 assert(InvalidTrafficPolicyDocument.prototype instanceof Route53ServiceException);
@@ -959,6 +998,8 @@ assert(NotAuthorizedException.prototype instanceof Route53ServiceException);
 assert(typeof NotAuthorizedException$ === "object");
 assert(PriorRequestNotComplete.prototype instanceof Route53ServiceException);
 assert(typeof PriorRequestNotComplete$ === "object");
+assert(ProtectionAlreadyExists.prototype instanceof Route53ServiceException);
+assert(typeof ProtectionAlreadyExists$ === "object");
 assert(PublicZoneVPCAssociation.prototype instanceof Route53ServiceException);
 assert(typeof PublicZoneVPCAssociation$ === "object");
 assert(QueryLoggingConfigAlreadyExists.prototype instanceof Route53ServiceException);
@@ -1000,4 +1041,5 @@ assert(typeof paginateListCidrLocations === "function");
 assert(typeof paginateListHealthChecks === "function");
 assert(typeof paginateListHostedZones === "function");
 assert(typeof paginateListQueryLoggingConfigs === "function");
+assert(typeof paginateListResourceRecordSetProtections === "function");
 console.log(`Route53 index test passed.`);

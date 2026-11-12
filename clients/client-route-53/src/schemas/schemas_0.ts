@@ -68,6 +68,9 @@ const _CRDS = "CreateReusableDelegationSet";
 const _CRDSR = "CreateReusableDelegationSetRequest";
 const _CRDSRr = "CreateReusableDelegationSetResponse";
 const _CRRS = "ChangeResourceRecordSets";
+const _CRRSP = "CreateResourceRecordSetProtections";
+const _CRRSPR = "CreateResourceRecordSetProtectionsRequest";
+const _CRRSPRr = "CreateResourceRecordSetProtectionsResponse";
 const _CRRSR = "ChangeResourceRecordSetsRequest";
 const _CRRSRh = "ChangeResourceRecordSetsResponse";
 const _CS = "CollectionSummary";
@@ -96,6 +99,7 @@ const _Ch = "Change";
 const _Cha = "Changes";
 const _Ci = "Cidr";
 const _Co = "Coordinates";
+const _Cod = "Code";
 const _Col = "Collection";
 const _Con = "Config";
 const _Cou = "Count";
@@ -131,6 +135,9 @@ const _DQLCRe = "DeleteQueryLoggingConfigResponse";
 const _DRDS = "DeleteReusableDelegationSet";
 const _DRDSR = "DeleteReusableDelegationSetRequest";
 const _DRDSRe = "DeleteReusableDelegationSetResponse";
+const _DRRSP = "DeleteResourceRecordSetProtections";
+const _DRRSPR = "DeleteResourceRecordSetProtectionsRequest";
+const _DRRSPRe = "DeleteResourceRecordSetProtectionsResponse";
 const _DS = "DelegationSet";
 const _DSAC = "DelegationSetAlreadyCreated";
 const _DSAR = "DelegationSetAlreadyReusable";
@@ -158,6 +165,7 @@ const _De = "Description";
 const _Di = "Dimension";
 const _Dis = "Disabled";
 const _Do = "Document";
+const _E = "Errors";
 const _EAR = "EnableAcceleratedRecovery";
 const _EDNSCSIP = "EDNS0ClientSubnetIP";
 const _EDNSCSM = "EDNS0ClientSubnetMask";
@@ -275,6 +283,7 @@ const _IKSKN = "InvalidKeySigningKeyName";
 const _IKSKS = "InvalidKeySigningKeyStatus";
 const _IPA = "IPAddress";
 const _IPT = "InvalidPaginationToken";
+const _IRRSPB = "InvalidResourceRecordSetProtectionBatch";
 const _ISS = "InvalidSigningStatus";
 const _IT = "IsTruncated";
 const _ITPD = "InvalidTrafficPolicyDocument";
@@ -326,6 +335,9 @@ const _LRDS = "ListReusableDelegationSets";
 const _LRDSR = "ListReusableDelegationSetsRequest";
 const _LRDSRi = "ListReusableDelegationSetsResponse";
 const _LRRS = "ListResourceRecordSets";
+const _LRRSP = "ListResourceRecordSetProtections";
+const _LRRSPR = "ListResourceRecordSetProtectionsRequest";
+const _LRRSPRi = "ListResourceRecordSetProtectionsResponse";
 const _LRRSR = "ListResourceRecordSetsRequest";
 const _LRRSRi = "ListResourceRecordSetsResponse";
 const _LS = "LinkedService";
@@ -400,12 +412,16 @@ const _O = "Owner";
 const _OA = "OwningAccount";
 const _OS = "OwningService";
 const _P = "Period";
+const _PAE = "ProtectionAlreadyExists";
+const _PE = "ProtectionError";
+const _PEr = "ProtectionErrors";
 const _PK = "PublicKey";
 const _PRNC = "PriorRequestNotComplete";
 const _PZ = "PrivateZone";
 const _PZVPCA = "PublicZoneVPCAssociation";
 const _Po = "Port";
-const _Pr = "Protocol";
+const _Pr = "Protections";
+const _Pro = "Protocol";
 const _QLC = "QueryLoggingConfig";
 const _QLCAE = "QueryLoggingConfigAlreadyExists";
 const _QLCu = "QueryLoggingConfigs";
@@ -427,6 +443,12 @@ const _RP = "ResourcePath";
 const _RR = "ResourceRecord";
 const _RRS = "ResourceRecordSet";
 const _RRSC = "ResourceRecordSetCount";
+const _RRSP = "ResourceRecordSetProtections";
+const _RRSPC = "ResourceRecordSetProtectionConfig";
+const _RRSPCB = "ResourceRecordSetProtectionConfigBatch";
+const _RRSPK = "ResourceRecordSetProtectionKey";
+const _RRSPKB = "ResourceRecordSetProtectionKeyBatch";
+const _RRSPe = "ResourceRecordSetProtection";
 const _RRSe = "ResourceRecordSets";
 const _RRe = "ResourceRecords";
 const _RT = "ResourceType";
@@ -518,6 +540,7 @@ const _VPCR = "VPCRegion";
 const _VPCs = "VPCs";
 const _Ve = "Version";
 const _W = "Weight";
+const _aQE = "awsQueryError";
 const _c = "client";
 const _co = "continentcode";
 const _cou = "countrycode";
@@ -597,6 +620,7 @@ import {
   InvalidKeySigningKeyStatus,
   InvalidKMSArn,
   InvalidPaginationToken,
+  InvalidResourceRecordSetProtectionBatch,
   InvalidSigningStatus,
   InvalidTrafficPolicyDocument,
   InvalidVPCId,
@@ -620,6 +644,7 @@ import {
   NoSuchTrafficPolicyInstance,
   NotAuthorizedException,
   PriorRequestNotComplete,
+  ProtectionAlreadyExists,
   PublicZoneVPCAssociation,
   QueryLoggingConfigAlreadyExists,
   ThrottlingException,
@@ -829,6 +854,12 @@ export var InvalidPaginationToken$: StaticErrorSchema = [-3, n0, _IPT,
   [0]
 ];
 n0_registry.registerError(InvalidPaginationToken$, InvalidPaginationToken);
+export var InvalidResourceRecordSetProtectionBatch$: StaticErrorSchema = [-3, n0, _IRRSPB,
+  { [_aQE]: [`InvalidResourceRecordSetProtectionBatch`, 400], [_e]: _c, [_hE]: 400 },
+  [_E, _M],
+  [[() => ProtectionErrors, 0], 0], 1
+];
+n0_registry.registerError(InvalidResourceRecordSetProtectionBatch$, InvalidResourceRecordSetProtectionBatch);
 export var InvalidSigningStatus$: StaticErrorSchema = [-3, n0, _ISS,
   { [_e]: _c },
   [_m],
@@ -967,6 +998,12 @@ export var PriorRequestNotComplete$: StaticErrorSchema = [-3, n0, _PRNC,
   [0]
 ];
 n0_registry.registerError(PriorRequestNotComplete$, PriorRequestNotComplete);
+export var ProtectionAlreadyExists$: StaticErrorSchema = [-3, n0, _PAE,
+  { [_aQE]: [`ProtectionAlreadyExists`, 409], [_e]: _c, [_hE]: 409 },
+  [_E, _M],
+  [[() => ProtectionErrors, 0], 0], 1
+];
+n0_registry.registerError(ProtectionAlreadyExists$, ProtectionAlreadyExists);
 export var PublicZoneVPCAssociation$: StaticErrorSchema = [-3, n0, _PZVPCA,
   { [_e]: _c, [_hE]: 400 },
   [_m],
@@ -1231,6 +1268,16 @@ export var CreateQueryLoggingConfigResponse$: StaticStructureSchema = [3, n0, _C
   [_QLC, _Loc],
   [() => QueryLoggingConfig$, [0, { [_hH]: _Loc }]], 2
 ];
+export var CreateResourceRecordSetProtectionsRequest$: StaticStructureSchema = [3, n0, _CRRSPR,
+  0,
+  [_HZI, _Pr],
+  [[0, 1], [() => ResourceRecordSetProtectionConfigBatch, 0]], 2
+];
+export var CreateResourceRecordSetProtectionsResponse$: StaticStructureSchema = [3, n0, _CRRSPRr,
+  0,
+  [],
+  []
+];
 export var CreateReusableDelegationSetRequest$: StaticStructureSchema = [3, n0, _CRDSR,
   0,
   [_CR, _HZI],
@@ -1342,6 +1389,16 @@ export var DeleteQueryLoggingConfigRequest$: StaticStructureSchema = [3, n0, _DQ
   [[0, 1]], 1
 ];
 export var DeleteQueryLoggingConfigResponse$: StaticStructureSchema = [3, n0, _DQLCRe,
+  0,
+  [],
+  []
+];
+export var DeleteResourceRecordSetProtectionsRequest$: StaticStructureSchema = [3, n0, _DRRSPR,
+  0,
+  [_HZI, _Pr],
+  [[0, 1], [() => ResourceRecordSetProtectionKeyBatch, 0]], 2
+];
+export var DeleteResourceRecordSetProtectionsResponse$: StaticStructureSchema = [3, n0, _DRRSPRe,
   0,
   [],
   []
@@ -1771,6 +1828,16 @@ export var ListQueryLoggingConfigsResponse$: StaticStructureSchema = [3, n0, _LQ
   [_QLCu, _NT],
   [[() => QueryLoggingConfigs, 0], 0], 1
 ];
+export var ListResourceRecordSetProtectionsRequest$: StaticStructureSchema = [3, n0, _LRRSPR,
+  0,
+  [_HZI, _SRN, _SRT, _MR, _NT],
+  [[0, 1], [0, { [_hQ]: _na }], [0, { [_hQ]: _t }], [1, { [_hQ]: _ma }], [0, { [_hQ]: _n }]], 1
+];
+export var ListResourceRecordSetProtectionsResponse$: StaticStructureSchema = [3, n0, _LRRSPRi,
+  0,
+  [_RRSP, _NT],
+  [[() => ResourceRecordSetProtections, 0], 0], 1
+];
 export var ListResourceRecordSetsRequest$: StaticStructureSchema = [3, n0, _LRRSR,
   0,
   [_HZI, _SRN, _SRT, _SRI, _MI],
@@ -1876,6 +1943,11 @@ export var LocationSummary$: StaticStructureSchema = [3, n0, _LSo,
   [_LN],
   [0]
 ];
+export var ProtectionError$: StaticStructureSchema = [3, n0, _PE,
+  0,
+  [_RN, _RTe, _Cod, _M],
+  [0, 0, 0, 0], 4
+];
 export var QueryLoggingConfig$: StaticStructureSchema = [3, n0, _QLC,
   0,
   [_I, _HZI, _CWLLGA],
@@ -1890,6 +1962,21 @@ export var ResourceRecordSet$: StaticStructureSchema = [3, n0, _RRS,
   0,
   [_N, _T, _SI, _W, _R, _GL, _Fa, _MVA, _TTL, _RRe, _AT, _HCI, _TPII, _CRC, _GPL],
   [0, 0, 0, 1, 0, () => GeoLocation$, 0, 2, 1, [() => ResourceRecords, 0], () => AliasTarget$, 0, 0, () => CidrRoutingConfig$, () => GeoProximityLocation$], 2
+];
+export var ResourceRecordSetProtection$: StaticStructureSchema = [3, n0, _RRSPe,
+  0,
+  [_RN, _RTe, _C],
+  [0, 0, 0], 2
+];
+export var ResourceRecordSetProtectionConfig$: StaticStructureSchema = [3, n0, _RRSPC,
+  0,
+  [_RN, _RTe, _C],
+  [0, 0, 0], 2
+];
+export var ResourceRecordSetProtectionKey$: StaticStructureSchema = [3, n0, _RRSPK,
+  0,
+  [_RN, _RTe],
+  [0, 0], 2
 ];
 export var ResourceTagSet$: StaticStructureSchema = [3, n0, _RTS,
   0,
@@ -1918,7 +2005,7 @@ export var TestDNSAnswerRequest$: StaticStructureSchema = [3, n0, _TDNSAR,
 ];
 export var TestDNSAnswerResponse$: StaticStructureSchema = [3, n0, _TDNSARe,
   0,
-  [_Nam, _RN, _RTe, _RD, _RC, _Pr],
+  [_Nam, _RN, _RTe, _RD, _RC, _Pro],
   [0, 0, 0, [() => RecordData, 0], 0, 0], 6
 ];
 export var TrafficPolicy$: StaticStructureSchema = [3, n0, _TP,
@@ -2060,6 +2147,10 @@ var KeySigningKeys: StaticListSchema = [1, n0, _KSKe,
 var LocationSummaries: StaticListSchema = [1, n0, _LSoc,
   0, () => LocationSummary$
 ];
+var ProtectionErrors: StaticListSchema = [1, n0, _PEr,
+  0, [() => ProtectionError$,
+    { [_xN]: _PE }]
+];
 var QueryLoggingConfigs: StaticListSchema = [1, n0, _QLCu,
   0, [() => QueryLoggingConfig$,
     { [_xN]: _QLC }]
@@ -2075,6 +2166,18 @@ var ResettableElementNameList: StaticListSchema = [1, n0, _RENL,
 var ResourceRecords: StaticListSchema = [1, n0, _RRe,
   0, [() => ResourceRecord$,
     { [_xN]: _RR }]
+];
+var ResourceRecordSetProtectionConfigBatch: StaticListSchema = [1, n0, _RRSPCB,
+  0, [() => ResourceRecordSetProtectionConfig$,
+    { [_xN]: _RRSPC }]
+];
+var ResourceRecordSetProtectionKeyBatch: StaticListSchema = [1, n0, _RRSPKB,
+  0, [() => ResourceRecordSetProtectionKey$,
+    { [_xN]: _RRSPK }]
+];
+var ResourceRecordSetProtections: StaticListSchema = [1, n0, _RRSP,
+  0, [() => ResourceRecordSetProtection$,
+    { [_xN]: _RRSPe }]
 ];
 var ResourceRecordSets: StaticListSchema = [1, n0, _RRSe,
   0, [() => ResourceRecordSet$,
@@ -2142,6 +2245,9 @@ export var CreateKeySigningKey$: StaticOperationSchema = [9, n0, _CKSK,
 export var CreateQueryLoggingConfig$: StaticOperationSchema = [9, n0, _CQLC,
   { [_ht]: ["POST", "/2013-04-01/queryloggingconfig", 201] }, () => CreateQueryLoggingConfigRequest$, () => CreateQueryLoggingConfigResponse$
 ];
+export var CreateResourceRecordSetProtections$: StaticOperationSchema = [9, n0, _CRRSP,
+  { [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/rrsetprotection", 200] }, () => CreateResourceRecordSetProtectionsRequest$, () => CreateResourceRecordSetProtectionsResponse$
+];
 export var CreateReusableDelegationSet$: StaticOperationSchema = [9, n0, _CRDS,
   { [_ht]: ["POST", "/2013-04-01/delegationset", 201] }, () => CreateReusableDelegationSetRequest$, () => CreateReusableDelegationSetResponse$
 ];
@@ -2174,6 +2280,9 @@ export var DeleteKeySigningKey$: StaticOperationSchema = [9, n0, _DKSKe,
 ];
 export var DeleteQueryLoggingConfig$: StaticOperationSchema = [9, n0, _DQLC,
   { [_ht]: ["DELETE", "/2013-04-01/queryloggingconfig/{Id}", 200] }, () => DeleteQueryLoggingConfigRequest$, () => DeleteQueryLoggingConfigResponse$
+];
+export var DeleteResourceRecordSetProtections$: StaticOperationSchema = [9, n0, _DRRSP,
+  { [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/rrsetprotection/delete", 200] }, () => DeleteResourceRecordSetProtectionsRequest$, () => DeleteResourceRecordSetProtectionsResponse$
 ];
 export var DeleteReusableDelegationSet$: StaticOperationSchema = [9, n0, _DRDS,
   { [_ht]: ["DELETE", "/2013-04-01/delegationset/{Id}", 200] }, () => DeleteReusableDelegationSetRequest$, () => DeleteReusableDelegationSetResponse$
@@ -2276,6 +2385,9 @@ export var ListHostedZonesByVPC$: StaticOperationSchema = [9, n0, _LHZBVPC,
 ];
 export var ListQueryLoggingConfigs$: StaticOperationSchema = [9, n0, _LQLC,
   { [_ht]: ["GET", "/2013-04-01/queryloggingconfig", 200] }, () => ListQueryLoggingConfigsRequest$, () => ListQueryLoggingConfigsResponse$
+];
+export var ListResourceRecordSetProtections$: StaticOperationSchema = [9, n0, _LRRSP,
+  { [_ht]: ["GET", "/2013-04-01/hostedzone/{HostedZoneId}/rrsetprotection", 200] }, () => ListResourceRecordSetProtectionsRequest$, () => ListResourceRecordSetProtectionsResponse$
 ];
 export var ListResourceRecordSets$: StaticOperationSchema = [9, n0, _LRRS,
   { [_ht]: ["GET", "/2013-04-01/hostedzone/{HostedZoneId}/rrset", 200] }, () => ListResourceRecordSetsRequest$, () => ListResourceRecordSetsResponse$

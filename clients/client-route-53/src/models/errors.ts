@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
+import type { ProtectionError } from "./models_0";
 import { Route53ServiceException as __BaseException } from "./Route53ServiceException";
 
 /**
@@ -386,6 +387,10 @@ export class NoSuchCidrCollectionException extends __BaseException {
 /**
  * <p>This exception contains a list of messages that might contain one or more error
  * 			messages. Each error message indicates one error in the change batch.</p>
+ *          <p>Route 53 also returns this error when the change batch creates, updates, or deletes a
+ * 			resource record set whose name and type have a resource record set protection. To make
+ * 			the change, first delete the protection by using
+ * 				<code>DeleteResourceRecordSetProtections</code>.</p>
  * @public
  */
 export class InvalidChangeBatch extends __BaseException {
@@ -849,6 +854,74 @@ export class QueryLoggingConfigAlreadyExists extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, QueryLoggingConfigAlreadyExists.prototype);
+  }
+}
+
+/**
+ * <p>One or more entries in the request couldn't be processed, so Route 53 didn't create or delete any of the protections in the request. The <code>Errors</code> element lists the failing entries and the reason that each one failed.</p>
+ * @public
+ */
+export class InvalidResourceRecordSetProtectionBatch extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#InvalidResourceRecordSetProtectionBatch";
+  readonly name = "InvalidResourceRecordSetProtectionBatch" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A message that explains why Route 53 couldn't process the <code>CreateResourceRecordSetProtections</code> or <code>DeleteResourceRecordSetProtections</code> request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The entries that failed, with the reason that each one failed.</p>
+   * @public
+   */
+  Errors: ProtectionError[] | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceRecordSetProtectionBatch, __BaseException>) {
+    super({
+      name: "InvalidResourceRecordSetProtectionBatch",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceRecordSetProtectionBatch.prototype);
+    this.Message = opts.Message;
+    this.Errors = opts.Errors;
+  }
+}
+
+/**
+ * <p>A protection already exists for every name and type in the request, so Route 53 didn't create any protections. The <code>Errors</code> element lists each entry.</p>
+ * @public
+ */
+export class ProtectionAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#ProtectionAlreadyExists";
+  readonly name = "ProtectionAlreadyExists" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A message that explains that a protection already exists for every name and type in the <code>CreateResourceRecordSetProtections</code> request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The entries that already have a protection.</p>
+   * @public
+   */
+  Errors: ProtectionError[] | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ProtectionAlreadyExists, __BaseException>) {
+    super({
+      name: "ProtectionAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ProtectionAlreadyExists.prototype);
+    this.Message = opts.Message;
+    this.Errors = opts.Errors;
   }
 }
 

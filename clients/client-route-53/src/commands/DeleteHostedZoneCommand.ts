@@ -54,6 +54,9 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
  * 			delete a hosted zone with additional records or DNSSEC enabled returns a
  * 				<code>HostedZoneNotEmpty</code> error. For information about deleting records, see
  * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html">ChangeResourceRecordSets</a>. </p>
+ *          <p>You also can't delete a hosted zone that has resource record set protections. To see
+ * 			the protections in a hosted zone, use <code>ListResourceRecordSetProtections</code>. To
+ * 			delete them, use <code>DeleteResourceRecordSetProtections</code>.</p>
  *          <p>To verify that the hosted zone has been deleted, do one of the following:</p>
  *          <ul>
  *             <li>

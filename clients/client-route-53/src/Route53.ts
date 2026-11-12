@@ -59,6 +59,11 @@ import {
   CreateQueryLoggingConfigCommand,
 } from "./commands/CreateQueryLoggingConfigCommand";
 import {
+  type CreateResourceRecordSetProtectionsCommandInput,
+  type CreateResourceRecordSetProtectionsCommandOutput,
+  CreateResourceRecordSetProtectionsCommand,
+} from "./commands/CreateResourceRecordSetProtectionsCommand";
+import {
   type CreateReusableDelegationSetCommandInput,
   type CreateReusableDelegationSetCommandOutput,
   CreateReusableDelegationSetCommand,
@@ -113,6 +118,11 @@ import {
   type DeleteQueryLoggingConfigCommandOutput,
   DeleteQueryLoggingConfigCommand,
 } from "./commands/DeleteQueryLoggingConfigCommand";
+import {
+  type DeleteResourceRecordSetProtectionsCommandInput,
+  type DeleteResourceRecordSetProtectionsCommandOutput,
+  DeleteResourceRecordSetProtectionsCommand,
+} from "./commands/DeleteResourceRecordSetProtectionsCommand";
 import {
   type DeleteReusableDelegationSetCommandInput,
   type DeleteReusableDelegationSetCommandOutput,
@@ -276,6 +286,11 @@ import {
   ListQueryLoggingConfigsCommand,
 } from "./commands/ListQueryLoggingConfigsCommand";
 import {
+  type ListResourceRecordSetProtectionsCommandInput,
+  type ListResourceRecordSetProtectionsCommandOutput,
+  ListResourceRecordSetProtectionsCommand,
+} from "./commands/ListResourceRecordSetProtectionsCommand";
+import {
   type ListResourceRecordSetsCommandInput,
   type ListResourceRecordSetsCommandOutput,
   ListResourceRecordSetsCommand,
@@ -362,6 +377,7 @@ import { paginateListCidrLocations } from "./pagination/ListCidrLocationsPaginat
 import { paginateListHealthChecks } from "./pagination/ListHealthChecksPaginator";
 import { paginateListHostedZones } from "./pagination/ListHostedZonesPaginator";
 import { paginateListQueryLoggingConfigs } from "./pagination/ListQueryLoggingConfigsPaginator";
+import { paginateListResourceRecordSetProtections } from "./pagination/ListResourceRecordSetProtectionsPaginator";
 import { Route53Client } from "./Route53Client";
 import { waitUntilResourceRecordSetsChanged } from "./waiters/waitForResourceRecordSetsChanged";
 
@@ -376,6 +392,7 @@ const commands = {
   CreateHostedZoneCommand,
   CreateKeySigningKeyCommand,
   CreateQueryLoggingConfigCommand,
+  CreateResourceRecordSetProtectionsCommand,
   CreateReusableDelegationSetCommand,
   CreateTrafficPolicyCommand,
   CreateTrafficPolicyInstanceCommand,
@@ -387,6 +404,7 @@ const commands = {
   DeleteHostedZoneCommand,
   DeleteKeySigningKeyCommand,
   DeleteQueryLoggingConfigCommand,
+  DeleteResourceRecordSetProtectionsCommand,
   DeleteReusableDelegationSetCommand,
   DeleteTrafficPolicyCommand,
   DeleteTrafficPolicyInstanceCommand,
@@ -421,6 +439,7 @@ const commands = {
   ListHostedZonesByNameCommand,
   ListHostedZonesByVPCCommand,
   ListQueryLoggingConfigsCommand,
+  ListResourceRecordSetProtectionsCommand,
   ListResourceRecordSetsCommand,
   ListReusableDelegationSetsCommand,
   ListTagsForResourceCommand,
@@ -445,6 +464,7 @@ const paginators = {
   paginateListHealthChecks,
   paginateListHostedZones,
   paginateListQueryLoggingConfigs,
+  paginateListResourceRecordSetProtections,
 };
 const waiters = {
   waitUntilResourceRecordSetsChanged,
@@ -626,6 +646,23 @@ export interface Route53 {
     args: CreateQueryLoggingConfigCommandInput,
     options: Route53RequestOptions,
     cb: (err: any, data?: CreateQueryLoggingConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateResourceRecordSetProtectionsCommand}
+   */
+  createResourceRecordSetProtections(
+    args: CreateResourceRecordSetProtectionsCommandInput,
+    options?: Route53RequestOptions
+  ): Promise<CreateResourceRecordSetProtectionsCommandOutput>;
+  createResourceRecordSetProtections(
+    args: CreateResourceRecordSetProtectionsCommandInput,
+    cb: (err: any, data?: CreateResourceRecordSetProtectionsCommandOutput) => void
+  ): void;
+  createResourceRecordSetProtections(
+    args: CreateResourceRecordSetProtectionsCommandInput,
+    options: Route53RequestOptions,
+    cb: (err: any, data?: CreateResourceRecordSetProtectionsCommandOutput) => void
   ): void;
 
   /**
@@ -813,6 +850,23 @@ export interface Route53 {
     args: DeleteQueryLoggingConfigCommandInput,
     options: Route53RequestOptions,
     cb: (err: any, data?: DeleteQueryLoggingConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResourceRecordSetProtectionsCommand}
+   */
+  deleteResourceRecordSetProtections(
+    args: DeleteResourceRecordSetProtectionsCommandInput,
+    options?: Route53RequestOptions
+  ): Promise<DeleteResourceRecordSetProtectionsCommandOutput>;
+  deleteResourceRecordSetProtections(
+    args: DeleteResourceRecordSetProtectionsCommandInput,
+    cb: (err: any, data?: DeleteResourceRecordSetProtectionsCommandOutput) => void
+  ): void;
+  deleteResourceRecordSetProtections(
+    args: DeleteResourceRecordSetProtectionsCommandInput,
+    options: Route53RequestOptions,
+    cb: (err: any, data?: DeleteResourceRecordSetProtectionsCommandOutput) => void
   ): void;
 
   /**
@@ -1405,6 +1459,23 @@ export interface Route53 {
   ): void;
 
   /**
+   * @see {@link ListResourceRecordSetProtectionsCommand}
+   */
+  listResourceRecordSetProtections(
+    args: ListResourceRecordSetProtectionsCommandInput,
+    options?: Route53RequestOptions
+  ): Promise<ListResourceRecordSetProtectionsCommandOutput>;
+  listResourceRecordSetProtections(
+    args: ListResourceRecordSetProtectionsCommandInput,
+    cb: (err: any, data?: ListResourceRecordSetProtectionsCommandOutput) => void
+  ): void;
+  listResourceRecordSetProtections(
+    args: ListResourceRecordSetProtectionsCommandInput,
+    options: Route53RequestOptions,
+    cb: (err: any, data?: ListResourceRecordSetProtectionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListResourceRecordSetsCommand}
    */
   listResourceRecordSets(
@@ -1744,6 +1815,17 @@ export interface Route53 {
     args?: ListQueryLoggingConfigsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListQueryLoggingConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListResourceRecordSetProtectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceRecordSetProtectionsCommandOutput}.
+   */
+  paginateListResourceRecordSetProtections(
+    args: ListResourceRecordSetProtectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceRecordSetProtectionsCommandOutput>;
 
   /**
    * @see {@link GetChangeCommand}
