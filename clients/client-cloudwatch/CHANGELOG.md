@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1167.0...v3.1168.0) (2026-11-12)
+
+
+### Features
+
+* **client-cloudwatch:** Adds support for saving, retrieving, listing, and deleting CloudWatch metric data query definitions. ([63e3b20](https://github.com/aws/aws-sdk-js-v3/commit/63e3b2049e932df45dc31d31696b83690467b59f))
+
+
+
+
+
 # [3.1167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1166.0...v3.1167.0) (2026-11-11)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch

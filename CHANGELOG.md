@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1167.0...v3.1168.0) (2026-11-12)
+
+
+### Features
+
+* **client-auto-scaling:** Amazon EC2 Auto Scaling now supports ASGAverageCPUUtilizationHighResolution as a predefined metric type for target tracking scaling policies. ([2a5c256](https://github.com/aws/aws-sdk-js-v3/commit/2a5c2560e469fecc23b4559461743cdac4ab225a))
+* **client-backup:** Adding new notification types for SNS notifications ([e81b9d7](https://github.com/aws/aws-sdk-js-v3/commit/e81b9d7892cbda537f1d0d4447ceb7b171201c26))
+* **client-cleanrooms:** Adds a retry signal to protected query and protected job errors that indicates whether running the same request again might succeed, and defines error codes that identify the category of the failure. ([f71c5ac](https://github.com/aws/aws-sdk-js-v3/commit/f71c5ac580a6d7617bc75b7b69aaf8a7ba889faf))
+* **client-cloudwatch:** Adds support for saving, retrieving, listing, and deleting CloudWatch metric data query definitions. ([63e3b20](https://github.com/aws/aws-sdk-js-v3/commit/63e3b2049e932df45dc31d31696b83690467b59f))
+* **client-cloudwatchomni:** Add aggregationTemporality and monotonicity to GetContextGraph MetricMetadata ([033ec3a](https://github.com/aws/aws-sdk-js-v3/commit/033ec3a0a740f3d0e1831580525bf6f80e2a864f))
+* **client-connect:** This release adds a LastModifiedTime and LastModifiedRegion field to ListIntegrationAssociations so customers can see at what time and in which Region an IntegrationAssociation was last modified in. ([7dd0e1a](https://github.com/aws/aws-sdk-js-v3/commit/7dd0e1a9daaf2512f88bb4fcecd9c49e52bbdc99))
+* **client-ec2:** This release adds support for multiple features, including EC2 Image Builder image recipes and container recipes in AMI usage reports, Amazon EC2 Detailed Monitoring adds opt-in metrics, and Global Accelerator and API Gateway V2 as resource exclusions for VPC Encryption Control. ([83c2b64](https://github.com/aws/aws-sdk-js-v3/commit/83c2b64f7438f56a5b05a7c9a6fad8524158ff84))
+* **client-emr-containers:** This release updates range of maxInQueueDepth and maxConcurrency limit from 10000 to 1000. ([fde1fb8](https://github.com/aws/aws-sdk-js-v3/commit/fde1fb8dbbec717af198862fa704a013017fa564))
+* **client-gameliftstreams:** Adds support for ApplicationStartedAt on stream sessions, a timestamp that indicates when the application launched for the stream session, returned by GetStreamSession and StartStreamSession. Also added streamingStartedAt and streamingEndedAt. ([7335210](https://github.com/aws/aws-sdk-js-v3/commit/7335210ec441e1218e5a1a5778ebeadbdc31dcf4))
+* **client-guardduty:** Adds the ListInvestigationRecords API, which returns the step-by-step records of a completed investigation. Adds investigation scope details and an optional structured summary to GetInvestigation. Adds filter criteria and investigation type to ListInvestigations. ([1ca4d36](https://github.com/aws/aws-sdk-js-v3/commit/1ca4d367f80a811c4be73605b5dc447effa4f536))
+* **client-lightsail:** Amazon Lightsail now offers web addresses, so you can quickly make a website or application reachable at a name like mysite.amazonlightsail.com. A web address is free while attached to a Lightsail CDN, with no domain to register and no SSL TLS certificate to create or renew. ([5167ff4](https://github.com/aws/aws-sdk-js-v3/commit/5167ff42161b09f7d829fe7196b40d8e87e1f574))
+* **client-mediaconnect:** MediaConnect adds four features. (1) RTMP Push on Router Input and Flows (RTMP, RTMPS, eRTMP). (2) PID Remapping on Router rewrites PIDs inline without transcoding. (3) Key Frame Switching transitions router inputs on video boundaries. (4) SRT Merge Input bonds redundant SRT streams. ([1e737e2](https://github.com/aws/aws-sdk-js-v3/commit/1e737e2548705f0a1eb9d0fde19655b53b73ed71))
+* **client-medialive:** AWS Elemental MediaLive now adds a caption language setting for MediaPackage V2 output groups that signals a stream carries no closed captions. ([e27754f](https://github.com/aws/aws-sdk-js-v3/commit/e27754fe5659d9fc97735939b83feffc1c90d381))
+* **client-mediatailor:** Add post origin manifest hook, add HLS tag processor ([6a6ad19](https://github.com/aws/aws-sdk-js-v3/commit/6a6ad19d17129045333b6e32832ff784504e5cf3))
+* **client-mwaa-serverless:** Adds support for Airflow UI in MWAA Serverless ([472cba1](https://github.com/aws/aws-sdk-js-v3/commit/472cba1ea6bb0dca71fde6c932fd3a1aaef009c5))
+* **client-mwaa:** Amazon MWAA now supports Airflow environments with IAM Identity Center (IDC) integration and exposes OSS Airflow Multi-Team feature. Users can configure individual IDC-backed identities and fine-grained authorization, and define Dags on per-team basis. ([02de912](https://github.com/aws/aws-sdk-js-v3/commit/02de912d4c5c325962de5257c09874ab299e0f66))
+* **client-odb:** ODB now supports scaling for Exadata Dedicated offerings. Customers can scale database and storage servers on Exadata infrastructure, resize VM clusters and Autonomous VM clusters, and add or remove virtual machines in a VM cluster. ([579f79d](https://github.com/aws/aws-sdk-js-v3/commit/579f79d1c1ad68b0096728c28e6b9df3fe5c6f8d))
+* **client-route-53:** Amazon Route 53 now supports Record Set Protection, which blocks changes to protected records in a hosted zone. ([bcd25dd](https://github.com/aws/aws-sdk-js-v3/commit/bcd25ddb222c4fcc23819ed5b609bda4db355fdb))
+* **client-sagemaker:** Adds CreatedBy and LastModifiedBy to the DescribeHub and DescribeHubContent responses and to HubContent records returned by the Search API, identifying the IAM identity or SageMaker Studio user profile that created or last modified a hub or hub content. ([ffcce4d](https://github.com/aws/aws-sdk-js-v3/commit/ffcce4de2a0311a1080e3f134cbf16b2b0731e74))
+* **client-secrets-manager:** Adds support for cross-account replication with the new AssociateCrossAccountReplica, DisassociateCrossAccountReplica, and ListResourcePolicies APIs, CrossAccountPrimaryARN in CreateSecret, cross-account replication status in DescribeSecret, and PolicyName in the resource policy APIs. ([82a9837](https://github.com/aws/aws-sdk-js-v3/commit/82a9837ebb631c03018dd602985d03ce841ea0af))
+* **client-securityagent:** Adds support for cleanup strategy in CreatePentestInput and UpdatePentestInput. ([5aea897](https://github.com/aws/aws-sdk-js-v3/commit/5aea897acc81d0ded7beb89adf41deb679873674))
+* **client-sso-admin:** Adds support for Network Controls on IAM Identity Center instances. You can now require that access to your instance and AWS managed applications originate from VPC endpoints in your organization, and optionally narrow that perimeter to specific VPCs, IP ranges, or application exceptions. ([93d1163](https://github.com/aws/aws-sdk-js-v3/commit/93d1163542451740bffce2726aecd78d455d610c))
+
+
+
+
+
 # [3.1167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1166.0...v3.1167.0) (2026-11-11)
 
 

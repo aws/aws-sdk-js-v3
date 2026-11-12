@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1167.0...v3.1168.0) (2026-11-12)
+
+
+### Features
+
+* **client-odb:** ODB now supports scaling for Exadata Dedicated offerings. Customers can scale database and storage servers on Exadata infrastructure, resize VM clusters and Autonomous VM clusters, and add or remove virtual machines in a VM cluster. ([579f79d](https://github.com/aws/aws-sdk-js-v3/commit/579f79d1c1ad68b0096728c28e6b9df3fe5c6f8d))
+
+
+
+
+
 # [3.1167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1166.0...v3.1167.0) (2026-11-11)
 
 **Note:** Version bump only for package @aws-sdk/client-odb

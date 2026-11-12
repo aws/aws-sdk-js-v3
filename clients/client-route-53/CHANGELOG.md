@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1167.0...v3.1168.0) (2026-11-12)
+
+
+### Features
+
+* **client-route-53:** Amazon Route 53 now supports Record Set Protection, which blocks changes to protected records in a hosted zone. ([bcd25dd](https://github.com/aws/aws-sdk-js-v3/commit/bcd25ddb222c4fcc23819ed5b609bda4db355fdb))
+
+
+
+
+
 # [3.1167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1166.0...v3.1167.0) (2026-11-11)
 
 **Note:** Version bump only for package @aws-sdk/client-route-53
