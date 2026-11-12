@@ -6622,8 +6622,8 @@ export var InstanceSummary$: StaticStructureSchema = [3, n0, _ISns,
 ];
 export var IntegrationAssociationSummary$: StaticStructureSchema = [3, n0, _IAS,
   0,
-  [_IAI, _IAA, _II, _ITn, _IAnt, _SAU, _SAN, _STo],
-  [0, 0, 0, 0, 0, 0, 0, 0]
+  [_IAI, _IAA, _II, _ITn, _IAnt, _SAU, _SAN, _STo, _LMT, _LMR],
+  [0, 0, 0, 0, 0, 0, 0, 0, 4, 0]
 ];
 export var IntervalDetails$: StaticStructureSchema = [3, n0, _IDnt,
   0,

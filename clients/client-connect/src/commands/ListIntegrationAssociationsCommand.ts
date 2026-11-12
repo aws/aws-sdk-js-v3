@@ -52,6 +52,8 @@ export interface ListIntegrationAssociationsCommandOutput extends ListIntegratio
  * //       SourceApplicationUrl: "STRING_VALUE",
  * //       SourceApplicationName: "STRING_VALUE",
  * //       SourceType: "SALESFORCE" || "ZENDESK" || "CASES",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

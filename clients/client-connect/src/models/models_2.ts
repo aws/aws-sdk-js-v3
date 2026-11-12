@@ -8172,6 +8172,18 @@ export interface IntegrationAssociationSummary {
    * @public
    */
   SourceType?: SourceType | undefined;
+
+  /**
+   * <p>The timestamp when the integration association was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the integration association was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
 }
 
 /**

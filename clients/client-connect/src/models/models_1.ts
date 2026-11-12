@@ -706,7 +706,8 @@ export interface UserPhoneConfig {
 
   /**
    * <p>The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum
-   *    value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It
+   *    value of 2,000,000 seconds (24 days). For the CHAT channel, the maximum for a specific duration is 5,400 seconds (90 minutes); higher values end ACW after 90 minutes.
+   *    For all channels, including chat, you can enter 0 if you don't want to allocate a specific amount of ACW time. It
    *    essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close
    *    contact to end ACW. </p>
    *          <note>
