@@ -19,7 +19,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "__member__"
   ],
   "S3StorageConfig": {},
-  "FailureReason": "__FailureReason__"
+  "FailureReason": "__FailureReason__",
+  "CreatedBy": {},
+  "LastModifiedBy": {}
 }
 
 
@@ -39,6 +41,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ],
   S3StorageConfig: {},
   FailureReason: "__FailureReason__",
+  CreatedBy: {},
+  LastModifiedBy: {},
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
@@ -72,7 +76,27 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "S3StorageConfig": {
     "S3OutputPath": "__S3OutputPath__"
   },
-  "FailureReason": "__FailureReason__"
+  "FailureReason": "__FailureReason__",
+  "CreatedBy": {
+    "UserProfileArn": "__UserProfileArn__",
+    "UserProfileName": "__UserProfileName__",
+    "DomainId": "__DomainId__",
+    "IamIdentity": {
+      "Arn": "__Arn__",
+      "PrincipalId": "__PrincipalId__",
+      "SourceIdentity": "__SourceIdentity__"
+    }
+  },
+  "LastModifiedBy": {
+    "UserProfileArn": "__UserProfileArn__",
+    "UserProfileName": "__UserProfileName__",
+    "DomainId": "__DomainId__",
+    "IamIdentity": {
+      "Arn": "__Arn__",
+      "PrincipalId": "__PrincipalId__",
+      "SourceIdentity": "__SourceIdentity__"
+    }
+  }
 }
 
 
@@ -94,6 +118,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     S3OutputPath: "__S3OutputPath__"
   },
   FailureReason: "__FailureReason__",
+  CreatedBy: {
+    UserProfileArn: "__UserProfileArn__",
+    UserProfileName: "__UserProfileName__",
+    DomainId: "__DomainId__",
+    IamIdentity: {
+      Arn: "__Arn__",
+      PrincipalId: "__PrincipalId__",
+      SourceIdentity: "__SourceIdentity__"
+    }
+  },
+  LastModifiedBy: {
+    UserProfileArn: "__UserProfileArn__",
+    UserProfileName: "__UserProfileName__",
+    DomainId: "__DomainId__",
+    IamIdentity: {
+      Arn: "__Arn__",
+      PrincipalId: "__PrincipalId__",
+      SourceIdentity: "__SourceIdentity__"
+    }
+  },
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

@@ -5552,7 +5552,7 @@ export interface ListPipelinesRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>Filters the pipelines by who manages them. Specify <code>AWS</code> to return pipelines that AWS manages, or <code>CUSTOMER</code> to return pipelines that you created. If you don't specify a value, the response includes both.</p>
+   * <p>Filters the pipelines by who manages them. Specify <code>AWS</code> to return pipelines that Amazon Web Services manages, or <code>CUSTOMER</code> to return pipelines that you created. If you don't specify a value, the response includes both.</p>
    * @public
    */
   ManagedBy?: PipelineManagedBy | undefined;
@@ -10549,7 +10549,7 @@ export interface StartPipelineExecutionRequest {
   PipelineVersionAlias?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the execution uses. You must specify this parameter when you start an execution of a pipeline that AWS manages. You can't specify it for a pipeline that you create, because its executions use the pipeline's role.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the execution uses. You must specify this parameter when you start an execution of a pipeline that Amazon Web Services manages. You can't specify it for a pipeline that you create, because its executions use the pipeline's role.</p>
    * @public
    */
   RoleArn?: string | undefined;

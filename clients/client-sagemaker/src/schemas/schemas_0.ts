@@ -6721,8 +6721,8 @@ export var DescribeHubContentRequest$: StaticStructureSchema = [3, n0, _DHCRe,
 ];
 export var DescribeHubContentResponse$: StaticStructureSchema = [3, n0, _DHCRes,
   0,
-  [_HCN, _HCA, _HCV, _HCT, _DSV, _HN, _HA, _HCD, _HCS, _CT, _HCDN, _HCDu, _HCM, _SMPHCA, _RMV, _SSu, _HCSK, _HCDub, _FR, _LMT],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 64 | 0, () => HubContentDependencyList, 0, 4], 10
+  [_HCN, _HCA, _HCV, _HCT, _DSV, _HN, _HA, _HCD, _HCS, _CT, _HCDN, _HCDu, _HCM, _SMPHCA, _RMV, _SSu, _HCSK, _HCDub, _FR, _LMT, _CB, _LMB],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 64 | 0, () => HubContentDependencyList, 0, 4, () => UserContext$, () => UserContext$], 10
 ];
 export var DescribeHubRequest$: StaticStructureSchema = [3, n0, _DHRe,
   0,
@@ -6731,8 +6731,8 @@ export var DescribeHubRequest$: StaticStructureSchema = [3, n0, _DHRe,
 ];
 export var DescribeHubResponse$: StaticStructureSchema = [3, n0, _DHRes,
   0,
-  [_HN, _HA, _HS, _CT, _LMT, _HDN, _HD, _HSK, _SSC, _FR],
-  [0, 0, 0, 4, 4, 0, 0, 64 | 0, () => HubS3StorageConfig$, 0], 5
+  [_HN, _HA, _HS, _CT, _LMT, _HDN, _HD, _HSK, _SSC, _FR, _CB, _LMB],
+  [0, 0, 0, 4, 4, 0, 0, 64 | 0, () => HubS3StorageConfig$, 0, () => UserContext$, () => UserContext$], 5
 ];
 export var DescribeHumanTaskUiRequest$: StaticStructureSchema = [3, n0, _DHTURes,
   0,
@@ -7741,8 +7741,8 @@ export var HubAccessConfig$: StaticStructureSchema = [3, n0, _HAC,
 ];
 export var HubContent$: StaticStructureSchema = [3, n0, _HC,
   0,
-  [_HCN, _HCA, _HCV, _HCT, _DSV, _HN, _HA, _HCS, _CT, _HCDN, _HCDu, _HCM, _HCD, _SMPHCA, _RMV, _SSu, _HCSK, _HCDub, _FR, _LMT, _Ta],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 64 | 0, () => HubContentDependencyList, 0, 4, () => TagList], 9
+  [_HCN, _HCA, _HCV, _HCT, _DSV, _HN, _HA, _HCS, _CT, _HCDN, _HCDu, _HCM, _HCD, _SMPHCA, _RMV, _SSu, _HCSK, _HCDub, _FR, _LMT, _CB, _LMB, _Ta],
+  [0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 64 | 0, () => HubContentDependencyList, 0, 4, () => UserContext$, () => UserContext$, () => TagList], 9
 ];
 export var HubContentDependency$: StaticStructureSchema = [3, n0, _HCDubo,
   0,

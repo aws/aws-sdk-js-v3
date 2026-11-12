@@ -2412,6 +2412,8 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         FailureReason: "STRING_VALUE",
  * //         CreationTime: new Date("TIMESTAMP"), // required
  * //         LastModifiedTime: new Date("TIMESTAMP"),
+ * //         CreatedBy: "<UserContext>",
+ * //         LastModifiedBy: "<UserContext>",
  * //         Tags: "<TagList>",
  * //       },
  * //     },

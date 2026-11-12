@@ -1283,6 +1283,18 @@ export interface DescribeHubResponse {
    * @public
    */
   LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>Information about the user who created the hub.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>Information about the user who last modified the hub.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
 }
 
 /**
@@ -1455,6 +1467,18 @@ export interface DescribeHubContentResponse {
    * @public
    */
   LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created the hub content.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>Information about the user who last modified the hub content.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
 }
 
 /**
@@ -5281,7 +5305,7 @@ export interface DescribePipelineExecutionResponse {
   PipelineVersionAliases?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the execution uses. SageMaker returns this value only for executions of pipelines that AWS manages.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the execution uses. SageMaker returns this value only for executions of pipelines that Amazon Web Services manages.</p>
    * @public
    */
   RoleArn?: string | undefined;
@@ -9709,6 +9733,18 @@ export interface HubContent {
    * @public
    */
   LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created the hub content.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>Information about the user who last modified the hub content.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
 
   /**
    * <p>Any tags associated with the hub content.</p>

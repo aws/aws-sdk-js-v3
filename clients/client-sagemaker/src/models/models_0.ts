@@ -3029,7 +3029,7 @@ export interface UserContext {
   DomainId?: string | undefined;
 
   /**
-   * <p>The IAM Identity details associated with the user. These details are associated with model package groups, model packages, and project entities only.</p>
+   * <p>The IAM Identity details associated with the user. These details are associated with model package groups, model packages, project entities, hubs, and hub content only.</p>
    * @public
    */
   IamIdentity?: IamIdentity | undefined;

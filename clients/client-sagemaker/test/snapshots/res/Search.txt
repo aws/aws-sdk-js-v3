@@ -8501,6 +8501,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ],
         "FailureReason": "__FailureReason__",
         "LastModifiedTime": 946702799.999,
+        "CreatedBy": {
+          "UserProfileArn": "__UserProfileArn__",
+          "UserProfileName": "__UserProfileName__",
+          "DomainId": "__DomainId__",
+          "IamIdentity": {
+            "Arn": "__Arn__",
+            "PrincipalId": "__PrincipalId__",
+            "SourceIdentity": "__SourceIdentity__"
+          }
+        },
+        "LastModifiedBy": {
+          "UserProfileArn": "__UserProfileArn__",
+          "UserProfileName": "__UserProfileName__",
+          "DomainId": "__DomainId__",
+          "IamIdentity": {
+            "Arn": "__Arn__",
+            "PrincipalId": "__PrincipalId__",
+            "SourceIdentity": "__SourceIdentity__"
+          }
+        },
         "Tags": [
           {
             "Key": "__Key__",
@@ -16989,6 +17009,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ],
         "FailureReason": "__FailureReason__",
         "LastModifiedTime": 946702799.999,
+        "CreatedBy": {
+          "UserProfileArn": "__UserProfileArn__",
+          "UserProfileName": "__UserProfileName__",
+          "DomainId": "__DomainId__",
+          "IamIdentity": {
+            "Arn": "__Arn__",
+            "PrincipalId": "__PrincipalId__",
+            "SourceIdentity": "__SourceIdentity__"
+          }
+        },
+        "LastModifiedBy": {
+          "UserProfileArn": "__UserProfileArn__",
+          "UserProfileName": "__UserProfileName__",
+          "DomainId": "__DomainId__",
+          "IamIdentity": {
+            "Arn": "__Arn__",
+            "PrincipalId": "__PrincipalId__",
+            "SourceIdentity": "__SourceIdentity__"
+          }
+        },
         "Tags": [
           {
             "Key": "__Key__",
@@ -25477,6 +25517,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ],
         "FailureReason": "__FailureReason__",
         "LastModifiedTime": 946702799.999,
+        "CreatedBy": {
+          "UserProfileArn": "__UserProfileArn__",
+          "UserProfileName": "__UserProfileName__",
+          "DomainId": "__DomainId__",
+          "IamIdentity": {
+            "Arn": "__Arn__",
+            "PrincipalId": "__PrincipalId__",
+            "SourceIdentity": "__SourceIdentity__"
+          }
+        },
+        "LastModifiedBy": {
+          "UserProfileArn": "__UserProfileArn__",
+          "UserProfileName": "__UserProfileName__",
+          "DomainId": "__DomainId__",
+          "IamIdentity": {
+            "Arn": "__Arn__",
+            "PrincipalId": "__PrincipalId__",
+            "SourceIdentity": "__SourceIdentity__"
+          }
+        },
         "Tags": [
           {
             "Key": "__Key__",
@@ -33977,6 +34037,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ],
         FailureReason: "__FailureReason__",
         LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        CreatedBy: {
+          UserProfileArn: "__UserProfileArn__",
+          UserProfileName: "__UserProfileName__",
+          DomainId: "__DomainId__",
+          IamIdentity: {
+            Arn: "__Arn__",
+            PrincipalId: "__PrincipalId__",
+            SourceIdentity: "__SourceIdentity__"
+          }
+        },
+        LastModifiedBy: {
+          UserProfileArn: "__UserProfileArn__",
+          UserProfileName: "__UserProfileName__",
+          DomainId: "__DomainId__",
+          IamIdentity: {
+            Arn: "__Arn__",
+            PrincipalId: "__PrincipalId__",
+            SourceIdentity: "__SourceIdentity__"
+          }
+        },
         Tags: [
           {
             Key: "__Key__",
@@ -42465,6 +42545,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ],
         FailureReason: "__FailureReason__",
         LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        CreatedBy: {
+          UserProfileArn: "__UserProfileArn__",
+          UserProfileName: "__UserProfileName__",
+          DomainId: "__DomainId__",
+          IamIdentity: {
+            Arn: "__Arn__",
+            PrincipalId: "__PrincipalId__",
+            SourceIdentity: "__SourceIdentity__"
+          }
+        },
+        LastModifiedBy: {
+          UserProfileArn: "__UserProfileArn__",
+          UserProfileName: "__UserProfileName__",
+          DomainId: "__DomainId__",
+          IamIdentity: {
+            Arn: "__Arn__",
+            PrincipalId: "__PrincipalId__",
+            SourceIdentity: "__SourceIdentity__"
+          }
+        },
         Tags: [
           {
             Key: "__Key__",
@@ -50953,6 +51053,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ],
         FailureReason: "__FailureReason__",
         LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        CreatedBy: {
+          UserProfileArn: "__UserProfileArn__",
+          UserProfileName: "__UserProfileName__",
+          DomainId: "__DomainId__",
+          IamIdentity: {
+            Arn: "__Arn__",
+            PrincipalId: "__PrincipalId__",
+            SourceIdentity: "__SourceIdentity__"
+          }
+        },
+        LastModifiedBy: {
+          UserProfileArn: "__UserProfileArn__",
+          UserProfileName: "__UserProfileName__",
+          DomainId: "__DomainId__",
+          IamIdentity: {
+            Arn: "__Arn__",
+            PrincipalId: "__PrincipalId__",
+            SourceIdentity: "__SourceIdentity__"
+          }
+        },
         Tags: [
           {
             Key: "__Key__",

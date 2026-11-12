@@ -52,6 +52,26 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  * //   FailureReason: "STRING_VALUE",
  * //   CreationTime: new Date("TIMESTAMP"), // required
  * //   LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //   CreatedBy: { // UserContext
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: { // IamIdentity
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   LastModifiedBy: {
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: {
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
  * // };
  *
  * ```
