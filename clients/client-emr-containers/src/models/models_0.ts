@@ -690,8 +690,7 @@ export interface CreateSecurityConfigurationResponse {
 
 /**
  * <p>The scheduler configuration for a virtual cluster on Amazon EMR on EKS. It controls how
- *          many job runs can run concurrently and how many can wait in the queue. When not set, no
- *          concurrency or queue limits are applied.</p>
+ *          many job runs can run concurrently and how many can wait in the queue. If you omit this configuration, the service applies a default limit of 1,000 concurrent job runs and does not limit queue depth.</p>
  * @public
  */
 export interface SchedulerConfiguration {
@@ -706,8 +705,7 @@ export interface SchedulerConfiguration {
 
   /**
    * <p>The maximum number of job runs that can be in the <code>RUNNING</code> state at any time
-   *          for the virtual cluster. As running slots free up, queued job runs start automatically. If
-   *          you omit this field, the service applies no concurrency limit.</p>
+   *          for the virtual cluster. As running slots free up, queued job runs start automatically. If you omit this field, the service applies a default limit of 1,000 concurrent job runs to the virtual cluster.</p>
    * @public
    */
   maxConcurrentJobRuns?: number | undefined;
@@ -755,7 +753,8 @@ export interface CreateVirtualClusterRequest {
 
   /**
    * <p>The scheduler configuration (concurrency and queue limits) to apply to the virtual
-   *          cluster at creation time. When omitted, no limits are applied.</p>
+   *          cluster at creation time. If you omit this field, the service applies a default limit of
+   * 	         1,000 concurrent job runs and does not limit queue depth.</p>
    * @public
    */
   schedulerConfiguration?: SchedulerConfiguration | undefined;
@@ -1632,7 +1631,9 @@ export interface UpdateVirtualClusterRequest {
 
   /**
    * <p>The scheduler configuration to apply to the virtual cluster. The new configuration fully
-   *          replaces the existing one. If you omit a field, the corresponding limit is removed.</p>
+   *          replaces the existing one. If you omit <code>maxInQueueJobRuns</code>, the service removes
+   * 	         the queue-depth limit. If you omit <code>maxConcurrentJobRuns</code>, the service applies
+   * 	         the default limit of 1,000 concurrent job runs.</p>
    * @public
    */
   schedulerConfiguration?: SchedulerConfiguration | undefined;
