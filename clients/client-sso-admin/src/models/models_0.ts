@@ -2055,6 +2055,36 @@ export interface EncryptionConfigurationDetails {
 }
 
 /**
+ * <p>The network access controls for your Identity Center instance. These controls restrict which networks can reach your instance and applications.</p>
+ * @public
+ */
+export interface NetworkConfigurationInfo {
+  /**
+   * <p>Specifies whether access to your Identity Center instance and to applications must originate from a VPC endpoint. When this value is <code>true</code> and no other field is specified, access is allowed from any VPC in your organization, or from any VPC in the Amazon Web Services account for an account instance, and applies to all applications. When this value is <code>false</code>, no network access control is enforced and the values of <code>RestrictSourceVpcs</code>, <code>AllowSourceIps</code>, and <code>ExcludeApplicationArns</code> are cleared.</p>
+   * @public
+   */
+  VpceAccessRequired: boolean | undefined;
+
+  /**
+   * <p>Limits access to the VPC endpoints in the VPCs that you specify. These VPCs must be in your organization, or in the Amazon Web Services account for an account instance. If you don't specify this value, access is allowed from any VPC in your organization or Amazon Web Services account.</p>
+   * @public
+   */
+  RestrictSourceVpcs?: string[] | undefined;
+
+  /**
+   * <p>Allows access from the IPv4 or IPv6 CIDR blocks that you specify, in addition to the VPCs allowed by <code>RestrictSourceVpcs</code>. If you don't specify this value, no additional IP address ranges are allowed.</p>
+   * @public
+   */
+  AllowSourceIps?: string[] | undefined;
+
+  /**
+   * <p>Exempts the applications that you specify from the network access control, so that access to them is unchanged. You can specify both Amazon Web Services managed applications and customer managed applications, and you can use wildcards. These applications are not restricted by <code>RestrictSourceVpcs</code> or <code>AllowSourceIps</code>. If you don't specify this value, the controls apply to all applications.</p>
+   * @public
+   */
+  ExcludeApplicationArns?: string[] | undefined;
+}
+
+/**
  * <p>Contains information about an enabled Region of an IAM Identity Center instance, including the Region name, status, date added, and whether it is the primary Region.</p>
  * @public
  */
@@ -2153,6 +2183,12 @@ export interface DescribeInstanceResponse {
    * @public
    */
   EncryptionConfigurationDetails?: EncryptionConfigurationDetails | undefined;
+
+  /**
+   * <p>The network access controls configured for your Identity Center instance, including whether VPC endpoint access is required, and any VPC, IP address range, or application controls applied to instance traffic. Present only after a network configuration has been set on the instance.</p>
+   * @public
+   */
+  NetworkConfigurationDetails?: NetworkConfigurationInfo | undefined;
 
   /**
    * <p>Indicates whether permission sets are enabled for this Identity Center instance.</p>
@@ -3878,16 +3914,22 @@ export interface UpdateInstanceRequest {
   InstanceArn: string | undefined;
 
   /**
-   * <p>Specifies the encryption configuration for your IAM Identity Center instance. You can use this to configure customer managed KMS keys or Amazon Web Services owned KMS keys for encrypting your instance data.</p>
+   * <p>Specifies the encryption configuration for your IAM Identity Center instance. You can use this to configure customer managed KMS keys or Amazon Web Services owned KMS keys for encrypting your instance data.</p> <note> <p>You can't set more than one of <code>EncryptionConfiguration</code>, <code>PermissionSetsEnabled</code>, and <code>NetworkConfiguration</code> in the same request. To configure more than one of them, make a separate <code>UpdateInstance</code> call for each. These calls can be made in parallel.</p> </note>
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>Enables permission sets for this Identity Center instance. The only accepted value is <code>true </code>. After permission sets are enabled, they cannot be disabled.</p> <note> <p>You can't set <code>EncryptionConfiguration</code> and <code>PermissionSetsEnabled</code> in the same request. To configure both, make two separate <code>UpdateInstance</code> calls. You can make these calls in parallel.</p> </note>
+   * <p>Enables permission sets for this Identity Center instance. The only accepted value is <code>true </code>. After permission sets are enabled, they cannot be disabled.</p>
    * @public
    */
   PermissionSetsEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies the network access controls for your Identity Center instance. Use this to require that access to your instance and to applications originates from VPC endpoints, and to optionally restrict which VPCs are permitted, allow specific IP address ranges that bypass the VPC endpoint requirement, or exempt specific applications from the controls.</p> <p>If you omit <code>NetworkConfiguration</code>, the stored network configuration is preserved. If you specify <code>NetworkConfiguration</code>, it replaces the stored network configuration in its entirety. Any list that you omit from the object, or include as an empty list, is cleared.</p>
+   * @public
+   */
+  NetworkConfiguration?: NetworkConfigurationInfo | undefined;
 }
 
 /**

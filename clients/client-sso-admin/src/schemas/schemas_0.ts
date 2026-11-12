@@ -54,6 +54,7 @@ const _AR = "AssignmentRequired";
 const _ARR = "AddRegionRequest";
 const _ARRd = "AddRegionResponse";
 const _ARd = "AddRegion";
+const _ASI = "AllowSourceIps";
 const _AT = "AuthorizedTargets";
 const _ATI = "AuthorizedTokenIssuer";
 const _ATIu = "AuthorizedTokenIssuers";
@@ -165,6 +166,7 @@ const _DTTIRe = "DeleteTrustedTokenIssuerResponse";
 const _DTTIRes = "DescribeTrustedTokenIssuerRequest";
 const _DTTIResc = "DescribeTrustedTokenIssuerResponse";
 const _DTTIe = "DescribeTrustedTokenIssuer";
+const _EAA = "ExcludeApplicationArns";
 const _EC = "EncryptionConfiguration";
 const _ECD = "EncryptionConfigurationDetails";
 const _ES = "EncryptionStatus";
@@ -289,6 +291,9 @@ const _M = "Message";
 const _MPA = "ManagedPolicyArn";
 const _MR = "MaxResults";
 const _N = "Name";
+const _NC = "NetworkConfiguration";
+const _NCD = "NetworkConfigurationDetails";
+const _NCI = "NetworkConfigurationInfo";
 const _NT = "NextToken";
 const _O = "Origin";
 const _OAI = "OwnerAccountId";
@@ -346,6 +351,7 @@ const _RS = "RelayState";
 const _RSC = "ResourceServerConfig";
 const _RSS = "ResourceServerScopes";
 const _RSSD = "ResourceServerScopeDetails";
+const _RSV = "RestrictSourceVpcs";
 const _RSe = "RegionScope";
 const _RT = "RefreshToken";
 const _RTG = "RefreshTokenGrant";
@@ -400,6 +406,7 @@ const _UTTI = "UpdateTrustedTokenIssuer";
 const _UTTIR = "UpdateTrustedTokenIssuerRequest";
 const _UTTIRp = "UpdateTrustedTokenIssuerResponse";
 const _V = "Value";
+const _VAR = "VpceAccessRequired";
 const _VE = "ValidationException";
 const _Vi = "Visibility";
 const _c = "client";
@@ -834,8 +841,8 @@ export var DescribeInstanceRequest$: StaticStructureSchema = [3, n0, _DIRes,
 ];
 export var DescribeInstanceResponse$: StaticStructureSchema = [3, n0, _DIResc,
   0,
-  [_IA, _ISI, _ISA, _OAI, _N, _CD, _St, _SR, _PR, _Re, _ECD, _PSE],
-  [0, 0, 0, 0, 0, 4, 0, 0, 0, () => RegionMetadataList, () => EncryptionConfigurationDetails$, 2]
+  [_IA, _ISI, _ISA, _OAI, _N, _CD, _St, _SR, _PR, _Re, _ECD, _NCD, _PSE],
+  [0, 0, 0, 0, 0, 4, 0, 0, 0, () => RegionMetadataList, () => EncryptionConfigurationDetails$, () => NetworkConfigurationInfo$, 2]
 ];
 export var DescribePermissionSetProvisioningStatusRequest$: StaticStructureSchema = [3, n0, _DPSPSR,
   0,
@@ -1232,6 +1239,11 @@ export var ListTrustedTokenIssuersResponse$: StaticStructureSchema = [3, n0, _LT
   [_TTI, _NT],
   [() => TrustedTokenIssuerList, 0]
 ];
+export var NetworkConfigurationInfo$: StaticStructureSchema = [3, n0, _NCI,
+  0,
+  [_VAR, _RSV, _ASI, _EAA],
+  [2, 64 | 0, 64 | 0, 64 | 0], 1
+];
 export var OidcJwtConfiguration$: StaticStructureSchema = [3, n0, _OJC,
   0,
   [_IUs, _CAP, _ISAP, _JRO],
@@ -1439,8 +1451,8 @@ export var UpdateInstanceAccessControlAttributeConfigurationResponse$: StaticStr
 ];
 export var UpdateInstanceRequest$: StaticStructureSchema = [3, n0, _UIR,
   0,
-  [_IA, _N, _EC, _PSE],
-  [0, 0, () => EncryptionConfiguration$, 2], 1
+  [_IA, _N, _EC, _PSE, _NC],
+  [0, 0, () => EncryptionConfiguration$, 2, () => NetworkConfigurationInfo$], 1
 ];
 export var UpdateInstanceResponse$: StaticStructureSchema = [3, n0, _UIRp,
   0,
@@ -1482,6 +1494,7 @@ var AccountAssignmentOperationStatusList: StaticListSchema = [1, n0, _AAOSL,
   0, () => AccountAssignmentOperationStatusMetadata$
 ];
 var AccountList = 64 | 0;
+var ApplicationArnList = 64 | 0;
 var ApplicationAssignmentListForPrincipal: StaticListSchema = [1, n0, _AALFPp,
   0, () => ApplicationAssignmentForPrincipal$
 ];
@@ -1512,6 +1525,7 @@ var Grants: StaticListSchema = [1, n0, _Gr,
 var InstanceList: StaticListSchema = [1, n0, _IL,
   0, () => InstanceMetadata$
 ];
+var IpCidrList = 64 | 0;
 var PermissionSetList = 64 | 0;
 var PermissionSetProvisioningStatusList: StaticListSchema = [1, n0, _PSPSL,
   0, () => PermissionSetProvisioningStatusMetadata$
@@ -1532,6 +1546,7 @@ var TokenIssuerAudiences = 64 | 0;
 var TrustedTokenIssuerList: StaticListSchema = [1, n0, _TTIL,
   0, () => TrustedTokenIssuerMetadata$
 ];
+var VpcArnList = 64 | 0;
 var ResourceServerScopes: StaticMapSchema = [2, n0, _RSS,
   0, 0, () => ResourceServerScopeDetails$
 ];

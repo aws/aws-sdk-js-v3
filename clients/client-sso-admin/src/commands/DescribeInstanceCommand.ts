@@ -61,6 +61,18 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * //     EncryptionStatus: "UPDATING" || "ENABLED" || "UPDATE_FAILED",
  * //     EncryptionStatusReason: "STRING_VALUE",
  * //   },
+ * //   NetworkConfigurationDetails: { // NetworkConfigurationInfo
+ * //     VpceAccessRequired: true || false, // required
+ * //     RestrictSourceVpcs: [ // VpcArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AllowSourceIps: [ // IpCidrList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ExcludeApplicationArns: [ // ApplicationArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * //   PermissionSetsEnabled: true || false,
  * // };
  *

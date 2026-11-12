@@ -23,7 +23,7 @@ export interface UpdateInstanceCommandInput extends UpdateInstanceRequest {}
 export interface UpdateInstanceCommandOutput extends UpdateInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Update the details for the instance of IAM Identity Center that is owned by the Amazon Web Services account.</p> <p>In a single <code>UpdateInstance</code> request, you can perform only one of the following operations:</p> <ul> <li> <p>Update the encryption configuration of the instance by specifying <code>EncryptionConfiguration</code>.</p> </li> <li> <p>Enable permission sets for the instance by specifying <code>PermissionSetsEnabled</code>.</p> </li> </ul> <p>If you specify both <code>EncryptionConfiguration</code> and <code>PermissionSetsEnabled</code> in a request, the request returns a <code>ValidationException</code>. To perform both operations, call <code>UpdateInstance</code> separately for each. You can make the two calls in parallel.</p>
+ * <p>Update the details for the instance of IAM Identity Center that is owned by the Amazon Web Services account.</p> <p>In a single <code>UpdateInstance</code> request, you can perform only one of the following operations:</p> <ul> <li> <p>Update the encryption configuration of the instance by specifying <code>EncryptionConfiguration</code>.</p> </li> <li> <p>Enable permission sets for the instance by specifying <code>PermissionSetsEnabled</code>.</p> </li> <li> <p>Update the network configuration of the instance by specifying <code>NetworkConfiguration</code>.</p> </li> </ul> <p>A request that specifies more than one of <code>EncryptionConfiguration</code>, <code>PermissionSetsEnabled</code>, and <code>NetworkConfiguration</code> returns a <code>ValidationException</code>. To perform more than one of these operations, call <code>UpdateInstance</code> separately for each. The calls can be made in parallel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,6 +40,18 @@ export interface UpdateInstanceCommandOutput extends UpdateInstanceResponse, __M
  *     KmsKeyArn: "STRING_VALUE",
  *   },
  *   PermissionSetsEnabled: true || false,
+ *   NetworkConfiguration: { // NetworkConfigurationInfo
+ *     VpceAccessRequired: true || false, // required
+ *     RestrictSourceVpcs: [ // VpcArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowSourceIps: [ // IpCidrList
+ *       "STRING_VALUE",
+ *     ],
+ *     ExcludeApplicationArns: [ // ApplicationArnList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new UpdateInstanceCommand(input);
  * const response = await client.send(command);

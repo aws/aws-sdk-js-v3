@@ -414,6 +414,7 @@ export type {
   ListTagsForResourceResponse,
   ListTrustedTokenIssuersRequest,
   ListTrustedTokenIssuersResponse,
+  NetworkConfigurationInfo,
   OidcJwtConfiguration,
   OidcJwtUpdateConfiguration,
   OperationStatusFilter,

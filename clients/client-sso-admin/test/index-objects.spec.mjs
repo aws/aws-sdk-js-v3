@@ -293,6 +293,7 @@ import {
   ListTrustedTokenIssuersCommand,
   ListTrustedTokenIssuersRequest$,
   ListTrustedTokenIssuersResponse$,
+  NetworkConfigurationInfo$,
   OidcJwtConfiguration$,
   OidcJwtUpdateConfiguration$,
   OperationStatusFilter$,
@@ -735,6 +736,7 @@ assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListTrustedTokenIssuersRequest$ === "object");
 assert(typeof ListTrustedTokenIssuersResponse$ === "object");
+assert(typeof NetworkConfigurationInfo$ === "object");
 assert(typeof OidcJwtConfiguration$ === "object");
 assert(typeof OidcJwtUpdateConfiguration$ === "object");
 assert(typeof OperationStatusFilter$ === "object");
