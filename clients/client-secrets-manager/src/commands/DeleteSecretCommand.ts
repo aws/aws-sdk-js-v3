@@ -31,6 +31,12 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  *          <p>You can't delete a primary secret that is replicated to other Regions. You must first
  *             delete the replicas using <a>RemoveRegionsFromReplication</a>, and then
  *             delete the primary secret. When you delete a replica, it is deleted immediately.</p>
+ *          <p>You can't delete a cross-account primary secret that is associated with a
+ *             cross-account replica secret. You must first disassociate each of the replicas using
+ *             <a>DisassociateCrossAccountReplica</a>, before deleting the primary secret.
+ *             Similarly, you can't delete a cross-account replica secret without first stopping
+ *             replication. Call <a>StopReplicationToReplica</a> to stop replication, and
+ *             then you can delete the secret.</p>
  *          <p>You can't directly delete a version of a secret. Instead, you remove all staging
  *             labels from the version using <a>UpdateSecretVersionStage</a>. This marks the
  *             version as deprecated, and then Secrets Manager can automatically delete the version in the

@@ -27,6 +27,13 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  *             versions of a secret. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version"> Secrets Manager
  *                 concepts: Versions</a>.</p>
  *          <p>To list the secrets in the account, use <a>ListSecrets</a>.</p>
+ *          <note>
+ *             <p>
+ *                <code>ListSecretVersionIds</code> only returns versions that contain a secret
+ *                 value. To see all version IDs that have staging labels attached, including ones
+ *                 without a secret value, call <code>DescribeSecret</code> and check
+ *                     <code>VersionIdsToStages</code>.</p>
+ *          </note>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions:

@@ -30,7 +30,7 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  *                 <code>AWSPENDING</code> from the partially created version. You also need to
  *             determine whether to roll back to the previous version of the secret by moving the
  *             staging label <code>AWSCURRENT</code> to the version that has <code>AWSPENDING</code>.
- *             To determine which version has a specific staging label, call <a>ListSecretVersionIds</a>. Then use <a>UpdateSecretVersionStage</a> to change staging labels. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">How rotation
+ *             To determine which version has a specific staging label, call <a>DescribeSecret</a>. Then use <a>UpdateSecretVersionStage</a> to change staging labels. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">How rotation
  *                 works</a>.</p>
  *          <p>To turn on automatic rotation again, call <a>RotateSecret</a>.</p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>

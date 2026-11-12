@@ -1,4 +1,7 @@
 const _AAD = "AutomaticallyAfterDays";
+const _ACAR = "AssociateCrossAccountReplica";
+const _ACARR = "AssociateCrossAccountReplicaRequest";
+const _ACARRs = "AssociateCrossAccountReplicaResponse";
 const _APIELT = "APIErrorListType";
 const _APIET = "APIErrorType";
 const _ARN = "ARN";
@@ -8,6 +11,13 @@ const _BGSV = "BatchGetSecretValue";
 const _BGSVR = "BatchGetSecretValueRequest";
 const _BGSVRa = "BatchGetSecretValueResponse";
 const _BPP = "BlockPublicPolicy";
+const _CAP = "CrossAccountPrimary";
+const _CAPARN = "CrossAccountPrimaryARN";
+const _CAPT = "CrossAccountPrimaryType";
+const _CAR = "CrossAccountReplicas";
+const _CARARN = "CrossAccountReplicaARN";
+const _CARE = "CrossAccountReplicaEntry";
+const _CARLT = "CrossAccountReplicaListType";
 const _CD = "CreatedDate";
 const _CN = "CheckName";
 const _CRS = "CancelRotateSecret";
@@ -18,6 +28,9 @@ const _CS = "CreateSecret";
 const _CSR = "CreateSecretRequest";
 const _CSRr = "CreateSecretResponse";
 const _D = "Description";
+const _DCAR = "DisassociateCrossAccountReplica";
+const _DCARR = "DisassociateCrossAccountReplicaRequest";
+const _DCARRi = "DisassociateCrossAccountReplicaResponse";
 const _DD = "DeletionDate";
 const _DDe = "DeletedDate";
 const _DF = "DecryptionFailure";
@@ -72,6 +85,9 @@ const _LAD = "LastAccessedDate";
 const _LCD = "LastChangedDate";
 const _LEE = "LimitExceededException";
 const _LRD = "LastRotatedDate";
+const _LRP = "ListResourcePolicies";
+const _LRPR = "ListResourcePoliciesRequest";
+const _LRPRi = "ListResourcePoliciesResponse";
 const _LS = "ListSecrets";
 const _LSR = "ListSecretsRequest";
 const _LSRi = "ListSecretsResponse";
@@ -87,12 +103,14 @@ const _NRD = "NextRotationDate";
 const _NT = "NextToken";
 const _OS = "OwningService";
 const _PL = "PasswordLength";
+const _PN = "PolicyName";
 const _PNME = "PreconditionNotMetException";
 const _PPE = "PublicPolicyException";
 const _PR = "PrimaryRegion";
 const _PRP = "PutResourcePolicy";
 const _PRPR = "PutResourcePolicyRequest";
 const _PRPRu = "PutResourcePolicyResponse";
+const _PSARN = "PrimarySecretARN";
 const _PSV = "PutSecretValue";
 const _PSVR = "PutSecretValueRequest";
 const _PSVRu = "PutSecretValueResponse";
@@ -106,16 +124,22 @@ const _RI = "RotateImmediately";
 const _RLARN = "RotationLambdaARN";
 const _RNFE = "ResourceNotFoundException";
 const _RP = "RandomPassword";
+const _RPS = "ResourcePolicySummary";
+const _RPSLT = "ResourcePolicySummaryListType";
 const _RPT = "RandomPasswordType";
 const _RPe = "ResourcePolicy";
-const _RR = "RotationRules";
+const _RPes = "ResourcePolicies";
+const _RR = "ReplicaRestriction";
+const _RRARN = "ReplicationRoleARN";
 const _RRFR = "RemoveRegionsFromReplication";
 const _RRFRR = "RemoveRegionsFromReplicationRequest";
 const _RRFRRe = "RemoveRegionsFromReplicationResponse";
 const _RRR = "RemoveReplicaRegions";
 const _RRT = "ReplicaRegionType";
 const _RRTo = "RotationRulesType";
+const _RRo = "RotationRules";
 const _RS = "ReplicationStatus";
+const _RSARN = "ReplicaSecretARN";
 const _RSLT = "ReplicationStatusListType";
 const _RSR = "RestoreSecretRequest";
 const _RSRe = "RestoreSecretResponse";
@@ -310,6 +334,16 @@ export var APIErrorType$: StaticStructureSchema = [3, n0, _APIET,
   [_SI, _EC, _M],
   [0, 0, 0]
 ];
+export var AssociateCrossAccountReplicaRequest$: StaticStructureSchema = [3, n0, _ACARR,
+  0,
+  [_SI, _CARARN, _RR, _RRARN],
+  [0, 0, 0, 0], 2
+];
+export var AssociateCrossAccountReplicaResponse$: StaticStructureSchema = [3, n0, _ACARRs,
+  0,
+  [_ARN, _CARARN, _RS],
+  [0, 0, 0]
+];
 export var BatchGetSecretValueRequest$: StaticStructureSchema = [3, n0, _BGSVR,
   0,
   [_SIL, _F, _MR, _NT],
@@ -332,23 +366,33 @@ export var CancelRotateSecretResponse$: StaticStructureSchema = [3, n0, _CRSRa,
 ];
 export var CreateSecretRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_N, _CRT, _D, _KKI, _SB, _SS, _T, _ARR, _FORS, _Ty],
-  [0, [0, 4], 0, 0, [() => SecretBinaryType, 0], [() => SecretStringType, 0], () => TagListType, () => AddReplicaRegionListType, 2, 0], 1
+  [_N, _CRT, _D, _KKI, _SB, _SS, _T, _ARR, _FORS, _Ty, _CAPARN],
+  [0, [0, 4], 0, 0, [() => SecretBinaryType, 0], [() => SecretStringType, 0], () => TagListType, () => AddReplicaRegionListType, 2, 0, 0], 1
 ];
 export var CreateSecretResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
   [_ARN, _N, _VI, _RS],
   [0, 0, 0, () => ReplicationStatusListType]
 ];
+export var CrossAccountPrimaryType$: StaticStructureSchema = [3, n0, _CAPT,
+  0,
+  [_PSARN, _RS, _SM],
+  [0, 0, 0]
+];
+export var CrossAccountReplicaEntry$: StaticStructureSchema = [3, n0, _CARE,
+  0,
+  [_RSARN, _RRARN, _RS, _SM],
+  [0, 0, 0, 0]
+];
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
-  [_SI],
-  [0], 1
+  [_SI, _PN],
+  [0, 0], 1
 ];
 export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
-  [_ARN, _N],
-  [0, 0]
+  [_ARN, _N, _PN],
+  [0, 0, 0]
 ];
 export var DeleteSecretRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
@@ -367,8 +411,18 @@ export var DescribeSecretRequest$: StaticStructureSchema = [3, n0, _DSRes,
 ];
 export var DescribeSecretResponse$: StaticStructureSchema = [3, n0, _DSResc,
   0,
-  [_ARN, _N, _Ty, _D, _KKI, _RE, _RLARN, _RR, _ESRM, _ESRRA, _LRD, _LCD, _LAD, _DDe, _NRD, _T, _VITS, _OS, _CD, _PR, _RS],
-  [0, 0, 0, 0, 0, 2, 0, () => RotationRulesType$, () => ExternalSecretRotationMetadataType, 0, 4, 4, 4, 4, 4, () => TagListType, [2, n0, _SVTSMT, 0, 0, 64 | 0], 0, 4, 0, () => ReplicationStatusListType]
+  [_ARN, _N, _Ty, _D, _KKI, _RE, _RLARN, _RRo, _ESRM, _ESRRA, _LRD, _LCD, _LAD, _DDe, _NRD, _T, _VITS, _OS, _CD, _PR, _RS, _CAP, _CAR],
+  [0, 0, 0, 0, 0, 2, 0, () => RotationRulesType$, () => ExternalSecretRotationMetadataType, 0, 4, 4, 4, 4, 4, () => TagListType, [2, n0, _SVTSMT, 0, 0, 64 | 0], 0, 4, 0, () => ReplicationStatusListType, () => CrossAccountPrimaryType$, () => CrossAccountReplicaListType]
+];
+export var DisassociateCrossAccountReplicaRequest$: StaticStructureSchema = [3, n0, _DCARR,
+  0,
+  [_SI, _CARARN],
+  [0, 0], 2
+];
+export var DisassociateCrossAccountReplicaResponse$: StaticStructureSchema = [3, n0, _DCARRi,
+  0,
+  [_ARN, _CARARN],
+  [0, 0]
 ];
 export var ExternalSecretRotationMetadataItem$: StaticStructureSchema = [3, n0, _ESRMI,
   0,
@@ -392,13 +446,13 @@ export var GetRandomPasswordResponse$: StaticStructureSchema = [3, n0, _GRPRe,
 ];
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPRet,
   0,
-  [_SI],
-  [0], 1
+  [_SI, _PN],
+  [0, 0], 1
 ];
 export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRete,
   0,
-  [_ARN, _N, _RPe],
-  [0, 0, 0]
+  [_ARN, _N, _RPe, _PN],
+  [0, 0, 0, 0]
 ];
 export var GetSecretValueRequest$: StaticStructureSchema = [3, n0, _GSVR,
   0,
@@ -409,6 +463,16 @@ export var GetSecretValueResponse$: StaticStructureSchema = [3, n0, _GSVRe,
   0,
   [_ARN, _N, _VI, _SB, _SS, _VSe, _CD],
   [0, 0, 0, [() => SecretBinaryType, 0], [() => SecretStringType, 0], 64 | 0, 4]
+];
+export var ListResourcePoliciesRequest$: StaticStructureSchema = [3, n0, _LRPR,
+  0,
+  [_SI, _MR, _NT],
+  [0, 1, 0], 1
+];
+export var ListResourcePoliciesResponse$: StaticStructureSchema = [3, n0, _LRPRi,
+  0,
+  [_RPes, _NT],
+  [() => ResourcePolicySummaryListType, 0], 1
 ];
 export var ListSecretsRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
@@ -432,13 +496,13 @@ export var ListSecretVersionIdsResponse$: StaticStructureSchema = [3, n0, _LSVIR
 ];
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
-  [_SI, _RPe, _BPP],
-  [0, 0, 2], 2
+  [_SI, _RPe, _PN, _BPP],
+  [0, 0, 0, 2], 2
 ];
 export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
-  [_ARN, _N],
-  [0, 0]
+  [_ARN, _N, _PN],
+  [0, 0, 0]
 ];
 export var PutSecretValueRequest$: StaticStructureSchema = [3, n0, _PSVR,
   0,
@@ -480,6 +544,11 @@ export var ReplicationStatusType$: StaticStructureSchema = [3, n0, _RST,
   [_R, _KKI, _S, _SM, _LAD],
   [0, 0, 0, 0, 4]
 ];
+export var ResourcePolicySummary$: StaticStructureSchema = [3, n0, _RPS,
+  0,
+  [_PN],
+  [0]
+];
 export var RestoreSecretRequest$: StaticStructureSchema = [3, n0, _RSR,
   0,
   [_SI],
@@ -492,7 +561,7 @@ export var RestoreSecretResponse$: StaticStructureSchema = [3, n0, _RSRe,
 ];
 export var RotateSecretRequest$: StaticStructureSchema = [3, n0, _RSRo,
   0,
-  [_SI, _CRT, _RLARN, _RR, _ESRM, _ESRRA, _RI],
+  [_SI, _CRT, _RLARN, _RRo, _ESRM, _ESRRA, _RI],
   [0, [0, 4], 0, () => RotationRulesType$, () => ExternalSecretRotationMetadataType, 0, 2], 1
 ];
 export var RotateSecretResponse$: StaticStructureSchema = [3, n0, _RSRot,
@@ -507,7 +576,7 @@ export var RotationRulesType$: StaticStructureSchema = [3, n0, _RRTo,
 ];
 export var SecretListEntry$: StaticStructureSchema = [3, n0, _SLE,
   0,
-  [_ARN, _N, _Ty, _D, _KKI, _RE, _RLARN, _RR, _ESRM, _ESRRA, _LRD, _LCD, _LAD, _DDe, _NRD, _T, _SVTS, _OS, _CD, _PR],
+  [_ARN, _N, _Ty, _D, _KKI, _RE, _RLARN, _RRo, _ESRM, _ESRRA, _LRD, _LCD, _LAD, _DDe, _NRD, _T, _SVTS, _OS, _CD, _PR],
   [0, 0, 0, 0, 0, 2, 0, () => RotationRulesType$, () => ExternalSecretRotationMetadataType, 0, 4, 4, 4, 4, 4, () => TagListType, [2, n0, _SVTSMT, 0, 0, 64 | 0], 0, 4, 0]
 ];
 export var SecretValueEntry$: StaticStructureSchema = [3, n0, _SVE,
@@ -587,6 +656,9 @@ var AddReplicaRegionListType: StaticListSchema = [1, n0, _ARRLT,
 var APIErrorListType: StaticListSchema = [1, n0, _APIELT,
   0, () => APIErrorType$
 ];
+var CrossAccountReplicaListType: StaticListSchema = [1, n0, _CARLT,
+  0, () => CrossAccountReplicaEntry$
+];
 var ExternalSecretRotationMetadataType: StaticListSchema = [1, n0, _ESRMT,
   0, () => ExternalSecretRotationMetadataItem$
 ];
@@ -598,6 +670,9 @@ var KmsKeyIdListType = 64 | 0;
 var RemoveReplicaRegionListType = 64 | 0;
 var ReplicationStatusListType: StaticListSchema = [1, n0, _RSLT,
   0, () => ReplicationStatusType$
+];
+var ResourcePolicySummaryListType: StaticListSchema = [1, n0, _RPSLT,
+  0, () => ResourcePolicySummary$
 ];
 var SecretIdListType = 64 | 0;
 var SecretListType: StaticListSchema = [1, n0, _SLT,
@@ -621,6 +696,9 @@ var ValidationErrorsType: StaticListSchema = [1, n0, _VET,
 var SecretVersionsToStagesMapType: StaticMapSchema = [2, n0, _SVTSMT,
   0, 0, 64 | 0
 ];
+export var AssociateCrossAccountReplica$: StaticOperationSchema = [9, n0, _ACAR,
+  0, () => AssociateCrossAccountReplicaRequest$, () => AssociateCrossAccountReplicaResponse$
+];
 export var BatchGetSecretValue$: StaticOperationSchema = [9, n0, _BGSV,
   0, () => BatchGetSecretValueRequest$, () => BatchGetSecretValueResponse$
 ];
@@ -639,6 +717,9 @@ export var DeleteSecret$: StaticOperationSchema = [9, n0, _DS,
 export var DescribeSecret$: StaticOperationSchema = [9, n0, _DSe,
   0, () => DescribeSecretRequest$, () => DescribeSecretResponse$
 ];
+export var DisassociateCrossAccountReplica$: StaticOperationSchema = [9, n0, _DCAR,
+  0, () => DisassociateCrossAccountReplicaRequest$, () => DisassociateCrossAccountReplicaResponse$
+];
 export var GetRandomPassword$: StaticOperationSchema = [9, n0, _GRP,
   0, () => GetRandomPasswordRequest$, () => GetRandomPasswordResponse$
 ];
@@ -647,6 +728,9 @@ export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRPe,
 ];
 export var GetSecretValue$: StaticOperationSchema = [9, n0, _GSV,
   0, () => GetSecretValueRequest$, () => GetSecretValueResponse$
+];
+export var ListResourcePolicies$: StaticOperationSchema = [9, n0, _LRP,
+  0, () => ListResourcePoliciesRequest$, () => ListResourcePoliciesResponse$
 ];
 export var ListSecrets$: StaticOperationSchema = [9, n0, _LS,
   0, () => ListSecretsRequest$, () => ListSecretsResponse$

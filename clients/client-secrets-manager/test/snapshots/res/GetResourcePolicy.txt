@@ -30,7 +30,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 {
   "ARN": "__ARN__",
   "Name": "__Name__",
-  "ResourcePolicy": "__ResourcePolicy__"
+  "ResourcePolicy": "__ResourcePolicy__",
+  "PolicyName": "__PolicyName__"
 }
 
 
@@ -39,6 +40,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ARN: "__ARN__",
   Name: "__Name__",
   ResourcePolicy: "__ResourcePolicy__",
+  PolicyName: "__PolicyName__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

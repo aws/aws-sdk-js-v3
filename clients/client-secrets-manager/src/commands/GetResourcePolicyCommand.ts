@@ -42,6 +42,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * const client = new SecretsManagerClient(config);
  * const input = { // GetResourcePolicyRequest
  *   SecretId: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE",
  * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
@@ -49,6 +50,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * //   ARN: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
  * //   ResourcePolicy: "STRING_VALUE",
+ * //   PolicyName: "STRING_VALUE",
  * // };
  *
  * ```
@@ -102,6 +104,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * {
  *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
  *   Name: "MyTestDatabaseSecret",
+ *   PolicyName: "default",
  *   ResourcePolicy: `{
  * "Version":"2012-10-17",
  * "Statement":[{

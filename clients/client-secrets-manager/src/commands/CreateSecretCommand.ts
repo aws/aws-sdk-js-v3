@@ -26,9 +26,9 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  * <p>Creates a new secret. A <i>secret</i> can be a password, a set of
  *             credentials such as a user name and password, an OAuth token, or other secret
  *             information that you store in an encrypted form in Secrets Manager. The secret also includes the
- *             connection information to access a database or other service, which Secrets Manager doesn't
- *             encrypt. A secret in Secrets Manager consists of both the protected secret data and the important
- *             information needed to manage the secret.</p>
+ *             connection information to access a database or other service. Secrets Manager does not encrypt
+ *             this connection information. A secret in Secrets Manager consists of both the encrypted secret
+ *             versions and the metadata that Secrets Manager uses to manage the secret.</p>
  *          <p>For secrets that use <i>managed rotation</i>, you need to create the
  *             secret through the managing service. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets Manager secrets
  *                 managed by other Amazon Web Services services</a>. </p>
@@ -36,7 +36,7 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *                 secret</a>.</p>
  *          <p>To create a secret, you can provide the secret value to be encrypted in either the
  *                 <code>SecretString</code> parameter or the <code>SecretBinary</code> parameter, but
- *             not both. If you include <code>SecretString</code> or <code>SecretBinary</code> then
+ *             not both. If you include <code>SecretString</code> or <code>SecretBinary</code>, then
  *             Secrets Manager creates an initial secret version and automatically attaches the staging label
  *                 <code>AWSCURRENT</code> to it.</p>
  *          <p>For database credentials you want to rotate, for Secrets Manager to be able to rotate the
@@ -47,11 +47,15 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *                 <code>aws/secretsmanager</code>. If this key doesn't already exist in your account,
  *             then Secrets Manager creates it for you automatically. All users and roles in the Amazon Web Services account
  *             automatically have access to use <code>aws/secretsmanager</code>. Creating
- *                 <code>aws/secretsmanager</code> can result in a one-time significant delay in
- *             returning the result.</p>
+ *                 <code>aws/secretsmanager</code> can result in a one-time delay to complete the
+ *             secret creation.</p>
  *          <p>If the secret is in a different Amazon Web Services account from the credentials calling the API,
  *             then you can't use <code>aws/secretsmanager</code> to encrypt the secret, and you must
  *             create and use a customer managed KMS key. </p>
+ *          <p>To create a cross-account replica secret, include <code>CrossAccountPrimaryARN</code>.
+ *             The replica must use a customer managed KMS key, and can't include
+ *                 <code>AddReplicaRegions</code>, <code>Description</code>, <code>SecretBinary</code>,
+ *                 <code>SecretString</code>, or <code>Type</code>.</p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action.
  *             Do not include sensitive information in request parameters except
  *                 <code>SecretBinary</code> or <code>SecretString</code> because it might be logged.
@@ -61,8 +65,9 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *                 </b>
  *             <code>secretsmanager:CreateSecret</code>. If you include tags in the
  *             secret, you also need <code>secretsmanager:TagResource</code>. To add replica Regions,
- *             you must also have <code>secretsmanager:ReplicateSecretToRegions</code>.
- *             For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+ *             you must also have <code>secretsmanager:ReplicateSecretToRegions</code>. To create a
+ *             cross-account replica secret, you must also have
+ *                 <code>secretsmanager:PutResourcePolicy</code> permissions. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
  *          <p>To encrypt the secret with a KMS key other than <code>aws/secretsmanager</code>, you
@@ -100,6 +105,7 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *   ],
  *   ForceOverwriteReplicaSecret: true || false,
  *   Type: "STRING_VALUE",
+ *   CrossAccountPrimaryARN: "STRING_VALUE",
  * };
  * const command = new CreateSecretCommand(input);
  * const response = await client.send(command);
@@ -111,7 +117,7 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  * //     { // ReplicationStatusType
  * //       Region: "STRING_VALUE",
  * //       KmsKeyId: "STRING_VALUE",
- * //       Status: "InSync" || "Failed" || "InProgress",
+ * //       Status: "InSync" || "Failed" || "InProgress" || "Pending" || "Detached",
  * //       StatusMessage: "STRING_VALUE",
  * //       LastAccessedDate: new Date("TIMESTAMP"),
  * //     },
@@ -193,6 +199,24 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
  *   Name: "MyTestDatabaseSecret",
  *   VersionId: "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1"
+ * }
+ * *\/
+ * ```
+ *
+ * @example To create a cross-account replica secret
+ * ```javascript
+ * // The following example creates a secret that receives replicated data from a primary secret in another AWS account, by setting the CrossAccountPrimaryARN parameter. After creating the replica, link it to the primary secret from the primary account with AssociateCrossAccountReplica.
+ * const input = {
+ *   CrossAccountPrimaryARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   KmsKeyId: "arn:aws:kms:us-west-2:222222222222:key/EXAMPLE1-90ab-cdef-fedc-ba987EXAMPLE",
+ *   Name: "MyReplicaSecret"
+ * };
+ * const command = new CreateSecretCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ARN: "arn:aws:secretsmanager:us-west-2:222222222222:secret:MyReplicaSecret-a1b2c3",
+ *   Name: "MyReplicaSecret"
  * }
  * *\/
  * ```

@@ -55,6 +55,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  AssociateCrossAccountReplicaCommandInput,
+  AssociateCrossAccountReplicaCommandOutput,
+} from "./commands/AssociateCrossAccountReplicaCommand";
+import type {
   BatchGetSecretValueCommandInput,
   BatchGetSecretValueCommandOutput,
 } from "./commands/BatchGetSecretValueCommand";
@@ -70,6 +74,10 @@ import type {
 import type { DeleteSecretCommandInput, DeleteSecretCommandOutput } from "./commands/DeleteSecretCommand";
 import type { DescribeSecretCommandInput, DescribeSecretCommandOutput } from "./commands/DescribeSecretCommand";
 import type {
+  DisassociateCrossAccountReplicaCommandInput,
+  DisassociateCrossAccountReplicaCommandOutput,
+} from "./commands/DisassociateCrossAccountReplicaCommand";
+import type {
   GetRandomPasswordCommandInput,
   GetRandomPasswordCommandOutput,
 } from "./commands/GetRandomPasswordCommand";
@@ -78,6 +86,10 @@ import type {
   GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import type { GetSecretValueCommandInput, GetSecretValueCommandOutput } from "./commands/GetSecretValueCommand";
+import type {
+  ListResourcePoliciesCommandInput,
+  ListResourcePoliciesCommandOutput,
+} from "./commands/ListResourcePoliciesCommand";
 import type { ListSecretsCommandInput, ListSecretsCommandOutput } from "./commands/ListSecretsCommand";
 import type {
   ListSecretVersionIdsCommandInput,
@@ -128,15 +140,18 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateCrossAccountReplicaCommandInput
   | BatchGetSecretValueCommandInput
   | CancelRotateSecretCommandInput
   | CreateSecretCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteSecretCommandInput
   | DescribeSecretCommandInput
+  | DisassociateCrossAccountReplicaCommandInput
   | GetRandomPasswordCommandInput
   | GetResourcePolicyCommandInput
   | GetSecretValueCommandInput
+  | ListResourcePoliciesCommandInput
   | ListSecretVersionIdsCommandInput
   | ListSecretsCommandInput
   | PutResourcePolicyCommandInput
@@ -156,15 +171,18 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateCrossAccountReplicaCommandOutput
   | BatchGetSecretValueCommandOutput
   | CancelRotateSecretCommandOutput
   | CreateSecretCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteSecretCommandOutput
   | DescribeSecretCommandOutput
+  | DisassociateCrossAccountReplicaCommandOutput
   | GetRandomPasswordCommandOutput
   | GetResourcePolicyCommandOutput
   | GetSecretValueCommandOutput
+  | ListResourcePoliciesCommandOutput
   | ListSecretVersionIdsCommandOutput
   | ListSecretsCommandOutput
   | PutResourcePolicyCommandOutput

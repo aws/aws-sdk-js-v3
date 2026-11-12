@@ -42,12 +42,14 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * const client = new SecretsManagerClient(config);
  * const input = { // DeleteResourcePolicyRequest
  *   SecretId: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE",
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
  * // { // DeleteResourcePolicyResponse
  * //   ARN: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
+ * //   PolicyName: "STRING_VALUE",
  * // };
  *
  * ```
@@ -100,7 +102,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * /* response is
  * {
  *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   Name: "MyTestDatabaseSecret"
+ *   Name: "MyTestDatabaseSecret",
+ *   PolicyName: "default"
  * }
  * *\/
  * ```

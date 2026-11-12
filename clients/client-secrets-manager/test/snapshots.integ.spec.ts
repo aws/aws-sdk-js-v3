@@ -4,6 +4,8 @@ import { join } from "node:path";
 import { describe, expect, test as it, vi } from "vitest";
 
 import {
+  AssociateCrossAccountReplica$,
+  AssociateCrossAccountReplicaCommand,
   BatchGetSecretValue$,
   BatchGetSecretValueCommand,
   CancelRotateSecret$,
@@ -17,6 +19,8 @@ import {
   DeleteSecretCommand,
   DescribeSecret$,
   DescribeSecretCommand,
+  DisassociateCrossAccountReplica$,
+  DisassociateCrossAccountReplicaCommand,
   EncryptionFailure$,
   GetRandomPassword$,
   GetRandomPasswordCommand,
@@ -29,6 +33,8 @@ import {
   InvalidParameterException$,
   InvalidRequestException$,
   LimitExceededException$,
+  ListResourcePolicies$,
+  ListResourcePoliciesCommand,
   ListSecrets$,
   ListSecretsCommand,
   ListSecretVersionIds$,
@@ -83,15 +89,18 @@ describe("SecretsManagerClient" + ` (${mode})`, () => {
       return Promise.resolve();
     },
     schemas: new Map<any, any>([
+      [AssociateCrossAccountReplica$, AssociateCrossAccountReplicaCommand],
       [BatchGetSecretValue$, BatchGetSecretValueCommand],
       [CancelRotateSecret$, CancelRotateSecretCommand],
       [CreateSecret$, CreateSecretCommand],
       [DeleteResourcePolicy$, DeleteResourcePolicyCommand],
       [DeleteSecret$, DeleteSecretCommand],
       [DescribeSecret$, DescribeSecretCommand],
+      [DisassociateCrossAccountReplica$, DisassociateCrossAccountReplicaCommand],
       [GetRandomPassword$, GetRandomPasswordCommand],
       [GetResourcePolicy$, GetResourcePolicyCommand],
       [GetSecretValue$, GetSecretValueCommand],
+      [ListResourcePolicies$, ListResourcePoliciesCommand],
       [ListSecrets$, ListSecretsCommand],
       [ListSecretVersionIds$, ListSecretVersionIdsCommand],
       [PutResourcePolicy$, PutResourcePolicyCommand],

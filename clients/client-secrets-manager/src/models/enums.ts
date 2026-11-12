@@ -3,6 +3,35 @@
  * @public
  * @enum
  */
+export const ReplicaRestrictionType = {
+  NoRestriction: "NoRestriction",
+  SameOrg: "SameOrg",
+} as const;
+/**
+ * @public
+ */
+export type ReplicaRestrictionType = (typeof ReplicaRestrictionType)[keyof typeof ReplicaRestrictionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatusType = {
+  Detached: "Detached",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  InSync: "InSync",
+  Pending: "Pending",
+} as const;
+/**
+ * @public
+ */
+export type StatusType = (typeof StatusType)[keyof typeof StatusType];
+
+/**
+ * @public
+ * @enum
+ */
 export const FilterNameStringType = {
   all: "all",
   description: "description",
@@ -16,20 +45,6 @@ export const FilterNameStringType = {
  * @public
  */
 export type FilterNameStringType = (typeof FilterNameStringType)[keyof typeof FilterNameStringType];
-
-/**
- * @public
- * @enum
- */
-export const StatusType = {
-  Failed: "Failed",
-  InProgress: "InProgress",
-  InSync: "InSync",
-} as const;
-/**
- * @public
- */
-export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 /**
  * @public

@@ -8,6 +8,11 @@ import type {
 } from "@smithy/types";
 
 import {
+  type AssociateCrossAccountReplicaCommandInput,
+  type AssociateCrossAccountReplicaCommandOutput,
+  AssociateCrossAccountReplicaCommand,
+} from "./commands/AssociateCrossAccountReplicaCommand";
+import {
   type BatchGetSecretValueCommandInput,
   type BatchGetSecretValueCommandOutput,
   BatchGetSecretValueCommand,
@@ -38,6 +43,11 @@ import {
   DescribeSecretCommand,
 } from "./commands/DescribeSecretCommand";
 import {
+  type DisassociateCrossAccountReplicaCommandInput,
+  type DisassociateCrossAccountReplicaCommandOutput,
+  DisassociateCrossAccountReplicaCommand,
+} from "./commands/DisassociateCrossAccountReplicaCommand";
+import {
   type GetRandomPasswordCommandInput,
   type GetRandomPasswordCommandOutput,
   GetRandomPasswordCommand,
@@ -52,6 +62,11 @@ import {
   type GetSecretValueCommandOutput,
   GetSecretValueCommand,
 } from "./commands/GetSecretValueCommand";
+import {
+  type ListResourcePoliciesCommandInput,
+  type ListResourcePoliciesCommandOutput,
+  ListResourcePoliciesCommand,
+} from "./commands/ListResourcePoliciesCommand";
 import {
   type ListSecretsCommandInput,
   type ListSecretsCommandOutput,
@@ -123,20 +138,24 @@ import {
   ValidateResourcePolicyCommand,
 } from "./commands/ValidateResourcePolicyCommand";
 import { paginateBatchGetSecretValue } from "./pagination/BatchGetSecretValuePaginator";
+import { paginateListResourcePolicies } from "./pagination/ListResourcePoliciesPaginator";
 import { paginateListSecrets } from "./pagination/ListSecretsPaginator";
 import { paginateListSecretVersionIds } from "./pagination/ListSecretVersionIdsPaginator";
 import { SecretsManagerClient } from "./SecretsManagerClient";
 
 const commands = {
+  AssociateCrossAccountReplicaCommand,
   BatchGetSecretValueCommand,
   CancelRotateSecretCommand,
   CreateSecretCommand,
   DeleteResourcePolicyCommand,
   DeleteSecretCommand,
   DescribeSecretCommand,
+  DisassociateCrossAccountReplicaCommand,
   GetRandomPasswordCommand,
   GetResourcePolicyCommand,
   GetSecretValueCommand,
+  ListResourcePoliciesCommand,
   ListSecretsCommand,
   ListSecretVersionIdsCommand,
   PutResourcePolicyCommand,
@@ -154,6 +173,7 @@ const commands = {
 };
 const paginators = {
   paginateBatchGetSecretValue,
+  paginateListResourcePolicies,
   paginateListSecrets,
   paginateListSecretVersionIds,
 };
@@ -166,6 +186,23 @@ export interface SecretsManagerRequestOptions extends __HttpHandlerOptions {
 }
 
 export interface SecretsManager {
+  /**
+   * @see {@link AssociateCrossAccountReplicaCommand}
+   */
+  associateCrossAccountReplica(
+    args: AssociateCrossAccountReplicaCommandInput,
+    options?: SecretsManagerRequestOptions
+  ): Promise<AssociateCrossAccountReplicaCommandOutput>;
+  associateCrossAccountReplica(
+    args: AssociateCrossAccountReplicaCommandInput,
+    cb: (err: any, data?: AssociateCrossAccountReplicaCommandOutput) => void
+  ): void;
+  associateCrossAccountReplica(
+    args: AssociateCrossAccountReplicaCommandInput,
+    options: SecretsManagerRequestOptions,
+    cb: (err: any, data?: AssociateCrossAccountReplicaCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchGetSecretValueCommand}
    */
@@ -270,6 +307,23 @@ export interface SecretsManager {
   ): void;
 
   /**
+   * @see {@link DisassociateCrossAccountReplicaCommand}
+   */
+  disassociateCrossAccountReplica(
+    args: DisassociateCrossAccountReplicaCommandInput,
+    options?: SecretsManagerRequestOptions
+  ): Promise<DisassociateCrossAccountReplicaCommandOutput>;
+  disassociateCrossAccountReplica(
+    args: DisassociateCrossAccountReplicaCommandInput,
+    cb: (err: any, data?: DisassociateCrossAccountReplicaCommandOutput) => void
+  ): void;
+  disassociateCrossAccountReplica(
+    args: DisassociateCrossAccountReplicaCommandInput,
+    options: SecretsManagerRequestOptions,
+    cb: (err: any, data?: DisassociateCrossAccountReplicaCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetRandomPasswordCommand}
    */
   getRandomPassword(): Promise<GetRandomPasswordCommandOutput>;
@@ -319,6 +373,23 @@ export interface SecretsManager {
     args: GetSecretValueCommandInput,
     options: SecretsManagerRequestOptions,
     cb: (err: any, data?: GetSecretValueCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResourcePoliciesCommand}
+   */
+  listResourcePolicies(
+    args: ListResourcePoliciesCommandInput,
+    options?: SecretsManagerRequestOptions
+  ): Promise<ListResourcePoliciesCommandOutput>;
+  listResourcePolicies(
+    args: ListResourcePoliciesCommandInput,
+    cb: (err: any, data?: ListResourcePoliciesCommandOutput) => void
+  ): void;
+  listResourcePolicies(
+    args: ListResourcePoliciesCommandInput,
+    options: SecretsManagerRequestOptions,
+    cb: (err: any, data?: ListResourcePoliciesCommandOutput) => void
   ): void;
 
   /**
@@ -570,6 +641,17 @@ export interface SecretsManager {
     args?: BatchGetSecretValueCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<BatchGetSecretValueCommandOutput>;
+
+  /**
+   * @see {@link ListResourcePoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourcePoliciesCommandOutput}.
+   */
+  paginateListResourcePolicies(
+    args: ListResourcePoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourcePoliciesCommandOutput>;
 
   /**
    * @see {@link ListSecretsCommand}

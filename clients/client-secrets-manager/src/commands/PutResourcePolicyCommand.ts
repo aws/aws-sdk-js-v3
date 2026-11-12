@@ -45,6 +45,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * const input = { // PutResourcePolicyRequest
  *   SecretId: "STRING_VALUE", // required
  *   ResourcePolicy: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE",
  *   BlockPublicPolicy: true || false,
  * };
  * const command = new PutResourcePolicyCommand(input);
@@ -52,6 +53,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * // { // PutResourcePolicyResponse
  * //   ARN: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
+ * //   PolicyName: "STRING_VALUE",
  * // };
  *
  * ```
@@ -121,7 +123,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * /* response is
  * {
  *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   Name: "MyTestDatabaseSecret"
+ *   Name: "MyTestDatabaseSecret",
+ *   PolicyName: "default"
  * }
  * *\/
  * ```

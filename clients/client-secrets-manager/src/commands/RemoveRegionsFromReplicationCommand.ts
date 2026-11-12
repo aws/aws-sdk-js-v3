@@ -55,7 +55,7 @@ export interface RemoveRegionsFromReplicationCommandOutput extends RemoveRegions
  * //     { // ReplicationStatusType
  * //       Region: "STRING_VALUE",
  * //       KmsKeyId: "STRING_VALUE",
- * //       Status: "InSync" || "Failed" || "InProgress",
+ * //       Status: "InSync" || "Failed" || "InProgress" || "Pending" || "Detached",
  * //       StatusMessage: "STRING_VALUE",
  * //       LastAccessedDate: new Date("TIMESTAMP"),
  * //     },

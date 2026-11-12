@@ -1,5 +1,9 @@
 import {
   APIErrorType$,
+  AssociateCrossAccountReplica$,
+  AssociateCrossAccountReplicaCommand,
+  AssociateCrossAccountReplicaRequest$,
+  AssociateCrossAccountReplicaResponse$,
   BatchGetSecretValue$,
   BatchGetSecretValueCommand,
   BatchGetSecretValueRequest$,
@@ -12,6 +16,8 @@ import {
   CreateSecretCommand,
   CreateSecretRequest$,
   CreateSecretResponse$,
+  CrossAccountPrimaryType$,
+  CrossAccountReplicaEntry$,
   DecryptionFailure,
   DecryptionFailure$,
   DeleteResourcePolicy$,
@@ -26,6 +32,10 @@ import {
   DescribeSecretCommand,
   DescribeSecretRequest$,
   DescribeSecretResponse$,
+  DisassociateCrossAccountReplica$,
+  DisassociateCrossAccountReplicaCommand,
+  DisassociateCrossAccountReplicaRequest$,
+  DisassociateCrossAccountReplicaResponse$,
   EncryptionFailure,
   EncryptionFailure$,
   ExternalSecretRotationMetadataItem$,
@@ -53,6 +63,10 @@ import {
   InvalidRequestException$,
   LimitExceededException,
   LimitExceededException$,
+  ListResourcePolicies$,
+  ListResourcePoliciesCommand,
+  ListResourcePoliciesRequest$,
+  ListResourcePoliciesResponse$,
   ListSecrets$,
   ListSecretsCommand,
   ListSecretsRequest$,
@@ -64,6 +78,7 @@ import {
   MalformedPolicyDocumentException,
   MalformedPolicyDocumentException$,
   paginateBatchGetSecretValue,
+  paginateListResourcePolicies,
   paginateListSecrets,
   paginateListSecretVersionIds,
   PreconditionNotMetException,
@@ -83,6 +98,7 @@ import {
   RemoveRegionsFromReplicationRequest$,
   RemoveRegionsFromReplicationResponse$,
   ReplicaRegionType$,
+  ReplicaRestrictionType,
   ReplicateSecretToRegions$,
   ReplicateSecretToRegionsCommand,
   ReplicateSecretToRegionsRequest$,
@@ -92,6 +108,7 @@ import {
   ResourceExistsException$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  ResourcePolicySummary$,
   RestoreSecret$,
   RestoreSecretCommand,
   RestoreSecretRequest$,
@@ -140,6 +157,8 @@ import assert from "node:assert";
 assert(typeof SecretsManagerClient === "function");
 assert(typeof SecretsManager === "function");
 // commands
+assert(typeof AssociateCrossAccountReplicaCommand === "function");
+assert(typeof AssociateCrossAccountReplica$ === "object");
 assert(typeof BatchGetSecretValueCommand === "function");
 assert(typeof BatchGetSecretValue$ === "object");
 assert(typeof CancelRotateSecretCommand === "function");
@@ -152,12 +171,16 @@ assert(typeof DeleteSecretCommand === "function");
 assert(typeof DeleteSecret$ === "object");
 assert(typeof DescribeSecretCommand === "function");
 assert(typeof DescribeSecret$ === "object");
+assert(typeof DisassociateCrossAccountReplicaCommand === "function");
+assert(typeof DisassociateCrossAccountReplica$ === "object");
 assert(typeof GetRandomPasswordCommand === "function");
 assert(typeof GetRandomPassword$ === "object");
 assert(typeof GetResourcePolicyCommand === "function");
 assert(typeof GetResourcePolicy$ === "object");
 assert(typeof GetSecretValueCommand === "function");
 assert(typeof GetSecretValue$ === "object");
+assert(typeof ListResourcePoliciesCommand === "function");
+assert(typeof ListResourcePolicies$ === "object");
 assert(typeof ListSecretsCommand === "function");
 assert(typeof ListSecrets$ === "object");
 assert(typeof ListSecretVersionIdsCommand === "function");
@@ -188,18 +211,24 @@ assert(typeof ValidateResourcePolicyCommand === "function");
 assert(typeof ValidateResourcePolicy$ === "object");
 // structural schemas
 assert(typeof APIErrorType$ === "object");
+assert(typeof AssociateCrossAccountReplicaRequest$ === "object");
+assert(typeof AssociateCrossAccountReplicaResponse$ === "object");
 assert(typeof BatchGetSecretValueRequest$ === "object");
 assert(typeof BatchGetSecretValueResponse$ === "object");
 assert(typeof CancelRotateSecretRequest$ === "object");
 assert(typeof CancelRotateSecretResponse$ === "object");
 assert(typeof CreateSecretRequest$ === "object");
 assert(typeof CreateSecretResponse$ === "object");
+assert(typeof CrossAccountPrimaryType$ === "object");
+assert(typeof CrossAccountReplicaEntry$ === "object");
 assert(typeof DeleteResourcePolicyRequest$ === "object");
 assert(typeof DeleteResourcePolicyResponse$ === "object");
 assert(typeof DeleteSecretRequest$ === "object");
 assert(typeof DeleteSecretResponse$ === "object");
 assert(typeof DescribeSecretRequest$ === "object");
 assert(typeof DescribeSecretResponse$ === "object");
+assert(typeof DisassociateCrossAccountReplicaRequest$ === "object");
+assert(typeof DisassociateCrossAccountReplicaResponse$ === "object");
 assert(typeof ExternalSecretRotationMetadataItem$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof GetRandomPasswordRequest$ === "object");
@@ -208,6 +237,8 @@ assert(typeof GetResourcePolicyRequest$ === "object");
 assert(typeof GetResourcePolicyResponse$ === "object");
 assert(typeof GetSecretValueRequest$ === "object");
 assert(typeof GetSecretValueResponse$ === "object");
+assert(typeof ListResourcePoliciesRequest$ === "object");
+assert(typeof ListResourcePoliciesResponse$ === "object");
 assert(typeof ListSecretsRequest$ === "object");
 assert(typeof ListSecretsResponse$ === "object");
 assert(typeof ListSecretVersionIdsRequest$ === "object");
@@ -222,6 +253,7 @@ assert(typeof ReplicaRegionType$ === "object");
 assert(typeof ReplicateSecretToRegionsRequest$ === "object");
 assert(typeof ReplicateSecretToRegionsResponse$ === "object");
 assert(typeof ReplicationStatusType$ === "object");
+assert(typeof ResourcePolicySummary$ === "object");
 assert(typeof RestoreSecretRequest$ === "object");
 assert(typeof RestoreSecretResponse$ === "object");
 assert(typeof RotateSecretRequest$ === "object");
@@ -244,6 +276,7 @@ assert(typeof ValidateResourcePolicyResponse$ === "object");
 assert(typeof ValidationErrorsEntry$ === "object");
 // enums
 assert(typeof FilterNameStringType === "object");
+assert(typeof ReplicaRestrictionType === "object");
 assert(typeof SortByType === "object");
 assert(typeof SortOrderType === "object");
 assert(typeof StatusType === "object");
@@ -275,6 +308,7 @@ assert(typeof ResourceNotFoundException$ === "object");
 assert(SecretsManagerServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateBatchGetSecretValue === "function");
+assert(typeof paginateListResourcePolicies === "function");
 assert(typeof paginateListSecretVersionIds === "function");
 assert(typeof paginateListSecrets === "function");
 console.log(`SecretsManager index test passed.`);

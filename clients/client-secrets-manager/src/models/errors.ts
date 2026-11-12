@@ -4,29 +4,6 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SecretsManagerServiceException as __BaseException } from "./SecretsManagerServiceException";
 
 /**
- * <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
- * @public
- */
-export class DecryptionFailure extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.secretsmanager#DecryptionFailure";
-  readonly name = "DecryptionFailure" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DecryptionFailure, __BaseException>) {
-    super({
-      name: "DecryptionFailure",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DecryptionFailure.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>An error occurred on the server side.</p>
  * @public
  */
@@ -45,29 +22,6 @@ export class InternalServiceError extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServiceError.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The <code>NextToken</code> value is invalid.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.secretsmanager#InvalidNextTokenException";
-  readonly name = "InvalidNextTokenException" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -134,6 +88,29 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * <p>The request failed because it would exceed one of the Secrets Manager quotas.</p>
+ * @public
+ */
+export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#LimitExceededException";
+  readonly name = "LimitExceededException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>Secrets Manager can't find the resource that you asked for.</p>
  * @public
  */
@@ -152,6 +129,52 @@ export class ResourceNotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
+ * @public
+ */
+export class DecryptionFailure extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#DecryptionFailure";
+  readonly name = "DecryptionFailure" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DecryptionFailure, __BaseException>) {
+    super({
+      name: "DecryptionFailure",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DecryptionFailure.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The <code>NextToken</code> value is invalid.</p>
+ * @public
+ */
+export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#InvalidNextTokenException";
+  readonly name = "InvalidNextTokenException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -177,29 +200,6 @@ export class EncryptionFailure extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, EncryptionFailure.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request failed because it would exceed one of the Secrets Manager quotas.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.secretsmanager#LimitExceededException";
-  readonly name = "LimitExceededException" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
     this.Message = opts.Message;
   }
 }

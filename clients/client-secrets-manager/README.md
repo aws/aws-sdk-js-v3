@@ -206,6 +206,13 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AssociateCrossAccountReplica
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/secrets-manager/command/AssociateCrossAccountReplicaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-secrets-manager/Interface/AssociateCrossAccountReplicaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-secrets-manager/Interface/AssociateCrossAccountReplicaCommandOutput/)
+</details>
+<details>
+<summary>
 BatchGetSecretValue
 </summary>
 
@@ -248,6 +255,13 @@ DescribeSecret
 </details>
 <details>
 <summary>
+DisassociateCrossAccountReplica
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/secrets-manager/command/DisassociateCrossAccountReplicaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-secrets-manager/Interface/DisassociateCrossAccountReplicaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-secrets-manager/Interface/DisassociateCrossAccountReplicaCommandOutput/)
+</details>
+<details>
+<summary>
 GetRandomPassword
 </summary>
 
@@ -266,6 +280,13 @@ GetSecretValue
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/secrets-manager/command/GetSecretValueCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-secrets-manager/Interface/GetSecretValueCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-secrets-manager/Interface/GetSecretValueCommandOutput/)
+</details>
+<details>
+<summary>
+ListResourcePolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/secrets-manager/command/ListResourcePoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-secrets-manager/Interface/ListResourcePoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-secrets-manager/Interface/ListResourcePoliciesCommandOutput/)
 </details>
 <details>
 <summary>

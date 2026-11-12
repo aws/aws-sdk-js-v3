@@ -23,15 +23,31 @@ export interface StopReplicationToReplicaCommandInput extends StopReplicationToR
 export interface StopReplicationToReplicaCommandOutput extends StopReplicationToReplicaResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the link between the replica secret and the primary secret and promotes the
- *             replica to a primary secret in the replica Region.</p>
- *          <p>You must call this operation from the Region in which you want to promote the replica
- *             to a primary secret.</p>
+ * <p>Removes the link between a replica secret and its primary secret, and stops
+ *             replication to the replica. You call this operation from the replica account or Region.
+ *             Depending on the type of replica, the behavior is:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Cross-Region replica</b>: promotes the replica to
+ *                     a standalone primary secret in the replica Region.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Cross-account replica</b>: promotes the replica
+ *                     in your account to a standalone secret and stops replication from its primary
+ *                     secret in the other account. Secrets Manager updates the primary secret's replication status
+ *                     to <code>Detached</code> for this replica.</p>
+ *             </li>
+ *          </ul>
+ *          <p>To stop cross-account replication from the primary account instead, use <a>DisassociateCrossAccountReplica</a>.</p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions:
  *                 </b>
- *             <code>secretsmanager:StopReplicationToReplica</code>. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+ *             <code>secretsmanager:StopReplicationToReplica</code>. For cross-account
+ *             replica secrets, you must also have <code>secretsmanager:DeleteResourcePolicy</code>
+ *             permissions. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
  * @example
@@ -89,6 +105,21 @@ export interface StopReplicationToReplicaCommandOutput extends StopReplicationTo
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ *
+ * @example To stop cross-account replication from the replica account
+ * ```javascript
+ * // The following example, called from the replica account, unlinks a cross-account replica secret from its primary secret in another account and stops replication. The secret remains in the replica account as a standalone secret.
+ * const input = {
+ *   SecretId: "arn:aws:secretsmanager:us-west-2:222222222222:secret:MyReplicaSecret-a1b2c3"
+ * };
+ * const command = new StopReplicationToReplicaCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ARN: "arn:aws:secretsmanager:us-west-2:222222222222:secret:MyReplicaSecret-a1b2c3"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
