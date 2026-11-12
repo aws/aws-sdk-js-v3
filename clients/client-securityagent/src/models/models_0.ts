@@ -5433,6 +5433,12 @@ export interface CreatePentestInput {
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
+   * <p>The strategy for cleaning up resources after pentest job completion. Valid values are BEST_EFFORT_DELETE and RETAIN_ALL.</p>
+   * @public
+   */
+  cleanUpStrategy?: CleanUpStrategy | undefined;
+
+  /**
    * <p>A list of managed skills to disable for this pentest. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.</p>
    * @public
    */

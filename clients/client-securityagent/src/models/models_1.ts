@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  CleanUpStrategy,
   CodeRemediationStrategy,
   DomainVerificationMethod,
   FindingStatus,
@@ -608,6 +609,12 @@ export interface UpdatePentestInput {
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+
+  /**
+   * <p>The updated strategy for cleaning up resources after pentest job completion.</p>
+   * @public
+   */
+  cleanUpStrategy?: CleanUpStrategy | undefined;
 
   /**
    * <p>The updated list of managed skills to disable for this pentest. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.</p>
