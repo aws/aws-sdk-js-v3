@@ -10,9 +10,9 @@ vi.mock("./fromCognitoIdentity", () => {
     secretAccessKey: "bar",
     sessionToken: "baz",
   });
-  return { fromCognitoIdentity: vi.fn().mockReturnValue(promiseFunc) };
+  return { fromCognitoIdentitySource: vi.fn().mockReturnValue(promiseFunc) };
 });
-import { fromCognitoIdentity } from "./fromCognitoIdentity";
+import { fromCognitoIdentitySource as fromCognitoIdentity } from "./fromCognitoIdentity";
 
 vi.mock("./localStorage", () => {
   return {
@@ -41,6 +41,13 @@ describe("fromCognitoIdentityPool", () => {
     (localStorage().getItem as any).mockClear();
     (localStorage().setItem as any).mockClear();
     (localStorage().removeItem as any).mockClear();
+  });
+
+  it("returns a provider that owns the credential refresh lifecycle", () => {
+    const provider = fromCognitoIdentityPool({ client: mockClient, identityPoolId });
+
+    expect((provider as any).memoized).toBe(true);
+    expect(typeof (provider as any).invalidate).toBe("function");
   });
 
   it("should execute a GetId command and then invoke fromCognitoIdentity with the result", async () => {
@@ -113,10 +120,10 @@ describe("fromCognitoIdentityPool", () => {
       });
     }
 
-    // GetId should not have been called again, but each call of the
-    // provider should invoke fromCognitoIdentity
+    // The credential provider now owns its cache, so neither GetId nor
+    // GetCredentialsForIdentity is called again while the credentials are valid.
     expect(send.mock.calls.length).toBe(1);
-    expect((fromCognitoIdentity({} as any) as any).mock.calls.length).toBe(11);
+    expect((fromCognitoIdentity({} as any) as any).mock.calls.length).toBe(1);
   });
 
   it("should convert a GetId response without an ID to a provider error", async () => {

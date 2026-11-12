@@ -10093,6 +10093,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/credential-provider-cognito-identity@workspace:packages-internal/credential-provider-cognito-identity"
   dependencies:
+    "@aws-sdk/core": "workspace:^3.981.0"
     "@aws-sdk/nested-clients": "workspace:^3.998.3"
     "@aws-sdk/types": "workspace:^3.975.1"
     "@smithy/core": "npm:^3.40.0"
@@ -10193,6 +10194,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/credential-provider-node@workspace:packages-internal/credential-provider-node"
   dependencies:
+    "@aws-sdk/core": "workspace:^3.981.0"
     "@aws-sdk/credential-provider-env": "workspace:^3.972.84"
     "@aws-sdk/credential-provider-http": "workspace:^3.972.86"
     "@aws-sdk/credential-provider-ini": "workspace:^3.973.30"

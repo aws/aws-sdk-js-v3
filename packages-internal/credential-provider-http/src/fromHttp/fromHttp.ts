@@ -1,4 +1,4 @@
-import { setCredentialFeature } from "@aws-sdk/core/client";
+import { createCredentialRefreshProvider, setCredentialFeature } from "@aws-sdk/core/client";
 import { CredentialsProviderError } from "@smithy/core/config";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
@@ -91,13 +91,15 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
     options.timeout ?? 1000
   );
 
-  return async () => {
+  const source = async () => {
     try {
       return await provider();
     } finally {
       requestHandler.destroy?.();
     }
   };
+
+  return createCredentialRefreshProvider(source, { logger: options.logger });
 };
 
 /**

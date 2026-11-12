@@ -1,6 +1,6 @@
 import { GetRoleCredentialsCommand, SSOClient } from "@aws-sdk/nested-clients/sso";
 import * as tokenProviders from "@aws-sdk/token-providers";
-import { CredentialsProviderError, getSSOTokenFromFile } from "@smithy/core/config";
+import { CredentialsProviderError, getSSOTokenFromFile, TokenProviderError } from "@smithy/core/config";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
@@ -58,9 +58,12 @@ describe(resolveSSOCredentials.name, () => {
   });
 
   it("throws error if getSSOTokenFromFile fails", async () => {
-    const expectedError = new CredentialsProviderError(
-      `The SSO session associated with this profile is invalid. ${refreshMessage}`,
-      SHOULD_FAIL_CREDENTIAL_CHAIN
+    const expectedError = Object.assign(
+      new CredentialsProviderError(
+        `The SSO session associated with this profile is invalid. ${refreshMessage}`,
+        SHOULD_FAIL_CREDENTIAL_CHAIN
+      ),
+      { $nonRecoverable: true }
     );
     vi.mocked(getSSOTokenFromFile).mockRejectedValue(new Error("error"));
 
@@ -127,11 +130,57 @@ describe(resolveSSOCredentials.name, () => {
     expect(mockTokenProviderFn).toHaveBeenCalledWith({ callerClientConfig: mockCallerClientConfig });
   });
 
+  describe("non-recoverable failures", () => {
+    it("marks UnauthorizedException from GetRoleCredentials, which means the token was rejected", async () => {
+      mockSsoSend.mockRejectedValue(Object.assign(new Error("token rejected"), { name: "UnauthorizedException" }));
+
+      const error = await resolveSSOCredentials(mockOptions).catch((e) => e);
+
+      expect(error.$nonRecoverable).toBe(true);
+    });
+
+    it.each(["ThrottlingException", "InternalServerException"])(
+      "leaves %s from GetRoleCredentials recoverable",
+      async (name) => {
+        mockSsoSend.mockRejectedValue(Object.assign(new Error("sso is unwell"), { name }));
+
+        const error = await resolveSSOCredentials(mockOptions).catch((e) => e);
+
+        expect(error.$nonRecoverable).toBeUndefined();
+      }
+    );
+
+    it("marks a TokenProviderError, which means the cached token is expired, missing or malformed", async () => {
+      vi.mocked(tokenProviders.fromSso).mockReturnValueOnce((async () => {
+        throw new TokenProviderError("Token is expired.", false);
+      }) as any);
+
+      const error = await resolveSSOCredentials({ ...mockOptions, ssoSession: "mock_sso_session" }).catch((e) => e);
+
+      expect(error.$nonRecoverable).toBe(true);
+    });
+
+    it("leaves a non-token failure from the SSO token provider recoverable", async () => {
+      // e.g. a filesystem error reading the config files. Marking it would make the SDK raise
+      // instead of falling back on cached credentials.
+      vi.mocked(tokenProviders.fromSso).mockReturnValueOnce((async () => {
+        throw Object.assign(new Error("EMFILE: too many open files"), { code: "EMFILE" });
+      }) as any);
+
+      const error = await resolveSSOCredentials({ ...mockOptions, ssoSession: "mock_sso_session" }).catch((e) => e);
+
+      expect(error.$nonRecoverable).toBeUndefined();
+    });
+  });
+
   describe("throws error on expiration", () => {
     afterEach(async () => {
-      const expectedError = new CredentialsProviderError(
-        `The SSO session associated with this profile has expired. ${refreshMessage}`,
-        SHOULD_FAIL_CREDENTIAL_CHAIN
+      const expectedError = Object.assign(
+        new CredentialsProviderError(
+          `The SSO session associated with this profile has expired. ${refreshMessage}`,
+          SHOULD_FAIL_CREDENTIAL_CHAIN
+        ),
+        { $nonRecoverable: true }
       );
 
       try {

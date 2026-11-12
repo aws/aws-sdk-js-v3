@@ -1,7 +1,10 @@
+import { createCredentialRefreshProvider } from "@aws-sdk/core/client";
 import type { FromHttpOptions } from "@aws-sdk/credential-provider-http";
-import { chain, CredentialsProviderError } from "@smithy/core/config";
+import { CredentialsProviderError } from "@smithy/core/config";
 import type { RemoteProviderInit } from "@smithy/credential-provider-imds";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
+
+import { memoizeChain } from "./runtime/memoize-chain";
 
 /**
  * @internal
@@ -20,7 +23,8 @@ export const remoteProvider = async (
   if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
     init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
     const { fromHttp } = await import("@aws-sdk/credential-provider-http");
-    return chain(fromHttp(init), fromContainerMetadata(init));
+    const container = createCredentialRefreshProvider(fromContainerMetadata(init), { logger: init.logger });
+    return memoizeChain([fromHttp(init), container], () => false);
   }
 
   if (process.env[ENV_IMDS_DISABLED] && process.env[ENV_IMDS_DISABLED] !== "false") {

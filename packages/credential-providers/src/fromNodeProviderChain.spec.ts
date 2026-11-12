@@ -26,7 +26,7 @@ describe(fromNodeProviderChain.name, () => {
       accessKeyId: "MOCK_ACCESS_KEY",
       secretAccessKey: "MOCK_SECRET_KEY",
     });
-    vi.mocked(defaultProvider).mockReturnValue(mockInnerProvider);
+    vi.mocked(defaultProvider).mockReturnValue(mockInnerProvider as any);
   });
 
   it("should not inject default role assumers", async () => {
@@ -104,6 +104,19 @@ describe(fromNodeProviderChain.name, () => {
 
     expect(defaultProvider).toHaveBeenCalledTimes(1);
     expect(mockInnerProvider).toHaveBeenCalledWith({ forceRefresh: true });
+  });
+
+  it("preserves the lifecycle marker and forwards invalidate", async () => {
+    const invalidate = vi.fn();
+    Object.assign(mockInnerProvider, { memoized: true, invalidate });
+    const provider = fromNodeProviderChain({ profile: "test" });
+
+    expect(provider.memoized).toBe(true);
+    expect(provider.invalidate).toBeUndefined();
+    await provider();
+    provider.invalidate?.({ accessKeyId: "AKID" });
+
+    expect(invalidate).toHaveBeenCalledWith({ accessKeyId: "AKID" });
   });
 
   it("should create independent chains for separate fromNodeProviderChain() calls", async () => {

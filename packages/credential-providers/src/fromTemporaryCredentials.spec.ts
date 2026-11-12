@@ -82,6 +82,22 @@ describe("fromTemporaryCredentials", () => {
     process.env = processSnapshot;
   });
 
+  it("returns a provider that owns the credential refresh lifecycle", () => {
+    const provider = fromTemporaryCredentials({ params: { RoleArn } });
+
+    expect((provider as any).memoized).toBe(true);
+    expect(typeof (provider as any).invalidate).toBe("function");
+  });
+
+  it("marks non-recoverable STS failures", async () => {
+    const failure = Object.assign(new Error("denied"), { name: "AccessDenied" });
+    mockSend.mockRejectedValueOnce(failure);
+    const provider = fromTemporaryCredentials({ params: { RoleArn }, masterCredentials });
+
+    await expect(provider()).rejects.toBe(failure);
+    expect((failure as any).$nonRecoverable).toBe(true);
+  });
+
   it("should call STS::AssumeRole API with master credentials", async () => {
     const plugin = { applyToStack: () => {} };
     const options = {

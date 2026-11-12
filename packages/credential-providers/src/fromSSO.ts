@@ -1,6 +1,8 @@
 import type { FromSSOInit, SsoCredentialsParameters } from "@aws-sdk/credential-provider-sso";
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
+import { createLazyCredentialProvider } from "./createLazyCredentialProvider";
+
 /**
  * Creates a credential provider function that reads from the _resolved_ access token from local disk then requests
  * temporary AWS credentials.
@@ -47,8 +49,8 @@ import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider 
 export const fromSSO = (
   init: FromSSOInit & Partial<SsoCredentialsParameters> = {}
 ): RuntimeConfigAwsCredentialIdentityProvider => {
-  return async (args?: AwsIdentityProperties) => {
+  return createLazyCredentialProvider(async () => {
     const { fromSSO: _fromSSO } = await import("@aws-sdk/credential-provider-sso");
-    return _fromSSO({ ...init })(args);
-  };
+    return _fromSSO({ ...init });
+  });
 };

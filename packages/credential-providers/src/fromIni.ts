@@ -1,6 +1,8 @@
 import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
+import { createLazyCredentialProvider } from "./createLazyCredentialProvider";
+
 /**
  * Creates a credential provider function that reads from a shared credentials file at `~/.aws/credentials` and a
  * shared configuration file at `~/.aws/config`. Both files are expected to be INI formatted with section names
@@ -43,8 +45,8 @@ import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider 
  * @public
  */
 export const fromIni = (init: FromIniInit = {}): RuntimeConfigAwsCredentialIdentityProvider => {
-  return async (args?: AwsIdentityProperties) => {
+  return createLazyCredentialProvider(async () => {
     const { fromIni: _fromIni } = await import("@aws-sdk/credential-provider-ini");
-    return _fromIni({ ...init })(args);
-  };
+    return _fromIni({ ...init });
+  });
 };

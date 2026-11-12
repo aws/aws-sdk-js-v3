@@ -45,6 +45,39 @@ describe(fromSSO.name, () => {
     vi.clearAllMocks();
   });
 
+  it("returns a provider that owns the credential refresh lifecycle", () => {
+    const provider = fromSSO(mockSsoProfile);
+
+    expect((provider as any).memoized).toBe(true);
+    expect(typeof (provider as any).invalidate).toBe("function");
+  });
+
+  it("keeps separate credentials per caller profile when one provider is shared", async () => {
+    const ssoFields = {
+      sso_start_url: "url",
+      sso_account_id: "acct",
+      sso_region: "us-east-1",
+      sso_role_name: "role",
+    };
+    vi.mocked(parseKnownFiles).mockResolvedValue({ dev: ssoFields, prod: ssoFields });
+    vi.mocked(getProfileName).mockImplementation(({ profile }: { profile?: string }) => profile ?? "default");
+    (isSsoProfile as unknown as any).mockReturnValue(true);
+    vi.mocked(validateSsoProfile).mockReturnValue(ssoFields as any);
+    vi.mocked(resolveSSOCredentials).mockImplementation(async ({ profile }: any) => ({
+      accessKeyId: `AKID-${profile}`,
+      secretAccessKey: "SECRET",
+      expiration: new Date(Date.now() + 6 * 3600_000),
+    }));
+    const caller = (profile: string) => ({ callerClientConfig: { profile, region: async () => "us-east-1" } });
+
+    const provider = fromSSO();
+
+    await expect(provider(caller("dev"))).resolves.toMatchObject({ accessKeyId: "AKID-dev" });
+    await expect(provider(caller("prod"))).resolves.toMatchObject({ accessKeyId: "AKID-prod" });
+    await expect(provider(caller("dev"))).resolves.toMatchObject({ accessKeyId: "AKID-dev" });
+    expect(resolveSSOCredentials).toHaveBeenCalledTimes(2);
+  });
+
   it("throws error if profile is not found", async () => {
     const mockInit = { profile: mockProfileName };
     const mockProfiles = {};
