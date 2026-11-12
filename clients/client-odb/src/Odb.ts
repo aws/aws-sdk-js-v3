@@ -18,6 +18,11 @@ import {
   AssociateIamRoleToResourceCommand,
 } from "./commands/AssociateIamRoleToResourceCommand";
 import {
+  type AssociateVirtualMachinesToCloudVmClusterCommandInput,
+  type AssociateVirtualMachinesToCloudVmClusterCommandOutput,
+  AssociateVirtualMachinesToCloudVmClusterCommand,
+} from "./commands/AssociateVirtualMachinesToCloudVmClusterCommand";
+import {
   type AssociateVirtualMachinesToExadbVmClusterCommandInput,
   type AssociateVirtualMachinesToExadbVmClusterCommandOutput,
   AssociateVirtualMachinesToExadbVmClusterCommand,
@@ -122,6 +127,11 @@ import {
   type DisassociateIamRoleFromResourceCommandOutput,
   DisassociateIamRoleFromResourceCommand,
 } from "./commands/DisassociateIamRoleFromResourceCommand";
+import {
+  type DisassociateVirtualMachinesFromCloudVmClusterCommandInput,
+  type DisassociateVirtualMachinesFromCloudVmClusterCommandOutput,
+  DisassociateVirtualMachinesFromCloudVmClusterCommand,
+} from "./commands/DisassociateVirtualMachinesFromCloudVmClusterCommand";
 import {
   type DisassociateVirtualMachinesFromExadbVmClusterCommandInput,
   type DisassociateVirtualMachinesFromExadbVmClusterCommandOutput,
@@ -379,10 +389,25 @@ import {
   UpdateAutonomousDatabaseCommand,
 } from "./commands/UpdateAutonomousDatabaseCommand";
 import {
+  type UpdateCloudAutonomousVmClusterCommandInput,
+  type UpdateCloudAutonomousVmClusterCommandOutput,
+  UpdateCloudAutonomousVmClusterCommand,
+} from "./commands/UpdateCloudAutonomousVmClusterCommand";
+import {
   type UpdateCloudExadataInfrastructureCommandInput,
   type UpdateCloudExadataInfrastructureCommandOutput,
   UpdateCloudExadataInfrastructureCommand,
 } from "./commands/UpdateCloudExadataInfrastructureCommand";
+import {
+  type UpdateCloudExadataInfrastructureStorageCapacityCommandInput,
+  type UpdateCloudExadataInfrastructureStorageCapacityCommandOutput,
+  UpdateCloudExadataInfrastructureStorageCapacityCommand,
+} from "./commands/UpdateCloudExadataInfrastructureStorageCapacityCommand";
+import {
+  type UpdateCloudVmClusterCommandInput,
+  type UpdateCloudVmClusterCommandOutput,
+  UpdateCloudVmClusterCommand,
+} from "./commands/UpdateCloudVmClusterCommand";
 import {
   type UpdateExadbVmClusterCommandInput,
   type UpdateExadbVmClusterCommandOutput,
@@ -434,6 +459,7 @@ import { paginateListSystemVersions } from "./pagination/ListSystemVersionsPagin
 const commands = {
   AcceptMarketplaceRegistrationCommand,
   AssociateIamRoleToResourceCommand,
+  AssociateVirtualMachinesToCloudVmClusterCommand,
   AssociateVirtualMachinesToExadbVmClusterCommand,
   CreateAutonomousDatabaseCommand,
   CreateAutonomousDatabaseBackupCommand,
@@ -455,6 +481,7 @@ const commands = {
   DeleteOdbNetworkCommand,
   DeleteOdbPeeringConnectionCommand,
   DisassociateIamRoleFromResourceCommand,
+  DisassociateVirtualMachinesFromCloudVmClusterCommand,
   DisassociateVirtualMachinesFromExadbVmClusterCommand,
   FailoverAutonomousDatabaseCommand,
   GetAutonomousDatabaseCommand,
@@ -507,7 +534,10 @@ const commands = {
   UntagResourceCommand,
   UpdateAutonomousDatabaseCommand,
   UpdateAutonomousDatabaseBackupCommand,
+  UpdateCloudAutonomousVmClusterCommand,
   UpdateCloudExadataInfrastructureCommand,
+  UpdateCloudExadataInfrastructureStorageCapacityCommand,
+  UpdateCloudVmClusterCommand,
   UpdateExadbVmClusterCommand,
   UpdateExascaleCloudExadataInfrastructureCommand,
   UpdateExascaleDbStorageVaultCommand,
@@ -578,6 +608,23 @@ export interface Odb {
     args: AssociateIamRoleToResourceCommandInput,
     options: OdbRequestOptions,
     cb: (err: any, data?: AssociateIamRoleToResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateVirtualMachinesToCloudVmClusterCommand}
+   */
+  associateVirtualMachinesToCloudVmCluster(
+    args: AssociateVirtualMachinesToCloudVmClusterCommandInput,
+    options?: OdbRequestOptions
+  ): Promise<AssociateVirtualMachinesToCloudVmClusterCommandOutput>;
+  associateVirtualMachinesToCloudVmCluster(
+    args: AssociateVirtualMachinesToCloudVmClusterCommandInput,
+    cb: (err: any, data?: AssociateVirtualMachinesToCloudVmClusterCommandOutput) => void
+  ): void;
+  associateVirtualMachinesToCloudVmCluster(
+    args: AssociateVirtualMachinesToCloudVmClusterCommandInput,
+    options: OdbRequestOptions,
+    cb: (err: any, data?: AssociateVirtualMachinesToCloudVmClusterCommandOutput) => void
   ): void;
 
   /**
@@ -936,6 +983,23 @@ export interface Odb {
     args: DisassociateIamRoleFromResourceCommandInput,
     options: OdbRequestOptions,
     cb: (err: any, data?: DisassociateIamRoleFromResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateVirtualMachinesFromCloudVmClusterCommand}
+   */
+  disassociateVirtualMachinesFromCloudVmCluster(
+    args: DisassociateVirtualMachinesFromCloudVmClusterCommandInput,
+    options?: OdbRequestOptions
+  ): Promise<DisassociateVirtualMachinesFromCloudVmClusterCommandOutput>;
+  disassociateVirtualMachinesFromCloudVmCluster(
+    args: DisassociateVirtualMachinesFromCloudVmClusterCommandInput,
+    cb: (err: any, data?: DisassociateVirtualMachinesFromCloudVmClusterCommandOutput) => void
+  ): void;
+  disassociateVirtualMachinesFromCloudVmCluster(
+    args: DisassociateVirtualMachinesFromCloudVmClusterCommandInput,
+    options: OdbRequestOptions,
+    cb: (err: any, data?: DisassociateVirtualMachinesFromCloudVmClusterCommandOutput) => void
   ): void;
 
   /**
@@ -1839,6 +1903,23 @@ export interface Odb {
   ): void;
 
   /**
+   * @see {@link UpdateCloudAutonomousVmClusterCommand}
+   */
+  updateCloudAutonomousVmCluster(
+    args: UpdateCloudAutonomousVmClusterCommandInput,
+    options?: OdbRequestOptions
+  ): Promise<UpdateCloudAutonomousVmClusterCommandOutput>;
+  updateCloudAutonomousVmCluster(
+    args: UpdateCloudAutonomousVmClusterCommandInput,
+    cb: (err: any, data?: UpdateCloudAutonomousVmClusterCommandOutput) => void
+  ): void;
+  updateCloudAutonomousVmCluster(
+    args: UpdateCloudAutonomousVmClusterCommandInput,
+    options: OdbRequestOptions,
+    cb: (err: any, data?: UpdateCloudAutonomousVmClusterCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateCloudExadataInfrastructureCommand}
    */
   updateCloudExadataInfrastructure(
@@ -1853,6 +1934,40 @@ export interface Odb {
     args: UpdateCloudExadataInfrastructureCommandInput,
     options: OdbRequestOptions,
     cb: (err: any, data?: UpdateCloudExadataInfrastructureCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCloudExadataInfrastructureStorageCapacityCommand}
+   */
+  updateCloudExadataInfrastructureStorageCapacity(
+    args: UpdateCloudExadataInfrastructureStorageCapacityCommandInput,
+    options?: OdbRequestOptions
+  ): Promise<UpdateCloudExadataInfrastructureStorageCapacityCommandOutput>;
+  updateCloudExadataInfrastructureStorageCapacity(
+    args: UpdateCloudExadataInfrastructureStorageCapacityCommandInput,
+    cb: (err: any, data?: UpdateCloudExadataInfrastructureStorageCapacityCommandOutput) => void
+  ): void;
+  updateCloudExadataInfrastructureStorageCapacity(
+    args: UpdateCloudExadataInfrastructureStorageCapacityCommandInput,
+    options: OdbRequestOptions,
+    cb: (err: any, data?: UpdateCloudExadataInfrastructureStorageCapacityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCloudVmClusterCommand}
+   */
+  updateCloudVmCluster(
+    args: UpdateCloudVmClusterCommandInput,
+    options?: OdbRequestOptions
+  ): Promise<UpdateCloudVmClusterCommandOutput>;
+  updateCloudVmCluster(
+    args: UpdateCloudVmClusterCommandInput,
+    cb: (err: any, data?: UpdateCloudVmClusterCommandOutput) => void
+  ): void;
+  updateCloudVmCluster(
+    args: UpdateCloudVmClusterCommandInput,
+    options: OdbRequestOptions,
+    cb: (err: any, data?: UpdateCloudVmClusterCommandOutput) => void
   ): void;
 
   /**

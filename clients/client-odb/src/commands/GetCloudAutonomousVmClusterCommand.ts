@@ -102,6 +102,7 @@ export interface GetCloudAutonomousVmClusterCommandOutput extends GetCloudAutono
  * //     memorySizeInGBs: Number("int"),
  * //     nodeCount: Number("int"),
  * //     nonProvisionableAutonomousContainerDatabases: Number("int"),
+ * //     ocpusLowestScaledValue: Number("int"),
  * //     provisionableAutonomousContainerDatabases: Number("int"),
  * //     provisionedAutonomousContainerDatabases: Number("int"),
  * //     provisionedCpus: Number("float"),

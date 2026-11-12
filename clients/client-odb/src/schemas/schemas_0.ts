@@ -29,6 +29,9 @@ const _APSCI = "AdminPasswordSourceConfigurationInput";
 const _APSS = "AdminPasswordSourceSummary";
 const _AVML = "AutonomousVirtualMachineList";
 const _AVMS = "AutonomousVirtualMachineSummary";
+const _AVMTCVC = "AssociateVirtualMachinesToCloudVmCluster";
+const _AVMTCVCI = "AssociateVirtualMachinesToCloudVmClusterInput";
+const _AVMTCVCO = "AssociateVirtualMachinesToCloudVmClusterOutput";
 const _AVMTEVC = "AssociateVirtualMachinesToExadbVmCluster";
 const _AVMTEVCI = "AssociateVirtualMachinesToExadbVmClusterInput";
 const _AVMTEVCO = "AssociateVirtualMachinesToExadbVmClusterOutput";
@@ -135,6 +138,9 @@ const _DSSS = "DbSystemShapeSummary";
 const _DSSb = "DbServerSummary";
 const _DT = "DatabaseTool";
 const _DTL = "DatabaseToolList";
+const _DVMFCVC = "DisassociateVirtualMachinesFromCloudVmCluster";
+const _DVMFCVCI = "DisassociateVirtualMachinesFromCloudVmClusterInput";
+const _DVMFCVCO = "DisassociateVirtualMachinesFromCloudVmClusterOutput";
 const _DVMFEVC = "DisassociateVirtualMachinesFromExadbVmCluster";
 const _DVMFEVCI = "DisassociateVirtualMachinesFromExadbVmClusterInput";
 const _DVMFEVCO = "DisassociateVirtualMachinesFromExadbVmClusterOutput";
@@ -352,9 +358,18 @@ const _UADBI = "UpdateAutonomousDatabaseBackupInput";
 const _UADBO = "UpdateAutonomousDatabaseBackupOutput";
 const _UADI = "UpdateAutonomousDatabaseInput";
 const _UADO = "UpdateAutonomousDatabaseOutput";
+const _UCAVC = "UpdateCloudAutonomousVmCluster";
+const _UCAVCI = "UpdateCloudAutonomousVmClusterInput";
+const _UCAVCO = "UpdateCloudAutonomousVmClusterOutput";
 const _UCEI = "UpdateCloudExadataInfrastructure";
 const _UCEII = "UpdateCloudExadataInfrastructureInput";
 const _UCEIO = "UpdateCloudExadataInfrastructureOutput";
+const _UCEISC = "UpdateCloudExadataInfrastructureStorageCapacity";
+const _UCEISCI = "UpdateCloudExadataInfrastructureStorageCapacityInput";
+const _UCEISCO = "UpdateCloudExadataInfrastructureStorageCapacityOutput";
+const _UCVC = "UpdateCloudVmCluster";
+const _UCVCI = "UpdateCloudVmClusterInput";
+const _UCVCO = "UpdateCloudVmClusterOutput";
 const _UECEI = "UpdateExascaleCloudExadataInfrastructure";
 const _UECEII = "UpdateExascaleCloudExadataInfrastructureInput";
 const _UECEIO = "UpdateExascaleCloudExadataInfrastructureOutput";
@@ -700,6 +715,7 @@ const _oIDRU = "ociIdentityDomainResourceUrl";
 const _oIDU = "ociIdentityDomainUrl";
 const _oIS = "operationsInsightsStatus";
 const _oKK = "okvKmsKey";
+const _oLSV = "ocpusLowestScaledValue";
 const _oM = "openMode";
 const _oN = "odbNetwork";
 const _oNA = "odbNetworkArn";
@@ -1009,6 +1025,16 @@ export var AssociateIamRoleToResourceOutput$: StaticStructureSchema = [3, n0, _A
   [],
   []
 ];
+export var AssociateVirtualMachinesToCloudVmClusterInput$: StaticStructureSchema = [3, n0, _AVMTCVCI,
+  0,
+  [_cVCI, _dS],
+  [[0, 1], 64 | 0], 2
+];
+export var AssociateVirtualMachinesToCloudVmClusterOutput$: StaticStructureSchema = [3, n0, _AVMTCVCO,
+  0,
+  [_cVCI, _dN, _st, _sR],
+  [0, 0, 0, 0], 1
+];
 export var AssociateVirtualMachinesToExadbVmClusterInput$: StaticStructureSchema = [3, n0, _AVMTEVCI,
   0,
   [_eVCI, _dNC],
@@ -1096,8 +1122,8 @@ export var CloneToRefreshableConfiguration$: StaticStructureSchema = [3, n0, _CT
 ];
 export var CloudAutonomousVmCluster$: StaticStructureSchema = [3, n0, _CAVC,
   0,
-  [_cAVCI, _cAVCA, _oNI, _oNA, _oRAN, _pP, _dN, _st, _sR, _cEII, _cEIA, _aDSP, _aDSSITB, _aADSSITB, _aCD, _aC, _cM, _cCC, _cCCPN, _cP, _dSSIGB, _dSSITB, _dNSSIGB, _dS, _des, _do, _eSITBLSV, _ho, _o, _oU, _iMEVC, _lM, _mW, _mALSV, _mPOCUIGB, _mSIGB, _nC, _nPACD, _pACD, _pACDr, _pCr, _rC, _rCe, _sLPNT, _sLPT, _sh, _cA, _tDSCE, _tOCE, _tZ, _tCD, _iR],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 64 | 0, 0, 0, 1, 0, 0, 0, 2, 0, () => MaintenanceWindow$, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 5, 5, 5, 0, 1, () => IamRoleList], 1
+  [_cAVCI, _cAVCA, _oNI, _oNA, _oRAN, _pP, _dN, _st, _sR, _cEII, _cEIA, _aDSP, _aDSSITB, _aADSSITB, _aCD, _aC, _cM, _cCC, _cCCPN, _cP, _dSSIGB, _dSSITB, _dNSSIGB, _dS, _des, _do, _eSITBLSV, _ho, _o, _oU, _iMEVC, _lM, _mW, _mALSV, _mPOCUIGB, _mSIGB, _nC, _nPACD, _oLSV, _pACD, _pACDr, _pCr, _rC, _rCe, _sLPNT, _sLPT, _sh, _cA, _tDSCE, _tOCE, _tZ, _tCD, _iR],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 64 | 0, 0, 0, 1, 0, 0, 0, 2, 0, () => MaintenanceWindow$, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 5, 5, 5, 0, 1, () => IamRoleList], 1
 ];
 export var CloudAutonomousVmClusterResourceDetails$: StaticStructureSchema = [3, n0, _CAVCRD,
   0,
@@ -1106,8 +1132,8 @@ export var CloudAutonomousVmClusterResourceDetails$: StaticStructureSchema = [3,
 ];
 export var CloudAutonomousVmClusterSummary$: StaticStructureSchema = [3, n0, _CAVCS,
   0,
-  [_cAVCI, _cAVCA, _oNI, _oNA, _oRAN, _pP, _dN, _st, _sR, _cEII, _cEIA, _aDSP, _aDSSITB, _aADSSITB, _aCD, _aC, _cM, _cCC, _cCCPN, _cP, _dSSIGB, _dSSITB, _dNSSIGB, _dS, _des, _do, _eSITBLSV, _ho, _o, _oU, _iMEVC, _lM, _mW, _mALSV, _mPOCUIGB, _mSIGB, _nC, _nPACD, _pACD, _pACDr, _pCr, _rC, _rCe, _sLPNT, _sLPT, _sh, _cA, _tDSCE, _tOCE, _tZ, _tCD, _iR],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 64 | 0, 0, 0, 1, 0, 0, 0, 2, 0, () => MaintenanceWindow$, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 5, 5, 5, 0, 1, () => IamRoleList], 1
+  [_cAVCI, _cAVCA, _oNI, _oNA, _oRAN, _pP, _dN, _st, _sR, _cEII, _cEIA, _aDSP, _aDSSITB, _aADSSITB, _aCD, _aC, _cM, _cCC, _cCCPN, _cP, _dSSIGB, _dSSITB, _dNSSIGB, _dS, _des, _do, _eSITBLSV, _ho, _o, _oU, _iMEVC, _lM, _mW, _mALSV, _mPOCUIGB, _mSIGB, _nC, _nPACD, _oLSV, _pACD, _pACDr, _pCr, _rC, _rCe, _sLPNT, _sLPT, _sh, _cA, _tDSCE, _tOCE, _tZ, _tCD, _iR],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 64 | 0, 0, 0, 1, 0, 0, 0, 2, 0, () => MaintenanceWindow$, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 5, 5, 5, 0, 1, () => IamRoleList], 1
 ];
 export var CloudExadataInfrastructure$: StaticStructureSchema = [3, n0, _CEI,
   0,
@@ -1428,6 +1454,16 @@ export var DisassociateIamRoleFromResourceOutput$: StaticStructureSchema = [3, n
   0,
   [],
   []
+];
+export var DisassociateVirtualMachinesFromCloudVmClusterInput$: StaticStructureSchema = [3, n0, _DVMFCVCI,
+  0,
+  [_cVCI, _dS],
+  [[0, 1], 64 | 0], 2
+];
+export var DisassociateVirtualMachinesFromCloudVmClusterOutput$: StaticStructureSchema = [3, n0, _DVMFCVCO,
+  0,
+  [_cVCI, _dN, _st, _sR],
+  [0, 0, 0, 0], 1
 ];
 export var DisassociateVirtualMachinesFromExadbVmClusterInput$: StaticStructureSchema = [3, n0, _DVMFEVCI,
   0,
@@ -2149,14 +2185,44 @@ export var UpdateAutonomousDatabaseOutput$: StaticStructureSchema = [3, n0, _UAD
   [_aDI, _dN, _st, _sR],
   [0, 0, 0, 0], 1
 ];
+export var UpdateCloudAutonomousVmClusterInput$: StaticStructureSchema = [3, n0, _UCAVCI,
+  0,
+  [_cAVCI, _aDSSITB, _cCCPN, _des, _dN, _lM, _mW, _tCD],
+  [[0, 1], 1, 1, 0, 0, 0, () => MaintenanceWindow$, 1], 1
+];
+export var UpdateCloudAutonomousVmClusterOutput$: StaticStructureSchema = [3, n0, _UCAVCO,
+  0,
+  [_cAVCI, _dN, _st, _sR],
+  [0, 0, 0, 0], 1
+];
 export var UpdateCloudExadataInfrastructureInput$: StaticStructureSchema = [3, n0, _UCEII,
   0,
-  [_cEII, _mW],
-  [[0, 1], () => MaintenanceWindow$], 1
+  [_cEII, _dN, _cCo, _mW, _sC],
+  [[0, 1], 0, 1, () => MaintenanceWindow$, 1], 1
 ];
 export var UpdateCloudExadataInfrastructureOutput$: StaticStructureSchema = [3, n0, _UCEIO,
   0,
   [_cEII, _dN, _st, _sR],
+  [0, 0, 0, 0], 1
+];
+export var UpdateCloudExadataInfrastructureStorageCapacityInput$: StaticStructureSchema = [3, n0, _UCEISCI,
+  0,
+  [_cEII],
+  [[0, 1]], 1
+];
+export var UpdateCloudExadataInfrastructureStorageCapacityOutput$: StaticStructureSchema = [3, n0, _UCEISCO,
+  0,
+  [_cEII, _dN, _st, _sR],
+  [0, 0, 0, 0], 1
+];
+export var UpdateCloudVmClusterInput$: StaticStructureSchema = [3, n0, _UCVCI,
+  0,
+  [_cVCI, _cCC, _dCO, _dSSITB, _dNSSIGB, _dN, _sPK, _lM, _mSIGB, _sSIGB],
+  [[0, 1], 1, () => DataCollectionOptions$, 1, 1, 0, 64 | 0, 0, 1, 1], 1
+];
+export var UpdateCloudVmClusterOutput$: StaticStructureSchema = [3, n0, _UCVCO,
+  0,
+  [_cVCI, _dN, _st, _sR],
   [0, 0, 0, 0], 1
 ];
 export var UpdateExadbVmClusterInput$: StaticStructureSchema = [3, n0, _UEVCI,
@@ -2391,6 +2457,9 @@ export var AcceptMarketplaceRegistration$: StaticOperationSchema = [9, n0, _AMR,
 export var AssociateIamRoleToResource$: StaticOperationSchema = [9, n0, _AIRTR,
   0, () => AssociateIamRoleToResourceInput$, () => AssociateIamRoleToResourceOutput$
 ];
+export var AssociateVirtualMachinesToCloudVmCluster$: StaticOperationSchema = [9, n0, _AVMTCVC,
+  0, () => AssociateVirtualMachinesToCloudVmClusterInput$, () => AssociateVirtualMachinesToCloudVmClusterOutput$
+];
 export var AssociateVirtualMachinesToExadbVmCluster$: StaticOperationSchema = [9, n0, _AVMTEVC,
   0, () => AssociateVirtualMachinesToExadbVmClusterInput$, () => AssociateVirtualMachinesToExadbVmClusterOutput$
 ];
@@ -2453,6 +2522,9 @@ export var DeleteOdbPeeringConnection$: StaticOperationSchema = [9, n0, _DOPC,
 ];
 export var DisassociateIamRoleFromResource$: StaticOperationSchema = [9, n0, _DIRFR,
   0, () => DisassociateIamRoleFromResourceInput$, () => DisassociateIamRoleFromResourceOutput$
+];
+export var DisassociateVirtualMachinesFromCloudVmCluster$: StaticOperationSchema = [9, n0, _DVMFCVC,
+  0, () => DisassociateVirtualMachinesFromCloudVmClusterInput$, () => DisassociateVirtualMachinesFromCloudVmClusterOutput$
 ];
 export var DisassociateVirtualMachinesFromExadbVmCluster$: StaticOperationSchema = [9, n0, _DVMFEVC,
   0, () => DisassociateVirtualMachinesFromExadbVmClusterInput$, () => DisassociateVirtualMachinesFromExadbVmClusterOutput$
@@ -2610,8 +2682,17 @@ export var UpdateAutonomousDatabase$: StaticOperationSchema = [9, n0, _UAD,
 export var UpdateAutonomousDatabaseBackup$: StaticOperationSchema = [9, n0, _UADB,
   0, () => UpdateAutonomousDatabaseBackupInput$, () => UpdateAutonomousDatabaseBackupOutput$
 ];
+export var UpdateCloudAutonomousVmCluster$: StaticOperationSchema = [9, n0, _UCAVC,
+  2, () => UpdateCloudAutonomousVmClusterInput$, () => UpdateCloudAutonomousVmClusterOutput$
+];
 export var UpdateCloudExadataInfrastructure$: StaticOperationSchema = [9, n0, _UCEI,
   0, () => UpdateCloudExadataInfrastructureInput$, () => UpdateCloudExadataInfrastructureOutput$
+];
+export var UpdateCloudExadataInfrastructureStorageCapacity$: StaticOperationSchema = [9, n0, _UCEISC,
+  0, () => UpdateCloudExadataInfrastructureStorageCapacityInput$, () => UpdateCloudExadataInfrastructureStorageCapacityOutput$
+];
+export var UpdateCloudVmCluster$: StaticOperationSchema = [9, n0, _UCVC,
+  0, () => UpdateCloudVmClusterInput$, () => UpdateCloudVmClusterOutput$
 ];
 export var UpdateExadbVmCluster$: StaticOperationSchema = [9, n0, _UEVC,
   0, () => UpdateExadbVmClusterInput$, () => UpdateExadbVmClusterOutput$

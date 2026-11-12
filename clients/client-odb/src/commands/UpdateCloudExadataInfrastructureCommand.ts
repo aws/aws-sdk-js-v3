@@ -34,6 +34,8 @@ export interface UpdateCloudExadataInfrastructureCommandOutput extends UpdateClo
  * const client = new OdbClient(config);
  * const input = { // UpdateCloudExadataInfrastructureInput
  *   cloudExadataInfrastructureId: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
+ *   computeCount: Number("int"),
  *   maintenanceWindow: { // MaintenanceWindow
  *     customActionTimeoutInMins: Number("int"),
  *     daysOfWeek: [ // DaysOfWeek
@@ -58,6 +60,7 @@ export interface UpdateCloudExadataInfrastructureCommandOutput extends UpdateClo
  *       Number("int"),
  *     ],
  *   },
+ *   storageCount: Number("int"),
  * };
  * const command = new UpdateCloudExadataInfrastructureCommand(input);
  * const response = await client.send(command);

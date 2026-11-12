@@ -269,6 +269,52 @@ export interface AssociateIamRoleToResourceOutput {}
 /**
  * @public
  */
+export interface AssociateVirtualMachinesToCloudVmClusterInput {
+  /**
+   * <p>The unique identifier of the VM cluster to add virtual machines to.</p>
+   * @public
+   */
+  cloudVmClusterId: string | undefined;
+
+  /**
+   * <p>The list of database server IDs for the virtual machines to add to the VM cluster.</p>
+   * @public
+   */
+  dbServers: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateVirtualMachinesToCloudVmClusterOutput {
+  /**
+   * <p>The user-friendly name for the VM cluster.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the VM cluster.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the VM cluster, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the VM cluster.</p>
+   * @public
+   */
+  cloudVmClusterId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface AssociateVirtualMachinesToExadbVmClusterInput {
   /**
    * <p>The unique identifier of the Exascale VM cluster to add virtual machines to.</p>
@@ -4641,6 +4687,12 @@ export interface CloudAutonomousVmCluster {
   nonProvisionableAutonomousContainerDatabases?: number | undefined;
 
   /**
+   * <p>The minimum value to which you can scale down the number of CPU cores.</p>
+   * @public
+   */
+  ocpusLowestScaledValue?: number | undefined;
+
+  /**
    * <p>The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.</p>
    * @public
    */
@@ -4957,6 +5009,12 @@ export interface CloudAutonomousVmClusterSummary {
    * @public
    */
   nonProvisionableAutonomousContainerDatabases?: number | undefined;
+
+  /**
+   * <p>The minimum value to which you can scale down the number of CPU cores.</p>
+   * @public
+   */
+  ocpusLowestScaledValue?: number | undefined;
 
   /**
    * <p>The number of Autonomous CDBs that you can provision in the Autonomous VM cluster.</p>
@@ -5295,6 +5353,88 @@ export interface ListCloudAutonomousVmClustersOutput {
    * @public
    */
   cloudAutonomousVmClusters: CloudAutonomousVmClusterSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCloudAutonomousVmClusterInput {
+  /**
+   * <p>The unique identifier of the Autonomous VM cluster to update.</p>
+   * @public
+   */
+  cloudAutonomousVmClusterId: string | undefined;
+
+  /**
+   * <p>The data storage size to allocate for Autonomous Databases in the Autonomous VM cluster, in terabytes (TB).</p>
+   * @public
+   */
+  autonomousDataStorageSizeInTBs?: number | undefined;
+
+  /**
+   * <p>The number of CPU cores to enable per node in the Autonomous VM cluster. If you don't specify a value, the existing number of CPU cores per node is retained.</p>
+   * @public
+   */
+  cpuCoreCountPerNode?: number | undefined;
+
+  /**
+   * <p>A user-provided description of the Autonomous VM cluster.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A new user-friendly name for the Autonomous VM cluster.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The Oracle license model to apply to the Autonomous VM cluster.</p>
+   * @public
+   */
+  licenseModel?: LicenseModel | undefined;
+
+  /**
+   * <p>The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.</p>
+   * @public
+   */
+  maintenanceWindow?: MaintenanceWindow | undefined;
+
+  /**
+   * <p>The total number of Autonomous Container Databases that can be created in the Autonomous VM cluster.</p>
+   * @public
+   */
+  totalContainerDatabases?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCloudAutonomousVmClusterOutput {
+  /**
+   * <p>The user-friendly name of the updated Autonomous VM cluster.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous VM cluster.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the Autonomous VM cluster, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the updated Autonomous VM cluster.</p>
+   * @public
+   */
+  cloudAutonomousVmClusterId: string | undefined;
 }
 
 /**
@@ -6440,10 +6580,28 @@ export interface UpdateCloudExadataInfrastructureInput {
   cloudExadataInfrastructureId: string | undefined;
 
   /**
-   * <p>The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.</p>
+   * <p>A new user-friendly name for the Exadata infrastructure.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The number of database servers for the Exadata infrastructure.</p>
+   * @public
+   */
+  computeCount?: number | undefined;
+
+  /**
+   * <p>The maintenance window configuration for the Exadata Cloud infrastructure.</p> <p>This allows you to define when maintenance operations such as patching and updates can be performed on the infrastructure.</p>
    * @public
    */
   maintenanceWindow?: MaintenanceWindow | undefined;
+
+  /**
+   * <p>The number of storage servers to activate for the Exadata infrastructure.</p>
+   * @public
+   */
+  storageCount?: number | undefined;
 }
 
 /**
@@ -6464,6 +6622,46 @@ export interface UpdateCloudExadataInfrastructureOutput {
 
   /**
    * <p>Additional information about the status of the Exadata infrastructure after the update operation.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the updated Exadata infrastructure.</p>
+   * @public
+   */
+  cloudExadataInfrastructureId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCloudExadataInfrastructureStorageCapacityInput {
+  /**
+   * <p>The unique identifier or Amazon Resource Name (ARN) of the Exadata infrastructure to update.</p>
+   * @public
+   */
+  cloudExadataInfrastructureId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCloudExadataInfrastructureStorageCapacityOutput {
+  /**
+   * <p>The user-friendly name of the updated Exadata infrastructure.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Exadata infrastructure.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the Exadata infrastructure, if applicable.</p>
    * @public
    */
   statusReason?: string | undefined;
@@ -7426,6 +7624,52 @@ export interface DeleteCloudVmClusterOutput {}
 /**
  * @public
  */
+export interface DisassociateVirtualMachinesFromCloudVmClusterInput {
+  /**
+   * <p>The unique identifier of the VM cluster to remove virtual machines from.</p>
+   * @public
+   */
+  cloudVmClusterId: string | undefined;
+
+  /**
+   * <p>The list of database server IDs for the virtual machines to remove from the VM cluster.</p>
+   * @public
+   */
+  dbServers: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateVirtualMachinesFromCloudVmClusterOutput {
+  /**
+   * <p>The user-friendly name for the VM cluster.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the VM cluster.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the VM cluster, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the VM cluster.</p>
+   * @public
+   */
+  cloudVmClusterId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetCloudVmClusterInput {
   /**
    * <p>The unique identifier of the VM cluster.</p>
@@ -7483,6 +7727,100 @@ export interface ListCloudVmClustersOutput {
    * @public
    */
   cloudVmClusters: CloudVmClusterSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCloudVmClusterInput {
+  /**
+   * <p>The unique identifier of the VM cluster to update.</p>
+   * @public
+   */
+  cloudVmClusterId: string | undefined;
+
+  /**
+   * <p>The number of CPU cores to enable on the VM cluster. If you don't specify a value, the existing number of CPU cores is retained.</p>
+   * @public
+   */
+  cpuCoreCount?: number | undefined;
+
+  /**
+   * <p>The set of preferences for the diagnostic collection options for the VM cluster.</p>
+   * @public
+   */
+  dataCollectionOptions?: DataCollectionOptions | undefined;
+
+  /**
+   * <p>The size of the data disk group, in terabytes (TB), to allocate for the VM cluster.</p>
+   * @public
+   */
+  dataStorageSizeInTBs?: number | undefined;
+
+  /**
+   * <p>The amount of local node storage, in gigabytes (GB), to allocate for the VM cluster.</p>
+   * @public
+   */
+  dbNodeStorageSizeInGBs?: number | undefined;
+
+  /**
+   * <p>A new user-friendly name for the VM cluster.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The public key portion of one or more key pairs used for SSH access to the VM cluster.</p>
+   * @public
+   */
+  sshPublicKeys?: string[] | undefined;
+
+  /**
+   * <p>The Oracle license model to apply to the VM cluster.</p>
+   * @public
+   */
+  licenseModel?: LicenseModel | undefined;
+
+  /**
+   * <p>The amount of memory, in gigabytes (GB), to allocate for the VM cluster.</p>
+   * @public
+   */
+  memorySizeInGBs?: number | undefined;
+
+  /**
+   * <p>The amount of local node storage, in gigabytes (GB), to allocate to the VM cluster.</p>
+   * @public
+   */
+  storageSizeInGBs?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCloudVmClusterOutput {
+  /**
+   * <p>The user-friendly name of the updated VM cluster.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the VM cluster.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the VM cluster, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the updated VM cluster.</p>
+   * @public
+   */
+  cloudVmClusterId: string | undefined;
 }
 
 /**

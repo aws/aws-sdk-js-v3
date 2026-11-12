@@ -14,6 +14,10 @@ import {
   AssociateIamRoleToResourceCommand,
   AssociateIamRoleToResourceInput$,
   AssociateIamRoleToResourceOutput$,
+  AssociateVirtualMachinesToCloudVmCluster$,
+  AssociateVirtualMachinesToCloudVmClusterCommand,
+  AssociateVirtualMachinesToCloudVmClusterInput$,
+  AssociateVirtualMachinesToCloudVmClusterOutput$,
   AssociateVirtualMachinesToExadbVmCluster$,
   AssociateVirtualMachinesToExadbVmClusterCommand,
   AssociateVirtualMachinesToExadbVmClusterInput$,
@@ -160,6 +164,10 @@ import {
   DisassociateIamRoleFromResourceCommand,
   DisassociateIamRoleFromResourceInput$,
   DisassociateIamRoleFromResourceOutput$,
+  DisassociateVirtualMachinesFromCloudVmCluster$,
+  DisassociateVirtualMachinesFromCloudVmClusterCommand,
+  DisassociateVirtualMachinesFromCloudVmClusterInput$,
+  DisassociateVirtualMachinesFromCloudVmClusterOutput$,
   DisassociateVirtualMachinesFromExadbVmCluster$,
   DisassociateVirtualMachinesFromExadbVmClusterCommand,
   DisassociateVirtualMachinesFromExadbVmClusterInput$,
@@ -477,10 +485,22 @@ import {
   UpdateAutonomousDatabaseCommand,
   UpdateAutonomousDatabaseInput$,
   UpdateAutonomousDatabaseOutput$,
+  UpdateCloudAutonomousVmCluster$,
+  UpdateCloudAutonomousVmClusterCommand,
+  UpdateCloudAutonomousVmClusterInput$,
+  UpdateCloudAutonomousVmClusterOutput$,
   UpdateCloudExadataInfrastructure$,
   UpdateCloudExadataInfrastructureCommand,
   UpdateCloudExadataInfrastructureInput$,
   UpdateCloudExadataInfrastructureOutput$,
+  UpdateCloudExadataInfrastructureStorageCapacity$,
+  UpdateCloudExadataInfrastructureStorageCapacityCommand,
+  UpdateCloudExadataInfrastructureStorageCapacityInput$,
+  UpdateCloudExadataInfrastructureStorageCapacityOutput$,
+  UpdateCloudVmCluster$,
+  UpdateCloudVmClusterCommand,
+  UpdateCloudVmClusterInput$,
+  UpdateCloudVmClusterOutput$,
   UpdateExadbVmCluster$,
   UpdateExadbVmClusterCommand,
   UpdateExadbVmClusterInput$,
@@ -523,6 +543,8 @@ assert(typeof AcceptMarketplaceRegistrationCommand === "function");
 assert(typeof AcceptMarketplaceRegistration$ === "object");
 assert(typeof AssociateIamRoleToResourceCommand === "function");
 assert(typeof AssociateIamRoleToResource$ === "object");
+assert(typeof AssociateVirtualMachinesToCloudVmClusterCommand === "function");
+assert(typeof AssociateVirtualMachinesToCloudVmCluster$ === "object");
 assert(typeof AssociateVirtualMachinesToExadbVmClusterCommand === "function");
 assert(typeof AssociateVirtualMachinesToExadbVmCluster$ === "object");
 assert(typeof CreateAutonomousDatabaseCommand === "function");
@@ -565,6 +587,8 @@ assert(typeof DeleteOdbPeeringConnectionCommand === "function");
 assert(typeof DeleteOdbPeeringConnection$ === "object");
 assert(typeof DisassociateIamRoleFromResourceCommand === "function");
 assert(typeof DisassociateIamRoleFromResource$ === "object");
+assert(typeof DisassociateVirtualMachinesFromCloudVmClusterCommand === "function");
+assert(typeof DisassociateVirtualMachinesFromCloudVmCluster$ === "object");
 assert(typeof DisassociateVirtualMachinesFromExadbVmClusterCommand === "function");
 assert(typeof DisassociateVirtualMachinesFromExadbVmCluster$ === "object");
 assert(typeof FailoverAutonomousDatabaseCommand === "function");
@@ -669,8 +693,14 @@ assert(typeof UpdateAutonomousDatabaseCommand === "function");
 assert(typeof UpdateAutonomousDatabase$ === "object");
 assert(typeof UpdateAutonomousDatabaseBackupCommand === "function");
 assert(typeof UpdateAutonomousDatabaseBackup$ === "object");
+assert(typeof UpdateCloudAutonomousVmClusterCommand === "function");
+assert(typeof UpdateCloudAutonomousVmCluster$ === "object");
 assert(typeof UpdateCloudExadataInfrastructureCommand === "function");
 assert(typeof UpdateCloudExadataInfrastructure$ === "object");
+assert(typeof UpdateCloudExadataInfrastructureStorageCapacityCommand === "function");
+assert(typeof UpdateCloudExadataInfrastructureStorageCapacity$ === "object");
+assert(typeof UpdateCloudVmClusterCommand === "function");
+assert(typeof UpdateCloudVmCluster$ === "object");
 assert(typeof UpdateExadbVmClusterCommand === "function");
 assert(typeof UpdateExadbVmCluster$ === "object");
 assert(typeof UpdateExascaleCloudExadataInfrastructureCommand === "function");
@@ -689,6 +719,8 @@ assert(typeof AdminPasswordSourceConfigurationInput$ === "object");
 assert(typeof AdminPasswordSourceSummary$ === "object");
 assert(typeof AssociateIamRoleToResourceInput$ === "object");
 assert(typeof AssociateIamRoleToResourceOutput$ === "object");
+assert(typeof AssociateVirtualMachinesToCloudVmClusterInput$ === "object");
+assert(typeof AssociateVirtualMachinesToCloudVmClusterOutput$ === "object");
 assert(typeof AssociateVirtualMachinesToExadbVmClusterInput$ === "object");
 assert(typeof AssociateVirtualMachinesToExadbVmClusterOutput$ === "object");
 assert(typeof AutonomousDatabase$ === "object");
@@ -773,6 +805,8 @@ assert(typeof DeleteOdbPeeringConnectionInput$ === "object");
 assert(typeof DeleteOdbPeeringConnectionOutput$ === "object");
 assert(typeof DisassociateIamRoleFromResourceInput$ === "object");
 assert(typeof DisassociateIamRoleFromResourceOutput$ === "object");
+assert(typeof DisassociateVirtualMachinesFromCloudVmClusterInput$ === "object");
+assert(typeof DisassociateVirtualMachinesFromCloudVmClusterOutput$ === "object");
 assert(typeof DisassociateVirtualMachinesFromExadbVmClusterInput$ === "object");
 assert(typeof DisassociateVirtualMachinesFromExadbVmClusterOutput$ === "object");
 assert(typeof DisasterRecoveryConfiguration$ === "object");
@@ -920,8 +954,14 @@ assert(typeof UpdateAutonomousDatabaseBackupInput$ === "object");
 assert(typeof UpdateAutonomousDatabaseBackupOutput$ === "object");
 assert(typeof UpdateAutonomousDatabaseInput$ === "object");
 assert(typeof UpdateAutonomousDatabaseOutput$ === "object");
+assert(typeof UpdateCloudAutonomousVmClusterInput$ === "object");
+assert(typeof UpdateCloudAutonomousVmClusterOutput$ === "object");
 assert(typeof UpdateCloudExadataInfrastructureInput$ === "object");
 assert(typeof UpdateCloudExadataInfrastructureOutput$ === "object");
+assert(typeof UpdateCloudExadataInfrastructureStorageCapacityInput$ === "object");
+assert(typeof UpdateCloudExadataInfrastructureStorageCapacityOutput$ === "object");
+assert(typeof UpdateCloudVmClusterInput$ === "object");
+assert(typeof UpdateCloudVmClusterOutput$ === "object");
 assert(typeof UpdateExadbVmClusterInput$ === "object");
 assert(typeof UpdateExadbVmClusterOutput$ === "object");
 assert(typeof UpdateExascaleCloudExadataInfrastructureInput$ === "object");

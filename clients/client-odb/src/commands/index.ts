@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./AcceptMarketplaceRegistrationCommand";
 export * from "./AssociateIamRoleToResourceCommand";
+export * from "./AssociateVirtualMachinesToCloudVmClusterCommand";
 export * from "./AssociateVirtualMachinesToExadbVmClusterCommand";
 export * from "./CreateAutonomousDatabaseBackupCommand";
 export * from "./CreateAutonomousDatabaseCommand";
@@ -22,6 +23,7 @@ export * from "./DeleteExascaleDbStorageVaultCommand";
 export * from "./DeleteOdbNetworkCommand";
 export * from "./DeleteOdbPeeringConnectionCommand";
 export * from "./DisassociateIamRoleFromResourceCommand";
+export * from "./DisassociateVirtualMachinesFromCloudVmClusterCommand";
 export * from "./DisassociateVirtualMachinesFromExadbVmClusterCommand";
 export * from "./FailoverAutonomousDatabaseCommand";
 export * from "./GetAutonomousDatabaseBackupCommand";
@@ -74,7 +76,10 @@ export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateAutonomousDatabaseBackupCommand";
 export * from "./UpdateAutonomousDatabaseCommand";
+export * from "./UpdateCloudAutonomousVmClusterCommand";
 export * from "./UpdateCloudExadataInfrastructureCommand";
+export * from "./UpdateCloudExadataInfrastructureStorageCapacityCommand";
+export * from "./UpdateCloudVmClusterCommand";
 export * from "./UpdateExadbVmClusterCommand";
 export * from "./UpdateExascaleCloudExadataInfrastructureCommand";
 export * from "./UpdateExascaleDbStorageVaultCommand";

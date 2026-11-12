@@ -63,6 +63,10 @@ import type {
   AssociateIamRoleToResourceCommandOutput,
 } from "./commands/AssociateIamRoleToResourceCommand";
 import type {
+  AssociateVirtualMachinesToCloudVmClusterCommandInput,
+  AssociateVirtualMachinesToCloudVmClusterCommandOutput,
+} from "./commands/AssociateVirtualMachinesToCloudVmClusterCommand";
+import type {
   AssociateVirtualMachinesToExadbVmClusterCommandInput,
   AssociateVirtualMachinesToExadbVmClusterCommandOutput,
 } from "./commands/AssociateVirtualMachinesToExadbVmClusterCommand";
@@ -140,6 +144,10 @@ import type {
   DisassociateIamRoleFromResourceCommandInput,
   DisassociateIamRoleFromResourceCommandOutput,
 } from "./commands/DisassociateIamRoleFromResourceCommand";
+import type {
+  DisassociateVirtualMachinesFromCloudVmClusterCommandInput,
+  DisassociateVirtualMachinesFromCloudVmClusterCommandOutput,
+} from "./commands/DisassociateVirtualMachinesFromCloudVmClusterCommand";
 import type {
   DisassociateVirtualMachinesFromExadbVmClusterCommandInput,
   DisassociateVirtualMachinesFromExadbVmClusterCommandOutput,
@@ -313,9 +321,21 @@ import type {
   UpdateAutonomousDatabaseCommandOutput,
 } from "./commands/UpdateAutonomousDatabaseCommand";
 import type {
+  UpdateCloudAutonomousVmClusterCommandInput,
+  UpdateCloudAutonomousVmClusterCommandOutput,
+} from "./commands/UpdateCloudAutonomousVmClusterCommand";
+import type {
   UpdateCloudExadataInfrastructureCommandInput,
   UpdateCloudExadataInfrastructureCommandOutput,
 } from "./commands/UpdateCloudExadataInfrastructureCommand";
+import type {
+  UpdateCloudExadataInfrastructureStorageCapacityCommandInput,
+  UpdateCloudExadataInfrastructureStorageCapacityCommandOutput,
+} from "./commands/UpdateCloudExadataInfrastructureStorageCapacityCommand";
+import type {
+  UpdateCloudVmClusterCommandInput,
+  UpdateCloudVmClusterCommandOutput,
+} from "./commands/UpdateCloudVmClusterCommand";
 import type {
   UpdateExadbVmClusterCommandInput,
   UpdateExadbVmClusterCommandOutput,
@@ -350,6 +370,7 @@ export { __Client };
 export type ServiceInputTypes =
   | AcceptMarketplaceRegistrationCommandInput
   | AssociateIamRoleToResourceCommandInput
+  | AssociateVirtualMachinesToCloudVmClusterCommandInput
   | AssociateVirtualMachinesToExadbVmClusterCommandInput
   | CreateAutonomousDatabaseBackupCommandInput
   | CreateAutonomousDatabaseCommandInput
@@ -371,6 +392,7 @@ export type ServiceInputTypes =
   | DeleteOdbNetworkCommandInput
   | DeleteOdbPeeringConnectionCommandInput
   | DisassociateIamRoleFromResourceCommandInput
+  | DisassociateVirtualMachinesFromCloudVmClusterCommandInput
   | DisassociateVirtualMachinesFromExadbVmClusterCommandInput
   | FailoverAutonomousDatabaseCommandInput
   | GetAutonomousDatabaseBackupCommandInput
@@ -423,7 +445,10 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAutonomousDatabaseBackupCommandInput
   | UpdateAutonomousDatabaseCommandInput
+  | UpdateCloudAutonomousVmClusterCommandInput
   | UpdateCloudExadataInfrastructureCommandInput
+  | UpdateCloudExadataInfrastructureStorageCapacityCommandInput
+  | UpdateCloudVmClusterCommandInput
   | UpdateExadbVmClusterCommandInput
   | UpdateExascaleCloudExadataInfrastructureCommandInput
   | UpdateExascaleDbStorageVaultCommandInput
@@ -436,6 +461,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptMarketplaceRegistrationCommandOutput
   | AssociateIamRoleToResourceCommandOutput
+  | AssociateVirtualMachinesToCloudVmClusterCommandOutput
   | AssociateVirtualMachinesToExadbVmClusterCommandOutput
   | CreateAutonomousDatabaseBackupCommandOutput
   | CreateAutonomousDatabaseCommandOutput
@@ -457,6 +483,7 @@ export type ServiceOutputTypes =
   | DeleteOdbNetworkCommandOutput
   | DeleteOdbPeeringConnectionCommandOutput
   | DisassociateIamRoleFromResourceCommandOutput
+  | DisassociateVirtualMachinesFromCloudVmClusterCommandOutput
   | DisassociateVirtualMachinesFromExadbVmClusterCommandOutput
   | FailoverAutonomousDatabaseCommandOutput
   | GetAutonomousDatabaseBackupCommandOutput
@@ -509,7 +536,10 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAutonomousDatabaseBackupCommandOutput
   | UpdateAutonomousDatabaseCommandOutput
+  | UpdateCloudAutonomousVmClusterCommandOutput
   | UpdateCloudExadataInfrastructureCommandOutput
+  | UpdateCloudExadataInfrastructureStorageCapacityCommandOutput
+  | UpdateCloudVmClusterCommandOutput
   | UpdateExadbVmClusterCommandOutput
   | UpdateExascaleCloudExadataInfrastructureCommandOutput
   | UpdateExascaleDbStorageVaultCommandOutput

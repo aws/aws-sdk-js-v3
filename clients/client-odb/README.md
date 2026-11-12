@@ -195,6 +195,13 @@ AssociateIamRoleToResource
 </details>
 <details>
 <summary>
+AssociateVirtualMachinesToCloudVmCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/AssociateVirtualMachinesToCloudVmClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/AssociateVirtualMachinesToCloudVmClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/AssociateVirtualMachinesToCloudVmClusterCommandOutput/)
+</details>
+<details>
+<summary>
 AssociateVirtualMachinesToExadbVmCluster
 </summary>
 
@@ -339,6 +346,13 @@ DisassociateIamRoleFromResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/DisassociateIamRoleFromResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/DisassociateIamRoleFromResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/DisassociateIamRoleFromResourceCommandOutput/)
+</details>
+<details>
+<summary>
+DisassociateVirtualMachinesFromCloudVmCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/DisassociateVirtualMachinesFromCloudVmClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/DisassociateVirtualMachinesFromCloudVmClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/DisassociateVirtualMachinesFromCloudVmClusterCommandOutput/)
 </details>
 <details>
 <summary>
@@ -706,10 +720,31 @@ UpdateAutonomousDatabaseBackup
 </details>
 <details>
 <summary>
+UpdateCloudAutonomousVmCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/UpdateCloudAutonomousVmClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UpdateCloudAutonomousVmClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UpdateCloudAutonomousVmClusterCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateCloudExadataInfrastructure
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/UpdateCloudExadataInfrastructureCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UpdateCloudExadataInfrastructureCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UpdateCloudExadataInfrastructureCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateCloudExadataInfrastructureStorageCapacity
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/UpdateCloudExadataInfrastructureStorageCapacityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UpdateCloudExadataInfrastructureStorageCapacityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UpdateCloudExadataInfrastructureStorageCapacityCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateCloudVmCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/UpdateCloudVmClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UpdateCloudVmClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UpdateCloudVmClusterCommandOutput/)
 </details>
 <details>
 <summary>
