@@ -38,7 +38,7 @@ export interface UpdateBridgeOutputCommandOutput extends UpdateBridgeOutputRespo
  *     IpAddress: "STRING_VALUE",
  *     NetworkName: "STRING_VALUE",
  *     Port: Number("int"),
- *     Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq",
+ *     Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq" || "rtmp-push",
  *     Ttl: Number("int"),
  *   },
  *   OutputName: "STRING_VALUE", // required
@@ -58,7 +58,7 @@ export interface UpdateBridgeOutputCommandOutput extends UpdateBridgeOutputRespo
  * //       Name: "STRING_VALUE", // required
  * //       NetworkName: "STRING_VALUE", // required
  * //       Port: Number("int"), // required
- * //       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq", // required
+ * //       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq" || "rtmp-push", // required
  * //       Ttl: Number("int"), // required
  * //     },
  * //   },

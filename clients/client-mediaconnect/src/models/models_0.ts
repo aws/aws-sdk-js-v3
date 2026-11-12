@@ -1,10 +1,8 @@
 // smithy-typescript generated code
 import type {
   Algorithm,
-  BridgePlacement,
   BridgeState,
   Colorimetry,
-  ConnectionStatus,
   ContentQualityAnalysisState,
   Day,
   DesiredState,
@@ -22,6 +20,7 @@ import type {
   EndpointLifecycle,
   EntitlementStatus,
   FabricLatencyMode,
+  FabricSwitchingMode,
   FailoverInputSourcePriorityMode,
   FailoverMode,
   FlowSize,
@@ -62,6 +61,7 @@ import type {
   RouterOutputTier,
   RouterOutputType,
   RoutingScope,
+  RtmpPushNamingType,
   ScanMode,
   SourceEndpointConnectionState,
   SourceEndpointNetworkingType,
@@ -601,6 +601,93 @@ export interface FlowTransitEncryption {
 }
 
 /**
+ * <p>The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.</p>
+ * @public
+ */
+export interface PublicTlsEncryptionConfiguration {}
+
+/**
+ * <p>The configuration settings for TLS encryption.</p>
+ * @public
+ */
+export type TlsEncryptionConfiguration =
+  | TlsEncryptionConfiguration.PublicMember
+  | TlsEncryptionConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TlsEncryptionConfiguration {
+  /**
+   * <p>The TLS encryption configuration that validates the destination by using a publicly trusted certificate authority.</p>
+   * @public
+   */
+  export interface PublicMember {
+    Public: PublicTlsEncryptionConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Public?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Public: (value: PublicTlsEncryptionConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.</p>
+ * @public
+ */
+export interface TlsEncryption {
+  /**
+   * <p>The type of TLS encryption to use for the connection.</p>
+   * @public
+   */
+  EncryptionType?: TlsEncryptionType | undefined;
+
+  /**
+   * <p>The configuration settings for the specified TLS encryption type.</p>
+   * @public
+   */
+  EncryptionConfiguration: TlsEncryptionConfiguration | undefined;
+}
+
+/**
+ * <p>The settings for an output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the application and stream names, and optional TLS encryption configuration.</p>
+ * @public
+ */
+export interface RtmpPushOutputSettings {
+  /**
+   * <p>The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern <code>rtmp://destinationAddress/applicationName/streamName</code>.</p>
+   * @public
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.</p>
+   * @public
+   */
+  StreamName: string | undefined;
+
+  /**
+   * <p>The TLS encryption settings for the output. When you specify these settings, the output uses RTMPS (RTMP over TLS) to establish a secure, encrypted connection to the destination server.</p>
+   * @public
+   */
+  TlsEncryption?: TlsEncryption | undefined;
+}
+
+/**
  * <p> A request to add an output to a flow.</p>
  * @public
  */
@@ -742,6 +829,12 @@ export interface AddOutputRequest {
    * @public
    */
   NdiAudioReferenceLevel?: number | undefined;
+
+  /**
+   * <p>The settings for an output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified.</p>
+   * @public
+   */
+  RtmpPushSettings?: RtmpPushOutputSettings | undefined;
 }
 
 /**
@@ -1807,6 +1900,30 @@ export interface NdiSourceSettings {
 }
 
 /**
+ * <p>The settings for the RTMP (Real-Time Messaging Protocol) source.</p>
+ * @public
+ */
+export interface RtmpPushSourceSettings {
+  /**
+   * <p>The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern <code>rtmp://ingestAddress/applicationName/streamName</code>.</p>
+   * @public
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.</p>
+   * @public
+   */
+  StreamName: string | undefined;
+
+  /**
+   * <p>The naming type that the source uses. With <code>AUTOMATIC</code> naming, MediaConnect generates the application and stream names.</p>
+   * @public
+   */
+  NamingType: RtmpPushNamingType | undefined;
+}
+
+/**
  * <p> Attributes related to the transport stream that are used in a source or output.</p>
  * @public
  */
@@ -1918,6 +2035,18 @@ export interface Transport {
    * @public
    */
   NdiAudioReferenceLevel?: number | undefined;
+
+  /**
+   * <p>The settings for the RTMP (Real-Time Messaging Protocol) source.</p>
+   * @public
+   */
+  RtmpPushSourceSettings?: RtmpPushSourceSettings | undefined;
+
+  /**
+   * <p>The settings for an output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified.</p>
+   * @public
+   */
+  RtmpPushOutputSettings?: RtmpPushOutputSettings | undefined;
 }
 
 /**
@@ -2149,6 +2278,95 @@ export interface SetGatewayBridgeSourceRequest {
 }
 
 /**
+ * <p>The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.</p>
+ * @public
+ */
+export interface AutomaticRtmpPushNamingConfiguration {}
+
+/**
+ * <p>The manual RTMP naming configuration, where you specify the application and stream names.</p>
+ * @public
+ */
+export interface ManualRtmpPushNamingConfiguration {
+  /**
+   * <p>The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern <code>rtmp://ingestAddress/applicationName/streamName</code>.</p>
+   * @public
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.</p>
+   * @public
+   */
+  StreamName: string | undefined;
+}
+
+/**
+ * <p>The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.</p>
+ * @public
+ */
+export type RtmpPushNamingConfiguration =
+  | RtmpPushNamingConfiguration.AutomaticMember
+  | RtmpPushNamingConfiguration.ManualMember
+  | RtmpPushNamingConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RtmpPushNamingConfiguration {
+  /**
+   * <p>The naming configuration where you specify the application and stream names.</p>
+   * @public
+   */
+  export interface ManualMember {
+    Manual: ManualRtmpPushNamingConfiguration;
+    Automatic?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The naming configuration where MediaConnect generates the application and stream names.</p>
+   * @public
+   */
+  export interface AutomaticMember {
+    Manual?: never;
+    Automatic: AutomaticRtmpPushNamingConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Manual?: never;
+    Automatic?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Manual: (value: ManualRtmpPushNamingConfiguration) => T;
+    Automatic: (value: AutomaticRtmpPushNamingConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The settings for the RTMP (Real-Time Messaging Protocol) source.</p>
+ * @public
+ */
+export interface SetRtmpPushSourceSettings {
+  /**
+   * <p>The configuration settings for the application and stream names.</p>
+   * @public
+   */
+  NamingConfiguration: RtmpPushNamingConfiguration | undefined;
+}
+
+/**
  * <p> The settings for the source of the flow.</p>
  * @public
  */
@@ -2290,6 +2508,12 @@ export interface SetSourceRequest {
    * @public
    */
   RouterIntegrationTransitDecryption?: FlowTransitEncryption | undefined;
+
+  /**
+   * <p>The settings for the RTMP (Real-Time Messaging Protocol) source.</p>
+   * @public
+   */
+  RtmpPushSettings?: SetRtmpPushSourceSettings | undefined;
 }
 
 /**
@@ -2484,10 +2708,22 @@ export interface TransportStream {
   SampleSize?: number | undefined;
 
   /**
+   * <p>The scan mode used by the video stream.</p>
+   * @public
+   */
+  ScanMode?: ScanMode | undefined;
+
+  /**
    * <p> The Stream Type as it is reported in the Program Map Table.</p>
    * @public
    */
   StreamType: string | undefined;
+
+  /**
+   * <p>The language of the elementary stream.</p>
+   * @public
+   */
+  Language?: string | undefined;
 }
 
 /**
@@ -2921,6 +3157,24 @@ export interface AddMaintenance {
  * @public
  */
 export interface AutomaticEndpointEncryptionConfiguration {}
+
+/**
+ * <p>The configuration settings for automatic Packet ID (PID) assignment. These settings apply to any PID mapping rule that uses the <code>auto</code> action, including the default action.</p>
+ * @public
+ */
+export interface AutoPidMapConfiguration {
+  /**
+   * <p>The first PID in the range for automatic PID assignment.</p>
+   * @public
+   */
+  StartPid: number | undefined;
+
+  /**
+   * <p>The number of PIDs in the range for automatic PID assignment.</p>
+   * @public
+   */
+  PidsPerProgram: number | undefined;
+}
 
 /**
  * @public
@@ -3979,6 +4233,30 @@ export interface RistRouterInputConfiguration {
 }
 
 /**
+ * <p>The configuration settings for a router input using the RTMP (Real-Time Messaging Protocol) protocol.</p>
+ * @public
+ */
+export interface RtmpPushRouterInputConfiguration {
+  /**
+   * <p>The port number for the RTMP protocol. The only valid value is <code>1935</code>.</p>
+   * @public
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>The naming type. If you specify it, it must match the naming configuration.</p>
+   * @public
+   */
+  NamingType?: RtmpPushNamingType | undefined;
+
+  /**
+   * <p>The configuration settings for the application and stream names.</p>
+   * @public
+   */
+  NamingConfiguration: RtmpPushNamingConfiguration | undefined;
+}
+
+/**
  * <p>The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.</p>
  * @public
  */
@@ -4074,6 +4352,7 @@ export interface SrtListenerRouterInputConfiguration {
  */
 export type FailoverRouterInputProtocolConfiguration =
   | FailoverRouterInputProtocolConfiguration.RistMember
+  | FailoverRouterInputProtocolConfiguration.RtmpPushMember
   | FailoverRouterInputProtocolConfiguration.RtpMember
   | FailoverRouterInputProtocolConfiguration.SrtCallerMember
   | FailoverRouterInputProtocolConfiguration.SrtListenerMember
@@ -4090,6 +4369,7 @@ export namespace FailoverRouterInputProtocolConfiguration {
   export interface RistMember {
     Rist: RistRouterInputConfiguration;
     SrtListener?: never;
+    RtmpPush?: never;
     SrtCaller?: never;
     Rtp?: never;
     $unknown?: never;
@@ -4102,6 +4382,20 @@ export namespace FailoverRouterInputProtocolConfiguration {
   export interface SrtListenerMember {
     Rist?: never;
     SrtListener: SrtListenerRouterInputConfiguration;
+    RtmpPush?: never;
+    SrtCaller?: never;
+    Rtp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a failover router input that uses the RTMP protocol.</p>
+   * @public
+   */
+  export interface RtmpPushMember {
+    Rist?: never;
+    SrtListener?: never;
+    RtmpPush: RtmpPushRouterInputConfiguration;
     SrtCaller?: never;
     Rtp?: never;
     $unknown?: never;
@@ -4114,6 +4408,7 @@ export namespace FailoverRouterInputProtocolConfiguration {
   export interface SrtCallerMember {
     Rist?: never;
     SrtListener?: never;
+    RtmpPush?: never;
     SrtCaller: SrtCallerRouterInputConfiguration;
     Rtp?: never;
     $unknown?: never;
@@ -4126,6 +4421,7 @@ export namespace FailoverRouterInputProtocolConfiguration {
   export interface RtpMember {
     Rist?: never;
     SrtListener?: never;
+    RtmpPush?: never;
     SrtCaller?: never;
     Rtp: RtpRouterInputConfiguration;
     $unknown?: never;
@@ -4137,6 +4433,7 @@ export namespace FailoverRouterInputProtocolConfiguration {
   export interface $UnknownMember {
     Rist?: never;
     SrtListener?: never;
+    RtmpPush?: never;
     SrtCaller?: never;
     Rtp?: never;
     $unknown: [string, any];
@@ -4149,6 +4446,7 @@ export namespace FailoverRouterInputProtocolConfiguration {
   export interface Visitor<T> {
     Rist: (value: RistRouterInputConfiguration) => T;
     SrtListener: (value: SrtListenerRouterInputConfiguration) => T;
+    RtmpPush: (value: RtmpPushRouterInputConfiguration) => T;
     SrtCaller: (value: SrtCallerRouterInputConfiguration) => T;
     Rtp: (value: RtpRouterInputConfiguration) => T;
     _: (name: string, value: any) => T;
@@ -4317,6 +4615,8 @@ export interface MediaLiveChannelRouterInputConfiguration {
 export type MergeRouterInputProtocolConfiguration =
   | MergeRouterInputProtocolConfiguration.RistMember
   | MergeRouterInputProtocolConfiguration.RtpMember
+  | MergeRouterInputProtocolConfiguration.SrtCallerMember
+  | MergeRouterInputProtocolConfiguration.SrtListenerMember
   | MergeRouterInputProtocolConfiguration.$UnknownMember;
 
 /**
@@ -4330,6 +4630,8 @@ export namespace MergeRouterInputProtocolConfiguration {
   export interface RtpMember {
     Rtp: RtpRouterInputConfiguration;
     Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
     $unknown?: never;
   }
 
@@ -4340,6 +4642,32 @@ export namespace MergeRouterInputProtocolConfiguration {
   export interface RistMember {
     Rtp?: never;
     Rist: RistRouterInputConfiguration;
+    SrtListener?: never;
+    SrtCaller?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.</p>
+   * @public
+   */
+  export interface SrtListenerMember {
+    Rtp?: never;
+    Rist?: never;
+    SrtListener: SrtListenerRouterInputConfiguration;
+    SrtCaller?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.</p>
+   * @public
+   */
+  export interface SrtCallerMember {
+    Rtp?: never;
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller: SrtCallerRouterInputConfiguration;
     $unknown?: never;
   }
 
@@ -4349,6 +4677,8 @@ export namespace MergeRouterInputProtocolConfiguration {
   export interface $UnknownMember {
     Rtp?: never;
     Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
     $unknown: [string, any];
   }
 
@@ -4359,6 +4689,8 @@ export namespace MergeRouterInputProtocolConfiguration {
   export interface Visitor<T> {
     Rtp: (value: RtpRouterInputConfiguration) => T;
     Rist: (value: RistRouterInputConfiguration) => T;
+    SrtListener: (value: SrtListenerRouterInputConfiguration) => T;
+    SrtCaller: (value: SrtCallerRouterInputConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -4393,6 +4725,7 @@ export interface MergeRouterInputConfiguration {
  */
 export type RouterInputProtocolConfiguration =
   | RouterInputProtocolConfiguration.RistMember
+  | RouterInputProtocolConfiguration.RtmpPushMember
   | RouterInputProtocolConfiguration.RtpMember
   | RouterInputProtocolConfiguration.SrtCallerMember
   | RouterInputProtocolConfiguration.SrtListenerMember
@@ -4409,6 +4742,7 @@ export namespace RouterInputProtocolConfiguration {
   export interface RistMember {
     Rist: RistRouterInputConfiguration;
     SrtListener?: never;
+    RtmpPush?: never;
     SrtCaller?: never;
     Rtp?: never;
     $unknown?: never;
@@ -4421,6 +4755,20 @@ export namespace RouterInputProtocolConfiguration {
   export interface SrtListenerMember {
     Rist?: never;
     SrtListener: SrtListenerRouterInputConfiguration;
+    RtmpPush?: never;
+    SrtCaller?: never;
+    Rtp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router input that uses the RTMP protocol.</p>
+   * @public
+   */
+  export interface RtmpPushMember {
+    Rist?: never;
+    SrtListener?: never;
+    RtmpPush: RtmpPushRouterInputConfiguration;
     SrtCaller?: never;
     Rtp?: never;
     $unknown?: never;
@@ -4433,6 +4781,7 @@ export namespace RouterInputProtocolConfiguration {
   export interface SrtCallerMember {
     Rist?: never;
     SrtListener?: never;
+    RtmpPush?: never;
     SrtCaller: SrtCallerRouterInputConfiguration;
     Rtp?: never;
     $unknown?: never;
@@ -4445,6 +4794,7 @@ export namespace RouterInputProtocolConfiguration {
   export interface RtpMember {
     Rist?: never;
     SrtListener?: never;
+    RtmpPush?: never;
     SrtCaller?: never;
     Rtp: RtpRouterInputConfiguration;
     $unknown?: never;
@@ -4456,6 +4806,7 @@ export namespace RouterInputProtocolConfiguration {
   export interface $UnknownMember {
     Rist?: never;
     SrtListener?: never;
+    RtmpPush?: never;
     SrtCaller?: never;
     Rtp?: never;
     $unknown: [string, any];
@@ -4468,6 +4819,7 @@ export namespace RouterInputProtocolConfiguration {
   export interface Visitor<T> {
     Rist: (value: RistRouterInputConfiguration) => T;
     SrtListener: (value: SrtListenerRouterInputConfiguration) => T;
+    RtmpPush: (value: RtmpPushRouterInputConfiguration) => T;
     SrtCaller: (value: SrtCallerRouterInputConfiguration) => T;
     Rtp: (value: RtpRouterInputConfiguration) => T;
     _: (name: string, value: any) => T;
@@ -4891,6 +5243,24 @@ export namespace MaintenanceSchedule {
 export interface DestinationEndpointRouterInputStreamDetails {}
 
 /**
+ * <p>Configuration details for an RTMP (Real-Time Messaging Protocol) router input stream, including the application and stream names.</p>
+ * @public
+ */
+export interface RtmpPushStreamDetails {
+  /**
+   * <p>The name of the RTMP application.</p>
+   * @public
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>The name of the RTMP stream.</p>
+   * @public
+   */
+  StreamName: string | undefined;
+}
+
+/**
  * <p>Configuration details for an indexed stream in a failover router input setup.</p>
  * @public
  */
@@ -4906,6 +5276,12 @@ export interface FailoverRouterInputIndexedStreamDetails {
    * @public
    */
   SourceIpAddress?: string | undefined;
+
+  /**
+   * <p>The RTMP stream details for this indexed stream, including the application and stream names.</p>
+   * @public
+   */
+  RtmpPush?: RtmpPushStreamDetails | undefined;
 }
 
 /**
@@ -4984,6 +5360,12 @@ export interface StandardRouterInputStreamDetails {
    * @public
    */
   SourceIpAddress?: string | undefined;
+
+  /**
+   * <p>The RTMP stream details for the standard router input stream, including the application and stream names.</p>
+   * @public
+   */
+  RtmpPush?: RtmpPushStreamDetails | undefined;
 }
 
 /**
@@ -5722,69 +6104,6 @@ export interface RistRouterOutputConfiguration {
 }
 
 /**
- * <p>The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.</p>
- * @public
- */
-export interface PublicTlsEncryptionConfiguration {}
-
-/**
- * <p>The configuration settings for TLS encryption.</p>
- * @public
- */
-export type TlsEncryptionConfiguration =
-  | TlsEncryptionConfiguration.PublicMember
-  | TlsEncryptionConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace TlsEncryptionConfiguration {
-  /**
-   * <p>The TLS encryption configuration that validates the destination by using a publicly trusted certificate authority.</p>
-   * @public
-   */
-  export interface PublicMember {
-    Public: PublicTlsEncryptionConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    Public?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    Public: (value: PublicTlsEncryptionConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.</p>
- * @public
- */
-export interface TlsEncryption {
-  /**
-   * <p>The type of TLS encryption to use for the connection.</p>
-   * @public
-   */
-  EncryptionType?: TlsEncryptionType | undefined;
-
-  /**
-   * <p>The configuration settings for the specified TLS encryption type.</p>
-   * @public
-   */
-  EncryptionConfiguration: TlsEncryptionConfiguration | undefined;
-}
-
-/**
  * <p>The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.</p>
  * @public
  */
@@ -6135,6 +6454,77 @@ export namespace RouterOutputConfiguration {
 }
 
 /**
+ * <p>The switching configuration where the router output switches to the new router input immediately. This type does not require any additional settings.</p>
+ * @public
+ */
+export interface ImmediateFabricSwitchingConfiguration {}
+
+/**
+ * <p>The switching configuration where the router output waits for a key frame on the new router input before it switches.</p>
+ * @public
+ */
+export interface KeyFrameFabricSwitchingConfiguration {
+  /**
+   * <p>The maximum time, in milliseconds, that the router output waits for a key frame on the new input before it switches. Set this value to at least the GOP (Group of Pictures) duration of your content, which your upstream encoder determines. If the wait time is shorter than the GOP duration, MediaConnect makes a best effort to switch without a key frame. The default is 3000.</p>
+   * @public
+   */
+  KeyFrameWaitMilliseconds?: number | undefined;
+}
+
+/**
+ * <p>The configuration settings for switching between router inputs.</p>
+ * @public
+ */
+export type FabricSwitchingConfiguration =
+  | FabricSwitchingConfiguration.ImmediateMember
+  | FabricSwitchingConfiguration.KeyFrameMember
+  | FabricSwitchingConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FabricSwitchingConfiguration {
+  /**
+   * <p>The switching configuration where the router output switches to the new router input immediately.</p>
+   * @public
+   */
+  export interface ImmediateMember {
+    Immediate: ImmediateFabricSwitchingConfiguration;
+    KeyFrame?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The switching configuration where the router output waits for a key frame on the new router input before it switches.</p>
+   * @public
+   */
+  export interface KeyFrameMember {
+    Immediate?: never;
+    KeyFrame: KeyFrameFabricSwitchingConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Immediate?: never;
+    KeyFrame?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Immediate: (value: ImmediateFabricSwitchingConfiguration) => T;
+    KeyFrame: (value: KeyFrameFabricSwitchingConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The fabric configuration settings for the router output.</p>
  * @public
  */
@@ -6144,6 +6534,18 @@ export interface FabricConfiguration {
    * @public
    */
   RecoveryLatencyMode: FabricLatencyMode | undefined;
+
+  /**
+   * <p>The switching mode that the router output uses when it switches to a new router input. Valid values include the following:</p> <ul> <li> <p> <code>IMMEDIATE</code> (default) – Switches to the new router input immediately.</p> </li> <li> <p> <code>KEY_FRAME</code> – Waits for a key frame on the new router input before it switches.</p> </li> </ul> <p>If you specify it, it must match the switching configuration.</p>
+   * @public
+   */
+  SwitchingMode?: FabricSwitchingMode | undefined;
+
+  /**
+   * <p>The configuration settings for the switching mode.</p>
+   * @public
+   */
+  SwitchingConfiguration?: FabricSwitchingConfiguration | undefined;
 }
 
 /**
@@ -6162,6 +6564,302 @@ export interface RouterOutputMessage {
    * @public
    */
   Message: string | undefined;
+}
+
+/**
+ * <p>The configuration that passes through the value from the source. This type does not require any additional settings.</p>
+ * @public
+ */
+export interface Passthrough {}
+
+/**
+ * <p>The configuration settings for the Program Clock Reference (PCR) Packet ID (PID).</p>
+ * @public
+ */
+export type ProgramClockReferencePidConfiguration =
+  | ProgramClockReferencePidConfiguration.PassthroughMember
+  | ProgramClockReferencePidConfiguration.SetMember
+  | ProgramClockReferencePidConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProgramClockReferencePidConfiguration {
+  /**
+   * <p>The PCR PID configuration that passes through the PCR PID from the source.</p>
+   * @public
+   */
+  export interface PassthroughMember {
+    Passthrough: Passthrough;
+    Set?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The PCR PID to use for the router output. MediaConnect applies this value only when the PCR is carried on its own PID. If the PCR is carried on an elementary stream, this value has no effect. If you also set the PMT PID, the two values must be different.</p>
+   * @public
+   */
+  export interface SetMember {
+    Passthrough?: never;
+    Set: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Passthrough?: never;
+    Set?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Passthrough: (value: Passthrough) => T;
+    Set: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration settings for the Program Map Table (PMT) Packet ID (PID).</p>
+ * @public
+ */
+export type ProgramMapTablePidConfiguration =
+  | ProgramMapTablePidConfiguration.PassthroughMember
+  | ProgramMapTablePidConfiguration.SetMember
+  | ProgramMapTablePidConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProgramMapTablePidConfiguration {
+  /**
+   * <p>The PMT PID configuration that passes through the PMT PID from the source.</p>
+   * @public
+   */
+  export interface PassthroughMember {
+    Passthrough: Passthrough;
+    Set?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The PMT PID to use for the router output. If you also set the PCR PID, the two values must be different.</p>
+   * @public
+   */
+  export interface SetMember {
+    Passthrough?: never;
+    Set: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Passthrough?: never;
+    Set?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Passthrough: (value: Passthrough) => T;
+    Set: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration settings for the program number.</p>
+ * @public
+ */
+export type ProgramNumberConfiguration =
+  | ProgramNumberConfiguration.PassthroughMember
+  | ProgramNumberConfiguration.SetMember
+  | ProgramNumberConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProgramNumberConfiguration {
+  /**
+   * <p>The program number configuration that passes through the program number from the source.</p>
+   * @public
+   */
+  export interface PassthroughMember {
+    Passthrough: Passthrough;
+    Set?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The program number to use for the router output.</p>
+   * @public
+   */
+  export interface SetMember {
+    Passthrough?: never;
+    Set: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Passthrough?: never;
+    Set?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Passthrough: (value: Passthrough) => T;
+    Set: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A rule that selects elementary streams and specifies the action to apply to them.</p>
+ * @public
+ */
+export interface PidMapRule {
+  /**
+   * <p>An expression that selects the elementary streams that this rule applies to.</p>
+   * @public
+   */
+  MatchExpression: string | undefined;
+
+  /**
+   * <p>The action to apply to the elementary streams that match this rule.</p>
+   * @public
+   */
+  Action: string | undefined;
+}
+
+/**
+ * <p>The configuration settings for the transport stream ID (TSID).</p>
+ * @public
+ */
+export type TransportStreamIdConfiguration =
+  | TransportStreamIdConfiguration.PassthroughMember
+  | TransportStreamIdConfiguration.SetMember
+  | TransportStreamIdConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TransportStreamIdConfiguration {
+  /**
+   * <p>The TSID configuration that passes through the TSID from the source.</p>
+   * @public
+   */
+  export interface PassthroughMember {
+    Passthrough: Passthrough;
+    Set?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The TSID to use for the router output.</p>
+   * @public
+   */
+  export interface SetMember {
+    Passthrough?: never;
+    Set: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Passthrough?: never;
+    Set?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Passthrough: (value: Passthrough) => T;
+    Set: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration settings for remapping the identification numbers of elementary streams and program identifiers of a single-program transport stream.</p>
+ * @public
+ */
+export interface SingleProgramTransportStreamPidMapConfiguration {
+  /**
+   * <p>The ordered list of up to 32 rules that determine the action for each elementary stream. MediaConnect applies the first rule that matches.</p>
+   * @public
+   */
+  Rules: PidMapRule[] | undefined;
+
+  /**
+   * <p>The action to apply to an elementary stream that doesn't match any rule.</p>
+   * @public
+   */
+  DefaultAction: string | undefined;
+
+  /**
+   * <p>The transport stream ID (TSID) settings for the router output. By default, the router output passes through the TSID from the source.</p>
+   * @public
+   */
+  TransportStreamId?: TransportStreamIdConfiguration | undefined;
+
+  /**
+   * <p>The program number settings for the router output. By default, the router output passes through the program number from the source.</p>
+   * @public
+   */
+  ProgramNumber?: ProgramNumberConfiguration | undefined;
+
+  /**
+   * <p>The Program Map Table (PMT) PID settings for the router output. By default, the router output passes through the PMT PID from the source.</p>
+   * @public
+   */
+  ProgramMapTablePid?: ProgramMapTablePidConfiguration | undefined;
+
+  /**
+   * <p>The Program Clock Reference (PCR) PID settings for the router output. By default, the router output passes through the PCR PID from the source.</p>
+   * @public
+   */
+  ProgramClockReferencePid?: ProgramClockReferencePidConfiguration | undefined;
+
+  /**
+   * <p>The settings for automatic Packet ID (PID) assignment. The default start PID is 512, with 32 PIDs per program.</p>
+   * @public
+   */
+  Auto?: AutoPidMapConfiguration | undefined;
+}
+
+/**
+ * <p>The processor settings for a router output.</p>
+ * @public
+ */
+export interface RouterOutputProcessors {
+  /**
+   * <p>The configuration settings for remapping the identification numbers of elementary streams and program identifiers of a single-program transport stream.</p>
+   * @public
+   */
+  SingleProgramTransportStreamPidMap?: SingleProgramTransportStreamPidMapConfiguration | undefined;
 }
 
 /**
@@ -6429,6 +7127,12 @@ export interface RouterOutput {
    * @public
    */
   FabricConfiguration: FabricConfiguration | undefined;
+
+  /**
+   * <p>The processor settings for the router output.</p>
+   * @public
+   */
+  Processors?: RouterOutputProcessors | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of one or more source endpoints that are associated with this router output.</p>
@@ -8536,6 +9240,12 @@ export interface CreateRouterOutputRequest {
    * @public
    */
   ClientToken?: string | undefined;
+
+  /**
+   * <p>The processor settings for the router output.</p>
+   * @public
+   */
+  Processors?: RouterOutputProcessors | undefined;
 }
 
 /**
@@ -8789,350 +9499,4 @@ export interface DeregisterSourceEndpointResponse {
    * @public
    */
   Name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFlowRequest {
-  /**
-   * <p> The ARN of the flow that you want to describe.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-}
-
-/**
- * <p> Messages that provide the state of the flow.</p>
- * @public
- */
-export interface Messages {
-  /**
-   * <p> A list of errors that might have been generated from processes on this flow.</p>
-   * @public
-   */
-  Errors: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFlowResponse {
-  /**
-   * <p>The flow that you requested a description of. </p>
-   * @public
-   */
-  Flow?: Flow | undefined;
-
-  /**
-   * <p> Any errors that apply currently to the flow. If there are no errors, MediaConnect will not include this field in the response. </p>
-   * @public
-   */
-  Messages?: Messages | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFlowSourceMetadataRequest {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the flow.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-}
-
-/**
- * <p> Metadata about the audio and video media that is part of the NDI® source content. This includes details about the individual media streams. </p>
- * @public
- */
-export interface NdiMediaInfo {
-  /**
-   * <p> A list of the individual media streams that make up the NDI source. This includes details about each stream's codec, resolution, frame rate, audio channels, and other parameters. </p>
-   * @public
-   */
-  Streams: NdiMediaStreamInfo[] | undefined;
-}
-
-/**
- * <p> Comprehensive information about the NDI® source that's associated with a flow. This includes the currently active NDI source, a list of all discovered NDI senders, metadata about the media streams, and any relevant status messages. </p>
- * @public
- */
-export interface NdiSourceMetadataInfo {
-  /**
-   * <p> The connected NDI sender that's currently sending source content to the flow's NDI source. </p>
-   * @public
-   */
-  ActiveSource?: NdiSourceInfo | undefined;
-
-  /**
-   * <p> A list of the available upstream NDI senders aggregated from all of your configured discovery servers. </p>
-   * @public
-   */
-  DiscoveredSources: NdiSourceInfo[] | undefined;
-
-  /**
-   * <p> Detailed information about the media streams (video, audio, and so on) that are part of the active NDI source. </p>
-   * @public
-   */
-  MediaInfo: NdiMediaInfo | undefined;
-
-  /**
-   * <p> Any status messages or error codes related to the NDI source and its metadata. </p>
-   * @public
-   */
-  Messages: MessageDetail[] | undefined;
-}
-
-/**
- * <p> The metadata of the transport stream in the current flow's source.</p>
- * @public
- */
-export interface TransportMediaInfo {
-  /**
-   * <p> The list of transport stream programs in the current flow's source.</p>
-   * @public
-   */
-  Programs: TransportStreamProgram[] | undefined;
-
-  /**
-   * <p>The transport stream ID (TSID) of the source, from the Program Association Table (PAT).</p>
-   * @public
-   */
-  TsId?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFlowSourceMetadataResponse {
-  /**
-   * <p> The ARN of the flow that DescribeFlowSourceMetadata was performed on.</p>
-   * @public
-   */
-  FlowArn?: string | undefined;
-
-  /**
-   * <p> Provides a status code and message regarding issues found with the flow source metadata.</p>
-   * @public
-   */
-  Messages?: MessageDetail[] | undefined;
-
-  /**
-   * <p> The timestamp of the most recent change in metadata for this flow’s source.</p>
-   * @public
-   */
-  Timestamp?: Date | undefined;
-
-  /**
-   * <p> Information about the flow's transport media. </p>
-   * @public
-   */
-  TransportMediaInfo?: TransportMediaInfo | undefined;
-
-  /**
-   * <p> The NDI® specific information about the flow's source. This includes the current active NDI sender, a list of all discovered NDI senders, the associated media streams for the active NDI sender, and any relevant status messages. </p>
-   * @public
-   */
-  NdiInfo?: NdiSourceMetadataInfo | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFlowSourceThumbnailRequest {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the flow.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-}
-
-/**
- * <p> The details of the thumbnail, including thumbnail base64 string, timecode and the time when thumbnail was generated.</p>
- * @public
- */
-export interface ThumbnailDetails {
-  /**
-   * <p> The ARN of the flow that DescribeFlowSourceThumbnail was performed on.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-
-  /**
-   * <p>Thumbnail Base64 string. </p>
-   * @public
-   */
-  Thumbnail?: string | undefined;
-
-  /**
-   * <p> Status code and messages about the flow source thumbnail.</p>
-   * @public
-   */
-  ThumbnailMessages: MessageDetail[] | undefined;
-
-  /**
-   * <p> Timecode of thumbnail.</p>
-   * @public
-   */
-  Timecode?: string | undefined;
-
-  /**
-   * <p> The timestamp of when thumbnail was generated.</p>
-   * @public
-   */
-  Timestamp?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFlowSourceThumbnailResponse {
-  /**
-   * <p>The details of the thumbnail, including thumbnail base64 string, timecode and the time when thumbnail was generated. </p>
-   * @public
-   */
-  ThumbnailDetails?: ThumbnailDetails | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeGatewayRequest {
-  /**
-   * <p> The ARN of the gateway that you want to describe.</p>
-   * @public
-   */
-  GatewayArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeGatewayResponse {
-  /**
-   * <p>The gateway that you wanted to describe. </p>
-   * @public
-   */
-  Gateway?: Gateway | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeGatewayInstanceRequest {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the gateway instance that you want to describe.</p>
-   * @public
-   */
-  GatewayInstanceArn: string | undefined;
-}
-
-/**
- * <p> The settings for an instance in a gateway.</p>
- * @public
- */
-export interface GatewayInstance {
-  /**
-   * <p>The availability of the instance to host new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED, no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can be deployed to this instance. </p>
-   * @public
-   */
-  BridgePlacement: BridgePlacement | undefined;
-
-  /**
-   * <p>The connection state of the instance. </p>
-   * @public
-   */
-  ConnectionStatus: ConnectionStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the instance. </p>
-   * @public
-   */
-  GatewayArn: string | undefined;
-
-  /**
-   * <p>The ARN of the gateway. </p>
-   * @public
-   */
-  GatewayInstanceArn: string | undefined;
-
-  /**
-   * <p>The instance ID generated by the SSM install. This will begin with "mi-". </p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p> Messages with information about the gateway. </p>
-   * @public
-   */
-  InstanceMessages?: MessageDetail[] | undefined;
-
-  /**
-   * <p>The status of the instance. </p>
-   * @public
-   */
-  InstanceState: InstanceState | undefined;
-
-  /**
-   * <p> The running bridge count. </p>
-   * @public
-   */
-  RunningBridgeCount: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeGatewayInstanceResponse {
-  /**
-   * <p>The gateway instance that you requested a description of. </p>
-   * @public
-   */
-  GatewayInstance?: GatewayInstance | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeOfferingRequest {
-  /**
-   * <p> The ARN of the offering.</p>
-   * @public
-   */
-  OfferingArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeOfferingResponse {
-  /**
-   * <p>The offering that you requested a description of. </p>
-   * @public
-   */
-  Offering?: Offering | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeReservationRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the offering. </p>
-   * @public
-   */
-  ReservationArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeReservationResponse {
-  /**
-   * <p> A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate. </p>
-   * @public
-   */
-  Reservation?: Reservation | undefined;
 }

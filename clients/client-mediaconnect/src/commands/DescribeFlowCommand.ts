@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeFlowRequest, DescribeFlowResponse } from "../models/models_0";
+import type { DescribeFlowRequest, DescribeFlowResponse } from "../models/models_1";
 import { DescribeFlow$ } from "../schemas/schemas_0";
 
 /**
@@ -140,7 +140,7 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //           MaxLatency: Number("int"),
  * //           MaxSyncBuffer: Number("int"),
  * //           MinLatency: Number("int"),
- * //           Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq", // required
+ * //           Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq" || "rtmp-push", // required
  * //           RemoteId: "STRING_VALUE",
  * //           SenderControlPort: Number("int"),
  * //           SenderIpAddress: "STRING_VALUE",
@@ -156,6 +156,21 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //           },
  * //           NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
  * //           NdiAudioReferenceLevel: Number("int"),
+ * //           RtmpPushSourceSettings: { // RtmpPushSourceSettings
+ * //             ApplicationName: "STRING_VALUE", // required
+ * //             StreamName: "STRING_VALUE", // required
+ * //             NamingType: "MANUAL" || "AUTOMATIC", // required
+ * //           },
+ * //           RtmpPushOutputSettings: { // RtmpPushOutputSettings
+ * //             ApplicationName: "STRING_VALUE", // required
+ * //             StreamName: "STRING_VALUE", // required
+ * //             TlsEncryption: { // TlsEncryption
+ * //               EncryptionType: "PUBLIC",
+ * //               EncryptionConfiguration: { // TlsEncryptionConfiguration Union: only one key present
+ * //                 Public: {},
+ * //               },
+ * //             },
+ * //           },
  * //         },
  * //         VpcInterfaceAttachment: { // VpcInterfaceAttachment
  * //           VpcInterfaceName: "STRING_VALUE",
@@ -224,7 +239,7 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //         MaxLatency: Number("int"),
  * //         MaxSyncBuffer: Number("int"),
  * //         MinLatency: Number("int"),
- * //         Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq", // required
+ * //         Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq" || "rtmp-push", // required
  * //         RemoteId: "STRING_VALUE",
  * //         SenderControlPort: Number("int"),
  * //         SenderIpAddress: "STRING_VALUE",
@@ -240,6 +255,21 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //         },
  * //         NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
  * //         NdiAudioReferenceLevel: Number("int"),
+ * //         RtmpPushSourceSettings: {
+ * //           ApplicationName: "STRING_VALUE", // required
+ * //           StreamName: "STRING_VALUE", // required
+ * //           NamingType: "MANUAL" || "AUTOMATIC", // required
+ * //         },
+ * //         RtmpPushOutputSettings: {
+ * //           ApplicationName: "STRING_VALUE", // required
+ * //           StreamName: "STRING_VALUE", // required
+ * //           TlsEncryption: {
+ * //             EncryptionType: "PUBLIC",
+ * //             EncryptionConfiguration: {//  Union: only one key present
+ * //               Public: {},
+ * //             },
+ * //           },
+ * //         },
  * //       },
  * //       VpcInterfaceName: "STRING_VALUE",
  * //       WhitelistCidr: "STRING_VALUE",
@@ -316,7 +346,7 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //           MaxLatency: Number("int"),
  * //           MaxSyncBuffer: Number("int"),
  * //           MinLatency: Number("int"),
- * //           Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq", // required
+ * //           Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq" || "rtmp-push", // required
  * //           RemoteId: "STRING_VALUE",
  * //           SenderControlPort: Number("int"),
  * //           SenderIpAddress: "STRING_VALUE",
@@ -332,6 +362,21 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //           },
  * //           NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
  * //           NdiAudioReferenceLevel: Number("int"),
+ * //           RtmpPushSourceSettings: {
+ * //             ApplicationName: "STRING_VALUE", // required
+ * //             StreamName: "STRING_VALUE", // required
+ * //             NamingType: "MANUAL" || "AUTOMATIC", // required
+ * //           },
+ * //           RtmpPushOutputSettings: {
+ * //             ApplicationName: "STRING_VALUE", // required
+ * //             StreamName: "STRING_VALUE", // required
+ * //             TlsEncryption: {
+ * //               EncryptionType: "PUBLIC",
+ * //               EncryptionConfiguration: {//  Union: only one key present
+ * //                 Public: {},
+ * //               },
+ * //             },
+ * //           },
  * //         },
  * //         VpcInterfaceName: "STRING_VALUE",
  * //         WhitelistCidr: "STRING_VALUE",

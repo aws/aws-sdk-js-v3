@@ -39,6 +39,8 @@ import {
   AudioMonitoringSetting$,
   AutomaticEncryptionKeyConfiguration$,
   AutomaticEndpointEncryptionConfiguration$,
+  AutomaticRtmpPushNamingConfiguration$,
+  AutoPidMapConfiguration$,
   BadRequestException,
   BadRequestException$,
   BatchGetDestinationEndpoint$,
@@ -229,6 +231,8 @@ import {
   EntitlementStatus,
   FabricConfiguration$,
   FabricLatencyMode,
+  FabricSwitchingConfiguration$,
+  FabricSwitchingMode,
   FailoverConfig$,
   FailoverInputSourcePriorityMode,
   FailoverMode,
@@ -289,6 +293,7 @@ import {
   GrantFlowEntitlementsCommand,
   GrantFlowEntitlementsRequest$,
   GrantFlowEntitlementsResponse$,
+  ImmediateFabricSwitchingConfiguration$,
   IngressGatewayBridge$,
   InputConfiguration$,
   InputConfigurationRequest$,
@@ -297,6 +302,7 @@ import {
   InterfaceRequest$,
   InternalServerErrorException,
   InternalServerErrorException$,
+  KeyFrameFabricSwitchingConfiguration$,
   KeyType,
   ListBridges$,
   ListBridgesCommand,
@@ -370,6 +376,7 @@ import {
   MaintenanceSchedule$,
   MaintenanceScheduleType,
   MaintenanceType,
+  ManualRtmpPushNamingConfiguration$,
   MediaConnect,
   MediaConnectClient,
   MediaConnectFlowRouterInputConfiguration$,
@@ -430,8 +437,13 @@ import {
   paginateListRouterNetworkInterfaces,
   paginateListRouterOutputs,
   paginateListSourceEndpoints,
+  Passthrough$,
+  PidMapRule$,
   PreferredDayTimeMaintenanceConfiguration$,
   PriceUnits,
+  ProgramClockReferencePidConfiguration$,
+  ProgramMapTablePidConfiguration$,
+  ProgramNumberConfiguration$,
   Protocol,
   PublicDestinationEndpointNetworkingConfiguration$,
   PublicDestinationEndpointNetworkingConfigurationAllowRule$,
@@ -534,6 +546,7 @@ import {
   RouterOutputConfiguration$,
   RouterOutputFilter$,
   RouterOutputMessage$,
+  RouterOutputProcessors$,
   RouterOutputProtocol,
   RouterOutputProtocolConfiguration$,
   RouterOutputRoutedState,
@@ -547,7 +560,16 @@ import {
   RouterOutputTier,
   RouterOutputType,
   RoutingScope,
+  RtmpMediaInfo$,
+  RtmpMediaStreamInfo$,
+  RtmpPushNamingConfiguration$,
+  RtmpPushNamingType,
+  RtmpPushOutputSettings$,
+  RtmpPushRouterInputConfiguration$,
   RtmpPushRouterOutputConfiguration$,
+  RtmpPushSourceSettings$,
+  RtmpPushStreamDetails$,
+  RtmpSourceMetadataInfo$,
   RtpRouterInputConfiguration$,
   RtpRouterOutputConfiguration$,
   RtpStandardDestinationEndpointConfiguration$,
@@ -558,9 +580,11 @@ import {
   ServiceUnavailableException,
   ServiceUnavailableException$,
   SetGatewayBridgeSourceRequest$,
+  SetRtmpPushSourceSettings$,
   SetSourceRequest$,
   SilentAudio$,
   SilentAudioConfiguration$,
+  SingleProgramTransportStreamPidMapConfiguration$,
   Source$,
   SourceEndpoint$,
   SourceEndpointAssociatedResourceDetails$,
@@ -577,6 +601,7 @@ import {
   SourceEndpointServiceQuotaExceededException,
   SourceEndpointServiceQuotaExceededException$,
   SourceEndpointType,
+  SourceMediaStreamType,
   SourcePriority$,
   SourceType,
   SrtCallerRouterInputConfiguration$,
@@ -650,6 +675,7 @@ import {
   Transport$,
   TransportMediaInfo$,
   TransportStream$,
+  TransportStreamIdConfiguration$,
   TransportStreamProgram$,
   UntagGlobalResource$,
   UntagGlobalResourceCommand,
@@ -1003,6 +1029,8 @@ assert(typeof AddOutputRequest$ === "object");
 assert(typeof AudioMonitoringSetting$ === "object");
 assert(typeof AutomaticEncryptionKeyConfiguration$ === "object");
 assert(typeof AutomaticEndpointEncryptionConfiguration$ === "object");
+assert(typeof AutomaticRtmpPushNamingConfiguration$ === "object");
+assert(typeof AutoPidMapConfiguration$ === "object");
 assert(typeof BatchGetDestinationEndpointError$ === "object");
 assert(typeof BatchGetDestinationEndpointRequest$ === "object");
 assert(typeof BatchGetDestinationEndpointResponse$ === "object");
@@ -1100,6 +1128,7 @@ assert(typeof EndpointEncryptionConfiguration$ === "object");
 assert(typeof EndpointEncryptionSecretConfiguration$ === "object");
 assert(typeof Entitlement$ === "object");
 assert(typeof FabricConfiguration$ === "object");
+assert(typeof FabricSwitchingConfiguration$ === "object");
 assert(typeof FailoverConfig$ === "object");
 assert(typeof FailoverRouterInputConfiguration$ === "object");
 assert(typeof FailoverRouterInputIndexedStreamDetails$ === "object");
@@ -1134,11 +1163,13 @@ assert(typeof GetSourceEndpointResponse$ === "object");
 assert(typeof GrantEntitlementRequest$ === "object");
 assert(typeof GrantFlowEntitlementsRequest$ === "object");
 assert(typeof GrantFlowEntitlementsResponse$ === "object");
+assert(typeof ImmediateFabricSwitchingConfiguration$ === "object");
 assert(typeof IngressGatewayBridge$ === "object");
 assert(typeof InputConfiguration$ === "object");
 assert(typeof InputConfigurationRequest$ === "object");
 assert(typeof Interface$ === "object");
 assert(typeof InterfaceRequest$ === "object");
+assert(typeof KeyFrameFabricSwitchingConfiguration$ === "object");
 assert(typeof ListBridgesRequest$ === "object");
 assert(typeof ListBridgesResponse$ === "object");
 assert(typeof ListDestinationEndpointsRequest$ === "object");
@@ -1180,6 +1211,7 @@ assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof Maintenance$ === "object");
 assert(typeof MaintenanceConfiguration$ === "object");
 assert(typeof MaintenanceSchedule$ === "object");
+assert(typeof ManualRtmpPushNamingConfiguration$ === "object");
 assert(typeof MediaConnectFlowRouterInputConfiguration$ === "object");
 assert(typeof MediaConnectFlowRouterInputStreamDetails$ === "object");
 assert(typeof MediaConnectFlowRouterOutputConfiguration$ === "object");
@@ -1215,7 +1247,12 @@ assert(typeof NdiSourceSettings$ === "object");
 assert(typeof Offering$ === "object");
 assert(typeof Output$ === "object");
 assert(typeof OwnedResourceShareDetails$ === "object");
+assert(typeof Passthrough$ === "object");
+assert(typeof PidMapRule$ === "object");
 assert(typeof PreferredDayTimeMaintenanceConfiguration$ === "object");
+assert(typeof ProgramClockReferencePidConfiguration$ === "object");
+assert(typeof ProgramMapTablePidConfiguration$ === "object");
+assert(typeof ProgramNumberConfiguration$ === "object");
 assert(typeof PublicDestinationEndpointNetworkingConfiguration$ === "object");
 assert(typeof PublicDestinationEndpointNetworkingConfigurationAllowRule$ === "object");
 assert(typeof PublicRouterNetworkInterfaceConfiguration$ === "object");
@@ -1276,12 +1313,21 @@ assert(typeof RouterOutput$ === "object");
 assert(typeof RouterOutputConfiguration$ === "object");
 assert(typeof RouterOutputFilter$ === "object");
 assert(typeof RouterOutputMessage$ === "object");
+assert(typeof RouterOutputProcessors$ === "object");
 assert(typeof RouterOutputProtocolConfiguration$ === "object");
 assert(typeof RouterOutputSourceEndpointAssociatedResourceDetails$ === "object");
 assert(typeof RouterOutputSourceEndpointConfiguration$ === "object");
 assert(typeof RouterOutputSourceEndpointConnectionDetails$ === "object");
 assert(typeof RouterOutputStreamDetails$ === "object");
+assert(typeof RtmpMediaInfo$ === "object");
+assert(typeof RtmpMediaStreamInfo$ === "object");
+assert(typeof RtmpPushNamingConfiguration$ === "object");
+assert(typeof RtmpPushOutputSettings$ === "object");
+assert(typeof RtmpPushRouterInputConfiguration$ === "object");
 assert(typeof RtmpPushRouterOutputConfiguration$ === "object");
+assert(typeof RtmpPushSourceSettings$ === "object");
+assert(typeof RtmpPushStreamDetails$ === "object");
+assert(typeof RtmpSourceMetadataInfo$ === "object");
 assert(typeof RtpRouterInputConfiguration$ === "object");
 assert(typeof RtpRouterOutputConfiguration$ === "object");
 assert(typeof RtpStandardDestinationEndpointConfiguration$ === "object");
@@ -1289,9 +1335,11 @@ assert(typeof RtpStandardSourceEndpointConfiguration$ === "object");
 assert(typeof SecretsManagerEncryptionKeyConfiguration$ === "object");
 assert(typeof SecretsManagerEndpointEncryptionConfiguration$ === "object");
 assert(typeof SetGatewayBridgeSourceRequest$ === "object");
+assert(typeof SetRtmpPushSourceSettings$ === "object");
 assert(typeof SetSourceRequest$ === "object");
 assert(typeof SilentAudio$ === "object");
 assert(typeof SilentAudioConfiguration$ === "object");
+assert(typeof SingleProgramTransportStreamPidMapConfiguration$ === "object");
 assert(typeof Source$ === "object");
 assert(typeof SourceEndpoint$ === "object");
 assert(typeof SourceEndpointAssociatedResourceDetails$ === "object");
@@ -1348,6 +1396,7 @@ assert(typeof TlsEncryptionConfiguration$ === "object");
 assert(typeof Transport$ === "object");
 assert(typeof TransportMediaInfo$ === "object");
 assert(typeof TransportStream$ === "object");
+assert(typeof TransportStreamIdConfiguration$ === "object");
 assert(typeof TransportStreamProgram$ === "object");
 assert(typeof UntagGlobalResourceRequest$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
@@ -1421,6 +1470,7 @@ assert(typeof EndpointEncryptionType === "object");
 assert(typeof EndpointLifecycle === "object");
 assert(typeof EntitlementStatus === "object");
 assert(typeof FabricLatencyMode === "object");
+assert(typeof FabricSwitchingMode === "object");
 assert(typeof FailoverInputSourcePriorityMode === "object");
 assert(typeof FailoverMode === "object");
 assert(typeof FlowSize === "object");
@@ -1461,12 +1511,14 @@ assert(typeof RouterOutputState === "object");
 assert(typeof RouterOutputTier === "object");
 assert(typeof RouterOutputType === "object");
 assert(typeof RoutingScope === "object");
+assert(typeof RtmpPushNamingType === "object");
 assert(typeof ScanMode === "object");
 assert(typeof SourceEndpointConnectionState === "object");
 assert(typeof SourceEndpointNetworkingType === "object");
 assert(typeof SourceEndpointProtocol === "object");
 assert(typeof SourceEndpointRegistrationState === "object");
 assert(typeof SourceEndpointType === "object");
+assert(typeof SourceMediaStreamType === "object");
 assert(typeof SourceType === "object");
 assert(typeof State === "object");
 assert(typeof Status === "object");

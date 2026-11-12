@@ -75,7 +75,7 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  *       MinLatency: Number("int"),
  *       Name: "STRING_VALUE",
  *       Port: Number("int"),
- *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq",
+ *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq" || "rtmp-push",
  *       RemoteId: "STRING_VALUE",
  *       SenderControlPort: Number("int"),
  *       SmoothingLatency: Number("int"),
@@ -102,6 +102,16 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  *       },
  *       NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
  *       NdiAudioReferenceLevel: Number("int"),
+ *       RtmpPushSettings: { // RtmpPushOutputSettings
+ *         ApplicationName: "STRING_VALUE", // required
+ *         StreamName: "STRING_VALUE", // required
+ *         TlsEncryption: { // TlsEncryption
+ *           EncryptionType: "PUBLIC",
+ *           EncryptionConfiguration: { // TlsEncryptionConfiguration Union: only one key present
+ *             Public: {},
+ *           },
+ *         },
+ *       },
  *     },
  *   ],
  * };
@@ -159,7 +169,7 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  * //         MaxLatency: Number("int"),
  * //         MaxSyncBuffer: Number("int"),
  * //         MinLatency: Number("int"),
- * //         Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq", // required
+ * //         Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq" || "rtmp-push", // required
  * //         RemoteId: "STRING_VALUE",
  * //         SenderControlPort: Number("int"),
  * //         SenderIpAddress: "STRING_VALUE",
@@ -175,6 +185,21 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  * //         },
  * //         NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
  * //         NdiAudioReferenceLevel: Number("int"),
+ * //         RtmpPushSourceSettings: { // RtmpPushSourceSettings
+ * //           ApplicationName: "STRING_VALUE", // required
+ * //           StreamName: "STRING_VALUE", // required
+ * //           NamingType: "MANUAL" || "AUTOMATIC", // required
+ * //         },
+ * //         RtmpPushOutputSettings: { // RtmpPushOutputSettings
+ * //           ApplicationName: "STRING_VALUE", // required
+ * //           StreamName: "STRING_VALUE", // required
+ * //           TlsEncryption: { // TlsEncryption
+ * //             EncryptionType: "PUBLIC",
+ * //             EncryptionConfiguration: { // TlsEncryptionConfiguration Union: only one key present
+ * //               Public: {},
+ * //             },
+ * //           },
+ * //         },
  * //       },
  * //       VpcInterfaceAttachment: { // VpcInterfaceAttachment
  * //         VpcInterfaceName: "STRING_VALUE",

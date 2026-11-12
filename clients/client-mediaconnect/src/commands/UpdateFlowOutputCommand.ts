@@ -73,7 +73,7 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  *   MinLatency: Number("int"),
  *   OutputArn: "STRING_VALUE", // required
  *   Port: Number("int"),
- *   Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq",
+ *   Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq" || "rtmp-push",
  *   RemoteId: "STRING_VALUE",
  *   SenderControlPort: Number("int"),
  *   SenderIpAddress: "STRING_VALUE",
@@ -98,6 +98,16 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  *   },
  *   NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
  *   NdiAudioReferenceLevel: Number("int"),
+ *   RtmpPushSettings: { // RtmpPushOutputSettings
+ *     ApplicationName: "STRING_VALUE", // required
+ *     StreamName: "STRING_VALUE", // required
+ *     TlsEncryption: { // TlsEncryption
+ *       EncryptionType: "PUBLIC",
+ *       EncryptionConfiguration: { // TlsEncryptionConfiguration Union: only one key present
+ *         Public: {},
+ *       },
+ *     },
+ *   },
  * };
  * const command = new UpdateFlowOutputCommand(input);
  * const response = await client.send(command);
@@ -152,7 +162,7 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  * //       MaxLatency: Number("int"),
  * //       MaxSyncBuffer: Number("int"),
  * //       MinLatency: Number("int"),
- * //       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq", // required
+ * //       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq" || "rtmp-push", // required
  * //       RemoteId: "STRING_VALUE",
  * //       SenderControlPort: Number("int"),
  * //       SenderIpAddress: "STRING_VALUE",
@@ -168,6 +178,21 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  * //       },
  * //       NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
  * //       NdiAudioReferenceLevel: Number("int"),
+ * //       RtmpPushSourceSettings: { // RtmpPushSourceSettings
+ * //         ApplicationName: "STRING_VALUE", // required
+ * //         StreamName: "STRING_VALUE", // required
+ * //         NamingType: "MANUAL" || "AUTOMATIC", // required
+ * //       },
+ * //       RtmpPushOutputSettings: { // RtmpPushOutputSettings
+ * //         ApplicationName: "STRING_VALUE", // required
+ * //         StreamName: "STRING_VALUE", // required
+ * //         TlsEncryption: { // TlsEncryption
+ * //           EncryptionType: "PUBLIC",
+ * //           EncryptionConfiguration: { // TlsEncryptionConfiguration Union: only one key present
+ * //             Public: {},
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //     VpcInterfaceAttachment: { // VpcInterfaceAttachment
  * //       VpcInterfaceName: "STRING_VALUE",

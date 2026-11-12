@@ -78,6 +78,17 @@ export interface BatchGetRouterInputCommandOutput extends BatchGetRouterInputRes
  * //                 },
  * //               },
  * //             },
+ * //             RtmpPush: { // RtmpPushRouterInputConfiguration
+ * //               Port: Number("int"), // required
+ * //               NamingType: "MANUAL" || "AUTOMATIC",
+ * //               NamingConfiguration: { // RtmpPushNamingConfiguration Union: only one key present
+ * //                 Manual: { // ManualRtmpPushNamingConfiguration
+ * //                   ApplicationName: "STRING_VALUE", // required
+ * //                   StreamName: "STRING_VALUE", // required
+ * //                 },
+ * //                 Automatic: {},
+ * //               },
+ * //             },
  * //             SrtCaller: { // SrtCallerRouterInputConfiguration
  * //               SourceAddress: "STRING_VALUE", // required
  * //               SourcePort: Number("int"), // required
@@ -95,7 +106,7 @@ export interface BatchGetRouterInputCommandOutput extends BatchGetRouterInputRes
  * //               ForwardErrorCorrection: "ENABLED" || "DISABLED",
  * //             },
  * //           },
- * //           Protocol: "RTP" || "RIST" || "SRT_CALLER" || "SRT_LISTENER",
+ * //           Protocol: "RTP" || "RIST" || "SRT_CALLER" || "SRT_LISTENER" || "RTMP_PUSH",
  * //         },
  * //         MediaLiveChannel: { // MediaLiveChannelRouterInputConfiguration
  * //           MediaLiveChannelArn: "STRING_VALUE",
@@ -125,6 +136,17 @@ export interface BatchGetRouterInputCommandOutput extends BatchGetRouterInputRes
  * //                 MinimumLatencyMilliseconds: Number("long"), // required
  * //                 DecryptionConfiguration: {
  * //                   EncryptionKey: "<SecretsManagerEncryptionKeyConfiguration>", // required
+ * //                 },
+ * //               },
+ * //               RtmpPush: {
+ * //                 Port: Number("int"), // required
+ * //                 NamingType: "MANUAL" || "AUTOMATIC",
+ * //                 NamingConfiguration: {//  Union: only one key present
+ * //                   Manual: {
+ * //                     ApplicationName: "STRING_VALUE", // required
+ * //                     StreamName: "STRING_VALUE", // required
+ * //                   },
+ * //                   Automatic: {},
  * //                 },
  * //               },
  * //               SrtCaller: {
@@ -168,6 +190,20 @@ export interface BatchGetRouterInputCommandOutput extends BatchGetRouterInputRes
  * //                 Port: Number("int"), // required
  * //                 RecoveryLatencyMilliseconds: Number("long"), // required
  * //               },
+ * //               SrtListener: {
+ * //                 Port: Number("int"), // required
+ * //                 MinimumLatencyMilliseconds: Number("long"), // required
+ * //                 DecryptionConfiguration: {
+ * //                   EncryptionKey: "<SecretsManagerEncryptionKeyConfiguration>", // required
+ * //                 },
+ * //               },
+ * //               SrtCaller: {
+ * //                 SourceAddress: "STRING_VALUE", // required
+ * //                 SourcePort: Number("int"), // required
+ * //                 MinimumLatencyMilliseconds: Number("long"), // required
+ * //                 StreamId: "STRING_VALUE",
+ * //                 DecryptionConfiguration: "<SrtDecryptionConfiguration>",
+ * //               },
  * //             },
  * //           ],
  * //           MergeRecoveryWindowMilliseconds: Number("long"), // required
@@ -202,16 +238,28 @@ export interface BatchGetRouterInputCommandOutput extends BatchGetRouterInputRes
  * //         DestinationEndpoint: {},
  * //         Standard: { // StandardRouterInputStreamDetails
  * //           SourceIpAddress: "STRING_VALUE",
+ * //           RtmpPush: { // RtmpPushStreamDetails
+ * //             ApplicationName: "STRING_VALUE", // required
+ * //             StreamName: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //         MediaLiveChannel: {},
  * //         Failover: { // FailoverRouterInputStreamDetails
  * //           SourceIndexZeroStreamDetails: { // FailoverRouterInputIndexedStreamDetails
  * //             SourceIndex: Number("int"), // required
  * //             SourceIpAddress: "STRING_VALUE",
+ * //             RtmpPush: {
+ * //               ApplicationName: "STRING_VALUE", // required
+ * //               StreamName: "STRING_VALUE", // required
+ * //             },
  * //           },
  * //           SourceIndexOneStreamDetails: {
  * //             SourceIndex: Number("int"), // required
  * //             SourceIpAddress: "STRING_VALUE",
+ * //             RtmpPush: {
+ * //               ApplicationName: "STRING_VALUE", // required
+ * //               StreamName: "STRING_VALUE", // required
+ * //             },
  * //           },
  * //         },
  * //         MediaConnectFlow: {},

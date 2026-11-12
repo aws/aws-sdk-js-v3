@@ -8,6 +8,7 @@ export const Protocol = {
   fujitsu_qos: "fujitsu-qos",
   ndi_speed_hq: "ndi-speed-hq",
   rist: "rist",
+  rtmp_push: "rtmp-push",
   rtp: "rtp",
   rtp_fec: "rtp-fec",
   srt_caller: "srt-caller",
@@ -210,6 +211,18 @@ export const FlowTransitEncryptionKeyType = {
  */
 export type FlowTransitEncryptionKeyType =
   (typeof FlowTransitEncryptionKeyType)[keyof typeof FlowTransitEncryptionKeyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TlsEncryptionType = {
+  PUBLIC: "PUBLIC",
+} as const;
+/**
+ * @public
+ */
+export type TlsEncryptionType = (typeof TlsEncryptionType)[keyof typeof TlsEncryptionType];
 
 /**
  * @public
@@ -439,6 +452,19 @@ export const ResourceType = {
  * @public
  */
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RtmpPushNamingType = {
+  AUTOMATIC: "AUTOMATIC",
+  MANUAL: "MANUAL",
+} as const;
+/**
+ * @public
+ */
+export type RtmpPushNamingType = (typeof RtmpPushNamingType)[keyof typeof RtmpPushNamingType];
 
 /**
  * @public
@@ -706,6 +732,7 @@ export type MediaLiveTransitEncryptionKeyType =
  */
 export const RouterInputProtocol = {
   RIST: "RIST",
+  RTMP_PUSH: "RTMP_PUSH",
   RTP: "RTP",
   SRT_CALLER: "SRT_CALLER",
   SRT_LISTENER: "SRT_LISTENER",
@@ -909,18 +936,6 @@ export type RouterOutputProtocol = (typeof RouterOutputProtocol)[keyof typeof Ro
  * @public
  * @enum
  */
-export const TlsEncryptionType = {
-  PUBLIC: "PUBLIC",
-} as const;
-/**
- * @public
- */
-export type TlsEncryptionType = (typeof TlsEncryptionType)[keyof typeof TlsEncryptionType];
-
-/**
- * @public
- * @enum
- */
 export const FabricLatencyMode = {
   BALANCED: "BALANCED",
   LOW_LATENCY: "LOW_LATENCY",
@@ -929,6 +944,19 @@ export const FabricLatencyMode = {
  * @public
  */
 export type FabricLatencyMode = (typeof FabricLatencyMode)[keyof typeof FabricLatencyMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const FabricSwitchingMode = {
+  IMMEDIATE: "IMMEDIATE",
+  KEY_FRAME: "KEY_FRAME",
+} as const;
+/**
+ * @public
+ */
+export type FabricSwitchingMode = (typeof FabricSwitchingMode)[keyof typeof FabricSwitchingMode];
 
 /**
  * @public
@@ -1162,3 +1190,18 @@ export const ThumbnailState = {
  * @public
  */
 export type ThumbnailState = (typeof ThumbnailState)[keyof typeof ThumbnailState];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceMediaStreamType = {
+  AUDIO: "AUDIO",
+  DATA: "DATA",
+  UNKNOWN: "UNKNOWN",
+  VIDEO: "VIDEO",
+} as const;
+/**
+ * @public
+ */
+export type SourceMediaStreamType = (typeof SourceMediaStreamType)[keyof typeof SourceMediaStreamType];

@@ -2,6 +2,7 @@
 import type {
   Algorithm,
   BridgePlacement,
+  ConnectionStatus,
   DestinationEndpointConnectionState,
   DestinationEndpointRegistrationState,
   DestinationEndpointType,
@@ -9,6 +10,7 @@ import type {
   EndpointLifecycle,
   EntitlementStatus,
   FlowSize,
+  InstanceState,
   KeyType,
   MaintenanceDay,
   MaintenanceScheduleType,
@@ -28,13 +30,16 @@ import type {
   RouterOutputTier,
   RouterOutputType,
   RoutingScope,
+  ScanMode,
   SourceEndpointConnectionState,
   SourceEndpointRegistrationState,
   SourceEndpointType,
+  SourceMediaStreamType,
   State,
   Status,
 } from "./enums";
 import type {
+  ColorInformation,
   DestinationEndpoint,
   DestinationEndpointConfiguration,
   EncodingConfig,
@@ -42,6 +47,8 @@ import type {
   FabricConfiguration,
   Flow,
   FlowTransitEncryption,
+  FrameResolution,
+  Gateway,
   GrantEntitlementRequest,
   ListedEntitlement,
   ListedFlow,
@@ -53,8 +60,11 @@ import type {
   MediaStreamAttributesRequest,
   MediaStreamOutputConfigurationRequest,
   MediaStreamSourceConfigurationRequest,
+  MessageDetail,
   MonitoringConfig,
   NdiConfig,
+  NdiMediaStreamInfo,
+  NdiSourceInfo,
   NdiSourceSettings,
   Offering,
   Output,
@@ -68,13 +78,476 @@ import type {
   RouterNetworkInterfaceConfiguration,
   RouterOutput,
   RouterOutputConfiguration,
+  RouterOutputProcessors,
+  RtmpPushOutputSettings,
+  SetRtmpPushSourceSettings,
   Source,
   SourceEndpoint,
   SourceEndpointConfiguration,
-  TransportMediaInfo,
+  TransportStreamProgram,
   UpdateFailoverConfig,
   VpcInterfaceAttachment,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DescribeFlowRequest {
+  /**
+   * <p> The ARN of the flow that you want to describe.</p>
+   * @public
+   */
+  FlowArn: string | undefined;
+}
+
+/**
+ * <p> Messages that provide the state of the flow.</p>
+ * @public
+ */
+export interface Messages {
+  /**
+   * <p> A list of errors that might have been generated from processes on this flow.</p>
+   * @public
+   */
+  Errors: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowResponse {
+  /**
+   * <p>The flow that you requested a description of. </p>
+   * @public
+   */
+  Flow?: Flow | undefined;
+
+  /**
+   * <p> Any errors that apply currently to the flow. If there are no errors, MediaConnect will not include this field in the response. </p>
+   * @public
+   */
+  Messages?: Messages | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowSourceMetadataRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the flow.</p>
+   * @public
+   */
+  FlowArn: string | undefined;
+}
+
+/**
+ * <p> Metadata about the audio and video media that is part of the NDI® source content. This includes details about the individual media streams. </p>
+ * @public
+ */
+export interface NdiMediaInfo {
+  /**
+   * <p> A list of the individual media streams that make up the NDI source. This includes details about each stream's codec, resolution, frame rate, audio channels, and other parameters. </p>
+   * @public
+   */
+  Streams: NdiMediaStreamInfo[] | undefined;
+}
+
+/**
+ * <p> Comprehensive information about the NDI® source that's associated with a flow. This includes the currently active NDI source, a list of all discovered NDI senders, metadata about the media streams, and any relevant status messages. </p>
+ * @public
+ */
+export interface NdiSourceMetadataInfo {
+  /**
+   * <p> The connected NDI sender that's currently sending source content to the flow's NDI source. </p>
+   * @public
+   */
+  ActiveSource?: NdiSourceInfo | undefined;
+
+  /**
+   * <p> A list of the available upstream NDI senders aggregated from all of your configured discovery servers. </p>
+   * @public
+   */
+  DiscoveredSources: NdiSourceInfo[] | undefined;
+
+  /**
+   * <p> Detailed information about the media streams (video, audio, and so on) that are part of the active NDI source. </p>
+   * @public
+   */
+  MediaInfo: NdiMediaInfo | undefined;
+
+  /**
+   * <p> Any status messages or error codes related to the NDI source and its metadata. </p>
+   * @public
+   */
+  Messages: MessageDetail[] | undefined;
+}
+
+/**
+ * <p>Information about a single audio or video stream that is part of an RTMP source. This includes details about the stream type, codec, resolution, frame rate, audio channels, and sample rate.</p>
+ * @public
+ */
+export interface RtmpMediaStreamInfo {
+  /**
+   * <p>A unique identifier for the stream.</p>
+   * @public
+   */
+  StreamId: number | undefined;
+
+  /**
+   * <p>The type of stream (for example, <code>VIDEO</code> or <code>AUDIO</code>).</p>
+   * @public
+   */
+  StreamType: SourceMediaStreamType | undefined;
+
+  /**
+   * <p>The codec used for the stream.</p>
+   * @public
+   */
+  Codec: string | undefined;
+
+  /**
+   * <p>The number of video frames displayed per second. Used when the <code>streamType</code> is <code>VIDEO</code>.</p>
+   * @public
+   */
+  FrameRate?: string | undefined;
+
+  /**
+   * <p>The width and height dimensions of the video frame in pixels. Used when the <code>streamType</code> is <code>VIDEO</code>.</p>
+   * @public
+   */
+  FrameResolution?: FrameResolution | undefined;
+
+  /**
+   * <p>The method used to display video frames. Used when the <code>streamType</code> is <code>VIDEO</code>.</p>
+   * @public
+   */
+  ScanMode?: ScanMode | undefined;
+
+  /**
+   * <p>The color signaling of the video stream. Used when the <code>streamType</code> is <code>VIDEO</code>.</p>
+   * @public
+   */
+  Color?: ColorInformation | undefined;
+
+  /**
+   * <p>The number of audio channels in the stream. Used when the <code>streamType</code> is <code>AUDIO</code>.</p>
+   * @public
+   */
+  Channels?: number | undefined;
+
+  /**
+   * <p>The number of audio samples captured per second. Used when the <code>streamType</code> is <code>AUDIO</code>.</p>
+   * @public
+   */
+  SampleRate?: number | undefined;
+
+  /**
+   * <p>The sample bit size used by the audio stream. Used when the <code>streamType</code> is <code>AUDIO</code>.</p>
+   * @public
+   */
+  SampleSize?: number | undefined;
+
+  /**
+   * <p>The language of the audio stream. Used when the <code>streamType</code> is <code>AUDIO</code>.</p>
+   * @public
+   */
+  Language?: string | undefined;
+}
+
+/**
+ * <p>Metadata about the audio and video media that is part of the RTMP source content. This includes details about the individual streams.</p>
+ * @public
+ */
+export interface RtmpMediaInfo {
+  /**
+   * <p>A list of the individual audio and video streams that make up the RTMP source. This includes details about each stream's codec, resolution, frame rate, audio channels, and other parameters.</p>
+   * @public
+   */
+  Streams: RtmpMediaStreamInfo[] | undefined;
+}
+
+/**
+ * <p>Information about the RTMP (Real-Time Messaging Protocol) source. This includes the application name, the stream name, and metadata about the audio and video streams.</p>
+ * @public
+ */
+export interface RtmpSourceMetadataInfo {
+  /**
+   * <p>The name of the RTMP application.</p>
+   * @public
+   */
+  ApplicationName?: string | undefined;
+
+  /**
+   * <p>The name of the RTMP stream.</p>
+   * @public
+   */
+  StreamName?: string | undefined;
+
+  /**
+   * <p>Information about the audio and video streams that are part of the RTMP source.</p>
+   * @public
+   */
+  MediaInfo: RtmpMediaInfo | undefined;
+}
+
+/**
+ * <p> The metadata of the transport stream in the current flow's source.</p>
+ * @public
+ */
+export interface TransportMediaInfo {
+  /**
+   * <p> The list of transport stream programs in the current flow's source.</p>
+   * @public
+   */
+  Programs: TransportStreamProgram[] | undefined;
+
+  /**
+   * <p>The transport stream ID (TSID) of the source, from the Program Association Table (PAT).</p>
+   * @public
+   */
+  TsId?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowSourceMetadataResponse {
+  /**
+   * <p> The ARN of the flow that DescribeFlowSourceMetadata was performed on.</p>
+   * @public
+   */
+  FlowArn?: string | undefined;
+
+  /**
+   * <p> Provides a status code and message regarding issues found with the flow source metadata.</p>
+   * @public
+   */
+  Messages?: MessageDetail[] | undefined;
+
+  /**
+   * <p> The timestamp of the most recent change in metadata for this flow’s source.</p>
+   * @public
+   */
+  Timestamp?: Date | undefined;
+
+  /**
+   * <p> Information about the flow's transport media. </p>
+   * @public
+   */
+  TransportMediaInfo?: TransportMediaInfo | undefined;
+
+  /**
+   * <p> The NDI® specific information about the flow's source. This includes the current active NDI sender, a list of all discovered NDI senders, the associated media streams for the active NDI sender, and any relevant status messages. </p>
+   * @public
+   */
+  NdiInfo?: NdiSourceMetadataInfo | undefined;
+
+  /**
+   * <p>The RTMP (Real-Time Messaging Protocol) specific information about the flow's source. This includes the application name, the stream name, and the associated audio and video streams.</p>
+   * @public
+   */
+  RtmpInfo?: RtmpSourceMetadataInfo | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowSourceThumbnailRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the flow.</p>
+   * @public
+   */
+  FlowArn: string | undefined;
+}
+
+/**
+ * <p> The details of the thumbnail, including thumbnail base64 string, timecode and the time when thumbnail was generated.</p>
+ * @public
+ */
+export interface ThumbnailDetails {
+  /**
+   * <p> The ARN of the flow that DescribeFlowSourceThumbnail was performed on.</p>
+   * @public
+   */
+  FlowArn: string | undefined;
+
+  /**
+   * <p>Thumbnail Base64 string. </p>
+   * @public
+   */
+  Thumbnail?: string | undefined;
+
+  /**
+   * <p> Status code and messages about the flow source thumbnail.</p>
+   * @public
+   */
+  ThumbnailMessages: MessageDetail[] | undefined;
+
+  /**
+   * <p> Timecode of thumbnail.</p>
+   * @public
+   */
+  Timecode?: string | undefined;
+
+  /**
+   * <p> The timestamp of when thumbnail was generated.</p>
+   * @public
+   */
+  Timestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowSourceThumbnailResponse {
+  /**
+   * <p>The details of the thumbnail, including thumbnail base64 string, timecode and the time when thumbnail was generated. </p>
+   * @public
+   */
+  ThumbnailDetails?: ThumbnailDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeGatewayRequest {
+  /**
+   * <p> The ARN of the gateway that you want to describe.</p>
+   * @public
+   */
+  GatewayArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeGatewayResponse {
+  /**
+   * <p>The gateway that you wanted to describe. </p>
+   * @public
+   */
+  Gateway?: Gateway | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeGatewayInstanceRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the gateway instance that you want to describe.</p>
+   * @public
+   */
+  GatewayInstanceArn: string | undefined;
+}
+
+/**
+ * <p> The settings for an instance in a gateway.</p>
+ * @public
+ */
+export interface GatewayInstance {
+  /**
+   * <p>The availability of the instance to host new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED, no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can be deployed to this instance. </p>
+   * @public
+   */
+  BridgePlacement: BridgePlacement | undefined;
+
+  /**
+   * <p>The connection state of the instance. </p>
+   * @public
+   */
+  ConnectionStatus: ConnectionStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the instance. </p>
+   * @public
+   */
+  GatewayArn: string | undefined;
+
+  /**
+   * <p>The ARN of the gateway. </p>
+   * @public
+   */
+  GatewayInstanceArn: string | undefined;
+
+  /**
+   * <p>The instance ID generated by the SSM install. This will begin with "mi-". </p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p> Messages with information about the gateway. </p>
+   * @public
+   */
+  InstanceMessages?: MessageDetail[] | undefined;
+
+  /**
+   * <p>The status of the instance. </p>
+   * @public
+   */
+  InstanceState: InstanceState | undefined;
+
+  /**
+   * <p> The running bridge count. </p>
+   * @public
+   */
+  RunningBridgeCount: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeGatewayInstanceResponse {
+  /**
+   * <p>The gateway instance that you requested a description of. </p>
+   * @public
+   */
+  GatewayInstance?: GatewayInstance | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeOfferingRequest {
+  /**
+   * <p> The ARN of the offering.</p>
+   * @public
+   */
+  OfferingArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeOfferingResponse {
+  /**
+   * <p>The offering that you requested a description of. </p>
+   * @public
+   */
+  Offering?: Offering | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReservationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the offering. </p>
+   * @public
+   */
+  ReservationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReservationResponse {
+  /**
+   * <p> A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate. </p>
+   * @public
+   */
+  Reservation?: Reservation | undefined;
+}
 
 /**
  * <p>A filter to apply when listing destination endpoints. This is a union type, so exactly one of its members is set.</p>
@@ -1158,6 +1631,12 @@ export interface UpdateFlowOutputRequest {
    * @public
    */
   NdiAudioReferenceLevel?: number | undefined;
+
+  /**
+   * <p>The settings for an output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified.</p>
+   * @public
+   */
+  RtmpPushSettings?: RtmpPushOutputSettings | undefined;
 }
 
 /**
@@ -1336,6 +1815,12 @@ export interface UpdateFlowSourceRequest {
    * @public
    */
   RouterIntegrationTransitDecryption?: FlowTransitEncryption | undefined;
+
+  /**
+   * <p>The settings for the RTMP (Real-Time Messaging Protocol) source.</p>
+   * @public
+   */
+  RtmpPushSettings?: SetRtmpPushSourceSettings | undefined;
 }
 
 /**
@@ -1501,6 +1986,7 @@ export interface GetRouterInputSourceMetadataRequest {
  * @public
  */
 export type RouterInputMetadata =
+  | RouterInputMetadata.RtmpInfoMember
   | RouterInputMetadata.TransportStreamMediaInfoMember
   | RouterInputMetadata.$UnknownMember;
 
@@ -1514,6 +2000,17 @@ export namespace RouterInputMetadata {
    */
   export interface TransportStreamMediaInfoMember {
     TransportStreamMediaInfo: TransportMediaInfo;
+    RtmpInfo?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The RTMP (Real-Time Messaging Protocol) specific information about the router input's source. This includes the application name, the stream name, and the associated audio and video streams.</p>
+   * @public
+   */
+  export interface RtmpInfoMember {
+    TransportStreamMediaInfo?: never;
+    RtmpInfo: RtmpSourceMetadataInfo;
     $unknown?: never;
   }
 
@@ -1522,6 +2019,7 @@ export namespace RouterInputMetadata {
    */
   export interface $UnknownMember {
     TransportStreamMediaInfo?: never;
+    RtmpInfo?: never;
     $unknown: [string, any];
   }
 
@@ -1531,6 +2029,7 @@ export namespace RouterInputMetadata {
    */
   export interface Visitor<T> {
     TransportStreamMediaInfo: (value: TransportMediaInfo) => T;
+    RtmpInfo: (value: RtmpSourceMetadataInfo) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3251,6 +3750,12 @@ export interface UpdateRouterOutputRequest {
    * @public
    */
   FabricConfiguration?: FabricConfiguration | undefined;
+
+  /**
+   * <p>The updated processor settings for the router output. When you update the processors, include every setting that you want to keep. MediaConnect resets the settings that you don't specify to their defaults.</p>
+   * @public
+   */
+  Processors?: RouterOutputProcessors | undefined;
 }
 
 /**

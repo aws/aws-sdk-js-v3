@@ -181,6 +181,44 @@ export interface GetRouterOutputCommandOutput extends GetRouterOutputResponse, _
  * //     },
  * //     FabricConfiguration: { // FabricConfiguration
  * //       RecoveryLatencyMode: "BALANCED" || "LOW_LATENCY", // required
+ * //       SwitchingMode: "IMMEDIATE" || "KEY_FRAME",
+ * //       SwitchingConfiguration: { // FabricSwitchingConfiguration Union: only one key present
+ * //         Immediate: {},
+ * //         KeyFrame: { // KeyFrameFabricSwitchingConfiguration
+ * //           KeyFrameWaitMilliseconds: Number("long"),
+ * //         },
+ * //       },
+ * //     },
+ * //     Processors: { // RouterOutputProcessors
+ * //       SingleProgramTransportStreamPidMap: { // SingleProgramTransportStreamPidMapConfiguration
+ * //         Rules: [ // PidMapRules // required
+ * //           { // PidMapRule
+ * //             MatchExpression: "STRING_VALUE", // required
+ * //             Action: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         DefaultAction: "STRING_VALUE", // required
+ * //         TransportStreamId: { // TransportStreamIdConfiguration Union: only one key present
+ * //           Passthrough: {},
+ * //           Set: Number("int"),
+ * //         },
+ * //         ProgramNumber: { // ProgramNumberConfiguration Union: only one key present
+ * //           Passthrough: {},
+ * //           Set: Number("int"),
+ * //         },
+ * //         ProgramMapTablePid: { // ProgramMapTablePidConfiguration Union: only one key present
+ * //           Passthrough: {},
+ * //           Set: Number("int"),
+ * //         },
+ * //         ProgramClockReferencePid: { // ProgramClockReferencePidConfiguration Union: only one key present
+ * //           Passthrough: {},
+ * //           Set: Number("int"),
+ * //         },
+ * //         Auto: { // AutoPidMapConfiguration
+ * //           StartPid: Number("int"), // required
+ * //           PidsPerProgram: Number("int"), // required
+ * //         },
+ * //       },
  * //     },
  * //     AssociatedSourceEndpointArns: [ // SourceEndpointArnList
  * //       "STRING_VALUE",

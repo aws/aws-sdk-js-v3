@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeReservationRequest, DescribeReservationResponse } from "../models/models_0";
+import type { DescribeReservationRequest, DescribeReservationResponse } from "../models/models_1";
 import { DescribeReservation$ } from "../schemas/schemas_0";
 
 /**
