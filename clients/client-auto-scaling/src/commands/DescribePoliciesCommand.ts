@@ -75,7 +75,7 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  * //       ],
  * //       TargetTrackingConfiguration: { // TargetTrackingConfiguration
  * //         PredefinedMetricSpecification: { // PredefinedMetricSpecification
- * //           PredefinedMetricType: "ASGAverageCPUUtilization" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "ALBRequestCountPerTarget", // required
+ * //           PredefinedMetricType: "ASGAverageCPUUtilization" || "ASGAverageCPUUtilizationHighResolution" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "ALBRequestCountPerTarget", // required
  * //           ResourceLabel: "STRING_VALUE",
  * //         },
  * //         CustomizedMetricSpecification: { // CustomizedMetricSpecification

@@ -62,7 +62,7 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *   EstimatedInstanceWarmup: Number("int"),
  *   TargetTrackingConfiguration: { // TargetTrackingConfiguration
  *     PredefinedMetricSpecification: { // PredefinedMetricSpecification
- *       PredefinedMetricType: "ASGAverageCPUUtilization" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "ALBRequestCountPerTarget", // required
+ *       PredefinedMetricType: "ASGAverageCPUUtilization" || "ASGAverageCPUUtilizationHighResolution" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "ALBRequestCountPerTarget", // required
  *       ResourceLabel: "STRING_VALUE",
  *     },
  *     CustomizedMetricSpecification: { // CustomizedMetricSpecification

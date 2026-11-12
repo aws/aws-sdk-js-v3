@@ -496,6 +496,7 @@ export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatis
 export const MetricType = {
   ALBRequestCountPerTarget: "ALBRequestCountPerTarget",
   ASGAverageCPUUtilization: "ASGAverageCPUUtilization",
+  ASGAverageCPUUtilizationHighResolution: "ASGAverageCPUUtilizationHighResolution",
   ASGAverageNetworkIn: "ASGAverageNetworkIn",
   ASGAverageNetworkOut: "ASGAverageNetworkOut",
 } as const;

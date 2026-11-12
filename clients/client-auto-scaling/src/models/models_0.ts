@@ -6185,6 +6185,11 @@ export interface PredefinedMetricSpecification {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>ASGAverageCPUUtilizationHighResolution</code> - Average CPU utilization
+   *                     of the Auto Scaling group using a high-resolution metric.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>ASGAverageNetworkIn</code> - Average number of bytes received on all
    *                     network interfaces by the Auto Scaling group.</p>
    *             </li>
@@ -6199,6 +6204,12 @@ export interface PredefinedMetricSpecification {
    *                     for your Auto Scaling group.</p>
    *             </li>
    *          </ul>
+   *          <important>
+   *             <p>To help ensure that target tracking has metric data to use for the
+   *                     <code>ASGAverageCPUUtilizationHighResolution</code> metric type, configure the
+   *                 Auto Scaling group's launch template and existing instances to publish high-resolution CPU
+   *                 utilization metrics.</p>
+   *          </important>
    * @public
    */
   PredefinedMetricType: MetricType | undefined;
@@ -8125,6 +8136,11 @@ export interface PutScalingPolicyType {
    *             <li>
    *                <p>
    *                   <code>ASGAverageCPUUtilization</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ASGAverageCPUUtilizationHighResolution</code>
    *                </p>
    *             </li>
    *             <li>
