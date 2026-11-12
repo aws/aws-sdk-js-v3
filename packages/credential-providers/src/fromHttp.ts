@@ -2,6 +2,8 @@ import type { FromHttpOptions, HttpProviderCredentials } from "@aws-sdk/credenti
 import type { AwsIdentityProperties } from "@aws-sdk/types";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
+import { createLazyCredentialProvider } from "./createLazyCredentialProvider";
+
 export type { FromHttpOptions, HttpProviderCredentials };
 
 /**
@@ -23,8 +25,8 @@ export type { FromHttpOptions, HttpProviderCredentials };
  * @public
  */
 export const fromHttp = (options: FromHttpOptions = {}): AwsCredentialIdentityProvider => {
-  return async (args?: AwsIdentityProperties) => {
+  return createLazyCredentialProvider(async () => {
     const { fromHttp: _fromHttp } = await import("@aws-sdk/credential-provider-http");
-    return _fromHttp(options)(args);
-  };
+    return _fromHttp(options);
+  });
 };

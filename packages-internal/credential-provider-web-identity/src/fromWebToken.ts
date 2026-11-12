@@ -1,3 +1,4 @@
+import { createCredentialRefreshProvider, markNonRecoverableStsError } from "@aws-sdk/core/client";
 import type {
   AwsIdentityProperties,
   CredentialProviderOptions,
@@ -153,38 +154,46 @@ export interface FromWebTokenInit
 /**
  * @internal
  */
-export const fromWebToken =
-  (init: FromWebTokenInit): RuntimeConfigAwsCredentialIdentityProvider =>
-  async (awsIdentityProperties?: AwsIdentityProperties) => {
-    init.logger?.debug("@aws-sdk/credential-provider-web-identity - fromWebToken");
-    const { roleArn, roleSessionName, webIdentityToken, providerId, policyArns, policy, durationSeconds } = init;
+export const fromWebToken = (init: FromWebTokenInit): RuntimeConfigAwsCredentialIdentityProvider =>
+  createCredentialRefreshProvider(
+    async (awsIdentityProperties?: AwsIdentityProperties) => {
+      init.logger?.debug("@aws-sdk/credential-provider-web-identity - fromWebToken");
+      const { roleArn, roleSessionName, webIdentityToken, providerId, policyArns, policy, durationSeconds } = init;
 
-    let { roleAssumerWithWebIdentity } = init;
+      let { roleAssumerWithWebIdentity } = init;
 
-    if (!roleAssumerWithWebIdentity) {
-      const { getDefaultRoleAssumerWithWebIdentity } = await import("@aws-sdk/nested-clients/sts");
-      roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity(
-        {
-          ...init.clientConfig,
-          credentialProviderLogger: init.logger,
-          parentClientConfig: {
-            // callerClientConfig is merged into parentClientConfig
-            // here because sts role assumer does not accept callerClientConfig.
-            ...awsIdentityProperties?.callerClientConfig,
-            ...init.parentClientConfig,
+      if (!roleAssumerWithWebIdentity) {
+        const { getDefaultRoleAssumerWithWebIdentity } = await import("@aws-sdk/nested-clients/sts");
+        roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity(
+          {
+            ...init.clientConfig,
+            credentialProviderLogger: init.logger,
+            parentClientConfig: {
+              // callerClientConfig is merged into parentClientConfig
+              // here because sts role assumer does not accept callerClientConfig.
+              ...awsIdentityProperties?.callerClientConfig,
+              ...init.parentClientConfig,
+            },
           },
-        },
-        init.clientPlugins
-      );
-    }
+          init.clientPlugins
+        );
+      }
 
-    return roleAssumerWithWebIdentity!({
-      RoleArn: roleArn,
-      RoleSessionName: roleSessionName ?? `aws-sdk-js-session-${Date.now()}`,
-      WebIdentityToken: webIdentityToken,
-      ProviderId: providerId,
-      PolicyArns: policyArns,
-      Policy: policy,
-      DurationSeconds: durationSeconds,
-    });
-  };
+      try {
+        return await roleAssumerWithWebIdentity!({
+          RoleArn: roleArn,
+          RoleSessionName: roleSessionName ?? `aws-sdk-js-session-${Date.now()}`,
+          WebIdentityToken: webIdentityToken,
+          ProviderId: providerId,
+          PolicyArns: policyArns,
+          Policy: policy,
+          DurationSeconds: durationSeconds,
+        });
+      } catch (error) {
+        // Some STS failures need customer action, e.g. a rejected identity token.
+        // Marking them stops the refresh lifecycle from hiding them behind its backoff.
+        throw markNonRecoverableStsError(error);
+      }
+    },
+    { logger: init.logger }
+  );

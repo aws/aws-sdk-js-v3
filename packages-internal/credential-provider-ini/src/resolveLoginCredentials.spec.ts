@@ -126,4 +126,14 @@ describe(resolveLoginCredentials.name, () => {
       callerClientConfig: options,
     });
   });
+
+  it("forwards the rejected access key ID so Login refreshes after an invalidation", async () => {
+    const provider = vi.fn().mockResolvedValue(mockCreds);
+    vi.mocked(fromLoginCredentials).mockReturnValue(provider);
+    vi.mocked(setCredentialFeature).mockReturnValue(mockCredsWithFeature);
+
+    await resolveLoginCredentials("mockProfileName", {}, undefined, "REJECTED");
+
+    expect(provider).toHaveBeenCalledWith({ callerClientConfig: undefined, rejectedAccessKeyId: "REJECTED" });
+  });
 });

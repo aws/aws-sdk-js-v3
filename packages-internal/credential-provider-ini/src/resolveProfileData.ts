@@ -1,6 +1,6 @@
 import type { AwsIdentityProperties } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/core/config";
-import type { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
+import type { AwsCredentialIdentity, IniSection, ParsedIniData } from "@smithy/types";
 
 import type { FromIniInit } from "./fromIni";
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
@@ -14,6 +14,94 @@ import { isWebIdentityProfile, resolveWebIdentityCredentials } from "./resolveWe
  * @internal
  */
 export type ResolveProfileData = typeof resolveProfileData;
+
+export type ProfileCredentialSource = "assumeRole" | "static" | "webIdentity" | "process" | "sso" | "login" | "unknown";
+
+/** Returns the credential source selected by the same precedence as {@link resolveProfileData}. */
+export const getProfileCredentialSource = (
+  data: IniSection | undefined,
+  profileName: string,
+  logger?: FromIniInit["logger"]
+): ProfileCredentialSource => {
+  if (!data) {
+    return "unknown";
+  }
+  if (isAssumeRoleProfile(data, { profile: profileName, logger })) {
+    return "assumeRole";
+  }
+  if (isStaticCredsProfile(data)) {
+    return "static";
+  }
+  if (isWebIdentityProfile(data)) {
+    return "webIdentity";
+  }
+  if (isProcessProfile(data)) {
+    return "process";
+  }
+  if (isSsoProfile(data)) {
+    return "sso";
+  }
+  if (isLoginProfile(data)) {
+    return "login";
+  }
+  return "unknown";
+};
+
+/** Whether a profile source is covered by the credential refresh spec. */
+export const isCredentialRefreshSource = (source: ProfileCredentialSource): boolean =>
+  ["assumeRole", "webIdentity", "sso", "login"].includes(source);
+
+/** Whether a profile is covered by the credential refresh spec. */
+export const isProfileInCredentialRefreshScope = (
+  data: IniSection | undefined,
+  profileName: string,
+  logger?: FromIniInit["logger"]
+): boolean => isCredentialRefreshSource(getProfileCredentialSource(data, profileName, logger));
+
+/** Resolves the source type selected when the provider was first used. @internal */
+export const resolveProfileDataForSource = (
+  source: ProfileCredentialSource,
+  profileName: string,
+  profiles: ParsedIniData,
+  options: FromIniInit,
+  callerClientConfig?: AwsIdentityProperties["callerClientConfig"],
+  rejectedAccessKeyId?: string
+): Promise<AwsCredentialIdentity> => {
+  const data = profiles[profileName];
+  if (!data) {
+    return Promise.reject(
+      new CredentialsProviderError(
+        `Could not resolve credentials using profile: [${profileName}] in configuration/credentials file(s).`,
+        { logger: options.logger }
+      )
+    );
+  }
+  switch (source) {
+    case "assumeRole":
+      return resolveAssumeRoleCredentials(profileName, profiles, options, callerClientConfig, {}, resolveProfileData);
+    case "static":
+      return resolveStaticCredentials(data as Parameters<typeof resolveStaticCredentials>[0], options);
+    case "webIdentity":
+      return resolveWebIdentityCredentials(
+        data as Parameters<typeof resolveWebIdentityCredentials>[0],
+        options,
+        callerClientConfig
+      );
+    case "process":
+      return resolveProcessCredentials(options, profileName);
+    case "sso":
+      return resolveSsoCredentials(profileName, data, options, callerClientConfig);
+    case "login":
+      return resolveLoginCredentials(profileName, options, callerClientConfig, rejectedAccessKeyId);
+    default:
+      return Promise.reject(
+        new CredentialsProviderError(
+          `Could not resolve credentials using profile: [${profileName}] in configuration/credentials file(s).`,
+          { logger: options.logger }
+        )
+      );
+  }
+};
 
 /**
  * @internal

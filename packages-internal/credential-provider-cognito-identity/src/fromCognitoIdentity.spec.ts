@@ -22,6 +22,13 @@ describe("fromCognitoIdentity", () => {
     send.mockClear();
   });
 
+  it("returns a provider that owns the credential refresh lifecycle", () => {
+    const provider = fromCognitoIdentity({ client: mockClient, identityId });
+
+    expect((provider as any).memoized).toBe(true);
+    expect(typeof (provider as any).invalidate).toBe("function");
+  });
+
   it("should execute a GetCredentialsForIdentity command and convert the result", async () => {
     expect(
       await fromCognitoIdentity({

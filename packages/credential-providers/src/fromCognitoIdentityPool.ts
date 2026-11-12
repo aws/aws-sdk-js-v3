@@ -4,6 +4,8 @@ import type {
 } from "@aws-sdk/credential-provider-cognito-identity";
 import type { AwsIdentityProperties } from "@aws-sdk/types";
 
+import { createLazyCredentialProvider } from "./createLazyCredentialProvider";
+
 /**
  * @public
  */
@@ -13,7 +15,8 @@ export interface FromCognitoIdentityPoolParameters extends Omit<_FromCognitoIden
  * Creates a credential provider function that retrieves or generates a unique identifier using Amazon Cognito's `GetId`
  * operation, then generates temporary AWS credentials using Amazon Cognito's `GetCredentialsForIdentity` operation.
  *
- * Results from `GetId` are cached internally, but results from `GetCredentialsForIdentity` are not.
+ * Results from `GetId` and `GetCredentialsForIdentity` are cached. Credentials are refreshed according to the
+ * credential refresh lifecycle.
  *
  * ```javascript
  * import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers"; // ES6 import
@@ -54,9 +57,9 @@ export interface FromCognitoIdentityPoolParameters extends Omit<_FromCognitoIden
 export const fromCognitoIdentityPool = (
   options: FromCognitoIdentityPoolParameters
 ): CognitoIdentityCredentialProvider => {
-  return async (args?: AwsIdentityProperties) => {
+  return createLazyCredentialProvider(async () => {
     const { fromCognitoIdentityPool: _fromCognitoIdentityPool } =
       await import("@aws-sdk/credential-provider-cognito-identity");
-    return _fromCognitoIdentityPool(options)(args);
-  };
+    return _fromCognitoIdentityPool(options);
+  });
 };

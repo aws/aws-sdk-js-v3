@@ -31,6 +31,7 @@ vi.mock("crypto");
 
 vi.mock("@aws-sdk/core/client", () => ({
   setCredentialFeature: vi.fn((credentials) => credentials),
+  markNonRecoverable: vi.fn((error) => Object.assign(error, { $nonRecoverable: true })),
 }));
 
 const mock_login_session = "arn:aws:sts::012345678910:assumed-role/Admin/admin";
@@ -418,6 +419,132 @@ describe("LoginCredentialsFetcher", () => {
         "https://eu-west-2.signin.aws.amazon.com/v1/token"
       );
       expect(request.headers.DPoP).toBe("mock-dpop-proof");
+    });
+  });
+
+  describe("after a service rejected the credentials (spec token-backed providers)", () => {
+    // 30 minutes left: not due for refresh, so without the rejection the token would be returned as is.
+    const notDueForRefresh = () => ({
+      ...mockExpiredCreds,
+      accessToken: {
+        ...mockExpiredCreds.accessToken,
+        accessKeyId: "REJECTEDKEY",
+        expiresAt: new Date(Date.now() + 30 * 60_000).toISOString(),
+      },
+    });
+    const refreshed = {
+      tokenOutput: {
+        accessToken: { accessKeyId: "NEWKEY", secretAccessKey: "NEWSECRET", sessionToken: "NEWSESSION" },
+        refreshToken: "new_refresh_token",
+        expiresIn: 900,
+      },
+    };
+    const fetcher = () => {
+      const f = new LoginCredentialsFetcher(mockProfile);
+      vi.spyOn(f as any, "generateDpop").mockResolvedValue("mock-dpop-proof");
+      return f;
+    };
+
+    it("refreshes even though the token is not due for refresh", async () => {
+      mockReadFile.mockResolvedValue(JSON.stringify(notDueForRefresh()));
+      mockClient.send.mockResolvedValue(refreshed);
+
+      const result = await fetcher().loadCredentials("REJECTEDKEY");
+
+      expect(mockClient.send).toHaveBeenCalledTimes(1);
+      expect(result.accessKeyId).toBe("NEWKEY");
+    });
+
+    it("throws instead of returning the rejected credentials when the refresh fails", async () => {
+      mockReadFile.mockResolvedValue(JSON.stringify(notDueForRefresh()));
+      mockClient.send.mockRejectedValue(Object.assign(new Error("socket hang up"), { name: "TimeoutError" }));
+
+      const error = await fetcher()
+        .loadCredentials("REJECTEDKEY")
+        .catch((e) => e);
+
+      expect(error).toBeInstanceOf(CredentialsProviderError);
+      expect(error.tryNextLink).toBe(false);
+      // Recoverable, so the refresh lifecycle keeps its cached credentials and backs off.
+      expect(error.$nonRecoverable).toBeUndefined();
+    });
+
+    it("returns the token's credentials when another process already replaced the rejected ones", async () => {
+      mockReadFile.mockResolvedValue(JSON.stringify(notDueForRefresh()));
+
+      const result = await fetcher().loadCredentials("SOMEOTHERKEY");
+
+      expect(mockClient.send).not.toHaveBeenCalled();
+      expect(result.accessKeyId).toBe("REJECTEDKEY");
+    });
+
+    it("returns credentials another process refreshed while this one was starting its refresh", async () => {
+      const replaced = {
+        ...notDueForRefresh(),
+        accessToken: { ...notDueForRefresh().accessToken, accessKeyId: "FRESH_KEY" },
+      };
+      mockReadFile
+        .mockResolvedValueOnce(JSON.stringify(notDueForRefresh()))
+        .mockResolvedValueOnce(JSON.stringify(replaced));
+
+      const result = await fetcher().loadCredentials("REJECTEDKEY");
+
+      expect(mockClient.send).not.toHaveBeenCalled();
+      expect(result.accessKeyId).toBe("FRESH_KEY");
+    });
+  });
+
+  describe("non-recoverable refresh failures", () => {
+    const refreshFails = (failure: unknown, token = mockExpiredCreds) => {
+      mockReadFile.mockResolvedValue(JSON.stringify(token));
+      mockClient.send.mockRejectedValue(failure);
+      const fetcher = new LoginCredentialsFetcher(mockProfile);
+      vi.spyOn(fetcher as any, "generateDpop").mockResolvedValue("mock-dpop-proof");
+      return fetcher.loadCredentials().catch((error) => error);
+    };
+
+    it.each(["TOKEN_EXPIRED", "USER_CREDENTIALS_CHANGED", "INSUFFICIENT_PERMISSIONS"])(
+      "marks AccessDeniedException with error member %s",
+      async (member) => {
+        const error = await refreshFails(
+          Object.assign(new Error("denied"), { name: "AccessDeniedException", error: member })
+        );
+
+        expect(error.$nonRecoverable).toBe(true);
+      }
+    );
+
+    it("leaves AccessDeniedException with an unrecognized error member recoverable", async () => {
+      const error = await refreshFails(
+        Object.assign(new Error("denied"), { name: "AccessDeniedException", error: "SOMETHING_ELSE" })
+      );
+
+      expect(error.$nonRecoverable).toBeUndefined();
+    });
+
+    it("marks ValidationException, and raises it rather than using the still-valid token", async () => {
+      // The spec raises a non-recoverable error even while the cached credentials are valid,
+      // so the customer can act before they expire.
+      const withinRefreshThreshold = {
+        ...mockExpiredCreds,
+        accessToken: {
+          ...mockExpiredCreds.accessToken,
+          expiresAt: new Date(Date.now() + 2 * 60_000).toISOString(),
+        },
+      };
+
+      const error = await refreshFails(
+        Object.assign(new Error("invalid request"), { name: "ValidationException" }),
+        withinRefreshThreshold
+      );
+
+      expect(error.$nonRecoverable).toBe(true);
+    });
+
+    it("leaves a transient refresh failure recoverable", async () => {
+      const error = await refreshFails(Object.assign(new Error("socket hang up"), { name: "TimeoutError" }));
+
+      expect(error.$nonRecoverable).toBeUndefined();
     });
   });
 

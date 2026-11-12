@@ -17,13 +17,19 @@ export const isLoginProfile = (data: ParsedIniData[string]): boolean => {
 export const resolveLoginCredentials = async (
   profileName: string,
   options: FromIniInit,
-  callerClientConfig?: AwsIdentityProperties["callerClientConfig"]
+  callerClientConfig?: AwsIdentityProperties["callerClientConfig"],
+  rejectedAccessKeyId?: string
 ): Promise<AwsCredentialIdentity> => {
   const { fromLoginCredentials } = await import("@aws-sdk/credential-provider-login");
+  // Forwarded so Login refreshes when a service rejected the profile's credentials.
+  const properties: AwsIdentityProperties & { rejectedAccessKeyId?: string } = {
+    callerClientConfig,
+    rejectedAccessKeyId,
+  };
   const credentials = await fromLoginCredentials({
     ...options,
     profile: profileName,
-  })({ callerClientConfig });
+  })(properties);
 
   return setCredentialFeature(credentials, "CREDENTIALS_PROFILE_LOGIN", "AC");
 };

@@ -1,7 +1,10 @@
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 import { describe, expect, test as it, vi } from "vitest";
 
+import { createCredentialRefreshProvider } from "@aws-sdk/core/client";
 import { resolveAwsSdkSigV4Config } from "../index";
+
+const START_MS = new Date("2024-01-01T00:00:00Z").getTime();
 
 describe(resolveAwsSdkSigV4Config.name, () => {
   it("maintains object custody", () => {
@@ -117,5 +120,54 @@ describe(resolveAwsSdkSigV4Config.name, () => {
         secretAccessKey: "unit-test-2",
       });
     }
+  });
+
+  it("keeps customer-provided providers on the existing client cache", async () => {
+    const custom = vi.fn(async () => ({ accessKeyId: "CUSTOM", secretAccessKey: "SECRET" }));
+    const config = resolveAwsSdkSigV4Config({
+      credentials: custom,
+      region: "us-east-1",
+      sha256: vi.fn(),
+      serviceId: "",
+      useDualstackEndpoint: async () => false,
+      useFipsEndpoint: async () => false,
+    });
+
+    await config.credentials();
+    await config.credentials();
+
+    expect(custom).toHaveBeenCalledTimes(1);
+    // A customer-written function cannot invalidate, so ExpiredToken is not retried for it.
+    expect((config.credentials as { invalidate?: unknown }).invalidate).toBeUndefined();
+  });
+
+  it("does not add a second cache around a lifecycle-wrapped SDK provider", async () => {
+    let now = START_MS;
+    const spy = vi.spyOn(Date, "now").mockImplementation(() => now);
+    const source = vi.fn(async () => ({
+      accessKeyId: "SDK",
+      secretAccessKey: "SECRET",
+      expiration: new Date(now + 6 * 3600_000),
+    }));
+    const sdkProvider = createCredentialRefreshProvider(source);
+    const config = resolveAwsSdkSigV4Config({
+      credentials: sdkProvider,
+      region: "us-east-1",
+      sha256: vi.fn(),
+      serviceId: "",
+      useDualstackEndpoint: async () => false,
+      useFipsEndpoint: async () => false,
+    });
+
+    await config.credentials();
+    // 30 minutes before expiry: the provider's own advisory window refreshes, but a second
+    // client-side cache (5 minute window) would return the cached credentials without asking it.
+    now += 6 * 3600_000 - 30 * 60_000;
+    await config.credentials();
+
+    expect(source).toHaveBeenCalledTimes(2);
+    // invalidate reaches the provider's lifecycle through the client's wrappers.
+    expect(typeof (config.credentials as { invalidate?: unknown }).invalidate).toBe("function");
+    spy.mockRestore();
   });
 });

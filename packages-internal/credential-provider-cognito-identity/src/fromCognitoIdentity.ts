@@ -1,3 +1,4 @@
+import { createCredentialRefreshProvider } from "@aws-sdk/core/client";
 import type { AwsIdentityProperties, CredentialProviderOptions, RuntimeConfigIdentityProvider } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/core/config";
 import type { AwsCredentialIdentity, Logger } from "@smithy/types";
@@ -26,10 +27,19 @@ export type CognitoIdentityCredentialProvider = RuntimeConfigIdentityProvider<Co
  * Retrieves temporary AWS credentials using Amazon Cognito's
  * `GetCredentialsForIdentity` operation.
  *
- * Results from this function call are not cached internally.
+ * Results are cached and refreshed according to the credential refresh lifecycle.
  */
 export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): CognitoIdentityCredentialProvider {
-  return async (awsIdentityProperties?: AwsIdentityProperties): Promise<CognitoIdentityCredentials> => {
+  return createCredentialRefreshProvider(fromCognitoIdentitySource(parameters), { logger: parameters.logger });
+}
+
+/**
+ * @internal
+ * Uncached source used by both direct and identity-pool providers.
+ */
+export const fromCognitoIdentitySource =
+  (parameters: FromCognitoIdentityParameters): CognitoIdentityCredentialProvider =>
+  async (awsIdentityProperties?: AwsIdentityProperties): Promise<CognitoIdentityCredentials> => {
     parameters.logger?.debug("@aws-sdk/credential-provider-cognito-identity - fromCognitoIdentity");
     const { GetCredentialsForIdentityCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity.js");
 
@@ -70,7 +80,6 @@ export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): 
       expiration: Expiration,
     };
   };
-}
 
 /**
  * @internal
