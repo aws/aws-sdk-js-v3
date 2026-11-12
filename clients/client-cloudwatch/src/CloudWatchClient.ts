@@ -82,6 +82,10 @@ import type {
   DeleteInsightRulesCommandOutput,
 } from "./commands/DeleteInsightRulesCommand";
 import type {
+  DeleteMetricDataQueryDefinitionCommandInput,
+  DeleteMetricDataQueryDefinitionCommandOutput,
+} from "./commands/DeleteMetricDataQueryDefinitionCommand";
+import type {
   DeleteMetricStreamCommandInput,
   DeleteMetricStreamCommandOutput,
 } from "./commands/DeleteMetricStreamCommand";
@@ -139,6 +143,10 @@ import type {
 } from "./commands/GetInsightRuleReportCommand";
 import type { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
 import type {
+  GetMetricDataQueryDefinitionCommandInput,
+  GetMetricDataQueryDefinitionCommandOutput,
+} from "./commands/GetMetricDataQueryDefinitionCommand";
+import type {
   GetMetricStatisticsCommandInput,
   GetMetricStatisticsCommandOutput,
 } from "./commands/GetMetricStatisticsCommand";
@@ -164,6 +172,10 @@ import type {
   ListManagedInsightRulesCommandInput,
   ListManagedInsightRulesCommandOutput,
 } from "./commands/ListManagedInsightRulesCommand";
+import type {
+  ListMetricDataQueryDefinitionsCommandInput,
+  ListMetricDataQueryDefinitionsCommandOutput,
+} from "./commands/ListMetricDataQueryDefinitionsCommand";
 import type { ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
 import type {
   ListMetricStreamsCommandInput,
@@ -191,6 +203,10 @@ import type {
 } from "./commands/PutManagedInsightRulesCommand";
 import type { PutMetricAlarmCommandInput, PutMetricAlarmCommandOutput } from "./commands/PutMetricAlarmCommand";
 import type { PutMetricDataCommandInput, PutMetricDataCommandOutput } from "./commands/PutMetricDataCommand";
+import type {
+  PutMetricDataQueryDefinitionCommandInput,
+  PutMetricDataQueryDefinitionCommandOutput,
+} from "./commands/PutMetricDataQueryDefinitionCommand";
 import type { PutMetricStreamCommandInput, PutMetricStreamCommandOutput } from "./commands/PutMetricStreamCommand";
 import type { SetAlarmStateCommandInput, SetAlarmStateCommandOutput } from "./commands/SetAlarmStateCommand";
 import type {
@@ -241,6 +257,7 @@ export type ServiceInputTypes =
   | DeleteAnomalyDetectorCommandInput
   | DeleteDashboardsCommandInput
   | DeleteInsightRulesCommandInput
+  | DeleteMetricDataQueryDefinitionCommandInput
   | DeleteMetricStreamCommandInput
   | DeleteResourceMetricsConfigurationCommandInput
   | DescribeAlarmContributorsCommandInput
@@ -259,6 +276,7 @@ export type ServiceInputTypes =
   | GetDatasetCommandInput
   | GetInsightRuleReportCommandInput
   | GetMetricDataCommandInput
+  | GetMetricDataQueryDefinitionCommandInput
   | GetMetricStatisticsCommandInput
   | GetMetricStreamCommandInput
   | GetMetricWidgetImageCommandInput
@@ -267,6 +285,7 @@ export type ServiceInputTypes =
   | ListAlarmMuteRulesCommandInput
   | ListDashboardsCommandInput
   | ListManagedInsightRulesCommandInput
+  | ListMetricDataQueryDefinitionsCommandInput
   | ListMetricStreamsCommandInput
   | ListMetricsCommandInput
   | ListTagsForResourceCommandInput
@@ -279,6 +298,7 @@ export type ServiceInputTypes =
   | PutManagedInsightRulesCommandInput
   | PutMetricAlarmCommandInput
   | PutMetricDataCommandInput
+  | PutMetricDataQueryDefinitionCommandInput
   | PutMetricStreamCommandInput
   | SetAlarmStateCommandInput
   | StartMetricStreamsCommandInput
@@ -301,6 +321,7 @@ export type ServiceOutputTypes =
   | DeleteAnomalyDetectorCommandOutput
   | DeleteDashboardsCommandOutput
   | DeleteInsightRulesCommandOutput
+  | DeleteMetricDataQueryDefinitionCommandOutput
   | DeleteMetricStreamCommandOutput
   | DeleteResourceMetricsConfigurationCommandOutput
   | DescribeAlarmContributorsCommandOutput
@@ -319,6 +340,7 @@ export type ServiceOutputTypes =
   | GetDatasetCommandOutput
   | GetInsightRuleReportCommandOutput
   | GetMetricDataCommandOutput
+  | GetMetricDataQueryDefinitionCommandOutput
   | GetMetricStatisticsCommandOutput
   | GetMetricStreamCommandOutput
   | GetMetricWidgetImageCommandOutput
@@ -327,6 +349,7 @@ export type ServiceOutputTypes =
   | ListAlarmMuteRulesCommandOutput
   | ListDashboardsCommandOutput
   | ListManagedInsightRulesCommandOutput
+  | ListMetricDataQueryDefinitionsCommandOutput
   | ListMetricStreamsCommandOutput
   | ListMetricsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -339,6 +362,7 @@ export type ServiceOutputTypes =
   | PutManagedInsightRulesCommandOutput
   | PutMetricAlarmCommandOutput
   | PutMetricDataCommandOutput
+  | PutMetricDataQueryDefinitionCommandOutput
   | PutMetricStreamCommandOutput
   | SetAlarmStateCommandOutput
   | StartMetricStreamsCommandOutput

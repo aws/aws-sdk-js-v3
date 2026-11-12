@@ -246,6 +246,20 @@ export type StatusCode = (typeof StatusCode)[keyof typeof StatusCode];
  * @public
  * @enum
  */
+export const QueryType = {
+  METRIC_MATH: "METRIC_MATH",
+  PROMQL: "PROMQL",
+  SQL: "SQL",
+} as const;
+/**
+ * @public
+ */
+export type QueryType = (typeof QueryType)[keyof typeof QueryType];
+
+/**
+ * @public
+ * @enum
+ */
 export const MetricStreamOutputFormat = {
   JSON: "json",
   OPEN_TELEMETRY_0_7: "opentelemetry0.7",

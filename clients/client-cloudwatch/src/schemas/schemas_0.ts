@@ -120,6 +120,9 @@ const _DIROi = "DisableInsightRulesOutput";
 const _DIRe = "DescribeInsightRules";
 const _DIRi = "DisableInsightRules";
 const _DIa = "DatasetId";
+const _DMDQD = "DeleteMetricDataQueryDefinition";
+const _DMDQDI = "DeleteMetricDataQueryDefinitionInput";
+const _DMDQDO = "DeleteMetricDataQueryDefinitionOutput";
 const _DMS = "DeleteMetricStream";
 const _DMSI = "DeleteMetricStreamInput";
 const _DMSO = "DeleteMetricStreamOutput";
@@ -187,6 +190,9 @@ const _GIRRO = "GetInsightRuleReportOutput";
 const _GMD = "GetMetricData";
 const _GMDI = "GetMetricDataInput";
 const _GMDO = "GetMetricDataOutput";
+const _GMDQD = "GetMetricDataQueryDefinition";
+const _GMDQDI = "GetMetricDataQueryDefinitionInput";
+const _GMDQDO = "GetMetricDataQueryDefinitionOutput";
 const _GMS = "GetMetricStatistics";
 const _GMSI = "GetMetricStatisticsInput";
 const _GMSIe = "GetMetricStreamInput";
@@ -225,6 +231,7 @@ const _IRMDn = "InsightRuleMetricDatapoints";
 const _IRn = "InsightRule";
 const _ISF = "InternalServiceFault";
 const _ITK = "IncludedTagKeys";
+const _It = "Items";
 const _K = "Keys";
 const _KA = "KeyAttributes";
 const _KADE = "KmsAccessDeniedException";
@@ -246,6 +253,9 @@ const _LEE = "LimitExceededException";
 const _LEF = "LimitExceededFault";
 const _LGI = "LogGroupIdentifiers";
 const _LM = "LastModified";
+const _LMDQD = "ListMetricDataQueryDefinitions";
+const _LMDQDI = "ListMetricDataQueryDefinitionsInput";
+const _LMDQDO = "ListMetricDataQueryDefinitionsOutput";
 const _LMI = "ListMetricsInput";
 const _LMIR = "ListManagedInsightRules";
 const _LMIRI = "ListManagedInsightRulesInput";
@@ -269,6 +279,8 @@ const _MCC = "MaxContributorCount";
 const _MCV = "MaxContributorValue";
 const _MD = "MetricData";
 const _MDQ = "MetricDataQueries";
+const _MDQDS = "MetricDataQueryDefinitionSummary";
+const _MDQDSe = "MetricDataQueryDefinitionSummaries";
 const _MDQe = "MetricDataQuery";
 const _MDR = "MetricDataResults";
 const _MDRM = "MetricDataResultMessages";
@@ -277,6 +289,7 @@ const _MDa = "MaxDatapoints";
 const _MDe = "MetricDatapoints";
 const _MDes = "MessageData";
 const _MDet = "MetricDatum";
+const _MES = "MetricExpressionString";
 const _MMAD = "MetricMathAnomalyDetector";
 const _MN = "MetricName";
 const _MNe = "MetricNames";
@@ -342,6 +355,9 @@ const _PMA = "PutMetricAlarm";
 const _PMAI = "PutMetricAlarmInput";
 const _PMD = "PutMetricData";
 const _PMDI = "PutMetricDataInput";
+const _PMDQD = "PutMetricDataQueryDefinition";
+const _PMDQDI = "PutMetricDataQueryDefinitionInput";
+const _PMDQDO = "PutMetricDataQueryDefinitionOutput";
 const _PMIR = "PutManagedInsightRules";
 const _PMIRI = "PutManagedInsightRulesInput";
 const _PMIRO = "PutManagedInsightRulesOutput";
@@ -352,6 +368,7 @@ const _POAN = "ParentsOfAlarmName";
 const _PP = "PendingPeriod";
 const _PQLC = "PromQLCriteria";
 const _PS = "PeriodicSpikes";
+const _Pa = "Path";
 const _Q = "Query";
 const _QARN = "QueryARN";
 const _QRTA = "QueryResultsToAlarm";
@@ -437,6 +454,7 @@ const _Tag = "Tag";
 const _Th = "Threshold";
 const _Ti = "Timezone";
 const _Tim = "Timestamps";
+const _Ty = "Type";
 const _U = "Unit";
 const _UA = "UpdatedAt";
 const _UC = "UniqueContributors";
@@ -472,6 +490,7 @@ import type {
   StaticListSchema,
   StaticMapSchema,
   StaticOperationSchema,
+  StaticSimpleSchema,
   StaticStructureSchema,
   StaticUnionSchema,
 } from "@smithy/types";
@@ -627,6 +646,7 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var MetricExpressionString: StaticSimpleSchema = [0, n0, _MES, 8, 0];
 export var ActionConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_ATP],
@@ -746,6 +766,16 @@ export var DeleteInsightRulesOutput$: StaticStructureSchema = [3, n0, _DIRO,
   0,
   [_F],
   [() => BatchFailures]
+];
+export var DeleteMetricDataQueryDefinitionInput$: StaticStructureSchema = [3, n0, _DMDQDI,
+  0,
+  [_I],
+  [0], 1
+];
+export var DeleteMetricDataQueryDefinitionOutput$: StaticStructureSchema = [3, n0, _DMDQDO,
+  0,
+  [],
+  []
 ];
 export var DeleteMetricStreamInput$: StaticStructureSchema = [3, n0, _DMSI,
   0,
@@ -937,6 +967,16 @@ export var GetMetricDataOutput$: StaticStructureSchema = [3, n0, _GMDO,
   [_MDR, _NT, _Mes],
   [() => MetricDataResults, 0, () => MetricDataResultMessages]
 ];
+export var GetMetricDataQueryDefinitionInput$: StaticStructureSchema = [3, n0, _GMDQDI,
+  0,
+  [_I],
+  [0], 1
+];
+export var GetMetricDataQueryDefinitionOutput$: StaticStructureSchema = [3, n0, _GMDQDO,
+  0,
+  [_I, _Ar, _Pa, _Ex, _Ty, _CAr, _UA],
+  [0, 0, 0, [() => MetricExpressionString, 0], 0, 4, 4], 7
+];
 export var GetMetricStatisticsInput$: StaticStructureSchema = [3, n0, _GMSI,
   0,
   [_N, _MN, _ST, _ET, _P, _D, _Stat, _ES, _U],
@@ -1042,6 +1082,16 @@ export var ListManagedInsightRulesOutput$: StaticStructureSchema = [3, n0, _LMIR
   [_MRana, _NT],
   [() => ManagedRuleDescriptions, 0]
 ];
+export var ListMetricDataQueryDefinitionsInput$: StaticStructureSchema = [3, n0, _LMDQDI,
+  0,
+  [_MRa, _NT],
+  [1, 0]
+];
+export var ListMetricDataQueryDefinitionsOutput$: StaticStructureSchema = [3, n0, _LMDQDO,
+  0,
+  [_It, _NT],
+  [() => MetricDataQueryDefinitionSummaries, 0], 1
+];
 export var ListMetricsInput$: StaticStructureSchema = [3, n0, _LMI,
   0,
   [_N, _MN, _D, _NT, _RAe, _ILA, _OA],
@@ -1116,6 +1166,11 @@ export var MetricDataQuery$: StaticStructureSchema = [3, n0, _MDQe,
   0,
   [_I, _MSe, _Ex, _L, _RD, _P, _AI],
   [0, () => MetricStat$, 0, 0, 2, 1, 0], 1
+];
+export var MetricDataQueryDefinitionSummary$: StaticStructureSchema = [3, n0, _MDQDS,
+  0,
+  [_I, _Pa, _Ty, _UA],
+  [0, 0, 0, 4], 3
 ];
 export var MetricDataResult$: StaticStructureSchema = [3, n0, _MDRe,
   0,
@@ -1236,6 +1291,16 @@ export var PutMetricDataInput$: StaticStructureSchema = [3, n0, _PMDI,
   0,
   [_N, _MD, _EMD, _SEV],
   [0, () => MetricData, () => EntityMetricDataList, 2], 1
+];
+export var PutMetricDataQueryDefinitionInput$: StaticStructureSchema = [3, n0, _PMDQDI,
+  0,
+  [_Pa, _Ex, _Ty, _I, _Ta],
+  [0, [() => MetricExpressionString, 0], 0, 0, () => TagList], 3
+];
+export var PutMetricDataQueryDefinitionOutput$: StaticStructureSchema = [3, n0, _PMDQDO,
+  0,
+  [_I, _Ar, _Pa, _Ex, _Ty, _CAr, _UA],
+  [0, 0, 0, [() => MetricExpressionString, 0], 0, 4, 4], 7
 ];
 export var PutMetricStreamInput$: StaticStructureSchema = [3, n0, _PMSI,
   0,
@@ -1482,6 +1547,9 @@ var MetricData: StaticListSchema = [1, n0, _MD,
 var MetricDataQueries: StaticListSchema = [1, n0, _MDQ,
   0, () => MetricDataQuery$
 ];
+var MetricDataQueryDefinitionSummaries: StaticListSchema = [1, n0, _MDQDSe,
+  0, () => MetricDataQueryDefinitionSummary$
+];
 var MetricDataResultMessages: StaticListSchema = [1, n0, _MDRM,
   0, () => MessageData$
 ];
@@ -1559,6 +1627,9 @@ export var DeleteDashboards$: StaticOperationSchema = [9, n0, _DD,
 export var DeleteInsightRules$: StaticOperationSchema = [9, n0, _DIR,
   0, () => DeleteInsightRulesInput$, () => DeleteInsightRulesOutput$
 ];
+export var DeleteMetricDataQueryDefinition$: StaticOperationSchema = [9, n0, _DMDQD,
+  2, () => DeleteMetricDataQueryDefinitionInput$, () => DeleteMetricDataQueryDefinitionOutput$
+];
 export var DeleteMetricStream$: StaticOperationSchema = [9, n0, _DMS,
   0, () => DeleteMetricStreamInput$, () => DeleteMetricStreamOutput$
 ];
@@ -1613,6 +1684,9 @@ export var GetInsightRuleReport$: StaticOperationSchema = [9, n0, _GIRR,
 export var GetMetricData$: StaticOperationSchema = [9, n0, _GMD,
   0, () => GetMetricDataInput$, () => GetMetricDataOutput$
 ];
+export var GetMetricDataQueryDefinition$: StaticOperationSchema = [9, n0, _GMDQD,
+  0, () => GetMetricDataQueryDefinitionInput$, () => GetMetricDataQueryDefinitionOutput$
+];
 export var GetMetricStatistics$: StaticOperationSchema = [9, n0, _GMS,
   0, () => GetMetricStatisticsInput$, () => GetMetricStatisticsOutput$
 ];
@@ -1636,6 +1710,9 @@ export var ListDashboards$: StaticOperationSchema = [9, n0, _LD,
 ];
 export var ListManagedInsightRules$: StaticOperationSchema = [9, n0, _LMIR,
   0, () => ListManagedInsightRulesInput$, () => ListManagedInsightRulesOutput$
+];
+export var ListMetricDataQueryDefinitions$: StaticOperationSchema = [9, n0, _LMDQD,
+  0, () => ListMetricDataQueryDefinitionsInput$, () => ListMetricDataQueryDefinitionsOutput$
 ];
 export var ListMetrics$: StaticOperationSchema = [9, n0, _LMi,
   0, () => ListMetricsInput$, () => ListMetricsOutput$
@@ -1672,6 +1749,9 @@ export var PutMetricAlarm$: StaticOperationSchema = [9, n0, _PMA,
 ];
 export var PutMetricData$: StaticOperationSchema = [9, n0, _PMD,
   0, () => PutMetricDataInput$, () => __Unit
+];
+export var PutMetricDataQueryDefinition$: StaticOperationSchema = [9, n0, _PMDQD,
+  2, () => PutMetricDataQueryDefinitionInput$, () => PutMetricDataQueryDefinitionOutput$
 ];
 export var PutMetricStream$: StaticOperationSchema = [9, n0, _PMS,
   0, () => PutMetricStreamInput$, () => PutMetricStreamOutput$

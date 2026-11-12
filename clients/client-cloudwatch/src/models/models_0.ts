@@ -12,6 +12,7 @@ import type {
   HistoryItemType,
   MetricStreamOutputFormat,
   OTelEnrichmentStatus,
+  QueryType,
   RecentlyActive,
   ScanBy,
   StandardUnit,
@@ -1330,6 +1331,22 @@ export interface DeleteInsightRulesOutput {
    */
   Failures?: PartialFailure[] | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteMetricDataQueryDefinitionInput {
+  /**
+   * <p>The ID of the metric data query definition to delete.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMetricDataQueryDefinitionOutput {}
 
 /**
  * @public
@@ -3643,6 +3660,79 @@ export interface GetMetricDataOutput {
 /**
  * @public
  */
+export interface GetMetricDataQueryDefinitionInput {
+  /**
+   * <p>The ID of the metric data query definition to retrieve.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMetricDataQueryDefinitionOutput {
+  /**
+   * <p>The ID of the metric data query definition.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the metric data query definition.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The path of the metric data query definition.</p>
+   * @public
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>The query expression.</p>
+   * @public
+   */
+  Expression: string | undefined;
+
+  /**
+   * <p>The language of the expression. Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PROMQL</code> – A PromQL query.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SQL</code> – A CloudWatch Metrics Insights query.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>METRIC_MATH</code> – A metric math expression.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type: QueryType | undefined;
+
+  /**
+   * <p>The date and time when you created the metric data query definition.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time when you last updated the metric data query
+   *             definition.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetMetricStatisticsInput {
   /**
    * <p>The namespace of the metric, with or without spaces.</p>
@@ -4322,6 +4412,89 @@ export interface ListManagedInsightRulesOutput {
   /**
    * <p> Include this value to get the next set of rules if the value was returned by the
    *             previous operation. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMetricDataQueryDefinitionsInput {
+  /**
+   * <p>The maximum number of metric data query definitions to return in one call. The
+   *             default is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned by a previous call to indicate where to continue retrieving
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a metric data query definition. To get the expression,
+ *             call <code>GetMetricDataQueryDefinition</code>.</p>
+ * @public
+ */
+export interface MetricDataQueryDefinitionSummary {
+  /**
+   * <p>The ID of the metric data query definition.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The path of the metric data query definition.</p>
+   * @public
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>The language of the expression. Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PROMQL</code> – A PromQL query.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SQL</code> – A CloudWatch Metrics Insights query.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>METRIC_MATH</code> – A metric math expression.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type: QueryType | undefined;
+
+  /**
+   * <p>The date and time when you last updated the metric data query
+   *             definition.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMetricDataQueryDefinitionsOutput {
+  /**
+   * <p>A list of metric data query definition summaries.</p>
+   * @public
+   */
+  Items: MetricDataQueryDefinitionSummary[] | undefined;
+
+  /**
+   * <p>The token to use when requesting the next set of results. If this field is absent,
+   *             there are no more results to retrieve.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -6207,6 +6380,126 @@ export interface PutMetricDataInput {
    * @public
    */
   StrictEntityValidation?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutMetricDataQueryDefinitionInput {
+  /**
+   * <p>The ID of the metric data query definition to update. Omit this parameter to
+   *             create a definition. CloudWatch then generates the ID and returns it in the
+   *             response.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The name of the metric data query definition. Use slashes (<code>/</code>) to
+   *             organize definitions into folders, for example <code>team/web/latency</code>. The path
+   *             must meet the following requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>It must be unique in your account and Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>It can't start or end with a slash.</p>
+   *             </li>
+   *             <li>
+   *                <p>It can't contain an empty folder name (<code>//</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>It can be at most 1,015 bytes when encoded as UTF-8.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>The query expression, in the language that <code>Type</code> specifies.
+   *                 CloudWatch doesn't validate or run the expression when you save it.</p>
+   * @public
+   */
+  Expression: string | undefined;
+
+  /**
+   * <p>The language of the expression. Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PROMQL</code> – A PromQL query.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SQL</code> – A CloudWatch Metrics Insights query.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>METRIC_MATH</code> – A metric math expression.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type: QueryType | undefined;
+
+  /**
+   * <p>A list of key-value pairs to associate with the metric data query definition. You
+   *             can use tags to categorize definitions and to control access to them. Tags are applied
+   *             only when the request creates a definition, that is, when you omit <code>Id</code>. To
+   *             change the tags of an existing definition, use <code>TagResource</code> and
+   *                 <code>UntagResource</code>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutMetricDataQueryDefinitionOutput {
+  /**
+   * <p>The ID of the metric data query definition.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the metric data query definition.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The path of the metric data query definition.</p>
+   * @public
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>The query expression.</p>
+   * @public
+   */
+  Expression: string | undefined;
+
+  /**
+   * <p>The language of the expression.</p>
+   * @public
+   */
+  Type: QueryType | undefined;
+
+  /**
+   * <p>The date and time when you created the metric data query definition.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time when you last updated the metric data query
+   *             definition.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
 }
 
 /**

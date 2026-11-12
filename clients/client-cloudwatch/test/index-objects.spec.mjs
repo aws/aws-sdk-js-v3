@@ -56,6 +56,10 @@ import {
   DeleteInsightRulesCommand,
   DeleteInsightRulesInput$,
   DeleteInsightRulesOutput$,
+  DeleteMetricDataQueryDefinition$,
+  DeleteMetricDataQueryDefinitionCommand,
+  DeleteMetricDataQueryDefinitionInput$,
+  DeleteMetricDataQueryDefinitionOutput$,
   DeleteMetricStream$,
   DeleteMetricStreamCommand,
   DeleteMetricStreamInput$,
@@ -133,6 +137,10 @@ import {
   GetMetricDataCommand,
   GetMetricDataInput$,
   GetMetricDataOutput$,
+  GetMetricDataQueryDefinition$,
+  GetMetricDataQueryDefinitionCommand,
+  GetMetricDataQueryDefinitionInput$,
+  GetMetricDataQueryDefinitionOutput$,
   GetMetricStatistics$,
   GetMetricStatisticsCommand,
   GetMetricStatisticsInput$,
@@ -191,6 +199,10 @@ import {
   ListManagedInsightRulesCommand,
   ListManagedInsightRulesInput$,
   ListManagedInsightRulesOutput$,
+  ListMetricDataQueryDefinitions$,
+  ListMetricDataQueryDefinitionsCommand,
+  ListMetricDataQueryDefinitionsInput$,
+  ListMetricDataQueryDefinitionsOutput$,
   ListMetrics$,
   ListMetricsCommand,
   ListMetricsInput$,
@@ -212,6 +224,7 @@ import {
   MetricAlarm$,
   MetricCharacteristics$,
   MetricDataQuery$,
+  MetricDataQueryDefinitionSummary$,
   MetricDataResult$,
   MetricDatum$,
   MetricMathAnomalyDetector$,
@@ -234,6 +247,7 @@ import {
   paginateListAlarmMuteRules,
   paginateListDashboards,
   paginateListManagedInsightRules,
+  paginateListMetricDataQueryDefinitions,
   paginateListMetrics,
   paginateListMetricStreams,
   PartialFailure$,
@@ -268,10 +282,15 @@ import {
   PutMetricData$,
   PutMetricDataCommand,
   PutMetricDataInput$,
+  PutMetricDataQueryDefinition$,
+  PutMetricDataQueryDefinitionCommand,
+  PutMetricDataQueryDefinitionInput$,
+  PutMetricDataQueryDefinitionOutput$,
   PutMetricStream$,
   PutMetricStreamCommand,
   PutMetricStreamInput$,
   PutMetricStreamOutput$,
+  QueryType,
   Range$,
   RecentlyActive,
   ResourceConflict,
@@ -362,6 +381,8 @@ assert(typeof DeleteDashboardsCommand === "function");
 assert(typeof DeleteDashboards$ === "object");
 assert(typeof DeleteInsightRulesCommand === "function");
 assert(typeof DeleteInsightRules$ === "object");
+assert(typeof DeleteMetricDataQueryDefinitionCommand === "function");
+assert(typeof DeleteMetricDataQueryDefinition$ === "object");
 assert(typeof DeleteMetricStreamCommand === "function");
 assert(typeof DeleteMetricStream$ === "object");
 assert(typeof DeleteResourceMetricsConfigurationCommand === "function");
@@ -398,6 +419,8 @@ assert(typeof GetInsightRuleReportCommand === "function");
 assert(typeof GetInsightRuleReport$ === "object");
 assert(typeof GetMetricDataCommand === "function");
 assert(typeof GetMetricData$ === "object");
+assert(typeof GetMetricDataQueryDefinitionCommand === "function");
+assert(typeof GetMetricDataQueryDefinition$ === "object");
 assert(typeof GetMetricStatisticsCommand === "function");
 assert(typeof GetMetricStatistics$ === "object");
 assert(typeof GetMetricStreamCommand === "function");
@@ -414,6 +437,8 @@ assert(typeof ListDashboardsCommand === "function");
 assert(typeof ListDashboards$ === "object");
 assert(typeof ListManagedInsightRulesCommand === "function");
 assert(typeof ListManagedInsightRules$ === "object");
+assert(typeof ListMetricDataQueryDefinitionsCommand === "function");
+assert(typeof ListMetricDataQueryDefinitions$ === "object");
 assert(typeof ListMetricsCommand === "function");
 assert(typeof ListMetrics$ === "object");
 assert(typeof ListMetricStreamsCommand === "function");
@@ -438,6 +463,8 @@ assert(typeof PutMetricAlarmCommand === "function");
 assert(typeof PutMetricAlarm$ === "object");
 assert(typeof PutMetricDataCommand === "function");
 assert(typeof PutMetricData$ === "object");
+assert(typeof PutMetricDataQueryDefinitionCommand === "function");
+assert(typeof PutMetricDataQueryDefinition$ === "object");
 assert(typeof PutMetricStreamCommand === "function");
 assert(typeof PutMetricStream$ === "object");
 assert(typeof SetAlarmStateCommand === "function");
@@ -483,6 +510,8 @@ assert(typeof DeleteDashboardsInput$ === "object");
 assert(typeof DeleteDashboardsOutput$ === "object");
 assert(typeof DeleteInsightRulesInput$ === "object");
 assert(typeof DeleteInsightRulesOutput$ === "object");
+assert(typeof DeleteMetricDataQueryDefinitionInput$ === "object");
+assert(typeof DeleteMetricDataQueryDefinitionOutput$ === "object");
 assert(typeof DeleteMetricStreamInput$ === "object");
 assert(typeof DeleteMetricStreamOutput$ === "object");
 assert(typeof DeleteResourceMetricsConfigurationInput$ === "object");
@@ -523,6 +552,8 @@ assert(typeof GetInsightRuleReportInput$ === "object");
 assert(typeof GetInsightRuleReportOutput$ === "object");
 assert(typeof GetMetricDataInput$ === "object");
 assert(typeof GetMetricDataOutput$ === "object");
+assert(typeof GetMetricDataQueryDefinitionInput$ === "object");
+assert(typeof GetMetricDataQueryDefinitionOutput$ === "object");
 assert(typeof GetMetricStatisticsInput$ === "object");
 assert(typeof GetMetricStatisticsOutput$ === "object");
 assert(typeof GetMetricStreamInput$ === "object");
@@ -544,6 +575,8 @@ assert(typeof ListDashboardsInput$ === "object");
 assert(typeof ListDashboardsOutput$ === "object");
 assert(typeof ListManagedInsightRulesInput$ === "object");
 assert(typeof ListManagedInsightRulesOutput$ === "object");
+assert(typeof ListMetricDataQueryDefinitionsInput$ === "object");
+assert(typeof ListMetricDataQueryDefinitionsOutput$ === "object");
 assert(typeof ListMetricsInput$ === "object");
 assert(typeof ListMetricsOutput$ === "object");
 assert(typeof ListMetricStreamsInput$ === "object");
@@ -559,6 +592,7 @@ assert(typeof Metric$ === "object");
 assert(typeof MetricAlarm$ === "object");
 assert(typeof MetricCharacteristics$ === "object");
 assert(typeof MetricDataQuery$ === "object");
+assert(typeof MetricDataQueryDefinitionSummary$ === "object");
 assert(typeof MetricDataResult$ === "object");
 assert(typeof MetricDatum$ === "object");
 assert(typeof MetricMathAnomalyDetector$ === "object");
@@ -583,6 +617,8 @@ assert(typeof PutManagedInsightRulesInput$ === "object");
 assert(typeof PutManagedInsightRulesOutput$ === "object");
 assert(typeof PutMetricAlarmInput$ === "object");
 assert(typeof PutMetricDataInput$ === "object");
+assert(typeof PutMetricDataQueryDefinitionInput$ === "object");
+assert(typeof PutMetricDataQueryDefinitionOutput$ === "object");
 assert(typeof PutMetricStreamInput$ === "object");
 assert(typeof PutMetricStreamOutput$ === "object");
 assert(typeof Range$ === "object");
@@ -628,6 +664,7 @@ assert(typeof EvaluationState === "object");
 assert(typeof HistoryItemType === "object");
 assert(typeof MetricStreamOutputFormat === "object");
 assert(typeof OTelEnrichmentStatus === "object");
+assert(typeof QueryType === "object");
 assert(typeof RecentlyActive === "object");
 assert(typeof ScanBy === "object");
 assert(typeof StandardUnit === "object");
@@ -692,6 +729,7 @@ assert(typeof paginateGetMetricData === "function");
 assert(typeof paginateListAlarmMuteRules === "function");
 assert(typeof paginateListDashboards === "function");
 assert(typeof paginateListManagedInsightRules === "function");
+assert(typeof paginateListMetricDataQueryDefinitions === "function");
 assert(typeof paginateListMetricStreams === "function");
 assert(typeof paginateListMetrics === "function");
 console.log(`CloudWatch index test passed.`);

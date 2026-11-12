@@ -45,6 +45,11 @@ import {
   DeleteInsightRulesCommand,
 } from "./commands/DeleteInsightRulesCommand";
 import {
+  type DeleteMetricDataQueryDefinitionCommandInput,
+  type DeleteMetricDataQueryDefinitionCommandOutput,
+  DeleteMetricDataQueryDefinitionCommand,
+} from "./commands/DeleteMetricDataQueryDefinitionCommand";
+import {
   type DeleteMetricStreamCommandInput,
   type DeleteMetricStreamCommandOutput,
   DeleteMetricStreamCommand,
@@ -135,6 +140,11 @@ import {
   GetMetricDataCommand,
 } from "./commands/GetMetricDataCommand";
 import {
+  type GetMetricDataQueryDefinitionCommandInput,
+  type GetMetricDataQueryDefinitionCommandOutput,
+  GetMetricDataQueryDefinitionCommand,
+} from "./commands/GetMetricDataQueryDefinitionCommand";
+import {
   type GetMetricStatisticsCommandInput,
   type GetMetricStatisticsCommandOutput,
   GetMetricStatisticsCommand,
@@ -174,6 +184,11 @@ import {
   type ListManagedInsightRulesCommandOutput,
   ListManagedInsightRulesCommand,
 } from "./commands/ListManagedInsightRulesCommand";
+import {
+  type ListMetricDataQueryDefinitionsCommandInput,
+  type ListMetricDataQueryDefinitionsCommandOutput,
+  ListMetricDataQueryDefinitionsCommand,
+} from "./commands/ListMetricDataQueryDefinitionsCommand";
 import {
   type ListMetricsCommandInput,
   type ListMetricsCommandOutput,
@@ -235,6 +250,11 @@ import {
   PutMetricDataCommand,
 } from "./commands/PutMetricDataCommand";
 import {
+  type PutMetricDataQueryDefinitionCommandInput,
+  type PutMetricDataQueryDefinitionCommandOutput,
+  PutMetricDataQueryDefinitionCommand,
+} from "./commands/PutMetricDataQueryDefinitionCommand";
+import {
   type PutMetricStreamCommandInput,
   type PutMetricStreamCommandOutput,
   PutMetricStreamCommand,
@@ -293,6 +313,7 @@ import { paginateGetMetricData } from "./pagination/GetMetricDataPaginator";
 import { paginateListAlarmMuteRules } from "./pagination/ListAlarmMuteRulesPaginator";
 import { paginateListDashboards } from "./pagination/ListDashboardsPaginator";
 import { paginateListManagedInsightRules } from "./pagination/ListManagedInsightRulesPaginator";
+import { paginateListMetricDataQueryDefinitions } from "./pagination/ListMetricDataQueryDefinitionsPaginator";
 import { paginateListMetrics } from "./pagination/ListMetricsPaginator";
 import { paginateListMetricStreams } from "./pagination/ListMetricStreamsPaginator";
 import { waitUntilAlarmExists } from "./waiters/waitForAlarmExists";
@@ -308,6 +329,7 @@ const commands = {
   DeleteAnomalyDetectorCommand,
   DeleteDashboardsCommand,
   DeleteInsightRulesCommand,
+  DeleteMetricDataQueryDefinitionCommand,
   DeleteMetricStreamCommand,
   DeleteResourceMetricsConfigurationCommand,
   DescribeAlarmContributorsCommand,
@@ -326,6 +348,7 @@ const commands = {
   GetDatasetCommand,
   GetInsightRuleReportCommand,
   GetMetricDataCommand,
+  GetMetricDataQueryDefinitionCommand,
   GetMetricStatisticsCommand,
   GetMetricStreamCommand,
   GetMetricWidgetImageCommand,
@@ -334,6 +357,7 @@ const commands = {
   ListAlarmMuteRulesCommand,
   ListDashboardsCommand,
   ListManagedInsightRulesCommand,
+  ListMetricDataQueryDefinitionsCommand,
   ListMetricsCommand,
   ListMetricStreamsCommand,
   ListTagsForResourceCommand,
@@ -346,6 +370,7 @@ const commands = {
   PutManagedInsightRulesCommand,
   PutMetricAlarmCommand,
   PutMetricDataCommand,
+  PutMetricDataQueryDefinitionCommand,
   PutMetricStreamCommand,
   SetAlarmStateCommand,
   StartMetricStreamsCommand,
@@ -366,6 +391,7 @@ const paginators = {
   paginateListAlarmMuteRules,
   paginateListDashboards,
   paginateListManagedInsightRules,
+  paginateListMetricDataQueryDefinitions,
   paginateListMetrics,
   paginateListMetricStreams,
 };
@@ -502,6 +528,23 @@ export interface CloudWatch {
     args: DeleteInsightRulesCommandInput,
     options: CloudWatchRequestOptions,
     cb: (err: any, data?: DeleteInsightRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMetricDataQueryDefinitionCommand}
+   */
+  deleteMetricDataQueryDefinition(
+    args: DeleteMetricDataQueryDefinitionCommandInput,
+    options?: CloudWatchRequestOptions
+  ): Promise<DeleteMetricDataQueryDefinitionCommandOutput>;
+  deleteMetricDataQueryDefinition(
+    args: DeleteMetricDataQueryDefinitionCommandInput,
+    cb: (err: any, data?: DeleteMetricDataQueryDefinitionCommandOutput) => void
+  ): void;
+  deleteMetricDataQueryDefinition(
+    args: DeleteMetricDataQueryDefinitionCommandInput,
+    options: CloudWatchRequestOptions,
+    cb: (err: any, data?: DeleteMetricDataQueryDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -815,6 +858,23 @@ export interface CloudWatch {
   ): void;
 
   /**
+   * @see {@link GetMetricDataQueryDefinitionCommand}
+   */
+  getMetricDataQueryDefinition(
+    args: GetMetricDataQueryDefinitionCommandInput,
+    options?: CloudWatchRequestOptions
+  ): Promise<GetMetricDataQueryDefinitionCommandOutput>;
+  getMetricDataQueryDefinition(
+    args: GetMetricDataQueryDefinitionCommandInput,
+    cb: (err: any, data?: GetMetricDataQueryDefinitionCommandOutput) => void
+  ): void;
+  getMetricDataQueryDefinition(
+    args: GetMetricDataQueryDefinitionCommandInput,
+    options: CloudWatchRequestOptions,
+    cb: (err: any, data?: GetMetricDataQueryDefinitionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetMetricStatisticsCommand}
    */
   getMetricStatistics(
@@ -951,6 +1011,24 @@ export interface CloudWatch {
     args: ListManagedInsightRulesCommandInput,
     options: CloudWatchRequestOptions,
     cb: (err: any, data?: ListManagedInsightRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMetricDataQueryDefinitionsCommand}
+   */
+  listMetricDataQueryDefinitions(): Promise<ListMetricDataQueryDefinitionsCommandOutput>;
+  listMetricDataQueryDefinitions(
+    args: ListMetricDataQueryDefinitionsCommandInput,
+    options?: CloudWatchRequestOptions
+  ): Promise<ListMetricDataQueryDefinitionsCommandOutput>;
+  listMetricDataQueryDefinitions(
+    args: ListMetricDataQueryDefinitionsCommandInput,
+    cb: (err: any, data?: ListMetricDataQueryDefinitionsCommandOutput) => void
+  ): void;
+  listMetricDataQueryDefinitions(
+    args: ListMetricDataQueryDefinitionsCommandInput,
+    options: CloudWatchRequestOptions,
+    cb: (err: any, data?: ListMetricDataQueryDefinitionsCommandOutput) => void
   ): void;
 
   /**
@@ -1158,6 +1236,23 @@ export interface CloudWatch {
     args: PutMetricDataCommandInput,
     options: CloudWatchRequestOptions,
     cb: (err: any, data?: PutMetricDataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutMetricDataQueryDefinitionCommand}
+   */
+  putMetricDataQueryDefinition(
+    args: PutMetricDataQueryDefinitionCommandInput,
+    options?: CloudWatchRequestOptions
+  ): Promise<PutMetricDataQueryDefinitionCommandOutput>;
+  putMetricDataQueryDefinition(
+    args: PutMetricDataQueryDefinitionCommandInput,
+    cb: (err: any, data?: PutMetricDataQueryDefinitionCommandOutput) => void
+  ): void;
+  putMetricDataQueryDefinition(
+    args: PutMetricDataQueryDefinitionCommandInput,
+    options: CloudWatchRequestOptions,
+    cb: (err: any, data?: PutMetricDataQueryDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -1420,6 +1515,17 @@ export interface CloudWatch {
     args: ListManagedInsightRulesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListManagedInsightRulesCommandOutput>;
+
+  /**
+   * @see {@link ListMetricDataQueryDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMetricDataQueryDefinitionsCommandOutput}.
+   */
+  paginateListMetricDataQueryDefinitions(
+    args?: ListMetricDataQueryDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMetricDataQueryDefinitionsCommandOutput>;
 
   /**
    * @see {@link ListMetricsCommand}

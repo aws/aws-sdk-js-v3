@@ -8,5 +8,6 @@ export * from "./GetMetricDataPaginator";
 export * from "./ListAlarmMuteRulesPaginator";
 export * from "./ListDashboardsPaginator";
 export * from "./ListManagedInsightRulesPaginator";
+export * from "./ListMetricDataQueryDefinitionsPaginator";
 export * from "./ListMetricsPaginator";
 export * from "./ListMetricStreamsPaginator";
