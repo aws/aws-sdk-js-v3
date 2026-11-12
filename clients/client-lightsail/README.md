@@ -236,6 +236,13 @@ AttachStaticIp
 </details>
 <details>
 <summary>
+CheckSubdomainAvailability
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CheckSubdomainAvailabilityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CheckSubdomainAvailabilityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CheckSubdomainAvailabilityCommandOutput/)
+</details>
+<details>
+<summary>
 CloseInstancePublicPorts
 </summary>
 
@@ -418,6 +425,13 @@ CreateRelationalDatabaseSnapshot
 </details>
 <details>
 <summary>
+CreateSubdomain
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateSubdomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateSubdomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateSubdomainCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteAlarm
 </summary>
 
@@ -562,6 +576,13 @@ DeleteRelationalDatabaseSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteRelationalDatabaseSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteRelationalDatabaseSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteRelationalDatabaseSnapshotCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteSubdomain
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteSubdomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteSubdomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteSubdomainCommandOutput/)
 </details>
 <details>
 <summary>
@@ -1083,6 +1104,13 @@ GetStaticIps
 </details>
 <details>
 <summary>
+GetSubdomains
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetSubdomainsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetSubdomainsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetSubdomainsCommandOutput/)
+</details>
+<details>
+<summary>
 ImportKeyPair
 </summary>
 
@@ -1325,4 +1353,11 @@ UpdateRelationalDatabaseParameters
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/UpdateRelationalDatabaseParametersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateRelationalDatabaseParametersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateRelationalDatabaseParametersCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateSubdomainAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/UpdateSubdomainAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateSubdomainAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateSubdomainAssociationCommandOutput/)
 </details>

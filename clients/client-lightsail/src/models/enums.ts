@@ -210,6 +210,7 @@ export const ResourceType = {
   RelationalDatabase: "RelationalDatabase",
   RelationalDatabaseSnapshot: "RelationalDatabaseSnapshot",
   StaticIp: "StaticIp",
+  Subdomain: "Subdomain",
 } as const;
 /**
  * @public
@@ -331,6 +332,7 @@ export const OperationType = {
   CreateRelationalDatabase: "CreateRelationalDatabase",
   CreateRelationalDatabaseFromSnapshot: "CreateRelationalDatabaseFromSnapshot",
   CreateRelationalDatabaseSnapshot: "CreateRelationalDatabaseSnapshot",
+  CreateSubdomain: "CreateSubdomain",
   DeleteAlarm: "DeleteAlarm",
   DeleteBucket: "DeleteBucket",
   DeleteBucketAccessKey: "DeleteBucketAccessKey",
@@ -350,6 +352,7 @@ export const OperationType = {
   DeleteLoadBalancerTlsCertificate: "DeleteLoadBalancerTlsCertificate",
   DeleteRelationalDatabase: "DeleteRelationalDatabase",
   DeleteRelationalDatabaseSnapshot: "DeleteRelationalDatabaseSnapshot",
+  DeleteSubdomain: "DeleteSubdomain",
   DetachCertificateFromDistribution: "DetachCertificateFromDistribution",
   DetachDisk: "DetachDisk",
   DetachInstancesFromLoadBalancer: "DetachInstancesFromLoadBalancer",
@@ -388,6 +391,7 @@ export const OperationType = {
   UpdateLoadBalancerAttribute: "UpdateLoadBalancerAttribute",
   UpdateRelationalDatabase: "UpdateRelationalDatabase",
   UpdateRelationalDatabaseParameters: "UpdateRelationalDatabaseParameters",
+  UpdateSubdomainAssociation: "UpdateSubdomainAssociation",
 } as const;
 /**
  * @public
@@ -918,6 +922,22 @@ export type WafInspectionLevelEnum = (typeof WafInspectionLevelEnum)[keyof typeo
  * @public
  * @enum
  */
+export const LightsailDistributionSubdomainStateEnum = {
+  ATTACHED: "Attached",
+  ATTACHING: "Attaching",
+  CREATING: "Creating",
+  ERROR: "Error",
+} as const;
+/**
+ * @public
+ */
+export type LightsailDistributionSubdomainStateEnum =
+  (typeof LightsailDistributionSubdomainStateEnum)[keyof typeof LightsailDistributionSubdomainStateEnum];
+
+/**
+ * @public
+ * @enum
+ */
 export const Status = {
   FailedInstanceCreation: "failedInstanceCreation",
   FailedStartingGUISession: "failedStartingGUISession",
@@ -934,6 +954,25 @@ export const Status = {
  * @public
  */
 export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ * @enum
+ */
+export const SubdomainState = {
+  ATTACHED: "ATTACHED",
+  ATTACHING: "ATTACHING",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DETACHING: "DETACHING",
+  IMPLICIT: "IMPLICIT",
+  TRANSFERRING: "TRANSFERRING",
+  UNATTACHED: "UNATTACHED",
+} as const;
+/**
+ * @public
+ */
+export type SubdomainState = (typeof SubdomainState)[keyof typeof SubdomainState];
 
 /**
  * @public
@@ -1533,3 +1572,17 @@ export const ResourceBucketAccess = {
  * @public
  */
 export type ResourceBucketAccess = (typeof ResourceBucketAccess)[keyof typeof ResourceBucketAccess];
+
+/**
+ * @public
+ * @enum
+ */
+export const SubdomainAssociationAction = {
+  ASSOCIATE: "ASSOCIATE",
+  DISASSOCIATE: "DISASSOCIATE",
+  TRANSFER: "TRANSFER",
+} as const;
+/**
+ * @public
+ */
+export type SubdomainAssociationAction = (typeof SubdomainAssociationAction)[keyof typeof SubdomainAssociationAction];

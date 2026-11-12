@@ -11,6 +11,7 @@ import type {
   HttpTokens,
   InstanceHealthReason,
   InstanceHealthState,
+  InstanceSnapshotState,
   IpAddressType,
   LoadBalancerAttributeName,
   LoadBalancerMetricName,
@@ -34,6 +35,8 @@ import type {
   ResourceBucketAccess,
   ResourceType,
   SetupStatus,
+  SubdomainAssociationAction,
+  SubdomainState,
   TierName,
   TreatMissingData,
   ViewerMinimumTlsProtocolVersionEnum,
@@ -49,10 +52,12 @@ import type {
   CacheSettings,
   ContainerImage,
   ContainerService,
+  Disk,
   DistributionCustomErrorResponse,
   DomainEntry,
   InputOrigin,
-  InstanceSnapshot,
+  Instance,
+  InstancePortState,
   InstanceState,
   KeyPair,
   MetricDatapoint,
@@ -60,9 +65,203 @@ import type {
   PortInfo,
   PrivateRegistryAccessRequest,
   ResourceLocation,
+  SubdomainAttachableResource,
   Tag,
   WafRule,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetInstancePortStatesResult {
+  /**
+   * <p>An array of objects that describe the firewall port states for the specified
+   *       instance.</p>
+   * @public
+   */
+  portStates?: InstancePortState[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstancesRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetInstances</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
+   * @public
+   */
+  pageToken?: string | undefined;
+
+  /**
+   * <p>Specifies whether to include the instance health status checks of each instance in the
+   *       response of your request.</p>
+   *          <p>When set to <code>true</code>, the response includes the <code>instanceStatus</code> and
+   *         <code>systemStatus</code> of each instance. When omitted or set to <code>false</code>, the
+   *       response doesn't include them.</p>
+   * @public
+   */
+  includeHealthStatus?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstancesResult {
+  /**
+   * <p>An array of key-value pairs containing information about your instances.</p>
+   * @public
+   */
+  instances?: Instance[] | undefined;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetInstances</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   * @public
+   */
+  nextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceSnapshotRequest {
+  /**
+   * <p>The name of the snapshot for which you are requesting information.</p>
+   * @public
+   */
+  instanceSnapshotName: string | undefined;
+}
+
+/**
+ * <p>Describes an instance snapshot.</p>
+ * @public
+ */
+export interface InstanceSnapshot {
+  /**
+   * <p>The name of the snapshot.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot
+   *         (<code>arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE</code>).</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       an instance or another resource in Lightsail. This code enables our support team to look up
+   *       your Lightsail information more easily.</p>
+   * @public
+   */
+  supportCode?: string | undefined;
+
+  /**
+   * <p>The timestamp when the snapshot was created (<code>1479907467.024</code>).</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The region name and Availability Zone where you created the snapshot.</p>
+   * @public
+   */
+  location?: ResourceLocation | undefined;
+
+  /**
+   * <p>The type of resource (usually <code>InstanceSnapshot</code>).</p>
+   * @public
+   */
+  resourceType?: ResourceType | undefined;
+
+  /**
+   * <p>The tag keys and optional values for the resource. For more information about tags in
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>The state the snapshot is in.</p>
+   * @public
+   */
+  state?: InstanceSnapshotState | undefined;
+
+  /**
+   * <p>The progress of the snapshot.</p>
+   *          <note>
+   *             <p>This is populated only for disk snapshots, and is <code>null</code> for instance
+   *         snapshots.</p>
+   *          </note>
+   * @public
+   */
+  progress?: string | undefined;
+
+  /**
+   * <p>An array of disk objects containing information about all block storage disks.</p>
+   * @public
+   */
+  fromAttachedDisks?: Disk[] | undefined;
+
+  /**
+   * <p>The instance from which the snapshot was created.</p>
+   * @public
+   */
+  fromInstanceName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the instance from which the snapshot was created
+   *         (<code>arn:aws:lightsail:us-east-2:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE</code>).</p>
+   * @public
+   */
+  fromInstanceArn?: string | undefined;
+
+  /**
+   * <p>The blueprint ID from which you created the snapshot (<code>amazon_linux_2023</code>). A
+   *       blueprint is a virtual private server (or <i>instance</i>) image used to create
+   *       instances quickly.</p>
+   * @public
+   */
+  fromBlueprintId?: string | undefined;
+
+  /**
+   * <p>The bundle ID from which you created the snapshot (<code>micro_x_x</code>).</p>
+   * @public
+   */
+  fromBundleId?: string | undefined;
+
+  /**
+   * <p>A Boolean value indicating whether the snapshot was created from an automatic
+   *       snapshot.</p>
+   * @public
+   */
+  isFromAutoSnapshot?: boolean | undefined;
+
+  /**
+   * <p>The size in GB of the SSD.</p>
+   * @public
+   */
+  sizeInGb?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceSnapshotResult {
+  /**
+   * <p>An array of key-value pairs containing information about the results of your get instance
+   *       snapshot request.</p>
+   * @public
+   */
+  instanceSnapshot?: InstanceSnapshot | undefined;
+}
 
 /**
  * @public
@@ -3190,6 +3389,30 @@ export interface GetStaticIpsResult {
 /**
  * @public
  */
+export interface GetSubdomainsRequest {
+  /**
+   * <p>The subdomain for which to return information (for example, <code>mysite</code> or
+   *         <code>blog.mysite</code>), not its web address.</p>
+   *          <p>When omitted, the response includes all of your subdomains.</p>
+   *          <p>You can't specify this parameter together with the <code>pageToken</code>
+   *       parameter.</p>
+   * @public
+   */
+  subdomainName?: string | undefined;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetSubdomains</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
+   * @public
+   */
+  pageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ImportKeyPairRequest {
   /**
    * <p>The name of the key pair for which you want to import the public key.</p>
@@ -4915,4 +5138,274 @@ export interface UpdateRelationalDatabaseParametersResult {
    * @public
    */
   operations?: Operation[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSubdomainAssociationRequest {
+  /**
+   * <p>The subdomain to update (for example, <code>mysite</code> or
+   *         <code>blog.mysite</code>), not its web address.</p>
+   * @public
+   */
+  subdomainName: string | undefined;
+
+  /**
+   * <p>The association change to make.</p>
+   *          <p>The following actions are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ASSOCIATE</code> – Associates the subdomain with the resource that you specify in
+   *           the <code>targetResourceArn</code> parameter. The subdomain must be in the
+   *             <code>UNATTACHED</code> state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISASSOCIATE</code> – Disassociates the subdomain from its current resource. The
+   *           subdomain must be in the <code>ATTACHED</code> state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRANSFER</code> – Moves the subdomain from its current resource to the resource
+   *           that you specify in the <code>targetResourceArn</code> parameter. The subdomain must be in
+   *           the <code>ATTACHED</code> state. You can transfer each subdomain only once in a 24-hour
+   *           period.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  action: SubdomainAssociationAction | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to associate the subdomain with. The
+   *       resource must be in your account.</p>
+   *          <p>This parameter is required when the <code>action</code> is <code>ASSOCIATE</code> or
+   *         <code>TRANSFER</code>. It's ignored when the <code>action</code> is
+   *         <code>DISASSOCIATE</code>.</p>
+   * @public
+   */
+  targetResourceArn?: string | undefined;
+}
+
+/**
+ * <p>Describes a Lightsail subdomain. A subdomain is the name that you choose, such as
+ *         <code>mysite</code> or <code>blog.mysite</code>. Its web address is the subdomain followed
+ *       by <code>amazonlightsail.com</code>, such as <code>blog.mysite.amazonlightsail.com</code>. You
+ *       can associate a subdomain with a Lightsail resource to make the resource reachable at the
+ *       web address.</p>
+ * @public
+ */
+export interface Subdomain {
+  /**
+   * <p>The subdomain (for example, <code>mysite</code> or <code>blog.mysite</code>). To get the
+   *       web address, use the <code>fqdn</code> parameter.</p>
+   * @public
+   */
+  subdomainName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the subdomain.</p>
+   *          <p>If you create a subdomain with a depth of 2, such as <code>blog.mysite</code>, without
+   *       first creating the subdomain with a depth of 1 (<code>mysite</code>), Lightsail holds
+   *       <code>mysite</code> for your account in the <code>IMPLICIT</code> state. It doesn't have an
+   *       ARN until you create a subdomain with that name.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The web address of the subdomain, which is the subdomain followed by
+   *         <code>amazonlightsail.com</code> (for example,
+   *         <code>blog.mysite.amazonlightsail.com</code>).</p>
+   * @public
+   */
+  fqdn?: string | undefined;
+
+  /**
+   * <p>The number of labels in the subdomain. A top-level subdomain, such as
+   *         <code>mysite</code>, has a depth of <code>1</code>. A nested subdomain, such as
+   *         <code>blog.mysite</code>, has a depth of <code>2</code>.</p>
+   * @public
+   */
+  depth?: number | undefined;
+
+  /**
+   * <p>The state of the subdomain.</p>
+   *          <p>The following states are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> – The subdomain is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_FAILED</code> – The subdomain couldn't be created. Delete the subdomain,
+   *           and then create it again if the name is still available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNATTACHED</code> – The subdomain is ready, and isn't associated with a
+   *           resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ATTACHING</code> – The subdomain is being associated with a resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ATTACHED</code> – The subdomain is associated with a resource, and routes traffic
+   *           to it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DETACHING</code> – The subdomain is being disassociated from a resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRANSFERRING</code> – The subdomain is being moved from one resource to another
+   *           resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IMPLICIT</code> – The subdomain is the parent of one or more nested subdomains
+   *           that you created, but you didn't create the parent subdomain itself. You can't associate
+   *           or delete a subdomain in this state. To use it, create it with the
+   *             <code>CreateSubdomain</code> action.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  state?: SubdomainState | undefined;
+
+  /**
+   * <p>An object that describes the resource that the subdomain is associated with.</p>
+   *          <p>When the subdomain is in the <code>TRANSFERRING</code> state, this is the resource that
+   *       the subdomain is being moved from.</p>
+   * @public
+   */
+  attachedResource?: SubdomainAttachableResource | undefined;
+
+  /**
+   * <p>An object that describes the resource that the subdomain is being associated with.</p>
+   *          <p>This parameter is returned only when the subdomain is in the <code>ATTACHING</code> or
+   *         <code>TRANSFERRING</code> state.</p>
+   * @public
+   */
+  attachingResource?: SubdomainAttachableResource | undefined;
+
+  /**
+   * <p>An object that describes the location of the subdomain, such as the AWS Region.</p>
+   * @public
+   */
+  location?: ResourceLocation | undefined;
+
+  /**
+   * <p>The timestamp when the subdomain was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The web address of the parent subdomain (for example,
+   *         <code>mysite.amazonlightsail.com</code> for <code>blog.mysite</code>).</p>
+   *          <p>This parameter isn't returned for a subdomain with a depth of 1.</p>
+   * @public
+   */
+  parentFqdn?: string | undefined;
+
+  /**
+   * <p>An array of objects that describe the nested subdomains of the subdomain.</p>
+   *          <p>This parameter is returned only by the <code>GetSubdomains</code> action when you don't
+   *       specify a subdomain.</p>
+   * @public
+   */
+  children?: Subdomain[] | undefined;
+
+  /**
+   * <p>The tag keys and optional values for the subdomain. For more information about tags in
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Lightsail Developer
+   *       Guide</a>.</p>
+   *          <p>This parameter is returned only by the <code>GetSubdomains</code> action when you specify a
+   *       subdomain.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSubdomainResult {
+  /**
+   * <p>An object that describes the subdomain that was created.</p>
+   * @public
+   */
+  subdomain?: Subdomain | undefined;
+
+  /**
+   * <p>An object that describes the result of the action, such as the status of the request, the
+   *       timestamp of the request, and the resources affected by the request.</p>
+   * @public
+   */
+  operation?: Operation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSubdomainResult {
+  /**
+   * <p>An object that describes the top-level subdomain in the <code>IMPLICIT</code> state.</p>
+   *          <p>This parameter is returned only when you delete a top-level subdomain that has nested
+   *       subdomains.</p>
+   * @public
+   */
+  subdomain?: Subdomain | undefined;
+
+  /**
+   * <p>An object that describes the result of the action, such as the status of the request, the
+   *       timestamp of the request, and the resources affected by the request.</p>
+   * @public
+   */
+  operation?: Operation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSubdomainsResult {
+  /**
+   * <p>An array of objects that describe your subdomains.</p>
+   * @public
+   */
+  subdomains?: Subdomain[] | undefined;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetSubdomains</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   * @public
+   */
+  nextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSubdomainAssociationResult {
+  /**
+   * <p>An object that describes the subdomain that was updated.</p>
+   * @public
+   */
+  subdomain?: Subdomain | undefined;
+
+  /**
+   * <p>An object that describes the result of the action, such as the status of the request, the
+   *       timestamp of the request, and the resources affected by the request.</p>
+   * @public
+   */
+  operation?: Operation | undefined;
 }

@@ -143,6 +143,9 @@ const _CRDS = "CreateRelationalDatabaseSnapshot";
 const _CRDSR = "CreateRelationalDatabaseSnapshotRequest";
 const _CRDSRr = "CreateRelationalDatabaseSnapshotResult";
 const _CS = "CacheSettings";
+const _CSA = "CheckSubdomainAvailability";
+const _CSAR = "CheckSubdomainAvailabilityRequest";
+const _CSARh = "CheckSubdomainAvailabilityResult";
 const _CSD = "ContainerServiceDeployment";
 const _CSDL = "ContainerServiceDeploymentList";
 const _CSDR = "ContainerServiceDeploymentRequest";
@@ -162,10 +165,13 @@ const _CSPL = "ContainerServicePowerList";
 const _CSR = "CopySnapshotRequest";
 const _CSRL = "ContainerServiceRegistryLogin";
 const _CSRo = "CopySnapshotResult";
+const _CSRr = "CreateSubdomainRequest";
+const _CSRre = "CreateSubdomainResult";
 const _CSSD = "ContainerServiceStateDetail";
 const _CSe = "CertificateSummary";
 const _CSo = "ContainerService";
 const _CSop = "CopySnapshot";
+const _CSr = "CreateSubdomain";
 const _Co = "Container";
 const _D = "Disk";
 const _DA = "DeleteAlarm";
@@ -267,6 +273,9 @@ const _DSIR = "DetachStaticIpRequest";
 const _DSIRe = "DetachStaticIpResult";
 const _DSIe = "DetachStaticIp";
 const _DSL = "DiskSnapshotList";
+const _DSR = "DeleteSubdomainRequest";
+const _DSRe = "DeleteSubdomainResult";
+const _DSe = "DeleteSubdomain";
 const _DVR = "DomainValidationRecord";
 const _DVRL = "DomainValidationRecordList";
 const _Do = "Domain";
@@ -471,6 +480,7 @@ const _GRDSe = "GetRelationalDatabaseSnapshots";
 const _GRDe = "GetRelationalDatabases";
 const _GRR = "GetRegionsRequest";
 const _GRRe = "GetRegionsResult";
+const _GS = "GetSubdomains";
 const _GSH = "GetSetupHistory";
 const _GSHR = "GetSetupHistoryRequest";
 const _GSHRe = "GetSetupHistoryResult";
@@ -480,6 +490,8 @@ const _GSIRe = "GetStaticIpResult";
 const _GSIRet = "GetStaticIpsRequest";
 const _GSIRett = "GetStaticIpsResult";
 const _GSIe = "GetStaticIps";
+const _GSR = "GetSubdomainsRequest";
+const _GSRe = "GetSubdomainsResult";
 const _HKA = "HostKeyAttributes";
 const _HKL = "HostKeysList";
 const _HO = "HeaderObject";
@@ -531,6 +543,7 @@ const _LBTCSL = "LoadBalancerTlsCertificateSummaryList";
 const _LBTP = "LoadBalancerTlsPolicy";
 const _LBTPL = "LoadBalancerTlsPolicyList";
 const _LD = "LightsailDistribution";
+const _LDS = "LightsailDistributionSubdomain";
 const _LE = "LogEvent";
 const _LEL = "LogEventList";
 const _MD = "MetricDatapoint";
@@ -606,6 +619,7 @@ const _RSIPE = "RegionSetupInProgressException";
 const _RSIR = "ReleaseStaticIpRequest";
 const _RSIRe = "ReleaseStaticIpResult";
 const _S = "Session";
+const _SAR = "SubdomainAttachableResource";
 const _SB = "SensitiveBase64";
 const _SCMV = "SendContactMethodVerification";
 const _SCMVR = "SendContactMethodVerificationRequest";
@@ -636,6 +650,7 @@ const _SIRto = "StopInstanceRequest";
 const _SIRtop = "StopInstanceResult";
 const _SIt = "StartInstance";
 const _SIto = "StopInstance";
+const _SL = "SubdomainList";
 const _SNES = "SensitiveNonEmptyString";
 const _SR = "SetupRequest";
 const _SRAFB = "SetResourceAccessForBucket";
@@ -649,6 +664,7 @@ const _SRDRtop = "StopRelationalDatabaseResult";
 const _SRDt = "StopRelationalDatabase";
 const _SS = "SensitiveString";
 const _Se = "Sessions";
+const _Su = "Subdomain";
 const _T = "Tag";
 const _TA = "TestAlarm";
 const _TAR = "TestAlarmRequest";
@@ -692,6 +708,9 @@ const _URDR = "UpdateRelationalDatabaseRequest";
 const _URDRp = "UpdateRelationalDatabaseResult";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResult";
+const _USA = "UpdateSubdomainAssociation";
+const _USAR = "UpdateSubdomainAssociationRequest";
+const _USARp = "UpdateSubdomainAssociationResult";
 const _UV = "UnpeerVpc";
 const _UVR = "UnpeerVpcRequest";
 const _UVRn = "UnpeerVpcResult";
@@ -703,6 +722,7 @@ const _WR = "WafRule";
 const _WRI = "WafResponseInspection";
 const _WRL = "WafRuleList";
 const _a = "arn";
+const _aA = "attachedAt";
 const _aBU = "acceptBundleUpdate";
 const _aC = "appCategory";
 const _aCc = "acfpConfig";
@@ -733,6 +753,8 @@ const _aOT = "addOnType";
 const _aOd = "addOns";
 const _aPO = "allowPublicOverrides";
 const _aR = "accessRules";
+const _aRt = "attachedResource";
+const _aRtt = "attachingResource";
 const _aS = "attachmentState";
 const _aSAOR = "autoSnapshotAddOnRequest";
 const _aSu = "autoSnapshots";
@@ -750,7 +772,8 @@ const _acc = "access";
 const _ad = "address";
 const _al = "alarms";
 const _alg = "algorithm";
-const _av = "average";
+const _av = "available";
+const _ave = "average";
 const _b = "behavior";
 const _bCC = "botControlConfig";
 const _bI = "blueprintId";
@@ -804,6 +827,7 @@ const _cSo = "containerService";
 const _cT = "createTime";
 const _ce = "certificate";
 const _cer = "certificates";
+const _ch = "children";
 const _ci = "cidrs";
 const _cip = "ciphers";
 const _ciph = "ciphertext";
@@ -843,6 +867,7 @@ const _da = "date";
 const _de = "description";
 const _dep = "deployment";
 const _depl = "deployments";
+const _dept = "depth";
 const _des = "destination";
 const _det = "details";
 const _di = "digest";
@@ -908,6 +933,7 @@ const _fRN = "fromResourceName";
 const _fSHA = "fingerprintSHA1";
 const _fSHAi = "fingerprintSHA256";
 const _fi = "fingerprint";
+const _fq = "fqdn";
 const _g = "group";
 const _gIU = "gbInUse";
 const _gO = "getObject";
@@ -1053,7 +1079,8 @@ const _pD = "passwordData";
 const _pDN = "privateDomainName";
 const _pDNu = "publicDomainNames";
 const _pE = "publicEndpoint";
-const _pF = "passwordField";
+const _pF = "parentFqdn";
+const _pFa = "passwordField";
 const _pI = "portInfo";
 const _pIA = "privateIpAddress";
 const _pIAC = "publicIpv4AddressCount";
@@ -1114,6 +1141,7 @@ const _rDSN = "relationalDatabaseSnapshotName";
 const _rDSe = "relationalDatabaseSnapshots";
 const _rDe = "relationalDatabase";
 const _rDel = "relationalDatabases";
+const _rEA = "reservationExpiresAt";
 const _rFR = "requestFailureReason";
 const _rHZDS = "r53HostedZoneDeletionState";
 const _rI = "responseInspection";
@@ -1134,8 +1162,9 @@ const _rSe = "renewalStatus";
 const _rT = "resourceType";
 const _rTe = "restoreTime";
 const _rTes = "responseTimeout";
-const _re = "registry";
-const _reg = "regions";
+const _re = "reserve";
+const _reg = "registry";
+const _regi = "regions";
 const _req = "request";
 const _res = "resource";
 const _ru = "rules";
@@ -1167,6 +1196,7 @@ const _sKN = "sshKeyName";
 const _sN = "serviceName";
 const _sNe = "serialNumber";
 const _sNo = "sourceName";
+const _sNu = "subdomainName";
 const _sO = "standardOutput";
 const _sP = "supportedPlatforms";
 const _sPMIG = "storagePerMonthInGb";
@@ -1187,7 +1217,9 @@ const _sta = "statistic";
 const _star = "start";
 const _stat = "state";
 const _stati = "statistics";
-const _su = "subject";
+const _su = "subdomain";
+const _sub = "subdomains";
+const _subj = "subject";
 const _sum = "sum";
 const _t = "tip";
 const _tC = "tlsCertificates";
@@ -1200,6 +1232,7 @@ const _tPMIG = "transferPerMonthInGb";
 const _tPN = "tlsPolicyName";
 const _tPl = "tlsPolicies";
 const _tPo = "toPort";
+const _tRA = "targetResourceArn";
 const _tS = "timeoutSeconds";
 const _tSN = "targetSnapshotName";
 const _ta = "tags";
@@ -1501,6 +1534,16 @@ export var CertificateSummary$: StaticStructureSchema = [3, n0, _CSe,
   [_cAe, _cN, _dNo, _cD, _ta],
   [0, 0, 0, () => Certificate$, () => TagList]
 ];
+export var CheckSubdomainAvailabilityRequest$: StaticStructureSchema = [3, n0, _CSAR,
+  0,
+  [_sNu, _re],
+  [0, 2], 1
+];
+export var CheckSubdomainAvailabilityResult$: StaticStructureSchema = [3, n0, _CSARh,
+  0,
+  [_av, _rEA, _sNu],
+  [2, 4, 0]
+];
 export var CloseInstancePublicPortsRequest$: StaticStructureSchema = [3, n0, _CIPPR,
   0,
   [_pI, _iN],
@@ -1583,7 +1626,7 @@ export var ContainerServicePower$: StaticStructureSchema = [3, n0, _CSP,
 ];
 export var ContainerServiceRegistryLogin$: StaticStructureSchema = [3, n0, _CSRL,
   0,
-  [_us, _pas, _eA, _re],
+  [_us, _pas, _eA, _reg],
   [0, [() => SensitiveString, 0], 4, 0]
 ];
 export var ContainerServicesListResult$: StaticStructureSchema = [3, n0, _CSLR,
@@ -1728,8 +1771,8 @@ export var CreateDiskSnapshotResult$: StaticStructureSchema = [3, n0, _CDSRr,
 ];
 export var CreateDistributionRequest$: StaticStructureSchema = [3, n0, _CDRre,
   0,
-  [_dN, _or, _dCB, _bIu, _cBS, _cB, _iAT, _ta, _cN, _vMTPV, _ePOA, _dRO, _cER, _eW, _wR],
-  [0, () => InputOrigin$, () => CacheBehavior$, 0, () => CacheSettings$, () => CacheBehaviorList, 0, () => TagList, 0, 0, 2, 0, () => DistributionCustomErrorResponseList, 2, () => WafRuleList], 4
+  [_dN, _or, _dCB, _bIu, _cBS, _cB, _iAT, _ta, _cN, _vMTPV, _ePOA, _dRO, _cER, _eW, _wR, _sNu],
+  [0, () => InputOrigin$, () => CacheBehavior$, 0, () => CacheSettings$, () => CacheBehaviorList, 0, () => TagList, 0, 0, 2, 0, () => DistributionCustomErrorResponseList, 2, () => WafRuleList, 0], 4
 ];
 export var CreateDistributionResult$: StaticStructureSchema = [3, n0, _CDRrea,
   0,
@@ -1855,6 +1898,16 @@ export var CreateRelationalDatabaseSnapshotResult$: StaticStructureSchema = [3, 
   0,
   [_o],
   [() => OperationList]
+];
+export var CreateSubdomainRequest$: StaticStructureSchema = [3, n0, _CSRr,
+  0,
+  [_sNu, _ta],
+  [0, () => TagList], 1
+];
+export var CreateSubdomainResult$: StaticStructureSchema = [3, n0, _CSRre,
+  0,
+  [_su, _op],
+  [() => Subdomain$, () => Operation$]
 ];
 export var DeleteAlarmRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
@@ -2065,6 +2118,16 @@ export var DeleteRelationalDatabaseSnapshotResult$: StaticStructureSchema = [3, 
   0,
   [_o],
   [() => OperationList]
+];
+export var DeleteSubdomainRequest$: StaticStructureSchema = [3, n0, _DSR,
+  0,
+  [_sNu],
+  [0], 1
+];
+export var DeleteSubdomainResult$: StaticStructureSchema = [3, n0, _DSRe,
+  0,
+  [_su, _op],
+  [() => Subdomain$, () => Operation$]
 ];
 export var DestinationInfo$: StaticStructureSchema = [3, n0, _DI,
   0,
@@ -2728,7 +2791,7 @@ export var GetRegionsRequest$: StaticStructureSchema = [3, n0, _GRR,
 ];
 export var GetRegionsResult$: StaticStructureSchema = [3, n0, _GRRe,
   0,
-  [_reg],
+  [_regi],
   [() => RegionList]
 ];
 export var GetRelationalDatabaseBlueprintsRequest$: StaticStructureSchema = [3, n0, _GRDBR,
@@ -2881,6 +2944,16 @@ export var GetStaticIpsResult$: StaticStructureSchema = [3, n0, _GSIRett,
   [_sIta, _nPT],
   [() => StaticIpList, 0]
 ];
+export var GetSubdomainsRequest$: StaticStructureSchema = [3, n0, _GSR,
+  0,
+  [_sNu, _pT],
+  [0, 0]
+];
+export var GetSubdomainsResult$: StaticStructureSchema = [3, n0, _GSRe,
+  0,
+  [_sub, _nPT],
+  [() => SubdomainList, 0]
+];
 export var HeaderObject$: StaticStructureSchema = [3, n0, _HO,
   0,
   [_opt, _hAL],
@@ -2998,8 +3071,13 @@ export var KeyPair$: StaticStructureSchema = [3, n0, _KP,
 ];
 export var LightsailDistribution$: StaticStructureSchema = [3, n0, _LD,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _aDN, _st, _iE, _dNo, _bIu, _cN, _or, _oPDNS, _dCB, _cBS, _cB, _aTUB, _iAT, _ta, _vMTPV, _dRO, _cER, _w],
-  [0, 0, 0, 4, () => ResourceLocation$, 0, 64 | 0, 0, 2, 0, 0, 0, () => Origin$, 0, () => CacheBehavior$, () => CacheSettings$, () => CacheBehaviorList, 2, 0, () => TagList, 0, 0, () => DistributionCustomErrorResponseList, () => WafConfig$]
+  [_n, _a, _sC, _cA, _l, _rT, _aDN, _st, _iE, _dNo, _bIu, _cN, _or, _oPDNS, _dCB, _cBS, _cB, _aTUB, _iAT, _ta, _vMTPV, _dRO, _cER, _w, _su],
+  [0, 0, 0, 4, () => ResourceLocation$, 0, 64 | 0, 0, 2, 0, 0, 0, () => Origin$, 0, () => CacheBehavior$, () => CacheSettings$, () => CacheBehaviorList, 2, 0, () => TagList, 0, 0, () => DistributionCustomErrorResponseList, () => WafConfig$, () => LightsailDistributionSubdomain$]
+];
+export var LightsailDistributionSubdomain$: StaticStructureSchema = [3, n0, _LDS,
+  0,
+  [_n, _stat, _eC, _eD],
+  [0, 0, 0, 0], 2
 ];
 export var LoadBalancer$: StaticStructureSchema = [3, n0, _LB,
   0,
@@ -3008,7 +3086,7 @@ export var LoadBalancer$: StaticStructureSchema = [3, n0, _LB,
 ];
 export var LoadBalancerTlsCertificate$: StaticStructureSchema = [3, n0, _LBTC,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _ta, _lBN, _iAst, _st, _dNo, _dVR, _fR, _iAs, _is, _kA, _nA, _nB, _rS, _rR, _rA, _seri, _sA, _su, _sAN],
+  [_n, _a, _sC, _cA, _l, _rT, _ta, _lBN, _iAst, _st, _dNo, _dVR, _fR, _iAs, _is, _kA, _nA, _nB, _rS, _rR, _rA, _seri, _sA, _subj, _sAN],
   [0, 0, 0, 4, () => ResourceLocation$, 0, () => TagList, 0, 2, 0, 0, () => LoadBalancerTlsCertificateDomainValidationRecordList, 0, 4, 0, 0, 4, 4, () => LoadBalancerTlsCertificateRenewalSummary$, 0, 4, 0, 0, 0, 64 | 0]
 ];
 export var LoadBalancerTlsCertificateDnsRecordCreationState$: StaticStructureSchema = [3, n0, _LBTCDRCS,
@@ -3048,7 +3126,7 @@ export var LogEvent$: StaticStructureSchema = [3, n0, _LE,
 ];
 export var MetricDatapoint$: StaticStructureSchema = [3, n0, _MD,
   0,
-  [_av, _ma, _mi, _sCa, _sum, _ti, _u],
+  [_ave, _ma, _mi, _sCa, _sum, _ti, _u],
   [1, 1, 1, 1, 1, 4, 0]
 ];
 export var MonitoredResourceInfo$: StaticStructureSchema = [3, n0, _MRI,
@@ -3421,6 +3499,16 @@ export var StopRelationalDatabaseResult$: StaticStructureSchema = [3, n0, _SRDRt
   [_o],
   [() => OperationList]
 ];
+export var Subdomain$: StaticStructureSchema = [3, n0, _Su,
+  0,
+  [_sNu, _a, _fq, _dept, _stat, _aRt, _aRtt, _l, _cA, _pF, _ch, _ta],
+  [0, 0, 0, 1, 0, () => SubdomainAttachableResource$, () => SubdomainAttachableResource$, () => ResourceLocation$, 4, 0, () => SubdomainList, () => TagList]
+];
+export var SubdomainAttachableResource$: StaticStructureSchema = [3, n0, _SAR,
+  0,
+  [_a, _n, _aA],
+  [0, 0, 4]
+];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _va],
@@ -3571,6 +3659,16 @@ export var UpdateRelationalDatabaseResult$: StaticStructureSchema = [3, n0, _URD
   [_o],
   [() => OperationList]
 ];
+export var UpdateSubdomainAssociationRequest$: StaticStructureSchema = [3, n0, _USAR,
+  0,
+  [_sNu, _ac, _tRA],
+  [0, 0, 0], 2
+];
+export var UpdateSubdomainAssociationResult$: StaticStructureSchema = [3, n0, _USARp,
+  0,
+  [_su, _op],
+  [() => Subdomain$, () => Operation$]
+];
 export var WafAcfpConfig$: StaticStructureSchema = [3, n0, _WAC,
   0,
   [_pTa, _cPr, _rPPe, _rI],
@@ -3578,7 +3676,7 @@ export var WafAcfpConfig$: StaticStructureSchema = [3, n0, _WAC,
 ];
 export var WafAtpConfig$: StaticStructureSchema = [3, n0, _WACa,
   0,
-  [_lP, _pTa, _uF, _pF, _rI],
+  [_lP, _pTa, _uF, _pFa, _rI],
   [0, 0, 0, 0, () => WafResponseInspection$]
 ];
 export var WafBotControlConfig$: StaticStructureSchema = [3, n0, _WBCC,
@@ -3830,6 +3928,9 @@ var StaticIpList: StaticListSchema = [1, n0, _SIL,
   0, () => StaticIp$
 ];
 var StringList = 64 | 0;
+var SubdomainList: StaticListSchema = [1, n0, _SL,
+  0, () => Subdomain$
+];
 var SubjectAlternativeNameList = 64 | 0;
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,
@@ -3870,6 +3971,9 @@ export var AttachLoadBalancerTlsCertificate$: StaticOperationSchema = [9, n0, _A
 ];
 export var AttachStaticIp$: StaticOperationSchema = [9, n0, _ASIt,
   { [_ht]: ["POST", "/ls/api/2016-11-28/AttachStaticIp", 200] }, () => AttachStaticIpRequest$, () => AttachStaticIpResult$
+];
+export var CheckSubdomainAvailability$: StaticOperationSchema = [9, n0, _CSA,
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CheckSubdomainAvailability", 200] }, () => CheckSubdomainAvailabilityRequest$, () => CheckSubdomainAvailabilityResult$
 ];
 export var CloseInstancePublicPorts$: StaticOperationSchema = [9, n0, _CIPP,
   { [_ht]: ["POST", "/ls/api/2016-11-28/CloseInstancePublicPorts", 200] }, () => CloseInstancePublicPortsRequest$, () => CloseInstancePublicPortsResult$
@@ -3949,6 +4053,9 @@ export var CreateRelationalDatabaseFromSnapshot$: StaticOperationSchema = [9, n0
 export var CreateRelationalDatabaseSnapshot$: StaticOperationSchema = [9, n0, _CRDS,
   { [_ht]: ["POST", "/ls/api/2016-11-28/CreateRelationalDatabaseSnapshot", 200] }, () => CreateRelationalDatabaseSnapshotRequest$, () => CreateRelationalDatabaseSnapshotResult$
 ];
+export var CreateSubdomain$: StaticOperationSchema = [9, n0, _CSr,
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateSubdomain", 200] }, () => CreateSubdomainRequest$, () => CreateSubdomainResult$
+];
 export var DeleteAlarm$: StaticOperationSchema = [9, n0, _DA,
   { [_ht]: ["DELETE", "/ls/api/2016-11-28/DeleteAlarm/{alarmName}", 200] }, () => DeleteAlarmRequest$, () => DeleteAlarmResult$
 ];
@@ -4011,6 +4118,9 @@ export var DeleteRelationalDatabase$: StaticOperationSchema = [9, n0, _DRD,
 ];
 export var DeleteRelationalDatabaseSnapshot$: StaticOperationSchema = [9, n0, _DRDS,
   { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteRelationalDatabaseSnapshot", 200] }, () => DeleteRelationalDatabaseSnapshotRequest$, () => DeleteRelationalDatabaseSnapshotResult$
+];
+export var DeleteSubdomain$: StaticOperationSchema = [9, n0, _DSe,
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteSubdomain", 200] }, () => DeleteSubdomainRequest$, () => DeleteSubdomainResult$
 ];
 export var DetachCertificateFromDistribution$: StaticOperationSchema = [9, n0, _DCFD,
   { [_ht]: ["POST", "/ls/api/2016-11-28/DetachCertificateFromDistribution", 200] }, () => DetachCertificateFromDistributionRequest$, () => DetachCertificateFromDistributionResult$
@@ -4234,6 +4344,9 @@ export var GetStaticIp$: StaticOperationSchema = [9, n0, _GSI,
 export var GetStaticIps$: StaticOperationSchema = [9, n0, _GSIe,
   { [_ht]: ["POST", "/ls/api/2016-11-28/GetStaticIps", 200] }, () => GetStaticIpsRequest$, () => GetStaticIpsResult$
 ];
+export var GetSubdomains$: StaticOperationSchema = [9, n0, _GS,
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetSubdomains", 200] }, () => GetSubdomainsRequest$, () => GetSubdomainsResult$
+];
 export var ImportKeyPair$: StaticOperationSchema = [9, n0, _IKP,
   { [_ht]: ["POST", "/ls/api/2016-11-28/ImportKeyPair", 200] }, () => ImportKeyPairRequest$, () => ImportKeyPairResult$
 ];
@@ -4338,4 +4451,7 @@ export var UpdateRelationalDatabase$: StaticOperationSchema = [9, n0, _URD,
 ];
 export var UpdateRelationalDatabaseParameters$: StaticOperationSchema = [9, n0, _URDP,
   { [_ht]: ["POST", "/ls/api/2016-11-28/UpdateRelationalDatabaseParameters", 200] }, () => UpdateRelationalDatabaseParametersRequest$, () => UpdateRelationalDatabaseParametersResult$
+];
+export var UpdateSubdomainAssociation$: StaticOperationSchema = [9, n0, _USA,
+  { [_ht]: ["POST", "/ls/api/2016-11-28/UpdateSubdomainAssociation", 200] }, () => UpdateSubdomainAssociationRequest$, () => UpdateSubdomainAssociationResult$
 ];

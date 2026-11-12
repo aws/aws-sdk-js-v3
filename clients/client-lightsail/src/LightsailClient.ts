@@ -70,6 +70,10 @@ import type {
 } from "./commands/AttachLoadBalancerTlsCertificateCommand";
 import type { AttachStaticIpCommandInput, AttachStaticIpCommandOutput } from "./commands/AttachStaticIpCommand";
 import type {
+  CheckSubdomainAvailabilityCommandInput,
+  CheckSubdomainAvailabilityCommandOutput,
+} from "./commands/CheckSubdomainAvailabilityCommand";
+import type {
   CloseInstancePublicPortsCommandInput,
   CloseInstancePublicPortsCommandOutput,
 } from "./commands/CloseInstancePublicPortsCommand";
@@ -155,6 +159,7 @@ import type {
   CreateRelationalDatabaseSnapshotCommandInput,
   CreateRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/CreateRelationalDatabaseSnapshotCommand";
+import type { CreateSubdomainCommandInput, CreateSubdomainCommandOutput } from "./commands/CreateSubdomainCommand";
 import type { DeleteAlarmCommandInput, DeleteAlarmCommandOutput } from "./commands/DeleteAlarmCommand";
 import type {
   DeleteAutoSnapshotCommandInput,
@@ -221,6 +226,7 @@ import type {
   DeleteRelationalDatabaseSnapshotCommandInput,
   DeleteRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/DeleteRelationalDatabaseSnapshotCommand";
+import type { DeleteSubdomainCommandInput, DeleteSubdomainCommandOutput } from "./commands/DeleteSubdomainCommand";
 import type {
   DetachCertificateFromDistributionCommandInput,
   DetachCertificateFromDistributionCommandOutput,
@@ -409,6 +415,7 @@ import type {
 import type { GetSetupHistoryCommandInput, GetSetupHistoryCommandOutput } from "./commands/GetSetupHistoryCommand";
 import type { GetStaticIpCommandInput, GetStaticIpCommandOutput } from "./commands/GetStaticIpCommand";
 import type { GetStaticIpsCommandInput, GetStaticIpsCommandOutput } from "./commands/GetStaticIpsCommand";
+import type { GetSubdomainsCommandInput, GetSubdomainsCommandOutput } from "./commands/GetSubdomainsCommand";
 import type { ImportKeyPairCommandInput, ImportKeyPairCommandOutput } from "./commands/ImportKeyPairCommand";
 import type { IsVpcPeeredCommandInput, IsVpcPeeredCommandOutput } from "./commands/IsVpcPeeredCommand";
 import type {
@@ -501,6 +508,10 @@ import type {
   UpdateRelationalDatabaseParametersCommandInput,
   UpdateRelationalDatabaseParametersCommandOutput,
 } from "./commands/UpdateRelationalDatabaseParametersCommand";
+import type {
+  UpdateSubdomainAssociationCommandInput,
+  UpdateSubdomainAssociationCommandOutput,
+} from "./commands/UpdateSubdomainAssociationCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -522,6 +533,7 @@ export type ServiceInputTypes =
   | AttachInstancesToLoadBalancerCommandInput
   | AttachLoadBalancerTlsCertificateCommandInput
   | AttachStaticIpCommandInput
+  | CheckSubdomainAvailabilityCommandInput
   | CloseInstancePublicPortsCommandInput
   | CopySnapshotCommandInput
   | CreateBucketAccessKeyCommandInput
@@ -548,6 +560,7 @@ export type ServiceInputTypes =
   | CreateRelationalDatabaseCommandInput
   | CreateRelationalDatabaseFromSnapshotCommandInput
   | CreateRelationalDatabaseSnapshotCommandInput
+  | CreateSubdomainCommandInput
   | DeleteAlarmCommandInput
   | DeleteAutoSnapshotCommandInput
   | DeleteBucketAccessKeyCommandInput
@@ -569,6 +582,7 @@ export type ServiceInputTypes =
   | DeleteLoadBalancerTlsCertificateCommandInput
   | DeleteRelationalDatabaseCommandInput
   | DeleteRelationalDatabaseSnapshotCommandInput
+  | DeleteSubdomainCommandInput
   | DetachCertificateFromDistributionCommandInput
   | DetachDiskCommandInput
   | DetachInstancesFromLoadBalancerCommandInput
@@ -643,6 +657,7 @@ export type ServiceInputTypes =
   | GetSetupHistoryCommandInput
   | GetStaticIpCommandInput
   | GetStaticIpsCommandInput
+  | GetSubdomainsCommandInput
   | ImportKeyPairCommandInput
   | IsVpcPeeredCommandInput
   | OpenInstancePublicPortsCommandInput
@@ -677,7 +692,8 @@ export type ServiceInputTypes =
   | UpdateInstanceMetadataOptionsCommandInput
   | UpdateLoadBalancerAttributeCommandInput
   | UpdateRelationalDatabaseCommandInput
-  | UpdateRelationalDatabaseParametersCommandInput;
+  | UpdateRelationalDatabaseParametersCommandInput
+  | UpdateSubdomainAssociationCommandInput;
 
 /**
  * @public
@@ -689,6 +705,7 @@ export type ServiceOutputTypes =
   | AttachInstancesToLoadBalancerCommandOutput
   | AttachLoadBalancerTlsCertificateCommandOutput
   | AttachStaticIpCommandOutput
+  | CheckSubdomainAvailabilityCommandOutput
   | CloseInstancePublicPortsCommandOutput
   | CopySnapshotCommandOutput
   | CreateBucketAccessKeyCommandOutput
@@ -715,6 +732,7 @@ export type ServiceOutputTypes =
   | CreateRelationalDatabaseCommandOutput
   | CreateRelationalDatabaseFromSnapshotCommandOutput
   | CreateRelationalDatabaseSnapshotCommandOutput
+  | CreateSubdomainCommandOutput
   | DeleteAlarmCommandOutput
   | DeleteAutoSnapshotCommandOutput
   | DeleteBucketAccessKeyCommandOutput
@@ -736,6 +754,7 @@ export type ServiceOutputTypes =
   | DeleteLoadBalancerTlsCertificateCommandOutput
   | DeleteRelationalDatabaseCommandOutput
   | DeleteRelationalDatabaseSnapshotCommandOutput
+  | DeleteSubdomainCommandOutput
   | DetachCertificateFromDistributionCommandOutput
   | DetachDiskCommandOutput
   | DetachInstancesFromLoadBalancerCommandOutput
@@ -810,6 +829,7 @@ export type ServiceOutputTypes =
   | GetSetupHistoryCommandOutput
   | GetStaticIpCommandOutput
   | GetStaticIpsCommandOutput
+  | GetSubdomainsCommandOutput
   | ImportKeyPairCommandOutput
   | IsVpcPeeredCommandOutput
   | OpenInstancePublicPortsCommandOutput
@@ -844,7 +864,8 @@ export type ServiceOutputTypes =
   | UpdateInstanceMetadataOptionsCommandOutput
   | UpdateLoadBalancerAttributeCommandOutput
   | UpdateRelationalDatabaseCommandOutput
-  | UpdateRelationalDatabaseParametersCommandOutput;
+  | UpdateRelationalDatabaseParametersCommandOutput
+  | UpdateSubdomainAssociationCommandOutput;
 
 /**
  * @public

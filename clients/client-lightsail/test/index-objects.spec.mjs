@@ -66,6 +66,10 @@ import {
   CertificateProvider,
   CertificateStatus,
   CertificateSummary$,
+  CheckSubdomainAvailability$,
+  CheckSubdomainAvailabilityCommand,
+  CheckSubdomainAvailabilityRequest$,
+  CheckSubdomainAvailabilityResult$,
   CloseInstancePublicPorts$,
   CloseInstancePublicPortsCommand,
   CloseInstancePublicPortsRequest$,
@@ -200,6 +204,10 @@ import {
   CreateRelationalDatabaseSnapshotCommand,
   CreateRelationalDatabaseSnapshotRequest$,
   CreateRelationalDatabaseSnapshotResult$,
+  CreateSubdomain$,
+  CreateSubdomainCommand,
+  CreateSubdomainRequest$,
+  CreateSubdomainResult$,
   Currency,
   DeleteAlarm$,
   DeleteAlarmCommand,
@@ -285,6 +293,10 @@ import {
   DeleteRelationalDatabaseSnapshotCommand,
   DeleteRelationalDatabaseSnapshotRequest$,
   DeleteRelationalDatabaseSnapshotResult$,
+  DeleteSubdomain$,
+  DeleteSubdomainCommand,
+  DeleteSubdomainRequest$,
+  DeleteSubdomainResult$,
   DestinationInfo$,
   DetachCertificateFromDistribution$,
   DetachCertificateFromDistributionCommand,
@@ -602,6 +614,10 @@ import {
   GetStaticIpsCommand,
   GetStaticIpsRequest$,
   GetStaticIpsResult$,
+  GetSubdomains$,
+  GetSubdomainsCommand,
+  GetSubdomainsRequest$,
+  GetSubdomainsResult$,
   HeaderEnum,
   HeaderObject$,
   HostKeyAttributes$,
@@ -649,6 +665,8 @@ import {
   Lightsail,
   LightsailClient,
   LightsailDistribution$,
+  LightsailDistributionSubdomain$,
+  LightsailDistributionSubdomainStateEnum,
   LightsailServiceException,
   LoadBalancer$,
   LoadBalancerAttributeName,
@@ -817,6 +835,10 @@ import {
   StopRelationalDatabaseCommand,
   StopRelationalDatabaseRequest$,
   StopRelationalDatabaseResult$,
+  Subdomain$,
+  SubdomainAssociationAction,
+  SubdomainAttachableResource$,
+  SubdomainState,
   Tag$,
   TagResource$,
   TagResourceCommand,
@@ -879,6 +901,10 @@ import {
   UpdateRelationalDatabaseParametersResult$,
   UpdateRelationalDatabaseRequest$,
   UpdateRelationalDatabaseResult$,
+  UpdateSubdomainAssociation$,
+  UpdateSubdomainAssociationCommand,
+  UpdateSubdomainAssociationRequest$,
+  UpdateSubdomainAssociationResult$,
   ViewerMinimumTlsProtocolVersionEnum,
   WafAcfpConfig$,
   WafAtpConfig$,
@@ -906,6 +932,8 @@ assert(typeof AttachLoadBalancerTlsCertificateCommand === "function");
 assert(typeof AttachLoadBalancerTlsCertificate$ === "object");
 assert(typeof AttachStaticIpCommand === "function");
 assert(typeof AttachStaticIp$ === "object");
+assert(typeof CheckSubdomainAvailabilityCommand === "function");
+assert(typeof CheckSubdomainAvailability$ === "object");
 assert(typeof CloseInstancePublicPortsCommand === "function");
 assert(typeof CloseInstancePublicPorts$ === "object");
 assert(typeof CopySnapshotCommand === "function");
@@ -958,6 +986,8 @@ assert(typeof CreateRelationalDatabaseFromSnapshotCommand === "function");
 assert(typeof CreateRelationalDatabaseFromSnapshot$ === "object");
 assert(typeof CreateRelationalDatabaseSnapshotCommand === "function");
 assert(typeof CreateRelationalDatabaseSnapshot$ === "object");
+assert(typeof CreateSubdomainCommand === "function");
+assert(typeof CreateSubdomain$ === "object");
 assert(typeof DeleteAlarmCommand === "function");
 assert(typeof DeleteAlarm$ === "object");
 assert(typeof DeleteAutoSnapshotCommand === "function");
@@ -1000,6 +1030,8 @@ assert(typeof DeleteRelationalDatabaseCommand === "function");
 assert(typeof DeleteRelationalDatabase$ === "object");
 assert(typeof DeleteRelationalDatabaseSnapshotCommand === "function");
 assert(typeof DeleteRelationalDatabaseSnapshot$ === "object");
+assert(typeof DeleteSubdomainCommand === "function");
+assert(typeof DeleteSubdomain$ === "object");
 assert(typeof DetachCertificateFromDistributionCommand === "function");
 assert(typeof DetachCertificateFromDistribution$ === "object");
 assert(typeof DetachDiskCommand === "function");
@@ -1148,6 +1180,8 @@ assert(typeof GetStaticIpCommand === "function");
 assert(typeof GetStaticIp$ === "object");
 assert(typeof GetStaticIpsCommand === "function");
 assert(typeof GetStaticIps$ === "object");
+assert(typeof GetSubdomainsCommand === "function");
+assert(typeof GetSubdomains$ === "object");
 assert(typeof ImportKeyPairCommand === "function");
 assert(typeof ImportKeyPair$ === "object");
 assert(typeof IsVpcPeeredCommand === "function");
@@ -1218,6 +1252,8 @@ assert(typeof UpdateRelationalDatabaseCommand === "function");
 assert(typeof UpdateRelationalDatabase$ === "object");
 assert(typeof UpdateRelationalDatabaseParametersCommand === "function");
 assert(typeof UpdateRelationalDatabaseParameters$ === "object");
+assert(typeof UpdateSubdomainAssociationCommand === "function");
+assert(typeof UpdateSubdomainAssociation$ === "object");
 // structural schemas
 assert(typeof AccessKey$ === "object");
 assert(typeof AccessKeyLastUsed$ === "object");
@@ -1255,6 +1291,8 @@ assert(typeof CacheBehaviorPerPath$ === "object");
 assert(typeof CacheSettings$ === "object");
 assert(typeof Certificate$ === "object");
 assert(typeof CertificateSummary$ === "object");
+assert(typeof CheckSubdomainAvailabilityRequest$ === "object");
+assert(typeof CheckSubdomainAvailabilityResult$ === "object");
 assert(typeof CloseInstancePublicPortsRequest$ === "object");
 assert(typeof CloseInstancePublicPortsResult$ === "object");
 assert(typeof CloudFormationStackRecord$ === "object");
@@ -1326,6 +1364,8 @@ assert(typeof CreateRelationalDatabaseRequest$ === "object");
 assert(typeof CreateRelationalDatabaseResult$ === "object");
 assert(typeof CreateRelationalDatabaseSnapshotRequest$ === "object");
 assert(typeof CreateRelationalDatabaseSnapshotResult$ === "object");
+assert(typeof CreateSubdomainRequest$ === "object");
+assert(typeof CreateSubdomainResult$ === "object");
 assert(typeof DeleteAlarmRequest$ === "object");
 assert(typeof DeleteAlarmResult$ === "object");
 assert(typeof DeleteAutoSnapshotRequest$ === "object");
@@ -1368,6 +1408,8 @@ assert(typeof DeleteRelationalDatabaseRequest$ === "object");
 assert(typeof DeleteRelationalDatabaseResult$ === "object");
 assert(typeof DeleteRelationalDatabaseSnapshotRequest$ === "object");
 assert(typeof DeleteRelationalDatabaseSnapshotResult$ === "object");
+assert(typeof DeleteSubdomainRequest$ === "object");
+assert(typeof DeleteSubdomainResult$ === "object");
 assert(typeof DestinationInfo$ === "object");
 assert(typeof DetachCertificateFromDistributionRequest$ === "object");
 assert(typeof DetachCertificateFromDistributionResult$ === "object");
@@ -1531,6 +1573,8 @@ assert(typeof GetStaticIpRequest$ === "object");
 assert(typeof GetStaticIpResult$ === "object");
 assert(typeof GetStaticIpsRequest$ === "object");
 assert(typeof GetStaticIpsResult$ === "object");
+assert(typeof GetSubdomainsRequest$ === "object");
+assert(typeof GetSubdomainsResult$ === "object");
 assert(typeof HeaderObject$ === "object");
 assert(typeof HostKeyAttributes$ === "object");
 assert(typeof ImportKeyPairRequest$ === "object");
@@ -1555,6 +1599,7 @@ assert(typeof IsVpcPeeredRequest$ === "object");
 assert(typeof IsVpcPeeredResult$ === "object");
 assert(typeof KeyPair$ === "object");
 assert(typeof LightsailDistribution$ === "object");
+assert(typeof LightsailDistributionSubdomain$ === "object");
 assert(typeof LoadBalancer$ === "object");
 assert(typeof LoadBalancerTlsCertificate$ === "object");
 assert(typeof LoadBalancerTlsCertificateDnsRecordCreationState$ === "object");
@@ -1639,6 +1684,8 @@ assert(typeof StopInstanceRequest$ === "object");
 assert(typeof StopInstanceResult$ === "object");
 assert(typeof StopRelationalDatabaseRequest$ === "object");
 assert(typeof StopRelationalDatabaseResult$ === "object");
+assert(typeof Subdomain$ === "object");
+assert(typeof SubdomainAttachableResource$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResult$ === "object");
@@ -1669,6 +1716,8 @@ assert(typeof UpdateRelationalDatabaseParametersRequest$ === "object");
 assert(typeof UpdateRelationalDatabaseParametersResult$ === "object");
 assert(typeof UpdateRelationalDatabaseRequest$ === "object");
 assert(typeof UpdateRelationalDatabaseResult$ === "object");
+assert(typeof UpdateSubdomainAssociationRequest$ === "object");
+assert(typeof UpdateSubdomainAssociationResult$ === "object");
 assert(typeof WafAcfpConfig$ === "object");
 assert(typeof WafAtpConfig$ === "object");
 assert(typeof WafBotControlConfig$ === "object");
@@ -1724,6 +1773,7 @@ assert(typeof InstanceMetricName === "object");
 assert(typeof InstancePlatform === "object");
 assert(typeof InstanceSnapshotState === "object");
 assert(typeof IpAddressType === "object");
+assert(typeof LightsailDistributionSubdomainStateEnum === "object");
 assert(typeof LoadBalancerAttributeName === "object");
 assert(typeof LoadBalancerMetricName === "object");
 assert(typeof LoadBalancerProtocol === "object");
@@ -1761,6 +1811,8 @@ assert(typeof ResourceType === "object");
 assert(typeof SetupStatus === "object");
 assert(typeof Status === "object");
 assert(typeof StatusType === "object");
+assert(typeof SubdomainAssociationAction === "object");
+assert(typeof SubdomainState === "object");
 assert(typeof TierName === "object");
 assert(typeof TreatMissingData === "object");
 assert(typeof ViewerMinimumTlsProtocolVersionEnum === "object");

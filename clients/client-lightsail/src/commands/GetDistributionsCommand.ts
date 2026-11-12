@@ -25,6 +25,12 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
 /**
  * <p>Returns information about one or more of your Amazon Lightsail content delivery network
  *       (CDN) distributions.</p>
+ *          <note>
+ *             <p>The <code>defaultRootObject</code> and <code>customErrorResponses</code> values are
+ *         returned only when you specify <code>distributionName</code> to retrieve a single
+ *         distribution. When you call <code>GetDistributions</code> without a distribution name to
+ *         list all distributions, these two fields aren't included in the response.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,7 +56,7 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
  * //         availabilityZone: "STRING_VALUE",
  * //         regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "eu-north-1" || "eu-south-2" || "ca-central-1" || "ap-east-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "ap-southeast-3" || "ap-southeast-5" || "sa-east-1",
  * //       },
- * //       resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
+ * //       resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket" || "Subdomain",
  * //       alternativeDomainNames: [ // StringList
  * //         "STRING_VALUE",
  * //       ],
@@ -61,7 +67,7 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
  * //       certificateName: "STRING_VALUE",
  * //       origin: { // Origin
  * //         name: "STRING_VALUE",
- * //         resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
+ * //         resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket" || "Subdomain",
  * //         regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "eu-north-1" || "eu-south-2" || "ca-central-1" || "ap-east-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "ap-southeast-3" || "ap-southeast-5" || "sa-east-1",
  * //         protocolPolicy: "http-only" || "https-only",
  * //         responseTimeout: Number("int"),
@@ -158,6 +164,12 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
  * //             },
  * //           },
  * //         ],
+ * //       },
+ * //       subdomain: { // LightsailDistributionSubdomain
+ * //         name: "STRING_VALUE", // required
+ * //         state: "Creating" || "Attaching" || "Attached" || "Error", // required
+ * //         errorCode: "STRING_VALUE",
+ * //         errorDetails: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

@@ -42,8 +42,8 @@ import type {
   InstanceMetadataState,
   InstanceMetricName,
   InstancePlatform,
-  InstanceSnapshotState,
   IpAddressType,
+  LightsailDistributionSubdomainStateEnum,
   MetricName,
   MetricStatistic,
   MetricUnit,
@@ -2429,6 +2429,61 @@ export interface CertificateSummary {
    * @public
    */
   tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CheckSubdomainAvailabilityRequest {
+  /**
+   * <p>The subdomain to check (for example, <code>mysite</code> or
+   *         <code>blog.mysite</code>).</p>
+   *          <p>A subdomain can contain one or two labels separated by a period
+   *       (<code>.</code>). Each label must start and end with a lowercase letter or a number, and can
+   *       contain only lowercase letters, numbers, and hyphens (<code>-</code>). The name can be up to
+   *       39 characters long, including periods. Labels that start with <code>xn--</code> aren't
+   *       supported, and some names are reserved.</p>
+   *          <p>Specify only the subdomain. A web address, such as
+   *         <code>mysite.amazonlightsail.com</code>, isn't accepted.</p>
+   * @public
+   */
+  subdomainName: string | undefined;
+
+  /**
+   * <p>Specifies whether to reserve the subdomain for your account if it's available. A
+   *       reservation holds the subdomain for 15 minutes so that other accounts can't create it.
+   *       Checking the subdomain again doesn't extend the reservation.</p>
+   *          <p>For a nested subdomain, such as <code>blog.mysite</code>, the top-level subdomain
+   *         (<code>mysite</code>) is reserved.</p>
+   *          <p>You can have up to 5 active reservations at a time.</p>
+   * @public
+   */
+  reserve?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CheckSubdomainAvailabilityResult {
+  /**
+   * <p>A Boolean value that indicates whether the subdomain is available to create.</p>
+   * @public
+   */
+  available?: boolean | undefined;
+
+  /**
+   * <p>The timestamp when the reservation of the subdomain expires.</p>
+   *          <p>The expiry is returned only when your account holds an active reservation for the
+   *       subdomain.</p>
+   * @public
+   */
+  reservationExpiresAt?: Date | undefined;
+
+  /**
+   * <p>The subdomain that was checked.</p>
+   * @public
+   */
+  subdomainName?: string | undefined;
 }
 
 /**
@@ -4935,6 +4990,18 @@ export interface CreateDistributionRequest {
    * @public
    */
   wafRules?: WafRule[] | undefined;
+
+  /**
+   * <p>The Lightsail subdomain to create and associate with the distribution (for example,
+   *         <code>mysite</code>, for the web address <code>mysite.amazonlightsail.com</code>).</p>
+   *          <p>After the distribution is deployed, Lightsail creates the subdomain and associates it
+   *       with the distribution. If Lightsail can't create or associate the subdomain, it still creates
+   *       the distribution, but the <code>CreateDistribution</code> operation fails and the
+   *         <code>state</code> of the distribution's <code>subdomain</code> is <code>Error</code>. To
+   *       check the status, use the <code>subdomain</code> parameter of the distribution.</p>
+   * @public
+   */
+  subdomainName?: string | undefined;
 }
 
 /**
@@ -4997,6 +5064,61 @@ export interface Origin {
    * @public
    */
   isPrivateOriginAccessEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the Lightsail subdomain of a distribution. The distribution is reachable at
+ *       the subdomain's web address, which is the subdomain followed by
+ *         <code>amazonlightsail.com</code>.</p>
+ * @public
+ */
+export interface LightsailDistributionSubdomain {
+  /**
+   * <p>The subdomain (for example, <code>mysite</code>), not its web address.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The state of the subdomain for the distribution.</p>
+   *          <p>The following states are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Creating</code> – The subdomain is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Attaching</code> – The subdomain is being associated with the
+   *           distribution.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Attached</code> – The subdomain is associated with the distribution.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Error</code> – The subdomain couldn't be created or associated with the
+   *           distribution. For more information, see the <code>errorCode</code> and
+   *             <code>errorDetails</code> parameters.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  state: LightsailDistributionSubdomainStateEnum | undefined;
+
+  /**
+   * <p>The error code that describes why the subdomain is in the <code>Error</code> state.</p>
+   * @public
+   */
+  errorCode?: string | undefined;
+
+  /**
+   * <p>The details of the error that caused the subdomain to be in the <code>Error</code>
+   *       state.</p>
+   * @public
+   */
+  errorDetails?: string | undefined;
 }
 
 /**
@@ -5171,6 +5293,9 @@ export interface LightsailDistribution {
    * <p>The object (for example, <code>index.html</code>) that the distribution returns when a
    *       viewer requests the root URL of the distribution (<code>/</code>) instead of a specific
    *       object.</p>
+   *          <p>This value is returned only when you specify <code>distributionName</code> in your
+   *       <code>GetDistributions</code> request. It isn't included in the response when you list all of
+   *       your distributions.</p>
    * @public
    */
   defaultRootObject?: string | undefined;
@@ -5178,6 +5303,9 @@ export interface LightsailDistribution {
   /**
    * <p>An array of objects that describe the custom error responses configured for the
    *       distribution.</p>
+   *          <p>This value is returned only when you specify <code>distributionName</code> in your
+   *       <code>GetDistributions</code> request. It isn't included in the response when you list all of
+   *       your distributions.</p>
    * @public
    */
   customErrorResponses?: DistributionCustomErrorResponse[] | undefined;
@@ -5188,6 +5316,13 @@ export interface LightsailDistribution {
    * @public
    */
   waf?: WafConfig | undefined;
+
+  /**
+   * <p>An object that describes the Lightsail subdomain that's associated with the
+   *       distribution, or is being associated with it.</p>
+   * @public
+   */
+  subdomain?: LightsailDistributionSubdomain | undefined;
 }
 
 /**
@@ -6411,6 +6546,59 @@ export interface CreateRelationalDatabaseSnapshotResult {
 /**
  * @public
  */
+export interface CreateSubdomainRequest {
+  /**
+   * <p>The subdomain to create (for example, <code>mysite</code> or
+   *         <code>blog.mysite</code>).</p>
+   *          <p>A subdomain can contain one or two labels separated by a period
+   *       (<code>.</code>). Each label must start and end with a lowercase letter or a number, and can
+   *       contain only lowercase letters, numbers, and hyphens (<code>-</code>). The name can be up to
+   *       39 characters long, including periods. Labels that start with <code>xn--</code> aren't
+   *       supported, and some names are reserved.</p>
+   *          <p>Specify only the subdomain. A web address, such as
+   *         <code>mysite.amazonlightsail.com</code>, isn't accepted.</p>
+   *          <p>To create a nested subdomain, you must own the top-level subdomain or be able to create
+   *       it.</p>
+   * @public
+   */
+  subdomainName: string | undefined;
+
+  /**
+   * <p>The tag keys and optional values to add to the subdomain during create.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Describes a Lightsail resource that a subdomain is associated with, or is being
+ *       associated with.</p>
+ * @public
+ */
+export interface SubdomainAttachableResource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The name of the resource.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The timestamp when the subdomain was associated with the resource.</p>
+   * @public
+   */
+  attachedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteAlarmRequest {
   /**
    * <p>The name of the alarm to delete.</p>
@@ -7019,6 +7207,18 @@ export interface DeleteRelationalDatabaseSnapshotResult {
    * @public
    */
   operations?: Operation[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSubdomainRequest {
+  /**
+   * <p>The subdomain to delete (for example, <code>mysite</code> or
+   *         <code>blog.mysite</code>), not its web address.</p>
+   * @public
+   */
+  subdomainName: string | undefined;
 }
 
 /**
@@ -10731,197 +10931,4 @@ export interface InstancePortState {
    * @public
    */
   cidrListAliases?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstancePortStatesResult {
-  /**
-   * <p>An array of objects that describe the firewall port states for the specified
-   *       instance.</p>
-   * @public
-   */
-  portStates?: InstancePortState[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstancesRequest {
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetInstances</code> request. If your results
-   *       are paginated, the response will return a next page token that you can specify as the page
-   *       token in a subsequent request.</p>
-   * @public
-   */
-  pageToken?: string | undefined;
-
-  /**
-   * <p>Specifies whether to include the instance health status checks of each instance in the
-   *       response of your request.</p>
-   *          <p>When set to <code>true</code>, the response includes the <code>instanceStatus</code> and
-   *         <code>systemStatus</code> of each instance. When omitted or set to <code>false</code>, the
-   *       response doesn't include them.</p>
-   * @public
-   */
-  includeHealthStatus?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstancesResult {
-  /**
-   * <p>An array of key-value pairs containing information about your instances.</p>
-   * @public
-   */
-  instances?: Instance[] | undefined;
-
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>A next page token is not returned if there are no more results to display.</p>
-   *          <p>To get the next page of results, perform another <code>GetInstances</code> request and
-   *       specify the next page token using the <code>pageToken</code> parameter.</p>
-   * @public
-   */
-  nextPageToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstanceSnapshotRequest {
-  /**
-   * <p>The name of the snapshot for which you are requesting information.</p>
-   * @public
-   */
-  instanceSnapshotName: string | undefined;
-}
-
-/**
- * <p>Describes an instance snapshot.</p>
- * @public
- */
-export interface InstanceSnapshot {
-  /**
-   * <p>The name of the snapshot.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the snapshot
-   *         (<code>arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE</code>).</p>
-   * @public
-   */
-  arn?: string | undefined;
-
-  /**
-   * <p>The support code. Include this code in your email to support when you have questions about
-   *       an instance or another resource in Lightsail. This code enables our support team to look up
-   *       your Lightsail information more easily.</p>
-   * @public
-   */
-  supportCode?: string | undefined;
-
-  /**
-   * <p>The timestamp when the snapshot was created (<code>1479907467.024</code>).</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The region name and Availability Zone where you created the snapshot.</p>
-   * @public
-   */
-  location?: ResourceLocation | undefined;
-
-  /**
-   * <p>The type of resource (usually <code>InstanceSnapshot</code>).</p>
-   * @public
-   */
-  resourceType?: ResourceType | undefined;
-
-  /**
-   * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
-   * @public
-   */
-  tags?: Tag[] | undefined;
-
-  /**
-   * <p>The state the snapshot is in.</p>
-   * @public
-   */
-  state?: InstanceSnapshotState | undefined;
-
-  /**
-   * <p>The progress of the snapshot.</p>
-   *          <note>
-   *             <p>This is populated only for disk snapshots, and is <code>null</code> for instance
-   *         snapshots.</p>
-   *          </note>
-   * @public
-   */
-  progress?: string | undefined;
-
-  /**
-   * <p>An array of disk objects containing information about all block storage disks.</p>
-   * @public
-   */
-  fromAttachedDisks?: Disk[] | undefined;
-
-  /**
-   * <p>The instance from which the snapshot was created.</p>
-   * @public
-   */
-  fromInstanceName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the instance from which the snapshot was created
-   *         (<code>arn:aws:lightsail:us-east-2:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE</code>).</p>
-   * @public
-   */
-  fromInstanceArn?: string | undefined;
-
-  /**
-   * <p>The blueprint ID from which you created the snapshot (<code>amazon_linux_2023</code>). A
-   *       blueprint is a virtual private server (or <i>instance</i>) image used to create
-   *       instances quickly.</p>
-   * @public
-   */
-  fromBlueprintId?: string | undefined;
-
-  /**
-   * <p>The bundle ID from which you created the snapshot (<code>micro_x_x</code>).</p>
-   * @public
-   */
-  fromBundleId?: string | undefined;
-
-  /**
-   * <p>A Boolean value indicating whether the snapshot was created from an automatic
-   *       snapshot.</p>
-   * @public
-   */
-  isFromAutoSnapshot?: boolean | undefined;
-
-  /**
-   * <p>The size in GB of the SSD.</p>
-   * @public
-   */
-  sizeInGb?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstanceSnapshotResult {
-  /**
-   * <p>An array of key-value pairs containing information about the results of your get instance
-   *       snapshot request.</p>
-   * @public
-   */
-  instanceSnapshot?: InstanceSnapshot | undefined;
 }

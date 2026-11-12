@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetInstancePortStatesRequest, GetInstancePortStatesResult } from "../models/models_0";
+import type { GetInstancePortStatesRequest } from "../models/models_0";
+import type { GetInstancePortStatesResult } from "../models/models_1";
 import { GetInstancePortStates$ } from "../schemas/schemas_0";
 
 /**

@@ -33,6 +33,11 @@ import {
   AttachStaticIpCommand,
 } from "./commands/AttachStaticIpCommand";
 import {
+  type CheckSubdomainAvailabilityCommandInput,
+  type CheckSubdomainAvailabilityCommandOutput,
+  CheckSubdomainAvailabilityCommand,
+} from "./commands/CheckSubdomainAvailabilityCommand";
+import {
   type CloseInstancePublicPortsCommandInput,
   type CloseInstancePublicPortsCommandOutput,
   CloseInstancePublicPortsCommand,
@@ -163,6 +168,11 @@ import {
   CreateRelationalDatabaseSnapshotCommand,
 } from "./commands/CreateRelationalDatabaseSnapshotCommand";
 import {
+  type CreateSubdomainCommandInput,
+  type CreateSubdomainCommandOutput,
+  CreateSubdomainCommand,
+} from "./commands/CreateSubdomainCommand";
+import {
   type DeleteAlarmCommandInput,
   type DeleteAlarmCommandOutput,
   DeleteAlarmCommand,
@@ -267,6 +277,11 @@ import {
   type DeleteRelationalDatabaseSnapshotCommandOutput,
   DeleteRelationalDatabaseSnapshotCommand,
 } from "./commands/DeleteRelationalDatabaseSnapshotCommand";
+import {
+  type DeleteSubdomainCommandInput,
+  type DeleteSubdomainCommandOutput,
+  DeleteSubdomainCommand,
+} from "./commands/DeleteSubdomainCommand";
 import {
   type DetachCertificateFromDistributionCommandInput,
   type DetachCertificateFromDistributionCommandOutput,
@@ -622,6 +637,11 @@ import {
   GetStaticIpsCommand,
 } from "./commands/GetStaticIpsCommand";
 import {
+  type GetSubdomainsCommandInput,
+  type GetSubdomainsCommandOutput,
+  GetSubdomainsCommand,
+} from "./commands/GetSubdomainsCommand";
+import {
   type ImportKeyPairCommandInput,
   type ImportKeyPairCommandOutput,
   ImportKeyPairCommand,
@@ -780,6 +800,11 @@ import {
   type UpdateRelationalDatabaseParametersCommandOutput,
   UpdateRelationalDatabaseParametersCommand,
 } from "./commands/UpdateRelationalDatabaseParametersCommand";
+import {
+  type UpdateSubdomainAssociationCommandInput,
+  type UpdateSubdomainAssociationCommandOutput,
+  UpdateSubdomainAssociationCommand,
+} from "./commands/UpdateSubdomainAssociationCommand";
 import { LightsailClient } from "./LightsailClient";
 
 const commands = {
@@ -789,6 +814,7 @@ const commands = {
   AttachInstancesToLoadBalancerCommand,
   AttachLoadBalancerTlsCertificateCommand,
   AttachStaticIpCommand,
+  CheckSubdomainAvailabilityCommand,
   CloseInstancePublicPortsCommand,
   CopySnapshotCommand,
   CreateBucketCommand,
@@ -815,6 +841,7 @@ const commands = {
   CreateRelationalDatabaseCommand,
   CreateRelationalDatabaseFromSnapshotCommand,
   CreateRelationalDatabaseSnapshotCommand,
+  CreateSubdomainCommand,
   DeleteAlarmCommand,
   DeleteAutoSnapshotCommand,
   DeleteBucketCommand,
@@ -836,6 +863,7 @@ const commands = {
   DeleteLoadBalancerTlsCertificateCommand,
   DeleteRelationalDatabaseCommand,
   DeleteRelationalDatabaseSnapshotCommand,
+  DeleteSubdomainCommand,
   DetachCertificateFromDistributionCommand,
   DetachDiskCommand,
   DetachInstancesFromLoadBalancerCommand,
@@ -910,6 +938,7 @@ const commands = {
   GetSetupHistoryCommand,
   GetStaticIpCommand,
   GetStaticIpsCommand,
+  GetSubdomainsCommand,
   ImportKeyPairCommand,
   IsVpcPeeredCommand,
   OpenInstancePublicPortsCommand,
@@ -945,6 +974,7 @@ const commands = {
   UpdateLoadBalancerAttributeCommand,
   UpdateRelationalDatabaseCommand,
   UpdateRelationalDatabaseParametersCommand,
+  UpdateSubdomainAssociationCommand,
 };
 
 /**
@@ -1055,6 +1085,23 @@ export interface Lightsail {
     args: AttachStaticIpCommandInput,
     options: LightsailRequestOptions,
     cb: (err: any, data?: AttachStaticIpCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CheckSubdomainAvailabilityCommand}
+   */
+  checkSubdomainAvailability(
+    args: CheckSubdomainAvailabilityCommandInput,
+    options?: LightsailRequestOptions
+  ): Promise<CheckSubdomainAvailabilityCommandOutput>;
+  checkSubdomainAvailability(
+    args: CheckSubdomainAvailabilityCommandInput,
+    cb: (err: any, data?: CheckSubdomainAvailabilityCommandOutput) => void
+  ): void;
+  checkSubdomainAvailability(
+    args: CheckSubdomainAvailabilityCommandInput,
+    options: LightsailRequestOptions,
+    cb: (err: any, data?: CheckSubdomainAvailabilityCommandOutput) => void
   ): void;
 
   /**
@@ -1501,6 +1548,23 @@ export interface Lightsail {
   ): void;
 
   /**
+   * @see {@link CreateSubdomainCommand}
+   */
+  createSubdomain(
+    args: CreateSubdomainCommandInput,
+    options?: LightsailRequestOptions
+  ): Promise<CreateSubdomainCommandOutput>;
+  createSubdomain(
+    args: CreateSubdomainCommandInput,
+    cb: (err: any, data?: CreateSubdomainCommandOutput) => void
+  ): void;
+  createSubdomain(
+    args: CreateSubdomainCommandInput,
+    options: LightsailRequestOptions,
+    cb: (err: any, data?: CreateSubdomainCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAlarmCommand}
    */
   deleteAlarm(
@@ -1856,6 +1920,23 @@ export interface Lightsail {
     args: DeleteRelationalDatabaseSnapshotCommandInput,
     options: LightsailRequestOptions,
     cb: (err: any, data?: DeleteRelationalDatabaseSnapshotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSubdomainCommand}
+   */
+  deleteSubdomain(
+    args: DeleteSubdomainCommandInput,
+    options?: LightsailRequestOptions
+  ): Promise<DeleteSubdomainCommandOutput>;
+  deleteSubdomain(
+    args: DeleteSubdomainCommandInput,
+    cb: (err: any, data?: DeleteSubdomainCommandOutput) => void
+  ): void;
+  deleteSubdomain(
+    args: DeleteSubdomainCommandInput,
+    options: LightsailRequestOptions,
+    cb: (err: any, data?: DeleteSubdomainCommandOutput) => void
   ): void;
 
   /**
@@ -3150,6 +3231,24 @@ export interface Lightsail {
   ): void;
 
   /**
+   * @see {@link GetSubdomainsCommand}
+   */
+  getSubdomains(): Promise<GetSubdomainsCommandOutput>;
+  getSubdomains(
+    args: GetSubdomainsCommandInput,
+    options?: LightsailRequestOptions
+  ): Promise<GetSubdomainsCommandOutput>;
+  getSubdomains(
+    args: GetSubdomainsCommandInput,
+    cb: (err: any, data?: GetSubdomainsCommandOutput) => void
+  ): void;
+  getSubdomains(
+    args: GetSubdomainsCommandInput,
+    options: LightsailRequestOptions,
+    cb: (err: any, data?: GetSubdomainsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ImportKeyPairCommand}
    */
   importKeyPair(
@@ -3747,6 +3846,23 @@ export interface Lightsail {
     args: UpdateRelationalDatabaseParametersCommandInput,
     options: LightsailRequestOptions,
     cb: (err: any, data?: UpdateRelationalDatabaseParametersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSubdomainAssociationCommand}
+   */
+  updateSubdomainAssociation(
+    args: UpdateSubdomainAssociationCommandInput,
+    options?: LightsailRequestOptions
+  ): Promise<UpdateSubdomainAssociationCommandOutput>;
+  updateSubdomainAssociation(
+    args: UpdateSubdomainAssociationCommandInput,
+    cb: (err: any, data?: UpdateSubdomainAssociationCommandOutput) => void
+  ): void;
+  updateSubdomainAssociation(
+    args: UpdateSubdomainAssociationCommandInput,
+    options: LightsailRequestOptions,
+    cb: (err: any, data?: UpdateSubdomainAssociationCommandOutput) => void
   ): void;
 }
 
