@@ -638,6 +638,7 @@ import {
   ResourceStatus,
   ResourceType,
   ResultFormat,
+  RetryInfo$,
   S3Location$,
   ScalarFunctions,
   Schema$,
@@ -1352,6 +1353,7 @@ assert(typeof QueryComputePaymentConfig$ === "object");
 assert(typeof QueryConstraint$ === "object");
 assert(typeof QueryConstraintRequireOverlap$ === "object");
 assert(typeof ReceiverConfiguration$ === "object");
+assert(typeof RetryInfo$ === "object");
 assert(typeof S3Location$ === "object");
 assert(typeof Schema$ === "object");
 assert(typeof SchemaAnalysisRuleRequest$ === "object");

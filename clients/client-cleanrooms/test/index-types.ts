@@ -765,6 +765,7 @@ export type {
   QueryConstraint,
   QueryConstraintRequireOverlap,
   ReceiverConfiguration,
+  RetryInfo,
   S3Location,
   Schema,
   SchemaAnalysisRuleRequest,

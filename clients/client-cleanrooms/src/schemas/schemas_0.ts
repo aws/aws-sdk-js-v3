@@ -527,6 +527,7 @@ const _QCPC = "QueryComputePaymentConfig";
 const _QCRO = "QueryConstraintRequireOverlap";
 const _RC = "ReceiverConfiguration";
 const _RCL = "ReceiverConfigurationsList";
+const _RI = "RetryInfo";
 const _RNFE = "ResourceNotFoundException";
 const _S = "Schema";
 const _SALE = "StartAnalysisLogExport";
@@ -913,6 +914,8 @@ const _rTe = "referencedTables";
 const _re = "reasons";
 const _reg = "region";
 const _res = "result";
+const _ret = "retry";
+const _retr = "retryable";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cleanrooms";
 const _sA = "secretArn";
 const _sAI = "sourceAccountId";
@@ -2628,8 +2631,8 @@ export var ProtectedJobDirectAnalysisConfigurationDetails$: StaticStructureSchem
 ];
 export var ProtectedJobError$: StaticStructureSchema = [3, n0, _PJE,
   0,
-  [_m, _co],
-  [0, 0], 2
+  [_m, _co, _ret],
+  [0, 0, () => RetryInfo$], 2
 ];
 export var ProtectedJobMemberOutputConfigurationInput$: StaticStructureSchema = [3, n0, _PJMOCI,
   0,
@@ -2718,8 +2721,8 @@ export var ProtectedQueryDistributeOutputConfiguration$: StaticStructureSchema =
 ];
 export var ProtectedQueryError$: StaticStructureSchema = [3, n0, _PQE,
   0,
-  [_m, _co],
-  [0, 0], 2
+  [_m, _co, _ret],
+  [0, 0, () => RetryInfo$], 2
 ];
 export var ProtectedQueryMemberOutputConfiguration$: StaticStructureSchema = [3, n0, _PQMOC,
   0,
@@ -2780,6 +2783,11 @@ export var ReceiverConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_aT, _cD],
   [0, () => ConfigurationDetails$], 1
+];
+export var RetryInfo$: StaticStructureSchema = [3, n0, _RI,
+  0,
+  [_retr],
+  [2]
 ];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,

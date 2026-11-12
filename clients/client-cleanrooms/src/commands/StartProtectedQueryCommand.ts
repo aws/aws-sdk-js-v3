@@ -168,6 +168,9 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * //     error: { // ProtectedQueryError
  * //       message: "STRING_VALUE", // required
  * //       code: "STRING_VALUE", // required
+ * //       retry: { // RetryInfo
+ * //         retryable: true || false,
+ * //       },
  * //     },
  * //     differentialPrivacy: { // DifferentialPrivacyParameters
  * //       sensitivityParameters: [ // DifferentialPrivacySensitivityParametersList // required

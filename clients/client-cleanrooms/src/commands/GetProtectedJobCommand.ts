@@ -83,6 +83,9 @@ export interface GetProtectedJobCommandOutput extends GetProtectedJobOutput, __M
  * //     error: { // ProtectedJobError
  * //       message: "STRING_VALUE", // required
  * //       code: "STRING_VALUE", // required
+ * //       retry: { // RetryInfo
+ * //         retryable: true || false,
+ * //       },
  * //     },
  * //     computeConfiguration: { // ProtectedJobComputeConfiguration Union: only one key present
  * //       worker: { // ProtectedJobWorkerComputeConfiguration
