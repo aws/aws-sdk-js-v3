@@ -54,6 +54,8 @@ export interface DescribeAccountVpcEncryptionControlCommandOutput extends Descri
  * //       Lambda: "enabling" || "enabled" || "disabling" || "disabled",
  * //       VpcLattice: "enabling" || "enabled" || "disabling" || "disabled",
  * //       ElasticFileSystem: "enabling" || "enabled" || "disabling" || "disabled",
+ * //       GlobalAccelerator: "enabling" || "enabled" || "disabling" || "disabled",
+ * //       ApiGatewayV2: "enabling" || "enabled" || "disabling" || "disabled",
  * //     },
  * //     ManagedBy: "account" || "declarative-policy",
  * //     LastUpdateTimestamp: new Date("TIMESTAMP"),

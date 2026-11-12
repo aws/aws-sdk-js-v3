@@ -259,6 +259,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                             __StateMessage__
                         </stateMessage>
                     </elasticFileSystem>
+                    <globalAccelerator>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </globalAccelerator>
+                    <apiGatewayV2>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </apiGatewayV2>
                 </resourceExclusions>
                 <tagSet>
                     <item>
@@ -558,6 +574,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                             __StateMessage__
                         </stateMessage>
                     </elasticFileSystem>
+                    <globalAccelerator>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </globalAccelerator>
+                    <apiGatewayV2>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </apiGatewayV2>
                 </resourceExclusions>
                 <tagSet>
                     <item>
@@ -857,6 +889,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                             __StateMessage__
                         </stateMessage>
                     </elasticFileSystem>
+                    <globalAccelerator>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </globalAccelerator>
+                    <apiGatewayV2>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </apiGatewayV2>
                 </resourceExclusions>
                 <tagSet>
                     <item>
@@ -1043,149 +1091,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ElasticFileSystem: {
             State: "__State__",
             StateMessage: "__StateMessage__"
-          }
-        },
-        Tags: [
-          {
-            Key: "__Key__",
-            Value: "__Value__"
           },
-          {
-            Key: "__Key__",
-            Value: "__Value__"
-          },
-          {
-            Key: "__Key__",
-            Value: "__Value__"
-          }
-        ]
-      },
-      Tags: [
-        {
-          Key: "__Key__",
-          Value: "__Value__"
-        },
-        {
-          Key: "__Key__",
-          Value: "__Value__"
-        },
-        {
-          Key: "__Key__",
-          Value: "__Value__"
-        }
-      ],
-      BlockPublicAccessStates: {
-        InternetGatewayBlockMode: "__InternetGatewayBlockMode__"
-      },
-      VpcId: "__VpcId__",
-      State: "__State__",
-      CidrBlock: "__CidrBlock__",
-      DhcpOptionsId: "__DhcpOptionsId__"
-    },
-    {
-      OwnerId: "__OwnerId__",
-      InstanceTenancy: "__InstanceTenancy__",
-      Ipv6CidrBlockAssociationSet: [
-        {
-          AssociationId: "__AssociationId__",
-          Ipv6CidrBlock: "__Ipv6CidrBlock__",
-          Ipv6CidrBlockState: {
-            State: "__State__",
-            StatusMessage: "__StatusMessage__"
-          },
-          NetworkBorderGroup: "__NetworkBorderGroup__",
-          Ipv6Pool: "__Ipv6Pool__",
-          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
-          IpSource: "__IpSource__"
-        },
-        {
-          AssociationId: "__AssociationId__",
-          Ipv6CidrBlock: "__Ipv6CidrBlock__",
-          Ipv6CidrBlockState: {
-            State: "__State__",
-            StatusMessage: "__StatusMessage__"
-          },
-          NetworkBorderGroup: "__NetworkBorderGroup__",
-          Ipv6Pool: "__Ipv6Pool__",
-          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
-          IpSource: "__IpSource__"
-        },
-        {
-          AssociationId: "__AssociationId__",
-          Ipv6CidrBlock: "__Ipv6CidrBlock__",
-          Ipv6CidrBlockState: {
-            State: "__State__",
-            StatusMessage: "__StatusMessage__"
-          },
-          NetworkBorderGroup: "__NetworkBorderGroup__",
-          Ipv6Pool: "__Ipv6Pool__",
-          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
-          IpSource: "__IpSource__"
-        }
-      ],
-      CidrBlockAssociationSet: [
-        {
-          AssociationId: "__AssociationId__",
-          CidrBlock: "__CidrBlock__",
-          CidrBlockState: {
-            State: "__State__",
-            StatusMessage: "__StatusMessage__"
-          }
-        },
-        {
-          AssociationId: "__AssociationId__",
-          CidrBlock: "__CidrBlock__",
-          CidrBlockState: {
-            State: "__State__",
-            StatusMessage: "__StatusMessage__"
-          }
-        },
-        {
-          AssociationId: "__AssociationId__",
-          CidrBlock: "__CidrBlock__",
-          CidrBlockState: {
-            State: "__State__",
-            StatusMessage: "__StatusMessage__"
-          }
-        }
-      ],
-      IsDefault: (boolean) false,
-      EncryptionControl: {
-        VpcId: "__VpcId__",
-        VpcEncryptionControlId: "__VpcEncryptionControlId__",
-        Mode: "__Mode__",
-        State: "__State__",
-        StateMessage: "__StateMessage__",
-        ResourceExclusions: {
-          InternetGateway: {
+          GlobalAccelerator: {
             State: "__State__",
             StateMessage: "__StateMessage__"
           },
-          EgressOnlyInternetGateway: {
-            State: "__State__",
-            StateMessage: "__StateMessage__"
-          },
-          NatGateway: {
-            State: "__State__",
-            StateMessage: "__StateMessage__"
-          },
-          VirtualPrivateGateway: {
-            State: "__State__",
-            StateMessage: "__StateMessage__"
-          },
-          VpcPeering: {
-            State: "__State__",
-            StateMessage: "__StateMessage__"
-          },
-          Lambda: {
-            State: "__State__",
-            StateMessage: "__StateMessage__"
-          },
-          VpcLattice: {
-            State: "__State__",
-            StateMessage: "__StateMessage__"
-          },
-          ElasticFileSystem: {
+          ApiGatewayV2: {
             State: "__State__",
             StateMessage: "__StateMessage__"
           }
@@ -1331,6 +1242,167 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             StateMessage: "__StateMessage__"
           },
           ElasticFileSystem: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          GlobalAccelerator: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          ApiGatewayV2: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          }
+        },
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      BlockPublicAccessStates: {
+        InternetGatewayBlockMode: "__InternetGatewayBlockMode__"
+      },
+      VpcId: "__VpcId__",
+      State: "__State__",
+      CidrBlock: "__CidrBlock__",
+      DhcpOptionsId: "__DhcpOptionsId__"
+    },
+    {
+      OwnerId: "__OwnerId__",
+      InstanceTenancy: "__InstanceTenancy__",
+      Ipv6CidrBlockAssociationSet: [
+        {
+          AssociationId: "__AssociationId__",
+          Ipv6CidrBlock: "__Ipv6CidrBlock__",
+          Ipv6CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          },
+          NetworkBorderGroup: "__NetworkBorderGroup__",
+          Ipv6Pool: "__Ipv6Pool__",
+          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
+          IpSource: "__IpSource__"
+        },
+        {
+          AssociationId: "__AssociationId__",
+          Ipv6CidrBlock: "__Ipv6CidrBlock__",
+          Ipv6CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          },
+          NetworkBorderGroup: "__NetworkBorderGroup__",
+          Ipv6Pool: "__Ipv6Pool__",
+          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
+          IpSource: "__IpSource__"
+        },
+        {
+          AssociationId: "__AssociationId__",
+          Ipv6CidrBlock: "__Ipv6CidrBlock__",
+          Ipv6CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          },
+          NetworkBorderGroup: "__NetworkBorderGroup__",
+          Ipv6Pool: "__Ipv6Pool__",
+          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
+          IpSource: "__IpSource__"
+        }
+      ],
+      CidrBlockAssociationSet: [
+        {
+          AssociationId: "__AssociationId__",
+          CidrBlock: "__CidrBlock__",
+          CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          }
+        },
+        {
+          AssociationId: "__AssociationId__",
+          CidrBlock: "__CidrBlock__",
+          CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          }
+        },
+        {
+          AssociationId: "__AssociationId__",
+          CidrBlock: "__CidrBlock__",
+          CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          }
+        }
+      ],
+      IsDefault: (boolean) false,
+      EncryptionControl: {
+        VpcId: "__VpcId__",
+        VpcEncryptionControlId: "__VpcEncryptionControlId__",
+        Mode: "__Mode__",
+        State: "__State__",
+        StateMessage: "__StateMessage__",
+        ResourceExclusions: {
+          InternetGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          EgressOnlyInternetGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          NatGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          VirtualPrivateGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          VpcPeering: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          Lambda: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          VpcLattice: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          ElasticFileSystem: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          GlobalAccelerator: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          ApiGatewayV2: {
             State: "__State__",
             StateMessage: "__StateMessage__"
           }

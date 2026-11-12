@@ -47,6 +47,8 @@ export interface ModifyAccountVpcEncryptionControlCommandOutput extends ModifyAc
  *   Lambda: "enable" || "disable",
  *   VpcLattice: "enable" || "disable",
  *   ElasticFileSystem: "enable" || "disable",
+ *   GlobalAccelerator: "enable" || "disable",
+ *   ApiGatewayV2: "enable" || "disable",
  * };
  * const command = new ModifyAccountVpcEncryptionControlCommand(input);
  * const response = await client.send(command);
@@ -63,6 +65,8 @@ export interface ModifyAccountVpcEncryptionControlCommandOutput extends ModifyAc
  * //       Lambda: "enabling" || "enabled" || "disabling" || "disabled",
  * //       VpcLattice: "enabling" || "enabled" || "disabling" || "disabled",
  * //       ElasticFileSystem: "enabling" || "enabled" || "disabling" || "disabled",
+ * //       GlobalAccelerator: "enabling" || "enabled" || "disabling" || "disabled",
+ * //       ApiGatewayV2: "enabling" || "enabled" || "disabling" || "disabled",
  * //     },
  * //     ManagedBy: "account" || "declarative-policy",
  * //     LastUpdateTimestamp: new Date("TIMESTAMP"),

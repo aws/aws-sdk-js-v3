@@ -1648,6 +1648,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 __Platform__
             </platform>
             <monitoring>
+                <metricCategoryIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </metricCategoryIdSet>
                 <state>
                     __State__
                 </state>
@@ -3249,6 +3260,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 __Platform__
             </platform>
             <monitoring>
+                <metricCategoryIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </metricCategoryIdSet>
                 <state>
                     __State__
                 </state>
@@ -4850,6 +4872,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 __Platform__
             </platform>
             <monitoring>
+                <metricCategoryIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </metricCategoryIdSet>
                 <state>
                     __State__
                 </state>
@@ -5631,6 +5664,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       RamdiskId: "__RamdiskId__",
       Platform: "__Platform__",
       Monitoring: {
+        MetricCategoryIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
         State: "__State__"
       },
       SubnetId: "__SubnetId__",
@@ -6378,6 +6416,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       RamdiskId: "__RamdiskId__",
       Platform: "__Platform__",
       Monitoring: {
+        MetricCategoryIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
         State: "__State__"
       },
       SubnetId: "__SubnetId__",
@@ -7125,6 +7168,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       RamdiskId: "__RamdiskId__",
       Platform: "__Platform__",
       Monitoring: {
+        MetricCategoryIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
         State: "__State__"
       },
       SubnetId: "__SubnetId__",

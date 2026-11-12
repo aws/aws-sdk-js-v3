@@ -800,6 +800,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <enabled>
                         false
                     </enabled>
+                    <MetricCategoryId>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </MetricCategoryId>
                 </monitoring>
             </launchSpecification>
             <launchedAvailabilityZone>
@@ -1641,6 +1652,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <enabled>
                         false
                     </enabled>
+                    <MetricCategoryId>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </MetricCategoryId>
                 </monitoring>
             </launchSpecification>
             <launchedAvailabilityZone>
@@ -2482,6 +2504,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <enabled>
                         false
                     </enabled>
+                    <MetricCategoryId>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </MetricCategoryId>
                 </monitoring>
             </launchSpecification>
             <launchedAvailabilityZone>
@@ -2921,7 +2954,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           }
         ],
         Monitoring: {
-          Enabled: (boolean) false
+          Enabled: (boolean) false,
+          MetricCategoryIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
         }
       },
       LaunchedAvailabilityZone: "__LaunchedAvailabilityZone__",
@@ -3316,7 +3354,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           }
         ],
         Monitoring: {
-          Enabled: (boolean) false
+          Enabled: (boolean) false,
+          MetricCategoryIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
         }
       },
       LaunchedAvailabilityZone: "__LaunchedAvailabilityZone__",
@@ -3711,7 +3754,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           }
         ],
         Monitoring: {
-          Enabled: (boolean) false
+          Enabled: (boolean) false,
+          MetricCategoryIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
         }
       },
       LaunchedAvailabilityZone: "__LaunchedAvailabilityZone__",

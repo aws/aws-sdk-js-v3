@@ -34,6 +34,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 __InstanceId__
             </instanceId>
             <monitoring>
+                <metricCategoryIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </metricCategoryIdSet>
                 <state>
                     __State__
                 </state>
@@ -44,6 +55,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 __InstanceId__
             </instanceId>
             <monitoring>
+                <metricCategoryIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </metricCategoryIdSet>
                 <state>
                     __State__
                 </state>
@@ -54,6 +76,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 __InstanceId__
             </instanceId>
             <monitoring>
+                <metricCategoryIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </metricCategoryIdSet>
                 <state>
                     __State__
                 </state>
@@ -69,18 +102,33 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     {
       InstanceId: "__InstanceId__",
       Monitoring: {
+        MetricCategoryIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
         State: "__State__"
       }
     },
     {
       InstanceId: "__InstanceId__",
       Monitoring: {
+        MetricCategoryIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
         State: "__State__"
       }
     },
     {
       InstanceId: "__InstanceId__",
       Monitoring: {
+        MetricCategoryIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
         State: "__State__"
       }
     }

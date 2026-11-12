@@ -45,6 +45,8 @@ export interface ModifyVpcEncryptionControlCommandOutput extends ModifyVpcEncryp
  *   LambdaExclusion: "enable" || "disable",
  *   VpcLatticeExclusion: "enable" || "disable",
  *   ElasticFileSystemExclusion: "enable" || "disable",
+ *   GlobalAcceleratorExclusion: "enable" || "disable",
+ *   ApiGatewayV2Exclusion: "enable" || "disable",
  * };
  * const command = new ModifyVpcEncryptionControlCommand(input);
  * const response = await client.send(command);
@@ -79,6 +81,8 @@ export interface ModifyVpcEncryptionControlCommandOutput extends ModifyVpcEncryp
  * //       Lambda: "<VpcEncryptionControlExclusion>",
  * //       VpcLattice: "<VpcEncryptionControlExclusion>",
  * //       ElasticFileSystem: "<VpcEncryptionControlExclusion>",
+ * //       GlobalAccelerator: "<VpcEncryptionControlExclusion>",
+ * //       ApiGatewayV2: "<VpcEncryptionControlExclusion>",
  * //     },
  * //     Tags: [ // TagList
  * //       { // Tag

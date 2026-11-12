@@ -2583,6 +2583,18 @@ export interface AccountVpcEncryptionControlExclusions {
    * @public
    */
   ElasticFileSystem?: VpcEncryptionControlExclusionState | undefined;
+
+  /**
+   * <p>The exclusion configuration for AWS Global Accelerator.</p>
+   * @public
+   */
+  GlobalAccelerator?: VpcEncryptionControlExclusionState | undefined;
+
+  /**
+   * <p>The exclusion configuration for Amazon API Gateway V2.</p>
+   * @public
+   */
+  ApiGatewayV2?: VpcEncryptionControlExclusionState | undefined;
 }
 
 /**

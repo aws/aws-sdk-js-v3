@@ -70,6 +70,7 @@ export * from "./DescribeLocalGatewayVirtualInterfacesPaginator";
 export * from "./DescribeMacHostsPaginator";
 export * from "./DescribeMacModificationTasksPaginator";
 export * from "./DescribeManagedPrefixListsPaginator";
+export * from "./DescribeMetricCategoriesPaginator";
 export * from "./DescribeMovingAddressesPaginator";
 export * from "./DescribeNatGatewaysPaginator";
 export * from "./DescribeNetworkAclsPaginator";

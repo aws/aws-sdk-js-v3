@@ -61,6 +61,7 @@ import type {
   ReservationType,
   RouteServerRouteInstallationStatus,
   RouteServerRouteStatus,
+  SecurityGroupVpcAssociationState,
   SeverityLabel,
   SnapshotBlockPublicAccessState,
   SSEType,
@@ -88,10 +89,12 @@ import type {
   IpamRoutingPolicyRegistrationDelta,
   RouteServerAssociation,
   SubnetAssociation,
+  SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
   TargetConfigurationRequest,
   TransitGatewayAssociation,
+  TransitGatewayMulticastDomainAssociations,
   TransitGatewayPolicyTableAssociation,
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
@@ -124,6 +127,131 @@ import type {
   TransitGatewayPropagation,
   UnsuccessfulSuppressionResponseObject,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DisassociateRouteTableRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The association ID representing the current association between the route table and subnet or gateway.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSecurityGroupVpcRequest {
+  /**
+   * <p>A security group ID.</p>
+   * @public
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>A VPC ID.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSecurityGroupVpcResult {
+  /**
+   * <p>The state of the disassociation.</p>
+   * @public
+   */
+  State?: SecurityGroupVpcAssociationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSubnetCidrBlockRequest {
+  /**
+   * <p>The association ID for the CIDR block.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSubnetCidrBlockResult {
+  /**
+   * <p>Information about the IPv6 CIDR block association.</p>
+   * @public
+   */
+  Ipv6CidrBlockAssociation?: SubnetIpv6CidrBlockAssociation | undefined;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTransitGatewayMulticastDomainRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
+   */
+  TransitGatewayMulticastDomainId: string | undefined;
+
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>The IDs of the subnets;</p>
+   * @public
+   */
+  SubnetIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTransitGatewayMulticastDomainResult {
+  /**
+   * <p>Information about the association.</p>
+   * @public
+   */
+  Associations?: TransitGatewayMulticastDomainAssociations | undefined;
+}
 
 /**
  * @public
@@ -9260,196 +9388,4 @@ export interface TransitGatewayRouteTableAssociation {
    * @public
    */
   State?: TransitGatewayAssociationState | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayRouteTableAssociationsResult {
-  /**
-   * <p>Information about the associations.</p>
-   * @public
-   */
-  Associations?: TransitGatewayRouteTableAssociation[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayRouteTablePropagationsRequest {
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   * @public
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>resource-id</code> - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
-   *                     | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>
-   *                     | <code>connect</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes a route table propagation.</p>
- * @public
- */
-export interface TransitGatewayRouteTablePropagation {
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId?: string | undefined;
-
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The type of resource. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
-   * @public
-   */
-  ResourceType?: TransitGatewayAttachmentResourceType | undefined;
-
-  /**
-   * <p>The state of the resource.</p>
-   * @public
-   */
-  State?: TransitGatewayPropagationState | undefined;
-
-  /**
-   * <p>The ID of the transit gateway route table announcement.</p>
-   * @public
-   */
-  TransitGatewayRouteTableAnnouncementId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayRouteTablePropagationsResult {
-  /**
-   * <p>Information about the route table propagations.</p>
-   * @public
-   */
-  TransitGatewayRouteTablePropagations?: TransitGatewayRouteTablePropagation[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVerifiedAccessEndpointPolicyRequest {
-  /**
-   * <p>The ID of the Verified Access endpoint.</p>
-   * @public
-   */
-  VerifiedAccessEndpointId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVerifiedAccessEndpointPolicyResult {
-  /**
-   * <p>The status of the Verified Access policy.</p>
-   * @public
-   */
-  PolicyEnabled?: boolean | undefined;
-
-  /**
-   * <p>The Verified Access policy document.</p>
-   * @public
-   */
-  PolicyDocument?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVerifiedAccessEndpointTargetsRequest {
-  /**
-   * <p>The ID of the network CIDR endpoint.</p>
-   * @public
-   */
-  VerifiedAccessEndpointId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

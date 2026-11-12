@@ -255,6 +255,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __StateMessage__
                     </stateMessage>
                 </elasticFileSystem>
+                <globalAccelerator>
+                    <state>
+                        __State__
+                    </state>
+                    <stateMessage>
+                        __StateMessage__
+                    </stateMessage>
+                </globalAccelerator>
+                <apiGatewayV2>
+                    <state>
+                        __State__
+                    </state>
+                    <stateMessage>
+                        __StateMessage__
+                    </stateMessage>
+                </apiGatewayV2>
             </resourceExclusions>
             <tagSet>
                 <item>
@@ -436,6 +452,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           StateMessage: "__StateMessage__"
         },
         ElasticFileSystem: {
+          State: "__State__",
+          StateMessage: "__StateMessage__"
+        },
+        GlobalAccelerator: {
+          State: "__State__",
+          StateMessage: "__StateMessage__"
+        },
+        ApiGatewayV2: {
           State: "__State__",
           StateMessage: "__StateMessage__"
         }

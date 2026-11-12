@@ -80,6 +80,8 @@ import type {
   TransitGatewayAttachmentNatGatewaySupportState,
   TransitGatewayAttachmentNatGatewaySupportValue,
   TransitGatewayAttachmentNatSystemRouteSupportValue,
+  TransitGatewayAttachmentResourceType,
+  TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   UnsuccessfulInstanceCreditSpecificationErrorCode,
   VerificationMethod,
@@ -111,8 +113,6 @@ import type {
   OperatorResponse,
   Tag,
   TagSpecification,
-  TransitGatewayClientVpnAttachment,
-  TransitGatewayMulticastDomainAssociations,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
   VerifiedAccessInstance,
@@ -142,6 +142,7 @@ import type {
   LaunchTemplate,
   LocalGatewayRoute,
   ManagedPrefixList,
+  MetricCategory,
   Placement,
   RequestIpamResourceTag,
   TargetCapacitySpecificationRequest,
@@ -181,6 +182,7 @@ import type {
   CapacityBlock,
   CapacityBlockExtension,
   ConversionTask,
+  Filter,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
 } from "./models_3";
@@ -193,13 +195,13 @@ import type {
   LaunchPermission,
   Monitoring,
   PublicIpv4PoolRange,
-  ReservedInstancesConfiguration,
   SnapshotDetail,
   SnapshotTaskDetail,
 } from "./models_4";
 import type {
   CreateVolumePermission,
   LaunchTemplateConfig,
+  ReservedInstancesConfiguration,
   ScheduledInstance,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
@@ -212,7 +214,200 @@ import type {
   ManagedResourceVisibilitySettings,
   Purchase,
   TransitGatewayNatRule,
+  TransitGatewayRouteTableAssociation,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayRouteTableAssociationsResult {
+  /**
+   * <p>Information about the associations.</p>
+   * @public
+   */
+  Associations?: TransitGatewayRouteTableAssociation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayRouteTablePropagationsRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
+   *                     | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>
+   *                     | <code>connect</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a route table propagation.</p>
+ * @public
+ */
+export interface TransitGatewayRouteTablePropagation {
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The type of resource. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+   * @public
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | undefined;
+
+  /**
+   * <p>The state of the resource.</p>
+   * @public
+   */
+  State?: TransitGatewayPropagationState | undefined;
+
+  /**
+   * <p>The ID of the transit gateway route table announcement.</p>
+   * @public
+   */
+  TransitGatewayRouteTableAnnouncementId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayRouteTablePropagationsResult {
+  /**
+   * <p>Information about the route table propagations.</p>
+   * @public
+   */
+  TransitGatewayRouteTablePropagations?: TransitGatewayRouteTablePropagation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessEndpointPolicyRequest {
+  /**
+   * <p>The ID of the Verified Access endpoint.</p>
+   * @public
+   */
+  VerifiedAccessEndpointId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessEndpointPolicyResult {
+  /**
+   * <p>The status of the Verified Access policy.</p>
+   * @public
+   */
+  PolicyEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Verified Access policy document.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessEndpointTargetsRequest {
+  /**
+   * <p>The ID of the network CIDR endpoint.</p>
+   * @public
+   */
+  VerifiedAccessEndpointId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * <p>Describes the targets for the specified Verified Access endpoint.</p>
@@ -2029,6 +2224,18 @@ export interface ModifyAccountVpcEncryptionControlRequest {
    * @public
    */
   ElasticFileSystem?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude AWS Global Accelerator from account-level encryption enforcement.</p>
+   * @public
+   */
+  GlobalAccelerator?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude Amazon API Gateway V2 from account-level encryption enforcement.</p>
+   * @public
+   */
+  ApiGatewayV2?: VpcEncryptionControlExclusionStateInput | undefined;
 }
 
 /**
@@ -5228,6 +5435,47 @@ export interface ModifyManagedResourceVisibilityResult {
 }
 
 /**
+ * @public
+ */
+export interface ModifyMetricCategoryRequest {
+  /**
+   * <p>The ID of the metric category.</p>
+   * @public
+   */
+  MetricCategoryId: string | undefined;
+
+  /**
+   * <p>The names of the metrics for the metric category. These metrics replace the existing
+   *             metrics, and must differ from the current set.</p>
+   *          <p>Specify each metric by its Amazon CloudWatch metric name or its OpenTelemetry metric name. The two
+   *   names for a measurement are separate entries, and you can include both.</p>
+   *          <p>In Regions where Amazon CloudWatch OpenTelemetry metrics aren't available, you can't specify
+   *   OpenTelemetry metric names.</p>
+   * @public
+   */
+  Metrics: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyMetricCategoryResult {
+  /**
+   * <p>Information about the metric category.</p>
+   * @public
+   */
+  MetricCategory?: MetricCategory | undefined;
+}
+
+/**
  * <p>Describes an attachment change.</p>
  * @public
  */
@@ -7748,6 +7996,18 @@ export interface ModifyVpcEncryptionControlRequest {
    * @public
    */
   ElasticFileSystemExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude AWS Global Accelerator traffic from encryption enforcement.</p>
+   * @public
+   */
+  GlobalAcceleratorExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude Amazon API Gateway V2 traffic from encryption enforcement.</p>
+   * @public
+   */
+  ApiGatewayV2Exclusion?: VpcEncryptionControlExclusionStateInput | undefined;
 }
 
 /**
@@ -8740,6 +9000,14 @@ export interface MonitorInstancesRequest {
    * @public
    */
   InstanceIds: string[] | undefined;
+
+  /**
+   * <p>The IDs of the metric categories to associate with the instances. The specified
+   *             metric categories are added to any metric categories that are already associated with
+   *             the instances.</p>
+   * @public
+   */
+  MetricCategoryIds?: string[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the operation, without actually making the
@@ -9830,168 +10098,4 @@ export interface RegisterTransitGatewayMulticastGroupMembersResult {
    * @public
    */
   RegisteredMulticastGroupMembers?: TransitGatewayMulticastRegisteredGroupMembers | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId: string | undefined;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   * @public
-   */
-  GroupIpAddress?: string | undefined;
-
-  /**
-   * <p>The group sources' network interface IDs to register with the  transit gateway multicast group.</p>
-   * @public
-   */
-  NetworkInterfaceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes the members registered with the  transit gateway multicast group.</p>
- * @public
- */
-export interface TransitGatewayMulticastRegisteredGroupSources {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId?: string | undefined;
-
-  /**
-   * <p>The IDs of the network interfaces members registered with the  transit gateway multicast group.</p>
-   * @public
-   */
-  RegisteredNetworkInterfaceIds?: string[] | undefined;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   * @public
-   */
-  GroupIpAddress?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterTransitGatewayMulticastGroupSourcesResult {
-  /**
-   * <p>Information about the  transit gateway multicast group sources.</p>
-   * @public
-   */
-  RegisteredMulticastGroupSources?: TransitGatewayMulticastRegisteredGroupSources | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectCapacityReservationBillingOwnershipRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the Capacity Reservation for which to reject the request.</p>
-   * @public
-   */
-  CapacityReservationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectCapacityReservationBillingOwnershipResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectTransitGatewayClientVpnAttachmentRequest {
-  /**
-   * <p>The ID of the Transit Gateway attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectTransitGatewayClientVpnAttachmentResult {
-  /**
-   * <p>Information about the Transit Gateway Client VPN attachment.</p>
-   * @public
-   */
-  TransitGatewayClientVpnAttachment?: TransitGatewayClientVpnAttachment | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectTransitGatewayMulticastDomainAssociationsRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId?: string | undefined;
-
-  /**
-   * <p>The ID of the transit gateway attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId?: string | undefined;
-
-  /**
-   * <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
-   * @public
-   */
-  SubnetIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectTransitGatewayMulticastDomainAssociationsResult {
-  /**
-   * <p>Information about the multicast domain associations.</p>
-   * @public
-   */
-  Associations?: TransitGatewayMulticastDomainAssociations | undefined;
 }

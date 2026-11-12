@@ -183,6 +183,9 @@ export interface DescribeSpotInstanceRequestsCommandOutput extends DescribeSpotI
  * //           },
  * //         ],
  * //         Monitoring: { // RunInstancesMonitoringEnabled
+ * //           MetricCategoryIds: [ // MetricCategoryIdList
+ * //             "STRING_VALUE",
+ * //           ],
  * //           Enabled: true || false, // required
  * //         },
  * //       },

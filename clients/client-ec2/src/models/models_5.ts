@@ -78,13 +78,12 @@ import type {
   IpPermission,
   NatGatewayAddress,
   OperatorResponse,
+  ReservedInstancesListing,
   RouteServerAssociation,
   SecurityGroupRule,
-  SubnetIpv6CidrBlockAssociation,
   SuccessfulAssociationResponseObject,
   Tag,
   TagSpecification,
-  TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
@@ -146,19 +145,250 @@ import type {
   VpnGateway,
 } from "./models_2";
 import type {
-  EventInformation,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchSnapshotConfigurationResponse,
   Filter,
 } from "./models_3";
 import type {
   AttributeBooleanValue,
+  EventInformation,
   ProductCode,
   RecurringCharge,
   RegisteredInstance,
-  ReservedInstancesId,
-  ReservedInstancesModificationResult,
+  ReservedInstances,
 } from "./models_4";
+
+/**
+ * <p>Contains the output for DescribeReservedInstances.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesResult {
+  /**
+   * <p>A list of Reserved Instances.</p>
+   * @public
+   */
+  ReservedInstances?: ReservedInstances[] | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeReservedInstancesListings.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesListingsRequest {
+  /**
+   * <p>One or more Reserved Instance IDs.</p>
+   * @public
+   */
+  ReservedInstancesId?: string | undefined;
+
+  /**
+   * <p>One or more Reserved Instance listing IDs.</p>
+   * @public
+   */
+  ReservedInstancesListingId?: string | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances
+   *           listing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> |
+   *             <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status-message</code> - The reason for the status.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Contains the output of DescribeReservedInstancesListings.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesListingsResult {
+  /**
+   * <p>Information about the Reserved Instance listing.</p>
+   * @public
+   */
+  ReservedInstancesListings?: ReservedInstancesListing[] | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeReservedInstancesModifications.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesModificationsRequest {
+  /**
+   * <p>IDs for the submitted modification request.</p>
+   * @public
+   */
+  ReservedInstancesModificationIds?: string[] | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>client-token</code> - The idempotency token for the modification request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>create-date</code> - The time when the modification request was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>effective-date</code> - The time when the modification becomes effective.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modification-result.reserved-instances-id</code> - The ID for the Reserved Instances
+   *           created as part of the modification request. This ID is only available when the status of
+   *           the modification is <code>fulfilled</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modification-result.target-configuration.availability-zone</code> - The Availability
+   *           Zone for the new Reserved Instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modification-result.target-configuration.availability-zone-id</code> - The ID of the
+   *           Availability Zone for the new Reserved Instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modification-result.target-configuration.instance-count </code> - The number of new
+   *           Reserved Instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modification-result.target-configuration.instance-type</code> - The instance type of
+   *           the new Reserved Instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instances modified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-modification-id</code> - The ID of the modification
+   *           request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The status of the Reserved Instances modification request
+   *             (<code>processing</code> | <code>fulfilled</code> | <code>failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status-message</code> - The reason for the status.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>update-date</code> - The time when the modification request was last updated.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Describes the configuration settings for the modified Reserved Instances.</p>
+ * @public
+ */
+export interface ReservedInstancesConfiguration {
+  /**
+   * <p>The Availability Zone for the modified Reserved Instances.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The number of modified Reserved Instances.</p>
+   *          <note>
+   *             <p>This is a required field for a request.</p>
+   *          </note>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The instance type for the modified Reserved Instances.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The network platform of the modified Reserved Instances.</p>
+   * @public
+   */
+  Platform?: string | undefined;
+
+  /**
+   * <p>Whether the Reserved Instance is applied to instances in a Region or instances in a
+   *       specific Availability Zone.</p>
+   * @public
+   */
+  Scope?: Scope | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+}
+
+/**
+ * <p>Describes the modification request/s.</p>
+ * @public
+ */
+export interface ReservedInstancesModificationResult {
+  /**
+   * <p>The ID for the Reserved Instances that were created as part of the modification request.
+   *       This field is only available when the modification is fulfilled.</p>
+   * @public
+   */
+  ReservedInstancesId?: string | undefined;
+
+  /**
+   * <p>The target Reserved Instances configurations supplied as part of the modification
+   *       request.</p>
+   * @public
+   */
+  TargetConfiguration?: ReservedInstancesConfiguration | undefined;
+}
+
+/**
+ * <p>Describes the ID of a Reserved Instance.</p>
+ * @public
+ */
+export interface ReservedInstancesId {
+  /**
+   * <p>The ID of the Reserved Instance.</p>
+   * @public
+   */
+  ReservedInstancesId?: string | undefined;
+}
 
 /**
  * <p>Describes a Reserved Instance modification.</p>
@@ -4409,6 +4639,13 @@ export interface DescribeSpotInstanceRequestsRequest {
  * @public
  */
 export interface RunInstancesMonitoringEnabled {
+  /**
+   * <p>The IDs of the metric categories to associate with the instance. To specify metric
+   *             categories, you must also enable detailed monitoring.</p>
+   * @public
+   */
+  MetricCategoryIds?: string[] | undefined;
+
   /**
    * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
    *             enabled.</p>
@@ -11611,129 +11848,4 @@ export interface DisassociateRouteServerResult {
    * @public
    */
   RouteServerAssociation?: RouteServerAssociation | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateRouteTableRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The association ID representing the current association between the route table and subnet or gateway.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateSecurityGroupVpcRequest {
-  /**
-   * <p>A security group ID.</p>
-   * @public
-   */
-  GroupId: string | undefined;
-
-  /**
-   * <p>A VPC ID.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateSecurityGroupVpcResult {
-  /**
-   * <p>The state of the disassociation.</p>
-   * @public
-   */
-  State?: SecurityGroupVpcAssociationState | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateSubnetCidrBlockRequest {
-  /**
-   * <p>The association ID for the CIDR block.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateSubnetCidrBlockResult {
-  /**
-   * <p>Information about the IPv6 CIDR block association.</p>
-   * @public
-   */
-  Ipv6CidrBlockAssociation?: SubnetIpv6CidrBlockAssociation | undefined;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTransitGatewayMulticastDomainRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId: string | undefined;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>The IDs of the subnets;</p>
-   * @public
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTransitGatewayMulticastDomainResult {
-  /**
-   * <p>Information about the association.</p>
-   * @public
-   */
-  Associations?: TransitGatewayMulticastDomainAssociations | undefined;
 }

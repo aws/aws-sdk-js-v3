@@ -110,6 +110,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __StateMessage__
                     </stateMessage>
                 </elasticFileSystem>
+                <globalAccelerator>
+                    <state>
+                        __State__
+                    </state>
+                    <stateMessage>
+                        __StateMessage__
+                    </stateMessage>
+                </globalAccelerator>
+                <apiGatewayV2>
+                    <state>
+                        __State__
+                    </state>
+                    <stateMessage>
+                        __StateMessage__
+                    </stateMessage>
+                </apiGatewayV2>
             </resourceExclusions>
             <tagSet>
                 <item>
@@ -219,6 +235,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __StateMessage__
                     </stateMessage>
                 </elasticFileSystem>
+                <globalAccelerator>
+                    <state>
+                        __State__
+                    </state>
+                    <stateMessage>
+                        __StateMessage__
+                    </stateMessage>
+                </globalAccelerator>
+                <apiGatewayV2>
+                    <state>
+                        __State__
+                    </state>
+                    <stateMessage>
+                        __StateMessage__
+                    </stateMessage>
+                </apiGatewayV2>
             </resourceExclusions>
             <tagSet>
                 <item>
@@ -328,6 +360,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __StateMessage__
                     </stateMessage>
                 </elasticFileSystem>
+                <globalAccelerator>
+                    <state>
+                        __State__
+                    </state>
+                    <stateMessage>
+                        __StateMessage__
+                    </stateMessage>
+                </globalAccelerator>
+                <apiGatewayV2>
+                    <state>
+                        __State__
+                    </state>
+                    <stateMessage>
+                        __StateMessage__
+                    </stateMessage>
+                </apiGatewayV2>
             </resourceExclusions>
             <tagSet>
                 <item>
@@ -404,59 +452,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ElasticFileSystem: {
           State: "__State__",
           StateMessage: "__StateMessage__"
-        }
-      },
-      Tags: [
-        {
-          Key: "__Key__",
-          Value: "__Value__"
         },
-        {
-          Key: "__Key__",
-          Value: "__Value__"
-        },
-        {
-          Key: "__Key__",
-          Value: "__Value__"
-        }
-      ]
-    },
-    {
-      VpcId: "__VpcId__",
-      VpcEncryptionControlId: "__VpcEncryptionControlId__",
-      Mode: "__Mode__",
-      State: "__State__",
-      StateMessage: "__StateMessage__",
-      ResourceExclusions: {
-        InternetGateway: {
+        GlobalAccelerator: {
           State: "__State__",
           StateMessage: "__StateMessage__"
         },
-        EgressOnlyInternetGateway: {
-          State: "__State__",
-          StateMessage: "__StateMessage__"
-        },
-        NatGateway: {
-          State: "__State__",
-          StateMessage: "__StateMessage__"
-        },
-        VirtualPrivateGateway: {
-          State: "__State__",
-          StateMessage: "__StateMessage__"
-        },
-        VpcPeering: {
-          State: "__State__",
-          StateMessage: "__StateMessage__"
-        },
-        Lambda: {
-          State: "__State__",
-          StateMessage: "__StateMessage__"
-        },
-        VpcLattice: {
-          State: "__State__",
-          StateMessage: "__StateMessage__"
-        },
-        ElasticFileSystem: {
+        ApiGatewayV2: {
           State: "__State__",
           StateMessage: "__StateMessage__"
         }
@@ -512,6 +513,77 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           StateMessage: "__StateMessage__"
         },
         ElasticFileSystem: {
+          State: "__State__",
+          StateMessage: "__StateMessage__"
+        },
+        GlobalAccelerator: {
+          State: "__State__",
+          StateMessage: "__StateMessage__"
+        },
+        ApiGatewayV2: {
+          State: "__State__",
+          StateMessage: "__StateMessage__"
+        }
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      VpcId: "__VpcId__",
+      VpcEncryptionControlId: "__VpcEncryptionControlId__",
+      Mode: "__Mode__",
+      State: "__State__",
+      StateMessage: "__StateMessage__",
+      ResourceExclusions: {
+        InternetGateway: {
+          State: "__State__",
+          StateMessage: "__StateMessage__"
+        },
+        EgressOnlyInternetGateway: {
+          State: "__State__",
+          StateMessage: "__StateMessage__"
+        },
+        NatGateway: {
+          State: "__State__",
+          StateMessage: "__StateMessage__"
+        },
+        VirtualPrivateGateway: {
+          State: "__State__",
+          StateMessage: "__StateMessage__"
+        },
+        VpcPeering: {
+          State: "__State__",
+          StateMessage: "__StateMessage__"
+        },
+        Lambda: {
+          State: "__State__",
+          StateMessage: "__StateMessage__"
+        },
+        VpcLattice: {
+          State: "__State__",
+          StateMessage: "__StateMessage__"
+        },
+        ElasticFileSystem: {
+          State: "__State__",
+          StateMessage: "__StateMessage__"
+        },
+        GlobalAccelerator: {
+          State: "__State__",
+          StateMessage: "__StateMessage__"
+        },
+        ApiGatewayV2: {
           State: "__State__",
           StateMessage: "__StateMessage__"
         }

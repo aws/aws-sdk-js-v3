@@ -102,6 +102,8 @@ const _AFn = "AnalysisFindings";
 const _AGI = "AccessGroupId";
 const _AGLBA = "AddGatewayLoadBalancerArns";
 const _AGLBAd = "AddGatewayLoadBalancerArn";
+const _AGV = "ApiGatewayV2";
+const _AGVE = "ApiGatewayV2Exclusion";
 const _AH = "AllocateHosts";
 const _AHR = "AllocateHostsRequest";
 const _AHRl = "AllocateHostsResult";
@@ -839,7 +841,10 @@ const _CLTVR = "CreateLaunchTemplateVersionRequest";
 const _CLTVRr = "CreateLaunchTemplateVersionResult";
 const _CM = "CpuManufacturers";
 const _CMC = "CapacityManagerCondition";
+const _CMCR = "CreateMetricCategoryRequest";
+const _CMCRr = "CreateMetricCategoryResult";
 const _CMCS = "CapacityManagerConditionSet";
+const _CMCr = "CreateMetricCategory";
 const _CMD = "CapacityManagerDimension";
 const _CMDE = "CapacityManagerDataExports";
 const _CMDEI = "CapacityManagerDataExportId";
@@ -1857,6 +1862,12 @@ const _DLTe = "DescribeLaunchTemplates";
 const _DMA = "DescribeMovingAddresses";
 const _DMAR = "DescribeMovingAddressesRequest";
 const _DMARe = "DescribeMovingAddressesResult";
+const _DMC = "DeleteMetricCategory";
+const _DMCR = "DeleteMetricCategoryRequest";
+const _DMCRe = "DeleteMetricCategoryResult";
+const _DMCRes = "DescribeMetricCategoriesRequest";
+const _DMCResc = "DescribeMetricCategoriesResult";
+const _DMCe = "DescribeMetricCategories";
 const _DMGM = "DeregisteredMulticastGroupMembers";
 const _DMGS = "DeregisteredMulticastGroupSources";
 const _DMH = "DescribeMacHosts";
@@ -2866,7 +2877,8 @@ const _Fp = "Fpgas";
 const _Fr = "From";
 const _Fre = "Frequency";
 const _G = "Groups";
-const _GA = "GroupArn";
+const _GA = "GlobalAccelerator";
+const _GAE = "GlobalAcceleratorExclusion";
 const _GAECIR = "GetAssociatedEnclaveCertificateIamRoles";
 const _GAECIRR = "GetAssociatedEnclaveCertificateIamRolesRequest";
 const _GAECIRRe = "GetAssociatedEnclaveCertificateIamRolesResult";
@@ -2883,6 +2895,7 @@ const _GAS = "GatewayAssociationState";
 const _GAVTS = "GetActiveVpnTunnelStatus";
 const _GAVTSR = "GetActiveVpnTunnelStatusRequest";
 const _GAVTSRe = "GetActiveVpnTunnelStatusResult";
+const _GAr = "GroupArn";
 const _GB = "GroupBy";
 const _GBS = "GroupBySet";
 const _GCMA = "GetCapacityManagerAttributes";
@@ -4070,6 +4083,11 @@ const _MBCTIR = "MoveByoipCidrToIpamRequest";
 const _MBCTIRo = "MoveByoipCidrToIpamResult";
 const _MBIM = "MaximumBandwidthInMbps";
 const _MC = "MacCredentials";
+const _MCI = "MetricCategoryId";
+const _MCIL = "MetricCategoryIdList";
+const _MCIe = "MetricCategoryIds";
+const _MCL = "MetricCategoryList";
+const _MCMNL = "MetricCategoryMetricNameList";
 const _MCOIOL = "MapCustomerOwnedIpOnLaunch";
 const _MCR = "ModifyCapacityReservation";
 const _MCRF = "ModifyCapacityReservationFleet";
@@ -4087,6 +4105,8 @@ const _MCVEAPRo = "ModifyClientVpnEndpointAuthorizationPolicyResult";
 const _MCVER = "ModifyClientVpnEndpointRequest";
 const _MCVERo = "ModifyClientVpnEndpointResult";
 const _MCa = "MaxCount";
+const _MCe = "MetricCategory";
+const _MCet = "MetricCategories";
 const _MCi = "MissingComponent";
 const _MCin = "MinCount";
 const _MD = "MaxDuration";
@@ -4232,6 +4252,9 @@ const _MLTR = "ModifyLaunchTemplateRequest";
 const _MLTRo = "ModifyLaunchTemplateResult";
 const _MMB = "MemoryMiB";
 const _MMBR = "MemoryMiBRequest";
+const _MMC = "ModifyMetricCategory";
+const _MMCR = "ModifyMetricCategoryRequest";
+const _MMCRo = "ModifyMetricCategoryResult";
 const _MMPL = "ModifyManagedPrefixList";
 const _MMPLR = "ModifyManagedPrefixListRequest";
 const _MMPLRo = "ModifyManagedPrefixListResult";
@@ -4454,7 +4477,8 @@ const _Mat = "Match";
 const _Me = "Message";
 const _Med = "Med";
 const _Mes = "Messages";
-const _Met = "Metric";
+const _Met = "Metrics";
+const _Metr = "Metric";
 const _Mo = "Mode";
 const _Mon = "Monitoring";
 const _Moni = "Monitored";
@@ -6549,6 +6573,7 @@ const _aES = "attachedEbsStatus";
 const _aF = "addressFamily";
 const _aFNI = "additionalFlexibleNetworkInterfaces";
 const _aFS = "analysisFindingSet";
+const _aGV = "apiGatewayV2";
 const _aI = "allocationId";
 const _aIA = "assignedIpv6Addresses";
 const _aIAC = "availableIpAddressCount";
@@ -7207,8 +7232,9 @@ const _fp = "fpgas";
 const _fr = "from";
 const _fre = "frequency";
 const _g = "group";
-const _gA = "groupArn";
+const _gA = "globalAccelerator";
 const _gAS = "gatewayAssociationState";
+const _gAr = "groupArn";
 const _gD = "groupDescription";
 const _gI = "gatewayId";
 const _gIA = "groupIpAddress";
@@ -7644,8 +7670,12 @@ const _mAa = "macAddress";
 const _mAe = "meteredAccount";
 const _mB = "managedBy";
 const _mBIM = "maximumBandwidthInMbps";
-const _mC = "missingComponent";
+const _mC = "metricCategory";
+const _mCI = "metricCategoryId";
+const _mCIS = "metricCategoryIdSet";
 const _mCOIOL = "mapCustomerOwnedIpOnLaunch";
+const _mCS = "metricCategorySet";
+const _mCi = "missingComponent";
 const _mD = "maintenanceDetails";
 const _mDA = "multicastDomainAssociations";
 const _mDK = "metaDataKey";
@@ -7705,6 +7735,7 @@ const _mSNI = "maximumSecondaryNetworkInterfaces";
 const _mSPAPOOODP = "maxSpotPriceAsPercentageOfOptimalOnDemandPrice";
 const _mSa = "managementState";
 const _mSai = "maintenanceStrategies";
+const _mSe = "metricSet";
 const _mSo = "moveStatus";
 const _mSod = "modificationState";
 const _mSu = "multicastSupport";
@@ -8948,7 +8979,7 @@ export var AccountVpcEncryptionControl$: StaticStructureSchema = [3, n0, _AVEC,
 ];
 export var AccountVpcEncryptionControlExclusions$: StaticStructureSchema = [3, n0, _AVECE,
   0,
-  [_IG, _EOIG, _NG, _VPG, _VP, _L, _VL, _EFS],
+  [_IG, _EOIG, _NG, _VPG, _VP, _L, _VL, _EFS, _GA, _AGV],
   [[0, { [_eQN]: `InternetGateway`
   , [_xN]: _iG }], [0, { [_eQN]: `EgressOnlyInternetGateway`
   , [_xN]: _eOIG }], [0, { [_eQN]: `NatGateway`
@@ -8957,7 +8988,9 @@ export var AccountVpcEncryptionControlExclusions$: StaticStructureSchema = [3, n
   , [_xN]: _vP }], [0, { [_eQN]: `Lambda`
   , [_xN]: _l }], [0, { [_eQN]: `VpcLattice`
   , [_xN]: _vL }], [0, { [_eQN]: `ElasticFileSystem`
-  , [_xN]: _eFS }]]
+  , [_xN]: _eFS }], [0, { [_eQN]: `GlobalAccelerator`
+  , [_xN]: _gA }], [0, { [_eQN]: `ApiGatewayV2`
+  , [_xN]: _aGV }]]
 ];
 export var ActiveInstance$: StaticStructureSchema = [3, n0, _AI,
   0,
@@ -10429,9 +10462,9 @@ export var CapacityReservationFleetCancellationState$: StaticStructureSchema = [
 ];
 export var CapacityReservationGroup$: StaticStructureSchema = [3, n0, _CRG,
   0,
-  [_GA, _OI],
+  [_GAr, _OI],
   [[0, { [_eQN]: `GroupArn`
-  , [_xN]: _gA }], [0, { [_eQN]: `OwnerId`
+  , [_xN]: _gAr }], [0, { [_eQN]: `OwnerId`
   , [_xN]: _oI }]]
 ];
 export var CapacityReservationInfo$: StaticStructureSchema = [3, n0, _CRIap,
@@ -11545,6 +11578,17 @@ export var CreateManagedPrefixListResult$: StaticStructureSchema = [3, n0, _CMPL
   [[() => ManagedPrefixList$, { [_eQN]: `PrefixList`
   , [_xN]: _pL }]]
 ];
+export var CreateMetricCategoryRequest$: StaticStructureSchema = [3, n0, _CMCR,
+  0,
+  [_Met, _TS, _CT, _DR],
+  [[() => MetricCategoryMetricNameList, { [_xN]: _Metr }], [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], 2], 1
+];
+export var CreateMetricCategoryResult$: StaticStructureSchema = [3, n0, _CMCRr,
+  0,
+  [_MCe],
+  [[() => MetricCategory$, { [_eQN]: `MetricCategory`
+  , [_xN]: _mC }]]
+];
 export var CreateNatGatewayRequest$: StaticStructureSchema = [3, n0, _CNGR,
   0,
   [_AMv, _AIl, _CT, _DR, _SIu, _VI, _AZAv, _TS, _CTon, _PIAr, _SAI, _SPIA, _SPIAC],
@@ -12381,12 +12425,12 @@ export var CustomTagKeyValueResponsePair$: StaticStructureSchema = [3, n0, _CTKV
 ];
 export var DataQuery$: StaticStructureSchema = [3, n0, _DQ,
   0,
-  [_I, _S, _D, _Met, _Stat, _Per],
+  [_I, _S, _D, _Metr, _Stat, _Per],
   [0, 0, 0, 0, 0, 0]
 ];
 export var DataResponse$: StaticStructureSchema = [3, n0, _DRa,
   0,
-  [_I, _S, _D, _Met, _Stat, _Per, _MPe],
+  [_I, _S, _D, _Metr, _Stat, _Per, _MPe],
   [[0, { [_eQN]: `Id`
   , [_xN]: _i }], [0, { [_eQN]: `Source`
   , [_xN]: _so }], [0, { [_eQN]: `Destination`
@@ -12863,6 +12907,17 @@ export var DeleteManagedPrefixListResult$: StaticStructureSchema = [3, n0, _DMPL
   [_PL],
   [[() => ManagedPrefixList$, { [_eQN]: `PrefixList`
   , [_xN]: _pL }]]
+];
+export var DeleteMetricCategoryRequest$: StaticStructureSchema = [3, n0, _DMCR,
+  0,
+  [_MCI, _DR],
+  [0, 2], 1
+];
+export var DeleteMetricCategoryResult$: StaticStructureSchema = [3, n0, _DMCRe,
+  0,
+  [_MCI],
+  [[0, { [_eQN]: `MetricCategoryId`
+  , [_xN]: _mCI }]]
 ];
 export var DeleteNatGatewayRequest$: StaticStructureSchema = [3, n0, _DNGR,
   0,
@@ -14873,6 +14928,18 @@ export var DescribeManagedPrefixListsResult$: StaticStructureSchema = [3, n0, _D
   , [_xN]: _nTe }], [() => ManagedPrefixListSet, { [_eQN]: `PrefixListSet`
   , [_xN]: _pLS }]]
 ];
+export var DescribeMetricCategoriesRequest$: StaticStructureSchema = [3, n0, _DMCRes,
+  0,
+  [_MCIe, _Fi, _MR, _NTe, _DR],
+  [[() => MetricCategoryIdList, { [_xN]: _MCI }], [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
+];
+export var DescribeMetricCategoriesResult$: StaticStructureSchema = [3, n0, _DMCResc,
+  0,
+  [_MCet, _NTe],
+  [[() => MetricCategoryList, { [_eQN]: `MetricCategorySet`
+  , [_xN]: _mCS }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
+];
 export var DescribeMovingAddressesRequest$: StaticStructureSchema = [3, n0, _DMAR,
   0,
   [_DR, _PIu, _NTe, _Fi, _MR],
@@ -16199,7 +16266,7 @@ export var DisableApplicationStatusCheckSuppressionResult$: StaticStructureSchem
 ];
 export var DisableAwsNetworkPerformanceMetricSubscriptionRequest$: StaticStructureSchema = [3, n0, _DANPMSRi,
   0,
-  [_S, _D, _Met, _Stat, _DR],
+  [_S, _D, _Metr, _Stat, _DR],
   [0, 0, 0, 0, 2]
 ];
 export var DisableAwsNetworkPerformanceMetricSubscriptionResult$: StaticStructureSchema = [3, n0, _DANPMSRis,
@@ -16947,7 +17014,7 @@ export var EnableApplicationStatusCheckSuppressionResult$: StaticStructureSchema
 ];
 export var EnableAwsNetworkPerformanceMetricSubscriptionRequest$: StaticStructureSchema = [3, n0, _EANPMSR,
   0,
-  [_S, _D, _Met, _Stat, _DR],
+  [_S, _D, _Metr, _Stat, _DR],
   [0, 0, 0, 0, 2]
 ];
 export var EnableAwsNetworkPerformanceMetricSubscriptionResult$: StaticStructureSchema = [3, n0, _EANPMSRn,
@@ -17302,7 +17369,7 @@ export var Explanation$: StaticStructureSchema = [3, n0, _Ex,
   , [_xN]: _lBTGS }], [1, { [_eQN]: `LoadBalancerTargetPort`
   , [_xN]: _lBTP }], [() => AnalysisComponent$, { [_eQN]: `ElasticLoadBalancerListener`
   , [_xN]: _eLBL }], [0, { [_eQN]: `MissingComponent`
-  , [_xN]: _mC }], [() => AnalysisComponent$, { [_eQN]: `NatGateway`
+  , [_xN]: _mCi }], [() => AnalysisComponent$, { [_eQN]: `NatGateway`
   , [_xN]: _nG }], [() => AnalysisComponent$, { [_eQN]: `NetworkInterface`
   , [_xN]: _nIe }], [0, { [_eQN]: `PacketField`
   , [_xN]: _pF }], [() => AnalysisComponent$, { [_eQN]: `VpcPeeringConnection`
@@ -21137,14 +21204,15 @@ export var LaunchTemplatePrivateDnsNameOptionsRequest$: StaticStructureSchema = 
 ];
 export var LaunchTemplatesMonitoring$: StaticStructureSchema = [3, n0, _LTM,
   0,
-  [_En],
+  [_En, _MCIe],
   [[2, { [_eQN]: `Enabled`
-  , [_xN]: _en }]]
+  , [_xN]: _en }], [() => MetricCategoryIdList, { [_eQN]: `MetricCategoryIdSet`
+  , [_xN]: _mCIS }]]
 ];
 export var LaunchTemplatesMonitoringRequest$: StaticStructureSchema = [3, n0, _LTMR,
   0,
-  [_En],
-  [2]
+  [_En, _MCIe],
+  [2, [() => MetricCategoryIdList, { [_xN]: _MCI }]]
 ];
 export var LaunchTemplateSpecification$: StaticStructureSchema = [3, n0, _LTS,
   0,
@@ -21514,6 +21582,14 @@ export var MemoryMiBRequest$: StaticStructureSchema = [3, n0, _MMBR,
   [_M, _Ma],
   [1, 1], 1
 ];
+export var MetricCategory$: StaticStructureSchema = [3, n0, _MCe,
+  0,
+  [_MCI, _Met, _T],
+  [[0, { [_eQN]: `MetricCategoryId`
+  , [_xN]: _mCI }], [() => MetricCategoryMetricNameList, { [_eQN]: `MetricSet`
+  , [_xN]: _mSe }], [() => TagList, { [_eQN]: `TagSet`
+  , [_xN]: _tS }]]
+];
 export var MetricDataResult$: StaticStructureSchema = [3, n0, _MDRet,
   0,
   [_Dim, _Tim, _MVe],
@@ -21533,7 +21609,7 @@ export var MetricPoint$: StaticStructureSchema = [3, n0, _MPet,
 ];
 export var MetricValue$: StaticStructureSchema = [3, n0, _MVet,
   0,
-  [_Met, _V],
+  [_Metr, _V],
   [[0, { [_eQN]: `Metric`
   , [_xN]: _met }], [1, { [_eQN]: `Value`
   , [_xN]: _v }]]
@@ -21563,8 +21639,8 @@ export var ModificationTerms$: StaticStructureSchema = [3, n0, _MTo,
 ];
 export var ModifyAccountVpcEncryptionControlRequest$: StaticStructureSchema = [3, n0, _MAVECR,
   0,
-  [_DR, _Mo, _IG, _EOIG, _NG, _VPG, _VP, _L, _VL, _EFS],
-  [2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_DR, _Mo, _IG, _EOIG, _NG, _VPG, _VP, _L, _VL, _EFS, _GA, _AGV],
+  [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var ModifyAccountVpcEncryptionControlResult$: StaticStructureSchema = [3, n0, _MAVECRo,
   0,
@@ -22034,6 +22110,17 @@ export var ModifyManagedResourceVisibilityResult$: StaticStructureSchema = [3, n
   [[() => ManagedResourceVisibilitySettings$, { [_eQN]: `Visibility`
   , [_xN]: _vi }]]
 ];
+export var ModifyMetricCategoryRequest$: StaticStructureSchema = [3, n0, _MMCR,
+  0,
+  [_MCI, _Met, _DR],
+  [0, [() => MetricCategoryMetricNameList, { [_xN]: _Metr }], 2], 2
+];
+export var ModifyMetricCategoryResult$: StaticStructureSchema = [3, n0, _MMCRo,
+  0,
+  [_MCe],
+  [[() => MetricCategory$, { [_eQN]: `MetricCategory`
+  , [_xN]: _mC }]]
+];
 export var ModifyNetworkInterfaceAttributeRequest$: StaticStructureSchema = [3, n0, _MNIAR,
   0,
   [_NII, _ESS, _EPI, _CTS, _APIAss, _ASI, _DR, _De, _SDC, _G, _Att],
@@ -22418,8 +22505,8 @@ export var ModifyVpcBlockPublicAccessOptionsResult$: StaticStructureSchema = [3,
 ];
 export var ModifyVpcEncryptionControlRequest$: StaticStructureSchema = [3, n0, _MVECR,
   0,
-  [_VECI, _DR, _Mo, _IGE, _EOIGE, _NGE, _VPGE, _VPE, _LEam, _VLE, _EFSE],
-  [0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0], 1
+  [_VECI, _DR, _Mo, _IGE, _EOIGE, _NGE, _VPGE, _VPE, _LEam, _VLE, _EFSE, _GAE, _AGVE],
+  [0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var ModifyVpcEncryptionControlResult$: StaticStructureSchema = [3, n0, _MVECRo,
   0,
@@ -22569,14 +22656,15 @@ export var ModifyVpnTunnelOptionsSpecification$: StaticStructureSchema = [3, n0,
 ];
 export var Monitoring$: StaticStructureSchema = [3, n0, _Mon,
   0,
-  [_St],
-  [[0, { [_eQN]: `State`
+  [_MCIe, _St],
+  [[() => MetricCategoryIdList, { [_eQN]: `MetricCategoryIdSet`
+  , [_xN]: _mCIS }], [0, { [_eQN]: `State`
   , [_xN]: _st }]]
 ];
 export var MonitorInstancesRequest$: StaticStructureSchema = [3, n0, _MIRon,
   0,
-  [_IIn, _DR],
-  [[() => InstanceIdStringList, { [_xN]: _II }], [2, { [_eQN]: `DryRun`
+  [_IIn, _MCIe, _DR],
+  [[() => InstanceIdStringList, { [_xN]: _II }], [() => MetricCategoryIdList, { [_xN]: _MCI }], [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }]], 1
 ];
 export var MonitorInstancesResult$: StaticStructureSchema = [3, n0, _MIRoni,
@@ -23274,7 +23362,7 @@ export var Placement$: StaticStructureSchema = [3, n0, _Pla,
 ];
 export var PlacementGroup$: StaticStructureSchema = [3, n0, _PG,
   0,
-  [_GN, _St, _Str, _PCa, _GIr, _T, _GA, _SLp, _LGIi, _Op, _PGI],
+  [_GN, _St, _Str, _PCa, _GIr, _T, _GAr, _SLp, _LGIi, _Op, _PGI],
   [[0, { [_eQN]: `GroupName`
   , [_xN]: _gN }], [0, { [_eQN]: `State`
   , [_xN]: _st }], [0, { [_eQN]: `Strategy`
@@ -23282,7 +23370,7 @@ export var PlacementGroup$: StaticStructureSchema = [3, n0, _PG,
   , [_xN]: _pCa }], [0, { [_eQN]: `GroupId`
   , [_xN]: _gIr }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [0, { [_eQN]: `GroupArn`
-  , [_xN]: _gA }], [0, { [_eQN]: `SpreadLevel`
+  , [_xN]: _gAr }], [0, { [_eQN]: `SpreadLevel`
   , [_xN]: _sLp }], [0, { [_eQN]: `LinkedGroupId`
   , [_xN]: _lGIi }], [() => OperatorResponse$, { [_eQN]: `Operator`
   , [_xN]: _ope }], [0, { [_eQN]: `ParentGroupId`
@@ -24004,7 +24092,7 @@ export var RequestIpamResourceTag$: StaticStructureSchema = [3, n0, _RIRT,
 export var RequestLaunchTemplateData$: StaticStructureSchema = [3, n0, _RLTD,
   0,
   [_KI, _EO, _IIP, _BDMl, _NIet, _IIm, _IT, _KN, _Mon, _Pla, _RDI, _DAT, _IISB, _UDs, _TS, _EGSlas, _EIAl, _SGIe, _SGe, _IMOns, _CSr, _CO, _CRSa, _LSi, _HO, _MO, _EOn, _IR, _PDNO, _MOa, _DASi, _Op, _NPO, _SIec],
-  [0, 2, () => LaunchTemplateIamInstanceProfileSpecificationRequest$, [() => LaunchTemplateBlockDeviceMappingRequestList, { [_xN]: _BDM }], [() => LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList, { [_xN]: _NIe }], 0, 0, 0, () => LaunchTemplatesMonitoringRequest$, () => LaunchTemplatePlacementRequest$, 0, 2, 0, [() => SensitiveUserData, 0], [() => LaunchTemplateTagSpecificationRequestList, { [_xN]: _TSa }], [() => ElasticGpuSpecificationList, { [_xN]: _EGSla }], [() => LaunchTemplateElasticInferenceAcceleratorList, { [_xN]: _EIA }], [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => SecurityGroupStringList, { [_xN]: _SGec }], () => LaunchTemplateInstanceMarketOptionsRequest$, () => CreditSpecificationRequest$, () => LaunchTemplateCpuOptionsRequest$, () => LaunchTemplateCapacityReservationSpecificationRequest$, [() => LaunchTemplateLicenseSpecificationListRequest, { [_xN]: _LSic }], () => LaunchTemplateHibernationOptionsRequest$, () => LaunchTemplateInstanceMetadataOptionsRequest$, () => LaunchTemplateEnclaveOptionsRequest$, [() => InstanceRequirementsRequest$, 0], () => LaunchTemplatePrivateDnsNameOptionsRequest$, () => LaunchTemplateInstanceMaintenanceOptionsRequest$, 2, () => OperatorRequest$, () => LaunchTemplateNetworkPerformanceOptionsRequest$, [() => LaunchTemplateInstanceSecondaryInterfaceSpecificationRequestList, { [_xN]: _SIeco }]]
+  [0, 2, () => LaunchTemplateIamInstanceProfileSpecificationRequest$, [() => LaunchTemplateBlockDeviceMappingRequestList, { [_xN]: _BDM }], [() => LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList, { [_xN]: _NIe }], 0, 0, 0, [() => LaunchTemplatesMonitoringRequest$, 0], () => LaunchTemplatePlacementRequest$, 0, 2, 0, [() => SensitiveUserData, 0], [() => LaunchTemplateTagSpecificationRequestList, { [_xN]: _TSa }], [() => ElasticGpuSpecificationList, { [_xN]: _EGSla }], [() => LaunchTemplateElasticInferenceAcceleratorList, { [_xN]: _EIA }], [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => SecurityGroupStringList, { [_xN]: _SGec }], () => LaunchTemplateInstanceMarketOptionsRequest$, () => CreditSpecificationRequest$, () => LaunchTemplateCpuOptionsRequest$, () => LaunchTemplateCapacityReservationSpecificationRequest$, [() => LaunchTemplateLicenseSpecificationListRequest, { [_xN]: _LSic }], () => LaunchTemplateHibernationOptionsRequest$, () => LaunchTemplateInstanceMetadataOptionsRequest$, () => LaunchTemplateEnclaveOptionsRequest$, [() => InstanceRequirementsRequest$, 0], () => LaunchTemplatePrivateDnsNameOptionsRequest$, () => LaunchTemplateInstanceMaintenanceOptionsRequest$, 2, () => OperatorRequest$, () => LaunchTemplateNetworkPerformanceOptionsRequest$, [() => LaunchTemplateInstanceSecondaryInterfaceSpecificationRequestList, { [_xN]: _SIeco }]]
 ];
 export var RequestSpotFleetRequest$: StaticStructureSchema = [3, n0, _RSFR,
   0,
@@ -24675,9 +24763,9 @@ export var RuleOption$: StaticStructureSchema = [3, n0, _ROu,
 ];
 export var RunInstancesMonitoringEnabled$: StaticStructureSchema = [3, n0, _RIME,
   0,
-  [_En],
+  [_En, _MCIe],
   [[2, { [_eQN]: `Enabled`
-  , [_xN]: _en }]], 1
+  , [_xN]: _en }], [() => MetricCategoryIdList, { [_xN]: _MCI }]], 1
 ];
 export var RunInstancesRequest$: StaticStructureSchema = [3, n0, _RIRu,
   0,
@@ -25654,7 +25742,7 @@ export var SubnetIpv6CidrBlockAssociation$: StaticStructureSchema = [3, n0, _SIC
 ];
 export var Subscription$: StaticStructureSchema = [3, n0, _Subs,
   0,
-  [_S, _D, _Met, _Stat, _Per],
+  [_S, _D, _Metr, _Stat, _Per],
   [[0, { [_eQN]: `Source`
   , [_xN]: _so }], [0, { [_eQN]: `Destination`
   , [_xN]: _d }], [0, { [_eQN]: `Metric`
@@ -26502,8 +26590,8 @@ export var UnlockSnapshotResult$: StaticStructureSchema = [3, n0, _USRn,
 ];
 export var UnmonitorInstancesRequest$: StaticStructureSchema = [3, n0, _UIR,
   0,
-  [_IIn, _DR],
-  [[() => InstanceIdStringList, { [_xN]: _II }], [2, { [_eQN]: `DryRun`
+  [_IIn, _MCIe, _DR],
+  [[() => InstanceIdStringList, { [_xN]: _II }], [() => MetricCategoryIdList, { [_xN]: _MCI }], [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }]], 1
 ];
 export var UnmonitorInstancesResult$: StaticStructureSchema = [3, n0, _UIRn,
@@ -27201,8 +27289,8 @@ export var VpcEncryptionControl$: StaticStructureSchema = [3, n0, _VEC,
 ];
 export var VpcEncryptionControlConfiguration$: StaticStructureSchema = [3, n0, _VECC,
   0,
-  [_Mo, _IGE, _EOIGE, _NGE, _VPGE, _VPE, _LEam, _VLE, _EFSE],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0], 1
+  [_Mo, _IGE, _EOIGE, _NGE, _VPGE, _VPE, _LEam, _VLE, _EFSE, _GAE, _AGVE],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var VpcEncryptionControlExclusion$: StaticStructureSchema = [3, n0, _VECE,
   0,
@@ -27213,7 +27301,7 @@ export var VpcEncryptionControlExclusion$: StaticStructureSchema = [3, n0, _VECE
 ];
 export var VpcEncryptionControlExclusions$: StaticStructureSchema = [3, n0, _VECEp,
   0,
-  [_IG, _EOIG, _NG, _VPG, _VP, _L, _VL, _EFS],
+  [_IG, _EOIG, _NG, _VPG, _VP, _L, _VL, _EFS, _GA, _AGV],
   [[() => VpcEncryptionControlExclusion$, { [_eQN]: `InternetGateway`
   , [_xN]: _iG }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `EgressOnlyInternetGateway`
   , [_xN]: _eOIG }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `NatGateway`
@@ -27222,7 +27310,9 @@ export var VpcEncryptionControlExclusions$: StaticStructureSchema = [3, n0, _VEC
   , [_xN]: _vP }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `Lambda`
   , [_xN]: _l }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `VpcLattice`
   , [_xN]: _vL }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `ElasticFileSystem`
-  , [_xN]: _eFS }]]
+  , [_xN]: _eFS }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `GlobalAccelerator`
+  , [_xN]: _gA }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `ApiGatewayV2`
+  , [_xN]: _aGV }]]
 ];
 export var VpcEncryptionNonCompliantResource$: StaticStructureSchema = [3, n0, _VENCR,
   0,
@@ -29101,6 +29191,18 @@ var MediaDeviceInfoList: StaticListSchema = [1, n0, _MDIL,
   0, [() => MediaDeviceInfo$,
     { [_xN]: _it }]
 ];
+var MetricCategoryIdList: StaticListSchema = [1, n0, _MCIL,
+  0, [0,
+    { [_xN]: _it }]
+];
+var MetricCategoryList: StaticListSchema = [1, n0, _MCL,
+  0, [() => MetricCategory$,
+    { [_xN]: _it }]
+];
+var MetricCategoryMetricNameList: StaticListSchema = [1, n0, _MCMNL,
+  0, [0,
+    { [_xN]: _it }]
+];
 var MetricDataResultSet: StaticListSchema = [1, n0, _MDRS,
   0, [() => MetricDataResult$,
     { [_xN]: _it }]
@@ -30886,6 +30988,9 @@ export var CreateMacSystemIntegrityProtectionModificationTask$: StaticOperationS
 export var CreateManagedPrefixList$: StaticOperationSchema = [9, n0, _CMPL,
   0, () => CreateManagedPrefixListRequest$, () => CreateManagedPrefixListResult$
 ];
+export var CreateMetricCategory$: StaticOperationSchema = [9, n0, _CMCr,
+  0, () => CreateMetricCategoryRequest$, () => CreateMetricCategoryResult$
+];
 export var CreateNatGateway$: StaticOperationSchema = [9, n0, _CNG,
   0, () => CreateNatGatewayRequest$, () => CreateNatGatewayResult$
 ];
@@ -31182,6 +31287,9 @@ export var DeleteLocalGatewayVirtualInterfaceGroup$: StaticOperationSchema = [9,
 ];
 export var DeleteManagedPrefixList$: StaticOperationSchema = [9, n0, _DMPL,
   0, () => DeleteManagedPrefixListRequest$, () => DeleteManagedPrefixListResult$
+];
+export var DeleteMetricCategory$: StaticOperationSchema = [9, n0, _DMC,
+  0, () => DeleteMetricCategoryRequest$, () => DeleteMetricCategoryResult$
 ];
 export var DeleteNatGateway$: StaticOperationSchema = [9, n0, _DNG,
   0, () => DeleteNatGatewayRequest$, () => DeleteNatGatewayResult$
@@ -31692,6 +31800,9 @@ export var DescribeMacModificationTasks$: StaticOperationSchema = [9, n0, _DMMT,
 ];
 export var DescribeManagedPrefixLists$: StaticOperationSchema = [9, n0, _DMPLe,
   0, () => DescribeManagedPrefixListsRequest$, () => DescribeManagedPrefixListsResult$
+];
+export var DescribeMetricCategories$: StaticOperationSchema = [9, n0, _DMCe,
+  0, () => DescribeMetricCategoriesRequest$, () => DescribeMetricCategoriesResult$
 ];
 export var DescribeMovingAddresses$: StaticOperationSchema = [9, n0, _DMA,
   0, () => DescribeMovingAddressesRequest$, () => DescribeMovingAddressesResult$
@@ -32598,6 +32709,9 @@ export var ModifyManagedPrefixList$: StaticOperationSchema = [9, n0, _MMPL,
 ];
 export var ModifyManagedResourceVisibility$: StaticOperationSchema = [9, n0, _MMRV,
   0, () => ModifyManagedResourceVisibilityRequest$, () => ModifyManagedResourceVisibilityResult$
+];
+export var ModifyMetricCategory$: StaticOperationSchema = [9, n0, _MMC,
+  0, () => ModifyMetricCategoryRequest$, () => ModifyMetricCategoryResult$
 ];
 export var ModifyNetworkInterfaceAttribute$: StaticOperationSchema = [9, n0, _MNIA,
   0, () => ModifyNetworkInterfaceAttributeRequest$, () => __Unit

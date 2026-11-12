@@ -38,6 +38,9 @@ export interface UnmonitorInstancesCommandOutput extends UnmonitorInstancesResul
  *   InstanceIds: [ // InstanceIdStringList // required
  *     "STRING_VALUE",
  *   ],
+ *   MetricCategoryIds: [ // MetricCategoryIdList
+ *     "STRING_VALUE",
+ *   ],
  *   DryRun: true || false,
  * };
  * const command = new UnmonitorInstancesCommand(input);
@@ -47,6 +50,9 @@ export interface UnmonitorInstancesCommandOutput extends UnmonitorInstancesResul
  * //     { // InstanceMonitoring
  * //       InstanceId: "STRING_VALUE",
  * //       Monitoring: { // Monitoring
+ * //         MetricCategoryIds: [ // MetricCategoryIdList
+ * //           "STRING_VALUE",
+ * //         ],
  * //         State: "disabled" || "disabling" || "enabled" || "pending",
  * //       },
  * //     },

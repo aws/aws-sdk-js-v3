@@ -70,6 +70,8 @@ export interface DeleteVpcEncryptionControlCommandOutput extends DeleteVpcEncryp
  * //       Lambda: "<VpcEncryptionControlExclusion>",
  * //       VpcLattice: "<VpcEncryptionControlExclusion>",
  * //       ElasticFileSystem: "<VpcEncryptionControlExclusion>",
+ * //       GlobalAccelerator: "<VpcEncryptionControlExclusion>",
+ * //       ApiGatewayV2: "<VpcEncryptionControlExclusion>",
  * //     },
  * //     Tags: [ // TagList
  * //       { // Tag

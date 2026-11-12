@@ -2,14 +2,14 @@ POST https://ec2.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 14587
+content-length: 14710
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
 host: ec2.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 8d2c218874c2ce54795b0cb22799912d4611e5a856cd5114635dcb93e7461da6
+x-amz-content-sha256: 9823a3ed27ea9e1bcb0716bece267460adac44d974dddc103abe1c0142ae89e6
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -77,6 +77,9 @@ Ipv6Address.3.IsPrimaryIpv6=false&
 KernelId=__KernelId__&
 KeyName=__KeyName__&
 Monitoring.Enabled=false&
+Monitoring.MetricCategoryId.1=__member__&
+Monitoring.MetricCategoryId.2=__member__&
+Monitoring.MetricCategoryId.3=__member__&
 Placement.AvailabilityZoneId=__AvailabilityZoneId__&
 Placement.Affinity=__Affinity__&
 Placement.GroupName=__GroupName__&

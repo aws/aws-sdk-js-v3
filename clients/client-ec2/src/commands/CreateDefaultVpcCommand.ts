@@ -102,6 +102,8 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * //         Lambda: "<VpcEncryptionControlExclusion>",
  * //         VpcLattice: "<VpcEncryptionControlExclusion>",
  * //         ElasticFileSystem: "<VpcEncryptionControlExclusion>",
+ * //         GlobalAccelerator: "<VpcEncryptionControlExclusion>",
+ * //         ApiGatewayV2: "<VpcEncryptionControlExclusion>",
  * //       },
  * //       Tags: [ // TagList
  * //         { // Tag

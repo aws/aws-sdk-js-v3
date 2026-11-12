@@ -2,14 +2,14 @@ POST https://ec2.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 14280
+content-length: 14463
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
 host: ec2.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: d8359e86f1e6b6216a7a9fc7efb99d6f1f36294b24fc14cc1bc9ab448fd8857a
+x-amz-content-sha256: 3b220afadd88da2dee0c9a8892968e750bb555a83ccc87239f3f2981add2fdda
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -78,6 +78,9 @@ LaunchSpecification.InstanceType=__InstanceType__&
 LaunchSpecification.KernelId=__KernelId__&
 LaunchSpecification.KeyName=__KeyName__&
 LaunchSpecification.Monitoring.Enabled=false&
+LaunchSpecification.Monitoring.MetricCategoryId.1=__member__&
+LaunchSpecification.Monitoring.MetricCategoryId.2=__member__&
+LaunchSpecification.Monitoring.MetricCategoryId.3=__member__&
 LaunchSpecification.NetworkInterface.1.AssociatePublicIpAddress=false&
 LaunchSpecification.NetworkInterface.1.DeleteOnTermination=false&
 LaunchSpecification.NetworkInterface.1.Description=__Description__&

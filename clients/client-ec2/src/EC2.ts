@@ -575,6 +575,11 @@ import {
   CreateManagedPrefixListCommand,
 } from "./commands/CreateManagedPrefixListCommand";
 import {
+  type CreateMetricCategoryCommandInput,
+  type CreateMetricCategoryCommandOutput,
+  CreateMetricCategoryCommand,
+} from "./commands/CreateMetricCategoryCommand";
+import {
   type CreateNatGatewayCommandInput,
   type CreateNatGatewayCommandOutput,
   CreateNatGatewayCommand,
@@ -1065,6 +1070,11 @@ import {
   type DeleteManagedPrefixListCommandOutput,
   DeleteManagedPrefixListCommand,
 } from "./commands/DeleteManagedPrefixListCommand";
+import {
+  type DeleteMetricCategoryCommandInput,
+  type DeleteMetricCategoryCommandOutput,
+  DeleteMetricCategoryCommand,
+} from "./commands/DeleteMetricCategoryCommand";
 import {
   type DeleteNatGatewayCommandInput,
   type DeleteNatGatewayCommandOutput,
@@ -1911,6 +1921,11 @@ import {
   type DescribeManagedPrefixListsCommandOutput,
   DescribeManagedPrefixListsCommand,
 } from "./commands/DescribeManagedPrefixListsCommand";
+import {
+  type DescribeMetricCategoriesCommandInput,
+  type DescribeMetricCategoriesCommandOutput,
+  DescribeMetricCategoriesCommand,
+} from "./commands/DescribeMetricCategoriesCommand";
 import {
   type DescribeMovingAddressesCommandInput,
   type DescribeMovingAddressesCommandOutput,
@@ -3422,6 +3437,11 @@ import {
   ModifyManagedResourceVisibilityCommand,
 } from "./commands/ModifyManagedResourceVisibilityCommand";
 import {
+  type ModifyMetricCategoryCommandInput,
+  type ModifyMetricCategoryCommandOutput,
+  ModifyMetricCategoryCommand,
+} from "./commands/ModifyMetricCategoryCommand";
+import {
   type ModifyNetworkInterfaceAttributeCommandInput,
   type ModifyNetworkInterfaceAttributeCommandOutput,
   ModifyNetworkInterfaceAttributeCommand,
@@ -4149,6 +4169,7 @@ import {
 import { paginateDescribeMacHosts } from "./pagination/DescribeMacHostsPaginator";
 import { paginateDescribeMacModificationTasks } from "./pagination/DescribeMacModificationTasksPaginator";
 import { paginateDescribeManagedPrefixLists } from "./pagination/DescribeManagedPrefixListsPaginator";
+import { paginateDescribeMetricCategories } from "./pagination/DescribeMetricCategoriesPaginator";
 import { paginateDescribeMovingAddresses } from "./pagination/DescribeMovingAddressesPaginator";
 import { paginateDescribeNatGateways } from "./pagination/DescribeNatGatewaysPaginator";
 import { paginateDescribeNetworkAcls } from "./pagination/DescribeNetworkAclsPaginator";
@@ -4456,6 +4477,7 @@ const commands = {
   CreateLocalGatewayVirtualInterfaceGroupCommand,
   CreateMacSystemIntegrityProtectionModificationTaskCommand,
   CreateManagedPrefixListCommand,
+  CreateMetricCategoryCommand,
   CreateNatGatewayCommand,
   CreateNetworkAclCommand,
   CreateNetworkAclEntryCommand,
@@ -4555,6 +4577,7 @@ const commands = {
   DeleteLocalGatewayVirtualInterfaceCommand,
   DeleteLocalGatewayVirtualInterfaceGroupCommand,
   DeleteManagedPrefixListCommand,
+  DeleteMetricCategoryCommand,
   DeleteNatGatewayCommand,
   DeleteNetworkAclCommand,
   DeleteNetworkAclEntryCommand,
@@ -4725,6 +4748,7 @@ const commands = {
   DescribeMacHostsCommand,
   DescribeMacModificationTasksCommand,
   DescribeManagedPrefixListsCommand,
+  DescribeMetricCategoriesCommand,
   DescribeMovingAddressesCommand,
   DescribeNatGatewaysCommand,
   DescribeNetworkAclsCommand,
@@ -5027,6 +5051,7 @@ const commands = {
   ModifyLocalGatewayRouteCommand,
   ModifyManagedPrefixListCommand,
   ModifyManagedResourceVisibilityCommand,
+  ModifyMetricCategoryCommand,
   ModifyNetworkInterfaceAttributeCommand,
   ModifyPrivateDnsNameOptionsCommand,
   ModifyPublicIpDnsNameOptionsCommand,
@@ -5225,6 +5250,7 @@ const paginators = {
   paginateDescribeMacHosts,
   paginateDescribeMacModificationTasks,
   paginateDescribeManagedPrefixLists,
+  paginateDescribeMetricCategories,
   paginateDescribeMovingAddresses,
   paginateDescribeNatGateways,
   paginateDescribeNetworkAcls,
@@ -7333,6 +7359,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link CreateMetricCategoryCommand}
+   */
+  createMetricCategory(
+    args: CreateMetricCategoryCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<CreateMetricCategoryCommandOutput>;
+  createMetricCategory(
+    args: CreateMetricCategoryCommandInput,
+    cb: (err: any, data?: CreateMetricCategoryCommandOutput) => void
+  ): void;
+  createMetricCategory(
+    args: CreateMetricCategoryCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: CreateMetricCategoryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateNatGatewayCommand}
    */
   createNatGateway(): Promise<CreateNatGatewayCommandOutput>;
@@ -9025,6 +9068,23 @@ export interface EC2 {
     args: DeleteManagedPrefixListCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: DeleteManagedPrefixListCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMetricCategoryCommand}
+   */
+  deleteMetricCategory(
+    args: DeleteMetricCategoryCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<DeleteMetricCategoryCommandOutput>;
+  deleteMetricCategory(
+    args: DeleteMetricCategoryCommandInput,
+    cb: (err: any, data?: DeleteMetricCategoryCommandOutput) => void
+  ): void;
+  deleteMetricCategory(
+    args: DeleteMetricCategoryCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: DeleteMetricCategoryCommandOutput) => void
   ): void;
 
   /**
@@ -12006,6 +12066,24 @@ export interface EC2 {
     args: DescribeManagedPrefixListsCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: DescribeManagedPrefixListsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMetricCategoriesCommand}
+   */
+  describeMetricCategories(): Promise<DescribeMetricCategoriesCommandOutput>;
+  describeMetricCategories(
+    args: DescribeMetricCategoriesCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<DescribeMetricCategoriesCommandOutput>;
+  describeMetricCategories(
+    args: DescribeMetricCategoriesCommandInput,
+    cb: (err: any, data?: DescribeMetricCategoriesCommandOutput) => void
+  ): void;
+  describeMetricCategories(
+    args: DescribeMetricCategoriesCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: DescribeMetricCategoriesCommandOutput) => void
   ): void;
 
   /**
@@ -17262,6 +17340,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link ModifyMetricCategoryCommand}
+   */
+  modifyMetricCategory(
+    args: ModifyMetricCategoryCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<ModifyMetricCategoryCommandOutput>;
+  modifyMetricCategory(
+    args: ModifyMetricCategoryCommandInput,
+    cb: (err: any, data?: ModifyMetricCategoryCommandOutput) => void
+  ): void;
+  modifyMetricCategory(
+    args: ModifyMetricCategoryCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: ModifyMetricCategoryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyNetworkInterfaceAttributeCommand}
    */
   modifyNetworkInterfaceAttribute(
@@ -20181,6 +20276,17 @@ export interface EC2 {
     args?: DescribeManagedPrefixListsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeManagedPrefixListsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMetricCategoriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMetricCategoriesCommandOutput}.
+   */
+  paginateDescribeMetricCategories(
+    args?: DescribeMetricCategoriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMetricCategoriesCommandOutput>;
 
   /**
    * @see {@link DescribeMovingAddressesCommand}

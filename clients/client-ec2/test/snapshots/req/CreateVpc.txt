@@ -2,14 +2,14 @@ POST https://ec2.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 1142
+content-length: 1290
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
 host: ec2.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 1eb846c6b85d65786ecc23ccf343892f428823245a0e9ae400f5dbd2c4fd8271
+x-amz-content-sha256: 50b76fbedb98db7b00f6a0dc3a33c571ddc08826f9fb76efa27329d8438b3346
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -32,6 +32,8 @@ VpcEncryptionControl.VpcPeeringExclusion=__VpcPeeringExclusion__&
 VpcEncryptionControl.LambdaExclusion=__LambdaExclusion__&
 VpcEncryptionControl.VpcLatticeExclusion=__VpcLatticeExclusion__&
 VpcEncryptionControl.ElasticFileSystemExclusion=__ElasticFileSystemExclusion__&
+VpcEncryptionControl.GlobalAcceleratorExclusion=__GlobalAcceleratorExclusion__&
+VpcEncryptionControl.ApiGatewayV2Exclusion=__ApiGatewayV2Exclusion__&
 TagSpecification.1.ResourceType=__ResourceType__&
 TagSpecification.2.ResourceType=__ResourceType__&
 TagSpecification.3.ResourceType=__ResourceType__&

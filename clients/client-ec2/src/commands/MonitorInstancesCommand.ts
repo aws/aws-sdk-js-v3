@@ -39,6 +39,9 @@ export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, _
  *   InstanceIds: [ // InstanceIdStringList // required
  *     "STRING_VALUE",
  *   ],
+ *   MetricCategoryIds: [ // MetricCategoryIdList
+ *     "STRING_VALUE",
+ *   ],
  *   DryRun: true || false,
  * };
  * const command = new MonitorInstancesCommand(input);
@@ -48,6 +51,9 @@ export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, _
  * //     { // InstanceMonitoring
  * //       InstanceId: "STRING_VALUE",
  * //       Monitoring: { // Monitoring
+ * //         MetricCategoryIds: [ // MetricCategoryIdList
+ * //           "STRING_VALUE",
+ * //         ],
  * //         State: "disabled" || "disabling" || "enabled" || "pending",
  * //       },
  * //     },

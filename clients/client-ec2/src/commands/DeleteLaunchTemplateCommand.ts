@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DeleteLaunchTemplateRequest } from "../models/models_2";
-import type { DeleteLaunchTemplateResult } from "../models/models_3";
+import type { DeleteLaunchTemplateRequest, DeleteLaunchTemplateResult } from "../models/models_3";
 import { DeleteLaunchTemplate$ } from "../schemas/schemas_0";
 
 /**

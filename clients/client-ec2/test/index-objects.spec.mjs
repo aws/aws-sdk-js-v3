@@ -700,6 +700,10 @@ import {
   CreateManagedPrefixListCommand,
   CreateManagedPrefixListRequest$,
   CreateManagedPrefixListResult$,
+  CreateMetricCategory$,
+  CreateMetricCategoryCommand,
+  CreateMetricCategoryRequest$,
+  CreateMetricCategoryResult$,
   CreateNatGateway$,
   CreateNatGatewayCommand,
   CreateNatGatewayRequest$,
@@ -1127,6 +1131,10 @@ import {
   DeleteManagedPrefixListCommand,
   DeleteManagedPrefixListRequest$,
   DeleteManagedPrefixListResult$,
+  DeleteMetricCategory$,
+  DeleteMetricCategoryCommand,
+  DeleteMetricCategoryRequest$,
+  DeleteMetricCategoryResult$,
   DeleteNatGateway$,
   DeleteNatGatewayCommand,
   DeleteNatGatewayRequest$,
@@ -1800,6 +1808,10 @@ import {
   DescribeManagedPrefixListsCommand,
   DescribeManagedPrefixListsRequest$,
   DescribeManagedPrefixListsResult$,
+  DescribeMetricCategories$,
+  DescribeMetricCategoriesCommand,
+  DescribeMetricCategoriesRequest$,
+  DescribeMetricCategoriesResult$,
   DescribeMovingAddresses$,
   DescribeMovingAddressesCommand,
   DescribeMovingAddressesRequest$,
@@ -3384,6 +3396,7 @@ import {
   MemoryMiBRequest$,
   MetadataDefaultHttpTokensState,
   Metric,
+  MetricCategory$,
   MetricDataResult$,
   MetricPoint$,
   MetricType,
@@ -3556,6 +3569,10 @@ import {
   ModifyManagedResourceVisibilityCommand,
   ModifyManagedResourceVisibilityRequest$,
   ModifyManagedResourceVisibilityResult$,
+  ModifyMetricCategory$,
+  ModifyMetricCategoryCommand,
+  ModifyMetricCategoryRequest$,
+  ModifyMetricCategoryResult$,
   ModifyNetworkInterfaceAttribute$,
   ModifyNetworkInterfaceAttributeCommand,
   ModifyNetworkInterfaceAttributeRequest$,
@@ -3889,6 +3906,7 @@ import {
   paginateDescribeMacHosts,
   paginateDescribeMacModificationTasks,
   paginateDescribeManagedPrefixLists,
+  paginateDescribeMetricCategories,
   paginateDescribeMovingAddresses,
   paginateDescribeNatGateways,
   paginateDescribeNetworkAcls,
@@ -5154,6 +5172,8 @@ assert(typeof CreateMacSystemIntegrityProtectionModificationTaskCommand === "fun
 assert(typeof CreateMacSystemIntegrityProtectionModificationTask$ === "object");
 assert(typeof CreateManagedPrefixListCommand === "function");
 assert(typeof CreateManagedPrefixList$ === "object");
+assert(typeof CreateMetricCategoryCommand === "function");
+assert(typeof CreateMetricCategory$ === "object");
 assert(typeof CreateNatGatewayCommand === "function");
 assert(typeof CreateNatGateway$ === "object");
 assert(typeof CreateNetworkAclCommand === "function");
@@ -5352,6 +5372,8 @@ assert(typeof DeleteLocalGatewayVirtualInterfaceGroupCommand === "function");
 assert(typeof DeleteLocalGatewayVirtualInterfaceGroup$ === "object");
 assert(typeof DeleteManagedPrefixListCommand === "function");
 assert(typeof DeleteManagedPrefixList$ === "object");
+assert(typeof DeleteMetricCategoryCommand === "function");
+assert(typeof DeleteMetricCategory$ === "object");
 assert(typeof DeleteNatGatewayCommand === "function");
 assert(typeof DeleteNatGateway$ === "object");
 assert(typeof DeleteNetworkAclCommand === "function");
@@ -5692,6 +5714,8 @@ assert(typeof DescribeMacModificationTasksCommand === "function");
 assert(typeof DescribeMacModificationTasks$ === "object");
 assert(typeof DescribeManagedPrefixListsCommand === "function");
 assert(typeof DescribeManagedPrefixLists$ === "object");
+assert(typeof DescribeMetricCategoriesCommand === "function");
+assert(typeof DescribeMetricCategories$ === "object");
 assert(typeof DescribeMovingAddressesCommand === "function");
 assert(typeof DescribeMovingAddresses$ === "object");
 assert(typeof DescribeNatGatewaysCommand === "function");
@@ -6296,6 +6320,8 @@ assert(typeof ModifyManagedPrefixListCommand === "function");
 assert(typeof ModifyManagedPrefixList$ === "object");
 assert(typeof ModifyManagedResourceVisibilityCommand === "function");
 assert(typeof ModifyManagedResourceVisibility$ === "object");
+assert(typeof ModifyMetricCategoryCommand === "function");
+assert(typeof ModifyMetricCategory$ === "object");
 assert(typeof ModifyNetworkInterfaceAttributeCommand === "function");
 assert(typeof ModifyNetworkInterfaceAttribute$ === "object");
 assert(typeof ModifyPrivateDnsNameOptionsCommand === "function");
@@ -6925,6 +6951,8 @@ assert(typeof CreateMacSystemIntegrityProtectionModificationTaskRequest$ === "ob
 assert(typeof CreateMacSystemIntegrityProtectionModificationTaskResult$ === "object");
 assert(typeof CreateManagedPrefixListRequest$ === "object");
 assert(typeof CreateManagedPrefixListResult$ === "object");
+assert(typeof CreateMetricCategoryRequest$ === "object");
+assert(typeof CreateMetricCategoryResult$ === "object");
 assert(typeof CreateNatGatewayRequest$ === "object");
 assert(typeof CreateNatGatewayResult$ === "object");
 assert(typeof CreateNetworkAclEntryRequest$ === "object");
@@ -7145,6 +7173,8 @@ assert(typeof DeleteLocalGatewayVirtualInterfaceRequest$ === "object");
 assert(typeof DeleteLocalGatewayVirtualInterfaceResult$ === "object");
 assert(typeof DeleteManagedPrefixListRequest$ === "object");
 assert(typeof DeleteManagedPrefixListResult$ === "object");
+assert(typeof DeleteMetricCategoryRequest$ === "object");
+assert(typeof DeleteMetricCategoryResult$ === "object");
 assert(typeof DeleteNatGatewayRequest$ === "object");
 assert(typeof DeleteNatGatewayResult$ === "object");
 assert(typeof DeleteNetworkAclEntryRequest$ === "object");
@@ -7477,6 +7507,8 @@ assert(typeof DescribeMacModificationTasksRequest$ === "object");
 assert(typeof DescribeMacModificationTasksResult$ === "object");
 assert(typeof DescribeManagedPrefixListsRequest$ === "object");
 assert(typeof DescribeManagedPrefixListsResult$ === "object");
+assert(typeof DescribeMetricCategoriesRequest$ === "object");
+assert(typeof DescribeMetricCategoriesResult$ === "object");
 assert(typeof DescribeMovingAddressesRequest$ === "object");
 assert(typeof DescribeMovingAddressesResult$ === "object");
 assert(typeof DescribeNatGatewaysRequest$ === "object");
@@ -8359,6 +8391,7 @@ assert(typeof MemoryGiBPerVCpuRequest$ === "object");
 assert(typeof MemoryInfo$ === "object");
 assert(typeof MemoryMiB$ === "object");
 assert(typeof MemoryMiBRequest$ === "object");
+assert(typeof MetricCategory$ === "object");
 assert(typeof MetricDataResult$ === "object");
 assert(typeof MetricPoint$ === "object");
 assert(typeof MetricValue$ === "object");
@@ -8445,6 +8478,8 @@ assert(typeof ModifyManagedPrefixListRequest$ === "object");
 assert(typeof ModifyManagedPrefixListResult$ === "object");
 assert(typeof ModifyManagedResourceVisibilityRequest$ === "object");
 assert(typeof ModifyManagedResourceVisibilityResult$ === "object");
+assert(typeof ModifyMetricCategoryRequest$ === "object");
+assert(typeof ModifyMetricCategoryResult$ === "object");
 assert(typeof ModifyNetworkInterfaceAttributeRequest$ === "object");
 assert(typeof ModifyPrivateDnsNameOptionsRequest$ === "object");
 assert(typeof ModifyPrivateDnsNameOptionsResult$ === "object");
@@ -9748,6 +9783,7 @@ assert(typeof paginateDescribeLocalGateways === "function");
 assert(typeof paginateDescribeMacHosts === "function");
 assert(typeof paginateDescribeMacModificationTasks === "function");
 assert(typeof paginateDescribeManagedPrefixLists === "function");
+assert(typeof paginateDescribeMetricCategories === "function");
 assert(typeof paginateDescribeMovingAddresses === "function");
 assert(typeof paginateDescribeNatGateways === "function");
 assert(typeof paginateDescribeNetworkAcls === "function");

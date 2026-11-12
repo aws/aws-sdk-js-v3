@@ -44,8 +44,7 @@ export interface GetFlowLogsIntegrationTemplateCommandOutput extends GetFlowLogs
  *          <note>
  *             <p>
  *                <code>GetFlowLogsIntegrationTemplate</code> does not support integration between
- *                     Amazon Web Services Transit Gateway Flow Logs or Amazon Web Services Cloud WAN Flow Logs
- *                     and Amazon Athena.</p>
+ *                     Amazon Web Services Transit Gateway Flow Logs and Amazon Athena.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

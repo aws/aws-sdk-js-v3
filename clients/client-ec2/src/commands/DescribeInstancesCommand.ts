@@ -358,6 +358,9 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * //           RamdiskId: "STRING_VALUE",
  * //           Platform: "Windows",
  * //           Monitoring: { // Monitoring
+ * //             MetricCategoryIds: [ // MetricCategoryIdList
+ * //               "STRING_VALUE",
+ * //             ],
  * //             State: "disabled" || "disabling" || "enabled" || "pending",
  * //           },
  * //           SubnetId: "STRING_VALUE",

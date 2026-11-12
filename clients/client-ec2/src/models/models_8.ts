@@ -45,6 +45,8 @@ import type {
   PortRange,
   RouteTableAssociationState,
   TagSpecification,
+  TransitGatewayClientVpnAttachment,
+  TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
@@ -72,6 +74,170 @@ import type {
 } from "./models_5";
 import type { CapacityManagerMonitoredTagKey } from "./models_6";
 import type { CapacityReservationSpecification, EnclaveOptionsRequest, InstanceMonitoring } from "./models_7";
+
+/**
+ * @public
+ */
+export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
+   */
+  TransitGatewayMulticastDomainId: string | undefined;
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   * @public
+   */
+  GroupIpAddress?: string | undefined;
+
+  /**
+   * <p>The group sources' network interface IDs to register with the  transit gateway multicast group.</p>
+   * @public
+   */
+  NetworkInterfaceIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the members registered with the  transit gateway multicast group.</p>
+ * @public
+ */
+export interface TransitGatewayMulticastRegisteredGroupSources {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
+   */
+  TransitGatewayMulticastDomainId?: string | undefined;
+
+  /**
+   * <p>The IDs of the network interfaces members registered with the  transit gateway multicast group.</p>
+   * @public
+   */
+  RegisteredNetworkInterfaceIds?: string[] | undefined;
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   * @public
+   */
+  GroupIpAddress?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterTransitGatewayMulticastGroupSourcesResult {
+  /**
+   * <p>Information about the  transit gateway multicast group sources.</p>
+   * @public
+   */
+  RegisteredMulticastGroupSources?: TransitGatewayMulticastRegisteredGroupSources | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectCapacityReservationBillingOwnershipRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the Capacity Reservation for which to reject the request.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectCapacityReservationBillingOwnershipResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectTransitGatewayClientVpnAttachmentRequest {
+  /**
+   * <p>The ID of the Transit Gateway attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectTransitGatewayClientVpnAttachmentResult {
+  /**
+   * <p>Information about the Transit Gateway Client VPN attachment.</p>
+   * @public
+   */
+  TransitGatewayClientVpnAttachment?: TransitGatewayClientVpnAttachment | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectTransitGatewayMulticastDomainAssociationsRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
+   */
+  TransitGatewayMulticastDomainId?: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectTransitGatewayMulticastDomainAssociationsResult {
+  /**
+   * <p>Information about the multicast domain associations.</p>
+   * @public
+   */
+  Associations?: TransitGatewayMulticastDomainAssociations | undefined;
+}
 
 /**
  * @public
@@ -4541,6 +4707,15 @@ export interface UnmonitorInstancesRequest {
    * @public
    */
   InstanceIds: string[] | undefined;
+
+  /**
+   * <p>The IDs of the metric categories to remove from the instances. If you specify
+   *             metric categories, only those metric categories are removed and detailed monitoring
+   *             remains enabled. If you don't specify metric categories, detailed monitoring and all
+   *             metric categories are turned off.</p>
+   * @public
+   */
+  MetricCategoryIds?: string[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the operation, without actually making the

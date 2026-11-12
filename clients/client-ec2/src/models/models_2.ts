@@ -30,6 +30,7 @@ import type {
   IpAddressType,
   Ipv6SupportValue,
   MulticastSupportValue,
+  NetworkInterfaceCreationType,
   NetworkInterfacePermissionStateCode,
   NetworkInterfaceStatus,
   NetworkInterfaceType,
@@ -127,13 +128,14 @@ import type {
   VpcPeeringConnection,
 } from "./models_0";
 import type {
-  AttachmentEnaSrdUdpSpecification,
   CarrierGateway,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,
   CoipPool,
+  ConnectionTrackingSpecificationRequest,
   Ec2InstanceConnectEndpoint,
+  InstanceIpv6Address,
   Ipam,
   IpamExternalResourceVerificationToken,
   IpamInternetRegistryAssociation,
@@ -143,12 +145,254 @@ import type {
   IpamPrefixListResolverTarget,
   IpamResourceDiscovery,
   IpamScope,
-  NetworkInterfaceAssociation,
+  Ipv4PrefixSpecificationRequest,
+  Ipv6PrefixSpecificationRequest,
   OperatorRequest,
+  PrivateIpAddressSpecification,
   Subnet,
   Vpc,
   VpcEncryptionControl,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateNetworkInterfaceRequest {
+  /**
+   * <p>The IPv4 prefixes assigned to the network interface.</p>
+   *          <p>You can't specify IPv4 prefixes if you've specified one of the following: a count of
+   *             IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4
+   *             addresses.</p>
+   * @public
+   */
+  Ipv4Prefixes?: Ipv4PrefixSpecificationRequest[] | undefined;
+
+  /**
+   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the
+   *             network interface.</p>
+   *          <p>You can't specify a count of IPv4 prefixes if you've specified one of the following:
+   *             specific IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4
+   *             addresses.</p>
+   * @public
+   */
+  Ipv4PrefixCount?: number | undefined;
+
+  /**
+   * <p>The IPv6 prefixes assigned to the network interface.</p>
+   *          <p>You can't specify IPv6 prefixes if you've specified one of the following: a count of
+   *             IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.</p>
+   * @public
+   */
+  Ipv6Prefixes?: Ipv6PrefixSpecificationRequest[] | undefined;
+
+  /**
+   * <p>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the
+   *             network interface.</p>
+   *          <p>You can't specify a count of IPv6 prefixes if you've specified one of the following:
+   *             specific IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.</p>
+   * @public
+   */
+  Ipv6PrefixCount?: number | undefined;
+
+  /**
+   * <p>The type of network interface. The default is <code>interface</code>.</p>
+   *          <p>If you specify <code>efa-only</code>, do not assign any IP addresses to the network
+   *             interface. EFA-only network interfaces do not support IP addresses.</p>
+   *          <p>The only supported values are <code>interface</code>, <code>efa</code>,
+   *                 <code>efa-only</code>, and <code>trunk</code>.</p>
+   * @public
+   */
+  InterfaceType?: NetworkInterfaceCreationType | undefined;
+
+  /**
+   * <p>The tags to apply to the new network interface.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>If you’re creating a network interface in a dual-stack or IPv6-only subnet, you have
+   *             the option to assign a primary IPv6 IP address. A primary IPv6 address is an IPv6 GUA
+   *             address associated with an ENI that you have enabled to use a primary IPv6 address. Use
+   *             this option if the instance that this ENI will be attached to relies on its IPv6 address
+   *             not changing. Amazon Web Services will automatically assign an IPv6 address associated
+   *             with the ENI attached to your instance to be the primary IPv6 address. Once you enable
+   *             an IPv6 GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6
+   *             GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6
+   *             address until the instance is terminated or the network interface is detached. If you
+   *             have multiple IPv6 addresses associated with an ENI attached to your instance and you
+   *             enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI
+   *             becomes the primary IPv6 address.</p>
+   * @public
+   */
+  EnablePrimaryIpv6?: boolean | undefined;
+
+  /**
+   * <p>A connection tracking specification for the network interface.</p>
+   * @public
+   */
+  ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest | undefined;
+
+  /**
+   * <p>Reserved for internal use.</p>
+   * @public
+   */
+  Operator?: OperatorRequest | undefined;
+
+  /**
+   * <p>The ID of the subnet to associate with the network interface.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>A description for the network interface.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The primary private IPv4 address of the network interface. If you don't specify an
+   *             IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you
+   *             specify an IP address, you cannot indicate any IP addresses specified in
+   *                 <code>privateIpAddresses</code> as primary (only one IP address can be designated as
+   *             primary).</p>
+   * @public
+   */
+  PrivateIpAddress?: string | undefined;
+
+  /**
+   * <p>The IDs of the security groups.</p>
+   * @public
+   */
+  Groups?: string[] | undefined;
+
+  /**
+   * <p>The private IPv4 addresses.</p>
+   *          <p>You can't specify private IPv4 addresses if you've specified one of the following: a
+   *             count of private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4
+   *             prefixes.</p>
+   * @public
+   */
+  PrivateIpAddresses?: PrivateIpAddressSpecification[] | undefined;
+
+  /**
+   * <p>The number of secondary private IPv4 addresses to assign to a network interface. When
+   *             you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses
+   *             within the subnet's IPv4 CIDR range. You can't specify this option and specify more than
+   *             one private IP address using <code>privateIpAddresses</code>.</p>
+   *          <p>You can't specify a count of private IPv4 addresses if you've specified one of the
+   *             following: specific private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4
+   *             prefixes.</p>
+   * @public
+   */
+  SecondaryPrivateIpAddressCount?: number | undefined;
+
+  /**
+   * <p>The IPv6 addresses from the IPv6 CIDR block range of your subnet.</p>
+   *          <p>You can't specify IPv6 addresses using this parameter if you've specified one of the
+   *             following: a count of IPv6 addresses, specific IPv6 prefixes, or a count of IPv6
+   *             prefixes.</p>
+   * @public
+   */
+  Ipv6Addresses?: InstanceIpv6Address[] | undefined;
+
+  /**
+   * <p>The number of IPv6 addresses to assign to a network interface. Amazon EC2
+   *             automatically selects the IPv6 addresses from the subnet range.</p>
+   *          <p>You can't specify a count of IPv6 addresses using this parameter if you've specified
+   *             one of the following: specific IPv6 addresses, specific IPv6 prefixes, or a count of
+   *             IPv6 prefixes.</p>
+   *          <p>If your subnet has the <code>AssignIpv6AddressOnCreation</code> attribute set, you can
+   *             override that setting by specifying 0 as the IPv6 address count.</p>
+   * @public
+   */
+  Ipv6AddressCount?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes association information for an Elastic IP address (IPv4 only), or a Carrier
+ *             IP address (for a network interface which resides in a subnet in a Wavelength
+ *             Zone).</p>
+ * @public
+ */
+export interface NetworkInterfaceAssociation {
+  /**
+   * <p>The allocation ID.</p>
+   * @public
+   */
+  AllocationId?: string | undefined;
+
+  /**
+   * <p>The association ID.</p>
+   * @public
+   */
+  AssociationId?: string | undefined;
+
+  /**
+   * <p>The ID of the Elastic IP address owner.</p>
+   * @public
+   */
+  IpOwnerId?: string | undefined;
+
+  /**
+   * <p>The public DNS name.</p>
+   * @public
+   */
+  PublicDnsName?: string | undefined;
+
+  /**
+   * <p>The address of the Elastic IP address bound to the network interface.</p>
+   * @public
+   */
+  PublicIp?: string | undefined;
+
+  /**
+   * <p>The customer-owned IP address associated with the network interface.</p>
+   * @public
+   */
+  CustomerOwnedIp?: string | undefined;
+
+  /**
+   * <p>The carrier IP address associated with the network interface.</p>
+   *          <p>This option is only available when the network interface is in a subnet which is
+   *             associated with a Wavelength Zone.</p>
+   * @public
+   */
+  CarrierIp?: string | undefined;
+}
+
+/**
+ * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic
+ * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
+ * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
+ * 			applications. For UDP traffic, you can specify whether to use ENA Express, based on your application
+ * 			environment needs.</p>
+ * @public
+ */
+export interface AttachmentEnaSrdUdpSpecification {
+  /**
+   * <p>Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting,
+   * 			you must first enable ENA Express.</p>
+   * @public
+   */
+  EnaSrdUdpEnabled?: boolean | undefined;
+}
 
 /**
  * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
@@ -7177,6 +7421,18 @@ export interface VpcEncryptionControlConfiguration {
    * @public
    */
   ElasticFileSystemExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude AWS Global Accelerator traffic from encryption enforcement.</p>
+   * @public
+   */
+  GlobalAcceleratorExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude Amazon API Gateway V2 traffic from encryption enforcement.</p>
+   * @public
+   */
+  ApiGatewayV2Exclusion?: VpcEncryptionControlExclusionStateInput | undefined;
 }
 
 /**
@@ -10771,76 +11027,4 @@ export interface DeleteIpamScopeResult {
    * @public
    */
   IpamScope?: IpamScope | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteKeyPairRequest {
-  /**
-   * <p>The name of the key pair.</p>
-   * @public
-   */
-  KeyName?: string | undefined;
-
-  /**
-   * <p>The ID of the key pair.</p>
-   * @public
-   */
-  KeyPairId?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteKeyPairResult {
-  /**
-   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-
-  /**
-   * <p>The ID of the key pair.</p>
-   * @public
-   */
-  KeyPairId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLaunchTemplateRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the launch template name, but not
-   *             both.</p>
-   * @public
-   */
-  LaunchTemplateId?: string | undefined;
-
-  /**
-   * <p>The name of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the launch template name, but not
-   *             both.</p>
-   * @public
-   */
-  LaunchTemplateName?: string | undefined;
 }

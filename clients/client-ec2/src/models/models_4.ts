@@ -26,9 +26,11 @@ import type {
   EnaSupport,
   EphemeralNvmeSupport,
   EventCode,
+  FastSnapshotRestoreStateCode,
   FindingsFound,
   FleetActivityStatus,
   FleetCapacityReservationUsageStrategy,
+  FleetEventType,
   FleetExcessCapacityTerminationPolicy,
   FleetOnDemandAllocationStrategy,
   FleetReplacementStrategy,
@@ -122,7 +124,6 @@ import type {
   IpamResourceDiscoveryAssociation,
   OperatorResponse,
   PathComponent,
-  ReservedInstancesListing,
   Tag,
 } from "./models_0";
 import type {
@@ -153,6 +154,7 @@ import type {
   LocalGatewayVirtualInterfaceGroup,
   MacModificationTask,
   ManagedPrefixList,
+  MetricCategory,
   NatGateway,
   NetworkAcl,
   NetworkInsightsAccessScope,
@@ -168,7 +170,340 @@ import type {
   PlacementGroup,
   ReplaceRootVolumeTask,
 } from "./models_2";
-import type { Byoasn, Filter, HistoryRecordEntry, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+import type { Byoasn, Filter, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+
+/**
+ * <p>Describes fast snapshot restores for a snapshot.</p>
+ * @public
+ */
+export interface DescribeFastSnapshotRestoreSuccessItem {
+  /**
+   * <p>The ID of the snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The state of fast snapshot restores.</p>
+   * @public
+   */
+  State?: FastSnapshotRestoreStateCode | undefined;
+
+  /**
+   * <p>The reason for the state transition. The possible values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Client.UserInitiated</code> - The state successfully transitioned to <code>enabling</code> or
+   *           <code>disabling</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Client.UserInitiated - Lifecycle state transition</code> - The state successfully transitioned
+   *           to <code>optimizing</code>, <code>enabled</code>, or <code>disabled</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StateTransitionReason?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
+   * @public
+   */
+  OwnerAlias?: string | undefined;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
+   * @public
+   */
+  EnablingTime?: Date | undefined;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
+   * @public
+   */
+  OptimizingTime?: Date | undefined;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
+   * @public
+   */
+  EnabledTime?: Date | undefined;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
+   * @public
+   */
+  DisablingTime?: Date | undefined;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>disabled</code> state.</p>
+   * @public
+   */
+  DisabledTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFastSnapshotRestoresResult {
+  /**
+   * <p>Information about the state of fast snapshot restores.</p>
+   * @public
+   */
+  FastSnapshotRestores?: DescribeFastSnapshotRestoreSuccessItem[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFleetHistoryRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The type of events to describe. By default, all events are described.</p>
+   * @public
+   */
+  EventType?: FleetEventType | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The ID of the EC2 Fleet.</p>
+   * @public
+   */
+  FleetId: string | undefined;
+
+  /**
+   * <p>The start date and time for the events, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+}
+
+/**
+ * <p>Describes an EC2 Fleet or Spot Fleet event.</p>
+ * @public
+ */
+export interface EventInformation {
+  /**
+   * <p>The description of the event.</p>
+   * @public
+   */
+  EventDescription?: string | undefined;
+
+  /**
+   * <p>The event.</p>
+   *          <p>
+   *             <code>error</code> events:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>iamFleetRoleInvalid</code> - The EC2 Fleet or Spot Fleet does not have the required
+   *                permissions either to launch or terminate an instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>allLaunchSpecsTemporarilyBlacklisted</code> - None of the configurations
+   *                are valid, and several attempts to launch instances have failed. For more
+   *                information, see the description of the event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>spotInstanceCountLimitExceeded</code> - You've reached the limit on the
+   *                number of Spot Instances that you can launch.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>spotFleetRequestConfigurationInvalid</code> - The configuration is not
+   *                valid. For more information, see the description of the event.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <code>fleetRequestChange</code> events:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>active</code> - The EC2 Fleet or Spot Fleet request has been validated and Amazon EC2 is
+   *                attempting to maintain the target number of running instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deleted</code> (EC2 Fleet) / <code>cancelled</code> (Spot Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is canceled and has no running
+   *                instances. The EC2 Fleet or Spot Fleet will be deleted two days after its instances are
+   *                terminated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deleted_running</code> (EC2 Fleet) / <code>cancelled_running</code> (Spot Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is canceled and does
+   *                not launch additional instances. Its existing instances continue to run until
+   *                they are interrupted or terminated. The request remains in this state until all
+   *                instances are interrupted or terminated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deleted_terminating</code> (EC2 Fleet) / <code>cancelled_terminating</code> (Spot Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is canceled and
+   *                its instances are terminating. The request remains in this state until all
+   *                instances are terminated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expired</code> - The EC2 Fleet or Spot Fleet request has expired. If the request was
+   *                created with <code>TerminateInstancesWithExpiration</code> set, a subsequent
+   *                <code>terminated</code> event indicates that the instances are
+   *                terminated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modify_in_progress</code> - The EC2 Fleet or Spot Fleet request is being modified.
+   *                The request remains in this state until the modification is fully
+   *                processed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modify_succeeded</code> - The EC2 Fleet or Spot Fleet request was modified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>submitted</code> - The EC2 Fleet or Spot Fleet request is being evaluated and Amazon EC2
+   *                is preparing to launch the target number of instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>progress</code> - The EC2 Fleet or Spot Fleet request is in the process of being fulfilled.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <code>instanceChange</code> events:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>launched</code> - A new instance was launched.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>terminated</code> - An instance was terminated by the user.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>termination_notified</code> - An instance termination notification was
+   *                sent when a Spot Instance was terminated by Amazon EC2 during scale-down, when the target
+   *                capacity of the fleet was modified down, for example, from a target capacity of
+   *                4 to a target capacity of 3.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <code>Information</code> events:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>fleetProgressHalted</code> - The price in every launch specification is
+   *                not valid because it is below the Spot price (all the launch specifications have
+   *                produced <code>launchSpecUnusable</code> events). A launch specification might
+   *                become valid if the Spot price changes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>launchSpecTemporarilyBlacklisted</code> - The configuration is not valid
+   *                and several attempts to launch instances have failed. For more information, see
+   *                the description of the event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>launchSpecUnusable</code> - The price specified in a launch specification
+   *                is not valid because it is below the Spot price for the requested Spot pools.</p>
+   *                <p>Note: Even if a fleet with the <code>maintain</code> request type is in the process
+   *                of being canceled, it may still publish a <code>launchSpecUnusable</code> event. This
+   *                does not mean that the canceled fleet is attempting to launch a new instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>registerWithLoadBalancersFailed</code> - An attempt to register
+   *                instances with load balancers failed. For more information, see the description
+   *                of the event.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EventSubType?: string | undefined;
+
+  /**
+   * <p>The ID of the instance. This information is available only for
+   *          <code>instanceChange</code> events.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+}
+
+/**
+ * <p>Describes an event in the history of an EC2 Fleet.</p>
+ * @public
+ */
+export interface HistoryRecordEntry {
+  /**
+   * <p>Information about the event.</p>
+   * @public
+   */
+  EventInformation?: EventInformation | undefined;
+
+  /**
+   * <p>The event type.</p>
+   * @public
+   */
+  EventType?: FleetEventType | undefined;
+
+  /**
+   * <p>The date and time of the event, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  Timestamp?: Date | undefined;
+}
 
 /**
  * @public
@@ -3728,7 +4063,8 @@ export interface DescribeImageUsageReportEntriesRequest {
    *             <li>
    *                <p>
    *                   <code>resource-type</code> - The resource type (<code>ec2:Instance</code> |
-   *           <code>ec2:LaunchTemplate</code>).</p>
+   *           <code>ec2:LaunchTemplate</code> | <code>imagebuilder:ImageRecipe</code> |
+   *           <code>imagebuilder:ContainerRecipe</code>).</p>
    *             </li>
    *          </ul>
    * @public
@@ -3759,8 +4095,8 @@ export interface DescribeImageUsageReportEntriesRequest {
  */
 export interface ImageUsageReportEntry {
   /**
-   * <p>The type of resource (<code>ec2:Instance</code> or
-   *       <code>ec2:LaunchTemplate</code>).</p>
+   * <p>The type of resource (<code>ec2:Instance</code> | <code>ec2:LaunchTemplate</code> |
+   *       <code>imagebuilder:ImageRecipe</code> | <code>imagebuilder:ContainerRecipe</code>).</p>
    * @public
    */
   ResourceType?: string | undefined;
@@ -3909,7 +4245,8 @@ export interface ImageUsageResourceTypeOption {
 export interface ImageUsageResourceType {
   /**
    * <p>The resource type.</p>
-   *          <p>Valid values: <code>ec2:Instance</code> | <code>ec2:LaunchTemplate</code>
+   *          <p>Valid values: <code>ec2:Instance</code> | <code>ec2:LaunchTemplate</code> |
+   *       <code>imagebuilder:ImageRecipe</code> | <code>imagebuilder:ContainerRecipe</code>
    *          </p>
    * @public
    */
@@ -6367,6 +6704,12 @@ export interface InstanceMetadataOptionsResponse {
  * @public
  */
 export interface Monitoring {
+  /**
+   * <p>The IDs of the metric categories that are associated with the instance.</p>
+   * @public
+   */
+  MetricCategoryIds?: string[] | undefined;
+
   /**
    * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
    *             enabled.</p>
@@ -12013,6 +12356,70 @@ export interface DescribeManagedPrefixListsResult {
 /**
  * @public
  */
+export interface DescribeMetricCategoriesRequest {
+  /**
+   * <p>The IDs of the metric categories. If you specify IDs,
+   *             you can't specify <code>MaxResults</code> or <code>NextToken</code>.</p>
+   * @public
+   */
+  MetricCategoryIds?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>metric-name</code> - The name of a metric in the metric
+   *                     category.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>Valid range: 5 - 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeMetricCategoriesResult {
+  /**
+   * <p>Information about the metric categories.</p>
+   * @public
+   */
+  MetricCategories?: MetricCategory[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeMovingAddressesRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -14183,236 +14590,4 @@ export interface ReservedInstances {
    * @public
    */
   State?: ReservedInstanceState | undefined;
-}
-
-/**
- * <p>Contains the output for DescribeReservedInstances.</p>
- * @public
- */
-export interface DescribeReservedInstancesResult {
-  /**
-   * <p>A list of Reserved Instances.</p>
-   * @public
-   */
-  ReservedInstances?: ReservedInstances[] | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeReservedInstancesListings.</p>
- * @public
- */
-export interface DescribeReservedInstancesListingsRequest {
-  /**
-   * <p>One or more Reserved Instance IDs.</p>
-   * @public
-   */
-  ReservedInstancesId?: string | undefined;
-
-  /**
-   * <p>One or more Reserved Instance listing IDs.</p>
-   * @public
-   */
-  ReservedInstancesListingId?: string | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances
-   *           listing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> |
-   *             <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status-message</code> - The reason for the status.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeReservedInstancesListings.</p>
- * @public
- */
-export interface DescribeReservedInstancesListingsResult {
-  /**
-   * <p>Information about the Reserved Instance listing.</p>
-   * @public
-   */
-  ReservedInstancesListings?: ReservedInstancesListing[] | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeReservedInstancesModifications.</p>
- * @public
- */
-export interface DescribeReservedInstancesModificationsRequest {
-  /**
-   * <p>IDs for the submitted modification request.</p>
-   * @public
-   */
-  ReservedInstancesModificationIds?: string[] | undefined;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>client-token</code> - The idempotency token for the modification request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>create-date</code> - The time when the modification request was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>effective-date</code> - The time when the modification becomes effective.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.reserved-instances-id</code> - The ID for the Reserved Instances
-   *           created as part of the modification request. This ID is only available when the status of
-   *           the modification is <code>fulfilled</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.target-configuration.availability-zone</code> - The Availability
-   *           Zone for the new Reserved Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.target-configuration.availability-zone-id</code> - The ID of the
-   *           Availability Zone for the new Reserved Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.target-configuration.instance-count </code> - The number of new
-   *           Reserved Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.target-configuration.instance-type</code> - The instance type of
-   *           the new Reserved Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instances modified.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-modification-id</code> - The ID of the modification
-   *           request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status</code> - The status of the Reserved Instances modification request
-   *             (<code>processing</code> | <code>fulfilled</code> | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status-message</code> - The reason for the status.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>update-date</code> - The time when the modification request was last updated.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Describes the configuration settings for the modified Reserved Instances.</p>
- * @public
- */
-export interface ReservedInstancesConfiguration {
-  /**
-   * <p>The Availability Zone for the modified Reserved Instances.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The number of modified Reserved Instances.</p>
-   *          <note>
-   *             <p>This is a required field for a request.</p>
-   *          </note>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The instance type for the modified Reserved Instances.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The network platform of the modified Reserved Instances.</p>
-   * @public
-   */
-  Platform?: string | undefined;
-
-  /**
-   * <p>Whether the Reserved Instance is applied to instances in a Region or instances in a
-   *       specific Availability Zone.</p>
-   * @public
-   */
-  Scope?: Scope | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-}
-
-/**
- * <p>Describes the modification request/s.</p>
- * @public
- */
-export interface ReservedInstancesModificationResult {
-  /**
-   * <p>The ID for the Reserved Instances that were created as part of the modification request.
-   *       This field is only available when the modification is fulfilled.</p>
-   * @public
-   */
-  ReservedInstancesId?: string | undefined;
-
-  /**
-   * <p>The target Reserved Instances configurations supplied as part of the modification
-   *       request.</p>
-   * @public
-   */
-  TargetConfiguration?: ReservedInstancesConfiguration | undefined;
-}
-
-/**
- * <p>Describes the ID of a Reserved Instance.</p>
- * @public
- */
-export interface ReservedInstancesId {
-  /**
-   * <p>The ID of the Reserved Instance.</p>
-   * @public
-   */
-  ReservedInstancesId?: string | undefined;
 }

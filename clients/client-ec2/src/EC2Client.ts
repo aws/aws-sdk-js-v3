@@ -435,6 +435,10 @@ import type {
   CreateManagedPrefixListCommandInput,
   CreateManagedPrefixListCommandOutput,
 } from "./commands/CreateManagedPrefixListCommand";
+import type {
+  CreateMetricCategoryCommandInput,
+  CreateMetricCategoryCommandOutput,
+} from "./commands/CreateMetricCategoryCommand";
 import type { CreateNatGatewayCommandInput, CreateNatGatewayCommandOutput } from "./commands/CreateNatGatewayCommand";
 import type { CreateNetworkAclCommandInput, CreateNetworkAclCommandOutput } from "./commands/CreateNetworkAclCommand";
 import type {
@@ -768,6 +772,10 @@ import type {
   DeleteManagedPrefixListCommandInput,
   DeleteManagedPrefixListCommandOutput,
 } from "./commands/DeleteManagedPrefixListCommand";
+import type {
+  DeleteMetricCategoryCommandInput,
+  DeleteMetricCategoryCommandOutput,
+} from "./commands/DeleteMetricCategoryCommand";
 import type { DeleteNatGatewayCommandInput, DeleteNatGatewayCommandOutput } from "./commands/DeleteNatGatewayCommand";
 import type { DeleteNetworkAclCommandInput, DeleteNetworkAclCommandOutput } from "./commands/DeleteNetworkAclCommand";
 import type {
@@ -1391,6 +1399,10 @@ import type {
   DescribeManagedPrefixListsCommandInput,
   DescribeManagedPrefixListsCommandOutput,
 } from "./commands/DescribeManagedPrefixListsCommand";
+import type {
+  DescribeMetricCategoriesCommandInput,
+  DescribeMetricCategoriesCommandOutput,
+} from "./commands/DescribeMetricCategoriesCommand";
 import type {
   DescribeMovingAddressesCommandInput,
   DescribeMovingAddressesCommandOutput,
@@ -2507,6 +2519,10 @@ import type {
   ModifyManagedResourceVisibilityCommandOutput,
 } from "./commands/ModifyManagedResourceVisibilityCommand";
 import type {
+  ModifyMetricCategoryCommandInput,
+  ModifyMetricCategoryCommandOutput,
+} from "./commands/ModifyMetricCategoryCommand";
+import type {
   ModifyNetworkInterfaceAttributeCommandInput,
   ModifyNetworkInterfaceAttributeCommandOutput,
 } from "./commands/ModifyNetworkInterfaceAttributeCommand";
@@ -3094,6 +3110,7 @@ export type ServiceInputTypes =
   | CreateLocalGatewayVirtualInterfaceGroupCommandInput
   | CreateMacSystemIntegrityProtectionModificationTaskCommandInput
   | CreateManagedPrefixListCommandInput
+  | CreateMetricCategoryCommandInput
   | CreateNatGatewayCommandInput
   | CreateNetworkAclCommandInput
   | CreateNetworkAclEntryCommandInput
@@ -3193,6 +3210,7 @@ export type ServiceInputTypes =
   | DeleteLocalGatewayVirtualInterfaceCommandInput
   | DeleteLocalGatewayVirtualInterfaceGroupCommandInput
   | DeleteManagedPrefixListCommandInput
+  | DeleteMetricCategoryCommandInput
   | DeleteNatGatewayCommandInput
   | DeleteNetworkAclCommandInput
   | DeleteNetworkAclEntryCommandInput
@@ -3363,6 +3381,7 @@ export type ServiceInputTypes =
   | DescribeMacHostsCommandInput
   | DescribeMacModificationTasksCommandInput
   | DescribeManagedPrefixListsCommandInput
+  | DescribeMetricCategoriesCommandInput
   | DescribeMovingAddressesCommandInput
   | DescribeNatGatewaysCommandInput
   | DescribeNetworkAclsCommandInput
@@ -3665,6 +3684,7 @@ export type ServiceInputTypes =
   | ModifyLocalGatewayRouteCommandInput
   | ModifyManagedPrefixListCommandInput
   | ModifyManagedResourceVisibilityCommandInput
+  | ModifyMetricCategoryCommandInput
   | ModifyNetworkInterfaceAttributeCommandInput
   | ModifyPrivateDnsNameOptionsCommandInput
   | ModifyPublicIpDnsNameOptionsCommandInput
@@ -3910,6 +3930,7 @@ export type ServiceOutputTypes =
   | CreateLocalGatewayVirtualInterfaceGroupCommandOutput
   | CreateMacSystemIntegrityProtectionModificationTaskCommandOutput
   | CreateManagedPrefixListCommandOutput
+  | CreateMetricCategoryCommandOutput
   | CreateNatGatewayCommandOutput
   | CreateNetworkAclCommandOutput
   | CreateNetworkAclEntryCommandOutput
@@ -4009,6 +4030,7 @@ export type ServiceOutputTypes =
   | DeleteLocalGatewayVirtualInterfaceCommandOutput
   | DeleteLocalGatewayVirtualInterfaceGroupCommandOutput
   | DeleteManagedPrefixListCommandOutput
+  | DeleteMetricCategoryCommandOutput
   | DeleteNatGatewayCommandOutput
   | DeleteNetworkAclCommandOutput
   | DeleteNetworkAclEntryCommandOutput
@@ -4179,6 +4201,7 @@ export type ServiceOutputTypes =
   | DescribeMacHostsCommandOutput
   | DescribeMacModificationTasksCommandOutput
   | DescribeManagedPrefixListsCommandOutput
+  | DescribeMetricCategoriesCommandOutput
   | DescribeMovingAddressesCommandOutput
   | DescribeNatGatewaysCommandOutput
   | DescribeNetworkAclsCommandOutput
@@ -4481,6 +4504,7 @@ export type ServiceOutputTypes =
   | ModifyLocalGatewayRouteCommandOutput
   | ModifyManagedPrefixListCommandOutput
   | ModifyManagedResourceVisibilityCommandOutput
+  | ModifyMetricCategoryCommandOutput
   | ModifyNetworkInterfaceAttributeCommandOutput
   | ModifyPrivateDnsNameOptionsCommandOutput
   | ModifyPublicIpDnsNameOptionsCommandOutput

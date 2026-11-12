@@ -60,6 +60,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <elasticFileSystem>
                 __ElasticFileSystem__
             </elasticFileSystem>
+            <globalAccelerator>
+                __GlobalAccelerator__
+            </globalAccelerator>
+            <apiGatewayV2>
+                __ApiGatewayV2__
+            </apiGatewayV2>
         </exclusions>
         <managedBy>
             __ManagedBy__
@@ -84,7 +90,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       VpcPeering: "__VpcPeering__",
       Lambda: "__Lambda__",
       VpcLattice: "__VpcLattice__",
-      ElasticFileSystem: "__ElasticFileSystem__"
+      ElasticFileSystem: "__ElasticFileSystem__",
+      GlobalAccelerator: "__GlobalAccelerator__",
+      ApiGatewayV2: "__ApiGatewayV2__"
     },
     ManagedBy: "__ManagedBy__",
     LastUpdateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
