@@ -8,6 +8,11 @@ import type {
 } from "@smithy/types";
 
 import {
+  type CreateAirflowUiUrlCommandInput,
+  type CreateAirflowUiUrlCommandOutput,
+  CreateAirflowUiUrlCommand,
+} from "./commands/CreateAirflowUiUrlCommand";
+import {
   type CreateWorkflowCommandInput,
   type CreateWorkflowCommandOutput,
   CreateWorkflowCommand,
@@ -89,6 +94,7 @@ import { paginateListWorkflows } from "./pagination/ListWorkflowsPaginator";
 import { paginateListWorkflowVersions } from "./pagination/ListWorkflowVersionsPaginator";
 
 const commands = {
+  CreateAirflowUiUrlCommand,
   CreateWorkflowCommand,
   DeleteWorkflowCommand,
   GetTaskInstanceCommand,
@@ -120,6 +126,24 @@ export interface MWAAServerlessRequestOptions extends __HttpHandlerOptions {
 }
 
 export interface MWAAServerless {
+  /**
+   * @see {@link CreateAirflowUiUrlCommand}
+   */
+  createAirflowUiUrl(): Promise<CreateAirflowUiUrlCommandOutput>;
+  createAirflowUiUrl(
+    args: CreateAirflowUiUrlCommandInput,
+    options?: MWAAServerlessRequestOptions
+  ): Promise<CreateAirflowUiUrlCommandOutput>;
+  createAirflowUiUrl(
+    args: CreateAirflowUiUrlCommandInput,
+    cb: (err: any, data?: CreateAirflowUiUrlCommandOutput) => void
+  ): void;
+  createAirflowUiUrl(
+    args: CreateAirflowUiUrlCommandInput,
+    options: MWAAServerlessRequestOptions,
+    cb: (err: any, data?: CreateAirflowUiUrlCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateWorkflowCommand}
    */

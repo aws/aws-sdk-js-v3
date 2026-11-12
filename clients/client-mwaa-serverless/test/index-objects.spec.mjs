@@ -4,6 +4,10 @@ import {
   Code$,
   ConflictException,
   ConflictException$,
+  CreateAirflowUiUrl$,
+  CreateAirflowUiUrlCommand,
+  CreateAirflowUiUrlRequest$,
+  CreateAirflowUiUrlResponse$,
   CreateWorkflow$,
   CreateWorkflowCommand,
   CreateWorkflowRequest$,
@@ -110,6 +114,8 @@ import assert from "node:assert";
 assert(typeof MWAAServerlessClient === "function");
 assert(typeof MWAAServerless === "function");
 // commands
+assert(typeof CreateAirflowUiUrlCommand === "function");
+assert(typeof CreateAirflowUiUrl$ === "object");
 assert(typeof CreateWorkflowCommand === "function");
 assert(typeof CreateWorkflow$ === "object");
 assert(typeof DeleteWorkflowCommand === "function");
@@ -142,6 +148,8 @@ assert(typeof UpdateWorkflowCommand === "function");
 assert(typeof UpdateWorkflow$ === "object");
 // structural schemas
 assert(typeof Code$ === "object");
+assert(typeof CreateAirflowUiUrlRequest$ === "object");
+assert(typeof CreateAirflowUiUrlResponse$ === "object");
 assert(typeof CreateWorkflowRequest$ === "object");
 assert(typeof CreateWorkflowResponse$ === "object");
 assert(typeof DefinitionS3Location$ === "object");

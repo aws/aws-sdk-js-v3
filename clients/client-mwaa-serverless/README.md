@@ -181,6 +181,13 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CreateAirflowUiUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/CreateAirflowUiUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/CreateAirflowUiUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/CreateAirflowUiUrlCommandOutput/)
+</details>
+<details>
+<summary>
 CreateWorkflow
 </summary>
 

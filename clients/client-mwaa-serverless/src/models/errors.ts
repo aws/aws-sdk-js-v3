@@ -29,6 +29,42 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * <p>You cannot create a resource that already exists, or the resource is in a state that prevents the requested operation.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mwaaserverless#ConflictException";
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  Message: string | undefined;
+  /**
+   * <p>The unique identifier of the resource.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource.</p>
+   * @public
+   */
+  ResourceType: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+    this.ResourceId = opts.ResourceId;
+    this.ResourceType = opts.ResourceType;
+  }
+}
+
+/**
  * <p>An unexpected server-side error occurred during request processing.</p>
  * @public
  */
@@ -78,42 +114,6 @@ export class OperationTimeoutException extends __BaseException {
     });
     Object.setPrototypeOf(this, OperationTimeoutException.prototype);
     this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified resource was not found. You can only access or modify a resource that already exists.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.mwaaserverless#ResourceNotFoundException";
-  readonly name = "ResourceNotFoundException" as const;
-  readonly $fault = "client" as const;
-  Message: string | undefined;
-  /**
-   * <p>The unique identifier of the resource.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
   }
 }
 
@@ -200,12 +200,12 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>You cannot create a resource that already exists, or the resource is in a state that prevents the requested operation.</p>
+ * <p>The specified resource was not found. You can only access or modify a resource that already exists.</p>
  * @public
  */
-export class ConflictException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.mwaaserverless#ConflictException";
-  readonly name = "ConflictException" as const;
+export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mwaaserverless#ResourceNotFoundException";
+  readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
@@ -222,13 +222,13 @@ export class ConflictException extends __BaseException {
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
     super({
-      name: "ConflictException",
+      name: "ResourceNotFoundException",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, ConflictException.prototype);
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.Message = opts.Message;
     this.ResourceId = opts.ResourceId;
     this.ResourceType = opts.ResourceType;

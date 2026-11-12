@@ -1,8 +1,13 @@
 const _ADE = "AccessDeniedException";
 const _AN = "AttemptNumber";
+const _AU = "AuthorizedUrl";
+const _AUS = "AuthorizedUrlString";
 const _B = "Bucket";
 const _C = "Code";
 const _CA = "CreatedAt";
+const _CAUU = "CreateAirflowUiUrl";
+const _CAUUR = "CreateAirflowUiUrlRequest";
+const _CAUURr = "CreateAirflowUiUrlResponse";
 const _CE = "ConflictException";
 const _CEr = "CronExpression";
 const _CO = "CreatedOn";
@@ -22,6 +27,7 @@ const _Du = "Duration";
 const _E = "Environment";
 const _EA = "EndedAt";
 const _EC = "EncryptionConfiguration";
+const _EIS = "ExpiresInSeconds";
 const _EM = "ErrorMessage";
 const _EV = "EngineVersion";
 const _EVM = "EnvironmentVariablesMap";
@@ -87,8 +93,12 @@ const _S = "Status";
 const _SA = "StartedAt";
 const _SC = "ServiceCode";
 const _SCc = "ScheduleConfiguration";
+const _SDIS = "SessionDurationInSeconds";
+const _SEA = "SessionExpiresAt";
 const _SGI = "SecurityGroupIds";
-const _SI = "SubnetIds";
+const _SI = "SessionId";
+const _SIS = "SessionIdString";
+const _SIu = "SubnetIds";
 const _SL = "S3Location";
 const _SO = "StartedOn";
 const _SQEE = "ServiceQuotaExceededException";
@@ -111,6 +121,7 @@ const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _Ty = "Type";
+const _UEA = "UrlExpiresAt";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
@@ -238,7 +249,19 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var AuthorizedUrlString: StaticSimpleSchema = [0, n0, _AUS, 8, 0];
 var EnvironmentVariableValue: StaticSimpleSchema = [0, n0, _EVV, 8, 0];
+var SessionIdString: StaticSimpleSchema = [0, n0, _SIS, 8, 0];
+export var CreateAirflowUiUrlRequest$: StaticStructureSchema = [3, n0, _CAUUR,
+  0,
+  [_EIS, _SDIS],
+  [1, 1]
+];
+export var CreateAirflowUiUrlResponse$: StaticStructureSchema = [3, n0, _CAUURr,
+  0,
+  [_AU, _SI, _UEA, _SEA],
+  [[() => AuthorizedUrlString, 0], [() => SessionIdString, 0], 5, 5], 4
+];
 export var CreateWorkflowRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
   [_N, _DSL, _RAo, _CT, _C, _D, _EC, _LC, _EV, _NC, _E, _T, _TM],
@@ -361,7 +384,7 @@ export var LoggingConfiguration$: StaticStructureSchema = [3, n0, _LC,
 ];
 export var NetworkConfiguration$: StaticStructureSchema = [3, n0, _NC,
   0,
-  [_SGI, _SI],
+  [_SGI, _SIu],
   [64 | 0, 64 | 0]
 ];
 export var RunDetailSummary$: StaticStructureSchema = [3, n0, _RDS,
@@ -494,6 +517,9 @@ export var Code$: StaticUnionSchema = [4, n0, _C,
   0,
   [_SL],
   [() => S3Location$]
+];
+export var CreateAirflowUiUrl$: StaticOperationSchema = [9, n0, _CAUU,
+  { [_h]: ["POST", "/airflow-ui-url", 200] }, () => CreateAirflowUiUrlRequest$, () => CreateAirflowUiUrlResponse$
 ];
 export var CreateWorkflow$: StaticOperationSchema = [9, n0, _CW,
   { [_h]: ["POST", "/workflows", 200] }, () => CreateWorkflowRequest$, () => CreateWorkflowResponse$

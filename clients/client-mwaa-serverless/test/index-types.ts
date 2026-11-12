@@ -2,6 +2,9 @@
 export type {
   MWAAServerlessClient,
   MWAAServerless,
+  CreateAirflowUiUrlCommand,
+  CreateAirflowUiUrlCommandInput,
+  CreateAirflowUiUrlCommandOutput,
   CreateWorkflowCommand,
   CreateWorkflowCommandInput,
   CreateWorkflowCommandOutput,
@@ -55,6 +58,8 @@ export type {
   WorkflowRunStatus,
   WorkflowStatus,
   Code,
+  CreateAirflowUiUrlRequest,
+  CreateAirflowUiUrlResponse,
   CreateWorkflowRequest,
   CreateWorkflowResponse,
   DefinitionS3Location,

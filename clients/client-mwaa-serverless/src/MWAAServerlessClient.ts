@@ -54,6 +54,10 @@ import {
   defaultMWAAServerlessHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import type {
+  CreateAirflowUiUrlCommandInput,
+  CreateAirflowUiUrlCommandOutput,
+} from "./commands/CreateAirflowUiUrlCommand";
 import type { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
 import type { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
 import type { GetTaskInstanceCommandInput, GetTaskInstanceCommandOutput } from "./commands/GetTaskInstanceCommand";
@@ -93,6 +97,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateAirflowUiUrlCommandInput
   | CreateWorkflowCommandInput
   | DeleteWorkflowCommandInput
   | GetTaskInstanceCommandInput
@@ -113,6 +118,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateAirflowUiUrlCommandOutput
   | CreateWorkflowCommandOutput
   | DeleteWorkflowCommandOutput
   | GetTaskInstanceCommandOutput
