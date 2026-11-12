@@ -1,29 +1,36 @@
 // smithy-typescript generated code
 import type {
+  ActionPriority,
   ActivityType,
   AdminStatus,
+  AnalysisType,
   AssociationMode,
+  AttackPhaseName,
   AutoEnableMembers,
   CloudProvider,
   ClusterStatus,
   ConfidenceLevel,
   ContentPolicyFilterAction,
   ContentPolicyFilterType,
+  CorrelationReason,
   CoverageFilterCriterionKey,
   CoverageSortKey,
-  CoverageStatisticsType,
   CoverageStatus,
   CriterionKey,
   DataSourceStatus,
+  DefenseTactic,
   DestinationType,
   DetectionRuleConfigurationStatus,
   DetectionRuleFilterCondition,
   DetectorFeature,
   DetectorFeatureResult,
+  Disposition,
+  DistributionDimension,
   EcsClusterStatus,
   EcsLaunchType,
   FeatureAdditionalConfiguration,
   FeatureStatus,
+  FetchCriterionCondition,
   FilterAction,
   FilterFieldName,
   FindingPublishingFrequency,
@@ -32,10 +39,12 @@ import type {
   GuardrailAction,
   GuardrailSource,
   IndicatorType,
+  InvestigationDetectorFeature,
+  InvestigationIndicatorType,
+  InvestigationResourceType,
   IpSetFormat,
   KubernetesResourcesTypes,
   MalwareProtectionPlanTaggingActionStatus,
-  MalwareProtectionScanType,
   ManagedBy,
   ManagementType,
   MfaStatus,
@@ -51,13 +60,15 @@ import type {
   PublicBucketRestrictBehavior,
   PublishingStatus,
   ResourceType,
-  ScanCategory,
+  RiskLevel,
   ScanResult,
   ScanStatus,
   ScanType,
   SignalType,
+  ThreatConfidence,
   ThreatEntitySetFormat,
   ThreatIntelSetFormat,
+  TimeGranularity,
   TriggerType,
   TrustedEntitySetFormat,
 } from "./enums";
@@ -208,6 +219,234 @@ export interface Account {
    * @public
    */
   Name?: string | undefined;
+}
+
+/**
+ * <p>Contains the number of findings associated with a resource.</p>
+ * @public
+ */
+export interface AccountAffectedResource {
+  /**
+   * <p>The identifier of the resource.</p>
+   * @public
+   */
+  Identifier?: string | undefined;
+
+  /**
+   * <p>The type of the resource. Possible values are <code>EC2_INSTANCE</code>, <code>EBS_VOLUME</code>, <code>S3_BUCKET</code>, <code>IAM_ROLE</code>, <code>IAM_USER</code>, <code>IAM_ACCESS_KEY</code>, <code>LAMBDA_FUNCTION</code>, <code>EKS_CLUSTER</code>, <code>ECS_CLUSTER</code>, <code>KUBERNETES_WORKLOAD</code>, <code>RDS_INSTANCE</code>, <code>RDS_DB_USER</code>, and <code>EC2_SECURITY_GROUP</code>.</p>
+   * @public
+   */
+  Type?: InvestigationResourceType | undefined;
+
+  /**
+   * <p>The number of findings associated with the resource.</p>
+   * @public
+   */
+  FindingCount?: number | undefined;
+}
+
+/**
+ * <p>Contains the number of findings in a time window.</p>
+ * @public
+ */
+export interface TimeWindowGroup {
+  /**
+   * <p>The timestamp at which the time window starts.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the time window ends.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The number of findings in the time window.</p>
+   * @public
+   */
+  FindingCount?: number | undefined;
+}
+
+/**
+ * <p>Contains the number of findings at each severity level.</p>
+ * @public
+ */
+export interface SeverityBreakdown {
+  /**
+   * <p>The number of findings that have Critical severity.</p>
+   * @public
+   */
+  Critical?: number | undefined;
+
+  /**
+   * <p>The number of findings that have High severity.</p>
+   * @public
+   */
+  High?: number | undefined;
+
+  /**
+   * <p>The number of findings that have Medium severity.</p>
+   * @public
+   */
+  Medium?: number | undefined;
+
+  /**
+   * <p>The number of findings that have Low severity.</p>
+   * @public
+   */
+  Low?: number | undefined;
+
+  /**
+   * <p>The number of findings that have Info severity.</p>
+   * @public
+   */
+  Info?: number | undefined;
+}
+
+/**
+ * <p>Contains the number of findings of a finding type.</p>
+ * @public
+ */
+export interface FindingTypeCount {
+  /**
+   * <p>The finding type.</p>
+   * @public
+   */
+  FindingType?: string | undefined;
+
+  /**
+   * <p>The number of findings of this type.</p>
+   * @public
+   */
+  Count?: number | undefined;
+}
+
+/**
+ * <p>Contains a summary of findings.</p>
+ * @public
+ */
+export interface FindingsSummary {
+  /**
+   * <p>The total number of findings.</p>
+   * @public
+   */
+  TotalFindings?: number | undefined;
+
+  /**
+   * <p>The number of findings at each severity level.</p>
+   * @public
+   */
+  SeverityBreakdown?: SeverityBreakdown | undefined;
+
+  /**
+   * <p>The finding types that have the most findings, with counts.</p>
+   * @public
+   */
+  TopFindingTypes?: FindingTypeCount[] | undefined;
+
+  /**
+   * <p>The number of findings in each time window.</p>
+   * @public
+   */
+  ByTimeWindow?: TimeWindowGroup[] | undefined;
+}
+
+/**
+ * <p>Contains a reference to a MITRE ATT&amp;CK tactic or technique.</p>
+ * @public
+ */
+export interface ThreatReference {
+  /**
+   * <p>The name of the tactic or technique.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The MITRE ATT&amp;CK identifier of the tactic or technique, such as <code>TA0002</code> or <code>T1059.004</code>.</p>
+   * @public
+   */
+  Uid?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the findings associated with a MITRE ATT&amp;CK technique.</p>
+ * @public
+ */
+export interface TechniqueCoverage {
+  /**
+   * <p>The technique.</p>
+   * @public
+   */
+  Technique?: ThreatReference | undefined;
+
+  /**
+   * <p>The number of findings associated with the technique.</p>
+   * @public
+   */
+  FindingCount?: number | undefined;
+
+  /**
+   * <p>The finding types associated with the technique.</p>
+   * @public
+   */
+  FindingTypes?: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about the findings associated with a MITRE ATT&amp;CK tactic.</p>
+ * @public
+ */
+export interface TacticCoverage {
+  /**
+   * <p>The name of the tactic. Possible values are <code>Reconnaissance</code>, <code>Resource Development</code>, <code>Initial Access</code>, <code>Execution</code>, <code>Persistence</code>, <code>Privilege Escalation</code>, <code>Defense Evasion</code>, <code>Credential Access</code>, <code>Discovery</code>, <code>Lateral Movement</code>, <code>Collection</code>, <code>Command and Control</code>, <code>Exfiltration</code>, and <code>Impact</code>.</p>
+   * @public
+   */
+  Phase?: AttackPhaseName | undefined;
+
+  /**
+   * <p>The number of findings associated with the tactic.</p>
+   * @public
+   */
+  FindingCount?: number | undefined;
+
+  /**
+   * <p>The finding types associated with the tactic.</p>
+   * @public
+   */
+  FindingTypes?: string[] | undefined;
+
+  /**
+   * <p>The MITRE ATT&amp;CK techniques within the tactic that are associated with findings.</p>
+   * @public
+   */
+  Techniques?: TechniqueCoverage[] | undefined;
+}
+
+/**
+ * <p>Contains an analysis of the findings in an Amazon Web Services account.</p>
+ * @public
+ */
+export interface AccountAnalysis {
+  /**
+   * <p>A summary of the findings in the account.</p>
+   * @public
+   */
+  FindingsSummary?: FindingsSummary | undefined;
+
+  /**
+   * <p>The findings in the account, mapped to MITRE ATT&amp;CK tactics and techniques.</p>
+   * @public
+   */
+  TacticCoverage?: TacticCoverage[] | undefined;
+
+  /**
+   * <p>The resources in the account that are associated with findings.</p>
+   * @public
+   */
+  AffectedResources?: AccountAffectedResource[] | undefined;
 }
 
 /**
@@ -393,6 +632,102 @@ export interface AccountLevelPermissions {
 }
 
 /**
+ * <p>Contains information about the position of a member account in a ranking.</p>
+ * @public
+ */
+export interface MemberAccountRanking {
+  /**
+   * <p>The position of the account in the ranking.</p>
+   * @public
+   */
+  Rank?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the member account.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The number of findings in the account.</p>
+   * @public
+   */
+  FindingCount?: number | undefined;
+
+  /**
+   * <p>The assessed risk level of the account. Possible values are <code>Info</code>, <code>Low</code>, <code>Medium</code>, <code>High</code>, and <code>Critical</code>.</p>
+   * @public
+   */
+  RiskLevel?: RiskLevel | undefined;
+
+  /**
+   * <p>The reason for the assessed risk level.</p>
+   * @public
+   */
+  RiskRationale?: string | undefined;
+}
+
+/**
+ * <p>Contains overview information about an account, including its findings and, for an organization, its member accounts.</p>
+ * @public
+ */
+export interface AccountOverview {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The status of the account.</p>
+   * @public
+   */
+  AccountStatus?: string | undefined;
+
+  /**
+   * <p>The ID of the detector of the account.</p>
+   * @public
+   */
+  DetectorId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the detector.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The account ID of the GuardDuty delegated administrator account.</p>
+   * @public
+   */
+  DelegatedAdminAccountId?: string | undefined;
+
+  /**
+   * <p>The total number of member accounts.</p>
+   * @public
+   */
+  TotalMemberAccounts?: number | undefined;
+
+  /**
+   * <p>The total number of findings.</p>
+   * @public
+   */
+  TotalFindings?: number | undefined;
+
+  /**
+   * <p>The number of accounts that have findings.</p>
+   * @public
+   */
+  AffectedAccountCount?: number | undefined;
+
+  /**
+   * <p>A ranking of member accounts.</p>
+   * @public
+   */
+  AccountRankings?: MemberAccountRanking[] | undefined;
+}
+
+/**
  * <p>Represents a list of map of accounts with the number of findings associated with each account.</p>
  * @public
  */
@@ -414,6 +749,24 @@ export interface AccountStatistics {
    * @public
    */
   TotalFindings?: number | undefined;
+}
+
+/**
+ * <p>Contains the number of findings in an Amazon Web Services account.</p>
+ * @public
+ */
+export interface AccountSummary {
+  /**
+   * <p>The ID of the Amazon Web Services account.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The number of findings in the account.</p>
+   * @public
+   */
+  FindingCount?: number | undefined;
 }
 
 /**
@@ -1143,6 +1496,24 @@ export interface Activity {
 }
 
 /**
+ * <p>Contains the time range during which activity was observed.</p>
+ * @public
+ */
+export interface ActivityWindow {
+  /**
+   * <p>The timestamp at which the activity was first observed.</p>
+   * @public
+   */
+  FirstSeenAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the activity was last observed.</p>
+   * @public
+   */
+  LastSeenAt?: Date | undefined;
+}
+
+/**
  * <p>Contains information about a process involved in a GuardDuty finding, including process identification, execution details, and file information.</p>
  * @public
  */
@@ -1347,6 +1718,30 @@ export interface Administrator {
 }
 
 /**
+ * <p>Contains information about a resource that an action applies to.</p>
+ * @public
+ */
+export interface AffectedResource {
+  /**
+   * <p>The identifier of the resource.</p>
+   * @public
+   */
+  Identifier?: string | undefined;
+
+  /**
+   * <p>The type of the resource. Possible values are <code>EC2_INSTANCE</code>, <code>EBS_VOLUME</code>, <code>S3_BUCKET</code>, <code>IAM_ROLE</code>, <code>IAM_USER</code>, <code>IAM_ACCESS_KEY</code>, <code>LAMBDA_FUNCTION</code>, <code>EKS_CLUSTER</code>, <code>ECS_CLUSTER</code>, <code>KUBERNETES_WORKLOAD</code>, <code>RDS_INSTANCE</code>, <code>RDS_DB_USER</code>, and <code>EC2_SECURITY_GROUP</code>.</p>
+   * @public
+   */
+  Type?: InvestigationResourceType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
  * <p>Information about the installed GuardDuty security agent.</p>
  * @public
  */
@@ -1356,6 +1751,438 @@ export interface AgentDetails {
    * @public
    */
   Version?: string | undefined;
+}
+
+/**
+ * <p>Contains information about how a finding type compares with normal behavior.</p>
+ * @public
+ */
+export interface FindingTypeClassification {
+  /**
+   * <p>The finding type.</p>
+   * @public
+   */
+  FindingType?: string | undefined;
+
+  /**
+   * <p>The classification of the finding type.</p>
+   * @public
+   */
+  Classification?: string | undefined;
+
+  /**
+   * <p>The number of findings of this type.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>The percentage of findings that are of this type, from 0 to 100.</p>
+   * @public
+   */
+  Percentage?: number | undefined;
+
+  /**
+   * <p>A description of the classification.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * <p>Contains a comparison of findings against the normal behavior of an account.</p>
+ * @public
+ */
+export interface Baseline {
+  /**
+   * <p>The total number of findings.</p>
+   * @public
+   */
+  TotalFindings?: number | undefined;
+
+  /**
+   * <p>The finding types that are consistent with normal behavior.</p>
+   * @public
+   */
+  BaselineFindings?: FindingTypeClassification[] | undefined;
+
+  /**
+   * <p>The finding types that deviate from normal behavior.</p>
+   * @public
+   */
+  AnomalousFindings?: FindingTypeClassification[] | undefined;
+}
+
+/**
+ * <p>Contains information about the number of findings over time.</p>
+ * @public
+ */
+export interface Trend {
+  /**
+   * <p>The length of each time window in the trend. Possible values are <code>DAY</code>, <code>WEEK</code>, and <code>MONTH</code>.</p>
+   * @public
+   */
+  Granularity?: TimeGranularity | undefined;
+
+  /**
+   * <p>The timestamp at which the period of the trend starts.</p>
+   * @public
+   */
+  StartedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the period of the trend ends.</p>
+   * @public
+   */
+  EndedAt?: Date | undefined;
+
+  /**
+   * <p>The total number of findings in the period.</p>
+   * @public
+   */
+  TotalFindings?: number | undefined;
+
+  /**
+   * <p>The number of findings in each time window.</p>
+   * @public
+   */
+  ByTimeWindow?: TimeWindowGroup[] | undefined;
+}
+
+/**
+ * <p>Contains an analysis of the findings in an account. Either <code>Trend</code> or <code>Baseline</code> is set, depending on the <code>AnalysisType</code> of the record.</p>
+ * @public
+ */
+export interface InvestigationAccountAnalysis {
+  /**
+   * <p>The trend of findings over time. Set when <code>AnalysisType</code> is <code>TREND</code>.</p>
+   * @public
+   */
+  Trend?: Trend | undefined;
+
+  /**
+   * <p>A comparison of findings against normal behavior. Set when <code>AnalysisType</code> is <code>BASELINE</code>.</p>
+   * @public
+   */
+  Baseline?: Baseline | undefined;
+}
+
+/**
+ * <p>Contains a threat indicator, such as an IP address, a domain, or a file hash.</p>
+ * @public
+ */
+export interface InvestigationIndicator {
+  /**
+   * <p>The value of the indicator.</p>
+   * @public
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>The type of the indicator. Possible values are <code>IP</code>, <code>DOMAIN</code>, and <code>FILE</code>.</p>
+   * @public
+   */
+  Type?: InvestigationIndicatorType | undefined;
+}
+
+/**
+ * <p>Contains an assessment of a Kubernetes policy violation.</p>
+ * @public
+ */
+export interface KubernetesPolicyViolation {
+  /**
+   * <p>The type of the violation.</p>
+   * @public
+   */
+  ViolationType?: string | undefined;
+
+  /**
+   * <p>The Kubernetes resource that the violation affects.</p>
+   * @public
+   */
+  AffectedResource?: string | undefined;
+
+  /**
+   * <p>The Kubernetes subject, such as a user, a group, or a service account, that the violation involves.</p>
+   * @public
+   */
+  Subject?: string | undefined;
+
+  /**
+   * <p>The access that the violation grants.</p>
+   * @public
+   */
+  GrantedAccess?: string | undefined;
+
+  /**
+   * <p>How the misconfiguration exposes the resource.</p>
+   * @public
+   */
+  ExposureVector?: string | undefined;
+
+  /**
+   * <p>The potential impact of the misconfiguration.</p>
+   * @public
+   */
+  MisconfigurationImpact?: string | undefined;
+}
+
+/**
+ * <p>Contains a reference to a GuardDuty finding.</p>
+ * @public
+ */
+export interface FindingReference {
+  /**
+   * <p>The type of the finding.</p>
+   * @public
+   */
+  FindingType?: string | undefined;
+
+  /**
+   * <p>The ID of the finding.</p>
+   * @public
+   */
+  Uid?: string | undefined;
+}
+
+/**
+ * <p>Contains information about a process in a process lineage. <code>ParentUuid</code> links each process to its parent process.</p>
+ * @public
+ */
+export interface Process {
+  /**
+   * <p>The unique identifier of the process.</p>
+   * @public
+   */
+  Uuid: string | undefined;
+
+  /**
+   * <p>The name of the process.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The path of the process executable.</p>
+   * @public
+   */
+  Path?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the parent process. Not set for the root process.</p>
+   * @public
+   */
+  ParentUuid?: string | undefined;
+
+  /**
+   * <p>The findings associated with this process.</p>
+   * @public
+   */
+  Findings?: FindingReference[] | undefined;
+}
+
+/**
+ * <p>Contains an analysis of Amazon S3 activity or exposure. The members that can be set depend on <code>AnalysisType</code>: <code>S3_EXPOSURE</code> (<code>FindingSubtype</code>, <code>EffectivePermission</code>, <code>BlockPublicAccessSettings</code>, and <code>Exposure</code>), <code>S3_ACTOR_CONTEXT</code> (<code>UserAgent</code>, <code>UserAgentClassification</code>, <code>SourceIp</code>, <code>IpReputation</code>, and <code>ActorAssessment</code>), and <code>S3_PEN_TEST</code> (<code>UserAgent</code>, <code>S3ApiActivity</code>, <code>SourceContext</code>, and <code>AuthorizationAssessment</code>).</p>
+ * @public
+ */
+export interface S3Analysis {
+  /**
+   * <p>The subtype of the finding.</p>
+   * @public
+   */
+  FindingSubtype?: string | undefined;
+
+  /**
+   * <p>The effective permission of the Amazon S3 resource.</p>
+   * @public
+   */
+  EffectivePermission?: string | undefined;
+
+  /**
+   * <p>A description of the Amazon S3 Block Public Access settings.</p>
+   * @public
+   */
+  BlockPublicAccessSettings?: string | undefined;
+
+  /**
+   * <p>An assessment of the exposure of the Amazon S3 resource.</p>
+   * @public
+   */
+  Exposure?: string | undefined;
+
+  /**
+   * <p>The user agent of the caller.</p>
+   * @public
+   */
+  UserAgent?: string | undefined;
+
+  /**
+   * <p>The classification of the user agent.</p>
+   * @public
+   */
+  UserAgentClassification?: string | undefined;
+
+  /**
+   * <p>The source address of the activity, or a description of the source.</p>
+   * @public
+   */
+  SourceIp?: string | undefined;
+
+  /**
+   * <p>The reputation of the source IP address.</p>
+   * @public
+   */
+  IpReputation?: string | undefined;
+
+  /**
+   * <p>An assessment of the identity that performed the activity.</p>
+   * @public
+   */
+  ActorAssessment?: string | undefined;
+
+  /**
+   * <p>A description of the Amazon S3 API activity.</p>
+   * @public
+   */
+  S3ApiActivity?: string | undefined;
+
+  /**
+   * <p>Context about the source of the activity.</p>
+   * @public
+   */
+  SourceContext?: string | undefined;
+
+  /**
+   * <p>An assessment of whether the activity was authorized.</p>
+   * @public
+   */
+  AuthorizationAssessment?: string | undefined;
+}
+
+/**
+ * <p>Contains reputation information about a threat indicator.</p>
+ * @public
+ */
+export interface Reputation {
+  /**
+   * <p>The reputation of the indicator at the time of the finding.</p>
+   * @public
+   */
+  FindingTimeDisposition?: string | undefined;
+
+  /**
+   * <p>The current reputation of the indicator.</p>
+   * @public
+   */
+  CurrentDisposition?: string | undefined;
+
+  /**
+   * <p>A comparison of the reputation at the time of the finding with the current reputation.</p>
+   * @public
+   */
+  ReputationComparison?: string | undefined;
+}
+
+/**
+ * <p>Contains a threat assessment. The members that are set depend on the <code>AnalysisType</code> of the record.</p>
+ * @public
+ */
+export interface InvestigationThreatAssessment {
+  /**
+   * <p>Reputation information about a threat indicator. Set when <code>AnalysisType</code> is <code>REPUTATION</code>.</p>
+   * @public
+   */
+  Reputation?: Reputation | undefined;
+
+  /**
+   * <p>The confidence in the threat assessment. Possible values are <code>VERY_HIGH</code>, <code>HIGH</code>, <code>MEDIUM</code>, and <code>LOW</code>.</p>
+   * @public
+   */
+  ThreatConfidence?: ThreatConfidence | undefined;
+
+  /**
+   * <p>The classification of the threat.</p>
+   * @public
+   */
+  Classification?: string | undefined;
+
+  /**
+   * <p>The assessment of the threat.</p>
+   * @public
+   */
+  Assessment?: string | undefined;
+
+  /**
+   * <p>Context about how the identity involved in the activity authenticated.</p>
+   * @public
+   */
+  AuthenticationContext?: string | undefined;
+
+  /**
+   * <p>An assessment of Amazon RDS control plane activity that is related to the threat.</p>
+   * @public
+   */
+  RdsControlPlaneActivity?: string | undefined;
+
+  /**
+   * <p>An assessment of the activity from the IP address in the account.</p>
+   * @public
+   */
+  IpAccountActivity?: string | undefined;
+
+  /**
+   * <p>An assessment of whether credentials were compromised.</p>
+   * @public
+   */
+  CredentialCompromise?: string | undefined;
+}
+
+/**
+ * <p>Contains an assessment that GuardDuty derived from the data during an investigation, such as a threat assessment, a comparison against normal behavior, or a process lineage. The record contains at most one of the payload members, the one that corresponds to <code>AnalysisType</code>. <code>Indicators</code> can accompany any analysis type.</p>
+ * @public
+ */
+export interface AnalysisRecord {
+  /**
+   * <p>The kind of analysis. The value identifies the payload member that can be set: <code>REPUTATION</code>, <code>THREAT_ASSESSMENT</code>, and <code>RDS_THREAT_ASSESSMENT</code> (<code>ThreatAssessment</code>); <code>KUBERNETES_POLICY_VIOLATION</code> (<code>KubernetesPolicyViolation</code>); <code>S3_EXPOSURE</code>, <code>S3_ACTOR_CONTEXT</code>, and <code>S3_PEN_TEST</code> (<code>S3Analysis</code>); <code>PROCESS_LINEAGE</code> (<code>Processes</code>); and <code>TREND</code> and <code>BASELINE</code> (<code>AccountAnalysis</code>).</p>
+   * @public
+   */
+  AnalysisType: AnalysisType | undefined;
+
+  /**
+   * <p>A threat assessment. Set when <code>AnalysisType</code> is <code>REPUTATION</code>, <code>THREAT_ASSESSMENT</code>, or <code>RDS_THREAT_ASSESSMENT</code>.</p>
+   * @public
+   */
+  ThreatAssessment?: InvestigationThreatAssessment | undefined;
+
+  /**
+   * <p>An assessment of a Kubernetes policy violation. Set when <code>AnalysisType</code> is <code>KUBERNETES_POLICY_VIOLATION</code>.</p>
+   * @public
+   */
+  KubernetesPolicyViolation?: KubernetesPolicyViolation | undefined;
+
+  /**
+   * <p>An analysis of Amazon S3 activity or exposure. Set when <code>AnalysisType</code> is <code>S3_EXPOSURE</code>, <code>S3_ACTOR_CONTEXT</code>, or <code>S3_PEN_TEST</code>.</p>
+   * @public
+   */
+  S3Analysis?: S3Analysis | undefined;
+
+  /**
+   * <p>The processes in a process lineage. Set when <code>AnalysisType</code> is <code>PROCESS_LINEAGE</code>.</p>
+   * @public
+   */
+  Processes?: Process[] | undefined;
+
+  /**
+   * <p>An analysis of the findings in an account over time. Set when <code>AnalysisType</code> is <code>TREND</code> or <code>BASELINE</code>.</p>
+   * @public
+   */
+  AccountAnalysis?: InvestigationAccountAnalysis | undefined;
+
+  /**
+   * <p>The threat indicators associated with the analysis, such as an IP address, a domain, or a file hash.</p>
+   * @public
+   */
+  Indicators?: InvestigationIndicator[] | undefined;
 }
 
 /**
@@ -1428,6 +2255,36 @@ export interface Anomaly {
    * @public
    */
   Unusual?: AnomalyUnusual | undefined;
+}
+
+/**
+ * <p>Contains the number and percentage of archived and unarchived findings.</p>
+ * @public
+ */
+export interface ArchiveDistribution {
+  /**
+   * <p>The number of archived findings.</p>
+   * @public
+   */
+  ArchivedCount?: number | undefined;
+
+  /**
+   * <p>The number of unarchived findings.</p>
+   * @public
+   */
+  UnarchivedCount?: number | undefined;
+
+  /**
+   * <p>The percentage of findings that are archived, from 0 to 100.</p>
+   * @public
+   */
+  ArchivedPercentage?: number | undefined;
+
+  /**
+   * <p>The percentage of findings that are unarchived, from 0 to 100.</p>
+   * @public
+   */
+  UnarchivedPercentage?: number | undefined;
 }
 
 /**
@@ -1552,6 +2409,60 @@ export interface AssociationSummary {
    * @public
    */
   ExpiresAt?: Date | undefined;
+}
+
+/**
+ * <p>Contains a MITRE ATT&amp;CK tactic and technique observed during an attack, with the findings that are associated with them.</p>
+ * @public
+ */
+export interface Attack {
+  /**
+   * <p>The MITRE ATT&amp;CK tactic.</p>
+   * @public
+   */
+  Tactic?: ThreatReference | undefined;
+
+  /**
+   * <p>The MITRE ATT&amp;CK technique.</p>
+   * @public
+   */
+  Technique?: ThreatReference | undefined;
+
+  /**
+   * <p>The findings associated with the tactic and technique.</p>
+   * @public
+   */
+  Findings?: FindingReference[] | undefined;
+
+  /**
+   * <p>The version of the attack framework that the tactic and technique classification uses.</p>
+   * @public
+   */
+  Version?: string | undefined;
+}
+
+/**
+ * <p>Contains information about one phase of an attack.</p>
+ * @public
+ */
+export interface AttackPhase {
+  /**
+   * <p>The MITRE ATT&amp;CK tactic of the phase. Possible values are <code>Reconnaissance</code>, <code>Resource Development</code>, <code>Initial Access</code>, <code>Execution</code>, <code>Persistence</code>, <code>Privilege Escalation</code>, <code>Defense Evasion</code>, <code>Credential Access</code>, <code>Discovery</code>, <code>Lateral Movement</code>, <code>Collection</code>, <code>Command and Control</code>, <code>Exfiltration</code>, and <code>Impact</code>.</p>
+   * @public
+   */
+  Phase?: AttackPhaseName | undefined;
+
+  /**
+   * <p>A description of the activity in this phase.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The MITRE ATT&amp;CK tactics and techniques observed in this phase, with the findings that are associated with them.</p>
+   * @public
+   */
+  Attacks?: Attack[] | undefined;
 }
 
 /**
@@ -2024,6 +2935,174 @@ export interface ContinuousScanDetails {
    * @public
    */
   EndTime: Date | undefined;
+}
+
+/**
+ * <p>Contains information about a behavior that related findings share.</p>
+ * @public
+ */
+export interface SharedBehavior {
+  /**
+   * <p>The JSON path of the finding attribute that matched.</p>
+   * @public
+   */
+  Path?: string | undefined;
+
+  /**
+   * <p>The value that matched.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Contains information about a resource that related findings share.</p>
+ * @public
+ */
+export interface SharedResource {
+  /**
+   * <p>The type of the resource. This value isn't limited to the resource types of <code>InvestigationResource</code>.</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The identifier of the resource.</p>
+   * @public
+   */
+  Identifier?: string | undefined;
+}
+
+/**
+ * <p>Contains information about a group of correlated findings that have the same finding type.</p>
+ * @public
+ */
+export interface CorrelatedFinding {
+  /**
+   * <p>The finding type of the group.</p>
+   * @public
+   */
+  FindingType?: string | undefined;
+
+  /**
+   * <p>The number of correlated findings of this type. This value can be greater than the number of IDs in <code>FindingIds</code>.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>The highest severity score among the findings in the group, from 0 to 10.</p>
+   * @public
+   */
+  SeverityMax?: number | undefined;
+
+  /**
+   * <p>The reasons why GuardDuty correlated the findings. Possible values are <code>HIGH_SEVERITY</code>, <code>SAME_RESOURCE</code>, and <code>SAME_BEHAVIOR</code>. A value can appear more than once.</p>
+   * @public
+   */
+  CorrelationReasons?: CorrelationReason[] | undefined;
+
+  /**
+   * <p>A sample of the IDs of the findings in the group.</p>
+   * @public
+   */
+  FindingIds?: string[] | undefined;
+
+  /**
+   * <p>The resources that the findings in the group share with the investigated activity.</p>
+   * @public
+   */
+  SharedResources?: SharedResource[] | undefined;
+
+  /**
+   * <p>The behaviors that the findings in the group share with the investigated activity.</p>
+   * @public
+   */
+  SharedBehaviors?: SharedBehavior[] | undefined;
+}
+
+/**
+ * <p>Contains an action that you can take to respond to a threat.</p>
+ * @public
+ */
+export interface CountermeasureAction {
+  /**
+   * <p>A short title for the action.</p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>A description of the action.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The priority of the action. Possible values are <code>IMMEDIATE</code>, <code>SHORT_TERM</code>, and <code>STRATEGIC</code>.</p>
+   * @public
+   */
+  Priority?: ActionPriority | undefined;
+
+  /**
+   * <p>The defensive technique that the action applies.</p>
+   * @public
+   */
+  DefenseTechnique?: string | undefined;
+
+  /**
+   * <p>The MITRE ATT&amp;CK technique IDs that the action mitigates, such as <code>T1059.004</code>.</p>
+   * @public
+   */
+  Mitigates?: string[] | undefined;
+
+  /**
+   * <p>CLI commands that you can run to carry out the action.</p>
+   * @public
+   */
+  CliCommands?: string[] | undefined;
+
+  /**
+   * <p>The numeric identifier of the action's disposition.</p>
+   * @public
+   */
+  DispositionId?: number | undefined;
+
+  /**
+   * <p>The outcome of the action. Possible values are <code>Isolated</code>, <code>Blocked</code>, <code>Deleted</code>, <code>Access Revoked</code>, and <code>Logged</code>.</p>
+   * @public
+   */
+  Disposition?: Disposition | undefined;
+
+  /**
+   * <p>The resources that the action applies to.</p>
+   * @public
+   */
+  AffectedResources?: AffectedResource[] | undefined;
+}
+
+/**
+ * <p>Contains the actions that you can take for one defensive tactic.</p>
+ * @public
+ */
+export interface Countermeasure {
+  /**
+   * <p>The defensive tactic. Possible values are <code>Isolate</code>, <code>Evict</code>, <code>Restore</code>, <code>Harden</code>, and <code>Detect</code>.</p>
+   * @public
+   */
+  DefenseTactic?: DefenseTactic | undefined;
+
+  /**
+   * <p>The actions for the defensive tactic.</p>
+   * @public
+   */
+  Actions?: CountermeasureAction[] | undefined;
+
+  /**
+   * <p>A description of the countermeasure.</p>
+   * @public
+   */
+  Description?: string | undefined;
 }
 
 /**
@@ -5186,6 +6265,54 @@ export interface Detection {
 }
 
 /**
+ * <p>Contains information about the status of a protection plan.</p>
+ * @public
+ */
+export interface ProtectionPlan {
+  /**
+   * <p>The name of the protection plan. Possible values are <code>CLOUD_TRAIL</code>, <code>DNS_LOGS</code>, <code>FLOW_LOGS</code>, <code>S3_DATA_EVENTS</code>, <code>EKS_AUDIT_LOGS</code>, <code>EBS_MALWARE_PROTECTION</code>, <code>RDS_LOGIN_EVENTS</code>, <code>EKS_RUNTIME_MONITORING</code>, <code>EKS_ADDON_MANAGEMENT</code>, <code>LAMBDA_NETWORK_LOGS</code>, <code>RUNTIME_MONITORING</code>, <code>ECS_FARGATE_AGENT_MANAGEMENT</code>, and <code>EC2_AGENT_MANAGEMENT</code>.</p>
+   * @public
+   */
+  Name?: InvestigationDetectorFeature | undefined;
+
+  /**
+   * <p>The status of the protection plan. Possible values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
+   * @public
+   */
+  Status?: FeatureStatus | undefined;
+}
+
+/**
+ * <p>Contains information about your detection coverage, such as the status of protection plans and foundational data sources.</p>
+ * @public
+ */
+export interface DetectionCoverage {
+  /**
+   * <p>The protection plans and their status.</p>
+   * @public
+   */
+  ProtectionPlans?: ProtectionPlan[] | undefined;
+
+  /**
+   * <p>The foundational data sources, such as <code>CLOUD_TRAIL</code>, <code>DNS_LOGS</code>, and <code>FLOW_LOGS</code>.</p>
+   * @public
+   */
+  FoundationalDataSources?: InvestigationDetectorFeature[] | undefined;
+
+  /**
+   * <p>A description of the gaps in detection coverage. A record doesn't include both <code>CoverageGaps</code> and <code>KeyObservation</code>.</p>
+   * @public
+   */
+  CoverageGaps?: string | undefined;
+
+  /**
+   * <p>A key observation about detection coverage.</p>
+   * @public
+   */
+  KeyObservation?: string | undefined;
+}
+
+/**
  * <p>The requirements for running a Runtime Monitoring custom detection rule on Amazon EC2.</p>
  * @public
  */
@@ -5531,6 +6658,138 @@ export interface DisassociateMembersResponse {
    * @public
    */
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
+}
+
+/**
+ * <p>Contains the number and percentage of findings of a finding type.</p>
+ * @public
+ */
+export interface TypeDistribution {
+  /**
+   * <p>The finding type.</p>
+   * @public
+   */
+  FindingType?: string | undefined;
+
+  /**
+   * <p>The number of findings of this type.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>The percentage of findings that are of this type, from 0 to 100.</p>
+   * @public
+   */
+  Percentage?: number | undefined;
+
+  /**
+   * <p>The most common severity among findings of this type.</p>
+   * @public
+   */
+  DominantSeverity?: string | undefined;
+}
+
+/**
+ * <p>Contains the number of findings for a resource.</p>
+ * @public
+ */
+export interface ResourceDistribution {
+  /**
+   * <p>The display name of the resource type, such as <code>Instance</code>.</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The identifier of the resource.</p>
+   * @public
+   */
+  Identifier?: string | undefined;
+
+  /**
+   * <p>The number of findings for the resource.</p>
+   * @public
+   */
+  Count?: number | undefined;
+}
+
+/**
+ * <p>Contains a breakdown of findings along a dimension, such as severity or finding type.</p>
+ * @public
+ */
+export interface Distribution {
+  /**
+   * <p>The dimension of the breakdown. The value identifies the breakdown that the record describes: <code>SEVERITY</code> (<code>SeverityBreakdown</code>), <code>TYPE</code> (<code>FindingTypes</code> or <code>TopFindingTypes</code>), <code>RESOURCE</code> (<code>Resources</code>), <code>ATTACK_VECTOR</code> (<code>AttackVectors</code>), and <code>ARCHIVE</code> (<code>Archive</code>).</p>
+   * @public
+   */
+  Dimension: DistributionDimension | undefined;
+
+  /**
+   * <p>The total number of findings in the breakdown.</p>
+   * @public
+   */
+  TotalFindings?: number | undefined;
+
+  /**
+   * <p>The number of findings at each severity level.</p>
+   * @public
+   */
+  SeverityBreakdown?: SeverityBreakdown | undefined;
+
+  /**
+   * <p>The findings broken down by finding type, with counts and percentages.</p>
+   * @public
+   */
+  FindingTypes?: TypeDistribution[] | undefined;
+
+  /**
+   * <p>The finding types that have the most findings, with counts.</p>
+   * @public
+   */
+  TopFindingTypes?: FindingTypeCount[] | undefined;
+
+  /**
+   * <p>The findings broken down by affected resource.</p>
+   * @public
+   */
+  Resources?: ResourceDistribution[] | undefined;
+
+  /**
+   * <p>The findings broken down by MITRE ATT&amp;CK tactic.</p>
+   * @public
+   */
+  AttackVectors?: TacticCoverage[] | undefined;
+
+  /**
+   * <p>The number and percentage of archived and unarchived findings.</p>
+   * @public
+   */
+  Archive?: ArchiveDistribution | undefined;
+}
+
+/**
+ * <p>Contains DNS details about network activity.</p>
+ * @public
+ */
+export interface DnsContext {
+  /**
+   * <p>The suffix of the domain that was queried.</p>
+   * @public
+   */
+  DomainSuffix?: string | undefined;
+
+  /**
+   * <p>Other domains that were queried.</p>
+   * @public
+   */
+  OtherDomains?: string | undefined;
+
+  /**
+   * <p>The DNS resolution history for the domain.</p>
+   * @public
+   */
+  ResolverHistory?: string | undefined;
 }
 
 /**
@@ -6030,6 +7289,36 @@ export interface EnableOrganizationAdminAccountRequest {
 export interface EnableOrganizationAdminAccountResponse {}
 
 /**
+ * <p>Contains additional context about activity, such as geolocation and threat intelligence information. Not every member is set.</p>
+ * @public
+ */
+export interface Enrichment {
+  /**
+   * <p>The name of the country associated with the activity.</p>
+   * @public
+   */
+  CountryName?: string | undefined;
+
+  /**
+   * <p>The name of the organization that owns the autonomous system number (ASN).</p>
+   * @public
+   */
+  AsnOrg?: string | undefined;
+
+  /**
+   * <p>The name of the threat list that contains the indicator.</p>
+   * @public
+   */
+  ThreatListName?: string | undefined;
+
+  /**
+   * <p>The name of the threat.</p>
+   * @public
+   */
+  ThreatName?: string | undefined;
+}
+
+/**
  * <p>An instance of a threat intelligence detail that constitutes evidence for the finding.</p>
  * @public
  */
@@ -6066,1750 +7355,49 @@ export interface Evidence {
 }
 
 /**
- * <p>Contains information about the elastic network interface of the EC2 instance.</p>
+ * <p>Contains a filter condition that GuardDuty applied when it retrieved data.</p>
  * @public
  */
-export interface NetworkInterface {
+export interface FetchCriterion {
   /**
-   * <p>A list of IPv6 addresses for the EC2 instance.</p>
+   * <p>The name of the field that the condition applies to.</p>
    * @public
    */
-  Ipv6Addresses?: string[] | undefined;
+  Field: string | undefined;
 
   /**
-   * <p>The ID of the network interface.</p>
+   * <p>The comparison operator of the condition. Possible values are <code>EQUALS</code>, <code>NOT_EQUALS</code>, <code>GREATER_THAN</code>, <code>GREATER_THAN_OR_EQUAL</code>, <code>LESS_THAN</code>, and <code>LESS_THAN_OR_EQUAL</code>.</p>
    * @public
    */
-  NetworkInterfaceId?: string | undefined;
+  Condition: FetchCriterionCondition | undefined;
 
   /**
-   * <p>The private DNS name of the EC2 instance.</p>
+   * <p>The values that the field is compared against. Numeric and Boolean values are represented as strings.</p>
    * @public
    */
-  PrivateDnsName?: string | undefined;
-
-  /**
-   * <p>The private IP address of the EC2 instance.</p>
-   * @public
-   */
-  PrivateIpAddress?: string | undefined;
-
-  /**
-   * <p>Other private IP address information of the EC2 instance.</p>
-   * @public
-   */
-  PrivateIpAddresses?: PrivateIpAddressDetails[] | undefined;
-
-  /**
-   * <p>The public DNS name of the EC2 instance.</p>
-   * @public
-   */
-  PublicDnsName?: string | undefined;
-
-  /**
-   * <p>The public IP address of the EC2 instance.</p>
-   * @public
-   */
-  PublicIp?: string | undefined;
-
-  /**
-   * <p>The security groups associated with the EC2 instance.</p>
-   * @public
-   */
-  SecurityGroups?: SecurityGroup[] | undefined;
-
-  /**
-   * <p>The subnet ID of the EC2 instance.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The VPC ID of the EC2 instance.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
+  Values?: string[] | undefined;
 }
 
 /**
- * <p>Contains information about the details of an instance.</p>
+ * <p>Contains information about the configuration of a detector feature. Each member is optional.</p>
  * @public
  */
-export interface InstanceDetails {
+export interface InvestigationDetectorFeatureConfiguration {
   /**
-   * <p>The Availability Zone of the EC2 instance.</p>
+   * <p>The name of the feature. Possible values are <code>CLOUD_TRAIL</code>, <code>DNS_LOGS</code>, <code>FLOW_LOGS</code>, <code>S3_DATA_EVENTS</code>, <code>EKS_AUDIT_LOGS</code>, <code>EBS_MALWARE_PROTECTION</code>, <code>RDS_LOGIN_EVENTS</code>, <code>EKS_RUNTIME_MONITORING</code>, <code>EKS_ADDON_MANAGEMENT</code>, <code>LAMBDA_NETWORK_LOGS</code>, <code>RUNTIME_MONITORING</code>, <code>ECS_FARGATE_AGENT_MANAGEMENT</code>, and <code>EC2_AGENT_MANAGEMENT</code>.</p>
    * @public
    */
-  AvailabilityZone?: string | undefined;
+  Name?: InvestigationDetectorFeature | undefined;
 
   /**
-   * <p>The profile information of the EC2 instance.</p>
+   * <p>The status of the feature. Possible values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
    * @public
    */
-  IamInstanceProfile?: IamInstanceProfile | undefined;
+  Status?: FeatureStatus | undefined;
 
   /**
-   * <p>The image description of the EC2 instance.</p>
+   * <p>The timestamp at which the feature configuration was last updated.</p>
    * @public
    */
-  ImageDescription?: string | undefined;
-
-  /**
-   * <p>The image ID of the EC2 instance.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The ID of the EC2 instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The state of the EC2 instance.</p>
-   * @public
-   */
-  InstanceState?: string | undefined;
-
-  /**
-   * <p>The type of the EC2 instance.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost. Only applicable to Amazon Web Services Outposts instances.</p>
-   * @public
-   */
-  OutpostArn?: string | undefined;
-
-  /**
-   * <p>The launch time of the EC2 instance.</p>
-   * @public
-   */
-  LaunchTime?: string | undefined;
-
-  /**
-   * <p>The elastic network interface information of the EC2 instance.</p>
-   * @public
-   */
-  NetworkInterfaces?: NetworkInterface[] | undefined;
-
-  /**
-   * <p>The platform of the EC2 instance.</p>
-   * @public
-   */
-  Platform?: string | undefined;
-
-  /**
-   * <p>The product code of the EC2 instance.</p>
-   * @public
-   */
-  ProductCodes?: ProductCode[] | undefined;
-
-  /**
-   * <p>The tags of the EC2 instance.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>Contains information about the impersonated user.</p>
- * @public
- */
-export interface ImpersonatedUser {
-  /**
-   * <p>Information about the <code>username</code> that was being impersonated.</p>
-   * @public
-   */
-  Username?: string | undefined;
-
-  /**
-   * <p>The <code>group</code> to which the user name belongs.</p>
-   * @public
-   */
-  Groups?: string[] | undefined;
-}
-
-/**
- * <p>Details about the Kubernetes user involved in a Kubernetes finding.</p>
- * @public
- */
-export interface KubernetesUserDetails {
-  /**
-   * <p>The username of the user who called the Kubernetes API.</p>
-   * @public
-   */
-  Username?: string | undefined;
-
-  /**
-   * <p>The user ID of the user who called the Kubernetes API.</p>
-   * @public
-   */
-  Uid?: string | undefined;
-
-  /**
-   * <p>The groups that include the user who called the Kubernetes API.</p>
-   * @public
-   */
-  Groups?: string[] | undefined;
-
-  /**
-   * <p>Entity that assumes the IAM role when Kubernetes RBAC permissions are assigned to that role.</p>
-   * @public
-   */
-  SessionName?: string[] | undefined;
-
-  /**
-   * <p>Information about the impersonated user.</p>
-   * @public
-   */
-  ImpersonatedUser?: ImpersonatedUser | undefined;
-}
-
-/**
- * <p>Details about the Kubernetes workload involved in a Kubernetes finding.</p>
- * @public
- */
-export interface KubernetesWorkloadDetails {
-  /**
-   * <p>Kubernetes workload name.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Kubernetes workload type (e.g. Pod, Deployment, etc.).</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p>Kubernetes workload ID.</p>
-   * @public
-   */
-  Uid?: string | undefined;
-
-  /**
-   * <p>Kubernetes namespace that the workload is part of.</p>
-   * @public
-   */
-  Namespace?: string | undefined;
-
-  /**
-   * <p>Whether the hostNetwork flag is enabled for the pods included in the workload.</p>
-   * @public
-   */
-  HostNetwork?: boolean | undefined;
-
-  /**
-   * <p>The service account name that is associated with a Kubernetes workload.</p>
-   * @public
-   */
-  ServiceAccountName?: string | undefined;
-
-  /**
-   * <p>Containers running as part of the Kubernetes workload.</p>
-   * @public
-   */
-  Containers?: Container[] | undefined;
-
-  /**
-   * <p>Volumes used by the Kubernetes workload.</p>
-   * @public
-   */
-  Volumes?: Volume[] | undefined;
-
-  /**
-   * <p>Whether the host IPC flag is enabled for the pods in the workload.</p>
-   * @public
-   */
-  HostIPC?: boolean | undefined;
-
-  /**
-   * <p>Whether the host PID flag is enabled for the pods in the workload. </p>
-   * @public
-   */
-  HostPID?: boolean | undefined;
-}
-
-/**
- * <p>Details about Kubernetes resources such as a Kubernetes user or workload resource involved in a Kubernetes finding.</p>
- * @public
- */
-export interface KubernetesDetails {
-  /**
-   * <p>Details about the Kubernetes user involved in a Kubernetes finding.</p>
-   * @public
-   */
-  KubernetesUserDetails?: KubernetesUserDetails | undefined;
-
-  /**
-   * <p>Details about the Kubernetes workload involved in a Kubernetes finding.</p>
-   * @public
-   */
-  KubernetesWorkloadDetails?: KubernetesWorkloadDetails | undefined;
-}
-
-/**
- * <p>Amazon Virtual Private Cloud configuration details associated with your Lambda function.</p>
- * @public
- */
-export interface VpcConfig {
-  /**
-   * <p>The identifiers of the subnets that are associated with your Lambda function.</p>
-   * @public
-   */
-  SubnetIds?: string[] | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Virtual Private Cloud.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The identifier of the security group attached to the Lambda function.</p>
-   * @public
-   */
-  SecurityGroups?: SecurityGroup[] | undefined;
-}
-
-/**
- * <p>Information about the Lambda function involved in the finding.</p>
- * @public
- */
-export interface LambdaDetails {
-  /**
-   * <p>Amazon Resource Name (ARN) of the Lambda function.</p>
-   * @public
-   */
-  FunctionArn?: string | undefined;
-
-  /**
-   * <p>Name of the Lambda function.</p>
-   * @public
-   */
-  FunctionName?: string | undefined;
-
-  /**
-   * <p>Description of the Lambda function.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the Lambda function was last modified. This field is in the UTC date string format <code>(2023-03-22T19:37:20.168Z)</code>.</p>
-   * @public
-   */
-  LastModifiedAt?: Date | undefined;
-
-  /**
-   * <p>The revision ID of the Lambda function version.</p>
-   * @public
-   */
-  RevisionId?: string | undefined;
-
-  /**
-   * <p>The version of the Lambda function.</p>
-   * @public
-   */
-  FunctionVersion?: string | undefined;
-
-  /**
-   * <p>The execution role of the Lambda function.</p>
-   * @public
-   */
-  Role?: string | undefined;
-
-  /**
-   * <p>Amazon Virtual Private Cloud configuration details associated with your Lambda function.</p>
-   * @public
-   */
-  VpcConfig?: VpcConfig | undefined;
-
-  /**
-   * <p>A list of tags attached to this resource, listed in the format of <code>key</code>:<code>value</code> pair.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>Contains information about the AI model involved in a finding.</p>
- * @public
- */
-export interface ModelDetail {
-  /**
-   * <p>The identifier of the AI model.</p>
-   * @public
-   */
-  ModelId?: string | undefined;
-}
-
-/**
- * <p>Contains information about the resource type <code>RDSDBInstance</code> involved in a GuardDuty finding.</p>
- * @public
- */
-export interface RdsDbInstanceDetails {
-  /**
-   * <p>The identifier associated to the database instance that was involved in the finding.</p>
-   * @public
-   */
-  DbInstanceIdentifier?: string | undefined;
-
-  /**
-   * <p>The database engine of the database instance involved in the finding.</p>
-   * @public
-   */
-  Engine?: string | undefined;
-
-  /**
-   * <p>The version of the database engine that was involved in the finding.</p>
-   * @public
-   */
-  EngineVersion?: string | undefined;
-
-  /**
-   * <p>The identifier of the database cluster that contains the database instance ID involved in the finding.</p>
-   * @public
-   */
-  DbClusterIdentifier?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that identifies the database instance involved in the finding.</p>
-   * @public
-   */
-  DbInstanceArn?: string | undefined;
-
-  /**
-   * <p>The unique ID of the database resource involved in the activity that prompted GuardDuty to generate the finding.</p>
-   * @public
-   */
-  DbiResourceId?: string | undefined;
-
-  /**
-   * <p>Information about the tag key-value pairs.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>Contains information about the user and authentication details for a database instance involved in the finding.</p>
- * @public
- */
-export interface RdsDbUserDetails {
-  /**
-   * <p>The user name used in the anomalous login attempt.</p>
-   * @public
-   */
-  User?: string | undefined;
-
-  /**
-   * <p>The application name used in the anomalous login attempt.</p>
-   * @public
-   */
-  Application?: string | undefined;
-
-  /**
-   * <p>The name of the database instance involved in the anomalous login attempt.</p>
-   * @public
-   */
-  Database?: string | undefined;
-
-  /**
-   * <p>The version of the Secure Socket Layer (SSL) used for the network.</p>
-   * @public
-   */
-  Ssl?: string | undefined;
-
-  /**
-   * <p>The authentication method used by the user involved in the finding.</p>
-   * @public
-   */
-  AuthMethod?: string | undefined;
-}
-
-/**
- * <p>Contains information about the resource type <code>RDSLimitlessDB</code> that is involved in a GuardDuty finding.</p>
- * @public
- */
-export interface RdsLimitlessDbDetails {
-  /**
-   * <p>The name associated with the Limitless DB shard group.</p>
-   * @public
-   */
-  DbShardGroupIdentifier?: string | undefined;
-
-  /**
-   * <p>The resource identifier of the DB shard group within the Limitless Database.</p>
-   * @public
-   */
-  DbShardGroupResourceId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that identifies the DB shard group.</p>
-   * @public
-   */
-  DbShardGroupArn?: string | undefined;
-
-  /**
-   * <p>The database engine of the database instance involved in the finding.</p>
-   * @public
-   */
-  Engine?: string | undefined;
-
-  /**
-   * <p>The version of the database engine.</p>
-   * @public
-   */
-  EngineVersion?: string | undefined;
-
-  /**
-   * <p>The name of the database cluster that is a part of the Limitless Database.</p>
-   * @public
-   */
-  DbClusterIdentifier?: string | undefined;
-
-  /**
-   * <p>Information about the tag key-value pair.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>Contains information about the time range within the continuous backup in Amazon Web Services Backup that was scanned for a point-in-time recovery resource.</p>
- * @public
- */
-export interface ScanConfigurationContinuousScanDetails {
-  /**
-   * <p>The timestamp representing the start of the time range that was scanned.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp representing the end of the time range that was scanned.</p>
-   * @public
-   */
-  EndTime: Date | undefined;
-}
-
-/**
- * <p>Contains details about the backup recovery point.</p>
- * @public
- */
-export interface RecoveryPointDetails {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the recovery point.</p>
-   * @public
-   */
-  RecoveryPointArn?: string | undefined;
-
-  /**
-   * <p>The name of the backup vault containing the recovery point.</p>
-   * @public
-   */
-  BackupVaultName?: string | undefined;
-
-  /**
-   * <p>Contains information about the time range within the continuous backup in Amazon Web Services Backup that was scanned for a point-in-time recovery resource.</p>
-   * @public
-   */
-  ContinuousScanDetails?: ScanConfigurationContinuousScanDetails | undefined;
-}
-
-/**
- * <p>Contains information on the owner of the bucket.</p>
- * @public
- */
-export interface Owner {
-  /**
-   * <p>The canonical user ID of the bucket owner. For information about locating your canonical user ID see <a href="https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId">Finding Your Account Canonical User ID.</a> </p>
-   * @public
-   */
-  Id?: string | undefined;
-}
-
-/**
- * <p>Contains information about how permissions are configured for the S3 bucket.</p>
- * @public
- */
-export interface PermissionConfiguration {
-  /**
-   * <p>Contains information about the bucket level permissions for the S3 bucket.</p>
-   * @public
-   */
-  BucketLevelPermissions?: BucketLevelPermissions | undefined;
-
-  /**
-   * <p>Contains information about the account level permissions on the S3 bucket.</p>
-   * @public
-   */
-  AccountLevelPermissions?: AccountLevelPermissions | undefined;
-}
-
-/**
- * <p>Describes the public access policies that apply to the S3 bucket.</p>
- * @public
- */
-export interface PublicAccess {
-  /**
-   * <p>Contains information about how permissions are configured for the S3 bucket.</p>
-   * @public
-   */
-  PermissionConfiguration?: PermissionConfiguration | undefined;
-
-  /**
-   * <p>Describes the effective permission on this bucket after factoring all attached policies.</p>
-   * @public
-   */
-  EffectivePermission?: string | undefined;
-}
-
-/**
- * <p>Information about the S3 object that was scanned</p>
- * @public
- */
-export interface S3ObjectDetail {
-  /**
-   * <p>Amazon Resource Name (ARN) of the S3 object.</p>
-   * @public
-   */
-  ObjectArn?: string | undefined;
-
-  /**
-   * <p>Key of the S3 object.</p>
-   * @public
-   */
-  Key?: string | undefined;
-
-  /**
-   * <p>The entity tag is a hash of the S3 object. The ETag reflects changes only to the contents of an object, and not its metadata.</p>
-   * @public
-   */
-  ETag?: string | undefined;
-
-  /**
-   * <p>Hash of the threat detected in this finding.</p>
-   * @public
-   */
-  Hash?: string | undefined;
-
-  /**
-   * <p>Version ID of the object.</p>
-   * @public
-   */
-  VersionId?: string | undefined;
-}
-
-/**
- * <p>Contains information on the S3 bucket.</p>
- * @public
- */
-export interface S3BucketDetail {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the S3 bucket.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the S3 bucket.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Describes whether the bucket is a source or destination bucket.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p>The date and time the bucket was created at.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The owner of the S3 bucket.</p>
-   * @public
-   */
-  Owner?: Owner | undefined;
-
-  /**
-   * <p>All tags attached to the S3 bucket</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>Describes the server side encryption method used in the S3 bucket.</p>
-   * @public
-   */
-  DefaultServerSideEncryption?: DefaultServerSideEncryption | undefined;
-
-  /**
-   * <p>Describes the public access policies that apply to the S3 bucket.</p>
-   * @public
-   */
-  PublicAccess?: PublicAccess | undefined;
-
-  /**
-   * <p>Information about the S3 object that was scanned.</p>
-   * @public
-   */
-  S3ObjectDetails?: S3ObjectDetail[] | undefined;
-}
-
-/**
- * <p>Contains information about the Amazon Web Services resource associated with the activity that prompted GuardDuty to generate a finding.</p>
- * @public
- */
-export interface Resource {
-  /**
-   * <p>The IAM access key details (user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.</p>
-   * @public
-   */
-  AccessKeyDetails?: AccessKeyDetails | undefined;
-
-  /**
-   * <p>Contains information on the S3 bucket.</p>
-   * @public
-   */
-  S3BucketDetails?: S3BucketDetail[] | undefined;
-
-  /**
-   * <p>The information about the EC2 instance associated with the activity that prompted GuardDuty to generate a finding.</p>
-   * @public
-   */
-  InstanceDetails?: InstanceDetails | undefined;
-
-  /**
-   * <p>Details about the EKS cluster involved in a Kubernetes finding.</p>
-   * @public
-   */
-  EksClusterDetails?: EksClusterDetails | undefined;
-
-  /**
-   * <p>Details about the Kubernetes user and workload involved in a Kubernetes finding.</p>
-   * @public
-   */
-  KubernetesDetails?: KubernetesDetails | undefined;
-
-  /**
-   * <p>The type of Amazon Web Services resource.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>Contains list of scanned and skipped EBS volumes with details.</p>
-   * @public
-   */
-  EbsVolumeDetails?: EbsVolumeDetails | undefined;
-
-  /**
-   * <p>Contains information about the details of the ECS Cluster.</p>
-   * @public
-   */
-  EcsClusterDetails?: EcsClusterDetails | undefined;
-
-  /**
-   * <p>Details of a container.</p>
-   * @public
-   */
-  ContainerDetails?: Container | undefined;
-
-  /**
-   * <p>Contains information about the Lambda function that was involved in a finding.</p>
-   * @public
-   */
-  LambdaDetails?: LambdaDetails | undefined;
-
-  /**
-   * <p>Contains information about the database instance to which an anomalous login attempt was made.</p>
-   * @public
-   */
-  RdsDbInstanceDetails?: RdsDbInstanceDetails | undefined;
-
-  /**
-   * <p>Contains information about the RDS Limitless database that was involved in a GuardDuty finding.</p>
-   * @public
-   */
-  RdsLimitlessDbDetails?: RdsLimitlessDbDetails | undefined;
-
-  /**
-   * <p>Contains information about the user details through which anomalous login attempt was made.</p>
-   * @public
-   */
-  RdsDbUserDetails?: RdsDbUserDetails | undefined;
-
-  /**
-   * <p>Contains details about the EBS snapshot that was scanned.</p>
-   * @public
-   */
-  EbsSnapshotDetails?: EbsSnapshotDetails | undefined;
-
-  /**
-   * <p>Contains details about the EC2 image that was scanned.</p>
-   * @public
-   */
-  Ec2ImageDetails?: Ec2ImageDetails | undefined;
-
-  /**
-   * <p>Contains details about the backup recovery point that was scanned.</p>
-   * @public
-   */
-  RecoveryPointDetails?: RecoveryPointDetails | undefined;
-
-  /**
-   * <p>Contains information about the Bedrock guardrail that was involved in a finding.</p>
-   * @public
-   */
-  BedrockGuardrailDetails?: BedrockGuardrailDetails | undefined;
-
-  /**
-   * <p>Contains information about the AI models involved in a finding.</p>
-   * @public
-   */
-  ModelDetails?: ModelDetail[] | undefined;
-}
-
-/**
- * <p>Additional information about the generated finding.</p>
- * @public
- */
-export interface ServiceAdditionalInfo {
-  /**
-   * <p>This field specifies the value of the additional information.</p>
-   * @public
-   */
-  Value?: string | undefined;
-
-  /**
-   * <p>Describes the type of the additional information.</p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Contains information about the incremental scan configuration.</p>
- * @public
- */
-export interface IncrementalScanDetails {
-  /**
-   * <p>Amazon Resource Name (ARN) of the baseline resource used for incremental scanning. The scan will only process changes since this baseline resource was created.</p>
-   * @public
-   */
-  BaselineResourceArn: string | undefined;
-}
-
-/**
- * <p>Contains finding configuration details about the malware scan.</p>
- * @public
- */
-export interface MalwareProtectionFindingsScanConfiguration {
-  /**
-   * <p>The event that triggered the malware scan.</p>
-   * @public
-   */
-  TriggerType?: TriggerType | undefined;
-
-  /**
-   * <p>Contains information about the incremental scan configuration.</p>
-   * @public
-   */
-  IncrementalScanDetails?: IncrementalScanDetails | undefined;
-}
-
-/**
- * <p>Contains detailed information about where a threat was detected.</p>
- * @public
- */
-export interface ItemDetails {
-  /**
-   * <p>Amazon Resource Name (ARN) of the resource where the threat was detected.</p>
-   * @public
-   */
-  ResourceArn?: string | undefined;
-
-  /**
-   * <p>The path where the threat was detected.</p>
-   * @public
-   */
-  ItemPath?: string | undefined;
-
-  /**
-   * <p>The hash value of the infected item.</p>
-   * @public
-   */
-  Hash?: string | undefined;
-
-  /**
-   * <p>Additional information about the detected threat item.</p>
-   * @public
-   */
-  AdditionalInfo?: AdditionalInfo | undefined;
-}
-
-/**
- * <p>Information about the nested item path and hash of the protected resource.</p>
- * @public
- */
-export interface ItemPath {
-  /**
-   * <p>The nested item path where the infected file was found.</p>
-   * @public
-   */
-  NestedItemPath?: string | undefined;
-
-  /**
-   * <p>The hash value of the infected resource.</p>
-   * @public
-   */
-  Hash?: string | undefined;
-}
-
-/**
- * <p>Information about the detected threats associated with the generated finding.</p>
- * @public
- */
-export interface Threat {
-  /**
-   * <p>Name of the detected threat that caused GuardDuty to generate this finding.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Source of the threat that generated this finding.</p>
-   * @public
-   */
-  Source?: string | undefined;
-
-  /**
-   * <p>Information about the nested item path and hash of the protected resource.</p>
-   * @public
-   */
-  ItemPaths?: ItemPath[] | undefined;
-
-  /**
-   * <p>The number of occurrences of this specific threat detected during the scan.</p>
-   * @public
-   */
-  Count?: number | undefined;
-
-  /**
-   * <p>The hash identifier of the detected malware threat.</p>
-   * @public
-   */
-  Hash?: string | undefined;
-
-  /**
-   * <p>Detailed information about the detected malware threat.</p>
-   * @public
-   */
-  ItemDetails?: ItemDetails[] | undefined;
-}
-
-/**
- * <p>Information about the malware scan that generated a GuardDuty finding.</p>
- * @public
- */
-export interface MalwareScanDetails {
-  /**
-   * <p>Information about the detected threats associated with the generated GuardDuty finding.</p>
-   * @public
-   */
-  Threats?: Threat[] | undefined;
-
-  /**
-   * <p>The unique identifier for the malware scan.</p>
-   * @public
-   */
-  ScanId?: string | undefined;
-
-  /**
-   * <p>The type of malware scan performed.</p>
-   * @public
-   */
-  ScanType?: MalwareProtectionScanType | undefined;
-
-  /**
-   * <p>The category of the malware scan.</p>
-   * @public
-   */
-  ScanCategory?: ScanCategory | undefined;
-
-  /**
-   * <p>The configuration settings used for the malware scan.</p>
-   * @public
-   */
-  ScanConfiguration?: MalwareProtectionFindingsScanConfiguration | undefined;
-
-  /**
-   * <p>The number of unique malware threats detected during the scan.</p>
-   * @public
-   */
-  UniqueThreatCount?: number | undefined;
-}
-
-/**
- * <p>Information about the runtime process details.</p>
- * @public
- */
-export interface LineageObject {
-  /**
-   * <p>The time when the process started. This is in UTC format.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The process ID of the child process.</p>
-   * @public
-   */
-  NamespacePid?: number | undefined;
-
-  /**
-   * <p>The user ID of the user that executed the process.</p>
-   * @public
-   */
-  UserId?: number | undefined;
-
-  /**
-   * <p>The name of the process.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The ID of the process.</p>
-   * @public
-   */
-  Pid?: number | undefined;
-
-  /**
-   * <p>The unique ID assigned to the process by GuardDuty.</p>
-   * @public
-   */
-  Uuid?: string | undefined;
-
-  /**
-   * <p>The absolute path of the process executable file.</p>
-   * @public
-   */
-  ExecutablePath?: string | undefined;
-
-  /**
-   * <p>The effective user ID that was used to execute the process.</p>
-   * @public
-   */
-  Euid?: number | undefined;
-
-  /**
-   * <p>The unique ID of the parent process. This ID is assigned to the parent process by GuardDuty.</p>
-   * @public
-   */
-  ParentUuid?: string | undefined;
-}
-
-/**
- * <p>Information about the observed process.</p>
- * @public
- */
-export interface ProcessDetails {
-  /**
-   * <p>The name of the process.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The absolute path of the process executable file.</p>
-   * @public
-   */
-  ExecutablePath?: string | undefined;
-
-  /**
-   * <p>The <code>SHA256</code> hash of the process executable.</p>
-   * @public
-   */
-  ExecutableSha256?: string | undefined;
-
-  /**
-   * <p>The ID of the child process.</p>
-   * @public
-   */
-  NamespacePid?: number | undefined;
-
-  /**
-   * <p>The present working directory of the process.</p>
-   * @public
-   */
-  Pwd?: string | undefined;
-
-  /**
-   * <p>The ID of the process.</p>
-   * @public
-   */
-  Pid?: number | undefined;
-
-  /**
-   * <p>The time when the process started. This is in UTC format.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The unique ID assigned to the process by GuardDuty.</p>
-   * @public
-   */
-  Uuid?: string | undefined;
-
-  /**
-   * <p>The unique ID of the parent process. This ID is assigned to the parent process by GuardDuty.</p>
-   * @public
-   */
-  ParentUuid?: string | undefined;
-
-  /**
-   * <p>The user that executed the process.</p>
-   * @public
-   */
-  User?: string | undefined;
-
-  /**
-   * <p>The unique ID of the user that executed the process.</p>
-   * @public
-   */
-  UserId?: number | undefined;
-
-  /**
-   * <p>The effective user ID of the user that executed the process.</p>
-   * @public
-   */
-  Euid?: number | undefined;
-
-  /**
-   * <p>Information about the process's lineage.</p>
-   * @public
-   */
-  Lineage?: LineageObject[] | undefined;
-}
-
-/**
- * <p>Additional information about the suspicious activity.</p>
- * @public
- */
-export interface RuntimeContext {
-  /**
-   * <p>Information about the process that modified the current process. This is available for multiple finding types.</p>
-   * @public
-   */
-  ModifyingProcess?: ProcessDetails | undefined;
-
-  /**
-   * <p>The timestamp at which the process modified the current process. The timestamp is in UTC date string format.</p>
-   * @public
-   */
-  ModifiedAt?: Date | undefined;
-
-  /**
-   * <p>The path to the script that was executed.</p>
-   * @public
-   */
-  ScriptPath?: string | undefined;
-
-  /**
-   * <p>The path to the new library that was loaded.</p>
-   * @public
-   */
-  LibraryPath?: string | undefined;
-
-  /**
-   * <p>The value of the LD_PRELOAD environment variable.</p>
-   * @public
-   */
-  LdPreloadValue?: string | undefined;
-
-  /**
-   * <p>The path to the docket socket that was accessed.</p>
-   * @public
-   */
-  SocketPath?: string | undefined;
-
-  /**
-   * <p>The path to the leveraged <code>runc</code> implementation.</p>
-   * @public
-   */
-  RuncBinaryPath?: string | undefined;
-
-  /**
-   * <p>The path in the container that modified the release agent file.</p>
-   * @public
-   */
-  ReleaseAgentPath?: string | undefined;
-
-  /**
-   * <p>The path on the host that is mounted by the container.</p>
-   * @public
-   */
-  MountSource?: string | undefined;
-
-  /**
-   * <p>The path in the container that is mapped to the host directory.</p>
-   * @public
-   */
-  MountTarget?: string | undefined;
-
-  /**
-   * <p>Represents the type of mounted fileSystem.</p>
-   * @public
-   */
-  FileSystemType?: string | undefined;
-
-  /**
-   * <p>Represents options that control the behavior of a runtime operation or action. For example, a filesystem mount operation may contain a read-only flag.</p>
-   * @public
-   */
-  Flags?: string[] | undefined;
-
-  /**
-   * <p>The name of the module loaded into the kernel.</p>
-   * @public
-   */
-  ModuleName?: string | undefined;
-
-  /**
-   * <p>The path to the module loaded into the kernel.</p>
-   * @public
-   */
-  ModuleFilePath?: string | undefined;
-
-  /**
-   * <p>The <code>SHA256</code> hash of the module.</p>
-   * @public
-   */
-  ModuleSha256?: string | undefined;
-
-  /**
-   * <p>The path to the modified shell history file.</p>
-   * @public
-   */
-  ShellHistoryFilePath?: string | undefined;
-
-  /**
-   * <p>Information about the process that had its memory overwritten by the current process.</p>
-   * @public
-   */
-  TargetProcess?: ProcessDetails | undefined;
-
-  /**
-   * <p>Represents the communication protocol associated with the address. For example, the address family <code>AF_INET</code> is used for IP version of 4 protocol.</p>
-   * @public
-   */
-  AddressFamily?: string | undefined;
-
-  /**
-   * <p>Specifies a particular protocol within the address family. Usually there is a single protocol in address families. For example, the address family <code>AF_INET</code> only has the IP protocol.</p>
-   * @public
-   */
-  IanaProtocolNumber?: number | undefined;
-
-  /**
-   * <p>Specifies the Region of a process's address space such as stack and heap.</p>
-   * @public
-   */
-  MemoryRegions?: string[] | undefined;
-
-  /**
-   * <p>Name of the potentially suspicious tool.</p>
-   * @public
-   */
-  ToolName?: string | undefined;
-
-  /**
-   * <p>Category that the tool belongs to. Some of the examples are Backdoor Tool, Pentest Tool, Network Scanner, and Network Sniffer.</p>
-   * @public
-   */
-  ToolCategory?: string | undefined;
-
-  /**
-   * <p>Name of the security service that has been potentially disabled.</p>
-   * @public
-   */
-  ServiceName?: string | undefined;
-
-  /**
-   * <p>Example of the command line involved in the suspicious activity.</p>
-   * @public
-   */
-  CommandLineExample?: string | undefined;
-
-  /**
-   * <p>The suspicious file path for which the threat intelligence details were found.</p>
-   * @public
-   */
-  ThreatFilePath?: string | undefined;
-
-  /**
-   * <p>Represents the type of file operation that triggered the finding, such as Write, Delete, Rename, Link, or Symlink.</p>
-   * @public
-   */
-  FileOperation?: string | undefined;
-
-  /**
-   * <p>The path of the sensitive file that was modified. Modification includes write, delete, rename, link, or symlink operations. This field is indexed for filtering.</p>
-   * @public
-   */
-  FilePath?: string | undefined;
-
-  /**
-   * <p>All file paths modified by the same process that triggered the finding, up to a maximum of 25 paths.</p>
-   * @public
-   */
-  RelatedFilePaths?: string[] | undefined;
-}
-
-/**
- * <p>Information about the process and any required context values for a specific finding.</p>
- * @public
- */
-export interface RuntimeDetails {
-  /**
-   * <p>Information about the observed process.</p>
-   * @public
-   */
-  Process?: ProcessDetails | undefined;
-
-  /**
-   * <p>Additional information about the suspicious activity.</p>
-   * @public
-   */
-  Context?: RuntimeContext | undefined;
-}
-
-/**
- * <p>Contains additional information about the generated finding.</p>
- * @public
- */
-export interface Service {
-  /**
-   * <p>Information about the activity that is described in a finding.</p>
-   * @public
-   */
-  Action?: Action | undefined;
-
-  /**
-   * <p>An evidence object associated with the service.</p>
-   * @public
-   */
-  Evidence?: Evidence | undefined;
-
-  /**
-   * <p>Indicates whether this finding is archived.</p>
-   * @public
-   */
-  Archived?: boolean | undefined;
-
-  /**
-   * <p>The total count of the occurrences of this finding type.</p>
-   * @public
-   */
-  Count?: number | undefined;
-
-  /**
-   * <p>The detector ID for the GuardDuty service.</p>
-   * @public
-   */
-  DetectorId?: string | undefined;
-
-  /**
-   * <p>The first-seen timestamp of the activity that prompted GuardDuty to generate this finding.</p>
-   * @public
-   */
-  EventFirstSeen?: string | undefined;
-
-  /**
-   * <p>The last-seen timestamp of the activity that prompted GuardDuty to generate this finding.</p>
-   * @public
-   */
-  EventLastSeen?: string | undefined;
-
-  /**
-   * <p>The resource role information for this finding.</p>
-   * @public
-   */
-  ResourceRole?: string | undefined;
-
-  /**
-   * <p>The name of the Amazon Web Services service (GuardDuty) that generated a finding.</p>
-   * @public
-   */
-  ServiceName?: string | undefined;
-
-  /**
-   * <p>Feedback that was submitted about the finding.</p>
-   * @public
-   */
-  UserFeedback?: string | undefined;
-
-  /**
-   * <p>Contains additional information about the generated finding.</p>
-   * @public
-   */
-  AdditionalInfo?: ServiceAdditionalInfo | undefined;
-
-  /**
-   * <p>The name of the feature that generated a finding.</p>
-   * @public
-   */
-  FeatureName?: string | undefined;
-
-  /**
-   * <p>Returns details from the malware scan that created a finding.</p>
-   * @public
-   */
-  EbsVolumeScanDetails?: EbsVolumeScanDetails | undefined;
-
-  /**
-   * <p>Information about the process and any required context values for a specific finding</p>
-   * @public
-   */
-  RuntimeDetails?: RuntimeDetails | undefined;
-
-  /**
-   * <p>Contains information about the detected unusual behavior.</p>
-   * @public
-   */
-  Detection?: Detection | undefined;
-
-  /**
-   * <p>Returns details from the malware scan that generated a GuardDuty finding.</p>
-   * @public
-   */
-  MalwareScanDetails?: MalwareScanDetails | undefined;
-}
-
-/**
- * <p>Contains information about the finding that is generated when abnormal or suspicious activity is detected.</p>
- * @public
- */
-export interface Finding {
-  /**
-   * <p>The ID of the account in which the finding was generated.</p>
-   * @public
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The ARN of the finding.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The confidence score for the finding.</p>
-   * @public
-   */
-  Confidence?: number | undefined;
-
-  /**
-   * <p>The time and date when the finding was created.</p>
-   * @public
-   */
-  CreatedAt: string | undefined;
-
-  /**
-   * <p>The description of the finding.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The ID of the finding.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The partition associated with the finding.</p>
-   * @public
-   */
-  Partition?: string | undefined;
-
-  /**
-   * <p>The Region where the finding was generated. For findings generated from <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-global-service-events">Global Service Events</a>, the Region value in the finding might differ from the Region where GuardDuty identifies the potential threat. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_data-sources.html#cloudtrail_global">How GuardDuty handles Amazon Web Services CloudTrail global events</a> in the <i>Amazon GuardDuty User Guide</i>.</p>
-   * @public
-   */
-  Region: string | undefined;
-
-  /**
-   * <p>Contains information about the Amazon Web Services resource associated with the activity that prompted GuardDuty to generate a finding.</p>
-   * @public
-   */
-  Resource: Resource | undefined;
-
-  /**
-   * <p>The version of the schema used for the finding.</p>
-   * @public
-   */
-  SchemaVersion: string | undefined;
-
-  /**
-   * <p>Contains additional information about the generated finding.</p>
-   * @public
-   */
-  Service?: Service | undefined;
-
-  /**
-   * <p>The severity of the finding.</p>
-   * @public
-   */
-  Severity: number | undefined;
-
-  /**
-   * <p>The title of the finding.</p>
-   * @public
-   */
-  Title?: string | undefined;
-
-  /**
-   * <p>The type of finding.</p>
-   * @public
-   */
-  Type: string | undefined;
-
-  /**
-   * <p>The time and date when the finding was last updated.</p>
-   * @public
-   */
-  UpdatedAt: string | undefined;
-
-  /**
-   * <p>Amazon Resource Name (ARN) associated with the attack sequence finding.</p>
-   * @public
-   */
-  AssociatedAttackSequenceArn?: string | undefined;
-
-  /**
-   * <p>The name of the custom detection rule that generated this finding.</p>
-   * @public
-   */
-  CustomDetectionRuleName?: string | undefined;
-}
-
-/**
- * <p>Information about each finding type associated with the <code>groupedByFindingType</code> statistics.</p>
- * @public
- */
-export interface FindingTypeStatistics {
-  /**
-   * <p>Name of the finding type.</p>
-   * @public
-   */
-  FindingType?: string | undefined;
-
-  /**
-   * <p>The timestamp at which this finding type was last generated in your environment.</p>
-   * @public
-   */
-  LastGeneratedAt?: Date | undefined;
-
-  /**
-   * <p>The total number of findings associated with generated for each distinct finding type.</p>
-   * @public
-   */
-  TotalFindings?: number | undefined;
-}
-
-/**
- * <p>Information about each resource type associated with the <code>groupedByResource</code> statistics.</p>
- * @public
- */
-export interface ResourceStatistics {
-  /**
-   * <p>The ID of the Amazon Web Services account.</p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>The timestamp at which the statistics for this resource was last generated.</p>
-   * @public
-   */
-  LastGeneratedAt?: Date | undefined;
-
-  /**
-   * <p>ID associated with each resource. The following list provides the mapping of the resource type and resource ID.</p> <p class="title"> <b>Mapping of resource and resource ID</b> </p> <ul> <li> <p>AccessKey - <code>resource.accessKeyDetails.accessKeyId</code> </p> </li> <li> <p>Container - <code>resource.containerDetails.id</code> </p> </li> <li> <p>ECSCluster - <code>resource.ecsClusterDetails.name</code> </p> </li> <li> <p>EKSCluster - <code>resource.eksClusterDetails.name</code> </p> </li> <li> <p>Instance - <code>resource.instanceDetails.instanceId</code> </p> </li> <li> <p>KubernetesCluster - <code>resource.kubernetesDetails.kubernetesWorkloadDetails.name</code> </p> </li> <li> <p>Lambda - <code>resource.lambdaDetails.functionName</code> </p> </li> <li> <p>RDSDBInstance - <code>resource.rdsDbInstanceDetails.dbInstanceIdentifier</code> </p> </li> <li> <p>S3Bucket - <code>resource.s3BucketDetails.name</code> </p> </li> <li> <p>S3Object - <code>resource.s3BucketDetails.name</code> </p> </li> </ul>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The type of resource.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>The total number of findings associated with this resource.</p>
-   * @public
-   */
-  TotalFindings?: number | undefined;
-}
-
-/**
- * <p>Information about severity level for each finding type.</p>
- * @public
- */
-export interface SeverityStatistics {
-  /**
-   * <p>The timestamp at which a finding type for a specific severity was last generated.</p>
-   * @public
-   */
-  LastGeneratedAt?: Date | undefined;
-
-  /**
-   * <p>The severity level associated with each finding type.</p>
-   * @public
-   */
-  Severity?: number | undefined;
-
-  /**
-   * <p>The total number of findings associated with this severity.</p>
-   * @public
-   */
-  TotalFindings?: number | undefined;
-}
-
-/**
- * <p>Contains information about finding statistics.</p>
- * @public
- */
-export interface FindingStatistics {
-  /**
-   * <p>Represents a list of map of severity to count statistics for a set of findings.</p>
-   *
-   * @deprecated This parameter is deprecated. Please set GroupBy to 'SEVERITY' to return GroupedBySeverity instead.
-   * @public
-   */
-  CountBySeverity?: Record<string, number> | undefined;
-
-  /**
-   * <p>Represents a list of map of accounts with a findings count associated with each account.</p>
-   * @public
-   */
-  GroupedByAccount?: AccountStatistics[] | undefined;
-
-  /**
-   * <p>Represents a list of map of dates with a count of total findings generated on each date per severity level.</p>
-   * @public
-   */
-  GroupedByDate?: DateStatistics[] | undefined;
-
-  /**
-   * <p>Represents a list of map of finding types with a count of total findings generated for each type. </p> <p>Based on the <code>orderBy</code> parameter, this request returns either the most occurring finding types or the least occurring finding types. If the <code>orderBy</code> parameter is <code>ASC</code>, this will represent the least occurring finding types in your account; otherwise, this will represent the most occurring finding types. The default value of <code>orderBy</code> is <code>DESC</code>.</p>
-   * @public
-   */
-  GroupedByFindingType?: FindingTypeStatistics[] | undefined;
-
-  /**
-   * <p>Represents a list of map of top resources with a count of total findings.</p>
-   * @public
-   */
-  GroupedByResource?: ResourceStatistics[] | undefined;
-
-  /**
-   * <p>Represents a list of map of total findings for each severity level.</p>
-   * @public
-   */
-  GroupedBySeverity?: SeverityStatistics[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAdministratorAccountRequest {
-  /**
-   * <p>The unique ID of the detector of the GuardDuty member account.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAdministratorAccountResponse {
-  /**
-   * <p>The administrator account details.</p>
-   * @public
-   */
-  Administrator: Administrator | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCoverageStatisticsRequest {
-  /**
-   * <p>The unique ID of the GuardDuty detector.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>Represents the criteria used to filter the coverage statistics.</p>
-   * @public
-   */
-  FilterCriteria?: CoverageFilterCriteria | undefined;
-
-  /**
-   * <p>Represents the statistics type used to aggregate the coverage details.</p>
-   * @public
-   */
-  StatisticsType: CoverageStatisticsType[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCoverageStatisticsResponse {
-  /**
-   * <p>Represents the count aggregated by the <code>statusCode</code> and <code>resourceType</code>.</p>
-   * @public
-   */
-  CoverageStatistics?: CoverageStatistics | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCustomDetectionRuleRequest {
-  /**
-   * <p>The unique identifier for the custom detection rule.</p>
-   * @public
-   */
-  RuleId: string | undefined;
-}
-
-/**
- * <p>Contains the detection logic for a custom detection rule.</p>
- * @public
- */
-export interface RuleDefinition {
-  /**
-   * <p>The detection logic expression for the rule.</p>
-   * @public
-   */
-  Expression: string | undefined;
+  UpdatedAt?: Date | undefined;
 }

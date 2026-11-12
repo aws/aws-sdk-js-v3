@@ -13,13 +13,19 @@ import {
   AccessKey$,
   AccessKeyDetails$,
   Account$,
+  AccountAffectedResource$,
+  AccountAnalysis$,
   AccountDetail$,
   AccountFreeTrialInfo$,
   AccountLevelPermissions$,
+  AccountOverview$,
   AccountStatistics$,
+  AccountSummary$,
   Action$,
+  ActionPriority,
   Activity$,
   ActivityType,
+  ActivityWindow$,
   Actor$,
   ActorProcess$,
   AdditionalInfo$,
@@ -27,11 +33,15 @@ import {
   AdminAccount$,
   Administrator$,
   AdminStatus,
+  AffectedResource$,
   AgentDetails$,
+  AnalysisRecord$,
+  AnalysisType,
   Anomaly$,
   AnomalyObject$,
   AnomalyUnusual$,
   ApiCall$,
+  ArchiveDistribution$,
   ArchiveFindings$,
   ArchiveFindingsCommand,
   ArchiveFindingsRequest$,
@@ -39,12 +49,16 @@ import {
   AssociationDetail$,
   AssociationMode,
   AssociationSummary$,
+  Attack$,
+  AttackPhase$,
+  AttackPhaseName,
   AutoEnableMembers,
   AutonomousSystem$,
   AutoscalingAutoScalingGroup$,
   AwsApiCallAction$,
   BadRequestException,
   BadRequestException$,
+  Baseline$,
   BedrockGuardrail$,
   BedrockGuardrailDetails$,
   BedrockGuardrailResource$,
@@ -69,6 +83,10 @@ import {
   ContentPolicyFilterAction,
   ContentPolicyFilterType,
   ContinuousScanDetails$,
+  CorrelatedFinding$,
+  CorrelationReason,
+  Countermeasure$,
+  CountermeasureAction$,
   Country$,
   CoverageEc2InstanceDetails$,
   CoverageEcsClusterDetails$,
@@ -151,6 +169,7 @@ import {
   DeclineInvitationsRequest$,
   DeclineInvitationsResponse$,
   DefaultServerSideEncryption$,
+  DefenseTactic,
   DeleteCustomDetectionRuleAssociation$,
   DeleteCustomDetectionRuleAssociationCommand,
   DeleteCustomDetectionRuleAssociationRequest$,
@@ -214,6 +233,7 @@ import {
   DestinationProperties$,
   DestinationType,
   Detection$,
+  DetectionCoverage$,
   DetectionRuleConfigurationStatus,
   DetectionRuleDataSource,
   DetectionRuleEc2Requirements$,
@@ -250,6 +270,10 @@ import {
   DisassociateMembersCommand,
   DisassociateMembersRequest$,
   DisassociateMembersResponse$,
+  Disposition,
+  Distribution$,
+  DistributionDimension,
+  DnsContext$,
   DNSLogsConfigurationResult$,
   DnsRequestAction$,
   DomainDetails$,
@@ -277,11 +301,20 @@ import {
   EnableOrganizationAdminAccountCommand,
   EnableOrganizationAdminAccountRequest$,
   EnableOrganizationAdminAccountResponse$,
+  Enrichment$,
   Evidence$,
   FargateDetails$,
   FeatureAdditionalConfiguration,
   FeatureStatus,
   Feedback,
+  FetchCriterion$,
+  FetchCriterionCondition,
+  FetchQuery$,
+  FetchRecord$,
+  FetchResult$,
+  FetchTimeWindow$,
+  FetchType,
+  FetchVerdict,
   FilterAction,
   FilterCondition$,
   FilterCriteria$,
@@ -289,10 +322,16 @@ import {
   FilterFieldName,
   Finding$,
   FindingCriteria$,
+  FindingDetail$,
   FindingPublishingFrequency,
+  FindingReference$,
   FindingResourceType,
+  FindingsSummary$,
   FindingStatistics$,
   FindingStatisticType,
+  FindingTypeClassification$,
+  FindingTypeCount$,
+  FindingTypeDocumentation$,
   FindingTypeStatistics$,
   FlowLogsConfigurationResult$,
   FreeTrialFeatureConfigurationResult$,
@@ -412,11 +451,33 @@ import {
   InternalServerErrorException,
   InternalServerErrorException$,
   Investigation$,
+  InvestigationAccountAnalysis$,
+  InvestigationActor$,
+  InvestigationDetectorFeature,
+  InvestigationDetectorFeatureConfiguration$,
+  InvestigationEc2Instance$,
+  InvestigationEcsCluster$,
+  InvestigationEksCluster$,
+  InvestigationFilterCondition$,
+  InvestigationFilterCriteria$,
+  InvestigationFilterCriterionKey,
+  InvestigationIndicator$,
+  InvestigationIndicatorType,
+  InvestigationKubernetesWorkload$,
+  InvestigationMalwareScan$,
   InvestigationMetadata$,
+  InvestigationRecord$,
+  InvestigationResource$,
+  InvestigationResourceData$,
+  InvestigationResourceType,
+  InvestigationScope$,
   InvestigationSortCriteria$,
   InvestigationSortField,
   InvestigationStatus,
   InvestigationSummary$,
+  InvestigationSummaryData$,
+  InvestigationThreatAssessment$,
+  InvestigationType,
   Invitation$,
   InviteMembers$,
   InviteMembersCommand,
@@ -426,6 +487,10 @@ import {
   IpSetStatus,
   ItemDetails$,
   ItemPath$,
+  KeyObservations$,
+  KubernetesActivity$,
+  KubernetesAnomaly$,
+  KubernetesApiCall$,
   KubernetesApiCallAction$,
   KubernetesAuditLogsConfiguration$,
   KubernetesAuditLogsConfigurationResult$,
@@ -434,6 +499,7 @@ import {
   KubernetesDataSourceFreeTrial$,
   KubernetesDetails$,
   KubernetesPermissionCheckedDetails$,
+  KubernetesPolicyViolation$,
   KubernetesResourcesTypes,
   KubernetesRoleBindingDetails$,
   KubernetesRoleDetails$,
@@ -441,6 +507,7 @@ import {
   KubernetesWorkload$,
   KubernetesWorkloadDetails$,
   LambdaDetails$,
+  LambdaFunction$,
   LineageObject$,
   ListCoverage$,
   ListCoverageCommand,
@@ -470,6 +537,10 @@ import {
   ListFindingsCommand,
   ListFindingsRequest$,
   ListFindingsResponse$,
+  ListInvestigationRecords$,
+  ListInvestigationRecordsCommand,
+  ListInvestigationRecordsRequest$,
+  ListInvestigationRecordsResponse$,
   ListInvestigations$,
   ListInvestigationsCommand,
   ListInvestigationsRequest$,
@@ -539,28 +610,40 @@ import {
   MalwareProtectionScanType,
   MalwareScan$,
   MalwareScanDetails$,
+  MalwareThreat$,
   ManagedBy,
   ManagementType,
   Master$,
   Member$,
+  MemberAccountRanking$,
   MemberAdditionalConfiguration$,
   MemberAdditionalConfigurationResult$,
   MemberDataSourceConfiguration$,
   MemberFeaturesConfiguration$,
   MemberFeaturesConfigurationResult$,
+  MetadataRecord$,
   MfaStatus,
   ModelDetail$,
+  NetworkActivity$,
+  NetworkAnomaly$,
   NetworkConnection$,
   NetworkConnectionAction$,
+  NetworkCounts$,
   NetworkDirection,
   NetworkEndpoint$,
   NetworkGeoLocation$,
   NetworkInterface$,
+  NetworkPorts$,
+  NetworkTraffic$,
+  ObservationRecord$,
   Observations$,
+  ObservationType,
+  ObservedFindingType$,
   OrderBy,
   Organization$,
   OrganizationAdditionalConfiguration$,
   OrganizationAdditionalConfigurationResult$,
+  OrganizationAnalysis$,
   OrganizationDataSourceConfigurations$,
   OrganizationDataSourceConfigurationsResult$,
   OrganizationDetails$,
@@ -570,6 +653,7 @@ import {
   OrganizationFeatureConfigurationResult$,
   OrganizationFeatureStatistics$,
   OrganizationFeatureStatisticsAdditionalConfiguration$,
+  OrganizationFindingsSummary$,
   OrganizationKubernetesAuditLogsConfiguration$,
   OrganizationKubernetesAuditLogsConfigurationResult$,
   OrganizationKubernetesConfiguration$,
@@ -595,6 +679,7 @@ import {
   paginateListDetectors,
   paginateListFilters,
   paginateListFindings,
+  paginateListInvestigationRecords,
   paginateListInvestigations,
   paginateListInvitations,
   paginateListIPSets,
@@ -609,29 +694,42 @@ import {
   PortProbeAction$,
   PortProbeDetail$,
   PrivateIpAddressDetails$,
+  Process$,
   ProcessDetails$,
   Product$,
   ProductCode$,
   ProfileSubtype,
   ProfileType,
+  ProtectionPlan$,
   PublicAccess$,
   PublicAccessConfiguration$,
   PublicAccessStatus,
   PublicAclIgnoreBehavior,
   PublicBucketRestrictBehavior,
   PublishingStatus,
+  QueryTimeWindow$,
+  RdsDbInstance$,
   RdsDbInstanceDetails$,
+  RdsDbUser$,
   RdsDbUserDetails$,
   RdsLimitlessDbDetails$,
+  RdsLoginActivity$,
   RdsLoginAttemptAction$,
+  Recommendation$,
+  RecommendationCategory,
+  RecordType,
   RecoveryPoint$,
   RecoveryPointDetails$,
+  RelatedFindings$,
   RemoteAccountDetails$,
   RemoteIpDetails$,
   RemotePortDetails$,
+  RepresentativeFinding$,
+  Reputation$,
   Resource$,
   ResourceData$,
   ResourceDetails$,
+  ResourceDistribution$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceStatistics$,
@@ -645,6 +743,9 @@ import {
   RuleSummary$,
   RuntimeContext$,
   RuntimeDetails$,
+  RuntimeSignals$,
+  S3Activity$,
+  S3Analysis$,
   S3Bucket$,
   S3BucketDetail$,
   S3LogsConfiguration$,
@@ -686,8 +787,12 @@ import {
   Service$,
   ServiceAdditionalInfo$,
   Session$,
+  SeverityBreakdown$,
   SeverityStatistics$,
+  SharedBehavior$,
+  SharedResource$,
   Signal$,
+  SignalGroup$,
   SignalType,
   SortCriteria$,
   StartMalwareScan$,
@@ -703,24 +808,35 @@ import {
   StopMonitoringMembersCommand,
   StopMonitoringMembersRequest$,
   StopMonitoringMembersResponse$,
+  SummaryFormat,
+  SupportingData$,
+  TacticCoverage$,
   Tag$,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
   TagResourceResponse$,
+  TechniqueCoverage$,
   Threat$,
+  ThreatAssessment$,
+  ThreatConfidence,
   ThreatDetectedByName$,
   ThreatEntitySetFormat,
   ThreatEntitySetStatus,
   ThreatIntelligenceDetail$,
   ThreatIntelSetFormat,
   ThreatIntelSetStatus,
+  ThreatReference$,
   ThreatsDetectedItemCount$,
+  TimeGranularity,
+  TimeWindowGroup$,
   Total$,
+  Trend$,
   TriggerDetails$,
   TriggerType,
   TrustedEntitySetFormat,
   TrustedEntitySetStatus,
+  TypeDistribution$,
   UnarchiveFindings$,
   UnarchiveFindingsCommand,
   UnarchiveFindingsRequest$,
@@ -947,6 +1063,8 @@ assert(typeof ListFiltersCommand === "function");
 assert(typeof ListFilters$ === "object");
 assert(typeof ListFindingsCommand === "function");
 assert(typeof ListFindings$ === "object");
+assert(typeof ListInvestigationRecordsCommand === "function");
+assert(typeof ListInvestigationRecords$ === "object");
 assert(typeof ListInvestigationsCommand === "function");
 assert(typeof ListInvestigations$ === "object");
 assert(typeof ListInvitationsCommand === "function");
@@ -1022,30 +1140,41 @@ assert(typeof AccessControlList$ === "object");
 assert(typeof AccessKey$ === "object");
 assert(typeof AccessKeyDetails$ === "object");
 assert(typeof Account$ === "object");
+assert(typeof AccountAffectedResource$ === "object");
+assert(typeof AccountAnalysis$ === "object");
 assert(typeof AccountDetail$ === "object");
 assert(typeof AccountFreeTrialInfo$ === "object");
 assert(typeof AccountLevelPermissions$ === "object");
+assert(typeof AccountOverview$ === "object");
 assert(typeof AccountStatistics$ === "object");
+assert(typeof AccountSummary$ === "object");
 assert(typeof Action$ === "object");
 assert(typeof Activity$ === "object");
+assert(typeof ActivityWindow$ === "object");
 assert(typeof Actor$ === "object");
 assert(typeof ActorProcess$ === "object");
 assert(typeof AdditionalInfo$ === "object");
 assert(typeof AddonDetails$ === "object");
 assert(typeof AdminAccount$ === "object");
 assert(typeof Administrator$ === "object");
+assert(typeof AffectedResource$ === "object");
 assert(typeof AgentDetails$ === "object");
+assert(typeof AnalysisRecord$ === "object");
 assert(typeof Anomaly$ === "object");
 assert(typeof AnomalyObject$ === "object");
 assert(typeof AnomalyUnusual$ === "object");
 assert(typeof ApiCall$ === "object");
+assert(typeof ArchiveDistribution$ === "object");
 assert(typeof ArchiveFindingsRequest$ === "object");
 assert(typeof ArchiveFindingsResponse$ === "object");
 assert(typeof AssociationDetail$ === "object");
 assert(typeof AssociationSummary$ === "object");
+assert(typeof Attack$ === "object");
+assert(typeof AttackPhase$ === "object");
 assert(typeof AutonomousSystem$ === "object");
 assert(typeof AutoscalingAutoScalingGroup$ === "object");
 assert(typeof AwsApiCallAction$ === "object");
+assert(typeof Baseline$ === "object");
 assert(typeof BedrockGuardrail$ === "object");
 assert(typeof BedrockGuardrailDetails$ === "object");
 assert(typeof BedrockGuardrailResource$ === "object");
@@ -1062,6 +1191,9 @@ assert(typeof ContainerFindingResource$ === "object");
 assert(typeof ContainerInstanceDetails$ === "object");
 assert(typeof ContentPolicyFilter$ === "object");
 assert(typeof ContinuousScanDetails$ === "object");
+assert(typeof CorrelatedFinding$ === "object");
+assert(typeof Countermeasure$ === "object");
+assert(typeof CountermeasureAction$ === "object");
 assert(typeof Country$ === "object");
 assert(typeof CoverageEc2InstanceDetails$ === "object");
 assert(typeof CoverageEcsClusterDetails$ === "object");
@@ -1141,6 +1273,7 @@ assert(typeof DescribePublishingDestinationResponse$ === "object");
 assert(typeof Destination$ === "object");
 assert(typeof DestinationProperties$ === "object");
 assert(typeof Detection$ === "object");
+assert(typeof DetectionCoverage$ === "object");
 assert(typeof DetectionRuleEc2Requirements$ === "object");
 assert(typeof DetectionRuleEcsFargateRequirements$ === "object");
 assert(typeof DetectionRuleEksRequirements$ === "object");
@@ -1161,6 +1294,8 @@ assert(typeof DisassociateFromMasterAccountRequest$ === "object");
 assert(typeof DisassociateFromMasterAccountResponse$ === "object");
 assert(typeof DisassociateMembersRequest$ === "object");
 assert(typeof DisassociateMembersResponse$ === "object");
+assert(typeof Distribution$ === "object");
+assert(typeof DnsContext$ === "object");
 assert(typeof DNSLogsConfigurationResult$ === "object");
 assert(typeof DnsRequestAction$ === "object");
 assert(typeof DomainDetails$ === "object");
@@ -1183,14 +1318,26 @@ assert(typeof EksCluster$ === "object");
 assert(typeof EksClusterDetails$ === "object");
 assert(typeof EnableOrganizationAdminAccountRequest$ === "object");
 assert(typeof EnableOrganizationAdminAccountResponse$ === "object");
+assert(typeof Enrichment$ === "object");
 assert(typeof Evidence$ === "object");
 assert(typeof FargateDetails$ === "object");
+assert(typeof FetchCriterion$ === "object");
+assert(typeof FetchQuery$ === "object");
+assert(typeof FetchRecord$ === "object");
+assert(typeof FetchResult$ === "object");
+assert(typeof FetchTimeWindow$ === "object");
 assert(typeof FilterCondition$ === "object");
 assert(typeof FilterCriteria$ === "object");
 assert(typeof FilterCriterion$ === "object");
 assert(typeof Finding$ === "object");
 assert(typeof FindingCriteria$ === "object");
+assert(typeof FindingDetail$ === "object");
+assert(typeof FindingReference$ === "object");
+assert(typeof FindingsSummary$ === "object");
 assert(typeof FindingStatistics$ === "object");
+assert(typeof FindingTypeClassification$ === "object");
+assert(typeof FindingTypeCount$ === "object");
+assert(typeof FindingTypeDocumentation$ === "object");
 assert(typeof FindingTypeStatistics$ === "object");
 assert(typeof FlowLogsConfigurationResult$ === "object");
 assert(typeof FreeTrialFeatureConfigurationResult$ === "object");
@@ -1252,14 +1399,35 @@ assert(typeof IncrementalScanDetails$ === "object");
 assert(typeof Indicator$ === "object");
 assert(typeof InstanceDetails$ === "object");
 assert(typeof Investigation$ === "object");
+assert(typeof InvestigationAccountAnalysis$ === "object");
+assert(typeof InvestigationActor$ === "object");
+assert(typeof InvestigationDetectorFeatureConfiguration$ === "object");
+assert(typeof InvestigationEc2Instance$ === "object");
+assert(typeof InvestigationEcsCluster$ === "object");
+assert(typeof InvestigationEksCluster$ === "object");
+assert(typeof InvestigationFilterCondition$ === "object");
+assert(typeof InvestigationFilterCriteria$ === "object");
+assert(typeof InvestigationIndicator$ === "object");
+assert(typeof InvestigationKubernetesWorkload$ === "object");
+assert(typeof InvestigationMalwareScan$ === "object");
 assert(typeof InvestigationMetadata$ === "object");
+assert(typeof InvestigationRecord$ === "object");
+assert(typeof InvestigationResource$ === "object");
+assert(typeof InvestigationResourceData$ === "object");
+assert(typeof InvestigationScope$ === "object");
 assert(typeof InvestigationSortCriteria$ === "object");
 assert(typeof InvestigationSummary$ === "object");
+assert(typeof InvestigationSummaryData$ === "object");
+assert(typeof InvestigationThreatAssessment$ === "object");
 assert(typeof Invitation$ === "object");
 assert(typeof InviteMembersRequest$ === "object");
 assert(typeof InviteMembersResponse$ === "object");
 assert(typeof ItemDetails$ === "object");
 assert(typeof ItemPath$ === "object");
+assert(typeof KeyObservations$ === "object");
+assert(typeof KubernetesActivity$ === "object");
+assert(typeof KubernetesAnomaly$ === "object");
+assert(typeof KubernetesApiCall$ === "object");
 assert(typeof KubernetesApiCallAction$ === "object");
 assert(typeof KubernetesAuditLogsConfiguration$ === "object");
 assert(typeof KubernetesAuditLogsConfigurationResult$ === "object");
@@ -1268,12 +1436,14 @@ assert(typeof KubernetesConfigurationResult$ === "object");
 assert(typeof KubernetesDataSourceFreeTrial$ === "object");
 assert(typeof KubernetesDetails$ === "object");
 assert(typeof KubernetesPermissionCheckedDetails$ === "object");
+assert(typeof KubernetesPolicyViolation$ === "object");
 assert(typeof KubernetesRoleBindingDetails$ === "object");
 assert(typeof KubernetesRoleDetails$ === "object");
 assert(typeof KubernetesUserDetails$ === "object");
 assert(typeof KubernetesWorkload$ === "object");
 assert(typeof KubernetesWorkloadDetails$ === "object");
 assert(typeof LambdaDetails$ === "object");
+assert(typeof LambdaFunction$ === "object");
 assert(typeof LineageObject$ === "object");
 assert(typeof ListCoverageRequest$ === "object");
 assert(typeof ListCoverageResponse$ === "object");
@@ -1289,6 +1459,8 @@ assert(typeof ListFiltersRequest$ === "object");
 assert(typeof ListFiltersResponse$ === "object");
 assert(typeof ListFindingsRequest$ === "object");
 assert(typeof ListFindingsResponse$ === "object");
+assert(typeof ListInvestigationRecordsRequest$ === "object");
+assert(typeof ListInvestigationRecordsResponse$ === "object");
 assert(typeof ListInvestigationsRequest$ === "object");
 assert(typeof ListInvestigationsResponse$ === "object");
 assert(typeof ListInvitationsRequest$ === "object");
@@ -1328,23 +1500,34 @@ assert(typeof MalwareProtectionPlanSummary$ === "object");
 assert(typeof MalwareProtectionPlanTaggingAction$ === "object");
 assert(typeof MalwareScan$ === "object");
 assert(typeof MalwareScanDetails$ === "object");
+assert(typeof MalwareThreat$ === "object");
 assert(typeof Master$ === "object");
 assert(typeof Member$ === "object");
+assert(typeof MemberAccountRanking$ === "object");
 assert(typeof MemberAdditionalConfiguration$ === "object");
 assert(typeof MemberAdditionalConfigurationResult$ === "object");
 assert(typeof MemberDataSourceConfiguration$ === "object");
 assert(typeof MemberFeaturesConfiguration$ === "object");
 assert(typeof MemberFeaturesConfigurationResult$ === "object");
+assert(typeof MetadataRecord$ === "object");
 assert(typeof ModelDetail$ === "object");
+assert(typeof NetworkActivity$ === "object");
+assert(typeof NetworkAnomaly$ === "object");
 assert(typeof NetworkConnection$ === "object");
 assert(typeof NetworkConnectionAction$ === "object");
+assert(typeof NetworkCounts$ === "object");
 assert(typeof NetworkEndpoint$ === "object");
 assert(typeof NetworkGeoLocation$ === "object");
 assert(typeof NetworkInterface$ === "object");
+assert(typeof NetworkPorts$ === "object");
+assert(typeof NetworkTraffic$ === "object");
+assert(typeof ObservationRecord$ === "object");
 assert(typeof Observations$ === "object");
+assert(typeof ObservedFindingType$ === "object");
 assert(typeof Organization$ === "object");
 assert(typeof OrganizationAdditionalConfiguration$ === "object");
 assert(typeof OrganizationAdditionalConfigurationResult$ === "object");
+assert(typeof OrganizationAnalysis$ === "object");
 assert(typeof OrganizationDataSourceConfigurations$ === "object");
 assert(typeof OrganizationDataSourceConfigurationsResult$ === "object");
 assert(typeof OrganizationDetails$ === "object");
@@ -1354,6 +1537,7 @@ assert(typeof OrganizationFeatureConfiguration$ === "object");
 assert(typeof OrganizationFeatureConfigurationResult$ === "object");
 assert(typeof OrganizationFeatureStatistics$ === "object");
 assert(typeof OrganizationFeatureStatisticsAdditionalConfiguration$ === "object");
+assert(typeof OrganizationFindingsSummary$ === "object");
 assert(typeof OrganizationKubernetesAuditLogsConfiguration$ === "object");
 assert(typeof OrganizationKubernetesAuditLogsConfigurationResult$ === "object");
 assert(typeof OrganizationKubernetesConfiguration$ === "object");
@@ -1370,23 +1554,34 @@ assert(typeof PermissionConfiguration$ === "object");
 assert(typeof PortProbeAction$ === "object");
 assert(typeof PortProbeDetail$ === "object");
 assert(typeof PrivateIpAddressDetails$ === "object");
+assert(typeof Process$ === "object");
 assert(typeof ProcessDetails$ === "object");
 assert(typeof Product$ === "object");
 assert(typeof ProductCode$ === "object");
+assert(typeof ProtectionPlan$ === "object");
 assert(typeof PublicAccess$ === "object");
 assert(typeof PublicAccessConfiguration$ === "object");
+assert(typeof QueryTimeWindow$ === "object");
+assert(typeof RdsDbInstance$ === "object");
 assert(typeof RdsDbInstanceDetails$ === "object");
+assert(typeof RdsDbUser$ === "object");
 assert(typeof RdsDbUserDetails$ === "object");
 assert(typeof RdsLimitlessDbDetails$ === "object");
+assert(typeof RdsLoginActivity$ === "object");
 assert(typeof RdsLoginAttemptAction$ === "object");
+assert(typeof Recommendation$ === "object");
 assert(typeof RecoveryPoint$ === "object");
 assert(typeof RecoveryPointDetails$ === "object");
+assert(typeof RelatedFindings$ === "object");
 assert(typeof RemoteAccountDetails$ === "object");
 assert(typeof RemoteIpDetails$ === "object");
 assert(typeof RemotePortDetails$ === "object");
+assert(typeof RepresentativeFinding$ === "object");
+assert(typeof Reputation$ === "object");
 assert(typeof Resource$ === "object");
 assert(typeof ResourceData$ === "object");
 assert(typeof ResourceDetails$ === "object");
+assert(typeof ResourceDistribution$ === "object");
 assert(typeof ResourceStatistics$ === "object");
 assert(typeof ResourceV2$ === "object");
 assert(typeof RuleDefinition$ === "object");
@@ -1394,6 +1589,9 @@ assert(typeof RuleDetail$ === "object");
 assert(typeof RuleSummary$ === "object");
 assert(typeof RuntimeContext$ === "object");
 assert(typeof RuntimeDetails$ === "object");
+assert(typeof RuntimeSignals$ === "object");
+assert(typeof S3Activity$ === "object");
+assert(typeof S3Analysis$ === "object");
 assert(typeof S3Bucket$ === "object");
 assert(typeof S3BucketDetail$ === "object");
 assert(typeof S3LogsConfiguration$ === "object");
@@ -1426,8 +1624,12 @@ assert(typeof Sequence$ === "object");
 assert(typeof Service$ === "object");
 assert(typeof ServiceAdditionalInfo$ === "object");
 assert(typeof Session$ === "object");
+assert(typeof SeverityBreakdown$ === "object");
 assert(typeof SeverityStatistics$ === "object");
+assert(typeof SharedBehavior$ === "object");
+assert(typeof SharedResource$ === "object");
 assert(typeof Signal$ === "object");
+assert(typeof SignalGroup$ === "object");
 assert(typeof SortCriteria$ === "object");
 assert(typeof StartMalwareScanConfiguration$ === "object");
 assert(typeof StartMalwareScanRequest$ === "object");
@@ -1436,15 +1638,23 @@ assert(typeof StartMonitoringMembersRequest$ === "object");
 assert(typeof StartMonitoringMembersResponse$ === "object");
 assert(typeof StopMonitoringMembersRequest$ === "object");
 assert(typeof StopMonitoringMembersResponse$ === "object");
+assert(typeof SupportingData$ === "object");
+assert(typeof TacticCoverage$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
+assert(typeof TechniqueCoverage$ === "object");
 assert(typeof Threat$ === "object");
+assert(typeof ThreatAssessment$ === "object");
 assert(typeof ThreatDetectedByName$ === "object");
 assert(typeof ThreatIntelligenceDetail$ === "object");
+assert(typeof ThreatReference$ === "object");
 assert(typeof ThreatsDetectedItemCount$ === "object");
+assert(typeof TimeWindowGroup$ === "object");
 assert(typeof Total$ === "object");
+assert(typeof Trend$ === "object");
 assert(typeof TriggerDetails$ === "object");
+assert(typeof TypeDistribution$ === "object");
 assert(typeof UnarchiveFindingsRequest$ === "object");
 assert(typeof UnarchiveFindingsResponse$ === "object");
 assert(typeof UnprocessedAccount$ === "object");
@@ -1494,9 +1704,12 @@ assert(typeof VolumeDetail$ === "object");
 assert(typeof VolumeMount$ === "object");
 assert(typeof VpcConfig$ === "object");
 // enums
+assert(typeof ActionPriority === "object");
 assert(typeof ActivityType === "object");
 assert(typeof AdminStatus === "object");
+assert(typeof AnalysisType === "object");
 assert(typeof AssociationMode === "object");
+assert(typeof AttackPhaseName === "object");
 assert(typeof AutoEnableMembers === "object");
 assert(typeof CloudProvider === "object");
 assert(typeof ClusterStatus === "object");
@@ -1504,6 +1717,7 @@ assert(typeof Confidence === "object");
 assert(typeof ConfidenceLevel === "object");
 assert(typeof ContentPolicyFilterAction === "object");
 assert(typeof ContentPolicyFilterType === "object");
+assert(typeof CorrelationReason === "object");
 assert(typeof CoverageFilterCriterionKey === "object");
 assert(typeof CoverageSortKey === "object");
 assert(typeof CoverageStatisticsType === "object");
@@ -1511,6 +1725,7 @@ assert(typeof CoverageStatus === "object");
 assert(typeof CriterionKey === "object");
 assert(typeof DataSource === "object");
 assert(typeof DataSourceStatus === "object");
+assert(typeof DefenseTactic === "object");
 assert(typeof DestinationType === "object");
 assert(typeof DetectionRuleConfigurationStatus === "object");
 assert(typeof DetectionRuleDataSource === "object");
@@ -1520,12 +1735,17 @@ assert(typeof DetectionSource === "object");
 assert(typeof DetectorFeature === "object");
 assert(typeof DetectorFeatureResult === "object");
 assert(typeof DetectorStatus === "object");
+assert(typeof Disposition === "object");
+assert(typeof DistributionDimension === "object");
 assert(typeof EbsSnapshotPreservation === "object");
 assert(typeof EcsClusterStatus === "object");
 assert(typeof EcsLaunchType === "object");
 assert(typeof FeatureAdditionalConfiguration === "object");
 assert(typeof FeatureStatus === "object");
 assert(typeof Feedback === "object");
+assert(typeof FetchCriterionCondition === "object");
+assert(typeof FetchType === "object");
+assert(typeof FetchVerdict === "object");
 assert(typeof FilterAction === "object");
 assert(typeof FilterFieldName === "object");
 assert(typeof FindingPublishingFrequency === "object");
@@ -1536,8 +1756,13 @@ assert(typeof GroupByType === "object");
 assert(typeof GuardrailAction === "object");
 assert(typeof GuardrailSource === "object");
 assert(typeof IndicatorType === "object");
+assert(typeof InvestigationDetectorFeature === "object");
+assert(typeof InvestigationFilterCriterionKey === "object");
+assert(typeof InvestigationIndicatorType === "object");
+assert(typeof InvestigationResourceType === "object");
 assert(typeof InvestigationSortField === "object");
 assert(typeof InvestigationStatus === "object");
+assert(typeof InvestigationType === "object");
 assert(typeof IpSetFormat === "object");
 assert(typeof IpSetStatus === "object");
 assert(typeof KubernetesResourcesTypes === "object");
@@ -1551,6 +1776,7 @@ assert(typeof ManagedBy === "object");
 assert(typeof ManagementType === "object");
 assert(typeof MfaStatus === "object");
 assert(typeof NetworkDirection === "object");
+assert(typeof ObservationType === "object");
 assert(typeof OrderBy === "object");
 assert(typeof OrgFeature === "object");
 assert(typeof OrgFeatureAdditionalConfiguration === "object");
@@ -1561,6 +1787,8 @@ assert(typeof PublicAccessStatus === "object");
 assert(typeof PublicAclIgnoreBehavior === "object");
 assert(typeof PublicBucketRestrictBehavior === "object");
 assert(typeof PublishingStatus === "object");
+assert(typeof RecommendationCategory === "object");
+assert(typeof RecordType === "object");
 assert(typeof ResourceType === "object");
 assert(typeof RiskLevel === "object");
 assert(typeof RuleLanguage === "object");
@@ -1573,10 +1801,13 @@ assert(typeof ScanStatus === "object");
 assert(typeof ScanStatusReason === "object");
 assert(typeof ScanType === "object");
 assert(typeof SignalType === "object");
+assert(typeof SummaryFormat === "object");
+assert(typeof ThreatConfidence === "object");
 assert(typeof ThreatEntitySetFormat === "object");
 assert(typeof ThreatEntitySetStatus === "object");
 assert(typeof ThreatIntelSetFormat === "object");
 assert(typeof ThreatIntelSetStatus === "object");
+assert(typeof TimeGranularity === "object");
 assert(typeof TriggerType === "object");
 assert(typeof TrustedEntitySetFormat === "object");
 assert(typeof TrustedEntitySetStatus === "object");
@@ -1606,6 +1837,7 @@ assert(typeof paginateListDetectors === "function");
 assert(typeof paginateListFilters === "function");
 assert(typeof paginateListFindings === "function");
 assert(typeof paginateListIPSets === "function");
+assert(typeof paginateListInvestigationRecords === "function");
 assert(typeof paginateListInvestigations === "function");
 assert(typeof paginateListInvitations === "function");
 assert(typeof paginateListMalwareScans === "function");

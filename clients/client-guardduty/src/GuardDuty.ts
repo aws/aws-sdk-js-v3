@@ -345,6 +345,11 @@ import {
   ListFindingsCommand,
 } from "./commands/ListFindingsCommand";
 import {
+  type ListInvestigationRecordsCommandInput,
+  type ListInvestigationRecordsCommandOutput,
+  ListInvestigationRecordsCommand,
+} from "./commands/ListInvestigationRecordsCommand";
+import {
   type ListInvestigationsCommandInput,
   type ListInvestigationsCommandOutput,
   ListInvestigationsCommand,
@@ -522,6 +527,7 @@ import { paginateListCustomDetectionRules } from "./pagination/ListCustomDetecti
 import { paginateListDetectors } from "./pagination/ListDetectorsPaginator";
 import { paginateListFilters } from "./pagination/ListFiltersPaginator";
 import { paginateListFindings } from "./pagination/ListFindingsPaginator";
+import { paginateListInvestigationRecords } from "./pagination/ListInvestigationRecordsPaginator";
 import { paginateListInvestigations } from "./pagination/ListInvestigationsPaginator";
 import { paginateListInvitations } from "./pagination/ListInvitationsPaginator";
 import { paginateListIPSets } from "./pagination/ListIPSetsPaginator";
@@ -603,6 +609,7 @@ const commands = {
   ListDetectorsCommand,
   ListFiltersCommand,
   ListFindingsCommand,
+  ListInvestigationRecordsCommand,
   ListInvestigationsCommand,
   ListInvitationsCommand,
   ListIPSetsCommand,
@@ -648,6 +655,7 @@ const paginators = {
   paginateListDetectors,
   paginateListFilters,
   paginateListFindings,
+  paginateListInvestigationRecords,
   paginateListInvestigations,
   paginateListInvitations,
   paginateListIPSets,
@@ -1848,6 +1856,23 @@ export interface GuardDuty {
   ): void;
 
   /**
+   * @see {@link ListInvestigationRecordsCommand}
+   */
+  listInvestigationRecords(
+    args: ListInvestigationRecordsCommandInput,
+    options?: GuardDutyRequestOptions
+  ): Promise<ListInvestigationRecordsCommandOutput>;
+  listInvestigationRecords(
+    args: ListInvestigationRecordsCommandInput,
+    cb: (err: any, data?: ListInvestigationRecordsCommandOutput) => void
+  ): void;
+  listInvestigationRecords(
+    args: ListInvestigationRecordsCommandInput,
+    options: GuardDutyRequestOptions,
+    cb: (err: any, data?: ListInvestigationRecordsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListInvestigationsCommand}
    */
   listInvestigations(
@@ -2522,6 +2547,17 @@ export interface GuardDuty {
     args: ListFindingsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListFindingsCommandOutput>;
+
+  /**
+   * @see {@link ListInvestigationRecordsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvestigationRecordsCommandOutput}.
+   */
+  paginateListInvestigationRecords(
+    args: ListInvestigationRecordsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvestigationRecordsCommandOutput>;
 
   /**
    * @see {@link ListInvestigationsCommand}

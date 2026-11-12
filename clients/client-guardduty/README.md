@@ -664,6 +664,13 @@ ListFindings
 </details>
 <details>
 <summary>
+ListInvestigationRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/guardduty/command/ListInvestigationRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/ListInvestigationRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/ListInvestigationRecordsCommandOutput/)
+</details>
+<details>
+<summary>
 ListInvestigations
 </summary>
 

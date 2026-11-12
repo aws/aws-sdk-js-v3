@@ -10,6 +10,7 @@ export * from "./ListCustomDetectionRulesPaginator";
 export * from "./ListDetectorsPaginator";
 export * from "./ListFiltersPaginator";
 export * from "./ListFindingsPaginator";
+export * from "./ListInvestigationRecordsPaginator";
 export * from "./ListInvestigationsPaginator";
 export * from "./ListInvitationsPaginator";
 export * from "./ListIPSetsPaginator";

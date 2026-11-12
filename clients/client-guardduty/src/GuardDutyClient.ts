@@ -262,6 +262,10 @@ import type { ListDetectorsCommandInput, ListDetectorsCommandOutput } from "./co
 import type { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
 import type { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
 import type {
+  ListInvestigationRecordsCommandInput,
+  ListInvestigationRecordsCommandOutput,
+} from "./commands/ListInvestigationRecordsCommand";
+import type {
   ListInvestigationsCommandInput,
   ListInvestigationsCommandOutput,
 } from "./commands/ListInvestigationsCommand";
@@ -448,6 +452,7 @@ export type ServiceInputTypes =
   | ListFiltersCommandInput
   | ListFindingsCommandInput
   | ListIPSetsCommandInput
+  | ListInvestigationRecordsCommandInput
   | ListInvestigationsCommandInput
   | ListInvitationsCommandInput
   | ListMalwareProtectionPlansCommandInput
@@ -555,6 +560,7 @@ export type ServiceOutputTypes =
   | ListFiltersCommandOutput
   | ListFindingsCommandOutput
   | ListIPSetsCommandOutput
+  | ListInvestigationRecordsCommandOutput
   | ListInvestigationsCommandOutput
   | ListInvitationsCommandOutput
   | ListMalwareProtectionPlansCommandOutput

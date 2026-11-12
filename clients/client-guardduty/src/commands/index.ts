@@ -69,6 +69,7 @@ export * from "./ListDetectorsCommand";
 export * from "./ListFiltersCommand";
 export * from "./ListFindingsCommand";
 export * from "./ListIPSetsCommand";
+export * from "./ListInvestigationRecordsCommand";
 export * from "./ListInvestigationsCommand";
 export * from "./ListInvitationsCommand";
 export * from "./ListMalwareProtectionPlansCommand";

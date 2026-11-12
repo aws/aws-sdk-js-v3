@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_0";
+import type { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_1";
 import { GetAdministratorAccount$ } from "../schemas/schemas_0";
 
 /**

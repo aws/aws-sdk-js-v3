@@ -3,6 +3,55 @@
  * @public
  * @enum
  */
+export const InvestigationResourceType = {
+  EBS_VOLUME: "EBS_VOLUME",
+  EC2_INSTANCE: "EC2_INSTANCE",
+  EC2_SECURITY_GROUP: "EC2_SECURITY_GROUP",
+  ECS_CLUSTER: "ECS_CLUSTER",
+  EKS_CLUSTER: "EKS_CLUSTER",
+  IAM_ACCESS_KEY: "IAM_ACCESS_KEY",
+  IAM_ROLE: "IAM_ROLE",
+  IAM_USER: "IAM_USER",
+  KUBERNETES_WORKLOAD: "KUBERNETES_WORKLOAD",
+  LAMBDA_FUNCTION: "LAMBDA_FUNCTION",
+  RDS_DB_USER: "RDS_DB_USER",
+  RDS_INSTANCE: "RDS_INSTANCE",
+  S3_BUCKET: "S3_BUCKET",
+} as const;
+/**
+ * @public
+ */
+export type InvestigationResourceType = (typeof InvestigationResourceType)[keyof typeof InvestigationResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AttackPhaseName = {
+  COLLECTION: "Collection",
+  COMMAND_AND_CONTROL: "Command and Control",
+  CREDENTIAL_ACCESS: "Credential Access",
+  DEFENSE_EVASION: "Defense Evasion",
+  DISCOVERY: "Discovery",
+  EXECUTION: "Execution",
+  EXFILTRATION: "Exfiltration",
+  IMPACT: "Impact",
+  INITIAL_ACCESS: "Initial Access",
+  LATERAL_MOVEMENT: "Lateral Movement",
+  PERSISTENCE: "Persistence",
+  PRIVILEGE_ESCALATION: "Privilege Escalation",
+  RECONNAISSANCE: "Reconnaissance",
+  RESOURCE_DEVELOPMENT: "Resource Development",
+} as const;
+/**
+ * @public
+ */
+export type AttackPhaseName = (typeof AttackPhaseName)[keyof typeof AttackPhaseName];
+
+/**
+ * @public
+ * @enum
+ */
 export const FreeTrialFeatureResult = {
   AI_PROTECTION: "AI_PROTECTION",
   CLOUD_TRAIL: "CLOUD_TRAIL",
@@ -21,6 +70,36 @@ export const FreeTrialFeatureResult = {
  * @public
  */
 export type FreeTrialFeatureResult = (typeof FreeTrialFeatureResult)[keyof typeof FreeTrialFeatureResult];
+
+/**
+ * @public
+ * @enum
+ */
+export const RiskLevel = {
+  CRITICAL: "Critical",
+  HIGH: "High",
+  INFO: "Info",
+  LOW: "Low",
+  MEDIUM: "Medium",
+} as const;
+/**
+ * @public
+ */
+export type RiskLevel = (typeof RiskLevel)[keyof typeof RiskLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const ActionPriority = {
+  IMMEDIATE: "IMMEDIATE",
+  SHORT_TERM: "SHORT_TERM",
+  STRATEGIC: "STRATEGIC",
+} as const;
+/**
+ * @public
+ */
+export type ActionPriority = (typeof ActionPriority)[keyof typeof ActionPriority];
 
 /**
  * @public
@@ -62,6 +141,70 @@ export const AdminStatus = {
  * @public
  */
 export type AdminStatus = (typeof AdminStatus)[keyof typeof AdminStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TimeGranularity = {
+  DAY: "DAY",
+  MONTH: "MONTH",
+  WEEK: "WEEK",
+} as const;
+/**
+ * @public
+ */
+export type TimeGranularity = (typeof TimeGranularity)[keyof typeof TimeGranularity];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisType = {
+  BASELINE: "BASELINE",
+  KUBERNETES_POLICY_VIOLATION: "KUBERNETES_POLICY_VIOLATION",
+  PROCESS_LINEAGE: "PROCESS_LINEAGE",
+  RDS_THREAT_ASSESSMENT: "RDS_THREAT_ASSESSMENT",
+  REPUTATION: "REPUTATION",
+  S3_ACTOR_CONTEXT: "S3_ACTOR_CONTEXT",
+  S3_EXPOSURE: "S3_EXPOSURE",
+  S3_PEN_TEST: "S3_PEN_TEST",
+  THREAT_ASSESSMENT: "THREAT_ASSESSMENT",
+  TREND: "TREND",
+} as const;
+/**
+ * @public
+ */
+export type AnalysisType = (typeof AnalysisType)[keyof typeof AnalysisType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InvestigationIndicatorType = {
+  DOMAIN: "DOMAIN",
+  FILE: "FILE",
+  IP: "IP",
+} as const;
+/**
+ * @public
+ */
+export type InvestigationIndicatorType = (typeof InvestigationIndicatorType)[keyof typeof InvestigationIndicatorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThreatConfidence = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  VERY_HIGH: "VERY_HIGH",
+} as const;
+/**
+ * @public
+ */
+export type ThreatConfidence = (typeof ThreatConfidence)[keyof typeof ThreatConfidence];
 
 /**
  * @public
@@ -253,6 +396,20 @@ export type Confidence = (typeof Confidence)[keyof typeof Confidence];
  * @public
  * @enum
  */
+export const CorrelationReason = {
+  HIGH_SEVERITY: "HIGH_SEVERITY",
+  SAME_BEHAVIOR: "SAME_BEHAVIOR",
+  SAME_RESOURCE: "SAME_RESOURCE",
+} as const;
+/**
+ * @public
+ */
+export type CorrelationReason = (typeof CorrelationReason)[keyof typeof CorrelationReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const CoverageStatus = {
   HEALTHY: "HEALTHY",
   UNHEALTHY: "UNHEALTHY",
@@ -275,6 +432,38 @@ export const ResourceType = {
  * @public
  */
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Disposition = {
+  ACCESS_REVOKED: "Access Revoked",
+  BLOCKED: "Blocked",
+  DELETED: "Deleted",
+  ISOLATED: "Isolated",
+  LOGGED: "Logged",
+} as const;
+/**
+ * @public
+ */
+export type Disposition = (typeof Disposition)[keyof typeof Disposition];
+
+/**
+ * @public
+ * @enum
+ */
+export const DefenseTactic = {
+  DETECT: "Detect",
+  EVICT: "Evict",
+  HARDEN: "Harden",
+  ISOLATE: "Isolate",
+  RESTORE: "Restore",
+} as const;
+/**
+ * @public
+ */
+export type DefenseTactic = (typeof DefenseTactic)[keyof typeof DefenseTactic];
 
 /**
  * @public
@@ -910,6 +1099,31 @@ export type SignalType = (typeof SignalType)[keyof typeof SignalType];
  * @public
  * @enum
  */
+export const InvestigationDetectorFeature = {
+  CLOUD_TRAIL: "CLOUD_TRAIL",
+  DNS_LOGS: "DNS_LOGS",
+  EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EC2_AGENT_MANAGEMENT: "EC2_AGENT_MANAGEMENT",
+  ECS_FARGATE_AGENT_MANAGEMENT: "ECS_FARGATE_AGENT_MANAGEMENT",
+  EKS_ADDON_MANAGEMENT: "EKS_ADDON_MANAGEMENT",
+  EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
+  EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
+  FLOW_LOGS: "FLOW_LOGS",
+  LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
+  RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  RUNTIME_MONITORING: "RUNTIME_MONITORING",
+  S3_DATA_EVENTS: "S3_DATA_EVENTS",
+} as const;
+/**
+ * @public
+ */
+export type InvestigationDetectorFeature =
+  (typeof InvestigationDetectorFeature)[keyof typeof InvestigationDetectorFeature];
+
+/**
+ * @public
+ * @enum
+ */
 export const DetectionRuleConfigurationStatus = {
   ACTIVE: "ACTIVE",
   FAILED: "FAILED",
@@ -1046,6 +1260,22 @@ export type DetectorStatus = (typeof DetectorStatus)[keyof typeof DetectorStatus
  * @public
  * @enum
  */
+export const DistributionDimension = {
+  ARCHIVE: "ARCHIVE",
+  ATTACK_VECTOR: "ATTACK_VECTOR",
+  RESOURCE: "RESOURCE",
+  SEVERITY: "SEVERITY",
+  TYPE: "TYPE",
+} as const;
+/**
+ * @public
+ */
+export type DistributionDimension = (typeof DistributionDimension)[keyof typeof DistributionDimension];
+
+/**
+ * @public
+ * @enum
+ */
 export const EbsSnapshotPreservation = {
   NO_RETENTION: "NO_RETENTION",
   RETENTION_WITH_FINDING: "RETENTION_WITH_FINDING",
@@ -1067,6 +1297,55 @@ export const Feedback = {
  * @public
  */
 export type Feedback = (typeof Feedback)[keyof typeof Feedback];
+
+/**
+ * @public
+ * @enum
+ */
+export const FetchCriterionCondition = {
+  EQUALS: "EQUALS",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
+  NOT_EQUALS: "NOT_EQUALS",
+} as const;
+/**
+ * @public
+ */
+export type FetchCriterionCondition = (typeof FetchCriterionCondition)[keyof typeof FetchCriterionCondition];
+
+/**
+ * @public
+ * @enum
+ */
+export const FetchType = {
+  CLOUD_TRAIL_RAW_EVENTS: "CLOUD_TRAIL_RAW_EVENTS",
+  DETECTOR: "DETECTOR",
+  FINDINGS: "FINDINGS",
+  FINDING_TYPE_DOCUMENTATION: "FINDING_TYPE_DOCUMENTATION",
+  MEMBER_ACCOUNTS: "MEMBER_ACCOUNTS",
+  REPUTATION: "REPUTATION",
+  RUNTIME_SIGNALS: "RUNTIME_SIGNALS",
+} as const;
+/**
+ * @public
+ */
+export type FetchType = (typeof FetchType)[keyof typeof FetchType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FetchVerdict = {
+  BENIGN: "BENIGN",
+  NEUTRAL: "NEUTRAL",
+  THREAT: "THREAT",
+} as const;
+/**
+ * @public
+ */
+export type FetchVerdict = (typeof FetchVerdict)[keyof typeof FetchVerdict];
 
 /**
  * @public
@@ -1151,17 +1430,28 @@ export type GroupByType = (typeof GroupByType)[keyof typeof GroupByType];
  * @public
  * @enum
  */
-export const RiskLevel = {
-  CRITICAL: "Critical",
-  HIGH: "High",
-  INFO: "Info",
-  LOW: "Low",
-  MEDIUM: "Medium",
+export const SummaryFormat = {
+  STRING: "STRING",
+  STRUCTURED: "STRUCTURED",
 } as const;
 /**
  * @public
  */
-export type RiskLevel = (typeof RiskLevel)[keyof typeof RiskLevel];
+export type SummaryFormat = (typeof SummaryFormat)[keyof typeof SummaryFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const InvestigationType = {
+  ACCOUNT: "ACCOUNT",
+  FINDING: "FINDING",
+  ORGANIZATION: "ORGANIZATION",
+} as const;
+/**
+ * @public
+ */
+export type InvestigationType = (typeof InvestigationType)[keyof typeof InvestigationType];
 
 /**
  * @public
@@ -1176,6 +1466,22 @@ export const InvestigationStatus = {
  * @public
  */
 export type InvestigationStatus = (typeof InvestigationStatus)[keyof typeof InvestigationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationCategory = {
+  ENABLE_PROTECTION: "ENABLE_PROTECTION",
+  FURTHER_INVESTIGATION: "FURTHER_INVESTIGATION",
+  HARDENING: "HARDENING",
+  MONITORING: "MONITORING",
+  SUPPRESSION_RULE: "SUPPRESSION_RULE",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationCategory = (typeof RecommendationCategory)[keyof typeof RecommendationCategory];
 
 /**
  * @public
@@ -1412,6 +1718,64 @@ export const UsageStatisticType = {
  * @public
  */
 export type UsageStatisticType = (typeof UsageStatisticType)[keyof typeof UsageStatisticType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecordType = {
+  ANALYSIS: "ANALYSIS",
+  FETCH: "FETCH",
+  METADATA: "METADATA",
+  OBSERVATION: "OBSERVATION",
+  UPDATE: "UPDATE",
+} as const;
+/**
+ * @public
+ */
+export type RecordType = (typeof RecordType)[keyof typeof RecordType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ObservationType = {
+  ACCOUNT_OVERVIEW: "ACCOUNT_OVERVIEW",
+  DETECTION_COVERAGE: "DETECTION_COVERAGE",
+  DISTRIBUTION: "DISTRIBUTION",
+  FINDING_DETAIL: "FINDING_DETAIL",
+  KUBERNETES_ACTIVITY: "KUBERNETES_ACTIVITY",
+  MALWARE_SCAN: "MALWARE_SCAN",
+  NETWORK_ACTIVITY: "NETWORK_ACTIVITY",
+  RDS_LOGIN_ACTIVITY: "RDS_LOGIN_ACTIVITY",
+  RECOMMENDATION: "RECOMMENDATION",
+  RELATED_FINDINGS: "RELATED_FINDINGS",
+  REPRESENTATIVE_RESOURCE: "REPRESENTATIVE_RESOURCE",
+  RESOURCE: "RESOURCE",
+  RUNTIME_SIGNALS: "RUNTIME_SIGNALS",
+  S3_ACTIVITY: "S3_ACTIVITY",
+} as const;
+/**
+ * @public
+ */
+export type ObservationType = (typeof ObservationType)[keyof typeof ObservationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InvestigationFilterCriterionKey = {
+  CONFIDENCE: "CONFIDENCE",
+  FINDING_ID: "FINDING_ID",
+  INVESTIGATION_TYPE: "INVESTIGATION_TYPE",
+  RISK_LEVEL: "RISK_LEVEL",
+  STATUS: "STATUS",
+} as const;
+/**
+ * @public
+ */
+export type InvestigationFilterCriterionKey =
+  (typeof InvestigationFilterCriterionKey)[keyof typeof InvestigationFilterCriterionKey];
 
 /**
  * @public

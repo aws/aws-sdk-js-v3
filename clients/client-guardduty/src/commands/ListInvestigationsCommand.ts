@@ -23,7 +23,7 @@ export interface ListInvestigationsCommandInput extends ListInvestigationsReques
 export interface ListInvestigationsCommandOutput extends ListInvestigationsResponse, __MetadataBearer {}
 
 /**
- * <p>This API is currently available as a preview. This feature is available in the following Amazon Web Services Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), Europe (Stockholm), and Asia Pacific (Tokyo).</p> <p>Returns a list of investigations associated with the specified GuardDuty detector.</p> <p>An administrator account sees all investigations across the organization. Member accounts see only the investigations that belong to them.</p>
+ * <p>This API is currently available as a preview. This feature is available in the following Amazon Web Services Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), Europe (Stockholm), and Asia Pacific (Tokyo).</p> <p>Returns a list of investigations associated with the specified GuardDuty detector. You can filter the investigations by status, risk level, confidence, finding ID, and investigation type, and sort them by start time, end time, status, risk level, or confidence.</p> <p>An administrator account sees all investigations across the organization. Member accounts see only the investigations that belong to them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -34,6 +34,18 @@ export interface ListInvestigationsCommandOutput extends ListInvestigationsRespo
  * const client = new GuardDutyClient(config);
  * const input = { // ListInvestigationsRequest
  *   DetectorId: "STRING_VALUE", // required
+ *   FilterCriteria: { // InvestigationFilterCriteria
+ *     Criterion: { // InvestigationCriterion
+ *       "<keys>": { // InvestigationFilterCondition
+ *         Equals: [ // Equals
+ *           "STRING_VALUE",
+ *         ],
+ *         NotEquals: [ // NotEquals
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
  *   SortCriteria: { // InvestigationSortCriteria
  *     AttributeName: "START_TIME" || "END_TIME" || "STATUS" || "RISK_LEVEL" || "CONFIDENCE",
  *     OrderBy: "ASC" || "DESC",
@@ -52,7 +64,10 @@ export interface ListInvestigationsCommandOutput extends ListInvestigationsRespo
  * //       RiskLevel: "Info" || "Low" || "Medium" || "High" || "Critical",
  * //       Confidence: "Unknown" || "Low" || "Medium" || "High",
  * //       Title: "STRING_VALUE",
+ * //       InvestigationType: "FINDING" || "ACCOUNT" || "ORGANIZATION",
+ * //       FindingId: "STRING_VALUE",
  * //       AccountId: "STRING_VALUE",
+ * //       AdminAccountId: "STRING_VALUE",
  * //       StartTime: new Date("TIMESTAMP"),
  * //       EndTime: new Date("TIMESTAMP"),
  * //     },
