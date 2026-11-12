@@ -103,6 +103,9 @@ export interface StartStreamSessionCommandOutput extends StartStreamSessionOutpu
  * //       Height: Number("int"), // required
  * //     },
  * //   },
+ * //   ApplicationStartedAt: new Date("TIMESTAMP"),
+ * //   StreamingStartedAt: new Date("TIMESTAMP"),
+ * //   StreamingEndedAt: new Date("TIMESTAMP"),
  * // };
  *
  * ```

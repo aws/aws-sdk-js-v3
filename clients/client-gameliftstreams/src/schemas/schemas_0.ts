@@ -15,6 +15,7 @@ const _ALOU = "ApplicationLogOutputUri";
 const _ALP = "ApplicationLogPaths";
 const _AOC = "AlwaysOnCapacity";
 const _AS = "ApplicationSummary";
+const _ASA = "ApplicationStartedAt";
 const _ASG = "AssociatedStreamGroups";
 const _ASGL = "AddStreamGroupLocations";
 const _ASGLI = "AddStreamGroupLocationsInput";
@@ -136,6 +137,7 @@ const _SB = "StorageBytes";
 const _SC = "StreamClass";
 const _SCS = "ShaderCacheSummary";
 const _SCSL = "ShaderCacheSummaryList";
+const _SEA = "StreamingEndedAt";
 const _SGA = "StreamGroupArn";
 const _SGI = "StreamGroupId";
 const _SGIt = "StreamGroupIdentifier";
@@ -148,6 +150,7 @@ const _SR = "SignalRequest";
 const _SRi = "SignalResponse";
 const _SRt = "StatusReason";
 const _SS = "StreamSessions";
+const _SSA = "StreamingStartedAt";
 const _SSANRE = "StreamSessionAccessNotReadyException";
 const _SSI = "StreamSessionIdentifier";
 const _SSS = "StreamSessionSummary";
@@ -442,8 +445,8 @@ export var GetStreamSessionInput$: StaticStructureSchema = [3, n0, _GSSI,
 ];
 export var GetStreamSessionOutput$: StaticStructureSchema = [3, n0, _GSSO,
   0,
-  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM, _RA, _DC],
-  [0, 0, 0, 0, 0, 0, 0, 0, [() => SignalRequest, 0], [() => SignalResponse, 0], 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, [() => IamRoleArn, 0], () => DisplayConfiguration$]
+  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM, _RA, _DC, _ASA, _SSA, _SEA],
+  [0, 0, 0, 0, 0, 0, 0, 0, [() => SignalRequest, 0], [() => SignalResponse, 0], 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, [() => IamRoleArn, 0], () => DisplayConfiguration$, 4, 4, 4]
 ];
 export var GetStreamUrlInput$: StaticStructureSchema = [3, n0, _GSUI,
   0,
@@ -577,8 +580,8 @@ export var StartStreamSessionInput$: StaticStructureSchema = [3, n0, _SSSI,
 ];
 export var StartStreamSessionOutput$: StaticStructureSchema = [3, n0, _SSSO,
   0,
-  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM, _RA, _DC],
-  [0, 0, 0, 0, 0, 0, 0, 0, [() => SignalRequest, 0], [() => SignalResponse, 0], 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, [() => IamRoleArn, 0], () => DisplayConfiguration$]
+  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM, _RA, _DC, _ASA, _SSA, _SEA],
+  [0, 0, 0, 0, 0, 0, 0, 0, [() => SignalRequest, 0], [() => SignalResponse, 0], 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, [() => IamRoleArn, 0], () => DisplayConfiguration$, 4, 4, 4]
 ];
 export var StreamGroupSummary$: StaticStructureSchema = [3, n0, _SGS,
   0,

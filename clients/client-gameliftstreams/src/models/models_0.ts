@@ -37,7 +37,7 @@ export interface VpcTransitConfiguration {
 }
 
 /**
- * <p>Configuration settings that define a stream group's stream capacity for a location. When configuring a location for the first time, you must specify a numeric value for at least one of the two capacity types. To update the capacity for an existing stream group, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateStreamGroup.html">UpdateStreamGroup</a>. To add a new location and specify its capacity, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AddStreamGroupLocations.html">AddStreamGroupLocations</a>.</p>
+ * <p>Configuration settings that define a stream group's stream capacity for a location. When configuring a location for the first time, you must specify a numeric value for at least one of the two capacity types. To update the capacity for an existing stream group, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateStreamGroup.html">UpdateStreamGroup</a>. To add a new location and specify its capacity, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AddStreamGroupLocations.html">AddStreamGroupLocations</a>.</p> <p>When you modify capacity for an existing location, always specify <code>AlwaysOnCapacity</code>, <code>MaximumCapacity</code>, and <code>TargetIdleCapacity</code> in the same request. If you omit one or more of these values, the service applies internal defaults for the missing values. These defaults might not match what you intend.</p>
  * @public
  */
 export interface LocationConfiguration {
@@ -1454,6 +1454,24 @@ export interface GetStreamSessionOutput {
    * @public
    */
   DisplayConfiguration?: DisplayConfiguration | undefined;
+
+  /**
+   * <p>A timestamp that indicates when the application launched for this stream session. Timestamps are expressed using in ISO8601 format, such as: <code>2022-12-27T22:29:40+00:00</code> (UTC).</p>
+   * @public
+   */
+  ApplicationStartedAt?: Date | undefined;
+
+  /**
+   * <p>A timestamp that indicates when streaming started for this stream session, which is when a client connected to the stream session. Timestamps are expressed using in ISO8601 format, such as: <code>2022-12-27T22:29:40+00:00</code> (UTC).</p>
+   * @public
+   */
+  StreamingStartedAt?: Date | undefined;
+
+  /**
+   * <p>A timestamp that indicates when streaming ended for this stream session. Timestamps are expressed using in ISO8601 format, such as: <code>2022-12-27T22:29:40+00:00</code> (UTC).</p>
+   * @public
+   */
+  StreamingEndedAt?: Date | undefined;
 }
 
 /**
@@ -2260,6 +2278,24 @@ export interface StartStreamSessionOutput {
    * @public
    */
   DisplayConfiguration?: DisplayConfiguration | undefined;
+
+  /**
+   * <p>A timestamp that indicates when the application launched for this stream session. Timestamps are expressed using in ISO8601 format, such as: <code>2022-12-27T22:29:40+00:00</code> (UTC).</p>
+   * @public
+   */
+  ApplicationStartedAt?: Date | undefined;
+
+  /**
+   * <p>A timestamp that indicates when streaming started for this stream session, which is when a client connected to the stream session. Timestamps are expressed using in ISO8601 format, such as: <code>2022-12-27T22:29:40+00:00</code> (UTC).</p>
+   * @public
+   */
+  StreamingStartedAt?: Date | undefined;
+
+  /**
+   * <p>A timestamp that indicates when streaming ended for this stream session. Timestamps are expressed using in ISO8601 format, such as: <code>2022-12-27T22:29:40+00:00</code> (UTC).</p>
+   * @public
+   */
+  StreamingEndedAt?: Date | undefined;
 }
 
 /**

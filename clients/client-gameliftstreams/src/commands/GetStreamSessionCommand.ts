@@ -77,6 +77,9 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionOutput, _
  * //       Height: Number("int"), // required
  * //     },
  * //   },
+ * //   ApplicationStartedAt: new Date("TIMESTAMP"),
+ * //   StreamingStartedAt: new Date("TIMESTAMP"),
+ * //   StreamingEndedAt: new Date("TIMESTAMP"),
  * // };
  *
  * ```
