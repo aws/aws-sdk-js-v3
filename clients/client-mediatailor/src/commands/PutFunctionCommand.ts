@@ -34,7 +34,7 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  * const client = new MediaTailorClient(config);
  * const input = { // PutFunctionRequest
  *   FunctionId: "STRING_VALUE", // required
- *   FunctionType: "HTTP_REQUEST" || "AWS_SERVICE_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR" || "VAST_REQUEST", // required
+ *   FunctionType: "HTTP_REQUEST" || "AWS_SERVICE_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR" || "VAST_REQUEST" || "HLS_TAG_PROCESSOR", // required
  *   Description: "STRING_VALUE",
  *   HttpRequestConfiguration: { // HttpRequestConfiguration
  *     Runtime: "JSONATA", // required
@@ -119,13 +119,21 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  *       Key: "STRING_VALUE",
  *     },
  *   },
+ *   HlsTagProcessorConfiguration: { // HlsTagProcessorConfiguration
+ *     Runtime: "JSONATA", // required
+ *     Output: "<__mapOf__string>",
+ *     TagFilter: [ // TagFilterList // required
+ *       "EXT-X-DATERANGE",
+ *     ],
+ *     RunCondition: "STRING_VALUE",
+ *   },
  *   Tags: "<__mapOf__string>",
  * };
  * const command = new PutFunctionCommand(input);
  * const response = await client.send(command);
  * // { // PutFunctionResponse
  * //   FunctionId: "STRING_VALUE", // required
- * //   FunctionType: "HTTP_REQUEST" || "AWS_SERVICE_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR" || "VAST_REQUEST", // required
+ * //   FunctionType: "HTTP_REQUEST" || "AWS_SERVICE_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR" || "VAST_REQUEST" || "HLS_TAG_PROCESSOR", // required
  * //   Description: "STRING_VALUE",
  * //   HttpRequestConfiguration: { // HttpRequestConfiguration
  * //     Runtime: "JSONATA", // required
@@ -209,6 +217,14 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  * //       TtlMaximumSeconds: Number("int"), // required
  * //       Key: "STRING_VALUE",
  * //     },
+ * //   },
+ * //   HlsTagProcessorConfiguration: { // HlsTagProcessorConfiguration
+ * //     Runtime: "JSONATA", // required
+ * //     Output: "<__mapOf__string>",
+ * //     TagFilter: [ // TagFilterList // required
+ * //       "EXT-X-DATERANGE",
+ * //     ],
+ * //     RunCondition: "STRING_VALUE",
  * //   },
  * //   Tags: "<__mapOf__string>",
  * //   Arn: "STRING_VALUE",

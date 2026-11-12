@@ -177,6 +177,7 @@ const _HPS = "HlsPlaylistSettings";
 const _HR = "HttpRequest";
 const _HRC = "HttpRequestConfiguration";
 const _HRCC = "HttpRequestCacheConfiguration";
+const _HTPC = "HlsTagProcessorConfiguration";
 const _I = "Items";
 const _IM = "InsertionMode";
 const _K = "Key";
@@ -340,6 +341,7 @@ const _SU = "StartUrl";
 const _SUT = "SegmentationUpidType";
 const _SUe = "SegmentationUpid";
 const _T = "Tier";
+const _TF = "TagFilter";
 const _TK = "TagKeys";
 const _TM = "TimeoutMilliseconds";
 const _TMS = "TtlMinimumSeconds";
@@ -808,8 +810,8 @@ export var DescribeVodSourceResponse$: StaticStructureSchema = [3, n0, _DVSResc,
 ];
 export var Function$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_FI, _FT, _D, _HRC, _ASRC, _COC, _CEC, _SEC, _VRC, _Ta, _Ar],
-  [0, 0, 0, () => HttpRequestConfiguration$, () => AwsServiceRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
+  [_FI, _FT, _D, _HRC, _ASRC, _COC, _CEC, _SEC, _VRC, _HTPC, _Ta, _Ar],
+  [0, 0, 0, () => HttpRequestConfiguration$, () => AwsServiceRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, () => HlsTagProcessorConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
 ];
 export var FunctionRef$: StaticStructureSchema = [3, n0, _FR,
   0,
@@ -843,8 +845,8 @@ export var GetFunctionRequest$: StaticStructureSchema = [3, n0, _GFR,
 ];
 export var GetFunctionResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
-  [_FI, _FT, _D, _HRC, _ASRC, _COC, _CEC, _SEC, _VRC, _Ta, _Ar],
-  [0, 0, 0, () => HttpRequestConfiguration$, () => AwsServiceRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
+  [_FI, _FT, _D, _HRC, _ASRC, _COC, _CEC, _SEC, _VRC, _HTPC, _Ta, _Ar],
+  [0, 0, 0, () => HttpRequestConfiguration$, () => AwsServiceRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, () => HlsTagProcessorConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
 ];
 export var GetPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _GPCR,
   0,
@@ -875,6 +877,11 @@ export var HlsPlaylistSettings$: StaticStructureSchema = [3, n0, _HPS,
   0,
   [_MWS, _AMT],
   [1, 64 | 0]
+];
+export var HlsTagProcessorConfiguration$: StaticStructureSchema = [3, n0, _HTPC,
+  0,
+  [_R, _TF, _Ou, _RC],
+  [0, 64 | 0, 128 | 0, 0], 2
 ];
 export var HttpConfiguration$: StaticStructureSchema = [3, n0, _HC,
   0,
@@ -1068,13 +1075,13 @@ export var PutChannelPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu,
 ];
 export var PutFunctionRequest$: StaticStructureSchema = [3, n0, _PFR,
   0,
-  [_FI, _FT, _D, _HRC, _ASRC, _COC, _CEC, _SEC, _VRC, _Ta],
-  [[0, 1], 0, 0, () => HttpRequestConfiguration$, () => AwsServiceRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }]], 2
+  [_FI, _FT, _D, _HRC, _ASRC, _COC, _CEC, _SEC, _VRC, _HTPC, _Ta],
+  [[0, 1], 0, 0, () => HttpRequestConfiguration$, () => AwsServiceRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, () => HlsTagProcessorConfiguration$, [128 | 0, { [_jN]: _t }]], 2
 ];
 export var PutFunctionResponse$: StaticStructureSchema = [3, n0, _PFRu,
   0,
-  [_FI, _FT, _D, _HRC, _ASRC, _COC, _CEC, _SEC, _VRC, _Ta, _Ar],
-  [0, 0, 0, () => HttpRequestConfiguration$, () => AwsServiceRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
+  [_FI, _FT, _D, _HRC, _ASRC, _COC, _CEC, _SEC, _VRC, _HTPC, _Ta, _Ar],
+  [0, 0, 0, () => HttpRequestConfiguration$, () => AwsServiceRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, () => HlsTagProcessorConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
 ];
 export var PutPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _PPCR,
   0,
@@ -1380,6 +1387,7 @@ var ResponseOutputs: StaticListSchema = [1, n0, _ROe,
 var SegmentationDescriptorList: StaticListSchema = [1, n0, _SDL,
   0, () => SegmentationDescriptor$
 ];
+var TagFilterList = 64 | 0;
 var __mapOf__string = 128 | 0;
 var ConfigurationAliasesRequest: StaticMapSchema = [2, n0, _CARo,
   0, 0, 128 | 0

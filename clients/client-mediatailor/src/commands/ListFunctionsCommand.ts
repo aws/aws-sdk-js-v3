@@ -42,7 +42,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * //   Items: [ // __listOfFunctionsResponse
  * //     { // Function
  * //       FunctionId: "STRING_VALUE", // required
- * //       FunctionType: "HTTP_REQUEST" || "AWS_SERVICE_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR" || "VAST_REQUEST", // required
+ * //       FunctionType: "HTTP_REQUEST" || "AWS_SERVICE_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR" || "VAST_REQUEST" || "HLS_TAG_PROCESSOR", // required
  * //       Description: "STRING_VALUE",
  * //       HttpRequestConfiguration: { // HttpRequestConfiguration
  * //         Runtime: "JSONATA", // required
@@ -126,6 +126,14 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * //           TtlMaximumSeconds: Number("int"), // required
  * //           Key: "STRING_VALUE",
  * //         },
+ * //       },
+ * //       HlsTagProcessorConfiguration: { // HlsTagProcessorConfiguration
+ * //         Runtime: "JSONATA", // required
+ * //         Output: "<__mapOf__string>",
+ * //         TagFilter: [ // TagFilterList // required
+ * //           "EXT-X-DATERANGE",
+ * //         ],
+ * //         RunCondition: "STRING_VALUE",
  * //       },
  * //       Tags: "<__mapOf__string>",
  * //       Arn: "STRING_VALUE",

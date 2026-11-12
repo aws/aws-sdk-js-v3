@@ -154,6 +154,8 @@ import {
   GetPrefetchScheduleResponse$,
   HlsConfiguration$,
   HlsPlaylistSettings$,
+  HlsTagName,
+  HlsTagProcessorConfiguration$,
   HttpConfiguration$,
   HttpPackageConfiguration$,
   HttpRequest$,
@@ -502,6 +504,7 @@ assert(typeof GetPrefetchScheduleRequest$ === "object");
 assert(typeof GetPrefetchScheduleResponse$ === "object");
 assert(typeof HlsConfiguration$ === "object");
 assert(typeof HlsPlaylistSettings$ === "object");
+assert(typeof HlsTagProcessorConfiguration$ === "object");
 assert(typeof HttpConfiguration$ === "object");
 assert(typeof HttpPackageConfiguration$ === "object");
 assert(typeof HttpRequest$ === "object");
@@ -601,6 +604,7 @@ assert(typeof CompressionMethod === "object");
 assert(typeof EventName === "object");
 assert(typeof FillPolicy === "object");
 assert(typeof FunctionType === "object");
+assert(typeof HlsTagName === "object");
 assert(typeof InsertionMode === "object");
 assert(typeof ListPrefetchScheduleType === "object");
 assert(typeof LoggingStrategy === "object");
