@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
+
+
+### Features
+
+* **client-lambda-core:** Initial release of the customer-managed runtime APIs. Runtime publishers can now create, version, and manage custom runtimes, and use aliases to roll out new runtime versions to the functions that use them. ([fbf1e9c](https://github.com/aws/aws-sdk-js-v3/commit/fbf1e9c01492419950ee3033233e893b6700e7fa))
+
+
+
+
+
 # [3.1168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1167.0...v3.1168.0) (2026-11-12)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda-core

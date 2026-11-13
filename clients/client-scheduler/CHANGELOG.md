@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
+
+
+### Features
+
+* **client-scheduler:** Adds EventBridgePutEventsV2Parameters and EventBridgePutRawEventsParameters to Target so schedules can publish to Amazon EventBridge event bus v2 with PutEvents or PutRawEvents. ([d27b4fb](https://github.com/aws/aws-sdk-js-v3/commit/d27b4fb7c6ca243b79bab69111a44b3fff8afa56))
+
+
+
+
+
 # [3.1168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1167.0...v3.1168.0) (2026-11-12)
 
 **Note:** Version bump only for package @aws-sdk/client-scheduler

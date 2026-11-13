@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
+
+
+### Features
+
+* **client-glue:** Field description update for auto upgrade summaries ([1f567dc](https://github.com/aws/aws-sdk-js-v3/commit/1f567dcaf699277483cac17120215ba3917dba29))
+
+
+
+
+
 # [3.1168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1167.0...v3.1168.0) (2026-11-12)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

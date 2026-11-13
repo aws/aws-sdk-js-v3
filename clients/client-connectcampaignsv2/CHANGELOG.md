@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
+
+
+### Features
+
+* **client-connectcampaignsv2:** Adds LastModifiedTime to DescribeCampaign and ListCampaigns responses. ([251f593](https://github.com/aws/aws-sdk-js-v3/commit/251f593dc9694bf8bf2ef6f82cb075b024158e17))
+
+
+
+
+
 # [3.1168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1167.0...v3.1168.0) (2026-11-12)
 
 **Note:** Version bump only for package @aws-sdk/client-connectcampaignsv2

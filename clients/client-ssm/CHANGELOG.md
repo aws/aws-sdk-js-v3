@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
+
+
+### Features
+
+* **client-ssm:** Adding Google Cloud Platform (GCP) support to SSM Cloud Connector to enable onboarding of GCP Compute Engine instances to AWS Systems Manager. Customers can now optionally create an SSM Cloud Connector without an AWS Config connector. ([dfdf227](https://github.com/aws/aws-sdk-js-v3/commit/dfdf2273d181946bb94a169f836d9af258beccec))
+
+
+
+
+
 # [3.1168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1167.0...v3.1168.0) (2026-11-12)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm

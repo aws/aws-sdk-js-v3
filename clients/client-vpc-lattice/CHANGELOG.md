@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
+
+
+### Features
+
+* **client-vpc-lattice:** Amazon VPC Lattice now supports modification of resource configuration DNS resolution on Resource Gateways ([b771ebd](https://github.com/aws/aws-sdk-js-v3/commit/b771ebd331de774443a401ae158c1c9a6c4c03af))
+
+
+
+
+
 # [3.1168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1167.0...v3.1168.0) (2026-11-12)
 
 **Note:** Version bump only for package @aws-sdk/client-vpc-lattice

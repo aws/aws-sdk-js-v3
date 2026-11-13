@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
+
+
+### Features
+
+* **client-appstream:** Amazon WorkSpaces Agent Access now supports image builders, so AI agents can install, configure, and test applications before you create an image. New Replay Session delivers a video of screenshots, a transcript, and a report for each agent session, optionally encrypted with your own KMS key. ([54e73f0](https://github.com/aws/aws-sdk-js-v3/commit/54e73f03457f8fe3ccc1471cd5b4e8d348373454))
+* **client-cloudformation:** AWS CloudFormation introduces stack aliases, which let you refer to an existing stack by a new name without deleting and recreating it. Manage aliases with SetAlias and RemoveAlias, and use an alias in place of the stack name in operations such as UpdateStack. ([164da0e](https://github.com/aws/aws-sdk-js-v3/commit/164da0ed00d8d1326d59c3042a5737248e627013))
+* **client-cognito-identity-provider:** Adding support for dynamic client registration. ([6e01fd3](https://github.com/aws/aws-sdk-js-v3/commit/6e01fd38013ebc99409d01add8f52409033fb276))
+* **client-connectcampaignsv2:** Adds LastModifiedTime to DescribeCampaign and ListCampaigns responses. ([251f593](https://github.com/aws/aws-sdk-js-v3/commit/251f593dc9694bf8bf2ef6f82cb075b024158e17))
+* **client-deadline:** AWS Deadline Cloud now supports the NVIDIA RTX PRO 4500 GPU accelerator (rtx-pro-4500) for service-managed fleets running Amazon EC2 G7 instances. ([436b531](https://github.com/aws/aws-sdk-js-v3/commit/436b53105f717445936f5decf93fed2dc2d59e37))
+* **client-devops-agent:** AWS DevOps Agent adds bidirectional communication for Microsoft Teams associations. Set msteams.bidirectional with an IAM role so the agent answers mentions in your Teams channels. ([b6fcc76](https://github.com/aws/aws-sdk-js-v3/commit/b6fcc76d51363955db674f4fc1ef0e2014d1a439))
+* **client-ec2:** Adds support for Networking Flexible Cost Allocation APIs, enabling Network Admin, Architect, and Engineers to break down shared networking costs by the resources that generated the traffic. ([bbbe5b9](https://github.com/aws/aws-sdk-js-v3/commit/bbbe5b9f4bacc5d8ace9a51c033ce8796c0d0efd))
+* **client-glue:** Field description update for auto upgrade summaries ([1f567dc](https://github.com/aws/aws-sdk-js-v3/commit/1f567dcaf699277483cac17120215ba3917dba29))
+* **client-iam:** Minor documentation updates only ([0f45fcb](https://github.com/aws/aws-sdk-js-v3/commit/0f45fcb432b309e10888edf84490a33176d53b1d))
+* **client-imagebuilder:** Add documentation clarification around List API behavior, and add image available waiter ([bd270ef](https://github.com/aws/aws-sdk-js-v3/commit/bd270ef6610ada4cc85d08b6021ef7c2a7ec0bb0))
+* **client-lambda-core:** Initial release of the customer-managed runtime APIs. Runtime publishers can now create, version, and manage custom runtimes, and use aliases to roll out new runtime versions to the functions that use them. ([fbf1e9c](https://github.com/aws/aws-sdk-js-v3/commit/fbf1e9c01492419950ee3033233e893b6700e7fa))
+* **client-lambda:** Adds support for customer-managed runtimes in the CreateFunction and UpdateFunctionConfiguration APIs. Functions can now use a customer-managed runtime and receive its updates automatically, or pin to a specific runtime version using the existing runtime controls. ([3e90c41](https://github.com/aws/aws-sdk-js-v3/commit/3e90c41a38a336daa21b70fc2bc90e6ee793a5c8))
+* **client-network-firewall:** Releasing Firewall Proxy API and deprecating Egress Proxy API. ([ad6208f](https://github.com/aws/aws-sdk-js-v3/commit/ad6208fae26644f1ef957db0606c369cec8a8adb))
+* **client-organizations:** Add support for policy operations on the SECURITYHUB CSPM POLICY policy type. ([e00ecc2](https://github.com/aws/aws-sdk-js-v3/commit/e00ecc2ea488507216d5c100bf3c98cbc8d3bb61))
+* **client-qconnect:** Amazon Q in Connect now supports additional message template attributes. You can personalize message templates using case fields, Amazon Connect Customer Profiles calculated attributes, and product recommendations. ([2f4fead](https://github.com/aws/aws-sdk-js-v3/commit/2f4fead57eeb85b4df8d2af11ced0b55c77e8532))
+* **client-rolesanywhere:** This release adds resource aliases for IAM Roles Anywhere trust anchors, profiles, and certificate revocation lists (CRLs). Assign an optional, unique alias name to a resource and use its alias ARN wherever an identifier is accepted, including CreateSession. ([369a390](https://github.com/aws/aws-sdk-js-v3/commit/369a390ee542aec631711fcbcb4e9c5199f4962e))
+* **client-sagemaker:** New feature for Sagemaker Hyperpod Slurm clusters to install Extensions and view cluster operations. ([a575d32](https://github.com/aws/aws-sdk-js-v3/commit/a575d325fb2f753eb3ade9462b263c414cf300bf))
+* **client-scheduler:** Adds EventBridgePutEventsV2Parameters and EventBridgePutRawEventsParameters to Target so schedules can publish to Amazon EventBridge event bus v2 with PutEvents or PutRawEvents. ([d27b4fb](https://github.com/aws/aws-sdk-js-v3/commit/d27b4fb7c6ca243b79bab69111a44b3fff8afa56))
+* **client-securityhub:** New DISABLED status for Security Hub CSPM Central Configuration. ([bafddd6](https://github.com/aws/aws-sdk-js-v3/commit/bafddd611872c16cd85bc48f01295ec60903632f))
+* **client-ssm:** Adding Google Cloud Platform (GCP) support to SSM Cloud Connector to enable onboarding of GCP Compute Engine instances to AWS Systems Manager. Customers can now optionally create an SSM Cloud Connector without an AWS Config connector. ([dfdf227](https://github.com/aws/aws-sdk-js-v3/commit/dfdf2273d181946bb94a169f836d9af258beccec))
+* **client-vpc-lattice:** Amazon VPC Lattice now supports modification of resource configuration DNS resolution on Resource Gateways ([b771ebd](https://github.com/aws/aws-sdk-js-v3/commit/b771ebd331de774443a401ae158c1c9a6c4c03af))
+
+
+
+
+
 # [3.1168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1167.0...v3.1168.0) (2026-11-12)
 
 

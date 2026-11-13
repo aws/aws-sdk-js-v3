@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
+
+
+### Features
+
+* **client-sagemaker:** New feature for Sagemaker Hyperpod Slurm clusters to install Extensions and view cluster operations. ([a575d32](https://github.com/aws/aws-sdk-js-v3/commit/a575d325fb2f753eb3ade9462b263c414cf300bf))
+
+
+
+
+
 # [3.1168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1167.0...v3.1168.0) (2026-11-12)
 
 
