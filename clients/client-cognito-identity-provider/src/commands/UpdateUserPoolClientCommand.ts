@@ -174,6 +174,7 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  * //       Feature: "ENABLED" || "DISABLED", // required
  * //       RetryGracePeriodSeconds: Number("int"),
  * //     },
+ * //     ClientType: "REGULAR" || "DCR",
  * //   },
  * // };
  *

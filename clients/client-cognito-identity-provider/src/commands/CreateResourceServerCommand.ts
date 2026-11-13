@@ -78,6 +78,7 @@ export interface CreateResourceServerCommandOutput extends CreateResourceServerR
  * //         ScopeDescription: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     ManagedBy: "COGNITO",
  * //   },
  * // };
  *

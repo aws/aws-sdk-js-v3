@@ -117,6 +117,7 @@ export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolCli
  * //       Feature: "ENABLED" || "DISABLED", // required
  * //       RetryGracePeriodSeconds: Number("int"),
  * //     },
+ * //     ClientType: "REGULAR" || "DCR",
  * //   },
  * // };
  *

@@ -72,6 +72,7 @@ export interface ListResourceServersCommandOutput extends ListResourceServersRes
  * //           ScopeDescription: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       ManagedBy: "COGNITO",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

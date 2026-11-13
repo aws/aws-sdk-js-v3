@@ -52,6 +52,7 @@ const _AFDR = "AdminForgetDeviceRequest";
 const _AGD = "AdminGetDevice";
 const _AGDR = "AdminGetDeviceRequest";
 const _AGDRd = "AdminGetDeviceResponse";
+const _AGT = "AuthenticatedGrantTypes";
 const _AGU = "AdminGetUser";
 const _AGUAF = "AdminGetUserAuthFactors";
 const _AGUAFR = "AdminGetUserAuthFactorsRequest";
@@ -106,6 +107,7 @@ const _ARUS = "AdminRevokeUserSession";
 const _ARUSR = "AdminRevokeUserSessionRequest";
 const _ARUSRd = "AdminRevokeUserSessionResponse";
 const _ARVBU = "AttributesRequireVerificationBeforeUpdate";
+const _AS = "AllowedScopes";
 const _ASAF = "AdvancedSecurityAdditionalFlows";
 const _ASAFT = "AdvancedSecurityAdditionalFlowsType";
 const _ASM = "AdvancedSecurityMode";
@@ -251,9 +253,10 @@ const _CSVH = "CSVHeader";
 const _CSa = "CaseSensitive";
 const _CSl = "ClientSecrets";
 const _CSo = "ConfigurationSet";
-const _CT = "CreateTerms";
+const _CT = "ClientType";
 const _CTR = "CreateTermsRequest";
 const _CTRr = "CreateTermsResponse";
+const _CTr = "CreateTerms";
 const _CUAF = "ConfiguredUserAuthFactors";
 const _CUIJ = "CreateUserImportJob";
 const _CUIJR = "CreateUserImportJobRequest";
@@ -288,7 +291,9 @@ const _DA = "DeviceAttributes";
 const _DAC = "DefineAuthChallenge";
 const _DC = "DeviceConfiguration";
 const _DCD = "DeviceCreateDate";
-const _DCT = "DeviceConfigurationType";
+const _DCT = "DcrConfigurationType";
+const _DCTe = "DeviceConfigurationType";
+const _DCc = "DcrConfiguration";
 const _DD = "DomainDescription";
 const _DDM = "DesiredDeliveryMediums";
 const _DDT = "DomainDescriptionType";
@@ -406,13 +411,14 @@ const _EPAUCD = "EnablePropagateAdditionalUserContextData";
 const _ER = "EventResponse";
 const _ERT = "EventRiskType";
 const _ERv = "EventRisk";
-const _ES = "EventSource";
+const _ES = "EnableStatus";
 const _ESA = "EmailSendingAccount";
 const _ESBL = "EmailSubjectByLink";
 const _ESCT = "EumsSmsConfigurationType";
 const _ESTMFAE = "EnableSoftwareTokenMFAException";
 const _ESm = "EmailSubject";
 const _ESu = "EumsSms";
+const _ESv = "EventSource";
 const _ET = "EventType";
 const _ETR = "EnableTokenRevocation";
 const _EVM = "EmailVerificationMessage";
@@ -617,6 +623,7 @@ const _Li = "Links";
 const _M = "Message";
 const _MA = "MediumAction";
 const _MAe = "MessageAction";
+const _MB = "ManagedBy";
 const _MC = "MfaConfiguration";
 const _ME = "MfaEmail";
 const _MFAMNFE = "MFAMethodNotFoundException";
@@ -650,6 +657,8 @@ const _NDMT = "NewDeviceMetadataType";
 const _NET = "NotifyEmailType";
 const _NT = "NextToken";
 const _Na = "Name";
+const _ODE = "OpenDcrEnabled";
+const _ODGT = "OpenDcrGrantTypes";
 const _OI = "OriginationIdentity";
 const _ONEE = "OperationNotEnabledException";
 const _OSI = "OriginSessionId";
@@ -2040,8 +2049,8 @@ export var CreateUserPoolReplicaResponse$: StaticStructureSchema = [3, n0, _CUPR
 ];
 export var CreateUserPoolRequest$: StaticStructureSchema = [3, n0, _CUPR,
   0,
-  [_PNo, _Po, _DP, _LC, _AVA, _AAl, _UAs, _SVM, _EVM, _EVS, _VMT, _SAM, _MC, _UAUS, _DC, _EC, _SCm, _UPT, _ACUC, _Sch, _UPAO, _UC, _ARS, _UPTs, _KC, _IC, _ACc],
-  [0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, 0, () => UserAttributeUpdateSettingsType$, () => DeviceConfigurationType$, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, () => AdminCreateUserConfigType$, () => SchemaAttributesListType, () => UserPoolAddOnsType$, () => UsernameConfigurationType$, () => AccountRecoverySettingType$, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$, () => AcrConfigurationType], 1
+  [_PNo, _Po, _DP, _LC, _AVA, _AAl, _UAs, _SVM, _EVM, _EVS, _VMT, _SAM, _MC, _UAUS, _DC, _EC, _SCm, _UPT, _ACUC, _Sch, _UPAO, _DCc, _UC, _ARS, _UPTs, _KC, _IC, _ACc],
+  [0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, 0, () => UserAttributeUpdateSettingsType$, () => DeviceConfigurationType$, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, () => AdminCreateUserConfigType$, () => SchemaAttributesListType, () => UserPoolAddOnsType$, () => DcrConfigurationType$, () => UsernameConfigurationType$, () => AccountRecoverySettingType$, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$, () => AcrConfigurationType], 1
 ];
 export var CreateUserPoolResponse$: StaticStructureSchema = [3, n0, _CUPRr,
   0,
@@ -2062,6 +2071,11 @@ export var CustomSMSLambdaVersionConfigType$: StaticStructureSchema = [3, n0, _C
   0,
   [_LV, _LAa],
   [0, 0], 2
+];
+export var DcrConfigurationType$: StaticStructureSchema = [3, n0, _DCT,
+  0,
+  [_ES, _ODE, _AGT, _ODGT, _AS],
+  [0, 2, 64 | 0, 64 | 0, 64 | 0]
 ];
 export var DeleteGroupRequest$: StaticStructureSchema = [3, n0, _DGR,
   0,
@@ -2263,7 +2277,7 @@ export var DescribeUserPoolResponse$: StaticStructureSchema = [3, n0, _DUPRes,
   [_UP],
   [() => UserPoolType$]
 ];
-export var DeviceConfigurationType$: StaticStructureSchema = [3, n0, _DCT,
+export var DeviceConfigurationType$: StaticStructureSchema = [3, n0, _DCTe,
   0,
   [_CROND, _DOROUP],
   [2, 2]
@@ -2650,8 +2664,8 @@ export var ListUserPoolClientSecretsResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var ListUserPoolClientsRequest$: StaticStructureSchema = [3, n0, _LUPCR,
   0,
-  [_UPI, _MR, _NT],
-  [0, 1, 0], 1
+  [_UPI, _MR, _NT, _CT],
+  [0, 1, 0, 0], 1
 ];
 export var ListUserPoolClientsResponse$: StaticStructureSchema = [3, n0, _LUPCRi,
   0,
@@ -2720,7 +2734,7 @@ export var ListWebAuthnCredentialsResponse$: StaticStructureSchema = [3, n0, _LW
 ];
 export var LogConfigurationType$: StaticStructureSchema = [3, n0, _LCTo,
   0,
-  [_LL, _ES, _CWLC, _SCo, _FC],
+  [_LL, _ESv, _CWLC, _SCo, _FC],
   [0, 0, () => CloudWatchLogsConfigurationType$, () => S3ConfigurationType$, () => FirehoseConfigurationType$], 2
 ];
 export var LogDeliveryConfigurationType$: StaticStructureSchema = [3, n0, _LDCT,
@@ -2810,8 +2824,8 @@ export var ResourceServerScopeType$: StaticStructureSchema = [3, n0, _RSST,
 ];
 export var ResourceServerType$: StaticStructureSchema = [3, n0, _RST,
   0,
-  [_UPI, _I, _Na, _Sc],
-  [0, 0, 0, () => ResourceServerScopeListType]
+  [_UPI, _I, _Na, _Sc, _MB],
+  [0, 0, 0, () => ResourceServerScopeListType, 0]
 ];
 export var RespondToAuthChallengeRequest$: StaticStructureSchema = [3, n0, _RTACR,
   0,
@@ -3195,8 +3209,8 @@ export var UpdateUserPoolReplicaResponse$: StaticStructureSchema = [3, n0, _UUPR
 ];
 export var UpdateUserPoolRequest$: StaticStructureSchema = [3, n0, _UUPR,
   0,
-  [_UPI, _Po, _DP, _LC, _AVA, _SVM, _EVM, _EVS, _VMT, _SAM, _UAUS, _MC, _DC, _EC, _SCm, _UPT, _ACUC, _UPAO, _ARS, _PNo, _UPTs, _KC, _IC, _ACc],
-  [0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, () => UserAttributeUpdateSettingsType$, 0, () => DeviceConfigurationType$, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, () => AdminCreateUserConfigType$, () => UserPoolAddOnsType$, () => AccountRecoverySettingType$, 0, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$, () => AcrConfigurationType], 1
+  [_UPI, _Po, _DP, _LC, _AVA, _SVM, _EVM, _EVS, _VMT, _SAM, _UAUS, _MC, _DC, _EC, _SCm, _UPT, _ACUC, _UPAO, _DCc, _ARS, _PNo, _UPTs, _KC, _IC, _ACc],
+  [0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, () => UserAttributeUpdateSettingsType$, 0, () => DeviceConfigurationType$, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, () => AdminCreateUserConfigType$, () => UserPoolAddOnsType$, () => DcrConfigurationType$, () => AccountRecoverySettingType$, 0, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$, () => AcrConfigurationType], 1
 ];
 export var UpdateUserPoolResponse$: StaticStructureSchema = [3, n0, _UUPRp,
   0,
@@ -3235,8 +3249,8 @@ export var UserPoolClientDescription$: StaticStructureSchema = [3, n0, _UPCD,
 ];
 export var UserPoolClientType$: StaticStructureSchema = [3, n0, _UPCT,
   0,
-  [_UPI, _CNl, _CI, _CS, _LMD, _CDr, _RTV, _ATV, _ITV, _TVU, _RAe, _WA, _EAF, _SIP, _CURL, _LURL, _DRURI, _AOAF, _AOAS, _AOAFUPC, _ACn, _PUEE, _ETR, _EPAUCD, _ASV, _RTR],
-  [0, 0, [() => ClientIdType, 0], [() => ClientSecretType, 0], 4, 4, 1, 1, 1, () => TokenValidityUnitsType$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0, 2, () => AnalyticsConfigurationType$, 0, 2, 2, 1, () => RefreshTokenRotationType$]
+  [_UPI, _CNl, _CI, _CS, _LMD, _CDr, _RTV, _ATV, _ITV, _TVU, _RAe, _WA, _EAF, _SIP, _CURL, _LURL, _DRURI, _AOAF, _AOAS, _AOAFUPC, _ACn, _PUEE, _ETR, _EPAUCD, _ASV, _RTR, _CT],
+  [0, 0, [() => ClientIdType, 0], [() => ClientSecretType, 0], 4, 4, 1, 1, 1, () => TokenValidityUnitsType$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0, 2, () => AnalyticsConfigurationType$, 0, 2, 2, 1, () => RefreshTokenRotationType$, 0]
 ];
 export var UserPoolDescriptionType$: StaticStructureSchema = [3, n0, _UPDT,
   0,
@@ -3260,8 +3274,8 @@ export var UserPoolTokenSessionConfigType$: StaticStructureSchema = [3, n0, _UPT
 ];
 export var UserPoolType$: StaticStructureSchema = [3, n0, _UPTse,
   0,
-  [_Id, _Na, _Po, _DP, _LC, _St, _LMD, _CDr, _SAc, _AVA, _AAl, _UAs, _SVM, _EVM, _EVS, _VMT, _SAM, _UAUS, _MC, _DC, _ENOU, _EC, _SCm, _UPT, _SCF, _ECF, _Do, _CDu, _ACUC, _UPAO, _UC, _Ar, _ARS, _UPTs, _KC, _IC, _ACc],
-  [0, 0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 0, 4, 4, () => SchemaAttributesListType, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, () => UserAttributeUpdateSettingsType$, 0, () => DeviceConfigurationType$, 1, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, 0, 0, 0, 0, () => AdminCreateUserConfigType$, () => UserPoolAddOnsType$, () => UsernameConfigurationType$, 0, () => AccountRecoverySettingType$, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$, () => AcrConfigurationType]
+  [_Id, _Na, _Po, _DP, _LC, _St, _LMD, _CDr, _SAc, _AVA, _AAl, _UAs, _SVM, _EVM, _EVS, _VMT, _SAM, _UAUS, _MC, _DC, _ENOU, _EC, _SCm, _UPT, _SCF, _ECF, _Do, _CDu, _ACUC, _UPAO, _DCc, _UC, _Ar, _ARS, _UPTs, _KC, _IC, _ACc],
+  [0, 0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 0, 4, 4, () => SchemaAttributesListType, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, () => UserAttributeUpdateSettingsType$, 0, () => DeviceConfigurationType$, 1, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, 0, 0, 0, 0, () => AdminCreateUserConfigType$, () => UserPoolAddOnsType$, () => DcrConfigurationType$, () => UsernameConfigurationType$, 0, () => AccountRecoverySettingType$, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$, () => AcrConfigurationType]
 ];
 export var UserType$: StaticStructureSchema = [3, n0, _UTs,
   0,
@@ -3559,7 +3573,7 @@ export var CreateManagedLoginBranding$: StaticOperationSchema = [9, n0, _CMLB,
 export var CreateResourceServer$: StaticOperationSchema = [9, n0, _CRS,
   0, () => CreateResourceServerRequest$, () => CreateResourceServerResponse$
 ];
-export var CreateTerms$: StaticOperationSchema = [9, n0, _CT,
+export var CreateTerms$: StaticOperationSchema = [9, n0, _CTr,
   0, () => CreateTermsRequest$, () => CreateTermsResponse$
 ];
 export var CreateUserImportJob$: StaticOperationSchema = [9, n0, _CUIJ,

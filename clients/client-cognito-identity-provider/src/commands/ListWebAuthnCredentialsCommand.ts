@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListWebAuthnCredentialsRequest, ListWebAuthnCredentialsResponse } from "../models/models_0";
+import type { ListWebAuthnCredentialsRequest } from "../models/models_0";
+import type { ListWebAuthnCredentialsResponse } from "../models/models_1";
 import { ListWebAuthnCredentials$ } from "../schemas/schemas_0";
 
 /**

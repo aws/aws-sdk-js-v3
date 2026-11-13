@@ -190,6 +190,19 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  *       CustomAuthMode: "AUDIT" || "ENFORCED",
  *     },
  *   },
+ *   DcrConfiguration: { // DcrConfigurationType
+ *     EnableStatus: "Enabled" || "Disabled",
+ *     OpenDcrEnabled: true || false,
+ *     AuthenticatedGrantTypes: [ // OAuthFlowsType
+ *       "code" || "implicit" || "client_credentials",
+ *     ],
+ *     OpenDcrGrantTypes: [
+ *       "code" || "implicit" || "client_credentials",
+ *     ],
+ *     AllowedScopes: [ // ScopeListType
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  *   AccountRecoverySetting: { // AccountRecoverySettingType
  *     RecoveryMechanisms: [ // RecoveryMechanismsType
  *       { // RecoveryOptionType

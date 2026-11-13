@@ -420,6 +420,19 @@ export type IdentityProviderTypeType = (typeof IdentityProviderTypeType)[keyof t
  * @public
  * @enum
  */
+export const ResourceServerManagedByType = {
+  COGNITO: "COGNITO",
+} as const;
+/**
+ * @public
+ */
+export type ResourceServerManagedByType =
+  (typeof ResourceServerManagedByType)[keyof typeof ResourceServerManagedByType];
+
+/**
+ * @public
+ * @enum
+ */
 export const TermsEnforcementType = {
   NONE: "NONE",
 } as const;
@@ -474,6 +487,33 @@ export const UserImportJobStatusType = {
  * @public
  */
 export type UserImportJobStatusType = (typeof UserImportJobStatusType)[keyof typeof UserImportJobStatusType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OAuthFlowType = {
+  client_credentials: "client_credentials",
+  code: "code",
+  implicit: "implicit",
+} as const;
+/**
+ * @public
+ */
+export type OAuthFlowType = (typeof OAuthFlowType)[keyof typeof OAuthFlowType];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatusType = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+/**
+ * @public
+ */
+export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 /**
  * @public
@@ -639,33 +679,6 @@ export type DefaultEmailOptionType = (typeof DefaultEmailOptionType)[keyof typeo
  * @public
  * @enum
  */
-export const StatusType = {
-  Disabled: "Disabled",
-  Enabled: "Enabled",
-} as const;
-/**
- * @public
- */
-export type StatusType = (typeof StatusType)[keyof typeof StatusType];
-
-/**
- * @public
- * @enum
- */
-export const OAuthFlowType = {
-  client_credentials: "client_credentials",
-  code: "code",
-  implicit: "implicit",
-} as const;
-/**
- * @public
- */
-export type OAuthFlowType = (typeof OAuthFlowType)[keyof typeof OAuthFlowType];
-
-/**
- * @public
- * @enum
- */
 export const ExplicitAuthFlowsType = {
   ADMIN_NO_SRP_AUTH: "ADMIN_NO_SRP_AUTH",
   ALLOW_ADMIN_USER_PASSWORD_AUTH: "ALLOW_ADMIN_USER_PASSWORD_AUTH",
@@ -723,6 +736,19 @@ export const TimeUnitsType = {
  * @public
  */
 export type TimeUnitsType = (typeof TimeUnitsType)[keyof typeof TimeUnitsType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientTypeType = {
+  DCR: "DCR",
+  REGULAR: "REGULAR",
+} as const;
+/**
+ * @public
+ */
+export type ClientTypeType = (typeof ClientTypeType)[keyof typeof ClientTypeType];
 
 /**
  * @public

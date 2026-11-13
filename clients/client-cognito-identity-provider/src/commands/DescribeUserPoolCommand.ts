@@ -204,6 +204,19 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * //         CustomAuthMode: "AUDIT" || "ENFORCED",
  * //       },
  * //     },
+ * //     DcrConfiguration: { // DcrConfigurationType
+ * //       EnableStatus: "Enabled" || "Disabled",
+ * //       OpenDcrEnabled: true || false,
+ * //       AuthenticatedGrantTypes: [ // OAuthFlowsType
+ * //         "code" || "implicit" || "client_credentials",
+ * //       ],
+ * //       OpenDcrGrantTypes: [
+ * //         "code" || "implicit" || "client_credentials",
+ * //       ],
+ * //       AllowedScopes: [ // ScopeListType
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //     UsernameConfiguration: { // UsernameConfigurationType
  * //       CaseSensitive: true || false, // required
  * //     },

@@ -57,6 +57,7 @@ export interface ListUserPoolClientsCommandOutput extends ListUserPoolClientsRes
  *   UserPoolId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   ClientType: "REGULAR" || "DCR",
  * };
  * const command = new ListUserPoolClientsCommand(input);
  * const response = await client.send(command);

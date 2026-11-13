@@ -14,6 +14,7 @@ import type {
   ChallengeName,
   ChallengeNameType,
   ChallengeResponse,
+  ClientTypeType,
   ColorSchemeModeType,
   CompromisedCredentialsEventActionType,
   CustomEmailSenderLambdaVersionType,
@@ -45,6 +46,7 @@ import type {
   RecoveryOptionNameType,
   ReplicaRoleType,
   ReplicaStatusType,
+  ResourceServerManagedByType,
   RevokeAssociatedSessionsType,
   RiskDecisionType,
   RiskLevelType,
@@ -5279,6 +5281,13 @@ export interface ResourceServerType {
    * @public
    */
   Scopes?: ResourceServerScopeType[] | undefined;
+
+  /**
+   * <p>This value is reserved for resource servers that Amazon Cognito manages. Resource servers that
+   *             you create don't have this value.</p>
+   * @public
+   */
+  ManagedBy?: ResourceServerManagedByType | undefined;
 }
 
 /**
@@ -5604,6 +5613,101 @@ export interface CreateUserImportJobResponse {
    * @public
    */
   UserImportJob?: UserImportJobType | undefined;
+}
+
+/**
+ * <p>The dynamic client registration configuration for a user pool. Dynamic client
+ *             registration lets applications register their own app clients at runtime through the
+ *             registration endpoint of your user pool domain. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+ *                      Essentials tier</a> or higher.</p>
+ *          <p>Applications register app clients at the <code>/oauth2/register</code> endpoint of your
+ *             user pool domain. In authenticated registration, the application sends an access token
+ *             from your user pool that has the <code>aws.cognito/dcr/register</code> scope. In open
+ *             registration, the application doesn't send a token.</p>
+ *          <p>When you include this configuration in an <code>UpdateUserPool</code> request, Amazon Cognito
+ *             replaces the existing configuration with the one that you provide.</p>
+ * @public
+ */
+export interface DcrConfigurationType {
+  /**
+   * <p>Specifies whether dynamic client registration is turned on for the user pool. If you
+   *             provide a dynamic client registration configuration without this value, Amazon Cognito turns
+   *             dynamic client registration on.</p>
+   * @public
+   */
+  EnableStatus?: StatusType | undefined;
+
+  /**
+   * <p>Specifies whether open registration is turned on. When open registration is on,
+   *             applications can register app clients without an initial access token. The default value
+   *             is <code>false</code>.</p>
+   * @public
+   */
+  OpenDcrEnabled?: boolean | undefined;
+
+  /**
+   * <p>The OAuth grant types that an app client created through authenticated registration can
+   *             request. If you don't set this value, authenticated registration permits the
+   *                 <code>code</code> and <code>client_credentials</code> grant types. If you set an
+   *             empty list, Amazon Cognito rejects authenticated registration requests. Dynamic client
+   *             registration supports the following values. Amazon Cognito accepts <code>implicit</code> in this
+   *             list but ignores it.</p>
+   *          <dl>
+   *             <dt>code</dt>
+   *             <dd>
+   *                <p>Use a code grant flow, which provides an authorization code as the
+   *                         response. This code can be exchanged for access tokens with the
+   *                             <code>/oauth2/token</code> endpoint.</p>
+   *             </dd>
+   *             <dt>client_credentials</dt>
+   *             <dd>
+   *                <p>Issue the access token from the <code>/oauth2/token</code> endpoint
+   *                         directly to a non-person user using a combination of the client ID and
+   *                         client secret.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  AuthenticatedGrantTypes?: OAuthFlowType[] | undefined;
+
+  /**
+   * <p>The OAuth grant types that an app client created through open registration can request.
+   *             If you don't set this value, open registration permits only the <code>code</code>
+   *             grant type. If you set an empty list, Amazon Cognito rejects open registration requests. If you add
+   *                 <code>client_credentials</code>, anyone can register an app client that requests
+   *             machine-to-machine (M2M) access tokens, and you pay for the M2M token requests that those
+   *             app clients make. Dynamic client registration supports the following values. Amazon Cognito
+   *             accepts <code>implicit</code> in this list but ignores it.</p>
+   *          <dl>
+   *             <dt>code</dt>
+   *             <dd>
+   *                <p>Use a code grant flow, which provides an authorization code as the
+   *                         response. This code can be exchanged for access tokens with the
+   *                             <code>/oauth2/token</code> endpoint.</p>
+   *             </dd>
+   *             <dt>client_credentials</dt>
+   *             <dd>
+   *                <p>Issue the access token from the <code>/oauth2/token</code> endpoint
+   *                         directly to a non-person user using a combination of the client ID and
+   *                         client secret.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  OpenDcrGrantTypes?: OAuthFlowType[] | undefined;
+
+  /**
+   * <p>The scopes that an app client created through dynamic client registration can request,
+   *             in addition to the standard OpenID Connect (OIDC) scopes. You can include custom scopes
+   *             from your resource servers and <code>aws.cognito.signin.user.admin</code>. Registered app
+   *             clients can request the OIDC scopes <code>openid</code>, <code>email</code>,
+   *                 <code>phone</code>, and <code>profile</code> without listing them here. If you
+   *             don't set this value, registered app clients can request only the OIDC scopes. A
+   *             registered app client can't request the <code>aws.cognito/dcr/register</code> scope,
+   *             even if you include it in this list.</p>
+   * @public
+   */
+  AllowedScopes?: string[] | undefined;
 }
 
 /**
@@ -6611,6 +6715,15 @@ export interface CreateUserPoolRequest {
   UserPoolAddOns?: UserPoolAddOnsType | undefined;
 
   /**
+   * <p>The dynamic client registration configuration for the user pool. With dynamic client
+   *             registration, applications can register their own app clients at runtime through the
+   *             registration endpoint of your user pool domain. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+   *                      Essentials tier</a> or higher.</p>
+   * @public
+   */
+  DcrConfiguration?: DcrConfigurationType | undefined;
+
+  /**
    * <p>Sets the case sensitivity option for sign-in usernames. When
    *                 <code>CaseSensitive</code> is <code>false</code> (case insensitive), users can sign
    *             in with any combination of capital and lowercase letters. For example,
@@ -6951,6 +7064,15 @@ export interface UserPoolType {
    * @public
    */
   UserPoolAddOns?: UserPoolAddOnsType | undefined;
+
+  /**
+   * <p>The dynamic client registration configuration for the user pool. With dynamic client
+   *             registration, applications can register their own app clients at runtime through the
+   *             registration endpoint of your user pool domain. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+   *                      Essentials tier</a> or higher.</p>
+   * @public
+   */
+  DcrConfiguration?: DcrConfigurationType | undefined;
 
   /**
    * <p>Case sensitivity of the username input for the selected sign-in option. When case
@@ -7885,6 +8007,26 @@ export interface UserPoolClientType {
    * @public
    */
   RefreshTokenRotation?: RefreshTokenRotationType | undefined;
+
+  /**
+   * <p>How the app client was created.</p>
+   *          <dl>
+   *             <dt>REGULAR</dt>
+   *             <dd>
+   *                <p>The app client wasn't created through dynamic client registration.
+   *                         For example, you created it with <code>CreateUserPoolClient</code>.</p>
+   *             </dd>
+   *             <dt>DCR</dt>
+   *             <dd>
+   *                <p>An application registered the app client through dynamic client
+   *                         registration. These app clients don't support client secret operations
+   *                         such as <code>AddUserPoolClientSecret</code>, and they can't hold the
+   *                             <code>aws.cognito/dcr/register</code> scope.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  ClientType?: ClientTypeType | undefined;
 }
 
 /**
@@ -11071,6 +11213,30 @@ export interface ListUserPoolClientsRequest {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>Returns only app clients of this type. For dynamic client registration
+   *                 (<code>DCR</code>) and other app clients, the following values are valid.</p>
+   *          <dl>
+   *             <dt>REGULAR</dt>
+   *             <dd>
+   *                <p>An app client not created through dynamic client registration.</p>
+   *             </dd>
+   *             <dt>DCR</dt>
+   *             <dd>
+   *                <p>An app client created through dynamic client registration.</p>
+   *             </dd>
+   *          </dl>
+   *          <p>If you omit <code>ClientType</code>, the response includes app clients of all types.
+   *             When you set this filter, a page of results can contain fewer app clients than
+   *                 <code>MaxResults</code>, or none, while the response still includes a
+   *                 <code>NextToken</code>. Continue to request pages until the response has no
+   *                 <code>NextToken</code>. The app clients in the response don't include their
+   *             type. To get the type of an app client, call
+   *                 <code>DescribeUserPoolClient</code>.</p>
+   * @public
+   */
+  ClientType?: ClientTypeType | undefined;
 }
 
 /**
@@ -11632,23 +11798,4 @@ export interface WebAuthnCredentialDescription {
    * @public
    */
   CreatedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWebAuthnCredentialsResponse {
-  /**
-   * <p>A list of registered passkeys for a user.</p>
-   * @public
-   */
-  Credentials: WebAuthnCredentialDescription[] | undefined;
-
-  /**
-   * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
-   * you include a pagination token in your request, Amazon Cognito returns the next set of items in
-   * the list. By use of this token, you can paginate through the full list of items.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

@@ -33,6 +33,7 @@ import type {
   CodeDeliveryDetailsType,
   CompromisedCredentialsRiskConfigurationType,
   CustomDomainConfigType,
+  DcrConfigurationType,
   DeviceConfigurationType,
   EmailConfigurationType,
   EmailMfaConfigType,
@@ -72,8 +73,28 @@ import type {
   UserPoolTokenSessionConfigType,
   VerificationMessageTemplateType,
   WebAuthnConfigurationType,
+  WebAuthnCredentialDescription,
   WebAuthnMfaSettingsType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListWebAuthnCredentialsResponse {
+  /**
+   * <p>A list of registered passkeys for a user.</p>
+   * @public
+   */
+  Credentials: WebAuthnCredentialDescription[] | undefined;
+
+  /**
+   * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
+   * you include a pagination token in your request, Amazon Cognito returns the next set of items in
+   * the list. By use of this token, you can paginate through the full list of items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * <p>Represents the request to resend the confirmation code.</p>
@@ -2282,6 +2303,21 @@ export interface UpdateUserPoolRequest {
    * @public
    */
   UserPoolAddOns?: UserPoolAddOnsType | undefined;
+
+  /**
+   * <p>The dynamic client registration configuration for the user pool. With dynamic client
+   *             registration, applications can register their own app clients at runtime through the
+   *             registration endpoint of your user pool domain. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+   *                      Essentials tier</a> or higher.</p>
+   *          <p>If you omit this parameter, Amazon Cognito keeps the existing configuration. If you include it,
+   *             Amazon Cognito replaces the existing configuration with the one that you provide. Members that you
+   *             omit revert to their default values, and an omitted <code>EnableStatus</code> turns
+   *             dynamic client registration on.</p>
+   *          <p>To change the feature plan of the user pool to Lite, you must also set
+   *                 <code>EnableStatus</code> to <code>Disabled</code>.</p>
+   * @public
+   */
+  DcrConfiguration?: DcrConfigurationType | undefined;
 
   /**
    * <p>The available verified method a user can use to recover their password when they call

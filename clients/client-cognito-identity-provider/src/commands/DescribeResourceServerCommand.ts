@@ -49,6 +49,7 @@ export interface DescribeResourceServerCommandOutput extends DescribeResourceSer
  * //         ScopeDescription: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     ManagedBy: "COGNITO",
  * //   },
  * // };
  *

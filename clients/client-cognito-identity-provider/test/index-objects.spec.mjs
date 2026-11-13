@@ -164,6 +164,7 @@ import {
   ClientAuthenticationResultType$,
   ClientSecretDescriptorType$,
   ClientSSOSessionConfigType$,
+  ClientTypeType,
   CloudWatchLogsConfigurationType$,
   CodeDeliveryDetailsType$,
   CodeDeliveryFailureException,
@@ -241,6 +242,7 @@ import {
   CustomEmailSenderLambdaVersionType,
   CustomSMSLambdaVersionConfigType$,
   CustomSMSSenderLambdaVersionType,
+  DcrConfigurationType$,
   DefaultEmailOptionType,
   DeleteGroup$,
   DeleteGroupCommand,
@@ -599,6 +601,7 @@ import {
   ResendConfirmationCodeResponse$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  ResourceServerManagedByType,
   ResourceServerScopeType$,
   ResourceServerType$,
   RespondToAuthChallenge$,
@@ -1242,6 +1245,7 @@ assert(typeof CreateUserPoolResponse$ === "object");
 assert(typeof CustomDomainConfigType$ === "object");
 assert(typeof CustomEmailLambdaVersionConfigType$ === "object");
 assert(typeof CustomSMSLambdaVersionConfigType$ === "object");
+assert(typeof DcrConfigurationType$ === "object");
 assert(typeof DeleteGroupRequest$ === "object");
 assert(typeof DeleteIdentityProviderRequest$ === "object");
 assert(typeof DeleteManagedLoginBrandingRequest$ === "object");
@@ -1504,6 +1508,7 @@ assert(typeof AuthFlowType === "object");
 assert(typeof ChallengeName === "object");
 assert(typeof ChallengeNameType === "object");
 assert(typeof ChallengeResponse === "object");
+assert(typeof ClientTypeType === "object");
 assert(typeof ColorSchemeModeType === "object");
 assert(typeof CompromisedCredentialsEventActionType === "object");
 assert(typeof CustomEmailSenderLambdaVersionType === "object");
@@ -1535,6 +1540,7 @@ assert(typeof PreventUserExistenceErrorTypes === "object");
 assert(typeof RecoveryOptionNameType === "object");
 assert(typeof ReplicaRoleType === "object");
 assert(typeof ReplicaStatusType === "object");
+assert(typeof ResourceServerManagedByType === "object");
 assert(typeof RevokeAssociatedSessionsType === "object");
 assert(typeof RiskDecisionType === "object");
 assert(typeof RiskLevelType === "object");

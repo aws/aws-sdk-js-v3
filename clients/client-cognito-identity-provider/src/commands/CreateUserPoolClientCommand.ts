@@ -173,6 +173,7 @@ export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientR
  * //       Feature: "ENABLED" || "DISABLED", // required
  * //       RetryGracePeriodSeconds: Number("int"),
  * //     },
+ * //     ClientType: "REGULAR" || "DCR",
  * //   },
  * // };
  *

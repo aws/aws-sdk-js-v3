@@ -81,6 +81,7 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
  * //         ScopeDescription: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     ManagedBy: "COGNITO",
  * //   },
  * // };
  *
