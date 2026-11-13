@@ -611,6 +611,15 @@
     "UpdateCommandInput": "type(intersection)",
     "UpdateCommandOutput": "type(intersection)"
   },
+  "@aws-sdk/lib-sns": {
+    "DEFAULT_HOST_PATTERN": "object",
+    "MessageValidator": "function",
+    "MessageValidatorOptions": "type(interface)",
+    "SNSMessage": "type(interface)",
+    "SNSMessageType": "type(union)",
+    "SNSValidationError": "function",
+    "ValidationCallback": "type(object)"
+  },
   "@aws-sdk/lib-sqs": {
     "DeleteError": "function",
     "Message": "function",
