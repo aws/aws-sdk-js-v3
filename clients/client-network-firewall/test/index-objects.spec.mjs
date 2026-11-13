@@ -23,10 +23,6 @@ import {
   AssociateSubnetsResponse$,
   Attachment$,
   AttachmentStatus,
-  AttachRuleGroupsToProxyConfiguration$,
-  AttachRuleGroupsToProxyConfigurationCommand,
-  AttachRuleGroupsToProxyConfigurationRequest$,
-  AttachRuleGroupsToProxyConfigurationResponse$,
   AvailabilityZoneMapping$,
   AvailabilityZoneMetadata$,
   AZSyncState$,
@@ -55,24 +51,6 @@ import {
   CreateFirewallPolicyV2Response$,
   CreateFirewallRequest$,
   CreateFirewallResponse$,
-  CreateProxy$,
-  CreateProxyCommand,
-  CreateProxyConfiguration$,
-  CreateProxyConfigurationCommand,
-  CreateProxyConfigurationRequest$,
-  CreateProxyConfigurationResponse$,
-  CreateProxyRequest$,
-  CreateProxyResponse$,
-  CreateProxyRule$,
-  CreateProxyRuleGroup$,
-  CreateProxyRuleGroupCommand,
-  CreateProxyRuleGroupRequest$,
-  CreateProxyRuleGroupResponse$,
-  CreateProxyRules$,
-  CreateProxyRulesByRequestPhase$,
-  CreateProxyRulesCommand,
-  CreateProxyRulesRequest$,
-  CreateProxyRulesResponse$,
   CreateRuleGroup$,
   CreateRuleGroupCommand,
   CreateRuleGroupRequest$,
@@ -86,6 +64,7 @@ import {
   CreateVpcEndpointAssociationRequest$,
   CreateVpcEndpointAssociationResponse$,
   CustomAction$,
+  DecryptionAction,
   DeleteContainerAssociation$,
   DeleteContainerAssociationCommand,
   DeleteContainerAssociationRequest$,
@@ -108,20 +87,8 @@ import {
   DeleteNetworkFirewallTransitGatewayAttachmentResponse$,
   DeleteProxy$,
   DeleteProxyCommand,
-  DeleteProxyConfiguration$,
-  DeleteProxyConfigurationCommand,
-  DeleteProxyConfigurationRequest$,
-  DeleteProxyConfigurationResponse$,
   DeleteProxyRequest$,
   DeleteProxyResponse$,
-  DeleteProxyRuleGroup$,
-  DeleteProxyRuleGroupCommand,
-  DeleteProxyRuleGroupRequest$,
-  DeleteProxyRuleGroupResponse$,
-  DeleteProxyRules$,
-  DeleteProxyRulesCommand,
-  DeleteProxyRulesRequest$,
-  DeleteProxyRulesResponse$,
   DeleteResourcePolicy$,
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyRequest$,
@@ -168,21 +135,9 @@ import {
   DescribeLoggingConfigurationResponse$,
   DescribeProxy$,
   DescribeProxyCommand,
-  DescribeProxyConfiguration$,
-  DescribeProxyConfigurationCommand,
-  DescribeProxyConfigurationRequest$,
-  DescribeProxyConfigurationResponse$,
   DescribeProxyRequest$,
   DescribeProxyResource$,
   DescribeProxyResponse$,
-  DescribeProxyRule$,
-  DescribeProxyRuleCommand,
-  DescribeProxyRuleGroup$,
-  DescribeProxyRuleGroupCommand,
-  DescribeProxyRuleGroupRequest$,
-  DescribeProxyRuleGroupResponse$,
-  DescribeProxyRuleRequest$,
-  DescribeProxyRuleResponse$,
   DescribeResourcePolicy$,
   DescribeResourcePolicyCommand,
   DescribeResourcePolicyRequest$,
@@ -207,10 +162,6 @@ import {
   DescribeVpcEndpointAssociationCommand,
   DescribeVpcEndpointAssociationRequest$,
   DescribeVpcEndpointAssociationResponse$,
-  DetachRuleGroupsFromProxyConfiguration$,
-  DetachRuleGroupsFromProxyConfigurationCommand,
-  DetachRuleGroupsFromProxyConfigurationRequest$,
-  DetachRuleGroupsFromProxyConfigurationResponse$,
   Dimension$,
   DisassociateAvailabilityZones$,
   DisassociateAvailabilityZonesCommand,
@@ -221,6 +172,7 @@ import {
   DisassociateSubnetsRequest$,
   DisassociateSubnetsResponse$,
   DNSExpiryExceptionPolicy,
+  DomainMatch$,
   EnabledAnalysisType,
   EncryptionConfiguration$,
   EncryptionType,
@@ -289,7 +241,6 @@ import {
   ListContainerAssociationsRequest$,
   ListContainerAssociationsResponse$,
   ListenerProperty$,
-  ListenerPropertyRequest$,
   ListenerPropertyType,
   ListFirewallPolicies$,
   ListFirewallPoliciesCommand,
@@ -311,18 +262,6 @@ import {
   ListFlowOperationsCommand,
   ListFlowOperationsRequest$,
   ListFlowOperationsResponse$,
-  ListProxies$,
-  ListProxiesCommand,
-  ListProxiesRequest$,
-  ListProxiesResponse$,
-  ListProxyConfigurations$,
-  ListProxyConfigurationsCommand,
-  ListProxyConfigurationsRequest$,
-  ListProxyConfigurationsResponse$,
-  ListProxyRuleGroups$,
-  ListProxyRuleGroupsCommand,
-  ListProxyRuleGroupsRequest$,
-  ListProxyRuleGroupsResponse$,
   ListRuleGroups$,
   ListRuleGroupsCommand,
   ListRuleGroupsRequest$,
@@ -348,7 +287,7 @@ import {
   MatchAttributes$,
   NatGatewayAttachment$,
   NatGatewayAttachmentStatus,
-  NatGatewayMapping$,
+  NatGatewayCreateMapping$,
   NetworkFirewall,
   NetworkFirewallClient,
   NetworkFirewallServiceException,
@@ -361,9 +300,6 @@ import {
   paginateListFirewalls,
   paginateListFlowOperationResults,
   paginateListFlowOperations,
-  paginateListProxies,
-  paginateListProxyConfigurations,
-  paginateListProxyRuleGroups,
   paginateListRuleGroups,
   paginateListTagsForResource,
   paginateListTLSInspectionConfigurations,
@@ -375,23 +311,7 @@ import {
   PolicyVariables$,
   PortRange$,
   PortSet$,
-  Proxy$,
-  ProxyConfigDefaultRulePhaseActionsRequest$,
-  ProxyConfigRuleGroup$,
-  ProxyConfiguration$,
-  ProxyConfigurationMetadata$,
-  ProxyMetadata$,
   ProxyModifyState,
-  ProxyRule$,
-  ProxyRuleCondition$,
-  ProxyRuleGroup$,
-  ProxyRuleGroupAttachment$,
-  ProxyRuleGroupMetadata$,
-  ProxyRuleGroupPriority$,
-  ProxyRuleGroupPriorityResult$,
-  ProxyRulePhaseAction,
-  ProxyRulePriority$,
-  ProxyRulesByRequestPhase$,
   ProxySettings$,
   ProxyState,
   PublishMetricAction$,
@@ -417,7 +337,6 @@ import {
   RuleDefinition$,
   RuleGroup$,
   RuleGroupMetadata$,
-  RuleGroupRequestPhase,
   RuleGroupResponse$,
   RuleGroupType,
   RuleMetadata$,
@@ -478,11 +397,12 @@ import {
   TLSInspectionConfiguration$,
   TLSInspectionConfigurationMetadata$,
   TLSInspectionConfigurationResponse$,
+  TLSInspectionScopeDeploymentMode,
   TlsInterceptMode,
   TlsInterceptProperties$,
-  TlsInterceptPropertiesRequest$,
   TransitGatewayAttachmentStatus,
   TransitGatewayAttachmentSyncState$,
+  TransparentFilteringNatScope,
   UniqueSources$,
   UnsupportedOperationException,
   UnsupportedOperationException$,
@@ -530,26 +450,6 @@ import {
   UpdateLoggingConfigurationCommand,
   UpdateLoggingConfigurationRequest$,
   UpdateLoggingConfigurationResponse$,
-  UpdateProxy$,
-  UpdateProxyCommand,
-  UpdateProxyConfiguration$,
-  UpdateProxyConfigurationCommand,
-  UpdateProxyConfigurationRequest$,
-  UpdateProxyConfigurationResponse$,
-  UpdateProxyRequest$,
-  UpdateProxyResponse$,
-  UpdateProxyRule$,
-  UpdateProxyRuleCommand,
-  UpdateProxyRuleGroupPriorities$,
-  UpdateProxyRuleGroupPrioritiesCommand,
-  UpdateProxyRuleGroupPrioritiesRequest$,
-  UpdateProxyRuleGroupPrioritiesResponse$,
-  UpdateProxyRulePriorities$,
-  UpdateProxyRulePrioritiesCommand,
-  UpdateProxyRulePrioritiesRequest$,
-  UpdateProxyRulePrioritiesResponse$,
-  UpdateProxyRuleRequest$,
-  UpdateProxyRuleResponse$,
   UpdateProxySettings$,
   UpdateProxySettingsCommand,
   UpdateProxySettingsRequest$,
@@ -586,8 +486,6 @@ assert(typeof AssociateFirewallPolicyCommand === "function");
 assert(typeof AssociateFirewallPolicy$ === "object");
 assert(typeof AssociateSubnetsCommand === "function");
 assert(typeof AssociateSubnets$ === "object");
-assert(typeof AttachRuleGroupsToProxyConfigurationCommand === "function");
-assert(typeof AttachRuleGroupsToProxyConfiguration$ === "object");
 assert(typeof CreateContainerAssociationCommand === "function");
 assert(typeof CreateContainerAssociation$ === "object");
 assert(typeof CreateFirewallCommand === "function");
@@ -596,14 +494,6 @@ assert(typeof CreateFirewallPolicyCommand === "function");
 assert(typeof CreateFirewallPolicy$ === "object");
 assert(typeof CreateFirewallPolicyV2Command === "function");
 assert(typeof CreateFirewallPolicyV2$ === "object");
-assert(typeof CreateProxyCommand === "function");
-assert(typeof CreateProxy$ === "object");
-assert(typeof CreateProxyConfigurationCommand === "function");
-assert(typeof CreateProxyConfiguration$ === "object");
-assert(typeof CreateProxyRuleGroupCommand === "function");
-assert(typeof CreateProxyRuleGroup$ === "object");
-assert(typeof CreateProxyRulesCommand === "function");
-assert(typeof CreateProxyRules$ === "object");
 assert(typeof CreateRuleGroupCommand === "function");
 assert(typeof CreateRuleGroup$ === "object");
 assert(typeof CreateTLSInspectionConfigurationCommand === "function");
@@ -622,12 +512,6 @@ assert(typeof DeleteNetworkFirewallTransitGatewayAttachmentCommand === "function
 assert(typeof DeleteNetworkFirewallTransitGatewayAttachment$ === "object");
 assert(typeof DeleteProxyCommand === "function");
 assert(typeof DeleteProxy$ === "object");
-assert(typeof DeleteProxyConfigurationCommand === "function");
-assert(typeof DeleteProxyConfiguration$ === "object");
-assert(typeof DeleteProxyRuleGroupCommand === "function");
-assert(typeof DeleteProxyRuleGroup$ === "object");
-assert(typeof DeleteProxyRulesCommand === "function");
-assert(typeof DeleteProxyRules$ === "object");
 assert(typeof DeleteResourcePolicyCommand === "function");
 assert(typeof DeleteResourcePolicy$ === "object");
 assert(typeof DeleteRuleGroupCommand === "function");
@@ -652,12 +536,6 @@ assert(typeof DescribeLoggingConfigurationCommand === "function");
 assert(typeof DescribeLoggingConfiguration$ === "object");
 assert(typeof DescribeProxyCommand === "function");
 assert(typeof DescribeProxy$ === "object");
-assert(typeof DescribeProxyConfigurationCommand === "function");
-assert(typeof DescribeProxyConfiguration$ === "object");
-assert(typeof DescribeProxyRuleCommand === "function");
-assert(typeof DescribeProxyRule$ === "object");
-assert(typeof DescribeProxyRuleGroupCommand === "function");
-assert(typeof DescribeProxyRuleGroup$ === "object");
 assert(typeof DescribeResourcePolicyCommand === "function");
 assert(typeof DescribeResourcePolicy$ === "object");
 assert(typeof DescribeRuleGroupCommand === "function");
@@ -670,8 +548,6 @@ assert(typeof DescribeTLSInspectionConfigurationCommand === "function");
 assert(typeof DescribeTLSInspectionConfiguration$ === "object");
 assert(typeof DescribeVpcEndpointAssociationCommand === "function");
 assert(typeof DescribeVpcEndpointAssociation$ === "object");
-assert(typeof DetachRuleGroupsFromProxyConfigurationCommand === "function");
-assert(typeof DetachRuleGroupsFromProxyConfiguration$ === "object");
 assert(typeof DisassociateAvailabilityZonesCommand === "function");
 assert(typeof DisassociateAvailabilityZones$ === "object");
 assert(typeof DisassociateSubnetsCommand === "function");
@@ -692,12 +568,6 @@ assert(typeof ListFlowOperationResultsCommand === "function");
 assert(typeof ListFlowOperationResults$ === "object");
 assert(typeof ListFlowOperationsCommand === "function");
 assert(typeof ListFlowOperations$ === "object");
-assert(typeof ListProxiesCommand === "function");
-assert(typeof ListProxies$ === "object");
-assert(typeof ListProxyConfigurationsCommand === "function");
-assert(typeof ListProxyConfigurations$ === "object");
-assert(typeof ListProxyRuleGroupsCommand === "function");
-assert(typeof ListProxyRuleGroups$ === "object");
 assert(typeof ListRuleGroupsCommand === "function");
 assert(typeof ListRuleGroups$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
@@ -740,16 +610,6 @@ assert(typeof UpdateFirewallPolicyV2Command === "function");
 assert(typeof UpdateFirewallPolicyV2$ === "object");
 assert(typeof UpdateLoggingConfigurationCommand === "function");
 assert(typeof UpdateLoggingConfiguration$ === "object");
-assert(typeof UpdateProxyCommand === "function");
-assert(typeof UpdateProxy$ === "object");
-assert(typeof UpdateProxyConfigurationCommand === "function");
-assert(typeof UpdateProxyConfiguration$ === "object");
-assert(typeof UpdateProxyRuleCommand === "function");
-assert(typeof UpdateProxyRule$ === "object");
-assert(typeof UpdateProxyRuleGroupPrioritiesCommand === "function");
-assert(typeof UpdateProxyRuleGroupPriorities$ === "object");
-assert(typeof UpdateProxyRulePrioritiesCommand === "function");
-assert(typeof UpdateProxyRulePriorities$ === "object");
 assert(typeof UpdateProxySettingsCommand === "function");
 assert(typeof UpdateProxySettings$ === "object");
 assert(typeof UpdateRuleGroupCommand === "function");
@@ -773,8 +633,6 @@ assert(typeof AssociateFirewallPolicyResponse$ === "object");
 assert(typeof AssociateSubnetsRequest$ === "object");
 assert(typeof AssociateSubnetsResponse$ === "object");
 assert(typeof Attachment$ === "object");
-assert(typeof AttachRuleGroupsToProxyConfigurationRequest$ === "object");
-assert(typeof AttachRuleGroupsToProxyConfigurationResponse$ === "object");
 assert(typeof AvailabilityZoneMapping$ === "object");
 assert(typeof AvailabilityZoneMetadata$ === "object");
 assert(typeof AZSyncState$ === "object");
@@ -792,16 +650,6 @@ assert(typeof CreateFirewallPolicyV2Request$ === "object");
 assert(typeof CreateFirewallPolicyV2Response$ === "object");
 assert(typeof CreateFirewallRequest$ === "object");
 assert(typeof CreateFirewallResponse$ === "object");
-assert(typeof CreateProxyConfigurationRequest$ === "object");
-assert(typeof CreateProxyConfigurationResponse$ === "object");
-assert(typeof CreateProxyRequest$ === "object");
-assert(typeof CreateProxyResponse$ === "object");
-assert(typeof CreateProxyRule$ === "object");
-assert(typeof CreateProxyRuleGroupRequest$ === "object");
-assert(typeof CreateProxyRuleGroupResponse$ === "object");
-assert(typeof CreateProxyRulesByRequestPhase$ === "object");
-assert(typeof CreateProxyRulesRequest$ === "object");
-assert(typeof CreateProxyRulesResponse$ === "object");
 assert(typeof CreateRuleGroupRequest$ === "object");
 assert(typeof CreateRuleGroupResponse$ === "object");
 assert(typeof CreateTLSInspectionConfigurationRequest$ === "object");
@@ -819,14 +667,8 @@ assert(typeof DeleteFirewallRequest$ === "object");
 assert(typeof DeleteFirewallResponse$ === "object");
 assert(typeof DeleteNetworkFirewallTransitGatewayAttachmentRequest$ === "object");
 assert(typeof DeleteNetworkFirewallTransitGatewayAttachmentResponse$ === "object");
-assert(typeof DeleteProxyConfigurationRequest$ === "object");
-assert(typeof DeleteProxyConfigurationResponse$ === "object");
 assert(typeof DeleteProxyRequest$ === "object");
 assert(typeof DeleteProxyResponse$ === "object");
-assert(typeof DeleteProxyRuleGroupRequest$ === "object");
-assert(typeof DeleteProxyRuleGroupResponse$ === "object");
-assert(typeof DeleteProxyRulesRequest$ === "object");
-assert(typeof DeleteProxyRulesResponse$ === "object");
 assert(typeof DeleteResourcePolicyRequest$ === "object");
 assert(typeof DeleteResourcePolicyResponse$ === "object");
 assert(typeof DeleteRuleGroupRequest$ === "object");
@@ -849,15 +691,9 @@ assert(typeof DescribeFlowOperationRequest$ === "object");
 assert(typeof DescribeFlowOperationResponse$ === "object");
 assert(typeof DescribeLoggingConfigurationRequest$ === "object");
 assert(typeof DescribeLoggingConfigurationResponse$ === "object");
-assert(typeof DescribeProxyConfigurationRequest$ === "object");
-assert(typeof DescribeProxyConfigurationResponse$ === "object");
 assert(typeof DescribeProxyRequest$ === "object");
 assert(typeof DescribeProxyResource$ === "object");
 assert(typeof DescribeProxyResponse$ === "object");
-assert(typeof DescribeProxyRuleGroupRequest$ === "object");
-assert(typeof DescribeProxyRuleGroupResponse$ === "object");
-assert(typeof DescribeProxyRuleRequest$ === "object");
-assert(typeof DescribeProxyRuleResponse$ === "object");
 assert(typeof DescribeResourcePolicyRequest$ === "object");
 assert(typeof DescribeResourcePolicyResponse$ === "object");
 assert(typeof DescribeRuleGroupMetadataRequest$ === "object");
@@ -870,13 +706,12 @@ assert(typeof DescribeTLSInspectionConfigurationRequest$ === "object");
 assert(typeof DescribeTLSInspectionConfigurationResponse$ === "object");
 assert(typeof DescribeVpcEndpointAssociationRequest$ === "object");
 assert(typeof DescribeVpcEndpointAssociationResponse$ === "object");
-assert(typeof DetachRuleGroupsFromProxyConfigurationRequest$ === "object");
-assert(typeof DetachRuleGroupsFromProxyConfigurationResponse$ === "object");
 assert(typeof Dimension$ === "object");
 assert(typeof DisassociateAvailabilityZonesRequest$ === "object");
 assert(typeof DisassociateAvailabilityZonesResponse$ === "object");
 assert(typeof DisassociateSubnetsRequest$ === "object");
 assert(typeof DisassociateSubnetsResponse$ === "object");
+assert(typeof DomainMatch$ === "object");
 assert(typeof EncryptionConfiguration$ === "object");
 assert(typeof Firewall$ === "object");
 assert(typeof FirewallMetadata$ === "object");
@@ -913,7 +748,6 @@ assert(typeof ListAnalysisReportsResponse$ === "object");
 assert(typeof ListContainerAssociationsRequest$ === "object");
 assert(typeof ListContainerAssociationsResponse$ === "object");
 assert(typeof ListenerProperty$ === "object");
-assert(typeof ListenerPropertyRequest$ === "object");
 assert(typeof ListFirewallPoliciesRequest$ === "object");
 assert(typeof ListFirewallPoliciesResponse$ === "object");
 assert(typeof ListFirewallPoliciesV2Request$ === "object");
@@ -924,12 +758,6 @@ assert(typeof ListFlowOperationResultsRequest$ === "object");
 assert(typeof ListFlowOperationResultsResponse$ === "object");
 assert(typeof ListFlowOperationsRequest$ === "object");
 assert(typeof ListFlowOperationsResponse$ === "object");
-assert(typeof ListProxiesRequest$ === "object");
-assert(typeof ListProxiesResponse$ === "object");
-assert(typeof ListProxyConfigurationsRequest$ === "object");
-assert(typeof ListProxyConfigurationsResponse$ === "object");
-assert(typeof ListProxyRuleGroupsRequest$ === "object");
-assert(typeof ListProxyRuleGroupsResponse$ === "object");
 assert(typeof ListRuleGroupsRequest$ === "object");
 assert(typeof ListRuleGroupsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
@@ -942,26 +770,11 @@ assert(typeof LogDestinationConfig$ === "object");
 assert(typeof LoggingConfiguration$ === "object");
 assert(typeof MatchAttributes$ === "object");
 assert(typeof NatGatewayAttachment$ === "object");
-assert(typeof NatGatewayMapping$ === "object");
+assert(typeof NatGatewayCreateMapping$ === "object");
 assert(typeof PerObjectStatus$ === "object");
 assert(typeof PolicyVariables$ === "object");
 assert(typeof PortRange$ === "object");
 assert(typeof PortSet$ === "object");
-assert(typeof Proxy$ === "object");
-assert(typeof ProxyConfigDefaultRulePhaseActionsRequest$ === "object");
-assert(typeof ProxyConfigRuleGroup$ === "object");
-assert(typeof ProxyConfiguration$ === "object");
-assert(typeof ProxyConfigurationMetadata$ === "object");
-assert(typeof ProxyMetadata$ === "object");
-assert(typeof ProxyRule$ === "object");
-assert(typeof ProxyRuleCondition$ === "object");
-assert(typeof ProxyRuleGroup$ === "object");
-assert(typeof ProxyRuleGroupAttachment$ === "object");
-assert(typeof ProxyRuleGroupMetadata$ === "object");
-assert(typeof ProxyRuleGroupPriority$ === "object");
-assert(typeof ProxyRuleGroupPriorityResult$ === "object");
-assert(typeof ProxyRulePriority$ === "object");
-assert(typeof ProxyRulesByRequestPhase$ === "object");
 assert(typeof ProxySettings$ === "object");
 assert(typeof PublishMetricAction$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
@@ -1012,7 +825,6 @@ assert(typeof TLSInspectionConfiguration$ === "object");
 assert(typeof TLSInspectionConfigurationMetadata$ === "object");
 assert(typeof TLSInspectionConfigurationResponse$ === "object");
 assert(typeof TlsInterceptProperties$ === "object");
-assert(typeof TlsInterceptPropertiesRequest$ === "object");
 assert(typeof TransitGatewayAttachmentSyncState$ === "object");
 assert(typeof UniqueSources$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
@@ -1037,16 +849,6 @@ assert(typeof UpdateFirewallPolicyV2Request$ === "object");
 assert(typeof UpdateFirewallPolicyV2Response$ === "object");
 assert(typeof UpdateLoggingConfigurationRequest$ === "object");
 assert(typeof UpdateLoggingConfigurationResponse$ === "object");
-assert(typeof UpdateProxyConfigurationRequest$ === "object");
-assert(typeof UpdateProxyConfigurationResponse$ === "object");
-assert(typeof UpdateProxyRequest$ === "object");
-assert(typeof UpdateProxyResponse$ === "object");
-assert(typeof UpdateProxyRuleGroupPrioritiesRequest$ === "object");
-assert(typeof UpdateProxyRuleGroupPrioritiesResponse$ === "object");
-assert(typeof UpdateProxyRulePrioritiesRequest$ === "object");
-assert(typeof UpdateProxyRulePrioritiesResponse$ === "object");
-assert(typeof UpdateProxyRuleRequest$ === "object");
-assert(typeof UpdateProxyRuleResponse$ === "object");
 assert(typeof UpdateProxySettingsRequest$ === "object");
 assert(typeof UpdateProxySettingsResponse$ === "object");
 assert(typeof UpdateRuleGroupRequest$ === "object");
@@ -1065,6 +867,7 @@ assert(typeof AttachmentStatus === "object");
 assert(typeof ConfigurationSyncState === "object");
 assert(typeof ContainerAssociationStatus === "object");
 assert(typeof ContainerMonitoringType === "object");
+assert(typeof DecryptionAction === "object");
 assert(typeof DNSExpiryExceptionPolicy === "object");
 assert(typeof EnabledAnalysisType === "object");
 assert(typeof EncryptionType === "object");
@@ -1087,14 +890,12 @@ assert(typeof PerObjectSyncStatus === "object");
 assert(typeof PolicyDefaultAction === "object");
 assert(typeof PolicyMode === "object");
 assert(typeof ProxyModifyState === "object");
-assert(typeof ProxyRulePhaseAction === "object");
 assert(typeof ProxyState === "object");
 assert(typeof ResourceManagedStatus === "object");
 assert(typeof ResourceManagedType === "object");
 assert(typeof ResourceStatus === "object");
 assert(typeof RevocationCheckAction === "object");
 assert(typeof Route53ResolvedIPValidationAction === "object");
-assert(typeof RuleGroupRequestPhase === "object");
 assert(typeof RuleGroupType === "object");
 assert(typeof RuleOrder === "object");
 assert(typeof RuleOutputFormat === "object");
@@ -1107,8 +908,10 @@ assert(typeof SubscriptionStatus === "object");
 assert(typeof SummaryRuleOption === "object");
 assert(typeof TargetType === "object");
 assert(typeof TCPFlag === "object");
+assert(typeof TLSInspectionScopeDeploymentMode === "object");
 assert(typeof TlsInterceptMode === "object");
 assert(typeof TransitGatewayAttachmentStatus === "object");
+assert(typeof TransparentFilteringNatScope === "object");
 // errors
 assert(InsufficientCapacityException.prototype instanceof NetworkFirewallServiceException);
 assert(typeof InsufficientCapacityException$ === "object");
@@ -1147,9 +950,6 @@ assert(typeof paginateListFirewallPoliciesV2 === "function");
 assert(typeof paginateListFirewalls === "function");
 assert(typeof paginateListFlowOperationResults === "function");
 assert(typeof paginateListFlowOperations === "function");
-assert(typeof paginateListProxies === "function");
-assert(typeof paginateListProxyConfigurations === "function");
-assert(typeof paginateListProxyRuleGroups === "function");
 assert(typeof paginateListRuleGroups === "function");
 assert(typeof paginateListTLSInspectionConfigurations === "function");
 assert(typeof paginateListTagsForResource === "function");

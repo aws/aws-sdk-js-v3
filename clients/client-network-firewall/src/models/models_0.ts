@@ -5,6 +5,7 @@ import type {
   ConfigurationSyncState,
   ContainerAssociationStatus,
   ContainerMonitoringType,
+  DecryptionAction,
   DNSExpiryExceptionPolicy,
   EnabledAnalysisType,
   EncryptionType,
@@ -27,14 +28,12 @@ import type {
   PolicyDefaultAction,
   PolicyMode,
   ProxyModifyState,
-  ProxyRulePhaseAction,
   ProxyState,
   ResourceManagedStatus,
   ResourceManagedType,
   ResourceStatus,
   RevocationCheckAction,
   Route53ResolvedIPValidationAction,
-  RuleGroupRequestPhase,
   RuleGroupType,
   RuleOrder,
   RuleOutputFormat,
@@ -47,8 +46,10 @@ import type {
   SummaryRuleOption,
   TargetType,
   TCPFlag,
+  TLSInspectionScopeDeploymentMode,
   TlsInterceptMode,
   TransitGatewayAttachmentStatus,
+  TransparentFilteringNatScope,
 } from "./enums";
 
 /**
@@ -486,6 +487,33 @@ export interface AssociateFirewallPolicyResponse {
 }
 
 /**
+ * <p>A NAT gateway that Network Firewall creates for a proxy mode firewall in one Availability Zone. You use this in <code>CreateFirewall</code> and <code>AssociateSubnets</code>.</p>
+ *          <p>To create a public NAT gateway, specify <code>AllocationIds</code>, and one <code>PrivateIps</code> address for each Elastic IP address. To create a private NAT gateway, specify only <code>PrivateIps</code>. You must specify at least one of them. Each Elastic IP address and private IP address can appear only once in a request.</p>
+ *          <p>The NAT gateway is a resource in your account. To change its IP addresses, use Amazon EC2 NAT gateway actions.</p>
+ * @public
+ */
+export interface NatGatewayCreateMapping {
+  /**
+   * <p>The ID of the subnet where Network Firewall creates the NAT gateway. The subnet must be in the firewall's VPC and can't be one of the firewall endpoint subnets. Each mapping must be in a different Availability Zone.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>The allocation IDs of the Elastic IP addresses for a public NAT gateway, from 1 to 8. For each allocation ID, specify one address in <code>PrivateIps</code>. If you don't specify this, Network Firewall creates a private NAT gateway.</p>
+   * @public
+   */
+  AllocationIds?: string[] | undefined;
+
+  /**
+   * <p>The private IPv4 addresses of the NAT gateway. The addresses must be in the subnet that you specify and can't be the subnet's reserved addresses.</p>
+   *          <p>For a public NAT gateway, you must specify exactly one address for each Elastic IP address in <code>AllocationIds</code>, even if you specify only one. For a private NAT gateway, specify from 1 to 8 addresses. The first address is the primary address.</p>
+   * @public
+   */
+  PrivateIps?: string[] | undefined;
+}
+
+/**
  * <p>The ID for a subnet that's used in an association with a firewall. This is used in
  *       <code>CreateFirewall</code>, <code>AssociateSubnets</code>, and <code>CreateVpcEndpointAssociation</code>. Network Firewall
  *          creates an instance of the associated firewall in each subnet that you specify, to filter
@@ -537,6 +565,13 @@ export interface AssociateSubnetsRequest {
    * @public
    */
   SubnetMappings: SubnetMapping[] | undefined;
+
+  /**
+   * <p>The NAT gateways that Network Firewall creates for the Availability Zones that you add to a proxy mode firewall. For a proxy mode firewall, you must specify one mapping for each Availability Zone in <code>SubnetMappings</code>, and no other Availability Zones. Each NAT gateway subnet must be in the firewall's VPC and can't be one of the firewall endpoint subnets.</p>
+   *          <p>You can't specify this for a firewall that isn't a proxy mode firewall.</p>
+   * @public
+   */
+  NatGatewayCreateMappings?: NatGatewayCreateMapping[] | undefined;
 }
 
 /**
@@ -616,7 +651,9 @@ export interface Attachment {
   StatusMessage?: string | undefined;
 
   /**
-   * <p>The DNS name that resolves to the firewall endpoint in the subnet. This is populated for proxy mode firewalls, where clients direct traffic to the firewall's proxy using this name. </p>
+   * <p>The proxy DNS name of a proxy mode firewall. Your clients send proxy requests to the firewall at this name. It's your <code>ProxySettings</code>
+   *             <code>DomainName</code> if you specified one, or a name that Network Firewall generates in the format <code>proxy-<i>id</i>.nfw.<i>region</i>.amazonaws.com</code>.</p>
+   *          <p>The firewall has one proxy DNS name for every Availability Zone and VPC that it serves. In each Availability Zone, the name resolves to the firewall endpoint in that Availability Zone, so traffic stays in your client's Availability Zone. Your clients must use the VPC's Route 53 Resolver.</p>
    * @public
    */
   DnsName?: string | undefined;
@@ -642,211 +679,6 @@ export interface AZSyncState {
    * @public
    */
   Attachment?: Attachment | undefined;
-}
-
-/**
- * <p>The proxy rule group(s) to attach to the proxy configuration</p>
- * @public
- */
-export interface ProxyRuleGroupAttachment {
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   * @public
-   */
-  ProxyRuleGroupName?: string | undefined;
-
-  /**
-   * <p>Where to insert a proxy rule group in a proxy configuration. </p>
-   * @public
-   */
-  InsertPosition?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface AttachRuleGroupsToProxyConfigurationRequest {
-  /**
-   * <p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyConfigurationName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy configuration.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyConfigurationArn?: string | undefined;
-
-  /**
-   * <p>The proxy rule group(s) to attach to the proxy configuration</p>
-   * @public
-   */
-  RuleGroups: ProxyRuleGroupAttachment[] | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy configuration. The token marks the state of the proxy configuration resource at the time of the request. </p>
-   *          <p>To make changes to the proxy configuration, you provide the token in your request. Network Firewall uses the token to ensure that the proxy configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken: string | undefined;
-}
-
-/**
- * <p>Evaluation points in the traffic flow where rules are applied. There are three phases in a traffic where the rule match is applied. </p>
- *          <p>This data type is used specifically for the <a>CreateProxyConfiguration</a> and
- *             <a>UpdateProxyConfiguration</a> APIs.</p>
- * @public
- */
-export interface ProxyConfigDefaultRulePhaseActionsRequest {
-  /**
-   * <p>Before domain resolution. </p>
-   * @public
-   */
-  PreDNS?: ProxyRulePhaseAction | undefined;
-
-  /**
-   * <p>After DNS, before request.</p>
-   * @public
-   */
-  PreREQUEST?: ProxyRulePhaseAction | undefined;
-
-  /**
-   * <p>After receiving response.</p>
-   * @public
-   */
-  PostRESPONSE?: ProxyRulePhaseAction | undefined;
-}
-
-/**
- * <p>Proxy rule group contained within a proxy configuration. </p>
- * @public
- */
-export interface ProxyConfigRuleGroup {
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   * @public
-   */
-  ProxyRuleGroupName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy rule group.</p>
-   * @public
-   */
-  ProxyRuleGroupArn?: string | undefined;
-
-  /**
-   * <p>Proxy rule group type. </p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p>Priority of the proxy rule group in the proxy configuration. </p>
-   * @public
-   */
-  Priority?: number | undefined;
-}
-
-/**
- * <p>A key:value pair associated with an Amazon Web Services resource. The key:value pair can be anything you
- *          define. Typically, the tag key represents a category (such as "environment") and the tag
- *          value represents a specific value within that category (such as "test," "development," or
- *          "production"). You can add up to 50 tags to each Amazon Web Services resource. </p>
- * @public
- */
-export interface Tag {
-  /**
-   * <p>The part of the key:value pair that defines a tag. You can use a tag key to describe a
-   *          category of information, such as "customer." Tag keys are case-sensitive.</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The part of the key:value pair that defines a tag. You can use a tag value to describe a
-   *          specific value within a category, such as "companyA" or "companyB." Tag values are
-   *          case-sensitive.</p>
-   * @public
-   */
-  Value: string | undefined;
-}
-
-/**
- * <p>A Proxy Configuration defines the monitoring and protection behavior for a Proxy. The details of the behavior are defined in the rule groups that you add to your configuration. </p>
- * @public
- */
-export interface ProxyConfiguration {
-  /**
-   * <p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p>
-   * @public
-   */
-  ProxyConfigurationName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy configuration.</p>
-   * @public
-   */
-  ProxyConfigurationArn?: string | undefined;
-
-  /**
-   * <p>A description of the proxy configuration. </p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Time the Proxy Configuration was created. </p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>Time the Proxy Configuration was deleted. </p>
-   * @public
-   */
-  DeleteTime?: Date | undefined;
-
-  /**
-   * <p>Proxy rule groups within the proxy configuration. </p>
-   * @public
-   */
-  RuleGroups?: ProxyConfigRuleGroup[] | undefined;
-
-  /**
-   * <p>Evaluation points in the traffic flow where rules are applied. There are three phases in a traffic where the rule match is applied. </p>
-   *          <p>Pre-DNS - before domain resolution.</p>
-   *          <p>Pre-Request - after DNS, before request.</p>
-   *          <p>Post-Response - after receiving response.</p>
-   * @public
-   */
-  DefaultRulePhaseActions?: ProxyConfigDefaultRulePhaseActionsRequest | undefined;
-
-  /**
-   * <p>The key:value pairs to associate with the resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface AttachRuleGroupsToProxyConfigurationResponse {
-  /**
-   * <p>The updated proxy configuration resource that reflects the updates from the request.</p>
-   * @public
-   */
-  ProxyConfiguration?: ProxyConfiguration | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy configuration. The token marks the state of the proxy configuration resource at the time of the request. </p>
-   *          <p>To make changes to the proxy configuration, you provide the token in your request. Network Firewall uses the token to ensure that the proxy configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken?: string | undefined;
 }
 
 /**
@@ -1087,6 +919,30 @@ export interface ContainerMonitoringConfiguration {
 }
 
 /**
+ * <p>A key:value pair associated with an Amazon Web Services resource. The key:value pair can be anything you
+ *          define. Typically, the tag key represents a category (such as "environment") and the tag
+ *          value represents a specific value within that category (such as "test," "development," or
+ *          "production"). You can add up to 50 tags to each Amazon Web Services resource. </p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>The part of the key:value pair that defines a tag. You can use a tag key to describe a
+   *          category of information, such as "customer." Tag keys are case-sensitive.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The part of the key:value pair that defines a tag. You can use a tag value to describe a
+   *          specific value within a category, such as "companyA" or "companyB." Tag values are
+   *          case-sensitive.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateContainerAssociationRequest {
@@ -1219,18 +1075,6 @@ export interface EncryptionConfiguration {
 }
 
 /**
- * <p>A NAT gateway that a proxy mode firewall uses to proxy traffic. This is used in <code>CreateFirewall</code> when <code>NoSourcePreservation</code> is <code>TRUE</code>. </p>
- * @public
- */
-export interface NatGatewayMapping {
-  /**
-   * <p>A unique identifier for the NAT gateway to use with proxy resources.</p>
-   * @public
-   */
-  NatGatewayId: string | undefined;
-}
-
-/**
  * <p>Open port for taking HTTP or HTTPS traffic. </p>
  * @public
  */
@@ -1249,31 +1093,48 @@ export interface ListenerProperty {
 }
 
 /**
- * <p>The listener configuration for a proxy mode firewall. This specifies the ports and protocols on which the firewall's proxy listens for traffic. </p>
+ * <p>The proxy settings of a proxy mode firewall: the ports and protocols on which the firewall's proxy listens for traffic, and optionally your own domain name and certificate.</p>
  * @public
  */
 export interface ProxySettings {
   /**
-   * <p>Listener properties for HTTP and HTTPS traffic. </p>
+   * <p>The listeners of the firewall's proxy. Specify at least one listener, and at most one HTTP listener and one HTTPS listener. Each listener needs a port from 1 to 65535, and the two listeners must use different ports.</p>
+   *          <p>If you don't specify listeners when you create the firewall, the firewall listens for HTTP on port 3128 and HTTPS on port 8443.</p>
    * @public
    */
   ListenerProperties: ListenerProperty[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the certificate that the firewall's HTTPS proxy listener presents to clients. The certificate must be an Certificate Manager (ACM) certificate in the same account and Region as the firewall. Its subject alternative names must cover <code>DomainName</code>, either exactly or with a wildcard that matches exactly one label. For example, <code>*.example.com</code> covers <code>proxy.example.com</code>. If you don't specify this, Network Firewall uses a certificate that it manages for a domain name that it generates.</p>
+   *          <p>You manage and renew the certificate in ACM, and Network Firewall uses renewed certificates automatically. While the firewall uses the certificate, you can't delete it from ACM. Your clients must trust the certificate's certificate authority.</p>
+   *          <p>If you specify <code>CertificateArn</code>, you must also specify <code>DomainName</code>. You can set them only when you create the firewall. When you call <code>UpdateProxySettings</code>, specify the same values.</p>
+   * @public
+   */
+  CertificateArn?: string | undefined;
+
+  /**
+   * <p>The domain name that your clients use to reach the firewall's proxy. The name must have at least two labels and at most 253 characters. It can't contain a wildcard or use the <code>proxy-<i>id</i>.nfw.<i>region</i>.amazonaws.com</code> format, and the certificate in <code>CertificateArn</code> must cover it. If you don't specify this, Network Firewall generates a domain name.</p>
+   *          <p>Network Firewall creates the Route 53 private hosted zones that resolve this name to the firewall endpoints, so you don't need to configure DNS. A VPC can have only one private hosted zone with a given name. If a VPC that the firewall serves already has one with this name, Network Firewall can't set up the Availability Zones in that VPC.</p>
+   *          <p>If you specify <code>DomainName</code>, you must also specify <code>CertificateArn</code>. You can set them only when you create the firewall. When you call <code>UpdateProxySettings</code>, specify the same values.</p>
+   * @public
+   */
+  DomainName?: string | undefined;
 }
 
 /**
- * <p>Contains the VPC and subnets for a proxy mode firewall endpoint. You use it in <code>CreateFirewall</code> when <code>NoSourcePreservation</code> is <code>TRUE</code>, to specify where Network Firewall creates the firewall endpoint. </p>
- *          <p>This differs from <code>VpcEndpointAssociation</code>, which defines additional secondary endpoints for a firewall in other VPCs. </p>
+ * <p>The VPC and subnets for the endpoints of a proxy mode firewall. You use this in <code>CreateFirewall</code>. Network Firewall creates the firewall endpoints and the firewall's NAT gateways in this VPC.</p>
+ *          <p>This differs from <code>VpcEndpointAssociation</code>, which defines additional endpoints for a firewall in other VPCs.</p>
  * @public
  */
 export interface VpcEndpoint {
   /**
-   * <p>The unique identifier of the VPC where Network Firewall creates the proxy mode firewall endpoint. </p>
+   * <p>The ID of the VPC where Network Firewall creates the endpoints and NAT gateways of a proxy mode firewall.</p>
    * @public
    */
   VpcId: string | undefined;
 
   /**
-   * <p>The subnets in which Network Firewall creates the firewall endpoint for a proxy mode firewall. Each subnet must belong to a different Availability Zone in the VPC. </p>
+   * <p>The subnets where Network Firewall creates the firewall endpoints of a proxy mode firewall. Specify one subnet for each Availability Zone, and a NAT gateway mapping in each of those Availability Zones.</p>
    * @public
    */
   SubnetMappings: SubnetMapping[] | undefined;
@@ -1385,33 +1246,44 @@ export interface CreateFirewallRequest {
   AvailabilityZoneChangeProtection?: boolean | undefined;
 
   /**
-   * <p>The NAT gateways that the firewall uses to proxy traffic when <code>NoSourcePreservation</code> is <code>TRUE</code>. Network Firewall attaches the firewall to each NAT gateway that you specify, so that egress traffic is proxied through the NAT gateway. </p>
+   * <p>The NAT gateways that Network Firewall creates for a proxy mode firewall, one for each Availability Zone. When you specify this, you create a proxy mode firewall. Destinations see the IP address of the NAT gateway in the client's Availability Zone as the source of the traffic.</p>
+   *          <p>Specify one mapping for each Availability Zone in <code>VpcEndpoint</code>, and no other Availability Zones. Each NAT gateway subnet must be in the <code>VpcEndpoint</code> VPC and can't be one of the firewall endpoint subnets.</p>
+   *          <p>You need permission to call the Amazon EC2 <code>CreateNatGateway</code> action.</p>
+   *          <p>If Network Firewall can't set up an Availability Zone, for example because Amazon EC2 rejects the NAT gateway, it removes the Availability Zone from the firewall. It also deletes the NAT gateway that it created there. The Availability Zone's <code>Attachment</code> status is <code>FAILED</code>, and its status message explains why. You can add the Availability Zone again with <code>AssociateSubnets</code>. If no Availability Zone can be set up, the firewall status is <code>FAILED</code>.</p>
    * @public
    */
-  NatGatewayMappings?: NatGatewayMapping[] | undefined;
+  NatGatewayCreateMappings?: NatGatewayCreateMapping[] | undefined;
 
   /**
-   * <p>The listener configuration for a proxy mode firewall, used when <code>NoSourcePreservation</code> is <code>TRUE</code>. This specifies the ports and protocols on which the firewall's proxy listens for traffic. </p>
+   * <p>The proxy settings for a proxy mode firewall: the ports and protocols on which the firewall's proxy listens for traffic, and optionally your own domain name and certificate. If you don't specify listeners, the firewall listens for HTTP on port 3128 and HTTPS on port 8443.</p>
+   *          <p>To change the listeners later, use <code>UpdateProxySettings</code>.</p>
    * @public
    */
   ProxySettings?: ProxySettings | undefined;
 
   /**
-   * <p>Optional. Indicates whether the firewall operates in proxy mode, in which the source IP address of the traffic is not preserved. When set to <code>TRUE</code>, the firewall proxies traffic through a NAT gateway and the traffic reaching the destination uses the NAT gateway's IP address as the source. </p>
-   *          <p>When you set this to <code>TRUE</code>, you must specify <code>NatGatewayMappings</code> and <code>VpcEndpoint</code> instead of a top-level <code>VpcId</code> and <code>SubnetMappings</code>. </p>
-   *          <p>You can't change this setting after you create the firewall. </p>
-   *          <p>Default value: <code>FALSE</code>
-   *          </p>
-   * @public
-   */
-  NoSourcePreservation?: boolean | undefined;
-
-  /**
-   * <p>The VPC and subnets for the firewall endpoint, used when <code>NoSourcePreservation</code> is <code>TRUE</code>. Network Firewall creates the firewall endpoint in the subnets that you specify here. </p>
-   *          <p>For proxy mode firewalls, provide the firewall's VPC and endpoint subnets through this parameter instead of the top-level <code>VpcId</code> and <code>SubnetMappings</code>. </p>
+   * <p>The VPC and subnets for the endpoints of a proxy mode firewall. Network Firewall creates a firewall endpoint in each subnet that you specify. It also creates the firewall's NAT gateways in this VPC, in the subnets that you specify in <code>NatGatewayCreateMappings</code>.</p>
+   *          <p>To create a proxy mode firewall, you must specify <code>VpcEndpoint</code> and <code>NatGatewayCreateMappings</code>, and you must not specify the top-level <code>VpcId</code> and <code>SubnetMappings</code>. Specify one subnet for each Availability Zone where you want to use the firewall.</p>
    * @public
    */
   VpcEndpoint?: VpcEndpoint | undefined;
+
+  /**
+   * <p>How a proxy mode firewall handles traffic that isn't sent to its proxy listener. If you don't specify a value, the firewall uses <code>NAT_ALL</code>. You can choose from the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NAT_ALL</code> - After inspection, the firewall sends this traffic out through its NAT gateway, which translates the source address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NAT_NONE</code> - After inspection, the firewall returns this traffic to the firewall endpoint without address translation.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can specify this only for a proxy mode firewall, and you can't change it after you create the firewall.</p>
+   * @public
+   */
+  TransparentFilteringNatScope?: TransparentFilteringNatScope | undefined;
 }
 
 /**
@@ -1543,28 +1415,28 @@ export interface Firewall {
   AvailabilityZoneChangeProtection?: boolean | undefined;
 
   /**
-   * <p>The NAT gateways that the firewall uses to proxy traffic. This is set for proxy mode firewalls, where <code>NoSourcePreservation</code> is <code>TRUE</code>. </p>
+   * <p>The NAT gateways that you specified for Network Firewall to create for a proxy mode firewall. To get the IDs and status of the NAT gateways that are attached to the firewall, see <code>NatGatewayAttachments</code> in the firewall's <code>SyncStates</code>.</p>
    * @public
    */
-  NatGatewayMappings?: NatGatewayMapping[] | undefined;
+  NatGatewayCreateMappings?: NatGatewayCreateMapping[] | undefined;
 
   /**
-   * <p>The listener configuration for the firewall's proxy. This is set for proxy mode firewalls, where <code>NoSourcePreservation</code> is <code>TRUE</code>. </p>
+   * <p>The proxy settings of a proxy mode firewall: its listeners and, if you specified them, your own <code>CertificateArn</code> and <code>DomainName</code>.</p>
    * @public
    */
   ProxySettings?: ProxySettings | undefined;
 
   /**
-   * <p>Indicates whether the firewall operates in proxy mode, in which the source IP address of the traffic is not preserved. When this value is <code>TRUE</code>, the firewall proxies traffic through a NAT gateway and uses the NAT gateway's IP address as the source for traffic reaching the destination. </p>
-   * @public
-   */
-  NoSourcePreservation?: boolean | undefined;
-
-  /**
-   * <p>The VPC and subnets for the firewall endpoint. This is set for proxy mode firewalls, where <code>NoSourcePreservation</code> is <code>TRUE</code>. </p>
+   * <p>The VPC and subnets for the endpoints of a proxy mode firewall.</p>
    * @public
    */
   VpcEndpoint?: VpcEndpoint | undefined;
+
+  /**
+   * <p>How a proxy mode firewall handles traffic that isn't sent to its proxy listener. <code>NAT_ALL</code> sends this traffic out through the firewall's NAT gateway after inspection. <code>NAT_NONE</code> returns it to the firewall endpoint without address translation.</p>
+   * @public
+   */
+  TransparentFilteringNatScope?: TransparentFilteringNatScope | undefined;
 }
 
 /**
@@ -1589,31 +1461,30 @@ export interface PerObjectStatus {
 }
 
 /**
- * <p>The definition and status of the attachment between a proxy mode firewall and a NAT gateway that proxies its traffic. </p>
+ * <p>The NAT gateway that's attached to a proxy mode firewall in an Availability Zone, and the status of the attachment. Traffic that the firewall allows in the Availability Zone leaves through this NAT gateway.</p>
  * @public
  */
 export interface NatGatewayAttachment {
   /**
-   * <p>A unique identifier for the NAT gateway to use with proxy resources.</p>
+   * <p>The ID of the NAT gateway.</p>
    * @public
    */
   NatGatewayId: string | undefined;
 
   /**
-   * <p>The current status of the NAT gateway attachment. </p>
-   *          <p>When this value is <code>READY</code>, the attachment is available to proxy traffic. Otherwise, this value reflects its state, for example <code>CREATING</code> or <code>DELETING</code>.</p>
+   * <p>The status of the NAT gateway attachment. <code>READY</code> means that the NAT gateway is attached and the firewall can send traffic through it. Other values are <code>CREATING</code>, <code>UPDATING</code>, <code>DELETING</code>, and <code>FAILED</code>.</p>
    * @public
    */
   Status: NatGatewayAttachmentStatus | undefined;
 
   /**
-   * <p>If Network Firewall encounters an issue with the NAT gateway attachment, it populates this with an explanation of the problem. </p>
+   * <p>The reason that Network Firewall couldn't create or attach the NAT gateway, if it couldn't.</p>
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>The DNS name that resolves to the firewall's proxy for traffic sent through this NAT gateway attachment. </p>
+   * <p>The proxy DNS name of the firewall in this Availability Zone. This is the same as the <code>DnsName</code> of the firewall's <code>Attachment</code>.</p>
    * @public
    */
   DnsName?: string | undefined;
@@ -1657,7 +1528,8 @@ export interface SyncState {
   Config?: Record<string, PerObjectStatus> | undefined;
 
   /**
-   * <p>The status of the NAT gateway attachments for a proxy mode firewall in the Availability Zone. This reflects the attachment of the firewall to each NAT gateway that proxies its traffic. </p>
+   * <p>The NAT gateway that's attached to a proxy mode firewall in the Availability Zone, and the status of the attachment. To get NAT gateway details, such as IP addresses, use the Amazon EC2 <code>DescribeNatGateways</code> action.</p>
+   *          <p>A proxy mode firewall is <code>READY</code> when at least one Availability Zone's firewall endpoint and NAT gateway attachment are <code>READY</code>.</p>
    * @public
    */
   NatGatewayAttachments?: NatGatewayAttachment[] | undefined;
@@ -2736,11 +2608,11 @@ export interface RulesSourceList {
    *             </li>
    *          </ul>
    *          <p>
-   *             <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> matches on how the destination IP address was resolved, rather than on the domain that the client asserts in its TLS SNI or HTTP <code>Host</code> header. This target type takes effect when you configure resolved IP validation on the firewall policy. For more information, see <a>Route53ResolvedIPValidation</a>.</p>
+   *             <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> matches on how the destination IP address was resolved, rather than on the domain that the client asserts in its TLS SNI or HTTP <code>Host</code> header. This target type takes effect when you configure resolved IP validation on the firewall policy. For more information, see the <code>Route53ResolvedIPValidation</code> firewall policy setting.</p>
    *          <p>Whether you include <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> changes what the generated rules match, together with <code>GeneratedRulesType</code>:</p>
    *          <ul>
    *             <li>
-   *                <p>Combining <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> with <code>TLS_SNI</code> or <code>HTTP_HOST</code> in an <code>ALLOWLIST</code> requires both conditions to match. The SNI or <code>Host</code> header must match the domain, <b>and</b> the Route 53 Resolver must have resolved the destination IP address for that domain. Network Firewall allows traffic only in that case. Traffic that matches one condition, such as a spoofed <code>Host</code> header sent to an unresolved IP address, is not allowed.</p>
+   *                <p>In an <code>ALLOWLIST</code>, combining <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> with <code>TLS_SNI</code> or <code>HTTP_HOST</code> requires both conditions to match: the SNI or <code>Host</code> header matches the domain, <b>and</b> the Route 53 Resolver resolved the destination IP address for that domain. Network Firewall allows the traffic only when both conditions match, so it blocks traffic that matches just one—for example, a spoofed <code>Host</code> header sent to an unresolved IP address.</p>
    *             </li>
    *             <li>
    *                <p>In a <code>DENYLIST</code>, or when <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> is the only target type, Network Firewall evaluates each condition independently: a match on either the domain (SNI or <code>Host</code>) or the resolved destination IP address triggers the rule.</p>
@@ -3192,568 +3064,6 @@ export interface CreateFirewallPolicyV2Response {
    * @public
    */
   FirewallPolicyV2Response: FirewallPolicyV2Response | undefined;
-}
-
-/**
- * <p>This data type is used specifically for the <a>CreateProxy</a> and
- *             <a>UpdateProxy</a> APIs.</p>
- *          <p>Open port for taking HTTP or HTTPS traffic.</p>
- * @public
- */
-export interface ListenerPropertyRequest {
-  /**
-   * <p>Port for processing traffic.</p>
-   * @public
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Selection of HTTP or HTTPS traffic.</p>
-   * @public
-   */
-  Type: ListenerPropertyType | undefined;
-}
-
-/**
- * <p>This data type is used specifically for the <a>CreateProxy</a> and
- *             <a>UpdateProxy</a> APIs.</p>
- *          <p>TLS decryption on traffic to filter on attributes in the HTTP header. </p>
- * @public
- */
-export interface TlsInterceptPropertiesRequest {
-  /**
-   * <p>Private Certificate Authority (PCA) used to issue private TLS certificates so that the proxy can present PCA-signed certificates which applications trust through the same root, establishing a secure and consistent trust model for encrypted communication.</p>
-   * @public
-   */
-  PcaArn?: string | undefined;
-
-  /**
-   * <p>Specifies whether to enable or disable TLS Intercept Mode. </p>
-   * @public
-   */
-  TlsInterceptMode?: TlsInterceptMode | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateProxyRequest {
-  /**
-   * <p>The descriptive name of the proxy. You can't change the name of a proxy after you create it.</p>
-   * @public
-   */
-  ProxyName: string | undefined;
-
-  /**
-   * <p>A unique identifier for the NAT gateway to use with proxy resources.</p>
-   * @public
-   */
-  NatGatewayId: string | undefined;
-
-  /**
-   * <p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyConfigurationName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy configuration.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyConfigurationArn?: string | undefined;
-
-  /**
-   * <p>Listener properties for HTTP and HTTPS traffic.</p>
-   * @public
-   */
-  ListenerProperties?: ListenerPropertyRequest[] | undefined;
-
-  /**
-   * <p>TLS decryption on traffic to filter on attributes in the HTTP header. </p>
-   * @public
-   */
-  TlsInterceptProperties: TlsInterceptPropertiesRequest | undefined;
-
-  /**
-   * <p>The key:value pairs to associate with the resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>TLS decryption on traffic to filter on attributes in the HTTP header. </p>
- * @public
- */
-export interface TlsInterceptProperties {
-  /**
-   * <p>Private Certificate Authority (PCA) used to issue private TLS certificates so that the proxy can present PCA-signed certificates which applications trust through the same root, establishing a secure and consistent trust model for encrypted communication.</p>
-   * @public
-   */
-  PcaArn?: string | undefined;
-
-  /**
-   * <p>Specifies whether to enable or disable TLS Intercept Mode. </p>
-   * @public
-   */
-  TlsInterceptMode?: TlsInterceptMode | undefined;
-}
-
-/**
- * <p>Proxy attached to a NAT gateway. </p>
- * @public
- */
-export interface Proxy {
-  /**
-   * <p>Time the Proxy was created. </p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>Time the Proxy was deleted. </p>
-   * @public
-   */
-  DeleteTime?: Date | undefined;
-
-  /**
-   * <p>Time the Proxy was updated. </p>
-   * @public
-   */
-  UpdateTime?: Date | undefined;
-
-  /**
-   * <p>Failure code for cases when the Proxy fails to attach or update. </p>
-   * @public
-   */
-  FailureCode?: string | undefined;
-
-  /**
-   * <p>Failure message for cases when the Proxy fails to attach or update. </p>
-   * @public
-   */
-  FailureMessage?: string | undefined;
-
-  /**
-   * <p>Current attachment/detachment status of the Proxy. </p>
-   * @public
-   */
-  ProxyState?: ProxyState | undefined;
-
-  /**
-   * <p>Current modification status of the Proxy. </p>
-   * @public
-   */
-  ProxyModifyState?: ProxyModifyState | undefined;
-
-  /**
-   * <p>The NAT Gateway for the proxy. </p>
-   * @public
-   */
-  NatGatewayId?: string | undefined;
-
-  /**
-   * <p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p>
-   * @public
-   */
-  ProxyConfigurationName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy configuration.</p>
-   * @public
-   */
-  ProxyConfigurationArn?: string | undefined;
-
-  /**
-   * <p>The descriptive name of the proxy. You can't change the name of a proxy after you create it.</p>
-   * @public
-   */
-  ProxyName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy.</p>
-   * @public
-   */
-  ProxyArn?: string | undefined;
-
-  /**
-   * <p>Listener properties for HTTP and HTTPS traffic. </p>
-   * @public
-   */
-  ListenerProperties?: ListenerProperty[] | undefined;
-
-  /**
-   * <p>TLS decryption on traffic to filter on attributes in the HTTP header. </p>
-   * @public
-   */
-  TlsInterceptProperties?: TlsInterceptProperties | undefined;
-
-  /**
-   * <p>The key:value pairs to associate with the resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateProxyResponse {
-  /**
-   * <p>Proxy attached to a NAT gateway. </p>
-   * @public
-   */
-  Proxy?: Proxy | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy. The token marks the state of the proxy resource at the time of the request. </p>
-   *          <p>To make changes to the proxy, you provide the token in your request. Network Firewall uses the token to ensure that the proxy hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateProxyConfigurationRequest {
-  /**
-   * <p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p>
-   * @public
-   */
-  ProxyConfigurationName: string | undefined;
-
-  /**
-   * <p>A description of the proxy configuration. </p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The proxy rule group name(s) to attach to the proxy configuration.</p>
-   *          <p>You must specify the ARNs or the names, and you can specify both. </p>
-   * @public
-   */
-  RuleGroupNames?: string[] | undefined;
-
-  /**
-   * <p>The proxy rule group arn(s) to attach to the proxy configuration.</p>
-   *          <p>You must specify the ARNs or the names, and you can specify both. </p>
-   * @public
-   */
-  RuleGroupArns?: string[] | undefined;
-
-  /**
-   * <p>Evaluation points in the traffic flow where rules are applied. There are three phases in a traffic where the rule match is applied. </p>
-   * @public
-   */
-  DefaultRulePhaseActions: ProxyConfigDefaultRulePhaseActionsRequest | undefined;
-
-  /**
-   * <p>The key:value pairs to associate with the resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateProxyConfigurationResponse {
-  /**
-   * <p>The properties that define the proxy configuration. </p>
-   * @public
-   */
-  ProxyConfiguration?: ProxyConfiguration | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy configuration. The token marks the state of the proxy configuration resource at the time of the request. </p>
-   *          <p>To make changes to the proxy configuration, you provide the token in your request. Network Firewall uses the token to ensure that the proxy configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken?: string | undefined;
-}
-
-/**
- * <p>Match criteria that specify what traffic attributes to examine.</p>
- * @public
- */
-export interface ProxyRuleCondition {
-  /**
-   * <p>Defines how to perform a match.</p>
-   * @public
-   */
-  ConditionOperator?: string | undefined;
-
-  /**
-   * <p>Defines what is to be matched.</p>
-   * @public
-   */
-  ConditionKey?: string | undefined;
-
-  /**
-   * <p>Specifes the exact value that needs to be matched against.</p>
-   * @public
-   */
-  ConditionValues?: string[] | undefined;
-}
-
-/**
- * <p>Individual rules that define match conditions and actions for application-layer traffic. Rules specify what to inspect (domains, headers, methods) and what action to take (allow, deny, alert). </p>
- * @public
- */
-export interface CreateProxyRule {
-  /**
-   * <p>The descriptive name of the proxy rule. You can't change the name of a proxy rule after you create it.</p>
-   * @public
-   */
-  ProxyRuleName?: string | undefined;
-
-  /**
-   * <p>A description of the proxy rule. </p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Action to take. </p>
-   * @public
-   */
-  Action?: ProxyRulePhaseAction | undefined;
-
-  /**
-   * <p>Match criteria that specify what traffic attributes to examine. Conditions include operators (StringEquals, StringLike) and values to match against. </p>
-   * @public
-   */
-  Conditions?: ProxyRuleCondition[] | undefined;
-
-  /**
-   * <p>Where to insert a proxy rule in a proxy rule group. </p>
-   * @public
-   */
-  InsertPosition?: number | undefined;
-}
-
-/**
- * <p>Individual rules that define match conditions and actions for application-layer traffic. Rules specify what to inspect (domains, headers, methods) and what action to take (allow, deny, alert). </p>
- * @public
- */
-export interface ProxyRule {
-  /**
-   * <p>The descriptive name of the proxy rule. You can't change the name of a proxy rule after you create it.</p>
-   * @public
-   */
-  ProxyRuleName?: string | undefined;
-
-  /**
-   * <p>A description of the proxy rule. </p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Action to take. </p>
-   * @public
-   */
-  Action?: ProxyRulePhaseAction | undefined;
-
-  /**
-   * <p>Match criteria that specify what traffic attributes to examine. Conditions include operators (StringEquals, StringLike) and values to match against. </p>
-   * @public
-   */
-  Conditions?: ProxyRuleCondition[] | undefined;
-}
-
-/**
- * <p>Evaluation points in the traffic flow where rules are applied. There are three phases in a traffic where the rule match is applied. </p>
- * @public
- */
-export interface ProxyRulesByRequestPhase {
-  /**
-   * <p>Before domain resolution. </p>
-   * @public
-   */
-  PreDNS?: ProxyRule[] | undefined;
-
-  /**
-   * <p>After DNS, before request.</p>
-   * @public
-   */
-  PreREQUEST?: ProxyRule[] | undefined;
-
-  /**
-   * <p>After receiving response.</p>
-   * @public
-   */
-  PostRESPONSE?: ProxyRule[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateProxyRuleGroupRequest {
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   * @public
-   */
-  ProxyRuleGroupName: string | undefined;
-
-  /**
-   * <p>A description of the proxy rule group. </p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Individual rules that define match conditions and actions for application-layer traffic. Rules specify what to inspect (domains, headers, methods) and what action to take (allow, deny, alert). </p>
-   * @public
-   */
-  Rules?: ProxyRulesByRequestPhase | undefined;
-
-  /**
-   * <p>The key:value pairs to associate with the resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>Collections of related proxy filtering rules. Rule groups help you manage and reuse sets of rules across multiple proxy configurations. </p>
- * @public
- */
-export interface ProxyRuleGroup {
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   * @public
-   */
-  ProxyRuleGroupName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy rule group.</p>
-   * @public
-   */
-  ProxyRuleGroupArn?: string | undefined;
-
-  /**
-   * <p>Time the Proxy Rule Group was created. </p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>Time the Proxy Rule Group was deleted. </p>
-   * @public
-   */
-  DeleteTime?: Date | undefined;
-
-  /**
-   * <p>Individual rules that define match conditions and actions for application-layer traffic. Rules specify what to inspect (domains, headers, methods) and what action to take (allow, deny, alert). </p>
-   * @public
-   */
-  Rules?: ProxyRulesByRequestPhase | undefined;
-
-  /**
-   * <p>A description of the proxy rule group. </p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The key:value pairs to associate with the resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateProxyRuleGroupResponse {
-  /**
-   * <p>The properties that define the proxy rule group. </p>
-   * @public
-   */
-  ProxyRuleGroup?: ProxyRuleGroup | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy rule group. The token marks the state of the proxy rule group resource at the time of the request. </p>
-   *          <p>To make changes to the proxy rule group, you provide the token in your request. Network Firewall uses the token to ensure that the proxy rule group hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy rule group again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken?: string | undefined;
-}
-
-/**
- * <p>Evaluation points in the traffic flow where rules are applied. There are three phases in a traffic where the rule match is applied. </p>
- *          <p>This data type is used specifically for the <a>CreateProxyRules</a> API.</p>
- *          <p>Pre-DNS - before domain resolution.</p>
- *          <p>Pre-Request - after DNS, before request.</p>
- *          <p>Post-Response - after receiving response.</p>
- * @public
- */
-export interface CreateProxyRulesByRequestPhase {
-  /**
-   * <p>Before domain resolution. </p>
-   * @public
-   */
-  PreDNS?: CreateProxyRule[] | undefined;
-
-  /**
-   * <p>After DNS, before request.</p>
-   * @public
-   */
-  PreREQUEST?: CreateProxyRule[] | undefined;
-
-  /**
-   * <p>After receiving response.</p>
-   * @public
-   */
-  PostRESPONSE?: CreateProxyRule[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateProxyRulesRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy rule group.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyRuleGroupArn?: string | undefined;
-
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyRuleGroupName?: string | undefined;
-
-  /**
-   * <p>Individual rules that define match conditions and actions for application-layer traffic. Rules specify what to inspect (domains, headers, methods) and what action to take (allow, deny, alert). </p>
-   * @public
-   */
-  Rules: CreateProxyRulesByRequestPhase | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateProxyRulesResponse {
-  /**
-   * <p>The properties that define the proxy rule group with the newly created proxy rule(s). </p>
-   * @public
-   */
-  ProxyRuleGroup?: ProxyRuleGroup | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy rule. The token marks the state of the proxy rule resource at the time of the request. </p>
-   *          <p>To make changes to the proxy rule, you provide the token in your request. Network Firewall uses the token to ensure that the proxy rule hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy rule again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken?: string | undefined;
 }
 
 /**
@@ -4581,6 +3891,18 @@ export interface CreateRuleGroupResponse {
 }
 
 /**
+ * <p>The domains that a <a>ServerCertificateScope</a> matches for SSL/TLS inspection on a proxy mode firewall.</p>
+ * @public
+ */
+export interface DomainMatch {
+  /**
+   * <p>The domains to match. You can specify an exact domain, such as <code>example.com</code>, or a domain with a single leading wildcard label, such as <code>*.example.com</code>. You can specify from 1 to 50 domains, and each domain can be up to 255 characters long.</p>
+   * @public
+   */
+  Domains: string[] | undefined;
+}
+
+/**
  * <p>Settings that define the Secure Sockets Layer/Transport Layer Security (SSL/TLS) traffic that Network Firewall should decrypt for inspection by the stateful rule engine.</p>
  * @public
  */
@@ -4620,6 +3942,48 @@ export interface ServerCertificateScope {
    * @public
    */
   Protocols?: number[] | undefined;
+
+  /**
+   * <p>The domains that this scope matches, based on the host name in the client's HTTP CONNECT request. Domain matching applies only to proxy mode firewalls. If you specify <code>DomainMatch</code>, you must set <code>DeploymentMode</code> to <code>EXPLICIT_PROXY_ONLY</code>. If you don't specify <code>DomainMatch</code>, the scope matches traffic by its source, destination, ports, and protocols only.</p>
+   * @public
+   */
+  DomainMatch?: DomainMatch | undefined;
+
+  /**
+   * <p>Whether the firewall decrypts traffic that matches this scope. You can choose from the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DECRYPT</code> - The firewall decrypts the traffic for inspection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BYPASS</code> - The firewall doesn't decrypt the traffic.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DecryptionAction?: DecryptionAction | undefined;
+
+  /**
+   * <p>The type of firewall that this scope applies to. If you don't specify a value, the scope applies to both types, the same as <code>ALL</code>. You can choose from the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code> - The scope applies to both transparent firewalls and proxy mode firewalls.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRANSPARENT_FIREWALL_ONLY</code> - The scope applies only to transparent firewalls.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXPLICIT_PROXY_ONLY</code> - The scope applies only to proxy mode firewalls. A scope that specifies <code>DomainMatch</code> must use this value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DeploymentMode?: TLSInspectionScopeDeploymentMode | undefined;
 }
 
 /**
@@ -4676,6 +4040,22 @@ export interface ServerCertificateConfiguration {
    * @public
    */
   CheckCertificateRevocationStatus?: CheckCertificateRevocationStatusActions | undefined;
+
+  /**
+   * <p>What the firewall does with SSL/TLS traffic that doesn't match any scope in this server certificate configuration. This setting applies only to proxy mode firewalls. If you don't specify a value, the firewall uses <code>BYPASS</code>. You can choose from the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BYPASS</code> - The firewall doesn't decrypt the traffic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DECRYPT</code> - The firewall decrypts the traffic for inspection. You can use <code>DECRYPT</code> only if every scope in the configuration sets <code>DeploymentMode</code> to <code>EXPLICIT_PROXY_ONLY</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DefaultDecryptionBehavior?: DecryptionAction | undefined;
 }
 
 /**
@@ -5034,6 +4414,23 @@ export interface DeleteFirewallRequest {
    * @public
    */
   FirewallArn?: string | undefined;
+
+  /**
+   * <p>Specifies whether to delete the NAT gateways that Network Firewall created for a proxy mode firewall when you delete the firewall. You can choose from the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FALSE</code> - Network Firewall detaches the NAT gateways from the firewall and keeps them. This is the default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRUE</code> - Network Firewall also deletes the NAT gateways. The firewall status stays <code>DELETING</code> until they're deleted. You need permission to call the Amazon EC2 <code>DeleteNatGateway</code> action.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can't specify <code>TRUE</code> for a firewall that isn't a proxy mode firewall.</p>
+   * @public
+   */
+  DeleteAssociatedNatGateways?: boolean | undefined;
 }
 
 /**
@@ -5232,114 +4629,6 @@ export interface DeleteProxyResponse {
    * @public
    */
   ProxyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteProxyConfigurationRequest {
-  /**
-   * <p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyConfigurationName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy configuration.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyConfigurationArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteProxyConfigurationResponse {
-  /**
-   * <p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p>
-   * @public
-   */
-  ProxyConfigurationName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy configuration.</p>
-   * @public
-   */
-  ProxyConfigurationArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteProxyRuleGroupRequest {
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyRuleGroupName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy rule group.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyRuleGroupArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteProxyRuleGroupResponse {
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   * @public
-   */
-  ProxyRuleGroupName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy rule group.</p>
-   * @public
-   */
-  ProxyRuleGroupArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteProxyRulesRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy rule group.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyRuleGroupArn?: string | undefined;
-
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyRuleGroupName?: string | undefined;
-
-  /**
-   * <p>The proxy rule(s) to remove from the existing proxy rule group. </p>
-   * @public
-   */
-  Rules: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteProxyRulesResponse {
-  /**
-   * <p>The properties that define the proxy rule group with the newly created proxy rule(s). </p>
-   * @public
-   */
-  ProxyRuleGroup?: ProxyRuleGroup | undefined;
 }
 
 /**
@@ -6099,6 +5388,24 @@ export interface DescribeProxyRequest {
 }
 
 /**
+ * <p>TLS decryption on traffic to filter on attributes in the HTTP header. </p>
+ * @public
+ */
+export interface TlsInterceptProperties {
+  /**
+   * <p>Private Certificate Authority (PCA) used to issue private TLS certificates so that the proxy can present PCA-signed certificates which applications trust through the same root, establishing a secure and consistent trust model for encrypted communication.</p>
+   * @public
+   */
+  PcaArn?: string | undefined;
+
+  /**
+   * <p>Specifies whether to enable or disable TLS Intercept Mode. </p>
+   * @public
+   */
+  TlsInterceptMode?: TlsInterceptMode | undefined;
+}
+
+/**
  * <p>Proxy attached to a NAT gateway. </p>
  * @public
  */
@@ -6219,123 +5526,6 @@ export interface DescribeProxyResponse {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy. The token marks the state of the proxy resource at the time of the request. </p>
    *          <p>To make changes to the proxy, you provide the token in your request. Network Firewall uses the token to ensure that the proxy hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeProxyConfigurationRequest {
-  /**
-   * <p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyConfigurationName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy configuration.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyConfigurationArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeProxyConfigurationResponse {
-  /**
-   * <p>The configuration for the specified proxy configuration. </p>
-   * @public
-   */
-  ProxyConfiguration?: ProxyConfiguration | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy configuration. The token marks the state of the proxy configuration resource at the time of the request. </p>
-   *          <p>To make changes to the proxy configuration, you provide the token in your request. Network Firewall uses the token to ensure that the proxy configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeProxyRuleRequest {
-  /**
-   * <p>The descriptive name of the proxy rule. You can't change the name of a proxy rule after you create it.</p>
-   * @public
-   */
-  ProxyRuleName: string | undefined;
-
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyRuleGroupName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy rule group.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyRuleGroupArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeProxyRuleResponse {
-  /**
-   * <p>The configuration for the specified proxy rule. </p>
-   * @public
-   */
-  ProxyRule?: ProxyRule | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy rule. The token marks the state of the proxy rule resource at the time of the request. </p>
-   *          <p>To make changes to the proxy rule, you provide the token in your request. Network Firewall uses the token to ensure that the proxy rule hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy rule again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeProxyRuleGroupRequest {
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyRuleGroupName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy rule group.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyRuleGroupArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeProxyRuleGroupResponse {
-  /**
-   * <p>The configuration for the specified proxy rule group. </p>
-   * @public
-   */
-  ProxyRuleGroup?: ProxyRuleGroup | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy rule group. The token marks the state of the proxy rule group resource at the time of the request. </p>
-   *          <p>To make changes to the proxy rule group, you provide the token in your request. Network Firewall uses the token to ensure that the proxy rule group hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy rule group again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
    * @public
    */
   UpdateToken?: string | undefined;
@@ -6803,62 +5993,6 @@ export interface DescribeVpcEndpointAssociationResponse {
    * @public
    */
   VpcEndpointAssociationStatus?: VpcEndpointAssociationStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface DetachRuleGroupsFromProxyConfigurationRequest {
-  /**
-   * <p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyConfigurationName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy configuration.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyConfigurationArn?: string | undefined;
-
-  /**
-   * <p>The proxy rule group names to detach from the proxy configuration</p>
-   * @public
-   */
-  RuleGroupNames?: string[] | undefined;
-
-  /**
-   * <p>The proxy rule group arns to detach from the proxy configuration</p>
-   * @public
-   */
-  RuleGroupArns?: string[] | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy configuration. The token marks the state of the proxy configuration resource at the time of the request. </p>
-   *          <p>To make changes to the proxy configuration, you provide the token in your request. Network Firewall uses the token to ensure that the proxy configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DetachRuleGroupsFromProxyConfigurationResponse {
-  /**
-   * <p>The updated proxy configuration resource that reflects the updates from the request.</p>
-   * @public
-   */
-  ProxyConfiguration?: ProxyConfiguration | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy configuration. The token marks the state of the proxy configuration resource at the time of the request. </p>
-   *          <p>To make changes to the proxy configuration, you provide the token in your request. Network Firewall uses the token to ensure that the proxy configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken?: string | undefined;
 }
 
 /**
@@ -7666,189 +6800,6 @@ export interface ListFlowOperationsResponse {
    * @public
    */
   FlowOperations?: FlowOperationMetadata[] | undefined;
-
-  /**
-   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListProxiesRequest {
-  /**
-   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
-   *           objects are available, in the response, Network Firewall provides a
-   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>High-level information about a proxy, returned by operations like create and
- *             describe. You can use the information provided in the metadata to retrieve and manage a
- *             proxy. You can retrieve all objects for a proxy by calling <a>DescribeProxy</a>. </p>
- * @public
- */
-export interface ProxyMetadata {
-  /**
-   * <p>The descriptive name of the proxy. You can't change the name of a proxy after you create it.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListProxiesResponse {
-  /**
-   * <p>The metadata for the proxies. Depending on your setting for max results and
-   *             the number of proxies that you have, this might not be the full list. </p>
-   * @public
-   */
-  Proxies?: ProxyMetadata[] | undefined;
-
-  /**
-   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListProxyConfigurationsRequest {
-  /**
-   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
-   *           objects are available, in the response, Network Firewall provides a
-   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>High-level information about a proxy configuration, returned by operations like create and
- *             describe. You can use the information provided in the metadata to retrieve and manage a
- *             proxy configuration. You can retrieve all objects for a proxy configuration by calling <a>DescribeProxyConfiguration</a>. </p>
- * @public
- */
-export interface ProxyConfigurationMetadata {
-  /**
-   * <p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy configuration.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListProxyConfigurationsResponse {
-  /**
-   * <p>The metadata for the proxy configurations. Depending on your setting for max results and
-   *             the number of proxy configurations that you have, this might not be the full list. </p>
-   * @public
-   */
-  ProxyConfigurations?: ProxyConfigurationMetadata[] | undefined;
-
-  /**
-   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListProxyRuleGroupsRequest {
-  /**
-   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
-   *           objects are available, in the response, Network Firewall provides a
-   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>High-level information about a proxy rule group, returned by operations like create and
- *             describe. You can use the information provided in the metadata to retrieve and manage a
- *             proxy rule group. You can retrieve all objects for a proxy rule group by calling <a>DescribeProxyRuleGroup</a>. </p>
- * @public
- */
-export interface ProxyRuleGroupMetadata {
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy rule group.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListProxyRuleGroupsResponse {
-  /**
-   * <p>The metadata for the proxy rule groups. Depending on your setting for max results and
-   *             the number of proxy rule groups that you have, this might not be the full list. </p>
-   * @public
-   */
-  ProxyRuleGroups?: ProxyRuleGroupMetadata[] | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -9225,382 +8176,6 @@ export interface UpdateLoggingConfigurationResponse {
 /**
  * @public
  */
-export interface UpdateProxyRequest {
-  /**
-   * <p>The NAT Gateway the proxy is attached to. </p>
-   * @public
-   */
-  NatGatewayId: string | undefined;
-
-  /**
-   * <p>The descriptive name of the proxy. You can't change the name of a proxy after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyArn?: string | undefined;
-
-  /**
-   * <p>Listener properties for HTTP and HTTPS traffic to add. </p>
-   * @public
-   */
-  ListenerPropertiesToAdd?: ListenerPropertyRequest[] | undefined;
-
-  /**
-   * <p>Listener properties for HTTP and HTTPS traffic to remove. </p>
-   * @public
-   */
-  ListenerPropertiesToRemove?: ListenerPropertyRequest[] | undefined;
-
-  /**
-   * <p>TLS decryption on traffic to filter on attributes in the HTTP header. </p>
-   * @public
-   */
-  TlsInterceptProperties?: TlsInterceptPropertiesRequest | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy. The token marks the state of the proxy resource at the time of the request. </p>
-   *          <p>To make changes to the proxy, you provide the token in your request. Network Firewall uses the token to ensure that the proxy hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProxyResponse {
-  /**
-   * <p>The updated proxy resource that reflects the updates from the request.</p>
-   * @public
-   */
-  Proxy?: Proxy | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy. The token marks the state of the proxy resource at the time of the request. </p>
-   *          <p>To make changes to the proxy, you provide the token in your request. Network Firewall uses the token to ensure that the proxy hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProxyConfigurationRequest {
-  /**
-   * <p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyConfigurationName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy configuration.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyConfigurationArn?: string | undefined;
-
-  /**
-   * <p>Evaluation points in the traffic flow where rules are applied. There are three phases in a traffic where the rule match is applied. </p>
-   * @public
-   */
-  DefaultRulePhaseActions: ProxyConfigDefaultRulePhaseActionsRequest | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy configuration. The token marks the state of the proxy configuration resource at the time of the request. </p>
-   *          <p>To make changes to the proxy configuration, you provide the token in your request. Network Firewall uses the token to ensure that the proxy configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProxyConfigurationResponse {
-  /**
-   * <p>The updated proxy configuration resource that reflects the updates from the request.</p>
-   * @public
-   */
-  ProxyConfiguration?: ProxyConfiguration | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy configuration. The token marks the state of the proxy configuration resource at the time of the request. </p>
-   *          <p>To make changes to the proxy configuration, you provide the token in your request. Network Firewall uses the token to ensure that the proxy configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProxyRuleRequest {
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyRuleGroupName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy rule group.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyRuleGroupArn?: string | undefined;
-
-  /**
-   * <p>The descriptive name of the proxy rule. You can't change the name of a proxy rule after you create it.</p>
-   * @public
-   */
-  ProxyRuleName: string | undefined;
-
-  /**
-   * <p>A description of the proxy rule. </p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Depending on the match action, the proxy either stops the evaluation (if the action is terminal - allow or deny), or continues it (if the action is alert) until it matches a rule with a terminal action. </p>
-   * @public
-   */
-  Action?: ProxyRulePhaseAction | undefined;
-
-  /**
-   * <p>Proxy rule conditions to add. Match criteria that specify what traffic attributes to examine. Conditions include operators (StringEquals, StringLike) and values to match against.  </p>
-   * @public
-   */
-  AddConditions?: ProxyRuleCondition[] | undefined;
-
-  /**
-   * <p>Proxy rule conditions to remove. Match criteria that specify what traffic attributes to examine. Conditions include operators (StringEquals, StringLike) and values to match against.  </p>
-   * @public
-   */
-  RemoveConditions?: ProxyRuleCondition[] | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy rule. The token marks the state of the proxy rule resource at the time of the request. </p>
-   *          <p>To make changes to the proxy rule, you provide the token in your request. Network Firewall uses the token to ensure that the proxy rule hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy rule again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProxyRuleResponse {
-  /**
-   * <p>The updated proxy rule resource that reflects the updates from the request.</p>
-   * @public
-   */
-  ProxyRule?: ProxyRule | undefined;
-
-  /**
-   * <p>Proxy rule conditions removed from the rule. </p>
-   * @public
-   */
-  RemovedConditions?: ProxyRuleCondition[] | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy rule. The token marks the state of the proxy rule resource at the time of the request. </p>
-   *          <p>To make changes to the proxy rule, you provide the token in your request. Network Firewall uses the token to ensure that the proxy rule hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy rule again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken?: string | undefined;
-}
-
-/**
- * <p>Proxy rule group name and new desired position. </p>
- * @public
- */
-export interface ProxyRuleGroupPriority {
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   * @public
-   */
-  ProxyRuleGroupName?: string | undefined;
-
-  /**
-   * <p>Where to move a proxy rule group in a proxy configuration. </p>
-   * @public
-   */
-  NewPosition?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProxyRuleGroupPrioritiesRequest {
-  /**
-   * <p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyConfigurationName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy configuration.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyConfigurationArn?: string | undefined;
-
-  /**
-   * <p>proxy rule group resources to update to new positions. </p>
-   * @public
-   */
-  RuleGroups: ProxyRuleGroupPriority[] | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy configuration. The token marks the state of the proxy configuration resource at the time of the request. </p>
-   *          <p>To make changes to the proxy configuration, you provide the token in your request. Network Firewall uses the token to ensure that the proxy configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken: string | undefined;
-}
-
-/**
- * <p>Proxy rule group along with its priority. </p>
- * @public
- */
-export interface ProxyRuleGroupPriorityResult {
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   * @public
-   */
-  ProxyRuleGroupName?: string | undefined;
-
-  /**
-   * <p>Priority of the proxy rule group in the proxy configuration. </p>
-   * @public
-   */
-  Priority?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProxyRuleGroupPrioritiesResponse {
-  /**
-   * <p>The updated proxy rule group hierarchy that reflects the updates from the request.</p>
-   * @public
-   */
-  ProxyRuleGroups?: ProxyRuleGroupPriorityResult[] | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy configuration. The token marks the state of the proxy configuration resource at the time of the request. </p>
-   *          <p>To make changes to the proxy configuration, you provide the token in your request. Network Firewall uses the token to ensure that the proxy configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken?: string | undefined;
-}
-
-/**
- * <p>Proxy rule name and new desired position. </p>
- * @public
- */
-export interface ProxyRulePriority {
-  /**
-   * <p>The descriptive name of the proxy rule. You can't change the name of a proxy rule after you create it.</p>
-   * @public
-   */
-  ProxyRuleName?: string | undefined;
-
-  /**
-   * <p>Where to move a proxy rule in a proxy rule group. </p>
-   * @public
-   */
-  NewPosition?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProxyRulePrioritiesRequest {
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyRuleGroupName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy rule group.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
-   * @public
-   */
-  ProxyRuleGroupArn?: string | undefined;
-
-  /**
-   * <p>Evaluation points in the traffic flow where rules are applied. There are three phases in a traffic where the rule match is applied. </p>
-   * @public
-   */
-  RuleGroupRequestPhase: RuleGroupRequestPhase | undefined;
-
-  /**
-   * <p>proxy rule resources to update to new positions. </p>
-   * @public
-   */
-  Rules: ProxyRulePriority[] | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy rule group. The token marks the state of the proxy rule group resource at the time of the request. </p>
-   *          <p>To make changes to the proxy rule group, you provide the token in your request. Network Firewall uses the token to ensure that the proxy rule group hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy rule group again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProxyRulePrioritiesResponse {
-  /**
-   * <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>
-   * @public
-   */
-  ProxyRuleGroupName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a proxy rule group.</p>
-   * @public
-   */
-  ProxyRuleGroupArn?: string | undefined;
-
-  /**
-   * <p>Evaluation points in the traffic flow where rules are applied. There are three phases in a traffic where the rule match is applied. </p>
-   * @public
-   */
-  RuleGroupRequestPhase?: RuleGroupRequestPhase | undefined;
-
-  /**
-   * <p>The updated proxy rule hierarchy that reflects the updates from the request.</p>
-   * @public
-   */
-  Rules?: ProxyRulePriority[] | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy rule group. The token marks the state of the proxy rule group resource at the time of the request. </p>
-   *          <p>To make changes to the proxy rule group, you provide the token in your request. Network Firewall uses the token to ensure that the proxy rule group hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy rule group again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
-   * @public
-   */
-  UpdateToken?: string | undefined;
-}
-
-/**
- * @public
- */
 export interface UpdateProxySettingsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -9625,7 +8200,7 @@ export interface UpdateProxySettingsRequest {
   UpdateToken?: string | undefined;
 
   /**
-   * <p>The proxy listener configuration to set on the firewall. This specifies the ports and protocols on which the firewall's proxy listens for traffic. </p>
+   * <p>The proxy settings to set on the firewall. These replace the current proxy settings. Specify at least one listener, and at most one HTTP listener and one HTTPS listener, on different ports. If the firewall uses your own <code>CertificateArn</code> and <code>DomainName</code>, specify the same values that you used to create the firewall.</p>
    * @public
    */
   ProxySettings?: ProxySettings | undefined;
@@ -9656,7 +8231,7 @@ export interface UpdateProxySettingsResponse {
   UpdateToken?: string | undefined;
 
   /**
-   * <p>The updated proxy listener configuration on the firewall. </p>
+   * <p>The updated proxy settings for the firewall. </p>
    * @public
    */
   ProxySettings?: ProxySettings | undefined;

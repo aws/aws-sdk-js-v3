@@ -31,6 +31,7 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  *          <p>To manage a firewall's tags, use the standard Amazon Web Services resource tagging operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.</p>
  *          <p>To retrieve information about firewalls, use <a>ListFirewalls</a> and <a>DescribeFirewall</a>.</p>
  *          <p>To generate a report on the last 30 days of traffic monitored by a firewall, use <a>StartAnalysisReport</a>.</p>
+ *          <p>To create a proxy mode firewall, specify <code>VpcEndpoint</code> and <code>NatGatewayCreateMappings</code> instead of <code>VpcId</code> and <code>SubnetMappings</code>. A proxy mode firewall is an explicit forward proxy. Your clients send HTTP and HTTPS proxy requests to the firewall's proxy DNS name, which <code>DescribeFirewall</code> returns in each Availability Zone's <code>Attachment</code>. The firewall evaluates proxy traffic with the stateful rules in its firewall policy, and sends allowed traffic out through the NAT gateway in the same Availability Zone. Your clients don't need route table changes. In each Availability Zone, the firewall has one endpoint and one NAT gateway, which Network Firewall creates for you. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,9 +74,15 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  *     },
  *   ],
  *   AvailabilityZoneChangeProtection: true || false,
- *   NatGatewayMappings: [ // NatGatewayMappingsList
- *     { // NatGatewayMapping
- *       NatGatewayId: "STRING_VALUE", // required
+ *   NatGatewayCreateMappings: [ // NatGatewayCreateMappingsList
+ *     { // NatGatewayCreateMapping
+ *       SubnetId: "STRING_VALUE", // required
+ *       AllocationIds: [ // NatGatewayAllocationIdList
+ *         "STRING_VALUE",
+ *       ],
+ *       PrivateIps: [ // NatGatewayPrivateIpList
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *   ],
  *   ProxySettings: { // ProxySettings
@@ -85,8 +92,9 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  *         Type: "HTTP" || "HTTPS",
  *       },
  *     ],
+ *     CertificateArn: "STRING_VALUE",
+ *     DomainName: "STRING_VALUE",
  *   },
- *   NoSourcePreservation: true || false,
  *   VpcEndpoint: { // VpcEndpoint
  *     VpcId: "STRING_VALUE", // required
  *     SubnetMappings: [ // required
@@ -96,6 +104,7 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  *       },
  *     ],
  *   },
+ *   TransparentFilteringNatScope: "NAT_ALL" || "NAT_NONE",
  * };
  * const command = new CreateFirewallCommand(input);
  * const response = await client.send(command);
@@ -138,9 +147,15 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * //       },
  * //     ],
  * //     AvailabilityZoneChangeProtection: true || false,
- * //     NatGatewayMappings: [ // NatGatewayMappingsList
- * //       { // NatGatewayMapping
- * //         NatGatewayId: "STRING_VALUE", // required
+ * //     NatGatewayCreateMappings: [ // NatGatewayCreateMappingsList
+ * //       { // NatGatewayCreateMapping
+ * //         SubnetId: "STRING_VALUE", // required
+ * //         AllocationIds: [ // NatGatewayAllocationIdList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         PrivateIps: [ // NatGatewayPrivateIpList
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     ],
  * //     ProxySettings: { // ProxySettings
@@ -150,8 +165,9 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * //           Type: "HTTP" || "HTTPS",
  * //         },
  * //       ],
+ * //       CertificateArn: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE",
  * //     },
- * //     NoSourcePreservation: true || false,
  * //     VpcEndpoint: { // VpcEndpoint
  * //       VpcId: "STRING_VALUE", // required
  * //       SubnetMappings: [ // required
@@ -161,6 +177,7 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * //         },
  * //       ],
  * //     },
+ * //     TransparentFilteringNatScope: "NAT_ALL" || "NAT_NONE",
  * //   },
  * //   FirewallStatus: { // FirewallStatus
  * //     Status: "PROVISIONING" || "DELETING" || "READY" || "FAILED", // required

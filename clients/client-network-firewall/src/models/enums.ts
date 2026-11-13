@@ -96,20 +96,6 @@ export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof Attachment
  * @public
  * @enum
  */
-export const ProxyRulePhaseAction = {
-  ALERT: "ALERT",
-  ALLOW: "ALLOW",
-  DENY: "DENY",
-} as const;
-/**
- * @public
- */
-export type ProxyRulePhaseAction = (typeof ProxyRulePhaseAction)[keyof typeof ProxyRulePhaseAction];
-
-/**
- * @public
- * @enum
- */
 export const RevocationCheckAction = {
   DROP: "DROP",
   PASS: "PASS",
@@ -187,6 +173,20 @@ export const ListenerPropertyType = {
  * @public
  */
 export type ListenerPropertyType = (typeof ListenerPropertyType)[keyof typeof ListenerPropertyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransparentFilteringNatScope = {
+  NAT_ALL: "NAT_ALL",
+  NAT_NONE: "NAT_NONE",
+} as const;
+/**
+ * @public
+ */
+export type TransparentFilteringNatScope =
+  (typeof TransparentFilteringNatScope)[keyof typeof TransparentFilteringNatScope];
 
 /**
  * @public
@@ -679,50 +679,6 @@ export type StreamExceptionPolicyV2 = (typeof StreamExceptionPolicyV2)[keyof typ
  * @public
  * @enum
  */
-export const TlsInterceptMode = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-/**
- * @public
- */
-export type TlsInterceptMode = (typeof TlsInterceptMode)[keyof typeof TlsInterceptMode];
-
-/**
- * @public
- * @enum
- */
-export const ProxyModifyState = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  MODIFYING: "MODIFYING",
-} as const;
-/**
- * @public
- */
-export type ProxyModifyState = (typeof ProxyModifyState)[keyof typeof ProxyModifyState];
-
-/**
- * @public
- * @enum
- */
-export const ProxyState = {
-  ATTACHED: "ATTACHED",
-  ATTACHING: "ATTACHING",
-  ATTACH_FAILED: "ATTACH_FAILED",
-  DETACHED: "DETACHED",
-  DETACHING: "DETACHING",
-  DETACH_FAILED: "DETACH_FAILED",
-} as const;
-/**
- * @public
- */
-export type ProxyState = (typeof ProxyState)[keyof typeof ProxyState];
-
-/**
- * @public
- * @enum
- */
 export const StatefulAction = {
   ALERT: "ALERT",
   DROP: "DROP",
@@ -832,6 +788,34 @@ export type RuleGroupType = (typeof RuleGroupType)[keyof typeof RuleGroupType];
  * @public
  * @enum
  */
+export const DecryptionAction = {
+  BYPASS: "BYPASS",
+  DECRYPT: "DECRYPT",
+} as const;
+/**
+ * @public
+ */
+export type DecryptionAction = (typeof DecryptionAction)[keyof typeof DecryptionAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const TLSInspectionScopeDeploymentMode = {
+  ALL: "ALL",
+  EXPLICIT_PROXY_ONLY: "EXPLICIT_PROXY_ONLY",
+  TRANSPARENT_FIREWALL_ONLY: "TRANSPARENT_FIREWALL_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type TLSInspectionScopeDeploymentMode =
+  (typeof TLSInspectionScopeDeploymentMode)[keyof typeof TLSInspectionScopeDeploymentMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const RuleOutputFormat = {
   FIREWALL_RULES: "FIREWALL_RULES",
   RULES_STRING: "RULES_STRING",
@@ -901,6 +885,50 @@ export type LogType = (typeof LogType)[keyof typeof LogType];
  * @public
  * @enum
  */
+export const ProxyModifyState = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  MODIFYING: "MODIFYING",
+} as const;
+/**
+ * @public
+ */
+export type ProxyModifyState = (typeof ProxyModifyState)[keyof typeof ProxyModifyState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProxyState = {
+  ATTACHED: "ATTACHED",
+  ATTACHING: "ATTACHING",
+  ATTACH_FAILED: "ATTACH_FAILED",
+  DETACHED: "DETACHED",
+  DETACHING: "DETACHING",
+  DETACH_FAILED: "DETACH_FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ProxyState = (typeof ProxyState)[keyof typeof ProxyState];
+
+/**
+ * @public
+ * @enum
+ */
+export const TlsInterceptMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type TlsInterceptMode = (typeof TlsInterceptMode)[keyof typeof TlsInterceptMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceManagedType = {
   ACTIVE_THREAT_DEFENSE: "ACTIVE_THREAT_DEFENSE",
   AWS_MANAGED_DOMAIN_LISTS: "AWS_MANAGED_DOMAIN_LISTS",
@@ -937,17 +965,3 @@ export const SubscriptionStatus = {
  * @public
  */
 export type SubscriptionStatus = (typeof SubscriptionStatus)[keyof typeof SubscriptionStatus];
-
-/**
- * @public
- * @enum
- */
-export const RuleGroupRequestPhase = {
-  POST_RES: "POST_RES",
-  PRE_DNS: "PRE_DNS",
-  PRE_REQ: "PRE_REQ",
-} as const;
-/**
- * @public
- */
-export type RuleGroupRequestPhase = (typeof RuleGroupRequestPhase)[keyof typeof RuleGroupRequestPhase];

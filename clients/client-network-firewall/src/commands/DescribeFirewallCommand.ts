@@ -78,9 +78,15 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * //       },
  * //     ],
  * //     AvailabilityZoneChangeProtection: true || false,
- * //     NatGatewayMappings: [ // NatGatewayMappingsList
- * //       { // NatGatewayMapping
- * //         NatGatewayId: "STRING_VALUE", // required
+ * //     NatGatewayCreateMappings: [ // NatGatewayCreateMappingsList
+ * //       { // NatGatewayCreateMapping
+ * //         SubnetId: "STRING_VALUE", // required
+ * //         AllocationIds: [ // NatGatewayAllocationIdList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         PrivateIps: [ // NatGatewayPrivateIpList
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     ],
  * //     ProxySettings: { // ProxySettings
@@ -90,8 +96,9 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * //           Type: "HTTP" || "HTTPS",
  * //         },
  * //       ],
+ * //       CertificateArn: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE",
  * //     },
- * //     NoSourcePreservation: true || false,
  * //     VpcEndpoint: { // VpcEndpoint
  * //       VpcId: "STRING_VALUE", // required
  * //       SubnetMappings: [ // required
@@ -101,6 +108,7 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * //         },
  * //       ],
  * //     },
+ * //     TransparentFilteringNatScope: "NAT_ALL" || "NAT_NONE",
  * //   },
  * //   FirewallStatus: { // FirewallStatus
  * //     Status: "PROVISIONING" || "DELETING" || "READY" || "FAILED", // required

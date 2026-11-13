@@ -29,11 +29,6 @@ import {
   AssociateSubnetsCommand,
 } from "./commands/AssociateSubnetsCommand";
 import {
-  type AttachRuleGroupsToProxyConfigurationCommandInput,
-  type AttachRuleGroupsToProxyConfigurationCommandOutput,
-  AttachRuleGroupsToProxyConfigurationCommand,
-} from "./commands/AttachRuleGroupsToProxyConfigurationCommand";
-import {
   type CreateContainerAssociationCommandInput,
   type CreateContainerAssociationCommandOutput,
   CreateContainerAssociationCommand,
@@ -53,26 +48,6 @@ import {
   type CreateFirewallPolicyV2CommandOutput,
   CreateFirewallPolicyV2Command,
 } from "./commands/CreateFirewallPolicyV2Command";
-import {
-  type CreateProxyCommandInput,
-  type CreateProxyCommandOutput,
-  CreateProxyCommand,
-} from "./commands/CreateProxyCommand";
-import {
-  type CreateProxyConfigurationCommandInput,
-  type CreateProxyConfigurationCommandOutput,
-  CreateProxyConfigurationCommand,
-} from "./commands/CreateProxyConfigurationCommand";
-import {
-  type CreateProxyRuleGroupCommandInput,
-  type CreateProxyRuleGroupCommandOutput,
-  CreateProxyRuleGroupCommand,
-} from "./commands/CreateProxyRuleGroupCommand";
-import {
-  type CreateProxyRulesCommandInput,
-  type CreateProxyRulesCommandOutput,
-  CreateProxyRulesCommand,
-} from "./commands/CreateProxyRulesCommand";
 import {
   type CreateRuleGroupCommandInput,
   type CreateRuleGroupCommandOutput,
@@ -118,21 +93,6 @@ import {
   type DeleteProxyCommandOutput,
   DeleteProxyCommand,
 } from "./commands/DeleteProxyCommand";
-import {
-  type DeleteProxyConfigurationCommandInput,
-  type DeleteProxyConfigurationCommandOutput,
-  DeleteProxyConfigurationCommand,
-} from "./commands/DeleteProxyConfigurationCommand";
-import {
-  type DeleteProxyRuleGroupCommandInput,
-  type DeleteProxyRuleGroupCommandOutput,
-  DeleteProxyRuleGroupCommand,
-} from "./commands/DeleteProxyRuleGroupCommand";
-import {
-  type DeleteProxyRulesCommandInput,
-  type DeleteProxyRulesCommandOutput,
-  DeleteProxyRulesCommand,
-} from "./commands/DeleteProxyRulesCommand";
 import {
   type DeleteResourcePolicyCommandInput,
   type DeleteResourcePolicyCommandOutput,
@@ -194,21 +154,6 @@ import {
   DescribeProxyCommand,
 } from "./commands/DescribeProxyCommand";
 import {
-  type DescribeProxyConfigurationCommandInput,
-  type DescribeProxyConfigurationCommandOutput,
-  DescribeProxyConfigurationCommand,
-} from "./commands/DescribeProxyConfigurationCommand";
-import {
-  type DescribeProxyRuleCommandInput,
-  type DescribeProxyRuleCommandOutput,
-  DescribeProxyRuleCommand,
-} from "./commands/DescribeProxyRuleCommand";
-import {
-  type DescribeProxyRuleGroupCommandInput,
-  type DescribeProxyRuleGroupCommandOutput,
-  DescribeProxyRuleGroupCommand,
-} from "./commands/DescribeProxyRuleGroupCommand";
-import {
   type DescribeResourcePolicyCommandInput,
   type DescribeResourcePolicyCommandOutput,
   DescribeResourcePolicyCommand,
@@ -238,11 +183,6 @@ import {
   type DescribeVpcEndpointAssociationCommandOutput,
   DescribeVpcEndpointAssociationCommand,
 } from "./commands/DescribeVpcEndpointAssociationCommand";
-import {
-  type DetachRuleGroupsFromProxyConfigurationCommandInput,
-  type DetachRuleGroupsFromProxyConfigurationCommandOutput,
-  DetachRuleGroupsFromProxyConfigurationCommand,
-} from "./commands/DetachRuleGroupsFromProxyConfigurationCommand";
 import {
   type DisassociateAvailabilityZonesCommandInput,
   type DisassociateAvailabilityZonesCommandOutput,
@@ -293,21 +233,6 @@ import {
   type ListFlowOperationsCommandOutput,
   ListFlowOperationsCommand,
 } from "./commands/ListFlowOperationsCommand";
-import {
-  type ListProxiesCommandInput,
-  type ListProxiesCommandOutput,
-  ListProxiesCommand,
-} from "./commands/ListProxiesCommand";
-import {
-  type ListProxyConfigurationsCommandInput,
-  type ListProxyConfigurationsCommandOutput,
-  ListProxyConfigurationsCommand,
-} from "./commands/ListProxyConfigurationsCommand";
-import {
-  type ListProxyRuleGroupsCommandInput,
-  type ListProxyRuleGroupsCommandOutput,
-  ListProxyRuleGroupsCommand,
-} from "./commands/ListProxyRuleGroupsCommand";
 import {
   type ListRuleGroupsCommandInput,
   type ListRuleGroupsCommandOutput,
@@ -414,31 +339,6 @@ import {
   UpdateLoggingConfigurationCommand,
 } from "./commands/UpdateLoggingConfigurationCommand";
 import {
-  type UpdateProxyCommandInput,
-  type UpdateProxyCommandOutput,
-  UpdateProxyCommand,
-} from "./commands/UpdateProxyCommand";
-import {
-  type UpdateProxyConfigurationCommandInput,
-  type UpdateProxyConfigurationCommandOutput,
-  UpdateProxyConfigurationCommand,
-} from "./commands/UpdateProxyConfigurationCommand";
-import {
-  type UpdateProxyRuleCommandInput,
-  type UpdateProxyRuleCommandOutput,
-  UpdateProxyRuleCommand,
-} from "./commands/UpdateProxyRuleCommand";
-import {
-  type UpdateProxyRuleGroupPrioritiesCommandInput,
-  type UpdateProxyRuleGroupPrioritiesCommandOutput,
-  UpdateProxyRuleGroupPrioritiesCommand,
-} from "./commands/UpdateProxyRuleGroupPrioritiesCommand";
-import {
-  type UpdateProxyRulePrioritiesCommandInput,
-  type UpdateProxyRulePrioritiesCommandOutput,
-  UpdateProxyRulePrioritiesCommand,
-} from "./commands/UpdateProxyRulePrioritiesCommand";
-import {
   type UpdateProxySettingsCommandInput,
   type UpdateProxySettingsCommandOutput,
   UpdateProxySettingsCommand,
@@ -468,9 +368,6 @@ import { paginateListFirewallPoliciesV2 } from "./pagination/ListFirewallPolicie
 import { paginateListFirewalls } from "./pagination/ListFirewallsPaginator";
 import { paginateListFlowOperationResults } from "./pagination/ListFlowOperationResultsPaginator";
 import { paginateListFlowOperations } from "./pagination/ListFlowOperationsPaginator";
-import { paginateListProxies } from "./pagination/ListProxiesPaginator";
-import { paginateListProxyConfigurations } from "./pagination/ListProxyConfigurationsPaginator";
-import { paginateListProxyRuleGroups } from "./pagination/ListProxyRuleGroupsPaginator";
 import { paginateListRuleGroups } from "./pagination/ListRuleGroupsPaginator";
 import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
 import { paginateListTLSInspectionConfigurations } from "./pagination/ListTLSInspectionConfigurationsPaginator";
@@ -482,15 +379,10 @@ const commands = {
   AssociateAvailabilityZonesCommand,
   AssociateFirewallPolicyCommand,
   AssociateSubnetsCommand,
-  AttachRuleGroupsToProxyConfigurationCommand,
   CreateContainerAssociationCommand,
   CreateFirewallCommand,
   CreateFirewallPolicyCommand,
   CreateFirewallPolicyV2Command,
-  CreateProxyCommand,
-  CreateProxyConfigurationCommand,
-  CreateProxyRuleGroupCommand,
-  CreateProxyRulesCommand,
   CreateRuleGroupCommand,
   CreateTLSInspectionConfigurationCommand,
   CreateVpcEndpointAssociationCommand,
@@ -500,9 +392,6 @@ const commands = {
   DeleteFirewallPolicyV2Command,
   DeleteNetworkFirewallTransitGatewayAttachmentCommand,
   DeleteProxyCommand,
-  DeleteProxyConfigurationCommand,
-  DeleteProxyRuleGroupCommand,
-  DeleteProxyRulesCommand,
   DeleteResourcePolicyCommand,
   DeleteRuleGroupCommand,
   DeleteTLSInspectionConfigurationCommand,
@@ -515,16 +404,12 @@ const commands = {
   DescribeFlowOperationCommand,
   DescribeLoggingConfigurationCommand,
   DescribeProxyCommand,
-  DescribeProxyConfigurationCommand,
-  DescribeProxyRuleCommand,
-  DescribeProxyRuleGroupCommand,
   DescribeResourcePolicyCommand,
   DescribeRuleGroupCommand,
   DescribeRuleGroupMetadataCommand,
   DescribeRuleGroupSummaryCommand,
   DescribeTLSInspectionConfigurationCommand,
   DescribeVpcEndpointAssociationCommand,
-  DetachRuleGroupsFromProxyConfigurationCommand,
   DisassociateAvailabilityZonesCommand,
   DisassociateSubnetsCommand,
   GetAnalysisReportResultsCommand,
@@ -535,9 +420,6 @@ const commands = {
   ListFirewallsCommand,
   ListFlowOperationResultsCommand,
   ListFlowOperationsCommand,
-  ListProxiesCommand,
-  ListProxyConfigurationsCommand,
-  ListProxyRuleGroupsCommand,
   ListRuleGroupsCommand,
   ListTagsForResourceCommand,
   ListTLSInspectionConfigurationsCommand,
@@ -559,11 +441,6 @@ const commands = {
   UpdateFirewallPolicyChangeProtectionCommand,
   UpdateFirewallPolicyV2Command,
   UpdateLoggingConfigurationCommand,
-  UpdateProxyCommand,
-  UpdateProxyConfigurationCommand,
-  UpdateProxyRuleCommand,
-  UpdateProxyRuleGroupPrioritiesCommand,
-  UpdateProxyRulePrioritiesCommand,
   UpdateProxySettingsCommand,
   UpdateRuleGroupCommand,
   UpdateSubnetChangeProtectionCommand,
@@ -578,9 +455,6 @@ const paginators = {
   paginateListFirewalls,
   paginateListFlowOperationResults,
   paginateListFlowOperations,
-  paginateListProxies,
-  paginateListProxyConfigurations,
-  paginateListProxyRuleGroups,
   paginateListRuleGroups,
   paginateListTagsForResource,
   paginateListTLSInspectionConfigurations,
@@ -667,23 +541,6 @@ export interface NetworkFirewall {
   ): void;
 
   /**
-   * @see {@link AttachRuleGroupsToProxyConfigurationCommand}
-   */
-  attachRuleGroupsToProxyConfiguration(
-    args: AttachRuleGroupsToProxyConfigurationCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<AttachRuleGroupsToProxyConfigurationCommandOutput>;
-  attachRuleGroupsToProxyConfiguration(
-    args: AttachRuleGroupsToProxyConfigurationCommandInput,
-    cb: (err: any, data?: AttachRuleGroupsToProxyConfigurationCommandOutput) => void
-  ): void;
-  attachRuleGroupsToProxyConfiguration(
-    args: AttachRuleGroupsToProxyConfigurationCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: AttachRuleGroupsToProxyConfigurationCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link CreateContainerAssociationCommand}
    */
   createContainerAssociation(
@@ -749,74 +606,6 @@ export interface NetworkFirewall {
     args: CreateFirewallPolicyV2CommandInput,
     options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: CreateFirewallPolicyV2CommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link CreateProxyCommand}
-   */
-  createProxy(
-    args: CreateProxyCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<CreateProxyCommandOutput>;
-  createProxy(
-    args: CreateProxyCommandInput,
-    cb: (err: any, data?: CreateProxyCommandOutput) => void
-  ): void;
-  createProxy(
-    args: CreateProxyCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: CreateProxyCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link CreateProxyConfigurationCommand}
-   */
-  createProxyConfiguration(
-    args: CreateProxyConfigurationCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<CreateProxyConfigurationCommandOutput>;
-  createProxyConfiguration(
-    args: CreateProxyConfigurationCommandInput,
-    cb: (err: any, data?: CreateProxyConfigurationCommandOutput) => void
-  ): void;
-  createProxyConfiguration(
-    args: CreateProxyConfigurationCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: CreateProxyConfigurationCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link CreateProxyRuleGroupCommand}
-   */
-  createProxyRuleGroup(
-    args: CreateProxyRuleGroupCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<CreateProxyRuleGroupCommandOutput>;
-  createProxyRuleGroup(
-    args: CreateProxyRuleGroupCommandInput,
-    cb: (err: any, data?: CreateProxyRuleGroupCommandOutput) => void
-  ): void;
-  createProxyRuleGroup(
-    args: CreateProxyRuleGroupCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: CreateProxyRuleGroupCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link CreateProxyRulesCommand}
-   */
-  createProxyRules(
-    args: CreateProxyRulesCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<CreateProxyRulesCommandOutput>;
-  createProxyRules(
-    args: CreateProxyRulesCommandInput,
-    cb: (err: any, data?: CreateProxyRulesCommandOutput) => void
-  ): void;
-  createProxyRules(
-    args: CreateProxyRulesCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: CreateProxyRulesCommandOutput) => void
   ): void;
 
   /**
@@ -974,59 +763,6 @@ export interface NetworkFirewall {
     args: DeleteProxyCommandInput,
     options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DeleteProxyCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link DeleteProxyConfigurationCommand}
-   */
-  deleteProxyConfiguration(): Promise<DeleteProxyConfigurationCommandOutput>;
-  deleteProxyConfiguration(
-    args: DeleteProxyConfigurationCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<DeleteProxyConfigurationCommandOutput>;
-  deleteProxyConfiguration(
-    args: DeleteProxyConfigurationCommandInput,
-    cb: (err: any, data?: DeleteProxyConfigurationCommandOutput) => void
-  ): void;
-  deleteProxyConfiguration(
-    args: DeleteProxyConfigurationCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: DeleteProxyConfigurationCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link DeleteProxyRuleGroupCommand}
-   */
-  deleteProxyRuleGroup(): Promise<DeleteProxyRuleGroupCommandOutput>;
-  deleteProxyRuleGroup(
-    args: DeleteProxyRuleGroupCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<DeleteProxyRuleGroupCommandOutput>;
-  deleteProxyRuleGroup(
-    args: DeleteProxyRuleGroupCommandInput,
-    cb: (err: any, data?: DeleteProxyRuleGroupCommandOutput) => void
-  ): void;
-  deleteProxyRuleGroup(
-    args: DeleteProxyRuleGroupCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: DeleteProxyRuleGroupCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link DeleteProxyRulesCommand}
-   */
-  deleteProxyRules(
-    args: DeleteProxyRulesCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<DeleteProxyRulesCommandOutput>;
-  deleteProxyRules(
-    args: DeleteProxyRulesCommandInput,
-    cb: (err: any, data?: DeleteProxyRulesCommandOutput) => void
-  ): void;
-  deleteProxyRules(
-    args: DeleteProxyRulesCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: DeleteProxyRulesCommandOutput) => void
   ): void;
 
   /**
@@ -1243,59 +979,6 @@ export interface NetworkFirewall {
   ): void;
 
   /**
-   * @see {@link DescribeProxyConfigurationCommand}
-   */
-  describeProxyConfiguration(): Promise<DescribeProxyConfigurationCommandOutput>;
-  describeProxyConfiguration(
-    args: DescribeProxyConfigurationCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<DescribeProxyConfigurationCommandOutput>;
-  describeProxyConfiguration(
-    args: DescribeProxyConfigurationCommandInput,
-    cb: (err: any, data?: DescribeProxyConfigurationCommandOutput) => void
-  ): void;
-  describeProxyConfiguration(
-    args: DescribeProxyConfigurationCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: DescribeProxyConfigurationCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link DescribeProxyRuleCommand}
-   */
-  describeProxyRule(
-    args: DescribeProxyRuleCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<DescribeProxyRuleCommandOutput>;
-  describeProxyRule(
-    args: DescribeProxyRuleCommandInput,
-    cb: (err: any, data?: DescribeProxyRuleCommandOutput) => void
-  ): void;
-  describeProxyRule(
-    args: DescribeProxyRuleCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: DescribeProxyRuleCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link DescribeProxyRuleGroupCommand}
-   */
-  describeProxyRuleGroup(): Promise<DescribeProxyRuleGroupCommandOutput>;
-  describeProxyRuleGroup(
-    args: DescribeProxyRuleGroupCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<DescribeProxyRuleGroupCommandOutput>;
-  describeProxyRuleGroup(
-    args: DescribeProxyRuleGroupCommandInput,
-    cb: (err: any, data?: DescribeProxyRuleGroupCommandOutput) => void
-  ): void;
-  describeProxyRuleGroup(
-    args: DescribeProxyRuleGroupCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: DescribeProxyRuleGroupCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link DescribeResourcePolicyCommand}
    */
   describeResourcePolicy(
@@ -1399,23 +1082,6 @@ export interface NetworkFirewall {
     args: DescribeVpcEndpointAssociationCommandInput,
     options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeVpcEndpointAssociationCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link DetachRuleGroupsFromProxyConfigurationCommand}
-   */
-  detachRuleGroupsFromProxyConfiguration(
-    args: DetachRuleGroupsFromProxyConfigurationCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<DetachRuleGroupsFromProxyConfigurationCommandOutput>;
-  detachRuleGroupsFromProxyConfiguration(
-    args: DetachRuleGroupsFromProxyConfigurationCommandInput,
-    cb: (err: any, data?: DetachRuleGroupsFromProxyConfigurationCommandOutput) => void
-  ): void;
-  detachRuleGroupsFromProxyConfiguration(
-    args: DetachRuleGroupsFromProxyConfigurationCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: DetachRuleGroupsFromProxyConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1591,60 +1257,6 @@ export interface NetworkFirewall {
     args: ListFlowOperationsCommandInput,
     options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListFlowOperationsCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link ListProxiesCommand}
-   */
-  listProxies(): Promise<ListProxiesCommandOutput>;
-  listProxies(
-    args: ListProxiesCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<ListProxiesCommandOutput>;
-  listProxies(
-    args: ListProxiesCommandInput,
-    cb: (err: any, data?: ListProxiesCommandOutput) => void
-  ): void;
-  listProxies(
-    args: ListProxiesCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: ListProxiesCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link ListProxyConfigurationsCommand}
-   */
-  listProxyConfigurations(): Promise<ListProxyConfigurationsCommandOutput>;
-  listProxyConfigurations(
-    args: ListProxyConfigurationsCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<ListProxyConfigurationsCommandOutput>;
-  listProxyConfigurations(
-    args: ListProxyConfigurationsCommandInput,
-    cb: (err: any, data?: ListProxyConfigurationsCommandOutput) => void
-  ): void;
-  listProxyConfigurations(
-    args: ListProxyConfigurationsCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: ListProxyConfigurationsCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link ListProxyRuleGroupsCommand}
-   */
-  listProxyRuleGroups(): Promise<ListProxyRuleGroupsCommandOutput>;
-  listProxyRuleGroups(
-    args: ListProxyRuleGroupsCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<ListProxyRuleGroupsCommandOutput>;
-  listProxyRuleGroups(
-    args: ListProxyRuleGroupsCommandInput,
-    cb: (err: any, data?: ListProxyRuleGroupsCommandOutput) => void
-  ): void;
-  listProxyRuleGroups(
-    args: ListProxyRuleGroupsCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: ListProxyRuleGroupsCommandOutput) => void
   ): void;
 
   /**
@@ -2012,91 +1624,6 @@ export interface NetworkFirewall {
   ): void;
 
   /**
-   * @see {@link UpdateProxyCommand}
-   */
-  updateProxy(
-    args: UpdateProxyCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<UpdateProxyCommandOutput>;
-  updateProxy(
-    args: UpdateProxyCommandInput,
-    cb: (err: any, data?: UpdateProxyCommandOutput) => void
-  ): void;
-  updateProxy(
-    args: UpdateProxyCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: UpdateProxyCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link UpdateProxyConfigurationCommand}
-   */
-  updateProxyConfiguration(
-    args: UpdateProxyConfigurationCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<UpdateProxyConfigurationCommandOutput>;
-  updateProxyConfiguration(
-    args: UpdateProxyConfigurationCommandInput,
-    cb: (err: any, data?: UpdateProxyConfigurationCommandOutput) => void
-  ): void;
-  updateProxyConfiguration(
-    args: UpdateProxyConfigurationCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: UpdateProxyConfigurationCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link UpdateProxyRuleCommand}
-   */
-  updateProxyRule(
-    args: UpdateProxyRuleCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<UpdateProxyRuleCommandOutput>;
-  updateProxyRule(
-    args: UpdateProxyRuleCommandInput,
-    cb: (err: any, data?: UpdateProxyRuleCommandOutput) => void
-  ): void;
-  updateProxyRule(
-    args: UpdateProxyRuleCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: UpdateProxyRuleCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link UpdateProxyRuleGroupPrioritiesCommand}
-   */
-  updateProxyRuleGroupPriorities(
-    args: UpdateProxyRuleGroupPrioritiesCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<UpdateProxyRuleGroupPrioritiesCommandOutput>;
-  updateProxyRuleGroupPriorities(
-    args: UpdateProxyRuleGroupPrioritiesCommandInput,
-    cb: (err: any, data?: UpdateProxyRuleGroupPrioritiesCommandOutput) => void
-  ): void;
-  updateProxyRuleGroupPriorities(
-    args: UpdateProxyRuleGroupPrioritiesCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: UpdateProxyRuleGroupPrioritiesCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link UpdateProxyRulePrioritiesCommand}
-   */
-  updateProxyRulePriorities(
-    args: UpdateProxyRulePrioritiesCommandInput,
-    options?: NetworkFirewallRequestOptions
-  ): Promise<UpdateProxyRulePrioritiesCommandOutput>;
-  updateProxyRulePriorities(
-    args: UpdateProxyRulePrioritiesCommandInput,
-    cb: (err: any, data?: UpdateProxyRulePrioritiesCommandOutput) => void
-  ): void;
-  updateProxyRulePriorities(
-    args: UpdateProxyRulePrioritiesCommandInput,
-    options: NetworkFirewallRequestOptions,
-    cb: (err: any, data?: UpdateProxyRulePrioritiesCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link UpdateProxySettingsCommand}
    */
   updateProxySettings(): Promise<UpdateProxySettingsCommandOutput>;
@@ -2252,39 +1779,6 @@ export interface NetworkFirewall {
     args: ListFlowOperationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListFlowOperationsCommandOutput>;
-
-  /**
-   * @see {@link ListProxiesCommand}
-   * @param args - command input.
-   * @param paginationConfig - optional pagination config.
-   * @returns AsyncIterable of {@link ListProxiesCommandOutput}.
-   */
-  paginateListProxies(
-    args?: ListProxiesCommandInput,
-    paginationConfig?: Omit<PaginationConfiguration, "client">
-  ): Paginator<ListProxiesCommandOutput>;
-
-  /**
-   * @see {@link ListProxyConfigurationsCommand}
-   * @param args - command input.
-   * @param paginationConfig - optional pagination config.
-   * @returns AsyncIterable of {@link ListProxyConfigurationsCommandOutput}.
-   */
-  paginateListProxyConfigurations(
-    args?: ListProxyConfigurationsCommandInput,
-    paginationConfig?: Omit<PaginationConfiguration, "client">
-  ): Paginator<ListProxyConfigurationsCommandOutput>;
-
-  /**
-   * @see {@link ListProxyRuleGroupsCommand}
-   * @param args - command input.
-   * @param paginationConfig - optional pagination config.
-   * @returns AsyncIterable of {@link ListProxyRuleGroupsCommandOutput}.
-   */
-  paginateListProxyRuleGroups(
-    args?: ListProxyRuleGroupsCommandInput,
-    paginationConfig?: Omit<PaginationConfiguration, "client">
-  ): Paginator<ListProxyRuleGroupsCommandOutput>;
 
   /**
    * @see {@link ListRuleGroupsCommand}

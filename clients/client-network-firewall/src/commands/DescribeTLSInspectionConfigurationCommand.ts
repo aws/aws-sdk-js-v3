@@ -78,6 +78,13 @@ export interface DescribeTLSInspectionConfigurationCommandOutput extends Describ
  * //             Protocols: [ // ProtocolNumbers
  * //               Number("int"),
  * //             ],
+ * //             DomainMatch: { // DomainMatch
+ * //               Domains: [ // TLSInspectionDomains // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             DecryptionAction: "DECRYPT" || "BYPASS",
+ * //             DeploymentMode: "TRANSPARENT_FIREWALL_ONLY" || "EXPLICIT_PROXY_ONLY" || "ALL",
  * //           },
  * //         ],
  * //         CertificateAuthorityArn: "STRING_VALUE",
@@ -85,6 +92,7 @@ export interface DescribeTLSInspectionConfigurationCommandOutput extends Describ
  * //           RevokedStatusAction: "PASS" || "DROP" || "REJECT",
  * //           UnknownStatusAction: "PASS" || "DROP" || "REJECT",
  * //         },
+ * //         DefaultDecryptionBehavior: "DECRYPT" || "BYPASS",
  * //       },
  * //     ],
  * //   },

@@ -79,6 +79,13 @@ export interface CreateTLSInspectionConfigurationCommandOutput extends CreateTLS
  *             Protocols: [ // ProtocolNumbers
  *               Number("int"),
  *             ],
+ *             DomainMatch: { // DomainMatch
+ *               Domains: [ // TLSInspectionDomains // required
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             DecryptionAction: "DECRYPT" || "BYPASS",
+ *             DeploymentMode: "TRANSPARENT_FIREWALL_ONLY" || "EXPLICIT_PROXY_ONLY" || "ALL",
  *           },
  *         ],
  *         CertificateAuthorityArn: "STRING_VALUE",
@@ -86,6 +93,7 @@ export interface CreateTLSInspectionConfigurationCommandOutput extends CreateTLS
  *           RevokedStatusAction: "PASS" || "DROP" || "REJECT",
  *           UnknownStatusAction: "PASS" || "DROP" || "REJECT",
  *         },
+ *         DefaultDecryptionBehavior: "DECRYPT" || "BYPASS",
  *       },
  *     ],
  *   },

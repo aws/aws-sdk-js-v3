@@ -23,7 +23,8 @@ export interface UpdateProxySettingsCommandInput extends UpdateProxySettingsRequ
 export interface UpdateProxySettingsCommandOutput extends UpdateProxySettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the proxy listener configuration of a proxy mode firewall. Proxy mode firewalls are created with <code>NoSourcePreservation</code> set to <code>TRUE</code>. Use this operation to change the ports and protocols on which the firewall's proxy listens for traffic. </p>
+ * <p>Modifies the proxy settings of a proxy mode firewall. Use this operation to change the ports and protocols on which the firewall's proxy listens for traffic. The new listeners take effect without recreating the firewall.</p>
+ *          <p>The <code>ProxySettings</code> that you provide replace the firewall's current proxy settings. If you created the firewall with your own <code>CertificateArn</code> and <code>DomainName</code>, you must specify the same values in every request. You can't change or remove them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,6 +44,8 @@ export interface UpdateProxySettingsCommandOutput extends UpdateProxySettingsRes
  *         Type: "HTTP" || "HTTPS",
  *       },
  *     ],
+ *     CertificateArn: "STRING_VALUE",
+ *     DomainName: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateProxySettingsCommand(input);
@@ -58,6 +61,8 @@ export interface UpdateProxySettingsCommandOutput extends UpdateProxySettingsRes
  * //         Type: "HTTP" || "HTTPS",
  * //       },
  * //     ],
+ * //     CertificateArn: "STRING_VALUE",
+ * //     DomainName: "STRING_VALUE",
  * //   },
  * // };
  *

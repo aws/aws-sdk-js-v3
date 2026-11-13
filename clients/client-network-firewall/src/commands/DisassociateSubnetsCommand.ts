@@ -27,6 +27,7 @@ export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsRes
  *           firewall endpoints from the subnets and removes any network filtering protections that the endpoints
  *           were providing.
  *       </p>
+ *          <p>For a proxy mode firewall, this also removes the firewall's proxy DNS record in the Availability Zone and detaches the Availability Zone's NAT gateway from the firewall. Network Firewall keeps the NAT gateway. You can't remove the firewall's last Availability Zone. To do that, delete the firewall. If a VPC endpoint association exists in the Availability Zone, delete it first. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

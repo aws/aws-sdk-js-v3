@@ -29,6 +29,7 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  *          enable the firewall's protections, you must also modify the VPC's route tables for each
  *          subnet's Availability Zone, to redirect the traffic that's coming into and going out of the
  *          zone through the firewall endpoint. </p>
+ *          <p>For a proxy mode firewall, use this operation to add Availability Zones to the firewall. For each subnet, specify a NAT gateway in <code>NatGatewayCreateMappings</code> in the same Availability Zone. You can't add an Availability Zone that the firewall already uses. The firewall keeps working in its other Availability Zones while Network Firewall sets up the new one. If Network Firewall can't set up the new Availability Zone, it removes the Availability Zone from the firewall. It also deletes the NAT gateway that it created there. The Availability Zone's <code>Attachment</code> status shows the reason. You can then add the Availability Zone again. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +46,17 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  *     { // SubnetMapping
  *       SubnetId: "STRING_VALUE", // required
  *       IPAddressType: "DUALSTACK" || "IPV4" || "IPV6",
+ *     },
+ *   ],
+ *   NatGatewayCreateMappings: [ // NatGatewayCreateMappingsList
+ *     { // NatGatewayCreateMapping
+ *       SubnetId: "STRING_VALUE", // required
+ *       AllocationIds: [ // NatGatewayAllocationIdList
+ *         "STRING_VALUE",
+ *       ],
+ *       PrivateIps: [ // NatGatewayPrivateIpList
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *   ],
  * };

@@ -34,6 +34,7 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  *          you can remove the firewall safely.</p>
  *          <p>To delete a firewall, remove the delete protection if you need to using <a>UpdateFirewallDeleteProtection</a>,
  *          then delete the firewall by calling <a>DeleteFirewall</a>. </p>
+ *          <p>Deleting a proxy mode firewall detaches its NAT gateways. To also delete the NAT gateways that Network Firewall created for the firewall, specify <code>DeleteAssociatedNatGateways</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +46,7 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * const input = { // DeleteFirewallRequest
  *   FirewallName: "STRING_VALUE",
  *   FirewallArn: "STRING_VALUE",
+ *   DeleteAssociatedNatGateways: true || false,
  * };
  * const command = new DeleteFirewallCommand(input);
  * const response = await client.send(command);
@@ -87,9 +89,15 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * //       },
  * //     ],
  * //     AvailabilityZoneChangeProtection: true || false,
- * //     NatGatewayMappings: [ // NatGatewayMappingsList
- * //       { // NatGatewayMapping
- * //         NatGatewayId: "STRING_VALUE", // required
+ * //     NatGatewayCreateMappings: [ // NatGatewayCreateMappingsList
+ * //       { // NatGatewayCreateMapping
+ * //         SubnetId: "STRING_VALUE", // required
+ * //         AllocationIds: [ // NatGatewayAllocationIdList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         PrivateIps: [ // NatGatewayPrivateIpList
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     ],
  * //     ProxySettings: { // ProxySettings
@@ -99,8 +107,9 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * //           Type: "HTTP" || "HTTPS",
  * //         },
  * //       ],
+ * //       CertificateArn: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE",
  * //     },
- * //     NoSourcePreservation: true || false,
  * //     VpcEndpoint: { // VpcEndpoint
  * //       VpcId: "STRING_VALUE", // required
  * //       SubnetMappings: [ // required
@@ -110,6 +119,7 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * //         },
  * //       ],
  * //     },
+ * //     TransparentFilteringNatScope: "NAT_ALL" || "NAT_NONE",
  * //   },
  * //   FirewallStatus: { // FirewallStatus
  * //     Status: "PROVISIONING" || "DELETING" || "READY" || "FAILED", // required

@@ -23,7 +23,7 @@ export interface DeleteProxyCommandInput extends DeleteProxyRequest {}
 export interface DeleteProxyCommandOutput extends DeleteProxyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified <a>Proxy</a>. </p>
+ * <p>Deletes the specified proxy. </p>
  *          <p>Detaches a Proxy configuration from a NAT Gateway. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
