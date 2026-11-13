@@ -49,6 +49,7 @@ import type {
   InferenceComponentPlacementStrategy,
   InferenceExecutionMode,
   InferenceExperimentType,
+  InstanceGroupStatus,
   IPAddressType,
   JobCategory,
   JobType,
@@ -63,7 +64,6 @@ import type {
   ModelInfrastructureType,
   ModelPackageRegistrationType,
   ModelRegistrationMode,
-  MonitoringProblemType,
   NotebookOutputOption,
   ParameterType,
   PreemptTeamTasks,
@@ -158,7 +158,6 @@ import type {
   ClusterInstanceGroupSpecification,
   ClusterInstanceStorageConfig,
   ClusterOrchestrator,
-  ClusterRestrictedInstanceGroupsConfig,
   CodeEditorAppImageConfig,
   ComputeQuotaResourceConfig,
   FSxLustreConfig,
@@ -177,6 +176,144 @@ import type {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>The configuration details for the restricted instance groups (RIG) environment.</p>
+ * @public
+ */
+export interface EnvironmentConfigDetails {
+  /**
+   * <p>Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.</p>
+   * @public
+   */
+  FSxLustreConfig?: FSxLustreConfig | undefined;
+
+  /**
+   * <p>The Amazon S3 path where output data from the restricted instance group (RIG) environment will be stored.</p>
+   * @public
+   */
+  S3OutputPath?: string | undefined;
+}
+
+/**
+ * <p>The instance group details of the restricted instance group (RIG).</p>
+ * @public
+ */
+export interface ClusterRestrictedInstanceGroupDetails {
+  /**
+   * <p>The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  CurrentCount?: number | undefined;
+
+  /**
+   * <p>The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  TargetCount?: number | undefined;
+
+  /**
+   * <p>The name of the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  InstanceGroupName?: string | undefined;
+
+  /**
+   * <p>The instance type of the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  InstanceType?: ClusterInstanceType | undefined;
+
+  /**
+   * <p>The execution role for the restricted instance group to assume.</p>
+   * @public
+   */
+  ExecutionRole?: string | undefined;
+
+  /**
+   * <p>The number you specified to <code>TreadsPerCore</code> in <code>CreateCluster</code> for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading. For more information, see the reference table of <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
+   */
+  ThreadsPerCore?: number | undefined;
+
+  /**
+   * <p>The additional storage configurations for the instances in the SageMaker HyperPod cluster restricted instance group.</p>
+   * @public
+   */
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[] | undefined;
+
+  /**
+   * <p>A flag indicating whether deep health checks should be performed when the cluster's restricted instance group is created or updated.</p>
+   * @public
+   */
+  OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
+
+  /**
+   * <p>The current status of the cluster's restricted instance group.</p> <ul> <li> <p> <code>InService</code>: The restricted instance group is active and healthy.</p> </li> <li> <p> <code>Creating</code>: The restricted instance group is being provisioned.</p> </li> <li> <p> <code>Updating</code>: The restricted instance group is being updated.</p> </li> <li> <p> <code>Failed</code>: The restricted instance group has failed to provision or is no longer healthy.</p> </li> <li> <p> <code>Degraded</code>: The restricted instance group is degraded, meaning that some instances have failed to provision or are no longer healthy.</p> </li> <li> <p> <code>Deleting</code>: The restricted instance group is being deleted.</p> </li> </ul>
+   * @public
+   */
+  Status?: InstanceGroupStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training plan to filter clusters by. For more information about reserving GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
+
+  /**
+   * <p>The current status of the training plan associated with this cluster restricted instance group.</p>
+   * @public
+   */
+  TrainingPlanStatus?: string | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  OverrideVpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The configuration object of the schedule that SageMaker follows when updating the AMI.</p>
+   * @public
+   */
+  ScheduledUpdateConfig?: ScheduledUpdateConfig | undefined;
+
+  /**
+   * <p>The configuration for the restricted instance groups (RIG) environment.</p>
+   * @public
+   */
+  EnvironmentConfig?: EnvironmentConfigDetails | undefined;
+}
+
+/**
+ * <p>The shared environment configuration for the restricted instance groups (RIG).</p>
+ * @public
+ */
+export interface ClusterSharedEnvironmentConfig {
+  /**
+   * <p>The deletion policy for the Amazon FSx for Lustre file system in the shared environment.</p>
+   * @public
+   */
+  FSxLustreDeletionPolicy: ClusterFSxLustreDeletionPolicy | undefined;
+
+  /**
+   * <p>Configuration settings for an Amazon FSx for Lustre file system in the shared environment.</p>
+   * @public
+   */
+  FSxLustreConfig: FSxLustreConfig | undefined;
+}
+
+/**
+ * <p>The configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterRestrictedInstanceGroupsConfig {
+  /**
+   * <p>The shared environment configuration for the restricted instance groups (RIG).</p>
+   * @public
+   */
+  SharedEnvironmentConfig: ClusterSharedEnvironmentConfig | undefined;
+}
 
 /**
  * <p>The shared environment configuration details for the restricted instance groups (RIG).</p>
@@ -8455,104 +8592,4 @@ export interface CreateModelPackageOutput {
    * @public
    */
   ModelPackageArn: string | undefined;
-}
-
-/**
- * <p>The managed configuration of a model package group.</p>
- * @public
- */
-export interface ManagedConfiguration {
-  /**
-   * <p>The storage type of the model package.</p>
-   * @public
-   */
-  ManagedStorageType?: ManagedStorageType | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelPackageGroupInput {
-  /**
-   * <p>The name of the model group.</p>
-   * @public
-   */
-  ModelPackageGroupName: string | undefined;
-
-  /**
-   * <p>A description for the model group.</p>
-   * @public
-   */
-  ModelPackageGroupDescription?: string | undefined;
-
-  /**
-   * <p>A list of key value pairs associated with the model group. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The managed configuration of the model package group.</p>
-   * @public
-   */
-  ManagedConfiguration?: ManagedConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelPackageGroupOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model group.</p>
-   * @public
-   */
-  ModelPackageGroupArn: string | undefined;
-}
-
-/**
- * <p>Container image configuration object for the monitoring job.</p>
- * @public
- */
-export interface ModelQualityAppSpecification {
-  /**
-   * <p>The address of the container image that the monitoring job runs.</p>
-   * @public
-   */
-  ImageUri: string | undefined;
-
-  /**
-   * <p>Specifies the entrypoint for a container that the monitoring job runs.</p>
-   * @public
-   */
-  ContainerEntrypoint?: string[] | undefined;
-
-  /**
-   * <p>An array of arguments for the container used to run the monitoring job.</p>
-   * @public
-   */
-  ContainerArguments?: string[] | undefined;
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flattened JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.</p>
-   * @public
-   */
-  RecordPreprocessorSourceUri?: string | undefined;
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.</p>
-   * @public
-   */
-  PostAnalyticsProcessorSourceUri?: string | undefined;
-
-  /**
-   * <p>The machine learning problem type of the model that the monitoring job monitors.</p>
-   * @public
-   */
-  ProblemType?: MonitoringProblemType | undefined;
-
-  /**
-   * <p>Sets the environment variables in the container that the monitoring job runs.</p>
-   * @public
-   */
-  Environment?: Record<string, string> | undefined;
 }

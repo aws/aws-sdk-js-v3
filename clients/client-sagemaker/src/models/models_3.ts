@@ -12,18 +12,15 @@ import type {
   AutoMLSortBy,
   AutoMLSortOrder,
   BatchStrategy,
-  CandidateSortBy,
-  CandidateStatus,
   CapacityReservationPreference,
-  ClusterEventResourceType,
-  ClusterSortBy,
   DetailedModelPackageStatus,
   DeviceDeploymentStatus,
   DirectInternetAccess,
   DomainStatus,
   EdgePackagingJobStatus,
+  EdgePresetDeploymentStatus,
+  EdgePresetDeploymentType,
   EndpointStatus,
-  EventSortBy,
   ExecutionRoleIdentityConfig,
   ExecutionStatus,
   ExtensionStatus,
@@ -117,6 +114,7 @@ import type {
   TrainingSessionStatus,
   TransformJobStatus,
   UserProfileStatus,
+  VariantStatus,
   VendorGuidance,
   VolumeAttachmentStatus,
   WarmPoolResourceStatus,
@@ -141,7 +139,6 @@ import type {
   AssociationInfo,
   AssociationSummary,
   AsyncInferenceConfig,
-  AutoMLCandidate,
   AutoMLJobSummary,
   AutoRollbackConfig,
   Autotune,
@@ -151,8 +148,6 @@ import type {
   CfnTemplateProviderDetail,
   Channel,
   CheckpointConfig,
-  ClusterEventSummary,
-  ClusterNodeSummary,
   InferenceSpecification,
   OutputDataConfig,
   OutputParameter,
@@ -174,6 +169,7 @@ import type {
   DeploymentConfig,
   DockerSettings,
   DriftCheckBaselines,
+  EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EndpointInfo,
   ExplainerConfig,
@@ -197,7 +193,6 @@ import type {
   LabelingJobInputConfig,
   LabelingJobOutputConfig,
   LabelingJobStoppingConditions,
-  ManagedConfiguration,
   MetadataProperties,
   MetricsConfig,
   ModelBiasAppSpecification,
@@ -214,7 +209,6 @@ import type {
   ModelPackageModelCard,
   ModelPackageSecurityConfig,
   ModelPackageValidationSpecification,
-  ModelQualityAppSpecification,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
@@ -244,16 +238,18 @@ import type {
   DebugRuleEvaluationStatus,
   DeployedImage,
   DeploymentRecommendation,
+  DeploymentStageStatusSummary,
   ExperimentConfig,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
-  InstancePoolSummary,
   LoraConfig,
+  ManagedConfiguration,
   MemberDefinition,
   MlflowConfig,
   ModelArtifacts,
   ModelClientConfig,
   ModelPackageConfig,
+  ModelQualityAppSpecification,
   ModelQualityBaselineConfig,
   ModelQualityJobInput,
   MonitoringScheduleConfig,
@@ -272,7 +268,6 @@ import type {
   ProcessingOutputConfig,
   ProcessingResources,
   ProcessingStoppingCondition,
-  ProductionVariantStatus,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   RemoteDebugConfig,
@@ -289,6 +284,289 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeEdgeDeploymentPlanRequest {
+  /**
+   * <p>The name of the deployment plan to describe.</p>
+   * @public
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>If the edge deployment plan has enough stages to require tokening, then this is the response from the last list of stages returned.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to select (50 by default).</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEdgeDeploymentPlanResponse {
+  /**
+   * <p>The ARN of edge deployment plan.</p>
+   * @public
+   */
+  EdgeDeploymentPlanArn: string | undefined;
+
+  /**
+   * <p>The name of the edge deployment plan.</p>
+   * @public
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>List of models associated with the edge deployment plan.</p>
+   * @public
+   */
+  ModelConfigs: EdgeDeploymentModelConfig[] | undefined;
+
+  /**
+   * <p>The device fleet used for this edge deployment plan.</p>
+   * @public
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The number of edge devices with the successful deployment.</p>
+   * @public
+   */
+  EdgeDeploymentSuccess?: number | undefined;
+
+  /**
+   * <p>The number of edge devices yet to pick up deployment, or in progress.</p>
+   * @public
+   */
+  EdgeDeploymentPending?: number | undefined;
+
+  /**
+   * <p>The number of edge devices that failed the deployment.</p>
+   * @public
+   */
+  EdgeDeploymentFailed?: number | undefined;
+
+  /**
+   * <p>List of stages in the edge deployment plan.</p>
+   * @public
+   */
+  Stages: DeploymentStageStatusSummary[] | undefined;
+
+  /**
+   * <p>Token to use when calling the next set of stages in the edge deployment plan.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The time when the edge deployment plan was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The time when the edge deployment plan was last updated.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEdgePackagingJobRequest {
+  /**
+   * <p>The name of the edge packaging job.</p>
+   * @public
+   */
+  EdgePackagingJobName: string | undefined;
+}
+
+/**
+ * <p>The output of a SageMaker Edge Manager deployable resource.</p>
+ * @public
+ */
+export interface EdgePresetDeploymentOutput {
+  /**
+   * <p>The deployment type created by SageMaker Edge Manager. Currently only supports Amazon Web Services IoT Greengrass Version 2 components.</p>
+   * @public
+   */
+  Type: EdgePresetDeploymentType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the generated deployable resource.</p>
+   * @public
+   */
+  Artifact?: string | undefined;
+
+  /**
+   * <p>The status of the deployable resource.</p>
+   * @public
+   */
+  Status?: EdgePresetDeploymentStatus | undefined;
+
+  /**
+   * <p>Returns a message describing the status of the deployed resource.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEdgePackagingJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the edge packaging job.</p>
+   * @public
+   */
+  EdgePackagingJobArn: string | undefined;
+
+  /**
+   * <p>The name of the edge packaging job.</p>
+   * @public
+   */
+  EdgePackagingJobName: string | undefined;
+
+  /**
+   * <p>The name of the SageMaker Neo compilation job that is used to locate model artifacts that are being packaged.</p>
+   * @public
+   */
+  CompilationJobName?: string | undefined;
+
+  /**
+   * <p>The name of the model.</p>
+   * @public
+   */
+  ModelName?: string | undefined;
+
+  /**
+   * <p>The version of the model.</p>
+   * @public
+   */
+  ModelVersion?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to download and upload the model, and to contact Neo.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The output configuration for the edge packaging job.</p>
+   * @public
+   */
+  OutputConfig?: EdgeOutputConfig | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key to use when encrypting the EBS volume the job run on.</p>
+   * @public
+   */
+  ResourceKey?: string | undefined;
+
+  /**
+   * <p>The current status of the packaging job.</p>
+   * @public
+   */
+  EdgePackagingJobStatus: EdgePackagingJobStatus | undefined;
+
+  /**
+   * <p>Returns a message describing the job status and error messages.</p>
+   * @public
+   */
+  EdgePackagingJobStatusMessage?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the packaging job was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the job was last updated.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Simple Storage (S3) URI where model artifacts ares stored.</p>
+   * @public
+   */
+  ModelArtifact?: string | undefined;
+
+  /**
+   * <p>The signature document of files in the model artifact.</p>
+   * @public
+   */
+  ModelSignature?: string | undefined;
+
+  /**
+   * <p>The output of a SageMaker Edge Manager deployable resource.</p>
+   * @public
+   */
+  PresetDeploymentOutput?: EdgePresetDeploymentOutput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEndpointInput {
+  /**
+   * <p>The name of the endpoint.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+}
+
+/**
+ * <p>A summary of an instance pool for a production variant, including the instance type and the current number of instances.</p>
+ * @public
+ */
+export interface InstancePoolSummary {
+  /**
+   * <p>The ML compute instance type for the instance pool.</p>
+   * @public
+   */
+  InstanceType: ProductionVariantInstanceType | undefined;
+
+  /**
+   * <p>The current number of instances of this type in the instance pool.</p>
+   * @public
+   */
+  CurrentInstanceCount: number | undefined;
+}
+
+/**
+ * <p>Describes the status of the production variant.</p>
+ * @public
+ */
+export interface ProductionVariantStatus {
+  /**
+   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p> <ul> <li> <p> <code>Creating</code>: Creating inference resources for the production variant.</p> </li> <li> <p> <code>Deleting</code>: Terminating inference resources for the production variant.</p> </li> <li> <p> <code>Updating</code>: Updating capacity for the production variant.</p> </li> <li> <p> <code>ActivatingTraffic</code>: Turning on traffic for the production variant.</p> </li> <li> <p> <code>Baking</code>: Waiting period to monitor the CloudWatch alarms in the automatic rollback configuration.</p> </li> </ul>
+   * @public
+   */
+  Status: VariantStatus | undefined;
+
+  /**
+   * <p>A message that describes the status of the production variant.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The start time of the current status change.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+}
 
 /**
  * <p>The production variant summary for a deployment when an endpoint is creating or updating with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> operations. Describes the <code>VariantStatus </code>, weight and capacity for a production variant associated with an endpoint. </p>
@@ -8956,6 +9234,18 @@ export interface ExtensionSummary {
 }
 
 /**
+ * <p>A version of an extension that you can install on a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ExtensionVersionSummary {
+  /**
+   * <p>The version of the extension, in <code>MAJOR.MINOR.PATCH</code> format, for example <code>1.0.0</code>.</p>
+   * @public
+   */
+  ExtensionVersion: string | undefined;
+}
+
+/**
  * <p>The container for the metadata for Fail step.</p>
  * @public
  */
@@ -11791,331 +12081,4 @@ export interface ListAutoMLJobsResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCandidatesForAutoMLJobRequest {
-  /**
-   * <p>List the candidates created for the job by providing the job's name.</p>
-   * @public
-   */
-  AutoMLJobName: string | undefined;
-
-  /**
-   * <p>List the candidates for the job and filter by status.</p>
-   * @public
-   */
-  StatusEquals?: CandidateStatus | undefined;
-
-  /**
-   * <p>List the candidates for the job and filter by candidate name.</p>
-   * @public
-   */
-  CandidateNameEquals?: string | undefined;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: AutoMLSortOrder | undefined;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortBy?: CandidateSortBy | undefined;
-
-  /**
-   * <p>List the job's candidates up to a specified limit.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCandidatesForAutoMLJobResponse {
-  /**
-   * <p>Summaries about the <code>AutoMLCandidates</code>.</p>
-   * @public
-   */
-  Candidates: AutoMLCandidate[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClusterEventsRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the HyperPod cluster for which to list events.</p>
-   * @public
-   */
-  ClusterName: string | undefined;
-
-  /**
-   * <p>The name of the instance group to filter events. If specified, only events related to this instance group are returned.</p>
-   * @public
-   */
-  InstanceGroupName?: string | undefined;
-
-  /**
-   * <p>The EC2 instance ID to filter events. If specified, only events related to this instance are returned.</p>
-   * @public
-   */
-  NodeId?: string | undefined;
-
-  /**
-   * <p>The start of the time range for filtering events. Only events that occurred after this time are included in the results.</p>
-   * @public
-   */
-  EventTimeAfter?: Date | undefined;
-
-  /**
-   * <p>The end of the time range for filtering events. Only events that occurred before this time are included in the results.</p>
-   * @public
-   */
-  EventTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The field to use for sorting the event list. Currently, the only supported value is <code>EventTime</code>.</p>
-   * @public
-   */
-  SortBy?: EventSortBy | undefined;
-
-  /**
-   * <p>The order in which to sort the results. Valid values are <code>Ascending</code> or <code>Descending</code> (the default is <code>Descending</code>).</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The type of resource for which to filter events. Valid values are <code>Cluster</code>, <code>InstanceGroup</code>, or <code>Instance</code>.</p>
-   * @public
-   */
-  ResourceType?: ClusterEventResourceType | undefined;
-
-  /**
-   * <p>The maximum number of events to return in the response. Valid range is 1 to 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token to retrieve the next set of results. This token is obtained from the output of a previous <code>ListClusterEvents</code> call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClusterEventsResponse {
-  /**
-   * <p>A token to retrieve the next set of results. Include this token in subsequent <code>ListClusterEvents</code> calls to fetch more events.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of event summaries matching the specified criteria.</p>
-   * @public
-   */
-  Events?: ClusterEventSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClusterExtensionsRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster whose extensions you want to list.</p>
-   * @public
-   */
-  ClusterArn: string | undefined;
-
-  /**
-   * <p>The maximum number of extensions to return in the response. If you don't specify a value, SageMaker HyperPod returns up to 100 extensions.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListClusterExtensions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of extensions, use the token in the next request. When you use the <code>CreationTimeAfter</code> or <code>CreationTimeBefore</code> filters, a response can contain fewer extensions than <code>MaxResults</code>, or none, and still include a <code>NextToken</code>. Continue until the response doesn't include a <code>NextToken</code>.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A filter that returns extensions created at or after the specified time. Timestamps are formatted according to the ISO 8601 standard.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns extensions created at or before the specified time. The acceptable formats are the same as the timestamp formats for <code>CreationTimeAfter</code>.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClusterExtensionsResponse {
-  /**
-   * <p>The list of extensions installed on the cluster.</p>
-   * @public
-   */
-  Extensions: ExtensionSummary[] | undefined;
-
-  /**
-   * <p>The next token specified for listing extensions on a SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClusterNodesRequest {
-  /**
-   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster in which you want to retrieve the list of nodes.</p>
-   * @public
-   */
-  ClusterName: string | undefined;
-
-  /**
-   * <p>A filter that returns nodes in a SageMaker HyperPod cluster created after the specified time. Timestamps are formatted according to the ISO 8601 standard. </p> <p>Acceptable formats include:</p> <ul> <li> <p> <code>YYYY-MM-DDThh:mm:ss.sssTZD</code> (UTC), for example, <code>2014-10-01T20:30:00.000Z</code> </p> </li> <li> <p> <code>YYYY-MM-DDThh:mm:ss.sssTZD</code> (with offset), for example, <code>2014-10-01T12:30:00.000-08:00</code> </p> </li> <li> <p> <code>YYYY-MM-DD</code>, for example, <code>2014-10-01</code> </p> </li> <li> <p>Unix time in seconds, for example, <code>1412195400</code>. This is also referred to as Unix Epoch time and represents the number of seconds since midnight, January 1, 1970 UTC.</p> </li> </ul> <p>For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns nodes in a SageMaker HyperPod cluster created before the specified time. The acceptable formats are the same as the timestamp formats for <code>CreationTimeAfter</code>. For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns the instance groups whose name contain a specified string.</p>
-   * @public
-   */
-  InstanceGroupNameContains?: string | undefined;
-
-  /**
-   * <p>The maximum number of nodes to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListClusterNodes</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of cluster nodes, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The field by which to sort results. The default value is <code>CREATION_TIME</code>.</p>
-   * @public
-   */
-  SortBy?: ClusterSortBy | undefined;
-
-  /**
-   * <p>The sort order for results. The default value is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>Specifies whether to include nodes that are still being provisioned in the response. When set to true, the response includes all nodes regardless of their provisioning status. When set to <code>False</code> (default), only nodes with assigned <code>InstanceIds</code> are returned.</p>
-   * @public
-   */
-  IncludeNodeLogicalIds?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClusterNodesResponse {
-  /**
-   * <p>The next token specified for listing instances in a SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The summaries of listed instances in a SageMaker HyperPod cluster</p>
-   * @public
-   */
-  ClusterNodeSummaries: ClusterNodeSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClustersRequest {
-  /**
-   * <p>Set a start time for the time range during which you want to list SageMaker HyperPod clusters. Timestamps are formatted according to the ISO 8601 standard. </p> <p>Acceptable formats include:</p> <ul> <li> <p> <code>YYYY-MM-DDThh:mm:ss.sssTZD</code> (UTC), for example, <code>2014-10-01T20:30:00.000Z</code> </p> </li> <li> <p> <code>YYYY-MM-DDThh:mm:ss.sssTZD</code> (with offset), for example, <code>2014-10-01T12:30:00.000-08:00</code> </p> </li> <li> <p> <code>YYYY-MM-DD</code>, for example, <code>2014-10-01</code> </p> </li> <li> <p>Unix time in seconds, for example, <code>1412195400</code>. This is also referred to as Unix Epoch time and represents the number of seconds since midnight, January 1, 1970 UTC.</p> </li> </ul> <p>For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Set an end time for the time range during which you want to list SageMaker HyperPod clusters. A filter that returns nodes in a SageMaker HyperPod cluster created before the specified time. The acceptable formats are the same as the timestamp formats for <code>CreationTimeAfter</code>. For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Specifies the maximum number of clusters to evaluate for the operation (not necessarily the number of matching items). After SageMaker processes the number of clusters up to <code>MaxResults</code>, it stops the operation and returns the matching clusters up to that point. If all the matching clusters are desired, SageMaker will go through all the clusters until <code>NextToken</code> is empty.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Set the maximum number of instances to print in the list.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>Set the next token to retrieve the list of SageMaker HyperPod clusters.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The field by which to sort results. The default value is <code>CREATION_TIME</code>.</p>
-   * @public
-   */
-  SortBy?: ClusterSortBy | undefined;
-
-  /**
-   * <p>The sort order for results. The default value is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN); of the training plan to filter clusters by. For more information about reserving GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
-   * @public
-   */
-  TrainingPlanArn?: string | undefined;
 }

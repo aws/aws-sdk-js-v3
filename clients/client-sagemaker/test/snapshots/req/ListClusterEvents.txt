@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.ListClusterEvents
-content-length: 289
+content-length: 321
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: dea4a3c5c0dfffa5148541e36fd8f227b57341ba5dc856ca4f86faa16e6edc37
+x-amz-content-sha256: cb659da1bd4ab1fad4b65dc8213484d68818792519d7fad47b6ceda46dd9314c
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [Uint8Array (json)]
@@ -23,6 +23,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
   "SortBy": "__SortBy__",
   "SortOrder": "__SortOrder__",
   "ResourceType": "__ResourceType__",
+  "OperationId": "__OperationId__",
   "MaxResults": 0,
   "NextToken": "__NextToken__"
 }

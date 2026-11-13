@@ -23,7 +23,7 @@ export interface DescribeClusterExtensionCommandInput extends DescribeClusterExt
 export interface DescribeClusterExtensionCommandOutput extends DescribeClusterExtensionResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about an extension installed on a SageMaker HyperPod cluster. The information includes the extension's version, configuration, and status, and a summary of how many cluster nodes are running the current version and configuration of the extension.</p>
+ * <p>Retrieves information about an extension installed on a SageMaker HyperPod cluster. The information includes the extension's version, configuration, and status, and a summary of how many cluster nodes are running the current version and configuration of the extension. If the extension has problems on some nodes, the response also lists the problems and how many nodes each one affects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +52,15 @@ export interface DescribeClusterExtensionCommandOutput extends DescribeClusterEx
  * //   NodeSummary: { // ExtensionNodeSummary
  * //     TotalCount: Number("int"), // required
  * //     ActiveCount: Number("int"), // required
+ * //   },
+ * //   Health: { // ExtensionHealth
+ * //     Issues: [ // ExtensionHealthIssues // required
+ * //       { // ExtensionHealthIssue
+ * //         Code: "InvalidConfiguration" || "ConfigurationConflict" || "AccessDenied" || "ResourceNotFound" || "DependencyUnreachable" || "ExtensionUnhealthy" || "InternalFailure" || "Other", // required
+ * //         Message: "STRING_VALUE", // required
+ * //         NodeCount: Number("int"), // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

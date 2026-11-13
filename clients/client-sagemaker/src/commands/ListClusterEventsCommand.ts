@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListClusterEventsRequest, ListClusterEventsResponse } from "../models/models_3";
+import type { ListClusterEventsRequest, ListClusterEventsResponse } from "../models/models_4";
 import { ListClusterEvents$ } from "../schemas/schemas_0";
 
 /**
@@ -41,6 +41,7 @@ export interface ListClusterEventsCommandOutput extends ListClusterEventsRespons
  *   SortBy: "EventTime",
  *   SortOrder: "Ascending" || "Descending",
  *   ResourceType: "Cluster" || "InstanceGroup" || "Instance",
+ *   OperationId: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -59,6 +60,7 @@ export interface ListClusterEventsCommandOutput extends ListClusterEventsRespons
  * //       EventTime: new Date("TIMESTAMP"), // required
  * //       Description: "STRING_VALUE",
  * //       EventLevel: "Info" || "Warn" || "Error",
+ * //       OperationId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

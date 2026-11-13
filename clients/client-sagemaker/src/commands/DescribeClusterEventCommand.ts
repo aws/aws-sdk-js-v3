@@ -114,6 +114,7 @@ export interface DescribeClusterEventCommandOutput extends DescribeClusterEventR
  * //     },
  * //     Description: "STRING_VALUE",
  * //     EventLevel: "Info" || "Warn" || "Error",
+ * //     OperationId: "STRING_VALUE",
  * //   },
  * // };
  *

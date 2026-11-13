@@ -19,6 +19,25 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "NodeSummary": {
     "TotalCount": 0,
     "ActiveCount": 0
+  },
+  "Health": {
+    "Issues": [
+      {
+        "Code": "__Code__",
+        "Message": "__Message__",
+        "NodeCount": 0
+      },
+      {
+        "Code": "__Code__",
+        "Message": "__Message__",
+        "NodeCount": 0
+      },
+      {
+        "Code": "__Code__",
+        "Message": "__Message__",
+        "NodeCount": 0
+      }
+    ]
   }
 }
 
@@ -38,6 +57,25 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   NodeSummary: {
     TotalCount: (number) 0,
     ActiveCount: (number) 0
+  },
+  Health: {
+    Issues: [
+      {
+        Code: "__Code__",
+        Message: "__Message__",
+        NodeCount: (number) 0
+      },
+      {
+        Code: "__Code__",
+        Message: "__Message__",
+        NodeCount: (number) 0
+      },
+      {
+        Code: "__Code__",
+        Message: "__Message__",
+        NodeCount: (number) 0
+      }
+    ]
   },
   $metadata: {
     httpStatusCode: (number) 200,
@@ -70,6 +108,25 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "NodeSummary": {
     "TotalCount": 0,
     "ActiveCount": 0
+  },
+  "Health": {
+    "Issues": [
+      {
+        "Code": "__Code__",
+        "Message": "__Message__",
+        "NodeCount": 0
+      },
+      {
+        "Code": "__Code__",
+        "Message": "__Message__",
+        "NodeCount": 0
+      },
+      {
+        "Code": "__Code__",
+        "Message": "__Message__",
+        "NodeCount": 0
+      }
+    ]
   }
 }
 
@@ -89,6 +146,25 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   NodeSummary: {
     TotalCount: (number) 0,
     ActiveCount: (number) 0
+  },
+  Health: {
+    Issues: [
+      {
+        Code: "__Code__",
+        Message: "__Message__",
+        NodeCount: (number) 0
+      },
+      {
+        Code: "__Code__",
+        Message: "__Message__",
+        NodeCount: (number) 0
+      },
+      {
+        Code: "__Code__",
+        Message: "__Message__",
+        NodeCount: (number) 0
+      }
+    ]
   },
   $metadata: {
     httpStatusCode: (number) 200,

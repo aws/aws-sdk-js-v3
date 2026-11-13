@@ -126,7 +126,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //         },
  * //       },
  * //       AutoPatchConfig: { // ClusterAutoPatchConfigDetails
- * //         PatchingStrategy: "WhenIdle" || "WhenAllIdle",
+ * //         PatchingStrategy: "WhenIdle" || "WhenAllIdle" || "DrainFirst",
  * //         CurrentPatchSchedule: { // ClusterPatchScheduleDetails
  * //           NextPatchDate: new Date("TIMESTAMP"),
  * //         },
@@ -150,6 +150,11 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //               AlarmName: "STRING_VALUE", // required
  * //             },
  * //           ],
+ * //         },
+ * //         IdleWaitWindowInSeconds: Number("int"),
+ * //         DrainPolicy: { // ClusterDrainPolicy
+ * //           DrainTimeoutInSeconds: Number("int"),
+ * //           OnDrainTimeout: "Force" || "Skip",
  * //         },
  * //       },
  * //       CurrentImageId: "STRING_VALUE",

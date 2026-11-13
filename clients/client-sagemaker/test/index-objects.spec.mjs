@@ -267,6 +267,7 @@ import {
   ClusterCapacityRequirements$,
   ClusterCapacityType,
   ClusterConfigMode,
+  ClusterDrainPolicy$,
   ClusterEbsVolumeConfig$,
   ClusterEventDetail$,
   ClusterEventLevel,
@@ -301,6 +302,13 @@ import {
   ClusterNodeRecovery,
   ClusterNodeSummary$,
   ClusterOnDemandOptions$,
+  ClusterOnDrainTimeout,
+  ClusterOperationScalingConfiguration$,
+  ClusterOperationScalingDetails$,
+  ClusterOperationSortBy,
+  ClusterOperationStatus,
+  ClusterOperationSummary$,
+  ClusterOperationType,
   ClusterOrchestrator$,
   ClusterOrchestratorEksConfig$,
   ClusterOrchestratorSlurmConfig$,
@@ -960,6 +968,10 @@ import {
   DescribeClusterNodeCommand,
   DescribeClusterNodeRequest$,
   DescribeClusterNodeResponse$,
+  DescribeClusterOperation$,
+  DescribeClusterOperationCommand,
+  DescribeClusterOperationRequest$,
+  DescribeClusterOperationResponse$,
   DescribeClusterRequest$,
   DescribeClusterResponse$,
   DescribeClusterSchedulerConfig$,
@@ -1320,9 +1332,13 @@ import {
   ExtendTrainingPlanRequest$,
   ExtendTrainingPlanResponse$,
   ExtensionDetails$,
+  ExtensionHealth$,
+  ExtensionHealthIssue$,
+  ExtensionHealthIssueCode,
   ExtensionNodeSummary$,
   ExtensionStatus,
   ExtensionSummary$,
+  ExtensionVersionSummary$,
   FailStepMetadata$,
   FailureHandlingPolicy,
   FairShare,
@@ -1604,10 +1620,18 @@ import {
   ListClusterExtensionsCommand,
   ListClusterExtensionsRequest$,
   ListClusterExtensionsResponse$,
+  ListClusterExtensionVersions$,
+  ListClusterExtensionVersionsCommand,
+  ListClusterExtensionVersionsRequest$,
+  ListClusterExtensionVersionsResponse$,
   ListClusterNodes$,
   ListClusterNodesCommand,
   ListClusterNodesRequest$,
   ListClusterNodesResponse$,
+  ListClusterOperations$,
+  ListClusterOperationsCommand,
+  ListClusterOperationsRequest$,
+  ListClusterOperationsResponse$,
   ListClusters$,
   ListClusterSchedulerConfigs$,
   ListClusterSchedulerConfigsCommand,
@@ -2132,7 +2156,9 @@ import {
   paginateListCandidatesForAutoMLJob,
   paginateListClusterEvents,
   paginateListClusterExtensions,
+  paginateListClusterExtensionVersions,
   paginateListClusterNodes,
+  paginateListClusterOperations,
   paginateListClusters,
   paginateListClusterSchedulerConfigs,
   paginateListCodeRepositories,
@@ -3257,6 +3283,8 @@ assert(typeof DescribeClusterExtensionCommand === "function");
 assert(typeof DescribeClusterExtension$ === "object");
 assert(typeof DescribeClusterNodeCommand === "function");
 assert(typeof DescribeClusterNode$ === "object");
+assert(typeof DescribeClusterOperationCommand === "function");
+assert(typeof DescribeClusterOperation$ === "object");
 assert(typeof DescribeClusterSchedulerConfigCommand === "function");
 assert(typeof DescribeClusterSchedulerConfig$ === "object");
 assert(typeof DescribeCodeRepositoryCommand === "function");
@@ -3437,8 +3465,12 @@ assert(typeof ListClusterEventsCommand === "function");
 assert(typeof ListClusterEvents$ === "object");
 assert(typeof ListClusterExtensionsCommand === "function");
 assert(typeof ListClusterExtensions$ === "object");
+assert(typeof ListClusterExtensionVersionsCommand === "function");
+assert(typeof ListClusterExtensionVersions$ === "object");
 assert(typeof ListClusterNodesCommand === "function");
 assert(typeof ListClusterNodes$ === "object");
+assert(typeof ListClusterOperationsCommand === "function");
+assert(typeof ListClusterOperations$ === "object");
 assert(typeof ListClustersCommand === "function");
 assert(typeof ListClusters$ === "object");
 assert(typeof ListClusterSchedulerConfigsCommand === "function");
@@ -3938,6 +3970,7 @@ assert(typeof ClusterAutoPatchConfigDetails$ === "object");
 assert(typeof ClusterAutoScalingConfig$ === "object");
 assert(typeof ClusterAutoScalingConfigOutput$ === "object");
 assert(typeof ClusterCapacityRequirements$ === "object");
+assert(typeof ClusterDrainPolicy$ === "object");
 assert(typeof ClusterEbsVolumeConfig$ === "object");
 assert(typeof ClusterEventDetail$ === "object");
 assert(typeof ClusterEventSummary$ === "object");
@@ -3962,6 +3995,9 @@ assert(typeof ClusterNetworkInterfaceDetails$ === "object");
 assert(typeof ClusterNodeDetails$ === "object");
 assert(typeof ClusterNodeSummary$ === "object");
 assert(typeof ClusterOnDemandOptions$ === "object");
+assert(typeof ClusterOperationScalingConfiguration$ === "object");
+assert(typeof ClusterOperationScalingDetails$ === "object");
+assert(typeof ClusterOperationSummary$ === "object");
 assert(typeof ClusterOrchestrator$ === "object");
 assert(typeof ClusterOrchestratorEksConfig$ === "object");
 assert(typeof ClusterOrchestratorSlurmConfig$ === "object");
@@ -4293,6 +4329,8 @@ assert(typeof DescribeClusterExtensionRequest$ === "object");
 assert(typeof DescribeClusterExtensionResponse$ === "object");
 assert(typeof DescribeClusterNodeRequest$ === "object");
 assert(typeof DescribeClusterNodeResponse$ === "object");
+assert(typeof DescribeClusterOperationRequest$ === "object");
+assert(typeof DescribeClusterOperationResponse$ === "object");
 assert(typeof DescribeClusterRequest$ === "object");
 assert(typeof DescribeClusterResponse$ === "object");
 assert(typeof DescribeClusterSchedulerConfigRequest$ === "object");
@@ -4496,8 +4534,11 @@ assert(typeof ExplainerConfig$ === "object");
 assert(typeof ExtendTrainingPlanRequest$ === "object");
 assert(typeof ExtendTrainingPlanResponse$ === "object");
 assert(typeof ExtensionDetails$ === "object");
+assert(typeof ExtensionHealth$ === "object");
+assert(typeof ExtensionHealthIssue$ === "object");
 assert(typeof ExtensionNodeSummary$ === "object");
 assert(typeof ExtensionSummary$ === "object");
+assert(typeof ExtensionVersionSummary$ === "object");
 assert(typeof FailStepMetadata$ === "object");
 assert(typeof FeatureDefinition$ === "object");
 assert(typeof FeatureGroup$ === "object");
@@ -4676,8 +4717,12 @@ assert(typeof ListClusterEventsRequest$ === "object");
 assert(typeof ListClusterEventsResponse$ === "object");
 assert(typeof ListClusterExtensionsRequest$ === "object");
 assert(typeof ListClusterExtensionsResponse$ === "object");
+assert(typeof ListClusterExtensionVersionsRequest$ === "object");
+assert(typeof ListClusterExtensionVersionsResponse$ === "object");
 assert(typeof ListClusterNodesRequest$ === "object");
 assert(typeof ListClusterNodesResponse$ === "object");
+assert(typeof ListClusterOperationsRequest$ === "object");
+assert(typeof ListClusterOperationsResponse$ === "object");
 assert(typeof ListClusterSchedulerConfigsRequest$ === "object");
 assert(typeof ListClusterSchedulerConfigsResponse$ === "object");
 assert(typeof ListClustersRequest$ === "object");
@@ -5432,6 +5477,10 @@ assert(typeof ClusterInterfaceType === "object");
 assert(typeof ClusterKubernetesTaintEffect === "object");
 assert(typeof ClusterNodeProvisioningMode === "object");
 assert(typeof ClusterNodeRecovery === "object");
+assert(typeof ClusterOnDrainTimeout === "object");
+assert(typeof ClusterOperationSortBy === "object");
+assert(typeof ClusterOperationStatus === "object");
+assert(typeof ClusterOperationType === "object");
 assert(typeof ClusterPatchingStrategy === "object");
 assert(typeof ClusterSlurmConfigStrategy === "object");
 assert(typeof ClusterSlurmNodeType === "object");
@@ -5471,6 +5520,7 @@ assert(typeof EventSortBy === "object");
 assert(typeof ExecutionRoleIdentityConfig === "object");
 assert(typeof ExecutionRoleSessionNameMode === "object");
 assert(typeof ExecutionStatus === "object");
+assert(typeof ExtensionHealthIssueCode === "object");
 assert(typeof ExtensionStatus === "object");
 assert(typeof FailureHandlingPolicy === "object");
 assert(typeof FairShare === "object");
@@ -5782,8 +5832,10 @@ assert(typeof paginateListAssociations === "function");
 assert(typeof paginateListAutoMLJobs === "function");
 assert(typeof paginateListCandidatesForAutoMLJob === "function");
 assert(typeof paginateListClusterEvents === "function");
+assert(typeof paginateListClusterExtensionVersions === "function");
 assert(typeof paginateListClusterExtensions === "function");
 assert(typeof paginateListClusterNodes === "function");
+assert(typeof paginateListClusterOperations === "function");
 assert(typeof paginateListClusterSchedulerConfigs === "function");
 assert(typeof paginateListClusters === "function");
 assert(typeof paginateListCodeRepositories === "function");

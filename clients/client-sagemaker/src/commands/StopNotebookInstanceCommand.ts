@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { StopNotebookInstanceInput } from "../models/models_4";
+import type { StopNotebookInstanceInput } from "../models/models_5";
 import { StopNotebookInstance$ } from "../schemas/schemas_0";
 
 /**

@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateActionRequest, UpdateActionResponse } from "../models/models_4";
+import type { UpdateActionRequest, UpdateActionResponse } from "../models/models_5";
 import { UpdateAction$ } from "../schemas/schemas_0";
 
 /**

@@ -262,6 +262,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "AlarmName": "__AlarmName__"
             }
           ]
+        },
+        "IdleWaitWindowInSeconds": 0,
+        "DrainPolicy": {
+          "DrainTimeoutInSeconds": 0,
+          "OnDrainTimeout": "__OnDrainTimeout__"
         }
       },
       "CurrentImageId": "__CurrentImageId__",
@@ -504,6 +509,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "AlarmName": "__AlarmName__"
             }
           ]
+        },
+        "IdleWaitWindowInSeconds": 0,
+        "DrainPolicy": {
+          "DrainTimeoutInSeconds": 0,
+          "OnDrainTimeout": "__OnDrainTimeout__"
         }
       },
       "CurrentImageId": "__CurrentImageId__",
@@ -746,6 +756,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "AlarmName": "__AlarmName__"
             }
           ]
+        },
+        "IdleWaitWindowInSeconds": 0,
+        "DrainPolicy": {
+          "DrainTimeoutInSeconds": 0,
+          "OnDrainTimeout": "__OnDrainTimeout__"
         }
       },
       "CurrentImageId": "__CurrentImageId__",
@@ -1307,6 +1322,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               AlarmName: "__AlarmName__"
             }
           ]
+        },
+        IdleWaitWindowInSeconds: (number) 0,
+        DrainPolicy: {
+          DrainTimeoutInSeconds: (number) 0,
+          OnDrainTimeout: "__OnDrainTimeout__"
         }
       },
       CurrentImageId: "__CurrentImageId__",
@@ -1549,6 +1569,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               AlarmName: "__AlarmName__"
             }
           ]
+        },
+        IdleWaitWindowInSeconds: (number) 0,
+        DrainPolicy: {
+          DrainTimeoutInSeconds: (number) 0,
+          OnDrainTimeout: "__OnDrainTimeout__"
         }
       },
       CurrentImageId: "__CurrentImageId__",
@@ -1791,6 +1816,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               AlarmName: "__AlarmName__"
             }
           ]
+        },
+        IdleWaitWindowInSeconds: (number) 0,
+        DrainPolicy: {
+          DrainTimeoutInSeconds: (number) 0,
+          OnDrainTimeout: "__OnDrainTimeout__"
         }
       },
       CurrentImageId: "__CurrentImageId__",

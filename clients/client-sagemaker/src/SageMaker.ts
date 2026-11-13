@@ -796,6 +796,11 @@ import {
   DescribeClusterNodeCommand,
 } from "./commands/DescribeClusterNodeCommand";
 import {
+  type DescribeClusterOperationCommandInput,
+  type DescribeClusterOperationCommandOutput,
+  DescribeClusterOperationCommand,
+} from "./commands/DescribeClusterOperationCommand";
+import {
   type DescribeClusterSchedulerConfigCommandInput,
   type DescribeClusterSchedulerConfigCommandOutput,
   DescribeClusterSchedulerConfigCommand,
@@ -1242,10 +1247,20 @@ import {
   ListClusterExtensionsCommand,
 } from "./commands/ListClusterExtensionsCommand";
 import {
+  type ListClusterExtensionVersionsCommandInput,
+  type ListClusterExtensionVersionsCommandOutput,
+  ListClusterExtensionVersionsCommand,
+} from "./commands/ListClusterExtensionVersionsCommand";
+import {
   type ListClusterNodesCommandInput,
   type ListClusterNodesCommandOutput,
   ListClusterNodesCommand,
 } from "./commands/ListClusterNodesCommand";
+import {
+  type ListClusterOperationsCommandInput,
+  type ListClusterOperationsCommandOutput,
+  ListClusterOperationsCommand,
+} from "./commands/ListClusterOperationsCommand";
 import {
   type ListClusterSchedulerConfigsCommandInput,
   type ListClusterSchedulerConfigsCommandOutput,
@@ -2042,7 +2057,9 @@ import { paginateListAutoMLJobs } from "./pagination/ListAutoMLJobsPaginator";
 import { paginateListCandidatesForAutoMLJob } from "./pagination/ListCandidatesForAutoMLJobPaginator";
 import { paginateListClusterEvents } from "./pagination/ListClusterEventsPaginator";
 import { paginateListClusterExtensions } from "./pagination/ListClusterExtensionsPaginator";
+import { paginateListClusterExtensionVersions } from "./pagination/ListClusterExtensionVersionsPaginator";
 import { paginateListClusterNodes } from "./pagination/ListClusterNodesPaginator";
+import { paginateListClusterOperations } from "./pagination/ListClusterOperationsPaginator";
 import { paginateListClusterSchedulerConfigs } from "./pagination/ListClusterSchedulerConfigsPaginator";
 import { paginateListClusters } from "./pagination/ListClustersPaginator";
 import { paginateListCodeRepositories } from "./pagination/ListCodeRepositoriesPaginator";
@@ -2306,6 +2323,7 @@ const commands = {
   DescribeClusterEventCommand,
   DescribeClusterExtensionCommand,
   DescribeClusterNodeCommand,
+  DescribeClusterOperationCommand,
   DescribeClusterSchedulerConfigCommand,
   DescribeCodeRepositoryCommand,
   DescribeCompilationJobCommand,
@@ -2396,7 +2414,9 @@ const commands = {
   ListCandidatesForAutoMLJobCommand,
   ListClusterEventsCommand,
   ListClusterExtensionsCommand,
+  ListClusterExtensionVersionsCommand,
   ListClusterNodesCommand,
+  ListClusterOperationsCommand,
   ListClustersCommand,
   ListClusterSchedulerConfigsCommand,
   ListCodeRepositoriesCommand,
@@ -2575,7 +2595,9 @@ const paginators = {
   paginateListCandidatesForAutoMLJob,
   paginateListClusterEvents,
   paginateListClusterExtensions,
+  paginateListClusterExtensionVersions,
   paginateListClusterNodes,
+  paginateListClusterOperations,
   paginateListClusters,
   paginateListClusterSchedulerConfigs,
   paginateListCodeRepositories,
@@ -5451,6 +5473,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DescribeClusterOperationCommand}
+   */
+  describeClusterOperation(
+    args: DescribeClusterOperationCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<DescribeClusterOperationCommandOutput>;
+  describeClusterOperation(
+    args: DescribeClusterOperationCommandInput,
+    cb: (err: any, data?: DescribeClusterOperationCommandOutput) => void
+  ): void;
+  describeClusterOperation(
+    args: DescribeClusterOperationCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: DescribeClusterOperationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeClusterSchedulerConfigCommand}
    */
   describeClusterSchedulerConfig(
@@ -6994,6 +7033,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListClusterExtensionVersionsCommand}
+   */
+  listClusterExtensionVersions(
+    args: ListClusterExtensionVersionsCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<ListClusterExtensionVersionsCommandOutput>;
+  listClusterExtensionVersions(
+    args: ListClusterExtensionVersionsCommandInput,
+    cb: (err: any, data?: ListClusterExtensionVersionsCommandOutput) => void
+  ): void;
+  listClusterExtensionVersions(
+    args: ListClusterExtensionVersionsCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: ListClusterExtensionVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListClusterNodesCommand}
    */
   listClusterNodes(
@@ -7008,6 +7064,23 @@ export interface SageMaker {
     args: ListClusterNodesCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: ListClusterNodesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListClusterOperationsCommand}
+   */
+  listClusterOperations(
+    args: ListClusterOperationsCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<ListClusterOperationsCommandOutput>;
+  listClusterOperations(
+    args: ListClusterOperationsCommandInput,
+    cb: (err: any, data?: ListClusterOperationsCommandOutput) => void
+  ): void;
+  listClusterOperations(
+    args: ListClusterOperationsCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: ListClusterOperationsCommandOutput) => void
   ): void;
 
   /**
@@ -9969,6 +10042,17 @@ export interface SageMaker {
   ): Paginator<ListClusterExtensionsCommandOutput>;
 
   /**
+   * @see {@link ListClusterExtensionVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClusterExtensionVersionsCommandOutput}.
+   */
+  paginateListClusterExtensionVersions(
+    args: ListClusterExtensionVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClusterExtensionVersionsCommandOutput>;
+
+  /**
    * @see {@link ListClusterNodesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -9978,6 +10062,17 @@ export interface SageMaker {
     args: ListClusterNodesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListClusterNodesCommandOutput>;
+
+  /**
+   * @see {@link ListClusterOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClusterOperationsCommandOutput}.
+   */
+  paginateListClusterOperations(
+    args: ListClusterOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClusterOperationsCommandOutput>;
 
   /**
    * @see {@link ListClustersCommand}

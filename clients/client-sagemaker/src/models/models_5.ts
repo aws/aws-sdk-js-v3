@@ -2,6 +2,7 @@
 import type {
   _InstanceType,
   AccountDefaultStatus,
+  ActionStatus,
   ActivationState,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
@@ -38,12 +39,15 @@ import type {
   ClusterAutoScalingConfig,
   ClusterInstanceGroupSpecification,
   ClusterOrchestrator,
-  ClusterRestrictedInstanceGroupsConfig,
+  CodeEditorAppImageConfig,
   DeploymentConfiguration,
   InferenceSpecification,
+  JupyterLabAppImageConfig,
+  KernelGatewayImageConfig,
   Tag,
 } from "./models_0";
 import type {
+  ClusterRestrictedInstanceGroupsConfig,
   ClusterRestrictedInstanceGroupSpecification,
   ClusterTieredStorageConfig,
   ComputeQuotaConfig,
@@ -104,6 +108,191 @@ import type {
   ResourceConfigForUpdate,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface StopNotebookInstanceInput {
+  /**
+   * <p>The name of the notebook instance to terminate.</p>
+   * @public
+   */
+  NotebookInstanceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopOptimizationJobRequest {
+  /**
+   * <p>The name that you assigned to the optimization job.</p>
+   * @public
+   */
+  OptimizationJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopPipelineExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than once.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopPipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopProcessingJobRequest {
+  /**
+   * <p>The name of the processing job to stop.</p>
+   * @public
+   */
+  ProcessingJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTrainingJobRequest {
+  /**
+   * <p>The name of the training job to stop.</p>
+   * @public
+   */
+  TrainingJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTrainingSessionRequest {
+  /**
+   * <p>The name of the training session to stop.</p>
+   * @public
+   */
+  TrainingSessionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTrainingSessionResponse {}
+
+/**
+ * @public
+ */
+export interface StopTransformJobRequest {
+  /**
+   * <p>The name of the batch transform job to stop.</p>
+   * @public
+   */
+  TransformJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateActionRequest {
+  /**
+   * <p>The name of the action to update.</p>
+   * @public
+   */
+  ActionName: string | undefined;
+
+  /**
+   * <p>The new description for the action.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The new status for the action.</p>
+   * @public
+   */
+  Status?: ActionStatus | undefined;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+
+  /**
+   * <p>A list of properties to remove.</p>
+   * @public
+   */
+  PropertiesToRemove?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateActionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the action.</p>
+   * @public
+   */
+  ActionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAppImageConfigRequest {
+  /**
+   * <p>The name of the AppImageConfig to update.</p>
+   * @public
+   */
+  AppImageConfigName: string | undefined;
+
+  /**
+   * <p>The new KernelGateway app to run on the image.</p>
+   * @public
+   */
+  KernelGatewayImageConfig?: KernelGatewayImageConfig | undefined;
+
+  /**
+   * <p>The JupyterLab app running on the image.</p>
+   * @public
+   */
+  JupyterLabAppImageConfig?: JupyterLabAppImageConfig | undefined;
+
+  /**
+   * <p>The Code Editor app running on the image.</p>
+   * @public
+   */
+  CodeEditorAppImageConfig?: CodeEditorAppImageConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAppImageConfigResponse {
+  /**
+   * <p>The ARN for the AppImageConfig.</p>
+   * @public
+   */
+  AppImageConfigArn?: string | undefined;
+}
 
 /**
  * @public

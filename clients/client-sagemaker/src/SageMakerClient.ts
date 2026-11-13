@@ -548,6 +548,10 @@ import type {
   DescribeClusterNodeCommandOutput,
 } from "./commands/DescribeClusterNodeCommand";
 import type {
+  DescribeClusterOperationCommandInput,
+  DescribeClusterOperationCommandOutput,
+} from "./commands/DescribeClusterOperationCommand";
+import type {
   DescribeClusterSchedulerConfigCommandInput,
   DescribeClusterSchedulerConfigCommandOutput,
 } from "./commands/DescribeClusterSchedulerConfigCommand";
@@ -844,7 +848,15 @@ import type {
   ListClusterExtensionsCommandInput,
   ListClusterExtensionsCommandOutput,
 } from "./commands/ListClusterExtensionsCommand";
+import type {
+  ListClusterExtensionVersionsCommandInput,
+  ListClusterExtensionVersionsCommandOutput,
+} from "./commands/ListClusterExtensionVersionsCommand";
 import type { ListClusterNodesCommandInput, ListClusterNodesCommandOutput } from "./commands/ListClusterNodesCommand";
+import type {
+  ListClusterOperationsCommandInput,
+  ListClusterOperationsCommandOutput,
+} from "./commands/ListClusterOperationsCommand";
 import type {
   ListClusterSchedulerConfigsCommandInput,
   ListClusterSchedulerConfigsCommandOutput,
@@ -1492,6 +1504,7 @@ export type ServiceInputTypes =
   | DescribeClusterEventCommandInput
   | DescribeClusterExtensionCommandInput
   | DescribeClusterNodeCommandInput
+  | DescribeClusterOperationCommandInput
   | DescribeClusterSchedulerConfigCommandInput
   | DescribeCodeRepositoryCommandInput
   | DescribeCompilationJobCommandInput
@@ -1581,8 +1594,10 @@ export type ServiceInputTypes =
   | ListAutoMLJobsCommandInput
   | ListCandidatesForAutoMLJobCommandInput
   | ListClusterEventsCommandInput
+  | ListClusterExtensionVersionsCommandInput
   | ListClusterExtensionsCommandInput
   | ListClusterNodesCommandInput
+  | ListClusterOperationsCommandInput
   | ListClusterSchedulerConfigsCommandInput
   | ListClustersCommandInput
   | ListCodeRepositoriesCommandInput
@@ -1911,6 +1926,7 @@ export type ServiceOutputTypes =
   | DescribeClusterEventCommandOutput
   | DescribeClusterExtensionCommandOutput
   | DescribeClusterNodeCommandOutput
+  | DescribeClusterOperationCommandOutput
   | DescribeClusterSchedulerConfigCommandOutput
   | DescribeCodeRepositoryCommandOutput
   | DescribeCompilationJobCommandOutput
@@ -2000,8 +2016,10 @@ export type ServiceOutputTypes =
   | ListAutoMLJobsCommandOutput
   | ListCandidatesForAutoMLJobCommandOutput
   | ListClusterEventsCommandOutput
+  | ListClusterExtensionVersionsCommandOutput
   | ListClusterExtensionsCommandOutput
   | ListClusterNodesCommandOutput
+  | ListClusterOperationsCommandOutput
   | ListClusterSchedulerConfigsCommandOutput
   | ListClustersCommandOutput
   | ListCodeRepositoriesCommandOutput

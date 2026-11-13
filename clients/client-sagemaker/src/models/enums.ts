@@ -2572,7 +2572,21 @@ export type CleanupFailureErrorCode = (typeof CleanupFailureErrorCode)[keyof typ
  * @public
  * @enum
  */
+export const ClusterOnDrainTimeout = {
+  FORCE: "Force",
+  SKIP: "Skip",
+} as const;
+/**
+ * @public
+ */
+export type ClusterOnDrainTimeout = (typeof ClusterOnDrainTimeout)[keyof typeof ClusterOnDrainTimeout];
+
+/**
+ * @public
+ * @enum
+ */
 export const ClusterPatchingStrategy = {
+  DRAIN_FIRST: "DrainFirst",
   WHEN_ALL_IDLE: "WhenAllIdle",
   WHEN_IDLE: "WhenIdle",
 } as const;
@@ -2874,6 +2888,45 @@ export const ClusterNodeRecovery = {
  * @public
  */
 export type ClusterNodeRecovery = (typeof ClusterNodeRecovery)[keyof typeof ClusterNodeRecovery];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterOperationStatus = {
+  DONE: "Done",
+  IN_PROGRESS: "InProgress",
+  SUPERSEDED: "Superseded",
+} as const;
+/**
+ * @public
+ */
+export type ClusterOperationStatus = (typeof ClusterOperationStatus)[keyof typeof ClusterOperationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterOperationSortBy = {
+  CREATION_TIME: "CreationTime",
+} as const;
+/**
+ * @public
+ */
+export type ClusterOperationSortBy = (typeof ClusterOperationSortBy)[keyof typeof ClusterOperationSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterOperationType = {
+  DHC: "DeepHealthCheck",
+  SCALING: "Scaling",
+} as const;
+/**
+ * @public
+ */
+export type ClusterOperationType = (typeof ClusterOperationType)[keyof typeof ClusterOperationType];
 
 /**
  * @public
@@ -4909,6 +4962,25 @@ export const ExtensionStatus = {
  * @public
  */
 export type ExtensionStatus = (typeof ExtensionStatus)[keyof typeof ExtensionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExtensionHealthIssueCode = {
+  ACCESS_DENIED: "AccessDenied",
+  CONFIGURATION_CONFLICT: "ConfigurationConflict",
+  DEPENDENCY_UNREACHABLE: "DependencyUnreachable",
+  EXTENSION_UNHEALTHY: "ExtensionUnhealthy",
+  INTERNAL_FAILURE: "InternalFailure",
+  INVALID_CONFIGURATION: "InvalidConfiguration",
+  OTHER: "Other",
+  RESOURCE_NOT_FOUND: "ResourceNotFound",
+} as const;
+/**
+ * @public
+ */
+export type ExtensionHealthIssueCode = (typeof ExtensionHealthIssueCode)[keyof typeof ExtensionHealthIssueCode];
 
 /**
  * @public

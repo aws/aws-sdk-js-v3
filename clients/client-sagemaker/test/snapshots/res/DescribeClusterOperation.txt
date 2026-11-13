@@ -1,0 +1,225 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "OperationId": "__OperationId__",
+  "ClusterArn": "__ClusterArn__",
+  "Type": "__Type__",
+  "Status": "__Status__",
+  "CreationTime": 946702799.999,
+  "ScalingDetails": [
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "Status": "__Status__",
+      "Original": {
+        "CurrentCount": 0,
+        "TargetCount": 0,
+        "MinCount": 0
+      },
+      "Desired": {
+        "CurrentCount": 0,
+        "TargetCount": 0,
+        "MinCount": 0
+      }
+    },
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "Status": "__Status__",
+      "Original": {
+        "CurrentCount": 0,
+        "TargetCount": 0,
+        "MinCount": 0
+      },
+      "Desired": {
+        "CurrentCount": 0,
+        "TargetCount": 0,
+        "MinCount": 0
+      }
+    },
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "Status": "__Status__",
+      "Original": {
+        "CurrentCount": 0,
+        "TargetCount": 0,
+        "MinCount": 0
+      },
+      "Desired": {
+        "CurrentCount": 0,
+        "TargetCount": 0,
+        "MinCount": 0
+      }
+    }
+  ],
+  "DeepHealthCheckDetails": [
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "DeepHealthChecks": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "DeepHealthChecks": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "DeepHealthChecks": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  OperationId: "__OperationId__",
+  ClusterArn: "__ClusterArn__",
+  Type: "__Type__",
+  Status: "__Status__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ScalingDetails: [
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      Status: "__Status__",
+      Original: {
+        CurrentCount: (number) 0,
+        TargetCount: (number) 0,
+        MinCount: (number) 0
+      },
+      Desired: {
+        CurrentCount: (number) 0,
+        TargetCount: (number) 0,
+        MinCount: (number) 0
+      }
+    },
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      Status: "__Status__",
+      Original: {
+        CurrentCount: (number) 0,
+        TargetCount: (number) 0,
+        MinCount: (number) 0
+      },
+      Desired: {
+        CurrentCount: (number) 0,
+        TargetCount: (number) 0,
+        MinCount: (number) 0
+      }
+    },
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      Status: "__Status__",
+      Original: {
+        CurrentCount: (number) 0,
+        TargetCount: (number) 0,
+        MinCount: (number) 0
+      },
+      Desired: {
+        CurrentCount: (number) 0,
+        TargetCount: (number) 0,
+        MinCount: (number) 0
+      }
+    }
+  ],
+  DeepHealthCheckDetails: [
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      DeepHealthChecks: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      DeepHealthChecks: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      DeepHealthChecks: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -451,6 +451,7 @@ const _CDF = "CreateDeviceFleet";
 const _CDFR = "CreateDeviceFleetRequest";
 const _CDL = "ContainerDefinitionList";
 const _CDNL = "CandidateDefinitionNotebookLocation";
+const _CDP = "ClusterDrainPolicy";
 const _CDQJD = "CreateDataQualityJobDefinition";
 const _CDQJDR = "CreateDataQualityJobDefinitionRequest";
 const _CDQJDRr = "CreateDataQualityJobDefinitionResponse";
@@ -651,7 +652,12 @@ const _COJ = "CreateOptimizationJob";
 const _COJR = "CreateOptimizationJobRequest";
 const _COJRr = "CreateOptimizationJobResponse";
 const _COL = "CaptureOptionList";
-const _COSC = "ClusterOrchestratorSlurmConfig";
+const _COS = "ClusterOperationSummary";
+const _COSC = "ClusterOperationScalingConfiguration";
+const _COSCl = "ClusterOrchestratorSlurmConfig";
+const _COSD = "ClusterOperationScalingDetails";
+const _COSDL = "ClusterOperationScalingDetailsList";
+const _COSl = "ClusterOperationSummaries";
 const _COa = "CaptureOptions";
 const _COl = "ClusterOrchestrator";
 const _COo = "CompilerOptions";
@@ -964,6 +970,9 @@ const _DCNRe = "DescribeClusterNodeResponse";
 const _DCNV = "DetachClusterNodeVolume";
 const _DCNVR = "DetachClusterNodeVolumeRequest";
 const _DCNVRe = "DetachClusterNodeVolumeResponse";
+const _DCO = "DescribeClusterOperation";
+const _DCOR = "DescribeClusterOperationRequest";
+const _DCORe = "DescribeClusterOperationResponse";
 const _DCP = "DependencyCopyPath";
 const _DCQ = "DeleteComputeQuota";
 const _DCQR = "DeleteComputeQuotaRequest";
@@ -1086,6 +1095,7 @@ const _DGTC = "DisableGlueTableCreation";
 const _DH = "DurationHours";
 const _DHC = "DebugHookConfig";
 const _DHCC = "DeepHealthCheckConfigurations";
+const _DHCD = "DeepHealthCheckDetails";
 const _DHCR = "DeleteHubContentRequest";
 const _DHCRR = "DeleteHubContentReferenceRequest";
 const _DHCRe = "DescribeHubContentRequest";
@@ -1251,7 +1261,7 @@ const _DOJRe = "DescribeOptimizationJobRequest";
 const _DOJRes = "DescribeOptimizationJobResponse";
 const _DOJe = "DescribeOptimizationJob";
 const _DOP = "DependencyOriginPath";
-const _DP = "DataProcessing";
+const _DP = "DrainPolicy";
 const _DPA = "DeletePartnerApp";
 const _DPAR = "DeletePartnerAppRequest";
 const _DPARe = "DeletePartnerAppResponse";
@@ -1277,6 +1287,7 @@ const _DPRe = "DeletePipelineResponse";
 const _DPRes = "DescribePipelineRequest";
 const _DPResc = "DescribePipelineResponse";
 const _DPS = "DesiredPatchSchedule";
+const _DPa = "DataProcessing";
 const _DPe = "DeleteProperties";
 const _DPel = "DeletePipeline";
 const _DPele = "DeleteProject";
@@ -1354,6 +1365,7 @@ const _DTCRis = "DisassociateTrialComponentResponse";
 const _DTCe = "DescribeTrialComponent";
 const _DTCi = "DisassociateTrialComponent";
 const _DTI = "DeleteTagsInput";
+const _DTIS = "DrainTimeoutInSeconds";
 const _DTJ = "DeleteTrainingJob";
 const _DTJR = "DeleteTrainingJobRequest";
 const _DTJRe = "DescribeTrainingJobRequest";
@@ -1409,9 +1421,10 @@ const _DWel = "DeleteWorkteam";
 const _DWes = "DescribeWorkforce";
 const _DWesc = "DescribeWorkteam";
 const _Da = "Database";
-const _De = "Device";
+const _De = "Desired";
 const _Des = "Destination";
-const _Dev = "Devices";
+const _Dev = "Device";
+const _Devi = "Devices";
 const _Di = "Direction";
 const _Dim = "Dimension";
 const _Do = "Domain";
@@ -1475,6 +1488,9 @@ const _EEn = "EnableExplanations";
 const _EFA = "ExcludeFeaturesAttribute";
 const _EFSFS = "EFSFileSystem";
 const _EFSFSC = "EFSFileSystemConfig";
+const _EH = "ExtensionHealth";
+const _EHI = "ExtensionHealthIssue";
+const _EHIx = "ExtensionHealthIssues";
 const _EI = "EventId";
 const _EIC = "EndpointInputConfiguration";
 const _EICTE = "EnableInterContainerTrafficEncryption";
@@ -1577,8 +1593,11 @@ const _ETv = "EventTime";
 const _ETva = "EvaluationType";
 const _EV = "EnvironmentVariables";
 const _EVC = "EbsVolumeConfig";
+const _EVS = "ExtensionVersionSummary";
 const _EVSIG = "EbsVolumeSizeInGb";
+const _EVSx = "ExtensionVersionSummaries";
 const _EVx = "ExtensionVersion";
+const _EVxt = "ExtensionVersions";
 const _Ed = "Edge";
 const _Edg = "Edges";
 const _Ef = "Effect";
@@ -1778,7 +1797,8 @@ const _HTUN = "HumanTaskUiName";
 const _HTUS = "HumanTaskUiStatus";
 const _HTUSu = "HumanTaskUiSummary";
 const _HTUSum = "HumanTaskUiSummaries";
-const _He = "Header";
+const _He = "Health";
+const _Hea = "Header";
 const _I = "Identifier";
 const _IA = "InferenceAttribute";
 const _IALMA = "InitialActiveLearningModelArn";
@@ -1938,6 +1958,7 @@ const _IVN = "ImageVersionNumber";
 const _IVS = "ImageVersionStatus";
 const _IVW = "InitialVariantWeight";
 const _IVm = "ImageVersions";
+const _IWWIS = "IdleWaitWindowInSeconds";
 const _Id = "Id";
 const _Im = "Image";
 const _Ima = "Images";
@@ -1945,7 +1966,8 @@ const _In = "Index";
 const _Inl = "Inline";
 const _Inp = "Input";
 const _Ins = "Instance";
-const _Is = "Issuer";
+const _Is = "Issues";
+const _Iss = "Issuer";
 const _It = "Item";
 const _J = "Job";
 const _JA = "JobArn";
@@ -2039,6 +2061,9 @@ const _LCER = "ListClusterEventsRequest";
 const _LCERi = "ListClusterEventsResponse";
 const _LCERis = "ListClusterExtensionsRequest";
 const _LCERist = "ListClusterExtensionsResponse";
+const _LCEV = "ListClusterExtensionVersions";
+const _LCEVR = "ListClusterExtensionVersionsRequest";
+const _LCEVRi = "ListClusterExtensionVersionsResponse";
 const _LCEi = "ListClusterExtensions";
 const _LCFAMLJ = "ListCandidatesForAutoMLJob";
 const _LCFAMLJR = "ListCandidatesForAutoMLJobRequest";
@@ -2051,6 +2076,9 @@ const _LCN = "LifecycleConfigName";
 const _LCNR = "ListClusterNodesRequest";
 const _LCNRi = "ListClusterNodesResponse";
 const _LCNi = "ListClusterNodes";
+const _LCO = "ListClusterOperations";
+const _LCOR = "ListClusterOperationsRequest";
+const _LCORi = "ListClusterOperationsResponse";
 const _LCQ = "ListComputeQuotas";
 const _LCQR = "ListComputeQuotasRequest";
 const _LCQRi = "ListComputeQuotasResponse";
@@ -2653,6 +2681,7 @@ const _NC = "NotificationConfig";
 const _NCa = "NameContains";
 const _NCe = "NetworkConfig";
 const _NCo = "NotificationConfiguration";
+const _NCod = "NodeCount";
 const _ND = "NodeDetails";
 const _NF = "NestedFilters";
 const _NFL = "NestedFiltersList";
@@ -2697,7 +2726,7 @@ const _NTe = "NextToken";
 const _NV = "NumberValue";
 const _NVC = "NeoVpcConfig";
 const _Na = "Namespace";
-const _O = "Outcome";
+const _O = "Original";
 const _OA = "OutputArtifacts";
 const _OATR = "OutputArtifactsToRemove";
 const _OBTJ = "OverallBestTrainingJob";
@@ -2714,12 +2743,14 @@ const _OD = "OptimizationDetails";
 const _ODC = "OutputDataConfig";
 const _ODCf = "OfflineDeviceCount";
 const _ODSU = "OutputDatasetS3Uri";
+const _ODT = "OnDrainTimeout";
 const _ODn = "OnDemand";
 const _OE = "OptimizationEnvironment";
 const _OET = "OptimizationEndTime";
 const _OEv = "OverrideEnvironment";
 const _OF = "OutputFormat";
 const _OFu = "OutputFilter";
+const _OI = "OperationId";
 const _OIC = "OnInitComplete";
 const _OJA = "OptimizationJobArn";
 const _OJMS = "OptimizationJobModelSource";
@@ -2763,7 +2794,8 @@ const _OVCp = "OptimizationVpcConfig";
 const _Op = "Operator";
 const _Or = "Orchestrator";
 const _Os = "Os";
-const _Ou = "Outputs";
+const _Ou = "Outcome";
+const _Out = "Outputs";
 const _P = "Parameters";
 const _PA = "ProbabilityAttribute";
 const _PAC = "PartnerAppConfig";
@@ -3162,6 +3194,7 @@ const _SDS = "S3DataSource";
 const _SDSn = "SnsDataSource";
 const _SDT = "S3DataType";
 const _SDTu = "SupportsDistributedTraining";
+const _SDc = "ScalingDetails";
 const _SDo = "SourceDetail";
 const _SDp = "SpaceDetails";
 const _SDt = "StatusDetails";
@@ -4756,13 +4789,13 @@ export var ClusterAccountingDatabase$: StaticStructureSchema = [3, n0, _CAD,
 ];
 export var ClusterAutoPatchConfig$: StaticStructureSchema = [3, n0, _CAPC,
   0,
-  [_PS, _PSa, _DCe],
-  [0, () => ClusterPatchSchedule$, () => DeploymentConfiguration$], 1
+  [_PS, _PSa, _DCe, _IWWIS, _DP],
+  [0, () => ClusterPatchSchedule$, () => DeploymentConfiguration$, 1, () => ClusterDrainPolicy$], 1
 ];
 export var ClusterAutoPatchConfigDetails$: StaticStructureSchema = [3, n0, _CAPCD,
   0,
-  [_PS, _CPS, _DPS, _DCe],
-  [0, () => ClusterPatchScheduleDetails$, () => ClusterPatchScheduleDetails$, () => DeploymentConfiguration$]
+  [_PS, _CPS, _DPS, _DCe, _IWWIS, _DP],
+  [0, () => ClusterPatchScheduleDetails$, () => ClusterPatchScheduleDetails$, () => DeploymentConfiguration$, 1, () => ClusterDrainPolicy$]
 ];
 export var ClusterAutoScalingConfig$: StaticStructureSchema = [3, n0, _CASC,
   0,
@@ -4779,6 +4812,11 @@ export var ClusterCapacityRequirements$: StaticStructureSchema = [3, n0, _CCR,
   [_Sp, _ODn],
   [() => ClusterSpotOptions$, () => ClusterOnDemandOptions$]
 ];
+export var ClusterDrainPolicy$: StaticStructureSchema = [3, n0, _CDP,
+  0,
+  [_DTIS, _ODT],
+  [1, 0]
+];
 export var ClusterEbsVolumeConfig$: StaticStructureSchema = [3, n0, _CEVC,
   0,
   [_VSIGB, _VKKI, _RV],
@@ -4786,13 +4824,13 @@ export var ClusterEbsVolumeConfig$: StaticStructureSchema = [3, n0, _CEVC,
 ];
 export var ClusterEventDetail$: StaticStructureSchema = [3, n0, _CED,
   0,
-  [_EI, _CAl, _CNl, _RT, _ETv, _IGN, _II, _ED, _D, _EL],
-  [0, 0, 0, 0, 4, 0, 0, () => EventDetails$, 0, 0], 5
+  [_EI, _CAl, _CNl, _RT, _ETv, _IGN, _II, _ED, _D, _EL, _OI],
+  [0, 0, 0, 0, 4, 0, 0, () => EventDetails$, 0, 0, 0], 5
 ];
 export var ClusterEventSummary$: StaticStructureSchema = [3, n0, _CES,
   0,
-  [_EI, _CAl, _CNl, _RT, _ETv, _IGN, _II, _D, _EL],
-  [0, 0, 0, 0, 4, 0, 0, 0, 0], 5
+  [_EI, _CAl, _CNl, _RT, _ETv, _IGN, _II, _D, _EL, _OI],
+  [0, 0, 0, 0, 4, 0, 0, 0, 0, 0], 5
 ];
 export var ClusterFsxLustreConfig$: StaticStructureSchema = [3, n0, _CFLC,
   0,
@@ -4894,6 +4932,21 @@ export var ClusterOnDemandOptions$: StaticStructureSchema = [3, n0, _CODO,
   [],
   []
 ];
+export var ClusterOperationScalingConfiguration$: StaticStructureSchema = [3, n0, _COSC,
+  0,
+  [_CCu, _TCa, _MCi],
+  [1, 1, 1]
+];
+export var ClusterOperationScalingDetails$: StaticStructureSchema = [3, n0, _COSD,
+  0,
+  [_IGN, _St, _O, _De],
+  [0, 0, () => ClusterOperationScalingConfiguration$, () => ClusterOperationScalingConfiguration$]
+];
+export var ClusterOperationSummary$: StaticStructureSchema = [3, n0, _COS,
+  0,
+  [_OI, _CAl, _T, _St, _CT],
+  [0, 0, 0, 0, 4]
+];
 export var ClusterOrchestrator$: StaticStructureSchema = [3, n0, _COl,
   0,
   [_Ek, _Sl],
@@ -4904,7 +4957,7 @@ export var ClusterOrchestratorEksConfig$: StaticStructureSchema = [3, n0, _COEC,
   [_CAl],
   [0], 1
 ];
-export var ClusterOrchestratorSlurmConfig$: StaticStructureSchema = [3, n0, _COSC,
+export var ClusterOrchestratorSlurmConfig$: StaticStructureSchema = [3, n0, _COSCl,
   0,
   [_SCS, _ADc],
   [0, () => ClusterAccountingDatabase$]
@@ -5041,7 +5094,7 @@ export var ComputeQuotaTarget$: StaticStructureSchema = [3, n0, _CQT,
 ];
 export var ConditionStepMetadata$: StaticStructureSchema = [3, n0, _CSMo,
   0,
-  [_O],
+  [_Ou],
   [0]
 ];
 export var ContainerConfig$: StaticStructureSchema = [3, n0, _CCon,
@@ -5756,7 +5809,7 @@ export var CreateTrainingSessionResponse$: StaticStructureSchema = [3, n0, _CTSR
 ];
 export var CreateTransformJobRequest$: StaticStructureSchema = [3, n0, _CTJRre,
   0,
-  [_TJNr, _MNod, _TIr, _TO, _TR, _MCT, _MCCo, _MPIMB, _BS, _E, _DCC, _DP, _Ta, _ECxp],
+  [_TJNr, _MNod, _TIr, _TO, _TR, _MCT, _MCCo, _MPIMB, _BS, _E, _DCC, _DPa, _Ta, _ECxp],
   [0, 0, () => TransformInput$, () => TransformOutput$, () => TransformResources$, 1, () => ModelClientConfig$, 1, 0, 128 | 0, () => BatchDataCaptureConfig$, () => DataProcessing$, () => TagList, () => ExperimentConfig$], 5
 ];
 export var CreateTransformJobResponse$: StaticStructureSchema = [3, n0, _CTJRrea,
@@ -5849,7 +5902,7 @@ export var DataCatalogConfig$: StaticStructureSchema = [3, n0, _DCCa,
   [_TNa, _Ca, _Da],
   [0, 0, 0], 3
 ];
-export var DataProcessing$: StaticStructureSchema = [3, n0, _DP,
+export var DataProcessing$: StaticStructureSchema = [3, n0, _DPa,
   0,
   [_IF, _OFu, _JS],
   [0, 0, 0]
@@ -6521,8 +6574,8 @@ export var DescribeClusterExtensionRequest$: StaticStructureSchema = [3, n0, _DC
 ];
 export var DescribeClusterExtensionResponse$: StaticStructureSchema = [3, n0, _DCERescri,
   0,
-  [_EDx, _NS],
-  [() => ExtensionDetails$, () => ExtensionNodeSummary$], 1
+  [_EDx, _NS, _He],
+  [() => ExtensionDetails$, () => ExtensionNodeSummary$, () => ExtensionHealth$], 1
 ];
 export var DescribeClusterNodeRequest$: StaticStructureSchema = [3, n0, _DCNR,
   0,
@@ -6533,6 +6586,16 @@ export var DescribeClusterNodeResponse$: StaticStructureSchema = [3, n0, _DCNRe,
   0,
   [_ND],
   [() => ClusterNodeDetails$], 1
+];
+export var DescribeClusterOperationRequest$: StaticStructureSchema = [3, n0, _DCOR,
+  0,
+  [_CNl, _OI],
+  [0, 0], 2
+];
+export var DescribeClusterOperationResponse$: StaticStructureSchema = [3, n0, _DCORe,
+  0,
+  [_OI, _CAl, _T, _St, _CT, _SDc, _DHCD],
+  [0, 0, 0, 0, 4, () => ClusterOperationScalingDetailsList, () => DeepHealthCheckConfigurations]
 ];
 export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
@@ -7131,7 +7194,7 @@ export var DescribeTransformJobRequest$: StaticStructureSchema = [3, n0, _DTJRes
 ];
 export var DescribeTransformJobResponse$: StaticStructureSchema = [3, n0, _DTJRescr,
   0,
-  [_TJNr, _TJAr, _TJSr, _MNod, _TIr, _TR, _CT, _FR, _MCT, _MCCo, _MPIMB, _BS, _E, _TO, _DCC, _TSTr, _TETr, _LJA, _AMLJAu, _DP, _ECxp],
+  [_TJNr, _TJAr, _TJSr, _MNod, _TIr, _TR, _CT, _FR, _MCT, _MCCo, _MPIMB, _BS, _E, _TO, _DCC, _TSTr, _TETr, _LJA, _AMLJAu, _DPa, _ECxp],
   [0, 0, 0, 0, () => TransformInput$, () => TransformResources$, 4, 0, 1, () => ModelClientConfig$, 1, 0, 128 | 0, () => TransformOutput$, () => BatchDataCaptureConfig$, 4, 4, 0, 0, () => DataProcessing$, () => ExperimentConfig$], 7
 ];
 export var DescribeTrialComponentRequest$: StaticStructureSchema = [3, n0, _DTCRes,
@@ -7199,7 +7262,7 @@ export var DetachClusterNodeVolumeResponse$: StaticStructureSchema = [3, n0, _DC
   [_CAl, _NI, _VI, _ATt, _St, _DNe],
   [0, 0, 0, 4, 0, 0], 6
 ];
-export var Device$: StaticStructureSchema = [3, n0, _De,
+export var Device$: StaticStructureSchema = [3, n0, _Dev,
   0,
   [_DNe, _D, _ITN],
   [0, 0, 0], 1
@@ -7544,6 +7607,16 @@ export var ExtensionDetails$: StaticStructureSchema = [3, n0, _EDx,
   [_CAl, _EA, _EN, _EVx, _St, _CV, _CT, _LMT],
   [0, 0, 0, 0, 0, 0, 4, 4], 5
 ];
+export var ExtensionHealth$: StaticStructureSchema = [3, n0, _EH,
+  0,
+  [_Is],
+  [() => ExtensionHealthIssues], 1
+];
+export var ExtensionHealthIssue$: StaticStructureSchema = [3, n0, _EHI,
+  0,
+  [_Cod, _M, _NCod],
+  [0, 0, 1], 3
+];
 export var ExtensionNodeSummary$: StaticStructureSchema = [3, n0, _ENS,
   0,
   [_TCo, _ACct],
@@ -7553,6 +7626,11 @@ export var ExtensionSummary$: StaticStructureSchema = [3, n0, _ESxt,
   0,
   [_EA, _EN, _EVx, _St, _CT],
   [0, 0, 0, 0, 4], 4
+];
+export var ExtensionVersionSummary$: StaticStructureSchema = [3, n0, _EVS,
+  0,
+  [_EVx],
+  [0], 1
 ];
 export var FailStepMetadata$: StaticStructureSchema = [3, n0, _FSM,
   0,
@@ -8426,8 +8504,8 @@ export var ListCandidatesForAutoMLJobResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var ListClusterEventsRequest$: StaticStructureSchema = [3, n0, _LCER,
   0,
-  [_CNl, _IGN, _NI, _ETA, _ETB, _SBo, _SO, _RT, _MR, _NTe],
-  [0, 0, 0, 4, 4, 0, 0, 0, 1, 0], 1
+  [_CNl, _IGN, _NI, _ETA, _ETB, _SBo, _SO, _RT, _OI, _MR, _NTe],
+  [0, 0, 0, 4, 4, 0, 0, 0, 0, 1, 0], 1
 ];
 export var ListClusterEventsResponse$: StaticStructureSchema = [3, n0, _LCERi,
   0,
@@ -8444,6 +8522,16 @@ export var ListClusterExtensionsResponse$: StaticStructureSchema = [3, n0, _LCER
   [_Ext, _NTe],
   [() => ExtensionSummaries, 0], 1
 ];
+export var ListClusterExtensionVersionsRequest$: StaticStructureSchema = [3, n0, _LCEVR,
+  0,
+  [_EN, _MR, _NTe],
+  [0, 1, 0], 1
+];
+export var ListClusterExtensionVersionsResponse$: StaticStructureSchema = [3, n0, _LCEVRi,
+  0,
+  [_EVxt, _NTe],
+  [() => ExtensionVersionSummaries, 0], 1
+];
 export var ListClusterNodesRequest$: StaticStructureSchema = [3, n0, _LCNR,
   0,
   [_CNl, _CTA, _CTB, _IGNC, _MR, _NTe, _SBo, _SO, _INLI],
@@ -8453,6 +8541,16 @@ export var ListClusterNodesResponse$: StaticStructureSchema = [3, n0, _LCNRi,
   0,
   [_CNSl, _NTe],
   [() => ClusterNodeSummaries, 0], 1
+];
+export var ListClusterOperationsRequest$: StaticStructureSchema = [3, n0, _LCOR,
+  0,
+  [_CNl, _St, _T, _CTA, _CTB, _SBo, _SO, _MR, _NTe],
+  [0, 0, 0, 4, 4, 0, 0, 1, 0], 1
+];
+export var ListClusterOperationsResponse$: StaticStructureSchema = [3, n0, _LCORi,
+  0,
+  [_NTe, _COSl],
+  [0, () => ClusterOperationSummaries]
 ];
 export var ListClusterSchedulerConfigsRequest$: StaticStructureSchema = [3, n0, _LCSCR,
   0,
@@ -9641,7 +9739,7 @@ export var MonitoringConstraintsResource$: StaticStructureSchema = [3, n0, _MCR,
 ];
 export var MonitoringCsvDatasetFormat$: StaticStructureSchema = [3, n0, _MCDF,
   0,
-  [_He],
+  [_Hea],
   [2]
 ];
 export var MonitoringDatasetFormat$: StaticStructureSchema = [3, n0, _MDF,
@@ -9796,12 +9894,12 @@ export var OfflineStoreStatus$: StaticStructureSchema = [3, n0, _OSS,
 ];
 export var OidcConfig$: StaticStructureSchema = [3, n0, _OCi,
   0,
-  [_CIl, _CS, _Is, _AEu, _TE, _UIE, _LE, _JU, _Sco, _AREP],
+  [_CIl, _CS, _Iss, _AEu, _TE, _UIE, _LE, _JU, _Sco, _AREP],
   [0, [() => ClientSecret, 0], 0, 0, 0, 0, 0, 0, 0, 128 | 0], 8
 ];
 export var OidcConfigForResponse$: StaticStructureSchema = [3, n0, _OCFR,
   0,
-  [_CIl, _Is, _AEu, _TE, _UIE, _LE, _JU, _Sco, _AREP],
+  [_CIl, _Iss, _AEu, _TE, _UIE, _LE, _JU, _Sco, _AREP],
   [0, 0, 0, 0, 0, 0, 0, 0, 128 | 0]
 ];
 export var OidcMemberDefinition$: StaticStructureSchema = [3, n0, _OMD,
@@ -10066,7 +10164,7 @@ export var ProcessingOutput$: StaticStructureSchema = [3, n0, _PO,
 ];
 export var ProcessingOutputConfig$: StaticStructureSchema = [3, n0, _POC,
   0,
-  [_Ou, _KKI],
+  [_Out, _KKI],
   [() => ProcessingOutputs, 0], 1
 ];
 export var ProcessingResources$: StaticStructureSchema = [3, n0, _PR,
@@ -10291,7 +10389,7 @@ export var RedshiftDatasetDefinition$: StaticStructureSchema = [3, n0, _RDD,
 ];
 export var RegisterDevicesRequest$: StaticStructureSchema = [3, n0, _RDR,
   0,
-  [_DFN, _Dev, _Ta],
+  [_DFN, _Devi, _Ta],
   [0, () => Devices, () => TagList], 2
 ];
 export var RegisterModelStepMetadata$: StaticStructureSchema = [3, n0, _RMSM,
@@ -11121,7 +11219,7 @@ export var TransformInput$: StaticStructureSchema = [3, n0, _TIr,
 ];
 export var TransformJob$: StaticStructureSchema = [3, n0, _TJr,
   0,
-  [_TJNr, _TJAr, _TJSr, _FR, _MNod, _MCT, _MCCo, _MPIMB, _BS, _E, _TIr, _TO, _DCC, _TR, _CT, _TSTr, _TETr, _LJA, _AMLJAu, _DP, _ECxp, _Ta],
+  [_TJNr, _TJAr, _TJSr, _FR, _MNod, _MCT, _MCCo, _MPIMB, _BS, _E, _TIr, _TO, _DCC, _TR, _CT, _TSTr, _TETr, _LJA, _AMLJAu, _DPa, _ECxp, _Ta],
   [0, 0, 0, 0, 0, 1, () => ModelClientConfig$, 1, 0, 128 | 0, () => TransformInput$, () => TransformOutput$, () => BatchDataCaptureConfig$, () => TransformResources$, 4, 4, 4, 0, 0, () => DataProcessing$, () => ExperimentConfig$, () => TagList]
 ];
 export var TransformJobDefinition$: StaticStructureSchema = [3, n0, _TJDr,
@@ -11376,7 +11474,7 @@ export var UpdateDeviceFleetRequest$: StaticStructureSchema = [3, n0, _UDFR,
 ];
 export var UpdateDevicesRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
-  [_DFN, _Dev],
+  [_DFN, _Devi],
   [0, () => Devices], 2
 ];
 export var UpdateDomainRequest$: StaticStructureSchema = [3, n0, _UDRp,
@@ -12009,6 +12107,12 @@ var ClusterNodeLogicalIdList = 64 | 0;
 var ClusterNodeSummaries: StaticListSchema = [1, n0, _CNSl,
   0, () => ClusterNodeSummary$
 ];
+var ClusterOperationScalingDetailsList: StaticListSchema = [1, n0, _COSDL,
+  0, () => ClusterOperationScalingDetails$
+];
+var ClusterOperationSummaries: StaticListSchema = [1, n0, _COSl,
+  0, () => ClusterOperationSummary$
+];
 var ClusterPartitionNames = 64 | 0;
 var ClusterRestrictedInstanceGroupDetailsList: StaticListSchema = [1, n0, _CRIGDL,
   0, () => ClusterRestrictedInstanceGroupDetails$
@@ -12100,7 +12204,7 @@ var DeviceFleetSummaries: StaticListSchema = [1, n0, _DFSe,
   0, () => DeviceFleetSummary$
 ];
 var DeviceNames = 64 | 0;
-var Devices: StaticListSchema = [1, n0, _Dev,
+var Devices: StaticListSchema = [1, n0, _Devi,
   0, () => Device$
 ];
 var DeviceSummaries: StaticListSchema = [1, n0, _DSevic,
@@ -12161,8 +12265,14 @@ var ExpectedPerformanceList: StaticListSchema = [1, n0, _EPL,
 var ExperimentSummaries: StaticListSchema = [1, n0, _ESxpe,
   0, () => ExperimentSummary$
 ];
+var ExtensionHealthIssues: StaticListSchema = [1, n0, _EHIx,
+  0, () => ExtensionHealthIssue$
+];
 var ExtensionSummaries: StaticListSchema = [1, n0, _ESxte,
   0, () => ExtensionSummary$
+];
+var ExtensionVersionSummaries: StaticListSchema = [1, n0, _EVSx,
+  0, () => ExtensionVersionSummary$
 ];
 var FeatureAdditions: StaticListSchema = [1, n0, _FAe,
   0, () => FeatureDefinition$
@@ -13282,6 +13392,9 @@ export var DescribeClusterExtension$: StaticOperationSchema = [9, n0, _DCEesc,
 export var DescribeClusterNode$: StaticOperationSchema = [9, n0, _DCN,
   0, () => DescribeClusterNodeRequest$, () => DescribeClusterNodeResponse$
 ];
+export var DescribeClusterOperation$: StaticOperationSchema = [9, n0, _DCO,
+  0, () => DescribeClusterOperationRequest$, () => DescribeClusterOperationResponse$
+];
 export var DescribeClusterSchedulerConfig$: StaticOperationSchema = [9, n0, _DCSCe,
   0, () => DescribeClusterSchedulerConfigRequest$, () => DescribeClusterSchedulerConfigResponse$
 ];
@@ -13552,8 +13665,14 @@ export var ListClusterEvents$: StaticOperationSchema = [9, n0, _LCE,
 export var ListClusterExtensions$: StaticOperationSchema = [9, n0, _LCEi,
   0, () => ListClusterExtensionsRequest$, () => ListClusterExtensionsResponse$
 ];
+export var ListClusterExtensionVersions$: StaticOperationSchema = [9, n0, _LCEV,
+  0, () => ListClusterExtensionVersionsRequest$, () => ListClusterExtensionVersionsResponse$
+];
 export var ListClusterNodes$: StaticOperationSchema = [9, n0, _LCNi,
   0, () => ListClusterNodesRequest$, () => ListClusterNodesResponse$
+];
+export var ListClusterOperations$: StaticOperationSchema = [9, n0, _LCO,
+  0, () => ListClusterOperationsRequest$, () => ListClusterOperationsResponse$
 ];
 export var ListClusters$: StaticOperationSchema = [9, n0, _LCi,
   0, () => ListClustersRequest$, () => ListClustersResponse$

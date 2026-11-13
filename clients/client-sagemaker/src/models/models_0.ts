@@ -52,12 +52,14 @@ import type {
   ClusterCapacityType,
   ClusterEventLevel,
   ClusterEventResourceType,
-  ClusterFSxLustreDeletionPolicy,
   ClusterImageVersionStatus,
   ClusterInstanceStatus,
   ClusterInstanceType,
   ClusterInterfaceType,
   ClusterKubernetesTaintEffect,
+  ClusterOnDrainTimeout,
+  ClusterOperationStatus,
+  ClusterOperationType,
   ClusterPatchingStrategy,
   ClusterSlurmConfigStrategy,
   ClusterSlurmNodeType,
@@ -6368,6 +6370,24 @@ export interface DeploymentConfiguration {
 }
 
 /**
+ * <p>Specifies how pods are evicted from an instance before it is patched with the <code>DrainFirst</code> strategy. By default, evictions respect Kubernetes Pod Disruption Budgets.</p>
+ * @public
+ */
+export interface ClusterDrainPolicy {
+  /**
+   * <p>The maximum time, in seconds, to wait for the pods on an instance to drain. Valid values are from 0 to 5400 (90 minutes). The default is 3600 (1 hour).</p>
+   * @public
+   */
+  DrainTimeoutInSeconds?: number | undefined;
+
+  /**
+   * <p>The action to take if the pods on an instance don't drain within <code>DrainTimeoutInSeconds</code>. The default is <code>Skip</code>.</p> <ul> <li> <p> <code>Skip</code>: Doesn't patch the instance. The instance is uncordoned and remains on the previous AMI version. This can leave the instance group partially patched. You can then use UpdateClusterSoftware with the desired ImageReleaseVersion to manually update the remaining instances.</p> </li> <li> <p> <code>Force</code>: Deletes the remaining pods without respecting Pod Disruption Budgets, and then patches the instance.</p> </li> </ul>
+   * @public
+   */
+  OnDrainTimeout?: ClusterOnDrainTimeout | undefined;
+}
+
+/**
  * <p>The schedule configuration for automatic patching.</p>
  * @public
  */
@@ -6385,7 +6405,7 @@ export interface ClusterPatchSchedule {
  */
 export interface ClusterAutoPatchConfig {
   /**
-   * <p>The strategy for applying patches to instances in the group.</p> <ul> <li> <p> <code>WhenIdle</code>: Cordons all instances and patches each instance as it becomes idle (no running jobs). Each instance is uncordoned immediately after patching and becomes available for new jobs. If instances do not become idle, they remain on the previous AMI version. You can then use UpdateClusterSoftware with the desired ImageReleaseVersion to manually update the remaining instances.</p> </li> <li> <p> <code>WhenAllIdle</code>: Cordons all instances and waits for all to become idle before patching. All instances are uncordoned after patching completes. If not all instances become idle, no patching occurs and all instances remain on the previous AMI version.</p> </li> </ul>
+   * <p>The strategy for applying patches to instances in the group.</p> <ul> <li> <p> <code>WhenIdle</code>: Cordons all instances and patches each instance as it becomes idle (no running jobs). Each instance is uncordoned immediately after patching and becomes available for new jobs. If instances do not become idle, they remain on the previous AMI version. You can then use UpdateClusterSoftware with the desired ImageReleaseVersion to manually update the remaining instances.</p> </li> <li> <p> <code>WhenAllIdle</code>: Cordons all instances and waits for all to become idle before patching. All instances are uncordoned after patching completes. If not all instances become idle, no patching occurs and all instances remain on the previous AMI version.</p> </li> <li> <p> <code>DrainFirst</code>: Designed for workloads that never become idle, such as inference. Cordons instances, evicts the running pods, and then patches each instance in batches. Each instance is uncordoned after patching. Use <code>DrainPolicy</code> to control how long to wait for pods to drain and what happens if the drain times out. Requires <code>MaximumBatchSize</code> in <code>DeploymentConfig</code>. Available only for clusters that use Amazon EKS as the orchestrator.</p> </li> </ul>
    * @public
    */
   PatchingStrategy: ClusterPatchingStrategy | undefined;
@@ -6401,6 +6421,18 @@ export interface ClusterAutoPatchConfig {
    * @public
    */
   DeploymentConfig?: DeploymentConfiguration | undefined;
+
+  /**
+   * <p>The maximum time, in seconds, that automatic patching waits for instances to become idle after a scheduled patch starts. Automatic patching uncordons instances that don't become idle within this window, and they remain on the previous AMI version. Valid values are from 3600 (1 hour) to 2160000 (25 days). The default is 86400 (24 hours). This setting applies only to the <code>WhenIdle</code> and <code>WhenAllIdle</code> strategies.</p>
+   * @public
+   */
+  IdleWaitWindowInSeconds?: number | undefined;
+
+  /**
+   * <p>The policy that controls how pods are evicted from an instance before it is patched. Valid only when <code>PatchingStrategy</code> is <code>DrainFirst</code>.</p>
+   * @public
+   */
+  DrainPolicy?: ClusterDrainPolicy | undefined;
 }
 
 /**
@@ -6421,7 +6453,7 @@ export interface ClusterPatchScheduleDetails {
  */
 export interface ClusterAutoPatchConfigDetails {
   /**
-   * <p>The strategy used for applying patches to instances in the group.</p> <ul> <li> <p> <code>WhenIdle</code>: Cordons all instances and patches each instance as it becomes idle (no running jobs). Each instance is uncordoned immediately after patching and becomes available for new jobs. If instances do not become idle, they remain on the previous AMI version. You can then use UpdateClusterSoftware with the desired ImageReleaseVersion to manually update the remaining instances.</p> </li> <li> <p> <code>WhenAllIdle</code>: Cordons all instances and waits for all to become idle before patching. All instances are uncordoned after patching completes. If not all instances become idle, no patching occurs and all instances remain on the previous AMI version.</p> </li> </ul>
+   * <p>The strategy used for applying patches to instances in the group.</p> <ul> <li> <p> <code>WhenIdle</code>: Cordons all instances and patches each instance as it becomes idle (no running jobs). Each instance is uncordoned immediately after patching and becomes available for new jobs. If instances do not become idle, they remain on the previous AMI version. You can then use UpdateClusterSoftware with the desired ImageReleaseVersion to manually update the remaining instances.</p> </li> <li> <p> <code>WhenAllIdle</code>: Cordons all instances and waits for all to become idle before patching. All instances are uncordoned after patching completes. If not all instances become idle, no patching occurs and all instances remain on the previous AMI version.</p> </li> <li> <p> <code>DrainFirst</code>: Designed for workloads that never become idle, such as inference. Cordons instances, evicts the running pods, and then patches each instance in batches. Each instance is uncordoned after patching. Use <code>DrainPolicy</code> to control how long to wait for pods to drain and what happens if the drain times out. Requires <code>MaximumBatchSize</code> in <code>DeploymentConfig</code>. Available only for clusters that use Amazon EKS as the orchestrator.</p> </li> </ul>
    * @public
    */
   PatchingStrategy?: ClusterPatchingStrategy | undefined;
@@ -6443,6 +6475,18 @@ export interface ClusterAutoPatchConfigDetails {
    * @public
    */
   DeploymentConfig?: DeploymentConfiguration | undefined;
+
+  /**
+   * <p>The maximum time, in seconds, that automatic patching waits for instances to become idle after a scheduled patch starts. Automatic patching uncordons instances that don't become idle within this window, and they remain on the previous AMI version. The default is 86400 (24 hours).</p>
+   * @public
+   */
+  IdleWaitWindowInSeconds?: number | undefined;
+
+  /**
+   * <p>The policy that controls how pods are evicted from an instance before it is patched. Applies only when <code>PatchingStrategy</code> is <code>DrainFirst</code>.</p>
+   * @public
+   */
+  DrainPolicy?: ClusterDrainPolicy | undefined;
 }
 
 /**
@@ -6962,6 +7006,12 @@ export interface ClusterEventDetail {
    * @public
    */
   EventLevel?: ClusterEventLevel | undefined;
+
+  /**
+   * <p>The unique identifier (UUID) of the cluster operation that the event is associated with, such as a scaling operation. This field is not returned when the event is not associated with an operation.</p>
+   * @public
+   */
+  OperationId?: string | undefined;
 }
 
 /**
@@ -7022,6 +7072,12 @@ export interface ClusterEventSummary {
    * @public
    */
   EventLevel?: ClusterEventLevel | undefined;
+
+  /**
+   * <p>The unique identifier (UUID) of the cluster operation that the event is associated with, such as a scaling operation. This field is not returned when the event is not associated with an operation.</p>
+   * @public
+   */
+  OperationId?: string | undefined;
 }
 
 /**
@@ -7988,6 +8044,96 @@ export interface ClusterNodeSummary {
 }
 
 /**
+ * <p>A point-in-time snapshot of an instance group's scaling configuration. This structure represents both the original configuration before the operation and the desired configuration requested by the operation.</p>
+ * @public
+ */
+export interface ClusterOperationScalingConfiguration {
+  /**
+   * <p>The number of instances that were in the instance group at the time of the operation.</p>
+   * @public
+   */
+  CurrentCount?: number | undefined;
+
+  /**
+   * <p>The target number of instances for the instance group.</p>
+   * @public
+   */
+  TargetCount?: number | undefined;
+
+  /**
+   * <p>The minimum number of instances that must be available in the instance group of a HyperPod cluster before it transitions to <code>InService</code> status. </p>
+   * @public
+   */
+  MinCount?: number | undefined;
+}
+
+/**
+ * <p>The scaling details for a single instance group that is affected by a cluster operation.</p>
+ * @public
+ */
+export interface ClusterOperationScalingDetails {
+  /**
+   * <p>The name of the instance group being scaled.</p>
+   * @public
+   */
+  InstanceGroupName?: string | undefined;
+
+  /**
+   * <p>The status of the scaling operation for this instance group. Valid values are <code>InProgress</code>, <code>Superseded</code>, or <code>Done</code>.</p>
+   * @public
+   */
+  Status?: ClusterOperationStatus | undefined;
+
+  /**
+   * <p>The scaling configuration of the instance group before the scaling operation was applied, including its current, target, and minimum instance counts.</p>
+   * @public
+   */
+  Original?: ClusterOperationScalingConfiguration | undefined;
+
+  /**
+   * <p>The desired scaling configuration of the instance group for the scaling operation, including its target and minimum instance counts.</p>
+   * @public
+   */
+  Desired?: ClusterOperationScalingConfiguration | undefined;
+}
+
+/**
+ * <p>A summary of an operation performed on a HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterOperationSummary {
+  /**
+   * <p>The unique identifier (UUID) of the operation.</p>
+   * @public
+   */
+  OperationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the HyperPod cluster associated with the operation.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>The type of the operation. Valid values are <code>Scaling</code> or <code>DeepHealthCheck</code>.</p>
+   * @public
+   */
+  Type?: ClusterOperationType | undefined;
+
+  /**
+   * <p>The current status of the operation. Valid values are <code>InProgress</code>, <code>Superseded</code>, or <code>Done</code>.</p>
+   * @public
+   */
+  Status?: ClusterOperationStatus | undefined;
+
+  /**
+   * <p>The timestamp when the operation was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+}
+
+/**
  * <p>The configuration settings for the Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>
  * @public
  */
@@ -8051,142 +8197,4 @@ export interface FSxLustreConfig {
    * @public
    */
   PerUnitStorageThroughput: number | undefined;
-}
-
-/**
- * <p>The configuration details for the restricted instance groups (RIG) environment.</p>
- * @public
- */
-export interface EnvironmentConfigDetails {
-  /**
-   * <p>Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.</p>
-   * @public
-   */
-  FSxLustreConfig?: FSxLustreConfig | undefined;
-
-  /**
-   * <p>The Amazon S3 path where output data from the restricted instance group (RIG) environment will be stored.</p>
-   * @public
-   */
-  S3OutputPath?: string | undefined;
-}
-
-/**
- * <p>The instance group details of the restricted instance group (RIG).</p>
- * @public
- */
-export interface ClusterRestrictedInstanceGroupDetails {
-  /**
-   * <p>The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  CurrentCount?: number | undefined;
-
-  /**
-   * <p>The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  TargetCount?: number | undefined;
-
-  /**
-   * <p>The name of the restricted instance group of a SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  InstanceGroupName?: string | undefined;
-
-  /**
-   * <p>The instance type of the restricted instance group of a SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  InstanceType?: ClusterInstanceType | undefined;
-
-  /**
-   * <p>The execution role for the restricted instance group to assume.</p>
-   * @public
-   */
-  ExecutionRole?: string | undefined;
-
-  /**
-   * <p>The number you specified to <code>TreadsPerCore</code> in <code>CreateCluster</code> for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading. For more information, see the reference table of <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   * @public
-   */
-  ThreadsPerCore?: number | undefined;
-
-  /**
-   * <p>The additional storage configurations for the instances in the SageMaker HyperPod cluster restricted instance group.</p>
-   * @public
-   */
-  InstanceStorageConfigs?: ClusterInstanceStorageConfig[] | undefined;
-
-  /**
-   * <p>A flag indicating whether deep health checks should be performed when the cluster's restricted instance group is created or updated.</p>
-   * @public
-   */
-  OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
-
-  /**
-   * <p>The current status of the cluster's restricted instance group.</p> <ul> <li> <p> <code>InService</code>: The restricted instance group is active and healthy.</p> </li> <li> <p> <code>Creating</code>: The restricted instance group is being provisioned.</p> </li> <li> <p> <code>Updating</code>: The restricted instance group is being updated.</p> </li> <li> <p> <code>Failed</code>: The restricted instance group has failed to provision or is no longer healthy.</p> </li> <li> <p> <code>Degraded</code>: The restricted instance group is degraded, meaning that some instances have failed to provision or are no longer healthy.</p> </li> <li> <p> <code>Deleting</code>: The restricted instance group is being deleted.</p> </li> </ul>
-   * @public
-   */
-  Status?: InstanceGroupStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the training plan to filter clusters by. For more information about reserving GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
-   * @public
-   */
-  TrainingPlanArn?: string | undefined;
-
-  /**
-   * <p>The current status of the training plan associated with this cluster restricted instance group.</p>
-   * @public
-   */
-  TrainingPlanStatus?: string | undefined;
-
-  /**
-   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
-   * @public
-   */
-  OverrideVpcConfig?: VpcConfig | undefined;
-
-  /**
-   * <p>The configuration object of the schedule that SageMaker follows when updating the AMI.</p>
-   * @public
-   */
-  ScheduledUpdateConfig?: ScheduledUpdateConfig | undefined;
-
-  /**
-   * <p>The configuration for the restricted instance groups (RIG) environment.</p>
-   * @public
-   */
-  EnvironmentConfig?: EnvironmentConfigDetails | undefined;
-}
-
-/**
- * <p>The shared environment configuration for the restricted instance groups (RIG).</p>
- * @public
- */
-export interface ClusterSharedEnvironmentConfig {
-  /**
-   * <p>The deletion policy for the Amazon FSx for Lustre file system in the shared environment.</p>
-   * @public
-   */
-  FSxLustreDeletionPolicy: ClusterFSxLustreDeletionPolicy | undefined;
-
-  /**
-   * <p>Configuration settings for an Amazon FSx for Lustre file system in the shared environment.</p>
-   * @public
-   */
-  FSxLustreConfig: FSxLustreConfig | undefined;
-}
-
-/**
- * <p>The configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>
- * @public
- */
-export interface ClusterRestrictedInstanceGroupsConfig {
-  /**
-   * <p>The shared environment configuration for the restricted instance groups (RIG).</p>
-   * @public
-   */
-  SharedEnvironmentConfig: ClusterSharedEnvironmentConfig | undefined;
 }

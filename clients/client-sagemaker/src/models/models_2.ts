@@ -18,6 +18,8 @@ import type {
   CaptureStatus,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
+  ClusterOperationStatus,
+  ClusterOperationType,
   ClusterStatus,
   CompilationJobStatus,
   CustomizationTechnique,
@@ -25,11 +27,9 @@ import type {
   DeepHealthCheckType,
   DirectInternetAccess,
   DomainStatus,
-  EdgePackagingJobStatus,
-  EdgePresetDeploymentStatus,
-  EdgePresetDeploymentType,
   EnabledOrDisabled,
   EvaluationType,
+  ExtensionHealthIssueCode,
   ExtensionStatus,
   FeatureStatus,
   HomeEfsFileSystemCreation,
@@ -38,8 +38,10 @@ import type {
   IPAddressType,
   JobCategory,
   JoinSource,
+  ManagedStorageType,
   ModelSpeculativeDecodingS3DataType,
   ModelSpeculativeDecodingTechnique,
+  MonitoringProblemType,
   MonitoringType,
   NotebookInstanceAcceleratorType,
   OptimizationJobDeploymentInstanceType,
@@ -69,7 +71,6 @@ import type {
   StudioLifecycleConfigAppType,
   TagPropagation,
   TrialComponentPrimaryStatus,
-  VariantStatus,
   WorkforceIpAddressType,
 } from "./enums";
 import type {
@@ -115,8 +116,8 @@ import type {
   ClusterEventDetail,
   ClusterInstanceGroupDetails,
   ClusterNodeDetails,
+  ClusterOperationScalingDetails,
   ClusterOrchestrator,
-  ClusterRestrictedInstanceGroupDetails,
   CodeEditorAppImageConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -133,6 +134,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ClusterRestrictedInstanceGroupDetails,
   ClusterRestrictedInstanceGroupsConfigOutput,
   ClusterTieredStorageConfig,
   CodeRepository,
@@ -149,7 +151,6 @@ import type {
   DeviceSelectionConfig,
   DomainSettings,
   EdgeDeploymentConfig,
-  EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EndpointInput,
   GitConfig,
@@ -158,7 +159,6 @@ import type {
   KernelGatewayAppSettings,
   MetadataProperties,
   ModelDeployConfig,
-  ModelQualityAppSpecification,
   MonitoringConstraintsResource,
   MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
@@ -173,6 +173,106 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>The managed configuration of a model package group.</p>
+ * @public
+ */
+export interface ManagedConfiguration {
+  /**
+   * <p>The storage type of the model package.</p>
+   * @public
+   */
+  ManagedStorageType?: ManagedStorageType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelPackageGroupInput {
+  /**
+   * <p>The name of the model group.</p>
+   * @public
+   */
+  ModelPackageGroupName: string | undefined;
+
+  /**
+   * <p>A description for the model group.</p>
+   * @public
+   */
+  ModelPackageGroupDescription?: string | undefined;
+
+  /**
+   * <p>A list of key value pairs associated with the model group. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The managed configuration of the model package group.</p>
+   * @public
+   */
+  ManagedConfiguration?: ManagedConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelPackageGroupOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model group.</p>
+   * @public
+   */
+  ModelPackageGroupArn: string | undefined;
+}
+
+/**
+ * <p>Container image configuration object for the monitoring job.</p>
+ * @public
+ */
+export interface ModelQualityAppSpecification {
+  /**
+   * <p>The address of the container image that the monitoring job runs.</p>
+   * @public
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>Specifies the entrypoint for a container that the monitoring job runs.</p>
+   * @public
+   */
+  ContainerEntrypoint?: string[] | undefined;
+
+  /**
+   * <p>An array of arguments for the container used to run the monitoring job.</p>
+   * @public
+   */
+  ContainerArguments?: string[] | undefined;
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flattened JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.</p>
+   * @public
+   */
+  RecordPreprocessorSourceUri?: string | undefined;
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.</p>
+   * @public
+   */
+  PostAnalyticsProcessorSourceUri?: string | undefined;
+
+  /**
+   * <p>The machine learning problem type of the model that the monitoring job monitors.</p>
+   * @public
+   */
+  ProblemType?: MonitoringProblemType | undefined;
+
+  /**
+   * <p>Sets the environment variables in the container that the monitoring job runs.</p>
+   * @public
+   */
+  Environment?: Record<string, string> | undefined;
+}
 
 /**
  * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
@@ -6494,6 +6594,42 @@ export interface ExtensionDetails {
 }
 
 /**
+ * <p>Information about a problem that affects an extension on one or more nodes of a SageMaker HyperPod cluster, including the number of nodes that it affects.</p>
+ * @public
+ */
+export interface ExtensionHealthIssue {
+  /**
+   * <p>A code that describes the type of issue.</p>
+   * @public
+   */
+  Code: ExtensionHealthIssueCode | undefined;
+
+  /**
+   * <p>A description of the problem, for example the setting or component to check. Every node with the same problem has the same message.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The number of nodes that have this problem.</p>
+   * @public
+   */
+  NodeCount: number | undefined;
+}
+
+/**
+ * <p>Contains information about the problems that affect an extension on the nodes of a SageMaker HyperPod cluster, including how many nodes each problem affects. <code>DescribeClusterExtension</code> returns <code>ExtensionHealth</code> only when at least one node has a problem.</p>
+ * @public
+ */
+export interface ExtensionHealth {
+  /**
+   * <p>The problems that affect the extension, grouped by cause, from the problem that affects the most nodes to the one that affects the fewest. SageMaker HyperPod counts each node in at most one issue. The list contains at most 20 issues. If more than 20 different problems exist, the list shows the 19 that affect the most nodes, and the 20th issue has the code <code>Other</code> and counts the nodes that the remaining problems affect.</p>
+   * @public
+   */
+  Issues: ExtensionHealthIssue[] | undefined;
+}
+
+/**
  * <p>A summary of an extension's installation across the nodes of a SageMaker HyperPod cluster.</p>
  * @public
  */
@@ -6505,7 +6641,7 @@ export interface ExtensionNodeSummary {
   TotalCount: number | undefined;
 
   /**
-   * <p>The number of nodes that are running the extension's current version and configuration. While SageMaker HyperPod creates or updates the extension, <code>ActiveCount</code> is lower than <code>TotalCount</code>.</p>
+   * <p>The number of nodes that are running the extension's current version and configuration. Nodes that report the extension as unhealthy aren't counted. While SageMaker HyperPod creates or updates the extension, <code>ActiveCount</code> is lower than <code>TotalCount</code>. To see why nodes aren't counted, see <code>Health</code> in <code>DescribeClusterExtension</code>.</p>
    * @public
    */
   ActiveCount: number | undefined;
@@ -6526,6 +6662,12 @@ export interface DescribeClusterExtensionResponse {
    * @public
    */
   NodeSummary?: ExtensionNodeSummary | undefined;
+
+  /**
+   * <p>The problems that affect the extension on the cluster's nodes, grouped by cause, with the number of nodes that each problem affects. Use it to find out why <code>ActiveCount</code> is lower than <code>TotalCount</code>, or why the status is <code>Degraded</code>, <code>CreateFailed</code>, or <code>UpdateFailed</code>. SageMaker HyperPod omits <code>Health</code> when no node has a problem. Nodes where SageMaker HyperPod hasn't finished installing or updating the extension aren't counted in any issue, unless an earlier attempt failed on them.</p>
+   * @public
+   */
+  Health?: ExtensionHealth | undefined;
 }
 
 /**
@@ -6560,6 +6702,70 @@ export interface DescribeClusterNodeResponse {
    * @public
    */
   NodeDetails: ClusterNodeDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterOperationRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the HyperPod cluster associated with the operation.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>The unique identifier (UUID) of the operation to describe. This ID can be obtained from the <code>ListClusterOperations</code> operation.</p>
+   * @public
+   */
+  OperationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterOperationResponse {
+  /**
+   * <p>The unique identifier (UUID) of the operation.</p>
+   * @public
+   */
+  OperationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the HyperPod cluster associated with the operation.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>The type of the operation. Valid values are <code>Scaling</code> or <code>DeepHealthCheck</code>.</p>
+   * @public
+   */
+  Type?: ClusterOperationType | undefined;
+
+  /**
+   * <p>The current status of the operation. Valid values are <code>InProgress</code>, <code>Superseded</code>, or <code>Done</code>.</p>
+   * @public
+   */
+  Status?: ClusterOperationStatus | undefined;
+
+  /**
+   * <p>The timestamp when the operation was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The per-instance-group scaling details for the operation. This field is populated when the operation <code>Type</code> is <code>Scaling</code>.</p>
+   * @public
+   */
+  ScalingDetails?: ClusterOperationScalingDetails[] | undefined;
+
+  /**
+   * <p>The deep health check details for the operation. This field is populated when the operation <code>Type</code> is <code>DeepHealthCheck</code>.</p>
+   * @public
+   */
+  DeepHealthCheckDetails?: InstanceGroupHealthCheckConfiguration[] | undefined;
 }
 
 /**
@@ -7486,287 +7692,4 @@ export interface DescribeDomainResponse {
    * @public
    */
   DefaultSpaceSettings?: DefaultSpaceSettings | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEdgeDeploymentPlanRequest {
-  /**
-   * <p>The name of the deployment plan to describe.</p>
-   * @public
-   */
-  EdgeDeploymentPlanName: string | undefined;
-
-  /**
-   * <p>If the edge deployment plan has enough stages to require tokening, then this is the response from the last list of stages returned.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to select (50 by default).</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEdgeDeploymentPlanResponse {
-  /**
-   * <p>The ARN of edge deployment plan.</p>
-   * @public
-   */
-  EdgeDeploymentPlanArn: string | undefined;
-
-  /**
-   * <p>The name of the edge deployment plan.</p>
-   * @public
-   */
-  EdgeDeploymentPlanName: string | undefined;
-
-  /**
-   * <p>List of models associated with the edge deployment plan.</p>
-   * @public
-   */
-  ModelConfigs: EdgeDeploymentModelConfig[] | undefined;
-
-  /**
-   * <p>The device fleet used for this edge deployment plan.</p>
-   * @public
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>The number of edge devices with the successful deployment.</p>
-   * @public
-   */
-  EdgeDeploymentSuccess?: number | undefined;
-
-  /**
-   * <p>The number of edge devices yet to pick up deployment, or in progress.</p>
-   * @public
-   */
-  EdgeDeploymentPending?: number | undefined;
-
-  /**
-   * <p>The number of edge devices that failed the deployment.</p>
-   * @public
-   */
-  EdgeDeploymentFailed?: number | undefined;
-
-  /**
-   * <p>List of stages in the edge deployment plan.</p>
-   * @public
-   */
-  Stages: DeploymentStageStatusSummary[] | undefined;
-
-  /**
-   * <p>Token to use when calling the next set of stages in the edge deployment plan.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The time when the edge deployment plan was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The time when the edge deployment plan was last updated.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEdgePackagingJobRequest {
-  /**
-   * <p>The name of the edge packaging job.</p>
-   * @public
-   */
-  EdgePackagingJobName: string | undefined;
-}
-
-/**
- * <p>The output of a SageMaker Edge Manager deployable resource.</p>
- * @public
- */
-export interface EdgePresetDeploymentOutput {
-  /**
-   * <p>The deployment type created by SageMaker Edge Manager. Currently only supports Amazon Web Services IoT Greengrass Version 2 components.</p>
-   * @public
-   */
-  Type: EdgePresetDeploymentType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the generated deployable resource.</p>
-   * @public
-   */
-  Artifact?: string | undefined;
-
-  /**
-   * <p>The status of the deployable resource.</p>
-   * @public
-   */
-  Status?: EdgePresetDeploymentStatus | undefined;
-
-  /**
-   * <p>Returns a message describing the status of the deployed resource.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEdgePackagingJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the edge packaging job.</p>
-   * @public
-   */
-  EdgePackagingJobArn: string | undefined;
-
-  /**
-   * <p>The name of the edge packaging job.</p>
-   * @public
-   */
-  EdgePackagingJobName: string | undefined;
-
-  /**
-   * <p>The name of the SageMaker Neo compilation job that is used to locate model artifacts that are being packaged.</p>
-   * @public
-   */
-  CompilationJobName?: string | undefined;
-
-  /**
-   * <p>The name of the model.</p>
-   * @public
-   */
-  ModelName?: string | undefined;
-
-  /**
-   * <p>The version of the model.</p>
-   * @public
-   */
-  ModelVersion?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to download and upload the model, and to contact Neo.</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>The output configuration for the edge packaging job.</p>
-   * @public
-   */
-  OutputConfig?: EdgeOutputConfig | undefined;
-
-  /**
-   * <p>The Amazon Web Services KMS key to use when encrypting the EBS volume the job run on.</p>
-   * @public
-   */
-  ResourceKey?: string | undefined;
-
-  /**
-   * <p>The current status of the packaging job.</p>
-   * @public
-   */
-  EdgePackagingJobStatus: EdgePackagingJobStatus | undefined;
-
-  /**
-   * <p>Returns a message describing the job status and error messages.</p>
-   * @public
-   */
-  EdgePackagingJobStatusMessage?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the packaging job was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the job was last updated.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Simple Storage (S3) URI where model artifacts ares stored.</p>
-   * @public
-   */
-  ModelArtifact?: string | undefined;
-
-  /**
-   * <p>The signature document of files in the model artifact.</p>
-   * @public
-   */
-  ModelSignature?: string | undefined;
-
-  /**
-   * <p>The output of a SageMaker Edge Manager deployable resource.</p>
-   * @public
-   */
-  PresetDeploymentOutput?: EdgePresetDeploymentOutput | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEndpointInput {
-  /**
-   * <p>The name of the endpoint.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-}
-
-/**
- * <p>A summary of an instance pool for a production variant, including the instance type and the current number of instances.</p>
- * @public
- */
-export interface InstancePoolSummary {
-  /**
-   * <p>The ML compute instance type for the instance pool.</p>
-   * @public
-   */
-  InstanceType: ProductionVariantInstanceType | undefined;
-
-  /**
-   * <p>The current number of instances of this type in the instance pool.</p>
-   * @public
-   */
-  CurrentInstanceCount: number | undefined;
-}
-
-/**
- * <p>Describes the status of the production variant.</p>
- * @public
- */
-export interface ProductionVariantStatus {
-  /**
-   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p> <ul> <li> <p> <code>Creating</code>: Creating inference resources for the production variant.</p> </li> <li> <p> <code>Deleting</code>: Terminating inference resources for the production variant.</p> </li> <li> <p> <code>Updating</code>: Updating capacity for the production variant.</p> </li> <li> <p> <code>ActivatingTraffic</code>: Turning on traffic for the production variant.</p> </li> <li> <p> <code>Baking</code>: Waiting period to monitor the CloudWatch alarms in the automatic rollback configuration.</p> </li> </ul>
-   * @public
-   */
-  Status: VariantStatus | undefined;
-
-  /**
-   * <p>A message that describes the status of the production variant.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The start time of the current status change.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
 }

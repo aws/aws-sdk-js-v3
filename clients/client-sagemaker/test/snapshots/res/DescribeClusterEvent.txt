@@ -46,7 +46,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       }
     },
     "Description": "__Description__",
-    "EventLevel": "__EventLevel__"
+    "EventLevel": "__EventLevel__",
+    "OperationId": "__OperationId__"
   }
 }
 
@@ -71,7 +72,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       }
     },
     Description: "__Description__",
-    EventLevel: "__EventLevel__"
+    EventLevel: "__EventLevel__",
+    OperationId: "__OperationId__"
   },
   $metadata: {
     httpStatusCode: (number) 200,
