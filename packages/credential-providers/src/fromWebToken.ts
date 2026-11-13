@@ -1,6 +1,8 @@
 import type { FromWebTokenInit } from "@aws-sdk/credential-provider-web-identity";
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
+import { createLazyCredentialProvider } from "./createLazyCredentialProvider";
+
 /**
  * Creates a credential provider function that gets credentials calling STS
  * AssumeRoleWithWebIdentity API.
@@ -41,8 +43,8 @@ import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider 
  * @public
  */
 export const fromWebToken = (init: FromWebTokenInit): RuntimeConfigAwsCredentialIdentityProvider => {
-  return async (args?: AwsIdentityProperties) => {
+  return createLazyCredentialProvider(async () => {
     const { fromWebToken: _fromWebToken } = await import("@aws-sdk/credential-provider-web-identity");
-    return _fromWebToken({ ...init })(args);
-  };
+    return _fromWebToken({ ...init });
+  });
 };

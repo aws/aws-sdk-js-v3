@@ -3,6 +3,7 @@ import type { AwsCredentialIdentity, HttpRequest as IHttpRequest } from "@smithy
 
 import { getSkewCorrectedDate } from "../utils";
 import { AwsSdkSigV4Signer, validateSigningProperties } from "./AwsSdkSigV4Signer";
+import { getSigningAccessKeyId } from "./invalidateRejectedCredentials";
 
 /**
  * @internal
@@ -43,6 +44,8 @@ export class AwsSdkSigV4ASigner extends AwsSdkSigV4Signer {
       signingRegion: multiRegionOverride,
       signingService: signingName,
     });
+    // Saved per attempt, so errorHandler can invalidate the credentials that signed this request.
+    signingProperties._signingAccessKeyId = getSigningAccessKeyId(signedRequest);
     return signedRequest;
   }
 }

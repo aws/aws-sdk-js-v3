@@ -13,6 +13,7 @@ import type {
 import { SMITHY_CONTEXT_KEY } from "@smithy/types";
 
 import { getAgeHeader, getDateHeader, getSkewCorrectedDate, getUpdatedSystemClockOffset } from "../utils";
+import { getSigningAccessKeyId, invalidateRejectedCredentials } from "./invalidateRejectedCredentials";
 import type { AwsSdkSigV4AAuthResolvedConfig } from "./resolveAwsSdkSigV4AConfig";
 
 /**
@@ -152,6 +153,8 @@ export class AwsSdkSigV4Signer implements HttpSigner {
       signingRegion: signingRegion,
       signingService: signingName,
     });
+    // Saved per attempt, so errorHandler can invalidate the credentials that signed this request.
+    signingProperties._signingAccessKeyId = getSigningAccessKeyId(signedRequest);
     return signedRequest;
   }
 
@@ -187,6 +190,11 @@ export class AwsSdkSigV4Signer implements HttpSigner {
           }
         }
       }
+      invalidateRejectedCredentials(
+        errorException,
+        (signingProperties.config as { credentials?: unknown } | undefined)?.credentials,
+        signingProperties._signingAccessKeyId as string | undefined
+      );
       throw error;
     };
   }

@@ -1,287 +1,363 @@
+import { createCredentialRefreshProvider, markNonRecoverable } from "@aws-sdk/core/client";
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/core/config";
-import { beforeEach, describe, expect, test as it, vi } from "vitest";
+import type { AwsCredentialIdentity } from "@smithy/types";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { credentialsWillNeedRefresh } from "../defaultProvider";
-import { memoizeChain } from "./memoize-chain";
+import { credentialsTreatedAsExpired } from "../defaultProvider";
+import { createLazyCredentialProvider, memoizeChain } from "./memoize-chain";
 
-describe("memoize runtime config aware AWS credential chain", () => {
-  let staticCredentials!: RuntimeConfigAwsCredentialIdentityProvider;
-  let expiringCredentials!: RuntimeConfigAwsCredentialIdentityProvider;
+const SIX_HOURS = 6 * 3600_000;
+const START_MS = new Date("2024-01-01T00:00:00Z").getTime();
+let now: number;
 
-  const expiration = new Date(Date.now() + 5_000);
+const advance = (ms: number) => {
+  now += ms;
+};
 
+const credentials = (lifetime = SIX_HOURS, accessKeyId = "AKID"): AwsCredentialIdentity => ({
+  accessKeyId,
+  secretAccessKey: "SECRET",
+  expiration: new Date(now + lifetime),
+});
+
+const source = () =>
+  vi.fn<RuntimeConfigAwsCredentialIdentityProvider>(async (options?: AwsIdentityProperties) => ({
+    ...credentials(),
+    runtimeOptions: Object.keys(options ?? {}).concat(Object.keys(options?.callerClientConfig ?? {})),
+  }));
+
+describe("memoizeChain", () => {
   beforeEach(() => {
-    vi.resetAllMocks();
-    staticCredentials = vi.fn().mockImplementation(async (options?: AwsIdentityProperties) => {
-      await new Promise((r) => setTimeout(r, 100));
-      return {
-        accessKeyId: "",
-        secretAccessKey: "",
-        runtimeOptions: Object.keys(options ?? {}).concat(Object.keys(options?.callerClientConfig ?? {})),
-      };
+    now = START_MS;
+    vi.spyOn(Date, "now").mockImplementation(() => now);
+    vi.spyOn(Math, "random").mockReturnValue(0.4);
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it("selects the first provider that succeeds and remembers it", async () => {
+    const skipped = vi.fn(async () => {
+      throw new CredentialsProviderError("not configured", { tryNextLink: true });
+    });
+    const selected = source();
+    const later = source();
+    const chain = memoizeChain([skipped, selected, later], credentialsTreatedAsExpired);
+
+    await chain();
+    await chain();
+
+    expect(skipped).toHaveBeenCalledTimes(1);
+    expect(selected).toHaveBeenCalledTimes(1);
+    expect(later).not.toHaveBeenCalled();
+  });
+
+  it("shares provider selection between concurrent callers", async () => {
+    let release!: (value: AwsCredentialIdentity) => void;
+    const selected = vi.fn(() => new Promise<AwsCredentialIdentity>((resolve) => (release = resolve)));
+    const chain = memoizeChain([selected], credentialsTreatedAsExpired);
+
+    const callers = [chain(), chain(), chain()];
+    release(credentials());
+
+    await expect(Promise.all(callers)).resolves.toHaveLength(3);
+    expect(selected).toHaveBeenCalledTimes(1);
+  });
+
+  it("stops when a provider does not permit the next link", async () => {
+    const failure = new CredentialsProviderError("terminal", { tryNextLink: false });
+    const selected = vi.fn(async () => {
+      throw failure;
+    });
+    const later = source();
+    const chain = memoizeChain([selected, later], credentialsTreatedAsExpired);
+
+    await expect(chain()).rejects.toBe(failure);
+    expect(later).not.toHaveBeenCalled();
+  });
+
+  describe("providers outside the spec", () => {
+    it("keeps the previous cache behavior for an unmarked provider", async () => {
+      const process = source();
+      const chain = memoizeChain([process], credentialsTreatedAsExpired);
+
+      const first = await chain();
+      await expect(chain()).resolves.toBe(first);
+      expect(process).toHaveBeenCalledTimes(1);
     });
 
-    let sequence = 0;
+    it("keeps the previous passive five-minute refresh", async () => {
+      let sequence = 0;
+      const process = vi.fn(async () => ({ ...credentials(), sequence: sequence++ }));
+      const chain = memoizeChain([process], credentialsTreatedAsExpired);
+      await chain();
+      advance(SIX_HOURS - 4 * 60_000);
 
-    expiringCredentials = vi.fn().mockImplementation(async (options?: AwsIdentityProperties) => {
-      await new Promise((r) => setTimeout(r, 100));
-      return {
-        accessKeyId: "",
-        secretAccessKey: "",
-        expiration,
-        sequence: sequence++,
-        runtimeOptions: Object.keys(options ?? {}).concat(Object.keys(options?.callerClientConfig ?? {})),
-      };
-    });
-  });
-
-  it("should call composed provider functions", async () => {
-    const provider = memoizeChain([staticCredentials], credentialsWillNeedRefresh);
-
-    const credentials = await provider({
-      callerClientConfig: {
-        region: async () => "context-region",
-        profile: "alt",
-      },
-    });
-
-    expect(credentials).toEqual({
-      accessKeyId: "",
-      secretAccessKey: "",
-      runtimeOptions: ["callerClientConfig", "region", "profile"],
-    });
-    expect(staticCredentials).toHaveBeenCalledTimes(1);
-  });
-
-  it("should use an active lock when no credentials exist", async () => {
-    const provider = memoizeChain([staticCredentials], credentialsWillNeedRefresh);
-
-    const [credentials] = await Promise.all([provider(), provider(), provider(), provider(), provider()]);
-
-    expect(credentials).toEqual({
-      accessKeyId: "",
-      secretAccessKey: "",
-      runtimeOptions: [],
-    });
-    expect(staticCredentials).toHaveBeenCalledTimes(1);
-  });
-
-  it("should use a cache", async () => {
-    const provider = memoizeChain([staticCredentials], credentialsWillNeedRefresh);
-
-    await Promise.all([provider(), provider(), provider(), provider(), provider()]);
-    const [credentials] = await Promise.all([provider(), provider(), provider(), provider(), provider()]);
-
-    expect(credentials).toEqual({
-      accessKeyId: "",
-      secretAccessKey: "",
-      runtimeOptions: [],
-    });
-    expect(staticCredentials).toHaveBeenCalledTimes(1);
-  });
-
-  it("should use a passive lock when credentials do exist", async () => {
-    const provider = memoizeChain([expiringCredentials], credentialsWillNeedRefresh);
-
-    {
-      // initial invocation returns sequence-0 credentials.
-      const credentials = await Promise.all([provider(), provider(), provider(), provider(), provider()]);
-      for (const c of credentials) {
-        expect(c).toEqual({
-          accessKeyId: "",
-          secretAccessKey: "",
-          expiration,
-          sequence: 0,
-          runtimeOptions: [],
-        });
-      }
-      expect(expiringCredentials).toHaveBeenCalledTimes(1);
-    }
-
-    {
-      // second invocation returns sequence-0 credentials, but background initializes refresh.
-      const credentials = await Promise.all([provider(), provider(), provider(), provider(), provider()]);
-      for (const c of credentials) {
-        expect(c).toEqual({
-          accessKeyId: "",
-          secretAccessKey: "",
-          expiration,
-          sequence: 0,
-          runtimeOptions: [],
-        });
-      }
-      expect(expiringCredentials).toHaveBeenCalledTimes(2);
-    }
-
-    // allow new credentials to settle
-    await new Promise((r) => setTimeout(r, 200));
-
-    {
-      // third invocation group returns sequence-1 credentials, also with background refresh.
-      const credentials = await Promise.all([provider(), provider(), provider(), provider(), provider()]);
-      for (const c of credentials) {
-        expect(c).toEqual({
-          accessKeyId: "",
-          secretAccessKey: "",
-          expiration,
-          sequence: 1,
-          runtimeOptions: [],
-        });
-      }
-      expect(expiringCredentials).toHaveBeenCalledTimes(3);
-    }
-  });
-
-  it("can be force refreshed", async () => {
-    const provider = memoizeChain([expiringCredentials], credentialsWillNeedRefresh);
-
-    // Initial call to populate cache with sequence 0.
-    await provider();
-    expect(expiringCredentials).toHaveBeenCalledTimes(1);
-
-    // Force refresh gets new credentials.
-    const refreshed = await provider({ forceRefresh: true });
-    expect(expiringCredentials).toHaveBeenCalledTimes(2);
-    expect(refreshed).toEqual({
-      accessKeyId: "",
-      secretAccessKey: "",
-      expiration,
-      sequence: 1,
-      runtimeOptions: ["forceRefresh"],
-    });
-  });
-
-  it("should coalesce concurrent forceRefresh calls to prevent stampede", async () => {
-    const provider = memoizeChain([expiringCredentials], credentialsWillNeedRefresh);
-
-    // Populate cache first.
-    await provider();
-    expect(expiringCredentials).toHaveBeenCalledTimes(1);
-
-    // 5 concurrent forceRefresh calls should coalesce into 1 upstream call.
-    const results = await Promise.all([
-      provider({ forceRefresh: true }),
-      provider({ forceRefresh: true }),
-      provider({ forceRefresh: true }),
-      provider({ forceRefresh: true }),
-      provider({ forceRefresh: true }),
-    ]);
-    expect(expiringCredentials).toHaveBeenCalledTimes(2);
-
-    // All results should be the same credentials object.
-    for (const r of results) {
-      expect(r).toBe(results[0]);
-    }
-  });
-
-  it("should update cache on forceRefresh so subsequent calls return refreshed credentials", async () => {
-    const provider = memoizeChain([staticCredentials], credentialsWillNeedRefresh);
-
-    // Initial call populates cache.
-    await provider();
-    expect(staticCredentials).toHaveBeenCalledTimes(1);
-
-    // Force refresh updates cache.
-    const refreshed = await provider({ forceRefresh: true });
-    expect(staticCredentials).toHaveBeenCalledTimes(2);
-
-    // Subsequent call without forceRefresh returns cached (refreshed) value.
-    const cached = await provider();
-    expect(staticCredentials).toHaveBeenCalledTimes(2);
-    expect(cached).toBe(refreshed);
-  });
-
-  it("should not surface an unhandled rejection when the passive refresh fails", async () => {
-    // own expiration so the case stays on the passive path regardless of
-    // cumulative suite time (the shared 5s constant is captured at collection).
-    const farExpiration = new Date(Date.now() + 60_000);
-    let sequence = 0;
-    const flakyExpiringCredentials: RuntimeConfigAwsCredentialIdentityProvider = vi
-      .fn()
-      .mockImplementation(async () => {
-        await new Promise((r) => setTimeout(r, 100));
-        const current = sequence++;
-        if (current === 1) {
-          throw new CredentialsProviderError("transient refresh failure", { tryNextLink: false });
-        }
-        return {
-          accessKeyId: "",
-          secretAccessKey: "",
-          expiration: farExpiration,
-          sequence: current,
-        };
-      });
-
-    const unhandled: unknown[] = [];
-    const onUnhandledRejection = (reason: unknown) => {
-      unhandled.push(reason);
-    };
-    process.on("unhandledRejection", onUnhandledRejection);
-
-    try {
-      const provider = memoizeChain([flakyExpiringCredentials], credentialsWillNeedRefresh);
-
-      // initial invocation caches sequence-0 credentials via the active lock.
-      const initial = await provider();
-      expect(initial).toMatchObject({ sequence: 0 });
-
-      // second invocation returns the stale-but-valid credentials and starts the
-      // passive background refresh, which rejects (sequence-1).
-      const stale = await provider();
+      const stale = await chain();
       expect(stale).toMatchObject({ sequence: 0 });
+      await new Promise((resolve) => setImmediate(resolve));
+      await expect(chain()).resolves.toMatchObject({ sequence: 1 });
+    });
 
-      // allow the rejected background refresh to settle and node to dispatch
-      // any unhandled rejection.
-      await new Promise((r) => setTimeout(r, 200));
-      await new Promise((r) => setImmediate(r));
+    it("keeps the previous hard-expiry behavior", async () => {
+      const process = source();
+      const chain = memoizeChain([process], credentialsTreatedAsExpired);
+      await chain();
+      advance(SIX_HOURS + 1);
+      process.mockRejectedValueOnce(new Error("process failed"));
 
-      expect(unhandled).toEqual([]);
+      await expect(chain()).rejects.toThrow("process failed");
+    });
 
-      // the failed refresh released the lock: the next invocation retries the
-      // chain (sequence-2) while still returning the cached credentials.
-      const retried = await provider();
-      expect(retried).toMatchObject({ sequence: 0 });
+    it("keeps forceRefresh behavior and updates the legacy cache", async () => {
+      let sequence = 0;
+      const process = vi.fn(async () => ({ ...credentials(), sequence: sequence++ }));
+      const chain = memoizeChain([process], credentialsTreatedAsExpired);
+      await chain();
 
-      await new Promise((r) => setTimeout(r, 200));
+      const refreshed = await chain({ forceRefresh: true });
 
-      const settled = await provider();
-      expect(settled).toMatchObject({ sequence: 2 });
-    } finally {
-      process.off("unhandledRejection", onUnhandledRejection);
-    }
+      expect(refreshed).toMatchObject({ sequence: 1 });
+      await expect(chain()).resolves.toBe(refreshed);
+      expect(process).toHaveBeenCalledTimes(2);
+    });
+
+    it("re-runs the full chain when an out-of-scope provider refreshes", async () => {
+      let environmentAvailable = false;
+      const environment = vi.fn(async () => {
+        if (!environmentAvailable) {
+          throw new CredentialsProviderError("not configured", { tryNextLink: true });
+        }
+        return credentials(SIX_HOURS, "ENV");
+      });
+      const process = vi.fn(async () => credentials(SIX_HOURS, "PROCESS"));
+      const chain = memoizeChain([environment, process], credentialsTreatedAsExpired);
+      await expect(chain()).resolves.toMatchObject({ accessKeyId: "PROCESS" });
+      environmentAvailable = true;
+      advance(SIX_HOURS + 1);
+
+      await expect(chain()).resolves.toMatchObject({ accessKeyId: "ENV" });
+      expect(environment).toHaveBeenCalledTimes(2);
+      expect(process).toHaveBeenCalledTimes(1);
+    });
+
+    it("treats a memoized fromIni Process provider as legacy when it has no invalidate method", async () => {
+      let environmentAvailable = false;
+      const environment = vi.fn(async () => {
+        if (!environmentAvailable) {
+          throw new CredentialsProviderError("not configured", { tryNextLink: true });
+        }
+        return credentials(SIX_HOURS, "ENV");
+      });
+      const process = Object.assign(
+        vi.fn(async () => credentials(SIX_HOURS, "PROCESS")),
+        { memoized: true as const }
+      );
+      const fromIni = createLazyCredentialProvider(async () => process);
+      const chain = memoizeChain([environment, fromIni], credentialsTreatedAsExpired);
+      await expect(chain()).resolves.toMatchObject({ accessKeyId: "PROCESS" });
+      environmentAvailable = true;
+      advance(SIX_HOURS + 1);
+
+      await expect(chain()).resolves.toMatchObject({ accessKeyId: "ENV" });
+      expect(environment).toHaveBeenCalledTimes(2);
+      expect(process).toHaveBeenCalledTimes(1);
+    });
+
+    it("can transition from legacy behavior to an in-scope provider when the chain changes", async () => {
+      let processAvailable = true;
+      const process = vi.fn(async () => {
+        if (!processAvailable) {
+          throw new CredentialsProviderError("process failed", { tryNextLink: true });
+        }
+        return credentials(SIX_HOURS, "PROCESS");
+      });
+      const inScope = createCredentialRefreshProvider(async () => credentials(SIX_HOURS, "SSO"));
+      const chain = memoizeChain([process, inScope], credentialsTreatedAsExpired);
+      await chain();
+      processAvailable = false;
+      advance(SIX_HOURS + 1);
+
+      await expect(chain()).resolves.toMatchObject({ accessKeyId: "SSO" });
+      expect(typeof chain.invalidate).toBe("function");
+    });
+
+    it("does not expose invalidate", async () => {
+      const chain = memoizeChain([source()], credentialsTreatedAsExpired);
+      await chain();
+
+      expect(chain.invalidate).toBeUndefined();
+    });
   });
 
-  it("should release locks on credential resolution failure at the end of the chain", async () => {
-    const neverAvailableCredentialProvider: () => RuntimeConfigAwsCredentialIdentityProvider = () => async () => {
-      throw new CredentialsProviderError("never available", { tryNextLink: true });
-    };
+  describe("providers covered by the spec", () => {
+    it("delegates caching and refresh timing to the provider", async () => {
+      const raw = source();
+      const refreshProvider = createCredentialRefreshProvider(raw);
+      const chain = memoizeChain([refreshProvider], credentialsTreatedAsExpired);
 
-    let n = 0;
-    const eventuallyAvailableCredentialProvider: RuntimeConfigAwsCredentialIdentityProvider = async () => {
-      if (n++ === 0) {
-        throw new CredentialsProviderError("initially unavailable", { tryNextLink: false });
-      }
-      return {
-        accessKeyId: "xyz",
-        secretAccessKey: "xyz",
-      };
-    };
+      const first = await chain();
+      advance(SIX_HOURS - 30 * 60_000);
+      await chain();
 
-    const provider = memoizeChain(
-      [neverAvailableCredentialProvider(), neverAvailableCredentialProvider(), eventuallyAvailableCredentialProvider],
-      credentialsWillNeedRefresh
-    );
+      expect(first.accessKeyId).toBe("AKID");
+      expect(raw).toHaveBeenCalledTimes(2);
+    });
 
-    try {
-      await provider();
-    } catch (e) {
-      const credentials = await provider();
-      expect(credentials).toEqual({
-        accessKeyId: "xyz",
-        secretAccessKey: "xyz",
+    it("keeps expired credentials when refresh fails", async () => {
+      const raw = source();
+      const refreshProvider = createCredentialRefreshProvider(raw);
+      const chain = memoizeChain([refreshProvider], credentialsTreatedAsExpired);
+      const first = await chain();
+      advance(SIX_HOURS + 1);
+      raw.mockRejectedValueOnce(new Error("STS unavailable"));
+
+      await expect(chain()).resolves.toBe(first);
+    });
+
+    // Marking an error non-recoverable must not change whether the chain moves to the next provider.
+    describe("non-recoverable errors keep their tryNextLink behavior", () => {
+      it("moves to the next provider when the marked error allows it", async () => {
+        const failing = vi.fn<RuntimeConfigAwsCredentialIdentityProvider>(async () => {
+          throw markNonRecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: true }));
+        });
+        const next = source();
+        const chain = memoizeChain([createCredentialRefreshProvider(failing), next], credentialsTreatedAsExpired);
+
+        await expect(chain()).resolves.toMatchObject({ accessKeyId: "AKID" });
+        expect(failing).toHaveBeenCalledTimes(1);
+        expect(next).toHaveBeenCalledTimes(1);
       });
-    }
-    expect.assertions(1);
+
+      it("stops the chain when the marked error does not allow the next link", async () => {
+        const error = markNonRecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: false }));
+        const next = source();
+        const chain = memoizeChain(
+          [createCredentialRefreshProvider(async () => Promise.reject(error)), next],
+          credentialsTreatedAsExpired
+        );
+
+        await expect(chain()).rejects.toBe(error);
+        expect(next).not.toHaveBeenCalled();
+      });
+
+      it("keeps the same outcome on a later call while the error is cached", async () => {
+        const error = markNonRecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: false }));
+        const failing = vi.fn<RuntimeConfigAwsCredentialIdentityProvider>(async () => Promise.reject(error));
+        const chain = memoizeChain([createCredentialRefreshProvider(failing), source()], credentialsTreatedAsExpired);
+
+        await expect(chain()).rejects.toBe(error);
+        await expect(chain()).rejects.toBe(error);
+        // The cached error is rethrown without calling the source again.
+        expect(failing).toHaveBeenCalledTimes(1);
+      });
+
+      it("moves to the next provider when a pinned provider's refresh fails with an error that allows it", async () => {
+        const raw = source();
+        const next = vi.fn<RuntimeConfigAwsCredentialIdentityProvider>(async () => credentials(SIX_HOURS, "NEXT"));
+        const chain = memoizeChain([createCredentialRefreshProvider(raw), next], credentialsTreatedAsExpired);
+        await chain();
+        advance(SIX_HOURS + 1);
+        raw.mockRejectedValueOnce(
+          markNonRecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: true }))
+        );
+
+        await expect(chain()).resolves.toMatchObject({ accessKeyId: "NEXT" });
+        expect(next).toHaveBeenCalledTimes(1);
+      });
+
+      it("stops when a pinned provider's refresh fails with an error that does not allow the next link", async () => {
+        const raw = source();
+        const next = source();
+        const chain = memoizeChain([createCredentialRefreshProvider(raw), next], credentialsTreatedAsExpired);
+        await chain();
+        advance(SIX_HOURS + 1);
+        const error = markNonRecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: false }));
+        raw.mockRejectedValueOnce(error);
+
+        await expect(chain()).rejects.toBe(error);
+        expect(next).not.toHaveBeenCalled();
+      });
+    });
+
+    it("forwards invalidate to the selected provider", async () => {
+      const raw = source();
+      const refreshProvider = createCredentialRefreshProvider(raw);
+      const chain = memoizeChain([refreshProvider], credentialsTreatedAsExpired);
+      await chain();
+
+      chain.invalidate?.({ accessKeyId: "AKID" });
+      await chain();
+
+      expect(raw).toHaveBeenCalledTimes(2);
+    });
+
+    it("does not expose invalidate before a provider is selected", () => {
+      const chain = memoizeChain([createCredentialRefreshProvider(source())], credentialsTreatedAsExpired);
+
+      expect(chain.invalidate).toBeUndefined();
+    });
+  });
+});
+
+describe("createLazyCredentialProvider", () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it("creates the provider once and forwards caller options", async () => {
+    const inner = vi.fn(async (options?: AwsIdentityProperties) => ({
+      accessKeyId: "STATIC",
+      secretAccessKey: "SECRET",
+      runtimeOptions: Object.keys(options ?? {}).concat(Object.keys(options?.callerClientConfig ?? {})),
+    }));
+    const factory = vi.fn(async () => createCredentialRefreshProvider(inner));
+    const provider = createLazyCredentialProvider(factory);
+    const options = { callerClientConfig: { region: async () => "us-west-2" } };
+
+    await provider(options);
+    await provider(options);
+
+    expect(factory).toHaveBeenCalledTimes(1);
+    expect(inner).toHaveBeenCalledTimes(1);
+    expect(inner).toHaveBeenCalledWith(options);
+  });
+
+  it("shares lazy initialization between concurrent callers", async () => {
+    let release!: (provider: ReturnType<typeof createCredentialRefreshProvider>) => void;
+    const factory = vi.fn(() => new Promise<ReturnType<typeof createCredentialRefreshProvider>>((r) => (release = r)));
+    const inner = source();
+    const provider = createLazyCredentialProvider(factory);
+
+    const callers = [provider(), provider(), provider()];
+    release(createCredentialRefreshProvider(inner));
+
+    await Promise.all(callers);
+    expect(factory).toHaveBeenCalledTimes(1);
+    expect(inner).toHaveBeenCalledTimes(1);
+  });
+
+  it("retries lazy initialization after the factory fails", async () => {
+    const inner = createCredentialRefreshProvider(source());
+    const factory = vi.fn().mockRejectedValueOnce(new Error("import failed")).mockResolvedValueOnce(inner);
+    const provider = createLazyCredentialProvider(factory);
+
+    await expect(provider()).rejects.toThrow("import failed");
+    await expect(provider()).resolves.toMatchObject({ accessKeyId: "AKID" });
+    expect(factory).toHaveBeenCalledTimes(2);
+  });
+
+  it("forwards invalidate after initialization", async () => {
+    const inner = createCredentialRefreshProvider(source());
+    const provider = createLazyCredentialProvider(async () => inner);
+    await provider();
+
+    expect(typeof provider.invalidate).toBe("function");
+    provider.invalidate?.({ accessKeyId: "AKID" });
+    await provider();
+
+    expect(inner).toBeDefined();
   });
 });

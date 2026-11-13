@@ -1,3 +1,4 @@
+import { markNonRecoverable } from "@aws-sdk/core/client";
 import type { CreateOAuth2TokenCommandInput } from "@aws-sdk/nested-clients/signin";
 import type { AwsCredentialIdentity, AwsIdentityProperties, Logger } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/core/config";
@@ -32,17 +33,25 @@ export class LoginCredentialsFetcher {
   /**
    * Loads credentials and refreshes if necessary
    */
-  public async loadCredentials(): Promise<AwsCredentialIdentity> {
+  public async loadCredentials(rejectedAccessKeyId?: string): Promise<AwsCredentialIdentity> {
     const token = await this.loadToken();
 
     if (!token) {
-      throw new CredentialsProviderError(
-        `Failed to load a token for session ${this.loginSession}, please re-authenticate using aws login`,
-        { tryNextLink: false, logger: this.logger }
+      throw markNonRecoverable(
+        new CredentialsProviderError(
+          `Failed to load a token for session ${this.loginSession}, please re-authenticate using aws login`,
+          { tryNextLink: false, logger: this.logger }
+        )
       );
     }
 
     const accessToken = token.accessToken;
+
+    // A service rejected these credentials, so get new ones even though the token isn't due for refresh.
+    if (rejectedAccessKeyId !== undefined && accessToken.accessKeyId === rejectedAccessKeyId) {
+      return this.refresh(token, rejectedAccessKeyId);
+    }
+
     const now = Date.now();
     // expiresAt must be an ISO string format (e.g: "2024-01-01T12:00:00.000Z")
     const expiryTime = new Date(accessToken.expiresAt).getTime();
@@ -73,7 +82,7 @@ export class LoginCredentialsFetcher {
     };
   }
 
-  private async refresh(token: LoginToken): Promise<AwsCredentialIdentity> {
+  private async refresh(token: LoginToken, rejectedAccessKeyId?: string): Promise<AwsCredentialIdentity> {
     // first reload the token from disk in case the token has been refreshed externally.
     // Use disk token unless it's expired and the in-memory token is unexpired.
     const diskToken = await this.loadToken().catch(() => token);
@@ -82,7 +91,9 @@ export class LoginCredentialsFetcher {
     const tokenExpiry = new Date(token.accessToken.expiresAt).getTime();
     const freshToken = diskExpiry <= now && tokenExpiry > now ? token : diskToken;
     const freshExpiry = new Date(freshToken.accessToken.expiresAt).getTime();
-    if (freshExpiry - Date.now() > LoginCredentialsFetcher.REFRESH_THRESHOLD) {
+    // Another process may have refreshed the token since. Only rejected credentials force a refresh.
+    const rejected = rejectedAccessKeyId !== undefined && freshToken.accessToken.accessKeyId === rejectedAccessKeyId;
+    if (!rejected && freshExpiry - Date.now() > LoginCredentialsFetcher.REFRESH_THRESHOLD) {
       return this.toCredentials(freshToken.accessToken);
     }
 
@@ -166,6 +177,8 @@ export class LoginCredentialsFetcher {
       if (error.name === "AccessDeniedException") {
         const errorType = error.error;
         let message: string;
+        // Only the three error members below need customer action. Any other member may be transient.
+        let needsCustomerAction = true;
 
         switch (errorType) {
           case "TOKEN_EXPIRED":
@@ -181,12 +194,33 @@ export class LoginCredentialsFetcher {
             break;
           default:
             message = `Failed to refresh token: ${String(error)}. Please re-authenticate using \`aws login\``;
+            needsCustomerAction = false;
         }
 
-        throw new CredentialsProviderError(message, {
+        const accessDenied = new CredentialsProviderError(message, {
           logger: this.logger,
           tryNextLink: false,
         });
+        throw needsCustomerAction ? markNonRecoverable(accessDenied) : accessDenied;
+      }
+
+      // The Sign-In service rejected the refresh request itself, so retrying cannot succeed.
+      // Raised even while the cached token is still valid, so the customer sees it before expiry.
+      if (error.name === "ValidationException") {
+        throw markNonRecoverable(
+          new CredentialsProviderError(
+            `Failed to refresh token: ${String(error)}. Please re-authenticate using \`aws login\``,
+            { logger: this.logger, tryNextLink: false }
+          )
+        );
+      }
+
+      // Never return the rejected credentials. The refresh lifecycle keeps its cached ones and backs off.
+      if (rejected) {
+        throw new CredentialsProviderError(
+          `Failed to refresh token after the current credentials were rejected: ${String(error)}`,
+          { logger: this.logger, tryNextLink: false }
+        );
       }
 
       // If the token hasn't fully expired.
@@ -223,10 +257,12 @@ export class LoginCredentialsFetcher {
 
       return token;
     } catch (error) {
-      throw new CredentialsProviderError(`Failed to load token from ${tokenFilePath}: ${String(error)}`, {
-        logger: this.logger,
-        tryNextLink: false,
-      });
+      throw markNonRecoverable(
+        new CredentialsProviderError(`Failed to load token from ${tokenFilePath}: ${String(error)}`, {
+          logger: this.logger,
+          tryNextLink: false,
+        })
+      );
     }
   }
 

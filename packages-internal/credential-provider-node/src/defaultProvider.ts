@@ -10,7 +10,11 @@ import type { RemoteProviderInit } from "@smithy/credential-provider-imds";
 import type { AwsCredentialIdentity } from "@smithy/types";
 
 import { remoteProvider } from "./remoteProvider";
-import { type MemoizedRuntimeConfigAwsCredentialIdentityProvider, memoizeChain } from "./runtime/memoize-chain";
+import {
+  createLazyCredentialProvider,
+  type MemoizedRuntimeConfigAwsCredentialIdentityProvider,
+  memoizeChain,
+} from "./runtime/memoize-chain";
 
 /**
  * @public
@@ -96,37 +100,39 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedRuntime
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromEnv");
         return fromEnv(init)();
       },
-      async (awsIdentityProperties?: AwsIdentityProperties) => {
+      createLazyCredentialProvider(async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromSSO");
         const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
-          throw new CredentialsProviderError(
-            "Skipping SSO provider in default chain (inputs do not include SSO fields).",
-            { logger: init.logger }
-          );
+          return async () => {
+            throw new CredentialsProviderError(
+              "Skipping SSO provider in default chain (inputs do not include SSO fields).",
+              { logger: init.logger }
+            );
+          };
         }
         const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
-        return fromSSO(init)(awsIdentityProperties);
-      },
-      async (awsIdentityProperties?: AwsIdentityProperties) => {
+        return fromSSO(init);
+      }),
+      createLazyCredentialProvider(async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
         const { fromIni } = await import("@aws-sdk/credential-provider-ini");
-        return fromIni(init)(awsIdentityProperties);
-      },
+        return fromIni(init);
+      }),
       async (awsIdentityProperties?: AwsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
         const { fromProcess } = await import("@aws-sdk/credential-provider-process");
         return fromProcess(init)(awsIdentityProperties);
       },
-      async (awsIdentityProperties?: AwsIdentityProperties) => {
+      createLazyCredentialProvider(async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
         const { fromTokenFile } = await import("@aws-sdk/credential-provider-web-identity");
-        return fromTokenFile(init)(awsIdentityProperties);
-      },
-      async () => {
+        return fromTokenFile(init);
+      }),
+      createLazyCredentialProvider(async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::remoteProvider");
-        return (await remoteProvider(init))();
-      },
+        return remoteProvider(init);
+      }),
       async () => {
         throw new CredentialsProviderError("Could not load credentials from any providers", {
           tryNextLink: false,

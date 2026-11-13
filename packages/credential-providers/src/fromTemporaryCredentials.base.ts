@@ -1,4 +1,10 @@
-import type { AssumeRoleCommandInput, STSClient, STSClientConfig } from "@aws-sdk/nested-clients/sts";
+import { createCredentialRefreshProvider, markNonRecoverableStsError } from "@aws-sdk/core/client";
+import type {
+  AssumeRoleCommandInput,
+  AssumeRoleCommandOutput,
+  STSClient,
+  STSClientConfig,
+} from "@aws-sdk/nested-clients/sts";
 import type {
   AwsIdentityProperties,
   CredentialProviderOptions,
@@ -31,127 +37,138 @@ export const fromTemporaryCredentials = (
   regionProvider?: ({ profile }: { profile?: string }) => Promise<string | undefined>
 ): RuntimeConfigAwsCredentialIdentityProvider => {
   let stsClient: STSClient;
-  return async (awsIdentityProperties: AwsIdentityProperties = {}): Promise<AwsCredentialIdentity> => {
-    const { callerClientConfig } = awsIdentityProperties;
-    const profile = options.clientConfig?.profile ?? callerClientConfig?.profile;
+  return createCredentialRefreshProvider(
+    async (awsIdentityProperties: AwsIdentityProperties = {}) => {
+      const { callerClientConfig } = awsIdentityProperties;
+      const profile = options.clientConfig?.profile ?? callerClientConfig?.profile;
 
-    const logger = options.logger ?? callerClientConfig?.logger;
-    logger?.debug("@aws-sdk/credential-providers - fromTemporaryCredentials (STS)");
+      const logger = options.logger ?? callerClientConfig?.logger;
+      logger?.debug("@aws-sdk/credential-providers - fromTemporaryCredentials (STS)");
 
-    const params = { ...options.params, RoleSessionName: options.params.RoleSessionName ?? "aws-sdk-js-" + Date.now() };
-    if (params?.SerialNumber) {
-      if (!options.mfaCodeProvider) {
-        throw new CredentialsProviderError(
-          `Temporary credential requires multi-factor authentication, but no MFA code callback was provided.`,
-          {
-            tryNextLink: false,
-            logger,
-          }
+      const params = {
+        ...options.params,
+        RoleSessionName: options.params.RoleSessionName ?? "aws-sdk-js-" + Date.now(),
+      };
+      if (params?.SerialNumber) {
+        if (!options.mfaCodeProvider) {
+          throw new CredentialsProviderError(
+            `Temporary credential requires multi-factor authentication, but no MFA code callback was provided.`,
+            {
+              tryNextLink: false,
+              logger,
+            }
+          );
+        }
+        params.TokenCode = await options.mfaCodeProvider(params?.SerialNumber);
+      }
+
+      const { AssumeRoleCommand, STSClient } = await import("./loadSts.js");
+
+      if (!stsClient) {
+        const defaultCredentialsOrError =
+          typeof credentialDefaultProvider === "function" ? credentialDefaultProvider() : undefined;
+
+        const credentialSources = [
+          options.masterCredentials,
+          options.clientConfig?.credentials,
+          /**
+           * Important (!): callerClientConfig?.credentials is not a valid
+           * credential source for this provider, because this function
+           * is the caller client's credential provider function.
+           */
+          void callerClientConfig?.credentials,
+          callerClientConfig?.credentialDefaultProvider?.(),
+          defaultCredentialsOrError,
+        ];
+        let credentialSource = "STS client default credentials";
+        if (credentialSources[0]) {
+          credentialSource = "options.masterCredentials";
+        } else if (credentialSources[1]) {
+          credentialSource = "options.clientConfig.credentials";
+        } else if (credentialSources[2]) {
+          // This branch is not possible, see above void note.
+          // This code is here to prevent accidental attempts to utilize
+          // the invalid credential source.
+          credentialSource = "caller client's credentials";
+          throw new Error("fromTemporaryCredentials recursion in callerClientConfig.credentials");
+        } else if (credentialSources[3]) {
+          credentialSource = "caller client's credentialDefaultProvider";
+        } else if (credentialSources[4]) {
+          credentialSource = "AWS SDK default credentials";
+        }
+
+        const regionSources = [
+          options.clientConfig?.region,
+          callerClientConfig?.region,
+          await regionProvider?.({
+            profile,
+          }),
+          ASSUME_ROLE_DEFAULT_REGION,
+        ];
+        let regionSource = "default partition's default region";
+        if (regionSources[0]) {
+          regionSource = "options.clientConfig.region";
+        } else if (regionSources[1]) {
+          regionSource = "caller client's region";
+        } else if (regionSources[2]) {
+          regionSource = "file or env region";
+        }
+
+        const requestHandlerSources = [
+          filterRequestHandler(options.clientConfig?.requestHandler),
+          filterRequestHandler(callerClientConfig?.requestHandler),
+        ];
+        let requestHandlerSource = "STS default requestHandler";
+        if (requestHandlerSources[0]) {
+          requestHandlerSource = "options.clientConfig.requestHandler";
+        } else if (requestHandlerSources[1]) {
+          requestHandlerSource = "caller client's requestHandler";
+        }
+
+        logger?.debug?.(
+          `@aws-sdk/credential-providers - fromTemporaryCredentials STS client init with ` +
+            `${regionSource}=${await normalizeProvider(
+              coalesce(regionSources)
+            )()}, ${credentialSource}, ${requestHandlerSource}.`
         );
-      }
-      params.TokenCode = await options.mfaCodeProvider(params?.SerialNumber);
-    }
 
-    const { AssumeRoleCommand, STSClient } = await import("./loadSts.js");
-
-    if (!stsClient) {
-      const defaultCredentialsOrError =
-        typeof credentialDefaultProvider === "function" ? credentialDefaultProvider() : undefined;
-
-      const credentialSources = [
-        options.masterCredentials,
-        options.clientConfig?.credentials,
-        /**
-         * Important (!): callerClientConfig?.credentials is not a valid
-         * credential source for this provider, because this function
-         * is the caller client's credential provider function.
-         */
-        void callerClientConfig?.credentials,
-        callerClientConfig?.credentialDefaultProvider?.(),
-        defaultCredentialsOrError,
-      ];
-      let credentialSource = "STS client default credentials";
-      if (credentialSources[0]) {
-        credentialSource = "options.masterCredentials";
-      } else if (credentialSources[1]) {
-        credentialSource = "options.clientConfig.credentials";
-      } else if (credentialSources[2]) {
-        // This branch is not possible, see above void note.
-        // This code is here to prevent accidental attempts to utilize
-        // the invalid credential source.
-        credentialSource = "caller client's credentials";
-        throw new Error("fromTemporaryCredentials recursion in callerClientConfig.credentials");
-      } else if (credentialSources[3]) {
-        credentialSource = "caller client's credentialDefaultProvider";
-      } else if (credentialSources[4]) {
-        credentialSource = "AWS SDK default credentials";
-      }
-
-      const regionSources = [
-        options.clientConfig?.region,
-        callerClientConfig?.region,
-        await regionProvider?.({
+        stsClient = new STSClient({
+          userAgentAppId: callerClientConfig?.userAgentAppId,
+          ...options.clientConfig,
+          credentials: coalesce(credentialSources),
+          logger,
           profile,
-        }),
-        ASSUME_ROLE_DEFAULT_REGION,
-      ];
-      let regionSource = "default partition's default region";
-      if (regionSources[0]) {
-        regionSource = "options.clientConfig.region";
-      } else if (regionSources[1]) {
-        regionSource = "caller client's region";
-      } else if (regionSources[2]) {
-        regionSource = "file or env region";
+          region: coalesce(regionSources),
+          requestHandler: coalesce(requestHandlerSources),
+        });
       }
-
-      const requestHandlerSources = [
-        filterRequestHandler(options.clientConfig?.requestHandler),
-        filterRequestHandler(callerClientConfig?.requestHandler),
-      ];
-      let requestHandlerSource = "STS default requestHandler";
-      if (requestHandlerSources[0]) {
-        requestHandlerSource = "options.clientConfig.requestHandler";
-      } else if (requestHandlerSources[1]) {
-        requestHandlerSource = "caller client's requestHandler";
+      if (options.clientPlugins) {
+        for (const plugin of options.clientPlugins) {
+          stsClient.middlewareStack.use(plugin);
+        }
       }
-
-      logger?.debug?.(
-        `@aws-sdk/credential-providers - fromTemporaryCredentials STS client init with ` +
-          `${regionSource}=${await normalizeProvider(
-            coalesce(regionSources)
-          )()}, ${credentialSource}, ${requestHandlerSource}.`
-      );
-
-      stsClient = new STSClient({
-        userAgentAppId: callerClientConfig?.userAgentAppId,
-        ...options.clientConfig,
-        credentials: coalesce(credentialSources),
-        logger,
-        profile,
-        region: coalesce(regionSources),
-        requestHandler: coalesce(requestHandlerSources),
-      });
-    }
-    if (options.clientPlugins) {
-      for (const plugin of options.clientPlugins) {
-        stsClient.middlewareStack.use(plugin);
+      let Credentials: AssumeRoleCommandOutput["Credentials"];
+      try {
+        ({ Credentials } = await stsClient.send(new AssumeRoleCommand(params)));
+      } catch (error) {
+        throw markNonRecoverableStsError(error);
       }
-    }
-    const { Credentials } = await stsClient.send(new AssumeRoleCommand(params));
-    if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
-      throw new CredentialsProviderError(`Invalid response from STS.assumeRole call with role ${params.RoleArn}`, {
-        logger,
-      });
-    }
-    return {
-      accessKeyId: Credentials.AccessKeyId,
-      secretAccessKey: Credentials.SecretAccessKey,
-      sessionToken: Credentials.SessionToken,
-      expiration: Credentials.Expiration,
-      // TODO(credentialScope): access normally when shape is updated.
-      credentialScope: (Credentials as any).CredentialScope,
-    };
-  };
+      if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
+        throw new CredentialsProviderError(`Invalid response from STS.assumeRole call with role ${params.RoleArn}`, {
+          logger,
+        });
+      }
+      return {
+        accessKeyId: Credentials.AccessKeyId,
+        secretAccessKey: Credentials.SecretAccessKey,
+        sessionToken: Credentials.SessionToken,
+        expiration: Credentials.Expiration,
+        // TODO(credentialScope): access normally when shape is updated.
+        credentialScope: (Credentials as any).CredentialScope,
+      };
+    },
+    { logger: options.logger }
+  );
 };
 
 /**

@@ -99,7 +99,8 @@ describe("fromHttp socket cleanup", () => {
 
     await provider();
     fs.writeFileSync(tokenFile, "token-v2");
-    await provider();
+    // fromHttp caches credentials in its refresh lifecycle, so force a second fetch.
+    await provider({ forceRefresh: true });
 
     expect(receivedAuths[0]).toBe("token-v1");
     expect(receivedAuths[1]).toBe("token-v2");

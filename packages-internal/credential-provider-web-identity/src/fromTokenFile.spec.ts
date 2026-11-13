@@ -35,6 +35,13 @@ describe(fromTokenFile.name, () => {
     vi.restoreAllMocks();
   });
 
+  it("returns a provider that owns the credential refresh lifecycle", () => {
+    const provider = fromTokenFile({ webIdentityTokenFile: mockTokenFile, roleArn: mockRoleArn });
+
+    expect((provider as any).memoized).toBe(true);
+    expect(typeof (provider as any).invalidate).toBe("function");
+  });
+
   describe("reads config from env", () => {
     const original_ENV_TOKEN_FILE = process.env[ENV_TOKEN_FILE];
     const original_ENV_ROLE_ARN = process.env[ENV_ROLE_ARN];

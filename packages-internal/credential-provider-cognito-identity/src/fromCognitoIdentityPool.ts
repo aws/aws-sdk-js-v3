@@ -1,10 +1,11 @@
+import { createCredentialRefreshProvider } from "@aws-sdk/core/client";
 import type { AwsIdentityProperties, CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/core/config";
 import type { Logger } from "@smithy/types";
 
 import type { CognitoProviderParameters } from "./CognitoProviderParameters";
 import type { CognitoIdentityCredentialProvider } from "./fromCognitoIdentity";
-import { fromCognitoIdentity } from "./fromCognitoIdentity";
+import { fromCognitoIdentitySource } from "./fromCognitoIdentity";
 import { localStorage } from "./localStorage";
 import { resolveLogins } from "./resolveLogins";
 import type { Storage } from "./Storage";
@@ -16,8 +17,8 @@ import type { Storage } from "./Storage";
  * operation, then generates temporary AWS credentials using Amazon Cognito's
  * `GetCredentialsForIdentity` operation.
  *
- * Results from `GetId` are cached internally, but results from
- * `GetCredentialsForIdentity` are not.
+ * Results from `GetId` and `GetCredentialsForIdentity` are cached. Credentials are refreshed
+ * according to the credential refresh lifecycle.
  */
 export function fromCognitoIdentityPool({
   accountId,
@@ -69,7 +70,7 @@ export function fromCognitoIdentityPool({
       }
     }
 
-    provider = fromCognitoIdentity({
+    provider = fromCognitoIdentitySource({
       client: _client,
       customRoleArn,
       logins,
@@ -79,7 +80,7 @@ export function fromCognitoIdentityPool({
     return provider(awsIdentityProperties);
   };
 
-  return (awsIdentityProperties?: AwsIdentityProperties) =>
+  const source = (awsIdentityProperties?: AwsIdentityProperties) =>
     provider(awsIdentityProperties).catch(async (err) => {
       if (cacheKey) {
         Promise.resolve(cache.removeItem(cacheKey)).catch(() => {});
@@ -87,6 +88,8 @@ export function fromCognitoIdentityPool({
 
       throw err;
     });
+
+  return createCredentialRefreshProvider(source, { logger });
 }
 
 /**

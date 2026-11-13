@@ -17,7 +17,7 @@ const MOCK_CREDS = {
 };
 
 vi.mock("@aws-sdk/nested-clients/sts", () => ({
-  getDefaultRoleAssumerWithWebIdentity: vi.fn().mockReturnValue(() => {}),
+  getDefaultRoleAssumerWithWebIdentity: vi.fn().mockReturnValue(() => Promise.resolve(MOCK_CREDS)),
 }));
 
 describe("fromWebToken", () => {
@@ -25,6 +25,13 @@ describe("fromWebToken", () => {
     vi.clearAllMocks();
     vi.restoreAllMocks();
   });
+  it("returns a provider that owns the credential refresh lifecycle", () => {
+    const provider = fromWebToken({ webIdentityToken: mockToken, roleArn: mockRoleArn });
+
+    expect((provider as any).memoized).toBe(true);
+    expect(typeof (provider as any).invalidate).toBe("function");
+  });
+
   it("dynamically imports roleAssumerWithWebIdentity if not provided", async () => {
     await fromWebToken({
       webIdentityToken: mockToken,
@@ -77,5 +84,40 @@ describe("fromWebToken", () => {
     })();
     expect(creds).toEqual(MOCK_CREDS);
     expect(spyDateNow).toHaveBeenCalledTimes(1);
+  });
+
+  describe("non-recoverable STS failures", () => {
+    const assumeFails = (failure: unknown) =>
+      fromWebToken({
+        webIdentityToken: mockToken,
+        roleArn: mockRoleArn,
+        roleAssumerWithWebIdentity: async () => {
+          throw failure;
+        },
+      })().catch((error) => error);
+
+    it.each(["AccessDenied", "IDPRejectedClaim", "InvalidIdentityToken", "RegionDisabledException"])(
+      "marks %s, which cannot succeed until the customer acts",
+      async (name) => {
+        const failure = Object.assign(new Error("sts rejected the request"), { name });
+
+        const error = await assumeFails(failure);
+
+        expect(error).toBe(failure);
+        expect(error.$nonRecoverable).toBe(true);
+      }
+    );
+
+    it.each(["ThrottlingException", "TimeoutError"])(
+      "leaves %s recoverable, so the lifecycle keeps using cached credentials",
+      async (name) => {
+        const failure = Object.assign(new Error("sts is unwell"), { name });
+
+        const error = await assumeFails(failure);
+
+        expect(error).toBe(failure);
+        expect(error.$nonRecoverable).toBeUndefined();
+      }
+    );
   });
 });
