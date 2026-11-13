@@ -327,6 +327,9 @@ import {
   GetExportImageTaskResult$,
   Image$,
   ImageBuilder$,
+  ImageBuilderAgentAccessConfig$,
+  ImageBuilderAgentAccessConfigForUpdate$,
+  ImageBuilderAttribute,
   ImageBuilderState,
   ImageBuilderStateChangeReason$,
   ImageBuilderStateChangeReasonCode,
@@ -475,6 +478,10 @@ import {
   UpdateFleetCommand,
   UpdateFleetRequest$,
   UpdateFleetResult$,
+  UpdateImageBuilder$,
+  UpdateImageBuilderCommand,
+  UpdateImageBuilderRequest$,
+  UpdateImageBuilderResult$,
   UpdateImagePermissions$,
   UpdateImagePermissionsCommand,
   UpdateImagePermissionsRequest$,
@@ -682,6 +689,8 @@ assert(typeof UpdateEntitlementCommand === "function");
 assert(typeof UpdateEntitlement$ === "object");
 assert(typeof UpdateFleetCommand === "function");
 assert(typeof UpdateFleet$ === "object");
+assert(typeof UpdateImageBuilderCommand === "function");
+assert(typeof UpdateImageBuilder$ === "object");
 assert(typeof UpdateImagePermissionsCommand === "function");
 assert(typeof UpdateImagePermissions$ === "object");
 assert(typeof UpdateStackCommand === "function");
@@ -853,6 +862,8 @@ assert(typeof GetExportImageTaskRequest$ === "object");
 assert(typeof GetExportImageTaskResult$ === "object");
 assert(typeof Image$ === "object");
 assert(typeof ImageBuilder$ === "object");
+assert(typeof ImageBuilderAgentAccessConfig$ === "object");
+assert(typeof ImageBuilderAgentAccessConfigForUpdate$ === "object");
 assert(typeof ImageBuilderStateChangeReason$ === "object");
 assert(typeof ImagePermissions$ === "object");
 assert(typeof ImageSoftwareMetadata$ === "object");
@@ -911,6 +922,8 @@ assert(typeof UpdateEntitlementRequest$ === "object");
 assert(typeof UpdateEntitlementResult$ === "object");
 assert(typeof UpdateFleetRequest$ === "object");
 assert(typeof UpdateFleetResult$ === "object");
+assert(typeof UpdateImageBuilderRequest$ === "object");
+assert(typeof UpdateImageBuilderResult$ === "object");
 assert(typeof UpdateImagePermissionsRequest$ === "object");
 assert(typeof UpdateImagePermissionsResult$ === "object");
 assert(typeof UpdateStackRequest$ === "object");
@@ -945,6 +958,7 @@ assert(typeof FleetAttribute === "object");
 assert(typeof FleetErrorCode === "object");
 assert(typeof FleetState === "object");
 assert(typeof FleetType === "object");
+assert(typeof ImageBuilderAttribute === "object");
 assert(typeof ImageBuilderState === "object");
 assert(typeof ImageBuilderStateChangeReasonCode === "object");
 assert(typeof ImageSharedWithOthers === "object");

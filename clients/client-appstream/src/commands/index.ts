@@ -85,6 +85,7 @@ export * from "./UpdateApplicationCommand";
 export * from "./UpdateDirectoryConfigCommand";
 export * from "./UpdateEntitlementCommand";
 export * from "./UpdateFleetCommand";
+export * from "./UpdateImageBuilderCommand";
 export * from "./UpdateImagePermissionsCommand";
 export * from "./UpdateStackCommand";
 export * from "./UpdateThemeForStackCommand";

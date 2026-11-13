@@ -74,6 +74,19 @@ export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResul
  *     "STRING_VALUE",
  *   ],
  *   DisableIMDSV1: true || false,
+ *   AgentAccessConfig: { // ImageBuilderAgentAccessConfig
+ *     Settings: [ // AgentAccessSettingList // required
+ *       { // AgentAccessSetting
+ *         AgentAction: "COMPUTER_VISION" || "COMPUTER_INPUT" || "FORWARD_MCP_TOOLS", // required
+ *         Permission: "ENABLED" || "DISABLED", // required
+ *       },
+ *     ],
+ *     S3BucketArn: "STRING_VALUE",
+ *     ScreenshotsUploadEnabled: true || false,
+ *     ScreenResolution: "W_1280xH_720", // required
+ *     ScreenImageFormat: "PNG" || "JPEG", // required
+ *     UserControlMode: "VIEW_ONLY" || "VIEW_STOP" || "DISABLED",
+ *   },
  * };
  * const command = new CreateImageBuilderCommand(input);
  * const response = await client.send(command);
@@ -132,6 +145,19 @@ export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResul
  * //     },
  * //     LatestAppstreamAgentVersion: "TRUE" || "FALSE",
  * //     DisableIMDSV1: true || false,
+ * //     AgentAccessConfig: { // ImageBuilderAgentAccessConfig
+ * //       Settings: [ // AgentAccessSettingList // required
+ * //         { // AgentAccessSetting
+ * //           AgentAction: "COMPUTER_VISION" || "COMPUTER_INPUT" || "FORWARD_MCP_TOOLS", // required
+ * //           Permission: "ENABLED" || "DISABLED", // required
+ * //         },
+ * //       ],
+ * //       S3BucketArn: "STRING_VALUE",
+ * //       ScreenshotsUploadEnabled: true || false,
+ * //       ScreenResolution: "W_1280xH_720", // required
+ * //       ScreenImageFormat: "PNG" || "JPEG", // required
+ * //       UserControlMode: "VIEW_ONLY" || "VIEW_STOP" || "DISABLED",
+ * //     },
  * //   },
  * // };
  *

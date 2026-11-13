@@ -24,6 +24,7 @@ export interface DescribeImageBuildersCommandOutput extends DescribeImageBuilder
 
 /**
  * <p>Retrieves a list that describes one or more specified image builders, if the image builder names are provided. Otherwise, all image builders in the account are described.</p>
+ *          <p>The description of each image builder includes its agent access configuration, if agent access is enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,6 +98,19 @@ export interface DescribeImageBuildersCommandOutput extends DescribeImageBuilder
  * //       },
  * //       LatestAppstreamAgentVersion: "TRUE" || "FALSE",
  * //       DisableIMDSV1: true || false,
+ * //       AgentAccessConfig: { // ImageBuilderAgentAccessConfig
+ * //         Settings: [ // AgentAccessSettingList // required
+ * //           { // AgentAccessSetting
+ * //             AgentAction: "COMPUTER_VISION" || "COMPUTER_INPUT" || "FORWARD_MCP_TOOLS", // required
+ * //             Permission: "ENABLED" || "DISABLED", // required
+ * //           },
+ * //         ],
+ * //         S3BucketArn: "STRING_VALUE",
+ * //         ScreenshotsUploadEnabled: true || false,
+ * //         ScreenResolution: "W_1280xH_720", // required
+ * //         ScreenImageFormat: "PNG" || "JPEG", // required
+ * //         UserControlMode: "VIEW_ONLY" || "VIEW_STOP" || "DISABLED",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

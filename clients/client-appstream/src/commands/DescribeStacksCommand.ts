@@ -112,6 +112,8 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * //         ],
  * //         S3BucketArn: "STRING_VALUE",
  * //         ScreenshotsUploadEnabled: true || false,
+ * //         ReplaySessionEnabled: true || false,
+ * //         KmsKeyArn: "STRING_VALUE",
  * //         ScreenResolution: "W_1280xH_720", // required
  * //         ScreenImageFormat: "PNG" || "JPEG", // required
  * //         UserControlMode: "VIEW_ONLY" || "VIEW_STOP" || "DISABLED",

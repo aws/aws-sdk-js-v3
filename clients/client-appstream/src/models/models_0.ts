@@ -19,6 +19,7 @@ import type {
   FleetErrorCode,
   FleetState,
   FleetType,
+  ImageBuilderAttribute,
   ImageBuilderState,
   ImageBuilderStateChangeReasonCode,
   ImageSharedWithOthers,
@@ -142,13 +143,13 @@ export interface AgentAccessSetting {
  */
 export interface AgentAccessConfig {
   /**
-   * <p>The list of agent access settings that define permissions for each agent action. You must specify at least one setting.</p>
+   * <p>The list of agent access settings that define permissions for each agent action. You must specify at least one setting, and at least one agent action must be enabled.</p>
    * @public
    */
   Settings: AgentAccessSetting[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots and Replay Session artifacts are stored. Required when ScreenshotsUploadEnabled or ReplaySessionEnabled is true.</p>
    * @public
    */
   S3BucketArn?: string | undefined;
@@ -158,6 +159,18 @@ export interface AgentAccessConfig {
    * @public
    */
   ScreenshotsUploadEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether Replay Session is enabled for agent sessions. WorkSpaces Applications delivers a video combining session screenshots, a transcript, and a report for each session. Requires the COMPUTER_VISION agent action.</p>
+   * @public
+   */
+  ReplaySessionEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer managed symmetric encryption KMS key that encrypts Replay Session artifacts while WorkSpaces Applications processes them. The key must be in the same Region as the stack, and ReplaySessionEnabled must be true.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>The screen resolution for the agent streaming environment.</p>
@@ -184,13 +197,13 @@ export interface AgentAccessConfig {
  */
 export interface AgentAccessConfigForUpdate {
   /**
-   * <p>The list of agent access settings that define permissions for each agent action.</p>
+   * <p>The list of agent access settings that define permissions for each agent action. The merged settings must have at least one agent action enabled.</p>
    * @public
    */
   Settings?: AgentAccessSetting[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots and Replay Session artifacts are stored.</p>
    * @public
    */
   S3BucketArn?: string | undefined;
@@ -200,6 +213,18 @@ export interface AgentAccessConfigForUpdate {
    * @public
    */
   ScreenshotsUploadEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether Replay Session is enabled for agent sessions. Setting this attribute to false also removes the KmsKeyArn value from the stack.</p>
+   * @public
+   */
+  ReplaySessionEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer managed symmetric encryption KMS key that encrypts Replay Session artifacts while WorkSpaces Applications processes them. To remove the key, use AttributesToDelete with the AGENT_ACCESS_CONFIG_KMS_KEY_ARN value.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>The screen resolution for the agent streaming environment.</p>
@@ -2686,6 +2711,72 @@ export interface CreateFleetResult {
 }
 
 /**
+ * <p>The configuration for agent access on an image builder. Agent access enables AI agents to interact with desktop applications during streaming sessions to the image builder.</p>
+ * @public
+ */
+export interface ImageBuilderAgentAccessConfig {
+  /**
+   * <p>The list of agent access settings that define permissions for each agent action. You must specify at least one setting, and at least one agent action must be enabled.</p>
+   * @public
+   */
+  Settings: AgentAccessSetting[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.</p>
+   * @public
+   */
+  S3BucketArn?: string | undefined;
+
+  /**
+   * <p>Specifies whether screenshot uploads to Amazon S3 are enabled for agent sessions.</p>
+   * @public
+   */
+  ScreenshotsUploadEnabled?: boolean | undefined;
+
+  /**
+   * <p>The screen resolution for the agent streaming environment.</p>
+   *          <ul>
+   *             <li>
+   *                <p>W_1280xH_720 - 1280 x 720 pixels.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ScreenResolution: ScreenResolution | undefined;
+
+  /**
+   * <p>The image format for agent screen captures.</p>
+   *          <ul>
+   *             <li>
+   *                <p>PNG - PNG format.</p>
+   *             </li>
+   *             <li>
+   *                <p>JPEG - JPEG format.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ScreenImageFormat: ScreenImageFormat | undefined;
+
+  /**
+   * <p>The user control mode for agent sessions. This setting determines how users can interact with agent sessions.</p>
+   *          <ul>
+   *             <li>
+   *                <p>VIEW_ONLY - Users can view and observe agent actions as they happen.</p>
+   *             </li>
+   *             <li>
+   *                <p>VIEW_STOP - Users can view agent actions and stop the agent if needed.</p>
+   *             </li>
+   *             <li>
+   *                <p>DISABLED - Users cannot view or stop the agent session.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UserControlMode?: UserControlMode | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateImageBuilderRequest {
@@ -3088,6 +3179,12 @@ export interface CreateImageBuilderRequest {
    * @public
    */
   DisableIMDSV1?: boolean | undefined;
+
+  /**
+   * <p>The configuration for agent access on the image builder. If specified, agent access is enabled for the image builder.</p>
+   * @public
+   */
+  AgentAccessConfig?: ImageBuilderAgentAccessConfig | undefined;
 }
 
 /**
@@ -3403,6 +3500,12 @@ export interface ImageBuilder {
    * @public
    */
   DisableIMDSV1?: boolean | undefined;
+
+  /**
+   * <p>The agent access configuration of the image builder, if agent access is enabled.</p>
+   * @public
+   */
+  AgentAccessConfig?: ImageBuilderAgentAccessConfig | undefined;
 }
 
 /**
@@ -6113,6 +6216,72 @@ export interface GetExportImageTaskResult {
 }
 
 /**
+ * <p>The configuration for updating agent access on an image builder. This type supports partial updates, so you only need to specify the fields you want to change. Fields that you omit keep their stored values.</p>
+ * @public
+ */
+export interface ImageBuilderAgentAccessConfigForUpdate {
+  /**
+   * <p>The list of agent access settings that define permissions for each agent action. These settings are merged with the stored settings by agent action. A setting that you specify replaces the stored setting for the same agent action. The merged settings must have at least one agent action enabled.</p>
+   * @public
+   */
+  Settings?: AgentAccessSetting[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. If ScreenshotsUploadEnabled is false after the merge, the stored bucket ARN is removed.</p>
+   * @public
+   */
+  S3BucketArn?: string | undefined;
+
+  /**
+   * <p>Specifies whether screenshot uploads to Amazon S3 are enabled for agent sessions.</p>
+   * @public
+   */
+  ScreenshotsUploadEnabled?: boolean | undefined;
+
+  /**
+   * <p>The screen resolution for the agent streaming environment.</p>
+   *          <ul>
+   *             <li>
+   *                <p>W_1280xH_720 - 1280 x 720 pixels.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ScreenResolution?: ScreenResolution | undefined;
+
+  /**
+   * <p>The image format for agent screen captures.</p>
+   *          <ul>
+   *             <li>
+   *                <p>PNG - PNG format.</p>
+   *             </li>
+   *             <li>
+   *                <p>JPEG - JPEG format.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ScreenImageFormat?: ScreenImageFormat | undefined;
+
+  /**
+   * <p>The user control mode for agent sessions. This setting determines how users can interact with agent sessions.</p>
+   *          <ul>
+   *             <li>
+   *                <p>VIEW_ONLY - Users can view and observe agent actions as they happen.</p>
+   *             </li>
+   *             <li>
+   *                <p>VIEW_STOP - Users can view agent actions and stop the agent if needed.</p>
+   *             </li>
+   *             <li>
+   *                <p>DISABLED - Users cannot view or stop the agent session.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UserControlMode?: UserControlMode | undefined;
+}
+
+/**
  * @public
  */
 export interface ListAssociatedFleetsRequest {
@@ -7098,6 +7267,52 @@ export interface UpdateFleetResult {
    * @public
    */
   Fleet?: Fleet | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateImageBuilderRequest {
+  /**
+   * <p>The name of the image builder.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description to display.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The image builder name to display.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The configuration for agent access on the image builder. Specify this to update agent access settings. To remove agent access, use AttributesToDelete with the AGENT_ACCESS_CONFIG value.</p>
+   * @public
+   */
+  AgentAccessConfig?: ImageBuilderAgentAccessConfigForUpdate | undefined;
+
+  /**
+   * <p>The image builder attributes to delete.</p>
+   * @public
+   */
+  AttributesToDelete?: ImageBuilderAttribute[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateImageBuilderResult {
+  /**
+   * <p>Information about the image builder.</p>
+   * @public
+   */
+  ImageBuilder?: ImageBuilder | undefined;
 }
 
 /**

@@ -432,6 +432,11 @@ import {
   UpdateFleetCommand,
 } from "./commands/UpdateFleetCommand";
 import {
+  type UpdateImageBuilderCommandInput,
+  type UpdateImageBuilderCommandOutput,
+  UpdateImageBuilderCommand,
+} from "./commands/UpdateImageBuilderCommand";
+import {
   type UpdateImagePermissionsCommandInput,
   type UpdateImagePermissionsCommandOutput,
   UpdateImagePermissionsCommand,
@@ -543,6 +548,7 @@ const commands = {
   UpdateDirectoryConfigCommand,
   UpdateEntitlementCommand,
   UpdateFleetCommand,
+  UpdateImageBuilderCommand,
   UpdateImagePermissionsCommand,
   UpdateStackCommand,
   UpdateThemeForStackCommand,
@@ -2043,6 +2049,23 @@ export interface AppStream {
     args: UpdateFleetCommandInput,
     options: AppStreamRequestOptions,
     cb: (err: any, data?: UpdateFleetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateImageBuilderCommand}
+   */
+  updateImageBuilder(
+    args: UpdateImageBuilderCommandInput,
+    options?: AppStreamRequestOptions
+  ): Promise<UpdateImageBuilderCommandOutput>;
+  updateImageBuilder(
+    args: UpdateImageBuilderCommandInput,
+    cb: (err: any, data?: UpdateImageBuilderCommandOutput) => void
+  ): void;
+  updateImageBuilder(
+    args: UpdateImageBuilderCommandInput,
+    options: AppStreamRequestOptions,
+    cb: (err: any, data?: UpdateImageBuilderCommandOutput) => void
   ): void;
 
   /**

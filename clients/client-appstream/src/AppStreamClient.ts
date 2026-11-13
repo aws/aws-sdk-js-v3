@@ -324,6 +324,10 @@ import type {
 } from "./commands/UpdateEntitlementCommand";
 import type { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
 import type {
+  UpdateImageBuilderCommandInput,
+  UpdateImageBuilderCommandOutput,
+} from "./commands/UpdateImageBuilderCommand";
+import type {
   UpdateImagePermissionsCommandInput,
   UpdateImagePermissionsCommandOutput,
 } from "./commands/UpdateImagePermissionsCommand";
@@ -433,6 +437,7 @@ export type ServiceInputTypes =
   | UpdateDirectoryConfigCommandInput
   | UpdateEntitlementCommandInput
   | UpdateFleetCommandInput
+  | UpdateImageBuilderCommandInput
   | UpdateImagePermissionsCommandInput
   | UpdateStackCommandInput
   | UpdateThemeForStackCommandInput;
@@ -527,6 +532,7 @@ export type ServiceOutputTypes =
   | UpdateDirectoryConfigCommandOutput
   | UpdateEntitlementCommandOutput
   | UpdateFleetCommandOutput
+  | UpdateImageBuilderCommandOutput
   | UpdateImagePermissionsCommandOutput
   | UpdateStackCommandOutput
   | UpdateThemeForStackCommandOutput;

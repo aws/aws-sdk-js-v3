@@ -727,9 +727,22 @@ export type FleetAttribute = (typeof FleetAttribute)[keyof typeof FleetAttribute
  * @public
  * @enum
  */
+export const ImageBuilderAttribute = {
+  AGENT_ACCESS_CONFIG: "AGENT_ACCESS_CONFIG",
+} as const;
+/**
+ * @public
+ */
+export type ImageBuilderAttribute = (typeof ImageBuilderAttribute)[keyof typeof ImageBuilderAttribute];
+
+/**
+ * @public
+ * @enum
+ */
 export const StackAttribute = {
   ACCESS_ENDPOINTS: "ACCESS_ENDPOINTS",
   AGENT_ACCESS_CONFIG: "AGENT_ACCESS_CONFIG",
+  AGENT_ACCESS_CONFIG_KMS_KEY_ARN: "AGENT_ACCESS_CONFIG_KMS_KEY_ARN",
   CONTENT_REDIRECTION: "CONTENT_REDIRECTION",
   EMBED_HOST_DOMAINS: "EMBED_HOST_DOMAINS",
   FEEDBACK_URL: "FEEDBACK_URL",

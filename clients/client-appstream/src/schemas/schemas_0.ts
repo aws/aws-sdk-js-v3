@@ -348,6 +348,8 @@ const _I = "Image";
 const _IA = "ImageArn";
 const _IASE = "InvalidAccountStatusException";
 const _IB = "ImageBuilder";
+const _IBAAC = "ImageBuilderAgentAccessConfig";
+const _IBAACFU = "ImageBuilderAgentAccessConfigForUpdate";
 const _IBE = "ImageBuilderErrors";
 const _IBL = "ImageBuilderList";
 const _IBN = "ImageBuilderName";
@@ -377,6 +379,7 @@ const _IU = "InUse";
 const _IURL = "IconURL";
 const _Id = "Id";
 const _Im = "Images";
+const _KKA = "KmsKeyArn";
 const _L = "Limit";
 const _LAAV = "LatestAppstreamAgentVersion";
 const _LAF = "ListAssociatedFleets";
@@ -440,6 +443,7 @@ const _RIUE = "ResourceInUseException";
 const _RLEE = "RequestLimitExceededException";
 const _RNAE = "ResourceNotAvailableException";
 const _RNFE = "ResourceNotFoundException";
+const _RSE = "ReplaySessionEnabled";
 const _RURL = "RedirectURL";
 const _RVC = "RootVolumeConfig";
 const _RVCu = "RuntimeValidationConfig";
@@ -560,6 +564,9 @@ const _UF = "UpdateFleet";
 const _UFR = "UpdateFleetRequest";
 const _UFRp = "UpdateFleetResult";
 const _UI = "UserId";
+const _UIB = "UpdateImageBuilder";
+const _UIBR = "UpdateImageBuilderRequest";
+const _UIBRp = "UpdateImageBuilderResult";
 const _UIP = "UpdateImagePermissions";
 const _UIPR = "UpdateImagePermissionsRequest";
 const _UIPRp = "UpdateImagePermissionsResult";
@@ -770,13 +777,13 @@ export var AdminAppLicenseUsageRecord$: StaticStructureSchema = [3, n0, _AALUR,
 ];
 export var AgentAccessConfig$: StaticStructureSchema = [3, n0, _AAC,
   0,
-  [_S, _SR, _SIF, _SBA, _SUE, _UCM],
-  [() => AgentAccessSettingList, 0, 0, 0, 2, 0], 3
+  [_S, _SR, _SIF, _SBA, _SUE, _RSE, _KKA, _UCM],
+  [() => AgentAccessSettingList, 0, 0, 0, 2, 2, 0, 0], 3
 ];
 export var AgentAccessConfigForUpdate$: StaticStructureSchema = [3, n0, _AACFU,
   0,
-  [_S, _SBA, _SUE, _SR, _SIF, _UCM],
-  [() => AgentAccessSettingList, 0, 2, 0, 0, 0]
+  [_S, _SBA, _SUE, _RSE, _KKA, _SR, _SIF, _UCM],
+  [() => AgentAccessSettingList, 0, 2, 2, 0, 0, 0, 0]
 ];
 export var AgentAccessSetting$: StaticStructureSchema = [3, n0, _AAS,
   0,
@@ -1010,8 +1017,8 @@ export var CreateFleetResult$: StaticStructureSchema = [3, n0, _CFRr,
 ];
 export var CreateImageBuilderRequest$: StaticStructureSchema = [3, n0, _CIBR,
   0,
-  [_N, _IT, _IN, _IA, _D, _DN, _VC, _IRA, _EDIA, _DJI, _AAV, _T, _AEc, _RVC, _STI, _STU, _DIMDSV],
-  [0, 0, 0, 0, 0, 0, () => VpcConfig$, 0, 2, () => DomainJoinInfo$, 0, 128 | 0, () => AccessEndpointList, () => VolumeConfig$, 64 | 0, 64 | 0, 2], 2
+  [_N, _IT, _IN, _IA, _D, _DN, _VC, _IRA, _EDIA, _DJI, _AAV, _T, _AEc, _RVC, _STI, _STU, _DIMDSV, _AAC],
+  [0, 0, 0, 0, 0, 0, () => VpcConfig$, 0, 2, () => DomainJoinInfo$, 0, 128 | 0, () => AccessEndpointList, () => VolumeConfig$, 64 | 0, 64 | 0, 2, () => ImageBuilderAgentAccessConfig$], 2
 ];
 export var CreateImageBuilderResult$: StaticStructureSchema = [3, n0, _CIBRr,
   0,
@@ -1575,8 +1582,18 @@ export var Image$: StaticStructureSchema = [3, n0, _I,
 ];
 export var ImageBuilder$: StaticStructureSchema = [3, n0, _IB,
   0,
-  [_N, _A, _IA, _D, _DN, _VC, _IT, _Pl, _IRA, _St, _SCR, _CT, _EDIA, _DJI, _NAC, _IBE, _AAV, _AEc, _RVC, _LAAV, _DIMDSV],
-  [0, 0, 0, 0, 0, () => VpcConfig$, 0, 0, 0, 0, () => ImageBuilderStateChangeReason$, 4, 2, () => DomainJoinInfo$, () => NetworkAccessConfiguration$, () => ResourceErrors, 0, () => AccessEndpointList, () => VolumeConfig$, 0, 2], 1
+  [_N, _A, _IA, _D, _DN, _VC, _IT, _Pl, _IRA, _St, _SCR, _CT, _EDIA, _DJI, _NAC, _IBE, _AAV, _AEc, _RVC, _LAAV, _DIMDSV, _AAC],
+  [0, 0, 0, 0, 0, () => VpcConfig$, 0, 0, 0, 0, () => ImageBuilderStateChangeReason$, 4, 2, () => DomainJoinInfo$, () => NetworkAccessConfiguration$, () => ResourceErrors, 0, () => AccessEndpointList, () => VolumeConfig$, 0, 2, () => ImageBuilderAgentAccessConfig$], 1
+];
+export var ImageBuilderAgentAccessConfig$: StaticStructureSchema = [3, n0, _IBAAC,
+  0,
+  [_S, _SR, _SIF, _SBA, _SUE, _UCM],
+  [() => AgentAccessSettingList, 0, 0, 0, 2, 0], 3
+];
+export var ImageBuilderAgentAccessConfigForUpdate$: StaticStructureSchema = [3, n0, _IBAACFU,
+  0,
+  [_S, _SBA, _SUE, _SR, _SIF, _UCM],
+  [() => AgentAccessSettingList, 0, 2, 0, 0, 0]
 ];
 export var ImageBuilderStateChangeReason$: StaticStructureSchema = [3, n0, _IBSCR,
   0,
@@ -1868,6 +1885,16 @@ export var UpdateFleetResult$: StaticStructureSchema = [3, n0, _UFRp,
   [_F],
   [() => Fleet$]
 ];
+export var UpdateImageBuilderRequest$: StaticStructureSchema = [3, n0, _UIBR,
+  0,
+  [_N, _D, _DN, _AAC, _ATD],
+  [0, 0, 0, () => ImageBuilderAgentAccessConfigForUpdate$, 64 | 0], 1
+];
+export var UpdateImageBuilderResult$: StaticStructureSchema = [3, n0, _UIBRp,
+  0,
+  [_IB],
+  [() => ImageBuilder$]
+];
 export var UpdateImagePermissionsRequest$: StaticStructureSchema = [3, n0, _UIPR,
   0,
   [_N, _SAIh, _IP],
@@ -2003,6 +2030,7 @@ var FleetErrors: StaticListSchema = [1, n0, _FE,
 var FleetList: StaticListSchema = [1, n0, _FLl,
   0, () => Fleet$
 ];
+var ImageBuilderAttributes = 64 | 0;
 var ImageBuilderList: StaticListSchema = [1, n0, _IBL,
   0, () => ImageBuilder$
 ];
@@ -2323,6 +2351,9 @@ export var UpdateEntitlement$: StaticOperationSchema = [9, n0, _UE,
 ];
 export var UpdateFleet$: StaticOperationSchema = [9, n0, _UF,
   0, () => UpdateFleetRequest$, () => UpdateFleetResult$
+];
+export var UpdateImageBuilder$: StaticOperationSchema = [9, n0, _UIB,
+  0, () => UpdateImageBuilderRequest$, () => UpdateImageBuilderResult$
 ];
 export var UpdateImagePermissions$: StaticOperationSchema = [9, n0, _UIP,
   0, () => UpdateImagePermissionsRequest$, () => UpdateImagePermissionsResult$
