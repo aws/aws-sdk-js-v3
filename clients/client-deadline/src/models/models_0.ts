@@ -82,20 +82,20 @@ export interface AcceleratorCountRange {
  */
 export interface AcceleratorSelection {
   /**
-   * <p>The name of the chip used by the GPU accelerator.</p> <p>The available GPU accelerators are:</p> <ul> <li> <p> <code>t4</code> - NVIDIA T4 Tensor Core GPU (16 GiB memory)</p> </li> <li> <p> <code>a10g</code> - NVIDIA A10G Tensor Core GPU (24 GiB memory)</p> </li> <li> <p> <code>l4</code> - NVIDIA L4 Tensor Core GPU (24 GiB memory)</p> </li> <li> <p> <code>l40s</code> - NVIDIA L40S Tensor Core GPU (48 GiB memory)</p> </li> <li> <p> <code>rtx-pro-server-6000</code> - NVIDIA RTX PRO Server 6000 GPU (96 GiB memory)</p> </li> </ul>
+   * <p>The name of the chip used by the GPU accelerator.</p> <p>The available GPU accelerators are:</p> <ul> <li> <p> <code>t4</code> - NVIDIA T4 Tensor Core GPU (16 GiB memory)</p> </li> <li> <p> <code>a10g</code> - NVIDIA A10G Tensor Core GPU (24 GiB memory)</p> </li> <li> <p> <code>l4</code> - NVIDIA L4 Tensor Core GPU (24 GiB memory)</p> </li> <li> <p> <code>l40s</code> - NVIDIA L40S Tensor Core GPU (48 GiB memory)</p> </li> <li> <p> <code>rtx-pro-server-6000</code> - NVIDIA RTX PRO Server 6000 GPU (96 GiB memory)</p> </li> <li> <p> <code>rtx-pro-4500</code> - NVIDIA RTX PRO 4500 GPU (32 GiB memory)</p> </li> </ul>
    * @public
    */
   name: AcceleratorName | undefined;
 
   /**
-   * <p>Specifies the runtime driver to use for the GPU accelerator. You must use the same runtime for all GPUs in a fleet. </p> <p>You can choose from the following runtimes:</p> <ul> <li> <p> <code>latest</code> - Use the latest runtime available for the chip. If you specify <code>latest</code> and a new version of the runtime is released, the new version of the runtime is used.</p> </li> <li> <p> <code>grid:r580</code> - <a href="https://docs.nvidia.com/vgpu/19.0/index.html">NVIDIA vGPU software 19</a> </p> </li> </ul> <p>If you don't specify a runtime, Amazon Web Services Deadline Cloud uses <code>latest</code> as the default. However, if you have multiple accelerators and specify <code>latest</code> for some and leave others blank, Amazon Web Services Deadline Cloud raises an exception.</p> <important> <p>All accelerator types support <code>grid:r580</code>.</p> <p>All accelerators in a fleet must use the same runtime version. You cannot mix different runtime versions within a single fleet.</p> </important> <note> <p>When you specify <code>latest</code>, it resolves to <code>grid:r580</code> for all currently supported accelerators.</p> </note>
+   * <p>Specifies the runtime driver to use for the GPU accelerator. You must use the same runtime for all GPUs in a fleet. </p> <p>You can choose from the following runtimes:</p> <ul> <li> <p> <code>latest</code> - Use the latest runtime available for the chip. If you specify <code>latest</code> and a new version of the runtime is released, the new version of the runtime is used.</p> </li> <li> <p> <code>grid:r595</code> - <a href="https://docs.nvidia.com/vgpu/20.0/index.html">NVIDIA vGPU software 20</a> </p> </li> <li> <p> <code>grid:r580</code> - <a href="https://docs.nvidia.com/vgpu/19.0/index.html">NVIDIA vGPU software 19</a> </p> </li> </ul> <p>If you don't specify a runtime, Amazon Web Services Deadline Cloud uses <code>latest</code> as the default. However, if you have multiple accelerators and specify <code>latest</code> for some and leave others blank, Amazon Web Services Deadline Cloud raises an exception.</p> <important> <p>All accelerator types support <code>grid:r595</code> and <code>grid:r580</code>.</p> <p>All accelerators in a fleet must use the same runtime version. You cannot mix different runtime versions within a single fleet.</p> </important> <note> <p>When you specify <code>latest</code>, it resolves to <code>grid:r595</code> for all currently supported accelerators.</p> </note>
    * @public
    */
   runtime?: string | undefined;
 }
 
 /**
- * <p>Provides information about the GPU accelerators used for jobs processed by a fleet.</p> <important> <p>Accelerator capabilities cannot be used with wait-and-save fleets. If you specify accelerator capabilities, you must use either spot or on-demand instance market options.</p> </important> <note> <p>Each accelerator type maps to specific EC2 instance families:</p> <ul> <li> <p> <code>t4</code>: Uses G4dn instance family</p> </li> <li> <p> <code>a10g</code>: Uses G5 instance family</p> </li> <li> <p> <code>l4</code>: Uses G6 and Gr6 instance families</p> </li> <li> <p> <code>l40s</code>: Uses G6e instance family</p> </li> <li> <p> <code>rtx-pro-server-6000</code>: Uses G7e instance family</p> </li> </ul> </note>
+ * <p>Provides information about the GPU accelerators used for jobs processed by a fleet.</p> <important> <p>Accelerator capabilities cannot be used with wait-and-save fleets. If you specify accelerator capabilities, you must use either spot or on-demand instance market options.</p> </important> <note> <p>Each accelerator type maps to specific EC2 instance families:</p> <ul> <li> <p> <code>t4</code>: Uses G4dn instance family</p> </li> <li> <p> <code>a10g</code>: Uses G5 instance family</p> </li> <li> <p> <code>l4</code>: Uses G6, G6f, Gr6, and Gr6f instance families</p> </li> <li> <p> <code>l40s</code>: Uses G6e instance family</p> </li> <li> <p> <code>rtx-pro-server-6000</code>: Uses G7e instance family</p> </li> <li> <p> <code>rtx-pro-4500</code>: Uses G7 instance family</p> </li> </ul> </note>
  * @public
  */
 export interface AcceleratorCapabilities {
@@ -1394,7 +1394,7 @@ export interface BatchGetJobItem {
   createdBy: string | undefined;
 
   /**
-   * The date and time the resource was updated.
+   * The date and time the resource was updated. Task status changes don't update this value.
    * @public
    */
   updatedAt?: Date | undefined;
@@ -1406,13 +1406,13 @@ export interface BatchGetJobItem {
   updatedBy?: string | undefined;
 
   /**
-   * The date and time the resource started running.
+   * The date and time the resource started running. Requeuing the job doesn't change this value.
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * The date and time the resource ended running.
+   * The date and time the resource ended running. Returned only when the job has finished.
    * @public
    */
   endedAt?: Date | undefined;
@@ -4179,7 +4179,7 @@ export interface GetBudgetResponse {
   usageTrackingResource: UsageTrackingResource | undefined;
 
   /**
-   * <p>The status of the budget.</p> <ul> <li> <p> <code>ACTIVE</code>–Get a budget being evaluated.</p> </li> <li> <p> <code>INACTIVE</code>–Get an inactive budget. This can include expired, canceled, or deleted statuses.</p> </li> </ul>
+   * <p>The status of the budget.</p> <ul> <li> <p> <code>ACTIVE</code> - Get a budget being evaluated.</p> </li> <li> <p> <code>INACTIVE</code> - Get an inactive budget. This can include expired, canceled, or deleted statuses.</p> </li> </ul>
    * @public
    */
   status: BudgetStatus | undefined;
@@ -4298,7 +4298,7 @@ export interface BudgetSummary {
   usageTrackingResource: UsageTrackingResource | undefined;
 
   /**
-   * <p>The status of the budget.</p> <ul> <li> <p> <code>ACTIVE</code>–The budget is being evaluated.</p> </li> <li> <p> <code>INACTIVE</code>–The budget is inactive. This can include Expired, Canceled, or deleted Deleted statuses.</p> </li> </ul>
+   * <p>The status of the budget.</p> <ul> <li> <p> <code>ACTIVE</code> - The budget is being evaluated.</p> </li> <li> <p> <code>INACTIVE</code> - The budget is inactive. This can include Expired, Canceled, or deleted Deleted statuses.</p> </li> </ul>
    * @public
    */
   status: BudgetStatus | undefined;
@@ -4406,7 +4406,7 @@ export interface UpdateBudgetRequest {
   description?: string | undefined;
 
   /**
-   * <p>Updates the status of the budget.</p> <ul> <li> <p> <code>ACTIVE</code>–The budget is being evaluated.</p> </li> <li> <p> <code>INACTIVE</code>–The budget is inactive. This can include Expired, Canceled, or deleted Deleted statuses.</p> </li> </ul>
+   * <p>Updates the status of the budget.</p> <ul> <li> <p> <code>ACTIVE</code> - The budget is being evaluated.</p> </li> <li> <p> <code>INACTIVE</code> - The budget is inactive. This can include Expired, Canceled, or deleted Deleted statuses.</p> </li> </ul>
    * @public
    */
   status?: BudgetStatus | undefined;
@@ -6006,7 +6006,7 @@ export interface DateTimeFilterExpression {
   name: string | undefined;
 
   /**
-   * The type of comparison to use to filter the results.
+   * The type of comparison to use to filter the results. `NOT_EQUAL`, `ANY_EQUALS`, and `ALL_NOT_EQUALS` aren't supported.
    * @public
    */
   operator: ComparisonOperator | undefined;
@@ -6664,7 +6664,7 @@ export interface UpdateFleetRequest {
   maxWorkerCount?: number | undefined;
 
   /**
-   * The fleet configuration to update.
+   * The fleet configuration to update. The new configuration replaces the existing one, so include every setting you want to keep. Settings that you omit revert to their defaults.
    * @public
    */
   configuration?: FleetConfiguration | undefined;
@@ -8171,7 +8171,7 @@ export interface GetQueueResponse {
   displayName: string | undefined;
 
   /**
-   * <p>The status of the queue.</p> <ul> <li> <p> <code>ACTIVE</code>–The queue is active.</p> </li> <li> <p> <code>SCHEDULING</code>–The queue is scheduling.</p> </li> <li> <p> <code>SCHEDULING_BLOCKED</code>–The queue scheduling is blocked. See the provided reason.</p> </li> </ul>
+   * <p>The status of the queue.</p> <ul> <li> <p> <code>ACTIVE</code> - The queue is active.</p> </li> <li> <p> <code>SCHEDULING</code> - The queue is scheduling.</p> </li> <li> <p> <code>SCHEDULING_BLOCKED</code> - The queue scheduling is blocked. See the provided reason.</p> </li> </ul>
    * @public
    */
   status: QueueStatus | undefined;
@@ -8493,7 +8493,7 @@ export interface GetJobResponse {
   createdBy: string | undefined;
 
   /**
-   * The date and time the resource was updated.
+   * The date and time the resource was updated. Task status changes don't update this value.
    * @public
    */
   updatedAt?: Date | undefined;
@@ -8505,13 +8505,13 @@ export interface GetJobResponse {
   updatedBy?: string | undefined;
 
   /**
-   * The date and time the resource started running.
+   * The date and time the resource started running. Requeuing the job doesn't change this value.
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * The date and time the resource ended running.
+   * The date and time the resource ended running. Returned only when the job has finished.
    * @public
    */
   endedAt?: Date | undefined;
@@ -9317,7 +9317,7 @@ export interface JobSummary {
   endedAt?: Date | undefined;
 
   /**
-   * <p>The task run status for the job.</p> <ul> <li> <p> <code>PENDING</code>–pending and waiting for resources.</p> </li> <li> <p> <code>READY</code>–ready to be processed.</p> </li> <li> <p> <code>ASSIGNED</code>–assigned and will run next on a worker.</p> </li> <li> <p> <code>SCHEDULED</code>–scheduled to be run on a worker.</p> </li> <li> <p> <code>INTERRUPTING</code>–being interrupted.</p> </li> <li> <p> <code>RUNNING</code>–running on a worker.</p> </li> <li> <p> <code>SUSPENDED</code>–the task is suspended.</p> </li> <li> <p> <code>CANCELED</code>–the task has been canceled.</p> </li> <li> <p> <code>FAILED</code>–the task has failed.</p> </li> <li> <p> <code>SUCCEEDED</code>–the task has succeeded.</p> </li> </ul>
+   * <p>The task run status for the job.</p> <ul> <li> <p> <code>PENDING</code> - pending and waiting for resources.</p> </li> <li> <p> <code>READY</code> - ready to be processed.</p> </li> <li> <p> <code>ASSIGNED</code> - assigned and will run next on a worker.</p> </li> <li> <p> <code>SCHEDULED</code> - scheduled to be run on a worker.</p> </li> <li> <p> <code>INTERRUPTING</code> - being interrupted.</p> </li> <li> <p> <code>RUNNING</code> - running on a worker.</p> </li> <li> <p> <code>SUSPENDED</code> - the task is suspended.</p> </li> <li> <p> <code>CANCELED</code> - the task has been canceled.</p> </li> <li> <p> <code>FAILED</code> - the task has failed.</p> </li> <li> <p> <code>SUCCEEDED</code> - the task has succeeded.</p> </li> </ul>
    * @public
    */
   taskRunStatus?: TaskRunStatus | undefined;
