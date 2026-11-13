@@ -97,6 +97,11 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html">GUARDDUTY_POLICY</a>
  *                </p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub_cspm.html">SECURITYHUB_CSPM_POLICY</a>
+ *                </p>
+ *             </li>
  *          </ul>
  *          <p>You can only call this operation from the management account or a member account that is a delegated administrator.</p>
  * @example
