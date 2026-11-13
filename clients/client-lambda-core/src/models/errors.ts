@@ -61,7 +61,7 @@ export class NetworkConnectorLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request could not be completed due to a conflict with the current state of the resource. For example, attempting to update a connector that is not in <code>ACTIVE</code> state.</p>
+ * <p>The request could not be completed due to a conflict with the current state of the resource. For example, attempting to modify a resource that is not in a state that permits the operation.</p>
  * @public
  */
 export class ResourceConflictException extends __BaseException {
@@ -102,6 +102,10 @@ export class ServiceException extends __BaseException {
    */
   Type?: string | undefined;
 
+  /**
+   * <p>The error message that describes the exception.</p>
+   * @public
+   */
   Message?: string | undefined;
   /**
    * @internal
@@ -161,7 +165,41 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The specified network connector does not exist. Verify the identifier (ID, name, or ARN) and Region.</p>
+ * <p>The request would exceed a service quota for your account. Request a quota increase or reduce the number of resources in use, then retry the request.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdacore#ServiceQuotaExceededException";
+  readonly name = "ServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The error message that describes the exception.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The specified resource does not exist. Verify the identifier and Region.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -174,6 +212,10 @@ export class ResourceNotFoundException extends __BaseException {
    */
   Type?: string | undefined;
 
+  /**
+   * <p>The error message that describes the exception.</p>
+   * @public
+   */
   Message?: string | undefined;
   /**
    * @internal

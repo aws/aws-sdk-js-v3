@@ -95,10 +95,10 @@ export interface UpdateNetworkConnectorCommandOutput extends UpdateNetworkConnec
  *  <p>The request would exceed a network connector limit. For <code>CreateNetworkConnector</code>, the account has reached the maximum number of network connectors allowed. For <code>UpdateNetworkConnector</code>, the connector has reached the maximum number of versions allowed.</p>
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the resource. For example, attempting to update a connector that is not in <code>ACTIVE</code> state.</p>
+ *  <p>The request could not be completed due to a conflict with the current state of the resource. For example, attempting to modify a resource that is not in a state that permits the operation.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified network connector does not exist. Verify the identifier (ID, name, or ARN) and Region.</p>
+ *  <p>The specified resource does not exist. Verify the identifier and Region.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>An internal service error occurred. Retry the request with exponential backoff.</p>

@@ -69,7 +69,7 @@ export interface ListNetworkConnectorVersionsCommandOutput extends ListNetworkCo
  *  <p>One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified network connector does not exist. Verify the identifier (ID, name, or ARN) and Region.</p>
+ *  <p>The specified resource does not exist. Verify the identifier and Region.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>An internal service error occurred. Retry the request with exponential backoff.</p>

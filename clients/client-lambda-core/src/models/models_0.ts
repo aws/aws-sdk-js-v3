@@ -1,13 +1,44 @@
 // smithy-typescript generated code
 import type {
+  CompatibilityPolicy,
   ComputeResourceType,
+  IntegrationModel,
   NetworkConnectorLastUpdateStatus,
   NetworkConnectorLastUpdateStatusReasonCode,
   NetworkConnectorState,
   NetworkConnectorStateReasonCode,
   NetworkConnectorType,
   NetworkProtocol,
+  RuntimeAliasState,
+  RuntimeArchitecture,
+  RuntimeReleaseState,
+  RuntimeState,
+  RuntimeVersionState,
 } from "./enums";
+
+/**
+ * Defines the compatibility matrix for a runtime version, indicating supported integration models, architectures, and feature availability.
+ * @public
+ */
+export interface Compatibility {
+  /**
+   * Supported integration models for the runtime version.
+   * @public
+   */
+  IntegrationModels?: IntegrationModel[] | undefined;
+
+  /**
+   * Supported architectures for the runtime version.
+   * @public
+   */
+  Architectures?: RuntimeArchitecture[] | undefined;
+
+  /**
+   * Whether the runtime version is compatible with managed instances.
+   * @public
+   */
+  ManagedInstances?: CompatibilityPolicy | undefined;
+}
 
 /**
  * <p>Configuration for a VPC egress network connector. Specifies the VPC subnets, security groups, network protocol, and associated Lambda compute resource types.</p>
@@ -167,6 +198,330 @@ export interface CreateNetworkConnectorResponse {
 }
 
 /**
+ * The runtime lifecycle for the runtime or alias. Optional. Used to schedule runtime deprecation. Omitting or providing an empty object removes the existing lifecycle.
+ * @public
+ */
+export interface RuntimeReleaseLifecycle {
+  /**
+   * Optional, with no default applied. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later one, or none. Reads report DEPRECATED once DeprecationDate is reached.
+   * @public
+   */
+  ReleaseState?: RuntimeReleaseState | undefined;
+
+  /**
+   * The date (UTC) on which the runtime or alias becomes deprecated.
+   * @public
+   */
+  DeprecationDate?: string | undefined;
+
+  /**
+   * The date (UTC) on which creating new functions that use this runtime or alias is blocked.
+   * @public
+   */
+  FunctionCreateBlockDate?: string | undefined;
+
+  /**
+   * The date (UTC) on which updating existing functions that use this runtime or alias is blocked.
+   * @public
+   */
+  FunctionUpdateBlockDate?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRuntimeRequest {
+  /**
+   * The name of the runtime to create.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * A map of tag keys and values to associate with the runtime.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * A description of the runtime.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The license information for the runtime.
+   * @public
+   */
+  LicenseInfo?: string | undefined;
+
+  /**
+   * The runtime lifecycle for the runtime (optional). Use this to schedule runtime deprecation.
+   * @public
+   */
+  ReleaseLifecycle?: RuntimeReleaseLifecycle | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRuntimeResponse {
+  /**
+   * The Amazon Resource Name (ARN) of the runtime.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The name of the runtime.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The description of the runtime.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The license information for the runtime.
+   * @public
+   */
+  LicenseInfo?: string | undefined;
+
+  /**
+   * The runtime lifecycle for the runtime. Used to schedule runtime deprecation.
+   * @public
+   */
+  ReleaseLifecycle?: RuntimeReleaseLifecycle | undefined;
+
+  /**
+   * The date and time when the runtime was created.
+   * @public
+   */
+  Created: string | undefined;
+
+  /**
+   * The date and time when the runtime was last modified.
+   * @public
+   */
+  LastModified: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRuntimeAliasRequest {
+  /**
+   * The name or ARN of the runtime to create an alias for.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * The name of the runtime version the alias points to.
+   * @public
+   */
+  RuntimeVersion: string | undefined;
+
+  /**
+   * The name to assign to the new runtime alias.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * A description of the runtime alias.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The runtime lifecycle for the alias. By default, this is inherited from the runtime lifecycle. Optionally, you can override the lifecycle information at the alias level, if required.
+   * @public
+   */
+  ReleaseLifecycle?: RuntimeReleaseLifecycle | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRuntimeAliasResponse {
+  /**
+   * The name of the runtime alias.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the runtime alias.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The name of the runtime version the alias points to.
+   * @public
+   */
+  RuntimeVersion: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the runtime version the alias points to.
+   * @public
+   */
+  RuntimeVersionArn: string | undefined;
+
+  /**
+   * The current state of the runtime alias.
+   * @public
+   */
+  State: RuntimeAliasState | undefined;
+
+  /**
+   * A description of the runtime alias.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The runtime lifecycle for the alias. By default, this is inherited from the runtime lifecycle. Optionally, you can override the lifecycle information at the alias level, if required.
+   * @public
+   */
+  ReleaseLifecycle?: RuntimeReleaseLifecycle | undefined;
+
+  /**
+   * The date and time when the runtime alias was created.
+   * @public
+   */
+  Created: string | undefined;
+
+  /**
+   * The date and time when the runtime alias was last modified.
+   * @public
+   */
+  LastModified: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRuntimeVersionRequest {
+  /**
+   * The name or ARN of the runtime to create a version for.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * The URI of the container image used to define the function execution environment for this runtime version.
+   * @public
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * The name to assign to the new runtime version.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The release notes to associate with the runtime version.
+   * @public
+   */
+  ReleaseNotes?: string | undefined;
+
+  /**
+   * When set to true, the request is validated without creating a new runtime version. Use this to check that the request would succeed. No runtime version is created and no changes are made.
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * Describes a single OCI platform (CPU architecture and operating system) available for a runtime version.
+ * @public
+ */
+export interface Platform {
+  /**
+   * The CPU architecture of the platform, for example x86_64 or arm64.
+   * @public
+   */
+  Architecture: string | undefined;
+
+  /**
+   * The operating system of the platform.
+   * @public
+   */
+  Os: string | undefined;
+
+  /**
+   * The content digest of the platform-specific image.
+   * @public
+   */
+  Digest: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRuntimeVersionResponse {
+  /**
+   * The name of the runtime version.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the runtime version.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The resolved image URI of the runtime version.
+   * @public
+   */
+  ResolvedUri: string | undefined;
+
+  /**
+   * The current state of the runtime version.
+   * @public
+   */
+  State: RuntimeVersionState | undefined;
+
+  /**
+   * The release notes associated with the runtime version.
+   * @public
+   */
+  ReleaseNotes?: string | undefined;
+
+  /**
+   * The platforms (architecture and OS combinations) available for the runtime version.
+   * @public
+   */
+  Platforms?: Platform[] | undefined;
+
+  /**
+   * The compatibility matrix of the runtime version.
+   * @public
+   */
+  Compatibility?: Compatibility | undefined;
+
+  /**
+   * The date and time when the runtime version was created.
+   * @public
+   */
+  Created: string | undefined;
+
+  /**
+   * The date and time when the runtime version was last modified.
+   * @public
+   */
+  LastModified: string | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteNetworkConnectorRequest {
@@ -229,6 +584,84 @@ export interface DeleteNetworkConnectorResponse {
    */
   State?: NetworkConnectorState | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteRuntimeRequest {
+  /**
+   * The name or ARN of the runtime to delete.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * Optional. The waiting period, in days (7-30), before the runtime is permanently deleted.
+   * @public
+   */
+  RecoveryWindowInDays?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRuntimeResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteRuntimeAliasRequest {
+  /**
+   * The name or ARN of the runtime.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * The name of the runtime alias to delete.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Optional. The waiting period, in days (7-30), before the runtime alias is permanently deleted.
+   * @public
+   */
+  RecoveryWindowInDays?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRuntimeAliasResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteRuntimeVersionRequest {
+  /**
+   * The name or ARN of the runtime.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * The name of the runtime version to delete.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Optional. The waiting period, in days (7-30), before the runtime version is permanently deleted.
+   * @public
+   */
+  RecoveryWindowInDays?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRuntimeVersionResponse {}
 
 /**
  * @public
@@ -340,6 +773,886 @@ export interface GetNetworkConnectorResponse {
    * @public
    */
   LastModified?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRuntimeRequest {
+  /**
+   * The name or ARN of the runtime to retrieve.
+   * @public
+   */
+  RuntimeName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRuntimeResponse {
+  /**
+   * The Amazon Resource Name (ARN) of the runtime.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The name of the runtime.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The description of the runtime.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The license information for the runtime.
+   * @public
+   */
+  LicenseInfo?: string | undefined;
+
+  /**
+   * The runtime lifecycle for the runtime. Used to schedule runtime deprecation.
+   * @public
+   */
+  ReleaseLifecycle?: RuntimeReleaseLifecycle | undefined;
+
+  /**
+   * The current state of the runtime.
+   * @public
+   */
+  State?: RuntimeState | undefined;
+
+  /**
+   * Present only when State is PENDING_DELETION. The date and time at which the runtime will be permanently deleted.
+   * @public
+   */
+  PendingDeletionAt?: string | undefined;
+
+  /**
+   * The date and time when the runtime was created.
+   * @public
+   */
+  Created: string | undefined;
+
+  /**
+   * The date and time when the runtime was last modified.
+   * @public
+   */
+  LastModified: string | undefined;
+
+  /**
+   * The unique identifier of the runtime.
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRuntimeAliasRequest {
+  /**
+   * The name or ARN of the runtime.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * The name of the runtime alias to retrieve.
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRuntimeAliasResponse {
+  /**
+   * The name of the runtime alias.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the runtime alias.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The name of the runtime version the alias points to.
+   * @public
+   */
+  RuntimeVersion: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the runtime version the alias points to.
+   * @public
+   */
+  RuntimeVersionArn: string | undefined;
+
+  /**
+   * The current state of the runtime alias.
+   * @public
+   */
+  State: RuntimeAliasState | undefined;
+
+  /**
+   * Present only when State is PENDING_DELETION. The date and time at which the runtime alias will be permanently deleted.
+   * @public
+   */
+  PendingDeletionAt?: string | undefined;
+
+  /**
+   * A description of the runtime alias.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The compatibility matrix of the runtime version the alias points to.
+   * @public
+   */
+  Compatibility?: Compatibility | undefined;
+
+  /**
+   * The runtime lifecycle for the alias. By default, this is inherited from the runtime lifecycle. Optionally, you can override the lifecycle information at the alias level, if required.
+   * @public
+   */
+  ReleaseLifecycle?: RuntimeReleaseLifecycle | undefined;
+
+  /**
+   * The date and time when the runtime alias was created.
+   * @public
+   */
+  Created: string | undefined;
+
+  /**
+   * The date and time when the runtime alias was last modified.
+   * @public
+   */
+  LastModified: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRuntimeVersionRequest {
+  /**
+   * The name or ARN of the runtime.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * The name of the runtime version to retrieve.
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRuntimeVersionResponse {
+  /**
+   * The name of the runtime version.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the runtime version.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The resolved image URI of the runtime version.
+   * @public
+   */
+  ResolvedUri: string | undefined;
+
+  /**
+   * The current state of the runtime version.
+   * @public
+   */
+  State: RuntimeVersionState | undefined;
+
+  /**
+   * Present only when State is PENDING_DELETION. The date and time at which the runtime version will be permanently deleted.
+   * @public
+   */
+  PendingDeletionAt?: string | undefined;
+
+  /**
+   * The release notes associated with the runtime version.
+   * @public
+   */
+  ReleaseNotes?: string | undefined;
+
+  /**
+   * The platforms (architecture and OS combinations) available for the runtime version.
+   * @public
+   */
+  Platforms?: Platform[] | undefined;
+
+  /**
+   * The compatibility matrix of the runtime version.
+   * @public
+   */
+  Compatibility?: Compatibility | undefined;
+
+  /**
+   * The date and time when the runtime version was created.
+   * @public
+   */
+  Created: string | undefined;
+
+  /**
+   * The date and time when the runtime version was last modified.
+   * @public
+   */
+  LastModified: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRuntimesRequest {
+  /**
+   * The pagination token from a previous response. Use it to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * The maximum number of runtimes to return per page. Valid range: 1 to 100.
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * Summary information about a runtime returned by ListRuntimes.
+ * @public
+ */
+export interface RuntimeInfo {
+  /**
+   * The Amazon Resource Name (ARN) of the runtime.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The name of the runtime.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The description of the runtime.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The license information for the runtime.
+   * @public
+   */
+  LicenseInfo?: string | undefined;
+
+  /**
+   * The runtime lifecycle for the runtime. Used to schedule runtime deprecation.
+   * @public
+   */
+  ReleaseLifecycle?: RuntimeReleaseLifecycle | undefined;
+
+  /**
+   * The current state of the runtime.
+   * @public
+   */
+  State?: RuntimeState | undefined;
+
+  /**
+   * Present only when State is PENDING_DELETION. The date and time at which the runtime will be permanently deleted.
+   * @public
+   */
+  PendingDeletionAt?: string | undefined;
+
+  /**
+   * The date and time when the runtime was created.
+   * @public
+   */
+  Created: string | undefined;
+
+  /**
+   * The date and time when the runtime was last modified.
+   * @public
+   */
+  LastModified: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRuntimesResponse {
+  /**
+   * The pagination token to include in a subsequent request to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * The list of runtimes for the current page of results.
+   * @public
+   */
+  Items: RuntimeInfo[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreRuntimeRequest {
+  /**
+   * The name or ARN of the runtime to restore. When RuntimeVersion or RuntimeAlias is specified, the runtime that owns the runtime version or runtime alias to restore.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * Optional. Restores the named RuntimeVersion under RuntimeName. Mutually exclusive with RuntimeAlias; supplying both is rejected with InvalidParameterValueException.
+   * @public
+   */
+  RuntimeVersion?: string | undefined;
+
+  /**
+   * Optional. Restores the named RuntimeAlias under RuntimeName. Mutually exclusive with RuntimeVersion; supplying both is rejected with InvalidParameterValueException.
+   * @public
+   */
+  RuntimeAlias?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreRuntimeResponse {
+  /**
+   * The name or ARN of the runtime.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * Echoed back only when the request supplied a RuntimeVersion qualifier.
+   * @public
+   */
+  RuntimeVersion?: string | undefined;
+
+  /**
+   * Echoed back only when the request supplied a RuntimeAlias qualifier.
+   * @public
+   */
+  RuntimeAlias?: string | undefined;
+
+  /**
+   * The fully qualified ARN of the resource that was restored (runtime, version, or alias).
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The state of the restored resource, ACTIVE on success.
+   * @public
+   */
+  State: RuntimeState | undefined;
+
+  /**
+   * The date and time when the restored resource was last modified.
+   * @public
+   */
+  LastModified: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRuntimeAliasesRequest {
+  /**
+   * The name or ARN of the runtime whose aliases to list.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * The pagination token from a previous response. Use it to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * The maximum number of runtime aliases to return per page. Valid range: 1 to 100.
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * Summary information about a runtime alias returned by ListRuntimeAliases.
+ * @public
+ */
+export interface RuntimeAliasInfo {
+  /**
+   * The name of the runtime alias.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the runtime alias.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The name of the runtime version the alias points to.
+   * @public
+   */
+  RuntimeVersion: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the runtime version the alias points to.
+   * @public
+   */
+  RuntimeVersionArn: string | undefined;
+
+  /**
+   * The current state of the runtime alias.
+   * @public
+   */
+  State: RuntimeAliasState | undefined;
+
+  /**
+   * Present only when State is PENDING_DELETION. The date and time at which the runtime alias will be permanently deleted.
+   * @public
+   */
+  PendingDeletionAt?: string | undefined;
+
+  /**
+   * A description of the runtime alias.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The compatibility matrix of the runtime version the alias points to.
+   * @public
+   */
+  Compatibility?: Compatibility | undefined;
+
+  /**
+   * The lifecycle for the alias. By default, this is inherited from the runtime lifecycle. Optionally, you can override the lifecycle information at the alias level, if required.
+   * @public
+   */
+  ReleaseLifecycle?: RuntimeReleaseLifecycle | undefined;
+
+  /**
+   * The date and time when the runtime alias was created.
+   * @public
+   */
+  Created: string | undefined;
+
+  /**
+   * The date and time when the runtime alias was last modified.
+   * @public
+   */
+  LastModified: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRuntimeAliasesResponse {
+  /**
+   * The list of runtime aliases for the current page of results.
+   * @public
+   */
+  Items: RuntimeAliasInfo[] | undefined;
+
+  /**
+   * The pagination token to include in a subsequent request to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRuntimeAliasRequest {
+  /**
+   * The name or ARN of the runtime.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * The name of the runtime alias to update.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The name of the runtime version the alias should point to.
+   * @public
+   */
+  RuntimeVersion: string | undefined;
+
+  /**
+   * A description of the runtime alias.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The lifecycle for the alias. By default, this is inherited from the runtime lifecycle. Optionally, you can override the lifecycle information at the alias level, if required. Omitting or providing an empty object removes the existing lifecycle override.
+   * @public
+   */
+  ReleaseLifecycle?: RuntimeReleaseLifecycle | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRuntimeAliasResponse {
+  /**
+   * The name of the runtime.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * The name of the runtime alias.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the runtime alias.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The name of the runtime version the alias points to.
+   * @public
+   */
+  RuntimeVersion: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the runtime version the alias points to.
+   * @public
+   */
+  RuntimeVersionArn: string | undefined;
+
+  /**
+   * The current state of the runtime alias.
+   * @public
+   */
+  State: RuntimeAliasState | undefined;
+
+  /**
+   * A description of the runtime alias.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The compatibility matrix of the runtime version the alias points to.
+   * @public
+   */
+  Compatibility?: Compatibility | undefined;
+
+  /**
+   * The runtime lifecycle for the alias. By default, this is inherited from the runtime lifecycle. Optionally, you can override the lifecycle information at the alias level, if required.
+   * @public
+   */
+  ReleaseLifecycle?: RuntimeReleaseLifecycle | undefined;
+
+  /**
+   * The date and time when the runtime alias was created.
+   * @public
+   */
+  Created: string | undefined;
+
+  /**
+   * The date and time when the runtime alias was last modified.
+   * @public
+   */
+  LastModified: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRuntimeVersionsRequest {
+  /**
+   * The name or ARN of the runtime whose versions to list.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * The pagination token from a previous response. Use it to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * The maximum number of runtime versions to return per page. Valid range: 1 to 100.
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * Summary information about a runtime version returned by ListRuntimeVersions.
+ * @public
+ */
+export interface RuntimeVersionInfo {
+  /**
+   * The name of the runtime version.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the runtime version.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The resolved image URI of the runtime version.
+   * @public
+   */
+  ResolvedUri: string | undefined;
+
+  /**
+   * The current state of the runtime version.
+   * @public
+   */
+  State: RuntimeVersionState | undefined;
+
+  /**
+   * Present only when State is PENDING_DELETION. The date and time at which the runtime version will be permanently deleted.
+   * @public
+   */
+  PendingDeletionAt?: string | undefined;
+
+  /**
+   * The release notes associated with the runtime version.
+   * @public
+   */
+  ReleaseNotes?: string | undefined;
+
+  /**
+   * The compatibility matrix of the runtime version.
+   * @public
+   */
+  Compatibility?: Compatibility | undefined;
+
+  /**
+   * The date and time when the runtime version was created.
+   * @public
+   */
+  Created: string | undefined;
+
+  /**
+   * The date and time when the runtime version was last modified.
+   * @public
+   */
+  LastModified: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRuntimeVersionsResponse {
+  /**
+   * The list of runtime versions for the current page of results.
+   * @public
+   */
+  Items: RuntimeVersionInfo[] | undefined;
+
+  /**
+   * The pagination token to include in a subsequent request to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRuntimeVersionRequest {
+  /**
+   * The name or ARN of the runtime.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * The name of the runtime version to update.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The release notes to associate with the runtime version.
+   * @public
+   */
+  ReleaseNotes: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRuntimeVersionResponse {
+  /**
+   * The name of the runtime version.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the runtime version.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The resolved image URI of the runtime version.
+   * @public
+   */
+  ResolvedUri: string | undefined;
+
+  /**
+   * The current state of the runtime version.
+   * @public
+   */
+  State: RuntimeVersionState | undefined;
+
+  /**
+   * The release notes associated with the runtime version.
+   * @public
+   */
+  ReleaseNotes?: string | undefined;
+
+  /**
+   * The platforms (architecture and OS combinations) available for the runtime version.
+   * @public
+   */
+  Platforms?: Platform[] | undefined;
+
+  /**
+   * The compatibility matrix of the runtime version.
+   * @public
+   */
+  Compatibility?: Compatibility | undefined;
+
+  /**
+   * The date and time when the runtime version was created.
+   * @public
+   */
+  Created: string | undefined;
+
+  /**
+   * The date and time when the runtime version was last modified.
+   * @public
+   */
+  LastModified: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRuntimeRequest {
+  /**
+   * The name or ARN of the runtime to update.
+   * @public
+   */
+  RuntimeName: string | undefined;
+
+  /**
+   * The updated description of the runtime.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The updated license information for the runtime.
+   * @public
+   */
+  LicenseInfo?: string | undefined;
+
+  /**
+   * The runtime lifecycle for the runtime. Optional. Used to schedule runtime deprecation. Omitting or providing an empty object removes the existing lifecycle.
+   * @public
+   */
+  ReleaseLifecycle?: RuntimeReleaseLifecycle | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRuntimeResponse {
+  /**
+   * The Amazon Resource Name (ARN) of the runtime.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The name of the runtime.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The description of the runtime.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The license information for the runtime.
+   * @public
+   */
+  LicenseInfo?: string | undefined;
+
+  /**
+   * The runtime lifecycle for the runtime. Used to schedule runtime deprecation.
+   * @public
+   */
+  ReleaseLifecycle?: RuntimeReleaseLifecycle | undefined;
+
+  /**
+   * The date and time when the runtime was created.
+   * @public
+   */
+  Created: string | undefined;
+
+  /**
+   * The date and time when the runtime was last modified.
+   * @public
+   */
+  LastModified: string | undefined;
 }
 
 /**

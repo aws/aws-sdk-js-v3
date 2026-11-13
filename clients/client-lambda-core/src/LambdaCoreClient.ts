@@ -59,13 +59,37 @@ import type {
   CreateNetworkConnectorCommandOutput,
 } from "./commands/CreateNetworkConnectorCommand";
 import type {
+  CreateRuntimeAliasCommandInput,
+  CreateRuntimeAliasCommandOutput,
+} from "./commands/CreateRuntimeAliasCommand";
+import type { CreateRuntimeCommandInput, CreateRuntimeCommandOutput } from "./commands/CreateRuntimeCommand";
+import type {
+  CreateRuntimeVersionCommandInput,
+  CreateRuntimeVersionCommandOutput,
+} from "./commands/CreateRuntimeVersionCommand";
+import type {
   DeleteNetworkConnectorCommandInput,
   DeleteNetworkConnectorCommandOutput,
 } from "./commands/DeleteNetworkConnectorCommand";
 import type {
+  DeleteRuntimeAliasCommandInput,
+  DeleteRuntimeAliasCommandOutput,
+} from "./commands/DeleteRuntimeAliasCommand";
+import type { DeleteRuntimeCommandInput, DeleteRuntimeCommandOutput } from "./commands/DeleteRuntimeCommand";
+import type {
+  DeleteRuntimeVersionCommandInput,
+  DeleteRuntimeVersionCommandOutput,
+} from "./commands/DeleteRuntimeVersionCommand";
+import type {
   GetNetworkConnectorCommandInput,
   GetNetworkConnectorCommandOutput,
 } from "./commands/GetNetworkConnectorCommand";
+import type { GetRuntimeAliasCommandInput, GetRuntimeAliasCommandOutput } from "./commands/GetRuntimeAliasCommand";
+import type { GetRuntimeCommandInput, GetRuntimeCommandOutput } from "./commands/GetRuntimeCommand";
+import type {
+  GetRuntimeVersionCommandInput,
+  GetRuntimeVersionCommandOutput,
+} from "./commands/GetRuntimeVersionCommand";
 import type {
   ListNetworkConnectorsCommandInput,
   ListNetworkConnectorsCommandOutput,
@@ -75,9 +99,28 @@ import type {
   ListNetworkConnectorVersionsCommandOutput,
 } from "./commands/ListNetworkConnectorVersionsCommand";
 import type {
+  ListRuntimeAliasesCommandInput,
+  ListRuntimeAliasesCommandOutput,
+} from "./commands/ListRuntimeAliasesCommand";
+import type { ListRuntimesCommandInput, ListRuntimesCommandOutput } from "./commands/ListRuntimesCommand";
+import type {
+  ListRuntimeVersionsCommandInput,
+  ListRuntimeVersionsCommandOutput,
+} from "./commands/ListRuntimeVersionsCommand";
+import type { RestoreRuntimeCommandInput, RestoreRuntimeCommandOutput } from "./commands/RestoreRuntimeCommand";
+import type {
   UpdateNetworkConnectorCommandInput,
   UpdateNetworkConnectorCommandOutput,
 } from "./commands/UpdateNetworkConnectorCommand";
+import type {
+  UpdateRuntimeAliasCommandInput,
+  UpdateRuntimeAliasCommandOutput,
+} from "./commands/UpdateRuntimeAliasCommand";
+import type { UpdateRuntimeCommandInput, UpdateRuntimeCommandOutput } from "./commands/UpdateRuntimeCommand";
+import type {
+  UpdateRuntimeVersionCommandInput,
+  UpdateRuntimeVersionCommandOutput,
+} from "./commands/UpdateRuntimeVersionCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -94,22 +137,54 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateNetworkConnectorCommandInput
+  | CreateRuntimeAliasCommandInput
+  | CreateRuntimeCommandInput
+  | CreateRuntimeVersionCommandInput
   | DeleteNetworkConnectorCommandInput
+  | DeleteRuntimeAliasCommandInput
+  | DeleteRuntimeCommandInput
+  | DeleteRuntimeVersionCommandInput
   | GetNetworkConnectorCommandInput
+  | GetRuntimeAliasCommandInput
+  | GetRuntimeCommandInput
+  | GetRuntimeVersionCommandInput
   | ListNetworkConnectorVersionsCommandInput
   | ListNetworkConnectorsCommandInput
-  | UpdateNetworkConnectorCommandInput;
+  | ListRuntimeAliasesCommandInput
+  | ListRuntimeVersionsCommandInput
+  | ListRuntimesCommandInput
+  | RestoreRuntimeCommandInput
+  | UpdateNetworkConnectorCommandInput
+  | UpdateRuntimeAliasCommandInput
+  | UpdateRuntimeCommandInput
+  | UpdateRuntimeVersionCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | CreateNetworkConnectorCommandOutput
+  | CreateRuntimeAliasCommandOutput
+  | CreateRuntimeCommandOutput
+  | CreateRuntimeVersionCommandOutput
   | DeleteNetworkConnectorCommandOutput
+  | DeleteRuntimeAliasCommandOutput
+  | DeleteRuntimeCommandOutput
+  | DeleteRuntimeVersionCommandOutput
   | GetNetworkConnectorCommandOutput
+  | GetRuntimeAliasCommandOutput
+  | GetRuntimeCommandOutput
+  | GetRuntimeVersionCommandOutput
   | ListNetworkConnectorVersionsCommandOutput
   | ListNetworkConnectorsCommandOutput
-  | UpdateNetworkConnectorCommandOutput;
+  | ListRuntimeAliasesCommandOutput
+  | ListRuntimeVersionsCommandOutput
+  | ListRuntimesCommandOutput
+  | RestoreRuntimeCommandOutput
+  | UpdateNetworkConnectorCommandOutput
+  | UpdateRuntimeAliasCommandOutput
+  | UpdateRuntimeCommandOutput
+  | UpdateRuntimeVersionCommandOutput;
 
 /**
  * @public
@@ -303,7 +378,7 @@ export type LambdaCoreClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface LambdaCoreClientResolvedConfig extends LambdaCoreClientResolvedConfigType {}
 
 /**
- * <fullname>Lambda</fullname> <p> <b>Overview</b> </p> <p>AWS Lambda Core is a set of APIs for managing shared infrastructure resources used by Lambda. The Lambda Core API provides operations for creating and managing network connectors that enable Lambda compute resources to access resources in your Amazon Virtual Private Cloud (Amazon VPC).</p> <p>Network connectors provision elastic network interfaces (ENIs) in your VPC subnets, providing a managed network path from Lambda compute environments to private resources such as Amazon RDS databases, Amazon ElastiCache clusters, and internal APIs. You create a network connector once and attach it to one or more Lambda compute resources at run time.</p> <p>The <i>Lambda Core API Reference</i> provides information about each of the API methods, including details about the parameters in each API request and response.</p> <p/> <p>You can use Software Development Kits (SDKs), Integrated Development Environment (IDE) Toolkits, and command line tools to access the API. For installation instructions, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p> <p>For a list of Region-specific endpoints that Lambda supports, see <a href="https://docs.aws.amazon.com/general/latest/gr/lambda-service.html">Lambda endpoints and quotas</a> in the <i>Amazon Web Services General Reference.</i> </p> <p>When making the API calls, you will need to authenticate your request by providing a signature. Lambda supports signature version 4. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 signing process</a> in the <i>Amazon Web Services General Reference.</i> </p>
+ * <fullname>Lambda</fullname> <p> <b>Overview</b> </p> <p>Lambda Core is a set of APIs for managing shared infrastructure resources used by Lambda. The Lambda Core API provides operations for:</p> <ol> <li> <p>Creating and managing network connectors that enable Lambda MicroVMs and Lambda Web Functions to access resources in your Amazon Virtual Private Cloud (Amazon VPC).</p> </li> <li> <p>Creating customer-managed runtimes which can be used with Lambda Event Functions.</p> </li> </ol> <p>Network connectors provision elastic network interfaces (ENIs) in your VPC subnets, providing a managed network path from Lambda compute environments to private resources such as Amazon RDS databases, Amazon ElastiCache clusters, and internal APIs. You create a network connector once and attach it to one or more Lambda MicroVMs or Lambda Web Functions at run time.</p> <p>A customer-managed runtime is a Lambda runtime that you create and manage as a standalone resource. Lambda Event Functions can use your customer-managed runtime instead of using one of the built-in Lambda-managed runtimes. Customer-managed runtimes enable you to create customized runtimes for your workloads, and give you control over runtime updates and the deprecation lifecycle.</p> <p>The <i>Lambda Core API Reference</i> provides information about each of the API methods, including details about the parameters in each API request and response.</p> <p>You can use Software Development Kits (SDKs), Integrated Development Environment (IDE) Toolkits, and command line tools to access the API. For installation instructions, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p> <p>For a list of Region-specific endpoints that Lambda supports, see <a href="https://docs.aws.amazon.com/general/latest/gr/lambda-service.html">Lambda endpoints and quotas</a> in the <i>Amazon Web Services General Reference.</i> </p> <p>When making the API calls, you will need to authenticate your request by providing a signature. Lambda supports signature version 4. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 signing process</a> in the <i>Amazon Web Services General Reference.</i> </p>
  * @public
  */
 export class LambdaCoreClient extends __Client<
