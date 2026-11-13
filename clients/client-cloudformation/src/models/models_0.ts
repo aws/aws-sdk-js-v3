@@ -6193,6 +6193,14 @@ export interface Stack {
    * @public
    */
   LastOperations?: OperationEntry[] | undefined;
+
+  /**
+   * <p>The alias assigned to the stack, if one has been set. An alias is an alternative name that
+   *    can be used in place of the stack name in any CloudFormation API call that accepts the
+   *    <code>StackName</code> parameter.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
 }
 
 /**
@@ -11336,6 +11344,18 @@ export interface RegisterTypeOutput {
 }
 
 /**
+ * <p>The input for the <a>RemoveAlias</a> action.</p>
+ * @public
+ */
+export interface RemoveAliasInput {
+  /**
+   * <p>The alias name to remove.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+}
+
+/**
  * @public
  */
 export interface RollbackStackInput {
@@ -11392,6 +11412,31 @@ export interface RollbackStackOutput {
    * @public
    */
   OperationId?: string | undefined;
+}
+
+/**
+ * <p>The input for the <a>SetAlias</a> action.</p>
+ * @public
+ */
+export interface SetAliasInput {
+  /**
+   * <p>The name or unique stack ID of the stack to assign an alias to.</p>
+   * @public
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The alias to assign to the stack. The alias can then be used in place of the stack name in
+   *       any API call that accepts <code>StackName</code>.</p>
+   *          <p>The name must be unique within the same account and Region. It cannot match an
+   *       existing stack name or another active alias.</p>
+   *          <note>
+   *             <p>An alias name can contain only alphanumeric characters (case-sensitive) and hyphens. It
+   *       must start with an alphabetic character and can't be longer than 128 characters.</p>
+   *          </note>
+   * @public
+   */
+  AliasName: string | undefined;
 }
 
 /**

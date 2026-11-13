@@ -116,6 +116,7 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  * //           OperationId: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       AliasName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

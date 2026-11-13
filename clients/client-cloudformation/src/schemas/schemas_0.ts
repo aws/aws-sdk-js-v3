@@ -10,6 +10,7 @@ const _ALL = "AccountLimitList";
 const _ALc = "AccountLimits";
 const _ALn = "AnnotationList";
 const _AN = "AnnotationName";
+const _ANl = "AliasName";
 const _AOA = "ActivateOrganizationsAccess";
 const _AOAI = "ActivateOrganizationsAccessInput";
 const _AOAO = "ActivateOrganizationsAccessOutput";
@@ -474,10 +475,12 @@ const _Pr = "Progress";
 const _Pro = "Properties";
 const _R = "Resources";
 const _RA = "ResourceAction";
+const _RAI = "RemoveAliasInput";
 const _RAR = "RefreshAllResources";
 const _RARN = "RoleARN";
 const _RAT = "RequiredActivatedTypes";
 const _RATe = "RequiredActivatedType";
+const _RAe = "RemoveAlias";
 const _RC = "ResourceChange";
 const _RCD = "ResourceChangeDetail";
 const _RCDe = "ResourceChangeDetails";
@@ -558,6 +561,8 @@ const _Rep = "Replacement";
 const _Req = "Required";
 const _S = "Status";
 const _SA = "StagesAvailable";
+const _SAI = "SetAliasInput";
+const _SAe = "SetAlias";
 const _SD = "StackDefinitions";
 const _SDDI = "StackDriftDetectionId";
 const _SDI = "StackDriftInformation";
@@ -1890,6 +1895,11 @@ export var RegisterTypeOutput$: StaticStructureSchema = [3, n0, _RTO,
   [_RTeg],
   [0]
 ];
+export var RemoveAliasInput$: StaticStructureSchema = [3, n0, _RAI,
+  0,
+  [_ANl],
+  [0], 1
+];
 export var RequiredActivatedType$: StaticStructureSchema = [3, n0, _RATe,
   0,
   [_TNA, _OTN, _PI, _SMV],
@@ -1985,6 +1995,11 @@ export var ScannedResourceIdentifier$: StaticStructureSchema = [3, n0, _SRIc,
   [_RT, _RI],
   [0, 128 | 0], 2
 ];
+export var SetAliasInput$: StaticStructureSchema = [3, n0, _SAI,
+  0,
+  [_SN, _ANl],
+  [0, 0], 2
+];
 export var SetStackPolicyInput$: StaticStructureSchema = [3, n0, _SSPI,
   0,
   [_SN, _SPB, _SPURL],
@@ -2017,8 +2032,8 @@ export var SignalResourceInput$: StaticStructureSchema = [3, n0, _SRIi,
 ];
 export var Stack$: StaticStructureSchema = [3, n0, _Sta,
   0,
-  [_SN, _CT, _SSta, _SI, _CSI, _D, _P, _DTel, _LUT, _RCo, _SSR, _DR, _DC, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO],
-  [0, 4, 0, 0, 0, 0, () => _Parameters, 4, 4, () => RollbackConfiguration$, 0, 2, () => DeploymentConfig$, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations], 3
+  [_SN, _CT, _SSta, _SI, _CSI, _D, _P, _DTel, _LUT, _RCo, _SSR, _DR, _DC, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO, _ANl],
+  [0, 4, 0, 0, 0, 0, () => _Parameters, 4, 4, () => RollbackConfiguration$, 0, 2, () => DeploymentConfig$, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations, 0], 3
 ];
 export var StackDefinition$: StaticStructureSchema = [3, n0, _SDt,
   0,
@@ -2743,8 +2758,14 @@ export var RegisterPublisher$: StaticOperationSchema = [9, n0, _RPeg,
 export var RegisterType$: StaticOperationSchema = [9, n0, _RTegi,
   2, () => RegisterTypeInput$, () => RegisterTypeOutput$
 ];
+export var RemoveAlias$: StaticOperationSchema = [9, n0, _RAe,
+  0, () => RemoveAliasInput$, () => __Unit
+];
 export var RollbackStack$: StaticOperationSchema = [9, n0, _RSo,
   0, () => RollbackStackInput$, () => RollbackStackOutput$
+];
+export var SetAlias$: StaticOperationSchema = [9, n0, _SAe,
+  0, () => SetAliasInput$, () => __Unit
 ];
 export var SetStackPolicy$: StaticOperationSchema = [9, n0, _SSP,
   0, () => SetStackPolicyInput$, () => __Unit

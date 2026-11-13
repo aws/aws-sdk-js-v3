@@ -442,6 +442,9 @@ import {
   RegisterTypeOutput$,
   RegistrationStatus,
   RegistryType,
+  RemoveAlias$,
+  RemoveAliasCommand,
+  RemoveAliasInput$,
   Replacement,
   RequiredActivatedType$,
   RequiresRecreation,
@@ -476,6 +479,9 @@ import {
   ScannedResource$,
   ScannedResourceIdentifier$,
   ScanType,
+  SetAlias$,
+  SetAliasCommand,
+  SetAliasInput$,
   SetStackPolicy$,
   SetStackPolicyCommand,
   SetStackPolicyInput$,
@@ -790,8 +796,12 @@ assert(typeof RegisterPublisherCommand === "function");
 assert(typeof RegisterPublisher$ === "object");
 assert(typeof RegisterTypeCommand === "function");
 assert(typeof RegisterType$ === "object");
+assert(typeof RemoveAliasCommand === "function");
+assert(typeof RemoveAlias$ === "object");
 assert(typeof RollbackStackCommand === "function");
 assert(typeof RollbackStack$ === "object");
+assert(typeof SetAliasCommand === "function");
+assert(typeof SetAlias$ === "object");
 assert(typeof SetStackPolicyCommand === "function");
 assert(typeof SetStackPolicy$ === "object");
 assert(typeof SetTypeConfigurationCommand === "function");
@@ -996,6 +1006,7 @@ assert(typeof RegisterPublisherInput$ === "object");
 assert(typeof RegisterPublisherOutput$ === "object");
 assert(typeof RegisterTypeInput$ === "object");
 assert(typeof RegisterTypeOutput$ === "object");
+assert(typeof RemoveAliasInput$ === "object");
 assert(typeof RequiredActivatedType$ === "object");
 assert(typeof ResourceChange$ === "object");
 assert(typeof ResourceChangeDetail$ === "object");
@@ -1015,6 +1026,7 @@ assert(typeof RollbackTrigger$ === "object");
 assert(typeof ScanFilter$ === "object");
 assert(typeof ScannedResource$ === "object");
 assert(typeof ScannedResourceIdentifier$ === "object");
+assert(typeof SetAliasInput$ === "object");
 assert(typeof SetStackPolicyInput$ === "object");
 assert(typeof SetTypeConfigurationInput$ === "object");
 assert(typeof SetTypeConfigurationOutput$ === "object");

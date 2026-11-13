@@ -386,10 +386,16 @@ import {
   RegisterTypeCommand,
 } from "./commands/RegisterTypeCommand";
 import {
+  type RemoveAliasCommandInput,
+  type RemoveAliasCommandOutput,
+  RemoveAliasCommand,
+} from "./commands/RemoveAliasCommand";
+import {
   type RollbackStackCommandInput,
   type RollbackStackCommandOutput,
   RollbackStackCommand,
 } from "./commands/RollbackStackCommand";
+import { type SetAliasCommandInput, type SetAliasCommandOutput, SetAliasCommand } from "./commands/SetAliasCommand";
 import {
   type SetStackPolicyCommandInput,
   type SetStackPolicyCommandOutput,
@@ -564,7 +570,9 @@ const commands = {
   RecordHandlerProgressCommand,
   RegisterPublisherCommand,
   RegisterTypeCommand,
+  RemoveAliasCommand,
   RollbackStackCommand,
+  SetAliasCommand,
   SetStackPolicyCommand,
   SetTypeConfigurationCommand,
   SetTypeDefaultVersionCommand,
@@ -1947,6 +1955,23 @@ export interface CloudFormation {
   ): void;
 
   /**
+   * @see {@link RemoveAliasCommand}
+   */
+  removeAlias(
+    args: RemoveAliasCommandInput,
+    options?: CloudFormationRequestOptions
+  ): Promise<RemoveAliasCommandOutput>;
+  removeAlias(
+    args: RemoveAliasCommandInput,
+    cb: (err: any, data?: RemoveAliasCommandOutput) => void
+  ): void;
+  removeAlias(
+    args: RemoveAliasCommandInput,
+    options: CloudFormationRequestOptions,
+    cb: (err: any, data?: RemoveAliasCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RollbackStackCommand}
    */
   rollbackStack(
@@ -1961,6 +1986,23 @@ export interface CloudFormation {
     args: RollbackStackCommandInput,
     options: CloudFormationRequestOptions,
     cb: (err: any, data?: RollbackStackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SetAliasCommand}
+   */
+  setAlias(
+    args: SetAliasCommandInput,
+    options?: CloudFormationRequestOptions
+  ): Promise<SetAliasCommandOutput>;
+  setAlias(
+    args: SetAliasCommandInput,
+    cb: (err: any, data?: SetAliasCommandOutput) => void
+  ): void;
+  setAlias(
+    args: SetAliasCommandInput,
+    options: CloudFormationRequestOptions,
+    cb: (err: any, data?: SetAliasCommandOutput) => void
   ): void;
 
   /**

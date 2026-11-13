@@ -274,7 +274,9 @@ import type {
   RegisterPublisherCommandOutput,
 } from "./commands/RegisterPublisherCommand";
 import type { RegisterTypeCommandInput, RegisterTypeCommandOutput } from "./commands/RegisterTypeCommand";
+import type { RemoveAliasCommandInput, RemoveAliasCommandOutput } from "./commands/RemoveAliasCommand";
 import type { RollbackStackCommandInput, RollbackStackCommandOutput } from "./commands/RollbackStackCommand";
+import type { SetAliasCommandInput, SetAliasCommandOutput } from "./commands/SetAliasCommand";
 import type { SetStackPolicyCommandInput, SetStackPolicyCommandOutput } from "./commands/SetStackPolicyCommand";
 import type {
   SetTypeConfigurationCommandInput,
@@ -400,7 +402,9 @@ export type ServiceInputTypes =
   | RecordHandlerProgressCommandInput
   | RegisterPublisherCommandInput
   | RegisterTypeCommandInput
+  | RemoveAliasCommandInput
   | RollbackStackCommandInput
+  | SetAliasCommandInput
   | SetStackPolicyCommandInput
   | SetTypeConfigurationCommandInput
   | SetTypeDefaultVersionCommandInput
@@ -495,7 +499,9 @@ export type ServiceOutputTypes =
   | RecordHandlerProgressCommandOutput
   | RegisterPublisherCommandOutput
   | RegisterTypeCommandOutput
+  | RemoveAliasCommandOutput
   | RollbackStackCommandOutput
+  | SetAliasCommandOutput
   | SetStackPolicyCommandOutput
   | SetTypeConfigurationCommandOutput
   | SetTypeDefaultVersionCommandOutput
