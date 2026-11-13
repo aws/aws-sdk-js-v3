@@ -316,27 +316,27 @@ export type ServiceStatus = (typeof ServiceStatus)[keyof typeof ServiceStatus];
  */
 export const ServiceNetworkResourceAssociationStatus = {
   /**
-   * ServiceNetwork and Service association is active
+   * ServiceNetwork and Resource association is active
    */
   ACTIVE: "ACTIVE",
   /**
-   * ServiceNetwork and Service association creation failed.
+   * ServiceNetwork and Resource association creation failed.
    */
   CREATE_FAILED: "CREATE_FAILED",
   /**
-   * ServiceNetwork and Service association creation in progress
+   * ServiceNetwork and Resource association creation in progress
    */
   CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
   /**
-   * ServiceNetwork and Service association deletion failed
+   * ServiceNetwork and Resource association deletion failed
    */
   DELETE_FAILED: "DELETE_FAILED",
   /**
-   * ServiceNetwork and Service association deletion in progress
+   * ServiceNetwork and Resource association deletion in progress
    */
   DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
   /**
-   * ServiceNetwork and Service association is partial
+   * ServiceNetwork and Resource association is partial
    */
   PARTIAL: "PARTIAL",
 } as const;

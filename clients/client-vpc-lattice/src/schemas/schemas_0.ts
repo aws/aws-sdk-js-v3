@@ -1378,13 +1378,13 @@ export var UpdateResourceConfigurationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateResourceGatewayRequest$: StaticStructureSchema = [3, n0, _URGR,
   0,
-  [_rGI, _sGI],
-  [[0, 1], 64 | 0], 1
+  [_rGI, _sGI, _rCDR],
+  [[0, 1], 64 | 0, 0], 1
 ];
 export var UpdateResourceGatewayResponse$: StaticStructureSchema = [3, n0, _URGRp,
   0,
-  [_n, _i, _a, _st, _vIp, _sIu, _sGI, _iAT],
-  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0]
+  [_n, _i, _a, _st, _vIp, _sIu, _sGI, _iAT, _rCDR],
+  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 0]
 ];
 export var UpdateRuleRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,

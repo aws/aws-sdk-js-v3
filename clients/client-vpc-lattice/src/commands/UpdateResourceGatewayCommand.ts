@@ -37,6 +37,7 @@ export interface UpdateResourceGatewayCommandOutput extends UpdateResourceGatewa
  *   securityGroupIds: [ // SecurityGroupList
  *     "STRING_VALUE",
  *   ],
+ *   resourceConfigDnsResolution: "STRING_VALUE",
  * };
  * const command = new UpdateResourceGatewayCommand(input);
  * const response = await client.send(command);
@@ -53,6 +54,7 @@ export interface UpdateResourceGatewayCommandOutput extends UpdateResourceGatewa
  * //     "STRING_VALUE",
  * //   ],
  * //   ipAddressType: "STRING_VALUE",
+ * //   resourceConfigDnsResolution: "STRING_VALUE",
  * // };
  *
  * ```
