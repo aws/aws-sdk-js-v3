@@ -268,7 +268,7 @@ export interface UpdateAccountPasswordPolicyRequest {
   /**
    * <p>Specifies whether IAM user passwords must contain at least one of the following
    *             non-alphanumeric characters:</p>
-   *          <p>! @ # $ % ^ & * ( ) _ + - = [ ] \{ \} | '</p>
+   *          <p>! @ # $ % ^ &amp; * ( ) _ + - = [ ] \{ \} | '</p>
    *          <p>If you do not specify a value for this parameter, then the operation uses the default
    *             value of <code>false</code>. The result is that passwords do not require at least one
    *             symbol character.</p>

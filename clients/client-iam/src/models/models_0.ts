@@ -1776,7 +1776,7 @@ export interface CreateServiceLinkedRoleRequest {
   Description?: string | undefined;
 
   /**
-   * <p></p>
+   * <p/>
    *          <p>A string that you provide, which is combined with the service-provided prefix to form
    *             the complete role name. If you make multiple requests for the same service, then you
    *             must supply a different <code>CustomSuffix</code> for each request. Otherwise the
@@ -2454,7 +2454,7 @@ export interface DeleteServiceLinkedRoleResponse {
   /**
    * <p>The deletion task identifier that you can use to check the status of the deletion.
    *             This identifier is returned in the format
-   *                 <code>task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid></code>.</p>
+   *                 <code>task/aws-service-role/&lt;service-principal-name&gt;/&lt;role-name&gt;/&lt;task-uuid&gt;</code>.</p>
    * @public
    */
   DeletionTaskId: string | undefined;
@@ -2917,7 +2917,7 @@ export interface GetAccessKeyLastUsedRequest {
 export interface GetAccessKeyLastUsedResponse {
   /**
    * <p>The name of the IAM user that owns this access key.</p>
-   *          <p></p>
+   *          <p/>
    * @public
    */
   UserName?: string | undefined;
@@ -3377,7 +3377,7 @@ export interface PasswordPolicy {
   /**
    * <p>Specifies whether IAM user passwords must contain at least one of the following
    *          symbols:</p>
-   *          <p>! @ # $ % ^ & * ( ) _ + - = [ ] \{ \} | '</p>
+   *          <p>! @ # $ % ^ &amp; * ( ) _ + - = [ ] \{ \} | '</p>
    * @public
    */
   RequireSymbols?: boolean | undefined;
@@ -5309,7 +5309,7 @@ export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
 export interface GetServiceLinkedRoleDeletionStatusRequest {
   /**
    * <p>The deletion task identifier. This identifier is returned by the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html">DeleteServiceLinkedRole</a> operation in the format
-   *                 <code>task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid></code>.</p>
+   *                 <code>task/aws-service-role/&lt;service-principal-name&gt;/&lt;role-name&gt;/&lt;task-uuid&gt;</code>.</p>
    * @public
    */
   DeletionTaskId: string | undefined;
