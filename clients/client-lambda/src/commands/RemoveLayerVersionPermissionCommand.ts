@@ -56,6 +56,9 @@ export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBea
  * @throws {@link PreconditionFailedException} (client fault)
  *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
  *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>The resource already exists, or another operation is in progress.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource specified in the request does not exist.</p>
  *

@@ -1161,6 +1161,62 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
+ * <p>The runtime alias for your function is no longer available. Update your function to use an available runtime alias.</p>
+ * @public
+ */
+export class RuntimeAliasDeletedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#RuntimeAliasDeletedException";
+  readonly name = "RuntimeAliasDeletedException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>Indicates the exception type for a deleted runtime alias.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RuntimeAliasDeletedException, __BaseException>) {
+    super({
+      name: "RuntimeAliasDeletedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RuntimeAliasDeletedException.prototype);
+    this.Type = opts.Type;
+  }
+}
+
+/**
+ * <p>The runtime version used by your function is no longer available. Update your function to use an available runtime version or runtime alias.</p>
+ * @public
+ */
+export class RuntimeVersionDeletedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#RuntimeVersionDeletedException";
+  readonly name = "RuntimeVersionDeletedException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>Indicates the exception type for a deleted runtime version.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RuntimeVersionDeletedException, __BaseException>) {
+    super({
+      name: "RuntimeVersionDeletedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RuntimeVersionDeletedException.prototype);
+    this.Type = opts.Type;
+  }
+}
+
+/**
  * <p>The Lambda function couldn't make a network connection to the configured S3 Files access point.</p>
  * @public
  */

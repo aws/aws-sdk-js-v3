@@ -166,6 +166,12 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * @throws {@link ResourceNotReadyException} (server fault)
  *  <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to reestablish and try again.</p>
  *
+ * @throws {@link RuntimeAliasDeletedException} (client fault)
+ *  <p>The runtime alias for your function is no longer available. Update your function to use an available runtime alias.</p>
+ *
+ * @throws {@link RuntimeVersionDeletedException} (client fault)
+ *  <p>The runtime version used by your function is no longer available. Update your function to use an available runtime version or runtime alias.</p>
+ *
  * @throws {@link S3FilesMountConnectivityException} (client fault)
  *  <p>The Lambda function couldn't make a network connection to the configured S3 Files access point.</p>
  *

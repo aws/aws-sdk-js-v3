@@ -192,6 +192,7 @@ import {
   FunctionConfiguration$,
   FunctionEventInvokeConfig$,
   FunctionResponseType,
+  FunctionRuntimeConfig$,
   FunctionScalingConfig$,
   FunctionUrlAuthType,
   FunctionUrlConfig$,
@@ -512,7 +513,11 @@ import {
   ResponseStreamingInvocationType,
   RetryDetails$,
   Runtime,
+  RuntimeAliasDeletedException,
+  RuntimeAliasDeletedException$,
   RuntimeVersionConfig$,
+  RuntimeVersionDeletedException,
+  RuntimeVersionDeletedException$,
   RuntimeVersionError$,
   S3FilesConfig$,
   S3FilesMountConnectivityException,
@@ -919,6 +924,7 @@ assert(typeof FunctionCodeLocation$ === "object");
 assert(typeof FunctionCodeLocationError$ === "object");
 assert(typeof FunctionConfiguration$ === "object");
 assert(typeof FunctionEventInvokeConfig$ === "object");
+assert(typeof FunctionRuntimeConfig$ === "object");
 assert(typeof FunctionScalingConfig$ === "object");
 assert(typeof FunctionUrlConfig$ === "object");
 assert(typeof FunctionVersionsByCapacityProviderListItem$ === "object");
@@ -1229,6 +1235,10 @@ assert(ResourceNotFoundException.prototype instanceof LambdaServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
 assert(ResourceNotReadyException.prototype instanceof LambdaServiceException);
 assert(typeof ResourceNotReadyException$ === "object");
+assert(RuntimeAliasDeletedException.prototype instanceof LambdaServiceException);
+assert(typeof RuntimeAliasDeletedException$ === "object");
+assert(RuntimeVersionDeletedException.prototype instanceof LambdaServiceException);
+assert(typeof RuntimeVersionDeletedException$ === "object");
 assert(S3FilesMountConnectivityException.prototype instanceof LambdaServiceException);
 assert(typeof S3FilesMountConnectivityException$ === "object");
 assert(S3FilesMountFailureException.prototype instanceof LambdaServiceException);

@@ -510,6 +510,7 @@ export type FunctionVersionLatestPublished =
  * @enum
  */
 export const Runtime = {
+  custom: "custom",
   dotnet10: "dotnet10",
   dotnet6: "dotnet6",
   dotnet8: "dotnet8",

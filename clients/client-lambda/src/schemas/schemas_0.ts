@@ -247,6 +247,7 @@ const _FEICu = "FunctionEventInvokeConfigs";
 const _FL = "FilterList";
 const _FLu = "FunctionList";
 const _FN = "FunctionName";
+const _FRC = "FunctionRuntimeConfig";
 const _FRT = "FunctionResponseTypes";
 const _FS = "FunctionState";
 const _FSC = "FileSystemConfigs";
@@ -546,11 +547,15 @@ const _Q = "Qualifier";
 const _Qu = "Queues";
 const _R = "Reason";
 const _RA = "Retry-After";
+const _RADE = "RuntimeAliasDeletedException";
 const _RAe = "ResourceArn";
+const _RAu = "RuntimeArn";
+const _RAun = "RuntimeAlias";
 const _RC = "RoutingConfig";
 const _RCE = "ResourceConflictException";
 const _RCEe = "ReservedConcurrentExecutions";
 const _RCe = "ReplayChildren";
+const _RCu = "RuntimeConfig";
 const _RD = "RetryDetails";
 const _RFSC = "RequestedFunctionScalingConfig";
 const _RI = "RevisionId";
@@ -574,6 +579,7 @@ const _RT = "RepositoryType";
 const _RTLE = "RequestTooLargeException";
 const _RVA = "RuntimeVersionArn";
 const _RVC = "RuntimeVersionConfig";
+const _RVDE = "RuntimeVersionDeletedException";
 const _RVE = "RuntimeVersionError";
 const _Re = "Result";
 const _Res = "Resource";
@@ -805,6 +811,8 @@ import {
   ResourceInUseException,
   ResourceNotFoundException,
   ResourceNotReadyException,
+  RuntimeAliasDeletedException,
+  RuntimeVersionDeletedException,
   S3FilesMountConnectivityException,
   S3FilesMountFailureException,
   S3FilesMountTimeoutException,
@@ -1084,6 +1092,18 @@ export var ResourceNotReadyException$: StaticErrorSchema = [-3, n0, _RNRE,
   [0, 0]
 ];
 n0_registry.registerError(ResourceNotReadyException$, ResourceNotReadyException);
+export var RuntimeAliasDeletedException$: StaticErrorSchema = [-3, n0, _RADE,
+  { [_e]: _c, [_hE]: 409 },
+  [_T, _m],
+  [0, 0]
+];
+n0_registry.registerError(RuntimeAliasDeletedException$, RuntimeAliasDeletedException);
+export var RuntimeVersionDeletedException$: StaticErrorSchema = [-3, n0, _RVDE,
+  { [_e]: _c, [_hE]: 409 },
+  [_T, _m],
+  [0, 0]
+];
+n0_registry.registerError(RuntimeVersionDeletedException$, RuntimeVersionDeletedException);
 export var S3FilesMountConnectivityException$: StaticErrorSchema = [-3, n0, _SFMCE,
   { [_e]: _c, [_hE]: 408 },
   [_T, _M],
@@ -1426,8 +1446,8 @@ export var CreateEventSourceMappingRequest$: StaticStructureSchema = [3, n0, _CE
 ];
 export var CreateFunctionRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_FN, _Ro, _Cod, _Ru, _H, _D, _Ti, _MS, _Pu, _PTu, _VC, _PTa, _DLC, _Env, _KMSKA, _TCr, _Ta, _L, _FSC, _CSCA, _IC, _Ar, _ES, _SSn, _LC, _TCe, _CPC, _DCu],
-  [0, 0, [() => FunctionCode$, 0], 0, 0, 0, 1, 1, 2, 0, () => VpcConfig$, 0, () => DeadLetterConfig$, [() => Environment$, 0], 0, () => TracingConfig$, 128 | 0, 64 | 0, () => FileSystemConfigList, 0, () => ImageConfig$, 64 | 0, () => EphemeralStorage$, () => SnapStart$, () => LoggingConfig$, () => TenancyConfig$, () => CapacityProviderConfig$, () => DurableConfig$], 3
+  [_FN, _Ro, _Cod, _Ru, _H, _D, _Ti, _MS, _Pu, _PTu, _VC, _PTa, _DLC, _Env, _KMSKA, _TCr, _Ta, _L, _FSC, _CSCA, _IC, _Ar, _ES, _SSn, _LC, _TCe, _CPC, _DCu, _RCu],
+  [0, 0, [() => FunctionCode$, 0], 0, 0, 0, 1, 1, 2, 0, () => VpcConfig$, 0, () => DeadLetterConfig$, [() => Environment$, 0], 0, () => TracingConfig$, 128 | 0, 64 | 0, () => FileSystemConfigList, 0, () => ImageConfig$, 64 | 0, () => EphemeralStorage$, () => SnapStart$, () => LoggingConfig$, () => TenancyConfig$, () => CapacityProviderConfig$, () => DurableConfig$, () => FunctionRuntimeConfig$], 3
 ];
 export var CreateFunctionUrlConfigRequest$: StaticStructureSchema = [3, n0, _CFUCR,
   0,
@@ -1666,13 +1686,18 @@ export var FunctionCodeLocationError$: StaticStructureSchema = [3, n0, _FCLE,
 ];
 export var FunctionConfiguration$: StaticStructureSchema = [3, n0, _FCun,
   0,
-  [_FN, _FA, _Ru, _Ro, _H, _CS, _D, _Ti, _MS, _LM, _CSo, _Ve, _VC, _DLC, _Env, _KMSKA, _TCr, _MAa, _RI, _L, _St, _SR, _SRCt, _LUS, _LUSR, _LUSRC, _FSC, _SPVAi, _SJA, _PTa, _ICR, _Ar, _ES, _SSn, _RVC, _LC, _TCe, _CPC, _CSon, _DCu],
-  [0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, () => VpcConfigResponse$, () => DeadLetterConfig$, [() => EnvironmentResponse$, 0], 0, () => TracingConfigResponse$, 0, 0, () => LayersReferenceList, 0, 0, 0, 0, 0, 0, () => FileSystemConfigList, 0, 0, 0, [() => ImageConfigResponse$, 0], 64 | 0, () => EphemeralStorage$, () => SnapStartResponse$, [() => RuntimeVersionConfig$, 0], () => LoggingConfig$, () => TenancyConfig$, () => CapacityProviderConfig$, 0, () => DurableConfig$]
+  [_FN, _FA, _Ru, _Ro, _H, _CS, _D, _Ti, _MS, _LM, _CSo, _Ve, _VC, _DLC, _Env, _KMSKA, _TCr, _MAa, _RI, _L, _St, _SR, _SRCt, _LUS, _LUSR, _LUSRC, _FSC, _SPVAi, _SJA, _PTa, _ICR, _Ar, _ES, _SSn, _RVC, _LC, _TCe, _CPC, _CSon, _DCu, _RCu],
+  [0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, () => VpcConfigResponse$, () => DeadLetterConfig$, [() => EnvironmentResponse$, 0], 0, () => TracingConfigResponse$, 0, 0, () => LayersReferenceList, 0, 0, 0, 0, 0, 0, () => FileSystemConfigList, 0, 0, 0, [() => ImageConfigResponse$, 0], 64 | 0, () => EphemeralStorage$, () => SnapStartResponse$, [() => RuntimeVersionConfig$, 0], () => LoggingConfig$, () => TenancyConfig$, () => CapacityProviderConfig$, 0, () => DurableConfig$, () => FunctionRuntimeConfig$]
 ];
 export var FunctionEventInvokeConfig$: StaticStructureSchema = [3, n0, _FEIC,
   0,
   [_LM, _FA, _MRA, _MEAIS, _DC],
   [4, 0, 1, 1, () => DestinationConfig$]
+];
+export var FunctionRuntimeConfig$: StaticStructureSchema = [3, n0, _FRC,
+  0,
+  [_RAu, _RAun],
+  [0, 0], 2
 ];
 export var FunctionScalingConfig$: StaticStructureSchema = [3, n0, _FSCu,
   0,
@@ -2486,8 +2511,8 @@ export var UpdateFunctionCodeRequest$: StaticStructureSchema = [3, n0, _UFCR,
 ];
 export var UpdateFunctionConfigurationRequest$: StaticStructureSchema = [3, n0, _UFCRp,
   0,
-  [_FN, _Ro, _H, _D, _Ti, _MS, _VC, _Env, _Ru, _DLC, _KMSKA, _TCr, _RI, _L, _FSC, _IC, _ES, _SSn, _LC, _CPC, _DCu],
-  [[0, 1], 0, 0, 0, 1, 1, () => VpcConfig$, [() => Environment$, 0], 0, () => DeadLetterConfig$, 0, () => TracingConfig$, 0, 64 | 0, () => FileSystemConfigList, () => ImageConfig$, () => EphemeralStorage$, () => SnapStart$, () => LoggingConfig$, () => CapacityProviderConfig$, () => DurableConfig$], 1
+  [_FN, _Ro, _H, _D, _Ti, _MS, _VC, _Env, _Ru, _DLC, _KMSKA, _TCr, _RI, _L, _FSC, _IC, _ES, _SSn, _LC, _CPC, _DCu, _RCu],
+  [[0, 1], 0, 0, 0, 1, 1, () => VpcConfig$, [() => Environment$, 0], 0, () => DeadLetterConfig$, 0, () => TracingConfig$, 0, 64 | 0, () => FileSystemConfigList, () => ImageConfig$, () => EphemeralStorage$, () => SnapStart$, () => LoggingConfig$, () => CapacityProviderConfig$, () => DurableConfig$, () => FunctionRuntimeConfig$], 1
 ];
 export var UpdateFunctionEventInvokeConfigRequest$: StaticStructureSchema = [3, n0, _UFEICR,
   0,

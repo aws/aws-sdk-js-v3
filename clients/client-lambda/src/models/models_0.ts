@@ -2707,7 +2707,7 @@ export interface SelfManagedKafkaEventSourceConfig {
   SchemaRegistryConfig?: KafkaSchemaRegistryConfig | undefined;
 
   /**
-   * <p>The mode that Lambda uses to consume records from your self-managed Apache Kafka topic. The default is <code>Stream</code>.</p> <ul> <li> <p> <code>Stream</code> – Lambda consumes records using a Kafka consumer group and preserves the order of records within each partition. This is the default when you omit <code>ConsumptionMode</code>.</p> </li> <li> <p> <code>Queue</code> – Lambda consumes records using a Kafka share group. Multiple consumers can process records from the same partitions concurrently. Queue mode does not preserve per-partition order. Queue mode requires an Apache Kafka cluster running version 4.2 or later with share groups enabled.</p> </li> </ul> <p>You cannot change <code>ConsumptionMode</code> after you create the event source mapping. To use a different consumption mode, create a new event source mapping.</p> <p>When <code>ConsumptionMode</code> is <code>Queue</code>, the <code>StartingPosition</code>, <code>StartingPositionTimestamp</code>, and <code>MaximumBatchingWindowInSeconds</code> parameters are not supported.</p>
+   * <p>The mode that Lambda uses to consume records from your self-managed Apache Kafka topic. Valid values are the following:</p> <ul> <li> <p> <code>Stream</code> (default) – Lambda consumes records using a Kafka consumer group and preserves the order of records within each partition.</p> </li> <li> <p> <code>Queue</code> – Lambda consumes records using a Kafka share group. Multiple consumers can process records from the same partition concurrently, so Lambda doesn't preserve per-partition order. To use Queue mode, your cluster must run Apache Kafka version 4.2 or later with share groups enabled.</p> </li> </ul> <p>If you omit this parameter, Lambda uses <code>Stream</code>.</p> <p>You cannot change <code>ConsumptionMode</code> after you create the event source mapping. To use a different consumption mode, create a new event source mapping.</p> <p>When <code>ConsumptionMode</code> is <code>Queue</code>, the <code>StartingPosition</code>, <code>StartingPositionTimestamp</code>, and <code>MaximumBatchingWindowInSeconds</code> parameters are not supported.</p>
    * @public
    */
   ConsumptionMode?: KafkaEventSourceMappingConsumptionMode | undefined;
@@ -2832,7 +2832,7 @@ export interface CreateEventSourceMappingRequest {
   BisectBatchOnFunctionError?: boolean | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> <p>For Kafka <code>Stream</code> consumption mode, the default is <code>-1</code> (infinite retries; capped at 10 when an on-failure destination is configured). For Kafka <code>Queue</code> consumption mode, the default is <code>0</code>, and if no on-failure destination is configured the Kafka broker performs retries.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> <p>For Kafka event source mappings with <code>ConsumptionMode</code> set to <code>Queue</code>, the value -1 (infinite retries) is not supported and the default is 0 (no retries). Lambda releases failed records back to the broker, which redelivers them up to the share group's <code>group.share.delivery.count.limit</code>.</p>
    * @public
    */
   MaximumRetryAttempts?: number | undefined;
@@ -3283,7 +3283,7 @@ export interface UpdateEventSourceMappingRequest {
   BisectBatchOnFunctionError?: boolean | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> <p>For Kafka <code>Stream</code> consumption mode, the default is <code>-1</code> (infinite retries; capped at 10 when an on-failure destination is configured). For Kafka <code>Queue</code> consumption mode, the default is <code>0</code>, and if no on-failure destination is configured the Kafka broker performs retries.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> <p>For Kafka event source mappings with <code>ConsumptionMode</code> set to <code>Queue</code>, the value -1 (infinite retries) is not supported and the default is 0 (no retries). Lambda releases failed records back to the broker, which redelivers them up to the share group's <code>group.share.delivery.count.limit</code>.</p>
    * @public
    */
   MaximumRetryAttempts?: number | undefined;
@@ -3542,6 +3542,24 @@ export interface LoggingConfig {
 }
 
 /**
+ * <p>The customer-managed runtime configuration for your function. Specifies the customer-managed runtime and the runtime alias that your function uses.</p>
+ * @public
+ */
+export interface FunctionRuntimeConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer-managed runtime that your function uses.</p>
+   * @public
+   */
+  RuntimeArn: string | undefined;
+
+  /**
+   * <p>The name of the customer-managed runtime alias that your function uses. A runtime alias is a name that points to a runtime version.</p>
+   * @public
+   */
+  RuntimeAlias: string | undefined;
+}
+
+/**
  * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Lambda SnapStart</a> setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
  * @public
  */
@@ -3772,6 +3790,12 @@ export interface CreateFunctionRequest {
    * @public
    */
   DurableConfig?: DurableConfig | undefined;
+
+  /**
+   * <p>The customer-managed runtime configuration for your function. Specifies the customer-managed runtime and the runtime alias that your function uses.</p>
+   * @public
+   */
+  RuntimeConfig?: FunctionRuntimeConfig | undefined;
 }
 
 /**
@@ -4216,6 +4240,12 @@ export interface FunctionConfiguration {
    * @public
    */
   DurableConfig?: DurableConfig | undefined;
+
+  /**
+   * <p>The customer-managed runtime configuration for your function. Specifies the customer-managed runtime and the runtime alias that your function uses.</p>
+   * @public
+   */
+  RuntimeConfig?: FunctionRuntimeConfig | undefined;
 }
 
 /**
@@ -5847,6 +5877,12 @@ export interface UpdateFunctionConfigurationRequest {
    * @public
    */
   DurableConfig?: DurableConfig | undefined;
+
+  /**
+   * <p>The customer-managed runtime configuration for your function. Specifies the customer-managed runtime and the runtime alias that your function uses.</p>
+   * @public
+   */
+  RuntimeConfig?: FunctionRuntimeConfig | undefined;
 }
 
 /**

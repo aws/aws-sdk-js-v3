@@ -185,6 +185,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "KMSKeyArn": "__KMSKeyArn__",
     "RetentionPeriodInDays": 0,
     "ExecutionTimeout": 0
+  },
+  "RuntimeConfig": {
+    "RuntimeArn": "__RuntimeArn__",
+    "RuntimeAlias": "__RuntimeAlias__"
   }
 }
 
@@ -348,6 +352,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     KMSKeyArn: "__KMSKeyArn__",
     RetentionPeriodInDays: (number) 0,
     ExecutionTimeout: (number) 0
+  },
+  RuntimeConfig: {
+    RuntimeArn: "__RuntimeArn__",
+    RuntimeAlias: "__RuntimeAlias__"
   },
   $metadata: {
     httpStatusCode: (number) 200,
