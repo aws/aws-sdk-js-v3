@@ -15,7 +15,7 @@ import type {
  */
 export interface MemoizedRuntimeConfigAwsCredentialIdentityProvider {
   (options?: AwsIdentityProperties & { forceRefresh?: boolean }): Promise<AwsCredentialIdentity>;
-  readonly memoized: true;
+  readonly memoized?: true;
   invalidate?(rejectedIdentity: Pick<AwsCredentialIdentity, "accessKeyId">): void;
 }
 

@@ -34,7 +34,7 @@ describe("fromCognitoIdentityPool credential refresh", () => {
       client: { send } as any,
       identityPoolId: "pool-id",
       cache: {
-        getItem: async () => undefined,
+        getItem: async () => null,
         setItem: async () => undefined,
         removeItem: async () => undefined,
       },
