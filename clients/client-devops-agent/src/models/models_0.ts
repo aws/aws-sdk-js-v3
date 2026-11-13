@@ -1267,6 +1267,24 @@ export interface MCPServerSigV4Configuration {
 export interface MCPServerSplunkConfiguration {}
 
 /**
+ * <p>Configuration for bidirectional communication with a Microsoft Teams channel. When enabled, the agent receives and responds to mentions in the configured channel in addition to sending notifications.</p>
+ * @public
+ */
+export interface MSTeamsBidirectionalConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the agent assumes to exchange messages with the Microsoft Teams team for this association.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>Specifies whether bidirectional communication is enabled for this association. If you set this value to <code>true</code>, you can mention the agent in the configured Microsoft Teams channel and it responds in that channel. If you omit this parameter or set it to <code>false</code>, the agent only sends one-way notifications.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+}
+
+/**
  * <p>Represents a channel in a Microsoft Teams team that the DevOps Agent service can send notifications to.</p>
  * @public
  */
@@ -1324,6 +1342,12 @@ export interface MSTeamsConfiguration {
    * @public
    */
   transmissionTarget: MSTeamsTransmissionTarget | undefined;
+
+  /**
+   * <p>The bidirectional communication configuration for the Microsoft Teams integration. Provide this configuration with <code>enabled</code> set to <code>true</code> to allow users to interact with the agent directly from Microsoft Teams.</p>
+   * @public
+   */
+  bidirectional?: MSTeamsBidirectionalConfiguration | undefined;
 }
 
 /**

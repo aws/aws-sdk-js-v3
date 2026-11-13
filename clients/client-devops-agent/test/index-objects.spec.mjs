@@ -282,6 +282,7 @@ import {
   Message$,
   MonitorAccountType,
   MonthlyRecurrence$,
+  MSTeamsBidirectionalConfiguration$,
   MSTeamsChannel$,
   MSTeamsConfiguration$,
   MSTeamsTransmissionTarget$,
@@ -767,6 +768,7 @@ assert(typeof MCPServerSplunkConfiguration$ === "object");
 assert(typeof MCPToolDetail$ === "object");
 assert(typeof Message$ === "object");
 assert(typeof MonthlyRecurrence$ === "object");
+assert(typeof MSTeamsBidirectionalConfiguration$ === "object");
 assert(typeof MSTeamsChannel$ === "object");
 assert(typeof MSTeamsConfiguration$ === "object");
 assert(typeof MSTeamsTransmissionTarget$ === "object");

@@ -387,6 +387,7 @@ export type {
   MCPToolDetail,
   Message,
   MonthlyRecurrence,
+  MSTeamsBidirectionalConfiguration,
   MSTeamsChannel,
   MSTeamsConfiguration,
   MSTeamsTransmissionTarget,

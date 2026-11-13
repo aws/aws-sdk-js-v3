@@ -175,6 +175,10 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  *           channelId: "STRING_VALUE", // required
  *         },
  *       },
+ *       bidirectional: { // MSTeamsBidirectionalConfiguration
+ *         roleArn: "STRING_VALUE", // required
+ *         enabled: true || false,
+ *       },
  *     },
  *     releaseManagement: { // ReleaseManagementConfiguration
  *       name: "STRING_VALUE", // required
@@ -353,6 +357,10 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  * //             channelName: "STRING_VALUE", // required
  * //             channelId: "STRING_VALUE", // required
  * //           },
+ * //         },
+ * //         bidirectional: { // MSTeamsBidirectionalConfiguration
+ * //           roleArn: "STRING_VALUE", // required
+ * //           enabled: true || false,
  * //         },
  * //       },
  * //       releaseManagement: { // ReleaseManagementConfiguration

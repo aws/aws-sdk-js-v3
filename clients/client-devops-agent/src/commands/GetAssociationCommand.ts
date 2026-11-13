@@ -186,6 +186,10 @@ export interface GetAssociationCommandOutput extends GetAssociationOutput, __Met
  * //             channelId: "STRING_VALUE", // required
  * //           },
  * //         },
+ * //         bidirectional: { // MSTeamsBidirectionalConfiguration
+ * //           roleArn: "STRING_VALUE", // required
+ * //           enabled: true || false,
+ * //         },
  * //       },
  * //       releaseManagement: { // ReleaseManagementConfiguration
  * //         name: "STRING_VALUE", // required

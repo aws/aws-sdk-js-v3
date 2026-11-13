@@ -233,6 +233,7 @@ const _MCPSSVSD = "MCPServerSigV4ServiceDetails";
 const _MCPTD = "MCPToolDetail";
 const _MCPTDL = "MCPToolDetailsList";
 const _MR = "MonthlyRecurrence";
+const _MSTBC = "MSTeamsBidirectionalConfiguration";
 const _MSTC = "MSTeamsChannel";
 const _MSTCe = "MSTeamsConfiguration";
 const _MSTTT = "MSTeamsTransmissionTarget";
@@ -1583,6 +1584,11 @@ export var MonthlyRecurrence$: StaticStructureSchema = [3, n0, _MR,
   [_dOM],
   [1], 1
 ];
+export var MSTeamsBidirectionalConfiguration$: StaticStructureSchema = [3, n0, _MSTBC,
+  0,
+  [_rAo, _en],
+  [0, 2], 1
+];
 export var MSTeamsChannel$: StaticStructureSchema = [3, n0, _MSTC,
   0,
   [_cNh, _cIh],
@@ -1590,8 +1596,8 @@ export var MSTeamsChannel$: StaticStructureSchema = [3, n0, _MSTC,
 ];
 export var MSTeamsConfiguration$: StaticStructureSchema = [3, n0, _MSTCe,
   0,
-  [_tIe, _tNe, _tTr],
-  [0, 0, () => MSTeamsTransmissionTarget$], 3
+  [_tIe, _tNe, _tTr, _bi],
+  [0, 0, () => MSTeamsTransmissionTarget$, () => MSTeamsBidirectionalConfiguration$], 3
 ];
 export var MSTeamsTransmissionTarget$: StaticStructureSchema = [3, n0, _MSTTT,
   0,
