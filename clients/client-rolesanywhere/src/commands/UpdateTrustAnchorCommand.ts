@@ -43,6 +43,7 @@ export interface UpdateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  *     },
  *   },
  *   crlDpRevocationEnabled: true || false,
+ *   aliasName: "STRING_VALUE",
  * };
  * const command = new UpdateTrustAnchorCommand(input);
  * const response = await client.send(command);
@@ -71,6 +72,9 @@ export interface UpdateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * //         configuredBy: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     aliasName: "STRING_VALUE",
+ * //     aliasArn: "STRING_VALUE",
+ * //     previousAliasName: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -62,6 +62,9 @@ export interface EnableTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * //         configuredBy: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     aliasName: "STRING_VALUE",
+ * //     aliasArn: "STRING_VALUE",
+ * //     previousAliasName: "STRING_VALUE",
  * //   },
  * // };
  *

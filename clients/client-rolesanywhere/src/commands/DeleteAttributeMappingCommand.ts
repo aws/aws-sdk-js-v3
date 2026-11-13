@@ -70,6 +70,9 @@ export interface DeleteAttributeMappingCommandOutput extends DeleteAttributeMapp
  * //         ],
  * //       },
  * //     ],
+ * //     aliasName: "STRING_VALUE",
+ * //     aliasArn: "STRING_VALUE",
+ * //     previousAliasName: "STRING_VALUE",
  * //   },
  * // };
  *

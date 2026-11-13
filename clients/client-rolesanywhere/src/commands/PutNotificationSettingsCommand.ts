@@ -70,6 +70,9 @@ export interface PutNotificationSettingsCommandOutput extends PutNotificationSet
  * //         configuredBy: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     aliasName: "STRING_VALUE",
+ * //     aliasArn: "STRING_VALUE",
+ * //     previousAliasName: "STRING_VALUE",
  * //   },
  * // };
  *

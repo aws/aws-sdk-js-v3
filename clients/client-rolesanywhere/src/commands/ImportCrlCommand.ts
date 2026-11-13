@@ -43,6 +43,7 @@ export interface ImportCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  *     },
  *   ],
  *   trustAnchorArn: "STRING_VALUE", // required
+ *   aliasName: "STRING_VALUE",
  * };
  * const command = new ImportCrlCommand(input);
  * const response = await client.send(command);
@@ -56,6 +57,9 @@ export interface ImportCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * //     trustAnchorArn: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
+ * //     aliasName: "STRING_VALUE",
+ * //     aliasArn: "STRING_VALUE",
+ * //     previousAliasName: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -96,7 +96,9 @@ const _URRn = "UntagResourceResponse";
 const _UTA = "UpdateTrustAnchor";
 const _UTAR = "UpdateTrustAnchorRequest";
 const _VE = "ValidationException";
+const _aA = "aliasArn";
 const _aM = "attributeMappings";
+const _aN = "aliasName";
 const _aPA = "acmPcaArn";
 const _aRSN = "acceptRoleSessionName";
 const _c = "client";
@@ -133,6 +135,7 @@ const _nSK = "notificationSettingKeys";
 const _nT = "nextToken";
 const _p = "profile";
 const _pA = "profileArn";
+const _pAN = "previousAliasName";
 const _pI = "profileId";
 const _pS = "pageSize";
 const _pr = "properties";
@@ -242,13 +245,13 @@ export var AttributeMapping$: StaticStructureSchema = [3, n0, _AM,
 ];
 export var CreateProfileRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_n, _rA, _rIP, _sP, _mPA, _dS, _en, _t, _aRSN],
-  [0, 64 | 0, 2, 0, 64 | 0, 1, 2, [() => TagList, 0], 2], 2
+  [_n, _rA, _rIP, _sP, _mPA, _dS, _en, _t, _aRSN, _aN],
+  [0, 64 | 0, 2, 0, 64 | 0, 1, 2, [() => TagList, 0], 2, 0], 2
 ];
 export var CreateTrustAnchorRequest$: StaticStructureSchema = [3, n0, _CTAR,
   0,
-  [_n, _so, _en, _cDRE, _t, _nS],
-  [0, () => Source$, 2, 2, [() => TagList, 0], () => NotificationSettings], 2
+  [_n, _so, _en, _cDRE, _t, _nS, _aN],
+  [0, () => Source$, 2, 2, [() => TagList, 0], () => NotificationSettings, 0], 2
 ];
 export var CredentialSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
@@ -257,8 +260,8 @@ export var CredentialSummary$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var CrlDetail$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_cI, _cA, _n, _en, _cD, _tAA, _cAr, _uA],
-  [0, 0, 0, 2, 21, 0, 5, 5]
+  [_cI, _cA, _n, _en, _cD, _tAA, _cAr, _uA, _aN, _aA, _pAN],
+  [0, 0, 0, 2, 21, 0, 5, 5, 0, 0, 0]
 ];
 export var CrlDetailResponse$: StaticStructureSchema = [3, n0, _CDR,
   0,
@@ -277,8 +280,8 @@ export var DeleteAttributeMappingResponse$: StaticStructureSchema = [3, n0, _DAM
 ];
 export var ImportCrlRequest$: StaticStructureSchema = [3, n0, _ICR,
   0,
-  [_n, _cD, _tAA, _en, _t],
-  [0, 21, 0, 2, [() => TagList, 0]], 3
+  [_n, _cD, _tAA, _en, _t, _aN],
+  [0, 21, 0, 2, [() => TagList, 0], 0], 3
 ];
 export var InstanceProperty$: StaticStructureSchema = [3, n0, _IP,
   0,
@@ -342,8 +345,8 @@ export var NotificationSettingKey$: StaticStructureSchema = [3, n0, _NSK,
 ];
 export var ProfileDetail$: StaticStructureSchema = [3, n0, _PD,
   0,
-  [_pI, _pA, _n, _rIP, _en, _cBr, _sP, _rA, _mPA, _cAr, _uA, _dS, _aRSN, _aM],
-  [0, 0, 0, 2, 2, 0, 0, 64 | 0, 64 | 0, 5, 5, 1, 2, () => AttributeMappings]
+  [_pI, _pA, _n, _rIP, _en, _cBr, _sP, _rA, _mPA, _cAr, _uA, _dS, _aRSN, _aM, _aN, _aA, _pAN],
+  [0, 0, 0, 2, 2, 0, 0, 64 | 0, 64 | 0, 5, 5, 1, 2, () => AttributeMappings, 0, 0, 0]
 ];
 export var ProfileDetailResponse$: StaticStructureSchema = [3, n0, _PDR,
   0,
@@ -437,8 +440,8 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TrustAnchorDetail$: StaticStructureSchema = [3, n0, _TAD,
   0,
-  [_tAI, _tAA, _n, _so, _en, _cDRE, _cAr, _uA, _nS],
-  [0, 0, 0, () => Source$, 2, 2, 5, 5, () => NotificationSettingDetails]
+  [_tAI, _tAA, _n, _so, _en, _cDRE, _cAr, _uA, _nS, _aN, _aA, _pAN],
+  [0, 0, 0, () => Source$, 2, 2, 5, 5, () => NotificationSettingDetails, 0, 0, 0]
 ];
 export var TrustAnchorDetailResponse$: StaticStructureSchema = [3, n0, _TADR,
   0,
@@ -457,18 +460,18 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateCrlRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_cI, _n, _cD],
-  [[0, 1], 0, 21], 1
+  [_cI, _n, _cD, _aN],
+  [[0, 1], 0, 21, 0], 1
 ];
 export var UpdateProfileRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_pI, _n, _sP, _rA, _mPA, _dS, _aRSN],
-  [[0, 1], 0, 0, 64 | 0, 64 | 0, 1, 2], 1
+  [_pI, _n, _sP, _rA, _mPA, _dS, _aRSN, _aN],
+  [[0, 1], 0, 0, 64 | 0, 64 | 0, 1, 2, 0], 1
 ];
 export var UpdateTrustAnchorRequest$: StaticStructureSchema = [3, n0, _UTAR,
   0,
-  [_tAI, _n, _so, _cDRE],
-  [[0, 1], 0, () => Source$, 2], 1
+  [_tAI, _n, _so, _cDRE, _aN],
+  [[0, 1], 0, () => Source$, 2, 0], 1
 ];
 var AttributeMappings: StaticListSchema = [1, n0, _AMt,
   0, () => AttributeMapping$

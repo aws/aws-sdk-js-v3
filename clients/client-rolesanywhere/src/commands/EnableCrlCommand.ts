@@ -47,6 +47,9 @@ export interface EnableCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * //     trustAnchorArn: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
+ * //     aliasName: "STRING_VALUE",
+ * //     aliasArn: "STRING_VALUE",
+ * //     previousAliasName: "STRING_VALUE",
  * //   },
  * // };
  *

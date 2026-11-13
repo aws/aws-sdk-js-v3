@@ -106,6 +106,12 @@ export interface CreateProfileRequest {
    * @public
    */
   acceptRoleSessionName?: boolean | undefined;
+
+  /**
+   * <p>An alias for the profile. When you set an alias, the response includes the alias ARN of the profile in <code>aliasArn</code>.</p> <p>An alias name contains 1 to 256 characters. It must begin with a letter (A-Z or a-z). It can contain only letters (A-Z and a-z), numbers (0-9), underscores (_), hyphens (-), and forward slashes (/). A forward slash can appear only between two other characters, so an alias name can't end with a forward slash or contain two in a row. Alias names that begin with <code>aws/</code>, in any combination of uppercase and lowercase letters, are reserved. Alias names are case sensitive.</p> <p>The alias name must be unique among resources of the same type in your account and Region. If another resource of the same type already has the alias, the request fails with a <code>ValidationException</code>. An invalid or reserved alias name also causes a <code>ValidationException</code>.</p> <p>If you omit this parameter or specify an empty string, the resource is created without an alias.</p>
+   * @public
+   */
+  aliasName?: string | undefined;
 }
 
 /**
@@ -196,6 +202,24 @@ export interface ProfileDetail {
    * @public
    */
   attributeMappings?: AttributeMapping[] | undefined;
+
+  /**
+   * <p>The alias of the profile. Present only if the profile has an alias.</p>
+   * @public
+   */
+  aliasName?: string | undefined;
+
+  /**
+   * <p>The alias ARN of the profile, in the form <code>arn:<i>partition</i>:rolesanywhere:<i>region</i>:<i>account</i>:alias/profile/<i>alias-name</i> </code>. Present only if the profile has an alias.</p> <p>You can use the alias ARN in place of the resource ID or ARN in the request parameters whose descriptions say that they accept an alias ARN. Don't use the alias ARN in Identity and Access Management (IAM) policies. A policy statement that names an alias ARN doesn't apply to the resource that holds the alias. Write policies with the ARN that contains the resource ID instead.</p>
+   * @public
+   */
+  aliasArn?: string | undefined;
+
+  /**
+   * <p>The alias that the resource had before the update request. IAM Roles Anywhere returns this value only in the response to an update request that changed or removed an existing alias. It isn't returned when the alias was unchanged, when the resource had no alias before the request, or by other operations.</p>
+   * @public
+   */
+  previousAliasName?: string | undefined;
 }
 
 /**
@@ -349,6 +373,12 @@ export interface CreateTrustAnchorRequest {
    * @public
    */
   notificationSettings?: NotificationSetting[] | undefined;
+
+  /**
+   * <p>An alias for the trust anchor. When you set an alias, the response includes the alias ARN of the trust anchor in <code>aliasArn</code>.</p> <p>An alias name contains 1 to 256 characters. It must begin with a letter (A-Z or a-z). It can contain only letters (A-Z and a-z), numbers (0-9), underscores (_), hyphens (-), and forward slashes (/). A forward slash can appear only between two other characters, so an alias name can't end with a forward slash or contain two in a row. Alias names that begin with <code>aws/</code>, in any combination of uppercase and lowercase letters, are reserved. Alias names are case sensitive.</p> <p>The alias name must be unique among resources of the same type in your account and Region. If another resource of the same type already has the alias, the request fails with a <code>ValidationException</code>. An invalid or reserved alias name also causes a <code>ValidationException</code>.</p> <p>If you omit this parameter or specify an empty string, the resource is created without an alias.</p>
+   * @public
+   */
+  aliasName?: string | undefined;
 }
 
 /**
@@ -445,6 +475,24 @@ export interface TrustAnchorDetail {
    * @public
    */
   notificationSettings?: NotificationSettingDetail[] | undefined;
+
+  /**
+   * <p>The alias of the trust anchor. Present only if the trust anchor has an alias.</p>
+   * @public
+   */
+  aliasName?: string | undefined;
+
+  /**
+   * <p>The alias ARN of the trust anchor, in the form <code>arn:<i>partition</i>:rolesanywhere:<i>region</i>:<i>account</i>:alias/trust-anchor/<i>alias-name</i> </code>. Present only if the trust anchor has an alias.</p> <p>You can use the alias ARN in place of the resource ID or ARN in the request parameters whose descriptions say that they accept an alias ARN. Don't use the alias ARN in Identity and Access Management (IAM) policies. A policy statement that names an alias ARN doesn't apply to the resource that holds the alias. Write policies with the ARN that contains the resource ID instead.</p>
+   * @public
+   */
+  aliasArn?: string | undefined;
+
+  /**
+   * <p>The alias that the resource had before the update request. IAM Roles Anywhere returns this value only in the response to an update request that changed or removed an existing alias. It isn't returned when the alias was unchanged, when the resource had no alias before the request, or by other operations.</p>
+   * @public
+   */
+  previousAliasName?: string | undefined;
 }
 
 /**
@@ -552,6 +600,24 @@ export interface CrlDetail {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The alias of the certificate revocation list (CRL). Present only if the CRL has an alias.</p>
+   * @public
+   */
+  aliasName?: string | undefined;
+
+  /**
+   * <p>The alias ARN of the certificate revocation list (CRL), in the form <code>arn:<i>partition</i>:rolesanywhere:<i>region</i>:<i>account</i>:alias/crl/<i>alias-name</i> </code>. Present only if the CRL has an alias.</p> <p>You can use the alias ARN in place of the resource ID or ARN in the request parameters whose descriptions say that they accept an alias ARN. Don't use the alias ARN in Identity and Access Management (IAM) policies. A policy statement that names an alias ARN doesn't apply to the resource that holds the alias. Write policies with the ARN that contains the resource ID instead.</p>
+   * @public
+   */
+  aliasArn?: string | undefined;
+
+  /**
+   * <p>The alias that the resource had before the update request. IAM Roles Anywhere returns this value only in the response to an update request that changed or removed an existing alias. It isn't returned when the alias was unchanged, when the resource had no alias before the request, or by other operations.</p>
+   * @public
+   */
+  previousAliasName?: string | undefined;
 }
 
 /**
@@ -570,7 +636,7 @@ export interface CrlDetailResponse {
  */
 export interface ScalarCrlRequest {
   /**
-   * <p>The unique identifier of the certificate revocation list (CRL).</p>
+   * <p>The certificate revocation list (CRL) to act on. You can specify one of the following:</p> <ul> <li> <p>The CRL ID.</p> </li> <li> <p>The CRL ARN.</p> </li> <li> <p>The alias ARN of the CRL.</p> </li> </ul> <p>An ARN must be for a CRL in your account and Region.</p>
    * @public
    */
   crlId: string | undefined;
@@ -605,10 +671,16 @@ export interface ImportCrlRequest {
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.</p>
+   * <p>The ARN of the trust anchor that the certificate revocation list (CRL) provides revocation for. Specify the trust anchor ARN that contains the trust anchor ID. This parameter doesn't support alias ARNs. If you specify an alias ARN, the request fails with <code>ResourceNotFoundException</code>.</p>
    * @public
    */
   trustAnchorArn: string | undefined;
+
+  /**
+   * <p>An alias for the certificate revocation list (CRL). When you set an alias, the response includes the alias ARN of the CRL in <code>aliasArn</code>.</p> <p>An alias name contains 1 to 256 characters. It must begin with a letter (A-Z or a-z). It can contain only letters (A-Z and a-z), numbers (0-9), underscores (_), hyphens (-), and forward slashes (/). A forward slash can appear only between two other characters, so an alias name can't end with a forward slash or contain two in a row. Alias names that begin with <code>aws/</code>, in any combination of uppercase and lowercase letters, are reserved. Alias names are case sensitive.</p> <p>The alias name must be unique among resources of the same type in your account and Region. If another resource of the same type already has the alias, the request fails with a <code>ValidationException</code>. An invalid or reserved alias name also causes a <code>ValidationException</code>.</p> <p>If you omit this parameter or specify an empty string, the resource is created without an alias.</p>
+   * @public
+   */
+  aliasName?: string | undefined;
 }
 
 /**
@@ -650,7 +722,7 @@ export interface ListRequest {
  */
 export interface UpdateCrlRequest {
   /**
-   * <p>The unique identifier of the certificate revocation list (CRL).</p>
+   * <p>The certificate revocation list (CRL) to act on. You can specify one of the following:</p> <ul> <li> <p>The CRL ID.</p> </li> <li> <p>The CRL ARN.</p> </li> <li> <p>The alias ARN of the CRL.</p> </li> </ul> <p>An ARN must be for a CRL in your account and Region.</p>
    * @public
    */
   crlId: string | undefined;
@@ -666,6 +738,12 @@ export interface UpdateCrlRequest {
    * @public
    */
   crlData?: Uint8Array | undefined;
+
+  /**
+   * <p>The alias for the certificate revocation list (CRL).</p> <p>You can use this parameter in the following ways:</p> <ul> <li> <p>To set or change the alias, specify the new alias name. After the change, the previous alias ARN no longer identifies the resource. You can then assign the previous alias to another resource of the same type. A change can take a short time to take effect for requests that use an alias ARN.</p> </li> <li> <p>To remove the alias, specify an empty string.</p> </li> <li> <p>To keep the current alias, omit this parameter.</p> </li> </ul> <p>An alias name contains 1 to 256 characters. It must begin with a letter (A-Z or a-z). It can contain only letters (A-Z and a-z), numbers (0-9), underscores (_), hyphens (-), and forward slashes (/). A forward slash can appear only between two other characters, so an alias name can't end with a forward slash or contain two in a row. Alias names that begin with <code>aws/</code>, in any combination of uppercase and lowercase letters, are reserved. Alias names are case sensitive.</p> <p>The alias name must be unique among resources of the same type in your account and Region. If another resource of the same type already has the alias, the request fails with a <code>ValidationException</code>. An invalid or reserved alias name also causes a <code>ValidationException</code>.</p>
+   * @public
+   */
+  aliasName?: string | undefined;
 }
 
 /**
@@ -673,7 +751,7 @@ export interface UpdateCrlRequest {
  */
 export interface DeleteAttributeMappingRequest {
   /**
-   * <p>The unique identifier of the profile.</p>
+   * <p>The profile to act on. You can specify one of the following:</p> <ul> <li> <p>The profile ID.</p> </li> <li> <p>The profile ARN.</p> </li> <li> <p>The alias ARN of the profile.</p> </li> </ul> <p>An ARN must be for a profile in your account and Region.</p>
    * @public
    */
   profileId: string | undefined;
@@ -707,7 +785,7 @@ export interface DeleteAttributeMappingResponse {
  */
 export interface ScalarProfileRequest {
   /**
-   * <p>The unique identifier of the profile.</p>
+   * <p>The profile to act on. You can specify one of the following:</p> <ul> <li> <p>The profile ID.</p> </li> <li> <p>The profile ARN.</p> </li> <li> <p>The alias ARN of the profile.</p> </li> </ul> <p>An ARN must be for a profile in your account and Region.</p>
    * @public
    */
   profileId: string | undefined;
@@ -718,7 +796,7 @@ export interface ScalarProfileRequest {
  */
 export interface ScalarTrustAnchorRequest {
   /**
-   * <p>The unique identifier of the trust anchor.</p>
+   * <p>The trust anchor to act on. You can specify one of the following:</p> <ul> <li> <p>The trust anchor ID.</p> </li> <li> <p>The trust anchor ARN.</p> </li> <li> <p>The alias ARN of the trust anchor.</p> </li> </ul> <p>An ARN must be for a trust anchor in your account and Region.</p>
    * @public
    */
   trustAnchorId: string | undefined;
@@ -974,7 +1052,7 @@ export interface NotificationSettingKey {
  */
 export interface PutAttributeMappingRequest {
   /**
-   * <p>The unique identifier of the profile.</p>
+   * <p>The profile to act on. You can specify one of the following:</p> <ul> <li> <p>The profile ID.</p> </li> <li> <p>The profile ARN.</p> </li> <li> <p>The alias ARN of the profile.</p> </li> </ul> <p>An ARN must be for a profile in your account and Region.</p>
    * @public
    */
   profileId: string | undefined;
@@ -1008,7 +1086,7 @@ export interface PutAttributeMappingResponse {
  */
 export interface UpdateProfileRequest {
   /**
-   * <p>The unique identifier of the profile.</p>
+   * <p>The profile to act on. You can specify one of the following:</p> <ul> <li> <p>The profile ID.</p> </li> <li> <p>The profile ARN.</p> </li> <li> <p>The alias ARN of the profile.</p> </li> </ul> <p>An ARN must be for a profile in your account and Region.</p>
    * @public
    */
   profileId: string | undefined;
@@ -1048,6 +1126,12 @@ export interface UpdateProfileRequest {
    * @public
    */
   acceptRoleSessionName?: boolean | undefined;
+
+  /**
+   * <p>The alias for the profile.</p> <p>You can use this parameter in the following ways:</p> <ul> <li> <p>To set or change the alias, specify the new alias name. After the change, the previous alias ARN no longer identifies the resource. You can then assign the previous alias to another resource of the same type. A change can take a short time to take effect for requests that use an alias ARN.</p> </li> <li> <p>To remove the alias, specify an empty string.</p> </li> <li> <p>To keep the current alias, omit this parameter.</p> </li> </ul> <p>An alias name contains 1 to 256 characters. It must begin with a letter (A-Z or a-z). It can contain only letters (A-Z and a-z), numbers (0-9), underscores (_), hyphens (-), and forward slashes (/). A forward slash can appear only between two other characters, so an alias name can't end with a forward slash or contain two in a row. Alias names that begin with <code>aws/</code>, in any combination of uppercase and lowercase letters, are reserved. Alias names are case sensitive.</p> <p>The alias name must be unique among resources of the same type in your account and Region. If another resource of the same type already has the alias, the request fails with a <code>ValidationException</code>. An invalid or reserved alias name also causes a <code>ValidationException</code>.</p>
+   * @public
+   */
+  aliasName?: string | undefined;
 }
 
 /**
@@ -1133,7 +1217,7 @@ export interface TagResourceResponse {}
  */
 export interface UpdateTrustAnchorRequest {
   /**
-   * <p>The unique identifier of the trust anchor.</p>
+   * <p>The trust anchor to act on. You can specify one of the following:</p> <ul> <li> <p>The trust anchor ID.</p> </li> <li> <p>The trust anchor ARN.</p> </li> <li> <p>The alias ARN of the trust anchor.</p> </li> </ul> <p>An ARN must be for a trust anchor in your account and Region.</p>
    * @public
    */
   trustAnchorId: string | undefined;
@@ -1155,6 +1239,12 @@ export interface UpdateTrustAnchorRequest {
    * @public
    */
   crlDpRevocationEnabled?: boolean | undefined;
+
+  /**
+   * <p>The alias for the trust anchor.</p> <p>You can use this parameter in the following ways:</p> <ul> <li> <p>To set or change the alias, specify the new alias name. After the change, the previous alias ARN no longer identifies the resource. You can then assign the previous alias to another resource of the same type. A change can take a short time to take effect for requests that use an alias ARN.</p> </li> <li> <p>To remove the alias, specify an empty string.</p> </li> <li> <p>To keep the current alias, omit this parameter.</p> </li> </ul> <p>An alias name contains 1 to 256 characters. It must begin with a letter (A-Z or a-z). It can contain only letters (A-Z and a-z), numbers (0-9), underscores (_), hyphens (-), and forward slashes (/). A forward slash can appear only between two other characters, so an alias name can't end with a forward slash or contain two in a row. Alias names that begin with <code>aws/</code>, in any combination of uppercase and lowercase letters, are reserved. Alias names are case sensitive.</p> <p>The alias name must be unique among resources of the same type in your account and Region. If another resource of the same type already has the alias, the request fails with a <code>ValidationException</code>. An invalid or reserved alias name also causes a <code>ValidationException</code>.</p>
+   * @public
+   */
+  aliasName?: string | undefined;
 }
 
 /**

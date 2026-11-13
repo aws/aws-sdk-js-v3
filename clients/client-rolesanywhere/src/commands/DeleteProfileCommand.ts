@@ -66,6 +66,9 @@ export interface DeleteProfileCommandOutput extends ProfileDetailResponse, __Met
  * //         ],
  * //       },
  * //     ],
+ * //     aliasName: "STRING_VALUE",
+ * //     aliasArn: "STRING_VALUE",
+ * //     previousAliasName: "STRING_VALUE",
  * //   },
  * // };
  *

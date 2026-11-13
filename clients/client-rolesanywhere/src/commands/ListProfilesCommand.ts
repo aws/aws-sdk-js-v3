@@ -69,6 +69,9 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * //           ],
  * //         },
  * //       ],
+ * //       aliasName: "STRING_VALUE",
+ * //       aliasArn: "STRING_VALUE",
+ * //       previousAliasName: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

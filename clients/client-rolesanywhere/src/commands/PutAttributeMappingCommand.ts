@@ -72,6 +72,9 @@ export interface PutAttributeMappingCommandOutput extends PutAttributeMappingRes
  * //         ],
  * //       },
  * //     ],
+ * //     aliasName: "STRING_VALUE",
+ * //     aliasArn: "STRING_VALUE",
+ * //     previousAliasName: "STRING_VALUE",
  * //   },
  * // };
  *

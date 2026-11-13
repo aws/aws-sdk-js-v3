@@ -66,6 +66,9 @@ export interface GetProfileCommandOutput extends ProfileDetailResponse, __Metada
  * //         ],
  * //       },
  * //     ],
+ * //     aliasName: "STRING_VALUE",
+ * //     aliasArn: "STRING_VALUE",
+ * //     previousAliasName: "STRING_VALUE",
  * //   },
  * // };
  *

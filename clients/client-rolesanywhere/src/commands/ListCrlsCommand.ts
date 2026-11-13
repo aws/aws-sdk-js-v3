@@ -50,6 +50,9 @@ export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBeare
  * //       trustAnchorArn: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
+ * //       aliasName: "STRING_VALUE",
+ * //       aliasArn: "STRING_VALUE",
+ * //       previousAliasName: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
