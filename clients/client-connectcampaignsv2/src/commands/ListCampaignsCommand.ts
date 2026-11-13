@@ -66,6 +66,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * //         minEntryInterval: "STRING_VALUE", // required
  * //       },
  * //       connectCampaignFlowArn: "STRING_VALUE",
+ * //       lastModifiedTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * // };

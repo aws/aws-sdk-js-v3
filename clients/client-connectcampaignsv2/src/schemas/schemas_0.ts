@@ -264,6 +264,7 @@ const _iSL = "integrationSummaryList";
 const _kA = "keyArn";
 const _kBA = "knowledgeBaseArn";
 const _l = "lambda";
+const _lMT = "lastModifiedTime";
 const _lTZC = "localTimeZoneConfig";
 const _lTZD = "localTimeZoneDetection";
 const _lTZDS = "localTimeZoneDetectionScope";
@@ -434,8 +435,8 @@ export var AnswerMachineDetectionConfig$: StaticStructureSchema = [3, n0, _AMDC,
 ];
 export var Campaign$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_i, _a, _n, _cII, _cSC, _t, _so, _cCFA, _sc, _eLC, _cTC, _cLO, _ta],
-  [0, 0, 0, 0, [() => ChannelSubtypeConfig$, 0], 0, () => Source$, 0, () => Schedule$, () => EntryLimitsConfig$, () => CommunicationTimeConfig$, () => CommunicationLimitsConfig$, 128 | 0], 4
+  [_i, _a, _n, _cII, _cSC, _t, _so, _cCFA, _sc, _eLC, _cTC, _cLO, _lMT, _ta],
+  [0, 0, 0, 0, [() => ChannelSubtypeConfig$, 0], 0, () => Source$, 0, () => Schedule$, () => EntryLimitsConfig$, () => CommunicationTimeConfig$, () => CommunicationLimitsConfig$, 5, 128 | 0], 4
 ];
 export var CampaignFilters$: StaticStructureSchema = [3, n0, _CF,
   0,
@@ -444,8 +445,8 @@ export var CampaignFilters$: StaticStructureSchema = [3, n0, _CF,
 ];
 export var CampaignSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_i, _a, _n, _cII, _cS, _t, _sc, _eLC, _cCFA],
-  [0, 0, 0, 0, 64 | 0, 0, () => Schedule$, () => EntryLimitsConfig$, 0], 5
+  [_i, _a, _n, _cII, _cS, _t, _sc, _eLC, _cCFA, _lMT],
+  [0, 0, 0, 0, 64 | 0, 0, () => Schedule$, () => EntryLimitsConfig$, 0, 5], 5
 ];
 export var ChannelContext$: StaticStructureSchema = [3, n0, _CC,
   0,

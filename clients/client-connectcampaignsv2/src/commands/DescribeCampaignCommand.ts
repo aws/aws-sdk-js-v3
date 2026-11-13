@@ -239,6 +239,7 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * //       },
  * //       instanceLimitsHandling: "STRING_VALUE",
  * //     },
+ * //     lastModifiedTime: new Date("TIMESTAMP"),
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },

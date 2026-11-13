@@ -1411,6 +1411,12 @@ export interface Campaign {
   communicationLimitsOverride?: CommunicationLimitsConfig | undefined;
 
   /**
+   * The timestamp of the most recent modification to the campaign or its configuration. Null for campaigns created before this field was introduced.
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
    * Tag map with key and value.
    * @public
    */
@@ -1793,6 +1799,12 @@ export interface CampaignSummary {
    * @public
    */
   connectCampaignFlowArn?: string | undefined;
+
+  /**
+   * The timestamp of the most recent modification to the campaign or its configuration. Null for campaigns created before this field was introduced.
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
 }
 
 /**
