@@ -1,10 +1,11 @@
 // smithy-typescript generated code
-import { createAggregatedClient } from "@smithy/core/client";
+import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
+  WaiterConfiguration,
 } from "@smithy/types";
 
 import {
@@ -389,6 +390,7 @@ import {
   UpdateLifecyclePolicyCommand,
 } from "./commands/UpdateLifecyclePolicyCommand";
 import { ImagebuilderClient } from "./ImagebuilderClient";
+import type { ImagebuilderServiceException } from "./models/ImagebuilderServiceException";
 import { paginateListComponentBuildVersions } from "./pagination/ListComponentBuildVersionsPaginator";
 import { paginateListComponents } from "./pagination/ListComponentsPaginator";
 import { paginateListContainerRecipes } from "./pagination/ListContainerRecipesPaginator";
@@ -410,6 +412,7 @@ import { paginateListWorkflowBuildVersions } from "./pagination/ListWorkflowBuil
 import { paginateListWorkflowExecutions } from "./pagination/ListWorkflowExecutionsPaginator";
 import { paginateListWorkflows } from "./pagination/ListWorkflowsPaginator";
 import { paginateListWorkflowStepExecutions } from "./pagination/ListWorkflowStepExecutionsPaginator";
+import { waitUntilImageAvailable } from "./waiters/waitForImageAvailable";
 
 const commands = {
   CancelImageCreationCommand,
@@ -512,6 +515,9 @@ const paginators = {
   paginateListWorkflowExecutions,
   paginateListWorkflows,
   paginateListWorkflowStepExecutions,
+};
+const waiters = {
+  waitUntilImageAvailable,
 };
 
 /**
@@ -2076,6 +2082,16 @@ export interface Imagebuilder {
     args: ListWorkflowStepExecutionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListWorkflowStepExecutionsCommandOutput>;
+
+  /**
+   * @see {@link GetImageCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilImageAvailable(
+    args: GetImageCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Imagebuilder>, "client">
+  ): Promise<WaiterResult<GetImageCommandOutput>>;
 }
 
 /**
@@ -2090,4 +2106,4 @@ export interface Imagebuilder {
  * @public
  */
 export class Imagebuilder extends ImagebuilderClient implements Imagebuilder {}
-createAggregatedClient(commands, Imagebuilder, { paginators });
+createAggregatedClient(commands, Imagebuilder, { paginators, waiters });

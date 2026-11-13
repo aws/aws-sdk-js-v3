@@ -29,9 +29,10 @@ export interface UpdateInfrastructureConfigurationCommandOutput extends UpdateIn
  * <p>Updates an infrastructure configuration. An infrastructure configuration defines
  * 			the environment in which Image Builder builds and tests your image.</p>
  *          <note>
- *             <p>This operation doesn't support selective updates.
- * 				The request replaces the configuration, so include every setting that
- * 				you want to keep. Omitted optional properties are cleared.</p>
+ *             <p>This operation doesn't support selective updates. The request
+ * 				replaces the entire infrastructure configuration, so include every
+ * 				setting that you want to keep. Any optional property that you omit is
+ * 				removed or reset to its default.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -559,6 +559,8 @@ export type {
   ServiceUnavailableException,
   TooManyRequestsException,
   ImagebuilderServiceException,
+  waitForImageAvailable,
+  waitUntilImageAvailable,
   paginateListComponentBuildVersions,
   paginateListComponents,
   paginateListContainerRecipes,

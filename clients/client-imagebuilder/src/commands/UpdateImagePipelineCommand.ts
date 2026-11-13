@@ -29,8 +29,8 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
  * 			recipe must be the same type, image or container, as the pipeline's current
  * 			recipe.</p>
  *          <note>
- *             <p>UpdateImagePipeline does not support selective updates. The request
- * 				replaces the pipeline's entire configuration, so include every setting
+ *             <p>This operation doesn't support selective updates. The request
+ * 				replaces the entire pipeline configuration, so include every setting
  * 				that you want to keep. Any optional property that you omit is removed
  * 				or reset to its default.</p>
  *          </note>

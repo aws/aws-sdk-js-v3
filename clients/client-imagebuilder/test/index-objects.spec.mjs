@@ -505,6 +505,8 @@ import {
   UpdateLifecyclePolicyResponse$,
   VulnerabilityIdAggregation$,
   VulnerablePackage$,
+  waitForImageAvailable,
+  waitUntilImageAvailable,
   WindowsConfiguration$,
   Workflow$,
   WorkflowConfiguration$,
@@ -1031,6 +1033,9 @@ assert(typeof ServiceUnavailableException$ === "object");
 assert(TooManyRequestsException.prototype instanceof ImagebuilderServiceException);
 assert(typeof TooManyRequestsException$ === "object");
 assert(ImagebuilderServiceException.prototype instanceof Error);
+// waiters
+assert(typeof waitForImageAvailable === "function");
+assert(typeof waitUntilImageAvailable === "function");
 // paginators
 assert(typeof paginateListComponentBuildVersions === "function");
 assert(typeof paginateListComponents === "function");

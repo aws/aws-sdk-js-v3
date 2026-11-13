@@ -2213,8 +2213,10 @@ export interface ImageScanningConfiguration {
    * 			Image Builder pushes to the Amazon ECR repository from your <code>ecrConfiguration</code>
    * 			settings.</p>
    *          <p>To use container image scans, you must activate Amazon Inspector for Amazon ECR
-   * 			scanning in your account. The Image Builder <code>ListImageScanFindings</code>
-   * 			operation returns the findings of these scans.</p>
+   * 			scanning in the account and Amazon Web Services Region where the build runs. Amazon Inspector
+   * 			activation is Regional. The Image Builder
+   * 			<code>ListImageScanFindings</code> operation returns the findings of these
+   * 			scans.</p>
    * @public
    */
   imageScanningEnabled?: boolean | undefined;
@@ -2234,8 +2236,9 @@ export interface ImageScanningConfiguration {
    *             <li>
    *                <p>With <code>TEST_INSTANCE_CVE</code>, Amazon Inspector scans the test instance
    * 					during image tests. To use this scan, you must activate Amazon Inspector for Amazon EC2
-   * 					scanning in your account. The Image Builder <code>ListImageScanFindings</code>
-   * 					operation returns the findings.</p>
+   * 					scanning in the account and Amazon Web Services Region where the build runs. The Image Builder
+   * 					<code>ListImageScanFindings</code> operation returns the
+   * 					findings.</p>
    *             </li>
    *             <li>
    *                <p>With <code>ON_DEMAND_AMI_CVE</code>, Amazon Inspector starts an on-demand scan of
@@ -2704,8 +2707,11 @@ export interface CreateImagePipelineRequest {
 
   /**
    * <p>The array of workflow configuration objects for builds that this pipeline
-   * 			starts. You must also specify <code>executionRole</code> when you provide
-   * 			workflows.</p>
+   * 			starts. If you specify workflows, they replace the default workflows that
+   * 			Image Builder otherwise runs for the pipeline's builds. For example, if your
+   * 			list doesn't include a test workflow, the pipeline's builds
+   * 			don't run one. You must also specify <code>executionRole</code> when
+   * 			you provide workflows.</p>
    * @public
    */
   workflows?: WorkflowConfiguration[] | undefined;
@@ -4294,6 +4300,12 @@ export interface DistributionConfigurationSummary {
 export interface Filter {
   /**
    * <p>The name of the filter. Filter names are case-sensitive.</p>
+   *          <p>The <code>name</code> filter matches the name that you gave the resource
+   * 			when you created it, exactly as you entered it. It doesn't match the name
+   * 			segment of the resource ARN, which Image Builder converts to lowercase with hyphens
+   * 			in place of spaces and underscores. For example, a resource named <code>My Image</code> has
+   * 			an ARN that contains <code>my-image</code> – filter on
+   * 			<code>My Image</code> to find it.</p>
    * @public
    */
   name?: string | undefined;
@@ -6556,6 +6568,8 @@ export interface ListComponentBuildVersionsRequest {
    * 			must specify an exact version, without a build number suffix. If you
    * 			don't specify an ARN, Image Builder returns build versions for the components
    * 			that your account owns.</p>
+   *          <p>If the ARN that you specify doesn't exist, Image Builder returns an empty list
+   * 			rather than a <code>ResourceNotFoundException</code> error.</p>
    * @public
    */
   componentVersionArn?: string | undefined;
@@ -6863,6 +6877,8 @@ export interface ListImageBuildVersionsRequest {
    * 			(<code><major>.<minor>.<patch></code>) - wildcards aren't allowed.
    * 			This parameter is optional. If you don't specify it, Image Builder returns build
    * 			versions for all of the images in your account.</p>
+   *          <p>If the ARN that you specify doesn't exist, Image Builder returns an empty list
+   * 			rather than a <code>ResourceNotFoundException</code> error.</p>
    * @public
    */
   imageVersionArn?: string | undefined;
@@ -7148,6 +7164,8 @@ export interface ListImagePipelineImagesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline whose images you want to
    * 			view.</p>
+   *          <p>If the ARN that you specify doesn't exist, Image Builder returns an empty list
+   * 			rather than a <code>ResourceNotFoundException</code> error.</p>
    * @public
    */
   imagePipelineArn: string | undefined;
@@ -10055,8 +10073,11 @@ export interface UpdateImagePipelineRequest {
 
   /**
    * <p>The array of workflow configuration objects for builds that this pipeline
-   * 			starts. You must also specify <code>executionRole</code> when you provide
-   * 			workflows.</p>
+   * 			starts. If you specify workflows, they replace the default workflows that
+   * 			Image Builder otherwise runs for the pipeline's builds. For example, if your
+   * 			list doesn't include a test workflow, the pipeline's builds
+   * 			don't run one. You must also specify <code>executionRole</code> when
+   * 			you provide workflows.</p>
    * @public
    */
   workflows?: WorkflowConfiguration[] | undefined;
