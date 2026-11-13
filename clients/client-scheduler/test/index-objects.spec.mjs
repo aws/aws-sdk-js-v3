@@ -24,6 +24,8 @@ import {
   DeleteScheduleOutput$,
   EcsParameters$,
   EventBridgeParameters$,
+  EventBridgePutEventsV2Parameters$,
+  EventBridgePutRawEventsParameters$,
   FlexibleTimeWindow$,
   FlexibleTimeWindowMode,
   GetSchedule$,
@@ -136,6 +138,8 @@ assert(typeof DeleteScheduleInput$ === "object");
 assert(typeof DeleteScheduleOutput$ === "object");
 assert(typeof EcsParameters$ === "object");
 assert(typeof EventBridgeParameters$ === "object");
+assert(typeof EventBridgePutEventsV2Parameters$ === "object");
+assert(typeof EventBridgePutRawEventsParameters$ === "object");
 assert(typeof FlexibleTimeWindow$ === "object");
 assert(typeof GetScheduleGroupInput$ === "object");
 assert(typeof GetScheduleGroupOutput$ === "object");

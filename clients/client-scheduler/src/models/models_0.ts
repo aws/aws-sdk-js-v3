@@ -93,15 +93,13 @@ export interface CapacityProviderStrategyItem {
   capacityProvider: string | undefined;
 
   /**
-   * <p>The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the
-   *          base value, if defined, is satisfied.</p>
+   * <p>The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.</p>
    * @public
    */
   weight?: number | undefined;
 
   /**
-   * <p>The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-   *          If no value is specified, the default value of <code>0</code> is used.</p>
+   * <p>The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of <code>0</code> is used.</p>
    * @public
    */
   base?: number | undefined;
@@ -119,8 +117,7 @@ export interface AwsVpcConfiguration {
   Subnets: string[] | undefined;
 
   /**
-   * <p>Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups.
-   *          If you do not specify a security group, the default security group for the VPC is used.</p>
+   * <p>Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.</p>
    * @public
    */
   SecurityGroups?: string[] | undefined;
@@ -156,8 +153,7 @@ export interface PlacementConstraint {
   type?: PlacementConstraintType | undefined;
 
   /**
-   * <p>A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is <code>distinctInstance</code>.
-   *          For more information, see <a href="https://docs.aws.amazon.com/latest/developerguide/cluster-query-language.html">Cluster query language</a> in the <i>Amazon ECS Developer Guide</i>.</p>
+   * <p>A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is <code>distinctInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster query language</a> in the <i>Amazon ECS Developer Guide</i>.</p>
    * @public
    */
   expression?: string | undefined;
@@ -169,26 +165,20 @@ export interface PlacementConstraint {
  */
 export interface PlacementStrategy {
   /**
-   * <p>The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates
-   *          evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter.
-   *          For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).</p>
+   * <p>The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).</p>
    * @public
    */
   type?: PlacementStrategyType | undefined;
 
   /**
-   * <p>The field to apply the placement strategy against. For the spread placement strategy, valid values are <code>instanceId</code> (or <code>instanceId</code>, which has the same effect),
-   *          or any platform or custom attribute that is applied to a container instance, such as <code>attribute:ecs.availability-zone</code>. For the binpack placement strategy, valid values are
-   *          <code>cpu</code> and <code>memory</code>. For the random placement strategy, this field is not used.</p>
+   * <p>The field to apply the placement strategy against. For the spread placement strategy, valid values are <code>instanceId</code> (or <code>instanceId</code>, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as <code>attribute:ecs.availability-zone</code>. For the binpack placement strategy, valid values are <code>cpu</code> and <code>memory</code>. For the random placement strategy, this field is not used.</p>
    * @public
    */
   field?: string | undefined;
 }
 
 /**
- * <p>The templated target type for the Amazon ECS <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html">
- *                <code>RunTask</code>
- *             </a> API operation.</p>
+ * <p>The templated target type for the Amazon ECS <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html"> <code>RunTask</code> </a> API operation.</p>
  * @public
  */
 export interface EcsParameters {
@@ -205,9 +195,7 @@ export interface EcsParameters {
   TaskCount?: number | undefined;
 
   /**
-   * <p>Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task.
-   *          The <code>FARGATE</code> value is supported only in the Regions where Fargate with Amazon ECS is supported.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html">AWS Fargate on Amazon ECS</a> in the <i>Amazon ECS Developer Guide</i>.</p>
+   * <p>Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The <code>FARGATE</code> value is supported only in the Regions where Fargate with Amazon ECS is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html">Amazon Web Services Fargate on Amazon ECS</a> in the <i>Amazon ECS Developer Guide</i>.</p>
    * @public
    */
   LaunchType?: LaunchType | undefined;
@@ -237,8 +225,7 @@ export interface EcsParameters {
   CapacityProviderStrategy?: CapacityProviderStrategyItem[] | undefined;
 
   /**
-   * <p>Specifies whether to enable Amazon ECS managed tags for the task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS Resources</a>
-   *          in the <i>Amazon ECS Developer Guide</i>.</p>
+   * <p>Specifies whether to enable Amazon ECS managed tags for the task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS Resources</a> in the <i>Amazon ECS Developer Guide</i>.</p>
    * @public
    */
   EnableECSManagedTags?: boolean | undefined;
@@ -262,12 +249,7 @@ export interface EcsParameters {
   PlacementStrategy?: PlacementStrategy[] | undefined;
 
   /**
-   * <p>Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated.
-   *          Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use Amazon ECS's <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html">
-   *                <code>TagResource</code>
-   *             </a>
-   *          API action.
-   *       </p>
+   * <p>Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use Amazon ECS's <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html"> <code>TagResource</code> </a> API action. </p>
    * @public
    */
   PropagateTags?: PropagateTags | undefined;
@@ -279,19 +261,14 @@ export interface EcsParameters {
   ReferenceId?: string | undefined;
 
   /**
-   * <p>The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html">
-   *                <code>RunTask</code>
-   *             </a> in the <i>Amazon ECS API Reference</i>.</p>
+   * <p>The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html"> <code>RunTask</code> </a> in the <i>Amazon ECS API Reference</i>.</p>
    * @public
    */
   Tags?: Record<string, string>[] | undefined;
 }
 
 /**
- * <p>The templated target type for the EventBridge <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html">
- *                <code>PutEvents</code>
- *             </a> API operation.</p>
+ * <p>The templated target type for the EventBridge <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html"> <code>PutEvents</code> </a> API operation.</p>
  * @public
  */
 export interface EventBridgeParameters {
@@ -309,15 +286,42 @@ export interface EventBridgeParameters {
 }
 
 /**
- * <p>The templated target type for the Amazon Kinesis <a href="kinesis/latest/APIReference/API_PutRecord.html">
- *                <code>PutRecord</code>
- *             </a> API operation.</p>
+ * <p>The templated target type for the EventBridge event bus v2 <a href="https://docs.aws.amazon.com/eventbridgev2/latest/APIReference/API_PutEvents.html"> <code>PutEvents</code> </a> API operation.</p>
+ * @public
+ */
+export interface EventBridgePutEventsV2Parameters {
+  /**
+   * <p>A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>
+   * @public
+   */
+  DetailType: string | undefined;
+
+  /**
+   * <p>The source of the event. The source can't start with the <code>aws.</code> prefix.</p>
+   * @public
+   */
+  Source: string | undefined;
+}
+
+/**
+ * <p>The templated target type for the EventBridge event bus v2 <a href="https://docs.aws.amazon.com/eventbridgev2/latest/APIReference/API_PutRawEvents.html"> <code>PutRawEvents</code> </a> API operation.</p>
+ * @public
+ */
+export interface EventBridgePutRawEventsParameters {
+  /**
+   * <p>Optional metadata key-value pairs you define. Keys must be 1-128 characters and must not contain "/".</p>
+   * @public
+   */
+  Metadata?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The templated target type for the Amazon Kinesis <a href="https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html"> <code>PutRecord</code> </a> API operation.</p>
  * @public
  */
 export interface KinesisParameters {
   /**
-   * <p>Specifies the shard to which EventBridge Scheduler sends the event. For more information, see <a href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html">Amazon Kinesis Data Streams terminology and concepts</a> in the
-   *          <i>Amazon Kinesis Streams Developer Guide</i>.</p>
+   * <p>Specifies the shard to which EventBridge Scheduler sends the event. For more information, see <a href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html">Amazon Kinesis Data Streams terminology and concepts</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.</p>
    * @public
    */
   PartitionKey: string | undefined;
@@ -335,8 +339,7 @@ export interface RetryPolicy {
   MaximumEventAgeInSeconds?: number | undefined;
 
   /**
-   * <p>The maximum number of retry attempts to make before the request fails. Retry attempts with exponential backoff continue until either the maximum number of attempts is made or
-   *          until the duration of the <code>MaximumEventAgeInSeconds</code> is reached.</p>
+   * <p>The maximum number of retry attempts to make before the request fails. Retry attempts with exponential backoff continue until either the maximum number of attempts is made or until the duration of the <code>MaximumEventAgeInSeconds</code> is reached.</p>
    * @public
    */
   MaximumRetryAttempts?: number | undefined;
@@ -361,9 +364,7 @@ export interface SageMakerPipelineParameter {
 }
 
 /**
- * <p>The templated target type for the Amazon SageMaker <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html">
- *                <code>StartPipelineExecution</code>
- *             </a> API operation.</p>
+ * <p>The templated target type for the Amazon SageMaker <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html"> <code>StartPipelineExecution</code> </a> API operation.</p>
  * @public
  */
 export interface SageMakerPipelineParameters {
@@ -375,13 +376,7 @@ export interface SageMakerPipelineParameters {
 }
 
 /**
- * <p>The templated target type for the Amazon SQS <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html">
- *                <code>SendMessage</code>
- *             </a> API operation.
- *          Contains the message group ID to use when the target is a FIFO queue. If you specify an Amazon SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
- *          For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the Amazon SQS message deduplication ID</a> in the
- *          <i>Amazon SQS Developer Guide</i>.
- *       </p>
+ * <p>The templated target type for the Amazon SQS <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html"> <code>SendMessage</code> </a> API operation. Contains the message group ID to use when the target is a FIFO queue. If you specify an Amazon SQS FIFO queue as a target, the queue must have content-based deduplication enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the Amazon SQS message deduplication ID</a> in the <i>Amazon SQS Developer Guide</i>. </p>
  * @public
  */
 export interface SqsParameters {
@@ -393,8 +388,7 @@ export interface SqsParameters {
 }
 
 /**
- * <p>The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to
- *         invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.</p>
+ * <p>The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.</p>
  * @public
  */
 export interface Target {
@@ -423,52 +417,49 @@ export interface Target {
   RetryPolicy?: RetryPolicy | undefined;
 
   /**
-   * <p>The text, or well-formed JSON, passed to the target. If you are configuring a templated Lambda, AWS Step Functions, or Amazon EventBridge target,
-   *          the input must be a well-formed JSON. For all other target types, a JSON is not required. If you do not specify anything for this field, EventBridge Scheduler
-   *          delivers a default notification to the target.</p>
+   * <p>The text, or well-formed JSON, passed to the target. If you are configuring a templated Lambda, Amazon Web Services Step Functions, or Amazon EventBridge target, the input must be a well-formed JSON. For all other target types, a JSON is not required. If you do not specify anything for this field, EventBridge Scheduler delivers a default notification to the target. The maximum size of the <code>Input</code> field is 256 KB.</p>
    * @public
    */
   Input?: string | undefined;
 
   /**
-   * <p>The templated target type for the Amazon ECS <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html">
-   *                <code>RunTask</code>
-   *             </a> API operation.</p>
+   * <p>The templated target type for the Amazon ECS <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html"> <code>RunTask</code> </a> API operation.</p>
    * @public
    */
   EcsParameters?: EcsParameters | undefined;
 
   /**
-   * <p>The templated target type for the EventBridge <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html">
-   *                <code>PutEvents</code>
-   *             </a> API operation.</p>
+   * <p>The templated target type for the EventBridge <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html"> <code>PutEvents</code> </a> API operation.</p>
    * @public
    */
   EventBridgeParameters?: EventBridgeParameters | undefined;
 
   /**
-   * <p>The templated target type for the Amazon Kinesis <a href="kinesis/latest/APIReference/API_PutRecord.html">
-   *                <code>PutRecord</code>
-   *             </a> API operation.</p>
+   * <p>The templated target type for the EventBridge event bus v2 <a href="https://docs.aws.amazon.com/eventbridgev2/latest/APIReference/API_PutEvents.html"> <code>PutEvents</code> </a> API operation.</p>
+   * @public
+   */
+  EventBridgePutEventsV2Parameters?: EventBridgePutEventsV2Parameters | undefined;
+
+  /**
+   * <p>The templated target type for the EventBridge event bus v2 <a href="https://docs.aws.amazon.com/eventbridgev2/latest/APIReference/API_PutRawEvents.html"> <code>PutRawEvents</code> </a> API operation.</p>
+   * @public
+   */
+  EventBridgePutRawEventsParameters?: EventBridgePutRawEventsParameters | undefined;
+
+  /**
+   * <p>The templated target type for the Amazon Kinesis <a href="https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html"> <code>PutRecord</code> </a> API operation.</p>
    * @public
    */
   KinesisParameters?: KinesisParameters | undefined;
 
   /**
-   * <p>The templated target type for the Amazon SageMaker <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html">
-   *                <code>StartPipelineExecution</code>
-   *             </a> API operation.</p>
+   * <p>The templated target type for the Amazon SageMaker <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html"> <code>StartPipelineExecution</code> </a> API operation.</p>
    * @public
    */
   SageMakerPipelineParameters?: SageMakerPipelineParameters | undefined;
 
   /**
-   * <p>The templated target type for the Amazon SQS <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html">
-   *                <code>SendMessage</code>
-   *             </a> API operation.
-   *          Contains the message group ID to use when the target is a FIFO queue. If you specify an Amazon SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the Amazon SQS message deduplication ID</a> in the
-   *          <i>Amazon SQS Developer Guide</i>.</p>
+   * <p>The templated target type for the Amazon SQS <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html"> <code>SendMessage</code> </a> API operation. Contains the message group ID to use when the target is a FIFO queue. If you specify an Amazon SQS FIFO queue as a target, the queue must have content-based deduplication enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the Amazon SQS message deduplication ID</a> in the <i>Amazon SQS Developer Guide</i>.</p>
    * @public
    */
   SqsParameters?: SqsParameters | undefined;
@@ -491,56 +482,19 @@ export interface CreateScheduleInput {
   GroupName?: string | undefined;
 
   /**
-   * <p>
-   *   The expression that defines when the schedule runs. The following formats are supported.
-   * </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rate</code> expression - <code>rate(value unit)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>cron</code> expression - <code>cron(fields)</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *   You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify.
-   *   You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target
-   *   at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time,
-   *   such as at 8:00 am (UTC+0) every 1st day of the month.
-   * </p>
-   *          <p>
-   *   A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>.
-   * </p>
-   *          <p>
-   *   A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options:
-   *   <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>
-   *          </p>
-   *          <p>
-   *   For more information and examples, see <a href="https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>.
-   * </p>
+   * <p> The expression that defines when the schedule runs. The following formats are supported. </p> <ul> <li> <p> <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code> </p> </li> <li> <p> <code>rate</code> expression - <code>rate(value unit)</code> </p> </li> <li> <p> <code>cron</code> expression - <code>cron(fields)</code> </p> </li> </ul> <p> You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify. You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time, such as at 8:00 am (UTC+0) every 1st day of the month. </p> <p> A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>. </p> <p> A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options: <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code> </p> <p> For more information and examples, see <a href="https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>. </p>
    * @public
    */
   ScheduleExpression: string | undefined;
 
   /**
-   * <p>The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the <code>StartDate</code> you specify.
-   * EventBridge Scheduler ignores <code>StartDate</code> for one-time schedules.</p>
+   * <p>The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the <code>StartDate</code> you specify. EventBridge Scheduler ignores <code>StartDate</code> for one-time schedules.</p>
    * @public
    */
   StartDate?: Date | undefined;
 
   /**
-   * <p>The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the <code>EndDate</code> you specify.
-   * EventBridge Scheduler ignores <code>EndDate</code> for one-time schedules.</p>
+   * <p>The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the <code>EndDate</code> you specify. EventBridge Scheduler ignores <code>EndDate</code> for one-time schedules.</p>
    * @public
    */
   EndDate?: Date | undefined;
@@ -582,10 +536,7 @@ export interface CreateScheduleInput {
   FlexibleTimeWindow: FlexibleTimeWindow | undefined;
 
   /**
-   * <p>
-   *   Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token,
-   *   EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency.
-   * </p>
+   * <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -625,10 +576,7 @@ export interface DeleteScheduleInput {
   GroupName?: string | undefined;
 
   /**
-   * <p>
-   *   Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token,
-   *   EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency.
-   * </p>
+   * <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -679,56 +627,19 @@ export interface GetScheduleOutput {
   Name?: string | undefined;
 
   /**
-   * <p>
-   *   The expression that defines when the schedule runs. The following formats are supported.
-   * </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rate</code> expression - <code>rate(value unit)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>cron</code> expression - <code>cron(fields)</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *   You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify.
-   *   You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target
-   *   at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time,
-   *   such as at 8:00 am (UTC+0) every 1st day of the month.
-   * </p>
-   *          <p>
-   *   A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>.
-   * </p>
-   *          <p>
-   *   A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options:
-   *   <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>
-   *          </p>
-   *          <p>
-   *   For more information and examples, see <a href="https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>.
-   * </p>
+   * <p> The expression that defines when the schedule runs. The following formats are supported. </p> <ul> <li> <p> <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code> </p> </li> <li> <p> <code>rate</code> expression - <code>rate(value unit)</code> </p> </li> <li> <p> <code>cron</code> expression - <code>cron(fields)</code> </p> </li> </ul> <p> You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify. You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time, such as at 8:00 am (UTC+0) every 1st day of the month. </p> <p> A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>. </p> <p> A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options: <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code> </p> <p> For more information and examples, see <a href="https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>. </p>
    * @public
    */
   ScheduleExpression?: string | undefined;
 
   /**
-   * <p>The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the <code>StartDate</code> you specify.
-   * EventBridge Scheduler ignores <code>StartDate</code> for one-time schedules.</p>
+   * <p>The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the <code>StartDate</code> you specify. EventBridge Scheduler ignores <code>StartDate</code> for one-time schedules.</p>
    * @public
    */
   StartDate?: Date | undefined;
 
   /**
-   * <p>The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the <code>EndDate</code> you specify.
-   * EventBridge Scheduler ignores <code>EndDate</code> for one-time schedules.</p>
+   * <p>The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the <code>EndDate</code> you specify. EventBridge Scheduler ignores <code>EndDate</code> for one-time schedules.</p>
    * @public
    */
   EndDate?: Date | undefined;
@@ -911,63 +822,25 @@ export interface UpdateScheduleInput {
   Name: string | undefined;
 
   /**
-   * <p>The name of the schedule group with which the schedule is associated. You must provide this value in order for EventBridge Scheduler to find the schedule you want to update.
-   *          If you omit this value, EventBridge Scheduler assumes the group is associated to the default group.</p>
+   * <p>The name of the schedule group with which the schedule is associated. You must provide this value in order for EventBridge Scheduler to find the schedule you want to update. If you omit this value, EventBridge Scheduler assumes the group is associated to the default group.</p>
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>
-   *   The expression that defines when the schedule runs. The following formats are supported.
-   * </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rate</code> expression - <code>rate(value unit)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>cron</code> expression - <code>cron(fields)</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *   You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify.
-   *   You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target
-   *   at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time,
-   *   such as at 8:00 am (UTC+0) every 1st day of the month.
-   * </p>
-   *          <p>
-   *   A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>.
-   * </p>
-   *          <p>
-   *   A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options:
-   *   <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>
-   *          </p>
-   *          <p>
-   *   For more information and examples, see <a href="https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>.
-   * </p>
+   * <p> The expression that defines when the schedule runs. The following formats are supported. </p> <ul> <li> <p> <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code> </p> </li> <li> <p> <code>rate</code> expression - <code>rate(value unit)</code> </p> </li> <li> <p> <code>cron</code> expression - <code>cron(fields)</code> </p> </li> </ul> <p> You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify. You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time, such as at 8:00 am (UTC+0) every 1st day of the month. </p> <p> A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>. </p> <p> A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options: <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code> </p> <p> For more information and examples, see <a href="https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>. </p>
    * @public
    */
   ScheduleExpression: string | undefined;
 
   /**
-   * <p>The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the <code>StartDate</code> you specify.
-   * EventBridge Scheduler ignores <code>StartDate</code> for one-time schedules.</p>
+   * <p>The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the <code>StartDate</code> you specify. EventBridge Scheduler ignores <code>StartDate</code> for one-time schedules.</p>
    * @public
    */
   StartDate?: Date | undefined;
 
   /**
-   * <p>The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the <code>EndDate</code> you specify.
-   * EventBridge Scheduler ignores <code>EndDate</code> for one-time schedules.</p>
+   * <p>The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the <code>EndDate</code> you specify. EventBridge Scheduler ignores <code>EndDate</code> for one-time schedules.</p>
    * @public
    */
   EndDate?: Date | undefined;
@@ -1009,10 +882,7 @@ export interface UpdateScheduleInput {
   FlexibleTimeWindow: FlexibleTimeWindow | undefined;
 
   /**
-   * <p>
-   *   Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token,
-   *   EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency.
-   * </p>
+   * <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -1052,10 +922,7 @@ export interface CreateScheduleGroupInput {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>
-   *   Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token,
-   *   EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency.
-   * </p>
+   * <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -1083,10 +950,7 @@ export interface DeleteScheduleGroupInput {
   Name: string | undefined;
 
   /**
-   * <p>
-   *   Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token,
-   *   EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency.
-   * </p>
+   * <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
    * @public
    */
   ClientToken?: string | undefined;

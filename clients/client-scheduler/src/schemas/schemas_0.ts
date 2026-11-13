@@ -23,6 +23,8 @@ const _DSI = "DeleteScheduleInput";
 const _DSO = "DeleteScheduleOutput";
 const _DT = "DetailType";
 const _EBP = "EventBridgeParameters";
+const _EBPEVP = "EventBridgePutEventsV2Parameters";
+const _EBPREP = "EventBridgePutRawEventsParameters";
 const _ED = "EndDate";
 const _EEC = "EnableExecuteCommand";
 const _EECSMT = "EnableECSManagedTags";
@@ -58,6 +60,7 @@ const _MGI = "MessageGroupId";
 const _MR = "MaxResults";
 const _MRA = "MaximumRetryAttempts";
 const _MWIM = "MaximumWindowInMinutes";
+const _Me = "Metadata";
 const _Mo = "Mode";
 const _N = "Name";
 const _NC = "NetworkConfiguration";
@@ -271,6 +274,16 @@ export var EventBridgeParameters$: StaticStructureSchema = [3, n0, _EBP,
   [_DT, _So],
   [0, 0], 2
 ];
+export var EventBridgePutEventsV2Parameters$: StaticStructureSchema = [3, n0, _EBPEVP,
+  0,
+  [_DT, _So],
+  [0, 0], 2
+];
+export var EventBridgePutRawEventsParameters$: StaticStructureSchema = [3, n0, _EBPREP,
+  0,
+  [_Me],
+  [128 | 0]
+];
 export var FlexibleTimeWindow$: StaticStructureSchema = [3, n0, _FTW,
   0,
   [_Mo, _MWIM],
@@ -393,8 +406,8 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 ];
 export var Target$: StaticStructureSchema = [3, n0, _Ta,
   0,
-  [_A, _RAo, _DLC, _RP, _I, _EP, _EBP, _KP, _SMPPa, _SP],
-  [0, 0, () => DeadLetterConfig$, () => RetryPolicy$, 0, () => EcsParameters$, () => EventBridgeParameters$, () => KinesisParameters$, () => SageMakerPipelineParameters$, () => SqsParameters$], 2
+  [_A, _RAo, _DLC, _RP, _I, _EP, _EBP, _EBPEVP, _EBPREP, _KP, _SMPPa, _SP],
+  [0, 0, () => DeadLetterConfig$, () => RetryPolicy$, 0, () => EcsParameters$, () => EventBridgeParameters$, () => EventBridgePutEventsV2Parameters$, () => EventBridgePutRawEventsParameters$, () => KinesisParameters$, () => SageMakerPipelineParameters$, () => SqsParameters$], 2
 ];
 export var TargetSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
@@ -448,6 +461,7 @@ var TagList: StaticListSchema = [1, n0, _TL,
 var Tags: StaticListSchema = [1, n0, _T,
   0, 128 | 0
 ];
+var EventBridgeMetadataMap = 128 | 0;
 var TagMap = 128 | 0;
 export var CreateSchedule$: StaticOperationSchema = [9, n0, _CS,
   { [_h]: ["POST", "/schedules/{Name}", 200] }, () => CreateScheduleInput$, () => CreateScheduleOutput$

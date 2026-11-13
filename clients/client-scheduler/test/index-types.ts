@@ -60,6 +60,8 @@ export type {
   DeleteScheduleOutput,
   EcsParameters,
   EventBridgeParameters,
+  EventBridgePutEventsV2Parameters,
+  EventBridgePutRawEventsParameters,
   FlexibleTimeWindow,
   GetScheduleGroupInput,
   GetScheduleGroupOutput,

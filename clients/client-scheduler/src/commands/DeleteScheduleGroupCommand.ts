@@ -23,15 +23,7 @@ export interface DeleteScheduleGroupCommandInput extends DeleteScheduleGroupInpu
 export interface DeleteScheduleGroupCommandOutput extends DeleteScheduleGroupOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified schedule group. Deleting a schedule group results in EventBridge Scheduler deleting all schedules associated with the group.
- *          When you delete a group, it remains in a <code>DELETING</code> state until all of its associated schedules are deleted.
- *          Schedules associated with the group that are set to run while the schedule group is in the process of being deleted might continue to invoke their targets
- *          until the schedule group and its associated schedules are deleted.</p>
- *          <note>
- *             <p>
- *             This operation is eventually consistent.
- *          </p>
- *          </note>
+ * <p>Deletes the specified schedule group. Deleting a schedule group results in EventBridge Scheduler deleting all schedules associated with the group. When you delete a group, it remains in a <code>DELETING</code> state until all of its associated schedules are deleted. Schedules associated with the group that are set to run while the schedule group is in the process of being deleted might continue to invoke their targets until the schedule group and its associated schedules are deleted.</p> <note> <p> This operation is eventually consistent. </p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,7 +61,7 @@ export interface DeleteScheduleGroupCommandOutput extends DeleteScheduleGroupOut
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link SchedulerServiceException}
  * <p>Base exception class for all service exceptions from Scheduler service.</p>
