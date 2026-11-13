@@ -638,6 +638,8 @@ export type {
   ParsingConfiguration,
   ParsingPrompt,
   ProactiveRecommendationDataDetails,
+  ProfileCatalogItem,
+  ProfileRecommendation,
   PushADMMessageTemplateContent,
   PushAPNSMessageTemplateContent,
   PushBaiduMessageTemplateContent,

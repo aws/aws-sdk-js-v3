@@ -110,8 +110,36 @@ export interface RenderMessageTemplateCommandOutput extends RenderMessageTemplat
  *       custom: { // CustomAttributes
  *         "<keys>": "STRING_VALUE",
  *       },
+ *       recommendations: [ // ProfileRecommendations
+ *         { // ProfileRecommendation
+ *           score: Number("double"),
+ *           catalogItem: { // ProfileCatalogItem
+ *             id: "STRING_VALUE",
+ *             name: "STRING_VALUE",
+ *             code: "STRING_VALUE",
+ *             type: "STRING_VALUE",
+ *             category: "STRING_VALUE",
+ *             description: "STRING_VALUE",
+ *             additionalInformation: "STRING_VALUE",
+ *             imageLink: "STRING_VALUE",
+ *             link: "STRING_VALUE",
+ *             createdAt: "STRING_VALUE",
+ *             updatedAt: "STRING_VALUE",
+ *             price: "STRING_VALUE",
+ *             attributes: { // ProfileCatalogItemAttributes
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       calculatedAttributes: { // CalculatedAttributes
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *     customAttributes: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     caseAttributes: { // CaseAttributes
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },

@@ -486,6 +486,8 @@ import {
   PreconditionFailedException$,
   Priority,
   ProactiveRecommendationDataDetails$,
+  ProfileCatalogItem$,
+  ProfileRecommendation$,
   PushADMMessageTemplateContent$,
   PushAPNSMessageTemplateContent$,
   PushBaiduMessageTemplateContent$,
@@ -1196,6 +1198,8 @@ assert(typeof OrCondition$ === "object");
 assert(typeof ParsingConfiguration$ === "object");
 assert(typeof ParsingPrompt$ === "object");
 assert(typeof ProactiveRecommendationDataDetails$ === "object");
+assert(typeof ProfileCatalogItem$ === "object");
+assert(typeof ProfileRecommendation$ === "object");
 assert(typeof PushADMMessageTemplateContent$ === "object");
 assert(typeof PushAPNSMessageTemplateContent$ === "object");
 assert(typeof PushBaiduMessageTemplateContent$ === "object");

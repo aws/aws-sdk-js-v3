@@ -53,7 +53,7 @@ const _AS = "AssistantSummary";
 const _AT = "AgentTarget";
 const _BFMCFP = "BedrockFoundationModelConfigurationForParsing";
 const _C = "Channel";
-const _CA = "ContactAttributes";
+const _CA = "CalculatedAttributes";
 const _CAA = "CreateAssistantAssociation";
 const _CAAR = "CreateAssistantAssociationRequest";
 const _CAARr = "CreateAssistantAssociationResponse";
@@ -82,6 +82,8 @@ const _CAR = "CreateAssistantRequest";
 const _CARr = "CreateAssistantResponse";
 const _CAS = "ContentAssociationSummary";
 const _CASL = "ContentAssociationSummaryList";
+const _CAa = "CaseAttributes";
+const _CAo = "ContactAttributes";
 const _CAr = "CreateAssistant";
 const _CAu = "CustomAttributes";
 const _CC = "ChunkingConfiguration";
@@ -418,6 +420,8 @@ const _PADMMTC = "PushADMMessageTemplateContent";
 const _PAPNSMTC = "PushAPNSMessageTemplateContent";
 const _PBMTC = "PushBaiduMessageTemplateContent";
 const _PC = "ParsingConfiguration";
+const _PCI = "ProfileCatalogItem";
+const _PCIA = "ProfileCatalogItemAttributes";
 const _PF = "PutFeedback";
 const _PFCMMTC = "PushFCMMessageTemplateContent";
 const _PFE = "PreconditionFailedException";
@@ -425,7 +429,10 @@ const _PFR = "PutFeedbackRequest";
 const _PFRu = "PutFeedbackResponse";
 const _PMTC = "PushMessageTemplateContent";
 const _PP = "ParsingPrompt";
+const _PR = "ProfileRecommendation";
 const _PRDD = "ProactiveRecommendationDataDetails";
+const _PRS = "ProfileRecommendationScore";
+const _PRr = "ProfileRecommendations";
 const _QA = "QueryAssistant";
 const _QAR = "QueryAssistantRequest";
 const _QARu = "QueryAssistantResponse";
@@ -734,9 +741,12 @@ const _cA = "caseArn";
 const _cAA = "contentAssociationArn";
 const _cAI = "contentAssociationId";
 const _cAS = "contentAssociationSummaries";
+const _cAa = "calculatedAttributes";
+const _cAas = "caseAttributes";
 const _cAo = "contentArn";
 const _cAon = "contentAssociation";
 const _cAont = "contactArn";
+const _cAr = "createdAt";
 const _cAu = "customAttributes";
 const _cC = "capabilityConfiguration";
 const _cCh = "chunkingConfiguration";
@@ -749,6 +759,7 @@ const _cF = "contentFeedback";
 const _cGPC = "contextualGroundingPolicyConfig";
 const _cI = "contentId";
 const _cIA = "connectInstanceArn";
+const _cIa = "catalogItem";
 const _cIo = "contactId";
 const _cL = "crawlerLimits";
 const _cPA = "customerProfileAttributes";
@@ -775,6 +786,7 @@ const _cTl = "clientToken";
 const _cTo = "contentText";
 const _cTr = "createdTime";
 const _cWIT = "cacheWriteInputTokens";
+const _ca = "category";
 const _ch = "channels";
 const _cha = "channel";
 const _ci = "city";
@@ -878,6 +890,7 @@ const _iJ = "importJob";
 const _iJI = "importJobId";
 const _iJS = "importJobSummaries";
 const _iJT = "importJobType";
+const _iL = "imageLink";
 const _iLGAIPI = "intentLabelingGenerationAIPromptId";
 const _iM = "interactionMode";
 const _iMn = "inputMessages";
@@ -916,6 +929,7 @@ const _lT = "legacyTimestamp";
 const _lTOE = "lessThanOrEquals";
 const _lTe = "lessThan";
 const _la = "language";
+const _li = "link";
 const _m = "message";
 const _mA = "modelArn";
 const _mAC = "multiAgentConfigurations";
@@ -1018,6 +1032,7 @@ const _pa = "pattern";
 const _par = "participant";
 const _po = "policies";
 const _pr = "priority";
+const _pri = "price";
 const _pu = "push";
 const _q = "queries";
 const _qC = "queryCondition";
@@ -1062,10 +1077,10 @@ const _rS = "relevanceScore";
 const _rSK = "removeShortcutKey";
 const _rT = "referenceType";
 const _rTe = "recommendationType";
-const _re = "reference";
+const _re = "recommendations";
 const _rea = "reasoning";
-const _rec = "recommendations";
-const _ref = "references";
+const _ref = "reference";
+const _refe = "references";
 const _rel = "relevance";
 const _res = "response";
 const _resu = "results";
@@ -1119,7 +1134,8 @@ const _sU = "seedUrls";
 const _sURL = "sourceURL";
 const _sV = "stringValue";
 const _sW = "startsWith";
-const _sc = "scope";
+const _sc = "score";
+const _sco = "scope";
 const _se = "session";
 const _si = "single";
 const _sm = "sms";
@@ -1165,6 +1181,7 @@ const _ti = "title";
 const _tim = "timestamp";
 const _tr = "triggers";
 const _u = "url";
+const _uA = "updatedAt";
 const _uC = "urlConfiguration";
 const _uE = "urlExpiry";
 const _uI = "uploadId";
@@ -1327,6 +1344,7 @@ var MessageTemplateAttributeValue: StaticSimpleSchema = [0, n0, _MTAV, 8, 0];
 var NonEmptySensitiveString: StaticSimpleSchema = [0, n0, _NESS, 8, 0];
 var NonEmptyUnlimitedString: StaticSimpleSchema = [0, n0, _NEUS, 8, 0];
 var Probability: StaticSimpleSchema = [0, n0, _P, 8, 1];
+var ProfileRecommendationScore: StaticSimpleSchema = [0, n0, _PRS, 8, 1];
 var QueryText: StaticSimpleSchema = [0, n0, _QT, 8, 0];
 var QuickResponseContent: StaticSimpleSchema = [0, n0, _QRC, 8, 0];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
@@ -1731,12 +1749,12 @@ export var CreateSessionResponse$: StaticStructureSchema = [3, n0, _CSRr,
 ];
 export var CustomerProfileAttributes$: StaticStructureSchema = [3, n0, _CPA,
   0,
-  [_pI, _pARN, _fN, _mN, _lN, _aN, _eA, _pN, _aId, _pT, _bN, _bD, _g, _mPN, _hPN, _bPN, _bEA, _ad, _add, _addr, _addre, _ci, _cou, _coun, _pC, _p, _sta, _sA, _sAh, _sAhi, _sAhip, _sCh, _sChi, _sChip, _sPC, _sP, _sS, _mAa, _mAai, _mAail, _mAaili, _mC, _mCa, _mCai, _mPC, _mP, _mS, _bA, _bAi, _bAil, _bAill, _bC, _bCi, _bCil, _bPC, _bP, _bS, _cu],
-  [[() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => CustomAttributes, 0]]
+  [_pI, _pARN, _fN, _mN, _lN, _aN, _eA, _pN, _aId, _pT, _bN, _bD, _g, _mPN, _hPN, _bPN, _bEA, _ad, _add, _addr, _addre, _ci, _cou, _coun, _pC, _p, _sta, _sA, _sAh, _sAhi, _sAhip, _sCh, _sChi, _sChip, _sPC, _sP, _sS, _mAa, _mAai, _mAail, _mAaili, _mC, _mCa, _mCai, _mPC, _mP, _mS, _bA, _bAi, _bAil, _bAill, _bC, _bCi, _bCil, _bPC, _bP, _bS, _cu, _re, _cAa],
+  [[() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => CustomAttributes, 0], [() => ProfileRecommendations, 0], [() => CalculatedAttributes, 0]]
 ];
 export var DataSummary$: StaticStructureSchema = [3, n0, _DS,
   0,
-  [_re, _de],
+  [_ref, _de],
   [() => DataReference$, [() => DataDetails$, 0]], 2
 ];
 export var DeactivateMessageTemplateRequest$: StaticStructureSchema = [3, n0, _DMTR,
@@ -1921,7 +1939,7 @@ export var EmailGenerativeAnswerAIAgentConfiguration$: StaticStructureSchema = [
 ];
 export var EmailGenerativeAnswerChunkDataDetails$: StaticStructureSchema = [3, n0, _EGACDD,
   0,
-  [_com, _ref, _nCT],
+  [_com, _refe, _nCT],
   [[() => NonEmptySensitiveString, 0], [() => DataSummaryList, 0], 0]
 ];
 export var EmailHeader$: StaticStructureSchema = [3, n0, _EH,
@@ -1991,7 +2009,7 @@ export var FixedSizeChunkingConfiguration$: StaticStructureSchema = [3, n0, _FSC
 ];
 export var GenerativeChunkDataDetails$: StaticStructureSchema = [3, n0, _GCDD,
   0,
-  [_com, _ref, _nCT],
+  [_com, _refe, _nCT],
   [[() => SensitiveString, 0], [() => DataSummaryList, 0], 0]
 ];
 export var GenerativeContentFeedbackData$: StaticStructureSchema = [3, n0, _GCFD,
@@ -2001,7 +2019,7 @@ export var GenerativeContentFeedbackData$: StaticStructureSchema = [3, n0, _GCFD
 ];
 export var GenerativeDataDetails$: StaticStructureSchema = [3, n0, _GDD,
   0,
-  [_com, _ref, _rD],
+  [_com, _refe, _rD],
   [[() => SensitiveString, 0], [() => DataSummaryList, 0], () => RankingData$], 3
 ];
 export var GenerativeReference$: StaticStructureSchema = [3, n0, _GR,
@@ -2146,7 +2164,7 @@ export var GetRecommendationsRequest$: StaticStructureSchema = [3, n0, _GRR,
 ];
 export var GetRecommendationsResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
-  [_rec, _tr],
+  [_re, _tr],
   [[() => RecommendationList, 0], [() => RecommendationTriggerList, 0]], 1
 ];
 export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSR,
@@ -2481,8 +2499,8 @@ export var MessageTemplateAttachment$: StaticStructureSchema = [3, n0, _MTA,
 ];
 export var MessageTemplateAttributes$: StaticStructureSchema = [3, n0, _MTAe,
   0,
-  [_sAy, _aAg, _cPA, _cAu],
-  [[() => SystemAttributes$, 0], [() => AgentAttributes$, 0], [() => CustomerProfileAttributes$, 0], [() => CustomAttributes, 0]]
+  [_sAy, _aAg, _cPA, _cAu, _cAas],
+  [[() => SystemAttributes$, 0], [() => AgentAttributes$, 0], [() => CustomerProfileAttributes$, 0], [() => CustomAttributes, 0], [() => CaseAttributes, 0]]
 ];
 export var MessageTemplateData$: StaticStructureSchema = [3, n0, _MTD,
   0,
@@ -2588,6 +2606,16 @@ export var ProactiveRecommendationDataDetails$: StaticStructureSchema = [3, n0, 
   0,
   [_nMT],
   [0], 1
+];
+export var ProfileCatalogItem$: StaticStructureSchema = [3, n0, _PCI,
+  0,
+  [_id, _n, _cod, _t, _ca, _d, _aId, _iL, _li, _cAr, _uA, _pri, _attr],
+  [[() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => ProfileCatalogItemAttributes, 0]]
+];
+export var ProfileRecommendation$: StaticStructureSchema = [3, n0, _PR,
+  0,
+  [_sc, _cIa],
+  [[() => ProfileRecommendationScore, 0], [() => ProfileCatalogItem$, 0]]
 ];
 export var PushADMMessageTemplateContent$: StaticStructureSchema = [3, n0, _PADMMTC,
   0,
@@ -3196,7 +3224,7 @@ export var VectorIngestionConfiguration$: StaticStructureSchema = [3, n0, _VIC,
 ];
 export var WebCrawlerConfiguration$: StaticStructureSchema = [3, n0, _WCC,
   0,
-  [_uC, _cL, _iF, _eF, _sc],
+  [_uC, _cL, _iF, _eF, _sco],
   [() => UrlConfiguration$, () => WebCrawlerLimits$, [() => UrlFilterList, 0], [() => UrlFilterList, 0], 0], 1
 ];
 export var WebCrawlerLimits$: StaticStructureSchema = [3, n0, _WCL,
@@ -3390,6 +3418,10 @@ var OrchestratorConfigurationList: StaticListSchema = [1, n0, _OCL,
 var OrConditions: StaticListSchema = [1, n0, _OC,
   0, () => OrCondition$
 ];
+var ProfileRecommendations: StaticListSchema = [1, n0, _PRr,
+  0, [() => ProfileRecommendation$,
+    0]
+];
 var QueryConditionExpression: StaticListSchema = [1, n0, _QCE,
   0, () => QueryCondition$
 ];
@@ -3494,7 +3526,19 @@ var WhatsAppMessageTemplateComponents = 64 | 0;
 var AIAgentConfigurationMap: StaticMapSchema = [2, n0, _AIACM,
   0, 0, () => AIAgentConfigurationData$
 ];
-var ContactAttributes: StaticMapSchema = [2, n0, _CA,
+var CalculatedAttributes: StaticMapSchema = [2, n0, _CA,
+  8, [0,
+    0]
+  , [() => MessageTemplateAttributeValue,
+    0]
+];
+var CaseAttributes: StaticMapSchema = [2, n0, _CAa,
+  8, [0,
+    0]
+  , [() => MessageTemplateAttributeValue,
+    0]
+];
+var ContactAttributes: StaticMapSchema = [2, n0, _CAo,
   8, 0, 0
 ];
 var ContentMetadata = 128 | 0;
@@ -3506,6 +3550,12 @@ var CustomAttributes: StaticMapSchema = [2, n0, _CAu,
 ];
 var Headers = 128 | 0;
 var MessageMetadata = 128 | 0;
+var ProfileCatalogItemAttributes: StaticMapSchema = [2, n0, _PCIA,
+  0, [0,
+    0]
+  , [() => MessageTemplateAttributeValue,
+    0]
+];
 var Tags = 128 | 0;
 export var AgentTarget$: StaticUnionSchema = [4, n0, _AT,
   0,

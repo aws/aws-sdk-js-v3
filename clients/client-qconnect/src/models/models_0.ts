@@ -36,7 +36,6 @@ import type {
   KnowledgeBaseStatus,
   KnowledgeBaseType,
   MessageFilterType,
-  MessageTemplateAttributeType,
   MessageType,
   ModelLifecycle,
   Origin,
@@ -8468,6 +8467,108 @@ export namespace MessageTemplateContentProvider {
 }
 
 /**
+ * <p>Contains information about a catalog item, including its identifier, name, price, and other attributes that are used in recommendations.</p>
+ * @public
+ */
+export interface ProfileCatalogItem {
+  /**
+   * <p>The unique identifier of the catalog item.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The name of the catalog item.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The code of the catalog item.</p>
+   * @public
+   */
+  code?: string | undefined;
+
+  /**
+   * <p>The type of the catalog item.</p>
+   * @public
+   */
+  type?: string | undefined;
+
+  /**
+   * <p>The category of the catalog item.</p>
+   * @public
+   */
+  category?: string | undefined;
+
+  /**
+   * <p>The description of the catalog item.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Additional information about the catalog item.</p>
+   * @public
+   */
+  additionalInformation?: string | undefined;
+
+  /**
+   * <p>The URL of the image of the catalog item.</p>
+   * @public
+   */
+  imageLink?: string | undefined;
+
+  /**
+   * <p>The URL of the catalog item.</p>
+   * @public
+   */
+  link?: string | undefined;
+
+  /**
+   * <p>The timestamp when the catalog item was created.</p>
+   * @public
+   */
+  createdAt?: string | undefined;
+
+  /**
+   * <p>The timestamp when the catalog item was last updated.</p>
+   * @public
+   */
+  updatedAt?: string | undefined;
+
+  /**
+   * <p>The price of the catalog item.</p>
+   * @public
+   */
+  price?: string | undefined;
+
+  /**
+   * <p>The custom attributes of the catalog item.</p>
+   * @public
+   */
+  attributes?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Contains information about a recommendation that is associated with a customer profile, including the relevance score and the associated catalog item.</p>
+ * @public
+ */
+export interface ProfileRecommendation {
+  /**
+   * <p>The relevance score of the recommendation.</p>
+   * @public
+   */
+  score?: number | undefined;
+
+  /**
+   * <p>The catalog item that is associated with the recommendation.</p>
+   * @public
+   */
+  catalogItem?: ProfileCatalogItem | undefined;
+}
+
+/**
  * <p>The customer profile attributes that are used with the message template.</p>
  * @public
  */
@@ -8819,6 +8920,18 @@ export interface CustomerProfileAttributes {
    * @public
    */
   custom?: Record<string, string> | undefined;
+
+  /**
+   * <p>The recommendations that are associated with the customer profile.</p>
+   * @public
+   */
+  recommendations?: ProfileRecommendation[] | undefined;
+
+  /**
+   * <p>The calculated attributes from the customer profile that are used with the message template.</p>
+   * @public
+   */
+  calculatedAttributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -8885,6 +8998,12 @@ export interface MessageTemplateAttributes {
    * @public
    */
   customAttributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>The case attributes that are used with the message template.</p>
+   * @public
+   */
+  caseAttributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -9085,163 +9204,4 @@ export interface WhatsAppMessageTemplateSourceConfigurationSummary {
    * @public
    */
   statusReason?: string | undefined;
-}
-
-/**
- * <p>The container of message template source configuration summary.</p>
- * @public
- */
-export type MessageTemplateSourceConfigurationSummary =
-  | MessageTemplateSourceConfigurationSummary.WhatsAppMember
-  | MessageTemplateSourceConfigurationSummary.$UnknownMember;
-
-/**
- * @public
- */
-export namespace MessageTemplateSourceConfigurationSummary {
-  /**
-   * <p>The sourceConfiguration summary of the message template that applies to the WHATSAPP channel subtype.</p>
-   * @public
-   */
-  export interface WhatsAppMember {
-    whatsApp: WhatsAppMessageTemplateSourceConfigurationSummary;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    whatsApp?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    whatsApp: (value: WhatsAppMessageTemplateSourceConfigurationSummary) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The data of a message template.</p>
- * @public
- */
-export interface MessageTemplateData {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
-   * @public
-   */
-  messageTemplateArn: string | undefined;
-
-  /**
-   * <p>The identifier of the message template.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the message template.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The channel of the message template.</p>
-   * @public
-   */
-  channel?: string | undefined;
-
-  /**
-   * <p>The channel subtype this message template applies to.</p>
-   * @public
-   */
-  channelSubtype: ChannelSubtype | undefined;
-
-  /**
-   * <p>The timestamp when the message template was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the message template data was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
-   * @public
-   */
-  lastModifiedBy: string | undefined;
-
-  /**
-   * <p>The content of the message template.</p>
-   * @public
-   */
-  content?: MessageTemplateContentProvider | undefined;
-
-  /**
-   * <p>The description of the message template.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
-   * @public
-   */
-  language?: string | undefined;
-
-  /**
-   * <p>The source configuration summary of the message template.</p>
-   * @public
-   */
-  sourceConfigurationSummary?: MessageTemplateSourceConfigurationSummary | undefined;
-
-  /**
-   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
-   * @public
-   */
-  groupingConfiguration?: GroupingConfiguration | undefined;
-
-  /**
-   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
-   * @public
-   */
-  defaultAttributes?: MessageTemplateAttributes | undefined;
-
-  /**
-   * <p>The types of attributes that the message template contains.</p>
-   * @public
-   */
-  attributeTypes?: MessageTemplateAttributeType[] | undefined;
-
-  /**
-   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
-   * @public
-   */
-  messageTemplateContentSha256: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
 }

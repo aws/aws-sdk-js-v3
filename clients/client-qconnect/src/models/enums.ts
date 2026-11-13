@@ -987,6 +987,7 @@ export type PushMessageAction = (typeof PushMessageAction)[keyof typeof PushMess
  */
 export const MessageTemplateAttributeType = {
   AGENT: "AGENT",
+  CASE: "CASE",
   CUSTOM: "CUSTOM",
   CUSTOMER_PROFILE: "CUSTOMER_PROFILE",
   SYSTEM: "SYSTEM",
