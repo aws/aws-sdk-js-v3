@@ -43,11 +43,11 @@ export interface ValidateCloudConnectorCommandOutput extends ValidateCloudConnec
  * //   ValidationFindings: [ // ValidationFindingList
  * //     { // ValidationFinding
  * //       Type: "INFO" || "WARN" || "ERROR",
- * //       Code: "TargetInaccessible" || "TargetUnusable" || "TargetStateWarning" || "AwsRoleAssumptionFailed" || "WebIdentityTokenFailed" || "OutboundWebIdentityFederationDisabled" || "ProviderCredentialCreationFailed" || "TenantSummary" || "SubscriptionAccessible",
+ * //       Code: "TargetInaccessible" || "TargetUnusable" || "TargetMissingPermissions" || "TargetApiDisabled" || "TargetStateWarning" || "AwsRoleAssumptionFailed" || "WebIdentityTokenFailed" || "OutboundWebIdentityFederationDisabled" || "ProviderCredentialCreationFailed" || "TenantSummary" || "SubscriptionAccessible",
  * //       Message: "STRING_VALUE",
  * //       ProviderMessage: "STRING_VALUE",
  * //       Scope: { // ValidationFindingScope
- * //         Type: "azure:tenant" || "azure:subscription",
+ * //         Type: "azure:tenant" || "azure:subscription" || "gcp:organization" || "gcp:project",
  * //         Id: "STRING_VALUE",
  * //       },
  * //     },

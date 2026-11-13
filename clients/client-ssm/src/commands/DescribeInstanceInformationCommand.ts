@@ -92,7 +92,7 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * //         },
  * //       },
  * //       SourceId: "STRING_VALUE",
- * //       SourceType: "AWS::EC2::Instance" || "AWS::IoT::Thing" || "AWS::SSM::ManagedInstance" || "Microsoft.Compute/virtualMachines",
+ * //       SourceType: "AWS::EC2::Instance" || "AWS::IoT::Thing" || "AWS::SSM::ManagedInstance" || "Microsoft.Compute/virtualMachines" || "compute.googleapis.com/Instance",
  * //       SourceLocation: "STRING_VALUE",
  * //     },
  * //   ],

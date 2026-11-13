@@ -546,6 +546,7 @@ const _GAERe = "GetAutomationExecutionResult";
 const _GAT = "GetAccessToken";
 const _GATR = "GetAccessTokenRequest";
 const _GATRe = "GetAccessTokenResponse";
+const _GC = "GcpConfiguration";
 const _GCC = "GetCloudConnector";
 const _GCCR = "GetCloudConnectorRequest";
 const _GCCRe = "GetCloudConnectorResult";
@@ -558,6 +559,7 @@ const _GCSRe = "GetCalendarStateResponse";
 const _GCSRet = "GetConnectionStatusRequest";
 const _GCSReto = "GetConnectionStatusResponse";
 const _GCSe = "GetConnectionStatus";
+const _GCT = "GcpConfigurationTargets";
 const _GD = "GetDocument";
 const _GDPB = "GetDefaultPatchBaseline";
 const _GDPBR = "GetDefaultPatchBaselineRequest";
@@ -601,7 +603,7 @@ const _GOMRe = "GetOpsMetadataResult";
 const _GOS = "GetOpsSummary";
 const _GOSR = "GetOpsSummaryRequest";
 const _GOSRe = "GetOpsSummaryResult";
-const _GP = "GetParameter";
+const _GP = "GcpProject";
 const _GPB = "GetPatchBaseline";
 const _GPBFPG = "GetPatchBaselineForPatchGroup";
 const _GPBFPGR = "GetPatchBaselineForPatchGroupRequest";
@@ -614,11 +616,13 @@ const _GPBRe = "GetPatchBaselineResult";
 const _GPH = "GetParameterHistory";
 const _GPHR = "GetParameterHistoryRequest";
 const _GPHRe = "GetParameterHistoryResult";
+const _GPL = "GcpProjectList";
 const _GPR = "GetParameterRequest";
 const _GPRe = "GetParameterResult";
 const _GPRet = "GetParametersRequest";
 const _GPReta = "GetParametersResult";
-const _GPe = "GetParameters";
+const _GPe = "GetParameter";
+const _GPet = "GetParameters";
 const _GRP = "GetResourcePolicies";
 const _GRPR = "GetResourcePoliciesRequest";
 const _GRPRE = "GetResourcePoliciesResponseEntry";
@@ -1008,6 +1012,7 @@ const _OIS = "OpsItemSummaries";
 const _OISp = "OpsItemSummary";
 const _OIT = "OpsItemType";
 const _OIp = "OpsItem";
+const _OIr = "OrganizationId";
 const _OL = "OutputLocation";
 const _OM = "OpsMetadata";
 const _OMA = "OpsMetadataArn";
@@ -1056,6 +1061,7 @@ const _PCDL = "PatchComplianceDataList";
 const _PCI = "PutComplianceItems";
 const _PCIR = "PutComplianceItemsRequest";
 const _PCIRu = "PutComplianceItemsResult";
+const _PDN = "ProjectDisplayName";
 const _PET = "PlannedEndTime";
 const _PF = "ParameterFilters";
 const _PFG = "PatchFilterGroup";
@@ -1076,6 +1082,7 @@ const _PI = "PolicyId";
 const _PIP = "ParameterInlinePolicy";
 const _PIR = "PutInventoryRequest";
 const _PIRu = "PutInventoryResult";
+const _PIr = "ProjectId";
 const _PIu = "PutInventory";
 const _PL = "ParameterList";
 const _PLE = "ParameterLimitExceeded";
@@ -1136,11 +1143,13 @@ const _Path = "Path";
 const _Pay = "Payload";
 const _Po = "Policies";
 const _Pol = "Policy";
-const _Pr = "Priority";
+const _Pr = "Provider";
 const _Pre = "Prefix";
+const _Pri = "Priority";
 const _Pro = "Property";
 const _Prod = "Product";
 const _Produ = "Products";
+const _Proj = "Projects";
 const _Prop = "Properties";
 const _Q = "Qualifier";
 const _QC = "QuotaCode";
@@ -1245,12 +1254,13 @@ const _Res = "Response";
 const _Rev = "Reviewer";
 const _Ru = "Runbook";
 const _S = "State";
-const _SAE = "StartAutomationExecution";
+const _SAE = "ServiceAccountEmail";
 const _SAER = "StartAutomationExecutionRequest";
 const _SAERt = "StartAutomationExecutionResult";
 const _SAERto = "StopAutomationExecutionRequest";
 const _SAERtop = "StopAutomationExecutionResult";
-const _SAEt = "StopAutomationExecution";
+const _SAEt = "StartAutomationExecution";
+const _SAEto = "StopAutomationExecution";
 const _SAK = "SecretAccessKey";
 const _SAO = "StartAssociationsOnce";
 const _SAOR = "StartAssociationsOnceRequest";
@@ -1270,6 +1280,8 @@ const _SCRERt = "StartChangeRequestExecutionResult";
 const _SCRe = "SendCommandResult";
 const _SCT = "SyncCreatedTime";
 const _SCe = "SendCommand";
+const _SCt = "StartedCount";
+const _SCu = "SuccessfulCount";
 const _SCy = "SyncCompliance";
 const _SD = "StatusDetails";
 const _SDO = "SchemaDeleteOption";
@@ -1405,11 +1417,12 @@ const _TPL = "TargetPreviewList";
 const _TPN = "TargetParameterName";
 const _TPa = "TaskParameters";
 const _TPar = "TargetPreview";
-const _TS = "TimeoutSeconds";
+const _TS = "TargetsSummary";
 const _TSLEE = "TotalSizeLimitExceededException";
 const _TSR = "TerminateSessionRequest";
 const _TSRe = "TerminateSessionResponse";
 const _TSe = "TerminateSession";
+const _TSi = "TimeoutSeconds";
 const _TSo = "TotalSteps";
 const _TT = "TargetType";
 const _TTa = "TaskType";
@@ -1506,6 +1519,7 @@ const _WEI = "WindowExecutionId";
 const _WETI = "WindowExecutionTaskIdentities";
 const _WETII = "WindowExecutionTaskInvocationIdentities";
 const _WI = "WindowId";
+const _WIPP = "WorkloadIdentityPoolProvider";
 const _WIi = "WindowIdentities";
 const _WM = "WarningMessage";
 const _WTI = "WindowTargetId";
@@ -2656,8 +2670,8 @@ export var AttachmentsSource$: StaticStructureSchema = [3, n0, _ASt,
 ];
 export var AutomationExecution$: StaticStructureSchema = [3, n0, _AEu,
   0,
-  [_AEI, _DN, _DV, _EST, _EET, _AES, _SEt, _SET, _P, _Ou, _FM, _WM, _Mo, _PAEI, _EB, _CSN, _CA, _TPN, _Ta, _TM, _RTes, _MC, _ME, _Tar, _TL, _PC, _AC, _TA, _TLURL, _ASu, _STc, _R, _OII, _AIs, _CRN, _Var],
-  [0, 0, 0, 4, 4, 0, () => StepExecutionList, 2, [2, n0, _APM, 0, 0, 64 | 0], [2, n0, _APM, 0, 0, 64 | 0], 0, 0, 0, 0, 0, 0, 0, 0, () => Targets, [1, n0, _TM, 0, [2, n0, _TMa, 0, 0, 64 | 0]], () => ResolvedTargets$, 0, 0, 0, () => TargetLocations, () => ProgressCounters$, () => AlarmConfiguration$, () => AlarmStateInformationList, 0, 0, 4, () => Runbooks, 0, 0, 0, [2, n0, _APM, 0, 0, 64 | 0]]
+  [_AEI, _DN, _DV, _EST, _EET, _AES, _SEt, _SET, _P, _Ou, _FM, _WM, _Mo, _PAEI, _EB, _CSN, _CA, _TPN, _Ta, _TM, _RTes, _MC, _ME, _Tar, _TL, _PC, _AC, _TA, _TLURL, _ASu, _STc, _R, _OII, _AIs, _CRN, _Var, _TS],
+  [0, 0, 0, 4, 4, 0, () => StepExecutionList, 2, [2, n0, _APM, 0, 0, 64 | 0], [2, n0, _APM, 0, 0, 64 | 0], 0, 0, 0, 0, 0, 0, 0, 0, () => Targets, [1, n0, _TM, 0, [2, n0, _TMa, 0, 0, 64 | 0]], () => ResolvedTargets$, 0, 0, 0, () => TargetLocations, () => ProgressCounters$, () => AlarmConfiguration$, () => AlarmStateInformationList, 0, 0, 4, () => Runbooks, 0, 0, 0, [2, n0, _APM, 0, 0, 64 | 0], () => TargetsSummary$]
 ];
 export var AutomationExecutionFilter$: StaticStructureSchema = [3, n0, _AEFu,
   0,
@@ -2721,8 +2735,8 @@ export var CloudConnectorFilter$: StaticStructureSchema = [3, n0, _CCF,
 ];
 export var CloudConnectorSummary$: StaticStructureSchema = [3, n0, _CCS,
   0,
-  [_CCI, _DNi, _D, _RA, _CAr, _UA],
-  [0, 0, 0, 0, 4, 4]
+  [_CCI, _DNi, _D, _RA, _CAr, _UA, _Pr, _CCA],
+  [0, 0, 0, 0, 4, 4, 0, 0]
 ];
 export var CloudWatchOutputConfig$: StaticStructureSchema = [3, n0, _CWOC,
   0,
@@ -2731,7 +2745,7 @@ export var CloudWatchOutputConfig$: StaticStructureSchema = [3, n0, _CWOC,
 ];
 export var Command$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_CI, _DN, _DV, _Co, _EA, _P, _IIn, _Ta, _RDT, _St, _SD, _OSR, _OSBN, _OSKP, _MC, _ME, _TC, _CC, _EC, _DTOC, _SR, _NC, _CWOC, _TS, _AC, _TA],
+  [_CI, _DN, _DV, _Co, _EA, _P, _IIn, _Ta, _RDT, _St, _SD, _OSR, _OSBN, _OSKP, _MC, _ME, _TC, _CC, _EC, _DTOC, _SR, _NC, _CWOC, _TSi, _AC, _TA],
   [0, 0, 0, 0, 4, [() => _Parameters, 0], 64 | 0, () => Targets, 4, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, () => NotificationConfig$, () => CloudWatchOutputConfig$, 1, () => AlarmConfiguration$, () => AlarmStateInformationList]
 ];
 export var CommandFilter$: StaticStructureSchema = [3, n0, _CF,
@@ -2816,8 +2830,8 @@ export var CreateAssociationResult$: StaticStructureSchema = [3, n0, _CARrea,
 ];
 export var CreateCloudConnectorRequest$: StaticStructureSchema = [3, n0, _CCCR,
   0,
-  [_DNi, _RA, _Con, _CCA, _D, _T],
-  [0, 0, () => CloudConnectorConfiguration$, 0, 0, () => TagList], 4
+  [_DNi, _RA, _Con, _D, _CCA, _T],
+  [0, 0, () => CloudConnectorConfiguration$, 0, 0, () => TagList], 3
 ];
 export var CreateCloudConnectorResult$: StaticStructureSchema = [3, n0, _CCCRr,
   0,
@@ -2846,7 +2860,7 @@ export var CreateMaintenanceWindowResult$: StaticStructureSchema = [3, n0, _CMWR
 ];
 export var CreateOpsItemRequest$: StaticStructureSchema = [3, n0, _COIR,
   0,
-  [_D, _Sou, _Ti, _OIT, _OD, _No, _Pr, _ROI, _T, _Ca, _Se, _AST, _AETc, _PST, _PET, _AIc],
+  [_D, _Sou, _Ti, _OIT, _OD, _No, _Pri, _ROI, _T, _Ca, _Se, _AST, _AETc, _PST, _PET, _AIc],
   [0, 0, 0, 0, () => OpsItemOperationalData, () => OpsItemNotifications, 1, () => RelatedOpsItems, () => TagList, 0, 0, 4, 4, 4, 4, 0], 3
 ];
 export var CreateOpsItemResponse$: StaticStructureSchema = [3, n0, _COIRr,
@@ -3489,6 +3503,16 @@ export var FailureDetails$: StaticStructureSchema = [3, n0, _FD,
   [_FS, _FT, _De],
   [0, 0, [2, n0, _APM, 0, 0, 64 | 0]]
 ];
+export var GcpConfiguration$: StaticStructureSchema = [3, n0, _GC,
+  0,
+  [_WIPP, _SAE, _OIr, _Ta],
+  [0, 0, 0, () => GcpConfigurationTargets$], 2
+];
+export var GcpProject$: StaticStructureSchema = [3, n0, _GP,
+  0,
+  [_PIr, _PDN],
+  [0, 0], 1
+];
 export var GetAccessTokenRequest$: StaticStructureSchema = [3, n0, _GATR,
   0,
   [_ARI],
@@ -3636,7 +3660,7 @@ export var GetMaintenanceWindowExecutionTaskRequest$: StaticStructureSchema = [3
 ];
 export var GetMaintenanceWindowExecutionTaskResult$: StaticStructureSchema = [3, n0, _GMWETRe,
   0,
-  [_WEI, _TEI, _TAa, _SR, _Ty, _TPa, _Pr, _MC, _ME, _St, _SD, _STt, _ETn, _AC, _TA],
+  [_WEI, _TEI, _TAa, _SR, _Ty, _TPa, _Pri, _MC, _ME, _St, _SD, _STt, _ETn, _AC, _TA],
   [0, 0, 0, 0, 0, [() => MaintenanceWindowTaskParametersList, 0], 1, 0, 0, 0, 0, 4, 4, () => AlarmConfiguration$, () => AlarmStateInformationList]
 ];
 export var GetMaintenanceWindowRequest$: StaticStructureSchema = [3, n0, _GMWR,
@@ -3656,7 +3680,7 @@ export var GetMaintenanceWindowTaskRequest$: StaticStructureSchema = [3, n0, _GM
 ];
 export var GetMaintenanceWindowTaskResult$: StaticStructureSchema = [3, n0, _GMWTRe,
   0,
-  [_WI, _WTIi, _Ta, _TAa, _SRA, _TTa, _TPa, _TIP, _Pr, _MC, _ME, _LI, _N, _D, _CB, _AC],
+  [_WI, _WTIi, _Ta, _TAa, _SRA, _TTa, _TPa, _TIP, _Pri, _MC, _ME, _LI, _N, _D, _CB, _AC],
   [0, 0, () => Targets, 0, 0, 0, [() => MaintenanceWindowTaskParameters, 0], [() => MaintenanceWindowTaskInvocationParameters$, 0], 1, 0, 0, () => LoggingInfo$, 0, [() => MaintenanceWindowDescription, 0], 0, () => AlarmConfiguration$]
 ];
 export var GetOpsItemRequest$: StaticStructureSchema = [3, n0, _GOIR,
@@ -4146,7 +4170,7 @@ export var MaintenanceWindowLambdaParameters$: StaticStructureSchema = [3, n0, _
 ];
 export var MaintenanceWindowRunCommandParameters$: StaticStructureSchema = [3, n0, _MWRCP,
   0,
-  [_Co, _CWOC, _DH, _DHT, _DV, _NC, _OSBN, _OSKP, _P, _SRA, _TS],
+  [_Co, _CWOC, _DH, _DHT, _DV, _NC, _OSBN, _OSKP, _P, _SRA, _TSi],
   [0, () => CloudWatchOutputConfig$, 0, 0, 0, () => NotificationConfig$, 0, 0, [() => _Parameters, 0], 0, 1]
 ];
 export var MaintenanceWindowStepFunctionsParameters$: StaticStructureSchema = [3, n0, _MWSFP,
@@ -4161,7 +4185,7 @@ export var MaintenanceWindowTarget$: StaticStructureSchema = [3, n0, _MWT,
 ];
 export var MaintenanceWindowTask$: StaticStructureSchema = [3, n0, _MWTa,
   0,
-  [_WI, _WTIi, _TAa, _Ty, _Ta, _TPa, _Pr, _LI, _SRA, _MC, _ME, _N, _D, _CB, _AC],
+  [_WI, _WTIi, _TAa, _Ty, _Ta, _TPa, _Pri, _LI, _SRA, _MC, _ME, _N, _D, _CB, _AC],
   [0, 0, 0, 0, () => Targets, [() => MaintenanceWindowTaskParameters, 0], 1, () => LoggingInfo$, 0, 0, 0, 0, [() => MaintenanceWindowDescription, 0], 0, () => AlarmConfiguration$]
 ];
 export var MaintenanceWindowTaskInvocationParameters$: StaticStructureSchema = [3, n0, _MWTIP,
@@ -4241,7 +4265,7 @@ export var OpsFilter$: StaticStructureSchema = [3, n0, _OF,
 ];
 export var OpsItem$: StaticStructureSchema = [3, n0, _OIp,
   0,
-  [_CBr, _OIT, _CT, _D, _LMB, _LMT, _No, _Pr, _ROI, _St, _OII, _Ve, _Ti, _Sou, _OD, _Ca, _Se, _AST, _AETc, _PST, _PET, _OIA],
+  [_CBr, _OIT, _CT, _D, _LMB, _LMT, _No, _Pri, _ROI, _St, _OII, _Ve, _Ti, _Sou, _OD, _Ca, _Se, _AST, _AETc, _PST, _PET, _OIA],
   [0, 0, 4, 0, 0, 4, () => OpsItemNotifications, 1, () => RelatedOpsItems, 0, 0, 0, 0, 0, () => OpsItemOperationalData, 0, 0, 4, 4, 4, 4, 0]
 ];
 export var OpsItemDataValue$: StaticStructureSchema = [3, n0, _OIDV,
@@ -4286,7 +4310,7 @@ export var OpsItemRelatedItemSummary$: StaticStructureSchema = [3, n0, _OIRIS,
 ];
 export var OpsItemSummary$: StaticStructureSchema = [3, n0, _OISp,
   0,
-  [_CBr, _CT, _LMB, _LMT, _Pr, _Sou, _St, _OII, _Ti, _OD, _Ca, _Se, _OIT, _AST, _AETc, _PST, _PET],
+  [_CBr, _CT, _LMB, _LMT, _Pri, _Sou, _St, _OII, _Ti, _OD, _Ca, _Se, _OIT, _AST, _AETc, _PST, _PET],
   [0, 4, 0, 4, 1, 0, 0, 0, 0, () => OpsItemOperationalData, 0, 0, 0, 4, 4, 4, 4]
 ];
 export var OpsMetadata$: StaticStructureSchema = [3, n0, _OM,
@@ -4486,7 +4510,7 @@ export var RegisterTargetWithMaintenanceWindowResult$: StaticStructureSchema = [
 ];
 export var RegisterTaskWithMaintenanceWindowRequest$: StaticStructureSchema = [3, n0, _RTWMWReg,
   0,
-  [_WI, _TAa, _TTa, _Ta, _SRA, _TPa, _TIP, _Pr, _MC, _ME, _LI, _N, _D, _CTl, _CB, _AC],
+  [_WI, _TAa, _TTa, _Ta, _SRA, _TPa, _TIP, _Pri, _MC, _ME, _LI, _N, _D, _CTl, _CB, _AC],
   [0, 0, 0, () => Targets, 0, [() => MaintenanceWindowTaskParameters, 0], [() => MaintenanceWindowTaskInvocationParameters$, 0], 1, 0, 0, () => LoggingInfo$, 0, [() => MaintenanceWindowDescription, 0], [0, 4], 0, () => AlarmConfiguration$], 3
 ];
 export var RegisterTaskWithMaintenanceWindowResult$: StaticStructureSchema = [3, n0, _RTWMWRegi,
@@ -4621,7 +4645,7 @@ export var SendAutomationSignalResult$: StaticStructureSchema = [3, n0, _SASRe,
 ];
 export var SendCommandRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
-  [_DN, _IIn, _Ta, _DV, _DH, _DHT, _TS, _Co, _P, _OSR, _OSBN, _OSKP, _MC, _ME, _SRA, _NC, _CWOC, _AC],
+  [_DN, _IIn, _Ta, _DV, _DH, _DHT, _TSi, _Co, _P, _OSR, _OSBN, _OSKP, _MC, _ME, _SRA, _NC, _CWOC, _AC],
   [0, 64 | 0, () => Targets, 0, 0, 0, 1, 0, [() => _Parameters, 0], 0, 0, 0, 0, 0, 0, () => NotificationConfig$, () => CloudWatchOutputConfig$, () => AlarmConfiguration$], 1
 ];
 export var SendCommandResult$: StaticStructureSchema = [3, n0, _SCRe,
@@ -4716,7 +4740,7 @@ export var StartSessionResponse$: StaticStructureSchema = [3, n0, _SSRt,
 ];
 export var StepExecution$: StaticStructureSchema = [3, n0, _SEte,
   0,
-  [_SNt, _Ac, _TS, _OFn, _MA, _EST, _EET, _SSt, _RCes, _Inpu, _Ou, _Res, _FM, _WM, _FD, _SEI, _OP, _IE, _NS, _ICs, _VNS, _Ta, _TLar, _TA, _PSD],
+  [_SNt, _Ac, _TSi, _OFn, _MA, _EST, _EET, _SSt, _RCes, _Inpu, _Ou, _Res, _FM, _WM, _FD, _SEI, _OP, _IE, _NS, _ICs, _VNS, _Ta, _TLar, _TA, _PSD],
   [0, 0, 1, 0, 1, 4, 4, 0, 0, 128 | 0, [2, n0, _APM, 0, 0, 64 | 0], 0, 0, 0, () => FailureDetails$, 0, [2, n0, _APM, 0, 0, 64 | 0], 2, 0, 2, 64 | 0, () => Targets, () => TargetLocation$, () => AlarmStateInformationList, () => ParentStepDetails$]
 ];
 export var StepExecutionFilter$: StaticStructureSchema = [3, n0, _SEF,
@@ -4753,6 +4777,11 @@ export var TargetPreview$: StaticStructureSchema = [3, n0, _TPar,
   0,
   [_Cou, _TT],
   [1, 0]
+];
+export var TargetsSummary$: StaticStructureSchema = [3, n0, _TS,
+  0,
+  [_TCo, _SCt, _CC, _SCu, _FC],
+  [1, 1, 1, 1, 1]
 ];
 export var TerminateSessionRequest$: StaticStructureSchema = [3, n0, _TSR,
   0,
@@ -4856,12 +4885,12 @@ export var UpdateMaintenanceWindowTargetResult$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateMaintenanceWindowTaskRequest$: StaticStructureSchema = [3, n0, _UMWTRpd,
   0,
-  [_WI, _WTIi, _Ta, _TAa, _SRA, _TPa, _TIP, _Pr, _MC, _ME, _LI, _N, _D, _Repl, _CB, _AC],
+  [_WI, _WTIi, _Ta, _TAa, _SRA, _TPa, _TIP, _Pri, _MC, _ME, _LI, _N, _D, _Repl, _CB, _AC],
   [0, 0, () => Targets, 0, 0, [() => MaintenanceWindowTaskParameters, 0], [() => MaintenanceWindowTaskInvocationParameters$, 0], 1, 0, 0, () => LoggingInfo$, 0, [() => MaintenanceWindowDescription, 0], 2, 0, () => AlarmConfiguration$], 2
 ];
 export var UpdateMaintenanceWindowTaskResult$: StaticStructureSchema = [3, n0, _UMWTRpda,
   0,
-  [_WI, _WTIi, _Ta, _TAa, _SRA, _TPa, _TIP, _Pr, _MC, _ME, _LI, _N, _D, _CB, _AC],
+  [_WI, _WTIi, _Ta, _TAa, _SRA, _TPa, _TIP, _Pri, _MC, _ME, _LI, _N, _D, _CB, _AC],
   [0, 0, () => Targets, 0, 0, [() => MaintenanceWindowTaskParameters, 0], [() => MaintenanceWindowTaskInvocationParameters$, 0], 1, 0, 0, () => LoggingInfo$, 0, [() => MaintenanceWindowDescription, 0], 0, () => AlarmConfiguration$]
 ];
 export var UpdateManagedInstanceRoleRequest$: StaticStructureSchema = [3, n0, _UMIRR,
@@ -4876,7 +4905,7 @@ export var UpdateManagedInstanceRoleResult$: StaticStructureSchema = [3, n0, _UM
 ];
 export var UpdateOpsItemRequest$: StaticStructureSchema = [3, n0, _UOIR,
   0,
-  [_OII, _D, _OD, _ODTD, _No, _Pr, _ROI, _St, _Ti, _Ca, _Se, _AST, _AETc, _PST, _PET, _OIA],
+  [_OII, _D, _OD, _ODTD, _No, _Pri, _ROI, _St, _Ti, _Ca, _Se, _AST, _AETc, _PST, _PET, _OIA],
   [0, 0, () => OpsItemOperationalData, 64 | 0, () => OpsItemNotifications, 1, () => RelatedOpsItems, 0, 0, 0, 0, 4, 4, 4, 4, 0], 1
 ];
 export var UpdateOpsItemResponse$: StaticStructureSchema = [3, n0, _UOIRp,
@@ -5107,6 +5136,9 @@ var ExcludeAccounts = 64 | 0;
 var FailedCreateAssociationList: StaticListSchema = [1, n0, _FCAL,
   0, [() => FailedCreateAssociation$,
     { [_xN]: _FCAE }]
+];
+var GcpProjectList: StaticListSchema = [1, n0, _GPL,
+  0, () => GcpProject$
 ];
 var GetResourcePoliciesResponseEntries: StaticListSchema = [1, n0, _GRPREe,
   0, () => GetResourcePoliciesResponseEntry$
@@ -5498,8 +5530,8 @@ var TargetMap: StaticMapSchema = [2, n0, _TMa,
 ];
 export var CloudConnectorConfiguration$: StaticUnionSchema = [4, n0, _CCC,
   0,
-  [_ACz],
-  [() => AzureConfiguration$]
+  [_ACz, _GC],
+  [() => AzureConfiguration$, () => GcpConfiguration$]
 ];
 export var ConfigurationTargets$: StaticUnionSchema = [4, n0, _CTon,
   0,
@@ -5515,6 +5547,11 @@ export var ExecutionPreview$: StaticUnionSchema = [4, n0, _EPx,
   0,
   [_Aut],
   [() => AutomationExecutionPreview$]
+];
+export var GcpConfigurationTargets$: StaticUnionSchema = [4, n0, _GCT,
+  0,
+  [_Proj],
+  [() => GcpProjectList]
 ];
 export var NodeType$: StaticUnionSchema = [4, n0, _NTo,
   0,
@@ -5779,13 +5816,13 @@ export var GetOpsMetadata$: StaticOperationSchema = [9, n0, _GOM,
 export var GetOpsSummary$: StaticOperationSchema = [9, n0, _GOS,
   0, () => GetOpsSummaryRequest$, () => GetOpsSummaryResult$
 ];
-export var GetParameter$: StaticOperationSchema = [9, n0, _GP,
+export var GetParameter$: StaticOperationSchema = [9, n0, _GPe,
   0, () => GetParameterRequest$, () => GetParameterResult$
 ];
 export var GetParameterHistory$: StaticOperationSchema = [9, n0, _GPH,
   0, () => GetParameterHistoryRequest$, () => GetParameterHistoryResult$
 ];
-export var GetParameters$: StaticOperationSchema = [9, n0, _GPe,
+export var GetParameters$: StaticOperationSchema = [9, n0, _GPet,
   0, () => GetParametersRequest$, () => GetParametersResult$
 ];
 export var GetParametersByPath$: StaticOperationSchema = [9, n0, _GPBP,
@@ -5914,7 +5951,7 @@ export var StartAccessRequest$: StaticOperationSchema = [9, n0, _SAR,
 export var StartAssociationsOnce$: StaticOperationSchema = [9, n0, _SAO,
   0, () => StartAssociationsOnceRequest$, () => StartAssociationsOnceResult$
 ];
-export var StartAutomationExecution$: StaticOperationSchema = [9, n0, _SAE,
+export var StartAutomationExecution$: StaticOperationSchema = [9, n0, _SAEt,
   0, () => StartAutomationExecutionRequest$, () => StartAutomationExecutionResult$
 ];
 export var StartChangeRequestExecution$: StaticOperationSchema = [9, n0, _SCRE,
@@ -5926,7 +5963,7 @@ export var StartExecutionPreview$: StaticOperationSchema = [9, n0, _SEP,
 export var StartSession$: StaticOperationSchema = [9, n0, _SSta,
   0, () => StartSessionRequest$, () => StartSessionResponse$
 ];
-export var StopAutomationExecution$: StaticOperationSchema = [9, n0, _SAEt,
+export var StopAutomationExecution$: StaticOperationSchema = [9, n0, _SAEto,
   0, () => StopAutomationExecutionRequest$, () => StopAutomationExecutionResult$
 ];
 export var TerminateSession$: StaticOperationSchema = [9, n0, _TSe,

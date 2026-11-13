@@ -37,7 +37,7 @@ export interface ListCloudConnectorsCommandOutput extends ListCloudConnectorsRes
  *   NextToken: "STRING_VALUE",
  *   Filters: [ // CloudConnectorFilterList
  *     { // CloudConnectorFilter
- *       FilterKey: "SubscriptionId" || "TenantId",
+ *       FilterKey: "SubscriptionId" || "TenantId" || "ProjectId" || "OrganizationId",
  *       FilterValues: [ // CloudConnectorFilterValues
  *         "STRING_VALUE",
  *       ],
@@ -55,6 +55,8 @@ export interface ListCloudConnectorsCommandOutput extends ListCloudConnectorsRes
  * //       RoleArn: "STRING_VALUE",
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       Provider: "Azure" || "GCP",
+ * //       ConfigConnectorArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

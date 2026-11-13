@@ -72,7 +72,7 @@ export interface ListNodesCommandOutput extends ListNodesResult, __MetadataBeare
  * //           PlatformName: "STRING_VALUE",
  * //           PlatformVersion: "STRING_VALUE",
  * //           ResourceType: "ManagedInstance" || "EC2Instance",
- * //           SourceType: "AWS::EC2::Instance" || "AWS::IoT::Thing" || "AWS::SSM::ManagedInstance" || "Microsoft.Compute/virtualMachines",
+ * //           SourceType: "AWS::EC2::Instance" || "AWS::IoT::Thing" || "AWS::SSM::ManagedInstance" || "Microsoft.Compute/virtualMachines" || "compute.googleapis.com/Instance",
  * //           SourceId: "STRING_VALUE",
  * //           SourceLocation: "STRING_VALUE",
  * //           AvailabilityZone: "STRING_VALUE",

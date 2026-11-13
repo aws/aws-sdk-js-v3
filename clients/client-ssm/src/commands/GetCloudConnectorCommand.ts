@@ -57,6 +57,19 @@ export interface GetCloudConnectorCommandOutput extends GetCloudConnectorResult,
  * //         ],
  * //       },
  * //     },
+ * //     GcpConfiguration: { // GcpConfiguration
+ * //       OrganizationId: "STRING_VALUE",
+ * //       WorkloadIdentityPoolProvider: "STRING_VALUE", // required
+ * //       ServiceAccountEmail: "STRING_VALUE", // required
+ * //       Targets: { // GcpConfigurationTargets Union: only one key present
+ * //         Projects: [ // GcpProjectList
+ * //           { // GcpProject
+ * //             ProjectId: "STRING_VALUE", // required
+ * //             ProjectDisplayName: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
  * //   },
  * //   ConfigConnectorArn: "STRING_VALUE",
  * //   CreatedAt: new Date("TIMESTAMP"),

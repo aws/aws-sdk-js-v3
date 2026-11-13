@@ -248,6 +248,13 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //     AssociationId: "STRING_VALUE",
  * //     ChangeRequestName: "STRING_VALUE",
  * //     Variables: "<AutomationParameterMap>",
+ * //     TargetsSummary: { // TargetsSummary
+ * //       TotalCount: Number("int"),
+ * //       StartedCount: Number("int"),
+ * //       CompletedCount: Number("int"),
+ * //       SuccessfulCount: Number("int"),
+ * //       FailedCount: Number("int"),
+ * //     },
  * //   },
  * // };
  *

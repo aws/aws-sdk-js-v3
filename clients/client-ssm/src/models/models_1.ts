@@ -45,6 +45,7 @@ import type {
   PatchComplianceLevel,
   PatchComplianceStatus,
   PlatformType,
+  Provider,
   ResourceType,
   ResourceTypeForTagging,
   ReviewStatus,
@@ -79,6 +80,7 @@ import type {
   OpsItemNotification,
   OpsResultAttribute,
   Parameter,
+  ParameterInlinePolicy,
   ParameterStringFilter,
   PatchFilterGroup,
   PatchRuleGroup,
@@ -93,6 +95,159 @@ import type {
   Target,
   TargetLocation,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetParameterResult {
+  /**
+   * <p>Information about a parameter.</p>
+   * @public
+   */
+  Parameter?: Parameter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetParameterHistoryRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the parameter for which you want to review
+   *    history. For parameters shared with you from another account, you must use the full ARN.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Return decrypted values for secure string parameters. This flag is ignored for
+   *     <code>String</code> and <code>StringList</code> parameter types.</p>
+   * @public
+   */
+  WithDecryption?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Information about parameter usage.</p>
+ * @public
+ */
+export interface ParameterHistory {
+  /**
+   * <p>The name of the parameter.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The type of parameter used.</p>
+   * @public
+   */
+  Type?: ParameterType | undefined;
+
+  /**
+   * <p>The alias of the Key Management Service (KMS) key used to encrypt the
+   *    parameter. Applies to <code>SecureString</code> parameters only</p>
+   * @public
+   */
+  KeyId?: string | undefined;
+
+  /**
+   * <p>Date the parameter was last changed or updated.</p>
+   * @public
+   */
+  LastModifiedDate?: Date | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the Amazon Web Services user who last changed the parameter.</p>
+   * @public
+   */
+  LastModifiedUser?: string | undefined;
+
+  /**
+   * <p>Information about the parameter.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The parameter value.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>Parameter names can include the following letters and symbols.</p>
+   *          <p>a-zA-Z0-9_.-</p>
+   * @public
+   */
+  AllowedPattern?: string | undefined;
+
+  /**
+   * <p>The parameter version.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>Labels assigned to the parameter version.</p>
+   * @public
+   */
+  Labels?: string[] | undefined;
+
+  /**
+   * <p>The parameter tier.</p>
+   * @public
+   */
+  Tier?: ParameterTier | undefined;
+
+  /**
+   * <p>Information about the policies assigned to a parameter.</p>
+   *          <p>
+   *             <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Assigning parameter
+   *     policies</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   * @public
+   */
+  Policies?: ParameterInlinePolicy[] | undefined;
+
+  /**
+   * <p>The data type of the parameter, such as <code>text</code>, <code>aws:ec2:image</code>, or
+   *    <code>json</code>. The default is <code>text</code>. For the list of data types, see the
+   *    <code>DataType</code> parameter of <code>PutParameter</code>.</p>
+   * @public
+   */
+  DataType?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetParameterHistoryResult {
+  /**
+   * <p>A list of parameters returned by the request.</p>
+   * @public
+   */
+  Parameters?: ParameterHistory[] | undefined;
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to
+   *    return, the string is empty.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -1058,7 +1213,20 @@ export interface CloudConnectorFilter {
    *                <p>The Azure tenant ID to filter by. Filters the results to connectors
    *      that target the specified tenant.</p>
    *             </dd>
+   *             <dt>ProjectId</dt>
+   *             <dd>
+   *                <p>The Google Cloud Platform (GCP) project ID to filter by. Filters the results
+   *      to connectors that target the specified project.</p>
+   *             </dd>
+   *             <dt>OrganizationId</dt>
+   *             <dd>
+   *                <p>The GCP organization ID to filter by. Filters the results to connectors that
+   *      target the entire specified organization.</p>
+   *             </dd>
    *          </dl>
+   *          <p>You can't combine Azure filter keys (<code>SubscriptionId</code> and
+   *    <code>TenantId</code>) with GCP filter keys (<code>ProjectId</code> and
+   *    <code>OrganizationId</code>) in the same request.</p>
    * @public
    */
   FilterValues?: string[] | undefined;
@@ -1128,6 +1296,20 @@ export interface CloudConnectorSummary {
    * @public
    */
   UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The third-party cloud provider that the cloud connector connects to. Valid values:
+   *     <code>Azure</code> | <code>GCP</code>.</p>
+   * @public
+   */
+  Provider?: Provider | undefined;
+
+  /**
+   * <p>The ARN of the Amazon Web Services Config connector associated with this cloud connector. This value is
+   *    returned only if the cloud connector was created with an Amazon Web Services Config connector.</p>
+   * @public
+   */
+  ConfigConnectorArn?: string | undefined;
 }
 
 /**
@@ -3178,7 +3360,10 @@ export interface InstanceInfo {
 
   /**
    * <p>The type of the source resource. For IoT Greengrass devices,
-   *    <code>SourceType</code> is <code>AWS::IoT::Thing</code>.</p>
+   *    <code>SourceType</code> is <code>AWS::IoT::Thing</code>. For Azure Virtual Machines,
+   *    <code>SourceType</code> is <code>Microsoft.Compute/virtualMachines</code>. For Google Cloud
+   *    Platform (GCP) Compute Engine Virtual Machines, <code>SourceType</code> is
+   *    <code>compute.googleapis.com/Instance</code>.</p>
    * @public
    */
   SourceType?: SourceType | undefined;
@@ -4470,6 +4655,10 @@ export interface PutParameterRequest {
    *                <p>The parameter uses a parameter policy.</p>
    *             </li>
    *             <li>
+   *                <p>The parameter uses the <code>url</code>, <code>json</code>, or <code>jsonc</code> data
+   *      type.</p>
+   *             </li>
+   *             <li>
    *                <p>More than 10,000 parameters already exist in your Amazon Web Services account in the current
    *      Amazon Web Services Region.</p>
    *             </li>
@@ -4501,8 +4690,9 @@ export interface PutParameterRequest {
   Policies?: string | undefined;
 
   /**
-   * <p>The data type for a <code>String</code> parameter. Supported data types include plain text
-   *    and Amazon Machine Image (AMI) IDs.</p>
+   * <p>The data type of the parameter value. Parameter Store validates the value against the data
+   *    type when you create or update the parameter. The default is <code>text</code>, which performs
+   *    no validation.</p>
    *          <p>
    *             <b>The following data type values are supported.</b>
    *          </p>
@@ -4522,7 +4712,82 @@ export interface PutParameterRequest {
    *                   <code>aws:ssm:integration</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws:region</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws:account:id</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>boolean</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>integer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>float</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>binary</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hostname</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>email</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv4-address</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv6-address</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>url</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>json</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>jsonc</code>
+   *                </p>
+   *             </li>
    *          </ul>
+   *          <p>For more information about the supported data types, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-data-types.html">Working with parameter
+   *     data types in Parameter Store</a>.</p>
+   *          <note>
+   *             <p>Regardless of a parameter's data type, the Parameter Store API operations that retrieve
+   *     parameters, such as <code>GetParameter</code>, <code>GetParameters</code>, and
+   *     <code>GetParametersByPath</code>, return the parameter value as a string. For example, if a
+   *     parameter has the data type <code>integer</code> and the value <code>443</code>,
+   *     <code>GetParameter</code> returns the value as the string <code>"443"</code>. Convert the value
+   *     to the type your application needs after you retrieve it.</p>
+   *          </note>
    *          <p>When you create a <code>String</code> parameter and specify <code>aws:ec2:image</code>,
    *    Amazon Web Services Systems Manager validates the parameter value is in the required format, such as
    *     <code>ami-12345abcdeEXAMPLE</code>, and that the specified AMI is available in your

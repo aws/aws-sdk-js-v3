@@ -654,6 +654,7 @@ export const SourceType = {
   AWS_IOT_THING: "AWS::IoT::Thing",
   AWS_SSM_MANAGEDINSTANCE: "AWS::SSM::ManagedInstance",
   AZURE_INSTANCE: "Microsoft.Compute/virtualMachines",
+  GCP_INSTANCE: "compute.googleapis.com/Instance",
 } as const;
 /**
  * @public
@@ -1236,6 +1237,8 @@ export type AssociationFilterKey = (typeof AssociationFilterKey)[keyof typeof As
  * @enum
  */
 export const CloudConnectorFilterKey = {
+  OrganizationId: "OrganizationId",
+  ProjectId: "ProjectId",
   SubscriptionId: "SubscriptionId",
   TenantId: "TenantId",
 } as const;
@@ -1243,6 +1246,19 @@ export const CloudConnectorFilterKey = {
  * @public
  */
 export type CloudConnectorFilterKey = (typeof CloudConnectorFilterKey)[keyof typeof CloudConnectorFilterKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const Provider = {
+  AZURE: "Azure",
+  GCP: "GCP",
+} as const;
+/**
+ * @public
+ */
+export type Provider = (typeof Provider)[keyof typeof Provider];
 
 /**
  * @public
@@ -1629,7 +1645,9 @@ export const ValidationFindingCode = {
   OUTBOUND_WEB_IDENTITY_FEDERATION_DISABLED: "OutboundWebIdentityFederationDisabled",
   PROVIDER_CREDENTIAL_CREATION_FAILED: "ProviderCredentialCreationFailed",
   SUBSCRIPTION_ACCESSIBLE: "SubscriptionAccessible",
+  TARGET_API_DISABLED: "TargetApiDisabled",
   TARGET_INACCESSIBLE: "TargetInaccessible",
+  TARGET_MISSING_PERMISSIONS: "TargetMissingPermissions",
   TARGET_STATE_WARNING: "TargetStateWarning",
   TARGET_UNUSABLE: "TargetUnusable",
   TENANT_SUMMARY: "TenantSummary",
@@ -1647,6 +1665,8 @@ export type ValidationFindingCode = (typeof ValidationFindingCode)[keyof typeof 
 export const ValidationFindingScopeType = {
   AZURE_SUBSCRIPTION: "azure:subscription",
   AZURE_TENANT: "azure:tenant",
+  GCP_ORGANIZATION: "gcp:organization",
+  GCP_PROJECT: "gcp:project",
 } as const;
 /**
  * @public

@@ -52,8 +52,21 @@ export interface CreateCloudConnectorCommandOutput extends CreateCloudConnectorR
  *         ],
  *       },
  *     },
+ *     GcpConfiguration: { // GcpConfiguration
+ *       OrganizationId: "STRING_VALUE",
+ *       WorkloadIdentityPoolProvider: "STRING_VALUE", // required
+ *       ServiceAccountEmail: "STRING_VALUE", // required
+ *       Targets: { // GcpConfigurationTargets Union: only one key present
+ *         Projects: [ // GcpProjectList
+ *           { // GcpProject
+ *             ProjectId: "STRING_VALUE", // required
+ *             ProjectDisplayName: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     },
  *   },
- *   ConfigConnectorArn: "STRING_VALUE", // required
+ *   ConfigConnectorArn: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

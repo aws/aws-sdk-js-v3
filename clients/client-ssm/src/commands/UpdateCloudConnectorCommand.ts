@@ -50,6 +50,19 @@ export interface UpdateCloudConnectorCommandOutput extends UpdateCloudConnectorR
  *         ],
  *       },
  *     },
+ *     GcpConfiguration: { // GcpConfiguration
+ *       OrganizationId: "STRING_VALUE",
+ *       WorkloadIdentityPoolProvider: "STRING_VALUE", // required
+ *       ServiceAccountEmail: "STRING_VALUE", // required
+ *       Targets: { // GcpConfigurationTargets Union: only one key present
+ *         Projects: [ // GcpProjectList
+ *           { // GcpProject
+ *             ProjectId: "STRING_VALUE", // required
+ *             ProjectDisplayName: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     },
  *   },
  *   Description: "STRING_VALUE",
  * };
@@ -76,6 +89,10 @@ export interface UpdateCloudConnectorCommandOutput extends UpdateCloudConnectorR
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified parameter to be shared could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request exceeds the service quota. Service quotas, also referred to as limits, are the
+ *    maximum number of service resources or operations for your Amazon Web Services account.</p>
  *
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>

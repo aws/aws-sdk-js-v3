@@ -419,6 +419,9 @@ import {
   Fault,
   FeatureNotAvailableException,
   FeatureNotAvailableException$,
+  GcpConfiguration$,
+  GcpConfigurationTargets$,
+  GcpProject$,
   GetAccessToken$,
   GetAccessTokenCommand,
   GetAccessTokenRequest$,
@@ -965,6 +968,7 @@ import {
   PoliciesLimitExceededException,
   PoliciesLimitExceededException$,
   ProgressCounters$,
+  Provider,
   PutComplianceItems$,
   PutComplianceItemsCommand,
   PutComplianceItemsRequest$,
@@ -1128,6 +1132,7 @@ import {
   TargetNotConnected,
   TargetNotConnected$,
   TargetPreview$,
+  TargetsSummary$,
   TerminateSession$,
   TerminateSessionCommand,
   TerminateSessionRequest$,
@@ -1741,6 +1746,9 @@ assert(typeof ExecutionInputs$ === "object");
 assert(typeof ExecutionPreview$ === "object");
 assert(typeof FailedCreateAssociation$ === "object");
 assert(typeof FailureDetails$ === "object");
+assert(typeof GcpConfiguration$ === "object");
+assert(typeof GcpConfigurationTargets$ === "object");
+assert(typeof GcpProject$ === "object");
 assert(typeof GetAccessTokenRequest$ === "object");
 assert(typeof GetAccessTokenResponse$ === "object");
 assert(typeof GetAutomationExecutionRequest$ === "object");
@@ -1995,6 +2003,7 @@ assert(typeof Tag$ === "object");
 assert(typeof Target$ === "object");
 assert(typeof TargetLocation$ === "object");
 assert(typeof TargetPreview$ === "object");
+assert(typeof TargetsSummary$ === "object");
 assert(typeof TerminateSessionRequest$ === "object");
 assert(typeof TerminateSessionResponse$ === "object");
 assert(typeof UnlabelParameterVersionRequest$ === "object");
@@ -2123,6 +2132,7 @@ assert(typeof PatchProperty === "object");
 assert(typeof PatchSet === "object");
 assert(typeof PingStatus === "object");
 assert(typeof PlatformType === "object");
+assert(typeof Provider === "object");
 assert(typeof RebootOption === "object");
 assert(typeof ResourceDataSyncS3Format === "object");
 assert(typeof ResourceType === "object");

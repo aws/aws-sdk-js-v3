@@ -619,6 +619,25 @@ export interface InstanceAssociationOutputLocation {
  *                   </li>
  *                </ul>
  *             </li>
+ *             <li>
+ *                <p>Automation only, to target Microsoft Azure or Google Cloud Platform (GCP) resources:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>Key=CloudConnector,Values=cloud-connector-id</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>Key=CloudConnector,Values=\{"CloudConnectorId":"cloud-connector-id","SsmManagedNodeFilter":"MANAGED","CloudProviderRegions":["eastus"]\}</code>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *                <p>Supported JSON keys: <code>CloudConnectorId</code> (required),
+ *       <code>SsmManagedNodeFilter</code>, <code>CloudProviderRegions</code>, and, for GCP,
+ *       <code>IncludesLabels</code>, <code>ExcludesLabels</code>,
+ *       <code>OsPolicyComplianceFilter</code>, and <code>OsPolicyOrchestratorId</code>.</p>
+ *             </li>
  *          </ul>
  *          <p>
  *             <b>For Run Command and Maintenance Windows:</b>
@@ -673,6 +692,24 @@ export interface InstanceAssociationOutputLocation {
  *                      </p>
  *                   </li>
  *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>For associations that run an Automation runbook, to target Microsoft Azure or Google
+ *      Cloud Platform (GCP) resources:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>Key=CloudConnector,Values=cloud-connector-id</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>Key=CloudConnector,Values=\{"CloudConnectorId":"cloud-connector-id","SsmManagedNodeFilter":"UNMANAGED"\}</code>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *                <p>Supported JSON keys: <code>CloudConnectorId</code> (required),
+ *       <code>SsmManagedNodeFilter</code>, and <code>CloudProviderRegions</code>.</p>
  *             </li>
  *          </ul>
  *          <p>For more information about how to send commands that target managed nodes using
@@ -1708,12 +1745,103 @@ export interface AzureConfiguration {
 }
 
 /**
+ * <p>Information about a GCP project targeted by the cloud connector.</p>
+ * @public
+ */
+export interface GcpProject {
+  /**
+   * <p>The ID of the GCP project.</p>
+   * @public
+   */
+  ProjectId: string | undefined;
+
+  /**
+   * <p>The display name of the GCP project.</p>
+   * @public
+   */
+  ProjectDisplayName?: string | undefined;
+}
+
+/**
+ * <p>The target resources in the GCP environment.</p>
+ * @public
+ */
+export type GcpConfigurationTargets =
+  | GcpConfigurationTargets.ProjectsMember
+  | GcpConfigurationTargets.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GcpConfigurationTargets {
+  /**
+   * <p>A list of GCP projects to target.</p>
+   * @public
+   */
+  export interface ProjectsMember {
+    Projects: GcpProject[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Projects?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Projects: (value: GcpProject[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The access details and targets for connecting to a Google Cloud Platform (GCP)
+ *    environment, including the workload identity pool provider and service account used for
+ *    authentication and the projects to target.</p>
+ * @public
+ */
+export interface GcpConfiguration {
+  /**
+   * <p>The ID of the GCP organization.</p>
+   * @public
+   */
+  OrganizationId?: string | undefined;
+
+  /**
+   * <p>The full resource name of the GCP workload identity pool provider used for
+   *    authentication.</p>
+   * @public
+   */
+  WorkloadIdentityPoolProvider: string | undefined;
+
+  /**
+   * <p>The email address of the GCP service account used for authentication.</p>
+   * @public
+   */
+  ServiceAccountEmail: string | undefined;
+
+  /**
+   * <p>The target GCP projects for the cloud connector.</p>
+   * @public
+   */
+  Targets?: GcpConfigurationTargets | undefined;
+}
+
+/**
  * <p>The configuration that provides access details and targets for connecting to a third-party
  *    cloud environment.</p>
  * @public
  */
 export type CloudConnectorConfiguration =
   | CloudConnectorConfiguration.AzureConfigurationMember
+  | CloudConnectorConfiguration.GcpConfigurationMember
   | CloudConnectorConfiguration.$UnknownMember;
 
 /**
@@ -1726,6 +1854,18 @@ export namespace CloudConnectorConfiguration {
    */
   export interface AzureConfigurationMember {
     AzureConfiguration: AzureConfiguration;
+    GcpConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The access details and targets for connecting to a Google Cloud Platform (GCP)
+   *    environment.</p>
+   * @public
+   */
+  export interface GcpConfigurationMember {
+    AzureConfiguration?: never;
+    GcpConfiguration: GcpConfiguration;
     $unknown?: never;
   }
 
@@ -1734,6 +1874,7 @@ export namespace CloudConnectorConfiguration {
    */
   export interface $UnknownMember {
     AzureConfiguration?: never;
+    GcpConfiguration?: never;
     $unknown: [string, any];
   }
 
@@ -1743,6 +1884,7 @@ export namespace CloudConnectorConfiguration {
    */
   export interface Visitor<T> {
     AzureConfiguration: (value: AzureConfiguration) => T;
+    GcpConfiguration: (value: GcpConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1777,10 +1919,11 @@ export interface CreateCloudConnectorRequest {
   Configuration: CloudConnectorConfiguration | undefined;
 
   /**
-   * <p>The ARN of the Amazon Web Services Config connector associated with this cloud connector.</p>
+   * <p>The ARN of the Amazon Web Services Config connector to associate with this cloud connector. If you omit
+   *    it, the cloud connector is created without Amazon Web Services Config integration.</p>
    * @public
    */
-  ConfigConnectorArn: string | undefined;
+  ConfigConnectorArn?: string | undefined;
 
   /**
    * <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource
@@ -5815,7 +5958,8 @@ export interface InstanceInformationStringFilter {
    *             </li>
    *             <li>
    *                <p>Valid values for the <code>SourceType</code> filter key: AWS::EC2::Instance |
-   *      AWS::SSM::ManagedInstance | AWS::IoT::Thing | Microsoft.Compute/virtualMachines</p>
+   *      AWS::SSM::ManagedInstance | AWS::IoT::Thing | Microsoft.Compute/virtualMachines |
+   *      compute.googleapis.com/Instance</p>
    *             </li>
    *             <li>
    *                <p>Valid tag examples: <code>Key=tag-key,Values=Purpose</code> |
@@ -6066,7 +6210,8 @@ export interface InstanceInformation {
   /**
    * <p>The type of the source resource. For IoT Greengrass devices, <code>SourceType</code>
    *    is <code>AWS::IoT::Thing</code>. For Azure Virtual Machines, <code>SourceType</code> is
-   *     <code>Microsoft.Compute/virtualMachines</code>.</p>
+   *     <code>Microsoft.Compute/virtualMachines</code>. For Google Cloud Platform (GCP) Compute Engine
+   *    Virtual Machines, <code>SourceType</code> is <code>compute.googleapis.com/Instance</code>.</p>
    * @public
    */
   SourceType?: SourceType | undefined;
@@ -6905,7 +7050,8 @@ export interface InstanceProperty {
   /**
    * <p>The type of the source resource. Valid values: <code>AWS::EC2::Instance</code> |
    *     <code>AWS::SSM::ManagedInstance</code> | <code>AWS::IoT::Thing</code> |
-   *     <code>Microsoft.Compute/virtualMachines</code>.</p>
+   *     <code>Microsoft.Compute/virtualMachines</code> |
+   *     <code>compute.googleapis.com/Instance</code>.</p>
    * @public
    */
   SourceType?: SourceType | undefined;
@@ -8558,8 +8704,9 @@ export interface ParameterMetadata {
   Policies?: ParameterInlinePolicy[] | undefined;
 
   /**
-   * <p>The data type of the parameter, such as <code>text</code> or <code>aws:ec2:image</code>. The
-   *    default is <code>text</code>.</p>
+   * <p>The data type of the parameter, such as <code>text</code>, <code>aws:ec2:image</code>, or
+   *    <code>json</code>. The default is <code>text</code>. For the list of data types, see the
+   *    <code>DataType</code> parameter of <code>PutParameter</code>.</p>
    * @public
    */
   DataType?: string | undefined;
@@ -9308,6 +9455,43 @@ export interface ProgressCounters {
 }
 
 /**
+ * <p>The number of targets in a rate control execution, and the status of the child
+ *    executions that it started for those targets.</p>
+ * @public
+ */
+export interface TargetsSummary {
+  /**
+   * <p>The total number of targets in the rate control execution.</p>
+   * @public
+   */
+  TotalCount?: number | undefined;
+
+  /**
+   * <p>The number of child executions that started.</p>
+   * @public
+   */
+  StartedCount?: number | undefined;
+
+  /**
+   * <p>The number of child executions that finished, whether they succeeded or failed.</p>
+   * @public
+   */
+  CompletedCount?: number | undefined;
+
+  /**
+   * <p>The number of child executions that succeeded.</p>
+   * @public
+   */
+  SuccessfulCount?: number | undefined;
+
+  /**
+   * <p>The number of child executions that failed, timed out, or were canceled.</p>
+   * @public
+   */
+  FailedCount?: number | undefined;
+}
+
+/**
  * <p>Detailed information about the current state of an individual Automation execution.</p>
  * @public
  */
@@ -9539,6 +9723,13 @@ export interface AutomationExecution {
    * @public
    */
   Variables?: Record<string, string[]> | undefined;
+
+  /**
+   * <p>A summary of the child executions that a rate control execution started for its
+   *    targets. This field is returned only for rate control executions.</p>
+   * @public
+   */
+  TargetsSummary?: TargetsSummary | undefined;
 }
 
 /**
@@ -9647,7 +9838,8 @@ export interface GetCloudConnectorResult {
   Configuration?: CloudConnectorConfiguration | undefined;
 
   /**
-   * <p>The ARN of the Amazon Web Services Config connector associated with this cloud connector.</p>
+   * <p>The ARN of the Amazon Web Services Config connector associated with this cloud connector. This value is
+   *    returned only if the cloud connector was created with an Amazon Web Services Config connector.</p>
    * @public
    */
   ConfigConnectorArn?: string | undefined;
@@ -12036,161 +12228,10 @@ export interface Parameter {
   ARN?: string | undefined;
 
   /**
-   * <p>The data type of the parameter, such as <code>text</code> or <code>aws:ec2:image</code>. The
-   *    default is <code>text</code>.</p>
+   * <p>The data type of the parameter, such as <code>text</code>, <code>aws:ec2:image</code>, or
+   *    <code>json</code>. The default is <code>text</code>. For the list of data types, see the
+   *    <code>DataType</code> parameter of <code>PutParameter</code>.</p>
    * @public
    */
   DataType?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetParameterResult {
-  /**
-   * <p>Information about a parameter.</p>
-   * @public
-   */
-  Parameter?: Parameter | undefined;
-}
-
-/**
- * @public
- */
-export interface GetParameterHistoryRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the parameter for which you want to review
-   *    history. For parameters shared with you from another account, you must use the full ARN.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Return decrypted values for secure string parameters. This flag is ignored for
-   *     <code>String</code> and <code>StringList</code> parameter types.</p>
-   * @public
-   */
-  WithDecryption?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Information about parameter usage.</p>
- * @public
- */
-export interface ParameterHistory {
-  /**
-   * <p>The name of the parameter.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The type of parameter used.</p>
-   * @public
-   */
-  Type?: ParameterType | undefined;
-
-  /**
-   * <p>The alias of the Key Management Service (KMS) key used to encrypt the
-   *    parameter. Applies to <code>SecureString</code> parameters only</p>
-   * @public
-   */
-  KeyId?: string | undefined;
-
-  /**
-   * <p>Date the parameter was last changed or updated.</p>
-   * @public
-   */
-  LastModifiedDate?: Date | undefined;
-
-  /**
-   * <p>Amazon Resource Name (ARN) of the Amazon Web Services user who last changed the parameter.</p>
-   * @public
-   */
-  LastModifiedUser?: string | undefined;
-
-  /**
-   * <p>Information about the parameter.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The parameter value.</p>
-   * @public
-   */
-  Value?: string | undefined;
-
-  /**
-   * <p>Parameter names can include the following letters and symbols.</p>
-   *          <p>a-zA-Z0-9_.-</p>
-   * @public
-   */
-  AllowedPattern?: string | undefined;
-
-  /**
-   * <p>The parameter version.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>Labels assigned to the parameter version.</p>
-   * @public
-   */
-  Labels?: string[] | undefined;
-
-  /**
-   * <p>The parameter tier.</p>
-   * @public
-   */
-  Tier?: ParameterTier | undefined;
-
-  /**
-   * <p>Information about the policies assigned to a parameter.</p>
-   *          <p>
-   *             <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Assigning parameter
-   *     policies</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   * @public
-   */
-  Policies?: ParameterInlinePolicy[] | undefined;
-
-  /**
-   * <p>The data type of the parameter, such as <code>text</code> or <code>aws:ec2:image</code>. The
-   *    default is <code>text</code>.</p>
-   * @public
-   */
-  DataType?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetParameterHistoryResult {
-  /**
-   * <p>A list of parameters returned by the request.</p>
-   * @public
-   */
-  Parameters?: ParameterHistory[] | undefined;
-
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to
-   *    return, the string is empty.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }
