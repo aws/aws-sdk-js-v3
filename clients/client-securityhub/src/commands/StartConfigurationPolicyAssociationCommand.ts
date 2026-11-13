@@ -55,7 +55,7 @@ export interface StartConfigurationPolicyAssociationCommandOutput extends StartC
  * //   TargetType: "ACCOUNT" || "ORGANIZATIONAL_UNIT" || "ROOT",
  * //   AssociationType: "INHERITED" || "APPLIED",
  * //   UpdatedAt: new Date("TIMESTAMP"),
- * //   AssociationStatus: "PENDING" || "SUCCESS" || "FAILED",
+ * //   AssociationStatus: "PENDING" || "SUCCESS" || "FAILED" || "DISABLED",
  * //   AssociationStatusMessage: "STRING_VALUE",
  * // };
  *

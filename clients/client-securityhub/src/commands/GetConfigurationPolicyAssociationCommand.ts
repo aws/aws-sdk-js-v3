@@ -54,7 +54,7 @@ export interface GetConfigurationPolicyAssociationCommandOutput extends GetConfi
  * //   TargetType: "ACCOUNT" || "ORGANIZATIONAL_UNIT" || "ROOT",
  * //   AssociationType: "INHERITED" || "APPLIED",
  * //   UpdatedAt: new Date("TIMESTAMP"),
- * //   AssociationStatus: "PENDING" || "SUCCESS" || "FAILED",
+ * //   AssociationStatus: "PENDING" || "SUCCESS" || "FAILED" || "DISABLED",
  * //   AssociationStatusMessage: "STRING_VALUE",
  * // };
  *

@@ -127,6 +127,7 @@ export type AllowedOperators = (typeof AllowedOperators)[keyof typeof AllowedOpe
  * @enum
  */
 export const ConfigurationPolicyAssociationStatus = {
+  DISABLED: "DISABLED",
   FAILED: "FAILED",
   PENDING: "PENDING",
   SUCCESS: "SUCCESS",
@@ -1176,6 +1177,7 @@ export type OrganizationConfigurationConfigurationType =
  * @enum
  */
 export const OrganizationConfigurationStatus = {
+  DISABLED: "DISABLED",
   ENABLED: "ENABLED",
   FAILED: "FAILED",
   PENDING: "PENDING",

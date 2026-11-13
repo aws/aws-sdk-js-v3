@@ -1200,7 +1200,10 @@ export interface AssociationFilters {
 
   /**
    * <p>
-   *             The current status of the association between a target and a configuration policy.
+   *             The current status of the association between a target and a configuration policy. Possible values are
+   *             <code>PENDING</code>, <code>SUCCESS</code>, <code>FAILED</code>, and <code>DISABLED</code>. The value is
+   *             <code>DISABLED</code> when central configuration is disabled because the organization is managed by
+   *             Security Hub CSPM policies in Organizations.
    *         </p>
    * @public
    */

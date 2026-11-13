@@ -41,7 +41,7 @@ export interface UpdateOrganizationConfigurationCommandOutput extends UpdateOrga
  *   AutoEnableStandards: "NONE" || "DEFAULT",
  *   OrganizationConfiguration: { // OrganizationConfiguration
  *     ConfigurationType: "CENTRAL" || "LOCAL",
- *     Status: "PENDING" || "ENABLED" || "FAILED",
+ *     Status: "PENDING" || "ENABLED" || "FAILED" || "DISABLED",
  *     StatusMessage: "STRING_VALUE",
  *   },
  * };

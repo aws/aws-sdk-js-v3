@@ -44,7 +44,7 @@ export interface ListConfigurationPolicyAssociationsCommandOutput extends ListCo
  *   Filters: { // AssociationFilters
  *     ConfigurationPolicyId: "STRING_VALUE",
  *     AssociationType: "INHERITED" || "APPLIED",
- *     AssociationStatus: "PENDING" || "SUCCESS" || "FAILED",
+ *     AssociationStatus: "PENDING" || "SUCCESS" || "FAILED" || "DISABLED",
  *   },
  * };
  * const command = new ListConfigurationPolicyAssociationsCommand(input);
@@ -57,7 +57,7 @@ export interface ListConfigurationPolicyAssociationsCommandOutput extends ListCo
  * //       TargetType: "ACCOUNT" || "ORGANIZATIONAL_UNIT" || "ROOT",
  * //       AssociationType: "INHERITED" || "APPLIED",
  * //       UpdatedAt: new Date("TIMESTAMP"),
- * //       AssociationStatus: "PENDING" || "SUCCESS" || "FAILED",
+ * //       AssociationStatus: "PENDING" || "SUCCESS" || "FAILED" || "DISABLED",
  * //       AssociationStatusMessage: "STRING_VALUE",
  * //     },
  * //   ],

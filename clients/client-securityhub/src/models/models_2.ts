@@ -4221,8 +4221,27 @@ export interface ConfigurationPolicyAssociationSummary {
 
   /**
    * <p>
-   *             The current status of the association between the specified target and the configuration.
+   *             The current status of the association between the specified target and the configuration. Possible values are:
    *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - The association is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCESS</code> - The association succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The association failed. For details, see <code>AssociationStatusMessage</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> - Central configuration is disabled because the organization is managed by
+   *                 Security Hub CSPM policies in Organizations.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   AssociationStatus?: ConfigurationPolicyAssociationStatus | undefined;
@@ -7937,6 +7956,10 @@ export interface OrganizationConfiguration {
    *             organization. If your <code>ConfigurationType</code> is local configuration, then the value of <code>Status</code>
    *             is always <code>ENABLED</code>.
    *         </p>
+   *          <p>
+   *             If the value of <code>Status</code> is <code>DISABLED</code>, central configuration is disabled because the
+   *             organization is managed by Security Hub CSPM policies in Organizations.
+   *         </p>
    * @public
    */
   Status?: OrganizationConfigurationStatus | undefined;
@@ -9486,8 +9509,27 @@ export interface GetConfigurationPolicyAssociationResponse {
 
   /**
    * <p>
-   *             The current status of the association between the specified target and the configuration.
+   *             The current status of the association between the specified target and the configuration. Possible values are:
    *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - The association is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCESS</code> - The association succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The association failed. For details, see <code>AssociationStatusMessage</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> - Central configuration is disabled because the organization is managed by
+   *                 Security Hub CSPM policies in Organizations.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   AssociationStatus?: ConfigurationPolicyAssociationStatus | undefined;
