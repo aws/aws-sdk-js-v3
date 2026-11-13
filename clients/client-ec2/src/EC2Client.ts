@@ -158,6 +158,10 @@ import type {
   AssociateNatGatewayAddressCommandOutput,
 } from "./commands/AssociateNatGatewayAddressCommand";
 import type {
+  AssociateNetworkingFlexCostAllocationPolicyCommandInput,
+  AssociateNetworkingFlexCostAllocationPolicyCommandOutput,
+} from "./commands/AssociateNetworkingFlexCostAllocationPolicyCommand";
+import type {
   AssociateRouteServerCommandInput,
   AssociateRouteServerCommandOutput,
 } from "./commands/AssociateRouteServerCommand";
@@ -445,6 +449,10 @@ import type {
   CreateNetworkAclEntryCommandInput,
   CreateNetworkAclEntryCommandOutput,
 } from "./commands/CreateNetworkAclEntryCommand";
+import type {
+  CreateNetworkingFlexCostAllocationPolicyCommandInput,
+  CreateNetworkingFlexCostAllocationPolicyCommandOutput,
+} from "./commands/CreateNetworkingFlexCostAllocationPolicyCommand";
 import type {
   CreateNetworkInsightsAccessScopeCommandInput,
   CreateNetworkInsightsAccessScopeCommandOutput,
@@ -782,6 +790,10 @@ import type {
   DeleteNetworkAclEntryCommandInput,
   DeleteNetworkAclEntryCommandOutput,
 } from "./commands/DeleteNetworkAclEntryCommand";
+import type {
+  DeleteNetworkingFlexCostAllocationPoliciesCommandInput,
+  DeleteNetworkingFlexCostAllocationPoliciesCommandOutput,
+} from "./commands/DeleteNetworkingFlexCostAllocationPoliciesCommand";
 import type {
   DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
   DeleteNetworkInsightsAccessScopeAnalysisCommandOutput,
@@ -1416,6 +1428,14 @@ import type {
   DescribeNetworkAclsCommandOutput,
 } from "./commands/DescribeNetworkAclsCommand";
 import type {
+  DescribeNetworkingFlexCostAllocationPoliciesCommandInput,
+  DescribeNetworkingFlexCostAllocationPoliciesCommandOutput,
+} from "./commands/DescribeNetworkingFlexCostAllocationPoliciesCommand";
+import type {
+  DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandInput,
+  DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandOutput,
+} from "./commands/DescribeNetworkingFlexCostAllocationPolicyAssociationsCommand";
+import type {
   DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
   DescribeNetworkInsightsAccessScopeAnalysesCommandOutput,
 } from "./commands/DescribeNetworkInsightsAccessScopeAnalysesCommand";
@@ -1900,6 +1920,10 @@ import type {
   DisassociateNatGatewayAddressCommandOutput,
 } from "./commands/DisassociateNatGatewayAddressCommand";
 import type {
+  DisassociateNetworkingFlexCostAllocationPolicyCommandInput,
+  DisassociateNetworkingFlexCostAllocationPolicyCommandOutput,
+} from "./commands/DisassociateNetworkingFlexCostAllocationPolicyCommand";
+import type {
   DisassociateRouteServerCommandInput,
   DisassociateRouteServerCommandOutput,
 } from "./commands/DisassociateRouteServerCommand";
@@ -2238,6 +2262,10 @@ import type {
   GetManagedResourceVisibilityCommandOutput,
 } from "./commands/GetManagedResourceVisibilityCommand";
 import type {
+  GetNetworkingFlexCostAllocationPolicyVersionsCommandInput,
+  GetNetworkingFlexCostAllocationPolicyVersionsCommandOutput,
+} from "./commands/GetNetworkingFlexCostAllocationPolicyVersionsCommand";
+import type {
   GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
   GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput,
 } from "./commands/GetNetworkInsightsAccessScopeAnalysisFindingsCommand";
@@ -2522,6 +2550,10 @@ import type {
   ModifyMetricCategoryCommandInput,
   ModifyMetricCategoryCommandOutput,
 } from "./commands/ModifyMetricCategoryCommand";
+import type {
+  ModifyNetworkingFlexCostAllocationPolicyCommandInput,
+  ModifyNetworkingFlexCostAllocationPolicyCommandOutput,
+} from "./commands/ModifyNetworkingFlexCostAllocationPolicyCommand";
 import type {
   ModifyNetworkInterfaceAttributeCommandInput,
   ModifyNetworkInterfaceAttributeCommandOutput,
@@ -3024,6 +3056,7 @@ export type ServiceInputTypes =
   | AssociateIpamByoasnCommandInput
   | AssociateIpamResourceDiscoveryCommandInput
   | AssociateNatGatewayAddressCommandInput
+  | AssociateNetworkingFlexCostAllocationPolicyCommandInput
   | AssociateRouteServerCommandInput
   | AssociateRouteTableCommandInput
   | AssociateSecurityGroupVpcCommandInput
@@ -3118,6 +3151,7 @@ export type ServiceInputTypes =
   | CreateNetworkInsightsPathCommandInput
   | CreateNetworkInterfaceCommandInput
   | CreateNetworkInterfacePermissionCommandInput
+  | CreateNetworkingFlexCostAllocationPolicyCommandInput
   | CreatePlacementGroupCommandInput
   | CreatePublicIpv4PoolCommandInput
   | CreateReplaceRootVolumeTaskCommandInput
@@ -3220,6 +3254,7 @@ export type ServiceInputTypes =
   | DeleteNetworkInsightsPathCommandInput
   | DeleteNetworkInterfaceCommandInput
   | DeleteNetworkInterfacePermissionCommandInput
+  | DeleteNetworkingFlexCostAllocationPoliciesCommandInput
   | DeletePlacementGroupCommandInput
   | DeletePublicIpv4PoolCommandInput
   | DeleteQueuedReservedInstancesCommandInput
@@ -3392,6 +3427,8 @@ export type ServiceInputTypes =
   | DescribeNetworkInterfaceAttributeCommandInput
   | DescribeNetworkInterfacePermissionsCommandInput
   | DescribeNetworkInterfacesCommandInput
+  | DescribeNetworkingFlexCostAllocationPoliciesCommandInput
+  | DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandInput
   | DescribeOutpostLagsCommandInput
   | DescribePlacementGroupsCommandInput
   | DescribePrefixListsCommandInput
@@ -3512,6 +3549,7 @@ export type ServiceInputTypes =
   | DisassociateIpamByoasnCommandInput
   | DisassociateIpamResourceDiscoveryCommandInput
   | DisassociateNatGatewayAddressCommandInput
+  | DisassociateNetworkingFlexCostAllocationPolicyCommandInput
   | DisassociateRouteServerCommandInput
   | DisassociateRouteTableCommandInput
   | DisassociateSecurityGroupVpcCommandInput
@@ -3606,6 +3644,7 @@ export type ServiceInputTypes =
   | GetManagedResourceVisibilityCommandInput
   | GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput
   | GetNetworkInsightsAccessScopeContentCommandInput
+  | GetNetworkingFlexCostAllocationPolicyVersionsCommandInput
   | GetPasswordDataCommandInput
   | GetReservedInstancesExchangeQuoteCommandInput
   | GetRouteServerAssociationsCommandInput
@@ -3686,6 +3725,7 @@ export type ServiceInputTypes =
   | ModifyManagedResourceVisibilityCommandInput
   | ModifyMetricCategoryCommandInput
   | ModifyNetworkInterfaceAttributeCommandInput
+  | ModifyNetworkingFlexCostAllocationPolicyCommandInput
   | ModifyPrivateDnsNameOptionsCommandInput
   | ModifyPublicIpDnsNameOptionsCommandInput
   | ModifyReservedInstancesCommandInput
@@ -3844,6 +3884,7 @@ export type ServiceOutputTypes =
   | AssociateIpamByoasnCommandOutput
   | AssociateIpamResourceDiscoveryCommandOutput
   | AssociateNatGatewayAddressCommandOutput
+  | AssociateNetworkingFlexCostAllocationPolicyCommandOutput
   | AssociateRouteServerCommandOutput
   | AssociateRouteTableCommandOutput
   | AssociateSecurityGroupVpcCommandOutput
@@ -3938,6 +3979,7 @@ export type ServiceOutputTypes =
   | CreateNetworkInsightsPathCommandOutput
   | CreateNetworkInterfaceCommandOutput
   | CreateNetworkInterfacePermissionCommandOutput
+  | CreateNetworkingFlexCostAllocationPolicyCommandOutput
   | CreatePlacementGroupCommandOutput
   | CreatePublicIpv4PoolCommandOutput
   | CreateReplaceRootVolumeTaskCommandOutput
@@ -4040,6 +4082,7 @@ export type ServiceOutputTypes =
   | DeleteNetworkInsightsPathCommandOutput
   | DeleteNetworkInterfaceCommandOutput
   | DeleteNetworkInterfacePermissionCommandOutput
+  | DeleteNetworkingFlexCostAllocationPoliciesCommandOutput
   | DeletePlacementGroupCommandOutput
   | DeletePublicIpv4PoolCommandOutput
   | DeleteQueuedReservedInstancesCommandOutput
@@ -4212,6 +4255,8 @@ export type ServiceOutputTypes =
   | DescribeNetworkInterfaceAttributeCommandOutput
   | DescribeNetworkInterfacePermissionsCommandOutput
   | DescribeNetworkInterfacesCommandOutput
+  | DescribeNetworkingFlexCostAllocationPoliciesCommandOutput
+  | DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandOutput
   | DescribeOutpostLagsCommandOutput
   | DescribePlacementGroupsCommandOutput
   | DescribePrefixListsCommandOutput
@@ -4332,6 +4377,7 @@ export type ServiceOutputTypes =
   | DisassociateIpamByoasnCommandOutput
   | DisassociateIpamResourceDiscoveryCommandOutput
   | DisassociateNatGatewayAddressCommandOutput
+  | DisassociateNetworkingFlexCostAllocationPolicyCommandOutput
   | DisassociateRouteServerCommandOutput
   | DisassociateRouteTableCommandOutput
   | DisassociateSecurityGroupVpcCommandOutput
@@ -4426,6 +4472,7 @@ export type ServiceOutputTypes =
   | GetManagedResourceVisibilityCommandOutput
   | GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
   | GetNetworkInsightsAccessScopeContentCommandOutput
+  | GetNetworkingFlexCostAllocationPolicyVersionsCommandOutput
   | GetPasswordDataCommandOutput
   | GetReservedInstancesExchangeQuoteCommandOutput
   | GetRouteServerAssociationsCommandOutput
@@ -4506,6 +4553,7 @@ export type ServiceOutputTypes =
   | ModifyManagedResourceVisibilityCommandOutput
   | ModifyMetricCategoryCommandOutput
   | ModifyNetworkInterfaceAttributeCommandOutput
+  | ModifyNetworkingFlexCostAllocationPolicyCommandOutput
   | ModifyPrivateDnsNameOptionsCommandOutput
   | ModifyPublicIpDnsNameOptionsCommandOutput
   | ModifyReservedInstancesCommandOutput

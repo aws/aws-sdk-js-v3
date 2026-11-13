@@ -1,0 +1,209 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<AssociateNetworkingFlexCostAllocationPolicyResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<AssociateNetworkingFlexCostAllocationPolicyResult xmlns="https://placeholder.amazonaws.com">
+    <fcaPolicyAssociations>
+        <item>
+            <fcaPolicyAssociationId>
+                __FcaPolicyAssociationId__
+            </fcaPolicyAssociationId>
+            <fcaPolicyId>
+                __FcaPolicyId__
+            </fcaPolicyId>
+            <networkResourceId>
+                __NetworkResourceId__
+            </networkResourceId>
+            <ownerAccount>
+                __OwnerAccount__
+            </ownerAccount>
+            <associatedAt>
+                2000-01-01T04:59:59.999Z
+            </associatedAt>
+            <expectedEffectiveAt>
+                2000-01-01T04:59:59.999Z
+            </expectedEffectiveAt>
+            <associationMode>
+                __AssociationMode__
+            </associationMode>
+            <managedBy>
+                __ManagedBy__
+            </managedBy>
+        </item>
+        <item>
+            <fcaPolicyAssociationId>
+                __FcaPolicyAssociationId__
+            </fcaPolicyAssociationId>
+            <fcaPolicyId>
+                __FcaPolicyId__
+            </fcaPolicyId>
+            <networkResourceId>
+                __NetworkResourceId__
+            </networkResourceId>
+            <ownerAccount>
+                __OwnerAccount__
+            </ownerAccount>
+            <associatedAt>
+                2000-01-01T04:59:59.999Z
+            </associatedAt>
+            <expectedEffectiveAt>
+                2000-01-01T04:59:59.999Z
+            </expectedEffectiveAt>
+            <associationMode>
+                __AssociationMode__
+            </associationMode>
+            <managedBy>
+                __ManagedBy__
+            </managedBy>
+        </item>
+        <item>
+            <fcaPolicyAssociationId>
+                __FcaPolicyAssociationId__
+            </fcaPolicyAssociationId>
+            <fcaPolicyId>
+                __FcaPolicyId__
+            </fcaPolicyId>
+            <networkResourceId>
+                __NetworkResourceId__
+            </networkResourceId>
+            <ownerAccount>
+                __OwnerAccount__
+            </ownerAccount>
+            <associatedAt>
+                2000-01-01T04:59:59.999Z
+            </associatedAt>
+            <expectedEffectiveAt>
+                2000-01-01T04:59:59.999Z
+            </expectedEffectiveAt>
+            <associationMode>
+                __AssociationMode__
+            </associationMode>
+            <managedBy>
+                __ManagedBy__
+            </managedBy>
+        </item>
+    </fcaPolicyAssociations>
+    <fcaPolicyAssociationFailures>
+        <item>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <failureCode>
+                __FailureCode__
+            </failureCode>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+        </item>
+        <item>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <failureCode>
+                __FailureCode__
+            </failureCode>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+        </item>
+        <item>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <failureCode>
+                __FailureCode__
+            </failureCode>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+        </item>
+    </fcaPolicyAssociationFailures>
+</AssociateNetworkingFlexCostAllocationPolicyResult>
+
+
+--- [output object] ---
+{
+  FcaPolicyAssociations: [
+    {
+      FcaPolicyAssociationId: "__FcaPolicyAssociationId__",
+      FcaPolicyId: "__FcaPolicyId__",
+      NetworkResourceId: "__NetworkResourceId__",
+      OwnerAccount: "__OwnerAccount__",
+      AssociatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ExpectedEffectiveAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      AssociationMode: "__AssociationMode__",
+      ManagedBy: "__ManagedBy__"
+    },
+    {
+      FcaPolicyAssociationId: "__FcaPolicyAssociationId__",
+      FcaPolicyId: "__FcaPolicyId__",
+      NetworkResourceId: "__NetworkResourceId__",
+      OwnerAccount: "__OwnerAccount__",
+      AssociatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ExpectedEffectiveAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      AssociationMode: "__AssociationMode__",
+      ManagedBy: "__ManagedBy__"
+    },
+    {
+      FcaPolicyAssociationId: "__FcaPolicyAssociationId__",
+      FcaPolicyId: "__FcaPolicyId__",
+      NetworkResourceId: "__NetworkResourceId__",
+      OwnerAccount: "__OwnerAccount__",
+      AssociatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ExpectedEffectiveAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      AssociationMode: "__AssociationMode__",
+      ManagedBy: "__ManagedBy__"
+    }
+  ],
+  FcaPolicyAssociationFailures: [
+    {
+      ResourceId: "__ResourceId__",
+      FailureCode: "__FailureCode__",
+      FailureReason: "__FailureReason__"
+    },
+    {
+      ResourceId: "__ResourceId__",
+      FailureCode: "__FailureCode__",
+      FailureReason: "__FailureReason__"
+    },
+    {
+      ResourceId: "__ResourceId__",
+      FailureCode: "__FailureCode__",
+      FailureReason: "__FailureReason__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetTransitGatewayMeteringPolicyEntriesRequest,
   GetTransitGatewayMeteringPolicyEntriesResult,
-} from "../models/models_6";
+} from "../models/models_7";
 import { GetTransitGatewayMeteringPolicyEntries$ } from "../schemas/schemas_0";
 
 /**

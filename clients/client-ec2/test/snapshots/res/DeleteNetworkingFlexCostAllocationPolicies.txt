@@ -1,0 +1,113 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteNetworkingFlexCostAllocationPoliciesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteNetworkingFlexCostAllocationPoliciesResult xmlns="https://placeholder.amazonaws.com">
+    <successful>
+        <item>
+            __member__
+        </item>
+        <item>
+            __member__
+        </item>
+        <item>
+            __member__
+        </item>
+    </successful>
+    <failed>
+        <item>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <failureCode>
+                __FailureCode__
+            </failureCode>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+        </item>
+        <item>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <failureCode>
+                __FailureCode__
+            </failureCode>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+        </item>
+        <item>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <failureCode>
+                __FailureCode__
+            </failureCode>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+        </item>
+    </failed>
+</DeleteNetworkingFlexCostAllocationPoliciesResult>
+
+
+--- [output object] ---
+{
+  Successful: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  Failed: [
+    {
+      ResourceId: "__ResourceId__",
+      FailureCode: "__FailureCode__",
+      FailureReason: "__FailureReason__"
+    },
+    {
+      ResourceId: "__ResourceId__",
+      FailureCode: "__FailureCode__",
+      FailureReason: "__FailureReason__"
+    },
+    {
+      ResourceId: "__ResourceId__",
+      FailureCode: "__FailureCode__",
+      FailureReason: "__FailureReason__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

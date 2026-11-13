@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetSpotPlacementScoresRequest, GetSpotPlacementScoresResult } from "../models/models_6";
+import type { GetSpotPlacementScoresRequest, GetSpotPlacementScoresResult } from "../models/models_7";
 import { GetSpotPlacementScores$ } from "../schemas/schemas_0";
 
 /**

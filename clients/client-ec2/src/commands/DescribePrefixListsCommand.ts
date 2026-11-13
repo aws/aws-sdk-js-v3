@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribePrefixListsRequest, DescribePrefixListsResult } from "../models/models_4";
+import type { DescribePrefixListsRequest, DescribePrefixListsResult } from "../models/models_5";
 import { DescribePrefixLists$ } from "../schemas/schemas_0";
 
 /**

@@ -184,6 +184,10 @@ import {
   AssociateNatGatewayAddressCommand,
   AssociateNatGatewayAddressRequest$,
   AssociateNatGatewayAddressResult$,
+  AssociateNetworkingFlexCostAllocationPolicy$,
+  AssociateNetworkingFlexCostAllocationPolicyCommand,
+  AssociateNetworkingFlexCostAllocationPolicyRequest$,
+  AssociateNetworkingFlexCostAllocationPolicyResult$,
   AssociateRouteServer$,
   AssociateRouteServerCommand,
   AssociateRouteServerRequest$,
@@ -715,6 +719,10 @@ import {
   CreateNetworkAclEntryRequest$,
   CreateNetworkAclRequest$,
   CreateNetworkAclResult$,
+  CreateNetworkingFlexCostAllocationPolicy$,
+  CreateNetworkingFlexCostAllocationPolicyCommand,
+  CreateNetworkingFlexCostAllocationPolicyRequest$,
+  CreateNetworkingFlexCostAllocationPolicyResult$,
   CreateNetworkInsightsAccessScope$,
   CreateNetworkInsightsAccessScopeCommand,
   CreateNetworkInsightsAccessScopeRequest$,
@@ -1145,6 +1153,10 @@ import {
   DeleteNetworkAclEntryCommand,
   DeleteNetworkAclEntryRequest$,
   DeleteNetworkAclRequest$,
+  DeleteNetworkingFlexCostAllocationPolicies$,
+  DeleteNetworkingFlexCostAllocationPoliciesCommand,
+  DeleteNetworkingFlexCostAllocationPoliciesRequest$,
+  DeleteNetworkingFlexCostAllocationPoliciesResult$,
   DeleteNetworkInsightsAccessScope$,
   DeleteNetworkInsightsAccessScopeAnalysis$,
   DeleteNetworkInsightsAccessScopeAnalysisCommand,
@@ -1824,6 +1836,14 @@ import {
   DescribeNetworkAclsCommand,
   DescribeNetworkAclsRequest$,
   DescribeNetworkAclsResult$,
+  DescribeNetworkingFlexCostAllocationPolicies$,
+  DescribeNetworkingFlexCostAllocationPoliciesCommand,
+  DescribeNetworkingFlexCostAllocationPoliciesRequest$,
+  DescribeNetworkingFlexCostAllocationPoliciesResult$,
+  DescribeNetworkingFlexCostAllocationPolicyAssociations$,
+  DescribeNetworkingFlexCostAllocationPolicyAssociationsCommand,
+  DescribeNetworkingFlexCostAllocationPolicyAssociationsRequest$,
+  DescribeNetworkingFlexCostAllocationPolicyAssociationsResult$,
   DescribeNetworkInsightsAccessScopeAnalyses$,
   DescribeNetworkInsightsAccessScopeAnalysesCommand,
   DescribeNetworkInsightsAccessScopeAnalysesRequest$,
@@ -2343,6 +2363,10 @@ import {
   DisassociateNatGatewayAddressCommand,
   DisassociateNatGatewayAddressRequest$,
   DisassociateNatGatewayAddressResult$,
+  DisassociateNetworkingFlexCostAllocationPolicy$,
+  DisassociateNetworkingFlexCostAllocationPolicyCommand,
+  DisassociateNetworkingFlexCostAllocationPolicyRequest$,
+  DisassociateNetworkingFlexCostAllocationPolicyResult$,
   DisassociateRouteServer$,
   DisassociateRouteServerCommand,
   DisassociateRouteServerRequest$,
@@ -2620,6 +2644,18 @@ import {
   FleetSpotMaintenanceStrategiesRequest$,
   FleetStateCode,
   FleetType,
+  FlexCostAllocationAssociationMode,
+  FlexCostAllocationCidrMapping$,
+  FlexCostAllocationCidrRangeSpecifications$,
+  FlexCostAllocationCostDimension,
+  FlexCostAllocationNetworkResourceScope$,
+  FlexCostAllocationNetworkResourceScopeType,
+  FlexCostAllocationNetworkResourceType,
+  FlexCostAllocationOperationFailure$,
+  FlexCostAllocationPolicyAssociationDescription$,
+  FlexCostAllocationPolicyDescription$,
+  FlexCostAllocationPolicyVersion$,
+  FlexCostAllocationReportingGranularity,
   FlexibleEnaQueuesSupport,
   FlowLog$,
   FlowLogsResourceType,
@@ -2845,6 +2881,10 @@ import {
   GetManagedResourceVisibilityCommand,
   GetManagedResourceVisibilityRequest$,
   GetManagedResourceVisibilityResult$,
+  GetNetworkingFlexCostAllocationPolicyVersions$,
+  GetNetworkingFlexCostAllocationPolicyVersionsCommand,
+  GetNetworkingFlexCostAllocationPolicyVersionsRequest$,
+  GetNetworkingFlexCostAllocationPolicyVersionsResult$,
   GetNetworkInsightsAccessScopeAnalysisFindings$,
   GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
   GetNetworkInsightsAccessScopeAnalysisFindingsRequest$,
@@ -3088,6 +3128,7 @@ import {
   InstanceEventWindowTimeRangeRequest$,
   InstanceExportDetails$,
   InstanceFamilyCreditSpecification$,
+  InstanceFlexCostAllocationPolicyDocument$,
   InstanceGeneration,
   InstanceHealthStatus,
   InstanceImageMetadata$,
@@ -3573,6 +3614,10 @@ import {
   ModifyMetricCategoryCommand,
   ModifyMetricCategoryRequest$,
   ModifyMetricCategoryResult$,
+  ModifyNetworkingFlexCostAllocationPolicy$,
+  ModifyNetworkingFlexCostAllocationPolicyCommand,
+  ModifyNetworkingFlexCostAllocationPolicyRequest$,
+  ModifyNetworkingFlexCostAllocationPolicyResult$,
   ModifyNetworkInterfaceAttribute$,
   ModifyNetworkInterfaceAttributeCommand,
   ModifyNetworkInterfaceAttributeRequest$,
@@ -3776,6 +3821,7 @@ import {
   MoveStatus,
   MovingAddressStatus$,
   MulticastSupportValue,
+  NatFlexCostAllocationPolicyDocument$,
   NatGateway$,
   NatGatewayAddress$,
   NatGatewayAddressStatus,
@@ -3910,6 +3956,8 @@ import {
   paginateDescribeMovingAddresses,
   paginateDescribeNatGateways,
   paginateDescribeNetworkAcls,
+  paginateDescribeNetworkingFlexCostAllocationPolicies,
+  paginateDescribeNetworkingFlexCostAllocationPolicyAssociations,
   paginateDescribeNetworkInsightsAccessScopeAnalyses,
   paginateDescribeNetworkInsightsAccessScopes,
   paginateDescribeNetworkInsightsAnalyses,
@@ -4021,6 +4069,7 @@ import {
   PayerResponsibilityType,
   PaymentOption,
   PciId$,
+  PcxFlexCostAllocationPolicyDocument$,
   PeeringAttachmentStatus$,
   PeeringConnectionOptions$,
   PeeringConnectionOptionsRequest$,
@@ -5000,6 +5049,8 @@ assert(typeof AssociateIpamResourceDiscoveryCommand === "function");
 assert(typeof AssociateIpamResourceDiscovery$ === "object");
 assert(typeof AssociateNatGatewayAddressCommand === "function");
 assert(typeof AssociateNatGatewayAddress$ === "object");
+assert(typeof AssociateNetworkingFlexCostAllocationPolicyCommand === "function");
+assert(typeof AssociateNetworkingFlexCostAllocationPolicy$ === "object");
 assert(typeof AssociateRouteServerCommand === "function");
 assert(typeof AssociateRouteServer$ === "object");
 assert(typeof AssociateRouteTableCommand === "function");
@@ -5180,6 +5231,8 @@ assert(typeof CreateNetworkAclCommand === "function");
 assert(typeof CreateNetworkAcl$ === "object");
 assert(typeof CreateNetworkAclEntryCommand === "function");
 assert(typeof CreateNetworkAclEntry$ === "object");
+assert(typeof CreateNetworkingFlexCostAllocationPolicyCommand === "function");
+assert(typeof CreateNetworkingFlexCostAllocationPolicy$ === "object");
 assert(typeof CreateNetworkInsightsAccessScopeCommand === "function");
 assert(typeof CreateNetworkInsightsAccessScope$ === "object");
 assert(typeof CreateNetworkInsightsPathCommand === "function");
@@ -5380,6 +5433,8 @@ assert(typeof DeleteNetworkAclCommand === "function");
 assert(typeof DeleteNetworkAcl$ === "object");
 assert(typeof DeleteNetworkAclEntryCommand === "function");
 assert(typeof DeleteNetworkAclEntry$ === "object");
+assert(typeof DeleteNetworkingFlexCostAllocationPoliciesCommand === "function");
+assert(typeof DeleteNetworkingFlexCostAllocationPolicies$ === "object");
 assert(typeof DeleteNetworkInsightsAccessScopeCommand === "function");
 assert(typeof DeleteNetworkInsightsAccessScope$ === "object");
 assert(typeof DeleteNetworkInsightsAccessScopeAnalysisCommand === "function");
@@ -5722,6 +5777,10 @@ assert(typeof DescribeNatGatewaysCommand === "function");
 assert(typeof DescribeNatGateways$ === "object");
 assert(typeof DescribeNetworkAclsCommand === "function");
 assert(typeof DescribeNetworkAcls$ === "object");
+assert(typeof DescribeNetworkingFlexCostAllocationPoliciesCommand === "function");
+assert(typeof DescribeNetworkingFlexCostAllocationPolicies$ === "object");
+assert(typeof DescribeNetworkingFlexCostAllocationPolicyAssociationsCommand === "function");
+assert(typeof DescribeNetworkingFlexCostAllocationPolicyAssociations$ === "object");
 assert(typeof DescribeNetworkInsightsAccessScopeAnalysesCommand === "function");
 assert(typeof DescribeNetworkInsightsAccessScopeAnalyses$ === "object");
 assert(typeof DescribeNetworkInsightsAccessScopesCommand === "function");
@@ -5976,6 +6035,8 @@ assert(typeof DisassociateIpamResourceDiscoveryCommand === "function");
 assert(typeof DisassociateIpamResourceDiscovery$ === "object");
 assert(typeof DisassociateNatGatewayAddressCommand === "function");
 assert(typeof DisassociateNatGatewayAddress$ === "object");
+assert(typeof DisassociateNetworkingFlexCostAllocationPolicyCommand === "function");
+assert(typeof DisassociateNetworkingFlexCostAllocationPolicy$ === "object");
 assert(typeof DisassociateRouteServerCommand === "function");
 assert(typeof DisassociateRouteServer$ === "object");
 assert(typeof DisassociateRouteTableCommand === "function");
@@ -6160,6 +6221,8 @@ assert(typeof GetManagedPrefixListEntriesCommand === "function");
 assert(typeof GetManagedPrefixListEntries$ === "object");
 assert(typeof GetManagedResourceVisibilityCommand === "function");
 assert(typeof GetManagedResourceVisibility$ === "object");
+assert(typeof GetNetworkingFlexCostAllocationPolicyVersionsCommand === "function");
+assert(typeof GetNetworkingFlexCostAllocationPolicyVersions$ === "object");
 assert(typeof GetNetworkInsightsAccessScopeAnalysisFindingsCommand === "function");
 assert(typeof GetNetworkInsightsAccessScopeAnalysisFindings$ === "object");
 assert(typeof GetNetworkInsightsAccessScopeContentCommand === "function");
@@ -6322,6 +6385,8 @@ assert(typeof ModifyManagedResourceVisibilityCommand === "function");
 assert(typeof ModifyManagedResourceVisibility$ === "object");
 assert(typeof ModifyMetricCategoryCommand === "function");
 assert(typeof ModifyMetricCategory$ === "object");
+assert(typeof ModifyNetworkingFlexCostAllocationPolicyCommand === "function");
+assert(typeof ModifyNetworkingFlexCostAllocationPolicy$ === "object");
 assert(typeof ModifyNetworkInterfaceAttributeCommand === "function");
 assert(typeof ModifyNetworkInterfaceAttribute$ === "object");
 assert(typeof ModifyPrivateDnsNameOptionsCommand === "function");
@@ -6673,6 +6738,8 @@ assert(typeof AssociateIpamResourceDiscoveryRequest$ === "object");
 assert(typeof AssociateIpamResourceDiscoveryResult$ === "object");
 assert(typeof AssociateNatGatewayAddressRequest$ === "object");
 assert(typeof AssociateNatGatewayAddressResult$ === "object");
+assert(typeof AssociateNetworkingFlexCostAllocationPolicyRequest$ === "object");
+assert(typeof AssociateNetworkingFlexCostAllocationPolicyResult$ === "object");
 assert(typeof AssociateRouteServerRequest$ === "object");
 assert(typeof AssociateRouteServerResult$ === "object");
 assert(typeof AssociateRouteTableRequest$ === "object");
@@ -6958,6 +7025,8 @@ assert(typeof CreateNatGatewayResult$ === "object");
 assert(typeof CreateNetworkAclEntryRequest$ === "object");
 assert(typeof CreateNetworkAclRequest$ === "object");
 assert(typeof CreateNetworkAclResult$ === "object");
+assert(typeof CreateNetworkingFlexCostAllocationPolicyRequest$ === "object");
+assert(typeof CreateNetworkingFlexCostAllocationPolicyResult$ === "object");
 assert(typeof CreateNetworkInsightsAccessScopeRequest$ === "object");
 assert(typeof CreateNetworkInsightsAccessScopeResult$ === "object");
 assert(typeof CreateNetworkInsightsPathRequest$ === "object");
@@ -7179,6 +7248,8 @@ assert(typeof DeleteNatGatewayRequest$ === "object");
 assert(typeof DeleteNatGatewayResult$ === "object");
 assert(typeof DeleteNetworkAclEntryRequest$ === "object");
 assert(typeof DeleteNetworkAclRequest$ === "object");
+assert(typeof DeleteNetworkingFlexCostAllocationPoliciesRequest$ === "object");
+assert(typeof DeleteNetworkingFlexCostAllocationPoliciesResult$ === "object");
 assert(typeof DeleteNetworkInsightsAccessScopeAnalysisRequest$ === "object");
 assert(typeof DeleteNetworkInsightsAccessScopeAnalysisResult$ === "object");
 assert(typeof DeleteNetworkInsightsAccessScopeRequest$ === "object");
@@ -7515,6 +7586,10 @@ assert(typeof DescribeNatGatewaysRequest$ === "object");
 assert(typeof DescribeNatGatewaysResult$ === "object");
 assert(typeof DescribeNetworkAclsRequest$ === "object");
 assert(typeof DescribeNetworkAclsResult$ === "object");
+assert(typeof DescribeNetworkingFlexCostAllocationPoliciesRequest$ === "object");
+assert(typeof DescribeNetworkingFlexCostAllocationPoliciesResult$ === "object");
+assert(typeof DescribeNetworkingFlexCostAllocationPolicyAssociationsRequest$ === "object");
+assert(typeof DescribeNetworkingFlexCostAllocationPolicyAssociationsResult$ === "object");
 assert(typeof DescribeNetworkInsightsAccessScopeAnalysesRequest$ === "object");
 assert(typeof DescribeNetworkInsightsAccessScopeAnalysesResult$ === "object");
 assert(typeof DescribeNetworkInsightsAccessScopesRequest$ === "object");
@@ -7777,6 +7852,8 @@ assert(typeof DisassociateIpamResourceDiscoveryRequest$ === "object");
 assert(typeof DisassociateIpamResourceDiscoveryResult$ === "object");
 assert(typeof DisassociateNatGatewayAddressRequest$ === "object");
 assert(typeof DisassociateNatGatewayAddressResult$ === "object");
+assert(typeof DisassociateNetworkingFlexCostAllocationPolicyRequest$ === "object");
+assert(typeof DisassociateNetworkingFlexCostAllocationPolicyResult$ === "object");
 assert(typeof DisassociateRouteServerRequest$ === "object");
 assert(typeof DisassociateRouteServerResult$ === "object");
 assert(typeof DisassociateRouteTableRequest$ === "object");
@@ -7929,6 +8006,13 @@ assert(typeof FleetSpotCapacityRebalance$ === "object");
 assert(typeof FleetSpotCapacityRebalanceRequest$ === "object");
 assert(typeof FleetSpotMaintenanceStrategies$ === "object");
 assert(typeof FleetSpotMaintenanceStrategiesRequest$ === "object");
+assert(typeof FlexCostAllocationCidrMapping$ === "object");
+assert(typeof FlexCostAllocationCidrRangeSpecifications$ === "object");
+assert(typeof FlexCostAllocationNetworkResourceScope$ === "object");
+assert(typeof FlexCostAllocationOperationFailure$ === "object");
+assert(typeof FlexCostAllocationPolicyAssociationDescription$ === "object");
+assert(typeof FlexCostAllocationPolicyDescription$ === "object");
+assert(typeof FlexCostAllocationPolicyVersion$ === "object");
 assert(typeof FlowLog$ === "object");
 assert(typeof FpgaDeviceInfo$ === "object");
 assert(typeof FpgaDeviceMemoryInfo$ === "object");
@@ -8042,6 +8126,8 @@ assert(typeof GetManagedPrefixListEntriesRequest$ === "object");
 assert(typeof GetManagedPrefixListEntriesResult$ === "object");
 assert(typeof GetManagedResourceVisibilityRequest$ === "object");
 assert(typeof GetManagedResourceVisibilityResult$ === "object");
+assert(typeof GetNetworkingFlexCostAllocationPolicyVersionsRequest$ === "object");
+assert(typeof GetNetworkingFlexCostAllocationPolicyVersionsResult$ === "object");
 assert(typeof GetNetworkInsightsAccessScopeAnalysisFindingsRequest$ === "object");
 assert(typeof GetNetworkInsightsAccessScopeAnalysisFindingsResult$ === "object");
 assert(typeof GetNetworkInsightsAccessScopeContentRequest$ === "object");
@@ -8191,6 +8277,7 @@ assert(typeof InstanceEventWindowTimeRange$ === "object");
 assert(typeof InstanceEventWindowTimeRangeRequest$ === "object");
 assert(typeof InstanceExportDetails$ === "object");
 assert(typeof InstanceFamilyCreditSpecification$ === "object");
+assert(typeof InstanceFlexCostAllocationPolicyDocument$ === "object");
 assert(typeof InstanceImageMetadata$ === "object");
 assert(typeof InstanceIpv4Prefix$ === "object");
 assert(typeof InstanceIpv6Address$ === "object");
@@ -8480,6 +8567,8 @@ assert(typeof ModifyManagedResourceVisibilityRequest$ === "object");
 assert(typeof ModifyManagedResourceVisibilityResult$ === "object");
 assert(typeof ModifyMetricCategoryRequest$ === "object");
 assert(typeof ModifyMetricCategoryResult$ === "object");
+assert(typeof ModifyNetworkingFlexCostAllocationPolicyRequest$ === "object");
+assert(typeof ModifyNetworkingFlexCostAllocationPolicyResult$ === "object");
 assert(typeof ModifyNetworkInterfaceAttributeRequest$ === "object");
 assert(typeof ModifyPrivateDnsNameOptionsRequest$ === "object");
 assert(typeof ModifyPrivateDnsNameOptionsResult$ === "object");
@@ -8584,6 +8673,7 @@ assert(typeof MoveByoipCidrToIpamResult$ === "object");
 assert(typeof MoveCapacityReservationInstancesRequest$ === "object");
 assert(typeof MoveCapacityReservationInstancesResult$ === "object");
 assert(typeof MovingAddressStatus$ === "object");
+assert(typeof NatFlexCostAllocationPolicyDocument$ === "object");
 assert(typeof NatGateway$ === "object");
 assert(typeof NatGatewayAddress$ === "object");
 assert(typeof NatGatewayAttachedAppliance$ === "object");
@@ -8631,6 +8721,7 @@ assert(typeof PathStatement$ === "object");
 assert(typeof PathStatementRequest$ === "object");
 assert(typeof PayerResponsibilityEntry$ === "object");
 assert(typeof PciId$ === "object");
+assert(typeof PcxFlexCostAllocationPolicyDocument$ === "object");
 assert(typeof PeeringAttachmentStatus$ === "object");
 assert(typeof PeeringConnectionOptions$ === "object");
 assert(typeof PeeringConnectionOptionsRequest$ === "object");
@@ -9283,6 +9374,11 @@ assert(typeof FleetReplacementStrategy === "object");
 assert(typeof FleetReservationType === "object");
 assert(typeof FleetStateCode === "object");
 assert(typeof FleetType === "object");
+assert(typeof FlexCostAllocationAssociationMode === "object");
+assert(typeof FlexCostAllocationCostDimension === "object");
+assert(typeof FlexCostAllocationNetworkResourceScopeType === "object");
+assert(typeof FlexCostAllocationNetworkResourceType === "object");
+assert(typeof FlexCostAllocationReportingGranularity === "object");
 assert(typeof FlexibleEnaQueuesSupport === "object");
 assert(typeof FlowLogsResourceType === "object");
 assert(typeof FpgaImageAttributeName === "object");
@@ -9793,6 +9889,8 @@ assert(typeof paginateDescribeNetworkInsightsAnalyses === "function");
 assert(typeof paginateDescribeNetworkInsightsPaths === "function");
 assert(typeof paginateDescribeNetworkInterfacePermissions === "function");
 assert(typeof paginateDescribeNetworkInterfaces === "function");
+assert(typeof paginateDescribeNetworkingFlexCostAllocationPolicies === "function");
+assert(typeof paginateDescribeNetworkingFlexCostAllocationPolicyAssociations === "function");
 assert(typeof paginateDescribePrefixLists === "function");
 assert(typeof paginateDescribePrincipalIdFormat === "function");
 assert(typeof paginateDescribePublicIpv4Pools === "function");

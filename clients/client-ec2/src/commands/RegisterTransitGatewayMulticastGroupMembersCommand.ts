@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   RegisterTransitGatewayMulticastGroupMembersRequest,
   RegisterTransitGatewayMulticastGroupMembersResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import { RegisterTransitGatewayMulticastGroupMembers$ } from "../schemas/schemas_0";
 
 /**

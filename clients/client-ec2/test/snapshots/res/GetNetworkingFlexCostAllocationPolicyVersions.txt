@@ -1,0 +1,901 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetNetworkingFlexCostAllocationPolicyVersionsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetNetworkingFlexCostAllocationPolicyVersionsResult xmlns="https://placeholder.amazonaws.com">
+    <fcaPolicyVersions>
+        <item>
+            <fcaPolicyId>
+                __FcaPolicyId__
+            </fcaPolicyId>
+            <version>
+                0
+            </version>
+            <networkResourceType>
+                __NetworkResourceType__
+            </networkResourceType>
+            <natFcaPolicyDocument>
+                <ReportingGranularity>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </ReportingGranularity>
+                <Dimensions>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </Dimensions>
+                <CidrRangeSpecifications>
+                    <PrefixesType>
+                        __PrefixesType__
+                    </PrefixesType>
+                    <Prefixes>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                    </Prefixes>
+                </CidrRangeSpecifications>
+            </natFcaPolicyDocument>
+            <instanceFcaPolicyDocument>
+                <ReportingGranularity>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </ReportingGranularity>
+                <Dimensions>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </Dimensions>
+                <CidrRangeSpecifications>
+                    <PrefixesType>
+                        __PrefixesType__
+                    </PrefixesType>
+                    <Prefixes>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                    </Prefixes>
+                </CidrRangeSpecifications>
+            </instanceFcaPolicyDocument>
+            <pcxFcaPolicyDocument>
+                <ReportingGranularity>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </ReportingGranularity>
+                <Dimensions>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </Dimensions>
+                <CidrRangeSpecifications>
+                    <PrefixesType>
+                        __PrefixesType__
+                    </PrefixesType>
+                    <Prefixes>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                    </Prefixes>
+                </CidrRangeSpecifications>
+            </pcxFcaPolicyDocument>
+            <showBackEnabled>
+                false
+            </showBackEnabled>
+            <description>
+                __Description__
+            </description>
+            <expectedEffectiveAt>
+                2000-01-01T04:59:59.999Z
+            </expectedEffectiveAt>
+            <createdAt>
+                2000-01-01T04:59:59.999Z
+            </createdAt>
+        </item>
+        <item>
+            <fcaPolicyId>
+                __FcaPolicyId__
+            </fcaPolicyId>
+            <version>
+                0
+            </version>
+            <networkResourceType>
+                __NetworkResourceType__
+            </networkResourceType>
+            <natFcaPolicyDocument>
+                <ReportingGranularity>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </ReportingGranularity>
+                <Dimensions>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </Dimensions>
+                <CidrRangeSpecifications>
+                    <PrefixesType>
+                        __PrefixesType__
+                    </PrefixesType>
+                    <Prefixes>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                    </Prefixes>
+                </CidrRangeSpecifications>
+            </natFcaPolicyDocument>
+            <instanceFcaPolicyDocument>
+                <ReportingGranularity>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </ReportingGranularity>
+                <Dimensions>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </Dimensions>
+                <CidrRangeSpecifications>
+                    <PrefixesType>
+                        __PrefixesType__
+                    </PrefixesType>
+                    <Prefixes>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                    </Prefixes>
+                </CidrRangeSpecifications>
+            </instanceFcaPolicyDocument>
+            <pcxFcaPolicyDocument>
+                <ReportingGranularity>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </ReportingGranularity>
+                <Dimensions>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </Dimensions>
+                <CidrRangeSpecifications>
+                    <PrefixesType>
+                        __PrefixesType__
+                    </PrefixesType>
+                    <Prefixes>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                    </Prefixes>
+                </CidrRangeSpecifications>
+            </pcxFcaPolicyDocument>
+            <showBackEnabled>
+                false
+            </showBackEnabled>
+            <description>
+                __Description__
+            </description>
+            <expectedEffectiveAt>
+                2000-01-01T04:59:59.999Z
+            </expectedEffectiveAt>
+            <createdAt>
+                2000-01-01T04:59:59.999Z
+            </createdAt>
+        </item>
+        <item>
+            <fcaPolicyId>
+                __FcaPolicyId__
+            </fcaPolicyId>
+            <version>
+                0
+            </version>
+            <networkResourceType>
+                __NetworkResourceType__
+            </networkResourceType>
+            <natFcaPolicyDocument>
+                <ReportingGranularity>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </ReportingGranularity>
+                <Dimensions>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </Dimensions>
+                <CidrRangeSpecifications>
+                    <PrefixesType>
+                        __PrefixesType__
+                    </PrefixesType>
+                    <Prefixes>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                    </Prefixes>
+                </CidrRangeSpecifications>
+            </natFcaPolicyDocument>
+            <instanceFcaPolicyDocument>
+                <ReportingGranularity>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </ReportingGranularity>
+                <Dimensions>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </Dimensions>
+                <CidrRangeSpecifications>
+                    <PrefixesType>
+                        __PrefixesType__
+                    </PrefixesType>
+                    <Prefixes>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                    </Prefixes>
+                </CidrRangeSpecifications>
+            </instanceFcaPolicyDocument>
+            <pcxFcaPolicyDocument>
+                <ReportingGranularity>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </ReportingGranularity>
+                <Dimensions>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </Dimensions>
+                <CidrRangeSpecifications>
+                    <PrefixesType>
+                        __PrefixesType__
+                    </PrefixesType>
+                    <Prefixes>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                        <item>
+                            <CidrRange>
+                                __CidrRange__
+                            </CidrRange>
+                            <CidrLabel>
+                                __CidrLabel__
+                            </CidrLabel>
+                        </item>
+                    </Prefixes>
+                </CidrRangeSpecifications>
+            </pcxFcaPolicyDocument>
+            <showBackEnabled>
+                false
+            </showBackEnabled>
+            <description>
+                __Description__
+            </description>
+            <expectedEffectiveAt>
+                2000-01-01T04:59:59.999Z
+            </expectedEffectiveAt>
+            <createdAt>
+                2000-01-01T04:59:59.999Z
+            </createdAt>
+        </item>
+    </fcaPolicyVersions>
+</GetNetworkingFlexCostAllocationPolicyVersionsResult>
+
+
+--- [output object] ---
+{
+  FcaPolicyVersions: [
+    {
+      FcaPolicyId: "__FcaPolicyId__",
+      Version: (number) 0,
+      NetworkResourceType: "__NetworkResourceType__",
+      NatFcaPolicyDocument: {
+        ReportingGranularity: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Dimensions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        CidrRangeSpecifications: {
+          PrefixesType: "__PrefixesType__",
+          Prefixes: [
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            }
+          ]
+        }
+      },
+      InstanceFcaPolicyDocument: {
+        ReportingGranularity: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Dimensions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        CidrRangeSpecifications: {
+          PrefixesType: "__PrefixesType__",
+          Prefixes: [
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            }
+          ]
+        }
+      },
+      PcxFcaPolicyDocument: {
+        ReportingGranularity: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Dimensions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        CidrRangeSpecifications: {
+          PrefixesType: "__PrefixesType__",
+          Prefixes: [
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            }
+          ]
+        }
+      },
+      ShowBackEnabled: (boolean) false,
+      Description: "__Description__",
+      ExpectedEffectiveAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      FcaPolicyId: "__FcaPolicyId__",
+      Version: (number) 0,
+      NetworkResourceType: "__NetworkResourceType__",
+      NatFcaPolicyDocument: {
+        ReportingGranularity: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Dimensions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        CidrRangeSpecifications: {
+          PrefixesType: "__PrefixesType__",
+          Prefixes: [
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            }
+          ]
+        }
+      },
+      InstanceFcaPolicyDocument: {
+        ReportingGranularity: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Dimensions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        CidrRangeSpecifications: {
+          PrefixesType: "__PrefixesType__",
+          Prefixes: [
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            }
+          ]
+        }
+      },
+      PcxFcaPolicyDocument: {
+        ReportingGranularity: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Dimensions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        CidrRangeSpecifications: {
+          PrefixesType: "__PrefixesType__",
+          Prefixes: [
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            }
+          ]
+        }
+      },
+      ShowBackEnabled: (boolean) false,
+      Description: "__Description__",
+      ExpectedEffectiveAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      FcaPolicyId: "__FcaPolicyId__",
+      Version: (number) 0,
+      NetworkResourceType: "__NetworkResourceType__",
+      NatFcaPolicyDocument: {
+        ReportingGranularity: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Dimensions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        CidrRangeSpecifications: {
+          PrefixesType: "__PrefixesType__",
+          Prefixes: [
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            }
+          ]
+        }
+      },
+      InstanceFcaPolicyDocument: {
+        ReportingGranularity: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Dimensions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        CidrRangeSpecifications: {
+          PrefixesType: "__PrefixesType__",
+          Prefixes: [
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            }
+          ]
+        }
+      },
+      PcxFcaPolicyDocument: {
+        ReportingGranularity: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Dimensions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        CidrRangeSpecifications: {
+          PrefixesType: "__PrefixesType__",
+          Prefixes: [
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            },
+            {
+              CidrRange: "__CidrRange__",
+              CidrLabel: "__CidrLabel__"
+            }
+          ]
+        }
+      },
+      ShowBackEnabled: (boolean) false,
+      Description: "__Description__",
+      ExpectedEffectiveAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

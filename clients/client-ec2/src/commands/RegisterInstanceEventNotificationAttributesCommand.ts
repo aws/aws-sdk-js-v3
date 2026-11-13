@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   RegisterInstanceEventNotificationAttributesRequest,
   RegisterInstanceEventNotificationAttributesResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import { RegisterInstanceEventNotificationAttributes$ } from "../schemas/schemas_0";
 
 /**

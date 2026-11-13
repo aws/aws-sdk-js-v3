@@ -25,11 +25,8 @@ import type {
   ConversionTaskState,
   DeleteQueuedReservedInstancesErrorCode,
   DiskImageFormat,
-  ElasticGpuState,
   ElasticGpuStatus,
   EndpointIpAddressType,
-  FastLaunchResourceType,
-  FastLaunchStateCode,
   FleetCapacityReservationTenancy,
   FleetInstanceMatchCriteria,
   IpamPoolCidrFailureCode,
@@ -61,6 +58,8 @@ import type {
   CapacityReservationCancellationQuote,
   CapacityReservationModificationQuote,
   ClientVpnAuthorizationRuleStatus,
+  FlexCostAllocationOperationFailure,
+  IpamRoutingPolicyRegistrationDelta,
   Tag,
   TransitGatewayClientVpnAttachment,
   TransitGatewayPeeringAttachment,
@@ -77,9 +76,13 @@ import type {
   CustomerGateway,
   DhcpOptions,
   EgressOnlyInternetGateway,
-  ExportTask,
   FleetCapacityReservation,
   InstanceRequirementsRequest,
+  IpamPool,
+  IpamPrefixListResolver,
+  IpamPrefixListResolverTarget,
+  IpamResourceDiscovery,
+  IpamScope,
   LaunchTemplate,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
@@ -114,6 +117,212 @@ import type {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteIpamPoolRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the pool to delete.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>Enables you to quickly delete an IPAM pool and all resources within that pool, including
+   *          provisioned CIDRs, allocations, and other pools.</p>
+   *          <important>
+   *             <p>You can only use this option to delete pools in the private scope or pools in the public scope with a source resource. A source resource is a resource used to provision CIDRs to a resource planning pool.</p>
+   *          </important>
+   * @public
+   */
+  Cascade?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamPoolResult {
+  /**
+   * <p>Information about the results of the deletion.</p>
+   * @public
+   */
+  IpamPool?: IpamPool | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamPrefixListResolverRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM prefix list resolver to delete.</p>
+   * @public
+   */
+  IpamPrefixListResolverId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamPrefixListResolverResult {
+  /**
+   * <p>Information about the IPAM prefix list resolver that was deleted.</p>
+   * @public
+   */
+  IpamPrefixListResolver?: IpamPrefixListResolver | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamPrefixListResolverTargetRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM prefix list resolver target to delete.</p>
+   * @public
+   */
+  IpamPrefixListResolverTargetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamPrefixListResolverTargetResult {
+  /**
+   * <p>Information about the IPAM prefix list resolver target that was deleted.</p>
+   * @public
+   */
+  IpamPrefixListResolverTarget?: IpamPrefixListResolverTarget | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamResourceDiscoveryRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IPAM resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamResourceDiscoveryResult {
+  /**
+   * <p>The IPAM resource discovery.</p>
+   * @public
+   */
+  IpamResourceDiscovery?: IpamResourceDiscovery | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamRoutingPolicyRegistrationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM internet registry association.</p>
+   * @public
+   */
+  IpamInternetRegistryAssociationId: string | undefined;
+
+  /**
+   * <p>The IP address prefix in CIDR notation identifying the routing policy registration to delete.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>Forces the deletion even if it conflicts with an announced route. Default: <code>false</code>.</p>
+   * @public
+   */
+  Force?: boolean | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the operation ignores the request, but does not return an error.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamRoutingPolicyRegistrationResult {
+  /**
+   * <p>Information about the routing policy registration delta created by this deletion.</p>
+   * @public
+   */
+  IpamRoutingPolicyRegistrationDelta?: IpamRoutingPolicyRegistrationDelta | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamScopeRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the scope to delete.</p>
+   * @public
+   */
+  IpamScopeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamScopeResult {
+  /**
+   * <p>Information about the results of the deletion.</p>
+   * @public
+   */
+  IpamScope?: IpamScope | undefined;
+}
 
 /**
  * @public
@@ -662,6 +871,42 @@ export interface DeleteNetworkAclEntryRequest {
    * @public
    */
   Egress: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkingFlexCostAllocationPoliciesRequest {
+  /**
+   * <p>The IDs of the flex cost allocation policies to delete. You can specify up to 50 policy IDs. This parameter is required.</p>
+   * @public
+   */
+  FcaPolicyIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkingFlexCostAllocationPoliciesResult {
+  /**
+   * <p>The IDs of the policies that were successfully deleted.</p>
+   * @public
+   */
+  Successful?: string[] | undefined;
+
+  /**
+   * <p>Information about the policies that could not be deleted.</p>
+   * @public
+   */
+  Failed?: FlexCostAllocationOperationFailure[] | undefined;
 }
 
 /**
@@ -8135,475 +8380,4 @@ export interface ElasticGpuHealth {
    * @public
    */
   Status?: ElasticGpuStatus | undefined;
-}
-
-/**
- * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
- *          </note>
- *          <p>Describes an Elastic Graphics accelerator.</p>
- * @public
- */
-export interface ElasticGpus {
-  /**
-   * <p>The ID of the Elastic Graphics accelerator.</p>
-   * @public
-   */
-  ElasticGpuId?: string | undefined;
-
-  /**
-   * <p>The Availability Zone in the which the Elastic Graphics accelerator resides.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The type of Elastic Graphics accelerator.</p>
-   * @public
-   */
-  ElasticGpuType?: string | undefined;
-
-  /**
-   * <p>The status of the Elastic Graphics accelerator.</p>
-   * @public
-   */
-  ElasticGpuHealth?: ElasticGpuHealth | undefined;
-
-  /**
-   * <p>The state of the Elastic Graphics accelerator.</p>
-   * @public
-   */
-  ElasticGpuState?: ElasticGpuState | undefined;
-
-  /**
-   * <p>The ID of the instance to which the Elastic Graphics accelerator is attached.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The tags assigned to the Elastic Graphics accelerator.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeElasticGpusResult {
-  /**
-   * <p>Information about the Elastic Graphics accelerators.</p>
-   * @public
-   */
-  ElasticGpuSet?: ElasticGpus[] | undefined;
-
-  /**
-   * <p>The total number of items to return. If the total number of items available is more
-   *             than the value specified in max-items then a Next-Token will be provided in the output
-   *             that you can use to resume pagination.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is
-   *                 <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExportImageTasksRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>,
-   *     <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The IDs of the export image tasks.</p>
-   * @public
-   */
-  ExportImageTaskIds?: string[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token that indicates the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes the destination for an export image task.</p>
- * @public
- */
-export interface ExportTaskS3Location {
-  /**
-   * <p>The destination Amazon S3 bucket.</p>
-   * @public
-   */
-  S3Bucket?: string | undefined;
-
-  /**
-   * <p>The prefix (logical hierarchy) in the bucket.</p>
-   * @public
-   */
-  S3Prefix?: string | undefined;
-}
-
-/**
- * <p>Describes an export image task.</p>
- * @public
- */
-export interface ExportImageTask {
-  /**
-   * <p>A description of the image being exported.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The ID of the export image task.</p>
-   * @public
-   */
-  ExportImageTaskId?: string | undefined;
-
-  /**
-   * <p>The ID of the image.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The percent complete of the export image task.</p>
-   * @public
-   */
-  Progress?: string | undefined;
-
-  /**
-   * <p>Information about the destination Amazon S3 bucket.</p>
-   * @public
-   */
-  S3ExportLocation?: ExportTaskS3Location | undefined;
-
-  /**
-   * <p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>,
-   *     <code>deleting</code>, and <code>deleted</code>.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>The status message for the export image task.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>Any tags assigned to the export image task.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExportImageTasksResult {
-  /**
-   * <p>Information about the export image tasks.</p>
-   * @public
-   */
-  ExportImageTasks?: ExportImageTask[] | undefined;
-
-  /**
-   * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
-   *    to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExportTasksRequest {
-  /**
-   * <p>the filters for the export tasks.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The export task IDs.</p>
-   * @public
-   */
-  ExportTaskIds?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExportTasksResult {
-  /**
-   * <p>Information about the export tasks.</p>
-   * @public
-   */
-  ExportTasks?: ExportTask[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFastLaunchImagesRequest {
-  /**
-   * <p>Specify one or more Windows AMI image IDs for the request.</p>
-   * @public
-   */
-  ImageIds?: string[] | undefined;
-
-  /**
-   * <p>Use the following filters to streamline results.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The resource type for pre-provisioning.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The owner ID for the pre-provisioning resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The current state of fast launching for the Windows AMI.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Identifies the launch template that the AMI uses for Windows fast launch.</p>
- * @public
- */
-export interface FastLaunchLaunchTemplateSpecificationResponse {
-  /**
-   * <p>The ID of the launch template that the AMI uses for Windows fast launch.</p>
-   * @public
-   */
-  LaunchTemplateId?: string | undefined;
-
-  /**
-   * <p>The name of the launch template that the AMI uses for Windows fast launch.</p>
-   * @public
-   */
-  LaunchTemplateName?: string | undefined;
-
-  /**
-   * <p>The version of the launch template that the AMI uses for Windows fast launch.</p>
-   * @public
-   */
-  Version?: string | undefined;
-}
-
-/**
- * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows
- *       fast launch enabled Windows AMI.</p>
- * @public
- */
-export interface FastLaunchSnapshotConfigurationResponse {
-  /**
-   * <p>The number of pre-provisioned snapshots requested to keep on hand for a Windows fast
-   *       launch enabled AMI.</p>
-   * @public
-   */
-  TargetResourceCount?: number | undefined;
-}
-
-/**
- * <p>Describe details about a Windows image with Windows fast launch enabled that meets the
- *       requested criteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action
- *       filters.</p>
- * @public
- */
-export interface DescribeFastLaunchImagesSuccessItem {
-  /**
-   * <p>The image ID that identifies the Windows fast launch enabled image.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The resource type that Amazon EC2 uses for pre-provisioning the Windows AMI. Supported values
-   *       include: <code>snapshot</code>.</p>
-   * @public
-   */
-  ResourceType?: FastLaunchResourceType | undefined;
-
-  /**
-   * <p>A group of parameters that are used for pre-provisioning the associated Windows AMI using
-   *       snapshots.</p>
-   * @public
-   */
-  SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse | undefined;
-
-  /**
-   * <p>The launch template that the Windows fast launch enabled AMI uses when it launches Windows
-   *       instances from pre-provisioned snapshots.</p>
-   * @public
-   */
-  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse | undefined;
-
-  /**
-   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
-   *       pre-provisioned snapshots for Windows fast launch.</p>
-   * @public
-   */
-  MaxParallelLaunches?: number | undefined;
-
-  /**
-   * <p>The owner ID for the Windows fast launch enabled AMI.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The current state of Windows fast launch for the specified Windows AMI.</p>
-   * @public
-   */
-  State?: FastLaunchStateCode | undefined;
-
-  /**
-   * <p>The reason that Windows fast launch for the AMI changed to the current state.</p>
-   * @public
-   */
-  StateTransitionReason?: string | undefined;
-
-  /**
-   * <p>The time that Windows fast launch for the AMI changed to the current state.</p>
-   * @public
-   */
-  StateTransitionTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFastLaunchImagesResult {
-  /**
-   * <p>A collection of details about the fast-launch enabled Windows images that meet the
-   *       requested criteria.</p>
-   * @public
-   */
-  FastLaunchImages?: DescribeFastLaunchImagesSuccessItem[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFastSnapshotRestoresRequest {
-  /**
-   * <p>The filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code>: The Availability Zone of the snapshot. For example, <code>us-east-2a</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone-id</code>: The ID of the Availability Zone of the snapshot. For example, <code>use2-az1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code>: The ID of the Amazon Web Services account that enabled fast snapshot restore on the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>snapshot-id</code>: The ID of the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code>: The state of fast snapshot restores for the snapshot
-   *          (<code>enabling</code> |
-   *           <code>optimizing</code> |
-   *           <code>enabled</code> |
-   *           <code>disabling</code> |
-   *           <code>disabled</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *   Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

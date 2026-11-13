@@ -74,6 +74,8 @@ export * from "./DescribeMetricCategoriesPaginator";
 export * from "./DescribeMovingAddressesPaginator";
 export * from "./DescribeNatGatewaysPaginator";
 export * from "./DescribeNetworkAclsPaginator";
+export * from "./DescribeNetworkingFlexCostAllocationPoliciesPaginator";
+export * from "./DescribeNetworkingFlexCostAllocationPolicyAssociationsPaginator";
 export * from "./DescribeNetworkInsightsAccessScopeAnalysesPaginator";
 export * from "./DescribeNetworkInsightsAccessScopesPaginator";
 export * from "./DescribeNetworkInsightsAnalysesPaginator";

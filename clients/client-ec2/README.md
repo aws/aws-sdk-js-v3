@@ -429,6 +429,13 @@ AssociateNatGatewayAddress
 </details>
 <details>
 <summary>
+AssociateNetworkingFlexCostAllocationPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateNetworkingFlexCostAllocationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AssociateNetworkingFlexCostAllocationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AssociateNetworkingFlexCostAllocationPolicyCommandOutput/)
+</details>
+<details>
+<summary>
 AssociateRouteServer
 </summary>
 
@@ -1056,6 +1063,13 @@ CreateNetworkAclEntry
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateNetworkAclEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateNetworkAclEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateNetworkAclEntryCommandOutput/)
+</details>
+<details>
+<summary>
+CreateNetworkingFlexCostAllocationPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateNetworkingFlexCostAllocationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateNetworkingFlexCostAllocationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateNetworkingFlexCostAllocationPolicyCommandOutput/)
 </details>
 <details>
 <summary>
@@ -1756,6 +1770,13 @@ DeleteNetworkAclEntry
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteNetworkAclEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteNetworkAclEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteNetworkAclEntryCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteNetworkingFlexCostAllocationPolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteNetworkingFlexCostAllocationPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteNetworkingFlexCostAllocationPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteNetworkingFlexCostAllocationPoliciesCommandOutput/)
 </details>
 <details>
 <summary>
@@ -2956,6 +2977,20 @@ DescribeNetworkAcls
 </details>
 <details>
 <summary>
+DescribeNetworkingFlexCostAllocationPolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeNetworkingFlexCostAllocationPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeNetworkingFlexCostAllocationPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeNetworkingFlexCostAllocationPoliciesCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeNetworkingFlexCostAllocationPolicyAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeNetworkingFlexCostAllocationPolicyAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeNetworkInsightsAccessScopeAnalyses
 </summary>
 
@@ -3845,6 +3880,13 @@ DisassociateNatGatewayAddress
 </details>
 <details>
 <summary>
+DisassociateNetworkingFlexCostAllocationPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisassociateNetworkingFlexCostAllocationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateNetworkingFlexCostAllocationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateNetworkingFlexCostAllocationPolicyCommandOutput/)
+</details>
+<details>
+<summary>
 DisassociateRouteServer
 </summary>
 
@@ -4489,6 +4531,13 @@ GetManagedResourceVisibility
 </details>
 <details>
 <summary>
+GetNetworkingFlexCostAllocationPolicyVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetNetworkingFlexCostAllocationPolicyVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetNetworkingFlexCostAllocationPolicyVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetNetworkingFlexCostAllocationPolicyVersionsCommandOutput/)
+</details>
+<details>
+<summary>
 GetNetworkInsightsAccessScopeAnalysisFindings
 </summary>
 
@@ -5053,6 +5102,13 @@ ModifyMetricCategory
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyMetricCategoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyMetricCategoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyMetricCategoryCommandOutput/)
+</details>
+<details>
+<summary>
+ModifyNetworkingFlexCostAllocationPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyNetworkingFlexCostAllocationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyNetworkingFlexCostAllocationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyNetworkingFlexCostAllocationPolicyCommandOutput/)
 </details>
 <details>
 <summary>

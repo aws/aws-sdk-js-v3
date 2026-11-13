@@ -1,0 +1,27 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 444
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 95e051a16ed0fb3199b4daf4097602336af23d1f3f026d6ece7120233145f8b2
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=AssociateNetworkingFlexCostAllocationPolicy&
+Version=2016-11-15&
+FcaPolicyId=__FcaPolicyId__&
+NetworkResourceIds.1=__member__&
+NetworkResourceIds.2=__member__&
+NetworkResourceIds.3=__member__&
+NetworkResourceScope.ResourceType=__ResourceType__&
+NetworkResourceScope.ResourceIds.1=__member__&
+NetworkResourceScope.ResourceIds.2=__member__&
+NetworkResourceScope.ResourceIds.3=__member__&
+ClientToken=1111abcd-uuid-uuid-uuid-000000001111&
+DryRun=false

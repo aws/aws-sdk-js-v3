@@ -84,6 +84,7 @@ export const ResourceType = {
   elastic_ip: "elastic-ip",
   export_image_task: "export-image-task",
   export_instance_task: "export-instance-task",
+  fca_policy: "fca-policy",
   fleet: "fleet",
   fpga_image: "fpga-image",
   host_reservation: "host-reservation",
@@ -908,6 +909,35 @@ export const IpamResourceDiscoveryAssociationState = {
  */
 export type IpamResourceDiscoveryAssociationState =
   (typeof IpamResourceDiscoveryAssociationState)[keyof typeof IpamResourceDiscoveryAssociationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const FlexCostAllocationNetworkResourceScopeType = {
+  ACCOUNT: "account",
+  SUBNET: "subnet",
+  VPC: "vpc",
+} as const;
+/**
+ * @public
+ */
+export type FlexCostAllocationNetworkResourceScopeType =
+  (typeof FlexCostAllocationNetworkResourceScopeType)[keyof typeof FlexCostAllocationNetworkResourceScopeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FlexCostAllocationAssociationMode = {
+  DIRECT: "direct",
+  SCOPE: "scope",
+} as const;
+/**
+ * @public
+ */
+export type FlexCostAllocationAssociationMode =
+  (typeof FlexCostAllocationAssociationMode)[keyof typeof FlexCostAllocationAssociationMode];
 
 /**
  * @public
@@ -4730,6 +4760,54 @@ export const RuleAction = {
  * @public
  */
 export type RuleAction = (typeof RuleAction)[keyof typeof RuleAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const FlexCostAllocationCostDimension = {
+  DATA_PROCESSING: "data-processing",
+  DATA_TRANSFER: "data-transfer",
+} as const;
+/**
+ * @public
+ */
+export type FlexCostAllocationCostDimension =
+  (typeof FlexCostAllocationCostDimension)[keyof typeof FlexCostAllocationCostDimension];
+
+/**
+ * @public
+ * @enum
+ */
+export const FlexCostAllocationReportingGranularity = {
+  ACCOUNT: "account",
+  CIDR: "cidr",
+  EC2: "ec2",
+  ENI: "eni",
+  PEERING_ID: "peering-id",
+  SUBNET: "subnet",
+  VPC: "vpc",
+} as const;
+/**
+ * @public
+ */
+export type FlexCostAllocationReportingGranularity =
+  (typeof FlexCostAllocationReportingGranularity)[keyof typeof FlexCostAllocationReportingGranularity];
+
+/**
+ * @public
+ * @enum
+ */
+export const FlexCostAllocationNetworkResourceType = {
+  EC2: "ec2",
+  NATGW: "natgw",
+  PCX: "pcx",
+} as const;
+/**
+ * @public
+ */
+export type FlexCostAllocationNetworkResourceType =
+  (typeof FlexCostAllocationNetworkResourceType)[keyof typeof FlexCostAllocationNetworkResourceType];
 
 /**
  * @public

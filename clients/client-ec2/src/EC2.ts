@@ -149,6 +149,11 @@ import {
   AssociateNatGatewayAddressCommand,
 } from "./commands/AssociateNatGatewayAddressCommand";
 import {
+  type AssociateNetworkingFlexCostAllocationPolicyCommandInput,
+  type AssociateNetworkingFlexCostAllocationPolicyCommandOutput,
+  AssociateNetworkingFlexCostAllocationPolicyCommand,
+} from "./commands/AssociateNetworkingFlexCostAllocationPolicyCommand";
+import {
   type AssociateRouteServerCommandInput,
   type AssociateRouteServerCommandOutput,
   AssociateRouteServerCommand,
@@ -594,6 +599,11 @@ import {
   type CreateNetworkAclEntryCommandOutput,
   CreateNetworkAclEntryCommand,
 } from "./commands/CreateNetworkAclEntryCommand";
+import {
+  type CreateNetworkingFlexCostAllocationPolicyCommandInput,
+  type CreateNetworkingFlexCostAllocationPolicyCommandOutput,
+  CreateNetworkingFlexCostAllocationPolicyCommand,
+} from "./commands/CreateNetworkingFlexCostAllocationPolicyCommand";
 import {
   type CreateNetworkInsightsAccessScopeCommandInput,
   type CreateNetworkInsightsAccessScopeCommandOutput,
@@ -1090,6 +1100,11 @@ import {
   type DeleteNetworkAclEntryCommandOutput,
   DeleteNetworkAclEntryCommand,
 } from "./commands/DeleteNetworkAclEntryCommand";
+import {
+  type DeleteNetworkingFlexCostAllocationPoliciesCommandInput,
+  type DeleteNetworkingFlexCostAllocationPoliciesCommandOutput,
+  DeleteNetworkingFlexCostAllocationPoliciesCommand,
+} from "./commands/DeleteNetworkingFlexCostAllocationPoliciesCommand";
 import {
   type DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
   type DeleteNetworkInsightsAccessScopeAnalysisCommandOutput,
@@ -1942,6 +1957,16 @@ import {
   DescribeNetworkAclsCommand,
 } from "./commands/DescribeNetworkAclsCommand";
 import {
+  type DescribeNetworkingFlexCostAllocationPoliciesCommandInput,
+  type DescribeNetworkingFlexCostAllocationPoliciesCommandOutput,
+  DescribeNetworkingFlexCostAllocationPoliciesCommand,
+} from "./commands/DescribeNetworkingFlexCostAllocationPoliciesCommand";
+import {
+  type DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandInput,
+  type DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandOutput,
+  DescribeNetworkingFlexCostAllocationPolicyAssociationsCommand,
+} from "./commands/DescribeNetworkingFlexCostAllocationPolicyAssociationsCommand";
+import {
   type DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
   type DescribeNetworkInsightsAccessScopeAnalysesCommandOutput,
   DescribeNetworkInsightsAccessScopeAnalysesCommand,
@@ -2577,6 +2602,11 @@ import {
   DisassociateNatGatewayAddressCommand,
 } from "./commands/DisassociateNatGatewayAddressCommand";
 import {
+  type DisassociateNetworkingFlexCostAllocationPolicyCommandInput,
+  type DisassociateNetworkingFlexCostAllocationPolicyCommandOutput,
+  DisassociateNetworkingFlexCostAllocationPolicyCommand,
+} from "./commands/DisassociateNetworkingFlexCostAllocationPolicyCommand";
+import {
   type DisassociateRouteServerCommandInput,
   type DisassociateRouteServerCommandOutput,
   DisassociateRouteServerCommand,
@@ -3037,6 +3067,11 @@ import {
   GetManagedResourceVisibilityCommand,
 } from "./commands/GetManagedResourceVisibilityCommand";
 import {
+  type GetNetworkingFlexCostAllocationPolicyVersionsCommandInput,
+  type GetNetworkingFlexCostAllocationPolicyVersionsCommandOutput,
+  GetNetworkingFlexCostAllocationPolicyVersionsCommand,
+} from "./commands/GetNetworkingFlexCostAllocationPolicyVersionsCommand";
+import {
   type GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
   type GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput,
   GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
@@ -3441,6 +3476,11 @@ import {
   type ModifyMetricCategoryCommandOutput,
   ModifyMetricCategoryCommand,
 } from "./commands/ModifyMetricCategoryCommand";
+import {
+  type ModifyNetworkingFlexCostAllocationPolicyCommandInput,
+  type ModifyNetworkingFlexCostAllocationPolicyCommandOutput,
+  ModifyNetworkingFlexCostAllocationPolicyCommand,
+} from "./commands/ModifyNetworkingFlexCostAllocationPolicyCommand";
 import {
   type ModifyNetworkInterfaceAttributeCommandInput,
   type ModifyNetworkInterfaceAttributeCommandOutput,
@@ -4174,6 +4214,12 @@ import { paginateDescribeMovingAddresses } from "./pagination/DescribeMovingAddr
 import { paginateDescribeNatGateways } from "./pagination/DescribeNatGatewaysPaginator";
 import { paginateDescribeNetworkAcls } from "./pagination/DescribeNetworkAclsPaginator";
 import {
+  paginateDescribeNetworkingFlexCostAllocationPolicies,
+} from "./pagination/DescribeNetworkingFlexCostAllocationPoliciesPaginator";
+import {
+  paginateDescribeNetworkingFlexCostAllocationPolicyAssociations,
+} from "./pagination/DescribeNetworkingFlexCostAllocationPolicyAssociationsPaginator";
+import {
   paginateDescribeNetworkInsightsAccessScopeAnalyses,
 } from "./pagination/DescribeNetworkInsightsAccessScopeAnalysesPaginator";
 import { paginateDescribeNetworkInsightsAccessScopes } from "./pagination/DescribeNetworkInsightsAccessScopesPaginator";
@@ -4391,6 +4437,7 @@ const commands = {
   AssociateIpamByoasnCommand,
   AssociateIpamResourceDiscoveryCommand,
   AssociateNatGatewayAddressCommand,
+  AssociateNetworkingFlexCostAllocationPolicyCommand,
   AssociateRouteServerCommand,
   AssociateRouteTableCommand,
   AssociateSecurityGroupVpcCommand,
@@ -4481,6 +4528,7 @@ const commands = {
   CreateNatGatewayCommand,
   CreateNetworkAclCommand,
   CreateNetworkAclEntryCommand,
+  CreateNetworkingFlexCostAllocationPolicyCommand,
   CreateNetworkInsightsAccessScopeCommand,
   CreateNetworkInsightsPathCommand,
   CreateNetworkInterfaceCommand,
@@ -4581,6 +4629,7 @@ const commands = {
   DeleteNatGatewayCommand,
   DeleteNetworkAclCommand,
   DeleteNetworkAclEntryCommand,
+  DeleteNetworkingFlexCostAllocationPoliciesCommand,
   DeleteNetworkInsightsAccessScopeCommand,
   DeleteNetworkInsightsAccessScopeAnalysisCommand,
   DeleteNetworkInsightsAnalysisCommand,
@@ -4752,6 +4801,8 @@ const commands = {
   DescribeMovingAddressesCommand,
   DescribeNatGatewaysCommand,
   DescribeNetworkAclsCommand,
+  DescribeNetworkingFlexCostAllocationPoliciesCommand,
+  DescribeNetworkingFlexCostAllocationPolicyAssociationsCommand,
   DescribeNetworkInsightsAccessScopeAnalysesCommand,
   DescribeNetworkInsightsAccessScopesCommand,
   DescribeNetworkInsightsAnalysesCommand,
@@ -4879,6 +4930,7 @@ const commands = {
   DisassociateIpamByoasnCommand,
   DisassociateIpamResourceDiscoveryCommand,
   DisassociateNatGatewayAddressCommand,
+  DisassociateNetworkingFlexCostAllocationPolicyCommand,
   DisassociateRouteServerCommand,
   DisassociateRouteTableCommand,
   DisassociateSecurityGroupVpcCommand,
@@ -4971,6 +5023,7 @@ const commands = {
   GetManagedPrefixListAssociationsCommand,
   GetManagedPrefixListEntriesCommand,
   GetManagedResourceVisibilityCommand,
+  GetNetworkingFlexCostAllocationPolicyVersionsCommand,
   GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
   GetNetworkInsightsAccessScopeContentCommand,
   GetPasswordDataCommand,
@@ -5052,6 +5105,7 @@ const commands = {
   ModifyManagedPrefixListCommand,
   ModifyManagedResourceVisibilityCommand,
   ModifyMetricCategoryCommand,
+  ModifyNetworkingFlexCostAllocationPolicyCommand,
   ModifyNetworkInterfaceAttributeCommand,
   ModifyPrivateDnsNameOptionsCommand,
   ModifyPublicIpDnsNameOptionsCommand,
@@ -5254,6 +5308,8 @@ const paginators = {
   paginateDescribeMovingAddresses,
   paginateDescribeNatGateways,
   paginateDescribeNetworkAcls,
+  paginateDescribeNetworkingFlexCostAllocationPolicies,
+  paginateDescribeNetworkingFlexCostAllocationPolicyAssociations,
   paginateDescribeNetworkInsightsAccessScopeAnalyses,
   paginateDescribeNetworkInsightsAccessScopes,
   paginateDescribeNetworkInsightsAnalyses,
@@ -5886,6 +5942,23 @@ export interface EC2 {
     args: AssociateNatGatewayAddressCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: AssociateNatGatewayAddressCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateNetworkingFlexCostAllocationPolicyCommand}
+   */
+  associateNetworkingFlexCostAllocationPolicy(
+    args: AssociateNetworkingFlexCostAllocationPolicyCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<AssociateNetworkingFlexCostAllocationPolicyCommandOutput>;
+  associateNetworkingFlexCostAllocationPolicy(
+    args: AssociateNetworkingFlexCostAllocationPolicyCommandInput,
+    cb: (err: any, data?: AssociateNetworkingFlexCostAllocationPolicyCommandOutput) => void
+  ): void;
+  associateNetworkingFlexCostAllocationPolicy(
+    args: AssociateNetworkingFlexCostAllocationPolicyCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: AssociateNetworkingFlexCostAllocationPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -7425,6 +7498,23 @@ export interface EC2 {
     args: CreateNetworkAclEntryCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: CreateNetworkAclEntryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateNetworkingFlexCostAllocationPolicyCommand}
+   */
+  createNetworkingFlexCostAllocationPolicy(
+    args: CreateNetworkingFlexCostAllocationPolicyCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<CreateNetworkingFlexCostAllocationPolicyCommandOutput>;
+  createNetworkingFlexCostAllocationPolicy(
+    args: CreateNetworkingFlexCostAllocationPolicyCommandInput,
+    cb: (err: any, data?: CreateNetworkingFlexCostAllocationPolicyCommandOutput) => void
+  ): void;
+  createNetworkingFlexCostAllocationPolicy(
+    args: CreateNetworkingFlexCostAllocationPolicyCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: CreateNetworkingFlexCostAllocationPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -9136,6 +9226,23 @@ export interface EC2 {
     args: DeleteNetworkAclEntryCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: DeleteNetworkAclEntryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteNetworkingFlexCostAllocationPoliciesCommand}
+   */
+  deleteNetworkingFlexCostAllocationPolicies(
+    args: DeleteNetworkingFlexCostAllocationPoliciesCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<DeleteNetworkingFlexCostAllocationPoliciesCommandOutput>;
+  deleteNetworkingFlexCostAllocationPolicies(
+    args: DeleteNetworkingFlexCostAllocationPoliciesCommandInput,
+    cb: (err: any, data?: DeleteNetworkingFlexCostAllocationPoliciesCommandOutput) => void
+  ): void;
+  deleteNetworkingFlexCostAllocationPolicies(
+    args: DeleteNetworkingFlexCostAllocationPoliciesCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: DeleteNetworkingFlexCostAllocationPoliciesCommandOutput) => void
   ): void;
 
   /**
@@ -12141,6 +12248,42 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DescribeNetworkingFlexCostAllocationPoliciesCommand}
+   */
+  describeNetworkingFlexCostAllocationPolicies(): Promise<DescribeNetworkingFlexCostAllocationPoliciesCommandOutput>;
+  describeNetworkingFlexCostAllocationPolicies(
+    args: DescribeNetworkingFlexCostAllocationPoliciesCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<DescribeNetworkingFlexCostAllocationPoliciesCommandOutput>;
+  describeNetworkingFlexCostAllocationPolicies(
+    args: DescribeNetworkingFlexCostAllocationPoliciesCommandInput,
+    cb: (err: any, data?: DescribeNetworkingFlexCostAllocationPoliciesCommandOutput) => void
+  ): void;
+  describeNetworkingFlexCostAllocationPolicies(
+    args: DescribeNetworkingFlexCostAllocationPoliciesCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: DescribeNetworkingFlexCostAllocationPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeNetworkingFlexCostAllocationPolicyAssociationsCommand}
+   */
+  describeNetworkingFlexCostAllocationPolicyAssociations(): Promise<DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandOutput>;
+  describeNetworkingFlexCostAllocationPolicyAssociations(
+    args: DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandOutput>;
+  describeNetworkingFlexCostAllocationPolicyAssociations(
+    args: DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandInput,
+    cb: (err: any, data?: DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandOutput) => void
+  ): void;
+  describeNetworkingFlexCostAllocationPolicyAssociations(
+    args: DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeNetworkInsightsAccessScopeAnalysesCommand}
    */
   describeNetworkInsightsAccessScopeAnalyses(): Promise<DescribeNetworkInsightsAccessScopeAnalysesCommandOutput>;
@@ -14388,6 +14531,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DisassociateNetworkingFlexCostAllocationPolicyCommand}
+   */
+  disassociateNetworkingFlexCostAllocationPolicy(
+    args: DisassociateNetworkingFlexCostAllocationPolicyCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<DisassociateNetworkingFlexCostAllocationPolicyCommandOutput>;
+  disassociateNetworkingFlexCostAllocationPolicy(
+    args: DisassociateNetworkingFlexCostAllocationPolicyCommandInput,
+    cb: (err: any, data?: DisassociateNetworkingFlexCostAllocationPolicyCommandOutput) => void
+  ): void;
+  disassociateNetworkingFlexCostAllocationPolicy(
+    args: DisassociateNetworkingFlexCostAllocationPolicyCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: DisassociateNetworkingFlexCostAllocationPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateRouteServerCommand}
    */
   disassociateRouteServer(
@@ -15969,6 +16129,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link GetNetworkingFlexCostAllocationPolicyVersionsCommand}
+   */
+  getNetworkingFlexCostAllocationPolicyVersions(
+    args: GetNetworkingFlexCostAllocationPolicyVersionsCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<GetNetworkingFlexCostAllocationPolicyVersionsCommandOutput>;
+  getNetworkingFlexCostAllocationPolicyVersions(
+    args: GetNetworkingFlexCostAllocationPolicyVersionsCommandInput,
+    cb: (err: any, data?: GetNetworkingFlexCostAllocationPolicyVersionsCommandOutput) => void
+  ): void;
+  getNetworkingFlexCostAllocationPolicyVersions(
+    args: GetNetworkingFlexCostAllocationPolicyVersionsCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: GetNetworkingFlexCostAllocationPolicyVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommand}
    */
   getNetworkInsightsAccessScopeAnalysisFindings(
@@ -17354,6 +17531,23 @@ export interface EC2 {
     args: ModifyMetricCategoryCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: ModifyMetricCategoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyNetworkingFlexCostAllocationPolicyCommand}
+   */
+  modifyNetworkingFlexCostAllocationPolicy(
+    args: ModifyNetworkingFlexCostAllocationPolicyCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<ModifyNetworkingFlexCostAllocationPolicyCommandOutput>;
+  modifyNetworkingFlexCostAllocationPolicy(
+    args: ModifyNetworkingFlexCostAllocationPolicyCommandInput,
+    cb: (err: any, data?: ModifyNetworkingFlexCostAllocationPolicyCommandOutput) => void
+  ): void;
+  modifyNetworkingFlexCostAllocationPolicy(
+    args: ModifyNetworkingFlexCostAllocationPolicyCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: ModifyNetworkingFlexCostAllocationPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -20320,6 +20514,28 @@ export interface EC2 {
     args?: DescribeNetworkAclsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeNetworkAclsCommandOutput>;
+
+  /**
+   * @see {@link DescribeNetworkingFlexCostAllocationPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNetworkingFlexCostAllocationPoliciesCommandOutput}.
+   */
+  paginateDescribeNetworkingFlexCostAllocationPolicies(
+    args?: DescribeNetworkingFlexCostAllocationPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNetworkingFlexCostAllocationPoliciesCommandOutput>;
+
+  /**
+   * @see {@link DescribeNetworkingFlexCostAllocationPolicyAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandOutput}.
+   */
+  paginateDescribeNetworkingFlexCostAllocationPolicyAssociations(
+    args?: DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNetworkingFlexCostAllocationPolicyAssociationsCommandOutput>;
 
   /**
    * @see {@link DescribeNetworkInsightsAccessScopeAnalysesCommand}

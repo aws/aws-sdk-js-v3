@@ -42,6 +42,9 @@ import type {
   FleetReplacementStrategy,
   FleetReservationType,
   FleetType,
+  FlexCostAllocationCostDimension,
+  FlexCostAllocationNetworkResourceType,
+  FlexCostAllocationReportingGranularity,
   FlowLogsResourceType,
   GatewayType,
   HostnameType,
@@ -99,7 +102,6 @@ import type {
   NestedVirtualizationSpecification,
   PlatformValues,
   PrefixListState,
-  Protocol,
   ReservedCapacityAllocationStrategy,
   ReservedCapacityFallbackMarketType,
   ResourceType,
@@ -133,16 +135,11 @@ import type {
   AcceleratorCountRequest,
   AcceleratorTotalMemoryMiB,
   AcceleratorTotalMemoryMiBRequest,
-  AccessScopePath,
-  AccessScopePathRequest,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
   BaselineEbsBandwidthMbpsRequest,
-  BaselinePerformanceFactorsRequest,
   InstanceEventWindow,
   IpamRoutingPolicyRegistrationDelta,
-  MemoryGiBPerVCpuRequest,
-  MemoryMiBRequest,
   NatGatewayAddress,
   OperatorResponse,
   PortRange,
@@ -153,6 +150,160 @@ import type {
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
 } from "./models_0";
+
+/**
+ * <p>Specify an instance family to use as the baseline reference for CPU performance. All
+ *          instance types that match your specified attributes will be compared against the CPU
+ *          performance of the referenced instance family, regardless of CPU manufacturer or
+ *          architecture.</p>
+ *          <note>
+ *             <p>Currently, only one instance family can be specified in the list.</p>
+ *          </note>
+ * @public
+ */
+export interface PerformanceFactorReferenceRequest {
+  /**
+   * <p>The instance family to use as a baseline reference.</p>
+   *          <note>
+   *             <p>Ensure that you specify the correct value for the instance family. The instance
+   *             family is everything before the period (<code>.</code>) in the instance type name. For
+   *             example, in the instance type <code>c6i.large</code>, the instance family is
+   *             <code>c6i</code>, not <code>c6</code>. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html">Amazon EC2
+   *                instance type naming conventions</a> in <i>Amazon EC2 Instance
+   *                   Types</i>.</p>
+   *          </note>
+   *          <p>The following instance families are <i>not supported</i> for performance
+   *          protection:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>c1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>g3</code> | <code>g3s</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hpc7g</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>m1</code> | <code>m2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mac1</code> | <code>mac2</code> | <code>mac2-m1ultra</code> |
+   *                <code>mac2-m2</code> | <code>mac2-m2pro</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>p3dn</code> | <code>p4d</code> | <code>p5</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>t1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>u-12tb1</code> | <code>u-18tb1</code> | <code>u-24tb1</code> |
+   *                <code>u-3tb1</code> | <code>u-6tb1</code> | <code>u-9tb1</code> |
+   *                <code>u7i-12tb</code> | <code>u7in-16tb</code> | <code>u7in-24tb</code> |
+   *                <code>u7in-32tb</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>If you enable performance protection by specifying a supported instance family, the
+   *          returned instance types will exclude the above unsupported instance families.</p>
+   *          <p>If you specify an unsupported instance family as a value for baseline performance, the
+   *          API returns an empty response for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements">GetInstanceTypesFromInstanceRequirements</a> and an exception for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet">RequestSpotFleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyFleet">ModifyFleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySpotFleetRequest">ModifySpotFleetRequest</a>.</p>
+   * @public
+   */
+  InstanceFamily?: string | undefined;
+}
+
+/**
+ * <p>The CPU performance to consider, using an instance family as the baseline reference.</p>
+ * @public
+ */
+export interface CpuPerformanceFactorRequest {
+  /**
+   * <p>Specify an instance family to use as the baseline reference for CPU performance. All
+   *          instance types that match your specified attributes will be compared against the CPU
+   *          performance of the referenced instance family, regardless of CPU manufacturer or
+   *          architecture differences.</p>
+   *          <note>
+   *             <p>Currently, only one instance family can be specified in the list.</p>
+   *          </note>
+   * @public
+   */
+  References?: PerformanceFactorReferenceRequest[] | undefined;
+}
+
+/**
+ * <p>The baseline performance to consider, using an instance family as a baseline reference.
+ *          The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this
+ *          baseline to guide instance type selection, but there is no guarantee that the selected
+ *          instance types will always exceed the baseline for every application.</p>
+ *          <p>Currently, this parameter only supports CPU performance as a baseline performance
+ *          factor. For example, specifying <code>c6i</code> would use the CPU performance of the
+ *          <code>c6i</code> family as the baseline reference.</p>
+ * @public
+ */
+export interface BaselinePerformanceFactorsRequest {
+  /**
+   * <p>The CPU performance to consider, using an instance family as the baseline reference.</p>
+   * @public
+   */
+  Cpu?: CpuPerformanceFactorRequest | undefined;
+}
+
+/**
+ * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
+ * @public
+ */
+export interface MemoryGiBPerVCpuRequest {
+  /**
+   * <p>The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this
+   *          parameter.</p>
+   * @public
+   */
+  Min?: number | undefined;
+
+  /**
+   * <p>The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this
+   *          parameter.</p>
+   * @public
+   */
+  Max?: number | undefined;
+}
+
+/**
+ * <p>The minimum and maximum amount of memory, in MiB.</p>
+ * @public
+ */
+export interface MemoryMiBRequest {
+  /**
+   * <p>The minimum amount of memory, in MiB. To specify no minimum limit, specify
+   *          <code>0</code>.</p>
+   * @public
+   */
+  Min: number | undefined;
+
+  /**
+   * <p>The maximum amount of memory, in MiB. To specify no maximum limit, omit this
+   *          parameter.</p>
+   * @public
+   */
+  Max?: number | undefined;
+}
 
 /**
  * <p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p>
@@ -5485,8 +5636,8 @@ export interface CreateFlowLogsRequest {
 
   /**
    * <p>The type of traffic to monitor (accepted traffic, rejected traffic, or all traffic).
-   *             This parameter is not supported for transit gateway resource types. It is required for
-   *             the other resource types.</p>
+   *             This parameter is not supported for transit gateway or Cloud WAN resource types. It is
+   *             required for the other resource types.</p>
    * @public
    */
   TrafficType?: TrafficType | undefined;
@@ -5528,8 +5679,10 @@ export interface CreateFlowLogsRequest {
    *             they should appear. If you omit this parameter, the flow log is created using the
    *             default format. If you specify this parameter, you must include at least one
    *             field. For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-log-records.html">Flow log records</a>
-   *             in the <i>Amazon VPC User Guide</i> or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records">Transit Gateway Flow Log
-   *                     records</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   *             in the <i>Amazon VPC User Guide</i>, <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records">Transit Gateway Flow Log
+   *                     records</a> in the <i>Amazon Web Services Transit Gateway Guide</i>,
+   *             or <a href="https://docs.aws.amazon.com/network-manager/latest/cloudwan/cwan-flow-logs.html">Cloud WAN Flow Log
+   *                     records</a> in the <i>Amazon Web Services Cloud WAN User Guide</i>.</p>
    *          <p>Specify the fields using the <code>$\{field-id\}</code> format, separated by spaces.</p>
    * @public
    */
@@ -5544,7 +5697,7 @@ export interface CreateFlowLogsRequest {
   /**
    * <p>The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
    *             The possible values are 60 seconds (1 minute) or 600 seconds (10 minutes).
-   *             This parameter must be 60 seconds for transit gateway resource types.</p>
+   *             This parameter must be 60 seconds for transit gateway and Cloud WAN resource types.</p>
    *          <p>When a network interface is attached to a <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">Nitro-based
    *                 instance</a>, the aggregation interval is always 60 seconds or less, regardless
    *             of the value that you specify.</p>
@@ -7275,7 +7428,7 @@ export interface CreateIpamInternetRegistryAssociationRequest {
   IpamId: string | undefined;
 
   /**
-   * <p>The Regional Internet Registry to associate with. Possible values:</p>
+   * <p>The internet registry to associate with. Possible values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -7292,6 +7445,10 @@ export interface CreateIpamInternetRegistryAssociationRequest {
    *             <li>
    *                <p>
    *                   <code>lacnic</code> - LACNIC (Latin America and the Caribbean).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nicbr</code> - NIC.br (Brazil).</p>
    *             </li>
    *          </ul>
    * @public
@@ -7359,7 +7516,7 @@ export interface IpamInternetRegistryAssociation {
   IpamRegion?: string | undefined;
 
   /**
-   * <p>The Regional Internet Registry. Possible values:</p>
+   * <p>The internet registry. Possible values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -7376,6 +7533,10 @@ export interface IpamInternetRegistryAssociation {
    *             <li>
    *                <p>
    *                   <code>lacnic</code> - LACNIC (Latin America and the Caribbean).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nicbr</code> - NIC.br (Brazil).</p>
    *             </li>
    *          </ul>
    * @public
@@ -7395,7 +7556,7 @@ export interface IpamInternetRegistryAssociation {
   Description?: string | undefined;
 
   /**
-   * <p>The state of the internet registry association. Valid values: <code>pending-activation</code> | <code>pending-enable</code> | <code>create-in-progress</code> | <code>create-failed</code> | <code>enable-in-progress</code> | <code>enable-complete</code> | <code>enable-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>.</p>
+   * <p>The state of the internet registry association. Valid values: <code>pending-enable</code> | <code>create-in-progress</code> | <code>create-failed</code> | <code>enable-in-progress</code> | <code>enable-complete</code> | <code>enable-failed</code> | <code>disable-in-progress</code> | <code>disable-complete</code> | <code>disable-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>.</p>
    * @public
    */
   State?: IpamInternetRegistryAssociationState | undefined;
@@ -13863,33 +14024,192 @@ export interface CreateNetworkAclEntryRequest {
 }
 
 /**
+ * <p>Maps a CIDR range to a label for cost allocation reporting.</p>
  * @public
  */
-export interface CreateNetworkInsightsAccessScopeRequest {
+export interface FlexCostAllocationCidrMapping {
   /**
-   * <p>The paths to match.</p>
+   * <p>The CIDR range. This parameter is required.</p>
    * @public
    */
-  MatchPaths?: AccessScopePathRequest[] | undefined;
+  CidrRange: string | undefined;
 
   /**
-   * <p>The paths to exclude.</p>
+   * <p>The label to assign to the CIDR range. The label can be up to 64 characters long. It can
+   *             contain letters, numbers, hyphens (<code>-</code>), and underscores (<code>_</code>), and must
+   *             start with a letter or a number. This parameter is required.</p>
    * @public
    */
-  ExcludePaths?: AccessScopePathRequest[] | undefined;
+  CidrLabel: string | undefined;
+}
 
+/**
+ * <p>Specifies the CIDR ranges and labels to use for cost allocation when the reporting granularity is
+ *             <code>cidr</code>.</p>
+ * @public
+ */
+export interface FlexCostAllocationCidrRangeSpecifications {
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
-   *    see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
+   * <p>The type of prefixes to use. This parameter is required. Valid values are
+   *             <code>source-prefixes</code> and <code>destination-prefixes</code>.</p>
    * @public
    */
-  ClientToken?: string | undefined;
+  PrefixesType: string | undefined;
 
   /**
-   * <p>The tags to apply.</p>
+   * <p>The CIDR range to label mappings. You can specify from 1 to 100 mappings. This parameter is required.</p>
+   * @public
+   */
+  Prefixes: FlexCostAllocationCidrMapping[] | undefined;
+}
+
+/**
+ * <p>Describes the cost allocation policy document for EC2 instances.</p>
+ * @public
+ */
+export interface InstanceFlexCostAllocationPolicyDocument {
+  /**
+   * <p>The resource granularity level at which networking costs are allocated. This parameter is required. Specify exactly
+   *             one value. Valid values are <code>eni</code>, <code>ec2</code>, <code>subnet</code>, <code>vpc</code>,
+   *             <code>account</code>, and <code>cidr</code>.</p>
+   * @public
+   */
+  ReportingGranularity: FlexCostAllocationReportingGranularity[] | undefined;
+
+  /**
+   * <p>The cost dimensions to report. This parameter is required. The only valid value is
+   *             <code>data-transfer</code>.</p>
+   * @public
+   */
+  Dimensions: FlexCostAllocationCostDimension[] | undefined;
+
+  /**
+   * <p>The CIDR range mappings to use for cost allocation. Specify this value when
+   *             <code>ReportingGranularity</code> is <code>cidr</code>, and omit it otherwise.</p>
+   * @public
+   */
+  CidrRangeSpecifications?: FlexCostAllocationCidrRangeSpecifications | undefined;
+}
+
+/**
+ * <p>Describes the cost allocation policy document for NAT gateways.</p>
+ * @public
+ */
+export interface NatFlexCostAllocationPolicyDocument {
+  /**
+   * <p>The resource granularity level at which networking costs are allocated. This parameter is required. Specify exactly
+   *             one value. Valid values are <code>eni</code>, <code>ec2</code>, <code>subnet</code>, <code>vpc</code>,
+   *             <code>account</code>, and <code>cidr</code>.</p>
+   * @public
+   */
+  ReportingGranularity: FlexCostAllocationReportingGranularity[] | undefined;
+
+  /**
+   * <p>The cost dimensions to report. This parameter is required. Valid values are <code>data-transfer</code>
+   *             and <code>data-processing</code>.</p>
+   * @public
+   */
+  Dimensions: FlexCostAllocationCostDimension[] | undefined;
+
+  /**
+   * <p>The CIDR range mappings to use for cost allocation. Specify this value when
+   *             <code>ReportingGranularity</code> is <code>cidr</code>, and omit it otherwise.</p>
+   * @public
+   */
+  CidrRangeSpecifications?: FlexCostAllocationCidrRangeSpecifications | undefined;
+}
+
+/**
+ * <p>Describes the cost allocation policy document for Amazon VPC peering connections.</p>
+ * @public
+ */
+export interface PcxFlexCostAllocationPolicyDocument {
+  /**
+   * <p>The resource granularity level at which networking costs are allocated. This parameter is required. Specify exactly
+   *             one value. Valid values are <code>eni</code>, <code>ec2</code>, <code>subnet</code>, <code>vpc</code>,
+   *             <code>account</code>, <code>peering-id</code>, and <code>cidr</code>.</p>
+   * @public
+   */
+  ReportingGranularity: FlexCostAllocationReportingGranularity[] | undefined;
+
+  /**
+   * <p>The cost dimensions to report. This parameter is required. The only valid value is
+   *             <code>data-transfer</code>.</p>
+   * @public
+   */
+  Dimensions: FlexCostAllocationCostDimension[] | undefined;
+
+  /**
+   * <p>The CIDR range mappings to use for cost allocation. Specify this value when
+   *             <code>ReportingGranularity</code> is <code>cidr</code>, and omit it otherwise.</p>
+   * @public
+   */
+  CidrRangeSpecifications?: FlexCostAllocationCidrRangeSpecifications | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkingFlexCostAllocationPolicyRequest {
+  /**
+   * <p>The type of network resource that the policy applies to. This parameter is required. Valid
+   *             values are <code>natgw</code> (NAT gateway), <code>pcx</code> (Amazon VPC peering connection),
+   *             and <code>ec2</code> (EC2 instance).</p>
+   *          <p>Specify the policy document that matches the resource type: <code>NatFcaPolicyDocument</code>
+   *             for <code>natgw</code>, <code>InstanceFcaPolicyDocument</code> for <code>ec2</code>, or
+   *             <code>PcxFcaPolicyDocument</code> for <code>pcx</code>. Don't specify a policy document for a different
+   *             resource type.</p>
+   * @public
+   */
+  NetworkResourceType: FlexCostAllocationNetworkResourceType | undefined;
+
+  /**
+   * <p>The policy document that defines cost allocation for NAT gateways. Provide this document when
+   *             <code>NetworkResourceType</code> is <code>natgw</code>.</p>
+   * @public
+   */
+  NatFcaPolicyDocument?: NatFlexCostAllocationPolicyDocument | undefined;
+
+  /**
+   * <p>The policy document that defines cost allocation for EC2 instances. Provide this document when
+   *             <code>NetworkResourceType</code> is <code>ec2</code>.</p>
+   * @public
+   */
+  InstanceFcaPolicyDocument?: InstanceFlexCostAllocationPolicyDocument | undefined;
+
+  /**
+   * <p>The policy document that defines cost allocation for Amazon VPC peering connections. Provide this
+   *             document when <code>NetworkResourceType</code> is <code>pcx</code>.</p>
+   * @public
+   */
+  PcxFcaPolicyDocument?: PcxFlexCostAllocationPolicyDocument | undefined;
+
+  /**
+   * <p>Specifies whether showback reporting is enabled for the policy.</p>
+   *          <p>Default: <code>true</code>
+   *          </p>
+   * @public
+   */
+  ShowBackEnabled?: boolean | undefined;
+
+  /**
+   * <p>A description for the policy. The description can be up to 1024 characters long.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The tags to assign to the policy.</p>
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -13898,356 +14218,4 @@ export interface CreateNetworkInsightsAccessScopeRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes a Network Access Scope.</p>
- * @public
- */
-export interface NetworkInsightsAccessScope {
-  /**
-   * <p>The ID of the Network Access Scope.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Network Access Scope.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeArn?: string | undefined;
-
-  /**
-   * <p>The creation date.</p>
-   * @public
-   */
-  CreatedDate?: Date | undefined;
-
-  /**
-   * <p>The last updated date.</p>
-   * @public
-   */
-  UpdatedDate?: Date | undefined;
-
-  /**
-   * <p>The tags.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>Describes the Network Access Scope content.</p>
- * @public
- */
-export interface NetworkInsightsAccessScopeContent {
-  /**
-   * <p>The ID of the Network Access Scope.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeId?: string | undefined;
-
-  /**
-   * <p>The paths to match.</p>
-   * @public
-   */
-  MatchPaths?: AccessScopePath[] | undefined;
-
-  /**
-   * <p>The paths to exclude.</p>
-   * @public
-   */
-  ExcludePaths?: AccessScopePath[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkInsightsAccessScopeResult {
-  /**
-   * <p>The Network Access Scope.</p>
-   * @public
-   */
-  NetworkInsightsAccessScope?: NetworkInsightsAccessScope | undefined;
-
-  /**
-   * <p>The Network Access Scope content.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeContent?: NetworkInsightsAccessScopeContent | undefined;
-}
-
-/**
- * <p>Describes a port range.</p>
- * @public
- */
-export interface RequestFilterPortRange {
-  /**
-   * <p>The first port in the range.</p>
-   * @public
-   */
-  FromPort?: number | undefined;
-
-  /**
-   * <p>The last port in the range.</p>
-   * @public
-   */
-  ToPort?: number | undefined;
-}
-
-/**
- * <p>Describes a set of filters for a path analysis. Use path filters to scope the analysis when
- *          there can be multiple resulting paths.</p>
- * @public
- */
-export interface PathRequestFilter {
-  /**
-   * <p>The source IPv4 address.</p>
-   * @public
-   */
-  SourceAddress?: string | undefined;
-
-  /**
-   * <p>The source port range.</p>
-   * @public
-   */
-  SourcePortRange?: RequestFilterPortRange | undefined;
-
-  /**
-   * <p>The destination IPv4 address.</p>
-   * @public
-   */
-  DestinationAddress?: string | undefined;
-
-  /**
-   * <p>The destination port range.</p>
-   * @public
-   */
-  DestinationPortRange?: RequestFilterPortRange | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkInsightsPathRequest {
-  /**
-   * <p>The IP address of the source.</p>
-   * @public
-   */
-  SourceIp?: string | undefined;
-
-  /**
-   * <p>The IP address of the destination.</p>
-   * @public
-   */
-  DestinationIp?: string | undefined;
-
-  /**
-   * <p>The ID or ARN of the source. If the resource is in another account, you must specify an ARN.</p>
-   * @public
-   */
-  Source: string | undefined;
-
-  /**
-   * <p>The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.</p>
-   * @public
-   */
-  Destination?: string | undefined;
-
-  /**
-   * <p>The protocol.</p>
-   * @public
-   */
-  Protocol: Protocol | undefined;
-
-  /**
-   * <p>The destination port.</p>
-   * @public
-   */
-  DestinationPort?: number | undefined;
-
-  /**
-   * <p>The tags to add to the path.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
-   *    see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Scopes the analysis to network paths that match specific filters at the source. If you specify
-   *           this parameter, you can't specify the parameters for the source IP address or the destination port.</p>
-   * @public
-   */
-  FilterAtSource?: PathRequestFilter | undefined;
-
-  /**
-   * <p>Scopes the analysis to network paths that match specific filters at the destination. If you specify
-   *           this parameter, you can't specify the parameter for the destination IP address.</p>
-   * @public
-   */
-  FilterAtDestination?: PathRequestFilter | undefined;
-}
-
-/**
- * <p>Describes a port range.</p>
- * @public
- */
-export interface FilterPortRange {
-  /**
-   * <p>The first port in the range.</p>
-   * @public
-   */
-  FromPort?: number | undefined;
-
-  /**
-   * <p>The last port in the range.</p>
-   * @public
-   */
-  ToPort?: number | undefined;
-}
-
-/**
- * <p>Describes a set of filters for a path analysis. Use path filters to scope the analysis when
- *           there can be multiple resulting paths.</p>
- * @public
- */
-export interface PathFilter {
-  /**
-   * <p>The source IPv4 address.</p>
-   * @public
-   */
-  SourceAddress?: string | undefined;
-
-  /**
-   * <p>The source port range.</p>
-   * @public
-   */
-  SourcePortRange?: FilterPortRange | undefined;
-
-  /**
-   * <p>The destination IPv4 address.</p>
-   * @public
-   */
-  DestinationAddress?: string | undefined;
-
-  /**
-   * <p>The destination port range.</p>
-   * @public
-   */
-  DestinationPortRange?: FilterPortRange | undefined;
-}
-
-/**
- * <p>Describes a path.</p>
- * @public
- */
-export interface NetworkInsightsPath {
-  /**
-   * <p>The ID of the path.</p>
-   * @public
-   */
-  NetworkInsightsPathId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the path.</p>
-   * @public
-   */
-  NetworkInsightsPathArn?: string | undefined;
-
-  /**
-   * <p>The time stamp when the path was created.</p>
-   * @public
-   */
-  CreatedDate?: Date | undefined;
-
-  /**
-   * <p>The ID of the source.</p>
-   * @public
-   */
-  Source?: string | undefined;
-
-  /**
-   * <p>The ID of the destination.</p>
-   * @public
-   */
-  Destination?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source.</p>
-   * @public
-   */
-  SourceArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the destination.</p>
-   * @public
-   */
-  DestinationArn?: string | undefined;
-
-  /**
-   * <p>The IP address of the source.</p>
-   * @public
-   */
-  SourceIp?: string | undefined;
-
-  /**
-   * <p>The IP address of the destination.</p>
-   * @public
-   */
-  DestinationIp?: string | undefined;
-
-  /**
-   * <p>The protocol.</p>
-   * @public
-   */
-  Protocol?: Protocol | undefined;
-
-  /**
-   * <p>The destination port.</p>
-   * @public
-   */
-  DestinationPort?: number | undefined;
-
-  /**
-   * <p>The tags associated with the path.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>Scopes the analysis to network paths that match specific filters at the source.</p>
-   * @public
-   */
-  FilterAtSource?: PathFilter | undefined;
-
-  /**
-   * <p>Scopes the analysis to network paths that match specific filters at the destination.</p>
-   * @public
-   */
-  FilterAtDestination?: PathFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkInsightsPathResult {
-  /**
-   * <p>Information about the path.</p>
-   * @public
-   */
-  NetworkInsightsPath?: NetworkInsightsPath | undefined;
 }

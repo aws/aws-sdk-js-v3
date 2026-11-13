@@ -39,6 +39,7 @@ import type {
   PayerResponsibilityType,
   PlacementGroupState,
   PlacementStrategy,
+  Protocol,
   ProtocolValue,
   ReplaceRootVolumeTaskState,
   RouteOrigin,
@@ -110,8 +111,9 @@ import type {
   VpnTunnelBandwidth,
 } from "./enums";
 import type {
+  AccessScopePath,
+  AccessScopePathRequest,
   ApplicationStatusCheckResponseObject,
-  IpamRoutingPolicyRegistrationDelta,
   Ipv4PrefixSpecification,
   OperatorResponse,
   ReservedInstancesListing,
@@ -140,11 +142,6 @@ import type {
   IpamExternalResourceVerificationToken,
   IpamInternetRegistryAssociation,
   IpamPolicy,
-  IpamPool,
-  IpamPrefixListResolver,
-  IpamPrefixListResolverTarget,
-  IpamResourceDiscovery,
-  IpamScope,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
   OperatorRequest,
@@ -153,6 +150,425 @@ import type {
   Vpc,
   VpcEncryptionControl,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateNetworkingFlexCostAllocationPolicyResult {
+  /**
+   * <p>The ID of the flex cost allocation policy.</p>
+   * @public
+   */
+  FcaPolicyId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flex cost allocation policy.</p>
+   * @public
+   */
+  FcaPolicyArn?: string | undefined;
+
+  /**
+   * <p>The date and time when the policy was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the policy is expected to apply to network traffic.</p>
+   * @public
+   */
+  ExpectedEffectiveAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkInsightsAccessScopeRequest {
+  /**
+   * <p>The paths to match.</p>
+   * @public
+   */
+  MatchPaths?: AccessScopePathRequest[] | undefined;
+
+  /**
+   * <p>The paths to exclude.</p>
+   * @public
+   */
+  ExcludePaths?: AccessScopePathRequest[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
+   *    see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags to apply.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a Network Access Scope.</p>
+ * @public
+ */
+export interface NetworkInsightsAccessScope {
+  /**
+   * <p>The ID of the Network Access Scope.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Network Access Scope.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeArn?: string | undefined;
+
+  /**
+   * <p>The creation date.</p>
+   * @public
+   */
+  CreatedDate?: Date | undefined;
+
+  /**
+   * <p>The last updated date.</p>
+   * @public
+   */
+  UpdatedDate?: Date | undefined;
+
+  /**
+   * <p>The tags.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Describes the Network Access Scope content.</p>
+ * @public
+ */
+export interface NetworkInsightsAccessScopeContent {
+  /**
+   * <p>The ID of the Network Access Scope.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeId?: string | undefined;
+
+  /**
+   * <p>The paths to match.</p>
+   * @public
+   */
+  MatchPaths?: AccessScopePath[] | undefined;
+
+  /**
+   * <p>The paths to exclude.</p>
+   * @public
+   */
+  ExcludePaths?: AccessScopePath[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkInsightsAccessScopeResult {
+  /**
+   * <p>The Network Access Scope.</p>
+   * @public
+   */
+  NetworkInsightsAccessScope?: NetworkInsightsAccessScope | undefined;
+
+  /**
+   * <p>The Network Access Scope content.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeContent?: NetworkInsightsAccessScopeContent | undefined;
+}
+
+/**
+ * <p>Describes a port range.</p>
+ * @public
+ */
+export interface RequestFilterPortRange {
+  /**
+   * <p>The first port in the range.</p>
+   * @public
+   */
+  FromPort?: number | undefined;
+
+  /**
+   * <p>The last port in the range.</p>
+   * @public
+   */
+  ToPort?: number | undefined;
+}
+
+/**
+ * <p>Describes a set of filters for a path analysis. Use path filters to scope the analysis when
+ *          there can be multiple resulting paths.</p>
+ * @public
+ */
+export interface PathRequestFilter {
+  /**
+   * <p>The source IPv4 address.</p>
+   * @public
+   */
+  SourceAddress?: string | undefined;
+
+  /**
+   * <p>The source port range.</p>
+   * @public
+   */
+  SourcePortRange?: RequestFilterPortRange | undefined;
+
+  /**
+   * <p>The destination IPv4 address.</p>
+   * @public
+   */
+  DestinationAddress?: string | undefined;
+
+  /**
+   * <p>The destination port range.</p>
+   * @public
+   */
+  DestinationPortRange?: RequestFilterPortRange | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkInsightsPathRequest {
+  /**
+   * <p>The IP address of the source.</p>
+   * @public
+   */
+  SourceIp?: string | undefined;
+
+  /**
+   * <p>The IP address of the destination.</p>
+   * @public
+   */
+  DestinationIp?: string | undefined;
+
+  /**
+   * <p>The ID or ARN of the source. If the resource is in another account, you must specify an ARN.</p>
+   * @public
+   */
+  Source: string | undefined;
+
+  /**
+   * <p>The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.</p>
+   * @public
+   */
+  Destination?: string | undefined;
+
+  /**
+   * <p>The protocol.</p>
+   * @public
+   */
+  Protocol: Protocol | undefined;
+
+  /**
+   * <p>The destination port.</p>
+   * @public
+   */
+  DestinationPort?: number | undefined;
+
+  /**
+   * <p>The tags to add to the path.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
+   *    see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Scopes the analysis to network paths that match specific filters at the source. If you specify
+   *           this parameter, you can't specify the parameters for the source IP address or the destination port.</p>
+   * @public
+   */
+  FilterAtSource?: PathRequestFilter | undefined;
+
+  /**
+   * <p>Scopes the analysis to network paths that match specific filters at the destination. If you specify
+   *           this parameter, you can't specify the parameter for the destination IP address.</p>
+   * @public
+   */
+  FilterAtDestination?: PathRequestFilter | undefined;
+}
+
+/**
+ * <p>Describes a port range.</p>
+ * @public
+ */
+export interface FilterPortRange {
+  /**
+   * <p>The first port in the range.</p>
+   * @public
+   */
+  FromPort?: number | undefined;
+
+  /**
+   * <p>The last port in the range.</p>
+   * @public
+   */
+  ToPort?: number | undefined;
+}
+
+/**
+ * <p>Describes a set of filters for a path analysis. Use path filters to scope the analysis when
+ *           there can be multiple resulting paths.</p>
+ * @public
+ */
+export interface PathFilter {
+  /**
+   * <p>The source IPv4 address.</p>
+   * @public
+   */
+  SourceAddress?: string | undefined;
+
+  /**
+   * <p>The source port range.</p>
+   * @public
+   */
+  SourcePortRange?: FilterPortRange | undefined;
+
+  /**
+   * <p>The destination IPv4 address.</p>
+   * @public
+   */
+  DestinationAddress?: string | undefined;
+
+  /**
+   * <p>The destination port range.</p>
+   * @public
+   */
+  DestinationPortRange?: FilterPortRange | undefined;
+}
+
+/**
+ * <p>Describes a path.</p>
+ * @public
+ */
+export interface NetworkInsightsPath {
+  /**
+   * <p>The ID of the path.</p>
+   * @public
+   */
+  NetworkInsightsPathId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the path.</p>
+   * @public
+   */
+  NetworkInsightsPathArn?: string | undefined;
+
+  /**
+   * <p>The time stamp when the path was created.</p>
+   * @public
+   */
+  CreatedDate?: Date | undefined;
+
+  /**
+   * <p>The ID of the source.</p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>The ID of the destination.</p>
+   * @public
+   */
+  Destination?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source.</p>
+   * @public
+   */
+  SourceArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination.</p>
+   * @public
+   */
+  DestinationArn?: string | undefined;
+
+  /**
+   * <p>The IP address of the source.</p>
+   * @public
+   */
+  SourceIp?: string | undefined;
+
+  /**
+   * <p>The IP address of the destination.</p>
+   * @public
+   */
+  DestinationIp?: string | undefined;
+
+  /**
+   * <p>The protocol.</p>
+   * @public
+   */
+  Protocol?: Protocol | undefined;
+
+  /**
+   * <p>The destination port.</p>
+   * @public
+   */
+  DestinationPort?: number | undefined;
+
+  /**
+   * <p>The tags associated with the path.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Scopes the analysis to network paths that match specific filters at the source.</p>
+   * @public
+   */
+  FilterAtSource?: PathFilter | undefined;
+
+  /**
+   * <p>Scopes the analysis to network paths that match specific filters at the destination.</p>
+   * @public
+   */
+  FilterAtDestination?: PathFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkInsightsPathResult {
+  /**
+   * <p>Information about the path.</p>
+   * @public
+   */
+  NetworkInsightsPath?: NetworkInsightsPath | undefined;
+}
 
 /**
  * @public
@@ -10821,210 +11237,4 @@ export interface DeleteIpamPolicyResult {
    * @public
    */
   IpamPolicy?: IpamPolicy | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamPoolRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the pool to delete.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>Enables you to quickly delete an IPAM pool and all resources within that pool, including
-   *          provisioned CIDRs, allocations, and other pools.</p>
-   *          <important>
-   *             <p>You can only use this option to delete pools in the private scope or pools in the public scope with a source resource. A source resource is a resource used to provision CIDRs to a resource planning pool.</p>
-   *          </important>
-   * @public
-   */
-  Cascade?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamPoolResult {
-  /**
-   * <p>Information about the results of the deletion.</p>
-   * @public
-   */
-  IpamPool?: IpamPool | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamPrefixListResolverRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM prefix list resolver to delete.</p>
-   * @public
-   */
-  IpamPrefixListResolverId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamPrefixListResolverResult {
-  /**
-   * <p>Information about the IPAM prefix list resolver that was deleted.</p>
-   * @public
-   */
-  IpamPrefixListResolver?: IpamPrefixListResolver | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamPrefixListResolverTargetRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM prefix list resolver target to delete.</p>
-   * @public
-   */
-  IpamPrefixListResolverTargetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamPrefixListResolverTargetResult {
-  /**
-   * <p>Information about the IPAM prefix list resolver target that was deleted.</p>
-   * @public
-   */
-  IpamPrefixListResolverTarget?: IpamPrefixListResolverTarget | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamResourceDiscoveryRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IPAM resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamResourceDiscoveryResult {
-  /**
-   * <p>The IPAM resource discovery.</p>
-   * @public
-   */
-  IpamResourceDiscovery?: IpamResourceDiscovery | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamRoutingPolicyRegistrationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM internet registry association.</p>
-   * @public
-   */
-  IpamInternetRegistryAssociationId: string | undefined;
-
-  /**
-   * <p>The IP address prefix in CIDR notation identifying the routing policy registration to delete.</p>
-   * @public
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>Forces the deletion even if it conflicts with an announced route. Default: <code>false</code>.</p>
-   * @public
-   */
-  Force?: boolean | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the operation ignores the request, but does not return an error.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamRoutingPolicyRegistrationResult {
-  /**
-   * <p>Information about the routing policy registration delta created by this deletion.</p>
-   * @public
-   */
-  IpamRoutingPolicyRegistrationDelta?: IpamRoutingPolicyRegistrationDelta | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamScopeRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the scope to delete.</p>
-   * @public
-   */
-  IpamScopeId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamScopeResult {
-  /**
-   * <p>Information about the results of the deletion.</p>
-   * @public
-   */
-  IpamScope?: IpamScope | undefined;
 }

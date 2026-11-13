@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DisassociateNatGatewayAddressRequest, DisassociateNatGatewayAddressResult } from "../models/models_5";
+import type { DisassociateNatGatewayAddressRequest, DisassociateNatGatewayAddressResult } from "../models/models_6";
 import { DisassociateNatGatewayAddress$ } from "../schemas/schemas_0";
 
 /**

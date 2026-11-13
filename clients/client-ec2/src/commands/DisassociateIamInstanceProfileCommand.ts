@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DisassociateIamInstanceProfileRequest, DisassociateIamInstanceProfileResult } from "../models/models_5";
+import type { DisassociateIamInstanceProfileRequest, DisassociateIamInstanceProfileResult } from "../models/models_6";
 import { DisassociateIamInstanceProfile$ } from "../schemas/schemas_0";
 
 /**

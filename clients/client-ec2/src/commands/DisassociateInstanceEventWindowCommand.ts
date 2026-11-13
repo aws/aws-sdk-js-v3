@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DisassociateInstanceEventWindowRequest, DisassociateInstanceEventWindowResult } from "../models/models_5";
+import type { DisassociateInstanceEventWindowRequest, DisassociateInstanceEventWindowResult } from "../models/models_6";
 import { DisassociateInstanceEventWindow$ } from "../schemas/schemas_0";
 
 /**

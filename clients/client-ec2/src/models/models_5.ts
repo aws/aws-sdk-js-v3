@@ -27,7 +27,9 @@ import type {
   OnDemandAllocationStrategy,
   PayerResponsibility,
   PermissionGroup,
+  RecurringChargeFrequency,
   ReplacementStrategy,
+  ReservedInstanceState,
   ResourceType,
   RIProductDescription,
   RouteServerPropagationState,
@@ -68,18 +70,11 @@ import type {
   ActiveInstance,
   AddressTransfer,
   AllowedPrincipal,
-  AsnAssociation,
-  AssociationStatus,
   CustomTagKeyValueRequestPair,
-  IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
-  InstanceEventWindow,
-  IpamResourceDiscoveryAssociation,
   IpPermission,
-  NatGatewayAddress,
   OperatorResponse,
   ReservedInstancesListing,
-  RouteServerAssociation,
   SecurityGroupRule,
   SuccessfulAssociationResponseObject,
   Tag,
@@ -113,6 +108,7 @@ import type {
   DnsEntry,
   GroupIdentifier,
   PayerResponsibilityEntry,
+  ReplaceRootVolumeTask,
   RouteServer,
   RouteServerEndpoint,
   RouteServerPeer,
@@ -144,19 +140,742 @@ import type {
   VpnConnection,
   VpnGateway,
 } from "./models_2";
-import type {
-  FastLaunchLaunchTemplateSpecificationResponse,
-  FastLaunchSnapshotConfigurationResponse,
-  Filter,
-} from "./models_3";
+import type { Filter, IdFormat } from "./models_3";
 import type {
   AttributeBooleanValue,
   EventInformation,
+  FastLaunchLaunchTemplateSpecificationResponse,
+  FastLaunchSnapshotConfigurationResponse,
   ProductCode,
-  RecurringCharge,
   RegisteredInstance,
-  ReservedInstances,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribePrefixListsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-id</code>: The ID of a prefix list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-name</code>: The name of a prefix list.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more prefix list IDs.</p>
+   * @public
+   */
+  PrefixListIds?: string[] | undefined;
+}
+
+/**
+ * <p>Describes prefixes for Amazon Web Services services.</p>
+ * @public
+ */
+export interface PrefixList {
+  /**
+   * <p>The IP address range of the Amazon Web Services service.</p>
+   * @public
+   */
+  Cidrs?: string[] | undefined;
+
+  /**
+   * <p>The ID of the prefix.</p>
+   * @public
+   */
+  PrefixListId?: string | undefined;
+
+  /**
+   * <p>The name of the prefix.</p>
+   * @public
+   */
+  PrefixListName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePrefixListsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>All available prefix lists.</p>
+   * @public
+   */
+  PrefixLists?: PrefixList[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePrincipalIdFormatRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The type of resource: <code>bundle</code> |
+   *             <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
+   *             <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
+   *             <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
+   *             <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
+   *             <code>network-acl</code> | <code>network-acl-association</code> |
+   *             <code>network-interface</code> | <code>network-interface-attachment</code> |
+   *             <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
+   *             <code>route-table-association</code> | <code>security-group</code> |
+   *             <code>snapshot</code> | <code>subnet</code> |
+   *             <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
+   *             | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
+   *             <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
+   *          </p>
+   * @public
+   */
+  Resources?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned NextToken value. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>PrincipalIdFormat description</p>
+ * @public
+ */
+export interface PrincipalIdFormat {
+  /**
+   * <p>PrincipalIdFormatARN description</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>PrincipalIdFormatStatuses description</p>
+   * @public
+   */
+  Statuses?: IdFormat[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePrincipalIdFormatResult {
+  /**
+   * <p>Information about the ID format settings for the ARN.</p>
+   * @public
+   */
+  Principals?: PrincipalIdFormat[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePublicIpv4PoolsRequest {
+  /**
+   * <p>The IDs of the address pools.</p>
+   * @public
+   */
+  PoolIds?: string[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Describes an address range of an IPv4 address pool.</p>
+ * @public
+ */
+export interface PublicIpv4PoolRange {
+  /**
+   * <p>The first IP address in the range.</p>
+   * @public
+   */
+  FirstAddress?: string | undefined;
+
+  /**
+   * <p>The last IP address in the range.</p>
+   * @public
+   */
+  LastAddress?: string | undefined;
+
+  /**
+   * <p>The number of addresses in the range.</p>
+   * @public
+   */
+  AddressCount?: number | undefined;
+
+  /**
+   * <p>The number of available addresses in the range.</p>
+   * @public
+   */
+  AvailableAddressCount?: number | undefined;
+}
+
+/**
+ * <p>Describes an IPv4 address pool.</p>
+ * @public
+ */
+export interface PublicIpv4Pool {
+  /**
+   * <p>The ID of the address pool.</p>
+   * @public
+   */
+  PoolId?: string | undefined;
+
+  /**
+   * <p>A description of the address pool.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The address ranges.</p>
+   * @public
+   */
+  PoolAddressRanges?: PublicIpv4PoolRange[] | undefined;
+
+  /**
+   * <p>The total number of addresses.</p>
+   * @public
+   */
+  TotalAddressCount?: number | undefined;
+
+  /**
+   * <p>The total number of available addresses.</p>
+   * @public
+   */
+  TotalAvailableAddressCount?: number | undefined;
+
+  /**
+   * <p>The name of the location from which the address pool is advertised.
+   *             A network border group is a unique set of Availability Zones or Local Zones
+   *             from where Amazon Web Services advertises public IP addresses.</p>
+   * @public
+   */
+  NetworkBorderGroup?: string | undefined;
+
+  /**
+   * <p>Any tags for the address pool.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePublicIpv4PoolsResult {
+  /**
+   * <p>Information about the address pools.</p>
+   * @public
+   */
+  PublicIpv4Pools?: PublicIpv4Pool[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegionsRequest {
+  /**
+   * <p>The names of the Regions. You can specify any Regions, whether they are enabled and disabled for your account.</p>
+   * @public
+   */
+  RegionNames?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether to display all Regions, including Regions that are disabled for your account.</p>
+   * @public
+   */
+  AllRegions?: boolean | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>endpoint</code> - The endpoint of the Region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>opt-in-status</code> - The opt-in status of the Region (<code>opt-in-not-required</code> | <code>opted-in</code> |
+   *                  <code>not-opted-in</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>region-name</code> - The name of the Region (for example, <code>us-east-1</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Describes the geography information for a Region.</p>
+ * @public
+ */
+export interface RegionGeography {
+  /**
+   * <p>The name of the geography, for example, <code>United States of America</code>.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * <p>Describes a Region.</p>
+ * @public
+ */
+export interface Region {
+  /**
+   * <p>The Region opt-in status. The possible values are <code>opt-in-not-required</code>, <code>opted-in</code>, and
+   *         <code>not-opted-in</code>.</p>
+   * @public
+   */
+  OptInStatus?: string | undefined;
+
+  /**
+   * <p>The geography information for the Region. The geography is returned as a list.</p>
+   * @public
+   */
+  Geography?: RegionGeography[] | undefined;
+
+  /**
+   * <p>The name of the Region.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>The Region service endpoint.</p>
+   * @public
+   */
+  Endpoint?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegionsResult {
+  /**
+   * <p>Information about the Regions.</p>
+   * @public
+   */
+  Regions?: Region[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReplaceRootVolumeTasksRequest {
+  /**
+   * <p>The ID of the root volume replacement task to view.</p>
+   * @public
+   */
+  ReplaceRootVolumeTaskIds?: string[] | undefined;
+
+  /**
+   * <p>Filter to use:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>instance-id</code> - The ID of the instance for which the root volume replacement task was created.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReplaceRootVolumeTasksResult {
+  /**
+   * <p>Information about the root volume replacement task.</p>
+   * @public
+   */
+  ReplaceRootVolumeTasks?: ReplaceRootVolumeTask[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeReservedInstances.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesRequest {
+  /**
+   * <p>Describes whether the Reserved Instance is Standard or Convertible.</p>
+   * @public
+   */
+  OfferingClass?: OfferingClassType | undefined;
+
+  /**
+   * <p>One or more Reserved Instance IDs.</p>
+   *          <p>Default: Describes all your Reserved Instances, or only those otherwise specified.</p>
+   * @public
+   */
+  ReservedInstancesIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making
+   *       the request, and provides an error response. If you have the required permissions, the error
+   *       response is <code>DryRunOperation</code>. Otherwise, it is
+   *       <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone where the Reserved Instance can
+   *           be used.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The ID of the Availability Zone where the Reserved
+   *           Instance can be used.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>duration</code> - The duration of the Reserved Instance (one year or three
+   *           years), in seconds (<code>31536000</code> | <code>94608000</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>end</code> - The time when the Reserved Instance expires (for example,
+   *           2015-08-07T11:54:42.000Z).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fixed-price</code> - The purchase price of the Reserved Instance (for example,
+   *           9800.0).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type that is covered by the
+   *           reservation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scope</code> - The scope of the Reserved Instance (<code>Region</code> or
+   *             <code>Availability Zone</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>product-description</code> - The Reserved Instance product platform description
+   *             (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> | <code>Linux
+   *             with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> | <code>SUSE
+   *             Linux</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux
+   *             with HA</code> | <code>Windows</code> | <code>Windows with SQL Server Standard</code> |
+   *             <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server
+   *             Enterprise</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>start</code> - The time at which the Reserved Instance purchase request was
+   *           placed (for example, 2014-08-07T11:54:42.000Z).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the Reserved Instance (<code>payment-pending</code>
+   *           | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for
+   *           example, 0.84).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01
+   *       API version, you only have access to the <code>Medium Utilization</code> Reserved Instance
+   *       offering type.</p>
+   * @public
+   */
+  OfferingType?: OfferingTypeValues | undefined;
+}
+
+/**
+ * <p>Describes a recurring charge.</p>
+ * @public
+ */
+export interface RecurringCharge {
+  /**
+   * <p>The amount of the recurring charge.</p>
+   * @public
+   */
+  Amount?: number | undefined;
+
+  /**
+   * <p>The frequency of the recurring charge.</p>
+   * @public
+   */
+  Frequency?: RecurringChargeFrequency | undefined;
+}
+
+/**
+ * <p>Describes a Reserved Instance.</p>
+ * @public
+ */
+export interface ReservedInstances {
+  /**
+   * <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency
+   *       codes. At this time, the only supported currency is <code>USD</code>.</p>
+   * @public
+   */
+  CurrencyCode?: CurrencyCodeValues | undefined;
+
+  /**
+   * <p>The tenancy of the instance.</p>
+   * @public
+   */
+  InstanceTenancy?: Tenancy | undefined;
+
+  /**
+   * <p>The offering class of the Reserved Instance.</p>
+   * @public
+   */
+  OfferingClass?: OfferingClassType | undefined;
+
+  /**
+   * <p>The Reserved Instance offering type.</p>
+   * @public
+   */
+  OfferingType?: OfferingTypeValues | undefined;
+
+  /**
+   * <p>The recurring charge tag assigned to the resource.</p>
+   * @public
+   */
+  RecurringCharges?: RecurringCharge[] | undefined;
+
+  /**
+   * <p>The scope of the Reserved Instance.</p>
+   * @public
+   */
+  Scope?: Scope | undefined;
+
+  /**
+   * <p>Any tags assigned to the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The ID of the Reserved Instance.</p>
+   * @public
+   */
+  ReservedInstancesId?: string | undefined;
+
+  /**
+   * <p>The instance type on which the Reserved Instance can be used.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The Availability Zone in which the Reserved Instance can be used.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The date and time the Reserved Instance started.</p>
+   * @public
+   */
+  Start?: Date | undefined;
+
+  /**
+   * <p>The time when the Reserved Instance expires.</p>
+   * @public
+   */
+  End?: Date | undefined;
+
+  /**
+   * <p>The duration of the Reserved Instance, in seconds.</p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>The usage price of the Reserved Instance, per hour.</p>
+   * @public
+   */
+  UsagePrice?: number | undefined;
+
+  /**
+   * <p>The purchase price of the Reserved Instance.</p>
+   * @public
+   */
+  FixedPrice?: number | undefined;
+
+  /**
+   * <p>The number of reservations purchased.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The Reserved Instance product platform description.</p>
+   * @public
+   */
+  ProductDescription?: RIProductDescription | undefined;
+
+  /**
+   * <p>The state of the Reserved Instance purchase.</p>
+   * @public
+   */
+  State?: ReservedInstanceState | undefined;
+}
 
 /**
  * <p>Contains the output for DescribeReservedInstances.</p>
@@ -7958,6 +8677,16 @@ export interface DescribeVolumeStatusRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>attachment-status.instance-id</code> - The ID of the instance that the
+   *           volume is attached to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment-status.io-performance</code> - The I/O performance status of the
+   *           volume's attachment to the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
    *             </li>
    *             <li>
@@ -11507,345 +12236,4 @@ export interface DisassociateApplicationStatusCheckResult {
    * @public
    */
   UnsuccessfulResults?: UnsuccessfulAssociationResponseObject[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateCapacityReservationBillingOwnerRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   * @public
-   */
-  CapacityReservationId: string | undefined;
-
-  /**
-   * <p>The ID of the consumer account to which the request was sent.</p>
-   * @public
-   */
-  UnusedReservationBillingOwnerId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateCapacityReservationBillingOwnerResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateClientVpnTargetNetworkRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint from which to disassociate the target network.</p>
-   * @public
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The ID of the target network association.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateClientVpnTargetNetworkResult {
-  /**
-   * <p>The ID of the target network association.</p>
-   * @public
-   */
-  AssociationId?: string | undefined;
-
-  /**
-   * <p>The current state of the target network association.</p>
-   * @public
-   */
-  Status?: AssociationStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateEnclaveCertificateIamRoleRequest {
-  /**
-   * <p>The ARN of the ACM certificate from which to disassociate the IAM role.</p>
-   * @public
-   */
-  CertificateArn: string | undefined;
-
-  /**
-   * <p>The ARN of the IAM role to disassociate.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateEnclaveCertificateIamRoleResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateIamInstanceProfileRequest {
-  /**
-   * <p>The ID of the IAM instance profile association.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateIamInstanceProfileResult {
-  /**
-   * <p>Information about the IAM instance profile association.</p>
-   * @public
-   */
-  IamInstanceProfileAssociation?: IamInstanceProfileAssociation | undefined;
-}
-
-/**
- * <p>The targets to disassociate from the specified event window.</p>
- * @public
- */
-export interface InstanceEventWindowDisassociationRequest {
-  /**
-   * <p>The IDs of the instances to disassociate from the event window.</p>
-   * @public
-   */
-  InstanceIds?: string[] | undefined;
-
-  /**
-   * <p>The instance tags to disassociate from the event window. Any instances associated with
-   *          the tags will be disassociated from the event window.</p>
-   * @public
-   */
-  InstanceTags?: Tag[] | undefined;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts to disassociate from the event window.</p>
-   * @public
-   */
-  DedicatedHostIds?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateInstanceEventWindowRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the event window.</p>
-   * @public
-   */
-  InstanceEventWindowId: string | undefined;
-
-  /**
-   * <p>One or more targets to disassociate from the specified event window.</p>
-   * @public
-   */
-  AssociationTarget: InstanceEventWindowDisassociationRequest | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateInstanceEventWindowResult {
-  /**
-   * <p>Information about the event window.</p>
-   * @public
-   */
-  InstanceEventWindow?: InstanceEventWindow | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateIpamByoasnRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A public 2-byte or 4-byte ASN.</p>
-   * @public
-   */
-  Asn: string | undefined;
-
-  /**
-   * <p>A BYOIP CIDR.</p>
-   * @public
-   */
-  Cidr: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateIpamByoasnResult {
-  /**
-   * <p>An ASN and BYOIP CIDR association.</p>
-   * @public
-   */
-  AsnAssociation?: AsnAssociation | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateIpamResourceDiscoveryRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A resource discovery association ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryAssociationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateIpamResourceDiscoveryResult {
-  /**
-   * <p>A resource discovery association.</p>
-   * @public
-   */
-  IpamResourceDiscoveryAssociation?: IpamResourceDiscoveryAssociation | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateNatGatewayAddressRequest {
-  /**
-   * <p>The ID of the NAT gateway.</p>
-   * @public
-   */
-  NatGatewayId: string | undefined;
-
-  /**
-   * <p>The association IDs of EIPs that have been associated with the NAT gateway.</p>
-   * @public
-   */
-  AssociationIds: string[] | undefined;
-
-  /**
-   * <p>The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.</p>
-   * @public
-   */
-  MaxDrainDurationSeconds?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateNatGatewayAddressResult {
-  /**
-   * <p>The ID of the NAT gateway.</p>
-   * @public
-   */
-  NatGatewayId?: string | undefined;
-
-  /**
-   * <p>Information about the NAT gateway IP addresses.</p>
-   * @public
-   */
-  NatGatewayAddresses?: NatGatewayAddress[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateRouteServerRequest {
-  /**
-   * <p>The ID of the route server to disassociate.</p>
-   * @public
-   */
-  RouteServerId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC to disassociate from the route server.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateRouteServerResult {
-  /**
-   * <p>Information about the disassociated route server.</p>
-   * @public
-   */
-  RouteServerAssociation?: RouteServerAssociation | undefined;
 }

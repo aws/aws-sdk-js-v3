@@ -23,9 +23,12 @@ import type {
   EbsEncryptionSupport,
   EbsNvmeSupport,
   EbsOptimizedSupport,
+  ElasticGpuState,
   EnaSupport,
   EphemeralNvmeSupport,
   EventCode,
+  FastLaunchResourceType,
+  FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
   FindingsFound,
   FleetActivityStatus,
@@ -37,6 +40,7 @@ import type {
   FleetReservationType,
   FleetStateCode,
   FleetType,
+  FlexCostAllocationNetworkResourceType,
   FlexibleEnaQueuesSupport,
   FpgaImageAttributeName,
   FpgaImageStateCode,
@@ -70,6 +74,7 @@ import type {
   LocationType,
   LockState,
   LogDestinationType,
+  ManagedBy,
   MonitoringState,
   MoveStatus,
   NestedVirtualizationSpecification,
@@ -78,8 +83,6 @@ import type {
   NetworkInterfaceStatus,
   NitroEnclavesSupport,
   NitroTpmSupport,
-  OfferingClassType,
-  OfferingTypeValues,
   PaymentOption,
   PermissionGroup,
   PhcSupport,
@@ -87,14 +90,10 @@ import type {
   PlatformValues,
   ProductCodeValues,
   RebootMigrationSupport,
-  RecurringChargeFrequency,
   ReservationState,
   ReservedCapacityAllocationStrategy,
   ReservedCapacityFallbackMarketType,
-  ReservedInstanceState,
-  RIProductDescription,
   RootDeviceType,
-  Scope,
   SecondaryInterfaceStatus,
   SecondaryInterfaceType,
   SeverityLabel,
@@ -107,7 +106,6 @@ import type {
   SupportedAdditionalProcessorFeature,
   TaggableResourceType,
   TargetCapacityUnitType,
-  Tenancy,
   TpmSupportValues,
   TrafficType,
   UsageClassType,
@@ -117,6 +115,7 @@ import type {
   ActiveInstance,
   AlternatePathHint,
   Explanation,
+  FlexCostAllocationPolicyAssociationDescription,
   IamInstanceProfile,
   IamInstanceProfileAssociation,
   InstanceEventWindow,
@@ -131,8 +130,10 @@ import type {
   BlockDeviceMapping,
   CapacityReservationTargetResponse,
   Ec2InstanceConnectEndpoint,
+  ExportTask,
   FleetLaunchTemplateOverrides,
   FleetLaunchTemplateSpecification,
+  InstanceFlexCostAllocationPolicyDocument,
   InstanceIpv6Address,
   InternetGateway,
   Ipam,
@@ -155,22 +156,494 @@ import type {
   MacModificationTask,
   ManagedPrefixList,
   MetricCategory,
+  NatFlexCostAllocationPolicyDocument,
   NatGateway,
   NetworkAcl,
-  NetworkInsightsAccessScope,
-  NetworkInsightsPath,
+  PcxFlexCostAllocationPolicyDocument,
   Placement,
   StateReason,
 } from "./models_1";
 import type {
   GroupIdentifier,
+  NetworkInsightsAccessScope,
+  NetworkInsightsPath,
   NetworkInterface,
   NetworkInterfaceAttachment,
   NetworkInterfacePermission,
   PlacementGroup,
-  ReplaceRootVolumeTask,
 } from "./models_2";
-import type { Byoasn, Filter, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+import type { Byoasn, ElasticGpuHealth, Filter, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+
+/**
+ * <note>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
+ *          </note>
+ *          <p>Describes an Elastic Graphics accelerator.</p>
+ * @public
+ */
+export interface ElasticGpus {
+  /**
+   * <p>The ID of the Elastic Graphics accelerator.</p>
+   * @public
+   */
+  ElasticGpuId?: string | undefined;
+
+  /**
+   * <p>The Availability Zone in the which the Elastic Graphics accelerator resides.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The type of Elastic Graphics accelerator.</p>
+   * @public
+   */
+  ElasticGpuType?: string | undefined;
+
+  /**
+   * <p>The status of the Elastic Graphics accelerator.</p>
+   * @public
+   */
+  ElasticGpuHealth?: ElasticGpuHealth | undefined;
+
+  /**
+   * <p>The state of the Elastic Graphics accelerator.</p>
+   * @public
+   */
+  ElasticGpuState?: ElasticGpuState | undefined;
+
+  /**
+   * <p>The ID of the instance to which the Elastic Graphics accelerator is attached.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The tags assigned to the Elastic Graphics accelerator.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeElasticGpusResult {
+  /**
+   * <p>Information about the Elastic Graphics accelerators.</p>
+   * @public
+   */
+  ElasticGpuSet?: ElasticGpus[] | undefined;
+
+  /**
+   * <p>The total number of items to return. If the total number of items available is more
+   *             than the value specified in max-items then a Next-Token will be provided in the output
+   *             that you can use to resume pagination.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is
+   *                 <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeExportImageTasksRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>,
+   *     <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The IDs of the export image tasks.</p>
+   * @public
+   */
+  ExportImageTaskIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token that indicates the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes the destination for an export image task.</p>
+ * @public
+ */
+export interface ExportTaskS3Location {
+  /**
+   * <p>The destination Amazon S3 bucket.</p>
+   * @public
+   */
+  S3Bucket?: string | undefined;
+
+  /**
+   * <p>The prefix (logical hierarchy) in the bucket.</p>
+   * @public
+   */
+  S3Prefix?: string | undefined;
+}
+
+/**
+ * <p>Describes an export image task.</p>
+ * @public
+ */
+export interface ExportImageTask {
+  /**
+   * <p>A description of the image being exported.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ID of the export image task.</p>
+   * @public
+   */
+  ExportImageTaskId?: string | undefined;
+
+  /**
+   * <p>The ID of the image.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The percent complete of the export image task.</p>
+   * @public
+   */
+  Progress?: string | undefined;
+
+  /**
+   * <p>Information about the destination Amazon S3 bucket.</p>
+   * @public
+   */
+  S3ExportLocation?: ExportTaskS3Location | undefined;
+
+  /**
+   * <p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>,
+   *     <code>deleting</code>, and <code>deleted</code>.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The status message for the export image task.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>Any tags assigned to the export image task.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeExportImageTasksResult {
+  /**
+   * <p>Information about the export image tasks.</p>
+   * @public
+   */
+  ExportImageTasks?: ExportImageTask[] | undefined;
+
+  /**
+   * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
+   *    to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeExportTasksRequest {
+  /**
+   * <p>the filters for the export tasks.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The export task IDs.</p>
+   * @public
+   */
+  ExportTaskIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeExportTasksResult {
+  /**
+   * <p>Information about the export tasks.</p>
+   * @public
+   */
+  ExportTasks?: ExportTask[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFastLaunchImagesRequest {
+  /**
+   * <p>Specify one or more Windows AMI image IDs for the request.</p>
+   * @public
+   */
+  ImageIds?: string[] | undefined;
+
+  /**
+   * <p>Use the following filters to streamline results.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The resource type for pre-provisioning.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The owner ID for the pre-provisioning resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The current state of fast launching for the Windows AMI.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Identifies the launch template that the AMI uses for Windows fast launch.</p>
+ * @public
+ */
+export interface FastLaunchLaunchTemplateSpecificationResponse {
+  /**
+   * <p>The ID of the launch template that the AMI uses for Windows fast launch.</p>
+   * @public
+   */
+  LaunchTemplateId?: string | undefined;
+
+  /**
+   * <p>The name of the launch template that the AMI uses for Windows fast launch.</p>
+   * @public
+   */
+  LaunchTemplateName?: string | undefined;
+
+  /**
+   * <p>The version of the launch template that the AMI uses for Windows fast launch.</p>
+   * @public
+   */
+  Version?: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows
+ *       fast launch enabled Windows AMI.</p>
+ * @public
+ */
+export interface FastLaunchSnapshotConfigurationResponse {
+  /**
+   * <p>The number of pre-provisioned snapshots requested to keep on hand for a Windows fast
+   *       launch enabled AMI.</p>
+   * @public
+   */
+  TargetResourceCount?: number | undefined;
+}
+
+/**
+ * <p>Describe details about a Windows image with Windows fast launch enabled that meets the
+ *       requested criteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action
+ *       filters.</p>
+ * @public
+ */
+export interface DescribeFastLaunchImagesSuccessItem {
+  /**
+   * <p>The image ID that identifies the Windows fast launch enabled image.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The resource type that Amazon EC2 uses for pre-provisioning the Windows AMI. Supported values
+   *       include: <code>snapshot</code>.</p>
+   * @public
+   */
+  ResourceType?: FastLaunchResourceType | undefined;
+
+  /**
+   * <p>A group of parameters that are used for pre-provisioning the associated Windows AMI using
+   *       snapshots.</p>
+   * @public
+   */
+  SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse | undefined;
+
+  /**
+   * <p>The launch template that the Windows fast launch enabled AMI uses when it launches Windows
+   *       instances from pre-provisioned snapshots.</p>
+   * @public
+   */
+  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse | undefined;
+
+  /**
+   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
+   *       pre-provisioned snapshots for Windows fast launch.</p>
+   * @public
+   */
+  MaxParallelLaunches?: number | undefined;
+
+  /**
+   * <p>The owner ID for the Windows fast launch enabled AMI.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The current state of Windows fast launch for the specified Windows AMI.</p>
+   * @public
+   */
+  State?: FastLaunchStateCode | undefined;
+
+  /**
+   * <p>The reason that Windows fast launch for the AMI changed to the current state.</p>
+   * @public
+   */
+  StateTransitionReason?: string | undefined;
+
+  /**
+   * <p>The time that Windows fast launch for the AMI changed to the current state.</p>
+   * @public
+   */
+  StateTransitionTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFastLaunchImagesResult {
+  /**
+   * <p>A collection of details about the fast-launch enabled Windows images that meet the
+   *       requested criteria.</p>
+   * @public
+   */
+  FastLaunchImages?: DescribeFastLaunchImagesSuccessItem[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFastSnapshotRestoresRequest {
+  /**
+   * <p>The filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code>: The Availability Zone of the snapshot. For example, <code>us-east-2a</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code>: The ID of the Availability Zone of the snapshot. For example, <code>use2-az1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code>: The ID of the Amazon Web Services account that enabled fast snapshot restore on the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-id</code>: The ID of the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code>: The state of fast snapshot restores for the snapshot
+   *          (<code>enabling</code> |
+   *           <code>optimizing</code> |
+   *           <code>enabled</code> |
+   *           <code>disabling</code> |
+   *           <code>disabled</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * <p>Describes fast snapshot restores for a snapshot.</p>
@@ -12727,6 +13200,262 @@ export interface DescribeNetworkAclsResult {
 /**
  * @public
  */
+export interface DescribeNetworkingFlexCostAllocationPoliciesRequest {
+  /**
+   * <p>The IDs of the flex cost allocation policies to describe.</p>
+   * @public
+   */
+  FcaPolicyIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. The range is 5 to 1000. To retrieve
+   *             the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   *          <p>Default: 100</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>fca-policy-id</code> - The ID of the policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>managed-by</code> - The entity that manages the policy (<code>account</code> |
+   *                     <code>declarative-policy</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-resource-type</code> - The type of network resource that the policy applies to
+   *                     (<code>natgw</code> | <code>ec2</code> | <code>pcx</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>showback-enabled</code> - Indicates whether showback reporting is enabled for the
+   *                     policy (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a flex cost allocation policy.</p>
+ * @public
+ */
+export interface FlexCostAllocationPolicyDescription {
+  /**
+   * <p>The ID of the policy.</p>
+   * @public
+   */
+  FcaPolicyId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy.</p>
+   * @public
+   */
+  FcaPolicyArn?: string | undefined;
+
+  /**
+   * <p>The type of network resource that the policy applies to.</p>
+   * @public
+   */
+  NetworkResourceType?: FlexCostAllocationNetworkResourceType | undefined;
+
+  /**
+   * <p>The policy document that defines cost allocation for NAT gateways.</p>
+   * @public
+   */
+  NatFcaPolicyDocument?: NatFlexCostAllocationPolicyDocument | undefined;
+
+  /**
+   * <p>The policy document that defines cost allocation for EC2 instances.</p>
+   * @public
+   */
+  InstanceFcaPolicyDocument?: InstanceFlexCostAllocationPolicyDocument | undefined;
+
+  /**
+   * <p>The policy document that defines cost allocation for Amazon VPC peering connections.</p>
+   * @public
+   */
+  PcxFcaPolicyDocument?: PcxFlexCostAllocationPolicyDocument | undefined;
+
+  /**
+   * <p>Indicates whether showback reporting is enabled for the policy.</p>
+   * @public
+   */
+  ShowBackEnabled?: boolean | undefined;
+
+  /**
+   * <p>The ID of the account that owns the policy.</p>
+   * @public
+   */
+  OwnerAccount?: string | undefined;
+
+  /**
+   * <p>The description of the policy.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The number of the latest version of the policy.</p>
+   * @public
+   */
+  LatestVersion?: number | undefined;
+
+  /**
+   * <p>The date and time when the latest version of the policy is expected to apply to network traffic.
+   *             The policy configuration in this response is from the latest version.</p>
+   * @public
+   */
+  VersionExpectedEffectiveAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the policy was created.</p>
+   * @public
+   */
+  PolicyCreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the policy was last updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The entity that manages the policy. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>account</code> - The account that owns the policy created it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>declarative-policy</code> - An Amazon Web Services Organizations declarative policy
+   *                     created the policy. You can't modify or delete the policy.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ManagedBy?: ManagedBy | undefined;
+
+  /**
+   * <p>The tags assigned to the policy.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNetworkingFlexCostAllocationPoliciesResult {
+  /**
+   * <p>Information about the flex cost allocation policies.</p>
+   * @public
+   */
+  FlexCostAllocationPolicies?: FlexCostAllocationPolicyDescription[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNetworkingFlexCostAllocationPolicyAssociationsRequest {
+  /**
+   * <p>The IDs of the policy associations to describe.</p>
+   * @public
+   */
+  FcaPolicyAssociationIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. The range is 5 to 1000. To retrieve
+   *             the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   *          <p>Default: 100</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>fca-policy-id</code> - The ID of the policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>managed-by</code> - The entity that manages the association (<code>account</code> |
+   *                     <code>declarative-policy</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the associated network resource.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNetworkingFlexCostAllocationPolicyAssociationsResult {
+  /**
+   * <p>Information about the policy associations.</p>
+   * @public
+   */
+  FcaPolicyAssociations?: FlexCostAllocationPolicyAssociationDescription[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeNetworkInsightsAccessScopeAnalysesRequest {
   /**
    * <p>The IDs of the Network Access Scope analyses.</p>
@@ -13863,731 +14592,4 @@ export interface DescribePlacementGroupsResult {
    * @public
    */
   PlacementGroups?: PlacementGroup[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePrefixListsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>prefix-list-id</code>: The ID of a prefix list.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>prefix-list-name</code>: The name of a prefix list.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>One or more prefix list IDs.</p>
-   * @public
-   */
-  PrefixListIds?: string[] | undefined;
-}
-
-/**
- * <p>Describes prefixes for Amazon Web Services services.</p>
- * @public
- */
-export interface PrefixList {
-  /**
-   * <p>The IP address range of the Amazon Web Services service.</p>
-   * @public
-   */
-  Cidrs?: string[] | undefined;
-
-  /**
-   * <p>The ID of the prefix.</p>
-   * @public
-   */
-  PrefixListId?: string | undefined;
-
-  /**
-   * <p>The name of the prefix.</p>
-   * @public
-   */
-  PrefixListName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePrefixListsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>All available prefix lists.</p>
-   * @public
-   */
-  PrefixLists?: PrefixList[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePrincipalIdFormatRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The type of resource: <code>bundle</code> |
-   *             <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *             <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *             <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *             <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
-   *             <code>network-acl</code> | <code>network-acl-association</code> |
-   *             <code>network-interface</code> | <code>network-interface-attachment</code> |
-   *             <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
-   *             <code>route-table-association</code> | <code>security-group</code> |
-   *             <code>snapshot</code> | <code>subnet</code> |
-   *             <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
-   *             | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
-   *             <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
-   *          </p>
-   * @public
-   */
-  Resources?: string[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned NextToken value. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>PrincipalIdFormat description</p>
- * @public
- */
-export interface PrincipalIdFormat {
-  /**
-   * <p>PrincipalIdFormatARN description</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>PrincipalIdFormatStatuses description</p>
-   * @public
-   */
-  Statuses?: IdFormat[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePrincipalIdFormatResult {
-  /**
-   * <p>Information about the ID format settings for the ARN.</p>
-   * @public
-   */
-  Principals?: PrincipalIdFormat[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePublicIpv4PoolsRequest {
-  /**
-   * <p>The IDs of the address pools.</p>
-   * @public
-   */
-  PoolIds?: string[] | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Describes an address range of an IPv4 address pool.</p>
- * @public
- */
-export interface PublicIpv4PoolRange {
-  /**
-   * <p>The first IP address in the range.</p>
-   * @public
-   */
-  FirstAddress?: string | undefined;
-
-  /**
-   * <p>The last IP address in the range.</p>
-   * @public
-   */
-  LastAddress?: string | undefined;
-
-  /**
-   * <p>The number of addresses in the range.</p>
-   * @public
-   */
-  AddressCount?: number | undefined;
-
-  /**
-   * <p>The number of available addresses in the range.</p>
-   * @public
-   */
-  AvailableAddressCount?: number | undefined;
-}
-
-/**
- * <p>Describes an IPv4 address pool.</p>
- * @public
- */
-export interface PublicIpv4Pool {
-  /**
-   * <p>The ID of the address pool.</p>
-   * @public
-   */
-  PoolId?: string | undefined;
-
-  /**
-   * <p>A description of the address pool.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The address ranges.</p>
-   * @public
-   */
-  PoolAddressRanges?: PublicIpv4PoolRange[] | undefined;
-
-  /**
-   * <p>The total number of addresses.</p>
-   * @public
-   */
-  TotalAddressCount?: number | undefined;
-
-  /**
-   * <p>The total number of available addresses.</p>
-   * @public
-   */
-  TotalAvailableAddressCount?: number | undefined;
-
-  /**
-   * <p>The name of the location from which the address pool is advertised.
-   *             A network border group is a unique set of Availability Zones or Local Zones
-   *             from where Amazon Web Services advertises public IP addresses.</p>
-   * @public
-   */
-  NetworkBorderGroup?: string | undefined;
-
-  /**
-   * <p>Any tags for the address pool.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePublicIpv4PoolsResult {
-  /**
-   * <p>Information about the address pools.</p>
-   * @public
-   */
-  PublicIpv4Pools?: PublicIpv4Pool[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRegionsRequest {
-  /**
-   * <p>The names of the Regions. You can specify any Regions, whether they are enabled and disabled for your account.</p>
-   * @public
-   */
-  RegionNames?: string[] | undefined;
-
-  /**
-   * <p>Indicates whether to display all Regions, including Regions that are disabled for your account.</p>
-   * @public
-   */
-  AllRegions?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>endpoint</code> - The endpoint of the Region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>opt-in-status</code> - The opt-in status of the Region (<code>opt-in-not-required</code> | <code>opted-in</code> |
-   *                  <code>not-opted-in</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>region-name</code> - The name of the Region (for example, <code>us-east-1</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Describes the geography information for a Region.</p>
- * @public
- */
-export interface RegionGeography {
-  /**
-   * <p>The name of the geography, for example, <code>United States of America</code>.</p>
-   * @public
-   */
-  Name?: string | undefined;
-}
-
-/**
- * <p>Describes a Region.</p>
- * @public
- */
-export interface Region {
-  /**
-   * <p>The Region opt-in status. The possible values are <code>opt-in-not-required</code>, <code>opted-in</code>, and
-   *         <code>not-opted-in</code>.</p>
-   * @public
-   */
-  OptInStatus?: string | undefined;
-
-  /**
-   * <p>The geography information for the Region. The geography is returned as a list.</p>
-   * @public
-   */
-  Geography?: RegionGeography[] | undefined;
-
-  /**
-   * <p>The name of the Region.</p>
-   * @public
-   */
-  RegionName?: string | undefined;
-
-  /**
-   * <p>The Region service endpoint.</p>
-   * @public
-   */
-  Endpoint?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRegionsResult {
-  /**
-   * <p>Information about the Regions.</p>
-   * @public
-   */
-  Regions?: Region[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeReplaceRootVolumeTasksRequest {
-  /**
-   * <p>The ID of the root volume replacement task to view.</p>
-   * @public
-   */
-  ReplaceRootVolumeTaskIds?: string[] | undefined;
-
-  /**
-   * <p>Filter to use:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance for which the root volume replacement task was created.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *   Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeReplaceRootVolumeTasksResult {
-  /**
-   * <p>Information about the root volume replacement task.</p>
-   * @public
-   */
-  ReplaceRootVolumeTasks?: ReplaceRootVolumeTask[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items.
-   *   This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeReservedInstances.</p>
- * @public
- */
-export interface DescribeReservedInstancesRequest {
-  /**
-   * <p>Describes whether the Reserved Instance is Standard or Convertible.</p>
-   * @public
-   */
-  OfferingClass?: OfferingClassType | undefined;
-
-  /**
-   * <p>One or more Reserved Instance IDs.</p>
-   *          <p>Default: Describes all your Reserved Instances, or only those otherwise specified.</p>
-   * @public
-   */
-  ReservedInstancesIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making
-   *       the request, and provides an error response. If you have the required permissions, the error
-   *       response is <code>DryRunOperation</code>. Otherwise, it is
-   *       <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone where the Reserved Instance can
-   *           be used.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone-id</code> - The ID of the Availability Zone where the Reserved
-   *           Instance can be used.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>duration</code> - The duration of the Reserved Instance (one year or three
-   *           years), in seconds (<code>31536000</code> | <code>94608000</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>end</code> - The time when the Reserved Instance expires (for example,
-   *           2015-08-07T11:54:42.000Z).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fixed-price</code> - The purchase price of the Reserved Instance (for example,
-   *           9800.0).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type that is covered by the
-   *           reservation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>scope</code> - The scope of the Reserved Instance (<code>Region</code> or
-   *             <code>Availability Zone</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-description</code> - The Reserved Instance product platform description
-   *             (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> | <code>Linux
-   *             with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> | <code>SUSE
-   *             Linux</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux
-   *             with HA</code> | <code>Windows</code> | <code>Windows with SQL Server Standard</code> |
-   *             <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server
-   *             Enterprise</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>start</code> - The time at which the Reserved Instance purchase request was
-   *           placed (for example, 2014-08-07T11:54:42.000Z).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the Reserved Instance (<code>payment-pending</code>
-   *           | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for
-   *           example, 0.84).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01
-   *       API version, you only have access to the <code>Medium Utilization</code> Reserved Instance
-   *       offering type.</p>
-   * @public
-   */
-  OfferingType?: OfferingTypeValues | undefined;
-}
-
-/**
- * <p>Describes a recurring charge.</p>
- * @public
- */
-export interface RecurringCharge {
-  /**
-   * <p>The amount of the recurring charge.</p>
-   * @public
-   */
-  Amount?: number | undefined;
-
-  /**
-   * <p>The frequency of the recurring charge.</p>
-   * @public
-   */
-  Frequency?: RecurringChargeFrequency | undefined;
-}
-
-/**
- * <p>Describes a Reserved Instance.</p>
- * @public
- */
-export interface ReservedInstances {
-  /**
-   * <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency
-   *       codes. At this time, the only supported currency is <code>USD</code>.</p>
-   * @public
-   */
-  CurrencyCode?: CurrencyCodeValues | undefined;
-
-  /**
-   * <p>The tenancy of the instance.</p>
-   * @public
-   */
-  InstanceTenancy?: Tenancy | undefined;
-
-  /**
-   * <p>The offering class of the Reserved Instance.</p>
-   * @public
-   */
-  OfferingClass?: OfferingClassType | undefined;
-
-  /**
-   * <p>The Reserved Instance offering type.</p>
-   * @public
-   */
-  OfferingType?: OfferingTypeValues | undefined;
-
-  /**
-   * <p>The recurring charge tag assigned to the resource.</p>
-   * @public
-   */
-  RecurringCharges?: RecurringCharge[] | undefined;
-
-  /**
-   * <p>The scope of the Reserved Instance.</p>
-   * @public
-   */
-  Scope?: Scope | undefined;
-
-  /**
-   * <p>Any tags assigned to the resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>The ID of the Reserved Instance.</p>
-   * @public
-   */
-  ReservedInstancesId?: string | undefined;
-
-  /**
-   * <p>The instance type on which the Reserved Instance can be used.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The Availability Zone in which the Reserved Instance can be used.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The date and time the Reserved Instance started.</p>
-   * @public
-   */
-  Start?: Date | undefined;
-
-  /**
-   * <p>The time when the Reserved Instance expires.</p>
-   * @public
-   */
-  End?: Date | undefined;
-
-  /**
-   * <p>The duration of the Reserved Instance, in seconds.</p>
-   * @public
-   */
-  Duration?: number | undefined;
-
-  /**
-   * <p>The usage price of the Reserved Instance, per hour.</p>
-   * @public
-   */
-  UsagePrice?: number | undefined;
-
-  /**
-   * <p>The purchase price of the Reserved Instance.</p>
-   * @public
-   */
-  FixedPrice?: number | undefined;
-
-  /**
-   * <p>The number of reservations purchased.</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The Reserved Instance product platform description.</p>
-   * @public
-   */
-  ProductDescription?: RIProductDescription | undefined;
-
-  /**
-   * <p>The state of the Reserved Instance purchase.</p>
-   * @public
-   */
-  State?: ReservedInstanceState | undefined;
 }

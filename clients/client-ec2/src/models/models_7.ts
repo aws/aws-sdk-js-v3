@@ -10,11 +10,9 @@ import type {
   AutoPlacement,
   BootModeValues,
   CapacityReservationAdjustmentStatus,
-  CapacityReservationInstancePlatform,
   CapacityReservationPreference,
   ClientVpnAuthorizationPolicyShadowMode,
   ClientVpnAuthorizationPolicyStatus,
-  CurrencyCodeValues,
   DefaultHttpTokensEnforcedState,
   DefaultInstanceMetadataEndpointState,
   DefaultInstanceMetadataTagsState,
@@ -32,7 +30,6 @@ import type {
   HostRecovery,
   HostTenancy,
   HttpTokensState,
-  ImdsSupportValues,
   InstanceAttributeName,
   InstanceAutoRecoveryState,
   InstanceBandwidthWeighting,
@@ -70,21 +67,22 @@ import type {
   ShutdownBehavior,
   SnapshotAttributeName,
   Status,
+  TargetCapacityUnitType,
   TargetStorageTier,
-  TpmSupportValues,
   TrafficDirection,
   TrafficMirrorFilterRuleField,
   TrafficMirrorNetworkService,
   TrafficMirrorRuleAction,
   TrafficMirrorSessionField,
+  TransitGatewayAssociationState,
   TransitGatewayAttachmentNatGatewaySupportState,
   TransitGatewayAttachmentNatGatewaySupportValue,
   TransitGatewayAttachmentNatSystemRouteSupportValue,
   TransitGatewayAttachmentResourceType,
+  TransitGatewayNatRuleState,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   UnsuccessfulInstanceCreditSpecificationErrorCode,
-  VerificationMethod,
   VerifiedAccessEndpointProtocol,
   VolumeState,
   VolumeType,
@@ -111,8 +109,10 @@ import type {
   IpamPoolAllocation,
   IpamRoutingPolicyRegistrationDelta,
   OperatorResponse,
+  SubnetAssociation,
   Tag,
   TagSpecification,
+  TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
   VerifiedAccessInstance,
@@ -121,7 +121,6 @@ import type {
 } from "./models_0";
 import type {
   AttributeValue,
-  BlockDeviceMapping,
   CapacityReservationTarget,
   ClientConnectOptions,
   ClientLoginBannerOptions,
@@ -132,6 +131,7 @@ import type {
   ExternalAuthorityConfiguration,
   FleetLaunchTemplateConfigRequest,
   InstanceEventWindowTimeRangeRequest,
+  InstanceFlexCostAllocationPolicyDocument,
   Ipam,
   IpamPool,
   IpamPrefixListResolver,
@@ -143,6 +143,8 @@ import type {
   LocalGatewayRoute,
   ManagedPrefixList,
   MetricCategory,
+  NatFlexCostAllocationPolicyDocument,
+  PcxFlexCostAllocationPolicyDocument,
   Placement,
   RequestIpamResourceTag,
   TargetCapacitySpecificationRequest,
@@ -160,6 +162,7 @@ import type {
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
   RouteServer,
+  SubnetCidrReservation,
   SubnetConfiguration,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
@@ -167,6 +170,7 @@ import type {
   TrafficMirrorSession,
   TransitGateway,
   TransitGatewayMeteringPolicy,
+  TransitGatewayMeteringPolicyEntry,
   TransitGatewayPolicyTableEntry,
   TransitGatewayPrefixListReference,
   TransitGatewayRequestPolicyRule,
@@ -177,15 +181,7 @@ import type {
   VpnConnection,
   VpnTunnelLogOptionsSpecification,
 } from "./models_2";
-import type {
-  Byoasn,
-  CapacityBlock,
-  CapacityBlockExtension,
-  ConversionTask,
-  Filter,
-  InstanceTagNotificationAttribute,
-  IpamPoolCidr,
-} from "./models_3";
+import type { Byoasn, ConversionTask, Filter } from "./models_3";
 import type {
   AttributeBooleanValue,
   FpgaImageAttribute,
@@ -194,7 +190,6 @@ import type {
   InstanceStatusEvent,
   LaunchPermission,
   Monitoring,
-  PublicIpv4PoolRange,
   SnapshotDetail,
   SnapshotTaskDetail,
 } from "./models_4";
@@ -202,20 +197,902 @@ import type {
   CreateVolumePermission,
   LaunchTemplateConfig,
   ReservedInstancesConfiguration,
-  ScheduledInstance,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
   VpcBlockPublicAccessOptions,
 } from "./models_5";
 import type {
   InstanceFamilyCreditSpecification,
+  InstanceRequirementsWithMetadataRequest,
   IpamPolicyDocument,
   IpamResourceCidr,
   ManagedResourceVisibilitySettings,
-  Purchase,
-  TransitGatewayNatRule,
-  TransitGatewayRouteTableAssociation,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetSpotPlacementScoresRequest {
+  /**
+   * <p>The instance types. We recommend that you specify at least three instance types. If you
+   *          specify one or two instance types, or specify variations of a single instance type (for
+   *          example, an <code>m3.xlarge</code> with and without instance storage), the returned
+   *          placement score will always be low. </p>
+   *          <p>If you specify <code>InstanceTypes</code>, you can't specify
+   *             <code>InstanceRequirementsWithMetadata</code>.</p>
+   * @public
+   */
+  InstanceTypes?: string[] | undefined;
+
+  /**
+   * <p>The target capacity.</p>
+   * @public
+   */
+  TargetCapacity: number | undefined;
+
+  /**
+   * <p>The unit for the target capacity.</p>
+   * @public
+   */
+  TargetCapacityUnitType?: TargetCapacityUnitType | undefined;
+
+  /**
+   * <p>Specify <code>true</code> so that the response returns a list of scored Availability Zones.
+   *          Otherwise, the response returns a list of scored Regions.</p>
+   *          <p>A list of scored Availability Zones is useful if you want to launch all of your Spot
+   *          capacity into a single Availability Zone.</p>
+   * @public
+   */
+  SingleAvailabilityZone?: boolean | undefined;
+
+  /**
+   * <p>The Regions used to narrow down the list of Regions to be scored. Enter the Region code,
+   *          for example, <code>us-east-1</code>.</p>
+   * @public
+   */
+  RegionNames?: string[] | undefined;
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with those attributes.</p>
+   *          <p>If you specify <code>InstanceRequirementsWithMetadata</code>, you can't specify
+   *             <code>InstanceTypes</code>.</p>
+   * @public
+   */
+  InstanceRequirementsWithMetadata?: InstanceRequirementsWithMetadataRequest | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Specify <code>true</code> so that the response returns scores that include Local Zones. Otherwise, the response ignores Local Zones.</p>
+   *          <p>When you request regional scores, Local Zone capacity counts toward its parent Region.</p>
+   * @public
+   */
+  IncludeLocalZones?: boolean | undefined;
+}
+
+/**
+ * <p>The Spot placement score for this Region or Availability Zone. The score is calculated
+ *          based on the assumption that the <code>capacity-optimized</code> allocation strategy is
+ *          used and that all of the Availability Zones in the Region can be used.</p>
+ * @public
+ */
+export interface SpotPlacementScore {
+  /**
+   * <p>The Region.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The placement score, on a scale from <code>1</code> to <code>10</code>. A score of
+   *          <code>10</code> indicates that your Spot request is highly likely to succeed in this
+   *          Region or Availability Zone. A score of <code>1</code> indicates that your Spot request is
+   *          not likely to succeed. </p>
+   * @public
+   */
+  Score?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSpotPlacementScoresResult {
+  /**
+   * <p>The Spot placement score for the top 10 Regions or Availability Zones, scored on a scale
+   *          from 1 to 10. Each score  reflects how likely it is that each Region or Availability Zone
+   *          will succeed at fulfilling the specified target capacity  <i>at the time of the Spot
+   *             placement score request</i>. A score of <code>10</code> means that your Spot
+   *          capacity request is highly likely to succeed in that Region or Availability Zone. </p>
+   *          <p>If you request a Spot placement score for Regions, a high score assumes that your fleet
+   *          request will be configured to use all Availability Zones and the
+   *          <code>capacity-optimized</code> allocation strategy. If you request a Spot placement
+   *          score for Availability Zones, a high score assumes that your fleet request will be
+   *          configured to use a single Availability Zone and the <code>capacity-optimized</code>
+   *          allocation strategy.</p>
+   *          <p>Different  Regions or Availability Zones might return the same score.</p>
+   *          <note>
+   *             <p>The Spot placement score serves as a recommendation only. No score guarantees that your
+   *             Spot request will be fully or partially fulfilled.</p>
+   *          </note>
+   * @public
+   */
+  SpotPlacementScores?: SpotPlacementScore[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSubnetCidrReservationsRequest {
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>reservationType</code> - The type of reservation (<code>prefix</code> |
+   *                     <code>explicit</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-id</code> - The ID of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSubnetCidrReservationsResult {
+  /**
+   * <p>Information about the IPv4 subnet CIDR reservations.</p>
+   * @public
+   */
+  SubnetIpv4CidrReservations?: SubnetCidrReservation[] | undefined;
+
+  /**
+   * <p>Information about the IPv6 subnet CIDR reservations.</p>
+   * @public
+   */
+  SubnetIpv6CidrReservations?: SubnetCidrReservation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayAttachmentNatConfigurationRequest {
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Contains information about a NAT gateway rule for a transit gateway attachment, including the rule number, the source CIDR block, the translated CIDR block, and the state of the rule.</p>
+ * @public
+ */
+export interface TransitGatewayNatRule {
+  /**
+   * <p>The rule number.</p>
+   * @public
+   */
+  RuleNumber?: number | undefined;
+
+  /**
+   * <p>The IPv4 CIDR block of the source addresses to translate.</p>
+   * @public
+   */
+  MatchSourceCidr?: string | undefined;
+
+  /**
+   * <p>The IPv4 CIDR block that the transit gateway translates the source addresses to.</p>
+   * @public
+   */
+  NatCidr?: string | undefined;
+
+  /**
+   * <p>The state of the NAT gateway rule. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - The transit gateway is applying a change to the rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>activated</code> - The rule is in effect because NAT gateway support is enabled for the attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deactivated</code> - The rule isn't in effect because NAT gateway support is disabled for the attachment.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: TransitGatewayNatRuleState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayAttachmentNatConfigurationResult {
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The state of NAT gateway support for the attachment.</p>
+   * @public
+   */
+  NatGatewaySupport?: TransitGatewayAttachmentNatGatewaySupportState | undefined;
+
+  /**
+   * <p>Specifies whether the transit gateway installs routes for the NAT CIDRs in the route tables to which the attachment propagates.</p>
+   * @public
+   */
+  NatSystemRouteSupport?: TransitGatewayAttachmentNatSystemRouteSupportValue | undefined;
+
+  /**
+   * <p>The NAT gateway rules for the attachment.</p>
+   * @public
+   */
+  NatGatewayRules?: TransitGatewayNatRule[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayAttachmentPropagationsRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a propagation route table.</p>
+ * @public
+ */
+export interface TransitGatewayAttachmentPropagation {
+  /**
+   * <p>The ID of the propagation route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId?: string | undefined;
+
+  /**
+   * <p>The state of the propagation route table.</p>
+   * @public
+   */
+  State?: TransitGatewayPropagationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayAttachmentPropagationsResult {
+  /**
+   * <p>Information about the propagation route tables.</p>
+   * @public
+   */
+  TransitGatewayAttachmentPropagations?: TransitGatewayAttachmentPropagation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayMeteringPolicyEntriesRequest {
+  /**
+   * <p>The ID of the transit gateway metering policy to retrieve entries for.</p>
+   * @public
+   */
+  TransitGatewayMeteringPolicyId: string | undefined;
+
+  /**
+   * <p>One or more filters to apply when retrieving metering policy entries.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayMeteringPolicyEntriesResult {
+  /**
+   * <p>Information about the transit gateway metering policy entries.</p>
+   * @public
+   */
+  TransitGatewayMeteringPolicyEntries?: TransitGatewayMeteringPolicyEntry[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayMulticastDomainAssociationsRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
+   */
+  TransitGatewayMulticastDomainId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The type of resource. The valid value is: <code>vpc</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the subnet association. Valid values are
+   *                         <code>associated</code> | <code>associating</code> |
+   *                         <code>disassociated</code> | <code>disassociating</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-id</code> - The ID of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the resources associated with the transit gateway multicast domain.</p>
+ * @public
+ */
+export interface TransitGatewayMulticastDomainAssociation {
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The type of resource, for example a VPC attachment.</p>
+   * @public
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | undefined;
+
+  /**
+   * <p> The ID of the Amazon Web Services account that owns the transit gateway multicast domain association resource.</p>
+   * @public
+   */
+  ResourceOwnerId?: string | undefined;
+
+  /**
+   * <p>The subnet associated with the transit gateway multicast domain.</p>
+   * @public
+   */
+  Subnet?: SubnetAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayMulticastDomainAssociationsResult {
+  /**
+   * <p>Information about the multicast domain associations.</p>
+   * @public
+   */
+  MulticastDomainAssociations?: TransitGatewayMulticastDomainAssociation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPolicyTableAssociationsRequest {
+  /**
+   * <p>The ID of the transit gateway policy table.</p>
+   * @public
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * <p>The filters associated with the transit gateway policy table.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPolicyTableAssociationsResult {
+  /**
+   * <p>Returns details about the transit gateway policy table association.</p>
+   * @public
+   */
+  Associations?: TransitGatewayPolicyTableAssociation[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPolicyTableEntriesRequest {
+  /**
+   * <p>The ID of the transit gateway policy table.</p>
+   * @public
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule-number</code> - The rule number for the transit gateway policy table entry.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target-route-table-id</code> - The ID of the target route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule.source-ip</code> - The source CIDR block for the policy rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule.destination-ip</code> - The destination CIDR block for the policy rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule.source-port</code> - The source port or port range for the policy rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule.destination-port</code> - The destination port or port range for the policy rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule.protocol</code> - The protocol for the policy rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule.meta-data.key</code> - The metadata key for the policy rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule.meta-data.value</code> - The metadata value for the policy rule.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPolicyTableEntriesResult {
+  /**
+   * <p>The entries for the transit gateway policy table.</p>
+   * @public
+   */
+  TransitGatewayPolicyTableEntries?: TransitGatewayPolicyTableEntry[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPrefixListReferencesRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.resource-id</code> - The ID of the resource for the attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.resource-type</code> - The type of resource for the
+   *                     attachment. Valid values are <code>vpc</code> | <code>vpn</code> |
+   *                         <code>direct-connect-gateway</code> | <code>peering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>is-blackhole</code> - Whether traffic matching the route is blocked (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-owner-id</code> - The ID of the owner of the prefix list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the prefix list reference (<code>pending</code> | <code>available</code> | <code>modifying</code> | <code>deleting</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPrefixListReferencesResult {
+  /**
+   * <p>Information about the prefix list references.</p>
+   * @public
+   */
+  TransitGatewayPrefixListReferences?: TransitGatewayPrefixListReference[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayRouteTableAssociationsRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
+   *                     | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>
+   *                     | <code>connect</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes an association between a route table and a resource attachment.</p>
+ * @public
+ */
+export interface TransitGatewayRouteTableAssociation {
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+   * @public
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | undefined;
+
+  /**
+   * <p>The state of the association.</p>
+   * @public
+   */
+  State?: TransitGatewayAssociationState | undefined;
+}
 
 /**
  * @public
@@ -5476,6 +6353,92 @@ export interface ModifyMetricCategoryResult {
 }
 
 /**
+ * @public
+ */
+export interface ModifyNetworkingFlexCostAllocationPolicyRequest {
+  /**
+   * <p>The ID of the flex cost allocation policy to modify. This parameter is required.</p>
+   * @public
+   */
+  FcaPolicyId: string | undefined;
+
+  /**
+   * <p>The updated policy document that defines cost allocation for NAT gateways.</p>
+   * @public
+   */
+  NatFcaPolicyDocument?: NatFlexCostAllocationPolicyDocument | undefined;
+
+  /**
+   * <p>The updated policy document that defines cost allocation for EC2 instances.</p>
+   * @public
+   */
+  InstanceFcaPolicyDocument?: InstanceFlexCostAllocationPolicyDocument | undefined;
+
+  /**
+   * <p>The updated policy document that defines cost allocation for Amazon VPC peering connections.</p>
+   * @public
+   */
+  PcxFcaPolicyDocument?: PcxFlexCostAllocationPolicyDocument | undefined;
+
+  /**
+   * <p>Specifies whether showback reporting is enabled for the policy. If you omit this parameter, the
+   *             current setting is unchanged.</p>
+   * @public
+   */
+  ShowBackEnabled?: boolean | undefined;
+
+  /**
+   * <p>A description for the policy. The description can be up to 1024 characters long.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyNetworkingFlexCostAllocationPolicyResult {
+  /**
+   * <p>The ID of the flex cost allocation policy.</p>
+   * @public
+   */
+  FcaPolicyId?: string | undefined;
+
+  /**
+   * <p>The date and time when the policy was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The version number of the policy that this modification created.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>The date and time when the new version of the policy is expected to apply to network traffic.</p>
+   * @public
+   */
+  VersionExpectedEffectiveAt?: Date | undefined;
+}
+
+/**
  * <p>Describes an attachment change.</p>
  * @public
  */
@@ -9349,753 +10312,4 @@ export interface ProvisionIpamByoasnResult {
    * @public
    */
   Byoasn?: Byoasn | undefined;
-}
-
-/**
- * <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.</p>
- * @public
- */
-export interface IpamCidrAuthorizationContext {
-  /**
-   * <p>The plain-text authorization message for the prefix and account.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The signed authorization message for the prefix and account.</p>
-   * @public
-   */
-  Signature?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ProvisionIpamPoolCidrRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool to which you want to assign a CIDR.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The CIDR you want to assign to the IPAM pool. Either "NetmaskLength" or "Cidr" is required. This value will be null if you specify "NetmaskLength" and will be filled in during the provisioning process.</p>
-   * @public
-   */
-  Cidr?: string | undefined;
-
-  /**
-   * <p>A signed document that proves that you are authorized to bring a specified IP address range to Amazon using BYOIP. This option only applies to IPv4 and IPv6 pools in the public scope.</p>
-   * @public
-   */
-  CidrAuthorizationContext?: IpamCidrAuthorizationContext | undefined;
-
-  /**
-   * <p>The netmask length of the CIDR you'd like to provision to a pool. Can be used for provisioning Amazon-provided IPv6 CIDRs to top-level pools and for provisioning CIDRs to pools with source pools. Cannot be used to provision BYOIP CIDRs to top-level pools. Either "NetmaskLength" or "Cidr" is required.</p>
-   * @public
-   */
-  NetmaskLength?: number | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The method for verifying control of a public IP address range. Defaults to <code>remarks-x509</code> if not specified. This option only applies to IPv4 and IPv6 pools in the public scope.</p>
-   * @public
-   */
-  VerificationMethod?: VerificationMethod | undefined;
-
-  /**
-   * <p>Verification token ID. This option only applies to IPv4 and IPv6 pools in the public scope.</p>
-   * @public
-   */
-  IpamExternalResourceVerificationTokenId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ProvisionIpamPoolCidrResult {
-  /**
-   * <p>Information about the provisioned CIDR.</p>
-   * @public
-   */
-  IpamPoolCidr?: IpamPoolCidr | undefined;
-}
-
-/**
- * @public
- */
-export interface ProvisionPublicIpv4PoolCidrRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool you would like to use to allocate this CIDR.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The ID of the public IPv4 pool you would like to use for this CIDR.</p>
-   * @public
-   */
-  PoolId: string | undefined;
-
-  /**
-   * <p>The netmask length of the CIDR you would like to allocate to the public IPv4 pool. The least specific netmask length you can define is 24.</p>
-   * @public
-   */
-  NetmaskLength: number | undefined;
-
-  /**
-   * <p>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource that the IP address is assigned to is in. Defaults to an AZ network border group. For more information on available Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">Local Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  NetworkBorderGroup?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ProvisionPublicIpv4PoolCidrResult {
-  /**
-   * <p>The ID of the pool that you want to provision the CIDR to.</p>
-   * @public
-   */
-  PoolId?: string | undefined;
-
-  /**
-   * <p>Information about the address range of the public IPv4 pool.</p>
-   * @public
-   */
-  PoolAddressRange?: PublicIpv4PoolRange | undefined;
-}
-
-/**
- * @public
- */
-export interface PurchaseCapacityBlockRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The tags to apply to the Capacity Block during launch.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>The ID of the Capacity Block offering.</p>
-   * @public
-   */
-  CapacityBlockOfferingId: string | undefined;
-
-  /**
-   * <p>The type of operating system for which to reserve capacity.</p>
-   * @public
-   */
-  InstancePlatform: CapacityReservationInstancePlatform | undefined;
-}
-
-/**
- * @public
- */
-export interface PurchaseCapacityBlockResult {
-  /**
-   * <p>The Capacity Reservation.</p>
-   * @public
-   */
-  CapacityReservation?: CapacityReservation | undefined;
-
-  /**
-   * <p>The Capacity Block.</p>
-   * @public
-   */
-  CapacityBlocks?: CapacityBlock[] | undefined;
-}
-
-/**
- * @public
- */
-export interface PurchaseCapacityBlockExtensionRequest {
-  /**
-   * <p>The ID of the Capacity Block extension offering to purchase.</p>
-   * @public
-   */
-  CapacityBlockExtensionOfferingId: string | undefined;
-
-  /**
-   * <p>The ID of the Capacity reservation to be extended.</p>
-   * @public
-   */
-  CapacityReservationId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface PurchaseCapacityBlockExtensionResult {
-  /**
-   * <p>The purchased Capacity Block extensions. </p>
-   * @public
-   */
-  CapacityBlockExtensions?: CapacityBlockExtension[] | undefined;
-}
-
-/**
- * @public
- */
-export interface PurchaseHostReservationRequest {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The currency in which the <code>totalUpfrontPrice</code>, <code>LimitPrice</code>, and
-   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
-   *             supported currency is <code>USD</code>.</p>
-   * @public
-   */
-  CurrencyCode?: CurrencyCodeValues | undefined;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts with which the reservation will be associated.</p>
-   * @public
-   */
-  HostIdSet: string[] | undefined;
-
-  /**
-   * <p>The specified limit is checked against the total upfront cost of the reservation
-   *             (calculated as the offering's upfront cost multiplied by the host count). If the total
-   *             upfront cost is greater than the specified price limit, the request fails. This is used
-   *             to ensure that the purchase does not exceed the expected upfront cost of the purchase.
-   *             At this time, the only supported currency is <code>USD</code>. For example, to indicate
-   *             a limit price of USD 100, specify 100.00.</p>
-   * @public
-   */
-  LimitPrice?: string | undefined;
-
-  /**
-   * <p>The ID of the offering.</p>
-   * @public
-   */
-  OfferingId: string | undefined;
-
-  /**
-   * <p>The tags to apply to the Dedicated Host Reservation during purchase.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-}
-
-/**
- * @public
- */
-export interface PurchaseHostReservationResult {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The currency in which the <code>totalUpfrontPrice</code> and
-   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
-   *             supported currency is <code>USD</code>.</p>
-   * @public
-   */
-  CurrencyCode?: CurrencyCodeValues | undefined;
-
-  /**
-   * <p>Describes the details of the purchase.</p>
-   * @public
-   */
-  Purchase?: Purchase[] | undefined;
-
-  /**
-   * <p>The total hourly price of the reservation calculated per hour.</p>
-   * @public
-   */
-  TotalHourlyPrice?: string | undefined;
-
-  /**
-   * <p>The total amount charged to your account when you purchase the reservation.</p>
-   * @public
-   */
-  TotalUpfrontPrice?: string | undefined;
-}
-
-/**
- * <p>Describes the limit price of a Reserved Instance offering.</p>
- * @public
- */
-export interface ReservedInstanceLimitPrice {
-  /**
-   * <p>Used for Reserved Instance Marketplace offerings. Specifies the limit price on the total
-   *       order (instanceCount * price).</p>
-   * @public
-   */
-  Amount?: number | undefined;
-
-  /**
-   * <p>The currency in which the <code>limitPrice</code> amount is specified. At this time, the
-   *       only supported currency is <code>USD</code>.</p>
-   * @public
-   */
-  CurrencyCode?: CurrencyCodeValues | undefined;
-}
-
-/**
- * <p>Contains the parameters for PurchaseReservedInstancesOffering.</p>
- * @public
- */
-export interface PurchaseReservedInstancesOfferingRequest {
-  /**
-   * <p>The number of Reserved Instances to purchase.</p>
-   * @public
-   */
-  InstanceCount: number | undefined;
-
-  /**
-   * <p>The ID of the Reserved Instance offering to purchase.</p>
-   * @public
-   */
-  ReservedInstancesOfferingId: string | undefined;
-
-  /**
-   * <p>The time at which to purchase the Reserved Instance, in UTC format (for example,
-   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  PurchaseTime?: Date | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making
-   *       the request, and provides an error response. If you have the required permissions, the error
-   *       response is <code>DryRunOperation</code>. Otherwise, it is
-   *       <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Specified for Reserved Instance Marketplace offerings to limit the total order and ensure
-   *       that the Reserved Instances are not purchased at unexpected prices.</p>
-   * @public
-   */
-  LimitPrice?: ReservedInstanceLimitPrice | undefined;
-}
-
-/**
- * <p>Contains the output of PurchaseReservedInstancesOffering.</p>
- * @public
- */
-export interface PurchaseReservedInstancesOfferingResult {
-  /**
-   * <p>The IDs of the purchased Reserved Instances. If your purchase crosses into a discounted
-   *       pricing tier, the final Reserved Instances IDs might change. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html#crossing-pricing-tiers">Crossing pricing tiers</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  ReservedInstancesId?: string | undefined;
-}
-
-/**
- * <p>Describes a request to purchase Scheduled Instances.</p>
- * @public
- */
-export interface PurchaseRequest {
-  /**
-   * <p>The number of instances.</p>
-   * @public
-   */
-  InstanceCount: number | undefined;
-
-  /**
-   * <p>The purchase token.</p>
-   * @public
-   */
-  PurchaseToken: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for PurchaseScheduledInstances.</p>
- * @public
- */
-export interface PurchaseScheduledInstancesRequest {
-  /**
-   * <p>Unique, case-sensitive identifier that ensures the idempotency of the request.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The purchase requests.</p>
-   * @public
-   */
-  PurchaseRequests: PurchaseRequest[] | undefined;
-}
-
-/**
- * <p>Contains the output of PurchaseScheduledInstances.</p>
- * @public
- */
-export interface PurchaseScheduledInstancesResult {
-  /**
-   * <p>Information about the Scheduled Instances.</p>
-   * @public
-   */
-  ScheduledInstanceSet?: ScheduledInstance[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RebootInstancesRequest {
-  /**
-   * <p>The instance IDs.</p>
-   * @public
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Contains the parameters for RegisterImage.</p>
- * @public
- */
-export interface RegisterImageRequest {
-  /**
-   * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the
-   *         <code>aws-exec-read</code> canned access control list (ACL) to ensure that it can be
-   *       accessed by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned ACL</a> in the
-   *         <i>Amazon S3 Service Developer Guide</i>.</p>
-   * @public
-   */
-  ImageLocation?: string | undefined;
-
-  /**
-   * <p>The billing product codes. Your account must be authorized to specify billing product
-   *       codes.</p>
-   *          <p>If your account is not authorized to specify billing product codes, you can publish AMIs
-   *       that include billable software and list them on the Amazon Web Services Marketplace. You must first register as a seller
-   *       on the Amazon Web Services Marketplace. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html">Getting started as an Amazon Web Services Marketplace seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based products in Amazon Web Services Marketplace</a> in the <i>Amazon Web Services Marketplace Seller Guide</i>.</p>
-   * @public
-   */
-  BillingProducts?: string[] | undefined;
-
-  /**
-   * <p>The boot mode of the AMI. A value of <code>uefi-preferred</code> indicates that the AMI
-   *       supports both UEFI and Legacy BIOS.</p>
-   *          <note>
-   *             <p>The operating system contained in the AMI must be configured to support the specified
-   *         boot mode.</p>
-   *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Instance launch behavior with Amazon EC2
-   *         boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  BootMode?: BootModeValues | undefined;
-
-  /**
-   * <p>Set to <code>v2.0</code> to enable Trusted Platform Module (TPM) support. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  TpmSupport?: TpmSupportValues | undefined;
-
-  /**
-   * <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,
-   *       use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the
-   *         <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
-   *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot for Amazon EC2
-   *         instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  UefiData?: string | undefined;
-
-  /**
-   * <p>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances
-   *       launched from this AMI will have <code>HttpTokens</code> automatically set to
-   *         <code>required</code> so that, by default, the instance requires that IMDSv2 is used when
-   *       requesting instance metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to
-   *         <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <note>
-   *             <p>If you set the value to <code>v2.0</code>, make sure that your AMI software can support
-   *         IMDSv2.</p>
-   *          </note>
-   * @public
-   */
-  ImdsSupport?: ImdsSupportValues | undefined;
-
-  /**
-   * <p>The tags to apply to the AMI.</p>
-   *          <p>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>. If you
-   *       specify another value for <code>ResourceType</code>, the request fails.</p>
-   *          <p>To tag an AMI after it has been registered, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A name for your AMI.</p>
-   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces
-   *       ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or
-   *       underscores(_)</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A description for your AMI.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The architecture of the AMI.</p>
-   *          <p>Default: For Amazon EBS-backed AMIs, <code>i386</code>. For instance store-backed AMIs, the
-   *       architecture specified in the manifest file.</p>
-   * @public
-   */
-  Architecture?: ArchitectureValues | undefined;
-
-  /**
-   * <p>The ID of the kernel.</p>
-   * @public
-   */
-  KernelId?: string | undefined;
-
-  /**
-   * <p>The ID of the RAM disk.</p>
-   * @public
-   */
-  RamdiskId?: string | undefined;
-
-  /**
-   * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
-   * @public
-   */
-  RootDeviceName?: string | undefined;
-
-  /**
-   * <p>The block device mapping entries.</p>
-   *          <p>If you specify an Amazon EBS volume using the ID of an Amazon EBS snapshot, you can't specify the
-   *       encryption state of the volume.</p>
-   *          <p>If you create an AMI on an Outpost, then all backing snapshots must be on the same Outpost
-   *       or in the Region of that Outpost. AMIs on an Outpost that include local snapshots can be used
-   *       to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Create AMIs from
-   *         local snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
-   * @public
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[] | undefined;
-
-  /**
-   * <p>The type of virtualization (<code>hvm</code> | <code>paravirtual</code>).</p>
-   *          <p>Default: <code>paravirtual</code>
-   *          </p>
-   * @public
-   */
-  VirtualizationType?: string | undefined;
-
-  /**
-   * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual
-   *       Function interface for the AMI and any instances that you launch from the AMI.</p>
-   *          <p>There is no way to disable <code>sriovNetSupport</code> at this time.</p>
-   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make
-   *       instances launched from the AMI unreachable.</p>
-   * @public
-   */
-  SriovNetSupport?: string | undefined;
-
-  /**
-   * <p>Set to <code>true</code> to enable enhanced networking with ENA for the AMI and any
-   *       instances that you launch from the AMI.</p>
-   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make
-   *       instances launched from the AMI unreachable.</p>
-   * @public
-   */
-  EnaSupport?: boolean | undefined;
-}
-
-/**
- * <p>Contains the output of RegisterImage.</p>
- * @public
- */
-export interface RegisterImageResult {
-  /**
-   * <p>The ID of the newly registered AMI.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-}
-
-/**
- * <p>Information about the tag keys to register for the current Region. You can either
- *          specify individual tag keys or register all tag keys in the current Region. You must
- *          specify either <code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the
- *          request</p>
- * @public
- */
-export interface RegisterInstanceTagAttributeRequest {
-  /**
-   * <p>Indicates whether to register all tag keys in the current Region. Specify
-   *             <code>true</code> to register all tag keys.</p>
-   * @public
-   */
-  IncludeAllTagsOfInstance?: boolean | undefined;
-
-  /**
-   * <p>The tag keys to register.</p>
-   * @public
-   */
-  InstanceTagKeys?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterInstanceEventNotificationAttributesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Information about the tag keys to register.</p>
-   * @public
-   */
-  InstanceTagAttribute: RegisterInstanceTagAttributeRequest | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterInstanceEventNotificationAttributesResult {
-  /**
-   * <p>The resulting set of tag keys.</p>
-   * @public
-   */
-  InstanceTagAttribute?: InstanceTagNotificationAttribute | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterTransitGatewayMulticastGroupMembersRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId: string | undefined;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   * @public
-   */
-  GroupIpAddress?: string | undefined;
-
-  /**
-   * <p>The group members' network interface IDs to register with the  transit gateway multicast group.</p>
-   * @public
-   */
-  NetworkInterfaceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes the registered  transit gateway multicast group members.</p>
- * @public
- */
-export interface TransitGatewayMulticastRegisteredGroupMembers {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId?: string | undefined;
-
-  /**
-   * <p>The ID of the registered network interfaces.</p>
-   * @public
-   */
-  RegisteredNetworkInterfaceIds?: string[] | undefined;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   * @public
-   */
-  GroupIpAddress?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterTransitGatewayMulticastGroupMembersResult {
-  /**
-   * <p>Information about the registered  transit gateway multicast group members.</p>
-   * @public
-   */
-  RegisteredMulticastGroupMembers?: TransitGatewayMulticastRegisteredGroupMembers | undefined;
 }

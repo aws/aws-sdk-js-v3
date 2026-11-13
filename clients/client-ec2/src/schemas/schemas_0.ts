@@ -36,7 +36,8 @@ const _AAl = "AllocateAddress";
 const _AAp = "ApplianceArn";
 const _AAs = "AsnAssociation";
 const _AAsn = "AsnAssociations";
-const _AAss = "AssociateAddress";
+const _AAss = "AssociatedAt";
+const _AAsso = "AssociateAddress";
 const _AAt = "AttachedAppliances";
 const _ABC = "AdvertiseByoipCidr";
 const _ABCR = "AdvertiseByoipCidrRequest";
@@ -187,8 +188,12 @@ const _AMSc = "AcceleratorManufacturerSet";
 const _AMT = "AcceptModificationTerms";
 const _AMc = "AcceleratorManufacturers";
 const _AMcc = "AcceleratorManufacturer";
+const _AMs = "AssociationMode";
 const _AMv = "AvailabilityMode";
 const _AN = "AttributeName";
+const _ANFCAP = "AssociateNetworkingFlexCostAllocationPolicy";
+const _ANFCAPR = "AssociateNetworkingFlexCostAllocationPolicyRequest";
+const _ANFCAPRs = "AssociateNetworkingFlexCostAllocationPolicyResult";
 const _ANGA = "AssociateNatGatewayAddress";
 const _ANGAR = "AssociateNatGatewayAddressRequest";
 const _ANGARs = "AssociateNatGatewayAddressResult";
@@ -799,6 +804,7 @@ const _CKP = "CreateKeyPair";
 const _CKPR = "CreateKeyPairRequest";
 const _CKVPRS = "CustomKeyValuePairRequestSet";
 const _CKVPRSu = "CustomKeyValuePairResponseSet";
+const _CL = "CidrLabel";
 const _CLB = "ClassicLoadBalancer";
 const _CLBC = "ClassicLoadBalancersConfig";
 const _CLBL = "ClassicLoadBalancerListener";
@@ -880,6 +886,9 @@ const _CNAR = "CreateNetworkAclRequest";
 const _CNARr = "CreateNetworkAclResult";
 const _CNAo = "ConnectionNotificationArn";
 const _CNAr = "CreateNetworkAcl";
+const _CNFCAP = "CreateNetworkingFlexCostAllocationPolicy";
+const _CNFCAPR = "CreateNetworkingFlexCostAllocationPolicyRequest";
+const _CNFCAPRr = "CreateNetworkingFlexCostAllocationPolicyResult";
 const _CNG = "CreateNatGateway";
 const _CNGR = "CreateNatGatewayRequest";
 const _CNGRr = "CreateNatGatewayResult";
@@ -1003,6 +1012,7 @@ const _CRSS = "CapacityReservationStatusSet";
 const _CRSa = "CapacityReservationSpecification";
 const _CRSap = "CapacityReservationStatus";
 const _CRSapa = "CapacityReservationSet";
+const _CRSi = "CidrRangeSpecifications";
 const _CRSr = "CreateRouteServer";
 const _CRT = "CapacityReservationTarget";
 const _CRTR = "CapacityReservationTargetResponse";
@@ -1015,6 +1025,7 @@ const _CRX = "ChildRequestXml";
 const _CRa = "CapacityReservation";
 const _CRap = "CapacityReservations";
 const _CRapa = "CapacityRebalance";
+const _CRi = "CidrRange";
 const _CRo = "ComponentRegion";
 const _CRr = "CreateRoute";
 const _CS = "ClientSecret";
@@ -1891,6 +1902,18 @@ const _DNARe = "DescribeNetworkAclsRequest";
 const _DNARes = "DescribeNetworkAclsResult";
 const _DNAe = "DescribeNetworkAcls";
 const _DNCI = "DefaultNetworkCardIndex";
+const _DNFCAP = "DeleteNetworkingFlexCostAllocationPolicies";
+const _DNFCAPA = "DescribeNetworkingFlexCostAllocationPolicyAssociations";
+const _DNFCAPAR = "DescribeNetworkingFlexCostAllocationPolicyAssociationsRequest";
+const _DNFCAPARe = "DescribeNetworkingFlexCostAllocationPolicyAssociationsResult";
+const _DNFCAPR = "DeleteNetworkingFlexCostAllocationPoliciesRequest";
+const _DNFCAPRe = "DeleteNetworkingFlexCostAllocationPoliciesResult";
+const _DNFCAPRes = "DescribeNetworkingFlexCostAllocationPoliciesRequest";
+const _DNFCAPResc = "DescribeNetworkingFlexCostAllocationPoliciesResult";
+const _DNFCAPRi = "DisassociateNetworkingFlexCostAllocationPolicyRequest";
+const _DNFCAPRis = "DisassociateNetworkingFlexCostAllocationPolicyResult";
+const _DNFCAPe = "DescribeNetworkingFlexCostAllocationPolicies";
+const _DNFCAPi = "DisassociateNetworkingFlexCostAllocationPolicy";
 const _DNG = "DeleteNatGateway";
 const _DNGA = "DisassociateNatGatewayAddress";
 const _DNGAR = "DisassociateNatGatewayAddressRequest";
@@ -2487,6 +2510,7 @@ const _Det = "Details";
 const _Dev = "Device";
 const _Di = "Direction";
 const _Dim = "Dimension";
+const _Dime = "Dimensions";
 const _Dis = "Disks";
 const _Do = "Domain";
 const _Du = "Duration";
@@ -2546,7 +2570,8 @@ const _EDn = "EnableDns64";
 const _EDnd = "EndpointDomain";
 const _EDv = "EventDescription";
 const _EDx = "ExpirationDate";
-const _EEA = "EndpointEniAddress";
+const _EEA = "ExpectedEffectiveAt";
+const _EEAn = "EndpointEniAddress";
 const _EEBD = "EbsEncryptionByDefault";
 const _EEEBD = "EnableEbsEncryptionByDefault";
 const _EEEBDR = "EnableEbsEncryptionByDefaultRequest";
@@ -2774,6 +2799,28 @@ const _FB = "FilterBy";
 const _FBDMR = "FleetBlockDeviceMappingRequest";
 const _FBDMRL = "FleetBlockDeviceMappingRequestList";
 const _FC = "FindingComponents";
+const _FCACDL = "FlexCostAllocationCostDimensionList";
+const _FCACM = "FlexCostAllocationCidrMapping";
+const _FCACML = "FlexCostAllocationCidrMappingList";
+const _FCACRS = "FlexCostAllocationCidrRangeSpecifications";
+const _FCANRIL = "FlexCostAllocationNetworkResourceIdList";
+const _FCANRS = "FlexCostAllocationNetworkResourceScope";
+const _FCANRSIL = "FlexCostAllocationNetworkResourceScopeIdList";
+const _FCAOF = "FlexCostAllocationOperationFailure";
+const _FCAOFL = "FlexCostAllocationOperationFailureList";
+const _FCAP = "FlexCostAllocationPolicies";
+const _FCAPAD = "FlexCostAllocationPolicyAssociationDescription";
+const _FCAPAIL = "FlexCostAllocationPolicyAssociationIdList";
+const _FCAPAS = "FlexCostAllocationPolicyAssociationSet";
+const _FCAPD = "FlexCostAllocationPolicyDescription";
+const _FCAPDAIL = "FlexCostAllocationPolicyDisassociateAssociationIdList";
+const _FCAPIL = "FlexCostAllocationPolicyIdList";
+const _FCAPIS = "FlexCostAllocationPolicyIdSet";
+const _FCAPS = "FlexCostAllocationPolicySet";
+const _FCAPV = "FlexCostAllocationPolicyVersion";
+const _FCAPVS = "FlexCostAllocationPolicyVersionSet";
+const _FCARGL = "FlexCostAllocationReportingGranularityList";
+const _FCAVTIL = "FlexCostAllocationVersionsToIncludeList";
 const _FCR = "FleetCapacityReservations";
 const _FCRFCR = "FailedCapacityReservationFleetCancellationResult";
 const _FCRFCRS = "FailedCapacityReservationFleetCancellationResultSet";
@@ -2843,8 +2890,18 @@ const _FOAi = "FilterOutArns";
 const _FOAil = "FilterOutArn";
 const _FODC = "FulfilledOnDemandCapacity";
 const _FP = "FromPort";
+const _FPA = "FcaPolicyAssociations";
+const _FPAF = "FcaPolicyAssociationFailures";
+const _FPAI = "FcaPolicyAssociationIds";
+const _FPAIc = "FcaPolicyAssociationId";
+const _FPAc = "FcaPolicyArn";
 const _FPC = "ForwardPathComponents";
+const _FPD = "FcaPolicyDisassociations";
+const _FPDF = "FcaPolicyDisassociationFailures";
+const _FPI = "FcaPolicyId";
+const _FPIc = "FcaPolicyIds";
 const _FPR = "FilterPortRange";
+const _FPV = "FcaPolicyVersions";
 const _FPi = "FilesystemProtections";
 const _FPix = "FixedPrice";
 const _FQPD = "FailedQueuedPurchaseDeletions";
@@ -2868,7 +2925,8 @@ const _FSSTR = "FirstSlotStartTimeRange";
 const _FSl = "FleetSet";
 const _FT = "FailureThreshold";
 const _FTE = "FreeTierEligible";
-const _Fa = "Fault";
+const _Fa = "Failed";
+const _Fau = "Fault";
 const _Fi = "Filters";
 const _Fil = "Filter";
 const _Fl = "Fleets";
@@ -3063,6 +3121,9 @@ const _GMRV = "GetManagedResourceVisibility";
 const _GMRVR = "GetManagedResourceVisibilityRequest";
 const _GMRVRe = "GetManagedResourceVisibilityResult";
 const _GN = "GroupName";
+const _GNFCAPV = "GetNetworkingFlexCostAllocationPolicyVersions";
+const _GNFCAPVR = "GetNetworkingFlexCostAllocationPolicyVersionsRequest";
+const _GNFCAPVRe = "GetNetworkingFlexCostAllocationPolicyVersionsResult";
 const _GNIASAF = "GetNetworkInsightsAccessScopeAnalysisFindings";
 const _GNIASAFR = "GetNetworkInsightsAccessScopeAnalysisFindingsRequest";
 const _GNIASAFRe = "GetNetworkInsightsAccessScopeAnalysisFindingsResult";
@@ -3339,8 +3400,10 @@ const _IEWn = "InstanceEventWindows";
 const _IEs = "IsExcludable";
 const _IF = "InstanceFamily";
 const _IFAS = "InformationalFixAvailableSince";
+const _IFCAPD = "InstanceFlexCostAllocationPolicyDocument";
 const _IFCS = "InstanceFamilyCreditSpecification";
 const _IFL = "IdFormatList";
+const _IFPD = "InstanceFcaPolicyDocument";
 const _IFPS = "ImageFindingPathSet";
 const _IFR = "IamFleetRole";
 const _IFRn = "IngressFilterRules";
@@ -4037,13 +4100,14 @@ const _LUA = "LastUpdatedAt";
 const _LUT = "LastUpdateTimestamp";
 const _LUTa = "LastUpdateTime";
 const _LUTas = "LastUpdatedTime";
-const _LV = "LogVersion";
+const _LV = "LatestVersion";
 const _LVCS = "LastVersionCreationStatus";
 const _LVCSM = "LastVersionCreationStatusMessage";
 const _LVIRB = "ListVolumesInRecycleBin";
 const _LVIRBR = "ListVolumesInRecycleBinRequest";
 const _LVIRBRi = "ListVolumesInRecycleBinResult";
 const _LVN = "LatestVersionNumber";
+const _LVo = "LogVersion";
 const _La = "Latest";
 const _Li = "Lifecycle";
 const _Lic = "Licenses";
@@ -4269,6 +4333,9 @@ const _MMTL = "MacModificationTaskList";
 const _MMTa = "MacModificationTasks";
 const _MN = "MetricNames";
 const _MNC = "MaximumNetworkCards";
+const _MNFCAP = "ModifyNetworkingFlexCostAllocationPolicy";
+const _MNFCAPR = "ModifyNetworkingFlexCostAllocationPolicyRequest";
+const _MNFCAPRo = "ModifyNetworkingFlexCostAllocationPolicyResult";
 const _MNI = "MaximumNetworkInterfaces";
 const _MNIA = "ModifyNetworkInterfaceAttribute";
 const _MNIAR = "ModifyNetworkInterfaceAttributeRequest";
@@ -4520,6 +4587,8 @@ const _NDIL = "NeuronDeviceInfoList";
 const _NDMI = "NeuronDeviceMemoryInfo";
 const _NDe = "NeuronDevices";
 const _NES = "NitroEnclavesSupport";
+const _NFCAPD = "NatFlexCostAllocationPolicyDocument";
+const _NFPD = "NatFcaPolicyDocument";
 const _NG = "NatGateway";
 const _NGA = "NatGatewayAddresses";
 const _NGAA = "NatGatewayAttachedAppliance";
@@ -4610,6 +4679,10 @@ const _NPO = "NetworkPerformanceOptions";
 const _NPe = "NetworkPerformance";
 const _NPet = "NetworkPlatform";
 const _NR = "NoReboot";
+const _NRI = "NetworkResourceIds";
+const _NRIe = "NetworkResourceId";
+const _NRS = "NetworkResourceScope";
+const _NRT = "NetworkResourceType";
 const _NS = "NvmeSupport";
 const _NSD = "NewStartDate";
 const _NSRS = "NatSystemRouteSupport";
@@ -4629,6 +4702,7 @@ const _OAr = "OrganizationsAccess";
 const _OArg = "OrganizationArn";
 const _OArga = "OrganizationArns";
 const _OAw = "OwnerAlias";
+const _OAwn = "OwnerAccount";
 const _OC = "OfferingClass";
 const _OD = "OccurrenceDays";
 const _ODAS = "OnDemandAllocationStrategy";
@@ -4720,6 +4794,7 @@ const _PBCRr = "ProvisionByoipCidrResult";
 const _PBIG = "PeakBandwidthInGbps";
 const _PBT = "ParentBpkiTa";
 const _PC = "PoolCidrs";
+const _PCA = "PolicyCreatedAt";
 const _PCB = "PoolCidrBlocks";
 const _PCBE = "PurchaseCapacityBlockExtension";
 const _PCBER = "PurchaseCapacityBlockExtensionRequest";
@@ -4809,6 +4884,8 @@ const _PEAhas = "Phase2EncryptionAlgorithms";
 const _PED = "PartitionEndDate";
 const _PEk = "PkceEnabled";
 const _PF = "PacketField";
+const _PFCAPD = "PcxFlexCostAllocationPolicyDocument";
+const _PFPD = "PcxFcaPolicyDocument";
 const _PFR = "PerformanceFactorReference";
 const _PFRR = "PerformanceFactorReferenceRequest";
 const _PFRS = "PerformanceFactorReferenceSet";
@@ -4980,7 +5057,8 @@ const _PTGI = "PeerTransitGatewayId";
 const _PTI = "PeeringTgwInfo";
 const _PTS = "PoolTagSpecifications";
 const _PTSo = "PoolTagSpecification";
-const _PTr = "ProvisionTime";
+const _PTr = "PrefixesType";
+const _PTro = "ProvisionTime";
 const _PTu = "PurchaseToken";
 const _PTur = "PurchaseTime";
 const _PU = "PresignedUrl";
@@ -5002,6 +5080,7 @@ const _Pla = "Placement";
 const _Po = "Port";
 const _Pr = "Protocol";
 const _Pre = "Prefix";
+const _Pref = "Prefixes";
 const _Pri = "Principals";
 const _Pric = "Price";
 const _Prim = "Primary";
@@ -5096,7 +5175,7 @@ const _RFISL = "ReservationFleetInstanceSpecificationList";
 const _RFP = "RekeyFuzzPercentage";
 const _RFPR = "RequestFilterPortRange";
 const _RFe = "RemoveField";
-const _RG = "RegionGeography";
+const _RG = "ReportingGranularity";
 const _RGA = "RuleGroupArn";
 const _RGI = "ReferencedGroupId";
 const _RGIe = "ReferencedGroupInfo";
@@ -5110,6 +5189,7 @@ const _RGT = "RuleGroupType";
 const _RGTP = "RuleGroupTypePairs";
 const _RGTPL = "RuleGroupTypePairList";
 const _RGTPu = "RuleGroupTypePair";
+const _RGe = "RegionGeography";
 const _RH = "ReleaseHosts";
 const _RHIL = "RequestHostIdList";
 const _RHILe = "ResponseHostIdList";
@@ -5473,6 +5553,7 @@ const _SAup = "SupportedArchitectures";
 const _SAupp = "SuppressAt";
 const _SB = "SecureBlob";
 const _SBAV = "SecureBlobAttributeValue";
+const _SBE = "ShowBackEnabled";
 const _SBM = "SupportedBootModes";
 const _SBN = "S3BucketName";
 const _SBP = "S3BucketPrefix";
@@ -6399,6 +6480,7 @@ const _VECS = "VpcEndpointConnectionSet";
 const _VECp = "VpcEncryptionControls";
 const _VECpc = "VpcEndpointConnections";
 const _VECpcn = "VpcEndpointConnection";
+const _VEEA = "VersionExpectedEffectiveAt";
 const _VEI = "VpcEndpointIds";
 const _VEIL = "VpcEndpointIdList";
 const _VEIp = "VpcEndpointId";
@@ -6489,6 +6571,7 @@ const _VSRL = "VpnStaticRouteList";
 const _VSo = "VolumeSize";
 const _VSol = "VolumeStatus";
 const _VT = "VolumeType";
+const _VTI = "VersionsToInclude";
 const _VTL = "VgwTelemetryList";
 const _VTLO = "VpnTunnelLogOptions";
 const _VTLOS = "VpnTunnelLogOptionsSpecification";
@@ -6549,6 +6632,7 @@ const _aASd = "additionalAccountSet";
 const _aASt = "attachedApplianceSet";
 const _aAc = "accessAll";
 const _aAp = "applianceArn";
+const _aAs = "associatedAt";
 const _aBHP = "actualBlockHourlyPrice";
 const _aC = "availableCapacity";
 const _aCIA = "associateCarrierIpAddress";
@@ -6598,13 +6682,14 @@ const _aL = "accountLevel";
 const _aLI = "amiLaunchIndex";
 const _aLT = "attachmentLimitType";
 const _aLc = "accessLogs";
-const _aM = "availabilityMode";
+const _aM = "associationMode";
 const _aMIT = "allowsMultipleInstanceTypes";
 const _aML = "allocationMetadataList";
 const _aMNL = "allocationMinNetmaskLength";
 const _aMNLl = "allocationMaxNetmaskLength";
 const _aMS = "acceleratorManufacturerSet";
 const _aMSp = "applianceModeSupport";
+const _aMv = "availabilityMode";
 const _aN = "attributeName";
 const _aNS = "acceleratorNameSet";
 const _aNc = "accountName";
@@ -7081,7 +7166,8 @@ const _eDf = "effectiveDate";
 const _eDn = "enableDns64";
 const _eDnd = "endpointDomain";
 const _eDv = "eventDescription";
-const _eEA = "endpointEniAddress";
+const _eEA = "expectedEffectiveAt";
+const _eEAn = "endpointEniAddress";
 const _eEBD = "ebsEncryptionByDefault";
 const _eEI = "endpointEniId";
 const _eFRS = "egressFilterRuleSet";
@@ -7173,13 +7259,14 @@ const _enf = "enforced";
 const _er = "error";
 const _ev = "event";
 const _ex = "expiration";
-const _f = "filter";
+const _f = "failed";
 const _fA = "federatedAuthentication";
 const _fAD = "filterAtDestination";
 const _fAS = "filterAtSource";
 const _fAi = "fixAvailable";
 const _fAir = "firstAddress";
 const _fC = "fulfilledCapacity";
+const _fCAP = "flexCostAllocationPolicies";
 const _fCRS = "fleetCapacityReservationSet";
 const _fCS = "findingComponentSet";
 const _fCa = "failureCode";
@@ -7208,7 +7295,15 @@ const _fOA = "firstObservedAt";
 const _fOAS = "filterOutArnSet";
 const _fODC = "fulfilledOnDemandCapacity";
 const _fP = "fromPort";
+const _fPA = "fcaPolicyAssociations";
+const _fPAF = "fcaPolicyAssociationFailures";
+const _fPAI = "fcaPolicyAssociationId";
+const _fPAc = "fcaPolicyArn";
 const _fPCS = "forwardPathComponentSet";
+const _fPD = "fcaPolicyDisassociations";
+const _fPDF = "fcaPolicyDisassociationFailures";
+const _fPI = "fcaPolicyId";
+const _fPV = "fcaPolicyVersions";
 const _fPi = "filesystemProtections";
 const _fPix = "fixedPrice";
 const _fQPDS = "failedQueuedPurchaseDeletionSet";
@@ -7226,6 +7321,7 @@ const _fSl = "fleetState";
 const _fT = "failureThreshold";
 const _fTE = "freeTierEligible";
 const _fa = "fault";
+const _fi = "filter";
 const _fo = "force";
 const _for = "format";
 const _fp = "fpgas";
@@ -7341,6 +7437,7 @@ const _iEsx = "isExcludable";
 const _iF = "instanceFamily";
 const _iFAS = "informationalFixAvailableSince";
 const _iFCS = "instanceFamilyCreditSpecification";
+const _iFPD = "instanceFcaPolicyDocument";
 const _iFR = "iamFleetRole";
 const _iFRS = "ingressFilterRuleSet";
 const _iFS = "imageFindingSet";
@@ -7651,10 +7748,11 @@ const _lUA = "lastUpdatedAt";
 const _lUT = "lastUpdateTimestamp";
 const _lUTa = "lastUpdateTime";
 const _lUTas = "lastUpdatedTime";
-const _lV = "logVersion";
+const _lV = "latestVersion";
 const _lVCS = "lastVersionCreationStatus";
 const _lVCSM = "lastVersionCreationStatusMessage";
 const _lVN = "latestVersionNumber";
+const _lVo = "logVersion";
 const _li = "lifecycle";
 const _lo = "location";
 const _loc = "locale";
@@ -7783,6 +7881,7 @@ const _nCa = "natCidr";
 const _nD = "noDevice";
 const _nDe = "neuronDevices";
 const _nES = "nitroEnclavesSupport";
+const _nFPD = "natFcaPolicyDocument";
 const _nG = "natGateway";
 const _nGAS = "natGatewayAddressSet";
 const _nGI = "natGatewayId";
@@ -7835,6 +7934,8 @@ const _nPO = "networkPerformanceOptions";
 const _nPe = "networkPerformance";
 const _nPet = "networkPlatform";
 const _nR = "noReboot";
+const _nRI = "networkResourceId";
+const _nRT = "networkResourceType";
 const _nS = "nvmeSupport";
 const _nSD = "newStartDate";
 const _nSRS = "natSystemRouteSupport";
@@ -7851,6 +7952,7 @@ const _oA = "outpostArn";
 const _oAr = "organizationsAccess";
 const _oArg = "organizationArn";
 const _oAw = "ownerAlias";
+const _oAwn = "ownerAccount";
 const _oC = "offeringClass";
 const _oDAS = "onDemandAllocationStrategy";
 const _oDFC = "onDemandFulfilledCapacity";
@@ -7917,6 +8019,7 @@ const _pBA = "peerBgpAsn";
 const _pBAE = "peerBgpAsnExtended";
 const _pBIG = "peakBandwidthInGbps";
 const _pC = "productCodes";
+const _pCA = "policyCreatedAt";
 const _pCB = "poolCidrBlock";
 const _pCBS = "poolCidrBlockSet";
 const _pCI = "preserveClientIp";
@@ -7961,6 +8064,7 @@ const _pEASh = "phase2EncryptionAlgorithmSet";
 const _pEAh = "phase2EncryptionAlgorithm";
 const _pEk = "pkceEnabled";
 const _pF = "packetField";
+const _pFPD = "pcxFcaPolicyDocument";
 const _pFS = "previousFleetState";
 const _pG = "placementGroup";
 const _pGA = "placementGroupArn";
@@ -8248,6 +8352,7 @@ const _sAu = "supportedArchitectures";
 const _sAub = "subnetArn";
 const _sAup = "suppressAt";
 const _sB = "s3Bucket";
+const _sBE = "showBackEnabled";
 const _sBM = "supportedBootModes";
 const _sBN = "s3BucketName";
 const _sBP = "s3BucketPrefix";
@@ -8696,6 +8801,7 @@ const _vECI = "vpcEncryptionControlId";
 const _vECIp = "vpcEndpointConnectionId";
 const _vECS = "vpcEncryptionControlSet";
 const _vECSp = "vpcEndpointConnectionSet";
+const _vEEA = "versionExpectedEffectiveAt";
 const _vEI = "vpcEndpointId";
 const _vEO = "vpcEndpointOwner";
 const _vEPS = "vpcEndpointPolicySupported";
@@ -9549,6 +9655,18 @@ export var AssociateNatGatewayAddressResult$: StaticStructureSchema = [3, n0, _A
   [[0, { [_eQN]: `NatGatewayId`
   , [_xN]: _nGI }], [() => NatGatewayAddressList, { [_eQN]: `NatGatewayAddressSet`
   , [_xN]: _nGAS }]]
+];
+export var AssociateNetworkingFlexCostAllocationPolicyRequest$: StaticStructureSchema = [3, n0, _ANFCAPR,
+  0,
+  [_FPI, _NRI, _NRS, _CT, _DR],
+  [0, [() => FlexCostAllocationNetworkResourceIdList, 0], [() => FlexCostAllocationNetworkResourceScope$, 0], [0, 4], 2], 1
+];
+export var AssociateNetworkingFlexCostAllocationPolicyResult$: StaticStructureSchema = [3, n0, _ANFCAPRs,
+  0,
+  [_FPA, _FPAF],
+  [[() => FlexCostAllocationPolicyAssociationSet, { [_eQN]: `FcaPolicyAssociations`
+  , [_xN]: _fPA }], [() => FlexCostAllocationOperationFailureList, { [_eQN]: `FcaPolicyAssociationFailures`
+  , [_xN]: _fPAF }]]
 ];
 export var AssociateRouteServerRequest$: StaticStructureSchema = [3, n0, _ARSR,
   0,
@@ -11629,6 +11747,20 @@ export var CreateNetworkAclResult$: StaticStructureSchema = [3, n0, _CNARr,
   , [_xN]: _nA }], [0, { [_eQN]: `ClientToken`
   , [_xN]: _cT }]]
 ];
+export var CreateNetworkingFlexCostAllocationPolicyRequest$: StaticStructureSchema = [3, n0, _CNFCAPR,
+  0,
+  [_NRT, _NFPD, _IFPD, _PFPD, _SBE, _De, _TS, _CT, _DR],
+  [0, [() => NatFlexCostAllocationPolicyDocument$, 0], [() => InstanceFlexCostAllocationPolicyDocument$, 0], [() => PcxFlexCostAllocationPolicyDocument$, 0], 2, 0, [() => TagSpecificationList, 0], [0, 4], 2], 1
+];
+export var CreateNetworkingFlexCostAllocationPolicyResult$: StaticStructureSchema = [3, n0, _CNFCAPRr,
+  0,
+  [_FPI, _FPAc, _CAr, _EEA],
+  [[0, { [_eQN]: `FcaPolicyId`
+  , [_xN]: _fPI }], [0, { [_eQN]: `FcaPolicyArn`
+  , [_xN]: _fPAc }], [4, { [_eQN]: `CreatedAt`
+  , [_xN]: _cAr }], [4, { [_eQN]: `ExpectedEffectiveAt`
+  , [_xN]: _eEA }]]
+];
 export var CreateNetworkInsightsAccessScopeRequest$: StaticStructureSchema = [3, n0, _CNIASR,
   0,
   [_MP, _EPx, _CT, _TS, _DR],
@@ -12945,6 +13077,18 @@ export var DeleteNetworkAclRequest$: StaticStructureSchema = [3, n0, _DNAR,
   [[0, { [_eQN]: `NetworkAclId`
   , [_xN]: _nAI }], [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }]], 1
+];
+export var DeleteNetworkingFlexCostAllocationPoliciesRequest$: StaticStructureSchema = [3, n0, _DNFCAPR,
+  0,
+  [_FPIc, _DR],
+  [[() => FlexCostAllocationPolicyIdList, 0], 2], 1
+];
+export var DeleteNetworkingFlexCostAllocationPoliciesResult$: StaticStructureSchema = [3, n0, _DNFCAPRe,
+  0,
+  [_Suc, _Fa],
+  [[() => FlexCostAllocationPolicyIdList, { [_eQN]: `Successful`
+  , [_xN]: _suc }], [() => FlexCostAllocationOperationFailureList, { [_eQN]: `Failed`
+  , [_xN]: _f }]]
 ];
 export var DeleteNetworkInsightsAccessScopeAnalysisRequest$: StaticStructureSchema = [3, n0, _DNIASAR,
   0,
@@ -14322,7 +14466,7 @@ export var DescribeHostsRequest$: StaticStructureSchema = [3, n0, _DHR,
   , [_xN]: _hI }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }], [1, { [_eQN]: `MaxResults`
   , [_xN]: _mR }], [() => FilterList, { [_eQN]: `Filter`
-  , [_xN]: _f }]]
+  , [_xN]: _fi }]]
 ];
 export var DescribeHostsResult$: StaticStructureSchema = [3, n0, _DHRe,
   0,
@@ -14947,7 +15091,7 @@ export var DescribeMovingAddressesRequest$: StaticStructureSchema = [3, n0, _DMA
   , [_xN]: _dR }], [() => ValueStringList, { [_eQN]: `PublicIp`
   , [_xN]: _pI }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }], [() => FilterList, { [_eQN]: `Filter`
-  , [_xN]: _f }], [1, { [_eQN]: `MaxResults`
+  , [_xN]: _fi }], [1, { [_eQN]: `MaxResults`
   , [_xN]: _mR }]]
 ];
 export var DescribeMovingAddressesResult$: StaticStructureSchema = [3, n0, _DMARe,
@@ -14980,6 +15124,30 @@ export var DescribeNetworkAclsResult$: StaticStructureSchema = [3, n0, _DNARes,
   [_NAe, _NTe],
   [[() => NetworkAclList, { [_eQN]: `NetworkAclSet`
   , [_xN]: _nAS }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
+];
+export var DescribeNetworkingFlexCostAllocationPoliciesRequest$: StaticStructureSchema = [3, n0, _DNFCAPRes,
+  0,
+  [_FPIc, _MR, _Fi, _NTe, _DR],
+  [[() => FlexCostAllocationPolicyIdSet, 0], 1, [() => FilterList, 0], 0, 2]
+];
+export var DescribeNetworkingFlexCostAllocationPoliciesResult$: StaticStructureSchema = [3, n0, _DNFCAPResc,
+  0,
+  [_FCAP, _NTe],
+  [[() => FlexCostAllocationPolicySet, { [_eQN]: `FlexCostAllocationPolicies`
+  , [_xN]: _fCAP }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
+];
+export var DescribeNetworkingFlexCostAllocationPolicyAssociationsRequest$: StaticStructureSchema = [3, n0, _DNFCAPAR,
+  0,
+  [_FPAI, _MR, _Fi, _NTe, _DR],
+  [[() => FlexCostAllocationPolicyAssociationIdList, 0], 1, [() => FilterList, 0], 0, 2]
+];
+export var DescribeNetworkingFlexCostAllocationPolicyAssociationsResult$: StaticStructureSchema = [3, n0, _DNFCAPARe,
+  0,
+  [_FPA, _NTe],
+  [[() => FlexCostAllocationPolicyAssociationSet, { [_eQN]: `FcaPolicyAssociations`
+  , [_xN]: _fPA }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }]]
 ];
 export var DescribeNetworkInsightsAccessScopeAnalysesRequest$: StaticStructureSchema = [3, n0, _DNIASARes,
@@ -15066,7 +15234,7 @@ export var DescribeNetworkInterfacesRequest$: StaticStructureSchema = [3, n0, _D
   [_NTe, _MR, _IMR, _DR, _NIIe, _Fi],
   [0, 1, 2, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [() => NetworkInterfaceIdList, { [_xN]: _NII }], [() => FilterList, { [_eQN]: `Filter`
-  , [_xN]: _f }]]
+  , [_xN]: _fi }]]
 ];
 export var DescribeNetworkInterfacesResult$: StaticStructureSchema = [3, n0, _DNIRes,
   0,
@@ -16626,6 +16794,18 @@ export var DisassociateNatGatewayAddressResult$: StaticStructureSchema = [3, n0,
   , [_xN]: _nGI }], [() => NatGatewayAddressList, { [_eQN]: `NatGatewayAddressSet`
   , [_xN]: _nGAS }]]
 ];
+export var DisassociateNetworkingFlexCostAllocationPolicyRequest$: StaticStructureSchema = [3, n0, _DNFCAPRi,
+  0,
+  [_FPAI, _DR],
+  [[() => FlexCostAllocationPolicyDisassociateAssociationIdList, 0], 2], 1
+];
+export var DisassociateNetworkingFlexCostAllocationPolicyResult$: StaticStructureSchema = [3, n0, _DNFCAPRis,
+  0,
+  [_FPD, _FPDF],
+  [[() => FlexCostAllocationPolicyAssociationIdList, { [_eQN]: `FcaPolicyDisassociations`
+  , [_xN]: _fPD }], [() => FlexCostAllocationOperationFailureList, { [_eQN]: `FcaPolicyDisassociationFailures`
+  , [_xN]: _fPDF }]]
+];
 export var DisassociateRouteServerRequest$: StaticStructureSchema = [3, n0, _DRSRi,
   0,
   [_RSI, _VI, _DR],
@@ -17757,6 +17937,77 @@ export var FleetSpotMaintenanceStrategiesRequest$: StaticStructureSchema = [3, n
   [_CRapa],
   [() => FleetSpotCapacityRebalanceRequest$]
 ];
+export var FlexCostAllocationCidrMapping$: StaticStructureSchema = [3, n0, _FCACM,
+  0,
+  [_CRi, _CL],
+  [0, 0], 2
+];
+export var FlexCostAllocationCidrRangeSpecifications$: StaticStructureSchema = [3, n0, _FCACRS,
+  0,
+  [_PTr, _Pref],
+  [0, [() => FlexCostAllocationCidrMappingList, 0]], 2
+];
+export var FlexCostAllocationNetworkResourceScope$: StaticStructureSchema = [3, n0, _FCANRS,
+  0,
+  [_RTe, _RIes],
+  [0, [() => FlexCostAllocationNetworkResourceScopeIdList, 0]], 2
+];
+export var FlexCostAllocationOperationFailure$: StaticStructureSchema = [3, n0, _FCAOF,
+  0,
+  [_RIeso, _FCa, _FR],
+  [[0, { [_eQN]: `ResourceId`
+  , [_xN]: _rIes }], [0, { [_eQN]: `FailureCode`
+  , [_xN]: _fCa }], [0, { [_eQN]: `FailureReason`
+  , [_xN]: _fR }]]
+];
+export var FlexCostAllocationPolicyAssociationDescription$: StaticStructureSchema = [3, n0, _FCAPAD,
+  0,
+  [_FPAIc, _FPI, _NRIe, _OAwn, _AAss, _EEA, _AMs, _MB],
+  [[0, { [_eQN]: `FcaPolicyAssociationId`
+  , [_xN]: _fPAI }], [0, { [_eQN]: `FcaPolicyId`
+  , [_xN]: _fPI }], [0, { [_eQN]: `NetworkResourceId`
+  , [_xN]: _nRI }], [0, { [_eQN]: `OwnerAccount`
+  , [_xN]: _oAwn }], [4, { [_eQN]: `AssociatedAt`
+  , [_xN]: _aAs }], [4, { [_eQN]: `ExpectedEffectiveAt`
+  , [_xN]: _eEA }], [0, { [_eQN]: `AssociationMode`
+  , [_xN]: _aM }], [0, { [_eQN]: `ManagedBy`
+  , [_xN]: _mB }]]
+];
+export var FlexCostAllocationPolicyDescription$: StaticStructureSchema = [3, n0, _FCAPD,
+  0,
+  [_FPI, _FPAc, _NRT, _NFPD, _IFPD, _PFPD, _SBE, _OAwn, _De, _LV, _VEEA, _PCA, _UA, _MB, _T],
+  [[0, { [_eQN]: `FcaPolicyId`
+  , [_xN]: _fPI }], [0, { [_eQN]: `FcaPolicyArn`
+  , [_xN]: _fPAc }], [0, { [_eQN]: `NetworkResourceType`
+  , [_xN]: _nRT }], [() => NatFlexCostAllocationPolicyDocument$, { [_eQN]: `NatFcaPolicyDocument`
+  , [_xN]: _nFPD }], [() => InstanceFlexCostAllocationPolicyDocument$, { [_eQN]: `InstanceFcaPolicyDocument`
+  , [_xN]: _iFPD }], [() => PcxFlexCostAllocationPolicyDocument$, { [_eQN]: `PcxFcaPolicyDocument`
+  , [_xN]: _pFPD }], [2, { [_eQN]: `ShowBackEnabled`
+  , [_xN]: _sBE }], [0, { [_eQN]: `OwnerAccount`
+  , [_xN]: _oAwn }], [0, { [_eQN]: `Description`
+  , [_xN]: _de }], [1, { [_eQN]: `LatestVersion`
+  , [_xN]: _lV }], [4, { [_eQN]: `VersionExpectedEffectiveAt`
+  , [_xN]: _vEEA }], [4, { [_eQN]: `PolicyCreatedAt`
+  , [_xN]: _pCA }], [4, { [_eQN]: `UpdatedAt`
+  , [_xN]: _uA }], [0, { [_eQN]: `ManagedBy`
+  , [_xN]: _mB }], [() => TagList, { [_eQN]: `Tags`
+  , [_xN]: _tag }]]
+];
+export var FlexCostAllocationPolicyVersion$: StaticStructureSchema = [3, n0, _FCAPV,
+  0,
+  [_FPI, _Ver, _NRT, _NFPD, _IFPD, _PFPD, _SBE, _De, _EEA, _CAr],
+  [[0, { [_eQN]: `FcaPolicyId`
+  , [_xN]: _fPI }], [1, { [_eQN]: `Version`
+  , [_xN]: _ve }], [0, { [_eQN]: `NetworkResourceType`
+  , [_xN]: _nRT }], [() => NatFlexCostAllocationPolicyDocument$, { [_eQN]: `NatFcaPolicyDocument`
+  , [_xN]: _nFPD }], [() => InstanceFlexCostAllocationPolicyDocument$, { [_eQN]: `InstanceFcaPolicyDocument`
+  , [_xN]: _iFPD }], [() => PcxFlexCostAllocationPolicyDocument$, { [_eQN]: `PcxFcaPolicyDocument`
+  , [_xN]: _pFPD }], [2, { [_eQN]: `ShowBackEnabled`
+  , [_xN]: _sBE }], [0, { [_eQN]: `Description`
+  , [_xN]: _de }], [4, { [_eQN]: `ExpectedEffectiveAt`
+  , [_xN]: _eEA }], [4, { [_eQN]: `CreatedAt`
+  , [_xN]: _cAr }]]
+];
 export var FlowLog$: StaticStructureSchema = [3, n0, _FLl,
   0,
   [_CTr, _DLEM, _DLPA, _DCAR, _DLS, _FLIl, _FLS, _LGN, _RIeso, _TT, _LDTo, _LD, _LF, _T, _MAI, _DOe, _TFS],
@@ -18500,6 +18751,17 @@ export var GetManagedResourceVisibilityResult$: StaticStructureSchema = [3, n0, 
   [_Vi],
   [[() => ManagedResourceVisibilitySettings$, { [_eQN]: `Visibility`
   , [_xN]: _vi }]]
+];
+export var GetNetworkingFlexCostAllocationPolicyVersionsRequest$: StaticStructureSchema = [3, n0, _GNFCAPVR,
+  0,
+  [_FPI, _VTI, _DR],
+  [0, [() => FlexCostAllocationVersionsToIncludeList, 0], 2], 1
+];
+export var GetNetworkingFlexCostAllocationPolicyVersionsResult$: StaticStructureSchema = [3, n0, _GNFCAPVRe,
+  0,
+  [_FPV],
+  [[() => FlexCostAllocationPolicyVersionSet, { [_eQN]: `FcaPolicyVersions`
+  , [_xN]: _fPV }]]
 ];
 export var GetNetworkInsightsAccessScopeAnalysisFindingsRequest$: StaticStructureSchema = [3, n0, _GNIASAFR,
   0,
@@ -19750,6 +20012,11 @@ export var InstanceFamilyCreditSpecification$: StaticStructureSchema = [3, n0, _
   [[0, { [_eQN]: `InstanceFamily`
   , [_xN]: _iF }], [0, { [_eQN]: `CpuCredits`
   , [_xN]: _cCp }]]
+];
+export var InstanceFlexCostAllocationPolicyDocument$: StaticStructureSchema = [3, n0, _IFCAPD,
+  0,
+  [_RG, _Dime, _CRSi],
+  [[() => FlexCostAllocationReportingGranularityList, 0], [() => FlexCostAllocationCostDimensionList, 0], [() => FlexCostAllocationCidrRangeSpecifications$, 0]], 2
 ];
 export var InstanceImageMetadata$: StaticStructureSchema = [3, n0, _IIM,
   0,
@@ -22121,6 +22388,20 @@ export var ModifyMetricCategoryResult$: StaticStructureSchema = [3, n0, _MMCRo,
   [[() => MetricCategory$, { [_eQN]: `MetricCategory`
   , [_xN]: _mC }]]
 ];
+export var ModifyNetworkingFlexCostAllocationPolicyRequest$: StaticStructureSchema = [3, n0, _MNFCAPR,
+  0,
+  [_FPI, _NFPD, _IFPD, _PFPD, _SBE, _De, _CT, _DR],
+  [0, [() => NatFlexCostAllocationPolicyDocument$, 0], [() => InstanceFlexCostAllocationPolicyDocument$, 0], [() => PcxFlexCostAllocationPolicyDocument$, 0], 2, 0, [0, 4], 2], 1
+];
+export var ModifyNetworkingFlexCostAllocationPolicyResult$: StaticStructureSchema = [3, n0, _MNFCAPRo,
+  0,
+  [_FPI, _UA, _Ver, _VEEA],
+  [[0, { [_eQN]: `FcaPolicyId`
+  , [_xN]: _fPI }], [4, { [_eQN]: `UpdatedAt`
+  , [_xN]: _uA }], [1, { [_eQN]: `Version`
+  , [_xN]: _ve }], [4, { [_eQN]: `VersionExpectedEffectiveAt`
+  , [_xN]: _vEEA }]]
+];
 export var ModifyNetworkInterfaceAttributeRequest$: StaticStructureSchema = [3, n0, _MNIAR,
   0,
   [_NII, _ESS, _EPI, _CTS, _APIAss, _ASI, _DR, _De, _SDC, _G, _Att],
@@ -22718,6 +22999,11 @@ export var MovingAddressStatus$: StaticStructureSchema = [3, n0, _MASo,
   , [_xN]: _mSo }], [0, { [_eQN]: `PublicIp`
   , [_xN]: _pI }]]
 ];
+export var NatFlexCostAllocationPolicyDocument$: StaticStructureSchema = [3, n0, _NFCAPD,
+  0,
+  [_RG, _Dime, _CRSi],
+  [[() => FlexCostAllocationReportingGranularityList, 0], [() => FlexCostAllocationCostDimensionList, 0], [() => FlexCostAllocationCidrRangeSpecifications$, 0]], 2
+];
 export var NatGateway$: StaticStructureSchema = [3, n0, _NG,
   0,
   [_CTre, _DTel, _FCa, _FM, _NGA, _NGI, _PB, _St, _SIu, _VI, _T, _CTon, _AMv, _ASIu, _APZ, _AAt, _RTI],
@@ -22734,7 +23020,7 @@ export var NatGateway$: StaticStructureSchema = [3, n0, _NG,
   , [_xN]: _vI }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [0, { [_eQN]: `ConnectivityType`
   , [_xN]: _cTonn }], [0, { [_eQN]: `AvailabilityMode`
-  , [_xN]: _aM }], [0, { [_eQN]: `AutoScalingIps`
+  , [_xN]: _aMv }], [0, { [_eQN]: `AutoScalingIps`
   , [_xN]: _aSI }], [0, { [_eQN]: `AutoProvisionZones`
   , [_xN]: _aPZ }], [() => NatGatewayAttachedApplianceList, { [_eQN]: `AttachedApplianceSet`
   , [_xN]: _aASt }], [0, { [_eQN]: `RouteTableId`
@@ -23231,6 +23517,11 @@ export var PciId$: StaticStructureSchema = [3, n0, _PIc,
   [_DIev, _VIe, _SIub, _SVIu],
   [0, 0, 0, 0]
 ];
+export var PcxFlexCostAllocationPolicyDocument$: StaticStructureSchema = [3, n0, _PFCAPD,
+  0,
+  [_RG, _Dime, _CRSi],
+  [[() => FlexCostAllocationReportingGranularityList, 0], [() => FlexCostAllocationCostDimensionList, 0], [() => FlexCostAllocationCidrRangeSpecifications$, 0]], 2
+];
 export var PeeringAttachmentStatus$: StaticStructureSchema = [3, n0, _PAS,
   0,
   [_Co, _Me],
@@ -23539,7 +23830,7 @@ export var ProvisionByoipCidrResult$: StaticStructureSchema = [3, n0, _PBCRr,
 ];
 export var ProvisionedBandwidth$: StaticStructureSchema = [3, n0, _PB,
   0,
-  [_PTr, _Prov, _RTeq, _Req, _Sta],
+  [_PTro, _Prov, _RTeq, _Req, _Sta],
   [[4, { [_eQN]: `ProvisionTime`
   , [_xN]: _pTr }], [0, { [_eQN]: `Provisioned`
   , [_xN]: _prov }], [4, { [_eQN]: `RequestTime`
@@ -23739,7 +24030,7 @@ export var RegionalSummary$: StaticStructureSchema = [3, n0, _RSeg,
   , [_xN]: _nOMA }], [1, { [_eQN]: `NumberOfUnmatchedAccounts`
   , [_xN]: _nOUA }]]
 ];
-export var RegionGeography$: StaticStructureSchema = [3, n0, _RG,
+export var RegionGeography$: StaticStructureSchema = [3, n0, _RGe,
   0,
   [_N],
   [[0, { [_eQN]: `Name`
@@ -24663,7 +24954,7 @@ export var RouteServerEndpoint$: StaticStructureSchema = [3, n0, _RSE,
 ];
 export var RouteServerPeer$: StaticStructureSchema = [3, n0, _RSP,
   0,
-  [_RSPI, _RSEI, _RSI, _VI, _SIu, _St, _FR, _EEI, _EEA, _PAe, _BO, _BSg, _BSf, _T],
+  [_RSPI, _RSEI, _RSI, _VI, _SIu, _St, _FR, _EEI, _EEAn, _PAe, _BO, _BSg, _BSf, _T],
   [[0, { [_eQN]: `RouteServerPeerId`
   , [_xN]: _rSPI }], [0, { [_eQN]: `RouteServerEndpointId`
   , [_xN]: _rSEI }], [0, { [_eQN]: `RouteServerId`
@@ -24673,7 +24964,7 @@ export var RouteServerPeer$: StaticStructureSchema = [3, n0, _RSP,
   , [_xN]: _st }], [0, { [_eQN]: `FailureReason`
   , [_xN]: _fR }], [0, { [_eQN]: `EndpointEniId`
   , [_xN]: _eEI }], [0, { [_eQN]: `EndpointEniAddress`
-  , [_xN]: _eEA }], [0, { [_eQN]: `PeerAddress`
+  , [_xN]: _eEAn }], [0, { [_eQN]: `PeerAddress`
   , [_xN]: _pAe }], [() => RouteServerBgpOptions$, { [_eQN]: `BgpOptions`
   , [_xN]: _bO }], [() => RouteServerBgpStatus$, { [_eQN]: `BgpStatus`
   , [_xN]: _bSg }], [() => RouteServerBfdStatus$, { [_eQN]: `BfdStatus`
@@ -25360,7 +25651,7 @@ export var SpotCapacityRebalance$: StaticStructureSchema = [3, n0, _SCRp,
 ];
 export var SpotDatafeedSubscription$: StaticStructureSchema = [3, n0, _SDS,
   0,
-  [_Bu, _Fa, _OI, _Pre, _St],
+  [_Bu, _Fau, _OI, _Pre, _St],
   [[0, { [_eQN]: `Bucket`
   , [_xN]: _b }], [() => SpotInstanceStateFault$, { [_eQN]: `Fault`
   , [_xN]: _fa }], [0, { [_eQN]: `OwnerId`
@@ -25448,7 +25739,7 @@ export var SpotFleetTagSpecification$: StaticStructureSchema = [3, n0, _SFTS,
 ];
 export var SpotInstanceRequest$: StaticStructureSchema = [3, n0, _SIRp,
   0,
-  [_ABHP, _AZGv, _BDMlo, _CTre, _Fa, _II, _LGa, _LSa, _LAZ, _LAZI, _PDr, _SIRI, _SPp, _St, _Sta, _T, _Ty, _VF, _VU, _IIB],
+  [_ABHP, _AZGv, _BDMlo, _CTre, _Fau, _II, _LGa, _LSa, _LAZ, _LAZI, _PDr, _SIRI, _SPp, _St, _Sta, _T, _Ty, _VF, _VU, _IIB],
   [[0, { [_eQN]: `ActualBlockHourlyPrice`
   , [_xN]: _aBHP }], [0, { [_eQN]: `AvailabilityZoneGroup`
   , [_xN]: _aZG }], [1, { [_eQN]: `BlockDurationMinutes`
@@ -26976,17 +27267,17 @@ export var VerifiedAccessLogKinesisDataFirehoseDestinationOptions$: StaticStruct
 ];
 export var VerifiedAccessLogOptions$: StaticStructureSchema = [3, n0, _VALO,
   0,
-  [_S_, _CWL, _KDF, _LV, _ITCn],
+  [_S_, _CWL, _KDF, _LVo, _ITCn],
   [() => VerifiedAccessLogS3DestinationOptions$, () => VerifiedAccessLogCloudWatchLogsDestinationOptions$, () => VerifiedAccessLogKinesisDataFirehoseDestinationOptions$, 0, 2]
 ];
 export var VerifiedAccessLogs$: StaticStructureSchema = [3, n0, _VAL,
   0,
-  [_S_, _CWL, _KDF, _LV, _ITCn],
+  [_S_, _CWL, _KDF, _LVo, _ITCn],
   [[() => VerifiedAccessLogS3Destination$, { [_eQN]: `S3`
   , [_xN]: _s_ }], [() => VerifiedAccessLogCloudWatchLogsDestination$, { [_eQN]: `CloudWatchLogs`
   , [_xN]: _cWL }], [() => VerifiedAccessLogKinesisDataFirehoseDestination$, { [_eQN]: `KinesisDataFirehose`
   , [_xN]: _kDF }], [0, { [_eQN]: `LogVersion`
-  , [_xN]: _lV }], [2, { [_eQN]: `IncludeTrustContext`
+  , [_xN]: _lVo }], [2, { [_eQN]: `IncludeTrustContext`
   , [_xN]: _iTCn }]]
 ];
 export var VerifiedAccessLogS3Destination$: StaticStructureSchema = [3, n0, _VALSD,
@@ -28307,6 +28598,62 @@ var FleetLaunchTemplateOverridesListRequest: StaticListSchema = [1, n0, _FLTOLR,
 ];
 var FleetSet: StaticListSchema = [1, n0, _FSl,
   0, [() => FleetData$,
+    { [_xN]: _it }]
+];
+var FlexCostAllocationCidrMappingList: StaticListSchema = [1, n0, _FCACML,
+  0, [() => FlexCostAllocationCidrMapping$,
+    { [_xN]: _it }]
+];
+var FlexCostAllocationCostDimensionList: StaticListSchema = [1, n0, _FCACDL,
+  0, [0,
+    { [_xN]: _it }]
+];
+var FlexCostAllocationNetworkResourceIdList: StaticListSchema = [1, n0, _FCANRIL,
+  0, [0,
+    { [_xN]: _it }]
+];
+var FlexCostAllocationNetworkResourceScopeIdList: StaticListSchema = [1, n0, _FCANRSIL,
+  0, [0,
+    { [_xN]: _it }]
+];
+var FlexCostAllocationOperationFailureList: StaticListSchema = [1, n0, _FCAOFL,
+  0, [() => FlexCostAllocationOperationFailure$,
+    { [_xN]: _it }]
+];
+var FlexCostAllocationPolicyAssociationIdList: StaticListSchema = [1, n0, _FCAPAIL,
+  0, [0,
+    { [_xN]: _it }]
+];
+var FlexCostAllocationPolicyAssociationSet: StaticListSchema = [1, n0, _FCAPAS,
+  0, [() => FlexCostAllocationPolicyAssociationDescription$,
+    { [_xN]: _it }]
+];
+var FlexCostAllocationPolicyDisassociateAssociationIdList: StaticListSchema = [1, n0, _FCAPDAIL,
+  0, [0,
+    { [_xN]: _it }]
+];
+var FlexCostAllocationPolicyIdList: StaticListSchema = [1, n0, _FCAPIL,
+  0, [0,
+    { [_xN]: _it }]
+];
+var FlexCostAllocationPolicyIdSet: StaticListSchema = [1, n0, _FCAPIS,
+  0, [0,
+    { [_xN]: _it }]
+];
+var FlexCostAllocationPolicySet: StaticListSchema = [1, n0, _FCAPS,
+  0, [() => FlexCostAllocationPolicyDescription$,
+    { [_xN]: _it }]
+];
+var FlexCostAllocationPolicyVersionSet: StaticListSchema = [1, n0, _FCAPVS,
+  0, [() => FlexCostAllocationPolicyVersion$,
+    { [_xN]: _it }]
+];
+var FlexCostAllocationReportingGranularityList: StaticListSchema = [1, n0, _FCARGL,
+  0, [0,
+    { [_xN]: _it }]
+];
+var FlexCostAllocationVersionsToIncludeList: StaticListSchema = [1, n0, _FCAVTIL,
+  0, [1,
     { [_xN]: _it }]
 ];
 var FlowLogIdList: StaticListSchema = [1, n0, _FLIL,
@@ -30697,7 +31044,7 @@ export var AssignPrivateIpAddresses$: StaticOperationSchema = [9, n0, _APIAssi,
 export var AssignPrivateNatGatewayAddress$: StaticOperationSchema = [9, n0, _APNGA,
   0, () => AssignPrivateNatGatewayAddressRequest$, () => AssignPrivateNatGatewayAddressResult$
 ];
-export var AssociateAddress$: StaticOperationSchema = [9, n0, _AAss,
+export var AssociateAddress$: StaticOperationSchema = [9, n0, _AAsso,
   0, () => AssociateAddressRequest$, () => AssociateAddressResult$
 ];
 export var AssociateApplicationStatusCheck$: StaticOperationSchema = [9, n0, _AASC,
@@ -30729,6 +31076,9 @@ export var AssociateIpamResourceDiscovery$: StaticOperationSchema = [9, n0, _AIR
 ];
 export var AssociateNatGatewayAddress$: StaticOperationSchema = [9, n0, _ANGA,
   0, () => AssociateNatGatewayAddressRequest$, () => AssociateNatGatewayAddressResult$
+];
+export var AssociateNetworkingFlexCostAllocationPolicy$: StaticOperationSchema = [9, n0, _ANFCAP,
+  0, () => AssociateNetworkingFlexCostAllocationPolicyRequest$, () => AssociateNetworkingFlexCostAllocationPolicyResult$
 ];
 export var AssociateRouteServer$: StaticOperationSchema = [9, n0, _ARSs,
   0, () => AssociateRouteServerRequest$, () => AssociateRouteServerResult$
@@ -30999,6 +31349,9 @@ export var CreateNetworkAcl$: StaticOperationSchema = [9, n0, _CNAr,
 ];
 export var CreateNetworkAclEntry$: StaticOperationSchema = [9, n0, _CNAE,
   0, () => CreateNetworkAclEntryRequest$, () => __Unit
+];
+export var CreateNetworkingFlexCostAllocationPolicy$: StaticOperationSchema = [9, n0, _CNFCAP,
+  0, () => CreateNetworkingFlexCostAllocationPolicyRequest$, () => CreateNetworkingFlexCostAllocationPolicyResult$
 ];
 export var CreateNetworkInsightsAccessScope$: StaticOperationSchema = [9, n0, _CNIAS,
   0, () => CreateNetworkInsightsAccessScopeRequest$, () => CreateNetworkInsightsAccessScopeResult$
@@ -31299,6 +31652,9 @@ export var DeleteNetworkAcl$: StaticOperationSchema = [9, n0, _DNA,
 ];
 export var DeleteNetworkAclEntry$: StaticOperationSchema = [9, n0, _DNAE,
   0, () => DeleteNetworkAclEntryRequest$, () => __Unit
+];
+export var DeleteNetworkingFlexCostAllocationPolicies$: StaticOperationSchema = [9, n0, _DNFCAP,
+  0, () => DeleteNetworkingFlexCostAllocationPoliciesRequest$, () => DeleteNetworkingFlexCostAllocationPoliciesResult$
 ];
 export var DeleteNetworkInsightsAccessScope$: StaticOperationSchema = [9, n0, _DNIAS,
   0, () => DeleteNetworkInsightsAccessScopeRequest$, () => DeleteNetworkInsightsAccessScopeResult$
@@ -31813,6 +32169,12 @@ export var DescribeNatGateways$: StaticOperationSchema = [9, n0, _DNGe,
 export var DescribeNetworkAcls$: StaticOperationSchema = [9, n0, _DNAe,
   0, () => DescribeNetworkAclsRequest$, () => DescribeNetworkAclsResult$
 ];
+export var DescribeNetworkingFlexCostAllocationPolicies$: StaticOperationSchema = [9, n0, _DNFCAPe,
+  0, () => DescribeNetworkingFlexCostAllocationPoliciesRequest$, () => DescribeNetworkingFlexCostAllocationPoliciesResult$
+];
+export var DescribeNetworkingFlexCostAllocationPolicyAssociations$: StaticOperationSchema = [9, n0, _DNFCAPA,
+  0, () => DescribeNetworkingFlexCostAllocationPolicyAssociationsRequest$, () => DescribeNetworkingFlexCostAllocationPolicyAssociationsResult$
+];
 export var DescribeNetworkInsightsAccessScopeAnalyses$: StaticOperationSchema = [9, n0, _DNIASAe,
   0, () => DescribeNetworkInsightsAccessScopeAnalysesRequest$, () => DescribeNetworkInsightsAccessScopeAnalysesResult$
 ];
@@ -32194,6 +32556,9 @@ export var DisassociateIpamResourceDiscovery$: StaticOperationSchema = [9, n0, _
 export var DisassociateNatGatewayAddress$: StaticOperationSchema = [9, n0, _DNGA,
   0, () => DisassociateNatGatewayAddressRequest$, () => DisassociateNatGatewayAddressResult$
 ];
+export var DisassociateNetworkingFlexCostAllocationPolicy$: StaticOperationSchema = [9, n0, _DNFCAPi,
+  0, () => DisassociateNetworkingFlexCostAllocationPolicyRequest$, () => DisassociateNetworkingFlexCostAllocationPolicyResult$
+];
 export var DisassociateRouteServer$: StaticOperationSchema = [9, n0, _DRSi,
   0, () => DisassociateRouteServerRequest$, () => DisassociateRouteServerResult$
 ];
@@ -32470,6 +32835,9 @@ export var GetManagedPrefixListEntries$: StaticOperationSchema = [9, n0, _GMPLE,
 export var GetManagedResourceVisibility$: StaticOperationSchema = [9, n0, _GMRV,
   0, () => GetManagedResourceVisibilityRequest$, () => GetManagedResourceVisibilityResult$
 ];
+export var GetNetworkingFlexCostAllocationPolicyVersions$: StaticOperationSchema = [9, n0, _GNFCAPV,
+  0, () => GetNetworkingFlexCostAllocationPolicyVersionsRequest$, () => GetNetworkingFlexCostAllocationPolicyVersionsResult$
+];
 export var GetNetworkInsightsAccessScopeAnalysisFindings$: StaticOperationSchema = [9, n0, _GNIASAF,
   0, () => GetNetworkInsightsAccessScopeAnalysisFindingsRequest$, () => GetNetworkInsightsAccessScopeAnalysisFindingsResult$
 ];
@@ -32712,6 +33080,9 @@ export var ModifyManagedResourceVisibility$: StaticOperationSchema = [9, n0, _MM
 ];
 export var ModifyMetricCategory$: StaticOperationSchema = [9, n0, _MMC,
   0, () => ModifyMetricCategoryRequest$, () => ModifyMetricCategoryResult$
+];
+export var ModifyNetworkingFlexCostAllocationPolicy$: StaticOperationSchema = [9, n0, _MNFCAP,
+  0, () => ModifyNetworkingFlexCostAllocationPolicyRequest$, () => ModifyNetworkingFlexCostAllocationPolicyResult$
 ];
 export var ModifyNetworkInterfaceAttribute$: StaticOperationSchema = [9, n0, _MNIA,
   0, () => ModifyNetworkInterfaceAttributeRequest$, () => __Unit

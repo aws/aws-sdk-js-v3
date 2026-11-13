@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetSubnetCidrReservationsRequest, GetSubnetCidrReservationsResult } from "../models/models_6";
+import type { GetSubnetCidrReservationsRequest, GetSubnetCidrReservationsResult } from "../models/models_7";
 import { GetSubnetCidrReservations$ } from "../schemas/schemas_0";
 
 /**

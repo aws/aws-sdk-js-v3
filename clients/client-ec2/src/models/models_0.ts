@@ -34,6 +34,8 @@ import type {
   DomainType,
   DynamicRoutingValue,
   EndDateType,
+  FlexCostAllocationAssociationMode,
+  FlexCostAllocationNetworkResourceScopeType,
   HostMaintenance,
   HostRecovery,
   IamInstanceProfileAssociationState,
@@ -4910,6 +4912,214 @@ export interface AssociateNatGatewayAddressResult {
 }
 
 /**
+ * <p>Specifies a scope of network resources for a scope-based policy association.</p>
+ * @public
+ */
+export interface FlexCostAllocationNetworkResourceScope {
+  /**
+   * <p>The type of scope. This parameter is required. Valid values are <code>account</code>,
+   *             <code>vpc</code>, and <code>subnet</code>.</p>
+   * @public
+   */
+  ResourceType: FlexCostAllocationNetworkResourceScopeType | undefined;
+
+  /**
+   * <p>The IDs of the resources owned by you that define the scope. You can specify from 1 to 20 IDs. This parameter
+   *             is required.</p>
+   * @public
+   */
+  ResourceIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateNetworkingFlexCostAllocationPolicyRequest {
+  /**
+   * <p>The ID of the flex cost allocation policy to associate. This parameter is required.</p>
+   * @public
+   */
+  FcaPolicyId: string | undefined;
+
+  /**
+   * <p>The IDs of the network resources to associate with the policy. You can specify from 1 to 20
+   *             resource IDs.</p>
+   *          <p>You must specify <code>NetworkResourceIds</code>, <code>NetworkResourceScope</code>, or both. A
+   *             request can include at most 20 distinct resources in total.</p>
+   * @public
+   */
+  NetworkResourceIds?: string[] | undefined;
+
+  /**
+   * <p>The scope of network resources to associate with the policy. Use a scope to associate the policy
+   *             with the resources in an account, Amazon VPC, or subnet.</p>
+   *          <p>You must specify <code>NetworkResourceScope</code>, <code>NetworkResourceIds</code>, or both.</p>
+   * @public
+   */
+  NetworkResourceScope?: FlexCostAllocationNetworkResourceScope | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a policy, association, or network resource that a Networking Flexible Cost Allocation operation failed to process.</p>
+ * @public
+ */
+export interface FlexCostAllocationOperationFailure {
+  /**
+   * <p>The ID of the resource that could not be processed.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The code that identifies the type of failure. Possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceNotFound</code> - (<code>DeleteNetworkingFlexCostAllocationPolicies</code>) The
+   *                     policy doesn't exist or isn't owned by your account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InvalidResourceState</code> - (<code>DeleteNetworkingFlexCostAllocationPolicies</code>) The
+   *                     policy has active associations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InvalidResource</code> - (<code>AssociateNetworkingFlexCostAllocationPolicy</code>) The
+   *                     resource ID is malformed, the resource type doesn't match the policy, or the scope is an account
+   *                     other than yours. (<code>DisassociateNetworkingFlexCostAllocationPolicy</code>) The association
+   *                     doesn't exist or was already removed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceAlreadyAssociated</code> - (<code>AssociateNetworkingFlexCostAllocationPolicy</code>)
+   *                     The resource already has an active association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InternalError</code> - An internal error occurred. Retry the request.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FailureCode?: string | undefined;
+
+  /**
+   * <p>The reason for the failure.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+}
+
+/**
+ * <p>Describes an association between a flex cost allocation policy and a network resource.</p>
+ * @public
+ */
+export interface FlexCostAllocationPolicyAssociationDescription {
+  /**
+   * <p>The ID of the policy association.</p>
+   * @public
+   */
+  FcaPolicyAssociationId?: string | undefined;
+
+  /**
+   * <p>The ID of the policy.</p>
+   * @public
+   */
+  FcaPolicyId?: string | undefined;
+
+  /**
+   * <p>The ID of the associated network resource.</p>
+   * @public
+   */
+  NetworkResourceId?: string | undefined;
+
+  /**
+   * <p>The ID of the account that owns the association.</p>
+   * @public
+   */
+  OwnerAccount?: string | undefined;
+
+  /**
+   * <p>The date and time when the association was created.</p>
+   * @public
+   */
+  AssociatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the association is expected to apply to network traffic.</p>
+   * @public
+   */
+  ExpectedEffectiveAt?: Date | undefined;
+
+  /**
+   * <p>The mode of the association. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>direct</code> - The policy is associated with specific resources by resource ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scope</code> - The policy is associated with a scope of resources in an account,
+   *                     Amazon VPC, or subnet.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AssociationMode?: FlexCostAllocationAssociationMode | undefined;
+
+  /**
+   * <p>The entity that manages the association. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>account</code> - The account that owns the association created it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>declarative-policy</code> - An Amazon Web Services Organizations declarative policy
+   *                     created the association. You can't remove the association.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ManagedBy?: ManagedBy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateNetworkingFlexCostAllocationPolicyResult {
+  /**
+   * <p>Information about the policy associations that were created.</p>
+   * @public
+   */
+  FcaPolicyAssociations?: FlexCostAllocationPolicyAssociationDescription[] | undefined;
+
+  /**
+   * <p>Information about the network resources that could not be associated with the policy.</p>
+   * @public
+   */
+  FcaPolicyAssociationFailures?: FlexCostAllocationOperationFailure[] | undefined;
+}
+
+/**
  * @public
  */
 export interface AssociateRouteServerRequest {
@@ -8205,13 +8415,7 @@ export interface CopySnapshotRequest {
   DestinationOutpostArn?: string | undefined;
 
   /**
-   * <p>The destination Region to use in the <code>PresignedUrl</code> parameter of a snapshot
-   *       copy operation. This parameter is only valid for specifying the destination Region in a
-   *         <code>PresignedUrl</code> parameter, where it is required.</p>
-   *          <p>The snapshot copy is sent to the regional endpoint that you sent the HTTP
-   *     	request to (for example, <code>ec2.us-east-1.amazonaws.com</code>). With the CLI, this is
-   *       specified using the <code>--region</code> parameter or the default Region in your Amazon Web Services
-   *       configuration file.</p>
+   * <p>Deprecated.</p>
    * @public
    */
   DestinationRegion?: string | undefined;
@@ -8252,19 +8456,7 @@ export interface CopySnapshotRequest {
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply a
-   *       pre-signed URL. This parameter is optional for unencrypted snapshots. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
-   *         requests</a>.</p>
-   *          <p>The <code>PresignedUrl</code> should use the snapshot source endpoint, the
-   *         <code>CopySnapshot</code> action, and include the <code>SourceRegion</code>,
-   *         <code>SourceSnapshotId</code>, and <code>DestinationRegion</code> parameters. The
-   *         <code>PresignedUrl</code> must be signed using Amazon Web Services Signature Version 4. Because EBS
-   *       snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic
-   *       that is described in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
-   *         Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>. An
-   *       invalid or improperly signed <code>PresignedUrl</code> will cause the copy operation to fail
-   *       asynchronously, and the snapshot will move to an <code>error</code> state.</p>
+   * <p>Deprecated.</p>
    * @public
    */
   PresignedUrl?: string | undefined;
@@ -10398,160 +10590,6 @@ export interface BaselineEbsBandwidthMbpsRequest {
   /**
    * <p>The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit
    *          this parameter.</p>
-   * @public
-   */
-  Max?: number | undefined;
-}
-
-/**
- * <p>Specify an instance family to use as the baseline reference for CPU performance. All
- *          instance types that match your specified attributes will be compared against the CPU
- *          performance of the referenced instance family, regardless of CPU manufacturer or
- *          architecture.</p>
- *          <note>
- *             <p>Currently, only one instance family can be specified in the list.</p>
- *          </note>
- * @public
- */
-export interface PerformanceFactorReferenceRequest {
-  /**
-   * <p>The instance family to use as a baseline reference.</p>
-   *          <note>
-   *             <p>Ensure that you specify the correct value for the instance family. The instance
-   *             family is everything before the period (<code>.</code>) in the instance type name. For
-   *             example, in the instance type <code>c6i.large</code>, the instance family is
-   *             <code>c6i</code>, not <code>c6</code>. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html">Amazon EC2
-   *                instance type naming conventions</a> in <i>Amazon EC2 Instance
-   *                   Types</i>.</p>
-   *          </note>
-   *          <p>The following instance families are <i>not supported</i> for performance
-   *          protection:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>c1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>g3</code> | <code>g3s</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>hpc7g</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>m1</code> | <code>m2</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>mac1</code> | <code>mac2</code> | <code>mac2-m1ultra</code> |
-   *                <code>mac2-m2</code> | <code>mac2-m2pro</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>p3dn</code> | <code>p4d</code> | <code>p5</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>t1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>u-12tb1</code> | <code>u-18tb1</code> | <code>u-24tb1</code> |
-   *                <code>u-3tb1</code> | <code>u-6tb1</code> | <code>u-9tb1</code> |
-   *                <code>u7i-12tb</code> | <code>u7in-16tb</code> | <code>u7in-24tb</code> |
-   *                <code>u7in-32tb</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>If you enable performance protection by specifying a supported instance family, the
-   *          returned instance types will exclude the above unsupported instance families.</p>
-   *          <p>If you specify an unsupported instance family as a value for baseline performance, the
-   *          API returns an empty response for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements">GetInstanceTypesFromInstanceRequirements</a> and an exception for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet">RequestSpotFleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyFleet">ModifyFleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySpotFleetRequest">ModifySpotFleetRequest</a>.</p>
-   * @public
-   */
-  InstanceFamily?: string | undefined;
-}
-
-/**
- * <p>The CPU performance to consider, using an instance family as the baseline reference.</p>
- * @public
- */
-export interface CpuPerformanceFactorRequest {
-  /**
-   * <p>Specify an instance family to use as the baseline reference for CPU performance. All
-   *          instance types that match your specified attributes will be compared against the CPU
-   *          performance of the referenced instance family, regardless of CPU manufacturer or
-   *          architecture differences.</p>
-   *          <note>
-   *             <p>Currently, only one instance family can be specified in the list.</p>
-   *          </note>
-   * @public
-   */
-  References?: PerformanceFactorReferenceRequest[] | undefined;
-}
-
-/**
- * <p>The baseline performance to consider, using an instance family as a baseline reference.
- *          The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this
- *          baseline to guide instance type selection, but there is no guarantee that the selected
- *          instance types will always exceed the baseline for every application.</p>
- *          <p>Currently, this parameter only supports CPU performance as a baseline performance
- *          factor. For example, specifying <code>c6i</code> would use the CPU performance of the
- *          <code>c6i</code> family as the baseline reference.</p>
- * @public
- */
-export interface BaselinePerformanceFactorsRequest {
-  /**
-   * <p>The CPU performance to consider, using an instance family as the baseline reference.</p>
-   * @public
-   */
-  Cpu?: CpuPerformanceFactorRequest | undefined;
-}
-
-/**
- * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
- * @public
- */
-export interface MemoryGiBPerVCpuRequest {
-  /**
-   * <p>The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this
-   *          parameter.</p>
-   * @public
-   */
-  Min?: number | undefined;
-
-  /**
-   * <p>The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this
-   *          parameter.</p>
-   * @public
-   */
-  Max?: number | undefined;
-}
-
-/**
- * <p>The minimum and maximum amount of memory, in MiB.</p>
- * @public
- */
-export interface MemoryMiBRequest {
-  /**
-   * <p>The minimum amount of memory, in MiB. To specify no minimum limit, specify
-   *          <code>0</code>.</p>
-   * @public
-   */
-  Min: number | undefined;
-
-  /**
-   * <p>The maximum amount of memory, in MiB. To specify no maximum limit, omit this
-   *          parameter.</p>
    * @public
    */
   Max?: number | undefined;
