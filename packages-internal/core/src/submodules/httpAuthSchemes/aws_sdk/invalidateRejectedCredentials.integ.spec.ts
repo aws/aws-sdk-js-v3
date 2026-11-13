@@ -1,7 +1,7 @@
 import { createCredentialRefreshProvider } from "@aws-sdk/core/client";
 import { S3 } from "@aws-sdk/client-s3";
 import { HttpResponse } from "@smithy/core/protocols";
-import type { HttpHandler, HttpRequest } from "@smithy/types";
+import type { HttpHandler, HttpRequest } from "@smithy/core/protocols";
 import { Readable } from "node:stream";
 import { describe, expect, test as it, vi } from "vitest";
 
