@@ -337,6 +337,7 @@ export class Upload extends EventEmitter {
         ETag: partResult.ETag,
         ...(partResult.ChecksumCRC32 && { ChecksumCRC32: partResult.ChecksumCRC32 }),
         ...(partResult.ChecksumCRC32C && { ChecksumCRC32C: partResult.ChecksumCRC32C }),
+        ...(partResult.ChecksumCRC64NVME && { ChecksumCRC64NVME: partResult.ChecksumCRC64NVME }),
         ...(partResult.ChecksumSHA1 && { ChecksumSHA1: partResult.ChecksumSHA1 }),
         ...(partResult.ChecksumSHA256 && { ChecksumSHA256: partResult.ChecksumSHA256 }),
       });
