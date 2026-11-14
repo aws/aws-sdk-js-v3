@@ -1,0 +1,48 @@
+{
+  "runId": "20261014-172748-9cb215",
+  "engine": "js-tm v20.20.2",
+  "instance": {
+    "type": "m8ib.48xlarge",
+    "az": "us-west-2b"
+  },
+  "workload": "smilkuri-new-tm-benchmarks/{bench/1TiB.run1,bench/1TiB.run2,bench/1TiB.run3,bench/1TiB.run4,bench/1TiB.run5}",
+  "keys": [
+    "bench/1TiB.run1",
+    "bench/1TiB.run2",
+    "bench/1TiB.run3",
+    "bench/1TiB.run4",
+    "bench/1TiB.run5"
+  ],
+  "objectCount": 5,
+  "mode": "o_direct",
+  "concurrency": 512,
+  "partSize": 8388608,
+  "uvThreadpoolSize": "192",
+  "cores": 192,
+  "iterations": [
+    {
+      "run": 1,
+      "ok": true,
+      "bytes": 5497558138880,
+      "secs": 344.42171427299996,
+      "steadyGbps": 142.46700952287745,
+      "peakGbps": 201.41330647083737,
+      "effectiveGbps": 127.69364789869097,
+      "peakMem": 64866996224,
+      "avgCpuPct": 6689.905023739753,
+      "writeGBs": 15.961705987336371
+    },
+    {
+      "run": 2,
+      "ok": true,
+      "bytes": 5497558138880,
+      "secs": 338.384202824,
+      "steadyGbps": 144.53125020953357,
+      "peakGbps": 283.6235955367642,
+      "effectiveGbps": 129.97198079579107,
+      "peakMem": 65399431168,
+      "avgCpuPct": 6665.602655136789,
+      "writeGBs": 16.246497599473884
+    }
+  ]
+}
