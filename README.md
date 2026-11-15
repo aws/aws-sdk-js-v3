@@ -308,7 +308,7 @@ Our GitHub issues page also includes work we know still needs to be done to reac
 This is the preferred mechanism to give feedback so that other customers can engage in the conversation, +1 issues, etc.
 Issues you open will be evaluated, and included in our roadmap for the GA launch.
 
-**Gitter channel**. For informal discussion or general feedback, you may join the [Gitter chat](https://gitter.im/aws/aws-sdk-js-v3).
+**Gitter channel**. For informal discussion or general feedback, you may join the Gitter chat.
 The Gitter channel is also a great place to get help with v3 from other developers. JS SDK team doesn't
 track the discussion daily, so feel free to open a GitHub issue if your question is not answered there.
 
