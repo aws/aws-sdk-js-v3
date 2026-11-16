@@ -54,6 +54,9 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * //             filterType: "PREFIX_MATCH", // required
  * //           },
  * //         ],
+ * //         deleteReplication: { // DeleteReplication
+ * //           enabled: true || false, // required
+ * //         },
  * //       },
  * //     ],
  * //   },

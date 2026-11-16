@@ -53,6 +53,7 @@ import {
   DeleteRegistryPolicyCommand,
   DeleteRegistryPolicyRequest$,
   DeleteRegistryPolicyResponse$,
+  DeleteReplication$,
   DeleteRepository$,
   DeleteRepositoryCommand,
   DeleteRepositoryCreationTemplate$,
@@ -611,6 +612,7 @@ assert(typeof DeletePullThroughCacheRuleRequest$ === "object");
 assert(typeof DeletePullThroughCacheRuleResponse$ === "object");
 assert(typeof DeleteRegistryPolicyRequest$ === "object");
 assert(typeof DeleteRegistryPolicyResponse$ === "object");
+assert(typeof DeleteReplication$ === "object");
 assert(typeof DeleteRepositoryCreationTemplateRequest$ === "object");
 assert(typeof DeleteRepositoryCreationTemplateResponse$ === "object");
 assert(typeof DeleteRepositoryPolicyRequest$ === "object");

@@ -246,6 +246,7 @@ export type {
   DeletePullThroughCacheRuleResponse,
   DeleteRegistryPolicyRequest,
   DeleteRegistryPolicyResponse,
+  DeleteReplication,
   DeleteRepositoryCreationTemplateRequest,
   DeleteRepositoryCreationTemplateResponse,
   DeleteRepositoryPolicyRequest,

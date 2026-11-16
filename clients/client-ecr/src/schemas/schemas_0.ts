@@ -58,7 +58,7 @@ const _DPTCRe = "DescribePullThroughCacheRules";
 const _DPTUE = "DeregisterPullTimeUpdateExclusion";
 const _DPTUER = "DeregisterPullTimeUpdateExclusionRequest";
 const _DPTUERe = "DeregisterPullTimeUpdateExclusionResponse";
-const _DR = "DeleteRepository";
+const _DR = "DeleteReplication";
 const _DRBR = "DescribeReplicationBackfillResults";
 const _DRBRR = "DescribeReplicationBackfillResultsRequest";
 const _DRBRRe = "DescribeReplicationBackfillResultsResponse";
@@ -80,8 +80,9 @@ const _DRRes = "DescribeRegistryRequest";
 const _DRResc = "DescribeRegistryResponse";
 const _DRRescr = "DescribeRepositoriesRequest";
 const _DRRescri = "DescribeRepositoriesResponse";
-const _DRe = "DescribeRegistry";
-const _DRes = "DescribeRepositories";
+const _DRe = "DeleteRepository";
+const _DRes = "DescribeRegistry";
+const _DResc = "DescribeRepositories";
 const _DSC = "DeleteSigningConfiguration";
 const _DSCR = "DeleteSigningConfigurationRequest";
 const _DSCRe = "DeleteSigningConfigurationResponse";
@@ -358,6 +359,7 @@ const _cRA = "customRoleArn";
 const _cRC = "completedReplicationCount";
 const _cv = "cvss";
 const _d = "description";
+const _dR = "deleteReplication";
 const _dU = "downloadUrl";
 const _de = "destination";
 const _des = "destinations";
@@ -373,6 +375,7 @@ const _eITC = "expiringImageTotalCount";
 const _eRP = "ecrRepositoryPrefix";
 const _eRPc = "ecrRepositoryPrefixes";
 const _eT = "encryptionType";
+const _en = "enabled";
 const _ep = "epoch";
 const _f = "failures";
 const _fA = "findingArn";
@@ -1058,6 +1061,11 @@ export var DeleteRegistryPolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe
   [_rI, _pT],
   [0, 0]
 ];
+export var DeleteReplication$: StaticStructureSchema = [3, n0, _DR,
+  0,
+  [_en],
+  [2], 1
+];
 export var DeleteRepositoryCreationTemplateRequest$: StaticStructureSchema = [3, n0, _DRCTR,
   0,
   [_pr],
@@ -1630,8 +1638,8 @@ export var ReplicationDestination$: StaticStructureSchema = [3, n0, _RD,
 ];
 export var ReplicationRule$: StaticStructureSchema = [3, n0, _RR,
   0,
-  [_des, _rF],
-  [() => ReplicationDestinationList, () => RepositoryFilterList], 1
+  [_des, _rF, _dR],
+  [() => ReplicationDestinationList, () => RepositoryFilterList, () => DeleteReplication$], 1
 ];
 export var Repository$: StaticStructureSchema = [3, n0, _Rep,
   0,
@@ -1991,7 +1999,7 @@ export var DeletePullThroughCacheRule$: StaticOperationSchema = [9, n0, _DPTCR,
 export var DeleteRegistryPolicy$: StaticOperationSchema = [9, n0, _DRP,
   0, () => DeleteRegistryPolicyRequest$, () => DeleteRegistryPolicyResponse$
 ];
-export var DeleteRepository$: StaticOperationSchema = [9, n0, _DR,
+export var DeleteRepository$: StaticOperationSchema = [9, n0, _DRe,
   0, () => DeleteRepositoryRequest$, () => DeleteRepositoryResponse$
 ];
 export var DeleteRepositoryCreationTemplate$: StaticOperationSchema = [9, n0, _DRCT,
@@ -2021,13 +2029,13 @@ export var DescribeImageSigningStatus$: StaticOperationSchema = [9, n0, _DISS,
 export var DescribePullThroughCacheRules$: StaticOperationSchema = [9, n0, _DPTCRe,
   0, () => DescribePullThroughCacheRulesRequest$, () => DescribePullThroughCacheRulesResponse$
 ];
-export var DescribeRegistry$: StaticOperationSchema = [9, n0, _DRe,
+export var DescribeRegistry$: StaticOperationSchema = [9, n0, _DRes,
   0, () => DescribeRegistryRequest$, () => DescribeRegistryResponse$
 ];
 export var DescribeReplicationBackfillResults$: StaticOperationSchema = [9, n0, _DRBR,
   0, () => DescribeReplicationBackfillResultsRequest$, () => DescribeReplicationBackfillResultsResponse$
 ];
-export var DescribeRepositories$: StaticOperationSchema = [9, n0, _DRes,
+export var DescribeRepositories$: StaticOperationSchema = [9, n0, _DResc,
   0, () => DescribeRepositoriesRequest$, () => DescribeRepositoriesResponse$
 ];
 export var DescribeRepositoryCreationTemplates$: StaticOperationSchema = [9, n0, _DRCTe,

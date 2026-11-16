@@ -98,6 +98,9 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  *   imageIds: [
  *     {
  *       imageTag: "precise"
+ *     },
+ *     {
+ *       imageTag: "trusty"
  *     }
  *   ],
  *   repositoryName: "ubuntu"

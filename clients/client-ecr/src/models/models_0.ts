@@ -2704,6 +2704,23 @@ export interface DescribePullThroughCacheRulesResponse {
 export interface DescribeRegistryRequest {}
 
 /**
+ * <p>The delete replication configuration for a replication rule. When delete replication
+ *             is enabled, the service replicates image deletions and image tag removals in the source
+ *             registry to the replication destinations.</p>
+ * @public
+ */
+export interface DeleteReplication {
+  /**
+   * <p>Specifies whether delete replication is enabled. If set to <code>true</code>, the
+   *             service replicates image deletions and image tag removals from the source registry to
+   *             each replication destination. If set to <code>false</code>, the service does not
+   *             replicate image deletions or image tag removals.</p>
+   * @public
+   */
+  enabled: boolean | undefined;
+}
+
+/**
  * <p>An array of objects representing the destination for a replication rule.</p>
  * @public
  */
@@ -2766,6 +2783,16 @@ export interface ReplicationRule {
    * @public
    */
   repositoryFilters?: RepositoryFilter[] | undefined;
+
+  /**
+   * <p>The delete replication settings for the replication rule. When delete replication is
+   *             enabled, the service replicates image deletions and image tag removals from the source
+   *             registry to the replication destinations. If you do not specify this parameter, the
+   *             service does not replicate image deletions or image tag removals for the replication
+   *             rule.</p>
+   * @public
+   */
+  deleteReplication?: DeleteReplication | undefined;
 }
 
 /**

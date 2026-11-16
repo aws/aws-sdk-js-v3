@@ -58,6 +58,9 @@ export interface PutReplicationConfigurationCommandOutput extends PutReplication
  *             filterType: "PREFIX_MATCH", // required
  *           },
  *         ],
+ *         deleteReplication: { // DeleteReplication
+ *           enabled: true || false, // required
+ *         },
  *       },
  *     ],
  *   },
@@ -80,6 +83,9 @@ export interface PutReplicationConfigurationCommandOutput extends PutReplication
  * //             filterType: "PREFIX_MATCH", // required
  * //           },
  * //         ],
+ * //         deleteReplication: { // DeleteReplication
+ * //           enabled: true || false, // required
+ * //         },
  * //       },
  * //     ],
  * //   },
