@@ -58,6 +58,10 @@ import type {
   GetRequestAuthorizationDetailsCommandInput,
   GetRequestAuthorizationDetailsCommandOutput,
 } from "./commands/GetRequestAuthorizationDetailsCommand";
+import type {
+  GetRequestAuthorizationPolicyCommandInput,
+  GetRequestAuthorizationPolicyCommandOutput,
+} from "./commands/GetRequestAuthorizationPolicyCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -73,13 +77,15 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
-  | GetRequestAuthorizationDetailsCommandInput;
+  | GetRequestAuthorizationDetailsCommandInput
+  | GetRequestAuthorizationPolicyCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
-  | GetRequestAuthorizationDetailsCommandOutput;
+  | GetRequestAuthorizationDetailsCommandOutput
+  | GetRequestAuthorizationPolicyCommandOutput;
 
 /**
  * @public

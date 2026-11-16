@@ -2,12 +2,19 @@ import {
   AccessDeniedException,
   AccessDeniedException$,
   AttachedTo$,
+  Check$,
+  CheckEffect,
+  CheckType,
   EvaluatedEffect,
   Evaluation$,
   GetRequestAuthorizationDetails$,
   GetRequestAuthorizationDetailsCommand,
   GetRequestAuthorizationDetailsInput$,
   GetRequestAuthorizationDetailsOutput$,
+  GetRequestAuthorizationPolicy$,
+  GetRequestAuthorizationPolicyCommand,
+  GetRequestAuthorizationPolicyInput$,
+  GetRequestAuthorizationPolicyOutput$,
   IAMToolbox,
   IAMToolboxClient,
   IAMToolboxServiceException,
@@ -31,15 +38,22 @@ assert(typeof IAMToolbox === "function");
 // commands
 assert(typeof GetRequestAuthorizationDetailsCommand === "function");
 assert(typeof GetRequestAuthorizationDetails$ === "object");
+assert(typeof GetRequestAuthorizationPolicyCommand === "function");
+assert(typeof GetRequestAuthorizationPolicy$ === "object");
 // structural schemas
 assert(typeof AttachedTo$ === "object");
+assert(typeof Check$ === "object");
 assert(typeof Evaluation$ === "object");
 assert(typeof GetRequestAuthorizationDetailsInput$ === "object");
 assert(typeof GetRequestAuthorizationDetailsOutput$ === "object");
+assert(typeof GetRequestAuthorizationPolicyInput$ === "object");
+assert(typeof GetRequestAuthorizationPolicyOutput$ === "object");
 assert(typeof MatchedPolicy$ === "object");
 assert(typeof MatchedStatement$ === "object");
 assert(typeof PolicyInfo$ === "object");
 // enums
+assert(typeof CheckEffect === "object");
+assert(typeof CheckType === "object");
 assert(typeof EvaluatedEffect === "object");
 assert(typeof PolicyType === "object");
 assert(typeof StatementEffect === "object");

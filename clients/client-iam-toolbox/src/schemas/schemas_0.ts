@@ -1,11 +1,16 @@
 const _ADE = "AccessDeniedException";
 const _AT = "AttachedTo";
 const _ATL = "AttachedToList";
+const _C = "Check";
+const _CL = "CheckList";
 const _E = "Evaluation";
 const _Ev = "Evaluations";
 const _GRAD = "GetRequestAuthorizationDetails";
 const _GRADI = "GetRequestAuthorizationDetailsInput";
 const _GRADO = "GetRequestAuthorizationDetailsOutput";
+const _GRAP = "GetRequestAuthorizationPolicy";
+const _GRAPI = "GetRequestAuthorizationPolicyInput";
+const _GRAPO = "GetRequestAuthorizationPolicyOutput";
 const _ISE = "InternalServerException";
 const _MP = "MatchedPolicy";
 const _MPL = "MatchedPolicyList";
@@ -20,6 +25,8 @@ const _aI = "authorizationId";
 const _aT = "attachedTo";
 const _ac = "action";
 const _c = "client";
+const _cT = "checkType";
+const _ch = "checks";
 const _co = "context";
 const _e = "error";
 const _eE = "evaluatedEffect";
@@ -33,12 +40,17 @@ const _mP = "matchedPolicies";
 const _mS = "matchedStatements";
 const _nT = "nextToken";
 const _p = "policies";
+const _pD = "policyDocument";
+const _pS = "policySource";
+const _pU = "policyUri";
 const _r = "resource";
 const _rC = "requestContext";
+const _rPT = "relevantPolicyTypes";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.iamtoolbox";
 const _se = "server";
 const _si = "sid";
 const _t = "type";
+const _tA = "targetArn";
 const _u = "uri";
 const n0 = "com.amazonaws.iamtoolbox";
 
@@ -103,10 +115,15 @@ export var AttachedTo$: StaticStructureSchema = [3, n0, _AT,
   [_a],
   [0]
 ];
+export var Check$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_cT, _eE, _tA, _rPT, _mP],
+  [0, 0, 0, 64 | 0, () => MatchedPolicyList], 2
+];
 export var Evaluation$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_ac, _r, _co, _eE, _mP],
-  [0, 0, 128 | 15, 0, () => MatchedPolicyList], 2
+  [_ac, _r, _co, _eE, _mP, _ch],
+  [0, 0, 128 | 15, 0, () => MatchedPolicyList, () => CheckList], 2
 ];
 export var GetRequestAuthorizationDetailsInput$: StaticStructureSchema = [3, n0, _GRADI,
   0,
@@ -117,6 +134,16 @@ export var GetRequestAuthorizationDetailsOutput$: StaticStructureSchema = [3, n0
   0,
   [_rC, _ev, _p, _nT],
   [128 | 15, () => Evaluations, () => PolicyInfoList, 0], 3
+];
+export var GetRequestAuthorizationPolicyInput$: StaticStructureSchema = [3, n0, _GRAPI,
+  0,
+  [_aI, _pU],
+  [[0, 1], [0, { [_hQ]: _pU }]], 2
+];
+export var GetRequestAuthorizationPolicyOutput$: StaticStructureSchema = [3, n0, _GRAPO,
+  0,
+  [_pD],
+  [15], 1
 ];
 export var MatchedPolicy$: StaticStructureSchema = [3, n0, _MP,
   0,
@@ -130,11 +157,14 @@ export var MatchedStatement$: StaticStructureSchema = [3, n0, _MS,
 ];
 export var PolicyInfo$: StaticStructureSchema = [3, n0, _PI,
   0,
-  [_t, _i, _u, _aT],
-  [0, 2, 0, () => AttachedToList]
+  [_t, _i, _u, _aT, _pS],
+  [0, 2, 0, () => AttachedToList, 128 | 0]
 ];
 var AttachedToList: StaticListSchema = [1, n0, _ATL,
   0, () => AttachedTo$
+];
+var CheckList: StaticListSchema = [1, n0, _CL,
+  0, () => Check$
 ];
 var Evaluations: StaticListSchema = [1, n0, _Ev,
   0, () => Evaluation$
@@ -148,7 +178,12 @@ var MatchedStatementList: StaticListSchema = [1, n0, _MSL,
 var PolicyInfoList: StaticListSchema = [1, n0, _PIL,
   0, () => PolicyInfo$
 ];
+var PolicyTypeList = 64 | 0;
 var AuthorizationContext = 128 | 15;
+var PolicySource = 128 | 0;
 export var GetRequestAuthorizationDetails$: StaticOperationSchema = [9, n0, _GRAD,
   { [_h]: ["GET", "/authorization-details/{authorizationId}", 200] }, () => GetRequestAuthorizationDetailsInput$, () => GetRequestAuthorizationDetailsOutput$
+];
+export var GetRequestAuthorizationPolicy$: StaticOperationSchema = [9, n0, _GRAP,
+  { [_h]: ["GET", "/authorization-details/{authorizationId}/policy", 200] }, () => GetRequestAuthorizationPolicyInput$, () => GetRequestAuthorizationPolicyOutput$
 ];

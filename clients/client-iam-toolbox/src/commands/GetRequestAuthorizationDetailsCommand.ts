@@ -23,7 +23,7 @@ export interface GetRequestAuthorizationDetailsCommandInput extends GetRequestAu
 export interface GetRequestAuthorizationDetailsCommandOutput extends GetRequestAuthorizationDetailsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the authorization details for a specific access denied request. The details include the request context, the evaluations performed, and the policies that were evaluated.</p> <p>Use this operation to understand why a request was denied. Supported services include an authorization ID in the access denied error message. Pass that ID to this operation to retrieve the details.</p> <p>Authorization details are available for at least 24 hours after the denial.</p> <p>To use this operation, you must have the <code>iam:GetRequestAuthorizationDetails</code> permission.</p>
+ * <p>Retrieves the authorization details for a specific access denied request. The details include the request context, the evaluations performed, and the policies that were evaluated.</p> <p>Use this operation to understand why a request was denied. Supported services include an authorization ID in the access denied error message. Pass that ID to this operation to retrieve the details.</p> <p>To retrieve the content for a policy in the <code>policies</code> list, call <code>GetRequestAuthorizationPolicy</code>.</p> <p>Authorization details are available for at least 24 hours after the denial.</p> <p>To use this operation, you must have the <code>iam:GetRequestAuthorizationDetails</code> permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +61,27 @@ export interface GetRequestAuthorizationDetailsCommandOutput extends GetRequestA
  * //           ],
  * //         },
  * //       ],
+ * //       checks: [ // CheckList
+ * //         { // Check
+ * //           checkType: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "VPC_ENDPOINT" || "RESOURCE" || "PRINCIPAL" || "PERMISSIONS_BOUNDARY" || "SESSION", // required
+ * //           evaluatedEffect: "ALLOW" || "NO_IMPACT" || "IMPLICIT_DENY" || "EXPLICIT_DENY", // required
+ * //           targetArn: "STRING_VALUE",
+ * //           relevantPolicyTypes: [ // PolicyTypeList
+ * //             "IDENTITY_BASED_POLICY" || "RESOURCE_BASED_POLICY" || "PERMISSIONS_BOUNDARY" || "SESSION_POLICY" || "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "VPC_ENDPOINT_POLICY",
+ * //           ],
+ * //           matchedPolicies: [
+ * //             {
+ * //               uri: "STRING_VALUE", // required
+ * //               matchedStatements: [
+ * //                 {
+ * //                   sid: "STRING_VALUE",
+ * //                   evaluatedEffect: "ALLOW" || "DENY",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   policies: [ // PolicyInfoList // required
@@ -73,6 +94,9 @@ export interface GetRequestAuthorizationDetailsCommandOutput extends GetRequestA
  * //           arn: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       policySource: { // PolicySource
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -93,7 +117,7 @@ export interface GetRequestAuthorizationDetailsCommandOutput extends GetRequestA
  *  <p>An unexpected error occurred while processing the request. Try again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested authorization details do not exist in this region or have expired. Verify that the authorization ID from the access denied error message is correct and the call is made in the region where the denial occurred. Ensure that the calling principal belongs to the same account or organization as the original denied request.</p>
+ *  <p>The requested policy or authorization details do not exist in this region or have expired. Verify that the authorization ID from the access denied error message is correct and the call is made in the region where the denial occurred. Ensure that the calling principal belongs to the same account or organization as the original denied request. If you specified a policy URI, verify that it is from the <code>policies</code> list that <code>GetRequestAuthorizationDetails</code> returns for the same authorization ID.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request is malformed or is missing one or more required parameters. Check the request parameters and try again.</p>

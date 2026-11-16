@@ -12,11 +12,17 @@ import {
   type GetRequestAuthorizationDetailsCommandOutput,
   GetRequestAuthorizationDetailsCommand,
 } from "./commands/GetRequestAuthorizationDetailsCommand";
+import {
+  type GetRequestAuthorizationPolicyCommandInput,
+  type GetRequestAuthorizationPolicyCommandOutput,
+  GetRequestAuthorizationPolicyCommand,
+} from "./commands/GetRequestAuthorizationPolicyCommand";
 import { IAMToolboxClient } from "./IAMToolboxClient";
 import { paginateGetRequestAuthorizationDetails } from "./pagination/GetRequestAuthorizationDetailsPaginator";
 
 const commands = {
   GetRequestAuthorizationDetailsCommand,
+  GetRequestAuthorizationPolicyCommand,
 };
 const paginators = {
   paginateGetRequestAuthorizationDetails,
@@ -45,6 +51,23 @@ export interface IAMToolbox {
     args: GetRequestAuthorizationDetailsCommandInput,
     options: IAMToolboxRequestOptions,
     cb: (err: any, data?: GetRequestAuthorizationDetailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRequestAuthorizationPolicyCommand}
+   */
+  getRequestAuthorizationPolicy(
+    args: GetRequestAuthorizationPolicyCommandInput,
+    options?: IAMToolboxRequestOptions
+  ): Promise<GetRequestAuthorizationPolicyCommandOutput>;
+  getRequestAuthorizationPolicy(
+    args: GetRequestAuthorizationPolicyCommandInput,
+    cb: (err: any, data?: GetRequestAuthorizationPolicyCommandOutput) => void
+  ): void;
+  getRequestAuthorizationPolicy(
+    args: GetRequestAuthorizationPolicyCommandInput,
+    options: IAMToolboxRequestOptions,
+    cb: (err: any, data?: GetRequestAuthorizationPolicyCommandOutput) => void
   ): void;
 
   /**
