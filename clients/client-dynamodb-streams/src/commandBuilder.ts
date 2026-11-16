@@ -19,7 +19,21 @@ export const command = makeBuilder<DynamoDBStreamsClientResolvedConfig, ServiceI
 /**
  * @internal
  */
-export const _ep0: EndpointParameterInstructions = {};
+export const _ep0: EndpointParameterInstructions = {
+  StreamArn: { type: "contextParams", name: "StreamArn" },
+};
+
+/**
+ * @internal
+ */
+export const _ep1: EndpointParameterInstructions = {
+  ShardIterator: { type: "contextParams", name: "ShardIterator" },
+};
+
+/**
+ * @internal
+ */
+export const _ep2: EndpointParameterInstructions = {};
 
 /**
  * @internal

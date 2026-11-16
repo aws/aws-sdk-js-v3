@@ -8,7 +8,16 @@ import type { EndpointParameters } from "./EndpointParameters";
 
 const cache = new EndpointCache({
   size: 50,
-  params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
+  params: [
+    "AccountId",
+    "AccountIdEndpointMode",
+    "Endpoint",
+    "Region",
+    "ShardIterator",
+    "StreamArn",
+    "UseDualStack",
+    "UseFIPS",
+  ],
 });
 
 /**
