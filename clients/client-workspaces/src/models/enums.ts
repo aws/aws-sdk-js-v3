@@ -991,6 +991,21 @@ export type UserIdentityType = (typeof UserIdentityType)[keyof typeof UserIdenti
  * @public
  * @enum
  */
+export const WorkspaceOSUserMode = {
+  DOMAIN_JOIN: "DOMAIN_JOIN",
+  ENTRA_JOIN: "ENTRA_JOIN",
+  LOCAL_USER: "LOCAL_USER",
+  SELF_MANAGED: "SELF_MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type WorkspaceOSUserMode = (typeof WorkspaceOSUserMode)[keyof typeof WorkspaceOSUserMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const WorkspaceType = {
   PERSONAL: "PERSONAL",
   POOLS: "POOLS",

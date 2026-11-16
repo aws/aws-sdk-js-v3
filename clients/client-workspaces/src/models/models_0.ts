@@ -71,6 +71,7 @@ import type {
   WorkspaceImageIngestionProcess,
   WorkspaceImageRequiredTenancy,
   WorkspaceImageState,
+  WorkspaceOSUserMode,
   WorkspacesPoolErrorCode,
   WorkspacesPoolState,
   WorkspaceState,
@@ -4150,6 +4151,12 @@ export interface WorkspaceDirectory {
   StreamingProperties?: StreamingProperties | undefined;
 
   /**
+   * <p>Indicates how users are set up on the WorkSpace operating system.</p>
+   * @public
+   */
+  WorkspaceOsUserMode?: WorkspaceOSUserMode | undefined;
+
+  /**
    * <p>The error message returned.</p>
    * @public
    */
@@ -5860,6 +5867,12 @@ export interface RegisterWorkspaceDirectoryRequest {
    * @public
    */
   UserIdentityType?: UserIdentityType | undefined;
+
+  /**
+   * <p>Indicates how users are set up on the WorkSpace operating system. To use local users with an AWS IAM Identity Center directory, specify <code>LOCAL_USER</code>.</p>
+   * @public
+   */
+  WorkspaceOsUserMode?: WorkspaceOSUserMode | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the identity center instance.</p>

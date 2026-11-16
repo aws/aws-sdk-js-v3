@@ -52,6 +52,7 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  *   WorkspaceDirectoryName: "STRING_VALUE",
  *   WorkspaceDirectoryDescription: "STRING_VALUE",
  *   UserIdentityType: "CUSTOMER_MANAGED" || "AWS_DIRECTORY_SERVICE" || "AWS_IAM_IDENTITY_CENTER",
+ *   WorkspaceOsUserMode: "LOCAL_USER" || "DOMAIN_JOIN" || "ENTRA_JOIN" || "SELF_MANAGED",
  *   IdcInstanceArn: "STRING_VALUE",
  *   MicrosoftEntraConfig: { // MicrosoftEntraConfig
  *     TenantId: "STRING_VALUE",

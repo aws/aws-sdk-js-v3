@@ -557,6 +557,7 @@ import {
   WorkspaceImageIngestionProcess,
   WorkspaceImageRequiredTenancy,
   WorkspaceImageState,
+  WorkspaceOSUserMode,
   WorkspaceProperties$,
   WorkspaceRequest$,
   WorkspaceResourceAssociation$,
@@ -1096,6 +1097,7 @@ assert(typeof WorkspaceImageErrorDetailCode === "object");
 assert(typeof WorkspaceImageIngestionProcess === "object");
 assert(typeof WorkspaceImageRequiredTenancy === "object");
 assert(typeof WorkspaceImageState === "object");
+assert(typeof WorkspaceOSUserMode === "object");
 assert(typeof WorkspacesPoolErrorCode === "object");
 assert(typeof WorkspacesPoolState === "object");
 assert(typeof WorkspaceState === "object");

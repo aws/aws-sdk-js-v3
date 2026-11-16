@@ -160,6 +160,7 @@ export interface DescribeWorkspaceDirectoriesCommandOutput extends DescribeWorks
  * //           PreferredProtocol: "TCP" || "NONE",
  * //         },
  * //       },
+ * //       WorkspaceOsUserMode: "LOCAL_USER" || "DOMAIN_JOIN" || "ENTRA_JOIN" || "SELF_MANAGED",
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
  * //   ],

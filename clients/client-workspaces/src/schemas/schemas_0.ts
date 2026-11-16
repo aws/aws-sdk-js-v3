@@ -658,6 +658,7 @@ const _WIo = "WorkspaceIds";
 const _WIor = "WorkspaceImage";
 const _WL = "WorkspaceList";
 const _WN = "WorkspaceName";
+const _WOUM = "WorkspaceOsUserMode";
 const _WP = "WorkspacesPool";
 const _WPE = "WorkspacesPoolError";
 const _WPEo = "WorkspacesPoolErrors";
@@ -1852,8 +1853,8 @@ export var RebuildWorkspacesResult$: StaticStructureSchema = [3, n0, _RWRebuil,
 ];
 export var RegisterWorkspaceDirectoryRequest$: StaticStructureSchema = [3, n0, _RWDR,
   0,
-  [_DI, _SI, _ESS, _Te, _T, _WDNo, _WDD, _UIT, _IIA, _MEC, _WT, _ADC],
-  [0, 64 | 0, 2, 0, () => TagList, 0, 0, 0, 0, () => MicrosoftEntraConfig$, 0, () => ActiveDirectoryConfig$]
+  [_DI, _SI, _ESS, _Te, _T, _WDNo, _WDD, _UIT, _WOUM, _IIA, _MEC, _WT, _ADC],
+  [0, 64 | 0, 2, 0, () => TagList, 0, 0, 0, 0, 0, () => MicrosoftEntraConfig$, 0, () => ActiveDirectoryConfig$]
 ];
 export var RegisterWorkspaceDirectoryResult$: StaticStructureSchema = [3, n0, _RWDRe,
   0,
@@ -2142,8 +2143,8 @@ export var WorkspaceCreationProperties$: StaticStructureSchema = [3, n0, _WCP,
 ];
 export var WorkspaceDirectory$: StaticStructureSchema = [3, n0, _WD,
   0,
-  [_DI, _Al, _DNi, _RC, _SI, _DIA, _DIAn, _CUN, _IRIa, _DT, _WSGI, _S, _WCP, _iGI, _WAP, _Te, _SPe, _SP, _CBAP, _EEM, _MEC, _WDNo, _WDD, _UIT, _WT, _IDCC, _ADC, _SPt, _EM],
-  [0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, 0, () => DefaultWorkspaceCreationProperties$, 64 | 0, () => WorkspaceAccessProperties$, 0, () => SelfservicePermissions$, () => SamlProperties$, () => CertificateBasedAuthProperties$, 0, () => MicrosoftEntraConfig$, 0, 0, 0, 0, () => IDCConfig$, () => ActiveDirectoryConfig$, () => StreamingProperties$, 0]
+  [_DI, _Al, _DNi, _RC, _SI, _DIA, _DIAn, _CUN, _IRIa, _DT, _WSGI, _S, _WCP, _iGI, _WAP, _Te, _SPe, _SP, _CBAP, _EEM, _MEC, _WDNo, _WDD, _UIT, _WT, _IDCC, _ADC, _SPt, _WOUM, _EM],
+  [0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, 0, () => DefaultWorkspaceCreationProperties$, 64 | 0, () => WorkspaceAccessProperties$, 0, () => SelfservicePermissions$, () => SamlProperties$, () => CertificateBasedAuthProperties$, 0, () => MicrosoftEntraConfig$, 0, 0, 0, 0, () => IDCConfig$, () => ActiveDirectoryConfig$, () => StreamingProperties$, 0, 0]
 ];
 export var WorkspaceImage$: StaticStructureSchema = [3, n0, _WIor,
   0,

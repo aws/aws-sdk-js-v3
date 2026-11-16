@@ -346,6 +346,7 @@ export type {
   WorkspaceImageIngestionProcess,
   WorkspaceImageRequiredTenancy,
   WorkspaceImageState,
+  WorkspaceOSUserMode,
   WorkspacesPoolErrorCode,
   WorkspacesPoolState,
   WorkspaceState,
