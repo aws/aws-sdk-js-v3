@@ -70,6 +70,7 @@ import type {
   ActivateSubscriptionCommandInput,
   ActivateSubscriptionCommandOutput,
 } from "./commands/ActivateSubscriptionCommand";
+import type { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
 import type { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
 import type {
   CreateSubscriptionCommandInput,
@@ -79,8 +80,14 @@ import type {
   DeactivateSubscriptionCommandInput,
   DeactivateSubscriptionCommandOutput,
 } from "./commands/DeactivateSubscriptionCommand";
+import type { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import type { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import type { GetDatasetCommandInput, GetDatasetCommandOutput } from "./commands/GetDatasetCommand";
 import type { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import type {
+  GetMedicalCodingJobCommandInput,
+  GetMedicalCodingJobCommandOutput,
+} from "./commands/GetMedicalCodingJobCommand";
 import type {
   GetMedicalScribeListeningSessionCommandInput,
   GetMedicalScribeListeningSessionCommandOutput,
@@ -90,6 +97,7 @@ import type {
   GetPatientInsightsJobCommandOutput,
 } from "./commands/GetPatientInsightsJobCommand";
 import type { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "./commands/GetSubscriptionCommand";
+import type { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
 import type { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import type {
   ListSubscriptionsCommandInput,
@@ -100,6 +108,10 @@ import type {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import type {
+  StartMedicalCodingJobCommandInput,
+  StartMedicalCodingJobCommandOutput,
+} from "./commands/StartMedicalCodingJobCommand";
+import type {
   StartMedicalScribeListeningSessionCommandInput,
   StartMedicalScribeListeningSessionCommandOutput,
 } from "./commands/StartMedicalScribeListeningSessionCommand";
@@ -107,6 +119,7 @@ import type {
   StartPatientInsightsJobCommandInput,
   StartPatientInsightsJobCommandOutput,
 } from "./commands/StartPatientInsightsJobCommand";
+import type { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "./commands/SubmitFeedbackCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -125,19 +138,26 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | ActivateSubscriptionCommandInput
+  | CreateDatasetCommandInput
   | CreateDomainCommandInput
   | CreateSubscriptionCommandInput
   | DeactivateSubscriptionCommandInput
+  | DeleteDatasetCommandInput
   | DeleteDomainCommandInput
+  | GetDatasetCommandInput
   | GetDomainCommandInput
+  | GetMedicalCodingJobCommandInput
   | GetMedicalScribeListeningSessionCommandInput
   | GetPatientInsightsJobCommandInput
   | GetSubscriptionCommandInput
+  | ListDatasetsCommandInput
   | ListDomainsCommandInput
   | ListSubscriptionsCommandInput
   | ListTagsForResourceCommandInput
+  | StartMedicalCodingJobCommandInput
   | StartMedicalScribeListeningSessionCommandInput
   | StartPatientInsightsJobCommandInput
+  | SubmitFeedbackCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
@@ -146,19 +166,26 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | ActivateSubscriptionCommandOutput
+  | CreateDatasetCommandOutput
   | CreateDomainCommandOutput
   | CreateSubscriptionCommandOutput
   | DeactivateSubscriptionCommandOutput
+  | DeleteDatasetCommandOutput
   | DeleteDomainCommandOutput
+  | GetDatasetCommandOutput
   | GetDomainCommandOutput
+  | GetMedicalCodingJobCommandOutput
   | GetMedicalScribeListeningSessionCommandOutput
   | GetPatientInsightsJobCommandOutput
   | GetSubscriptionCommandOutput
+  | ListDatasetsCommandOutput
   | ListDomainsCommandOutput
   | ListSubscriptionsCommandOutput
   | ListTagsForResourceCommandOutput
+  | StartMedicalCodingJobCommandOutput
   | StartMedicalScribeListeningSessionCommandOutput
   | StartPatientInsightsJobCommandOutput
+  | SubmitFeedbackCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 

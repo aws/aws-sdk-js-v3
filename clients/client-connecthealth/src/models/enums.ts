@@ -21,12 +21,28 @@ export const PostStreamArtifactGenerationStatus = {
   COMPLETED: "COMPLETED",
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SKIPPED: "SKIPPED",
 } as const;
 /**
  * @public
  */
 export type PostStreamArtifactGenerationStatus =
   (typeof PostStreamArtifactGenerationStatus)[keyof typeof PostStreamArtifactGenerationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChecklistItemStatus = {
+  DISCUSSED: "DISCUSSED",
+  NOT_DISCUSSED: "NOT_DISCUSSED",
+  PARTIALLY_DISCUSSED: "PARTIALLY_DISCUSSED",
+} as const;
+/**
+ * @public
+ */
+export type ChecklistItemStatus = (typeof ChecklistItemStatus)[keyof typeof ChecklistItemStatus];
 
 /**
  * @public
@@ -67,6 +83,56 @@ export type ManagedNoteTemplate = (typeof ManagedNoteTemplate)[keyof typeof Mana
  * @public
  * @enum
  */
+export const DatasetStatus = {
+  /**
+   * The dataset is ready and can be referenced by feature requests.
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * Building the dataset failed. Nothing usable was built; delete the dataset to free its quota slot. See statusDetails.
+   */
+  CREATE_FAILED: "CREATE_FAILED",
+  /**
+   * The dataset is being built.
+   */
+  CREATING: "CREATING",
+  /**
+   * The dataset and its provisioned resources have been deleted. Not returned by GetDataset or ListDatasets.
+   */
+  DELETED: "DELETED",
+  /**
+   * Deleting the dataset failed partway, so some provisioned resources may remain. Call DeleteDataset again to finish. See statusDetails.
+   */
+  DELETE_FAILED: "DELETE_FAILED",
+  /**
+   * The dataset and its provisioned resources are being deleted.
+   */
+  DELETING: "DELETING",
+} as const;
+/**
+ * @public
+ */
+export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DatasetType = {
+  /**
+   * Coded examples used to tailor medical coding.
+   */
+  MEDICAL_CODING: "MEDICAL_CODING",
+} as const;
+/**
+ * @public
+ */
+export type DatasetType = (typeof DatasetType)[keyof typeof DatasetType];
+
+/**
+ * @public
+ * @enum
+ */
 export const EncryptionType = {
   AWS_OWNED_KEY: "AWS_OWNED_KEY",
   CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
@@ -89,6 +155,62 @@ export const DomainStatus = {
  * @public
  */
 export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncounterType = {
+  IN_PERSON: "IN_PERSON",
+  TELEHEALTH: "TELEHEALTH",
+} as const;
+/**
+ * @public
+ */
+export type EncounterType = (typeof EncounterType)[keyof typeof EncounterType];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const Sex = {
+  FEMALE: "FEMALE",
+  MALE: "MALE",
+  NON_BINARY: "NON_BINARY",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type Sex = (typeof Sex)[keyof typeof Sex];
+
+/**
+ * @public
+ * @enum
+ */
+export const PatientStatus = {
+  ESTABLISHED: "ESTABLISHED",
+  NEW: "NEW",
+} as const;
+/**
+ * @public
+ */
+export type PatientStatus = (typeof PatientStatus)[keyof typeof PatientStatus];
 
 /**
  * @public
@@ -161,21 +283,6 @@ export type InsightsType = (typeof InsightsType)[keyof typeof InsightsType];
  * @public
  * @enum
  */
-export const JobStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUBMITTED: "SUBMITTED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
-
-/**
- * @public
- * @enum
- */
 export const Pronouns = {
   HE_HIM: "HE_HIM",
   SHE_HER: "SHE_HER",
@@ -222,3 +329,52 @@ export const MedicalScribeSessionControlEventType = {
  */
 export type MedicalScribeSessionControlEventType =
   (typeof MedicalScribeSessionControlEventType)[keyof typeof MedicalScribeSessionControlEventType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PeriodontalReviewReason = {
+  LINE_UNCLEAR: "LINE_UNCLEAR",
+  MEASUREMENT_NOT_CHARTED: "MEASUREMENT_NOT_CHARTED",
+  MISSING_TOOTH_CONFLICT: "MISSING_TOOTH_CONFLICT",
+  READING_COUNT_MISMATCH: "READING_COUNT_MISMATCH",
+  SESSION_ISSUE: "SESSION_ISSUE",
+  SITE_NOT_CHARTED: "SITE_NOT_CHARTED",
+  TOOTH_UNCLEAR: "TOOTH_UNCLEAR",
+  VALUE_NOT_CHARTED: "VALUE_NOT_CHARTED",
+} as const;
+/**
+ * @public
+ */
+export type PeriodontalReviewReason = (typeof PeriodontalReviewReason)[keyof typeof PeriodontalReviewReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const PeriodontalSiteName = {
+  BUCCAL: "B",
+  DISTOBUCCAL: "DB",
+  DISTOLINGUAL: "DL",
+  LINGUAL: "L",
+  MESIOBUCCAL: "MB",
+  MESIOLINGUAL: "ML",
+} as const;
+/**
+ * @public
+ */
+export type PeriodontalSiteName = (typeof PeriodontalSiteName)[keyof typeof PeriodontalSiteName];
+
+/**
+ * @public
+ * @enum
+ */
+export const FeedbackArtifactType = {
+  CLINICAL_DOC: "CLINICAL_DOC",
+  MEDICAL_CODES: "MEDICAL_CODES",
+} as const;
+/**
+ * @public
+ */
+export type FeedbackArtifactType = (typeof FeedbackArtifactType)[keyof typeof FeedbackArtifactType];

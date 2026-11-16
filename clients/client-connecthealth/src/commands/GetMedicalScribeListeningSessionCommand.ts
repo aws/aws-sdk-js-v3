@@ -65,27 +65,39 @@ export interface GetMedicalScribeListeningSessionCommandOutput extends GetMedica
  * //           },
  * //         },
  * //       },
+ * //       medicalCodeGenerationSettings: { // MedicalCodeGenerationSettingsResponse
+ * //         enabled: true || false,
+ * //       },
  * //     },
  * //     postStreamActionResult: { // MedicalScribePostStreamActionsResult
  * //       clinicalNoteGenerationResult: { // ClinicalNoteGenerationResult
  * //         noteResult: { // ArtifactDetails
  * //           outputLocation: "STRING_VALUE",
- * //           status: "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ * //           status: "IN_PROGRESS" || "FAILED" || "COMPLETED" || "PENDING" || "SKIPPED",
  * //           failureReason: "STRING_VALUE",
  * //         },
  * //         transcriptResult: {
  * //           outputLocation: "STRING_VALUE",
- * //           status: "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ * //           status: "IN_PROGRESS" || "FAILED" || "COMPLETED" || "PENDING" || "SKIPPED",
  * //           failureReason: "STRING_VALUE",
  * //         },
  * //         afterVisitSummaryResult: {
  * //           outputLocation: "STRING_VALUE",
- * //           status: "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ * //           status: "IN_PROGRESS" || "FAILED" || "COMPLETED" || "PENDING" || "SKIPPED",
  * //           failureReason: "STRING_VALUE",
  * //         },
  * //       },
+ * //       medicalCodeGenerationResult: { // MedicalCodeGenerationResult
+ * //         medicalCodesResult: {
+ * //           outputLocation: "STRING_VALUE",
+ * //           status: "IN_PROGRESS" || "FAILED" || "COMPLETED" || "PENDING" || "SKIPPED",
+ * //           failureReason: "STRING_VALUE",
+ * //         },
+ * //         jobId: "STRING_VALUE",
+ * //       },
  * //     },
  * //     encounterContextProvided: true || false,
+ * //     medicalCodingContextProvided: true || false,
  * //     streamStatus: "IN_PROGRESS" || "PAUSED" || "FAILED" || "COMPLETED",
  * //     streamCreationTime: new Date("TIMESTAMP"),
  * //     streamEndTime: new Date("TIMESTAMP"),

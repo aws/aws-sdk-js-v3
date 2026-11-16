@@ -86,6 +86,205 @@ x-amzn-medscribe-media-encoding: __mediaEncoding__
 [message-crc] 1820325195
 ============================================================
 
+[chunk (event-stream object view)]
+  [total-size] 1426 [header-size] 91 [prelude-crc] 1653650134
+:event-type: periodontalChartEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "snapshotVersion": 0,
+  "teeth": [
+    {
+      "toothNumber": 0,
+      "missing": false,
+      "mobility": 0,
+      "furcation": 0,
+      "sites": [
+        {
+          "site": "__site__",
+          "probingDepth": 0,
+          "recession": 0,
+          "bleeding": false,
+          "suppuration": false
+        },
+        {
+          "site": "__site__",
+          "probingDepth": 0,
+          "recession": 0,
+          "bleeding": false,
+          "suppuration": false
+        },
+        {
+          "site": "__site__",
+          "probingDepth": 0,
+          "recession": 0,
+          "bleeding": false,
+          "suppuration": false
+        }
+      ]
+    },
+    {
+      "toothNumber": 0,
+      "missing": false,
+      "mobility": 0,
+      "furcation": 0,
+      "sites": [
+        {
+          "site": "__site__",
+          "probingDepth": 0,
+          "recession": 0,
+          "bleeding": false,
+          "suppuration": false
+        },
+        {
+          "site": "__site__",
+          "probingDepth": 0,
+          "recession": 0,
+          "bleeding": false,
+          "suppuration": false
+        },
+        {
+          "site": "__site__",
+          "probingDepth": 0,
+          "recession": 0,
+          "bleeding": false,
+          "suppuration": false
+        }
+      ]
+    },
+    {
+      "toothNumber": 0,
+      "missing": false,
+      "mobility": 0,
+      "furcation": 0,
+      "sites": [
+        {
+          "site": "__site__",
+          "probingDepth": 0,
+          "recession": 0,
+          "bleeding": false,
+          "suppuration": false
+        },
+        {
+          "site": "__site__",
+          "probingDepth": 0,
+          "recession": 0,
+          "bleeding": false,
+          "suppuration": false
+        },
+        {
+          "site": "__site__",
+          "probingDepth": 0,
+          "recession": 0,
+          "bleeding": false,
+          "suppuration": false
+        }
+      ]
+    }
+  ],
+  "reviewItems": [
+    {
+      "reason": "__reason__",
+      "toothNumber": 0,
+      "sites": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "reason": "__reason__",
+      "toothNumber": 0,
+      "sites": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "reason": "__reason__",
+      "toothNumber": 0,
+      "sites": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ]
+}
+
+[message-crc] 4090211143
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 700 [header-size] 84 [prelude-crc] 2447052442
+:event-type: checklistEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "snapshotVersion": 0,
+  "checklists": [
+    {
+      "checklistId": "__checklistId__",
+      "items": [
+        {
+          "itemKey": "__itemKey__",
+          "status": "__status__"
+        },
+        {
+          "itemKey": "__itemKey__",
+          "status": "__status__"
+        },
+        {
+          "itemKey": "__itemKey__",
+          "status": "__status__"
+        }
+      ]
+    },
+    {
+      "checklistId": "__checklistId__",
+      "items": [
+        {
+          "itemKey": "__itemKey__",
+          "status": "__status__"
+        },
+        {
+          "itemKey": "__itemKey__",
+          "status": "__status__"
+        },
+        {
+          "itemKey": "__itemKey__",
+          "status": "__status__"
+        }
+      ]
+    },
+    {
+      "checklistId": "__checklistId__",
+      "items": [
+        {
+          "itemKey": "__itemKey__",
+          "status": "__status__"
+        },
+        {
+          "itemKey": "__itemKey__",
+          "status": "__status__"
+        },
+        {
+          "itemKey": "__itemKey__",
+          "status": "__status__"
+        }
+      ]
+    }
+  ]
+}
+
+[message-crc] 4078871407
+============================================================
+
 [chunk (b64)]
 Cg==
 
@@ -131,6 +330,187 @@ Cg==
         $metadata: (undefined),
         name: "ValidationException",
         message: "__message__"
+      }
+    },
+    {
+      periodontalChartEvent: {
+        snapshotVersion: (number) 0,
+        teeth: [
+          {
+            toothNumber: (number) 0,
+            missing: (boolean) false,
+            mobility: (number) 0,
+            furcation: (number) 0,
+            sites: [
+              {
+                site: "__site__",
+                probingDepth: (number) 0,
+                recession: (number) 0,
+                bleeding: (boolean) false,
+                suppuration: (boolean) false
+              },
+              {
+                site: "__site__",
+                probingDepth: (number) 0,
+                recession: (number) 0,
+                bleeding: (boolean) false,
+                suppuration: (boolean) false
+              },
+              {
+                site: "__site__",
+                probingDepth: (number) 0,
+                recession: (number) 0,
+                bleeding: (boolean) false,
+                suppuration: (boolean) false
+              }
+            ]
+          },
+          {
+            toothNumber: (number) 0,
+            missing: (boolean) false,
+            mobility: (number) 0,
+            furcation: (number) 0,
+            sites: [
+              {
+                site: "__site__",
+                probingDepth: (number) 0,
+                recession: (number) 0,
+                bleeding: (boolean) false,
+                suppuration: (boolean) false
+              },
+              {
+                site: "__site__",
+                probingDepth: (number) 0,
+                recession: (number) 0,
+                bleeding: (boolean) false,
+                suppuration: (boolean) false
+              },
+              {
+                site: "__site__",
+                probingDepth: (number) 0,
+                recession: (number) 0,
+                bleeding: (boolean) false,
+                suppuration: (boolean) false
+              }
+            ]
+          },
+          {
+            toothNumber: (number) 0,
+            missing: (boolean) false,
+            mobility: (number) 0,
+            furcation: (number) 0,
+            sites: [
+              {
+                site: "__site__",
+                probingDepth: (number) 0,
+                recession: (number) 0,
+                bleeding: (boolean) false,
+                suppuration: (boolean) false
+              },
+              {
+                site: "__site__",
+                probingDepth: (number) 0,
+                recession: (number) 0,
+                bleeding: (boolean) false,
+                suppuration: (boolean) false
+              },
+              {
+                site: "__site__",
+                probingDepth: (number) 0,
+                recession: (number) 0,
+                bleeding: (boolean) false,
+                suppuration: (boolean) false
+              }
+            ]
+          }
+        ],
+        reviewItems: [
+          {
+            reason: "__reason__",
+            toothNumber: (number) 0,
+            sites: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            reason: "__reason__",
+            toothNumber: (number) 0,
+            sites: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            reason: "__reason__",
+            toothNumber: (number) 0,
+            sites: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      checklistEvent: {
+        snapshotVersion: (number) 0,
+        checklists: [
+          {
+            checklistId: "__checklistId__",
+            items: [
+              {
+                itemKey: "__itemKey__",
+                status: "__status__"
+              },
+              {
+                itemKey: "__itemKey__",
+                status: "__status__"
+              },
+              {
+                itemKey: "__itemKey__",
+                status: "__status__"
+              }
+            ]
+          },
+          {
+            checklistId: "__checklistId__",
+            items: [
+              {
+                itemKey: "__itemKey__",
+                status: "__status__"
+              },
+              {
+                itemKey: "__itemKey__",
+                status: "__status__"
+              },
+              {
+                itemKey: "__itemKey__",
+                status: "__status__"
+              }
+            ]
+          },
+          {
+            checklistId: "__checklistId__",
+            items: [
+              {
+                itemKey: "__itemKey__",
+                status: "__status__"
+              },
+              {
+                itemKey: "__itemKey__",
+                status: "__status__"
+              },
+              {
+                itemKey: "__itemKey__",
+                status: "__status__"
+              }
+            ]
+          }
+        ]
       }
     }
   ],

@@ -57,6 +57,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "templateType": "__templateType__"
           }
         }
+      },
+      "medicalCodeGenerationSettings": {
+        "enabled": false
       }
     },
     "postStreamActionResult": {
@@ -76,9 +79,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "status": "__status__",
           "failureReason": "__failureReason__"
         }
+      },
+      "medicalCodeGenerationResult": {
+        "medicalCodesResult": {
+          "outputLocation": "__outputLocation__",
+          "status": "__status__",
+          "failureReason": "__failureReason__"
+        },
+        "jobId": "__jobId__"
       }
     },
     "encounterContextProvided": false,
+    "medicalCodingContextProvided": false,
     "streamStatus": "__streamStatus__",
     "streamCreationTime": 946702799.999,
     "streamEndTime": 946702799.999
@@ -117,6 +129,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             templateType: "__templateType__"
           }
         }
+      },
+      medicalCodeGenerationSettings: {
+        enabled: (boolean) false
       }
     },
     postStreamActionResult: {
@@ -136,9 +151,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           status: "__status__",
           failureReason: "__failureReason__"
         }
+      },
+      medicalCodeGenerationResult: {
+        medicalCodesResult: {
+          outputLocation: "__outputLocation__",
+          status: "__status__",
+          failureReason: "__failureReason__"
+        },
+        jobId: "__jobId__"
       }
     },
     encounterContextProvided: (boolean) false,
+    medicalCodingContextProvided: (boolean) false,
     streamStatus: "__streamStatus__",
     streamCreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
     streamEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time

@@ -1,0 +1,132 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "jobId": "__jobId__",
+  "jobArn": "__jobArn__",
+  "jobStatus": "__jobStatus__",
+  "text": "__text__",
+  "outputDataConfig": {
+    "s3OutputPath": "__s3OutputPath__"
+  },
+  "creationTime": "2000-01-01T04:59:59.999Z",
+  "updatedTime": "2000-01-01T04:59:59.999Z",
+  "patientContext": {},
+  "encounterContext": {},
+  "datasetId": "__datasetId__",
+  "medicalCodingOutput": {
+    "uri": "__uri__"
+  },
+  "statusDetails": "__statusDetails__"
+}
+
+
+--- [output object] ---
+{
+  jobId: "__jobId__",
+  jobArn: "__jobArn__",
+  jobStatus: "__jobStatus__",
+  text: "__text__",
+  outputDataConfig: {
+    s3OutputPath: "__s3OutputPath__"
+  },
+  creationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  updatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  patientContext: {},
+  encounterContext: {},
+  datasetId: "__datasetId__",
+  medicalCodingOutput: {
+    uri: "__uri__"
+  },
+  statusDetails: "__statusDetails__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "jobId": "__jobId__",
+  "jobArn": "__jobArn__",
+  "jobStatus": "__jobStatus__",
+  "text": "__text__",
+  "outputDataConfig": {
+    "s3OutputPath": "__s3OutputPath__"
+  },
+  "creationTime": "2000-01-01T04:59:59.999Z",
+  "updatedTime": "2000-01-01T04:59:59.999Z",
+  "patientContext": {
+    "sex": "__sex__",
+    "status": "__status__",
+    "dateOfBirth": "__dateOfBirth__",
+    "insurance": "__insurance__"
+  },
+  "encounterContext": {
+    "encounterType": "__encounterType__",
+    "encounterReason": "__encounterReason__",
+    "afterHours": false,
+    "encounterDate": "__encounterDate__",
+    "encounterDurationMinutes": 0
+  },
+  "datasetId": "__datasetId__",
+  "medicalCodingOutput": {
+    "uri": "__uri__"
+  },
+  "statusDetails": "__statusDetails__"
+}
+
+
+--- [output object] ---
+{
+  jobId: "__jobId__",
+  jobArn: "__jobArn__",
+  jobStatus: "__jobStatus__",
+  text: "__text__",
+  outputDataConfig: {
+    s3OutputPath: "__s3OutputPath__"
+  },
+  creationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  updatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  patientContext: {
+    sex: "__sex__",
+    status: "__status__",
+    dateOfBirth: "__dateOfBirth__",
+    insurance: "__insurance__"
+  },
+  encounterContext: {
+    encounterType: "__encounterType__",
+    encounterReason: "__encounterReason__",
+    afterHours: (boolean) false,
+    encounterDate: "__encounterDate__",
+    encounterDurationMinutes: (number) 0
+  },
+  datasetId: "__datasetId__",
+  medicalCodingOutput: {
+    uri: "__uri__"
+  },
+  statusDetails: "__statusDetails__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

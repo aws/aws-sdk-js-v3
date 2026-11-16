@@ -188,6 +188,13 @@ ActivateSubscription
 </details>
 <details>
 <summary>
+CreateDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connecthealth/command/CreateDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/CreateDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/CreateDatasetCommandOutput/)
+</details>
+<details>
+<summary>
 CreateDomain
 </summary>
 
@@ -209,6 +216,13 @@ DeactivateSubscription
 </details>
 <details>
 <summary>
+DeleteDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connecthealth/command/DeleteDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/DeleteDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/DeleteDatasetCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteDomain
 </summary>
 
@@ -216,10 +230,24 @@ DeleteDomain
 </details>
 <details>
 <summary>
+GetDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connecthealth/command/GetDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/GetDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/GetDatasetCommandOutput/)
+</details>
+<details>
+<summary>
 GetDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connecthealth/command/GetDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/GetDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/GetDomainCommandOutput/)
+</details>
+<details>
+<summary>
+GetMedicalCodingJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connecthealth/command/GetMedicalCodingJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/GetMedicalCodingJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/GetMedicalCodingJobCommandOutput/)
 </details>
 <details>
 <summary>
@@ -244,6 +272,13 @@ GetSubscription
 </details>
 <details>
 <summary>
+ListDatasets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connecthealth/command/ListDatasetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/ListDatasetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/ListDatasetsCommandOutput/)
+</details>
+<details>
+<summary>
 ListDomains
 </summary>
 
@@ -265,6 +300,13 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+StartMedicalCodingJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connecthealth/command/StartMedicalCodingJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/StartMedicalCodingJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/StartMedicalCodingJobCommandOutput/)
+</details>
+<details>
+<summary>
 StartMedicalScribeListeningSession
 </summary>
 
@@ -276,6 +318,13 @@ StartPatientInsightsJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connecthealth/command/StartPatientInsightsJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/StartPatientInsightsJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/StartPatientInsightsJobCommandOutput/)
+</details>
+<details>
+<summary>
+SubmitFeedback
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connecthealth/command/SubmitFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/SubmitFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connecthealth/Interface/SubmitFeedbackCommandOutput/)
 </details>
 <details>
 <summary>

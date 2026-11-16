@@ -71,6 +71,9 @@ export interface StartMedicalScribeListeningSessionCommandOutput extends StartMe
  *             },
  *           },
  *         },
+ *         medicalCodeGenerationSettings: { // MedicalCodeGenerationSettings
+ *           enabled: true || false, // required
+ *         },
  *       },
  *       channelDefinitions: [ // MedicalScribeChannelDefinitions
  *         { // MedicalScribeChannelDefinition
@@ -80,6 +83,15 @@ export interface StartMedicalScribeListeningSessionCommandOutput extends StartMe
  *       ],
  *       encounterContext: { // EncounterContext
  *         unstructuredContext: "STRING_VALUE",
+ *         medicalCodingContext: { // MedicalCodingContext
+ *           sex: "MALE" || "FEMALE" || "NON_BINARY" || "UNKNOWN",
+ *           status: "NEW" || "ESTABLISHED",
+ *           dateOfBirth: "STRING_VALUE",
+ *           encounterType: "TELEHEALTH" || "IN_PERSON",
+ *           encounterReason: "STRING_VALUE",
+ *           afterHours: true || false,
+ *           encounterDate: "STRING_VALUE",
+ *         },
  *       },
  *     },
  *   },
@@ -110,6 +122,49 @@ export interface StartMedicalScribeListeningSessionCommandOutput extends StartMe
  * //     },
  * //     validationException: { // ValidationException
  * //       message: "STRING_VALUE",
+ * //     },
+ * //     periodontalChartEvent: { // MedicalScribePeriodontalChartEvent
+ * //       snapshotVersion: Number("long"), // required
+ * //       teeth: [ // PeriodontalToothList // required
+ * //         { // PeriodontalTooth
+ * //           toothNumber: Number("int"), // required
+ * //           missing: true || false, // required
+ * //           mobility: Number("int"),
+ * //           furcation: Number("int"),
+ * //           sites: [ // PeriodontalSiteList
+ * //             { // PeriodontalSite
+ * //               site: "DB" || "B" || "MB" || "DL" || "L" || "ML", // required
+ * //               probingDepth: Number("int"),
+ * //               recession: Number("int"),
+ * //               bleeding: true || false,
+ * //               suppuration: true || false,
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       reviewItems: [ // PeriodontalReviewList
+ * //         { // PeriodontalReview
+ * //           reason: "SITE_NOT_CHARTED" || "VALUE_NOT_CHARTED" || "READING_COUNT_MISMATCH" || "LINE_UNCLEAR" || "TOOTH_UNCLEAR" || "MISSING_TOOTH_CONFLICT" || "MEASUREMENT_NOT_CHARTED" || "SESSION_ISSUE", // required
+ * //           toothNumber: Number("int"),
+ * //           sites: [ // PeriodontalSiteNameList
+ * //             "DB" || "B" || "MB" || "DL" || "L" || "ML",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //     checklistEvent: { // MedicalScribeChecklistEvent
+ * //       snapshotVersion: Number("long"), // required
+ * //       checklists: [ // ChecklistList // required
+ * //         { // Checklist
+ * //           checklistId: "STRING_VALUE", // required
+ * //           items: [ // ChecklistItemList // required
+ * //             { // ChecklistItem
+ * //               itemKey: "STRING_VALUE", // required
+ * //               status: "DISCUSSED" || "PARTIALLY_DISCUSSED" || "NOT_DISCUSSED", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * // };

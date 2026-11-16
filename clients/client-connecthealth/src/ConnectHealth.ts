@@ -13,6 +13,11 @@ import {
   ActivateSubscriptionCommand,
 } from "./commands/ActivateSubscriptionCommand";
 import {
+  type CreateDatasetCommandInput,
+  type CreateDatasetCommandOutput,
+  CreateDatasetCommand,
+} from "./commands/CreateDatasetCommand";
+import {
   type CreateDomainCommandInput,
   type CreateDomainCommandOutput,
   CreateDomainCommand,
@@ -28,11 +33,26 @@ import {
   DeactivateSubscriptionCommand,
 } from "./commands/DeactivateSubscriptionCommand";
 import {
+  type DeleteDatasetCommandInput,
+  type DeleteDatasetCommandOutput,
+  DeleteDatasetCommand,
+} from "./commands/DeleteDatasetCommand";
+import {
   type DeleteDomainCommandInput,
   type DeleteDomainCommandOutput,
   DeleteDomainCommand,
 } from "./commands/DeleteDomainCommand";
+import {
+  type GetDatasetCommandInput,
+  type GetDatasetCommandOutput,
+  GetDatasetCommand,
+} from "./commands/GetDatasetCommand";
 import { type GetDomainCommandInput, type GetDomainCommandOutput, GetDomainCommand } from "./commands/GetDomainCommand";
+import {
+  type GetMedicalCodingJobCommandInput,
+  type GetMedicalCodingJobCommandOutput,
+  GetMedicalCodingJobCommand,
+} from "./commands/GetMedicalCodingJobCommand";
 import {
   type GetMedicalScribeListeningSessionCommandInput,
   type GetMedicalScribeListeningSessionCommandOutput,
@@ -49,6 +69,11 @@ import {
   GetSubscriptionCommand,
 } from "./commands/GetSubscriptionCommand";
 import {
+  type ListDatasetsCommandInput,
+  type ListDatasetsCommandOutput,
+  ListDatasetsCommand,
+} from "./commands/ListDatasetsCommand";
+import {
   type ListDomainsCommandInput,
   type ListDomainsCommandOutput,
   ListDomainsCommand,
@@ -64,6 +89,11 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartMedicalCodingJobCommandInput,
+  type StartMedicalCodingJobCommandOutput,
+  StartMedicalCodingJobCommand,
+} from "./commands/StartMedicalCodingJobCommand";
+import {
   type StartMedicalScribeListeningSessionCommandInput,
   type StartMedicalScribeListeningSessionCommandOutput,
   StartMedicalScribeListeningSessionCommand,
@@ -73,6 +103,11 @@ import {
   type StartPatientInsightsJobCommandOutput,
   StartPatientInsightsJobCommand,
 } from "./commands/StartPatientInsightsJobCommand";
+import {
+  type SubmitFeedbackCommandInput,
+  type SubmitFeedbackCommandOutput,
+  SubmitFeedbackCommand,
+} from "./commands/SubmitFeedbackCommand";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -84,28 +119,37 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import { ConnectHealthClient } from "./ConnectHealthClient";
+import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";
 import { paginateListDomains } from "./pagination/ListDomainsPaginator";
 import { paginateListSubscriptions } from "./pagination/ListSubscriptionsPaginator";
 
 const commands = {
   ActivateSubscriptionCommand,
+  CreateDatasetCommand,
   CreateDomainCommand,
   CreateSubscriptionCommand,
   DeactivateSubscriptionCommand,
+  DeleteDatasetCommand,
   DeleteDomainCommand,
+  GetDatasetCommand,
   GetDomainCommand,
+  GetMedicalCodingJobCommand,
   GetMedicalScribeListeningSessionCommand,
   GetPatientInsightsJobCommand,
   GetSubscriptionCommand,
+  ListDatasetsCommand,
   ListDomainsCommand,
   ListSubscriptionsCommand,
   ListTagsForResourceCommand,
+  StartMedicalCodingJobCommand,
   StartMedicalScribeListeningSessionCommand,
   StartPatientInsightsJobCommand,
+  SubmitFeedbackCommand,
   TagResourceCommand,
   UntagResourceCommand,
 };
 const paginators = {
+  paginateListDatasets,
   paginateListDomains,
   paginateListSubscriptions,
 };
@@ -133,6 +177,23 @@ export interface ConnectHealth {
     args: ActivateSubscriptionCommandInput,
     options: ConnectHealthRequestOptions,
     cb: (err: any, data?: ActivateSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDatasetCommand}
+   */
+  createDataset(
+    args: CreateDatasetCommandInput,
+    options?: ConnectHealthRequestOptions
+  ): Promise<CreateDatasetCommandOutput>;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    cb: (err: any, data?: CreateDatasetCommandOutput) => void
+  ): void;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    options: ConnectHealthRequestOptions,
+    cb: (err: any, data?: CreateDatasetCommandOutput) => void
   ): void;
 
   /**
@@ -187,6 +248,23 @@ export interface ConnectHealth {
   ): void;
 
   /**
+   * @see {@link DeleteDatasetCommand}
+   */
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    options?: ConnectHealthRequestOptions
+  ): Promise<DeleteDatasetCommandOutput>;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
+  ): void;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    options: ConnectHealthRequestOptions,
+    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDomainCommand}
    */
   deleteDomain(
@@ -204,6 +282,23 @@ export interface ConnectHealth {
   ): void;
 
   /**
+   * @see {@link GetDatasetCommand}
+   */
+  getDataset(
+    args: GetDatasetCommandInput,
+    options?: ConnectHealthRequestOptions
+  ): Promise<GetDatasetCommandOutput>;
+  getDataset(
+    args: GetDatasetCommandInput,
+    cb: (err: any, data?: GetDatasetCommandOutput) => void
+  ): void;
+  getDataset(
+    args: GetDatasetCommandInput,
+    options: ConnectHealthRequestOptions,
+    cb: (err: any, data?: GetDatasetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDomainCommand}
    */
   getDomain(
@@ -218,6 +313,23 @@ export interface ConnectHealth {
     args: GetDomainCommandInput,
     options: ConnectHealthRequestOptions,
     cb: (err: any, data?: GetDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMedicalCodingJobCommand}
+   */
+  getMedicalCodingJob(
+    args: GetMedicalCodingJobCommandInput,
+    options?: ConnectHealthRequestOptions
+  ): Promise<GetMedicalCodingJobCommandOutput>;
+  getMedicalCodingJob(
+    args: GetMedicalCodingJobCommandInput,
+    cb: (err: any, data?: GetMedicalCodingJobCommandOutput) => void
+  ): void;
+  getMedicalCodingJob(
+    args: GetMedicalCodingJobCommandInput,
+    options: ConnectHealthRequestOptions,
+    cb: (err: any, data?: GetMedicalCodingJobCommandOutput) => void
   ): void;
 
   /**
@@ -269,6 +381,23 @@ export interface ConnectHealth {
     args: GetSubscriptionCommandInput,
     options: ConnectHealthRequestOptions,
     cb: (err: any, data?: GetSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDatasetsCommand}
+   */
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    options?: ConnectHealthRequestOptions
+  ): Promise<ListDatasetsCommandOutput>;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    options: ConnectHealthRequestOptions,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
   ): void;
 
   /**
@@ -324,6 +453,23 @@ export interface ConnectHealth {
   ): void;
 
   /**
+   * @see {@link StartMedicalCodingJobCommand}
+   */
+  startMedicalCodingJob(
+    args: StartMedicalCodingJobCommandInput,
+    options?: ConnectHealthRequestOptions
+  ): Promise<StartMedicalCodingJobCommandOutput>;
+  startMedicalCodingJob(
+    args: StartMedicalCodingJobCommandInput,
+    cb: (err: any, data?: StartMedicalCodingJobCommandOutput) => void
+  ): void;
+  startMedicalCodingJob(
+    args: StartMedicalCodingJobCommandInput,
+    options: ConnectHealthRequestOptions,
+    cb: (err: any, data?: StartMedicalCodingJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartMedicalScribeListeningSessionCommand}
    */
   startMedicalScribeListeningSession(
@@ -355,6 +501,23 @@ export interface ConnectHealth {
     args: StartPatientInsightsJobCommandInput,
     options: ConnectHealthRequestOptions,
     cb: (err: any, data?: StartPatientInsightsJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SubmitFeedbackCommand}
+   */
+  submitFeedback(
+    args: SubmitFeedbackCommandInput,
+    options?: ConnectHealthRequestOptions
+  ): Promise<SubmitFeedbackCommandOutput>;
+  submitFeedback(
+    args: SubmitFeedbackCommandInput,
+    cb: (err: any, data?: SubmitFeedbackCommandOutput) => void
+  ): void;
+  submitFeedback(
+    args: SubmitFeedbackCommandInput,
+    options: ConnectHealthRequestOptions,
+    cb: (err: any, data?: SubmitFeedbackCommandOutput) => void
   ): void;
 
   /**
@@ -390,6 +553,17 @@ export interface ConnectHealth {
     options: ConnectHealthRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDatasetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetsCommandOutput}.
+   */
+  paginateListDatasets(
+    args: ListDatasetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetsCommandOutput>;
 
   /**
    * @see {@link ListDomainsCommand}

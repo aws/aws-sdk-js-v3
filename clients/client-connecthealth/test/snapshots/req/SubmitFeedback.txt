@@ -1,0 +1,24 @@
+POST https://runtime.health-agent.us-east-1.api.aws 
+/domain/__domainId__/feedback
+
+content-type: application/json
+content-length: 296
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/connecthealth#_.__ m/E,e
+host: runtime.health-agent.us-east-1.api.aws
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: afad1db2985daf920601212d1696860d0cd03499564d72a3dbdf153d652089c6
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/health-agent/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[Uint8Array (json)]
+{
+  "artifactSourceId": "__artifactSourceId__",
+  "artifactType": "__artifactType__",
+  "signedArtifactS3Uri": "__signedArtifactS3Uri__",
+  "subscriptionId": "__subscriptionId__",
+  "generatedArtifactS3Uri": "__generatedArtifactS3Uri__",
+  "comments": "__comments__",
+  "clientToken": "1111abcd-uuid-uuid-uuid-000000001111"
+}
