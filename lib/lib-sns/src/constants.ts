@@ -10,6 +10,8 @@ export const DEFAULT_ENCODING: BufferEncoding = "utf8";
 
 export const DEFAULT_CERTIFICATE_TIMEOUT_MS = 10_000;
 
+export const MAX_CERTIFICATE_SIZE_BYTES = 64 * 1024;
+
 export const SUPPORTED_MESSAGE_TYPES: SNSMessageType[] = [
   "Notification",
   "SubscriptionConfirmation",

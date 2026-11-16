@@ -1,6 +1,6 @@
 import https from "node:https";
 
-import { DEFAULT_CERTIFICATE_TIMEOUT_MS } from "./constants";
+import { DEFAULT_CERTIFICATE_TIMEOUT_MS, MAX_CERTIFICATE_SIZE_BYTES } from "./constants";
 import { SNSValidationError } from "./errors";
 
 /**
@@ -62,12 +62,20 @@ export function fetchCertificate(certUrl: string, timeoutMs: number): Promise<st
           fail();
           return;
         }
-        const chunks: string[] = [];
-        res.setEncoding("utf8");
-        res.on("data", (chunk: string) => chunks.push(chunk));
+        const chunks: Buffer[] = [];
+        let size = 0;
+        res.on("data", (chunk: Buffer) => {
+          size += chunk.length;
+          if (size > MAX_CERTIFICATE_SIZE_BYTES) {
+            req.destroy();
+            fail();
+            return;
+          }
+          chunks.push(chunk);
+        });
         res.on("end", () => {
           clearTimeout(timer);
-          resolve(chunks.join(""));
+          resolve(Buffer.concat(chunks).toString("utf8"));
         });
         res.on("error", fail);
       })

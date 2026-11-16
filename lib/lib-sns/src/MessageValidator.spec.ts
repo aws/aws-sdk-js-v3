@@ -226,6 +226,37 @@ describe("message validation", () => {
     });
   });
 
+  describe("certificate URL parser differential", () => {
+    // The host that is validated must be the host that is fetched.
+    const dot = "sns.us-east-1.amazonaws.com";
+    it.each([
+      ["percent-encoded dot", `https://${dot}%2eattacker.example/cert.pem`],
+      ["uppercase percent-encoded dot", `https://${dot}%2Eattacker.example/cert.pem`],
+      ["ideographic full stop", `https://${dot}%E3%80%82attacker.example/cert.pem`],
+      ["cn percent-encoded dot", "https://sns.cn-north-1.amazonaws.com.cn%2eattacker.example/cert.pem"],
+      ["percent-encoded at sign", `https://${dot}%40attacker.example/cert.pem`],
+      ["double-encoded dot", `https://${dot}%252eattacker.example/cert.pem`],
+      ["backslash authority", `https://attacker.example\\@${dot}/cert.pem`],
+    ])("rejects %s without fetching", async (_name, SigningCertURL) => {
+      const spy = vi.fn(fetcher);
+      await expect(
+        new MessageValidator(undefined, undefined, spy).validate({ ...validMessage, SigningCertURL })
+      ).rejects.toThrow("The certificate is located on an invalid domain.");
+      expect(spy).not.toHaveBeenCalled();
+    });
+
+    it("rejects a non-string SigningCertURL", async () => {
+      const spy = vi.fn(fetcher);
+      await expect(
+        new MessageValidator(undefined, undefined, spy).validate({
+          ...validMessage,
+          SigningCertURL: 12345 as unknown as string,
+        })
+      ).rejects.toThrow("The certificate is located on an invalid domain.");
+      expect(spy).not.toHaveBeenCalled();
+    });
+  });
+
   it("rejects hashes with an invalid signature type", async () => {
     await expect(
       new MessageValidator(undefined, undefined, fetcher).validate({
