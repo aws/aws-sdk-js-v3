@@ -75,6 +75,25 @@ export type CompatibilityPolicy = (typeof CompatibilityPolicy)[keyof typeof Comp
  * @public
  * @enum
  */
+export const ElasticIpType = {
+  /**
+   * No Elastic IP address is assigned to the connector's network interfaces.
+   */
+  None: "None",
+  /**
+   * A service-managed Elastic IP address is allocated for each network interface and associated with it.
+   */
+  ServiceManaged: "ServiceManaged",
+} as const;
+/**
+ * @public
+ */
+export type ElasticIpType = (typeof ElasticIpType)[keyof typeof ElasticIpType];
+
+/**
+ * @public
+ * @enum
+ */
 export const NetworkProtocol = {
   /**
    * DualStack
@@ -251,6 +270,7 @@ export const NetworkConnectorLastUpdateStatusReasonCode = {
   Ec2RequestLimitExceeded: "Ec2RequestLimitExceeded",
   InsufficientRolePermissions: "InsufficientRolePermissions",
   InternalError: "InternalError",
+  InternetGatewayNotAttached: "InternetGatewayNotAttached",
   InvalidSecurityGroup: "InvalidSecurityGroup",
   InvalidSubnet: "InvalidSubnet",
   SecurityGroupsPerInterfaceLimitExceeded: "SecurityGroupsPerInterfaceLimitExceeded",
@@ -271,6 +291,7 @@ export const NetworkConnectorStateReasonCode = {
   Ec2RequestLimitExceeded: "Ec2RequestLimitExceeded",
   InsufficientRolePermissions: "InsufficientRolePermissions",
   InternalError: "InternalError",
+  InternetGatewayNotAttached: "InternetGatewayNotAttached",
   InvalidSecurityGroup: "InvalidSecurityGroup",
   InvalidSubnet: "InvalidSubnet",
   SecurityGroupsPerInterfaceLimitExceeded: "SecurityGroupsPerInterfaceLimitExceeded",

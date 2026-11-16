@@ -46,6 +46,9 @@ export interface CreateNetworkConnectorCommandOutput extends CreateNetworkConnec
  *       AssociatedComputeResourceTypes: [ // AssociatedComputeResourceTypesList
  *         "MicroVm" || "WebFunction",
  *       ],
+ *       ElasticIpConfiguration: { // ElasticIpConfiguration
+ *         Type: "None" || "ServiceManaged", // required
+ *       },
  *     },
  *   },
  *   OperatorRole: "STRING_VALUE",
@@ -74,6 +77,9 @@ export interface CreateNetworkConnectorCommandOutput extends CreateNetworkConnec
  * //       AssociatedComputeResourceTypes: [ // AssociatedComputeResourceTypesList
  * //         "MicroVm" || "WebFunction",
  * //       ],
+ * //       ElasticIpConfiguration: { // ElasticIpConfiguration
+ * //         Type: "None" || "ServiceManaged", // required
+ * //       },
  * //     },
  * //   },
  * //   OperatorRole: "STRING_VALUE",

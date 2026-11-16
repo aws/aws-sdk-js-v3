@@ -46,6 +46,9 @@ export interface UpdateNetworkConnectorCommandOutput extends UpdateNetworkConnec
  *       AssociatedComputeResourceTypes: [ // AssociatedComputeResourceTypesList
  *         "MicroVm" || "WebFunction",
  *       ],
+ *       ElasticIpConfiguration: { // ElasticIpConfiguration
+ *         Type: "None" || "ServiceManaged", // required
+ *       },
  *     },
  *   },
  *   OperatorRole: "STRING_VALUE",
@@ -72,6 +75,9 @@ export interface UpdateNetworkConnectorCommandOutput extends UpdateNetworkConnec
  * //       AssociatedComputeResourceTypes: [ // AssociatedComputeResourceTypesList
  * //         "MicroVm" || "WebFunction",
  * //       ],
+ * //       ElasticIpConfiguration: { // ElasticIpConfiguration
+ * //         Type: "None" || "ServiceManaged", // required
+ * //       },
  * //     },
  * //   },
  * //   State: "PENDING" || "ACTIVE" || "INACTIVE" || "FAILED" || "DELETING" || "DELETE_FAILED",

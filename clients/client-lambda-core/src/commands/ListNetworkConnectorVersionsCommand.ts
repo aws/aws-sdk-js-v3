@@ -50,7 +50,7 @@ export interface ListNetworkConnectorVersionsCommandOutput extends ListNetworkCo
  * //       Version: Number("long"), // required
  * //       State: "PENDING" || "ACTIVE" || "INACTIVE" || "FAILED" || "DELETING" || "DELETE_FAILED", // required
  * //       StateReason: "STRING_VALUE",
- * //       StateReasonCode: "DisallowedByVpcEncryptionControl" || "Ec2RequestLimitExceeded" || "InsufficientRolePermissions" || "InternalError" || "InvalidSecurityGroup" || "InvalidSubnet" || "SecurityGroupsPerInterfaceLimitExceeded" || "SubnetOutOfIPAddresses",
+ * //       StateReasonCode: "DisallowedByVpcEncryptionControl" || "Ec2RequestLimitExceeded" || "InsufficientRolePermissions" || "InternalError" || "InternetGatewayNotAttached" || "InvalidSecurityGroup" || "InvalidSubnet" || "SecurityGroupsPerInterfaceLimitExceeded" || "SubnetOutOfIPAddresses",
  * //       LastModified: new Date("TIMESTAMP"),
  * //     },
  * //   ],

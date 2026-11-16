@@ -34,6 +34,8 @@ import {
   DeleteRuntimeVersionCommand,
   DeleteRuntimeVersionRequest$,
   DeleteRuntimeVersionResponse$,
+  ElasticIpConfiguration$,
+  ElasticIpType,
   GetNetworkConnector$,
   GetNetworkConnectorCommand,
   GetNetworkConnectorRequest$,
@@ -206,6 +208,7 @@ assert(typeof DeleteRuntimeRequest$ === "object");
 assert(typeof DeleteRuntimeResponse$ === "object");
 assert(typeof DeleteRuntimeVersionRequest$ === "object");
 assert(typeof DeleteRuntimeVersionResponse$ === "object");
+assert(typeof ElasticIpConfiguration$ === "object");
 assert(typeof GetNetworkConnectorRequest$ === "object");
 assert(typeof GetNetworkConnectorResponse$ === "object");
 assert(typeof GetRuntimeAliasRequest$ === "object");
@@ -246,6 +249,7 @@ assert(typeof UpdateRuntimeVersionResponse$ === "object");
 // enums
 assert(typeof CompatibilityPolicy === "object");
 assert(typeof ComputeResourceType === "object");
+assert(typeof ElasticIpType === "object");
 assert(typeof IntegrationModel === "object");
 assert(typeof NetworkConnectorLastUpdateStatus === "object");
 assert(typeof NetworkConnectorLastUpdateStatusReasonCode === "object");

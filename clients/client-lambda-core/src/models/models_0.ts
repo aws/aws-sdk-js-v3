@@ -2,6 +2,7 @@
 import type {
   CompatibilityPolicy,
   ComputeResourceType,
+  ElasticIpType,
   IntegrationModel,
   NetworkConnectorLastUpdateStatus,
   NetworkConnectorLastUpdateStatusReasonCode,
@@ -41,6 +42,18 @@ export interface Compatibility {
 }
 
 /**
+ * How the connector's network interfaces get an Elastic IP address.
+ * @public
+ */
+export interface ElasticIpConfiguration {
+  /**
+   * The Elastic IP type for the connector's network interfaces.
+   * @public
+   */
+  Type: ElasticIpType | undefined;
+}
+
+/**
  * <p>Configuration for a VPC egress network connector. Specifies the VPC subnets, security groups, network protocol, and associated Lambda compute resource types.</p>
  * @public
  */
@@ -68,6 +81,12 @@ export interface NetworkConnectorVpcEgressConfiguration {
    * @public
    */
   AssociatedComputeResourceTypes?: ComputeResourceType[] | undefined;
+
+  /**
+   * <p>The Elastic IP configuration for the connector's ENIs. Specify <code>ServiceManaged</code> to have Lambda assign a service-managed Elastic IP address to each ENI. The operator role must allow <code>ec2:AllocateAddress</code> and <code>ec2:AssociateAddress</code>.</p>
+   * @public
+   */
+  ElasticIpConfiguration?: ElasticIpConfiguration | undefined;
 }
 
 /**

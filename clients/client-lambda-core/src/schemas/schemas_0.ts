@@ -34,6 +34,7 @@ const _DRVR = "DeleteRuntimeVersionRequest";
 const _DRVRe = "DeleteRuntimeVersionResponse";
 const _DRe = "DeleteRuntime";
 const _Di = "Digest";
+const _EIC = "ElasticIpConfiguration";
 const _FCBD = "FunctionCreateBlockDate";
 const _FUBD = "FunctionUpdateBlockDate";
 const _GNC = "GetNetworkConnector";
@@ -326,6 +327,11 @@ export var DeleteRuntimeVersionResponse$: StaticStructureSchema = [3, n0, _DRVRe
   [],
   []
 ];
+export var ElasticIpConfiguration$: StaticStructureSchema = [3, n0, _EIC,
+  0,
+  [_T],
+  [0], 1
+];
 export var GetNetworkConnectorRequest$: StaticStructureSchema = [3, n0, _GNCR,
   0,
   [_Id],
@@ -428,8 +434,8 @@ export var NetworkConnectorVersionSummary$: StaticStructureSchema = [3, n0, _NCV
 ];
 export var NetworkConnectorVpcEgressConfiguration$: StaticStructureSchema = [3, n0, _NCVEC,
   0,
-  [_SI, _SGI, _NP, _ACRT],
-  [64 | 0, 64 | 0, 0, 64 | 0]
+  [_SI, _SGI, _NP, _ACRT, _EIC],
+  [64 | 0, 64 | 0, 0, 64 | 0, () => ElasticIpConfiguration$]
 ];
 export var Platform$: StaticStructureSchema = [3, n0, _Pl,
   0,

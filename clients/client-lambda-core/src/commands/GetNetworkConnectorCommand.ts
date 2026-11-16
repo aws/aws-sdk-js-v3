@@ -57,15 +57,18 @@ export interface GetNetworkConnectorCommandOutput extends GetNetworkConnectorRes
  * //       AssociatedComputeResourceTypes: [ // AssociatedComputeResourceTypesList
  * //         "MicroVm" || "WebFunction",
  * //       ],
+ * //       ElasticIpConfiguration: { // ElasticIpConfiguration
+ * //         Type: "None" || "ServiceManaged", // required
+ * //       },
  * //     },
  * //   },
  * //   OperatorRole: "STRING_VALUE",
  * //   State: "PENDING" || "ACTIVE" || "INACTIVE" || "FAILED" || "DELETING" || "DELETE_FAILED",
  * //   StateReason: "STRING_VALUE",
- * //   StateReasonCode: "DisallowedByVpcEncryptionControl" || "Ec2RequestLimitExceeded" || "InsufficientRolePermissions" || "InternalError" || "InvalidSecurityGroup" || "InvalidSubnet" || "SecurityGroupsPerInterfaceLimitExceeded" || "SubnetOutOfIPAddresses",
+ * //   StateReasonCode: "DisallowedByVpcEncryptionControl" || "Ec2RequestLimitExceeded" || "InsufficientRolePermissions" || "InternalError" || "InternetGatewayNotAttached" || "InvalidSecurityGroup" || "InvalidSubnet" || "SecurityGroupsPerInterfaceLimitExceeded" || "SubnetOutOfIPAddresses",
  * //   LastUpdateStatus: "Successful" || "Failed" || "InProgress",
  * //   LastUpdateStatusReason: "STRING_VALUE",
- * //   LastUpdateStatusReasonCode: "DisallowedByVpcEncryptionControl" || "Ec2RequestLimitExceeded" || "InsufficientRolePermissions" || "InternalError" || "InvalidSecurityGroup" || "InvalidSubnet" || "SecurityGroupsPerInterfaceLimitExceeded" || "SubnetOutOfIPAddresses",
+ * //   LastUpdateStatusReasonCode: "DisallowedByVpcEncryptionControl" || "Ec2RequestLimitExceeded" || "InsufficientRolePermissions" || "InternalError" || "InternetGatewayNotAttached" || "InvalidSecurityGroup" || "InvalidSubnet" || "SecurityGroupsPerInterfaceLimitExceeded" || "SubnetOutOfIPAddresses",
  * //   LastModified: new Date("TIMESTAMP"),
  * // };
  *

@@ -55,6 +55,9 @@ export interface DeleteNetworkConnectorCommandOutput extends DeleteNetworkConnec
  * //       AssociatedComputeResourceTypes: [ // AssociatedComputeResourceTypesList
  * //         "MicroVm" || "WebFunction",
  * //       ],
+ * //       ElasticIpConfiguration: { // ElasticIpConfiguration
+ * //         Type: "None" || "ServiceManaged", // required
+ * //       },
  * //     },
  * //   },
  * //   OperatorRole: "STRING_VALUE",
