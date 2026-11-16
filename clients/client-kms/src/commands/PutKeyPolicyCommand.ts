@@ -23,17 +23,29 @@ export interface PutKeyPolicyCommandInput extends PutKeyPolicyRequest {}
 export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Attaches a key policy to the specified KMS key. </p>
+ * <p>Attaches a key policy to the specified KMS key. You can use this operation to set only the
+ *         <code>default</code> key policy.</p>
  *          <p>For more information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key Policies</a> in the <i>Key Management Service Developer Guide</i>.
  *       For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
  *                <i>Identity and Access Management User Guide</i>
  *             </i>. For examples of adding a key policy in multiple programming languages,
  *       see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_PutKeyPolicy_section.html">Use
  *         PutKeyPolicy with an Amazon Web Services SDK or CLI</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>A KMS key can also have an <code>AWS_RAM</code> key policy, which Resource Access Manager (RAM)
+ *       manages for KMS keys that you share through RAM. You can't use <code>PutKeyPolicy</code> to
+ *       create, change, or delete the <code>AWS_RAM</code> key policy. If you set
+ *         <code>PolicyName</code> to <code>AWS_RAM</code>, the request fails with a
+ *         <code>ValidationException</code> and the message <code>The AWS_RAM policy can only be
+ *         managed by the RAM service.</code> To view the <code>AWS_RAM</code> key policy, use <a>GetKeyPolicy</a>. For information about sharing KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-sharing-ram.html">Sharing KMS keys with
+ *         RAM</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:PutKeyPolicy</a> (key policy)</p>
+ *          <p>You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-policy-name">kms:PolicyName</a> condition key to control access to this operation based on
+ *       the value of the <code>PolicyName</code> parameter in the request. If the request doesn't
+ *       include <code>PolicyName</code>, the value of <code>kms:PolicyName</code> is
+ *         <code>default</code>.</p>
  *          <p>
  *             <b>Related operations</b>: <a>GetKeyPolicy</a>
  *          </p>

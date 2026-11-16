@@ -27,6 +27,7 @@ import type {
   MessageType,
   MultiRegionKeyType,
   OriginType,
+  ResourceOwnerType,
   RotationType,
   SigningAlgorithmSpec,
   WrappingKeySpec,
@@ -3414,7 +3415,7 @@ export interface GetKeyLastUsageResponse {
  */
 export interface GetKeyPolicyRequest {
   /**
-   * <p>Gets the key policy for the specified KMS key.</p>
+   * <p>Identifies the KMS key whose key policy you want to get.</p>
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3434,8 +3435,10 @@ export interface GetKeyPolicyRequest {
 
   /**
    * <p>Specifies the name of the key policy. If no policy name is specified, the default value is
-   *         <code>default</code>. The only valid name is <code>default</code>. To get the names of key
-   *       policies, use <a>ListKeyPolicies</a>.</p>
+   *         <code>default</code>. Valid values are <code>default</code> and <code>AWS_RAM</code>. Use
+   *         <code>AWS_RAM</code> to get the key policy that RAM manages for a KMS key that you share
+   *       through RAM. If the KMS key doesn't have an <code>AWS_RAM</code> key policy, the request
+   *       fails with a <code>NotFoundException</code>. To get the names of key policies, use <a>ListKeyPolicies</a>.</p>
    * @public
    */
   PolicyName?: string | undefined;
@@ -3452,7 +3455,18 @@ export interface GetKeyPolicyResponse {
   Policy?: string | undefined;
 
   /**
-   * <p>The name of the key policy. The only valid value is <code>default</code>.</p>
+   * <p>The name of the key policy. Valid values are:</p>
+   *          <dl>
+   *             <dt>default</dt>
+   *             <dd>
+   *                <p>The key policy that you manage.</p>
+   *             </dd>
+   *             <dt>AWS_RAM</dt>
+   *             <dd>
+   *                <p>The key policy that RAM manages for KMS keys that you share through
+   *             RAM.</p>
+   *             </dd>
+   *          </dl>
    * @public
    */
   PolicyName?: string | undefined;
@@ -4189,7 +4203,8 @@ export interface ListKeyPoliciesRequest {
    *     return fewer.</p>
    *          <p>This value is optional. If you include a value, it must be between
    *     1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>
-   *          <p>Only one policy can be attached to a key.</p>
+   *          <p>A KMS key can have at most two key policies, <code>default</code> and
+   *         <code>AWS_RAM</code>.</p>
    * @public
    */
   Limit?: number | undefined;
@@ -4208,7 +4223,18 @@ export interface ListKeyPoliciesRequest {
  */
 export interface ListKeyPoliciesResponse {
   /**
-   * <p>A list of key policy names. The only valid value is <code>default</code>.</p>
+   * <p>A list of key policy names. Valid values are:</p>
+   *          <dl>
+   *             <dt>default</dt>
+   *             <dd>
+   *                <p>The key policy that you manage.</p>
+   *             </dd>
+   *             <dt>AWS_RAM</dt>
+   *             <dd>
+   *                <p>The key policy that RAM manages for KMS keys that you share through
+   *             RAM.</p>
+   *             </dd>
+   *          </dl>
    * @public
    */
   PolicyNames?: string[] | undefined;
@@ -4424,6 +4450,40 @@ export interface ListKeysRequest {
    * @public
    */
   Marker?: string | undefined;
+
+  /**
+   * <p>Specifies whose KMS keys to list. Use this parameter to list KMS keys that other
+   *         Amazon Web Services accounts shared with your Amazon Web Services account through Resource Access Manager (RAM).</p>
+   *          <p>Specify one or two values. Valid values are:</p>
+   *          <dl>
+   *             <dt>SELF</dt>
+   *             <dd>
+   *                <p>Lists the KMS keys in your Amazon Web Services account and Region.</p>
+   *             </dd>
+   *             <dt>OTHER_ACCOUNTS_VIA_RAM</dt>
+   *             <dd>
+   *                <p>Lists the KMS keys in the Region that other Amazon Web Services accounts currently share with
+   *             your Amazon Web Services account through RAM. This list doesn't include KMS keys that your
+   *               Amazon Web Services account owns. For each of these KMS keys, the key ARN in the response contains
+   *             the account ID of the Amazon Web Services account that owns the KMS key.</p>
+   *             </dd>
+   *          </dl>
+   *          <p>If you omit this parameter, <code>ListKeys</code> lists only the KMS keys in your
+   *         Amazon Web Services account. If you specify both values, in either order, <code>ListKeys</code> returns the KMS keys in
+   *       your Amazon Web Services account first, and then the KMS keys that other Amazon Web Services accounts shared with you.
+   *       A single response doesn't contain both kinds of KMS keys.</p>
+   *          <p>When <code>ResourceOwners</code> includes <code>OTHER_ACCOUNTS_VIA_RAM</code>, a response
+   *       can contain fewer KMS keys than the <code>Limit</code> value, or none, even when
+   *         <code>Truncated</code> is true. To get all of the KMS keys, continue calling
+   *         <code>ListKeys</code> with the <code>NextMarker</code> value from each response until
+   *         <code>Truncated</code> is false. Use a <code>NextMarker</code> value only in a request
+   *       that has the same <code>ResourceOwners</code> value as the request that returned it.
+   *       Otherwise, the request can fail with an <code>InvalidMarkerException</code>.</p>
+   *          <p>KMS keys that other Amazon Web Services accounts share with you can take some time to appear in or
+   *       disappear from the results after changes to resource shares.</p>
+   * @public
+   */
+  ResourceOwners?: ResourceOwnerType[] | undefined;
 }
 
 /**
@@ -4431,7 +4491,9 @@ export interface ListKeysRequest {
  */
 export interface ListKeysResponse {
   /**
-   * <p>A list of KMS keys.</p>
+   * <p>A list of KMS keys. For a KMS key that another Amazon Web Services account shared with you through
+   *         RAM, the key ARN contains the account ID of the Amazon Web Services account that owns the KMS
+   *       key.</p>
    * @public
    */
   Keys?: KeyListEntry[] | undefined;
@@ -4600,7 +4662,12 @@ export interface PutKeyPolicyRequest {
 
   /**
    * <p>The name of the key policy. If no policy name is specified, the default value is
-   *         <code>default</code>. The only valid value is <code>default</code>.</p>
+   *         <code>default</code>. Valid values are <code>default</code> and <code>AWS_RAM</code>, but
+   *       you can set only the <code>default</code> key policy. RAM manages the <code>AWS_RAM</code>
+   *       key policy for KMS keys that you share through RAM. If you specify <code>AWS_RAM</code>, the
+   *       request fails with a <code>ValidationException</code>, or with an
+   *         <code>AccessDeniedException</code> if you don't have permission to call
+   *         <code>PutKeyPolicy</code> with that policy name.</p>
    * @public
    */
   PolicyName?: string | undefined;
@@ -4667,6 +4734,11 @@ export interface PutKeyPolicyRequest {
    *          <p>Use this parameter only when you intend to prevent the principal that is making the
    *       request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a>
    *       request on the KMS key.</p>
+   *          <p>The key policy lockout safety check and the <code>BypassPolicyLockoutSafetyCheck</code>
+   *       parameter apply only to the <code>default</code> key policy. The check evaluates only the new
+   *         <code>default</code> key policy, with <code>kms:PolicyName</code> set to
+   *         <code>default</code>. It doesn't consider permissions in the <code>AWS_RAM</code> key
+   *       policy.</p>
    * @public
    */
   BypassPolicyLockoutSafetyCheck?: boolean | undefined;

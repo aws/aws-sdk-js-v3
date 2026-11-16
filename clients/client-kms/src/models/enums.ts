@@ -511,6 +511,19 @@ export type RotationType = (typeof RotationType)[keyof typeof RotationType];
  * @public
  * @enum
  */
+export const ResourceOwnerType = {
+  OTHER_ACCOUNTS_VIA_RAM: "OTHER_ACCOUNTS_VIA_RAM",
+  SELF: "SELF",
+} as const;
+/**
+ * @public
+ */
+export type ResourceOwnerType = (typeof ResourceOwnerType)[keyof typeof ResourceOwnerType];
+
+/**
+ * @public
+ * @enum
+ */
 export const MessageType = {
   DIGEST: "DIGEST",
   EXTERNAL_MU: "EXTERNAL_MU",

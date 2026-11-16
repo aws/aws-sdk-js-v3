@@ -24,10 +24,23 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
 
 /**
  * <p>Gets a key policy attached to the specified KMS key.</p>
+ *          <p>A KMS key can have two key policies. You manage the <code>default</code> key policy.
+ *       Resource Access Manager (RAM) manages the <code>AWS_RAM</code> key policy for KMS keys that you share
+ *       through RAM. You can use <code>GetKeyPolicy</code> to view the <code>AWS_RAM</code> key
+ *       policy, but you can't change it with <a>PutKeyPolicy</a>. To get the
+ *         <code>AWS_RAM</code> key policy, set the <code>PolicyName</code> parameter to
+ *         <code>AWS_RAM</code>. If the KMS key doesn't have an <code>AWS_RAM</code> key policy,
+ *         <code>GetKeyPolicy</code> returns a <code>NotFoundException</code>. For information about sharing KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-sharing-ram.html">Sharing KMS keys with RAM</a> in the
+ *         <i>Key Management Service Developer Guide</i>. For information about RAM managed permissions, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/security-ram-permissions.html">Managing
+ *         permissions in RAM</a> in the <i>RAM User Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetKeyPolicy</a> (key policy)</p>
+ *          <p>You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-policy-name">kms:PolicyName</a> condition key to control access to this operation based on
+ *       the value of the <code>PolicyName</code> parameter in the request. If the request doesn't
+ *       include <code>PolicyName</code>, the value of <code>kms:PolicyName</code> is
+ *         <code>default</code>.</p>
  *          <p>
  *             <b>Related operations</b>: <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a>
  *          </p>
@@ -125,6 +138,35 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  *     "Resource" : "*"
  *   } ]
  * }`
+ * }
+ * *\/
+ * ```
+ *
+ * @example To retrieve the AWS_RAM key policy
+ * ```javascript
+ * // The following example retrieves the AWS_RAM key policy for a KMS key that is shared with account 444455556666 through a resource share that uses a customer managed AWS RAM permission. AWS Resource Access Manager (AWS RAM) creates and manages the AWS_RAM key policy for KMS keys that you share through AWS RAM.
+ * const input = {
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   PolicyName: "AWS_RAM"
+ * };
+ * const command = new GetKeyPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Policy: `{
+ *   "Version" : "2012-10-17",
+ *   "Id" : "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   "Statement" : [ {
+ *     "Sid" : "ExampleKmsKeyPermission-external-principals",
+ *     "Effect" : "Allow",
+ *     "Principal" : {
+ *       "AWS" : "arn:aws:iam::444455556666:root"
+ *     },
+ *     "Action" : [ "kms:DescribeKey", "kms:Encrypt", "kms:Decrypt" ],
+ *     "Resource" : "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   } ]
+ * }`,
+ *   PolicyName: "AWS_RAM"
  * }
  * *\/
  * ```

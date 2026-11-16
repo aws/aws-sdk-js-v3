@@ -288,6 +288,7 @@ const _RKRe = "ReplicateKeyResponse";
 const _RKe = "ReplicateKey";
 const _RL = "RotationsList";
 const _RLE = "RotationsListEntry";
+const _RO = "ResourceOwners";
 const _RP = "RetiringPrincipal";
 const _RPID = "RotationPeriodInDays";
 const _RPe = "ReplicaPolicy";
@@ -1135,8 +1136,8 @@ export var ListKeyRotationsResponse$: StaticStructureSchema = [3, n0, _LKRRi,
 ];
 export var ListKeysRequest$: StaticStructureSchema = [3, n0, _LKR,
   0,
-  [_L, _M],
-  [1, 0]
+  [_L, _M, _RO],
+  [1, 0, 64 | 0]
 ];
 export var ListKeysResponse$: StaticStructureSchema = [3, n0, _LKRi,
   0,
@@ -1343,6 +1344,7 @@ var MultiRegionKeyList: StaticListSchema = [1, n0, _MRKL,
   0, () => MultiRegionKey$
 ];
 var PolicyNameList = 64 | 0;
+var ResourceOwnersList = 64 | 0;
 var RotationsList: StaticListSchema = [1, n0, _RL,
   0, () => RotationsListEntry$
 ];

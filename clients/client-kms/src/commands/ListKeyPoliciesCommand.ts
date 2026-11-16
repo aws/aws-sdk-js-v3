@@ -25,7 +25,9 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
 /**
  * <p>Gets the names of the key policies that are attached to a KMS key. This operation is
  *       designed to get policy names that you can use in a <a>GetKeyPolicy</a> operation.
- *       However, the only valid policy name is <code>default</code>. </p>
+ *       The valid policy names are <code>default</code> and <code>AWS_RAM</code>.</p>
+ *          <p>For information about the <code>AWS_RAM</code> key policy, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-sharing-ram.html">Sharing KMS keys with
+ *         RAM</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *          <p>
@@ -130,6 +132,25 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  * /* response is
  * {
  *   PolicyNames: [
+ *     "default"
+ *   ],
+ *   Truncated: false
+ * }
+ * *\/
+ * ```
+ *
+ * @example To list key policies for a KMS key that has an AWS_RAM key policy
+ * ```javascript
+ * // The following example lists key policies for a KMS key that has an AWS_RAM key policy. AWS Resource Access Manager (AWS RAM) manages the AWS_RAM key policy for KMS keys that you share through AWS RAM.
+ * const input = {
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new ListKeyPoliciesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   PolicyNames: [
+ *     "AWS_RAM",
  *     "default"
  *   ],
  *   Truncated: false

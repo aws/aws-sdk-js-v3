@@ -279,6 +279,7 @@ import {
   ReplicateKeyCommand,
   ReplicateKeyRequest$,
   ReplicateKeyResponse$,
+  ResourceOwnerType,
   RetireGrant$,
   RetireGrantCommand,
   RetireGrantRequest$,
@@ -620,6 +621,7 @@ assert(typeof MacAlgorithmSpec === "object");
 assert(typeof MessageType === "object");
 assert(typeof MultiRegionKeyType === "object");
 assert(typeof OriginType === "object");
+assert(typeof ResourceOwnerType === "object");
 assert(typeof RotationType === "object");
 assert(typeof SigningAlgorithmSpec === "object");
 assert(typeof WrappingKeySpec === "object");

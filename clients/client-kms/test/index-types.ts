@@ -197,6 +197,7 @@ export type {
   MessageType,
   MultiRegionKeyType,
   OriginType,
+  ResourceOwnerType,
   RotationType,
   SigningAlgorithmSpec,
   WrappingKeySpec,
