@@ -26,7 +26,7 @@ export interface ListAgentRecommendationGenerationsCommandInput extends ListAgen
 export interface ListAgentRecommendationGenerationsCommandOutput extends ListAgentRecommendationGenerationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists recommendation generation processes for a specified profile.</p>
+ * <important> <p>Application-level recommendations are a new recommendation format currently in beta. We are actively seeking customer feedback to improve their quality and relevance. As with any AI-generated content, please thoroughly review each recommendation before taking any action based on it.</p> </important> <p>Lists recommendation generation processes for a specified profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +55,16 @@ export interface ListAgentRecommendationGenerationsCommandOutput extends ListAge
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       lastModifiedBy: "STRING_VALUE",
  * //       lastModifiedAt: new Date("TIMESTAMP"),
+ * //       generationType: "ONDEMAND" || "SCHEDULED" || "BASIC",
+ * //       generationRecommendationTypes: [ // GenerationRecommendationTypes
+ * //         "RESOURCE" || "ARCHITECTURE" || "APPLICATION",
+ * //       ],
+ * //       startedAt: new Date("TIMESTAMP"),
+ * //       endedAt: new Date("TIMESTAMP"),
+ * //       errorDetails: { // ErrorDetails
+ * //         code: "STRING_VALUE", // required
+ * //         message: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

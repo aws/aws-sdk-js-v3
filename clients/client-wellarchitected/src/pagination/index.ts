@@ -3,6 +3,7 @@ export * from "./Interfaces";
 export * from "./GetConsolidatedReportPaginator";
 export * from "./ListAgentContextsPaginator";
 export * from "./ListAgentGoalsPaginator";
+export * from "./ListAgentOrganizationalReportsPaginator";
 export * from "./ListAgentProfilesPaginator";
 export * from "./ListAgentRecommendationGenerationsPaginator";
 export * from "./ListAgentRecommendationItemsPaginator";

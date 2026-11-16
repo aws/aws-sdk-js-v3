@@ -23,7 +23,7 @@ export interface ListAgentRecommendationsCommandInput extends ListAgentRecommend
 export interface ListAgentRecommendationsCommandOutput extends ListAgentRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists active optimization recommendations for a specified profile with optional filtering by state.</p>
+ * <important> <p>Application-level recommendations are a new recommendation format currently in beta. We are actively seeking customer feedback to improve their quality and relevance. As with any AI-generated content, please thoroughly review each recommendation before taking any action based on it.</p> </important> <p>Lists active optimization recommendations for a specified profile with optional filtering by state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

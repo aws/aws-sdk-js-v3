@@ -26,7 +26,7 @@ export interface GetAgentRecommendationGenerationCommandInput extends GetAgentRe
 export interface GetAgentRecommendationGenerationCommandOutput extends GetAgentRecommendationGenerationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a recommendation generation process, including its status, progress, and results. Recommendation generation is asynchronous: poll this operation until status reaches a terminal value of COMPLETED (results are ready) or ERROR (see errorDetails). Intermediate values are QUEUED and IN_PROGRESS.</p>
+ * <important> <p>Application-level recommendations are a new recommendation format currently in beta. We are actively seeking customer feedback to improve their quality and relevance. As with any AI-generated content, please thoroughly review each recommendation before taking any action based on it.</p> </important> <p>Retrieves information about a recommendation generation process, including its status, progress, and results. Recommendation generation is asynchronous: poll this operation until status reaches a terminal value of COMPLETED (results are ready) or ERROR (see errorDetails). Intermediate values are QUEUED and IN_PROGRESS.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,6 +51,16 @@ export interface GetAgentRecommendationGenerationCommandOutput extends GetAgentR
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastModifiedBy: "STRING_VALUE",
  * //   lastModifiedAt: new Date("TIMESTAMP"),
+ * //   generationType: "ONDEMAND" || "SCHEDULED" || "BASIC",
+ * //   generationRecommendationTypes: [ // GenerationRecommendationTypes
+ * //     "RESOURCE" || "ARCHITECTURE" || "APPLICATION",
+ * //   ],
+ * //   startedAt: new Date("TIMESTAMP"),
+ * //   endedAt: new Date("TIMESTAMP"),
+ * //   errorDetails: { // ErrorDetails
+ * //     code: "STRING_VALUE", // required
+ * //     message: "STRING_VALUE", // required
+ * //   },
  * //   additionalContext: "DOCUMENT_VALUE",
  * //   scope: { // Scope
  * //     pillars: [ // Pillars // required
@@ -68,16 +78,10 @@ export interface GetAgentRecommendationGenerationCommandOutput extends GetAgentR
  * //       },
  * //     ],
  * //   },
- * //   startedAt: new Date("TIMESTAMP"),
- * //   endedAt: new Date("TIMESTAMP"),
  * //   progress: { // Progress
  * //     stepsCompleted: Number("int"), // required
  * //     totalSteps: Number("int"), // required
  * //     completionPercentage: Number("double"), // required
- * //   },
- * //   errorDetails: { // ErrorDetails
- * //     code: "STRING_VALUE", // required
- * //     message: "STRING_VALUE", // required
  * //   },
  * // };
  *

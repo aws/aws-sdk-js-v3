@@ -100,6 +100,57 @@ export type Pillar = (typeof Pillar)[keyof typeof Pillar];
  * @public
  * @enum
  */
+export const ProfileType = {
+  /**
+   * <p>A zero-configuration profile that generates recommendations without requiring an execution role or aggregation setup. Limited to one basic profile per Region.</p>
+   */
+  BASIC: "BASIC",
+  /**
+   * <p>A profile that uses Amazon Web Services Organizations to define its monitoring boundary, enabling analysis across large multi-account environments without per-account role configuration.</p>
+   */
+  ORGANIZATIONAL: "ORGANIZATIONAL",
+  /**
+   * <p>A standard profile that uses an execution role and aggregation configuration to analyze resources across one or more Amazon Web Services accounts.</p>
+   */
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type ProfileType = (typeof ProfileType)[keyof typeof ProfileType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationType = {
+  APPLICATION: "APPLICATION",
+  ARCHITECTURE: "ARCHITECTURE",
+  RESOURCE: "RESOURCE",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const GenerationType = {
+  BASIC: "BASIC",
+  ONDEMAND: "ONDEMAND",
+  SCHEDULED: "SCHEDULED",
+} as const;
+/**
+ * @public
+ */
+export type GenerationType = (typeof GenerationType)[keyof typeof GenerationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const GenerationStatus = {
   COMPLETED: "COMPLETED",
   ERROR: "ERROR",
@@ -209,20 +260,6 @@ export const RecommendationStatus = {
  * @public
  */
 export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof RecommendationStatus];
-
-/**
- * @public
- * @enum
- */
-export const RecommendationType = {
-  APPLICATION: "APPLICATION",
-  ARCHITECTURE: "ARCHITECTURE",
-  RESOURCE: "RESOURCE",
-} as const;
-/**
- * @public
- */
-export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
 
 /**
  * @public
@@ -398,6 +435,24 @@ export type ContextType = (typeof ContextType)[keyof typeof ContextType];
  * @public
  * @enum
  */
+export const OrganizationalReportState = {
+  AGGREGATING: "AGGREGATING",
+  COMPLETED: "COMPLETED",
+  COMPRESSING: "COMPRESSING",
+  DELETING: "DELETING",
+  DISCOVERING: "DISCOVERING",
+  FAILED: "FAILED",
+  SNAPSHOTTING: "SNAPSHOTTING",
+} as const;
+/**
+ * @public
+ */
+export type OrganizationalReportState = (typeof OrganizationalReportState)[keyof typeof OrganizationalReportState];
+
+/**
+ * @public
+ * @enum
+ */
 export const TrustedAdvisorIntegrationStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -523,12 +578,67 @@ export type FeedbackCategory = (typeof FeedbackCategory)[keyof typeof FeedbackCa
  * @public
  * @enum
  */
+export const OrganizationalReportFormat = {
+  CSV: "CSV",
+  JSON: "JSON",
+  PARQUET: "PARQUET",
+} as const;
+/**
+ * @public
+ */
+export type OrganizationalReportFormat = (typeof OrganizationalReportFormat)[keyof typeof OrganizationalReportFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreferenceKey = {
+  ORG_INTEGRATION: "ORG_INTEGRATION",
+} as const;
+/**
+ * @public
+ */
+export type PreferenceKey = (typeof PreferenceKey)[keyof typeof PreferenceKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreferenceStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type PreferenceStatus = (typeof PreferenceStatus)[keyof typeof PreferenceStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const RecommendationSource = {
+  /**
+   * <p>Recommendation sourced from Amazon CloudWatch metrics analysis.</p>
+   */
   CLOUDWATCH: "CLOUDWATCH",
+  /**
+   * <p>Recommendation sourced from Amazon Web Services Cost Explorer analysis.</p>
+   */
   COST_EXPLORER: "COST_EXPLORER",
+  /**
+   * <p>Recommendation sourced from customer infrastructure-as-code analysis.</p>
+   */
   CUSTOMER_IAC: "CUSTOMER_IAC",
   TRUSTED_ADVISOR: "TRUSTED_ADVISOR",
+  /**
+   * <p>Recommendation sourced from Well-Architected Agent.</p>
+   */
   WELL_ARCHITECTED_AGENT: "WELL_ARCHITECTED_AGENT",
+  /**
+   * <p>Recommendation sourced from Well-Architected Tool.</p>
+   */
   WELL_ARCHITECTED_TOOL: "WELL_ARCHITECTED_TOOL",
 } as const;
 /**
@@ -772,6 +882,19 @@ export const ShareResourceType = {
  * @public
  */
 export type ShareResourceType = (typeof ShareResourceType)[keyof typeof ShareResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreferenceState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type PreferenceState = (typeof PreferenceState)[keyof typeof PreferenceState];
 
 /**
  * @public

@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateWorkloadInput, UpdateWorkloadOutput } from "../models/models_0";
+import type { UpdateWorkloadInput } from "../models/models_0";
+import type { UpdateWorkloadOutput } from "../models/models_1";
 import { UpdateWorkload$ } from "../schemas/schemas_0";
 
 /**

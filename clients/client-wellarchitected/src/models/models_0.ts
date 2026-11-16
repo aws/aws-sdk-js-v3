@@ -19,6 +19,7 @@ import type {
   Effort,
   FeedbackCategory,
   GenerationStatus,
+  GenerationType,
   ImpactCategory,
   ImportLensStatus,
   IntegratingService,
@@ -30,12 +31,18 @@ import type {
   LensType,
   MetricType,
   NotificationType,
+  OrganizationalReportFormat,
+  OrganizationalReportState,
   OrganizationSharingStatus,
   PermissionType,
   Pillar,
+  PreferenceKey,
+  PreferenceState,
+  PreferenceStatus,
   Priority,
   ProfileNotificationType,
   ProfileOwnerType,
+  ProfileType,
   Question,
   QuestionPriority,
   QuestionType,
@@ -193,21 +200,57 @@ export interface AggregationConfiguration {
 }
 
 /**
- * <p>A key-value pair associated with a resource for cost allocation and access control.</p>
+ * <p>An individual account entry in the organizational monitoring boundary, with its associated regions.</p>
  * @public
  */
-export interface Tag {
+export interface OrganizationalAccountEntry {
   /**
-   * <p>The key of the tag.</p>
+   * <p>The Amazon Web Services account ID to include in the monitoring boundary.</p>
    * @public
    */
-  key: string | undefined;
+  accountId: string | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * <p>The list of regions to monitor for this account.</p>
    * @public
    */
-  value: string | undefined;
+  regions: string[] | undefined;
+}
+
+/**
+ * <p>An organizational unit or root entry in the organizational monitoring boundary, with its associated regions.</p>
+ * @public
+ */
+export interface OrganizationalUnitEntry {
+  /**
+   * <p>The AWS Organizations organizational unit ID or root ID. Must match the pattern <code>r-[a-z0-9]\{4,32\}</code> for roots or <code>ou-[a-z0-9]\{4,32\}-[a-z0-9]\{8,32\}</code> for OUs.</p>
+   * @public
+   */
+  organizationalUnitId: string | undefined;
+
+  /**
+   * <p>The list of regions to monitor for this organizational unit or root.</p>
+   * @public
+   */
+  regions: string[] | undefined;
+}
+
+/**
+ * <p>The organizational monitoring boundary configuration. Contains organizational unit entries and individual account entries, each with their own region selections, that define the scope for organizational profile analysis.</p>
+ * @public
+ */
+export interface OrganizationalAggregationConfiguration {
+  /**
+   * <p>A list of organizational unit or root entries that define the organizational scope. Each entry specifies an OU or root ID and the regions to monitor within it.</p>
+   * @public
+   */
+  organizationalUnits?: OrganizationalUnitEntry[] | undefined;
+
+  /**
+   * <p>A list of individual account entries that define additional accounts to include. Each entry specifies an account ID and the regions to monitor within it.</p>
+   * @public
+   */
+  accounts?: OrganizationalAccountEntry[] | undefined;
 }
 
 /**
@@ -240,10 +283,10 @@ export interface AgentProfileSummary {
   businessOverview?: string | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillars associated with this profile.</p>
+   * <p>The Amazon Web Services Well-Architected Framework pillars associated with this profile. Not present for basic profiles.</p>
    * @public
    */
-  pillars: Pillar[] | undefined;
+  pillars?: Pillar[] | undefined;
 
   /**
    * <p>Indicates whether deletion protection is enabled for the profile.</p>
@@ -252,16 +295,22 @@ export interface AgentProfileSummary {
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The ARN of the IAM execution role used for recommendation actions.</p>
+   * <p>The type of the profile.</p>
    * @public
    */
-  executionRoleArn: string | undefined;
+  profileType?: ProfileType | undefined;
 
   /**
-   * <p>The aggregation configuration that defines which Amazon Web Services accounts and Regions to analyze.</p>
+   * <p>The ARN of the IAM execution role used for recommendation actions. Not present for basic profiles.</p>
    * @public
    */
-  aggregationConfiguration: AggregationConfiguration[] | undefined;
+  executionRoleArn?: string | undefined;
+
+  /**
+   * <p>The aggregation configuration that defines which Amazon Web Services accounts and Regions to analyze. Not present for basic profiles.</p>
+   * @public
+   */
+  aggregationConfiguration?: AggregationConfiguration[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the optimization profile.</p>
@@ -288,12 +337,6 @@ export interface AgentProfileSummary {
   fieldErrors?: Record<string, string> | undefined;
 
   /**
-   * <p>The tags associated with the profile.</p>
-   * @public
-   */
-  tags?: Tag[] | undefined;
-
-  /**
    * <p>The identifier of the user or system that created this profile.</p>
    * @public
    */
@@ -316,6 +359,30 @@ export interface AgentProfileSummary {
    * @public
    */
   lastModifiedAt?: Date | undefined;
+
+  /**
+   * <p>The organizational monitoring boundary. Present only for organizational profiles.</p>
+   * @public
+   */
+  organizationalAggregationConfiguration?: OrganizationalAggregationConfiguration | undefined;
+}
+
+/**
+ * <p>Details about an error that occurred during recommendation generation.</p>
+ * @public
+ */
+export interface ErrorDetails {
+  /**
+   * <p>The status code identifying the type of error.</p>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>A human-readable description of the error.</p>
+   * @public
+   */
+  message: string | undefined;
 }
 
 /**
@@ -376,6 +443,54 @@ export interface AgentRecommendationGenerationSummary {
    * @public
    */
   lastModifiedAt?: Date | undefined;
+
+  /**
+   * <p>How the generation was started.</p>
+   * @public
+   */
+  generationType?: GenerationType | undefined;
+
+  /**
+   * <p>The recommendation types the generation covers.</p>
+   * @public
+   */
+  generationRecommendationTypes?: RecommendationType[] | undefined;
+
+  /**
+   * <p>The timestamp when the recommendation generation process started.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the recommendation generation process completed.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>Details about the error if the generation status is ERROR.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetails | undefined;
+}
+
+/**
+ * <p>The per-resource auto-remediation for a single affected resource. Represents one AWS Systems Manager (SSM) runbook execution that targets the resource. Present only when the resource's check is backed by an SSM automation runbook.</p>
+ * @public
+ */
+export interface AutoRemediation {
+  /**
+   * <p>A deep link to the SSM runbook execution page in the AWS Management Console for this resource, with the execution parameters prefilled.</p>
+   * @public
+   */
+  deepLink?: string | undefined;
+
+  /**
+   * <p>The AWS CLI command that triggers the same SSM runbook execution for this resource. You can copy and run this command as-is.</p>
+   * @public
+   */
+  cliCommand?: string | undefined;
 }
 
 /**
@@ -430,6 +545,12 @@ export interface AgentRecommendationItemSummary {
    * @public
    */
   lastModifiedAt?: Date | undefined;
+
+  /**
+   * <p>The optional per-resource auto-remediation for this affected resource, representing an SSM runbook execution. Present only when the item's check is backed by an SSM automation runbook.</p>
+   * @public
+   */
+  autoRemediation?: AutoRemediation | undefined;
 }
 
 /**
@@ -558,7 +679,7 @@ export interface AgentRecommendationSummary {
   profileArn: string | undefined;
 
   /**
-   * <p>The identifier of the generation process that produced this recommendation.</p>
+   * <p>The identifier of the generation that produced this recommendation.</p>
    * @public
    */
   generationId?: string | undefined;
@@ -582,7 +703,7 @@ export interface AgentRecommendationSummary {
   type: RecommendationType | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillar that the recommendation addresses.</p>
+   * <p>The Amazon Web Services Well-Architected Framework pillar that the recommendation addresses.</p>
    * @public
    */
   pillar: Pillar | undefined;
@@ -1415,6 +1536,12 @@ export interface ContextContent {
   resourceTags?: ContextResourceTag[] | undefined;
 
   /**
+   * <p>The AWS Organizations organizational unit (OU) IDs associated with this application context. Valid only for organizational profiles; rejected for standard profiles.</p>
+   * @public
+   */
+  organizationalUnitIds?: string[] | undefined;
+
+  /**
    * <p>A free-form overview of the application.</p>
    * @public
    */
@@ -1524,6 +1651,208 @@ export interface ContextSummary {
 }
 
 /**
+ * <p>An account that was in scope for an Organizational Report but could not be processed, along with the reason for the failure.</p>
+ * @public
+ */
+export interface FailedAccount {
+  /**
+   * <p>The AWS account ID that failed.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>A human-readable explanation of why the account could not be processed.</p>
+   * @public
+   */
+  reason: string | undefined;
+}
+
+/**
+ * <p>An organizational unit that was requested in an Organizational Report's filters but could not be expanded into its member accounts. A failed OU means the report is missing the accounts it contained.</p>
+ * @public
+ */
+export interface FailedOrganizationalUnit {
+  /**
+   * <p>The AWS Organizations OU ID that could not be expanded.</p>
+   * @public
+   */
+  organizationalUnitId: string | undefined;
+
+  /**
+   * <p>A human-readable explanation of why the organizational unit could not be expanded.</p>
+   * @public
+   */
+  reason: string | undefined;
+}
+
+/**
+ * <p>Pair of a Well-Architected pillar and the number of recommendations attributed to it in a CoverageSummary.</p>
+ * @public
+ */
+export interface PillarCount {
+  /**
+   * <p>Well-Architected pillar this count is attributed to.</p>
+   * @public
+   */
+  pillar: Pillar | undefined;
+
+  /**
+   * <p>Non-negative count of recommendations in the report that are attributed to this pillar.</p>
+   * @public
+   */
+  count: number | undefined;
+}
+
+/**
+ * <p>Pair of a recommendation Priority and the number of recommendations attributed to it in a CoverageSummary.</p>
+ * @public
+ */
+export interface PriorityCount {
+  /**
+   * <p>Priority this count is attributed to.</p>
+   * @public
+   */
+  priority: Priority | undefined;
+
+  /**
+   * <p>Non-negative count of recommendations in the report that are attributed to this priority.</p>
+   * @public
+   */
+  count: number | undefined;
+}
+
+/**
+ * <p>Counts describing the coverage of a completed Organizational Report. Includes the number of accounts in scope, how many had a profile, how many failed, and aggregated recommendation counts by pillar and priority. Returned only by GetAgentOrganizationalReport after the report reaches COMPLETED status. Not returned on the list response.</p>
+ * @public
+ */
+export interface CoverageSummary {
+  /**
+   * <p>Total number of accounts that were in scope for the report after applying all filters and AWS Organizations membership validation.</p>
+   * @public
+   */
+  totalAccountsInScope: number | undefined;
+
+  /**
+   * <p>Number of in-scope accounts that had an Agent Profile and were successfully processed.</p>
+   * @public
+   */
+  accountsWithProfile: number | undefined;
+
+  /**
+   * <p>Number of in-scope accounts that had no Agent Profile at the time of the snapshot.</p>
+   * @public
+   */
+  accountsWithoutProfile: number | undefined;
+
+  /**
+   * <p>Number of in-scope accounts that errored during processing. Equal to the length of failedAccounts.</p>
+   * @public
+   */
+  failedAccountCount: number | undefined;
+
+  /**
+   * <p>Total number of Agent Profiles contributing to the report.</p>
+   * @public
+   */
+  totalProfiles: number | undefined;
+
+  /**
+   * <p>Total number of recommendations included in the report across all profiles and all pillars.</p>
+   * @public
+   */
+  totalRecommendations: number | undefined;
+
+  /**
+   * <p>Recommendation count grouped by Well-Architected pillar. Each entry pairs a Pillar enum value with a non-negative long. The counts sum to totalRecommendations.</p>
+   * @public
+   */
+  recommendationCountByPillar?: PillarCount[] | undefined;
+
+  /**
+   * <p>Recommendation count grouped by Priority. Each entry pairs a Priority enum value with a non-negative long. The counts sum to totalRecommendations.</p>
+   * @public
+   */
+  recommendationCountByPriority?: PriorityCount[] | undefined;
+
+  /**
+   * <p>Accounts that errored during processing and the reason they failed.</p>
+   * @public
+   */
+  failedAccounts?: FailedAccount[] | undefined;
+
+  /**
+   * <p>Organizational units named in the report's filters that could not be expanded into their member accounts, along with the reason each failed. A failed OU means the report is missing whatever accounts it contained. Absent or empty when every requested OU expanded successfully.</p>
+   * @public
+   */
+  failedOrganizationalUnits?: FailedOrganizationalUnit[] | undefined;
+}
+
+/**
+ * <p>A key-value pair associated with a resource for cost allocation and access control.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>The key of the tag.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value of the tag.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAgentBasicProfileRequest {
+  /**
+   * <p>Tags to apply to the Basic profile at creation time.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAgentBasicProfileResponse {
+  /**
+   * <p>The identifier of the user or system that created this resource.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp when the resource was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The identifier of the user or system that last modified this resource.</p>
+   * @public
+   */
+  lastModifiedBy?: string | undefined;
+
+  /**
+   * <p>The timestamp when the resource was last modified.</p>
+   * @public
+   */
+  lastModifiedAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created Basic profile.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateAgentContextRequest {
@@ -1586,7 +1915,7 @@ export interface CreateAgentGoalRequest {
   profileArn: string | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillars to associate with this goal.</p>
+   * <p>The Amazon Web Services Well-Architected Framework pillars to associate with this goal.</p>
    * @public
    */
   pillars: Pillar[] | undefined;
@@ -1622,7 +1951,7 @@ export interface GoalSummary {
   profileArn: string | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillars associated with this goal.</p>
+   * <p>The Amazon Web Services Well-Architected Framework pillars associated with this goal.</p>
    * @public
    */
   pillars: Pillar[] | undefined;
@@ -1678,6 +2007,284 @@ export interface CreateAgentGoalResponse {
 /**
  * @public
  */
+export interface CreateAgentOrganizationalProfileRequest {
+  /**
+   * <p>The system name of the organizational profile.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The display name of the organizational profile shown to users.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>A description of the organizational profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The business overview for this organizational profile.</p>
+   * @public
+   */
+  businessOverview?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Well-Architected Framework pillars to associate with this organizational profile.</p>
+   * @public
+   */
+  pillars: Pillar[] | undefined;
+
+  /**
+   * <p>Indicates whether deletion protection is enabled for the organizational profile.</p>
+   * @public
+   */
+  deletionProtection?: boolean | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The organizational monitoring boundary. Contains organizational unit or root entries and individual account entries that define the scope for the profile.</p>
+   * @public
+   */
+  organizationalAggregationConfiguration?: OrganizationalAggregationConfiguration | undefined;
+
+  /**
+   * <p>The tags to associate with the organizational profile.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAgentOrganizationalProfileResponse {
+  /**
+   * <p>The system name of the created organizational profile.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The display name of the created organizational profile.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>A description of the created organizational profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The business overview of the created organizational profile.</p>
+   * @public
+   */
+  businessOverview?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Well-Architected Framework pillars associated with the created organizational profile.</p>
+   * @public
+   */
+  pillars: Pillar[] | undefined;
+
+  /**
+   * <p>Indicates whether deletion protection is enabled.</p>
+   * @public
+   */
+  deletionProtection?: boolean | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Web Services Organization this profile belongs to.</p>
+   * @public
+   */
+  organizationId: string | undefined;
+
+  /**
+   * <p>The organizational monitoring boundary for the created profile. Present only for organizational profiles.</p>
+   * @public
+   */
+  organizationalAggregationConfiguration?: OrganizationalAggregationConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created organizational profile.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Indicates whether the profile is valid for scheduled recommendation generation.</p>
+   * @public
+   */
+  eligibleForScheduledGeneration?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the profile is valid for manual architecture generation.</p>
+   * @public
+   */
+  eligibleForArchitectureGeneration?: boolean | undefined;
+
+  /**
+   * <p>A map of field paths to error messages for invalid or missing input fields.</p>
+   * @public
+   */
+  fieldErrors?: Record<string, string> | undefined;
+
+  /**
+   * <p>The tags associated with the created organizational profile.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>The identifier of the user or system that created this organizational profile.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp when the organizational profile was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The identifier of the user or system that last modified this organizational profile.</p>
+   * @public
+   */
+  lastModifiedBy?: string | undefined;
+
+  /**
+   * <p>The timestamp when the organizational profile was last modified.</p>
+   * @public
+   */
+  lastModifiedAt?: Date | undefined;
+}
+
+/**
+ * <p>An inclusive time window used by Organizational Report filters. Both bounds are optional, but at least one of from or to must be set when the structure is present.</p>
+ * @public
+ */
+export interface TimeWindow {
+  /**
+   * <p>Lower bound of the window (inclusive). Absent means no lower bound.</p>
+   * @public
+   */
+  from?: Date | undefined;
+
+  /**
+   * <p>Upper bound of the window (inclusive). Absent means no upper bound.</p>
+   * @public
+   */
+  to?: Date | undefined;
+}
+
+/**
+ * <p>Filters narrowing the scope of an Organizational Report. Every member is optional. An absent or empty member places no constraint on that dimension. When the entire structure is absent, the report covers every account and every recommendation in the organization.</p>
+ * @public
+ */
+export interface OrganizationalReportFilters {
+  /**
+   * <p>AWS account IDs to include in the report. Absent or empty means all accounts in the organization are in scope. Each supplied account is validated against AWS Organizations membership. Accounts that do not belong to the caller's organization are excluded and recorded on the report's coverage summary.</p>
+   * @public
+   */
+  accountIds?: string[] | undefined;
+
+  /**
+   * <p>AWS Organizational Unit IDs whose member accounts are included in the report. Absent or empty means no OU-based scoping is applied. Account and OU filters combine as a union.</p>
+   * @public
+   */
+  organizationalUnitIds?: string[] | undefined;
+
+  /**
+   * <p>Well-Architected pillars to include. Absent or empty means all pillars.</p>
+   * @public
+   */
+  pillars?: Pillar[] | undefined;
+
+  /**
+   * <p>Recommendation types (RESOURCE, ARCHITECTURE, APPLICATION) to include. Absent or empty means all types.</p>
+   * @public
+   */
+  recommendationTypes?: RecommendationType[] | undefined;
+
+  /**
+   * <p>Recommendation statuses (ACTIVE, SUPPRESSED, COMPLETED) to include. Absent or empty means all statuses.</p>
+   * @public
+   */
+  statuses?: RecommendationStatus[] | undefined;
+
+  /**
+   * <p>Recommendation priorities (HIGH, MEDIUM, LOW) to include. Absent or empty means all priorities.</p>
+   * @public
+   */
+  priorities?: Priority[] | undefined;
+
+  /**
+   * <p>Inclusive window on recommendation creation time. Absent means no lower or upper bound on createdAt.</p>
+   * @public
+   */
+  createdAtRange?: TimeWindow | undefined;
+
+  /**
+   * <p>Inclusive window on recommendation last-updated time. Absent means no lower or upper bound on updatedAt.</p>
+   * @public
+   */
+  updatedAtRange?: TimeWindow | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAgentOrganizationalReportRequest {
+  /**
+   * <p>A caller-supplied idempotency token. Two create calls sharing the same token within the service's idempotency window return the same reportId.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Optional human-readable label (1-500 characters) that helps callers distinguish reports created with the same filters. Carried through list and get responses.</p>
+   * @public
+   */
+  label?: string | undefined;
+
+  /**
+   * <p>Optional filters narrowing the report's scope. Absent means the report covers the whole organization.</p>
+   * @public
+   */
+  filters?: OrganizationalReportFilters | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAgentOrganizationalReportResponse {
+  /**
+   * <p>Unique identifier assigned to the newly-created report.</p>
+   * @public
+   */
+  reportId: string | undefined;
+
+  /**
+   * <p>Lifecycle state of the report at the moment the create call returned. For a freshly-created report this is typically DISCOVERING.</p>
+   * @public
+   */
+  state: OrganizationalReportState | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateAgentProfileRequest {
   /**
    * <p>The system name of the profile.</p>
@@ -1704,7 +2311,7 @@ export interface CreateAgentProfileRequest {
   businessOverview?: string | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillars to associate with this profile.</p>
+   * <p>The Amazon Web Services Well-Architected Framework pillars to associate with this profile.</p>
    * @public
    */
   pillars: Pillar[] | undefined;
@@ -1769,7 +2376,7 @@ export interface CreateAgentProfileResponse {
   businessOverview?: string | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillars associated with the created profile.</p>
+   * <p>The Amazon Web Services Well-Architected Framework pillars associated with the created profile.</p>
    * @public
    */
   pillars: Pillar[] | undefined;
@@ -2482,6 +3089,22 @@ export interface DeleteAgentGoalResponse {}
 /**
  * @public
  */
+export interface DeleteAgentOrganizationalReportRequest {
+  /**
+   * <p>Identifier of the report to delete.</p>
+   * @public
+   */
+  reportId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAgentOrganizationalReportResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteAgentProfileRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the profile to delete.</p>
@@ -2494,6 +3117,38 @@ export interface DeleteAgentProfileRequest {
  * @public
  */
 export interface DeleteAgentProfileResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteAgentProfilePolicyRequest {
+  /**
+   * <p>The ARN of the Agent Profile whose policy to delete.</p>
+   * @public
+   */
+  profileArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAgentProfilePolicyResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteAgentRecommendationPolicyRequest {
+  /**
+   * <p>The ARN of the Agent Recommendation whose policy to delete.</p>
+   * @public
+   */
+  recommendationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAgentRecommendationPolicyResponse {}
 
 /**
  * @public
@@ -2699,24 +3354,6 @@ export interface DisassociateProfilesInput {
 }
 
 /**
- * <p>Details about an error that occurred during recommendation generation.</p>
- * @public
- */
-export interface ErrorDetails {
-  /**
-   * <p>The status code identifying the type of error.</p>
-   * @public
-   */
-  code: string | undefined;
-
-  /**
-   * <p>A human-readable description of the error.</p>
-   * @public
-   */
-  message: string | undefined;
-}
-
-/**
  * @public
  */
 export interface ExportLensInput {
@@ -2803,6 +3440,144 @@ export interface GetAgentGoalResponse {
 /**
  * @public
  */
+export interface GetAgentOrganizationalReportRequest {
+  /**
+   * <p>Identifier of the report to retrieve.</p>
+   * @public
+   */
+  reportId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentOrganizationalReportResponse {
+  /**
+   * <p>Unique identifier of the Organizational Report assigned by the service at creation time.</p>
+   * @public
+   */
+  reportId: string | undefined;
+
+  /**
+   * <p>AWS account ID of the caller that created the report. Only this account or a delegated administrator of the same organization may retrieve or delete the report.</p>
+   * @public
+   */
+  ownerAccountId: string | undefined;
+
+  /**
+   * <p>Identifier of the AWS Organization the report belongs to. Derived from the caller's authorization context at creation time and not accepted as a client-supplied input.</p>
+   * @public
+   */
+  organizationId: string | undefined;
+
+  /**
+   * <p>Optional human-readable label supplied by the caller at creation time.</p>
+   * @public
+   */
+  label?: string | undefined;
+
+  /**
+   * <p>Current lifecycle state of the report.</p>
+   * @public
+   */
+  state: OrganizationalReportState | undefined;
+
+  /**
+   * <p>Timestamp at which the report was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>Filters captured when the report was created. Absent when no filters were supplied (meaning the report covered the whole organization).</p>
+   * @public
+   */
+  filters?: OrganizationalReportFilters | undefined;
+
+  /**
+   * <p>Coverage and aggregate counts for the report. Present only after the report reaches COMPLETED.</p>
+   * @public
+   */
+  coverageSummary?: CoverageSummary | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentOrganizationalReportDataRequest {
+  /**
+   * <p>Identifier of the report whose data is being retrieved.</p>
+   * @public
+   */
+  reportId: string | undefined;
+
+  /**
+   * <p>Format of the returned artifact (CSV, JSON, or PARQUET).</p>
+   * @public
+   */
+  format: OrganizationalReportFormat | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentOrganizationalReportDataResponse {
+  /**
+   * <p>Presigned URL that can be used to download the artifact.</p>
+   * @public
+   */
+  downloadUrl: string | undefined;
+
+  /**
+   * <p>Expiration time of downloadUrl.</p>
+   * @public
+   */
+  expiresAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentPreferencesRequest {}
+
+/**
+ * <p>A single Well-Architected Agent preference and its current state.</p>
+ * @public
+ */
+export interface PreferenceEntry {
+  /**
+   * <p>Which preference this entry describes.</p>
+   * @public
+   */
+  key: PreferenceKey | undefined;
+
+  /**
+   * <p>Current state of the preference. ENABLED and DISABLED reflect the result of the most recent successful change. FAILED reflects a stored failure surfaced on a read and is accompanied by a detail message.</p>
+   * @public
+   */
+  status: PreferenceStatus | undefined;
+
+  /**
+   * <p>A human-readable explanation present only when status is FAILED, describing what went wrong and how to recover.</p>
+   * @public
+   */
+  detail?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentPreferencesResponse {
+  /**
+   * <p>The caller's complete set of preferences.</p>
+   * @public
+   */
+  preferences: PreferenceEntry[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetAgentProfileRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the optimization profile to retrieve.</p>
@@ -2840,10 +3615,10 @@ export interface GetAgentProfileResponse {
   businessOverview?: string | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillars associated with the profile.</p>
+   * <p>The Amazon Web Services Well-Architected Framework pillars associated with the profile. Not present for basic profiles.</p>
    * @public
    */
-  pillars: Pillar[] | undefined;
+  pillars?: Pillar[] | undefined;
 
   /**
    * <p>Indicates whether deletion protection is enabled.</p>
@@ -2852,16 +3627,22 @@ export interface GetAgentProfileResponse {
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The ARN of the IAM execution role.</p>
+   * <p>The type of the profile.</p>
    * @public
    */
-  executionRoleArn: string | undefined;
+  profileType?: ProfileType | undefined;
 
   /**
-   * <p>The aggregation configuration.</p>
+   * <p>The ARN of the IAM execution role. Not present for basic profiles.</p>
    * @public
    */
-  aggregationConfiguration: AggregationConfiguration[] | undefined;
+  executionRoleArn?: string | undefined;
+
+  /**
+   * <p>The aggregation configuration. Not present for basic profiles.</p>
+   * @public
+   */
+  aggregationConfiguration?: AggregationConfiguration[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the profile.</p>
@@ -2916,6 +3697,40 @@ export interface GetAgentProfileResponse {
    * @public
    */
   lastModifiedAt?: Date | undefined;
+
+  /**
+   * <p>The organizational monitoring boundary. Present only for organizational profiles.</p>
+   * @public
+   */
+  organizationalAggregationConfiguration?: OrganizationalAggregationConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentProfilePolicyRequest {
+  /**
+   * <p>The ARN of the Agent Profile whose policy to retrieve.</p>
+   * @public
+   */
+  profileArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentProfilePolicyResponse {
+  /**
+   * <p>The ARN of the Agent Profile.</p>
+   * @public
+   */
+  profileArn: string | undefined;
+
+  /**
+   * <p>The IAM resource-based policy document in JSON format.</p>
+   * @public
+   */
+  policy: string | undefined;
 }
 
 /**
@@ -3042,7 +3857,7 @@ export interface GetAgentRecommendationResponse {
   profileArn: string | undefined;
 
   /**
-   * <p>The identifier of the generation process that produced this recommendation.</p>
+   * <p>The identifier of the generation that produced this recommendation.</p>
    * @public
    */
   generationId?: string | undefined;
@@ -3066,7 +3881,7 @@ export interface GetAgentRecommendationResponse {
   type: RecommendationType | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillar that the recommendation addresses.</p>
+   * <p>The Amazon Web Services Well-Architected Framework pillar that the recommendation addresses.</p>
    * @public
    */
   pillar: Pillar | undefined;
@@ -3264,7 +4079,7 @@ export interface Progress {
 }
 
 /**
- * <p>Item configuration for a specific Well-Architected Tool Framework pillar.</p>
+ * <p>Item configuration for a specific Amazon Web Services Well-Architected Framework pillar.</p>
  * @public
  */
 export interface PillarItem {
@@ -3287,19 +4102,19 @@ export interface PillarItem {
  */
 export interface Scope {
   /**
-   * <p>The Well-Architected Tool Framework pillars to include in the generation scope.</p>
+   * <p>The Amazon Web Services Well-Architected Framework pillars to include in the generation scope.</p>
    * @public
    */
   pillars: Pillar[] | undefined;
 
   /**
-   * <p>Specific goal IDs to focus on during recommendation generation.</p>
+   * <p>Specific goal IDs to focus on during recommendation generation. Use <code>ListAgentGoals</code> to retrieve goal IDs.</p>
    * @public
    */
   goalIds?: string[] | undefined;
 
   /**
-   * <p>Optional per-pillar item filtering configuration.</p>
+   * <p>An optional per-pillar filter. When you specify items, only the listed items are processed for each pillar. When you omit items, all items are processed.</p>
    * @public
    */
   items?: PillarItem[] | undefined;
@@ -3364,16 +4179,16 @@ export interface GetAgentRecommendationGenerationResponse {
   lastModifiedAt?: Date | undefined;
 
   /**
-   * <p>Additional context information provided to guide the recommendation generation process.</p>
+   * <p>How the generation was started.</p>
    * @public
    */
-  additionalContext?: __DocumentType | undefined;
+  generationType?: GenerationType | undefined;
 
   /**
-   * <p>The scope configuration that defines which pillars and goals to focus on during generation.</p>
+   * <p>The recommendation types the generation covers.</p>
    * @public
    */
-  scope?: Scope | undefined;
+  generationRecommendationTypes?: RecommendationType[] | undefined;
 
   /**
    * <p>The timestamp when the recommendation generation process started.</p>
@@ -3388,16 +4203,56 @@ export interface GetAgentRecommendationGenerationResponse {
   endedAt?: Date | undefined;
 
   /**
-   * <p>Current progress information including steps completed and completion percentage.</p>
-   * @public
-   */
-  progress?: Progress | undefined;
-
-  /**
    * <p>Details about the error if the generation status is ERROR.</p>
    * @public
    */
   errorDetails?: ErrorDetails | undefined;
+
+  /**
+   * <p>The additional context that was provided when the generation was started. For <code>ARCHITECTURE</code> generations, this includes the location of the reviewed IaC template and the lenses used.</p>
+   * @public
+   */
+  additionalContext?: __DocumentType | undefined;
+
+  /**
+   * <p>The scope configuration that defines which pillars and goals to focus on during generation.</p>
+   * @public
+   */
+  scope?: Scope | undefined;
+
+  /**
+   * <p>Current progress information including steps completed and completion percentage.</p>
+   * @public
+   */
+  progress?: Progress | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentRecommendationPolicyRequest {
+  /**
+   * <p>The ARN of the Agent Recommendation whose policy to retrieve.</p>
+   * @public
+   */
+  recommendationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentRecommendationPolicyResponse {
+  /**
+   * <p>The ARN of the Agent Recommendation.</p>
+   * @public
+   */
+  recommendationArn: string | undefined;
+
+  /**
+   * <p>The IAM resource-based policy document in JSON format.</p>
+   * @public
+   */
+  policy: string | undefined;
 }
 
 /**
@@ -5282,13 +6137,13 @@ export interface ListAgentContextsRequest {
   profileArn: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * <p>The maximum number of contexts to return in a single call. Default is 100.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * <p>A pagination token returned from a previous call to continue retrieving results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -5305,7 +6160,7 @@ export interface ListAgentContextsResponse {
   items: ContextSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * <p>A pagination token to retrieve the next set of results, if available.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -5346,6 +6201,88 @@ export interface ListAgentGoalsResponse {
 
   /**
    * <p>A pagination token to retrieve the next set of results, if available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgentOrganizationalReportsRequest {
+  /**
+   * <p>Maximum number of items to return in a single page. Defaults to 100.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token from a previous ListAgentOrganizationalReports response. Absent on the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Optional filter restricting the response to reports in a single lifecycle state.</p>
+   * @public
+   */
+  state?: OrganizationalReportState | undefined;
+}
+
+/**
+ * <p>Summary of an Organizational Report returned in a list response. Includes the core fields of the full report and the optional label, but omits the filters and coverage summary. The filters and coverage summary are available through GetAgentOrganizationalReport. The coverage summary is populated once the report reaches COMPLETED.</p>
+ * @public
+ */
+export interface OrganizationalReportSummary {
+  /**
+   * <p>Unique identifier of the Organizational Report assigned by the service at creation time.</p>
+   * @public
+   */
+  reportId: string | undefined;
+
+  /**
+   * <p>AWS account ID of the caller that created the report. Only this account or a delegated administrator of the same organization may retrieve or delete the report.</p>
+   * @public
+   */
+  ownerAccountId: string | undefined;
+
+  /**
+   * <p>Identifier of the AWS Organization the report belongs to. Derived from the caller's authorization context at creation time and not accepted as a client-supplied input.</p>
+   * @public
+   */
+  organizationId: string | undefined;
+
+  /**
+   * <p>Optional human-readable label supplied by the caller at creation time.</p>
+   * @public
+   */
+  label?: string | undefined;
+
+  /**
+   * <p>Current lifecycle state of the report.</p>
+   * @public
+   */
+  state: OrganizationalReportState | undefined;
+
+  /**
+   * <p>Timestamp at which the report was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgentOrganizationalReportsResponse {
+  /**
+   * <p>Page of report summaries, most-recently-created first.</p>
+   * @public
+   */
+  items: OrganizationalReportSummary[] | undefined;
+
+  /**
+   * <p>Pagination token to supply on the next request, or absent when there are no more pages.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7086,6 +8023,62 @@ export interface ListWorkloadSharesOutput {
 }
 
 /**
+ * <p>A caller's requested change to one preference, supplied to PutAgentPreferences.</p>
+ * @public
+ */
+export interface PreferenceUpdate {
+  /**
+   * <p>Which preference to update.</p>
+   * @public
+   */
+  key: PreferenceKey | undefined;
+
+  /**
+   * <p>State to set the preference to. FAILED is an observed state only and cannot be requested.</p>
+   * @public
+   */
+  state: PreferenceState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAgentPreferencesRequest {
+  /**
+   * <p>Preference updates to apply. A given preference key may appear at most once.</p>
+   * @public
+   */
+  preferences: PreferenceUpdate[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAgentPreferencesResponse {}
+
+/**
+ * @public
+ */
+export interface PutAgentProfilePolicyRequest {
+  /**
+   * <p>The ARN of the Agent Profile to attach the policy to.</p>
+   * @public
+   */
+  profileArn: string | undefined;
+
+  /**
+   * <p>The IAM resource-based policy document in JSON format. Maximum size 50KB.</p>
+   * @public
+   */
+  policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAgentProfilePolicyResponse {}
+
+/**
  * @public
  */
 export interface PutAgentRecommendationFeedbackRequest {
@@ -7118,6 +8111,68 @@ export interface PutAgentRecommendationFeedbackRequest {
  * @public
  */
 export interface PutAgentRecommendationFeedbackResponse {}
+
+/**
+ * @public
+ */
+export interface PutAgentRecommendationPolicyRequest {
+  /**
+   * <p>The ARN of the Agent Recommendation to attach the policy to.</p>
+   * @public
+   */
+  recommendationArn: string | undefined;
+
+  /**
+   * <p>The IAM resource-based policy document in JSON format. Maximum size 50KB.</p>
+   * @public
+   */
+  policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAgentRecommendationPolicyResponse {}
+
+/**
+ * @public
+ */
+export interface SendAgentOrganizationalReportDataToS3Request {
+  /**
+   * <p>Identifier of the report whose data is being delivered.</p>
+   * @public
+   */
+  reportId: string | undefined;
+
+  /**
+   * <p>Format of the delivered artifact (CSV, JSON, or PARQUET).</p>
+   * @public
+   */
+  format: OrganizationalReportFormat | undefined;
+
+  /**
+   * <p>ARN of the caller-owned S3 bucket that will receive the artifact.</p>
+   * @public
+   */
+  bucketArn: string | undefined;
+
+  /**
+   * <p>S3 object key under bucketArn where the artifact will be written.</p>
+   * @public
+   */
+  objectKey: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendAgentOrganizationalReportDataToS3Response {
+  /**
+   * <p>S3 URI (format s3://bucket/key) where the artifact was written.</p>
+   * @public
+   */
+  deliveredTo: string | undefined;
+}
 
 /**
  * <p>The share invitation.</p>
@@ -7178,28 +8233,28 @@ export interface StartAgentRecommendationGenerationRequest {
   profileArn: string | undefined;
 
   /**
-   * <p>The types of recommendations to generate.</p>
+   * <p>The types of recommendations to generate. You can specify up to two types in a single request. Currently, only <code>ARCHITECTURE</code> is supported for this operation.</p>
    * @public
    */
   types: RecommendationType[] | undefined;
 
   /**
-   * <p>An optional name for this generation process to help identify it in lists and logs.</p>
+   * <p>An optional name for this generation that identifies the architecture review in the console and in <code>ListAgentRecommendationGenerations</code> results. Applies to <code>ARCHITECTURE</code> type only. Must be absent for other types.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Optional additional context to guide the recommendation generation, such as specific business requirements or constraints.</p>
+   * <p>The location of the infrastructure as code (IaC) template to review, and the lenses to review it against. Required for the <code>ARCHITECTURE</code> type. Must be absent for other types. Specify a JSON object with the following members:</p> <ul> <li> <p> <code>s3Uri</code>: The Amazon S3 URI of the IaC template, .zip archive, or folder to review.</p> </li> <li> <p> <code>s3VersionId</code>: The version ID of the Amazon S3 object. If you omit this member, the current version is used.</p> </li> <li> <p> <code>lensArns</code>: The ARNs of the lenses to review against. Only <code>arn:aws:wellarchitected::aws:lens/wellarchitected</code> is supported.</p> </li> </ul>
    * @public
    */
   additionalContext?: __DocumentType | undefined;
 
   /**
-   * <p>Scope configuration to focus the generation on specific pillars or goals.</p>
+   * <p>Defines which pillars, goals, and items the review covers. Required for the <code>ARCHITECTURE</code> type. Must be absent for other types.</p>
    * @public
    */
-  scope: Scope | undefined;
+  scope?: Scope | undefined;
 }
 
 /**
@@ -7406,6 +8461,160 @@ export interface UpdateAgentGoalResponse {
 /**
  * @public
  */
+export interface UpdateAgentOrganizationalProfileRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the organizational profile to update.</p>
+   * @public
+   */
+  profileArn: string | undefined;
+
+  /**
+   * <p>The updated display name of the organizational profile. Omit this field to keep the current display name. A display name is required, so it cannot be cleared.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The updated description of the organizational profile. Omit this field to keep the current description, or supply an empty string to clear it; a cleared description is read back as absent rather than as an empty string.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated business overview for the organizational profile. Omit this field to keep the current business overview, or supply an empty string to clear it; a cleared business overview is read back as absent rather than as an empty string.</p>
+   * @public
+   */
+  businessOverview?: string | undefined;
+
+  /**
+   * <p>The updated Amazon Web Services Well-Architected Framework pillars for the organizational profile. Omit this field to keep the current pillars. A profile must target at least one pillar, so an empty list is rejected.</p>
+   * @public
+   */
+  pillars?: Pillar[] | undefined;
+
+  /**
+   * <p>Indicates whether deletion protection is enabled for the organizational profile.</p>
+   * @public
+   */
+  deletionProtection?: boolean | undefined;
+
+  /**
+   * <p>The organizational monitoring boundary. Contains organizational unit or root entries and individual account entries that define the scope for the profile. Omit this field to keep the current boundary, or supply this structure with both its <code>organizationalUnits</code> and <code>accounts</code> lists empty to remove every monitored organizational unit and account. The field remains set either way — an emptied boundary is read back as a structure with two empty lists, not as an absent field.</p>
+   * @public
+   */
+  organizationalAggregationConfiguration?: OrganizationalAggregationConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAgentOrganizationalProfileResponse {
+  /**
+   * <p>The system name of the updated organizational profile.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The display name of the updated organizational profile.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>A description of the updated organizational profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The business overview of the updated organizational profile.</p>
+   * @public
+   */
+  businessOverview?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Well-Architected Framework pillars associated with the updated organizational profile.</p>
+   * @public
+   */
+  pillars: Pillar[] | undefined;
+
+  /**
+   * <p>Indicates whether deletion protection is enabled.</p>
+   * @public
+   */
+  deletionProtection?: boolean | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Web Services Organization this profile belongs to.</p>
+   * @public
+   */
+  organizationId: string | undefined;
+
+  /**
+   * <p>The organizational monitoring boundary for the updated profile.</p>
+   * @public
+   */
+  organizationalAggregationConfiguration?: OrganizationalAggregationConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated organizational profile.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Indicates whether the profile is valid for scheduled recommendation generation.</p>
+   * @public
+   */
+  eligibleForScheduledGeneration?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the profile is valid for manual architecture generation.</p>
+   * @public
+   */
+  eligibleForArchitectureGeneration?: boolean | undefined;
+
+  /**
+   * <p>A map of field paths to error messages for invalid or missing input fields.</p>
+   * @public
+   */
+  fieldErrors?: Record<string, string> | undefined;
+
+  /**
+   * <p>The identifier of the user or system that created this organizational profile.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp when the organizational profile was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The identifier of the user or system that last modified this organizational profile.</p>
+   * @public
+   */
+  lastModifiedBy?: string | undefined;
+
+  /**
+   * <p>The timestamp when the organizational profile was last modified.</p>
+   * @public
+   */
+  lastModifiedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateAgentProfileRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -7420,37 +8629,37 @@ export interface UpdateAgentProfileRequest {
   profileArn: string | undefined;
 
   /**
-   * <p>The updated display name of the profile.</p>
+   * <p>The updated display name of the profile. Omit this field to keep the current display name. A display name is required, so it cannot be cleared.</p>
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The updated description of the profile.</p>
+   * <p>The updated description of the profile. Omit this field to keep the current description, or supply an empty string to clear it; a cleared description is read back as absent rather than as an empty string.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated ARN of the IAM execution role.</p>
+   * <p>The updated ARN of the IAM execution role. Omit this field to keep the current execution role.</p>
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The updated aggregation configuration.</p>
+   * <p>The updated aggregation configuration, as a list of per-account entries. Omit this field to keep the current entries, or supply an empty list to remove them all. The field remains set either way — an emptied configuration is read back as an empty list, not as an absent field.</p>
    * @public
    */
   aggregationConfiguration?: AggregationConfiguration[] | undefined;
 
   /**
-   * <p>The updated business overview for the profile.</p>
+   * <p>The updated business overview for the profile. Omit this field to keep the current business overview, or supply an empty string to clear it; a cleared business overview is read back as absent rather than as an empty string.</p>
    * @public
    */
   businessOverview?: string | undefined;
 
   /**
-   * <p>The updated Well-Architected Tool Framework pillars for the profile.</p>
+   * <p>The updated Amazon Web Services Well-Architected Framework pillars for the profile. Omit this field to keep the current pillars. A profile must target at least one pillar, so an empty list is rejected.</p>
    * @public
    */
   pillars?: Pillar[] | undefined;
@@ -7491,7 +8700,7 @@ export interface UpdateAgentProfileResponse {
   businessOverview?: string | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillars associated with the updated profile.</p>
+   * <p>The Amazon Web Services Well-Architected Framework pillars associated with the updated profile.</p>
    * @public
    */
   pillars: Pillar[] | undefined;
@@ -7537,12 +8746,6 @@ export interface UpdateAgentProfileResponse {
    * @public
    */
   fieldErrors?: Record<string, string> | undefined;
-
-  /**
-   * <p>The tags associated with the updated profile.</p>
-   * @public
-   */
-  tags?: Tag[] | undefined;
 
   /**
    * <p>The identifier of the user or system that created this profile.</p>
@@ -8130,187 +9333,4 @@ export interface UpdateWorkloadInput {
    * @public
    */
   JiraConfiguration?: WorkloadJiraConfigurationInput | undefined;
-}
-
-/**
- * <p>Output of an update workload call.</p>
- * @public
- */
-export interface UpdateWorkloadOutput {
-  /**
-   * <p>A workload return object.</p>
-   * @public
-   */
-  Workload?: Workload | undefined;
-}
-
-/**
- * <p>Input for Update Workload Share</p>
- * @public
- */
-export interface UpdateWorkloadShareInput {
-  /**
-   * <p>The ID associated with the share.</p>
-   * @public
-   */
-  ShareId: string | undefined;
-
-  /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
-   * @public
-   */
-  WorkloadId: string | undefined;
-
-  /**
-   * <p>Permission granted on a share request.</p>
-   * @public
-   */
-  PermissionType: PermissionType | undefined;
-}
-
-/**
- * <p>A workload share return object.</p>
- * @public
- */
-export interface WorkloadShare {
-  /**
-   * <p>The ID associated with the share.</p>
-   * @public
-   */
-  ShareId?: string | undefined;
-
-  /**
-   * <p>An Amazon Web Services account ID.</p>
-   * @public
-   */
-  SharedBy?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
-   * @public
-   */
-  SharedWith?: string | undefined;
-
-  /**
-   * <p>Permission granted on a share request.</p>
-   * @public
-   */
-  PermissionType?: PermissionType | undefined;
-
-  /**
-   * <p>The status of the share request.</p>
-   * @public
-   */
-  Status?: ShareStatus | undefined;
-
-  /**
-   * <p>The name of the workload.</p> <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.</p>
-   * @public
-   */
-  WorkloadName?: string | undefined;
-
-  /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
-   * @public
-   */
-  WorkloadId?: string | undefined;
-}
-
-/**
- * <p>Input for Update Workload Share</p>
- * @public
- */
-export interface UpdateWorkloadShareOutput {
-  /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
-   * @public
-   */
-  WorkloadId?: string | undefined;
-
-  /**
-   * <p>A workload share return object.</p>
-   * @public
-   */
-  WorkloadShare?: WorkloadShare | undefined;
-}
-
-/**
- * @public
- */
-export interface UpgradeLensReviewInput {
-  /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
-   * @public
-   */
-  WorkloadId: string | undefined;
-
-  /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
-   * @public
-   */
-  LensAlias: string | undefined;
-
-  /**
-   * <p>The name of the milestone in a workload.</p> <p>Milestone names must be unique within a workload.</p>
-   * @public
-   */
-  MilestoneName: string | undefined;
-
-  /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
-   * @public
-   */
-  ClientRequestToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpgradeProfileVersionInput {
-  /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
-   * @public
-   */
-  WorkloadId: string | undefined;
-
-  /**
-   * <p>The profile ARN.</p>
-   * @public
-   */
-  ProfileArn: string | undefined;
-
-  /**
-   * <p>The name of the milestone in a workload.</p> <p>Milestone names must be unique within a workload.</p>
-   * @public
-   */
-  MilestoneName?: string | undefined;
-
-  /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
-   * @public
-   */
-  ClientRequestToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpgradeReviewTemplateLensReviewInput {
-  /**
-   * <p>The ARN of the review template.</p>
-   * @public
-   */
-  TemplateArn: string | undefined;
-
-  /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
-   * @public
-   */
-  LensAlias: string | undefined;
-
-  /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
-   * @public
-   */
-  ClientRequestToken?: string | undefined;
 }

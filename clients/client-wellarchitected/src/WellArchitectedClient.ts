@@ -60,10 +60,22 @@ import type {
   AssociateProfilesCommandOutput,
 } from "./commands/AssociateProfilesCommand";
 import type {
+  CreateAgentBasicProfileCommandInput,
+  CreateAgentBasicProfileCommandOutput,
+} from "./commands/CreateAgentBasicProfileCommand";
+import type {
   CreateAgentContextCommandInput,
   CreateAgentContextCommandOutput,
 } from "./commands/CreateAgentContextCommand";
 import type { CreateAgentGoalCommandInput, CreateAgentGoalCommandOutput } from "./commands/CreateAgentGoalCommand";
+import type {
+  CreateAgentOrganizationalProfileCommandInput,
+  CreateAgentOrganizationalProfileCommandOutput,
+} from "./commands/CreateAgentOrganizationalProfileCommand";
+import type {
+  CreateAgentOrganizationalReportCommandInput,
+  CreateAgentOrganizationalReportCommandOutput,
+} from "./commands/CreateAgentOrganizationalReportCommand";
 import type {
   CreateAgentProfileCommandInput,
   CreateAgentProfileCommandOutput,
@@ -98,9 +110,21 @@ import type {
 } from "./commands/DeleteAgentContextCommand";
 import type { DeleteAgentGoalCommandInput, DeleteAgentGoalCommandOutput } from "./commands/DeleteAgentGoalCommand";
 import type {
+  DeleteAgentOrganizationalReportCommandInput,
+  DeleteAgentOrganizationalReportCommandOutput,
+} from "./commands/DeleteAgentOrganizationalReportCommand";
+import type {
   DeleteAgentProfileCommandInput,
   DeleteAgentProfileCommandOutput,
 } from "./commands/DeleteAgentProfileCommand";
+import type {
+  DeleteAgentProfilePolicyCommandInput,
+  DeleteAgentProfilePolicyCommandOutput,
+} from "./commands/DeleteAgentProfilePolicyCommand";
+import type {
+  DeleteAgentRecommendationPolicyCommandInput,
+  DeleteAgentRecommendationPolicyCommandOutput,
+} from "./commands/DeleteAgentRecommendationPolicyCommand";
 import type { DeleteLensCommandInput, DeleteLensCommandOutput } from "./commands/DeleteLensCommand";
 import type { DeleteLensShareCommandInput, DeleteLensShareCommandOutput } from "./commands/DeleteLensShareCommand";
 import type { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
@@ -132,7 +156,23 @@ import type {
 import type { ExportLensCommandInput, ExportLensCommandOutput } from "./commands/ExportLensCommand";
 import type { GetAgentContextCommandInput, GetAgentContextCommandOutput } from "./commands/GetAgentContextCommand";
 import type { GetAgentGoalCommandInput, GetAgentGoalCommandOutput } from "./commands/GetAgentGoalCommand";
+import type {
+  GetAgentOrganizationalReportCommandInput,
+  GetAgentOrganizationalReportCommandOutput,
+} from "./commands/GetAgentOrganizationalReportCommand";
+import type {
+  GetAgentOrganizationalReportDataCommandInput,
+  GetAgentOrganizationalReportDataCommandOutput,
+} from "./commands/GetAgentOrganizationalReportDataCommand";
+import type {
+  GetAgentPreferencesCommandInput,
+  GetAgentPreferencesCommandOutput,
+} from "./commands/GetAgentPreferencesCommand";
 import type { GetAgentProfileCommandInput, GetAgentProfileCommandOutput } from "./commands/GetAgentProfileCommand";
+import type {
+  GetAgentProfilePolicyCommandInput,
+  GetAgentProfilePolicyCommandOutput,
+} from "./commands/GetAgentProfilePolicyCommand";
 import type {
   GetAgentRecommendationCommandInput,
   GetAgentRecommendationCommandOutput,
@@ -141,6 +181,10 @@ import type {
   GetAgentRecommendationGenerationCommandInput,
   GetAgentRecommendationGenerationCommandOutput,
 } from "./commands/GetAgentRecommendationGenerationCommand";
+import type {
+  GetAgentRecommendationPolicyCommandInput,
+  GetAgentRecommendationPolicyCommandOutput,
+} from "./commands/GetAgentRecommendationPolicyCommand";
 import type { GetAnswerCommandInput, GetAnswerCommandOutput } from "./commands/GetAnswerCommand";
 import type {
   GetConsolidatedReportCommandInput,
@@ -185,6 +229,10 @@ import type {
   ListAgentContextsCommandOutput,
 } from "./commands/ListAgentContextsCommand";
 import type { ListAgentGoalsCommandInput, ListAgentGoalsCommandOutput } from "./commands/ListAgentGoalsCommand";
+import type {
+  ListAgentOrganizationalReportsCommandInput,
+  ListAgentOrganizationalReportsCommandOutput,
+} from "./commands/ListAgentOrganizationalReportsCommand";
 import type {
   ListAgentProfilesCommandInput,
   ListAgentProfilesCommandOutput,
@@ -254,9 +302,25 @@ import type {
   ListWorkloadSharesCommandOutput,
 } from "./commands/ListWorkloadSharesCommand";
 import type {
+  PutAgentPreferencesCommandInput,
+  PutAgentPreferencesCommandOutput,
+} from "./commands/PutAgentPreferencesCommand";
+import type {
+  PutAgentProfilePolicyCommandInput,
+  PutAgentProfilePolicyCommandOutput,
+} from "./commands/PutAgentProfilePolicyCommand";
+import type {
   PutAgentRecommendationFeedbackCommandInput,
   PutAgentRecommendationFeedbackCommandOutput,
 } from "./commands/PutAgentRecommendationFeedbackCommand";
+import type {
+  PutAgentRecommendationPolicyCommandInput,
+  PutAgentRecommendationPolicyCommandOutput,
+} from "./commands/PutAgentRecommendationPolicyCommand";
+import type {
+  SendAgentOrganizationalReportDataToS3CommandInput,
+  SendAgentOrganizationalReportDataToS3CommandOutput,
+} from "./commands/SendAgentOrganizationalReportDataToS3Command";
 import type {
   StartAgentRecommendationGenerationCommandInput,
   StartAgentRecommendationGenerationCommandOutput,
@@ -268,6 +332,10 @@ import type {
   UpdateAgentContextCommandOutput,
 } from "./commands/UpdateAgentContextCommand";
 import type { UpdateAgentGoalCommandInput, UpdateAgentGoalCommandOutput } from "./commands/UpdateAgentGoalCommand";
+import type {
+  UpdateAgentOrganizationalProfileCommandInput,
+  UpdateAgentOrganizationalProfileCommandOutput,
+} from "./commands/UpdateAgentOrganizationalProfileCommand";
 import type {
   UpdateAgentProfileCommandInput,
   UpdateAgentProfileCommandOutput,
@@ -337,8 +405,11 @@ export { __Client };
 export type ServiceInputTypes =
   | AssociateLensesCommandInput
   | AssociateProfilesCommandInput
+  | CreateAgentBasicProfileCommandInput
   | CreateAgentContextCommandInput
   | CreateAgentGoalCommandInput
+  | CreateAgentOrganizationalProfileCommandInput
+  | CreateAgentOrganizationalReportCommandInput
   | CreateAgentProfileCommandInput
   | CreateLensShareCommandInput
   | CreateLensVersionCommandInput
@@ -351,7 +422,10 @@ export type ServiceInputTypes =
   | CreateWorkloadShareCommandInput
   | DeleteAgentContextCommandInput
   | DeleteAgentGoalCommandInput
+  | DeleteAgentOrganizationalReportCommandInput
   | DeleteAgentProfileCommandInput
+  | DeleteAgentProfilePolicyCommandInput
+  | DeleteAgentRecommendationPolicyCommandInput
   | DeleteLensCommandInput
   | DeleteLensShareCommandInput
   | DeleteProfileCommandInput
@@ -365,9 +439,14 @@ export type ServiceInputTypes =
   | ExportLensCommandInput
   | GetAgentContextCommandInput
   | GetAgentGoalCommandInput
+  | GetAgentOrganizationalReportCommandInput
+  | GetAgentOrganizationalReportDataCommandInput
+  | GetAgentPreferencesCommandInput
   | GetAgentProfileCommandInput
+  | GetAgentProfilePolicyCommandInput
   | GetAgentRecommendationCommandInput
   | GetAgentRecommendationGenerationCommandInput
+  | GetAgentRecommendationPolicyCommandInput
   | GetAnswerCommandInput
   | GetConsolidatedReportCommandInput
   | GetGlobalSettingsCommandInput
@@ -385,6 +464,7 @@ export type ServiceInputTypes =
   | ImportLensCommandInput
   | ListAgentContextsCommandInput
   | ListAgentGoalsCommandInput
+  | ListAgentOrganizationalReportsCommandInput
   | ListAgentProfilesCommandInput
   | ListAgentRecommendationGenerationsCommandInput
   | ListAgentRecommendationItemsCommandInput
@@ -408,12 +488,17 @@ export type ServiceInputTypes =
   | ListTemplateSharesCommandInput
   | ListWorkloadSharesCommandInput
   | ListWorkloadsCommandInput
+  | PutAgentPreferencesCommandInput
+  | PutAgentProfilePolicyCommandInput
   | PutAgentRecommendationFeedbackCommandInput
+  | PutAgentRecommendationPolicyCommandInput
+  | SendAgentOrganizationalReportDataToS3CommandInput
   | StartAgentRecommendationGenerationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAgentContextCommandInput
   | UpdateAgentGoalCommandInput
+  | UpdateAgentOrganizationalProfileCommandInput
   | UpdateAgentProfileCommandInput
   | UpdateAgentRecommendationStatusCommandInput
   | UpdateAnswerCommandInput
@@ -437,8 +522,11 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateLensesCommandOutput
   | AssociateProfilesCommandOutput
+  | CreateAgentBasicProfileCommandOutput
   | CreateAgentContextCommandOutput
   | CreateAgentGoalCommandOutput
+  | CreateAgentOrganizationalProfileCommandOutput
+  | CreateAgentOrganizationalReportCommandOutput
   | CreateAgentProfileCommandOutput
   | CreateLensShareCommandOutput
   | CreateLensVersionCommandOutput
@@ -451,7 +539,10 @@ export type ServiceOutputTypes =
   | CreateWorkloadShareCommandOutput
   | DeleteAgentContextCommandOutput
   | DeleteAgentGoalCommandOutput
+  | DeleteAgentOrganizationalReportCommandOutput
   | DeleteAgentProfileCommandOutput
+  | DeleteAgentProfilePolicyCommandOutput
+  | DeleteAgentRecommendationPolicyCommandOutput
   | DeleteLensCommandOutput
   | DeleteLensShareCommandOutput
   | DeleteProfileCommandOutput
@@ -465,9 +556,14 @@ export type ServiceOutputTypes =
   | ExportLensCommandOutput
   | GetAgentContextCommandOutput
   | GetAgentGoalCommandOutput
+  | GetAgentOrganizationalReportCommandOutput
+  | GetAgentOrganizationalReportDataCommandOutput
+  | GetAgentPreferencesCommandOutput
   | GetAgentProfileCommandOutput
+  | GetAgentProfilePolicyCommandOutput
   | GetAgentRecommendationCommandOutput
   | GetAgentRecommendationGenerationCommandOutput
+  | GetAgentRecommendationPolicyCommandOutput
   | GetAnswerCommandOutput
   | GetConsolidatedReportCommandOutput
   | GetGlobalSettingsCommandOutput
@@ -485,6 +581,7 @@ export type ServiceOutputTypes =
   | ImportLensCommandOutput
   | ListAgentContextsCommandOutput
   | ListAgentGoalsCommandOutput
+  | ListAgentOrganizationalReportsCommandOutput
   | ListAgentProfilesCommandOutput
   | ListAgentRecommendationGenerationsCommandOutput
   | ListAgentRecommendationItemsCommandOutput
@@ -508,12 +605,17 @@ export type ServiceOutputTypes =
   | ListTemplateSharesCommandOutput
   | ListWorkloadSharesCommandOutput
   | ListWorkloadsCommandOutput
+  | PutAgentPreferencesCommandOutput
+  | PutAgentProfilePolicyCommandOutput
   | PutAgentRecommendationFeedbackCommandOutput
+  | PutAgentRecommendationPolicyCommandOutput
+  | SendAgentOrganizationalReportDataToS3CommandOutput
   | StartAgentRecommendationGenerationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentContextCommandOutput
   | UpdateAgentGoalCommandOutput
+  | UpdateAgentOrganizationalProfileCommandOutput
   | UpdateAgentProfileCommandOutput
   | UpdateAgentRecommendationStatusCommandOutput
   | UpdateAnswerCommandOutput
@@ -723,7 +825,7 @@ export type WellArchitectedClientResolvedConfigType = __SmithyResolvedConfigurat
 export interface WellArchitectedClientResolvedConfig extends WellArchitectedClientResolvedConfigType {}
 
 /**
- * <fullname>Amazon Web Services Well-Architected</fullname> <p>Amazon Web Services Well-Architected helps you evaluate your architectures against Amazon Web Services best practices across operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability. The service includes the Amazon Web Services Well-Architected Agent for AI-powered recommendations tailored to your specific environment, and the <a href="http://aws.amazon.com/well-architected-tool">Well-Architected Tool</a> for conducting reviews and tracking improvements.</p> <p>This is the <i>Amazon Web Services Well-Architected API Reference</i>. Through this API, you can programmatically access personalized recommendations and automation scripts from the Amazon Web Services Well-Architected Agent, and create and manage workloads, conduct lens reviews, track milestones, manage custom lenses, share workloads across accounts, and manage profiles with the Well-Architected Tool.</p> <p>For more information about the service, see the <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html">Amazon Web Services Well-Architected User Guide</a>.</p>
+ * <fullname>Amazon Web Services Well-Architected</fullname> <p>This is the <i>Amazon Web Services Well-Architected API Reference</i>. Amazon Web Services Well-Architected helps you evaluate your architectures against Amazon Web Services best practices across operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability.</p> <p>To view API actions organized by service, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/wa-api-actions.html">API actions</a>.</p> <p> <b>Amazon Web Services Well-Architected Agent (preview)</b> </p> <p>Describes the API operations for managing optimization profiles, goals, application context, and recommendations in the Amazon Web Services Well-Architected Agent. Through this API, you can create and configure agent profiles that define the scope of your Amazon Web Services environment to analyze, set optimization goals across cost, security, performance, and resilience pillars, start recommendation generation, retrieve prioritized recommendations with ready-to-deploy remediation scripts, and provide feedback to improve future recommendations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/agent.html">What is Amazon Web Services Well-Architected Agent?</a> </p> <p> <b>Well-Architected Tool</b> </p> <p>Describes the API operations for creating and managing workloads, conducting lens reviews, tracking milestones, managing custom lenses, sharing workloads across accounts, and managing profiles with the Well-Architected Tool.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/tool.html">What is Well-Architected Tool?</a> </p>
  * @public
  */
 export class WellArchitectedClient extends __Client<

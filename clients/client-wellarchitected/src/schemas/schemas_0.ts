@@ -23,6 +23,7 @@ const _ARR = "AgentRecommendationRemediation";
 const _ARRg = "AgentRecommendationRemediations";
 const _ARS = "AgentRecommendationSummary";
 const _ARSg = "AgentRecommendationSummaries";
+const _ARu = "AutoRemediation";
 const _ARw = "AwsRegions";
 const _AS = "AnswerSummary";
 const _ASc = "AccountSummary";
@@ -35,12 +36,21 @@ const _BPe = "BestPractices";
 const _BS = "Base64String";
 const _C = "Content";
 const _CA = "ChoiceAnswers";
+const _CABP = "CreateAgentBasicProfile";
+const _CABPR = "CreateAgentBasicProfileRequest";
+const _CABPRr = "CreateAgentBasicProfileResponse";
 const _CAC = "CreateAgentContext";
 const _CACR = "CreateAgentContextRequest";
 const _CACRr = "CreateAgentContextResponse";
 const _CAG = "CreateAgentGoal";
 const _CAGR = "CreateAgentGoalRequest";
 const _CAGRr = "CreateAgentGoalResponse";
+const _CAOP = "CreateAgentOrganizationalProfile";
+const _CAOPR = "CreateAgentOrganizationalProfileRequest";
+const _CAOPRr = "CreateAgentOrganizationalProfileResponse";
+const _CAOR = "CreateAgentOrganizationalReport";
+const _CAORR = "CreateAgentOrganizationalReportRequest";
+const _CAORRr = "CreateAgentOrganizationalReportResponse";
 const _CAP = "CreateAgentProfile";
 const _CAPR = "CreateAgentProfileRequest";
 const _CAPRr = "CreateAgentProfileResponse";
@@ -88,6 +98,7 @@ const _CS = "CheckSummary";
 const _CSh = "CheckSummaries";
 const _CSo = "ContextSummary";
 const _CSon = "ContextSummaries";
+const _CSov = "CoverageSummary";
 const _CT = "ChoiceTitle";
 const _CTS = "CreateTemplateShare";
 const _CTSI = "CreateTemplateShareInput";
@@ -109,9 +120,18 @@ const _DACRe = "DeleteAgentContextResponse";
 const _DAG = "DeleteAgentGoal";
 const _DAGR = "DeleteAgentGoalRequest";
 const _DAGRe = "DeleteAgentGoalResponse";
+const _DAOR = "DeleteAgentOrganizationalReport";
+const _DAORR = "DeleteAgentOrganizationalReportRequest";
+const _DAORRe = "DeleteAgentOrganizationalReportResponse";
 const _DAP = "DeleteAgentProfile";
+const _DAPP = "DeleteAgentProfilePolicy";
+const _DAPPR = "DeleteAgentProfilePolicyRequest";
+const _DAPPRe = "DeleteAgentProfilePolicyResponse";
 const _DAPR = "DeleteAgentProfileRequest";
 const _DAPRe = "DeleteAgentProfileResponse";
+const _DARP = "DeleteAgentRecommendationPolicy";
+const _DARPR = "DeleteAgentRecommendationPolicyRequest";
+const _DARPRe = "DeleteAgentRecommendationPolicyResponse";
 const _DC = "DiscoveryConfig";
 const _DIS = "DiscoveryIntegrationStatus";
 const _DL = "DeleteLens";
@@ -142,6 +162,10 @@ const _EL = "ExportLens";
 const _ELI = "ExportLensInput";
 const _ELO = "ExportLensOutput";
 const _F = "Fields";
+const _FA = "FailedAccount";
+const _FAL = "FailedAccountList";
+const _FOU = "FailedOrganizationalUnit";
+const _FOUL = "FailedOrganizationalUnitList";
 const _FR = "FlaggedResources";
 const _Fo = "Format";
 const _GA = "GetAnswer";
@@ -153,13 +177,28 @@ const _GAGR = "GetAgentGoalRequest";
 const _GAGRe = "GetAgentGoalResponse";
 const _GAI = "GetAnswerInput";
 const _GAO = "GetAnswerOutput";
-const _GAP = "GetAgentProfile";
-const _GAPR = "GetAgentProfileRequest";
-const _GAPRe = "GetAgentProfileResponse";
+const _GAOR = "GetAgentOrganizationalReport";
+const _GAORD = "GetAgentOrganizationalReportData";
+const _GAORDR = "GetAgentOrganizationalReportDataRequest";
+const _GAORDRe = "GetAgentOrganizationalReportDataResponse";
+const _GAORR = "GetAgentOrganizationalReportRequest";
+const _GAORRe = "GetAgentOrganizationalReportResponse";
+const _GAP = "GetAgentPreferences";
+const _GAPP = "GetAgentProfilePolicy";
+const _GAPPR = "GetAgentProfilePolicyRequest";
+const _GAPPRe = "GetAgentProfilePolicyResponse";
+const _GAPR = "GetAgentPreferencesRequest";
+const _GAPRe = "GetAgentPreferencesResponse";
+const _GAPRet = "GetAgentProfileRequest";
+const _GAPRetg = "GetAgentProfileResponse";
+const _GAPe = "GetAgentProfile";
 const _GAR = "GetAgentRecommendation";
 const _GARG = "GetAgentRecommendationGeneration";
 const _GARGR = "GetAgentRecommendationGenerationRequest";
 const _GARGRe = "GetAgentRecommendationGenerationResponse";
+const _GARP = "GetAgentRecommendationPolicy";
+const _GARPR = "GetAgentRecommendationPolicyRequest";
+const _GARPRe = "GetAgentRecommendationPolicyResponse";
 const _GARR = "GetAgentRecommendationRequest";
 const _GARRe = "GetAgentRecommendationResponse";
 const _GCR = "GetConsolidatedReport";
@@ -244,6 +283,9 @@ const _LAGR = "ListAgentGoalsRequest";
 const _LAGRi = "ListAgentGoalsResponse";
 const _LAI = "ListAnswersInput";
 const _LAO = "ListAnswersOutput";
+const _LAOR = "ListAgentOrganizationalReports";
+const _LAORR = "ListAgentOrganizationalReportsRequest";
+const _LAORRi = "ListAgentOrganizationalReportsResponse";
 const _LAP = "ListAgentProfiles";
 const _LAPR = "ListAgentProfilesRequest";
 const _LAPRi = "ListAgentProfilesResponse";
@@ -355,17 +397,40 @@ const _NSo = "NotificationSummary";
 const _NT = "NextToken";
 const _Na = "Name";
 const _O = "Owner";
+const _OAC = "OrganizationalAggregationConfiguration";
+const _OAE = "OrganizationalAccountEntry";
+const _OAEL = "OrganizationalAccountEntryList";
+const _ORF = "OrganizationalReportFilters";
+const _ORS = "OrganizationalReportSummary";
+const _ORSL = "OrganizationalReportSummaryList";
 const _OSS = "OrganizationSharingStatus";
+const _OUE = "OrganizationalUnitEntry";
+const _OUEL = "OrganizationalUnitEntryList";
 const _P = "Provider";
 const _PA = "ProfileArns";
+const _PAP = "PutAgentPreferences";
+const _PAPP = "PutAgentProfilePolicy";
+const _PAPPR = "PutAgentProfilePolicyRequest";
+const _PAPPRu = "PutAgentProfilePolicyResponse";
+const _PAPR = "PutAgentPreferencesRequest";
+const _PAPRu = "PutAgentPreferencesResponse";
 const _PARF = "PutAgentRecommendationFeedback";
 const _PARFR = "PutAgentRecommendationFeedbackRequest";
 const _PARFRu = "PutAgentRecommendationFeedbackResponse";
+const _PARP = "PutAgentRecommendationPolicy";
+const _PARPR = "PutAgentRecommendationPolicyRequest";
+const _PARPRu = "PutAgentRecommendationPolicyResponse";
 const _PAr = "ProfileArn";
-const _PC = "ProfileChoice";
+const _PC = "PillarCount";
+const _PCL = "PillarCountList";
+const _PCLr = "PriorityCountList";
+const _PCr = "PriorityCount";
+const _PCro = "ProfileChoice";
 const _PD = "ProfileDescription";
 const _PDi = "PillarDifference";
 const _PDil = "PillarDifferences";
+const _PE = "PreferenceEntry";
+const _PEr = "PreferenceEntries";
 const _PI = "PillarId";
 const _PIi = "PillarItem";
 const _PIil = "PillarItems";
@@ -396,6 +461,8 @@ const _PTC = "ProfileTemplateChoice";
 const _PTQ = "ProfileTemplateQuestion";
 const _PTQC = "ProfileTemplateQuestionChoices";
 const _PTr = "ProfileTemplate";
+const _PU = "PreferenceUpdate";
+const _PUr = "PreferenceUpdates";
 const _PV = "ProfileVersion";
 const _Pi = "Pillars";
 const _Pr = "Profile";
@@ -445,6 +512,9 @@ const _RTev = "ReviewTemplates";
 const _Ri = "Risk";
 const _Ro = "Roi";
 const _S = "Subdomain";
+const _SAORDTS = "SendAgentOrganizationalReportDataToS3";
+const _SAORDTSR = "SendAgentOrganizationalReportDataToS3Request";
+const _SAORDTSRe = "SendAgentOrganizationalReportDataToS3Response";
 const _SARG = "StartAgentRecommendationGeneration";
 const _SARGR = "StartAgentRecommendationGenerationRequest";
 const _SARGRt = "StartAgentRecommendationGenerationResponse";
@@ -452,6 +522,7 @@ const _SB = "SharedBy";
 const _SC = "ServiceCode";
 const _SCI = "SelectedChoiceIds";
 const _SCe = "SelectedChoices";
+const _SD = "SensitiveDocument";
 const _SI = "ShareId";
 const _SIA = "ShareInvitationAction";
 const _SII = "ShareInvitationId";
@@ -485,6 +556,7 @@ const _TRI = "TagResourceInput";
 const _TRO = "TagResourceOutput";
 const _TSS = "TemplateShareSummaries";
 const _TSSe = "TemplateShareSummary";
+const _TW = "TimeWindow";
 const _Ta = "Tags";
 const _Tag = "Tag";
 const _Ti = "Title";
@@ -498,6 +570,9 @@ const _UAGR = "UpdateAgentGoalRequest";
 const _UAGRp = "UpdateAgentGoalResponse";
 const _UAI = "UpdateAnswerInput";
 const _UAO = "UpdateAnswerOutput";
+const _UAOP = "UpdateAgentOrganizationalProfile";
+const _UAOPR = "UpdateAgentOrganizationalProfileRequest";
+const _UAOPRp = "UpdateAgentOrganizationalProfileResponse";
 const _UAP = "UpdateAgentProfile";
 const _UAPR = "UpdateAgentProfileRequest";
 const _UAPRp = "UpdateAgentProfileResponse";
@@ -571,30 +646,43 @@ const _aI = "accountId";
 const _aIc = "accountIds";
 const _aO = "applicationOverview";
 const _aOr = "architectureOverview";
+const _aR = "autoRemediation";
 const _aRA = "accessRoleArn";
 const _aS = "awsServices";
 const _aT = "applicationType";
+const _aWP = "accountsWithProfile";
+const _aWPc = "accountsWithoutProfile";
+const _ac = "accounts";
 const _ap = "applications";
+const _bA = "bucketArn";
 const _bO = "businessOverview";
 const _bU = "businessUnits";
 const _c = "client";
 const _cA = "createdAt";
+const _cAR = "createdAtRange";
 const _cB = "createdBy";
+const _cC = "cliCommand";
 const _cP = "completionPercentage";
 const _cPB = "crossPillarBenefits";
+const _cS = "coverageSummary";
 const _cT = "contextType";
 const _cTl = "clientToken";
 const _co = "content";
 const _cod = "code";
 const _com = "comments";
 const _con = "context";
+const _cou = "count";
 const _cr = "criticality";
 const _d = "description";
+const _dL = "deepLink";
 const _dN = "displayName";
 const _dP = "deletionProtection";
+const _dT = "deliveredTo";
+const _dU = "downloadUrl";
 const _de = "detail";
 const _e = "error";
 const _eA = "endedAt";
+const _eAx = "expiresAt";
 const _eCT = "estimatedCompletionTime";
 const _eD = "errorDetails";
 const _eFAG = "eligibleForArchitectureGeneration";
@@ -602,11 +690,19 @@ const _eFSG = "eligibleForScheduledGeneration";
 const _eRA = "executionRoleArn";
 const _ef = "effort";
 const _es = "estimate";
+const _f = "filters";
+const _fA = "failedAccounts";
+const _fAC = "failedAccountCount";
 const _fC = "feedbackCategory";
 const _fE = "fieldErrors";
+const _fOU = "failedOrganizationalUnits";
+const _fo = "format";
+const _fr = "from";
 const _g = "goal";
 const _gI = "generationId";
 const _gIo = "goalIds";
+const _gRT = "generationRecommendationTypes";
+const _gT = "generationType";
 const _go = "goals";
 const _h = "highlights";
 const _hE = "httpError";
@@ -621,6 +717,7 @@ const _in = "industry";
 const _ins = "insights";
 const _it = "items";
 const _k = "key";
+const _l = "label";
 const _lMA = "lastModifiedAt";
 const _lMB = "lastModifiedBy";
 const _m = "metadata";
@@ -630,21 +727,37 @@ const _mi = "mitigation";
 const _n = "name";
 const _nOR = "numberOfResources";
 const _nT = "nextToken";
+const _oAC = "organizationalAggregationConfiguration";
+const _oAI = "ownerAccountId";
+const _oI = "organizationId";
+const _oK = "objectKey";
+const _oU = "organizationalUnits";
+const _oUI = "organizationalUnitIds";
+const _oUIr = "organizationalUnitId";
 const _p = "pillars";
 const _pA = "profileArn";
+const _pT = "profileType";
 const _pi = "pillar";
+const _po = "policy";
 const _pr = "priority";
+const _pre = "preferences";
+const _pri = "priorities";
 const _pro = "progress";
 const _r = "roi";
 const _rA = "recommendationArn";
+const _rCBP = "recommendationCountByPillar";
+const _rCBPe = "recommendationCountByPriority";
 const _rE = "riskExplanation";
+const _rI = "reportId";
 const _rL = "resourceLinks";
 const _rS = "remediationSummary";
 const _rT = "resourceTypes";
 const _rTe = "resourceTags";
 const _rTec = "recommendationType";
+const _rTeco = "recommendationTypes";
 const _rTem = "remediationType";
 const _re = "regions";
+const _rea = "reason";
 const _rec = "recommendation";
 const _rem = "remediations";
 const _ri = "risk";
@@ -657,15 +770,21 @@ const _se = "server";
 const _so = "sources";
 const _st = "status";
 const _sta = "state";
+const _stat = "statuses";
 const _ste = "steps";
-const _t = "tags";
+const _t = "type";
+const _tAIS = "totalAccountsInScope";
 const _tK = "tagKeys";
 const _tO = "tradeOffs";
+const _tP = "totalProfiles";
+const _tR = "totalRecommendations";
 const _tS = "totalSteps";
+const _ta = "tags";
 const _ti = "title";
-const _ty = "type";
-const _typ = "types";
+const _to = "to";
+const _ty = "types";
 const _u = "url";
+const _uAR = "updatedAtRange";
 const _uP = "usagePattern";
 const _uR = "updateReason";
 const _v = "value";
@@ -749,6 +868,7 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var SensitiveDocument: StaticSimpleSchema = [0, n0, _SD, 8, 15];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AccountJiraConfigurationInput$: StaticStructureSchema = [3, n0, _AJCI,
   0,
@@ -767,27 +887,27 @@ export var AdditionalResources$: StaticStructureSchema = [3, n0, _AR,
 ];
 export var AgentProfileSummary$: StaticStructureSchema = [3, n0, _APS,
   0,
-  [_n, _p, _eRA, _aC, _a, _cB, _cA, _dN, _d, _bO, _dP, _eFSG, _eFAG, _fE, _t, _lMB, _lMA],
-  [0, 64 | 0, 0, () => AggregationConfigurations, 0, 0, 5, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 2, 2, 2, 128 | 0, () => Tags, 0, 5], 7
+  [_n, _a, _cB, _cA, _dN, _d, _bO, _p, _dP, _pT, _eRA, _aC, _eFSG, _eFAG, _fE, _lMB, _lMA, _oAC],
+  [0, 0, 0, 5, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 64 | 0, 2, 0, 0, () => AggregationConfigurations, 2, 2, 128 | 0, 0, 5, () => OrganizationalAggregationConfiguration$], 4
 ];
 export var AgentRecommendationGenerationSummary$: StaticStructureSchema = [3, n0, _ARGS,
   0,
-  [_i, _pA, _st, _cB, _cA, _n, _eCT, _lMB, _lMA],
-  [0, 0, 0, 0, 5, 0, 5, 0, 5], 5
+  [_i, _pA, _st, _cB, _cA, _n, _eCT, _lMB, _lMA, _gT, _gRT, _sA, _eA, _eD],
+  [0, 0, 0, 0, 5, 0, 5, 0, 5, 0, 64 | 0, 5, 5, () => ErrorDetails$], 5
 ];
 export var AgentRecommendationItemSummary$: StaticStructureSchema = [3, n0, _ARIS,
   0,
-  [_i, _rA, _ty, _m, _cB, _cA, _lMB, _lMA],
-  [0, 0, 0, 15, 0, 5, 0, 5], 6
+  [_i, _rA, _t, _m, _cB, _cA, _lMB, _lMA, _aR],
+  [0, 0, 0, 15, 0, 5, 0, 5, () => AutoRemediation$], 6
 ];
 export var AgentRecommendationRemediation$: StaticStructureSchema = [3, n0, _ARR,
   0,
-  [_rA, _ty, _ste, _cB, _cA, _rL, _lMB, _lMA],
+  [_rA, _t, _ste, _cB, _cA, _rL, _lMB, _lMA],
   [0, 0, [() => RemediationSteps, 0], 0, 5, () => ResourceLinks, 0, 5], 5
 ];
 export var AgentRecommendationSummary$: StaticStructureSchema = [3, n0, _ARS,
   0,
-  [_rA, _pA, _ti, _d, _ty, _pi, _pr, _ef, _st, _sta, _im, _r, _cB, _cA, _gI, _uR, _nOR, _aS, _bU, _ap, _lMB, _lMA],
+  [_rA, _pA, _ti, _d, _t, _pi, _pr, _ef, _st, _sta, _im, _r, _cB, _cA, _gI, _uR, _nOR, _aS, _bU, _ap, _lMB, _lMA],
   [0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, 0, 0, 0, 0, 0, () => Roi$, 0, 5, 0, [() => SensitiveString, 0], 1, 64 | 0, 64 | 0, 64 | 0, 0, 5], 14
 ];
 export var AggregationConfiguration$: StaticStructureSchema = [3, n0, _AC,
@@ -814,6 +934,11 @@ export var AssociateProfilesInput$: StaticStructureSchema = [3, n0, _API,
   0,
   [_WI, _PA],
   [[0, 1], 64 | 0], 2
+];
+export var AutoRemediation$: StaticStructureSchema = [3, n0, _ARu,
+  0,
+  [_dL, _cC],
+  [0, 0]
 ];
 export var BestPractice$: StaticStructureSchema = [3, n0, _BP,
   0,
@@ -867,8 +992,8 @@ export var ConsolidatedReportMetric$: StaticStructureSchema = [3, n0, _CRM,
 ];
 export var ContextContent$: StaticStructureSchema = [3, n0, _CCo,
   0,
-  [_aIc, _re, _aS, _rT, _rTe, _aO, _in, _aT, _cr, _aOr, _aCd],
-  [64 | 0, 64 | 0, 64 | 0, 64 | 0, () => ContextResourceTagList, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0]]
+  [_aIc, _re, _aS, _rT, _rTe, _oUI, _aO, _in, _aT, _cr, _aOr, _aCd],
+  [64 | 0, 64 | 0, 64 | 0, 64 | 0, () => ContextResourceTagList, 64 | 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0]]
 ];
 export var ContextResourceTag$: StaticStructureSchema = [3, n0, _CRT,
   0,
@@ -879,6 +1004,21 @@ export var ContextSummary$: StaticStructureSchema = [3, n0, _CSo,
   0,
   [_i, _pA, _ti, _cT, _co, _cB, _cA, _aT, _cr, _lMB, _lMA],
   [0, 0, [() => SensitiveString, 0], 0, [() => ContextContent$, 0], 0, 5, 0, 0, 0, 5], 7
+];
+export var CoverageSummary$: StaticStructureSchema = [3, n0, _CSov,
+  0,
+  [_tAIS, _aWP, _aWPc, _fAC, _tP, _tR, _rCBP, _rCBPe, _fA, _fOU],
+  [1, 1, 1, 1, 1, 1, () => PillarCountList, () => PriorityCountList, () => FailedAccountList, () => FailedOrganizationalUnitList], 6
+];
+export var CreateAgentBasicProfileRequest$: StaticStructureSchema = [3, n0, _CABPR,
+  0,
+  [_ta],
+  [() => Tags]
+];
+export var CreateAgentBasicProfileResponse$: StaticStructureSchema = [3, n0, _CABPRr,
+  0,
+  [_cB, _cA, _a, _lMB, _lMA],
+  [0, 5, 0, 0, 5], 3
 ];
 export var CreateAgentContextRequest$: StaticStructureSchema = [3, n0, _CACR,
   0,
@@ -900,14 +1040,34 @@ export var CreateAgentGoalResponse$: StaticStructureSchema = [3, n0, _CAGRr,
   [_g],
   [[() => GoalSummary$, 0]], 1
 ];
+export var CreateAgentOrganizationalProfileRequest$: StaticStructureSchema = [3, n0, _CAOPR,
+  0,
+  [_n, _p, _dN, _d, _bO, _dP, _cTl, _oAC, _ta],
+  [0, 64 | 0, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 2, [0, 4], () => OrganizationalAggregationConfiguration$, () => Tags], 2
+];
+export var CreateAgentOrganizationalProfileResponse$: StaticStructureSchema = [3, n0, _CAOPRr,
+  0,
+  [_n, _p, _oI, _a, _cB, _cA, _dN, _d, _bO, _dP, _oAC, _eFSG, _eFAG, _fE, _ta, _lMB, _lMA],
+  [0, 64 | 0, 0, 0, 0, 5, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 2, () => OrganizationalAggregationConfiguration$, 2, 2, 128 | 0, () => Tags, 0, 5], 6
+];
+export var CreateAgentOrganizationalReportRequest$: StaticStructureSchema = [3, n0, _CAORR,
+  0,
+  [_cTl, _l, _f],
+  [[0, 4], 0, () => OrganizationalReportFilters$]
+];
+export var CreateAgentOrganizationalReportResponse$: StaticStructureSchema = [3, n0, _CAORRr,
+  0,
+  [_rI, _sta],
+  [0, 0], 2
+];
 export var CreateAgentProfileRequest$: StaticStructureSchema = [3, n0, _CAPR,
   0,
-  [_n, _p, _eRA, _aC, _dN, _d, _bO, _dP, _cTl, _t],
+  [_n, _p, _eRA, _aC, _dN, _d, _bO, _dP, _cTl, _ta],
   [0, 64 | 0, 0, () => AggregationConfigurations, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 2, [0, 4], () => Tags], 4
 ];
 export var CreateAgentProfileResponse$: StaticStructureSchema = [3, n0, _CAPRr,
   0,
-  [_n, _p, _eRA, _aC, _a, _cB, _cA, _dN, _d, _bO, _dP, _eFSG, _eFAG, _fE, _t, _lMB, _lMA],
+  [_n, _p, _eRA, _aC, _a, _cB, _cA, _dN, _d, _bO, _dP, _eFSG, _eFAG, _fE, _ta, _lMB, _lMA],
   [0, 64 | 0, 0, () => AggregationConfigurations, 0, 0, 5, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 2, 2, 2, 128 | 0, () => Tags, 0, 5], 7
 ];
 export var CreateLensShareInput$: StaticStructureSchema = [3, n0, _CLSI,
@@ -1025,12 +1185,42 @@ export var DeleteAgentGoalResponse$: StaticStructureSchema = [3, n0, _DAGRe,
   [],
   []
 ];
+export var DeleteAgentOrganizationalReportRequest$: StaticStructureSchema = [3, n0, _DAORR,
+  0,
+  [_rI],
+  [[0, 1]], 1
+];
+export var DeleteAgentOrganizationalReportResponse$: StaticStructureSchema = [3, n0, _DAORRe,
+  0,
+  [],
+  []
+];
+export var DeleteAgentProfilePolicyRequest$: StaticStructureSchema = [3, n0, _DAPPR,
+  0,
+  [_pA],
+  [[0, 1]], 1
+];
+export var DeleteAgentProfilePolicyResponse$: StaticStructureSchema = [3, n0, _DAPPRe,
+  0,
+  [],
+  []
+];
 export var DeleteAgentProfileRequest$: StaticStructureSchema = [3, n0, _DAPR,
   0,
   [_pA],
   [[0, 1]], 1
 ];
 export var DeleteAgentProfileResponse$: StaticStructureSchema = [3, n0, _DAPRe,
+  0,
+  [],
+  []
+];
+export var DeleteAgentRecommendationPolicyRequest$: StaticStructureSchema = [3, n0, _DARPR,
+  0,
+  [_rA],
+  [[0, 1]], 1
+];
+export var DeleteAgentRecommendationPolicyResponse$: StaticStructureSchema = [3, n0, _DARPRe,
   0,
   [],
   []
@@ -1100,6 +1290,16 @@ export var ExportLensOutput$: StaticStructureSchema = [3, n0, _ELO,
   [_LJSON],
   [0]
 ];
+export var FailedAccount$: StaticStructureSchema = [3, n0, _FA,
+  0,
+  [_aI, _rea],
+  [0, 0], 2
+];
+export var FailedOrganizationalUnit$: StaticStructureSchema = [3, n0, _FOU,
+  0,
+  [_oUIr, _rea],
+  [0, 0], 2
+];
 export var GetAgentContextRequest$: StaticStructureSchema = [3, n0, _GACR,
   0,
   [_pA, _i],
@@ -1120,15 +1320,55 @@ export var GetAgentGoalResponse$: StaticStructureSchema = [3, n0, _GAGRe,
   [_g],
   [[() => GoalSummary$, 0]], 1
 ];
-export var GetAgentProfileRequest$: StaticStructureSchema = [3, n0, _GAPR,
+export var GetAgentOrganizationalReportDataRequest$: StaticStructureSchema = [3, n0, _GAORDR,
+  0,
+  [_rI, _fo],
+  [[0, 1], [0, { [_hQ]: _fo }]], 2
+];
+export var GetAgentOrganizationalReportDataResponse$: StaticStructureSchema = [3, n0, _GAORDRe,
+  0,
+  [_dU, _eAx],
+  [0, 5], 2
+];
+export var GetAgentOrganizationalReportRequest$: StaticStructureSchema = [3, n0, _GAORR,
+  0,
+  [_rI],
+  [[0, 1]], 1
+];
+export var GetAgentOrganizationalReportResponse$: StaticStructureSchema = [3, n0, _GAORRe,
+  0,
+  [_rI, _oAI, _oI, _sta, _cA, _l, _f, _cS],
+  [0, 0, 0, 0, 5, 0, () => OrganizationalReportFilters$, () => CoverageSummary$], 5
+];
+export var GetAgentPreferencesRequest$: StaticStructureSchema = [3, n0, _GAPR,
+  0,
+  [],
+  []
+];
+export var GetAgentPreferencesResponse$: StaticStructureSchema = [3, n0, _GAPRe,
+  0,
+  [_pre],
+  [() => PreferenceEntries], 1
+];
+export var GetAgentProfilePolicyRequest$: StaticStructureSchema = [3, n0, _GAPPR,
   0,
   [_pA],
   [[0, 1]], 1
 ];
-export var GetAgentProfileResponse$: StaticStructureSchema = [3, n0, _GAPRe,
+export var GetAgentProfilePolicyResponse$: StaticStructureSchema = [3, n0, _GAPPRe,
   0,
-  [_n, _p, _eRA, _aC, _a, _cB, _cA, _dN, _d, _bO, _dP, _eFSG, _eFAG, _fE, _t, _lMB, _lMA],
-  [0, 64 | 0, 0, () => AggregationConfigurations, 0, 0, 5, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 2, 2, 2, 128 | 0, () => Tags, 0, 5], 7
+  [_pA, _po],
+  [0, 0], 2
+];
+export var GetAgentProfileRequest$: StaticStructureSchema = [3, n0, _GAPRet,
+  0,
+  [_pA],
+  [[0, 1]], 1
+];
+export var GetAgentProfileResponse$: StaticStructureSchema = [3, n0, _GAPRetg,
+  0,
+  [_n, _a, _cB, _cA, _dN, _d, _bO, _p, _dP, _pT, _eRA, _aC, _eFSG, _eFAG, _fE, _ta, _lMB, _lMA, _oAC],
+  [0, 0, 0, 5, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 64 | 0, 2, 0, 0, () => AggregationConfigurations, 2, 2, 128 | 0, () => Tags, 0, 5, () => OrganizationalAggregationConfiguration$], 4
 ];
 export var GetAgentRecommendationGenerationRequest$: StaticStructureSchema = [3, n0, _GARGR,
   0,
@@ -1137,8 +1377,18 @@ export var GetAgentRecommendationGenerationRequest$: StaticStructureSchema = [3,
 ];
 export var GetAgentRecommendationGenerationResponse$: StaticStructureSchema = [3, n0, _GARGRe,
   0,
-  [_i, _pA, _st, _cB, _cA, _n, _eCT, _lMB, _lMA, _aCd, _sc, _sA, _eA, _pro, _eD],
-  [0, 0, 0, 0, 5, 0, 5, 0, 5, 15, () => Scope$, 5, 5, () => Progress$, () => ErrorDetails$], 5
+  [_i, _pA, _st, _cB, _cA, _n, _eCT, _lMB, _lMA, _gT, _gRT, _sA, _eA, _eD, _aCd, _sc, _pro],
+  [0, 0, 0, 0, 5, 0, 5, 0, 5, 0, 64 | 0, 5, 5, () => ErrorDetails$, [() => SensitiveDocument, 0], () => Scope$, () => Progress$], 5
+];
+export var GetAgentRecommendationPolicyRequest$: StaticStructureSchema = [3, n0, _GARPR,
+  0,
+  [_rA],
+  [[0, 1]], 1
+];
+export var GetAgentRecommendationPolicyResponse$: StaticStructureSchema = [3, n0, _GARPRe,
+  0,
+  [_rA, _po],
+  [0, 0], 2
 ];
 export var GetAgentRecommendationRequest$: StaticStructureSchema = [3, n0, _GARR,
   0,
@@ -1147,7 +1397,7 @@ export var GetAgentRecommendationRequest$: StaticStructureSchema = [3, n0, _GARR
 ];
 export var GetAgentRecommendationResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
-  [_rA, _pA, _ti, _d, _ty, _pi, _pr, _ef, _st, _sta, _im, _r, _iD, _ins, _h, _rS, _cB, _cA, _gI, _uR, _nOR, _aS, _bU, _ap, _cPB, _tO, _so, _go, _t, _lMB, _lMA, _rem],
+  [_rA, _pA, _ti, _d, _t, _pi, _pr, _ef, _st, _sta, _im, _r, _iD, _ins, _h, _rS, _cB, _cA, _gI, _uR, _nOR, _aS, _bU, _ap, _cPB, _tO, _so, _go, _ta, _lMB, _lMA, _rem],
   [0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, 0, 0, 0, 0, 0, () => Roi$, 64 | 0, () => InsightList, 64 | 0, () => RemediationSummary$, 0, 5, 0, [() => SensitiveString, 0], 1, 64 | 0, 64 | 0, 64 | 0, () => CrossPillarBenefits, () => TradeOffs, 64 | 0, () => RecommendationGoals, () => Tags, 0, 5, [() => AgentRecommendationRemediations, 0]], 18
 ];
 export var GetAnswerInput$: StaticStructureSchema = [3, n0, _GAI,
@@ -1380,6 +1630,16 @@ export var ListAgentGoalsResponse$: StaticStructureSchema = [3, n0, _LAGRi,
   [_it, _nT],
   [[() => GoalSummaries, 0], 0], 1
 ];
+export var ListAgentOrganizationalReportsRequest$: StaticStructureSchema = [3, n0, _LAORR,
+  0,
+  [_mR, _nT, _sta],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _sta }]]
+];
+export var ListAgentOrganizationalReportsResponse$: StaticStructureSchema = [3, n0, _LAORRi,
+  0,
+  [_it, _nT],
+  [() => OrganizationalReportSummaryList, 0], 1
+];
 export var ListAgentProfilesRequest$: StaticStructureSchema = [3, n0, _LAPR,
   0,
   [_mR, _nT],
@@ -1402,8 +1662,8 @@ export var ListAgentRecommendationGenerationsResponse$: StaticStructureSchema = 
 ];
 export var ListAgentRecommendationItemsRequest$: StaticStructureSchema = [3, n0, _LARIR,
   0,
-  [_rA, _ty, _mR, _nT],
-  [[0, 1], [0, { [_hQ]: _ty }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+  [_rA, _t, _mR, _nT],
+  [[0, 1], [0, { [_hQ]: _t }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListAgentRecommendationItemsResponse$: StaticStructureSchema = [3, n0, _LARIRi,
   0,
@@ -1625,6 +1885,36 @@ export var NotificationSummary$: StaticStructureSchema = [3, n0, _NSo,
   [_T, _LUS],
   [0, () => LensUpgradeSummary$]
 ];
+export var OrganizationalAccountEntry$: StaticStructureSchema = [3, n0, _OAE,
+  0,
+  [_aI, _re],
+  [0, 64 | 0], 2
+];
+export var OrganizationalAggregationConfiguration$: StaticStructureSchema = [3, n0, _OAC,
+  0,
+  [_oU, _ac],
+  [() => OrganizationalUnitEntryList, () => OrganizationalAccountEntryList]
+];
+export var OrganizationalReportFilters$: StaticStructureSchema = [3, n0, _ORF,
+  0,
+  [_aIc, _oUI, _p, _rTeco, _stat, _pri, _cAR, _uAR],
+  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => TimeWindow$, () => TimeWindow$]
+];
+export var OrganizationalReportSummary$: StaticStructureSchema = [3, n0, _ORS,
+  0,
+  [_rI, _oAI, _oI, _sta, _cA, _l],
+  [0, 0, 0, 0, 5, 0], 5
+];
+export var OrganizationalUnitEntry$: StaticStructureSchema = [3, n0, _OUE,
+  0,
+  [_oUIr, _re],
+  [0, 64 | 0], 2
+];
+export var PillarCount$: StaticStructureSchema = [3, n0, _PC,
+  0,
+  [_pi, _cou],
+  [0, 1], 2
+];
 export var PillarDifference$: StaticStructureSchema = [3, n0, _PDi,
   0,
   [_PI, _PNi, _DS, _QDu],
@@ -1645,12 +1935,27 @@ export var PillarReviewSummary$: StaticStructureSchema = [3, n0, _PRSi,
   [_PI, _PNi, _N, _RC, _PRC],
   [0, 0, 0, 128 | 1, 128 | 1]
 ];
+export var PreferenceEntry$: StaticStructureSchema = [3, n0, _PE,
+  0,
+  [_k, _st, _de],
+  [0, 0, 0], 2
+];
+export var PreferenceUpdate$: StaticStructureSchema = [3, n0, _PU,
+  0,
+  [_k, _sta],
+  [0, 0], 2
+];
+export var PriorityCount$: StaticStructureSchema = [3, n0, _PCr,
+  0,
+  [_pr, _cou],
+  [0, 1], 2
+];
 export var Profile$: StaticStructureSchema = [3, n0, _Pr,
   0,
   [_PAr, _PV, _PN, _PD, _PQ, _O, _CAr, _UA, _SII, _Ta],
   [0, 0, 0, 0, () => ProfileQuestions, 0, 4, 4, 0, 128 | 0]
 ];
-export var ProfileChoice$: StaticStructureSchema = [3, n0, _PC,
+export var ProfileChoice$: StaticStructureSchema = [3, n0, _PCro,
   0,
   [_CI, _CT, _CDho],
   [0, 0, 0]
@@ -1700,12 +2005,42 @@ export var Progress$: StaticStructureSchema = [3, n0, _Prog,
   [_sC, _tS, _cP],
   [1, 1, 1], 3
 ];
+export var PutAgentPreferencesRequest$: StaticStructureSchema = [3, n0, _PAPR,
+  0,
+  [_pre],
+  [() => PreferenceUpdates], 1
+];
+export var PutAgentPreferencesResponse$: StaticStructureSchema = [3, n0, _PAPRu,
+  0,
+  [],
+  []
+];
+export var PutAgentProfilePolicyRequest$: StaticStructureSchema = [3, n0, _PAPPR,
+  0,
+  [_pA, _po],
+  [[0, 1], 0], 2
+];
+export var PutAgentProfilePolicyResponse$: StaticStructureSchema = [3, n0, _PAPPRu,
+  0,
+  [],
+  []
+];
 export var PutAgentRecommendationFeedbackRequest$: StaticStructureSchema = [3, n0, _PARFR,
   0,
-  [_rA, _ty, _fC, _com],
-  [[0, 1], 0, 0, 0], 2
+  [_rA, _t, _fC, _com],
+  [[0, 1], 0, 0, [() => SensitiveString, 0]], 2
 ];
 export var PutAgentRecommendationFeedbackResponse$: StaticStructureSchema = [3, n0, _PARFRu,
+  0,
+  [],
+  []
+];
+export var PutAgentRecommendationPolicyRequest$: StaticStructureSchema = [3, n0, _PARPR,
+  0,
+  [_rA, _po],
+  [[0, 1], 0], 2
+];
+export var PutAgentRecommendationPolicyResponse$: StaticStructureSchema = [3, n0, _PARPRu,
   0,
   [],
   []
@@ -1785,6 +2120,16 @@ export var SelectedPillar$: StaticStructureSchema = [3, n0, _SPe,
   [_PI, _SQI],
   [0, 64 | 0]
 ];
+export var SendAgentOrganizationalReportDataToS3Request$: StaticStructureSchema = [3, n0, _SAORDTSR,
+  0,
+  [_rI, _fo, _bA, _oK],
+  [[0, 1], 0, 0, 0], 4
+];
+export var SendAgentOrganizationalReportDataToS3Response$: StaticStructureSchema = [3, n0, _SAORDTSRe,
+  0,
+  [_dT],
+  [0], 1
+];
 export var ShareInvitation$: StaticStructureSchema = [3, n0, _SIh,
   0,
   [_SII, _SRT, _WI, _LAen, _LAe, _PAr, _TA],
@@ -1797,8 +2142,8 @@ export var ShareInvitationSummary$: StaticStructureSchema = [3, n0, _SISh,
 ];
 export var StartAgentRecommendationGenerationRequest$: StaticStructureSchema = [3, n0, _SARGR,
   0,
-  [_pA, _typ, _sc, _n, _aCd],
-  [[0, 1], 64 | 0, () => Scope$, 0, 15], 3
+  [_pA, _ty, _n, _aCd, _sc],
+  [[0, 1], 64 | 0, 0, [() => SensitiveDocument, 0], () => Scope$], 2
 ];
 export var StartAgentRecommendationGenerationResponse$: StaticStructureSchema = [3, n0, _SARGRt,
   0,
@@ -1824,6 +2169,11 @@ export var TemplateShareSummary$: StaticStructureSchema = [3, n0, _TSSe,
   0,
   [_SI, _SW, _St, _SM],
   [0, 0, 0, 0]
+];
+export var TimeWindow$: StaticStructureSchema = [3, n0, _TW,
+  0,
+  [_fr, _to],
+  [5, 5]
 ];
 export var TradeOff$: StaticStructureSchema = [3, n0, _TO,
   0,
@@ -1860,6 +2210,16 @@ export var UpdateAgentGoalResponse$: StaticStructureSchema = [3, n0, _UAGRp,
   [_g],
   [[() => GoalSummary$, 0]], 1
 ];
+export var UpdateAgentOrganizationalProfileRequest$: StaticStructureSchema = [3, n0, _UAOPR,
+  0,
+  [_pA, _cTl, _dN, _d, _bO, _p, _dP, _oAC],
+  [[0, 1], [0, 4], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 64 | 0, 2, () => OrganizationalAggregationConfiguration$], 1
+];
+export var UpdateAgentOrganizationalProfileResponse$: StaticStructureSchema = [3, n0, _UAOPRp,
+  0,
+  [_n, _p, _oI, _a, _cB, _cA, _dN, _d, _bO, _dP, _oAC, _eFSG, _eFAG, _fE, _lMB, _lMA],
+  [0, 64 | 0, 0, 0, 0, 5, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 2, () => OrganizationalAggregationConfiguration$, 2, 2, 128 | 0, 0, 5], 6
+];
 export var UpdateAgentProfileRequest$: StaticStructureSchema = [3, n0, _UAPR,
   0,
   [_pA, _cTl, _dN, _d, _eRA, _aC, _bO, _p, _dP],
@@ -1867,8 +2227,8 @@ export var UpdateAgentProfileRequest$: StaticStructureSchema = [3, n0, _UAPR,
 ];
 export var UpdateAgentProfileResponse$: StaticStructureSchema = [3, n0, _UAPRp,
   0,
-  [_n, _p, _eRA, _aC, _a, _cB, _cA, _dN, _d, _bO, _dP, _eFSG, _eFAG, _fE, _t, _lMB, _lMA],
-  [0, 64 | 0, 0, () => AggregationConfigurations, 0, 0, 5, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 2, 2, 2, 128 | 0, () => Tags, 0, 5], 7
+  [_n, _p, _eRA, _aC, _a, _cB, _cA, _dN, _d, _bO, _dP, _eFSG, _eFAG, _fE, _lMB, _lMA],
+  [0, 64 | 0, 0, () => AggregationConfigurations, 0, 0, 5, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 2, 2, 2, 128 | 0, 0, 5], 7
 ];
 export var UpdateAgentRecommendationStatusRequest$: StaticStructureSchema = [3, n0, _UARSR,
   0,
@@ -2099,6 +2459,7 @@ var ConsolidatedReportMetrics: StaticListSchema = [1, n0, _CRMo,
 ];
 var ContextAccountIdList = 64 | 0;
 var ContextAwsServiceList = 64 | 0;
+var ContextOrganizationalUnitIdList = 64 | 0;
 var ContextRegionList = 64 | 0;
 var ContextResourceTagList: StaticListSchema = [1, n0, _CRTL,
   0, () => ContextResourceTag$
@@ -2111,6 +2472,13 @@ var ContextSummaries: StaticListSchema = [1, n0, _CSon,
 var CrossPillarBenefits: StaticListSchema = [1, n0, _CPBr,
   0, () => CrossPillarBenefit$
 ];
+var FailedAccountList: StaticListSchema = [1, n0, _FAL,
+  0, () => FailedAccount$
+];
+var FailedOrganizationalUnitList: StaticListSchema = [1, n0, _FOUL,
+  0, () => FailedOrganizationalUnit$
+];
+var GenerationRecommendationTypes = 64 | 0;
 var GoalIdList = 64 | 0;
 var GoalSummaries: StaticListSchema = [1, n0, _GSo,
   0, [() => GoalSummary$,
@@ -2144,12 +2512,27 @@ var MilestoneSummaries: StaticListSchema = [1, n0, _MS,
 var NotificationSummaries: StaticListSchema = [1, n0, _NS,
   0, () => NotificationSummary$
 ];
+var OrganizationalAccountEntryList: StaticListSchema = [1, n0, _OAEL,
+  0, () => OrganizationalAccountEntry$
+];
+var OrganizationalReportAccountIdList = 64 | 0;
+var OrganizationalReportSummaryList: StaticListSchema = [1, n0, _ORSL,
+  0, () => OrganizationalReportSummary$
+];
+var OrganizationalUnitEntryList: StaticListSchema = [1, n0, _OUEL,
+  0, () => OrganizationalUnitEntry$
+];
+var OrganizationalUnitIdList = 64 | 0;
+var PillarCountList: StaticListSchema = [1, n0, _PCL,
+  0, () => PillarCount$
+];
 var PillarDifferences: StaticListSchema = [1, n0, _PDil,
   0, () => PillarDifference$
 ];
 var PillarItems: StaticListSchema = [1, n0, _PIil,
   0, () => PillarItem$
 ];
+var PillarList = 64 | 0;
 var PillarMetrics: StaticListSchema = [1, n0, _PMi,
   0, () => PillarMetric$
 ];
@@ -2157,6 +2540,16 @@ var PillarReviewSummaries: StaticListSchema = [1, n0, _PRS,
   0, () => PillarReviewSummary$
 ];
 var Pillars = 64 | 0;
+var PreferenceEntries: StaticListSchema = [1, n0, _PEr,
+  0, () => PreferenceEntry$
+];
+var PreferenceUpdates: StaticListSchema = [1, n0, _PUr,
+  0, () => PreferenceUpdate$
+];
+var PriorityCountList: StaticListSchema = [1, n0, _PCLr,
+  0, () => PriorityCount$
+];
+var PriorityList = 64 | 0;
 var ProfileArns = 64 | 0;
 var ProfileNotificationSummaries: StaticListSchema = [1, n0, _PNSr,
   0, () => ProfileNotificationSummary$
@@ -2189,6 +2582,8 @@ var RecommendationGoals: StaticListSchema = [1, n0, _RGe,
   0, () => RecommendationGoal$
 ];
 var RecommendationSourceList = 64 | 0;
+var RecommendationStatusList = 64 | 0;
+var RecommendationTypeList = 64 | 0;
 var RecommendationTypes = 64 | 0;
 var RecommendedFixSteps = 64 | 0;
 var Regions = 64 | 0;
@@ -2273,11 +2668,20 @@ export var AssociateLenses$: StaticOperationSchema = [9, n0, _AL,
 export var AssociateProfiles$: StaticOperationSchema = [9, n0, _AP,
   { [_ht]: ["PATCH", "/workloads/{WorkloadId}/associateProfiles", 200] }, () => AssociateProfilesInput$, () => __Unit
 ];
+export var CreateAgentBasicProfile$: StaticOperationSchema = [9, n0, _CABP,
+  { [_ht]: ["POST", "/api/v1/agent-basic-profile", 201] }, () => CreateAgentBasicProfileRequest$, () => CreateAgentBasicProfileResponse$
+];
 export var CreateAgentContext$: StaticOperationSchema = [9, n0, _CAC,
   { [_ht]: ["POST", "/api/v1/agent-profiles/{profileArn}/contexts", 200] }, () => CreateAgentContextRequest$, () => CreateAgentContextResponse$
 ];
 export var CreateAgentGoal$: StaticOperationSchema = [9, n0, _CAG,
   { [_ht]: ["POST", "/api/v1/agent-profiles/{profileArn}/goals", 200] }, () => CreateAgentGoalRequest$, () => CreateAgentGoalResponse$
+];
+export var CreateAgentOrganizationalProfile$: StaticOperationSchema = [9, n0, _CAOP,
+  { [_ht]: ["POST", "/api/v1/agent-organizational-profiles", 200] }, () => CreateAgentOrganizationalProfileRequest$, () => CreateAgentOrganizationalProfileResponse$
+];
+export var CreateAgentOrganizationalReport$: StaticOperationSchema = [9, n0, _CAOR,
+  { [_ht]: ["POST", "/api/v1/agent-organizational-reports", 202] }, () => CreateAgentOrganizationalReportRequest$, () => CreateAgentOrganizationalReportResponse$
 ];
 export var CreateAgentProfile$: StaticOperationSchema = [9, n0, _CAP,
   { [_ht]: ["POST", "/api/v1/agent-profiles", 200] }, () => CreateAgentProfileRequest$, () => CreateAgentProfileResponse$
@@ -2315,8 +2719,17 @@ export var DeleteAgentContext$: StaticOperationSchema = [9, n0, _DAC,
 export var DeleteAgentGoal$: StaticOperationSchema = [9, n0, _DAG,
   { [_ht]: ["DELETE", "/api/v1/agent-profiles/{profileArn}/goals/{id}", 200] }, () => DeleteAgentGoalRequest$, () => DeleteAgentGoalResponse$
 ];
+export var DeleteAgentOrganizationalReport$: StaticOperationSchema = [9, n0, _DAOR,
+  { [_ht]: ["DELETE", "/api/v1/agent-organizational-reports/{reportId}", 204] }, () => DeleteAgentOrganizationalReportRequest$, () => DeleteAgentOrganizationalReportResponse$
+];
 export var DeleteAgentProfile$: StaticOperationSchema = [9, n0, _DAP,
   { [_ht]: ["DELETE", "/api/v1/agent-profiles/{profileArn}", 200] }, () => DeleteAgentProfileRequest$, () => DeleteAgentProfileResponse$
+];
+export var DeleteAgentProfilePolicy$: StaticOperationSchema = [9, n0, _DAPP,
+  { [_ht]: ["DELETE", "/api/v1/agent-profiles/{profileArn}/policy", 204] }, () => DeleteAgentProfilePolicyRequest$, () => DeleteAgentProfilePolicyResponse$
+];
+export var DeleteAgentRecommendationPolicy$: StaticOperationSchema = [9, n0, _DARP,
+  { [_ht]: ["DELETE", "/api/v1/agent-recommendations/{recommendationArn}/policy", 204] }, () => DeleteAgentRecommendationPolicyRequest$, () => DeleteAgentRecommendationPolicyResponse$
 ];
 export var DeleteLens$: StaticOperationSchema = [9, n0, _DL,
   { [_ht]: ["DELETE", "/lenses/{LensAlias}", 200] }, () => DeleteLensInput$, () => __Unit
@@ -2357,14 +2770,29 @@ export var GetAgentContext$: StaticOperationSchema = [9, n0, _GAC,
 export var GetAgentGoal$: StaticOperationSchema = [9, n0, _GAG,
   { [_ht]: ["GET", "/api/v1/agent-profiles/{profileArn}/goals/{id}", 200] }, () => GetAgentGoalRequest$, () => GetAgentGoalResponse$
 ];
-export var GetAgentProfile$: StaticOperationSchema = [9, n0, _GAP,
+export var GetAgentOrganizationalReport$: StaticOperationSchema = [9, n0, _GAOR,
+  { [_ht]: ["GET", "/api/v1/agent-organizational-reports/{reportId}", 200] }, () => GetAgentOrganizationalReportRequest$, () => GetAgentOrganizationalReportResponse$
+];
+export var GetAgentOrganizationalReportData$: StaticOperationSchema = [9, n0, _GAORD,
+  { [_ht]: ["GET", "/api/v1/agent-organizational-reports/{reportId}/data", 200] }, () => GetAgentOrganizationalReportDataRequest$, () => GetAgentOrganizationalReportDataResponse$
+];
+export var GetAgentPreferences$: StaticOperationSchema = [9, n0, _GAP,
+  { [_ht]: ["GET", "/api/v1/agent-preferences", 200] }, () => GetAgentPreferencesRequest$, () => GetAgentPreferencesResponse$
+];
+export var GetAgentProfile$: StaticOperationSchema = [9, n0, _GAPe,
   { [_ht]: ["GET", "/api/v1/agent-profiles/{profileArn}", 200] }, () => GetAgentProfileRequest$, () => GetAgentProfileResponse$
+];
+export var GetAgentProfilePolicy$: StaticOperationSchema = [9, n0, _GAPP,
+  { [_ht]: ["GET", "/api/v1/agent-profiles/{profileArn}/policy", 200] }, () => GetAgentProfilePolicyRequest$, () => GetAgentProfilePolicyResponse$
 ];
 export var GetAgentRecommendation$: StaticOperationSchema = [9, n0, _GAR,
   { [_ht]: ["GET", "/api/v1/agent-recommendations/{recommendationArn}", 200] }, () => GetAgentRecommendationRequest$, () => GetAgentRecommendationResponse$
 ];
 export var GetAgentRecommendationGeneration$: StaticOperationSchema = [9, n0, _GARG,
   { [_ht]: ["GET", "/api/v1/agent-profiles/{profileArn}/generations/{generationId}", 200] }, () => GetAgentRecommendationGenerationRequest$, () => GetAgentRecommendationGenerationResponse$
+];
+export var GetAgentRecommendationPolicy$: StaticOperationSchema = [9, n0, _GARP,
+  { [_ht]: ["GET", "/api/v1/agent-recommendations/{recommendationArn}/policy", 200] }, () => GetAgentRecommendationPolicyRequest$, () => GetAgentRecommendationPolicyResponse$
 ];
 export var GetAnswer$: StaticOperationSchema = [9, n0, _GA,
   { [_ht]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}", 200] }, () => GetAnswerInput$, () => GetAnswerOutput$
@@ -2416,6 +2844,9 @@ export var ListAgentContexts$: StaticOperationSchema = [9, n0, _LACi,
 ];
 export var ListAgentGoals$: StaticOperationSchema = [9, n0, _LAG,
   { [_ht]: ["GET", "/api/v1/agent-profiles/{profileArn}/goals", 200] }, () => ListAgentGoalsRequest$, () => ListAgentGoalsResponse$
+];
+export var ListAgentOrganizationalReports$: StaticOperationSchema = [9, n0, _LAOR,
+  { [_ht]: ["GET", "/api/v1/agent-organizational-reports", 200] }, () => ListAgentOrganizationalReportsRequest$, () => ListAgentOrganizationalReportsResponse$
 ];
 export var ListAgentProfiles$: StaticOperationSchema = [9, n0, _LAP,
   { [_ht]: ["GET", "/api/v1/agent-profiles", 200] }, () => ListAgentProfilesRequest$, () => ListAgentProfilesResponse$
@@ -2486,8 +2917,20 @@ export var ListWorkloads$: StaticOperationSchema = [9, n0, _LW,
 export var ListWorkloadShares$: StaticOperationSchema = [9, n0, _LWS,
   { [_ht]: ["GET", "/workloads/{WorkloadId}/shares", 200] }, () => ListWorkloadSharesInput$, () => ListWorkloadSharesOutput$
 ];
+export var PutAgentPreferences$: StaticOperationSchema = [9, n0, _PAP,
+  { [_ht]: ["PUT", "/api/v1/agent-preferences", 200] }, () => PutAgentPreferencesRequest$, () => PutAgentPreferencesResponse$
+];
+export var PutAgentProfilePolicy$: StaticOperationSchema = [9, n0, _PAPP,
+  { [_ht]: ["PUT", "/api/v1/agent-profiles/{profileArn}/policy", 200] }, () => PutAgentProfilePolicyRequest$, () => PutAgentProfilePolicyResponse$
+];
 export var PutAgentRecommendationFeedback$: StaticOperationSchema = [9, n0, _PARF,
   { [_ht]: ["PUT", "/api/v1/agent-recommendations/{recommendationArn}/feedback", 200] }, () => PutAgentRecommendationFeedbackRequest$, () => PutAgentRecommendationFeedbackResponse$
+];
+export var PutAgentRecommendationPolicy$: StaticOperationSchema = [9, n0, _PARP,
+  { [_ht]: ["PUT", "/api/v1/agent-recommendations/{recommendationArn}/policy", 200] }, () => PutAgentRecommendationPolicyRequest$, () => PutAgentRecommendationPolicyResponse$
+];
+export var SendAgentOrganizationalReportDataToS3$: StaticOperationSchema = [9, n0, _SAORDTS,
+  { [_ht]: ["POST", "/api/v1/agent-organizational-reports/{reportId}/send-to-s3", 200] }, () => SendAgentOrganizationalReportDataToS3Request$, () => SendAgentOrganizationalReportDataToS3Response$
 ];
 export var StartAgentRecommendationGeneration$: StaticOperationSchema = [9, n0, _SARG,
   { [_ht]: ["POST", "/api/v1/agent-profiles/{profileArn}/generations", 200] }, () => StartAgentRecommendationGenerationRequest$, () => StartAgentRecommendationGenerationResponse$
@@ -2503,6 +2946,9 @@ export var UpdateAgentContext$: StaticOperationSchema = [9, n0, _UAC,
 ];
 export var UpdateAgentGoal$: StaticOperationSchema = [9, n0, _UAG,
   { [_ht]: ["PUT", "/api/v1/agent-profiles/{profileArn}/goals/{id}", 200] }, () => UpdateAgentGoalRequest$, () => UpdateAgentGoalResponse$
+];
+export var UpdateAgentOrganizationalProfile$: StaticOperationSchema = [9, n0, _UAOP,
+  { [_ht]: ["PUT", "/api/v1/agent-organizational-profiles/{profileArn}", 200] }, () => UpdateAgentOrganizationalProfileRequest$, () => UpdateAgentOrganizationalProfileResponse$
 ];
 export var UpdateAgentProfile$: StaticOperationSchema = [9, n0, _UAP,
   { [_ht]: ["PUT", "/api/v1/agent-profiles/{profileArn}", 200] }, () => UpdateAgentProfileRequest$, () => UpdateAgentProfileResponse$

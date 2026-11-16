@@ -26,7 +26,7 @@ export interface StartAgentRecommendationGenerationCommandInput extends StartAge
 export interface StartAgentRecommendationGenerationCommandOutput extends StartAgentRecommendationGenerationResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates a new recommendation generation process for the specified optimization profile. This asynchronous operation analyzes your Amazon Web Services resources and generates optimization recommendations based on the configured pillars and scope. Use GetAgentRecommendationGeneration to check status.</p>
+ * <p>Starts a recommendation generation process for the specified agent profile. This asynchronous operation returns immediately. Use <code>GetAgentRecommendationGeneration</code> to check the status of the generation.</p> <p>Currently, only the <code>ARCHITECTURE</code> recommendation type is supported. <code>RESOURCE</code> and <code>APPLICATION</code> recommendations are generated only by the scheduled generation cycle and cannot be started with this operation.</p> <p>For the <code>ARCHITECTURE</code> type, the generation analyzes the infrastructure as code (IaC) template that you specify in <code>additionalContext</code>, and returns updated templates with best practice fixes applied. You must specify <code>scope</code> and <code>additionalContext</code>. You can optionally specify <code>name</code>.</p> <p>Architecture review generations are subject to a daily quota for each profile. For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/agent-quotas.html">Quotas and limits</a> in the Amazon Web Services Well-Architected User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

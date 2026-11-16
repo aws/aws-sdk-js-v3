@@ -1,10 +1,11 @@
 // smithy-typescript generated code
-import { createAggregatedClient } from "@smithy/core/client";
+import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
+  WaiterConfiguration,
 } from "@smithy/types";
 
 import {
@@ -18,6 +19,11 @@ import {
   AssociateProfilesCommand,
 } from "./commands/AssociateProfilesCommand";
 import {
+  type CreateAgentBasicProfileCommandInput,
+  type CreateAgentBasicProfileCommandOutput,
+  CreateAgentBasicProfileCommand,
+} from "./commands/CreateAgentBasicProfileCommand";
+import {
   type CreateAgentContextCommandInput,
   type CreateAgentContextCommandOutput,
   CreateAgentContextCommand,
@@ -27,6 +33,16 @@ import {
   type CreateAgentGoalCommandOutput,
   CreateAgentGoalCommand,
 } from "./commands/CreateAgentGoalCommand";
+import {
+  type CreateAgentOrganizationalProfileCommandInput,
+  type CreateAgentOrganizationalProfileCommandOutput,
+  CreateAgentOrganizationalProfileCommand,
+} from "./commands/CreateAgentOrganizationalProfileCommand";
+import {
+  type CreateAgentOrganizationalReportCommandInput,
+  type CreateAgentOrganizationalReportCommandOutput,
+  CreateAgentOrganizationalReportCommand,
+} from "./commands/CreateAgentOrganizationalReportCommand";
 import {
   type CreateAgentProfileCommandInput,
   type CreateAgentProfileCommandOutput,
@@ -88,10 +104,25 @@ import {
   DeleteAgentGoalCommand,
 } from "./commands/DeleteAgentGoalCommand";
 import {
+  type DeleteAgentOrganizationalReportCommandInput,
+  type DeleteAgentOrganizationalReportCommandOutput,
+  DeleteAgentOrganizationalReportCommand,
+} from "./commands/DeleteAgentOrganizationalReportCommand";
+import {
   type DeleteAgentProfileCommandInput,
   type DeleteAgentProfileCommandOutput,
   DeleteAgentProfileCommand,
 } from "./commands/DeleteAgentProfileCommand";
+import {
+  type DeleteAgentProfilePolicyCommandInput,
+  type DeleteAgentProfilePolicyCommandOutput,
+  DeleteAgentProfilePolicyCommand,
+} from "./commands/DeleteAgentProfilePolicyCommand";
+import {
+  type DeleteAgentRecommendationPolicyCommandInput,
+  type DeleteAgentRecommendationPolicyCommandOutput,
+  DeleteAgentRecommendationPolicyCommand,
+} from "./commands/DeleteAgentRecommendationPolicyCommand";
 import {
   type DeleteLensCommandInput,
   type DeleteLensCommandOutput,
@@ -158,10 +189,30 @@ import {
   GetAgentGoalCommand,
 } from "./commands/GetAgentGoalCommand";
 import {
+  type GetAgentOrganizationalReportCommandInput,
+  type GetAgentOrganizationalReportCommandOutput,
+  GetAgentOrganizationalReportCommand,
+} from "./commands/GetAgentOrganizationalReportCommand";
+import {
+  type GetAgentOrganizationalReportDataCommandInput,
+  type GetAgentOrganizationalReportDataCommandOutput,
+  GetAgentOrganizationalReportDataCommand,
+} from "./commands/GetAgentOrganizationalReportDataCommand";
+import {
+  type GetAgentPreferencesCommandInput,
+  type GetAgentPreferencesCommandOutput,
+  GetAgentPreferencesCommand,
+} from "./commands/GetAgentPreferencesCommand";
+import {
   type GetAgentProfileCommandInput,
   type GetAgentProfileCommandOutput,
   GetAgentProfileCommand,
 } from "./commands/GetAgentProfileCommand";
+import {
+  type GetAgentProfilePolicyCommandInput,
+  type GetAgentProfilePolicyCommandOutput,
+  GetAgentProfilePolicyCommand,
+} from "./commands/GetAgentProfilePolicyCommand";
 import {
   type GetAgentRecommendationCommandInput,
   type GetAgentRecommendationCommandOutput,
@@ -172,6 +223,11 @@ import {
   type GetAgentRecommendationGenerationCommandOutput,
   GetAgentRecommendationGenerationCommand,
 } from "./commands/GetAgentRecommendationGenerationCommand";
+import {
+  type GetAgentRecommendationPolicyCommandInput,
+  type GetAgentRecommendationPolicyCommandOutput,
+  GetAgentRecommendationPolicyCommand,
+} from "./commands/GetAgentRecommendationPolicyCommand";
 import { type GetAnswerCommandInput, type GetAnswerCommandOutput, GetAnswerCommand } from "./commands/GetAnswerCommand";
 import {
   type GetConsolidatedReportCommandInput,
@@ -249,6 +305,11 @@ import {
   type ListAgentGoalsCommandOutput,
   ListAgentGoalsCommand,
 } from "./commands/ListAgentGoalsCommand";
+import {
+  type ListAgentOrganizationalReportsCommandInput,
+  type ListAgentOrganizationalReportsCommandOutput,
+  ListAgentOrganizationalReportsCommand,
+} from "./commands/ListAgentOrganizationalReportsCommand";
 import {
   type ListAgentProfilesCommandInput,
   type ListAgentProfilesCommandOutput,
@@ -365,10 +426,30 @@ import {
   ListWorkloadSharesCommand,
 } from "./commands/ListWorkloadSharesCommand";
 import {
+  type PutAgentPreferencesCommandInput,
+  type PutAgentPreferencesCommandOutput,
+  PutAgentPreferencesCommand,
+} from "./commands/PutAgentPreferencesCommand";
+import {
+  type PutAgentProfilePolicyCommandInput,
+  type PutAgentProfilePolicyCommandOutput,
+  PutAgentProfilePolicyCommand,
+} from "./commands/PutAgentProfilePolicyCommand";
+import {
   type PutAgentRecommendationFeedbackCommandInput,
   type PutAgentRecommendationFeedbackCommandOutput,
   PutAgentRecommendationFeedbackCommand,
 } from "./commands/PutAgentRecommendationFeedbackCommand";
+import {
+  type PutAgentRecommendationPolicyCommandInput,
+  type PutAgentRecommendationPolicyCommandOutput,
+  PutAgentRecommendationPolicyCommand,
+} from "./commands/PutAgentRecommendationPolicyCommand";
+import {
+  type SendAgentOrganizationalReportDataToS3CommandInput,
+  type SendAgentOrganizationalReportDataToS3CommandOutput,
+  SendAgentOrganizationalReportDataToS3Command,
+} from "./commands/SendAgentOrganizationalReportDataToS3Command";
 import {
   type StartAgentRecommendationGenerationCommandInput,
   type StartAgentRecommendationGenerationCommandOutput,
@@ -394,6 +475,11 @@ import {
   type UpdateAgentGoalCommandOutput,
   UpdateAgentGoalCommand,
 } from "./commands/UpdateAgentGoalCommand";
+import {
+  type UpdateAgentOrganizationalProfileCommandInput,
+  type UpdateAgentOrganizationalProfileCommandOutput,
+  UpdateAgentOrganizationalProfileCommand,
+} from "./commands/UpdateAgentOrganizationalProfileCommand";
 import {
   type UpdateAgentProfileCommandInput,
   type UpdateAgentProfileCommandOutput,
@@ -474,9 +560,11 @@ import {
   type UpgradeReviewTemplateLensReviewCommandOutput,
   UpgradeReviewTemplateLensReviewCommand,
 } from "./commands/UpgradeReviewTemplateLensReviewCommand";
+import type { WellArchitectedServiceException } from "./models/WellArchitectedServiceException";
 import { paginateGetConsolidatedReport } from "./pagination/GetConsolidatedReportPaginator";
 import { paginateListAgentContexts } from "./pagination/ListAgentContextsPaginator";
 import { paginateListAgentGoals } from "./pagination/ListAgentGoalsPaginator";
+import { paginateListAgentOrganizationalReports } from "./pagination/ListAgentOrganizationalReportsPaginator";
 import { paginateListAgentProfiles } from "./pagination/ListAgentProfilesPaginator";
 import { paginateListAgentRecommendationGenerations } from "./pagination/ListAgentRecommendationGenerationsPaginator";
 import { paginateListAgentRecommendationItems } from "./pagination/ListAgentRecommendationItemsPaginator";
@@ -499,13 +587,17 @@ import { paginateListShareInvitations } from "./pagination/ListShareInvitationsP
 import { paginateListTemplateShares } from "./pagination/ListTemplateSharesPaginator";
 import { paginateListWorkloadShares } from "./pagination/ListWorkloadSharesPaginator";
 import { paginateListWorkloads } from "./pagination/ListWorkloadsPaginator";
+import { waitUntilAgentOrganizationalReportCompleted } from "./waiters/waitForAgentOrganizationalReportCompleted";
 import { WellArchitectedClient } from "./WellArchitectedClient";
 
 const commands = {
   AssociateLensesCommand,
   AssociateProfilesCommand,
+  CreateAgentBasicProfileCommand,
   CreateAgentContextCommand,
   CreateAgentGoalCommand,
+  CreateAgentOrganizationalProfileCommand,
+  CreateAgentOrganizationalReportCommand,
   CreateAgentProfileCommand,
   CreateLensShareCommand,
   CreateLensVersionCommand,
@@ -518,7 +610,10 @@ const commands = {
   CreateWorkloadShareCommand,
   DeleteAgentContextCommand,
   DeleteAgentGoalCommand,
+  DeleteAgentOrganizationalReportCommand,
   DeleteAgentProfileCommand,
+  DeleteAgentProfilePolicyCommand,
+  DeleteAgentRecommendationPolicyCommand,
   DeleteLensCommand,
   DeleteLensShareCommand,
   DeleteProfileCommand,
@@ -532,9 +627,14 @@ const commands = {
   ExportLensCommand,
   GetAgentContextCommand,
   GetAgentGoalCommand,
+  GetAgentOrganizationalReportCommand,
+  GetAgentOrganizationalReportDataCommand,
+  GetAgentPreferencesCommand,
   GetAgentProfileCommand,
+  GetAgentProfilePolicyCommand,
   GetAgentRecommendationCommand,
   GetAgentRecommendationGenerationCommand,
+  GetAgentRecommendationPolicyCommand,
   GetAnswerCommand,
   GetConsolidatedReportCommand,
   GetGlobalSettingsCommand,
@@ -552,6 +652,7 @@ const commands = {
   ImportLensCommand,
   ListAgentContextsCommand,
   ListAgentGoalsCommand,
+  ListAgentOrganizationalReportsCommand,
   ListAgentProfilesCommand,
   ListAgentRecommendationGenerationsCommand,
   ListAgentRecommendationItemsCommand,
@@ -575,12 +676,17 @@ const commands = {
   ListTemplateSharesCommand,
   ListWorkloadsCommand,
   ListWorkloadSharesCommand,
+  PutAgentPreferencesCommand,
+  PutAgentProfilePolicyCommand,
   PutAgentRecommendationFeedbackCommand,
+  PutAgentRecommendationPolicyCommand,
+  SendAgentOrganizationalReportDataToS3Command,
   StartAgentRecommendationGenerationCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAgentContextCommand,
   UpdateAgentGoalCommand,
+  UpdateAgentOrganizationalProfileCommand,
   UpdateAgentProfileCommand,
   UpdateAgentRecommendationStatusCommand,
   UpdateAnswerCommand,
@@ -602,6 +708,7 @@ const paginators = {
   paginateGetConsolidatedReport,
   paginateListAgentContexts,
   paginateListAgentGoals,
+  paginateListAgentOrganizationalReports,
   paginateListAgentProfiles,
   paginateListAgentRecommendationGenerations,
   paginateListAgentRecommendationItems,
@@ -624,6 +731,9 @@ const paginators = {
   paginateListTemplateShares,
   paginateListWorkloads,
   paginateListWorkloadShares,
+};
+const waiters = {
+  waitUntilAgentOrganizationalReportCompleted,
 };
 
 /**
@@ -669,6 +779,24 @@ export interface WellArchitected {
   ): void;
 
   /**
+   * @see {@link CreateAgentBasicProfileCommand}
+   */
+  createAgentBasicProfile(): Promise<CreateAgentBasicProfileCommandOutput>;
+  createAgentBasicProfile(
+    args: CreateAgentBasicProfileCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<CreateAgentBasicProfileCommandOutput>;
+  createAgentBasicProfile(
+    args: CreateAgentBasicProfileCommandInput,
+    cb: (err: any, data?: CreateAgentBasicProfileCommandOutput) => void
+  ): void;
+  createAgentBasicProfile(
+    args: CreateAgentBasicProfileCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: CreateAgentBasicProfileCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateAgentContextCommand}
    */
   createAgentContext(
@@ -700,6 +828,41 @@ export interface WellArchitected {
     args: CreateAgentGoalCommandInput,
     options: WellArchitectedRequestOptions,
     cb: (err: any, data?: CreateAgentGoalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAgentOrganizationalProfileCommand}
+   */
+  createAgentOrganizationalProfile(
+    args: CreateAgentOrganizationalProfileCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<CreateAgentOrganizationalProfileCommandOutput>;
+  createAgentOrganizationalProfile(
+    args: CreateAgentOrganizationalProfileCommandInput,
+    cb: (err: any, data?: CreateAgentOrganizationalProfileCommandOutput) => void
+  ): void;
+  createAgentOrganizationalProfile(
+    args: CreateAgentOrganizationalProfileCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: CreateAgentOrganizationalProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAgentOrganizationalReportCommand}
+   */
+  createAgentOrganizationalReport(): Promise<CreateAgentOrganizationalReportCommandOutput>;
+  createAgentOrganizationalReport(
+    args: CreateAgentOrganizationalReportCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<CreateAgentOrganizationalReportCommandOutput>;
+  createAgentOrganizationalReport(
+    args: CreateAgentOrganizationalReportCommandInput,
+    cb: (err: any, data?: CreateAgentOrganizationalReportCommandOutput) => void
+  ): void;
+  createAgentOrganizationalReport(
+    args: CreateAgentOrganizationalReportCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: CreateAgentOrganizationalReportCommandOutput) => void
   ): void;
 
   /**
@@ -907,6 +1070,23 @@ export interface WellArchitected {
   ): void;
 
   /**
+   * @see {@link DeleteAgentOrganizationalReportCommand}
+   */
+  deleteAgentOrganizationalReport(
+    args: DeleteAgentOrganizationalReportCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<DeleteAgentOrganizationalReportCommandOutput>;
+  deleteAgentOrganizationalReport(
+    args: DeleteAgentOrganizationalReportCommandInput,
+    cb: (err: any, data?: DeleteAgentOrganizationalReportCommandOutput) => void
+  ): void;
+  deleteAgentOrganizationalReport(
+    args: DeleteAgentOrganizationalReportCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: DeleteAgentOrganizationalReportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAgentProfileCommand}
    */
   deleteAgentProfile(
@@ -921,6 +1101,40 @@ export interface WellArchitected {
     args: DeleteAgentProfileCommandInput,
     options: WellArchitectedRequestOptions,
     cb: (err: any, data?: DeleteAgentProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAgentProfilePolicyCommand}
+   */
+  deleteAgentProfilePolicy(
+    args: DeleteAgentProfilePolicyCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<DeleteAgentProfilePolicyCommandOutput>;
+  deleteAgentProfilePolicy(
+    args: DeleteAgentProfilePolicyCommandInput,
+    cb: (err: any, data?: DeleteAgentProfilePolicyCommandOutput) => void
+  ): void;
+  deleteAgentProfilePolicy(
+    args: DeleteAgentProfilePolicyCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: DeleteAgentProfilePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAgentRecommendationPolicyCommand}
+   */
+  deleteAgentRecommendationPolicy(
+    args: DeleteAgentRecommendationPolicyCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<DeleteAgentRecommendationPolicyCommandOutput>;
+  deleteAgentRecommendationPolicy(
+    args: DeleteAgentRecommendationPolicyCommandInput,
+    cb: (err: any, data?: DeleteAgentRecommendationPolicyCommandOutput) => void
+  ): void;
+  deleteAgentRecommendationPolicy(
+    args: DeleteAgentRecommendationPolicyCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: DeleteAgentRecommendationPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1145,6 +1359,58 @@ export interface WellArchitected {
   ): void;
 
   /**
+   * @see {@link GetAgentOrganizationalReportCommand}
+   */
+  getAgentOrganizationalReport(
+    args: GetAgentOrganizationalReportCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<GetAgentOrganizationalReportCommandOutput>;
+  getAgentOrganizationalReport(
+    args: GetAgentOrganizationalReportCommandInput,
+    cb: (err: any, data?: GetAgentOrganizationalReportCommandOutput) => void
+  ): void;
+  getAgentOrganizationalReport(
+    args: GetAgentOrganizationalReportCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: GetAgentOrganizationalReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgentOrganizationalReportDataCommand}
+   */
+  getAgentOrganizationalReportData(
+    args: GetAgentOrganizationalReportDataCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<GetAgentOrganizationalReportDataCommandOutput>;
+  getAgentOrganizationalReportData(
+    args: GetAgentOrganizationalReportDataCommandInput,
+    cb: (err: any, data?: GetAgentOrganizationalReportDataCommandOutput) => void
+  ): void;
+  getAgentOrganizationalReportData(
+    args: GetAgentOrganizationalReportDataCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: GetAgentOrganizationalReportDataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgentPreferencesCommand}
+   */
+  getAgentPreferences(): Promise<GetAgentPreferencesCommandOutput>;
+  getAgentPreferences(
+    args: GetAgentPreferencesCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<GetAgentPreferencesCommandOutput>;
+  getAgentPreferences(
+    args: GetAgentPreferencesCommandInput,
+    cb: (err: any, data?: GetAgentPreferencesCommandOutput) => void
+  ): void;
+  getAgentPreferences(
+    args: GetAgentPreferencesCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: GetAgentPreferencesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAgentProfileCommand}
    */
   getAgentProfile(
@@ -1159,6 +1425,23 @@ export interface WellArchitected {
     args: GetAgentProfileCommandInput,
     options: WellArchitectedRequestOptions,
     cb: (err: any, data?: GetAgentProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgentProfilePolicyCommand}
+   */
+  getAgentProfilePolicy(
+    args: GetAgentProfilePolicyCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<GetAgentProfilePolicyCommandOutput>;
+  getAgentProfilePolicy(
+    args: GetAgentProfilePolicyCommandInput,
+    cb: (err: any, data?: GetAgentProfilePolicyCommandOutput) => void
+  ): void;
+  getAgentProfilePolicy(
+    args: GetAgentProfilePolicyCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: GetAgentProfilePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1193,6 +1476,23 @@ export interface WellArchitected {
     args: GetAgentRecommendationGenerationCommandInput,
     options: WellArchitectedRequestOptions,
     cb: (err: any, data?: GetAgentRecommendationGenerationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgentRecommendationPolicyCommand}
+   */
+  getAgentRecommendationPolicy(
+    args: GetAgentRecommendationPolicyCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<GetAgentRecommendationPolicyCommandOutput>;
+  getAgentRecommendationPolicy(
+    args: GetAgentRecommendationPolicyCommandInput,
+    cb: (err: any, data?: GetAgentRecommendationPolicyCommandOutput) => void
+  ): void;
+  getAgentRecommendationPolicy(
+    args: GetAgentRecommendationPolicyCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: GetAgentRecommendationPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1484,6 +1784,24 @@ export interface WellArchitected {
     args: ListAgentGoalsCommandInput,
     options: WellArchitectedRequestOptions,
     cb: (err: any, data?: ListAgentGoalsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAgentOrganizationalReportsCommand}
+   */
+  listAgentOrganizationalReports(): Promise<ListAgentOrganizationalReportsCommandOutput>;
+  listAgentOrganizationalReports(
+    args: ListAgentOrganizationalReportsCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<ListAgentOrganizationalReportsCommandOutput>;
+  listAgentOrganizationalReports(
+    args: ListAgentOrganizationalReportsCommandInput,
+    cb: (err: any, data?: ListAgentOrganizationalReportsCommandOutput) => void
+  ): void;
+  listAgentOrganizationalReports(
+    args: ListAgentOrganizationalReportsCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: ListAgentOrganizationalReportsCommandOutput) => void
   ): void;
 
   /**
@@ -1886,6 +2204,40 @@ export interface WellArchitected {
   ): void;
 
   /**
+   * @see {@link PutAgentPreferencesCommand}
+   */
+  putAgentPreferences(
+    args: PutAgentPreferencesCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<PutAgentPreferencesCommandOutput>;
+  putAgentPreferences(
+    args: PutAgentPreferencesCommandInput,
+    cb: (err: any, data?: PutAgentPreferencesCommandOutput) => void
+  ): void;
+  putAgentPreferences(
+    args: PutAgentPreferencesCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: PutAgentPreferencesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAgentProfilePolicyCommand}
+   */
+  putAgentProfilePolicy(
+    args: PutAgentProfilePolicyCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<PutAgentProfilePolicyCommandOutput>;
+  putAgentProfilePolicy(
+    args: PutAgentProfilePolicyCommandInput,
+    cb: (err: any, data?: PutAgentProfilePolicyCommandOutput) => void
+  ): void;
+  putAgentProfilePolicy(
+    args: PutAgentProfilePolicyCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: PutAgentProfilePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutAgentRecommendationFeedbackCommand}
    */
   putAgentRecommendationFeedback(
@@ -1900,6 +2252,40 @@ export interface WellArchitected {
     args: PutAgentRecommendationFeedbackCommandInput,
     options: WellArchitectedRequestOptions,
     cb: (err: any, data?: PutAgentRecommendationFeedbackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAgentRecommendationPolicyCommand}
+   */
+  putAgentRecommendationPolicy(
+    args: PutAgentRecommendationPolicyCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<PutAgentRecommendationPolicyCommandOutput>;
+  putAgentRecommendationPolicy(
+    args: PutAgentRecommendationPolicyCommandInput,
+    cb: (err: any, data?: PutAgentRecommendationPolicyCommandOutput) => void
+  ): void;
+  putAgentRecommendationPolicy(
+    args: PutAgentRecommendationPolicyCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: PutAgentRecommendationPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendAgentOrganizationalReportDataToS3Command}
+   */
+  sendAgentOrganizationalReportDataToS3(
+    args: SendAgentOrganizationalReportDataToS3CommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<SendAgentOrganizationalReportDataToS3CommandOutput>;
+  sendAgentOrganizationalReportDataToS3(
+    args: SendAgentOrganizationalReportDataToS3CommandInput,
+    cb: (err: any, data?: SendAgentOrganizationalReportDataToS3CommandOutput) => void
+  ): void;
+  sendAgentOrganizationalReportDataToS3(
+    args: SendAgentOrganizationalReportDataToS3CommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: SendAgentOrganizationalReportDataToS3CommandOutput) => void
   ): void;
 
   /**
@@ -1985,6 +2371,23 @@ export interface WellArchitected {
     args: UpdateAgentGoalCommandInput,
     options: WellArchitectedRequestOptions,
     cb: (err: any, data?: UpdateAgentGoalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAgentOrganizationalProfileCommand}
+   */
+  updateAgentOrganizationalProfile(
+    args: UpdateAgentOrganizationalProfileCommandInput,
+    options?: WellArchitectedRequestOptions
+  ): Promise<UpdateAgentOrganizationalProfileCommandOutput>;
+  updateAgentOrganizationalProfile(
+    args: UpdateAgentOrganizationalProfileCommandInput,
+    cb: (err: any, data?: UpdateAgentOrganizationalProfileCommandOutput) => void
+  ): void;
+  updateAgentOrganizationalProfile(
+    args: UpdateAgentOrganizationalProfileCommandInput,
+    options: WellArchitectedRequestOptions,
+    cb: (err: any, data?: UpdateAgentOrganizationalProfileCommandOutput) => void
   ): void;
 
   /**
@@ -2294,6 +2697,17 @@ export interface WellArchitected {
   ): Paginator<ListAgentGoalsCommandOutput>;
 
   /**
+   * @see {@link ListAgentOrganizationalReportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentOrganizationalReportsCommandOutput}.
+   */
+  paginateListAgentOrganizationalReports(
+    args?: ListAgentOrganizationalReportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentOrganizationalReportsCommandOutput>;
+
+  /**
    * @see {@link ListAgentProfilesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2534,11 +2948,21 @@ export interface WellArchitected {
     args: ListWorkloadSharesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListWorkloadSharesCommandOutput>;
+
+  /**
+   * @see {@link GetAgentOrganizationalReportCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAgentOrganizationalReportCompleted(
+    args: GetAgentOrganizationalReportCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<WellArchitected>, "client">
+  ): Promise<WaiterResult<GetAgentOrganizationalReportCommandOutput>>;
 }
 
 /**
- * <fullname>Amazon Web Services Well-Architected</fullname> <p>Amazon Web Services Well-Architected helps you evaluate your architectures against Amazon Web Services best practices across operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability. The service includes the Amazon Web Services Well-Architected Agent for AI-powered recommendations tailored to your specific environment, and the <a href="http://aws.amazon.com/well-architected-tool">Well-Architected Tool</a> for conducting reviews and tracking improvements.</p> <p>This is the <i>Amazon Web Services Well-Architected API Reference</i>. Through this API, you can programmatically access personalized recommendations and automation scripts from the Amazon Web Services Well-Architected Agent, and create and manage workloads, conduct lens reviews, track milestones, manage custom lenses, share workloads across accounts, and manage profiles with the Well-Architected Tool.</p> <p>For more information about the service, see the <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html">Amazon Web Services Well-Architected User Guide</a>.</p>
+ * <fullname>Amazon Web Services Well-Architected</fullname> <p>This is the <i>Amazon Web Services Well-Architected API Reference</i>. Amazon Web Services Well-Architected helps you evaluate your architectures against Amazon Web Services best practices across operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability.</p> <p>To view API actions organized by service, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/wa-api-actions.html">API actions</a>.</p> <p> <b>Amazon Web Services Well-Architected Agent (preview)</b> </p> <p>Describes the API operations for managing optimization profiles, goals, application context, and recommendations in the Amazon Web Services Well-Architected Agent. Through this API, you can create and configure agent profiles that define the scope of your Amazon Web Services environment to analyze, set optimization goals across cost, security, performance, and resilience pillars, start recommendation generation, retrieve prioritized recommendations with ready-to-deploy remediation scripts, and provide feedback to improve future recommendations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/agent.html">What is Amazon Web Services Well-Architected Agent?</a> </p> <p> <b>Well-Architected Tool</b> </p> <p>Describes the API operations for creating and managing workloads, conducting lens reviews, tracking milestones, managing custom lenses, sharing workloads across accounts, and managing profiles with the Well-Architected Tool.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/tool.html">What is Well-Architected Tool?</a> </p>
  * @public
  */
 export class WellArchitected extends WellArchitectedClient implements WellArchitected {}
-createAggregatedClient(commands, WellArchitected, { paginators });
+createAggregatedClient(commands, WellArchitected, { paginators, waiters });

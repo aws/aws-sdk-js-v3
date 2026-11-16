@@ -23,7 +23,7 @@ export interface UpdateAgentProfileCommandInput extends UpdateAgentProfileReques
 export interface UpdateAgentProfileCommandOutput extends UpdateAgentProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing optimization profile's configuration, including its pillars, execution role, and aggregation settings.</p>
+ * <p>Updates an existing optimization profile's configuration, including its pillars, execution role, and aggregation settings. Include only the fields you want to change. Any field you omit from the request keeps its current value, so you do not need to retrieve the profile first and resend the fields you are not changing.</p> <p>To clear an optional text field, supply an empty string for it; the field is then unset, and a subsequent read omits it rather than returning an empty string. Omitting the field from the request leaves the stored value in place. <code>description</code> and <code>businessOverview</code> can be cleared this way. <code>displayName</code> cannot be cleared because a display name is required, though you can change it. <code>pillars</code> cannot be cleared because a profile must target at least one pillar.</p> <p> <code>aggregationConfiguration</code> behaves differently because it is a list of per-account configurations rather than a text field. Supplying an empty list removes every account entry, but the field itself remains set: a subsequent read returns an empty list rather than omitting the field. Omitting it from the request keeps the stored entries.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,12 +80,6 @@ export interface UpdateAgentProfileCommandOutput extends UpdateAgentProfileRespo
  * //   fieldErrors: { // FieldErrors
  * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   tags: [ // Tags
- * //     { // Tag
- * //       key: "STRING_VALUE", // required
- * //       value: "STRING_VALUE", // required
- * //     },
- * //   ],
  * //   createdBy: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastModifiedBy: "STRING_VALUE",
@@ -108,6 +102,9 @@ export interface UpdateAgentProfileCommandOutput extends UpdateAgentProfileRespo
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The user has reached their resource quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Request was denied due to request throttling.</p>

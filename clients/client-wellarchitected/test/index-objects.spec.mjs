@@ -22,6 +22,7 @@ import {
   AssociateProfiles$,
   AssociateProfilesCommand,
   AssociateProfilesInput$,
+  AutoRemediation$,
   BestPractice$,
   CheckDetail$,
   CheckFailureReason,
@@ -43,6 +44,11 @@ import {
   ContextResourceTag$,
   ContextSummary$,
   ContextType,
+  CoverageSummary$,
+  CreateAgentBasicProfile$,
+  CreateAgentBasicProfileCommand,
+  CreateAgentBasicProfileRequest$,
+  CreateAgentBasicProfileResponse$,
   CreateAgentContext$,
   CreateAgentContextCommand,
   CreateAgentContextRequest$,
@@ -51,6 +57,14 @@ import {
   CreateAgentGoalCommand,
   CreateAgentGoalRequest$,
   CreateAgentGoalResponse$,
+  CreateAgentOrganizationalProfile$,
+  CreateAgentOrganizationalProfileCommand,
+  CreateAgentOrganizationalProfileRequest$,
+  CreateAgentOrganizationalProfileResponse$,
+  CreateAgentOrganizationalReport$,
+  CreateAgentOrganizationalReportCommand,
+  CreateAgentOrganizationalReportRequest$,
+  CreateAgentOrganizationalReportResponse$,
   CreateAgentProfile$,
   CreateAgentProfileCommand,
   CreateAgentProfileRequest$,
@@ -102,10 +116,22 @@ import {
   DeleteAgentGoalCommand,
   DeleteAgentGoalRequest$,
   DeleteAgentGoalResponse$,
+  DeleteAgentOrganizationalReport$,
+  DeleteAgentOrganizationalReportCommand,
+  DeleteAgentOrganizationalReportRequest$,
+  DeleteAgentOrganizationalReportResponse$,
   DeleteAgentProfile$,
   DeleteAgentProfileCommand,
+  DeleteAgentProfilePolicy$,
+  DeleteAgentProfilePolicyCommand,
+  DeleteAgentProfilePolicyRequest$,
+  DeleteAgentProfilePolicyResponse$,
   DeleteAgentProfileRequest$,
   DeleteAgentProfileResponse$,
+  DeleteAgentRecommendationPolicy$,
+  DeleteAgentRecommendationPolicyCommand,
+  DeleteAgentRecommendationPolicyRequest$,
+  DeleteAgentRecommendationPolicyResponse$,
   DeleteLens$,
   DeleteLensCommand,
   DeleteLensInput$,
@@ -144,8 +170,11 @@ import {
   ExportLensCommand,
   ExportLensInput$,
   ExportLensOutput$,
+  FailedAccount$,
+  FailedOrganizationalUnit$,
   FeedbackCategory,
   GenerationStatus,
+  GenerationType,
   GetAgentContext$,
   GetAgentContextCommand,
   GetAgentContextRequest$,
@@ -154,8 +183,24 @@ import {
   GetAgentGoalCommand,
   GetAgentGoalRequest$,
   GetAgentGoalResponse$,
+  GetAgentOrganizationalReport$,
+  GetAgentOrganizationalReportCommand,
+  GetAgentOrganizationalReportData$,
+  GetAgentOrganizationalReportDataCommand,
+  GetAgentOrganizationalReportDataRequest$,
+  GetAgentOrganizationalReportDataResponse$,
+  GetAgentOrganizationalReportRequest$,
+  GetAgentOrganizationalReportResponse$,
+  GetAgentPreferences$,
+  GetAgentPreferencesCommand,
+  GetAgentPreferencesRequest$,
+  GetAgentPreferencesResponse$,
   GetAgentProfile$,
   GetAgentProfileCommand,
+  GetAgentProfilePolicy$,
+  GetAgentProfilePolicyCommand,
+  GetAgentProfilePolicyRequest$,
+  GetAgentProfilePolicyResponse$,
   GetAgentProfileRequest$,
   GetAgentProfileResponse$,
   GetAgentRecommendation$,
@@ -164,6 +209,10 @@ import {
   GetAgentRecommendationGenerationCommand,
   GetAgentRecommendationGenerationRequest$,
   GetAgentRecommendationGenerationResponse$,
+  GetAgentRecommendationPolicy$,
+  GetAgentRecommendationPolicyCommand,
+  GetAgentRecommendationPolicyRequest$,
+  GetAgentRecommendationPolicyResponse$,
   GetAgentRecommendationRequest$,
   GetAgentRecommendationResponse$,
   GetAnswer$,
@@ -257,6 +306,10 @@ import {
   ListAgentGoalsCommand,
   ListAgentGoalsRequest$,
   ListAgentGoalsResponse$,
+  ListAgentOrganizationalReports$,
+  ListAgentOrganizationalReportsCommand,
+  ListAgentOrganizationalReportsRequest$,
+  ListAgentOrganizationalReportsResponse$,
   ListAgentProfiles$,
   ListAgentProfilesCommand,
   ListAgentProfilesRequest$,
@@ -354,10 +407,18 @@ import {
   MilestoneSummary$,
   NotificationSummary$,
   NotificationType,
+  OrganizationalAccountEntry$,
+  OrganizationalAggregationConfiguration$,
+  OrganizationalReportFilters$,
+  OrganizationalReportFormat,
+  OrganizationalReportState,
+  OrganizationalReportSummary$,
+  OrganizationalUnitEntry$,
   OrganizationSharingStatus,
   paginateGetConsolidatedReport,
   paginateListAgentContexts,
   paginateListAgentGoals,
+  paginateListAgentOrganizationalReports,
   paginateListAgentProfiles,
   paginateListAgentRecommendationGenerations,
   paginateListAgentRecommendationItems,
@@ -382,11 +443,18 @@ import {
   paginateListWorkloadShares,
   PermissionType,
   Pillar,
+  PillarCount$,
   PillarDifference$,
   PillarItem$,
   PillarMetric$,
   PillarReviewSummary$,
+  PreferenceEntry$,
+  PreferenceKey,
+  PreferenceState,
+  PreferenceStatus,
+  PreferenceUpdate$,
   Priority,
+  PriorityCount$,
   Profile$,
   ProfileChoice$,
   ProfileNotificationSummary$,
@@ -399,11 +467,24 @@ import {
   ProfileTemplate$,
   ProfileTemplateChoice$,
   ProfileTemplateQuestion$,
+  ProfileType,
   Progress$,
+  PutAgentPreferences$,
+  PutAgentPreferencesCommand,
+  PutAgentPreferencesRequest$,
+  PutAgentPreferencesResponse$,
+  PutAgentProfilePolicy$,
+  PutAgentProfilePolicyCommand,
+  PutAgentProfilePolicyRequest$,
+  PutAgentProfilePolicyResponse$,
   PutAgentRecommendationFeedback$,
   PutAgentRecommendationFeedbackCommand,
   PutAgentRecommendationFeedbackRequest$,
   PutAgentRecommendationFeedbackResponse$,
+  PutAgentRecommendationPolicy$,
+  PutAgentRecommendationPolicyCommand,
+  PutAgentRecommendationPolicyRequest$,
+  PutAgentRecommendationPolicyResponse$,
   Question,
   QuestionDifference$,
   QuestionMetric$,
@@ -436,6 +517,10 @@ import {
   Roi$,
   Scope$,
   SelectedPillar$,
+  SendAgentOrganizationalReportDataToS3$,
+  SendAgentOrganizationalReportDataToS3Command,
+  SendAgentOrganizationalReportDataToS3Request$,
+  SendAgentOrganizationalReportDataToS3Response$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   ShareInvitation$,
@@ -455,6 +540,7 @@ import {
   TemplateShareSummary$,
   ThrottlingException,
   ThrottlingException$,
+  TimeWindow$,
   TradeOff$,
   TrustedAdvisorIntegrationStatus,
   UntagResource$,
@@ -469,6 +555,10 @@ import {
   UpdateAgentGoalCommand,
   UpdateAgentGoalRequest$,
   UpdateAgentGoalResponse$,
+  UpdateAgentOrganizationalProfile$,
+  UpdateAgentOrganizationalProfileCommand,
+  UpdateAgentOrganizationalProfileRequest$,
+  UpdateAgentOrganizationalProfileResponse$,
   UpdateAgentProfile$,
   UpdateAgentProfileCommand,
   UpdateAgentProfileRequest$,
@@ -533,6 +623,8 @@ import {
   ValidationExceptionField$,
   ValidationExceptionReason,
   VersionDifferences$,
+  waitForAgentOrganizationalReportCompleted,
+  waitUntilAgentOrganizationalReportCompleted,
   WellArchitected,
   WellArchitectedClient,
   WellArchitectedServiceException,
@@ -557,10 +649,16 @@ assert(typeof AssociateLensesCommand === "function");
 assert(typeof AssociateLenses$ === "object");
 assert(typeof AssociateProfilesCommand === "function");
 assert(typeof AssociateProfiles$ === "object");
+assert(typeof CreateAgentBasicProfileCommand === "function");
+assert(typeof CreateAgentBasicProfile$ === "object");
 assert(typeof CreateAgentContextCommand === "function");
 assert(typeof CreateAgentContext$ === "object");
 assert(typeof CreateAgentGoalCommand === "function");
 assert(typeof CreateAgentGoal$ === "object");
+assert(typeof CreateAgentOrganizationalProfileCommand === "function");
+assert(typeof CreateAgentOrganizationalProfile$ === "object");
+assert(typeof CreateAgentOrganizationalReportCommand === "function");
+assert(typeof CreateAgentOrganizationalReport$ === "object");
 assert(typeof CreateAgentProfileCommand === "function");
 assert(typeof CreateAgentProfile$ === "object");
 assert(typeof CreateLensShareCommand === "function");
@@ -585,8 +683,14 @@ assert(typeof DeleteAgentContextCommand === "function");
 assert(typeof DeleteAgentContext$ === "object");
 assert(typeof DeleteAgentGoalCommand === "function");
 assert(typeof DeleteAgentGoal$ === "object");
+assert(typeof DeleteAgentOrganizationalReportCommand === "function");
+assert(typeof DeleteAgentOrganizationalReport$ === "object");
 assert(typeof DeleteAgentProfileCommand === "function");
 assert(typeof DeleteAgentProfile$ === "object");
+assert(typeof DeleteAgentProfilePolicyCommand === "function");
+assert(typeof DeleteAgentProfilePolicy$ === "object");
+assert(typeof DeleteAgentRecommendationPolicyCommand === "function");
+assert(typeof DeleteAgentRecommendationPolicy$ === "object");
 assert(typeof DeleteLensCommand === "function");
 assert(typeof DeleteLens$ === "object");
 assert(typeof DeleteLensShareCommand === "function");
@@ -613,12 +717,22 @@ assert(typeof GetAgentContextCommand === "function");
 assert(typeof GetAgentContext$ === "object");
 assert(typeof GetAgentGoalCommand === "function");
 assert(typeof GetAgentGoal$ === "object");
+assert(typeof GetAgentOrganizationalReportCommand === "function");
+assert(typeof GetAgentOrganizationalReport$ === "object");
+assert(typeof GetAgentOrganizationalReportDataCommand === "function");
+assert(typeof GetAgentOrganizationalReportData$ === "object");
+assert(typeof GetAgentPreferencesCommand === "function");
+assert(typeof GetAgentPreferences$ === "object");
 assert(typeof GetAgentProfileCommand === "function");
 assert(typeof GetAgentProfile$ === "object");
+assert(typeof GetAgentProfilePolicyCommand === "function");
+assert(typeof GetAgentProfilePolicy$ === "object");
 assert(typeof GetAgentRecommendationCommand === "function");
 assert(typeof GetAgentRecommendation$ === "object");
 assert(typeof GetAgentRecommendationGenerationCommand === "function");
 assert(typeof GetAgentRecommendationGeneration$ === "object");
+assert(typeof GetAgentRecommendationPolicyCommand === "function");
+assert(typeof GetAgentRecommendationPolicy$ === "object");
 assert(typeof GetAnswerCommand === "function");
 assert(typeof GetAnswer$ === "object");
 assert(typeof GetConsolidatedReportCommand === "function");
@@ -653,6 +767,8 @@ assert(typeof ListAgentContextsCommand === "function");
 assert(typeof ListAgentContexts$ === "object");
 assert(typeof ListAgentGoalsCommand === "function");
 assert(typeof ListAgentGoals$ === "object");
+assert(typeof ListAgentOrganizationalReportsCommand === "function");
+assert(typeof ListAgentOrganizationalReports$ === "object");
 assert(typeof ListAgentProfilesCommand === "function");
 assert(typeof ListAgentProfiles$ === "object");
 assert(typeof ListAgentRecommendationGenerationsCommand === "function");
@@ -699,8 +815,16 @@ assert(typeof ListWorkloadsCommand === "function");
 assert(typeof ListWorkloads$ === "object");
 assert(typeof ListWorkloadSharesCommand === "function");
 assert(typeof ListWorkloadShares$ === "object");
+assert(typeof PutAgentPreferencesCommand === "function");
+assert(typeof PutAgentPreferences$ === "object");
+assert(typeof PutAgentProfilePolicyCommand === "function");
+assert(typeof PutAgentProfilePolicy$ === "object");
 assert(typeof PutAgentRecommendationFeedbackCommand === "function");
 assert(typeof PutAgentRecommendationFeedback$ === "object");
+assert(typeof PutAgentRecommendationPolicyCommand === "function");
+assert(typeof PutAgentRecommendationPolicy$ === "object");
+assert(typeof SendAgentOrganizationalReportDataToS3Command === "function");
+assert(typeof SendAgentOrganizationalReportDataToS3$ === "object");
 assert(typeof StartAgentRecommendationGenerationCommand === "function");
 assert(typeof StartAgentRecommendationGeneration$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -711,6 +835,8 @@ assert(typeof UpdateAgentContextCommand === "function");
 assert(typeof UpdateAgentContext$ === "object");
 assert(typeof UpdateAgentGoalCommand === "function");
 assert(typeof UpdateAgentGoal$ === "object");
+assert(typeof UpdateAgentOrganizationalProfileCommand === "function");
+assert(typeof UpdateAgentOrganizationalProfile$ === "object");
 assert(typeof UpdateAgentProfileCommand === "function");
 assert(typeof UpdateAgentProfile$ === "object");
 assert(typeof UpdateAgentRecommendationStatusCommand === "function");
@@ -757,6 +883,7 @@ assert(typeof Answer$ === "object");
 assert(typeof AnswerSummary$ === "object");
 assert(typeof AssociateLensesInput$ === "object");
 assert(typeof AssociateProfilesInput$ === "object");
+assert(typeof AutoRemediation$ === "object");
 assert(typeof BestPractice$ === "object");
 assert(typeof CheckDetail$ === "object");
 assert(typeof CheckSummary$ === "object");
@@ -770,10 +897,17 @@ assert(typeof ConsolidatedReportMetric$ === "object");
 assert(typeof ContextContent$ === "object");
 assert(typeof ContextResourceTag$ === "object");
 assert(typeof ContextSummary$ === "object");
+assert(typeof CoverageSummary$ === "object");
+assert(typeof CreateAgentBasicProfileRequest$ === "object");
+assert(typeof CreateAgentBasicProfileResponse$ === "object");
 assert(typeof CreateAgentContextRequest$ === "object");
 assert(typeof CreateAgentContextResponse$ === "object");
 assert(typeof CreateAgentGoalRequest$ === "object");
 assert(typeof CreateAgentGoalResponse$ === "object");
+assert(typeof CreateAgentOrganizationalProfileRequest$ === "object");
+assert(typeof CreateAgentOrganizationalProfileResponse$ === "object");
+assert(typeof CreateAgentOrganizationalReportRequest$ === "object");
+assert(typeof CreateAgentOrganizationalReportResponse$ === "object");
 assert(typeof CreateAgentProfileRequest$ === "object");
 assert(typeof CreateAgentProfileResponse$ === "object");
 assert(typeof CreateLensShareInput$ === "object");
@@ -799,8 +933,14 @@ assert(typeof DeleteAgentContextRequest$ === "object");
 assert(typeof DeleteAgentContextResponse$ === "object");
 assert(typeof DeleteAgentGoalRequest$ === "object");
 assert(typeof DeleteAgentGoalResponse$ === "object");
+assert(typeof DeleteAgentOrganizationalReportRequest$ === "object");
+assert(typeof DeleteAgentOrganizationalReportResponse$ === "object");
+assert(typeof DeleteAgentProfilePolicyRequest$ === "object");
+assert(typeof DeleteAgentProfilePolicyResponse$ === "object");
 assert(typeof DeleteAgentProfileRequest$ === "object");
 assert(typeof DeleteAgentProfileResponse$ === "object");
+assert(typeof DeleteAgentRecommendationPolicyRequest$ === "object");
+assert(typeof DeleteAgentRecommendationPolicyResponse$ === "object");
 assert(typeof DeleteLensInput$ === "object");
 assert(typeof DeleteLensShareInput$ === "object");
 assert(typeof DeleteProfileInput$ === "object");
@@ -814,14 +954,26 @@ assert(typeof DisassociateProfilesInput$ === "object");
 assert(typeof ErrorDetails$ === "object");
 assert(typeof ExportLensInput$ === "object");
 assert(typeof ExportLensOutput$ === "object");
+assert(typeof FailedAccount$ === "object");
+assert(typeof FailedOrganizationalUnit$ === "object");
 assert(typeof GetAgentContextRequest$ === "object");
 assert(typeof GetAgentContextResponse$ === "object");
 assert(typeof GetAgentGoalRequest$ === "object");
 assert(typeof GetAgentGoalResponse$ === "object");
+assert(typeof GetAgentOrganizationalReportDataRequest$ === "object");
+assert(typeof GetAgentOrganizationalReportDataResponse$ === "object");
+assert(typeof GetAgentOrganizationalReportRequest$ === "object");
+assert(typeof GetAgentOrganizationalReportResponse$ === "object");
+assert(typeof GetAgentPreferencesRequest$ === "object");
+assert(typeof GetAgentPreferencesResponse$ === "object");
+assert(typeof GetAgentProfilePolicyRequest$ === "object");
+assert(typeof GetAgentProfilePolicyResponse$ === "object");
 assert(typeof GetAgentProfileRequest$ === "object");
 assert(typeof GetAgentProfileResponse$ === "object");
 assert(typeof GetAgentRecommendationGenerationRequest$ === "object");
 assert(typeof GetAgentRecommendationGenerationResponse$ === "object");
+assert(typeof GetAgentRecommendationPolicyRequest$ === "object");
+assert(typeof GetAgentRecommendationPolicyResponse$ === "object");
 assert(typeof GetAgentRecommendationRequest$ === "object");
 assert(typeof GetAgentRecommendationResponse$ === "object");
 assert(typeof GetAnswerInput$ === "object");
@@ -870,6 +1022,8 @@ assert(typeof ListAgentContextsRequest$ === "object");
 assert(typeof ListAgentContextsResponse$ === "object");
 assert(typeof ListAgentGoalsRequest$ === "object");
 assert(typeof ListAgentGoalsResponse$ === "object");
+assert(typeof ListAgentOrganizationalReportsRequest$ === "object");
+assert(typeof ListAgentOrganizationalReportsResponse$ === "object");
 assert(typeof ListAgentProfilesRequest$ === "object");
 assert(typeof ListAgentProfilesResponse$ === "object");
 assert(typeof ListAgentRecommendationGenerationsRequest$ === "object");
@@ -919,10 +1073,19 @@ assert(typeof ListWorkloadsOutput$ === "object");
 assert(typeof Milestone$ === "object");
 assert(typeof MilestoneSummary$ === "object");
 assert(typeof NotificationSummary$ === "object");
+assert(typeof OrganizationalAccountEntry$ === "object");
+assert(typeof OrganizationalAggregationConfiguration$ === "object");
+assert(typeof OrganizationalReportFilters$ === "object");
+assert(typeof OrganizationalReportSummary$ === "object");
+assert(typeof OrganizationalUnitEntry$ === "object");
+assert(typeof PillarCount$ === "object");
 assert(typeof PillarDifference$ === "object");
 assert(typeof PillarItem$ === "object");
 assert(typeof PillarMetric$ === "object");
 assert(typeof PillarReviewSummary$ === "object");
+assert(typeof PreferenceEntry$ === "object");
+assert(typeof PreferenceUpdate$ === "object");
+assert(typeof PriorityCount$ === "object");
 assert(typeof Profile$ === "object");
 assert(typeof ProfileChoice$ === "object");
 assert(typeof ProfileNotificationSummary$ === "object");
@@ -934,8 +1097,14 @@ assert(typeof ProfileTemplate$ === "object");
 assert(typeof ProfileTemplateChoice$ === "object");
 assert(typeof ProfileTemplateQuestion$ === "object");
 assert(typeof Progress$ === "object");
+assert(typeof PutAgentPreferencesRequest$ === "object");
+assert(typeof PutAgentPreferencesResponse$ === "object");
+assert(typeof PutAgentProfilePolicyRequest$ === "object");
+assert(typeof PutAgentProfilePolicyResponse$ === "object");
 assert(typeof PutAgentRecommendationFeedbackRequest$ === "object");
 assert(typeof PutAgentRecommendationFeedbackResponse$ === "object");
+assert(typeof PutAgentRecommendationPolicyRequest$ === "object");
+assert(typeof PutAgentRecommendationPolicyResponse$ === "object");
 assert(typeof QuestionDifference$ === "object");
 assert(typeof QuestionMetric$ === "object");
 assert(typeof RecommendationGoal$ === "object");
@@ -951,6 +1120,8 @@ assert(typeof ReviewTemplateSummary$ === "object");
 assert(typeof Roi$ === "object");
 assert(typeof Scope$ === "object");
 assert(typeof SelectedPillar$ === "object");
+assert(typeof SendAgentOrganizationalReportDataToS3Request$ === "object");
+assert(typeof SendAgentOrganizationalReportDataToS3Response$ === "object");
 assert(typeof ShareInvitation$ === "object");
 assert(typeof ShareInvitationSummary$ === "object");
 assert(typeof StartAgentRecommendationGenerationRequest$ === "object");
@@ -959,6 +1130,7 @@ assert(typeof Tag$ === "object");
 assert(typeof TagResourceInput$ === "object");
 assert(typeof TagResourceOutput$ === "object");
 assert(typeof TemplateShareSummary$ === "object");
+assert(typeof TimeWindow$ === "object");
 assert(typeof TradeOff$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
@@ -966,6 +1138,8 @@ assert(typeof UpdateAgentContextRequest$ === "object");
 assert(typeof UpdateAgentContextResponse$ === "object");
 assert(typeof UpdateAgentGoalRequest$ === "object");
 assert(typeof UpdateAgentGoalResponse$ === "object");
+assert(typeof UpdateAgentOrganizationalProfileRequest$ === "object");
+assert(typeof UpdateAgentOrganizationalProfileResponse$ === "object");
 assert(typeof UpdateAgentProfileRequest$ === "object");
 assert(typeof UpdateAgentProfileResponse$ === "object");
 assert(typeof UpdateAgentRecommendationStatusRequest$ === "object");
@@ -1021,6 +1195,7 @@ assert(typeof DiscoveryIntegrationStatus === "object");
 assert(typeof Effort === "object");
 assert(typeof FeedbackCategory === "object");
 assert(typeof GenerationStatus === "object");
+assert(typeof GenerationType === "object");
 assert(typeof ImpactCategory === "object");
 assert(typeof ImportLensStatus === "object");
 assert(typeof IntegratingService === "object");
@@ -1032,12 +1207,18 @@ assert(typeof LensStatusType === "object");
 assert(typeof LensType === "object");
 assert(typeof MetricType === "object");
 assert(typeof NotificationType === "object");
+assert(typeof OrganizationalReportFormat === "object");
+assert(typeof OrganizationalReportState === "object");
 assert(typeof OrganizationSharingStatus === "object");
 assert(typeof PermissionType === "object");
 assert(typeof Pillar === "object");
+assert(typeof PreferenceKey === "object");
+assert(typeof PreferenceState === "object");
+assert(typeof PreferenceStatus === "object");
 assert(typeof Priority === "object");
 assert(typeof ProfileNotificationType === "object");
 assert(typeof ProfileOwnerType === "object");
+assert(typeof ProfileType === "object");
 assert(typeof Question === "object");
 assert(typeof QuestionPriority === "object");
 assert(typeof QuestionType === "object");
@@ -1077,10 +1258,14 @@ assert(typeof ThrottlingException$ === "object");
 assert(ValidationException.prototype instanceof WellArchitectedServiceException);
 assert(typeof ValidationException$ === "object");
 assert(WellArchitectedServiceException.prototype instanceof Error);
+// waiters
+assert(typeof waitForAgentOrganizationalReportCompleted === "function");
+assert(typeof waitUntilAgentOrganizationalReportCompleted === "function");
 // paginators
 assert(typeof paginateGetConsolidatedReport === "function");
 assert(typeof paginateListAgentContexts === "function");
 assert(typeof paginateListAgentGoals === "function");
+assert(typeof paginateListAgentOrganizationalReports === "function");
 assert(typeof paginateListAgentProfiles === "function");
 assert(typeof paginateListAgentRecommendationGenerations === "function");
 assert(typeof paginateListAgentRecommendationItems === "function");

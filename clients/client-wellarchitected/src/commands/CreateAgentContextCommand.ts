@@ -56,6 +56,9 @@ export interface CreateAgentContextCommandOutput extends CreateAgentContextRespo
  *         value: "STRING_VALUE", // required
  *       },
  *     ],
+ *     organizationalUnitIds: [ // ContextOrganizationalUnitIdList
+ *       "STRING_VALUE",
+ *     ],
  *     applicationOverview: "STRING_VALUE",
  *     industry: "STRING_VALUE",
  *     applicationType: "SAS" || "DESKTOP_APPLICATION" || "OTHER",
@@ -90,6 +93,9 @@ export interface CreateAgentContextCommandOutput extends CreateAgentContextRespo
  * //           key: "STRING_VALUE", // required
  * //           value: "STRING_VALUE", // required
  * //         },
+ * //       ],
+ * //       organizationalUnitIds: [ // ContextOrganizationalUnitIdList
+ * //         "STRING_VALUE",
  * //       ],
  * //       applicationOverview: "STRING_VALUE",
  * //       industry: "STRING_VALUE",

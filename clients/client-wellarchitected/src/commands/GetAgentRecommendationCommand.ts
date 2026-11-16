@@ -23,7 +23,7 @@ export interface GetAgentRecommendationCommandInput extends GetAgentRecommendati
 export interface GetAgentRecommendationCommandOutput extends GetAgentRecommendationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves detailed information about a specific optimization recommendation, including its impact analysis, content, and implementation guidance.</p>
+ * <important> <p>Application-level recommendations are a new recommendation format currently in beta. We are actively seeking customer feedback to improve their quality and relevance. As with any AI-generated content, please thoroughly review each recommendation before taking any action based on it.</p> </important> <p>Retrieves detailed information about a specific optimization recommendation, including its impact analysis, content, and implementation guidance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

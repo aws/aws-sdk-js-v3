@@ -23,7 +23,7 @@ export interface ListAgentRecommendationItemsCommandInput extends ListAgentRecom
 export interface ListAgentRecommendationItemsCommandOutput extends ListAgentRecommendationItemsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists recommendation items for a specific recommendation. Recommendation items provide detailed information about individual optimization opportunities.</p>
+ * <important> <p>Application-level recommendations are a new recommendation format currently in beta. We are actively seeking customer feedback to improve their quality and relevance. As with any AI-generated content, please thoroughly review each recommendation before taking any action based on it.</p> </important> <p>Lists recommendation items for a specific recommendation. Recommendation items provide detailed information about individual optimization opportunities.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,6 +51,10 @@ export interface ListAgentRecommendationItemsCommandOutput extends ListAgentReco
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       lastModifiedBy: "STRING_VALUE",
  * //       lastModifiedAt: new Date("TIMESTAMP"),
+ * //       autoRemediation: { // AutoRemediation
+ * //         deepLink: "STRING_VALUE",
+ * //         cliCommand: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

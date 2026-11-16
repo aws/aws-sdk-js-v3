@@ -63,6 +63,9 @@ export interface GetAgentContextCommandOutput extends GetAgentContextResponse, _
  * //           value: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       organizationalUnitIds: [ // ContextOrganizationalUnitIdList
+ * //         "STRING_VALUE",
+ * //       ],
  * //       applicationOverview: "STRING_VALUE",
  * //       industry: "STRING_VALUE",
  * //       applicationType: "SAS" || "DESKTOP_APPLICATION" || "OTHER",

@@ -42,12 +42,13 @@ export interface GetAgentProfileCommandOutput extends GetAgentProfileResponse, _
  * //   displayName: "STRING_VALUE",
  * //   description: "STRING_VALUE",
  * //   businessOverview: "STRING_VALUE",
- * //   pillars: [ // Pillars // required
+ * //   pillars: [ // Pillars
  * //     "COST_OPTIMIZATION" || "SECURITY" || "RESILIENCE" || "PERFORMANCE" || "OPERATIONAL_EXCELLENCE",
  * //   ],
  * //   deletionProtection: true || false,
- * //   executionRoleArn: "STRING_VALUE", // required
- * //   aggregationConfiguration: [ // AggregationConfigurations // required
+ * //   profileType: "STANDARD" || "BASIC" || "ORGANIZATIONAL",
+ * //   executionRoleArn: "STRING_VALUE",
+ * //   aggregationConfiguration: [ // AggregationConfigurations
  * //     { // AggregationConfiguration
  * //       accountId: "STRING_VALUE", // required
  * //       regions: [ // Regions // required
@@ -72,6 +73,24 @@ export interface GetAgentProfileCommandOutput extends GetAgentProfileResponse, _
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastModifiedBy: "STRING_VALUE",
  * //   lastModifiedAt: new Date("TIMESTAMP"),
+ * //   organizationalAggregationConfiguration: { // OrganizationalAggregationConfiguration
+ * //     organizationalUnits: [ // OrganizationalUnitEntryList
+ * //       { // OrganizationalUnitEntry
+ * //         organizationalUnitId: "STRING_VALUE", // required
+ * //         regions: [ // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     accounts: [ // OrganizationalAccountEntryList
+ * //       { // OrganizationalAccountEntry
+ * //         accountId: "STRING_VALUE", // required
+ * //         regions: [ // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
  * // };
  *
  * ```
