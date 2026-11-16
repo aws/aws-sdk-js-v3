@@ -23,7 +23,7 @@ export interface QueryVectorsCommandInput extends QueryVectorsInput {}
 export interface QueryVectorsCommandOutput extends QueryVectorsOutput, __MetadataBearer {}
 
 /**
- * <p>Performs an approximate nearest neighbor search query in a vector index using a query vector. By default, it returns the keys of approximate nearest neighbors. You can optionally include the computed distance (between the query vector and each vector in the response) and metadata of each vector in the response.</p> <p>To specify the vector index, you can either use both the vector bucket name and the vector index name, or use the vector index Amazon Resource Name (ARN). </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:QueryVectors</code> permission to use this operation. Additional permissions are required based on the request parameters you specify:</p> <ul> <li> <p>With only <code>s3vectors:QueryVectors</code> permission, you can retrieve vector keys of approximate nearest neighbors and computed distances between these vectors. This permission is sufficient only when you don't set any metadata filters and don't request metadata (by keeping the <code>returnMetadata</code> parameter set to <code>false</code> or not specified).</p> </li> <li> <p>If you specify a metadata filter or set <code>returnMetadata</code> to true, you must have both <code>s3vectors:QueryVectors</code> and <code>s3vectors:GetVectors</code> permissions. The request fails with a <code>403 Forbidden error</code> if you request metadata filtering or metadata without the <code>s3vectors:GetVectors</code> permission.</p> </li> </ul> </dd> </dl>
+ * <p>Returns matching vector keys from a vector index ranked by vector similarity, full-text relevance, or both. Specify <code>queryVector</code> to perform a vector search, specify <code>queryTexts</code> to perform a full-text search, or specify both to perform a hybrid search. Full-text search ranks results using BM25. Hybrid search combines the vector and full-text rankings using Reciprocal Rank Fusion (RRF).</p> <p>Amazon S3 Vectors ranks results by distance for a vector-only search, by BM25 score for a full-text-only search, and by RRF score for a hybrid search. You can optionally include computed distances, relevance scores, and vector metadata in the response. Full-text and hybrid searches require a vector index in <code>ENHANCED</code> mode.</p> <p>To specify the vector index, you can either use both the vector bucket name and the vector index name, or use the vector index Amazon Resource Name (ARN). </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:QueryVectors</code> permission to use this operation. Additional permissions are required based on the request parameters you specify:</p> <ul> <li> <p>With only <code>s3vectors:QueryVectors</code> permission, you can retrieve vector keys of approximate nearest neighbors and computed distances between these vectors. This permission is sufficient only when you don't set <code>queryTexts</code>, don't set any metadata filters, and don't request metadata (by keeping the <code>returnMetadata</code> parameter set to <code>false</code> or not specified).</p> </li> <li> <p>To use <code>queryTexts</code>, a metadata filter, or <code>returnMetadata</code> set to <code>true</code> with this operation, you must have both the <code>s3vectors:QueryVectors</code> and <code>s3vectors:GetVectors</code> permissions. If you use any of these options without the <code>s3vectors:GetVectors</code> permission, Amazon S3 Vectors returns an <code>AccessDeniedException</code>.</p> </li> </ul> </dd> </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,6 +46,13 @@ export interface QueryVectorsCommandOutput extends QueryVectorsOutput, __Metadat
  *   queryMode: "CLASSIC" || "ENHANCED",
  *   returnMetadata: true || false,
  *   returnDistance: true || false,
+ *   queryTexts: [ // QueryTextList
+ *     { // QueryText
+ *       text: "STRING_VALUE", // required
+ *       metadataKey: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   returnScores: true || false,
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new QueryVectorsCommand(input);
@@ -54,6 +61,16 @@ export interface QueryVectorsCommandOutput extends QueryVectorsOutput, __Metadat
  * //   vectors: [ // QueryVectorsOutputList // required
  * //     { // QueryOutputVector
  * //       distance: Number("float"),
+ * //       scores: { // QueryScores
+ * //         fused: Number("float"),
+ * //         bm25Scores: [ // Bm25ScoreList
+ * //           { // Bm25Score
+ * //             metadataKey: "STRING_VALUE", // required
+ * //             score: Number("float"), // required
+ * //           },
+ * //         ],
+ * //         vectorDistance: Number("float"),
+ * //       },
  * //       key: "STRING_VALUE", // required
  * //       metadata: "DOCUMENT_VALUE",
  * //     },

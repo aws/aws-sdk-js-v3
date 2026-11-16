@@ -40,8 +40,15 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  *   dimension: Number("int"), // required
  *   distanceMetric: "euclidean" || "cosine", // required
  *   metadataConfiguration: { // MetadataConfiguration
- *     nonFilterableMetadataKeys: [ // NonFilterableMetadataKeys // required
+ *     nonFilterableMetadataKeys: [ // NonFilterableMetadataKeys
  *       "STRING_VALUE",
+ *     ],
+ *     textSearchConfigurations: [ // TextSearchConfigurations
+ *       { // TextSearchConfiguration
+ *         metadataKey: "STRING_VALUE", // required
+ *         language: "en" || "fr" || "es" || "pt" || "it" || "de" || "nl" || "zh" || "ja" || "ko",
+ *         status: "ACTIVE" || "BUILDING",
+ *       },
  *     ],
  *   },
  *   encryptionConfiguration: { // EncryptionConfiguration

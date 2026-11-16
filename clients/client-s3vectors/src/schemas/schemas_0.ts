@@ -1,4 +1,6 @@
 const _ADE = "AccessDeniedException";
+const _BS = "Bm25Score";
+const _BSL = "Bm25ScoreList";
 const _CE = "ConflictException";
 const _CI = "CreateIndex";
 const _CII = "CreateIndexInput";
@@ -57,6 +59,8 @@ const _LVI = "ListVectorsInput";
 const _LVO = "ListVectorsOutput";
 const _LVOL = "ListVectorsOutputList";
 const _MC = "MetadataConfiguration";
+const _MCA = "MetadataConfigurationAdd";
+const _MCD = "MetadataConfigurationDelete";
 const _NFE = "NotFoundException";
 const _PIV = "PutInputVector";
 const _PV = "PutVectors";
@@ -70,6 +74,9 @@ const _PVI = "PutVectorsInput";
 const _PVIL = "PutVectorsInputList";
 const _PVO = "PutVectorsOutput";
 const _QOV = "QueryOutputVector";
+const _QS = "QueryScores";
+const _QT = "QueryText";
+const _QTL = "QueryTextList";
 const _QV = "QueryVectors";
 const _QVI = "QueryVectorsInput";
 const _QVO = "QueryVectorsOutput";
@@ -81,9 +88,16 @@ const _TMRE = "TooManyRequestsException";
 const _TR = "TagResource";
 const _TRI = "TagResourceInput";
 const _TRO = "TagResourceOutput";
+const _TSC = "TextSearchConfiguration";
+const _TSCK = "TextSearchConfigurationKey";
+const _TSCKe = "TextSearchConfigurationKeys";
+const _TSCe = "TextSearchConfigurations";
 const _UIM = "UpdateIndexMode";
 const _UIMI = "UpdateIndexModeInput";
 const _UIMO = "UpdateIndexModeOutput";
+const _UMC = "UpdateMetadataConfiguration";
+const _UMCI = "UpdateMetadataConfigurationInput";
+const _UMCO = "UpdateMetadataConfigurationOutput";
 const _UR = "UntagResource";
 const _URI = "UntagResourceInput";
 const _URO = "UntagResourceOutput";
@@ -93,6 +107,8 @@ const _VD = "VectorData";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
+const _a = "add";
+const _bS = "bm25Scores";
 const _c = "client";
 const _cT = "creationTime";
 const _d = "dimension";
@@ -100,11 +116,13 @@ const _dIM = "defaultIndexMode";
 const _dM = "distanceMetric";
 const _dT = "dataType";
 const _da = "data";
+const _de = "delete";
 const _di = "distance";
 const _e = "error";
 const _eC = "encryptionConfiguration";
-const _f = "filter";
+const _f = "fused";
 const _fL = "fieldList";
+const _fi = "filter";
 const _fl = "float32";
 const _h = "http";
 const _hE = "httpError";
@@ -117,8 +135,10 @@ const _in = "indexes";
 const _k = "keys";
 const _kKA = "kmsKeyArn";
 const _ke = "key";
+const _l = "language";
 const _m = "message";
 const _mC = "metadataConfiguration";
+const _mK = "metadataKey";
 const _mR = "maxResults";
 const _me = "metadata";
 const _nFMK = "nonFilterableMetadataKeys";
@@ -127,24 +147,32 @@ const _p = "policy";
 const _pa = "path";
 const _pr = "prefix";
 const _qM = "queryMode";
+const _qT = "queryTexts";
 const _qV = "queryVector";
 const _rA = "resourceArn";
 const _rD = "returnData";
 const _rDe = "returnDistance";
 const _rM = "returnMetadata";
+const _rS = "returnScores";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.s3vectors";
 const _sC = "segmentCount";
 const _sI = "segmentIndex";
 const _sT = "sseType";
+const _sc = "score";
+const _sco = "scores";
 const _se = "server";
+const _st = "status";
 const _t = "tags";
 const _tK = "topK";
 const _tKa = "tagKeys";
+const _tSC = "textSearchConfigurations";
+const _te = "text";
 const _v = "vectors";
 const _vB = "vectorBucket";
 const _vBA = "vectorBucketArn";
 const _vBN = "vectorBucketName";
 const _vBe = "vectorBuckets";
+const _vD = "vectorDistance";
 const n0 = "com.amazonaws.s3vectors";
 
 // smithy-typescript generated code
@@ -267,6 +295,11 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+export var Bm25Score$: StaticStructureSchema = [3, n0, _BS,
+  0,
+  [_mK, _sc],
+  [0, 1], 2
+];
 export var CreateIndexInput$: StaticStructureSchema = [3, n0, _CII,
   0,
   [_iN, _dT, _d, _dM, _vBN, _vBA, _mC, _eC, _t],
@@ -434,8 +467,18 @@ export var ListVectorsOutput$: StaticStructureSchema = [3, n0, _LVO,
 ];
 export var MetadataConfiguration$: StaticStructureSchema = [3, n0, _MC,
   0,
-  [_nFMK],
-  [64 | 0], 1
+  [_nFMK, _tSC],
+  [64 | 0, () => TextSearchConfigurations]
+];
+export var MetadataConfigurationAdd$: StaticStructureSchema = [3, n0, _MCA,
+  0,
+  [_tSC],
+  [() => TextSearchConfigurations]
+];
+export var MetadataConfigurationDelete$: StaticStructureSchema = [3, n0, _MCD,
+  0,
+  [_tSC],
+  [() => TextSearchConfigurationKeys]
 ];
 export var PutInputVector$: StaticStructureSchema = [3, n0, _PIV,
   0,
@@ -474,13 +517,23 @@ export var PutVectorsOutput$: StaticStructureSchema = [3, n0, _PVO,
 ];
 export var QueryOutputVector$: StaticStructureSchema = [3, n0, _QOV,
   0,
-  [_ke, _di, _me],
-  [0, 1, 15], 1
+  [_ke, _di, _sco, _me],
+  [0, 1, () => QueryScores$, 15], 1
+];
+export var QueryScores$: StaticStructureSchema = [3, n0, _QS,
+  0,
+  [_f, _bS, _vD],
+  [1, () => Bm25ScoreList, 1]
+];
+export var QueryText$: StaticStructureSchema = [3, n0, _QT,
+  8,
+  [_te, _mK],
+  [0, 0], 2
 ];
 export var QueryVectorsInput$: StaticStructureSchema = [3, n0, _QVI,
   0,
-  [_tK, _qV, _vBN, _iN, _iA, _f, _qM, _rM, _rDe, _nT],
-  [1, () => VectorData$, 0, 0, 0, 15, 0, 2, 2, 0], 2
+  [_tK, _vBN, _iN, _iA, _qV, _fi, _qM, _rM, _rDe, _qT, _rS, _nT],
+  [1, 0, 0, 0, () => VectorData$, 15, 0, 2, 2, [() => QueryTextList, 0], 2, 0], 1
 ];
 export var QueryVectorsOutput$: StaticStructureSchema = [3, n0, _QVO,
   0,
@@ -496,6 +549,16 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
   [],
   []
+];
+export var TextSearchConfiguration$: StaticStructureSchema = [3, n0, _TSC,
+  0,
+  [_mK, _l, _st],
+  [0, 0, 0], 1
+];
+export var TextSearchConfigurationKey$: StaticStructureSchema = [3, n0, _TSCK,
+  0,
+  [_mK],
+  [0], 1
 ];
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
@@ -517,6 +580,16 @@ export var UpdateIndexModeOutput$: StaticStructureSchema = [3, n0, _UIMO,
   [],
   []
 ];
+export var UpdateMetadataConfigurationInput$: StaticStructureSchema = [3, n0, _UMCI,
+  0,
+  [_vBN, _iN, _iA, _a, _de],
+  [0, 0, 0, () => MetadataConfigurationAdd$, () => MetadataConfigurationDelete$]
+];
+export var UpdateMetadataConfigurationOutput$: StaticStructureSchema = [3, n0, _UMCO,
+  0,
+  [_iA],
+  [0], 1
+];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_pa, _m],
@@ -531,6 +604,9 @@ export var VectorBucketSummary$: StaticStructureSchema = [3, n0, _VBS,
   0,
   [_vBN, _vBA, _cT],
   [0, 0, 4], 3
+];
+var Bm25ScoreList: StaticListSchema = [1, n0, _BSL,
+  0, () => Bm25Score$
 ];
 var DeleteVectorsInputList = 64 | 0;
 var Float32VectorData = 64 | 1;
@@ -551,10 +627,20 @@ var NonFilterableMetadataKeys = 64 | 0;
 var PutVectorsInputList: StaticListSchema = [1, n0, _PVIL,
   0, () => PutInputVector$
 ];
+var QueryTextList: StaticListSchema = [1, n0, _QTL,
+  0, [() => QueryText$,
+    0]
+];
 var QueryVectorsOutputList: StaticListSchema = [1, n0, _QVOL,
   0, () => QueryOutputVector$
 ];
 var TagKeyList = 64 | 0;
+var TextSearchConfigurationKeys: StaticListSchema = [1, n0, _TSCKe,
+  0, () => TextSearchConfigurationKey$
+];
+var TextSearchConfigurations: StaticListSchema = [1, n0, _TSCe,
+  0, () => TextSearchConfiguration$
+];
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
 ];
@@ -626,4 +712,7 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
 ];
 export var UpdateIndexMode$: StaticOperationSchema = [9, n0, _UIM,
   { [_h]: ["POST", "/UpdateIndexMode", 200] }, () => UpdateIndexModeInput$, () => UpdateIndexModeOutput$
+];
+export var UpdateMetadataConfiguration$: StaticOperationSchema = [9, n0, _UMC,
+  { [_h]: ["POST", "/UpdateMetadataConfiguration", 200] }, () => UpdateMetadataConfigurationInput$, () => UpdateMetadataConfigurationOutput$
 ];

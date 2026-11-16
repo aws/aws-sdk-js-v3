@@ -20,3 +20,4 @@ export * from "./QueryVectorsCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateIndexModeCommand";
+export * from "./UpdateMetadataConfigurationCommand";

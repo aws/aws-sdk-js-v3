@@ -108,6 +108,11 @@ import {
   type UpdateIndexModeCommandOutput,
   UpdateIndexModeCommand,
 } from "./commands/UpdateIndexModeCommand";
+import {
+  type UpdateMetadataConfigurationCommandInput,
+  type UpdateMetadataConfigurationCommandOutput,
+  UpdateMetadataConfigurationCommand,
+} from "./commands/UpdateMetadataConfigurationCommand";
 import { paginateListIndexes } from "./pagination/ListIndexesPaginator";
 import { paginateListVectorBuckets } from "./pagination/ListVectorBucketsPaginator";
 import { paginateListVectors } from "./pagination/ListVectorsPaginator";
@@ -136,6 +141,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateIndexModeCommand,
+  UpdateMetadataConfigurationCommand,
 };
 const paginators = {
   paginateListIndexes,
@@ -516,6 +522,24 @@ export interface S3Vectors {
     args: UpdateIndexModeCommandInput,
     options: S3VectorsRequestOptions,
     cb: (err: any, data?: UpdateIndexModeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMetadataConfigurationCommand}
+   */
+  updateMetadataConfiguration(): Promise<UpdateMetadataConfigurationCommandOutput>;
+  updateMetadataConfiguration(
+    args: UpdateMetadataConfigurationCommandInput,
+    options?: S3VectorsRequestOptions
+  ): Promise<UpdateMetadataConfigurationCommandOutput>;
+  updateMetadataConfiguration(
+    args: UpdateMetadataConfigurationCommandInput,
+    cb: (err: any, data?: UpdateMetadataConfigurationCommandOutput) => void
+  ): void;
+  updateMetadataConfiguration(
+    args: UpdateMetadataConfigurationCommandInput,
+    options: S3VectorsRequestOptions,
+    cb: (err: any, data?: UpdateMetadataConfigurationCommandOutput) => void
   ): void;
 
   /**

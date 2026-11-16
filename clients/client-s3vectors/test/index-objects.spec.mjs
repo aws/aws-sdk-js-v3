@@ -1,6 +1,8 @@
 import {
   AccessDeniedException,
   AccessDeniedException$,
+  AnalyzerStatus,
+  Bm25Score$,
   ConflictException,
   ConflictException$,
   CreateIndex$,
@@ -60,6 +62,7 @@ import {
   KmsInvalidStateException$,
   KmsNotFoundException,
   KmsNotFoundException$,
+  LanguageCode,
   ListIndexes$,
   ListIndexesCommand,
   ListIndexesInput$,
@@ -78,6 +81,8 @@ import {
   ListVectorsInput$,
   ListVectorsOutput$,
   MetadataConfiguration$,
+  MetadataConfigurationAdd$,
+  MetadataConfigurationDelete$,
   NotFoundException,
   NotFoundException$,
   paginateListIndexes,
@@ -98,6 +103,8 @@ import {
   PutVectorsInput$,
   PutVectorsOutput$,
   QueryOutputVector$,
+  QueryScores$,
+  QueryText$,
   QueryVectors$,
   QueryVectorsCommand,
   QueryVectorsInput$,
@@ -116,6 +123,8 @@ import {
   TagResourceCommand,
   TagResourceInput$,
   TagResourceOutput$,
+  TextSearchConfiguration$,
+  TextSearchConfigurationKey$,
   TooManyRequestsException,
   TooManyRequestsException$,
   UntagResource$,
@@ -126,6 +135,10 @@ import {
   UpdateIndexModeCommand,
   UpdateIndexModeInput$,
   UpdateIndexModeOutput$,
+  UpdateMetadataConfiguration$,
+  UpdateMetadataConfigurationCommand,
+  UpdateMetadataConfigurationInput$,
+  UpdateMetadataConfigurationOutput$,
   ValidationException,
   ValidationException$,
   ValidationExceptionField$,
@@ -180,7 +193,10 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateIndexModeCommand === "function");
 assert(typeof UpdateIndexMode$ === "object");
+assert(typeof UpdateMetadataConfigurationCommand === "function");
+assert(typeof UpdateMetadataConfiguration$ === "object");
 // structural schemas
+assert(typeof Bm25Score$ === "object");
 assert(typeof CreateIndexInput$ === "object");
 assert(typeof CreateIndexOutput$ === "object");
 assert(typeof CreateVectorBucketInput$ === "object");
@@ -215,6 +231,8 @@ assert(typeof ListVectorBucketsOutput$ === "object");
 assert(typeof ListVectorsInput$ === "object");
 assert(typeof ListVectorsOutput$ === "object");
 assert(typeof MetadataConfiguration$ === "object");
+assert(typeof MetadataConfigurationAdd$ === "object");
+assert(typeof MetadataConfigurationDelete$ === "object");
 assert(typeof PutInputVector$ === "object");
 assert(typeof PutVectorBucketDefaultIndexModeInput$ === "object");
 assert(typeof PutVectorBucketDefaultIndexModeOutput$ === "object");
@@ -223,22 +241,30 @@ assert(typeof PutVectorBucketPolicyOutput$ === "object");
 assert(typeof PutVectorsInput$ === "object");
 assert(typeof PutVectorsOutput$ === "object");
 assert(typeof QueryOutputVector$ === "object");
+assert(typeof QueryScores$ === "object");
+assert(typeof QueryText$ === "object");
 assert(typeof QueryVectorsInput$ === "object");
 assert(typeof QueryVectorsOutput$ === "object");
 assert(typeof TagResourceInput$ === "object");
 assert(typeof TagResourceOutput$ === "object");
+assert(typeof TextSearchConfiguration$ === "object");
+assert(typeof TextSearchConfigurationKey$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
 assert(typeof UpdateIndexModeInput$ === "object");
 assert(typeof UpdateIndexModeOutput$ === "object");
+assert(typeof UpdateMetadataConfigurationInput$ === "object");
+assert(typeof UpdateMetadataConfigurationOutput$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof VectorBucket$ === "object");
 assert(typeof VectorBucketSummary$ === "object");
 assert(typeof VectorData$ === "object");
 // enums
+assert(typeof AnalyzerStatus === "object");
 assert(typeof DataType === "object");
 assert(typeof DistanceMetric === "object");
 assert(typeof IndexMode === "object");
+assert(typeof LanguageCode === "object");
 assert(typeof SseType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof S3VectorsServiceException);

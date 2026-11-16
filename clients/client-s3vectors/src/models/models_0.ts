@@ -1,7 +1,25 @@
 // smithy-typescript generated code
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
-import type { DataType, DistanceMetric, IndexMode, SseType } from "./enums";
+import type { AnalyzerStatus, DataType, DistanceMetric, IndexMode, LanguageCode, SseType } from "./enums";
+
+/**
+ * <p>The raw BM25 relevance score for a single searchable metadata key.</p>
+ * @public
+ */
+export interface Bm25Score {
+  /**
+   * <p>The searchable metadata key that the score applies to.</p>
+   * @public
+   */
+  metadataKey: string | undefined;
+
+  /**
+   * <p>The BM25 relevance score.</p>
+   * @public
+   */
+  score: number | undefined;
+}
 
 /**
  * <p>The encryption configuration for a vector bucket or index. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically <code>AES256</code>. You can optionally override bucket level encryption settings, and set a specific encryption configuration for a vector index at the time of index creation.</p>
@@ -22,15 +40,45 @@ export interface EncryptionConfiguration {
 }
 
 /**
+ * <p>A full-text search configuration for a single metadata key.</p>
+ * @public
+ */
+export interface TextSearchConfiguration {
+  /**
+   * <p>The metadata key to make full-text searchable.</p>
+   * @public
+   */
+  metadataKey: string | undefined;
+
+  /**
+   * <p>The language that the text search analyzer uses. Valid values are <code>en</code> (English), <code>fr</code> (French), <code>es</code> (Spanish), <code>pt</code> (Portuguese), <code>it</code> (Italian), <code>de</code> (German), <code>nl</code> (Dutch), <code>zh</code> (Chinese), <code>ja</code> (Japanese), and <code>ko</code> (Korean). If you don't specify a language, Amazon S3 Vectors uses the default standard analyzer.</p>
+   * @public
+   */
+  language?: LanguageCode | undefined;
+
+  /**
+   * <p>The backfill status of the text search configuration. Valid values are <code>ACTIVE</code>, which indicates that the analyzer is built and serving queries, and <code>BUILDING</code>, which indicates that the analyzer is being backfilled and isn't yet serving queries. This field is returned by <code>GetIndex</code>.</p>
+   * @public
+   */
+  status?: AnalyzerStatus | undefined;
+}
+
+/**
  * <p>The metadata configuration for a vector index.</p>
  * @public
  */
 export interface MetadataConfiguration {
   /**
-   * <p>Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys can’t be used as query filters. Non-filterable metadata keys can be retrieved but can’t be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors. For more information about non-filterable metadata keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-vectors.html">Vectors</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-limitations.html">Limitations and restrictions</a> in the <i>Amazon S3 User Guide</i>. </p>
+   * <p>Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. You can't use these keys in metadata filters. You can still make a non-filterable key full-text searchable by configuring it separately in <code>textSearchConfigurations</code>. You can retrieve non-filterable metadata keys after finding the vectors. For more information about non-filterable metadata keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-vectors.html">Vectors</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-limitations.html">Limitations and restrictions</a> in the <i>Amazon S3 User Guide</i>. </p>
    * @public
    */
-  nonFilterableMetadataKeys: string[] | undefined;
+  nonFilterableMetadataKeys?: string[] | undefined;
+
+  /**
+   * <p>Full-text search configurations for searchable metadata keys.</p>
+   * @public
+   */
+  textSearchConfigurations?: TextSearchConfiguration[] | undefined;
 }
 
 /**
@@ -685,6 +733,88 @@ export interface UpdateIndexModeInput {
 export interface UpdateIndexModeOutput {}
 
 /**
+ * <p>Text search configurations to add to a vector index.</p>
+ * @public
+ */
+export interface MetadataConfigurationAdd {
+  /**
+   * <p>Text search configurations to add. Amazon S3 Vectors begins building the corresponding full-text indexes after the update is accepted.</p>
+   * @public
+   */
+  textSearchConfigurations?: TextSearchConfiguration[] | undefined;
+}
+
+/**
+ * <p>A searchable metadata key that identifies a text search configuration.</p>
+ * @public
+ */
+export interface TextSearchConfigurationKey {
+  /**
+   * <p>The searchable metadata key whose text search configuration to delete.</p>
+   * @public
+   */
+  metadataKey: string | undefined;
+}
+
+/**
+ * <p>Text search configurations to delete from a vector index.</p>
+ * @public
+ */
+export interface MetadataConfigurationDelete {
+  /**
+   * <p>Searchable metadata keys whose text search configurations to delete.</p>
+   * @public
+   */
+  textSearchConfigurations?: TextSearchConfigurationKey[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMetadataConfigurationInput {
+  /**
+   * <p>The name of the vector bucket that contains the vector index.</p>
+   * @public
+   */
+  vectorBucketName?: string | undefined;
+
+  /**
+   * <p>The name of the vector index to update.</p>
+   * @public
+   */
+  indexName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the vector index to update.</p>
+   * @public
+   */
+  indexArn?: string | undefined;
+
+  /**
+   * <p>Text search configurations to add to the vector index.</p>
+   * @public
+   */
+  add?: MetadataConfigurationAdd | undefined;
+
+  /**
+   * <p>Text search configurations to delete from the vector index.</p>
+   * @public
+   */
+  delete?: MetadataConfigurationDelete | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMetadataConfigurationOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated vector index.</p>
+   * @public
+   */
+  indexArn: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListVectorsInput {
@@ -843,6 +973,24 @@ export interface PutVectorsInput {
 export interface PutVectorsOutput {}
 
 /**
+ * <p>A full-text search query for a single metadata key.</p>
+ * @public
+ */
+export interface QueryText {
+  /**
+   * <p>The full-text query string.</p>
+   * @public
+   */
+  text: string | undefined;
+
+  /**
+   * <p>The searchable metadata key to query.</p>
+   * @public
+   */
+  metadataKey: string | undefined;
+}
+
+/**
  * @public
  */
 export interface QueryVectorsInput {
@@ -871,10 +1019,10 @@ export interface QueryVectorsInput {
   topK: number | undefined;
 
   /**
-   * <p>The query vector. Ensure that the query vector has the same dimension as the dimension of the vector index that's being queried. For example, if your vector index contains vectors with 384 dimensions, your query vector must also have 384 dimensions. </p>
+   * <p>The query vector for vector similarity search. The query vector must have the same dimension as the vector index. For example, if the vector index has 384 dimensions, the query vector must also have 384 dimensions. You can omit this parameter when you supply <code>queryTexts</code> to perform a full-text-only search. A request must include <code>queryVector</code>, <code>queryTexts</code>, or both.</p>
    * @public
    */
-  queryVector: VectorData | undefined;
+  queryVector?: VectorData | undefined;
 
   /**
    * <p>Metadata filter to apply during the query. For more information about metadata keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-metadata-filtering.html">Metadata filtering</a> in the <i>Amazon S3 User Guide</i>. </p>
@@ -901,6 +1049,18 @@ export interface QueryVectorsInput {
   returnDistance?: boolean | undefined;
 
   /**
+   * <p>Full-text queries for searchable metadata keys. Omit <code>queryVector</code> to run a full-text-only search, or provide both fields to run a hybrid search. Each entry must target a distinct searchable metadata key.</p>
+   * @public
+   */
+  queryTexts?: QueryText[] | undefined;
+
+  /**
+   * <p>Indicates whether to include relevance scores in the response. Full-text-only results can include BM25 scores. Hybrid results can also include a Reciprocal Rank Fusion (RRF) score and vector distance. This setting doesn't add scores to vector-only requests. The default value is <code>false</code>.</p>
+   * @public
+   */
+  returnScores?: boolean | undefined;
+
+  /**
    * <p>Pagination token from a previous request. The value of this field is empty for an initial request.</p>
    * @public
    */
@@ -908,7 +1068,31 @@ export interface QueryVectorsInput {
 }
 
 /**
- * <p>The attributes of a vector in the approximate nearest neighbor search.</p>
+ * <p>Relevance scores for a full-text-only or hybrid search result.</p>
+ * @public
+ */
+export interface QueryScores {
+  /**
+   * <p>The Reciprocal Rank Fusion (RRF) score that combines the vector and full-text rankings. This field is returned only for hybrid requests.</p>
+   * @public
+   */
+  fused?: number | undefined;
+
+  /**
+   * <p>The BM25 scores for the searchable metadata keys that the result matched.</p>
+   * @public
+   */
+  bm25Scores?: Bm25Score[] | undefined;
+
+  /**
+   * <p>The distance from the query vector. This field is returned when a hybrid result matches the vector search.</p>
+   * @public
+   */
+  vectorDistance?: number | undefined;
+}
+
+/**
+ * <p>Contains the key and optional distance, relevance scores, and metadata for a vector returned by the <code>QueryVectors</code> operation.</p>
  * @public
  */
 export interface QueryOutputVector {
@@ -919,7 +1103,13 @@ export interface QueryOutputVector {
   distance?: number | undefined;
 
   /**
-   * <p>The key of the vector in the approximate nearest neighbor search.</p>
+   * <p>The relevance scores for a full-text-only or hybrid result, when requested through <code>returnScores</code>.</p>
+   * @public
+   */
+  scores?: QueryScores | undefined;
+
+  /**
+   * <p>The key of the matching vector.</p>
    * @public
    */
   key: string | undefined;
@@ -936,7 +1126,7 @@ export interface QueryOutputVector {
  */
 export interface QueryVectorsOutput {
   /**
-   * <p>The vectors in the approximate nearest neighbor search.</p>
+   * <p>The matching vector results in ranked order. Results are ranked by vector distance for a vector-only search, by BM25 relevance for a full-text-only search, and by RRF score for a hybrid search.</p>
    * @public
    */
   vectors: QueryOutputVector[] | undefined;

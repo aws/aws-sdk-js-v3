@@ -326,3 +326,10 @@ UpdateIndexMode
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3vectors/command/UpdateIndexModeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3vectors/Interface/UpdateIndexModeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3vectors/Interface/UpdateIndexModeCommandOutput/)
 </details>
+<details>
+<summary>
+UpdateMetadataConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3vectors/command/UpdateMetadataConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3vectors/Interface/UpdateMetadataConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3vectors/Interface/UpdateMetadataConfigurationCommandOutput/)
+</details>

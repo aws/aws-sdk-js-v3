@@ -99,6 +99,10 @@ import type { QueryVectorsCommandInput, QueryVectorsCommandOutput } from "./comm
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateIndexModeCommandInput, UpdateIndexModeCommandOutput } from "./commands/UpdateIndexModeCommand";
+import type {
+  UpdateMetadataConfigurationCommandInput,
+  UpdateMetadataConfigurationCommandOutput,
+} from "./commands/UpdateMetadataConfigurationCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -134,7 +138,8 @@ export type ServiceInputTypes =
   | QueryVectorsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateIndexModeCommandInput;
+  | UpdateIndexModeCommandInput
+  | UpdateMetadataConfigurationCommandInput;
 
 /**
  * @public
@@ -160,7 +165,8 @@ export type ServiceOutputTypes =
   | QueryVectorsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateIndexModeCommandOutput;
+  | UpdateIndexModeCommandOutput
+  | UpdateMetadataConfigurationCommandOutput;
 
 /**
  * @public
