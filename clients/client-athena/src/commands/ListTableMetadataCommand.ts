@@ -39,6 +39,9 @@ export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput,
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   WorkGroup: "STRING_VALUE",
+ *   AttributesToGet: [ // TableAttributesList
+ *     "NAME" || "TABLE_TYPE",
+ *   ],
  * };
  * const command = new ListTableMetadataCommand(input);
  * const response = await client.send(command);

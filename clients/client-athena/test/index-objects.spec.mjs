@@ -74,6 +74,7 @@ import {
   CreateWorkGroupOutput$,
   CustomerContentEncryptionConfiguration$,
   Database$,
+  DatabaseAttributes,
   DataCatalog$,
   DataCatalogStatus,
   DataCatalogSummary$,
@@ -364,6 +365,7 @@ import {
   SystemTableName,
   SystemTableStatus$,
   SystemTableType,
+  TableAttributes,
   TableMetadata$,
   Tag$,
   TagResource$,
@@ -805,6 +807,7 @@ assert(typeof CapacityAllocationStatus === "object");
 assert(typeof CapacityReservationStatus === "object");
 assert(typeof ColumnNullable === "object");
 assert(typeof ConnectionType === "object");
+assert(typeof DatabaseAttributes === "object");
 assert(typeof DataCatalogStatus === "object");
 assert(typeof DataCatalogType === "object");
 assert(typeof EncryptionOption === "object");
@@ -818,6 +821,7 @@ assert(typeof SessionState === "object");
 assert(typeof StatementType === "object");
 assert(typeof SystemTableName === "object");
 assert(typeof SystemTableType === "object");
+assert(typeof TableAttributes === "object");
 assert(typeof ThrottleReason === "object");
 assert(typeof WorkGroupState === "object");
 // errors

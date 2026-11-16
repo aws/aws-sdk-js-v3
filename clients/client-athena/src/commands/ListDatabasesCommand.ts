@@ -37,6 +37,9 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   WorkGroup: "STRING_VALUE",
+ *   AttributesToGet: [ // DatabaseAttributesList
+ *     "NAME",
+ *   ],
  * };
  * const command = new ListDatabasesCommand(input);
  * const response = await client.send(command);

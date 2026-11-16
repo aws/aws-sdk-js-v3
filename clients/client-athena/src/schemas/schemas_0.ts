@@ -9,6 +9,7 @@ const _AEC = "AthenaErrorCode";
 const _ARI = "ApplicationRuntimeId";
 const _AT = "AuthToken";
 const _ATET = "AuthTokenExpirationTime";
+const _ATG = "AttributesToGet";
 const _ATu = "AuthenticationType";
 const _BGNQ = "BatchGetNamedQuery";
 const _BGNQI = "BatchGetNamedQueryInput";
@@ -1179,8 +1180,8 @@ export var ListCapacityReservationsOutput$: StaticStructureSchema = [3, n0, _LCR
 ];
 export var ListDatabasesInput$: StaticStructureSchema = [3, n0, _LDI,
   0,
-  [_CN, _NT, _MR, _WG],
-  [0, 0, 1, 0], 1
+  [_CN, _NT, _MR, _WG, _ATG],
+  [0, 0, 1, 0, 64 | 0], 1
 ];
 export var ListDatabasesOutput$: StaticStructureSchema = [3, n0, _LDO,
   0,
@@ -1289,8 +1290,8 @@ export var ListSystemTableStatusesOutput$: StaticStructureSchema = [3, n0, _LSTS
 ];
 export var ListTableMetadataInput$: StaticStructureSchema = [3, n0, _LTMI,
   0,
-  [_CN, _DN, _Ex, _NT, _MR, _WG],
-  [0, 0, 0, 0, 1, 0], 2
+  [_CN, _DN, _Ex, _NT, _MR, _WG, _ATG],
+  [0, 0, 0, 0, 1, 0, 64 | 0], 2
 ];
 export var ListTableMetadataOutput$: StaticStructureSchema = [3, n0, _LTMO,
   0,
@@ -1723,6 +1724,7 @@ var ColumnInfoList: StaticListSchema = [1, n0, _CIL,
 var ColumnList: StaticListSchema = [1, n0, _CLo,
   0, () => Column$
 ];
+var DatabaseAttributesList = 64 | 0;
 var DatabaseList: StaticListSchema = [1, n0, _DL,
   0, () => Database$
 ];
@@ -1778,6 +1780,7 @@ var SupportedDPUSizeList = 64 | 1;
 var SystemTableStatusList: StaticListSchema = [1, n0, _STSL,
   0, () => SystemTableStatus$
 ];
+var TableAttributesList = 64 | 0;
 var TableMetadataList: StaticListSchema = [1, n0, _TML,
   0, () => TableMetadata$
 ];

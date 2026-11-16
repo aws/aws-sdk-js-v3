@@ -6,6 +6,7 @@ import type {
   CapacityReservationStatus,
   ColumnNullable,
   ConnectionType,
+  DatabaseAttributes,
   DataCatalogStatus,
   DataCatalogType,
   EncryptionOption,
@@ -19,6 +20,7 @@ import type {
   StatementType,
   SystemTableName,
   SystemTableType,
+  TableAttributes,
   WorkGroupState,
 } from "./enums";
 
@@ -1807,9 +1809,7 @@ export interface WorkGroupConfiguration {
   RequesterPaysEnabled?: boolean | undefined;
 
   /**
-   * <p>The engine version that all queries running on the workgroup use. Queries on the
-   *                 <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine
-   *             regardless of this setting.</p>
+   * <p>The engine version that all queries running on the workgroup use.</p>
    * @public
    */
   EngineVersion?: EngineVersion | undefined;
@@ -3764,6 +3764,20 @@ export interface ListDatabasesInput {
    * @public
    */
   WorkGroup?: string | undefined;
+
+  /**
+   * <p>Specifies the database properties returned by the <code>ListDatabases</code>
+   *             call. The only valid value is <code>NAME</code>, which returns only the name of
+   *             each database and omits the remaining properties. If you omit this parameter or
+   *             specify an empty list, all database properties are returned.</p>
+   *          <p>Requesting only names can reduce response time for catalogs that contain many
+   *             databases, especially resource links to databases shared from other
+   *             accounts.</p>
+   *          <p>This parameter applies only to the Glue Data Catalog. For other data
+   *             catalog types, it is ignored.</p>
+   * @public
+   */
+  AttributesToGet?: DatabaseAttributes[] | undefined;
 }
 
 /**
@@ -4554,6 +4568,21 @@ export interface ListTableMetadataInput {
    * @public
    */
   WorkGroup?: string | undefined;
+
+  /**
+   * <p>Specifies the table properties returned by the <code>ListTableMetadata</code>
+   *             call. This parameter doesn't accept an empty list, and the request must include
+   *             <code>NAME</code>. The valid combinations of values are <code>NAME</code>, which
+   *             returns the name of each table, and <code>NAME</code> and <code>TABLE_TYPE</code>,
+   *             which return the name and table type of each table. The remaining properties are
+   *             omitted. If you omit this parameter, all table properties are returned.</p>
+   *          <p>Requesting only the properties you need can reduce response time for databases
+   *             that contain many tables.</p>
+   *          <p>This parameter applies only to the Glue Data Catalog. For other data
+   *             catalog types, it is ignored.</p>
+   * @public
+   */
+  AttributesToGet?: TableAttributes[] | undefined;
 }
 
 /**
@@ -4668,9 +4697,7 @@ export interface WorkGroupSummary {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The engine version setting for all queries on the workgroup. Queries on the
-   *                 <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine
-   *             regardless of this setting.</p>
+   * <p>The engine version setting for all queries on the workgroup.</p>
    * @public
    */
   EngineVersion?: EngineVersion | undefined;
@@ -5652,8 +5679,7 @@ export interface WorkGroupConfigurationUpdates {
   /**
    * <p>The engine version requested when a workgroup is updated. After the update, all
    *             queries on the workgroup run on the requested engine version. If no value was previously
-   *             set, the default is Auto. Queries on the <code>AmazonAthenaPreviewFunctionality</code>
-   *             workgroup run on the preview engine regardless of this setting.</p>
+   *             set, the default is Auto.</p>
    * @public
    */
   EngineVersion?: EngineVersion | undefined;

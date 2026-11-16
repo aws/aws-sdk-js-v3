@@ -294,6 +294,18 @@ export type WorkGroupState = (typeof WorkGroupState)[keyof typeof WorkGroupState
  * @public
  * @enum
  */
+export const DatabaseAttributes = {
+  NAME: "NAME",
+} as const;
+/**
+ * @public
+ */
+export type DatabaseAttributes = (typeof DatabaseAttributes)[keyof typeof DatabaseAttributes];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExecutorState = {
   CREATED: "CREATED",
   CREATING: "CREATING",
@@ -320,3 +332,16 @@ export const ExecutorType = {
  * @public
  */
 export type ExecutorType = (typeof ExecutorType)[keyof typeof ExecutorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TableAttributes = {
+  NAME: "NAME",
+  TABLE_TYPE: "TABLE_TYPE",
+} as const;
+/**
+ * @public
+ */
+export type TableAttributes = (typeof TableAttributes)[keyof typeof TableAttributes];
