@@ -96,6 +96,13 @@ export interface UpdateFirewallPolicyV2CommandOutput extends UpdateFirewallPolic
  *                 ],
  *               },
  *             },
+ *             ContextSets: { // ContextSets
+ *               "<keys>": { // ContextSet
+ *                 Definition: [ // ContextDefinitionList // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
  *           },
  *           ReferenceSets: { // ReferenceSets
  *             IPSetReferences: { // IPSetReferenceMap
@@ -125,6 +132,13 @@ export interface UpdateFirewallPolicyV2CommandOutput extends UpdateFirewallPolic
  *             PortSets: {
  *               "<keys>": {
  *                 Definition: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *             ContextSets: {
+ *               "<keys>": {
+ *                 Definition: [ // required
  *                   "STRING_VALUE",
  *                 ],
  *               },

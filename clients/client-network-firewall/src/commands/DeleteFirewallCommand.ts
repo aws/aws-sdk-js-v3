@@ -119,6 +119,8 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * //         },
  * //       ],
  * //     },
+ * //     ContextStoreId: "STRING_VALUE",
+ * //     ContextStoreOwnerAccountId: "STRING_VALUE",
  * //     TransparentFilteringNatScope: "NAT_ALL" || "NAT_NONE",
  * //   },
  * //   FirewallStatus: { // FirewallStatus
@@ -163,6 +165,10 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * //     TransitGatewayAttachmentSyncState: { // TransitGatewayAttachmentSyncState
  * //       AttachmentId: "STRING_VALUE",
  * //       TransitGatewayAttachmentStatus: "CREATING" || "DELETING" || "DELETED" || "FAILED" || "ERROR" || "READY" || "PENDING_ACCEPTANCE" || "REJECTING" || "REJECTED",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //     ContextStoreSyncState: { // ContextStoreSyncState
+ * //       SyncStatus: "SYNCING" || "PARTIALLY_RESOLVED" || "FULLY_RESOLVED" || "SYNC_FAILED" || "UNRESOLVED",
  * //       StatusMessage: "STRING_VALUE",
  * //     },
  * //   },

@@ -95,6 +95,13 @@ export interface CreateFirewallPolicyV2CommandOutput extends CreateFirewallPolic
  *                 ],
  *               },
  *             },
+ *             ContextSets: { // ContextSets
+ *               "<keys>": { // ContextSet
+ *                 Definition: [ // ContextDefinitionList // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
  *           },
  *           ReferenceSets: { // ReferenceSets
  *             IPSetReferences: { // IPSetReferenceMap
@@ -124,6 +131,13 @@ export interface CreateFirewallPolicyV2CommandOutput extends CreateFirewallPolic
  *             PortSets: {
  *               "<keys>": {
  *                 Definition: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *             ContextSets: {
+ *               "<keys>": {
+ *                 Definition: [ // required
  *                   "STRING_VALUE",
  *                 ],
  *               },

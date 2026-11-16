@@ -53,6 +53,13 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *           ],
  *         },
  *       },
+ *       ContextSets: { // ContextSets
+ *         "<keys>": { // ContextSet
+ *           Definition: [ // ContextDefinitionList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
  *     },
  *     ReferenceSets: { // ReferenceSets
  *       IPSetReferences: { // IPSetReferenceMap
@@ -216,6 +223,13 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *           ],
  *         },
  *       },
+ *       ContextSets: {
+ *         "<keys>": {
+ *           Definition: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
  *     },
  *     ReferenceSets: {
  *       IPSetReferences: {
@@ -240,6 +254,13 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *       PortSets: {
  *         "<keys>": {
  *           Definition: "<VariableDefinitionList>",
+ *         },
+ *       },
+ *       ContextSets: {
+ *         "<keys>": {
+ *           Definition: [ // required
+ *             "STRING_VALUE",
+ *           ],
  *         },
  *       },
  *     },

@@ -152,6 +152,52 @@ export type ContainerMonitoringType = (typeof ContainerMonitoringType)[keyof typ
  * @public
  * @enum
  */
+export const ResourceType = {
+  SECURITY_GROUP: "SecurityGroup",
+  SUBNET: "Subnet",
+  TGW_ATTACHMENT: "TGWAttachment",
+  VPC: "VPC",
+} as const;
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContextStoreSyncStatus = {
+  FULLY_RESOLVED: "FULLY_RESOLVED",
+  PARTIALLY_RESOLVED: "PARTIALLY_RESOLVED",
+  SYNCING: "SYNCING",
+  SYNC_FAILED: "SYNC_FAILED",
+  UNRESOLVED: "UNRESOLVED",
+} as const;
+/**
+ * @public
+ */
+export type ContextStoreSyncStatus = (typeof ContextStoreSyncStatus)[keyof typeof ContextStoreSyncStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContextType = {
+  ATTACHMENT: "Attachment",
+  RESOURCE_ID: "ResourceId",
+  SEGMENT_ID: "SegmentId",
+  SUBNET: "Subnet",
+} as const;
+/**
+ * @public
+ */
+export type ContextType = (typeof ContextType)[keyof typeof ContextType];
+
+/**
+ * @public
+ * @enum
+ */
 export const EncryptionType = {
   AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
   CUSTOMER_KMS: "CUSTOMER_KMS",

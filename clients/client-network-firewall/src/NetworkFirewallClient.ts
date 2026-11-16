@@ -191,6 +191,10 @@ import type {
   ListContainerAssociationsCommandOutput,
 } from "./commands/ListContainerAssociationsCommand";
 import type {
+  ListContextStoresCommandInput,
+  ListContextStoresCommandOutput,
+} from "./commands/ListContextStoresCommand";
+import type {
   ListFirewallPoliciesCommandInput,
   ListFirewallPoliciesCommandOutput,
 } from "./commands/ListFirewallPoliciesCommand";
@@ -207,6 +211,10 @@ import type {
   ListFlowOperationsCommandInput,
   ListFlowOperationsCommandOutput,
 } from "./commands/ListFlowOperationsCommand";
+import type {
+  ListResourcesInContextStoreCommandInput,
+  ListResourcesInContextStoreCommandOutput,
+} from "./commands/ListResourcesInContextStoreCommand";
 import type { ListRuleGroupsCommandInput, ListRuleGroupsCommandOutput } from "./commands/ListRuleGroupsCommand";
 import type {
   ListTagsForResourceCommandInput,
@@ -344,11 +352,13 @@ export type ServiceInputTypes =
   | GetAnalysisReportResultsCommandInput
   | ListAnalysisReportsCommandInput
   | ListContainerAssociationsCommandInput
+  | ListContextStoresCommandInput
   | ListFirewallPoliciesCommandInput
   | ListFirewallPoliciesV2CommandInput
   | ListFirewallsCommandInput
   | ListFlowOperationResultsCommandInput
   | ListFlowOperationsCommandInput
+  | ListResourcesInContextStoreCommandInput
   | ListRuleGroupsCommandInput
   | ListTLSInspectionConfigurationsCommandInput
   | ListTagsForResourceCommandInput
@@ -419,11 +429,13 @@ export type ServiceOutputTypes =
   | GetAnalysisReportResultsCommandOutput
   | ListAnalysisReportsCommandOutput
   | ListContainerAssociationsCommandOutput
+  | ListContextStoresCommandOutput
   | ListFirewallPoliciesCommandOutput
   | ListFirewallPoliciesV2CommandOutput
   | ListFirewallsCommandOutput
   | ListFlowOperationResultsCommandOutput
   | ListFlowOperationsCommandOutput
+  | ListResourcesInContextStoreCommandOutput
   | ListRuleGroupsCommandOutput
   | ListTLSInspectionConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput

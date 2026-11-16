@@ -108,16 +108,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `NetworkFirewallClient` and
-the commands you need, for example `ListFirewallsCommand`:
+the commands you need, for example `ListContextStoresCommand`:
 
 ```js
 // ES5 example
-const { NetworkFirewallClient, ListFirewallsCommand } = require("@aws-sdk/client-network-firewall");
+const { NetworkFirewallClient, ListContextStoresCommand } = require("@aws-sdk/client-network-firewall");
 ```
 
 ```ts
 // ES6+ example
-import { NetworkFirewallClient, ListFirewallsCommand } from "@aws-sdk/client-network-firewall";
+import { NetworkFirewallClient, ListContextStoresCommand } from "@aws-sdk/client-network-firewall";
 ```
 
 ### Usage
@@ -134,7 +134,7 @@ To send a request:
 const client = new NetworkFirewallClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListFirewallsCommand(params);
+const command = new ListContextStoresCommand(params);
 ```
 
 #### Supported Message Protocols
@@ -229,7 +229,7 @@ const client = new NetworkFirewall({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listFirewalls(params);
+  const data = await client.listContextStores(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -237,7 +237,7 @@ try {
 
 // Promises.
 client
-  .listFirewalls(params)
+  .listContextStores(params)
   .then((data) => {
     // process data.
   })
@@ -246,7 +246,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listFirewalls(params, (err, data) => {
+client.listContextStores(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -586,6 +586,13 @@ ListContainerAssociations
 </details>
 <details>
 <summary>
+ListContextStores
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/ListContextStoresCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/ListContextStoresCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/ListContextStoresCommandOutput/)
+</details>
+<details>
+<summary>
 ListFirewallPolicies
 </summary>
 
@@ -618,6 +625,13 @@ ListFlowOperations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/ListFlowOperationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/ListFlowOperationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/ListFlowOperationsCommandOutput/)
+</details>
+<details>
+<summary>
+ListResourcesInContextStore
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/ListResourcesInContextStoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/ListResourcesInContextStoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/ListResourcesInContextStoreCommandOutput/)
 </details>
 <details>
 <summary>

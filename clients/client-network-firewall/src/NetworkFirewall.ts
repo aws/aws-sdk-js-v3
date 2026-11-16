@@ -209,6 +209,11 @@ import {
   ListContainerAssociationsCommand,
 } from "./commands/ListContainerAssociationsCommand";
 import {
+  type ListContextStoresCommandInput,
+  type ListContextStoresCommandOutput,
+  ListContextStoresCommand,
+} from "./commands/ListContextStoresCommand";
+import {
   type ListFirewallPoliciesCommandInput,
   type ListFirewallPoliciesCommandOutput,
   ListFirewallPoliciesCommand,
@@ -233,6 +238,11 @@ import {
   type ListFlowOperationsCommandOutput,
   ListFlowOperationsCommand,
 } from "./commands/ListFlowOperationsCommand";
+import {
+  type ListResourcesInContextStoreCommandInput,
+  type ListResourcesInContextStoreCommandOutput,
+  ListResourcesInContextStoreCommand,
+} from "./commands/ListResourcesInContextStoreCommand";
 import {
   type ListRuleGroupsCommandInput,
   type ListRuleGroupsCommandOutput,
@@ -363,11 +373,13 @@ import { NetworkFirewallClient } from "./NetworkFirewallClient";
 import { paginateGetAnalysisReportResults } from "./pagination/GetAnalysisReportResultsPaginator";
 import { paginateListAnalysisReports } from "./pagination/ListAnalysisReportsPaginator";
 import { paginateListContainerAssociations } from "./pagination/ListContainerAssociationsPaginator";
+import { paginateListContextStores } from "./pagination/ListContextStoresPaginator";
 import { paginateListFirewallPolicies } from "./pagination/ListFirewallPoliciesPaginator";
 import { paginateListFirewallPoliciesV2 } from "./pagination/ListFirewallPoliciesV2Paginator";
 import { paginateListFirewalls } from "./pagination/ListFirewallsPaginator";
 import { paginateListFlowOperationResults } from "./pagination/ListFlowOperationResultsPaginator";
 import { paginateListFlowOperations } from "./pagination/ListFlowOperationsPaginator";
+import { paginateListResourcesInContextStore } from "./pagination/ListResourcesInContextStorePaginator";
 import { paginateListRuleGroups } from "./pagination/ListRuleGroupsPaginator";
 import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
 import { paginateListTLSInspectionConfigurations } from "./pagination/ListTLSInspectionConfigurationsPaginator";
@@ -415,11 +427,13 @@ const commands = {
   GetAnalysisReportResultsCommand,
   ListAnalysisReportsCommand,
   ListContainerAssociationsCommand,
+  ListContextStoresCommand,
   ListFirewallPoliciesCommand,
   ListFirewallPoliciesV2Command,
   ListFirewallsCommand,
   ListFlowOperationResultsCommand,
   ListFlowOperationsCommand,
+  ListResourcesInContextStoreCommand,
   ListRuleGroupsCommand,
   ListTagsForResourceCommand,
   ListTLSInspectionConfigurationsCommand,
@@ -450,11 +464,13 @@ const paginators = {
   paginateGetAnalysisReportResults,
   paginateListAnalysisReports,
   paginateListContainerAssociations,
+  paginateListContextStores,
   paginateListFirewallPolicies,
   paginateListFirewallPoliciesV2,
   paginateListFirewalls,
   paginateListFlowOperationResults,
   paginateListFlowOperations,
+  paginateListResourcesInContextStore,
   paginateListRuleGroups,
   paginateListTagsForResource,
   paginateListTLSInspectionConfigurations,
@@ -1172,6 +1188,24 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link ListContextStoresCommand}
+   */
+  listContextStores(): Promise<ListContextStoresCommandOutput>;
+  listContextStores(
+    args: ListContextStoresCommandInput,
+    options?: NetworkFirewallRequestOptions
+  ): Promise<ListContextStoresCommandOutput>;
+  listContextStores(
+    args: ListContextStoresCommandInput,
+    cb: (err: any, data?: ListContextStoresCommandOutput) => void
+  ): void;
+  listContextStores(
+    args: ListContextStoresCommandInput,
+    options: NetworkFirewallRequestOptions,
+    cb: (err: any, data?: ListContextStoresCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListFirewallPoliciesCommand}
    */
   listFirewallPolicies(): Promise<ListFirewallPoliciesCommandOutput>;
@@ -1257,6 +1291,23 @@ export interface NetworkFirewall {
     args: ListFlowOperationsCommandInput,
     options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListFlowOperationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResourcesInContextStoreCommand}
+   */
+  listResourcesInContextStore(
+    args: ListResourcesInContextStoreCommandInput,
+    options?: NetworkFirewallRequestOptions
+  ): Promise<ListResourcesInContextStoreCommandOutput>;
+  listResourcesInContextStore(
+    args: ListResourcesInContextStoreCommandInput,
+    cb: (err: any, data?: ListResourcesInContextStoreCommandOutput) => void
+  ): void;
+  listResourcesInContextStore(
+    args: ListResourcesInContextStoreCommandInput,
+    options: NetworkFirewallRequestOptions,
+    cb: (err: any, data?: ListResourcesInContextStoreCommandOutput) => void
   ): void;
 
   /**
@@ -1726,6 +1777,17 @@ export interface NetworkFirewall {
   ): Paginator<ListContainerAssociationsCommandOutput>;
 
   /**
+   * @see {@link ListContextStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContextStoresCommandOutput}.
+   */
+  paginateListContextStores(
+    args?: ListContextStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContextStoresCommandOutput>;
+
+  /**
    * @see {@link ListFirewallPoliciesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1779,6 +1841,17 @@ export interface NetworkFirewall {
     args: ListFlowOperationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListFlowOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListResourcesInContextStoreCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourcesInContextStoreCommandOutput}.
+   */
+  paginateListResourcesInContextStore(
+    args: ListResourcesInContextStoreCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourcesInContextStoreCommandOutput>;
 
   /**
    * @see {@link ListRuleGroupsCommand}

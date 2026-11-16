@@ -5,6 +5,8 @@ import type {
   ConfigurationSyncState,
   ContainerAssociationStatus,
   ContainerMonitoringType,
+  ContextStoreSyncStatus,
+  ContextType,
   DecryptionAction,
   DNSExpiryExceptionPolicy,
   EnabledAnalysisType,
@@ -32,6 +34,7 @@ import type {
   ResourceManagedStatus,
   ResourceManagedType,
   ResourceStatus,
+  ResourceType,
   RevocationCheckAction,
   Route53ResolvedIPValidationAction,
   RuleGroupType,
@@ -919,6 +922,113 @@ export interface ContainerMonitoringConfiguration {
 }
 
 /**
+ * <p>Filters for <code>ListResourcesInContextStore</code>. Both filters are optional. If you specify both,
+ *       Network Firewall returns only the resources that match both.</p>
+ * @public
+ */
+export interface ContextFilters {
+  /**
+   * <p>The Amazon Web Services Region of the resources to return, for example <code>us-east-1</code>.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The type of resource to return. Each resource type corresponds to the <code>ContextType</code> that
+   *       Network Firewall reports for the resource:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SecurityGroup</code> - Security groups. Reported with the <code>SegmentId</code> context type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VPC</code> - VPCs. Reported with the <code>ResourceId</code> context type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Subnet</code> - Subnets. Reported with the <code>Subnet</code> context type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TGWAttachment</code> - Transit gateway attachments. Reported with the <code>Attachment</code> context type.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceType?: ResourceType | undefined;
+}
+
+/**
+ * <p>A list of resource identifiers from the context store that is associated with the firewall. Use a context set to write stateful rules against Amazon Web Services resources instead of IP addresses. This is part of a <a>RuleVariables</a>. </p>
+ * @public
+ */
+export interface ContextSet {
+  /**
+   * <p>The list of resource identifiers. Each entry is the ID of a resource that the context store records, for example
+   *       <code>vpc-1234567890abcdef0</code>, <code>subnet-1234567890abcdef0</code>, <code>sg-1234567890abcdef0</code>, or
+   *       <code>tgw-attach-1234567890abcdef0</code>. You can specify 1-1,000 entries.</p>
+   * @public
+   */
+  Definition: string[] | undefined;
+}
+
+/**
+ * <p>Contains details about a context store, including its unique identifier and the account that owns it.</p>
+ * @public
+ */
+export interface ContextStore {
+  /**
+   * <p>The unique identifier of the context store. Use this value in <code>ListResourcesInContextStore</code> to list
+   *       the resources that the context store records.</p>
+   * @public
+   */
+  ContextStoreId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the context store.</p>
+   * @public
+   */
+  ContextStoreOwnerAccountId: string | undefined;
+}
+
+/**
+ * <p>The synchronization state of a firewall's context sets with its context store. This indicates whether the resource identifiers in the firewall's context sets resolve to resources that the context store records.</p>
+ * @public
+ */
+export interface ContextStoreSyncState {
+  /**
+   * <p>The synchronization status of the firewall's context sets. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SYNCING</code> - The firewall is applying the latest context store data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FULLY_RESOLVED</code> - All resource identifiers in the firewall's context sets resolve to resources in the context store.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARTIALLY_RESOLVED</code> - Some resource identifiers in the firewall's context sets don't resolve to resources in the context store.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SYNC_FAILED</code> - The firewall couldn't sync with the context store. For details, see <code>StatusMessage</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SyncStatus?: ContextStoreSyncStatus | undefined;
+
+  /**
+   * <p>A message that provides additional information about the synchronization status, particularly when the status is not <code>FULLY_RESOLVED</code>.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+}
+
+/**
  * <p>A key:value pair associated with an Amazon Web Services resource. The key:value pair can be anything you
  *          define. Typically, the tag key represents a category (such as "environment") and the tag
  *          value represents a specific value within that category (such as "test," "development," or
@@ -1433,6 +1543,18 @@ export interface Firewall {
   VpcEndpoint?: VpcEndpoint | undefined;
 
   /**
+   * <p>The unique identifier of the context store that the firewall uses to resolve context sets in its rule groups. Network Firewall discovers the context store from the transit gateway association in Network Manager. This field is only present for transit gateway-attached firewalls whose transit gateway is associated with a context store.</p>
+   * @public
+   */
+  ContextStoreId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the context store. This may be different from the firewall owner's account ID.</p>
+   * @public
+   */
+  ContextStoreOwnerAccountId?: string | undefined;
+
+  /**
    * <p>How a proxy mode firewall handles traffic that isn't sent to its proxy listener. <code>NAT_ALL</code> sends this traffic out through the firewall's NAT gateway after inspection. <code>NAT_NONE</code> returns it to the firewall endpoint without address translation.</p>
    * @public
    */
@@ -1689,6 +1811,12 @@ export interface FirewallStatus {
    * @public
    */
   TransitGatewayAttachmentSyncState?: TransitGatewayAttachmentSyncState | undefined;
+
+  /**
+   * <p>The synchronization state of the context sets in the firewall's rule groups with the firewall's context store. This field is only present when the firewall has a context store and its rule groups reference context sets.</p>
+   * @public
+   */
+  ContextStoreSyncState?: ContextStoreSyncState | undefined;
 }
 
 /**
@@ -2691,6 +2819,12 @@ export interface RuleVariables {
    * @public
    */
   PortSets?: Record<string, PortSet> | undefined;
+
+  /**
+   * <p>A list of context sets. Each context set lists resources from the context store that is associated with the firewall. </p>
+   * @public
+   */
+  ContextSets?: Record<string, ContextSet> | undefined;
 }
 
 /**
@@ -6468,6 +6602,46 @@ export interface ListContainerAssociationsResponse {
 /**
  * @public
  */
+export interface ListContextStoresRequest {
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
+   *           objects are available, in the response, Network Firewall provides a
+   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContextStoresResponse {
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The context stores that are associated with your firewalls.</p>
+   * @public
+   */
+  ContextStores: ContextStore[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListFirewallPoliciesRequest {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -6800,6 +6974,117 @@ export interface ListFlowOperationsResponse {
    * @public
    */
   FlowOperations?: FlowOperationMetadata[] | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourcesInContextStoreRequest {
+  /**
+   * <p>The unique identifier of the context store. To get the identifiers of the context stores that are associated
+   *       with your firewalls, call <code>ListContextStores</code>.</p>
+   * @public
+   */
+  ContextStoreId: string | undefined;
+
+  /**
+   * <p>Optional filters that limit the results to resources in a specific Region, of a specific resource type, or
+   *       both. If you specify both filters, Network Firewall returns only the resources that match both.</p>
+   * @public
+   */
+  Filters?: ContextFilters | undefined;
+
+  /**
+   * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
+   *           objects are available, in the response, Network Firewall provides a
+   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   *          <p>A token is valid only for the same <code>ContextStoreId</code> and filters as the request that returned it.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A resource that a context store records, which <code>ListResourcesInContextStore</code> returns.</p>
+ * @public
+ */
+export interface ResourceContext {
+  /**
+   * <p>The kind of context that the context store records for the resource. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceId</code> - A VPC.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SegmentId</code> - A security group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Subnet</code> - A subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Attachment</code> - A transit gateway attachment.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ContextType?: ContextType | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the resource.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The Availability Zone of the resource. Present for subnets.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The type of the transit gateway attachment. Present for attachments.</p>
+   * @public
+   */
+  AttachmentType?: string | undefined;
+
+  /**
+   * <p>The identifier of the resource, for example <code>vpc-1234567890abcdef0</code>,
+   *       <code>subnet-1234567890abcdef0</code>, <code>sg-1234567890abcdef0</code>, or
+   *       <code>tgw-attach-1234567890abcdef0</code>.</p>
+   * @public
+   */
+  PublicId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourcesInContextStoreResponse {
+  /**
+   * <p>The resources that the context store records and that match your filters.</p>
+   * @public
+   */
+  ResourceContexts: ResourceContext[] | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available

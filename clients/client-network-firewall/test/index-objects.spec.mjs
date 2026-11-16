@@ -35,6 +35,12 @@ import {
   ContainerAttribute$,
   ContainerMonitoringConfiguration$,
   ContainerMonitoringType,
+  ContextFilters$,
+  ContextSet$,
+  ContextStore$,
+  ContextStoreSyncState$,
+  ContextStoreSyncStatus,
+  ContextType,
   CreateContainerAssociation$,
   CreateContainerAssociationCommand,
   CreateContainerAssociationRequest$,
@@ -240,6 +246,10 @@ import {
   ListContainerAssociationsCommand,
   ListContainerAssociationsRequest$,
   ListContainerAssociationsResponse$,
+  ListContextStores$,
+  ListContextStoresCommand,
+  ListContextStoresRequest$,
+  ListContextStoresResponse$,
   ListenerProperty$,
   ListenerPropertyType,
   ListFirewallPolicies$,
@@ -262,6 +272,10 @@ import {
   ListFlowOperationsCommand,
   ListFlowOperationsRequest$,
   ListFlowOperationsResponse$,
+  ListResourcesInContextStore$,
+  ListResourcesInContextStoreCommand,
+  ListResourcesInContextStoreRequest$,
+  ListResourcesInContextStoreResponse$,
   ListRuleGroups$,
   ListRuleGroupsCommand,
   ListRuleGroupsRequest$,
@@ -295,11 +309,13 @@ import {
   paginateGetAnalysisReportResults,
   paginateListAnalysisReports,
   paginateListContainerAssociations,
+  paginateListContextStores,
   paginateListFirewallPolicies,
   paginateListFirewallPoliciesV2,
   paginateListFirewalls,
   paginateListFlowOperationResults,
   paginateListFlowOperations,
+  paginateListResourcesInContextStore,
   paginateListRuleGroups,
   paginateListTagsForResource,
   paginateListTLSInspectionConfigurations,
@@ -324,6 +340,7 @@ import {
   RejectNetworkFirewallTransitGatewayAttachmentCommand,
   RejectNetworkFirewallTransitGatewayAttachmentRequest$,
   RejectNetworkFirewallTransitGatewayAttachmentResponse$,
+  ResourceContext$,
   ResourceManagedStatus,
   ResourceManagedType,
   ResourceNotFoundException,
@@ -331,6 +348,7 @@ import {
   ResourceOwnerCheckException,
   ResourceOwnerCheckException$,
   ResourceStatus,
+  ResourceType,
   RevocationCheckAction,
   Route53ResolvedIPValidation$,
   Route53ResolvedIPValidationAction,
@@ -558,6 +576,8 @@ assert(typeof ListAnalysisReportsCommand === "function");
 assert(typeof ListAnalysisReports$ === "object");
 assert(typeof ListContainerAssociationsCommand === "function");
 assert(typeof ListContainerAssociations$ === "object");
+assert(typeof ListContextStoresCommand === "function");
+assert(typeof ListContextStores$ === "object");
 assert(typeof ListFirewallPoliciesCommand === "function");
 assert(typeof ListFirewallPolicies$ === "object");
 assert(typeof ListFirewallPoliciesV2Command === "function");
@@ -568,6 +588,8 @@ assert(typeof ListFlowOperationResultsCommand === "function");
 assert(typeof ListFlowOperationResults$ === "object");
 assert(typeof ListFlowOperationsCommand === "function");
 assert(typeof ListFlowOperations$ === "object");
+assert(typeof ListResourcesInContextStoreCommand === "function");
+assert(typeof ListResourcesInContextStore$ === "object");
 assert(typeof ListRuleGroupsCommand === "function");
 assert(typeof ListRuleGroups$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
@@ -642,6 +664,10 @@ assert(typeof CIDRSummary$ === "object");
 assert(typeof ContainerAssociationSummary$ === "object");
 assert(typeof ContainerAttribute$ === "object");
 assert(typeof ContainerMonitoringConfiguration$ === "object");
+assert(typeof ContextFilters$ === "object");
+assert(typeof ContextSet$ === "object");
+assert(typeof ContextStore$ === "object");
+assert(typeof ContextStoreSyncState$ === "object");
 assert(typeof CreateContainerAssociationRequest$ === "object");
 assert(typeof CreateContainerAssociationResponse$ === "object");
 assert(typeof CreateFirewallPolicyRequest$ === "object");
@@ -747,6 +773,8 @@ assert(typeof ListAnalysisReportsRequest$ === "object");
 assert(typeof ListAnalysisReportsResponse$ === "object");
 assert(typeof ListContainerAssociationsRequest$ === "object");
 assert(typeof ListContainerAssociationsResponse$ === "object");
+assert(typeof ListContextStoresRequest$ === "object");
+assert(typeof ListContextStoresResponse$ === "object");
 assert(typeof ListenerProperty$ === "object");
 assert(typeof ListFirewallPoliciesRequest$ === "object");
 assert(typeof ListFirewallPoliciesResponse$ === "object");
@@ -758,6 +786,8 @@ assert(typeof ListFlowOperationResultsRequest$ === "object");
 assert(typeof ListFlowOperationResultsResponse$ === "object");
 assert(typeof ListFlowOperationsRequest$ === "object");
 assert(typeof ListFlowOperationsResponse$ === "object");
+assert(typeof ListResourcesInContextStoreRequest$ === "object");
+assert(typeof ListResourcesInContextStoreResponse$ === "object");
 assert(typeof ListRuleGroupsRequest$ === "object");
 assert(typeof ListRuleGroupsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
@@ -782,6 +812,7 @@ assert(typeof PutResourcePolicyResponse$ === "object");
 assert(typeof ReferenceSets$ === "object");
 assert(typeof RejectNetworkFirewallTransitGatewayAttachmentRequest$ === "object");
 assert(typeof RejectNetworkFirewallTransitGatewayAttachmentResponse$ === "object");
+assert(typeof ResourceContext$ === "object");
 assert(typeof Route53ResolvedIPValidation$ === "object");
 assert(typeof RuleDefinition$ === "object");
 assert(typeof RuleGroup$ === "object");
@@ -867,6 +898,8 @@ assert(typeof AttachmentStatus === "object");
 assert(typeof ConfigurationSyncState === "object");
 assert(typeof ContainerAssociationStatus === "object");
 assert(typeof ContainerMonitoringType === "object");
+assert(typeof ContextStoreSyncStatus === "object");
+assert(typeof ContextType === "object");
 assert(typeof DecryptionAction === "object");
 assert(typeof DNSExpiryExceptionPolicy === "object");
 assert(typeof EnabledAnalysisType === "object");
@@ -894,6 +927,7 @@ assert(typeof ProxyState === "object");
 assert(typeof ResourceManagedStatus === "object");
 assert(typeof ResourceManagedType === "object");
 assert(typeof ResourceStatus === "object");
+assert(typeof ResourceType === "object");
 assert(typeof RevocationCheckAction === "object");
 assert(typeof Route53ResolvedIPValidationAction === "object");
 assert(typeof RuleGroupType === "object");
@@ -945,11 +979,13 @@ assert(typeof waitUntilFirewallPolicyActive === "function");
 assert(typeof paginateGetAnalysisReportResults === "function");
 assert(typeof paginateListAnalysisReports === "function");
 assert(typeof paginateListContainerAssociations === "function");
+assert(typeof paginateListContextStores === "function");
 assert(typeof paginateListFirewallPolicies === "function");
 assert(typeof paginateListFirewallPoliciesV2 === "function");
 assert(typeof paginateListFirewalls === "function");
 assert(typeof paginateListFlowOperationResults === "function");
 assert(typeof paginateListFlowOperations === "function");
+assert(typeof paginateListResourcesInContextStore === "function");
 assert(typeof paginateListRuleGroups === "function");
 assert(typeof paginateListTLSInspectionConfigurations === "function");
 assert(typeof paginateListTagsForResource === "function");
