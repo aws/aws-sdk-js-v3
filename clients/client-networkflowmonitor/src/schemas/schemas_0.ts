@@ -1,23 +1,44 @@
 const _ADE = "AccessDeniedException";
+const _AFI = "AdditionalFlowInfo";
+const _ATA = "AccountToAdd";
+const _ATAL = "AccountToAddList";
 const _CE = "ConflictException";
+const _CL = "ClientLocation";
 const _CM = "CreateMonitor";
 const _CMI = "CreateMonitorInput";
 const _CMO = "CreateMonitorOutput";
+const _CPM = "CreatePerformanceMonitor";
+const _CPMI = "CreatePerformanceMonitorInput";
+const _CPMO = "CreatePerformanceMonitorOutput";
 const _CS = "CreateScope";
 const _CSI = "CreateScopeInput";
 const _CSO = "CreateScopeOutput";
 const _DM = "DeleteMonitor";
 const _DMI = "DeleteMonitorInput";
 const _DMO = "DeleteMonitorOutput";
+const _DPM = "DeletePerformanceMonitor";
+const _DPMI = "DeletePerformanceMonitorInput";
+const _DPMO = "DeletePerformanceMonitorOutput";
 const _DS = "DeleteScope";
 const _DSI = "DeleteScopeInput";
 const _DSO = "DeleteScopeOutput";
+const _FP = "FilterParameter";
+const _FPi = "FilterParameters";
 const _GM = "GetMonitor";
 const _GMI = "GetMonitorInput";
 const _GMO = "GetMonitorOutput";
+const _GMSS = "GetMonitorScopeSuggestions";
+const _GMSSI = "GetMonitorScopeSuggestionsInput";
+const _GMSSO = "GetMonitorScopeSuggestionsOutput";
+const _GPM = "GetPerformanceMonitor";
+const _GPMI = "GetPerformanceMonitorInput";
+const _GPMO = "GetPerformanceMonitorOutput";
 const _GQRMTC = "GetQueryResultsMonitorTopContributors";
 const _GQRMTCI = "GetQueryResultsMonitorTopContributorsInput";
 const _GQRMTCO = "GetQueryResultsMonitorTopContributorsOutput";
+const _GQRPM = "GetQueryResultsPerformanceMonitor";
+const _GQRPMI = "GetQueryResultsPerformanceMonitorInput";
+const _GQRPMO = "GetQueryResultsPerformanceMonitorOutput";
 const _GQRWITC = "GetQueryResultsWorkloadInsightsTopContributors";
 const _GQRWITCD = "GetQueryResultsWorkloadInsightsTopContributorsData";
 const _GQRWITCDI = "GetQueryResultsWorkloadInsightsTopContributorsDataInput";
@@ -27,6 +48,9 @@ const _GQRWITCO = "GetQueryResultsWorkloadInsightsTopContributorsOutput";
 const _GQSMTC = "GetQueryStatusMonitorTopContributors";
 const _GQSMTCI = "GetQueryStatusMonitorTopContributorsInput";
 const _GQSMTCO = "GetQueryStatusMonitorTopContributorsOutput";
+const _GQSPM = "GetQueryStatusPerformanceMonitor";
+const _GQSPMI = "GetQueryStatusPerformanceMonitorInput";
+const _GQSPMO = "GetQueryStatusPerformanceMonitorOutput";
 const _GQSWITC = "GetQueryStatusWorkloadInsightsTopContributors";
 const _GQSWITCD = "GetQueryStatusWorkloadInsightsTopContributorsData";
 const _GQSWITCDI = "GetQueryStatusWorkloadInsightsTopContributorsDataInput";
@@ -41,6 +65,9 @@ const _KM = "KubernetesMetadata";
 const _LM = "ListMonitors";
 const _LMI = "ListMonitorsInput";
 const _LMO = "ListMonitorsOutput";
+const _LPM = "ListPerformanceMonitors";
+const _LPMI = "ListPerformanceMonitorsInput";
+const _LPMO = "ListPerformanceMonitorsOutput";
 const _LS = "ListScopes";
 const _LSI = "ListScopesInput";
 const _LSO = "ListScopesOutput";
@@ -55,6 +82,15 @@ const _MRRo = "MonitorRemoteResources";
 const _MS = "MonitorSummary";
 const _MTCR = "MonitorTopContributorsRow";
 const _MTCRL = "MonitorTopContributorsRowList";
+const _N = "Network";
+const _PMS = "PerformanceMonitorSummary";
+const _PMSL = "PerformanceMonitorSummaryList";
+const _PMT = "PerformanceMonitorTarget";
+const _PMTe = "PerformanceMonitorTargets";
+const _QD = "QueryData";
+const _QF = "QueryField";
+const _QFu = "QueryFields";
+const _QR = "QueryRow";
 const _RNFE = "ResourceNotFoundException";
 const _SQEE = "ServiceQuotaExceededException";
 const _SQMTC = "StartQueryMonitorTopContributors";
@@ -63,6 +99,12 @@ const _SQMTCIt = "StopQueryMonitorTopContributorsInput";
 const _SQMTCO = "StartQueryMonitorTopContributorsOutput";
 const _SQMTCOt = "StopQueryMonitorTopContributorsOutput";
 const _SQMTCt = "StopQueryMonitorTopContributors";
+const _SQPM = "StartQueryPerformanceMonitor";
+const _SQPMI = "StartQueryPerformanceMonitorInput";
+const _SQPMIt = "StopQueryPerformanceMonitorInput";
+const _SQPMO = "StartQueryPerformanceMonitorOutput";
+const _SQPMOt = "StopQueryPerformanceMonitorOutput";
+const _SQPMt = "StopQueryPerformanceMonitor";
 const _SQWITC = "StartQueryWorkloadInsightsTopContributors";
 const _SQWITCD = "StartQueryWorkloadInsightsTopContributorsData";
 const _SQWITCDI = "StartQueryWorkloadInsightsTopContributorsDataInput";
@@ -90,6 +132,9 @@ const _TRa = "TagResource";
 const _UM = "UpdateMonitor";
 const _UMI = "UpdateMonitorInput";
 const _UMO = "UpdateMonitorOutput";
+const _UPM = "UpdatePerformanceMonitor";
+const _UPMI = "UpdatePerformanceMonitorInput";
+const _UPMO = "UpdatePerformanceMonitorOutput";
 const _UR = "UntagResource";
 const _URI = "UntagResourceInput";
 const _URO = "UntagResourceOutput";
@@ -101,18 +146,29 @@ const _WITCDP = "WorkloadInsightsTopContributorsDataPoint";
 const _WITCDPo = "WorkloadInsightsTopContributorsDataPoints";
 const _WITCR = "WorkloadInsightsTopContributorsRow";
 const _WITCRL = "WorkloadInsightsTopContributorsRowList";
+const _aFI = "additionalFlowInfo";
 const _aI = "accountId";
+const _aN = "asName";
+const _aNs = "asNumber";
+const _aTA = "accountsToAdd";
 const _c = "client";
 const _cA = "createdAt";
 const _cAo = "componentArn";
 const _cI = "componentId";
+const _cL = "clientLocation";
 const _cT = "clientToken";
 const _cTo = "componentType";
-const _d = "datapoints";
+const _ci = "city";
+const _co = "country";
+const _d = "data";
 const _dC = "destinationCategory";
 const _dI = "dnatIp";
+const _da = "datapoints";
 const _e = "error";
 const _eT = "endTime";
+const _f = "field";
+const _fP = "filterParameters";
+const _fi = "fields";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
@@ -142,9 +198,15 @@ const _mN = "monitorName";
 const _mNe = "metricName";
 const _mR = "maxResults";
 const _mS = "monitorStatus";
+const _mT = "monitorType";
+const _me = "membership";
 const _mo = "monitors";
+const _n = "network";
 const _nT = "nextToken";
+const _na = "name";
+const _o = "operator";
 const _qI = "queryId";
+const _qT = "queryType";
 const _r = "region";
 const _rA = "resourceArn";
 const _rAe = "remoteAz";
@@ -173,7 +235,9 @@ const _sN = "serviceName";
 const _sT = "startTime";
 const _sc = "scopes";
 const _se = "server";
+const _sp = "sparse";
 const _st = "status";
+const _su = "subdivision";
 const _t = "tags";
 const _tC = "topContributors";
 const _tCr = "traversedConstructs";
@@ -182,12 +246,15 @@ const _tIa = "targetIdentifier";
 const _tK = "tagKeys";
 const _tP = "targetPort";
 const _tT = "targetType";
+const _tTA = "targetsToAdd";
+const _tTR = "targetsToRemove";
 const _ta = "targets";
 const _ti = "timestamps";
 const _ty = "type";
 const _u = "unit";
-const _v = "value";
-const _va = "values";
+const _uA = "updatedAt";
+const _v = "values";
+const _va = "value";
 const n0 = "com.amazonaws.networkflowmonitor";
 
 // smithy-typescript generated code
@@ -268,6 +335,21 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+export var AccountToAdd$: StaticStructureSchema = [3, n0, _ATA,
+  0,
+  [_aI, _r, _me],
+  [0, 0, 0], 3
+];
+export var AdditionalFlowInfo$: StaticStructureSchema = [3, n0, _AFI,
+  0,
+  [_n, _cL],
+  [() => Network$, () => ClientLocation$]
+];
+export var ClientLocation$: StaticStructureSchema = [3, n0, _CL,
+  0,
+  [_ci, _su, _co],
+  [0, 0, 0]
+];
 export var CreateMonitorInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
   [_mN, _lR, _sA, _rR, _cT, _t],
@@ -277,6 +359,16 @@ export var CreateMonitorOutput$: StaticStructureSchema = [3, n0, _CMO,
   0,
   [_mA, _mN, _mS, _lR, _rR, _cA, _mAo, _t],
   [0, 0, 0, () => MonitorLocalResources, () => MonitorRemoteResources, 4, 4, 128 | 0], 7
+];
+export var CreatePerformanceMonitorInput$: StaticStructureSchema = [3, n0, _CPMI,
+  0,
+  [_mN, _ta, _sA, _cT, _t],
+  [0, () => PerformanceMonitorTargets, 0, [0, 4], 128 | 0], 2
+];
+export var CreatePerformanceMonitorOutput$: StaticStructureSchema = [3, n0, _CPMO,
+  0,
+  [_mA, _mN, _mS, _mT, _ta, _cA, _mAo, _t],
+  [0, 0, 0, 0, () => PerformanceMonitorTargets, 4, 4, 128 | 0], 7
 ];
 export var CreateScopeInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
@@ -298,6 +390,16 @@ export var DeleteMonitorOutput$: StaticStructureSchema = [3, n0, _DMO,
   [],
   []
 ];
+export var DeletePerformanceMonitorInput$: StaticStructureSchema = [3, n0, _DPMI,
+  0,
+  [_mN],
+  [[0, 1]], 1
+];
+export var DeletePerformanceMonitorOutput$: StaticStructureSchema = [3, n0, _DPMO,
+  0,
+  [],
+  []
+];
 export var DeleteScopeInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_sI],
@@ -307,6 +409,11 @@ export var DeleteScopeOutput$: StaticStructureSchema = [3, n0, _DSO,
   0,
   [],
   []
+];
+export var FilterParameter$: StaticStructureSchema = [3, n0, _FP,
+  0,
+  [_f, _o, _v],
+  [0, 0, 64 | 0], 3
 ];
 export var GetMonitorInput$: StaticStructureSchema = [3, n0, _GMI,
   0,
@@ -318,6 +425,26 @@ export var GetMonitorOutput$: StaticStructureSchema = [3, n0, _GMO,
   [_mA, _mN, _mS, _lR, _rR, _cA, _mAo, _t],
   [0, 0, 0, () => MonitorLocalResources, () => MonitorRemoteResources, 4, 4, 128 | 0], 7
 ];
+export var GetMonitorScopeSuggestionsInput$: StaticStructureSchema = [3, n0, _GMSSI,
+  0,
+  [_mA, _mR, _nT],
+  [[0, { [_hQ]: _mA }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var GetMonitorScopeSuggestionsOutput$: StaticStructureSchema = [3, n0, _GMSSO,
+  0,
+  [_st, _aTA, _nT, _uA],
+  [0, () => AccountToAddList, 0, 4], 2
+];
+export var GetPerformanceMonitorInput$: StaticStructureSchema = [3, n0, _GPMI,
+  0,
+  [_mN],
+  [[0, 1]], 1
+];
+export var GetPerformanceMonitorOutput$: StaticStructureSchema = [3, n0, _GPMO,
+  0,
+  [_mA, _mN, _mS, _mT, _ta, _cA, _mAo, _t],
+  [0, 0, 0, 0, () => PerformanceMonitorTargets, 4, 4, 128 | 0], 7
+];
 export var GetQueryResultsMonitorTopContributorsInput$: StaticStructureSchema = [3, n0, _GQRMTCI,
   0,
   [_mN, _qI, _nT, _mR],
@@ -328,6 +455,16 @@ export var GetQueryResultsMonitorTopContributorsOutput$: StaticStructureSchema =
   [_u, _tC, _nT],
   [0, () => MonitorTopContributorsRowList, 0]
 ];
+export var GetQueryResultsPerformanceMonitorInput$: StaticStructureSchema = [3, n0, _GQRPMI,
+  0,
+  [_mN, _qI, _nT, _mR],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
+];
+export var GetQueryResultsPerformanceMonitorOutput$: StaticStructureSchema = [3, n0, _GQRPMO,
+  0,
+  [_fi, _d, _nT],
+  [() => QueryFields, [() => QueryData, 0], 0], 2
+];
 export var GetQueryResultsWorkloadInsightsTopContributorsDataInput$: StaticStructureSchema = [3, n0, _GQRWITCDI,
   0,
   [_sI, _qI, _nT, _mR],
@@ -335,7 +472,7 @@ export var GetQueryResultsWorkloadInsightsTopContributorsDataInput$: StaticStruc
 ];
 export var GetQueryResultsWorkloadInsightsTopContributorsDataOutput$: StaticStructureSchema = [3, n0, _GQRWITCDO,
   0,
-  [_u, _d, _nT],
+  [_u, _da, _nT],
   [0, () => WorkloadInsightsTopContributorsDataPoints, 0], 2
 ];
 export var GetQueryResultsWorkloadInsightsTopContributorsInput$: StaticStructureSchema = [3, n0, _GQRWITCI,
@@ -354,6 +491,16 @@ export var GetQueryStatusMonitorTopContributorsInput$: StaticStructureSchema = [
   [[0, 1], [0, 1]], 2
 ];
 export var GetQueryStatusMonitorTopContributorsOutput$: StaticStructureSchema = [3, n0, _GQSMTCO,
+  0,
+  [_st],
+  [0], 1
+];
+export var GetQueryStatusPerformanceMonitorInput$: StaticStructureSchema = [3, n0, _GQSPMI,
+  0,
+  [_mN, _qI],
+  [[0, 1], [0, 1]], 2
+];
+export var GetQueryStatusPerformanceMonitorOutput$: StaticStructureSchema = [3, n0, _GQSPMO,
   0,
   [_st],
   [0], 1
@@ -403,6 +550,16 @@ export var ListMonitorsOutput$: StaticStructureSchema = [3, n0, _LMO,
   [_mo, _nT],
   [() => MonitorList, 0], 1
 ];
+export var ListPerformanceMonitorsInput$: StaticStructureSchema = [3, n0, _LPMI,
+  0,
+  [_nT, _mR, _mS, _mT],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _mS }], [0, { [_hQ]: _mT }]]
+];
+export var ListPerformanceMonitorsOutput$: StaticStructureSchema = [3, n0, _LPMO,
+  0,
+  [_mo, _nT],
+  [() => PerformanceMonitorSummaryList, 0], 1
+];
 export var ListScopesInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
   [_nT, _mR],
@@ -440,8 +597,28 @@ export var MonitorSummary$: StaticStructureSchema = [3, n0, _MS,
 ];
 export var MonitorTopContributorsRow$: StaticStructureSchema = [3, n0, _MTCR,
   0,
-  [_lI, _sIn, _lII, _lVI, _lRo, _lA, _lSI, _tP, _dC, _rVI, _rRe, _rAe, _rSI, _rII, _rI, _dI, _v, _tCr, _kM, _lIA, _lSA, _lVA, _rIA, _rSA, _rVA],
-  [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, () => TraversedConstructsList, () => KubernetesMetadata$, 0, 0, 0, 0, 0, 0]
+  [_lI, _sIn, _lII, _lVI, _lRo, _lA, _lSI, _tP, _dC, _rVI, _rRe, _rAe, _rSI, _rII, _rI, _dI, _va, _tCr, _kM, _lIA, _lSA, _lVA, _rIA, _rSA, _rVA, _aFI],
+  [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, () => TraversedConstructsList, () => KubernetesMetadata$, 0, 0, 0, 0, 0, 0, () => AdditionalFlowInfo$]
+];
+export var Network$: StaticStructureSchema = [3, n0, _N,
+  0,
+  [_aN, _aNs],
+  [0, 1]
+];
+export var PerformanceMonitorSummary$: StaticStructureSchema = [3, n0, _PMS,
+  0,
+  [_mA, _mN, _mS, _mT, _ta],
+  [0, 0, 0, 0, () => PerformanceMonitorTargets], 4
+];
+export var PerformanceMonitorTarget$: StaticStructureSchema = [3, n0, _PMT,
+  0,
+  [_ty, _i],
+  [0, 0], 2
+];
+export var QueryField$: StaticStructureSchema = [3, n0, _QF,
+  0,
+  [_na, _ty],
+  [0, 0], 2
 ];
 export var ScopeSummary$: StaticStructureSchema = [3, n0, _SS,
   0,
@@ -454,6 +631,16 @@ export var StartQueryMonitorTopContributorsInput$: StaticStructureSchema = [3, n
   [[0, 1], 5, 5, 0, 0, 1], 5
 ];
 export var StartQueryMonitorTopContributorsOutput$: StaticStructureSchema = [3, n0, _SQMTCO,
+  0,
+  [_qI],
+  [0], 1
+];
+export var StartQueryPerformanceMonitorInput$: StaticStructureSchema = [3, n0, _SQPMI,
+  0,
+  [_mN, _sT, _eT, _qT, _fP, _l],
+  [[0, 1], 5, 5, 0, () => FilterParameters, 1], 4
+];
+export var StartQueryPerformanceMonitorOutput$: StaticStructureSchema = [3, n0, _SQPMO,
   0,
   [_qI],
   [0], 1
@@ -484,6 +671,16 @@ export var StopQueryMonitorTopContributorsInput$: StaticStructureSchema = [3, n0
   [[0, 1], [0, 1]], 2
 ];
 export var StopQueryMonitorTopContributorsOutput$: StaticStructureSchema = [3, n0, _SQMTCOt,
+  0,
+  [],
+  []
+];
+export var StopQueryPerformanceMonitorInput$: StaticStructureSchema = [3, n0, _SQPMIt,
+  0,
+  [_mN, _qI],
+  [[0, 1], [0, 1]], 2
+];
+export var StopQueryPerformanceMonitorOutput$: StaticStructureSchema = [3, n0, _SQPMOt,
   0,
   [],
   []
@@ -553,6 +750,16 @@ export var UpdateMonitorOutput$: StaticStructureSchema = [3, n0, _UMO,
   [_mA, _mN, _mS, _lR, _rR, _cA, _mAo, _t],
   [0, 0, 0, () => MonitorLocalResources, () => MonitorRemoteResources, 4, 4, 128 | 0], 7
 ];
+export var UpdatePerformanceMonitorInput$: StaticStructureSchema = [3, n0, _UPMI,
+  0,
+  [_mN, _tTA, _tTR, _cT],
+  [[0, 1], () => PerformanceMonitorTargets, () => PerformanceMonitorTargets, [0, 4]], 1
+];
+export var UpdatePerformanceMonitorOutput$: StaticStructureSchema = [3, n0, _UPMO,
+  0,
+  [_mA, _mN, _mS, _mT, _ta, _cA, _mAo, _t],
+  [0, 0, 0, 0, () => PerformanceMonitorTargets, 4, 4, 128 | 0], 7
+];
 export var UpdateScopeInput$: StaticStructureSchema = [3, n0, _USI,
   0,
   [_sI, _rTA, _rTD],
@@ -565,14 +772,21 @@ export var UpdateScopeOutput$: StaticStructureSchema = [3, n0, _USO,
 ];
 export var WorkloadInsightsTopContributorsDataPoint$: StaticStructureSchema = [3, n0, _WITCDP,
   0,
-  [_ti, _va, _la],
+  [_ti, _v, _la],
   [64 | 4, 64 | 1, 0], 3
 ];
 export var WorkloadInsightsTopContributorsRow$: StaticStructureSchema = [3, n0, _WITCR,
   0,
-  [_aI, _lSI, _lA, _lVI, _lRo, _rIe, _v, _lSA, _lVA],
+  [_aI, _lSI, _lA, _lVI, _lRo, _rIe, _va, _lSA, _lVA],
   [0, 0, 0, 0, 0, 0, 1, 0, 0]
 ];
+var AccountToAddList: StaticListSchema = [1, n0, _ATAL,
+  0, () => AccountToAdd$
+];
+var FilterParameters: StaticListSchema = [1, n0, _FPi,
+  0, () => FilterParameter$
+];
+var FilterValues = 64 | 0;
 var MonitorList: StaticListSchema = [1, n0, _ML,
   0, () => MonitorSummary$
 ];
@@ -584,6 +798,22 @@ var MonitorRemoteResources: StaticListSchema = [1, n0, _MRRo,
 ];
 var MonitorTopContributorsRowList: StaticListSchema = [1, n0, _MTCRL,
   0, () => MonitorTopContributorsRow$
+];
+var PerformanceMonitorSummaryList: StaticListSchema = [1, n0, _PMSL,
+  0, () => PerformanceMonitorSummary$
+];
+var PerformanceMonitorTargets: StaticListSchema = [1, n0, _PMTe,
+  0, () => PerformanceMonitorTarget$
+];
+var QueryData: StaticListSchema = [1, n0, _QD,
+  0, [() => QueryRow,
+    0]
+];
+var QueryFields: StaticListSchema = [1, n0, _QFu,
+  0, () => QueryField$
+];
+var QueryRow: StaticListSchema = [1, n0, _QR,
+  { [_sp]: 1 }, 0
 ];
 var ScopeSummaryList: StaticListSchema = [1, n0, _SSL,
   0, () => ScopeSummary$
@@ -612,11 +842,17 @@ export var TargetId$: StaticUnionSchema = [4, n0, _TIa,
 export var CreateMonitor$: StaticOperationSchema = [9, n0, _CM,
   { [_h]: ["POST", "/monitors", 200] }, () => CreateMonitorInput$, () => CreateMonitorOutput$
 ];
+export var CreatePerformanceMonitor$: StaticOperationSchema = [9, n0, _CPM,
+  { [_h]: ["POST", "/performance-monitors", 201] }, () => CreatePerformanceMonitorInput$, () => CreatePerformanceMonitorOutput$
+];
 export var CreateScope$: StaticOperationSchema = [9, n0, _CS,
   { [_h]: ["POST", "/scopes", 200] }, () => CreateScopeInput$, () => CreateScopeOutput$
 ];
 export var DeleteMonitor$: StaticOperationSchema = [9, n0, _DM,
   { [_h]: ["DELETE", "/monitors/{monitorName}", 200] }, () => DeleteMonitorInput$, () => DeleteMonitorOutput$
+];
+export var DeletePerformanceMonitor$: StaticOperationSchema = [9, n0, _DPM,
+  { [_h]: ["DELETE", "/performance-monitors/{monitorName}", 204] }, () => DeletePerformanceMonitorInput$, () => DeletePerformanceMonitorOutput$
 ];
 export var DeleteScope$: StaticOperationSchema = [9, n0, _DS,
   { [_h]: ["DELETE", "/scopes/{scopeId}", 200] }, () => DeleteScopeInput$, () => DeleteScopeOutput$
@@ -624,8 +860,17 @@ export var DeleteScope$: StaticOperationSchema = [9, n0, _DS,
 export var GetMonitor$: StaticOperationSchema = [9, n0, _GM,
   { [_h]: ["GET", "/monitors/{monitorName}", 200] }, () => GetMonitorInput$, () => GetMonitorOutput$
 ];
+export var GetMonitorScopeSuggestions$: StaticOperationSchema = [9, n0, _GMSS,
+  { [_h]: ["GET", "/monitor-scope-suggestions", 200] }, () => GetMonitorScopeSuggestionsInput$, () => GetMonitorScopeSuggestionsOutput$
+];
+export var GetPerformanceMonitor$: StaticOperationSchema = [9, n0, _GPM,
+  { [_h]: ["GET", "/performance-monitors/{monitorName}", 200] }, () => GetPerformanceMonitorInput$, () => GetPerformanceMonitorOutput$
+];
 export var GetQueryResultsMonitorTopContributors$: StaticOperationSchema = [9, n0, _GQRMTC,
   { [_h]: ["GET", "/monitors/{monitorName}/topContributorsQueries/{queryId}/results", 200] }, () => GetQueryResultsMonitorTopContributorsInput$, () => GetQueryResultsMonitorTopContributorsOutput$
+];
+export var GetQueryResultsPerformanceMonitor$: StaticOperationSchema = [9, n0, _GQRPM,
+  { [_h]: ["GET", "/performance-monitors/{monitorName}/queries/{queryId}/results", 200] }, () => GetQueryResultsPerformanceMonitorInput$, () => GetQueryResultsPerformanceMonitorOutput$
 ];
 export var GetQueryResultsWorkloadInsightsTopContributors$: StaticOperationSchema = [9, n0, _GQRWITC,
   { [_h]: ["GET", "/workloadInsights/{scopeId}/topContributorsQueries/{queryId}/results", 200] }, () => GetQueryResultsWorkloadInsightsTopContributorsInput$, () => GetQueryResultsWorkloadInsightsTopContributorsOutput$
@@ -635,6 +880,9 @@ export var GetQueryResultsWorkloadInsightsTopContributorsData$: StaticOperationS
 ];
 export var GetQueryStatusMonitorTopContributors$: StaticOperationSchema = [9, n0, _GQSMTC,
   { [_h]: ["GET", "/monitors/{monitorName}/topContributorsQueries/{queryId}/status", 200] }, () => GetQueryStatusMonitorTopContributorsInput$, () => GetQueryStatusMonitorTopContributorsOutput$
+];
+export var GetQueryStatusPerformanceMonitor$: StaticOperationSchema = [9, n0, _GQSPM,
+  { [_h]: ["GET", "/performance-monitors/{monitorName}/queries/{queryId}/status", 200] }, () => GetQueryStatusPerformanceMonitorInput$, () => GetQueryStatusPerformanceMonitorOutput$
 ];
 export var GetQueryStatusWorkloadInsightsTopContributors$: StaticOperationSchema = [9, n0, _GQSWITC,
   { [_h]: ["GET", "/workloadInsights/{scopeId}/topContributorsQueries/{queryId}/status", 200] }, () => GetQueryStatusWorkloadInsightsTopContributorsInput$, () => GetQueryStatusWorkloadInsightsTopContributorsOutput$
@@ -648,6 +896,9 @@ export var GetScope$: StaticOperationSchema = [9, n0, _GS,
 export var ListMonitors$: StaticOperationSchema = [9, n0, _LM,
   { [_h]: ["GET", "/monitors", 200] }, () => ListMonitorsInput$, () => ListMonitorsOutput$
 ];
+export var ListPerformanceMonitors$: StaticOperationSchema = [9, n0, _LPM,
+  { [_h]: ["GET", "/performance-monitors", 200] }, () => ListPerformanceMonitorsInput$, () => ListPerformanceMonitorsOutput$
+];
 export var ListScopes$: StaticOperationSchema = [9, n0, _LS,
   { [_h]: ["GET", "/scopes", 200] }, () => ListScopesInput$, () => ListScopesOutput$
 ];
@@ -657,6 +908,9 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 export var StartQueryMonitorTopContributors$: StaticOperationSchema = [9, n0, _SQMTC,
   { [_h]: ["POST", "/monitors/{monitorName}/topContributorsQueries", 200] }, () => StartQueryMonitorTopContributorsInput$, () => StartQueryMonitorTopContributorsOutput$
 ];
+export var StartQueryPerformanceMonitor$: StaticOperationSchema = [9, n0, _SQPM,
+  { [_h]: ["POST", "/performance-monitors/{monitorName}/queries", 200] }, () => StartQueryPerformanceMonitorInput$, () => StartQueryPerformanceMonitorOutput$
+];
 export var StartQueryWorkloadInsightsTopContributors$: StaticOperationSchema = [9, n0, _SQWITC,
   { [_h]: ["POST", "/workloadInsights/{scopeId}/topContributorsQueries", 200] }, () => StartQueryWorkloadInsightsTopContributorsInput$, () => StartQueryWorkloadInsightsTopContributorsOutput$
 ];
@@ -665,6 +919,9 @@ export var StartQueryWorkloadInsightsTopContributorsData$: StaticOperationSchema
 ];
 export var StopQueryMonitorTopContributors$: StaticOperationSchema = [9, n0, _SQMTCt,
   { [_h]: ["DELETE", "/monitors/{monitorName}/topContributorsQueries/{queryId}", 200] }, () => StopQueryMonitorTopContributorsInput$, () => StopQueryMonitorTopContributorsOutput$
+];
+export var StopQueryPerformanceMonitor$: StaticOperationSchema = [9, n0, _SQPMt,
+  { [_h]: ["DELETE", "/performance-monitors/{monitorName}/queries/{queryId}", 200] }, () => StopQueryPerformanceMonitorInput$, () => StopQueryPerformanceMonitorOutput$
 ];
 export var StopQueryWorkloadInsightsTopContributors$: StaticOperationSchema = [9, n0, _SQWITCt,
   { [_h]: ["DELETE", "/workloadInsights/{scopeId}/topContributorsQueries/{queryId}", 200] }, () => StopQueryWorkloadInsightsTopContributorsInput$, () => StopQueryWorkloadInsightsTopContributorsOutput$
@@ -680,6 +937,9 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
 ];
 export var UpdateMonitor$: StaticOperationSchema = [9, n0, _UM,
   { [_h]: ["PATCH", "/monitors/{monitorName}", 200] }, () => UpdateMonitorInput$, () => UpdateMonitorOutput$
+];
+export var UpdatePerformanceMonitor$: StaticOperationSchema = [9, n0, _UPM,
+  { [_h]: ["PATCH", "/performance-monitors/{monitorName}", 200] }, () => UpdatePerformanceMonitorInput$, () => UpdatePerformanceMonitorOutput$
 ];
 export var UpdateScope$: StaticOperationSchema = [9, n0, _US,
   { [_h]: ["PATCH", "/scopes/{scopeId}", 200] }, () => UpdateScopeInput$, () => UpdateScopeOutput$

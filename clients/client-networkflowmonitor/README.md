@@ -188,6 +188,13 @@ CreateMonitor
 </details>
 <details>
 <summary>
+CreatePerformanceMonitor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/CreatePerformanceMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/CreatePerformanceMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/CreatePerformanceMonitorCommandOutput/)
+</details>
+<details>
+<summary>
 CreateScope
 </summary>
 
@@ -199,6 +206,13 @@ DeleteMonitor
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/DeleteMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/DeleteMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/DeleteMonitorCommandOutput/)
+</details>
+<details>
+<summary>
+DeletePerformanceMonitor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/DeletePerformanceMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/DeletePerformanceMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/DeletePerformanceMonitorCommandOutput/)
 </details>
 <details>
 <summary>
@@ -216,10 +230,31 @@ GetMonitor
 </details>
 <details>
 <summary>
+GetMonitorScopeSuggestions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/GetMonitorScopeSuggestionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/GetMonitorScopeSuggestionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/GetMonitorScopeSuggestionsCommandOutput/)
+</details>
+<details>
+<summary>
+GetPerformanceMonitor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/GetPerformanceMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/GetPerformanceMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/GetPerformanceMonitorCommandOutput/)
+</details>
+<details>
+<summary>
 GetQueryResultsMonitorTopContributors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/GetQueryResultsMonitorTopContributorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/GetQueryResultsMonitorTopContributorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/GetQueryResultsMonitorTopContributorsCommandOutput/)
+</details>
+<details>
+<summary>
+GetQueryResultsPerformanceMonitor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/GetQueryResultsPerformanceMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/GetQueryResultsPerformanceMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/GetQueryResultsPerformanceMonitorCommandOutput/)
 </details>
 <details>
 <summary>
@@ -241,6 +276,13 @@ GetQueryStatusMonitorTopContributors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/GetQueryStatusMonitorTopContributorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/GetQueryStatusMonitorTopContributorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/GetQueryStatusMonitorTopContributorsCommandOutput/)
+</details>
+<details>
+<summary>
+GetQueryStatusPerformanceMonitor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/GetQueryStatusPerformanceMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/GetQueryStatusPerformanceMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/GetQueryStatusPerformanceMonitorCommandOutput/)
 </details>
 <details>
 <summary>
@@ -272,6 +314,13 @@ ListMonitors
 </details>
 <details>
 <summary>
+ListPerformanceMonitors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/ListPerformanceMonitorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/ListPerformanceMonitorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/ListPerformanceMonitorsCommandOutput/)
+</details>
+<details>
+<summary>
 ListScopes
 </summary>
 
@@ -293,6 +342,13 @@ StartQueryMonitorTopContributors
 </details>
 <details>
 <summary>
+StartQueryPerformanceMonitor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/StartQueryPerformanceMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/StartQueryPerformanceMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/StartQueryPerformanceMonitorCommandOutput/)
+</details>
+<details>
+<summary>
 StartQueryWorkloadInsightsTopContributors
 </summary>
 
@@ -311,6 +367,13 @@ StopQueryMonitorTopContributors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/StopQueryMonitorTopContributorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/StopQueryMonitorTopContributorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/StopQueryMonitorTopContributorsCommandOutput/)
+</details>
+<details>
+<summary>
+StopQueryPerformanceMonitor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/StopQueryPerformanceMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/StopQueryPerformanceMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/StopQueryPerformanceMonitorCommandOutput/)
 </details>
 <details>
 <summary>
@@ -346,6 +409,13 @@ UpdateMonitor
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/UpdateMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/UpdateMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/UpdateMonitorCommandOutput/)
+</details>
+<details>
+<summary>
+UpdatePerformanceMonitor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkflowmonitor/command/UpdatePerformanceMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/UpdatePerformanceMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkflowmonitor/Interface/UpdatePerformanceMonitorCommandOutput/)
 </details>
 <details>
 <summary>

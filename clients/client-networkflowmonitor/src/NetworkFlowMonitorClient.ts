@@ -55,14 +55,34 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type { CreateMonitorCommandInput, CreateMonitorCommandOutput } from "./commands/CreateMonitorCommand";
+import type {
+  CreatePerformanceMonitorCommandInput,
+  CreatePerformanceMonitorCommandOutput,
+} from "./commands/CreatePerformanceMonitorCommand";
 import type { CreateScopeCommandInput, CreateScopeCommandOutput } from "./commands/CreateScopeCommand";
 import type { DeleteMonitorCommandInput, DeleteMonitorCommandOutput } from "./commands/DeleteMonitorCommand";
+import type {
+  DeletePerformanceMonitorCommandInput,
+  DeletePerformanceMonitorCommandOutput,
+} from "./commands/DeletePerformanceMonitorCommand";
 import type { DeleteScopeCommandInput, DeleteScopeCommandOutput } from "./commands/DeleteScopeCommand";
 import type { GetMonitorCommandInput, GetMonitorCommandOutput } from "./commands/GetMonitorCommand";
+import type {
+  GetMonitorScopeSuggestionsCommandInput,
+  GetMonitorScopeSuggestionsCommandOutput,
+} from "./commands/GetMonitorScopeSuggestionsCommand";
+import type {
+  GetPerformanceMonitorCommandInput,
+  GetPerformanceMonitorCommandOutput,
+} from "./commands/GetPerformanceMonitorCommand";
 import type {
   GetQueryResultsMonitorTopContributorsCommandInput,
   GetQueryResultsMonitorTopContributorsCommandOutput,
 } from "./commands/GetQueryResultsMonitorTopContributorsCommand";
+import type {
+  GetQueryResultsPerformanceMonitorCommandInput,
+  GetQueryResultsPerformanceMonitorCommandOutput,
+} from "./commands/GetQueryResultsPerformanceMonitorCommand";
 import type {
   GetQueryResultsWorkloadInsightsTopContributorsCommandInput,
   GetQueryResultsWorkloadInsightsTopContributorsCommandOutput,
@@ -76,6 +96,10 @@ import type {
   GetQueryStatusMonitorTopContributorsCommandOutput,
 } from "./commands/GetQueryStatusMonitorTopContributorsCommand";
 import type {
+  GetQueryStatusPerformanceMonitorCommandInput,
+  GetQueryStatusPerformanceMonitorCommandOutput,
+} from "./commands/GetQueryStatusPerformanceMonitorCommand";
+import type {
   GetQueryStatusWorkloadInsightsTopContributorsCommandInput,
   GetQueryStatusWorkloadInsightsTopContributorsCommandOutput,
 } from "./commands/GetQueryStatusWorkloadInsightsTopContributorsCommand";
@@ -85,6 +109,10 @@ import type {
 } from "./commands/GetQueryStatusWorkloadInsightsTopContributorsDataCommand";
 import type { GetScopeCommandInput, GetScopeCommandOutput } from "./commands/GetScopeCommand";
 import type { ListMonitorsCommandInput, ListMonitorsCommandOutput } from "./commands/ListMonitorsCommand";
+import type {
+  ListPerformanceMonitorsCommandInput,
+  ListPerformanceMonitorsCommandOutput,
+} from "./commands/ListPerformanceMonitorsCommand";
 import type { ListScopesCommandInput, ListScopesCommandOutput } from "./commands/ListScopesCommand";
 import type {
   ListTagsForResourceCommandInput,
@@ -94,6 +122,10 @@ import type {
   StartQueryMonitorTopContributorsCommandInput,
   StartQueryMonitorTopContributorsCommandOutput,
 } from "./commands/StartQueryMonitorTopContributorsCommand";
+import type {
+  StartQueryPerformanceMonitorCommandInput,
+  StartQueryPerformanceMonitorCommandOutput,
+} from "./commands/StartQueryPerformanceMonitorCommand";
 import type {
   StartQueryWorkloadInsightsTopContributorsCommandInput,
   StartQueryWorkloadInsightsTopContributorsCommandOutput,
@@ -107,6 +139,10 @@ import type {
   StopQueryMonitorTopContributorsCommandOutput,
 } from "./commands/StopQueryMonitorTopContributorsCommand";
 import type {
+  StopQueryPerformanceMonitorCommandInput,
+  StopQueryPerformanceMonitorCommandOutput,
+} from "./commands/StopQueryPerformanceMonitorCommand";
+import type {
   StopQueryWorkloadInsightsTopContributorsCommandInput,
   StopQueryWorkloadInsightsTopContributorsCommandOutput,
 } from "./commands/StopQueryWorkloadInsightsTopContributorsCommand";
@@ -117,6 +153,10 @@ import type {
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateMonitorCommandInput, UpdateMonitorCommandOutput } from "./commands/UpdateMonitorCommand";
+import type {
+  UpdatePerformanceMonitorCommandInput,
+  UpdatePerformanceMonitorCommandOutput,
+} from "./commands/UpdatePerformanceMonitorCommand";
 import type { UpdateScopeCommandInput, UpdateScopeCommandOutput } from "./commands/UpdateScopeCommand";
 import {
   type ClientInputEndpointParameters,
@@ -134,29 +174,39 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateMonitorCommandInput
+  | CreatePerformanceMonitorCommandInput
   | CreateScopeCommandInput
   | DeleteMonitorCommandInput
+  | DeletePerformanceMonitorCommandInput
   | DeleteScopeCommandInput
   | GetMonitorCommandInput
+  | GetMonitorScopeSuggestionsCommandInput
+  | GetPerformanceMonitorCommandInput
   | GetQueryResultsMonitorTopContributorsCommandInput
+  | GetQueryResultsPerformanceMonitorCommandInput
   | GetQueryResultsWorkloadInsightsTopContributorsCommandInput
   | GetQueryResultsWorkloadInsightsTopContributorsDataCommandInput
   | GetQueryStatusMonitorTopContributorsCommandInput
+  | GetQueryStatusPerformanceMonitorCommandInput
   | GetQueryStatusWorkloadInsightsTopContributorsCommandInput
   | GetQueryStatusWorkloadInsightsTopContributorsDataCommandInput
   | GetScopeCommandInput
   | ListMonitorsCommandInput
+  | ListPerformanceMonitorsCommandInput
   | ListScopesCommandInput
   | ListTagsForResourceCommandInput
   | StartQueryMonitorTopContributorsCommandInput
+  | StartQueryPerformanceMonitorCommandInput
   | StartQueryWorkloadInsightsTopContributorsCommandInput
   | StartQueryWorkloadInsightsTopContributorsDataCommandInput
   | StopQueryMonitorTopContributorsCommandInput
+  | StopQueryPerformanceMonitorCommandInput
   | StopQueryWorkloadInsightsTopContributorsCommandInput
   | StopQueryWorkloadInsightsTopContributorsDataCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateMonitorCommandInput
+  | UpdatePerformanceMonitorCommandInput
   | UpdateScopeCommandInput;
 
 /**
@@ -164,29 +214,39 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreateMonitorCommandOutput
+  | CreatePerformanceMonitorCommandOutput
   | CreateScopeCommandOutput
   | DeleteMonitorCommandOutput
+  | DeletePerformanceMonitorCommandOutput
   | DeleteScopeCommandOutput
   | GetMonitorCommandOutput
+  | GetMonitorScopeSuggestionsCommandOutput
+  | GetPerformanceMonitorCommandOutput
   | GetQueryResultsMonitorTopContributorsCommandOutput
+  | GetQueryResultsPerformanceMonitorCommandOutput
   | GetQueryResultsWorkloadInsightsTopContributorsCommandOutput
   | GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput
   | GetQueryStatusMonitorTopContributorsCommandOutput
+  | GetQueryStatusPerformanceMonitorCommandOutput
   | GetQueryStatusWorkloadInsightsTopContributorsCommandOutput
   | GetQueryStatusWorkloadInsightsTopContributorsDataCommandOutput
   | GetScopeCommandOutput
   | ListMonitorsCommandOutput
+  | ListPerformanceMonitorsCommandOutput
   | ListScopesCommandOutput
   | ListTagsForResourceCommandOutput
   | StartQueryMonitorTopContributorsCommandOutput
+  | StartQueryPerformanceMonitorCommandOutput
   | StartQueryWorkloadInsightsTopContributorsCommandOutput
   | StartQueryWorkloadInsightsTopContributorsDataCommandOutput
   | StopQueryMonitorTopContributorsCommandOutput
+  | StopQueryPerformanceMonitorCommandOutput
   | StopQueryWorkloadInsightsTopContributorsCommandOutput
   | StopQueryWorkloadInsightsTopContributorsDataCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateMonitorCommandOutput
+  | UpdatePerformanceMonitorCommandOutput
   | UpdateScopeCommandOutput;
 
 /**

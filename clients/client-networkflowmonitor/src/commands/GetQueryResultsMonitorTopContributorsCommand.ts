@@ -55,7 +55,7 @@ export interface GetQueryResultsMonitorTopContributorsCommandOutput extends GetQ
  * //       localAz: "STRING_VALUE",
  * //       localSubnetId: "STRING_VALUE",
  * //       targetPort: Number("int"),
- * //       destinationCategory: "INTRA_AZ" || "INTER_AZ" || "INTER_VPC" || "UNCLASSIFIED" || "AMAZON_S3" || "AMAZON_DYNAMODB" || "INTER_REGION",
+ * //       destinationCategory: "INTRA_AZ" || "INTER_AZ" || "INTER_VPC" || "UNCLASSIFIED" || "AMAZON_S3" || "AMAZON_DYNAMODB" || "INTER_REGION" || "INTERNET" || "AWS_SERVICE" || "LOCAL_ZONE" || "TRANSIT_GATEWAY",
  * //       remoteVpcId: "STRING_VALUE",
  * //       remoteRegion: "STRING_VALUE",
  * //       remoteAz: "STRING_VALUE",
@@ -86,6 +86,17 @@ export interface GetQueryResultsMonitorTopContributorsCommandOutput extends GetQ
  * //       remoteInstanceArn: "STRING_VALUE",
  * //       remoteSubnetArn: "STRING_VALUE",
  * //       remoteVpcArn: "STRING_VALUE",
+ * //       additionalFlowInfo: { // AdditionalFlowInfo
+ * //         network: { // Network
+ * //           asName: "STRING_VALUE",
+ * //           asNumber: Number("long"),
+ * //         },
+ * //         clientLocation: { // ClientLocation
+ * //           city: "STRING_VALUE",
+ * //           subdivision: "STRING_VALUE",
+ * //           country: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

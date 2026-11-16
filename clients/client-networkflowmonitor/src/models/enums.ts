@@ -3,6 +3,20 @@
  * @public
  * @enum
  */
+export const OrgMembershipStatus = {
+  IN_ORG: "IN_ORG",
+  NOT_IN_ORG: "NOT_IN_ORG",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type OrgMembershipStatus = (typeof OrgMembershipStatus)[keyof typeof OrgMembershipStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const MonitorLocalResourceType = {
   AWS_AZ: "AWS::AvailabilityZone",
   AWS_REGION: "AWS::Region",
@@ -51,6 +65,31 @@ export type MonitorStatus = (typeof MonitorStatus)[keyof typeof MonitorStatus];
  * @public
  * @enum
  */
+export const PerformanceMonitorTargetType = {
+  AWS_VPC: "AWS::EC2::VPC",
+} as const;
+/**
+ * @public
+ */
+export type PerformanceMonitorTargetType =
+  (typeof PerformanceMonitorTargetType)[keyof typeof PerformanceMonitorTargetType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PerformanceMonitorType = {
+  VPC: "VPC",
+} as const;
+/**
+ * @public
+ */
+export type PerformanceMonitorType = (typeof PerformanceMonitorType)[keyof typeof PerformanceMonitorType];
+
+/**
+ * @public
+ * @enum
+ */
 export const TargetType = {
   ACCOUNT: "ACCOUNT",
 } as const;
@@ -82,16 +121,50 @@ export type ScopeStatus = (typeof ScopeStatus)[keyof typeof ScopeStatus];
 export const DestinationCategory = {
   AMAZON_DYNAMODB: "AMAZON_DYNAMODB",
   AMAZON_S3: "AMAZON_S3",
+  AWS_SERVICE: "AWS_SERVICE",
+  INTERNET: "INTERNET",
   INTER_AZ: "INTER_AZ",
   INTER_REGION: "INTER_REGION",
   INTER_VPC: "INTER_VPC",
   INTRA_AZ: "INTRA_AZ",
+  LOCAL_ZONE: "LOCAL_ZONE",
+  TRANSIT_GATEWAY: "TRANSIT_GATEWAY",
   UNCLASSIFIED: "UNCLASSIFIED",
 } as const;
 /**
  * @public
  */
 export type DestinationCategory = (typeof DestinationCategory)[keyof typeof DestinationCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterOperator = {
+  CONTAINS: "CONTAINS",
+  EQUALS: "EQUALS",
+  IN: "IN",
+  NOT_EQUALS: "NOT_EQUALS",
+} as const;
+/**
+ * @public
+ */
+export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScopeCoverageStatus = {
+  COMPLETE: "COMPLETE",
+  INCOMPLETE: "INCOMPLETE",
+  PENDING: "PENDING",
+  STALE: "STALE",
+} as const;
+/**
+ * @public
+ */
+export type ScopeCoverageStatus = (typeof ScopeCoverageStatus)[keyof typeof ScopeCoverageStatus];
 
 /**
  * @public
@@ -161,6 +234,19 @@ export const MonitorMetric = {
  * @public
  */
 export type MonitorMetric = (typeof MonitorMetric)[keyof typeof MonitorMetric];
+
+/**
+ * @public
+ * @enum
+ */
+export const PerformanceMonitorQueryType = {
+  TOP_PATHS: "TOP_PATHS",
+} as const;
+/**
+ * @public
+ */
+export type PerformanceMonitorQueryType =
+  (typeof PerformanceMonitorQueryType)[keyof typeof PerformanceMonitorQueryType];
 
 /**
  * @public

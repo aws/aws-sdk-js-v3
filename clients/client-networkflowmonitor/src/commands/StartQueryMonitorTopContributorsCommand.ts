@@ -37,7 +37,7 @@ export interface StartQueryMonitorTopContributorsCommandOutput extends StartQuer
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
  *   metricName: "ROUND_TRIP_TIME" || "TIMEOUTS" || "RETRANSMISSIONS" || "DATA_TRANSFERRED", // required
- *   destinationCategory: "INTRA_AZ" || "INTER_AZ" || "INTER_VPC" || "UNCLASSIFIED" || "AMAZON_S3" || "AMAZON_DYNAMODB" || "INTER_REGION", // required
+ *   destinationCategory: "INTRA_AZ" || "INTER_AZ" || "INTER_VPC" || "UNCLASSIFIED" || "AMAZON_S3" || "AMAZON_DYNAMODB" || "INTER_REGION" || "INTERNET" || "AWS_SERVICE" || "LOCAL_ZONE" || "TRANSIT_GATEWAY", // required
  *   limit: Number("int"),
  * };
  * const command = new StartQueryMonitorTopContributorsCommand(input);

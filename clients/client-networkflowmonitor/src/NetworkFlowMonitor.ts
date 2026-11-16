@@ -13,6 +13,11 @@ import {
   CreateMonitorCommand,
 } from "./commands/CreateMonitorCommand";
 import {
+  type CreatePerformanceMonitorCommandInput,
+  type CreatePerformanceMonitorCommandOutput,
+  CreatePerformanceMonitorCommand,
+} from "./commands/CreatePerformanceMonitorCommand";
+import {
   type CreateScopeCommandInput,
   type CreateScopeCommandOutput,
   CreateScopeCommand,
@@ -22,6 +27,11 @@ import {
   type DeleteMonitorCommandOutput,
   DeleteMonitorCommand,
 } from "./commands/DeleteMonitorCommand";
+import {
+  type DeletePerformanceMonitorCommandInput,
+  type DeletePerformanceMonitorCommandOutput,
+  DeletePerformanceMonitorCommand,
+} from "./commands/DeletePerformanceMonitorCommand";
 import {
   type DeleteScopeCommandInput,
   type DeleteScopeCommandOutput,
@@ -33,10 +43,25 @@ import {
   GetMonitorCommand,
 } from "./commands/GetMonitorCommand";
 import {
+  type GetMonitorScopeSuggestionsCommandInput,
+  type GetMonitorScopeSuggestionsCommandOutput,
+  GetMonitorScopeSuggestionsCommand,
+} from "./commands/GetMonitorScopeSuggestionsCommand";
+import {
+  type GetPerformanceMonitorCommandInput,
+  type GetPerformanceMonitorCommandOutput,
+  GetPerformanceMonitorCommand,
+} from "./commands/GetPerformanceMonitorCommand";
+import {
   type GetQueryResultsMonitorTopContributorsCommandInput,
   type GetQueryResultsMonitorTopContributorsCommandOutput,
   GetQueryResultsMonitorTopContributorsCommand,
 } from "./commands/GetQueryResultsMonitorTopContributorsCommand";
+import {
+  type GetQueryResultsPerformanceMonitorCommandInput,
+  type GetQueryResultsPerformanceMonitorCommandOutput,
+  GetQueryResultsPerformanceMonitorCommand,
+} from "./commands/GetQueryResultsPerformanceMonitorCommand";
 import {
   type GetQueryResultsWorkloadInsightsTopContributorsCommandInput,
   type GetQueryResultsWorkloadInsightsTopContributorsCommandOutput,
@@ -52,6 +77,11 @@ import {
   type GetQueryStatusMonitorTopContributorsCommandOutput,
   GetQueryStatusMonitorTopContributorsCommand,
 } from "./commands/GetQueryStatusMonitorTopContributorsCommand";
+import {
+  type GetQueryStatusPerformanceMonitorCommandInput,
+  type GetQueryStatusPerformanceMonitorCommandOutput,
+  GetQueryStatusPerformanceMonitorCommand,
+} from "./commands/GetQueryStatusPerformanceMonitorCommand";
 import {
   type GetQueryStatusWorkloadInsightsTopContributorsCommandInput,
   type GetQueryStatusWorkloadInsightsTopContributorsCommandOutput,
@@ -69,6 +99,11 @@ import {
   ListMonitorsCommand,
 } from "./commands/ListMonitorsCommand";
 import {
+  type ListPerformanceMonitorsCommandInput,
+  type ListPerformanceMonitorsCommandOutput,
+  ListPerformanceMonitorsCommand,
+} from "./commands/ListPerformanceMonitorsCommand";
+import {
   type ListScopesCommandInput,
   type ListScopesCommandOutput,
   ListScopesCommand,
@@ -84,6 +119,11 @@ import {
   StartQueryMonitorTopContributorsCommand,
 } from "./commands/StartQueryMonitorTopContributorsCommand";
 import {
+  type StartQueryPerformanceMonitorCommandInput,
+  type StartQueryPerformanceMonitorCommandOutput,
+  StartQueryPerformanceMonitorCommand,
+} from "./commands/StartQueryPerformanceMonitorCommand";
+import {
   type StartQueryWorkloadInsightsTopContributorsCommandInput,
   type StartQueryWorkloadInsightsTopContributorsCommandOutput,
   StartQueryWorkloadInsightsTopContributorsCommand,
@@ -98,6 +138,11 @@ import {
   type StopQueryMonitorTopContributorsCommandOutput,
   StopQueryMonitorTopContributorsCommand,
 } from "./commands/StopQueryMonitorTopContributorsCommand";
+import {
+  type StopQueryPerformanceMonitorCommandInput,
+  type StopQueryPerformanceMonitorCommandOutput,
+  StopQueryPerformanceMonitorCommand,
+} from "./commands/StopQueryPerformanceMonitorCommand";
 import {
   type StopQueryWorkloadInsightsTopContributorsCommandInput,
   type StopQueryWorkloadInsightsTopContributorsCommandOutput,
@@ -124,14 +169,21 @@ import {
   UpdateMonitorCommand,
 } from "./commands/UpdateMonitorCommand";
 import {
+  type UpdatePerformanceMonitorCommandInput,
+  type UpdatePerformanceMonitorCommandOutput,
+  UpdatePerformanceMonitorCommand,
+} from "./commands/UpdatePerformanceMonitorCommand";
+import {
   type UpdateScopeCommandInput,
   type UpdateScopeCommandOutput,
   UpdateScopeCommand,
 } from "./commands/UpdateScopeCommand";
 import { NetworkFlowMonitorClient } from "./NetworkFlowMonitorClient";
+import { paginateGetMonitorScopeSuggestions } from "./pagination/GetMonitorScopeSuggestionsPaginator";
 import {
   paginateGetQueryResultsMonitorTopContributors,
 } from "./pagination/GetQueryResultsMonitorTopContributorsPaginator";
+import { paginateGetQueryResultsPerformanceMonitor } from "./pagination/GetQueryResultsPerformanceMonitorPaginator";
 import {
   paginateGetQueryResultsWorkloadInsightsTopContributorsData,
 } from "./pagination/GetQueryResultsWorkloadInsightsTopContributorsDataPaginator";
@@ -139,40 +191,54 @@ import {
   paginateGetQueryResultsWorkloadInsightsTopContributors,
 } from "./pagination/GetQueryResultsWorkloadInsightsTopContributorsPaginator";
 import { paginateListMonitors } from "./pagination/ListMonitorsPaginator";
+import { paginateListPerformanceMonitors } from "./pagination/ListPerformanceMonitorsPaginator";
 import { paginateListScopes } from "./pagination/ListScopesPaginator";
 
 const commands = {
   CreateMonitorCommand,
+  CreatePerformanceMonitorCommand,
   CreateScopeCommand,
   DeleteMonitorCommand,
+  DeletePerformanceMonitorCommand,
   DeleteScopeCommand,
   GetMonitorCommand,
+  GetMonitorScopeSuggestionsCommand,
+  GetPerformanceMonitorCommand,
   GetQueryResultsMonitorTopContributorsCommand,
+  GetQueryResultsPerformanceMonitorCommand,
   GetQueryResultsWorkloadInsightsTopContributorsCommand,
   GetQueryResultsWorkloadInsightsTopContributorsDataCommand,
   GetQueryStatusMonitorTopContributorsCommand,
+  GetQueryStatusPerformanceMonitorCommand,
   GetQueryStatusWorkloadInsightsTopContributorsCommand,
   GetQueryStatusWorkloadInsightsTopContributorsDataCommand,
   GetScopeCommand,
   ListMonitorsCommand,
+  ListPerformanceMonitorsCommand,
   ListScopesCommand,
   ListTagsForResourceCommand,
   StartQueryMonitorTopContributorsCommand,
+  StartQueryPerformanceMonitorCommand,
   StartQueryWorkloadInsightsTopContributorsCommand,
   StartQueryWorkloadInsightsTopContributorsDataCommand,
   StopQueryMonitorTopContributorsCommand,
+  StopQueryPerformanceMonitorCommand,
   StopQueryWorkloadInsightsTopContributorsCommand,
   StopQueryWorkloadInsightsTopContributorsDataCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateMonitorCommand,
+  UpdatePerformanceMonitorCommand,
   UpdateScopeCommand,
 };
 const paginators = {
+  paginateGetMonitorScopeSuggestions,
   paginateGetQueryResultsMonitorTopContributors,
+  paginateGetQueryResultsPerformanceMonitor,
   paginateGetQueryResultsWorkloadInsightsTopContributors,
   paginateGetQueryResultsWorkloadInsightsTopContributorsData,
   paginateListMonitors,
+  paginateListPerformanceMonitors,
   paginateListScopes,
 };
 
@@ -199,6 +265,23 @@ export interface NetworkFlowMonitor {
     args: CreateMonitorCommandInput,
     options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: CreateMonitorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePerformanceMonitorCommand}
+   */
+  createPerformanceMonitor(
+    args: CreatePerformanceMonitorCommandInput,
+    options?: NetworkFlowMonitorRequestOptions
+  ): Promise<CreatePerformanceMonitorCommandOutput>;
+  createPerformanceMonitor(
+    args: CreatePerformanceMonitorCommandInput,
+    cb: (err: any, data?: CreatePerformanceMonitorCommandOutput) => void
+  ): void;
+  createPerformanceMonitor(
+    args: CreatePerformanceMonitorCommandInput,
+    options: NetworkFlowMonitorRequestOptions,
+    cb: (err: any, data?: CreatePerformanceMonitorCommandOutput) => void
   ): void;
 
   /**
@@ -236,6 +319,23 @@ export interface NetworkFlowMonitor {
   ): void;
 
   /**
+   * @see {@link DeletePerformanceMonitorCommand}
+   */
+  deletePerformanceMonitor(
+    args: DeletePerformanceMonitorCommandInput,
+    options?: NetworkFlowMonitorRequestOptions
+  ): Promise<DeletePerformanceMonitorCommandOutput>;
+  deletePerformanceMonitor(
+    args: DeletePerformanceMonitorCommandInput,
+    cb: (err: any, data?: DeletePerformanceMonitorCommandOutput) => void
+  ): void;
+  deletePerformanceMonitor(
+    args: DeletePerformanceMonitorCommandInput,
+    options: NetworkFlowMonitorRequestOptions,
+    cb: (err: any, data?: DeletePerformanceMonitorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteScopeCommand}
    */
   deleteScope(
@@ -270,6 +370,40 @@ export interface NetworkFlowMonitor {
   ): void;
 
   /**
+   * @see {@link GetMonitorScopeSuggestionsCommand}
+   */
+  getMonitorScopeSuggestions(
+    args: GetMonitorScopeSuggestionsCommandInput,
+    options?: NetworkFlowMonitorRequestOptions
+  ): Promise<GetMonitorScopeSuggestionsCommandOutput>;
+  getMonitorScopeSuggestions(
+    args: GetMonitorScopeSuggestionsCommandInput,
+    cb: (err: any, data?: GetMonitorScopeSuggestionsCommandOutput) => void
+  ): void;
+  getMonitorScopeSuggestions(
+    args: GetMonitorScopeSuggestionsCommandInput,
+    options: NetworkFlowMonitorRequestOptions,
+    cb: (err: any, data?: GetMonitorScopeSuggestionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPerformanceMonitorCommand}
+   */
+  getPerformanceMonitor(
+    args: GetPerformanceMonitorCommandInput,
+    options?: NetworkFlowMonitorRequestOptions
+  ): Promise<GetPerformanceMonitorCommandOutput>;
+  getPerformanceMonitor(
+    args: GetPerformanceMonitorCommandInput,
+    cb: (err: any, data?: GetPerformanceMonitorCommandOutput) => void
+  ): void;
+  getPerformanceMonitor(
+    args: GetPerformanceMonitorCommandInput,
+    options: NetworkFlowMonitorRequestOptions,
+    cb: (err: any, data?: GetPerformanceMonitorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetQueryResultsMonitorTopContributorsCommand}
    */
   getQueryResultsMonitorTopContributors(
@@ -284,6 +418,23 @@ export interface NetworkFlowMonitor {
     args: GetQueryResultsMonitorTopContributorsCommandInput,
     options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: GetQueryResultsMonitorTopContributorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQueryResultsPerformanceMonitorCommand}
+   */
+  getQueryResultsPerformanceMonitor(
+    args: GetQueryResultsPerformanceMonitorCommandInput,
+    options?: NetworkFlowMonitorRequestOptions
+  ): Promise<GetQueryResultsPerformanceMonitorCommandOutput>;
+  getQueryResultsPerformanceMonitor(
+    args: GetQueryResultsPerformanceMonitorCommandInput,
+    cb: (err: any, data?: GetQueryResultsPerformanceMonitorCommandOutput) => void
+  ): void;
+  getQueryResultsPerformanceMonitor(
+    args: GetQueryResultsPerformanceMonitorCommandInput,
+    options: NetworkFlowMonitorRequestOptions,
+    cb: (err: any, data?: GetQueryResultsPerformanceMonitorCommandOutput) => void
   ): void;
 
   /**
@@ -335,6 +486,23 @@ export interface NetworkFlowMonitor {
     args: GetQueryStatusMonitorTopContributorsCommandInput,
     options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: GetQueryStatusMonitorTopContributorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQueryStatusPerformanceMonitorCommand}
+   */
+  getQueryStatusPerformanceMonitor(
+    args: GetQueryStatusPerformanceMonitorCommandInput,
+    options?: NetworkFlowMonitorRequestOptions
+  ): Promise<GetQueryStatusPerformanceMonitorCommandOutput>;
+  getQueryStatusPerformanceMonitor(
+    args: GetQueryStatusPerformanceMonitorCommandInput,
+    cb: (err: any, data?: GetQueryStatusPerformanceMonitorCommandOutput) => void
+  ): void;
+  getQueryStatusPerformanceMonitor(
+    args: GetQueryStatusPerformanceMonitorCommandInput,
+    options: NetworkFlowMonitorRequestOptions,
+    cb: (err: any, data?: GetQueryStatusPerformanceMonitorCommandOutput) => void
   ): void;
 
   /**
@@ -407,6 +575,24 @@ export interface NetworkFlowMonitor {
   ): void;
 
   /**
+   * @see {@link ListPerformanceMonitorsCommand}
+   */
+  listPerformanceMonitors(): Promise<ListPerformanceMonitorsCommandOutput>;
+  listPerformanceMonitors(
+    args: ListPerformanceMonitorsCommandInput,
+    options?: NetworkFlowMonitorRequestOptions
+  ): Promise<ListPerformanceMonitorsCommandOutput>;
+  listPerformanceMonitors(
+    args: ListPerformanceMonitorsCommandInput,
+    cb: (err: any, data?: ListPerformanceMonitorsCommandOutput) => void
+  ): void;
+  listPerformanceMonitors(
+    args: ListPerformanceMonitorsCommandInput,
+    options: NetworkFlowMonitorRequestOptions,
+    cb: (err: any, data?: ListPerformanceMonitorsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListScopesCommand}
    */
   listScopes(): Promise<ListScopesCommandOutput>;
@@ -459,6 +645,23 @@ export interface NetworkFlowMonitor {
   ): void;
 
   /**
+   * @see {@link StartQueryPerformanceMonitorCommand}
+   */
+  startQueryPerformanceMonitor(
+    args: StartQueryPerformanceMonitorCommandInput,
+    options?: NetworkFlowMonitorRequestOptions
+  ): Promise<StartQueryPerformanceMonitorCommandOutput>;
+  startQueryPerformanceMonitor(
+    args: StartQueryPerformanceMonitorCommandInput,
+    cb: (err: any, data?: StartQueryPerformanceMonitorCommandOutput) => void
+  ): void;
+  startQueryPerformanceMonitor(
+    args: StartQueryPerformanceMonitorCommandInput,
+    options: NetworkFlowMonitorRequestOptions,
+    cb: (err: any, data?: StartQueryPerformanceMonitorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartQueryWorkloadInsightsTopContributorsCommand}
    */
   startQueryWorkloadInsightsTopContributors(
@@ -507,6 +710,23 @@ export interface NetworkFlowMonitor {
     args: StopQueryMonitorTopContributorsCommandInput,
     options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: StopQueryMonitorTopContributorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopQueryPerformanceMonitorCommand}
+   */
+  stopQueryPerformanceMonitor(
+    args: StopQueryPerformanceMonitorCommandInput,
+    options?: NetworkFlowMonitorRequestOptions
+  ): Promise<StopQueryPerformanceMonitorCommandOutput>;
+  stopQueryPerformanceMonitor(
+    args: StopQueryPerformanceMonitorCommandInput,
+    cb: (err: any, data?: StopQueryPerformanceMonitorCommandOutput) => void
+  ): void;
+  stopQueryPerformanceMonitor(
+    args: StopQueryPerformanceMonitorCommandInput,
+    options: NetworkFlowMonitorRequestOptions,
+    cb: (err: any, data?: StopQueryPerformanceMonitorCommandOutput) => void
   ): void;
 
   /**
@@ -595,6 +815,23 @@ export interface NetworkFlowMonitor {
   ): void;
 
   /**
+   * @see {@link UpdatePerformanceMonitorCommand}
+   */
+  updatePerformanceMonitor(
+    args: UpdatePerformanceMonitorCommandInput,
+    options?: NetworkFlowMonitorRequestOptions
+  ): Promise<UpdatePerformanceMonitorCommandOutput>;
+  updatePerformanceMonitor(
+    args: UpdatePerformanceMonitorCommandInput,
+    cb: (err: any, data?: UpdatePerformanceMonitorCommandOutput) => void
+  ): void;
+  updatePerformanceMonitor(
+    args: UpdatePerformanceMonitorCommandInput,
+    options: NetworkFlowMonitorRequestOptions,
+    cb: (err: any, data?: UpdatePerformanceMonitorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateScopeCommand}
    */
   updateScope(
@@ -612,6 +849,17 @@ export interface NetworkFlowMonitor {
   ): void;
 
   /**
+   * @see {@link GetMonitorScopeSuggestionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetMonitorScopeSuggestionsCommandOutput}.
+   */
+  paginateGetMonitorScopeSuggestions(
+    args: GetMonitorScopeSuggestionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetMonitorScopeSuggestionsCommandOutput>;
+
+  /**
    * @see {@link GetQueryResultsMonitorTopContributorsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -621,6 +869,17 @@ export interface NetworkFlowMonitor {
     args: GetQueryResultsMonitorTopContributorsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<GetQueryResultsMonitorTopContributorsCommandOutput>;
+
+  /**
+   * @see {@link GetQueryResultsPerformanceMonitorCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetQueryResultsPerformanceMonitorCommandOutput}.
+   */
+  paginateGetQueryResultsPerformanceMonitor(
+    args: GetQueryResultsPerformanceMonitorCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetQueryResultsPerformanceMonitorCommandOutput>;
 
   /**
    * @see {@link GetQueryResultsWorkloadInsightsTopContributorsCommand}
@@ -654,6 +913,17 @@ export interface NetworkFlowMonitor {
     args?: ListMonitorsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListMonitorsCommandOutput>;
+
+  /**
+   * @see {@link ListPerformanceMonitorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPerformanceMonitorsCommandOutput}.
+   */
+  paginateListPerformanceMonitors(
+    args?: ListPerformanceMonitorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPerformanceMonitorsCommandOutput>;
 
   /**
    * @see {@link ListScopesCommand}
