@@ -64,6 +64,9 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * //       attempt: Number("int"),
  * //       attemptCreatedAt: new Date("TIMESTAMP"),
  * //       attemptUpdatedAt: new Date("TIMESTAMP"),
+ * //       flexExecution: { // FlexExecution
+ * //         enabled: true || false,
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

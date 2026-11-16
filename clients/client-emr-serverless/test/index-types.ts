@@ -88,6 +88,7 @@ export type {
   DeleteApplicationRequest,
   DeleteApplicationResponse,
   DiskEncryptionConfiguration,
+  FlexExecution,
   GetApplicationRequest,
   GetApplicationResponse,
   GetDashboardForJobRunRequest,

@@ -26,6 +26,7 @@ import {
   EMRServerless,
   EMRServerlessClient,
   EMRServerlessServiceException,
+  FlexExecution$,
   GetApplication$,
   GetApplicationCommand,
   GetApplicationRequest$,
@@ -213,6 +214,7 @@ assert(typeof CreateApplicationResponse$ === "object");
 assert(typeof DeleteApplicationRequest$ === "object");
 assert(typeof DeleteApplicationResponse$ === "object");
 assert(typeof DiskEncryptionConfiguration$ === "object");
+assert(typeof FlexExecution$ === "object");
 assert(typeof GetApplicationRequest$ === "object");
 assert(typeof GetApplicationResponse$ === "object");
 assert(typeof GetDashboardForJobRunRequest$ === "object");

@@ -789,6 +789,18 @@ export interface JobRunExecutionIamPolicy {
 }
 
 /**
+ * <p>The Amazon EMR Serverless Flex settings for the job run.</p>
+ * @public
+ */
+export interface FlexExecution {
+  /**
+   * <p>Enables Amazon EMR Serverless Flex capacity for the job run and defaults to false. If set to true, the job run uses Flex capacity.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+}
+
+/**
  * <p>The configurations for the Hive job driver.</p>
  * @public
  */
@@ -1054,6 +1066,12 @@ export interface JobRunAttemptSummary {
    * @public
    */
   attempt?: number | undefined;
+
+  /**
+   * <p>The Amazon EMR Serverless Flex settings for the job run attempt.</p>
+   * @public
+   */
+  flexExecution?: FlexExecution | undefined;
 }
 
 /**
@@ -1220,6 +1238,12 @@ export interface JobRunSummary {
    * @public
    */
   attemptUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon EMR Serverless Flex settings for the job run.</p>
+   * @public
+   */
+  flexExecution?: FlexExecution | undefined;
 }
 
 /**
@@ -2233,6 +2257,12 @@ export interface JobRun {
    * @public
    */
   workerTypeSpecifications?: Record<string, WorkerTypeSpecification> | undefined;
+
+  /**
+   * <p>The Amazon EMR Serverless Flex settings for the job run.</p>
+   * @public
+   */
+  flexExecution?: FlexExecution | undefined;
 }
 
 /**
@@ -2436,6 +2466,12 @@ export interface StartJobRunRequest {
    * @public
    */
   retryPolicy?: RetryPolicy | undefined;
+
+  /**
+   * <p>The Amazon EMR Serverless Flex settings for the job run. If you don't specify these settings, the job run doesn't use Flex capacity.</p>
+   * @public
+   */
+  flexExecution?: FlexExecution | undefined;
 }
 
 /**

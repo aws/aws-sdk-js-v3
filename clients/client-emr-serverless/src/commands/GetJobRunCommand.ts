@@ -169,6 +169,9 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * //         },
  * //       },
  * //     },
+ * //     flexExecution: { // FlexExecution
+ * //       enabled: true || false,
+ * //     },
  * //   },
  * // };
  *

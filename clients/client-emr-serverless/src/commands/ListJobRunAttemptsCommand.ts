@@ -58,6 +58,9 @@ export interface ListJobRunAttemptsCommandOutput extends ListJobRunAttemptsRespo
  * //       releaseLabel: "STRING_VALUE", // required
  * //       type: "STRING_VALUE",
  * //       attempt: Number("int"),
+ * //       flexExecution: { // FlexExecution
+ * //         enabled: true || false,
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

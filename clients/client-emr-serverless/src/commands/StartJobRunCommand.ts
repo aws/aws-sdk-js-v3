@@ -115,6 +115,9 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *     maxAttempts: Number("int"),
  *     maxFailedAttemptsPerHour: Number("int"),
  *   },
+ *   flexExecution: { // FlexExecution
+ *     enabled: true || false,
+ *   },
  * };
  * const command = new StartJobRunCommand(input);
  * const response = await client.send(command);

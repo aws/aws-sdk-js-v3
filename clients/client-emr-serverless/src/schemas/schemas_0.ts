@@ -21,6 +21,7 @@ const _DEC = "DiskEncryptionConfiguration";
 const _EPA = "EntryPointArgument";
 const _EPAn = "EntryPointArguments";
 const _EPP = "EntryPointPath";
+const _FE = "FlexExecution";
 const _GA = "GetApplication";
 const _GAR = "GetApplicationRequest";
 const _GARe = "GetApplicationResponse";
@@ -167,6 +168,7 @@ const _eRA = "executionRoleArn";
 const _eTM = "executionTimeoutMinutes";
 const _en = "enabled";
 const _end = "endpoint";
+const _fE = "flexExecution";
 const _h = "hive";
 const _hE = "httpError";
 const _hQ = "httpQuery";
@@ -399,6 +401,11 @@ export var DiskEncryptionConfiguration$: StaticStructureSchema = [3, n0, _DEC,
   [_eC, _eKA],
   [128 | 0, 0]
 ];
+export var FlexExecution$: StaticStructureSchema = [3, n0, _FE,
+  0,
+  [_en],
+  [2]
+];
 export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_aI],
@@ -501,13 +508,13 @@ export var JobLevelCostAllocationConfiguration$: StaticStructureSchema = [3, n0,
 ];
 export var JobRun$: StaticStructureSchema = [3, n0, _JR,
   0,
-  [_aI, _jRI, _a, _cB, _cA, _uA, _eR, _st, _sD, _rL, _jD, _n, _eIP, _cO, _ta, _tRU, _nC, _tEDS, _eTM, _bRU, _mo, _rP, _at, _aCA, _aUA, _sA, _eA, _qDM, _iCm, _wTS],
-  [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, [() => JobDriver$, 0], 0, () => JobRunExecutionIamPolicy$, [() => ConfigurationOverrides$, 0], 128 | 0, () => TotalResourceUtilization$, () => NetworkConfiguration$, 1, 1, () => ResourceUtilization$, 0, () => RetryPolicy$, 1, 4, 4, 4, 4, 1, () => ImageConfiguration$, () => WorkerTypeSpecificationMap], 11
+  [_aI, _jRI, _a, _cB, _cA, _uA, _eR, _st, _sD, _rL, _jD, _n, _eIP, _cO, _ta, _tRU, _nC, _tEDS, _eTM, _bRU, _mo, _rP, _at, _aCA, _aUA, _sA, _eA, _qDM, _iCm, _wTS, _fE],
+  [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, [() => JobDriver$, 0], 0, () => JobRunExecutionIamPolicy$, [() => ConfigurationOverrides$, 0], 128 | 0, () => TotalResourceUtilization$, () => NetworkConfiguration$, 1, 1, () => ResourceUtilization$, 0, () => RetryPolicy$, 1, 4, 4, 4, 4, 1, () => ImageConfiguration$, () => WorkerTypeSpecificationMap, () => FlexExecution$], 11
 ];
 export var JobRunAttemptSummary$: StaticStructureSchema = [3, n0, _JRAS,
   0,
-  [_aI, _i, _a, _cB, _jCA, _cA, _uA, _eR, _st, _sD, _rL, _n, _mo, _t, _at],
-  [0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 1], 11
+  [_aI, _i, _a, _cB, _jCA, _cA, _uA, _eR, _st, _sD, _rL, _n, _mo, _t, _at, _fE],
+  [0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 1, () => FlexExecution$], 11
 ];
 export var JobRunExecutionIamPolicy$: StaticStructureSchema = [3, n0, _JREIP,
   0,
@@ -516,8 +523,8 @@ export var JobRunExecutionIamPolicy$: StaticStructureSchema = [3, n0, _JREIP,
 ];
 export var JobRunSummary$: StaticStructureSchema = [3, n0, _JRS,
   0,
-  [_aI, _i, _a, _cB, _cA, _uA, _eR, _st, _sD, _rL, _n, _mo, _t, _at, _aCA, _aUA],
-  [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 1, 4, 4], 10
+  [_aI, _i, _a, _cB, _cA, _uA, _eR, _st, _sD, _rL, _n, _mo, _t, _at, _aCA, _aUA, _fE],
+  [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 1, 4, 4, () => FlexExecution$], 10
 ];
 export var ListApplicationsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
@@ -646,8 +653,8 @@ export var StartApplicationResponse$: StaticStructureSchema = [3, n0, _SARt,
 ];
 export var StartJobRunRequest$: StaticStructureSchema = [3, n0, _SJRR,
   0,
-  [_aI, _eRA, _cT, _eIP, _jD, _cO, _ta, _eTM, _n, _mo, _rP],
-  [[0, 1], 0, [0, 4], () => JobRunExecutionIamPolicy$, [() => JobDriver$, 0], [() => ConfigurationOverrides$, 0], 128 | 0, 1, 0, 0, () => RetryPolicy$], 2
+  [_aI, _eRA, _cT, _eIP, _jD, _cO, _ta, _eTM, _n, _mo, _rP, _fE],
+  [[0, 1], 0, [0, 4], () => JobRunExecutionIamPolicy$, [() => JobDriver$, 0], [() => ConfigurationOverrides$, 0], 128 | 0, 1, 0, 0, () => RetryPolicy$, () => FlexExecution$], 2
 ];
 export var StartJobRunResponse$: StaticStructureSchema = [3, n0, _SJRRt,
   0,
