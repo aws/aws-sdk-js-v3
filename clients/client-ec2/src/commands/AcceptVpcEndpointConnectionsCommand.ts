@@ -38,6 +38,9 @@ export interface AcceptVpcEndpointConnectionsCommandOutput extends AcceptVpcEndp
  *   VpcEndpointIds: [ // VpcEndpointIdList // required
  *     "STRING_VALUE",
  *   ],
+ *   TransitGatewayAttachmentIds: [ // TransitGatewayAttachmentIdList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new AcceptVpcEndpointConnectionsCommand(input);
  * const response = await client.send(command);

@@ -144,6 +144,11 @@ import {
   AssociateIpamResourceDiscoveryCommand,
 } from "./commands/AssociateIpamResourceDiscoveryCommand";
 import {
+  type AssociateKmsKeyIdCommandInput,
+  type AssociateKmsKeyIdCommandOutput,
+  AssociateKmsKeyIdCommand,
+} from "./commands/AssociateKmsKeyIdCommand";
+import {
   type AssociateNatGatewayAddressCommandInput,
   type AssociateNatGatewayAddressCommandOutput,
   AssociateNatGatewayAddressCommand,
@@ -775,6 +780,11 @@ import {
   CreateTransitGatewayMulticastDomainCommand,
 } from "./commands/CreateTransitGatewayMulticastDomainCommand";
 import {
+  type CreateTransitGatewayNetworkFunctionAttachmentCommandInput,
+  type CreateTransitGatewayNetworkFunctionAttachmentCommandOutput,
+  CreateTransitGatewayNetworkFunctionAttachmentCommand,
+} from "./commands/CreateTransitGatewayNetworkFunctionAttachmentCommand";
+import {
   type CreateTransitGatewayPeeringAttachmentCommandInput,
   type CreateTransitGatewayPeeringAttachmentCommandOutput,
   CreateTransitGatewayPeeringAttachmentCommand,
@@ -1270,6 +1280,11 @@ import {
   type DeleteTransitGatewayMulticastDomainCommandOutput,
   DeleteTransitGatewayMulticastDomainCommand,
 } from "./commands/DeleteTransitGatewayMulticastDomainCommand";
+import {
+  type DeleteTransitGatewayNetworkFunctionAttachmentCommandInput,
+  type DeleteTransitGatewayNetworkFunctionAttachmentCommandOutput,
+  DeleteTransitGatewayNetworkFunctionAttachmentCommand,
+} from "./commands/DeleteTransitGatewayNetworkFunctionAttachmentCommand";
 import {
   type DeleteTransitGatewayPeeringAttachmentCommandInput,
   type DeleteTransitGatewayPeeringAttachmentCommandOutput,
@@ -2237,6 +2252,11 @@ import {
   DescribeTransitGatewayMulticastDomainsCommand,
 } from "./commands/DescribeTransitGatewayMulticastDomainsCommand";
 import {
+  type DescribeTransitGatewayNetworkFunctionAttachmentsCommandInput,
+  type DescribeTransitGatewayNetworkFunctionAttachmentsCommandOutput,
+  DescribeTransitGatewayNetworkFunctionAttachmentsCommand,
+} from "./commands/DescribeTransitGatewayNetworkFunctionAttachmentsCommand";
+import {
   type DescribeTransitGatewayPeeringAttachmentsCommandInput,
   type DescribeTransitGatewayPeeringAttachmentsCommandOutput,
   DescribeTransitGatewayPeeringAttachmentsCommand,
@@ -2596,6 +2616,11 @@ import {
   type DisassociateIpamResourceDiscoveryCommandOutput,
   DisassociateIpamResourceDiscoveryCommand,
 } from "./commands/DisassociateIpamResourceDiscoveryCommand";
+import {
+  type DisassociateKmsKeyIdCommandInput,
+  type DisassociateKmsKeyIdCommandOutput,
+  DisassociateKmsKeyIdCommand,
+} from "./commands/DisassociateKmsKeyIdCommand";
 import {
   type DisassociateNatGatewayAddressCommandInput,
   type DisassociateNatGatewayAddressCommandOutput,
@@ -3562,6 +3587,11 @@ import {
   ModifyTransitGatewayMeteringPolicyCommand,
 } from "./commands/ModifyTransitGatewayMeteringPolicyCommand";
 import {
+  type ModifyTransitGatewayNetworkFunctionAttachmentCommandInput,
+  type ModifyTransitGatewayNetworkFunctionAttachmentCommandOutput,
+  ModifyTransitGatewayNetworkFunctionAttachmentCommand,
+} from "./commands/ModifyTransitGatewayNetworkFunctionAttachmentCommand";
+import {
   type ModifyTransitGatewayPolicyTableEntryCommandInput,
   type ModifyTransitGatewayPolicyTableEntryCommandOutput,
   ModifyTransitGatewayPolicyTableEntryCommand,
@@ -4436,6 +4466,7 @@ const commands = {
   AssociateInstanceEventWindowCommand,
   AssociateIpamByoasnCommand,
   AssociateIpamResourceDiscoveryCommand,
+  AssociateKmsKeyIdCommand,
   AssociateNatGatewayAddressCommand,
   AssociateNetworkingFlexCostAllocationPolicyCommand,
   AssociateRouteServerCommand,
@@ -4563,6 +4594,7 @@ const commands = {
   CreateTransitGatewayMeteringPolicyCommand,
   CreateTransitGatewayMeteringPolicyEntryCommand,
   CreateTransitGatewayMulticastDomainCommand,
+  CreateTransitGatewayNetworkFunctionAttachmentCommand,
   CreateTransitGatewayPeeringAttachmentCommand,
   CreateTransitGatewayPolicyTableCommand,
   CreateTransitGatewayPolicyTableEntryCommand,
@@ -4663,6 +4695,7 @@ const commands = {
   DeleteTransitGatewayMeteringPolicyCommand,
   DeleteTransitGatewayMeteringPolicyEntryCommand,
   DeleteTransitGatewayMulticastDomainCommand,
+  DeleteTransitGatewayNetworkFunctionAttachmentCommand,
   DeleteTransitGatewayPeeringAttachmentCommand,
   DeleteTransitGatewayPolicyTableCommand,
   DeleteTransitGatewayPolicyTableEntryCommand,
@@ -4857,6 +4890,7 @@ const commands = {
   DescribeTransitGatewayConnectsCommand,
   DescribeTransitGatewayMeteringPoliciesCommand,
   DescribeTransitGatewayMulticastDomainsCommand,
+  DescribeTransitGatewayNetworkFunctionAttachmentsCommand,
   DescribeTransitGatewayPeeringAttachmentsCommand,
   DescribeTransitGatewayPolicyTablesCommand,
   DescribeTransitGatewayRouteTableAnnouncementsCommand,
@@ -4929,6 +4963,7 @@ const commands = {
   DisassociateInstanceEventWindowCommand,
   DisassociateIpamByoasnCommand,
   DisassociateIpamResourceDiscoveryCommand,
+  DisassociateKmsKeyIdCommand,
   DisassociateNatGatewayAddressCommand,
   DisassociateNetworkingFlexCostAllocationPolicyCommand,
   DisassociateRouteServerCommand,
@@ -5122,6 +5157,7 @@ const commands = {
   ModifyTransitGatewayCommand,
   ModifyTransitGatewayAttachmentNatConfigurationCommand,
   ModifyTransitGatewayMeteringPolicyCommand,
+  ModifyTransitGatewayNetworkFunctionAttachmentCommand,
   ModifyTransitGatewayPolicyTableEntryCommand,
   ModifyTransitGatewayPrefixListReferenceCommand,
   ModifyTransitGatewayVpcAttachmentCommand,
@@ -5925,6 +5961,23 @@ export interface EC2 {
     args: AssociateIpamResourceDiscoveryCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: AssociateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateKmsKeyIdCommand}
+   */
+  associateKmsKeyId(
+    args: AssociateKmsKeyIdCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<AssociateKmsKeyIdCommandOutput>;
+  associateKmsKeyId(
+    args: AssociateKmsKeyIdCommandInput,
+    cb: (err: any, data?: AssociateKmsKeyIdCommandOutput) => void
+  ): void;
+  associateKmsKeyId(
+    args: AssociateKmsKeyIdCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: AssociateKmsKeyIdCommandOutput) => void
   ): void;
 
   /**
@@ -8101,6 +8154,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link CreateTransitGatewayNetworkFunctionAttachmentCommand}
+   */
+  createTransitGatewayNetworkFunctionAttachment(
+    args: CreateTransitGatewayNetworkFunctionAttachmentCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<CreateTransitGatewayNetworkFunctionAttachmentCommandOutput>;
+  createTransitGatewayNetworkFunctionAttachment(
+    args: CreateTransitGatewayNetworkFunctionAttachmentCommandInput,
+    cb: (err: any, data?: CreateTransitGatewayNetworkFunctionAttachmentCommandOutput) => void
+  ): void;
+  createTransitGatewayNetworkFunctionAttachment(
+    args: CreateTransitGatewayNetworkFunctionAttachmentCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: CreateTransitGatewayNetworkFunctionAttachmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateTransitGatewayPeeringAttachmentCommand}
    */
   createTransitGatewayPeeringAttachment(
@@ -9806,6 +9876,23 @@ export interface EC2 {
     args: DeleteTransitGatewayMulticastDomainCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: DeleteTransitGatewayMulticastDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTransitGatewayNetworkFunctionAttachmentCommand}
+   */
+  deleteTransitGatewayNetworkFunctionAttachment(
+    args: DeleteTransitGatewayNetworkFunctionAttachmentCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<DeleteTransitGatewayNetworkFunctionAttachmentCommandOutput>;
+  deleteTransitGatewayNetworkFunctionAttachment(
+    args: DeleteTransitGatewayNetworkFunctionAttachmentCommandInput,
+    cb: (err: any, data?: DeleteTransitGatewayNetworkFunctionAttachmentCommandOutput) => void
+  ): void;
+  deleteTransitGatewayNetworkFunctionAttachment(
+    args: DeleteTransitGatewayNetworkFunctionAttachmentCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: DeleteTransitGatewayNetworkFunctionAttachmentCommandOutput) => void
   ): void;
 
   /**
@@ -13249,6 +13336,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DescribeTransitGatewayNetworkFunctionAttachmentsCommand}
+   */
+  describeTransitGatewayNetworkFunctionAttachments(): Promise<DescribeTransitGatewayNetworkFunctionAttachmentsCommandOutput>;
+  describeTransitGatewayNetworkFunctionAttachments(
+    args: DescribeTransitGatewayNetworkFunctionAttachmentsCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<DescribeTransitGatewayNetworkFunctionAttachmentsCommandOutput>;
+  describeTransitGatewayNetworkFunctionAttachments(
+    args: DescribeTransitGatewayNetworkFunctionAttachmentsCommandInput,
+    cb: (err: any, data?: DescribeTransitGatewayNetworkFunctionAttachmentsCommandOutput) => void
+  ): void;
+  describeTransitGatewayNetworkFunctionAttachments(
+    args: DescribeTransitGatewayNetworkFunctionAttachmentsCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: DescribeTransitGatewayNetworkFunctionAttachmentsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeTransitGatewayPeeringAttachmentsCommand}
    */
   describeTransitGatewayPeeringAttachments(): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput>;
@@ -14511,6 +14616,23 @@ export interface EC2 {
     args: DisassociateIpamResourceDiscoveryCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: DisassociateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateKmsKeyIdCommand}
+   */
+  disassociateKmsKeyId(
+    args: DisassociateKmsKeyIdCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<DisassociateKmsKeyIdCommandOutput>;
+  disassociateKmsKeyId(
+    args: DisassociateKmsKeyIdCommandInput,
+    cb: (err: any, data?: DisassociateKmsKeyIdCommandOutput) => void
+  ): void;
+  disassociateKmsKeyId(
+    args: DisassociateKmsKeyIdCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: DisassociateKmsKeyIdCommandOutput) => void
   ): void;
 
   /**
@@ -17820,6 +17942,23 @@ export interface EC2 {
     args: ModifyTransitGatewayMeteringPolicyCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: ModifyTransitGatewayMeteringPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyTransitGatewayNetworkFunctionAttachmentCommand}
+   */
+  modifyTransitGatewayNetworkFunctionAttachment(
+    args: ModifyTransitGatewayNetworkFunctionAttachmentCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<ModifyTransitGatewayNetworkFunctionAttachmentCommandOutput>;
+  modifyTransitGatewayNetworkFunctionAttachment(
+    args: ModifyTransitGatewayNetworkFunctionAttachmentCommandInput,
+    cb: (err: any, data?: ModifyTransitGatewayNetworkFunctionAttachmentCommandOutput) => void
+  ): void;
+  modifyTransitGatewayNetworkFunctionAttachment(
+    args: ModifyTransitGatewayNetworkFunctionAttachmentCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: ModifyTransitGatewayNetworkFunctionAttachmentCommandOutput) => void
   ): void;
 
   /**

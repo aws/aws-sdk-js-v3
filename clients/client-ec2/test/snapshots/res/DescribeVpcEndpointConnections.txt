@@ -154,6 +154,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     </payerResponsibilityType>
                 </item>
             </payerResponsibilitySet>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
+            <transitGatewayAttachmentOwner>
+                __TransitGatewayAttachmentOwner__
+            </transitGatewayAttachmentOwner>
         </item>
         <item>
             <serviceId>
@@ -280,6 +286,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     </payerResponsibilityType>
                 </item>
             </payerResponsibilitySet>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
+            <transitGatewayAttachmentOwner>
+                __TransitGatewayAttachmentOwner__
+            </transitGatewayAttachmentOwner>
         </item>
         <item>
             <serviceId>
@@ -406,6 +418,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     </payerResponsibilityType>
                 </item>
             </payerResponsibilitySet>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
+            <transitGatewayAttachmentOwner>
+                __TransitGatewayAttachmentOwner__
+            </transitGatewayAttachmentOwner>
         </item>
     </vpcEndpointConnectionSet>
     <nextToken>
@@ -477,7 +495,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Scope: "__Scope__",
           PayerResponsibilityType: "__PayerResponsibilityType__"
         }
-      ]
+      ],
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+      TransitGatewayAttachmentOwner: "__TransitGatewayAttachmentOwner__"
     },
     {
       ServiceId: "__ServiceId__",
@@ -539,7 +559,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Scope: "__Scope__",
           PayerResponsibilityType: "__PayerResponsibilityType__"
         }
-      ]
+      ],
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+      TransitGatewayAttachmentOwner: "__TransitGatewayAttachmentOwner__"
     },
     {
       ServiceId: "__ServiceId__",
@@ -601,7 +623,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Scope: "__Scope__",
           PayerResponsibilityType: "__PayerResponsibilityType__"
         }
-      ]
+      ],
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+      TransitGatewayAttachmentOwner: "__TransitGatewayAttachmentOwner__"
     }
   ],
   NextToken: "__NextToken__",

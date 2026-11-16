@@ -60,6 +60,7 @@ import type {
   NatGatewayAddressStatus,
   NetworkProtocolEnum,
   OutputFormat,
+  PermissionType,
   PrincipalType,
   Protocol,
   ResourceType,
@@ -853,9 +854,20 @@ export interface AcceptVpcEndpointConnectionsRequest {
 
   /**
    * <p>The IDs of the interface VPC endpoints.</p>
+   *          <p>You must specify either <code>VpcEndpointIds</code> or <code>TransitGatewayAttachmentIds</code>,
+   * 		    but not both.</p>
    * @public
    */
   VpcEndpointIds: string[] | undefined;
+
+  /**
+   * <p>The IDs of the transit gateway attachments to accept. This parameter is supported only for
+   * 		    Gateway Load Balancer endpoint services.</p>
+   *          <p>You must specify either <code>VpcEndpointIds</code> or <code>TransitGatewayAttachmentIds</code>,
+   * 		    but not both.</p>
+   * @public
+   */
+  TransitGatewayAttachmentIds?: string[] | undefined;
 }
 
 /**
@@ -2756,6 +2768,12 @@ export interface AddedPrincipal {
    * @public
    */
   ServiceId?: string | undefined;
+
+  /**
+   * <p>The type of permission granted to the principal.</p>
+   * @public
+   */
+  PermissionType?: PermissionType | undefined;
 }
 
 /**
@@ -3658,6 +3676,12 @@ export interface AllowedPrincipal {
    * @public
    */
   ServiceId?: string | undefined;
+
+  /**
+   * <p>The type of permission granted to the principal.</p>
+   * @public
+   */
+  PermissionType?: PermissionType | undefined;
 }
 
 /**
@@ -4847,6 +4871,43 @@ export interface AssociateIpamResourceDiscoveryResult {
    * @public
    */
   IpamResourceDiscoveryAssociation?: IpamResourceDiscoveryAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateKmsKeyIdRequest {
+  /**
+   * <p>The ID of the Amazon EBS snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The ID, alias, or ARN of the KMS key to associate with the snapshot. You can
+   *       specify a key ID, key alias, key ARN, or alias ARN.</p>
+   * @public
+   */
+  KmsKeyId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateKmsKeyIdResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
 }
 
 /**
@@ -10560,37 +10621,4 @@ export interface CapacityReservationModificationQuote {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCapacityReservationDateChangeQuoteResult {
-  /**
-   * <p>Information about the Capacity Reservation date change quote.</p>
-   * @public
-   */
-  CapacityReservationModificationQuote?: CapacityReservationModificationQuote | undefined;
-}
-
-/**
- * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
- *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
- *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface BaselineEbsBandwidthMbpsRequest {
-  /**
-   * <p>The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit
-   *          this parameter.</p>
-   * @public
-   */
-  Min?: number | undefined;
-
-  /**
-   * <p>The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit
-   *          this parameter.</p>
-   * @public
-   */
-  Max?: number | undefined;
 }

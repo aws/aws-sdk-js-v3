@@ -68,6 +68,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <serviceId>
                 __ServiceId__
             </serviceId>
+            <permissionType>
+                __PermissionType__
+            </permissionType>
         </item>
         <item>
             <principalType>
@@ -108,6 +111,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <serviceId>
                 __ServiceId__
             </serviceId>
+            <permissionType>
+                __PermissionType__
+            </permissionType>
         </item>
         <item>
             <principalType>
@@ -148,6 +154,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <serviceId>
                 __ServiceId__
             </serviceId>
+            <permissionType>
+                __PermissionType__
+            </permissionType>
         </item>
     </allowedPrincipals>
     <nextToken>
@@ -177,7 +186,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Value: "__Value__"
         }
       ],
-      ServiceId: "__ServiceId__"
+      ServiceId: "__ServiceId__",
+      PermissionType: "__PermissionType__"
     },
     {
       PrincipalType: "__PrincipalType__",
@@ -197,7 +207,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Value: "__Value__"
         }
       ],
-      ServiceId: "__ServiceId__"
+      ServiceId: "__ServiceId__",
+      PermissionType: "__PermissionType__"
     },
     {
       PrincipalType: "__PrincipalType__",
@@ -217,7 +228,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Value: "__Value__"
         }
       ],
-      ServiceId: "__ServiceId__"
+      ServiceId: "__ServiceId__",
+      PermissionType: "__PermissionType__"
     }
   ],
   NextToken: "__NextToken__",

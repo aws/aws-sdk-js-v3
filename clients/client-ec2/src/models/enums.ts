@@ -503,6 +503,19 @@ export type ActivityStatus = (typeof ActivityStatus)[keyof typeof ActivityStatus
  * @public
  * @enum
  */
+export const PermissionType = {
+  TransitGatewayAttachment: "transit-gateway-attachment",
+  VpcEndpoint: "vpc-endpoint",
+} as const;
+/**
+ * @public
+ */
+export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PrincipalType = {
   Account: "Account",
   All: "All",

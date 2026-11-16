@@ -2,8 +2,10 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CreateNetworkingFlexCostAllocationPolicyRequest } from "../models/models_1";
-import type { CreateNetworkingFlexCostAllocationPolicyResult } from "../models/models_2";
+import type {
+  CreateNetworkingFlexCostAllocationPolicyRequest,
+  CreateNetworkingFlexCostAllocationPolicyResult,
+} from "../models/models_2";
 import { CreateNetworkingFlexCostAllocationPolicy$ } from "../schemas/schemas_0";
 
 /**

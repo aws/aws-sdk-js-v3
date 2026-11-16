@@ -422,6 +422,13 @@ AssociateIpamResourceDiscovery
 </details>
 <details>
 <summary>
+AssociateKmsKeyId
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateKmsKeyIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AssociateKmsKeyIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AssociateKmsKeyIdCommandOutput/)
+</details>
+<details>
+<summary>
 AssociateNatGatewayAddress
 </summary>
 
@@ -1311,6 +1318,13 @@ CreateTransitGatewayMulticastDomain
 </details>
 <details>
 <summary>
+CreateTransitGatewayNetworkFunctionAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateTransitGatewayNetworkFunctionAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateTransitGatewayNetworkFunctionAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateTransitGatewayNetworkFunctionAttachmentCommandOutput/)
+</details>
+<details>
+<summary>
 CreateTransitGatewayPeeringAttachment
 </summary>
 
@@ -2008,6 +2022,13 @@ DeleteTransitGatewayMulticastDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteTransitGatewayMulticastDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteTransitGatewayMulticastDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteTransitGatewayMulticastDomainCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteTransitGatewayNetworkFunctionAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteTransitGatewayNetworkFunctionAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteTransitGatewayNetworkFunctionAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteTransitGatewayNetworkFunctionAttachmentCommandOutput/)
 </details>
 <details>
 <summary>
@@ -3369,6 +3390,13 @@ DescribeTransitGatewayMulticastDomains
 </details>
 <details>
 <summary>
+DescribeTransitGatewayNetworkFunctionAttachments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeTransitGatewayNetworkFunctionAttachmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeTransitGatewayNetworkFunctionAttachmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeTransitGatewayNetworkFunctionAttachmentsCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeTransitGatewayPeeringAttachments
 </summary>
 
@@ -3870,6 +3898,13 @@ DisassociateIpamResourceDiscovery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisassociateIpamResourceDiscoveryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateIpamResourceDiscoveryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateIpamResourceDiscoveryCommandOutput/)
+</details>
+<details>
+<summary>
+DisassociateKmsKeyId
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisassociateKmsKeyIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateKmsKeyIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateKmsKeyIdCommandOutput/)
 </details>
 <details>
 <summary>
@@ -5221,6 +5256,13 @@ ModifyTransitGatewayMeteringPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyTransitGatewayMeteringPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyTransitGatewayMeteringPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyTransitGatewayMeteringPolicyCommandOutput/)
+</details>
+<details>
+<summary>
+ModifyTransitGatewayNetworkFunctionAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyTransitGatewayNetworkFunctionAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyTransitGatewayNetworkFunctionAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyTransitGatewayNetworkFunctionAttachmentCommandOutput/)
 </details>
 <details>
 <summary>

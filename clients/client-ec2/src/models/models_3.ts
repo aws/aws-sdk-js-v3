@@ -25,7 +25,6 @@ import type {
   ConversionTaskState,
   DeleteQueuedReservedInstancesErrorCode,
   DiskImageFormat,
-  ElasticGpuStatus,
   EndpointIpAddressType,
   FleetCapacityReservationTenancy,
   FleetInstanceMatchCriteria,
@@ -36,7 +35,6 @@ import type {
   OutputFormat,
   PeriodType,
   PlatformValues,
-  ReportState,
   Schedule,
   SnapshotReturnCodes,
   StatisticType,
@@ -74,10 +72,11 @@ import type {
   ClientVpnRouteStatus,
   CoipPool,
   CustomerGateway,
-  DhcpOptions,
-  EgressOnlyInternetGateway,
   FleetCapacityReservation,
   InstanceRequirementsRequest,
+  IpamExternalResourceVerificationToken,
+  IpamInternetRegistryAssociation,
+  IpamPolicy,
   IpamPool,
   IpamPrefixListResolver,
   IpamPrefixListResolverTarget,
@@ -107,6 +106,7 @@ import type {
   TransitGatewayMeteringPolicy,
   TransitGatewayMeteringPolicyEntry,
   TransitGatewayMulticastDomain,
+  TransitGatewayNetworkFunctionAttachment,
   TransitGatewayPolicyTable,
   TransitGatewayPolicyTableEntry,
   TransitGatewayPrefixListReference,
@@ -117,6 +117,95 @@ import type {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteIpamExternalResourceVerificationTokenRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The token ID.</p>
+   * @public
+   */
+  IpamExternalResourceVerificationTokenId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamExternalResourceVerificationTokenResult {
+  /**
+   * <p>The verification token.</p>
+   * @public
+   */
+  IpamExternalResourceVerificationToken?: IpamExternalResourceVerificationToken | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamInternetRegistryAssociationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM internet registry association to delete.</p>
+   * @public
+   */
+  IpamInternetRegistryAssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamInternetRegistryAssociationResult {
+  /**
+   * <p>Information about the deleted internet registry association.</p>
+   * @public
+   */
+  IpamInternetRegistryAssociation?: IpamInternetRegistryAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamPolicyRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM policy to delete.</p>
+   * @public
+   */
+  IpamPolicyId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamPolicyResult {
+  /**
+   * <p>Information about the deleted IPAM policy.</p>
+   *          <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p>
+   * @public
+   */
+  IpamPolicy?: IpamPolicy | undefined;
+}
 
 /**
  * @public
@@ -1949,6 +2038,36 @@ export interface DeleteTransitGatewayMulticastDomainResult {
    * @public
    */
   TransitGatewayMulticastDomain?: TransitGatewayMulticastDomain | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTransitGatewayNetworkFunctionAttachmentRequest {
+  /**
+   * <p>The ID of the network function attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTransitGatewayNetworkFunctionAttachmentResult {
+  /**
+   * <p>Information about the deleted network function attachment.</p>
+   * @public
+   */
+  TransitGatewayNetworkFunctionAttachment?: TransitGatewayNetworkFunctionAttachment | undefined;
 }
 
 /**
@@ -8063,321 +8182,4 @@ export interface DescribeDeclarativePoliciesReportsRequest {
    * @public
    */
   ReportIds?: string[] | undefined;
-}
-
-/**
- * <p>Describes the metadata of the account status report.</p>
- * @public
- */
-export interface DeclarativePoliciesReport {
-  /**
-   * <p>The ID of the report.</p>
-   * @public
-   */
-  ReportId?: string | undefined;
-
-  /**
-   * <p>The name of the Amazon S3 bucket where the report is located.</p>
-   * @public
-   */
-  S3Bucket?: string | undefined;
-
-  /**
-   * <p>The prefix for your S3 object.</p>
-   * @public
-   */
-  S3Prefix?: string | undefined;
-
-  /**
-   * <p>The root ID, organizational unit ID, or account ID.</p>
-   *          <p>Format:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For root: <code>r-ab12</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For OU: <code>ou-ab12-cdef1234</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For account: <code>123456789012</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TargetId?: string | undefined;
-
-  /**
-   * <p>The time when the report generation started.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The time when the report generation ended.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The current status of the report.</p>
-   * @public
-   */
-  Status?: ReportState | undefined;
-
-  /**
-   * <p>Any tags assigned to the report.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDeclarativePoliciesReportsResult {
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The report metadata.</p>
-   * @public
-   */
-  Reports?: DeclarativePoliciesReport[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDhcpOptionsRequest {
-  /**
-   * <p>The IDs of DHCP option sets.</p>
-   * @public
-   */
-  DhcpOptionsIds?: string[] | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>dhcp-options-id</code> - The ID of a DHCP options set.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>key</code> - The key for one of the options (for example, <code>domain-name</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>value</code> - The value for one of the options.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the DHCP options set.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDhcpOptionsResult {
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the DHCP options sets.</p>
-   * @public
-   */
-  DhcpOptions?: DhcpOptions[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEgressOnlyInternetGatewaysRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the egress-only internet gateways.</p>
-   * @public
-   */
-  EgressOnlyInternetGatewayIds?: string[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEgressOnlyInternetGatewaysResult {
-  /**
-   * <p>Information about the egress-only internet gateways.</p>
-   * @public
-   */
-  EgressOnlyInternetGateways?: EgressOnlyInternetGateway[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeElasticGpusRequest {
-  /**
-   * <p>The Elastic Graphics accelerator IDs.</p>
-   * @public
-   */
-  ElasticGpuIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone in which the
-   *                     Elastic Graphics accelerator resides.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>elastic-gpu-health</code> - The status of the Elastic Graphics accelerator
-   *                         (<code>OK</code> | <code>IMPAIRED</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>elastic-gpu-state</code> - The state of the Elastic Graphics accelerator
-   *                         (<code>ATTACHED</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>elastic-gpu-type</code> - The type of Elastic Graphics accelerator; for example,
-   *                         <code>eg1.medium</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance to which the
-   *                     Elastic Graphics accelerator is associated.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
- *          </note>
- *          <p>Describes the status of an Elastic Graphics accelerator.</p>
- * @public
- */
-export interface ElasticGpuHealth {
-  /**
-   * <p>The health status.</p>
-   * @public
-   */
-  Status?: ElasticGpuStatus | undefined;
 }

@@ -83,6 +83,8 @@ export interface DescribeVpcEndpointConnectionsCommandOutput extends DescribeVpc
  * //           PayerResponsibilityType: "vpc-endpoint-account" || "resource-gateway-account" || "vpc-endpoint-service-account",
  * //         },
  * //       ],
+ * //       TransitGatewayAttachmentId: "STRING_VALUE",
+ * //       TransitGatewayAttachmentOwner: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

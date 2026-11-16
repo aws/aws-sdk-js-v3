@@ -65,6 +65,7 @@ export interface DescribeVpcEndpointServicePermissionsCommandOutput extends Desc
  * //         },
  * //       ],
  * //       ServiceId: "STRING_VALUE",
+ * //       PermissionType: "vpc-endpoint" || "transit-gateway-attachment",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

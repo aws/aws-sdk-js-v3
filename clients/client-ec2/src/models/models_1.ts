@@ -43,7 +43,6 @@ import type {
   FleetReservationType,
   FleetType,
   FlexCostAllocationCostDimension,
-  FlexCostAllocationNetworkResourceType,
   FlexCostAllocationReportingGranularity,
   FlowLogsResourceType,
   GatewayType,
@@ -137,7 +136,7 @@ import type {
   AcceleratorTotalMemoryMiBRequest,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
-  BaselineEbsBandwidthMbpsRequest,
+  CapacityReservationModificationQuote,
   InstanceEventWindow,
   IpamRoutingPolicyRegistrationDelta,
   NatGatewayAddress,
@@ -150,6 +149,39 @@ import type {
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateCapacityReservationDateChangeQuoteResult {
+  /**
+   * <p>Information about the Capacity Reservation date change quote.</p>
+   * @public
+   */
+  CapacityReservationModificationQuote?: CapacityReservationModificationQuote | undefined;
+}
+
+/**
+ * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
+ *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface BaselineEbsBandwidthMbpsRequest {
+  /**
+   * <p>The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit
+   *          this parameter.</p>
+   * @public
+   */
+  Min?: number | undefined;
+
+  /**
+   * <p>The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit
+   *          this parameter.</p>
+   * @public
+   */
+  Max?: number | undefined;
+}
 
 /**
  * <p>Specify an instance family to use as the baseline reference for CPU performance. All
@@ -14117,105 +14149,4 @@ export interface NatFlexCostAllocationPolicyDocument {
    * @public
    */
   CidrRangeSpecifications?: FlexCostAllocationCidrRangeSpecifications | undefined;
-}
-
-/**
- * <p>Describes the cost allocation policy document for Amazon VPC peering connections.</p>
- * @public
- */
-export interface PcxFlexCostAllocationPolicyDocument {
-  /**
-   * <p>The resource granularity level at which networking costs are allocated. This parameter is required. Specify exactly
-   *             one value. Valid values are <code>eni</code>, <code>ec2</code>, <code>subnet</code>, <code>vpc</code>,
-   *             <code>account</code>, <code>peering-id</code>, and <code>cidr</code>.</p>
-   * @public
-   */
-  ReportingGranularity: FlexCostAllocationReportingGranularity[] | undefined;
-
-  /**
-   * <p>The cost dimensions to report. This parameter is required. The only valid value is
-   *             <code>data-transfer</code>.</p>
-   * @public
-   */
-  Dimensions: FlexCostAllocationCostDimension[] | undefined;
-
-  /**
-   * <p>The CIDR range mappings to use for cost allocation. Specify this value when
-   *             <code>ReportingGranularity</code> is <code>cidr</code>, and omit it otherwise.</p>
-   * @public
-   */
-  CidrRangeSpecifications?: FlexCostAllocationCidrRangeSpecifications | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkingFlexCostAllocationPolicyRequest {
-  /**
-   * <p>The type of network resource that the policy applies to. This parameter is required. Valid
-   *             values are <code>natgw</code> (NAT gateway), <code>pcx</code> (Amazon VPC peering connection),
-   *             and <code>ec2</code> (EC2 instance).</p>
-   *          <p>Specify the policy document that matches the resource type: <code>NatFcaPolicyDocument</code>
-   *             for <code>natgw</code>, <code>InstanceFcaPolicyDocument</code> for <code>ec2</code>, or
-   *             <code>PcxFcaPolicyDocument</code> for <code>pcx</code>. Don't specify a policy document for a different
-   *             resource type.</p>
-   * @public
-   */
-  NetworkResourceType: FlexCostAllocationNetworkResourceType | undefined;
-
-  /**
-   * <p>The policy document that defines cost allocation for NAT gateways. Provide this document when
-   *             <code>NetworkResourceType</code> is <code>natgw</code>.</p>
-   * @public
-   */
-  NatFcaPolicyDocument?: NatFlexCostAllocationPolicyDocument | undefined;
-
-  /**
-   * <p>The policy document that defines cost allocation for EC2 instances. Provide this document when
-   *             <code>NetworkResourceType</code> is <code>ec2</code>.</p>
-   * @public
-   */
-  InstanceFcaPolicyDocument?: InstanceFlexCostAllocationPolicyDocument | undefined;
-
-  /**
-   * <p>The policy document that defines cost allocation for Amazon VPC peering connections. Provide this
-   *             document when <code>NetworkResourceType</code> is <code>pcx</code>.</p>
-   * @public
-   */
-  PcxFcaPolicyDocument?: PcxFlexCostAllocationPolicyDocument | undefined;
-
-  /**
-   * <p>Specifies whether showback reporting is enabled for the policy.</p>
-   *          <p>Default: <code>true</code>
-   *          </p>
-   * @public
-   */
-  ShowBackEnabled?: boolean | undefined;
-
-  /**
-   * <p>A description for the policy. The description can be up to 1024 characters long.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The tags to assign to the policy.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

@@ -21,6 +21,9 @@ import type {
   DynamicRoutingValue,
   EncryptionStateValue,
   FleetStateCode,
+  FlexCostAllocationCostDimension,
+  FlexCostAllocationNetworkResourceType,
+  FlexCostAllocationReportingGranularity,
   GatewayAssociationState,
   GatewayType,
   Igmpv2SupportValue,
@@ -137,19 +140,120 @@ import type {
   CoipPool,
   ConnectionTrackingSpecificationRequest,
   Ec2InstanceConnectEndpoint,
+  FlexCostAllocationCidrRangeSpecifications,
+  InstanceFlexCostAllocationPolicyDocument,
   InstanceIpv6Address,
   Ipam,
-  IpamExternalResourceVerificationToken,
-  IpamInternetRegistryAssociation,
-  IpamPolicy,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  NatFlexCostAllocationPolicyDocument,
   OperatorRequest,
   PrivateIpAddressSpecification,
   Subnet,
   Vpc,
   VpcEncryptionControl,
 } from "./models_1";
+
+/**
+ * <p>Describes the cost allocation policy document for Amazon VPC peering connections.</p>
+ * @public
+ */
+export interface PcxFlexCostAllocationPolicyDocument {
+  /**
+   * <p>The resource granularity level at which networking costs are allocated. This parameter is required. Specify exactly
+   *             one value. Valid values are <code>eni</code>, <code>ec2</code>, <code>subnet</code>, <code>vpc</code>,
+   *             <code>account</code>, <code>peering-id</code>, and <code>cidr</code>.</p>
+   * @public
+   */
+  ReportingGranularity: FlexCostAllocationReportingGranularity[] | undefined;
+
+  /**
+   * <p>The cost dimensions to report. This parameter is required. The only valid value is
+   *             <code>data-transfer</code>.</p>
+   * @public
+   */
+  Dimensions: FlexCostAllocationCostDimension[] | undefined;
+
+  /**
+   * <p>The CIDR range mappings to use for cost allocation. Specify this value when
+   *             <code>ReportingGranularity</code> is <code>cidr</code>, and omit it otherwise.</p>
+   * @public
+   */
+  CidrRangeSpecifications?: FlexCostAllocationCidrRangeSpecifications | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkingFlexCostAllocationPolicyRequest {
+  /**
+   * <p>The type of network resource that the policy applies to. This parameter is required. Valid
+   *             values are <code>natgw</code> (NAT gateway), <code>pcx</code> (Amazon VPC peering connection),
+   *             and <code>ec2</code> (EC2 instance).</p>
+   *          <p>Specify the policy document that matches the resource type: <code>NatFcaPolicyDocument</code>
+   *             for <code>natgw</code>, <code>InstanceFcaPolicyDocument</code> for <code>ec2</code>, or
+   *             <code>PcxFcaPolicyDocument</code> for <code>pcx</code>. Don't specify a policy document for a different
+   *             resource type.</p>
+   * @public
+   */
+  NetworkResourceType: FlexCostAllocationNetworkResourceType | undefined;
+
+  /**
+   * <p>The policy document that defines cost allocation for NAT gateways. Provide this document when
+   *             <code>NetworkResourceType</code> is <code>natgw</code>.</p>
+   * @public
+   */
+  NatFcaPolicyDocument?: NatFlexCostAllocationPolicyDocument | undefined;
+
+  /**
+   * <p>The policy document that defines cost allocation for EC2 instances. Provide this document when
+   *             <code>NetworkResourceType</code> is <code>ec2</code>.</p>
+   * @public
+   */
+  InstanceFcaPolicyDocument?: InstanceFlexCostAllocationPolicyDocument | undefined;
+
+  /**
+   * <p>The policy document that defines cost allocation for Amazon VPC peering connections. Provide this
+   *             document when <code>NetworkResourceType</code> is <code>pcx</code>.</p>
+   * @public
+   */
+  PcxFcaPolicyDocument?: PcxFlexCostAllocationPolicyDocument | undefined;
+
+  /**
+   * <p>Specifies whether showback reporting is enabled for the policy.</p>
+   *          <p>Default: <code>true</code>
+   *          </p>
+   * @public
+   */
+  ShowBackEnabled?: boolean | undefined;
+
+  /**
+   * <p>A description for the policy. The description can be up to 1024 characters long.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The tags to assign to the policy.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -3258,6 +3362,20 @@ export interface CreateSnapshotRequest {
 }
 
 /**
+ * <p>Describes an KMS key that is associated with an Amazon EBS snapshot, in addition to the
+ *       key the snapshot is encrypted under. An associated key provides a second way to access the
+ *       snapshot's data for cross-account sharing and copying.</p>
+ * @public
+ */
+export interface AssociatedKmsKey {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the associated KMS key.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+}
+
+/**
  * <p>Describes a snapshot.</p>
  * @public
  */
@@ -3360,6 +3478,12 @@ export interface Snapshot {
    * @public
    */
   FullSnapshotSizeInBytes?: number | undefined;
+
+  /**
+   * <p>The additional KMS keys that are associated with the snapshot.</p>
+   * @public
+   */
+  AssociatedKmsKeys?: AssociatedKmsKey[] | undefined;
 
   /**
    * <p>The ID of the snapshot. Each snapshot receives a unique identifier when it is
@@ -5645,6 +5769,131 @@ export interface CreateTransitGatewayMulticastDomainResult {
    * @public
    */
   TransitGatewayMulticastDomain?: TransitGatewayMulticastDomain | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTransitGatewayNetworkFunctionAttachmentRequest {
+  /**
+   * <p>The ID of the transit gateway. The transit gateway must be in the <code>available</code> state.</p>
+   * @public
+   */
+  TransitGatewayId: string | undefined;
+
+  /**
+   * <p>The name of the Gateway Load Balancer endpoint service.</p>
+   * @public
+   */
+  ServiceName: string | undefined;
+
+  /**
+   * <p>The names of the Availability Zones for the attachment. You must specify at least one Availability Zone,
+   *             using this parameter, <code>AvailabilityZoneIds</code>, or both.
+   *             Each Availability Zone must be supported by both the transit gateway and the endpoint service.</p>
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the Availability Zones for the attachment. You must specify at least one Availability Zone,
+   *             using this parameter, <code>AvailabilityZones</code>, or both.
+   *             Each Availability Zone must be supported by both the transit gateway and the endpoint service.</p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
+
+  /**
+   * <p>The tags to apply to the network function attachment.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Contains information about a transit gateway network function attachment, including the attachment ID, the transit gateway, the endpoint service,
+ *             the Availability Zones, and the state of the attachment.</p>
+ * @public
+ */
+export interface TransitGatewayNetworkFunctionAttachment {
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
+   * @public
+   */
+  TransitGatewayOwnerId?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the attachment.</p>
+   * @public
+   */
+  ResourceOwnerId?: string | undefined;
+
+  /**
+   * <p>The name of the Gateway Load Balancer endpoint service.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The names of the Availability Zones for the attachment.</p>
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the Availability Zones for the attachment.</p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
+
+  /**
+   * <p>The state of the attachment.</p>
+   * @public
+   */
+  State?: TransitGatewayAttachmentState | undefined;
+
+  /**
+   * <p>The date and time the attachment was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The tags for the attachment.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTransitGatewayNetworkFunctionAttachmentResult {
+  /**
+   * <p>Information about the network function attachment.</p>
+   * @public
+   */
+  TransitGatewayNetworkFunctionAttachment?: TransitGatewayNetworkFunctionAttachment | undefined;
 }
 
 /**
@@ -11148,93 +11397,4 @@ export interface DeleteIpamResult {
    * @public
    */
   Ipam?: Ipam | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamExternalResourceVerificationTokenRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The token ID.</p>
-   * @public
-   */
-  IpamExternalResourceVerificationTokenId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamExternalResourceVerificationTokenResult {
-  /**
-   * <p>The verification token.</p>
-   * @public
-   */
-  IpamExternalResourceVerificationToken?: IpamExternalResourceVerificationToken | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamInternetRegistryAssociationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM internet registry association to delete.</p>
-   * @public
-   */
-  IpamInternetRegistryAssociationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamInternetRegistryAssociationResult {
-  /**
-   * <p>Information about the deleted internet registry association.</p>
-   * @public
-   */
-  IpamInternetRegistryAssociation?: IpamInternetRegistryAssociation | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamPolicyRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM policy to delete.</p>
-   * @public
-   */
-  IpamPolicyId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamPolicyResult {
-  /**
-   * <p>Information about the deleted IPAM policy.</p>
-   *          <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p>
-   * @public
-   */
-  IpamPolicy?: IpamPolicy | undefined;
 }

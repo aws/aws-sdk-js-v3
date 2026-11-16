@@ -121,6 +121,11 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * //       CompletionDurationMinutes: Number("int"),
  * //       CompletionTime: new Date("TIMESTAMP"),
  * //       FullSnapshotSizeInBytes: Number("long"),
+ * //       AssociatedKmsKeys: [ // AssociatedKmsKeySet
+ * //         { // AssociatedKmsKey
+ * //           KmsKeyId: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //       SnapshotId: "STRING_VALUE",
  * //       VolumeId: "STRING_VALUE",
  * //       State: "pending" || "completed" || "error" || "recoverable" || "recovering",

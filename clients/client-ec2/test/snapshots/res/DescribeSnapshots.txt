@@ -89,6 +89,23 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <fullSnapshotSizeInBytes>
                 0
             </fullSnapshotSizeInBytes>
+            <associatedKmsKeySet>
+                <item>
+                    <kmsKeyId>
+                        __KmsKeyId__
+                    </kmsKeyId>
+                </item>
+                <item>
+                    <kmsKeyId>
+                        __KmsKeyId__
+                    </kmsKeyId>
+                </item>
+                <item>
+                    <kmsKeyId>
+                        __KmsKeyId__
+                    </kmsKeyId>
+                </item>
+            </associatedKmsKeySet>
             <snapshotId>
                 __SnapshotId__
             </snapshotId>
@@ -183,6 +200,23 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <fullSnapshotSizeInBytes>
                 0
             </fullSnapshotSizeInBytes>
+            <associatedKmsKeySet>
+                <item>
+                    <kmsKeyId>
+                        __KmsKeyId__
+                    </kmsKeyId>
+                </item>
+                <item>
+                    <kmsKeyId>
+                        __KmsKeyId__
+                    </kmsKeyId>
+                </item>
+                <item>
+                    <kmsKeyId>
+                        __KmsKeyId__
+                    </kmsKeyId>
+                </item>
+            </associatedKmsKeySet>
             <snapshotId>
                 __SnapshotId__
             </snapshotId>
@@ -277,6 +311,23 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <fullSnapshotSizeInBytes>
                 0
             </fullSnapshotSizeInBytes>
+            <associatedKmsKeySet>
+                <item>
+                    <kmsKeyId>
+                        __KmsKeyId__
+                    </kmsKeyId>
+                </item>
+                <item>
+                    <kmsKeyId>
+                        __KmsKeyId__
+                    </kmsKeyId>
+                </item>
+                <item>
+                    <kmsKeyId>
+                        __KmsKeyId__
+                    </kmsKeyId>
+                </item>
+            </associatedKmsKeySet>
             <snapshotId>
                 __SnapshotId__
             </snapshotId>
@@ -347,6 +398,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       CompletionDurationMinutes: (number) 0,
       CompletionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       FullSnapshotSizeInBytes: (number) 0,
+      AssociatedKmsKeys: [
+        {
+          KmsKeyId: "__KmsKeyId__"
+        },
+        {
+          KmsKeyId: "__KmsKeyId__"
+        },
+        {
+          KmsKeyId: "__KmsKeyId__"
+        }
+      ],
       SnapshotId: "__SnapshotId__",
       VolumeId: "__VolumeId__",
       State: "__State__",
@@ -385,6 +447,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       CompletionDurationMinutes: (number) 0,
       CompletionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       FullSnapshotSizeInBytes: (number) 0,
+      AssociatedKmsKeys: [
+        {
+          KmsKeyId: "__KmsKeyId__"
+        },
+        {
+          KmsKeyId: "__KmsKeyId__"
+        },
+        {
+          KmsKeyId: "__KmsKeyId__"
+        }
+      ],
       SnapshotId: "__SnapshotId__",
       VolumeId: "__VolumeId__",
       State: "__State__",
@@ -423,6 +496,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       CompletionDurationMinutes: (number) 0,
       CompletionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       FullSnapshotSizeInBytes: (number) 0,
+      AssociatedKmsKeys: [
+        {
+          KmsKeyId: "__KmsKeyId__"
+        },
+        {
+          KmsKeyId: "__KmsKeyId__"
+        },
+        {
+          KmsKeyId: "__KmsKeyId__"
+        }
+      ],
       SnapshotId: "__SnapshotId__",
       VolumeId: "__VolumeId__",
       State: "__State__",

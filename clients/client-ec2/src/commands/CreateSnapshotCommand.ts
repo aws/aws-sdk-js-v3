@@ -102,6 +102,11 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  * //   CompletionDurationMinutes: Number("int"),
  * //   CompletionTime: new Date("TIMESTAMP"),
  * //   FullSnapshotSizeInBytes: Number("long"),
+ * //   AssociatedKmsKeys: [ // AssociatedKmsKeySet
+ * //     { // AssociatedKmsKey
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
+ * //   ],
  * //   SnapshotId: "STRING_VALUE",
  * //   VolumeId: "STRING_VALUE",
  * //   State: "pending" || "completed" || "error" || "recoverable" || "recovering",

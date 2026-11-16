@@ -32,6 +32,11 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput extends Modify
  *          <p>If you grant permissions to all principals, the service is public. Any users who know the name of a
  * 	        public service can send a request to attach an endpoint. If the service does not require manual approval,
  * 	        attachments are automatically approved.</p>
+ *          <p>By default, principals that you grant permissions to can create VPC endpoints that connect to
+ * 	        your endpoint service. For Gateway Load Balancer endpoint services, you can instead grant permissions so that
+ * 	        principals can create transit gateway attachments that connect to your endpoint service. To do so,
+ * 	        specify <code>transit-gateway-attachment</code> for <code>PermissionType</code>. The two permission
+ * 	        types are independent. A principal can have either or both.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +54,7 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput extends Modify
  *   RemoveAllowedPrincipals: [
  *     "STRING_VALUE",
  *   ],
+ *   PermissionType: "vpc-endpoint" || "transit-gateway-attachment",
  * };
  * const command = new ModifyVpcEndpointServicePermissionsCommand(input);
  * const response = await client.send(command);
@@ -59,6 +65,7 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput extends Modify
  * //       Principal: "STRING_VALUE",
  * //       ServicePermissionId: "STRING_VALUE",
  * //       ServiceId: "STRING_VALUE",
+ * //       PermissionType: "vpc-endpoint" || "transit-gateway-attachment",
  * //     },
  * //   ],
  * //   ReturnValue: true || false,

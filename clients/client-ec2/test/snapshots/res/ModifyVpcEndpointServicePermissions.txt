@@ -42,6 +42,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <serviceId>
                 __ServiceId__
             </serviceId>
+            <permissionType>
+                __PermissionType__
+            </permissionType>
         </item>
         <item>
             <principalType>
@@ -56,6 +59,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <serviceId>
                 __ServiceId__
             </serviceId>
+            <permissionType>
+                __PermissionType__
+            </permissionType>
         </item>
         <item>
             <principalType>
@@ -70,6 +76,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <serviceId>
                 __ServiceId__
             </serviceId>
+            <permissionType>
+                __PermissionType__
+            </permissionType>
         </item>
     </addedPrincipalSet>
     <return>
@@ -85,19 +94,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       PrincipalType: "__PrincipalType__",
       Principal: "__Principal__",
       ServicePermissionId: "__ServicePermissionId__",
-      ServiceId: "__ServiceId__"
+      ServiceId: "__ServiceId__",
+      PermissionType: "__PermissionType__"
     },
     {
       PrincipalType: "__PrincipalType__",
       Principal: "__Principal__",
       ServicePermissionId: "__ServicePermissionId__",
-      ServiceId: "__ServiceId__"
+      ServiceId: "__ServiceId__",
+      PermissionType: "__PermissionType__"
     },
     {
       PrincipalType: "__PrincipalType__",
       Principal: "__Principal__",
       ServicePermissionId: "__ServicePermissionId__",
-      ServiceId: "__ServiceId__"
+      ServiceId: "__ServiceId__",
+      PermissionType: "__PermissionType__"
     }
   ],
   ReturnValue: (boolean) false,

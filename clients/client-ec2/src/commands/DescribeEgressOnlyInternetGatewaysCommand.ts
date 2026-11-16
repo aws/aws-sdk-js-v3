@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeEgressOnlyInternetGatewaysRequest,
   DescribeEgressOnlyInternetGatewaysResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import { DescribeEgressOnlyInternetGateways$ } from "../schemas/schemas_0";
 
 /**

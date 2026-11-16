@@ -154,6 +154,10 @@ import type {
   AssociateIpamResourceDiscoveryCommandOutput,
 } from "./commands/AssociateIpamResourceDiscoveryCommand";
 import type {
+  AssociateKmsKeyIdCommandInput,
+  AssociateKmsKeyIdCommandOutput,
+} from "./commands/AssociateKmsKeyIdCommand";
+import type {
   AssociateNatGatewayAddressCommandInput,
   AssociateNatGatewayAddressCommandOutput,
 } from "./commands/AssociateNatGatewayAddressCommand";
@@ -572,6 +576,10 @@ import type {
   CreateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/CreateTransitGatewayMulticastDomainCommand";
 import type {
+  CreateTransitGatewayNetworkFunctionAttachmentCommandInput,
+  CreateTransitGatewayNetworkFunctionAttachmentCommandOutput,
+} from "./commands/CreateTransitGatewayNetworkFunctionAttachmentCommand";
+import type {
   CreateTransitGatewayPeeringAttachmentCommandInput,
   CreateTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayPeeringAttachmentCommand";
@@ -911,6 +919,10 @@ import type {
   DeleteTransitGatewayMulticastDomainCommandInput,
   DeleteTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/DeleteTransitGatewayMulticastDomainCommand";
+import type {
+  DeleteTransitGatewayNetworkFunctionAttachmentCommandInput,
+  DeleteTransitGatewayNetworkFunctionAttachmentCommandOutput,
+} from "./commands/DeleteTransitGatewayNetworkFunctionAttachmentCommand";
 import type {
   DeleteTransitGatewayPeeringAttachmentCommandInput,
   DeleteTransitGatewayPeeringAttachmentCommandOutput,
@@ -1643,6 +1655,10 @@ import type {
   DescribeTransitGatewayMulticastDomainsCommandOutput,
 } from "./commands/DescribeTransitGatewayMulticastDomainsCommand";
 import type {
+  DescribeTransitGatewayNetworkFunctionAttachmentsCommandInput,
+  DescribeTransitGatewayNetworkFunctionAttachmentsCommandOutput,
+} from "./commands/DescribeTransitGatewayNetworkFunctionAttachmentsCommand";
+import type {
   DescribeTransitGatewayPeeringAttachmentsCommandInput,
   DescribeTransitGatewayPeeringAttachmentsCommandOutput,
 } from "./commands/DescribeTransitGatewayPeeringAttachmentsCommand";
@@ -1915,6 +1931,10 @@ import type {
   DisassociateIpamResourceDiscoveryCommandInput,
   DisassociateIpamResourceDiscoveryCommandOutput,
 } from "./commands/DisassociateIpamResourceDiscoveryCommand";
+import type {
+  DisassociateKmsKeyIdCommandInput,
+  DisassociateKmsKeyIdCommandOutput,
+} from "./commands/DisassociateKmsKeyIdCommand";
 import type {
   DisassociateNatGatewayAddressCommandInput,
   DisassociateNatGatewayAddressCommandOutput,
@@ -2619,6 +2639,10 @@ import type {
   ModifyTransitGatewayMeteringPolicyCommandOutput,
 } from "./commands/ModifyTransitGatewayMeteringPolicyCommand";
 import type {
+  ModifyTransitGatewayNetworkFunctionAttachmentCommandInput,
+  ModifyTransitGatewayNetworkFunctionAttachmentCommandOutput,
+} from "./commands/ModifyTransitGatewayNetworkFunctionAttachmentCommand";
+import type {
   ModifyTransitGatewayPolicyTableEntryCommandInput,
   ModifyTransitGatewayPolicyTableEntryCommandOutput,
 } from "./commands/ModifyTransitGatewayPolicyTableEntryCommand";
@@ -3055,6 +3079,7 @@ export type ServiceInputTypes =
   | AssociateInstanceEventWindowCommandInput
   | AssociateIpamByoasnCommandInput
   | AssociateIpamResourceDiscoveryCommandInput
+  | AssociateKmsKeyIdCommandInput
   | AssociateNatGatewayAddressCommandInput
   | AssociateNetworkingFlexCostAllocationPolicyCommandInput
   | AssociateRouteServerCommandInput
@@ -3182,6 +3207,7 @@ export type ServiceInputTypes =
   | CreateTransitGatewayMeteringPolicyCommandInput
   | CreateTransitGatewayMeteringPolicyEntryCommandInput
   | CreateTransitGatewayMulticastDomainCommandInput
+  | CreateTransitGatewayNetworkFunctionAttachmentCommandInput
   | CreateTransitGatewayPeeringAttachmentCommandInput
   | CreateTransitGatewayPolicyTableCommandInput
   | CreateTransitGatewayPolicyTableEntryCommandInput
@@ -3282,6 +3308,7 @@ export type ServiceInputTypes =
   | DeleteTransitGatewayMeteringPolicyCommandInput
   | DeleteTransitGatewayMeteringPolicyEntryCommandInput
   | DeleteTransitGatewayMulticastDomainCommandInput
+  | DeleteTransitGatewayNetworkFunctionAttachmentCommandInput
   | DeleteTransitGatewayPeeringAttachmentCommandInput
   | DeleteTransitGatewayPolicyTableCommandInput
   | DeleteTransitGatewayPolicyTableEntryCommandInput
@@ -3476,6 +3503,7 @@ export type ServiceInputTypes =
   | DescribeTransitGatewayConnectsCommandInput
   | DescribeTransitGatewayMeteringPoliciesCommandInput
   | DescribeTransitGatewayMulticastDomainsCommandInput
+  | DescribeTransitGatewayNetworkFunctionAttachmentsCommandInput
   | DescribeTransitGatewayPeeringAttachmentsCommandInput
   | DescribeTransitGatewayPolicyTablesCommandInput
   | DescribeTransitGatewayRouteTableAnnouncementsCommandInput
@@ -3548,6 +3576,7 @@ export type ServiceInputTypes =
   | DisassociateInstanceEventWindowCommandInput
   | DisassociateIpamByoasnCommandInput
   | DisassociateIpamResourceDiscoveryCommandInput
+  | DisassociateKmsKeyIdCommandInput
   | DisassociateNatGatewayAddressCommandInput
   | DisassociateNetworkingFlexCostAllocationPolicyCommandInput
   | DisassociateRouteServerCommandInput
@@ -3741,6 +3770,7 @@ export type ServiceInputTypes =
   | ModifyTransitGatewayAttachmentNatConfigurationCommandInput
   | ModifyTransitGatewayCommandInput
   | ModifyTransitGatewayMeteringPolicyCommandInput
+  | ModifyTransitGatewayNetworkFunctionAttachmentCommandInput
   | ModifyTransitGatewayPolicyTableEntryCommandInput
   | ModifyTransitGatewayPrefixListReferenceCommandInput
   | ModifyTransitGatewayVpcAttachmentCommandInput
@@ -3883,6 +3913,7 @@ export type ServiceOutputTypes =
   | AssociateInstanceEventWindowCommandOutput
   | AssociateIpamByoasnCommandOutput
   | AssociateIpamResourceDiscoveryCommandOutput
+  | AssociateKmsKeyIdCommandOutput
   | AssociateNatGatewayAddressCommandOutput
   | AssociateNetworkingFlexCostAllocationPolicyCommandOutput
   | AssociateRouteServerCommandOutput
@@ -4010,6 +4041,7 @@ export type ServiceOutputTypes =
   | CreateTransitGatewayMeteringPolicyCommandOutput
   | CreateTransitGatewayMeteringPolicyEntryCommandOutput
   | CreateTransitGatewayMulticastDomainCommandOutput
+  | CreateTransitGatewayNetworkFunctionAttachmentCommandOutput
   | CreateTransitGatewayPeeringAttachmentCommandOutput
   | CreateTransitGatewayPolicyTableCommandOutput
   | CreateTransitGatewayPolicyTableEntryCommandOutput
@@ -4110,6 +4142,7 @@ export type ServiceOutputTypes =
   | DeleteTransitGatewayMeteringPolicyCommandOutput
   | DeleteTransitGatewayMeteringPolicyEntryCommandOutput
   | DeleteTransitGatewayMulticastDomainCommandOutput
+  | DeleteTransitGatewayNetworkFunctionAttachmentCommandOutput
   | DeleteTransitGatewayPeeringAttachmentCommandOutput
   | DeleteTransitGatewayPolicyTableCommandOutput
   | DeleteTransitGatewayPolicyTableEntryCommandOutput
@@ -4304,6 +4337,7 @@ export type ServiceOutputTypes =
   | DescribeTransitGatewayConnectsCommandOutput
   | DescribeTransitGatewayMeteringPoliciesCommandOutput
   | DescribeTransitGatewayMulticastDomainsCommandOutput
+  | DescribeTransitGatewayNetworkFunctionAttachmentsCommandOutput
   | DescribeTransitGatewayPeeringAttachmentsCommandOutput
   | DescribeTransitGatewayPolicyTablesCommandOutput
   | DescribeTransitGatewayRouteTableAnnouncementsCommandOutput
@@ -4376,6 +4410,7 @@ export type ServiceOutputTypes =
   | DisassociateInstanceEventWindowCommandOutput
   | DisassociateIpamByoasnCommandOutput
   | DisassociateIpamResourceDiscoveryCommandOutput
+  | DisassociateKmsKeyIdCommandOutput
   | DisassociateNatGatewayAddressCommandOutput
   | DisassociateNetworkingFlexCostAllocationPolicyCommandOutput
   | DisassociateRouteServerCommandOutput
@@ -4569,6 +4604,7 @@ export type ServiceOutputTypes =
   | ModifyTransitGatewayAttachmentNatConfigurationCommandOutput
   | ModifyTransitGatewayCommandOutput
   | ModifyTransitGatewayMeteringPolicyCommandOutput
+  | ModifyTransitGatewayNetworkFunctionAttachmentCommandOutput
   | ModifyTransitGatewayPolicyTableEntryCommandOutput
   | ModifyTransitGatewayPrefixListReferenceCommandOutput
   | ModifyTransitGatewayVpcAttachmentCommandOutput

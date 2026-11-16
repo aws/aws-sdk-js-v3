@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteIpamInternetRegistryAssociationRequest,
   DeleteIpamInternetRegistryAssociationResult,
-} from "../models/models_2";
+} from "../models/models_3";
 import { DeleteIpamInternetRegistryAssociation$ } from "../schemas/schemas_0";
 
 /**

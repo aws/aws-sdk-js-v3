@@ -27,6 +27,10 @@ const _AATRc = "AcceptAddressTransferResult";
 const _AAV = "AccountAttributeValue";
 const _AAVL = "AccountAttributeValueList";
 const _AAZ = "AllAvailabilityZones";
+const _AAZI = "AddAvailabilityZoneIds";
+const _AAZId = "AddAvailabilityZoneId";
+const _AAZd = "AddAvailabilityZones";
+const _AAZdd = "AddAvailabilityZone";
 const _AAc = "AccessAll";
 const _AAcc = "AccountAttributes";
 const _AAd = "AddressAttribute";
@@ -168,6 +172,12 @@ const _AIt = "AthenaIntegration";
 const _AIth = "AthenaIntegrations";
 const _AItt = "AttachmentId";
 const _AIu = "AutoImport";
+const _AKK = "AssociatedKmsKey";
+const _AKKI = "AssociateKmsKeyId";
+const _AKKIR = "AssociateKmsKeyIdRequest";
+const _AKKIRs = "AssociateKmsKeyIdResult";
+const _AKKS = "AssociatedKmsKeySet";
+const _AKKs = "AssociatedKmsKeys";
 const _AL = "AccountLevel";
 const _ALBL = "AnalysisLoadBalancerListener";
 const _ALBT = "AnalysisLoadBalancerTarget";
@@ -1105,6 +1115,9 @@ const _CTGMPER = "CreateTransitGatewayMeteringPolicyEntryRequest";
 const _CTGMPERr = "CreateTransitGatewayMeteringPolicyEntryResult";
 const _CTGMPR = "CreateTransitGatewayMeteringPolicyRequest";
 const _CTGMPRr = "CreateTransitGatewayMeteringPolicyResult";
+const _CTGNFA = "CreateTransitGatewayNetworkFunctionAttachment";
+const _CTGNFAR = "CreateTransitGatewayNetworkFunctionAttachmentRequest";
+const _CTGNFARr = "CreateTransitGatewayNetworkFunctionAttachmentResult";
 const _CTGPA = "CreateTransitGatewayPeeringAttachment";
 const _CTGPAR = "CreateTransitGatewayPeeringAttachmentRequest";
 const _CTGPARO = "CreateTransitGatewayPeeringAttachmentRequestOptions";
@@ -1805,6 +1818,9 @@ const _DIisa = "DisableImage";
 const _DIisk = "DiskInfo";
 const _DIiskm = "DiskImages";
 const _DJ = "DeltaJson";
+const _DKKI = "DisassociateKmsKeyId";
+const _DKKIR = "DisassociateKmsKeyIdRequest";
+const _DKKIRi = "DisassociateKmsKeyIdResult";
 const _DKP = "DeleteKeyPair";
 const _DKPR = "DeleteKeyPairRequest";
 const _DKPRe = "DeleteKeyPairResult";
@@ -2250,6 +2266,12 @@ const _DTGMPRe = "DeleteTransitGatewayMeteringPolicyResult";
 const _DTGMPRes = "DescribeTransitGatewayMeteringPoliciesRequest";
 const _DTGMPResc = "DescribeTransitGatewayMeteringPoliciesResult";
 const _DTGMPe = "DescribeTransitGatewayMeteringPolicies";
+const _DTGNFA = "DeleteTransitGatewayNetworkFunctionAttachment";
+const _DTGNFAR = "DeleteTransitGatewayNetworkFunctionAttachmentRequest";
+const _DTGNFARe = "DeleteTransitGatewayNetworkFunctionAttachmentResult";
+const _DTGNFARes = "DescribeTransitGatewayNetworkFunctionAttachmentsRequest";
+const _DTGNFAResc = "DescribeTransitGatewayNetworkFunctionAttachmentsResult";
+const _DTGNFAe = "DescribeTransitGatewayNetworkFunctionAttachments";
 const _DTGPA = "DeleteTransitGatewayPeeringAttachment";
 const _DTGPAR = "DeleteTransitGatewayPeeringAttachmentRequest";
 const _DTGPARe = "DeleteTransitGatewayPeeringAttachmentResult";
@@ -4417,6 +4439,9 @@ const _MTGANCRo = "ModifyTransitGatewayAttachmentNatConfigurationResult";
 const _MTGMP = "ModifyTransitGatewayMeteringPolicy";
 const _MTGMPR = "ModifyTransitGatewayMeteringPolicyRequest";
 const _MTGMPRo = "ModifyTransitGatewayMeteringPolicyResult";
+const _MTGNFA = "ModifyTransitGatewayNetworkFunctionAttachment";
+const _MTGNFAR = "ModifyTransitGatewayNetworkFunctionAttachmentRequest";
+const _MTGNFARo = "ModifyTransitGatewayNetworkFunctionAttachmentResult";
 const _MTGO = "ModifyTransitGatewayOptions";
 const _MTGPLR = "ModifyTransitGatewayPrefixListReference";
 const _MTGPLRR = "ModifyTransitGatewayPrefixListReferenceRequest";
@@ -4587,6 +4612,8 @@ const _NDIL = "NeuronDeviceInfoList";
 const _NDMI = "NeuronDeviceMemoryInfo";
 const _NDe = "NeuronDevices";
 const _NES = "NitroEnclavesSupport";
+const _NFAAZIL = "NetworkFunctionAttachmentAZIdList";
+const _NFAAZNL = "NetworkFunctionAttachmentAZNameList";
 const _NFCAPD = "NatFlexCostAllocationPolicyDocument";
 const _NFPD = "NatFcaPolicyDocument";
 const _NG = "NatGateway";
@@ -5057,6 +5084,7 @@ const _PTGI = "PeerTransitGatewayId";
 const _PTI = "PeeringTgwInfo";
 const _PTS = "PoolTagSpecifications";
 const _PTSo = "PoolTagSpecification";
+const _PTe = "PermissionType";
 const _PTr = "PrefixesType";
 const _PTro = "ProvisionTime";
 const _PTu = "PurchaseToken";
@@ -5108,6 +5136,10 @@ const _RARTe = "RemoveAllocationResourceTag";
 const _RATC = "RestoreAddressToClassic";
 const _RATCR = "RestoreAddressToClassicRequest";
 const _RATCRe = "RestoreAddressToClassicResult";
+const _RAZ = "RemoveAvailabilityZones";
+const _RAZI = "RemoveAvailabilityZoneIds";
+const _RAZIe = "RemoveAvailabilityZoneId";
+const _RAZe = "RemoveAvailabilityZone";
 const _RAe = "ResumeAt";
 const _RAel = "ReleaseAddress";
 const _RAes = "ReservationArn";
@@ -6012,8 +6044,10 @@ const _TGAA = "TransitGatewayAttachmentAssociation";
 const _TGABC = "TransitGatewayAttachmentBgpConfiguration";
 const _TGABCL = "TransitGatewayAttachmentBgpConfigurationList";
 const _TGAI = "TransitGatewayAttachmentId";
+const _TGAIL = "TransitGatewayAttachmentIdList";
 const _TGAIr = "TransitGatewayAttachmentIds";
 const _TGAL = "TransitGatewayAttachmentList";
+const _TGAO = "TransitGatewayAttachmentOwner";
 const _TGAP = "TransitGatewayAttachmentPropagations";
 const _TGAPL = "TransitGatewayAttachmentPropagationList";
 const _TGAPr = "TransitGatewayAttachmentPropagation";
@@ -6073,6 +6107,10 @@ const _TGMPR = "TransitGatewayMeteringPolicyRule";
 const _TGMPr = "TransitGatewayMeteringPolicies";
 const _TGMRGM = "TransitGatewayMulticastRegisteredGroupMembers";
 const _TGMRGS = "TransitGatewayMulticastRegisteredGroupSources";
+const _TGNFA = "TransitGatewayNetworkFunctionAttachment";
+const _TGNFAIL = "TransitGatewayNetworkFunctionAttachmentIdList";
+const _TGNFAL = "TransitGatewayNetworkFunctionAttachmentList";
+const _TGNFAr = "TransitGatewayNetworkFunctionAttachments";
 const _TGNIIL = "TransitGatewayNetworkInterfaceIdList";
 const _TGNR = "TransitGatewayNatRule";
 const _TGNRL = "TransitGatewayNatRuleList";
@@ -6678,6 +6716,7 @@ const _aIs = "associationId";
 const _aIss = "assetId";
 const _aIt = "attachmentId";
 const _aIu = "autoImport";
+const _aKKS = "associatedKmsKeySet";
 const _aL = "accountLevel";
 const _aLI = "amiLaunchIndex";
 const _aLT = "attachmentLimitType";
@@ -8152,6 +8191,7 @@ const _pSro = "protocolSet";
 const _pSroc = "processingStatus";
 const _pT = "principalType";
 const _pTGI = "peerTransitGatewayId";
+const _pTe = "permissionType";
 const _pTr = "provisionTime";
 const _pTu = "purchaseToken";
 const _pU = "presignedUrl";
@@ -8592,6 +8632,7 @@ const _tFSS = "tagFieldSpecificationSet";
 const _tG = "transitGateway";
 const _tGA = "transitGatewayAttachments";
 const _tGAI = "transitGatewayAttachmentId";
+const _tGAO = "transitGatewayAttachmentOwner";
 const _tGAP = "transitGatewayAttachmentPropagations";
 const _tGAr = "transitGatewayAttachment";
 const _tGAra = "transitGatewayArn";
@@ -8617,6 +8658,8 @@ const _tGMPE = "transitGatewayMeteringPolicyEntry";
 const _tGMPEr = "transitGatewayMeteringPolicyEntries";
 const _tGMPI = "transitGatewayMeteringPolicyId";
 const _tGMPr = "transitGatewayMeteringPolicies";
+const _tGNFA = "transitGatewayNetworkFunctionAttachment";
+const _tGNFAS = "transitGatewayNetworkFunctionAttachmentSet";
 const _tGOI = "transitGatewayOwnerId";
 const _tGPA = "transitGatewayPeeringAttachment";
 const _tGPAr = "transitGatewayPeeringAttachments";
@@ -9016,8 +9059,8 @@ export var AcceptTransitGatewayVpcAttachmentResult$: StaticStructureSchema = [3,
 ];
 export var AcceptVpcEndpointConnectionsRequest$: StaticStructureSchema = [3, n0, _AVECR,
   0,
-  [_SIe, _VEI, _DR],
-  [0, [() => VpcEndpointIdList, { [_xN]: _VEIp }], 2], 2
+  [_SIe, _VEI, _DR, _TGAIr],
+  [0, [() => VpcEndpointIdList, { [_xN]: _VEIp }], 2, [() => TransitGatewayAttachmentIdList, { [_xN]: _TGAI }]], 2
 ];
 export var AcceptVpcEndpointConnectionsResult$: StaticStructureSchema = [3, n0, _AVECRc,
   0,
@@ -9123,12 +9166,13 @@ export var ActiveVpnTunnelStatus$: StaticStructureSchema = [3, n0, _AVTS,
 ];
 export var AddedPrincipal$: StaticStructureSchema = [3, n0, _AP,
   0,
-  [_PT, _P, _SPI, _SIe],
+  [_PT, _P, _SPI, _SIe, _PTe],
   [[0, { [_eQN]: `PrincipalType`
   , [_xN]: _pT }], [0, { [_eQN]: `Principal`
   , [_xN]: _p }], [0, { [_eQN]: `ServicePermissionId`
   , [_xN]: _sPI }], [0, { [_eQN]: `ServiceId`
-  , [_xN]: _sI }]]
+  , [_xN]: _sI }], [0, { [_eQN]: `PermissionType`
+  , [_xN]: _pTe }]]
 ];
 export var AddIpamOperatingRegion$: StaticStructureSchema = [3, n0, _AIOR,
   0,
@@ -9258,13 +9302,14 @@ export var AllocateIpamPoolCidrResult$: StaticStructureSchema = [3, n0, _AIPCRl,
 ];
 export var AllowedPrincipal$: StaticStructureSchema = [3, n0, _APl,
   0,
-  [_PT, _P, _SPI, _T, _SIe],
+  [_PT, _P, _SPI, _T, _SIe, _PTe],
   [[0, { [_eQN]: `PrincipalType`
   , [_xN]: _pT }], [0, { [_eQN]: `Principal`
   , [_xN]: _p }], [0, { [_eQN]: `ServicePermissionId`
   , [_xN]: _sPI }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [0, { [_eQN]: `ServiceId`
-  , [_xN]: _sI }]]
+  , [_xN]: _sI }], [0, { [_eQN]: `PermissionType`
+  , [_xN]: _pTe }]]
 ];
 export var AlternatePathHint$: StaticStructureSchema = [3, n0, _APH,
   0,
@@ -9571,6 +9616,12 @@ export var AssociateDhcpOptionsRequest$: StaticStructureSchema = [3, n0, _ADOR,
   [0, 0, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }]], 2
 ];
+export var AssociatedKmsKey$: StaticStructureSchema = [3, n0, _AKK,
+  0,
+  [_KKI],
+  [[0, { [_eQN]: `KmsKeyId`
+  , [_xN]: _kKI }]]
+];
 export var AssociatedRole$: StaticStructureSchema = [3, n0, _ARs,
   0,
   [_ARA, _CSBN, _CSOK, _EKKI],
@@ -9643,6 +9694,17 @@ export var AssociateIpamResourceDiscoveryResult$: StaticStructureSchema = [3, n0
   [_IRDA],
   [[() => IpamResourceDiscoveryAssociation$, { [_eQN]: `IpamResourceDiscoveryAssociation`
   , [_xN]: _iRDA }]]
+];
+export var AssociateKmsKeyIdRequest$: StaticStructureSchema = [3, n0, _AKKIR,
+  0,
+  [_KKI, _SIn, _DR],
+  [0, 0, 2], 1
+];
+export var AssociateKmsKeyIdResult$: StaticStructureSchema = [3, n0, _AKKIRs,
+  0,
+  [_R],
+  [[2, { [_eQN]: `Return`
+  , [_xN]: _r }]]
 ];
 export var AssociateNatGatewayAddressRequest$: StaticStructureSchema = [3, n0, _ANGAR,
   0,
@@ -12167,6 +12229,17 @@ export var CreateTransitGatewayMulticastDomainResult$: StaticStructureSchema = [
   [[() => TransitGatewayMulticastDomain$, { [_eQN]: `TransitGatewayMulticastDomain`
   , [_xN]: _tGMD }]]
 ];
+export var CreateTransitGatewayNetworkFunctionAttachmentRequest$: StaticStructureSchema = [3, n0, _CTGNFAR,
+  0,
+  [_TGI, _SN, _AZv, _AZIv, _TS, _DR],
+  [0, 0, [() => NetworkFunctionAttachmentAZNameList, { [_xN]: _AZ }], [() => NetworkFunctionAttachmentAZIdList, { [_xN]: _AZI }], [() => TagSpecificationList, { [_xN]: _TSa }], 2], 2
+];
+export var CreateTransitGatewayNetworkFunctionAttachmentResult$: StaticStructureSchema = [3, n0, _CTGNFARr,
+  0,
+  [_TGNFA],
+  [[() => TransitGatewayNetworkFunctionAttachment$, { [_eQN]: `TransitGatewayNetworkFunctionAttachment`
+  , [_xN]: _tGNFA }]]
+];
 export var CreateTransitGatewayPeeringAttachmentRequest$: StaticStructureSchema = [3, n0, _CTGPAR,
   0,
   [_TGI, _PTGI, _PAI, _PRee, _Opt, _TS, _DR],
@@ -13428,6 +13501,17 @@ export var DeleteTransitGatewayMulticastDomainResult$: StaticStructureSchema = [
   [_TGMD],
   [[() => TransitGatewayMulticastDomain$, { [_eQN]: `TransitGatewayMulticastDomain`
   , [_xN]: _tGMD }]]
+];
+export var DeleteTransitGatewayNetworkFunctionAttachmentRequest$: StaticStructureSchema = [3, n0, _DTGNFAR,
+  0,
+  [_TGAI, _DR],
+  [0, 2], 1
+];
+export var DeleteTransitGatewayNetworkFunctionAttachmentResult$: StaticStructureSchema = [3, n0, _DTGNFARe,
+  0,
+  [_TGNFA],
+  [[() => TransitGatewayNetworkFunctionAttachment$, { [_eQN]: `TransitGatewayNetworkFunctionAttachment`
+  , [_xN]: _tGNFA }]]
 ];
 export var DeleteTransitGatewayPeeringAttachmentRequest$: StaticStructureSchema = [3, n0, _DTGPAR,
   0,
@@ -15849,6 +15933,18 @@ export var DescribeTransitGatewayMulticastDomainsResult$: StaticStructureSchema 
   , [_xN]: _tGMDr }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }]]
 ];
+export var DescribeTransitGatewayNetworkFunctionAttachmentsRequest$: StaticStructureSchema = [3, n0, _DTGNFARes,
+  0,
+  [_TGAIr, _Fi, _MR, _NTe, _DR],
+  [[() => TransitGatewayNetworkFunctionAttachmentIdList, { [_xN]: _TGAI }], [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
+];
+export var DescribeTransitGatewayNetworkFunctionAttachmentsResult$: StaticStructureSchema = [3, n0, _DTGNFAResc,
+  0,
+  [_TGNFAr, _NTe],
+  [[() => TransitGatewayNetworkFunctionAttachmentList, { [_eQN]: `TransitGatewayNetworkFunctionAttachmentSet`
+  , [_xN]: _tGNFAS }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
+];
 export var DescribeTransitGatewayPeeringAttachmentsRequest$: StaticStructureSchema = [3, n0, _DTGPARes,
   0,
   [_TGAIr, _Fi, _MR, _NTe, _DR],
@@ -16781,6 +16877,17 @@ export var DisassociateIpamResourceDiscoveryResult$: StaticStructureSchema = [3,
   [_IRDA],
   [[() => IpamResourceDiscoveryAssociation$, { [_eQN]: `IpamResourceDiscoveryAssociation`
   , [_xN]: _iRDA }]]
+];
+export var DisassociateKmsKeyIdRequest$: StaticStructureSchema = [3, n0, _DKKIR,
+  0,
+  [_KKI, _SIn, _DR],
+  [0, 0, 2], 1
+];
+export var DisassociateKmsKeyIdResult$: StaticStructureSchema = [3, n0, _DKKIRi,
+  0,
+  [_R],
+  [[2, { [_eQN]: `Return`
+  , [_xN]: _r }]]
 ];
 export var DisassociateNatGatewayAddressRequest$: StaticStructureSchema = [3, n0, _DNGAR,
   0,
@@ -22564,6 +22671,17 @@ export var ModifyTransitGatewayMeteringPolicyResult$: StaticStructureSchema = [3
   [[() => TransitGatewayMeteringPolicy$, { [_eQN]: `TransitGatewayMeteringPolicy`
   , [_xN]: _tGMP }]]
 ];
+export var ModifyTransitGatewayNetworkFunctionAttachmentRequest$: StaticStructureSchema = [3, n0, _MTGNFAR,
+  0,
+  [_TGAI, _AAZd, _AAZI, _RAZ, _RAZI, _DR],
+  [0, [() => NetworkFunctionAttachmentAZNameList, { [_xN]: _AAZdd }], [() => NetworkFunctionAttachmentAZIdList, { [_xN]: _AAZId }], [() => NetworkFunctionAttachmentAZNameList, { [_xN]: _RAZe }], [() => NetworkFunctionAttachmentAZIdList, { [_xN]: _RAZIe }], 2], 1
+];
+export var ModifyTransitGatewayNetworkFunctionAttachmentResult$: StaticStructureSchema = [3, n0, _MTGNFARo,
+  0,
+  [_TGNFA],
+  [[() => TransitGatewayNetworkFunctionAttachment$, { [_eQN]: `TransitGatewayNetworkFunctionAttachment`
+  , [_xN]: _tGNFA }]]
+];
 export var ModifyTransitGatewayOptions$: StaticStructureSchema = [3, n0, _MTGO,
   0,
   [_ATGCB, _RTGCB, _VESp, _DSn, _SGRS, _AASAu, _DRTA, _ADRTI, _DRTP, _PDRTI, _ASA, _ESn],
@@ -22853,8 +22971,8 @@ export var ModifyVpcEndpointServicePayerResponsibilityResult$: StaticStructureSc
 ];
 export var ModifyVpcEndpointServicePermissionsRequest$: StaticStructureSchema = [3, n0, _MVESPR,
   0,
-  [_SIe, _DR, _AAP, _RAP],
-  [0, 2, [() => ValueStringList, 0], [() => ValueStringList, 0]], 1
+  [_SIe, _DR, _AAP, _RAP, _PTe],
+  [0, 2, [() => ValueStringList, 0], [() => ValueStringList, 0], 0], 1
 ];
 export var ModifyVpcEndpointServicePermissionsResult$: StaticStructureSchema = [3, n0, _MVESPRo,
   0,
@@ -24164,8 +24282,8 @@ export var RejectTransitGatewayVpcAttachmentResult$: StaticStructureSchema = [3,
 ];
 export var RejectVpcEndpointConnectionsRequest$: StaticStructureSchema = [3, n0, _RVECR,
   0,
-  [_SIe, _VEI, _DR],
-  [0, [() => VpcEndpointIdList, { [_xN]: _VEIp }], 2], 2
+  [_SIe, _VEI, _DR, _TGAIr],
+  [0, [() => VpcEndpointIdList, { [_xN]: _VEIp }], 2, [() => TransitGatewayAttachmentIdList, { [_xN]: _TGAI }]], 2
 ];
 export var RejectVpcEndpointConnectionsResult$: StaticStructureSchema = [3, n0, _RVECRe,
   0,
@@ -25535,7 +25653,7 @@ export var SlotStartTimeRangeRequest$: StaticStructureSchema = [3, n0, _SSTRR,
 ];
 export var Snapshot$: StaticStructureSchema = [3, n0, _Sna,
   0,
-  [_OAw, _OA, _T, _STto, _RETe, _STs, _AZ, _TTr, _CDM, _CTomp, _FSSIB, _SIn, _VIo, _St, _SMta, _STt, _Pro, _OI, _De, _VSo, _Enc, _KKI, _DEKI],
+  [_OAw, _OA, _T, _STto, _RETe, _STs, _AZ, _TTr, _CDM, _CTomp, _FSSIB, _AKKs, _SIn, _VIo, _St, _SMta, _STt, _Pro, _OI, _De, _VSo, _Enc, _KKI, _DEKI],
   [[0, { [_eQN]: `OwnerAlias`
   , [_xN]: _oAw }], [0, { [_eQN]: `OutpostArn`
   , [_xN]: _oA }], [() => TagList, { [_eQN]: `TagSet`
@@ -25547,7 +25665,8 @@ export var Snapshot$: StaticStructureSchema = [3, n0, _Sna,
   , [_xN]: _tTr }], [1, { [_eQN]: `CompletionDurationMinutes`
   , [_xN]: _cDM }], [4, { [_eQN]: `CompletionTime`
   , [_xN]: _cTomp }], [1, { [_eQN]: `FullSnapshotSizeInBytes`
-  , [_xN]: _fSSIB }], [0, { [_eQN]: `SnapshotId`
+  , [_xN]: _fSSIB }], [() => AssociatedKmsKeySet, { [_eQN]: `AssociatedKmsKeySet`
+  , [_xN]: _aKKS }], [0, { [_eQN]: `SnapshotId`
   , [_xN]: _sIn }], [0, { [_eQN]: `VolumeId`
   , [_xN]: _vIo }], [0, { [_eQN]: `Status`
   , [_xN]: _sta }], [0, { [_eQN]: `StatusMessage`
@@ -26565,6 +26684,21 @@ export var TransitGatewayNatRuleRequest$: StaticStructureSchema = [3, n0, _TGNRR
   0,
   [_RNu, _MSC, _NCa],
   [1, 0, 0]
+];
+export var TransitGatewayNetworkFunctionAttachment$: StaticStructureSchema = [3, n0, _TGNFA,
+  0,
+  [_TGAI, _TGI, _TGOI, _ROI, _RIeso, _AZv, _AZIv, _St, _CTr, _T],
+  [[0, { [_eQN]: `TransitGatewayAttachmentId`
+  , [_xN]: _tGAI }], [0, { [_eQN]: `TransitGatewayId`
+  , [_xN]: _tGI }], [0, { [_eQN]: `TransitGatewayOwnerId`
+  , [_xN]: _tGOI }], [0, { [_eQN]: `ResourceOwnerId`
+  , [_xN]: _rOI }], [0, { [_eQN]: `ResourceId`
+  , [_xN]: _rIes }], [() => ValueStringList, { [_eQN]: `AvailabilityZoneSet`
+  , [_xN]: _aZS }], [() => ValueStringList, { [_eQN]: `AvailabilityZoneIdSet`
+  , [_xN]: _aZIS }], [0, { [_eQN]: `State`
+  , [_xN]: _st }], [4, { [_eQN]: `CreationTime`
+  , [_xN]: _cTr }], [() => TagList, { [_eQN]: `TagSet`
+  , [_xN]: _tS }]]
 ];
 export var TransitGatewayOptions$: StaticStructureSchema = [3, n0, _TGO,
   0,
@@ -27664,7 +27798,7 @@ export var VpcEndpointAssociation$: StaticStructureSchema = [3, n0, _VEAp,
 ];
 export var VpcEndpointConnection$: StaticStructureSchema = [3, n0, _VECpcn,
   0,
-  [_SIe, _VEIp, _VEO, _VESpc, _CTrea, _DEn, _NLBAe, _GLBA, _IAT, _VECIpc, _T, _VER, _PRay],
+  [_SIe, _VEIp, _VEO, _VESpc, _CTrea, _DEn, _NLBAe, _GLBA, _IAT, _VECIpc, _T, _VER, _PRay, _TGAI, _TGAO],
   [[0, { [_eQN]: `ServiceId`
   , [_xN]: _sI }], [0, { [_eQN]: `VpcEndpointId`
   , [_xN]: _vEI }], [0, { [_eQN]: `VpcEndpointOwner`
@@ -27678,7 +27812,9 @@ export var VpcEndpointConnection$: StaticStructureSchema = [3, n0, _VECpcn,
   , [_xN]: _vECIp }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [0, { [_eQN]: `VpcEndpointRegion`
   , [_xN]: _vER }], [() => PayerResponsibilitySet, { [_eQN]: `PayerResponsibilitySet`
-  , [_xN]: _pRSa }]]
+  , [_xN]: _pRSa }], [0, { [_eQN]: `TransitGatewayAttachmentId`
+  , [_xN]: _tGAI }], [0, { [_eQN]: `TransitGatewayAttachmentOwner`
+  , [_xN]: _tGAO }]]
 ];
 export var VpcIpv6CidrBlockAssociation$: StaticStructureSchema = [3, n0, _VICBA,
   0,
@@ -27978,6 +28114,10 @@ var AsPath: StaticListSchema = [1, n0, _APsa,
 var AssetIdList = 64 | 0;
 var AssignedPrivateIpAddressList: StaticListSchema = [1, n0, _APIAL,
   0, [() => AssignedPrivateIpAddress$,
+    { [_xN]: _it }]
+];
+var AssociatedKmsKeySet: StaticListSchema = [1, n0, _AKKS,
+  0, [() => AssociatedKmsKey$,
     { [_xN]: _it }]
 ];
 var AssociatedRolesList: StaticListSchema = [1, n0, _ARL,
@@ -29622,6 +29762,14 @@ var NetworkCardInterfaceTypeList: StaticListSchema = [1, n0, _NCITL,
   0, [0,
     { [_xN]: _it }]
 ];
+var NetworkFunctionAttachmentAZIdList: StaticListSchema = [1, n0, _NFAAZIL,
+  0, [0,
+    { [_xN]: _it }]
+];
+var NetworkFunctionAttachmentAZNameList: StaticListSchema = [1, n0, _NFAAZNL,
+  0, [0,
+    { [_xN]: _it }]
+];
 var NetworkInsightsAccessScopeAnalysisIdList: StaticListSchema = [1, n0, _NIASAIL,
   0, [0,
     { [_xN]: _it }]
@@ -30536,6 +30684,10 @@ var TransitGatewayAttachmentBgpConfigurationList: StaticListSchema = [1, n0, _TG
   0, [() => TransitGatewayAttachmentBgpConfiguration$,
     { [_xN]: _it }]
 ];
+var TransitGatewayAttachmentIdList: StaticListSchema = [1, n0, _TGAIL,
+  0, [0,
+    { [_xN]: _it }]
+];
 var TransitGatewayAttachmentIdStringList = 64 | 0;
 var TransitGatewayAttachmentList: StaticListSchema = [1, n0, _TGAL,
   0, [() => TransitGatewayAttachment$,
@@ -30603,6 +30755,14 @@ var TransitGatewayNatRuleList: StaticListSchema = [1, n0, _TGNRL,
 ];
 var TransitGatewayNatRuleRequestList: StaticListSchema = [1, n0, _TGNRRL,
   0, [() => TransitGatewayNatRuleRequest$,
+    { [_xN]: _it }]
+];
+var TransitGatewayNetworkFunctionAttachmentIdList: StaticListSchema = [1, n0, _TGNFAIL,
+  0, [0,
+    { [_xN]: _it }]
+];
+var TransitGatewayNetworkFunctionAttachmentList: StaticListSchema = [1, n0, _TGNFAL,
+  0, [() => TransitGatewayNetworkFunctionAttachment$,
     { [_xN]: _it }]
 ];
 var TransitGatewayNetworkInterfaceIdList: StaticListSchema = [1, n0, _TGNIIL,
@@ -31074,6 +31234,9 @@ export var AssociateIpamByoasn$: StaticOperationSchema = [9, n0, _AIB,
 export var AssociateIpamResourceDiscovery$: StaticOperationSchema = [9, n0, _AIRD,
   0, () => AssociateIpamResourceDiscoveryRequest$, () => AssociateIpamResourceDiscoveryResult$
 ];
+export var AssociateKmsKeyId$: StaticOperationSchema = [9, n0, _AKKI,
+  0, () => AssociateKmsKeyIdRequest$, () => AssociateKmsKeyIdResult$
+];
 export var AssociateNatGatewayAddress$: StaticOperationSchema = [9, n0, _ANGA,
   0, () => AssociateNatGatewayAddressRequest$, () => AssociateNatGatewayAddressResult$
 ];
@@ -31455,6 +31618,9 @@ export var CreateTransitGatewayMeteringPolicyEntry$: StaticOperationSchema = [9,
 export var CreateTransitGatewayMulticastDomain$: StaticOperationSchema = [9, n0, _CTGMD,
   0, () => CreateTransitGatewayMulticastDomainRequest$, () => CreateTransitGatewayMulticastDomainResult$
 ];
+export var CreateTransitGatewayNetworkFunctionAttachment$: StaticOperationSchema = [9, n0, _CTGNFA,
+  0, () => CreateTransitGatewayNetworkFunctionAttachmentRequest$, () => CreateTransitGatewayNetworkFunctionAttachmentResult$
+];
 export var CreateTransitGatewayPeeringAttachment$: StaticOperationSchema = [9, n0, _CTGPA,
   0, () => CreateTransitGatewayPeeringAttachmentRequest$, () => CreateTransitGatewayPeeringAttachmentResult$
 ];
@@ -31754,6 +31920,9 @@ export var DeleteTransitGatewayMeteringPolicyEntry$: StaticOperationSchema = [9,
 ];
 export var DeleteTransitGatewayMulticastDomain$: StaticOperationSchema = [9, n0, _DTGMD,
   0, () => DeleteTransitGatewayMulticastDomainRequest$, () => DeleteTransitGatewayMulticastDomainResult$
+];
+export var DeleteTransitGatewayNetworkFunctionAttachment$: StaticOperationSchema = [9, n0, _DTGNFA,
+  0, () => DeleteTransitGatewayNetworkFunctionAttachmentRequest$, () => DeleteTransitGatewayNetworkFunctionAttachmentResult$
 ];
 export var DeleteTransitGatewayPeeringAttachment$: StaticOperationSchema = [9, n0, _DTGPA,
   0, () => DeleteTransitGatewayPeeringAttachmentRequest$, () => DeleteTransitGatewayPeeringAttachmentResult$
@@ -32337,6 +32506,9 @@ export var DescribeTransitGatewayMeteringPolicies$: StaticOperationSchema = [9, 
 export var DescribeTransitGatewayMulticastDomains$: StaticOperationSchema = [9, n0, _DTGMDe,
   0, () => DescribeTransitGatewayMulticastDomainsRequest$, () => DescribeTransitGatewayMulticastDomainsResult$
 ];
+export var DescribeTransitGatewayNetworkFunctionAttachments$: StaticOperationSchema = [9, n0, _DTGNFAe,
+  0, () => DescribeTransitGatewayNetworkFunctionAttachmentsRequest$, () => DescribeTransitGatewayNetworkFunctionAttachmentsResult$
+];
 export var DescribeTransitGatewayPeeringAttachments$: StaticOperationSchema = [9, n0, _DTGPAe,
   0, () => DescribeTransitGatewayPeeringAttachmentsRequest$, () => DescribeTransitGatewayPeeringAttachmentsResult$
 ];
@@ -32552,6 +32724,9 @@ export var DisassociateIpamByoasn$: StaticOperationSchema = [9, n0, _DIBi,
 ];
 export var DisassociateIpamResourceDiscovery$: StaticOperationSchema = [9, n0, _DIRDi,
   0, () => DisassociateIpamResourceDiscoveryRequest$, () => DisassociateIpamResourceDiscoveryResult$
+];
+export var DisassociateKmsKeyId$: StaticOperationSchema = [9, n0, _DKKI,
+  0, () => DisassociateKmsKeyIdRequest$, () => DisassociateKmsKeyIdResult$
 ];
 export var DisassociateNatGatewayAddress$: StaticOperationSchema = [9, n0, _DNGA,
   0, () => DisassociateNatGatewayAddressRequest$, () => DisassociateNatGatewayAddressResult$
@@ -33131,6 +33306,9 @@ export var ModifyTransitGatewayAttachmentNatConfiguration$: StaticOperationSchem
 ];
 export var ModifyTransitGatewayMeteringPolicy$: StaticOperationSchema = [9, n0, _MTGMP,
   0, () => ModifyTransitGatewayMeteringPolicyRequest$, () => ModifyTransitGatewayMeteringPolicyResult$
+];
+export var ModifyTransitGatewayNetworkFunctionAttachment$: StaticOperationSchema = [9, n0, _MTGNFA,
+  0, () => ModifyTransitGatewayNetworkFunctionAttachmentRequest$, () => ModifyTransitGatewayNetworkFunctionAttachmentResult$
 ];
 export var ModifyTransitGatewayPolicyTableEntry$: StaticOperationSchema = [9, n0, _MTGPTE,
   0, () => ModifyTransitGatewayPolicyTableEntryRequest$, () => ModifyTransitGatewayPolicyTableEntryResult$

@@ -157,6 +157,7 @@ import {
   AssociateDhcpOptions$,
   AssociateDhcpOptionsCommand,
   AssociateDhcpOptionsRequest$,
+  AssociatedKmsKey$,
   AssociatedNetworkType,
   AssociatedRole$,
   AssociatedTargetNetwork$,
@@ -180,6 +181,10 @@ import {
   AssociateIpamResourceDiscoveryCommand,
   AssociateIpamResourceDiscoveryRequest$,
   AssociateIpamResourceDiscoveryResult$,
+  AssociateKmsKeyId$,
+  AssociateKmsKeyIdCommand,
+  AssociateKmsKeyIdRequest$,
+  AssociateKmsKeyIdResult$,
   AssociateNatGatewayAddress$,
   AssociateNatGatewayAddressCommand,
   AssociateNatGatewayAddressRequest$,
@@ -857,6 +862,10 @@ import {
   CreateTransitGatewayMulticastDomainRequest$,
   CreateTransitGatewayMulticastDomainRequestOptions$,
   CreateTransitGatewayMulticastDomainResult$,
+  CreateTransitGatewayNetworkFunctionAttachment$,
+  CreateTransitGatewayNetworkFunctionAttachmentCommand,
+  CreateTransitGatewayNetworkFunctionAttachmentRequest$,
+  CreateTransitGatewayNetworkFunctionAttachmentResult$,
   CreateTransitGatewayPeeringAttachment$,
   CreateTransitGatewayPeeringAttachmentCommand,
   CreateTransitGatewayPeeringAttachmentRequest$,
@@ -1282,6 +1291,10 @@ import {
   DeleteTransitGatewayMulticastDomainCommand,
   DeleteTransitGatewayMulticastDomainRequest$,
   DeleteTransitGatewayMulticastDomainResult$,
+  DeleteTransitGatewayNetworkFunctionAttachment$,
+  DeleteTransitGatewayNetworkFunctionAttachmentCommand,
+  DeleteTransitGatewayNetworkFunctionAttachmentRequest$,
+  DeleteTransitGatewayNetworkFunctionAttachmentResult$,
   DeleteTransitGatewayPeeringAttachment$,
   DeleteTransitGatewayPeeringAttachmentCommand,
   DeleteTransitGatewayPeeringAttachmentRequest$,
@@ -2060,6 +2073,10 @@ import {
   DescribeTransitGatewayMulticastDomainsCommand,
   DescribeTransitGatewayMulticastDomainsRequest$,
   DescribeTransitGatewayMulticastDomainsResult$,
+  DescribeTransitGatewayNetworkFunctionAttachments$,
+  DescribeTransitGatewayNetworkFunctionAttachmentsCommand,
+  DescribeTransitGatewayNetworkFunctionAttachmentsRequest$,
+  DescribeTransitGatewayNetworkFunctionAttachmentsResult$,
   DescribeTransitGatewayPeeringAttachments$,
   DescribeTransitGatewayPeeringAttachmentsCommand,
   DescribeTransitGatewayPeeringAttachmentsRequest$,
@@ -2359,6 +2376,10 @@ import {
   DisassociateIpamResourceDiscoveryCommand,
   DisassociateIpamResourceDiscoveryRequest$,
   DisassociateIpamResourceDiscoveryResult$,
+  DisassociateKmsKeyId$,
+  DisassociateKmsKeyIdCommand,
+  DisassociateKmsKeyIdRequest$,
+  DisassociateKmsKeyIdResult$,
   DisassociateNatGatewayAddress$,
   DisassociateNatGatewayAddressCommand,
   DisassociateNatGatewayAddressRequest$,
@@ -3677,6 +3698,10 @@ import {
   ModifyTransitGatewayMeteringPolicyCommand,
   ModifyTransitGatewayMeteringPolicyRequest$,
   ModifyTransitGatewayMeteringPolicyResult$,
+  ModifyTransitGatewayNetworkFunctionAttachment$,
+  ModifyTransitGatewayNetworkFunctionAttachmentCommand,
+  ModifyTransitGatewayNetworkFunctionAttachmentRequest$,
+  ModifyTransitGatewayNetworkFunctionAttachmentResult$,
   ModifyTransitGatewayOptions$,
   ModifyTransitGatewayPolicyTableEntry$,
   ModifyTransitGatewayPolicyTableEntryCommand,
@@ -4079,6 +4104,7 @@ import {
   PerformanceStatusSummary$,
   PeriodType,
   PermissionGroup,
+  PermissionType,
   Phase1DHGroupNumbersListValue$,
   Phase1DHGroupNumbersRequestListValue$,
   Phase1EncryptionAlgorithmsListValue$,
@@ -4691,6 +4717,7 @@ import {
   TransitGatewayNatRule$,
   TransitGatewayNatRuleRequest$,
   TransitGatewayNatRuleState,
+  TransitGatewayNetworkFunctionAttachment$,
   TransitGatewayOptions$,
   TransitGatewayPeeringAttachment$,
   TransitGatewayPeeringAttachmentOptions$,
@@ -5047,6 +5074,8 @@ assert(typeof AssociateIpamByoasnCommand === "function");
 assert(typeof AssociateIpamByoasn$ === "object");
 assert(typeof AssociateIpamResourceDiscoveryCommand === "function");
 assert(typeof AssociateIpamResourceDiscovery$ === "object");
+assert(typeof AssociateKmsKeyIdCommand === "function");
+assert(typeof AssociateKmsKeyId$ === "object");
 assert(typeof AssociateNatGatewayAddressCommand === "function");
 assert(typeof AssociateNatGatewayAddress$ === "object");
 assert(typeof AssociateNetworkingFlexCostAllocationPolicyCommand === "function");
@@ -5301,6 +5330,8 @@ assert(typeof CreateTransitGatewayMeteringPolicyEntryCommand === "function");
 assert(typeof CreateTransitGatewayMeteringPolicyEntry$ === "object");
 assert(typeof CreateTransitGatewayMulticastDomainCommand === "function");
 assert(typeof CreateTransitGatewayMulticastDomain$ === "object");
+assert(typeof CreateTransitGatewayNetworkFunctionAttachmentCommand === "function");
+assert(typeof CreateTransitGatewayNetworkFunctionAttachment$ === "object");
 assert(typeof CreateTransitGatewayPeeringAttachmentCommand === "function");
 assert(typeof CreateTransitGatewayPeeringAttachment$ === "object");
 assert(typeof CreateTransitGatewayPolicyTableCommand === "function");
@@ -5501,6 +5532,8 @@ assert(typeof DeleteTransitGatewayMeteringPolicyEntryCommand === "function");
 assert(typeof DeleteTransitGatewayMeteringPolicyEntry$ === "object");
 assert(typeof DeleteTransitGatewayMulticastDomainCommand === "function");
 assert(typeof DeleteTransitGatewayMulticastDomain$ === "object");
+assert(typeof DeleteTransitGatewayNetworkFunctionAttachmentCommand === "function");
+assert(typeof DeleteTransitGatewayNetworkFunctionAttachment$ === "object");
 assert(typeof DeleteTransitGatewayPeeringAttachmentCommand === "function");
 assert(typeof DeleteTransitGatewayPeeringAttachment$ === "object");
 assert(typeof DeleteTransitGatewayPolicyTableCommand === "function");
@@ -5889,6 +5922,8 @@ assert(typeof DescribeTransitGatewayMeteringPoliciesCommand === "function");
 assert(typeof DescribeTransitGatewayMeteringPolicies$ === "object");
 assert(typeof DescribeTransitGatewayMulticastDomainsCommand === "function");
 assert(typeof DescribeTransitGatewayMulticastDomains$ === "object");
+assert(typeof DescribeTransitGatewayNetworkFunctionAttachmentsCommand === "function");
+assert(typeof DescribeTransitGatewayNetworkFunctionAttachments$ === "object");
 assert(typeof DescribeTransitGatewayPeeringAttachmentsCommand === "function");
 assert(typeof DescribeTransitGatewayPeeringAttachments$ === "object");
 assert(typeof DescribeTransitGatewayPolicyTablesCommand === "function");
@@ -6033,6 +6068,8 @@ assert(typeof DisassociateIpamByoasnCommand === "function");
 assert(typeof DisassociateIpamByoasn$ === "object");
 assert(typeof DisassociateIpamResourceDiscoveryCommand === "function");
 assert(typeof DisassociateIpamResourceDiscovery$ === "object");
+assert(typeof DisassociateKmsKeyIdCommand === "function");
+assert(typeof DisassociateKmsKeyId$ === "object");
 assert(typeof DisassociateNatGatewayAddressCommand === "function");
 assert(typeof DisassociateNatGatewayAddress$ === "object");
 assert(typeof DisassociateNetworkingFlexCostAllocationPolicyCommand === "function");
@@ -6419,6 +6456,8 @@ assert(typeof ModifyTransitGatewayAttachmentNatConfigurationCommand === "functio
 assert(typeof ModifyTransitGatewayAttachmentNatConfiguration$ === "object");
 assert(typeof ModifyTransitGatewayMeteringPolicyCommand === "function");
 assert(typeof ModifyTransitGatewayMeteringPolicy$ === "object");
+assert(typeof ModifyTransitGatewayNetworkFunctionAttachmentCommand === "function");
+assert(typeof ModifyTransitGatewayNetworkFunctionAttachment$ === "object");
 assert(typeof ModifyTransitGatewayPolicyTableEntryCommand === "function");
 assert(typeof ModifyTransitGatewayPolicyTableEntry$ === "object");
 assert(typeof ModifyTransitGatewayPrefixListReferenceCommand === "function");
@@ -6724,6 +6763,7 @@ assert(typeof AssociateCapacityReservationBillingOwnerResult$ === "object");
 assert(typeof AssociateClientVpnTargetNetworkRequest$ === "object");
 assert(typeof AssociateClientVpnTargetNetworkResult$ === "object");
 assert(typeof AssociateDhcpOptionsRequest$ === "object");
+assert(typeof AssociatedKmsKey$ === "object");
 assert(typeof AssociatedRole$ === "object");
 assert(typeof AssociatedTargetNetwork$ === "object");
 assert(typeof AssociateEnclaveCertificateIamRoleRequest$ === "object");
@@ -6736,6 +6776,8 @@ assert(typeof AssociateIpamByoasnRequest$ === "object");
 assert(typeof AssociateIpamByoasnResult$ === "object");
 assert(typeof AssociateIpamResourceDiscoveryRequest$ === "object");
 assert(typeof AssociateIpamResourceDiscoveryResult$ === "object");
+assert(typeof AssociateKmsKeyIdRequest$ === "object");
+assert(typeof AssociateKmsKeyIdResult$ === "object");
 assert(typeof AssociateNatGatewayAddressRequest$ === "object");
 assert(typeof AssociateNatGatewayAddressResult$ === "object");
 assert(typeof AssociateNetworkingFlexCostAllocationPolicyRequest$ === "object");
@@ -7093,6 +7135,8 @@ assert(typeof CreateTransitGatewayMeteringPolicyResult$ === "object");
 assert(typeof CreateTransitGatewayMulticastDomainRequest$ === "object");
 assert(typeof CreateTransitGatewayMulticastDomainRequestOptions$ === "object");
 assert(typeof CreateTransitGatewayMulticastDomainResult$ === "object");
+assert(typeof CreateTransitGatewayNetworkFunctionAttachmentRequest$ === "object");
+assert(typeof CreateTransitGatewayNetworkFunctionAttachmentResult$ === "object");
 assert(typeof CreateTransitGatewayPeeringAttachmentRequest$ === "object");
 assert(typeof CreateTransitGatewayPeeringAttachmentRequestOptions$ === "object");
 assert(typeof CreateTransitGatewayPeeringAttachmentResult$ === "object");
@@ -7308,6 +7352,8 @@ assert(typeof DeleteTransitGatewayMeteringPolicyRequest$ === "object");
 assert(typeof DeleteTransitGatewayMeteringPolicyResult$ === "object");
 assert(typeof DeleteTransitGatewayMulticastDomainRequest$ === "object");
 assert(typeof DeleteTransitGatewayMulticastDomainResult$ === "object");
+assert(typeof DeleteTransitGatewayNetworkFunctionAttachmentRequest$ === "object");
+assert(typeof DeleteTransitGatewayNetworkFunctionAttachmentResult$ === "object");
 assert(typeof DeleteTransitGatewayPeeringAttachmentRequest$ === "object");
 assert(typeof DeleteTransitGatewayPeeringAttachmentResult$ === "object");
 assert(typeof DeleteTransitGatewayPolicyTableEntryRequest$ === "object");
@@ -7698,6 +7744,8 @@ assert(typeof DescribeTransitGatewayMeteringPoliciesRequest$ === "object");
 assert(typeof DescribeTransitGatewayMeteringPoliciesResult$ === "object");
 assert(typeof DescribeTransitGatewayMulticastDomainsRequest$ === "object");
 assert(typeof DescribeTransitGatewayMulticastDomainsResult$ === "object");
+assert(typeof DescribeTransitGatewayNetworkFunctionAttachmentsRequest$ === "object");
+assert(typeof DescribeTransitGatewayNetworkFunctionAttachmentsResult$ === "object");
 assert(typeof DescribeTransitGatewayPeeringAttachmentsRequest$ === "object");
 assert(typeof DescribeTransitGatewayPeeringAttachmentsResult$ === "object");
 assert(typeof DescribeTransitGatewayPolicyTablesRequest$ === "object");
@@ -7850,6 +7898,8 @@ assert(typeof DisassociateIpamByoasnRequest$ === "object");
 assert(typeof DisassociateIpamByoasnResult$ === "object");
 assert(typeof DisassociateIpamResourceDiscoveryRequest$ === "object");
 assert(typeof DisassociateIpamResourceDiscoveryResult$ === "object");
+assert(typeof DisassociateKmsKeyIdRequest$ === "object");
+assert(typeof DisassociateKmsKeyIdResult$ === "object");
 assert(typeof DisassociateNatGatewayAddressRequest$ === "object");
 assert(typeof DisassociateNatGatewayAddressResult$ === "object");
 assert(typeof DisassociateNetworkingFlexCostAllocationPolicyRequest$ === "object");
@@ -8596,6 +8646,8 @@ assert(typeof ModifyTransitGatewayAttachmentNatConfigurationRequest$ === "object
 assert(typeof ModifyTransitGatewayAttachmentNatConfigurationResult$ === "object");
 assert(typeof ModifyTransitGatewayMeteringPolicyRequest$ === "object");
 assert(typeof ModifyTransitGatewayMeteringPolicyResult$ === "object");
+assert(typeof ModifyTransitGatewayNetworkFunctionAttachmentRequest$ === "object");
+assert(typeof ModifyTransitGatewayNetworkFunctionAttachmentResult$ === "object");
 assert(typeof ModifyTransitGatewayOptions$ === "object");
 assert(typeof ModifyTransitGatewayPolicyTableEntryRequest$ === "object");
 assert(typeof ModifyTransitGatewayPolicyTableEntryResult$ === "object");
@@ -9087,6 +9139,7 @@ assert(typeof TransitGatewayMulticastRegisteredGroupMembers$ === "object");
 assert(typeof TransitGatewayMulticastRegisteredGroupSources$ === "object");
 assert(typeof TransitGatewayNatRule$ === "object");
 assert(typeof TransitGatewayNatRuleRequest$ === "object");
+assert(typeof TransitGatewayNetworkFunctionAttachment$ === "object");
 assert(typeof TransitGatewayOptions$ === "object");
 assert(typeof TransitGatewayPeeringAttachment$ === "object");
 assert(typeof TransitGatewayPeeringAttachmentOptions$ === "object");
@@ -9544,6 +9597,7 @@ assert(typeof PayerResponsibilityType === "object");
 assert(typeof PaymentOption === "object");
 assert(typeof PeriodType === "object");
 assert(typeof PermissionGroup === "object");
+assert(typeof PermissionType === "object");
 assert(typeof PhcSupport === "object");
 assert(typeof PlacementGroupState === "object");
 assert(typeof PlacementGroupStrategy === "object");

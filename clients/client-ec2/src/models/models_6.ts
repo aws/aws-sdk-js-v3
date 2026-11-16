@@ -60,8 +60,6 @@ import type {
   ReservationEndDateType,
   ReservationState,
   ReservationType,
-  RouteServerRouteInstallationStatus,
-  RouteServerRouteStatus,
   SecurityGroupVpcAssociationState,
   SeverityLabel,
   SnapshotBlockPublicAccessState,
@@ -69,6 +67,8 @@ import type {
   StatisticType,
   SupportabilityMarketType,
   SupportabilityScore,
+  TransitGatewayAttachmentResourceType,
+  TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   UserTrustProviderType,
   VirtualizationType,
@@ -79,6 +79,7 @@ import type {
   AddressTransfer,
   AsnAssociation,
   AssociationStatus,
+  CustomTagKeyValueRequestPair,
   FlexCostAllocationOperationFailure,
   IamInstanceProfileAssociation,
   InstanceEventWindow,
@@ -90,12 +91,14 @@ import type {
   NatGatewayAddress,
   RouteServerAssociation,
   SubnetIpv6CidrBlockAssociation,
+  SuccessfulAssociationResponseObject,
   Tag,
   TagSpecification,
   TargetConfigurationRequest,
   TransitGatewayAssociation,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPolicyTableAssociation,
+  UnsuccessfulAssociationResponseObject,
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
 } from "./models_0";
@@ -105,11 +108,10 @@ import type {
   IpamInternetRegistryAssociation,
   IpamResourceTag,
   NatFlexCostAllocationPolicyDocument,
-  PcxFlexCostAllocationPolicyDocument,
   RequestIpamResourceTag,
   ResponseLaunchTemplateData,
 } from "./models_1";
-import type { NetworkInsightsAccessScopeContent } from "./models_2";
+import type { NetworkInsightsAccessScopeContent, PcxFlexCostAllocationPolicyDocument } from "./models_2";
 import type { Filter, IpamPoolCidr } from "./models_3";
 import type {
   ExportTaskS3Location,
@@ -120,9 +122,219 @@ import type {
 import type {
   RouteServerPropagation,
   SuccessfulSuppressionResponseObject,
-  TransitGatewayPropagation,
   UnsuccessfulSuppressionResponseObject,
 } from "./models_5";
+
+/**
+ * <p>Describes route propagation.</p>
+ * @public
+ */
+export interface TransitGatewayPropagation {
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+   * @public
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | undefined;
+
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId?: string | undefined;
+
+  /**
+   * <p>The state.</p>
+   * @public
+   */
+  State?: TransitGatewayPropagationState | undefined;
+
+  /**
+   * <p>The ID of the transit gateway route table announcement.</p>
+   * @public
+   */
+  TransitGatewayRouteTableAnnouncementId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableTransitGatewayRouteTablePropagationResult {
+  /**
+   * <p>Information about route propagation.</p>
+   * @public
+   */
+  Propagation?: TransitGatewayPropagation | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DisableVgwRoutePropagation.</p>
+ * @public
+ */
+export interface DisableVgwRoutePropagationRequest {
+  /**
+   * <p>The ID of the virtual private gateway.</p>
+   * @public
+   */
+  GatewayId: string | undefined;
+
+  /**
+   * <p>The ID of the route table.</p>
+   * @public
+   */
+  RouteTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableVpcClassicLinkRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableVpcClassicLinkResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableVpcClassicLinkDnsSupportRequest {
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableVpcClassicLinkDnsSupportResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateAddressRequest {
+  /**
+   * <p>The association ID. This parameter is required.</p>
+   * @public
+   */
+  AssociationId?: string | undefined;
+
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  PublicIp?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateApplicationStatusCheckRequest {
+  /**
+   * <p>The ID of the application status check to disassociate.</p>
+   * @public
+   */
+  ApplicationStatusCheckId: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">tags</a> to disassociate from the application status check. Specify the same key-value pairs that were used during association.</p>
+   * @public
+   */
+  TargetTagAssociations?: CustomTagKeyValueRequestPair[] | undefined;
+
+  /**
+   * <p>The IDs of the instances to disassociate from the application status check.</p>
+   * @public
+   */
+  InstanceIds?: string[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the operation completes no more than one time. If you retry a request with the same token, the service ignores the request but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateApplicationStatusCheckResult {
+  /**
+   * <p>The associations that were successfully removed.</p>
+   * @public
+   */
+  SuccessfulResults?: SuccessfulAssociationResponseObject[] | undefined;
+
+  /**
+   * <p>The associations that failed to be removed.</p>
+   * @public
+   */
+  UnsuccessfulResults?: UnsuccessfulAssociationResponseObject[] | undefined;
+}
 
 /**
  * @public
@@ -379,6 +591,42 @@ export interface DisassociateIpamResourceDiscoveryResult {
    * @public
    */
   IpamResourceDiscoveryAssociation?: IpamResourceDiscoveryAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateKmsKeyIdRequest {
+  /**
+   * <p>The ID of the Amazon EBS snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The ID, alias, or ARN of the associated KMS key to remove from the snapshot.</p>
+   * @public
+   */
+  KmsKeyId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateKmsKeyIdResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
 }
 
 /**
@@ -8606,377 +8854,4 @@ export interface GetRouteServerPropagationsRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouteServerPropagationsResult {
-  /**
-   * <p>Information about the route propagations for the specified route server.</p>
-   * @public
-   */
-  RouteServerPropagations?: RouteServerPropagation[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouteServerRoutingDatabaseRequest {
-  /**
-   * <p>The ID of the route server for which to get the routing database.</p>
-   * @public
-   */
-  RouteServerId: string | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of routing database entries to return in a single response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Filters to apply to the routing database query.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Describes the installation status of a route in a route table.</p>
- * @public
- */
-export interface RouteServerRouteInstallationDetail {
-  /**
-   * <p>The ID of the route table where the route is being installed.</p>
-   * @public
-   */
-  RouteTableId?: string | undefined;
-
-  /**
-   * <p>The current installation status of the route in the route table.</p>
-   * @public
-   */
-  RouteInstallationStatus?: RouteServerRouteInstallationStatus | undefined;
-
-  /**
-   * <p>The reason for the current installation status of the route.</p>
-   * @public
-   */
-  RouteInstallationStatusReason?: string | undefined;
-}
-
-/**
- * <p>Describes a route in the route server's routing database.</p>
- * @public
- */
-export interface RouteServerRoute {
-  /**
-   * <p>The ID of the route server endpoint that received this route.</p>
-   * @public
-   */
-  RouteServerEndpointId?: string | undefined;
-
-  /**
-   * <p>The ID of the route server peer that advertised this route.</p>
-   * @public
-   */
-  RouteServerPeerId?: string | undefined;
-
-  /**
-   * <p>Details about the installation status of this route in route tables.</p>
-   * @public
-   */
-  RouteInstallationDetails?: RouteServerRouteInstallationDetail[] | undefined;
-
-  /**
-   * <p>The current status of the route in the routing database. Values are <code>in-rib</code> or <code>in-fib</code> depending on if the routes are in the RIB or the FIB database.</p>
-   *          <p>The <a href="https://en.wikipedia.org/wiki/Routing_table">Routing Information Base (RIB)</a> serves as a database that stores all the routing information and network topology data collected by a router or routing system, such as routes learned from BGP peers. The RIB is constantly updated as new routing information is received or existing routes change. This ensures that the route server always has the most current view of the network topology and can make optimal routing decisions.</p>
-   *          <p>The <a href="https://en.wikipedia.org/wiki/Forwarding_information_base">Forwarding Information Base (FIB)</a> serves as a forwarding table for what route server has determined are the best-path routes in the RIB after evaluating all available routing information and policies. The FIB routes are installed on the route tables. The FIB is recomputed whenever there are changes to the RIB.</p>
-   * @public
-   */
-  RouteStatus?: RouteServerRouteStatus | undefined;
-
-  /**
-   * <p>The destination CIDR block of the route.</p>
-   * @public
-   */
-  Prefix?: string | undefined;
-
-  /**
-   * <p>The AS path attributes of the BGP route.</p>
-   * @public
-   */
-  AsPaths?: string[] | undefined;
-
-  /**
-   * <p>The Multi-Exit Discriminator (MED) value of the BGP route.</p>
-   * @public
-   */
-  Med?: number | undefined;
-
-  /**
-   * <p>The IP address for the next hop.</p>
-   * @public
-   */
-  NextHopIp?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouteServerRoutingDatabaseResult {
-  /**
-   * <p>Indicates whether routes are being persisted in the routing database.</p>
-   * @public
-   */
-  AreRoutesPersisted?: boolean | undefined;
-
-  /**
-   * <p>The collection of routes in the route server's routing database.</p>
-   * @public
-   */
-  Routes?: RouteServerRoute[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSecurityGroupsForVpcRequest {
-  /**
-   * <p>The VPC ID where the security group can be used.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The filters. If using multiple filters, the results include security groups which match all filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>group-id</code>: The security group ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>description</code>: The security group's description.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>group-name</code>: The security group name.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code>: The security group owner ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>primary-vpc-id</code>: The VPC ID in which the security group was created.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>A security group that can be used by interfaces in the VPC.</p>
- * @public
- */
-export interface SecurityGroupForVpc {
-  /**
-   * <p>The security group's description.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The security group name.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>The security group owner ID.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The security group ID.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>The security group tags.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The VPC ID in which the security group was created.</p>
-   * @public
-   */
-  PrimaryVpcId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSecurityGroupsForVpcResult {
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The security group that can be used by interfaces in the VPC.</p>
-   * @public
-   */
-  SecurityGroupForVpcs?: SecurityGroupForVpc[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSerialConsoleAccessStatusRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSerialConsoleAccessStatusResult {
-  /**
-   * <p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for
-   * 			your account. If <code>false</code>, access to the EC2 serial console of all instances
-   * 			is disabled for your account.</p>
-   * @public
-   */
-  SerialConsoleAccessEnabled?: boolean | undefined;
-
-  /**
-   * <p>The entity that manages access to the serial console. Possible values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>account</code> - Access is managed by the account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>declarative-policy</code> - Access is managed by a declarative policy and can't
-   *             be modified by the account.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ManagedBy?: ManagedBy | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSnapshotBlockPublicAccessStateRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSnapshotBlockPublicAccessStateResult {
-  /**
-   * <p>The current state of block public access for snapshots. Possible values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in
-   *           the account can't request new public sharing. Additionally, snapshots that were already
-   *           publicly shared are treated as private and are not publicly available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-new-sharing</code>  - Only new public sharing of snapshots is blocked.
-   *           Users in the account can't request new public sharing. However, snapshots that were
-   *           already publicly shared, remain publicly available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unblocked</code>  - Public sharing is not blocked. Users can publicly share
-   *           snapshots.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  State?: SnapshotBlockPublicAccessState | undefined;
-
-  /**
-   * <p>The entity that manages the state for block public access for snapshots. Possible
-   *             values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>account</code> - The state is managed by the account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>declarative-policy</code> - The state is managed by a declarative policy and
-   *             can't be modified by the account.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ManagedBy?: ManagedBy | undefined;
 }
