@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-ecr:** ECR feature support for replicating image deletion and untagging. ([c7604d3](https://github.com/aws/aws-sdk-js-v3/commit/c7604d3768816003d426f813eb7ef450e7696341))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-ecr

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-lambda-core:** Lambda network connectors now support service-managed Elastic IP addresses. This enables traffic routed through a connector to reach the public internet without a NAT gateway. ([2d42a7c](https://github.com/aws/aws-sdk-js-v3/commit/2d42a7cdfce23f0a0233f2074af479d053f29f6d))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 

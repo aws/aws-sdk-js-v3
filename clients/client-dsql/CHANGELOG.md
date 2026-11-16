@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-dsql:** Added support for Amazon Aurora DSQL advanced monitoring metric groups, which publish detailed database metrics and logs to Amazon CloudWatch Database Insights. Adds the metricGroups parameter to CreateCluster, UpdateCluster, and GetCluster. ([032ec62](https://github.com/aws/aws-sdk-js-v3/commit/032ec62e78426e2b209464ac16853bf3356aec61))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-dsql

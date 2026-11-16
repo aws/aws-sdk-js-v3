@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Implement OAuth 2.0 Token Exchange (RFC 8693) for Cognito User Pools, enabling services to exchange a user's existing token for a new token that is appropriately scoped and audience-bound for a specific downstream service. ([1c31f8e](https://github.com/aws/aws-sdk-js-v3/commit/1c31f8e168c65e67e6b17265e0ef89e521a204b0))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 

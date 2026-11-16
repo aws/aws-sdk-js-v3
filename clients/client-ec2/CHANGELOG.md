@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-ec2:** Adds a new Transit Gateway Attachment type called Network Function. Launches associated KMS Keys for EBS Snapshots - associated KMS keys enable customers to share and copy snapshots encrypted with AWS Managed Keys across AWS accounts. ([718af8a](https://github.com/aws/aws-sdk-js-v3/commit/718af8a0956a055f76a22088009a81fa51ae8294))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-iam-toolbox:** AWS IAM adds the GetRequestAuthorizationPolicy operation, per-check authorization results (checks) and extra policy metadata for resource-based policies (policySource) in GetRequestAuthorizationDetails for Access Troubleshooter. ([3b4cdd8](https://github.com/aws/aws-sdk-js-v3/commit/3b4cdd82d4860e43090e78fd4e100c509f2aab41))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-iam-toolbox

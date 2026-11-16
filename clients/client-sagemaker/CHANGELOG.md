@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker adds Synthetic Data Generation, Auto-labeling, Data Quality Evaluation, and Data Transformation capabilities, Cross-Region Inference Routing, KV Aware routing for realtime inference endpoints. ([067274f](https://github.com/aws/aws-sdk-js-v3/commit/067274f4321a6ed86594c5e2bc6d3485fbef9517))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 

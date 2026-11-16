@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-workspaces:** Adds the WorkspaceOsUserMode parameter to RegisterWorkspaceDirectory and DescribeWorkspaceDirectories, so customers can register an IAM Identity Center directory whose WorkSpaces use local operating system users instead of joining a domain. ([eaa311d](https://github.com/aws/aws-sdk-js-v3/commit/eaa311d3148f4b0a9d03fb7863b791491af4039f))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

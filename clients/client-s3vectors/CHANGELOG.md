@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-s3vectors:** Amazon S3 Vectors now supports hybrid search, providing metadata text search along with vector search. ([4f9d191](https://github.com/aws/aws-sdk-js-v3/commit/4f9d191c8ae9f1bc8f7a31bcb5155ad7b165b35a))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-s3vectors

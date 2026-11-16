@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-athena:** Adds an optional AttributesToGet parameter to ListDatabases and ListTableMetadata to return only requested database or table names (and table types) from the AWS Glue Data Catalog, reducing response time for large catalogs. ([c92455d](https://github.com/aws/aws-sdk-js-v3/commit/c92455df8f426da7bafea003f9c618bd8e032865))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-athena

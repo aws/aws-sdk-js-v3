@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-lambda:** Adds support for GPU instances on Lambda Managed Instances in the CreateFunction and UpdateFunctionConfiguration APIs. Lambda Event Functions on Lambda Managed Instances can now set the accelerator memory using the new AcceleratorConfig parameter and run on capacity providers with GPU instances. ([490e1bc](https://github.com/aws/aws-sdk-js-v3/commit/490e1bc402239baca5467a85872e2ac219636ae0))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 

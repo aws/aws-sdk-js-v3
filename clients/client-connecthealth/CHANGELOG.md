@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-connecthealth:** Adds dataset APIs and async medical coding jobs that can use a customer dataset (preview). Ambient listening sessions add medical coding job details and real-time periodontal chart and checklist events (preview). SubmitFeedback compares human-approved and AI-generated artifacts (preview). ([4c3e829](https://github.com/aws/aws-sdk-js-v3/commit/4c3e82920b10972719c3ebbd3de57f2194d25a38))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-connecthealth

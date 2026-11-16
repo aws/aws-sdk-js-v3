@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-networkflowmonitor:** This release adds Performance Monitors to Amazon CloudWatch Network Monitoring. Without installing an agent, they track traffic in the VPCs you select and report an impact score (None, Low, Medium, or High) showing whether the AWS network is degrading your workloads. ([8e05c15](https://github.com/aws/aws-sdk-js-v3/commit/8e05c15daf31659019db9be46375767523e48b7f))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-networkflowmonitor

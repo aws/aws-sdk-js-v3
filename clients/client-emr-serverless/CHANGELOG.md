@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-emr-serverless:** Amazon EMR Serverless now supports Flex, a new execution option for running data processing jobs on spare compute capacity at a discount. ([ae7828c](https://github.com/aws/aws-sdk-js-v3/commit/ae7828c9a653b4222cf560b5e6971cf0271ab01e))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-emr-serverless

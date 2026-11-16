@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Bug Fixes
+
+* **lib-storage:** preserve crc64nvme checksums on multipart completion ([#8419](https://github.com/aws/aws-sdk-js-v3/issues/8419)) ([864816e](https://github.com/aws/aws-sdk-js-v3/commit/864816e1c30529ff4f87e687d3da706abcd3d38a))
+
+
+### Features
+
+* **client-athena:** Adds an optional AttributesToGet parameter to ListDatabases and ListTableMetadata to return only requested database or table names (and table types) from the AWS Glue Data Catalog, reducing response time for large catalogs. ([c92455d](https://github.com/aws/aws-sdk-js-v3/commit/c92455df8f426da7bafea003f9c618bd8e032865))
+* **client-cognito-identity-provider:** Implement OAuth 2.0 Token Exchange (RFC 8693) for Cognito User Pools, enabling services to exchange a user's existing token for a new token that is appropriately scoped and audience-bound for a specific downstream service. ([1c31f8e](https://github.com/aws/aws-sdk-js-v3/commit/1c31f8e168c65e67e6b17265e0ef89e521a204b0))
+* **client-connect:** Adds the DeleteAllEntitySessions API, which signs a user out of all of their active sessions in an Amazon Connect instance. ([f8c1403](https://github.com/aws/aws-sdk-js-v3/commit/f8c140310f54262f9e1ce9549b0aef9858e9275d))
+* **client-connecthealth:** Adds dataset APIs and async medical coding jobs that can use a customer dataset (preview). Ambient listening sessions add medical coding job details and real-time periodontal chart and checklist events (preview). SubmitFeedback compares human-approved and AI-generated artifacts (preview). ([4c3e829](https://github.com/aws/aws-sdk-js-v3/commit/4c3e82920b10972719c3ebbd3de57f2194d25a38))
+* **client-connectscheduling:** This release adds APIs for Amazon Connect Scheduling. Use them to create, get, approve, reject, and cancel agent time off requests, and to set agent time off balances. ([8a1864f](https://github.com/aws/aws-sdk-js-v3/commit/8a1864f5a4848bb23fe393da0f647922750311e7))
+* **client-dsql:** Added support for Amazon Aurora DSQL advanced monitoring metric groups, which publish detailed database metrics and logs to Amazon CloudWatch Database Insights. Adds the metricGroups parameter to CreateCluster, UpdateCluster, and GetCluster. ([032ec62](https://github.com/aws/aws-sdk-js-v3/commit/032ec62e78426e2b209464ac16853bf3356aec61))
+* **client-dynamodb-streams:** Generate account-based endpoints for DynamoDB Streams requests when the account ID is available ([f26dc16](https://github.com/aws/aws-sdk-js-v3/commit/f26dc16b91122ed4f7b6624d94cb22f6ce8e2d74))
+* **client-ec2:** Adds a new Transit Gateway Attachment type called Network Function. Launches associated KMS Keys for EBS Snapshots - associated KMS keys enable customers to share and copy snapshots encrypted with AWS Managed Keys across AWS accounts. ([718af8a](https://github.com/aws/aws-sdk-js-v3/commit/718af8a0956a055f76a22088009a81fa51ae8294))
+* **client-ecr:** ECR feature support for replicating image deletion and untagging. ([c7604d3](https://github.com/aws/aws-sdk-js-v3/commit/c7604d3768816003d426f813eb7ef450e7696341))
+* **client-ecs:** Amazon ECS gateway connectors now support a configurable deregistration delay (0-3600 seconds, default 300 seconds). ([750287b](https://github.com/aws/aws-sdk-js-v3/commit/750287b6964842e0f2894b6524d72154fbf8a4b5))
+* **client-emr-serverless:** Amazon EMR Serverless now supports Flex, a new execution option for running data processing jobs on spare compute capacity at a discount. ([ae7828c](https://github.com/aws/aws-sdk-js-v3/commit/ae7828c9a653b4222cf560b5e6971cf0271ab01e))
+* **client-health:** Adds resource tags functionality to the AWS Health service ([8a40d74](https://github.com/aws/aws-sdk-js-v3/commit/8a40d74c55111ca2173270ea7c5dc800df907a36))
+* **client-iam-toolbox:** AWS IAM adds the GetRequestAuthorizationPolicy operation, per-check authorization results (checks) and extra policy metadata for resource-based policies (policySource) in GetRequestAuthorizationDetails for Access Troubleshooter. ([3b4cdd8](https://github.com/aws/aws-sdk-js-v3/commit/3b4cdd82d4860e43090e78fd4e100c509f2aab41))
+* **client-iot-wireless:** Updated CreateDeviceProfile to accept MaxEirp values up to 36 dBm in LoRaWANDeviceProfile. Previously the maximum value was 15. ([81c6bd1](https://github.com/aws/aws-sdk-js-v3/commit/81c6bd1af3aaa0e833d532323d1d5574d911719f))
+* **client-kms:** AWS KMS now supports sharing KMS keys across AWS accounts using AWS Resource Access Manager (AWS RAM). This release adds the optional ResourceOwners parameter to ListKeys, which lists keys owned by the caller's account (SELF), keys shared with the account through AWS RAM, or both. ([defc7b7](https://github.com/aws/aws-sdk-js-v3/commit/defc7b78eccfad03e1f532cb26aed4672b87a13a))
+* **client-lambda-core:** Lambda network connectors now support service-managed Elastic IP addresses. This enables traffic routed through a connector to reach the public internet without a NAT gateway. ([2d42a7c](https://github.com/aws/aws-sdk-js-v3/commit/2d42a7cdfce23f0a0233f2074af479d053f29f6d))
+* **client-lambda:** Adds support for GPU instances on Lambda Managed Instances in the CreateFunction and UpdateFunctionConfiguration APIs. Lambda Event Functions on Lambda Managed Instances can now set the accelerator memory using the new AcceleratorConfig parameter and run on capacity providers with GPU instances. ([490e1bc](https://github.com/aws/aws-sdk-js-v3/commit/490e1bc402239baca5467a85872e2ac219636ae0))
+* **client-network-firewall:** Adds support for context-aware stateful rule groups, letting rules reference AWS resource IDs through ContextSets sourced from a Network Manager context store. ([debd904](https://github.com/aws/aws-sdk-js-v3/commit/debd9046112c69a3c26f10d84b22e1d307f01908))
+* **client-networkflowmonitor:** This release adds Performance Monitors to Amazon CloudWatch Network Monitoring. Without installing an agent, they track traffic in the VPCs you select and report an impact score (None, Low, Medium, or High) showing whether the AWS network is degrading your workloads. ([8e05c15](https://github.com/aws/aws-sdk-js-v3/commit/8e05c15daf31659019db9be46375767523e48b7f))
+* **client-networkmanager:** Context Sharing with Firewalls ([11c1537](https://github.com/aws/aws-sdk-js-v3/commit/11c1537bf793f61d7aef7f9e7e4acd6c222310da))
+* **client-opensearchmemory:** Initial release of Amazon OpenSearch Memory, which gives AI agents persistent memory. Store conversation and document events in a Space, have memories extracted from them automatically, and retrieve them with semantic, lexical, or hybrid search. ([85f0201](https://github.com/aws/aws-sdk-js-v3/commit/85f0201191e8795c7de24acbfd85cbb71a357edb))
+* **client-s3vectors:** Amazon S3 Vectors now supports hybrid search, providing metadata text search along with vector search. ([4f9d191](https://github.com/aws/aws-sdk-js-v3/commit/4f9d191c8ae9f1bc8f7a31bcb5155ad7b165b35a))
+* **client-sagemaker-inference-router-runtime:** Amazon SageMaker adds cross-region inference routing with new runtime APIs that intelligently route inference requests across endpoints in multiple AWS regions. ([372627a](https://github.com/aws/aws-sdk-js-v3/commit/372627af39e553f9fc6adfdebdb3271d94a1f9a9))
+* **client-sagemaker:** Amazon SageMaker adds Synthetic Data Generation, Auto-labeling, Data Quality Evaluation, and Data Transformation capabilities, Cross-Region Inference Routing, KV Aware routing for realtime inference endpoints. ([067274f](https://github.com/aws/aws-sdk-js-v3/commit/067274f4321a6ed86594c5e2bc6d3485fbef9517))
+* **client-wellarchitected:** This release adds AWS Organizations integration, on-demand reports, recommendation and profile sharing, and automated basic profiles to the Well-Architected Agent. ([3aac82e](https://github.com/aws/aws-sdk-js-v3/commit/3aac82e4a2ad9b5d43bfd596d1206d11011c8751))
+* **client-workspaces:** Adds the WorkspaceOsUserMode parameter to RegisterWorkspaceDirectory and DescribeWorkspaceDirectories, so customers can register an IAM Identity Center directory whose WorkSpaces use local operating system users instead of joining a domain. ([eaa311d](https://github.com/aws/aws-sdk-js-v3/commit/eaa311d3148f4b0a9d03fb7863b791491af4039f))
+* **clients:** update client endpoints as of 2026-11-16 ([8a34e22](https://github.com/aws/aws-sdk-js-v3/commit/8a34e2262a75df9da9905db65788e880f944aae9))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 

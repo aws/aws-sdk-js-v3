@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-ecs:** Amazon ECS gateway connectors now support a configurable deregistration delay (0-3600 seconds, default 300 seconds). ([750287b](https://github.com/aws/aws-sdk-js-v3/commit/750287b6964842e0f2894b6524d72154fbf8a4b5))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs

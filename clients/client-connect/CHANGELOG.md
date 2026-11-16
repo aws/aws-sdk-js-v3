@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-connect:** Adds the DeleteAllEntitySessions API, which signs a user out of all of their active sessions in an Amazon Connect instance. ([f8c1403](https://github.com/aws/aws-sdk-js-v3/commit/f8c140310f54262f9e1ce9549b0aef9858e9275d))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

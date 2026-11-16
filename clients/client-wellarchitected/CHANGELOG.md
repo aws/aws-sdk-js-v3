@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-wellarchitected:** This release adds AWS Organizations integration, on-demand reports, recommendation and profile sharing, and automated basic profiles to the Well-Architected Agent. ([3aac82e](https://github.com/aws/aws-sdk-js-v3/commit/3aac82e4a2ad9b5d43bfd596d1206d11011c8751))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-wellarchitected

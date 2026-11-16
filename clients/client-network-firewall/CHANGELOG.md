@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Features
+
+* **client-network-firewall:** Adds support for context-aware stateful rule groups, letting rules reference AWS resource IDs through ContextSets sourced from a Network Manager context store. ([debd904](https://github.com/aws/aws-sdk-js-v3/commit/debd9046112c69a3c26f10d84b22e1d307f01908))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
+
+
+### Bug Fixes
+
+* **lib-storage:** preserve crc64nvme checksums on multipart completion ([#8419](https://github.com/aws/aws-sdk-js-v3/issues/8419)) ([864816e](https://github.com/aws/aws-sdk-js-v3/commit/864816e1c30529ff4f87e687d3da706abcd3d38a))
+
+
+
+
+
 # [3.1169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1168.0...v3.1169.0) (2026-11-13)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage
