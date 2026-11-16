@@ -8509,6 +8509,18 @@ export interface DeploymentController {
 }
 
 /**
+ * <p>The amount of time to allow in-flight requests to complete before a deregistering target is removed.</p>
+ * @public
+ */
+export interface GatewayConnectorDeregistrationDelay {
+  /**
+   * <p>The amount of time, in seconds, to wait before a deregistering target is removed. A value of <code>0</code> removes the target immediately. The valid range is 0-3600 seconds. The default value is 300 seconds.</p>
+   * @public
+   */
+  timeoutSeconds?: number | undefined;
+}
+
+/**
  * <p>The filters that determine which gateway ingress paths a connector applies to.</p>
  * @public
  */
@@ -8614,6 +8626,12 @@ export interface GatewayConnector {
    * @public
    */
   filters?: GatewayConnectorFilters | undefined;
+
+  /**
+   * <p>The deregistration delay settings for the targets of this connector.</p>
+   * @public
+   */
+  deregistrationDelay?: GatewayConnectorDeregistrationDelay | undefined;
 }
 
 /**
@@ -8821,22 +8839,4 @@ export interface ServiceConnectTestTrafficHeaderMatchRules {
    * @public
    */
   exact: string | undefined;
-}
-
-/**
- * <p>The HTTP header rules used to identify and route test traffic during Amazon ECS blue/green deployments. These rules specify which HTTP headers to examine and what values to match for routing decisions.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-blue-green.html">Service Connect for Amazon ECS blue/green deployments</a> in the <i> Amazon Elastic Container Service Developer Guide</i>.</p>
- * @public
- */
-export interface ServiceConnectTestTrafficHeaderRules {
-  /**
-   * <p>The name of the HTTP header to examine for test traffic routing. Common examples include custom headers like <code>X-Test-Version</code> or <code>X-Canary-Request</code> that can be used to identify test traffic.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The header value matching configuration that determines how the HTTP header value is evaluated for test traffic routing decisions.</p>
-   * @public
-   */
-  value?: ServiceConnectTestTrafficHeaderMatchRules | undefined;
 }

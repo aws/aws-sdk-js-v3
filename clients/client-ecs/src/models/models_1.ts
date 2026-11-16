@@ -65,7 +65,7 @@ import type {
   RuntimePlatform,
   ServiceConnectAccessLogConfiguration,
   ServiceConnectContainerConfiguration,
-  ServiceConnectTestTrafficHeaderRules,
+  ServiceConnectTestTrafficHeaderMatchRules,
   SharingStrategy,
   Tag,
   TaskDefinition,
@@ -73,6 +73,24 @@ import type {
   TrustedExecutionConfiguration,
   Volume,
 } from "./models_0";
+
+/**
+ * <p>The HTTP header rules used to identify and route test traffic during Amazon ECS blue/green deployments. These rules specify which HTTP headers to examine and what values to match for routing decisions.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-blue-green.html">Service Connect for Amazon ECS blue/green deployments</a> in the <i> Amazon Elastic Container Service Developer Guide</i>.</p>
+ * @public
+ */
+export interface ServiceConnectTestTrafficHeaderRules {
+  /**
+   * <p>The name of the HTTP header to examine for test traffic routing. Common examples include custom headers like <code>X-Test-Version</code> or <code>X-Canary-Request</code> that can be used to identify test traffic.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The header value matching configuration that determines how the HTTP header value is evaluated for test traffic routing decisions.</p>
+   * @public
+   */
+  value?: ServiceConnectTestTrafficHeaderMatchRules | undefined;
+}
 
 /**
  * <p>The test traffic routing configuration for Amazon ECS blue/green deployments. This configuration allows you to define rules for routing specific traffic to the new service revision during the deployment process, allowing for safe testing before full production traffic shift.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-blue-green.html">Service Connect for Amazon ECS blue/green deployments</a> in the <i> Amazon Elastic Container Service Developer Guide</i>.</p>

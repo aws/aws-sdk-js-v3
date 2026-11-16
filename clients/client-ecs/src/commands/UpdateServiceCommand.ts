@@ -268,6 +268,9 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *           "PUBLIC" || "PRIVATE",
  *         ],
  *       },
+ *       deregistrationDelay: { // GatewayConnectorDeregistrationDelay
+ *         timeoutSeconds: Number("int"),
+ *       },
  *     },
  *   ],
  *   monitoring: { // MonitoringConfiguration

@@ -368,6 +368,9 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  * //               "PUBLIC" || "PRIVATE",
  * //             ],
  * //           },
+ * //           deregistrationDelay: { // GatewayConnectorDeregistrationDelay
+ * //             timeoutSeconds: Number("int"),
+ * //           },
  * //         },
  * //       ],
  * //       monitoring: { // MonitoringConfiguration

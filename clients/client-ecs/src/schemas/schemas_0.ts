@@ -278,6 +278,7 @@ const _GCAR = "GatewayConnectionAlbResources";
 const _GCARL = "GatewayConnectionAlbResourcesList";
 const _GCAS = "GatewayClusterAssociationSummary";
 const _GCASL = "GatewayClusterAssociationSummaryList";
+const _GCDD = "GatewayConnectorDeregistrationDelay";
 const _GCF = "GatewayConnectorFilters";
 const _GCHC = "GatewayConnectorHealthCheck";
 const _GCHCM = "GatewayConnectorHealthCheckMatcher";
@@ -790,6 +791,7 @@ const _dCep = "deploymentController";
 const _dD = "daemonDeployments";
 const _dDA = "daemonDeploymentArn";
 const _dDAa = "daemonDeploymentArns";
+const _dDe = "deregistrationDelay";
 const _dIC = "drainingInstanceCount";
 const _dL = "dockerLabels";
 const _dN = "disableNetworking";
@@ -1258,6 +1260,7 @@ const _tSR = "targetServiceRevision";
 const _tSRA = "targetServiceRevisionArn";
 const _tSa = "taskSets";
 const _tSag = "tagSpecifications";
+const _tSi = "timeoutSeconds";
 const _tT = "targetType";
 const _tTR = "testTrafficRules";
 const _tV = "targetValue";
@@ -2421,8 +2424,13 @@ export var GatewayConnectionAlbResources$: StaticStructureSchema = [3, n0, _GCAR
 ];
 export var GatewayConnector$: StaticStructureSchema = [3, n0, _GCa,
   0,
-  [_pN, _hC, _fi],
-  [0, () => GatewayConnectorHealthCheck$, () => GatewayConnectorFilters$], 1
+  [_pN, _hC, _fi, _dDe],
+  [0, () => GatewayConnectorHealthCheck$, () => GatewayConnectorFilters$, () => GatewayConnectorDeregistrationDelay$], 1
+];
+export var GatewayConnectorDeregistrationDelay$: StaticStructureSchema = [3, n0, _GCDD,
+  0,
+  [_tSi],
+  [1]
 ];
 export var GatewayConnectorFilters$: StaticStructureSchema = [3, n0, _GCF,
   0,

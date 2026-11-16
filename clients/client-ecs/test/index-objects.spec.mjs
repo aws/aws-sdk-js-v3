@@ -346,6 +346,7 @@ import {
   GatewayConnectionAlbResources$,
   GatewayConnectionResources$,
   GatewayConnector$,
+  GatewayConnectorDeregistrationDelay$,
   GatewayConnectorFilters$,
   GatewayConnectorHealthCheck$,
   GatewayConnectorHealthCheckMatcher$,
@@ -1165,6 +1166,7 @@ assert(typeof GatewayConnection$ === "object");
 assert(typeof GatewayConnectionAlbResources$ === "object");
 assert(typeof GatewayConnectionResources$ === "object");
 assert(typeof GatewayConnector$ === "object");
+assert(typeof GatewayConnectorDeregistrationDelay$ === "object");
 assert(typeof GatewayConnectorFilters$ === "object");
 assert(typeof GatewayConnectorHealthCheck$ === "object");
 assert(typeof GatewayConnectorHealthCheckMatcher$ === "object");

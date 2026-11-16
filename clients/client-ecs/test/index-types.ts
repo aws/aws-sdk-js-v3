@@ -565,6 +565,7 @@ export type {
   GatewayConnectionAlbResources,
   GatewayConnectionResources,
   GatewayConnector,
+  GatewayConnectorDeregistrationDelay,
   GatewayConnectorFilters,
   GatewayConnectorHealthCheck,
   GatewayConnectorHealthCheckMatcher,
