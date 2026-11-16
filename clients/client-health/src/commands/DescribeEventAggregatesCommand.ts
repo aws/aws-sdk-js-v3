@@ -84,11 +84,11 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  *     eventTypeCategories: [ // eventTypeCategoryList2
  *       "issue" || "accountNotification" || "scheduledChange" || "investigation",
  *     ],
- *     tags: [ // tagFilter
- *       { // tagSet
- *         "<keys>": "STRING_VALUE",
- *       },
- *     ],
+ *     tags: { // DescribeEventsTagFilter
+ *       "<keys>": [ // DescribeEventsTagValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *     eventStatusCodes: [ // eventStatusCodeList
  *       "open" || "closed" || "upcoming",
  *     ],

@@ -47,12 +47,28 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput extends De
  *   eventArn: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   filter: { // AffectedAccountFilter
+ *     eventArn: "STRING_VALUE",
+ *     tags: { // AffectedAccountsForOrganizationTagFilter
+ *       "<keys>": [ // AffectedAccountsForOrganizationTagValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new DescribeAffectedAccountsForOrganizationCommand(input);
  * const response = await client.send(command);
  * // { // DescribeAffectedAccountsForOrganizationResponse
  * //   affectedAccounts: [ // affectedAccountsList
  * //     "STRING_VALUE",
+ * //   ],
+ * //   affectedAccountEntities: [ // AffectedAccountEntityList
+ * //     { // AccountEntity
+ * //       accountId: "STRING_VALUE",
+ * //       accountTags: { // AccountTagSet
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
  * //   ],
  * //   eventScopeCode: "PUBLIC" || "ACCOUNT_SPECIFIC" || "NONE",
  * //   nextToken: "STRING_VALUE",

@@ -65,11 +65,11 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  *         to: new Date("TIMESTAMP"),
  *       },
  *     ],
- *     tags: [ // tagFilter
- *       { // tagSet
- *         "<keys>": "STRING_VALUE",
- *       },
- *     ],
+ *     tags: { // DescribeAffectedEntitiesTagFilter
+ *       "<keys>": [ // DescribeAffectedEntitiesTagValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *     statusCodes: [ // entityStatusCodeList
  *       "IMPAIRED" || "UNIMPAIRED" || "UNKNOWN" || "PENDING" || "RESOLVED",
  *     ],
@@ -90,6 +90,12 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  * //       awsAccountId: "STRING_VALUE",
  * //       lastUpdatedTime: new Date("TIMESTAMP"),
  * //       statusCode: "IMPAIRED" || "UNIMPAIRED" || "UNKNOWN" || "PENDING" || "RESOLVED",
+ * //       resourceTags: { // ResourceTagSet
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       accountTags: { // AccountTagSet
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //       tags: { // tagSet
  * //         "<keys>": "STRING_VALUE",
  * //       },

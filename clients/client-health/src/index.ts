@@ -5,9 +5,9 @@
  *          <p>The Health API provides access to the Health information that appears in the
  *             <a href="https://health.aws.amazon.com/health/home">Health Dashboard</a>. You can use
  *          the API operations to get information about events that might affect your Amazon Web Services services and resources.</p>
- *          <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a> to use the Health API. If you call the Health API from an
- *             Amazon Web Services account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan, you receive a
- *             <code>SubscriptionRequiredException</code> error.</p>
+ *          <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a> to use the Health API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Health API with a Business, Enterprise On-Ramp, or Enterprise Support plan. If you call the Health API from an
+ *          Amazon Web Services account that isn't enrolled in one of these plans, then you receive a
+ *          <code>SubscriptionRequiredException</code> error.</p>
  *          <p>For API access, you need an access key ID and a secret access key. Use temporary
  *          credentials instead of long-term access keys when possible. Temporary credentials include
  *          an access key ID, a secret access key, and a security token that indicates when the

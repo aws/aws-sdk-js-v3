@@ -54,6 +54,11 @@ import {
   defaultHealthHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import type { ConfigureTagsCommandInput, ConfigureTagsCommandOutput } from "./commands/ConfigureTagsCommand";
+import type {
+  ConfigureTagsForOrganizationCommandInput,
+  ConfigureTagsForOrganizationCommandOutput,
+} from "./commands/ConfigureTagsForOrganizationCommand";
 import type {
   DescribeAffectedAccountsForOrganizationCommandInput,
   DescribeAffectedAccountsForOrganizationCommandOutput,
@@ -103,14 +108,42 @@ import type {
   DescribeServiceLifecycleCommandInput,
   DescribeServiceLifecycleCommandOutput,
 } from "./commands/DescribeServiceLifecycleCommand";
+import type { DescribeTagKeysCommandInput, DescribeTagKeysCommandOutput } from "./commands/DescribeTagKeysCommand";
+import type {
+  DescribeTagKeysForOrganizationCommandInput,
+  DescribeTagKeysForOrganizationCommandOutput,
+} from "./commands/DescribeTagKeysForOrganizationCommand";
+import type { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
+import type {
+  DescribeTagsForOrganizationCommandInput,
+  DescribeTagsForOrganizationCommandOutput,
+} from "./commands/DescribeTagsForOrganizationCommand";
+import type {
+  DescribeTagsOnboardingStatusCommandInput,
+  DescribeTagsOnboardingStatusCommandOutput,
+} from "./commands/DescribeTagsOnboardingStatusCommand";
+import type {
+  DescribeTagsOnboardingStatusForOrganizationCommandInput,
+  DescribeTagsOnboardingStatusForOrganizationCommandOutput,
+} from "./commands/DescribeTagsOnboardingStatusForOrganizationCommand";
 import type {
   DisableHealthServiceAccessForOrganizationCommandInput,
   DisableHealthServiceAccessForOrganizationCommandOutput,
 } from "./commands/DisableHealthServiceAccessForOrganizationCommand";
+import type { DisableTagsCommandInput, DisableTagsCommandOutput } from "./commands/DisableTagsCommand";
+import type {
+  DisableTagsForOrganizationCommandInput,
+  DisableTagsForOrganizationCommandOutput,
+} from "./commands/DisableTagsForOrganizationCommand";
 import type {
   EnableHealthServiceAccessForOrganizationCommandInput,
   EnableHealthServiceAccessForOrganizationCommandOutput,
 } from "./commands/EnableHealthServiceAccessForOrganizationCommand";
+import type { EnableTagsCommandInput, EnableTagsCommandOutput } from "./commands/EnableTagsCommand";
+import type {
+  EnableTagsForOrganizationCommandInput,
+  EnableTagsForOrganizationCommandOutput,
+} from "./commands/EnableTagsForOrganizationCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -126,6 +159,8 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | ConfigureTagsCommandInput
+  | ConfigureTagsForOrganizationCommandInput
   | DescribeAffectedAccountsForOrganizationCommandInput
   | DescribeAffectedEntitiesCommandInput
   | DescribeAffectedEntitiesForOrganizationCommandInput
@@ -139,13 +174,25 @@ export type ServiceInputTypes =
   | DescribeEventsForOrganizationCommandInput
   | DescribeHealthServiceStatusForOrganizationCommandInput
   | DescribeServiceLifecycleCommandInput
+  | DescribeTagKeysCommandInput
+  | DescribeTagKeysForOrganizationCommandInput
+  | DescribeTagsCommandInput
+  | DescribeTagsForOrganizationCommandInput
+  | DescribeTagsOnboardingStatusCommandInput
+  | DescribeTagsOnboardingStatusForOrganizationCommandInput
   | DisableHealthServiceAccessForOrganizationCommandInput
-  | EnableHealthServiceAccessForOrganizationCommandInput;
+  | DisableTagsCommandInput
+  | DisableTagsForOrganizationCommandInput
+  | EnableHealthServiceAccessForOrganizationCommandInput
+  | EnableTagsCommandInput
+  | EnableTagsForOrganizationCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | ConfigureTagsCommandOutput
+  | ConfigureTagsForOrganizationCommandOutput
   | DescribeAffectedAccountsForOrganizationCommandOutput
   | DescribeAffectedEntitiesCommandOutput
   | DescribeAffectedEntitiesForOrganizationCommandOutput
@@ -159,8 +206,18 @@ export type ServiceOutputTypes =
   | DescribeEventsForOrganizationCommandOutput
   | DescribeHealthServiceStatusForOrganizationCommandOutput
   | DescribeServiceLifecycleCommandOutput
+  | DescribeTagKeysCommandOutput
+  | DescribeTagKeysForOrganizationCommandOutput
+  | DescribeTagsCommandOutput
+  | DescribeTagsForOrganizationCommandOutput
+  | DescribeTagsOnboardingStatusCommandOutput
+  | DescribeTagsOnboardingStatusForOrganizationCommandOutput
   | DisableHealthServiceAccessForOrganizationCommandOutput
-  | EnableHealthServiceAccessForOrganizationCommandOutput;
+  | DisableTagsCommandOutput
+  | DisableTagsForOrganizationCommandOutput
+  | EnableHealthServiceAccessForOrganizationCommandOutput
+  | EnableTagsCommandOutput
+  | EnableTagsForOrganizationCommandOutput;
 
 /**
  * @public
@@ -358,9 +415,9 @@ export interface HealthClientResolvedConfig extends HealthClientResolvedConfigTy
  *          <p>The Health API provides access to the Health information that appears in the
  *             <a href="https://health.aws.amazon.com/health/home">Health Dashboard</a>. You can use
  *          the API operations to get information about events that might affect your Amazon Web Services services and resources.</p>
- *          <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a> to use the Health API. If you call the Health API from an
- *             Amazon Web Services account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan, you receive a
- *             <code>SubscriptionRequiredException</code> error.</p>
+ *          <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a> to use the Health API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Health API with a Business, Enterprise On-Ramp, or Enterprise Support plan. If you call the Health API from an
+ *          Amazon Web Services account that isn't enrolled in one of these plans, then you receive a
+ *          <code>SubscriptionRequiredException</code> error.</p>
  *          <p>For API access, you need an access key ID and a secret access key. Use temporary
  *          credentials instead of long-term access keys when possible. Temporary credentials include
  *          an access key ID, a secret access key, and a security token that indicates when the

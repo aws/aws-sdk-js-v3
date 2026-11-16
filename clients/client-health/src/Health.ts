@@ -8,6 +8,16 @@ import type {
 } from "@smithy/types";
 
 import {
+  type ConfigureTagsCommandInput,
+  type ConfigureTagsCommandOutput,
+  ConfigureTagsCommand,
+} from "./commands/ConfigureTagsCommand";
+import {
+  type ConfigureTagsForOrganizationCommandInput,
+  type ConfigureTagsForOrganizationCommandOutput,
+  ConfigureTagsForOrganizationCommand,
+} from "./commands/ConfigureTagsForOrganizationCommand";
+import {
   type DescribeAffectedAccountsForOrganizationCommandInput,
   type DescribeAffectedAccountsForOrganizationCommandOutput,
   DescribeAffectedAccountsForOrganizationCommand,
@@ -73,15 +83,65 @@ import {
   DescribeServiceLifecycleCommand,
 } from "./commands/DescribeServiceLifecycleCommand";
 import {
+  type DescribeTagKeysCommandInput,
+  type DescribeTagKeysCommandOutput,
+  DescribeTagKeysCommand,
+} from "./commands/DescribeTagKeysCommand";
+import {
+  type DescribeTagKeysForOrganizationCommandInput,
+  type DescribeTagKeysForOrganizationCommandOutput,
+  DescribeTagKeysForOrganizationCommand,
+} from "./commands/DescribeTagKeysForOrganizationCommand";
+import {
+  type DescribeTagsCommandInput,
+  type DescribeTagsCommandOutput,
+  DescribeTagsCommand,
+} from "./commands/DescribeTagsCommand";
+import {
+  type DescribeTagsForOrganizationCommandInput,
+  type DescribeTagsForOrganizationCommandOutput,
+  DescribeTagsForOrganizationCommand,
+} from "./commands/DescribeTagsForOrganizationCommand";
+import {
+  type DescribeTagsOnboardingStatusCommandInput,
+  type DescribeTagsOnboardingStatusCommandOutput,
+  DescribeTagsOnboardingStatusCommand,
+} from "./commands/DescribeTagsOnboardingStatusCommand";
+import {
+  type DescribeTagsOnboardingStatusForOrganizationCommandInput,
+  type DescribeTagsOnboardingStatusForOrganizationCommandOutput,
+  DescribeTagsOnboardingStatusForOrganizationCommand,
+} from "./commands/DescribeTagsOnboardingStatusForOrganizationCommand";
+import {
   type DisableHealthServiceAccessForOrganizationCommandInput,
   type DisableHealthServiceAccessForOrganizationCommandOutput,
   DisableHealthServiceAccessForOrganizationCommand,
 } from "./commands/DisableHealthServiceAccessForOrganizationCommand";
 import {
+  type DisableTagsCommandInput,
+  type DisableTagsCommandOutput,
+  DisableTagsCommand,
+} from "./commands/DisableTagsCommand";
+import {
+  type DisableTagsForOrganizationCommandInput,
+  type DisableTagsForOrganizationCommandOutput,
+  DisableTagsForOrganizationCommand,
+} from "./commands/DisableTagsForOrganizationCommand";
+import {
   type EnableHealthServiceAccessForOrganizationCommandInput,
   type EnableHealthServiceAccessForOrganizationCommandOutput,
   EnableHealthServiceAccessForOrganizationCommand,
 } from "./commands/EnableHealthServiceAccessForOrganizationCommand";
+import {
+  type EnableTagsCommandInput,
+  type EnableTagsCommandOutput,
+  EnableTagsCommand,
+} from "./commands/EnableTagsCommand";
+import {
+  type EnableTagsForOrganizationCommandInput,
+  type EnableTagsForOrganizationCommandOutput,
+  EnableTagsForOrganizationCommand,
+} from "./commands/EnableTagsForOrganizationCommand";
 import { HealthClient } from "./HealthClient";
 import {
   paginateDescribeAffectedAccountsForOrganization,
@@ -95,8 +155,12 @@ import { paginateDescribeEventsForOrganization } from "./pagination/DescribeEven
 import { paginateDescribeEvents } from "./pagination/DescribeEventsPaginator";
 import { paginateDescribeEventTypes } from "./pagination/DescribeEventTypesPaginator";
 import { paginateDescribeServiceLifecycle } from "./pagination/DescribeServiceLifecyclePaginator";
+import { paginateDescribeTagsForOrganization } from "./pagination/DescribeTagsForOrganizationPaginator";
+import { paginateDescribeTags } from "./pagination/DescribeTagsPaginator";
 
 const commands = {
+  ConfigureTagsCommand,
+  ConfigureTagsForOrganizationCommand,
   DescribeAffectedAccountsForOrganizationCommand,
   DescribeAffectedEntitiesCommand,
   DescribeAffectedEntitiesForOrganizationCommand,
@@ -110,8 +174,18 @@ const commands = {
   DescribeEventTypesCommand,
   DescribeHealthServiceStatusForOrganizationCommand,
   DescribeServiceLifecycleCommand,
+  DescribeTagKeysCommand,
+  DescribeTagKeysForOrganizationCommand,
+  DescribeTagsCommand,
+  DescribeTagsForOrganizationCommand,
+  DescribeTagsOnboardingStatusCommand,
+  DescribeTagsOnboardingStatusForOrganizationCommand,
   DisableHealthServiceAccessForOrganizationCommand,
+  DisableTagsCommand,
+  DisableTagsForOrganizationCommand,
   EnableHealthServiceAccessForOrganizationCommand,
+  EnableTagsCommand,
+  EnableTagsForOrganizationCommand,
 };
 const paginators = {
   paginateDescribeAffectedAccountsForOrganization,
@@ -122,6 +196,8 @@ const paginators = {
   paginateDescribeEventsForOrganization,
   paginateDescribeEventTypes,
   paginateDescribeServiceLifecycle,
+  paginateDescribeTags,
+  paginateDescribeTagsForOrganization,
 };
 
 /**
@@ -132,6 +208,40 @@ export interface HealthRequestOptions extends __HttpHandlerOptions {
 }
 
 export interface Health {
+  /**
+   * @see {@link ConfigureTagsCommand}
+   */
+  configureTags(
+    args: ConfigureTagsCommandInput,
+    options?: HealthRequestOptions
+  ): Promise<ConfigureTagsCommandOutput>;
+  configureTags(
+    args: ConfigureTagsCommandInput,
+    cb: (err: any, data?: ConfigureTagsCommandOutput) => void
+  ): void;
+  configureTags(
+    args: ConfigureTagsCommandInput,
+    options: HealthRequestOptions,
+    cb: (err: any, data?: ConfigureTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ConfigureTagsForOrganizationCommand}
+   */
+  configureTagsForOrganization(
+    args: ConfigureTagsForOrganizationCommandInput,
+    options?: HealthRequestOptions
+  ): Promise<ConfigureTagsForOrganizationCommandOutput>;
+  configureTagsForOrganization(
+    args: ConfigureTagsForOrganizationCommandInput,
+    cb: (err: any, data?: ConfigureTagsForOrganizationCommandOutput) => void
+  ): void;
+  configureTagsForOrganization(
+    args: ConfigureTagsForOrganizationCommandInput,
+    options: HealthRequestOptions,
+    cb: (err: any, data?: ConfigureTagsForOrganizationCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link DescribeAffectedAccountsForOrganizationCommand}
    */
@@ -361,6 +471,114 @@ export interface Health {
   ): void;
 
   /**
+   * @see {@link DescribeTagKeysCommand}
+   */
+  describeTagKeys(): Promise<DescribeTagKeysCommandOutput>;
+  describeTagKeys(
+    args: DescribeTagKeysCommandInput,
+    options?: HealthRequestOptions
+  ): Promise<DescribeTagKeysCommandOutput>;
+  describeTagKeys(
+    args: DescribeTagKeysCommandInput,
+    cb: (err: any, data?: DescribeTagKeysCommandOutput) => void
+  ): void;
+  describeTagKeys(
+    args: DescribeTagKeysCommandInput,
+    options: HealthRequestOptions,
+    cb: (err: any, data?: DescribeTagKeysCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTagKeysForOrganizationCommand}
+   */
+  describeTagKeysForOrganization(): Promise<DescribeTagKeysForOrganizationCommandOutput>;
+  describeTagKeysForOrganization(
+    args: DescribeTagKeysForOrganizationCommandInput,
+    options?: HealthRequestOptions
+  ): Promise<DescribeTagKeysForOrganizationCommandOutput>;
+  describeTagKeysForOrganization(
+    args: DescribeTagKeysForOrganizationCommandInput,
+    cb: (err: any, data?: DescribeTagKeysForOrganizationCommandOutput) => void
+  ): void;
+  describeTagKeysForOrganization(
+    args: DescribeTagKeysForOrganizationCommandInput,
+    options: HealthRequestOptions,
+    cb: (err: any, data?: DescribeTagKeysForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTagsCommand}
+   */
+  describeTags(): Promise<DescribeTagsCommandOutput>;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    options?: HealthRequestOptions
+  ): Promise<DescribeTagsCommandOutput>;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    options: HealthRequestOptions,
+    cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTagsForOrganizationCommand}
+   */
+  describeTagsForOrganization(): Promise<DescribeTagsForOrganizationCommandOutput>;
+  describeTagsForOrganization(
+    args: DescribeTagsForOrganizationCommandInput,
+    options?: HealthRequestOptions
+  ): Promise<DescribeTagsForOrganizationCommandOutput>;
+  describeTagsForOrganization(
+    args: DescribeTagsForOrganizationCommandInput,
+    cb: (err: any, data?: DescribeTagsForOrganizationCommandOutput) => void
+  ): void;
+  describeTagsForOrganization(
+    args: DescribeTagsForOrganizationCommandInput,
+    options: HealthRequestOptions,
+    cb: (err: any, data?: DescribeTagsForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTagsOnboardingStatusCommand}
+   */
+  describeTagsOnboardingStatus(): Promise<DescribeTagsOnboardingStatusCommandOutput>;
+  describeTagsOnboardingStatus(
+    args: DescribeTagsOnboardingStatusCommandInput,
+    options?: HealthRequestOptions
+  ): Promise<DescribeTagsOnboardingStatusCommandOutput>;
+  describeTagsOnboardingStatus(
+    args: DescribeTagsOnboardingStatusCommandInput,
+    cb: (err: any, data?: DescribeTagsOnboardingStatusCommandOutput) => void
+  ): void;
+  describeTagsOnboardingStatus(
+    args: DescribeTagsOnboardingStatusCommandInput,
+    options: HealthRequestOptions,
+    cb: (err: any, data?: DescribeTagsOnboardingStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTagsOnboardingStatusForOrganizationCommand}
+   */
+  describeTagsOnboardingStatusForOrganization(): Promise<DescribeTagsOnboardingStatusForOrganizationCommandOutput>;
+  describeTagsOnboardingStatusForOrganization(
+    args: DescribeTagsOnboardingStatusForOrganizationCommandInput,
+    options?: HealthRequestOptions
+  ): Promise<DescribeTagsOnboardingStatusForOrganizationCommandOutput>;
+  describeTagsOnboardingStatusForOrganization(
+    args: DescribeTagsOnboardingStatusForOrganizationCommandInput,
+    cb: (err: any, data?: DescribeTagsOnboardingStatusForOrganizationCommandOutput) => void
+  ): void;
+  describeTagsOnboardingStatusForOrganization(
+    args: DescribeTagsOnboardingStatusForOrganizationCommandInput,
+    options: HealthRequestOptions,
+    cb: (err: any, data?: DescribeTagsOnboardingStatusForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableHealthServiceAccessForOrganizationCommand}
    */
   disableHealthServiceAccessForOrganization(): Promise<DisableHealthServiceAccessForOrganizationCommandOutput>;
@@ -379,6 +597,42 @@ export interface Health {
   ): void;
 
   /**
+   * @see {@link DisableTagsCommand}
+   */
+  disableTags(): Promise<DisableTagsCommandOutput>;
+  disableTags(
+    args: DisableTagsCommandInput,
+    options?: HealthRequestOptions
+  ): Promise<DisableTagsCommandOutput>;
+  disableTags(
+    args: DisableTagsCommandInput,
+    cb: (err: any, data?: DisableTagsCommandOutput) => void
+  ): void;
+  disableTags(
+    args: DisableTagsCommandInput,
+    options: HealthRequestOptions,
+    cb: (err: any, data?: DisableTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisableTagsForOrganizationCommand}
+   */
+  disableTagsForOrganization(): Promise<DisableTagsForOrganizationCommandOutput>;
+  disableTagsForOrganization(
+    args: DisableTagsForOrganizationCommandInput,
+    options?: HealthRequestOptions
+  ): Promise<DisableTagsForOrganizationCommandOutput>;
+  disableTagsForOrganization(
+    args: DisableTagsForOrganizationCommandInput,
+    cb: (err: any, data?: DisableTagsForOrganizationCommandOutput) => void
+  ): void;
+  disableTagsForOrganization(
+    args: DisableTagsForOrganizationCommandInput,
+    options: HealthRequestOptions,
+    cb: (err: any, data?: DisableTagsForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableHealthServiceAccessForOrganizationCommand}
    */
   enableHealthServiceAccessForOrganization(): Promise<EnableHealthServiceAccessForOrganizationCommandOutput>;
@@ -394,6 +648,42 @@ export interface Health {
     args: EnableHealthServiceAccessForOrganizationCommandInput,
     options: HealthRequestOptions,
     cb: (err: any, data?: EnableHealthServiceAccessForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableTagsCommand}
+   */
+  enableTags(): Promise<EnableTagsCommandOutput>;
+  enableTags(
+    args: EnableTagsCommandInput,
+    options?: HealthRequestOptions
+  ): Promise<EnableTagsCommandOutput>;
+  enableTags(
+    args: EnableTagsCommandInput,
+    cb: (err: any, data?: EnableTagsCommandOutput) => void
+  ): void;
+  enableTags(
+    args: EnableTagsCommandInput,
+    options: HealthRequestOptions,
+    cb: (err: any, data?: EnableTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableTagsForOrganizationCommand}
+   */
+  enableTagsForOrganization(): Promise<EnableTagsForOrganizationCommandOutput>;
+  enableTagsForOrganization(
+    args: EnableTagsForOrganizationCommandInput,
+    options?: HealthRequestOptions
+  ): Promise<EnableTagsForOrganizationCommandOutput>;
+  enableTagsForOrganization(
+    args: EnableTagsForOrganizationCommandInput,
+    cb: (err: any, data?: EnableTagsForOrganizationCommandOutput) => void
+  ): void;
+  enableTagsForOrganization(
+    args: EnableTagsForOrganizationCommandInput,
+    options: HealthRequestOptions,
+    cb: (err: any, data?: EnableTagsForOrganizationCommandOutput) => void
   ): void;
 
   /**
@@ -483,6 +773,28 @@ export interface Health {
     args?: DescribeServiceLifecycleCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeServiceLifecycleCommandOutput>;
+
+  /**
+   * @see {@link DescribeTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTagsCommandOutput}.
+   */
+  paginateDescribeTags(
+    args?: DescribeTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTagsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTagsForOrganizationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTagsForOrganizationCommandOutput}.
+   */
+  paginateDescribeTagsForOrganization(
+    args?: DescribeTagsForOrganizationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTagsForOrganizationCommandOutput>;
 }
 
 /**
@@ -490,9 +802,9 @@ export interface Health {
  *          <p>The Health API provides access to the Health information that appears in the
  *             <a href="https://health.aws.amazon.com/health/home">Health Dashboard</a>. You can use
  *          the API operations to get information about events that might affect your Amazon Web Services services and resources.</p>
- *          <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a> to use the Health API. If you call the Health API from an
- *             Amazon Web Services account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan, you receive a
- *             <code>SubscriptionRequiredException</code> error.</p>
+ *          <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a> to use the Health API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Health API with a Business, Enterprise On-Ramp, or Enterprise Support plan. If you call the Health API from an
+ *          Amazon Web Services account that isn't enrolled in one of these plans, then you receive a
+ *          <code>SubscriptionRequiredException</code> error.</p>
  *          <p>For API access, you need an access key ID and a secret access key. Use temporary
  *          credentials instead of long-term access keys when possible. Temporary credentials include
  *          an access key ID, a secret access key, and a security token that indicates when the

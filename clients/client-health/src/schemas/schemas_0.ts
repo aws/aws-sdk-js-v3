@@ -1,7 +1,22 @@
-const _AE = "AffectedEntity";
+const _AAEL = "AffectedAccountEntityList";
+const _AAF = "AffectedAccountFilter";
+const _AAFOTF = "AffectedAccountsForOrganizationTagFilter";
+const _AE = "AccountEntity";
 const _AEA = "AccountEntityAggregate";
 const _AEAL = "AccountEntityAggregatesList";
+const _AEFOTF = "AffectedEntitiesForOrganizationTagFilter";
+const _AEf = "AffectedEntity";
+const _AT = "AccountTag";
+const _ATL = "AccountTagList";
 const _CME = "ConcurrentModificationException";
+const _CT = "ConfigureTags";
+const _CTFO = "ConfigureTagsForOrganization";
+const _CTFOR = "ConfigureTagsForOrganizationRequest";
+const _CTFORo = "ConfigureTagsForOrganizationResponse";
+const _CTFOTKL = "ConfigureTagsForOrganizationTagKeyList";
+const _CTR = "ConfigureTagsRequest";
+const _CTRTKL = "ConfigureTagsResourceTagKeyList";
+const _CTRo = "ConfigureTagsResponse";
 const _DAAFO = "DescribeAffectedAccountsForOrganization";
 const _DAAFOR = "DescribeAffectedAccountsForOrganizationRequest";
 const _DAAFORe = "DescribeAffectedAccountsForOrganizationResponse";
@@ -12,6 +27,7 @@ const _DAEFOR = "DescribeAffectedEntitiesForOrganizationRequest";
 const _DAEFORe = "DescribeAffectedEntitiesForOrganizationResponse";
 const _DAER = "DescribeAffectedEntitiesRequest";
 const _DAERe = "DescribeAffectedEntitiesResponse";
+const _DAETF = "DescribeAffectedEntitiesTagFilter";
 const _DE = "DescribeEvents";
 const _DEA = "DescribeEntityAggregates";
 const _DEAFO = "DescribeEntityAggregatesForOrganization";
@@ -21,6 +37,7 @@ const _DEAR = "DescribeEntityAggregatesRequest";
 const _DEARe = "DescribeEntityAggregatesResponse";
 const _DEARes = "DescribeEventAggregatesRequest";
 const _DEAResc = "DescribeEventAggregatesResponse";
+const _DEATF = "DescribeEntityAggregatesTagFilter";
 const _DEAe = "DescribeEventAggregates";
 const _DED = "DescribeEventDetails";
 const _DEDFO = "DescribeEventDetailsForOrganization";
@@ -38,6 +55,7 @@ const _DEFORe = "DescribeEventsForOrganizationResponse";
 const _DER = "DescribeEventsRequest";
 const _DERe = "DescribeEventsResponse";
 const _DET = "DescribeEventTypes";
+const _DETF = "DescribeEventsTagFilter";
 const _DETR = "DescribeEventTypesRequest";
 const _DETRe = "DescribeEventTypesResponse";
 const _DHSAFO = "DisableHealthServiceAccessForOrganization";
@@ -46,10 +64,28 @@ const _DHSSFOR = "DescribeHealthServiceStatusForOrganizationResponse";
 const _DSL = "DescribeServiceLifecycle";
 const _DSLR = "DescribeServiceLifecycleRequest";
 const _DSLRe = "DescribeServiceLifecycleResponse";
+const _DT = "DescribeTags";
+const _DTFO = "DescribeTagsForOrganization";
+const _DTFOF = "DescribeTagsForOrganizationFilter";
+const _DTFOR = "DescribeTagsForOrganizationRequest";
+const _DTFORe = "DescribeTagsForOrganizationResponse";
+const _DTFOi = "DisableTagsForOrganization";
+const _DTK = "DescribeTagKeys";
+const _DTKFO = "DescribeTagKeysForOrganization";
+const _DTKFOR = "DescribeTagKeysForOrganizationResponse";
+const _DTKR = "DescribeTagKeysResponse";
+const _DTOS = "DescribeTagsOnboardingStatus";
+const _DTOSFO = "DescribeTagsOnboardingStatusForOrganization";
+const _DTOSFOR = "DescribeTagsOnboardingStatusForOrganizationResponse";
+const _DTOSR = "DescribeTagsOnboardingStatusResponse";
 const _DTR = "DateTimeRange";
+const _DTRe = "DescribeTagsRequest";
+const _DTRes = "DescribeTagsResponse";
+const _DTi = "DisableTags";
 const _E = "Event";
 const _EA = "EntityAggregate";
 const _EAF = "EntityAccountFilter";
+const _EAFn = "EntityAggregateFilter";
 const _EAFv = "EventAccountFilter";
 const _EAL = "EntityAggregateList";
 const _EALv = "EventAggregateList";
@@ -64,31 +100,45 @@ const _EL = "EntityList";
 const _ELv = "EventList";
 const _ET = "EventType";
 const _ETF = "EventTypeFilter";
+const _ETFO = "EnableTagsForOrganization";
 const _ETL = "EventTypeList";
+const _ETn = "EnableTags";
 const _IPT = "InvalidPaginationToken";
 const _LE = "LifecycleEvent";
 const _LEL = "LifecycleEventList";
 const _OAEEI = "OrganizationAffectedEntitiesErrorItem";
 const _OE = "OrganizationEvent";
 const _OEA = "OrganizationEntityAggregate";
+const _OEAF = "OrganizationEntityAggregateFilter";
 const _OEAFL = "OrganizationEntityAccountFiltersList";
 const _OEAL = "OrganizationEntityAggregatesList";
+const _OEATF = "OrganizationEntityAggregateTagFilter";
 const _OED = "OrganizationEventDetails";
 const _OEDEI = "OrganizationEventDetailsErrorItem";
 const _OEDFL = "OrganizationEventDetailFiltersList";
 const _OEF = "OrganizationEventFilter";
 const _OEFL = "OrganizationEntityFiltersList";
 const _OEL = "OrganizationEventList";
+const _OETF = "OrganizationEventTagFilter";
+const _OT = "OrganizationTag";
+const _OTK = "OrganizationTagKey";
+const _OTKL = "OrganizationTagKeyList";
+const _OTL = "OrganizationTagList";
+const _RTK = "ResourceTagKey";
+const _RTKL = "ResourceTagKeyList";
 const _SL = "ServiceLifecycle";
 const _SLF = "ServiceLifecycleFilter";
 const _SLL = "ServiceLifecycleList";
+const _TKFO = "TagKeyForOrganization";
 const _UL = "UnsupportedLocale";
 const _a = "arn";
 const _aA = "affectedAccounts";
+const _aAE = "affectedAccountEntities";
 const _aAI = "awsAccountId";
 const _aAIw = "awsAccountIds";
 const _aF = "aggregateField";
 const _aI = "accountId";
+const _aT = "accountTags";
 const _aV = "aggregateValue";
 const _aZ = "availabilityZone";
 const _aZv = "availabilityZones";
@@ -96,6 +146,7 @@ const _ac = "actionability";
 const _acc = "accounts";
 const _act = "actionabilities";
 const _c = "client";
+const _cTK = "configuredTagKeys";
 const _ca = "category";
 const _co = "count";
 const _cod = "code";
@@ -103,13 +154,14 @@ const _d = "date";
 const _dTRL = "dateTimeRangeList";
 const _de = "description";
 const _e = "error";
-const _eA = "entityArn";
-const _eAn = "entityAggregates";
-const _eAnt = "entityArns";
-const _eAv = "eventArn";
-const _eAve = "eventArns";
-const _eAven = "eventAggregates";
+const _eA = "eventArn";
+const _eAn = "entityArn";
+const _eAnt = "entityAggregates";
+const _eAnti = "entityArns";
+const _eAv = "eventArns";
+const _eAve = "eventAggregates";
 const _eD = "eventDescription";
+const _eFEB = "enabledForEventBridge";
 const _eM = "entityMetadata";
 const _eMr = "errorMessage";
 const _eMv = "eventMetadata";
@@ -134,6 +186,8 @@ const _fS = "failedSet";
 const _fi = "filter";
 const _hSASFO = "healthServiceAccessStatusForOrganization";
 const _iR = "impactRisks";
+const _k = "key";
+const _ke = "keys";
 const _l = "locale";
 const _lD = "latestDescription";
 const _lE = "lifecycleEvents";
@@ -149,6 +203,7 @@ const _oEDF = "organizationEventDetailFilters";
 const _oEF = "organizationEntityFilters";
 const _p = "personas";
 const _r = "region";
+const _rT = "resourceTags";
 const _rV = "recommendedVersion";
 const _re = "regions";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.health";
@@ -161,11 +216,15 @@ const _sTt = "startTimes";
 const _se = "service";
 const _ser = "services";
 const _st = "statuses";
-const _t = "tags";
-const _tF = "tagFilter";
+const _sta = "status";
+const _t = "type";
+const _tK = "tagKeys";
+const _tT = "tagTypes";
+const _ta = "tags";
 const _ti = "title";
 const _to = "to";
-const _v = "version";
+const _v = "value";
+const _ve = "version";
 const n0 = "com.amazonaws.health";
 
 // smithy-typescript generated code
@@ -213,15 +272,50 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+export var AccountEntity$: StaticStructureSchema = [3, n0, _AE,
+  0,
+  [_aI, _aT],
+  [0, 128 | 0]
+];
 export var AccountEntityAggregate$: StaticStructureSchema = [3, n0, _AEA,
   0,
   [_aI, _co, _st],
   [0, 1, 128 | 1]
 ];
-export var AffectedEntity$: StaticStructureSchema = [3, n0, _AE,
+export var AccountTag$: StaticStructureSchema = [3, n0, _AT,
   0,
-  [_eA, _eAv, _eV, _eU, _aAI, _lUT, _sC, _t, _eM],
-  [0, 0, 0, 0, 0, 4, 0, 128 | 0, 128 | 0]
+  [_k, _v, _t],
+  [0, 0, 0]
+];
+export var AffectedAccountFilter$: StaticStructureSchema = [3, n0, _AAF,
+  0,
+  [_eA, _ta],
+  [0, [2, n0, _AAFOTF, 0, 0, 64 | 0]]
+];
+export var AffectedEntity$: StaticStructureSchema = [3, n0, _AEf,
+  0,
+  [_eAn, _eA, _eV, _eU, _aAI, _lUT, _sC, _rT, _aT, _ta, _eM],
+  [0, 0, 0, 0, 0, 4, 0, 128 | 0, 128 | 0, 128 | 0, 128 | 0]
+];
+export var ConfigureTagsForOrganizationRequest$: StaticStructureSchema = [3, n0, _CTFOR,
+  0,
+  [_tK],
+  [() => ConfigureTagsForOrganizationTagKeyList], 1
+];
+export var ConfigureTagsForOrganizationResponse$: StaticStructureSchema = [3, n0, _CTFORo,
+  0,
+  [_cTK],
+  [() => ConfigureTagsForOrganizationTagKeyList]
+];
+export var ConfigureTagsRequest$: StaticStructureSchema = [3, n0, _CTR,
+  0,
+  [_tK],
+  [() => ConfigureTagsResourceTagKeyList], 1
+];
+export var ConfigureTagsResponse$: StaticStructureSchema = [3, n0, _CTRo,
+  0,
+  [_cTK],
+  [() => ConfigureTagsResourceTagKeyList]
 ];
 export var DateTimeRange$: StaticStructureSchema = [3, n0, _DTR,
   0,
@@ -230,13 +324,13 @@ export var DateTimeRange$: StaticStructureSchema = [3, n0, _DTR,
 ];
 export var DescribeAffectedAccountsForOrganizationRequest$: StaticStructureSchema = [3, n0, _DAAFOR,
   0,
-  [_eAv, _nT, _mR],
-  [0, 0, 1], 1
+  [_eA, _nT, _mR, _fi],
+  [0, 0, 1, () => AffectedAccountFilter$], 1
 ];
 export var DescribeAffectedAccountsForOrganizationResponse$: StaticStructureSchema = [3, n0, _DAAFORe,
   0,
-  [_aA, _eSC, _nT],
-  [64 | 0, 0, 0]
+  [_aA, _aAE, _eSC, _nT],
+  [64 | 0, () => AffectedAccountEntityList, 0, 0]
 ];
 export var DescribeAffectedEntitiesForOrganizationRequest$: StaticStructureSchema = [3, n0, _DAEFOR,
   0,
@@ -260,8 +354,8 @@ export var DescribeAffectedEntitiesResponse$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribeEntityAggregatesForOrganizationRequest$: StaticStructureSchema = [3, n0, _DEAFOR,
   0,
-  [_eAve, _aAIw],
-  [64 | 0, 64 | 0], 1
+  [_eAv, _aAIw, _fi],
+  [64 | 0, 64 | 0, () => OrganizationEntityAggregateFilter$], 1
 ];
 export var DescribeEntityAggregatesForOrganizationResponse$: StaticStructureSchema = [3, n0, _DEAFORe,
   0,
@@ -270,12 +364,12 @@ export var DescribeEntityAggregatesForOrganizationResponse$: StaticStructureSche
 ];
 export var DescribeEntityAggregatesRequest$: StaticStructureSchema = [3, n0, _DEAR,
   0,
-  [_eAve],
-  [64 | 0]
+  [_eAv, _fi],
+  [64 | 0, () => EntityAggregateFilter$]
 ];
 export var DescribeEntityAggregatesResponse$: StaticStructureSchema = [3, n0, _DEARe,
   0,
-  [_eAn],
+  [_eAnt],
   [() => EntityAggregateList]
 ];
 export var DescribeEventAggregatesRequest$: StaticStructureSchema = [3, n0, _DEARes,
@@ -285,7 +379,7 @@ export var DescribeEventAggregatesRequest$: StaticStructureSchema = [3, n0, _DEA
 ];
 export var DescribeEventAggregatesResponse$: StaticStructureSchema = [3, n0, _DEAResc,
   0,
-  [_eAven, _nT],
+  [_eAve, _nT],
   [() => EventAggregateList, 0]
 ];
 export var DescribeEventDetailsForOrganizationRequest$: StaticStructureSchema = [3, n0, _DEDFOR,
@@ -300,7 +394,7 @@ export var DescribeEventDetailsForOrganizationResponse$: StaticStructureSchema =
 ];
 export var DescribeEventDetailsRequest$: StaticStructureSchema = [3, n0, _DEDR,
   0,
-  [_eAve, _l],
+  [_eAv, _l],
   [64 | 0, 0], 1
 ];
 export var DescribeEventDetailsResponse$: StaticStructureSchema = [3, n0, _DEDRe,
@@ -353,20 +447,70 @@ export var DescribeServiceLifecycleResponse$: StaticStructureSchema = [3, n0, _D
   [_sL, _nT],
   [() => ServiceLifecycleList, 0]
 ];
+export var DescribeTagKeysForOrganizationResponse$: StaticStructureSchema = [3, n0, _DTKFOR,
+  0,
+  [_ke],
+  [() => OrganizationTagKeyList]
+];
+export var DescribeTagKeysResponse$: StaticStructureSchema = [3, n0, _DTKR,
+  0,
+  [_ke],
+  [() => ResourceTagKeyList]
+];
+export var DescribeTagsForOrganizationFilter$: StaticStructureSchema = [3, n0, _DTFOF,
+  0,
+  [_tT],
+  [64 | 0]
+];
+export var DescribeTagsForOrganizationRequest$: StaticStructureSchema = [3, n0, _DTFOR,
+  0,
+  [_fi, _nT, _mR],
+  [() => DescribeTagsForOrganizationFilter$, 0, 1]
+];
+export var DescribeTagsForOrganizationResponse$: StaticStructureSchema = [3, n0, _DTFORe,
+  0,
+  [_ta, _nT],
+  [() => OrganizationTagList, 0]
+];
+export var DescribeTagsOnboardingStatusForOrganizationResponse$: StaticStructureSchema = [3, n0, _DTOSFOR,
+  0,
+  [_sta],
+  [0]
+];
+export var DescribeTagsOnboardingStatusResponse$: StaticStructureSchema = [3, n0, _DTOSR,
+  0,
+  [_sta],
+  [0]
+];
+export var DescribeTagsRequest$: StaticStructureSchema = [3, n0, _DTRe,
+  0,
+  [_nT, _mR],
+  [0, 1]
+];
+export var DescribeTagsResponse$: StaticStructureSchema = [3, n0, _DTRes,
+  0,
+  [_ta, _nT],
+  [() => AccountTagList, 0]
+];
 export var EntityAccountFilter$: StaticStructureSchema = [3, n0, _EAF,
   0,
-  [_eAv, _aAI, _sCt],
-  [0, 0, 64 | 0], 1
+  [_eA, _aAI, _sCt, _ta],
+  [0, 0, 64 | 0, [2, n0, _AEFOTF, 0, 0, 64 | 0]], 1
 ];
 export var EntityAggregate$: StaticStructureSchema = [3, n0, _EA,
   0,
-  [_eAv, _co, _st],
+  [_eA, _co, _st],
   [0, 1, 128 | 1]
+];
+export var EntityAggregateFilter$: StaticStructureSchema = [3, n0, _EAFn,
+  0,
+  [_ta],
+  [[2, n0, _DEATF, 0, 0, 64 | 0]]
 ];
 export var EntityFilter$: StaticStructureSchema = [3, n0, _EF,
   0,
-  [_eAve, _eAnt, _eVn, _lUTa, _t, _sCt],
-  [64 | 0, 64 | 0, 64 | 0, () => dateTimeRangeList, [1, n0, _tF, 0, 128 | 0], 64 | 0], 1
+  [_eAv, _eAnti, _eVn, _lUTa, _ta, _sCt],
+  [64 | 0, 64 | 0, 64 | 0, () => dateTimeRangeList, [2, n0, _DAETF, 0, 0, 64 | 0], 64 | 0], 1
 ];
 export var Event$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -375,7 +519,7 @@ export var Event$: StaticStructureSchema = [3, n0, _E,
 ];
 export var EventAccountFilter$: StaticStructureSchema = [3, n0, _EAFv,
   0,
-  [_eAv, _aAI],
+  [_eA, _aAI],
   [0, 0], 1
 ];
 export var EventAggregate$: StaticStructureSchema = [3, n0, _EAv,
@@ -395,13 +539,13 @@ export var EventDetails$: StaticStructureSchema = [3, n0, _EDv,
 ];
 export var EventDetailsErrorItem$: StaticStructureSchema = [3, n0, _EDEI,
   0,
-  [_eAv, _eN, _eMr],
+  [_eA, _eN, _eMr],
   [0, 0, 0]
 ];
 export var EventFilter$: StaticStructureSchema = [3, n0, _EFv,
   0,
-  [_act, _eAve, _eTCve, _ser, _re, _aZv, _sTt, _eTnd, _lUTa, _eAnt, _eVn, _eTCven, _t, _eSCv, _p],
-  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => dateTimeRangeList, () => dateTimeRangeList, () => dateTimeRangeList, 64 | 0, 64 | 0, 64 | 0, [1, n0, _tF, 0, 128 | 0], 64 | 0, 64 | 0]
+  [_act, _eAv, _eTCve, _ser, _re, _aZv, _sTt, _eTnd, _lUTa, _eAnti, _eVn, _eTCven, _ta, _eSCv, _p],
+  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => dateTimeRangeList, () => dateTimeRangeList, () => dateTimeRangeList, 64 | 0, 64 | 0, 64 | 0, [2, n0, _DETF, 0, 0, 64 | 0], 64 | 0, 64 | 0]
 ];
 export var EventType$: StaticStructureSchema = [3, n0, _ET,
   0,
@@ -420,13 +564,18 @@ export var LifecycleEvent$: StaticStructureSchema = [3, n0, _LE,
 ];
 export var OrganizationAffectedEntitiesErrorItem$: StaticStructureSchema = [3, n0, _OAEEI,
   0,
-  [_aAI, _eAv, _eN, _eMr],
+  [_aAI, _eA, _eN, _eMr],
   [0, 0, 0, 0]
 ];
 export var OrganizationEntityAggregate$: StaticStructureSchema = [3, n0, _OEA,
   0,
-  [_eAv, _co, _st, _acc],
+  [_eA, _co, _st, _acc],
   [0, 1, 128 | 1, () => AccountEntityAggregatesList]
+];
+export var OrganizationEntityAggregateFilter$: StaticStructureSchema = [3, n0, _OEAF,
+  0,
+  [_ta],
+  [[2, n0, _OEATF, 0, 0, 64 | 0]]
 ];
 export var OrganizationEvent$: StaticStructureSchema = [3, n0, _OE,
   0,
@@ -440,17 +589,32 @@ export var OrganizationEventDetails$: StaticStructureSchema = [3, n0, _OED,
 ];
 export var OrganizationEventDetailsErrorItem$: StaticStructureSchema = [3, n0, _OEDEI,
   0,
-  [_aAI, _eAv, _eN, _eMr],
+  [_aAI, _eA, _eN, _eMr],
   [0, 0, 0, 0]
 ];
 export var OrganizationEventFilter$: StaticStructureSchema = [3, n0, _OEF,
   0,
-  [_act, _eTCve, _aAIw, _ser, _re, _sT, _eTn, _lUT, _eAnt, _eVn, _eTCven, _eSCv, _p],
-  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => DateTimeRange$, () => DateTimeRange$, () => DateTimeRange$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+  [_act, _eTCve, _aAIw, _ser, _re, _sT, _eTn, _lUT, _eAnti, _eVn, _eTCven, _eSCv, _p, _ta],
+  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => DateTimeRange$, () => DateTimeRange$, () => DateTimeRange$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, [2, n0, _OETF, 0, 0, 64 | 0]]
+];
+export var OrganizationTag$: StaticStructureSchema = [3, n0, _OT,
+  0,
+  [_k, _v, _t],
+  [0, 0, 0]
+];
+export var OrganizationTagKey$: StaticStructureSchema = [3, n0, _OTK,
+  0,
+  [_k, _eFEB, _sta],
+  [0, 2, 0]
+];
+export var ResourceTagKey$: StaticStructureSchema = [3, n0, _RTK,
+  0,
+  [_k, _eFEB, _sta],
+  [0, 2, 0]
 ];
 export var ServiceLifecycle$: StaticStructureSchema = [3, n0, _SL,
   0,
-  [_se, _v, _ti, _rV, _lE],
+  [_se, _ve, _ti, _rV, _lE],
   [0, 0, 0, 0, () => LifecycleEventList]
 ];
 export var ServiceLifecycleFilter$: StaticStructureSchema = [3, n0, _SLF,
@@ -458,19 +622,40 @@ export var ServiceLifecycleFilter$: StaticStructureSchema = [3, n0, _SLF,
   [_se],
   [0]
 ];
+export var TagKeyForOrganization$: StaticStructureSchema = [3, n0, _TKFO,
+  0,
+  [_k, _eFEB],
+  [0, 2]
+];
 var __Unit = "unit" as const;
 var AccountEntityAggregatesList: StaticListSchema = [1, n0, _AEAL,
   0, () => AccountEntityAggregate$
 ];
+var AccountTagList: StaticListSchema = [1, n0, _ATL,
+  0, () => AccountTag$
+];
+var AffectedAccountEntityList: StaticListSchema = [1, n0, _AAEL,
+  0, () => AccountEntity$
+];
+var AffectedAccountsForOrganizationTagValueList = 64 | 0;
 var affectedAccountsList = 64 | 0;
+var AffectedEntitiesForOrganizationTagValueList = 64 | 0;
 var availabilityZones = 64 | 0;
 var awsAccountIdsList = 64 | 0;
+var ConfigureTagsForOrganizationTagKeyList: StaticListSchema = [1, n0, _CTFOTKL,
+  0, () => TagKeyForOrganization$
+];
+var ConfigureTagsResourceTagKeyList: StaticListSchema = [1, n0, _CTRTKL,
+  0, () => ResourceTagKey$
+];
 var dateTimeRangeList: StaticListSchema = [1, n0, _dTRL,
   0, () => DateTimeRange$
 ];
 var DescribeAffectedEntitiesForOrganizationFailedSet: StaticListSchema = [1, n0, _DAEFOFS,
   0, () => OrganizationAffectedEntitiesErrorItem$
 ];
+var DescribeAffectedEntitiesTagValueList = 64 | 0;
+var DescribeEntityAggregatesTagValueList = 64 | 0;
 var DescribeEventDetailsFailedSet: StaticListSchema = [1, n0, _DEDFS,
   0, () => EventDetailsErrorItem$
 ];
@@ -483,6 +668,7 @@ var DescribeEventDetailsForOrganizationSuccessfulSet: StaticListSchema = [1, n0,
 var DescribeEventDetailsSuccessfulSet: StaticListSchema = [1, n0, _DEDSS,
   0, () => EventDetails$
 ];
+var DescribeEventsTagValueList = 64 | 0;
 var EntityAggregateList: StaticListSchema = [1, n0, _EAL,
   0, () => EntityAggregate$
 ];
@@ -523,6 +709,7 @@ var OrganizationEntityAccountFiltersList: StaticListSchema = [1, n0, _OEAFL,
 var OrganizationEntityAggregatesList: StaticListSchema = [1, n0, _OEAL,
   0, () => OrganizationEntityAggregate$
 ];
+var OrganizationEntityAggregateTagValueList = 64 | 0;
 var OrganizationEntityFiltersList: StaticListSchema = [1, n0, _OEFL,
   0, () => EventAccountFilter$
 ];
@@ -533,18 +720,55 @@ var OrganizationEventDetailFiltersList: StaticListSchema = [1, n0, _OEDFL,
 var OrganizationEventList: StaticListSchema = [1, n0, _OEL,
   0, () => OrganizationEvent$
 ];
+var OrganizationEventTagValueList = 64 | 0;
+var OrganizationTagKeyList: StaticListSchema = [1, n0, _OTKL,
+  0, () => OrganizationTagKey$
+];
+var OrganizationTagList: StaticListSchema = [1, n0, _OTL,
+  0, () => OrganizationTag$
+];
+var OrganizationTagTypeFilter = 64 | 0;
 var regionList = 64 | 0;
+var ResourceTagKeyList: StaticListSchema = [1, n0, _RTKL,
+  0, () => ResourceTagKey$
+];
 var ServiceLifecycleList: StaticListSchema = [1, n0, _SLL,
   0, () => ServiceLifecycle$
 ];
 var serviceList = 64 | 0;
-var tagFilter: StaticListSchema = [1, n0, _tF,
-  0, 128 | 0
+var AccountTagSet = 128 | 0;
+var AffectedAccountsForOrganizationTagFilter: StaticMapSchema = [2, n0, _AAFOTF,
+  0, 0, 64 | 0
+];
+var AffectedEntitiesForOrganizationTagFilter: StaticMapSchema = [2, n0, _AEFOTF,
+  0, 0, 64 | 0
+];
+var DescribeAffectedEntitiesTagFilter: StaticMapSchema = [2, n0, _DAETF,
+  0, 0, 64 | 0
+];
+var DescribeEntityAggregatesTagFilter: StaticMapSchema = [2, n0, _DEATF,
+  0, 0, 64 | 0
+];
+var DescribeEventsTagFilter: StaticMapSchema = [2, n0, _DETF,
+  0, 0, 64 | 0
 ];
 var entityMetadata = 128 | 0;
 var entityStatuses = 128 | 1;
 var eventMetadata = 128 | 0;
+var OrganizationEntityAggregateTagFilter: StaticMapSchema = [2, n0, _OEATF,
+  0, 0, 64 | 0
+];
+var OrganizationEventTagFilter: StaticMapSchema = [2, n0, _OETF,
+  0, 0, 64 | 0
+];
+var ResourceTagSet = 128 | 0;
 var tagSet = 128 | 0;
+export var ConfigureTags$: StaticOperationSchema = [9, n0, _CT,
+  2, () => ConfigureTagsRequest$, () => ConfigureTagsResponse$
+];
+export var ConfigureTagsForOrganization$: StaticOperationSchema = [9, n0, _CTFO,
+  2, () => ConfigureTagsForOrganizationRequest$, () => ConfigureTagsForOrganizationResponse$
+];
 export var DescribeAffectedAccountsForOrganization$: StaticOperationSchema = [9, n0, _DAAFO,
   2, () => DescribeAffectedAccountsForOrganizationRequest$, () => DescribeAffectedAccountsForOrganizationResponse$
 ];
@@ -584,9 +808,39 @@ export var DescribeHealthServiceStatusForOrganization$: StaticOperationSchema = 
 export var DescribeServiceLifecycle$: StaticOperationSchema = [9, n0, _DSL,
   2, () => DescribeServiceLifecycleRequest$, () => DescribeServiceLifecycleResponse$
 ];
+export var DescribeTagKeys$: StaticOperationSchema = [9, n0, _DTK,
+  2, () => __Unit, () => DescribeTagKeysResponse$
+];
+export var DescribeTagKeysForOrganization$: StaticOperationSchema = [9, n0, _DTKFO,
+  2, () => __Unit, () => DescribeTagKeysForOrganizationResponse$
+];
+export var DescribeTags$: StaticOperationSchema = [9, n0, _DT,
+  2, () => DescribeTagsRequest$, () => DescribeTagsResponse$
+];
+export var DescribeTagsForOrganization$: StaticOperationSchema = [9, n0, _DTFO,
+  2, () => DescribeTagsForOrganizationRequest$, () => DescribeTagsForOrganizationResponse$
+];
+export var DescribeTagsOnboardingStatus$: StaticOperationSchema = [9, n0, _DTOS,
+  2, () => __Unit, () => DescribeTagsOnboardingStatusResponse$
+];
+export var DescribeTagsOnboardingStatusForOrganization$: StaticOperationSchema = [9, n0, _DTOSFO,
+  2, () => __Unit, () => DescribeTagsOnboardingStatusForOrganizationResponse$
+];
 export var DisableHealthServiceAccessForOrganization$: StaticOperationSchema = [9, n0, _DHSAFO,
   2, () => __Unit, () => __Unit
 ];
+export var DisableTags$: StaticOperationSchema = [9, n0, _DTi,
+  2, () => __Unit, () => __Unit
+];
+export var DisableTagsForOrganization$: StaticOperationSchema = [9, n0, _DTFOi,
+  2, () => __Unit, () => __Unit
+];
 export var EnableHealthServiceAccessForOrganization$: StaticOperationSchema = [9, n0, _EHSAFO,
+  2, () => __Unit, () => __Unit
+];
+export var EnableTags$: StaticOperationSchema = [9, n0, _ETn,
+  2, () => __Unit, () => __Unit
+];
+export var EnableTagsForOrganization$: StaticOperationSchema = [9, n0, _ETFO,
   2, () => __Unit, () => __Unit
 ];

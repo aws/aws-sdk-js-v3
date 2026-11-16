@@ -19,6 +19,31 @@ export type EntityStatusCode = (typeof EntityStatusCode)[keyof typeof EntityStat
  * @public
  * @enum
  */
+export const AccountTagType = {
+  ACCOUNT_RESOURCE_TAG: "ACCOUNT_RESOURCE_TAG",
+} as const;
+/**
+ * @public
+ */
+export type AccountTagType = (typeof AccountTagType)[keyof typeof AccountTagType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TagKeyStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+} as const;
+/**
+ * @public
+ */
+export type TagKeyStatus = (typeof TagKeyStatus)[keyof typeof TagKeyStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const EventScopeCode = {
   ACCOUNT_SPECIFIC: "ACCOUNT_SPECIFIC",
   NONE: "NONE",
@@ -125,3 +150,43 @@ export const EventTypePersona = {
  * @public
  */
 export type EventTypePersona = (typeof EventTypePersona)[keyof typeof EventTypePersona];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrganizationTagType = {
+  ORGANIZATION_ACCOUNT_TAG: "ORGANIZATION_ACCOUNT_TAG",
+  ORGANIZATION_RESOURCE_TAG: "ORGANIZATION_RESOURCE_TAG",
+} as const;
+/**
+ * @public
+ */
+export type OrganizationTagType = (typeof OrganizationTagType)[keyof typeof OrganizationTagType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TagsOnboardingStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type TagsOnboardingStatus = (typeof TagsOnboardingStatus)[keyof typeof TagsOnboardingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TagsOnboardingStatusForOrganization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type TagsOnboardingStatusForOrganization =
+  (typeof TagsOnboardingStatusForOrganization)[keyof typeof TagsOnboardingStatusForOrganization];

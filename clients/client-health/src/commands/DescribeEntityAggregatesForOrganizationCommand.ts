@@ -42,6 +42,13 @@ export interface DescribeEntityAggregatesForOrganizationCommandOutput extends De
  *   awsAccountIds: [ // OrganizationAccountIdsList
  *     "STRING_VALUE",
  *   ],
+ *   filter: { // OrganizationEntityAggregateFilter
+ *     tags: { // OrganizationEntityAggregateTagFilter
+ *       "<keys>": [ // OrganizationEntityAggregateTagValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new DescribeEntityAggregatesForOrganizationCommand(input);
  * const response = await client.send(command);

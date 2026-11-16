@@ -8,3 +8,5 @@ export * from "./DescribeEventsPaginator";
 export * from "./DescribeEventsForOrganizationPaginator";
 export * from "./DescribeEventTypesPaginator";
 export * from "./DescribeServiceLifecyclePaginator";
+export * from "./DescribeTagsPaginator";
+export * from "./DescribeTagsForOrganizationPaginator";

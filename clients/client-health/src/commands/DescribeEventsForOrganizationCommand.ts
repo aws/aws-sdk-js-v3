@@ -107,6 +107,11 @@ export interface DescribeEventsForOrganizationCommandOutput extends DescribeEven
  *     personas: [ // EventPersonaList
  *       "OPERATIONS" || "SECURITY" || "BILLING",
  *     ],
+ *     tags: { // OrganizationEventTagFilter
+ *       "<keys>": [ // OrganizationEventTagValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),

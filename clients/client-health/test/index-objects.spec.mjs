@@ -1,8 +1,20 @@
 import {
+  AccountEntity$,
   AccountEntityAggregate$,
+  AccountTag$,
+  AccountTagType,
+  AffectedAccountFilter$,
   AffectedEntity$,
   ConcurrentModificationException,
   ConcurrentModificationException$,
+  ConfigureTags$,
+  ConfigureTagsCommand,
+  ConfigureTagsForOrganization$,
+  ConfigureTagsForOrganizationCommand,
+  ConfigureTagsForOrganizationRequest$,
+  ConfigureTagsForOrganizationResponse$,
+  ConfigureTagsRequest$,
+  ConfigureTagsResponse$,
   DateTimeRange$,
   DescribeAffectedAccountsForOrganization$,
   DescribeAffectedAccountsForOrganizationCommand,
@@ -55,12 +67,42 @@ import {
   DescribeServiceLifecycleCommand,
   DescribeServiceLifecycleRequest$,
   DescribeServiceLifecycleResponse$,
+  DescribeTagKeys$,
+  DescribeTagKeysCommand,
+  DescribeTagKeysForOrganization$,
+  DescribeTagKeysForOrganizationCommand,
+  DescribeTagKeysForOrganizationResponse$,
+  DescribeTagKeysResponse$,
+  DescribeTags$,
+  DescribeTagsCommand,
+  DescribeTagsForOrganization$,
+  DescribeTagsForOrganizationCommand,
+  DescribeTagsForOrganizationFilter$,
+  DescribeTagsForOrganizationRequest$,
+  DescribeTagsForOrganizationResponse$,
+  DescribeTagsOnboardingStatus$,
+  DescribeTagsOnboardingStatusCommand,
+  DescribeTagsOnboardingStatusForOrganization$,
+  DescribeTagsOnboardingStatusForOrganizationCommand,
+  DescribeTagsOnboardingStatusForOrganizationResponse$,
+  DescribeTagsOnboardingStatusResponse$,
+  DescribeTagsRequest$,
+  DescribeTagsResponse$,
   DisableHealthServiceAccessForOrganization$,
   DisableHealthServiceAccessForOrganizationCommand,
+  DisableTags$,
+  DisableTagsCommand,
+  DisableTagsForOrganization$,
+  DisableTagsForOrganizationCommand,
   EnableHealthServiceAccessForOrganization$,
   EnableHealthServiceAccessForOrganizationCommand,
+  EnableTags$,
+  EnableTagsCommand,
+  EnableTagsForOrganization$,
+  EnableTagsForOrganizationCommand,
   EntityAccountFilter$,
   EntityAggregate$,
+  EntityAggregateFilter$,
   EntityFilter$,
   EntityStatusCode,
   Event$,
@@ -88,10 +130,14 @@ import {
   LifecycleEvent$,
   OrganizationAffectedEntitiesErrorItem$,
   OrganizationEntityAggregate$,
+  OrganizationEntityAggregateFilter$,
   OrganizationEvent$,
   OrganizationEventDetails$,
   OrganizationEventDetailsErrorItem$,
   OrganizationEventFilter$,
+  OrganizationTag$,
+  OrganizationTagKey$,
+  OrganizationTagType,
   paginateDescribeAffectedAccountsForOrganization,
   paginateDescribeAffectedEntities,
   paginateDescribeAffectedEntitiesForOrganization,
@@ -100,8 +146,15 @@ import {
   paginateDescribeEventsForOrganization,
   paginateDescribeEventTypes,
   paginateDescribeServiceLifecycle,
+  paginateDescribeTags,
+  paginateDescribeTagsForOrganization,
+  ResourceTagKey$,
   ServiceLifecycle$,
   ServiceLifecycleFilter$,
+  TagKeyForOrganization$,
+  TagKeyStatus,
+  TagsOnboardingStatus,
+  TagsOnboardingStatusForOrganization,
   UnsupportedLocale,
   UnsupportedLocale$,
 } from "../dist-cjs/index.js";
@@ -110,6 +163,10 @@ import assert from "node:assert";
 assert(typeof HealthClient === "function");
 assert(typeof Health === "function");
 // commands
+assert(typeof ConfigureTagsCommand === "function");
+assert(typeof ConfigureTags$ === "object");
+assert(typeof ConfigureTagsForOrganizationCommand === "function");
+assert(typeof ConfigureTagsForOrganization$ === "object");
 assert(typeof DescribeAffectedAccountsForOrganizationCommand === "function");
 assert(typeof DescribeAffectedAccountsForOrganization$ === "object");
 assert(typeof DescribeAffectedEntitiesCommand === "function");
@@ -136,13 +193,40 @@ assert(typeof DescribeHealthServiceStatusForOrganizationCommand === "function");
 assert(typeof DescribeHealthServiceStatusForOrganization$ === "object");
 assert(typeof DescribeServiceLifecycleCommand === "function");
 assert(typeof DescribeServiceLifecycle$ === "object");
+assert(typeof DescribeTagKeysCommand === "function");
+assert(typeof DescribeTagKeys$ === "object");
+assert(typeof DescribeTagKeysForOrganizationCommand === "function");
+assert(typeof DescribeTagKeysForOrganization$ === "object");
+assert(typeof DescribeTagsCommand === "function");
+assert(typeof DescribeTags$ === "object");
+assert(typeof DescribeTagsForOrganizationCommand === "function");
+assert(typeof DescribeTagsForOrganization$ === "object");
+assert(typeof DescribeTagsOnboardingStatusCommand === "function");
+assert(typeof DescribeTagsOnboardingStatus$ === "object");
+assert(typeof DescribeTagsOnboardingStatusForOrganizationCommand === "function");
+assert(typeof DescribeTagsOnboardingStatusForOrganization$ === "object");
 assert(typeof DisableHealthServiceAccessForOrganizationCommand === "function");
 assert(typeof DisableHealthServiceAccessForOrganization$ === "object");
+assert(typeof DisableTagsCommand === "function");
+assert(typeof DisableTags$ === "object");
+assert(typeof DisableTagsForOrganizationCommand === "function");
+assert(typeof DisableTagsForOrganization$ === "object");
 assert(typeof EnableHealthServiceAccessForOrganizationCommand === "function");
 assert(typeof EnableHealthServiceAccessForOrganization$ === "object");
+assert(typeof EnableTagsCommand === "function");
+assert(typeof EnableTags$ === "object");
+assert(typeof EnableTagsForOrganizationCommand === "function");
+assert(typeof EnableTagsForOrganization$ === "object");
 // structural schemas
+assert(typeof AccountEntity$ === "object");
 assert(typeof AccountEntityAggregate$ === "object");
+assert(typeof AccountTag$ === "object");
+assert(typeof AffectedAccountFilter$ === "object");
 assert(typeof AffectedEntity$ === "object");
+assert(typeof ConfigureTagsForOrganizationRequest$ === "object");
+assert(typeof ConfigureTagsForOrganizationResponse$ === "object");
+assert(typeof ConfigureTagsRequest$ === "object");
+assert(typeof ConfigureTagsResponse$ === "object");
 assert(typeof DateTimeRange$ === "object");
 assert(typeof DescribeAffectedAccountsForOrganizationRequest$ === "object");
 assert(typeof DescribeAffectedAccountsForOrganizationResponse$ === "object");
@@ -169,8 +253,18 @@ assert(typeof DescribeEventTypesResponse$ === "object");
 assert(typeof DescribeHealthServiceStatusForOrganizationResponse$ === "object");
 assert(typeof DescribeServiceLifecycleRequest$ === "object");
 assert(typeof DescribeServiceLifecycleResponse$ === "object");
+assert(typeof DescribeTagKeysForOrganizationResponse$ === "object");
+assert(typeof DescribeTagKeysResponse$ === "object");
+assert(typeof DescribeTagsForOrganizationFilter$ === "object");
+assert(typeof DescribeTagsForOrganizationRequest$ === "object");
+assert(typeof DescribeTagsForOrganizationResponse$ === "object");
+assert(typeof DescribeTagsOnboardingStatusForOrganizationResponse$ === "object");
+assert(typeof DescribeTagsOnboardingStatusResponse$ === "object");
+assert(typeof DescribeTagsRequest$ === "object");
+assert(typeof DescribeTagsResponse$ === "object");
 assert(typeof EntityAccountFilter$ === "object");
 assert(typeof EntityAggregate$ === "object");
+assert(typeof EntityAggregateFilter$ === "object");
 assert(typeof EntityFilter$ === "object");
 assert(typeof Event$ === "object");
 assert(typeof EventAccountFilter$ === "object");
@@ -184,13 +278,19 @@ assert(typeof EventTypeFilter$ === "object");
 assert(typeof LifecycleEvent$ === "object");
 assert(typeof OrganizationAffectedEntitiesErrorItem$ === "object");
 assert(typeof OrganizationEntityAggregate$ === "object");
+assert(typeof OrganizationEntityAggregateFilter$ === "object");
 assert(typeof OrganizationEvent$ === "object");
 assert(typeof OrganizationEventDetails$ === "object");
 assert(typeof OrganizationEventDetailsErrorItem$ === "object");
 assert(typeof OrganizationEventFilter$ === "object");
+assert(typeof OrganizationTag$ === "object");
+assert(typeof OrganizationTagKey$ === "object");
+assert(typeof ResourceTagKey$ === "object");
 assert(typeof ServiceLifecycle$ === "object");
 assert(typeof ServiceLifecycleFilter$ === "object");
+assert(typeof TagKeyForOrganization$ === "object");
 // enums
+assert(typeof AccountTagType === "object");
 assert(typeof EntityStatusCode === "object");
 assert(typeof EventActionability === "object");
 assert(typeof EventAggregateField === "object");
@@ -200,6 +300,10 @@ assert(typeof EventStatusCode === "object");
 assert(typeof EventTypeActionability === "object");
 assert(typeof EventTypeCategory === "object");
 assert(typeof EventTypePersona === "object");
+assert(typeof OrganizationTagType === "object");
+assert(typeof TagKeyStatus === "object");
+assert(typeof TagsOnboardingStatus === "object");
+assert(typeof TagsOnboardingStatusForOrganization === "object");
 // errors
 assert(ConcurrentModificationException.prototype instanceof HealthServiceException);
 assert(typeof ConcurrentModificationException$ === "object");
@@ -217,4 +321,6 @@ assert(typeof paginateDescribeEventTypes === "function");
 assert(typeof paginateDescribeEvents === "function");
 assert(typeof paginateDescribeEventsForOrganization === "function");
 assert(typeof paginateDescribeServiceLifecycle === "function");
+assert(typeof paginateDescribeTags === "function");
+assert(typeof paginateDescribeTagsForOrganization === "function");
 console.log(`Health index test passed.`);

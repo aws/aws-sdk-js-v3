@@ -70,6 +70,11 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput extends De
  *       statusCodes: [ // entityStatusCodeList
  *         "IMPAIRED" || "UNIMPAIRED" || "UNKNOWN" || "PENDING" || "RESOLVED",
  *       ],
+ *       tags: { // AffectedEntitiesForOrganizationTagFilter
+ *         "<keys>": [ // AffectedEntitiesForOrganizationTagValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *   ],
  * };
@@ -85,6 +90,12 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput extends De
  * //       awsAccountId: "STRING_VALUE",
  * //       lastUpdatedTime: new Date("TIMESTAMP"),
  * //       statusCode: "IMPAIRED" || "UNIMPAIRED" || "UNKNOWN" || "PENDING" || "RESOLVED",
+ * //       resourceTags: { // ResourceTagSet
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       accountTags: { // AccountTagSet
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //       tags: { // tagSet
  * //         "<keys>": "STRING_VALUE",
  * //       },

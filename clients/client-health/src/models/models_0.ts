@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  AccountTagType,
   EntityStatusCode,
   EventActionability,
   EventAggregateField,
@@ -9,7 +10,29 @@ import type {
   EventTypeActionability,
   EventTypeCategory,
   EventTypePersona,
+  OrganizationTagType,
+  TagKeyStatus,
+  TagsOnboardingStatus,
+  TagsOnboardingStatusForOrganization,
 } from "./enums";
+
+/**
+ * <p>An entity representing an affected account, including its account ID and associated tags.</p>
+ * @public
+ */
+export interface AccountEntity {
+  /**
+   * <p>The 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * <p>A map of tag key-value pairs attached to the affected account.</p>
+   * @public
+   */
+  accountTags?: Record<string, string> | undefined;
+}
 
 /**
  * <p>The number of entities in an account that are impacted by a specific event aggregated by the entity status codes.</p>
@@ -33,6 +56,56 @@ export interface AccountEntityAggregate {
    * @public
    */
   statuses?: Partial<Record<EntityStatusCode, number>> | undefined;
+}
+
+/**
+ * <p>A tag key-value pair associated with a resource in an account.</p>
+ * @public
+ */
+export interface AccountTag {
+  /**
+   * <p>The tag key.</p>
+   * @public
+   */
+  key?: string | undefined;
+
+  /**
+   * <p>The tag value.</p>
+   * @public
+   */
+  value?: string | undefined;
+
+  /**
+   * <p>The type of tag (resource tag or account tag).</p>
+   * @public
+   */
+  type?: AccountTagType | undefined;
+}
+
+/**
+ * <p>A filter for narrowing down affected accounts in an organization event.</p>
+ * @public
+ */
+export interface AffectedAccountFilter {
+  /**
+   * <p>The unique identifier for the event. The event ARN has the
+   * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
+   *             </code>
+   * format.</p>
+   *          <p>For example, an event ARN might look like the following:</p>
+   *          <p>
+   *             <code>arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+   *          </p>
+   * @public
+   */
+  eventArn?: string | undefined;
+
+  /**
+   * <p>A map of tag keys to lists of tag values. A tag matches when its key is in the map and its value is one of the values listed for that key. Matching is case sensitive, and the filter matches when at least one key in the map matches.</p>
+   *          <p>An account is returned when its own tags, or the tags of one of its affected resources, match.</p>
+   * @public
+   */
+  tags?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -93,7 +166,19 @@ export interface AffectedEntity {
   statusCode?: EntityStatusCode | undefined;
 
   /**
-   * <p>A map of entity tags attached to the affected entity.</p>
+   * <p>A map of resource tag key-value pairs attached to the affected entity.</p>
+   * @public
+   */
+  resourceTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of account tag key-value pairs attached to the affected entity.</p>
+   * @public
+   */
+  accountTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of resource tag key-value pairs attached to the affected entity.</p>
    *          <note>
    *             <p>Currently, the <code>tags</code> property isn't supported.</p>
    *          </note>
@@ -106,6 +191,92 @@ export interface AffectedEntity {
    * @public
    */
   entityMetadata?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A resource tag key configured for Health event tracking.</p>
+ * @public
+ */
+export interface ResourceTagKey {
+  /**
+   * <p>The tag key name.</p>
+   * @public
+   */
+  key?: string | undefined;
+
+  /**
+   * <p>Whether this tag key is enabled for EventBridge notifications.</p>
+   * @public
+   */
+  enabledForEventBridge?: boolean | undefined;
+
+  /**
+   * <p>The current status of the tag key configuration.</p>
+   * @public
+   */
+  status?: TagKeyStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ConfigureTagsRequest {
+  /**
+   * <p>The list of resource tag keys to configure for Health event tracking.</p>
+   * @public
+   */
+  tagKeys: ResourceTagKey[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ConfigureTagsResponse {
+  /**
+   * <p>The list of resource tag keys that were successfully configured.</p>
+   * @public
+   */
+  configuredTagKeys?: ResourceTagKey[] | undefined;
+}
+
+/**
+ * <p>A tag key configured for an organization.</p>
+ * @public
+ */
+export interface TagKeyForOrganization {
+  /**
+   * <p>The tag key name.</p>
+   * @public
+   */
+  key?: string | undefined;
+
+  /**
+   * <p>Whether this tag key is enabled for EventBridge notifications.</p>
+   * @public
+   */
+  enabledForEventBridge?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ConfigureTagsForOrganizationRequest {
+  /**
+   * <p>The list of tag keys to configure for Health event tracking across the organization.</p>
+   * @public
+   */
+  tagKeys: TagKeyForOrganization[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ConfigureTagsForOrganizationResponse {
+  /**
+   * <p>The list of tag keys that were successfully configured for the organization.</p>
+   * @public
+   */
+  configuredTagKeys?: TagKeyForOrganization[] | undefined;
 }
 
 /**
@@ -139,6 +310,12 @@ export interface DescribeAffectedAccountsForOrganizationRequest {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>Values to narrow the results returned.</p>
+   * @public
+   */
+  filter?: AffectedAccountFilter | undefined;
 }
 
 /**
@@ -150,6 +327,12 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
    * @public
    */
   affectedAccounts?: string[] | undefined;
+
+  /**
+   * <p>The list of affected account entities, including account IDs and their associated tags.</p>
+   * @public
+   */
+  affectedAccountEntities?: AccountEntity[] | undefined;
 
   /**
    * <p>This parameter specifies if the Health event is a public Amazon Web Services service event or an account-specific event.</p>
@@ -240,13 +423,13 @@ export interface EntityFilter {
   lastUpdatedTimes?: DateTimeRange[] | undefined;
 
   /**
-   * <p>A map of entity tags attached to the affected entity.</p>
+   * <p>A map of resource tag key-value pairs to filter affected entities.</p>
    *          <note>
    *             <p>Currently, the <code>tags</code> property isn't supported.</p>
    *          </note>
    * @public
    */
-  tags?: Record<string, string>[] | undefined;
+  tags?: Record<string, string[]> | undefined;
 
   /**
    * <p>A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or
@@ -337,6 +520,13 @@ export interface EntityAccountFilter {
    * @public
    */
   statusCodes?: EntityStatusCode[] | undefined;
+
+  /**
+   * <p>A map of tag keys to lists of tag values. A tag matches when its key is in the map and its value is one of the values listed for that key. Matching is case sensitive, and the filter matches when at least one key in the map matches.</p>
+   *          <p>An entity is returned when the tags of the resource, or of the account it belongs to, match. When you specify several filters in <code>organizationEntityAccountFilters</code>, the tags must be identical in every filter.</p>
+   * @public
+   */
+  tags?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -477,6 +667,19 @@ export interface DescribeAffectedEntitiesForOrganizationResponse {
 }
 
 /**
+ * <p>A filter for narrowing down the entity aggregates returned by DescribeEntityAggregates.</p>
+ * @public
+ */
+export interface EntityAggregateFilter {
+  /**
+   * <p>A map of tag keys to lists of tag values. A tag matches when its key is in the map and its value is one of the values listed for that key. Matching is case sensitive, and the filter matches when at least one key in the map matches.</p>
+   *          <p>Only entities whose tags match are included in the aggregates.</p>
+   * @public
+   */
+  tags?: Record<string, string[]> | undefined;
+}
+
+/**
  * @public
  */
 export interface DescribeEntityAggregatesRequest {
@@ -486,6 +689,12 @@ export interface DescribeEntityAggregatesRequest {
    * @public
    */
   eventArns?: string[] | undefined;
+
+  /**
+   * <p>Values to narrow the results returned.</p>
+   * @public
+   */
+  filter?: EntityAggregateFilter | undefined;
 }
 
 /**
@@ -531,6 +740,19 @@ export interface DescribeEntityAggregatesResponse {
 }
 
 /**
+ * <p>A filter for narrowing down the entity aggregates returned by DescribeEntityAggregatesForOrganization.</p>
+ * @public
+ */
+export interface OrganizationEntityAggregateFilter {
+  /**
+   * <p>A map of tag keys to lists of tag values. A tag matches when its key is in the map and its value is one of the values listed for that key. Matching is case sensitive, and the filter matches when at least one key in the map matches.</p>
+   *          <p>Only entities whose tags match are included in the aggregates.</p>
+   * @public
+   */
+  tags?: Record<string, string[]> | undefined;
+}
+
+/**
  * @public
  */
 export interface DescribeEntityAggregatesForOrganizationRequest {
@@ -546,6 +768,12 @@ export interface DescribeEntityAggregatesForOrganizationRequest {
    * @public
    */
   awsAccountIds?: string[] | undefined;
+
+  /**
+   * <p>Values to narrow the results returned.</p>
+   * @public
+   */
+  filter?: OrganizationEntityAggregateFilter | undefined;
 }
 
 /**
@@ -676,13 +904,13 @@ export interface EventFilter {
   eventTypeCategories?: EventTypeCategory[] | undefined;
 
   /**
-   * <p>A map of entity tags attached to the affected entity.</p>
+   * <p>A map of resource tag key-value pairs to filter affected entities.</p>
    *          <note>
    *             <p>Currently, the <code>tags</code> property isn't supported.</p>
    *          </note>
    * @public
    */
-  tags?: Record<string, string>[] | undefined;
+  tags?: Record<string, string[]> | undefined;
 
   /**
    * <p>A list of event status codes.</p>
@@ -1066,7 +1294,7 @@ export interface OrganizationEventDetailsErrorItem {
    *             </li>
    *             <li>
    *                <p>Your Amazon Web Services account doesn't include the Amazon Web Services Support plan required to use the
-   * Health API. You must have either a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
+   * Health API. You must have either a Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1297,6 +1525,13 @@ export interface OrganizationEventFilter {
    * @public
    */
   personas?: EventPersona[] | undefined;
+
+  /**
+   * <p>A map of tag keys to lists of tag values. A tag matches when its key is in the map and its value is one of the values listed for that key. Matching is case sensitive, and the filter matches when at least one key in the map matches.</p>
+   *          <p>An event is returned when one of its affected accounts, or one of the entities of those accounts, has tags that match.</p>
+   * @public
+   */
+  tags?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -1655,7 +1890,7 @@ export interface DescribeServiceLifecycleRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in one batch, between 1 and 20, inclusive.</p>
+   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1751,4 +1986,194 @@ export interface DescribeServiceLifecycleResponse {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTagKeysResponse {
+  /**
+   * <p>The list of configured resource tag keys and their status.</p>
+   * @public
+   */
+  keys?: ResourceTagKey[] | undefined;
+}
+
+/**
+ * <p>A tag key configured for Health event tracking across an organization.</p>
+ * @public
+ */
+export interface OrganizationTagKey {
+  /**
+   * <p>The tag key name.</p>
+   * @public
+   */
+  key?: string | undefined;
+
+  /**
+   * <p>Whether this tag key is enabled for EventBridge notifications.</p>
+   * @public
+   */
+  enabledForEventBridge?: boolean | undefined;
+
+  /**
+   * <p>The current status of the tag key configuration.</p>
+   * @public
+   */
+  status?: TagKeyStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTagKeysForOrganizationResponse {
+  /**
+   * <p>The list of configured tag keys for the organization and their status.</p>
+   * @public
+   */
+  keys?: OrganizationTagKey[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTagsRequest {
+  /**
+   * <p>If the results of a search are large, only a portion of the
+   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
+   * retrieve the next batch of results, reissue the search request and include the returned token.
+   * When all results have been returned, the response does not contain a pagination token value.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTagsResponse {
+  /**
+   * <p>The list of resource tags associated with Health events.</p>
+   * @public
+   */
+  tags?: AccountTag[] | undefined;
+
+  /**
+   * <p>If the results of a search are large, only a portion of the
+   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
+   * retrieve the next batch of results, reissue the search request and include the returned token.
+   * When all results have been returned, the response does not contain a pagination token value.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A filter for narrowing down the tags returned by DescribeTagsForOrganization.</p>
+ * @public
+ */
+export interface DescribeTagsForOrganizationFilter {
+  /**
+   * <p>The types of tags to include in the results.</p>
+   * @public
+   */
+  tagTypes?: OrganizationTagType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTagsForOrganizationRequest {
+  /**
+   * <p>Values to narrow the results returned.</p>
+   * @public
+   */
+  filter?: DescribeTagsForOrganizationFilter | undefined;
+
+  /**
+   * <p>If the results of a search are large, only a portion of the
+   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
+   * retrieve the next batch of results, reissue the search request and include the returned token.
+   * When all results have been returned, the response does not contain a pagination token value.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>A tag key-value pair associated with a resource across an organization.</p>
+ * @public
+ */
+export interface OrganizationTag {
+  /**
+   * <p>The tag key.</p>
+   * @public
+   */
+  key?: string | undefined;
+
+  /**
+   * <p>The tag value.</p>
+   * @public
+   */
+  value?: string | undefined;
+
+  /**
+   * <p>The type of organization tag.</p>
+   * @public
+   */
+  type?: OrganizationTagType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTagsForOrganizationResponse {
+  /**
+   * <p>The list of tags associated with Health events across the organization.</p>
+   * @public
+   */
+  tags?: OrganizationTag[] | undefined;
+
+  /**
+   * <p>If the results of a search are large, only a portion of the
+   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
+   * retrieve the next batch of results, reissue the search request and include the returned token.
+   * When all results have been returned, the response does not contain a pagination token value.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTagsOnboardingStatusResponse {
+  /**
+   * <p>The current onboarding status of the tags feature for the account.</p>
+   * @public
+   */
+  status?: TagsOnboardingStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTagsOnboardingStatusForOrganizationResponse {
+  /**
+   * <p>The current onboarding status of the tags feature for the organization.</p>
+   * @public
+   */
+  status?: TagsOnboardingStatusForOrganization | undefined;
 }

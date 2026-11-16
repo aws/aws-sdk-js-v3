@@ -36,6 +36,13 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
  *   eventArns: [ // EventArnsList
  *     "STRING_VALUE",
  *   ],
+ *   filter: { // EntityAggregateFilter
+ *     tags: { // DescribeEntityAggregatesTagFilter
+ *       "<keys>": [ // DescribeEntityAggregatesTagValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new DescribeEntityAggregatesCommand(input);
  * const response = await client.send(command);

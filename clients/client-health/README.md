@@ -10,8 +10,8 @@ AWS SDK for JavaScript Health Client for Node.js, Browser and React Native.
 <p>The Health API provides access to the Health information that appears in the
 <a href="https://health.aws.amazon.com/health/home">Health Dashboard</a>. You can use
 the API operations to get information about events that might affect your Amazon Web Services services and resources.</p>
-<p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a> to use the Health API. If you call the Health API from an
-Amazon Web Services account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan, you receive a
+<p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a> to use the Health API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Health API with a Business, Enterprise On-Ramp, or Enterprise Support plan. If you call the Health API from an
+Amazon Web Services account that isn't enrolled in one of these plans, then you receive a
 <code>SubscriptionRequiredException</code> error.</p>
 <p>For API access, you need an access key ID and a secret access key. Use temporary
 credentials instead of long-term access keys when possible. Temporary credentials include
@@ -262,6 +262,20 @@ see LICENSE for more information.
 
 <details>
 <summary>
+ConfigureTags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/ConfigureTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/ConfigureTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/ConfigureTagsCommandOutput/)
+</details>
+<details>
+<summary>
+ConfigureTagsForOrganization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/ConfigureTagsForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/ConfigureTagsForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/ConfigureTagsForOrganizationCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeAffectedAccountsForOrganization
 </summary>
 
@@ -353,6 +367,48 @@ DescribeServiceLifecycle
 </details>
 <details>
 <summary>
+DescribeTagKeys
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeTagKeysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeTagKeysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeTagKeysCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeTagKeysForOrganization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeTagKeysForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeTagKeysForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeTagKeysForOrganizationCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeTags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeTagsCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeTagsForOrganization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeTagsForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeTagsForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeTagsForOrganizationCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeTagsOnboardingStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeTagsOnboardingStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeTagsOnboardingStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeTagsOnboardingStatusCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeTagsOnboardingStatusForOrganization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeTagsOnboardingStatusForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeTagsOnboardingStatusForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeTagsOnboardingStatusForOrganizationCommandOutput/)
+</details>
+<details>
+<summary>
 DisableHealthServiceAccessForOrganization
 </summary>
 
@@ -360,8 +416,36 @@ DisableHealthServiceAccessForOrganization
 </details>
 <details>
 <summary>
+DisableTags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DisableTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DisableTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DisableTagsCommandOutput/)
+</details>
+<details>
+<summary>
+DisableTagsForOrganization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DisableTagsForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DisableTagsForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DisableTagsForOrganizationCommandOutput/)
+</details>
+<details>
+<summary>
 EnableHealthServiceAccessForOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/EnableHealthServiceAccessForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/EnableHealthServiceAccessForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/EnableHealthServiceAccessForOrganizationCommandOutput/)
+</details>
+<details>
+<summary>
+EnableTags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/EnableTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/EnableTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/EnableTagsCommandOutput/)
+</details>
+<details>
+<summary>
+EnableTagsForOrganization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/EnableTagsForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/EnableTagsForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/EnableTagsForOrganizationCommandOutput/)
 </details>
