@@ -41,6 +41,10 @@ const _LSO = "ListStreamsOutput";
 const _LTFR = "ListTagsForResource";
 const _LTFRI = "ListTagsForResourceInput";
 const _LTFRO = "ListTagsForResourceOutput";
+const _MGR = "MetricGroupRequest";
+const _MGRL = "MetricGroupRequestList";
+const _MGRLe = "MetricGroupResponseList";
+const _MGRe = "MetricGroupResponse";
 const _MRP = "MultiRegionProperties";
 const _PCP = "PutClusterPolicy";
 const _PCPI = "PutClusterPolicyInput";
@@ -92,6 +96,8 @@ const _k = "kinesis";
 const _kEK = "kmsEncryptionKey";
 const _kKA = "kmsKeyArn";
 const _m = "message";
+const _mG = "metricGroups";
+const _mGe = "metricGroup";
 const _mR = "maxResults";
 const _mRP = "multiRegionProperties";
 const _mr = "max-results";
@@ -209,13 +215,13 @@ export var ClusterSummary$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var CreateClusterInput$: StaticStructureSchema = [3, n0, _CCI,
   0,
-  [_dPE, _kEK, _t, _cT, _mRP, _p, _bPLSC],
-  [2, 0, 128 | 0, [0, 4], () => MultiRegionProperties$, 0, 2]
+  [_dPE, _kEK, _t, _cT, _mRP, _p, _mG, _bPLSC],
+  [2, 0, 128 | 0, [0, 4], () => MultiRegionProperties$, 0, () => MetricGroupRequestList, 2]
 ];
 export var CreateClusterOutput$: StaticStructureSchema = [3, n0, _CCO,
   0,
-  [_i, _a, _st, _cTr, _dPE, _mRP, _eD, _en],
-  [0, 0, 0, 4, 2, () => MultiRegionProperties$, () => EncryptionDetails$, 0], 5
+  [_i, _a, _st, _cTr, _dPE, _mRP, _eD, _en, _mG],
+  [0, 0, 0, 4, 2, () => MultiRegionProperties$, () => EncryptionDetails$, 0, () => MetricGroupResponseList], 5
 ];
 export var CreateStreamInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
@@ -269,8 +275,8 @@ export var GetClusterInput$: StaticStructureSchema = [3, n0, _GCI,
 ];
 export var GetClusterOutput$: StaticStructureSchema = [3, n0, _GCO,
   0,
-  [_i, _a, _st, _cTr, _dPE, _mRP, _t, _eD, _en],
-  [0, 0, 0, 4, 2, () => MultiRegionProperties$, 128 | 0, () => EncryptionDetails$, 0], 5
+  [_i, _a, _st, _cTr, _dPE, _mRP, _t, _eD, _en, _mG],
+  [0, 0, 0, 4, 2, () => MultiRegionProperties$, 128 | 0, () => EncryptionDetails$, 0, () => MetricGroupResponseList], 5
 ];
 export var GetClusterPolicyInput$: StaticStructureSchema = [3, n0, _GCPI,
   0,
@@ -337,6 +343,16 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   [_t],
   [128 | 0]
 ];
+export var MetricGroupRequest$: StaticStructureSchema = [3, n0, _MGR,
+  0,
+  [_mGe],
+  [0], 1
+];
+export var MetricGroupResponse$: StaticStructureSchema = [3, n0, _MGRe,
+  0,
+  [_mGe],
+  [0], 1
+];
 export var MultiRegionProperties$: StaticStructureSchema = [3, n0, _MRP,
   0,
   [_wR, _cl],
@@ -374,8 +390,8 @@ export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
 ];
 export var UpdateClusterInput$: StaticStructureSchema = [3, n0, _UCI,
   0,
-  [_i, _dPE, _kEK, _cT, _mRP],
-  [[0, 1], 2, 0, [0, 4], () => MultiRegionProperties$], 1
+  [_i, _dPE, _kEK, _cT, _mRP, _mG],
+  [[0, 1], 2, 0, [0, 4], () => MultiRegionProperties$, () => MetricGroupRequestList], 1
 ];
 export var UpdateClusterOutput$: StaticStructureSchema = [3, n0, _UCO,
   0,
@@ -391,6 +407,12 @@ var __Unit = "unit" as const;
 var ClusterArnList = 64 | 0;
 var ClusterList: StaticListSchema = [1, n0, _CL,
   0, () => ClusterSummary$
+];
+var MetricGroupRequestList: StaticListSchema = [1, n0, _MGRL,
+  0, () => MetricGroupRequest$
+];
+var MetricGroupResponseList: StaticListSchema = [1, n0, _MGRLe,
+  0, () => MetricGroupResponse$
 ];
 var StreamList: StaticListSchema = [1, n0, _SL,
   0, () => StreamSummary$

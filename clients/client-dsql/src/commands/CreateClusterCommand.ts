@@ -46,6 +46,11 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  *     ],
  *   },
  *   policy: "STRING_VALUE",
+ *   metricGroups: [ // MetricGroupRequestList
+ *     { // MetricGroupRequest
+ *       metricGroup: "STATEMENT_STATISTICS", // required
+ *     },
+ *   ],
  *   bypassPolicyLockoutSafetyCheck: true || false,
  * };
  * const command = new CreateClusterCommand(input);
@@ -68,6 +73,11 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * //   },
  * //   deletionProtectionEnabled: true || false, // required
  * //   endpoint: "STRING_VALUE",
+ * //   metricGroups: [ // MetricGroupResponseList
+ * //     { // MetricGroupResponse
+ * //       metricGroup: "STATEMENT_STATISTICS", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```

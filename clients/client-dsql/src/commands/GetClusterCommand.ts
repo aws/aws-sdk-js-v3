@@ -58,6 +58,11 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  * //     encryptionStatus: "ENABLED" || "UPDATING" || "KMS_KEY_INACCESSIBLE" || "ENABLING", // required
  * //   },
  * //   endpoint: "STRING_VALUE",
+ * //   metricGroups: [ // MetricGroupResponseList
+ * //     { // MetricGroupResponse
+ * //       metricGroup: "STATEMENT_STATISTICS", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```

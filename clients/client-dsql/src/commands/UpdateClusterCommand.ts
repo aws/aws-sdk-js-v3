@@ -43,6 +43,11 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   metricGroups: [ // MetricGroupRequestList
+ *     { // MetricGroupRequest
+ *       metricGroup: "STATEMENT_STATISTICS", // required
+ *     },
+ *   ],
  * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);

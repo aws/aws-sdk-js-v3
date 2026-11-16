@@ -24,6 +24,21 @@ export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
  * @public
  * @enum
  */
+export const MetricGroup = {
+  /**
+   * <p>Shows which SQL statements run most often or take the most time. Collects execution count, execution time, and rows for each statement.</p>
+   */
+  STATEMENT_STATISTICS: "STATEMENT_STATISTICS",
+} as const;
+/**
+ * @public
+ */
+export type MetricGroup = (typeof MetricGroup)[keyof typeof MetricGroup];
+
+/**
+ * @public
+ * @enum
+ */
 export const EncryptionStatus = {
   ENABLED: "ENABLED",
   ENABLING: "ENABLING",

@@ -62,6 +62,9 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceInput$,
   ListTagsForResourceOutput$,
+  MetricGroup,
+  MetricGroupRequest$,
+  MetricGroupResponse$,
   MultiRegionProperties$,
   paginateListClusters,
   paginateListStreams,
@@ -170,6 +173,8 @@ assert(typeof ListStreamsInput$ === "object");
 assert(typeof ListStreamsOutput$ === "object");
 assert(typeof ListTagsForResourceInput$ === "object");
 assert(typeof ListTagsForResourceOutput$ === "object");
+assert(typeof MetricGroupRequest$ === "object");
+assert(typeof MetricGroupResponse$ === "object");
 assert(typeof MultiRegionProperties$ === "object");
 assert(typeof PutClusterPolicyInput$ === "object");
 assert(typeof PutClusterPolicyOutput$ === "object");
@@ -185,6 +190,7 @@ assert(typeof ValidationExceptionField$ === "object");
 assert(typeof ClusterStatus === "object");
 assert(typeof EncryptionStatus === "object");
 assert(typeof EncryptionType === "object");
+assert(typeof MetricGroup === "object");
 assert(typeof StreamFailureErrorCode === "object");
 assert(typeof StreamFormat === "object");
 assert(typeof StreamOrdering === "object");

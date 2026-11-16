@@ -3,11 +3,24 @@ import type {
   ClusterStatus,
   EncryptionStatus,
   EncryptionType,
+  MetricGroup,
   StreamFailureErrorCode,
   StreamFormat,
   StreamOrdering,
   StreamStatus,
 } from "./enums";
+
+/**
+ * <p>A metric group to enable for advanced monitoring.</p>
+ * @public
+ */
+export interface MetricGroupRequest {
+  /**
+   * <p>The name of the metric group to enable.</p>
+   * @public
+   */
+  metricGroup: MetricGroup | undefined;
+}
 
 /**
  * <p>Defines the structure for multi-Region cluster configurations, containing the witness region and linked cluster settings.</p>
@@ -68,6 +81,12 @@ export interface CreateClusterInput {
   policy?: string | undefined;
 
   /**
+   * <p>The metric groups to enable for advanced monitoring on the cluster. Advanced monitoring collects detailed, query-level database metrics to help you analyze and resolve performance issues. If you omit this parameter, no metric groups are enabled.</p>
+   * @public
+   */
+  metricGroups?: MetricGroupRequest[] | undefined;
+
+  /**
    * <p>An optional field that controls whether to bypass the lockout prevention check. When set to true, this parameter allows you to apply a policy that might lock you out of the cluster. Use with caution.</p>
    * @public
    */
@@ -96,6 +115,18 @@ export interface EncryptionDetails {
    * @public
    */
   encryptionStatus: EncryptionStatus | undefined;
+}
+
+/**
+ * <p>A metric group that you enabled for advanced monitoring on a cluster.</p>
+ * @public
+ */
+export interface MetricGroupResponse {
+  /**
+   * <p>The name of the metric group that you enabled.</p>
+   * @public
+   */
+  metricGroup: MetricGroup | undefined;
 }
 
 /**
@@ -150,6 +181,12 @@ export interface CreateClusterOutput {
    * @public
    */
   endpoint?: string | undefined;
+
+  /**
+   * <p>The metric groups that you enabled for advanced monitoring on the created cluster.</p>
+   * @public
+   */
+  metricGroups?: MetricGroupResponse[] | undefined;
 }
 
 /**
@@ -320,6 +357,12 @@ export interface GetClusterOutput {
    * @public
    */
   endpoint?: string | undefined;
+
+  /**
+   * <p>The metric groups that you enabled for advanced monitoring on the cluster. If you haven't enabled any metric groups, the list is empty.</p>
+   * @public
+   */
+  metricGroups?: MetricGroupResponse[] | undefined;
 }
 
 /**
@@ -509,6 +552,12 @@ export interface UpdateClusterInput {
    * @public
    */
   multiRegionProperties?: MultiRegionProperties | undefined;
+
+  /**
+   * <p>The complete set of metric groups to enable for advanced monitoring on the cluster. This list replaces the current set, so any metric group that you don't include is disabled. To disable all metric groups, specify an empty list (<code>[]</code>). If you omit this parameter, the current setting doesn't change.</p> <p>To view the metric groups enabled on a cluster, use <i>GetCluster</i>.</p>
+   * @public
+   */
+  metricGroups?: MetricGroupRequest[] | undefined;
 }
 
 /**
