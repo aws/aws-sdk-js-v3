@@ -86,6 +86,47 @@ describe(Upload.name, () => {
     Body: "this-is-a-sample-payload",
   };
 
+  it.each([
+    ["CRC32", "ChecksumCRC32"],
+    ["CRC32C", "ChecksumCRC32C"],
+    ["CRC64NVME", "ChecksumCRC64NVME"],
+    ["SHA1", "ChecksumSHA1"],
+    ["SHA256", "ChecksumSHA256"],
+  ] as const)("preserves %s part checksums when completing a multipart upload", async (algorithm, checksumKey) => {
+    vi.mocked(UploadPartCommand).mockReset();
+    for (const partNumber of [1, 2]) {
+      vi.mocked(UploadPartCommand).mockImplementationOnce(function () {
+        return {
+          ETag: `etag-${partNumber}`,
+          [checksumKey]: `checksum-${partNumber}`,
+        };
+      });
+    }
+
+    const upload = new Upload({
+      client: new S3Client({}),
+      params: {
+        ...params,
+        Body: Buffer.alloc(DEFAULT_PART_SIZE + 1),
+        ChecksumAlgorithm: algorithm,
+      },
+    });
+
+    await upload.done();
+
+    expect(CompleteMultipartUploadCommand).toHaveBeenCalledWith(
+      expect.objectContaining({
+        MultipartUpload: {
+          Parts: [1, 2].map((partNumber) => ({
+            PartNumber: partNumber,
+            ETag: `etag-${partNumber}`,
+            [checksumKey]: `checksum-${partNumber}`,
+          })),
+        },
+      })
+    );
+  });
+
   it("uses the input parameters for object length if provided", async () => {
     let upload = new Upload({
       params: {
