@@ -298,6 +298,10 @@ import type {
   DeactivateEvaluationFormCommandOutput,
 } from "./commands/DeactivateEvaluationFormCommand";
 import type {
+  DeleteAllEntitySessionsCommandInput,
+  DeleteAllEntitySessionsCommandOutput,
+} from "./commands/DeleteAllEntitySessionsCommand";
+import type {
   DeleteAttachedFileCommandInput,
   DeleteAttachedFileCommandOutput,
 } from "./commands/DeleteAttachedFileCommand";
@@ -1481,6 +1485,7 @@ export type ServiceInputTypes =
   | CreateWorkspaceCommandInput
   | CreateWorkspacePageCommandInput
   | DeactivateEvaluationFormCommandInput
+  | DeleteAllEntitySessionsCommandInput
   | DeleteAttachedFileCommandInput
   | DeleteContactDataCommandInput
   | DeleteContactEvaluationCommandInput
@@ -1890,6 +1895,7 @@ export type ServiceOutputTypes =
   | CreateWorkspaceCommandOutput
   | CreateWorkspacePageCommandOutput
   | DeactivateEvaluationFormCommandOutput
+  | DeleteAllEntitySessionsCommandOutput
   | DeleteAttachedFileCommandOutput
   | DeleteContactDataCommandOutput
   | DeleteContactEvaluationCommandOutput

@@ -158,6 +158,40 @@ import type {
 /**
  * @public
  */
+export interface UpdateMetricContentResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateMetricMetadataRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the metric to update. Adding the <code>$SAVED</code> qualifier will update the saved version of the metric. Adding <code>$LATEST</code> or omitting a qualifier will update the published version.</p>
+   * @public
+   */
+  MetricId: string | undefined;
+
+  /**
+   * <p>The updated name of the metric.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The updated description of the metric.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateMetricMetadataResponse {}
 
 /**

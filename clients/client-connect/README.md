@@ -731,6 +731,13 @@ DeactivateEvaluationForm
 </details>
 <details>
 <summary>
+DeleteAllEntitySessions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DeleteAllEntitySessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteAllEntitySessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteAllEntitySessionsCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteAttachedFile
 </summary>
 

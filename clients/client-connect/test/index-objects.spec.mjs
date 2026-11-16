@@ -513,6 +513,10 @@ import {
   DecimalComparisonType,
   DecimalCondition$,
   DefaultVocabulary$,
+  DeleteAllEntitySessions$,
+  DeleteAllEntitySessionsCommand,
+  DeleteAllEntitySessionsRequest$,
+  DeleteAllEntitySessionsResponse$,
   DeleteAttachedFile$,
   DeleteAttachedFileCommand,
   DeleteAttachedFileRequest$,
@@ -2010,6 +2014,7 @@ import {
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   ServiceQuotaExceededExceptionReason$,
+  SessionEntityType,
   SignInConfig$,
   SignInDistribution$,
   SingleSelectQuestionRuleCategoryAutomation$,
@@ -2672,6 +2677,8 @@ assert(typeof CreateWorkspacePageCommand === "function");
 assert(typeof CreateWorkspacePage$ === "object");
 assert(typeof DeactivateEvaluationFormCommand === "function");
 assert(typeof DeactivateEvaluationForm$ === "object");
+assert(typeof DeleteAllEntitySessionsCommand === "function");
+assert(typeof DeleteAllEntitySessions$ === "object");
 assert(typeof DeleteAttachedFileCommand === "function");
 assert(typeof DeleteAttachedFile$ === "object");
 assert(typeof DeleteContactDataCommand === "function");
@@ -3630,6 +3637,8 @@ assert(typeof DeactivateEvaluationFormRequest$ === "object");
 assert(typeof DeactivateEvaluationFormResponse$ === "object");
 assert(typeof DecimalCondition$ === "object");
 assert(typeof DefaultVocabulary$ === "object");
+assert(typeof DeleteAllEntitySessionsRequest$ === "object");
+assert(typeof DeleteAllEntitySessionsResponse$ === "object");
 assert(typeof DeleteAttachedFileRequest$ === "object");
 assert(typeof DeleteAttachedFileResponse$ === "object");
 assert(typeof DeleteContactDataRequest$ === "object");
@@ -4853,6 +4862,7 @@ assert(typeof SearchContactsMatchType === "object");
 assert(typeof SearchContactsTimeRangeConditionType === "object");
 assert(typeof SearchContactsTimeRangeType === "object");
 assert(typeof SecurityProfileType === "object");
+assert(typeof SessionEntityType === "object");
 assert(typeof SingleSelectQuestionRuleCategoryAutomationCondition === "object");
 assert(typeof SlaAssignmentType === "object");
 assert(typeof SlaType === "object");

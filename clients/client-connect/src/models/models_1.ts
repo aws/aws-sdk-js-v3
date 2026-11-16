@@ -17,7 +17,6 @@ import type {
   DataTableStatus,
   DirectoryType,
   EndpointType,
-  EntityType,
   EvaluationQuestionAnswerAnalysisType,
   EvaluationStatus,
   EvaluationSuggestedAnswerStatus,
@@ -52,6 +51,7 @@ import type {
   RuleCapabilityTier,
   RulePublishStatus,
   SecurityProfileType,
+  SessionEntityType,
   Status,
   StorageType,
   TaskTemplateFieldType,
@@ -104,7 +104,6 @@ import type {
   RoutingProfileQueueReference,
   RuleAction,
   RuleTriggerEventSource,
-  SecurityProfileItem,
   TaskTemplateFieldIdentifier,
   Validation,
 } from "./models_0";
@@ -1667,6 +1666,39 @@ export interface DeactivateEvaluationFormResponse {
    */
   EvaluationFormVersion: number | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteAllEntitySessionsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the entity whose sessions you want to delete. For <code>USER</code>, use the user ID or
+   *    the user ARN.</p>
+   * @public
+   */
+  EntityId: string | undefined;
+
+  /**
+   * <p>The type of entity whose sessions you want to delete.</p>
+   *          <note>
+   *             <p>The only valid value is <code>USER</code>, which signs out a user in your Connect Customer
+   *     instance.</p>
+   *          </note>
+   * @public
+   */
+  EntityType: SessionEntityType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAllEntitySessionsResponse {}
 
 /**
  * Request to DeleteAttachedFile API
@@ -8216,60 +8248,4 @@ export interface DisassociateRoutingProfileQueuesRequest {
    * @public
    */
   ManualAssignmentQueueReferences?: RoutingProfileQueueReference[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateSecurityKeyRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateSecurityProfilesRequest {
-  /**
-   * <p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN)
-   *    of the instance. </p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p> List of Security Profile Object. </p>
-   * @public
-   */
-  SecurityProfiles: SecurityProfileItem[] | undefined;
-
-  /**
-   * <p> Only supported type is AI_AGENT. </p>
-   * @public
-   */
-  EntityType: EntityType | undefined;
-
-  /**
-   * <p> ARN of a Q in Connect AI Agent. </p>
-   * @public
-   */
-  EntityArn: string | undefined;
 }

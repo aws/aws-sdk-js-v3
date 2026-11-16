@@ -383,6 +383,11 @@ import {
   DeactivateEvaluationFormCommand,
 } from "./commands/DeactivateEvaluationFormCommand";
 import {
+  type DeleteAllEntitySessionsCommandInput,
+  type DeleteAllEntitySessionsCommandOutput,
+  DeleteAllEntitySessionsCommand,
+} from "./commands/DeleteAllEntitySessionsCommand";
+import {
   type DeleteAttachedFileCommandInput,
   type DeleteAttachedFileCommandOutput,
   DeleteAttachedFileCommand,
@@ -2187,6 +2192,7 @@ const commands = {
   CreateWorkspaceCommand,
   CreateWorkspacePageCommand,
   DeactivateEvaluationFormCommand,
+  DeleteAllEntitySessionsCommand,
   DeleteAttachedFileCommand,
   DeleteContactDataCommand,
   DeleteContactEvaluationCommand,
@@ -3895,6 +3901,23 @@ export interface Connect {
     args: DeactivateEvaluationFormCommandInput,
     options: ConnectRequestOptions,
     cb: (err: any, data?: DeactivateEvaluationFormCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAllEntitySessionsCommand}
+   */
+  deleteAllEntitySessions(
+    args: DeleteAllEntitySessionsCommandInput,
+    options?: ConnectRequestOptions
+  ): Promise<DeleteAllEntitySessionsCommandOutput>;
+  deleteAllEntitySessions(
+    args: DeleteAllEntitySessionsCommandInput,
+    cb: (err: any, data?: DeleteAllEntitySessionsCommandOutput) => void
+  ): void;
+  deleteAllEntitySessions(
+    args: DeleteAllEntitySessionsCommandInput,
+    options: ConnectRequestOptions,
+    cb: (err: any, data?: DeleteAllEntitySessionsCommandOutput) => void
   ): void;
 
   /**

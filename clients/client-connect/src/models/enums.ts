@@ -1712,6 +1712,18 @@ export type WorkspaceFontFamily = (typeof WorkspaceFontFamily)[keyof typeof Work
  * @public
  * @enum
  */
+export const SessionEntityType = {
+  USER: "USER",
+} as const;
+/**
+ * @public
+ */
+export type SessionEntityType = (typeof SessionEntityType)[keyof typeof SessionEntityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContactField = {
   ADDITIONAL_EMAIL_RECIPIENTS: "ADDITIONAL_EMAIL_RECIPIENTS",
   CUSTOMER_ENDPOINT: "CUSTOMER_ENDPOINT",

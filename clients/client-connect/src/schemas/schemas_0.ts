@@ -663,6 +663,9 @@ const _D = "Description";
 const _DA = "DirectoryAlias";
 const _DADS = "DisassociateAnalyticsDataSet";
 const _DADSR = "DisassociateAnalyticsDataSetRequest";
+const _DAES = "DeleteAllEntitySessions";
+const _DAESR = "DeleteAllEntitySessionsRequest";
+const _DAESRe = "DeleteAllEntitySessionsResponse";
 const _DAF = "DeleteAttachedFile";
 const _DAFC = "DescribeAttachedFilesConfiguration";
 const _DAFCR = "DescribeAttachedFilesConfigurationRequest";
@@ -4884,6 +4887,16 @@ export var DefaultVocabulary$: StaticStructureSchema = [3, n0, _DV,
   0,
   [_II, _LCa, _VI, _VNo],
   [0, 0, 0, 0], 4
+];
+export var DeleteAllEntitySessionsRequest$: StaticStructureSchema = [3, n0, _DAESR,
+  0,
+  [_II, _EI, _ET],
+  [0, 0, 0], 3
+];
+export var DeleteAllEntitySessionsResponse$: StaticStructureSchema = [3, n0, _DAESRe,
+  0,
+  [],
+  []
 ];
 export var DeleteAttachedFileRequest$: StaticStructureSchema = [3, n0, _DAFR,
   0,
@@ -11295,6 +11308,9 @@ export var CreateWorkspacePage$: StaticOperationSchema = [9, n0, _CWP,
 ];
 export var DeactivateEvaluationForm$: StaticOperationSchema = [9, n0, _DEF,
   { [_h]: ["POST", "/evaluation-forms/{InstanceId}/{EvaluationFormId}/deactivate", 200] }, () => DeactivateEvaluationFormRequest$, () => DeactivateEvaluationFormResponse$
+];
+export var DeleteAllEntitySessions$: StaticOperationSchema = [9, n0, _DAES,
+  { [_h]: ["POST", "/auth/sessions/delete-all-entity-sessions", 200] }, () => DeleteAllEntitySessionsRequest$, () => DeleteAllEntitySessionsResponse$
 ];
 export var DeleteAttachedFile$: StaticOperationSchema = [9, n0, _DAF,
   { [_h]: ["DELETE", "/attached-files/{InstanceId}/{FileId}", 200] }, () => DeleteAttachedFileRequest$, () => DeleteAttachedFileResponse$
