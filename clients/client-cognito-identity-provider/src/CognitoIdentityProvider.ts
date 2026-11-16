@@ -388,6 +388,11 @@ import {
   type GetCSVHeaderCommandOutput,
   GetCSVHeaderCommand,
 } from "./commands/GetCSVHeaderCommand";
+import {
+  type GetDerivedTokenCommandInput,
+  type GetDerivedTokenCommandOutput,
+  GetDerivedTokenCommand,
+} from "./commands/GetDerivedTokenCommand";
 import { type GetDeviceCommandInput, type GetDeviceCommandOutput, GetDeviceCommand } from "./commands/GetDeviceCommand";
 import { type GetGroupCommandInput, type GetGroupCommandOutput, GetGroupCommand } from "./commands/GetGroupCommand";
 import {
@@ -771,6 +776,7 @@ const commands = {
   ForgotPasswordCommand,
   GetClientTokenCommand,
   GetCSVHeaderCommand,
+  GetDerivedTokenCommand,
   GetDeviceCommand,
   GetGroupCommand,
   GetIdentityProviderByIdentifierCommand,
@@ -2147,6 +2153,23 @@ export interface CognitoIdentityProvider {
     args: GetCSVHeaderCommandInput,
     options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetCSVHeaderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDerivedTokenCommand}
+   */
+  getDerivedToken(
+    args: GetDerivedTokenCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<GetDerivedTokenCommandOutput>;
+  getDerivedToken(
+    args: GetDerivedTokenCommandInput,
+    cb: (err: any, data?: GetDerivedTokenCommandOutput) => void
+  ): void;
+  getDerivedToken(
+    args: GetDerivedTokenCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: GetDerivedTokenCommandOutput) => void
   ): void;
 
   /**

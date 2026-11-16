@@ -128,10 +128,13 @@ const _AT = "AssetType";
 const _ATAT = "AccountTakeoverActionsType";
 const _ATATc = "AccountTakeoverActionType";
 const _ATG = "AttributesToGet";
+const _ATPN = "ActorTokenProviderName";
 const _ATRC = "AccountTakeoverRiskConfiguration";
 const _ATRCT = "AccountTakeoverRiskConfigurationType";
+const _ATT = "ActorTokenType";
 const _ATV = "AccessTokenValidity";
 const _ATc = "AccessToken";
+const _ATct = "ActorToken";
 const _ATt = "AttributeType";
 const _ATu = "AuthenticatorTransports";
 const _AUAEF = "AdminUpdateAuthEventFeedback";
@@ -156,6 +159,7 @@ const _AWSAI = "AWSAccountId";
 const _Ar = "Arn";
 const _As = "Assets";
 const _At = "Attributes";
+const _Au = "Audiences";
 const _B = "Bytes";
 const _BA = "BucketArn";
 const _BE = "BlockEmail";
@@ -458,6 +462,10 @@ const _GCTRe = "GetClientTokenResponse";
 const _GD = "GetDevice";
 const _GDR = "GetDeviceRequest";
 const _GDRe = "GetDeviceResponse";
+const _GDT = "GetDerivedToken";
+const _GDTR = "GetDerivedTokenRequest";
+const _GDTRe = "GetDerivedTokenResponse";
+const _GDTTMT = "GetDerivedTokenTokenModelType";
 const _GEE = "GroupExistsException";
 const _GG = "GetGroup";
 const _GGR = "GetGroupRequest";
@@ -539,7 +547,9 @@ const _ISRAPE = "InvalidSmsRoleAccessPolicyException";
 const _ISRTRE = "InvalidSmsRoleTrustRelationshipException";
 const _IT = "IdToken";
 const _ITI = "InTemplateId";
+const _ITT = "IssuedTokenType";
 const _ITV = "IdTokenValidity";
+const _ITs = "IssuedToken";
 const _IU = "ImageUrl";
 const _IUPCE = "InvalidUserPoolConfigurationException";
 const _IUm = "ImportedUsers";
@@ -747,6 +757,7 @@ const _RTRE = "RefreshTokenReuseException";
 const _RTRT = "RefreshTokenRotationType";
 const _RTRe = "RevokeTokenRequest";
 const _RTRev = "RevokeTokenResponse";
+const _RTT = "RequestedTokenType";
 const _RTV = "RefreshTokenValidity";
 const _RTe = "ReplyTo";
 const _RTev = "RevokeToken";
@@ -757,6 +768,7 @@ const _RUSR = "RevokeUserSessionRequest";
 const _RUSRe = "RevokeUserSessionResponse";
 const _Re = "Region";
 const _Req = "Required";
+const _Res = "Resources";
 const _Ro = "Role";
 const _S = "Session";
 const _SA = "SourceArn";
@@ -817,6 +829,9 @@ const _STMFANFE = "SoftwareTokenMFANotFoundException";
 const _STMFAUCT = "SoftwareTokenMFAUserCodeType";
 const _STMS = "SoftwareTokenMfaSettings";
 const _STMST = "SoftwareTokenMfaSettingsType";
+const _STPN = "SubjectTokenProviderName";
+const _STT = "SubjectTokenType";
+const _STu = "SubjectToken";
 const _SU = "SourceUser";
 const _SUIC = "SetUICustomization";
 const _SUICR = "SetUICustomizationRequest";
@@ -1479,6 +1494,7 @@ export const errorTypeRegistries = [
 var AttributeValueType: StaticSimpleSchema = [0, n0, _AVT, 8, 0];
 var ClientIdType: StaticSimpleSchema = [0, n0, _CIT, 8, 0];
 var ClientSecretType: StaticSimpleSchema = [0, n0, _CST, 8, 0];
+var GetDerivedTokenTokenModelType: StaticSimpleSchema = [0, n0, _GDTTMT, 8, 0];
 var PasswordType: StaticSimpleSchema = [0, n0, _PT, 8, 0];
 var SecretCodeType: StaticSimpleSchema = [0, n0, _SCT, 8, 0];
 var SecretHashType: StaticSimpleSchema = [0, n0, _SHT, 8, 0];
@@ -2376,6 +2392,16 @@ export var GetCSVHeaderResponse$: StaticStructureSchema = [3, n0, _GCSVHRe,
   0,
   [_UPI, _CSVH],
   [0, 64 | 0]
+];
+export var GetDerivedTokenRequest$: StaticStructureSchema = [3, n0, _GDTR,
+  0,
+  [_CI, _STu, _STT, _CS, _STPN, _ATct, _ATT, _ATPN, _Sc, _Au, _Res, _RTT],
+  [[() => ClientIdType, 0], [() => GetDerivedTokenTokenModelType, 0], 0, [() => ClientSecretType, 0], 0, [() => GetDerivedTokenTokenModelType, 0], 0, 0, 64 | 0, 64 | 0, 64 | 0, 0], 3
+];
+export var GetDerivedTokenResponse$: StaticStructureSchema = [3, n0, _GDTRe,
+  0,
+  [_ITs, _ITT, _TT, _EIxp, _Sc],
+  [[() => TokenModelType, 0], 0, 0, 1, 64 | 0], 3
 ];
 export var GetDeviceRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
@@ -3334,6 +3360,7 @@ var AttributeListType: StaticListSchema = [1, n0, _ALTt,
 ];
 var AttributeNameListType = 64 | 0;
 var AttributesRequireVerificationBeforeUpdateType = 64 | 0;
+var AudienceListType = 64 | 0;
 var AuthEventsType: StaticListSchema = [1, n0, _AETu,
   0, () => AuthEventType$
 ];
@@ -3385,6 +3412,7 @@ var RecoveryMechanismsType: StaticListSchema = [1, n0, _RMT,
   0, () => RecoveryOptionType$
 ];
 var ReplicaRegionsType = 64 | 0;
+var ResourceListType = 64 | 0;
 var ResourceServerScopeListType: StaticListSchema = [1, n0, _RSSLT,
   0, () => ResourceServerScopeType$
 ];
@@ -3674,6 +3702,9 @@ export var GetClientToken$: StaticOperationSchema = [9, n0, _GCT,
 ];
 export var GetCSVHeader$: StaticOperationSchema = [9, n0, _GCSVH,
   0, () => GetCSVHeaderRequest$, () => GetCSVHeaderResponse$
+];
+export var GetDerivedToken$: StaticOperationSchema = [9, n0, _GDT,
+  0, () => GetDerivedTokenRequest$, () => GetDerivedTokenResponse$
 ];
 export var GetDevice$: StaticOperationSchema = [9, n0, _GD,
   0, () => GetDeviceRequest$, () => GetDeviceResponse$

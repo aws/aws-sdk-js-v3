@@ -289,6 +289,7 @@ import type { ForgetDeviceCommandInput, ForgetDeviceCommandOutput } from "./comm
 import type { ForgotPasswordCommandInput, ForgotPasswordCommandOutput } from "./commands/ForgotPasswordCommand";
 import type { GetClientTokenCommandInput, GetClientTokenCommandOutput } from "./commands/GetClientTokenCommand";
 import type { GetCSVHeaderCommandInput, GetCSVHeaderCommandOutput } from "./commands/GetCSVHeaderCommand";
+import type { GetDerivedTokenCommandInput, GetDerivedTokenCommandOutput } from "./commands/GetDerivedTokenCommand";
 import type { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
 import type { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import type {
@@ -576,6 +577,7 @@ export type ServiceInputTypes =
   | ForgotPasswordCommandInput
   | GetCSVHeaderCommandInput
   | GetClientTokenCommandInput
+  | GetDerivedTokenCommandInput
   | GetDeviceCommandInput
   | GetGroupCommandInput
   | GetIdentityProviderByIdentifierCommandInput
@@ -721,6 +723,7 @@ export type ServiceOutputTypes =
   | ForgotPasswordCommandOutput
   | GetCSVHeaderCommandOutput
   | GetClientTokenCommandOutput
+  | GetDerivedTokenCommandOutput
   | GetDeviceCommandOutput
   | GetGroupCommandOutput
   | GetIdentityProviderByIdentifierCommandOutput

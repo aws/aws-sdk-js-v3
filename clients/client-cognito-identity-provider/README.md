@@ -743,6 +743,13 @@ GetCSVHeader
 </details>
 <details>
 <summary>
+GetDerivedToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/GetDerivedTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/GetDerivedTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/GetDerivedTokenCommandOutput/)
+</details>
+<details>
+<summary>
 GetDevice
 </summary>
 

@@ -80,7 +80,7 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  *     "STRING_VALUE",
  *   ],
  *   ExplicitAuthFlows: [ // ExplicitAuthFlowsListType
- *     "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH" || "ALLOW_USER_AUTH",
+ *     "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH" || "ALLOW_USER_AUTH" || "ALLOW_TOKEN_EXCHANGE_DELEGATION" || "ALLOW_TOKEN_EXCHANGE_IMPERSONATION",
  *   ],
  *   SupportedIdentityProviders: [ // SupportedIdentityProvidersListType
  *     "STRING_VALUE",
@@ -140,7 +140,7 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  * //       "STRING_VALUE",
  * //     ],
  * //     ExplicitAuthFlows: [ // ExplicitAuthFlowsListType
- * //       "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH" || "ALLOW_USER_AUTH",
+ * //       "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH" || "ALLOW_USER_AUTH" || "ALLOW_TOKEN_EXCHANGE_DELEGATION" || "ALLOW_TOKEN_EXCHANGE_IMPERSONATION",
  * //     ],
  * //     SupportedIdentityProviders: [ // SupportedIdentityProvidersListType
  * //       "STRING_VALUE",

@@ -35,11 +35,13 @@ import type {
   FeedbackValueType,
   IdentityProviderTypeType,
   InboundFederationLambdaVersionType,
+  IssuedTokenTypeIdentifierType,
   IssuerType,
   LimitClass,
   LogLevel,
   MessageActionType,
   OAuthFlowType,
+  OAuthTokenTypeType,
   PasswordHashingAlgorithmType,
   PreTokenGenerationLambdaVersionType,
   PreventUserExistenceErrorTypes,
@@ -56,6 +58,7 @@ import type {
   TermsEnforcementType,
   TermsSourceType,
   TimeUnitsType,
+  TokenTypeIdentifierType,
   UserImportJobStatusType,
   UsernameAttributeType,
   UserPoolMfaType,
@@ -7387,6 +7390,19 @@ export interface CreateUserPoolClientRequest {
    *                   <code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh
    *             tokens.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW_TOKEN_EXCHANGE_IMPERSONATION</code> – Use this flow to request
+   *                 <code>GetDerivedToken</code> token exchanges without an <code>ActorToken</code>.
+   *             The issued token represents the subject user directly.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW_TOKEN_EXCHANGE_DELEGATION</code> – Use this flow to request
+   *                 <code>GetDerivedToken</code> token exchanges that include an
+   *                 <code>ActorToken</code>. The issued token carries an <code>act</code> claim that
+   *             identifies the intermediary acting on the behalf of the subject.</p>
+   *             </li>
    *          </ul>
    *          <p>In some environments, you will see the values <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code>, or <code>USER_PASSWORD_AUTH</code>.
    * You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>,
@@ -7787,6 +7803,19 @@ export interface UserPoolClientType {
    *                <p>
    *                   <code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh
    *             tokens.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW_TOKEN_EXCHANGE_IMPERSONATION</code> – Use this flow to request
+   *                 <code>GetDerivedToken</code> token exchanges without an <code>ActorToken</code>.
+   *             The issued token represents the subject user directly.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW_TOKEN_EXCHANGE_DELEGATION</code> – Use this flow to request
+   *                 <code>GetDerivedToken</code> token exchanges that include an
+   *                 <code>ActorToken</code>. The issued token carries an <code>act</code> claim that
+   *             identifies the intermediary acting on the behalf of the subject.</p>
    *             </li>
    *          </ul>
    *          <p>In some environments, you will see the values <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code>, or <code>USER_PASSWORD_AUTH</code>.
@@ -9363,6 +9392,192 @@ export interface GetCSVHeaderResponse {
    * @public
    */
   CSVHeader?: string[] | undefined;
+}
+
+/**
+ * <p>Represents the request to exchange a subject token for a new token.</p>
+ * @public
+ */
+export interface GetDerivedTokenRequest {
+  /**
+   * <p>The ID of the app client that requests the token exchange.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The client secret of the requested app client, if the client has a secret.</p>
+   * @public
+   */
+  ClientSecret?: string | undefined;
+
+  /**
+   * <p>The token that you want to exchange for a new token. This is the credential that
+   *             represents the identity of the party on behalf of whom the request is being
+   *             made.</p>
+   * @public
+   */
+  SubjectToken: string | undefined;
+
+  /**
+   * <p>The type of the <code>SubjectToken</code> that you want to exchange. Valid
+   *             values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACCESS_TOKEN</code> – The subject token is an access token.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ID_TOKEN</code> – The subject token is an ID token.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAML2</code> – The subject token is a SAML 2.0 assertion.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SubjectTokenType: TokenTypeIdentifierType | undefined;
+
+  /**
+   * <p>The name of the third-party identity provider that issued the
+   *                 <code>SubjectToken</code>, if the subject token isn't a Amazon Cognito token. Provide this
+   *             value when your <code>SubjectToken</code> came from a SAML or OIDC provider that you
+   *             registered with your user pool, so that Amazon Cognito can validate it against that provider's
+   *             configuration. Omit this parameter for a Amazon Cognito ID or access token.</p>
+   * @public
+   */
+  SubjectTokenProviderName?: string | undefined;
+
+  /**
+   * <p>A token that identifies the intermediary service that is exchanging the token on
+   *             behalf of the user. When you provide an <code>ActorToken</code>, the token that
+   *                 Amazon Cognito issues carries an <code>act</code> claim that identifies the intermediary,
+   *             so that downstream services can distinguish a user acting directly from an
+   *             intermediary acting on the user's behalf.</p>
+   * @public
+   */
+  ActorToken?: string | undefined;
+
+  /**
+   * <p>The type of the <code>ActorToken</code> that you provide. Required when you
+   *             provide an <code>ActorToken</code>. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACCESS_TOKEN</code> – The actor token is an access token.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ID_TOKEN</code> – The actor token is an ID token.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAML2</code> – The actor token is a SAML 2.0 assertion.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ActorTokenType?: TokenTypeIdentifierType | undefined;
+
+  /**
+   * <p>The name of the third-party identity provider that issued the
+   *                 <code>ActorToken</code>, if the actor token isn't a Amazon Cognito token.</p>
+   * @public
+   */
+  ActorTokenProviderName?: string | undefined;
+
+  /**
+   * <p>The scopes that you want the new token to have. Amazon Cognito issues a token with the
+   *             intersection of these requested scopes, the scopes of your
+   *                 <code>SubjectToken</code>, and the scopes that are allowed for the requesting app
+   *             client. If you don't specify any scopes, Amazon Cognito issues a token with the same scopes as
+   *             your <code>SubjectToken</code>.</p>
+   * @public
+   */
+  Scopes?: string[] | undefined;
+
+  /**
+   * <p>The logical name of the target service where you intend to use the issued token.
+   *             You can't request both <code>Audiences</code> and <code>Resources</code> in the same
+   *             request.</p>
+   * @public
+   */
+  Audiences?: string[] | undefined;
+
+  /**
+   * <p>The identifier of a resource server in your user pool where you intend to use the
+   *             issued token. You can't request both <code>Resources</code> and
+   *                 <code>Audiences</code> in the same request.</p>
+   * @public
+   */
+  Resources?: string[] | undefined;
+
+  /**
+   * <p>The type of token that you want Amazon Cognito to issue. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACCESS_TOKEN</code> – Issues an access token.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ID_TOKEN</code> – Issues an ID token.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Amazon Cognito can't issue a SAML assertion, so <code>SAML2</code> isn't a valid value for
+   *             this parameter.</p>
+   * @public
+   */
+  RequestedTokenType?: IssuedTokenTypeIdentifierType | undefined;
+}
+
+/**
+ * <p>Represents the response to a token exchange request.</p>
+ * @public
+ */
+export interface GetDerivedTokenResponse {
+  /**
+   * <p>The token that Amazon Cognito issued in response to the token exchange request.</p>
+   * @public
+   */
+  IssuedToken: string | undefined;
+
+  /**
+   * <p>The type of the token in the <code>IssuedToken</code> parameter. Valid
+   *             values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACCESS_TOKEN</code> – The issued token is an access token.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ID_TOKEN</code> – The issued token is an ID token.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  IssuedTokenType: IssuedTokenTypeIdentifierType | undefined;
+
+  /**
+   * <p>The type of the issued token. For example, <code>Bearer</code>.</p>
+   * @public
+   */
+  TokenType: OAuthTokenTypeType | undefined;
+
+  /**
+   * <p>The number of seconds until the issued token expires.</p>
+   * @public
+   */
+  ExpiresIn?: number | undefined;
+
+  /**
+   * <p>The scopes that Amazon Cognito granted in the issued token.</p>
+   * @public
+   */
+  Scopes?: string[] | undefined;
 }
 
 /**
@@ -11722,80 +11937,4 @@ export interface ListUsersInGroupResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWebAuthnCredentialsRequest {
-  /**
-   * <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for
-   * <code>aws.cognito.signin.user.admin</code>.</p>
-   * @public
-   */
-  AccessToken: string | undefined;
-
-  /**
-   * <p>This API operation returns a limited number of results. The pagination token is
-   * an identifier that you can present in an additional API request with the same parameters. When
-   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
-   * Subsequent requests return a new pagination token. By use of this token, you can paginate
-   * through the full list of items.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of the user's passkey credentials that you want to
-   *             return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The details of a passkey, or webauthN, biometric or security-key authentication factor
- *             for a user.</p>
- * @public
- */
-export interface WebAuthnCredentialDescription {
-  /**
-   * <p>The unique identifier of the passkey credential.</p>
-   * @public
-   */
-  CredentialId: string | undefined;
-
-  /**
-   * <p>An automatically-generated friendly name for the passkey credential.</p>
-   * @public
-   */
-  FriendlyCredentialName: string | undefined;
-
-  /**
-   * <p>The relying-party ID of the provider for the passkey credential.</p>
-   * @public
-   */
-  RelyingPartyId: string | undefined;
-
-  /**
-   * <p>The general category of the passkey authenticator. Can be a platform, or on-device
-   *             authenticator like a built-in fingerprint scanner, or a cross-platform device that's not
-   *             attached to the device like a Bluetooth security key.</p>
-   * @public
-   */
-  AuthenticatorAttachment?: string | undefined;
-
-  /**
-   * <p>Information about the transport methods of the passkey credential, for example USB or
-   *             Bluetooth Low Energy.</p>
-   * @public
-   */
-  AuthenticatorTransports: string[] | undefined;
-
-  /**
-   * <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a
-   * human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-   * @public
-   */
-  CreatedAt: Date | undefined;
 }

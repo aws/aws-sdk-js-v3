@@ -75,6 +75,7 @@ export * from "./ForgetDeviceCommand";
 export * from "./ForgotPasswordCommand";
 export * from "./GetCSVHeaderCommand";
 export * from "./GetClientTokenCommand";
+export * from "./GetDerivedTokenCommand";
 export * from "./GetDeviceCommand";
 export * from "./GetGroupCommand";
 export * from "./GetIdentityProviderByIdentifierCommand";

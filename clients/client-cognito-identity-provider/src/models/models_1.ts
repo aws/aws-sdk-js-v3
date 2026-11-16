@@ -73,9 +73,84 @@ import type {
   UserPoolTokenSessionConfigType,
   VerificationMessageTemplateType,
   WebAuthnConfigurationType,
-  WebAuthnCredentialDescription,
   WebAuthnMfaSettingsType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListWebAuthnCredentialsRequest {
+  /**
+   * <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for
+   * <code>aws.cognito.signin.user.admin</code>.</p>
+   * @public
+   */
+  AccessToken: string | undefined;
+
+  /**
+   * <p>This API operation returns a limited number of results. The pagination token is
+   * an identifier that you can present in an additional API request with the same parameters. When
+   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   * Subsequent requests return a new pagination token. By use of this token, you can paginate
+   * through the full list of items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of the user's passkey credentials that you want to
+   *             return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The details of a passkey, or webauthN, biometric or security-key authentication factor
+ *             for a user.</p>
+ * @public
+ */
+export interface WebAuthnCredentialDescription {
+  /**
+   * <p>The unique identifier of the passkey credential.</p>
+   * @public
+   */
+  CredentialId: string | undefined;
+
+  /**
+   * <p>An automatically-generated friendly name for the passkey credential.</p>
+   * @public
+   */
+  FriendlyCredentialName: string | undefined;
+
+  /**
+   * <p>The relying-party ID of the provider for the passkey credential.</p>
+   * @public
+   */
+  RelyingPartyId: string | undefined;
+
+  /**
+   * <p>The general category of the passkey authenticator. Can be a platform, or on-device
+   *             authenticator like a built-in fingerprint scanner, or a cross-platform device that's not
+   *             attached to the device like a Bluetooth security key.</p>
+   * @public
+   */
+  AuthenticatorAttachment?: string | undefined;
+
+  /**
+   * <p>Information about the transport methods of the passkey credential, for example USB or
+   *             Bluetooth Low Energy.</p>
+   * @public
+   */
+  AuthenticatorTransports: string[] | undefined;
+
+  /**
+   * <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a
+   * human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+}
 
 /**
  * @public
@@ -2547,6 +2622,19 @@ export interface UpdateUserPoolClientRequest {
    *                <p>
    *                   <code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh
    *             tokens.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW_TOKEN_EXCHANGE_IMPERSONATION</code> – Use this flow to request
+   *                 <code>GetDerivedToken</code> token exchanges without an <code>ActorToken</code>.
+   *             The issued token represents the subject user directly.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW_TOKEN_EXCHANGE_DELEGATION</code> – Use this flow to request
+   *                 <code>GetDerivedToken</code> token exchanges that include an
+   *                 <code>ActorToken</code>. The issued token carries an <code>act</code> claim that
+   *             identifies the intermediary acting on the behalf of the subject.</p>
    *             </li>
    *          </ul>
    *          <p>In some environments, you will see the values <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code>, or <code>USER_PASSWORD_AUTH</code>.

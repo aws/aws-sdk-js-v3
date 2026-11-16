@@ -684,6 +684,8 @@ export const ExplicitAuthFlowsType = {
   ALLOW_ADMIN_USER_PASSWORD_AUTH: "ALLOW_ADMIN_USER_PASSWORD_AUTH",
   ALLOW_CUSTOM_AUTH: "ALLOW_CUSTOM_AUTH",
   ALLOW_REFRESH_TOKEN_AUTH: "ALLOW_REFRESH_TOKEN_AUTH",
+  ALLOW_TOKEN_EXCHANGE_DELEGATION: "ALLOW_TOKEN_EXCHANGE_DELEGATION",
+  ALLOW_TOKEN_EXCHANGE_IMPERSONATION: "ALLOW_TOKEN_EXCHANGE_IMPERSONATION",
   ALLOW_USER_AUTH: "ALLOW_USER_AUTH",
   ALLOW_USER_PASSWORD_AUTH: "ALLOW_USER_PASSWORD_AUTH",
   ALLOW_USER_SRP_AUTH: "ALLOW_USER_SRP_AUTH",
@@ -835,6 +837,47 @@ export const DomainStatusType = {
  * @public
  */
 export type DomainStatusType = (typeof DomainStatusType)[keyof typeof DomainStatusType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TokenTypeIdentifierType = {
+  ACCESS_TOKEN: "ACCESS_TOKEN",
+  ID_TOKEN: "ID_TOKEN",
+  SAML2: "SAML2",
+} as const;
+/**
+ * @public
+ */
+export type TokenTypeIdentifierType = (typeof TokenTypeIdentifierType)[keyof typeof TokenTypeIdentifierType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IssuedTokenTypeIdentifierType = {
+  ACCESS_TOKEN: "ACCESS_TOKEN",
+  ID_TOKEN: "ID_TOKEN",
+} as const;
+/**
+ * @public
+ */
+export type IssuedTokenTypeIdentifierType =
+  (typeof IssuedTokenTypeIdentifierType)[keyof typeof IssuedTokenTypeIdentifierType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OAuthTokenTypeType = {
+  BEARER: "Bearer",
+  NOT_APPLICABLE: "N_A",
+} as const;
+/**
+ * @public
+ */
+export type OAuthTokenTypeType = (typeof OAuthTokenTypeType)[keyof typeof OAuthTokenTypeType];
 
 /**
  * @public

@@ -385,6 +385,10 @@ import {
   GetCSVHeaderCommand,
   GetCSVHeaderRequest$,
   GetCSVHeaderResponse$,
+  GetDerivedToken$,
+  GetDerivedTokenCommand,
+  GetDerivedTokenRequest$,
+  GetDerivedTokenResponse$,
   GetDevice$,
   GetDeviceCommand,
   GetDeviceRequest$,
@@ -477,6 +481,7 @@ import {
   InvalidSmsRoleTrustRelationshipException$,
   InvalidUserPoolConfigurationException,
   InvalidUserPoolConfigurationException$,
+  IssuedTokenTypeIdentifierType,
   IssuerConfigurationType$,
   IssuerType,
   KeyConfigurationType$,
@@ -564,6 +569,7 @@ import {
   NotifyEmailType$,
   NumberAttributeConstraintsType$,
   OAuthFlowType,
+  OAuthTokenTypeType,
   OperationNotEnabledException,
   OperationNotEnabledException$,
   paginateAdminListGroupsForUser,
@@ -703,6 +709,7 @@ import {
   TierChangeNotAllowedException,
   TierChangeNotAllowedException$,
   TimeUnitsType,
+  TokenTypeIdentifierType,
   TokenValidityUnitsType$,
   TooManyFailedAttemptsException,
   TooManyFailedAttemptsException$,
@@ -999,6 +1006,8 @@ assert(typeof GetClientTokenCommand === "function");
 assert(typeof GetClientToken$ === "object");
 assert(typeof GetCSVHeaderCommand === "function");
 assert(typeof GetCSVHeader$ === "object");
+assert(typeof GetDerivedTokenCommand === "function");
+assert(typeof GetDerivedToken$ === "object");
 assert(typeof GetDeviceCommand === "function");
 assert(typeof GetDevice$ === "object");
 assert(typeof GetGroupCommand === "function");
@@ -1306,6 +1315,8 @@ assert(typeof GetClientTokenRequest$ === "object");
 assert(typeof GetClientTokenResponse$ === "object");
 assert(typeof GetCSVHeaderRequest$ === "object");
 assert(typeof GetCSVHeaderResponse$ === "object");
+assert(typeof GetDerivedTokenRequest$ === "object");
+assert(typeof GetDerivedTokenResponse$ === "object");
 assert(typeof GetDeviceRequest$ === "object");
 assert(typeof GetDeviceResponse$ === "object");
 assert(typeof GetGroupRequest$ === "object");
@@ -1529,11 +1540,13 @@ assert(typeof FeatureType === "object");
 assert(typeof FeedbackValueType === "object");
 assert(typeof IdentityProviderTypeType === "object");
 assert(typeof InboundFederationLambdaVersionType === "object");
+assert(typeof IssuedTokenTypeIdentifierType === "object");
 assert(typeof IssuerType === "object");
 assert(typeof LimitClass === "object");
 assert(typeof LogLevel === "object");
 assert(typeof MessageActionType === "object");
 assert(typeof OAuthFlowType === "object");
+assert(typeof OAuthTokenTypeType === "object");
 assert(typeof PasswordHashingAlgorithmType === "object");
 assert(typeof PreTokenGenerationLambdaVersionType === "object");
 assert(typeof PreventUserExistenceErrorTypes === "object");
@@ -1550,6 +1563,7 @@ assert(typeof StatusType === "object");
 assert(typeof TermsEnforcementType === "object");
 assert(typeof TermsSourceType === "object");
 assert(typeof TimeUnitsType === "object");
+assert(typeof TokenTypeIdentifierType === "object");
 assert(typeof UpdateReplicaStatusType === "object");
 assert(typeof UserImportJobStatusType === "object");
 assert(typeof UsernameAttributeType === "object");
