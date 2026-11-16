@@ -49,20 +49,18 @@ import type {
   InferenceComponentPlacementStrategy,
   InferenceExecutionMode,
   InferenceExperimentType,
+  InferenceRouterRoutingPreference,
   InstanceGroupStatus,
   IPAddressType,
   JobCategory,
   JobType,
   ManagedInstanceScalingScaleInStrategy,
   ManagedInstanceScalingStatus,
-  ManagedStorageType,
   MetricPublishFrequencyInSeconds,
   MlTools,
-  ModelApprovalStatus,
   ModelCacheSetting,
   ModelCardStatus,
   ModelInfrastructureType,
-  ModelPackageRegistrationType,
   ModelRegistrationMode,
   NotebookOutputOption,
   ParameterType,
@@ -80,12 +78,12 @@ import type {
   RecommendationJobType,
   RepositoryAccessMode,
   ResourceSharingStrategy,
+  RoutingStatus,
   RoutingStrategy,
   RStudioServerProAccessStatus,
   RStudioServerProUserGroup,
   SageMakerImageName,
   SchedulerResourceStatus,
-  SkipModelValidation,
   StorageType,
   StudioWebPortal,
   TableFormat,
@@ -106,7 +104,6 @@ import type {
 import type {
   AcceleratorPartitionLayout,
   ActionSource,
-  AdditionalInferenceSpecificationDefinition,
   AdditionalModelDataSource,
   AdditionalS3DataSource,
   AIAdapterSource,
@@ -141,7 +138,6 @@ import type {
   Autotune,
   BatchTransformInput,
   BestObjectiveNotImproving,
-  Bias,
   BlueGreenUpdatePolicy,
   CanvasAppSettings,
   CapacitySize,
@@ -173,7 +169,6 @@ import type {
   ScheduledUpdateConfig,
   StoppingCondition,
   Tag,
-  TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
 
@@ -4311,6 +4306,24 @@ export interface CreateEndpointOutput {
 }
 
 /**
+ * <p>The cross-Region traffic cap for an endpoint. The cap limits the requests per second that the endpoint accepts from inference routers in other Amazon Web Services Regions. The cap is <code>MaxCrossRegionPercentPerEndpoint</code> percent of <code>MaxInvocationsPerSecondPerInstance</code> multiplied by the number of <code>InService</code> instances, rounded up. All production variants and inference components of the endpoint share it. Requests that you send to the endpoint directly aren't counted. A request over the cap fails with a <code>ThrottlingException</code>.</p>
+ * @public
+ */
+export interface CrossRegionTrafficConfig {
+  /**
+   * <p>The number of invocations per second that you expect one <code>InService</code> instance to serve. One value applies to every production variant, whatever its instance type.</p>
+   * @public
+   */
+  MaxInvocationsPerSecondPerInstance: number | undefined;
+
+  /**
+   * <p>The percentage of the endpoint's capacity that requests from inference routers in other Amazon Web Services Regions can use.</p>
+   * @public
+   */
+  MaxCrossRegionPercentPerEndpoint: number | undefined;
+}
+
+/**
  * <p>Configuration to control how SageMaker AI captures inference data.</p>
  * @public
  */
@@ -4526,7 +4539,7 @@ export interface PrefixAwareRoutingConfig {
  */
 export interface ProductionVariantRoutingConfig {
   /**
-   * <p>Sets how the endpoint routes incoming traffic:</p> <ul> <li> <p> <code>LEAST_OUTSTANDING_REQUESTS</code>: The endpoint routes requests to the specific instances that have more capacity to process them.</p> </li> <li> <p> <code>RANDOM</code>: The endpoint routes each request to a randomly chosen instance.</p> </li> <li> <p> <code>PREFIX_AWARE</code>: The endpoint routes requests that share the same prompt prefix to the same instance and, when that instance hosts more than one copy of the invoked inference component, to the same copy. When the number of in-flight requests on the selected instance or copy reaches the <code>ConcurrencyThreshold</code> value, the endpoint routes the request to another copy on that instance or to another instance. The endpoint applies prefix-aware routing only when two or more instances can serve the request.</p> </li> </ul>
+   * <p>Sets how the endpoint routes incoming traffic:</p> <ul> <li> <p> <code>LEAST_OUTSTANDING_REQUESTS</code>: The endpoint routes requests to the specific instances that have more capacity to process them.</p> </li> <li> <p> <code>RANDOM</code>: The endpoint routes each request to a randomly chosen instance.</p> </li> <li> <p> <code>PREFIX_AWARE</code>: The endpoint routes requests that share the same prompt prefix to the same instance and, when that instance hosts more than one copy of the invoked inference component, to the same copy. When the number of in-flight requests on the selected instance or copy reaches the <code>ConcurrencyThreshold</code> value, the endpoint routes the request to another copy on that instance or to another instance. The endpoint applies prefix-aware routing only when two or more instances can serve the request.</p> </li> <li> <p> <code>KV_AWARE</code>: The endpoint routes each request to an instance that already holds the start of the request's prompt in its key-value (KV) cache, and weighs the length of that match against how busy each instance is. On an endpoint with inference components, the endpoint chooses among the copies of the invoked inference component in the same way. When the endpoint can't find an instance or copy that holds the start of the prompt and isn't too busy, it chooses an instance as it does with <code>LEAST_OUTSTANDING_REQUESTS</code>. <code>KV_AWARE</code> works only with supported containers, such as the SageMaker AI vLLM Deep Learning Container.</p> </li> </ul>
    * @public
    */
   RoutingStrategy: RoutingStrategy | undefined;
@@ -4757,6 +4770,12 @@ export interface CreateEndpointConfigInput {
    * @public
    */
   MetricsConfig?: MetricsConfig | undefined;
+
+  /**
+   * <p>The cross-Region traffic cap for the endpoint. The cap limits the requests per second that the endpoint accepts from inference routers in other Amazon Web Services Regions. If you don't specify it, these requests aren't limited. You can't specify it with serverless variants or with <code>AsyncInferenceConfig</code>. For information about the cross-Region traffic cap, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/inference-router.html#inference-router-cross-region-limit">Limit requests from other Regions</a>.</p>
+   * @public
+   */
+  CrossRegionTrafficConfig?: CrossRegionTrafficConfig | undefined;
 }
 
 /**
@@ -7085,6 +7104,172 @@ export interface CreateInferenceRecommendationsJobResponse {
 }
 
 /**
+ * <p>How the inference router submits asynchronous requests to the destinations of a routing target.</p>
+ * @public
+ */
+export interface RoutingTargetAsyncInferenceClientConfig {
+  /**
+   * <p>The maximum time, in seconds, that a request can wait at a destination before the inference router moves it to another destination. The default is 900 seconds.</p>
+   * @public
+   */
+  MaxTimeInBacklogSeconds?: number | undefined;
+}
+
+/**
+ * <p>The Amazon SNS topics that the inference router publishes to. The router publishes one notification for each request. The notification contains the location of the result, not the result itself. The destination endpoints also send their own notifications, if they're configured to.</p>
+ * @public
+ */
+export interface RoutingTargetAsyncInferenceNotificationConfig {
+  /**
+   * <p>The ARN of the Amazon SNS topic to publish to when a request completes. The topic must be a standard topic, and can be in any Amazon Web Services Region.</p>
+   * @public
+   */
+  SuccessTopic?: string | undefined;
+
+  /**
+   * <p>The ARN of the Amazon SNS topic to publish to when a request fails, or when the router can't place it on any destination. The topic must be a standard topic, and can be in any Amazon Web Services Region.</p>
+   * @public
+   */
+  ErrorTopic?: string | undefined;
+}
+
+/**
+ * <p>The output settings for the asynchronous requests of a routing target. Every destination writes to the same locations. <code>CreateInferenceRouter</code> and <code>UpdateInferenceRouter</code> don't check who owns the buckets. If another account owns the output bucket, requests fail.</p>
+ * @public
+ */
+export interface RoutingTargetAsyncInferenceOutputConfig {
+  /**
+   * <p>The Amazon S3 location for the results of successful requests. The bucket must be in the inference router's Amazon Web Services Region and owned by the router's account.</p>
+   * @public
+   */
+  S3OutputPath: string | undefined;
+
+  /**
+   * <p>The Amazon S3 location for the failure details of failed requests. The bucket must be in the inference router's Amazon Web Services Region and owned by the router's account.</p>
+   * @public
+   */
+  S3FailurePath: string | undefined;
+
+  /**
+   * <p>The KMS key that encrypts the results in Amazon S3. You can specify a key ID, key ARN, alias name, or alias ARN. If any destination is in a different account or Amazon Web Services Region from the inference router, specify a key ARN or an alias ARN.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The Amazon SNS topics that the inference router publishes to when a request completes or fails.</p>
+   * @public
+   */
+  NotificationConfig?: RoutingTargetAsyncInferenceNotificationConfig | undefined;
+}
+
+/**
+ * <p>The asynchronous inference settings of a routing target.</p>
+ * @public
+ */
+export interface RoutingTargetAsyncInferenceConfig {
+  /**
+   * <p>The Amazon S3 locations for the results of asynchronous requests, and the notification settings.</p>
+   * @public
+   */
+  OutputConfig: RoutingTargetAsyncInferenceOutputConfig | undefined;
+
+  /**
+   * <p>How the inference router submits requests to destinations.</p>
+   * @public
+   */
+  ClientConfig?: RoutingTargetAsyncInferenceClientConfig | undefined;
+}
+
+/**
+ * <p>An endpoint or inference component that serves a routing target.</p>
+ * @public
+ */
+export interface Destination {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint or inference component. The destination can be in any account, and in any Amazon Web Services Region in the same partition as the inference router. To use a destination in another account, its owner must allow your account to invoke it through your router, in an endpoint policy.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Whether the inference router can send requests to the destination, as checked when you called <code>DescribeInferenceRouter</code>. This value isn't the destination's own status. SageMaker AI ignores this field in <code>CreateInferenceRouter</code> and <code>UpdateInferenceRouter</code> requests.</p> <dl> <dt>Routable</dt> <dd> <p>The destination is serving and the router can send it requests. A routable destination can still be overloaded.</p> </dd> <dt>Unroutable</dt> <dd> <p>The destination can't serve requests. For example, it's being created or has failed, or it has no capacity and no way to get any. A destination in your account that doesn't exist is also <code>Unroutable</code>.</p> </dd> <dt>Unknown</dt> <dd> <p>SageMaker AI couldn't check the destination, for example because you aren't allowed to describe it or the check timed out. The destination might still be serving.</p> </dd> </dl>
+   * @public
+   */
+  RoutingStatus?: RoutingStatus | undefined;
+}
+
+/**
+ * <p>A model that an inference router serves, and the destinations that can serve it. When you invoke the router, you name the routing target, and the router sends the request to one of its destinations.</p> <p>Every destination in a routing target must serve the same model, with the same request and response format.</p>
+ * @public
+ */
+export interface RoutingTarget {
+  /**
+   * <p>The name of the routing target. Callers specify this name in the <code>RoutingTargetName</code> parameter when they invoke the inference router. The name must be unique within the router.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The endpoints and inference components that serve the routing target. Each destination can appear only once in a routing target.</p> <p>In an asynchronous routing target, every destination must be an asynchronous inference endpoint. In a real-time routing target, no destination can be one. SageMaker AI checks an endpoint in another account with your credentials, so both your IAM policy and the endpoint policy must allow <code>sagemaker:DescribeEndpoint</code>. If an endpoint can't be checked, for example because it isn't found or can't be read in time, it's accepted, and requests to it fail if it's the wrong mode.</p>
+   * @public
+   */
+  Destinations: Destination[] | undefined;
+
+  /**
+   * <p>The asynchronous inference settings of the routing target. Specify this setting to make the routing target asynchronous. If you omit it, the routing target serves real-time requests.</p> <p>Asynchronous routing targets aren't available in all Amazon Web Services Regions. For information about asynchronous routing targets and Region availability, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/inference-router-async.html">Send asynchronous requests through an inference router</a>.</p> <p>Because <code>UpdateInferenceRouter</code> replaces all routing targets, include this setting in every update of an asynchronous routing target.</p> <p>For information about asynchronous routing targets, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/inference-router-async.html">Send asynchronous requests through an inference router</a>.</p>
+   * @public
+   */
+  AsyncInferenceConfig?: RoutingTargetAsyncInferenceConfig | undefined;
+
+  /**
+   * <p>How the inference router chooses among the routing target's destinations. The default is <code>LocalRegionFirst</code>.</p> <dl> <dt>LocalRegionFirst</dt> <dd> <p>The router uses destinations in its own Region first. When the request leaves the Region, the router spreads it across healthy destinations in other Regions.</p> </dd> <dt>InstancePoolOrder</dt> <dd> <p>The router prefers destinations by instance type first and by Region second. Every destination must be an endpoint that lists the same two or more instance types, each with a different priority, in the same priority order. This value is supported only for asynchronous routing targets.</p> </dd> </dl> <p>With either value, the router uses destinations whose health or capacity is reduced after the others, but doesn't exclude them.</p>
+   * @public
+   */
+  RoutingPreference?: InferenceRouterRoutingPreference | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInferenceRouterInput {
+  /**
+   * <p>The name of the inference router. The name must be unique within your account in the current Amazon Web Services Region. The name is case sensitive.</p>
+   * @public
+   */
+  InferenceRouterName: string | undefined;
+
+  /**
+   * <p>The routing targets of the inference router. Each routing target is a model that callers name when they invoke the router, and the destinations that serve it.</p>
+   * @public
+   */
+  RoutingTargets: RoutingTarget[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you reuse a client token, use the same request parameters. Otherwise, the request fails.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs to apply to the inference router. For information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInferenceRouterOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the inference router.</p>
+   * @public
+   */
+  InferenceRouterArn: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateJobRequest {
@@ -8288,308 +8473,4 @@ export interface ModelDataQuality {
    * @public
    */
   Constraints?: MetricsSource | undefined;
-}
-
-/**
- * <p>Model quality statistics and constraints.</p>
- * @public
- */
-export interface ModelQuality {
-  /**
-   * <p>Model quality statistics.</p>
-   * @public
-   */
-  Statistics?: MetricsSource | undefined;
-
-  /**
-   * <p>Model quality constraints.</p>
-   * @public
-   */
-  Constraints?: MetricsSource | undefined;
-}
-
-/**
- * <p>Contains metrics captured from a model.</p>
- * @public
- */
-export interface ModelMetrics {
-  /**
-   * <p>Metrics that measure the quality of a model.</p>
-   * @public
-   */
-  ModelQuality?: ModelQuality | undefined;
-
-  /**
-   * <p>Metrics that measure the quality of the input data for a model.</p>
-   * @public
-   */
-  ModelDataQuality?: ModelDataQuality | undefined;
-
-  /**
-   * <p>Metrics that measure bias in a model.</p>
-   * @public
-   */
-  Bias?: Bias | undefined;
-
-  /**
-   * <p>Metrics that help explain a model.</p>
-   * @public
-   */
-  Explainability?: Explainability | undefined;
-}
-
-/**
- * <p>An optional Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.</p>
- * @public
- */
-export interface ModelPackageSecurityConfig {
-  /**
-   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>
-   * @public
-   */
-  KmsKeyId: string | undefined;
-}
-
-/**
- * <p>Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in Amazon Web Services Marketplace that you are subscribed to.</p>
- * @public
- */
-export interface SourceAlgorithm {
-  /**
-   * <p>The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single <code>gzip</code> compressed tar archive (<code>.tar.gz</code> suffix).</p> <note> <p>The model artifacts must be in an S3 bucket that is in the same Amazon Web Services region as the algorithm.</p> </note>
-   * @public
-   */
-  ModelDataUrl?: string | undefined;
-
-  /**
-   * <p>Specifies the location of ML model data to deploy during endpoint creation.</p>
-   * @public
-   */
-  ModelDataSource?: ModelDataSource | undefined;
-
-  /**
-   * <p>The ETag associated with Model Data URL.</p>
-   * @public
-   */
-  ModelDataETag?: string | undefined;
-
-  /**
-   * <p>The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in Amazon Web Services Marketplace that you are subscribed to.</p>
-   * @public
-   */
-  AlgorithmName: string | undefined;
-}
-
-/**
- * <p>A list of algorithms that were used to create a model package.</p>
- * @public
- */
-export interface SourceAlgorithmSpecification {
-  /**
-   * <p>A list of the algorithms that were used to create a model package.</p>
-   * @public
-   */
-  SourceAlgorithms: SourceAlgorithm[] | undefined;
-}
-
-/**
- * <p>Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.</p> <p>The data provided in the validation profile is made available to your buyers on Amazon Web Services Marketplace.</p>
- * @public
- */
-export interface ModelPackageValidationProfile {
-  /**
-   * <p>The name of the profile for the model package.</p>
-   * @public
-   */
-  ProfileName: string | undefined;
-
-  /**
-   * <p>The <code>TransformJobDefinition</code> object that describes the transform job used for the validation of the model package.</p>
-   * @public
-   */
-  TransformJobDefinition: TransformJobDefinition | undefined;
-}
-
-/**
- * <p>Specifies batch transform jobs that SageMaker runs to validate your model package.</p>
- * @public
- */
-export interface ModelPackageValidationSpecification {
-  /**
-   * <p>The IAM roles to be used for the validation of the model package.</p>
-   * @public
-   */
-  ValidationRole: string | undefined;
-
-  /**
-   * <p>An array of <code>ModelPackageValidationProfile</code> objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.</p>
-   * @public
-   */
-  ValidationProfiles: ModelPackageValidationProfile[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelPackageInput {
-  /**
-   * <p>The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).</p> <p>This parameter is required for unversioned models. It is not applicable to versioned models.</p>
-   * @public
-   */
-  ModelPackageName?: string | undefined;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the model package group that this model version belongs to.</p> <p>This parameter is required for versioned models, and does not apply to unversioned models.</p>
-   * @public
-   */
-  ModelPackageGroupName?: string | undefined;
-
-  /**
-   * <p>A description of the model package.</p>
-   * @public
-   */
-  ModelPackageDescription?: string | undefined;
-
-  /**
-   * <p> The package registration type of the model package input. </p>
-   * @public
-   */
-  ModelPackageRegistrationType?: ModelPackageRegistrationType | undefined;
-
-  /**
-   * <p>Specifies details about inference jobs that you can run with models based on this model package, including the following information:</p> <ul> <li> <p>The Amazon ECR paths of containers that contain the inference code and model artifacts.</p> </li> <li> <p>The instance types that the model package supports for transform jobs and real-time endpoints used for inference.</p> </li> <li> <p>The input and output content formats that the model package supports for inference.</p> </li> </ul>
-   * @public
-   */
-  InferenceSpecification?: InferenceSpecification | undefined;
-
-  /**
-   * <p>Specifies configurations for one or more transform jobs that SageMaker runs to test the model package.</p>
-   * @public
-   */
-  ValidationSpecification?: ModelPackageValidationSpecification | undefined;
-
-  /**
-   * <p>Details about the algorithm that was used to create the model package.</p>
-   * @public
-   */
-  SourceAlgorithmSpecification?: SourceAlgorithmSpecification | undefined;
-
-  /**
-   * <p>Whether to certify the model package for listing on Amazon Web Services Marketplace.</p> <p>This parameter is optional for unversioned models, and does not apply to versioned models.</p>
-   * @public
-   */
-  CertifyForMarketplace?: boolean | undefined;
-
-  /**
-   * <p>A list of key value pairs associated with the model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p> <p>If you supply <code>ModelPackageGroupName</code>, your model package belongs to the model group you specify and uses the tags associated with the model group. In this case, you cannot supply a <code>tag</code> argument. </p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>Whether the model is approved for deployment.</p> <p>This parameter is optional for versioned models, and does not apply to unversioned models.</p> <p>For versioned models, the value of this parameter must be set to <code>Approved</code> to deploy the model.</p>
-   * @public
-   */
-  ModelApprovalStatus?: ModelApprovalStatus | undefined;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   * @public
-   */
-  MetadataProperties?: MetadataProperties | undefined;
-
-  /**
-   * <p>A structure that contains model metrics reports.</p>
-   * @public
-   */
-  ModelMetrics?: ModelMetrics | undefined;
-
-  /**
-   * <p>A unique token that guarantees that the call to this API is idempotent.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.</p>
-   * @public
-   */
-  Domain?: string | undefined;
-
-  /**
-   * <p>The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification. The following tasks are supported by Inference Recommender: <code>"IMAGE_CLASSIFICATION"</code> | <code>"OBJECT_DETECTION"</code> | <code>"TEXT_GENERATION"</code> |<code>"IMAGE_SEGMENTATION"</code> | <code>"FILL_MASK"</code> | <code>"CLASSIFICATION"</code> | <code>"REGRESSION"</code> | <code>"OTHER"</code>.</p> <p>Specify "OTHER" if none of the tasks listed fit your use case.</p>
-   * @public
-   */
-  Task?: string | undefined;
-
-  /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload is stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix). This archive can hold multiple files that are all equally used in the load test. Each file in the archive must satisfy the size constraints of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html#API_runtime_InvokeEndpoint_RequestSyntax">InvokeEndpoint</a> call.</p>
-   * @public
-   */
-  SamplePayloadUrl?: string | undefined;
-
-  /**
-   * <p>The metadata properties associated with the model package versions.</p>
-   * @public
-   */
-  CustomerMetadataProperties?: Record<string, string> | undefined;
-
-  /**
-   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package. For more information, see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection">Drift Detection against Previous Baselines in SageMaker Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>. </p>
-   * @public
-   */
-  DriftCheckBaselines?: DriftCheckBaselines | undefined;
-
-  /**
-   * <p>An array of additional Inference Specification objects. Each additional Inference Specification specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts. </p>
-   * @public
-   */
-  AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[] | undefined;
-
-  /**
-   * <p>Indicates if you want to skip model validation.</p>
-   * @public
-   */
-  SkipModelValidation?: SkipModelValidation | undefined;
-
-  /**
-   * <p>The URI of the source for the model package. If you want to clone a model package, set it to the model package Amazon Resource Name (ARN). If you want to register a model, set it to the model ARN.</p>
-   * @public
-   */
-  SourceUri?: string | undefined;
-
-  /**
-   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>
-   * @public
-   */
-  SecurityConfig?: ModelPackageSecurityConfig | undefined;
-
-  /**
-   * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model Version</a>.</p>
-   * @public
-   */
-  ModelCard?: ModelPackageModelCard | undefined;
-
-  /**
-   * <p> A structure describing the current state of the model in its life cycle. </p>
-   * @public
-   */
-  ModelLifeCycle?: ModelLifeCycle | undefined;
-
-  /**
-   * <p>The storage type of the model package.</p>
-   * @public
-   */
-  ManagedStorageType?: ManagedStorageType | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelPackageOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the new model package.</p>
-   * @public
-   */
-  ModelPackageArn: string | undefined;
 }

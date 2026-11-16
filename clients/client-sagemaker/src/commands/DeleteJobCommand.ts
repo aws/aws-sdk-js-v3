@@ -34,7 +34,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * const client = new SageMakerClient(config);
  * const input = { // DeleteJobRequest
  *   JobName: "STRING_VALUE", // required
- *   JobCategory: "AgentRFT" || "AgentRFTEvaluation", // required
+ *   JobCategory: "AgentRFT" || "SyntheticDataGeneration" || "DataQualityEvaluation" || "AgentRFTEvaluation" || "DataTransformation", // required
  * };
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);

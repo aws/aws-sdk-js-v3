@@ -33,7 +33,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListJobsRequest
- *   JobCategory: "AgentRFT" || "AgentRFTEvaluation", // required
+ *   JobCategory: "AgentRFT" || "SyntheticDataGeneration" || "DataQualityEvaluation" || "AgentRFTEvaluation" || "DataTransformation", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   CreationTimeAfter: new Date("TIMESTAMP"),
@@ -53,9 +53,9 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //     { // JobSummary
  * //       JobArn: "STRING_VALUE", // required
  * //       JobName: "STRING_VALUE", // required
- * //       JobCategory: "AgentRFT" || "AgentRFTEvaluation", // required
+ * //       JobCategory: "AgentRFT" || "SyntheticDataGeneration" || "DataQualityEvaluation" || "AgentRFTEvaluation" || "DataTransformation", // required
  * //       JobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting" || "DeleteFailed", // required
- * //       JobSecondaryStatus: "Starting" || "Downloading" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Interrupted" || "Failed" || "Completed" || "Restarting" || "Pending" || "Evaluating" || "Deleting" || "DeleteFailed", // required
+ * //       JobSecondaryStatus: "Starting" || "Downloading" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Interrupted" || "Failed" || "Completed" || "Restarting" || "Pending" || "Generating" || "PartialGeneration" || "Evaluating" || "Validating" || "Preparing" || "Executing" || "Publishing" || "Finalizing" || "Transforming" || "Deleting" || "DeleteFailed", // required
  * //       CreationTime: new Date("TIMESTAMP"), // required
  * //       LastModifiedTime: new Date("TIMESTAMP"), // required
  * //       EndTime: new Date("TIMESTAMP"),

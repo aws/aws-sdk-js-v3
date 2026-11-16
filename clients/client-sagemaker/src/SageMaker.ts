@@ -236,6 +236,11 @@ import {
   type CreateInferenceRecommendationsJobCommandOutput,
   CreateInferenceRecommendationsJobCommand,
 } from "./commands/CreateInferenceRecommendationsJobCommand";
+import {
+  type CreateInferenceRouterCommandInput,
+  type CreateInferenceRouterCommandOutput,
+  CreateInferenceRouterCommand,
+} from "./commands/CreateInferenceRouterCommand";
 import { type CreateJobCommandInput, type CreateJobCommandOutput, CreateJobCommand } from "./commands/CreateJobCommand";
 import {
   type CreateLabelingJobCommandInput,
@@ -524,6 +529,11 @@ import {
   DeleteEndpointConfigCommand,
 } from "./commands/DeleteEndpointConfigCommand";
 import {
+  type DeleteEndpointPolicyCommandInput,
+  type DeleteEndpointPolicyCommandOutput,
+  DeleteEndpointPolicyCommand,
+} from "./commands/DeleteEndpointPolicyCommand";
+import {
   type DeleteExperimentCommandInput,
   type DeleteExperimentCommandOutput,
   DeleteExperimentCommand,
@@ -579,6 +589,11 @@ import {
   type DeleteInferenceExperimentCommandOutput,
   DeleteInferenceExperimentCommand,
 } from "./commands/DeleteInferenceExperimentCommand";
+import {
+  type DeleteInferenceRouterCommandInput,
+  type DeleteInferenceRouterCommandOutput,
+  DeleteInferenceRouterCommand,
+} from "./commands/DeleteInferenceRouterCommand";
 import { type DeleteJobCommandInput, type DeleteJobCommandOutput, DeleteJobCommand } from "./commands/DeleteJobCommand";
 import {
   type DeleteMlflowAppCommandInput,
@@ -931,6 +946,11 @@ import {
   DescribeInferenceRecommendationsJobCommand,
 } from "./commands/DescribeInferenceRecommendationsJobCommand";
 import {
+  type DescribeInferenceRouterCommandInput,
+  type DescribeInferenceRouterCommandOutput,
+  DescribeInferenceRouterCommand,
+} from "./commands/DescribeInferenceRouterCommand";
+import {
   type DescribeJobCommandInput,
   type DescribeJobCommandOutput,
   DescribeJobCommand,
@@ -1150,6 +1170,11 @@ import {
   type GetDeviceFleetReportCommandOutput,
   GetDeviceFleetReportCommand,
 } from "./commands/GetDeviceFleetReportCommand";
+import {
+  type GetEndpointPolicyCommandInput,
+  type GetEndpointPolicyCommandOutput,
+  GetEndpointPolicyCommand,
+} from "./commands/GetEndpointPolicyCommand";
 import {
   type GetLineageGroupPolicyCommandInput,
   type GetLineageGroupPolicyCommandOutput,
@@ -1398,6 +1423,11 @@ import {
   ListInferenceRecommendationsJobStepsCommand,
 } from "./commands/ListInferenceRecommendationsJobStepsCommand";
 import {
+  type ListInferenceRoutersCommandInput,
+  type ListInferenceRoutersCommandOutput,
+  ListInferenceRoutersCommand,
+} from "./commands/ListInferenceRoutersCommand";
+import {
   type ListJobSchemaVersionsCommandInput,
   type ListJobSchemaVersionsCommandOutput,
   ListJobSchemaVersionsCommand,
@@ -1634,6 +1664,11 @@ import {
   type ListWorkteamsCommandOutput,
   ListWorkteamsCommand,
 } from "./commands/ListWorkteamsCommand";
+import {
+  type PutEndpointPolicyCommandInput,
+  type PutEndpointPolicyCommandOutput,
+  PutEndpointPolicyCommand,
+} from "./commands/PutEndpointPolicyCommand";
 import {
   type PutModelPackageGroupPolicyCommandInput,
   type PutModelPackageGroupPolicyCommandOutput,
@@ -1938,6 +1973,11 @@ import {
   UpdateInferenceExperimentCommand,
 } from "./commands/UpdateInferenceExperimentCommand";
 import {
+  type UpdateInferenceRouterCommandInput,
+  type UpdateInferenceRouterCommandOutput,
+  UpdateInferenceRouterCommand,
+} from "./commands/UpdateInferenceRouterCommand";
+import {
   type UpdateMlflowAppCommandInput,
   type UpdateMlflowAppCommandOutput,
   UpdateMlflowAppCommand,
@@ -2087,6 +2127,7 @@ import { paginateListInferenceRecommendationsJobs } from "./pagination/ListInfer
 import {
   paginateListInferenceRecommendationsJobSteps,
 } from "./pagination/ListInferenceRecommendationsJobStepsPaginator";
+import { paginateListInferenceRouters } from "./pagination/ListInferenceRoutersPaginator";
 import { paginateListJobSchemaVersions } from "./pagination/ListJobSchemaVersionsPaginator";
 import { paginateListJobs } from "./pagination/ListJobsPaginator";
 import { paginateListLabelingJobsForWorkteam } from "./pagination/ListLabelingJobsForWorkteamPaginator";
@@ -2208,6 +2249,7 @@ const commands = {
   CreateInferenceComponentCommand,
   CreateInferenceExperimentCommand,
   CreateInferenceRecommendationsJobCommand,
+  CreateInferenceRouterCommand,
   CreateJobCommand,
   CreateLabelingJobCommand,
   CreateMlflowAppCommand,
@@ -2267,6 +2309,7 @@ const commands = {
   DeleteEdgeDeploymentStageCommand,
   DeleteEndpointCommand,
   DeleteEndpointConfigCommand,
+  DeleteEndpointPolicyCommand,
   DeleteExperimentCommand,
   DeleteFeatureGroupCommand,
   DeleteFlowDefinitionCommand,
@@ -2279,6 +2322,7 @@ const commands = {
   DeleteImageVersionCommand,
   DeleteInferenceComponentCommand,
   DeleteInferenceExperimentCommand,
+  DeleteInferenceRouterCommand,
   DeleteJobCommand,
   DeleteMlflowAppCommand,
   DeleteMlflowTrackingServerCommand,
@@ -2350,6 +2394,7 @@ const commands = {
   DescribeInferenceComponentCommand,
   DescribeInferenceExperimentCommand,
   DescribeInferenceRecommendationsJobCommand,
+  DescribeInferenceRouterCommand,
   DescribeJobCommand,
   DescribeJobSchemaVersionCommand,
   DescribeLabelingJobCommand,
@@ -2394,6 +2439,7 @@ const commands = {
   EnableSagemakerServicecatalogPortfolioCommand,
   ExtendTrainingPlanCommand,
   GetDeviceFleetReportCommand,
+  GetEndpointPolicyCommand,
   GetLineageGroupPolicyCommand,
   GetModelPackageGroupPolicyCommand,
   GetSagemakerServicecatalogPortfolioStatusCommand,
@@ -2445,6 +2491,7 @@ const commands = {
   ListInferenceExperimentsCommand,
   ListInferenceRecommendationsJobsCommand,
   ListInferenceRecommendationsJobStepsCommand,
+  ListInferenceRoutersCommand,
   ListJobsCommand,
   ListJobSchemaVersionsCommand,
   ListLabelingJobsCommand,
@@ -2494,6 +2541,7 @@ const commands = {
   ListUserProfilesCommand,
   ListWorkforcesCommand,
   ListWorkteamsCommand,
+  PutEndpointPolicyCommand,
   PutModelPackageGroupPolicyCommand,
   QueryLineageCommand,
   RegisterDevicesCommand,
@@ -2557,6 +2605,7 @@ const commands = {
   UpdateInferenceComponentCommand,
   UpdateInferenceComponentRuntimeConfigCommand,
   UpdateInferenceExperimentCommand,
+  UpdateInferenceRouterCommand,
   UpdateMlflowAppCommand,
   UpdateMlflowTrackingServerCommand,
   UpdateModelCardCommand,
@@ -2623,6 +2672,7 @@ const paginators = {
   paginateListInferenceExperiments,
   paginateListInferenceRecommendationsJobs,
   paginateListInferenceRecommendationsJobSteps,
+  paginateListInferenceRouters,
   paginateListJobs,
   paginateListJobSchemaVersions,
   paginateListLabelingJobs,
@@ -3513,6 +3563,23 @@ export interface SageMaker {
     args: CreateInferenceRecommendationsJobCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateInferenceRecommendationsJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateInferenceRouterCommand}
+   */
+  createInferenceRouter(
+    args: CreateInferenceRouterCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<CreateInferenceRouterCommandOutput>;
+  createInferenceRouter(
+    args: CreateInferenceRouterCommandInput,
+    cb: (err: any, data?: CreateInferenceRouterCommandOutput) => void
+  ): void;
+  createInferenceRouter(
+    args: CreateInferenceRouterCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: CreateInferenceRouterCommandOutput) => void
   ): void;
 
   /**
@@ -4521,6 +4588,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DeleteEndpointPolicyCommand}
+   */
+  deleteEndpointPolicy(
+    args: DeleteEndpointPolicyCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<DeleteEndpointPolicyCommandOutput>;
+  deleteEndpointPolicy(
+    args: DeleteEndpointPolicyCommandInput,
+    cb: (err: any, data?: DeleteEndpointPolicyCommandOutput) => void
+  ): void;
+  deleteEndpointPolicy(
+    args: DeleteEndpointPolicyCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: DeleteEndpointPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteExperimentCommand}
    */
   deleteExperiment(
@@ -4722,6 +4806,23 @@ export interface SageMaker {
     args: DeleteInferenceExperimentCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteInferenceExperimentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteInferenceRouterCommand}
+   */
+  deleteInferenceRouter(
+    args: DeleteInferenceRouterCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<DeleteInferenceRouterCommandOutput>;
+  deleteInferenceRouter(
+    args: DeleteInferenceRouterCommandInput,
+    cb: (err: any, data?: DeleteInferenceRouterCommandOutput) => void
+  ): void;
+  deleteInferenceRouter(
+    args: DeleteInferenceRouterCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: DeleteInferenceRouterCommandOutput) => void
   ): void;
 
   /**
@@ -5932,6 +6033,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DescribeInferenceRouterCommand}
+   */
+  describeInferenceRouter(
+    args: DescribeInferenceRouterCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<DescribeInferenceRouterCommandOutput>;
+  describeInferenceRouter(
+    args: DescribeInferenceRouterCommandInput,
+    cb: (err: any, data?: DescribeInferenceRouterCommandOutput) => void
+  ): void;
+  describeInferenceRouter(
+    args: DescribeInferenceRouterCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: DescribeInferenceRouterCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeJobCommand}
    */
   describeJob(
@@ -6679,6 +6797,23 @@ export interface SageMaker {
     args: GetDeviceFleetReportCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: GetDeviceFleetReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEndpointPolicyCommand}
+   */
+  getEndpointPolicy(
+    args: GetEndpointPolicyCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<GetEndpointPolicyCommandOutput>;
+  getEndpointPolicy(
+    args: GetEndpointPolicyCommandInput,
+    cb: (err: any, data?: GetEndpointPolicyCommandOutput) => void
+  ): void;
+  getEndpointPolicy(
+    args: GetEndpointPolicyCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: GetEndpointPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -7584,6 +7719,24 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListInferenceRoutersCommand}
+   */
+  listInferenceRouters(): Promise<ListInferenceRoutersCommandOutput>;
+  listInferenceRouters(
+    args: ListInferenceRoutersCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<ListInferenceRoutersCommandOutput>;
+  listInferenceRouters(
+    args: ListInferenceRoutersCommandInput,
+    cb: (err: any, data?: ListInferenceRoutersCommandOutput) => void
+  ): void;
+  listInferenceRouters(
+    args: ListInferenceRoutersCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: ListInferenceRoutersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListJobsCommand}
    */
   listJobs(
@@ -8450,6 +8603,23 @@ export interface SageMaker {
     args: ListWorkteamsCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: ListWorkteamsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutEndpointPolicyCommand}
+   */
+  putEndpointPolicy(
+    args: PutEndpointPolicyCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<PutEndpointPolicyCommandOutput>;
+  putEndpointPolicy(
+    args: PutEndpointPolicyCommandInput,
+    cb: (err: any, data?: PutEndpointPolicyCommandOutput) => void
+  ): void;
+  putEndpointPolicy(
+    args: PutEndpointPolicyCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: PutEndpointPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -9526,6 +9696,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link UpdateInferenceRouterCommand}
+   */
+  updateInferenceRouter(
+    args: UpdateInferenceRouterCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<UpdateInferenceRouterCommandOutput>;
+  updateInferenceRouter(
+    args: UpdateInferenceRouterCommandInput,
+    cb: (err: any, data?: UpdateInferenceRouterCommandOutput) => void
+  ): void;
+  updateInferenceRouter(
+    args: UpdateInferenceRouterCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: UpdateInferenceRouterCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateMlflowAppCommand}
    */
   updateMlflowApp(
@@ -10348,6 +10535,17 @@ export interface SageMaker {
     args: ListInferenceRecommendationsJobStepsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListInferenceRecommendationsJobStepsCommandOutput>;
+
+  /**
+   * @see {@link ListInferenceRoutersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInferenceRoutersCommandOutput}.
+   */
+  paginateListInferenceRouters(
+    args?: ListInferenceRoutersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInferenceRoutersCommandOutput>;
 
   /**
    * @see {@link ListJobsCommand}

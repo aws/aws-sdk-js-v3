@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeComputeQuotaRequest, DescribeComputeQuotaResponse } from "../models/models_2";
+import type { DescribeComputeQuotaRequest } from "../models/models_2";
+import type { DescribeComputeQuotaResponse } from "../models/models_3";
 import { DescribeComputeQuota$ } from "../schemas/schemas_0";
 
 /**

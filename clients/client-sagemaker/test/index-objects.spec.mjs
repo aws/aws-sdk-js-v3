@@ -513,6 +513,10 @@ import {
   CreateInferenceRecommendationsJobCommand,
   CreateInferenceRecommendationsJobRequest$,
   CreateInferenceRecommendationsJobResponse$,
+  CreateInferenceRouter$,
+  CreateInferenceRouterCommand,
+  CreateInferenceRouterInput$,
+  CreateInferenceRouterOutput$,
   CreateJob$,
   CreateJobCommand,
   CreateJobRequest$,
@@ -659,6 +663,7 @@ import {
   CreateWorkteamRequest$,
   CreateWorkteamResponse$,
   CrossAccountFilterOption,
+  CrossRegionTrafficConfig$,
   CustomFileSystem$,
   CustomFileSystemConfig$,
   CustomImage$,
@@ -764,6 +769,10 @@ import {
   DeleteEndpointConfigCommand,
   DeleteEndpointConfigInput$,
   DeleteEndpointInput$,
+  DeleteEndpointPolicy$,
+  DeleteEndpointPolicyCommand,
+  DeleteEndpointPolicyRequest$,
+  DeleteEndpointPolicyResponse$,
   DeleteExperiment$,
   DeleteExperimentCommand,
   DeleteExperimentRequest$,
@@ -806,6 +815,9 @@ import {
   DeleteInferenceExperimentCommand,
   DeleteInferenceExperimentRequest$,
   DeleteInferenceExperimentResponse$,
+  DeleteInferenceRouter$,
+  DeleteInferenceRouterCommand,
+  DeleteInferenceRouterInput$,
   DeleteJob$,
   DeleteJobCommand,
   DeleteJobRequest$,
@@ -1078,6 +1090,10 @@ import {
   DescribeInferenceRecommendationsJobCommand,
   DescribeInferenceRecommendationsJobRequest$,
   DescribeInferenceRecommendationsJobResponse$,
+  DescribeInferenceRouter$,
+  DescribeInferenceRouterCommand,
+  DescribeInferenceRouterInput$,
+  DescribeInferenceRouterOutput$,
   DescribeJob$,
   DescribeJobCommand,
   DescribeJobRequest$,
@@ -1231,6 +1247,7 @@ import {
   DescribeWorkteamRequest$,
   DescribeWorkteamResponse$,
   DesiredWeightAndCapacity$,
+  Destination$,
   DetachClusterNodeVolume$,
   DetachClusterNodeVolumeCommand,
   DetachClusterNodeVolumeRequest$,
@@ -1377,6 +1394,10 @@ import {
   GetDeviceFleetReportCommand,
   GetDeviceFleetReportRequest$,
   GetDeviceFleetReportResponse$,
+  GetEndpointPolicy$,
+  GetEndpointPolicyCommand,
+  GetEndpointPolicyRequest$,
+  GetEndpointPolicyResponse$,
   GetLineageGroupPolicy$,
   GetLineageGroupPolicyCommand,
   GetLineageGroupPolicyRequest$,
@@ -1501,6 +1522,9 @@ import {
   InferenceRecommendation$,
   InferenceRecommendationsJob$,
   InferenceRecommendationsJobStep$,
+  InferenceRouterRoutingPreference,
+  InferenceRouterStatus,
+  InferenceRouterSummary$,
   InferenceSpecification$,
   InfraCheckConfig$,
   InputConfig$,
@@ -1749,6 +1773,10 @@ import {
   ListInferenceRecommendationsJobStepsCommand,
   ListInferenceRecommendationsJobStepsRequest$,
   ListInferenceRecommendationsJobStepsResponse$,
+  ListInferenceRouters$,
+  ListInferenceRoutersCommand,
+  ListInferenceRoutersInput$,
+  ListInferenceRoutersOutput$,
   ListJobs$,
   ListJobSchemaVersions$,
   ListJobSchemaVersionsCommand,
@@ -2184,6 +2212,7 @@ import {
   paginateListInferenceExperiments,
   paginateListInferenceRecommendationsJobs,
   paginateListInferenceRecommendationsJobSteps,
+  paginateListInferenceRouters,
   paginateListJobs,
   paginateListJobSchemaVersions,
   paginateListLabelingJobs,
@@ -2321,6 +2350,10 @@ import {
   PropertyNameSuggestion$,
   ProvisioningParameter$,
   PublicWorkforceTaskPrice$,
+  PutEndpointPolicy$,
+  PutEndpointPolicyCommand,
+  PutEndpointPolicyRequest$,
+  PutEndpointPolicyResponse$,
   PutModelPackageGroupPolicy$,
   PutModelPackageGroupPolicyCommand,
   PutModelPackageGroupPolicyInput$,
@@ -2373,6 +2406,8 @@ import {
   ReservedCapacitySummary$,
   ReservedCapacityType,
   ResolvedAttributes$,
+  ResourceAlreadyExists,
+  ResourceAlreadyExists$,
   ResourceCatalog$,
   ResourceCatalogSortBy,
   ResourceCatalogSortOrder,
@@ -2400,7 +2435,13 @@ import {
   RollingDeploymentPolicy$,
   RollingUpdatePolicy$,
   RootAccess,
+  RoutingStatus,
   RoutingStrategy,
+  RoutingTarget$,
+  RoutingTargetAsyncInferenceClientConfig$,
+  RoutingTargetAsyncInferenceConfig$,
+  RoutingTargetAsyncInferenceNotificationConfig$,
+  RoutingTargetAsyncInferenceOutputConfig$,
   RSessionAppSettings$,
   RStudioServerProAccessStatus,
   RStudioServerProAppSettings$,
@@ -2818,6 +2859,10 @@ import {
   UpdateInferenceExperimentCommand,
   UpdateInferenceExperimentRequest$,
   UpdateInferenceExperimentResponse$,
+  UpdateInferenceRouter$,
+  UpdateInferenceRouterCommand,
+  UpdateInferenceRouterInput$,
+  UpdateInferenceRouterOutput$,
   UpdateMlflowApp$,
   UpdateMlflowAppCommand,
   UpdateMlflowAppRequest$,
@@ -3053,6 +3098,8 @@ assert(typeof CreateInferenceExperimentCommand === "function");
 assert(typeof CreateInferenceExperiment$ === "object");
 assert(typeof CreateInferenceRecommendationsJobCommand === "function");
 assert(typeof CreateInferenceRecommendationsJob$ === "object");
+assert(typeof CreateInferenceRouterCommand === "function");
+assert(typeof CreateInferenceRouter$ === "object");
 assert(typeof CreateJobCommand === "function");
 assert(typeof CreateJob$ === "object");
 assert(typeof CreateLabelingJobCommand === "function");
@@ -3171,6 +3218,8 @@ assert(typeof DeleteEndpointCommand === "function");
 assert(typeof DeleteEndpoint$ === "object");
 assert(typeof DeleteEndpointConfigCommand === "function");
 assert(typeof DeleteEndpointConfig$ === "object");
+assert(typeof DeleteEndpointPolicyCommand === "function");
+assert(typeof DeleteEndpointPolicy$ === "object");
 assert(typeof DeleteExperimentCommand === "function");
 assert(typeof DeleteExperiment$ === "object");
 assert(typeof DeleteFeatureGroupCommand === "function");
@@ -3195,6 +3244,8 @@ assert(typeof DeleteInferenceComponentCommand === "function");
 assert(typeof DeleteInferenceComponent$ === "object");
 assert(typeof DeleteInferenceExperimentCommand === "function");
 assert(typeof DeleteInferenceExperiment$ === "object");
+assert(typeof DeleteInferenceRouterCommand === "function");
+assert(typeof DeleteInferenceRouter$ === "object");
 assert(typeof DeleteJobCommand === "function");
 assert(typeof DeleteJob$ === "object");
 assert(typeof DeleteMlflowAppCommand === "function");
@@ -3337,6 +3388,8 @@ assert(typeof DescribeInferenceExperimentCommand === "function");
 assert(typeof DescribeInferenceExperiment$ === "object");
 assert(typeof DescribeInferenceRecommendationsJobCommand === "function");
 assert(typeof DescribeInferenceRecommendationsJob$ === "object");
+assert(typeof DescribeInferenceRouterCommand === "function");
+assert(typeof DescribeInferenceRouter$ === "object");
 assert(typeof DescribeJobCommand === "function");
 assert(typeof DescribeJob$ === "object");
 assert(typeof DescribeJobSchemaVersionCommand === "function");
@@ -3425,6 +3478,8 @@ assert(typeof ExtendTrainingPlanCommand === "function");
 assert(typeof ExtendTrainingPlan$ === "object");
 assert(typeof GetDeviceFleetReportCommand === "function");
 assert(typeof GetDeviceFleetReport$ === "object");
+assert(typeof GetEndpointPolicyCommand === "function");
+assert(typeof GetEndpointPolicy$ === "object");
 assert(typeof GetLineageGroupPolicyCommand === "function");
 assert(typeof GetLineageGroupPolicy$ === "object");
 assert(typeof GetModelPackageGroupPolicyCommand === "function");
@@ -3527,6 +3582,8 @@ assert(typeof ListInferenceRecommendationsJobsCommand === "function");
 assert(typeof ListInferenceRecommendationsJobs$ === "object");
 assert(typeof ListInferenceRecommendationsJobStepsCommand === "function");
 assert(typeof ListInferenceRecommendationsJobSteps$ === "object");
+assert(typeof ListInferenceRoutersCommand === "function");
+assert(typeof ListInferenceRouters$ === "object");
 assert(typeof ListJobsCommand === "function");
 assert(typeof ListJobs$ === "object");
 assert(typeof ListJobSchemaVersionsCommand === "function");
@@ -3625,6 +3682,8 @@ assert(typeof ListWorkforcesCommand === "function");
 assert(typeof ListWorkforces$ === "object");
 assert(typeof ListWorkteamsCommand === "function");
 assert(typeof ListWorkteams$ === "object");
+assert(typeof PutEndpointPolicyCommand === "function");
+assert(typeof PutEndpointPolicy$ === "object");
 assert(typeof PutModelPackageGroupPolicyCommand === "function");
 assert(typeof PutModelPackageGroupPolicy$ === "object");
 assert(typeof QueryLineageCommand === "function");
@@ -3751,6 +3810,8 @@ assert(typeof UpdateInferenceComponentRuntimeConfigCommand === "function");
 assert(typeof UpdateInferenceComponentRuntimeConfig$ === "object");
 assert(typeof UpdateInferenceExperimentCommand === "function");
 assert(typeof UpdateInferenceExperiment$ === "object");
+assert(typeof UpdateInferenceRouterCommand === "function");
+assert(typeof UpdateInferenceRouter$ === "object");
 assert(typeof UpdateMlflowAppCommand === "function");
 assert(typeof UpdateMlflowApp$ === "object");
 assert(typeof UpdateMlflowTrackingServerCommand === "function");
@@ -4110,6 +4171,8 @@ assert(typeof CreateInferenceExperimentRequest$ === "object");
 assert(typeof CreateInferenceExperimentResponse$ === "object");
 assert(typeof CreateInferenceRecommendationsJobRequest$ === "object");
 assert(typeof CreateInferenceRecommendationsJobResponse$ === "object");
+assert(typeof CreateInferenceRouterInput$ === "object");
+assert(typeof CreateInferenceRouterOutput$ === "object");
 assert(typeof CreateJobRequest$ === "object");
 assert(typeof CreateJobResponse$ === "object");
 assert(typeof CreateLabelingJobRequest$ === "object");
@@ -4183,6 +4246,7 @@ assert(typeof CreateWorkforceRequest$ === "object");
 assert(typeof CreateWorkforceResponse$ === "object");
 assert(typeof CreateWorkteamRequest$ === "object");
 assert(typeof CreateWorkteamResponse$ === "object");
+assert(typeof CrossRegionTrafficConfig$ === "object");
 assert(typeof CustomFileSystem$ === "object");
 assert(typeof CustomFileSystemConfig$ === "object");
 assert(typeof CustomImage$ === "object");
@@ -4237,6 +4301,8 @@ assert(typeof DeleteEdgeDeploymentPlanRequest$ === "object");
 assert(typeof DeleteEdgeDeploymentStageRequest$ === "object");
 assert(typeof DeleteEndpointConfigInput$ === "object");
 assert(typeof DeleteEndpointInput$ === "object");
+assert(typeof DeleteEndpointPolicyRequest$ === "object");
+assert(typeof DeleteEndpointPolicyResponse$ === "object");
 assert(typeof DeleteExperimentRequest$ === "object");
 assert(typeof DeleteExperimentResponse$ === "object");
 assert(typeof DeleteFeatureGroupRequest$ === "object");
@@ -4255,6 +4321,7 @@ assert(typeof DeleteImageVersionResponse$ === "object");
 assert(typeof DeleteInferenceComponentInput$ === "object");
 assert(typeof DeleteInferenceExperimentRequest$ === "object");
 assert(typeof DeleteInferenceExperimentResponse$ === "object");
+assert(typeof DeleteInferenceRouterInput$ === "object");
 assert(typeof DeleteJobRequest$ === "object");
 assert(typeof DeleteJobResponse$ === "object");
 assert(typeof DeleteMlflowAppRequest$ === "object");
@@ -4385,6 +4452,8 @@ assert(typeof DescribeInferenceExperimentRequest$ === "object");
 assert(typeof DescribeInferenceExperimentResponse$ === "object");
 assert(typeof DescribeInferenceRecommendationsJobRequest$ === "object");
 assert(typeof DescribeInferenceRecommendationsJobResponse$ === "object");
+assert(typeof DescribeInferenceRouterInput$ === "object");
+assert(typeof DescribeInferenceRouterOutput$ === "object");
 assert(typeof DescribeJobRequest$ === "object");
 assert(typeof DescribeJobResponse$ === "object");
 assert(typeof DescribeJobSchemaVersionRequest$ === "object");
@@ -4462,6 +4531,7 @@ assert(typeof DescribeWorkforceResponse$ === "object");
 assert(typeof DescribeWorkteamRequest$ === "object");
 assert(typeof DescribeWorkteamResponse$ === "object");
 assert(typeof DesiredWeightAndCapacity$ === "object");
+assert(typeof Destination$ === "object");
 assert(typeof DetachClusterNodeVolumeRequest$ === "object");
 assert(typeof DetachClusterNodeVolumeResponse$ === "object");
 assert(typeof Device$ === "object");
@@ -4561,6 +4631,8 @@ assert(typeof FSxLustreFileSystemConfig$ === "object");
 assert(typeof GenerativeAiSettings$ === "object");
 assert(typeof GetDeviceFleetReportRequest$ === "object");
 assert(typeof GetDeviceFleetReportResponse$ === "object");
+assert(typeof GetEndpointPolicyRequest$ === "object");
+assert(typeof GetEndpointPolicyResponse$ === "object");
 assert(typeof GetLineageGroupPolicyRequest$ === "object");
 assert(typeof GetLineageGroupPolicyResponse$ === "object");
 assert(typeof GetModelPackageGroupPolicyInput$ === "object");
@@ -4642,6 +4714,7 @@ assert(typeof InferenceMetrics$ === "object");
 assert(typeof InferenceRecommendation$ === "object");
 assert(typeof InferenceRecommendationsJob$ === "object");
 assert(typeof InferenceRecommendationsJobStep$ === "object");
+assert(typeof InferenceRouterSummary$ === "object");
 assert(typeof InferenceSpecification$ === "object");
 assert(typeof InfraCheckConfig$ === "object");
 assert(typeof InputConfig$ === "object");
@@ -4779,6 +4852,8 @@ assert(typeof ListInferenceRecommendationsJobsRequest$ === "object");
 assert(typeof ListInferenceRecommendationsJobsResponse$ === "object");
 assert(typeof ListInferenceRecommendationsJobStepsRequest$ === "object");
 assert(typeof ListInferenceRecommendationsJobStepsResponse$ === "object");
+assert(typeof ListInferenceRoutersInput$ === "object");
+assert(typeof ListInferenceRoutersOutput$ === "object");
 assert(typeof ListJobSchemaVersionsRequest$ === "object");
 assert(typeof ListJobSchemaVersionsResponse$ === "object");
 assert(typeof ListJobsRequest$ === "object");
@@ -5073,6 +5148,8 @@ assert(typeof PropertyNameQuery$ === "object");
 assert(typeof PropertyNameSuggestion$ === "object");
 assert(typeof ProvisioningParameter$ === "object");
 assert(typeof PublicWorkforceTaskPrice$ === "object");
+assert(typeof PutEndpointPolicyRequest$ === "object");
+assert(typeof PutEndpointPolicyResponse$ === "object");
 assert(typeof PutModelPackageGroupPolicyInput$ === "object");
 assert(typeof PutModelPackageGroupPolicyOutput$ === "object");
 assert(typeof QualityCheckStepMetadata$ === "object");
@@ -5117,6 +5194,11 @@ assert(typeof RetryStrategy$ === "object");
 assert(typeof RoleGroupAssignment$ === "object");
 assert(typeof RollingDeploymentPolicy$ === "object");
 assert(typeof RollingUpdatePolicy$ === "object");
+assert(typeof RoutingTarget$ === "object");
+assert(typeof RoutingTargetAsyncInferenceClientConfig$ === "object");
+assert(typeof RoutingTargetAsyncInferenceConfig$ === "object");
+assert(typeof RoutingTargetAsyncInferenceNotificationConfig$ === "object");
+assert(typeof RoutingTargetAsyncInferenceOutputConfig$ === "object");
 assert(typeof RSessionAppSettings$ === "object");
 assert(typeof RStudioServerProAppSettings$ === "object");
 assert(typeof RStudioServerProDomainSettings$ === "object");
@@ -5339,6 +5421,8 @@ assert(typeof UpdateInferenceComponentRuntimeConfigInput$ === "object");
 assert(typeof UpdateInferenceComponentRuntimeConfigOutput$ === "object");
 assert(typeof UpdateInferenceExperimentRequest$ === "object");
 assert(typeof UpdateInferenceExperimentResponse$ === "object");
+assert(typeof UpdateInferenceRouterInput$ === "object");
+assert(typeof UpdateInferenceRouterOutput$ === "object");
 assert(typeof UpdateMlflowAppRequest$ === "object");
 assert(typeof UpdateMlflowAppResponse$ === "object");
 assert(typeof UpdateMlflowTrackingServerRequest$ === "object");
@@ -5567,6 +5651,8 @@ assert(typeof InferenceExecutionMode === "object");
 assert(typeof InferenceExperimentStatus === "object");
 assert(typeof InferenceExperimentStopDesiredState === "object");
 assert(typeof InferenceExperimentType === "object");
+assert(typeof InferenceRouterRoutingPreference === "object");
+assert(typeof InferenceRouterStatus === "object");
 assert(typeof InputMode === "object");
 assert(typeof InstanceGroupStatus === "object");
 assert(typeof _InstanceType === "object");
@@ -5693,6 +5779,7 @@ assert(typeof ResourceSharingStrategy === "object");
 assert(typeof ResourceType === "object");
 assert(typeof RetentionType === "object");
 assert(typeof RootAccess === "object");
+assert(typeof RoutingStatus === "object");
 assert(typeof RoutingStrategy === "object");
 assert(typeof RStudioServerProAccessStatus === "object");
 assert(typeof RStudioServerProUserGroup === "object");
@@ -5782,6 +5869,8 @@ assert(typeof WorkforceStatus === "object");
 // errors
 assert(ConflictException.prototype instanceof SageMakerServiceException);
 assert(typeof ConflictException$ === "object");
+assert(ResourceAlreadyExists.prototype instanceof SageMakerServiceException);
+assert(typeof ResourceAlreadyExists$ === "object");
 assert(ResourceInUse.prototype instanceof SageMakerServiceException);
 assert(typeof ResourceInUse$ === "object");
 assert(ResourceLimitExceeded.prototype instanceof SageMakerServiceException);
@@ -5861,6 +5950,7 @@ assert(typeof paginateListInferenceComponents === "function");
 assert(typeof paginateListInferenceExperiments === "function");
 assert(typeof paginateListInferenceRecommendationsJobSteps === "function");
 assert(typeof paginateListInferenceRecommendationsJobs === "function");
+assert(typeof paginateListInferenceRouters === "function");
 assert(typeof paginateListJobSchemaVersions === "function");
 assert(typeof paginateListJobs === "function");
 assert(typeof paginateListLabelingJobs === "function");

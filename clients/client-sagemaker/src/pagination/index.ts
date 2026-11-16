@@ -44,6 +44,7 @@ export * from "./ListInferenceComponentsPaginator";
 export * from "./ListInferenceExperimentsPaginator";
 export * from "./ListInferenceRecommendationsJobsPaginator";
 export * from "./ListInferenceRecommendationsJobStepsPaginator";
+export * from "./ListInferenceRoutersPaginator";
 export * from "./ListJobsPaginator";
 export * from "./ListJobSchemaVersionsPaginator";
 export * from "./ListLabelingJobsPaginator";

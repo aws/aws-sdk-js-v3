@@ -94,3 +94,26 @@ export class ResourceInUse extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * <p>The resource that you are trying to create already exists. Use a different resource name, or delete the existing resource before retrying.</p>
+ * @public
+ */
+export class ResourceAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemaker#ResourceAlreadyExists";
+  readonly name = "ResourceAlreadyExists" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExists, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
+}

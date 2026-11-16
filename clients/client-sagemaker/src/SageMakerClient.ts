@@ -204,6 +204,10 @@ import type {
   CreateInferenceRecommendationsJobCommandInput,
   CreateInferenceRecommendationsJobCommandOutput,
 } from "./commands/CreateInferenceRecommendationsJobCommand";
+import type {
+  CreateInferenceRouterCommandInput,
+  CreateInferenceRouterCommandOutput,
+} from "./commands/CreateInferenceRouterCommand";
 import type { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import type {
   CreateLabelingJobCommandInput,
@@ -383,6 +387,10 @@ import type {
   DeleteEndpointConfigCommandInput,
   DeleteEndpointConfigCommandOutput,
 } from "./commands/DeleteEndpointConfigCommand";
+import type {
+  DeleteEndpointPolicyCommandInput,
+  DeleteEndpointPolicyCommandOutput,
+} from "./commands/DeleteEndpointPolicyCommand";
 import type { DeleteExperimentCommandInput, DeleteExperimentCommandOutput } from "./commands/DeleteExperimentCommand";
 import type {
   DeleteFeatureGroupCommandInput,
@@ -419,6 +427,10 @@ import type {
   DeleteInferenceExperimentCommandInput,
   DeleteInferenceExperimentCommandOutput,
 } from "./commands/DeleteInferenceExperimentCommand";
+import type {
+  DeleteInferenceRouterCommandInput,
+  DeleteInferenceRouterCommandOutput,
+} from "./commands/DeleteInferenceRouterCommand";
 import type { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import type { DeleteMlflowAppCommandInput, DeleteMlflowAppCommandOutput } from "./commands/DeleteMlflowAppCommand";
 import type {
@@ -637,6 +649,10 @@ import type {
   DescribeInferenceRecommendationsJobCommandInput,
   DescribeInferenceRecommendationsJobCommandOutput,
 } from "./commands/DescribeInferenceRecommendationsJobCommand";
+import type {
+  DescribeInferenceRouterCommandInput,
+  DescribeInferenceRouterCommandOutput,
+} from "./commands/DescribeInferenceRouterCommand";
 import type { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import type {
   DescribeJobSchemaVersionCommandInput,
@@ -793,6 +809,10 @@ import type {
   GetDeviceFleetReportCommandOutput,
 } from "./commands/GetDeviceFleetReportCommand";
 import type {
+  GetEndpointPolicyCommandInput,
+  GetEndpointPolicyCommandOutput,
+} from "./commands/GetEndpointPolicyCommand";
+import type {
   GetLineageGroupPolicyCommandInput,
   GetLineageGroupPolicyCommandOutput,
 } from "./commands/GetLineageGroupPolicyCommand";
@@ -936,6 +956,10 @@ import type {
   ListInferenceRecommendationsJobStepsCommandInput,
   ListInferenceRecommendationsJobStepsCommandOutput,
 } from "./commands/ListInferenceRecommendationsJobStepsCommand";
+import type {
+  ListInferenceRoutersCommandInput,
+  ListInferenceRoutersCommandOutput,
+} from "./commands/ListInferenceRoutersCommand";
 import type {
   ListJobSchemaVersionsCommandInput,
   ListJobSchemaVersionsCommandOutput,
@@ -1084,6 +1108,10 @@ import type {
 import type { ListUserProfilesCommandInput, ListUserProfilesCommandOutput } from "./commands/ListUserProfilesCommand";
 import type { ListWorkforcesCommandInput, ListWorkforcesCommandOutput } from "./commands/ListWorkforcesCommand";
 import type { ListWorkteamsCommandInput, ListWorkteamsCommandOutput } from "./commands/ListWorkteamsCommand";
+import type {
+  PutEndpointPolicyCommandInput,
+  PutEndpointPolicyCommandOutput,
+} from "./commands/PutEndpointPolicyCommand";
 import type {
   PutModelPackageGroupPolicyCommandInput,
   PutModelPackageGroupPolicyCommandOutput,
@@ -1273,6 +1301,10 @@ import type {
   UpdateInferenceExperimentCommandInput,
   UpdateInferenceExperimentCommandOutput,
 } from "./commands/UpdateInferenceExperimentCommand";
+import type {
+  UpdateInferenceRouterCommandInput,
+  UpdateInferenceRouterCommandOutput,
+} from "./commands/UpdateInferenceRouterCommand";
 import type { UpdateMlflowAppCommandInput, UpdateMlflowAppCommandOutput } from "./commands/UpdateMlflowAppCommand";
 import type {
   UpdateMlflowTrackingServerCommandInput,
@@ -1389,6 +1421,7 @@ export type ServiceInputTypes =
   | CreateInferenceComponentCommandInput
   | CreateInferenceExperimentCommandInput
   | CreateInferenceRecommendationsJobCommandInput
+  | CreateInferenceRouterCommandInput
   | CreateJobCommandInput
   | CreateLabelingJobCommandInput
   | CreateMlflowAppCommandInput
@@ -1448,6 +1481,7 @@ export type ServiceInputTypes =
   | DeleteEdgeDeploymentStageCommandInput
   | DeleteEndpointCommandInput
   | DeleteEndpointConfigCommandInput
+  | DeleteEndpointPolicyCommandInput
   | DeleteExperimentCommandInput
   | DeleteFeatureGroupCommandInput
   | DeleteFlowDefinitionCommandInput
@@ -1460,6 +1494,7 @@ export type ServiceInputTypes =
   | DeleteImageVersionCommandInput
   | DeleteInferenceComponentCommandInput
   | DeleteInferenceExperimentCommandInput
+  | DeleteInferenceRouterCommandInput
   | DeleteJobCommandInput
   | DeleteMlflowAppCommandInput
   | DeleteMlflowTrackingServerCommandInput
@@ -1531,6 +1566,7 @@ export type ServiceInputTypes =
   | DescribeInferenceComponentCommandInput
   | DescribeInferenceExperimentCommandInput
   | DescribeInferenceRecommendationsJobCommandInput
+  | DescribeInferenceRouterCommandInput
   | DescribeJobCommandInput
   | DescribeJobSchemaVersionCommandInput
   | DescribeLabelingJobCommandInput
@@ -1575,6 +1611,7 @@ export type ServiceInputTypes =
   | EnableSagemakerServicecatalogPortfolioCommandInput
   | ExtendTrainingPlanCommandInput
   | GetDeviceFleetReportCommandInput
+  | GetEndpointPolicyCommandInput
   | GetLineageGroupPolicyCommandInput
   | GetModelPackageGroupPolicyCommandInput
   | GetSagemakerServicecatalogPortfolioStatusCommandInput
@@ -1626,6 +1663,7 @@ export type ServiceInputTypes =
   | ListInferenceExperimentsCommandInput
   | ListInferenceRecommendationsJobStepsCommandInput
   | ListInferenceRecommendationsJobsCommandInput
+  | ListInferenceRoutersCommandInput
   | ListJobSchemaVersionsCommandInput
   | ListJobsCommandInput
   | ListLabelingJobsCommandInput
@@ -1675,6 +1713,7 @@ export type ServiceInputTypes =
   | ListUserProfilesCommandInput
   | ListWorkforcesCommandInput
   | ListWorkteamsCommandInput
+  | PutEndpointPolicyCommandInput
   | PutModelPackageGroupPolicyCommandInput
   | QueryLineageCommandInput
   | RegisterDevicesCommandInput
@@ -1738,6 +1777,7 @@ export type ServiceInputTypes =
   | UpdateInferenceComponentCommandInput
   | UpdateInferenceComponentRuntimeConfigCommandInput
   | UpdateInferenceExperimentCommandInput
+  | UpdateInferenceRouterCommandInput
   | UpdateMlflowAppCommandInput
   | UpdateMlflowTrackingServerCommandInput
   | UpdateModelCardCommandInput
@@ -1811,6 +1851,7 @@ export type ServiceOutputTypes =
   | CreateInferenceComponentCommandOutput
   | CreateInferenceExperimentCommandOutput
   | CreateInferenceRecommendationsJobCommandOutput
+  | CreateInferenceRouterCommandOutput
   | CreateJobCommandOutput
   | CreateLabelingJobCommandOutput
   | CreateMlflowAppCommandOutput
@@ -1870,6 +1911,7 @@ export type ServiceOutputTypes =
   | DeleteEdgeDeploymentStageCommandOutput
   | DeleteEndpointCommandOutput
   | DeleteEndpointConfigCommandOutput
+  | DeleteEndpointPolicyCommandOutput
   | DeleteExperimentCommandOutput
   | DeleteFeatureGroupCommandOutput
   | DeleteFlowDefinitionCommandOutput
@@ -1882,6 +1924,7 @@ export type ServiceOutputTypes =
   | DeleteImageVersionCommandOutput
   | DeleteInferenceComponentCommandOutput
   | DeleteInferenceExperimentCommandOutput
+  | DeleteInferenceRouterCommandOutput
   | DeleteJobCommandOutput
   | DeleteMlflowAppCommandOutput
   | DeleteMlflowTrackingServerCommandOutput
@@ -1953,6 +1996,7 @@ export type ServiceOutputTypes =
   | DescribeInferenceComponentCommandOutput
   | DescribeInferenceExperimentCommandOutput
   | DescribeInferenceRecommendationsJobCommandOutput
+  | DescribeInferenceRouterCommandOutput
   | DescribeJobCommandOutput
   | DescribeJobSchemaVersionCommandOutput
   | DescribeLabelingJobCommandOutput
@@ -1997,6 +2041,7 @@ export type ServiceOutputTypes =
   | EnableSagemakerServicecatalogPortfolioCommandOutput
   | ExtendTrainingPlanCommandOutput
   | GetDeviceFleetReportCommandOutput
+  | GetEndpointPolicyCommandOutput
   | GetLineageGroupPolicyCommandOutput
   | GetModelPackageGroupPolicyCommandOutput
   | GetSagemakerServicecatalogPortfolioStatusCommandOutput
@@ -2048,6 +2093,7 @@ export type ServiceOutputTypes =
   | ListInferenceExperimentsCommandOutput
   | ListInferenceRecommendationsJobStepsCommandOutput
   | ListInferenceRecommendationsJobsCommandOutput
+  | ListInferenceRoutersCommandOutput
   | ListJobSchemaVersionsCommandOutput
   | ListJobsCommandOutput
   | ListLabelingJobsCommandOutput
@@ -2097,6 +2143,7 @@ export type ServiceOutputTypes =
   | ListUserProfilesCommandOutput
   | ListWorkforcesCommandOutput
   | ListWorkteamsCommandOutput
+  | PutEndpointPolicyCommandOutput
   | PutModelPackageGroupPolicyCommandOutput
   | QueryLineageCommandOutput
   | RegisterDevicesCommandOutput
@@ -2160,6 +2207,7 @@ export type ServiceOutputTypes =
   | UpdateInferenceComponentCommandOutput
   | UpdateInferenceComponentRuntimeConfigCommandOutput
   | UpdateInferenceExperimentCommandOutput
+  | UpdateInferenceRouterCommandOutput
   | UpdateMlflowAppCommandOutput
   | UpdateMlflowTrackingServerCommandOutput
   | UpdateModelCardCommandOutput

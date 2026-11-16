@@ -2,15 +2,13 @@
 import type {
   _InstanceType,
   AccountDefaultStatus,
+  ActivationState,
   AIBenchmarkJobStatus,
   AIRecommendationJobStatus,
-  AlgorithmSortBy,
-  AppImageConfigSortKey,
-  AppSortKey,
+  AppNetworkAccessType,
+  AppSecurityGroupManagement,
   AssociationEdgeType,
-  AutoMLJobStatus,
-  AutoMLSortBy,
-  AutoMLSortOrder,
+  AuthMode,
   BatchStrategy,
   CapacityReservationPreference,
   DetailedModelPackageStatus,
@@ -28,6 +26,7 @@ import type {
   FeatureType,
   FlowDefinitionStatus,
   ForEachStatus,
+  HomeEfsFileSystemCreation,
   HubContentStatus,
   HubContentSupportStatus,
   HubContentType,
@@ -43,6 +42,7 @@ import type {
   InferenceComponentStatus,
   InferenceExperimentStatus,
   InferenceExperimentType,
+  InferenceRouterStatus,
   IPAddressType,
   IsTrackingServerActive,
   JobCategory,
@@ -53,7 +53,6 @@ import type {
   LastUpdateStatusValue,
   ListAIBenchmarkJobsSortBy,
   ListAIRecommendationJobsSortBy,
-  ListAIWorkloadConfigsSortBy,
   MaintenanceStatus,
   ManagedStorageType,
   MlflowAppStatus,
@@ -96,15 +95,15 @@ import type {
   RuleEvaluationStatus,
   SageMakerResourceName,
   SagemakerServicecatalogStatus,
+  SchedulerResourceStatus,
   ScheduleStatus,
   SecondaryStatus,
   SkipModelValidation,
   SortActionsBy,
-  SortArtifactsBy,
-  SortAssociationsBy,
   SortOrder,
   SpaceStatus,
   StudioLifecycleConfigAppType,
+  TagPropagation,
   ThroughputMode,
   TrackingServerMaintenanceStatus,
   TrackingServerSize,
@@ -127,19 +126,11 @@ import type {
   AdditionalInferenceSpecificationDefinition,
   AgentVersion,
   AIBenchmarkJobSummary,
-  AIRecommendationJobSummary,
-  AIWorkloadConfigSummary,
   AlgorithmSpecification,
-  AlgorithmSummary,
   AmazonQSettings,
-  AppDetails,
-  AppImageConfigDetails,
   AppSpecification,
-  ArtifactSummary,
   AssociationInfo,
-  AssociationSummary,
   AsyncInferenceConfig,
-  AutoMLJobSummary,
   AutoRollbackConfig,
   Autotune,
   AvailableUpgrade,
@@ -163,11 +154,20 @@ import type {
 } from "./models_0";
 import type {
   CognitoConfig,
+  ComputeQuotaConfig,
+  ComputeQuotaTarget,
   ContainerDefinition,
   ContainerMetricsConfig,
+  ContextSource,
+  CrossRegionTrafficConfig,
   DataCaptureConfig,
+  DataQualityAppSpecification,
+  DataQualityBaselineConfig,
+  DataQualityJobInput,
+  DefaultSpaceSettings,
   DeploymentConfig,
   DockerSettings,
+  DomainSettings,
   DriftCheckBaselines,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
@@ -205,10 +205,7 @@ import type {
   ModelExplainabilityJobInput,
   ModelInfrastructureConfig,
   ModelLifeCycle,
-  ModelMetrics,
   ModelPackageModelCard,
-  ModelPackageSecurityConfig,
-  ModelPackageValidationSpecification,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
@@ -223,8 +220,8 @@ import type {
   RecommendationJobStoppingConditions,
   ResourceLimits,
   RetryStrategy,
+  RoutingTarget,
   ShadowModeConfig,
-  SourceAlgorithmSpecification,
   TrustedIdentityPropagationSettings,
   UnifiedStudioSettings,
   UserSettings,
@@ -248,7 +245,10 @@ import type {
   MlflowConfig,
   ModelArtifacts,
   ModelClientConfig,
+  ModelMetrics,
   ModelPackageConfig,
+  ModelPackageSecurityConfig,
+  ModelPackageValidationSpecification,
   ModelQualityAppSpecification,
   ModelQualityBaselineConfig,
   ModelQualityJobInput,
@@ -273,6 +273,7 @@ import type {
   RemoteDebugConfig,
   ServerlessJobConfig,
   ServiceCatalogProvisioningDetails,
+  SourceAlgorithmSpecification,
   SourceIpConfig,
   SpaceSettings,
   SpaceSharingSettings,
@@ -284,6 +285,615 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeComputeQuotaResponse {
+  /**
+   * <p>ARN of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaArn: string | undefined;
+
+  /**
+   * <p>ID of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaId: string | undefined;
+
+  /**
+   * <p>Name of the compute allocation definition.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Description of the compute allocation definition.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Version of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaVersion: number | undefined;
+
+  /**
+   * <p>Status of the compute allocation definition.</p>
+   * @public
+   */
+  Status: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>Failure reason of the compute allocation definition.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>Configuration of the compute allocation definition. This includes the resource sharing option, and the setting to preempt low priority tasks.</p>
+   * @public
+   */
+  ComputeQuotaConfig?: ComputeQuotaConfig | undefined;
+
+  /**
+   * <p>The target entity to allocate compute resources to.</p>
+   * @public
+   */
+  ComputeQuotaTarget: ComputeQuotaTarget | undefined;
+
+  /**
+   * <p>The state of the compute allocation being described. Use to enable or disable compute allocation.</p> <p>Default is <code>Enabled</code>.</p>
+   * @public
+   */
+  ActivationState?: ActivationState | undefined;
+
+  /**
+   * <p>Creation time of the compute allocation configuration.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>Last modified time of the compute allocation configuration.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContextRequest {
+  /**
+   * <p>The name of the context to describe.</p>
+   * @public
+   */
+  ContextName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContextResponse {
+  /**
+   * <p>The name of the context.</p>
+   * @public
+   */
+  ContextName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the context.</p>
+   * @public
+   */
+  ContextArn?: string | undefined;
+
+  /**
+   * <p>The source of the context.</p>
+   * @public
+   */
+  Source?: ContextSource | undefined;
+
+  /**
+   * <p>The type of the context.</p>
+   * @public
+   */
+  ContextType?: string | undefined;
+
+  /**
+   * <p>The description of the context.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of the context's properties.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+
+  /**
+   * <p>When the context was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>When the context was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   * @public
+   */
+  LineageGroupArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataQualityJobDefinitionRequest {
+  /**
+   * <p>The name of the data quality monitoring job definition to describe.</p>
+   * @public
+   */
+  JobDefinitionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataQualityJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data quality monitoring job definition.</p>
+   * @public
+   */
+  JobDefinitionArn: string | undefined;
+
+  /**
+   * <p>The name of the data quality monitoring job definition.</p>
+   * @public
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>The time that the data quality monitoring job definition was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The constraints and baselines for the data quality monitoring job definition.</p>
+   * @public
+   */
+  DataQualityBaselineConfig?: DataQualityBaselineConfig | undefined;
+
+  /**
+   * <p>Information about the container that runs the data quality monitoring job.</p>
+   * @public
+   */
+  DataQualityAppSpecification: DataQualityAppSpecification | undefined;
+
+  /**
+   * <p>The list of inputs for the data quality monitoring job. Currently endpoints are supported.</p>
+   * @public
+   */
+  DataQualityJobInput: DataQualityJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   * @public
+   */
+  DataQualityJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   * @public
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>The networking configuration for the data quality monitoring job.</p>
+   * @public
+   */
+  NetworkConfig?: MonitoringNetworkConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   * @public
+   */
+  StoppingCondition?: MonitoringStoppingCondition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeviceRequest {
+  /**
+   * <p>Next token of device description.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The unique ID of the device.</p>
+   * @public
+   */
+  DeviceName: string | undefined;
+
+  /**
+   * <p>The name of the fleet the devices belong to.</p>
+   * @public
+   */
+  DeviceFleetName: string | undefined;
+}
+
+/**
+ * <p>The model on the edge device.</p>
+ * @public
+ */
+export interface EdgeModel {
+  /**
+   * <p>The name of the model.</p>
+   * @public
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The model version.</p>
+   * @public
+   */
+  ModelVersion: string | undefined;
+
+  /**
+   * <p>The timestamp of the last data sample taken.</p>
+   * @public
+   */
+  LatestSampleTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp of the last inference that was made.</p>
+   * @public
+   */
+  LatestInference?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeviceResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the device.</p>
+   * @public
+   */
+  DeviceArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the device.</p>
+   * @public
+   */
+  DeviceName: string | undefined;
+
+  /**
+   * <p>A description of the device.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The name of the fleet the device belongs to.</p>
+   * @public
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Internet of Things (IoT) object thing name associated with the device.</p>
+   * @public
+   */
+  IotThingName?: string | undefined;
+
+  /**
+   * <p>The timestamp of the last registration or de-reregistration.</p>
+   * @public
+   */
+  RegistrationTime: Date | undefined;
+
+  /**
+   * <p>The last heartbeat received from the device.</p>
+   * @public
+   */
+  LatestHeartbeat?: Date | undefined;
+
+  /**
+   * <p>Models on the device.</p>
+   * @public
+   */
+  Models?: EdgeModel[] | undefined;
+
+  /**
+   * <p>The maximum number of models.</p>
+   * @public
+   */
+  MaxModels?: number | undefined;
+
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Edge Manager agent version.</p>
+   * @public
+   */
+  AgentVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeviceFleetRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   * @public
+   */
+  DeviceFleetName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeviceFleetResponse {
+  /**
+   * <p>The name of the fleet.</p>
+   * @public
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The The Amazon Resource Name (ARN) of the fleet.</p>
+   * @public
+   */
+  DeviceFleetArn: string | undefined;
+
+  /**
+   * <p>The output configuration for storing sampled data.</p>
+   * @public
+   */
+  OutputConfig: EdgeOutputConfig | undefined;
+
+  /**
+   * <p>A description of the fleet.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Timestamp of when the device fleet was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Timestamp of when the device fleet was last updated.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that has access to Amazon Web Services Internet of Things (IoT).</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) alias created in Amazon Web Services Internet of Things (IoT).</p>
+   * @public
+   */
+  IotRoleAlias?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDomainRequest {
+  /**
+   * <p>The domain ID.</p>
+   * @public
+   */
+  DomainId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDomainResponse {
+  /**
+   * <p>The domain's Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  DomainArn?: string | undefined;
+
+  /**
+   * <p>The domain ID.</p>
+   * @public
+   */
+  DomainId?: string | undefined;
+
+  /**
+   * <p>The domain name.</p>
+   * @public
+   */
+  DomainName?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Elastic File System managed by this Domain.</p>
+   * @public
+   */
+  HomeEfsFileSystemId?: string | undefined;
+
+  /**
+   * <p>The IAM Identity Center managed application instance ID.</p>
+   * @public
+   */
+  SingleSignOnManagedApplicationInstanceId?: string | undefined;
+
+  /**
+   * <p>The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after October 1, 2023.</p>
+   * @public
+   */
+  SingleSignOnApplicationArn?: string | undefined;
+
+  /**
+   * <p>The status.</p>
+   * @public
+   */
+  Status?: DomainStatus | undefined;
+
+  /**
+   * <p>The creation time.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The last modified time.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The failure reason.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The ID of the security group that authorizes traffic between the <code>RSessionGateway</code> apps and the <code>RStudioServerPro</code> app.</p>
+   * @public
+   */
+  SecurityGroupIdForDomainBoundary?: string | undefined;
+
+  /**
+   * <p>The domain's authentication mode.</p>
+   * @public
+   */
+  AuthMode?: AuthMode | undefined;
+
+  /**
+   * <p>Settings which are applied to UserProfiles in this domain if settings are not explicitly specified in a given UserProfile. </p>
+   * @public
+   */
+  DefaultUserSettings?: UserSettings | undefined;
+
+  /**
+   * <p>A collection of <code>Domain</code> settings.</p>
+   * @public
+   */
+  DomainSettings?: DomainSettings | undefined;
+
+  /**
+   * <p>Specifies the VPC used for non-EFS traffic. The default value is <code>PublicInternetOnly</code>.</p> <ul> <li> <p> <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon SageMaker AI, which allows direct internet access</p> </li> <li> <p> <code>VpcOnly</code> - All traffic is through the specified VPC and subnets</p> </li> </ul>
+   * @public
+   */
+  AppNetworkAccessType?: AppNetworkAccessType | undefined;
+
+  /**
+   * <p>Use <code>KmsKeyId</code>.</p>
+   *
+   * @deprecated This property is deprecated, use KmsKeyId instead.
+   * @public
+   */
+  HomeEfsFileSystemKmsKeyId?: string | undefined;
+
+  /**
+   * <p>The VPC subnets that the domain uses for communication.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The domain's URL.</p>
+   * @public
+   */
+  Url?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Virtual Private Cloud (VPC) that the domain uses for communication.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS customer managed key used to encrypt the EFS volume attached to the domain.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The entity that creates and manages the required security groups for inter-app communication in <code>VPCOnly</code> mode. Required when <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is provided.</p>
+   * @public
+   */
+  AppSecurityGroupManagement?: AppSecurityGroupManagement | undefined;
+
+  /**
+   * <p>Indicates whether a home EFS file system is created for the domain.</p>
+   * @public
+   */
+  HomeEfsFileSystemCreation?: HomeEfsFileSystemCreation | undefined;
+
+  /**
+   * <p>Indicates whether custom tag propagation is supported for the domain.</p>
+   * @public
+   */
+  TagPropagation?: TagPropagation | undefined;
+
+  /**
+   * <p>The default settings for shared spaces that users create in the domain.</p>
+   * @public
+   */
+  DefaultSpaceSettings?: DefaultSpaceSettings | undefined;
+}
 
 /**
  * @public
@@ -949,6 +1559,12 @@ export interface DescribeEndpointOutput {
    * @public
    */
   MetricsConfig?: MetricsConfig | undefined;
+
+  /**
+   * <p>The cross-Region traffic cap, if the endpoint configuration sets one.</p>
+   * @public
+   */
+  CrossRegionTrafficConfig?: CrossRegionTrafficConfig | undefined;
 }
 
 /**
@@ -1043,6 +1659,12 @@ export interface DescribeEndpointConfigOutput {
    * @public
    */
   MetricsConfig?: MetricsConfig | undefined;
+
+  /**
+   * <p>The cross-Region traffic cap, if the endpoint configuration sets one.</p>
+   * @public
+   */
+  CrossRegionTrafficConfig?: CrossRegionTrafficConfig | undefined;
 }
 
 /**
@@ -3111,6 +3733,64 @@ export interface DescribeInferenceRecommendationsJobResponse {
    * @public
    */
   EndpointPerformances?: EndpointPerformance[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInferenceRouterInput {
+  /**
+   * <p>The name of the inference router to describe.</p>
+   * @public
+   */
+  InferenceRouterName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInferenceRouterOutput {
+  /**
+   * <p>The name of the inference router.</p>
+   * @public
+   */
+  InferenceRouterName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the inference router.</p>
+   * @public
+   */
+  InferenceRouterArn: string | undefined;
+
+  /**
+   * <p>The routing targets of the inference router. Each destination includes its <code>RoutingStatus</code>. You can send these routing targets back in an <code>UpdateInferenceRouter</code> request without changes.</p>
+   * @public
+   */
+  RoutingTargets: RoutingTarget[] | undefined;
+
+  /**
+   * <p>The status of the inference router.</p>
+   * @public
+   */
+  Status: InferenceRouterStatus | undefined;
+
+  /**
+   * <p>If the status is <code>Failed</code>, the reason that the inference router failed.</p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+
+  /**
+   * <p>The date and time that the inference router was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the inference router was last updated.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
 }
 
 /**
@@ -9642,6 +10322,40 @@ export interface GetDeviceFleetReportResponse {
 /**
  * @public
  */
+export interface GetEndpointPolicyRequest {
+  /**
+   * <p>The name of the endpoint. The endpoint must be in your account and in the current Amazon Web Services Region.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEndpointPolicyResponse {
+  /**
+   * <p>The name of the endpoint.</p>
+   * @public
+   */
+  EndpointName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * @public
+   */
+  EndpointArn?: string | undefined;
+
+  /**
+   * <p>The endpoint policy, as a JSON policy document.</p>
+   * @public
+   */
+  ResourcePolicy?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetLineageGroupPolicyRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the lineage group.</p>
@@ -10894,6 +11608,36 @@ export interface InferenceRecommendationsJobStep {
 }
 
 /**
+ * <p>A summary of an inference router.</p>
+ * @public
+ */
+export interface InferenceRouterSummary {
+  /**
+   * <p>The name of the inference router.</p>
+   * @public
+   */
+  InferenceRouterName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the inference router.</p>
+   * @public
+   */
+  InferenceRouterArn: string | undefined;
+
+  /**
+   * <p>The date and time that the inference router was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the inference router was last updated.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+/**
  * <p>The context for an iteration of a ForEach step.</p>
  * @public
  */
@@ -11504,581 +12248,4 @@ export interface ListAIRecommendationJobsRequest {
    * @public
    */
   SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAIRecommendationJobsResponse {
-  /**
-   * <p>An array of <code>AIRecommendationJobSummary</code> objects, one for each recommendation job that matches the specified filters.</p>
-   * @public
-   */
-  AIRecommendationJobs: AIRecommendationJobSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker AI returns this token. To retrieve the next set of jobs, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAIWorkloadConfigsRequest {
-  /**
-   * <p>The maximum number of AI workload configurations to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListAIWorkloadConfigs</code> didn't return the full set of configurations, the call returns a token for getting the next set of configurations.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A string in the configuration name. This filter returns only configurations whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that returns only configurations created after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only configurations created before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: ListAIWorkloadConfigsSortBy | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAIWorkloadConfigsResponse {
-  /**
-   * <p>An array of <code>AIWorkloadConfigSummary</code> objects, one for each AI workload configuration that matches the specified filters.</p>
-   * @public
-   */
-  AIWorkloadConfigs: AIWorkloadConfigSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker AI returns this token. To retrieve the next set of configurations, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAlgorithmsInput {
-  /**
-   * <p>A filter that returns only algorithms created after the specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only algorithms created before the specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The maximum number of algorithms to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A string in the algorithm name. This filter returns only algorithms whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>If the response to a previous <code>ListAlgorithms</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of algorithms, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: AlgorithmSortBy | undefined;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAlgorithmsOutput {
-  /**
-   * <p>&gt;An array of <code>AlgorithmSummary</code> objects, each of which lists an algorithm.</p>
-   * @public
-   */
-  AlgorithmSummaryList: AlgorithmSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of algorithms, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAliasesRequest {
-  /**
-   * <p>The name of the image.</p>
-   * @public
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The alias of the image version.</p>
-   * @public
-   */
-  Alias?: string | undefined;
-
-  /**
-   * <p>The version of the image. If image version is not specified, the aliases of all versions of the image are listed.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>The maximum number of aliases to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListAliases</code> didn't return the full set of aliases, the call returns a token for retrieving the next set of aliases.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAliasesResponse {
-  /**
-   * <p>A list of SageMaker AI image version aliases.</p>
-   * @public
-   */
-  SageMakerImageVersionAliases?: string[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of aliases, if more aliases exist.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAppImageConfigsRequest {
-  /**
-   * <p>The total number of items to return in the response. If the total number of items available is more than the value specified, a <code>NextToken</code> is provided in the response. To resume pagination, provide the <code>NextToken</code> value in the as part of a subsequent call. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListImages</code> didn't return the full set of AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs created on or before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs created on or after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs modified on or before the specified time.</p>
-   * @public
-   */
-  ModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs modified on or after the specified time.</p>
-   * @public
-   */
-  ModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: AppImageConfigSortKey | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAppImageConfigsResponse {
-  /**
-   * <p>A token for getting the next set of AppImageConfigs, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of AppImageConfigs and their properties.</p>
-   * @public
-   */
-  AppImageConfigs?: AppImageConfigDetails[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAppsRequest {
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are more results available than the value specified, a <code>NextToken</code> is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The sort order for the results. The default is Ascending.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is CreationTime.</p>
-   * @public
-   */
-  SortBy?: AppSortKey | undefined;
-
-  /**
-   * <p>A parameter to search for the domain ID.</p>
-   * @public
-   */
-  DomainIdEquals?: string | undefined;
-
-  /**
-   * <p>A parameter to search by user profile name. If <code>SpaceNameEquals</code> is set, then this value cannot be set.</p>
-   * @public
-   */
-  UserProfileNameEquals?: string | undefined;
-
-  /**
-   * <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set, then this value cannot be set.</p>
-   * @public
-   */
-  SpaceNameEquals?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAppsResponse {
-  /**
-   * <p>The list of apps.</p>
-   * @public
-   */
-  Apps?: AppDetails[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListArtifactsRequest {
-  /**
-   * <p>A filter that returns only artifacts with the specified source URI.</p>
-   * @public
-   */
-  SourceUri?: string | undefined;
-
-  /**
-   * <p>A filter that returns only artifacts of the specified type.</p>
-   * @public
-   */
-  ArtifactType?: string | undefined;
-
-  /**
-   * <p>A filter that returns only artifacts created on or after the specified time.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only artifacts created on or before the specified time.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortArtifactsBy | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListArtifacts</code> didn't return the full set of artifacts, the call returns a token for getting the next set of artifacts.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of artifacts to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListArtifactsResponse {
-  /**
-   * <p>A list of artifacts and their properties.</p>
-   * @public
-   */
-  ArtifactSummaries?: ArtifactSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of artifacts, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssociationsRequest {
-  /**
-   * <p>A filter that returns only associations with the specified source ARN.</p>
-   * @public
-   */
-  SourceArn?: string | undefined;
-
-  /**
-   * <p>A filter that returns only associations with the specified destination Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  DestinationArn?: string | undefined;
-
-  /**
-   * <p>A filter that returns only associations with the specified source type.</p>
-   * @public
-   */
-  SourceType?: string | undefined;
-
-  /**
-   * <p>A filter that returns only associations with the specified destination type.</p>
-   * @public
-   */
-  DestinationType?: string | undefined;
-
-  /**
-   * <p>A filter that returns only associations of the specified type.</p>
-   * @public
-   */
-  AssociationType?: AssociationEdgeType | undefined;
-
-  /**
-   * <p>A filter that returns only associations created on or after the specified time.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only associations created on or before the specified time.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortAssociationsBy | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListAssociations</code> didn't return the full set of associations, the call returns a token for getting the next set of associations.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of associations to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssociationsResponse {
-  /**
-   * <p>A list of associations and their properties.</p>
-   * @public
-   */
-  AssociationSummaries?: AssociationSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of associations, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAutoMLJobsRequest {
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Request a list of jobs, using a search filter for name.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>Request a list of jobs, using a filter for status.</p>
-   * @public
-   */
-  StatusEquals?: AutoMLJobStatus | undefined;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: AutoMLSortOrder | undefined;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is <code>Name</code>.</p>
-   * @public
-   */
-  SortBy?: AutoMLSortBy | undefined;
-
-  /**
-   * <p>Request a list of jobs up to a specified limit.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAutoMLJobsResponse {
-  /**
-   * <p>Returns a summary list of jobs.</p>
-   * @public
-   */
-  AutoMLJobSummaries: AutoMLJobSummary[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

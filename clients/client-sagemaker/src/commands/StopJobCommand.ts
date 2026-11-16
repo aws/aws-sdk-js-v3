@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { StopJobRequest, StopJobResponse } from "../models/models_4";
+import type { StopJobRequest, StopJobResponse } from "../models/models_5";
 import { StopJob$ } from "../schemas/schemas_0";
 
 /**
@@ -34,7 +34,7 @@ export interface StopJobCommandOutput extends StopJobResponse, __MetadataBearer 
  * const client = new SageMakerClient(config);
  * const input = { // StopJobRequest
  *   JobName: "STRING_VALUE", // required
- *   JobCategory: "AgentRFT" || "AgentRFTEvaluation", // required
+ *   JobCategory: "AgentRFT" || "SyntheticDataGeneration" || "DataQualityEvaluation" || "AgentRFTEvaluation" || "DataTransformation", // required
  * };
  * const command = new StopJobCommand(input);
  * const response = await client.send(command);

@@ -13,12 +13,15 @@ import type {
   HomeEfsFileSystemCreation,
   HubContentSupportStatus,
   HubContentType,
+  InferenceExperimentStopDesiredState,
   IPAddressType,
+  JobCategory,
   JobType,
   ModelApprovalStatus,
   ModelCardStatus,
   ModelPackageRegistrationType,
   ModelRegistrationMode,
+  ModelVariantAction,
   NotebookInstanceAcceleratorType,
   PartnerAppAuthType,
   Processor,
@@ -63,6 +66,7 @@ import type {
   ModelLifeCycle,
   ModelPackageModelCard,
   ModelVariantConfig,
+  RoutingTarget,
   SchedulerConfig,
   ShadowModeConfig,
   UserSettings,
@@ -108,6 +112,279 @@ import type {
   ResourceConfigForUpdate,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface StartPipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartSessionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to which the remote connection will be established. For example, this identifies the specific ARN space application you want to connect to from your local IDE.</p>
+   * @public
+   */
+  ResourceIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartSessionResponse {
+  /**
+   * <p>A unique identifier for the established remote connection session.</p>
+   * @public
+   */
+  SessionId?: string | undefined;
+
+  /**
+   * <p>A WebSocket URL used to establish a SSH connection between the local IDE and remote SageMaker space.</p>
+   * @public
+   */
+  StreamUrl?: string | undefined;
+
+  /**
+   * <p>An encrypted token value containing session and caller information. </p>
+   * @public
+   */
+  TokenValue?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopAIBenchmarkJobRequest {
+  /**
+   * <p>The name of the AI benchmark job to stop.</p>
+   * @public
+   */
+  AIBenchmarkJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopAIBenchmarkJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stopped benchmark job.</p>
+   * @public
+   */
+  AIBenchmarkJobArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopAIRecommendationJobRequest {
+  /**
+   * <p>The name of the AI recommendation job to stop.</p>
+   * @public
+   */
+  AIRecommendationJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopAIRecommendationJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stopped recommendation job.</p>
+   * @public
+   */
+  AIRecommendationJobArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopAutoMLJobRequest {
+  /**
+   * <p>The name of the object you are requesting.</p>
+   * @public
+   */
+  AutoMLJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopCompilationJobRequest {
+  /**
+   * <p>The name of the model compilation job to stop.</p>
+   * @public
+   */
+  CompilationJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEdgeDeploymentStageRequest {
+  /**
+   * <p>The name of the edge deployment plan to stop.</p>
+   * @public
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>The name of the stage to stop.</p>
+   * @public
+   */
+  StageName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEdgePackagingJobRequest {
+  /**
+   * <p>The name of the edge packaging job.</p>
+   * @public
+   */
+  EdgePackagingJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopHyperParameterTuningJobRequest {
+  /**
+   * <p>The name of the tuning job to stop.</p>
+   * @public
+   */
+  HyperParameterTuningJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopInferenceExperimentRequest {
+  /**
+   * <p>The name of the inference experiment to stop.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p> Array of key-value pairs, with names of variants mapped to actions. The possible actions are the following: </p> <ul> <li> <p> <code>Promote</code> - Promote the shadow variant to a production variant</p> </li> <li> <p> <code>Remove</code> - Delete the variant</p> </li> <li> <p> <code>Retain</code> - Keep the variant as it is</p> </li> </ul>
+   * @public
+   */
+  ModelVariantActions: Record<string, ModelVariantAction> | undefined;
+
+  /**
+   * <p> An array of <code>ModelVariantConfig</code> objects. There is one for each variant that you want to deploy after the inference experiment stops. Each <code>ModelVariantConfig</code> describes the infrastructure configuration for deploying the corresponding variant. </p>
+   * @public
+   */
+  DesiredModelVariants?: ModelVariantConfig[] | undefined;
+
+  /**
+   * <p> The desired state of the experiment after stopping. The possible states are the following: </p> <ul> <li> <p> <code>Completed</code>: The experiment completed successfully</p> </li> <li> <p> <code>Cancelled</code>: The experiment was canceled</p> </li> </ul>
+   * @public
+   */
+  DesiredState?: InferenceExperimentStopDesiredState | undefined;
+
+  /**
+   * <p>The reason for stopping the experiment.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopInferenceExperimentResponse {
+  /**
+   * <p>The ARN of the stopped inference experiment.</p>
+   * @public
+   */
+  InferenceExperimentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopInferenceRecommendationsJobRequest {
+  /**
+   * <p>The name of the job you want to stop.</p>
+   * @public
+   */
+  JobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopJobRequest {
+  /**
+   * <p>The name of the job to stop.</p>
+   * @public
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The category of the job to stop.</p>
+   * @public
+   */
+  JobCategory: JobCategory | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopJobResponse {}
+
+/**
+ * @public
+ */
+export interface StopLabelingJobRequest {
+  /**
+   * <p>The name of the labeling job to stop.</p>
+   * @public
+   */
+  LabelingJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopMlflowTrackingServerRequest {
+  /**
+   * <p>The name of the tracking server to stop.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopMlflowTrackingServerResponse {
+  /**
+   * <p>The ARN of the stopped tracking server.</p>
+   * @public
+   */
+  TrackingServerArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopMonitoringScheduleRequest {
+  /**
+   * <p>The name of the schedule to stop.</p>
+   * @public
+   */
+  MonitoringScheduleName: string | undefined;
+}
 
 /**
  * @public
@@ -1465,6 +1742,34 @@ export interface UpdateInferenceExperimentResponse {
    * @public
    */
   InferenceExperimentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateInferenceRouterInput {
+  /**
+   * <p>The name of the inference router to update.</p>
+   * @public
+   */
+  InferenceRouterName: string | undefined;
+
+  /**
+   * <p>The complete list of routing targets for the inference router. To remove the last routing target, delete the router.</p>
+   * @public
+   */
+  RoutingTargets: RoutingTarget[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateInferenceRouterOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the inference router.</p>
+   * @public
+   */
+  InferenceRouterArn: string | undefined;
 }
 
 /**

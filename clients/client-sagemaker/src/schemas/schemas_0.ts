@@ -545,12 +545,15 @@ const _CIM = "CooldownInMinutes";
 const _CIP = "ClusterInstancePlacement";
 const _CIR = "ClusterInstanceRequirements";
 const _CIRD = "ClusterInstanceRequirementDetails";
+const _CIRI = "CreateInferenceRouterInput";
 const _CIRJ = "CreateInferenceRecommendationsJob";
 const _CIRJR = "CreateInferenceRecommendationsJobRequest";
 const _CIRJRr = "CreateInferenceRecommendationsJobResponse";
+const _CIRO = "CreateInferenceRouterOutput";
 const _CIRV = "CurrentImageReleaseVersion";
 const _CIRr = "CreateImageRequest";
 const _CIRre = "CreateImageResponse";
+const _CIRrea = "CreateInferenceRouter";
 const _CISC = "ClusterInstanceStorageConfigs";
 const _CISCl = "ClusterInstanceStorageConfig";
 const _CISD = "ClusterInstanceStatusDetails";
@@ -731,6 +734,7 @@ const _CRR = "ComputeResourceRequirements";
 const _CRS = "CodeRepositorySummary";
 const _CRSL = "CodeRepositorySummaryList";
 const _CRT = "ClientRequestToken";
+const _CRTC = "CrossRegionTrafficConfig";
 const _CRa = "CapacityRequirements";
 const _CRl = "ClusterRole";
 const _CRo = "CodeRepository";
@@ -1054,9 +1058,12 @@ const _DEI = "DeleteEndpointInput";
 const _DEIe = "DescribeEndpointInput";
 const _DENL = "DataExplorationNotebookLocation";
 const _DEO = "DescribeEndpointOutput";
+const _DEP = "DeleteEndpointPolicy";
 const _DEPJ = "DescribeEdgePackagingJob";
 const _DEPJR = "DescribeEdgePackagingJobRequest";
 const _DEPJRe = "DescribeEdgePackagingJobResponse";
+const _DEPR = "DeleteEndpointPolicyRequest";
+const _DEPRe = "DeleteEndpointPolicyResponse";
 const _DER = "DeleteExperimentRequest";
 const _DERA = "DomainExecutionRoleArn";
 const _DERe = "DeleteExperimentResponse";
@@ -1138,13 +1145,18 @@ const _DIEe = "DeleteInferenceExperiment";
 const _DIEes = "DescribeInferenceExperiment";
 const _DII = "DesiredImageId";
 const _DIR = "DeleteImageRequest";
+const _DIRI = "DeleteInferenceRouterInput";
+const _DIRIe = "DescribeInferenceRouterInput";
 const _DIRJ = "DescribeInferenceRecommendationsJob";
 const _DIRJR = "DescribeInferenceRecommendationsJobRequest";
 const _DIRJRe = "DescribeInferenceRecommendationsJobResponse";
+const _DIRO = "DescribeInferenceRouterOutput";
 const _DIRV = "DesiredImageReleaseVersion";
 const _DIRe = "DeleteImageResponse";
+const _DIRel = "DeleteInferenceRouter";
 const _DIRes = "DescribeImageRequest";
 const _DIResc = "DescribeImageResponse";
+const _DIRescr = "DescribeInferenceRouter";
 const _DIS = "DurationInSeconds";
 const _DIT = "DesiredInstanceTypes";
 const _DITe = "DeploymentInstanceType";
@@ -1177,6 +1189,7 @@ const _DLJ = "DescribeLabelingJob";
 const _DLJR = "DescribeLabelingJobRequest";
 const _DLJRe = "DescribeLabelingJobResponse";
 const _DLU = "DefaultLandingUri";
+const _DLe = "DestinationList";
 const _DLo = "DomainList";
 const _DM = "DurationMinutes";
 const _DMA = "DeleteMlflowApp";
@@ -1423,6 +1436,7 @@ const _DWesc = "DescribeWorkteam";
 const _Da = "Database";
 const _De = "Desired";
 const _Des = "Destination";
+const _Dest = "Destinations";
 const _Dev = "Device";
 const _Devi = "Devices";
 const _Di = "Direction";
@@ -1692,6 +1706,9 @@ const _GCFU = "GitConfigForUpdate";
 const _GDFR = "GetDeviceFleetReport";
 const _GDFRR = "GetDeviceFleetReportRequest";
 const _GDFRRe = "GetDeviceFleetReportResponse";
+const _GEP = "GetEndpointPolicy";
+const _GEPR = "GetEndpointPolicyRequest";
+const _GEPRe = "GetEndpointPolicyResponse";
 const _GII = "GenerateInferenceId";
 const _GLGP = "GetLineageGroupPolicy";
 const _GLGPR = "GetLineageGroupPolicyRequest";
@@ -1918,7 +1935,8 @@ const _IPnr = "InProgress";
 const _IPns = "InstancePools";
 const _IPnst = "InstancePreferences";
 const _IR = "IsRequired";
-const _IRA = "IotRoleAlias";
+const _IRA = "InferenceRouterArn";
+const _IRAo = "IotRoleAlias";
 const _IREC = "InstanceRequirementsEniConfigurations";
 const _IRECn = "InstanceRequirementsEniConfiguration";
 const _IRJ = "InferenceRecommendationsJob";
@@ -1926,11 +1944,15 @@ const _IRJN = "InferenceRecommendationsJobName";
 const _IRJS = "InferenceRecommendationsJobStep";
 const _IRJSn = "InferenceRecommendationsJobSteps";
 const _IRJn = "InferenceRecommendationsJobs";
-const _IRS = "IdleResourceSharing";
+const _IRN = "InferenceRouterName";
+const _IRS = "InferenceRouterSummary";
+const _IRSL = "InferenceRouterSummaryList";
+const _IRSd = "IdleResourceSharing";
 const _IRV = "ImageReleaseVersion";
 const _IRn = "InstanceRequirements";
 const _IRnf = "InferenceRecommendations";
 const _IRnfe = "InferenceRecommendation";
+const _IRnfer = "InferenceRouters";
 const _IS = "IdleSettings";
 const _ISC = "InstanceStorageConfigs";
 const _ISN = "InferenceSpecificationName";
@@ -2169,13 +2191,16 @@ const _LIE = "ListInferenceExperiments";
 const _LIER = "ListInferenceExperimentsRequest";
 const _LIERi = "ListInferenceExperimentsResponse";
 const _LIR = "ListImagesRequest";
+const _LIRI = "ListInferenceRoutersInput";
 const _LIRJ = "ListInferenceRecommendationsJobs";
 const _LIRJR = "ListInferenceRecommendationsJobsRequest";
 const _LIRJRi = "ListInferenceRecommendationsJobsResponse";
 const _LIRJS = "ListInferenceRecommendationsJobSteps";
 const _LIRJSR = "ListInferenceRecommendationsJobStepsRequest";
 const _LIRJSRi = "ListInferenceRecommendationsJobStepsResponse";
+const _LIRO = "ListInferenceRoutersOutput";
 const _LIRi = "ListImagesResponse";
+const _LIRis = "ListInferenceRouters";
 const _LIV = "ListImageVersions";
 const _LIVR = "ListImageVersionsRequest";
 const _LIVRi = "ListImageVersionsResponse";
@@ -2422,6 +2447,7 @@ const _MCMRIM = "MinCpuMemoryRequiredInMb";
 const _MCN = "ModelCardName";
 const _MCPS = "ModelCardProcessingStatus";
 const _MCR = "MonitoringConstraintsResource";
+const _MCRPPE = "MaxCrossRegionPercentPerEndpoint";
 const _MCS = "ModelCardStatus";
 const _MCSC = "ModelCardSecurityConfig";
 const _MCSL = "ModelCardSummaryList";
@@ -2503,6 +2529,7 @@ const _MIGB = "MemoryInGiB";
 const _MIMSV = "MinimumInstanceMetadataServiceVersion";
 const _MIPM = "MinInvocationsPerMinute";
 const _MIPMa = "MaxInvocationsPerMinute";
+const _MIPSPI = "MaxInvocationsPerSecondPerInstance";
 const _MIS = "ManagedInstanceScaling";
 const _MITIM = "MinIdleTimeoutInMinutes";
 const _MITIMa = "MaxIdleTimeoutInMinutes";
@@ -2649,6 +2676,7 @@ const _MT = "MimeType";
 const _MTA = "ModifiedTimeAfter";
 const _MTB = "ModifiedTimeBefore";
 const _MTE = "MonitoringTypeEquals";
+const _MTIBS = "MaxTimeInBacklogSeconds";
 const _MTa = "MarketplaceTitle";
 const _MTe = "MediaType";
 const _MTo = "MonitoringType";
@@ -2834,6 +2862,9 @@ const _PEC = "PipelineExperimentConfig";
 const _PED = "PipelineExecutionDescription";
 const _PEDN = "PipelineExecutionDisplayName";
 const _PEFR = "PipelineExecutionFailureReason";
+const _PEP = "PutEndpointPolicy";
+const _PEPR = "PutEndpointPolicyRequest";
+const _PEPRu = "PutEndpointPolicyResponse";
 const _PES = "PipelineExecutionStatus";
 const _PESL = "PipelineExecutionStepList";
 const _PESLi = "PipelineExecutionSummaryList";
@@ -3004,6 +3035,7 @@ const _QS = "QueryString";
 const _R = "Remove";
 const _RA = "ResourceArn";
 const _RAC = "RepositoryAuthConfig";
+const _RAE = "ResourceAlreadyExists";
 const _RAM = "RepositoryAccessMode";
 const _RARN = "RoleARN";
 const _RAVP = "RetainAllVariantProperties";
@@ -3093,6 +3125,7 @@ const _RPERe = "RetryPipelineExecutionResponse";
 const _RPSU = "RecordPreprocessorSourceUri";
 const _RPe = "RetentionPolicy";
 const _RPes = "ResourcePolicy";
+const _RPo = "RoutingPreference";
 const _RR = "RiskRating";
 const _RRBTIS = "ResourceRetainedBillableTimeInSeconds";
 const _RS = "ResourceSpec";
@@ -3108,14 +3141,22 @@ const _RSa = "RandomSeed";
 const _RSe = "RetryStrategy";
 const _RSec = "RecommendationStatus";
 const _RSo = "RollbackStatus";
-const _RSou = "RoutingStrategy";
+const _RSou = "RoutingStatus";
+const _RSout = "RoutingStrategy";
 const _RT = "ResourceType";
+const _RTAIC = "RoutingTargetAsyncInferenceConfig";
+const _RTAICC = "RoutingTargetAsyncInferenceClientConfig";
+const _RTAINC = "RoutingTargetAsyncInferenceNotificationConfig";
+const _RTAIOC = "RoutingTargetAsyncInferenceOutputConfig";
 const _RTIC = "RealTimeInferenceConfig";
 const _RTIR = "RealTimeInferenceRecommendations";
 const _RTIRe = "RealTimeInferenceRecommendation";
+const _RTL = "RoutingTargetList";
 const _RTe = "ResolutionTime";
 const _RTeg = "RegistrationTime";
 const _RTen = "RenderableTask";
+const _RTo = "RoutingTargets";
+const _RTou = "RoutingTarget";
 const _RU = "RepositoryUrl";
 const _RUP = "RollingUpdatePolicy";
 const _RUT = "RenderUiTemplate";
@@ -3737,7 +3778,10 @@ const _UIER = "UpdateInferenceExperimentRequest";
 const _UIERp = "UpdateInferenceExperimentResponse";
 const _UIEp = "UpdateInferenceExperiment";
 const _UIR = "UpdateImageRequest";
+const _UIRI = "UpdateInferenceRouterInput";
+const _UIRO = "UpdateInferenceRouterOutput";
 const _UIRp = "UpdateImageResponse";
+const _UIRpd = "UpdateInferenceRouter";
 const _UIV = "UpdateImageVersion";
 const _UIVR = "UpdateImageVersionRequest";
 const _UIVRp = "UpdateImageVersionResponse";
@@ -3908,7 +3952,13 @@ import type {
   StaticUnionSchema,
 } from "@smithy/types";
 
-import { ConflictException, ResourceInUse, ResourceLimitExceeded, ResourceNotFound } from "../models/errors";
+import {
+  ConflictException,
+  ResourceAlreadyExists,
+  ResourceInUse,
+  ResourceLimitExceeded,
+  ResourceNotFound,
+} from "../models/errors";
 import { SageMakerServiceException } from "../models/SageMakerServiceException";
 
 /* eslint no-var: 0 */
@@ -3922,6 +3972,12 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   [0]
 ];
 n0_registry.registerError(ConflictException$, ConflictException);
+export var ResourceAlreadyExists$: StaticErrorSchema = [-3, n0, _RAE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExists$, ResourceAlreadyExists);
 export var ResourceInUse$: StaticErrorSchema = [-3, n0, _RIU,
   { [_e]: _c },
   [_M],
@@ -5354,8 +5410,8 @@ export var CreateEdgePackagingJobRequest$: StaticStructureSchema = [3, n0, _CEPJ
 ];
 export var CreateEndpointConfigInput$: StaticStructureSchema = [3, n0, _CECI,
   0,
-  [_ECN, _PV, _DCC, _Ta, _KKI, _AIC, _ECx, _SPV, _ERA, _VC, _ENI, _MCe],
-  [0, () => ProductionVariantList, () => DataCaptureConfig$, () => TagList, 0, () => AsyncInferenceConfig$, () => ExplainerConfig$, () => ProductionVariantList, 0, () => VpcConfig$, 2, () => MetricsConfig$], 2
+  [_ECN, _PV, _DCC, _Ta, _KKI, _AIC, _ECx, _SPV, _ERA, _VC, _ENI, _MCe, _CRTC],
+  [0, () => ProductionVariantList, () => DataCaptureConfig$, () => TagList, 0, () => AsyncInferenceConfig$, () => ExplainerConfig$, () => ProductionVariantList, 0, () => VpcConfig$, 2, () => MetricsConfig$, () => CrossRegionTrafficConfig$], 2
 ];
 export var CreateEndpointConfigOutput$: StaticStructureSchema = [3, n0, _CECO,
   0,
@@ -5500,6 +5556,16 @@ export var CreateInferenceRecommendationsJobRequest$: StaticStructureSchema = [3
 export var CreateInferenceRecommendationsJobResponse$: StaticStructureSchema = [3, n0, _CIRJRr,
   0,
   [_JA],
+  [0], 1
+];
+export var CreateInferenceRouterInput$: StaticStructureSchema = [3, n0, _CIRI,
+  0,
+  [_IRN, _RTo, _CTl, _Ta],
+  [0, () => RoutingTargetList, [0, 4], () => TagList], 2
+];
+export var CreateInferenceRouterOutput$: StaticStructureSchema = [3, n0, _CIRO,
+  0,
+  [_IRA],
   [0], 1
 ];
 export var CreateJobRequest$: StaticStructureSchema = [3, n0, _CJR,
@@ -5867,6 +5933,11 @@ export var CreateWorkteamResponse$: StaticStructureSchema = [3, n0, _CWRrea,
   [_WAo],
   [0]
 ];
+export var CrossRegionTrafficConfig$: StaticStructureSchema = [3, n0, _CRTC,
+  0,
+  [_MIPSPI, _MCRPPE],
+  [1, 1], 2
+];
 export var CustomImage$: StaticStructureSchema = [3, n0, _CIu,
   0,
   [_IN, _AICN, _IVN],
@@ -6127,6 +6198,16 @@ export var DeleteEndpointInput$: StaticStructureSchema = [3, n0, _DEI,
   [_ENn],
   [0], 1
 ];
+export var DeleteEndpointPolicyRequest$: StaticStructureSchema = [3, n0, _DEPR,
+  0,
+  [_ENn],
+  [0], 1
+];
+export var DeleteEndpointPolicyResponse$: StaticStructureSchema = [3, n0, _DEPRe,
+  0,
+  [],
+  []
+];
 export var DeleteExperimentRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_ENx],
@@ -6215,6 +6296,11 @@ export var DeleteInferenceExperimentRequest$: StaticStructureSchema = [3, n0, _D
 export var DeleteInferenceExperimentResponse$: StaticStructureSchema = [3, n0, _DIERe,
   0,
   [_IEA],
+  [0], 1
+];
+export var DeleteInferenceRouterInput$: StaticStructureSchema = [3, n0, _DIRI,
+  0,
+  [_IRN],
   [0], 1
 ];
 export var DeleteJobRequest$: StaticStructureSchema = [3, n0, _DJR,
@@ -6674,7 +6760,7 @@ export var DescribeDeviceFleetRequest$: StaticStructureSchema = [3, n0, _DDFRe,
 ];
 export var DescribeDeviceFleetResponse$: StaticStructureSchema = [3, n0, _DDFRes,
   0,
-  [_DFN, _DFA, _OCu, _CT, _LMT, _D, _RAo, _IRA],
+  [_DFN, _DFA, _OCu, _CT, _LMT, _D, _RAo, _IRAo],
   [0, 0, () => EdgeOutputConfig$, 4, 4, 0, 0, 0], 5
 ];
 export var DescribeDeviceRequest$: StaticStructureSchema = [3, n0, _DDRes,
@@ -6724,8 +6810,8 @@ export var DescribeEndpointConfigInput$: StaticStructureSchema = [3, n0, _DECIe,
 ];
 export var DescribeEndpointConfigOutput$: StaticStructureSchema = [3, n0, _DECO,
   0,
-  [_ECN, _ECA, _PV, _CT, _DCC, _KKI, _AIC, _ECx, _SPV, _ERA, _VC, _ENI, _MCe],
-  [0, 0, () => ProductionVariantList, 4, () => DataCaptureConfig$, 0, () => AsyncInferenceConfig$, () => ExplainerConfig$, () => ProductionVariantList, 0, () => VpcConfig$, 2, () => MetricsConfig$], 4
+  [_ECN, _ECA, _PV, _CT, _DCC, _KKI, _AIC, _ECx, _SPV, _ERA, _VC, _ENI, _MCe, _CRTC],
+  [0, 0, () => ProductionVariantList, 4, () => DataCaptureConfig$, 0, () => AsyncInferenceConfig$, () => ExplainerConfig$, () => ProductionVariantList, 0, () => VpcConfig$, 2, () => MetricsConfig$, () => CrossRegionTrafficConfig$], 4
 ];
 export var DescribeEndpointInput$: StaticStructureSchema = [3, n0, _DEIe,
   0,
@@ -6734,8 +6820,8 @@ export var DescribeEndpointInput$: StaticStructureSchema = [3, n0, _DEIe,
 ];
 export var DescribeEndpointOutput$: StaticStructureSchema = [3, n0, _DEO,
   0,
-  [_ENn, _EAn, _ES, _CT, _LMT, _ECN, _PV, _DCC, _FR, _LDC, _AIC, _PDS, _ECx, _SPV, _MCe],
-  [0, 0, 0, 4, 4, 0, () => ProductionVariantSummaryList, () => DataCaptureConfigSummary$, 0, () => DeploymentConfig$, () => AsyncInferenceConfig$, () => PendingDeploymentSummary$, () => ExplainerConfig$, () => ProductionVariantSummaryList, () => MetricsConfig$], 5
+  [_ENn, _EAn, _ES, _CT, _LMT, _ECN, _PV, _DCC, _FR, _LDC, _AIC, _PDS, _ECx, _SPV, _MCe, _CRTC],
+  [0, 0, 0, 4, 4, 0, () => ProductionVariantSummaryList, () => DataCaptureConfigSummary$, 0, () => DeploymentConfig$, () => AsyncInferenceConfig$, () => PendingDeploymentSummary$, () => ExplainerConfig$, () => ProductionVariantSummaryList, () => MetricsConfig$, () => CrossRegionTrafficConfig$], 5
 ];
 export var DescribeExperimentRequest$: StaticStructureSchema = [3, n0, _DERes,
   0,
@@ -6866,6 +6952,16 @@ export var DescribeInferenceRecommendationsJobResponse$: StaticStructureSchema =
   0,
   [_JN, _JT, _JA, _RAo, _St, _CT, _LMT, _ICnp, _JD, _CTom, _FR, _SCto, _IRnf, _EPn],
   [0, 0, 0, 0, 0, 4, 4, () => RecommendationJobInputConfig$, 0, 4, 0, () => RecommendationJobStoppingConditions$, () => InferenceRecommendations, () => EndpointPerformances], 8
+];
+export var DescribeInferenceRouterInput$: StaticStructureSchema = [3, n0, _DIRIe,
+  0,
+  [_IRN],
+  [0], 1
+];
+export var DescribeInferenceRouterOutput$: StaticStructureSchema = [3, n0, _DIRO,
+  0,
+  [_IRN, _IRA, _RTo, _St, _CT, _LMT, _SRt],
+  [0, 0, () => RoutingTargetList, 0, 4, 4, 0], 6
 ];
 export var DescribeJobRequest$: StaticStructureSchema = [3, n0, _DJRes,
   0,
@@ -7251,6 +7347,11 @@ export var DesiredWeightAndCapacity$: StaticStructureSchema = [3, n0, _DWAC,
   0,
   [_VN, _DW, _DIC, _SUCe],
   [0, 1, 1, () => ProductionVariantServerlessUpdateConfig$], 1
+];
+export var Destination$: StaticStructureSchema = [3, n0, _Des,
+  0,
+  [_RA, _RSou],
+  [0, 0], 1
 ];
 export var DetachClusterNodeVolumeRequest$: StaticStructureSchema = [3, n0, _DCNVR,
   0,
@@ -7742,6 +7843,16 @@ export var GetDeviceFleetReportResponse$: StaticStructureSchema = [3, n0, _GDFRR
   [_DFA, _DFN, _OCu, _D, _RG, _DSev, _AVg, _MSod],
   [0, 0, () => EdgeOutputConfig$, 0, 4, () => DeviceStats$, () => AgentVersions, () => EdgeModelStats], 2
 ];
+export var GetEndpointPolicyRequest$: StaticStructureSchema = [3, n0, _GEPR,
+  0,
+  [_ENn],
+  [0], 1
+];
+export var GetEndpointPolicyResponse$: StaticStructureSchema = [3, n0, _GEPRe,
+  0,
+  [_ENn, _EAn, _RPes],
+  [0, 0, 0]
+];
 export var GetLineageGroupPolicyRequest$: StaticStructureSchema = [3, n0, _GLGPR,
   0,
   [_LGN],
@@ -8146,6 +8257,11 @@ export var InferenceRecommendationsJobStep$: StaticStructureSchema = [3, n0, _IR
   0,
   [_STte, _JN, _St, _IB],
   [0, 0, 0, () => RecommendationJobInferenceBenchmark$], 3
+];
+export var InferenceRouterSummary$: StaticStructureSchema = [3, n0, _IRS,
+  0,
+  [_IRN, _IRA, _CT, _LMT],
+  [0, 0, 4, 4], 4
 ];
 export var InferenceSpecification$: StaticStructureSchema = [3, n0, _ISn,
   0,
@@ -8831,6 +8947,16 @@ export var ListInferenceRecommendationsJobStepsResponse$: StaticStructureSchema 
   0,
   [_Ste, _NTe],
   [() => InferenceRecommendationsJobSteps, 0]
+];
+export var ListInferenceRoutersInput$: StaticStructureSchema = [3, n0, _LIRI,
+  0,
+  [_MR, _NTe],
+  [1, 0]
+];
+export var ListInferenceRoutersOutput$: StaticStructureSchema = [3, n0, _LIRO,
+  0,
+  [_IRnfer, _NTe],
+  [() => InferenceRouterSummaryList, 0], 1
 ];
 export var ListJobSchemaVersionsRequest$: StaticStructureSchema = [3, n0, _LJSVR,
   0,
@@ -10219,7 +10345,7 @@ export var ProductionVariantManagedInstanceScalingScaleInPolicy$: StaticStructur
 ];
 export var ProductionVariantRoutingConfig$: StaticStructureSchema = [3, n0, _PVRC,
   0,
-  [_RSou, _PARC],
+  [_RSout, _PARC],
   [0, () => PrefixAwareRoutingConfig$], 1
 ];
 export var ProductionVariantServerlessConfig$: StaticStructureSchema = [3, n0, _PVSC,
@@ -10291,6 +10417,16 @@ export var PublicWorkforceTaskPrice$: StaticStructureSchema = [3, n0, _PWTP,
   0,
   [_AIU],
   [() => USD$]
+];
+export var PutEndpointPolicyRequest$: StaticStructureSchema = [3, n0, _PEPR,
+  0,
+  [_ENn, _RPes],
+  [0, 0], 2
+];
+export var PutEndpointPolicyResponse$: StaticStructureSchema = [3, n0, _PEPRu,
+  0,
+  [_EAn],
+  [0]
 ];
 export var PutModelPackageGroupPolicyInput$: StaticStructureSchema = [3, n0, _PMPGPI,
   0,
@@ -10512,6 +10648,31 @@ export var RollingUpdatePolicy$: StaticStructureSchema = [3, n0, _RUP,
   [_MBS, _WIIS, _METIS, _RMBS],
   [() => CapacitySize$, 1, 1, () => CapacitySize$], 2
 ];
+export var RoutingTarget$: StaticStructureSchema = [3, n0, _RTou,
+  0,
+  [_N, _Dest, _AIC, _RPo],
+  [0, () => DestinationList, () => RoutingTargetAsyncInferenceConfig$, 0], 2
+];
+export var RoutingTargetAsyncInferenceClientConfig$: StaticStructureSchema = [3, n0, _RTAICC,
+  0,
+  [_MTIBS],
+  [1]
+];
+export var RoutingTargetAsyncInferenceConfig$: StaticStructureSchema = [3, n0, _RTAIC,
+  0,
+  [_OCu, _CC],
+  [() => RoutingTargetAsyncInferenceOutputConfig$, () => RoutingTargetAsyncInferenceClientConfig$], 1
+];
+export var RoutingTargetAsyncInferenceNotificationConfig$: StaticStructureSchema = [3, n0, _RTAINC,
+  0,
+  [_STu, _ETr],
+  [0, 0]
+];
+export var RoutingTargetAsyncInferenceOutputConfig$: StaticStructureSchema = [3, n0, _RTAIOC,
+  0,
+  [_SOP, _SFP, _KKI, _NC],
+  [0, 0, 0, () => RoutingTargetAsyncInferenceNotificationConfig$], 2
+];
 export var RSessionAppSettings$: StaticStructureSchema = [3, n0, _RSAS,
   0,
   [_DRS, _CI],
@@ -10584,7 +10745,7 @@ export var ScheduledUpdateConfig$: StaticStructureSchema = [3, n0, _SUC,
 ];
 export var SchedulerConfig$: StaticStructureSchema = [3, n0, _SCc,
   0,
-  [_PCrio, _FSa, _IRS],
+  [_PCrio, _FSa, _IRSd],
   [() => PriorityClassList, 0, 0]
 ];
 export var SearchExpression$: StaticStructureSchema = [3, n0, _SEe,
@@ -11612,6 +11773,16 @@ export var UpdateInferenceExperimentResponse$: StaticStructureSchema = [3, n0, _
   [_IEA],
   [0], 1
 ];
+export var UpdateInferenceRouterInput$: StaticStructureSchema = [3, n0, _UIRI,
+  0,
+  [_IRN, _RTo],
+  [0, () => RoutingTargetList], 2
+];
+export var UpdateInferenceRouterOutput$: StaticStructureSchema = [3, n0, _UIRO,
+  0,
+  [_IRA],
+  [0], 1
+];
 export var UpdateMlflowAppRequest$: StaticStructureSchema = [3, n0, _UMAR,
   0,
   [_Ar, _N, _ASU, _MRM, _WMWS, _DDIL, _ADS],
@@ -12197,6 +12368,9 @@ var DeploymentStageStatusSummaries: StaticListSchema = [1, n0, _DSSSep,
 var DesiredWeightAndCapacityList: StaticListSchema = [1, n0, _DWACL,
   0, () => DesiredWeightAndCapacity$
 ];
+var DestinationList: StaticListSchema = [1, n0, _DLe,
+  0, () => Destination$
+];
 var DeviceDeploymentSummaries: StaticListSchema = [1, n0, _DDSevi,
   0, () => DeviceDeploymentSummary$
 ];
@@ -12378,6 +12552,9 @@ var InferenceRecommendationsJobs: StaticListSchema = [1, n0, _IRJn,
 ];
 var InferenceRecommendationsJobSteps: StaticListSchema = [1, n0, _IRJSn,
   0, () => InferenceRecommendationsJobStep$
+];
+var InferenceRouterSummaryList: StaticListSchema = [1, n0, _IRSL,
+  0, () => InferenceRouterSummary$
 ];
 var InputDataConfig: StaticListSchema = [1, n0, _IDC,
   0, () => Channel$
@@ -12653,6 +12830,9 @@ var ResourceCatalogList: StaticListSchema = [1, n0, _RCL,
 var ResponseMIMETypes = 64 | 0;
 var RoleGroupAssignmentsList: StaticListSchema = [1, n0, _RGAL,
   0, () => RoleGroupAssignment$
+];
+var RoutingTargetList: StaticListSchema = [1, n0, _RTL,
+  0, () => RoutingTarget$
 ];
 var SageMakerImageVersionAliases = 64 | 0;
 var SageMakerResourceNames = 64 | 0;
@@ -13047,6 +13227,9 @@ export var CreateInferenceExperiment$: StaticOperationSchema = [9, n0, _CIE,
 export var CreateInferenceRecommendationsJob$: StaticOperationSchema = [9, n0, _CIRJ,
   0, () => CreateInferenceRecommendationsJobRequest$, () => CreateInferenceRecommendationsJobResponse$
 ];
+export var CreateInferenceRouter$: StaticOperationSchema = [9, n0, _CIRrea,
+  0, () => CreateInferenceRouterInput$, () => CreateInferenceRouterOutput$
+];
 export var CreateJob$: StaticOperationSchema = [9, n0, _CJ,
   0, () => CreateJobRequest$, () => CreateJobResponse$
 ];
@@ -13224,6 +13407,9 @@ export var DeleteEndpoint$: StaticOperationSchema = [9, n0, _DE,
 export var DeleteEndpointConfig$: StaticOperationSchema = [9, n0, _DEC,
   0, () => DeleteEndpointConfigInput$, () => __Unit
 ];
+export var DeleteEndpointPolicy$: StaticOperationSchema = [9, n0, _DEP,
+  0, () => DeleteEndpointPolicyRequest$, () => DeleteEndpointPolicyResponse$
+];
 export var DeleteExperiment$: StaticOperationSchema = [9, n0, _DEe,
   0, () => DeleteExperimentRequest$, () => DeleteExperimentResponse$
 ];
@@ -13259,6 +13445,9 @@ export var DeleteInferenceComponent$: StaticOperationSchema = [9, n0, _DICe,
 ];
 export var DeleteInferenceExperiment$: StaticOperationSchema = [9, n0, _DIEe,
   0, () => DeleteInferenceExperimentRequest$, () => DeleteInferenceExperimentResponse$
+];
+export var DeleteInferenceRouter$: StaticOperationSchema = [9, n0, _DIRel,
+  2, () => DeleteInferenceRouterInput$, () => __Unit
 ];
 export var DeleteJob$: StaticOperationSchema = [9, n0, _DJ,
   2, () => DeleteJobRequest$, () => DeleteJobResponse$
@@ -13473,6 +13662,9 @@ export var DescribeInferenceExperiment$: StaticOperationSchema = [9, n0, _DIEes,
 export var DescribeInferenceRecommendationsJob$: StaticOperationSchema = [9, n0, _DIRJ,
   0, () => DescribeInferenceRecommendationsJobRequest$, () => DescribeInferenceRecommendationsJobResponse$
 ];
+export var DescribeInferenceRouter$: StaticOperationSchema = [9, n0, _DIRescr,
+  0, () => DescribeInferenceRouterInput$, () => DescribeInferenceRouterOutput$
+];
 export var DescribeJob$: StaticOperationSchema = [9, n0, _DJe,
   0, () => DescribeJobRequest$, () => DescribeJobResponse$
 ];
@@ -13604,6 +13796,9 @@ export var ExtendTrainingPlan$: StaticOperationSchema = [9, n0, _ETP,
 ];
 export var GetDeviceFleetReport$: StaticOperationSchema = [9, n0, _GDFR,
   0, () => GetDeviceFleetReportRequest$, () => GetDeviceFleetReportResponse$
+];
+export var GetEndpointPolicy$: StaticOperationSchema = [9, n0, _GEP,
+  0, () => GetEndpointPolicyRequest$, () => GetEndpointPolicyResponse$
 ];
 export var GetLineageGroupPolicy$: StaticOperationSchema = [9, n0, _GLGP,
   0, () => GetLineageGroupPolicyRequest$, () => GetLineageGroupPolicyResponse$
@@ -13758,6 +13953,9 @@ export var ListInferenceRecommendationsJobs$: StaticOperationSchema = [9, n0, _L
 export var ListInferenceRecommendationsJobSteps$: StaticOperationSchema = [9, n0, _LIRJS,
   0, () => ListInferenceRecommendationsJobStepsRequest$, () => ListInferenceRecommendationsJobStepsResponse$
 ];
+export var ListInferenceRouters$: StaticOperationSchema = [9, n0, _LIRis,
+  0, () => ListInferenceRoutersInput$, () => ListInferenceRoutersOutput$
+];
 export var ListJobs$: StaticOperationSchema = [9, n0, _LJ,
   0, () => ListJobsRequest$, () => ListJobsResponse$
 ];
@@ -13904,6 +14102,9 @@ export var ListWorkforces$: StaticOperationSchema = [9, n0, _LW,
 ];
 export var ListWorkteams$: StaticOperationSchema = [9, n0, _LWi,
   0, () => ListWorkteamsRequest$, () => ListWorkteamsResponse$
+];
+export var PutEndpointPolicy$: StaticOperationSchema = [9, n0, _PEP,
+  0, () => PutEndpointPolicyRequest$, () => PutEndpointPolicyResponse$
 ];
 export var PutModelPackageGroupPolicy$: StaticOperationSchema = [9, n0, _PMPGP,
   0, () => PutModelPackageGroupPolicyInput$, () => PutModelPackageGroupPolicyOutput$
@@ -14093,6 +14294,9 @@ export var UpdateInferenceComponentRuntimeConfig$: StaticOperationSchema = [9, n
 ];
 export var UpdateInferenceExperiment$: StaticOperationSchema = [9, n0, _UIEp,
   0, () => UpdateInferenceExperimentRequest$, () => UpdateInferenceExperimentResponse$
+];
+export var UpdateInferenceRouter$: StaticOperationSchema = [9, n0, _UIRpd,
+  2, () => UpdateInferenceRouterInput$, () => UpdateInferenceRouterOutput$
 ];
 export var UpdateMlflowApp$: StaticOperationSchema = [9, n0, _UMA,
   0, () => UpdateMlflowAppRequest$, () => UpdateMlflowAppResponse$

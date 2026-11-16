@@ -34,7 +34,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
  * const client = new SageMakerClient(config);
  * const input = { // DescribeJobRequest
  *   JobName: "STRING_VALUE", // required
- *   JobCategory: "AgentRFT" || "AgentRFTEvaluation", // required
+ *   JobCategory: "AgentRFT" || "SyntheticDataGeneration" || "DataQualityEvaluation" || "AgentRFTEvaluation" || "DataTransformation", // required
  * };
  * const command = new DescribeJobCommand(input);
  * const response = await client.send(command);
@@ -42,17 +42,17 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
  * //   JobName: "STRING_VALUE", // required
  * //   JobArn: "STRING_VALUE", // required
  * //   RoleArn: "STRING_VALUE", // required
- * //   JobCategory: "AgentRFT" || "AgentRFTEvaluation", // required
+ * //   JobCategory: "AgentRFT" || "SyntheticDataGeneration" || "DataQualityEvaluation" || "AgentRFTEvaluation" || "DataTransformation", // required
  * //   JobConfigSchemaVersion: "STRING_VALUE", // required
  * //   JobConfigDocument: "STRING_VALUE",
  * //   CreationTime: new Date("TIMESTAMP"), // required
  * //   LastModifiedTime: new Date("TIMESTAMP"), // required
  * //   EndTime: new Date("TIMESTAMP"),
  * //   JobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting" || "DeleteFailed", // required
- * //   SecondaryStatus: "Starting" || "Downloading" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Interrupted" || "Failed" || "Completed" || "Restarting" || "Pending" || "Evaluating" || "Deleting" || "DeleteFailed", // required
+ * //   SecondaryStatus: "Starting" || "Downloading" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Interrupted" || "Failed" || "Completed" || "Restarting" || "Pending" || "Generating" || "PartialGeneration" || "Evaluating" || "Validating" || "Preparing" || "Executing" || "Publishing" || "Finalizing" || "Transforming" || "Deleting" || "DeleteFailed", // required
  * //   SecondaryStatusTransitions: [ // JobSecondaryStatusTransitions // required
  * //     { // JobSecondaryStatusTransition
- * //       Status: "Starting" || "Downloading" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Interrupted" || "Failed" || "Completed" || "Restarting" || "Pending" || "Evaluating" || "Deleting" || "DeleteFailed", // required
+ * //       Status: "Starting" || "Downloading" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Interrupted" || "Failed" || "Completed" || "Restarting" || "Pending" || "Generating" || "PartialGeneration" || "Evaluating" || "Validating" || "Preparing" || "Executing" || "Publishing" || "Finalizing" || "Transforming" || "Deleting" || "DeleteFailed", // required
  * //       StartTime: new Date("TIMESTAMP"), // required
  * //       EndTime: new Date("TIMESTAMP"),
  * //       StatusMessage: "STRING_VALUE",

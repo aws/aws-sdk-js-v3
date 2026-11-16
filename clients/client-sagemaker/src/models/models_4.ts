@@ -2,7 +2,13 @@
 import type {
   _InstanceType,
   AccountDefaultStatus,
+  AlgorithmSortBy,
+  AppImageConfigSortKey,
+  AppSortKey,
   AppType,
+  AssociationEdgeType,
+  AutoMLJobStatus,
+  AutoMLSortBy,
   AutoMLSortOrder,
   BatchStrategy,
   CandidateSortBy,
@@ -39,13 +45,13 @@ import type {
   InferenceComponentSortKey,
   InferenceComponentStatus,
   InferenceExperimentStatus,
-  InferenceExperimentStopDesiredState,
   InferenceExperimentType,
   IsTrackingServerActive,
   JobCategory,
   JobStatus,
   LabelingJobStatus,
   LineageType,
+  ListAIWorkloadConfigsSortBy,
   ListCompilationJobsSortBy,
   ListDeviceFleetsSortBy,
   ListEdgeDeploymentPlansSortBy,
@@ -72,7 +78,6 @@ import type {
   ModelPackageStatus,
   ModelPackageType,
   ModelSortKey,
-  ModelVariantAction,
   MonitoringAlertHistorySortKey,
   MonitoringAlertStatus,
   MonitoringExecutionSortKey,
@@ -110,6 +115,8 @@ import type {
   SecondaryStatus,
   SharingType,
   SkipModelValidation,
+  SortArtifactsBy,
+  SortAssociationsBy,
   SortBy,
   SortClusterSchedulerConfigBy,
   SortContextsBy,
@@ -146,11 +153,19 @@ import type {
 } from "./enums";
 import type {
   AdditionalInferenceSpecificationDefinition,
+  AIRecommendationJobSummary,
+  AIWorkloadConfigSummary,
   AlgorithmSpecification,
+  AlgorithmSummary,
+  AppDetails,
+  AppImageConfigDetails,
   AppSpecification,
+  ArtifactSummary,
+  AssociationSummary,
   AthenaStepMetadata,
   AutoMLCandidate,
   AutoMLJobStepMetadata,
+  AutoMLJobSummary,
   BatchDataCaptureConfig,
   BatchTransformInput,
   BedrockCustomModelDeploymentMetadata,
@@ -192,13 +207,8 @@ import type {
   MetadataProperties,
   ModelCardSecurityConfig,
   ModelLifeCycle,
-  ModelMetrics,
   ModelPackageModelCard,
-  ModelPackageSecurityConfig,
-  ModelPackageValidationSpecification,
-  ModelVariantConfig,
   RetryStrategy,
-  SourceAlgorithmSpecification,
   TtlDuration,
   UiTemplate,
 } from "./models_1";
@@ -213,7 +223,10 @@ import type {
   ManagedConfiguration,
   ModelArtifacts,
   ModelClientConfig,
+  ModelMetrics,
   ModelPackageConfig,
+  ModelPackageSecurityConfig,
+  ModelPackageValidationSpecification,
   MonitoringScheduleConfig,
   NetworkConfig,
   ParallelismConfiguration,
@@ -223,6 +236,7 @@ import type {
   ProcessingStoppingCondition,
   ProfilerConfig,
   ServiceCatalogProvisioningDetails,
+  SourceAlgorithmSpecification,
   SpaceStorageSettings,
   TensorBoardOutputConfig,
   TrialComponentArtifact,
@@ -271,6 +285,7 @@ import type {
   InferenceExperimentSummary,
   InferenceRecommendationsJob,
   InferenceRecommendationsJobStep,
+  InferenceRouterSummary,
   IterationContext,
   Job,
   JobConfigSchemaVersionSummary,
@@ -298,6 +313,583 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListAIRecommendationJobsResponse {
+  /**
+   * <p>An array of <code>AIRecommendationJobSummary</code> objects, one for each recommendation job that matches the specified filters.</p>
+   * @public
+   */
+  AIRecommendationJobs: AIRecommendationJobSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker AI returns this token. To retrieve the next set of jobs, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAIWorkloadConfigsRequest {
+  /**
+   * <p>The maximum number of AI workload configurations to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous call to <code>ListAIWorkloadConfigs</code> didn't return the full set of configurations, the call returns a token for getting the next set of configurations.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A string in the configuration name. This filter returns only configurations whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A filter that returns only configurations created after the specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only configurations created before the specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: ListAIWorkloadConfigsSortBy | undefined;
+
+  /**
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAIWorkloadConfigsResponse {
+  /**
+   * <p>An array of <code>AIWorkloadConfigSummary</code> objects, one for each AI workload configuration that matches the specified filters.</p>
+   * @public
+   */
+  AIWorkloadConfigs: AIWorkloadConfigSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker AI returns this token. To retrieve the next set of configurations, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAlgorithmsInput {
+  /**
+   * <p>A filter that returns only algorithms created after the specified time (timestamp).</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only algorithms created before the specified time (timestamp).</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>The maximum number of algorithms to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A string in the algorithm name. This filter returns only algorithms whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>If the response to a previous <code>ListAlgorithms</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of algorithms, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: AlgorithmSortBy | undefined;
+
+  /**
+   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAlgorithmsOutput {
+  /**
+   * <p>&gt;An array of <code>AlgorithmSummary</code> objects, each of which lists an algorithm.</p>
+   * @public
+   */
+  AlgorithmSummaryList: AlgorithmSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of algorithms, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAliasesRequest {
+  /**
+   * <p>The name of the image.</p>
+   * @public
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The alias of the image version.</p>
+   * @public
+   */
+  Alias?: string | undefined;
+
+  /**
+   * <p>The version of the image. If image version is not specified, the aliases of all versions of the image are listed.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>The maximum number of aliases to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous call to <code>ListAliases</code> didn't return the full set of aliases, the call returns a token for retrieving the next set of aliases.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAliasesResponse {
+  /**
+   * <p>A list of SageMaker AI image version aliases.</p>
+   * @public
+   */
+  SageMakerImageVersionAliases?: string[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of aliases, if more aliases exist.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAppImageConfigsRequest {
+  /**
+   * <p>The total number of items to return in the response. If the total number of items available is more than the value specified, a <code>NextToken</code> is provided in the response. To resume pagination, provide the <code>NextToken</code> value in the as part of a subsequent call. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous call to <code>ListImages</code> didn't return the full set of AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs created on or before the specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs created on or after the specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs modified on or before the specified time.</p>
+   * @public
+   */
+  ModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs modified on or after the specified time.</p>
+   * @public
+   */
+  ModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: AppImageConfigSortKey | undefined;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAppImageConfigsResponse {
+  /**
+   * <p>A token for getting the next set of AppImageConfigs, if there are any.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of AppImageConfigs and their properties.</p>
+   * @public
+   */
+  AppImageConfigs?: AppImageConfigDetails[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAppsRequest {
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are more results available than the value specified, a <code>NextToken</code> is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The sort order for the results. The default is Ascending.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is CreationTime.</p>
+   * @public
+   */
+  SortBy?: AppSortKey | undefined;
+
+  /**
+   * <p>A parameter to search for the domain ID.</p>
+   * @public
+   */
+  DomainIdEquals?: string | undefined;
+
+  /**
+   * <p>A parameter to search by user profile name. If <code>SpaceNameEquals</code> is set, then this value cannot be set.</p>
+   * @public
+   */
+  UserProfileNameEquals?: string | undefined;
+
+  /**
+   * <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set, then this value cannot be set.</p>
+   * @public
+   */
+  SpaceNameEquals?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAppsResponse {
+  /**
+   * <p>The list of apps.</p>
+   * @public
+   */
+  Apps?: AppDetails[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListArtifactsRequest {
+  /**
+   * <p>A filter that returns only artifacts with the specified source URI.</p>
+   * @public
+   */
+  SourceUri?: string | undefined;
+
+  /**
+   * <p>A filter that returns only artifacts of the specified type.</p>
+   * @public
+   */
+  ArtifactType?: string | undefined;
+
+  /**
+   * <p>A filter that returns only artifacts created on or after the specified time.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only artifacts created on or before the specified time.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: SortArtifactsBy | undefined;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the previous call to <code>ListArtifacts</code> didn't return the full set of artifacts, the call returns a token for getting the next set of artifacts.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of artifacts to return in the response. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListArtifactsResponse {
+  /**
+   * <p>A list of artifacts and their properties.</p>
+   * @public
+   */
+  ArtifactSummaries?: ArtifactSummary[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of artifacts, if there are any.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssociationsRequest {
+  /**
+   * <p>A filter that returns only associations with the specified source ARN.</p>
+   * @public
+   */
+  SourceArn?: string | undefined;
+
+  /**
+   * <p>A filter that returns only associations with the specified destination Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  DestinationArn?: string | undefined;
+
+  /**
+   * <p>A filter that returns only associations with the specified source type.</p>
+   * @public
+   */
+  SourceType?: string | undefined;
+
+  /**
+   * <p>A filter that returns only associations with the specified destination type.</p>
+   * @public
+   */
+  DestinationType?: string | undefined;
+
+  /**
+   * <p>A filter that returns only associations of the specified type.</p>
+   * @public
+   */
+  AssociationType?: AssociationEdgeType | undefined;
+
+  /**
+   * <p>A filter that returns only associations created on or after the specified time.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only associations created on or before the specified time.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: SortAssociationsBy | undefined;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the previous call to <code>ListAssociations</code> didn't return the full set of associations, the call returns a token for getting the next set of associations.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of associations to return in the response. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssociationsResponse {
+  /**
+   * <p>A list of associations and their properties.</p>
+   * @public
+   */
+  AssociationSummaries?: AssociationSummary[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of associations, if there are any.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutoMLJobsRequest {
+  /**
+   * <p>Request a list of jobs, using a filter for time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Request a list of jobs, using a filter for time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Request a list of jobs, using a filter for time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Request a list of jobs, using a filter for time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Request a list of jobs, using a search filter for name.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>Request a list of jobs, using a filter for status.</p>
+   * @public
+   */
+  StatusEquals?: AutoMLJobStatus | undefined;
+
+  /**
+   * <p>The sort order for the results. The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: AutoMLSortOrder | undefined;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is <code>Name</code>.</p>
+   * @public
+   */
+  SortBy?: AutoMLSortBy | undefined;
+
+  /**
+   * <p>Request a list of jobs up to a specified limit.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutoMLJobsResponse {
+  /**
+   * <p>Returns a summary list of jobs.</p>
+   * @public
+   */
+  AutoMLJobSummaries: AutoMLJobSummary[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -2764,6 +3356,40 @@ export interface ListInferenceRecommendationsJobStepsResponse {
 
   /**
    * <p>A token that you can specify in your next request to return more results from the list.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInferenceRoutersInput {
+  /**
+   * <p>The maximum number of inference routers to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you receive this token. To get the next set of inference routers, use it in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInferenceRoutersOutput {
+  /**
+   * <p>A list of summaries of the inference routers.</p>
+   * @public
+   */
+  InferenceRouters: InferenceRouterSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker AI returns this token. To get the next set of inference routers, use it in your next request.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -9478,6 +10104,34 @@ export interface Project {
 /**
  * @public
  */
+export interface PutEndpointPolicyRequest {
+  /**
+   * <p>The name of the endpoint. The endpoint must be in your account and in the current Amazon Web Services Region.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The endpoint policy, as a JSON policy document. The policy can contain only ASCII characters. For information about the policy rules, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/inference-router-cross-account.html">Use destinations in other accounts</a>.</p>
+   * @public
+   */
+  ResourcePolicy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutEndpointPolicyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * @public
+   */
+  EndpointArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PutModelPackageGroupPolicyInput {
   /**
    * <p>The name of the model group to add a resource policy to.</p>
@@ -11013,277 +11667,4 @@ export interface StartPipelineExecutionRequest {
    * @public
    */
   RoleArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartPipelineExecutionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartSessionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to which the remote connection will be established. For example, this identifies the specific ARN space application you want to connect to from your local IDE.</p>
-   * @public
-   */
-  ResourceIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartSessionResponse {
-  /**
-   * <p>A unique identifier for the established remote connection session.</p>
-   * @public
-   */
-  SessionId?: string | undefined;
-
-  /**
-   * <p>A WebSocket URL used to establish a SSH connection between the local IDE and remote SageMaker space.</p>
-   * @public
-   */
-  StreamUrl?: string | undefined;
-
-  /**
-   * <p>An encrypted token value containing session and caller information. </p>
-   * @public
-   */
-  TokenValue?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopAIBenchmarkJobRequest {
-  /**
-   * <p>The name of the AI benchmark job to stop.</p>
-   * @public
-   */
-  AIBenchmarkJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopAIBenchmarkJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the stopped benchmark job.</p>
-   * @public
-   */
-  AIBenchmarkJobArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopAIRecommendationJobRequest {
-  /**
-   * <p>The name of the AI recommendation job to stop.</p>
-   * @public
-   */
-  AIRecommendationJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopAIRecommendationJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the stopped recommendation job.</p>
-   * @public
-   */
-  AIRecommendationJobArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopAutoMLJobRequest {
-  /**
-   * <p>The name of the object you are requesting.</p>
-   * @public
-   */
-  AutoMLJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopCompilationJobRequest {
-  /**
-   * <p>The name of the model compilation job to stop.</p>
-   * @public
-   */
-  CompilationJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopEdgeDeploymentStageRequest {
-  /**
-   * <p>The name of the edge deployment plan to stop.</p>
-   * @public
-   */
-  EdgeDeploymentPlanName: string | undefined;
-
-  /**
-   * <p>The name of the stage to stop.</p>
-   * @public
-   */
-  StageName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopEdgePackagingJobRequest {
-  /**
-   * <p>The name of the edge packaging job.</p>
-   * @public
-   */
-  EdgePackagingJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopHyperParameterTuningJobRequest {
-  /**
-   * <p>The name of the tuning job to stop.</p>
-   * @public
-   */
-  HyperParameterTuningJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopInferenceExperimentRequest {
-  /**
-   * <p>The name of the inference experiment to stop.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p> Array of key-value pairs, with names of variants mapped to actions. The possible actions are the following: </p> <ul> <li> <p> <code>Promote</code> - Promote the shadow variant to a production variant</p> </li> <li> <p> <code>Remove</code> - Delete the variant</p> </li> <li> <p> <code>Retain</code> - Keep the variant as it is</p> </li> </ul>
-   * @public
-   */
-  ModelVariantActions: Record<string, ModelVariantAction> | undefined;
-
-  /**
-   * <p> An array of <code>ModelVariantConfig</code> objects. There is one for each variant that you want to deploy after the inference experiment stops. Each <code>ModelVariantConfig</code> describes the infrastructure configuration for deploying the corresponding variant. </p>
-   * @public
-   */
-  DesiredModelVariants?: ModelVariantConfig[] | undefined;
-
-  /**
-   * <p> The desired state of the experiment after stopping. The possible states are the following: </p> <ul> <li> <p> <code>Completed</code>: The experiment completed successfully</p> </li> <li> <p> <code>Cancelled</code>: The experiment was canceled</p> </li> </ul>
-   * @public
-   */
-  DesiredState?: InferenceExperimentStopDesiredState | undefined;
-
-  /**
-   * <p>The reason for stopping the experiment.</p>
-   * @public
-   */
-  Reason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopInferenceExperimentResponse {
-  /**
-   * <p>The ARN of the stopped inference experiment.</p>
-   * @public
-   */
-  InferenceExperimentArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopInferenceRecommendationsJobRequest {
-  /**
-   * <p>The name of the job you want to stop.</p>
-   * @public
-   */
-  JobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopJobRequest {
-  /**
-   * <p>The name of the job to stop.</p>
-   * @public
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The category of the job to stop.</p>
-   * @public
-   */
-  JobCategory: JobCategory | undefined;
-}
-
-/**
- * @public
- */
-export interface StopJobResponse {}
-
-/**
- * @public
- */
-export interface StopLabelingJobRequest {
-  /**
-   * <p>The name of the labeling job to stop.</p>
-   * @public
-   */
-  LabelingJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopMlflowTrackingServerRequest {
-  /**
-   * <p>The name of the tracking server to stop.</p>
-   * @public
-   */
-  TrackingServerName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopMlflowTrackingServerResponse {
-  /**
-   * <p>The ARN of the stopped tracking server.</p>
-   * @public
-   */
-  TrackingServerArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopMonitoringScheduleRequest {
-  /**
-   * <p>The name of the schedule to stop.</p>
-   * @public
-   */
-  MonitoringScheduleName: string | undefined;
 }

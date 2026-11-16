@@ -3855,6 +3855,7 @@ export type ManagedInstanceScalingStatus =
  * @enum
  */
 export const RoutingStrategy = {
+  KV_AWARE: "KV_AWARE",
   LEAST_OUTSTANDING_REQUESTS: "LEAST_OUTSTANDING_REQUESTS",
   PREFIX_AWARE: "PREFIX_AWARE",
   RANDOM: "RANDOM",
@@ -4145,9 +4146,55 @@ export type FlatInvocations = (typeof FlatInvocations)[keyof typeof FlatInvocati
  * @public
  * @enum
  */
+export const RoutingStatus = {
+  /**
+   * <p>The destination is serving, and the inference router can send it requests.</p>
+   */
+  ROUTABLE: "Routable",
+  /**
+   * <p>SageMaker AI couldn't check the destination. The destination might be serving.</p>
+   */
+  UNKNOWN: "Unknown",
+  /**
+   * <p>The destination can't serve requests now, or it doesn't exist in your account.</p>
+   */
+  UNROUTABLE: "Unroutable",
+} as const;
+/**
+ * @public
+ */
+export type RoutingStatus = (typeof RoutingStatus)[keyof typeof RoutingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const InferenceRouterRoutingPreference = {
+  /**
+   * <p>Prefer destinations by instance type first and by Region second. Supported only for asynchronous routing targets.</p>
+   */
+  INSTANCE_POOL_ORDER: "InstancePoolOrder",
+  /**
+   * <p>Use destinations in the inference router's own Region first. When the request leaves the Region, the router spreads it across healthy destinations in other Regions.</p>
+   */
+  LOCAL_REGION_FIRST: "LocalRegionFirst",
+} as const;
+/**
+ * @public
+ */
+export type InferenceRouterRoutingPreference =
+  (typeof InferenceRouterRoutingPreference)[keyof typeof InferenceRouterRoutingPreference];
+
+/**
+ * @public
+ * @enum
+ */
 export const JobCategory = {
   AGENT_RFT: "AgentRFT",
   AGENT_RFT_EVALUATION: "AgentRFTEvaluation",
+  DATA_QUALITY_EVALUATION: "DataQualityEvaluation",
+  DATA_TRANSFORMATION: "DataTransformation",
+  SYNTHETIC_DATA_GENERATION: "SyntheticDataGeneration",
 } as const;
 /**
  * @public
@@ -5360,6 +5407,37 @@ export type RecommendationJobStatus = (typeof RecommendationJobStatus)[keyof typ
  * @public
  * @enum
  */
+export const InferenceRouterStatus = {
+  /**
+   * <p>The inference router is being created.</p>
+   */
+  CREATING: "Creating",
+  /**
+   * <p>The inference router is being deleted.</p>
+   */
+  DELETING: "Deleting",
+  /**
+   * <p>The inference router's latest change couldn't be applied. For the reason, see <code>StatusReason</code>.</p>
+   */
+  FAILED: "Failed",
+  /**
+   * <p>The inference router's latest change has been applied, and the router is ready.</p>
+   */
+  IN_SERVICE: "InService",
+  /**
+   * <p>An update to the inference router is being applied.</p>
+   */
+  UPDATING: "Updating",
+} as const;
+/**
+ * @public
+ */
+export type InferenceRouterStatus = (typeof InferenceRouterStatus)[keyof typeof InferenceRouterStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const JobStatus = {
   COMPLETED: "Completed",
   DELETE_FAILED: "DeleteFailed",
@@ -5384,16 +5462,24 @@ export const JobSecondaryStatus = {
   DELETING: "Deleting",
   DOWNLOADING: "Downloading",
   EVALUATING: "Evaluating",
+  EXECUTING: "Executing",
   FAILED: "Failed",
+  FINALIZING: "Finalizing",
+  GENERATING: "Generating",
   INTERRUPTED: "Interrupted",
   MAX_RUNTIME_EXCEEDED: "MaxRuntimeExceeded",
+  PARTIAL_GENERATION: "PartialGeneration",
   PENDING: "Pending",
+  PREPARING: "Preparing",
+  PUBLISHING: "Publishing",
   RESTARTING: "Restarting",
   STARTING: "Starting",
   STOPPED: "Stopped",
   STOPPING: "Stopping",
   TRAINING: "Training",
+  TRANSFORMING: "Transforming",
   UPLOADING: "Uploading",
+  VALIDATING: "Validating",
 } as const;
 /**
  * @public

@@ -978,7 +978,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               },
  * //             },
  * //             RoutingConfig: { // ProductionVariantRoutingConfig
- * //               RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE", // required
+ * //               RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE" || "KV_AWARE", // required
  * //               PrefixAwareRoutingConfig: { // PrefixAwareRoutingConfig
  * //                 PrefixLength: Number("int"),
  * //                 ConcurrencyThreshold: Number("int"),
@@ -1195,7 +1195,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               },
  * //             },
  * //             RoutingConfig: {
- * //               RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE", // required
+ * //               RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE" || "KV_AWARE", // required
  * //               PrefixAwareRoutingConfig: {
  * //                 PrefixLength: Number("int"),
  * //                 ConcurrencyThreshold: Number("int"),
@@ -2365,17 +2365,17 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         JobName: "STRING_VALUE",
  * //         JobArn: "STRING_VALUE",
  * //         RoleArn: "STRING_VALUE",
- * //         JobCategory: "AgentRFT" || "AgentRFTEvaluation",
+ * //         JobCategory: "AgentRFT" || "SyntheticDataGeneration" || "DataQualityEvaluation" || "AgentRFTEvaluation" || "DataTransformation",
  * //         JobConfigSchemaVersion: "STRING_VALUE",
  * //         JobConfigDocument: "STRING_VALUE",
  * //         CreationTime: new Date("TIMESTAMP"),
  * //         LastModifiedTime: new Date("TIMESTAMP"),
  * //         EndTime: new Date("TIMESTAMP"),
  * //         JobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting" || "DeleteFailed",
- * //         SecondaryStatus: "Starting" || "Downloading" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Interrupted" || "Failed" || "Completed" || "Restarting" || "Pending" || "Evaluating" || "Deleting" || "DeleteFailed",
+ * //         SecondaryStatus: "Starting" || "Downloading" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Interrupted" || "Failed" || "Completed" || "Restarting" || "Pending" || "Generating" || "PartialGeneration" || "Evaluating" || "Validating" || "Preparing" || "Executing" || "Publishing" || "Finalizing" || "Transforming" || "Deleting" || "DeleteFailed",
  * //         SecondaryStatusTransitions: [ // JobSecondaryStatusTransitions
  * //           { // JobSecondaryStatusTransition
- * //             Status: "Starting" || "Downloading" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Interrupted" || "Failed" || "Completed" || "Restarting" || "Pending" || "Evaluating" || "Deleting" || "DeleteFailed", // required
+ * //             Status: "Starting" || "Downloading" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Interrupted" || "Failed" || "Completed" || "Restarting" || "Pending" || "Generating" || "PartialGeneration" || "Evaluating" || "Validating" || "Preparing" || "Executing" || "Publishing" || "Finalizing" || "Transforming" || "Deleting" || "DeleteFailed", // required
  * //             StartTime: new Date("TIMESTAMP"), // required
  * //             EndTime: new Date("TIMESTAMP"),
  * //             StatusMessage: "STRING_VALUE",

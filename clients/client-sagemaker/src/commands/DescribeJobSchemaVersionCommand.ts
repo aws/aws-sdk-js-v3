@@ -33,13 +33,13 @@ export interface DescribeJobSchemaVersionCommandOutput extends DescribeJobSchema
  * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeJobSchemaVersionRequest
- *   JobCategory: "AgentRFT" || "AgentRFTEvaluation", // required
+ *   JobCategory: "AgentRFT" || "SyntheticDataGeneration" || "DataQualityEvaluation" || "AgentRFTEvaluation" || "DataTransformation", // required
  *   JobConfigSchemaVersion: "STRING_VALUE",
  * };
  * const command = new DescribeJobSchemaVersionCommand(input);
  * const response = await client.send(command);
  * // { // DescribeJobSchemaVersionResponse
- * //   JobCategory: "AgentRFT" || "AgentRFTEvaluation", // required
+ * //   JobCategory: "AgentRFT" || "SyntheticDataGeneration" || "DataQualityEvaluation" || "AgentRFTEvaluation" || "DataTransformation", // required
  * //   JobConfigSchemaVersion: "STRING_VALUE", // required
  * //   JobConfigSchema: "STRING_VALUE", // required
  * // };

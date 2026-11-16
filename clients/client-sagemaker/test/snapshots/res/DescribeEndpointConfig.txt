@@ -357,7 +357,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     ]
   },
   "EnableNetworkIsolation": false,
-  "MetricsConfig": {}
+  "MetricsConfig": {},
+  "CrossRegionTrafficConfig": {
+    "MaxInvocationsPerSecondPerInstance": 0,
+    "MaxCrossRegionPercentPerEndpoint": 0
+  }
 }
 
 
@@ -715,6 +719,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   },
   EnableNetworkIsolation: (boolean) false,
   MetricsConfig: {},
+  CrossRegionTrafficConfig: {
+    MaxInvocationsPerSecondPerInstance: (number) 0,
+    MaxCrossRegionPercentPerEndpoint: (number) 0
+  },
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
@@ -1355,6 +1363,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "EnableEnhancedMetrics": false,
     "EnableDetailedObservability": false,
     "MetricPublishFrequencyInSeconds": 0
+  },
+  "CrossRegionTrafficConfig": {
+    "MaxInvocationsPerSecondPerInstance": 0,
+    "MaxCrossRegionPercentPerEndpoint": 0
   }
 }
 
@@ -1983,6 +1995,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     EnableEnhancedMetrics: (boolean) false,
     EnableDetailedObservability: (boolean) false,
     MetricPublishFrequencyInSeconds: (number) 0
+  },
+  CrossRegionTrafficConfig: {
+    MaxInvocationsPerSecondPerInstance: (number) 0,
+    MaxCrossRegionPercentPerEndpoint: (number) 0
   },
   $metadata: {
     httpStatusCode: (number) 200,

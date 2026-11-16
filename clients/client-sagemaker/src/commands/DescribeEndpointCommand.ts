@@ -89,7 +89,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //         },
  * //       },
  * //       RoutingConfig: { // ProductionVariantRoutingConfig
- * //         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE", // required
+ * //         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE" || "KV_AWARE", // required
  * //         PrefixAwareRoutingConfig: { // PrefixAwareRoutingConfig
  * //           PrefixLength: Number("int"),
  * //           ConcurrencyThreshold: Number("int"),
@@ -236,7 +236,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //           },
  * //         },
  * //         RoutingConfig: {
- * //           RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE", // required
+ * //           RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE" || "KV_AWARE", // required
  * //           PrefixAwareRoutingConfig: {
  * //             PrefixLength: Number("int"),
  * //             ConcurrencyThreshold: Number("int"),
@@ -298,7 +298,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //           },
  * //         },
  * //         RoutingConfig: {
- * //           RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE", // required
+ * //           RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE" || "KV_AWARE", // required
  * //           PrefixAwareRoutingConfig: {
  * //             PrefixLength: Number("int"),
  * //             ConcurrencyThreshold: Number("int"),
@@ -392,7 +392,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //         },
  * //       },
  * //       RoutingConfig: {
- * //         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE", // required
+ * //         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE" || "KV_AWARE", // required
  * //         PrefixAwareRoutingConfig: {
  * //           PrefixLength: Number("int"),
  * //           ConcurrencyThreshold: Number("int"),
@@ -426,6 +426,10 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //     EnableEnhancedMetrics: true || false,
  * //     EnableDetailedObservability: true || false,
  * //     MetricPublishFrequencyInSeconds: 10 || 30 || 60 || 120 || 180 || 240 || 300,
+ * //   },
+ * //   CrossRegionTrafficConfig: { // CrossRegionTrafficConfig
+ * //     MaxInvocationsPerSecondPerInstance: Number("int"), // required
+ * //     MaxCrossRegionPercentPerEndpoint: Number("int"), // required
  * //   },
  * // };
  *

@@ -33,7 +33,7 @@ export interface ListJobSchemaVersionsCommandOutput extends ListJobSchemaVersion
  * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListJobSchemaVersionsRequest
- *   JobCategory: "AgentRFT" || "AgentRFTEvaluation", // required
+ *   JobCategory: "AgentRFT" || "SyntheticDataGeneration" || "DataQualityEvaluation" || "AgentRFTEvaluation" || "DataTransformation", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
