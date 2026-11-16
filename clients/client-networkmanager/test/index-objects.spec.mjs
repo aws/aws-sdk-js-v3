@@ -10,6 +10,10 @@ import {
   AssociateConnectPeerCommand,
   AssociateConnectPeerRequest$,
   AssociateConnectPeerResponse$,
+  AssociateContextStore$,
+  AssociateContextStoreCommand,
+  AssociateContextStoreRequest$,
+  AssociateContextStoreResponse$,
   AssociateCustomerGateway$,
   AssociateCustomerGatewayCommand,
   AssociateCustomerGatewayRequest$,
@@ -54,6 +58,13 @@ import {
   ConnectPeerErrorCode,
   ConnectPeerState,
   ConnectPeerSummary$,
+  ContextChange$,
+  ContextChangeType,
+  ContextEntry$,
+  ContextStore$,
+  ContextStoreAssociation$,
+  ContextStoreAssociationState,
+  ContextStoreState,
   CoreNetwork$,
   CoreNetworkChange$,
   CoreNetworkChangeEvent$,
@@ -85,6 +96,10 @@ import {
   CreateConnectPeerCommand,
   CreateConnectPeerRequest$,
   CreateConnectPeerResponse$,
+  CreateContextStore$,
+  CreateContextStoreCommand,
+  CreateContextStoreRequest$,
+  CreateContextStoreResponse$,
   CreateCoreNetwork$,
   CreateCoreNetworkCommand,
   CreateCoreNetworkPrefixListAssociation$,
@@ -143,6 +158,10 @@ import {
   DeleteConnectPeerCommand,
   DeleteConnectPeerRequest$,
   DeleteConnectPeerResponse$,
+  DeleteContextStore$,
+  DeleteContextStoreCommand,
+  DeleteContextStoreRequest$,
+  DeleteContextStoreResponse$,
   DeleteCoreNetwork$,
   DeleteCoreNetworkCommand,
   DeleteCoreNetworkPolicyVersion$,
@@ -194,6 +213,10 @@ import {
   DisassociateConnectPeerCommand,
   DisassociateConnectPeerRequest$,
   DisassociateConnectPeerResponse$,
+  DisassociateContextStore$,
+  DisassociateContextStoreCommand,
+  DisassociateContextStoreRequest$,
+  DisassociateContextStoreResponse$,
   DisassociateCustomerGateway$,
   DisassociateCustomerGatewayCommand,
   DisassociateCustomerGatewayRequest$,
@@ -227,6 +250,18 @@ import {
   GetConnectPeerCommand,
   GetConnectPeerRequest$,
   GetConnectPeerResponse$,
+  GetContextStore$,
+  GetContextStoreAssociation$,
+  GetContextStoreAssociationCommand,
+  GetContextStoreAssociationRequest$,
+  GetContextStoreAssociationResponse$,
+  GetContextStoreCommand,
+  GetContextStoreRequest$,
+  GetContextStoreResponse$,
+  GetContextVersion$,
+  GetContextVersionCommand,
+  GetContextVersionRequest$,
+  GetContextVersionResponse$,
   GetCoreNetwork$,
   GetCoreNetworkChangeEvents$,
   GetCoreNetworkChangeEventsCommand,
@@ -343,6 +378,22 @@ import {
   ListConnectPeersCommand,
   ListConnectPeersRequest$,
   ListConnectPeersResponse$,
+  ListContextChanges$,
+  ListContextChangesCommand,
+  ListContextChangesRequest$,
+  ListContextChangesResponse$,
+  ListContexts$,
+  ListContextsCommand,
+  ListContextsRequest$,
+  ListContextsResponse$,
+  ListContextStoreAssociations$,
+  ListContextStoreAssociationsCommand,
+  ListContextStoreAssociationsRequest$,
+  ListContextStoreAssociationsResponse$,
+  ListContextStores$,
+  ListContextStoresCommand,
+  ListContextStoresRequest$,
+  ListContextStoresResponse$,
   ListCoreNetworkPolicyVersions$,
   ListCoreNetworkPolicyVersionsCommand,
   ListCoreNetworkPolicyVersionsRequest$,
@@ -409,6 +460,10 @@ import {
   paginateListAttachmentRoutingPolicyAssociations,
   paginateListAttachments,
   paginateListConnectPeers,
+  paginateListContextChanges,
+  paginateListContexts,
+  paginateListContextStoreAssociations,
+  paginateListContextStores,
   paginateListCoreNetworkPolicyVersions,
   paginateListCoreNetworkPrefixListAssociations,
   paginateListCoreNetworkRoutingInformation,
@@ -514,6 +569,10 @@ import {
   UpdateConnectionCommand,
   UpdateConnectionRequest$,
   UpdateConnectionResponse$,
+  UpdateContextStore$,
+  UpdateContextStoreCommand,
+  UpdateContextStoreRequest$,
+  UpdateContextStoreResponse$,
   UpdateCoreNetwork$,
   UpdateCoreNetworkCommand,
   UpdateCoreNetworkRequest$,
@@ -564,6 +623,8 @@ assert(typeof AcceptAttachmentCommand === "function");
 assert(typeof AcceptAttachment$ === "object");
 assert(typeof AssociateConnectPeerCommand === "function");
 assert(typeof AssociateConnectPeer$ === "object");
+assert(typeof AssociateContextStoreCommand === "function");
+assert(typeof AssociateContextStore$ === "object");
 assert(typeof AssociateCustomerGatewayCommand === "function");
 assert(typeof AssociateCustomerGateway$ === "object");
 assert(typeof AssociateLinkCommand === "function");
@@ -576,6 +637,8 @@ assert(typeof CreateConnectionCommand === "function");
 assert(typeof CreateConnection$ === "object");
 assert(typeof CreateConnectPeerCommand === "function");
 assert(typeof CreateConnectPeer$ === "object");
+assert(typeof CreateContextStoreCommand === "function");
+assert(typeof CreateContextStore$ === "object");
 assert(typeof CreateCoreNetworkCommand === "function");
 assert(typeof CreateCoreNetwork$ === "object");
 assert(typeof CreateCoreNetworkPrefixListAssociationCommand === "function");
@@ -604,6 +667,8 @@ assert(typeof DeleteConnectionCommand === "function");
 assert(typeof DeleteConnection$ === "object");
 assert(typeof DeleteConnectPeerCommand === "function");
 assert(typeof DeleteConnectPeer$ === "object");
+assert(typeof DeleteContextStoreCommand === "function");
+assert(typeof DeleteContextStore$ === "object");
 assert(typeof DeleteCoreNetworkCommand === "function");
 assert(typeof DeleteCoreNetwork$ === "object");
 assert(typeof DeleteCoreNetworkPolicyVersionCommand === "function");
@@ -628,6 +693,8 @@ assert(typeof DescribeGlobalNetworksCommand === "function");
 assert(typeof DescribeGlobalNetworks$ === "object");
 assert(typeof DisassociateConnectPeerCommand === "function");
 assert(typeof DisassociateConnectPeer$ === "object");
+assert(typeof DisassociateContextStoreCommand === "function");
+assert(typeof DisassociateContextStore$ === "object");
 assert(typeof DisassociateCustomerGatewayCommand === "function");
 assert(typeof DisassociateCustomerGateway$ === "object");
 assert(typeof DisassociateLinkCommand === "function");
@@ -644,6 +711,12 @@ assert(typeof GetConnectPeerCommand === "function");
 assert(typeof GetConnectPeer$ === "object");
 assert(typeof GetConnectPeerAssociationsCommand === "function");
 assert(typeof GetConnectPeerAssociations$ === "object");
+assert(typeof GetContextStoreCommand === "function");
+assert(typeof GetContextStore$ === "object");
+assert(typeof GetContextStoreAssociationCommand === "function");
+assert(typeof GetContextStoreAssociation$ === "object");
+assert(typeof GetContextVersionCommand === "function");
+assert(typeof GetContextVersion$ === "object");
 assert(typeof GetCoreNetworkCommand === "function");
 assert(typeof GetCoreNetwork$ === "object");
 assert(typeof GetCoreNetworkChangeEventsCommand === "function");
@@ -698,6 +771,14 @@ assert(typeof ListAttachmentsCommand === "function");
 assert(typeof ListAttachments$ === "object");
 assert(typeof ListConnectPeersCommand === "function");
 assert(typeof ListConnectPeers$ === "object");
+assert(typeof ListContextChangesCommand === "function");
+assert(typeof ListContextChanges$ === "object");
+assert(typeof ListContextsCommand === "function");
+assert(typeof ListContexts$ === "object");
+assert(typeof ListContextStoreAssociationsCommand === "function");
+assert(typeof ListContextStoreAssociations$ === "object");
+assert(typeof ListContextStoresCommand === "function");
+assert(typeof ListContextStores$ === "object");
 assert(typeof ListCoreNetworkPolicyVersionsCommand === "function");
 assert(typeof ListCoreNetworkPolicyVersions$ === "object");
 assert(typeof ListCoreNetworkPrefixListAssociationsCommand === "function");
@@ -738,6 +819,8 @@ assert(typeof UpdateAttachmentNatConfigurationCommand === "function");
 assert(typeof UpdateAttachmentNatConfiguration$ === "object");
 assert(typeof UpdateConnectionCommand === "function");
 assert(typeof UpdateConnection$ === "object");
+assert(typeof UpdateContextStoreCommand === "function");
+assert(typeof UpdateContextStore$ === "object");
 assert(typeof UpdateCoreNetworkCommand === "function");
 assert(typeof UpdateCoreNetwork$ === "object");
 assert(typeof UpdateDeviceCommand === "function");
@@ -760,6 +843,8 @@ assert(typeof AcceptAttachmentResponse$ === "object");
 assert(typeof AccountStatus$ === "object");
 assert(typeof AssociateConnectPeerRequest$ === "object");
 assert(typeof AssociateConnectPeerResponse$ === "object");
+assert(typeof AssociateContextStoreRequest$ === "object");
+assert(typeof AssociateContextStoreResponse$ === "object");
 assert(typeof AssociateCustomerGatewayRequest$ === "object");
 assert(typeof AssociateCustomerGatewayResponse$ === "object");
 assert(typeof AssociateLinkRequest$ === "object");
@@ -783,6 +868,10 @@ assert(typeof ConnectPeerBgpConfiguration$ === "object");
 assert(typeof ConnectPeerConfiguration$ === "object");
 assert(typeof ConnectPeerError$ === "object");
 assert(typeof ConnectPeerSummary$ === "object");
+assert(typeof ContextChange$ === "object");
+assert(typeof ContextEntry$ === "object");
+assert(typeof ContextStore$ === "object");
+assert(typeof ContextStoreAssociation$ === "object");
 assert(typeof CoreNetwork$ === "object");
 assert(typeof CoreNetworkChange$ === "object");
 assert(typeof CoreNetworkChangeEvent$ === "object");
@@ -804,6 +893,8 @@ assert(typeof CreateConnectionRequest$ === "object");
 assert(typeof CreateConnectionResponse$ === "object");
 assert(typeof CreateConnectPeerRequest$ === "object");
 assert(typeof CreateConnectPeerResponse$ === "object");
+assert(typeof CreateContextStoreRequest$ === "object");
+assert(typeof CreateContextStoreResponse$ === "object");
 assert(typeof CreateCoreNetworkPrefixListAssociationRequest$ === "object");
 assert(typeof CreateCoreNetworkPrefixListAssociationResponse$ === "object");
 assert(typeof CreateCoreNetworkRequest$ === "object");
@@ -833,6 +924,8 @@ assert(typeof DeleteConnectionRequest$ === "object");
 assert(typeof DeleteConnectionResponse$ === "object");
 assert(typeof DeleteConnectPeerRequest$ === "object");
 assert(typeof DeleteConnectPeerResponse$ === "object");
+assert(typeof DeleteContextStoreRequest$ === "object");
+assert(typeof DeleteContextStoreResponse$ === "object");
 assert(typeof DeleteCoreNetworkPolicyVersionRequest$ === "object");
 assert(typeof DeleteCoreNetworkPolicyVersionResponse$ === "object");
 assert(typeof DeleteCoreNetworkPrefixListAssociationRequest$ === "object");
@@ -859,6 +952,8 @@ assert(typeof Device$ === "object");
 assert(typeof DirectConnectGatewayAttachment$ === "object");
 assert(typeof DisassociateConnectPeerRequest$ === "object");
 assert(typeof DisassociateConnectPeerResponse$ === "object");
+assert(typeof DisassociateContextStoreRequest$ === "object");
+assert(typeof DisassociateContextStoreResponse$ === "object");
 assert(typeof DisassociateCustomerGatewayRequest$ === "object");
 assert(typeof DisassociateCustomerGatewayResponse$ === "object");
 assert(typeof DisassociateLinkRequest$ === "object");
@@ -876,6 +971,12 @@ assert(typeof GetConnectPeerAssociationsRequest$ === "object");
 assert(typeof GetConnectPeerAssociationsResponse$ === "object");
 assert(typeof GetConnectPeerRequest$ === "object");
 assert(typeof GetConnectPeerResponse$ === "object");
+assert(typeof GetContextStoreAssociationRequest$ === "object");
+assert(typeof GetContextStoreAssociationResponse$ === "object");
+assert(typeof GetContextStoreRequest$ === "object");
+assert(typeof GetContextStoreResponse$ === "object");
+assert(typeof GetContextVersionRequest$ === "object");
+assert(typeof GetContextVersionResponse$ === "object");
 assert(typeof GetCoreNetworkChangeEventsRequest$ === "object");
 assert(typeof GetCoreNetworkChangeEventsResponse$ === "object");
 assert(typeof GetCoreNetworkChangeSetRequest$ === "object");
@@ -933,6 +1034,14 @@ assert(typeof ListAttachmentsRequest$ === "object");
 assert(typeof ListAttachmentsResponse$ === "object");
 assert(typeof ListConnectPeersRequest$ === "object");
 assert(typeof ListConnectPeersResponse$ === "object");
+assert(typeof ListContextChangesRequest$ === "object");
+assert(typeof ListContextChangesResponse$ === "object");
+assert(typeof ListContextsRequest$ === "object");
+assert(typeof ListContextsResponse$ === "object");
+assert(typeof ListContextStoreAssociationsRequest$ === "object");
+assert(typeof ListContextStoreAssociationsResponse$ === "object");
+assert(typeof ListContextStoresRequest$ === "object");
+assert(typeof ListContextStoresResponse$ === "object");
 assert(typeof ListCoreNetworkPolicyVersionsRequest$ === "object");
 assert(typeof ListCoreNetworkPolicyVersionsResponse$ === "object");
 assert(typeof ListCoreNetworkPrefixListAssociationsRequest$ === "object");
@@ -1010,6 +1119,8 @@ assert(typeof UpdateAttachmentNatConfigurationRequest$ === "object");
 assert(typeof UpdateAttachmentNatConfigurationResponse$ === "object");
 assert(typeof UpdateConnectionRequest$ === "object");
 assert(typeof UpdateConnectionResponse$ === "object");
+assert(typeof UpdateContextStoreRequest$ === "object");
+assert(typeof UpdateContextStoreResponse$ === "object");
 assert(typeof UpdateCoreNetworkRequest$ === "object");
 assert(typeof UpdateCoreNetworkResponse$ === "object");
 assert(typeof UpdateDeviceRequest$ === "object");
@@ -1045,6 +1156,9 @@ assert(typeof ConnectionType === "object");
 assert(typeof ConnectPeerAssociationState === "object");
 assert(typeof ConnectPeerErrorCode === "object");
 assert(typeof ConnectPeerState === "object");
+assert(typeof ContextChangeType === "object");
+assert(typeof ContextStoreAssociationState === "object");
+assert(typeof ContextStoreState === "object");
 assert(typeof CoreNetworkPolicyAlias === "object");
 assert(typeof CoreNetworkState === "object");
 assert(typeof CustomerGatewayAssociationState === "object");
@@ -1112,6 +1226,10 @@ assert(typeof paginateListAttachmentNatConfigurations === "function");
 assert(typeof paginateListAttachmentRoutingPolicyAssociations === "function");
 assert(typeof paginateListAttachments === "function");
 assert(typeof paginateListConnectPeers === "function");
+assert(typeof paginateListContextChanges === "function");
+assert(typeof paginateListContextStoreAssociations === "function");
+assert(typeof paginateListContextStores === "function");
+assert(typeof paginateListContexts === "function");
 assert(typeof paginateListCoreNetworkPolicyVersions === "function");
 assert(typeof paginateListCoreNetworkPrefixListAssociations === "function");
 assert(typeof paginateListCoreNetworkRoutingInformation === "function");

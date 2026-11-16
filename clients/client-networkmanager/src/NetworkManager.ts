@@ -18,6 +18,11 @@ import {
   AssociateConnectPeerCommand,
 } from "./commands/AssociateConnectPeerCommand";
 import {
+  type AssociateContextStoreCommandInput,
+  type AssociateContextStoreCommandOutput,
+  AssociateContextStoreCommand,
+} from "./commands/AssociateContextStoreCommand";
+import {
   type AssociateCustomerGatewayCommandInput,
   type AssociateCustomerGatewayCommandOutput,
   AssociateCustomerGatewayCommand,
@@ -47,6 +52,11 @@ import {
   type CreateConnectPeerCommandOutput,
   CreateConnectPeerCommand,
 } from "./commands/CreateConnectPeerCommand";
+import {
+  type CreateContextStoreCommandInput,
+  type CreateContextStoreCommandOutput,
+  CreateContextStoreCommand,
+} from "./commands/CreateContextStoreCommand";
 import {
   type CreateCoreNetworkCommandInput,
   type CreateCoreNetworkCommandOutput,
@@ -118,6 +128,11 @@ import {
   DeleteConnectPeerCommand,
 } from "./commands/DeleteConnectPeerCommand";
 import {
+  type DeleteContextStoreCommandInput,
+  type DeleteContextStoreCommandOutput,
+  DeleteContextStoreCommand,
+} from "./commands/DeleteContextStoreCommand";
+import {
   type DeleteCoreNetworkCommandInput,
   type DeleteCoreNetworkCommandOutput,
   DeleteCoreNetworkCommand,
@@ -178,6 +193,11 @@ import {
   DisassociateConnectPeerCommand,
 } from "./commands/DisassociateConnectPeerCommand";
 import {
+  type DisassociateContextStoreCommandInput,
+  type DisassociateContextStoreCommandOutput,
+  DisassociateContextStoreCommand,
+} from "./commands/DisassociateContextStoreCommand";
+import {
   type DisassociateCustomerGatewayCommandInput,
   type DisassociateCustomerGatewayCommandOutput,
   DisassociateCustomerGatewayCommand,
@@ -217,6 +237,21 @@ import {
   type GetConnectPeerCommandOutput,
   GetConnectPeerCommand,
 } from "./commands/GetConnectPeerCommand";
+import {
+  type GetContextStoreAssociationCommandInput,
+  type GetContextStoreAssociationCommandOutput,
+  GetContextStoreAssociationCommand,
+} from "./commands/GetContextStoreAssociationCommand";
+import {
+  type GetContextStoreCommandInput,
+  type GetContextStoreCommandOutput,
+  GetContextStoreCommand,
+} from "./commands/GetContextStoreCommand";
+import {
+  type GetContextVersionCommandInput,
+  type GetContextVersionCommandOutput,
+  GetContextVersionCommand,
+} from "./commands/GetContextVersionCommand";
 import {
   type GetCoreNetworkChangeEventsCommandInput,
   type GetCoreNetworkChangeEventsCommandOutput,
@@ -345,6 +380,26 @@ import {
   ListConnectPeersCommand,
 } from "./commands/ListConnectPeersCommand";
 import {
+  type ListContextChangesCommandInput,
+  type ListContextChangesCommandOutput,
+  ListContextChangesCommand,
+} from "./commands/ListContextChangesCommand";
+import {
+  type ListContextsCommandInput,
+  type ListContextsCommandOutput,
+  ListContextsCommand,
+} from "./commands/ListContextsCommand";
+import {
+  type ListContextStoreAssociationsCommandInput,
+  type ListContextStoreAssociationsCommandOutput,
+  ListContextStoreAssociationsCommand,
+} from "./commands/ListContextStoreAssociationsCommand";
+import {
+  type ListContextStoresCommandInput,
+  type ListContextStoresCommandOutput,
+  ListContextStoresCommand,
+} from "./commands/ListContextStoresCommand";
+import {
   type ListCoreNetworkPolicyVersionsCommandInput,
   type ListCoreNetworkPolicyVersionsCommandOutput,
   ListCoreNetworkPolicyVersionsCommand,
@@ -445,6 +500,11 @@ import {
   UpdateConnectionCommand,
 } from "./commands/UpdateConnectionCommand";
 import {
+  type UpdateContextStoreCommandInput,
+  type UpdateContextStoreCommandOutput,
+  UpdateContextStoreCommand,
+} from "./commands/UpdateContextStoreCommand";
+import {
   type UpdateCoreNetworkCommandInput,
   type UpdateCoreNetworkCommandOutput,
   UpdateCoreNetworkCommand,
@@ -510,6 +570,10 @@ import {
 } from "./pagination/ListAttachmentRoutingPolicyAssociationsPaginator";
 import { paginateListAttachments } from "./pagination/ListAttachmentsPaginator";
 import { paginateListConnectPeers } from "./pagination/ListConnectPeersPaginator";
+import { paginateListContextChanges } from "./pagination/ListContextChangesPaginator";
+import { paginateListContexts } from "./pagination/ListContextsPaginator";
+import { paginateListContextStoreAssociations } from "./pagination/ListContextStoreAssociationsPaginator";
+import { paginateListContextStores } from "./pagination/ListContextStoresPaginator";
 import { paginateListCoreNetworkPolicyVersions } from "./pagination/ListCoreNetworkPolicyVersionsPaginator";
 import {
   paginateListCoreNetworkPrefixListAssociations,
@@ -521,12 +585,14 @@ import { paginateListPeerings } from "./pagination/ListPeeringsPaginator";
 const commands = {
   AcceptAttachmentCommand,
   AssociateConnectPeerCommand,
+  AssociateContextStoreCommand,
   AssociateCustomerGatewayCommand,
   AssociateLinkCommand,
   AssociateTransitGatewayConnectPeerCommand,
   CreateConnectAttachmentCommand,
   CreateConnectionCommand,
   CreateConnectPeerCommand,
+  CreateContextStoreCommand,
   CreateCoreNetworkCommand,
   CreateCoreNetworkPrefixListAssociationCommand,
   CreateDeviceCommand,
@@ -541,6 +607,7 @@ const commands = {
   DeleteAttachmentCommand,
   DeleteConnectionCommand,
   DeleteConnectPeerCommand,
+  DeleteContextStoreCommand,
   DeleteCoreNetworkCommand,
   DeleteCoreNetworkPolicyVersionCommand,
   DeleteCoreNetworkPrefixListAssociationCommand,
@@ -553,6 +620,7 @@ const commands = {
   DeregisterTransitGatewayCommand,
   DescribeGlobalNetworksCommand,
   DisassociateConnectPeerCommand,
+  DisassociateContextStoreCommand,
   DisassociateCustomerGatewayCommand,
   DisassociateLinkCommand,
   DisassociateTransitGatewayConnectPeerCommand,
@@ -561,6 +629,9 @@ const commands = {
   GetConnectionsCommand,
   GetConnectPeerCommand,
   GetConnectPeerAssociationsCommand,
+  GetContextStoreCommand,
+  GetContextStoreAssociationCommand,
+  GetContextVersionCommand,
   GetCoreNetworkCommand,
   GetCoreNetworkChangeEventsCommand,
   GetCoreNetworkChangeSetCommand,
@@ -588,6 +659,10 @@ const commands = {
   ListAttachmentRoutingPolicyAssociationsCommand,
   ListAttachmentsCommand,
   ListConnectPeersCommand,
+  ListContextChangesCommand,
+  ListContextsCommand,
+  ListContextStoreAssociationsCommand,
+  ListContextStoresCommand,
   ListCoreNetworkPolicyVersionsCommand,
   ListCoreNetworkPrefixListAssociationsCommand,
   ListCoreNetworkRoutingInformationCommand,
@@ -608,6 +683,7 @@ const commands = {
   UntagResourceCommand,
   UpdateAttachmentNatConfigurationCommand,
   UpdateConnectionCommand,
+  UpdateContextStoreCommand,
   UpdateCoreNetworkCommand,
   UpdateDeviceCommand,
   UpdateDirectConnectGatewayAttachmentCommand,
@@ -639,6 +715,10 @@ const paginators = {
   paginateListAttachmentRoutingPolicyAssociations,
   paginateListAttachments,
   paginateListConnectPeers,
+  paginateListContextChanges,
+  paginateListContexts,
+  paginateListContextStoreAssociations,
+  paginateListContextStores,
   paginateListCoreNetworkPolicyVersions,
   paginateListCoreNetworkPrefixListAssociations,
   paginateListCoreNetworkRoutingInformation,
@@ -686,6 +766,23 @@ export interface NetworkManager {
     args: AssociateConnectPeerCommandInput,
     options: NetworkManagerRequestOptions,
     cb: (err: any, data?: AssociateConnectPeerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateContextStoreCommand}
+   */
+  associateContextStore(
+    args: AssociateContextStoreCommandInput,
+    options?: NetworkManagerRequestOptions
+  ): Promise<AssociateContextStoreCommandOutput>;
+  associateContextStore(
+    args: AssociateContextStoreCommandInput,
+    cb: (err: any, data?: AssociateContextStoreCommandOutput) => void
+  ): void;
+  associateContextStore(
+    args: AssociateContextStoreCommandInput,
+    options: NetworkManagerRequestOptions,
+    cb: (err: any, data?: AssociateContextStoreCommandOutput) => void
   ): void;
 
   /**
@@ -788,6 +885,23 @@ export interface NetworkManager {
     args: CreateConnectPeerCommandInput,
     options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateConnectPeerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateContextStoreCommand}
+   */
+  createContextStore(
+    args: CreateContextStoreCommandInput,
+    options?: NetworkManagerRequestOptions
+  ): Promise<CreateContextStoreCommandOutput>;
+  createContextStore(
+    args: CreateContextStoreCommandInput,
+    cb: (err: any, data?: CreateContextStoreCommandOutput) => void
+  ): void;
+  createContextStore(
+    args: CreateContextStoreCommandInput,
+    options: NetworkManagerRequestOptions,
+    cb: (err: any, data?: CreateContextStoreCommandOutput) => void
   ): void;
 
   /**
@@ -1030,6 +1144,23 @@ export interface NetworkManager {
   ): void;
 
   /**
+   * @see {@link DeleteContextStoreCommand}
+   */
+  deleteContextStore(
+    args: DeleteContextStoreCommandInput,
+    options?: NetworkManagerRequestOptions
+  ): Promise<DeleteContextStoreCommandOutput>;
+  deleteContextStore(
+    args: DeleteContextStoreCommandInput,
+    cb: (err: any, data?: DeleteContextStoreCommandOutput) => void
+  ): void;
+  deleteContextStore(
+    args: DeleteContextStoreCommandInput,
+    options: NetworkManagerRequestOptions,
+    cb: (err: any, data?: DeleteContextStoreCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteCoreNetworkCommand}
    */
   deleteCoreNetwork(
@@ -1235,6 +1366,23 @@ export interface NetworkManager {
   ): void;
 
   /**
+   * @see {@link DisassociateContextStoreCommand}
+   */
+  disassociateContextStore(
+    args: DisassociateContextStoreCommandInput,
+    options?: NetworkManagerRequestOptions
+  ): Promise<DisassociateContextStoreCommandOutput>;
+  disassociateContextStore(
+    args: DisassociateContextStoreCommandInput,
+    cb: (err: any, data?: DisassociateContextStoreCommandOutput) => void
+  ): void;
+  disassociateContextStore(
+    args: DisassociateContextStoreCommandInput,
+    options: NetworkManagerRequestOptions,
+    cb: (err: any, data?: DisassociateContextStoreCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateCustomerGatewayCommand}
    */
   disassociateCustomerGateway(
@@ -1368,6 +1516,57 @@ export interface NetworkManager {
     args: GetConnectPeerAssociationsCommandInput,
     options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetConnectPeerAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetContextStoreCommand}
+   */
+  getContextStore(
+    args: GetContextStoreCommandInput,
+    options?: NetworkManagerRequestOptions
+  ): Promise<GetContextStoreCommandOutput>;
+  getContextStore(
+    args: GetContextStoreCommandInput,
+    cb: (err: any, data?: GetContextStoreCommandOutput) => void
+  ): void;
+  getContextStore(
+    args: GetContextStoreCommandInput,
+    options: NetworkManagerRequestOptions,
+    cb: (err: any, data?: GetContextStoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetContextStoreAssociationCommand}
+   */
+  getContextStoreAssociation(
+    args: GetContextStoreAssociationCommandInput,
+    options?: NetworkManagerRequestOptions
+  ): Promise<GetContextStoreAssociationCommandOutput>;
+  getContextStoreAssociation(
+    args: GetContextStoreAssociationCommandInput,
+    cb: (err: any, data?: GetContextStoreAssociationCommandOutput) => void
+  ): void;
+  getContextStoreAssociation(
+    args: GetContextStoreAssociationCommandInput,
+    options: NetworkManagerRequestOptions,
+    cb: (err: any, data?: GetContextStoreAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetContextVersionCommand}
+   */
+  getContextVersion(
+    args: GetContextVersionCommandInput,
+    options?: NetworkManagerRequestOptions
+  ): Promise<GetContextVersionCommandOutput>;
+  getContextVersion(
+    args: GetContextVersionCommandInput,
+    cb: (err: any, data?: GetContextVersionCommandOutput) => void
+  ): void;
+  getContextVersion(
+    args: GetContextVersionCommandInput,
+    options: NetworkManagerRequestOptions,
+    cb: (err: any, data?: GetContextVersionCommandOutput) => void
   ): void;
 
   /**
@@ -1833,6 +2032,75 @@ export interface NetworkManager {
   ): void;
 
   /**
+   * @see {@link ListContextChangesCommand}
+   */
+  listContextChanges(
+    args: ListContextChangesCommandInput,
+    options?: NetworkManagerRequestOptions
+  ): Promise<ListContextChangesCommandOutput>;
+  listContextChanges(
+    args: ListContextChangesCommandInput,
+    cb: (err: any, data?: ListContextChangesCommandOutput) => void
+  ): void;
+  listContextChanges(
+    args: ListContextChangesCommandInput,
+    options: NetworkManagerRequestOptions,
+    cb: (err: any, data?: ListContextChangesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListContextsCommand}
+   */
+  listContexts(
+    args: ListContextsCommandInput,
+    options?: NetworkManagerRequestOptions
+  ): Promise<ListContextsCommandOutput>;
+  listContexts(
+    args: ListContextsCommandInput,
+    cb: (err: any, data?: ListContextsCommandOutput) => void
+  ): void;
+  listContexts(
+    args: ListContextsCommandInput,
+    options: NetworkManagerRequestOptions,
+    cb: (err: any, data?: ListContextsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListContextStoreAssociationsCommand}
+   */
+  listContextStoreAssociations(
+    args: ListContextStoreAssociationsCommandInput,
+    options?: NetworkManagerRequestOptions
+  ): Promise<ListContextStoreAssociationsCommandOutput>;
+  listContextStoreAssociations(
+    args: ListContextStoreAssociationsCommandInput,
+    cb: (err: any, data?: ListContextStoreAssociationsCommandOutput) => void
+  ): void;
+  listContextStoreAssociations(
+    args: ListContextStoreAssociationsCommandInput,
+    options: NetworkManagerRequestOptions,
+    cb: (err: any, data?: ListContextStoreAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListContextStoresCommand}
+   */
+  listContextStores(): Promise<ListContextStoresCommandOutput>;
+  listContextStores(
+    args: ListContextStoresCommandInput,
+    options?: NetworkManagerRequestOptions
+  ): Promise<ListContextStoresCommandOutput>;
+  listContextStores(
+    args: ListContextStoresCommandInput,
+    cb: (err: any, data?: ListContextStoresCommandOutput) => void
+  ): void;
+  listContextStores(
+    args: ListContextStoresCommandInput,
+    options: NetworkManagerRequestOptions,
+    cb: (err: any, data?: ListContextStoresCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCoreNetworkPolicyVersionsCommand}
    */
   listCoreNetworkPolicyVersions(
@@ -2173,6 +2441,23 @@ export interface NetworkManager {
     args: UpdateConnectionCommandInput,
     options: NetworkManagerRequestOptions,
     cb: (err: any, data?: UpdateConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateContextStoreCommand}
+   */
+  updateContextStore(
+    args: UpdateContextStoreCommandInput,
+    options?: NetworkManagerRequestOptions
+  ): Promise<UpdateContextStoreCommandOutput>;
+  updateContextStore(
+    args: UpdateContextStoreCommandInput,
+    cb: (err: any, data?: UpdateContextStoreCommandOutput) => void
+  ): void;
+  updateContextStore(
+    args: UpdateContextStoreCommandInput,
+    options: NetworkManagerRequestOptions,
+    cb: (err: any, data?: UpdateContextStoreCommandOutput) => void
   ): void;
 
   /**
@@ -2541,6 +2826,50 @@ export interface NetworkManager {
     args?: ListConnectPeersCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListConnectPeersCommandOutput>;
+
+  /**
+   * @see {@link ListContextChangesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContextChangesCommandOutput}.
+   */
+  paginateListContextChanges(
+    args: ListContextChangesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContextChangesCommandOutput>;
+
+  /**
+   * @see {@link ListContextsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContextsCommandOutput}.
+   */
+  paginateListContexts(
+    args: ListContextsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContextsCommandOutput>;
+
+  /**
+   * @see {@link ListContextStoreAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContextStoreAssociationsCommandOutput}.
+   */
+  paginateListContextStoreAssociations(
+    args: ListContextStoreAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContextStoreAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListContextStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContextStoresCommandOutput}.
+   */
+  paginateListContextStores(
+    args?: ListContextStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContextStoresCommandOutput>;
 
   /**
    * @see {@link ListCoreNetworkPolicyVersionsCommand}

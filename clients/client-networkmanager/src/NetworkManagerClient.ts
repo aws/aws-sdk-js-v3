@@ -60,6 +60,10 @@ import type {
   AssociateConnectPeerCommandOutput,
 } from "./commands/AssociateConnectPeerCommand";
 import type {
+  AssociateContextStoreCommandInput,
+  AssociateContextStoreCommandOutput,
+} from "./commands/AssociateContextStoreCommand";
+import type {
   AssociateCustomerGatewayCommandInput,
   AssociateCustomerGatewayCommandOutput,
 } from "./commands/AssociateCustomerGatewayCommand";
@@ -77,6 +81,10 @@ import type {
   CreateConnectPeerCommandInput,
   CreateConnectPeerCommandOutput,
 } from "./commands/CreateConnectPeerCommand";
+import type {
+  CreateContextStoreCommandInput,
+  CreateContextStoreCommandOutput,
+} from "./commands/CreateContextStoreCommand";
 import type {
   CreateCoreNetworkCommandInput,
   CreateCoreNetworkCommandOutput,
@@ -119,6 +127,10 @@ import type {
   DeleteConnectPeerCommandOutput,
 } from "./commands/DeleteConnectPeerCommand";
 import type {
+  DeleteContextStoreCommandInput,
+  DeleteContextStoreCommandOutput,
+} from "./commands/DeleteContextStoreCommand";
+import type {
   DeleteCoreNetworkCommandInput,
   DeleteCoreNetworkCommandOutput,
 } from "./commands/DeleteCoreNetworkCommand";
@@ -155,6 +167,10 @@ import type {
   DisassociateConnectPeerCommandOutput,
 } from "./commands/DisassociateConnectPeerCommand";
 import type {
+  DisassociateContextStoreCommandInput,
+  DisassociateContextStoreCommandOutput,
+} from "./commands/DisassociateContextStoreCommand";
+import type {
   DisassociateCustomerGatewayCommandInput,
   DisassociateCustomerGatewayCommandOutput,
 } from "./commands/DisassociateCustomerGatewayCommand";
@@ -177,6 +193,15 @@ import type {
   GetConnectPeerAssociationsCommandOutput,
 } from "./commands/GetConnectPeerAssociationsCommand";
 import type { GetConnectPeerCommandInput, GetConnectPeerCommandOutput } from "./commands/GetConnectPeerCommand";
+import type {
+  GetContextStoreAssociationCommandInput,
+  GetContextStoreAssociationCommandOutput,
+} from "./commands/GetContextStoreAssociationCommand";
+import type { GetContextStoreCommandInput, GetContextStoreCommandOutput } from "./commands/GetContextStoreCommand";
+import type {
+  GetContextVersionCommandInput,
+  GetContextVersionCommandOutput,
+} from "./commands/GetContextVersionCommand";
 import type {
   GetCoreNetworkChangeEventsCommandInput,
   GetCoreNetworkChangeEventsCommandOutput,
@@ -259,6 +284,19 @@ import type {
 import type { ListAttachmentsCommandInput, ListAttachmentsCommandOutput } from "./commands/ListAttachmentsCommand";
 import type { ListConnectPeersCommandInput, ListConnectPeersCommandOutput } from "./commands/ListConnectPeersCommand";
 import type {
+  ListContextChangesCommandInput,
+  ListContextChangesCommandOutput,
+} from "./commands/ListContextChangesCommand";
+import type { ListContextsCommandInput, ListContextsCommandOutput } from "./commands/ListContextsCommand";
+import type {
+  ListContextStoreAssociationsCommandInput,
+  ListContextStoreAssociationsCommandOutput,
+} from "./commands/ListContextStoreAssociationsCommand";
+import type {
+  ListContextStoresCommandInput,
+  ListContextStoresCommandOutput,
+} from "./commands/ListContextStoresCommand";
+import type {
   ListCoreNetworkPolicyVersionsCommandInput,
   ListCoreNetworkPolicyVersionsCommandOutput,
 } from "./commands/ListCoreNetworkPolicyVersionsCommand";
@@ -321,6 +359,10 @@ import type {
 } from "./commands/UpdateAttachmentNatConfigurationCommand";
 import type { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
 import type {
+  UpdateContextStoreCommandInput,
+  UpdateContextStoreCommandOutput,
+} from "./commands/UpdateContextStoreCommand";
+import type {
   UpdateCoreNetworkCommandInput,
   UpdateCoreNetworkCommandOutput,
 } from "./commands/UpdateCoreNetworkCommand";
@@ -360,12 +402,14 @@ export { __Client };
 export type ServiceInputTypes =
   | AcceptAttachmentCommandInput
   | AssociateConnectPeerCommandInput
+  | AssociateContextStoreCommandInput
   | AssociateCustomerGatewayCommandInput
   | AssociateLinkCommandInput
   | AssociateTransitGatewayConnectPeerCommandInput
   | CreateConnectAttachmentCommandInput
   | CreateConnectPeerCommandInput
   | CreateConnectionCommandInput
+  | CreateContextStoreCommandInput
   | CreateCoreNetworkCommandInput
   | CreateCoreNetworkPrefixListAssociationCommandInput
   | CreateDeviceCommandInput
@@ -380,6 +424,7 @@ export type ServiceInputTypes =
   | DeleteAttachmentCommandInput
   | DeleteConnectPeerCommandInput
   | DeleteConnectionCommandInput
+  | DeleteContextStoreCommandInput
   | DeleteCoreNetworkCommandInput
   | DeleteCoreNetworkPolicyVersionCommandInput
   | DeleteCoreNetworkPrefixListAssociationCommandInput
@@ -392,6 +437,7 @@ export type ServiceInputTypes =
   | DeregisterTransitGatewayCommandInput
   | DescribeGlobalNetworksCommandInput
   | DisassociateConnectPeerCommandInput
+  | DisassociateContextStoreCommandInput
   | DisassociateCustomerGatewayCommandInput
   | DisassociateLinkCommandInput
   | DisassociateTransitGatewayConnectPeerCommandInput
@@ -400,6 +446,9 @@ export type ServiceInputTypes =
   | GetConnectPeerAssociationsCommandInput
   | GetConnectPeerCommandInput
   | GetConnectionsCommandInput
+  | GetContextStoreAssociationCommandInput
+  | GetContextStoreCommandInput
+  | GetContextVersionCommandInput
   | GetCoreNetworkChangeEventsCommandInput
   | GetCoreNetworkChangeSetCommandInput
   | GetCoreNetworkCommandInput
@@ -427,6 +476,10 @@ export type ServiceInputTypes =
   | ListAttachmentRoutingPolicyAssociationsCommandInput
   | ListAttachmentsCommandInput
   | ListConnectPeersCommandInput
+  | ListContextChangesCommandInput
+  | ListContextStoreAssociationsCommandInput
+  | ListContextStoresCommandInput
+  | ListContextsCommandInput
   | ListCoreNetworkPolicyVersionsCommandInput
   | ListCoreNetworkPrefixListAssociationsCommandInput
   | ListCoreNetworkRoutingInformationCommandInput
@@ -447,6 +500,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAttachmentNatConfigurationCommandInput
   | UpdateConnectionCommandInput
+  | UpdateContextStoreCommandInput
   | UpdateCoreNetworkCommandInput
   | UpdateDeviceCommandInput
   | UpdateDirectConnectGatewayAttachmentCommandInput
@@ -462,12 +516,14 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptAttachmentCommandOutput
   | AssociateConnectPeerCommandOutput
+  | AssociateContextStoreCommandOutput
   | AssociateCustomerGatewayCommandOutput
   | AssociateLinkCommandOutput
   | AssociateTransitGatewayConnectPeerCommandOutput
   | CreateConnectAttachmentCommandOutput
   | CreateConnectPeerCommandOutput
   | CreateConnectionCommandOutput
+  | CreateContextStoreCommandOutput
   | CreateCoreNetworkCommandOutput
   | CreateCoreNetworkPrefixListAssociationCommandOutput
   | CreateDeviceCommandOutput
@@ -482,6 +538,7 @@ export type ServiceOutputTypes =
   | DeleteAttachmentCommandOutput
   | DeleteConnectPeerCommandOutput
   | DeleteConnectionCommandOutput
+  | DeleteContextStoreCommandOutput
   | DeleteCoreNetworkCommandOutput
   | DeleteCoreNetworkPolicyVersionCommandOutput
   | DeleteCoreNetworkPrefixListAssociationCommandOutput
@@ -494,6 +551,7 @@ export type ServiceOutputTypes =
   | DeregisterTransitGatewayCommandOutput
   | DescribeGlobalNetworksCommandOutput
   | DisassociateConnectPeerCommandOutput
+  | DisassociateContextStoreCommandOutput
   | DisassociateCustomerGatewayCommandOutput
   | DisassociateLinkCommandOutput
   | DisassociateTransitGatewayConnectPeerCommandOutput
@@ -502,6 +560,9 @@ export type ServiceOutputTypes =
   | GetConnectPeerAssociationsCommandOutput
   | GetConnectPeerCommandOutput
   | GetConnectionsCommandOutput
+  | GetContextStoreAssociationCommandOutput
+  | GetContextStoreCommandOutput
+  | GetContextVersionCommandOutput
   | GetCoreNetworkChangeEventsCommandOutput
   | GetCoreNetworkChangeSetCommandOutput
   | GetCoreNetworkCommandOutput
@@ -529,6 +590,10 @@ export type ServiceOutputTypes =
   | ListAttachmentRoutingPolicyAssociationsCommandOutput
   | ListAttachmentsCommandOutput
   | ListConnectPeersCommandOutput
+  | ListContextChangesCommandOutput
+  | ListContextStoreAssociationsCommandOutput
+  | ListContextStoresCommandOutput
+  | ListContextsCommandOutput
   | ListCoreNetworkPolicyVersionsCommandOutput
   | ListCoreNetworkPrefixListAssociationsCommandOutput
   | ListCoreNetworkRoutingInformationCommandOutput
@@ -549,6 +614,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAttachmentNatConfigurationCommandOutput
   | UpdateConnectionCommandOutput
+  | UpdateContextStoreCommandOutput
   | UpdateCoreNetworkCommandOutput
   | UpdateDeviceCommandOutput
   | UpdateDirectConnectGatewayAttachmentCommandOutput

@@ -116,6 +116,22 @@ export type ConnectPeerAssociationState =
  * @public
  * @enum
  */
+export const ContextStoreAssociationState = {
+  ASSOCIATED: "ASSOCIATED",
+  ASSOCIATING: "ASSOCIATING",
+  DISASSOCIATING: "DISASSOCIATING",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ContextStoreAssociationState =
+  (typeof ContextStoreAssociationState)[keyof typeof ContextStoreAssociationState];
+
+/**
+ * @public
+ * @enum
+ */
 export const CustomerGatewayAssociationState = {
   available: "AVAILABLE",
   deleted: "DELETED",
@@ -337,6 +353,35 @@ export const ConnectPeerState = {
  * @public
  */
 export type ConnectPeerState = (typeof ConnectPeerState)[keyof typeof ConnectPeerState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContextChangeType = {
+  ADDED: "ADDED",
+  REMOVED: "REMOVED",
+} as const;
+/**
+ * @public
+ */
+export type ContextChangeType = (typeof ContextChangeType)[keyof typeof ContextChangeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContextStoreState = {
+  available: "AVAILABLE",
+  deleted: "DELETED",
+  deleting: "DELETING",
+  pending: "PENDING",
+  updating: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type ContextStoreState = (typeof ContextStoreState)[keyof typeof ContextStoreState];
 
 /**
  * @public

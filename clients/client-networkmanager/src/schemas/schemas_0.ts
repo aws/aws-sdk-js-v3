@@ -8,6 +8,9 @@ const _ACGRs = "AssociateCustomerGatewayResponse";
 const _ACP = "AssociateConnectPeer";
 const _ACPR = "AssociateConnectPeerRequest";
 const _ACPRs = "AssociateConnectPeerResponse";
+const _ACS = "AssociateContextStore";
+const _ACSR = "AssociateContextStoreRequest";
+const _ACSRs = "AssociateContextStoreResponse";
 const _ADE = "AccessDeniedException";
 const _AE = "AttachmentError";
 const _AEL = "AttachmentErrorList";
@@ -36,6 +39,7 @@ const _ATGCP = "AssociateTransitGatewayConnectPeer";
 const _ATGCPR = "AssociateTransitGatewayConnectPeerRequest";
 const _ATGCPRs = "AssociateTransitGatewayConnectPeerResponse";
 const _AWSL = "AWSLocation";
+const _AZ = "AvailabilityZone";
 const _Ac = "Action";
 const _Ad = "Address";
 const _Al = "Alias";
@@ -50,10 +54,11 @@ const _CAI = "ConnectAttachmentId";
 const _CAO = "ConnectAttachmentOptions";
 const _CAo = "ConnectAttachment";
 const _CAon = "ConnectionArn";
-const _CC = "CreateConnection";
+const _CC = "ContextChange";
 const _CCA = "CreateConnectAttachment";
 const _CCAR = "CreateConnectAttachmentRequest";
 const _CCARr = "CreateConnectAttachmentResponse";
+const _CCL = "ContextChangeList";
 const _CCN = "CreateCoreNetwork";
 const _CCNPLA = "CreateCoreNetworkPrefixListAssociation";
 const _CCNPLAR = "CreateCoreNetworkPrefixListAssociationRequest";
@@ -65,6 +70,11 @@ const _CCPR = "CreateConnectPeerRequest";
 const _CCPRr = "CreateConnectPeerResponse";
 const _CCR = "CreateConnectionRequest";
 const _CCRr = "CreateConnectionResponse";
+const _CCS = "CreateContextStore";
+const _CCSR = "CreateContextStoreRequest";
+const _CCSRr = "CreateContextStoreResponse";
+const _CCo = "ContextChanges";
+const _CCr = "CreateConnection";
 const _CD = "CreateDevice";
 const _CDCGA = "CreateDirectConnectGatewayAttachment";
 const _CDCGAR = "CreateDirectConnectGatewayAttachmentRequest";
@@ -73,6 +83,7 @@ const _CDI = "ConnectedDeviceId";
 const _CDR = "CreateDeviceRequest";
 const _CDRr = "CreateDeviceResponse";
 const _CE = "ConflictException";
+const _CEo = "ContextEntry";
 const _CGA = "CustomerGatewayArn";
 const _CGAL = "CustomerGatewayAssociationList";
 const _CGAu = "CustomerGatewayAssociation";
@@ -83,11 +94,13 @@ const _CGNR = "CreateGlobalNetworkRequest";
 const _CGNRr = "CreateGlobalNetworkResponse";
 const _CH = "ConnectionHealth";
 const _CI = "ConnectionId";
-const _CIo = "ConnectionIds";
+const _CIo = "ContextId";
+const _CIon = "ConnectionIds";
 const _CL = "ConnectionList";
 const _CLI = "ConnectedLinkId";
 const _CLR = "CreateLinkRequest";
 const _CLRr = "CreateLinkResponse";
+const _CLo = "ContextList";
 const _CLr = "CreateLink";
 const _CM = "CommunityMatches";
 const _CN = "CoreNetwork";
@@ -140,21 +153,31 @@ const _CPS = "ConnectPeerSummary";
 const _CPSL = "ConnectPeerSummaryList";
 const _CPSo = "ConnectPeerState";
 const _CPo = "ConnectPeers";
-const _CS = "CompletionStatus";
+const _CS = "ContextStore";
+const _CSA = "ContextStoreAssociation";
+const _CSAL = "ContextStoreAssociationList";
+const _CSAo = "ContextStoreArn";
+const _CSAon = "ContextStoreAssociations";
+const _CSI = "ContextStoreId";
+const _CSL = "ContextStoreList";
 const _CSR = "CreateSiteRequest";
 const _CSRr = "CreateSiteResponse";
 const _CSS = "ChangeSetState";
 const _CSTSVA = "CreateSiteToSiteVpnAttachment";
 const _CSTSVAR = "CreateSiteToSiteVpnAttachmentRequest";
 const _CSTSVARr = "CreateSiteToSiteVpnAttachmentResponse";
+const _CSo = "ContextStores";
+const _CSom = "CompletionStatus";
 const _CSr = "CreateSite";
-const _CT = "ClientToken";
+const _CT = "ChangeType";
 const _CTGP = "CreateTransitGatewayPeering";
 const _CTGPR = "CreateTransitGatewayPeeringRequest";
 const _CTGPRr = "CreateTransitGatewayPeeringResponse";
 const _CTGRTA = "CreateTransitGatewayRouteTableAttachment";
 const _CTGRTAR = "CreateTransitGatewayRouteTableAttachmentRequest";
 const _CTGRTARr = "CreateTransitGatewayRouteTableAttachmentResponse";
+const _CTl = "ClientToken";
+const _CTo = "ContextType";
 const _CVA = "CreateVpcAttachment";
 const _CVAR = "CreateVpcAttachmentRequest";
 const _CVARr = "CreateVpcAttachmentResponse";
@@ -164,6 +187,7 @@ const _Com = "Communities";
 const _Con = "Connection";
 const _Conf = "Configuration";
 const _Conn = "Connections";
+const _Cont = "Contexts";
 const _Cou = "Count";
 const _D = "Description";
 const _DA = "DeviceArn";
@@ -194,6 +218,12 @@ const _DCPRis = "DisassociateConnectPeerResponse";
 const _DCPi = "DisassociateConnectPeer";
 const _DCR = "DeleteConnectionRequest";
 const _DCRe = "DeleteConnectionResponse";
+const _DCS = "DeleteContextStore";
+const _DCSR = "DeleteContextStoreRequest";
+const _DCSRe = "DeleteContextStoreResponse";
+const _DCSRi = "DisassociateContextStoreRequest";
+const _DCSRis = "DisassociateContextStoreResponse";
+const _DCSi = "DisassociateContextStore";
 const _DD = "DeleteDevice";
 const _DDR = "DeleteDeviceRequest";
 const _DDRe = "DeleteDeviceResponse";
@@ -255,6 +285,7 @@ const _Ed = "Edges";
 const _F = "Fields";
 const _FM = "FilterMap";
 const _FP = "ForwardPath";
+const _FVI = "FromVersionId";
 const _Fi = "Filters";
 const _Fr = "From";
 const _GC = "GetConnections";
@@ -284,6 +315,15 @@ const _GCPR = "GetConnectPeerRequest";
 const _GCPRe = "GetConnectPeerResponse";
 const _GCR = "GetConnectionsRequest";
 const _GCRe = "GetConnectionsResponse";
+const _GCS = "GetContextStore";
+const _GCSA = "GetContextStoreAssociation";
+const _GCSAR = "GetContextStoreAssociationRequest";
+const _GCSARe = "GetContextStoreAssociationResponse";
+const _GCSR = "GetContextStoreRequest";
+const _GCSRe = "GetContextStoreResponse";
+const _GCV = "GetContextVersion";
+const _GCVR = "GetContextVersionRequest";
+const _GCVRe = "GetContextVersionResponse";
 const _GD = "GetDevices";
 const _GDCGA = "GetDirectConnectGatewayAttachment";
 const _GDCGAR = "GetDirectConnectGatewayAttachmentRequest";
@@ -370,6 +410,9 @@ const _LAi = "LinkAssociations";
 const _LAin = "LinkArn";
 const _LAis = "ListAttachments";
 const _LC = "LimitCode";
+const _LCC = "ListContextChanges";
+const _LCCR = "ListContextChangesRequest";
+const _LCCRi = "ListContextChangesResponse";
 const _LCN = "ListCoreNetworks";
 const _LCNPLA = "ListCoreNetworkPrefixListAssociations";
 const _LCNPLAR = "ListCoreNetworkPrefixListAssociationsRequest";
@@ -385,6 +428,15 @@ const _LCNRi = "ListCoreNetworksResponse";
 const _LCP = "ListConnectPeers";
 const _LCPR = "ListConnectPeersRequest";
 const _LCPRi = "ListConnectPeersResponse";
+const _LCR = "ListContextsRequest";
+const _LCRi = "ListContextsResponse";
+const _LCS = "ListContextStores";
+const _LCSA = "ListContextStoreAssociations";
+const _LCSAR = "ListContextStoreAssociationsRequest";
+const _LCSARi = "ListContextStoreAssociationsResponse";
+const _LCSR = "ListContextStoresRequest";
+const _LCSRi = "ListContextStoresResponse";
+const _LCi = "ListContexts";
 const _LI = "LinkId";
 const _LIi = "LinkIds";
 const _LL = "LinkList";
@@ -471,7 +523,8 @@ const _PEL = "PeerEdgeLocation";
 const _PELe = "PeerEdgeLocations";
 const _PELee = "PeeringErrorList";
 const _PEe = "PeeringError";
-const _PI = "PeeringId";
+const _PI = "PublicId";
+const _PIe = "PeeringId";
 const _PL = "PeeringList";
 const _PLA = "PrefixListArn";
 const _PLAL = "PrefixListAssociationList";
@@ -540,8 +593,9 @@ const _RTGRe = "RegisterTransitGatewayResponse";
 const _RTI = "RouteTableIdentifier";
 const _RTT = "RouteTableType";
 const _RTTo = "RouteTableTimestamp";
-const _Re = "Relationships";
-const _Rel = "Relationship";
+const _Re = "Region";
+const _Rel = "Relationships";
+const _Rela = "Relationship";
 const _Res = "Resource";
 const _S = "State";
 const _SA = "SubnetArn";
@@ -571,9 +625,10 @@ const _SRA = "StartRouteAnalysis";
 const _SRAR = "StartRouteAnalysisRequest";
 const _SRARt = "StartRouteAnalysisResponse";
 const _SS = "SharedSegments";
-const _ST = "StartTimestamp";
+const _ST = "SegmentType";
 const _STSVA = "SiteToSiteVpnAttachment";
 const _STe = "SendTo";
+const _STt = "StartTimestamp";
 const _SV = "SendVia";
 const _Se = "Segments";
 const _Seq = "Sequence";
@@ -607,6 +662,7 @@ const _TL = "TagList";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
+const _TVI = "ToVersionId";
 const _Ta = "Tag";
 const _Ti = "Timestamp";
 const _To = "To";
@@ -622,6 +678,9 @@ const _UCNR = "UpdateCoreNetworkRequest";
 const _UCNRp = "UpdateCoreNetworkResponse";
 const _UCR = "UpdateConnectionRequest";
 const _UCRp = "UpdateConnectionResponse";
+const _UCS = "UpdateContextStore";
+const _UCSR = "UpdateContextStoreRequest";
+const _UCSRp = "UpdateContextStoreResponse";
 const _UD = "UpdateDevice";
 const _UDCGA = "UpdateDirectConnectGatewayAttachment";
 const _UDCGAR = "UpdateDirectConnectGatewayAttachmentRequest";
@@ -657,6 +716,7 @@ const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
 const _VES = "VpnEcmpSupport";
+const _VI = "VersionId";
 const _VO = "VpcOptions";
 const _Va = "Value";
 const _Ve = "Vendor";
@@ -682,7 +742,9 @@ const _dI = "deviceId";
 const _dIe = "deviceIds";
 const _e = "error";
 const _eL = "edgeLocation";
+const _fVI = "fromVersionId";
 const _gNI = "globalNetworkIds";
+const _gNIl = "globalNetworkId";
 const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
@@ -823,6 +885,16 @@ export var AssociateConnectPeerResponse$: StaticStructureSchema = [3, n0, _ACPRs
   [_CPA],
   [() => ConnectPeerAssociation$]
 ];
+export var AssociateContextStoreRequest$: StaticStructureSchema = [3, n0, _ACSR,
+  0,
+  [_CSI, _TGA],
+  [[0, 1], 0], 1
+];
+export var AssociateContextStoreResponse$: StaticStructureSchema = [3, n0, _ACSRs,
+  0,
+  [_CSA],
+  [() => ContextStoreAssociation$]
+];
 export var AssociateCustomerGatewayRequest$: StaticStructureSchema = [3, n0, _ACGR,
   0,
   [_CGA, _GNI, _DI, _LI],
@@ -938,6 +1010,26 @@ export var ConnectPeerSummary$: StaticStructureSchema = [3, n0, _CPS,
   [_CNI, _CAI, _CPI, _EL, _CPSo, _CA, _T, _SA],
   [0, 0, 0, 0, 0, 4, () => TagList, 0]
 ];
+export var ContextChange$: StaticStructureSchema = [3, n0, _CC,
+  0,
+  [_CT, _C],
+  [0, () => ContextEntry$]
+];
+export var ContextEntry$: StaticStructureSchema = [3, n0, _CEo,
+  0,
+  [_CIo, _CTo, _ST, _PI, _Re, _AZ, _AT],
+  [0, 0, 0, 0, 0, 0, 0]
+];
+export var ContextStore$: StaticStructureSchema = [3, n0, _CS,
+  0,
+  [_GNI, _CSI, _CSAo, _D, _CA, _S, _T],
+  [0, 0, 0, 0, 4, 0, () => TagList]
+];
+export var ContextStoreAssociation$: StaticStructureSchema = [3, n0, _CSA,
+  0,
+  [_CSI, _TGA, _CA, _S],
+  [0, 0, 4, 0]
+];
 export var CoreNetwork$: StaticStructureSchema = [3, n0, _CN,
   0,
   [_GNI, _CNI, _CNA, _D, _CA, _S, _Se, _NFG, _Ed, _T],
@@ -1015,7 +1107,7 @@ export var CoreNetworkSummary$: StaticStructureSchema = [3, n0, _CNSo,
 ];
 export var CreateConnectAttachmentRequest$: StaticStructureSchema = [3, n0, _CCAR,
   0,
-  [_CNI, _EL, _TAI, _O, _RPL, _NGS, _NGR, _T, _CT],
+  [_CNI, _EL, _TAI, _O, _RPL, _NGS, _NGR, _T, _CTl],
   [0, 0, 0, () => ConnectAttachmentOptions$, 0, 0, () => NatRuleRequestList, () => TagList, [0, 4]], 4
 ];
 export var CreateConnectAttachmentResponse$: StaticStructureSchema = [3, n0, _CCARr,
@@ -1035,7 +1127,7 @@ export var CreateConnectionResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateConnectPeerRequest$: StaticStructureSchema = [3, n0, _CCPR,
   0,
-  [_CAI, _PAe, _CNAor, _BO, _ICB, _T, _CT, _SA],
+  [_CAI, _PAe, _CNAor, _BO, _ICB, _T, _CTl, _SA],
   [0, 0, 0, () => BgpOptions$, 64 | 0, () => TagList, [0, 4], 0], 2
 ];
 export var CreateConnectPeerResponse$: StaticStructureSchema = [3, n0, _CCPRr,
@@ -1043,9 +1135,19 @@ export var CreateConnectPeerResponse$: StaticStructureSchema = [3, n0, _CCPRr,
   [_CP],
   [() => ConnectPeer$]
 ];
+export var CreateContextStoreRequest$: StaticStructureSchema = [3, n0, _CCSR,
+  0,
+  [_GNI, _D, _T, _CTl],
+  [[0, 1], 0, () => TagList, [0, 4]], 1
+];
+export var CreateContextStoreResponse$: StaticStructureSchema = [3, n0, _CCSRr,
+  0,
+  [_CS],
+  [() => ContextStore$]
+];
 export var CreateCoreNetworkPrefixListAssociationRequest$: StaticStructureSchema = [3, n0, _CCNPLAR,
   0,
-  [_CNI, _PLA, _PLAr, _CT],
+  [_CNI, _PLA, _PLAr, _CTl],
   [0, 0, 0, [0, 4]], 3
 ];
 export var CreateCoreNetworkPrefixListAssociationResponse$: StaticStructureSchema = [3, n0, _CCNPLARr,
@@ -1055,7 +1157,7 @@ export var CreateCoreNetworkPrefixListAssociationResponse$: StaticStructureSchem
 ];
 export var CreateCoreNetworkRequest$: StaticStructureSchema = [3, n0, _CCNR,
   0,
-  [_GNI, _D, _T, _PD, _CT],
+  [_GNI, _D, _T, _PD, _CTl],
   [0, 0, () => TagList, 0, [0, 4]], 1
 ];
 export var CreateCoreNetworkResponse$: StaticStructureSchema = [3, n0, _CCNRr,
@@ -1075,7 +1177,7 @@ export var CreateDeviceResponse$: StaticStructureSchema = [3, n0, _CDRr,
 ];
 export var CreateDirectConnectGatewayAttachmentRequest$: StaticStructureSchema = [3, n0, _CDCGAR,
   0,
-  [_CNI, _DCGA, _ELd, _RPL, _NGS, _NSRS, _NGR, _T, _CT],
+  [_CNI, _DCGA, _ELd, _RPL, _NGS, _NSRS, _NGR, _T, _CTl],
   [0, 0, 64 | 0, 0, 0, 2, () => NatRuleRequestList, () => TagList, [0, 4]], 3
 ];
 export var CreateDirectConnectGatewayAttachmentResponse$: StaticStructureSchema = [3, n0, _CDCGARr,
@@ -1115,7 +1217,7 @@ export var CreateSiteResponse$: StaticStructureSchema = [3, n0, _CSRr,
 ];
 export var CreateSiteToSiteVpnAttachmentRequest$: StaticStructureSchema = [3, n0, _CSTSVAR,
   0,
-  [_CNI, _VCA, _RPL, _NGS, _NSRS, _NGR, _T, _CT],
+  [_CNI, _VCA, _RPL, _NGS, _NSRS, _NGR, _T, _CTl],
   [0, 0, 0, 0, 2, () => NatRuleRequestList, () => TagList, [0, 4]], 2
 ];
 export var CreateSiteToSiteVpnAttachmentResponse$: StaticStructureSchema = [3, n0, _CSTSVARr,
@@ -1125,7 +1227,7 @@ export var CreateSiteToSiteVpnAttachmentResponse$: StaticStructureSchema = [3, n
 ];
 export var CreateTransitGatewayPeeringRequest$: StaticStructureSchema = [3, n0, _CTGPR,
   0,
-  [_CNI, _TGA, _T, _CT],
+  [_CNI, _TGA, _T, _CTl],
   [0, 0, () => TagList, [0, 4]], 2
 ];
 export var CreateTransitGatewayPeeringResponse$: StaticStructureSchema = [3, n0, _CTGPRr,
@@ -1135,7 +1237,7 @@ export var CreateTransitGatewayPeeringResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateTransitGatewayRouteTableAttachmentRequest$: StaticStructureSchema = [3, n0, _CTGRTAR,
   0,
-  [_PI, _TGRTA, _RPL, _T, _CT],
+  [_PIe, _TGRTA, _RPL, _T, _CTl],
   [0, 0, 0, () => TagList, [0, 4]], 2
 ];
 export var CreateTransitGatewayRouteTableAttachmentResponse$: StaticStructureSchema = [3, n0, _CTGRTARr,
@@ -1145,7 +1247,7 @@ export var CreateTransitGatewayRouteTableAttachmentResponse$: StaticStructureSch
 ];
 export var CreateVpcAttachmentRequest$: StaticStructureSchema = [3, n0, _CVAR,
   0,
-  [_CNI, _VA, _SAu, _O, _RPL, _NGS, _NGR, _T, _CT],
+  [_CNI, _VA, _SAu, _O, _RPL, _NGS, _NGR, _T, _CTl],
   [0, 0, 64 | 0, () => VpcOptions$, 0, 0, () => NatRuleRequestList, () => TagList, [0, 4]], 3
 ];
 export var CreateVpcAttachmentResponse$: StaticStructureSchema = [3, n0, _CVARr,
@@ -1187,6 +1289,16 @@ export var DeleteConnectPeerResponse$: StaticStructureSchema = [3, n0, _DCPRe,
   0,
   [_CP],
   [() => ConnectPeer$]
+];
+export var DeleteContextStoreRequest$: StaticStructureSchema = [3, n0, _DCSR,
+  0,
+  [_CSI],
+  [[0, 1]], 1
+];
+export var DeleteContextStoreResponse$: StaticStructureSchema = [3, n0, _DCSRe,
+  0,
+  [_CS],
+  [() => ContextStore$]
 ];
 export var DeleteCoreNetworkPolicyVersionRequest$: StaticStructureSchema = [3, n0, _DCNPVR,
   0,
@@ -1250,7 +1362,7 @@ export var DeleteLinkResponse$: StaticStructureSchema = [3, n0, _DLRe,
 ];
 export var DeletePeeringRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
-  [_PI],
+  [_PIe],
   [[0, 1]], 1
 ];
 export var DeletePeeringResponse$: StaticStructureSchema = [3, n0, _DPRe,
@@ -1318,6 +1430,16 @@ export var DisassociateConnectPeerResponse$: StaticStructureSchema = [3, n0, _DC
   [_CPA],
   [() => ConnectPeerAssociation$]
 ];
+export var DisassociateContextStoreRequest$: StaticStructureSchema = [3, n0, _DCSRi,
+  0,
+  [_CSI, _TGA],
+  [[0, 1], [0, 1]], 2
+];
+export var DisassociateContextStoreResponse$: StaticStructureSchema = [3, n0, _DCSRis,
+  0,
+  [_CSA],
+  [() => ContextStoreAssociation$]
+];
 export var DisassociateCustomerGatewayRequest$: StaticStructureSchema = [3, n0, _DCGR,
   0,
   [_GNI, _CGA],
@@ -1375,7 +1497,7 @@ export var GetConnectAttachmentResponse$: StaticStructureSchema = [3, n0, _GCARe
 ];
 export var GetConnectionsRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
-  [_GNI, _CIo, _DI, _MR, _NT],
+  [_GNI, _CIon, _DI, _MR, _NT],
   [[0, 1], [64 | 0, { [_hQ]: _cI }], [0, { [_hQ]: _dI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var GetConnectionsResponse$: StaticStructureSchema = [3, n0, _GCRe,
@@ -1402,6 +1524,36 @@ export var GetConnectPeerResponse$: StaticStructureSchema = [3, n0, _GCPRe,
   0,
   [_CP],
   [() => ConnectPeer$]
+];
+export var GetContextStoreAssociationRequest$: StaticStructureSchema = [3, n0, _GCSAR,
+  0,
+  [_CSI, _TGA],
+  [[0, 1], [0, 1]], 2
+];
+export var GetContextStoreAssociationResponse$: StaticStructureSchema = [3, n0, _GCSARe,
+  0,
+  [_CSA],
+  [() => ContextStoreAssociation$]
+];
+export var GetContextStoreRequest$: StaticStructureSchema = [3, n0, _GCSR,
+  0,
+  [_CSI],
+  [[0, 1]], 1
+];
+export var GetContextStoreResponse$: StaticStructureSchema = [3, n0, _GCSRe,
+  0,
+  [_CS],
+  [() => ContextStore$]
+];
+export var GetContextVersionRequest$: StaticStructureSchema = [3, n0, _GCVR,
+  0,
+  [_CSI],
+  [[0, 1]], 1
+];
+export var GetContextVersionResponse$: StaticStructureSchema = [3, n0, _GCVRe,
+  0,
+  [_VI],
+  [0]
 ];
 export var GetCoreNetworkChangeEventsRequest$: StaticStructureSchema = [3, n0, _GCNCER,
   0,
@@ -1510,7 +1662,7 @@ export var GetNetworkResourceRelationshipsRequest$: StaticStructureSchema = [3, 
 ];
 export var GetNetworkResourceRelationshipsResponse$: StaticStructureSchema = [3, n0, _GNRRRe,
   0,
-  [_Re, _NT],
+  [_Rel, _NT],
   [() => RelationshipList, 0]
 ];
 export var GetNetworkResourcesRequest$: StaticStructureSchema = [3, n0, _GNRR,
@@ -1595,7 +1747,7 @@ export var GetTransitGatewayConnectPeerAssociationsResponse$: StaticStructureSch
 ];
 export var GetTransitGatewayPeeringRequest$: StaticStructureSchema = [3, n0, _GTGPR,
   0,
-  [_PI],
+  [_PIe],
   [[0, 1]], 1
 ];
 export var GetTransitGatewayPeeringResponse$: StaticStructureSchema = [3, n0, _GTGPRe,
@@ -1687,6 +1839,46 @@ export var ListConnectPeersResponse$: StaticStructureSchema = [3, n0, _LCPRi,
   0,
   [_CPo, _NT],
   [() => ConnectPeerSummaryList, 0]
+];
+export var ListContextChangesRequest$: StaticStructureSchema = [3, n0, _LCCR,
+  0,
+  [_CSI, _FVI, _MR, _NT],
+  [[0, 1], [0, { [_hQ]: _fVI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
+];
+export var ListContextChangesResponse$: StaticStructureSchema = [3, n0, _LCCRi,
+  0,
+  [_CCo, _FVI, _TVI, _NT],
+  [() => ContextChangeList, 0, 0, 0]
+];
+export var ListContextsRequest$: StaticStructureSchema = [3, n0, _LCR,
+  0,
+  [_CSI, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListContextsResponse$: StaticStructureSchema = [3, n0, _LCRi,
+  0,
+  [_Cont, _NT, _VI],
+  [() => ContextList, 0, 0]
+];
+export var ListContextStoreAssociationsRequest$: StaticStructureSchema = [3, n0, _LCSAR,
+  0,
+  [_CSI, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListContextStoreAssociationsResponse$: StaticStructureSchema = [3, n0, _LCSARi,
+  0,
+  [_CSAon, _NT],
+  [() => ContextStoreAssociationList, 0]
+];
+export var ListContextStoresRequest$: StaticStructureSchema = [3, n0, _LCSR,
+  0,
+  [_GNI, _MR, _NT],
+  [[0, { [_hQ]: _gNIl }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+];
+export var ListContextStoresResponse$: StaticStructureSchema = [3, n0, _LCSRi,
+  0,
+  [_CSo, _NT],
+  [() => ContextStoreList, 0]
 ];
 export var ListCoreNetworkPolicyVersionsRequest$: StaticStructureSchema = [3, n0, _LCNPVR,
   0,
@@ -1820,7 +2012,7 @@ export var PathComponent$: StaticStructureSchema = [3, n0, _PC,
 ];
 export var Peering$: StaticStructureSchema = [3, n0, _Pe,
   0,
-  [_CNI, _CNA, _PI, _OAI, _PT, _S, _EL, _RAe, _T, _CA, _LME],
+  [_CNI, _CNA, _PIe, _OAI, _PT, _S, _EL, _RAe, _T, _CA, _LME],
   [0, 0, 0, 0, 0, 0, 0, 0, () => TagList, 4, () => PeeringErrorList]
 ];
 export var PeeringError$: StaticStructureSchema = [3, n0, _PEe,
@@ -1850,7 +2042,7 @@ export var ProposedSegmentChange$: StaticStructureSchema = [3, n0, _PSC,
 ];
 export var PutAttachmentRoutingPolicyLabelRequest$: StaticStructureSchema = [3, n0, _PARPLR,
   0,
-  [_CNI, _AI, _RPL, _CT],
+  [_CNI, _AI, _RPL, _CTl],
   [0, 0, 0, [0, 4]], 3
 ];
 export var PutAttachmentRoutingPolicyLabelResponse$: StaticStructureSchema = [3, n0, _PARPLRu,
@@ -1860,7 +2052,7 @@ export var PutAttachmentRoutingPolicyLabelResponse$: StaticStructureSchema = [3,
 ];
 export var PutCoreNetworkPolicyRequest$: StaticStructureSchema = [3, n0, _PCNPR,
   0,
-  [_CNI, _PD, _D, _LVI, _CT],
+  [_CNI, _PD, _D, _LVI, _CTl],
   [[0, 1], [() => SynthesizedJsonCoreNetworkPolicyDocument, 0], 0, 1, [0, 4]], 2
 ];
 export var PutCoreNetworkPolicyResponse$: StaticStructureSchema = [3, n0, _PCNPRu,
@@ -1898,7 +2090,7 @@ export var RejectAttachmentResponse$: StaticStructureSchema = [3, n0, _RARe,
   [_A],
   [() => Attachment$]
 ];
-export var Relationship$: StaticStructureSchema = [3, n0, _Rel,
+export var Relationship$: StaticStructureSchema = [3, n0, _Rela,
   0,
   [_Fr, _To],
   [0, 0]
@@ -1925,7 +2117,7 @@ export var RestoreCoreNetworkPolicyVersionResponse$: StaticStructureSchema = [3,
 ];
 export var RouteAnalysis$: StaticStructureSchema = [3, n0, _RAo,
   0,
-  [_GNI, _OAI, _RAI, _ST, _St, _So, _Dest, _IRP, _UM, _FP, _RPe],
+  [_GNI, _OAI, _RAI, _STt, _St, _So, _Dest, _IRP, _UM, _FP, _RPe],
   [0, 0, 0, 4, 0, () => RouteAnalysisEndpointOptions$, () => RouteAnalysisEndpointOptions$, 2, 2, () => RouteAnalysisPath$, () => RouteAnalysisPath$]
 ];
 export var RouteAnalysisCompletion$: StaticStructureSchema = [3, n0, _RAC,
@@ -1945,7 +2137,7 @@ export var RouteAnalysisEndpointOptionsSpecification$: StaticStructureSchema = [
 ];
 export var RouteAnalysisPath$: StaticStructureSchema = [3, n0, _RAP,
   0,
-  [_CS, _Pa],
+  [_CSom, _Pa],
   [() => RouteAnalysisCompletion$, () => PathComponentList]
 ];
 export var RouteTableIdentifier$: StaticStructureSchema = [3, n0, _RTI,
@@ -2040,7 +2232,7 @@ export var TransitGatewayRegistrationStateReason$: StaticStructureSchema = [3, n
 ];
 export var TransitGatewayRouteTableAttachment$: StaticStructureSchema = [3, n0, _TGRTAr,
   0,
-  [_A, _PI, _TGRTA],
+  [_A, _PIe, _TGRTA],
   [() => Attachment$, 0, 0]
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
@@ -2055,7 +2247,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateAttachmentNatConfigurationRequest$: StaticStructureSchema = [3, n0, _UANCR,
   0,
-  [_AI, _NGS, _NSRS, _NGR, _CT],
+  [_AI, _NGS, _NSRS, _NGR, _CTl],
   [[0, 1], 0, 2, () => NatRuleRequestList, [0, 4]], 1
 ];
 export var UpdateAttachmentNatConfigurationResponse$: StaticStructureSchema = [3, n0, _UANCRp,
@@ -2072,6 +2264,16 @@ export var UpdateConnectionResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
   [_Con],
   [() => Connection$]
+];
+export var UpdateContextStoreRequest$: StaticStructureSchema = [3, n0, _UCSR,
+  0,
+  [_CSI, _D],
+  [[0, 1], 0], 1
+];
+export var UpdateContextStoreResponse$: StaticStructureSchema = [3, n0, _UCSRp,
+  0,
+  [_CS],
+  [() => ContextStore$]
 ];
 export var UpdateCoreNetworkRequest$: StaticStructureSchema = [3, n0, _UCNR,
   0,
@@ -2211,6 +2413,18 @@ var ConnectPeerSummaryList: StaticListSchema = [1, n0, _CPSL,
   0, () => ConnectPeerSummary$
 ];
 var ConstrainedStringList = 64 | 0;
+var ContextChangeList: StaticListSchema = [1, n0, _CCL,
+  0, () => ContextChange$
+];
+var ContextList: StaticListSchema = [1, n0, _CLo,
+  0, () => ContextEntry$
+];
+var ContextStoreAssociationList: StaticListSchema = [1, n0, _CSAL,
+  0, () => ContextStoreAssociation$
+];
+var ContextStoreList: StaticListSchema = [1, n0, _CSL,
+  0, () => ContextStore$
+];
 var CoreNetworkChangeEventList: StaticListSchema = [1, n0, _CNCEL,
   0, () => CoreNetworkChangeEvent$
 ];
@@ -2348,6 +2562,9 @@ export var AcceptAttachment$: StaticOperationSchema = [9, n0, _AA,
 export var AssociateConnectPeer$: StaticOperationSchema = [9, n0, _ACP,
   { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/connect-peer-associations", 200] }, () => AssociateConnectPeerRequest$, () => AssociateConnectPeerResponse$
 ];
+export var AssociateContextStore$: StaticOperationSchema = [9, n0, _ACS,
+  { [_h]: ["POST", "/context-stores/{ContextStoreId}/associations", 200] }, () => AssociateContextStoreRequest$, () => AssociateContextStoreResponse$
+];
 export var AssociateCustomerGateway$: StaticOperationSchema = [9, n0, _ACG,
   { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/customer-gateway-associations", 200] }, () => AssociateCustomerGatewayRequest$, () => AssociateCustomerGatewayResponse$
 ];
@@ -2360,11 +2577,14 @@ export var AssociateTransitGatewayConnectPeer$: StaticOperationSchema = [9, n0, 
 export var CreateConnectAttachment$: StaticOperationSchema = [9, n0, _CCA,
   { [_h]: ["POST", "/connect-attachments", 200] }, () => CreateConnectAttachmentRequest$, () => CreateConnectAttachmentResponse$
 ];
-export var CreateConnection$: StaticOperationSchema = [9, n0, _CC,
+export var CreateConnection$: StaticOperationSchema = [9, n0, _CCr,
   { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/connections", 200] }, () => CreateConnectionRequest$, () => CreateConnectionResponse$
 ];
 export var CreateConnectPeer$: StaticOperationSchema = [9, n0, _CCP,
   { [_h]: ["POST", "/connect-peers", 200] }, () => CreateConnectPeerRequest$, () => CreateConnectPeerResponse$
+];
+export var CreateContextStore$: StaticOperationSchema = [9, n0, _CCS,
+  { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/context-stores", 200] }, () => CreateContextStoreRequest$, () => CreateContextStoreResponse$
 ];
 export var CreateCoreNetwork$: StaticOperationSchema = [9, n0, _CCN,
   { [_h]: ["POST", "/core-networks", 200] }, () => CreateCoreNetworkRequest$, () => CreateCoreNetworkResponse$
@@ -2408,6 +2628,9 @@ export var DeleteConnection$: StaticOperationSchema = [9, n0, _DC,
 export var DeleteConnectPeer$: StaticOperationSchema = [9, n0, _DCP,
   { [_h]: ["DELETE", "/connect-peers/{ConnectPeerId}", 200] }, () => DeleteConnectPeerRequest$, () => DeleteConnectPeerResponse$
 ];
+export var DeleteContextStore$: StaticOperationSchema = [9, n0, _DCS,
+  { [_h]: ["DELETE", "/context-stores/{ContextStoreId}", 200] }, () => DeleteContextStoreRequest$, () => DeleteContextStoreResponse$
+];
 export var DeleteCoreNetwork$: StaticOperationSchema = [9, n0, _DCN,
   { [_h]: ["DELETE", "/core-networks/{CoreNetworkId}", 200] }, () => DeleteCoreNetworkRequest$, () => DeleteCoreNetworkResponse$
 ];
@@ -2444,6 +2667,9 @@ export var DescribeGlobalNetworks$: StaticOperationSchema = [9, n0, _DGNe,
 export var DisassociateConnectPeer$: StaticOperationSchema = [9, n0, _DCPi,
   { [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/connect-peer-associations/{ConnectPeerId}", 200] }, () => DisassociateConnectPeerRequest$, () => DisassociateConnectPeerResponse$
 ];
+export var DisassociateContextStore$: StaticOperationSchema = [9, n0, _DCSi,
+  { [_h]: ["DELETE", "/context-stores/{ContextStoreId}/associations/{TransitGatewayArn}", 200] }, () => DisassociateContextStoreRequest$, () => DisassociateContextStoreResponse$
+];
 export var DisassociateCustomerGateway$: StaticOperationSchema = [9, n0, _DCG,
   { [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/customer-gateway-associations/{CustomerGatewayArn}", 200] }, () => DisassociateCustomerGatewayRequest$, () => DisassociateCustomerGatewayResponse$
 ];
@@ -2467,6 +2693,15 @@ export var GetConnectPeer$: StaticOperationSchema = [9, n0, _GCP,
 ];
 export var GetConnectPeerAssociations$: StaticOperationSchema = [9, n0, _GCPA,
   { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/connect-peer-associations", 200] }, () => GetConnectPeerAssociationsRequest$, () => GetConnectPeerAssociationsResponse$
+];
+export var GetContextStore$: StaticOperationSchema = [9, n0, _GCS,
+  { [_h]: ["GET", "/context-stores/{ContextStoreId}", 200] }, () => GetContextStoreRequest$, () => GetContextStoreResponse$
+];
+export var GetContextStoreAssociation$: StaticOperationSchema = [9, n0, _GCSA,
+  { [_h]: ["GET", "/context-stores/{ContextStoreId}/associations/{TransitGatewayArn}", 200] }, () => GetContextStoreAssociationRequest$, () => GetContextStoreAssociationResponse$
+];
+export var GetContextVersion$: StaticOperationSchema = [9, n0, _GCV,
+  { [_h]: ["GET", "/context-stores/{ContextStoreId}/context-version", 200] }, () => GetContextVersionRequest$, () => GetContextVersionResponse$
 ];
 export var GetCoreNetwork$: StaticOperationSchema = [9, n0, _GCN,
   { [_h]: ["GET", "/core-networks/{CoreNetworkId}", 200] }, () => GetCoreNetworkRequest$, () => GetCoreNetworkResponse$
@@ -2549,6 +2784,18 @@ export var ListAttachments$: StaticOperationSchema = [9, n0, _LAis,
 export var ListConnectPeers$: StaticOperationSchema = [9, n0, _LCP,
   { [_h]: ["GET", "/connect-peers", 200] }, () => ListConnectPeersRequest$, () => ListConnectPeersResponse$
 ];
+export var ListContextChanges$: StaticOperationSchema = [9, n0, _LCC,
+  { [_h]: ["GET", "/context-stores/{ContextStoreId}/context-changes", 200] }, () => ListContextChangesRequest$, () => ListContextChangesResponse$
+];
+export var ListContexts$: StaticOperationSchema = [9, n0, _LCi,
+  { [_h]: ["GET", "/context-stores/{ContextStoreId}/contexts", 200] }, () => ListContextsRequest$, () => ListContextsResponse$
+];
+export var ListContextStoreAssociations$: StaticOperationSchema = [9, n0, _LCSA,
+  { [_h]: ["GET", "/context-stores/{ContextStoreId}/associations", 200] }, () => ListContextStoreAssociationsRequest$, () => ListContextStoreAssociationsResponse$
+];
+export var ListContextStores$: StaticOperationSchema = [9, n0, _LCS,
+  { [_h]: ["GET", "/context-stores", 200] }, () => ListContextStoresRequest$, () => ListContextStoresResponse$
+];
 export var ListCoreNetworkPolicyVersions$: StaticOperationSchema = [9, n0, _LCNPV,
   { [_h]: ["GET", "/core-networks/{CoreNetworkId}/core-network-policy-versions", 200] }, () => ListCoreNetworkPolicyVersionsRequest$, () => ListCoreNetworkPolicyVersionsResponse$
 ];
@@ -2608,6 +2855,9 @@ export var UpdateAttachmentNatConfiguration$: StaticOperationSchema = [9, n0, _U
 ];
 export var UpdateConnection$: StaticOperationSchema = [9, n0, _UC,
   { [_h]: ["PATCH", "/global-networks/{GlobalNetworkId}/connections/{ConnectionId}", 200] }, () => UpdateConnectionRequest$, () => UpdateConnectionResponse$
+];
+export var UpdateContextStore$: StaticOperationSchema = [9, n0, _UCS,
+  { [_h]: ["PATCH", "/context-stores/{ContextStoreId}", 200] }, () => UpdateContextStoreRequest$, () => UpdateContextStoreResponse$
 ];
 export var UpdateCoreNetwork$: StaticOperationSchema = [9, n0, _UCN,
   { [_h]: ["PATCH", "/core-networks/{CoreNetworkId}", 200] }, () => UpdateCoreNetworkRequest$, () => UpdateCoreNetworkResponse$

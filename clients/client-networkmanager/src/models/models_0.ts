@@ -15,6 +15,9 @@ import type {
   ConnectPeerAssociationState,
   ConnectPeerErrorCode,
   ConnectPeerState,
+  ContextChangeType,
+  ContextStoreAssociationState,
+  ContextStoreState,
   CoreNetworkPolicyAlias,
   CoreNetworkState,
   CustomerGatewayAssociationState,
@@ -399,6 +402,82 @@ export interface AssociateConnectPeerResponse {
    * @public
    */
   ConnectPeerAssociation?: ConnectPeerAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateContextStoreRequest {
+  /**
+   * <p>The ID of the context store.</p>
+   * @public
+   */
+  ContextStoreId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the transit gateway to associate with the context store.</p>
+   * @public
+   */
+  TransitGatewayArn?: string | undefined;
+}
+
+/**
+ * <p>Describes the association between a context store and a transit gateway.</p>
+ * @public
+ */
+export interface ContextStoreAssociation {
+  /**
+   * <p>The ID of the context store.</p>
+   * @public
+   */
+  ContextStoreId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the transit gateway.</p>
+   * @public
+   */
+  TransitGatewayArn?: string | undefined;
+
+  /**
+   * <p>The date and time that the association was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The state of the association. The possible values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ASSOCIATING</code>: The transit gateway is being associated with the context store.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ASSOCIATED</code>: The transit gateway is associated with the context store.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISASSOCIATING</code>: The transit gateway is being disassociated from the context store.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: The association failed. To remove it, disassociate the transit gateway.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: ContextStoreAssociationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateContextStoreResponse {
+  /**
+   * <p>Information about the context store association.</p>
+   * @public
+   */
+  ContextStoreAssociation?: ContextStoreAssociation | undefined;
 }
 
 /**
@@ -1140,6 +1219,152 @@ export interface ConnectPeerSummary {
    * @public
    */
   SubnetArn?: string | undefined;
+}
+
+/**
+ * <p>Describes a context entry in a context store. A context entry describes a resource, such as a security group, subnet, or attachment.</p>
+ * @public
+ */
+export interface ContextEntry {
+  /**
+   * <p>The ID of the context entry.</p>
+   * @public
+   */
+  ContextId?: string | undefined;
+
+  /**
+   * <p>The type of the context entry, for example <code>SegmentId</code>, <code>Subnet</code>, or <code>Attachment</code>.</p>
+   * @public
+   */
+  ContextType?: string | undefined;
+
+  /**
+   * <p>The type of the segment, for example <code>SecurityGroup</code>. Network Manager returns this value only when the context type is <code>SegmentId</code>.</p>
+   * @public
+   */
+  SegmentType?: string | undefined;
+
+  /**
+   * <p>The ID of the resource, for example a security group ID, subnet ID, or transit gateway attachment ID.</p>
+   * @public
+   */
+  PublicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the resource.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone of the resource, for example <code>use1-az2</code>. Network Manager returns this value only when the context type is <code>Subnet</code>.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The type of the attachment, for example <code>VPC</code>. Network Manager returns this value only when the context type is <code>Attachment</code>.</p>
+   * @public
+   */
+  AttachmentType?: string | undefined;
+}
+
+/**
+ * <p>Describes a context entry that was added to or removed from a context store.</p>
+ * @public
+ */
+export interface ContextChange {
+  /**
+   * <p>The type of change. The possible values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ADDED</code>: The context entry was added to the context store.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REMOVED</code>: The context entry was removed from the context store.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ChangeType?: ContextChangeType | undefined;
+
+  /**
+   * <p>The context entry that was added or removed.</p>
+   * @public
+   */
+  Context?: ContextEntry | undefined;
+}
+
+/**
+ * <p>Describes a context store.</p>
+ * @public
+ */
+export interface ContextStore {
+  /**
+   * <p>The ID of the global network that the context store belongs to.</p>
+   * @public
+   */
+  GlobalNetworkId?: string | undefined;
+
+  /**
+   * <p>The ID of the context store.</p>
+   * @public
+   */
+  ContextStoreId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the context store.</p>
+   * @public
+   */
+  ContextStoreArn?: string | undefined;
+
+  /**
+   * <p>The description of the context store.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The date and time that the context store was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The state of the context store. The possible values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code>: The context store is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AVAILABLE</code>: The context store is ready to use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code>: The context store is being updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code>: The context store is being deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>: The context store is deleted.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: ContextStoreState | undefined;
+
+  /**
+   * <p>The tags associated with the context store.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2175,6 +2400,47 @@ export interface CreateConnectPeerResponse {
    * @public
    */
   ConnectPeer?: ConnectPeer | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContextStoreRequest {
+  /**
+   * <p>The ID of the global network to create the context store in.</p>
+   * @public
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>A description of the context store.</p>
+   *          <p>Constraints: Maximum length of 256 characters. Only printable ASCII characters are allowed.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The tags to apply to the context store during creation.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContextStoreResponse {
+  /**
+   * <p>Information about the context store.</p>
+   * @public
+   */
+  ContextStore?: ContextStore | undefined;
 }
 
 /**
@@ -3406,6 +3672,28 @@ export interface DeleteConnectPeerResponse {
 /**
  * @public
  */
+export interface DeleteContextStoreRequest {
+  /**
+   * <p>The ID of the context store to delete.</p>
+   * @public
+   */
+  ContextStoreId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContextStoreResponse {
+  /**
+   * <p>Information about the context store.</p>
+   * @public
+   */
+  ContextStore?: ContextStore | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteCoreNetworkRequest {
   /**
    * <p>The network ID of the deleted core network.</p>
@@ -3772,6 +4060,34 @@ export interface DisassociateConnectPeerResponse {
 /**
  * @public
  */
+export interface DisassociateContextStoreRequest {
+  /**
+   * <p>The ID of the context store.</p>
+   * @public
+   */
+  ContextStoreId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the transit gateway to disassociate from the context store.</p>
+   * @public
+   */
+  TransitGatewayArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateContextStoreResponse {
+  /**
+   * <p>Information about the context store association.</p>
+   * @public
+   */
+  ContextStoreAssociation?: ContextStoreAssociation | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisassociateCustomerGatewayRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4021,6 +4337,78 @@ export interface GetConnectPeerAssociationsResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContextStoreRequest {
+  /**
+   * <p>The ID of the context store.</p>
+   * @public
+   */
+  ContextStoreId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContextStoreResponse {
+  /**
+   * <p>Information about the context store.</p>
+   * @public
+   */
+  ContextStore?: ContextStore | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContextStoreAssociationRequest {
+  /**
+   * <p>The ID of the context store.</p>
+   * @public
+   */
+  ContextStoreId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the transit gateway.</p>
+   * @public
+   */
+  TransitGatewayArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContextStoreAssociationResponse {
+  /**
+   * <p>Information about the context store association.</p>
+   * @public
+   */
+  ContextStoreAssociation?: ContextStoreAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContextVersionRequest {
+  /**
+   * <p>The ID of the context store.</p>
+   * @public
+   */
+  ContextStoreId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContextVersionResponse {
+  /**
+   * <p>The current version of the context entries.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
 }
 
 /**
@@ -6226,6 +6614,190 @@ export interface ListConnectPeersResponse {
 /**
  * @public
  */
+export interface ListContextChangesRequest {
+  /**
+   * <p>The ID of the context store.</p>
+   * @public
+   */
+  ContextStoreId: string | undefined;
+
+  /**
+   * <p>The version to return changes from. Specify a version returned by <code>ListContexts</code>, <code>GetContextVersion</code>, or the <code>ToVersionId</code> of a previous <code>ListContextChanges</code> request. If the version is no longer available, the request fails, and you must call <code>ListContexts</code> to get the current context entries.</p>
+   * @public
+   */
+  FromVersionId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContextChangesResponse {
+  /**
+   * <p>The context entries that were added or removed.</p>
+   * @public
+   */
+  ContextChanges?: ContextChange[] | undefined;
+
+  /**
+   * <p>The version that the changes start from.</p>
+   * @public
+   */
+  FromVersionId?: string | undefined;
+
+  /**
+   * <p>The version that the changes bring the context entries up to. To get later changes, specify this value as <code>FromVersionId</code> in your next request. All pages of the same request return the same version.</p>
+   * @public
+   */
+  ToVersionId?: string | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContextsRequest {
+  /**
+   * <p>The ID of the context store.</p>
+   * @public
+   */
+  ContextStoreId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContextsResponse {
+  /**
+   * <p>The context entries.</p>
+   * @public
+   */
+  Contexts?: ContextEntry[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The version of the returned context entries. All pages of the same request return the same version.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContextStoreAssociationsRequest {
+  /**
+   * <p>The ID of the context store.</p>
+   * @public
+   */
+  ContextStoreId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContextStoreAssociationsResponse {
+  /**
+   * <p>The context store associations.</p>
+   * @public
+   */
+  ContextStoreAssociations?: ContextStoreAssociation[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContextStoresRequest {
+  /**
+   * <p>The ID of a global network. If you specify this parameter, only the context stores in the global network are returned.</p>
+   * @public
+   */
+  GlobalNetworkId?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContextStoresResponse {
+  /**
+   * <p>The context stores.</p>
+   * @public
+   */
+  ContextStores?: ContextStore[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListCoreNetworkPolicyVersionsRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -7127,6 +7699,35 @@ export interface UpdateConnectionResponse {
 /**
  * @public
  */
+export interface UpdateContextStoreRequest {
+  /**
+   * <p>The ID of the context store.</p>
+   * @public
+   */
+  ContextStoreId: string | undefined;
+
+  /**
+   * <p>The new description of the context store.</p>
+   *          <p>Constraints: Maximum length of 256 characters. Only printable ASCII characters are allowed.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContextStoreResponse {
+  /**
+   * <p>Information about the context store.</p>
+   * @public
+   */
+  ContextStore?: ContextStore | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateCoreNetworkRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -7382,99 +7983,4 @@ export interface UpdateNetworkResourceMetadataResponse {
    * @public
    */
   Metadata?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSiteRequest {
-  /**
-   * <p>The ID of the global network.</p>
-   * @public
-   */
-  GlobalNetworkId: string | undefined;
-
-  /**
-   * <p>The ID of your site.</p>
-   * @public
-   */
-  SiteId: string | undefined;
-
-  /**
-   * <p>A description of your site.</p>
-   *          <p>Constraints: Maximum length of 256 characters.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The site location:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Address</code>: The physical address of the site.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Latitude</code>: The latitude of the site. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Longitude</code>: The longitude of the site.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Location?: Location | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSiteResponse {
-  /**
-   * <p>Information about the site.</p>
-   * @public
-   */
-  Site?: Site | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateVpcAttachmentRequest {
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  AttachmentId: string | undefined;
-
-  /**
-   * <p>Adds a subnet ARN to the VPC attachment.</p>
-   * @public
-   */
-  AddSubnetArns?: string[] | undefined;
-
-  /**
-   * <p>Removes a subnet ARN from the attachment.</p>
-   * @public
-   */
-  RemoveSubnetArns?: string[] | undefined;
-
-  /**
-   * <p>Additional options for updating the VPC attachment. </p>
-   * @public
-   */
-  Options?: VpcOptions | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateVpcAttachmentResponse {
-  /**
-   * <p>Describes the updated VPC attachment.</p>
-   * @public
-   */
-  VpcAttachment?: VpcAttachment | undefined;
 }
