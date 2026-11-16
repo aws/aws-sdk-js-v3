@@ -1,7 +1,7 @@
 import type { FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
-import { createLazyCredentialProvider } from "./createLazyCredentialProvider";
+import { createLazyCredentialProvider } from "@aws-sdk/core/client";
 
 /**
  * Creates a credential provider function that reads OIDC token from given file, then call STS.AssumeRoleWithWebIdentity

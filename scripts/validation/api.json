@@ -255,6 +255,7 @@
     "ConditionObject": "type(intersection)",
     "createCredentialRefreshProvider": "function",
     "createDefaultUserAgentProvider": "function",
+    "createLazyCredentialProvider": "function",
     "createProfileKeyedRefreshProvider": "function",
     "createUserAgentStringParsingProvider": "function",
     "CredentialRefreshProvider": "type(interface)",

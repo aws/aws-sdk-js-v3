@@ -23,38 +23,6 @@ type ProviderWithLifecycle = RuntimeConfigAwsCredentialIdentityProvider &
   Partial<Pick<MemoizedRuntimeConfigAwsCredentialIdentityProvider, "memoized" | "invalidate">>;
 
 /**
- * Lazily creates a provider while preserving its cache marker and invalidation method.
- * @internal
- */
-export const createLazyCredentialProvider = (
-  factory: () => Promise<ProviderWithLifecycle>
-): MemoizedRuntimeConfigAwsCredentialIdentityProvider => {
-  let resolved: ProviderWithLifecycle | undefined;
-  let resolving: Promise<ProviderWithLifecycle> | undefined;
-
-  const provider = async (options?: AwsIdentityProperties & { forceRefresh?: boolean }) => {
-    if (!resolved) {
-      const attempt = (resolving ??= factory());
-      try {
-        resolved = await attempt;
-      } finally {
-        // A late waiter on a failed attempt must not clear a retry another caller has started.
-        if (resolving === attempt) {
-          resolving = undefined;
-        }
-      }
-    }
-    return resolved(options);
-  };
-
-  provider.memoized = true as const;
-  Object.defineProperty(provider, "invalidate", {
-    get: () => resolved?.invalidate?.bind(resolved),
-  });
-  return provider;
-};
-
-/**
  * Selects one credential provider. Lifecycle-wrapped providers keep their own cache; Process,
  * static, and other out-of-scope providers use the previous JavaScript cache behavior.
  *

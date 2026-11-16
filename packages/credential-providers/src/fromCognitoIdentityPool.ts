@@ -4,7 +4,7 @@ import type {
 } from "@aws-sdk/credential-provider-cognito-identity";
 import type { AwsIdentityProperties } from "@aws-sdk/types";
 
-import { createLazyCredentialProvider } from "./createLazyCredentialProvider";
+import { createLazyCredentialProvider } from "@aws-sdk/core/client";
 
 /**
  * @public

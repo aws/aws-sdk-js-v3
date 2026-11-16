@@ -818,15 +818,47 @@ describe("createCredentialRefreshProvider", () => {
         expect(rejectedKeyPassed(ctx.source)).toBe("AKID-1");
       });
 
-      it("drops a rejectedAccessKeyId the caller passed, since only the lifecycle sets it", async () => {
-        const ctx = setup();
-        await ctx.seed("mandatory", "AKID-1");
-        ctx.source.mockResolvedValueOnce(ctx.credentials());
+      describe("when an outer lifecycle passes a rejectedAccessKeyId (nested providers such as fromIni over Login)", () => {
+        const callWithRejected = (ctx: ReturnType<typeof setup>, accessKeyId: string) =>
+          ctx.cache({ rejectedAccessKeyId: accessKeyId } as Parameters<typeof ctx.cache>[0]);
 
-        await ctx.cache({ rejectedAccessKeyId: "AKID-1" } as Parameters<typeof ctx.cache>[0]);
+        it("refreshes cached credentials that have the rejected access key ID", async () => {
+          const ctx = setup();
+          await ctx.seed("valid", "AKID-1");
+          const fresh = ctx.credentials(SIX_HOURS_MS, "AKID-2");
+          ctx.source.mockResolvedValueOnce(fresh);
 
-        expect(ctx.source).toHaveBeenCalledTimes(1);
-        expect(rejectedKeyPassed(ctx.source)).toBeUndefined();
+          expect(await callWithRejected(ctx, "AKID-1")).toBe(fresh);
+          expect(ctx.source).toHaveBeenCalledTimes(1);
+          expect(rejectedKeyPassed(ctx.source)).toBe("AKID-1");
+        });
+
+        it("passes it to the source on the initial fetch, when nothing is cached to check it against", async () => {
+          const ctx = setup();
+          ctx.source.mockResolvedValueOnce(ctx.credentials(SIX_HOURS_MS, "AKID-2"));
+
+          await callWithRejected(ctx, "AKID-1");
+
+          expect(rejectedKeyPassed(ctx.source)).toBe("AKID-1");
+        });
+
+        it("keeps valid cached credentials that have a different access key ID", async () => {
+          const ctx = setup();
+          const seeded = await ctx.seed("valid", "AKID-1");
+
+          expect(await callWithRejected(ctx, "AKID-OTHER")).toBe(seeded);
+          expect(ctx.source).not.toHaveBeenCalled();
+        });
+
+        it("still waits out the refresh backoff, like invalidate()", async () => {
+          const ctx = setup();
+          const seeded = await ctx.seed("valid", "AKID-1");
+          ctx.source.mockRejectedValueOnce(new Error("Sign-In unreachable"));
+          await callWithRejected(ctx, "AKID-1");
+
+          expect(await callWithRejected(ctx, "AKID-1")).toEqual({ ...seeded, expiration: expect.any(Date) });
+          expect(ctx.source).toHaveBeenCalledTimes(1);
+        });
       });
 
       it("does not pass it on a routine refresh", async () => {

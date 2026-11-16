@@ -2,7 +2,7 @@ import type { FromHttpOptions, HttpProviderCredentials } from "@aws-sdk/credenti
 import type { AwsIdentityProperties } from "@aws-sdk/types";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
-import { createLazyCredentialProvider } from "./createLazyCredentialProvider";
+import { createLazyCredentialProvider } from "@aws-sdk/core/client";
 
 export type { FromHttpOptions, HttpProviderCredentials };
 
