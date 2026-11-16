@@ -1,7 +1,7 @@
 import type { FromLoginCredentialsInit } from "@aws-sdk/credential-provider-login";
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
-import { createLazyCredentialProvider } from "./createLazyCredentialProvider";
+import { createLazyCredentialProvider } from "@aws-sdk/core/client";
 
 /**
  * Creates a credential provider that sources credentials from `aws login` cached tokens

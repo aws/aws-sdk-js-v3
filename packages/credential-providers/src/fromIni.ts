@@ -1,7 +1,7 @@
 import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
-import { createLazyCredentialProvider } from "./createLazyCredentialProvider";
+import { createLazyCredentialProvider } from "@aws-sdk/core/client";
 
 /**
  * Creates a credential provider function that reads from a shared credentials file at `~/.aws/credentials` and a

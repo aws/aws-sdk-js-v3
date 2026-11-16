@@ -21,7 +21,7 @@ import type {
  * Options the lifecycle passes to the source.
  */
 type SourceOptions = CredentialRefreshCallOptions & {
-  // Set when this refresh follows invalidate(), so a token-backed source such as Login gets new credentials.
+  // Set after an invalidation, so a token-backed source such as Login gets new credentials.
   rejectedAccessKeyId?: string;
 };
 
@@ -139,16 +139,13 @@ export const createCredentialRefreshProvider = <Identity extends AwsCredentialId
     (useConsole ? console : logger).warn?.(message);
   };
 
-  // Adds rejectedAccessKeyId after an invalidation. Copies the options only when something changes.
+  // Adds rejectedAccessKeyId after an invalidation. A caller's rejectedAccessKeyId is passed on,
+  // since the source checks it against its own credentials.
   const toSourceOptions = (options: CredentialRefreshCallOptions | undefined): SourceOptions | undefined => {
     if (rejectedAccessKeyId !== undefined && cached?.accessKeyId === rejectedAccessKeyId) {
       return { ...options, rejectedAccessKeyId };
     }
-    if ((options as SourceOptions | undefined)?.rejectedAccessKeyId === undefined) {
-      return options;
-    }
-    const { rejectedAccessKeyId: _ignored, ...callerOptions } = options as SourceOptions;
-    return callerOptions;
+    return options;
   };
 
   const enterRefreshBackoff = (reason: string): void => {
@@ -265,7 +262,28 @@ export const createCredentialRefreshProvider = <Identity extends AwsCredentialId
     return callSourceAndApply(options, true);
   };
 
+  const invalidate: CredentialRefreshProvider<Identity>["invalidate"] = (rejectedIdentity) => {
+    if (inFlight) {
+      return;
+    }
+    if (cached === undefined || isStaticCredentials()) {
+      return;
+    }
+
+    if (cached.accessKeyId !== rejectedIdentity.accessKeyId) {
+      return;
+    }
+    cached = { ...cached, expiration: new Date(Date.now()) };
+    rejectedAccessKeyId = cached.accessKeyId;
+  };
+
   const getCredentials = async (options?: CredentialRefreshCallOptions): Promise<Identity> => {
+    // An outer lifecycle reports credentials a service rejected, the same as calling invalidate().
+    const callerRejectedAccessKeyId = (options as SourceOptions | undefined)?.rejectedAccessKeyId;
+    if (callerRejectedAccessKeyId !== undefined) {
+      invalidate({ accessKeyId: callerRejectedAccessKeyId });
+    }
+
     // State 1: nothing cached yet.
     if (cached === undefined) {
       return fetchInitialCredentials(options);
@@ -307,20 +325,7 @@ export const createCredentialRefreshProvider = <Identity extends AwsCredentialId
     memoized: true;
   };
 
-  provider.invalidate = (rejectedIdentity) => {
-    if (inFlight) {
-      return;
-    }
-    if (cached === undefined || isStaticCredentials()) {
-      return;
-    }
-
-    if (cached.accessKeyId !== rejectedIdentity.accessKeyId) {
-      return;
-    }
-    cached = { ...cached, expiration: new Date(Date.now()) };
-    rejectedAccessKeyId = cached.accessKeyId;
-  };
+  provider.invalidate = invalidate;
 
   provider.memoized = true;
 

@@ -1,4 +1,5 @@
 import { ENV_KEY, ENV_SECRET, fromEnv } from "@aws-sdk/credential-provider-env";
+import { createLazyCredentialProvider } from "@aws-sdk/core/client";
 import type { FromHttpOptions } from "@aws-sdk/credential-provider-http";
 import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
 import type { FromProcessInit } from "@aws-sdk/credential-provider-process";
@@ -10,11 +11,7 @@ import type { RemoteProviderInit } from "@smithy/credential-provider-imds";
 import type { AwsCredentialIdentity } from "@smithy/types";
 
 import { remoteProvider } from "./remoteProvider";
-import {
-  createLazyCredentialProvider,
-  type MemoizedRuntimeConfigAwsCredentialIdentityProvider,
-  memoizeChain,
-} from "./runtime/memoize-chain";
+import { type MemoizedRuntimeConfigAwsCredentialIdentityProvider, memoizeChain } from "./runtime/memoize-chain";
 
 /**
  * @public

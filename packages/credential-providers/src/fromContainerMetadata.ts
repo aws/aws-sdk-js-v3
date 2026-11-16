@@ -3,7 +3,7 @@ import type { AwsIdentityProperties, CredentialProviderOptions } from "@aws-sdk/
 import type { RemoteProviderInit as _RemoteProviderInit } from "@smithy/credential-provider-imds";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
-import { createLazyCredentialProvider } from "./createLazyCredentialProvider";
+import { createLazyCredentialProvider } from "@aws-sdk/core/client";
 
 export interface RemoteProviderInit extends _RemoteProviderInit, CredentialProviderOptions {}
 

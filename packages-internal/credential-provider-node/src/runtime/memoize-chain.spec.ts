@@ -1,11 +1,15 @@
-import { createCredentialRefreshProvider, markNonRecoverable } from "@aws-sdk/core/client";
+import {
+  createCredentialRefreshProvider,
+  createLazyCredentialProvider,
+  markNonRecoverable,
+} from "@aws-sdk/core/client";
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/core/config";
 import type { AwsCredentialIdentity } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { credentialsTreatedAsExpired } from "../defaultProvider";
-import { createLazyCredentialProvider, memoizeChain } from "./memoize-chain";
+import { memoizeChain } from "./memoize-chain";
 
 const SIX_HOURS = 6 * 3600_000;
 const START_MS = new Date("2024-01-01T00:00:00Z").getTime();
@@ -299,65 +303,5 @@ describe("memoizeChain", () => {
 
       expect(chain.invalidate).toBeUndefined();
     });
-  });
-});
-
-describe("createLazyCredentialProvider", () => {
-  afterEach(() => {
-    vi.restoreAllMocks();
-  });
-
-  it("creates the provider once and forwards caller options", async () => {
-    const inner = vi.fn(async (options?: AwsIdentityProperties) => ({
-      accessKeyId: "STATIC",
-      secretAccessKey: "SECRET",
-      runtimeOptions: Object.keys(options ?? {}).concat(Object.keys(options?.callerClientConfig ?? {})),
-    }));
-    const factory = vi.fn(async () => createCredentialRefreshProvider(inner));
-    const provider = createLazyCredentialProvider(factory);
-    const options = { callerClientConfig: { region: async () => "us-west-2" } };
-
-    await provider(options);
-    await provider(options);
-
-    expect(factory).toHaveBeenCalledTimes(1);
-    expect(inner).toHaveBeenCalledTimes(1);
-    expect(inner).toHaveBeenCalledWith(options);
-  });
-
-  it("shares lazy initialization between concurrent callers", async () => {
-    let release!: (provider: ReturnType<typeof createCredentialRefreshProvider>) => void;
-    const factory = vi.fn(() => new Promise<ReturnType<typeof createCredentialRefreshProvider>>((r) => (release = r)));
-    const inner = source();
-    const provider = createLazyCredentialProvider(factory);
-
-    const callers = [provider(), provider(), provider()];
-    release(createCredentialRefreshProvider(inner));
-
-    await Promise.all(callers);
-    expect(factory).toHaveBeenCalledTimes(1);
-    expect(inner).toHaveBeenCalledTimes(1);
-  });
-
-  it("retries lazy initialization after the factory fails", async () => {
-    const inner = createCredentialRefreshProvider(source());
-    const factory = vi.fn().mockRejectedValueOnce(new Error("import failed")).mockResolvedValueOnce(inner);
-    const provider = createLazyCredentialProvider(factory);
-
-    await expect(provider()).rejects.toThrow("import failed");
-    await expect(provider()).resolves.toMatchObject({ accessKeyId: "AKID" });
-    expect(factory).toHaveBeenCalledTimes(2);
-  });
-
-  it("forwards invalidate after initialization", async () => {
-    const inner = createCredentialRefreshProvider(source());
-    const provider = createLazyCredentialProvider(async () => inner);
-    await provider();
-
-    expect(typeof provider.invalidate).toBe("function");
-    provider.invalidate?.({ accessKeyId: "AKID" });
-    await provider();
-
-    expect(inner).toBeDefined();
   });
 });
