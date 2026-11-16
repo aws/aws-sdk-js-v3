@@ -68,7 +68,7 @@ export interface GetCapacityProviderCommandOutput extends GetCapacityProviderRes
  * //       ScalingMode: "Auto" || "Manual",
  * //       ScalingPolicies: [ // CapacityProviderScalingPoliciesList
  * //         { // TargetTrackingScalingPolicy
- * //           PredefinedMetricType: "LambdaCapacityProviderAverageCPUUtilization", // required
+ * //           PredefinedMetricType: "LambdaCapacityProviderAverageCPUUtilization" || "LambdaCapacityProviderAverageGPUUtilization", // required
  * //           TargetValue: Number("double"), // required
  * //         },
  * //       ],

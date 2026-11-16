@@ -192,6 +192,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "RuntimeConfig": {
         "RuntimeArn": "__RuntimeArn__",
         "RuntimeAlias": "__RuntimeAlias__"
+      },
+      "AcceleratorConfig": {
+        "AcceleratorMemorySize": 0
       }
     },
     {
@@ -356,6 +359,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "RuntimeConfig": {
         "RuntimeArn": "__RuntimeArn__",
         "RuntimeAlias": "__RuntimeAlias__"
+      },
+      "AcceleratorConfig": {
+        "AcceleratorMemorySize": 0
       }
     },
     {
@@ -520,6 +526,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "RuntimeConfig": {
         "RuntimeArn": "__RuntimeArn__",
         "RuntimeAlias": "__RuntimeAlias__"
+      },
+      "AcceleratorConfig": {
+        "AcceleratorMemorySize": 0
       }
     }
   ]
@@ -692,6 +701,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       RuntimeConfig: {
         RuntimeArn: "__RuntimeArn__",
         RuntimeAlias: "__RuntimeAlias__"
+      },
+      AcceleratorConfig: {
+        AcceleratorMemorySize: (number) 0
       }
     },
     {
@@ -856,6 +868,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       RuntimeConfig: {
         RuntimeArn: "__RuntimeArn__",
         RuntimeAlias: "__RuntimeAlias__"
+      },
+      AcceleratorConfig: {
+        AcceleratorMemorySize: (number) 0
       }
     },
     {
@@ -1020,6 +1035,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       RuntimeConfig: {
         RuntimeArn: "__RuntimeArn__",
         RuntimeAlias: "__RuntimeAlias__"
+      },
+      AcceleratorConfig: {
+        AcceleratorMemorySize: (number) 0
       }
     }
   ],

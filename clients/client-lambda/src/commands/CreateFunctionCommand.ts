@@ -132,6 +132,9 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *     RuntimeArn: "STRING_VALUE", // required
  *     RuntimeAlias: "STRING_VALUE", // required
  *   },
+ *   AcceleratorConfig: { // AcceleratorConfig
+ *     AcceleratorMemorySize: 3 || 6 || 12 || 16 || 24 || 48, // required
+ *   },
  * };
  * const command = new CreateFunctionCommand(input);
  * const response = await client.send(command);
@@ -186,10 +189,10 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * //   ],
  * //   State: "Pending" || "Active" || "Inactive" || "Failed" || "Deactivating" || "Deactivated" || "ActiveNonInvocable" || "Deleting",
  * //   StateReason: "STRING_VALUE",
- * //   StateReasonCode: "Idle" || "Creating" || "Restoring" || "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError" || "ServiceQuotaExceededException" || "VcpuLimitExceeded" || "CapacityProviderScalingLimitExceeded" || "InsufficientCapacity" || "EC2RequestLimitExceeded" || "FunctionError.InitTimeout" || "FunctionError.RuntimeInitError" || "FunctionError.ExtensionInitError" || "FunctionError.InvalidEntryPoint" || "FunctionError.InvalidWorkingDirectory" || "FunctionError.PermissionDenied" || "FunctionError.TooManyExtensions" || "FunctionError.InitResourceExhausted" || "DisallowedByVpcEncryptionControl" || "DrainingDurableExecutions" || "DependencyError",
+ * //   StateReasonCode: "Idle" || "Creating" || "Restoring" || "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError" || "ServiceQuotaExceededException" || "VcpuLimitExceeded" || "CapacityProviderScalingLimitExceeded" || "InsufficientCapacity" || "EC2RequestLimitExceeded" || "FunctionError.InitTimeout" || "FunctionError.RuntimeInitError" || "FunctionError.ExtensionInitError" || "FunctionError.InvalidEntryPoint" || "FunctionError.InvalidWorkingDirectory" || "FunctionError.PermissionDenied" || "FunctionError.TooManyExtensions" || "FunctionError.InitResourceExhausted" || "DisallowedByVpcEncryptionControl" || "DrainingDurableExecutions" || "IncompatibleAcceleratorInstanceTypes" || "DependencyError",
  * //   LastUpdateStatus: "Successful" || "Failed" || "InProgress",
  * //   LastUpdateStatusReason: "STRING_VALUE",
- * //   LastUpdateStatusReasonCode: "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError" || "ServiceQuotaExceededException" || "VcpuLimitExceeded" || "CapacityProviderScalingLimitExceeded" || "InsufficientCapacity" || "EC2RequestLimitExceeded" || "FunctionError.InitTimeout" || "FunctionError.RuntimeInitError" || "FunctionError.ExtensionInitError" || "FunctionError.InvalidEntryPoint" || "FunctionError.InvalidWorkingDirectory" || "FunctionError.PermissionDenied" || "FunctionError.TooManyExtensions" || "FunctionError.InitResourceExhausted" || "DisallowedByVpcEncryptionControl" || "DependencyError",
+ * //   LastUpdateStatusReasonCode: "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError" || "ServiceQuotaExceededException" || "VcpuLimitExceeded" || "CapacityProviderScalingLimitExceeded" || "InsufficientCapacity" || "EC2RequestLimitExceeded" || "FunctionError.InitTimeout" || "FunctionError.RuntimeInitError" || "FunctionError.ExtensionInitError" || "FunctionError.InvalidEntryPoint" || "FunctionError.InvalidWorkingDirectory" || "FunctionError.PermissionDenied" || "FunctionError.TooManyExtensions" || "FunctionError.InitResourceExhausted" || "DisallowedByVpcEncryptionControl" || "IncompatibleAcceleratorInstanceTypes" || "DependencyError",
  * //   FileSystemConfigs: [ // FileSystemConfigList
  * //     { // FileSystemConfig
  * //       Arn: "STRING_VALUE", // required
@@ -259,6 +262,9 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * //   RuntimeConfig: { // FunctionRuntimeConfig
  * //     RuntimeArn: "STRING_VALUE", // required
  * //     RuntimeAlias: "STRING_VALUE", // required
+ * //   },
+ * //   AcceleratorConfig: { // AcceleratorConfig
+ * //     AcceleratorMemorySize: 3 || 6 || 12 || 16 || 24 || 48, // required
  * //   },
  * // };
  *

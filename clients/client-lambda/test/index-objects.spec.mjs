@@ -1,4 +1,6 @@
 import {
+  AcceleratorConfig$,
+  AcceleratorMemoryGB,
   AccountLimit$,
   AccountUsage$,
   AddLayerVersionPermission$,
@@ -826,6 +828,7 @@ assert(typeof UpdateFunctionEventInvokeConfig$ === "object");
 assert(typeof UpdateFunctionUrlConfigCommand === "function");
 assert(typeof UpdateFunctionUrlConfig$ === "object");
 // structural schemas
+assert(typeof AcceleratorConfig$ === "object");
 assert(typeof AccountLimit$ === "object");
 assert(typeof AccountUsage$ === "object");
 assert(typeof AddLayerVersionPermissionRequest$ === "object");
@@ -1100,6 +1103,7 @@ assert(typeof WaitOptions$ === "object");
 assert(typeof WaitStartedDetails$ === "object");
 assert(typeof WaitSucceededDetails$ === "object");
 // enums
+assert(typeof AcceleratorMemoryGB === "object");
 assert(typeof ApplicationLogLevel === "object");
 assert(typeof Architecture === "object");
 assert(typeof CapacityProviderPredefinedMetricType === "object");

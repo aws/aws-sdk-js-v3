@@ -2,6 +2,7 @@
 import type { StreamingBlobTypes } from "@smithy/types";
 
 import type {
+  AcceleratorMemoryGB,
   ApplicationLogLevel,
   Architecture,
   CapacityProviderPredefinedMetricType,
@@ -50,6 +51,18 @@ import type {
   TracingMode,
   UpdateRuntimeOn,
 } from "./enums";
+
+/**
+ * <p>The accelerator resource settings for a Lambda execution environment, including the amount of accelerator memory to allocate.</p>
+ * @public
+ */
+export interface AcceleratorConfig {
+  /**
+   * <p>The minimum amount of memory (in GB) of each accelerator device exposed to the execution environment. Lambda might allocate more, depending on the accelerator instance types available.</p>
+   * @public
+   */
+  AcceleratorMemorySize: AcceleratorMemoryGB | undefined;
+}
 
 /**
  * <p>Limits that are related to concurrency and storage. All file and storage sizes are in bytes.</p>
@@ -3440,7 +3453,7 @@ export interface Environment {
 }
 
 /**
- * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
+ * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For functions that use <code>AcceleratorConfig</code>, the maximum is 32,768 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
  * @public
  */
 export interface EphemeralStorage {
@@ -3756,7 +3769,7 @@ export interface CreateFunctionRequest {
   Architectures?: Architecture[] | undefined;
 
   /**
-   * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
+   * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For functions that use <code>AcceleratorConfig</code>, the maximum is 32,768 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
    * @public
    */
   EphemeralStorage?: EphemeralStorage | undefined;
@@ -3796,6 +3809,12 @@ export interface CreateFunctionRequest {
    * @public
    */
   RuntimeConfig?: FunctionRuntimeConfig | undefined;
+
+  /**
+   * <p>The accelerator resource settings for a Lambda execution environment.</p>
+   * @public
+   */
+  AcceleratorConfig?: AcceleratorConfig | undefined;
 }
 
 /**
@@ -4194,7 +4213,7 @@ export interface FunctionConfiguration {
   Architectures?: Architecture[] | undefined;
 
   /**
-   * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
+   * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For functions that use <code>AcceleratorConfig</code>, the maximum is 32,768 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
    * @public
    */
   EphemeralStorage?: EphemeralStorage | undefined;
@@ -4246,6 +4265,12 @@ export interface FunctionConfiguration {
    * @public
    */
   RuntimeConfig?: FunctionRuntimeConfig | undefined;
+
+  /**
+   * <p>The accelerator resource settings for a Lambda execution environment.</p>
+   * @public
+   */
+  AcceleratorConfig?: AcceleratorConfig | undefined;
 }
 
 /**
@@ -5849,7 +5874,7 @@ export interface UpdateFunctionConfigurationRequest {
   ImageConfig?: ImageConfig | undefined;
 
   /**
-   * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
+   * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For functions that use <code>AcceleratorConfig</code>, the maximum is 32,768 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
    * @public
    */
   EphemeralStorage?: EphemeralStorage | undefined;
@@ -5883,6 +5908,12 @@ export interface UpdateFunctionConfigurationRequest {
    * @public
    */
   RuntimeConfig?: FunctionRuntimeConfig | undefined;
+
+  /**
+   * <p>The accelerator resource settings for a Lambda execution environment.</p>
+   * @public
+   */
+  AcceleratorConfig?: AcceleratorConfig | undefined;
 }
 
 /**

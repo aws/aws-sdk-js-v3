@@ -1,4 +1,13 @@
 // smithy-typescript generated code
+export enum AcceleratorMemoryGB {
+  MEMORY_3 = 3,
+  MEMORY_6 = 6,
+  MEMORY_12 = 12,
+  MEMORY_16 = 16,
+  MEMORY_24 = 24,
+  MEMORY_48 = 48,
+}
+
 /**
  * @public
  * @enum
@@ -123,6 +132,7 @@ export type CapacityProviderScalingMode =
  */
 export const CapacityProviderPredefinedMetricType = {
   LambdaCapacityProviderAverageCPUUtilization: "LambdaCapacityProviderAverageCPUUtilization",
+  LambdaCapacityProviderAverageGPUUtilization: "LambdaCapacityProviderAverageGPUUtilization",
 } as const;
 /**
  * @public
@@ -646,6 +656,7 @@ export const LastUpdateStatusReasonCode = {
   FunctionErrorTooManyExtensions: "FunctionError.TooManyExtensions",
   ImageAccessDenied: "ImageAccessDenied",
   ImageDeleted: "ImageDeleted",
+  IncompatibleAcceleratorInstanceTypes: "IncompatibleAcceleratorInstanceTypes",
   InsufficientCapacity: "InsufficientCapacity",
   InsufficientRolePermissions: "InsufficientRolePermissions",
   InternalError: "InternalError",
@@ -710,6 +721,7 @@ export const StateReasonCode = {
   Idle: "Idle",
   ImageAccessDenied: "ImageAccessDenied",
   ImageDeleted: "ImageDeleted",
+  IncompatibleAcceleratorInstanceTypes: "IncompatibleAcceleratorInstanceTypes",
   InsufficientCapacity: "InsufficientCapacity",
   InsufficientRolePermissions: "InsufficientRolePermissions",
   InternalError: "InternalError",

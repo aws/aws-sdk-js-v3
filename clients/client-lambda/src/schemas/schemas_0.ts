@@ -1,8 +1,9 @@
 const _A = "Action";
 const _AA = "AliasArn";
-const _AC = "AliasConfiguration";
+const _AC = "AcceleratorConfig";
 const _ACc = "AccessConfigs";
-const _ACl = "AllowCredentials";
+const _ACl = "AliasConfiguration";
+const _ACll = "AllowCredentials";
 const _AFSC = "AppliedFunctionScalingConfig";
 const _AH = "AllowHeaders";
 const _AIT = "AllowedInstanceTypes";
@@ -15,6 +16,7 @@ const _ALVPRd = "AddLayerVersionPermissionResponse";
 const _ALl = "AliasList";
 const _AM = "AllowMethods";
 const _AMKESC = "AmazonManagedKafkaEventSourceConfig";
+const _AMS = "AcceleratorMemorySize";
 const _AO = "AllowOrigins";
 const _AOp = "ApplyOn";
 const _AP = "AllowedPublishers";
@@ -1204,6 +1206,11 @@ var OperationPayload: StaticSimpleSchema = [0, n0, _OP, 8, 0];
 var OutputPayload: StaticSimpleSchema = [0, n0, _OPu, 8, 0];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var StackTraceEntry: StaticSimpleSchema = [0, n0, _STE, 8, 0];
+export var AcceleratorConfig$: StaticStructureSchema = [3, n0, _AC,
+  0,
+  [_AMS],
+  [1], 1
+];
 export var AccountLimit$: StaticStructureSchema = [3, n0, _AL,
   0,
   [_TCS, _CSU, _CSZ, _CE, _UCE],
@@ -1234,7 +1241,7 @@ export var AddPermissionResponse$: StaticStructureSchema = [3, n0, _APRd,
   [_S],
   [0]
 ];
-export var AliasConfiguration$: StaticStructureSchema = [3, n0, _AC,
+export var AliasConfiguration$: StaticStructureSchema = [3, n0, _ACl,
   0,
   [_AA, _N, _FV, _D, _RC, _RI],
   [0, 0, 0, 0, () => AliasRoutingConfiguration$, 0]
@@ -1411,7 +1418,7 @@ export var ContextSucceededDetails$: StaticStructureSchema = [3, n0, _CSDon,
 ];
 export var Cors$: StaticStructureSchema = [3, n0, _Co,
   0,
-  [_ACl, _AH, _AM, _AO, _EH, _MA],
+  [_ACll, _AH, _AM, _AO, _EH, _MA],
   [2, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 1]
 ];
 export var CreateAliasRequest$: StaticStructureSchema = [3, n0, _CAR,
@@ -1446,8 +1453,8 @@ export var CreateEventSourceMappingRequest$: StaticStructureSchema = [3, n0, _CE
 ];
 export var CreateFunctionRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_FN, _Ro, _Cod, _Ru, _H, _D, _Ti, _MS, _Pu, _PTu, _VC, _PTa, _DLC, _Env, _KMSKA, _TCr, _Ta, _L, _FSC, _CSCA, _IC, _Ar, _ES, _SSn, _LC, _TCe, _CPC, _DCu, _RCu],
-  [0, 0, [() => FunctionCode$, 0], 0, 0, 0, 1, 1, 2, 0, () => VpcConfig$, 0, () => DeadLetterConfig$, [() => Environment$, 0], 0, () => TracingConfig$, 128 | 0, 64 | 0, () => FileSystemConfigList, 0, () => ImageConfig$, 64 | 0, () => EphemeralStorage$, () => SnapStart$, () => LoggingConfig$, () => TenancyConfig$, () => CapacityProviderConfig$, () => DurableConfig$, () => FunctionRuntimeConfig$], 3
+  [_FN, _Ro, _Cod, _Ru, _H, _D, _Ti, _MS, _Pu, _PTu, _VC, _PTa, _DLC, _Env, _KMSKA, _TCr, _Ta, _L, _FSC, _CSCA, _IC, _Ar, _ES, _SSn, _LC, _TCe, _CPC, _DCu, _RCu, _AC],
+  [0, 0, [() => FunctionCode$, 0], 0, 0, 0, 1, 1, 2, 0, () => VpcConfig$, 0, () => DeadLetterConfig$, [() => Environment$, 0], 0, () => TracingConfig$, 128 | 0, 64 | 0, () => FileSystemConfigList, 0, () => ImageConfig$, 64 | 0, () => EphemeralStorage$, () => SnapStart$, () => LoggingConfig$, () => TenancyConfig$, () => CapacityProviderConfig$, () => DurableConfig$, () => FunctionRuntimeConfig$, () => AcceleratorConfig$], 3
 ];
 export var CreateFunctionUrlConfigRequest$: StaticStructureSchema = [3, n0, _CFUCR,
   0,
@@ -1686,8 +1693,8 @@ export var FunctionCodeLocationError$: StaticStructureSchema = [3, n0, _FCLE,
 ];
 export var FunctionConfiguration$: StaticStructureSchema = [3, n0, _FCun,
   0,
-  [_FN, _FA, _Ru, _Ro, _H, _CS, _D, _Ti, _MS, _LM, _CSo, _Ve, _VC, _DLC, _Env, _KMSKA, _TCr, _MAa, _RI, _L, _St, _SR, _SRCt, _LUS, _LUSR, _LUSRC, _FSC, _SPVAi, _SJA, _PTa, _ICR, _Ar, _ES, _SSn, _RVC, _LC, _TCe, _CPC, _CSon, _DCu, _RCu],
-  [0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, () => VpcConfigResponse$, () => DeadLetterConfig$, [() => EnvironmentResponse$, 0], 0, () => TracingConfigResponse$, 0, 0, () => LayersReferenceList, 0, 0, 0, 0, 0, 0, () => FileSystemConfigList, 0, 0, 0, [() => ImageConfigResponse$, 0], 64 | 0, () => EphemeralStorage$, () => SnapStartResponse$, [() => RuntimeVersionConfig$, 0], () => LoggingConfig$, () => TenancyConfig$, () => CapacityProviderConfig$, 0, () => DurableConfig$, () => FunctionRuntimeConfig$]
+  [_FN, _FA, _Ru, _Ro, _H, _CS, _D, _Ti, _MS, _LM, _CSo, _Ve, _VC, _DLC, _Env, _KMSKA, _TCr, _MAa, _RI, _L, _St, _SR, _SRCt, _LUS, _LUSR, _LUSRC, _FSC, _SPVAi, _SJA, _PTa, _ICR, _Ar, _ES, _SSn, _RVC, _LC, _TCe, _CPC, _CSon, _DCu, _RCu, _AC],
+  [0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, () => VpcConfigResponse$, () => DeadLetterConfig$, [() => EnvironmentResponse$, 0], 0, () => TracingConfigResponse$, 0, 0, () => LayersReferenceList, 0, 0, 0, 0, 0, 0, () => FileSystemConfigList, 0, 0, 0, [() => ImageConfigResponse$, 0], 64 | 0, () => EphemeralStorage$, () => SnapStartResponse$, [() => RuntimeVersionConfig$, 0], () => LoggingConfig$, () => TenancyConfig$, () => CapacityProviderConfig$, 0, () => DurableConfig$, () => FunctionRuntimeConfig$, () => AcceleratorConfig$]
 ];
 export var FunctionEventInvokeConfig$: StaticStructureSchema = [3, n0, _FEIC,
   0,
@@ -2511,8 +2518,8 @@ export var UpdateFunctionCodeRequest$: StaticStructureSchema = [3, n0, _UFCR,
 ];
 export var UpdateFunctionConfigurationRequest$: StaticStructureSchema = [3, n0, _UFCRp,
   0,
-  [_FN, _Ro, _H, _D, _Ti, _MS, _VC, _Env, _Ru, _DLC, _KMSKA, _TCr, _RI, _L, _FSC, _IC, _ES, _SSn, _LC, _CPC, _DCu, _RCu],
-  [[0, 1], 0, 0, 0, 1, 1, () => VpcConfig$, [() => Environment$, 0], 0, () => DeadLetterConfig$, 0, () => TracingConfig$, 0, 64 | 0, () => FileSystemConfigList, () => ImageConfig$, () => EphemeralStorage$, () => SnapStart$, () => LoggingConfig$, () => CapacityProviderConfig$, () => DurableConfig$, () => FunctionRuntimeConfig$], 1
+  [_FN, _Ro, _H, _D, _Ti, _MS, _VC, _Env, _Ru, _DLC, _KMSKA, _TCr, _RI, _L, _FSC, _IC, _ES, _SSn, _LC, _CPC, _DCu, _RCu, _AC],
+  [[0, 1], 0, 0, 0, 1, 1, () => VpcConfig$, [() => Environment$, 0], 0, () => DeadLetterConfig$, 0, () => TracingConfig$, 0, 64 | 0, () => FileSystemConfigList, () => ImageConfig$, () => EphemeralStorage$, () => SnapStart$, () => LoggingConfig$, () => CapacityProviderConfig$, () => DurableConfig$, () => FunctionRuntimeConfig$, () => AcceleratorConfig$], 1
 ];
 export var UpdateFunctionEventInvokeConfigRequest$: StaticStructureSchema = [3, n0, _UFEICR,
   0,
