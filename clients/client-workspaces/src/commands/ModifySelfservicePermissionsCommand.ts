@@ -41,6 +41,8 @@ export interface ModifySelfservicePermissionsCommandOutput extends ModifySelfser
  *     ChangeComputeType: "ENABLED" || "DISABLED",
  *     SwitchRunningMode: "ENABLED" || "DISABLED",
  *     RebuildWorkspace: "ENABLED" || "DISABLED",
+ *     NestedVirtualization: "ENABLED" || "DISABLED",
+ *     EnableEndUserAdvisor: "ENABLED" || "DISABLED",
  *   },
  * };
  * const command = new ModifySelfservicePermissionsCommand(input);

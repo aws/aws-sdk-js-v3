@@ -113,6 +113,8 @@ export interface DescribeWorkspaceDirectoriesCommandOutput extends DescribeWorks
  * //         ChangeComputeType: "ENABLED" || "DISABLED",
  * //         SwitchRunningMode: "ENABLED" || "DISABLED",
  * //         RebuildWorkspace: "ENABLED" || "DISABLED",
+ * //         NestedVirtualization: "ENABLED" || "DISABLED",
+ * //         EnableEndUserAdvisor: "ENABLED" || "DISABLED",
  * //       },
  * //       SamlProperties: { // SamlProperties
  * //         Status: "DISABLED" || "ENABLED" || "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK",

@@ -292,6 +292,7 @@ const _EC = "ErrorCode";
 const _ED = "ErrorDetails";
 const _EDL = "ErrorDetailsList";
 const _EEM = "EndpointEncryptionMode";
+const _EEUA = "EnableEndUserAdvisor";
 const _EI = "EniId";
 const _EIA = "EnableInternetAccess";
 const _EII = "Ec2ImageId";
@@ -444,6 +445,7 @@ const _Mo = "Mode";
 const _N = "Name";
 const _NAC = "NetworkAccessConfiguration";
 const _NT = "NextToken";
+const _NV = "NestedVirtualization";
 const _NVE = "NestedVirtualizationEnabled";
 const _O = "Owner";
 const _OAI = "OwnerAccountId";
@@ -1908,8 +1910,8 @@ export var SamlProperties$: StaticStructureSchema = [3, n0, _SP,
 ];
 export var SelfservicePermissions$: StaticStructureSchema = [3, n0, _SPe,
   0,
-  [_RW, _IVS, _CCT, _SRM, _RWe],
-  [0, 0, 0, 0, 0]
+  [_RW, _IVS, _CCT, _SRM, _RWe, _NV, _EEUA],
+  [0, 0, 0, 0, 0, 0, 0]
 ];
 export var Snapshot$: StaticStructureSchema = [3, n0, _Sn,
   0,

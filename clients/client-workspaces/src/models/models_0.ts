@@ -3804,6 +3804,23 @@ export interface SelfservicePermissions {
    * @public
    */
   RebuildWorkspace?: ReconnectEnum | undefined;
+
+  /**
+   * <p>Specifies whether users can enable or disable nested virtualization on their WorkSpace.
+   *          The default value is <code>DISABLED</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/nested-virtualization.html">Nested virtualization
+   *          for Amazon WorkSpaces</a>.</p>
+   * @public
+   */
+  NestedVirtualization?: ReconnectEnum | undefined;
+
+  /**
+   * <p>Specifies whether users can use End User Advisor in the WorkSpaces client for Windows to
+   *          see their session health and get recommended actions for common issues. The default value
+   *          is <code>ENABLED</code>. For more information, see Proactive troubleshooting for your
+   *          WorkSpaces users.</p>
+   * @public
+   */
+  EnableEndUserAdvisor?: ReconnectEnum | undefined;
 }
 
 /**
