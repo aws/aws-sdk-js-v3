@@ -264,6 +264,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             </Encryption>
         </StorageLensTableDestination>
     </ExpandedPrefixesDataExport>
+    <CostAndUsageReportsPublish>
+        <PrefixLevel>
+            <IsEnabled>
+                false
+            </IsEnabled>
+            <SelectionCriteria>
+                <MinDepth>
+                    0
+                </MinDepth>
+                <MaxDepth>
+                    0
+                </MaxDepth>
+            </SelectionCriteria>
+        </PrefixLevel>
+    </CostAndUsageReportsPublish>
     <AwsOrg>
         <Arn>
             __Arn__
@@ -275,6 +290,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     <PrefixDelimiter>
         __PrefixDelimiter__
     </PrefixDelimiter>
+    <IntAccessTiers>
+        <IsEnabled>
+            false
+        </IsEnabled>
+    </IntAccessTiers>
 </StorageLensConfiguration>
 
 
@@ -416,11 +436,23 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       }
     },
+    CostAndUsageReportsPublish: {
+      PrefixLevel: {
+        IsEnabled: (boolean) false,
+        SelectionCriteria: {
+          MinDepth: (number) 0,
+          MaxDepth: (number) 0
+        }
+      }
+    },
     AwsOrg: {
       Arn: "__Arn__"
     },
     StorageLensArn: "__StorageLensArn__",
-    PrefixDelimiter: "__PrefixDelimiter__"
+    PrefixDelimiter: "__PrefixDelimiter__",
+    IntAccessTiers: {
+      IsEnabled: (boolean) false
+    }
   },
   $metadata: {
     httpStatusCode: (number) 200,

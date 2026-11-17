@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep8, _mw1, command } from "../commandBuilder";
-import type { UntagResourceRequest, UntagResourceResult } from "../models/models_0";
+import type { UntagResourceRequest, UntagResourceResult } from "../models/models_1";
 import { UntagResource$ } from "../schemas/schemas_0";
 
 /**

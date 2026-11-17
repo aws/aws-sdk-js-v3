@@ -82,6 +82,7 @@ const _CAPFOLR = "CreateAccessPointForObjectLambdaRequest";
 const _CAPFOLRr = "CreateAccessPointForObjectLambdaResult";
 const _CAPR = "CreateAccessPointRequest";
 const _CAPRr = "CreateAccessPointResult";
+const _CAURP = "CostAndUsageReportsPublish";
 const _CAh = "ChecksumAlgorithm";
 const _CAr = "CreatedAfter";
 const _CB = "CreatedBefore";
@@ -324,6 +325,7 @@ const _HED = "HttpExpiresDate";
 const _HR = "HomeRegion";
 const _I = "Include";
 const _IAMRA = "IAMRoleArn";
+const _IAT = "IntAccessTiers";
 const _ICA = "IdentityCenterArn";
 const _ICAA = "IdentityCenterApplicationArn";
 const _ICIA = "IdentityCenterInstanceArn";
@@ -432,6 +434,7 @@ const _MAT = "MatchAnyTag";
 const _MD = "MfaDelete";
 const _MDa = "MaxDepth";
 const _MDe = "MetadataDirective";
+const _MDi = "MinDepth";
 const _ME = "ManifestEncryption";
 const _MF = "ManifestFormat";
 const _MFA = "MFA";
@@ -631,6 +634,9 @@ const _SKEO = "SseKmsEncryptedObjects";
 const _SLA = "StorageLensArn";
 const _SLAO = "StorageLensAwsOrg";
 const _SLC = "StorageLensConfiguration";
+const _SLCAURP = "StorageLensCostAndUsageReportsPublish";
+const _SLCAURPL = "StorageLensCostAndUsageReportsPrefixLevel";
+const _SLCAURSC = "StorageLensCostAndUsageReportsSelectionCriteria";
 const _SLCL = "StorageLensConfigurationList";
 const _SLDE = "StorageLensDataExport";
 const _SLDEE = "StorageLensDataExportEncryption";
@@ -1587,6 +1593,11 @@ export var Include$: StaticStructureSchema = [3, n0, _I,
   [_Bu, _Reg],
   [[() => Buckets, 0], [() => Regions, 0]]
 ];
+export var IntAccessTiers$: StaticStructureSchema = [3, n0, _IAT,
+  0,
+  [_IEs],
+  [2]
+];
 export var JobDescriptor$: StaticStructureSchema = [3, n0, _JD,
   0,
   [_JI, _CR, _D, _JA, _St, _Ma, _Op, _Pr, _PSr, _SUR, _FR, _Re, _CT, _TD, _RA, _SD, _SCu, _MG, _GMD],
@@ -2284,8 +2295,23 @@ export var StorageLensAwsOrg$: StaticStructureSchema = [3, n0, _SLAO,
 ];
 export var StorageLensConfiguration$: StaticStructureSchema = [3, n0, _SLC,
   0,
-  [_Id, _AL, _IEs, _I, _Ex, _DE, _EPDE, _AOw, _SLA, _PD],
-  [0, [() => AccountLevel$, 0], 2, [() => Include$, 0], [() => _Exclude$, 0], [() => StorageLensDataExport$, 0], [() => StorageLensExpandedPrefixesDataExport$, 0], () => StorageLensAwsOrg$, 0, 0], 3
+  [_Id, _AL, _IEs, _I, _Ex, _DE, _EPDE, _CAURP, _AOw, _SLA, _PD, _IAT],
+  [0, [() => AccountLevel$, 0], 2, [() => Include$, 0], [() => _Exclude$, 0], [() => StorageLensDataExport$, 0], [() => StorageLensExpandedPrefixesDataExport$, 0], () => StorageLensCostAndUsageReportsPublish$, () => StorageLensAwsOrg$, 0, 0, () => IntAccessTiers$], 3
+];
+export var StorageLensCostAndUsageReportsPrefixLevel$: StaticStructureSchema = [3, n0, _SLCAURPL,
+  0,
+  [_IEs, _SCe],
+  [2, () => StorageLensCostAndUsageReportsSelectionCriteria$], 1
+];
+export var StorageLensCostAndUsageReportsPublish$: StaticStructureSchema = [3, n0, _SLCAURP,
+  0,
+  [_PL],
+  [() => StorageLensCostAndUsageReportsPrefixLevel$]
+];
+export var StorageLensCostAndUsageReportsSelectionCriteria$: StaticStructureSchema = [3, n0, _SLCAURSC,
+  0,
+  [_MDi, _MDa],
+  [1, 1]
 ];
 export var StorageLensDataExport$: StaticStructureSchema = [3, n0, _SLDE,
   0,

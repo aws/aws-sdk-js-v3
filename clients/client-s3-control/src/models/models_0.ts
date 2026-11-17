@@ -6209,6 +6209,70 @@ export interface StorageLensAwsOrg {
 }
 
 /**
+ * <p>A container for the selection criteria used by the S3 Storage Lens Amazon Web Services Cost and Usage Reports (Amazon Web Services CUR)
+ *       publish configuration. The selection criteria specifies the minimum and maximum
+ *       prefix depth (both inclusive) for which cost data is published to
+ *       Amazon Web Services CUR. You must provide both <code>MinDepth</code> and <code>MaxDepth</code>
+ *       together, or neither; <code>MinDepth</code> must be less than or equal to
+ *       <code>MaxDepth</code>, and the difference must not exceed 4. If neither is
+ *       provided, <code>MinDepth</code> defaults to <code>1</code> and
+ *       <code>MaxDepth</code> defaults to <code>3</code>.</p>
+ * @public
+ */
+export interface StorageLensCostAndUsageReportsSelectionCriteria {
+  /**
+   * <p>The minimum prefix depth (inclusive) for which cost data is published
+   *       to Amazon Web Services CUR. You must provide both <code>MinDepth</code> and
+   *       <code>MaxDepth</code> together, or neither. If neither is provided,
+   *       <code>MinDepth</code> defaults to <code>1</code>.</p>
+   * @public
+   */
+  MinDepth?: number | undefined;
+
+  /**
+   * <p>The maximum prefix depth (inclusive) for which cost data is published
+   *       to Amazon Web Services CUR. You must provide both <code>MinDepth</code> and
+   *       <code>MaxDepth</code> together, or neither. If neither is provided,
+   *       <code>MaxDepth</code> defaults to <code>3</code>.</p>
+   * @public
+   */
+  MaxDepth?: number | undefined;
+}
+
+/**
+ * <p>A container for the prefix-level configuration that determines the prefixes
+ *       for which S3 Storage Lens publishes cost data to Amazon Web Services Cost and Usage Reports (Amazon Web Services CUR).</p>
+ * @public
+ */
+export interface StorageLensCostAndUsageReportsPrefixLevel {
+  /**
+   * <p>Indicates whether prefix-level cost data publishing to Amazon Web Services CUR is enabled.</p>
+   * @public
+   */
+  IsEnabled: boolean | undefined;
+
+  /**
+   * <p>A container for the selection criteria that determines the prefix depths for
+   *       which cost data is published to Amazon Web Services CUR.</p>
+   * @public
+   */
+  SelectionCriteria?: StorageLensCostAndUsageReportsSelectionCriteria | undefined;
+}
+
+/**
+ * <p>A container for the configuration used to publish S3 Storage Lens cost data to Amazon Web Services Cost and Usage Reports (Amazon Web Services CUR).</p>
+ * @public
+ */
+export interface StorageLensCostAndUsageReportsPublish {
+  /**
+   * <p>A container for the prefix-level configuration that determines the prefixes
+   *       for which S3 Storage Lens publishes cost data to Amazon Web Services CUR.</p>
+   * @public
+   */
+  PrefixLevel?: StorageLensCostAndUsageReportsPrefixLevel | undefined;
+}
+
+/**
  * <p>A container for enabling Amazon CloudWatch publishing for S3 Storage Lens metrics.</p>
  *          <p>For more information about publishing S3 Storage Lens metrics to CloudWatch, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_view_metrics_cloudwatch.html">Monitor
  *             S3 Storage Lens metrics in CloudWatch</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -6422,6 +6486,21 @@ export interface Include {
 }
 
 /**
+ * <p>The container for S3 Storage Lens Intelligent-Tiering access tier metrics.
+ *          When enabled, S3 Storage Lens produces metrics for each individual S3 Intelligent-Tiering access tier
+ *          instead of reporting a single aggregate value for the INTELLIGENT_TIERING storage class.</p>
+ *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
+ * @public
+ */
+export interface IntAccessTiers {
+  /**
+   * <p>A container that indicates whether S3 Storage Lens Intelligent-Tiering access tier metrics are enabled.</p>
+   * @public
+   */
+  IsEnabled?: boolean | undefined;
+}
+
+/**
  * <p>A container for the Amazon S3 Storage Lens configuration.</p>
  * @public
  */
@@ -6466,6 +6545,12 @@ export interface StorageLensConfiguration {
    * @public
    */
   ExpandedPrefixesDataExport?: StorageLensExpandedPrefixesDataExport | undefined;
+
+  /**
+   * <p>A container for the configuration used to publish S3 Storage Lens cost data to Amazon Web Services Cost and Usage Reports (Amazon Web Services CUR).</p>
+   * @public
+   */
+  CostAndUsageReportsPublish?: StorageLensCostAndUsageReportsPublish | undefined;
 
   /**
    * <p>A container for whether the S3 Storage Lens configuration is enabled.</p>
@@ -6513,6 +6598,12 @@ export interface StorageLensConfiguration {
    * @public
    */
   PrefixDelimiter?: string | undefined;
+
+  /**
+   * <p>A container element for S3 Storage Lens Intelligent-Tiering access tier metrics.</p>
+   * @public
+   */
+  IntAccessTiers?: IntAccessTiers | undefined;
 }
 
 /**
@@ -8024,67 +8115,3 @@ export interface SubmitMultiRegionAccessPointRoutesRequest {
  * @public
  */
 export interface SubmitMultiRegionAccessPointRoutesResult {}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>
-   * The Amazon Web Services account ID that created the S3 resource that you're trying to add tags to or the requester's account ID.
-   * </p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the S3 resource that you're applying tags to. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>
-   * The Amazon Web Services resource tags that you want to add to the specified S3 resource.
-   * </p>
-   * @public
-   */
-  Tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResult {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>
-   *    The Amazon Web Services account ID that owns the resource that you're trying to remove the tags from.
-   *    </p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the S3 resource that you're removing tags from. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>
-   *    The array of tag key-value pairs that you're trying to remove from of the S3 resource.
-   *    </p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResult {}

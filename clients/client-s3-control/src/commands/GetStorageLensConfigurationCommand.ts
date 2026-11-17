@@ -172,12 +172,24 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  * //         },
  * //       },
  * //     },
+ * //     CostAndUsageReportsPublish: { // StorageLensCostAndUsageReportsPublish
+ * //       PrefixLevel: { // StorageLensCostAndUsageReportsPrefixLevel
+ * //         IsEnabled: true || false, // required
+ * //         SelectionCriteria: { // StorageLensCostAndUsageReportsSelectionCriteria
+ * //           MinDepth: Number("int"),
+ * //           MaxDepth: Number("int"),
+ * //         },
+ * //       },
+ * //     },
  * //     IsEnabled: true || false, // required
  * //     AwsOrg: { // StorageLensAwsOrg
  * //       Arn: "STRING_VALUE", // required
  * //     },
  * //     StorageLensArn: "STRING_VALUE",
  * //     PrefixDelimiter: "STRING_VALUE",
+ * //     IntAccessTiers: { // IntAccessTiers
+ * //       IsEnabled: true || false,
+ * //     },
  * //   },
  * // };
  *

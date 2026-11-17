@@ -279,6 +279,7 @@ import {
   IdempotencyException$,
   Include$,
   InstanceScope,
+  IntAccessTiers$,
   InternalServiceException,
   InternalServiceException$,
   InvalidNextTokenException,
@@ -546,6 +547,9 @@ import {
   SSES3Filter$,
   StorageLensAwsOrg$,
   StorageLensConfiguration$,
+  StorageLensCostAndUsageReportsPrefixLevel$,
+  StorageLensCostAndUsageReportsPublish$,
+  StorageLensCostAndUsageReportsSelectionCriteria$,
   StorageLensDataExport$,
   StorageLensDataExportEncryption$,
   StorageLensExpandedPrefixesDataExport$,
@@ -930,6 +934,7 @@ assert(typeof GetStorageLensGroupRequest$ === "object");
 assert(typeof GetStorageLensGroupResult$ === "object");
 assert(typeof Grantee$ === "object");
 assert(typeof Include$ === "object");
+assert(typeof IntAccessTiers$ === "object");
 assert(typeof JobDescriptor$ === "object");
 assert(typeof JobFailure$ === "object");
 assert(typeof JobListDescriptor$ === "object");
@@ -1073,6 +1078,9 @@ assert(typeof SSES3Encryption$ === "object");
 assert(typeof SSES3Filter$ === "object");
 assert(typeof StorageLensAwsOrg$ === "object");
 assert(typeof StorageLensConfiguration$ === "object");
+assert(typeof StorageLensCostAndUsageReportsPrefixLevel$ === "object");
+assert(typeof StorageLensCostAndUsageReportsPublish$ === "object");
+assert(typeof StorageLensCostAndUsageReportsSelectionCriteria$ === "object");
 assert(typeof StorageLensDataExport$ === "object");
 assert(typeof StorageLensDataExportEncryption$ === "object");
 assert(typeof StorageLensExpandedPrefixesDataExport$ === "object");

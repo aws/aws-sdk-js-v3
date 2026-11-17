@@ -1,6 +1,70 @@
 // smithy-typescript generated code
 import type { JobStatus, RequestedJobStatus } from "./enums";
-import type { StorageLensGroup } from "./models_0";
+import type { StorageLensGroup, Tag } from "./models_0";
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>
+   * The Amazon Web Services account ID that created the S3 resource that you're trying to add tags to or the requester's account ID.
+   * </p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 resource that you're applying tags to. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>
+   * The Amazon Web Services resource tags that you want to add to the specified S3 resource.
+   * </p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResult {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>
+   *    The Amazon Web Services account ID that owns the resource that you're trying to remove the tags from.
+   *    </p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 resource that you're removing tags from. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>
+   *    The array of tag key-value pairs that you're trying to remove from of the S3 resource.
+   *    </p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResult {}
 
 /**
  * @public
