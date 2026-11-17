@@ -23,7 +23,7 @@ export interface UpdateBillingPreferencesCommandInput extends UpdateBillingPrefe
 export interface UpdateBillingPreferencesCommandOutput extends UpdateBillingPreferencesResponse, __MetadataBearer {}
 
 /**
- * <p>Updates billing preferences for the specified feature. Each feature targets a distinct billing capability and has its own set of supported keys. The action sets the value for each provided key; keys not present in the request are unchanged.</p> <p>Sharing keys (<code>RI_SHARING</code>, <code>CREDIT_SHARING</code>, <code>CREDIT_LEVEL_SHARING</code>, and sharing keys under <code>CREDIT_PREFERENCE_OPTIONS</code>) may only be set by the management account of a consolidated billing family. The <code>credit/\{creditId\}/status</code> key may be set by member accounts for credits they own, or by the management account for any credit in the family.</p>
+ * <p>Updates billing preferences for the specified feature. Each feature targets a distinct billing capability and has its own set of supported keys. The action sets the value for each provided key; keys not present in the request are unchanged.</p> <p>To set sharing keys (<code>RI_SHARING</code>, <code>CREDIT_SHARING</code>, <code>CREDIT_LEVEL_SHARING</code>, <code>BENEFIT_LEVEL_SHARING</code>, and sharing keys under <code>CREDIT_PREFERENCE_OPTIONS</code>), you must use the management account of a consolidated billing family. To set the <code>credit/\{creditId\}/status</code> key, you must own the credit or use the management account of its family.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -33,7 +33,7 @@ export interface UpdateBillingPreferencesCommandOutput extends UpdateBillingPref
  * const config = {}; // type is BillingClientConfig
  * const client = new BillingClient(config);
  * const input = { // UpdateBillingPreferencesRequest
- *   feature: "RI_SHARING" || "RI_SHARING_HISTORY" || "CREDIT_SHARING" || "CREDIT_SHARING_HISTORY" || "CREDIT_LEVEL_SHARING" || "BILLING_ALERTS" || "CREDIT_PREFERENCE_OPTIONS", // required
+ *   feature: "RI_SHARING" || "RI_SHARING_HISTORY" || "CREDIT_SHARING" || "CREDIT_SHARING_HISTORY" || "CREDIT_LEVEL_SHARING" || "BILLING_ALERTS" || "CREDIT_PREFERENCE_OPTIONS" || "BENEFIT_LEVEL_SHARING", // required
  *   billingPreferencesPerKey: [ // BillingPreferencesPerKey // required
  *     { // BillingPreferenceForKey
  *       key: "STRING_VALUE", // required

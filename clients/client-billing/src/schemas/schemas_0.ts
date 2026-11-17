@@ -51,6 +51,7 @@ const _CAo = "ContractAccount";
 const _CBV = "CreateBillingView";
 const _CBVR = "CreateBillingViewRequest";
 const _CBVRr = "CreateBillingViewResponse";
+const _CC = "ChildCredit";
 const _CCIA = "CancelContractualInvestmentAttestation";
 const _CCIAR = "CancelContractualInvestmentAttestationRequest";
 const _CCIARa = "CancelContractualInvestmentAttestationResponse";
@@ -58,6 +59,7 @@ const _CCIARr = "CreateContractualInvestmentAttestationRequest";
 const _CCIARre = "CreateContractualInvestmentAttestationResponse";
 const _CCIAr = "CreateContractualInvestmentAttestation";
 const _CCV = "CostCategoryValues";
+const _CCh = "ChildCredits";
 const _CD = "CreditData";
 const _CDI = "ContractDocumentId";
 const _CDL = "CreditDataList";
@@ -165,13 +167,21 @@ const _RCRe = "RedeemCreditsResponse";
 const _RNFE = "ResourceNotFoundException";
 const _RT = "ResourceTag";
 const _RTL = "ResourceTagList";
+const _SC = "SplitCredit";
+const _SCR = "SplitCreditRequest";
+const _SCRp = "SplitCreditResponse";
 const _SE = "SensitiveEmail";
 const _SLAU = "ServiceLevelAccountUsage";
 const _SLAUL = "ServiceLevelAccountUsageList";
+const _SP = "SplitPortion";
+const _SPp = "SplitPortions";
 const _SQEE = "ServiceQuotaExceededException";
 const _SS = "SensitiveString";
 const _SSt = "StringSearch";
 const _SStr = "StringSearches";
+const _TC = "TransferCredit";
+const _TCR = "TransferCreditRequest";
+const _TCRr = "TransferCreditResponse";
 const _TE = "ThrottlingException";
 const _TPL = "TimePeriodList";
 const _TR = "TimeRange";
@@ -253,6 +263,7 @@ const _cAre = "creditAmount";
 const _cC = "currencyCode";
 const _cCA = "costCategoryArn";
 const _cCV = "creditConsoleVisibility";
+const _cCh = "childCredits";
 const _cCo = "costCategories";
 const _cDI = "contractDocumentId";
 const _cED = "contractEndDate";
@@ -277,9 +288,11 @@ const _cr = "credits";
 const _cu = "currency";
 const _d = "description";
 const _dA = "discountAmount";
+const _dAI = "destinationAccountId";
 const _dATMC = "discountAppliesToMinimumCharge";
 const _dFE = "dataFilterExpression";
 const _dP = "discountPercentage";
+const _dR = "dryRun";
 const _dS = "discountSource";
 const _dT = "discountType";
 const _dV = "disbursedValue";
@@ -343,6 +356,7 @@ const _mR = "maxResults";
 const _mT = "multiplierType";
 const _mo = "month";
 const _n = "name";
+const _nCI = "newCreditId";
 const _nT = "nextToken";
 const _na = "names";
 const _oAI = "ownerAccountId";
@@ -352,6 +366,7 @@ const _p = "policy";
 const _pAF = "payerAccountFlag";
 const _pAI = "payerAccountId";
 const _pC = "promoCode";
+const _pCI = "parentCreditId";
 const _pDP = "planDiscountPercent";
 const _pN = "planName";
 const _pP = "pricingPlans";
@@ -360,6 +375,7 @@ const _pPI = "pricingPlanId";
 const _pR = "partialResults";
 const _pTA = "purchaseTypeApplications";
 const _pTSES = "proratedTotalSupportEligibleSpend";
+const _po = "portions";
 const _qC = "quotaCode";
 const _r = "reason";
 const _rA = "remainingAmount";
@@ -375,6 +391,7 @@ const _sA = "shareableAccounts";
 const _sAI = "sourceAccountId";
 const _sAM = "supportAllocationMethod";
 const _sC = "serviceCode";
+const _sCI = "sourceCreditId";
 const _sCP = "supportChargePercentage";
 const _sCt = "statusCode";
 const _sCu = "supportCharge";
@@ -653,6 +670,11 @@ export var ChargeAccount$: StaticStructureSchema = [3, n0, _CA,
   0,
   [_aI, _cP],
   [0, 0], 2
+];
+export var ChildCredit$: StaticStructureSchema = [3, n0, _CC,
+  0,
+  [_a, _cI],
+  [0, 0], 1
 ];
 export var ContractAccount$: StaticStructureSchema = [3, n0, _CAo,
   0,
@@ -1019,6 +1041,21 @@ export var ServiceLevelAccountUsage$: StaticStructureSchema = [3, n0, _SLAU,
   [_sC, _tSES],
   [0, 0]
 ];
+export var SplitCreditRequest$: StaticStructureSchema = [3, n0, _SCR,
+  0,
+  [_cI, _po, _cTl, _dR],
+  [0, () => SplitPortions, [0, 4], 2], 2
+];
+export var SplitCreditResponse$: StaticStructureSchema = [3, n0, _SCRp,
+  0,
+  [_pCI, _cCh, _dR],
+  [0, () => ChildCredits, 2], 3
+];
+export var SplitPortion$: StaticStructureSchema = [3, n0, _SP,
+  0,
+  [_a, _d],
+  [0, 0], 1
+];
 export var StringSearch$: StaticStructureSchema = [3, n0, _SSt,
   0,
   [_sO, _sVe],
@@ -1043,6 +1080,16 @@ export var TimeRange$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_bDI, _eDI],
   [4, 4]
+];
+export var TransferCreditRequest$: StaticStructureSchema = [3, n0, _TCR,
+  0,
+  [_cI, _dAI, _cTl, _dR],
+  [0, 0, [0, 4], 2], 2
+];
+export var TransferCreditResponse$: StaticStructureSchema = [3, n0, _TCRr,
+  0,
+  [_sCI, _dAI, _a, _dR, _nCI],
+  [0, 0, 0, 2, 0], 4
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
@@ -1127,6 +1174,9 @@ var BusinessSupportTierChargeList: StaticListSchema = [1, n0, _BSTCL,
 var ChargeAccountList: StaticListSchema = [1, n0, _CAL,
   0, () => ChargeAccount$
 ];
+var ChildCredits: StaticListSchema = [1, n0, _CCh,
+  0, () => ChildCredit$
+];
 var ContractAccountList: StaticListSchema = [1, n0, _CALo,
   0, () => ContractAccount$
 ];
@@ -1183,6 +1233,9 @@ var ServiceLevelAccountUsageList: StaticListSchema = [1, n0, _SLAUL,
   0, () => ServiceLevelAccountUsage$
 ];
 var ShareableAccountIds = 64 | 0;
+var SplitPortions: StaticListSchema = [1, n0, _SPp,
+  0, () => SplitPortion$
+];
 var StringSearches: StaticListSchema = [1, n0, _SStr,
   0, () => StringSearch$
 ];
@@ -1292,8 +1345,14 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 export var RedeemCredits$: StaticOperationSchema = [9, n0, _RC,
   0, () => RedeemCreditsRequest$, () => RedeemCreditsResponse$
 ];
+export var SplitCredit$: StaticOperationSchema = [9, n0, _SC,
+  2, () => SplitCreditRequest$, () => SplitCreditResponse$
+];
 export var TagResource$: StaticOperationSchema = [9, n0, _TRa,
   0, () => TagResourceRequest$, () => TagResourceResponse$
+];
+export var TransferCredit$: StaticOperationSchema = [9, n0, _TC,
+  2, () => TransferCreditRequest$, () => TransferCreditResponse$
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   0, () => UntagResourceRequest$, () => UntagResourceResponse$

@@ -57,6 +57,7 @@ export type Dimension = (typeof Dimension)[keyof typeof Dimension];
  * @enum
  */
 export const BillingFeature = {
+  BENEFIT_LEVEL_SHARING: "BENEFIT_LEVEL_SHARING",
   BILLING_ALERTS: "BILLING_ALERTS",
   CREDIT_LEVEL_SHARING: "CREDIT_LEVEL_SHARING",
   CREDIT_PREFERENCE_OPTIONS: "CREDIT_PREFERENCE_OPTIONS",

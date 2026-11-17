@@ -149,10 +149,20 @@ import {
   RedeemCreditsCommand,
 } from "./commands/RedeemCreditsCommand";
 import {
+  type SplitCreditCommandInput,
+  type SplitCreditCommandOutput,
+  SplitCreditCommand,
+} from "./commands/SplitCreditCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
 } from "./commands/TagResourceCommand";
+import {
+  type TransferCreditCommandInput,
+  type TransferCreditCommandOutput,
+  TransferCreditCommand,
+} from "./commands/TransferCreditCommand";
 import {
   type UntagResourceCommandInput,
   type UntagResourceCommandOutput,
@@ -215,7 +225,9 @@ const commands = {
   ListSourceViewsForBillingViewCommand,
   ListTagsForResourceCommand,
   RedeemCreditsCommand,
+  SplitCreditCommand,
   TagResourceCommand,
+  TransferCreditCommand,
   UntagResourceCommand,
   UpdateBillingPreferencesCommand,
   UpdateBillingViewCommand,
@@ -723,6 +735,23 @@ export interface Billing {
   ): void;
 
   /**
+   * @see {@link SplitCreditCommand}
+   */
+  splitCredit(
+    args: SplitCreditCommandInput,
+    options?: BillingRequestOptions
+  ): Promise<SplitCreditCommandOutput>;
+  splitCredit(
+    args: SplitCreditCommandInput,
+    cb: (err: any, data?: SplitCreditCommandOutput) => void
+  ): void;
+  splitCredit(
+    args: SplitCreditCommandInput,
+    options: BillingRequestOptions,
+    cb: (err: any, data?: SplitCreditCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(
@@ -737,6 +766,23 @@ export interface Billing {
     args: TagResourceCommandInput,
     options: BillingRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TransferCreditCommand}
+   */
+  transferCredit(
+    args: TransferCreditCommandInput,
+    options?: BillingRequestOptions
+  ): Promise<TransferCreditCommandOutput>;
+  transferCredit(
+    args: TransferCreditCommandInput,
+    cb: (err: any, data?: TransferCreditCommandOutput) => void
+  ): void;
+  transferCredit(
+    args: TransferCreditCommandInput,
+    options: BillingRequestOptions,
+    cb: (err: any, data?: TransferCreditCommandOutput) => void
   ): void;
 
   /**

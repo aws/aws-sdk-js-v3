@@ -49,6 +49,7 @@ import {
   CancelContractualInvestmentAttestationRequest$,
   CancelContractualInvestmentAttestationResponse$,
   ChargeAccount$,
+  ChildCredit$,
   ConflictException,
   ConflictException$,
   ContractAccount$,
@@ -203,6 +204,11 @@ import {
   ServiceLevelAccountUsage$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  SplitCredit$,
+  SplitCreditCommand,
+  SplitCreditRequest$,
+  SplitCreditResponse$,
+  SplitPortion$,
   StringSearch$,
   TagResource$,
   TagResourceCommand,
@@ -212,6 +218,10 @@ import {
   ThrottlingException,
   ThrottlingException$,
   TimeRange$,
+  TransferCredit$,
+  TransferCreditCommand,
+  TransferCreditRequest$,
+  TransferCreditResponse$,
   UntagResource$,
   UntagResourceCommand,
   UntagResourceRequest$,
@@ -290,8 +300,12 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof RedeemCreditsCommand === "function");
 assert(typeof RedeemCredits$ === "object");
+assert(typeof SplitCreditCommand === "function");
+assert(typeof SplitCredit$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
+assert(typeof TransferCreditCommand === "function");
+assert(typeof TransferCredit$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateBillingPreferencesCommand === "function");
@@ -328,6 +342,7 @@ assert(typeof BusinessSupportTierCharge$ === "object");
 assert(typeof CancelContractualInvestmentAttestationRequest$ === "object");
 assert(typeof CancelContractualInvestmentAttestationResponse$ === "object");
 assert(typeof ChargeAccount$ === "object");
+assert(typeof ChildCredit$ === "object");
 assert(typeof ContractAccount$ === "object");
 assert(typeof ContractDetails$ === "object");
 assert(typeof ContractSummary$ === "object");
@@ -403,11 +418,16 @@ assert(typeof RedeemCreditsRequest$ === "object");
 assert(typeof RedeemCreditsResponse$ === "object");
 assert(typeof ResourceTag$ === "object");
 assert(typeof ServiceLevelAccountUsage$ === "object");
+assert(typeof SplitCreditRequest$ === "object");
+assert(typeof SplitCreditResponse$ === "object");
+assert(typeof SplitPortion$ === "object");
 assert(typeof StringSearch$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof TagValues$ === "object");
 assert(typeof TimeRange$ === "object");
+assert(typeof TransferCreditRequest$ === "object");
+assert(typeof TransferCreditResponse$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateBillingPreferencesRequest$ === "object");

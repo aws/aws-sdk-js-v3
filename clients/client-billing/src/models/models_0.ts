@@ -167,7 +167,7 @@ export interface AssociateSourceViewsRequest {
   arn: string | undefined;
 
   /**
-   * <p> A list of ARNs of the source billing views to associate. </p>
+   * <p>A list of ARNs of the source billing views to associate. Source views can be of the following types:</p> <ul> <li> <p> <code>PRIMARY</code> - The billing view that contains all cost management data associated with an account.</p> </li> <li> <p> <code>CUSTOM</code> - A billing view that a customer creates from one or more source views.</p> </li> <li> <p> <code>BILLING_GROUP</code> - The billing view for an Billing Conductor billing group.</p> </li> <li> <p> <code>BILLING_TRANSFER</code> - The billing view for the billing data that a bill transfer account is financially responsible for.</p> </li> <li> <p> <code>BILLING_TRANSFER_SHOWBACK</code> - The billing view for billing data configured for showback or chargeback purposes.</p> </li> </ul>
    * @public
    */
   sourceViews: string[] | undefined;
@@ -456,7 +456,7 @@ export interface CreateBillingViewRequest {
   description?: string | undefined;
 
   /**
-   * <p>A list of billing views used as the data source for the custom billing view.</p>
+   * <p>A list of billing views used as the data source for the custom billing view. Source views can be of the following types:</p> <ul> <li> <p> <code>PRIMARY</code> - The billing view that contains all cost management data associated with an account.</p> </li> <li> <p> <code>CUSTOM</code> - A billing view that a customer creates from one or more source views.</p> </li> <li> <p> <code>BILLING_GROUP</code> - The billing view for an Billing Conductor billing group.</p> </li> <li> <p> <code>BILLING_TRANSFER</code> - The billing view for the billing data that a bill transfer account is financially responsible for.</p> </li> <li> <p> <code>BILLING_TRANSFER_SHOWBACK</code> - The billing view for billing data configured for showback or chargeback purposes.</p> </li> </ul>
    * @public
    */
   sourceViews: string[] | undefined;
@@ -674,13 +674,13 @@ export interface GetBillingPreferencesRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>The feature to retrieve. Specify exactly one value. Valid values: <code>BILLING_ALERTS</code>, <code>RI_SHARING</code>, <code>RI_SHARING_HISTORY</code>, <code>CREDIT_SHARING</code>, <code>CREDIT_SHARING_HISTORY</code>, <code>CREDIT_LEVEL_SHARING</code>, <code>CREDIT_PREFERENCE_OPTIONS</code>.</p>
+   * <p>The feature to retrieve. Specify exactly one value. Valid values: <code>BILLING_ALERTS</code>, <code>RI_SHARING</code>, <code>RI_SHARING_HISTORY</code>, <code>CREDIT_SHARING</code>, <code>CREDIT_SHARING_HISTORY</code>, <code>CREDIT_LEVEL_SHARING</code>, <code>CREDIT_PREFERENCE_OPTIONS</code>, <code>BENEFIT_LEVEL_SHARING</code>.</p>
    * @public
    */
   features: BillingFeature[] | undefined;
 
   /**
-   * <p>Filters to narrow results. Specify exactly one filter when supplied. The supported filter name is <code>PREFERENCE_KEY</code>, which accepts 1 to 10 values to match preference keys.</p>
+   * <p>Filters to narrow results. Specify exactly one filter when supplied. The supported filter name is <code>PREFERENCE_KEY</code>, which accepts 1 to 10 values to match preference keys.</p> <p>For <code>BENEFIT_LEVEL_SHARING</code>, this filter is required. Specify exactly one value that identifies the Reserved Instance (RI) or Savings Plan (SP), in the form <code>benefit/\{ri|sp\}/\{benefitId\}</code>.</p>
    * @public
    */
   filters?: BillingFeatureFilter[] | undefined;
@@ -816,7 +816,7 @@ export interface BillingViewElement {
   description?: string | undefined;
 
   /**
-   * <p>The type of billing group. </p>
+   * <p>The type of billing view. The following values are valid:</p> <ul> <li> <p> <code>PRIMARY</code> - The billing view that contains all cost management data associated with an account.</p> </li> <li> <p> <code>CUSTOM</code> - A billing view that a customer creates from one or more source views.</p> </li> <li> <p> <code>BILLING_GROUP</code> - The billing view for an Billing Conductor billing group.</p> </li> <li> <p> <code>BILLING_TRANSFER</code> - The billing view for the billing data that a bill transfer account is financially responsible for.</p> </li> <li> <p> <code>BILLING_TRANSFER_SHOWBACK</code> - The billing view for billing data configured for showback or chargeback purposes.</p> </li> </ul>
    * @public
    */
   billingViewType?: BillingViewType | undefined;
@@ -1037,13 +1037,13 @@ export interface GetCreditAllocationHistoryRequest {
   creditId?: number | undefined;
 
   /**
-   * <p>Inclusive start date as Unix epoch seconds. Must be on or before <code>endDate</code>. The range from <code>startDate</code> to <code>endDate</code> cannot exceed 24 billing months.</p>
+   * <p>The inclusive start date of the range, in Unix epoch seconds. This value must be earlier than <code>endDate</code>. You get credit allocations for bills whose billing period starts on or after <code>startDate</code> and before <code>endDate</code>. If <code>startDate</code> is in the middle of a billing period, that period isn't included. The range can't exceed 24 calendar months.</p>
    * @public
    */
   startDate: Date | undefined;
 
   /**
-   * <p>Inclusive end date as Unix epoch seconds.</p>
+   * <p>The exclusive end date of the range, in Unix epoch seconds. To get one billing month, set <code>startDate</code> to the first day of that month. Then set <code>endDate</code> to the first day of the next month. Use 00:00 UTC for both.</p>
    * @public
    */
   endDate: Date | undefined;
@@ -1793,7 +1793,7 @@ export interface BillingViewListElement {
   sourceAccountId?: string | undefined;
 
   /**
-   * <p>The type of billing view.</p>
+   * <p>The type of billing view. The following values are valid:</p> <ul> <li> <p> <code>PRIMARY</code> - The billing view that contains all cost management data associated with an account.</p> </li> <li> <p> <code>CUSTOM</code> - A billing view that a customer creates from one or more source views.</p> </li> <li> <p> <code>BILLING_GROUP</code> - The billing view for an Billing Conductor billing group.</p> </li> <li> <p> <code>BILLING_TRANSFER</code> - The billing view for the billing data that a bill transfer account is financially responsible for.</p> </li> <li> <p> <code>BILLING_TRANSFER_SHOWBACK</code> - The billing view for billing data configured for showback or chargeback purposes.</p> </li> </ul>
    * @public
    */
   billingViewType?: BillingViewType | undefined;
@@ -2958,6 +2958,94 @@ export interface RedeemCreditsRequest {
 export interface RedeemCreditsResponse {}
 
 /**
+ * <p>One new credit to create from a split.</p>
+ * @public
+ */
+export interface SplitPortion {
+  /**
+   * <p>The amount of the new credit, in the currency of the credit that you split. The amount must be at least 100.00 in that currency. For example, if the credit is in USD, the amount must be at least USD $100.00.</p>
+   * @public
+   */
+  amount: string | undefined;
+
+  /**
+   * <p>The description of the new credit. If you omit it, the new credit gets the original credit's description followed by its position in the request, for example <code>MAP credit - 1/3</code>. If you split that credit again, the name extends, for example <code>MAP credit - 1/3 - 2/2</code>. A generated name is at most 93 characters. If it would be longer, the name keeps only the beginning of the original description.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SplitCreditRequest {
+  /**
+   * <p>The ID of the credit to split.</p>
+   * @public
+   */
+  creditId: string | undefined;
+
+  /**
+   * <p>The new credits to create, one for each portion, in the order listed.</p>
+   * @public
+   */
+  portions: SplitPortion[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the operation completes no more than one time. If you retry a successful request with the same client token and parameters, the retry completes without performing any further actions. If you reuse a client token with different parameters, the request fails with a <code>ValidationException</code>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request and return the result without changing any credit.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
+}
+
+/**
+ * <p>A new credit that a split created.</p>
+ * @public
+ */
+export interface ChildCredit {
+  /**
+   * <p>The ID of the new credit. A dry run omits this field.</p>
+   * @public
+   */
+  creditId?: string | undefined;
+
+  /**
+   * <p>The amount of the new credit.</p>
+   * @public
+   */
+  amount: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SplitCreditResponse {
+  /**
+   * <p>The ID of the credit that was split.</p>
+   * @public
+   */
+  parentCreditId: string | undefined;
+
+  /**
+   * <p>The new credits, in the order of the requested portions.</p>
+   * @public
+   */
+  childCredits: ChildCredit[] | undefined;
+
+  /**
+   * <p>Specifies whether the request was a dry run. If <code>true</code>, the operation didn't change any credit.</p>
+   * @public
+   */
+  dryRun: boolean | undefined;
+}
+
+/**
  * @public
  */
 export interface TagResourceRequest {
@@ -2978,6 +3066,70 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface TransferCreditRequest {
+  /**
+   * <p>The ID of the credit to transfer.</p>
+   * @public
+   */
+  creditId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that becomes the owner of the credit. The account must be in your consolidated billing family and must not be the current owner.</p>
+   * @public
+   */
+  destinationAccountId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the operation completes no more than one time. If you retry a successful request with the same client token and parameters, the retry completes without performing any further actions. If you reuse a client token with different parameters, the request fails with a <code>ValidationException</code>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request and return the result without changing the credit.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TransferCreditResponse {
+  /**
+   * <p>The ID of the transferred credit. The credit keeps this ID.</p>
+   * @public
+   */
+  sourceCreditId: string | undefined;
+
+  /**
+   * <p>Always the same as <code>sourceCreditId</code>, because a transfer moves the credit and creates no new one. A dry run omits this field.</p>
+   * @public
+   */
+  newCreditId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the credit after the transfer.</p>
+   * @public
+   */
+  destinationAccountId: string | undefined;
+
+  /**
+   * <p>The available balance of the credit, which is its remaining balance minus any amount reserved for a bill that isn't finalized.</p>
+   * @public
+   */
+  amount: string | undefined;
+
+  /**
+   * <p>Specifies whether the request was a dry run. If <code>true</code>, the operation didn't change the credit.</p>
+   * @public
+   */
+  dryRun: boolean | undefined;
+}
 
 /**
  * @public
@@ -3024,13 +3176,13 @@ export interface BillingPreferenceForKey {
  */
 export interface UpdateBillingPreferencesRequest {
   /**
-   * <p>The feature to update. Valid values: <code>BILLING_ALERTS</code>, <code>RI_SHARING</code>, <code>CREDIT_SHARING</code>, <code>CREDIT_LEVEL_SHARING</code>, <code>CREDIT_PREFERENCE_OPTIONS</code>. The history features (<code>RI_SHARING_HISTORY</code> and <code>CREDIT_SHARING_HISTORY</code>) are read-only and cannot be updated.</p>
+   * <p>The feature to update. Valid values: <code>BILLING_ALERTS</code>, <code>RI_SHARING</code>, <code>CREDIT_SHARING</code>, <code>CREDIT_LEVEL_SHARING</code>, <code>CREDIT_PREFERENCE_OPTIONS</code>, <code>BENEFIT_LEVEL_SHARING</code>. The history features (<code>RI_SHARING_HISTORY</code> and <code>CREDIT_SHARING_HISTORY</code>) are read-only and cannot be updated.</p>
    * @public
    */
   feature: BillingFeature | undefined;
 
   /**
-   * <p>Key/value pairs to apply. All keys in a single request must be valid for the specified <code>feature</code> and must not be duplicated. For <code>CREDIT_PREFERENCE_OPTIONS</code>, all keys must reference the same <code>creditId</code>.</p>
+   * <p>Key/value pairs to apply. All keys in a single request must be valid for the specified <code>feature</code> and must not be duplicated. For <code>CREDIT_PREFERENCE_OPTIONS</code>, all keys must reference the same <code>creditId</code>.</p> <p>For <code>BENEFIT_LEVEL_SHARING</code>, all keys must reference the same Reserved Instance or Savings Plan. To share it with the accounts in one Cost Category rule, send these three keys with the value <code>ENABLED</code>:</p> <ul> <li> <p> <code>benefit/\{ri|sp\}/\{benefitId\}/sharing/costCategoryArn/\{costCategoryArn\}</code> </p> </li> <li> <p> <code>benefit/\{ri|sp\}/\{benefitId\}/sharing/ruleName/\{ruleName\}</code> </p> </li> <li> <p> <code>benefit/\{ri|sp\}/\{benefitId\}/sharing/mode/\{prioritized|restricted\}</code> </p> </li> </ul> <p>With <code>prioritized</code>, any benefit that the rule's accounts don't use goes to the rest of your consolidated billing family, following your family sharing settings. With <code>restricted</code>, only the owner and the rule's accounts receive it. The Cost Category must belong to your account. To stop sharing, send the same three keys with the value <code>DISABLED</code>.</p> <p>For <code>RI_SHARING</code> and <code>CREDIT_SHARING</code>, you can share benefits by account group. Each rule in a Cost Category is one group. Send exactly one of these group keys with the value <code>ENABLED</code>:</p> <ul> <li> <p> <code>open-sharing</code> - Share across the whole consolidated billing family, with no groups.</p> </li> <li> <p> <code>costcategory-prioritized/\{costCategoryArn\}</code> - Share within each group first, then with the rest of the family.</p> </li> <li> <p> <code>costcategory-restricted/\{costCategoryArn\}</code> - An account in a group shares only with accounts in the same group.</p> </li> </ul> <p>For <code>RI_SHARING</code>, the <code>costcategory-</code> keys use a Cost Category that supports the <code>billing:rispgroupsharing</code> resource type. To use a Cost Category that supports the <code>billing:benefitgroupsharing</code> resource type, use the <code>benefitgroup-prioritized/</code> or <code>benefitgroup-restricted/</code> prefix instead. For <code>CREDIT_SHARING</code>, the Cost Category must support the <code>billing:benefitgroupsharing</code> resource type. The Cost Category must belong to your account. <code>GetBillingPreferences</code> returns the group key that is in effect.</p>
    * @public
    */
   billingPreferencesPerKey: BillingPreferenceForKey[] | undefined;

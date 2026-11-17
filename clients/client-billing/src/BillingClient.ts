@@ -151,7 +151,9 @@ import type {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import type { RedeemCreditsCommandInput, RedeemCreditsCommandOutput } from "./commands/RedeemCreditsCommand";
+import type { SplitCreditCommandInput, SplitCreditCommandOutput } from "./commands/SplitCreditCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { TransferCreditCommandInput, TransferCreditCommandOutput } from "./commands/TransferCreditCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
   UpdateBillingPreferencesCommandInput,
@@ -204,7 +206,9 @@ export type ServiceInputTypes =
   | ListSourceViewsForBillingViewCommandInput
   | ListTagsForResourceCommandInput
   | RedeemCreditsCommandInput
+  | SplitCreditCommandInput
   | TagResourceCommandInput
+  | TransferCreditCommandInput
   | UntagResourceCommandInput
   | UpdateBillingPreferencesCommandInput
   | UpdateBillingViewCommandInput;
@@ -241,7 +245,9 @@ export type ServiceOutputTypes =
   | ListSourceViewsForBillingViewCommandOutput
   | ListTagsForResourceCommandOutput
   | RedeemCreditsCommandOutput
+  | SplitCreditCommandOutput
   | TagResourceCommandOutput
+  | TransferCreditCommandOutput
   | UntagResourceCommandOutput
   | UpdateBillingPreferencesCommandOutput
   | UpdateBillingViewCommandOutput;

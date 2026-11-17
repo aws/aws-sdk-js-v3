@@ -23,7 +23,7 @@ export interface GetBillingPreferencesCommandInput extends GetBillingPreferences
 export interface GetBillingPreferencesCommandOutput extends GetBillingPreferencesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves billing preferences for the specified feature. Each feature controls a distinct billing capability: which accounts can share Reserved Instances or credits, whether billing alerts are enabled, the historical record of sharing changes, and per-credit options.</p>
+ * <p>Retrieves billing preferences for the specified feature. Each feature controls a distinct billing capability: which accounts can share Reserved Instances or credits, whether billing alerts are enabled, the historical record of sharing changes, per-credit options, and which accounts an individual Reserved Instance or Savings Plan is shared with.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -36,7 +36,7 @@ export interface GetBillingPreferencesCommandOutput extends GetBillingPreference
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   features: [ // BillingFeatures // required
- *     "RI_SHARING" || "RI_SHARING_HISTORY" || "CREDIT_SHARING" || "CREDIT_SHARING_HISTORY" || "CREDIT_LEVEL_SHARING" || "BILLING_ALERTS" || "CREDIT_PREFERENCE_OPTIONS",
+ *     "RI_SHARING" || "RI_SHARING_HISTORY" || "CREDIT_SHARING" || "CREDIT_SHARING_HISTORY" || "CREDIT_LEVEL_SHARING" || "BILLING_ALERTS" || "CREDIT_PREFERENCE_OPTIONS" || "BENEFIT_LEVEL_SHARING",
  *   ],
  *   filters: [ // BillingFeatureFilters
  *     { // BillingFeatureFilter
@@ -52,7 +52,7 @@ export interface GetBillingPreferencesCommandOutput extends GetBillingPreference
  * // { // GetBillingPreferencesResponse
  * //   billingPreferences: [ // BillingPreferences // required
  * //     { // BillingPreferenceSummary
- * //       feature: "RI_SHARING" || "RI_SHARING_HISTORY" || "CREDIT_SHARING" || "CREDIT_SHARING_HISTORY" || "CREDIT_LEVEL_SHARING" || "BILLING_ALERTS" || "CREDIT_PREFERENCE_OPTIONS", // required
+ * //       feature: "RI_SHARING" || "RI_SHARING_HISTORY" || "CREDIT_SHARING" || "CREDIT_SHARING_HISTORY" || "CREDIT_LEVEL_SHARING" || "BILLING_ALERTS" || "CREDIT_PREFERENCE_OPTIONS" || "BENEFIT_LEVEL_SHARING", // required
  * //       key: "STRING_VALUE", // required
  * //       value: "ENABLED" || "DISABLED", // required
  * //       accountName: "STRING_VALUE",
