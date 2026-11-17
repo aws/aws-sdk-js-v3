@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeletePaymentCredentialProviderRequest,
   DeletePaymentCredentialProviderResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import { DeletePaymentCredentialProvider$ } from "../schemas/schemas_0";
 
 /**

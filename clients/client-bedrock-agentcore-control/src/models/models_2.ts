@@ -4,6 +4,8 @@ import type {
   DescriptorType,
   EnforcementMode,
   FindingType,
+  OnlineEvaluationConfigStatus,
+  OnlineEvaluationExecutionStatus,
   PaymentConnectorProvisionMode,
   PaymentConnectorStatus,
   PaymentConnectorType,
@@ -20,6 +22,7 @@ import type {
   RegistryRecordStatus,
   RegistryStatus,
   SchemaType,
+  SecretSourceType,
   SynchronizationType,
   TargetProtocolType,
   TargetStatus,
@@ -30,6 +33,8 @@ import type {
   AuthorizerConfiguration,
   CertificateConfiguration,
   PrivateEndpoint,
+  Secret,
+  SecretReference,
   SkillDefinition,
   SkillMdDefinition,
   UpdatedDescription,
@@ -39,19 +44,608 @@ import type {
   ApiGatewayTargetConfiguration,
   ApiSchemaConfiguration,
   AuthorizationData,
+  ClusteringConfig,
   ConnectorTargetConfiguration,
   CredentialProviderConfiguration,
+  DataSourceConfig,
+  EvaluatorReference,
   HttpTargetConfiguration,
   InferenceTargetConfiguration,
+  Insight,
   KmsConfiguration,
   ManagedResourceDetails,
   McpServerTargetConfiguration,
   MetadataConfiguration,
-  PaymentProviderConfigurationInput,
-  PaymentProviderConfigurationOutput,
+  OutputConfig,
+  Rule,
   S3Configuration,
   UpdatedAuthorizerConfiguration,
 } from "./models_1";
+
+/**
+ * <p> The summary information about an online evaluation configuration, including basic metadata and execution status. </p>
+ * @public
+ */
+export interface OnlineEvaluationConfigSummary {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+
+  /**
+   * <p> The name of the online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigName: string | undefined;
+
+  /**
+   * <p> The description of the online evaluation configuration. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p> The status of the online evaluation configuration. </p>
+   * @public
+   */
+  status: OnlineEvaluationConfigStatus | undefined;
+
+  /**
+   * <p> The execution status indicating whether the online evaluation is currently running. </p>
+   * @public
+   */
+  executionStatus: OnlineEvaluationExecutionStatus | undefined;
+
+  /**
+   * <p> The timestamp when the online evaluation configuration was created. </p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p> The timestamp when the online evaluation configuration was last updated. </p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p> The reason for failure if the online evaluation configuration execution failed. </p>
+   * @public
+   */
+  failureReason?: string | undefined;
+
+  /**
+   * <p>The list of insight types configured for this evaluation.</p>
+   * @public
+   */
+  insights?: Insight[] | undefined;
+
+  /**
+   * <p>The clustering configuration for periodic batch evaluation.</p>
+   * @public
+   */
+  clusteringConfig?: ClusteringConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOnlineEvaluationConfigsResponse {
+  /**
+   * <p> The list of online evaluation configuration summaries containing basic information about each configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigs: OnlineEvaluationConfigSummary[] | undefined;
+
+  /**
+   * <p> The pagination token to use in a subsequent request to retrieve the next page of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOnlineEvaluationConfigRequest {
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p> The unique identifier of the online evaluation configuration to update. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+
+  /**
+   * <p> The updated description of the online evaluation configuration. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p> The updated evaluation rule containing sampling configuration, filters, and session settings. </p>
+   * @public
+   */
+  rule?: Rule | undefined;
+
+  /**
+   * <p> The updated data source configuration specifying CloudWatch log groups and service names to monitor. </p>
+   * @public
+   */
+  dataSourceConfig?: DataSourceConfig | undefined;
+
+  /**
+   * <p> The updated list of evaluators to apply during online evaluation. </p>
+   * @public
+   */
+  evaluators?: EvaluatorReference[] | undefined;
+
+  /**
+   * <p>The updated list of insight types to run against agent sessions.</p>
+   * @public
+   */
+  insights?: Insight[] | undefined;
+
+  /**
+   * <p>The updated clustering configuration for periodic batch evaluation.</p>
+   * @public
+   */
+  clusteringConfig?: ClusteringConfig | undefined;
+
+  /**
+   * <p> The configuration that specifies where evaluation results should be written for monitoring and analysis. </p>
+   * @public
+   */
+  outputConfig?: OutputConfig | undefined;
+
+  /**
+   * <p> The updated Amazon Resource Name (ARN) of the IAM role used for evaluation execution. </p>
+   * @public
+   */
+  evaluationExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p> The updated execution status to enable or disable the online evaluation. </p>
+   * @public
+   */
+  executionStatus?: OnlineEvaluationExecutionStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOnlineEvaluationConfigResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the updated online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the updated online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+
+  /**
+   * <p> The timestamp when the online evaluation configuration was last updated. </p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p> The status of the online evaluation configuration. </p>
+   * @public
+   */
+  status: OnlineEvaluationConfigStatus | undefined;
+
+  /**
+   * <p> The execution status indicating whether the online evaluation is currently running. </p>
+   * @public
+   */
+  executionStatus: OnlineEvaluationExecutionStatus | undefined;
+
+  /**
+   * <p> The reason for failure if the online evaluation configuration update or execution failed. </p>
+   * @public
+   */
+  failureReason?: string | undefined;
+}
+
+/**
+ * <p>Coinbase CDP configuration — credentials provided by Coinbase Developer Platform.</p>
+ * @public
+ */
+export interface CoinbaseCdpConfigurationInput {
+  /**
+   * <p>The API key identifier provided by Coinbase Developer Platform.</p>
+   * @public
+   */
+  apiKeyId: string | undefined;
+
+  /**
+   * <p>The API key secret provided by Coinbase Developer Platform.</p>
+   * @public
+   */
+  apiKeySecret?: string | undefined;
+
+  /**
+   * <p>The source type of the API key secret for the Coinbase Developer Platform. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * @public
+   */
+  apiKeySecretSource?: SecretSourceType | undefined;
+
+  /**
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the API key secret. This includes the secret ID and the JSON key used to extract the API key secret value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  apiKeySecretConfig?: SecretReference | undefined;
+
+  /**
+   * <p>The wallet secret provided by Coinbase Developer Platform.</p>
+   * @public
+   */
+  walletSecret?: string | undefined;
+
+  /**
+   * <p>The source type of the wallet secret for the Coinbase Developer Platform. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * @public
+   */
+  walletSecretSource?: SecretSourceType | undefined;
+
+  /**
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the wallet secret. This includes the secret ID and the JSON key used to extract the wallet secret value from the secret. Required when <code>walletSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  walletSecretConfig?: SecretReference | undefined;
+}
+
+/**
+ * <p>Stripe Privy configuration — credentials provided by Stripe and Privy.</p>
+ * @public
+ */
+export interface StripePrivyConfigurationInput {
+  /**
+   * <p>The app ID provided by Privy.</p>
+   * @public
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The app secret provided by Privy.</p>
+   * @public
+   */
+  appSecret?: string | undefined;
+
+  /**
+   * <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * @public
+   */
+  appSecretSource?: SecretSourceType | undefined;
+
+  /**
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  appSecretConfig?: SecretReference | undefined;
+
+  /**
+   * <p>The authorization private key for the Stripe Privy integration.</p>
+   * @public
+   */
+  authorizationPrivateKey?: string | undefined;
+
+  /**
+   * <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * @public
+   */
+  authorizationPrivateKeySource?: SecretSourceType | undefined;
+
+  /**
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  authorizationPrivateKeyConfig?: SecretReference | undefined;
+
+  /**
+   * <p>The authorization ID for the Stripe Privy integration.</p>
+   * @public
+   */
+  authorizationId: string | undefined;
+}
+
+/**
+ * <p>Provider configuration input — contains secrets for creation and update. Varies by vendor type.</p>
+ * @public
+ */
+export type PaymentProviderConfigurationInput =
+  | PaymentProviderConfigurationInput.CoinbaseCdpConfigurationMember
+  | PaymentProviderConfigurationInput.StripePrivyConfigurationMember
+  | PaymentProviderConfigurationInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PaymentProviderConfigurationInput {
+  /**
+   * <p>The Coinbase CDP configuration.</p>
+   * @public
+   */
+  export interface CoinbaseCdpConfigurationMember {
+    coinbaseCdpConfiguration: CoinbaseCdpConfigurationInput;
+    stripePrivyConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Stripe Privy configuration.</p>
+   * @public
+   */
+  export interface StripePrivyConfigurationMember {
+    coinbaseCdpConfiguration?: never;
+    stripePrivyConfiguration: StripePrivyConfigurationInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    coinbaseCdpConfiguration?: never;
+    stripePrivyConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    coinbaseCdpConfiguration: (value: CoinbaseCdpConfigurationInput) => T;
+    stripePrivyConfiguration: (value: StripePrivyConfigurationInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreatePaymentCredentialProviderRequest {
+  /**
+   * <p>Unique name for the payment credential provider.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).</p>
+   * @public
+   */
+  credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
+
+  /**
+   * <p>Configuration specific to the vendor, including API credentials.</p>
+   * @public
+   */
+  providerConfigurationInput: PaymentProviderConfigurationInput | undefined;
+
+  /**
+   * <p>Optional tags for resource organization.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Coinbase CDP configuration output with secret ARNs.</p>
+ * @public
+ */
+export interface CoinbaseCdpConfigurationOutput {
+  /**
+   * <p>The API key identifier provided by Coinbase Developer Platform.</p>
+   * @public
+   */
+  apiKeyId: string | undefined;
+
+  /**
+   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
+   * @public
+   */
+  apiKeySecretArn: Secret | undefined;
+
+  /**
+   * <p>The JSON key used to extract the API key secret value from the Amazon Web Services Secrets Manager secret.</p>
+   * @public
+   */
+  apiKeySecretJsonKey?: string | undefined;
+
+  /**
+   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
+   * @public
+   */
+  apiKeySecretSource?: SecretSourceType | undefined;
+
+  /**
+   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
+   * @public
+   */
+  walletSecretArn: Secret | undefined;
+
+  /**
+   * <p>The JSON key used to extract the wallet secret value from the Amazon Web Services Secrets Manager secret.</p>
+   * @public
+   */
+  walletSecretJsonKey?: string | undefined;
+
+  /**
+   * <p>The source type of the wallet secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
+   * @public
+   */
+  walletSecretSource?: SecretSourceType | undefined;
+}
+
+/**
+ * <p>Stripe Privy configuration output with secret ARNs.</p>
+ * @public
+ */
+export interface StripePrivyConfigurationOutput {
+  /**
+   * <p>The app ID provided by Privy.</p>
+   * @public
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
+   * @public
+   */
+  appSecretArn: Secret | undefined;
+
+  /**
+   * <p>The JSON key used to extract the app secret value from the Amazon Web Services Secrets Manager secret.</p>
+   * @public
+   */
+  appSecretJsonKey?: string | undefined;
+
+  /**
+   * <p>The source type of the app secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
+   * @public
+   */
+  appSecretSource?: SecretSourceType | undefined;
+
+  /**
+   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
+   * @public
+   */
+  authorizationPrivateKeyArn: Secret | undefined;
+
+  /**
+   * <p>The JSON key used to extract the authorization private key value from the Amazon Web Services Secrets Manager secret.</p>
+   * @public
+   */
+  authorizationPrivateKeyJsonKey?: string | undefined;
+
+  /**
+   * <p>The source type of the authorization private key. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
+   * @public
+   */
+  authorizationPrivateKeySource?: SecretSourceType | undefined;
+
+  /**
+   * <p>The authorization ID for the Stripe Privy integration.</p>
+   * @public
+   */
+  authorizationId: string | undefined;
+}
+
+/**
+ * <p>Provider configuration output — no raw secrets, only ARNs. Varies by vendor type.</p>
+ * @public
+ */
+export type PaymentProviderConfigurationOutput =
+  | PaymentProviderConfigurationOutput.CoinbaseCdpConfigurationMember
+  | PaymentProviderConfigurationOutput.StripePrivyConfigurationMember
+  | PaymentProviderConfigurationOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PaymentProviderConfigurationOutput {
+  /**
+   * <p>The Coinbase CDP configuration.</p>
+   * @public
+   */
+  export interface CoinbaseCdpConfigurationMember {
+    coinbaseCdpConfiguration: CoinbaseCdpConfigurationOutput;
+    stripePrivyConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Stripe Privy configuration.</p>
+   * @public
+   */
+  export interface StripePrivyConfigurationMember {
+    coinbaseCdpConfiguration?: never;
+    stripePrivyConfiguration: StripePrivyConfigurationOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    coinbaseCdpConfiguration?: never;
+    stripePrivyConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    coinbaseCdpConfiguration: (value: CoinbaseCdpConfigurationOutput) => T;
+    stripePrivyConfiguration: (value: StripePrivyConfigurationOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreatePaymentCredentialProviderResponse {
+  /**
+   * <p>The name of the created payment credential provider.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The vendor type for the created payment credential provider.</p>
+   * @public
+   */
+  credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created payment credential provider.</p>
+   * @public
+   */
+  credentialProviderArn: string | undefined;
+
+  /**
+   * <p>Output configuration (contains secret ARNs, excludes actual secret values).</p>
+   * @public
+   */
+  providerConfigurationOutput: PaymentProviderConfigurationOutput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePaymentCredentialProviderRequest {
+  /**
+   * <p>The name of the payment credential provider to delete.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePaymentCredentialProviderResponse {}
 
 /**
  * @public

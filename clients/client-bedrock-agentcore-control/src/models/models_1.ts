@@ -4,15 +4,19 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 import type {
   ActorTokenContentType,
   ApiKeyCredentialLocation,
+  AuthorizerType,
   ClientAuthenticationMethodType,
   ClusteringFrequency,
   ContentLevel,
   ContentType,
   CredentialProviderType,
   CredentialProviderVendorType,
+  ExceptionLevel,
   ExtractionType,
   FilterOperator,
+  GatewayProtocolType,
   GatewayRuleStatus,
+  GatewayStatus,
   HarnessBedrockApiFormat,
   HarnessEndpointStatus,
   HarnessHookFailureMode,
@@ -23,6 +27,7 @@ import type {
   HarnessTruncationStrategy,
   KeyType,
   ListingMode,
+  MatchOperator,
   MemoryStatus,
   MemoryStrategyStatus,
   MemoryStrategyType,
@@ -35,7 +40,6 @@ import type {
   OnlineEvaluationExecutionStatus,
   OverrideType,
   PassthroughProtocolType,
-  PaymentCredentialProviderVendorType,
   PrincipalMatchOperator,
   RecordExpiryAction,
   RestApiMethod,
@@ -46,22 +50,739 @@ import type {
   Status,
   TargetStatus,
   TargetType,
+  WafFailureMode,
 } from "./enums";
 import type {
   Action,
   AuthorizerConfiguration,
   CertificateConfiguration,
   ContainerConfiguration,
+  DomainOverride,
   FilesystemConfiguration,
+  GatewayInterceptorConfiguration,
+  GatewayPolicyEngineConfiguration,
+  GatewayProtocolConfiguration,
+  LambdaTransformConfiguration,
   LifecycleConfiguration,
-  MatchModels,
   NetworkConfiguration,
   PrivateEndpoint,
   PrivateEndpointOverride,
   Secret,
   SecretReference,
   Unit,
+  WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * <p>The configuration for custom transformations applied to requests and responses through the gateway. This structure defines how the gateway transforms data.</p>
+ * @public
+ */
+export interface CustomTransformConfiguration {
+  /**
+   * <p>The Lambda configuration for custom transformations. This configuration defines how the gateway uses a Lambda function to transform data.</p>
+   * @public
+   */
+  lambda?: LambdaTransformConfiguration | undefined;
+}
+
+/**
+ * <p>The Amazon Web Services WAF configuration for the gateway. This configuration controls how the gateway behaves when the associated web ACL cannot be evaluated.</p>
+ * @public
+ */
+export interface WafConfiguration {
+  /**
+   * <p>The failure mode that determines how the gateway handles requests when Amazon Web Services WAF is unreachable or times out. Valid values include:</p> <ul> <li> <p> <code>FAIL_CLOSE</code> - The gateway blocks requests when Amazon Web Services WAF cannot be evaluated.</p> </li> <li> <p> <code>FAIL_OPEN</code> - The gateway allows requests when Amazon Web Services WAF cannot be evaluated.</p> </li> </ul>
+   * @public
+   */
+  failureMode?: WafFailureMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateGatewayResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created gateway.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the created gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The URL endpoint for the created gateway.</p>
+   * @public
+   */
+  gatewayUrl?: string | undefined;
+
+  /**
+   * <p>The timestamp when the gateway was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the gateway was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the gateway.</p>
+   * @public
+   */
+  status: GatewayStatus | undefined;
+
+  /**
+   * <p>The reasons for the current status of the gateway.</p>
+   * @public
+   */
+  statusReasons?: string[] | undefined;
+
+  /**
+   * <p>The name of the gateway.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the gateway.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the gateway.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>The protocol type of the gateway.</p>
+   * @public
+   */
+  protocolType?: GatewayProtocolType | undefined;
+
+  /**
+   * <p>The configuration settings for the protocol used by the gateway.</p>
+   * @public
+   */
+  protocolConfiguration?: GatewayProtocolConfiguration | undefined;
+
+  /**
+   * <p>The type of authorizer used by the gateway.</p>
+   * @public
+   */
+  authorizerType: AuthorizerType | undefined;
+
+  /**
+   * <p>The authorizer configuration for the created gateway.</p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt data associated with the gateway.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
+   * @public
+   */
+  customTransformConfiguration?: CustomTransformConfiguration | undefined;
+
+  /**
+   * <p>The list of interceptor configurations for the created gateway.</p>
+   * @public
+   */
+  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
+
+  /**
+   * <p>The policy engine configuration for the created gateway.</p>
+   * @public
+   */
+  policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
+
+  /**
+   * <p>The workload identity details for the created gateway.</p>
+   * @public
+   */
+  workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
+
+  /**
+   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
+   * @public
+   */
+  exceptionLevel?: ExceptionLevel | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.</p>
+   * @public
+   */
+  webAclArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services WAF configuration for the gateway.</p>
+   * @public
+   */
+  wafConfiguration?: WafConfiguration | undefined;
+
+  /**
+   * <p>The public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header.</p>
+   * @public
+   */
+  domainOverride?: DomainOverride | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGatewayRequest {
+  /**
+   * <p>The identifier of the gateway to delete.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGatewayResponse {
+  /**
+   * <p>The unique identifier of the deleted gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The current status of the gateway deletion.</p>
+   * @public
+   */
+  status: GatewayStatus | undefined;
+
+  /**
+   * <p>The reasons for the current status of the gateway deletion.</p>
+   * @public
+   */
+  statusReasons?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGatewayRequest {
+  /**
+   * <p>The identifier of the gateway to retrieve.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGatewayResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>An endpoint for invoking gateway.</p>
+   * @public
+   */
+  gatewayUrl?: string | undefined;
+
+  /**
+   * <p>The timestamp when the gateway was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the gateway was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the gateway.</p>
+   * @public
+   */
+  status: GatewayStatus | undefined;
+
+  /**
+   * <p>The reasons for the current status of the gateway.</p>
+   * @public
+   */
+  statusReasons?: string[] | undefined;
+
+  /**
+   * <p>The name of the gateway.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the gateway.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The IAM role ARN that provides permissions for the gateway.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>Protocol applied to a gateway.</p>
+   * @public
+   */
+  protocolType?: GatewayProtocolType | undefined;
+
+  /**
+   * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
+   * @public
+   */
+  protocolConfiguration?: GatewayProtocolConfiguration | undefined;
+
+  /**
+   * <p>Authorizer type for the gateway.</p>
+   * @public
+   */
+  authorizerType: AuthorizerType | undefined;
+
+  /**
+   * <p>The authorizer configuration for the gateway.</p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the gateway.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
+   * @public
+   */
+  customTransformConfiguration?: CustomTransformConfiguration | undefined;
+
+  /**
+   * <p>The interceptors configured on the gateway.</p>
+   * @public
+   */
+  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
+
+  /**
+   * <p>The policy engine configuration for the gateway.</p>
+   * @public
+   */
+  policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
+
+  /**
+   * <p>The workload identity details for the gateway.</p>
+   * @public
+   */
+  workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
+
+  /**
+   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
+   * @public
+   */
+  exceptionLevel?: ExceptionLevel | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.</p>
+   * @public
+   */
+  webAclArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services WAF configuration for the gateway.</p>
+   * @public
+   */
+  wafConfiguration?: WafConfiguration | undefined;
+
+  /**
+   * <p>The public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header.</p>
+   * @public
+   */
+  domainOverride?: DomainOverride | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewaysRequest {
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a gateway.</p>
+ * @public
+ */
+export interface GatewaySummary {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The name of the gateway.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The current status of the gateway.</p>
+   * @public
+   */
+  status: GatewayStatus | undefined;
+
+  /**
+   * <p>The description of the gateway.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the gateway was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the gateway was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The type of authorizer used by the gateway.</p>
+   * @public
+   */
+  authorizerType: AuthorizerType | undefined;
+
+  /**
+   * <p>The protocol type used by the gateway.</p>
+   * @public
+   */
+  protocolType?: GatewayProtocolType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewaysResponse {
+  /**
+   * <p>The list of gateway summaries.</p>
+   * @public
+   */
+  items: GatewaySummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGatewayRequest {
+  /**
+   * <p>The identifier of the gateway to update.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the gateway. This name must be the same as the one when the gateway was created.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The updated description for the gateway.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated IAM role ARN that provides permissions for the gateway.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The updated protocol type for the gateway.</p>
+   * @public
+   */
+  protocolType?: GatewayProtocolType | undefined;
+
+  /**
+   * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
+   * @public
+   */
+  protocolConfiguration?: GatewayProtocolConfiguration | undefined;
+
+  /**
+   * <p>The updated authorizer type for the gateway.</p>
+   * @public
+   */
+  authorizerType: AuthorizerType | undefined;
+
+  /**
+   * <p>The updated authorizer configuration for the gateway.</p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The updated ARN of the KMS key used to encrypt the gateway.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The updated custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
+   * @public
+   */
+  customTransformConfiguration?: CustomTransformConfiguration | undefined;
+
+  /**
+   * <p>The updated interceptor configurations for the gateway.</p>
+   * @public
+   */
+  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
+
+  /**
+   * <p>The updated policy engine configuration for the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.</p>
+   * @public
+   */
+  policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
+
+  /**
+   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
+   * @public
+   */
+  exceptionLevel?: ExceptionLevel | undefined;
+
+  /**
+   * <p>The updated Amazon Web Services WAF configuration for the gateway.</p>
+   * @public
+   */
+  wafConfiguration?: WafConfiguration | undefined;
+
+  /**
+   * <p>The updated public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header. Specify this when clients reach the gateway through your own proxy or custom domain.</p>
+   * @public
+   */
+  domainOverride?: DomainOverride | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGatewayResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated gateway.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the updated gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>An endpoint for invoking the updated gateway.</p>
+   * @public
+   */
+  gatewayUrl?: string | undefined;
+
+  /**
+   * <p>The timestamp when the gateway was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the gateway was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the updated gateway.</p>
+   * @public
+   */
+  status: GatewayStatus | undefined;
+
+  /**
+   * <p>The reasons for the current status of the updated gateway.</p>
+   * @public
+   */
+  statusReasons?: string[] | undefined;
+
+  /**
+   * <p>The name of the gateway.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The updated description of the gateway.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated IAM role ARN that provides permissions for the gateway.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>The updated protocol type for the gateway.</p>
+   * @public
+   */
+  protocolType?: GatewayProtocolType | undefined;
+
+  /**
+   * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
+   * @public
+   */
+  protocolConfiguration?: GatewayProtocolConfiguration | undefined;
+
+  /**
+   * <p>The updated authorizer type for the gateway.</p>
+   * @public
+   */
+  authorizerType: AuthorizerType | undefined;
+
+  /**
+   * <p>The updated authorizer configuration for the gateway.</p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The updated ARN of the KMS key used to encrypt the gateway.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
+   * @public
+   */
+  customTransformConfiguration?: CustomTransformConfiguration | undefined;
+
+  /**
+   * <p>The updated interceptor configurations for the gateway.</p>
+   * @public
+   */
+  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
+
+  /**
+   * <p>The updated policy engine configuration for the gateway.</p>
+   * @public
+   */
+  policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
+
+  /**
+   * <p>The workload identity details for the updated gateway.</p>
+   * @public
+   */
+  workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
+
+  /**
+   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
+   * @public
+   */
+  exceptionLevel?: ExceptionLevel | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.</p>
+   * @public
+   */
+  webAclArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services WAF configuration for the gateway.</p>
+   * @public
+   */
+  wafConfiguration?: WafConfiguration | undefined;
+
+  /**
+   * <p>The public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header.</p>
+   * @public
+   */
+  domainOverride?: DomainOverride | undefined;
+}
+
+/**
+ * <p>A model ID or pattern to match against the requested model, and the operator to use for the comparison.</p>
+ * @public
+ */
+export interface MatchModelEntry {
+  /**
+   * <p>The model ID or pattern to match. With the <code>StringLike</code> operator, you can use <code>*</code> and <code>?</code> as wildcards, for example <code>anthropic.claude-*</code>.</p>
+   * @public
+   */
+  value: string | undefined;
+
+  /**
+   * <p>The operator to use when comparing the requested model to the value:</p> <ul> <li> <p> <code>StringEquals</code> – Requires an exact match.</p> </li> <li> <p> <code>StringLike</code> – Supports wildcard patterns using <code>*</code> and <code>?</code>. This is the default.</p> </li> </ul>
+   * @public
+   */
+  operator?: MatchOperator | undefined;
+}
+
+/**
+ * <p>A condition that matches inference requests based on the requested model.</p>
+ * @public
+ */
+export interface MatchModels {
+  /**
+   * <p>A list of model entries. The condition is met if the requested model matches any of the entries.</p>
+   * @public
+   */
+  anyOf: MatchModelEntry[] | undefined;
+}
 
 /**
  * <p>A condition that matches requests based on the request path.</p>
@@ -9449,588 +10170,3 @@ export interface ListOnlineEvaluationConfigsRequest {
    */
   maxResults?: number | undefined;
 }
-
-/**
- * <p> The summary information about an online evaluation configuration, including basic metadata and execution status. </p>
- * @public
- */
-export interface OnlineEvaluationConfigSummary {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigArn: string | undefined;
-
-  /**
-   * <p> The unique identifier of the online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigId: string | undefined;
-
-  /**
-   * <p> The name of the online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigName: string | undefined;
-
-  /**
-   * <p> The description of the online evaluation configuration. </p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p> The status of the online evaluation configuration. </p>
-   * @public
-   */
-  status: OnlineEvaluationConfigStatus | undefined;
-
-  /**
-   * <p> The execution status indicating whether the online evaluation is currently running. </p>
-   * @public
-   */
-  executionStatus: OnlineEvaluationExecutionStatus | undefined;
-
-  /**
-   * <p> The timestamp when the online evaluation configuration was created. </p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p> The timestamp when the online evaluation configuration was last updated. </p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p> The reason for failure if the online evaluation configuration execution failed. </p>
-   * @public
-   */
-  failureReason?: string | undefined;
-
-  /**
-   * <p>The list of insight types configured for this evaluation.</p>
-   * @public
-   */
-  insights?: Insight[] | undefined;
-
-  /**
-   * <p>The clustering configuration for periodic batch evaluation.</p>
-   * @public
-   */
-  clusteringConfig?: ClusteringConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface ListOnlineEvaluationConfigsResponse {
-  /**
-   * <p> The list of online evaluation configuration summaries containing basic information about each configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigs: OnlineEvaluationConfigSummary[] | undefined;
-
-  /**
-   * <p> The pagination token to use in a subsequent request to retrieve the next page of results. </p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateOnlineEvaluationConfigRequest {
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p> The unique identifier of the online evaluation configuration to update. </p>
-   * @public
-   */
-  onlineEvaluationConfigId: string | undefined;
-
-  /**
-   * <p> The updated description of the online evaluation configuration. </p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p> The updated evaluation rule containing sampling configuration, filters, and session settings. </p>
-   * @public
-   */
-  rule?: Rule | undefined;
-
-  /**
-   * <p> The updated data source configuration specifying CloudWatch log groups and service names to monitor. </p>
-   * @public
-   */
-  dataSourceConfig?: DataSourceConfig | undefined;
-
-  /**
-   * <p> The updated list of evaluators to apply during online evaluation. </p>
-   * @public
-   */
-  evaluators?: EvaluatorReference[] | undefined;
-
-  /**
-   * <p>The updated list of insight types to run against agent sessions.</p>
-   * @public
-   */
-  insights?: Insight[] | undefined;
-
-  /**
-   * <p>The updated clustering configuration for periodic batch evaluation.</p>
-   * @public
-   */
-  clusteringConfig?: ClusteringConfig | undefined;
-
-  /**
-   * <p> The configuration that specifies where evaluation results should be written for monitoring and analysis. </p>
-   * @public
-   */
-  outputConfig?: OutputConfig | undefined;
-
-  /**
-   * <p> The updated Amazon Resource Name (ARN) of the IAM role used for evaluation execution. </p>
-   * @public
-   */
-  evaluationExecutionRoleArn?: string | undefined;
-
-  /**
-   * <p> The updated execution status to enable or disable the online evaluation. </p>
-   * @public
-   */
-  executionStatus?: OnlineEvaluationExecutionStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateOnlineEvaluationConfigResponse {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the updated online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigArn: string | undefined;
-
-  /**
-   * <p> The unique identifier of the updated online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigId: string | undefined;
-
-  /**
-   * <p> The timestamp when the online evaluation configuration was last updated. </p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p> The status of the online evaluation configuration. </p>
-   * @public
-   */
-  status: OnlineEvaluationConfigStatus | undefined;
-
-  /**
-   * <p> The execution status indicating whether the online evaluation is currently running. </p>
-   * @public
-   */
-  executionStatus: OnlineEvaluationExecutionStatus | undefined;
-
-  /**
-   * <p> The reason for failure if the online evaluation configuration update or execution failed. </p>
-   * @public
-   */
-  failureReason?: string | undefined;
-}
-
-/**
- * <p>Coinbase CDP configuration — credentials provided by Coinbase Developer Platform.</p>
- * @public
- */
-export interface CoinbaseCdpConfigurationInput {
-  /**
-   * <p>The API key identifier provided by Coinbase Developer Platform.</p>
-   * @public
-   */
-  apiKeyId: string | undefined;
-
-  /**
-   * <p>The API key secret provided by Coinbase Developer Platform.</p>
-   * @public
-   */
-  apiKeySecret?: string | undefined;
-
-  /**
-   * <p>The source type of the API key secret for the Coinbase Developer Platform. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
-   * @public
-   */
-  apiKeySecretSource?: SecretSourceType | undefined;
-
-  /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the API key secret. This includes the secret ID and the JSON key used to extract the API key secret value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>
-   * @public
-   */
-  apiKeySecretConfig?: SecretReference | undefined;
-
-  /**
-   * <p>The wallet secret provided by Coinbase Developer Platform.</p>
-   * @public
-   */
-  walletSecret?: string | undefined;
-
-  /**
-   * <p>The source type of the wallet secret for the Coinbase Developer Platform. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
-   * @public
-   */
-  walletSecretSource?: SecretSourceType | undefined;
-
-  /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the wallet secret. This includes the secret ID and the JSON key used to extract the wallet secret value from the secret. Required when <code>walletSecretSource</code> is set to <code>EXTERNAL</code>.</p>
-   * @public
-   */
-  walletSecretConfig?: SecretReference | undefined;
-}
-
-/**
- * <p>Stripe Privy configuration — credentials provided by Stripe and Privy.</p>
- * @public
- */
-export interface StripePrivyConfigurationInput {
-  /**
-   * <p>The app ID provided by Privy.</p>
-   * @public
-   */
-  appId: string | undefined;
-
-  /**
-   * <p>The app secret provided by Privy.</p>
-   * @public
-   */
-  appSecret?: string | undefined;
-
-  /**
-   * <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
-   * @public
-   */
-  appSecretSource?: SecretSourceType | undefined;
-
-  /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
-   * @public
-   */
-  appSecretConfig?: SecretReference | undefined;
-
-  /**
-   * <p>The authorization private key for the Stripe Privy integration.</p>
-   * @public
-   */
-  authorizationPrivateKey?: string | undefined;
-
-  /**
-   * <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
-   * @public
-   */
-  authorizationPrivateKeySource?: SecretSourceType | undefined;
-
-  /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
-   * @public
-   */
-  authorizationPrivateKeyConfig?: SecretReference | undefined;
-
-  /**
-   * <p>The authorization ID for the Stripe Privy integration.</p>
-   * @public
-   */
-  authorizationId: string | undefined;
-}
-
-/**
- * <p>Provider configuration input — contains secrets for creation and update. Varies by vendor type.</p>
- * @public
- */
-export type PaymentProviderConfigurationInput =
-  | PaymentProviderConfigurationInput.CoinbaseCdpConfigurationMember
-  | PaymentProviderConfigurationInput.StripePrivyConfigurationMember
-  | PaymentProviderConfigurationInput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace PaymentProviderConfigurationInput {
-  /**
-   * <p>The Coinbase CDP configuration.</p>
-   * @public
-   */
-  export interface CoinbaseCdpConfigurationMember {
-    coinbaseCdpConfiguration: CoinbaseCdpConfigurationInput;
-    stripePrivyConfiguration?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The Stripe Privy configuration.</p>
-   * @public
-   */
-  export interface StripePrivyConfigurationMember {
-    coinbaseCdpConfiguration?: never;
-    stripePrivyConfiguration: StripePrivyConfigurationInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    coinbaseCdpConfiguration?: never;
-    stripePrivyConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    coinbaseCdpConfiguration: (value: CoinbaseCdpConfigurationInput) => T;
-    stripePrivyConfiguration: (value: StripePrivyConfigurationInput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface CreatePaymentCredentialProviderRequest {
-  /**
-   * <p>Unique name for the payment credential provider.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).</p>
-   * @public
-   */
-  credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
-
-  /**
-   * <p>Configuration specific to the vendor, including API credentials.</p>
-   * @public
-   */
-  providerConfigurationInput: PaymentProviderConfigurationInput | undefined;
-
-  /**
-   * <p>Optional tags for resource organization.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Coinbase CDP configuration output with secret ARNs.</p>
- * @public
- */
-export interface CoinbaseCdpConfigurationOutput {
-  /**
-   * <p>The API key identifier provided by Coinbase Developer Platform.</p>
-   * @public
-   */
-  apiKeyId: string | undefined;
-
-  /**
-   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
-   * @public
-   */
-  apiKeySecretArn: Secret | undefined;
-
-  /**
-   * <p>The JSON key used to extract the API key secret value from the Amazon Web Services Secrets Manager secret.</p>
-   * @public
-   */
-  apiKeySecretJsonKey?: string | undefined;
-
-  /**
-   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
-   * @public
-   */
-  apiKeySecretSource?: SecretSourceType | undefined;
-
-  /**
-   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
-   * @public
-   */
-  walletSecretArn: Secret | undefined;
-
-  /**
-   * <p>The JSON key used to extract the wallet secret value from the Amazon Web Services Secrets Manager secret.</p>
-   * @public
-   */
-  walletSecretJsonKey?: string | undefined;
-
-  /**
-   * <p>The source type of the wallet secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
-   * @public
-   */
-  walletSecretSource?: SecretSourceType | undefined;
-}
-
-/**
- * <p>Stripe Privy configuration output with secret ARNs.</p>
- * @public
- */
-export interface StripePrivyConfigurationOutput {
-  /**
-   * <p>The app ID provided by Privy.</p>
-   * @public
-   */
-  appId: string | undefined;
-
-  /**
-   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
-   * @public
-   */
-  appSecretArn: Secret | undefined;
-
-  /**
-   * <p>The JSON key used to extract the app secret value from the Amazon Web Services Secrets Manager secret.</p>
-   * @public
-   */
-  appSecretJsonKey?: string | undefined;
-
-  /**
-   * <p>The source type of the app secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
-   * @public
-   */
-  appSecretSource?: SecretSourceType | undefined;
-
-  /**
-   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
-   * @public
-   */
-  authorizationPrivateKeyArn: Secret | undefined;
-
-  /**
-   * <p>The JSON key used to extract the authorization private key value from the Amazon Web Services Secrets Manager secret.</p>
-   * @public
-   */
-  authorizationPrivateKeyJsonKey?: string | undefined;
-
-  /**
-   * <p>The source type of the authorization private key. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
-   * @public
-   */
-  authorizationPrivateKeySource?: SecretSourceType | undefined;
-
-  /**
-   * <p>The authorization ID for the Stripe Privy integration.</p>
-   * @public
-   */
-  authorizationId: string | undefined;
-}
-
-/**
- * <p>Provider configuration output — no raw secrets, only ARNs. Varies by vendor type.</p>
- * @public
- */
-export type PaymentProviderConfigurationOutput =
-  | PaymentProviderConfigurationOutput.CoinbaseCdpConfigurationMember
-  | PaymentProviderConfigurationOutput.StripePrivyConfigurationMember
-  | PaymentProviderConfigurationOutput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace PaymentProviderConfigurationOutput {
-  /**
-   * <p>The Coinbase CDP configuration.</p>
-   * @public
-   */
-  export interface CoinbaseCdpConfigurationMember {
-    coinbaseCdpConfiguration: CoinbaseCdpConfigurationOutput;
-    stripePrivyConfiguration?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The Stripe Privy configuration.</p>
-   * @public
-   */
-  export interface StripePrivyConfigurationMember {
-    coinbaseCdpConfiguration?: never;
-    stripePrivyConfiguration: StripePrivyConfigurationOutput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    coinbaseCdpConfiguration?: never;
-    stripePrivyConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    coinbaseCdpConfiguration: (value: CoinbaseCdpConfigurationOutput) => T;
-    stripePrivyConfiguration: (value: StripePrivyConfigurationOutput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface CreatePaymentCredentialProviderResponse {
-  /**
-   * <p>The name of the created payment credential provider.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The vendor type for the created payment credential provider.</p>
-   * @public
-   */
-  credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created payment credential provider.</p>
-   * @public
-   */
-  credentialProviderArn: string | undefined;
-
-  /**
-   * <p>Output configuration (contains secret ARNs, excludes actual secret values).</p>
-   * @public
-   */
-  providerConfigurationOutput: PaymentProviderConfigurationOutput | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePaymentCredentialProviderRequest {
-  /**
-   * <p>The name of the payment credential provider to delete.</p>
-   * @public
-   */
-  name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePaymentCredentialProviderResponse {}

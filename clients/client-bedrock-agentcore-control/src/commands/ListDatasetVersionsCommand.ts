@@ -34,6 +34,17 @@ export interface ListDatasetVersionsCommandOutput extends ListDatasetVersionsRes
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // ListDatasetVersionsRequest
  *   datasetId: "STRING_VALUE", // required
+ *   filter: { // ListDatasetVersionsFilter
+ *     exampleCountByField: [ // ExampleCountByFieldConditionList
+ *       { // ExampleCountByFieldCondition
+ *         anyOf: [ // ExampleFieldList
+ *           "TURNS" || "INPUT" || "ACTOR_PROFILE",
+ *         ],
+ *         min: Number("long"),
+ *         max: Number("long"),
+ *       },
+ *     ],
+ *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
@@ -44,6 +55,11 @@ export interface ListDatasetVersionsCommandOutput extends ListDatasetVersionsRes
  * //     { // DatasetVersionSummary
  * //       datasetVersion: "STRING_VALUE", // required
  * //       exampleCount: Number("long"), // required
+ * //       exampleCountByField: { // ExampleCountByField
+ * //         turns: Number("long"), // required
+ * //         input: Number("long"), // required
+ * //         actorProfile: Number("long"), // required
+ * //       },
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],

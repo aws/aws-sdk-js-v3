@@ -23,7 +23,7 @@ export interface ListDatasetExamplesCommandInput extends ListDatasetExamplesRequ
 export interface ListDatasetExamplesCommandOutput extends ListDatasetExamplesResponse, __MetadataBearer {}
 
 /**
- * <p> Returns paginated examples from the dataset. The server embeds the resolved version in the pagination token. Once pagination begins, all subsequent pages are pinned to that version regardless of concurrent mutations. </p>
+ * <p> Returns paginated examples from the dataset. The server embeds the resolved version in the pagination token. Once pagination begins, all subsequent pages are pinned to that version regardless of concurrent mutations. A request with a pagination token can omit <code>datasetVersion</code>. If it sets a version that differs from the token's version, the request fails with a <code>ValidationException</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -35,6 +35,18 @@ export interface ListDatasetExamplesCommandOutput extends ListDatasetExamplesRes
  * const input = { // ListDatasetExamplesRequest
  *   datasetId: "STRING_VALUE", // required
  *   datasetVersion: "STRING_VALUE",
+ *   filter: { // ListDatasetExamplesFilter
+ *     generationIds: [ // DatasetGenerationIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     exampleFields: [ // ExampleFieldConditionList
+ *       { // ExampleFieldCondition
+ *         anyOf: [ // ExampleFieldList
+ *           "TURNS" || "INPUT" || "ACTOR_PROFILE",
+ *         ],
+ *       },
+ *     ],
+ *   },
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

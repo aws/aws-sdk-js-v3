@@ -33,6 +33,17 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // ListDatasetsRequest
+ *   filter: { // ListDatasetsFilter
+ *     exampleCountByField: [ // ExampleCountByFieldConditionList
+ *       { // ExampleCountByFieldCondition
+ *         anyOf: [ // ExampleFieldList
+ *           "TURNS" || "INPUT" || "ACTOR_PROFILE",
+ *         ],
+ *         min: Number("long"),
+ *         max: Number("long"),
+ *       },
+ *     ],
+ *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
@@ -47,8 +58,13 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * //       description: "STRING_VALUE",
  * //       status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
  * //       draftStatus: "MODIFIED" || "UNMODIFIED",
- * //       schemaType: "AGENTCORE_EVALUATION_PREDEFINED_V1" || "AGENTCORE_EVALUATION_SIMULATED_V1" || "THIRD_PARTY_EVALUATION_V1", // required
+ * //       schemaType: "AGENTCORE_EVALUATION_PREDEFINED_V1" || "AGENTCORE_EVALUATION_SIMULATED_V1" || "THIRD_PARTY_EVALUATION_V1",
  * //       exampleCount: Number("long"), // required
+ * //       exampleCountByField: { // ExampleCountByField
+ * //         turns: Number("long"), // required
+ * //         input: Number("long"), // required
+ * //         actorProfile: Number("long"), // required
+ * //       },
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //     },

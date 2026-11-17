@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListAgentInsightStoresPaginator";
 export * from "./ListAgentRuntimeEndpointsPaginator";
 export * from "./ListAgentRuntimesPaginator";
 export * from "./ListAgentRuntimeVersionsPaginator";

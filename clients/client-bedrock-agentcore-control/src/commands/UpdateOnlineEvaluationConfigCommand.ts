@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateOnlineEvaluationConfigRequest, UpdateOnlineEvaluationConfigResponse } from "../models/models_1";
+import type { UpdateOnlineEvaluationConfigRequest, UpdateOnlineEvaluationConfigResponse } from "../models/models_2";
 import { UpdateOnlineEvaluationConfig$ } from "../schemas/schemas_0";
 
 /**

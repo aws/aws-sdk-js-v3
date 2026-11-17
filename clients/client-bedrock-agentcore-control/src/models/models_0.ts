@@ -2,6 +2,9 @@
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
+  AgentInsightStoreEnablementStatus,
+  AgentInsightStoreEncryptionMode,
+  AgentInsightStoreStatus,
   AgentManagedRuntimeType,
   AgentRuntimeEndpointStatus,
   AgentRuntimeStatus,
@@ -28,17 +31,16 @@ import type {
   EvaluatorLevel,
   EvaluatorStatus,
   EvaluatorType,
+  ExampleField,
   ExceptionLevel,
   FallbackError,
   GatewayInterceptionPoint,
   GatewayPolicyEngineMode,
   GatewayProtocolType,
   GatewayRateLimitStatus,
-  GatewayStatus,
   InboundTokenClaimValueType,
   IncludedData,
   InterceptorPayloadExclusion,
-  MatchOperator,
   Monitoring,
   NetworkMode,
   OperatingSystem,
@@ -48,7 +50,6 @@ import type {
   SearchType,
   SecretSourceType,
   ServerProtocol,
-  WafFailureMode,
 } from "./enums";
 
 /**
@@ -1065,6 +1066,240 @@ export interface UpdateAgentRuntimeEndpointResponse {
    * @public
    */
   lastUpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentInsightStoreRequest {
+  /**
+   * <p>Specifies the unique identifier of the Agent Insight Store to retrieve.</p>
+   * @public
+   */
+  agentInsightStoreId: string | undefined;
+}
+
+/**
+ * <p>Contains the encryption mode and key configuration used to encrypt new Agent Insights in an Agent Insight Store.</p>
+ * @public
+ */
+export interface AgentInsightStoreEncryptionConfiguration {
+  /**
+   * <p>Specifies the encryption mode used to protect new Agent Insights.</p>
+   * @public
+   */
+  mode: AgentInsightStoreEncryptionMode | undefined;
+
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the customer managed AWS KMS key that you use to encrypt new Agent Insights. This field is required when <code>mode</code> is <code>CUSTOMER_MANAGED_KMS</code> and cannot be specified when <code>mode</code> is <code>AWS_OWNED_KMS_KEY</code>.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentInsightStoreResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Agent Insight Store.</p>
+   * @public
+   */
+  agentInsightStoreArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Agent Insight Store.</p>
+   * @public
+   */
+  agentInsightStoreId: string | undefined;
+
+  /**
+   * <p>The current lifecycle status of the Agent Insight Store. Valid values:</p> <dl> <dt>ACTIVE</dt> <dd> <p>The store is available.</p> </dd> <dt>UPDATING</dt> <dd> <p>The service is applying a requested change.</p> </dd> <dt>INACTIVE</dt> <dd> <p>The store does not accept new Agent Insights.</p> </dd> <dt>ERROR</dt> <dd> <p>The store requires intervention.</p> </dd> </dl>
+   * @public
+   */
+  status: AgentInsightStoreStatus | undefined;
+
+  /**
+   * <p>Specifies whether the Agent Insight Store accepts new Agent Insights. The default value is enabled.</p>
+   * @public
+   */
+  enablementStatus: AgentInsightStoreEnablementStatus | undefined;
+
+  /**
+   * <p>Specifies the encryption mode and key configuration that encrypts new Agent Insights and protects the data at rest.</p>
+   * @public
+   */
+  encryptionConfiguration: AgentInsightStoreEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The date and time when the Agent Insight Store was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the Agent Insight Store was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Describes the failure that prevented the Agent Insight Store from reaching its requested lifecycle status.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgentInsightStoresRequest {
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information about an Agent Insight Store.</p>
+ * @public
+ */
+export interface AgentInsightStoreSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Agent Insight Store.</p>
+   * @public
+   */
+  agentInsightStoreArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Agent Insight Store.</p>
+   * @public
+   */
+  agentInsightStoreId: string | undefined;
+
+  /**
+   * <p>The current lifecycle status of the Agent Insight Store. Valid values:</p> <dl> <dt>ACTIVE</dt> <dd> <p>The store is available.</p> </dd> <dt>UPDATING</dt> <dd> <p>The service is applying a requested change.</p> </dd> <dt>INACTIVE</dt> <dd> <p>The store does not accept new Agent Insights.</p> </dd> <dt>ERROR</dt> <dd> <p>The store requires intervention.</p> </dd> </dl>
+   * @public
+   */
+  status: AgentInsightStoreStatus | undefined;
+
+  /**
+   * <p>Specifies whether the Agent Insight Store accepts new Agent Insights. The default value is enabled.</p>
+   * @public
+   */
+  enablementStatus: AgentInsightStoreEnablementStatus | undefined;
+
+  /**
+   * <p>Specifies the encryption mode and key configuration that encrypts new Agent Insights and protects the data at rest.</p>
+   * @public
+   */
+  encryptionConfiguration: AgentInsightStoreEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The date and time when the Agent Insight Store was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the Agent Insight Store was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgentInsightStoresResponse {
+  /**
+   * <p>The Agent Insight Store summaries.</p>
+   * @public
+   */
+  agentInsightStores: AgentInsightStoreSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAgentInsightStoreRequest {
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Specifies the unique identifier of the Agent Insight Store to update.</p>
+   * @public
+   */
+  agentInsightStoreId: string | undefined;
+
+  /**
+   * <p>Specifies whether the Agent Insight Store accepts new Agent Insights. If you don't specify this parameter, the store's current enablement setting remains unchanged.</p>
+   * @public
+   */
+  enablementStatus?: AgentInsightStoreEnablementStatus | undefined;
+
+  /**
+   * <p>Specifies the encryption mode and key configuration to use for new Agent Insights. If you don't specify this parameter, the store's current encryption configuration remains unchanged.</p>
+   * @public
+   */
+  encryptionConfiguration?: AgentInsightStoreEncryptionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAgentInsightStoreResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated Agent Insight Store.</p>
+   * @public
+   */
+  agentInsightStoreArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the updated Agent Insight Store.</p>
+   * @public
+   */
+  agentInsightStoreId: string | undefined;
+
+  /**
+   * <p>The lifecycle status of the Agent Insight Store after the update request. Valid values:</p> <dl> <dt>ACTIVE</dt> <dd> <p>The store is available.</p> </dd> <dt>UPDATING</dt> <dd> <p>The service is applying a requested change.</p> </dd> <dt>INACTIVE</dt> <dd> <p>The store does not accept new Agent Insights.</p> </dd> <dt>ERROR</dt> <dd> <p>The store requires intervention.</p> </dd> </dl>
+   * @public
+   */
+  status: AgentInsightStoreStatus | undefined;
+
+  /**
+   * <p>Specifies whether the Agent Insight Store accepts new Agent Insights after the update request.</p>
+   * @public
+   */
+  enablementStatus: AgentInsightStoreEnablementStatus | undefined;
+
+  /**
+   * <p>The date and time when the Agent Insight Store was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Describes the failure that prevented the Agent Insight Store from reaching its requested lifecycle status.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
 }
 
 /**
@@ -6414,13 +6649,13 @@ export interface CreateDatasetRequest {
    * <p> Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file. </p>
    * @public
    */
-  source: DataSourceType | undefined;
+  source?: DataSourceType | undefined;
 
   /**
    * <p> Versioned schema type governing the structure of examples. Immutable after creation. </p>
    * @public
    */
-  schemaType: DatasetSchemaType | undefined;
+  schemaType?: DatasetSchemaType | undefined;
 
   /**
    * <p> Optional KMS key ARN for server-side encryption on service Amazon S3 writes. </p>
@@ -6644,6 +6879,30 @@ export interface GetDatasetRequest {
 }
 
 /**
+ * <p> The number of examples that have each field. An example can have more than one of these fields, so the counts can add up to more than <code>exampleCount</code>. </p>
+ * @public
+ */
+export interface ExampleCountByField {
+  /**
+   * <p> The number of examples that have <code>turns</code>. </p>
+   * @public
+   */
+  turns: number | undefined;
+
+  /**
+   * <p> The number of examples that have <code>input</code>. </p>
+   * @public
+   */
+  input: number | undefined;
+
+  /**
+   * <p> The number of examples that have <code>actor_profile</code>. </p>
+   * @public
+   */
+  actorProfile: number | undefined;
+}
+
+/**
  * @public
  */
 export interface GetDatasetResponse {
@@ -6699,7 +6958,7 @@ export interface GetDatasetResponse {
    * <p> The schema type declared at create time. Immutable after creation. </p>
    * @public
    */
-  schemaType: DatasetSchemaType | undefined;
+  schemaType?: DatasetSchemaType | undefined;
 
   /**
    * <p> KMS key ARN used for server-side encryption on service Amazon S3 writes, if configured. </p>
@@ -6712,6 +6971,12 @@ export interface GetDatasetResponse {
    * @public
    */
   exampleCount: number | undefined;
+
+  /**
+   * <p> The number of examples that have each field, for the resolved version. Absent when the counts are unknown. </p>
+   * @public
+   */
+  exampleCountByField?: ExampleCountByField | undefined;
 
   /**
    * <p> Presigned Amazon S3 URL to download the consolidated dataset file for the resolved version. Expires after 5 minutes. Omitted if the file does not yet exist. </p>
@@ -6745,6 +7010,36 @@ export interface GetDatasetResponse {
 }
 
 /**
+ * <p> A condition on the fields of an example. </p>
+ * @public
+ */
+export interface ExampleFieldCondition {
+  /**
+   * <p> Matches examples that have at least one of these fields. Required. </p>
+   * @public
+   */
+  anyOf?: ExampleField[] | undefined;
+}
+
+/**
+ * <p> A filter for <code>ListDatasetExamples</code>. </p>
+ * @public
+ */
+export interface ListDatasetExamplesFilter {
+  /**
+   * <p> Returns only examples created by this dataset generation. Specify one ID. </p>
+   * @public
+   */
+  generationIds?: string[] | undefined;
+
+  /**
+   * <p> Returns only examples that meet at least one of these conditions. Examples last written before example field filtering was available never match. </p>
+   * @public
+   */
+  exampleFields?: ExampleFieldCondition[] | undefined;
+}
+
+/**
  * @public
  */
 export interface ListDatasetExamplesRequest {
@@ -6755,10 +7050,16 @@ export interface ListDatasetExamplesRequest {
   datasetId: string | undefined;
 
   /**
-   * <p> Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only used on the first request; for subsequent pages, the version is extracted from the pagination token. </p>
+   * <p> Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent on the first request. With a pagination token, the version comes from the token: you can omit this member, and a value that differs from the token's version is rejected with a <code>ValidationException</code>. </p>
    * @public
    */
   datasetVersion?: string | undefined;
+
+  /**
+   * <p> A filter to apply to the examples. </p>
+   * @public
+   */
+  filter?: ListDatasetExamplesFilter | undefined;
 
   /**
    * <p> Maximum number of examples to return per page. </p>
@@ -6809,9 +7110,51 @@ export interface ListDatasetExamplesResponse {
 }
 
 /**
+ * <p> A condition on the number of examples that have the given fields. The count includes each example that has at least one of the fields in <code>anyOf</code>. </p>
+ * @public
+ */
+export interface ExampleCountByFieldCondition {
+  /**
+   * <p> The fields to count. An example counts if it has at least one of these fields. Required. </p>
+   * @public
+   */
+  anyOf?: ExampleField[] | undefined;
+
+  /**
+   * <p> The minimum count, inclusive. </p>
+   * @public
+   */
+  min?: number | undefined;
+
+  /**
+   * <p> The maximum count, inclusive. </p>
+   * @public
+   */
+  max?: number | undefined;
+}
+
+/**
+ * <p> A filter for <code>ListDatasets</code>. </p>
+ * @public
+ */
+export interface ListDatasetsFilter {
+  /**
+   * <p> Returns only datasets whose DRAFT example counts meet at least one of these conditions. </p>
+   * @public
+   */
+  exampleCountByField?: ExampleCountByFieldCondition[] | undefined;
+}
+
+/**
  * @public
  */
 export interface ListDatasetsRequest {
+  /**
+   * <p> A filter to apply to the datasets. </p>
+   * @public
+   */
+  filter?: ListDatasetsFilter | undefined;
+
   /**
    * <p> The token for the next page of results. </p>
    * @public
@@ -6870,13 +7213,19 @@ export interface DatasetSummary {
    * <p> The schema type of the dataset. </p>
    * @public
    */
-  schemaType: DatasetSchemaType | undefined;
+  schemaType?: DatasetSchemaType | undefined;
 
   /**
    * <p> The number of examples in the dataset. </p>
    * @public
    */
   exampleCount: number | undefined;
+
+  /**
+   * <p> The number of examples that have each field, for the DRAFT. Absent when the counts are unknown. </p>
+   * @public
+   */
+  exampleCountByField?: ExampleCountByField | undefined;
 
   /**
    * <p> The timestamp when the dataset was created. </p>
@@ -6909,6 +7258,18 @@ export interface ListDatasetsResponse {
 }
 
 /**
+ * <p> A filter for <code>ListDatasetVersions</code>. </p>
+ * @public
+ */
+export interface ListDatasetVersionsFilter {
+  /**
+   * <p> Returns only versions whose example counts meet at least one of these conditions. </p>
+   * @public
+   */
+  exampleCountByField?: ExampleCountByFieldCondition[] | undefined;
+}
+
+/**
  * @public
  */
 export interface ListDatasetVersionsRequest {
@@ -6917,6 +7278,12 @@ export interface ListDatasetVersionsRequest {
    * @public
    */
   datasetId: string | undefined;
+
+  /**
+   * <p> A filter to apply to the dataset versions. </p>
+   * @public
+   */
+  filter?: ListDatasetVersionsFilter | undefined;
 
   /**
    * <p> The token for the next page of results. </p>
@@ -6947,6 +7314,12 @@ export interface DatasetVersionSummary {
    * @public
    */
   exampleCount: number | undefined;
+
+  /**
+   * <p> The number of examples that have each field, for this version. Absent when the counts are unknown. </p>
+   * @public
+   */
+  exampleCountByField?: ExampleCountByField | undefined;
 
   /**
    * <p> The timestamp when this version was published. </p>
@@ -8868,717 +9241,6 @@ export interface LambdaTransformConfiguration {
    * @public
    */
   arn?: string | undefined;
-}
-
-/**
- * <p>The configuration for custom transformations applied to requests and responses through the gateway. This structure defines how the gateway transforms data.</p>
- * @public
- */
-export interface CustomTransformConfiguration {
-  /**
-   * <p>The Lambda configuration for custom transformations. This configuration defines how the gateway uses a Lambda function to transform data.</p>
-   * @public
-   */
-  lambda?: LambdaTransformConfiguration | undefined;
-}
-
-/**
- * <p>The Amazon Web Services WAF configuration for the gateway. This configuration controls how the gateway behaves when the associated web ACL cannot be evaluated.</p>
- * @public
- */
-export interface WafConfiguration {
-  /**
-   * <p>The failure mode that determines how the gateway handles requests when Amazon Web Services WAF is unreachable or times out. Valid values include:</p> <ul> <li> <p> <code>FAIL_CLOSE</code> - The gateway blocks requests when Amazon Web Services WAF cannot be evaluated.</p> </li> <li> <p> <code>FAIL_OPEN</code> - The gateway allows requests when Amazon Web Services WAF cannot be evaluated.</p> </li> </ul>
-   * @public
-   */
-  failureMode?: WafFailureMode | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateGatewayResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created gateway.</p>
-   * @public
-   */
-  gatewayArn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the created gateway.</p>
-   * @public
-   */
-  gatewayId: string | undefined;
-
-  /**
-   * <p>The URL endpoint for the created gateway.</p>
-   * @public
-   */
-  gatewayUrl?: string | undefined;
-
-  /**
-   * <p>The timestamp when the gateway was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the gateway was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The current status of the gateway.</p>
-   * @public
-   */
-  status: GatewayStatus | undefined;
-
-  /**
-   * <p>The reasons for the current status of the gateway.</p>
-   * @public
-   */
-  statusReasons?: string[] | undefined;
-
-  /**
-   * <p>The name of the gateway.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the gateway.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the gateway.</p>
-   * @public
-   */
-  roleArn?: string | undefined;
-
-  /**
-   * <p>The protocol type of the gateway.</p>
-   * @public
-   */
-  protocolType?: GatewayProtocolType | undefined;
-
-  /**
-   * <p>The configuration settings for the protocol used by the gateway.</p>
-   * @public
-   */
-  protocolConfiguration?: GatewayProtocolConfiguration | undefined;
-
-  /**
-   * <p>The type of authorizer used by the gateway.</p>
-   * @public
-   */
-  authorizerType: AuthorizerType | undefined;
-
-  /**
-   * <p>The authorizer configuration for the created gateway.</p>
-   * @public
-   */
-  authorizerConfiguration?: AuthorizerConfiguration | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt data associated with the gateway.</p>
-   * @public
-   */
-  kmsKeyArn?: string | undefined;
-
-  /**
-   * <p>The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
-   * @public
-   */
-  customTransformConfiguration?: CustomTransformConfiguration | undefined;
-
-  /**
-   * <p>The list of interceptor configurations for the created gateway.</p>
-   * @public
-   */
-  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
-
-  /**
-   * <p>The policy engine configuration for the created gateway.</p>
-   * @public
-   */
-  policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
-
-  /**
-   * <p>The workload identity details for the created gateway.</p>
-   * @public
-   */
-  workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
-
-  /**
-   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
-   * @public
-   */
-  exceptionLevel?: ExceptionLevel | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.</p>
-   * @public
-   */
-  webAclArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services WAF configuration for the gateway.</p>
-   * @public
-   */
-  wafConfiguration?: WafConfiguration | undefined;
-
-  /**
-   * <p>The public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header.</p>
-   * @public
-   */
-  domainOverride?: DomainOverride | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGatewayRequest {
-  /**
-   * <p>The identifier of the gateway to delete.</p>
-   * @public
-   */
-  gatewayIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGatewayResponse {
-  /**
-   * <p>The unique identifier of the deleted gateway.</p>
-   * @public
-   */
-  gatewayId: string | undefined;
-
-  /**
-   * <p>The current status of the gateway deletion.</p>
-   * @public
-   */
-  status: GatewayStatus | undefined;
-
-  /**
-   * <p>The reasons for the current status of the gateway deletion.</p>
-   * @public
-   */
-  statusReasons?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetGatewayRequest {
-  /**
-   * <p>The identifier of the gateway to retrieve.</p>
-   * @public
-   */
-  gatewayIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetGatewayResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway.</p>
-   * @public
-   */
-  gatewayArn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the gateway.</p>
-   * @public
-   */
-  gatewayId: string | undefined;
-
-  /**
-   * <p>An endpoint for invoking gateway.</p>
-   * @public
-   */
-  gatewayUrl?: string | undefined;
-
-  /**
-   * <p>The timestamp when the gateway was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the gateway was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The current status of the gateway.</p>
-   * @public
-   */
-  status: GatewayStatus | undefined;
-
-  /**
-   * <p>The reasons for the current status of the gateway.</p>
-   * @public
-   */
-  statusReasons?: string[] | undefined;
-
-  /**
-   * <p>The name of the gateway.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the gateway.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The IAM role ARN that provides permissions for the gateway.</p>
-   * @public
-   */
-  roleArn?: string | undefined;
-
-  /**
-   * <p>Protocol applied to a gateway.</p>
-   * @public
-   */
-  protocolType?: GatewayProtocolType | undefined;
-
-  /**
-   * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
-   * @public
-   */
-  protocolConfiguration?: GatewayProtocolConfiguration | undefined;
-
-  /**
-   * <p>Authorizer type for the gateway.</p>
-   * @public
-   */
-  authorizerType: AuthorizerType | undefined;
-
-  /**
-   * <p>The authorizer configuration for the gateway.</p>
-   * @public
-   */
-  authorizerConfiguration?: AuthorizerConfiguration | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the gateway.</p>
-   * @public
-   */
-  kmsKeyArn?: string | undefined;
-
-  /**
-   * <p>The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
-   * @public
-   */
-  customTransformConfiguration?: CustomTransformConfiguration | undefined;
-
-  /**
-   * <p>The interceptors configured on the gateway.</p>
-   * @public
-   */
-  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
-
-  /**
-   * <p>The policy engine configuration for the gateway.</p>
-   * @public
-   */
-  policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
-
-  /**
-   * <p>The workload identity details for the gateway.</p>
-   * @public
-   */
-  workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
-
-  /**
-   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
-   * @public
-   */
-  exceptionLevel?: ExceptionLevel | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.</p>
-   * @public
-   */
-  webAclArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services WAF configuration for the gateway.</p>
-   * @public
-   */
-  wafConfiguration?: WafConfiguration | undefined;
-
-  /**
-   * <p>The public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header.</p>
-   * @public
-   */
-  domainOverride?: DomainOverride | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGatewaysRequest {
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Contains summary information about a gateway.</p>
- * @public
- */
-export interface GatewaySummary {
-  /**
-   * <p>The unique identifier of the gateway.</p>
-   * @public
-   */
-  gatewayId: string | undefined;
-
-  /**
-   * <p>The name of the gateway.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The current status of the gateway.</p>
-   * @public
-   */
-  status: GatewayStatus | undefined;
-
-  /**
-   * <p>The description of the gateway.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the gateway was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the gateway was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The type of authorizer used by the gateway.</p>
-   * @public
-   */
-  authorizerType: AuthorizerType | undefined;
-
-  /**
-   * <p>The protocol type used by the gateway.</p>
-   * @public
-   */
-  protocolType?: GatewayProtocolType | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGatewaysResponse {
-  /**
-   * <p>The list of gateway summaries.</p>
-   * @public
-   */
-  items: GatewaySummary[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateGatewayRequest {
-  /**
-   * <p>The identifier of the gateway to update.</p>
-   * @public
-   */
-  gatewayIdentifier: string | undefined;
-
-  /**
-   * <p>The name of the gateway. This name must be the same as the one when the gateway was created.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The updated description for the gateway.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The updated IAM role ARN that provides permissions for the gateway.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>The updated protocol type for the gateway.</p>
-   * @public
-   */
-  protocolType?: GatewayProtocolType | undefined;
-
-  /**
-   * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
-   * @public
-   */
-  protocolConfiguration?: GatewayProtocolConfiguration | undefined;
-
-  /**
-   * <p>The updated authorizer type for the gateway.</p>
-   * @public
-   */
-  authorizerType: AuthorizerType | undefined;
-
-  /**
-   * <p>The updated authorizer configuration for the gateway.</p>
-   * @public
-   */
-  authorizerConfiguration?: AuthorizerConfiguration | undefined;
-
-  /**
-   * <p>The updated ARN of the KMS key used to encrypt the gateway.</p>
-   * @public
-   */
-  kmsKeyArn?: string | undefined;
-
-  /**
-   * <p>The updated custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
-   * @public
-   */
-  customTransformConfiguration?: CustomTransformConfiguration | undefined;
-
-  /**
-   * <p>The updated interceptor configurations for the gateway.</p>
-   * @public
-   */
-  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
-
-  /**
-   * <p>The updated policy engine configuration for the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.</p>
-   * @public
-   */
-  policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
-
-  /**
-   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
-   * @public
-   */
-  exceptionLevel?: ExceptionLevel | undefined;
-
-  /**
-   * <p>The updated Amazon Web Services WAF configuration for the gateway.</p>
-   * @public
-   */
-  wafConfiguration?: WafConfiguration | undefined;
-
-  /**
-   * <p>The updated public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header. Specify this when clients reach the gateway through your own proxy or custom domain.</p>
-   * @public
-   */
-  domainOverride?: DomainOverride | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateGatewayResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated gateway.</p>
-   * @public
-   */
-  gatewayArn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the updated gateway.</p>
-   * @public
-   */
-  gatewayId: string | undefined;
-
-  /**
-   * <p>An endpoint for invoking the updated gateway.</p>
-   * @public
-   */
-  gatewayUrl?: string | undefined;
-
-  /**
-   * <p>The timestamp when the gateway was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the gateway was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The current status of the updated gateway.</p>
-   * @public
-   */
-  status: GatewayStatus | undefined;
-
-  /**
-   * <p>The reasons for the current status of the updated gateway.</p>
-   * @public
-   */
-  statusReasons?: string[] | undefined;
-
-  /**
-   * <p>The name of the gateway.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The updated description of the gateway.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The updated IAM role ARN that provides permissions for the gateway.</p>
-   * @public
-   */
-  roleArn?: string | undefined;
-
-  /**
-   * <p>The updated protocol type for the gateway.</p>
-   * @public
-   */
-  protocolType?: GatewayProtocolType | undefined;
-
-  /**
-   * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
-   * @public
-   */
-  protocolConfiguration?: GatewayProtocolConfiguration | undefined;
-
-  /**
-   * <p>The updated authorizer type for the gateway.</p>
-   * @public
-   */
-  authorizerType: AuthorizerType | undefined;
-
-  /**
-   * <p>The updated authorizer configuration for the gateway.</p>
-   * @public
-   */
-  authorizerConfiguration?: AuthorizerConfiguration | undefined;
-
-  /**
-   * <p>The updated ARN of the KMS key used to encrypt the gateway.</p>
-   * @public
-   */
-  kmsKeyArn?: string | undefined;
-
-  /**
-   * <p>The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
-   * @public
-   */
-  customTransformConfiguration?: CustomTransformConfiguration | undefined;
-
-  /**
-   * <p>The updated interceptor configurations for the gateway.</p>
-   * @public
-   */
-  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
-
-  /**
-   * <p>The updated policy engine configuration for the gateway.</p>
-   * @public
-   */
-  policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
-
-  /**
-   * <p>The workload identity details for the updated gateway.</p>
-   * @public
-   */
-  workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
-
-  /**
-   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
-   * @public
-   */
-  exceptionLevel?: ExceptionLevel | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.</p>
-   * @public
-   */
-  webAclArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services WAF configuration for the gateway.</p>
-   * @public
-   */
-  wafConfiguration?: WafConfiguration | undefined;
-
-  /**
-   * <p>The public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header.</p>
-   * @public
-   */
-  domainOverride?: DomainOverride | undefined;
-}
-
-/**
- * <p>A model ID or pattern to match against the requested model, and the operator to use for the comparison.</p>
- * @public
- */
-export interface MatchModelEntry {
-  /**
-   * <p>The model ID or pattern to match. With the <code>StringLike</code> operator, you can use <code>*</code> and <code>?</code> as wildcards, for example <code>anthropic.claude-*</code>.</p>
-   * @public
-   */
-  value: string | undefined;
-
-  /**
-   * <p>The operator to use when comparing the requested model to the value:</p> <ul> <li> <p> <code>StringEquals</code> – Requires an exact match.</p> </li> <li> <p> <code>StringLike</code> – Supports wildcard patterns using <code>*</code> and <code>?</code>. This is the default.</p> </li> </ul>
-   * @public
-   */
-  operator?: MatchOperator | undefined;
-}
-
-/**
- * <p>A condition that matches inference requests based on the requested model.</p>
- * @public
- */
-export interface MatchModels {
-  /**
-   * <p>A list of model entries. The condition is met if the requested model matches any of the entries.</p>
-   * @public
-   */
-  anyOf: MatchModelEntry[] | undefined;
 }
 
 /**

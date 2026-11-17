@@ -47,9 +47,14 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
  * //   status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
  * //   draftStatus: "MODIFIED" || "UNMODIFIED",
  * //   failureReason: "STRING_VALUE",
- * //   schemaType: "AGENTCORE_EVALUATION_PREDEFINED_V1" || "AGENTCORE_EVALUATION_SIMULATED_V1" || "THIRD_PARTY_EVALUATION_V1", // required
+ * //   schemaType: "AGENTCORE_EVALUATION_PREDEFINED_V1" || "AGENTCORE_EVALUATION_SIMULATED_V1" || "THIRD_PARTY_EVALUATION_V1",
  * //   kmsKeyArn: "STRING_VALUE",
  * //   exampleCount: Number("long"), // required
+ * //   exampleCountByField: { // ExampleCountByField
+ * //     turns: Number("long"), // required
+ * //     input: Number("long"), // required
+ * //     actorProfile: Number("long"), // required
+ * //   },
  * //   downloadUrl: "STRING_VALUE",
  * //   downloadUrlExpiresAt: new Date("TIMESTAMP"),
  * //   createdAt: new Date("TIMESTAMP"), // required

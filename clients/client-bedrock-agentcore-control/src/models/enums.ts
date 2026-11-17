@@ -130,6 +130,64 @@ export type AgentRuntimeEndpointStatus = (typeof AgentRuntimeEndpointStatus)[key
  * @public
  * @enum
  */
+export const AgentInsightStoreEnablementStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type AgentInsightStoreEnablementStatus =
+  (typeof AgentInsightStoreEnablementStatus)[keyof typeof AgentInsightStoreEnablementStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentInsightStoreEncryptionMode = {
+  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
+  CUSTOMER_MANAGED_KMS: "CUSTOMER_MANAGED_KMS",
+} as const;
+/**
+ * @public
+ */
+export type AgentInsightStoreEncryptionMode =
+  (typeof AgentInsightStoreEncryptionMode)[keyof typeof AgentInsightStoreEncryptionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentInsightStoreStatus = {
+  ACTIVE: "ACTIVE",
+  /**
+   * The Store requires customer intervention, and `failureReason` says what
+   * failed. After a failed encryption update, another encryption update
+   * retries it and a disable is also accepted; after a failed disable, a
+   * disable retries it.
+   */
+  ERROR: "ERROR",
+  /**
+   * The Store is retained but accepts no eligible output, and Insight
+   * cleanup is complete.
+   */
+  INACTIVE: "INACTIVE",
+  /**
+   * The Store is applying a requested change asynchronously. After an
+   * encryption update, its existing Insights are being re-encrypted under its
+   * key, and they stay readable.
+   */
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type AgentInsightStoreStatus = (typeof AgentInsightStoreStatus)[keyof typeof AgentInsightStoreStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgentManagedRuntimeType = {
   NODE_22: "NODE_22",
   PYTHON_3_10: "PYTHON_3_10",
@@ -525,6 +583,29 @@ export const DraftStatus = {
  * @public
  */
 export type DraftStatus = (typeof DraftStatus)[keyof typeof DraftStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExampleField = {
+  /**
+   * <p> The example has <code>actor_profile</code>. </p>
+   */
+  ACTOR_PROFILE: "ACTOR_PROFILE",
+  /**
+   * <p> The example has <code>input</code>. </p>
+   */
+  INPUT: "INPUT",
+  /**
+   * <p> The example has <code>turns</code>. </p>
+   */
+  TURNS: "TURNS",
+} as const;
+/**
+ * @public
+ */
+export type ExampleField = (typeof ExampleField)[keyof typeof ExampleField];
 
 /**
  * @public

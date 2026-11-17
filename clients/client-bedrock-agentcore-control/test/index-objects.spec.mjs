@@ -9,6 +9,11 @@ import {
   AddDatasetExamplesRequest$,
   AddDatasetExamplesResponse$,
   AgentCardDefinition$,
+  AgentInsightStoreEnablementStatus,
+  AgentInsightStoreEncryptionConfiguration$,
+  AgentInsightStoreEncryptionMode,
+  AgentInsightStoreStatus,
+  AgentInsightStoreSummary$,
   AgentManagedRuntimeType,
   AgentRuntime$,
   AgentRuntimeArtifact$,
@@ -413,6 +418,10 @@ import {
   EvaluatorStatus,
   EvaluatorSummary$,
   EvaluatorType,
+  ExampleCountByField$,
+  ExampleCountByFieldCondition$,
+  ExampleField,
+  ExampleFieldCondition$,
   ExceptionLevel,
   ExtractionConfig$,
   ExtractionConfiguration$,
@@ -442,6 +451,10 @@ import {
   GatewayStatus,
   GatewaySummary$,
   GatewayTarget$,
+  GetAgentInsightStore$,
+  GetAgentInsightStoreCommand,
+  GetAgentInsightStoreRequest$,
+  GetAgentInsightStoreResponse$,
   GetAgentRuntime$,
   GetAgentRuntimeCommand,
   GetAgentRuntimeEndpoint$,
@@ -689,6 +702,10 @@ import {
   LimitEntry$,
   LinkedinOauth2ProviderConfigInput$,
   LinkedinOauth2ProviderConfigOutput$,
+  ListAgentInsightStores$,
+  ListAgentInsightStoresCommand,
+  ListAgentInsightStoresRequest$,
+  ListAgentInsightStoresResponse$,
   ListAgentRuntimeEndpoints$,
   ListAgentRuntimeEndpointsCommand,
   ListAgentRuntimeEndpointsRequest$,
@@ -739,14 +756,17 @@ import {
   ListConsentPortalsResponse$,
   ListDatasetExamples$,
   ListDatasetExamplesCommand,
+  ListDatasetExamplesFilter$,
   ListDatasetExamplesRequest$,
   ListDatasetExamplesResponse$,
   ListDatasets$,
   ListDatasetsCommand,
+  ListDatasetsFilter$,
   ListDatasetsRequest$,
   ListDatasetsResponse$,
   ListDatasetVersions$,
   ListDatasetVersionsCommand,
+  ListDatasetVersionsFilter$,
   ListDatasetVersionsRequest$,
   ListDatasetVersionsResponse$,
   ListEvaluators$,
@@ -918,6 +938,7 @@ import {
   OperatingSystem,
   OutputConfig$,
   OverrideType,
+  paginateListAgentInsightStores,
   paginateListAgentRuntimeEndpoints,
   paginateListAgentRuntimes,
   paginateListAgentRuntimeVersions,
@@ -1155,6 +1176,10 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UpdateAgentInsightStore$,
+  UpdateAgentInsightStoreCommand,
+  UpdateAgentInsightStoreRequest$,
+  UpdateAgentInsightStoreResponse$,
   UpdateAgentRuntime$,
   UpdateAgentRuntimeCommand,
   UpdateAgentRuntimeEndpoint$,
@@ -1445,6 +1470,8 @@ assert(typeof DeleteResourcePolicyCommand === "function");
 assert(typeof DeleteResourcePolicy$ === "object");
 assert(typeof DeleteWorkloadIdentityCommand === "function");
 assert(typeof DeleteWorkloadIdentity$ === "object");
+assert(typeof GetAgentInsightStoreCommand === "function");
+assert(typeof GetAgentInsightStore$ === "object");
 assert(typeof GetAgentRuntimeCommand === "function");
 assert(typeof GetAgentRuntime$ === "object");
 assert(typeof GetAgentRuntimeEndpointCommand === "function");
@@ -1515,6 +1542,8 @@ assert(typeof GetTokenVaultCommand === "function");
 assert(typeof GetTokenVault$ === "object");
 assert(typeof GetWorkloadIdentityCommand === "function");
 assert(typeof GetWorkloadIdentity$ === "object");
+assert(typeof ListAgentInsightStoresCommand === "function");
+assert(typeof ListAgentInsightStores$ === "object");
 assert(typeof ListAgentRuntimeEndpointsCommand === "function");
 assert(typeof ListAgentRuntimeEndpoints$ === "object");
 assert(typeof ListAgentRuntimesCommand === "function");
@@ -1613,6 +1642,8 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateAgentInsightStoreCommand === "function");
+assert(typeof UpdateAgentInsightStore$ === "object");
 assert(typeof UpdateAgentRuntimeCommand === "function");
 assert(typeof UpdateAgentRuntime$ === "object");
 assert(typeof UpdateAgentRuntimeEndpointCommand === "function");
@@ -1673,6 +1704,8 @@ assert(typeof Action$ === "object");
 assert(typeof AddDatasetExamplesRequest$ === "object");
 assert(typeof AddDatasetExamplesResponse$ === "object");
 assert(typeof AgentCardDefinition$ === "object");
+assert(typeof AgentInsightStoreEncryptionConfiguration$ === "object");
+assert(typeof AgentInsightStoreSummary$ === "object");
 assert(typeof AgentRuntime$ === "object");
 assert(typeof AgentRuntimeArtifact$ === "object");
 assert(typeof AgentRuntimeEndpoint$ === "object");
@@ -1910,6 +1943,9 @@ assert(typeof EvaluatorConfig$ === "object");
 assert(typeof EvaluatorModelConfig$ === "object");
 assert(typeof EvaluatorReference$ === "object");
 assert(typeof EvaluatorSummary$ === "object");
+assert(typeof ExampleCountByField$ === "object");
+assert(typeof ExampleCountByFieldCondition$ === "object");
+assert(typeof ExampleFieldCondition$ === "object");
 assert(typeof ExtractionConfig$ === "object");
 assert(typeof ExtractionConfiguration$ === "object");
 assert(typeof Fallback$ === "object");
@@ -1928,6 +1964,8 @@ assert(typeof GatewayRateLimitDetail$ === "object");
 assert(typeof GatewayRuleDetail$ === "object");
 assert(typeof GatewaySummary$ === "object");
 assert(typeof GatewayTarget$ === "object");
+assert(typeof GetAgentInsightStoreRequest$ === "object");
+assert(typeof GetAgentInsightStoreResponse$ === "object");
 assert(typeof GetAgentRuntimeEndpointRequest$ === "object");
 assert(typeof GetAgentRuntimeEndpointResponse$ === "object");
 assert(typeof GetAgentRuntimeRequest$ === "object");
@@ -2091,6 +2129,8 @@ assert(typeof LifecycleHookAction$ === "object");
 assert(typeof LimitEntry$ === "object");
 assert(typeof LinkedinOauth2ProviderConfigInput$ === "object");
 assert(typeof LinkedinOauth2ProviderConfigOutput$ === "object");
+assert(typeof ListAgentInsightStoresRequest$ === "object");
+assert(typeof ListAgentInsightStoresResponse$ === "object");
 assert(typeof ListAgentRuntimeEndpointsRequest$ === "object");
 assert(typeof ListAgentRuntimeEndpointsResponse$ === "object");
 assert(typeof ListAgentRuntimesRequest$ === "object");
@@ -2115,10 +2155,13 @@ assert(typeof ListConfigurationBundleVersionsRequest$ === "object");
 assert(typeof ListConfigurationBundleVersionsResponse$ === "object");
 assert(typeof ListConsentPortalsRequest$ === "object");
 assert(typeof ListConsentPortalsResponse$ === "object");
+assert(typeof ListDatasetExamplesFilter$ === "object");
 assert(typeof ListDatasetExamplesRequest$ === "object");
 assert(typeof ListDatasetExamplesResponse$ === "object");
+assert(typeof ListDatasetsFilter$ === "object");
 assert(typeof ListDatasetsRequest$ === "object");
 assert(typeof ListDatasetsResponse$ === "object");
+assert(typeof ListDatasetVersionsFilter$ === "object");
 assert(typeof ListDatasetVersionsRequest$ === "object");
 assert(typeof ListDatasetVersionsResponse$ === "object");
 assert(typeof ListEvaluatorsRequest$ === "object");
@@ -2352,6 +2395,8 @@ assert(typeof TriggerCondition$ === "object");
 assert(typeof TriggerConditionInput$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof UpdateAgentInsightStoreRequest$ === "object");
+assert(typeof UpdateAgentInsightStoreResponse$ === "object");
 assert(typeof UpdateAgentRuntimeEndpointRequest$ === "object");
 assert(typeof UpdateAgentRuntimeEndpointResponse$ === "object");
 assert(typeof UpdateAgentRuntimeRequest$ === "object");
@@ -2446,6 +2491,9 @@ assert(typeof WorkloadIdentityDetails$ === "object");
 assert(typeof WorkloadIdentityType$ === "object");
 // enums
 assert(typeof ActorTokenContentType === "object");
+assert(typeof AgentInsightStoreEnablementStatus === "object");
+assert(typeof AgentInsightStoreEncryptionMode === "object");
+assert(typeof AgentInsightStoreStatus === "object");
 assert(typeof AgentManagedRuntimeType === "object");
 assert(typeof AgentRuntimeEndpointStatus === "object");
 assert(typeof AgentRuntimeStatus === "object");
@@ -2482,6 +2530,7 @@ assert(typeof EnforcementMode === "object");
 assert(typeof EvaluatorLevel === "object");
 assert(typeof EvaluatorStatus === "object");
 assert(typeof EvaluatorType === "object");
+assert(typeof ExampleField === "object");
 assert(typeof ExceptionLevel === "object");
 assert(typeof ExtractionType === "object");
 assert(typeof FallbackError === "object");
@@ -2605,6 +2654,7 @@ assert(typeof waitUntilPolicyEngineActive === "function");
 assert(typeof waitUntilPolicyEngineDeleted === "function");
 assert(typeof waitUntilPolicyGenerationCompleted === "function");
 // paginators
+assert(typeof paginateListAgentInsightStores === "function");
 assert(typeof paginateListAgentRuntimeEndpoints === "function");
 assert(typeof paginateListAgentRuntimeVersions === "function");
 assert(typeof paginateListAgentRuntimeVersionsByCapacityProvider === "function");

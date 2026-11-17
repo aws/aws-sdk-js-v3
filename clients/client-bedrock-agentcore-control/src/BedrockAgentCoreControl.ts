@@ -315,6 +315,11 @@ import {
   DeleteWorkloadIdentityCommand,
 } from "./commands/DeleteWorkloadIdentityCommand";
 import {
+  type GetAgentInsightStoreCommandInput,
+  type GetAgentInsightStoreCommandOutput,
+  GetAgentInsightStoreCommand,
+} from "./commands/GetAgentInsightStoreCommand";
+import {
   type GetAgentRuntimeCommandInput,
   type GetAgentRuntimeCommandOutput,
   GetAgentRuntimeCommand,
@@ -481,6 +486,11 @@ import {
   type GetWorkloadIdentityCommandOutput,
   GetWorkloadIdentityCommand,
 } from "./commands/GetWorkloadIdentityCommand";
+import {
+  type ListAgentInsightStoresCommandInput,
+  type ListAgentInsightStoresCommandOutput,
+  ListAgentInsightStoresCommand,
+} from "./commands/ListAgentInsightStoresCommand";
 import {
   type ListAgentRuntimeEndpointsCommandInput,
   type ListAgentRuntimeEndpointsCommandOutput,
@@ -727,6 +737,11 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAgentInsightStoreCommandInput,
+  type UpdateAgentInsightStoreCommandOutput,
+  UpdateAgentInsightStoreCommand,
+} from "./commands/UpdateAgentInsightStoreCommand";
+import {
   type UpdateAgentRuntimeCommandInput,
   type UpdateAgentRuntimeCommandOutput,
   UpdateAgentRuntimeCommand,
@@ -863,6 +878,7 @@ import {
 } from "./commands/UpdateWorkloadIdentityCommand";
 import type { BedrockAgentCoreControlServiceException } from "./models/BedrockAgentCoreControlServiceException";
 import type { ResourceNotFoundException } from "./models/errors";
+import { paginateListAgentInsightStores } from "./pagination/ListAgentInsightStoresPaginator";
 import { paginateListAgentRuntimeEndpoints } from "./pagination/ListAgentRuntimeEndpointsPaginator";
 import { paginateListAgentRuntimes } from "./pagination/ListAgentRuntimesPaginator";
 import {
@@ -973,6 +989,7 @@ const commands = {
   DeleteRegistryRecordCommand,
   DeleteResourcePolicyCommand,
   DeleteWorkloadIdentityCommand,
+  GetAgentInsightStoreCommand,
   GetAgentRuntimeCommand,
   GetAgentRuntimeEndpointCommand,
   GetApiKeyCredentialProviderCommand,
@@ -1008,6 +1025,7 @@ const commands = {
   GetResourcePolicyCommand,
   GetTokenVaultCommand,
   GetWorkloadIdentityCommand,
+  ListAgentInsightStoresCommand,
   ListAgentRuntimeEndpointsCommand,
   ListAgentRuntimesCommand,
   ListAgentRuntimeVersionsCommand,
@@ -1057,6 +1075,7 @@ const commands = {
   SynchronizeGatewayTargetsCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAgentInsightStoreCommand,
   UpdateAgentRuntimeCommand,
   UpdateAgentRuntimeEndpointCommand,
   UpdateApiKeyCredentialProviderCommand,
@@ -1086,6 +1105,7 @@ const commands = {
   UpdateWorkloadIdentityCommand,
 };
 const paginators = {
+  paginateListAgentInsightStores,
   paginateListAgentRuntimeEndpoints,
   paginateListAgentRuntimes,
   paginateListAgentRuntimeVersions,
@@ -2181,6 +2201,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link GetAgentInsightStoreCommand}
+   */
+  getAgentInsightStore(
+    args: GetAgentInsightStoreCommandInput,
+    options?: BedrockAgentCoreControlRequestOptions
+  ): Promise<GetAgentInsightStoreCommandOutput>;
+  getAgentInsightStore(
+    args: GetAgentInsightStoreCommandInput,
+    cb: (err: any, data?: GetAgentInsightStoreCommandOutput) => void
+  ): void;
+  getAgentInsightStore(
+    args: GetAgentInsightStoreCommandInput,
+    options: BedrockAgentCoreControlRequestOptions,
+    cb: (err: any, data?: GetAgentInsightStoreCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAgentRuntimeCommand}
    */
   getAgentRuntime(
@@ -2774,6 +2811,24 @@ export interface BedrockAgentCoreControl {
     args: GetWorkloadIdentityCommandInput,
     options: BedrockAgentCoreControlRequestOptions,
     cb: (err: any, data?: GetWorkloadIdentityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAgentInsightStoresCommand}
+   */
+  listAgentInsightStores(): Promise<ListAgentInsightStoresCommandOutput>;
+  listAgentInsightStores(
+    args: ListAgentInsightStoresCommandInput,
+    options?: BedrockAgentCoreControlRequestOptions
+  ): Promise<ListAgentInsightStoresCommandOutput>;
+  listAgentInsightStores(
+    args: ListAgentInsightStoresCommandInput,
+    cb: (err: any, data?: ListAgentInsightStoresCommandOutput) => void
+  ): void;
+  listAgentInsightStores(
+    args: ListAgentInsightStoresCommandInput,
+    options: BedrockAgentCoreControlRequestOptions,
+    cb: (err: any, data?: ListAgentInsightStoresCommandOutput) => void
   ): void;
 
   /**
@@ -3631,6 +3686,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link UpdateAgentInsightStoreCommand}
+   */
+  updateAgentInsightStore(
+    args: UpdateAgentInsightStoreCommandInput,
+    options?: BedrockAgentCoreControlRequestOptions
+  ): Promise<UpdateAgentInsightStoreCommandOutput>;
+  updateAgentInsightStore(
+    args: UpdateAgentInsightStoreCommandInput,
+    cb: (err: any, data?: UpdateAgentInsightStoreCommandOutput) => void
+  ): void;
+  updateAgentInsightStore(
+    args: UpdateAgentInsightStoreCommandInput,
+    options: BedrockAgentCoreControlRequestOptions,
+    cb: (err: any, data?: UpdateAgentInsightStoreCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateAgentRuntimeCommand}
    */
   updateAgentRuntime(
@@ -4088,6 +4160,17 @@ export interface BedrockAgentCoreControl {
     options: BedrockAgentCoreControlRequestOptions,
     cb: (err: any, data?: UpdateWorkloadIdentityCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAgentInsightStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentInsightStoresCommandOutput}.
+   */
+  paginateListAgentInsightStores(
+    args?: ListAgentInsightStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentInsightStoresCommandOutput>;
 
   /**
    * @see {@link ListAgentRuntimeEndpointsCommand}

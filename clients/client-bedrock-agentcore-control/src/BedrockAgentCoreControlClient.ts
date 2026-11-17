@@ -250,6 +250,10 @@ import type {
   DeleteWorkloadIdentityCommandInput,
   DeleteWorkloadIdentityCommandOutput,
 } from "./commands/DeleteWorkloadIdentityCommand";
+import type {
+  GetAgentInsightStoreCommandInput,
+  GetAgentInsightStoreCommandOutput,
+} from "./commands/GetAgentInsightStoreCommand";
 import type { GetAgentRuntimeCommandInput, GetAgentRuntimeCommandOutput } from "./commands/GetAgentRuntimeCommand";
 import type {
   GetAgentRuntimeEndpointCommandInput,
@@ -345,6 +349,10 @@ import type {
   GetWorkloadIdentityCommandInput,
   GetWorkloadIdentityCommandOutput,
 } from "./commands/GetWorkloadIdentityCommand";
+import type {
+  ListAgentInsightStoresCommandInput,
+  ListAgentInsightStoresCommandOutput,
+} from "./commands/ListAgentInsightStoresCommand";
 import type {
   ListAgentRuntimeEndpointsCommandInput,
   ListAgentRuntimeEndpointsCommandOutput,
@@ -505,6 +513,10 @@ import type {
 } from "./commands/SynchronizeGatewayTargetsCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateAgentInsightStoreCommandInput,
+  UpdateAgentInsightStoreCommandOutput,
+} from "./commands/UpdateAgentInsightStoreCommand";
 import type {
   UpdateAgentRuntimeCommandInput,
   UpdateAgentRuntimeCommandOutput,
@@ -668,6 +680,7 @@ export type ServiceInputTypes =
   | DeleteRegistryRecordCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteWorkloadIdentityCommandInput
+  | GetAgentInsightStoreCommandInput
   | GetAgentRuntimeCommandInput
   | GetAgentRuntimeEndpointCommandInput
   | GetApiKeyCredentialProviderCommandInput
@@ -703,6 +716,7 @@ export type ServiceInputTypes =
   | GetResourcePolicyCommandInput
   | GetTokenVaultCommandInput
   | GetWorkloadIdentityCommandInput
+  | ListAgentInsightStoresCommandInput
   | ListAgentRuntimeEndpointsCommandInput
   | ListAgentRuntimeVersionsByCapacityProviderCommandInput
   | ListAgentRuntimeVersionsCommandInput
@@ -752,6 +766,7 @@ export type ServiceInputTypes =
   | SynchronizeGatewayTargetsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAgentInsightStoreCommandInput
   | UpdateAgentRuntimeCommandInput
   | UpdateAgentRuntimeEndpointCommandInput
   | UpdateApiKeyCredentialProviderCommandInput
@@ -845,6 +860,7 @@ export type ServiceOutputTypes =
   | DeleteRegistryRecordCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteWorkloadIdentityCommandOutput
+  | GetAgentInsightStoreCommandOutput
   | GetAgentRuntimeCommandOutput
   | GetAgentRuntimeEndpointCommandOutput
   | GetApiKeyCredentialProviderCommandOutput
@@ -880,6 +896,7 @@ export type ServiceOutputTypes =
   | GetResourcePolicyCommandOutput
   | GetTokenVaultCommandOutput
   | GetWorkloadIdentityCommandOutput
+  | ListAgentInsightStoresCommandOutput
   | ListAgentRuntimeEndpointsCommandOutput
   | ListAgentRuntimeVersionsByCapacityProviderCommandOutput
   | ListAgentRuntimeVersionsCommandOutput
@@ -929,6 +946,7 @@ export type ServiceOutputTypes =
   | SynchronizeGatewayTargetsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAgentInsightStoreCommandOutput
   | UpdateAgentRuntimeCommandOutput
   | UpdateAgentRuntimeEndpointCommandOutput
   | UpdateApiKeyCredentialProviderCommandOutput
