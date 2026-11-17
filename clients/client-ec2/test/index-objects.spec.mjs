@@ -54,12 +54,16 @@ import {
   AccountVpcEncryptionControlMode,
   AccountVpcEncryptionControlState,
   ActiveInstance$,
+  ActiveVpnTunnelAdditionalKeyExchange$,
   ActiveVpnTunnelStatus$,
   ActivityStatus,
   AddedPrincipal$,
   AddIpamOperatingRegion$,
   AddIpamOrganizationalUnitExclusion$,
   AdditionalDetail$,
+  AdditionalKeyExchangeMethodsListValue$,
+  AdditionalKeyExchangeMethodsRequestListValue$,
+  AdditionalKeyExchangeRequirement,
   AddPrefixListEntry$,
   Address$,
   AddressAttribute$,
@@ -380,8 +384,10 @@ import {
   CapacityBlockExtension$,
   CapacityBlockExtensionOffering$,
   CapacityBlockExtensionStatus,
+  CapacityBlockInstanceTypePreference$,
   CapacityBlockInterconnectStatus,
   CapacityBlockOffering$,
+  CapacityBlockOfferingSegment$,
   CapacityBlockResourceState,
   CapacityBlockStatus$,
   CapacityManagerCondition$,
@@ -744,6 +750,7 @@ import {
   CreateNetworkInterfacePermissionResult$,
   CreateNetworkInterfaceRequest$,
   CreateNetworkInterfaceResult$,
+  CreatePeeringConnectionOptionsRequest$,
   CreatePlacementGroup$,
   CreatePlacementGroupCommand,
   CreatePlacementGroupRequest$,
@@ -3703,6 +3710,11 @@ import {
   ModifyTransitGatewayNetworkFunctionAttachmentRequest$,
   ModifyTransitGatewayNetworkFunctionAttachmentResult$,
   ModifyTransitGatewayOptions$,
+  ModifyTransitGatewayPeeringAttachment$,
+  ModifyTransitGatewayPeeringAttachmentCommand,
+  ModifyTransitGatewayPeeringAttachmentRequest$,
+  ModifyTransitGatewayPeeringAttachmentRequestOptions$,
+  ModifyTransitGatewayPeeringAttachmentResult$,
   ModifyTransitGatewayPolicyTableEntry$,
   ModifyTransitGatewayPolicyTableEntryCommand,
   ModifyTransitGatewayPolicyTableEntryRequest$,
@@ -3846,6 +3858,8 @@ import {
   MoveStatus,
   MovingAddressStatus$,
   MulticastSupportValue,
+  MultipathResilienceMode,
+  MultipathResilienceStatus,
   NatFlexCostAllocationPolicyDocument$,
   NatGateway$,
   NatGatewayAddress$,
@@ -4720,6 +4734,8 @@ import {
   TransitGatewayNetworkFunctionAttachment$,
   TransitGatewayOptions$,
   TransitGatewayPeeringAttachment$,
+  TransitGatewayPeeringAttachmentMultipathResilienceMode,
+  TransitGatewayPeeringAttachmentMultipathResilienceStatus,
   TransitGatewayPeeringAttachmentOptions$,
   TransitGatewayPolicyRule$,
   TransitGatewayPolicyRuleMetaData$,
@@ -4905,6 +4921,8 @@ import {
   VpcPeeringConnectionVpcInfo$,
   VpcState,
   VpcTenancy,
+  VpnAdditionalKeyExchange$,
+  VpnAdditionalKeyExchangeRequest$,
   VpnConcentrator$,
   VpnConcentratorType,
   VpnConnection$,
@@ -6458,6 +6476,8 @@ assert(typeof ModifyTransitGatewayMeteringPolicyCommand === "function");
 assert(typeof ModifyTransitGatewayMeteringPolicy$ === "object");
 assert(typeof ModifyTransitGatewayNetworkFunctionAttachmentCommand === "function");
 assert(typeof ModifyTransitGatewayNetworkFunctionAttachment$ === "object");
+assert(typeof ModifyTransitGatewayPeeringAttachmentCommand === "function");
+assert(typeof ModifyTransitGatewayPeeringAttachment$ === "object");
 assert(typeof ModifyTransitGatewayPolicyTableEntryCommand === "function");
 assert(typeof ModifyTransitGatewayPolicyTableEntry$ === "object");
 assert(typeof ModifyTransitGatewayPrefixListReferenceCommand === "function");
@@ -6709,11 +6729,14 @@ assert(typeof AccountAttributeValue$ === "object");
 assert(typeof AccountVpcEncryptionControl$ === "object");
 assert(typeof AccountVpcEncryptionControlExclusions$ === "object");
 assert(typeof ActiveInstance$ === "object");
+assert(typeof ActiveVpnTunnelAdditionalKeyExchange$ === "object");
 assert(typeof ActiveVpnTunnelStatus$ === "object");
 assert(typeof AddedPrincipal$ === "object");
 assert(typeof AddIpamOperatingRegion$ === "object");
 assert(typeof AddIpamOrganizationalUnitExclusion$ === "object");
 assert(typeof AdditionalDetail$ === "object");
+assert(typeof AdditionalKeyExchangeMethodsListValue$ === "object");
+assert(typeof AdditionalKeyExchangeMethodsRequestListValue$ === "object");
 assert(typeof AddPrefixListEntry$ === "object");
 assert(typeof Address$ === "object");
 assert(typeof AddressAttribute$ === "object");
@@ -6878,7 +6901,9 @@ assert(typeof CapacityAllocationMetadataEntry$ === "object");
 assert(typeof CapacityBlock$ === "object");
 assert(typeof CapacityBlockExtension$ === "object");
 assert(typeof CapacityBlockExtensionOffering$ === "object");
+assert(typeof CapacityBlockInstanceTypePreference$ === "object");
 assert(typeof CapacityBlockOffering$ === "object");
+assert(typeof CapacityBlockOfferingSegment$ === "object");
 assert(typeof CapacityBlockStatus$ === "object");
 assert(typeof CapacityManagerCondition$ === "object");
 assert(typeof CapacityManagerDataExportResponse$ === "object");
@@ -7077,6 +7102,7 @@ assert(typeof CreateNetworkInterfacePermissionRequest$ === "object");
 assert(typeof CreateNetworkInterfacePermissionResult$ === "object");
 assert(typeof CreateNetworkInterfaceRequest$ === "object");
 assert(typeof CreateNetworkInterfaceResult$ === "object");
+assert(typeof CreatePeeringConnectionOptionsRequest$ === "object");
 assert(typeof CreatePlacementGroupRequest$ === "object");
 assert(typeof CreatePlacementGroupResult$ === "object");
 assert(typeof CreatePublicIpv4PoolRequest$ === "object");
@@ -8649,6 +8675,9 @@ assert(typeof ModifyTransitGatewayMeteringPolicyResult$ === "object");
 assert(typeof ModifyTransitGatewayNetworkFunctionAttachmentRequest$ === "object");
 assert(typeof ModifyTransitGatewayNetworkFunctionAttachmentResult$ === "object");
 assert(typeof ModifyTransitGatewayOptions$ === "object");
+assert(typeof ModifyTransitGatewayPeeringAttachmentRequest$ === "object");
+assert(typeof ModifyTransitGatewayPeeringAttachmentRequestOptions$ === "object");
+assert(typeof ModifyTransitGatewayPeeringAttachmentResult$ === "object");
 assert(typeof ModifyTransitGatewayPolicyTableEntryRequest$ === "object");
 assert(typeof ModifyTransitGatewayPolicyTableEntryResult$ === "object");
 assert(typeof ModifyTransitGatewayPrefixListReferenceRequest$ === "object");
@@ -9261,6 +9290,8 @@ assert(typeof VpcPeeringConnection$ === "object");
 assert(typeof VpcPeeringConnectionOptionsDescription$ === "object");
 assert(typeof VpcPeeringConnectionStateReason$ === "object");
 assert(typeof VpcPeeringConnectionVpcInfo$ === "object");
+assert(typeof VpnAdditionalKeyExchange$ === "object");
+assert(typeof VpnAdditionalKeyExchangeRequest$ === "object");
 assert(typeof VpnConcentrator$ === "object");
 assert(typeof VpnConnection$ === "object");
 assert(typeof VpnConnectionDeviceType$ === "object");
@@ -9281,6 +9312,7 @@ assert(typeof AccountAttributeName === "object");
 assert(typeof AccountVpcEncryptionControlMode === "object");
 assert(typeof AccountVpcEncryptionControlState === "object");
 assert(typeof ActivityStatus === "object");
+assert(typeof AdditionalKeyExchangeRequirement === "object");
 assert(typeof AddressAttributeName === "object");
 assert(typeof AddressFamily === "object");
 assert(typeof AddressTransferStatus === "object");
@@ -9570,6 +9602,8 @@ assert(typeof ModifyAvailabilityZoneOptInStatus === "object");
 assert(typeof MonitoringState === "object");
 assert(typeof MoveStatus === "object");
 assert(typeof MulticastSupportValue === "object");
+assert(typeof MultipathResilienceMode === "object");
+assert(typeof MultipathResilienceStatus === "object");
 assert(typeof NatGatewayAddressStatus === "object");
 assert(typeof NatGatewayApplianceModifyState === "object");
 assert(typeof NatGatewayApplianceState === "object");
@@ -9720,6 +9754,8 @@ assert(typeof TransitGatewayMeteringPolicyState === "object");
 assert(typeof TransitGatewayMulitcastDomainAssociationState === "object");
 assert(typeof TransitGatewayMulticastDomainState === "object");
 assert(typeof TransitGatewayNatRuleState === "object");
+assert(typeof TransitGatewayPeeringAttachmentMultipathResilienceMode === "object");
+assert(typeof TransitGatewayPeeringAttachmentMultipathResilienceStatus === "object");
 assert(typeof TransitGatewayPolicyTableEntryState === "object");
 assert(typeof TransitGatewayPolicyTableState === "object");
 assert(typeof TransitGatewayPrefixListReferenceState === "object");

@@ -718,6 +718,7 @@ export * from "./ModifyTransitGatewayAttachmentNatConfigurationCommand";
 export * from "./ModifyTransitGatewayCommand";
 export * from "./ModifyTransitGatewayMeteringPolicyCommand";
 export * from "./ModifyTransitGatewayNetworkFunctionAttachmentCommand";
+export * from "./ModifyTransitGatewayPeeringAttachmentCommand";
 export * from "./ModifyTransitGatewayPolicyTableEntryCommand";
 export * from "./ModifyTransitGatewayPrefixListReferenceCommand";
 export * from "./ModifyTransitGatewayVpcAttachmentCommand";

@@ -47,6 +47,11 @@ export interface DescribeCapacityBlockOfferingsCommandOutput extends DescribeCap
  *   UltraserverType: "STRING_VALUE",
  *   UltraserverCount: Number("int"),
  *   AllAvailabilityZones: true || false,
+ *   InstanceTypePreferences: [ // CapacityBlockInstanceTypePreferenceSet
+ *     { // CapacityBlockInstanceTypePreference
+ *       InstanceType: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new DescribeCapacityBlockOfferingsCommand(input);
  * const response = await client.send(command);
@@ -67,6 +72,21 @@ export interface DescribeCapacityBlockOfferingsCommandOutput extends DescribeCap
  * //       UltraserverCount: Number("int"),
  * //       CapacityBlockDurationMinutes: Number("int"),
  * //       ZoneType: "STRING_VALUE",
+ * //       CapacityBlockOfferingSegments: [ // CapacityBlockOfferingSegmentSet
+ * //         { // CapacityBlockOfferingSegment
+ * //           InstanceType: "STRING_VALUE",
+ * //           AvailabilityZone: "STRING_VALUE",
+ * //           AvailabilityZoneId: "STRING_VALUE",
+ * //           InstanceCount: Number("int"),
+ * //           StartDate: new Date("TIMESTAMP"),
+ * //           EndDate: new Date("TIMESTAMP"),
+ * //           CapacityBlockDurationHours: Number("int"),
+ * //           CapacityBlockDurationMinutes: Number("int"),
+ * //           UpfrontFee: "STRING_VALUE",
+ * //           CurrencyCode: "STRING_VALUE",
+ * //           ZoneType: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

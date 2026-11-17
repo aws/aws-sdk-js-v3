@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetRouteServerPropagationsRequest } from "../models/models_6";
-import type { GetRouteServerPropagationsResult } from "../models/models_7";
+import type { GetRouteServerPropagationsRequest, GetRouteServerPropagationsResult } from "../models/models_7";
 import { GetRouteServerPropagations$ } from "../schemas/schemas_0";
 
 /**

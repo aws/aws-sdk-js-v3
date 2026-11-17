@@ -261,6 +261,19 @@ export type TransitGatewayMulitcastDomainAssociationState =
  * @public
  * @enum
  */
+export const TransitGatewayPeeringAttachmentMultipathResilienceMode = {
+  always_on: "always-on",
+} as const;
+/**
+ * @public
+ */
+export type TransitGatewayPeeringAttachmentMultipathResilienceMode =
+  (typeof TransitGatewayPeeringAttachmentMultipathResilienceMode)[keyof typeof TransitGatewayPeeringAttachmentMultipathResilienceMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const DynamicRoutingValue = {
   disable: "disable",
   enable: "enable",
@@ -269,6 +282,21 @@ export const DynamicRoutingValue = {
  * @public
  */
 export type DynamicRoutingValue = (typeof DynamicRoutingValue)[keyof typeof DynamicRoutingValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayPeeringAttachmentMultipathResilienceStatus = {
+  disabled: "disabled",
+  enabled: "enabled",
+  pending: "pending",
+} as const;
+/**
+ * @public
+ */
+export type TransitGatewayPeeringAttachmentMultipathResilienceStatus =
+  (typeof TransitGatewayPeeringAttachmentMultipathResilienceStatus)[keyof typeof TransitGatewayPeeringAttachmentMultipathResilienceStatus];
 
 /**
  * @public
@@ -347,6 +375,32 @@ export const SecurityGroupReferencingSupportValue = {
  */
 export type SecurityGroupReferencingSupportValue =
   (typeof SecurityGroupReferencingSupportValue)[keyof typeof SecurityGroupReferencingSupportValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const MultipathResilienceMode = {
+  ALWAYS_ON: "always-on",
+} as const;
+/**
+ * @public
+ */
+export type MultipathResilienceMode = (typeof MultipathResilienceMode)[keyof typeof MultipathResilienceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const MultipathResilienceStatus = {
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+  PENDING: "pending",
+} as const;
+/**
+ * @public
+ */
+export type MultipathResilienceStatus = (typeof MultipathResilienceStatus)[keyof typeof MultipathResilienceStatus];
 
 /**
  * @public
@@ -528,6 +582,20 @@ export const PrincipalType = {
  * @public
  */
 export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AdditionalKeyExchangeRequirement = {
+  optional: "optional",
+  required: "required",
+} as const;
+/**
+ * @public
+ */
+export type AdditionalKeyExchangeRequirement =
+  (typeof AdditionalKeyExchangeRequirement)[keyof typeof AdditionalKeyExchangeRequirement];
 
 /**
  * @public

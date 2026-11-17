@@ -68,6 +68,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <dynamicRouting>
                     __DynamicRouting__
                 </dynamicRouting>
+                <requesterAllowMultipathResilience>
+                    false
+                </requesterAllowMultipathResilience>
+                <requesterMultipathResilienceMode>
+                    __RequesterMultipathResilienceMode__
+                </requesterMultipathResilienceMode>
+                <accepterAllowMultipathResilience>
+                    false
+                </accepterAllowMultipathResilience>
+                <accepterMultipathResilienceMode>
+                    __AccepterMultipathResilienceMode__
+                </accepterMultipathResilienceMode>
+                <multipathResilienceStatus>
+                    __MultipathResilienceStatus__
+                </multipathResilienceStatus>
             </options>
             <status>
                 <code>
@@ -149,6 +164,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <dynamicRouting>
                     __DynamicRouting__
                 </dynamicRouting>
+                <requesterAllowMultipathResilience>
+                    false
+                </requesterAllowMultipathResilience>
+                <requesterMultipathResilienceMode>
+                    __RequesterMultipathResilienceMode__
+                </requesterMultipathResilienceMode>
+                <accepterAllowMultipathResilience>
+                    false
+                </accepterAllowMultipathResilience>
+                <accepterMultipathResilienceMode>
+                    __AccepterMultipathResilienceMode__
+                </accepterMultipathResilienceMode>
+                <multipathResilienceStatus>
+                    __MultipathResilienceStatus__
+                </multipathResilienceStatus>
             </options>
             <status>
                 <code>
@@ -230,6 +260,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <dynamicRouting>
                     __DynamicRouting__
                 </dynamicRouting>
+                <requesterAllowMultipathResilience>
+                    false
+                </requesterAllowMultipathResilience>
+                <requesterMultipathResilienceMode>
+                    __RequesterMultipathResilienceMode__
+                </requesterMultipathResilienceMode>
+                <accepterAllowMultipathResilience>
+                    false
+                </accepterAllowMultipathResilience>
+                <accepterMultipathResilienceMode>
+                    __AccepterMultipathResilienceMode__
+                </accepterMultipathResilienceMode>
+                <multipathResilienceStatus>
+                    __MultipathResilienceStatus__
+                </multipathResilienceStatus>
             </options>
             <status>
                 <code>
@@ -298,7 +343,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Region: "__Region__"
       },
       Options: {
-        DynamicRouting: "__DynamicRouting__"
+        DynamicRouting: "__DynamicRouting__",
+        RequesterAllowMultipathResilience: (boolean) false,
+        RequesterMultipathResilienceMode: "__RequesterMultipathResilienceMode__",
+        AccepterAllowMultipathResilience: (boolean) false,
+        AccepterMultipathResilienceMode: "__AccepterMultipathResilienceMode__",
+        MultipathResilienceStatus: "__MultipathResilienceStatus__"
       },
       Status: {
         Code: "__Code__",
@@ -337,7 +387,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Region: "__Region__"
       },
       Options: {
-        DynamicRouting: "__DynamicRouting__"
+        DynamicRouting: "__DynamicRouting__",
+        RequesterAllowMultipathResilience: (boolean) false,
+        RequesterMultipathResilienceMode: "__RequesterMultipathResilienceMode__",
+        AccepterAllowMultipathResilience: (boolean) false,
+        AccepterMultipathResilienceMode: "__AccepterMultipathResilienceMode__",
+        MultipathResilienceStatus: "__MultipathResilienceStatus__"
       },
       Status: {
         Code: "__Code__",
@@ -376,7 +431,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Region: "__Region__"
       },
       Options: {
-        DynamicRouting: "__DynamicRouting__"
+        DynamicRouting: "__DynamicRouting__",
+        RequesterAllowMultipathResilience: (boolean) false,
+        RequesterMultipathResilienceMode: "__RequesterMultipathResilienceMode__",
+        AccepterAllowMultipathResilience: (boolean) false,
+        AccepterMultipathResilienceMode: "__AccepterMultipathResilienceMode__",
+        MultipathResilienceStatus: "__MultipathResilienceStatus__"
       },
       Status: {
         Code: "__Code__",

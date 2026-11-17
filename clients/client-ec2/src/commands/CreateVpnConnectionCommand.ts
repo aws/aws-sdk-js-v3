@@ -129,6 +129,28 @@ export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionRes
  *           },
  *         },
  *         EnableTunnelLifecycleControl: true || false,
+ *         Phase1AdditionalKeyExchanges: [ // AdditionalKeyExchangesRequestSpecification
+ *           { // VpnAdditionalKeyExchangeRequest
+ *             AdditionalKeyExchangeRound: Number("int"), // required
+ *             KeyExchangeMethods: [ // AdditionalKeyExchangeMethodsRequestList
+ *               { // AdditionalKeyExchangeMethodsRequestListValue
+ *                 Value: Number("int"),
+ *               },
+ *             ],
+ *             Requirement: "required" || "optional",
+ *           },
+ *         ],
+ *         Phase2AdditionalKeyExchanges: [
+ *           {
+ *             AdditionalKeyExchangeRound: Number("int"), // required
+ *             KeyExchangeMethods: [
+ *               {
+ *                 Value: Number("int"),
+ *               },
+ *             ],
+ *             Requirement: "required" || "optional",
+ *           },
+ *         ],
  *       },
  *     ],
  *     LocalIpv4NetworkCidr: "STRING_VALUE",
@@ -221,6 +243,28 @@ export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionRes
  * //             },
  * //           },
  * //           EnableTunnelLifecycleControl: true || false,
+ * //           Phase1AdditionalKeyExchanges: [ // AdditionalKeyExchangesList
+ * //             { // VpnAdditionalKeyExchange
+ * //               AdditionalKeyExchangeRound: Number("int"),
+ * //               KeyExchangeMethods: [ // AdditionalKeyExchangeMethodsList
+ * //                 { // AdditionalKeyExchangeMethodsListValue
+ * //                   Value: Number("int"),
+ * //                 },
+ * //               ],
+ * //               Requirement: "required" || "optional",
+ * //             },
+ * //           ],
+ * //           Phase2AdditionalKeyExchanges: [
+ * //             {
+ * //               AdditionalKeyExchangeRound: Number("int"),
+ * //               KeyExchangeMethods: [
+ * //                 {
+ * //                   Value: Number("int"),
+ * //                 },
+ * //               ],
+ * //               Requirement: "required" || "optional",
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       TunnelBandwidth: "standard" || "large",

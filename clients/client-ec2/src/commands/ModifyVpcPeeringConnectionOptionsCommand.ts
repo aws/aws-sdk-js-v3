@@ -37,6 +37,12 @@ export interface ModifyVpcPeeringConnectionOptionsCommandOutput extends ModifyVp
  *             modify the requester VPC peering options and the Region for the accepter VPC to modify
  *             the accepter VPC peering options. To verify which VPCs are the accepter and the
  *             requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a> command.</p>
+ *          <p>Multipath resilience replicates the traffic of an inter-Region VPC peering connection across
+ *             multiple network paths. You can allow multipath resilience for your side of the connection if both of its
+ *             Regions are supported. It takes effect only when both the requester and the
+ *             accepter allow it. Additional charges apply when multipath resilience is in effect. For more
+ *             information, see <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing</a>. To check whether multipath resilience is in effect, use
+ *             <a>DescribeVpcPeeringConnections</a> and check <code>multipathResilienceStatus</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,12 +56,16 @@ export interface ModifyVpcPeeringConnectionOptionsCommandOutput extends ModifyVp
  *     AllowDnsResolutionFromRemoteVpc: true || false,
  *     AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
  *     AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ *     AllowMultipathResilience: true || false,
+ *     MultipathResilienceMode: "always-on",
  *   },
  *   DryRun: true || false,
  *   RequesterPeeringConnectionOptions: {
  *     AllowDnsResolutionFromRemoteVpc: true || false,
  *     AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
  *     AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ *     AllowMultipathResilience: true || false,
+ *     MultipathResilienceMode: "always-on",
  *   },
  *   VpcPeeringConnectionId: "STRING_VALUE", // required
  * };
@@ -66,11 +76,15 @@ export interface ModifyVpcPeeringConnectionOptionsCommandOutput extends ModifyVp
  * //     AllowDnsResolutionFromRemoteVpc: true || false,
  * //     AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
  * //     AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ * //     AllowMultipathResilience: true || false,
+ * //     MultipathResilienceMode: "always-on",
  * //   },
  * //   RequesterPeeringConnectionOptions: {
  * //     AllowDnsResolutionFromRemoteVpc: true || false,
  * //     AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
  * //     AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ * //     AllowMultipathResilience: true || false,
+ * //     MultipathResilienceMode: "always-on",
  * //   },
  * // };
  *

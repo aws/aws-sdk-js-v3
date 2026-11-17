@@ -257,6 +257,160 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <enableTunnelLifecycleControl>
                         false
                     </enableTunnelLifecycleControl>
+                    <phase1AdditionalKeyExchangeSet>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                    </phase1AdditionalKeyExchangeSet>
+                    <phase2AdditionalKeyExchangeSet>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                    </phase2AdditionalKeyExchangeSet>
                 </item>
                 <item>
                     <outsideIpAddress>
@@ -439,6 +593,160 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <enableTunnelLifecycleControl>
                         false
                     </enableTunnelLifecycleControl>
+                    <phase1AdditionalKeyExchangeSet>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                    </phase1AdditionalKeyExchangeSet>
+                    <phase2AdditionalKeyExchangeSet>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                    </phase2AdditionalKeyExchangeSet>
                 </item>
                 <item>
                     <outsideIpAddress>
@@ -621,6 +929,160 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <enableTunnelLifecycleControl>
                         false
                     </enableTunnelLifecycleControl>
+                    <phase1AdditionalKeyExchangeSet>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                    </phase1AdditionalKeyExchangeSet>
+                    <phase2AdditionalKeyExchangeSet>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                        <item>
+                            <additionalKeyExchangeRound>
+                                0
+                            </additionalKeyExchangeRound>
+                            <keyExchangeMethodSet>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                                <item>
+                                    <value>
+                                        0
+                                    </value>
+                                </item>
+                            </keyExchangeMethodSet>
+                            <requirement>
+                                __Requirement__
+                            </requirement>
+                        </item>
+                    </phase2AdditionalKeyExchangeSet>
                 </item>
             </tunnelOptionSet>
             <tunnelBandwidth>
@@ -895,7 +1357,101 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               BgpLogOutputFormat: "__BgpLogOutputFormat__"
             }
           },
-          EnableTunnelLifecycleControl: (boolean) false
+          EnableTunnelLifecycleControl: (boolean) false,
+          Phase1AdditionalKeyExchanges: [
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            },
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            },
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            }
+          ],
+          Phase2AdditionalKeyExchanges: [
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            },
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            },
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            }
+          ]
         },
         {
           OutsideIpAddress: "__OutsideIpAddress__",
@@ -997,7 +1553,101 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               BgpLogOutputFormat: "__BgpLogOutputFormat__"
             }
           },
-          EnableTunnelLifecycleControl: (boolean) false
+          EnableTunnelLifecycleControl: (boolean) false,
+          Phase1AdditionalKeyExchanges: [
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            },
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            },
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            }
+          ],
+          Phase2AdditionalKeyExchanges: [
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            },
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            },
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            }
+          ]
         },
         {
           OutsideIpAddress: "__OutsideIpAddress__",
@@ -1099,7 +1749,101 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               BgpLogOutputFormat: "__BgpLogOutputFormat__"
             }
           },
-          EnableTunnelLifecycleControl: (boolean) false
+          EnableTunnelLifecycleControl: (boolean) false,
+          Phase1AdditionalKeyExchanges: [
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            },
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            },
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            }
+          ],
+          Phase2AdditionalKeyExchanges: [
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            },
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            },
+            {
+              AdditionalKeyExchangeRound: (number) 0,
+              KeyExchangeMethods: [
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                },
+                {
+                  Value: (number) 0
+                }
+              ],
+              Requirement: "__Requirement__"
+            }
+          ]
         }
       ],
       TunnelBandwidth: "__TunnelBandwidth__"

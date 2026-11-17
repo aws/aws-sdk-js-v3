@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeConversionTasksRequest, DescribeConversionTasksResult } from "../models/models_3";
+import type { DescribeConversionTasksRequest } from "../models/models_3";
+import type { DescribeConversionTasksResult } from "../models/models_4";
 import { DescribeConversionTasks$ } from "../schemas/schemas_0";
 
 /**

@@ -2,8 +2,10 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DisableTransitGatewayRouteTablePropagationRequest } from "../models/models_5";
-import type { DisableTransitGatewayRouteTablePropagationResult } from "../models/models_6";
+import type {
+  DisableTransitGatewayRouteTablePropagationRequest,
+  DisableTransitGatewayRouteTablePropagationResult,
+} from "../models/models_6";
 import { DisableTransitGatewayRouteTablePropagation$ } from "../schemas/schemas_0";
 
 /**

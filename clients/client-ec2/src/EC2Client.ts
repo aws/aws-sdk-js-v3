@@ -2643,6 +2643,10 @@ import type {
   ModifyTransitGatewayNetworkFunctionAttachmentCommandOutput,
 } from "./commands/ModifyTransitGatewayNetworkFunctionAttachmentCommand";
 import type {
+  ModifyTransitGatewayPeeringAttachmentCommandInput,
+  ModifyTransitGatewayPeeringAttachmentCommandOutput,
+} from "./commands/ModifyTransitGatewayPeeringAttachmentCommand";
+import type {
   ModifyTransitGatewayPolicyTableEntryCommandInput,
   ModifyTransitGatewayPolicyTableEntryCommandOutput,
 } from "./commands/ModifyTransitGatewayPolicyTableEntryCommand";
@@ -3771,6 +3775,7 @@ export type ServiceInputTypes =
   | ModifyTransitGatewayCommandInput
   | ModifyTransitGatewayMeteringPolicyCommandInput
   | ModifyTransitGatewayNetworkFunctionAttachmentCommandInput
+  | ModifyTransitGatewayPeeringAttachmentCommandInput
   | ModifyTransitGatewayPolicyTableEntryCommandInput
   | ModifyTransitGatewayPrefixListReferenceCommandInput
   | ModifyTransitGatewayVpcAttachmentCommandInput
@@ -4605,6 +4610,7 @@ export type ServiceOutputTypes =
   | ModifyTransitGatewayCommandOutput
   | ModifyTransitGatewayMeteringPolicyCommandOutput
   | ModifyTransitGatewayNetworkFunctionAttachmentCommandOutput
+  | ModifyTransitGatewayPeeringAttachmentCommandOutput
   | ModifyTransitGatewayPolicyTableEntryCommandOutput
   | ModifyTransitGatewayPrefixListReferenceCommandOutput
   | ModifyTransitGatewayVpcAttachmentCommandOutput

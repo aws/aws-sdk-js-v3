@@ -38,6 +38,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <allowEgressFromLocalVpcToRemoteClassicLink>
             false
         </allowEgressFromLocalVpcToRemoteClassicLink>
+        <allowMultipathResilience>
+            false
+        </allowMultipathResilience>
+        <multipathResilienceMode>
+            __MultipathResilienceMode__
+        </multipathResilienceMode>
     </accepterPeeringConnectionOptions>
     <requesterPeeringConnectionOptions>
         <allowDnsResolutionFromRemoteVpc>
@@ -49,6 +55,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <allowEgressFromLocalVpcToRemoteClassicLink>
             false
         </allowEgressFromLocalVpcToRemoteClassicLink>
+        <allowMultipathResilience>
+            false
+        </allowMultipathResilience>
+        <multipathResilienceMode>
+            __MultipathResilienceMode__
+        </multipathResilienceMode>
     </requesterPeeringConnectionOptions>
 </ModifyVpcPeeringConnectionOptionsResult>
 
@@ -58,12 +70,16 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   AccepterPeeringConnectionOptions: {
     AllowDnsResolutionFromRemoteVpc: (boolean) false,
     AllowEgressFromLocalClassicLinkToRemoteVpc: (boolean) false,
-    AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false
+    AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false,
+    AllowMultipathResilience: (boolean) false,
+    MultipathResilienceMode: "__MultipathResilienceMode__"
   },
   RequesterPeeringConnectionOptions: {
     AllowDnsResolutionFromRemoteVpc: (boolean) false,
     AllowEgressFromLocalClassicLinkToRemoteVpc: (boolean) false,
-    AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false
+    AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false,
+    AllowMultipathResilience: (boolean) false,
+    MultipathResilienceMode: "__MultipathResilienceMode__"
   },
   $metadata: {
     httpStatusCode: (number) 200,

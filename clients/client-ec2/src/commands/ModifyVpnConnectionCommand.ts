@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ModifyVpnConnectionRequest, ModifyVpnConnectionResult } from "../models/models_7";
+import type { ModifyVpnConnectionRequest, ModifyVpnConnectionResult } from "../models/models_8";
 import { ModifyVpnConnection$ } from "../schemas/schemas_0";
 
 /**
@@ -154,6 +154,28 @@ export interface ModifyVpnConnectionCommandOutput extends ModifyVpnConnectionRes
  * //             },
  * //           },
  * //           EnableTunnelLifecycleControl: true || false,
+ * //           Phase1AdditionalKeyExchanges: [ // AdditionalKeyExchangesList
+ * //             { // VpnAdditionalKeyExchange
+ * //               AdditionalKeyExchangeRound: Number("int"),
+ * //               KeyExchangeMethods: [ // AdditionalKeyExchangeMethodsList
+ * //                 { // AdditionalKeyExchangeMethodsListValue
+ * //                   Value: Number("int"),
+ * //                 },
+ * //               ],
+ * //               Requirement: "required" || "optional",
+ * //             },
+ * //           ],
+ * //           Phase2AdditionalKeyExchanges: [
+ * //             {
+ * //               AdditionalKeyExchangeRound: Number("int"),
+ * //               KeyExchangeMethods: [
+ * //                 {
+ * //                   Value: Number("int"),
+ * //                 },
+ * //               ],
+ * //               Requirement: "required" || "optional",
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       TunnelBandwidth: "standard" || "large",

@@ -53,6 +53,7 @@ import type {
   ManagedResourceDefaultVisibility,
   MetadataDefaultHttpTokensState,
   ModifyAvailabilityZoneOptInStatus,
+  MultipathResilienceMode,
   NestedVirtualizationSpecification,
   NetworkProtocolEnum,
   OperationType,
@@ -84,6 +85,7 @@ import type {
   TransitGatewayAttachmentNatSystemRouteSupportValue,
   TransitGatewayAttachmentResourceType,
   TransitGatewayNatRuleState,
+  TransitGatewayPeeringAttachmentMultipathResilienceMode,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   UnsuccessfulInstanceCreditSpecificationErrorCode,
@@ -94,7 +96,6 @@ import type {
   VpcEncryptionControlMode,
   VpcTenancy,
   VpnEcmpSupportValue,
-  VpnTunnelBandwidth,
 } from "./enums";
 import type {
   AccountVpcEncryptionControl,
@@ -111,9 +112,11 @@ import type {
   IpamPoolAllocation,
   IpamRoutingPolicyRegistrationDelta,
   OperatorResponse,
+  RouteServerAssociation,
   SubnetAssociation,
   Tag,
   TagSpecification,
+  TransitGatewayPeeringAttachment,
   TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
@@ -133,7 +136,6 @@ import type {
   ExternalAuthorityConfiguration,
   FleetLaunchTemplateConfigRequest,
   InstanceEventWindowTimeRangeRequest,
-  InstanceFlexCostAllocationPolicyDocument,
   Ipam,
   IpamPool,
   IpamPrefixListResolver,
@@ -145,7 +147,6 @@ import type {
   LocalGatewayRoute,
   ManagedPrefixList,
   MetricCategory,
-  NatFlexCostAllocationPolicyDocument,
   Placement,
   RequestIpamResourceTag,
   TargetCapacitySpecificationRequest,
@@ -154,15 +155,10 @@ import type {
 } from "./models_1";
 import type {
   DnsOptionsSpecification,
-  IKEVersionsRequestListValue,
+  InstanceFlexCostAllocationPolicyDocument,
+  NatFlexCostAllocationPolicyDocument,
   PayerResponsibilityEntry,
   PcxFlexCostAllocationPolicyDocument,
-  Phase1DHGroupNumbersRequestListValue,
-  Phase1EncryptionAlgorithmsRequestListValue,
-  Phase1IntegrityAlgorithmsRequestListValue,
-  Phase2DHGroupNumbersRequestListValue,
-  Phase2EncryptionAlgorithmsRequestListValue,
-  Phase2IntegrityAlgorithmsRequestListValue,
   RouteServer,
   SubnetCidrReservation,
   SubnetConfiguration,
@@ -181,12 +177,11 @@ import type {
   VerifiedAccessGroup,
   VerifiedAccessSseSpecificationRequest,
   VpcBlockPublicAccessExclusion,
-  VpnConnection,
-  VpnTunnelLogOptionsSpecification,
 } from "./models_2";
-import type { ConversionTask, Filter } from "./models_3";
+import type { Filter } from "./models_3";
 import type {
   AttributeBooleanValue,
+  ConversionTask,
   FpgaImageAttribute,
   ImportImageLicenseConfigurationResponse,
   InstanceMetadataOptionsResponse,
@@ -199,7 +194,6 @@ import type {
   CreateVolumePermission,
   LaunchTemplateConfig,
   ReservedInstancesConfiguration,
-  RouteServerPropagation,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
   VpcBlockPublicAccessOptions,
@@ -210,7 +204,206 @@ import type {
   IpamPolicyDocument,
   IpamResourceCidr,
   ManagedResourceVisibilitySettings,
+  RouteServerPropagation,
 } from "./models_6";
+
+/**
+ * <p>The cost associated with the Reserved Instance.</p>
+ * @public
+ */
+export interface ReservationValue {
+  /**
+   * <p>The hourly rate of the reservation.</p>
+   * @public
+   */
+  HourlyPrice?: string | undefined;
+
+  /**
+   * <p>The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of
+   *       hours remaining).</p>
+   * @public
+   */
+  RemainingTotalValue?: string | undefined;
+
+  /**
+   * <p>The remaining upfront cost of the reservation.</p>
+   * @public
+   */
+  RemainingUpfrontValue?: string | undefined;
+}
+
+/**
+ * <p>The total value of the Convertible Reserved Instance.</p>
+ * @public
+ */
+export interface ReservedInstanceReservationValue {
+  /**
+   * <p>The total value of the Convertible Reserved Instance that you are exchanging.</p>
+   * @public
+   */
+  ReservationValue?: ReservationValue | undefined;
+
+  /**
+   * <p>The ID of the Convertible Reserved Instance that you are exchanging.</p>
+   * @public
+   */
+  ReservedInstanceId?: string | undefined;
+}
+
+/**
+ * <p>Information about the Convertible Reserved Instance offering.</p>
+ * @public
+ */
+export interface TargetConfiguration {
+  /**
+   * <p>The number of instances the Convertible Reserved Instance offering can be applied to. This
+   *       parameter is reserved and cannot be specified in a request</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The ID of the Convertible Reserved Instance offering.</p>
+   * @public
+   */
+  OfferingId?: string | undefined;
+}
+
+/**
+ * <p>The total value of the new Convertible Reserved Instances.</p>
+ * @public
+ */
+export interface TargetReservationValue {
+  /**
+   * <p>The total value of the Convertible Reserved Instances that make up the exchange. This is
+   *       the sum of the list value, remaining upfront price, and additional upfront cost of the
+   *       exchange.</p>
+   * @public
+   */
+  ReservationValue?: ReservationValue | undefined;
+
+  /**
+   * <p>The configuration of the Convertible Reserved Instances that make up the exchange.</p>
+   * @public
+   */
+  TargetConfiguration?: TargetConfiguration | undefined;
+}
+
+/**
+ * <p>Contains the output of GetReservedInstancesExchangeQuote.</p>
+ * @public
+ */
+export interface GetReservedInstancesExchangeQuoteResult {
+  /**
+   * <p>The currency of the transaction.</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, the exchange is valid. If <code>false</code>, the exchange cannot be
+   *       completed.</p>
+   * @public
+   */
+  IsValidExchange?: boolean | undefined;
+
+  /**
+   * <p>The new end date of the reservation term.</p>
+   * @public
+   */
+  OutputReservedInstancesWillExpireAt?: Date | undefined;
+
+  /**
+   * <p>The total true upfront charge for the exchange.</p>
+   * @public
+   */
+  PaymentDue?: string | undefined;
+
+  /**
+   * <p>The cost associated with the Reserved Instance.</p>
+   * @public
+   */
+  ReservedInstanceValueRollup?: ReservationValue | undefined;
+
+  /**
+   * <p>The configuration of your Convertible Reserved Instances.</p>
+   * @public
+   */
+  ReservedInstanceValueSet?: ReservedInstanceReservationValue[] | undefined;
+
+  /**
+   * <p>The cost associated with the Reserved Instance.</p>
+   * @public
+   */
+  TargetConfigurationValueRollup?: ReservationValue | undefined;
+
+  /**
+   * <p>The values of the target Convertible Reserved Instances.</p>
+   * @public
+   */
+  TargetConfigurationValueSet?: TargetReservationValue[] | undefined;
+
+  /**
+   * <p>Describes the reason why the exchange cannot be completed.</p>
+   * @public
+   */
+  ValidationFailureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouteServerAssociationsRequest {
+  /**
+   * <p>The ID of the route server for which to get association information.</p>
+   * @public
+   */
+  RouteServerId: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouteServerAssociationsResult {
+  /**
+   * <p>Information about the associations for the specified route server.</p>
+   * @public
+   */
+  RouteServerAssociations?: RouteServerAssociation[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouteServerPropagationsRequest {
+  /**
+   * <p>The ID of the route server for which to get propagation information.</p>
+   * @public
+   */
+  RouteServerId: string | undefined;
+
+  /**
+   * <p>The ID of the route table for which to get propagation information.</p>
+   * @public
+   */
+  RouteTableId?: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -3479,7 +3672,7 @@ export interface ModifyAccountVpcEncryptionControlRequest {
   ElasticFileSystem?: VpcEncryptionControlExclusionStateInput | undefined;
 
   /**
-   * <p>Specifies whether to exclude AWS Global Accelerator from account-level encryption enforcement.</p>
+   * <p>Specifies whether to exclude Amazon Web Services Global Accelerator from account-level encryption enforcement.</p>
    * @public
    */
   GlobalAccelerator?: VpcEncryptionControlExclusionStateInput | undefined;
@@ -8124,6 +8317,71 @@ export interface ModifyTransitGatewayNetworkFunctionAttachmentResult {
 }
 
 /**
+ * <p>Contains the options to modify for a transit gateway peering attachment, including multipath resilience settings.</p>
+ * @public
+ */
+export interface ModifyTransitGatewayPeeringAttachmentRequestOptions {
+  /**
+   * <p>Specifies whether you allow multipath resilience for your side of the transit gateway peering attachment. Multipath
+   *             resilience is supported only for inter-Region transit gateway peering attachments between supported Regions. It takes effect only when
+   *             both the requester and the accepter allow it. If you don't specify this parameter, the current setting doesn't change.</p>
+   * @public
+   */
+  AllowMultipathResilience?: boolean | undefined;
+
+  /**
+   * <p>The multipath resilience mode. You can specify this parameter only if
+   *             <code>AllowMultipathResilience</code> is <code>true</code>.</p>
+   *          <p>The following value is valid:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>always-on</code> – Replicates traffic across multiple network paths while multipath resilience is in effect.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If <code>AllowMultipathResilience</code> is <code>true</code> and you don't specify a mode, the default is <code>always-on</code>.</p>
+   * @public
+   */
+  MultipathResilienceMode?: TransitGatewayPeeringAttachmentMultipathResilienceMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayPeeringAttachmentRequest {
+  /**
+   * <p>The ID of the transit gateway peering attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>The options to modify for the transit gateway peering attachment.</p>
+   * @public
+   */
+  Options?: ModifyTransitGatewayPeeringAttachmentRequestOptions | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayPeeringAttachmentResult {
+  /**
+   * <p>Information about the transit gateway peering attachment.</p>
+   * @public
+   */
+  TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment | undefined;
+}
+
+/**
  * @public
  */
 export interface ModifyTransitGatewayPolicyTableEntryRequest {
@@ -9391,7 +9649,7 @@ export interface ModifyVpcEncryptionControlRequest {
   ElasticFileSystemExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
 
   /**
-   * <p>Specifies whether to exclude AWS Global Accelerator traffic from encryption enforcement.</p>
+   * <p>Specifies whether to exclude Amazon Web Services Global Accelerator traffic from encryption enforcement.</p>
    * @public
    */
   GlobalAcceleratorExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
@@ -9850,6 +10108,29 @@ export interface PeeringConnectionOptionsRequest {
    * @public
    */
   AllowEgressFromLocalVpcToRemoteClassicLink?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether you allow multipath resilience for this side of the VPC peering connection. Multipath
+   *         resilience is supported only for inter-Region VPC peering connections between supported Regions. It takes effect only when
+   *         both the requester and the accepter allow it. If you don't specify this parameter, the current setting doesn't change.</p>
+   * @public
+   */
+  AllowMultipathResilience?: boolean | undefined;
+
+  /**
+   * <p>The multipath resilience mode. You can specify this parameter only if
+   *         <code>AllowMultipathResilience</code> is <code>true</code>.</p>
+   *          <p>The following value is valid:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>always-on</code> – Replicates traffic across multiple network paths while multipath resilience is in effect.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If <code>AllowMultipathResilience</code> is <code>true</code> and you don't specify a mode, the default is <code>always-on</code>.</p>
+   * @public
+   */
+  MultipathResilienceMode?: MultipathResilienceMode | undefined;
 }
 
 /**
@@ -9906,6 +10187,19 @@ export interface PeeringConnectionOptions {
    * @public
    */
   AllowEgressFromLocalVpcToRemoteClassicLink?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether this side of the VPC peering connection allows multipath resilience.</p>
+   * @public
+   */
+  AllowMultipathResilience?: boolean | undefined;
+
+  /**
+   * <p>The multipath resilience mode for this side of the VPC peering connection. This value is present
+   *         only when this side allows multipath resilience.</p>
+   * @public
+   */
+  MultipathResilienceMode?: MultipathResilienceMode | undefined;
 }
 
 /**
@@ -9945,491 +10239,6 @@ export interface ModifyVpcTenancyRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcTenancyResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an
-   *             error.</p>
-   * @public
-   */
-  ReturnValue?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnConnectionRequest {
-  /**
-   * <p>The ID of the VPN connection.</p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The ID of the transit gateway.</p>
-   * @public
-   */
-  TransitGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of the customer gateway at your end of the VPN connection.</p>
-   * @public
-   */
-  CustomerGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN
-   *             connection.</p>
-   * @public
-   */
-  VpnGatewayId?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnConnectionResult {
-  /**
-   * <p>Information about the VPN connection.</p>
-   * @public
-   */
-  VpnConnection?: VpnConnection | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnConnectionOptionsRequest {
-  /**
-   * <p>The ID of the Site-to-Site VPN connection. </p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *          <p>Default: <code>0.0.0.0/0</code>
-   *          </p>
-   * @public
-   */
-  LocalIpv4NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   *          <p>Default: <code>0.0.0.0/0</code>
-   *          </p>
-   * @public
-   */
-  RemoteIpv4NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *          <p>Default: <code>::/0</code>
-   *          </p>
-   * @public
-   */
-  LocalIpv6NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   *          <p>Default: <code>::/0</code>
-   *          </p>
-   * @public
-   */
-  RemoteIpv6NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The desired bandwidth specification for the VPN connection. <code>standard</code> supports up to 1.25 Gbps per tunnel, while <code>large</code> supports up to 5 Gbps per tunnel. Large bandwidth is only available for VPN connections attached to a transit gateway or to Cloud WAN. The default value is <code>standard</code>.</p>
-   * @public
-   */
-  TunnelBandwidth?: VpnTunnelBandwidth | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnConnectionOptionsResult {
-  /**
-   * <p>Information about the VPN connection.</p>
-   * @public
-   */
-  VpnConnection?: VpnConnection | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnTunnelCertificateRequest {
-  /**
-   * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   * @public
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnTunnelCertificateResult {
-  /**
-   * <p>Information about the VPN connection.</p>
-   * @public
-   */
-  VpnConnection?: VpnConnection | undefined;
-}
-
-/**
- * <p>The Amazon Web Services Site-to-Site VPN tunnel options to modify.</p>
- * @public
- */
-export interface ModifyVpnTunnelOptionsSpecification {
-  /**
-   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be
-   *             unique across all VPN connections that use the same virtual private gateway. </p>
-   *          <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
-   *             following CIDR blocks are reserved and cannot be used:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.0.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.1.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.2.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.3.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.4.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.5.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.169.252/30</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TunnelInsideCidr?: string | undefined;
-
-  /**
-   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be
-   *             unique across all VPN connections that use the same transit gateway.</p>
-   *          <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
-   * @public
-   */
-  TunnelInsideIpv6Cidr?: string | undefined;
-
-  /**
-   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
-   *             private gateway and the customer gateway.</p>
-   *          <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
-   *             underscores (_). Must be between 8 and 64 characters in length and cannot start with
-   *             zero (0).</p>
-   * @public
-   */
-  PreSharedKey?: string | undefined;
-
-  /**
-   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
-   *          <p>Constraints: A value between 900 and 28,800.</p>
-   *          <p>Default: <code>28800</code>
-   *          </p>
-   * @public
-   */
-  Phase1LifetimeSeconds?: number | undefined;
-
-  /**
-   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
-   *          <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
-   *                 <code>Phase1LifetimeSeconds</code>.</p>
-   *          <p>Default: <code>3600</code>
-   *          </p>
-   * @public
-   */
-  Phase2LifetimeSeconds?: number | undefined;
-
-  /**
-   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
-   *                 Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
-   *             of the rekey is randomly selected based on the value for
-   *                 <code>RekeyFuzzPercentage</code>.</p>
-   *          <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
-   *          <p>Default: <code>270</code>
-   *          </p>
-   * @public
-   */
-  RekeyMarginTimeSeconds?: number | undefined;
-
-  /**
-   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
-   *             during which the rekey time is randomly selected.</p>
-   *          <p>Constraints: A value between 0 and 100.</p>
-   *          <p>Default: <code>100</code>
-   *          </p>
-   * @public
-   */
-  RekeyFuzzPercentage?: number | undefined;
-
-  /**
-   * <p>The number of packets in an IKE replay window.</p>
-   *          <p>Constraints: A value between 64 and 2048.</p>
-   *          <p>Default: <code>1024</code>
-   *          </p>
-   * @public
-   */
-  ReplayWindowSize?: number | undefined;
-
-  /**
-   * <p>The number of seconds after which a DPD timeout occurs. A DPD timeout of 40 seconds means that the VPN endpoint will consider the peer dead 30 seconds after the first failed keep-alive.</p>
-   *          <p>Constraints: A value greater than or equal to 30.</p>
-   *          <p>Default: <code>40</code>
-   *          </p>
-   * @public
-   */
-  DPDTimeoutSeconds?: number | undefined;
-
-  /**
-   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
-   *             the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
-   *          <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
-   *          </p>
-   *          <p>Default: <code>clear</code>
-   *          </p>
-   * @public
-   */
-  DPDTimeoutAction?: string | undefined;
-
-  /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1
-   *             IKE negotiations.</p>
-   *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
-   *                 <code>AES256-GCM-16</code>
-   *          </p>
-   * @public
-   */
-  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2
-   *             IKE negotiations.</p>
-   *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
-   *                 <code>AES256-GCM-16</code>
-   *          </p>
-   * @public
-   */
-  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE
-   *             negotiations.</p>
-   *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
-   *                 <code>SHA2-512</code>
-   *          </p>
-   * @public
-   */
-  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE
-   *             negotiations.</p>
-   *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
-   *                 <code>SHA2-512</code>
-   *          </p>
-   * @public
-   */
-  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
-   *             phase 1 IKE negotiations.</p>
-   *          <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
-   *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
-   *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
-   *          </p>
-   * @public
-   */
-  Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
-   *             phase 2 IKE negotiations.</p>
-   *          <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
-   *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
-   *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
-   *                 <code>24</code>
-   *          </p>
-   * @public
-   */
-  Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[] | undefined;
-
-  /**
-   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
-   *          <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
-   *          </p>
-   * @public
-   */
-  IKEVersions?: IKEVersionsRequestListValue[] | undefined;
-
-  /**
-   * <p>The action to take when the establishing the tunnel for the VPN connection. By
-   *             default, your customer gateway device must initiate the IKE negotiation and bring up the
-   *             tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE
-   *             negotiation.</p>
-   *          <p>Valid Values: <code>add</code> | <code>start</code>
-   *          </p>
-   *          <p>Default: <code>add</code>
-   *          </p>
-   * @public
-   */
-  StartupAction?: string | undefined;
-
-  /**
-   * <p>Options for logging VPN tunnel activity.</p>
-   * @public
-   */
-  LogOptions?: VpnTunnelLogOptionsSpecification | undefined;
-
-  /**
-   * <p>Turn on or off tunnel endpoint lifecycle control feature.</p>
-   * @public
-   */
-  EnableTunnelLifecycleControl?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnTunnelOptionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   * @public
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>The tunnel options to modify.</p>
-   * @public
-   */
-  TunnelOptions: ModifyVpnTunnelOptionsSpecification | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Choose whether or not to trigger immediate tunnel replacement. This is only applicable when turning on or off <code>EnableTunnelLifecycleControl</code>.</p>
-   *          <p>Valid values: <code>True</code> | <code>False</code>
-   *          </p>
-   * @public
-   */
-  SkipTunnelReplacement?: boolean | undefined;
-
-  /**
-   * <p>Specifies the storage mode for the pre-shared key (PSK). Valid values are <code>Standard</code> (stored in Site-to-Site VPN service) or <code>SecretsManager</code> (stored in Amazon Web Services Secrets Manager).</p>
-   * @public
-   */
-  PreSharedKeyStorage?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnTunnelOptionsResult {
-  /**
-   * <p>Information about the VPN connection.</p>
-   * @public
-   */
-  VpnConnection?: VpnConnection | undefined;
-}
-
-/**
- * @public
- */
-export interface MonitorInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   * @public
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>The IDs of the metric categories to associate with the instances. The specified
-   *             metric categories are added to any metric categories that are already associated with
-   *             the instances.</p>
-   * @public
-   */
-  MetricCategoryIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;

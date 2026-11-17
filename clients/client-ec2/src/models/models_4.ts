@@ -15,6 +15,7 @@ import type {
   BootModeType,
   BootModeValues,
   CapacityReservationPreference,
+  ConversionTaskState,
   CurrencyCodeValues,
   DefaultTargetCapacityType,
   DestinationFileFormat,
@@ -80,7 +81,6 @@ import type {
   MoveStatus,
   NestedVirtualizationSpecification,
   NetworkCardInterfaceType,
-  NetworkInterfaceAttribute,
   NetworkInterfaceStatus,
   NitroEnclavesSupport,
   NitroTpmSupport,
@@ -115,8 +115,6 @@ import type {
 } from "./enums";
 import type {
   ActiveInstance,
-  AlternatePathHint,
-  Explanation,
   FlexCostAllocationPolicyAssociationDescription,
   IamInstanceProfile,
   IamInstanceProfileAssociation,
@@ -124,20 +122,19 @@ import type {
   IpamPoolAllocation,
   IpamResourceDiscoveryAssociation,
   OperatorResponse,
-  PathComponent,
   Tag,
 } from "./models_0";
 import type {
   AttributeValue,
   BlockDeviceMapping,
   CapacityReservationTargetResponse,
+  CustomerGateway,
   DhcpOptions,
   Ec2InstanceConnectEndpoint,
   EgressOnlyInternetGateway,
   ExportTask,
   FleetLaunchTemplateOverrides,
   FleetLaunchTemplateSpecification,
-  InstanceFlexCostAllocationPolicyDocument,
   InstanceIpv6Address,
   InternetGateway,
   Ipam,
@@ -160,7 +157,6 @@ import type {
   MacModificationTask,
   ManagedPrefixList,
   MetricCategory,
-  NatFlexCostAllocationPolicyDocument,
   NatGateway,
   NetworkAcl,
   Placement,
@@ -168,12 +164,314 @@ import type {
 } from "./models_1";
 import type {
   GroupIdentifier,
+  InstanceFlexCostAllocationPolicyDocument,
+  NatFlexCostAllocationPolicyDocument,
   NetworkInsightsAccessScope,
-  NetworkInsightsPath,
-  NetworkInterfaceAttachment,
   PcxFlexCostAllocationPolicyDocument,
 } from "./models_2";
-import type { Byoasn, Filter, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+import type {
+  Byoasn,
+  DiskImageDescription,
+  DiskImageVolumeDescription,
+  Filter,
+  IdFormat,
+  InstanceTagNotificationAttribute,
+} from "./models_3";
+
+/**
+ * <p>Describes an import volume task.</p>
+ * @public
+ */
+export interface ImportInstanceVolumeDetailItem {
+  /**
+   * <p>The Availability Zone where the resulting instance will reside.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the resulting instance will reside.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The number of bytes converted so far.</p>
+   * @public
+   */
+  BytesConverted?: number | undefined;
+
+  /**
+   * <p>A description of the task.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The image.</p>
+   * @public
+   */
+  Image?: DiskImageDescription | undefined;
+
+  /**
+   * <p>The status of the import of this particular disk image.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The status information or errors related to the disk image.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The volume.</p>
+   * @public
+   */
+  Volume?: DiskImageVolumeDescription | undefined;
+}
+
+/**
+ * <p>Describes an import instance task.</p>
+ * @public
+ */
+export interface ImportInstanceTaskDetails {
+  /**
+   * <p>A description of the task.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The instance operating system.</p>
+   * @public
+   */
+  Platform?: PlatformValues | undefined;
+
+  /**
+   * <p>The volumes.</p>
+   * @public
+   */
+  Volumes?: ImportInstanceVolumeDetailItem[] | undefined;
+}
+
+/**
+ * <p>Describes an import volume task.</p>
+ * @public
+ */
+export interface ImportVolumeTaskDetails {
+  /**
+   * <p>The Availability Zone where the resulting volume will reside.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the resulting volume will reside.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The number of bytes converted so far.</p>
+   * @public
+   */
+  BytesConverted?: number | undefined;
+
+  /**
+   * <p>The description you provided when starting the import volume task.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The image.</p>
+   * @public
+   */
+  Image?: DiskImageDescription | undefined;
+
+  /**
+   * <p>The volume.</p>
+   * @public
+   */
+  Volume?: DiskImageVolumeDescription | undefined;
+}
+
+/**
+ * <p>Describes a conversion task.</p>
+ * @public
+ */
+export interface ConversionTask {
+  /**
+   * <p>The ID of the conversion task.</p>
+   * @public
+   */
+  ConversionTaskId?: string | undefined;
+
+  /**
+   * <p>The time when the task expires. If the upload isn't complete before the expiration time, we automatically cancel
+   *    the task.</p>
+   * @public
+   */
+  ExpirationTime?: string | undefined;
+
+  /**
+   * <p>If the task is for importing an instance, this contains information about the import instance task.</p>
+   * @public
+   */
+  ImportInstance?: ImportInstanceTaskDetails | undefined;
+
+  /**
+   * <p>If the task is for importing a volume, this contains information about the import volume task.</p>
+   * @public
+   */
+  ImportVolume?: ImportVolumeTaskDetails | undefined;
+
+  /**
+   * <p>The state of the conversion task.</p>
+   * @public
+   */
+  State?: ConversionTaskState | undefined;
+
+  /**
+   * <p>The status message related to the conversion task.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>Any tags assigned to the task.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeConversionTasksResult {
+  /**
+   * <p>Information about the conversion tasks.</p>
+   * @public
+   */
+  ConversionTasks?: ConversionTask[] | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeCustomerGateways.</p>
+ * @public
+ */
+export interface DescribeCustomerGatewaysRequest {
+  /**
+   * <p>One or more customer gateway IDs.</p>
+   *          <p>Default: Describes all your customer gateways.</p>
+   * @public
+   */
+  CustomerGatewayIds?: string[] | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP)
+   *                     Autonomous System Number (ASN).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>customer-gateway-id</code> - The ID of the customer gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ip-address</code> - The IP address of the customer gateway
+   *                     device's external interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the customer gateway (<code>pending</code> |
+   *                         <code>available</code> | <code>deleting</code> |
+   *                     <code>deleted</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>type</code> - The type of customer gateway. Currently, the only
+   *                     supported type is <code>ipsec.1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the output of DescribeCustomerGateways.</p>
+ * @public
+ */
+export interface DescribeCustomerGatewaysResult {
+  /**
+   * <p>Information about one or more customer gateways.</p>
+   * @public
+   */
+  CustomerGateways?: CustomerGateway[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeclarativePoliciesReportsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>One or more report IDs.</p>
+   * @public
+   */
+  ReportIds?: string[] | undefined;
+}
 
 /**
  * <p>Describes the metadata of the account status report.</p>
@@ -13969,413 +14267,4 @@ export interface DescribeNetworkInsightsAccessScopesResult {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeNetworkInsightsAnalysesRequest {
-  /**
-   * <p>The ID of the network insights analyses. You must specify either analysis IDs or a path ID.</p>
-   * @public
-   */
-  NetworkInsightsAnalysisIds?: string[] | undefined;
-
-  /**
-   * <p>The ID of the path. You must specify either a path ID or analysis IDs.</p>
-   * @public
-   */
-  NetworkInsightsPathId?: string | undefined;
-
-  /**
-   * <p>The time when the network insights analyses started.</p>
-   * @public
-   */
-  AnalysisStartTime?: Date | undefined;
-
-  /**
-   * <p>The time when the network insights analyses ended.</p>
-   * @public
-   */
-  AnalysisEndTime?: Date | undefined;
-
-  /**
-   * <p>The filters. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>path-found - A Boolean value that indicates whether a feasible path is found.</p>
-   *             </li>
-   *             <li>
-   *                <p>status - The status of the analysis (running | succeeded | failed).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes a network insights analysis.</p>
- * @public
- */
-export interface NetworkInsightsAnalysis {
-  /**
-   * <p>The ID of the network insights analysis.</p>
-   * @public
-   */
-  NetworkInsightsAnalysisId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the network insights analysis.</p>
-   * @public
-   */
-  NetworkInsightsAnalysisArn?: string | undefined;
-
-  /**
-   * <p>The ID of the path.</p>
-   * @public
-   */
-  NetworkInsightsPathId?: string | undefined;
-
-  /**
-   * <p>The member accounts that contain resources that the path can traverse.</p>
-   * @public
-   */
-  AdditionalAccounts?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the resources that the path must traverse.</p>
-   * @public
-   */
-  FilterInArns?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the resources that the path must ignore.</p>
-   * @public
-   */
-  FilterOutArns?: string[] | undefined;
-
-  /**
-   * <p>The time the analysis started.</p>
-   * @public
-   */
-  StartDate?: Date | undefined;
-
-  /**
-   * <p>The status of the network insights analysis.</p>
-   * @public
-   */
-  Status?: AnalysisStatus | undefined;
-
-  /**
-   * <p>The status message, if the status is <code>failed</code>.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The warning message.</p>
-   * @public
-   */
-  WarningMessage?: string | undefined;
-
-  /**
-   * <p>Indicates whether the destination is reachable from the source.</p>
-   * @public
-   */
-  NetworkPathFound?: boolean | undefined;
-
-  /**
-   * <p>The components in the path from source to destination.</p>
-   * @public
-   */
-  ForwardPathComponents?: PathComponent[] | undefined;
-
-  /**
-   * <p>The components in the path from destination to source.</p>
-   * @public
-   */
-  ReturnPathComponents?: PathComponent[] | undefined;
-
-  /**
-   * <p>The explanations. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
-   * @public
-   */
-  Explanations?: Explanation[] | undefined;
-
-  /**
-   * <p>Potential intermediate components.</p>
-   * @public
-   */
-  AlternatePathHints?: AlternatePathHint[] | undefined;
-
-  /**
-   * <p>Potential intermediate accounts.</p>
-   * @public
-   */
-  SuggestedAccounts?: string[] | undefined;
-
-  /**
-   * <p>The tags.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeNetworkInsightsAnalysesResult {
-  /**
-   * <p>Information about the network insights analyses.</p>
-   * @public
-   */
-  NetworkInsightsAnalyses?: NetworkInsightsAnalysis[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeNetworkInsightsPathsRequest {
-  /**
-   * <p>The IDs of the paths.</p>
-   * @public
-   */
-  NetworkInsightsPathIds?: string[] | undefined;
-
-  /**
-   * <p>The filters. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>destination - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>filter-at-source.source-address - The source IPv4 address at the source.</p>
-   *             </li>
-   *             <li>
-   *                <p>filter-at-source.source-port-range - The source port range at the source.</p>
-   *             </li>
-   *             <li>
-   *                <p>filter-at-source.destination-address - The destination IPv4 address at the source.</p>
-   *             </li>
-   *             <li>
-   *                <p>filter-at-source.destination-port-range - The destination port range at the source.</p>
-   *             </li>
-   *             <li>
-   *                <p>filter-at-destination.source-address - The source IPv4 address at the destination.</p>
-   *             </li>
-   *             <li>
-   *                <p>filter-at-destination.source-port-range - The source port range at the destination.</p>
-   *             </li>
-   *             <li>
-   *                <p>filter-at-destination.destination-address - The destination IPv4 address at the destination.</p>
-   *             </li>
-   *             <li>
-   *                <p>filter-at-destination.destination-port-range - The destination port range at the destination.</p>
-   *             </li>
-   *             <li>
-   *                <p>protocol - The protocol.</p>
-   *             </li>
-   *             <li>
-   *                <p>source - The ID of the resource.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeNetworkInsightsPathsResult {
-  /**
-   * <p>Information about the paths.</p>
-   * @public
-   */
-  NetworkInsightsPaths?: NetworkInsightsPath[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeNetworkInterfaceAttribute.</p>
- * @public
- */
-export interface DescribeNetworkInterfaceAttributeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>The attribute of the network interface. This parameter is required.</p>
-   * @public
-   */
-  Attribute?: NetworkInterfaceAttribute | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeNetworkInterfaceAttribute.</p>
- * @public
- */
-export interface DescribeNetworkInterfaceAttributeResult {
-  /**
-   * <p>The attachment (if any) of the network interface.</p>
-   * @public
-   */
-  Attachment?: NetworkInterfaceAttachment | undefined;
-
-  /**
-   * <p>The description of the network interface.</p>
-   * @public
-   */
-  Description?: AttributeValue | undefined;
-
-  /**
-   * <p>The security groups associated with the network interface.</p>
-   * @public
-   */
-  Groups?: GroupIdentifier[] | undefined;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId?: string | undefined;
-
-  /**
-   * <p>Indicates whether source/destination checking is enabled.</p>
-   * @public
-   */
-  SourceDestCheck?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>Indicates whether to assign a public IPv4 address to a network interface. This option
-   *             can be enabled for any network interface but will only apply to the primary network
-   *             interface (eth0).</p>
-   * @public
-   */
-  AssociatePublicIpAddress?: boolean | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeNetworkInterfacePermissions.</p>
- * @public
- */
-export interface DescribeNetworkInterfacePermissionsRequest {
-  /**
-   * <p>The network interface permission IDs.</p>
-   * @public
-   */
-  NetworkInterfacePermissionIds?: string[] | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface-permission.network-interface-permission-id</code> -
-   *                     The ID of the permission.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface-permission.network-interface-id</code> - The ID of the
-   *                     network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface-permission.aws-account-id</code> - The Amazon Web Services account ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface-permission.aws-service</code> - The Amazon Web Services
-   *                     service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface-permission.permission</code> - The type of permission
-   *                         (<code>INSTANCE-ATTACH</code> | <code>EIP-ASSOCIATE</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the
-   *             end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items,
-   *             make another request with the token returned in the output. If this parameter is not
-   *             specified, up to 50 results are returned by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }

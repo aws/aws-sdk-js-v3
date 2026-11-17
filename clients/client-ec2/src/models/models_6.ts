@@ -60,6 +60,7 @@ import type {
   ReservationEndDateType,
   ReservationState,
   ReservationType,
+  RouteServerPropagationState,
   SecurityGroupVpcAssociationState,
   SeverityLabel,
   SnapshotBlockPublicAccessState,
@@ -103,15 +104,18 @@ import type {
   VpcIpv6CidrBlockAssociation,
 } from "./models_0";
 import type {
-  InstanceFlexCostAllocationPolicyDocument,
   InstanceRequirementsRequest,
   IpamInternetRegistryAssociation,
   IpamResourceTag,
-  NatFlexCostAllocationPolicyDocument,
   RequestIpamResourceTag,
   ResponseLaunchTemplateData,
 } from "./models_1";
-import type { NetworkInsightsAccessScopeContent, PcxFlexCostAllocationPolicyDocument } from "./models_2";
+import type {
+  InstanceFlexCostAllocationPolicyDocument,
+  NatFlexCostAllocationPolicyDocument,
+  NetworkInsightsAccessScopeContent,
+  PcxFlexCostAllocationPolicyDocument,
+} from "./models_2";
 import type { Filter, IpamPoolCidr } from "./models_3";
 import type {
   ExportTaskS3Location,
@@ -119,11 +123,147 @@ import type {
   FastLaunchSnapshotConfigurationResponse,
   RegisteredInstance,
 } from "./models_4";
-import type {
-  RouteServerPropagation,
-  SuccessfulSuppressionResponseObject,
-  UnsuccessfulSuppressionResponseObject,
-} from "./models_5";
+import type { SuccessfulSuppressionResponseObject, UnsuccessfulSuppressionResponseObject } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DisableRouteServerPropagationRequest {
+  /**
+   * <p>The ID of the route server for which to disable propagation.</p>
+   * @public
+   */
+  RouteServerId: string | undefined;
+
+  /**
+   * <p>The ID of the route table for which to disable route server propagation.</p>
+   * @public
+   */
+  RouteTableId: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the route propagation configuration between a route server and a route table.</p>
+ *          <p>When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.</p>
+ * @public
+ */
+export interface RouteServerPropagation {
+  /**
+   * <p>The ID of the route server configured for route propagation.</p>
+   * @public
+   */
+  RouteServerId?: string | undefined;
+
+  /**
+   * <p>The ID of the route table configured for route server propagation.</p>
+   * @public
+   */
+  RouteTableId?: string | undefined;
+
+  /**
+   * <p>The current state of route propagation.</p>
+   * @public
+   */
+  State?: RouteServerPropagationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableRouteServerPropagationResult {
+  /**
+   * <p>Information about the disabled route server propagation.</p>
+   * @public
+   */
+  RouteServerPropagation?: RouteServerPropagation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableSerialConsoleAccessRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableSerialConsoleAccessResult {
+  /**
+   * <p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for
+   * 			your account. If <code>false</code>, access to the EC2 serial console of all instances
+   * 			is disabled for your account.</p>
+   * @public
+   */
+  SerialConsoleAccessEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableSnapshotBlockPublicAccessRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableSnapshotBlockPublicAccessResult {
+  /**
+   * <p>Returns <code>unblocked</code> if the request succeeds.</p>
+   * @public
+   */
+  State?: SnapshotBlockPublicAccessState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableTransitGatewayRouteTablePropagationRequest {
+  /**
+   * <p>The ID of the propagation route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the route table announcement.</p>
+   * @public
+   */
+  TransitGatewayRouteTableAnnouncementId?: string | undefined;
+}
 
 /**
  * <p>Describes route propagation.</p>
@@ -8656,202 +8796,4 @@ export interface GetReservedInstancesExchangeQuoteRequest {
    * @public
    */
   TargetConfigurations?: TargetConfigurationRequest[] | undefined;
-}
-
-/**
- * <p>The cost associated with the Reserved Instance.</p>
- * @public
- */
-export interface ReservationValue {
-  /**
-   * <p>The hourly rate of the reservation.</p>
-   * @public
-   */
-  HourlyPrice?: string | undefined;
-
-  /**
-   * <p>The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of
-   *       hours remaining).</p>
-   * @public
-   */
-  RemainingTotalValue?: string | undefined;
-
-  /**
-   * <p>The remaining upfront cost of the reservation.</p>
-   * @public
-   */
-  RemainingUpfrontValue?: string | undefined;
-}
-
-/**
- * <p>The total value of the Convertible Reserved Instance.</p>
- * @public
- */
-export interface ReservedInstanceReservationValue {
-  /**
-   * <p>The total value of the Convertible Reserved Instance that you are exchanging.</p>
-   * @public
-   */
-  ReservationValue?: ReservationValue | undefined;
-
-  /**
-   * <p>The ID of the Convertible Reserved Instance that you are exchanging.</p>
-   * @public
-   */
-  ReservedInstanceId?: string | undefined;
-}
-
-/**
- * <p>Information about the Convertible Reserved Instance offering.</p>
- * @public
- */
-export interface TargetConfiguration {
-  /**
-   * <p>The number of instances the Convertible Reserved Instance offering can be applied to. This
-   *       parameter is reserved and cannot be specified in a request</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The ID of the Convertible Reserved Instance offering.</p>
-   * @public
-   */
-  OfferingId?: string | undefined;
-}
-
-/**
- * <p>The total value of the new Convertible Reserved Instances.</p>
- * @public
- */
-export interface TargetReservationValue {
-  /**
-   * <p>The total value of the Convertible Reserved Instances that make up the exchange. This is
-   *       the sum of the list value, remaining upfront price, and additional upfront cost of the
-   *       exchange.</p>
-   * @public
-   */
-  ReservationValue?: ReservationValue | undefined;
-
-  /**
-   * <p>The configuration of the Convertible Reserved Instances that make up the exchange.</p>
-   * @public
-   */
-  TargetConfiguration?: TargetConfiguration | undefined;
-}
-
-/**
- * <p>Contains the output of GetReservedInstancesExchangeQuote.</p>
- * @public
- */
-export interface GetReservedInstancesExchangeQuoteResult {
-  /**
-   * <p>The currency of the transaction.</p>
-   * @public
-   */
-  CurrencyCode?: string | undefined;
-
-  /**
-   * <p>If <code>true</code>, the exchange is valid. If <code>false</code>, the exchange cannot be
-   *       completed.</p>
-   * @public
-   */
-  IsValidExchange?: boolean | undefined;
-
-  /**
-   * <p>The new end date of the reservation term.</p>
-   * @public
-   */
-  OutputReservedInstancesWillExpireAt?: Date | undefined;
-
-  /**
-   * <p>The total true upfront charge for the exchange.</p>
-   * @public
-   */
-  PaymentDue?: string | undefined;
-
-  /**
-   * <p>The cost associated with the Reserved Instance.</p>
-   * @public
-   */
-  ReservedInstanceValueRollup?: ReservationValue | undefined;
-
-  /**
-   * <p>The configuration of your Convertible Reserved Instances.</p>
-   * @public
-   */
-  ReservedInstanceValueSet?: ReservedInstanceReservationValue[] | undefined;
-
-  /**
-   * <p>The cost associated with the Reserved Instance.</p>
-   * @public
-   */
-  TargetConfigurationValueRollup?: ReservationValue | undefined;
-
-  /**
-   * <p>The values of the target Convertible Reserved Instances.</p>
-   * @public
-   */
-  TargetConfigurationValueSet?: TargetReservationValue[] | undefined;
-
-  /**
-   * <p>Describes the reason why the exchange cannot be completed.</p>
-   * @public
-   */
-  ValidationFailureReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouteServerAssociationsRequest {
-  /**
-   * <p>The ID of the route server for which to get association information.</p>
-   * @public
-   */
-  RouteServerId: string | undefined;
-
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouteServerAssociationsResult {
-  /**
-   * <p>Information about the associations for the specified route server.</p>
-   * @public
-   */
-  RouteServerAssociations?: RouteServerAssociation[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouteServerPropagationsRequest {
-  /**
-   * <p>The ID of the route server for which to get propagation information.</p>
-   * @public
-   */
-  RouteServerId: string | undefined;
-
-  /**
-   * <p>The ID of the route table for which to get propagation information.</p>
-   * @public
-   */
-  RouteTableId?: string | undefined;
-
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

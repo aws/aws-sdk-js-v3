@@ -50,6 +50,18 @@ export interface GetActiveVpnTunnelStatusCommandOutput extends GetActiveVpnTunne
  * //     IkeVersion: "STRING_VALUE",
  * //     ProvisioningStatus: "available" || "pending" || "failed",
  * //     ProvisioningStatusReason: "STRING_VALUE",
+ * //     Phase1AdditionalKeyExchanges: [ // ActiveAdditionalKeyExchangesList
+ * //       { // ActiveVpnTunnelAdditionalKeyExchange
+ * //         AdditionalKeyExchangeRound: Number("int"),
+ * //         KeyExchangeMethod: Number("int"),
+ * //       },
+ * //     ],
+ * //     Phase2AdditionalKeyExchanges: [
+ * //       {
+ * //         AdditionalKeyExchangeRound: Number("int"),
+ * //         KeyExchangeMethod: Number("int"),
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

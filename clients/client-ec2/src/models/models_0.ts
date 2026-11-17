@@ -2,6 +2,7 @@
 import type {
   AccountVpcEncryptionControlMode,
   AccountVpcEncryptionControlState,
+  AdditionalKeyExchangeRequirement,
   AddressTransferStatus,
   AggregationStatusEnum,
   AllocationType,
@@ -23,7 +24,6 @@ import type {
   CapacityReservationFleetState,
   CapacityReservationInstancePlatform,
   CapacityReservationLaunchStatus,
-  CapacityReservationModificationQuoteState,
   CapacityReservationState,
   CapacityReservationTenancy,
   CapacityReservationType,
@@ -57,6 +57,8 @@ import type {
   ListingState,
   ListingStatus,
   ManagedBy,
+  MultipathResilienceMode,
+  MultipathResilienceStatus,
   NatGatewayAddressStatus,
   NetworkProtocolEnum,
   OutputFormat,
@@ -77,6 +79,8 @@ import type {
   TransitGatewayAttachmentState,
   TransitGatewayAttachmentStatusType,
   TransitGatewayMulitcastDomainAssociationState,
+  TransitGatewayPeeringAttachmentMultipathResilienceMode,
+  TransitGatewayPeeringAttachmentMultipathResilienceStatus,
   TrustProviderType,
   UserTrustProviderType,
   VolumeAttachmentState,
@@ -621,6 +625,52 @@ export interface TransitGatewayPeeringAttachmentOptions {
    * @public
    */
   DynamicRouting?: DynamicRoutingValue | undefined;
+
+  /**
+   * <p>Indicates whether the requester allows multipath resilience for the transit gateway peering attachment.</p>
+   * @public
+   */
+  RequesterAllowMultipathResilience?: boolean | undefined;
+
+  /**
+   * <p>The multipath resilience mode for the requester. This value is present only when the requester
+   *             allows multipath resilience.</p>
+   * @public
+   */
+  RequesterMultipathResilienceMode?: TransitGatewayPeeringAttachmentMultipathResilienceMode | undefined;
+
+  /**
+   * <p>Indicates whether the accepter allows multipath resilience for the transit gateway peering attachment.</p>
+   * @public
+   */
+  AccepterAllowMultipathResilience?: boolean | undefined;
+
+  /**
+   * <p>The multipath resilience mode for the accepter. This value is present only when the accepter
+   *             allows multipath resilience.</p>
+   * @public
+   */
+  AccepterMultipathResilienceMode?: TransitGatewayPeeringAttachmentMultipathResilienceMode | undefined;
+
+  /**
+   * <p>The multipath resilience status of the transit gateway peering attachment. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>enabled</code> – Both the requester and the accepter allow multipath resilience.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> – Either the requester or the accepter allows multipath resilience, but not both.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disabled</code> – Neither the requester nor the accepter allows multipath resilience.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MultipathResilienceStatus?: TransitGatewayPeeringAttachmentMultipathResilienceStatus | undefined;
 }
 
 /**
@@ -985,6 +1035,19 @@ export interface VpcPeeringConnectionOptionsDescription {
    * @public
    */
   AllowEgressFromLocalVpcToRemoteClassicLink?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether this side of the VPC peering connection allows multipath resilience.</p>
+   * @public
+   */
+  AllowMultipathResilience?: boolean | undefined;
+
+  /**
+   * <p>The multipath resilience mode for this side of the VPC peering connection. This value is present
+   *         only when this side allows multipath resilience.</p>
+   * @public
+   */
+  MultipathResilienceMode?: MultipathResilienceMode | undefined;
 }
 
 /**
@@ -1093,6 +1156,26 @@ export interface VpcPeeringConnection {
    * @public
    */
   VpcPeeringConnectionId?: string | undefined;
+
+  /**
+   * <p>The multipath resilience status of the VPC peering connection. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>enabled</code> – Both the requester and the accepter allow multipath resilience.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> – Either the requester or the accepter allows multipath resilience, but not both.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disabled</code> – Neither the requester nor the accepter allows multipath resilience.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MultipathResilienceStatus?: MultipathResilienceStatus | undefined;
 }
 
 /**
@@ -2599,7 +2682,7 @@ export interface AccountVpcEncryptionControlExclusions {
   ElasticFileSystem?: VpcEncryptionControlExclusionState | undefined;
 
   /**
-   * <p>The exclusion configuration for AWS Global Accelerator.</p>
+   * <p>The exclusion configuration for Amazon Web Services Global Accelerator.</p>
    * @public
    */
   GlobalAccelerator?: VpcEncryptionControlExclusionState | undefined;
@@ -2646,6 +2729,24 @@ export interface AccountVpcEncryptionControl {
    * @public
    */
   LastUpdateTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>Describes an additional key exchange round negotiated for an active VPN tunnel.</p>
+ * @public
+ */
+export interface ActiveVpnTunnelAdditionalKeyExchange {
+  /**
+   * <p>The additional key exchange round number.</p>
+   * @public
+   */
+  AdditionalKeyExchangeRound?: number | undefined;
+
+  /**
+   * <p>The key exchange method number negotiated for this round.</p>
+   * @public
+   */
+  KeyExchangeMethod?: number | undefined;
 }
 
 /**
@@ -2738,6 +2839,18 @@ export interface ActiveVpnTunnelStatus {
    * @public
    */
   ProvisioningStatusReason?: string | undefined;
+
+  /**
+   * <p>The additional key exchanges negotiated in Phase 1 IKE negotiations.</p>
+   * @public
+   */
+  Phase1AdditionalKeyExchanges?: ActiveVpnTunnelAdditionalKeyExchange[] | undefined;
+
+  /**
+   * <p>The additional key exchanges negotiated in Phase 2 IKE negotiations.</p>
+   * @public
+   */
+  Phase2AdditionalKeyExchanges?: ActiveVpnTunnelAdditionalKeyExchange[] | undefined;
 }
 
 /**
@@ -2830,6 +2943,102 @@ export interface AddIpamOrganizationalUnitExclusion {
    * @public
    */
   OrganizationsEntityPath?: string | undefined;
+}
+
+/**
+ * <p>The key exchange method number that is permitted for an additional key exchange
+ *             round.</p>
+ * @public
+ */
+export interface AdditionalKeyExchangeMethodsListValue {
+  /**
+   * <p>The key exchange method number.</p>
+   * @public
+   */
+  Value?: number | undefined;
+}
+
+/**
+ * <p>Specifies a key exchange method number that is permitted for an additional key
+ *             exchange round.</p>
+ * @public
+ */
+export interface AdditionalKeyExchangeMethodsRequestListValue {
+  /**
+   * <p>The key exchange method number.</p>
+   * @public
+   */
+  Value?: number | undefined;
+}
+
+/**
+ * <p>Describes an additional key exchange round that is permitted for the VPN
+ *             tunnel.</p>
+ * @public
+ */
+export interface VpnAdditionalKeyExchange {
+  /**
+   * <p>The additional key exchange round number.</p>
+   * @public
+   */
+  AdditionalKeyExchangeRound?: number | undefined;
+
+  /**
+   * <p>The key exchange method numbers permitted for this round.</p>
+   * @public
+   */
+  KeyExchangeMethods?: AdditionalKeyExchangeMethodsListValue[] | undefined;
+
+  /**
+   * <p>Indicates whether this round is mandatory.</p>
+   * @public
+   */
+  Requirement?: AdditionalKeyExchangeRequirement | undefined;
+}
+
+/**
+ * <p>Specifies an additional key exchange round for the VPN tunnel, as defined in RFC
+ *             9370.</p>
+ * @public
+ */
+export interface VpnAdditionalKeyExchangeRequest {
+  /**
+   * <p>The additional key exchange round number.</p>
+   *          <p>Valid range: Minimum value of 1. Maximum value of 7.</p>
+   * @public
+   */
+  AdditionalKeyExchangeRound: number | undefined;
+
+  /**
+   * <p>The key exchange method numbers that are permitted for this round. The method
+   *             numbers are the IANA IKEv2 key exchange method transform IDs.</p>
+   *          <p>A <code>required</code> round must specify at least one method. An
+   *             <code>optional</code> round can omit this parameter or specify an empty list.
+   *             If omitted or empty for an optional round, the round is disabled.</p>
+   *          <p>IKEv2 requires that the initial Diffie-Hellman exchange and each required round use a
+   *             different key exchange method. The permitted methods must allow a distinct method to be
+   *             selected for each of them.</p>
+   *          <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
+   *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
+   *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
+   *                 <code>24</code> | <code>35</code> | <code>36</code> | <code>37</code>
+   *          </p>
+   * @public
+   */
+  KeyExchangeMethods?: AdditionalKeyExchangeMethodsRequestListValue[] | undefined;
+
+  /**
+   * <p>Indicates whether this round is mandatory. If
+   *             <code>required</code>, the tunnel isn't established unless the customer gateway
+   *             device negotiates this round. If <code>optional</code>, the round is negotiated only
+   *             if the customer gateway device supports it.</p>
+   *          <p>Valid values: <code>required</code> | <code>optional</code>
+   *          </p>
+   *          <p>Default: <code>required</code>
+   *          </p>
+   * @public
+   */
+  Requirement?: AdditionalKeyExchangeRequirement | undefined;
 }
 
 /**
@@ -10441,184 +10650,4 @@ export interface CreateCapacityReservationCancellationQuoteResult {
    * @public
    */
   CapacityReservationCancellationQuote?: CapacityReservationCancellationQuote | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCapacityReservationDateChangeQuoteRequest {
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   * @public
-   */
-  CapacityReservationId: string | undefined;
-
-  /**
-   * <p>The requested new start date for the Capacity Reservation, in the ISO8601 format in the
-   * 			UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>). The new start date must be later
-   * 			than the current start date and within the cumulative 30-day pushout limit.</p>
-   * @public
-   */
-  NewStartDate: Date | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The tags to apply to the date change quote.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes the configuration that a Capacity Reservation has at the time a modification
- * 			quote is generated.</p>
- * @public
- */
-export interface ModificationQuoteCurrentConfiguration {
-  /**
-   * <p>The number of instances in the Capacity Reservation.</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The current state of the Capacity Reservation.</p>
-   * @public
-   */
-  ReservationState?: string | undefined;
-
-  /**
-   * <p>The start date that the Capacity Reservation has before the quoted modification is
-   * 			applied.</p>
-   * @public
-   */
-  StartDate?: Date | undefined;
-
-  /**
-   * <p>The start date that the Capacity Reservation was originally requested with. This value
-   * 			does not change when you push out the start date.</p>
-   * @public
-   */
-  OriginalStartDate?: Date | undefined;
-}
-
-/**
- * <p>Describes the changes that a Capacity Reservation modification quote will apply to a
- * 			Capacity Reservation.</p>
- * @public
- */
-export interface ModificationReservationUpdate {
-  /**
-   * <p>The date and time at which the commitment duration will expire after the modification,
-   * 			in the ISO8601 format in the UTC time zone
-   * 			(<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
-   * @public
-   */
-  NewCommitmentEndDate?: Date | undefined;
-
-  /**
-   * <p>The start date that the Capacity Reservation will have after the modification, in the
-   * 			ISO8601 format in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
-   * @public
-   */
-  NewStartDate?: Date | undefined;
-
-  /**
-   * <p>The commitment duration, in seconds, that the Capacity Reservation will have after the
-   * 			modification.</p>
-   * @public
-   */
-  NewCommitmentDuration?: number | undefined;
-}
-
-/**
- * <p>Describes the terms of a Capacity Reservation modification quote.</p>
- * @public
- */
-export interface ModificationTerms {
-  /**
-   * <p>The changes that will be applied to the Capacity Reservation if you accept the
-   * 			modification terms.</p>
-   * @public
-   */
-  ReservationUpdate?: ModificationReservationUpdate | undefined;
-}
-
-/**
- * <p>Describes a Capacity Reservation modification quote, which provides the terms for
- * 			changing the start date or the commitment of a future-dated Capacity Reservation.</p>
- * @public
- */
-export interface CapacityReservationModificationQuote {
-  /**
-   * <p>The ID of the modification quote.</p>
-   * @public
-   */
-  CapacityReservationModificationQuoteId?: string | undefined;
-
-  /**
-   * <p>The ID of the Capacity Reservation associated with the modification quote.</p>
-   * @public
-   */
-  CapacityReservationId?: string | undefined;
-
-  /**
-   * <p>The date and time at which the modification quote was created.</p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>The date and time at which the modification quote expires.</p>
-   * @public
-   */
-  ExpirationTime?: Date | undefined;
-
-  /**
-   * <p>The state of the modification quote itself. Possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>active</code> - The quote can still be used.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>expired</code> - The quote can no longer be used. A quote becomes
-   * 					<code>expired</code> at its <code>expirationTime</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  QuoteState?: CapacityReservationModificationQuoteState | undefined;
-
-  /**
-   * <p>The configuration that the Capacity Reservation has at the time the quote was
-   * 			generated.</p>
-   * @public
-   */
-  CurrentConfiguration?: ModificationQuoteCurrentConfiguration | undefined;
-
-  /**
-   * <p>The terms of the modification, including the configuration that the Capacity Reservation
-   * 			will have if you accept them by using <code>ModifyCapacityReservation</code>.</p>
-   * @public
-   */
-  ModificationTerms?: ModificationTerms | undefined;
-
-  /**
-   * <p>The tags assigned to the modification quote.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
 }

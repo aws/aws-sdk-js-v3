@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ModifyVpnTunnelOptionsRequest, ModifyVpnTunnelOptionsResult } from "../models/models_7";
+import type { ModifyVpnTunnelOptionsRequest, ModifyVpnTunnelOptionsResult } from "../models/models_8";
 import { ModifyVpnTunnelOptions$ } from "../schemas/schemas_0";
 
 /**
@@ -96,6 +96,28 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  *       },
  *     },
  *     EnableTunnelLifecycleControl: true || false,
+ *     Phase1AdditionalKeyExchanges: [ // AdditionalKeyExchangesRequestSpecification
+ *       { // VpnAdditionalKeyExchangeRequest
+ *         AdditionalKeyExchangeRound: Number("int"), // required
+ *         KeyExchangeMethods: [ // AdditionalKeyExchangeMethodsRequestList
+ *           { // AdditionalKeyExchangeMethodsRequestListValue
+ *             Value: Number("int"),
+ *           },
+ *         ],
+ *         Requirement: "required" || "optional",
+ *       },
+ *     ],
+ *     Phase2AdditionalKeyExchanges: [
+ *       {
+ *         AdditionalKeyExchangeRound: Number("int"), // required
+ *         KeyExchangeMethods: [
+ *           {
+ *             Value: Number("int"),
+ *           },
+ *         ],
+ *         Requirement: "required" || "optional",
+ *       },
+ *     ],
  *   },
  *   DryRun: true || false,
  *   SkipTunnelReplacement: true || false,
@@ -181,6 +203,28 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  * //             },
  * //           },
  * //           EnableTunnelLifecycleControl: true || false,
+ * //           Phase1AdditionalKeyExchanges: [ // AdditionalKeyExchangesList
+ * //             { // VpnAdditionalKeyExchange
+ * //               AdditionalKeyExchangeRound: Number("int"),
+ * //               KeyExchangeMethods: [ // AdditionalKeyExchangeMethodsList
+ * //                 { // AdditionalKeyExchangeMethodsListValue
+ * //                   Value: Number("int"),
+ * //                 },
+ * //               ],
+ * //               Requirement: "required" || "optional",
+ * //             },
+ * //           ],
+ * //           Phase2AdditionalKeyExchanges: [
+ * //             {
+ * //               AdditionalKeyExchangeRound: Number("int"),
+ * //               KeyExchangeMethods: [
+ * //                 {
+ * //                   Value: Number("int"),
+ * //                 },
+ * //               ],
+ * //               Requirement: "required" || "optional",
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       TunnelBandwidth: "standard" || "large",

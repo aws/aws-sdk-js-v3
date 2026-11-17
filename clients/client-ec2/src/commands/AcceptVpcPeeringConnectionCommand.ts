@@ -29,6 +29,11 @@ export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeerin
  *       peering connection requests.</p>
  *          <p>For an inter-Region VPC peering connection request, you must accept the VPC peering
  *       connection in the Region of the accepter VPC.</p>
+ *          <p>If the requester allows multipath resilience, accepting the request also allows multipath resilience
+ *       for the accepter VPC, and the <code>multipathResilienceStatus</code> of the VPC peering connection becomes
+ *       <code>enabled</code>. Additional charges apply. For more information, see <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing</a>. To stop allowing
+ *       multipath resilience for the accepter VPC, use <a>ModifyVpcPeeringConnectionOptions</a> and set
+ *       <code>AllowMultipathResilience</code> to <code>false</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +67,8 @@ export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeerin
  * //         AllowDnsResolutionFromRemoteVpc: true || false,
  * //         AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
  * //         AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ * //         AllowMultipathResilience: true || false,
+ * //         MultipathResilienceMode: "always-on",
  * //       },
  * //       VpcId: "STRING_VALUE",
  * //       Region: "STRING_VALUE",
@@ -84,6 +91,8 @@ export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeerin
  * //         AllowDnsResolutionFromRemoteVpc: true || false,
  * //         AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
  * //         AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ * //         AllowMultipathResilience: true || false,
+ * //         MultipathResilienceMode: "always-on",
  * //       },
  * //       VpcId: "STRING_VALUE",
  * //       Region: "STRING_VALUE",
@@ -99,6 +108,7 @@ export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeerin
  * //       },
  * //     ],
  * //     VpcPeeringConnectionId: "STRING_VALUE",
+ * //     MultipathResilienceStatus: "pending" || "enabled" || "disabled",
  * //   },
  * // };
  *

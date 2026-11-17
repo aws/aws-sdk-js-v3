@@ -27,12 +27,12 @@ import type {
   GatewayAssociationState,
   GatewayType,
   Igmpv2SupportValue,
-  InstanceEventWindowState,
   InterfacePermissionType,
   InternetGatewayExclusionMode,
   IpAddressType,
   Ipv6SupportValue,
   MulticastSupportValue,
+  MultipathResilienceMode,
   NetworkInterfaceCreationType,
   NetworkInterfacePermissionStateCode,
   NetworkInterfaceStatus,
@@ -55,6 +55,7 @@ import type {
   RouteServerPersistRoutesState,
   RouteServerState,
   RouteState,
+  RuleAction,
   SecondaryNetworkCidrBlockAssociationState,
   SecondaryNetworkState,
   SecondaryNetworkType,
@@ -86,6 +87,7 @@ import type {
   TransitGatewayMeteringPolicyEntryState,
   TransitGatewayMeteringPolicyState,
   TransitGatewayMulticastDomainState,
+  TransitGatewayPeeringAttachmentMultipathResilienceMode,
   TransitGatewayPolicyTableEntryState,
   TransitGatewayPolicyTableState,
   TransitGatewayPrefixListReferenceState,
@@ -119,6 +121,7 @@ import type {
   ApplicationStatusCheckResponseObject,
   Ipv4PrefixSpecification,
   OperatorResponse,
+  PortRange,
   ReservedInstancesListing,
   RouteTableAssociationState,
   Tag,
@@ -131,6 +134,8 @@ import type {
   VerifiedAccessTrustProvider,
   VpcAttachment,
   VpcPeeringConnection,
+  VpnAdditionalKeyExchange,
+  VpnAdditionalKeyExchangeRequest,
 } from "./models_0";
 import type {
   CarrierGateway,
@@ -140,19 +145,189 @@ import type {
   CoipPool,
   ConnectionTrackingSpecificationRequest,
   Ec2InstanceConnectEndpoint,
-  FlexCostAllocationCidrRangeSpecifications,
-  InstanceFlexCostAllocationPolicyDocument,
+  IcmpTypeCode,
   InstanceIpv6Address,
-  Ipam,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
-  NatFlexCostAllocationPolicyDocument,
   OperatorRequest,
   PrivateIpAddressSpecification,
   Subnet,
   Vpc,
   VpcEncryptionControl,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateNetworkAclEntryRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the network ACL.</p>
+   * @public
+   */
+  NetworkAclId: string | undefined;
+
+  /**
+   * <p>The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.</p>
+   *          <p>Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.</p>
+   * @public
+   */
+  RuleNumber: number | undefined;
+
+  /**
+   * <p>The protocol number. A value of "-1" means all protocols. If you specify "-1" or a
+   *   			protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is
+   * 			allowed, regardless of any ports or ICMP types or codes that you specify. If you specify
+   * 			protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and
+   * 			codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6)
+   * 			and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
+   * @public
+   */
+  Protocol: string | undefined;
+
+  /**
+   * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
+   * @public
+   */
+  RuleAction: RuleAction | undefined;
+
+  /**
+   * <p>Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).</p>
+   * @public
+   */
+  Egress: boolean | undefined;
+
+  /**
+   * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
+   * 		        <code>172.16.0.0/24</code>). We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   * @public
+   */
+  CidrBlock?: string | undefined;
+
+  /**
+   * <p>The IPv6 network range to allow or deny, in CIDR notation (for example
+   *                 <code>2001:db8:1234:1a00::/64</code>).</p>
+   * @public
+   */
+  Ipv6CidrBlock?: string | undefined;
+
+  /**
+   * <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol
+   * 		        1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
+   * @public
+   */
+  IcmpTypeCode?: IcmpTypeCode | undefined;
+
+  /**
+   * <p>TCP or UDP protocols: The range of ports the rule applies to.
+   * 		        Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
+   * @public
+   */
+  PortRange?: PortRange | undefined;
+}
+
+/**
+ * <p>Maps a CIDR range to a label for cost allocation reporting.</p>
+ * @public
+ */
+export interface FlexCostAllocationCidrMapping {
+  /**
+   * <p>The CIDR range. This parameter is required.</p>
+   * @public
+   */
+  CidrRange: string | undefined;
+
+  /**
+   * <p>The label to assign to the CIDR range. The label can be up to 64 characters long. It can
+   *             contain letters, numbers, hyphens (<code>-</code>), and underscores (<code>_</code>), and must
+   *             start with a letter or a number. This parameter is required.</p>
+   * @public
+   */
+  CidrLabel: string | undefined;
+}
+
+/**
+ * <p>Specifies the CIDR ranges and labels to use for cost allocation when the reporting granularity is
+ *             <code>cidr</code>.</p>
+ * @public
+ */
+export interface FlexCostAllocationCidrRangeSpecifications {
+  /**
+   * <p>The type of prefixes to use. This parameter is required. Valid values are
+   *             <code>source-prefixes</code> and <code>destination-prefixes</code>.</p>
+   * @public
+   */
+  PrefixesType: string | undefined;
+
+  /**
+   * <p>The CIDR range to label mappings. You can specify from 1 to 100 mappings. This parameter is required.</p>
+   * @public
+   */
+  Prefixes: FlexCostAllocationCidrMapping[] | undefined;
+}
+
+/**
+ * <p>Describes the cost allocation policy document for EC2 instances.</p>
+ * @public
+ */
+export interface InstanceFlexCostAllocationPolicyDocument {
+  /**
+   * <p>The resource granularity level at which networking costs are allocated. This parameter is required. Specify exactly
+   *             one value. Valid values are <code>eni</code>, <code>ec2</code>, <code>subnet</code>, <code>vpc</code>,
+   *             <code>account</code>, and <code>cidr</code>.</p>
+   * @public
+   */
+  ReportingGranularity: FlexCostAllocationReportingGranularity[] | undefined;
+
+  /**
+   * <p>The cost dimensions to report. This parameter is required. The only valid value is
+   *             <code>data-transfer</code>.</p>
+   * @public
+   */
+  Dimensions: FlexCostAllocationCostDimension[] | undefined;
+
+  /**
+   * <p>The CIDR range mappings to use for cost allocation. Specify this value when
+   *             <code>ReportingGranularity</code> is <code>cidr</code>, and omit it otherwise.</p>
+   * @public
+   */
+  CidrRangeSpecifications?: FlexCostAllocationCidrRangeSpecifications | undefined;
+}
+
+/**
+ * <p>Describes the cost allocation policy document for NAT gateways.</p>
+ * @public
+ */
+export interface NatFlexCostAllocationPolicyDocument {
+  /**
+   * <p>The resource granularity level at which networking costs are allocated. This parameter is required. Specify exactly
+   *             one value. Valid values are <code>eni</code>, <code>ec2</code>, <code>subnet</code>, <code>vpc</code>,
+   *             <code>account</code>, and <code>cidr</code>.</p>
+   * @public
+   */
+  ReportingGranularity: FlexCostAllocationReportingGranularity[] | undefined;
+
+  /**
+   * <p>The cost dimensions to report. This parameter is required. Valid values are <code>data-transfer</code>
+   *             and <code>data-processing</code>.</p>
+   * @public
+   */
+  Dimensions: FlexCostAllocationCostDimension[] | undefined;
+
+  /**
+   * <p>The CIDR range mappings to use for cost allocation. Specify this value when
+   *             <code>ReportingGranularity</code> is <code>cidr</code>, and omit it otherwise.</p>
+   * @public
+   */
+  CidrRangeSpecifications?: FlexCostAllocationCidrRangeSpecifications | undefined;
+}
 
 /**
  * <p>Describes the cost allocation policy document for Amazon VPC peering connections.</p>
@@ -5906,6 +6081,29 @@ export interface CreateTransitGatewayPeeringAttachmentRequestOptions {
    * @public
    */
   DynamicRouting?: DynamicRoutingValue | undefined;
+
+  /**
+   * <p>Specifies whether you allow multipath resilience for the requester side of the transit gateway peering attachment.
+   *             Multipath resilience is supported only for inter-Region transit gateway peering attachments between supported Regions. It takes effect
+   *             only when both the requester and the accepter allow it. If you don't specify this parameter, the default is <code>false</code>.</p>
+   * @public
+   */
+  AllowMultipathResilience?: boolean | undefined;
+
+  /**
+   * <p>The multipath resilience mode. You can specify this parameter only if
+   *             <code>AllowMultipathResilience</code> is <code>true</code>.</p>
+   *          <p>The following value is valid:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>always-on</code> – Replicates traffic across multiple network paths while multipath resilience is in effect.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If <code>AllowMultipathResilience</code> is <code>true</code> and you don't specify a mode, the default is <code>always-on</code>.</p>
+   * @public
+   */
+  MultipathResilienceMode?: TransitGatewayPeeringAttachmentMultipathResilienceMode | undefined;
 }
 
 /**
@@ -8088,7 +8286,7 @@ export interface VpcEncryptionControlConfiguration {
   ElasticFileSystemExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
 
   /**
-   * <p>Specifies whether to exclude AWS Global Accelerator traffic from encryption enforcement.</p>
+   * <p>Specifies whether to exclude Amazon Web Services Global Accelerator traffic from encryption enforcement.</p>
    * @public
    */
   GlobalAcceleratorExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
@@ -9327,6 +9525,36 @@ export interface CreateVpcEndpointServiceConfigurationResult {
 }
 
 /**
+ * <p>The VPC peering connection options to apply to the requester VPC when you create a VPC peering connection.</p>
+ * @public
+ */
+export interface CreatePeeringConnectionOptionsRequest {
+  /**
+   * <p>Specifies whether you allow multipath resilience for the requester VPC. Multipath resilience is supported only
+   *             for inter-Region VPC peering connections between supported Regions. It takes effect only when both the requester and the
+   *             accepter allow it. Accepting the VPC peering connection request also allows multipath resilience
+   *             for the accepter VPC. If you don't specify this parameter, the default is <code>false</code>.</p>
+   * @public
+   */
+  AllowMultipathResilience?: boolean | undefined;
+
+  /**
+   * <p>The multipath resilience mode. You can specify this parameter only if
+   *             <code>AllowMultipathResilience</code> is <code>true</code>.</p>
+   *          <p>The following value is valid:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>always-on</code> – Replicates traffic across multiple network paths while multipath resilience is in effect.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If <code>AllowMultipathResilience</code> is <code>true</code> and you don't specify a mode, the default is <code>always-on</code>.</p>
+   * @public
+   */
+  MultipathResilienceMode?: MultipathResilienceMode | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateVpcPeeringConnectionRequest {
@@ -9343,6 +9571,12 @@ export interface CreateVpcPeeringConnectionRequest {
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>The VPC peering connection options to apply to the requester VPC.</p>
+   * @public
+   */
+  RequesterPeeringConnectionOptions?: CreatePeeringConnectionOptionsRequest | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -9805,7 +10039,8 @@ export interface VpnTunnelOptionsSpecification {
    *             phase 1 IKE negotiations.</p>
    *          <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
    *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
-   *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
+   *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code> |
+   *                 <code>35</code>
    *          </p>
    * @public
    */
@@ -9817,7 +10052,7 @@ export interface VpnTunnelOptionsSpecification {
    *          <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
    *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
    *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
-   *                 <code>24</code>
+   *                 <code>24</code> | <code>35</code> | <code>36</code> | <code>37</code>
    *          </p>
    * @public
    */
@@ -9855,6 +10090,28 @@ export interface VpnTunnelOptionsSpecification {
    * @public
    */
   EnableTunnelLifecycleControl?: boolean | undefined;
+
+  /**
+   * <p>One or more additional key exchange rounds that are permitted for the VPN tunnel for
+   *             phase 1 IKE negotiations. Additional key exchanges occur after the initial
+   *             Diffie-Hellman exchange. Each round must have a unique round number.</p>
+   *          <p>Additional key exchanges are supported only with IKEv2. You can't specify a
+   *             <code>required</code> round if <code>IKEVersions</code> contains only
+   *             <code>ikev1</code>.</p>
+   * @public
+   */
+  Phase1AdditionalKeyExchanges?: VpnAdditionalKeyExchangeRequest[] | undefined;
+
+  /**
+   * <p>One or more additional key exchange rounds that are permitted for the VPN tunnel for
+   *             phase 2 IKE negotiations. Additional key exchanges occur after the initial
+   *             Diffie-Hellman exchange. Each round must have a unique round number.</p>
+   *          <p>Additional key exchanges are supported only with IKEv2. You can't specify a
+   *             <code>required</code> round if <code>IKEVersions</code> contains only
+   *             <code>ikev1</code>.</p>
+   * @public
+   */
+  Phase2AdditionalKeyExchanges?: VpnAdditionalKeyExchangeRequest[] | undefined;
 }
 
 /**
@@ -10304,6 +10561,20 @@ export interface TunnelOption {
    * @public
    */
   EnableTunnelLifecycleControl?: boolean | undefined;
+
+  /**
+   * <p>The permitted additional key exchange rounds for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
+   * @public
+   */
+  Phase1AdditionalKeyExchanges?: VpnAdditionalKeyExchange[] | undefined;
+
+  /**
+   * <p>The permitted additional key exchange rounds for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
+   * @public
+   */
+  Phase2AdditionalKeyExchanges?: VpnAdditionalKeyExchange[] | undefined;
 }
 
 /**
@@ -11266,135 +11537,4 @@ export interface DeleteInstanceConnectEndpointResult {
    * @public
    */
   InstanceConnectEndpoint?: Ec2InstanceConnectEndpoint | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteInstanceEventWindowRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Specify <code>true</code> to force delete the event window. Use the force delete
-   *          parameter if the event window is currently associated with targets.</p>
-   * @public
-   */
-  ForceDelete?: boolean | undefined;
-
-  /**
-   * <p>The ID of the event window.</p>
-   * @public
-   */
-  InstanceEventWindowId: string | undefined;
-}
-
-/**
- * <p>The state of the event window.</p>
- * @public
- */
-export interface InstanceEventWindowStateChange {
-  /**
-   * <p>The ID of the event window.</p>
-   * @public
-   */
-  InstanceEventWindowId?: string | undefined;
-
-  /**
-   * <p>The current state of the event window.</p>
-   * @public
-   */
-  State?: InstanceEventWindowState | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteInstanceEventWindowResult {
-  /**
-   * <p>The state of the event window.</p>
-   * @public
-   */
-  InstanceEventWindowState?: InstanceEventWindowStateChange | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteInternetGatewayRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the internet gateway.</p>
-   * @public
-   */
-  InternetGatewayId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM to delete.</p>
-   * @public
-   */
-  IpamId: string | undefined;
-
-  /**
-   * <p>Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and
-   *          any allocations in the pools in private scopes. You cannot delete the IPAM with this option if there is a pool in your public scope. If you use this option, IPAM does the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Deallocates any CIDRs allocated to VPC resources (such as VPCs) in pools in private scopes.</p>
-   *                <note>
-   *                   <p>No VPC resources are deleted as a result of enabling this option. The CIDR associated with the resource will no longer be allocated from an IPAM pool, but the CIDR itself will remain unchanged.</p>
-   *                </note>
-   *             </li>
-   *             <li>
-   *                <p>Deprovisions all IPv4 CIDRs provisioned to IPAM pools in private scopes.</p>
-   *             </li>
-   *             <li>
-   *                <p>Deletes all IPAM pools in private scopes.</p>
-   *             </li>
-   *             <li>
-   *                <p>Deletes all non-default private scopes in the IPAM.</p>
-   *             </li>
-   *             <li>
-   *                <p>Deletes the default public and private scopes and the IPAM.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Cascade?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamResult {
-  /**
-   * <p>Information about the results of the deletion.</p>
-   * @public
-   */
-  Ipam?: Ipam | undefined;
 }

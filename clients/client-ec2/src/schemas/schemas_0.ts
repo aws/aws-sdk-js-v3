@@ -5,7 +5,9 @@ const _AACv = "AvailableAddressCount";
 const _AAG = "AuthorizeAllGroups";
 const _AAI = "AwsAccountId";
 const _AAId = "AddressAllocationId";
+const _AAKEL = "ActiveAdditionalKeyExchangesList";
 const _AAL = "AccountAttributeList";
+const _AAMR = "AccepterAllowMultipathResilience";
 const _AANSL = "AccountAttributeNameStringList";
 const _AAP = "AddAllowedPrincipals";
 const _AAR = "AllocateAddressRequest";
@@ -172,6 +174,13 @@ const _AIt = "AthenaIntegration";
 const _AIth = "AthenaIntegrations";
 const _AItt = "AttachmentId";
 const _AIu = "AutoImport";
+const _AKEL = "AdditionalKeyExchangesList";
+const _AKEML = "AdditionalKeyExchangeMethodsList";
+const _AKEMLV = "AdditionalKeyExchangeMethodsListValue";
+const _AKEMRL = "AdditionalKeyExchangeMethodsRequestList";
+const _AKEMRLV = "AdditionalKeyExchangeMethodsRequestListValue";
+const _AKER = "AdditionalKeyExchangeRound";
+const _AKERS = "AdditionalKeyExchangesRequestSpecification";
 const _AKK = "AssociatedKmsKey";
 const _AKKI = "AssociateKmsKeyId";
 const _AKKIR = "AssociateKmsKeyIdRequest";
@@ -193,6 +202,8 @@ const _AMAId = "AddMiddleboxAttachmentId";
 const _AMIT = "AllowsMultipleInstanceTypes";
 const _AMNL = "AllocationMinNetmaskLength";
 const _AMNLl = "AllocationMaxNetmaskLength";
+const _AMR = "AllowMultipathResilience";
+const _AMRM = "AccepterMultipathResilienceMode";
 const _AMS = "ApplianceModeSupport";
 const _AMSc = "AcceleratorManufacturerSet";
 const _AMT = "AcceptModificationTerms";
@@ -440,6 +451,7 @@ const _AVPC = "AcceptVpcPeeringConnection";
 const _AVPCR = "AcceptVpcPeeringConnectionRequest";
 const _AVPCRc = "AcceptVpcPeeringConnectionResult";
 const _AVR = "AttachVolumeRequest";
+const _AVTAKE = "ActiveVpnTunnelAdditionalKeyExchange";
 const _AVTS = "ActiveVpnTunnelStatus";
 const _AVs = "AssociationValue";
 const _AVt = "AttributeValue";
@@ -588,10 +600,15 @@ const _CBESD = "CapacityBlockExtensionStartDate";
 const _CBESa = "CapacityBlockExtensionSet";
 const _CBEa = "CapacityBlockExtensions";
 const _CBI = "CapacityBlockId";
+const _CBITP = "CapacityBlockInstanceTypePreference";
+const _CBITPS = "CapacityBlockInstanceTypePreferenceSet";
 const _CBIa = "CapacityBlockIds";
 const _CBO = "CapacityBlockOffering";
 const _CBOI = "CapacityBlockOfferingId";
-const _CBOS = "CapacityBlockOfferingSet";
+const _CBOS = "CapacityBlockOfferingSegments";
+const _CBOSS = "CapacityBlockOfferingSegmentSet";
+const _CBOSa = "CapacityBlockOfferingSegment";
+const _CBOSap = "CapacityBlockOfferingSet";
 const _CBOa = "CapacityBlockOfferings";
 const _CBS = "CapacityBlockStatus";
 const _CBSS = "CapacityBlockStatusSet";
@@ -932,6 +949,7 @@ const _COh = "ChronologicalOrder";
 const _COi = "CidrOptions";
 const _CP = "CoipPool";
 const _CPC = "ConnectPeerConfiguration";
+const _CPCOR = "CreatePeeringConnectionOptionsRequest";
 const _CPF = "CpuPerformanceFactor";
 const _CPFR = "CpuPerformanceFactorRequest";
 const _CPG = "CreatePlacementGroup";
@@ -3810,6 +3828,8 @@ const _ITNA = "InstanceTagNotificationAttribute";
 const _ITO = "InstanceTypeOfferings";
 const _ITOL = "InstanceTypeOfferingsList";
 const _ITOn = "InstanceTypeOffering";
+const _ITP = "InstanceTypePreferences";
+const _ITPn = "InstanceTypePreference";
 const _ITS = "InstanceTypeSpecifications";
 const _ITSR = "InstanceTypeSpecificationRequest";
 const _ITSn = "InstanceTypeSpecification";
@@ -3876,6 +3896,8 @@ const _Is = "Issuer";
 const _It = "Item";
 const _K = "Key";
 const _KDF = "KinesisDataFirehose";
+const _KEM = "KeyExchangeMethod";
+const _KEMe = "KeyExchangeMethods";
 const _KF = "KeyFormat";
 const _KFe = "KeyFingerprint";
 const _KI = "KernelId";
@@ -4392,9 +4414,11 @@ const _MR = "MaxResults";
 const _MRI = "ModifyReservedInstances";
 const _MRIR = "ModifyReservedInstancesRequest";
 const _MRIRo = "ModifyReservedInstancesResult";
-const _MRS = "ModifyRouteServer";
+const _MRM = "MultipathResilienceMode";
+const _MRS = "MultipathResilienceStatus";
 const _MRSR = "ModifyRouteServerRequest";
 const _MRSRo = "ModifyRouteServerResult";
+const _MRSo = "ModifyRouteServer";
 const _MRU = "ModificationReservationUpdate";
 const _MRVS = "ManagedResourceVisibilitySettings";
 const _MRo = "ModificationResults";
@@ -4443,6 +4467,10 @@ const _MTGNFA = "ModifyTransitGatewayNetworkFunctionAttachment";
 const _MTGNFAR = "ModifyTransitGatewayNetworkFunctionAttachmentRequest";
 const _MTGNFARo = "ModifyTransitGatewayNetworkFunctionAttachmentResult";
 const _MTGO = "ModifyTransitGatewayOptions";
+const _MTGPA = "ModifyTransitGatewayPeeringAttachment";
+const _MTGPAR = "ModifyTransitGatewayPeeringAttachmentRequest";
+const _MTGPARO = "ModifyTransitGatewayPeeringAttachmentRequestOptions";
+const _MTGPARo = "ModifyTransitGatewayPeeringAttachmentResult";
 const _MTGPLR = "ModifyTransitGatewayPrefixListReference";
 const _MTGPLRR = "ModifyTransitGatewayPrefixListReferenceRequest";
 const _MTGPLRRo = "ModifyTransitGatewayPrefixListReferenceResult";
@@ -4805,6 +4833,10 @@ const _P = "Principal";
 const _PA = "PoolArn";
 const _PAI = "PeerAccountId";
 const _PAIe = "PeeringAttachmentId";
+const _PAKE = "Phase1AdditionalKeyExchanges";
+const _PAKEh = "Phase2AdditionalKeyExchanges";
+const _PAKEha = "Phase1AdditionalKeyExchange";
+const _PAKEhas = "Phase2AdditionalKeyExchange";
 const _PAR = "PoolAddressRange";
 const _PARo = "PoolAddressRanges";
 const _PAS = "PeeringAttachmentStatus";
@@ -5129,6 +5161,7 @@ const _RAAR = "ResetAddressAttributeRequest";
 const _RAARe = "ResetAddressAttributeResult";
 const _RAE = "RemoteAccessEnabled";
 const _RAG = "RevokeAllGroups";
+const _RAMR = "RequesterAllowMultipathResilience";
 const _RAP = "RemoveAllowedPrincipals";
 const _RAR = "ReleaseAddressRequest";
 const _RART = "RemoveAllocationResourceTags";
@@ -5334,6 +5367,7 @@ const _RMGS = "RegisteredMulticastGroupSources";
 const _RMPLV = "RestoreManagedPrefixListVersion";
 const _RMPLVR = "RestoreManagedPrefixListVersionRequest";
 const _RMPLVRe = "RestoreManagedPrefixListVersionResult";
+const _RMRM = "RequesterMultipathResilienceMode";
 const _RMS = "RebootMigrationSupport";
 const _RMTS = "RekeyMarginTimeSeconds";
 const _RMe = "RebootMigration";
@@ -5553,6 +5587,7 @@ const _Rem = "Remove";
 const _Reme = "Remediation";
 const _Rep = "Reports";
 const _Req = "Requested";
+const _Requ = "Requirement";
 const _Res = "Resources";
 const _Rese = "Reservations";
 const _Reser = "Reservation";
@@ -6440,6 +6475,8 @@ const _VAIOVCCR = "VerifiedAccessInstanceOpenVpnClientConfigurationRoute";
 const _VAIOVCCRL = "VerifiedAccessInstanceOpenVpnClientConfigurationRouteList";
 const _VAIUTPCC = "VerifiedAccessInstanceUserTrustProviderClientConfiguration";
 const _VAIe = "VerifiedAccessInstances";
+const _VAKE = "VpnAdditionalKeyExchange";
+const _VAKER = "VpnAdditionalKeyExchangeRequest";
 const _VAL = "VerifiedAccessLogs";
 const _VALCWLD = "VerifiedAccessLogCloudWatchLogsDestination";
 const _VALCWLDO = "VerifiedAccessLogCloudWatchLogsDestinationOptions";
@@ -6662,6 +6699,7 @@ const _aA = "asnAssociation";
 const _aAC = "availableAddressCount";
 const _aAI = "awsAccountId";
 const _aAId = "addressAllocationId";
+const _aAMR = "accepterAllowMultipathResilience";
 const _aAS = "asnAssociationSet";
 const _aASA = "autoAcceptSharedAssociations";
 const _aASAu = "autoAcceptSharedAttachments";
@@ -6716,6 +6754,7 @@ const _aIs = "associationId";
 const _aIss = "assetId";
 const _aIt = "attachmentId";
 const _aIu = "autoImport";
+const _aKER = "additionalKeyExchangeRound";
 const _aKKS = "associatedKmsKeySet";
 const _aL = "accountLevel";
 const _aLI = "amiLaunchIndex";
@@ -6726,6 +6765,8 @@ const _aMIT = "allowsMultipleInstanceTypes";
 const _aML = "allocationMetadataList";
 const _aMNL = "allocationMinNetmaskLength";
 const _aMNLl = "allocationMaxNetmaskLength";
+const _aMR = "allowMultipathResilience";
+const _aMRM = "accepterMultipathResilienceMode";
 const _aMS = "acceleratorManufacturerSet";
 const _aMSp = "applianceModeSupport";
 const _aMv = "availabilityMode";
@@ -6900,6 +6941,7 @@ const _cBESa = "capacityBlockExtensionSet";
 const _cBI = "capacityBlockId";
 const _cBOI = "capacityBlockOfferingId";
 const _cBOS = "capacityBlockOfferingSet";
+const _cBOSS = "capacityBlockOfferingSegmentSet";
 const _cBS = "capacityBlockSet";
 const _cBSS = "capacityBlockStatusSet";
 const _cBSi = "cidrBlockState";
@@ -7665,6 +7707,8 @@ const _is = "issuer";
 const _it = "item";
 const _k = "key";
 const _kDF = "kinesisDataFirehose";
+const _kEM = "keyExchangeMethod";
+const _kEMS = "keyExchangeMethodSet";
 const _kF = "keyFormat";
 const _kFe = "keyFingerprint";
 const _kI = "kernelId";
@@ -7863,7 +7907,9 @@ const _mPR = "meteringPolicyRule";
 const _mPS = "metricPointSet";
 const _mPSa = "matchPathSet";
 const _mR = "maxResults";
+const _mRM = "multipathResilienceMode";
 const _mRS = "modificationResultSet";
+const _mRSu = "multipathResilienceStatus";
 const _mS = "messageSet";
 const _mSC = "matchSourceCidr";
 const _mSIPC = "macSystemIntegrityProtectionConfig";
@@ -8047,6 +8093,8 @@ const _ow = "owner";
 const _p = "principal";
 const _pA = "poolArn";
 const _pAI = "peeringAttachmentId";
+const _pAKES = "phase1AdditionalKeyExchangeSet";
+const _pAKESh = "phase2AdditionalKeyExchangeSet";
 const _pAR = "poolAddressRange";
 const _pARS = "poolAddressRangeSet";
 const _pAe = "peerAddress";
@@ -8221,6 +8269,7 @@ const _qS = "quoteState";
 const _r = "return";
 const _rA = "ruleAction";
 const _rAE = "remoteAccessEnabled";
+const _rAMR = "requesterAllowMultipathResilience";
 const _rAe = "resumeAt";
 const _rAes = "reservationArn";
 const _rAeso = "resourceArn";
@@ -8289,6 +8338,7 @@ const _rIes = "resourceId";
 const _rM = "reasonMessage";
 const _rMGM = "registeredMulticastGroupMembers";
 const _rMGS = "registeredMulticastGroupSources";
+const _rMRM = "requesterMultipathResilienceMode";
 const _rMS = "rebootMigrationSupport";
 const _rMTS = "rekeyMarginTimeSeconds";
 const _rMe = "rebootMigration";
@@ -8376,6 +8426,7 @@ const _rec = "recurrence";
 const _reg = "region";
 const _rem = "remediation";
 const _req = "requested";
+const _requ = "requirement";
 const _res = "resource";
 const _resu = "result";
 const _ri = "rir";
@@ -9150,9 +9201,16 @@ export var ActiveInstance$: StaticStructureSchema = [3, n0, _AI,
   , [_xN]: _sIRI }], [0, { [_eQN]: `InstanceHealth`
   , [_xN]: _iH }]]
 ];
+export var ActiveVpnTunnelAdditionalKeyExchange$: StaticStructureSchema = [3, n0, _AVTAKE,
+  0,
+  [_AKER, _KEM],
+  [[1, { [_eQN]: `AdditionalKeyExchangeRound`
+  , [_xN]: _aKER }], [1, { [_eQN]: `KeyExchangeMethod`
+  , [_xN]: _kEM }]]
+];
 export var ActiveVpnTunnelStatus$: StaticStructureSchema = [3, n0, _AVTS,
   0,
-  [_PEA, _PEAh, _PIA, _PIAh, _PDHG, _PDHGh, _IV, _PS, _PSR],
+  [_PEA, _PEAh, _PIA, _PIAh, _PDHG, _PDHGh, _IV, _PS, _PSR, _PAKE, _PAKEh],
   [[0, { [_eQN]: `Phase1EncryptionAlgorithm`
   , [_xN]: _pEA }], [0, { [_eQN]: `Phase2EncryptionAlgorithm`
   , [_xN]: _pEAh }], [0, { [_eQN]: `Phase1IntegrityAlgorithm`
@@ -9162,7 +9220,9 @@ export var ActiveVpnTunnelStatus$: StaticStructureSchema = [3, n0, _AVTS,
   , [_xN]: _pDHGh }], [0, { [_eQN]: `IkeVersion`
   , [_xN]: _iV }], [0, { [_eQN]: `ProvisioningStatus`
   , [_xN]: _pS }], [0, { [_eQN]: `ProvisioningStatusReason`
-  , [_xN]: _pSR }]]
+  , [_xN]: _pSR }], [() => ActiveAdditionalKeyExchangesList, { [_eQN]: `Phase1AdditionalKeyExchangeSet`
+  , [_xN]: _pAKES }], [() => ActiveAdditionalKeyExchangesList, { [_eQN]: `Phase2AdditionalKeyExchangeSet`
+  , [_xN]: _pAKESh }]]
 ];
 export var AddedPrincipal$: StaticStructureSchema = [3, n0, _AP,
   0,
@@ -9196,6 +9256,17 @@ export var AdditionalDetail$: StaticStructureSchema = [3, n0, _AD,
   , [_xN]: _rGROPS }], [0, { [_eQN]: `ServiceName`
   , [_xN]: _sN }], [() => AnalysisComponentList, { [_eQN]: `LoadBalancerSet`
   , [_xN]: _lBS }]]
+];
+export var AdditionalKeyExchangeMethodsListValue$: StaticStructureSchema = [3, n0, _AKEMLV,
+  0,
+  [_V],
+  [[1, { [_eQN]: `Value`
+  , [_xN]: _v }]]
+];
+export var AdditionalKeyExchangeMethodsRequestListValue$: StaticStructureSchema = [3, n0, _AKEMRLV,
+  0,
+  [_V],
+  [1]
 ];
 export var AddPrefixListEntry$: StaticStructureSchema = [3, n0, _APLE,
   0,
@@ -10421,9 +10492,14 @@ export var CapacityBlockExtensionOffering$: StaticStructureSchema = [3, n0, _CBE
   , [_xN]: _te }], [0, { [_eQN]: `ZoneType`
   , [_xN]: _zT }]]
 ];
+export var CapacityBlockInstanceTypePreference$: StaticStructureSchema = [3, n0, _CBITP,
+  0,
+  [_IT],
+  [0]
+];
 export var CapacityBlockOffering$: StaticStructureSchema = [3, n0, _CBO,
   0,
-  [_CBOI, _IT, _AZ, _IC, _SD, _ED, _CBDH, _UF, _CC, _Te, _UTl, _UC, _CBDM, _ZT],
+  [_CBOI, _IT, _AZ, _IC, _SD, _ED, _CBDH, _UF, _CC, _Te, _UTl, _UC, _CBDM, _ZT, _CBOS],
   [[0, { [_eQN]: `CapacityBlockOfferingId`
   , [_xN]: _cBOI }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [0, { [_eQN]: `AvailabilityZone`
@@ -10438,6 +10514,23 @@ export var CapacityBlockOffering$: StaticStructureSchema = [3, n0, _CBO,
   , [_xN]: _uTl }], [1, { [_eQN]: `UltraserverCount`
   , [_xN]: _uC }], [1, { [_eQN]: `CapacityBlockDurationMinutes`
   , [_xN]: _cBDM }], [0, { [_eQN]: `ZoneType`
+  , [_xN]: _zT }], [() => CapacityBlockOfferingSegmentSet, { [_eQN]: `CapacityBlockOfferingSegmentSet`
+  , [_xN]: _cBOSS }]]
+];
+export var CapacityBlockOfferingSegment$: StaticStructureSchema = [3, n0, _CBOSa,
+  0,
+  [_IT, _AZ, _AZI, _IC, _SD, _ED, _CBDH, _CBDM, _UF, _CC, _ZT],
+  [[0, { [_eQN]: `InstanceType`
+  , [_xN]: _iT }], [0, { [_eQN]: `AvailabilityZone`
+  , [_xN]: _aZ }], [0, { [_eQN]: `AvailabilityZoneId`
+  , [_xN]: _aZI }], [1, { [_eQN]: `InstanceCount`
+  , [_xN]: _iC }], [4, { [_eQN]: `StartDate`
+  , [_xN]: _sD }], [4, { [_eQN]: `EndDate`
+  , [_xN]: _eD }], [1, { [_eQN]: `CapacityBlockDurationHours`
+  , [_xN]: _cBDH }], [1, { [_eQN]: `CapacityBlockDurationMinutes`
+  , [_xN]: _cBDM }], [0, { [_eQN]: `UpfrontFee`
+  , [_xN]: _uF }], [0, { [_eQN]: `CurrencyCode`
+  , [_xN]: _cC }], [0, { [_eQN]: `ZoneType`
   , [_xN]: _zT }]]
 ];
 export var CapacityBlockStatus$: StaticStructureSchema = [3, n0, _CBS,
@@ -11877,6 +11970,11 @@ export var CreateNetworkInterfaceResult$: StaticStructureSchema = [3, n0, _CNIRr
   , [_xN]: _nIe }], [0, { [_eQN]: `ClientToken`
   , [_xN]: _cT }]]
 ];
+export var CreatePeeringConnectionOptionsRequest$: StaticStructureSchema = [3, n0, _CPCOR,
+  0,
+  [_AMR, _MRM],
+  [2, 0]
+];
 export var CreatePlacementGroupRequest$: StaticStructureSchema = [3, n0, _CPGR,
   0,
   [_PCa, _TS, _SLp, _LGIi, _Op, _PGI, _DR, _GN, _Str],
@@ -12247,8 +12345,8 @@ export var CreateTransitGatewayPeeringAttachmentRequest$: StaticStructureSchema 
 ];
 export var CreateTransitGatewayPeeringAttachmentRequestOptions$: StaticStructureSchema = [3, n0, _CTGPARO,
   0,
-  [_DRy],
-  [0]
+  [_DRy, _AMR, _MRM],
+  [0, 2, 0]
 ];
 export var CreateTransitGatewayPeeringAttachmentResult$: StaticStructureSchema = [3, n0, _CTGPARr,
   0,
@@ -12512,9 +12610,9 @@ export var CreateVpcEndpointServiceConfigurationResult$: StaticStructureSchema =
 ];
 export var CreateVpcPeeringConnectionRequest$: StaticStructureSchema = [3, n0, _CVPCR,
   0,
-  [_VI, _PRee, _TS, _DR, _PVI, _POI],
+  [_VI, _PRee, _TS, _RPCO, _DR, _PVI, _POI],
   [[0, { [_eQN]: `VpcId`
-  , [_xN]: _vI }], 0, [() => TagSpecificationList, { [_xN]: _TSa }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _vI }], 0, [() => TagSpecificationList, { [_xN]: _TSa }], () => CreatePeeringConnectionOptionsRequest$, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [0, { [_eQN]: `PeerVpcId`
   , [_xN]: _pVI }], [0, { [_eQN]: `PeerOwnerId`
   , [_xN]: _pOI }]], 1
@@ -14054,8 +14152,8 @@ export var DescribeCapacityBlockExtensionOfferingsResult$: StaticStructureSchema
 ];
 export var DescribeCapacityBlockOfferingsRequest$: StaticStructureSchema = [3, n0, _DCBOR,
   0,
-  [_CDH, _DR, _IT, _IC, _SDR, _EDR, _NTe, _MR, _UTl, _UC, _AAZ],
-  [1, 2, 0, 1, 4, 4, 0, 1, 0, 1, 2], 1
+  [_CDH, _DR, _IT, _IC, _SDR, _EDR, _NTe, _MR, _UTl, _UC, _AAZ, _ITP],
+  [1, 2, 0, 1, 4, 4, 0, 1, 0, 1, 2, [() => CapacityBlockInstanceTypePreferenceSet, { [_xN]: _ITPn }]], 1
 ];
 export var DescribeCapacityBlockOfferingsResult$: StaticStructureSchema = [3, n0, _DCBORe,
   0,
@@ -22687,6 +22785,22 @@ export var ModifyTransitGatewayOptions$: StaticStructureSchema = [3, n0, _MTGO,
   [_ATGCB, _RTGCB, _VESp, _DSn, _SGRS, _AASAu, _DRTA, _ADRTI, _DRTP, _PDRTI, _ASA, _ESn],
   [[() => TransitGatewayCidrBlockStringList, 0], [() => TransitGatewayCidrBlockStringList, 0], 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
 ];
+export var ModifyTransitGatewayPeeringAttachmentRequest$: StaticStructureSchema = [3, n0, _MTGPAR,
+  0,
+  [_TGAI, _Opt, _DR],
+  [0, () => ModifyTransitGatewayPeeringAttachmentRequestOptions$, 2], 1
+];
+export var ModifyTransitGatewayPeeringAttachmentRequestOptions$: StaticStructureSchema = [3, n0, _MTGPARO,
+  0,
+  [_AMR, _MRM],
+  [2, 0]
+];
+export var ModifyTransitGatewayPeeringAttachmentResult$: StaticStructureSchema = [3, n0, _MTGPARo,
+  0,
+  [_TGPA],
+  [[() => TransitGatewayPeeringAttachment$, { [_eQN]: `TransitGatewayPeeringAttachment`
+  , [_xN]: _tGPA }]]
+];
 export var ModifyTransitGatewayPolicyTableEntryRequest$: StaticStructureSchema = [3, n0, _MTGPTER,
   0,
   [_TGPTI, _PRN, _PRol, _TRTI, _DR],
@@ -23050,8 +23164,8 @@ export var ModifyVpnTunnelOptionsResult$: StaticStructureSchema = [3, n0, _MVTOR
 ];
 export var ModifyVpnTunnelOptionsSpecification$: StaticStructureSchema = [3, n0, _MVTOS,
   8,
-  [_TICu, _TIIC, _PSK, _PLS, _PLSh, _RMTS, _RFP, _RWS, _DPDTS, _DPDTA, _PEAha, _PEAhas, _PIAha, _PIAhas, _PDHGN, _PDHGNh, _IKEVe, _SAt, _LO, _ETLC],
-  [0, 0, [() => preSharedKey, 0], 1, 1, 1, 1, 1, 1, 0, [() => Phase1EncryptionAlgorithmsRequestList, { [_xN]: _PEA }], [() => Phase2EncryptionAlgorithmsRequestList, { [_xN]: _PEAh }], [() => Phase1IntegrityAlgorithmsRequestList, { [_xN]: _PIA }], [() => Phase2IntegrityAlgorithmsRequestList, { [_xN]: _PIAh }], [() => Phase1DHGroupNumbersRequestList, { [_xN]: _PDHGNha }], [() => Phase2DHGroupNumbersRequestList, { [_xN]: _PDHGNhas }], [() => IKEVersionsRequestList, { [_xN]: _IKEVer }], 0, () => VpnTunnelLogOptionsSpecification$, 2]
+  [_TICu, _TIIC, _PSK, _PLS, _PLSh, _RMTS, _RFP, _RWS, _DPDTS, _DPDTA, _PEAha, _PEAhas, _PIAha, _PIAhas, _PDHGN, _PDHGNh, _IKEVe, _SAt, _LO, _ETLC, _PAKE, _PAKEh],
+  [0, 0, [() => preSharedKey, 0], 1, 1, 1, 1, 1, 1, 0, [() => Phase1EncryptionAlgorithmsRequestList, { [_xN]: _PEA }], [() => Phase2EncryptionAlgorithmsRequestList, { [_xN]: _PEAh }], [() => Phase1IntegrityAlgorithmsRequestList, { [_xN]: _PIA }], [() => Phase2IntegrityAlgorithmsRequestList, { [_xN]: _PIAh }], [() => Phase1DHGroupNumbersRequestList, { [_xN]: _PDHGNha }], [() => Phase2DHGroupNumbersRequestList, { [_xN]: _PDHGNhas }], [() => IKEVersionsRequestList, { [_xN]: _IKEVer }], 0, () => VpnTunnelLogOptionsSpecification$, 2, [() => AdditionalKeyExchangesRequestSpecification, { [_xN]: _PAKEha }], [() => AdditionalKeyExchangesRequestSpecification, { [_xN]: _PAKEhas }]]
 ];
 export var Monitoring$: StaticStructureSchema = [3, n0, _Mon,
   0,
@@ -23649,16 +23763,18 @@ export var PeeringAttachmentStatus$: StaticStructureSchema = [3, n0, _PAS,
 ];
 export var PeeringConnectionOptions$: StaticStructureSchema = [3, n0, _PCO,
   0,
-  [_ADRFRV, _AEFLCLTRV, _AEFLVTRCL],
+  [_ADRFRV, _AEFLCLTRV, _AEFLVTRCL, _AMR, _MRM],
   [[2, { [_eQN]: `AllowDnsResolutionFromRemoteVpc`
   , [_xN]: _aDRFRV }], [2, { [_eQN]: `AllowEgressFromLocalClassicLinkToRemoteVpc`
   , [_xN]: _aEFLCLTRV }], [2, { [_eQN]: `AllowEgressFromLocalVpcToRemoteClassicLink`
-  , [_xN]: _aEFLVTRCL }]]
+  , [_xN]: _aEFLVTRCL }], [2, { [_eQN]: `AllowMultipathResilience`
+  , [_xN]: _aMR }], [0, { [_eQN]: `MultipathResilienceMode`
+  , [_xN]: _mRM }]]
 ];
 export var PeeringConnectionOptionsRequest$: StaticStructureSchema = [3, n0, _PCOR,
   0,
-  [_ADRFRV, _AEFLCLTRV, _AEFLVTRCL],
-  [2, 2, 2]
+  [_ADRFRV, _AEFLCLTRV, _AEFLVTRCL, _AMR, _MRM],
+  [2, 2, 2, 2, 0]
 ];
 export var PeeringTgwInfo$: StaticStructureSchema = [3, n0, _PTI,
   0,
@@ -24059,10 +24175,11 @@ export var PurchaseCapacityBlockRequest$: StaticStructureSchema = [3, n0, _PCBR,
 ];
 export var PurchaseCapacityBlockResult$: StaticStructureSchema = [3, n0, _PCBRu,
   0,
-  [_CRa, _CBap],
+  [_CRa, _CBap, _CRap],
   [[() => CapacityReservation$, { [_eQN]: `CapacityReservation`
   , [_xN]: _cR }], [() => CapacityBlockSet, { [_eQN]: `CapacityBlockSet`
-  , [_xN]: _cBS }]]
+  , [_xN]: _cBS }], [() => CapacityReservationSet, { [_eQN]: `CapacityReservationSet`
+  , [_xN]: _cRS }]]
 ];
 export var PurchaseHostReservationRequest$: StaticStructureSchema = [3, n0, _PHRR,
   0,
@@ -26733,9 +26850,14 @@ export var TransitGatewayPeeringAttachment$: StaticStructureSchema = [3, n0, _TG
 ];
 export var TransitGatewayPeeringAttachmentOptions$: StaticStructureSchema = [3, n0, _TGPAO,
   0,
-  [_DRy],
+  [_DRy, _RAMR, _RMRM, _AAMR, _AMRM, _MRS],
   [[0, { [_eQN]: `DynamicRouting`
-  , [_xN]: _dRy }]]
+  , [_xN]: _dRy }], [2, { [_eQN]: `RequesterAllowMultipathResilience`
+  , [_xN]: _rAMR }], [0, { [_eQN]: `RequesterMultipathResilienceMode`
+  , [_xN]: _rMRM }], [2, { [_eQN]: `AccepterAllowMultipathResilience`
+  , [_xN]: _aAMR }], [0, { [_eQN]: `AccepterMultipathResilienceMode`
+  , [_xN]: _aMRM }], [0, { [_eQN]: `MultipathResilienceStatus`
+  , [_xN]: _mRSu }]]
 ];
 export var TransitGatewayPolicyRule$: StaticStructureSchema = [3, n0, _TGPR,
   0,
@@ -26944,7 +27066,7 @@ export var TrunkInterfaceAssociation$: StaticStructureSchema = [3, n0, _TIA,
 ];
 export var TunnelOption$: StaticStructureSchema = [3, n0, _TOu,
   0,
-  [_OIA, _TICu, _TIIC, _PSK, _PLS, _PLSh, _RMTS, _RFP, _RWS, _DTS, _DTA, _PEAha, _PEAhas, _PIAha, _PIAhas, _PDHGN, _PDHGNh, _IVk, _SAt, _LO, _ETLC],
+  [_OIA, _TICu, _TIIC, _PSK, _PLS, _PLSh, _RMTS, _RFP, _RWS, _DTS, _DTA, _PEAha, _PEAhas, _PIAha, _PIAhas, _PDHGN, _PDHGNh, _IVk, _SAt, _LO, _ETLC, _PAKE, _PAKEh],
   [[0, { [_eQN]: `OutsideIpAddress`
   , [_xN]: _oIA }], [0, { [_eQN]: `TunnelInsideCidr`
   , [_xN]: _tICu }], [0, { [_eQN]: `TunnelInsideIpv6Cidr`
@@ -26966,7 +27088,9 @@ export var TunnelOption$: StaticStructureSchema = [3, n0, _TOu,
   , [_xN]: _iVS }], [0, { [_eQN]: `StartupAction`
   , [_xN]: _sAt }], [() => VpnTunnelLogOptions$, { [_eQN]: `LogOptions`
   , [_xN]: _lO }], [2, { [_eQN]: `EnableTunnelLifecycleControl`
-  , [_xN]: _eTLC }]]
+  , [_xN]: _eTLC }], [() => AdditionalKeyExchangesList, { [_eQN]: `Phase1AdditionalKeyExchangeSet`
+  , [_xN]: _pAKES }], [() => AdditionalKeyExchangesList, { [_eQN]: `Phase2AdditionalKeyExchangeSet`
+  , [_xN]: _pAKESh }]]
 ];
 export var UnassignIpv6AddressesRequest$: StaticStructureSchema = [3, n0, _UIAR,
   0,
@@ -27830,22 +27954,25 @@ export var VpcIpv6CidrBlockAssociation$: StaticStructureSchema = [3, n0, _VICBA,
 ];
 export var VpcPeeringConnection$: StaticStructureSchema = [3, n0, _VPC,
   0,
-  [_AVI, _ET, _RVIe, _Sta, _T, _VPCI],
+  [_AVI, _ET, _RVIe, _Sta, _T, _VPCI, _MRS],
   [[() => VpcPeeringConnectionVpcInfo$, { [_eQN]: `AccepterVpcInfo`
   , [_xN]: _aVI }], [4, { [_eQN]: `ExpirationTime`
   , [_xN]: _eT }], [() => VpcPeeringConnectionVpcInfo$, { [_eQN]: `RequesterVpcInfo`
   , [_xN]: _rVIe }], [() => VpcPeeringConnectionStateReason$, { [_eQN]: `Status`
   , [_xN]: _sta }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [0, { [_eQN]: `VpcPeeringConnectionId`
-  , [_xN]: _vPCI }]]
+  , [_xN]: _vPCI }], [0, { [_eQN]: `MultipathResilienceStatus`
+  , [_xN]: _mRSu }]]
 ];
 export var VpcPeeringConnectionOptionsDescription$: StaticStructureSchema = [3, n0, _VPCOD,
   0,
-  [_ADRFRV, _AEFLCLTRV, _AEFLVTRCL],
+  [_ADRFRV, _AEFLCLTRV, _AEFLVTRCL, _AMR, _MRM],
   [[2, { [_eQN]: `AllowDnsResolutionFromRemoteVpc`
   , [_xN]: _aDRFRV }], [2, { [_eQN]: `AllowEgressFromLocalClassicLinkToRemoteVpc`
   , [_xN]: _aEFLCLTRV }], [2, { [_eQN]: `AllowEgressFromLocalVpcToRemoteClassicLink`
-  , [_xN]: _aEFLVTRCL }]]
+  , [_xN]: _aEFLVTRCL }], [2, { [_eQN]: `AllowMultipathResilience`
+  , [_xN]: _aMR }], [0, { [_eQN]: `MultipathResilienceMode`
+  , [_xN]: _mRM }]]
 ];
 export var VpcPeeringConnectionStateReason$: StaticStructureSchema = [3, n0, _VPCSR,
   0,
@@ -27865,6 +27992,19 @@ export var VpcPeeringConnectionVpcInfo$: StaticStructureSchema = [3, n0, _VPCVI,
   , [_xN]: _pOe }], [0, { [_eQN]: `VpcId`
   , [_xN]: _vI }], [0, { [_eQN]: `Region`
   , [_xN]: _reg }]]
+];
+export var VpnAdditionalKeyExchange$: StaticStructureSchema = [3, n0, _VAKE,
+  0,
+  [_AKER, _KEMe, _Requ],
+  [[1, { [_eQN]: `AdditionalKeyExchangeRound`
+  , [_xN]: _aKER }], [() => AdditionalKeyExchangeMethodsList, { [_eQN]: `KeyExchangeMethodSet`
+  , [_xN]: _kEMS }], [0, { [_eQN]: `Requirement`
+  , [_xN]: _requ }]]
+];
+export var VpnAdditionalKeyExchangeRequest$: StaticStructureSchema = [3, n0, _VAKER,
+  0,
+  [_AKER, _KEMe, _Requ],
+  [1, [() => AdditionalKeyExchangeMethodsRequestList, { [_xN]: _KEM }], 0], 1
 ];
 export var VpnConcentrator$: StaticStructureSchema = [3, n0, _VC,
   0,
@@ -27963,8 +28103,8 @@ export var VpnTunnelLogOptionsSpecification$: StaticStructureSchema = [3, n0, _V
 ];
 export var VpnTunnelOptionsSpecification$: StaticStructureSchema = [3, n0, _VTOS,
   0,
-  [_TICu, _TIIC, _PSK, _PLS, _PLSh, _RMTS, _RFP, _RWS, _DPDTS, _DPDTA, _PEAha, _PEAhas, _PIAha, _PIAhas, _PDHGN, _PDHGNh, _IKEVe, _SAt, _LO, _ETLC],
-  [0, 0, [() => preSharedKey, 0], 1, 1, 1, 1, 1, 1, 0, [() => Phase1EncryptionAlgorithmsRequestList, { [_xN]: _PEA }], [() => Phase2EncryptionAlgorithmsRequestList, { [_xN]: _PEAh }], [() => Phase1IntegrityAlgorithmsRequestList, { [_xN]: _PIA }], [() => Phase2IntegrityAlgorithmsRequestList, { [_xN]: _PIAh }], [() => Phase1DHGroupNumbersRequestList, { [_xN]: _PDHGNha }], [() => Phase2DHGroupNumbersRequestList, { [_xN]: _PDHGNhas }], [() => IKEVersionsRequestList, { [_xN]: _IKEVer }], 0, () => VpnTunnelLogOptionsSpecification$, 2]
+  [_TICu, _TIIC, _PSK, _PLS, _PLSh, _RMTS, _RFP, _RWS, _DPDTS, _DPDTA, _PEAha, _PEAhas, _PIAha, _PIAhas, _PDHGN, _PDHGNh, _IKEVe, _SAt, _LO, _ETLC, _PAKE, _PAKEh],
+  [0, 0, [() => preSharedKey, 0], 1, 1, 1, 1, 1, 1, 0, [() => Phase1EncryptionAlgorithmsRequestList, { [_xN]: _PEA }], [() => Phase2EncryptionAlgorithmsRequestList, { [_xN]: _PEAh }], [() => Phase1IntegrityAlgorithmsRequestList, { [_xN]: _PIA }], [() => Phase2IntegrityAlgorithmsRequestList, { [_xN]: _PIAh }], [() => Phase1DHGroupNumbersRequestList, { [_xN]: _PDHGNha }], [() => Phase2DHGroupNumbersRequestList, { [_xN]: _PDHGNhas }], [() => IKEVersionsRequestList, { [_xN]: _IKEVer }], 0, () => VpnTunnelLogOptionsSpecification$, 2, [() => AdditionalKeyExchangesRequestSpecification, { [_xN]: _PAKEha }], [() => AdditionalKeyExchangesRequestSpecification, { [_xN]: _PAKEhas }]]
 ];
 export var WithdrawByoipCidrRequest$: StaticStructureSchema = [3, n0, _WBCR,
   0,
@@ -28014,6 +28154,10 @@ var AccountAttributeValueList: StaticListSchema = [1, n0, _AAVL,
   0, [() => AccountAttributeValue$,
     { [_xN]: _it }]
 ];
+var ActiveAdditionalKeyExchangesList: StaticListSchema = [1, n0, _AAKEL,
+  0, [() => ActiveVpnTunnelAdditionalKeyExchange$,
+    { [_xN]: _it }]
+];
 var ActiveInstanceSet: StaticListSchema = [1, n0, _AIS,
   0, [() => ActiveInstance$,
     { [_xN]: _it }]
@@ -28030,6 +28174,22 @@ var AddIpamOrganizationalUnitExclusionSet: StaticListSchema = [1, n0, _AIOUES,
 ];
 var AdditionalDetailList: StaticListSchema = [1, n0, _ADL,
   0, [() => AdditionalDetail$,
+    { [_xN]: _it }]
+];
+var AdditionalKeyExchangeMethodsList: StaticListSchema = [1, n0, _AKEML,
+  0, [() => AdditionalKeyExchangeMethodsListValue$,
+    { [_xN]: _it }]
+];
+var AdditionalKeyExchangeMethodsRequestList: StaticListSchema = [1, n0, _AKEMRL,
+  0, [() => AdditionalKeyExchangeMethodsRequestListValue$,
+    { [_xN]: _it }]
+];
+var AdditionalKeyExchangesList: StaticListSchema = [1, n0, _AKEL,
+  0, [() => VpnAdditionalKeyExchange$,
+    { [_xN]: _it }]
+];
+var AdditionalKeyExchangesRequestSpecification: StaticListSchema = [1, n0, _AKERS,
+  0, [() => VpnAdditionalKeyExchangeRequest$,
     { [_xN]: _it }]
 ];
 var AddPrefixListEntries: StaticListSchema = [1, n0, _APLEd,
@@ -28260,7 +28420,15 @@ var CapacityBlockIds: StaticListSchema = [1, n0, _CBIa,
   0, [0,
     { [_xN]: _it }]
 ];
-var CapacityBlockOfferingSet: StaticListSchema = [1, n0, _CBOS,
+var CapacityBlockInstanceTypePreferenceSet: StaticListSchema = [1, n0, _CBITPS,
+  0, [() => CapacityBlockInstanceTypePreference$,
+    { [_xN]: _it }]
+];
+var CapacityBlockOfferingSegmentSet: StaticListSchema = [1, n0, _CBOSS,
+  0, [() => CapacityBlockOfferingSegment$,
+    { [_xN]: _it }]
+];
+var CapacityBlockOfferingSet: StaticListSchema = [1, n0, _CBOSap,
   0, [() => CapacityBlockOffering$,
     { [_xN]: _it }]
 ];
@@ -33271,7 +33439,7 @@ export var ModifyPublicIpDnsNameOptions$: StaticOperationSchema = [9, n0, _MPIDN
 export var ModifyReservedInstances$: StaticOperationSchema = [9, n0, _MRI,
   0, () => ModifyReservedInstancesRequest$, () => ModifyReservedInstancesResult$
 ];
-export var ModifyRouteServer$: StaticOperationSchema = [9, n0, _MRS,
+export var ModifyRouteServer$: StaticOperationSchema = [9, n0, _MRSo,
   0, () => ModifyRouteServerRequest$, () => ModifyRouteServerResult$
 ];
 export var ModifySecurityGroupRules$: StaticOperationSchema = [9, n0, _MSGR,
@@ -33309,6 +33477,9 @@ export var ModifyTransitGatewayMeteringPolicy$: StaticOperationSchema = [9, n0, 
 ];
 export var ModifyTransitGatewayNetworkFunctionAttachment$: StaticOperationSchema = [9, n0, _MTGNFA,
   0, () => ModifyTransitGatewayNetworkFunctionAttachmentRequest$, () => ModifyTransitGatewayNetworkFunctionAttachmentResult$
+];
+export var ModifyTransitGatewayPeeringAttachment$: StaticOperationSchema = [9, n0, _MTGPA,
+  0, () => ModifyTransitGatewayPeeringAttachmentRequest$, () => ModifyTransitGatewayPeeringAttachmentResult$
 ];
 export var ModifyTransitGatewayPolicyTableEntry$: StaticOperationSchema = [9, n0, _MTGPTE,
   0, () => ModifyTransitGatewayPolicyTableEntryRequest$, () => ModifyTransitGatewayPolicyTableEntryResult$

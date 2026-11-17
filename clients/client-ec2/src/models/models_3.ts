@@ -22,19 +22,18 @@ import type {
   ClientVpnConnectionStatusCode,
   ClientVpnDeviceTrustProviderType,
   ClientVpnEndpointAttributeStatusCode,
-  ConversionTaskState,
   DeleteQueuedReservedInstancesErrorCode,
   DiskImageFormat,
   EndpointIpAddressType,
   FleetCapacityReservationTenancy,
   FleetInstanceMatchCriteria,
+  InstanceEventWindowState,
   IpamPoolCidrFailureCode,
   IpamPoolCidrState,
   LaunchTemplateErrorCode,
   MetricType,
   OutputFormat,
   PeriodType,
-  PlatformValues,
   Schedule,
   SnapshotReturnCodes,
   StatisticType,
@@ -54,7 +53,6 @@ import type {
   ByoipCidr,
   CapacityReservation,
   CapacityReservationCancellationQuote,
-  CapacityReservationModificationQuote,
   ClientVpnAuthorizationRuleStatus,
   FlexCostAllocationOperationFailure,
   IpamRoutingPolicyRegistrationDelta,
@@ -67,13 +65,14 @@ import type {
   VerifiedAccessTrustProvider,
 } from "./models_0";
 import type {
+  CapacityReservationModificationQuote,
   CarrierGateway,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipPool,
-  CustomerGateway,
   FleetCapacityReservation,
   InstanceRequirementsRequest,
+  Ipam,
   IpamExternalResourceVerificationToken,
   IpamInternetRegistryAssociation,
   IpamPolicy,
@@ -117,6 +116,137 @@ import type {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteInstanceEventWindowRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Specify <code>true</code> to force delete the event window. Use the force delete
+   *          parameter if the event window is currently associated with targets.</p>
+   * @public
+   */
+  ForceDelete?: boolean | undefined;
+
+  /**
+   * <p>The ID of the event window.</p>
+   * @public
+   */
+  InstanceEventWindowId: string | undefined;
+}
+
+/**
+ * <p>The state of the event window.</p>
+ * @public
+ */
+export interface InstanceEventWindowStateChange {
+  /**
+   * <p>The ID of the event window.</p>
+   * @public
+   */
+  InstanceEventWindowId?: string | undefined;
+
+  /**
+   * <p>The current state of the event window.</p>
+   * @public
+   */
+  State?: InstanceEventWindowState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInstanceEventWindowResult {
+  /**
+   * <p>The state of the event window.</p>
+   * @public
+   */
+  InstanceEventWindowState?: InstanceEventWindowStateChange | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInternetGatewayRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the internet gateway.</p>
+   * @public
+   */
+  InternetGatewayId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM to delete.</p>
+   * @public
+   */
+  IpamId: string | undefined;
+
+  /**
+   * <p>Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and
+   *          any allocations in the pools in private scopes. You cannot delete the IPAM with this option if there is a pool in your public scope. If you use this option, IPAM does the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Deallocates any CIDRs allocated to VPC resources (such as VPCs) in pools in private scopes.</p>
+   *                <note>
+   *                   <p>No VPC resources are deleted as a result of enabling this option. The CIDR associated with the resource will no longer be allocated from an IPAM pool, but the CIDR itself will remain unchanged.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>Deprovisions all IPv4 CIDRs provisioned to IPAM pools in private scopes.</p>
+   *             </li>
+   *             <li>
+   *                <p>Deletes all IPAM pools in private scopes.</p>
+   *             </li>
+   *             <li>
+   *                <p>Deletes all non-default private scopes in the IPAM.</p>
+   *             </li>
+   *             <li>
+   *                <p>Deletes the default public and private scopes and the IPAM.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Cascade?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamResult {
+  /**
+   * <p>Information about the results of the deletion.</p>
+   * @public
+   */
+  Ipam?: Ipam | undefined;
+}
 
 /**
  * @public
@@ -4947,6 +5077,19 @@ export interface DescribeCapacityBlockExtensionOfferingsResult {
 }
 
 /**
+ * <p>Instance type preference for a Capacity Block search. Specifies one or more instance
+ * 			types to evaluate when searching for available Capacity Blocks.</p>
+ * @public
+ */
+export interface CapacityBlockInstanceTypePreference {
+  /**
+   * <p>The instance type to consider in the Capacity Block search.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface DescribeCapacityBlockOfferingsRequest {
@@ -5022,6 +5165,88 @@ export interface DescribeCapacityBlockOfferingsRequest {
    * @public
    */
   AllAvailabilityZones?: boolean | undefined;
+
+  /**
+   * <p>List of instance type preferences for the Capacity Block offering search. Accepts one
+   * 			or more instance type names. Either this or the legacy <code>InstanceType</code> parameter is
+   * 			required.</p>
+   * @public
+   */
+  InstanceTypePreferences?: CapacityBlockInstanceTypePreference[] | undefined;
+}
+
+/**
+ * <p>Describes an individual segment within a Capacity Block offering. Each segment
+ * 			represents a distinct block of capacity with its own Availability Zone, instance type,
+ * 			duration, pricing, and schedule.</p>
+ * @public
+ */
+export interface CapacityBlockOfferingSegment {
+  /**
+   * <p>The instance type of the Capacity Block offering segment.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The Availability Zone of the Capacity Block offering segment.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone for the Capacity Block offering segment.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The number of instances in the Capacity Block offering segment.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The start date of the Capacity Block offering segment.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The end date of the Capacity Block offering segment.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>The number of hours for the duration of the Capacity Block offering segment.</p>
+   * @public
+   */
+  CapacityBlockDurationHours?: number | undefined;
+
+  /**
+   * <p>The number of minutes for the duration of the Capacity Block offering segment.</p>
+   * @public
+   */
+  CapacityBlockDurationMinutes?: number | undefined;
+
+  /**
+   * <p>The total price to be paid up front for the Capacity Block offering segment.</p>
+   * @public
+   */
+  UpfrontFee?: string | undefined;
+
+  /**
+   * <p>The currency of the payment for the Capacity Block offering segment.</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * <p>The type of zone where the Capacity Block offering segment is available.</p>
+   * @public
+   */
+  ZoneType?: string | undefined;
 }
 
 /**
@@ -5116,6 +5341,14 @@ export interface CapacityBlockOffering {
    * @public
    */
   ZoneType?: string | undefined;
+
+  /**
+   * <p>The individual segments that compose the Capacity Block offering. Each segment
+   * 			describes a distinct block of capacity with its own Availability Zone, instance type,
+   * 			schedule, and pricing.</p>
+   * @public
+   */
+  CapacityBlockOfferingSegments?: CapacityBlockOfferingSegment[] | undefined;
 }
 
 /**
@@ -7887,299 +8120,4 @@ export interface DiskImageVolumeDescription {
    * @public
    */
   Size?: number | undefined;
-}
-
-/**
- * <p>Describes an import volume task.</p>
- * @public
- */
-export interface ImportInstanceVolumeDetailItem {
-  /**
-   * <p>The Availability Zone where the resulting instance will reside.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone where the resulting instance will reside.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>The number of bytes converted so far.</p>
-   * @public
-   */
-  BytesConverted?: number | undefined;
-
-  /**
-   * <p>A description of the task.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The image.</p>
-   * @public
-   */
-  Image?: DiskImageDescription | undefined;
-
-  /**
-   * <p>The status of the import of this particular disk image.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>The status information or errors related to the disk image.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The volume.</p>
-   * @public
-   */
-  Volume?: DiskImageVolumeDescription | undefined;
-}
-
-/**
- * <p>Describes an import instance task.</p>
- * @public
- */
-export interface ImportInstanceTaskDetails {
-  /**
-   * <p>A description of the task.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The instance operating system.</p>
-   * @public
-   */
-  Platform?: PlatformValues | undefined;
-
-  /**
-   * <p>The volumes.</p>
-   * @public
-   */
-  Volumes?: ImportInstanceVolumeDetailItem[] | undefined;
-}
-
-/**
- * <p>Describes an import volume task.</p>
- * @public
- */
-export interface ImportVolumeTaskDetails {
-  /**
-   * <p>The Availability Zone where the resulting volume will reside.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone where the resulting volume will reside.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>The number of bytes converted so far.</p>
-   * @public
-   */
-  BytesConverted?: number | undefined;
-
-  /**
-   * <p>The description you provided when starting the import volume task.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The image.</p>
-   * @public
-   */
-  Image?: DiskImageDescription | undefined;
-
-  /**
-   * <p>The volume.</p>
-   * @public
-   */
-  Volume?: DiskImageVolumeDescription | undefined;
-}
-
-/**
- * <p>Describes a conversion task.</p>
- * @public
- */
-export interface ConversionTask {
-  /**
-   * <p>The ID of the conversion task.</p>
-   * @public
-   */
-  ConversionTaskId?: string | undefined;
-
-  /**
-   * <p>The time when the task expires. If the upload isn't complete before the expiration time, we automatically cancel
-   *    the task.</p>
-   * @public
-   */
-  ExpirationTime?: string | undefined;
-
-  /**
-   * <p>If the task is for importing an instance, this contains information about the import instance task.</p>
-   * @public
-   */
-  ImportInstance?: ImportInstanceTaskDetails | undefined;
-
-  /**
-   * <p>If the task is for importing a volume, this contains information about the import volume task.</p>
-   * @public
-   */
-  ImportVolume?: ImportVolumeTaskDetails | undefined;
-
-  /**
-   * <p>The state of the conversion task.</p>
-   * @public
-   */
-  State?: ConversionTaskState | undefined;
-
-  /**
-   * <p>The status message related to the conversion task.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>Any tags assigned to the task.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeConversionTasksResult {
-  /**
-   * <p>Information about the conversion tasks.</p>
-   * @public
-   */
-  ConversionTasks?: ConversionTask[] | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeCustomerGateways.</p>
- * @public
- */
-export interface DescribeCustomerGatewaysRequest {
-  /**
-   * <p>One or more customer gateway IDs.</p>
-   *          <p>Default: Describes all your customer gateways.</p>
-   * @public
-   */
-  CustomerGatewayIds?: string[] | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP)
-   *                     Autonomous System Number (ASN).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>customer-gateway-id</code> - The ID of the customer gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ip-address</code> - The IP address of the customer gateway
-   *                     device's external interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the customer gateway (<code>pending</code> |
-   *                         <code>available</code> | <code>deleting</code> |
-   *                     <code>deleted</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>type</code> - The type of customer gateway. Currently, the only
-   *                     supported type is <code>ipsec.1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeCustomerGateways.</p>
- * @public
- */
-export interface DescribeCustomerGatewaysResult {
-  /**
-   * <p>Information about one or more customer gateways.</p>
-   * @public
-   */
-  CustomerGateways?: CustomerGateway[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDeclarativePoliciesReportsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>One or more report IDs.</p>
-   * @public
-   */
-  ReportIds?: string[] | undefined;
 }

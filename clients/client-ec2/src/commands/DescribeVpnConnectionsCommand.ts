@@ -129,6 +129,28 @@ export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnecti
  * //               },
  * //             },
  * //             EnableTunnelLifecycleControl: true || false,
+ * //             Phase1AdditionalKeyExchanges: [ // AdditionalKeyExchangesList
+ * //               { // VpnAdditionalKeyExchange
+ * //                 AdditionalKeyExchangeRound: Number("int"),
+ * //                 KeyExchangeMethods: [ // AdditionalKeyExchangeMethodsList
+ * //                   { // AdditionalKeyExchangeMethodsListValue
+ * //                     Value: Number("int"),
+ * //                   },
+ * //                 ],
+ * //                 Requirement: "required" || "optional",
+ * //               },
+ * //             ],
+ * //             Phase2AdditionalKeyExchanges: [
+ * //               {
+ * //                 AdditionalKeyExchangeRound: Number("int"),
+ * //                 KeyExchangeMethods: [
+ * //                   {
+ * //                     Value: Number("int"),
+ * //                   },
+ * //                 ],
+ * //                 Requirement: "required" || "optional",
+ * //               },
+ * //             ],
  * //           },
  * //         ],
  * //         TunnelBandwidth: "standard" || "large",

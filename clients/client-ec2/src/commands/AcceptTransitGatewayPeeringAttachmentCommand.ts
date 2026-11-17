@@ -60,6 +60,11 @@ export interface AcceptTransitGatewayPeeringAttachmentCommandOutput extends Acce
  * //     },
  * //     Options: { // TransitGatewayPeeringAttachmentOptions
  * //       DynamicRouting: "enable" || "disable",
+ * //       RequesterAllowMultipathResilience: true || false,
+ * //       RequesterMultipathResilienceMode: "always-on",
+ * //       AccepterAllowMultipathResilience: true || false,
+ * //       AccepterMultipathResilienceMode: "always-on",
+ * //       MultipathResilienceStatus: "pending" || "enabled" || "disabled",
  * //     },
  * //     Status: { // PeeringAttachmentStatus
  * //       Code: "STRING_VALUE",

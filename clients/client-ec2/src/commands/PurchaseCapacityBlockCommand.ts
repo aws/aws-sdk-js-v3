@@ -148,6 +148,82 @@ export interface PurchaseCapacityBlockCommandOutput extends PurchaseCapacityBloc
  * //       ],
  * //     },
  * //   ],
+ * //   CapacityReservations: [ // CapacityReservationSet
+ * //     {
+ * //       CapacityReservationId: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       CapacityReservationArn: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
+ * //       InstanceType: "STRING_VALUE",
+ * //       InstancePlatform: "Linux/UNIX" || "Red Hat Enterprise Linux" || "SUSE Linux" || "Windows" || "Windows with SQL Server" || "Windows with SQL Server Enterprise" || "Windows with SQL Server Standard" || "Windows with SQL Server Web" || "Linux with SQL Server Standard" || "Linux with SQL Server Web" || "Linux with SQL Server Enterprise" || "RHEL with SQL Server Standard" || "RHEL with SQL Server Enterprise" || "RHEL with SQL Server Web" || "RHEL with HA" || "RHEL with HA and SQL Server Standard" || "RHEL with HA and SQL Server Enterprise" || "Ubuntu Pro",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       Tenancy: "default" || "dedicated",
+ * //       TotalInstanceCount: Number("int"),
+ * //       AvailableInstanceCount: Number("int"),
+ * //       EbsOptimized: true || false,
+ * //       EphemeralStorage: true || false,
+ * //       State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported" || "cancelling" || "unavailable",
+ * //       StartDate: new Date("TIMESTAMP"),
+ * //       EndDate: new Date("TIMESTAMP"),
+ * //       EndDateType: "unlimited" || "limited",
+ * //       InstanceMatchCriteria: "open" || "targeted",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       Tags: [
+ * //         {
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       OutpostArn: "STRING_VALUE",
+ * //       CapacityReservationFleetId: "STRING_VALUE",
+ * //       PlacementGroupArn: "STRING_VALUE",
+ * //       CapacityAllocations: [
+ * //         {
+ * //           AllocationType: "used" || "future" || "cancelling",
+ * //           Count: Number("int"),
+ * //           AllocationMetadata: [
+ * //             {
+ * //               Key: "STRING_VALUE",
+ * //               Value: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       ReservationType: "default" || "capacity-block",
+ * //       UnusedReservationBillingOwnerId: "STRING_VALUE",
+ * //       CommitmentInfo: {
+ * //         CommittedInstanceCount: Number("int"),
+ * //         CommitmentEndDate: new Date("TIMESTAMP"),
+ * //         CommitmentDuration: Number("long"),
+ * //       },
+ * //       DeliveryPreference: "fixed" || "incremental",
+ * //       CapacityBlockId: "STRING_VALUE",
+ * //       Interruptible: true || false,
+ * //       InterruptibleCapacityAllocation: {
+ * //         InstanceCount: Number("int"),
+ * //         TargetInstanceCount: Number("int"),
+ * //         Status: "pending" || "active" || "updating" || "canceling" || "canceled" || "failed",
+ * //         InterruptibleCapacityReservationId: "STRING_VALUE",
+ * //         InterruptionType: "adhoc",
+ * //         ZeroSizePreference: "retain" || "default",
+ * //       },
+ * //       InterruptionInfo: {
+ * //         SourceCapacityReservationId: "STRING_VALUE",
+ * //         InterruptionType: "adhoc",
+ * //       },
+ * //       AdjustmentStatus: "requested" || "applied" || "rejected",
+ * //       AdjustmentDetails: {
+ * //         StartDate: new Date("TIMESTAMP"),
+ * //         EndDate: new Date("TIMESTAMP"),
+ * //         CommitmentEndDate: new Date("TIMESTAMP"),
+ * //         EndDateType: "STRING_VALUE",
+ * //         CommitmentDuration: Number("long"),
+ * //       },
+ * //       OriginalStartDate: new Date("TIMESTAMP"),
+ * //       ZeroSizePreference: "retain" || "default",
+ * //       LaunchStatus: "launchable" || "unlaunchable",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

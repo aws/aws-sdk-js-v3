@@ -3592,6 +3592,11 @@ import {
   ModifyTransitGatewayNetworkFunctionAttachmentCommand,
 } from "./commands/ModifyTransitGatewayNetworkFunctionAttachmentCommand";
 import {
+  type ModifyTransitGatewayPeeringAttachmentCommandInput,
+  type ModifyTransitGatewayPeeringAttachmentCommandOutput,
+  ModifyTransitGatewayPeeringAttachmentCommand,
+} from "./commands/ModifyTransitGatewayPeeringAttachmentCommand";
+import {
   type ModifyTransitGatewayPolicyTableEntryCommandInput,
   type ModifyTransitGatewayPolicyTableEntryCommandOutput,
   ModifyTransitGatewayPolicyTableEntryCommand,
@@ -5158,6 +5163,7 @@ const commands = {
   ModifyTransitGatewayAttachmentNatConfigurationCommand,
   ModifyTransitGatewayMeteringPolicyCommand,
   ModifyTransitGatewayNetworkFunctionAttachmentCommand,
+  ModifyTransitGatewayPeeringAttachmentCommand,
   ModifyTransitGatewayPolicyTableEntryCommand,
   ModifyTransitGatewayPrefixListReferenceCommand,
   ModifyTransitGatewayVpcAttachmentCommand,
@@ -17959,6 +17965,23 @@ export interface EC2 {
     args: ModifyTransitGatewayNetworkFunctionAttachmentCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: ModifyTransitGatewayNetworkFunctionAttachmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyTransitGatewayPeeringAttachmentCommand}
+   */
+  modifyTransitGatewayPeeringAttachment(
+    args: ModifyTransitGatewayPeeringAttachmentCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<ModifyTransitGatewayPeeringAttachmentCommandOutput>;
+  modifyTransitGatewayPeeringAttachment(
+    args: ModifyTransitGatewayPeeringAttachmentCommandInput,
+    cb: (err: any, data?: ModifyTransitGatewayPeeringAttachmentCommandOutput) => void
+  ): void;
+  modifyTransitGatewayPeeringAttachment(
+    args: ModifyTransitGatewayPeeringAttachmentCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: ModifyTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
 
   /**

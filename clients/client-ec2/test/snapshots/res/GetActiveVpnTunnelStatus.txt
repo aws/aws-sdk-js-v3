@@ -56,6 +56,58 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <provisioningStatusReason>
             __ProvisioningStatusReason__
         </provisioningStatusReason>
+        <phase1AdditionalKeyExchangeSet>
+            <item>
+                <additionalKeyExchangeRound>
+                    0
+                </additionalKeyExchangeRound>
+                <keyExchangeMethod>
+                    0
+                </keyExchangeMethod>
+            </item>
+            <item>
+                <additionalKeyExchangeRound>
+                    0
+                </additionalKeyExchangeRound>
+                <keyExchangeMethod>
+                    0
+                </keyExchangeMethod>
+            </item>
+            <item>
+                <additionalKeyExchangeRound>
+                    0
+                </additionalKeyExchangeRound>
+                <keyExchangeMethod>
+                    0
+                </keyExchangeMethod>
+            </item>
+        </phase1AdditionalKeyExchangeSet>
+        <phase2AdditionalKeyExchangeSet>
+            <item>
+                <additionalKeyExchangeRound>
+                    0
+                </additionalKeyExchangeRound>
+                <keyExchangeMethod>
+                    0
+                </keyExchangeMethod>
+            </item>
+            <item>
+                <additionalKeyExchangeRound>
+                    0
+                </additionalKeyExchangeRound>
+                <keyExchangeMethod>
+                    0
+                </keyExchangeMethod>
+            </item>
+            <item>
+                <additionalKeyExchangeRound>
+                    0
+                </additionalKeyExchangeRound>
+                <keyExchangeMethod>
+                    0
+                </keyExchangeMethod>
+            </item>
+        </phase2AdditionalKeyExchangeSet>
     </activeVpnTunnelStatus>
 </GetActiveVpnTunnelStatusResult>
 
@@ -71,7 +123,35 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     Phase2DHGroup: (number) 0,
     IkeVersion: "__IkeVersion__",
     ProvisioningStatus: "__ProvisioningStatus__",
-    ProvisioningStatusReason: "__ProvisioningStatusReason__"
+    ProvisioningStatusReason: "__ProvisioningStatusReason__",
+    Phase1AdditionalKeyExchanges: [
+      {
+        AdditionalKeyExchangeRound: (number) 0,
+        KeyExchangeMethod: (number) 0
+      },
+      {
+        AdditionalKeyExchangeRound: (number) 0,
+        KeyExchangeMethod: (number) 0
+      },
+      {
+        AdditionalKeyExchangeRound: (number) 0,
+        KeyExchangeMethod: (number) 0
+      }
+    ],
+    Phase2AdditionalKeyExchanges: [
+      {
+        AdditionalKeyExchangeRound: (number) 0,
+        KeyExchangeMethod: (number) 0
+      },
+      {
+        AdditionalKeyExchangeRound: (number) 0,
+        KeyExchangeMethod: (number) 0
+      },
+      {
+        AdditionalKeyExchangeRound: (number) 0,
+        KeyExchangeMethod: (number) 0
+      }
+    ]
   },
   $metadata: {
     httpStatusCode: (number) 200,

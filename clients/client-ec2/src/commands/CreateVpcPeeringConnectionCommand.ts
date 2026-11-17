@@ -34,6 +34,8 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  *          <p>The owner of the accepter VPC must accept the peering request to activate the peering
  *             connection. The VPC peering connection request expires after 7 days, after which it
  *             cannot be accepted or rejected.</p>
+ *          <p>Multipath resilience replicates the traffic of an inter-Region VPC peering connection across
+ *             multiple network paths.</p>
  *          <p>If you create a VPC peering connection request between VPCs with overlapping CIDR
  *             blocks, the VPC peering connection has a status of <code>failed</code>.</p>
  * @example
@@ -57,6 +59,10 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  *       ],
  *     },
  *   ],
+ *   RequesterPeeringConnectionOptions: { // CreatePeeringConnectionOptionsRequest
+ *     AllowMultipathResilience: true || false,
+ *     MultipathResilienceMode: "always-on",
+ *   },
  *   DryRun: true || false,
  *   VpcId: "STRING_VALUE", // required
  *   PeerVpcId: "STRING_VALUE",
@@ -83,6 +89,8 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  * //         AllowDnsResolutionFromRemoteVpc: true || false,
  * //         AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
  * //         AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ * //         AllowMultipathResilience: true || false,
+ * //         MultipathResilienceMode: "always-on",
  * //       },
  * //       VpcId: "STRING_VALUE",
  * //       Region: "STRING_VALUE",
@@ -105,6 +113,8 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  * //         AllowDnsResolutionFromRemoteVpc: true || false,
  * //         AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
  * //         AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ * //         AllowMultipathResilience: true || false,
+ * //         MultipathResilienceMode: "always-on",
  * //       },
  * //       VpcId: "STRING_VALUE",
  * //       Region: "STRING_VALUE",
@@ -120,6 +130,7 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  * //       },
  * //     ],
  * //     VpcPeeringConnectionId: "STRING_VALUE",
+ * //     MultipathResilienceStatus: "pending" || "enabled" || "disabled",
  * //   },
  * // };
  *

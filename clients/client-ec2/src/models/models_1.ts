@@ -16,6 +16,7 @@ import type {
   BurstablePerformance,
   CapacityReservationFleetState,
   CapacityReservationInstancePlatform,
+  CapacityReservationModificationQuoteState,
   CapacityReservationPreference,
   CarrierGatewayState,
   ClientVpnAuthenticationType,
@@ -42,8 +43,6 @@ import type {
   FleetReplacementStrategy,
   FleetReservationType,
   FleetType,
-  FlexCostAllocationCostDimension,
-  FlexCostAllocationReportingGranularity,
   FlowLogsResourceType,
   GatewayType,
   HostnameType,
@@ -136,7 +135,6 @@ import type {
   AcceleratorTotalMemoryMiBRequest,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
-  CapacityReservationModificationQuote,
   InstanceEventWindow,
   IpamRoutingPolicyRegistrationDelta,
   NatGatewayAddress,
@@ -149,6 +147,186 @@ import type {
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateCapacityReservationDateChangeQuoteRequest {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>The requested new start date for the Capacity Reservation, in the ISO8601 format in the
+   * 			UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>). The new start date must be later
+   * 			than the current start date and within the cumulative 30-day pushout limit.</p>
+   * @public
+   */
+  NewStartDate: Date | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags to apply to the date change quote.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the configuration that a Capacity Reservation has at the time a modification
+ * 			quote is generated.</p>
+ * @public
+ */
+export interface ModificationQuoteCurrentConfiguration {
+  /**
+   * <p>The number of instances in the Capacity Reservation.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The current state of the Capacity Reservation.</p>
+   * @public
+   */
+  ReservationState?: string | undefined;
+
+  /**
+   * <p>The start date that the Capacity Reservation has before the quoted modification is
+   * 			applied.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The start date that the Capacity Reservation was originally requested with. This value
+   * 			does not change when you push out the start date.</p>
+   * @public
+   */
+  OriginalStartDate?: Date | undefined;
+}
+
+/**
+ * <p>Describes the changes that a Capacity Reservation modification quote will apply to a
+ * 			Capacity Reservation.</p>
+ * @public
+ */
+export interface ModificationReservationUpdate {
+  /**
+   * <p>The date and time at which the commitment duration will expire after the modification,
+   * 			in the ISO8601 format in the UTC time zone
+   * 			(<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
+   */
+  NewCommitmentEndDate?: Date | undefined;
+
+  /**
+   * <p>The start date that the Capacity Reservation will have after the modification, in the
+   * 			ISO8601 format in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
+   */
+  NewStartDate?: Date | undefined;
+
+  /**
+   * <p>The commitment duration, in seconds, that the Capacity Reservation will have after the
+   * 			modification.</p>
+   * @public
+   */
+  NewCommitmentDuration?: number | undefined;
+}
+
+/**
+ * <p>Describes the terms of a Capacity Reservation modification quote.</p>
+ * @public
+ */
+export interface ModificationTerms {
+  /**
+   * <p>The changes that will be applied to the Capacity Reservation if you accept the
+   * 			modification terms.</p>
+   * @public
+   */
+  ReservationUpdate?: ModificationReservationUpdate | undefined;
+}
+
+/**
+ * <p>Describes a Capacity Reservation modification quote, which provides the terms for
+ * 			changing the start date or the commitment of a future-dated Capacity Reservation.</p>
+ * @public
+ */
+export interface CapacityReservationModificationQuote {
+  /**
+   * <p>The ID of the modification quote.</p>
+   * @public
+   */
+  CapacityReservationModificationQuoteId?: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity Reservation associated with the modification quote.</p>
+   * @public
+   */
+  CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The date and time at which the modification quote was created.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the modification quote expires.</p>
+   * @public
+   */
+  ExpirationTime?: Date | undefined;
+
+  /**
+   * <p>The state of the modification quote itself. Possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>active</code> - The quote can still be used.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expired</code> - The quote can no longer be used. A quote becomes
+   * 					<code>expired</code> at its <code>expirationTime</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  QuoteState?: CapacityReservationModificationQuoteState | undefined;
+
+  /**
+   * <p>The configuration that the Capacity Reservation has at the time the quote was
+   * 			generated.</p>
+   * @public
+   */
+  CurrentConfiguration?: ModificationQuoteCurrentConfiguration | undefined;
+
+  /**
+   * <p>The terms of the modification, including the configuration that the Capacity Reservation
+   * 			will have if you accept them by using <code>ModifyCapacityReservation</code>.</p>
+   * @public
+   */
+  ModificationTerms?: ModificationTerms | undefined;
+
+  /**
+   * <p>The tags assigned to the modification quote.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
 
 /**
  * @public
@@ -2582,7 +2760,7 @@ export interface VpcEncryptionControlExclusions {
   ElasticFileSystem?: VpcEncryptionControlExclusion | undefined;
 
   /**
-   * <p>The exclusion configuration for AWS Global Accelerator traffic.</p>
+   * <p>The exclusion configuration for Amazon Web Services Global Accelerator traffic.</p>
    * @public
    */
   GlobalAccelerator?: VpcEncryptionControlExclusion | undefined;
@@ -13976,177 +14154,4 @@ export interface CreateNetworkAclResult {
    * @public
    */
   ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkAclEntryRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the network ACL.</p>
-   * @public
-   */
-  NetworkAclId: string | undefined;
-
-  /**
-   * <p>The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.</p>
-   *          <p>Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.</p>
-   * @public
-   */
-  RuleNumber: number | undefined;
-
-  /**
-   * <p>The protocol number. A value of "-1" means all protocols. If you specify "-1" or a
-   *   			protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is
-   * 			allowed, regardless of any ports or ICMP types or codes that you specify. If you specify
-   * 			protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and
-   * 			codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6)
-   * 			and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
-   * @public
-   */
-  Protocol: string | undefined;
-
-  /**
-   * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
-   * @public
-   */
-  RuleAction: RuleAction | undefined;
-
-  /**
-   * <p>Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).</p>
-   * @public
-   */
-  Egress: boolean | undefined;
-
-  /**
-   * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
-   * 		        <code>172.16.0.0/24</code>). We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
-   * @public
-   */
-  CidrBlock?: string | undefined;
-
-  /**
-   * <p>The IPv6 network range to allow or deny, in CIDR notation (for example
-   *                 <code>2001:db8:1234:1a00::/64</code>).</p>
-   * @public
-   */
-  Ipv6CidrBlock?: string | undefined;
-
-  /**
-   * <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol
-   * 		        1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
-   * @public
-   */
-  IcmpTypeCode?: IcmpTypeCode | undefined;
-
-  /**
-   * <p>TCP or UDP protocols: The range of ports the rule applies to.
-   * 		        Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
-   * @public
-   */
-  PortRange?: PortRange | undefined;
-}
-
-/**
- * <p>Maps a CIDR range to a label for cost allocation reporting.</p>
- * @public
- */
-export interface FlexCostAllocationCidrMapping {
-  /**
-   * <p>The CIDR range. This parameter is required.</p>
-   * @public
-   */
-  CidrRange: string | undefined;
-
-  /**
-   * <p>The label to assign to the CIDR range. The label can be up to 64 characters long. It can
-   *             contain letters, numbers, hyphens (<code>-</code>), and underscores (<code>_</code>), and must
-   *             start with a letter or a number. This parameter is required.</p>
-   * @public
-   */
-  CidrLabel: string | undefined;
-}
-
-/**
- * <p>Specifies the CIDR ranges and labels to use for cost allocation when the reporting granularity is
- *             <code>cidr</code>.</p>
- * @public
- */
-export interface FlexCostAllocationCidrRangeSpecifications {
-  /**
-   * <p>The type of prefixes to use. This parameter is required. Valid values are
-   *             <code>source-prefixes</code> and <code>destination-prefixes</code>.</p>
-   * @public
-   */
-  PrefixesType: string | undefined;
-
-  /**
-   * <p>The CIDR range to label mappings. You can specify from 1 to 100 mappings. This parameter is required.</p>
-   * @public
-   */
-  Prefixes: FlexCostAllocationCidrMapping[] | undefined;
-}
-
-/**
- * <p>Describes the cost allocation policy document for EC2 instances.</p>
- * @public
- */
-export interface InstanceFlexCostAllocationPolicyDocument {
-  /**
-   * <p>The resource granularity level at which networking costs are allocated. This parameter is required. Specify exactly
-   *             one value. Valid values are <code>eni</code>, <code>ec2</code>, <code>subnet</code>, <code>vpc</code>,
-   *             <code>account</code>, and <code>cidr</code>.</p>
-   * @public
-   */
-  ReportingGranularity: FlexCostAllocationReportingGranularity[] | undefined;
-
-  /**
-   * <p>The cost dimensions to report. This parameter is required. The only valid value is
-   *             <code>data-transfer</code>.</p>
-   * @public
-   */
-  Dimensions: FlexCostAllocationCostDimension[] | undefined;
-
-  /**
-   * <p>The CIDR range mappings to use for cost allocation. Specify this value when
-   *             <code>ReportingGranularity</code> is <code>cidr</code>, and omit it otherwise.</p>
-   * @public
-   */
-  CidrRangeSpecifications?: FlexCostAllocationCidrRangeSpecifications | undefined;
-}
-
-/**
- * <p>Describes the cost allocation policy document for NAT gateways.</p>
- * @public
- */
-export interface NatFlexCostAllocationPolicyDocument {
-  /**
-   * <p>The resource granularity level at which networking costs are allocated. This parameter is required. Specify exactly
-   *             one value. Valid values are <code>eni</code>, <code>ec2</code>, <code>subnet</code>, <code>vpc</code>,
-   *             <code>account</code>, and <code>cidr</code>.</p>
-   * @public
-   */
-  ReportingGranularity: FlexCostAllocationReportingGranularity[] | undefined;
-
-  /**
-   * <p>The cost dimensions to report. This parameter is required. Valid values are <code>data-transfer</code>
-   *             and <code>data-processing</code>.</p>
-   * @public
-   */
-  Dimensions: FlexCostAllocationCostDimension[] | undefined;
-
-  /**
-   * <p>The CIDR range mappings to use for cost allocation. Specify this value when
-   *             <code>ReportingGranularity</code> is <code>cidr</code>, and omit it otherwise.</p>
-   * @public
-   */
-  CidrRangeSpecifications?: FlexCostAllocationCidrRangeSpecifications | undefined;
 }

@@ -4,6 +4,7 @@ import type {
   ActivityStatus,
   AllocationStrategy,
   AllowedImagesSettingsDisabledState,
+  AnalysisStatus,
   AttachmentStatus,
   BatchState,
   CapacityManagerStatus,
@@ -22,6 +23,7 @@ import type {
   IpAddressType,
   ManagedBy,
   MetricType,
+  NetworkInterfaceAttribute,
   OfferingClassType,
   OfferingTypeValues,
   OnDemandAllocationStrategy,
@@ -32,7 +34,6 @@ import type {
   ReservedInstanceState,
   ResourceType,
   RIProductDescription,
-  RouteServerPropagationState,
   Scope,
   SecondaryInterfaceStatus,
   SecondaryInterfaceType,
@@ -41,7 +42,6 @@ import type {
   ServiceConnectivityType,
   ServiceLinkVirtualInterfaceConfigurationState,
   SnapshotAttributeName,
-  SnapshotBlockPublicAccessState,
   SnapshotState,
   SpotInstanceState,
   SpotInstanceType,
@@ -69,9 +69,12 @@ import type {
   ActiveInstance,
   AddressTransfer,
   AllowedPrincipal,
+  AlternatePathHint,
+  Explanation,
   IamInstanceProfileSpecification,
   IpPermission,
   OperatorResponse,
+  PathComponent,
   ReservedInstancesListing,
   SecurityGroupRule,
   Tag,
@@ -86,6 +89,7 @@ import type {
   VpcPeeringConnection,
 } from "./models_0";
 import type {
+  AttributeValue,
   BlockDeviceMapping,
   ConnectionTrackingSpecificationRequest,
   EnaSrdSpecificationRequest,
@@ -103,7 +107,9 @@ import type {
   ConnectionNotification,
   DnsEntry,
   GroupIdentifier,
+  NetworkInsightsPath,
   NetworkInterface,
+  NetworkInterfaceAttachment,
   NetworkInterfacePermission,
   PayerResponsibilityEntry,
   PlacementGroup,
@@ -149,6 +155,415 @@ import type {
   ProductCode,
   RegisteredInstance,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeNetworkInsightsAnalysesRequest {
+  /**
+   * <p>The ID of the network insights analyses. You must specify either analysis IDs or a path ID.</p>
+   * @public
+   */
+  NetworkInsightsAnalysisIds?: string[] | undefined;
+
+  /**
+   * <p>The ID of the path. You must specify either a path ID or analysis IDs.</p>
+   * @public
+   */
+  NetworkInsightsPathId?: string | undefined;
+
+  /**
+   * <p>The time when the network insights analyses started.</p>
+   * @public
+   */
+  AnalysisStartTime?: Date | undefined;
+
+  /**
+   * <p>The time when the network insights analyses ended.</p>
+   * @public
+   */
+  AnalysisEndTime?: Date | undefined;
+
+  /**
+   * <p>The filters. The following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>path-found - A Boolean value that indicates whether a feasible path is found.</p>
+   *             </li>
+   *             <li>
+   *                <p>status - The status of the analysis (running | succeeded | failed).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes a network insights analysis.</p>
+ * @public
+ */
+export interface NetworkInsightsAnalysis {
+  /**
+   * <p>The ID of the network insights analysis.</p>
+   * @public
+   */
+  NetworkInsightsAnalysisId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the network insights analysis.</p>
+   * @public
+   */
+  NetworkInsightsAnalysisArn?: string | undefined;
+
+  /**
+   * <p>The ID of the path.</p>
+   * @public
+   */
+  NetworkInsightsPathId?: string | undefined;
+
+  /**
+   * <p>The member accounts that contain resources that the path can traverse.</p>
+   * @public
+   */
+  AdditionalAccounts?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the resources that the path must traverse.</p>
+   * @public
+   */
+  FilterInArns?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the resources that the path must ignore.</p>
+   * @public
+   */
+  FilterOutArns?: string[] | undefined;
+
+  /**
+   * <p>The time the analysis started.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The status of the network insights analysis.</p>
+   * @public
+   */
+  Status?: AnalysisStatus | undefined;
+
+  /**
+   * <p>The status message, if the status is <code>failed</code>.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The warning message.</p>
+   * @public
+   */
+  WarningMessage?: string | undefined;
+
+  /**
+   * <p>Indicates whether the destination is reachable from the source.</p>
+   * @public
+   */
+  NetworkPathFound?: boolean | undefined;
+
+  /**
+   * <p>The components in the path from source to destination.</p>
+   * @public
+   */
+  ForwardPathComponents?: PathComponent[] | undefined;
+
+  /**
+   * <p>The components in the path from destination to source.</p>
+   * @public
+   */
+  ReturnPathComponents?: PathComponent[] | undefined;
+
+  /**
+   * <p>The explanations. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
+   * @public
+   */
+  Explanations?: Explanation[] | undefined;
+
+  /**
+   * <p>Potential intermediate components.</p>
+   * @public
+   */
+  AlternatePathHints?: AlternatePathHint[] | undefined;
+
+  /**
+   * <p>Potential intermediate accounts.</p>
+   * @public
+   */
+  SuggestedAccounts?: string[] | undefined;
+
+  /**
+   * <p>The tags.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNetworkInsightsAnalysesResult {
+  /**
+   * <p>Information about the network insights analyses.</p>
+   * @public
+   */
+  NetworkInsightsAnalyses?: NetworkInsightsAnalysis[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNetworkInsightsPathsRequest {
+  /**
+   * <p>The IDs of the paths.</p>
+   * @public
+   */
+  NetworkInsightsPathIds?: string[] | undefined;
+
+  /**
+   * <p>The filters. The following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>destination - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-source.source-address - The source IPv4 address at the source.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-source.source-port-range - The source port range at the source.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-source.destination-address - The destination IPv4 address at the source.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-source.destination-port-range - The destination port range at the source.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-destination.source-address - The source IPv4 address at the destination.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-destination.source-port-range - The source port range at the destination.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-destination.destination-address - The destination IPv4 address at the destination.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-destination.destination-port-range - The destination port range at the destination.</p>
+   *             </li>
+   *             <li>
+   *                <p>protocol - The protocol.</p>
+   *             </li>
+   *             <li>
+   *                <p>source - The ID of the resource.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNetworkInsightsPathsResult {
+  /**
+   * <p>Information about the paths.</p>
+   * @public
+   */
+  NetworkInsightsPaths?: NetworkInsightsPath[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeNetworkInterfaceAttribute.</p>
+ * @public
+ */
+export interface DescribeNetworkInterfaceAttributeRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>The attribute of the network interface. This parameter is required.</p>
+   * @public
+   */
+  Attribute?: NetworkInterfaceAttribute | undefined;
+}
+
+/**
+ * <p>Contains the output of DescribeNetworkInterfaceAttribute.</p>
+ * @public
+ */
+export interface DescribeNetworkInterfaceAttributeResult {
+  /**
+   * <p>The attachment (if any) of the network interface.</p>
+   * @public
+   */
+  Attachment?: NetworkInterfaceAttachment | undefined;
+
+  /**
+   * <p>The description of the network interface.</p>
+   * @public
+   */
+  Description?: AttributeValue | undefined;
+
+  /**
+   * <p>The security groups associated with the network interface.</p>
+   * @public
+   */
+  Groups?: GroupIdentifier[] | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+
+  /**
+   * <p>Indicates whether source/destination checking is enabled.</p>
+   * @public
+   */
+  SourceDestCheck?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>Indicates whether to assign a public IPv4 address to a network interface. This option
+   *             can be enabled for any network interface but will only apply to the primary network
+   *             interface (eth0).</p>
+   * @public
+   */
+  AssociatePublicIpAddress?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeNetworkInterfacePermissions.</p>
+ * @public
+ */
+export interface DescribeNetworkInterfacePermissionsRequest {
+  /**
+   * <p>The network interface permission IDs.</p>
+   * @public
+   */
+  NetworkInterfacePermissionIds?: string[] | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface-permission.network-interface-permission-id</code> -
+   *                     The ID of the permission.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface-permission.network-interface-id</code> - The ID of the
+   *                     network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface-permission.aws-account-id</code> - The Amazon Web Services account ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface-permission.aws-service</code> - The Amazon Web Services
+   *                     service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface-permission.permission</code> - The type of permission
+   *                         (<code>INSTANCE-ATTACH</code> | <code>EIP-ASSOCIATE</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the
+   *             end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   *             make another request with the token returned in the output. If this parameter is not
+   *             specified, up to 50 results are returned by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * <p>Contains the output for DescribeNetworkInterfacePermissions.</p>
@@ -12514,144 +12929,4 @@ export interface DisableIpamPolicyResult {
    * @public
    */
   Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableRouteServerPropagationRequest {
-  /**
-   * <p>The ID of the route server for which to disable propagation.</p>
-   * @public
-   */
-  RouteServerId: string | undefined;
-
-  /**
-   * <p>The ID of the route table for which to disable route server propagation.</p>
-   * @public
-   */
-  RouteTableId: string | undefined;
-
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes the route propagation configuration between a route server and a route table.</p>
- *          <p>When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.</p>
- * @public
- */
-export interface RouteServerPropagation {
-  /**
-   * <p>The ID of the route server configured for route propagation.</p>
-   * @public
-   */
-  RouteServerId?: string | undefined;
-
-  /**
-   * <p>The ID of the route table configured for route server propagation.</p>
-   * @public
-   */
-  RouteTableId?: string | undefined;
-
-  /**
-   * <p>The current state of route propagation.</p>
-   * @public
-   */
-  State?: RouteServerPropagationState | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableRouteServerPropagationResult {
-  /**
-   * <p>Information about the disabled route server propagation.</p>
-   * @public
-   */
-  RouteServerPropagation?: RouteServerPropagation | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableSerialConsoleAccessRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableSerialConsoleAccessResult {
-  /**
-   * <p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for
-   * 			your account. If <code>false</code>, access to the EC2 serial console of all instances
-   * 			is disabled for your account.</p>
-   * @public
-   */
-  SerialConsoleAccessEnabled?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableSnapshotBlockPublicAccessRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableSnapshotBlockPublicAccessResult {
-  /**
-   * <p>Returns <code>unblocked</code> if the request succeeds.</p>
-   * @public
-   */
-  State?: SnapshotBlockPublicAccessState | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableTransitGatewayRouteTablePropagationRequest {
-  /**
-   * <p>The ID of the propagation route table.</p>
-   * @public
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the route table announcement.</p>
-   * @public
-   */
-  TransitGatewayRouteTableAnnouncementId?: string | undefined;
 }

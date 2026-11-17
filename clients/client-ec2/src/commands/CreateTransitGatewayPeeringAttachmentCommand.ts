@@ -46,6 +46,8 @@ export interface CreateTransitGatewayPeeringAttachmentCommandOutput extends Crea
  *   PeerRegion: "STRING_VALUE", // required
  *   Options: { // CreateTransitGatewayPeeringAttachmentRequestOptions
  *     DynamicRouting: "enable" || "disable",
+ *     AllowMultipathResilience: true || false,
+ *     MultipathResilienceMode: "always-on",
  *   },
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
@@ -80,6 +82,11 @@ export interface CreateTransitGatewayPeeringAttachmentCommandOutput extends Crea
  * //     },
  * //     Options: { // TransitGatewayPeeringAttachmentOptions
  * //       DynamicRouting: "enable" || "disable",
+ * //       RequesterAllowMultipathResilience: true || false,
+ * //       RequesterMultipathResilienceMode: "always-on",
+ * //       AccepterAllowMultipathResilience: true || false,
+ * //       AccepterMultipathResilienceMode: "always-on",
+ * //       MultipathResilienceStatus: "pending" || "enabled" || "disabled",
  * //     },
  * //     Status: { // PeeringAttachmentStatus
  * //       Code: "STRING_VALUE",

@@ -2,10 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type {
-  GetReservedInstancesExchangeQuoteRequest,
-  GetReservedInstancesExchangeQuoteResult,
-} from "../models/models_6";
+import type { GetReservedInstancesExchangeQuoteRequest } from "../models/models_6";
+import type { GetReservedInstancesExchangeQuoteResult } from "../models/models_7";
 import { GetReservedInstancesExchangeQuote$ } from "../schemas/schemas_0";
 
 /**

@@ -81,6 +81,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <allowEgressFromLocalVpcToRemoteClassicLink>
                         false
                     </allowEgressFromLocalVpcToRemoteClassicLink>
+                    <allowMultipathResilience>
+                        false
+                    </allowMultipathResilience>
+                    <multipathResilienceMode>
+                        __MultipathResilienceMode__
+                    </multipathResilienceMode>
                 </peeringOptions>
                 <vpcId>
                     __VpcId__
@@ -143,6 +149,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <allowEgressFromLocalVpcToRemoteClassicLink>
                         false
                     </allowEgressFromLocalVpcToRemoteClassicLink>
+                    <allowMultipathResilience>
+                        false
+                    </allowMultipathResilience>
+                    <multipathResilienceMode>
+                        __MultipathResilienceMode__
+                    </multipathResilienceMode>
                 </peeringOptions>
                 <vpcId>
                     __VpcId__
@@ -188,6 +200,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <vpcPeeringConnectionId>
                 __VpcPeeringConnectionId__
             </vpcPeeringConnectionId>
+            <multipathResilienceStatus>
+                __MultipathResilienceStatus__
+            </multipathResilienceStatus>
         </item>
         <item>
             <accepterVpcInfo>
@@ -241,6 +256,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <allowEgressFromLocalVpcToRemoteClassicLink>
                         false
                     </allowEgressFromLocalVpcToRemoteClassicLink>
+                    <allowMultipathResilience>
+                        false
+                    </allowMultipathResilience>
+                    <multipathResilienceMode>
+                        __MultipathResilienceMode__
+                    </multipathResilienceMode>
                 </peeringOptions>
                 <vpcId>
                     __VpcId__
@@ -303,6 +324,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <allowEgressFromLocalVpcToRemoteClassicLink>
                         false
                     </allowEgressFromLocalVpcToRemoteClassicLink>
+                    <allowMultipathResilience>
+                        false
+                    </allowMultipathResilience>
+                    <multipathResilienceMode>
+                        __MultipathResilienceMode__
+                    </multipathResilienceMode>
                 </peeringOptions>
                 <vpcId>
                     __VpcId__
@@ -348,6 +375,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <vpcPeeringConnectionId>
                 __VpcPeeringConnectionId__
             </vpcPeeringConnectionId>
+            <multipathResilienceStatus>
+                __MultipathResilienceStatus__
+            </multipathResilienceStatus>
         </item>
         <item>
             <accepterVpcInfo>
@@ -401,6 +431,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <allowEgressFromLocalVpcToRemoteClassicLink>
                         false
                     </allowEgressFromLocalVpcToRemoteClassicLink>
+                    <allowMultipathResilience>
+                        false
+                    </allowMultipathResilience>
+                    <multipathResilienceMode>
+                        __MultipathResilienceMode__
+                    </multipathResilienceMode>
                 </peeringOptions>
                 <vpcId>
                     __VpcId__
@@ -463,6 +499,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <allowEgressFromLocalVpcToRemoteClassicLink>
                         false
                     </allowEgressFromLocalVpcToRemoteClassicLink>
+                    <allowMultipathResilience>
+                        false
+                    </allowMultipathResilience>
+                    <multipathResilienceMode>
+                        __MultipathResilienceMode__
+                    </multipathResilienceMode>
                 </peeringOptions>
                 <vpcId>
                     __VpcId__
@@ -508,6 +550,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <vpcPeeringConnectionId>
                 __VpcPeeringConnectionId__
             </vpcPeeringConnectionId>
+            <multipathResilienceStatus>
+                __MultipathResilienceStatus__
+            </multipathResilienceStatus>
         </item>
     </vpcPeeringConnectionSet>
     <nextToken>
@@ -548,7 +593,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         PeeringOptions: {
           AllowDnsResolutionFromRemoteVpc: (boolean) false,
           AllowEgressFromLocalClassicLinkToRemoteVpc: (boolean) false,
-          AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false
+          AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false,
+          AllowMultipathResilience: (boolean) false,
+          MultipathResilienceMode: "__MultipathResilienceMode__"
         },
         VpcId: "__VpcId__",
         Region: "__Region__"
@@ -582,7 +629,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         PeeringOptions: {
           AllowDnsResolutionFromRemoteVpc: (boolean) false,
           AllowEgressFromLocalClassicLinkToRemoteVpc: (boolean) false,
-          AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false
+          AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false,
+          AllowMultipathResilience: (boolean) false,
+          MultipathResilienceMode: "__MultipathResilienceMode__"
         },
         VpcId: "__VpcId__",
         Region: "__Region__"
@@ -605,7 +654,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Value: "__Value__"
         }
       ],
-      VpcPeeringConnectionId: "__VpcPeeringConnectionId__"
+      VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+      MultipathResilienceStatus: "__MultipathResilienceStatus__"
     },
     {
       AccepterVpcInfo: {
@@ -636,7 +686,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         PeeringOptions: {
           AllowDnsResolutionFromRemoteVpc: (boolean) false,
           AllowEgressFromLocalClassicLinkToRemoteVpc: (boolean) false,
-          AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false
+          AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false,
+          AllowMultipathResilience: (boolean) false,
+          MultipathResilienceMode: "__MultipathResilienceMode__"
         },
         VpcId: "__VpcId__",
         Region: "__Region__"
@@ -670,7 +722,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         PeeringOptions: {
           AllowDnsResolutionFromRemoteVpc: (boolean) false,
           AllowEgressFromLocalClassicLinkToRemoteVpc: (boolean) false,
-          AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false
+          AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false,
+          AllowMultipathResilience: (boolean) false,
+          MultipathResilienceMode: "__MultipathResilienceMode__"
         },
         VpcId: "__VpcId__",
         Region: "__Region__"
@@ -693,7 +747,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Value: "__Value__"
         }
       ],
-      VpcPeeringConnectionId: "__VpcPeeringConnectionId__"
+      VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+      MultipathResilienceStatus: "__MultipathResilienceStatus__"
     },
     {
       AccepterVpcInfo: {
@@ -724,7 +779,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         PeeringOptions: {
           AllowDnsResolutionFromRemoteVpc: (boolean) false,
           AllowEgressFromLocalClassicLinkToRemoteVpc: (boolean) false,
-          AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false
+          AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false,
+          AllowMultipathResilience: (boolean) false,
+          MultipathResilienceMode: "__MultipathResilienceMode__"
         },
         VpcId: "__VpcId__",
         Region: "__Region__"
@@ -758,7 +815,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         PeeringOptions: {
           AllowDnsResolutionFromRemoteVpc: (boolean) false,
           AllowEgressFromLocalClassicLinkToRemoteVpc: (boolean) false,
-          AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false
+          AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false,
+          AllowMultipathResilience: (boolean) false,
+          MultipathResilienceMode: "__MultipathResilienceMode__"
         },
         VpcId: "__VpcId__",
         Region: "__Region__"
@@ -781,7 +840,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Value: "__Value__"
         }
       ],
-      VpcPeeringConnectionId: "__VpcPeeringConnectionId__"
+      VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+      MultipathResilienceStatus: "__MultipathResilienceStatus__"
     }
   ],
   NextToken: "__NextToken__",

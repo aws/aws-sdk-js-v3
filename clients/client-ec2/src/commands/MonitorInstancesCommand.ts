@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { MonitorInstancesRequest } from "../models/models_7";
-import type { MonitorInstancesResult } from "../models/models_8";
+import type { MonitorInstancesRequest, MonitorInstancesResult } from "../models/models_8";
 import { MonitorInstances$ } from "../schemas/schemas_0";
 
 /**

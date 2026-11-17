@@ -2,14 +2,14 @@ POST https://ec2.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 2282
+content-length: 4448
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
 host: ec2.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: f95d4d91e053dd84fcf66a4963c030b929ce3369485656b01a1a6ae3d42817a8
+x-amz-content-sha256: 2a7fcf76ed7699bca12bf12f235a8e3457dce2cbbc58ff181c93defe1aca14ad
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -56,6 +56,36 @@ TunnelOptions.LogOptions.CloudWatchLogOptions.BgpLogEnabled=false&
 TunnelOptions.LogOptions.CloudWatchLogOptions.BgpLogGroupArn=__BgpLogGroupArn__&
 TunnelOptions.LogOptions.CloudWatchLogOptions.BgpLogOutputFormat=__BgpLogOutputFormat__&
 TunnelOptions.EnableTunnelLifecycleControl=false&
+TunnelOptions.Phase1AdditionalKeyExchange.1.AdditionalKeyExchangeRound=0&
+TunnelOptions.Phase1AdditionalKeyExchange.1.KeyExchangeMethod.1.Value=0&
+TunnelOptions.Phase1AdditionalKeyExchange.1.KeyExchangeMethod.2.Value=0&
+TunnelOptions.Phase1AdditionalKeyExchange.1.KeyExchangeMethod.3.Value=0&
+TunnelOptions.Phase1AdditionalKeyExchange.1.Requirement=__Requirement__&
+TunnelOptions.Phase1AdditionalKeyExchange.2.AdditionalKeyExchangeRound=0&
+TunnelOptions.Phase1AdditionalKeyExchange.2.KeyExchangeMethod.1.Value=0&
+TunnelOptions.Phase1AdditionalKeyExchange.2.KeyExchangeMethod.2.Value=0&
+TunnelOptions.Phase1AdditionalKeyExchange.2.KeyExchangeMethod.3.Value=0&
+TunnelOptions.Phase1AdditionalKeyExchange.2.Requirement=__Requirement__&
+TunnelOptions.Phase1AdditionalKeyExchange.3.AdditionalKeyExchangeRound=0&
+TunnelOptions.Phase1AdditionalKeyExchange.3.KeyExchangeMethod.1.Value=0&
+TunnelOptions.Phase1AdditionalKeyExchange.3.KeyExchangeMethod.2.Value=0&
+TunnelOptions.Phase1AdditionalKeyExchange.3.KeyExchangeMethod.3.Value=0&
+TunnelOptions.Phase1AdditionalKeyExchange.3.Requirement=__Requirement__&
+TunnelOptions.Phase2AdditionalKeyExchange.1.AdditionalKeyExchangeRound=0&
+TunnelOptions.Phase2AdditionalKeyExchange.1.KeyExchangeMethod.1.Value=0&
+TunnelOptions.Phase2AdditionalKeyExchange.1.KeyExchangeMethod.2.Value=0&
+TunnelOptions.Phase2AdditionalKeyExchange.1.KeyExchangeMethod.3.Value=0&
+TunnelOptions.Phase2AdditionalKeyExchange.1.Requirement=__Requirement__&
+TunnelOptions.Phase2AdditionalKeyExchange.2.AdditionalKeyExchangeRound=0&
+TunnelOptions.Phase2AdditionalKeyExchange.2.KeyExchangeMethod.1.Value=0&
+TunnelOptions.Phase2AdditionalKeyExchange.2.KeyExchangeMethod.2.Value=0&
+TunnelOptions.Phase2AdditionalKeyExchange.2.KeyExchangeMethod.3.Value=0&
+TunnelOptions.Phase2AdditionalKeyExchange.2.Requirement=__Requirement__&
+TunnelOptions.Phase2AdditionalKeyExchange.3.AdditionalKeyExchangeRound=0&
+TunnelOptions.Phase2AdditionalKeyExchange.3.KeyExchangeMethod.1.Value=0&
+TunnelOptions.Phase2AdditionalKeyExchange.3.KeyExchangeMethod.2.Value=0&
+TunnelOptions.Phase2AdditionalKeyExchange.3.KeyExchangeMethod.3.Value=0&
+TunnelOptions.Phase2AdditionalKeyExchange.3.Requirement=__Requirement__&
 DryRun=false&
 SkipTunnelReplacement=false&
 PreSharedKeyStorage=__PreSharedKeyStorage__
