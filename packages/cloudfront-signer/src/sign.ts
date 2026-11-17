@@ -297,15 +297,7 @@ function encodeUrlPath(url: string): string {
   const rawQuery = queryIndex === -1 ? "" : rest.slice(queryIndex);
 
   // Encode each path segment individually, preserving `/` and already-encoded `%XX`.
-  const encodedPath = rawPath.replace(/[^/]+/g, (segment) => {
-    // Decode first to avoid double-encoding, then re-encode.
-    try {
-      return encodeURIComponent(decodeURIComponent(segment));
-    } catch {
-      // If decoding fails (malformed percent sequence), encode as-is.
-      return encodeURIComponent(segment);
-    }
-  });
+  const encodedPath = rawPath.replace(/[^/]+/g, encodePathSegment);
 
   // Re-encode query without URLSearchParams, which converts + to %20 (#8277).
   let encodedQuery = "";
@@ -324,6 +316,30 @@ function encodeUrlPath(url: string): string {
   }
 
   return origin + encodedPath + encodedQuery;
+}
+
+/**
+ * Percent-encodes a path segment, preserving existing %XX escapes except those
+ * of unreserved characters. Malformed segments are encoded as-is.
+ * @internal
+ */
+function encodePathSegment(segment: string): string {
+  try {
+    decodeURIComponent(segment);
+  } catch {
+    return encodeURIComponent(segment);
+  }
+  return segment
+    .split(/(%[0-9A-Fa-f]{2})/g)
+    .map((part, i) => {
+      // %XX escapes land at odd indexes.
+      if (i % 2 === 1) {
+        const char = String.fromCharCode(parseInt(part.slice(1), 16));
+        return /^[A-Za-z0-9\-._~]$/.test(char) ? char : part.toUpperCase();
+      }
+      return encodeURIComponent(part);
+    })
+    .join("");
 }
 
 /**
