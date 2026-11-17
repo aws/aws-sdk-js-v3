@@ -38,7 +38,7 @@ describe("fromCredentialDaemon", () => {
   });
 
   it("reads the profile when no credential is given, ignoring accountId and roleName", async () => {
-    const args = { callerClientConfig: { profile: "client-profile" } };
+    const args = { callerClientConfig: { region: async () => "us-east-1", profile: "client-profile" } };
     const provider = fromCredentialDaemon({
       profile: "dev",
       configFilepath: "/tmp/config",

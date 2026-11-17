@@ -2,6 +2,7 @@ import { CredentialDaemonProviderError, fromCredentialDaemon } from "@aws-sdk/cr
 import { fromProcess } from "@aws-sdk/credential-provider-process";
 import { fromSSO } from "@aws-sdk/credential-provider-sso";
 import { CredentialsProviderError } from "@smithy/core/config";
+import type { AttributedAwsCredentialIdentity } from "@aws-sdk/types";
 import type { ParsedIniData } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
@@ -175,7 +176,7 @@ describe("credential daemon profiles", () => {
         accessKeyId: "ROLE_AKID",
         secretAccessKey: "ROLE_SECRET",
       }));
-      const credentials = await resolve({
+      const credentials: AttributedAwsCredentialIdentity = await resolve({
         dev: { role_arn: "arn:aws:iam::123456789012:role/a", source_profile: "middle" },
         middle: { role_arn: "arn:aws:iam::123456789012:role/b", source_profile: "base" },
         base: { daemon_credential: "base" },
@@ -188,7 +189,7 @@ describe("credential daemon profiles", () => {
         accessKeyId: "ROLE_AKID",
         secretAccessKey: "ROLE_SECRET",
       }));
-      const credentials = await resolve({
+      const credentials: AttributedAwsCredentialIdentity = await resolve({
         dev: { role_arn: "arn:aws:iam::123456789012:role/r", source_profile: "base" },
         base: { aws_access_key_id: "AKID", aws_secret_access_key: "SECRET" },
       });
