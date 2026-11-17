@@ -423,6 +423,8 @@ import {
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
   Location$,
+  MultipathResilienceChangeValues$,
+  MultipathResilienceMode,
   NatGatewaySupportState,
   NatGatewaySupportValue,
   NatRule$,
@@ -1057,6 +1059,7 @@ assert(typeof ListPeeringsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof Location$ === "object");
+assert(typeof MultipathResilienceChangeValues$ === "object");
 assert(typeof NatRule$ === "object");
 assert(typeof NatRuleRequest$ === "object");
 assert(typeof NetworkFunctionGroup$ === "object");
@@ -1166,6 +1169,7 @@ assert(typeof DeviceState === "object");
 assert(typeof GlobalNetworkState === "object");
 assert(typeof LinkAssociationState === "object");
 assert(typeof LinkState === "object");
+assert(typeof MultipathResilienceMode === "object");
 assert(typeof NatGatewaySupportState === "object");
 assert(typeof NatGatewaySupportValue === "object");
 assert(typeof NatRuleState === "object");

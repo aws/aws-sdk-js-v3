@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateNetworkResourceMetadataRequest, UpdateNetworkResourceMetadataResponse } from "../models/models_0";
+import type { UpdateNetworkResourceMetadataRequest } from "../models/models_0";
+import type { UpdateNetworkResourceMetadataResponse } from "../models/models_1";
 import { UpdateNetworkResourceMetadata$ } from "../schemas/schemas_0";
 
 /**

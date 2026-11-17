@@ -108,6 +108,14 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * //             ],
  * //           },
  * //         ],
+ * //         MultipathResilience: { // MultipathResilienceChangeValues
+ * //           Mode: "best-effort" || "disabled",
+ * //           EdgeSets: [
+ * //             [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           ],
+ * //         },
  * //       },
  * //       NewValues: {
  * //         SegmentName: "STRING_VALUE",
@@ -165,6 +173,14 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * //             SharedSegments: "<ConstrainedStringList>",
  * //           },
  * //         ],
+ * //         MultipathResilience: {
+ * //           Mode: "best-effort" || "disabled",
+ * //           EdgeSets: [
+ * //             [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           ],
+ * //         },
  * //       },
  * //       IdentifierPath: "STRING_VALUE",
  * //     },

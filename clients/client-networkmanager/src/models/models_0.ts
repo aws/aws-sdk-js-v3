@@ -25,6 +25,7 @@ import type {
   GlobalNetworkState,
   LinkAssociationState,
   LinkState,
+  MultipathResilienceMode,
   NatGatewaySupportState,
   NatGatewaySupportValue,
   NatRuleState,
@@ -1524,6 +1525,24 @@ export interface CoreNetwork {
 }
 
 /**
+ * <p>Information about a change in multipath resilience.</p>
+ * @public
+ */
+export interface MultipathResilienceChangeValues {
+  /**
+   * <p>The mode (best-effort/disabled) of multipath resilience.</p>
+   * @public
+   */
+  Mode?: MultipathResilienceMode | undefined;
+
+  /**
+   * <p>A set of two edge locations.</p>
+   * @public
+   */
+  EdgeSets?: string[][] | undefined;
+}
+
+/**
  * <p>Information about a routing policy association.</p>
  * @public
  */
@@ -1745,6 +1764,12 @@ export interface CoreNetworkChangeValues {
    * @public
    */
   RoutingPolicyAssociationDetails?: RoutingPolicyAssociationDetail[] | undefined;
+
+  /**
+   * <p>The change in multipath resilience configuration in the core network change values.</p>
+   * @public
+   */
+  MultipathResilience?: MultipathResilienceChangeValues | undefined;
 }
 
 /**
@@ -7966,21 +7991,4 @@ export interface UpdateNetworkResourceMetadataRequest {
    * @public
    */
   Metadata: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateNetworkResourceMetadataResponse {
-  /**
-   * <p>The ARN of the resource.</p>
-   * @public
-   */
-  ResourceArn?: string | undefined;
-
-  /**
-   * <p>The updated resource metadata.</p>
-   * @public
-   */
-  Metadata?: Record<string, string> | undefined;
 }

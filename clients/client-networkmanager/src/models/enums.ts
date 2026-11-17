@@ -402,6 +402,19 @@ export type CoreNetworkState = (typeof CoreNetworkState)[keyof typeof CoreNetwor
  * @public
  * @enum
  */
+export const MultipathResilienceMode = {
+  BEST_EFFORT: "best-effort",
+  DISABLED: "disabled",
+} as const;
+/**
+ * @public
+ */
+export type MultipathResilienceMode = (typeof MultipathResilienceMode)[keyof typeof MultipathResilienceMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const RoutingPolicyDirection = {
   INBOUND: "inbound",
   OUTBOUND: "outbound",

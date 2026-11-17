@@ -4,6 +4,23 @@ import type { Location, Site, VpcAttachment, VpcOptions } from "./models_0";
 /**
  * @public
  */
+export interface UpdateNetworkResourceMetadataResponse {
+  /**
+   * <p>The ARN of the resource.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The updated resource metadata.</p>
+   * @public
+   */
+  Metadata?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateSiteRequest {
   /**
    * <p>The ID of the global network.</p>
