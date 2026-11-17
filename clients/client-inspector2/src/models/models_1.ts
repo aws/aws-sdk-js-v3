@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import type {
   AggregationType,
+  CisScanConfigurationsSortBy,
+  CisScanResultsAggregatedByChecksSortBy,
   CisScanResultsAggregatedByTargetResourceSortBy,
   CisSecurityLevel,
   CisSortOrder,
@@ -33,9 +35,12 @@ import type {
   AutoEnable,
   AzureProviderDetailUpdate,
   CisaData,
+  CisCheckAggregation,
   CisDateFilter,
   CisNumberFilter,
   CisScan,
+  CisScanConfiguration,
+  CisScanResultsAggregatedByChecksFilterCriteria,
   CisScanResultsAggregatedByTargetResourceFilterCriteria,
   CisScanStatusFilter,
   CisSessionMessage,
@@ -65,11 +70,164 @@ import type {
   Filter,
   FilterCriteria,
   Finding,
+  GcpProviderDetailUpdate,
   Member,
+  Permission,
   Schedule,
   StringFilter,
   TagFilter,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListAccountPermissionsResponse {
+  /**
+   * <p>Contains details on the permissions an account has to configure Amazon Inspector.</p>
+   * @public
+   */
+  permissions: Permission[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the <code>NextToken</code> value returned from the previous request to continue listing results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A list of CIS scan configurations filter criteria.</p>
+ * @public
+ */
+export interface ListCisScanConfigurationsFilterCriteria {
+  /**
+   * <p>The list of scan name filters.</p>
+   * @public
+   */
+  scanNameFilters?: CisStringFilter[] | undefined;
+
+  /**
+   * <p>The list of target resource tag filters.</p>
+   * @public
+   */
+  targetResourceTagFilters?: TagFilter[] | undefined;
+
+  /**
+   * <p>The list of scan configuration ARN filters.</p>
+   * @public
+   */
+  scanConfigurationArnFilters?: CisStringFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScanConfigurationsRequest {
+  /**
+   * <p>The CIS scan configuration filter criteria.</p>
+   * @public
+   */
+  filterCriteria?: ListCisScanConfigurationsFilterCriteria | undefined;
+
+  /**
+   * <p>The CIS scan configuration sort by order.</p>
+   * @public
+   */
+  sortBy?: CisScanConfigurationsSortBy | undefined;
+
+  /**
+   * <p>The CIS scan configuration sort order order.</p>
+   * @public
+   */
+  sortOrder?: CisSortOrder | undefined;
+
+  /**
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of CIS scan configurations to be returned in a single page of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScanConfigurationsResponse {
+  /**
+   * <p>The CIS scan configuration scan configurations.</p>
+   * @public
+   */
+  scanConfigurations?: CisScanConfiguration[] | undefined;
+
+  /**
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScanResultsAggregatedByChecksRequest {
+  /**
+   * <p>The scan ARN.</p>
+   * @public
+   */
+  scanArn: string | undefined;
+
+  /**
+   * <p>The filter criteria.</p>
+   * @public
+   */
+  filterCriteria?: CisScanResultsAggregatedByChecksFilterCriteria | undefined;
+
+  /**
+   * <p>The sort by order.</p>
+   * @public
+   */
+  sortBy?: CisScanResultsAggregatedByChecksSortBy | undefined;
+
+  /**
+   * <p>The sort order.</p>
+   * @public
+   */
+  sortOrder?: CisSortOrder | undefined;
+
+  /**
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of scan results aggregated by checks to be returned in a single page of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScanResultsAggregatedByChecksResponse {
+  /**
+   * <p>The check aggregations.</p>
+   * @public
+   */
+  checkAggregations?: CisCheckAggregation[] | undefined;
+
+  /**
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -492,7 +650,7 @@ export interface ListCoverageStatisticsRequest {
   filterCriteria?: CoverageFilterCriteria | undefined;
 
   /**
-   * <p>The value to group the results by.</p>
+   * <p>The value to group the results by. For multi-cloud resources, use <code>PROVIDER</code>, <code>PROVIDER_ACCOUNT_ID</code> (Azure subscription ID or Google Cloud Platform (GCP) project ID), <code>PROVIDER_ORG_ID</code> (Azure tenant ID or Google Cloud Platform (GCP) organization ID), or <code>PROVIDER_REGION</code>.</p>
    * @public
    */
   groupBy?: GroupKey | undefined;
@@ -914,7 +1072,7 @@ export interface ListUsageTotalsRequest {
  */
 export interface Usage {
   /**
-   * <p>The type scan.</p>
+   * <p>The type of scan. Valid values:</p> <ul> <li> <p>Amazon Web Services – <code>EC2_INSTANCE_HOURS</code>, <code>EC2_AGENTLESS_INSTANCE_HOURS</code>, <code>EC2_AMI_HOURS</code>, <code>EC2_AMI_ONE_SHOT_SCAN</code>, <code>ECR_INITIAL_SCAN</code>, <code>ECR_RESCAN</code>, <code>LAMBDA_FUNCTION_HOURS</code>, <code>LAMBDA_FUNCTION_CODE_HOURS</code>, <code>CODE_REPOSITORY_SAST</code>, <code>CODE_REPOSITORY_IAC</code>, or <code>CODE_REPOSITORY_SCA</code>.</p> </li> <li> <p>Microsoft Azure – <code>AZURE_VM_AGENT_BASED_INSTANCE_HOURS</code>, <code>AZURE_CONTAINER_IMAGE_INITIAL_SCAN</code>, <code>AZURE_CONTAINER_IMAGE_RESCAN</code>, or <code>AZURE_SERVERLESS_FUNCTION_HOURS</code>.</p> </li> <li> <p>Google Cloud Platform (GCP) – <code>GCP_VM_AGENT_BASED_INSTANCE_HOURS</code>, <code>GCP_CONTAINER_IMAGE_INITIAL_SCAN</code>, <code>GCP_CONTAINER_IMAGE_RESCAN</code>, or <code>GCP_CLOUD_RUN_HOURS</code> (Cloud Run functions).</p> </li> </ul>
    * @public
    */
   type?: UsageType | undefined;
@@ -938,7 +1096,7 @@ export interface Usage {
   currency?: Currency | undefined;
 
   /**
-   * <p>The cloud provider associated with the usage information.</p>
+   * <p>The cloud provider associated with the usage information. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: CloudProvider | undefined;
@@ -1760,6 +1918,7 @@ export interface UpdateConfigurationResponse {}
  */
 export type ProviderDetailUpdate =
   | ProviderDetailUpdate.AzureMember
+  | ProviderDetailUpdate.GcpMember
   | ProviderDetailUpdate.$UnknownMember;
 
 /**
@@ -1772,6 +1931,17 @@ export namespace ProviderDetailUpdate {
    */
   export interface AzureMember {
     azure: AzureProviderDetailUpdate;
+    gcp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The details specific to Google Cloud Platform (GCP) for updating a connector.</p>
+   * @public
+   */
+  export interface GcpMember {
+    azure?: never;
+    gcp: GcpProviderDetailUpdate;
     $unknown?: never;
   }
 
@@ -1780,6 +1950,7 @@ export namespace ProviderDetailUpdate {
    */
   export interface $UnknownMember {
     azure?: never;
+    gcp?: never;
     $unknown: [string, any];
   }
 
@@ -1789,6 +1960,7 @@ export namespace ProviderDetailUpdate {
    */
   export interface Visitor<T> {
     azure: (value: AzureProviderDetailUpdate) => T;
+    gcp: (value: GcpProviderDetailUpdate) => T;
     _: (name: string, value: any) => T;
   }
 }

@@ -63,7 +63,7 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  *     provider: [ // ProviderFilterList
  *       { // ProviderFilter
  *         comparison: "EQUALS", // required
- *         value: "AZURE", // required
+ *         value: "AZURE" || "GCP", // required
  *       },
  *     ],
  *   },
@@ -76,7 +76,7 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * //       connectorArn: "STRING_VALUE", // required
  * //       name: "STRING_VALUE",
  * //       description: "STRING_VALUE",
- * //       provider: "AZURE", // required
+ * //       provider: "AZURE" || "GCP", // required
  * //       enablementStatus: "ENABLED" || "PENDING_ENABLEMENT" || "FAILED_TO_ENABLE" || "PENDING_UPDATE" || "FAILED_TO_UPDATE" || "PENDING_DELETION" || "DELETED" || "FAILED_TO_DELETE",
  * //       enablementStatusReason: "STRING_VALUE",
  * //       health: { // ConnectorHealth
@@ -92,7 +92,7 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * //       awsConfigConnectorArn: "STRING_VALUE",
  * //       scopeConfiguration: { // AzureScopeConfiguration
  * //         vmScanning: { // ScopeConfiguration
- * //           scopeType: "TENANT" || "SUBSCRIPTION", // required
+ * //           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
  * //           scopeValues: [ // ScopeValueList
  * //             "STRING_VALUE",
  * //           ],
@@ -100,7 +100,7 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * //           stateReason: "STRING_VALUE",
  * //         },
  * //         containerImageScanning: {
- * //           scopeType: "TENANT" || "SUBSCRIPTION", // required
+ * //           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
  * //           scopeValues: [
  * //             "STRING_VALUE",
  * //           ],
@@ -108,7 +108,7 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * //           stateReason: "STRING_VALUE",
  * //         },
  * //         serverlessScanning: {
- * //           scopeType: "TENANT" || "SUBSCRIPTION", // required
+ * //           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
  * //           scopeValues: [
  * //             "STRING_VALUE",
  * //           ],
@@ -120,6 +120,35 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       autoInstallVMScanner: true || false,
+ * //       gcpRegions: [ // GcpRegionList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       gcpScopeConfiguration: { // GcpScopeConfiguration
+ * //         vmScanning: { // GcpCapabilityScope
+ * //           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
+ * //           scopeValues: [ // GcpScopeValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           state: "ACTIVE" || "PENDING" || "ERROR" || "DISABLED",
+ * //           stateReason: "STRING_VALUE",
+ * //         },
+ * //         containerImageScanning: {
+ * //           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
+ * //           scopeValues: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           state: "ACTIVE" || "PENDING" || "ERROR" || "DISABLED",
+ * //           stateReason: "STRING_VALUE",
+ * //         },
+ * //         serverlessScanning: {
+ * //           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
+ * //           scopeValues: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           state: "ACTIVE" || "PENDING" || "ERROR" || "DISABLED",
+ * //           stateReason: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

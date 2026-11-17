@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListAccountPermissionsRequest, ListAccountPermissionsResponse } from "../models/models_0";
+import type { ListAccountPermissionsRequest } from "../models/models_0";
+import type { ListAccountPermissionsResponse } from "../models/models_1";
 import { ListAccountPermissions$ } from "../schemas/schemas_0";
 
 /**

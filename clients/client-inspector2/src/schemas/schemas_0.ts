@@ -288,9 +288,11 @@ const _GCFIR = "GetClustersForImageRequest";
 const _GCFIRe = "GetClustersForImageResponse";
 const _GCR = "GetConfigurationRequest";
 const _GCRe = "GetConfigurationResponse";
-const _GCSI = "GetCodeSecurityIntegration";
+const _GCS = "GcpCapabilityScope";
+const _GCSI = "GcpCapabilityScopeInput";
 const _GCSIR = "GetCodeSecurityIntegrationRequest";
 const _GCSIRe = "GetCodeSecurityIntegrationResponse";
+const _GCSIe = "GetCodeSecurityIntegration";
 const _GCSR = "GetCisScanReport";
 const _GCSRD = "GetCisScanResultDetails";
 const _GCSRDR = "GetCisScanResultDetailsRequest";
@@ -324,6 +326,10 @@ const _GMRe = "GetMemberResponse";
 const _GODSS = "GetOnDemandScanStatus";
 const _GODSSR = "GetOnDemandScanStatusRequest";
 const _GODSSRe = "GetOnDemandScanStatusResponse";
+const _GPDC = "GcpProviderDetailCreate";
+const _GPDU = "GcpProviderDetailUpdate";
+const _GSC = "GcpScopeConfiguration";
+const _GSCI = "GcpScopeConfigurationInput";
 const _GSE = "GetSbomExport";
 const _GSER = "GetSbomExportRequest";
 const _GSERe = "GetSbomExportResponse";
@@ -835,10 +841,13 @@ const _fil = "filters";
 const _fin = "findings";
 const _fo = "format";
 const _fr = "frequency";
-const _g = "github";
+const _g = "gcp";
 const _gB = "groupBy";
 const _gK = "groupKey";
+const _gR = "gcpRegions";
+const _gSC = "gcpScopeConfiguration";
 const _gSM = "gitlabSelfManaged";
+const _gi = "github";
 const _h = "health";
 const _hE = "httpError";
 const _hH = "httpHeader";
@@ -1694,8 +1703,8 @@ export var ComputePlatform$: StaticStructureSchema = [3, n0, _CP,
 ];
 export var Connector$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_cAo, _pro, _cAr, _uA, _na, _d, _eS, _eSR, _h, _aR, _aCCA, _sCc, _t, _aIVMS],
-  [0, 0, 5, 5, 0, 0, 0, 0, () => ConnectorHealth$, 64 | 0, 0, () => AzureScopeConfiguration$, 128 | 0, 2], 4
+  [_cAo, _pro, _cAr, _uA, _na, _d, _eS, _eSR, _h, _aR, _aCCA, _sCc, _t, _aIVMS, _gR, _gSC],
+  [0, 0, 5, 5, 0, 0, 0, 0, () => ConnectorHealth$, 64 | 0, 0, () => AzureScopeConfiguration$, 128 | 0, 2, 64 | 0, () => GcpScopeConfiguration$], 4
 ];
 export var ConnectorArnFilter$: StaticStructureSchema = [3, n0, _CAF,
   0,
@@ -2191,6 +2200,36 @@ export var FreeTrialInfoError$: StaticStructureSchema = [3, n0, _FTIE,
   0,
   [_aI, _cod, _m],
   [0, 0, 0], 3
+];
+export var GcpCapabilityScope$: StaticStructureSchema = [3, n0, _GCS,
+  0,
+  [_sTc, _sVc, _sta, _sRt],
+  [0, 64 | 0, 0, 0], 1
+];
+export var GcpCapabilityScopeInput$: StaticStructureSchema = [3, n0, _GCSI,
+  0,
+  [_sTc, _sVc],
+  [0, 64 | 0], 1
+];
+export var GcpProviderDetailCreate$: StaticStructureSchema = [3, n0, _GPDC,
+  0,
+  [_aCCA, _sCc, _gR, _aIVMS],
+  [0, () => GcpScopeConfigurationInput$, 64 | 0, 2], 3
+];
+export var GcpProviderDetailUpdate$: StaticStructureSchema = [3, n0, _GPDU,
+  0,
+  [_gR, _sCc, _aIVMS],
+  [64 | 0, () => GcpScopeConfigurationInput$, 2]
+];
+export var GcpScopeConfiguration$: StaticStructureSchema = [3, n0, _GSC,
+  0,
+  [_vS, _cIS, _sSe],
+  [() => GcpCapabilityScope$, () => GcpCapabilityScope$, () => GcpCapabilityScope$]
+];
+export var GcpScopeConfigurationInput$: StaticStructureSchema = [3, n0, _GSCI,
+  0,
+  [_vS, _cIS, _sSe],
+  [() => GcpCapabilityScopeInput$, () => GcpCapabilityScopeInput$, () => GcpCapabilityScopeInput$]
 ];
 export var GetCisScanReportRequest$: StaticStructureSchema = [3, n0, _GCSRR,
   0,
@@ -3373,6 +3412,8 @@ var FreeTrialInfoErrorList: StaticListSchema = [1, n0, _FTIEL,
 var FreeTrialInfoList: StaticListSchema = [1, n0, _FTIL,
   0, () => FreeTrialInfo$
 ];
+var GcpRegionList = 64 | 0;
+var GcpScopeValueList = 64 | 0;
 var ImageTagList = 64 | 0;
 var IntegrationSummaries: StaticListSchema = [1, n0, _IS,
   0, () => CodeSecurityIntegrationSummary$
@@ -3531,13 +3572,13 @@ export var CreateIntegrationDetail$: StaticUnionSchema = [4, n0, _CID,
 ];
 export var ProviderDetailCreate$: StaticUnionSchema = [4, n0, _PDC,
   0,
-  [_az],
-  [() => AzureProviderDetailCreate$]
+  [_az, _g],
+  [() => AzureProviderDetailCreate$, () => GcpProviderDetailCreate$]
 ];
 export var ProviderDetailUpdate$: StaticUnionSchema = [4, n0, _PDU,
   0,
-  [_az],
-  [() => AzureProviderDetailUpdate$]
+  [_az, _g],
+  [() => AzureProviderDetailUpdate$, () => GcpProviderDetailUpdate$]
 ];
 export var Schedule$: StaticUnionSchema = [4, n0, _Sc,
   0,
@@ -3546,7 +3587,7 @@ export var Schedule$: StaticUnionSchema = [4, n0, _Sc,
 ];
 export var UpdateIntegrationDetails$: StaticUnionSchema = [4, n0, _UID,
   0,
-  [_gSM, _g],
+  [_gSM, _gi],
   [[() => UpdateGitLabSelfManagedIntegrationDetail$, 0], [() => UpdateGitHubIntegrationDetail$, 0]]
 ];
 export var AssociateMember$: StaticOperationSchema = [9, n0, _AM,
@@ -3645,7 +3686,7 @@ export var GetCisScanResultDetails$: StaticOperationSchema = [9, n0, _GCSRD,
 export var GetClustersForImage$: StaticOperationSchema = [9, n0, _GCFI,
   { [_ht]: ["POST", "/cluster/get", 200] }, () => GetClustersForImageRequest$, () => GetClustersForImageResponse$
 ];
-export var GetCodeSecurityIntegration$: StaticOperationSchema = [9, n0, _GCSI,
+export var GetCodeSecurityIntegration$: StaticOperationSchema = [9, n0, _GCSIe,
   { [_ht]: ["POST", "/codesecurity/integration/get", 200] }, () => GetCodeSecurityIntegrationRequest$, () => GetCodeSecurityIntegrationResponse$
 ];
 export var GetCodeSecurityScan$: StaticOperationSchema = [9, n0, _GCSS,

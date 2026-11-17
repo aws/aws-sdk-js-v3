@@ -18,9 +18,7 @@ import type {
   CisResultStatus,
   CisResultStatusComparison,
   CisRuleStatus,
-  CisScanConfigurationsSortBy,
   CisScanResultDetailsSortBy,
-  CisScanResultsAggregatedByChecksSortBy,
   CisScanStatus,
   CisScanStatusComparison,
   CisSecurityLevel,
@@ -202,7 +200,7 @@ export interface AccountAggregation {
   findingType?: AggregationFindingType | undefined;
 
   /**
-   * <p>The type of resource.</p>
+   * <p>The type of resource. For Google Cloud Platform (GCP) resources, the resource type is <code>compute.googleapis.com/Instance</code>, <code>cloudfunctions.googleapis.com/Function</code>, or <code>artifactregistry.googleapis.com/DockerImage</code>.</p>
    * @public
    */
   resourceType?: AggregationResourceType | undefined;
@@ -628,7 +626,7 @@ export interface ContainerImageAggregation {
   imageTags?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud providers to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
+   * <p>The cloud providers to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Findings from Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProviders?: StringFilter[] | undefined;
@@ -640,7 +638,7 @@ export interface ContainerImageAggregation {
   cloudPartitions?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
+   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> <li> <p>A Google Cloud Platform (GCP) location, such as the region <code>us-central1</code> or the zone <code>us-central1-a</code>.</p> </li> </ul>
    * @public
    */
   cloudRegions?: StringFilter[] | undefined;
@@ -760,7 +758,7 @@ export interface FindingTypeAggregation {
   findingType?: AggregationFindingType | undefined;
 
   /**
-   * <p>The resource type to aggregate.</p>
+   * <p>The resource type to aggregate. For Google Cloud Platform (GCP) resources, the resource type is <code>compute.googleapis.com/Instance</code>, <code>cloudfunctions.googleapis.com/Function</code>, or <code>artifactregistry.googleapis.com/DockerImage</code>.</p>
    * @public
    */
   resourceType?: AggregationResourceType | undefined;
@@ -802,7 +800,7 @@ export interface ImageLayerAggregation {
   layerHashes?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud providers to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
+   * <p>The cloud providers to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Findings from Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProviders?: StringFilter[] | undefined;
@@ -820,7 +818,7 @@ export interface ImageLayerAggregation {
   cloudOrgIds?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
+   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> <li> <p>A Google Cloud Platform (GCP) location, such as the region <code>us-central1</code> or the zone <code>us-central1-a</code>.</p> </li> </ul>
    * @public
    */
   cloudRegions?: StringFilter[] | undefined;
@@ -1000,7 +998,7 @@ export interface ServerlessFunctionAggregation {
   functionTags?: MapFilter[] | undefined;
 
   /**
-   * <p>The cloud providers to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
+   * <p>The cloud providers to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Findings from Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProviders?: StringFilter[] | undefined;
@@ -1012,7 +1010,7 @@ export interface ServerlessFunctionAggregation {
   cloudPartitions?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
+   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> <li> <p>A Google Cloud Platform (GCP) location, such as the region <code>us-central1</code> or the zone <code>us-central1-a</code>.</p> </li> </ul>
    * @public
    */
   cloudRegions?: StringFilter[] | undefined;
@@ -1060,7 +1058,7 @@ export interface TitleAggregation {
   vulnerabilityIds?: StringFilter[] | undefined;
 
   /**
-   * <p>The resource type to aggregate on.</p>
+   * <p>The resource type to aggregate on. For Google Cloud Platform (GCP) resources, the resource type is <code>compute.googleapis.com/Instance</code>, <code>cloudfunctions.googleapis.com/Function</code>, or <code>artifactregistry.googleapis.com/DockerImage</code>.</p>
    * @public
    */
   resourceType?: AggregationResourceType | undefined;
@@ -1114,7 +1112,7 @@ export interface VmInstanceAggregation {
   vmImageReferences?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud providers to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
+   * <p>The cloud providers to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Findings from Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProviders?: StringFilter[] | undefined;
@@ -1126,7 +1124,7 @@ export interface VmInstanceAggregation {
   cloudPartitions?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
+   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> <li> <p>A Google Cloud Platform (GCP) location, such as the region <code>us-central1</code> or the zone <code>us-central1-a</code>.</p> </li> </ul>
    * @public
    */
   cloudRegions?: StringFilter[] | undefined;
@@ -1591,7 +1589,7 @@ export interface AmiAggregationResponse {
   accountId?: string | undefined;
 
   /**
-   * <p>The cloud service provider associated with this Amazon Machine Image (AMI) aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
+   * <p>The cloud service provider associated with this Amazon Machine Image (AMI) aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Findings from Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: Provider | undefined;
@@ -1603,7 +1601,7 @@ export interface AmiAggregationResponse {
   cloudPartition?: string | undefined;
 
   /**
-   * <p>The cloud Region associated with this AMI aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
+   * <p>The cloud Region associated with this AMI aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> <li> <p>A Google Cloud Platform (GCP) location, such as the region <code>us-central1</code> or the zone <code>us-central1-a</code>.</p> </li> </ul>
    * @public
    */
   cloudRegion?: string | undefined;
@@ -1759,7 +1757,7 @@ export interface ContainerImageAggregationResponse {
   resourceId: string | undefined;
 
   /**
-   * <p>The cloud service provider associated with this container image aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
+   * <p>The cloud service provider associated with this container image aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Findings from Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: Provider | undefined;
@@ -1777,7 +1775,7 @@ export interface ContainerImageAggregationResponse {
   cloudPartition?: string | undefined;
 
   /**
-   * <p>The cloud Region associated with this container image aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
+   * <p>The cloud Region associated with this container image aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> <li> <p>A Google Cloud Platform (GCP) location, such as the region <code>us-central1</code> or the zone <code>us-central1-a</code>.</p> </li> </ul>
    * @public
    */
   cloudRegion?: string | undefined;
@@ -1933,7 +1931,7 @@ export interface FindingTypeAggregationResponse {
   fixAvailableCount?: number | undefined;
 
   /**
-   * <p>The cloud service provider associated with this finding type aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
+   * <p>The cloud service provider associated with this finding type aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Findings from Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: string | undefined;
@@ -1951,7 +1949,7 @@ export interface FindingTypeAggregationResponse {
   cloudOrgId?: string | undefined;
 
   /**
-   * <p>The cloud Region associated with this finding type aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
+   * <p>The cloud Region associated with this finding type aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> <li> <p>A Google Cloud Platform (GCP) location, such as the region <code>us-central1</code> or the zone <code>us-central1-a</code>.</p> </li> </ul>
    * @public
    */
   cloudRegion?: string | undefined;
@@ -1993,7 +1991,7 @@ export interface ImageLayerAggregationResponse {
   accountId: string | undefined;
 
   /**
-   * <p>The cloud service provider associated with this image layer aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
+   * <p>The cloud service provider associated with this image layer aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Findings from Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: string | undefined;
@@ -2011,7 +2009,7 @@ export interface ImageLayerAggregationResponse {
   cloudOrgId?: string | undefined;
 
   /**
-   * <p>The cloud Region associated with this image layer aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
+   * <p>The cloud Region associated with this image layer aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> <li> <p>A Google Cloud Platform (GCP) location, such as the region <code>us-central1</code> or the zone <code>us-central1-a</code>.</p> </li> </ul>
    * @public
    */
   cloudRegion?: string | undefined;
@@ -2155,7 +2153,7 @@ export interface RepositoryAggregationResponse {
   accountId?: string | undefined;
 
   /**
-   * <p>The cloud service provider associated with this repository aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
+   * <p>The cloud service provider associated with this repository aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Findings from Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: Provider | undefined;
@@ -2167,7 +2165,7 @@ export interface RepositoryAggregationResponse {
   cloudPartition?: string | undefined;
 
   /**
-   * <p>The cloud Region associated with this repository aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
+   * <p>The cloud Region associated with this repository aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> <li> <p>A Google Cloud Platform (GCP) location, such as the region <code>us-central1</code> or the zone <code>us-central1-a</code>.</p> </li> </ul>
    * @public
    */
   cloudRegion?: string | undefined;
@@ -2209,7 +2207,7 @@ export interface ServerlessFunctionAggregationResponse {
   resourceId: string | undefined;
 
   /**
-   * <p>The cloud service provider associated with this serverless function aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
+   * <p>The cloud service provider associated with this serverless function aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Findings from Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: Provider | undefined;
@@ -2227,7 +2225,7 @@ export interface ServerlessFunctionAggregationResponse {
   cloudPartition?: string | undefined;
 
   /**
-   * <p>The cloud Region associated with this serverless function aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
+   * <p>The cloud Region associated with this serverless function aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> <li> <p>A Google Cloud Platform (GCP) location, such as the region <code>us-central1</code> or the zone <code>us-central1-a</code>.</p> </li> </ul>
    * @public
    */
   cloudRegion?: string | undefined;
@@ -2329,7 +2327,7 @@ export interface VmInstanceAggregationResponse {
   resourceId: string | undefined;
 
   /**
-   * <p>The cloud service provider associated with this VM instance aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
+   * <p>The cloud service provider associated with this VM instance aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Findings from Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: Provider | undefined;
@@ -2347,7 +2345,7 @@ export interface VmInstanceAggregationResponse {
   cloudPartition?: string | undefined;
 
   /**
-   * <p>The cloud Region associated with this VM instance aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
+   * <p>The cloud Region associated with this VM instance aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> <li> <p>A Google Cloud Platform (GCP) location, such as the region <code>us-central1</code> or the zone <code>us-central1-a</code>.</p> </li> </ul>
    * @public
    */
   cloudRegion?: string | undefined;
@@ -3401,7 +3399,7 @@ export interface AwsLambdaFunctionDetails {
  */
 export interface ScopeConfigurationInput {
   /**
-   * <p>The type of scope. Valid values are <code>TENANT</code>, which scans all resources in the Azure tenant, and <code>SUBSCRIPTION</code>, which scans only the resources in the specified Azure subscriptions.</p>
+   * <p>The type of scope: <code>TENANT</code>, which scans all resources in the Azure tenant, or <code>SUBSCRIPTION</code>, which scans only the resources in the specified Azure subscriptions.</p>
    * @public
    */
   scopeType: ScopeType | undefined;
@@ -4080,7 +4078,7 @@ export interface FreeTrialInfo {
   status: FreeTrialStatus | undefined;
 
   /**
-   * <p>The cloud provider associated with the free trial information.</p>
+   * <p>The cloud provider associated with the free trial information. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: CloudProvider | undefined;
@@ -5712,6 +5710,60 @@ export interface ComputePlatform {
 }
 
 /**
+ * <p>The scope of Google Cloud Platform (GCP) resources that Amazon Inspector scans for a single scanning type, including the scope level, the targeted resources, and the current state.</p>
+ * @public
+ */
+export interface GcpCapabilityScope {
+  /**
+   * <p>The type of scope: <code>ORGANIZATION</code>, which scans all projects in the GCP organization, or <code>PROJECT</code>, which scans only the specified GCP projects.</p>
+   * @public
+   */
+  scopeType: ScopeType | undefined;
+
+  /**
+   * <p>The GCP project IDs to scan when <code>scopeType</code> is <code>PROJECT</code>. Not used when <code>scopeType</code> is <code>ORGANIZATION</code>. Amazon Inspector scans the organization of the Amazon Web Services Config connector.</p>
+   * @public
+   */
+  scopeValues?: string[] | undefined;
+
+  /**
+   * <p>The current state of the scope configuration.</p>
+   * @public
+   */
+  state?: ScopeState | undefined;
+
+  /**
+   * <p>The reason for the current state of the scope configuration.</p>
+   * @public
+   */
+  stateReason?: string | undefined;
+}
+
+/**
+ * <p>The scope of Google Cloud Platform (GCP) resources that Amazon Inspector scans, defined separately for VM, container image, and serverless scanning. Returned as part of a connector's configuration.</p>
+ * @public
+ */
+export interface GcpScopeConfiguration {
+  /**
+   * <p>The scope configuration for VM scanning.</p>
+   * @public
+   */
+  vmScanning?: GcpCapabilityScope | undefined;
+
+  /**
+   * <p>The scope configuration for container image scanning.</p>
+   * @public
+   */
+  containerImageScanning?: GcpCapabilityScope | undefined;
+
+  /**
+   * <p>The scope configuration for serverless scanning.</p>
+   * @public
+   */
+  serverlessScanning?: GcpCapabilityScope | undefined;
+}
+
+/**
  * <p>The health and connectivity status of a connector, including the last time the status was checked and any diagnostic message. Returned as part of the <code>Connector</code> structure.</p>
  * @public
  */
@@ -5823,6 +5875,18 @@ export interface Connector {
    * @public
    */
   autoInstallVMScanner?: boolean | undefined;
+
+  /**
+   * <p>The Google Cloud Platform (GCP) locations configured for the connector.</p>
+   * @public
+   */
+  gcpRegions?: string[] | undefined;
+
+  /**
+   * <p>The Google Cloud Platform (GCP) scope configuration for the connector.</p>
+   * @public
+   */
+  gcpScopeConfiguration?: GcpScopeConfiguration | undefined;
 }
 
 /**
@@ -6155,7 +6219,7 @@ export interface CoverageFilterCriteria {
   resourceId?: CoverageStringFilter[] | undefined;
 
   /**
-   * <p>An array of Amazon Web Services resource types to return coverage statistics for. The values can be <code>AWS_EC2_INSTANCE</code>, <code>AWS_LAMBDA_FUNCTION</code>, <code>AWS_ECR_CONTAINER_IMAGE</code>, <code>AWS_ECR_REPOSITORY</code> or <code>AWS_ACCOUNT</code>.</p>
+   * <p>An array of resource types to return coverage statistics for. Valid values:</p> <ul> <li> <p>Amazon Web Services – <code>AWS_EC2_INSTANCE</code>, <code>AWS_LAMBDA_FUNCTION</code>, <code>AWS_ECR_CONTAINER_IMAGE</code>, <code>AWS_ECR_REPOSITORY</code>, <code>MACHINE_IMAGE</code>, <code>CODE_REPOSITORY</code>, or <code>AWS_ACCOUNT</code>.</p> </li> <li> <p>Microsoft Azure – <code>Microsoft.Compute/virtualMachines</code>, <code>Microsoft.ContainerRegistry/registries</code>, <code>Microsoft.ContainerRegistry/registry/containerRepository</code>, <code>Microsoft.ContainerRegistry/registry/containerImage</code>, or <code>Microsoft.Web/sites</code>.</p> </li> <li> <p>Google Cloud Platform (GCP) – <code>compute.googleapis.com/Instance</code>, <code>cloudfunctions.googleapis.com/Function</code>, <code>artifactregistry.googleapis.com/Repository</code>, or <code>artifactregistry.googleapis.com/DockerImage</code>.</p> </li> </ul>
    * @public
    */
   resourceType?: CoverageStringFilter[] | undefined;
@@ -6263,19 +6327,19 @@ export interface CoverageFilterCriteria {
   lastScannedCommitId?: CoverageStringFilter[] | undefined;
 
   /**
-   * <p>The cloud provider to filter coverage results by.</p>
+   * <p>The cloud provider to filter coverage results by. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: CoverageStringFilter[] | undefined;
 
   /**
-   * <p>The cloud provider account ID to filter coverage results by.</p>
+   * <p>The cloud provider account ID to filter coverage results by. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services account ID.</p> </li> <li> <p>An Azure subscription ID.</p> </li> <li> <p>A Google Cloud Platform (GCP) project ID, such as <code>my-project</code>.</p> </li> </ul>
    * @public
    */
   cloudProviderAccountId?: CoverageStringFilter[] | undefined;
 
   /**
-   * <p>The cloud provider region to filter coverage results by.</p>
+   * <p>The cloud provider region to filter coverage results by. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> <li> <p>A Google Cloud Platform (GCP) location, such as the region <code>us-central1</code> or the zone <code>us-central1-a</code>.</p> </li> </ul>
    * @public
    */
   cloudProviderRegion?: CoverageStringFilter[] | undefined;
@@ -6323,7 +6387,7 @@ export interface CoverageFilterCriteria {
   cloudServerlessFunctionTags?: CoverageMapFilter[] | undefined;
 
   /**
-   * <p>The cloud provider organization ID to filter coverage results by.</p>
+   * <p>The cloud provider organization ID to filter coverage results by. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Organizations organization ID.</p> </li> <li> <p>An Azure tenant ID.</p> </li> <li> <p>A numeric Google Cloud Platform (GCP) organization ID.</p> </li> </ul>
    * @public
    */
   cloudProviderOrgId?: CoverageStringFilter[] | undefined;
@@ -6581,7 +6645,7 @@ export interface ResourceScanMetadata {
  */
 export interface CoveredResource {
   /**
-   * <p>The type of the covered resource.</p>
+   * <p>The type of the covered resource. Valid values:</p> <ul> <li> <p>Amazon Web Services – <code>AWS_EC2_INSTANCE</code>, <code>AWS_LAMBDA_FUNCTION</code>, <code>AWS_ECR_CONTAINER_IMAGE</code>, <code>AWS_ECR_REPOSITORY</code>, <code>MACHINE_IMAGE</code>, <code>CODE_REPOSITORY</code>, or <code>AWS_ACCOUNT</code>.</p> </li> <li> <p>Microsoft Azure – <code>Microsoft.Compute/virtualMachines</code>, <code>Microsoft.ContainerRegistry/registries</code>, <code>Microsoft.ContainerRegistry/registry/containerRepository</code>, <code>Microsoft.ContainerRegistry/registry/containerImage</code>, or <code>Microsoft.Web/sites</code>.</p> </li> <li> <p>Google Cloud Platform (GCP) – <code>compute.googleapis.com/Instance</code>, <code>cloudfunctions.googleapis.com/Function</code>, <code>artifactregistry.googleapis.com/Repository</code>, or <code>artifactregistry.googleapis.com/DockerImage</code>.</p> </li> </ul>
    * @public
    */
   resourceType: CoverageResourceType | undefined;
@@ -6629,25 +6693,25 @@ export interface CoveredResource {
   scanMode?: ScanMode | undefined;
 
   /**
-   * <p>The cloud provider of the covered resource.</p>
+   * <p>The cloud provider of the covered resource. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   provider?: Provider | undefined;
 
   /**
-   * <p>The cloud provider account ID of the covered resource.</p>
+   * <p>The cloud provider account ID of the covered resource. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services account ID.</p> </li> <li> <p>An Azure subscription ID.</p> </li> <li> <p>A Google Cloud Platform (GCP) project ID, such as <code>my-project</code>.</p> </li> </ul>
    * @public
    */
   providerAccountId?: string | undefined;
 
   /**
-   * <p>The cloud provider organization ID of the covered resource.</p>
+   * <p>The cloud provider organization ID of the covered resource. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Organizations organization ID.</p> </li> <li> <p>An Azure tenant ID.</p> </li> <li> <p>A numeric Google Cloud Platform (GCP) organization ID.</p> </li> </ul>
    * @public
    */
   providerOrgId?: string | undefined;
 
   /**
-   * <p>The cloud provider region of the covered resource.</p>
+   * <p>The cloud provider region of the covered resource. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> <li> <p>A Google Cloud Platform (GCP) location, such as the region <code>us-central1</code> or the zone <code>us-central1-a</code>.</p> </li> </ul>
    * @public
    */
   providerRegion?: string | undefined;
@@ -6879,11 +6943,84 @@ export interface CreateCodeSecurityScanConfigurationResponse {
 }
 
 /**
+ * <p>The scope of Google Cloud Platform (GCP) resources to scan for a single scanning type. Provide this as part of a <code>GcpScopeConfigurationInput</code> when you create or update a connector.</p>
+ * @public
+ */
+export interface GcpCapabilityScopeInput {
+  /**
+   * <p>The type of scope: <code>ORGANIZATION</code>, which scans all projects in the GCP organization, or <code>PROJECT</code>, which scans only the specified GCP projects.</p>
+   * @public
+   */
+  scopeType: ScopeType | undefined;
+
+  /**
+   * <p>The GCP project IDs to scan. Required when <code>scopeType</code> is <code>PROJECT</code>. Don't specify scope values when <code>scopeType</code> is <code>ORGANIZATION</code>. Amazon Inspector scans the organization of the Amazon Web Services Config connector.</p>
+   * @public
+   */
+  scopeValues?: string[] | undefined;
+}
+
+/**
+ * <p>The scope of Google Cloud Platform (GCP) resources to scan, defined separately for VM, container image, and serverless scanning. Provide this when you create or update a GCP connector.</p>
+ * @public
+ */
+export interface GcpScopeConfigurationInput {
+  /**
+   * <p>The scope configuration input for VM scanning.</p>
+   * @public
+   */
+  vmScanning?: GcpCapabilityScopeInput | undefined;
+
+  /**
+   * <p>The scope configuration input for container image scanning.</p>
+   * @public
+   */
+  containerImageScanning?: GcpCapabilityScopeInput | undefined;
+
+  /**
+   * <p>The scope configuration input for serverless scanning.</p>
+   * @public
+   */
+  serverlessScanning?: GcpCapabilityScopeInput | undefined;
+}
+
+/**
+ * <p>The configuration details specific to Google Cloud Platform (GCP) for creating a connector, including the Amazon Web Services Config connector association, scan scope, and locations to scan.</p>
+ * @public
+ */
+export interface GcpProviderDetailCreate {
+  /**
+   * <p>The ARN of the Amazon Web Services Config connector to associate with this connector.</p>
+   * @public
+   */
+  awsConfigConnectorArn: string | undefined;
+
+  /**
+   * <p>The scope configuration that defines which GCP resources to scan.</p>
+   * @public
+   */
+  scopeConfiguration: GcpScopeConfigurationInput | undefined;
+
+  /**
+   * <p>The GCP locations to scan, such as regions, zones, multi-regions, or dual-regions. Specify <code>ALL</code> to scan all locations.</p>
+   * @public
+   */
+  gcpRegions: string[] | undefined;
+
+  /**
+   * <p>Specifies whether to automatically install the VM scanner on connected GCP resources. Defaults to <code>true</code>.</p>
+   * @public
+   */
+  autoInstallVMScanner?: boolean | undefined;
+}
+
+/**
  * <p>The provider-specific configuration details for creating a connector.</p>
  * @public
  */
 export type ProviderDetailCreate =
   | ProviderDetailCreate.AzureMember
+  | ProviderDetailCreate.GcpMember
   | ProviderDetailCreate.$UnknownMember;
 
 /**
@@ -6896,6 +7033,17 @@ export namespace ProviderDetailCreate {
    */
   export interface AzureMember {
     azure: AzureProviderDetailCreate;
+    gcp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The details specific to Google Cloud Platform (GCP) for creating a connector.</p>
+   * @public
+   */
+  export interface GcpMember {
+    azure?: never;
+    gcp: GcpProviderDetailCreate;
     $unknown?: never;
   }
 
@@ -6904,6 +7052,7 @@ export namespace ProviderDetailCreate {
    */
   export interface $UnknownMember {
     azure?: never;
+    gcp?: never;
     $unknown: [string, any];
   }
 
@@ -6913,6 +7062,7 @@ export namespace ProviderDetailCreate {
    */
   export interface Visitor<T> {
     azure: (value: AzureProviderDetailCreate) => T;
+    gcp: (value: GcpProviderDetailCreate) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -7107,7 +7257,7 @@ export interface FilterCriteria {
   inspectorScore?: NumberFilter[] | undefined;
 
   /**
-   * <p>Details on the resource types used to filter findings.</p>
+   * <p>Details on the resource types used to filter findings. For Google Cloud Platform (GCP) resources, the resource type is <code>compute.googleapis.com/Instance</code>, <code>cloudfunctions.googleapis.com/Function</code>, or <code>artifactregistry.googleapis.com/DockerImage</code>.</p>
    * @public
    */
   resourceType?: StringFilter[] | undefined;
@@ -7637,7 +7787,7 @@ export interface ResourceFilterCriteria {
   resourceId?: ResourceStringFilter[] | undefined;
 
   /**
-   * <p>The resource types used as resource filter criteria.</p>
+   * <p>The resource types used as resource filter criteria. Valid values:</p> <ul> <li> <p>Amazon Web Services – <code>AWS_EC2_INSTANCE</code>, <code>AWS_ECR_CONTAINER_IMAGE</code>, <code>AWS_LAMBDA_FUNCTION</code>, or <code>MACHINE_IMAGE</code>.</p> </li> <li> <p>Microsoft Azure – <code>Microsoft.Compute/virtualMachines</code>, <code>Microsoft.ContainerRegistry/registry/containerImage</code>, or <code>Microsoft.Web/sites</code>.</p> </li> <li> <p>Google Cloud Platform (GCP) – <code>compute.googleapis.com/Instance</code>, <code>cloudfunctions.googleapis.com/Function</code>, or <code>artifactregistry.googleapis.com/DockerImage</code>.</p> </li> </ul>
    * @public
    */
   resourceType?: ResourceStringFilter[] | undefined;
@@ -7673,25 +7823,25 @@ export interface ResourceFilterCriteria {
   lambdaFunctionTags?: ResourceMapFilter[] | undefined;
 
   /**
-   * <p>The cloud providers used as resource filter criteria.</p>
+   * <p>The cloud providers used as resource filter criteria. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: ResourceStringFilter[] | undefined;
 
   /**
-   * <p>The cloud provider account IDs used as resource filter criteria.</p>
+   * <p>The cloud provider account IDs used as resource filter criteria. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services account ID.</p> </li> <li> <p>An Azure subscription ID.</p> </li> <li> <p>A Google Cloud Platform (GCP) project ID.</p> </li> </ul>
    * @public
    */
   cloudProviderAccountId?: ResourceStringFilter[] | undefined;
 
   /**
-   * <p>The cloud provider organization IDs used as resource filter criteria.</p>
+   * <p>The cloud provider organization IDs used as resource filter criteria. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Organizations organization ID.</p> </li> <li> <p>An Azure tenant ID.</p> </li> <li> <p>A Google Cloud Platform (GCP) organization ID.</p> </li> </ul>
    * @public
    */
   cloudProviderOrgId?: ResourceStringFilter[] | undefined;
 
   /**
-   * <p>The cloud provider regions used as resource filter criteria.</p>
+   * <p>The cloud provider regions used as resource filter criteria. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> <li> <p>A Google Cloud Platform (GCP) location, such as the region <code>us-central1</code> or the zone <code>us-central1-a</code>.</p> </li> </ul>
    * @public
    */
   cloudProviderRegion?: ResourceStringFilter[] | undefined;
@@ -9125,19 +9275,19 @@ export interface Resource {
   details?: ResourceDetails | undefined;
 
   /**
-   * <p>The cloud provider of the resource.</p>
+   * <p>The cloud provider of the resource. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Microsoft Azure resources.</p> </li> <li> <p> <code>GCP</code> – Google Cloud Platform (GCP) resources.</p> </li> </ul>
    * @public
    */
   provider?: Provider | undefined;
 
   /**
-   * <p>The cloud provider account ID of the resource.</p>
+   * <p>The cloud provider account ID of the resource. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services account ID.</p> </li> <li> <p>An Azure subscription ID.</p> </li> <li> <p>A Google Cloud Platform (GCP) project ID, such as <code>my-project</code>.</p> </li> </ul>
    * @public
    */
   providerAccountId?: string | undefined;
 
   /**
-   * <p>The cloud provider organization ID of the resource.</p>
+   * <p>The cloud provider organization ID of the resource. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Organizations organization ID.</p> </li> <li> <p>An Azure tenant ID.</p> </li> <li> <p>A numeric Google Cloud Platform (GCP) organization ID.</p> </li> </ul>
    * @public
    */
   providerOrgId?: string | undefined;
@@ -9273,6 +9423,30 @@ export interface Finding {
    * @public
    */
   epss?: EpssDetails | undefined;
+}
+
+/**
+ * <p>The configuration details specific to Google Cloud Platform (GCP) for updating a connector, including the scan scope and locations to scan.</p>
+ * @public
+ */
+export interface GcpProviderDetailUpdate {
+  /**
+   * <p>The updated GCP locations to scan, such as regions, zones, multi-regions, or dual-regions. Specify <code>ALL</code> to scan all locations.</p>
+   * @public
+   */
+  gcpRegions?: string[] | undefined;
+
+  /**
+   * <p>The updated scope configuration that defines which GCP resources to scan.</p>
+   * @public
+   */
+  scopeConfiguration?: GcpScopeConfigurationInput | undefined;
+
+  /**
+   * <p>Specifies whether to automatically install the VM scanner on connected GCP resources.</p>
+   * @public
+   */
+  autoInstallVMScanner?: boolean | undefined;
 }
 
 /**
@@ -10018,155 +10192,4 @@ export interface Permission {
    * @public
    */
   operation: Operation | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAccountPermissionsResponse {
-  /**
-   * <p>Contains details on the permissions an account has to configure Amazon Inspector.</p>
-   * @public
-   */
-  permissions: Permission[] | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the <code>NextToken</code> value returned from the previous request to continue listing results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>A list of CIS scan configurations filter criteria.</p>
- * @public
- */
-export interface ListCisScanConfigurationsFilterCriteria {
-  /**
-   * <p>The list of scan name filters.</p>
-   * @public
-   */
-  scanNameFilters?: CisStringFilter[] | undefined;
-
-  /**
-   * <p>The list of target resource tag filters.</p>
-   * @public
-   */
-  targetResourceTagFilters?: TagFilter[] | undefined;
-
-  /**
-   * <p>The list of scan configuration ARN filters.</p>
-   * @public
-   */
-  scanConfigurationArnFilters?: CisStringFilter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCisScanConfigurationsRequest {
-  /**
-   * <p>The CIS scan configuration filter criteria.</p>
-   * @public
-   */
-  filterCriteria?: ListCisScanConfigurationsFilterCriteria | undefined;
-
-  /**
-   * <p>The CIS scan configuration sort by order.</p>
-   * @public
-   */
-  sortBy?: CisScanConfigurationsSortBy | undefined;
-
-  /**
-   * <p>The CIS scan configuration sort order order.</p>
-   * @public
-   */
-  sortOrder?: CisSortOrder | undefined;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of CIS scan configurations to be returned in a single page of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCisScanConfigurationsResponse {
-  /**
-   * <p>The CIS scan configuration scan configurations.</p>
-   * @public
-   */
-  scanConfigurations?: CisScanConfiguration[] | undefined;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCisScanResultsAggregatedByChecksRequest {
-  /**
-   * <p>The scan ARN.</p>
-   * @public
-   */
-  scanArn: string | undefined;
-
-  /**
-   * <p>The filter criteria.</p>
-   * @public
-   */
-  filterCriteria?: CisScanResultsAggregatedByChecksFilterCriteria | undefined;
-
-  /**
-   * <p>The sort by order.</p>
-   * @public
-   */
-  sortBy?: CisScanResultsAggregatedByChecksSortBy | undefined;
-
-  /**
-   * <p>The sort order.</p>
-   * @public
-   */
-  sortOrder?: CisSortOrder | undefined;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of scan results aggregated by checks to be returned in a single page of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCisScanResultsAggregatedByChecksResponse {
-  /**
-   * <p>The check aggregations.</p>
-   * @public
-   */
-  checkAggregations?: CisCheckAggregation[] | undefined;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
 }

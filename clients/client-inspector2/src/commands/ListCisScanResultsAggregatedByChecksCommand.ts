@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListCisScanResultsAggregatedByChecksRequest,
   ListCisScanResultsAggregatedByChecksResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { ListCisScanResultsAggregatedByChecks$ } from "../schemas/schemas_0";
 
 /**

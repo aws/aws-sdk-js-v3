@@ -35,32 +35,59 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * const input = { // CreateConnectorRequest
  *   clientToken: "STRING_VALUE",
  *   name: "STRING_VALUE", // required
- *   provider: "AZURE", // required
+ *   provider: "AZURE" || "GCP", // required
  *   description: "STRING_VALUE",
  *   providerDetail: { // ProviderDetailCreate Union: only one key present
  *     azure: { // AzureProviderDetailCreate
  *       awsConfigConnectorArn: "STRING_VALUE", // required
  *       scopeConfiguration: { // AzureScopeConfigurationInput
  *         vmScanning: { // ScopeConfigurationInput
- *           scopeType: "TENANT" || "SUBSCRIPTION", // required
+ *           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
  *           scopeValues: [ // ScopeValueList
  *             "STRING_VALUE",
  *           ],
  *         },
  *         containerImageScanning: {
- *           scopeType: "TENANT" || "SUBSCRIPTION", // required
+ *           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
  *           scopeValues: [
  *             "STRING_VALUE",
  *           ],
  *         },
  *         serverlessScanning: {
- *           scopeType: "TENANT" || "SUBSCRIPTION", // required
+ *           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
  *           scopeValues: [
  *             "STRING_VALUE",
  *           ],
  *         },
  *       },
  *       azureRegions: [ // AzureRegionList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       autoInstallVMScanner: true || false,
+ *     },
+ *     gcp: { // GcpProviderDetailCreate
+ *       awsConfigConnectorArn: "STRING_VALUE", // required
+ *       scopeConfiguration: { // GcpScopeConfigurationInput
+ *         vmScanning: { // GcpCapabilityScopeInput
+ *           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
+ *           scopeValues: [ // GcpScopeValueList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         containerImageScanning: {
+ *           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
+ *           scopeValues: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         serverlessScanning: {
+ *           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
+ *           scopeValues: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       gcpRegions: [ // GcpRegionList // required
  *         "STRING_VALUE",
  *       ],
  *       autoInstallVMScanner: true || false,

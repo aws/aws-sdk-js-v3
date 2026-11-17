@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListCisScanConfigurationsRequest, ListCisScanConfigurationsResponse } from "../models/models_0";
+import type { ListCisScanConfigurationsRequest, ListCisScanConfigurationsResponse } from "../models/models_1";
 import { ListCisScanConfigurations$ } from "../schemas/schemas_0";
 
 /**

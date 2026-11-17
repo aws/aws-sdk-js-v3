@@ -42,19 +42,45 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *       ],
  *       scopeConfiguration: { // AzureScopeConfigurationInput
  *         vmScanning: { // ScopeConfigurationInput
- *           scopeType: "TENANT" || "SUBSCRIPTION", // required
+ *           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
  *           scopeValues: [ // ScopeValueList
  *             "STRING_VALUE",
  *           ],
  *         },
  *         containerImageScanning: {
- *           scopeType: "TENANT" || "SUBSCRIPTION", // required
+ *           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
  *           scopeValues: [
  *             "STRING_VALUE",
  *           ],
  *         },
  *         serverlessScanning: {
- *           scopeType: "TENANT" || "SUBSCRIPTION", // required
+ *           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
+ *           scopeValues: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       autoInstallVMScanner: true || false,
+ *     },
+ *     gcp: { // GcpProviderDetailUpdate
+ *       gcpRegions: [ // GcpRegionList
+ *         "STRING_VALUE",
+ *       ],
+ *       scopeConfiguration: { // GcpScopeConfigurationInput
+ *         vmScanning: { // GcpCapabilityScopeInput
+ *           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
+ *           scopeValues: [ // GcpScopeValueList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         containerImageScanning: {
+ *           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
+ *           scopeValues: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         serverlessScanning: {
+ *           scopeType: "TENANT" || "SUBSCRIPTION" || "ORGANIZATION" || "PROJECT", // required
  *           scopeValues: [
  *             "STRING_VALUE",
  *           ],

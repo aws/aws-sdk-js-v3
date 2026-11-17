@@ -35,10 +35,13 @@ export type AggregationFindingType = (typeof AggregationFindingType)[keyof typeo
  * @enum
  */
 export const AggregationResourceType = {
+  ARTIFACTREGISTRY_GOOGLEAPIS_COM_DOCKER_IMAGE: "artifactregistry.googleapis.com/DockerImage",
   AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
   AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
   AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+  CLOUDFUNCTIONS_GOOGLEAPIS_COM_FUNCTION: "cloudfunctions.googleapis.com/Function",
   CODE_REPOSITORY: "CODE_REPOSITORY",
+  COMPUTE_GOOGLEAPIS_COM_INSTANCE: "compute.googleapis.com/Instance",
   MICROSOFT_COMPUTE_VIRTUAL_MACHINES: "Microsoft.Compute/virtualMachines",
   MICROSOFT_CONTAINER_REGISTRY_REGISTRY_CONTAINER_IMAGE: "Microsoft.ContainerRegistry/registry/containerImage",
   MICROSOFT_WEB_SITES: "Microsoft.Web/sites",
@@ -363,6 +366,7 @@ export type VmInstanceSortBy = (typeof VmInstanceSortBy)[keyof typeof VmInstance
 export const Provider = {
   AWS: "AWS",
   AZURE: "AZURE",
+  GCP: "GCP",
 } as const;
 /**
  * @public
@@ -558,6 +562,8 @@ export type Runtime = (typeof Runtime)[keyof typeof Runtime];
  * @enum
  */
 export const ScopeType = {
+  ORGANIZATION: "ORGANIZATION",
+  PROJECT: "PROJECT",
   SUBSCRIPTION: "SUBSCRIPTION",
   TENANT: "TENANT",
 } as const;
@@ -618,6 +624,7 @@ export type FindingDetailsErrorCode = (typeof FindingDetailsErrorCode)[keyof typ
 export const CloudProvider = {
   AWS: "AWS",
   AZURE: "AZURE",
+  GCP: "GCP",
   NOT_APPLICABLE: "NOT_APPLICABLE",
 } as const;
 /**
@@ -1209,6 +1216,7 @@ export type ConnectorHealthStatus = (typeof ConnectorHealthStatus)[keyof typeof 
  */
 export const ConnectorCloudProvider = {
   AZURE: "AZURE",
+  GCP: "GCP",
 } as const;
 /**
  * @public
@@ -1353,11 +1361,15 @@ export type CoverageMapComparison = (typeof CoverageMapComparison)[keyof typeof 
  * @enum
  */
 export const CoverageResourceType = {
+  ARTIFACTREGISTRY_GOOGLEAPIS_COM_DOCKER_IMAGE: "artifactregistry.googleapis.com/DockerImage",
+  ARTIFACTREGISTRY_GOOGLEAPIS_COM_REPOSITORY: "artifactregistry.googleapis.com/Repository",
   AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
   AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
   AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
   AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+  CLOUDFUNCTIONS_GOOGLEAPIS_COM_FUNCTION: "cloudfunctions.googleapis.com/Function",
   CODE_REPOSITORY: "CODE_REPOSITORY",
+  COMPUTE_GOOGLEAPIS_COM_INSTANCE: "compute.googleapis.com/Instance",
   MACHINE_IMAGE: "MACHINE_IMAGE",
   MICROSOFT_COMPUTE_VIRTUAL_MACHINES: "Microsoft.Compute/virtualMachines",
   MICROSOFT_CONTAINER_REGISTRY_REGISTRIES: "Microsoft.ContainerRegistry/registries",
@@ -1777,11 +1789,14 @@ export type PackageManager = (typeof PackageManager)[keyof typeof PackageManager
  * @enum
  */
 export const ResourceType = {
+  ARTIFACTREGISTRY_GOOGLEAPIS_COM_DOCKER_IMAGE: "artifactregistry.googleapis.com/DockerImage",
   AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
   AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
   AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
   AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+  CLOUDFUNCTIONS_GOOGLEAPIS_COM_FUNCTION: "cloudfunctions.googleapis.com/Function",
   CODE_REPOSITORY: "CODE_REPOSITORY",
+  COMPUTE_GOOGLEAPIS_COM_INSTANCE: "compute.googleapis.com/Instance",
   MACHINE_IMAGE: "MACHINE_IMAGE",
   MICROSOFT_COMPUTE_VIRTUAL_MACHINES: "Microsoft.Compute/virtualMachines",
   MICROSOFT_CONTAINER_REGISTRY_REGISTRY_CONTAINER_IMAGE: "Microsoft.ContainerRegistry/registry/containerImage",
@@ -2008,9 +2023,14 @@ export const UsageType = {
   CODE_REPOSITORY_SCA: "CODE_REPOSITORY_SCA",
   EC2_AGENTLESS_INSTANCE_HOURS: "EC2_AGENTLESS_INSTANCE_HOURS",
   EC2_AMI_HOURS: "EC2_AMI_HOURS",
+  EC2_AMI_ONE_SHOT_SCAN: "EC2_AMI_ONE_SHOT_SCAN",
   EC2_INSTANCE_HOURS: "EC2_INSTANCE_HOURS",
   ECR_INITIAL_SCAN: "ECR_INITIAL_SCAN",
   ECR_RESCAN: "ECR_RESCAN",
+  GCP_CLOUD_RUN_HOURS: "GCP_CLOUD_RUN_HOURS",
+  GCP_CONTAINER_IMAGE_INITIAL_SCAN: "GCP_CONTAINER_IMAGE_INITIAL_SCAN",
+  GCP_CONTAINER_IMAGE_RESCAN: "GCP_CONTAINER_IMAGE_RESCAN",
+  GCP_VM_AGENT_BASED_INSTANCE_HOURS: "GCP_VM_AGENT_BASED_INSTANCE_HOURS",
   LAMBDA_FUNCTION_CODE_HOURS: "LAMBDA_FUNCTION_CODE_HOURS",
   LAMBDA_FUNCTION_HOURS: "LAMBDA_FUNCTION_HOURS",
 } as const;

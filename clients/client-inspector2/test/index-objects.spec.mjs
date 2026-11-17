@@ -330,6 +330,12 @@ import {
   FreeTrialInfoErrorCode,
   FreeTrialStatus,
   FreeTrialType,
+  GcpCapabilityScope$,
+  GcpCapabilityScopeInput$,
+  GcpProviderDetailCreate$,
+  GcpProviderDetailUpdate$,
+  GcpScopeConfiguration$,
+  GcpScopeConfigurationInput$,
   GetCisScanReport$,
   GetCisScanReportCommand,
   GetCisScanReportRequest$,
@@ -1102,6 +1108,12 @@ assert(typeof FindingTypeAggregationResponse$ === "object");
 assert(typeof FreeTrialAccountInfo$ === "object");
 assert(typeof FreeTrialInfo$ === "object");
 assert(typeof FreeTrialInfoError$ === "object");
+assert(typeof GcpCapabilityScope$ === "object");
+assert(typeof GcpCapabilityScopeInput$ === "object");
+assert(typeof GcpProviderDetailCreate$ === "object");
+assert(typeof GcpProviderDetailUpdate$ === "object");
+assert(typeof GcpScopeConfiguration$ === "object");
+assert(typeof GcpScopeConfigurationInput$ === "object");
 assert(typeof GetCisScanReportRequest$ === "object");
 assert(typeof GetCisScanReportResponse$ === "object");
 assert(typeof GetCisScanResultDetailsRequest$ === "object");
