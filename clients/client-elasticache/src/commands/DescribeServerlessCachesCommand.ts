@@ -93,6 +93,12 @@ export interface DescribeServerlessCachesCommandOutput extends DescribeServerles
  * //         },
  * //         CutoverMode: "STRING_VALUE",
  * //       },
+ * //       Integrations: [ // IntegrationList
+ * //         { // Integration
+ * //           IntegrationType: "dynamodb",
+ * //           Status: "enabled" || "disabled" || "enabling" || "disabling" || "failed",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

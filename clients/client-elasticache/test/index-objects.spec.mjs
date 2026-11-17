@@ -299,6 +299,10 @@ import {
   InputAuthenticationType,
   InsufficientCacheClusterCapacityFault,
   InsufficientCacheClusterCapacityFault$,
+  Integration$,
+  IntegrationRequest$,
+  IntegrationStatus,
+  IntegrationType,
   InvalidARNFault,
   InvalidARNFault$,
   InvalidCacheClusterStateFault,
@@ -878,6 +882,8 @@ assert(typeof IncreaseNodeGroupsInGlobalReplicationGroupMessage$ === "object");
 assert(typeof IncreaseNodeGroupsInGlobalReplicationGroupResult$ === "object");
 assert(typeof IncreaseReplicaCountMessage$ === "object");
 assert(typeof IncreaseReplicaCountResult$ === "object");
+assert(typeof Integration$ === "object");
+assert(typeof IntegrationRequest$ === "object");
 assert(typeof KinesisFirehoseDestinationDetails$ === "object");
 assert(typeof ListAllowedNodeTypeModificationsMessage$ === "object");
 assert(typeof ListTagsForResourceMessage$ === "object");
@@ -982,6 +988,8 @@ assert(typeof DestinationType === "object");
 assert(typeof Durability === "object");
 assert(typeof EffectiveDurability === "object");
 assert(typeof InputAuthenticationType === "object");
+assert(typeof IntegrationStatus === "object");
+assert(typeof IntegrationType === "object");
 assert(typeof IpDiscovery === "object");
 assert(typeof LogDeliveryConfigurationStatus === "object");
 assert(typeof LogFormat === "object");

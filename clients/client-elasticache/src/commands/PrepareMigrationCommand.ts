@@ -102,6 +102,12 @@ export interface PrepareMigrationCommandOutput extends PrepareMigrationResponse,
  * //       },
  * //       CutoverMode: "STRING_VALUE",
  * //     },
+ * //     Integrations: [ // IntegrationList
+ * //       { // Integration
+ * //         IntegrationType: "dynamodb",
+ * //         Status: "enabled" || "disabled" || "enabling" || "disabling" || "failed",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

@@ -269,6 +269,34 @@ export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType
  * @public
  * @enum
  */
+export const IntegrationType = {
+  DYNAMODB: "dynamodb",
+} as const;
+/**
+ * @public
+ */
+export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IntegrationStatus = {
+  DISABLED: "disabled",
+  DISABLING: "disabling",
+  ENABLED: "enabled",
+  ENABLING: "enabling",
+  FAILED: "failed",
+} as const;
+/**
+ * @public
+ */
+export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof IntegrationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const AZMode = {
   CROSS_AZ: "cross-az",
   SINGLE_AZ: "single-az",

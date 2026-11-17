@@ -108,6 +108,12 @@ export interface ModifyServerlessCacheCommandOutput extends ModifyServerlessCach
  * //       },
  * //       CutoverMode: "STRING_VALUE",
  * //     },
+ * //     Integrations: [ // IntegrationList
+ * //       { // Integration
+ * //         IntegrationType: "dynamodb",
+ * //         Status: "enabled" || "disabled" || "enabling" || "disabling" || "failed",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

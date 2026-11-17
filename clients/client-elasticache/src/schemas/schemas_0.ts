@@ -317,6 +317,7 @@ const _GRGML = "GlobalReplicationGroupMemberList";
 const _GRGMR = "GlobalReplicationGroupMemberRole";
 const _GRGNFF = "GlobalReplicationGroupNotFoundFault";
 const _GRGl = "GlobalReplicationGroups";
+const _I = "Integrations";
 const _IARNF = "InvalidARNFault";
 const _ICCCF = "InsufficientCacheClusterCapacityFault";
 const _ICCSF = "InvalidCacheClusterStateFault";
@@ -327,23 +328,28 @@ const _ID = "IpDiscovery";
 const _IG = "IsGlobal";
 const _IGRGSF = "InvalidGlobalReplicationGroupStateFault";
 const _IKMSKF = "InvalidKMSKeyFault";
+const _IL = "IntegrationList";
 const _IM = "IsModifiable";
 const _INGIGRG = "IncreaseNodeGroupsInGlobalReplicationGroup";
 const _INGIGRGM = "IncreaseNodeGroupsInGlobalReplicationGroupMessage";
 const _INGIGRGR = "IncreaseNodeGroupsInGlobalReplicationGroupResult";
 const _IPCE = "InvalidParameterCombinationException";
 const _IPVE = "InvalidParameterValueException";
+const _IR = "IntegrationRequest";
 const _IRC = "IncreaseReplicaCount";
 const _IRCM = "IncreaseReplicaCountMessage";
 const _IRCR = "IncreaseReplicaCountResult";
 const _IRGSF = "InvalidReplicationGroupStateFault";
+const _IRL = "IntegrationRequestList";
 const _IS = "InvalidSubnet";
 const _ISCSF = "InvalidServerlessCacheStateFault";
 const _ISCSSF = "InvalidServerlessCacheSnapshotStateFault";
 const _ISSF = "InvalidSnapshotStateFault";
+const _IT = "IntegrationType";
 const _IUGSF = "InvalidUserGroupStateFault";
 const _IUSF = "InvalidUserStateFault";
 const _IVPCNSF = "InvalidVPCNetworkStateFault";
+const _In = "Integration";
 const _K = "Key";
 const _KFD = "KinesisFirehoseDetails";
 const _KFDD = "KinesisFirehoseDestinationDetails";
@@ -1565,8 +1571,8 @@ export var CreateReplicationGroupResult$: StaticStructureSchema = [3, n0, _CRGR,
 ];
 export var CreateServerlessCacheRequest$: StaticStructureSchema = [3, n0, _CSCR,
   0,
-  [_SCN, _E, _D, _MEVa, _CUL, _KKI, _SGI, _SATR, _T, _UGIs, _SI, _SRL, _DST, _NT, _CTo],
-  [0, 0, 0, 0, () => CacheUsageLimits$, 0, [() => SecurityGroupIdsList, 0], [() => SnapshotArnsList, 0], [() => TagList, 0], 0, [() => SubnetIdsList, 0], 1, 0, 0, 0], 2
+  [_SCN, _E, _D, _MEVa, _CUL, _KKI, _SGI, _SATR, _T, _UGIs, _SI, _SRL, _DST, _NT, _CTo, _I],
+  [0, 0, 0, 0, () => CacheUsageLimits$, 0, [() => SecurityGroupIdsList, 0], [() => SnapshotArnsList, 0], [() => TagList, 0], 0, [() => SubnetIdsList, 0], 1, 0, 0, 0, [() => IntegrationRequestList, 0]], 2
 ];
 export var CreateServerlessCacheResponse$: StaticStructureSchema = [3, n0, _CSCRr,
   0,
@@ -1958,6 +1964,16 @@ export var IncreaseReplicaCountResult$: StaticStructureSchema = [3, n0, _IRCR,
   [_RG],
   [[() => ReplicationGroup$, 0]]
 ];
+export var Integration$: StaticStructureSchema = [3, n0, _In,
+  0,
+  [_IT, _St],
+  [0, 0]
+];
+export var IntegrationRequest$: StaticStructureSchema = [3, n0, _IR,
+  0,
+  [_IT],
+  [0]
+];
 export var KinesisFirehoseDestinationDetails$: StaticStructureSchema = [3, n0, _KFDD,
   0,
   [_DSe],
@@ -2255,8 +2271,8 @@ export var SecurityGroupMembership$: StaticStructureSchema = [3, n0, _SGM,
 ];
 export var ServerlessCache$: StaticStructureSchema = [3, n0, _SC,
   0,
-  [_SCN, _D, _CTr, _St, _E, _MEVa, _FEV, _CUL, _KKI, _SET, _SGI, _En, _RE, _ARN, _UGIs, _SI, _SRL, _DST, _NT, _CTo, _Mig],
-  [0, 0, 4, 0, 0, 0, 0, () => CacheUsageLimits$, 0, 0, [() => SecurityGroupIdsList, 0], () => Endpoint$, () => Endpoint$, 0, 0, [() => SubnetIdsList, 0], 1, 0, 0, 0, () => MigrationSummary$]
+  [_SCN, _D, _CTr, _St, _E, _MEVa, _FEV, _CUL, _KKI, _SET, _SGI, _En, _RE, _ARN, _UGIs, _SI, _SRL, _DST, _NT, _CTo, _Mig, _I],
+  [0, 0, 4, 0, 0, 0, 0, () => CacheUsageLimits$, 0, 0, [() => SecurityGroupIdsList, 0], () => Endpoint$, () => Endpoint$, 0, 0, [() => SubnetIdsList, 0], 1, 0, 0, 0, () => MigrationSummary$, [() => IntegrationList, 0]]
 ];
 export var ServerlessCacheConfiguration$: StaticStructureSchema = [3, n0, _SCC,
   0,
@@ -2491,6 +2507,14 @@ var GlobalReplicationGroupList: StaticListSchema = [1, n0, _GRGL,
 var GlobalReplicationGroupMemberList: StaticListSchema = [1, n0, _GRGML,
   0, [() => GlobalReplicationGroupMember$,
     { [_xN]: _GRGM }]
+];
+var IntegrationList: StaticListSchema = [1, n0, _IL,
+  0, [() => Integration$,
+    { [_xN]: _In }]
+];
+var IntegrationRequestList: StaticListSchema = [1, n0, _IRL,
+  0, [() => IntegrationRequest$,
+    { [_xN]: _IR }]
 ];
 var KeyList = 64 | 0;
 var LogDeliveryConfigurationList: StaticListSchema = [1, n0, _LDCL,

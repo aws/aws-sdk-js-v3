@@ -69,6 +69,11 @@ export interface CreateServerlessCacheCommandOutput extends CreateServerlessCach
  *   DailySnapshotTime: "STRING_VALUE",
  *   NetworkType: "ipv4" || "ipv6" || "dual_stack",
  *   ConnectionType: "vpc" || "public",
+ *   Integrations: [ // IntegrationRequestList
+ *     { // IntegrationRequest
+ *       IntegrationType: "dynamodb",
+ *     },
+ *   ],
  * };
  * const command = new CreateServerlessCacheCommand(input);
  * const response = await client.send(command);
@@ -122,6 +127,12 @@ export interface CreateServerlessCacheCommandOutput extends CreateServerlessCach
  * //       },
  * //       CutoverMode: "STRING_VALUE",
  * //     },
+ * //     Integrations: [ // IntegrationList
+ * //       { // Integration
+ * //         IntegrationType: "dynamodb",
+ * //         Status: "enabled" || "disabled" || "enabling" || "disabling" || "failed",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

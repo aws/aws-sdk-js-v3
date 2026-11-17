@@ -14,6 +14,8 @@ import type {
   Durability,
   EffectiveDurability,
   InputAuthenticationType,
+  IntegrationStatus,
+  IntegrationType,
   IpDiscovery,
   LogDeliveryConfigurationStatus,
   LogFormat,
@@ -1117,6 +1119,35 @@ export interface CacheUsageLimits {
 }
 
 /**
+ * <p>An integration configured on the serverless cache, and its current status.
+ *            ElastiCache supports DynamoDB integration.</p>
+ * @public
+ */
+export interface Integration {
+  /**
+   * <p>The integration type. ElastiCache supports <code>dynamodb</code>.</p>
+   * @public
+   */
+  IntegrationType?: IntegrationType | undefined;
+
+  /**
+   * <p>The current status of the integration. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>enabled</code> – The integration is enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disabled</code> – The integration is disabled.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: IntegrationStatus | undefined;
+}
+
+/**
  * <p>Provides a summary of the current migration status for a serverless cache.</p>
  * @public
  */
@@ -1285,6 +1316,12 @@ export interface ServerlessCache {
    * @public
    */
   Migration?: MigrationSummary | undefined;
+
+  /**
+   * <p>Configured integrations and their status.</p>
+   * @public
+   */
+  Integrations?: Integration[] | undefined;
 }
 
 /**
@@ -4738,6 +4775,19 @@ export interface CreateReplicationGroupResult {
 }
 
 /**
+ * <p>Specifies an integration to enable on the serverless cache when you create it.</p>
+ * @public
+ */
+export interface IntegrationRequest {
+  /**
+   * <p>The integration type to enable.
+   *            Must be <code>dynamodb</code>.</p>
+   * @public
+   */
+  IntegrationType?: IntegrationType | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateServerlessCacheRequest {
@@ -4847,6 +4897,20 @@ export interface CreateServerlessCacheRequest {
    * @public
    */
   ConnectionType?: ConnectionType | undefined;
+
+  /**
+   * <p>Which serverless cache integrations to enable. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>dynamodb</code> – DynamoDB integration.</p>
+   *             </li>
+   *          </ul>
+   *          <p>DynamoDB integration requires the Valkey engine with a major engine version of 9 or above.
+   *            If not specified, no integrations are enabled.</p>
+   * @public
+   */
+  Integrations?: IntegrationRequest[] | undefined;
 }
 
 /**
@@ -9970,7 +10034,7 @@ export interface CustomerNodeEndpoint {
  */
 export interface SecretManagerAuthConfig {
   /**
-   * <p>The ARN of the secret in AWS Secrets Manager that contains the credentials for authenticating
+   * <p>The ARN of the secret in Secrets Manager that contains the credentials for authenticating
    *             with the source.</p>
    * @public
    */
