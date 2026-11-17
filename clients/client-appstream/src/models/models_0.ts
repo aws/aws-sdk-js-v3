@@ -2160,6 +2160,24 @@ export interface CreateFleetRequest {
    *             <li>
    *                <p>stream.graphics.gr6f.4xlarge</p>
    *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.24xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.48xlarge</p>
+   *             </li>
    *          </ul>
    *          <p>The following instance types are available for Elastic fleets:</p>
    *          <ul>
@@ -2542,6 +2560,24 @@ export interface Fleet {
    *             </li>
    *             <li>
    *                <p>stream.graphics.gr6f.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.24xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.48xlarge</p>
    *             </li>
    *          </ul>
    * @public
@@ -2938,6 +2974,24 @@ export interface CreateImageBuilderRequest {
    *             </li>
    *             <li>
    *                <p>stream.graphics.gr6f.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.24xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.48xlarge</p>
    *             </li>
    *          </ul>
    * @public
@@ -3410,6 +3464,24 @@ export interface ImageBuilder {
    *             </li>
    *             <li>
    *                <p>stream.graphics.gr6f.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.24xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.48xlarge</p>
    *             </li>
    *          </ul>
    * @public
@@ -3916,13 +3988,54 @@ export interface StreamingExperienceSettings {
  */
 export interface UserSetting {
   /**
-   * <p>The action that is enabled or disabled.</p>
+   * <p>The action you want to enable or disable. Choose from the following:</p>
+   *          <dl>
+   *             <dt>AUTO_TIME_ZONE_REDIRECTION</dt>
+   *             <dd>
+   *                <p>Controls whether the streaming session's time zone matches the time zone of your local device.</p>
+   *             </dd>
+   *             <dt>CLIPBOARD_COPY_FROM_LOCAL_DEVICE</dt>
+   *             <dd>
+   *                <p>Controls whether you can copy data from your local device and paste it into the streaming session.</p>
+   *             </dd>
+   *             <dt>CLIPBOARD_COPY_TO_LOCAL_DEVICE</dt>
+   *             <dd>
+   *                <p>Controls whether you can copy data from the streaming session and paste it to your local device.</p>
+   *             </dd>
+   *             <dt>DOMAIN_PASSWORD_SIGNIN</dt>
+   *             <dd>
+   *                <p>Controls whether you can sign in to a domain-joined streaming session by using your password.</p>
+   *             </dd>
+   *             <dt>DOMAIN_SMART_CARD_SIGNIN</dt>
+   *             <dd>
+   *                <p>Controls whether you can sign in to a domain-joined streaming session by using a smart card.</p>
+   *             </dd>
+   *             <dt>FILE_DOWNLOAD</dt>
+   *             <dd>
+   *                <p>Controls whether you can download files from the streaming session to your local device.</p>
+   *             </dd>
+   *             <dt>FILE_UPLOAD</dt>
+   *             <dd>
+   *                <p>Controls whether you can upload files from your local device to the streaming session.</p>
+   *             </dd>
+   *             <dt>PRINTING_TO_LOCAL_DEVICE</dt>
+   *             <dd>
+   *                <p>Controls whether you can print from the streaming session to a printer on your local device.</p>
+   *             </dd>
+   *             <dt>SMART_CARD_REDIRECTION</dt>
+   *             <dd>
+   *                <p>Controls whether smart cards connected to your local device are redirected into the streaming session. Applications in the session can access the local smart card for use cases such as authentication, digital signing, and email encryption.</p>
+   *             </dd>
+   *          </dl>
+   *          <note>
+   *             <p>Smart card redirection was on by default for existing streaming sessions that use a Windows single-session fleet. To preserve that behavior, <code>SMART_CARD_REDIRECTION</code> is <code>ENABLED</code> by default on existing stacks associated with Windows single-session fleets. To turn it off, call <code>UpdateStack</code> with <code>SMART_CARD_REDIRECTION</code> set to <code>DISABLED</code>, and use an image that includes the latest WorkSpaces Applications agent version.</p>
+   *          </note>
    * @public
    */
   Action: Action | undefined;
 
   /**
-   * <p>Indicates whether the action is enabled or disabled.</p>
+   * <p>Specifies whether to turn the action on or off.</p>
    * @public
    */
   Permission: Permission | undefined;
@@ -7091,6 +7204,24 @@ export interface UpdateFleetRequest {
    *             </li>
    *             <li>
    *                <p>stream.graphics.gr6f.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.24xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g7.48xlarge</p>
    *             </li>
    *          </ul>
    *          <p>The following instance types are available for Elastic fleets:</p>

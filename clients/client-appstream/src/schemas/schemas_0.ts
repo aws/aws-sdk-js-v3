@@ -516,6 +516,7 @@ const _SSSL = "SessionScriptS3Location";
 const _ST = "StartTime";
 const _STI = "SoftwaresToInstall";
 const _STU = "SoftwaresToUninstall";
+const _SU = "StreamingUrl";
 const _SUE = "ScreenshotsUploadEnabled";
 const _SURL = "StreamingURL";
 const _SV = "StreamView";
@@ -763,6 +764,7 @@ var AccountName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
 var AccountPassword: StaticSimpleSchema = [0, n0, _AP, 8, 0];
 var FilePath: StaticSimpleSchema = [0, n0, _FP, 8, 0];
 var LaunchParameters: StaticSimpleSchema = [0, n0, _LP, 8, 0];
+var StreamingUrl: StaticSimpleSchema = [0, n0, _SU, 8, 0];
 var UserAttributeValue: StaticSimpleSchema = [0, n0, _UAV, 8, 0];
 var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
 export var AccessEndpoint$: StaticStructureSchema = [3, n0, _AE,
@@ -953,7 +955,7 @@ export var CreateAppBlockBuilderStreamingURLRequest$: StaticStructureSchema = [3
 export var CreateAppBlockBuilderStreamingURLResult$: StaticStructureSchema = [3, n0, _CABBSURLRr,
   0,
   [_SURL, _Ex],
-  [0, 4]
+  [[() => StreamingUrl, 0], 4]
 ];
 export var CreateAppBlockRequest$: StaticStructureSchema = [3, n0, _CABR,
   0,
@@ -1033,7 +1035,7 @@ export var CreateImageBuilderStreamingURLRequest$: StaticStructureSchema = [3, n
 export var CreateImageBuilderStreamingURLResult$: StaticStructureSchema = [3, n0, _CIBSURLRr,
   0,
   [_SURL, _Ex],
-  [0, 4]
+  [[() => StreamingUrl, 0], 4]
 ];
 export var CreateImportedImageRequest$: StaticStructureSchema = [3, n0, _CIIR,
   0,
@@ -1063,7 +1065,7 @@ export var CreateStreamingURLRequest$: StaticStructureSchema = [3, n0, _CSURLR,
 export var CreateStreamingURLResult$: StaticStructureSchema = [3, n0, _CSURLRr,
   0,
   [_SURL, _Ex],
-  [0, 4]
+  [[() => StreamingUrl, 0], 4]
 ];
 export var CreateThemeForStackRequest$: StaticStructureSchema = [3, n0, _CTFSR,
   0,

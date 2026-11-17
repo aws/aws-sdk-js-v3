@@ -52,7 +52,7 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  *   FeedbackURL: "STRING_VALUE",
  *   UserSettings: [ // UserSettingList
  *     { // UserSetting
- *       Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN" || "AUTO_TIME_ZONE_REDIRECTION", // required
+ *       Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN" || "AUTO_TIME_ZONE_REDIRECTION" || "SMART_CARD_REDIRECTION", // required
  *       Permission: "ENABLED" || "DISABLED", // required
  *       MaximumLength: Number("int"),
  *     },
@@ -135,7 +135,7 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * //     ],
  * //     UserSettings: [ // UserSettingList
  * //       { // UserSetting
- * //         Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN" || "AUTO_TIME_ZONE_REDIRECTION", // required
+ * //         Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN" || "AUTO_TIME_ZONE_REDIRECTION" || "SMART_CARD_REDIRECTION", // required
  * //         Permission: "ENABLED" || "DISABLED", // required
  * //         MaximumLength: Number("int"),
  * //       },
