@@ -23,7 +23,7 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p> Removes tags from a resource. Supports telemetry rule resources and telemetry pipeline resources. </p>
+ * <p> Removes tags from a resource. Supports telemetry rule resources, telemetry pipeline resources, and third-party telemetry enrichment resources. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

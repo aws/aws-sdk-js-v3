@@ -1,7 +1,10 @@
 // smithy-typescript generated code
 import type {
   Action,
+  AzureEventHubTier,
+  AzureTelemetryType,
   CentralizationFailureReason,
+  ConnectorProvider,
   ContextGraphStatus,
   DeletionProtection,
   DestinationType,
@@ -18,6 +21,7 @@ import type {
   RecordFormat,
   ResourceType,
   RuleHealth,
+  SetupFormat,
   SignalType,
   SSEAlgorithm,
   Status,
@@ -29,6 +33,8 @@ import type {
   TelemetrySourceType,
   TelemetryState,
   TelemetryType,
+  ThirdPartyTelemetryEnrichmentStatus,
+  ThirdPartyTelemetrySource,
   WAFLogType,
 } from "./enums";
 
@@ -108,6 +114,850 @@ export interface AdvancedEventSelector {
    * @public
    */
   FieldSelectors: AdvancedFieldSelector[] | undefined;
+}
+
+/**
+ * <p>Selects every Azure subscription that Azure role-based access control (Azure RBAC) allows the connector to read. Subscriptions that the connector can read later are included automatically.</p>
+ * @public
+ */
+export interface AllSubscriptions {}
+
+/**
+ * <p>Configuration for Flow Log Storage Accounts that the setup creates, one in each Region that ingests Flow Logs.</p>
+ * @public
+ */
+export interface AzureAwsManagedFlowLogs {
+  /**
+   * <p>The number of days that the created Storage Accounts keep Flow Logs.</p>
+   * @public
+   */
+  RetentionDays: number | undefined;
+}
+
+/**
+ * <p>The configuration of a connector to Microsoft Azure.</p>
+ * @public
+ */
+export interface AzureConnectorConfiguration {
+  /**
+   * <p>The ID of the Microsoft Entra ID tenant.</p>
+   * @public
+   */
+  TenantIdentifier: string | undefined;
+
+  /**
+   * <p>The application (client) ID of the Azure app registration. The app registration must have a federated identity credential that trusts the Amazon Web Services OpenID Connect (OIDC) issuer for your account.</p>
+   * @public
+   */
+  ClientIdentifier: string | undefined;
+}
+
+/**
+ * <p>Limits a query to a management group or to specific subscriptions.</p>
+ * @public
+ */
+export interface AzureQueryScope {
+  /**
+   * <p>Limits the query to resources under this management group.</p>
+   * @public
+   */
+  ManagementGroupId?: string | undefined;
+
+  /**
+   * <p>Limits the query to these subscriptions. You can specify 1–1000 subscriptions.</p>
+   * @public
+   */
+  SubscriptionIds?: string[] | undefined;
+}
+
+/**
+ * <p>A query that lists Azure Event Hubs.</p>
+ * @public
+ */
+export interface AzureEventHubsQuery {
+  /**
+   * <p>Limits the query to a management group or to specific subscriptions.</p>
+   * @public
+   */
+  Scope?: AzureQueryScope | undefined;
+
+  /**
+   * <p>Limits the results to Event Hubs in this namespace.</p>
+   * @public
+   */
+  NamespaceName?: string | undefined;
+
+  /**
+   * <p>Limits the results to one Azure Region, for example <code>eastus</code>.</p>
+   * @public
+   */
+  Region?: string | undefined;
+}
+
+/**
+ * <p>A query that lists Azure management groups.</p>
+ * @public
+ */
+export interface AzureManagementGroupsQuery {
+  /**
+   * <p>Lists the management groups under this management group. If you omit this value, the query starts at the tenant root group.</p>
+   * @public
+   */
+  ParentManagementGroupId?: string | undefined;
+}
+
+/**
+ * <p>A query that lists the Azure Regions that have resources in scope.</p>
+ * @public
+ */
+export interface AzureRegionsQuery {
+  /**
+   * <p>Limits the query to a management group or to specific subscriptions.</p>
+   * @public
+   */
+  Scope?: AzureQueryScope | undefined;
+}
+
+/**
+ * <p>A tag filter. A resource matches only if it has the tag. Filters for different tag keys must all match; for one tag key, any of the values can match.</p>
+ * @public
+ */
+export interface TagFilter {
+  /**
+   * <p>The tag key. Up to 512 characters. The characters &lt; &gt; % &amp; \ ? / $ \{ \} ' " ` and control characters aren't allowed.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The tag values to match. A resource matches if it has any of these values for the tag key.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * <p>A query that lists Azure resources.</p>
+ * @public
+ */
+export interface AzureResourceIdsQuery {
+  /**
+   * <p>Limits the query to a management group or to specific subscriptions.</p>
+   * @public
+   */
+  Scope?: AzureQueryScope | undefined;
+
+  /**
+   * <p>Limits the results to one Azure resource type, for example <code>Microsoft.Compute/virtualMachines</code>.</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>Limits the results to one Azure Region, for example <code>eastus</code>.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>Limits the results to resources that have these tags. A resource must match the filters for all tag keys, and any of the values for each key. The service matches tag keys and values case-insensitively, as Azure does.</p>
+   * @public
+   */
+  TagFilters?: TagFilter[] | undefined;
+}
+
+/**
+ * <p>A query that lists the Azure resource types that have resources in scope.</p>
+ * @public
+ */
+export interface AzureResourceTypesQuery {
+  /**
+   * <p>Limits the query to a management group or to specific subscriptions.</p>
+   * @public
+   */
+  Scope?: AzureQueryScope | undefined;
+}
+
+/**
+ * <p>A query that lists Azure subscriptions.</p>
+ * @public
+ */
+export interface AzureSubscriptionsQuery {
+  /**
+   * <p>Limits the results to subscriptions under this management group.</p>
+   * @public
+   */
+  ManagementGroupId?: string | undefined;
+}
+
+/**
+ * <p>The type of Azure resource to list. Specify one type.</p>
+ * @public
+ */
+export type AzureConnectorQuery =
+  | AzureConnectorQuery.EventHubsMember
+  | AzureConnectorQuery.ManagementGroupsMember
+  | AzureConnectorQuery.RegionsMember
+  | AzureConnectorQuery.ResourceIdsMember
+  | AzureConnectorQuery.ResourceTypesMember
+  | AzureConnectorQuery.SubscriptionsMember
+  | AzureConnectorQuery.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AzureConnectorQuery {
+  /**
+   * <p>Lists Azure management groups.</p>
+   * @public
+   */
+  export interface ManagementGroupsMember {
+    ManagementGroups: AzureManagementGroupsQuery;
+    Subscriptions?: never;
+    ResourceTypes?: never;
+    Regions?: never;
+    ResourceIds?: never;
+    EventHubs?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Lists Azure subscriptions.</p>
+   * @public
+   */
+  export interface SubscriptionsMember {
+    ManagementGroups?: never;
+    Subscriptions: AzureSubscriptionsQuery;
+    ResourceTypes?: never;
+    Regions?: never;
+    ResourceIds?: never;
+    EventHubs?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Lists the Azure resource types that have resources in scope.</p>
+   * @public
+   */
+  export interface ResourceTypesMember {
+    ManagementGroups?: never;
+    Subscriptions?: never;
+    ResourceTypes: AzureResourceTypesQuery;
+    Regions?: never;
+    ResourceIds?: never;
+    EventHubs?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Lists the Azure Regions that have resources in scope.</p>
+   * @public
+   */
+  export interface RegionsMember {
+    ManagementGroups?: never;
+    Subscriptions?: never;
+    ResourceTypes?: never;
+    Regions: AzureRegionsQuery;
+    ResourceIds?: never;
+    EventHubs?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Lists Azure resources.</p>
+   * @public
+   */
+  export interface ResourceIdsMember {
+    ManagementGroups?: never;
+    Subscriptions?: never;
+    ResourceTypes?: never;
+    Regions?: never;
+    ResourceIds: AzureResourceIdsQuery;
+    EventHubs?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Lists Azure Event Hubs.</p>
+   * @public
+   */
+  export interface EventHubsMember {
+    ManagementGroups?: never;
+    Subscriptions?: never;
+    ResourceTypes?: never;
+    Regions?: never;
+    ResourceIds?: never;
+    EventHubs: AzureEventHubsQuery;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ManagementGroups?: never;
+    Subscriptions?: never;
+    ResourceTypes?: never;
+    Regions?: never;
+    ResourceIds?: never;
+    EventHubs?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ManagementGroups: (value: AzureManagementGroupsQuery) => T;
+    Subscriptions: (value: AzureSubscriptionsQuery) => T;
+    ResourceTypes: (value: AzureResourceTypesQuery) => T;
+    Regions: (value: AzureRegionsQuery) => T;
+    ResourceIds: (value: AzureResourceIdsQuery) => T;
+    EventHubs: (value: AzureEventHubsQuery) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Information about an Azure Event Hub.</p>
+ * @public
+ */
+export interface AzureEventHubSummary {
+  /**
+   * <p>The Azure Resource Manager ID of the Event Hub.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The name of the Event Hub.</p>
+   * @public
+   */
+  EventHubName: string | undefined;
+
+  /**
+   * <p>The name of the Event Hubs namespace that contains the Event Hub.</p>
+   * @public
+   */
+  NamespaceName: string | undefined;
+
+  /**
+   * <p>The fully qualified host name of the Event Hubs namespace, for example <code>&lt;namespace&gt;.servicebus.windows.net</code>. The suffix differs in sovereign clouds.</p>
+   * @public
+   */
+  FullyQualifiedNamespace: string | undefined;
+
+  /**
+   * <p>The Azure Region of the Event Hub, for example <code>eastus</code>.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The Azure subscription that contains the Event Hub.</p>
+   * @public
+   */
+  SubscriptionId?: string | undefined;
+}
+
+/**
+ * <p>Information about an Azure management group.</p>
+ * @public
+ */
+export interface AzureManagementGroupSummary {
+  /**
+   * <p>The ID of the management group.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the management group.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The display name of the management group.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+}
+
+/**
+ * <p>Information about an Azure resource.</p>
+ * @public
+ */
+export interface AzureResourceIdentifierSummary {
+  /**
+   * <p>The Azure Resource Manager ID of the resource.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The Azure resource type, for example <code>Microsoft.Compute/virtualMachines</code>.</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The Azure Region of the resource, for example <code>eastus</code>.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The Azure subscription that contains the resource.</p>
+   * @public
+   */
+  SubscriptionId?: string | undefined;
+
+  /**
+   * <p>The tags on the resource. Absent if the resource has no tags.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Information about an Azure subscription.</p>
+ * @public
+ */
+export interface AzureSubscriptionSummary {
+  /**
+   * <p>The ID of the subscription.</p>
+   * @public
+   */
+  SubscriptionId: string | undefined;
+
+  /**
+   * <p>The display name of the subscription.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The state of the subscription in Azure, for example <code>Enabled</code>.</p>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>The ID of the management group that contains the subscription.</p>
+   * @public
+   */
+  ManagementGroupId?: string | undefined;
+}
+
+/**
+ * <p>The results of an Azure discovery query. The populated member matches the member of the query.</p>
+ * @public
+ */
+export type AzureConnectorQueryResults =
+  | AzureConnectorQueryResults.EventHubsMember
+  | AzureConnectorQueryResults.ManagementGroupsMember
+  | AzureConnectorQueryResults.RegionsMember
+  | AzureConnectorQueryResults.ResourceIdsMember
+  | AzureConnectorQueryResults.ResourceTypesMember
+  | AzureConnectorQueryResults.SubscriptionsMember
+  | AzureConnectorQueryResults.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AzureConnectorQueryResults {
+  /**
+   * <p>The Azure management groups.</p>
+   * @public
+   */
+  export interface ManagementGroupsMember {
+    ManagementGroups: AzureManagementGroupSummary[];
+    Subscriptions?: never;
+    ResourceTypes?: never;
+    Regions?: never;
+    ResourceIds?: never;
+    EventHubs?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Azure subscriptions.</p>
+   * @public
+   */
+  export interface SubscriptionsMember {
+    ManagementGroups?: never;
+    Subscriptions: AzureSubscriptionSummary[];
+    ResourceTypes?: never;
+    Regions?: never;
+    ResourceIds?: never;
+    EventHubs?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Azure resource types.</p>
+   * @public
+   */
+  export interface ResourceTypesMember {
+    ManagementGroups?: never;
+    Subscriptions?: never;
+    ResourceTypes: string[];
+    Regions?: never;
+    ResourceIds?: never;
+    EventHubs?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Azure Regions.</p>
+   * @public
+   */
+  export interface RegionsMember {
+    ManagementGroups?: never;
+    Subscriptions?: never;
+    ResourceTypes?: never;
+    Regions: string[];
+    ResourceIds?: never;
+    EventHubs?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Azure resources.</p>
+   * @public
+   */
+  export interface ResourceIdsMember {
+    ManagementGroups?: never;
+    Subscriptions?: never;
+    ResourceTypes?: never;
+    Regions?: never;
+    ResourceIds: AzureResourceIdentifierSummary[];
+    EventHubs?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Azure Event Hubs.</p>
+   * @public
+   */
+  export interface EventHubsMember {
+    ManagementGroups?: never;
+    Subscriptions?: never;
+    ResourceTypes?: never;
+    Regions?: never;
+    ResourceIds?: never;
+    EventHubs: AzureEventHubSummary[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ManagementGroups?: never;
+    Subscriptions?: never;
+    ResourceTypes?: never;
+    Regions?: never;
+    ResourceIds?: never;
+    EventHubs?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ManagementGroups: (value: AzureManagementGroupSummary[]) => T;
+    Subscriptions: (value: AzureSubscriptionSummary[]) => T;
+    ResourceTypes: (value: string[]) => T;
+    Regions: (value: string[]) => T;
+    ResourceIds: (value: AzureResourceIdentifierSummary[]) => T;
+    EventHubs: (value: AzureEventHubSummary[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The Azure Storage Accounts in one Azure Region that store Flow Logs.</p>
+ * @public
+ */
+export interface AzureFlowLogStorageAccountScope {
+  /**
+   * <p>The Azure Region of the Storage Accounts, for example <code>eastus</code>.</p>
+   * @public
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>The Azure Resource Manager IDs of the Storage Accounts.</p>
+   * @public
+   */
+  StorageAccountIds: string[] | undefined;
+}
+
+/**
+ * <p>Configuration for existing Azure Storage Accounts that already receive your Flow Logs.</p>
+ * @public
+ */
+export interface AzureCustomerManagedFlowLogs {
+  /**
+   * <p>The Storage Accounts that store your Flow Logs, listed by Azure Region. Each Region can appear only once, and each Storage Account can appear only once across all Regions.</p>
+   * @public
+   */
+  StorageAccounts: AzureFlowLogStorageAccountScope[] | undefined;
+}
+
+/**
+ * <p>Configuration of the Azure Event Hubs that the setup creates to deliver resource logs.</p>
+ * @public
+ */
+export interface AzureEventHubConfiguration {
+  /**
+   * <p>The Event Hubs namespace tier.</p>
+   * @public
+   */
+  Tier: AzureEventHubTier | undefined;
+
+  /**
+   * <p>The number of partitions in each Event Hub. The Standard tier allows 1–32 partitions and the Premium tier allows 1–100. On the Standard tier, you can't change this value after the setup creates the Event Hub.</p>
+   * @public
+   */
+  PartitionCount: number | undefined;
+}
+
+/**
+ * <p>The location of your Flow Logs: your existing Storage Accounts, or Storage Accounts that the setup creates. Specify one.</p>
+ * @public
+ */
+export type AzureFlowLogsInfrastructure =
+  | AzureFlowLogsInfrastructure.AwsManagedMember
+  | AzureFlowLogsInfrastructure.CustomerManagedMember
+  | AzureFlowLogsInfrastructure.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AzureFlowLogsInfrastructure {
+  /**
+   * <p>Use your existing Storage Accounts that already store Flow Logs.</p>
+   * @public
+   */
+  export interface CustomerManagedMember {
+    CustomerManaged: AzureCustomerManagedFlowLogs;
+    AwsManaged?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Create one Storage Account in each Azure Region that ingests Flow Logs, in the subscription specified by <code>SubscriptionId</code>.</p>
+   * @public
+   */
+  export interface AwsManagedMember {
+    CustomerManaged?: never;
+    AwsManaged: AzureAwsManagedFlowLogs;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    CustomerManaged?: never;
+    AwsManaged?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    CustomerManaged: (value: AzureCustomerManagedFlowLogs) => T;
+    AwsManaged: (value: AzureAwsManagedFlowLogs) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The choices for the Azure infrastructure that the setup creates.</p>
+ * @public
+ */
+export interface AzureInfrastructure {
+  /**
+   * <p>The Azure subscription in which the setup creates the Event Hubs namespaces and, for <code>AwsManaged</code> Flow Logs, the Storage Accounts. You must specify this value if an <code>AzureScopeItem</code> collects <code>ResourceLogs</code>, or if you specify <code>EventHubs</code> or <code>AwsManaged</code> Flow Logs.</p>
+   * @public
+   */
+  SubscriptionId?: string | undefined;
+
+  /**
+   * <p>The Event Hubs configuration. Specify exactly one entry, which applies to the Event Hubs in every Azure Region. This value applies only if an <code>AzureScopeItem</code> collects <code>ResourceLogs</code>. If you omit it, the setup uses default settings.</p>
+   * @public
+   */
+  EventHubs?: AzureEventHubConfiguration[] | undefined;
+
+  /**
+   * <p>The location of your Flow Logs. You must specify this value if an <code>AzureScopeItem</code> collects <code>FlowLogs</code>, and you can specify it only in that case.</p>
+   * @public
+   */
+  FlowLogs?: AzureFlowLogsInfrastructure | undefined;
+}
+
+/**
+ * <p>Azure resources in one Azure Region.</p>
+ * @public
+ */
+export interface AzureResourceIdScope {
+  /**
+   * <p>The Azure Region of the resources, for example <code>eastus</code>. Required because an Azure resource ID doesn't include the Region.</p>
+   * @public
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>The Azure Resource Manager IDs of the resources.</p>
+   * @public
+   */
+  ResourceIds: string[] | undefined;
+}
+
+/**
+ * <p>The subscriptions to find resources in: all subscriptions that the connector can read, or a list of subscriptions. Specify one.</p>
+ * @public
+ */
+export type AzureSubscriptionScope =
+  | AzureSubscriptionScope.AllMember
+  | AzureSubscriptionScope.IdsMember
+  | AzureSubscriptionScope.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AzureSubscriptionScope {
+  /**
+   * <p>All subscriptions that Azure role-based access control (Azure RBAC) allows the connector to read. Subscriptions that the connector can read later are included automatically.</p>
+   * @public
+   */
+  export interface AllMember {
+    All: AllSubscriptions;
+    Ids?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of 1–1000 subscription IDs.</p>
+   * @public
+   */
+  export interface IdsMember {
+    All?: never;
+    Ids: string[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    All?: never;
+    Ids?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    All: (value: AllSubscriptions) => T;
+    Ids: (value: string[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The Azure resources to collect telemetry from. These are the resources found by <code>Subscriptions</code>, <code>Regions</code>, and <code>ResourceTypes</code>, optionally narrowed by <code>TagFilters</code>, plus any resources listed in <code>Resources</code>. You can specify:</p> <ul> <li> <p> <code>Subscriptions</code>, <code>Regions</code>, and <code>ResourceTypes</code> together</p> </li> <li> <p> <code>Resources</code> </p> </li> <li> <p>Both</p> </li> </ul>
+ * @public
+ */
+export interface AzureScope {
+  /**
+   * <p>The subscriptions to find resources in: all subscriptions that the connector can read, or a list of subscriptions. Required when you use <code>Regions</code> and <code>ResourceTypes</code>.</p>
+   * @public
+   */
+  Subscriptions?: AzureSubscriptionScope | undefined;
+
+  /**
+   * <p>The Azure Regions to find resources in. Required when you use <code>Subscriptions</code> and <code>ResourceTypes</code>.</p>
+   * @public
+   */
+  Regions?: string[] | undefined;
+
+  /**
+   * <p>The Azure resource types to find. Required when you use <code>Subscriptions</code> and <code>Regions</code>.</p>
+   * @public
+   */
+  ResourceTypes?: string[] | undefined;
+
+  /**
+   * <p>Limits the resources found by <code>Subscriptions</code>, <code>Regions</code>, and <code>ResourceTypes</code> to those that have these tags. You can specify up to 50 filters.</p>
+   * @public
+   */
+  TagFilters?: TagFilter[] | undefined;
+
+  /**
+   * <p>Specific Azure resources, listed by Azure Region.</p>
+   * @public
+   */
+  Resources?: AzureResourceIdScope[] | undefined;
+}
+
+/**
+ * <p>The telemetry types to collect from a set of Azure resources.</p>
+ * @public
+ */
+export interface AzureScopeItem {
+  /**
+   * <p>The telemetry types to collect.</p>
+   * @public
+   */
+  TelemetryTypes: AzureTelemetryType[] | undefined;
+
+  /**
+   * <p>The Azure resources to collect telemetry from.</p>
+   * @public
+   */
+  Scope: AzureScope | undefined;
+}
+
+/**
+ * <p>The Microsoft Azure source configuration for a third-party telemetry enrichment.</p>
+ * @public
+ */
+export interface AzureTelemetrySourceConfigurationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Config connector for the Microsoft Azure tenant to collect resource metadata from.</p>
+   * @public
+   */
+  AwsConfigConnectorArn: string | undefined;
+}
+
+/**
+ * <p>The Microsoft Azure source configuration of a third-party telemetry enrichment.</p>
+ * @public
+ */
+export interface AzureTelemetrySourceConfigurationOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Config connector that the enrichment uses.</p>
+   * @public
+   */
+  AwsConfigConnectorArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service-linked configuration recorder that CloudWatch created in your account for the enrichment.</p>
+   * @public
+   */
+  ServiceLinkedRecorderArn?: string | undefined;
 }
 
 /**
@@ -249,6 +1099,30 @@ export interface DestinationMetricsConfiguration {
 }
 
 /**
+ * <p>Configuration for backing up centralized profiles data to a secondary Region.</p>
+ * @public
+ */
+export interface ProfilesBackupConfiguration {
+  /**
+   * <p>The backup Region for profiles, within the primary destination account, to which the service centralizes profiles data.</p>
+   * @public
+   */
+  Region: string | undefined;
+}
+
+/**
+ * <p>Configuration for centralization destination profiles, including backup settings.</p>
+ * @public
+ */
+export interface DestinationProfilesConfiguration {
+  /**
+   * <p>Configuration that defines the backup Region for the profiles backup destination.</p>
+   * @public
+   */
+  BackupConfiguration?: ProfilesBackupConfiguration | undefined;
+}
+
+/**
  * <p>Configuration specifying the primary destination for centralized telemetry data.</p>
  * @public
  */
@@ -276,6 +1150,12 @@ export interface CentralizationRuleDestination {
    * @public
    */
   DestinationMetricsConfiguration?: DestinationMetricsConfiguration | undefined;
+
+  /**
+   * <p>Profile-specific configuration for centralization destination profiles.</p>
+   * @public
+   */
+  DestinationProfilesConfiguration?: DestinationProfilesConfiguration | undefined;
 }
 
 /**
@@ -321,6 +1201,18 @@ export interface SourceMetricsConfiguration {
 }
 
 /**
+ * <p>Configuration for selecting source profiles for centralization.</p>
+ * @public
+ */
+export interface SourceProfilesConfiguration {
+  /**
+   * <p>The filter expression that selects which source profiles to centralize.</p>
+   * @public
+   */
+  ProfilesSelectionCriteria?: string | undefined;
+}
+
+/**
  * <p>Configuration specifying the source of telemetry data to be centralized.</p>
  * @public
  */
@@ -348,6 +1240,12 @@ export interface CentralizationRuleSource {
    * @public
    */
   SourceMetricsConfiguration?: SourceMetricsConfiguration | undefined;
+
+  /**
+   * <p>Profile-specific configuration for centralization source profiles.</p>
+   * @public
+   */
+  SourceProfilesConfiguration?: SourceProfilesConfiguration | undefined;
 
   /**
    * <p>Configuration that enables centralization of the context graph for the selected sources. Including this configuration in a rule's source opts the rule into centralizing the context graph for the selected sources.</p>
@@ -567,6 +1465,195 @@ export interface ConfigurationSummary {
 }
 
 /**
+ * <p>The configuration for connecting to a third-party cloud provider. Specify one provider.</p>
+ * @public
+ */
+export type ConnectorConfiguration =
+  | ConnectorConfiguration.AzureMember
+  | ConnectorConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ConnectorConfiguration {
+  /**
+   * <p>The configuration of a connector to Microsoft Azure.</p>
+   * @public
+   */
+  export interface AzureMember {
+    Azure: AzureConnectorConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Azure?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Azure: (value: AzureConnectorConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A connector to a third-party cloud provider.</p>
+ * @public
+ */
+export interface Connector {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The cloud provider that the connector connects to.</p>
+   * @public
+   */
+  Provider: ConnectorProvider | undefined;
+
+  /**
+   * <p>The configuration for connecting to the third-party cloud provider.</p>
+   * @public
+   */
+  ConnectorConfiguration: ConnectorConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that CloudWatch assumes to obtain credentials for the third-party cloud provider.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The name of the connector.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The time when the connector was created, in milliseconds since the Unix epoch.</p>
+   * @public
+   */
+  CreatedTimeStamp?: number | undefined;
+}
+
+/**
+ * <p>What to list in a cloud provider. Specify one provider.</p>
+ * @public
+ */
+export type ConnectorQuery =
+  | ConnectorQuery.AzureMember
+  | ConnectorQuery.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ConnectorQuery {
+  /**
+   * <p>The type of Azure resource to list.</p>
+   * @public
+   */
+  export interface AzureMember {
+    Azure: AzureConnectorQuery;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Azure?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Azure: (value: AzureConnectorQuery) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The results of a query. The populated member matches the member of the query.</p>
+ * @public
+ */
+export type ConnectorQueryResults =
+  | ConnectorQueryResults.AzureMember
+  | ConnectorQueryResults.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ConnectorQueryResults {
+  /**
+   * <p>The results of an Azure discovery query.</p>
+   * @public
+   */
+  export interface AzureMember {
+    Azure: AzureConnectorQueryResults;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Azure?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Azure: (value: AzureConnectorQueryResults) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Summary information about a connector.</p>
+ * @public
+ */
+export interface ConnectorSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The cloud provider that the connector connects to.</p>
+   * @public
+   */
+  Provider: ConnectorProvider | undefined;
+
+  /**
+   * <p>The name of the connector.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The time when the connector was created, in milliseconds since the Unix epoch.</p>
+   * @public
+   */
+  CreatedTimeStamp?: number | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateCentralizationRuleForOrganizationInput {
@@ -622,6 +1709,52 @@ export interface ValidationError {
    * @public
    */
   FieldMap?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectorInput {
+  /**
+   * <p>The configuration for connecting to the third-party cloud provider.</p>
+   * @public
+   */
+  ConnectorConfiguration: ConnectorConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that CloudWatch assumes to get credentials for the third-party cloud provider. The role must trust the Amazon CloudWatch Observability Admin service principal, <code>observabilityadmin.amazonaws.com</code>. The role must also allow <code>sts:GetWebIdentityToken</code> for the provider's token exchange audience.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The name of the connector. The name must be unique in the account and Region (case-sensitive). If another connector already uses the name, the request fails with a <code>ConflictException</code>.</p> <p>The name can contain letters, digits, hyphens (-), underscores (_) and periods (.), and must start with a letter.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The tags that you want to apply to the connector.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the operation completes no more than one time. If you use an Amazon Web Services SDK, the SDK generates this value and reuses it on retries. If this token matches a previous request with the same parameters, the service returns the connector from the first request without an error. If you use the same token with different parameters, including different tags, the service returns a <code>ValidationException</code>. This operation is idempotent when you use the same token and parameters.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectorOutput {
+  /**
+   * <p>The connector that this request created.</p>
+   * @public
+   */
+  Connector: Connector | undefined;
 }
 
 /**
@@ -1020,7 +2153,7 @@ export interface TelemetryRule {
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p> The type of telemetry to collect (Logs, Metrics, or Traces). </p>
+   * <p> The type of telemetry to collect (Logs, Metrics, Traces, or Insights). </p>
    * @public
    */
   TelemetryType: TelemetryType | undefined;
@@ -1180,6 +2313,22 @@ export interface DeleteCentralizationRuleForOrganizationInput {
 /**
  * @public
  */
+export interface DeleteConnectorInput {
+  /**
+   * <p>The connector to delete. Specify one of the following:</p> <ul> <li> <p>The Amazon Resource Name (ARN) of the connector</p> </li> <li> <p>The ID of the connector</p> </li> </ul>
+   * @public
+   */
+  ConnectorIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConnectorOutput {}
+
+/**
+ * @public
+ */
 export interface DeleteDatasetIntegrationInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset integration to delete.</p>
@@ -1323,6 +2472,240 @@ export interface GetCentralizationRuleForOrganizationOutput {
    * @public
    */
   CentralizationRule?: CentralizationRule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConnectorInput {
+  /**
+   * <p>The connector. Specify one of the following:</p> <ul> <li> <p>The Amazon Resource Name (ARN) of the connector</p> </li> <li> <p>The ID of the connector</p> </li> </ul>
+   * @public
+   */
+  ConnectorIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConnectorOutput {
+  /**
+   * <p>The connector.</p>
+   * @public
+   */
+  Connector: Connector | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConnectorTelemetryManifestInput {
+  /**
+   * <p>The connector. Specify one of the following:</p> <ul> <li> <p>The Amazon Resource Name (ARN) of the connector</p> </li> <li> <p>The ID of the connector</p> </li> </ul>
+   * @public
+   */
+  ConnectorIdentifier: string | undefined;
+}
+
+/**
+ * <p>The choices for the infrastructure that the setup creates. Specify one provider, which must match the provider in <code>Source</code>.</p>
+ * @public
+ */
+export type TelemetryManifestInfrastructure =
+  | TelemetryManifestInfrastructure.AzureMember
+  | TelemetryManifestInfrastructure.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TelemetryManifestInfrastructure {
+  /**
+   * <p>The choices for the Azure infrastructure that the setup creates.</p>
+   * @public
+   */
+  export interface AzureMember {
+    Azure: AzureInfrastructure;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Azure?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Azure: (value: AzureInfrastructure) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The resources to collect telemetry from, for one cloud provider. Specify one provider.</p>
+ * @public
+ */
+export type TelemetryManifestSource =
+  | TelemetryManifestSource.AzureMember
+  | TelemetryManifestSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TelemetryManifestSource {
+  /**
+   * <p>The Azure scope items. Each <code>AzureScopeItem</code> specifies a set of Azure resources and the telemetry types to collect from them. You can specify up to 100 scope items.</p>
+   * @public
+   */
+  export interface AzureMember {
+    Azure: AzureScopeItem[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Azure?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Azure: (value: AzureScopeItem[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Declares which resources in a cloud provider to collect telemetry from and which telemetry types to collect.</p>
+ * @public
+ */
+export interface TelemetryManifest {
+  /**
+   * <p>The resources to collect telemetry from and the telemetry types to collect.</p>
+   * @public
+   */
+  Source: TelemetryManifestSource | undefined;
+
+  /**
+   * <p>The choices for the infrastructure that the setup creates in your cloud provider, such as the subscription that contains the Event Hubs and their size. If you omit this value, the setup uses default settings. If an <code>AzureScopeItem</code> collects <code>ResourceLogs</code>, you must specify at least the Azure <code>SubscriptionId</code>.</p>
+   * @public
+   */
+  Infrastructure?: TelemetryManifestInfrastructure | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConnectorTelemetryManifestOutput {
+  /**
+   * <p>The telemetry manifest.</p>
+   * @public
+   */
+  Manifest: TelemetryManifest | undefined;
+
+  /**
+   * <p>The current version of the telemetry manifest. Pass this value as <code>ExpectedVersion</code> when you next call <code>PutConnectorTelemetryManifest</code>.</p>
+   * @public
+   */
+  Version: number | undefined;
+
+  /**
+   * <p>The time when the telemetry manifest was last updated, in milliseconds since the Unix epoch.</p>
+   * @public
+   */
+  LastUpdateTimeStamp?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConnectorTelemetrySetupInput {
+  /**
+   * <p>The connector whose telemetry manifest you want to generate the setup from. Specify one of the following:</p> <ul> <li> <p>The Amazon Resource Name (ARN) of the connector</p> </li> <li> <p>The ID of the connector</p> </li> </ul>
+   * @public
+   */
+  ConnectorIdentifier: string | undefined;
+
+  /**
+   * <p>The format of the setup artifacts. If you omit this value, the service uses the default format for the connector's provider (<code>BICEP</code> for an Azure connector). If the provider doesn't support the format, the service returns a <code>ValidationException</code>.</p>
+   * @public
+   */
+  Format?: SetupFormat | undefined;
+}
+
+/**
+ * <p>A setup artifact, which is one file in the requested format.</p>
+ * @public
+ */
+export interface SetupArtifact {
+  /**
+   * <p>The suggested file name, for example <code>main.bicep</code>.</p>
+   * @public
+   */
+  FileName: string | undefined;
+
+  /**
+   * <p>The content of the artifact.</p>
+   * @public
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>The format of the artifact.</p>
+   * @public
+   */
+  Format: SetupFormat | undefined;
+
+  /**
+   * <p>The content type of the artifact, for example <code>text/plain</code>.</p>
+   * @public
+   */
+  ContentType?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConnectorTelemetrySetupOutput {
+  /**
+   * <p>The setup artifacts to apply in your cloud provider.</p>
+   * @public
+   */
+  Artifacts: SetupArtifact[] | undefined;
+
+  /**
+   * <p>The permissions or roles in your cloud provider that you need to apply the artifacts, for example Azure Contributor and User Access Administrator.</p>
+   * @public
+   */
+  RequiredPermissionsToApply?: string[] | undefined;
+
+  /**
+   * <p>The format of the setup artifacts.</p>
+   * @public
+   */
+  Format: SetupFormat | undefined;
+
+  /**
+   * <p>The cloud provider that the setup artifacts are for.</p>
+   * @public
+   */
+  Provider?: ConnectorProvider | undefined;
+
+  /**
+   * <p>The version of the telemetry manifest that the service generated the setup artifacts from.</p>
+   * @public
+   */
+  ManifestVersion?: number | undefined;
 }
 
 /**
@@ -1534,6 +2917,24 @@ export interface GetTelemetryPipelineInput {
 }
 
 /**
+ * <p>A summary of source activation for an external-cloud telemetry pipeline, with the number of active sources and the total number of discovered sources.</p>
+ * @public
+ */
+export interface SourceProgress {
+  /**
+   * <p>The number of discovered sources that are active and sending telemetry to the pipeline.</p>
+   * @public
+   */
+  Active?: number | undefined;
+
+  /**
+   * <p>The total number of sources discovered for the pipeline.</p>
+   * @public
+   */
+  Total?: number | undefined;
+}
+
+/**
  * <p>Provides detailed information about the status of a telemetry pipeline, including reasons for specific states.</p>
  * @public
  */
@@ -1597,6 +2998,24 @@ export interface TelemetryPipeline {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp when the most recent refresh of the telemetry pipeline started. This field is only present for external-cloud pipelines that you have refreshed.</p>
+   * @public
+   */
+  LastRefreshTimeStamp?: number | undefined;
+
+  /**
+   * <p>The progress of source activation for the telemetry pipeline. This field is only present for external-cloud pipelines.</p>
+   * @public
+   */
+  SourceProgress?: SourceProgress | undefined;
+
+  /**
+   * <p>A summary of the pipeline configuration components.</p>
+   * @public
+   */
+  ConfigurationSummary?: ConfigurationSummary | undefined;
 }
 
 /**
@@ -1739,6 +3158,97 @@ export interface GetTelemetryRuleForOrganizationOutput {
 }
 
 /**
+ * @public
+ */
+export interface GetThirdPartyTelemetryEnrichmentInput {
+  /**
+   * <p>The identifier of the enrichment to return. You can specify one of the following:</p> <ul> <li> <p>The name of the enrichment.</p> </li> <li> <p>The Amazon Resource Name (ARN) of the enrichment.</p> </li> </ul>
+   * @public
+   */
+  TelemetryEnrichmentIdentifier: string | undefined;
+}
+
+/**
+ * <p>The third-party source configuration of an enrichment.</p>
+ * @public
+ */
+export type TelemetrySourceConfigurationOutput =
+  | TelemetrySourceConfigurationOutput.AzureMember
+  | TelemetrySourceConfigurationOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TelemetrySourceConfigurationOutput {
+  /**
+   * <p>The configuration of the Microsoft Azure source.</p>
+   * @public
+   */
+  export interface AzureMember {
+    Azure: AzureTelemetrySourceConfigurationOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Azure?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Azure: (value: AzureTelemetrySourceConfigurationOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetThirdPartyTelemetryEnrichmentOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the enrichment.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the enrichment.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current status of the enrichment. Valid values:</p> <ul> <li> <p> <code>Initializing</code> - CloudWatch is setting up the enrichment. Some telemetry can be enriched before setup completes.</p> </li> <li> <p> <code>Running</code> - The enrichment is active.</p> </li> <li> <p> <code>Stopped</code> - The enrichment is stopped.</p> </li> <li> <p> <code>Impaired</code> - The enrichment has a problem. <code>StatusReason</code> describes the problem.</p> </li> </ul>
+   * @public
+   */
+  Status: ThirdPartyTelemetryEnrichmentStatus | undefined;
+
+  /**
+   * <p>The reason for the current status. This field is present when the status is <code>Impaired</code>.</p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+
+  /**
+   * <p>The source configuration of the enrichment.</p>
+   * @public
+   */
+  TelemetrySourceConfiguration: TelemetrySourceConfigurationOutput | undefined;
+
+  /**
+   * <p>The tags associated with the enrichment.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
  * <p>Contains summary information about an S3 Table integration for listing operations.</p>
  * @public
  */
@@ -1805,6 +3315,40 @@ export interface ListCentralizationRulesForOrganizationOutput {
 /**
  * @public
  */
+export interface ListConnectorsInput {
+  /**
+   * <p>The maximum number of connectors to return in one call. The default is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results, returned by a previous call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsOutput {
+  /**
+   * <p>The connectors in the account and Region.</p>
+   * @public
+   */
+  ConnectorSummaries: ConnectorSummary[] | undefined;
+
+  /**
+   * <p>The token to use in the next call to get the next page of results. Absent when there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListDatasetIntegrationsInput {
   /**
    * <p>The maximum number of results to return in a single call.</p>
@@ -1831,6 +3375,52 @@ export interface ListDatasetIntegrationsOutput {
 
   /**
    * <p>A token to resume pagination of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourcesByConnectorInput {
+  /**
+   * <p>The connector to use for the query. Specify one of the following:</p> <ul> <li> <p>The Amazon Resource Name (ARN) of the connector</p> </li> <li> <p>The ID of the connector</p> </li> </ul>
+   * @public
+   */
+  ConnectorIdentifier: string | undefined;
+
+  /**
+   * <p>What to list: one cloud provider, and one type of resource in that provider.</p>
+   * @public
+   */
+  Selector: ConnectorQuery | undefined;
+
+  /**
+   * <p>The maximum number of results to return in one call. For an <code>EventHubs</code> query, a page can contain more results than this value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results, returned by a previous call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourcesByConnectorOutput {
+  /**
+   * <p>The results, in the same shape as the <code>Selector</code> that you specified.</p>
+   * @public
+   */
+  Results: ConnectorQueryResults | undefined;
+
+  /**
+   * <p>The token to use in the next call to get the next page of results. Absent when there are no more results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1889,7 +3479,7 @@ export interface TelemetryConfiguration {
   AccountIdentifier?: string | undefined;
 
   /**
-   * <p> The configuration state for the resource, for example <code>\{ Logs: NotApplicable; Metrics: Enabled; Traces: NotApplicable; \}</code>. </p>
+   * <p> The configuration state for the resource, for example <code>\{ Logs: NotApplicable; Metrics: Enabled; Traces: NotApplicable; Insights: NotApplicable; \}</code>. </p>
    * @public
    */
   TelemetryConfigurationState?: Partial<Record<TelemetryType, TelemetryState>> | undefined;
@@ -2203,7 +3793,7 @@ export interface TelemetryRuleSummary {
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p> The type of telemetry (Logs, Metrics, or Traces) the rule configures. </p>
+   * <p> The type of telemetry (Logs, Metrics, Traces, or Insights) the rule configures. </p>
    * @public
    */
   TelemetryType?: TelemetryType | undefined;
@@ -2287,6 +3877,116 @@ export interface ListTelemetryRulesForOrganizationOutput {
 /**
  * @public
  */
+export interface ListThirdPartyTelemetryEnrichmentsInput {
+  /**
+   * <p>Returns only the enrichments that have this status. Valid values:</p> <ul> <li> <p> <code>Initializing</code> - CloudWatch is setting up the enrichment. Some telemetry can be enriched before setup completes.</p> </li> <li> <p> <code>Running</code> - The enrichment is active.</p> </li> <li> <p> <code>Stopped</code> - The enrichment is stopped.</p> </li> <li> <p> <code>Impaired</code> - The enrichment has a problem. <code>StatusReason</code> describes the problem.</p> </li> </ul>
+   * @public
+   */
+  Status?: ThirdPartyTelemetryEnrichmentStatus | undefined;
+
+  /**
+   * <p>Returns only the enrichments for this third-party telemetry source.</p>
+   * @public
+   */
+  TelemetrySource?: ThirdPartyTelemetrySource | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. If you omit this parameter, the operation returns up to 100 results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. A previous call generates this token. If you omit this parameter, the operation returns the first page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a third-party telemetry enrichment, as returned by <code>ListThirdPartyTelemetryEnrichments</code>.</p>
+ * @public
+ */
+export interface ThirdPartyTelemetryEnrichmentSummary {
+  /**
+   * <p>The name of the enrichment.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The third-party telemetry source of the enrichment.</p>
+   * @public
+   */
+  TelemetrySource?: ThirdPartyTelemetrySource | undefined;
+
+  /**
+   * <p>The current status of the enrichment. Valid values:</p> <ul> <li> <p> <code>Initializing</code> - CloudWatch is setting up the enrichment. Some telemetry can be enriched before setup completes.</p> </li> <li> <p> <code>Running</code> - The enrichment is active.</p> </li> <li> <p> <code>Stopped</code> - The enrichment is stopped.</p> </li> <li> <p> <code>Impaired</code> - The enrichment has a problem. <code>StatusReason</code> describes the problem.</p> </li> </ul>
+   * @public
+   */
+  Status?: ThirdPartyTelemetryEnrichmentStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListThirdPartyTelemetryEnrichmentsOutput {
+  /**
+   * <p>The enrichments in your account and Region.</p>
+   * @public
+   */
+  TelemetryEnrichments?: ThirdPartyTelemetryEnrichmentSummary[] | undefined;
+
+  /**
+   * <p>A token to resume pagination of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutConnectorTelemetryManifestInput {
+  /**
+   * <p>The connector. Specify one of the following:</p> <ul> <li> <p>The Amazon Resource Name (ARN) of the connector</p> </li> <li> <p>The ID of the connector</p> </li> </ul>
+   * @public
+   */
+  ConnectorIdentifier: string | undefined;
+
+  /**
+   * <p>The telemetry manifest.</p>
+   * @public
+   */
+  Manifest: TelemetryManifest | undefined;
+
+  /**
+   * <p>The version of the telemetry manifest that you expect to replace, as returned by <code>GetConnectorTelemetryManifest</code>. Omit this value when you create the first telemetry manifest. If the value doesn't match the current version, the request fails with a <code>ConflictException</code>.</p>
+   * @public
+   */
+  ExpectedVersion?: number | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the operation completes no more than one time. If you use an Amazon Web Services SDK, the SDK generates this value and reuses it on retries. If this token matches a previous request with the same telemetry manifest, the service returns the stored version without an error. If you use the same token with a different telemetry manifest, the service returns a <code>ValidationException</code>. This operation is idempotent when you use the same token and parameters.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutConnectorTelemetryManifestOutput {
+  /**
+   * <p>The version of the telemetry manifest after this update.</p>
+   * @public
+   */
+  Version: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartTelemetryEnrichmentOutput {
   /**
    * <p> The status of the resource tags for telemetry feature after the start operation (<code>Running</code>, <code>Stopped</code>, or <code>Impaired</code>). </p>
@@ -2336,6 +4036,109 @@ export interface StartTelemetryEvaluationForOrganizationInput {
 }
 
 /**
+ * <p>The configuration of the third-party telemetry source that a new enrichment collects resource metadata from. Specify exactly one member.</p>
+ * @public
+ */
+export type TelemetrySourceConfigurationInput =
+  | TelemetrySourceConfigurationInput.AzureMember
+  | TelemetrySourceConfigurationInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TelemetrySourceConfigurationInput {
+  /**
+   * <p>The configuration for a Microsoft Azure source.</p>
+   * @public
+   */
+  export interface AzureMember {
+    Azure: AzureTelemetrySourceConfigurationInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Azure?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Azure: (value: AzureTelemetrySourceConfigurationInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartThirdPartyTelemetryEnrichmentInput {
+  /**
+   * <p>A name for the enrichment. The name must be unique in your account and Region. You can use the name instead of the ARN to identify the enrichment in other operations.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The third-party telemetry source to collect resource metadata from. Specify exactly one telemetry source.</p>
+   * @public
+   */
+  TelemetrySourceConfiguration: TelemetrySourceConfigurationInput | undefined;
+
+  /**
+   * <p>The tags to associate with the enrichment resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartThirdPartyTelemetryEnrichmentOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the enrichment.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the enrichment.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The status of the enrichment after the start operation. Valid values:</p> <ul> <li> <p> <code>Initializing</code> - CloudWatch is setting up the enrichment. Some telemetry can be enriched before setup completes.</p> </li> <li> <p> <code>Running</code> - The enrichment is active.</p> </li> <li> <p> <code>Stopped</code> - The enrichment is stopped.</p> </li> <li> <p> <code>Impaired</code> - The enrichment has a problem. <code>StatusReason</code> describes the problem.</p> </li> </ul>
+   * @public
+   */
+  Status: ThirdPartyTelemetryEnrichmentStatus | undefined;
+
+  /**
+   * <p>The reason for the current status. This field is present when the status is <code>Impaired</code>.</p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+
+  /**
+   * <p>The source configuration of the enrichment.</p>
+   * @public
+   */
+  TelemetrySourceConfiguration: TelemetrySourceConfigurationOutput | undefined;
+
+  /**
+   * <p>The tags associated with the enrichment.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
  * @public
  */
 export interface StopTelemetryEnrichmentOutput {
@@ -2344,6 +4147,46 @@ export interface StopTelemetryEnrichmentOutput {
    * @public
    */
   Status?: TelemetryEnrichmentStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopThirdPartyTelemetryEnrichmentInput {
+  /**
+   * <p>The identifier of the enrichment to stop. You can specify one of the following:</p> <ul> <li> <p>The name of the enrichment.</p> </li> <li> <p>The Amazon Resource Name (ARN) of the enrichment.</p> </li> </ul>
+   * @public
+   */
+  TelemetryEnrichmentIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopThirdPartyTelemetryEnrichmentOutput {
+  /**
+   * <p>The name of the enrichment.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The third-party telemetry source of the enrichment.</p>
+   * @public
+   */
+  TelemetrySource: ThirdPartyTelemetrySource | undefined;
+
+  /**
+   * <p>The status of the enrichment after the stop operation. Valid values:</p> <ul> <li> <p> <code>Initializing</code> - CloudWatch is setting up the enrichment. Some telemetry can be enriched before setup completes.</p> </li> <li> <p> <code>Running</code> - The enrichment is active.</p> </li> <li> <p> <code>Stopped</code> - The enrichment is stopped.</p> </li> <li> <p> <code>Impaired</code> - The enrichment has a problem. <code>StatusReason</code> describes the problem.</p> </li> </ul>
+   * @public
+   */
+  Status: ThirdPartyTelemetryEnrichmentStatus | undefined;
+
+  /**
+   * <p>The reason for the current status. This field is present when the status is <code>Impaired</code>.</p>
+   * @public
+   */
+  StatusReason?: string | undefined;
 }
 
 /**
@@ -2362,6 +4205,22 @@ export interface TagResourceInput {
    */
   Tags: Record<string, string> | undefined;
 }
+
+/**
+ * @public
+ */
+export interface StartTelemetryPipelineRefreshInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the telemetry pipeline to refresh.</p>
+   * @public
+   */
+  PipelineIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartTelemetryPipelineRefreshOutput {}
 
 /**
  * @public

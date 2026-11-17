@@ -53,6 +53,31 @@ export interface GetTelemetryPipelineCommandOutput extends GetTelemetryPipelineO
  * //     Tags: { // TagMapOutput
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     LastRefreshTimeStamp: Number("long"),
+ * //     SourceProgress: { // SourceProgress
+ * //       Active: Number("int"),
+ * //       Total: Number("int"),
+ * //     },
+ * //     ConfigurationSummary: { // ConfigurationSummary
+ * //       Sources: [ // Sources
+ * //         { // Source
+ * //           Type: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DataSources: [ // DataSources
+ * //         { // DataSource
+ * //           Name: "STRING_VALUE",
+ * //           Type: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Processors: [ // Processors
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ProcessorCount: Number("int"),
+ * //       Sinks: [ // Sinks
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

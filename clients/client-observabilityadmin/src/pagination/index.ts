@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListCentralizationRulesForOrganizationPaginator";
+export * from "./ListConnectorsPaginator";
 export * from "./ListDatasetIntegrationsPaginator";
 export * from "./ListResourceTelemetryPaginator";
 export * from "./ListResourceTelemetryForOrganizationPaginator";
@@ -8,3 +9,4 @@ export * from "./ListS3TableIntegrationsPaginator";
 export * from "./ListTelemetryPipelinesPaginator";
 export * from "./ListTelemetryRulesPaginator";
 export * from "./ListTelemetryRulesForOrganizationPaginator";
+export * from "./ListThirdPartyTelemetryEnrichmentsPaginator";

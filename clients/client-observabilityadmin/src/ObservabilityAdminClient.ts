@@ -58,6 +58,7 @@ import type {
   CreateCentralizationRuleForOrganizationCommandInput,
   CreateCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/CreateCentralizationRuleForOrganizationCommand";
+import type { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "./commands/CreateConnectorCommand";
 import type {
   CreateDatasetIntegrationCommandInput,
   CreateDatasetIntegrationCommandOutput,
@@ -82,6 +83,7 @@ import type {
   DeleteCentralizationRuleForOrganizationCommandInput,
   DeleteCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/DeleteCentralizationRuleForOrganizationCommand";
+import type { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
 import type {
   DeleteDatasetIntegrationCommandInput,
   DeleteDatasetIntegrationCommandOutput,
@@ -106,6 +108,15 @@ import type {
   GetCentralizationRuleForOrganizationCommandInput,
   GetCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/GetCentralizationRuleForOrganizationCommand";
+import type { GetConnectorCommandInput, GetConnectorCommandOutput } from "./commands/GetConnectorCommand";
+import type {
+  GetConnectorTelemetryManifestCommandInput,
+  GetConnectorTelemetryManifestCommandOutput,
+} from "./commands/GetConnectorTelemetryManifestCommand";
+import type {
+  GetConnectorTelemetrySetupCommandInput,
+  GetConnectorTelemetrySetupCommandOutput,
+} from "./commands/GetConnectorTelemetrySetupCommand";
 import type {
   GetDatasetIntegrationCommandInput,
   GetDatasetIntegrationCommandOutput,
@@ -136,13 +147,22 @@ import type {
   GetTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/GetTelemetryRuleForOrganizationCommand";
 import type {
+  GetThirdPartyTelemetryEnrichmentCommandInput,
+  GetThirdPartyTelemetryEnrichmentCommandOutput,
+} from "./commands/GetThirdPartyTelemetryEnrichmentCommand";
+import type {
   ListCentralizationRulesForOrganizationCommandInput,
   ListCentralizationRulesForOrganizationCommandOutput,
 } from "./commands/ListCentralizationRulesForOrganizationCommand";
+import type { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
 import type {
   ListDatasetIntegrationsCommandInput,
   ListDatasetIntegrationsCommandOutput,
 } from "./commands/ListDatasetIntegrationsCommand";
+import type {
+  ListResourcesByConnectorCommandInput,
+  ListResourcesByConnectorCommandOutput,
+} from "./commands/ListResourcesByConnectorCommand";
 import type {
   ListResourceTelemetryCommandInput,
   ListResourceTelemetryCommandOutput,
@@ -172,6 +192,14 @@ import type {
   ListTelemetryRulesForOrganizationCommandOutput,
 } from "./commands/ListTelemetryRulesForOrganizationCommand";
 import type {
+  ListThirdPartyTelemetryEnrichmentsCommandInput,
+  ListThirdPartyTelemetryEnrichmentsCommandOutput,
+} from "./commands/ListThirdPartyTelemetryEnrichmentsCommand";
+import type {
+  PutConnectorTelemetryManifestCommandInput,
+  PutConnectorTelemetryManifestCommandOutput,
+} from "./commands/PutConnectorTelemetryManifestCommand";
+import type {
   StartTelemetryEnrichmentCommandInput,
   StartTelemetryEnrichmentCommandOutput,
 } from "./commands/StartTelemetryEnrichmentCommand";
@@ -184,6 +212,14 @@ import type {
   StartTelemetryEvaluationForOrganizationCommandOutput,
 } from "./commands/StartTelemetryEvaluationForOrganizationCommand";
 import type {
+  StartTelemetryPipelineRefreshCommandInput,
+  StartTelemetryPipelineRefreshCommandOutput,
+} from "./commands/StartTelemetryPipelineRefreshCommand";
+import type {
+  StartThirdPartyTelemetryEnrichmentCommandInput,
+  StartThirdPartyTelemetryEnrichmentCommandOutput,
+} from "./commands/StartThirdPartyTelemetryEnrichmentCommand";
+import type {
   StopTelemetryEnrichmentCommandInput,
   StopTelemetryEnrichmentCommandOutput,
 } from "./commands/StopTelemetryEnrichmentCommand";
@@ -195,6 +231,10 @@ import type {
   StopTelemetryEvaluationForOrganizationCommandInput,
   StopTelemetryEvaluationForOrganizationCommandOutput,
 } from "./commands/StopTelemetryEvaluationForOrganizationCommand";
+import type {
+  StopThirdPartyTelemetryEnrichmentCommandInput,
+  StopThirdPartyTelemetryEnrichmentCommandOutput,
+} from "./commands/StopThirdPartyTelemetryEnrichmentCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type {
   TestTelemetryPipelineCommandInput,
@@ -241,18 +281,23 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateCentralizationRuleForOrganizationCommandInput
+  | CreateConnectorCommandInput
   | CreateDatasetIntegrationCommandInput
   | CreateS3TableIntegrationCommandInput
   | CreateTelemetryPipelineCommandInput
   | CreateTelemetryRuleCommandInput
   | CreateTelemetryRuleForOrganizationCommandInput
   | DeleteCentralizationRuleForOrganizationCommandInput
+  | DeleteConnectorCommandInput
   | DeleteDatasetIntegrationCommandInput
   | DeleteS3TableIntegrationCommandInput
   | DeleteTelemetryPipelineCommandInput
   | DeleteTelemetryRuleCommandInput
   | DeleteTelemetryRuleForOrganizationCommandInput
   | GetCentralizationRuleForOrganizationCommandInput
+  | GetConnectorCommandInput
+  | GetConnectorTelemetryManifestCommandInput
+  | GetConnectorTelemetrySetupCommandInput
   | GetDatasetIntegrationCommandInput
   | GetS3TableIntegrationCommandInput
   | GetTelemetryEnrichmentStatusCommandInput
@@ -261,21 +306,29 @@ export type ServiceInputTypes =
   | GetTelemetryPipelineCommandInput
   | GetTelemetryRuleCommandInput
   | GetTelemetryRuleForOrganizationCommandInput
+  | GetThirdPartyTelemetryEnrichmentCommandInput
   | ListCentralizationRulesForOrganizationCommandInput
+  | ListConnectorsCommandInput
   | ListDatasetIntegrationsCommandInput
   | ListResourceTelemetryCommandInput
   | ListResourceTelemetryForOrganizationCommandInput
+  | ListResourcesByConnectorCommandInput
   | ListS3TableIntegrationsCommandInput
   | ListTagsForResourceCommandInput
   | ListTelemetryPipelinesCommandInput
   | ListTelemetryRulesCommandInput
   | ListTelemetryRulesForOrganizationCommandInput
+  | ListThirdPartyTelemetryEnrichmentsCommandInput
+  | PutConnectorTelemetryManifestCommandInput
   | StartTelemetryEnrichmentCommandInput
   | StartTelemetryEvaluationCommandInput
   | StartTelemetryEvaluationForOrganizationCommandInput
+  | StartTelemetryPipelineRefreshCommandInput
+  | StartThirdPartyTelemetryEnrichmentCommandInput
   | StopTelemetryEnrichmentCommandInput
   | StopTelemetryEvaluationCommandInput
   | StopTelemetryEvaluationForOrganizationCommandInput
+  | StopThirdPartyTelemetryEnrichmentCommandInput
   | TagResourceCommandInput
   | TestTelemetryPipelineCommandInput
   | UntagResourceCommandInput
@@ -291,18 +344,23 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreateCentralizationRuleForOrganizationCommandOutput
+  | CreateConnectorCommandOutput
   | CreateDatasetIntegrationCommandOutput
   | CreateS3TableIntegrationCommandOutput
   | CreateTelemetryPipelineCommandOutput
   | CreateTelemetryRuleCommandOutput
   | CreateTelemetryRuleForOrganizationCommandOutput
   | DeleteCentralizationRuleForOrganizationCommandOutput
+  | DeleteConnectorCommandOutput
   | DeleteDatasetIntegrationCommandOutput
   | DeleteS3TableIntegrationCommandOutput
   | DeleteTelemetryPipelineCommandOutput
   | DeleteTelemetryRuleCommandOutput
   | DeleteTelemetryRuleForOrganizationCommandOutput
   | GetCentralizationRuleForOrganizationCommandOutput
+  | GetConnectorCommandOutput
+  | GetConnectorTelemetryManifestCommandOutput
+  | GetConnectorTelemetrySetupCommandOutput
   | GetDatasetIntegrationCommandOutput
   | GetS3TableIntegrationCommandOutput
   | GetTelemetryEnrichmentStatusCommandOutput
@@ -311,21 +369,29 @@ export type ServiceOutputTypes =
   | GetTelemetryPipelineCommandOutput
   | GetTelemetryRuleCommandOutput
   | GetTelemetryRuleForOrganizationCommandOutput
+  | GetThirdPartyTelemetryEnrichmentCommandOutput
   | ListCentralizationRulesForOrganizationCommandOutput
+  | ListConnectorsCommandOutput
   | ListDatasetIntegrationsCommandOutput
   | ListResourceTelemetryCommandOutput
   | ListResourceTelemetryForOrganizationCommandOutput
+  | ListResourcesByConnectorCommandOutput
   | ListS3TableIntegrationsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTelemetryPipelinesCommandOutput
   | ListTelemetryRulesCommandOutput
   | ListTelemetryRulesForOrganizationCommandOutput
+  | ListThirdPartyTelemetryEnrichmentsCommandOutput
+  | PutConnectorTelemetryManifestCommandOutput
   | StartTelemetryEnrichmentCommandOutput
   | StartTelemetryEvaluationCommandOutput
   | StartTelemetryEvaluationForOrganizationCommandOutput
+  | StartTelemetryPipelineRefreshCommandOutput
+  | StartThirdPartyTelemetryEnrichmentCommandOutput
   | StopTelemetryEnrichmentCommandOutput
   | StopTelemetryEvaluationCommandOutput
   | StopTelemetryEvaluationForOrganizationCommandOutput
+  | StopThirdPartyTelemetryEnrichmentCommandOutput
   | TagResourceCommandOutput
   | TestTelemetryPipelineCommandOutput
   | UntagResourceCommandOutput

@@ -51,6 +51,9 @@ export interface CreateCentralizationRuleForOrganizationCommandOutput extends Cr
  *       SourceMetricsConfiguration: { // SourceMetricsConfiguration
  *         MetricsSelectionCriteria: "STRING_VALUE",
  *       },
+ *       SourceProfilesConfiguration: { // SourceProfilesConfiguration
+ *         ProfilesSelectionCriteria: "STRING_VALUE",
+ *       },
  *       SourceContextGraphConfiguration: {},
  *     },
  *     Destination: { // CentralizationRuleDestination
@@ -78,6 +81,11 @@ export interface CreateCentralizationRuleForOrganizationCommandOutput extends Cr
  *       },
  *       DestinationMetricsConfiguration: { // DestinationMetricsConfiguration
  *         BackupConfiguration: { // MetricsBackupConfiguration
+ *           Region: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       DestinationProfilesConfiguration: { // DestinationProfilesConfiguration
+ *         BackupConfiguration: { // ProfilesBackupConfiguration
  *           Region: "STRING_VALUE", // required
  *         },
  *       },

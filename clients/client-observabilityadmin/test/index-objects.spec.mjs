@@ -6,6 +6,35 @@ import {
   ActionCondition$,
   AdvancedEventSelector$,
   AdvancedFieldSelector$,
+  AllSubscriptions$,
+  AzureAwsManagedFlowLogs$,
+  AzureConnectorConfiguration$,
+  AzureConnectorQuery$,
+  AzureConnectorQueryResults$,
+  AzureCustomerManagedFlowLogs$,
+  AzureEventHubConfiguration$,
+  AzureEventHubsQuery$,
+  AzureEventHubSummary$,
+  AzureEventHubTier,
+  AzureFlowLogsInfrastructure$,
+  AzureFlowLogStorageAccountScope$,
+  AzureInfrastructure$,
+  AzureManagementGroupsQuery$,
+  AzureManagementGroupSummary$,
+  AzureQueryScope$,
+  AzureRegionsQuery$,
+  AzureResourceIdentifierSummary$,
+  AzureResourceIdScope$,
+  AzureResourceIdsQuery$,
+  AzureResourceTypesQuery$,
+  AzureScope$,
+  AzureScopeItem$,
+  AzureSubscriptionScope$,
+  AzureSubscriptionsQuery$,
+  AzureSubscriptionSummary$,
+  AzureTelemetrySourceConfigurationInput$,
+  AzureTelemetrySourceConfigurationOutput$,
+  AzureTelemetryType,
   CentralizationFailureReason,
   CentralizationRule$,
   CentralizationRuleDestination$,
@@ -16,11 +45,21 @@ import {
   ConfigurationSummary$,
   ConflictException,
   ConflictException$,
+  Connector$,
+  ConnectorConfiguration$,
+  ConnectorProvider,
+  ConnectorQuery$,
+  ConnectorQueryResults$,
+  ConnectorSummary$,
   ContextGraphStatus,
   CreateCentralizationRuleForOrganization$,
   CreateCentralizationRuleForOrganizationCommand,
   CreateCentralizationRuleForOrganizationInput$,
   CreateCentralizationRuleForOrganizationOutput$,
+  CreateConnector$,
+  CreateConnectorCommand,
+  CreateConnectorInput$,
+  CreateConnectorOutput$,
   CreateDatasetIntegration$,
   CreateDatasetIntegrationCommand,
   CreateDatasetIntegrationInput$,
@@ -46,6 +85,10 @@ import {
   DeleteCentralizationRuleForOrganization$,
   DeleteCentralizationRuleForOrganizationCommand,
   DeleteCentralizationRuleForOrganizationInput$,
+  DeleteConnector$,
+  DeleteConnectorCommand,
+  DeleteConnectorInput$,
+  DeleteConnectorOutput$,
   DeleteDatasetIntegration$,
   DeleteDatasetIntegrationCommand,
   DeleteDatasetIntegrationInput$,
@@ -65,6 +108,7 @@ import {
   DeletionProtection,
   DestinationLogsConfiguration$,
   DestinationMetricsConfiguration$,
+  DestinationProfilesConfiguration$,
   DestinationType,
   ELBLoadBalancerLoggingParameters$,
   EncryptedLogGroupStrategy,
@@ -80,6 +124,18 @@ import {
   GetCentralizationRuleForOrganizationCommand,
   GetCentralizationRuleForOrganizationInput$,
   GetCentralizationRuleForOrganizationOutput$,
+  GetConnector$,
+  GetConnectorCommand,
+  GetConnectorInput$,
+  GetConnectorOutput$,
+  GetConnectorTelemetryManifest$,
+  GetConnectorTelemetryManifestCommand,
+  GetConnectorTelemetryManifestInput$,
+  GetConnectorTelemetryManifestOutput$,
+  GetConnectorTelemetrySetup$,
+  GetConnectorTelemetrySetupCommand,
+  GetConnectorTelemetrySetupInput$,
+  GetConnectorTelemetrySetupOutput$,
   GetDatasetIntegration$,
   GetDatasetIntegrationCommand,
   GetDatasetIntegrationInput$,
@@ -109,6 +165,10 @@ import {
   GetTelemetryRuleForOrganizationOutput$,
   GetTelemetryRuleInput$,
   GetTelemetryRuleOutput$,
+  GetThirdPartyTelemetryEnrichment$,
+  GetThirdPartyTelemetryEnrichmentCommand,
+  GetThirdPartyTelemetryEnrichmentInput$,
+  GetThirdPartyTelemetryEnrichmentOutput$,
   IntegrationStatus,
   IntegrationSummary$,
   InternalServerException,
@@ -120,10 +180,18 @@ import {
   ListCentralizationRulesForOrganizationCommand,
   ListCentralizationRulesForOrganizationInput$,
   ListCentralizationRulesForOrganizationOutput$,
+  ListConnectors$,
+  ListConnectorsCommand,
+  ListConnectorsInput$,
+  ListConnectorsOutput$,
   ListDatasetIntegrations$,
   ListDatasetIntegrationsCommand,
   ListDatasetIntegrationsInput$,
   ListDatasetIntegrationsOutput$,
+  ListResourcesByConnector$,
+  ListResourcesByConnectorCommand,
+  ListResourcesByConnectorInput$,
+  ListResourcesByConnectorOutput$,
   ListResourceTelemetry$,
   ListResourceTelemetryCommand,
   ListResourceTelemetryForOrganization$,
@@ -152,6 +220,10 @@ import {
   ListTelemetryRulesForOrganizationOutput$,
   ListTelemetryRulesInput$,
   ListTelemetryRulesOutput$,
+  ListThirdPartyTelemetryEnrichments$,
+  ListThirdPartyTelemetryEnrichmentsCommand,
+  ListThirdPartyTelemetryEnrichmentsInput$,
+  ListThirdPartyTelemetryEnrichmentsOutput$,
   LogDeliveryParameters$,
   LoggingFilter$,
   LogGroupNameConfiguration$,
@@ -166,6 +238,7 @@ import {
   ObservabilityAdminServiceException,
   OutputFormat,
   paginateListCentralizationRulesForOrganization,
+  paginateListConnectors,
   paginateListDatasetIntegrations,
   paginateListResourceTelemetry,
   paginateListResourceTelemetryForOrganization,
@@ -173,8 +246,14 @@ import {
   paginateListTelemetryPipelines,
   paginateListTelemetryRules,
   paginateListTelemetryRulesForOrganization,
+  paginateListThirdPartyTelemetryEnrichments,
   PipelineOutput$,
   PipelineOutputError$,
+  ProfilesBackupConfiguration$,
+  PutConnectorTelemetryManifest$,
+  PutConnectorTelemetryManifestCommand,
+  PutConnectorTelemetryManifestInput$,
+  PutConnectorTelemetryManifestOutput$,
   RecordFormat,
   RegionStatus$,
   ResourceNotFoundException,
@@ -183,12 +262,16 @@ import {
   RuleHealth,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  SetupArtifact$,
+  SetupFormat,
   SignalType,
   SingleHeader$,
   Source$,
   SourceContextGraphConfiguration$,
   SourceLogsConfiguration$,
   SourceMetricsConfiguration$,
+  SourceProfilesConfiguration$,
+  SourceProgress$,
   SSEAlgorithm,
   StartTelemetryEnrichment$,
   StartTelemetryEnrichmentCommand,
@@ -199,6 +282,14 @@ import {
   StartTelemetryEvaluationForOrganizationCommand,
   StartTelemetryEvaluationForOrganizationInput$,
   StartTelemetryEvaluationInput$,
+  StartTelemetryPipelineRefresh$,
+  StartTelemetryPipelineRefreshCommand,
+  StartTelemetryPipelineRefreshInput$,
+  StartTelemetryPipelineRefreshOutput$,
+  StartThirdPartyTelemetryEnrichment$,
+  StartThirdPartyTelemetryEnrichmentCommand,
+  StartThirdPartyTelemetryEnrichmentInput$,
+  StartThirdPartyTelemetryEnrichmentOutput$,
   Status,
   StopTelemetryEnrichment$,
   StopTelemetryEnrichmentCommand,
@@ -207,7 +298,12 @@ import {
   StopTelemetryEvaluationCommand,
   StopTelemetryEvaluationForOrganization$,
   StopTelemetryEvaluationForOrganizationCommand,
+  StopThirdPartyTelemetryEnrichment$,
+  StopThirdPartyTelemetryEnrichmentCommand,
+  StopThirdPartyTelemetryEnrichmentInput$,
+  StopThirdPartyTelemetryEnrichmentOutput$,
   TagConflictResolutionStrategy,
+  TagFilter$,
   TagPropagationConfiguration$,
   TagPropagationFailureReason,
   TagPropagationStatus,
@@ -217,6 +313,9 @@ import {
   TelemetryConfiguration$,
   TelemetryDestinationConfiguration$,
   TelemetryEnrichmentStatus,
+  TelemetryManifest$,
+  TelemetryManifestInfrastructure$,
+  TelemetryManifestSource$,
   TelemetryPipeline$,
   TelemetryPipelineConfiguration$,
   TelemetryPipelineStatus,
@@ -224,6 +323,8 @@ import {
   TelemetryPipelineSummary$,
   TelemetryRule$,
   TelemetryRuleSummary$,
+  TelemetrySourceConfigurationInput$,
+  TelemetrySourceConfigurationOutput$,
   TelemetrySourceType,
   TelemetryState,
   TelemetryType,
@@ -231,6 +332,9 @@ import {
   TestTelemetryPipelineCommand,
   TestTelemetryPipelineInput$,
   TestTelemetryPipelineOutput$,
+  ThirdPartyTelemetryEnrichmentStatus,
+  ThirdPartyTelemetryEnrichmentSummary$,
+  ThirdPartyTelemetrySource,
   TooManyRequestsException,
   TooManyRequestsException$,
   UntagResource$,
@@ -274,6 +378,8 @@ assert(typeof ObservabilityAdmin === "function");
 // commands
 assert(typeof CreateCentralizationRuleForOrganizationCommand === "function");
 assert(typeof CreateCentralizationRuleForOrganization$ === "object");
+assert(typeof CreateConnectorCommand === "function");
+assert(typeof CreateConnector$ === "object");
 assert(typeof CreateDatasetIntegrationCommand === "function");
 assert(typeof CreateDatasetIntegration$ === "object");
 assert(typeof CreateS3TableIntegrationCommand === "function");
@@ -286,6 +392,8 @@ assert(typeof CreateTelemetryRuleForOrganizationCommand === "function");
 assert(typeof CreateTelemetryRuleForOrganization$ === "object");
 assert(typeof DeleteCentralizationRuleForOrganizationCommand === "function");
 assert(typeof DeleteCentralizationRuleForOrganization$ === "object");
+assert(typeof DeleteConnectorCommand === "function");
+assert(typeof DeleteConnector$ === "object");
 assert(typeof DeleteDatasetIntegrationCommand === "function");
 assert(typeof DeleteDatasetIntegration$ === "object");
 assert(typeof DeleteS3TableIntegrationCommand === "function");
@@ -298,6 +406,12 @@ assert(typeof DeleteTelemetryRuleForOrganizationCommand === "function");
 assert(typeof DeleteTelemetryRuleForOrganization$ === "object");
 assert(typeof GetCentralizationRuleForOrganizationCommand === "function");
 assert(typeof GetCentralizationRuleForOrganization$ === "object");
+assert(typeof GetConnectorCommand === "function");
+assert(typeof GetConnector$ === "object");
+assert(typeof GetConnectorTelemetryManifestCommand === "function");
+assert(typeof GetConnectorTelemetryManifest$ === "object");
+assert(typeof GetConnectorTelemetrySetupCommand === "function");
+assert(typeof GetConnectorTelemetrySetup$ === "object");
 assert(typeof GetDatasetIntegrationCommand === "function");
 assert(typeof GetDatasetIntegration$ === "object");
 assert(typeof GetS3TableIntegrationCommand === "function");
@@ -314,10 +428,16 @@ assert(typeof GetTelemetryRuleCommand === "function");
 assert(typeof GetTelemetryRule$ === "object");
 assert(typeof GetTelemetryRuleForOrganizationCommand === "function");
 assert(typeof GetTelemetryRuleForOrganization$ === "object");
+assert(typeof GetThirdPartyTelemetryEnrichmentCommand === "function");
+assert(typeof GetThirdPartyTelemetryEnrichment$ === "object");
 assert(typeof ListCentralizationRulesForOrganizationCommand === "function");
 assert(typeof ListCentralizationRulesForOrganization$ === "object");
+assert(typeof ListConnectorsCommand === "function");
+assert(typeof ListConnectors$ === "object");
 assert(typeof ListDatasetIntegrationsCommand === "function");
 assert(typeof ListDatasetIntegrations$ === "object");
+assert(typeof ListResourcesByConnectorCommand === "function");
+assert(typeof ListResourcesByConnector$ === "object");
 assert(typeof ListResourceTelemetryCommand === "function");
 assert(typeof ListResourceTelemetry$ === "object");
 assert(typeof ListResourceTelemetryForOrganizationCommand === "function");
@@ -332,18 +452,28 @@ assert(typeof ListTelemetryRulesCommand === "function");
 assert(typeof ListTelemetryRules$ === "object");
 assert(typeof ListTelemetryRulesForOrganizationCommand === "function");
 assert(typeof ListTelemetryRulesForOrganization$ === "object");
+assert(typeof ListThirdPartyTelemetryEnrichmentsCommand === "function");
+assert(typeof ListThirdPartyTelemetryEnrichments$ === "object");
+assert(typeof PutConnectorTelemetryManifestCommand === "function");
+assert(typeof PutConnectorTelemetryManifest$ === "object");
 assert(typeof StartTelemetryEnrichmentCommand === "function");
 assert(typeof StartTelemetryEnrichment$ === "object");
 assert(typeof StartTelemetryEvaluationCommand === "function");
 assert(typeof StartTelemetryEvaluation$ === "object");
 assert(typeof StartTelemetryEvaluationForOrganizationCommand === "function");
 assert(typeof StartTelemetryEvaluationForOrganization$ === "object");
+assert(typeof StartTelemetryPipelineRefreshCommand === "function");
+assert(typeof StartTelemetryPipelineRefresh$ === "object");
+assert(typeof StartThirdPartyTelemetryEnrichmentCommand === "function");
+assert(typeof StartThirdPartyTelemetryEnrichment$ === "object");
 assert(typeof StopTelemetryEnrichmentCommand === "function");
 assert(typeof StopTelemetryEnrichment$ === "object");
 assert(typeof StopTelemetryEvaluationCommand === "function");
 assert(typeof StopTelemetryEvaluation$ === "object");
 assert(typeof StopTelemetryEvaluationForOrganizationCommand === "function");
 assert(typeof StopTelemetryEvaluationForOrganization$ === "object");
+assert(typeof StopThirdPartyTelemetryEnrichmentCommand === "function");
+assert(typeof StopThirdPartyTelemetryEnrichment$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof TestTelemetryPipelineCommand === "function");
@@ -366,6 +496,33 @@ assert(typeof ValidateTelemetryPipelineConfiguration$ === "object");
 assert(typeof ActionCondition$ === "object");
 assert(typeof AdvancedEventSelector$ === "object");
 assert(typeof AdvancedFieldSelector$ === "object");
+assert(typeof AllSubscriptions$ === "object");
+assert(typeof AzureAwsManagedFlowLogs$ === "object");
+assert(typeof AzureConnectorConfiguration$ === "object");
+assert(typeof AzureConnectorQuery$ === "object");
+assert(typeof AzureConnectorQueryResults$ === "object");
+assert(typeof AzureCustomerManagedFlowLogs$ === "object");
+assert(typeof AzureEventHubConfiguration$ === "object");
+assert(typeof AzureEventHubsQuery$ === "object");
+assert(typeof AzureEventHubSummary$ === "object");
+assert(typeof AzureFlowLogsInfrastructure$ === "object");
+assert(typeof AzureFlowLogStorageAccountScope$ === "object");
+assert(typeof AzureInfrastructure$ === "object");
+assert(typeof AzureManagementGroupsQuery$ === "object");
+assert(typeof AzureManagementGroupSummary$ === "object");
+assert(typeof AzureQueryScope$ === "object");
+assert(typeof AzureRegionsQuery$ === "object");
+assert(typeof AzureResourceIdentifierSummary$ === "object");
+assert(typeof AzureResourceIdScope$ === "object");
+assert(typeof AzureResourceIdsQuery$ === "object");
+assert(typeof AzureResourceTypesQuery$ === "object");
+assert(typeof AzureScope$ === "object");
+assert(typeof AzureScopeItem$ === "object");
+assert(typeof AzureSubscriptionScope$ === "object");
+assert(typeof AzureSubscriptionsQuery$ === "object");
+assert(typeof AzureSubscriptionSummary$ === "object");
+assert(typeof AzureTelemetrySourceConfigurationInput$ === "object");
+assert(typeof AzureTelemetrySourceConfigurationOutput$ === "object");
 assert(typeof CentralizationRule$ === "object");
 assert(typeof CentralizationRuleDestination$ === "object");
 assert(typeof CentralizationRuleSource$ === "object");
@@ -373,8 +530,15 @@ assert(typeof CentralizationRuleSummary$ === "object");
 assert(typeof CloudtrailParameters$ === "object");
 assert(typeof Condition$ === "object");
 assert(typeof ConfigurationSummary$ === "object");
+assert(typeof Connector$ === "object");
+assert(typeof ConnectorConfiguration$ === "object");
+assert(typeof ConnectorQuery$ === "object");
+assert(typeof ConnectorQueryResults$ === "object");
+assert(typeof ConnectorSummary$ === "object");
 assert(typeof CreateCentralizationRuleForOrganizationInput$ === "object");
 assert(typeof CreateCentralizationRuleForOrganizationOutput$ === "object");
+assert(typeof CreateConnectorInput$ === "object");
+assert(typeof CreateConnectorOutput$ === "object");
 assert(typeof CreateDatasetIntegrationInput$ === "object");
 assert(typeof CreateDatasetIntegrationOutput$ === "object");
 assert(typeof CreateS3TableIntegrationInput$ === "object");
@@ -388,6 +552,8 @@ assert(typeof CreateTelemetryRuleOutput$ === "object");
 assert(typeof DatasetIntegrationSummary$ === "object");
 assert(typeof DataSource$ === "object");
 assert(typeof DeleteCentralizationRuleForOrganizationInput$ === "object");
+assert(typeof DeleteConnectorInput$ === "object");
+assert(typeof DeleteConnectorOutput$ === "object");
 assert(typeof DeleteDatasetIntegrationInput$ === "object");
 assert(typeof DeleteS3TableIntegrationInput$ === "object");
 assert(typeof DeleteTelemetryPipelineInput$ === "object");
@@ -396,12 +562,19 @@ assert(typeof DeleteTelemetryRuleForOrganizationInput$ === "object");
 assert(typeof DeleteTelemetryRuleInput$ === "object");
 assert(typeof DestinationLogsConfiguration$ === "object");
 assert(typeof DestinationMetricsConfiguration$ === "object");
+assert(typeof DestinationProfilesConfiguration$ === "object");
 assert(typeof ELBLoadBalancerLoggingParameters$ === "object");
 assert(typeof Encryption$ === "object");
 assert(typeof FieldToMatch$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof GetCentralizationRuleForOrganizationInput$ === "object");
 assert(typeof GetCentralizationRuleForOrganizationOutput$ === "object");
+assert(typeof GetConnectorInput$ === "object");
+assert(typeof GetConnectorOutput$ === "object");
+assert(typeof GetConnectorTelemetryManifestInput$ === "object");
+assert(typeof GetConnectorTelemetryManifestOutput$ === "object");
+assert(typeof GetConnectorTelemetrySetupInput$ === "object");
+assert(typeof GetConnectorTelemetrySetupOutput$ === "object");
 assert(typeof GetDatasetIntegrationInput$ === "object");
 assert(typeof GetDatasetIntegrationOutput$ === "object");
 assert(typeof GetS3TableIntegrationInput$ === "object");
@@ -415,12 +588,18 @@ assert(typeof GetTelemetryRuleForOrganizationInput$ === "object");
 assert(typeof GetTelemetryRuleForOrganizationOutput$ === "object");
 assert(typeof GetTelemetryRuleInput$ === "object");
 assert(typeof GetTelemetryRuleOutput$ === "object");
+assert(typeof GetThirdPartyTelemetryEnrichmentInput$ === "object");
+assert(typeof GetThirdPartyTelemetryEnrichmentOutput$ === "object");
 assert(typeof IntegrationSummary$ === "object");
 assert(typeof LabelNameCondition$ === "object");
 assert(typeof ListCentralizationRulesForOrganizationInput$ === "object");
 assert(typeof ListCentralizationRulesForOrganizationOutput$ === "object");
+assert(typeof ListConnectorsInput$ === "object");
+assert(typeof ListConnectorsOutput$ === "object");
 assert(typeof ListDatasetIntegrationsInput$ === "object");
 assert(typeof ListDatasetIntegrationsOutput$ === "object");
+assert(typeof ListResourcesByConnectorInput$ === "object");
+assert(typeof ListResourcesByConnectorOutput$ === "object");
 assert(typeof ListResourceTelemetryForOrganizationInput$ === "object");
 assert(typeof ListResourceTelemetryForOrganizationOutput$ === "object");
 assert(typeof ListResourceTelemetryInput$ === "object");
@@ -435,6 +614,8 @@ assert(typeof ListTelemetryRulesForOrganizationInput$ === "object");
 assert(typeof ListTelemetryRulesForOrganizationOutput$ === "object");
 assert(typeof ListTelemetryRulesInput$ === "object");
 assert(typeof ListTelemetryRulesOutput$ === "object");
+assert(typeof ListThirdPartyTelemetryEnrichmentsInput$ === "object");
+assert(typeof ListThirdPartyTelemetryEnrichmentsOutput$ === "object");
 assert(typeof LogDeliveryParameters$ === "object");
 assert(typeof LoggingFilter$ === "object");
 assert(typeof LogGroupNameConfiguration$ === "object");
@@ -444,29 +625,48 @@ assert(typeof MetricsBackupConfiguration$ === "object");
 assert(typeof MskMonitoringParameters$ === "object");
 assert(typeof PipelineOutput$ === "object");
 assert(typeof PipelineOutputError$ === "object");
+assert(typeof ProfilesBackupConfiguration$ === "object");
+assert(typeof PutConnectorTelemetryManifestInput$ === "object");
+assert(typeof PutConnectorTelemetryManifestOutput$ === "object");
 assert(typeof _Record$ === "object");
 assert(typeof RegionStatus$ === "object");
+assert(typeof SetupArtifact$ === "object");
 assert(typeof SingleHeader$ === "object");
 assert(typeof Source$ === "object");
 assert(typeof SourceContextGraphConfiguration$ === "object");
 assert(typeof SourceLogsConfiguration$ === "object");
 assert(typeof SourceMetricsConfiguration$ === "object");
+assert(typeof SourceProfilesConfiguration$ === "object");
+assert(typeof SourceProgress$ === "object");
 assert(typeof StartTelemetryEnrichmentOutput$ === "object");
 assert(typeof StartTelemetryEvaluationForOrganizationInput$ === "object");
 assert(typeof StartTelemetryEvaluationInput$ === "object");
+assert(typeof StartTelemetryPipelineRefreshInput$ === "object");
+assert(typeof StartTelemetryPipelineRefreshOutput$ === "object");
+assert(typeof StartThirdPartyTelemetryEnrichmentInput$ === "object");
+assert(typeof StartThirdPartyTelemetryEnrichmentOutput$ === "object");
 assert(typeof StopTelemetryEnrichmentOutput$ === "object");
+assert(typeof StopThirdPartyTelemetryEnrichmentInput$ === "object");
+assert(typeof StopThirdPartyTelemetryEnrichmentOutput$ === "object");
+assert(typeof TagFilter$ === "object");
 assert(typeof TagPropagationConfiguration$ === "object");
 assert(typeof TagResourceInput$ === "object");
 assert(typeof TelemetryConfiguration$ === "object");
 assert(typeof TelemetryDestinationConfiguration$ === "object");
+assert(typeof TelemetryManifest$ === "object");
+assert(typeof TelemetryManifestInfrastructure$ === "object");
+assert(typeof TelemetryManifestSource$ === "object");
 assert(typeof TelemetryPipeline$ === "object");
 assert(typeof TelemetryPipelineConfiguration$ === "object");
 assert(typeof TelemetryPipelineStatusReason$ === "object");
 assert(typeof TelemetryPipelineSummary$ === "object");
 assert(typeof TelemetryRule$ === "object");
 assert(typeof TelemetryRuleSummary$ === "object");
+assert(typeof TelemetrySourceConfigurationInput$ === "object");
+assert(typeof TelemetrySourceConfigurationOutput$ === "object");
 assert(typeof TestTelemetryPipelineInput$ === "object");
 assert(typeof TestTelemetryPipelineOutput$ === "object");
+assert(typeof ThirdPartyTelemetryEnrichmentSummary$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UpdateCentralizationRuleForOrganizationInput$ === "object");
 assert(typeof UpdateCentralizationRuleForOrganizationOutput$ === "object");
@@ -485,7 +685,10 @@ assert(typeof VPCFlowLogParameters$ === "object");
 assert(typeof WAFLoggingParameters$ === "object");
 // enums
 assert(typeof Action === "object");
+assert(typeof AzureEventHubTier === "object");
+assert(typeof AzureTelemetryType === "object");
 assert(typeof CentralizationFailureReason === "object");
+assert(typeof ConnectorProvider === "object");
 assert(typeof ContextGraphStatus === "object");
 assert(typeof DeletionProtection === "object");
 assert(typeof DestinationType === "object");
@@ -502,6 +705,7 @@ assert(typeof OutputFormat === "object");
 assert(typeof RecordFormat === "object");
 assert(typeof ResourceType === "object");
 assert(typeof RuleHealth === "object");
+assert(typeof SetupFormat === "object");
 assert(typeof SignalType === "object");
 assert(typeof SSEAlgorithm === "object");
 assert(typeof Status === "object");
@@ -513,6 +717,8 @@ assert(typeof TelemetryPipelineStatus === "object");
 assert(typeof TelemetrySourceType === "object");
 assert(typeof TelemetryState === "object");
 assert(typeof TelemetryType === "object");
+assert(typeof ThirdPartyTelemetryEnrichmentStatus === "object");
+assert(typeof ThirdPartyTelemetrySource === "object");
 assert(typeof WAFLogType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof ObservabilityAdminServiceException);
@@ -534,6 +740,7 @@ assert(typeof ValidationException$ === "object");
 assert(ObservabilityAdminServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListCentralizationRulesForOrganization === "function");
+assert(typeof paginateListConnectors === "function");
 assert(typeof paginateListDatasetIntegrations === "function");
 assert(typeof paginateListResourceTelemetry === "function");
 assert(typeof paginateListResourceTelemetryForOrganization === "function");
@@ -541,4 +748,5 @@ assert(typeof paginateListS3TableIntegrations === "function");
 assert(typeof paginateListTelemetryPipelines === "function");
 assert(typeof paginateListTelemetryRules === "function");
 assert(typeof paginateListTelemetryRulesForOrganization === "function");
+assert(typeof paginateListThirdPartyTelemetryEnrichments === "function");
 console.log(`ObservabilityAdmin index test passed.`);

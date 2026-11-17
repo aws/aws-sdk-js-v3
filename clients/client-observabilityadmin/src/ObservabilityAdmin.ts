@@ -13,6 +13,11 @@ import {
   CreateCentralizationRuleForOrganizationCommand,
 } from "./commands/CreateCentralizationRuleForOrganizationCommand";
 import {
+  type CreateConnectorCommandInput,
+  type CreateConnectorCommandOutput,
+  CreateConnectorCommand,
+} from "./commands/CreateConnectorCommand";
+import {
   type CreateDatasetIntegrationCommandInput,
   type CreateDatasetIntegrationCommandOutput,
   CreateDatasetIntegrationCommand,
@@ -43,6 +48,11 @@ import {
   DeleteCentralizationRuleForOrganizationCommand,
 } from "./commands/DeleteCentralizationRuleForOrganizationCommand";
 import {
+  type DeleteConnectorCommandInput,
+  type DeleteConnectorCommandOutput,
+  DeleteConnectorCommand,
+} from "./commands/DeleteConnectorCommand";
+import {
   type DeleteDatasetIntegrationCommandInput,
   type DeleteDatasetIntegrationCommandOutput,
   DeleteDatasetIntegrationCommand,
@@ -72,6 +82,21 @@ import {
   type GetCentralizationRuleForOrganizationCommandOutput,
   GetCentralizationRuleForOrganizationCommand,
 } from "./commands/GetCentralizationRuleForOrganizationCommand";
+import {
+  type GetConnectorCommandInput,
+  type GetConnectorCommandOutput,
+  GetConnectorCommand,
+} from "./commands/GetConnectorCommand";
+import {
+  type GetConnectorTelemetryManifestCommandInput,
+  type GetConnectorTelemetryManifestCommandOutput,
+  GetConnectorTelemetryManifestCommand,
+} from "./commands/GetConnectorTelemetryManifestCommand";
+import {
+  type GetConnectorTelemetrySetupCommandInput,
+  type GetConnectorTelemetrySetupCommandOutput,
+  GetConnectorTelemetrySetupCommand,
+} from "./commands/GetConnectorTelemetrySetupCommand";
 import {
   type GetDatasetIntegrationCommandInput,
   type GetDatasetIntegrationCommandOutput,
@@ -113,15 +138,30 @@ import {
   GetTelemetryRuleForOrganizationCommand,
 } from "./commands/GetTelemetryRuleForOrganizationCommand";
 import {
+  type GetThirdPartyTelemetryEnrichmentCommandInput,
+  type GetThirdPartyTelemetryEnrichmentCommandOutput,
+  GetThirdPartyTelemetryEnrichmentCommand,
+} from "./commands/GetThirdPartyTelemetryEnrichmentCommand";
+import {
   type ListCentralizationRulesForOrganizationCommandInput,
   type ListCentralizationRulesForOrganizationCommandOutput,
   ListCentralizationRulesForOrganizationCommand,
 } from "./commands/ListCentralizationRulesForOrganizationCommand";
 import {
+  type ListConnectorsCommandInput,
+  type ListConnectorsCommandOutput,
+  ListConnectorsCommand,
+} from "./commands/ListConnectorsCommand";
+import {
   type ListDatasetIntegrationsCommandInput,
   type ListDatasetIntegrationsCommandOutput,
   ListDatasetIntegrationsCommand,
 } from "./commands/ListDatasetIntegrationsCommand";
+import {
+  type ListResourcesByConnectorCommandInput,
+  type ListResourcesByConnectorCommandOutput,
+  ListResourcesByConnectorCommand,
+} from "./commands/ListResourcesByConnectorCommand";
 import {
   type ListResourceTelemetryCommandInput,
   type ListResourceTelemetryCommandOutput,
@@ -158,6 +198,16 @@ import {
   ListTelemetryRulesForOrganizationCommand,
 } from "./commands/ListTelemetryRulesForOrganizationCommand";
 import {
+  type ListThirdPartyTelemetryEnrichmentsCommandInput,
+  type ListThirdPartyTelemetryEnrichmentsCommandOutput,
+  ListThirdPartyTelemetryEnrichmentsCommand,
+} from "./commands/ListThirdPartyTelemetryEnrichmentsCommand";
+import {
+  type PutConnectorTelemetryManifestCommandInput,
+  type PutConnectorTelemetryManifestCommandOutput,
+  PutConnectorTelemetryManifestCommand,
+} from "./commands/PutConnectorTelemetryManifestCommand";
+import {
   type StartTelemetryEnrichmentCommandInput,
   type StartTelemetryEnrichmentCommandOutput,
   StartTelemetryEnrichmentCommand,
@@ -173,6 +223,16 @@ import {
   StartTelemetryEvaluationForOrganizationCommand,
 } from "./commands/StartTelemetryEvaluationForOrganizationCommand";
 import {
+  type StartTelemetryPipelineRefreshCommandInput,
+  type StartTelemetryPipelineRefreshCommandOutput,
+  StartTelemetryPipelineRefreshCommand,
+} from "./commands/StartTelemetryPipelineRefreshCommand";
+import {
+  type StartThirdPartyTelemetryEnrichmentCommandInput,
+  type StartThirdPartyTelemetryEnrichmentCommandOutput,
+  StartThirdPartyTelemetryEnrichmentCommand,
+} from "./commands/StartThirdPartyTelemetryEnrichmentCommand";
+import {
   type StopTelemetryEnrichmentCommandInput,
   type StopTelemetryEnrichmentCommandOutput,
   StopTelemetryEnrichmentCommand,
@@ -187,6 +247,11 @@ import {
   type StopTelemetryEvaluationForOrganizationCommandOutput,
   StopTelemetryEvaluationForOrganizationCommand,
 } from "./commands/StopTelemetryEvaluationForOrganizationCommand";
+import {
+  type StopThirdPartyTelemetryEnrichmentCommandInput,
+  type StopThirdPartyTelemetryEnrichmentCommandOutput,
+  StopThirdPartyTelemetryEnrichmentCommand,
+} from "./commands/StopThirdPartyTelemetryEnrichmentCommand";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -236,6 +301,7 @@ import { ObservabilityAdminClient } from "./ObservabilityAdminClient";
 import {
   paginateListCentralizationRulesForOrganization,
 } from "./pagination/ListCentralizationRulesForOrganizationPaginator";
+import { paginateListConnectors } from "./pagination/ListConnectorsPaginator";
 import { paginateListDatasetIntegrations } from "./pagination/ListDatasetIntegrationsPaginator";
 import {
   paginateListResourceTelemetryForOrganization,
@@ -245,21 +311,27 @@ import { paginateListS3TableIntegrations } from "./pagination/ListS3TableIntegra
 import { paginateListTelemetryPipelines } from "./pagination/ListTelemetryPipelinesPaginator";
 import { paginateListTelemetryRulesForOrganization } from "./pagination/ListTelemetryRulesForOrganizationPaginator";
 import { paginateListTelemetryRules } from "./pagination/ListTelemetryRulesPaginator";
+import { paginateListThirdPartyTelemetryEnrichments } from "./pagination/ListThirdPartyTelemetryEnrichmentsPaginator";
 
 const commands = {
   CreateCentralizationRuleForOrganizationCommand,
+  CreateConnectorCommand,
   CreateDatasetIntegrationCommand,
   CreateS3TableIntegrationCommand,
   CreateTelemetryPipelineCommand,
   CreateTelemetryRuleCommand,
   CreateTelemetryRuleForOrganizationCommand,
   DeleteCentralizationRuleForOrganizationCommand,
+  DeleteConnectorCommand,
   DeleteDatasetIntegrationCommand,
   DeleteS3TableIntegrationCommand,
   DeleteTelemetryPipelineCommand,
   DeleteTelemetryRuleCommand,
   DeleteTelemetryRuleForOrganizationCommand,
   GetCentralizationRuleForOrganizationCommand,
+  GetConnectorCommand,
+  GetConnectorTelemetryManifestCommand,
+  GetConnectorTelemetrySetupCommand,
   GetDatasetIntegrationCommand,
   GetS3TableIntegrationCommand,
   GetTelemetryEnrichmentStatusCommand,
@@ -268,8 +340,11 @@ const commands = {
   GetTelemetryPipelineCommand,
   GetTelemetryRuleCommand,
   GetTelemetryRuleForOrganizationCommand,
+  GetThirdPartyTelemetryEnrichmentCommand,
   ListCentralizationRulesForOrganizationCommand,
+  ListConnectorsCommand,
   ListDatasetIntegrationsCommand,
+  ListResourcesByConnectorCommand,
   ListResourceTelemetryCommand,
   ListResourceTelemetryForOrganizationCommand,
   ListS3TableIntegrationsCommand,
@@ -277,12 +352,17 @@ const commands = {
   ListTelemetryPipelinesCommand,
   ListTelemetryRulesCommand,
   ListTelemetryRulesForOrganizationCommand,
+  ListThirdPartyTelemetryEnrichmentsCommand,
+  PutConnectorTelemetryManifestCommand,
   StartTelemetryEnrichmentCommand,
   StartTelemetryEvaluationCommand,
   StartTelemetryEvaluationForOrganizationCommand,
+  StartTelemetryPipelineRefreshCommand,
+  StartThirdPartyTelemetryEnrichmentCommand,
   StopTelemetryEnrichmentCommand,
   StopTelemetryEvaluationCommand,
   StopTelemetryEvaluationForOrganizationCommand,
+  StopThirdPartyTelemetryEnrichmentCommand,
   TagResourceCommand,
   TestTelemetryPipelineCommand,
   UntagResourceCommand,
@@ -295,6 +375,7 @@ const commands = {
 };
 const paginators = {
   paginateListCentralizationRulesForOrganization,
+  paginateListConnectors,
   paginateListDatasetIntegrations,
   paginateListResourceTelemetry,
   paginateListResourceTelemetryForOrganization,
@@ -302,6 +383,7 @@ const paginators = {
   paginateListTelemetryPipelines,
   paginateListTelemetryRules,
   paginateListTelemetryRulesForOrganization,
+  paginateListThirdPartyTelemetryEnrichments,
 };
 
 /**
@@ -327,6 +409,23 @@ export interface ObservabilityAdmin {
     args: CreateCentralizationRuleForOrganizationCommandInput,
     options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: CreateCentralizationRuleForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateConnectorCommand}
+   */
+  createConnector(
+    args: CreateConnectorCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<CreateConnectorCommandOutput>;
+  createConnector(
+    args: CreateConnectorCommandInput,
+    cb: (err: any, data?: CreateConnectorCommandOutput) => void
+  ): void;
+  createConnector(
+    args: CreateConnectorCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: CreateConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -432,6 +531,23 @@ export interface ObservabilityAdmin {
   ): void;
 
   /**
+   * @see {@link DeleteConnectorCommand}
+   */
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<DeleteConnectorCommandOutput>;
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
+  ): void;
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDatasetIntegrationCommand}
    */
   deleteDatasetIntegration(
@@ -531,6 +647,57 @@ export interface ObservabilityAdmin {
     args: GetCentralizationRuleForOrganizationCommandInput,
     options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: GetCentralizationRuleForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConnectorCommand}
+   */
+  getConnector(
+    args: GetConnectorCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<GetConnectorCommandOutput>;
+  getConnector(
+    args: GetConnectorCommandInput,
+    cb: (err: any, data?: GetConnectorCommandOutput) => void
+  ): void;
+  getConnector(
+    args: GetConnectorCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: GetConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConnectorTelemetryManifestCommand}
+   */
+  getConnectorTelemetryManifest(
+    args: GetConnectorTelemetryManifestCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<GetConnectorTelemetryManifestCommandOutput>;
+  getConnectorTelemetryManifest(
+    args: GetConnectorTelemetryManifestCommandInput,
+    cb: (err: any, data?: GetConnectorTelemetryManifestCommandOutput) => void
+  ): void;
+  getConnectorTelemetryManifest(
+    args: GetConnectorTelemetryManifestCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: GetConnectorTelemetryManifestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConnectorTelemetrySetupCommand}
+   */
+  getConnectorTelemetrySetup(
+    args: GetConnectorTelemetrySetupCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<GetConnectorTelemetrySetupCommandOutput>;
+  getConnectorTelemetrySetup(
+    args: GetConnectorTelemetrySetupCommandInput,
+    cb: (err: any, data?: GetConnectorTelemetrySetupCommandOutput) => void
+  ): void;
+  getConnectorTelemetrySetup(
+    args: GetConnectorTelemetrySetupCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: GetConnectorTelemetrySetupCommandOutput) => void
   ): void;
 
   /**
@@ -673,6 +840,23 @@ export interface ObservabilityAdmin {
   ): void;
 
   /**
+   * @see {@link GetThirdPartyTelemetryEnrichmentCommand}
+   */
+  getThirdPartyTelemetryEnrichment(
+    args: GetThirdPartyTelemetryEnrichmentCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<GetThirdPartyTelemetryEnrichmentCommandOutput>;
+  getThirdPartyTelemetryEnrichment(
+    args: GetThirdPartyTelemetryEnrichmentCommandInput,
+    cb: (err: any, data?: GetThirdPartyTelemetryEnrichmentCommandOutput) => void
+  ): void;
+  getThirdPartyTelemetryEnrichment(
+    args: GetThirdPartyTelemetryEnrichmentCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: GetThirdPartyTelemetryEnrichmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCentralizationRulesForOrganizationCommand}
    */
   listCentralizationRulesForOrganization(): Promise<ListCentralizationRulesForOrganizationCommandOutput>;
@@ -691,6 +875,24 @@ export interface ObservabilityAdmin {
   ): void;
 
   /**
+   * @see {@link ListConnectorsCommand}
+   */
+  listConnectors(): Promise<ListConnectorsCommandOutput>;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<ListConnectorsCommandOutput>;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDatasetIntegrationsCommand}
    */
   listDatasetIntegrations(): Promise<ListDatasetIntegrationsCommandOutput>;
@@ -706,6 +908,23 @@ export interface ObservabilityAdmin {
     args: ListDatasetIntegrationsCommandInput,
     options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: ListDatasetIntegrationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResourcesByConnectorCommand}
+   */
+  listResourcesByConnector(
+    args: ListResourcesByConnectorCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<ListResourcesByConnectorCommandOutput>;
+  listResourcesByConnector(
+    args: ListResourcesByConnectorCommandInput,
+    cb: (err: any, data?: ListResourcesByConnectorCommandOutput) => void
+  ): void;
+  listResourcesByConnector(
+    args: ListResourcesByConnectorCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: ListResourcesByConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -834,6 +1053,41 @@ export interface ObservabilityAdmin {
   ): void;
 
   /**
+   * @see {@link ListThirdPartyTelemetryEnrichmentsCommand}
+   */
+  listThirdPartyTelemetryEnrichments(): Promise<ListThirdPartyTelemetryEnrichmentsCommandOutput>;
+  listThirdPartyTelemetryEnrichments(
+    args: ListThirdPartyTelemetryEnrichmentsCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<ListThirdPartyTelemetryEnrichmentsCommandOutput>;
+  listThirdPartyTelemetryEnrichments(
+    args: ListThirdPartyTelemetryEnrichmentsCommandInput,
+    cb: (err: any, data?: ListThirdPartyTelemetryEnrichmentsCommandOutput) => void
+  ): void;
+  listThirdPartyTelemetryEnrichments(
+    args: ListThirdPartyTelemetryEnrichmentsCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: ListThirdPartyTelemetryEnrichmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutConnectorTelemetryManifestCommand}
+   */
+  putConnectorTelemetryManifest(
+    args: PutConnectorTelemetryManifestCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<PutConnectorTelemetryManifestCommandOutput>;
+  putConnectorTelemetryManifest(
+    args: PutConnectorTelemetryManifestCommandInput,
+    cb: (err: any, data?: PutConnectorTelemetryManifestCommandOutput) => void
+  ): void;
+  putConnectorTelemetryManifest(
+    args: PutConnectorTelemetryManifestCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: PutConnectorTelemetryManifestCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartTelemetryEnrichmentCommand}
    */
   startTelemetryEnrichment(): Promise<StartTelemetryEnrichmentCommandOutput>;
@@ -888,6 +1142,40 @@ export interface ObservabilityAdmin {
   ): void;
 
   /**
+   * @see {@link StartTelemetryPipelineRefreshCommand}
+   */
+  startTelemetryPipelineRefresh(
+    args: StartTelemetryPipelineRefreshCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<StartTelemetryPipelineRefreshCommandOutput>;
+  startTelemetryPipelineRefresh(
+    args: StartTelemetryPipelineRefreshCommandInput,
+    cb: (err: any, data?: StartTelemetryPipelineRefreshCommandOutput) => void
+  ): void;
+  startTelemetryPipelineRefresh(
+    args: StartTelemetryPipelineRefreshCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: StartTelemetryPipelineRefreshCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartThirdPartyTelemetryEnrichmentCommand}
+   */
+  startThirdPartyTelemetryEnrichment(
+    args: StartThirdPartyTelemetryEnrichmentCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<StartThirdPartyTelemetryEnrichmentCommandOutput>;
+  startThirdPartyTelemetryEnrichment(
+    args: StartThirdPartyTelemetryEnrichmentCommandInput,
+    cb: (err: any, data?: StartThirdPartyTelemetryEnrichmentCommandOutput) => void
+  ): void;
+  startThirdPartyTelemetryEnrichment(
+    args: StartThirdPartyTelemetryEnrichmentCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: StartThirdPartyTelemetryEnrichmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopTelemetryEnrichmentCommand}
    */
   stopTelemetryEnrichment(): Promise<StopTelemetryEnrichmentCommandOutput>;
@@ -939,6 +1227,23 @@ export interface ObservabilityAdmin {
     args: StopTelemetryEvaluationForOrganizationCommandInput,
     options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: StopTelemetryEvaluationForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopThirdPartyTelemetryEnrichmentCommand}
+   */
+  stopThirdPartyTelemetryEnrichment(
+    args: StopThirdPartyTelemetryEnrichmentCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<StopThirdPartyTelemetryEnrichmentCommandOutput>;
+  stopThirdPartyTelemetryEnrichment(
+    args: StopThirdPartyTelemetryEnrichmentCommandInput,
+    cb: (err: any, data?: StopThirdPartyTelemetryEnrichmentCommandOutput) => void
+  ): void;
+  stopThirdPartyTelemetryEnrichment(
+    args: StopThirdPartyTelemetryEnrichmentCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: StopThirdPartyTelemetryEnrichmentCommandOutput) => void
   ): void;
 
   /**
@@ -1106,6 +1411,17 @@ export interface ObservabilityAdmin {
   ): Paginator<ListCentralizationRulesForOrganizationCommandOutput>;
 
   /**
+   * @see {@link ListConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectorsCommandOutput}.
+   */
+  paginateListConnectors(
+    args?: ListConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectorsCommandOutput>;
+
+  /**
    * @see {@link ListDatasetIntegrationsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1181,6 +1497,17 @@ export interface ObservabilityAdmin {
     args?: ListTelemetryRulesForOrganizationCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListTelemetryRulesForOrganizationCommandOutput>;
+
+  /**
+   * @see {@link ListThirdPartyTelemetryEnrichmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThirdPartyTelemetryEnrichmentsCommandOutput}.
+   */
+  paginateListThirdPartyTelemetryEnrichments(
+    args?: ListThirdPartyTelemetryEnrichmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThirdPartyTelemetryEnrichmentsCommandOutput>;
 }
 
 /**

@@ -20,6 +20,33 @@ export type Action = (typeof Action)[keyof typeof Action];
  * @public
  * @enum
  */
+export const AzureEventHubTier = {
+  PREMIUM: "Premium",
+  STANDARD: "Standard",
+} as const;
+/**
+ * @public
+ */
+export type AzureEventHubTier = (typeof AzureEventHubTier)[keyof typeof AzureEventHubTier];
+
+/**
+ * @public
+ * @enum
+ */
+export const AzureTelemetryType = {
+  FLOW_LOGS: "FlowLogs",
+  METRICS: "Metrics",
+  RESOURCE_LOGS: "ResourceLogs",
+} as const;
+/**
+ * @public
+ */
+export type AzureTelemetryType = (typeof AzureTelemetryType)[keyof typeof AzureTelemetryType];
+
+/**
+ * @public
+ * @enum
+ */
 export const CentralizationFailureReason = {
   DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION: "DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION",
   INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
@@ -171,6 +198,18 @@ export const TagPropagationStatus = {
  * @public
  */
 export type TagPropagationStatus = (typeof TagPropagationStatus)[keyof typeof TagPropagationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorProvider = {
+  AZURE: "AZURE",
+} as const;
+/**
+ * @public
+ */
+export type ConnectorProvider = (typeof ConnectorProvider)[keyof typeof ConnectorProvider];
 
 /**
  * @public
@@ -354,6 +393,18 @@ export type TelemetryType = (typeof TelemetryType)[keyof typeof TelemetryType];
  * @public
  * @enum
  */
+export const SetupFormat = {
+  BICEP: "BICEP",
+} as const;
+/**
+ * @public
+ */
+export type SetupFormat = (typeof SetupFormat)[keyof typeof SetupFormat];
+
+/**
+ * @public
+ * @enum
+ */
 export const IntegrationStatus = {
   ACTIVE: "ACTIVE",
   DELETING: "DELETING",
@@ -416,6 +467,34 @@ export type TelemetryPipelineStatus = (typeof TelemetryPipelineStatus)[keyof typ
  * @public
  * @enum
  */
+export const ThirdPartyTelemetryEnrichmentStatus = {
+  /**
+   * <p>The enrichment has a problem that prevents it from working as expected. <code>StatusReason</code> describes the problem.</p>
+   */
+  IMPAIRED: "Impaired",
+  /**
+   * <p>CloudWatch is setting up the enrichment. Some telemetry can be enriched before setup completes.</p>
+   */
+  INITIALIZING: "Initializing",
+  /**
+   * <p>The enrichment is active. CloudWatch adds resource metadata from the telemetry source to your telemetry.</p>
+   */
+  RUNNING: "Running",
+  /**
+   * <p>The enrichment is stopped. CloudWatch no longer adds resource metadata from the telemetry source to your telemetry.</p>
+   */
+  STOPPED: "Stopped",
+} as const;
+/**
+ * @public
+ */
+export type ThirdPartyTelemetryEnrichmentStatus =
+  (typeof ThirdPartyTelemetryEnrichmentStatus)[keyof typeof ThirdPartyTelemetryEnrichmentStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const TelemetryState = {
   DISABLED: "Disabled",
   ENABLED: "Enabled",
@@ -425,6 +504,21 @@ export const TelemetryState = {
  * @public
  */
 export type TelemetryState = (typeof TelemetryState)[keyof typeof TelemetryState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThirdPartyTelemetrySource = {
+  /**
+   * <p> <code>AZURE</code> - Microsoft Azure.</p>
+   */
+  AZURE: "Azure",
+} as const;
+/**
+ * @public
+ */
+export type ThirdPartyTelemetrySource = (typeof ThirdPartyTelemetrySource)[keyof typeof ThirdPartyTelemetrySource];
 
 /**
  * @public

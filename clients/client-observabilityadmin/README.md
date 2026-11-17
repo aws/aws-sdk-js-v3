@@ -22,16 +22,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ObservabilityAdminClient` and
-the commands you need, for example `ListDatasetIntegrationsCommand`:
+the commands you need, for example `ListConnectorsCommand`:
 
 ```js
 // ES5 example
-const { ObservabilityAdminClient, ListDatasetIntegrationsCommand } = require("@aws-sdk/client-observabilityadmin");
+const { ObservabilityAdminClient, ListConnectorsCommand } = require("@aws-sdk/client-observabilityadmin");
 ```
 
 ```ts
 // ES6+ example
-import { ObservabilityAdminClient, ListDatasetIntegrationsCommand } from "@aws-sdk/client-observabilityadmin";
+import { ObservabilityAdminClient, ListConnectorsCommand } from "@aws-sdk/client-observabilityadmin";
 ```
 
 ### Usage
@@ -48,7 +48,7 @@ To send a request:
 const client = new ObservabilityAdminClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListDatasetIntegrationsCommand(params);
+const command = new ListConnectorsCommand(params);
 ```
 
 #### Async/await
@@ -104,7 +104,7 @@ const client = new ObservabilityAdmin({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listDatasetIntegrations(params);
+  const data = await client.listConnectors(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -112,7 +112,7 @@ try {
 
 // Promises.
 client
-  .listDatasetIntegrations(params)
+  .listConnectors(params)
   .then((data) => {
     // process data.
   })
@@ -121,7 +121,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listDatasetIntegrations(params, (err, data) => {
+client.listConnectors(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -188,6 +188,13 @@ CreateCentralizationRuleForOrganization
 </details>
 <details>
 <summary>
+CreateConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/CreateConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/CreateConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/CreateConnectorCommandOutput/)
+</details>
+<details>
+<summary>
 CreateDatasetIntegration
 </summary>
 
@@ -230,6 +237,13 @@ DeleteCentralizationRuleForOrganization
 </details>
 <details>
 <summary>
+DeleteConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/DeleteConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/DeleteConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/DeleteConnectorCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteDatasetIntegration
 </summary>
 
@@ -269,6 +283,27 @@ GetCentralizationRuleForOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/GetCentralizationRuleForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetCentralizationRuleForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetCentralizationRuleForOrganizationCommandOutput/)
+</details>
+<details>
+<summary>
+GetConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/GetConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetConnectorCommandOutput/)
+</details>
+<details>
+<summary>
+GetConnectorTelemetryManifest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/GetConnectorTelemetryManifestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetConnectorTelemetryManifestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetConnectorTelemetryManifestCommandOutput/)
+</details>
+<details>
+<summary>
+GetConnectorTelemetrySetup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/GetConnectorTelemetrySetupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetConnectorTelemetrySetupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetConnectorTelemetrySetupCommandOutput/)
 </details>
 <details>
 <summary>
@@ -328,6 +363,13 @@ GetTelemetryRuleForOrganization
 </details>
 <details>
 <summary>
+GetThirdPartyTelemetryEnrichment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/GetThirdPartyTelemetryEnrichmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetThirdPartyTelemetryEnrichmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetThirdPartyTelemetryEnrichmentCommandOutput/)
+</details>
+<details>
+<summary>
 ListCentralizationRulesForOrganization
 </summary>
 
@@ -335,10 +377,24 @@ ListCentralizationRulesForOrganization
 </details>
 <details>
 <summary>
+ListConnectors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/ListConnectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListConnectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListConnectorsCommandOutput/)
+</details>
+<details>
+<summary>
 ListDatasetIntegrations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/ListDatasetIntegrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListDatasetIntegrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListDatasetIntegrationsCommandOutput/)
+</details>
+<details>
+<summary>
+ListResourcesByConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/ListResourcesByConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListResourcesByConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListResourcesByConnectorCommandOutput/)
 </details>
 <details>
 <summary>
@@ -391,6 +447,20 @@ ListTelemetryRulesForOrganization
 </details>
 <details>
 <summary>
+ListThirdPartyTelemetryEnrichments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/ListThirdPartyTelemetryEnrichmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListThirdPartyTelemetryEnrichmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListThirdPartyTelemetryEnrichmentsCommandOutput/)
+</details>
+<details>
+<summary>
+PutConnectorTelemetryManifest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/PutConnectorTelemetryManifestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/PutConnectorTelemetryManifestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/PutConnectorTelemetryManifestCommandOutput/)
+</details>
+<details>
+<summary>
 StartTelemetryEnrichment
 </summary>
 
@@ -412,6 +482,20 @@ StartTelemetryEvaluationForOrganization
 </details>
 <details>
 <summary>
+StartTelemetryPipelineRefresh
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/StartTelemetryPipelineRefreshCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/StartTelemetryPipelineRefreshCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/StartTelemetryPipelineRefreshCommandOutput/)
+</details>
+<details>
+<summary>
+StartThirdPartyTelemetryEnrichment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/StartThirdPartyTelemetryEnrichmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/StartThirdPartyTelemetryEnrichmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/StartThirdPartyTelemetryEnrichmentCommandOutput/)
+</details>
+<details>
+<summary>
 StopTelemetryEnrichment
 </summary>
 
@@ -430,6 +514,13 @@ StopTelemetryEvaluationForOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/StopTelemetryEvaluationForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/StopTelemetryEvaluationForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/StopTelemetryEvaluationForOrganizationCommandOutput/)
+</details>
+<details>
+<summary>
+StopThirdPartyTelemetryEnrichment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/StopThirdPartyTelemetryEnrichmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/StopThirdPartyTelemetryEnrichmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/StopThirdPartyTelemetryEnrichmentCommandOutput/)
 </details>
 <details>
 <summary>

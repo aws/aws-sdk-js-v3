@@ -66,6 +66,9 @@ export interface GetCentralizationRuleForOrganizationCommandOutput extends GetCe
  * //       SourceMetricsConfiguration: { // SourceMetricsConfiguration
  * //         MetricsSelectionCriteria: "STRING_VALUE",
  * //       },
+ * //       SourceProfilesConfiguration: { // SourceProfilesConfiguration
+ * //         ProfilesSelectionCriteria: "STRING_VALUE",
+ * //       },
  * //       SourceContextGraphConfiguration: {},
  * //     },
  * //     Destination: { // CentralizationRuleDestination
@@ -93,6 +96,11 @@ export interface GetCentralizationRuleForOrganizationCommandOutput extends GetCe
  * //       },
  * //       DestinationMetricsConfiguration: { // DestinationMetricsConfiguration
  * //         BackupConfiguration: { // MetricsBackupConfiguration
+ * //           Region: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       DestinationProfilesConfiguration: { // DestinationProfilesConfiguration
+ * //         BackupConfiguration: { // ProfilesBackupConfiguration
  * //           Region: "STRING_VALUE", // required
  * //         },
  * //       },

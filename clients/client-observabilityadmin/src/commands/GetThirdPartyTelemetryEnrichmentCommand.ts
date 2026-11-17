@@ -1,0 +1,102 @@
+// smithy-typescript generated code
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { _ep0, _mw0, command } from "../commandBuilder";
+import type { GetThirdPartyTelemetryEnrichmentInput, GetThirdPartyTelemetryEnrichmentOutput } from "../models/models_0";
+import { GetThirdPartyTelemetryEnrichment$ } from "../schemas/schemas_0";
+
+/**
+ * @public
+ */
+export type { __MetadataBearer };
+/**
+ * @public
+ *
+ * The input for {@link GetThirdPartyTelemetryEnrichmentCommand}.
+ */
+export interface GetThirdPartyTelemetryEnrichmentCommandInput extends GetThirdPartyTelemetryEnrichmentInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetThirdPartyTelemetryEnrichmentCommand}.
+ */
+export interface GetThirdPartyTelemetryEnrichmentCommandOutput extends GetThirdPartyTelemetryEnrichmentOutput, __MetadataBearer {}
+
+/**
+ * <p>Returns the details of a third-party telemetry enrichment, including its status and source configuration.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ObservabilityAdminClient, GetThirdPartyTelemetryEnrichmentCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
+ * // const { ObservabilityAdminClient, GetThirdPartyTelemetryEnrichmentCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * // import type { ObservabilityAdminClientConfig } from "@aws-sdk/client-observabilityadmin";
+ * const config = {}; // type is ObservabilityAdminClientConfig
+ * const client = new ObservabilityAdminClient(config);
+ * const input = { // GetThirdPartyTelemetryEnrichmentInput
+ *   TelemetryEnrichmentIdentifier: "STRING_VALUE", // required
+ * };
+ * const command = new GetThirdPartyTelemetryEnrichmentCommand(input);
+ * const response = await client.send(command);
+ * // { // GetThirdPartyTelemetryEnrichmentOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE", // required
+ * //   Status: "Initializing" || "Running" || "Stopped" || "Impaired", // required
+ * //   StatusReason: "STRING_VALUE",
+ * //   TelemetrySourceConfiguration: { // TelemetrySourceConfigurationOutput Union: only one key present
+ * //     Azure: { // AzureTelemetrySourceConfigurationOutput
+ * //       AwsConfigConnectorArn: "STRING_VALUE",
+ * //       ServiceLinkedRecorderArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   Tags: { // TagMapOutput
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
+ * ```
+ *
+ * @param GetThirdPartyTelemetryEnrichmentCommandInput - {@link GetThirdPartyTelemetryEnrichmentCommandInput}
+ * @returns {@link GetThirdPartyTelemetryEnrichmentCommandOutput}
+ * @see {@link GetThirdPartyTelemetryEnrichmentCommandInput} for command's `input` shape.
+ * @see {@link GetThirdPartyTelemetryEnrichmentCommandOutput} for command's `response` shape.
+ * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified resource (such as a telemetry rule) could not be found. </p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p> The request throughput limit was exceeded. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+ *
+ * @throws {@link ObservabilityAdminServiceException}
+ * <p>Base exception class for all service exceptions from ObservabilityAdmin service.</p>
+ *
+ *
+ * @public
+ */
+export class GetThirdPartyTelemetryEnrichmentCommand extends command<GetThirdPartyTelemetryEnrichmentCommandInput, GetThirdPartyTelemetryEnrichmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetThirdPartyTelemetryEnrichment",
+  GetThirdPartyTelemetryEnrichment$
+) {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetThirdPartyTelemetryEnrichmentInput;
+      output: GetThirdPartyTelemetryEnrichmentOutput;
+    };
+    sdk: {
+      input: GetThirdPartyTelemetryEnrichmentCommandInput;
+      output: GetThirdPartyTelemetryEnrichmentCommandOutput;
+    };
+  };
+}
