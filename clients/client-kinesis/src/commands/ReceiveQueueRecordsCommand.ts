@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { ReceiveQueueRecordsInput, ReceiveQueueRecordsOutput } from "../models/models_0";
 import { ReceiveQueueRecords$ } from "../schemas/schemas_0";
 
@@ -133,7 +133,7 @@ export interface ReceiveQueueRecordsCommandOutput extends ReceiveQueueRecordsOut
  */
 export class ReceiveQueueRecordsCommand extends command<ReceiveQueueRecordsCommandInput, ReceiveQueueRecordsCommandOutput>(
   _ep0,
-  _mw0,
+  _mw1,
   "ReceiveQueueRecords",
   ReceiveQueueRecords$
 ) {
