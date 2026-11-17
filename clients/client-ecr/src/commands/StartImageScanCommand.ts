@@ -54,7 +54,7 @@ export interface StartImageScanCommandOutput extends StartImageScanResponse, __M
  * //     imageTag: "STRING_VALUE",
  * //   },
  * //   imageScanStatus: { // ImageScanStatus
- * //     status: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "UNSUPPORTED_IMAGE" || "ACTIVE" || "PENDING" || "SCAN_ELIGIBILITY_EXPIRED" || "FINDINGS_UNAVAILABLE" || "LIMIT_EXCEEDED" || "IMAGE_ARCHIVED",
+ * //     status: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "UNSUPPORTED_IMAGE" || "ACTIVE" || "PENDING" || "SCAN_ELIGIBILITY_EXPIRED" || "FINDINGS_UNAVAILABLE" || "LIMIT_EXCEEDED" || "IMAGE_ARCHIVED" || "IMAGE_SIZE_EXCEEDED",
  * //     description: "STRING_VALUE",
  * //   },
  * // };
