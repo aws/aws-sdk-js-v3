@@ -24,7 +24,7 @@ export interface DeleteDomainNameAccessAssociationCommandOutput extends __Metada
 
 /**
  * <p> Deletes the DomainNameAccessAssociation resource.</p>
- *          <p>Only the AWS account that created the DomainNameAccessAssociation resource can delete it. To stop an access association source in another AWS account from accessing your private custom domain name, use the RejectDomainNameAccessAssociation operation.</p>
+ *          <p>Only the Amazon Web Services account that created the DomainNameAccessAssociation resource can delete it. To stop an access association source in another Amazon Web Services account from accessing your private custom domain name, use the RejectDomainNameAccessAssociation operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

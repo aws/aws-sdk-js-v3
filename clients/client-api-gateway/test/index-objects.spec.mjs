@@ -327,6 +327,13 @@ import {
   IntegrationResponse$,
   IntegrationType,
   IpAddressType,
+  JwtAdditionalClaim$,
+  JwtClaimFormat,
+  JwtConfiguration$,
+  JwtConfigurationInput$,
+  JwtIssuer$,
+  JwtIssuerInput$,
+  JwtSigningAlgorithm,
   LimitExceededException,
   LimitExceededException$,
   LocationStatusType,
@@ -872,6 +879,11 @@ assert(typeof ImportDocumentationPartsRequest$ === "object");
 assert(typeof ImportRestApiRequest$ === "object");
 assert(typeof Integration$ === "object");
 assert(typeof IntegrationResponse$ === "object");
+assert(typeof JwtAdditionalClaim$ === "object");
+assert(typeof JwtConfiguration$ === "object");
+assert(typeof JwtConfigurationInput$ === "object");
+assert(typeof JwtIssuer$ === "object");
+assert(typeof JwtIssuerInput$ === "object");
 assert(typeof Method$ === "object");
 assert(typeof MethodResponse$ === "object");
 assert(typeof MethodSetting$ === "object");
@@ -958,6 +970,8 @@ assert(typeof EndpointType === "object");
 assert(typeof GatewayResponseType === "object");
 assert(typeof IntegrationType === "object");
 assert(typeof IpAddressType === "object");
+assert(typeof JwtClaimFormat === "object");
+assert(typeof JwtSigningAlgorithm === "object");
 assert(typeof LocationStatusType === "object");
 assert(typeof Op === "object");
 assert(typeof PutMode === "object");

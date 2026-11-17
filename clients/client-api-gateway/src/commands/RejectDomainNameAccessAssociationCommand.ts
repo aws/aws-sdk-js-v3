@@ -24,7 +24,7 @@ export interface RejectDomainNameAccessAssociationCommandOutput extends __Metada
 
 /**
  * <p>Rejects a domain name access association with a private custom domain name.</p>
- *          <p>To reject a domain name access association with an access association source in another AWS account, use this operation. To remove a domain name access association with an access association source in your own account, use the DeleteDomainNameAccessAssociation operation.</p>
+ *          <p>To reject a domain name access association with an access association source in another Amazon Web Services account, use this operation. To remove a domain name access association with an access association source in your own account, use the DeleteDomainNameAccessAssociation operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

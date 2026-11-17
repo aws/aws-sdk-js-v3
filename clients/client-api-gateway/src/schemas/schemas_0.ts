@@ -217,6 +217,11 @@ const _IDPR = "ImportDocumentationPartsRequest";
 const _IR = "IntegrationResponse";
 const _IRA = "ImportRestApi";
 const _IRAR = "ImportRestApiRequest";
+const _JAC = "JwtAdditionalClaim";
+const _JC = "JwtConfiguration";
+const _JCI = "JwtConfigurationInput";
+const _JI = "JwtIssuer";
+const _JII = "JwtIssuerInput";
 const _LEE = "LimitExceededException";
 const _LOA = "ListOfAuthorizer";
 const _LOAK = "ListOfApiKey";
@@ -229,6 +234,9 @@ const _LODNAA = "ListOfDomainNameAccessAssociation";
 const _LODP = "ListOfDocumentationPart";
 const _LODV = "ListOfDocumentationVersion";
 const _LOGR = "ListOfGatewayResponse";
+const _LOJAC = "ListOfJwtAdditionalClaim";
+const _LOJI = "ListOfJwtIssuer";
+const _LOJII = "ListOfJwtIssuerInput";
 const _LOM = "ListOfModel";
 const _LOPO = "ListOfPatchOperation";
 const _LOR = "ListOfResource";
@@ -362,7 +370,8 @@ const _a = "accepts";
 const _aAS = "accessAssociationSource";
 const _aAST = "accessAssociationSourceType";
 const _aC = "authorizerCredentials";
-const _aCd = "additionalContext";
+const _aCd = "additionalClaims";
+const _aCdd = "additionalContext";
 const _aI = "apiId";
 const _aIu = "authorizerId";
 const _aK = "apiKey";
@@ -379,7 +388,8 @@ const _aSu = "authorizationScopes";
 const _aT = "authType";
 const _aTu = "authorizationType";
 const _aU = "authorizerUri";
-const _au = "authorization";
+const _au = "audiences";
+const _aut = "authorization";
 const _b = "body";
 const _bL = "burstLimit";
 const _bMT = "binaryMediaTypes";
@@ -403,6 +413,7 @@ const _cIo = "connectionId";
 const _cKP = "cacheKeyParameters";
 const _cN = "certificateName";
 const _cNa = "cacheNamespace";
+const _cNl = "claimName";
 const _cP = "configurationProperties";
 const _cPK = "certificatePrivateKey";
 const _cRA = "cloudwatchRoleArn";
@@ -416,6 +427,7 @@ const _cl = "claims";
 const _cr = "credentials";
 const _d = "description";
 const _dA = "destinationArn";
+const _dAe = "defaultAlgorithms";
 const _dDN = "distributionDomainName";
 const _dEAE = "disableExecuteApiEndpoint";
 const _dHZI = "distributionHostedZoneId";
@@ -437,6 +449,7 @@ const _eC = "endpointConfiguration";
 const _eD = "expirationDate";
 const _eDn = "endDate";
 const _eT = "exportType";
+const _eV = "expectedValues";
 const _em = "embed";
 const _en = "enabled";
 const _f = "format";
@@ -465,9 +478,13 @@ const _iV = "includeValue";
 const _iVE = "identityValidationExpression";
 const _iVn = "includeValues";
 const _id = "ids";
+const _is = "issuers";
+const _iss = "issuer";
 const _it = "items";
 const _ite = "item";
+const _jC = "jwtConfiguration";
 const _jN = "jsonName";
+const _jU = "jwksUri";
 const _kI = "keyId";
 const _kT = "keyType";
 const _l = "location";
@@ -693,8 +710,8 @@ export var ApiStage$: StaticStructureSchema = [3, n0, _AS,
 ];
 export var Authorizer$: StaticStructureSchema = [3, n0, _Au,
   0,
-  [_i, _n, _ty, _pARN, _aT, _aU, _aC, _iS, _iVE, _aRTIS],
-  [0, 0, 0, 64 | 0, 0, 0, 0, 0, 0, 1]
+  [_i, _n, _ty, _pARN, _aT, _aU, _aC, _iS, _iVE, _aRTIS, _jC],
+  [0, 0, 0, 64 | 0, 0, 0, 0, 0, 0, 1, () => JwtConfiguration$]
 ];
 export var Authorizers$: StaticStructureSchema = [3, n0, _Aut,
   0,
@@ -733,8 +750,8 @@ export var CreateApiKeyRequest$: StaticStructureSchema = [3, n0, _CAKR,
 ];
 export var CreateAuthorizerRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_rAI, _n, _ty, _pARN, _aT, _aU, _aC, _iS, _iVE, _aRTIS],
-  [[0, 1], 0, 0, 64 | 0, 0, 0, 0, 0, 0, 1], 3
+  [_rAI, _n, _ty, _pARN, _aT, _aU, _aC, _iS, _iVE, _aRTIS, _jC],
+  [[0, 1], 0, 0, 64 | 0, 0, 0, 0, 0, 0, 1, () => JwtConfigurationInput$], 3
 ];
 export var CreateBasePathMappingRequest$: StaticStructureSchema = [3, n0, _CBPMR,
   0,
@@ -1276,6 +1293,31 @@ export var IntegrationResponse$: StaticStructureSchema = [3, n0, _IR,
   [_sC, _sPe, _rP, _rTe, _cH],
   [0, 0, 128 | 0, 128 | 0, 0]
 ];
+export var JwtAdditionalClaim$: StaticStructureSchema = [3, n0, _JAC,
+  0,
+  [_cNl, _f, _r, _eV],
+  [0, 0, 2, 64 | 0], 2
+];
+export var JwtConfiguration$: StaticStructureSchema = [3, n0, _JC,
+  0,
+  [_is, _dAe],
+  [() => ListOfJwtIssuer, 64 | 0]
+];
+export var JwtConfigurationInput$: StaticStructureSchema = [3, n0, _JCI,
+  0,
+  [_is, _dAe],
+  [() => ListOfJwtIssuerInput, 64 | 0], 2
+];
+export var JwtIssuer$: StaticStructureSchema = [3, n0, _JI,
+  0,
+  [_iss, _au, _aCd, _jU],
+  [0, 64 | 0, () => ListOfJwtAdditionalClaim, 0]
+];
+export var JwtIssuerInput$: StaticStructureSchema = [3, n0, _JII,
+  0,
+  [_iss, _au, _aCd],
+  [0, 64 | 0, () => ListOfJwtAdditionalClaim], 2
+];
 export var Method$: StaticStructureSchema = [3, n0, _M,
   0,
   [_hM, _aTu, _aIu, _aKR, _rVI, _oN, _rPe, _rMe, _mR, _mI, _aSu],
@@ -1443,12 +1485,12 @@ export var Template$: StaticStructureSchema = [3, n0, _Te,
 ];
 export var TestInvokeAuthorizerRequest$: StaticStructureSchema = [3, n0, _TIAR,
   0,
-  [_rAI, _aIu, _h, _mVH, _pWQS, _b, _sV, _aCd],
+  [_rAI, _aIu, _h, _mVH, _pWQS, _b, _sV, _aCdd],
   [[0, 1], [0, 1], 128 | 0, [2, n0, _MOSTL, 0, 0, 64 | 0], 0, 0, 128 | 0, 128 | 0], 2
 ];
 export var TestInvokeAuthorizerResponse$: StaticStructureSchema = [3, n0, _TIARe,
   0,
-  [_cSl, _lo, _la, _pIr, _po, _au, _cl],
+  [_cSl, _lo, _la, _pIr, _po, _aut, _cl],
   [1, 0, 1, 0, 0, [2, n0, _MOSTL, 0, 0, 64 | 0], 128 | 0]
 ];
 export var TestInvokeMethodRequest$: StaticStructureSchema = [3, n0, _TIMR,
@@ -1657,6 +1699,16 @@ var ListOfEndpointType = 64 | 0;
 var ListOfGatewayResponse: StaticListSchema = [1, n0, _LOGR,
   0, () => GatewayResponse$
 ];
+var ListOfJwtAdditionalClaim: StaticListSchema = [1, n0, _LOJAC,
+  0, () => JwtAdditionalClaim$
+];
+var ListOfJwtIssuer: StaticListSchema = [1, n0, _LOJI,
+  0, () => JwtIssuer$
+];
+var ListOfJwtIssuerInput: StaticListSchema = [1, n0, _LOJII,
+  0, () => JwtIssuerInput$
+];
+var ListOfJwtSigningAlgorithm = 64 | 0;
 var ListOfLong = 64 | 1;
 var ListOfModel: StaticListSchema = [1, n0, _LOM,
   0, () => Model$

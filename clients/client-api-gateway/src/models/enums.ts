@@ -56,8 +56,38 @@ export type ApiStatus = (typeof ApiStatus)[keyof typeof ApiStatus];
  * @public
  * @enum
  */
+export const JwtSigningAlgorithm = {
+  ES256: "ES256",
+  ES384: "ES384",
+  ES512: "ES512",
+  RS256: "RS256",
+  RS384: "RS384",
+  RS512: "RS512",
+} as const;
+/**
+ * @public
+ */
+export type JwtSigningAlgorithm = (typeof JwtSigningAlgorithm)[keyof typeof JwtSigningAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const JwtClaimFormat = {
+  SINGLE_STRING: "SINGLE_STRING",
+} as const;
+/**
+ * @public
+ */
+export type JwtClaimFormat = (typeof JwtClaimFormat)[keyof typeof JwtClaimFormat];
+
+/**
+ * @public
+ * @enum
+ */
 export const AuthorizerType = {
   COGNITO_USER_POOLS: "COGNITO_USER_POOLS",
+  JWT: "JWT",
   REQUEST: "REQUEST",
   TOKEN: "TOKEN",
 } as const;

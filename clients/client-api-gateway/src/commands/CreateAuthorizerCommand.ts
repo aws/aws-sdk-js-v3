@@ -35,7 +35,7 @@ export interface CreateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * const input = { // CreateAuthorizerRequest
  *   restApiId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
- *   type: "TOKEN" || "REQUEST" || "COGNITO_USER_POOLS", // required
+ *   type: "TOKEN" || "REQUEST" || "COGNITO_USER_POOLS" || "JWT", // required
  *   providerARNs: [ // ListOfARNs
  *     "STRING_VALUE",
  *   ],
@@ -45,13 +45,36 @@ export interface CreateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  *   identitySource: "STRING_VALUE",
  *   identityValidationExpression: "STRING_VALUE",
  *   authorizerResultTtlInSeconds: Number("int"),
+ *   jwtConfiguration: { // JwtConfigurationInput
+ *     issuers: [ // ListOfJwtIssuerInput // required
+ *       { // JwtIssuerInput
+ *         issuer: "STRING_VALUE", // required
+ *         audiences: [ // ListOfString // required
+ *           "STRING_VALUE",
+ *         ],
+ *         additionalClaims: [ // ListOfJwtAdditionalClaim
+ *           { // JwtAdditionalClaim
+ *             claimName: "STRING_VALUE", // required
+ *             format: "SINGLE_STRING", // required
+ *             required: true || false,
+ *             expectedValues: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     defaultAlgorithms: [ // ListOfJwtSigningAlgorithm // required
+ *       "RS256" || "RS384" || "RS512" || "ES256" || "ES384" || "ES512",
+ *     ],
+ *   },
  * };
  * const command = new CreateAuthorizerCommand(input);
  * const response = await client.send(command);
  * // { // Authorizer
  * //   id: "STRING_VALUE",
  * //   name: "STRING_VALUE",
- * //   type: "TOKEN" || "REQUEST" || "COGNITO_USER_POOLS",
+ * //   type: "TOKEN" || "REQUEST" || "COGNITO_USER_POOLS" || "JWT",
  * //   providerARNs: [ // ListOfARNs
  * //     "STRING_VALUE",
  * //   ],
@@ -61,6 +84,30 @@ export interface CreateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * //   identitySource: "STRING_VALUE",
  * //   identityValidationExpression: "STRING_VALUE",
  * //   authorizerResultTtlInSeconds: Number("int"),
+ * //   jwtConfiguration: { // JwtConfiguration
+ * //     issuers: [ // ListOfJwtIssuer
+ * //       { // JwtIssuer
+ * //         issuer: "STRING_VALUE",
+ * //         audiences: [ // ListOfString
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         additionalClaims: [ // ListOfJwtAdditionalClaim
+ * //           { // JwtAdditionalClaim
+ * //             claimName: "STRING_VALUE", // required
+ * //             format: "SINGLE_STRING", // required
+ * //             required: true || false,
+ * //             expectedValues: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         jwksUri: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     defaultAlgorithms: [ // ListOfJwtSigningAlgorithm
+ * //       "RS256" || "RS384" || "RS512" || "ES256" || "ES384" || "ES512",
+ * //     ],
+ * //   },
  * // };
  *
  * ```

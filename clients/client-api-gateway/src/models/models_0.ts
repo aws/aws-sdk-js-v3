@@ -16,6 +16,8 @@ import type {
   GatewayResponseType,
   IntegrationType,
   IpAddressType,
+  JwtClaimFormat,
+  JwtSigningAlgorithm,
   LocationStatusType,
   Op,
   PutMode,
@@ -65,7 +67,7 @@ export interface ThrottleSettings {
 }
 
 /**
- * <p>Represents an AWS account that is associated with API Gateway.</p>
+ * <p>Represents an Amazon Web Services account that is associated with API Gateway.</p>
  * @public
  */
 export interface Account {
@@ -227,6 +229,84 @@ export interface ApiStage {
 }
 
 /**
+ * <p>An additional claim rule for an issuer.</p>
+ * @public
+ */
+export interface JwtAdditionalClaim {
+  /**
+   * <p>The name of the claim to check. The value cannot be empty and cannot be <code>iss</code>, <code>aud</code>, <code>exp</code>, <code>nbf</code>, <code>iat</code>, <code>scope</code>, or <code>scp</code>.</p>
+   * @public
+   */
+  claimName: string | undefined;
+
+  /**
+   * <p>The format of the claim value. The only valid value is <code>SINGLE_STRING</code>.</p>
+   * @public
+   */
+  format: JwtClaimFormat | undefined;
+
+  /**
+   * <p>Specifies whether the claim must be present in the token. Defaults to <code>false</code>. When <code>true</code>, the token must contain the claim.</p>
+   * @public
+   */
+  required?: boolean | undefined;
+
+  /**
+   * <p>The accepted value for the claim. The value cannot be empty. When a value is specified, the claim must match it exactly, and the match is case-sensitive. When no value is specified, the claim only has to be present.</p>
+   * @public
+   */
+  expectedValues?: string[] | undefined;
+}
+
+/**
+ * <p>A trusted issuer in the returned JWT configuration.</p>
+ * @public
+ */
+export interface JwtIssuer {
+  /**
+   * <p>The OpenID Connect (OIDC) issuer URL.</p>
+   * @public
+   */
+  issuer?: string | undefined;
+
+  /**
+   * <p>The audiences that the issuer can issue tokens for.</p>
+   * @public
+   */
+  audiences?: string[] | undefined;
+
+  /**
+   * <p>The additional claim rules configured for this issuer.</p>
+   * @public
+   */
+  additionalClaims?: JwtAdditionalClaim[] | undefined;
+
+  /**
+   * <p>The JSON Web Key Set (JWKS) URI that API Gateway resolved from the issuer's OpenID Connect discovery document. This value is read-only and cannot be set.</p>
+   * @public
+   */
+  jwksUri?: string | undefined;
+}
+
+/**
+ * <p>The JWT configuration returned for a JWT authorizer.</p>
+ * @public
+ */
+export interface JwtConfiguration {
+  /**
+   * <p>The trusted issuers configured for the authorizer.</p>
+   * @public
+   */
+  issuers?: JwtIssuer[] | undefined;
+
+  /**
+   * <p>The signing algorithms configured for the authorizer.</p>
+   * @public
+   */
+  defaultAlgorithms?: JwtSigningAlgorithm[] | undefined;
+}
+
+/**
  * <p>Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.</p>
  * @public
  */
@@ -244,13 +324,13 @@ export interface Authorizer {
   name?: string | undefined;
 
   /**
-   * <p>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
+   * <p>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool, and <code>JWT</code> for using a native JWT authorizer with the trusted issuers, audiences, and signing algorithms that you declare.</p>
    * @public
    */
   type?: AuthorizerType | undefined;
 
   /**
-   * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:\{region\}:\{account_id\}:userpool/\{user_pool_id\}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
+   * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:\{region\}:\{account_id\}:userpool/\{user_pool_id\}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. This property is not supported for <code>JWT</code> authorizers. </p>
    * @public
    */
   providerARNs?: string[] | undefined;
@@ -262,13 +342,13 @@ export interface Authorizer {
   authType?: string | undefined;
 
   /**
-   * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:\{account_id\}:function:\{lambda_function_name\}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:\{region\}:lambda:path/\{service_api\}</code>, where <code>\{region\}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
+   * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:\{account_id\}:function:\{lambda_function_name\}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:\{region\}:lambda:path/\{service_api\}</code>, where <code>\{region\}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>. This property is not supported for <code>JWT</code> authorizers.</p>
    * @public
    */
   authorizerUri?: string | undefined;
 
   /**
-   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.</p>
+   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null. This property is not supported for <code>JWT</code> authorizers.</p>
    * @public
    */
   authorizerCredentials?: string | undefined;
@@ -288,22 +368,32 @@ export interface Authorizer {
    *       true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401
    *       Unauthorized response without calling the Lambda function. The valid value is a string of
    *       comma-separated mapping expressions of the specified request parameters. When the
-   *       authorization caching is not enabled, this property is optional. </p>
+   *       authorization caching is not enabled, this property is optional. For a <code>JWT</code>
+   *       authorizer, this is required and must be a single request-header mapping expression,
+   *       <code>method.request.header.<name></code>, for example,
+   *       <code>method.request.header.Authorization</code>. Query string parameters are not supported,
+   *       and there is no default. </p>
    * @public
    */
   identitySource?: string | undefined;
 
   /**
-   * <p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>
+   * <p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> or <code>JWT</code> authorizer.</p>
    * @public
    */
   identityValidationExpression?: string | undefined;
 
   /**
-   * <p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.</p>
+   * <p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour. This property is not supported for <code>JWT</code> authorizers.</p>
    * @public
    */
   authorizerResultTtlInSeconds?: number | undefined;
+
+  /**
+   * <p>The configuration returned for a JWT authorizer. This field is present only when <code>type</code> is <code>JWT</code>.</p>
+   * @public
+   */
+  jwtConfiguration?: JwtConfiguration | undefined;
 }
 
 /**
@@ -397,6 +487,48 @@ export interface CreateApiKeyRequest {
 }
 
 /**
+ * <p>A trusted issuer in the JWT configuration.</p>
+ * @public
+ */
+export interface JwtIssuerInput {
+  /**
+   * <p>The OpenID Connect (OIDC) issuer URL. The value must be an absolute <code>https</code> URL that includes a host and has no user information, query, or fragment. It must exactly match the <code>iss</code> claim of the token, and the issuer's OIDC discovery document must name this exact issuer.</p>
+   * @public
+   */
+  issuer: string | undefined;
+
+  /**
+   * <p>The audiences that the issuer can issue tokens for. None can be empty. The token's <code>aud</code> claim must contain at least one of these values.</p>
+   * @public
+   */
+  audiences: string[] | undefined;
+
+  /**
+   * <p>The additional claim rules for this issuer. Claim names must be unique within the issuer.</p>
+   * @public
+   */
+  additionalClaims?: JwtAdditionalClaim[] | undefined;
+}
+
+/**
+ * <p>The JWT configuration supplied for a JWT authorizer.</p>
+ * @public
+ */
+export interface JwtConfigurationInput {
+  /**
+   * <p>The issuers that the authorizer trusts. Issuer URLs must be unique.</p>
+   * @public
+   */
+  issuers: JwtIssuerInput[] | undefined;
+
+  /**
+   * <p>The signing algorithms that the authorizer accepts, applied to every issuer. Valid values are <code>RS256</code>, <code>RS384</code>, <code>RS512</code>, <code>ES256</code>, <code>ES384</code>, and <code>ES512</code>.</p>
+   * @public
+   */
+  defaultAlgorithms: JwtSigningAlgorithm[] | undefined;
+}
+
+/**
  * <p>Request to add a new Authorizer to an existing RestApi resource.</p>
  * @public
  */
@@ -414,13 +546,13 @@ export interface CreateAuthorizerRequest {
   name: string | undefined;
 
   /**
-   * <p>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
+   * <p>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool, and <code>JWT</code> for using a native JWT authorizer with the trusted issuers, audiences, and signing algorithms that you declare.</p>
    * @public
    */
   type: AuthorizerType | undefined;
 
   /**
-   * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:\{region\}:\{account_id\}:userpool/\{user_pool_id\}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
+   * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:\{region\}:\{account_id\}:userpool/\{user_pool_id\}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. This property is not supported for <code>JWT</code> authorizers. </p>
    * @public
    */
   providerARNs?: string[] | undefined;
@@ -432,13 +564,13 @@ export interface CreateAuthorizerRequest {
   authType?: string | undefined;
 
   /**
-   * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:\{account_id\}:function:\{lambda_function_name\}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:\{region\}:lambda:path/\{service_api\}</code>, where <code>\{region\}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
+   * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:\{account_id\}:function:\{lambda_function_name\}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:\{region\}:lambda:path/\{service_api\}</code>, where <code>\{region\}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>. This property is not supported for <code>JWT</code> authorizers.</p>
    * @public
    */
   authorizerUri?: string | undefined;
 
   /**
-   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.</p>
+   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null. This property is not supported for <code>JWT</code> authorizers.</p>
    * @public
    */
   authorizerCredentials?: string | undefined;
@@ -460,22 +592,31 @@ export interface CreateAuthorizerRequest {
    *       function, otherwise, it returns a 401 Unauthorized response without calling the Lambda
    *       function. The valid value is a string of comma-separated mapping expressions of the specified
    *       request parameters. When the authorization caching is not enabled, this property is
-   *       optional.</p>
+   *       optional. For a <code>JWT</code> authorizer, this is required and must be a single
+   *       request-header mapping expression, <code>method.request.header.<name></code>, for
+   *       example, <code>method.request.header.Authorization</code>. Query string parameters are not
+   *       supported, and there is no default.</p>
    * @public
    */
   identitySource?: string | undefined;
 
   /**
-   * <p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>
+   * <p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> or <code>JWT</code> authorizer.</p>
    * @public
    */
   identityValidationExpression?: string | undefined;
 
   /**
-   * <p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.</p>
+   * <p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour. This property is not supported for <code>JWT</code> authorizers.</p>
    * @public
    */
   authorizerResultTtlInSeconds?: number | undefined;
+
+  /**
+   * <p>The configuration for a JWT authorizer. Required for JWT authorizers.</p>
+   * @public
+   */
+  jwtConfiguration?: JwtConfigurationInput | undefined;
 }
 
 /**
@@ -630,7 +771,7 @@ export interface CreateDeploymentRequest {
  */
 export interface MethodSnapshot {
   /**
-   * <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
+   * <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using Amazon Web Services IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
    * @public
    */
   authorizationType?: string | undefined;
@@ -1054,7 +1195,7 @@ export interface DomainName {
   regionalDomainName?: string | undefined;
 
   /**
-   * <p>The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint. For more information, see Set up a Regional Custom Domain Name and AWS Regions and Endpoints for API Gateway. </p>
+   * <p>The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint. For more information, see Set up a Regional Custom Domain Name and Amazon Web Services Regions and Endpoints for API Gateway. </p>
    * @public
    */
   regionalHostedZoneId?: string | undefined;
@@ -1078,7 +1219,7 @@ export interface DomainName {
   distributionDomainName?: string | undefined;
 
   /**
-   * <p>The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The valid value is <code>Z2FDTNDATAQYW2</code> for all the regions. For more information, see Set up a Regional Custom Domain Name and AWS Regions and Endpoints for API Gateway. </p>
+   * <p>The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The valid value is <code>Z2FDTNDATAQYW2</code> for all the regions. For more information, see Set up a Regional Custom Domain Name and Amazon Web Services Regions and Endpoints for API Gateway. </p>
    * @public
    */
   distributionHostedZoneId?: string | undefined;
@@ -1505,7 +1646,7 @@ export interface Integration {
   connectionId?: string | undefined;
 
   /**
-   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string <code>arn:aws:iam::\*:user/\*</code>. To use resource-based permissions on supported Amazon Web Services services, specify null.</p>
+   * <p>Specifies the credentials required for the integration, if any. For Amazon Web Services integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string <code>arn:aws:iam::\*:user/\*</code>. To use resource-based permissions on supported Amazon Web Services services, specify null.</p>
    * @public
    */
   credentials?: string | undefined;
@@ -1589,7 +1730,7 @@ export interface Integration {
 
   /**
    * <p>
-   * The ALB or NLB listener to send the request to.
+   * The ALB or NLB ARN to send the request to.
    * </p>
    * @public
    */
@@ -1639,7 +1780,7 @@ export interface Method {
   httpMethod?: string | undefined;
 
   /**
-   * <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
+   * <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using Amazon Web Services IAM permissions, <code>CUSTOM</code> for using a custom authorizer, <code>COGNITO_USER_POOLS</code> for using a Cognito user pool, or <code>JWT</code> for using a JWT authorizer.</p>
    * @public
    */
   authorizationType?: string | undefined;
@@ -1693,7 +1834,7 @@ export interface Method {
   methodIntegration?: Integration | undefined;
 
   /**
-   * <p>A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
+   * <p>A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes. The scopes are also used with a <code>JWT</code> authorizer. When scopes are configured, the <code>scope</code> (or <code>scp</code>) claim of the token must contain at least one of the configured scopes.</p>
    * @public
    */
   authorizationScopes?: string[] | undefined;
@@ -3487,7 +3628,7 @@ export interface GetDomainNameAccessAssociationsRequest {
 
   /**
    * <p> The owner of the domain name access association. Use <code>SELF</code> to only list the domain name access associations owned by your own account.
-   *       Use <code>OTHER_ACCOUNTS</code> to list the domain name access associations with your private custom domain names that are owned by other AWS
+   *       Use <code>OTHER_ACCOUNTS</code> to list the domain name access associations with your private custom domain names that are owned by other Amazon Web Services
    *       accounts.</p>
    * @public
    */
@@ -4506,7 +4647,7 @@ export interface GetUsagePlansRequest {
 }
 
 /**
- * <p>Represents a collection of usage plans for an AWS account.</p>
+ * <p>Represents a collection of usage plans for an Amazon Web Services account.</p>
  * @public
  */
 export interface UsagePlans {
@@ -4841,7 +4982,7 @@ export interface PutIntegrationRequest {
 
   /**
    * <p>
-   * The ALB or NLB listener to send the request to.
+   * The ALB or NLB ARN to send the request to.
    * </p>
    * @public
    */
@@ -4928,7 +5069,7 @@ export interface PutMethodRequest {
   httpMethod: string | undefined;
 
   /**
-   * <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
+   * <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using Amazon Web Services IAM permissions, <code>CUSTOM</code> for using a custom authorizer, <code>COGNITO_USER_POOLS</code> for using a Cognito user pool, or <code>JWT</code> for using a JWT authorizer.</p>
    * @public
    */
   authorizationType: string | undefined;
@@ -4970,7 +5111,7 @@ export interface PutMethodRequest {
   requestValidatorId?: string | undefined;
 
   /**
-   * <p>A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
+   * <p>A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes. The scopes are also used with a <code>JWT</code> authorizer. When scopes are configured, the <code>scope</code> (or <code>scp</code>) claim of the token must contain at least one of the configured scopes.</p>
    * @public
    */
   authorizationScopes?: string[] | undefined;
@@ -5044,7 +5185,7 @@ export interface PutRestApiRequest {
   failOnWarnings?: boolean | undefined;
 
   /**
-   * <p>Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set <code>ignore=documentation</code> as a <code>parameters</code> value, as in the AWS CLI command of <code>aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'</code>.</p>
+   * <p>Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set <code>ignore=documentation</code> as a <code>parameters</code> value, as in the CLI command of <code>aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'</code>.</p>
    * @public
    */
   parameters?: Record<string, string> | undefined;
@@ -5344,7 +5485,7 @@ export interface PatchOperation {
 
   /**
    * <p>The new target value of the update operation. It is applicable for the add or replace
-   *             operation. When using AWS CLI to update a property of a JSON value, enclose the JSON
+   *             operation. When using CLI to update a property of a JSON value, enclose the JSON
    *             object with a pair of single quotes in a Linux shell, e.g., '\{"a": ...\}'.</p>
    * @public
    */

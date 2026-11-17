@@ -23,7 +23,7 @@ export interface UpdateAuthorizerCommandInput extends UpdateAuthorizerRequest {}
 export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBearer {}
 
 /**
- * <p>Updates an existing Authorizer resource.</p>
+ * <p>Updates an existing Authorizer resource. For a <code>JWT</code> authorizer, the only JWT patch operation is <code>replace</code> on the path <code>/jwtConfiguration</code>. Its value is the complete configuration as a JSON string in the <code>JwtConfigurationInput</code> shape. This replaces the entire configuration; nothing from the previous configuration is retained. A <code>replace</code> operation on the path <code>/type</code> is supported in both directions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,7 +49,7 @@ export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * // { // Authorizer
  * //   id: "STRING_VALUE",
  * //   name: "STRING_VALUE",
- * //   type: "TOKEN" || "REQUEST" || "COGNITO_USER_POOLS",
+ * //   type: "TOKEN" || "REQUEST" || "COGNITO_USER_POOLS" || "JWT",
  * //   providerARNs: [ // ListOfARNs
  * //     "STRING_VALUE",
  * //   ],
@@ -59,6 +59,30 @@ export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * //   identitySource: "STRING_VALUE",
  * //   identityValidationExpression: "STRING_VALUE",
  * //   authorizerResultTtlInSeconds: Number("int"),
+ * //   jwtConfiguration: { // JwtConfiguration
+ * //     issuers: [ // ListOfJwtIssuer
+ * //       { // JwtIssuer
+ * //         issuer: "STRING_VALUE",
+ * //         audiences: [ // ListOfString
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         additionalClaims: [ // ListOfJwtAdditionalClaim
+ * //           { // JwtAdditionalClaim
+ * //             claimName: "STRING_VALUE", // required
+ * //             format: "SINGLE_STRING", // required
+ * //             required: true || false,
+ * //             expectedValues: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         jwksUri: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     defaultAlgorithms: [ // ListOfJwtSigningAlgorithm
+ * //       "RS256" || "RS384" || "RS512" || "ES256" || "ES384" || "ES512",
+ * //     ],
+ * //   },
  * // };
  *
  * ```

@@ -44,7 +44,7 @@ export interface GetAuthorizersCommandOutput extends Authorizers, __MetadataBear
  * //     { // Authorizer
  * //       id: "STRING_VALUE",
  * //       name: "STRING_VALUE",
- * //       type: "TOKEN" || "REQUEST" || "COGNITO_USER_POOLS",
+ * //       type: "TOKEN" || "REQUEST" || "COGNITO_USER_POOLS" || "JWT",
  * //       providerARNs: [ // ListOfARNs
  * //         "STRING_VALUE",
  * //       ],
@@ -54,6 +54,30 @@ export interface GetAuthorizersCommandOutput extends Authorizers, __MetadataBear
  * //       identitySource: "STRING_VALUE",
  * //       identityValidationExpression: "STRING_VALUE",
  * //       authorizerResultTtlInSeconds: Number("int"),
+ * //       jwtConfiguration: { // JwtConfiguration
+ * //         issuers: [ // ListOfJwtIssuer
+ * //           { // JwtIssuer
+ * //             issuer: "STRING_VALUE",
+ * //             audiences: [ // ListOfString
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             additionalClaims: [ // ListOfJwtAdditionalClaim
+ * //               { // JwtAdditionalClaim
+ * //                 claimName: "STRING_VALUE", // required
+ * //                 format: "SINGLE_STRING", // required
+ * //                 required: true || false,
+ * //                 expectedValues: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             ],
+ * //             jwksUri: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         defaultAlgorithms: [ // ListOfJwtSigningAlgorithm
+ * //           "RS256" || "RS384" || "RS512" || "ES256" || "ES384" || "ES512",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   position: "STRING_VALUE",
