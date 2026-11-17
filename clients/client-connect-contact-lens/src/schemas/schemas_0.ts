@@ -27,6 +27,7 @@ const _IDs = "IssuesDetected";
 const _II = "InstanceId";
 const _IRE = "InvalidRequestException";
 const _ISE = "InternalServiceException";
+const _LC = "LanguageCode";
 const _LF = "ListFilter";
 const _LRCAS = "ListRealtimeContactAnalysisSegments";
 const _LRCASR = "ListRealtimeContactAnalysisSegmentsRequest";
@@ -205,8 +206,8 @@ export var TagCondition$: StaticStructureSchema = [3, n0, _TCa,
 ];
 export var Transcript$: StaticStructureSchema = [3, n0, _T,
   0,
-  [_I, _PI, _PR, _Co, _BOM, _EOM, _Se, _IDs],
-  [0, 0, 0, 0, 1, 1, 0, () => IssuesDetected], 6
+  [_I, _PI, _PR, _Co, _BOM, _EOM, _Se, _IDs, _LC],
+  [0, 0, 0, 0, 1, 1, 0, () => IssuesDetected, 0], 6
 ];
 var CategoriesAttributeOrConditionList: StaticListSchema = [1, n0, _CAOCL,
   0, () => CategoriesAttributeAndCondition$

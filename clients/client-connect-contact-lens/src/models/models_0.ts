@@ -409,6 +409,12 @@ export interface Transcript {
    * @public
    */
   IssuesDetected?: IssueDetected[] | undefined;
+
+  /**
+   * <p>The language code detected for this piece of transcript, for example, <code>en-US</code>.</p>
+   * @public
+   */
+  LanguageCode?: string | undefined;
 }
 
 /**

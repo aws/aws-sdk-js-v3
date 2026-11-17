@@ -92,6 +92,7 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput extends ListRe
  * //             },
  * //           },
  * //         ],
+ * //         LanguageCode: "STRING_VALUE",
  * //       },
  * //       Categories: { // Categories
  * //         MatchedCategories: [ // MatchedCategories // required
