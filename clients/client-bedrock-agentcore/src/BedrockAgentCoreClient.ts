@@ -96,6 +96,10 @@ import type {
   DeleteCapacityProviderSessionCommandInput,
   DeleteCapacityProviderSessionCommandOutput,
 } from "./commands/DeleteCapacityProviderSessionCommand";
+import type {
+  DeleteDatasetGenerationCommandInput,
+  DeleteDatasetGenerationCommandOutput,
+} from "./commands/DeleteDatasetGenerationCommand";
 import type { DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
 import type {
   DeleteMemoryRecordCommandInput,
@@ -116,6 +120,7 @@ import type {
 import type { EvaluateCommandInput, EvaluateCommandOutput } from "./commands/EvaluateCommand";
 import type { GetABTestCommandInput, GetABTestCommandOutput } from "./commands/GetABTestCommand";
 import type { GetAgentCardCommandInput, GetAgentCardCommandOutput } from "./commands/GetAgentCardCommand";
+import type { GetAgentInsightCommandInput, GetAgentInsightCommandOutput } from "./commands/GetAgentInsightCommand";
 import type {
   GetBatchEvaluationCommandInput,
   GetBatchEvaluationCommandOutput,
@@ -128,6 +133,10 @@ import type {
   GetCodeInterpreterSessionCommandInput,
   GetCodeInterpreterSessionCommandOutput,
 } from "./commands/GetCodeInterpreterSessionCommand";
+import type {
+  GetDatasetGenerationCommandInput,
+  GetDatasetGenerationCommandOutput,
+} from "./commands/GetDatasetGenerationCommand";
 import type { GetEventCommandInput, GetEventCommandOutput } from "./commands/GetEventCommand";
 import type { GetMemoryRecordCommandInput, GetMemoryRecordCommandOutput } from "./commands/GetMemoryRecordCommand";
 import type {
@@ -189,6 +198,10 @@ import type { InvokeWebSearchCommandInput, InvokeWebSearchCommandOutput } from "
 import type { ListABTestsCommandInput, ListABTestsCommandOutput } from "./commands/ListABTestsCommand";
 import type { ListActorsCommandInput, ListActorsCommandOutput } from "./commands/ListActorsCommand";
 import type {
+  ListAgentInsightsCommandInput,
+  ListAgentInsightsCommandOutput,
+} from "./commands/ListAgentInsightsCommand";
+import type {
   ListBatchEvaluationsCommandInput,
   ListBatchEvaluationsCommandOutput,
 } from "./commands/ListBatchEvaluationsCommand";
@@ -200,6 +213,10 @@ import type {
   ListCodeInterpreterSessionsCommandInput,
   ListCodeInterpreterSessionsCommandOutput,
 } from "./commands/ListCodeInterpreterSessionsCommand";
+import type {
+  ListDatasetGenerationsCommandInput,
+  ListDatasetGenerationsCommandOutput,
+} from "./commands/ListDatasetGenerationsCommand";
 import type { ListEventsCommandInput, ListEventsCommandOutput } from "./commands/ListEventsCommand";
 import type {
   ListMemoryExtractionJobsCommandInput,
@@ -248,6 +265,10 @@ import type {
   StartCodeInterpreterSessionCommandOutput,
 } from "./commands/StartCodeInterpreterSessionCommand";
 import type {
+  StartDatasetGenerationCommandInput,
+  StartDatasetGenerationCommandOutput,
+} from "./commands/StartDatasetGenerationCommand";
+import type {
   StartMemoryExtractionJobCommandInput,
   StartMemoryExtractionJobCommandOutput,
 } from "./commands/StartMemoryExtractionJobCommand";
@@ -272,6 +293,10 @@ import type {
   StopRuntimeSessionCommandOutput,
 } from "./commands/StopRuntimeSessionCommand";
 import type { UpdateABTestCommandInput, UpdateABTestCommandOutput } from "./commands/UpdateABTestCommand";
+import type {
+  UpdateAgentInsightCommandInput,
+  UpdateAgentInsightCommandOutput,
+} from "./commands/UpdateAgentInsightCommand";
 import type {
   UpdateBrowserStreamCommandInput,
   UpdateBrowserStreamCommandOutput,
@@ -302,6 +327,7 @@ export type ServiceInputTypes =
   | DeleteABTestCommandInput
   | DeleteBatchEvaluationCommandInput
   | DeleteCapacityProviderSessionCommandInput
+  | DeleteDatasetGenerationCommandInput
   | DeleteEventCommandInput
   | DeleteMemoryRecordCommandInput
   | DeletePaymentInstrumentCommandInput
@@ -310,9 +336,11 @@ export type ServiceInputTypes =
   | EvaluateCommandInput
   | GetABTestCommandInput
   | GetAgentCardCommandInput
+  | GetAgentInsightCommandInput
   | GetBatchEvaluationCommandInput
   | GetBrowserSessionCommandInput
   | GetCodeInterpreterSessionCommandInput
+  | GetDatasetGenerationCommandInput
   | GetEventCommandInput
   | GetMemoryRecordCommandInput
   | GetPaymentInstrumentBalanceCommandInput
@@ -334,9 +362,11 @@ export type ServiceInputTypes =
   | InvokeWebSearchCommandInput
   | ListABTestsCommandInput
   | ListActorsCommandInput
+  | ListAgentInsightsCommandInput
   | ListBatchEvaluationsCommandInput
   | ListBrowserSessionsCommandInput
   | ListCodeInterpreterSessionsCommandInput
+  | ListDatasetGenerationsCommandInput
   | ListEventsCommandInput
   | ListMemoryExtractionJobsCommandInput
   | ListMemoryRecordsCommandInput
@@ -351,6 +381,7 @@ export type ServiceInputTypes =
   | StartBatchEvaluationCommandInput
   | StartBrowserSessionCommandInput
   | StartCodeInterpreterSessionCommandInput
+  | StartDatasetGenerationCommandInput
   | StartMemoryExtractionJobCommandInput
   | StartRecommendationCommandInput
   | StopBatchEvaluationCommandInput
@@ -358,6 +389,7 @@ export type ServiceInputTypes =
   | StopCodeInterpreterSessionCommandInput
   | StopRuntimeSessionCommandInput
   | UpdateABTestCommandInput
+  | UpdateAgentInsightCommandInput
   | UpdateBrowserStreamCommandInput;
 
 /**
@@ -375,6 +407,7 @@ export type ServiceOutputTypes =
   | DeleteABTestCommandOutput
   | DeleteBatchEvaluationCommandOutput
   | DeleteCapacityProviderSessionCommandOutput
+  | DeleteDatasetGenerationCommandOutput
   | DeleteEventCommandOutput
   | DeleteMemoryRecordCommandOutput
   | DeletePaymentInstrumentCommandOutput
@@ -383,9 +416,11 @@ export type ServiceOutputTypes =
   | EvaluateCommandOutput
   | GetABTestCommandOutput
   | GetAgentCardCommandOutput
+  | GetAgentInsightCommandOutput
   | GetBatchEvaluationCommandOutput
   | GetBrowserSessionCommandOutput
   | GetCodeInterpreterSessionCommandOutput
+  | GetDatasetGenerationCommandOutput
   | GetEventCommandOutput
   | GetMemoryRecordCommandOutput
   | GetPaymentInstrumentBalanceCommandOutput
@@ -407,9 +442,11 @@ export type ServiceOutputTypes =
   | InvokeWebSearchCommandOutput
   | ListABTestsCommandOutput
   | ListActorsCommandOutput
+  | ListAgentInsightsCommandOutput
   | ListBatchEvaluationsCommandOutput
   | ListBrowserSessionsCommandOutput
   | ListCodeInterpreterSessionsCommandOutput
+  | ListDatasetGenerationsCommandOutput
   | ListEventsCommandOutput
   | ListMemoryExtractionJobsCommandOutput
   | ListMemoryRecordsCommandOutput
@@ -424,6 +461,7 @@ export type ServiceOutputTypes =
   | StartBatchEvaluationCommandOutput
   | StartBrowserSessionCommandOutput
   | StartCodeInterpreterSessionCommandOutput
+  | StartDatasetGenerationCommandOutput
   | StartMemoryExtractionJobCommandOutput
   | StartRecommendationCommandOutput
   | StopBatchEvaluationCommandOutput
@@ -431,6 +469,7 @@ export type ServiceOutputTypes =
   | StopCodeInterpreterSessionCommandOutput
   | StopRuntimeSessionCommandOutput
   | UpdateABTestCommandOutput
+  | UpdateAgentInsightCommandOutput
   | UpdateBrowserStreamCommandOutput;
 
 /**

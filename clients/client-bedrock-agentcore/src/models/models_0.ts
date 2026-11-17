@@ -4,6 +4,8 @@ import type { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy
 import type {
   ABTestExecutionStatus,
   ABTestStatus,
+  AgentInsightArchiveStatus,
+  AgentInsightCustomerMetadataStatus,
   AutomationStreamStatus,
   BatchEvaluationStatus,
   BrowserActionStatus,
@@ -14,30 +16,29 @@ import type {
   CodeInterpreterSessionStatus,
   CommandExecutionStatus,
   ContentBlockType,
+  DatasetGenerationStatus,
   FindingTargetType,
+  GenerationFilterOperator,
+  GroundTruthField,
   HarnessBedrockApiFormat,
   HarnessConversationRole,
-  HarnessHookDecision,
-  HarnessHookEventType,
   HarnessOpenAiApiFormat,
-  HarnessStopReason,
-  HarnessToolType,
   HarnessToolUseStatus,
   HarnessToolUseType,
   InsightsFailureCategory,
   InsightType,
   LanguageRuntime,
-  MemoryRecordStatus,
   MouseButton,
   Oauth2FlowType,
-  OAuthGrantType,
   PaymentHttpMethodType,
   ProgrammingLanguage,
   RecommendationStatus,
   RecommendationType,
-  RecordExpiryAction,
+  RedactionIdentifier,
   ResourceContentType,
+  ResultAggregation,
   ResultDestination,
+  ScenarioType,
   ScreenshotFormat,
   SessionStatus,
   TaskStatus,
@@ -447,6 +448,48 @@ export interface AffectedSession {
    * @public
    */
   failureSpans: FailureSpanDetail[] | undefined;
+}
+
+/**
+ * <p>The configuration for invoking an agent hosted on AgentCore Runtime. Each scenario runs in its own runtime session, and the turns of a scenario are sent in order within that session. The batch evaluation uses your credentials to read the agent runtime endpoint and the dataset, invoke the agent runtime, and read the resulting traces. You must have permission for these actions.</p>
+ * @public
+ */
+export interface AgentCoreRuntimeInvocation {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent runtime endpoint to invoke. Specify an endpoint in the same account and Region as the batch evaluation. The service requires the endpoint and its agent runtime version to be ready. The agent runtime must use the HTTP protocol and IAM inbound authorization.</p>
+   * @public
+   */
+  agentRuntimeEndpointArn: string | undefined;
+
+  /**
+   * <p>A JSON object template for the request payload sent to the agent for each turn. The template must contain the placeholder <code>\{\{turn.input\}\}</code> exactly once, as the complete value of a JSON string and not as a field name. The service replaces the placeholder with the input of the turn. If the input isn't a string, the service inserts it as a JSON value. If you don't specify a template, the service uses <code>\{"prompt": "\{\{turn.input\}\}"\}</code>.</p>
+   * @public
+   */
+  requestTemplate?: string | undefined;
+}
+
+/**
+ * <p>The details of the agent hosted on AgentCore Runtime that a batch evaluation invoked.</p>
+ * @public
+ */
+export interface AgentCoreRuntimeInvocationDetails {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent runtime endpoint that the batch evaluation invoked.</p>
+   * @public
+   */
+  agentRuntimeEndpointArn: string | undefined;
+
+  /**
+   * <p>The version of the agent runtime that the endpoint pointed to when the batch evaluation started. If you update the endpoint after the batch evaluation starts, each later turn uses the version that the endpoint points to when the turn runs.</p>
+   * @public
+   */
+  agentRuntimeVersion: string | undefined;
+
+  /**
+   * <p>The request payload template that the batch evaluation used for each turn. If the request didn't specify a template, this is the default template.</p>
+   * @public
+   */
+  requestTemplate?: string | undefined;
 }
 
 /**
@@ -1118,6 +1161,162 @@ export interface StopRuntimeSessionResponse {
    * @public
    */
   statusCode?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information about an Amazon Bedrock AgentCore Agent Insight, including its label, description, and creation time. This structure is returned by <code>ListAgentInsights</code>; use <code>GetAgentInsight</code> to retrieve the sample sessions and root causes for a specific insight.</p>
+ * @public
+ */
+export interface AgentInsightSummary {
+  /**
+   * <p>The type of insight.</p>
+   * @public
+   */
+  type: InsightType | undefined;
+
+  /**
+   * <p>A generated display label for the Agent Insight. This is a human-readable summary of the detected pattern, not an identifier.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A generated description of the Agent Insight that explains the detected pattern and its observed behavior across sessions.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The date and time when the Agent Insight was first created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The number of sessions affected by the insight pattern.</p>
+   * @public
+   */
+  affectedSessionCount?: number | undefined;
+
+  /**
+   * <p>The unique identifier of the Agent Insight.</p>
+   * @public
+   */
+  agentInsightId: string | undefined;
+
+  /**
+   * <p>The application that the Agent Insight belongs to.</p>
+   * @public
+   */
+  applicationName: string | undefined;
+
+  /**
+   * The Batch Evaluation that produced this Insight, when applicable.
+   * @public
+   */
+  batchEvaluationId?: string | undefined;
+
+  /**
+   * <p>Specifies whether customer-encrypted metadata is available for the Agent Insight.</p>
+   * @public
+   */
+  customerMetadataStatus: AgentInsightCustomerMetadataStatus | undefined;
+
+  /**
+   * <p>The date and time when the Agent Insight was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Specifies whether the Agent Insight is active or archived. Valid values:</p> <ul> <li> <p> <code>ACTIVE</code> - The insight is currently active.</p> </li> <li> <p> <code>ARCHIVED</code> - The insight has been archived.</p> </li> </ul>
+   * @public
+   */
+  archiveStatus: AgentInsightArchiveStatus | undefined;
+
+  /**
+   * <p>The most recent date and time when the insight pattern was observed.</p>
+   * @public
+   */
+  lastSeenAt?: Date | undefined;
+}
+
+/**
+ * <p>The agent that the batch evaluation invokes with each scenario in the dataset.</p>
+ * @public
+ */
+export type AgentInvocationConfig =
+  | AgentInvocationConfig.AgentCoreRuntimeMember
+  | AgentInvocationConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AgentInvocationConfig {
+  /**
+   * <p>The configuration for invoking an agent hosted on AgentCore Runtime.</p>
+   * @public
+   */
+  export interface AgentCoreRuntimeMember {
+    agentCoreRuntime: AgentCoreRuntimeInvocation;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentCoreRuntime?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    agentCoreRuntime: (value: AgentCoreRuntimeInvocation) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The agent that a batch evaluation invoked with each scenario in the dataset.</p>
+ * @public
+ */
+export type AgentInvocationDetails =
+  | AgentInvocationDetails.AgentCoreRuntimeMember
+  | AgentInvocationDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AgentInvocationDetails {
+  /**
+   * <p>The details of the agent hosted on AgentCore Runtime that the batch evaluation invoked.</p>
+   * @public
+   */
+  export interface AgentCoreRuntimeMember {
+    agentCoreRuntime: AgentCoreRuntimeInvocationDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentCoreRuntime?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    agentCoreRuntime: (value: AgentCoreRuntimeInvocationDetails) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -3858,6 +4057,40 @@ export interface DeleteBatchEvaluationResponse {
 /**
  * @public
  */
+export interface DeleteDatasetGenerationRequest {
+  /**
+   * <p>The unique identifier of the dataset.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the dataset generation.</p>
+   * @public
+   */
+  generationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDatasetGenerationResponse {
+  /**
+   * <p>The unique identifier of the dataset generation.</p>
+   * @public
+   */
+  generationId: string | undefined;
+
+  /**
+   * <p>The status of the dataset generation.</p>
+   * @public
+   */
+  status: DatasetGenerationStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteRecommendationRequest {
   /**
    * <p>The unique identifier of the recommendation to delete.</p>
@@ -4394,12 +4627,250 @@ export interface GetABTestResponse {
 /**
  * @public
  */
+export interface GetAgentInsightRequest {
+  /**
+   * <p>The application that the Agent Insight belongs to.</p>
+   * @public
+   */
+  applicationName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Agent Insight to retrieve.</p>
+   * @public
+   */
+  agentInsightId: string | undefined;
+}
+
+/**
+ * <p>A failure found in a session.</p>
+ * @public
+ */
+export interface SessionFinding {
+  /**
+   * <p>The identifier or name of the location in the session where the failure was found, interpreted according to <code>targetType</code>.</p>
+   * @public
+   */
+  targetId?: string | undefined;
+
+  /**
+   * <p>The type of location that <code>targetId</code> refers to.</p>
+   * @public
+   */
+  targetType?: FindingTargetType | undefined;
+
+  /**
+   * <p>A description of the failure.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The category of the failure.</p>
+   * @public
+   */
+  category?: string | undefined;
+
+  /**
+   * <p>The confidence that the finding is a failure, from 0 to 1.</p>
+   * @public
+   */
+  confidence?: number | undefined;
+}
+
+/**
+ * <p>A session affected by an insight or root cause. Use the session ID to find the per-session evaluation results in CloudWatch Logs.</p>
+ * @public
+ */
+export interface SampleSession {
+  /**
+   * <p>The unique identifier of the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The latest timestamp observed for the session in the batch evaluation input.</p>
+   * @public
+   */
+  lastSeenAt?: Date | undefined;
+
+  /**
+   * <p>The failures found in the session that belong to the insight or root cause, up to 10.</p>
+   * @public
+   */
+  findings?: SessionFinding[] | undefined;
+}
+
+/**
+ * <p>A root cause that contributes to an insight.</p>
+ * @public
+ */
+export interface InsightRootCause {
+  /**
+   * <p>A generated label for the root cause.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>An explanation of how the root cause leads to the failures in the insight.</p>
+   * @public
+   */
+  explanation: string | undefined;
+
+  /**
+   * <p>The number of distinct sessions affected by the root cause. A session can be affected by more than one root cause of the same insight.</p>
+   * @public
+   */
+  affectedSessionCount?: number | undefined;
+
+  /**
+   * <p>A suggested change to the agent that addresses the root cause.</p>
+   * @public
+   */
+  suggestedFix?: string | undefined;
+
+  /**
+   * <p>A sample of up to 10 sessions affected by the root cause.</p>
+   * @public
+   */
+  sampleSessions?: SampleSession[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentInsightResponse {
+  /**
+   * <p>The type of insight.</p>
+   * @public
+   */
+  type: InsightType | undefined;
+
+  /**
+   * <p>A generated display label for the Agent Insight. This is a human-readable summary of the detected pattern, not an identifier.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A generated description of the Agent Insight that explains the detected pattern and its observed behavior across sessions.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The date and time when the Agent Insight was first created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The number of sessions affected by the insight pattern.</p>
+   * @public
+   */
+  affectedSessionCount?: number | undefined;
+
+  /**
+   * <p>A list of sample sessions that illustrate the Agent Insight, including per-session findings that point to the relevant spans or traces.</p>
+   * @public
+   */
+  sampleSessions?: SampleSession[] | undefined;
+
+  /**
+   * <p>The root causes identified for the Agent Insight, each with an explanation, an affected session count, an optional suggested fix, and sample sessions that illustrate the root cause.</p>
+   * @public
+   */
+  rootCauses?: InsightRootCause[] | undefined;
+
+  /**
+   * <p>The unique identifier of the Agent Insight.</p>
+   * @public
+   */
+  agentInsightId: string | undefined;
+
+  /**
+   * <p>The application that the Agent Insight belongs to.</p>
+   * @public
+   */
+  applicationName: string | undefined;
+
+  /**
+   * The Batch Evaluation that produced this Insight, when applicable.
+   * @public
+   */
+  batchEvaluationId?: string | undefined;
+
+  /**
+   * <p>Specifies whether customer-encrypted metadata is available for the Agent Insight.</p>
+   * @public
+   */
+  customerMetadataStatus: AgentInsightCustomerMetadataStatus | undefined;
+
+  /**
+   * <p>The date and time when the Agent Insight was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Specifies whether the Agent Insight is active or archived. Valid values:</p> <ul> <li> <p> <code>ACTIVE</code> - The insight is currently active.</p> </li> <li> <p> <code>ARCHIVED</code> - The insight has been archived.</p> </li> </ul>
+   * @public
+   */
+  archiveStatus: AgentInsightArchiveStatus | undefined;
+
+  /**
+   * <p>The most recent date and time when the insight pattern was observed.</p>
+   * @public
+   */
+  lastSeenAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetBatchEvaluationRequest {
   /**
    * <p>The unique identifier of the batch evaluation to retrieve.</p>
    * @public
    */
   batchEvaluationId: string | undefined;
+}
+
+/**
+ * <p>Identifies the dataset and the version of it that a batch evaluation ran.</p>
+ * @public
+ */
+export interface DatasetDetails {
+  /**
+   * <p>The unique identifier of the dataset.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The version of the dataset that the batch evaluation ran. If the request didn't specify a version, this is the latest published version when the batch evaluation started.</p>
+   * @public
+   */
+  datasetVersion: string | undefined;
+}
+
+/**
+ * <p>The details of the dataset and agent that a batch evaluation ran.</p>
+ * @public
+ */
+export interface DatasetExecutionDetails {
+  /**
+   * <p>The dataset and the version of it that the batch evaluation ran.</p>
+   * @public
+   */
+  dataset: DatasetDetails | undefined;
+
+  /**
+   * <p>The agent that the batch evaluation invoked.</p>
+   * @public
+   */
+  agentInvocation: AgentInvocationDetails | undefined;
 }
 
 /**
@@ -4864,102 +5335,6 @@ export interface FailureAnalysisResultContent {
 }
 
 /**
- * <p>A failure found in a session.</p>
- * @public
- */
-export interface SessionFinding {
-  /**
-   * <p>The identifier or name of the location in the session where the failure was found, interpreted according to <code>targetType</code>.</p>
-   * @public
-   */
-  targetId?: string | undefined;
-
-  /**
-   * <p>The type of location that <code>targetId</code> refers to.</p>
-   * @public
-   */
-  targetType?: FindingTargetType | undefined;
-
-  /**
-   * <p>A description of the failure.</p>
-   * @public
-   */
-  description: string | undefined;
-
-  /**
-   * <p>The category of the failure.</p>
-   * @public
-   */
-  category?: string | undefined;
-
-  /**
-   * <p>The confidence that the finding is a failure, from 0 to 1.</p>
-   * @public
-   */
-  confidence?: number | undefined;
-}
-
-/**
- * <p>A session affected by an insight or root cause. Use the session ID to find the per-session evaluation results in CloudWatch Logs.</p>
- * @public
- */
-export interface SampleSession {
-  /**
-   * <p>The unique identifier of the session.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The latest timestamp observed for the session in the batch evaluation input.</p>
-   * @public
-   */
-  lastSeenAt?: Date | undefined;
-
-  /**
-   * <p>The failures found in the session that belong to the insight or root cause, up to 10.</p>
-   * @public
-   */
-  findings?: SessionFinding[] | undefined;
-}
-
-/**
- * <p>A root cause that contributes to an insight.</p>
- * @public
- */
-export interface InsightRootCause {
-  /**
-   * <p>A generated label for the root cause.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>An explanation of how the root cause leads to the failures in the insight.</p>
-   * @public
-   */
-  explanation: string | undefined;
-
-  /**
-   * <p>The number of distinct sessions affected by the root cause. A session can be affected by more than one root cause of the same insight.</p>
-   * @public
-   */
-  affectedSessionCount?: number | undefined;
-
-  /**
-   * <p>A suggested change to the agent that addresses the root cause.</p>
-   * @public
-   */
-  suggestedFix?: string | undefined;
-
-  /**
-   * <p>A sample of up to 10 sessions affected by the root cause.</p>
-   * @public
-   */
-  sampleSessions?: SampleSession[] | undefined;
-}
-
-/**
  * <p>An insight that groups related failures found across the sessions in a batch evaluation.</p>
  * @public
  */
@@ -5265,6 +5640,744 @@ export interface GetBatchEvaluationResponse {
    * @public
    */
   kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The details of the dataset and agent that the batch evaluation ran, including the dataset version and agent runtime version that the service resolved when the batch evaluation started. This field is present only if the batch evaluation was started with a <code>datasetExecutionConfig</code>.</p>
+   * @public
+   */
+  datasetExecutionDetails?: DatasetExecutionDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDatasetGenerationRequest {
+  /**
+   * <p>The unique identifier of the dataset.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the dataset generation.</p>
+   * @public
+   */
+  generationId: string | undefined;
+}
+
+/**
+ * <p>The failures in a dataset generation that share an error code.</p>
+ * @public
+ */
+export interface GenerationErrorDetail {
+  /**
+   * <p>The error code, for example <code>ACCESS_DENIED</code> or <code>EXPIRED_CREDENTIALS</code>. New codes can be added.</p>
+   * @public
+   */
+  errorCode?: string | undefined;
+
+  /**
+   * <p>A description of the error.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * <p>The number of sessions and traces that failed with this error code. Absent for a generation that finished before failures were counted by code. In that case, <code>sessionIds</code> is a sample.</p>
+   * @public
+   */
+  count?: number | undefined;
+
+  /**
+   * <p>Up to 10 of the sessions that failed with this error code. Each entry is a session ID, or the ID of a trace named in the request.</p>
+   * @public
+   */
+  sessionIds?: string[] | undefined;
+}
+
+/**
+ * <p>Counts of the sessions, scenarios and examples a dataset generation has processed.</p>
+ * @public
+ */
+export interface GenerationResults {
+  /**
+   * <p>The number of sessions that matched the filters or were named in the request, before sampling. This includes sessions that later failed.</p>
+   * @public
+   */
+  sessionsMatched?: number | undefined;
+
+  /**
+   * <p>The number of sessions left after sampling.</p>
+   * @public
+   */
+  sessionsSelected?: number | undefined;
+
+  /**
+   * <p>The number of sessions left out because an evaluator filter had no result to compare, either because the session wasn't evaluated yet or because the evaluation failed.</p>
+   * @public
+   */
+  sessionsUnscored?: number | undefined;
+
+  /**
+   * <p>The number of sessions dropped because of an error. See <code>errorDetails</code> for the errors.</p>
+   * @public
+   */
+  sessionsFailed?: number | undefined;
+
+  /**
+   * <p>The number of scenarios generated.</p>
+   * @public
+   */
+  scenariosGenerated?: number | undefined;
+
+  /**
+   * <p>The number of scenarios left out as duplicates, of each other or of examples already in the draft.</p>
+   * @public
+   */
+  scenariosDeduplicated?: number | undefined;
+
+  /**
+   * <p>The number of examples added to the dataset's draft.</p>
+   * @public
+   */
+  examplesWritten?: number | undefined;
+
+  /**
+   * <p>The number of added examples that have reference fields.</p>
+   * @public
+   */
+  examplesWithGroundTruth?: number | undefined;
+}
+
+/**
+ * <p>A summary of what redaction found in a dataset generation. It contains counts only, never the masked data.</p>
+ * @public
+ */
+export interface RedactionSummary {
+  /**
+   * <p>The number of scenarios scanned for sensitive data.</p>
+   * @public
+   */
+  scenariosScanned?: number | undefined;
+
+  /**
+   * <p>The number of matches for each data identifier.</p>
+   * @public
+   */
+  findingCounts?: Record<string, number> | undefined;
+}
+
+/**
+ * <p>The value a filter compares with. Specify exactly one. Attribute filters support all three types. Evaluator filters support <code>stringValue</code> and <code>doubleValue</code>.</p>
+ * @public
+ */
+export type GenerationFilterValue =
+  | GenerationFilterValue.BooleanValueMember
+  | GenerationFilterValue.DoubleValueMember
+  | GenerationFilterValue.StringValueMember
+  | GenerationFilterValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GenerationFilterValue {
+  /**
+   * <p>A string value.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    stringValue: string;
+    doubleValue?: never;
+    booleanValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A numeric value.</p>
+   * @public
+   */
+  export interface DoubleValueMember {
+    stringValue?: never;
+    doubleValue: number;
+    booleanValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Boolean value.</p>
+   * @public
+   */
+  export interface BooleanValueMember {
+    stringValue?: never;
+    doubleValue?: never;
+    booleanValue: boolean;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    doubleValue?: never;
+    booleanValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    doubleValue: (value: number) => T;
+    booleanValue: (value: boolean) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A condition on a session's evaluation result.</p>
+ * @public
+ */
+export interface EvaluatorFilter {
+  /**
+   * <p>The unique identifier of the evaluator whose result to compare.</p>
+   * @public
+   */
+  evaluatorId: string | undefined;
+
+  /**
+   * <p>The dimension of the evaluator's result to compare. Required for an evaluator that scores more than one dimension. Don't specify it for any other evaluator.</p>
+   * @public
+   */
+  evaluationDimensionName?: string | undefined;
+
+  /**
+   * <p>How to compare the evaluation result with <code>value</code>.</p>
+   * @public
+   */
+  operator: GenerationFilterOperator | undefined;
+
+  /**
+   * <p>The value to compare the evaluation result with. Use <code>doubleValue</code> for a score and <code>stringValue</code> for a label. <code>booleanValue</code> isn't supported.</p>
+   * @public
+   */
+  value: GenerationFilterValue | undefined;
+
+  /**
+   * <p>How to combine the evaluator's per-trace or per-span results into one result for the session. Required for an evaluator that scores traces or spans. Don't specify it for an evaluator that scores sessions.</p>
+   * @public
+   */
+  aggregation?: ResultAggregation | undefined;
+}
+
+/**
+ * <p>Reference fields to copy from the sessions into the generated examples.</p>
+ * @public
+ */
+export interface GroundTruthConfig {
+  /**
+   * <p>The reference fields to copy. Values are copied from the session as observed, not generated.</p>
+   * @public
+   */
+  fields: GroundTruthField[] | undefined;
+
+  /**
+   * <p>Evaluator conditions that a selected session must also meet to have reference fields copied. If you don't specify these, the generation uses the evaluator filters from <code>selection</code>. If the selection names sessions and traces by ID, every selected session gets reference fields. Specify an empty list to give every selected session reference fields. You can't specify quality filters with a <code>cloudWatchLogs</code> source.</p>
+   * @public
+   */
+  qualityFilters?: EvaluatorFilter[] | undefined;
+}
+
+/**
+ * <p>A custom data identifier, defined by a regular expression.</p>
+ * @public
+ */
+export interface CustomDataIdentifier {
+  /**
+   * <p>The name of the custom data identifier. It can't be the same as the name of a managed data identifier.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The regular expression that matches the data to mask. Lookahead and lookbehind aren't supported.</p>
+   * @public
+   */
+  regex: string | undefined;
+}
+
+/**
+ * <p>Sensitive data to mask in generated examples. Nothing is redacted unless you specify at least one identifier. Each character of a match is replaced with <code>*</code>, so a masked value keeps its length. If detection fails, the generation fails and no examples are written.</p>
+ * @public
+ */
+export interface RedactionConfiguration {
+  /**
+   * <p>The managed data identifiers to apply. These match the CloudWatch Logs managed data identifiers.</p>
+   * @public
+   */
+  identifiers?: RedactionIdentifier[] | undefined;
+
+  /**
+   * <p>Custom data identifiers to apply, up to 10. You can use custom identifiers without any managed identifiers.</p>
+   * @public
+   */
+  customDataIdentifiers?: CustomDataIdentifier[] | undefined;
+}
+
+/**
+ * <p>How many scenarios a dataset generation produces.</p>
+ * @public
+ */
+export interface GenerationSamplingConfig {
+  /**
+   * <p>The maximum number of scenarios to generate, from 1 to 1,000. The default is 100. The generation produces at most one scenario for each selected session. The dataset's draft examples plus this value can't be more than 1,000.</p>
+   * @public
+   */
+  maxScenarios?: number | undefined;
+}
+
+/**
+ * <p>A condition on a session attribute.</p>
+ * @public
+ */
+export interface GenerationAttributeFilter {
+  /**
+   * <p>The attribute key.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>How to compare the attribute with <code>value</code>.</p>
+   * @public
+   */
+  operator: GenerationFilterOperator | undefined;
+
+  /**
+   * <p>The value to compare the attribute with.</p>
+   * @public
+   */
+  value: GenerationFilterValue | undefined;
+}
+
+/**
+ * <p>A range of turn counts. Each bound is from 1 to 100, and <code>min</code> can't be greater than <code>max</code>.</p>
+ * @public
+ */
+export interface TurnCountRange {
+  /**
+   * <p>The minimum number of turns.</p>
+   * @public
+   */
+  min?: number | undefined;
+
+  /**
+   * <p>The maximum number of turns. The default is 100.</p>
+   * @public
+   */
+  max?: number | undefined;
+}
+
+/**
+ * <p>Conditions that a session must meet to be selected. A session must meet every condition you specify. Attribute and turn count filters work with any source. Evaluator filters need a source that has evaluation results.</p>
+ * @public
+ */
+export interface GenerationFilters {
+  /**
+   * <p>Attribute conditions, up to 5. A session must meet all of them. An attribute on a span matches when any span in the session meets the condition.</p>
+   * @public
+   */
+  attributeFilters?: GenerationAttributeFilter[] | undefined;
+
+  /**
+   * <p>The range of turns a session can have. For example, set <code>max</code> to 1 for single-turn sessions only, or <code>min</code> to 2 for multi-turn sessions only. Sessions with more than 100 turns are never selected.</p>
+   * @public
+   */
+  turnCount?: TurnCountRange | undefined;
+
+  /**
+   * <p>Conditions on evaluation results, up to 10. A session must meet all of them. You can use these only with an <code>onlineEvaluation</code> or <code>batchEvaluation</code> source. A <code>cloudWatchLogs</code> source has no evaluation results.</p>
+   * @public
+   */
+  evaluatorFilters?: EvaluatorFilter[] | undefined;
+}
+
+/**
+ * <p>The number of session and trace IDs a dataset generation was started with.</p>
+ * @public
+ */
+export interface GenerationIdentifierCounts {
+  /**
+   * <p>The number of session IDs in the request.</p>
+   * @public
+   */
+  sessionIdCount?: number | undefined;
+
+  /**
+   * <p>The number of trace IDs in the request.</p>
+   * @public
+   */
+  traceIdCount?: number | undefined;
+}
+
+/**
+ * <p>How a dataset generation was asked to choose sessions. Filters are returned as submitted. Session and trace IDs are returned as counts, and the IDs themselves are never returned.</p>
+ * @public
+ */
+export type GenerationSelectionRecord =
+  | GenerationSelectionRecord.FiltersMember
+  | GenerationSelectionRecord.IdentifiersMember
+  | GenerationSelectionRecord.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GenerationSelectionRecord {
+  /**
+   * <p>The filters the generation was started with.</p>
+   * @public
+   */
+  export interface FiltersMember {
+    filters: GenerationFilters;
+    identifiers?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The number of session and trace IDs the generation was started with.</p>
+   * @public
+   */
+  export interface IdentifiersMember {
+    filters?: never;
+    identifiers: GenerationIdentifierCounts;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    filters?: never;
+    identifiers?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    filters: (value: GenerationFilters) => T;
+    identifiers: (value: GenerationIdentifierCounts) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A batch evaluation source for a dataset generation. The generation reads the sessions the batch evaluation evaluated, so there is no time window.</p>
+ * @public
+ */
+export interface BatchEvaluationSourceConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationArn: string | undefined;
+}
+
+/**
+ * <p>A CloudWatch Logs source for a dataset generation. Specify either <code>logGroupNames</code> or <code>logGroupNamePrefixes</code>.</p>
+ * @public
+ */
+export interface CloudWatchLogsSourceConfig {
+  /**
+   * <p>The names of the log groups to read, from 1 to 5. You can't specify this together with <code>logGroupNamePrefixes</code>.</p>
+   * @public
+   */
+  logGroupNames?: string[] | undefined;
+
+  /**
+   * <p>Prefixes of the names of the log groups to read, from 1 to 5. You can't specify this together with <code>logGroupNames</code>.</p>
+   * @public
+   */
+  logGroupNamePrefixes?: string[] | undefined;
+
+  /**
+   * <p>The service name of the agent, which matches the <code>service.name</code> resource attribute in its traces. Specify exactly one.</p>
+   * @public
+   */
+  serviceNames: string[] | undefined;
+
+  /**
+   * <p>The start of the time window to read sessions from. The default is 7 days before <code>endTime</code>.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>The end of the time window to read sessions from. The default is the time the generation starts.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+}
+
+/**
+ * <p>An online evaluation source for a dataset generation.</p>
+ * @public
+ */
+export interface OnlineEvaluationSourceConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the online evaluation configuration.</p>
+   * @public
+   */
+  onlineEvaluationConfigArn: string | undefined;
+
+  /**
+   * <p>The start of the time window to read sessions from. The default is 7 days before <code>endTime</code>.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>The end of the time window to read sessions from. The default is the time the generation starts.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+}
+
+/**
+ * <p>Where a dataset generation reads sessions from. Specify exactly one source.</p>
+ * @public
+ */
+export type TraceSourceConfig =
+  | TraceSourceConfig.BatchEvaluationMember
+  | TraceSourceConfig.CloudWatchLogsMember
+  | TraceSourceConfig.OnlineEvaluationMember
+  | TraceSourceConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TraceSourceConfig {
+  /**
+   * <p>Reads sessions from CloudWatch Logs log groups.</p>
+   * @public
+   */
+  export interface CloudWatchLogsMember {
+    cloudWatchLogs: CloudWatchLogsSourceConfig;
+    onlineEvaluation?: never;
+    batchEvaluation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Reads sessions, with their evaluation results, from an online evaluation configuration.</p>
+   * @public
+   */
+  export interface OnlineEvaluationMember {
+    cloudWatchLogs?: never;
+    onlineEvaluation: OnlineEvaluationSourceConfig;
+    batchEvaluation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Reads sessions, with their evaluation results, from a batch evaluation.</p>
+   * @public
+   */
+  export interface BatchEvaluationMember {
+    cloudWatchLogs?: never;
+    onlineEvaluation?: never;
+    batchEvaluation: BatchEvaluationSourceConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    cloudWatchLogs?: never;
+    onlineEvaluation?: never;
+    batchEvaluation?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    cloudWatchLogs: (value: CloudWatchLogsSourceConfig) => T;
+    onlineEvaluation: (value: OnlineEvaluationSourceConfig) => T;
+    batchEvaluation: (value: BatchEvaluationSourceConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The trace source a dataset generation was started with.</p>
+ * @public
+ */
+export interface TraceGenerationRecord {
+  /**
+   * <p>Where the generation reads sessions from, including the resolved time window.</p>
+   * @public
+   */
+  sourceConfig?: TraceSourceConfig | undefined;
+
+  /**
+   * <p>How the generation chooses sessions. Filters are returned as submitted, with the resolved maximum turn count. Session and trace IDs are returned as counts. If this is absent, the request had no selection.</p>
+   * @public
+   */
+  selection?: GenerationSelectionRecord | undefined;
+
+  /**
+   * <p>How many scenarios the generation produces.</p>
+   * @public
+   */
+  sampling?: GenerationSamplingConfig | undefined;
+
+  /**
+   * <p>The reference fields the generation copies into the examples. If the request didn't specify quality filters, the filters the generation applies are returned here.</p>
+   * @public
+   */
+  groundTruth?: GroundTruthConfig | undefined;
+
+  /**
+   * <p>The sensitive data the generation masks in the examples.</p>
+   * @public
+   */
+  redactionConfiguration?: RedactionConfiguration | undefined;
+}
+
+/**
+ * <p>The source a dataset generation was started with.</p>
+ * @public
+ */
+export type GenerationSourceRecord =
+  | GenerationSourceRecord.TraceGenerationMember
+  | GenerationSourceRecord.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GenerationSourceRecord {
+  /**
+   * <p>The trace source the generation was started with.</p>
+   * @public
+   */
+  export interface TraceGenerationMember {
+    traceGeneration: TraceGenerationRecord;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    traceGeneration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    traceGeneration: (value: TraceGenerationRecord) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetDatasetGenerationResponse {
+  /**
+   * <p>The unique identifier of the dataset generation.</p>
+   * @public
+   */
+  generationId: string | undefined;
+
+  /**
+   * <p>The name of the dataset generation.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the dataset generation.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the dataset.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The type of scenario the generation produces. This is the value from the request, or <code>DYNAMIC</code> if the request didn't specify one.</p>
+   * @public
+   */
+  scenarioType: ScenarioType | undefined;
+
+  /**
+   * <p>The status of the dataset generation.</p>
+   * @public
+   */
+  status: DatasetGenerationStatus | undefined;
+
+  /**
+   * <p>The reason the dataset generation failed. Present only when the status is <code>FAILED</code>.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
+
+  /**
+   * <p>The time at which the dataset generation started.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The time at which the dataset generation last changed status.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The time at which the dataset generation finished. Present only when the generation has finished.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+
+  /**
+   * <p>The source the generation was started with, including the resolved time window. If you selected sessions and traces by ID, the response gives the number of IDs instead of the IDs.</p>
+   * @public
+   */
+  source?: GenerationSourceRecord | undefined;
+
+  /**
+   * <p>Counts of the sessions, scenarios and examples the generation has processed.</p>
+   * @public
+   */
+  generationResults?: GenerationResults | undefined;
+
+  /**
+   * <p>A summary of what redaction found. Present only when the generation was started with redaction.</p>
+   * @public
+   */
+  redactionSummary?: RedactionSummary | undefined;
+
+  /**
+   * <p>The errors the generation hit, grouped by error code. The list holds the 10 most frequent error codes, most frequent first.</p>
+   * @public
+   */
+  errorDetails?: GenerationErrorDetail[] | undefined;
 }
 
 /**
@@ -5907,6 +7020,58 @@ export interface ListABTestsResponse {
 /**
  * @public
  */
+export interface ListAgentInsightsRequest {
+  /**
+   * <p>Filters the results to Agent Insights for an application.</p>
+   * @public
+   */
+  applicationName?: string | undefined;
+
+  /**
+   * <p>Filters the results to Agent Insights produced by a batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationId?: string | undefined;
+
+  /**
+   * <p>Filters the results by archive status.</p>
+   * @public
+   */
+  archiveStatus?: AgentInsightArchiveStatus | undefined;
+
+  /**
+   * <p>The maximum number of Agent Insight summaries to return in one response. If you don't specify a value, the operation returns up to 50 summaries.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to specify where to start paginating the results. This token is returned in a previous response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgentInsightsResponse {
+  /**
+   * <p>The Agent Insight summaries.</p>
+   * @public
+   */
+  agentInsights: AgentInsightSummary[] | undefined;
+
+  /**
+   * <p>A token to use to retrieve the next page of results. This value is present only when additional results are available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListBatchEvaluationsRequest {
   /**
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
@@ -6019,6 +7184,100 @@ export interface ListBatchEvaluationsResponse {
 /**
  * @public
  */
+export interface ListDatasetGenerationsRequest {
+  /**
+   * <p>The unique identifier of the dataset.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. The default is 20. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A summary of a dataset generation. To get its counts and the request it was started with, call <code>GetDatasetGeneration</code>.</p>
+ * @public
+ */
+export interface DatasetGenerationSummary {
+  /**
+   * <p>The unique identifier of the dataset generation.</p>
+   * @public
+   */
+  generationId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the dataset.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The name of the dataset generation.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the dataset generation.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The type of scenario the generation produces.</p>
+   * @public
+   */
+  scenarioType: ScenarioType | undefined;
+
+  /**
+   * <p>The status of the dataset generation.</p>
+   * @public
+   */
+  status: DatasetGenerationStatus | undefined;
+
+  /**
+   * <p>The time at which the dataset generation started.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The time at which the dataset generation finished. Present only when the generation has finished.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDatasetGenerationsResponse {
+  /**
+   * <p>The dataset generations.</p>
+   * @public
+   */
+  datasetGenerations: DatasetGenerationSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListRecommendationsRequest {
   /**
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
@@ -6108,6 +7367,42 @@ export interface ListRecommendationsResponse {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * <p>Identifies the dataset and the version of it to run.</p>
+ * @public
+ */
+export interface DatasetSource {
+  /**
+   * <p>The unique identifier of the dataset.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The number of a published version of the dataset. You can't run the <code>DRAFT</code> version. If you don't specify a version, the batch evaluation uses the latest published version.</p>
+   * @public
+   */
+  datasetVersion?: string | undefined;
+}
+
+/**
+ * <p>The configuration for running the scenarios in a dataset against an agent as part of a batch evaluation.</p>
+ * @public
+ */
+export interface DatasetExecutionConfig {
+  /**
+   * <p>The dataset whose scenarios are sent to the agent. The dataset must use the predefined evaluation schema, and the version that runs must contain between 1 and 1,000 scenarios.</p>
+   * @public
+   */
+  dataset: DatasetSource | undefined;
+
+  /**
+   * <p>Specifies the agent runtime endpoint and the request template that the batch evaluation uses to invoke the agent for each scenario in the dataset.</p>
+   * @public
+   */
+  agentInvocation: AgentInvocationConfig | undefined;
 }
 
 /**
@@ -6362,6 +7657,12 @@ export interface StartBatchEvaluationRequest {
    * @public
    */
   outputConfig?: OutputConfig | undefined;
+
+  /**
+   * <p>The configuration for running the scenarios in a dataset against an agent before evaluating the resulting sessions. When you specify this field, the batch evaluation runs each scenario in the dataset against the agent. It then evaluates the sessions that the agent produces. You must also specify <code>evaluators</code> and a <code>dataSourceConfig</code> that uses <code>cloudWatchLogs</code>. Configure <code>cloudWatchLogs</code> with the service name and log groups that the agent uses for its traces. You can't specify <code>insights</code> or an <code>onlineEvaluationConfigSource</code> data source with this field.</p>
+   * @public
+   */
+  datasetExecutionConfig?: DatasetExecutionConfig | undefined;
 }
 
 /**
@@ -6433,6 +7734,228 @@ export interface StartBatchEvaluationResponse {
    * @public
    */
   description?: string | undefined;
+}
+
+/**
+ * <p>The sessions and traces to generate examples from. Specify at least one session ID or trace ID. A session with more than 100 turns is reported as an error and produces no example.</p>
+ * @public
+ */
+export interface GenerationIdentifiers {
+  /**
+   * <p>The IDs of the sessions to use, up to 25.</p>
+   * @public
+   */
+  sessionIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the traces to use, up to 25.</p>
+   * @public
+   */
+  traceIds?: string[] | undefined;
+}
+
+/**
+ * <p>How a dataset generation chooses sessions. Specify exactly one: filters, to have AgentCore find matching sessions, or identifiers, to name the sessions and traces yourself. Sessions and traces you name aren't filtered further.</p>
+ * @public
+ */
+export type GenerationSelection =
+  | GenerationSelection.FiltersMember
+  | GenerationSelection.IdentifiersMember
+  | GenerationSelection.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GenerationSelection {
+  /**
+   * <p>Conditions that a session must meet to be selected.</p>
+   * @public
+   */
+  export interface FiltersMember {
+    filters: GenerationFilters;
+    identifiers?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The sessions and traces to use.</p>
+   * @public
+   */
+  export interface IdentifiersMember {
+    filters?: never;
+    identifiers: GenerationIdentifiers;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    filters?: never;
+    identifiers?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    filters: (value: GenerationFilters) => T;
+    identifiers: (value: GenerationIdentifiers) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Settings for generating examples from your agent's traces.</p>
+ * @public
+ */
+export interface TraceGenerationSource {
+  /**
+   * <p>Where to read the sessions from.</p>
+   * @public
+   */
+  sourceConfig: TraceSourceConfig | undefined;
+
+  /**
+   * <p>How to choose sessions from the source. If you don't specify a selection, the generation uses every session in the source and time window that has at most 100 turns.</p>
+   * @public
+   */
+  selection?: GenerationSelection | undefined;
+
+  /**
+   * <p>How many scenarios to generate from the selected sessions.</p>
+   * @public
+   */
+  sampling?: GenerationSamplingConfig | undefined;
+
+  /**
+   * <p>Reference fields to copy from the sessions into the examples. If you don't specify this, the examples have no reference fields.</p>
+   * @public
+   */
+  groundTruth?: GroundTruthConfig | undefined;
+
+  /**
+   * <p>Sensitive data to mask in the examples. If you don't specify this, nothing is redacted.</p>
+   * @public
+   */
+  redactionConfiguration?: RedactionConfiguration | undefined;
+}
+
+/**
+ * <p>The source of a dataset generation.</p>
+ * @public
+ */
+export type GenerationSource =
+  | GenerationSource.TraceGenerationMember
+  | GenerationSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GenerationSource {
+  /**
+   * <p>Generates examples from your agent's traces.</p>
+   * @public
+   */
+  export interface TraceGenerationMember {
+    traceGeneration: TraceGenerationSource;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    traceGeneration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    traceGeneration: (value: TraceGenerationSource) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartDatasetGenerationRequest {
+  /**
+   * <p>The unique identifier of the dataset to add the generated examples to. The dataset must be <code>ACTIVE</code>.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The name of the dataset generation. The generation ID starts with this name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the dataset generation.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The type of scenario to generate. If you don't specify a value, the generation produces <code>DYNAMIC</code> scenarios.</p>
+   * @public
+   */
+  scenarioType?: ScenarioType | undefined;
+
+  /**
+   * <p>Where the generation reads sessions from, and how it selects, samples, labels and redacts them.</p>
+   * @public
+   */
+  source: GenerationSource | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDatasetGenerationResponse {
+  /**
+   * <p>The unique identifier of the dataset generation.</p>
+   * @public
+   */
+  generationId: string | undefined;
+
+  /**
+   * <p>The name of the dataset generation.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The unique identifier of the dataset.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The status of the dataset generation.</p>
+   * @public
+   */
+  status: DatasetGenerationStatus | undefined;
+
+  /**
+   * <p>The time at which the dataset generation started.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
 }
 
 /**
@@ -6670,6 +8193,52 @@ export interface UpdateABTestResponse {
 
   /**
    * <p>The timestamp when the A/B test was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAgentInsightRequest {
+  /**
+   * <p>The application that the Agent Insight belongs to.</p>
+   * @public
+   */
+  applicationName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Agent Insight to update.</p>
+   * @public
+   */
+  agentInsightId: string | undefined;
+
+  /**
+   * <p>The archive status to apply to the Agent Insight. Valid values:</p> <ul> <li> <p> <code>ACTIVE</code> - Marks the insight as active.</p> </li> <li> <p> <code>ARCHIVED</code> - Marks the insight as archived.</p> </li> </ul>
+   * @public
+   */
+  archiveStatus: AgentInsightArchiveStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAgentInsightResponse {
+  /**
+   * <p>The unique identifier of the updated Agent Insight.</p>
+   * @public
+   */
+  agentInsightId: string | undefined;
+
+  /**
+   * <p>The archive status of the updated Agent Insight. Valid values:</p> <ul> <li> <p> <code>ACTIVE</code> - The insight is active.</p> </li> <li> <p> <code>ARCHIVED</code> - The insight is archived.</p> </li> </ul>
+   * @public
+   */
+  archiveStatus: AgentInsightArchiveStatus | undefined;
+
+  /**
+   * <p>The date and time when the Agent Insight was updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -8403,1826 +9972,6 @@ export interface HarnessAgentCoreBrowserConfig {
 }
 
 /**
- * <p>Configuration for AgentCore Code Interpreter.</p>
- * @public
- */
-export interface HarnessAgentCoreCodeInterpreterConfig {
-  /**
-   * <p>If not populated, the built-in Code Interpreter ARN is used.</p>
-   * @public
-   */
-  codeInterpreterArn?: string | undefined;
-}
-
-/**
  * @public
  */
 export interface Unit {}
-
-/**
- * <p>Configuration for an OAuth 2.0 credential provider used to authenticate tool calls.</p>
- * @public
- */
-export interface OAuthCredentialProvider {
-  /**
-   * <p>The ARN of the OAuth 2.0 credential provider in AgentCore Identity.</p>
-   * @public
-   */
-  providerArn: string | undefined;
-
-  /**
-   * <p>The OAuth 2.0 scopes to request when obtaining an access token.</p>
-   * @public
-   */
-  scopes: string[] | undefined;
-
-  /**
-   * <p>Additional custom parameters to include in the OAuth 2.0 token request.</p>
-   * @public
-   */
-  customParameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>The OAuth 2.0 grant type to use for authentication.</p>
-   * @public
-   */
-  grantType?: OAuthGrantType | undefined;
-
-  /**
-   * <p>The default return URL for the OAuth 2.0 authorization flow.</p>
-   * @public
-   */
-  defaultReturnUrl?: string | undefined;
-}
-
-/**
- * <p>Authentication method for calling a Gateway.</p>
- * @public
- */
-export type HarnessGatewayOutboundAuth =
-  | HarnessGatewayOutboundAuth.AwsIamMember
-  | HarnessGatewayOutboundAuth.NoneMember
-  | HarnessGatewayOutboundAuth.OauthMember
-  | HarnessGatewayOutboundAuth.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessGatewayOutboundAuth {
-  /**
-   * <p>SigV4-sign requests using the agent's execution role.</p>
-   * @public
-   */
-  export interface AwsIamMember {
-    awsIam: Unit;
-    none?: never;
-    oauth?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>No authentication.</p>
-   * @public
-   */
-  export interface NoneMember {
-    awsIam?: never;
-    none: Unit;
-    oauth?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>OAuth 2.0 authentication via AgentCore Identity.</p> <p>The <code>AUTHORIZATION_CODE</code> grant type is not supported for outbound authentication from a harness to an AgentCore Gateway, even when <code>defaultReturnUrl</code> is specified.</p>
-   * @public
-   */
-  export interface OauthMember {
-    awsIam?: never;
-    none?: never;
-    oauth: OAuthCredentialProvider;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    awsIam?: never;
-    none?: never;
-    oauth?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    awsIam: (value: Unit) => T;
-    none: (value: Unit) => T;
-    oauth: (value: OAuthCredentialProvider) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Configuration for AgentCore Gateway.</p>
- * @public
- */
-export interface HarnessAgentCoreGatewayConfig {
-  /**
-   * <p>The ARN of the desired AgentCore Gateway.</p>
-   * @public
-   */
-  gatewayArn: string | undefined;
-
-  /**
-   * <p>How harness authenticates to this Gateway. Defaults to AWS_IAM (SigV4) if omitted.</p>
-   * @public
-   */
-  outboundAuth?: HarnessGatewayOutboundAuth | undefined;
-}
-
-/**
- * <p>Configuration for an inline function tool. When the agent calls this tool, the tool call is returned to the caller for external execution.</p>
- * @public
- */
-export interface HarnessInlineFunctionConfig {
-  /**
-   * <p>Description of what the tool does, provided to the model.</p>
-   * @public
-   */
-  description: string | undefined;
-
-  /**
-   * <p>JSON Schema describing the tool's input parameters.</p>
-   * @public
-   */
-  inputSchema: __DocumentType | undefined;
-}
-
-/**
- * <p>An IAM credential provider for authenticating requests. This structure contains the configuration for authenticating with a target endpoint using IAM credentials and SigV4 signing.</p>
- * @public
- */
-export interface IamCredentialProvider {
-  /**
-   * <p>The name of the Amazon Web Services service used for SigV4 signing. This value identifies the service to authenticate with when sending requests to the target endpoint.</p>
-   * @public
-   */
-  service: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region used for SigV4 signing. If not specified, defaults to the Region of the resource that makes the request.</p>
-   * @public
-   */
-  region?: string | undefined;
-}
-
-/**
- * <p>Authentication method for calling a remote MCP server.</p>
- * @public
- */
-export type HarnessRemoteMcpOutboundAuth =
-  | HarnessRemoteMcpOutboundAuth.AwsIamMember
-  | HarnessRemoteMcpOutboundAuth.NoneMember
-  | HarnessRemoteMcpOutboundAuth.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessRemoteMcpOutboundAuth {
-  /**
-   * <p>Sign requests to the remote MCP server with Signature Version 4 (SigV4) using the harness execution role. If you don't specify a Region, the harness Region is used.</p>
-   * @public
-   */
-  export interface AwsIamMember {
-    awsIam: IamCredentialProvider;
-    none?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>No authentication.</p>
-   * @public
-   */
-  export interface NoneMember {
-    awsIam?: never;
-    none: Unit;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    awsIam?: never;
-    none?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    awsIam: (value: IamCredentialProvider) => T;
-    none: (value: Unit) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Configuration for connecting to a remote MCP server.</p>
- * @public
- */
-export interface HarnessRemoteMcpConfig {
-  /**
-   * <p>URL of the MCP endpoint.</p>
-   * @public
-   */
-  url: string | undefined;
-
-  /**
-   * <p>Custom headers to include when connecting to the remote MCP server.</p>
-   * @public
-   */
-  headers?: Record<string, string> | undefined;
-
-  /**
-   * <p>How the harness authenticates to this MCP server. Defaults to no authentication.</p>
-   * @public
-   */
-  outboundAuth?: HarnessRemoteMcpOutboundAuth | undefined;
-}
-
-/**
- * <p>Configuration union for different tool types.</p>
- * @public
- */
-export type HarnessToolConfiguration =
-  | HarnessToolConfiguration.AgentCoreBrowserMember
-  | HarnessToolConfiguration.AgentCoreCodeInterpreterMember
-  | HarnessToolConfiguration.AgentCoreGatewayMember
-  | HarnessToolConfiguration.InlineFunctionMember
-  | HarnessToolConfiguration.RemoteMcpMember
-  | HarnessToolConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessToolConfiguration {
-  /**
-   * <p>Configuration for remote MCP server.</p>
-   * @public
-   */
-  export interface RemoteMcpMember {
-    remoteMcp: HarnessRemoteMcpConfig;
-    agentCoreBrowser?: never;
-    agentCoreGateway?: never;
-    inlineFunction?: never;
-    agentCoreCodeInterpreter?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration for AgentCore Browser.</p>
-   * @public
-   */
-  export interface AgentCoreBrowserMember {
-    remoteMcp?: never;
-    agentCoreBrowser: HarnessAgentCoreBrowserConfig;
-    agentCoreGateway?: never;
-    inlineFunction?: never;
-    agentCoreCodeInterpreter?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration for AgentCore Gateway.</p>
-   * @public
-   */
-  export interface AgentCoreGatewayMember {
-    remoteMcp?: never;
-    agentCoreBrowser?: never;
-    agentCoreGateway: HarnessAgentCoreGatewayConfig;
-    inlineFunction?: never;
-    agentCoreCodeInterpreter?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration for an inline function tool.</p>
-   * @public
-   */
-  export interface InlineFunctionMember {
-    remoteMcp?: never;
-    agentCoreBrowser?: never;
-    agentCoreGateway?: never;
-    inlineFunction: HarnessInlineFunctionConfig;
-    agentCoreCodeInterpreter?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration for AgentCore Code Interpreter.</p>
-   * @public
-   */
-  export interface AgentCoreCodeInterpreterMember {
-    remoteMcp?: never;
-    agentCoreBrowser?: never;
-    agentCoreGateway?: never;
-    inlineFunction?: never;
-    agentCoreCodeInterpreter: HarnessAgentCoreCodeInterpreterConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    remoteMcp?: never;
-    agentCoreBrowser?: never;
-    agentCoreGateway?: never;
-    inlineFunction?: never;
-    agentCoreCodeInterpreter?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    remoteMcp: (value: HarnessRemoteMcpConfig) => T;
-    agentCoreBrowser: (value: HarnessAgentCoreBrowserConfig) => T;
-    agentCoreGateway: (value: HarnessAgentCoreGatewayConfig) => T;
-    inlineFunction: (value: HarnessInlineFunctionConfig) => T;
-    agentCoreCodeInterpreter: (value: HarnessAgentCoreCodeInterpreterConfig) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>A tool available to the agent loop.</p>
- * @public
- */
-export interface HarnessTool {
-  /**
-   * <p>The type of tool.</p>
-   * @public
-   */
-  type: HarnessToolType | undefined;
-
-  /**
-   * <p>Unique name for the tool. If not provided, a name will be inferred or generated.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>Tool-specific configuration.</p>
-   * @public
-   */
-  config?: HarnessToolConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface InvokeHarnessRequest {
-  /**
-   * <p>The ARN of the harness to invoke.</p>
-   * @public
-   */
-  harnessArn: string | undefined;
-
-  /**
-   * <p>The endpoint name to invoke. If omitted, the DEFAULT endpoint is used.</p>
-   * @public
-   */
-  qualifier?: string | undefined;
-
-  /**
-   * <p>The session ID for the invocation. Use the same session ID across requests to continue a conversation.</p>
-   * @public
-   */
-  runtimeSessionId: string | undefined;
-
-  /**
-   * <p>An identifier for the end user making the request. This value is passed through to the runtime container.</p>
-   * @public
-   */
-  runtimeUserId?: string | undefined;
-
-  /**
-   * <p>W3C trace context parent header containing version, trace ID, parent span ID, and trace flags.</p>
-   * @public
-   */
-  traceParent?: string | undefined;
-
-  /**
-   * <p>W3C trace context state header for vendor-specific trace information.</p>
-   * @public
-   */
-  traceState?: string | undefined;
-
-  /**
-   * <p>Trace ID for maintaining observability through the operation.</p>
-   * @public
-   */
-  traceId?: string | undefined;
-
-  /**
-   * <p>W3C Baggage header for user-defined context propagation. Format: key1=value1,key2=value2</p>
-   * @public
-   */
-  baggage?: string | undefined;
-
-  /**
-   * <p>The messages to send to the agent.</p>
-   * @public
-   */
-  messages: HarnessMessage[] | undefined;
-
-  /**
-   * <p>The model configuration to use for this invocation. If specified, overrides the harness default.</p>
-   * @public
-   */
-  model?: HarnessModelConfiguration | undefined;
-
-  /**
-   * <p>The system prompt to use for this invocation. If specified, overrides the harness default.</p>
-   * @public
-   */
-  systemPrompt?: HarnessSystemContentBlock[] | undefined;
-
-  /**
-   * <p>The tools available to the agent for this invocation. If specified, overrides the harness default.</p>
-   * @public
-   */
-  tools?: HarnessTool[] | undefined;
-
-  /**
-   * <p>The skills available to the agent for this invocation. If specified, overrides the harness default.</p>
-   * @public
-   */
-  skills?: HarnessSkill[] | undefined;
-
-  /**
-   * <p>The tools that the agent is allowed to use for this invocation. If specified, overrides the harness default.</p>
-   * @public
-   */
-  allowedTools?: string[] | undefined;
-
-  /**
-   * <p>The maximum number of iterations the agent loop can execute. If specified, overrides the harness default.</p>
-   * @public
-   */
-  maxIterations?: number | undefined;
-
-  /**
-   * <p>The maximum number of tokens the agent can generate per iteration. If specified, overrides the harness default.</p>
-   * @public
-   */
-  maxTokens?: number | undefined;
-
-  /**
-   * <p>The maximum duration in seconds for the agent loop execution. If specified, overrides the harness default.</p>
-   * @public
-   */
-  timeoutSeconds?: number | undefined;
-
-  /**
-   * <p>The actor ID for memory operations. Overrides the actor ID configured on the harness.</p>
-   * @public
-   */
-  actorId?: string | undefined;
-}
-
-/**
- * <p>A delta update to a reasoning content block.</p>
- * @public
- */
-export type HarnessReasoningContentBlockDelta =
-  | HarnessReasoningContentBlockDelta.RedactedContentMember
-  | HarnessReasoningContentBlockDelta.SignatureMember
-  | HarnessReasoningContentBlockDelta.TextMember
-  | HarnessReasoningContentBlockDelta.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessReasoningContentBlockDelta {
-  /**
-   * <p>Reasoning text delta.</p>
-   * @public
-   */
-  export interface TextMember {
-    text: string;
-    redactedContent?: never;
-    signature?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Redacted reasoning content.</p>
-   * @public
-   */
-  export interface RedactedContentMember {
-    text?: never;
-    redactedContent: Uint8Array;
-    signature?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Signature for the reasoning content.</p>
-   * @public
-   */
-  export interface SignatureMember {
-    text?: never;
-    redactedContent?: never;
-    signature: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    text?: never;
-    redactedContent?: never;
-    signature?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    text: (value: string) => T;
-    redactedContent: (value: Uint8Array) => T;
-    signature: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>A delta update to a tool result content block.</p>
- * @public
- */
-export type HarnessToolResultBlockDelta =
-  | HarnessToolResultBlockDelta.JsonMember
-  | HarnessToolResultBlockDelta.TextMember
-  | HarnessToolResultBlockDelta.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessToolResultBlockDelta {
-  /**
-   * <p>A text tool result delta.</p>
-   * @public
-   */
-  export interface TextMember {
-    text: string;
-    json?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A JSON tool result delta.</p>
-   * @public
-   */
-  export interface JsonMember {
-    text?: never;
-    json: __DocumentType;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    text?: never;
-    json?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    text: (value: string) => T;
-    json: (value: __DocumentType) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Delta payload for a tool result metadata.</p>
- * @public
- */
-export interface HarnessToolResultMetadataBlockDelta {
-  /**
-   * <p>The partial JSON-string fragment of the tool result metadata.</p>
-   * @public
-   */
-  metadata: string | undefined;
-}
-
-/**
- * <p>Delta payload for tool use input.</p>
- * @public
- */
-export interface HarnessToolUseBlockDelta {
-  /**
-   * <p>The partial JSON input for the tool call.</p>
-   * @public
-   */
-  input: string | undefined;
-}
-
-/**
- * <p>A delta update to a content block.</p>
- * @public
- */
-export type HarnessContentBlockDelta =
-  | HarnessContentBlockDelta.ReasoningContentMember
-  | HarnessContentBlockDelta.TextMember
-  | HarnessContentBlockDelta.ToolResultMember
-  | HarnessContentBlockDelta.ToolResultMetadataMember
-  | HarnessContentBlockDelta.ToolUseMember
-  | HarnessContentBlockDelta.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessContentBlockDelta {
-  /**
-   * <p>A text delta.</p>
-   * @public
-   */
-  export interface TextMember {
-    text: string;
-    toolUse?: never;
-    toolResult?: never;
-    reasoningContent?: never;
-    toolResultMetadata?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A tool use input delta.</p>
-   * @public
-   */
-  export interface ToolUseMember {
-    text?: never;
-    toolUse: HarnessToolUseBlockDelta;
-    toolResult?: never;
-    reasoningContent?: never;
-    toolResultMetadata?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A tool result delta.</p>
-   * @public
-   */
-  export interface ToolResultMember {
-    text?: never;
-    toolUse?: never;
-    toolResult: HarnessToolResultBlockDelta[];
-    reasoningContent?: never;
-    toolResultMetadata?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A reasoning content delta.</p>
-   * @public
-   */
-  export interface ReasoningContentMember {
-    text?: never;
-    toolUse?: never;
-    toolResult?: never;
-    reasoningContent: HarnessReasoningContentBlockDelta;
-    toolResultMetadata?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A tool result metadata delta.</p>
-   * @public
-   */
-  export interface ToolResultMetadataMember {
-    text?: never;
-    toolUse?: never;
-    toolResult?: never;
-    reasoningContent?: never;
-    toolResultMetadata: HarnessToolResultMetadataBlockDelta;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    text?: never;
-    toolUse?: never;
-    toolResult?: never;
-    reasoningContent?: never;
-    toolResultMetadata?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    text: (value: string) => T;
-    toolUse: (value: HarnessToolUseBlockDelta) => T;
-    toolResult: (value: HarnessToolResultBlockDelta[]) => T;
-    reasoningContent: (value: HarnessReasoningContentBlockDelta) => T;
-    toolResultMetadata: (value: HarnessToolResultMetadataBlockDelta) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Event containing a delta update to a content block.</p>
- * @public
- */
-export interface HarnessContentBlockDeltaEvent {
-  /**
-   * <p>The index of the content block being updated.</p>
-   * @public
-   */
-  contentBlockIndex: number | undefined;
-
-  /**
-   * <p>The delta payload.</p>
-   * @public
-   */
-  delta: HarnessContentBlockDelta | undefined;
-}
-
-/**
- * <p>Start payload for a tool result content block.</p>
- * @public
- */
-export interface HarnessToolResultBlockStart {
-  /**
-   * <p>The tool use ID that this result corresponds to.</p>
-   * @public
-   */
-  toolUseId: string | undefined;
-
-  /**
-   * <p>The status of the tool execution.</p>
-   * @public
-   */
-  status?: HarnessToolUseStatus | undefined;
-}
-
-/**
- * <p>Start payload for a tool use content block.</p>
- * @public
- */
-export interface HarnessToolUseBlockStart {
-  /**
-   * <p>The unique ID of this tool use.</p>
-   * @public
-   */
-  toolUseId: string | undefined;
-
-  /**
-   * <p>The name of the tool being called.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of tool use.</p>
-   * @public
-   */
-  type?: HarnessToolUseType | undefined;
-
-  /**
-   * <p>The name of the MCP server providing this tool.</p>
-   * @public
-   */
-  serverName?: string | undefined;
-}
-
-/**
- * <p>The start payload for a content block.</p>
- * @public
- */
-export type HarnessContentBlockStart =
-  | HarnessContentBlockStart.ToolResultMember
-  | HarnessContentBlockStart.ToolUseMember
-  | HarnessContentBlockStart.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessContentBlockStart {
-  /**
-   * <p>Start of a tool use content block.</p>
-   * @public
-   */
-  export interface ToolUseMember {
-    toolUse: HarnessToolUseBlockStart;
-    toolResult?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Start of a tool result content block.</p>
-   * @public
-   */
-  export interface ToolResultMember {
-    toolUse?: never;
-    toolResult: HarnessToolResultBlockStart;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    toolUse?: never;
-    toolResult?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    toolUse: (value: HarnessToolUseBlockStart) => T;
-    toolResult: (value: HarnessToolResultBlockStart) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Event indicating the start of a content block.</p>
- * @public
- */
-export interface HarnessContentBlockStartEvent {
-  /**
-   * <p>The index of the content block within the message.</p>
-   * @public
-   */
-  contentBlockIndex: number | undefined;
-
-  /**
-   * <p>The content block start payload.</p>
-   * @public
-   */
-  start: HarnessContentBlockStart | undefined;
-}
-
-/**
- * <p>Event indicating the end of a content block.</p>
- * @public
- */
-export interface HarnessContentBlockStopEvent {
-  /**
-   * <p>The index of the content block that ended.</p>
-   * @public
-   */
-  contentBlockIndex: number | undefined;
-}
-
-/**
- * <p>A lifecycle hook event emitted in the invocation stream for visibility into hook decisions.</p>
- * @public
- */
-export interface HarnessHookEvent {
-  /**
-   * <p>The unique identifier for this hook event.</p>
-   * @public
-   */
-  hookEventId: string | undefined;
-
-  /**
-   * <p>The name of the hook that ran.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of lifecycle hook event.</p>
-   * @public
-   */
-  type: HarnessHookEventType | undefined;
-
-  /**
-   * <p>The decision applied to the hook event. This field is present only for blocking Lambda targets.</p>
-   * @public
-   */
-  decision?: HarnessHookDecision | undefined;
-
-  /**
-   * <p>The optional reason for the applied decision.</p>
-   * @public
-   */
-  reason?: string | undefined;
-}
-
-/**
- * <p>Event indicating the start of a message.</p>
- * @public
- */
-export interface HarnessMessageStartEvent {
-  /**
-   * <p>The role of the message sender.</p>
-   * @public
-   */
-  role: HarnessConversationRole | undefined;
-}
-
-/**
- * <p>Event indicating the end of a message.</p>
- * @public
- */
-export interface HarnessMessageStopEvent {
-  /**
-   * <p>The reason the agent stopped generating.</p>
-   * @public
-   */
-  stopReason: HarnessStopReason | undefined;
-}
-
-/**
- * <p>Latency metrics for the invocation.</p>
- * @public
- */
-export interface HarnessStreamMetrics {
-  /**
-   * <p>The end-to-end latency of the invocation in milliseconds.</p>
-   * @public
-   */
-  latencyMs: number | undefined;
-}
-
-/**
- * <p>Token usage counts for the invocation.</p>
- * @public
- */
-export interface HarnessTokenUsage {
-  /**
-   * <p>The number of input tokens consumed.</p>
-   * @public
-   */
-  inputTokens: number | undefined;
-
-  /**
-   * <p>The number of output tokens generated.</p>
-   * @public
-   */
-  outputTokens: number | undefined;
-
-  /**
-   * <p>The total number of tokens consumed.</p>
-   * @public
-   */
-  totalTokens: number | undefined;
-
-  /**
-   * <p>The number of input tokens read from cache.</p>
-   * @public
-   */
-  cacheReadInputTokens?: number | undefined;
-
-  /**
-   * <p>The number of input tokens written to cache.</p>
-   * @public
-   */
-  cacheWriteInputTokens?: number | undefined;
-}
-
-/**
- * <p>Token usage and latency metrics for the invocation.</p>
- * @public
- */
-export interface HarnessMetadataEvent {
-  /**
-   * <p>Token usage counts.</p>
-   * @public
-   */
-  usage: HarnessTokenUsage | undefined;
-
-  /**
-   * <p>Latency metrics.</p>
-   * @public
-   */
-  metrics: HarnessStreamMetrics | undefined;
-}
-
-/**
- * <p>The streaming events returned by a harness invocation.</p>
- * @public
- */
-export type InvokeHarnessStreamOutput =
-  | InvokeHarnessStreamOutput.ContentBlockDeltaMember
-  | InvokeHarnessStreamOutput.ContentBlockStartMember
-  | InvokeHarnessStreamOutput.ContentBlockStopMember
-  | InvokeHarnessStreamOutput.HookEventMember
-  | InvokeHarnessStreamOutput.InternalServerExceptionMember
-  | InvokeHarnessStreamOutput.MessageStartMember
-  | InvokeHarnessStreamOutput.MessageStopMember
-  | InvokeHarnessStreamOutput.MetadataMember
-  | InvokeHarnessStreamOutput.RuntimeClientErrorMember
-  | InvokeHarnessStreamOutput.ValidationExceptionMember
-  | InvokeHarnessStreamOutput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace InvokeHarnessStreamOutput {
-  /**
-   * <p>Indicates the start of a new message from the agent.</p>
-   * @public
-   */
-  export interface MessageStartMember {
-    messageStart: HarnessMessageStartEvent;
-    contentBlockStart?: never;
-    contentBlockDelta?: never;
-    contentBlockStop?: never;
-    messageStop?: never;
-    metadata?: never;
-    internalServerException?: never;
-    validationException?: never;
-    runtimeClientError?: never;
-    hookEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Indicates the start of a new content block.</p>
-   * @public
-   */
-  export interface ContentBlockStartMember {
-    messageStart?: never;
-    contentBlockStart: HarnessContentBlockStartEvent;
-    contentBlockDelta?: never;
-    contentBlockStop?: never;
-    messageStop?: never;
-    metadata?: never;
-    internalServerException?: never;
-    validationException?: never;
-    runtimeClientError?: never;
-    hookEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A delta update to the current content block.</p>
-   * @public
-   */
-  export interface ContentBlockDeltaMember {
-    messageStart?: never;
-    contentBlockStart?: never;
-    contentBlockDelta: HarnessContentBlockDeltaEvent;
-    contentBlockStop?: never;
-    messageStop?: never;
-    metadata?: never;
-    internalServerException?: never;
-    validationException?: never;
-    runtimeClientError?: never;
-    hookEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Indicates the end of the current content block.</p>
-   * @public
-   */
-  export interface ContentBlockStopMember {
-    messageStart?: never;
-    contentBlockStart?: never;
-    contentBlockDelta?: never;
-    contentBlockStop: HarnessContentBlockStopEvent;
-    messageStop?: never;
-    metadata?: never;
-    internalServerException?: never;
-    validationException?: never;
-    runtimeClientError?: never;
-    hookEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Indicates the end of the current message.</p>
-   * @public
-   */
-  export interface MessageStopMember {
-    messageStart?: never;
-    contentBlockStart?: never;
-    contentBlockDelta?: never;
-    contentBlockStop?: never;
-    messageStop: HarnessMessageStopEvent;
-    metadata?: never;
-    internalServerException?: never;
-    validationException?: never;
-    runtimeClientError?: never;
-    hookEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Token usage and latency metrics for the invocation.</p>
-   * @public
-   */
-  export interface MetadataMember {
-    messageStart?: never;
-    contentBlockStart?: never;
-    contentBlockDelta?: never;
-    contentBlockStop?: never;
-    messageStop?: never;
-    metadata: HarnessMetadataEvent;
-    internalServerException?: never;
-    validationException?: never;
-    runtimeClientError?: never;
-    hookEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
-   * @public
-   */
-  export interface InternalServerExceptionMember {
-    messageStart?: never;
-    contentBlockStart?: never;
-    contentBlockDelta?: never;
-    contentBlockStop?: never;
-    messageStop?: never;
-    metadata?: never;
-    internalServerException: InternalServerException;
-    validationException?: never;
-    runtimeClientError?: never;
-    hookEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
-   * @public
-   */
-  export interface ValidationExceptionMember {
-    messageStart?: never;
-    contentBlockStart?: never;
-    contentBlockDelta?: never;
-    contentBlockStop?: never;
-    messageStop?: never;
-    metadata?: never;
-    internalServerException?: never;
-    validationException: ValidationException;
-    runtimeClientError?: never;
-    hookEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An error returned by the runtime container during agent execution.</p>
-   * @public
-   */
-  export interface RuntimeClientErrorMember {
-    messageStart?: never;
-    contentBlockStart?: never;
-    contentBlockDelta?: never;
-    contentBlockStop?: never;
-    messageStop?: never;
-    metadata?: never;
-    internalServerException?: never;
-    validationException?: never;
-    runtimeClientError: RuntimeClientError;
-    hookEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A lifecycle hook event emitted when a configured hook runs.</p>
-   * @public
-   */
-  export interface HookEventMember {
-    messageStart?: never;
-    contentBlockStart?: never;
-    contentBlockDelta?: never;
-    contentBlockStop?: never;
-    messageStop?: never;
-    metadata?: never;
-    internalServerException?: never;
-    validationException?: never;
-    runtimeClientError?: never;
-    hookEvent: HarnessHookEvent;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    messageStart?: never;
-    contentBlockStart?: never;
-    contentBlockDelta?: never;
-    contentBlockStop?: never;
-    messageStop?: never;
-    metadata?: never;
-    internalServerException?: never;
-    validationException?: never;
-    runtimeClientError?: never;
-    hookEvent?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    messageStart: (value: HarnessMessageStartEvent) => T;
-    contentBlockStart: (value: HarnessContentBlockStartEvent) => T;
-    contentBlockDelta: (value: HarnessContentBlockDeltaEvent) => T;
-    contentBlockStop: (value: HarnessContentBlockStopEvent) => T;
-    messageStop: (value: HarnessMessageStopEvent) => T;
-    metadata: (value: HarnessMetadataEvent) => T;
-    internalServerException: (value: InternalServerException) => T;
-    validationException: (value: ValidationException) => T;
-    runtimeClientError: (value: RuntimeClientError) => T;
-    hookEvent: (value: HarnessHookEvent) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface InvokeHarnessResponse {
-  /**
-   * <p>The streaming output from the harness invocation.</p>
-   * @public
-   */
-  stream: AsyncIterable<InvokeHarnessStreamOutput> | undefined;
-}
-
-/**
- * <p>The domains to include in or exclude from the results. A root domain also matches its subdomains. For example, <code>example.com</code> also matches <code>docs.example.com</code>.</p>
- * @public
- */
-export interface DomainFilter {
-  /**
-   * <p>The domains to return results from. Results from other domains are not returned.</p>
-   * @public
-   */
-  include?: string[] | undefined;
-
-  /**
-   * <p>The domains to never return results from.</p>
-   * @public
-   */
-  exclude?: string[] | undefined;
-}
-
-/**
- * <p>A publication time range for the results. Both bounds are optional, and both are inclusive. If <code>publishedAfter</code> is later than <code>publishedBefore</code>, the request fails with a <code>ValidationException</code>.</p>
- * @public
- */
-export interface PublishedDateFilter {
-  /**
-   * <p>The earliest publication time of the results, inclusive.</p>
-   * @public
-   */
-  publishedAfter?: Date | undefined;
-
-  /**
-   * <p>The latest publication time of the results, inclusive. A date without a time, such as one passed to the AWS CLI, means midnight UTC. To include a whole day, use the last second of that day, for example <code>2026-01-31T23:59:59Z</code>.</p>
-   * @public
-   */
-  publishedBefore?: Date | undefined;
-}
-
-/**
- * <p>The filters to apply to a web search.</p>
- * @public
- */
-export interface WebSearchFilters {
-  /**
-   * <p>The domains to include in or exclude from the results.</p>
-   * @public
-   */
-  domainFilter?: DomainFilter | undefined;
-
-  /**
-   * <p>The publication time range of the results.</p>
-   * @public
-   */
-  publishedDateFilter?: PublishedDateFilter | undefined;
-}
-
-/**
- * <p>Request for the <code>InvokeWebSearch</code> operation.</p>
- * @public
- */
-export interface InvokeWebSearchInput {
-  /**
-   * <p>The identifier of the web search tool to invoke. The Amazon Web Services-managed web search tool is <code>web-search.v1</code>.</p>
-   * @public
-   */
-  webSearchId: string | undefined;
-
-  /**
-   * <p>The text to search for.</p>
-   * @public
-   */
-  searchQuery: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. Defaults to 25.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The filters to apply to the search results.</p>
-   * @public
-   */
-  filters?: WebSearchFilters | undefined;
-}
-
-/**
- * <p>A web search result.</p>
- * @public
- */
-export interface WebSearchResult {
-  /**
-   * <p>The title of the page.</p>
-   * @public
-   */
-  title?: string | undefined;
-
-  /**
-   * <p>The URL of the page.</p>
-   * @public
-   */
-  url?: string | undefined;
-
-  /**
-   * <p>A text extract from the page.</p>
-   * @public
-   */
-  text: string | undefined;
-
-  /**
-   * <p>The time the page was published. This field is absent when the publication time is not known.</p>
-   * @public
-   */
-  publishedAt?: Date | undefined;
-}
-
-/**
- * <p>Response for the <code>InvokeWebSearch</code> operation.</p>
- * @public
- */
-export interface InvokeWebSearchOutput {
-  /**
-   * <p>The search results, in ranked order.</p>
-   * @public
-   */
-  results: WebSearchResult[] | undefined;
-}
-
-/**
- * <p>Specifies the record expiry (long-term memory time-to-live) applied to the records in a batch request. Provide exactly one of <code>recordExpiryDurationDays</code> or <code>action</code>. Set <code>recordExpiryDurationDays</code> to configure or update the expiry, or set <code>action</code> to <code>REMOVE</code> to remove a previously configured expiry.</p>
- * @public
- */
-export type RecordExpirySpecification =
-  | RecordExpirySpecification.ActionMember
-  | RecordExpirySpecification.RecordExpiryDurationDaysMember
-  | RecordExpirySpecification.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RecordExpirySpecification {
-  /**
-   * <p>The duration, in days, after which the records in this request expire. The minimum is 31 days.</p>
-   * @public
-   */
-  export interface RecordExpiryDurationDaysMember {
-    recordExpiryDurationDays: number;
-    action?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The action to apply to the existing record expiry configuration. Set to <code>REMOVE</code> to remove a previously configured expiry so that the records no longer expire. This value does not apply when creating records.</p>
-   * @public
-   */
-  export interface ActionMember {
-    recordExpiryDurationDays?: never;
-    action: RecordExpiryAction;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    recordExpiryDurationDays?: never;
-    action?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    recordExpiryDurationDays: (value: number) => T;
-    action: (value: RecordExpiryAction) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Contains the content of a memory record.</p>
- * @public
- */
-export type MemoryContent =
-  | MemoryContent.TextMember
-  | MemoryContent.$UnknownMember;
-
-/**
- * @public
- */
-export namespace MemoryContent {
-  /**
-   * <p>The text content of the memory record.</p>
-   * @public
-   */
-  export interface TextMember {
-    text: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    text?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    text: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The value of a memory record metadata entry.</p>
- * @public
- */
-export type MemoryRecordMetadataValue =
-  | MemoryRecordMetadataValue.DateTimeValueMember
-  | MemoryRecordMetadataValue.NumberValueMember
-  | MemoryRecordMetadataValue.StringListValueMember
-  | MemoryRecordMetadataValue.StringValueMember
-  | MemoryRecordMetadataValue.$UnknownMember;
-
-/**
- * @public
- */
-export namespace MemoryRecordMetadataValue {
-  /**
-   * <p>A string value.</p>
-   * @public
-   */
-  export interface StringValueMember {
-    stringValue: string;
-    stringListValue?: never;
-    numberValue?: never;
-    dateTimeValue?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A list of string values.</p>
-   * @public
-   */
-  export interface StringListValueMember {
-    stringValue?: never;
-    stringListValue: string[];
-    numberValue?: never;
-    dateTimeValue?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A numeric value.</p>
-   * @public
-   */
-  export interface NumberValueMember {
-    stringValue?: never;
-    stringListValue?: never;
-    numberValue: number;
-    dateTimeValue?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A timestamp value in ISO 8601 UTC format.</p>
-   * @public
-   */
-  export interface DateTimeValueMember {
-    stringValue?: never;
-    stringListValue?: never;
-    numberValue?: never;
-    dateTimeValue: Date;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    stringValue?: never;
-    stringListValue?: never;
-    numberValue?: never;
-    dateTimeValue?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    stringValue: (value: string) => T;
-    stringListValue: (value: string[]) => T;
-    numberValue: (value: number) => T;
-    dateTimeValue: (value: Date) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Input structure to create a new memory record.</p>
- * @public
- */
-export interface MemoryRecordCreateInput {
-  /**
-   * <p>A client-provided identifier for tracking this specific record creation request.</p>
-   * @public
-   */
-  requestIdentifier: string | undefined;
-
-  /**
-   * <p>A list of namespace identifiers that categorize or group the memory record.</p>
-   * @public
-   */
-  namespaces: string[] | undefined;
-
-  /**
-   * <p>The content to be stored within the memory record.</p>
-   * @public
-   */
-  content: MemoryContent | undefined;
-
-  /**
-   * <p>Time at which the memory record was created.</p>
-   * @public
-   */
-  timestamp: Date | undefined;
-
-  /**
-   * <p>The ID of the memory strategy that defines how this memory record is grouped.</p>
-   * @public
-   */
-  memoryStrategyId?: string | undefined;
-
-  /**
-   * <p>Metadata key-value pairs to be stored with the memory record.</p>
-   * @public
-   */
-  metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchCreateMemoryRecordsInput {
-  /**
-   * <p>The unique ID of the memory resource where records will be created.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>A list of memory record creation inputs to be processed in the batch operation.</p>
-   * @public
-   */
-  records: MemoryRecordCreateInput[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure idempotent processing of the batch request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The record expiry (long-term memory time-to-live) applied to every record created by this request. Set <code>recordExpiryDurationDays</code> to the number of days after which the records expire. Only the expiry provided here is applied; the records' strategy association has no effect on their expiry. If you do not provide this value, the records do not expire. The <code>REMOVE</code> action does not apply when creating records.</p>
-   * @public
-   */
-  recordExpirySpecification?: RecordExpirySpecification | undefined;
-}
-
-/**
- * <p>Output information returned after processing a memory record operation.</p>
- * @public
- */
-export interface MemoryRecordOutput {
-  /**
-   * <p>The unique ID associated to the memory record.</p>
-   * @public
-   */
-  memoryRecordId: string | undefined;
-
-  /**
-   * <p>The status of the memory record operation (e.g., SUCCEEDED, FAILED).</p>
-   * @public
-   */
-  status: MemoryRecordStatus | undefined;
-
-  /**
-   * <p>The client-provided identifier that was used to track this record operation.</p>
-   * @public
-   */
-  requestIdentifier?: string | undefined;
-
-  /**
-   * <p>The error code returned when the memory record operation fails.</p>
-   * @public
-   */
-  errorCode?: number | undefined;
-
-  /**
-   * <p>A human-readable error message describing why the memory record operation failed.</p>
-   * @public
-   */
-  errorMessage?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchCreateMemoryRecordsOutput {
-  /**
-   * <p>A list of memory records that were successfully created during the batch operation.</p>
-   * @public
-   */
-  successfulRecords: MemoryRecordOutput[] | undefined;
-
-  /**
-   * <p>A list of memory records that failed to be created, including error details for each failure.</p>
-   * @public
-   */
-  failedRecords: MemoryRecordOutput[] | undefined;
-}
-
-/**
- * <p>Input structure to delete an existing memory record.</p>
- * @public
- */
-export interface MemoryRecordDeleteInput {
-  /**
-   * <p>The unique ID of the memory record to be deleted.</p>
-   * @public
-   */
-  memoryRecordId: string | undefined;
-
-  /**
-   * <p>The namespace of the memory record being deleted. This value is used for IAM condition key authorization.</p>
-   * @public
-   */
-  namespace?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchDeleteMemoryRecordsInput {
-  /**
-   * <p>The unique ID of the memory resource where records will be deleted.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>A list of memory record deletion inputs to be processed in the batch operation.</p>
-   * @public
-   */
-  records: MemoryRecordDeleteInput[] | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchDeleteMemoryRecordsOutput {
-  /**
-   * <p>A list of memory records that were successfully deleted during the batch operation.</p>
-   * @public
-   */
-  successfulRecords: MemoryRecordOutput[] | undefined;
-
-  /**
-   * <p>A list of memory records that failed to be deleted, including error details for each failure.</p>
-   * @public
-   */
-  failedRecords: MemoryRecordOutput[] | undefined;
-}
-
-/**
- * <p>Input structure to update an existing memory record.</p>
- * @public
- */
-export interface MemoryRecordUpdateInput {
-  /**
-   * <p>The unique ID of the memory record to be updated.</p>
-   * @public
-   */
-  memoryRecordId: string | undefined;
-
-  /**
-   * <p>Time at which the memory record was updated</p>
-   * @public
-   */
-  timestamp: Date | undefined;
-
-  /**
-   * <p>The content to be stored within the memory record.</p>
-   * @public
-   */
-  content?: MemoryContent | undefined;
-
-  /**
-   * <p>The updated list of namespace identifiers for categorizing the memory record.</p>
-   * @public
-   */
-  namespaces?: string[] | undefined;
-
-  /**
-   * <p>The namespaces of the source memory record being updated. This value is used for IAM condition key authorization.</p>
-   * @public
-   */
-  sourceNamespaces?: string[] | undefined;
-
-  /**
-   * <p>The updated ID of the memory strategy that defines how this memory record is grouped.</p>
-   * @public
-   */
-  memoryStrategyId?: string | undefined;
-
-  /**
-   * <p>Metadata key-value pairs to be stored with the memory record.</p>
-   * @public
-   */
-  metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchUpdateMemoryRecordsInput {
-  /**
-   * <p>The unique ID of the memory resource where records will be updated.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>A list of memory record update inputs to be processed in the batch operation.</p>
-   * @public
-   */
-  records: MemoryRecordUpdateInput[] | undefined;
-
-  /**
-   * <p>The record expiry (long-term memory time-to-live) applied to every record updated by this request. Set <code>recordExpiryDurationDays</code> to configure or overwrite the number of days after which the records expire, or set <code>action</code> to <code>REMOVE</code> to clear a previously configured expiry so that the records no longer expire.</p> <p>When you do not provide this value, the service determines each record's expiry from its current state:</p> <ul> <li> <p>If the record already has an expiry configured, the service resets and reapplies the expiry based on the last applied <code>recordExpiryDurationDays</code>.</p> </li> <li> <p>If the record does not have an expiry configured, no expiry is applied and the record remains non-expiring. This is the outcome regardless of whether the record's strategy configures an expiry.</p> </li> </ul> <p>Providing an explicit <code>recordExpiryDurationDays</code> always takes precedence: it overwrites an existing expiry, or sets one on a record that previously had none.</p>
-   * @public
-   */
-  recordExpirySpecification?: RecordExpirySpecification | undefined;
-}

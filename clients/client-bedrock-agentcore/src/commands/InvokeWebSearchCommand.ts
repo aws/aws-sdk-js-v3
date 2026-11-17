@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { InvokeWebSearchInput, InvokeWebSearchOutput } from "../models/models_0";
+import type { InvokeWebSearchInput, InvokeWebSearchOutput } from "../models/models_1";
 import { InvokeWebSearch$ } from "../schemas/schemas_0";
 
 /**

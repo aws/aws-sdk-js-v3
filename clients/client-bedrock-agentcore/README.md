@@ -258,6 +258,13 @@ DeleteCapacityProviderSession
 </details>
 <details>
 <summary>
+DeleteDatasetGeneration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/DeleteDatasetGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/DeleteDatasetGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/DeleteDatasetGenerationCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteEvent
 </summary>
 
@@ -314,6 +321,13 @@ GetAgentCard
 </details>
 <details>
 <summary>
+GetAgentInsight
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/GetAgentInsightCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/GetAgentInsightCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/GetAgentInsightCommandOutput/)
+</details>
+<details>
+<summary>
 GetBatchEvaluation
 </summary>
 
@@ -332,6 +346,13 @@ GetCodeInterpreterSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/GetCodeInterpreterSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/GetCodeInterpreterSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/GetCodeInterpreterSessionCommandOutput/)
+</details>
+<details>
+<summary>
+GetDatasetGeneration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/GetDatasetGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/GetDatasetGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/GetDatasetGenerationCommandOutput/)
 </details>
 <details>
 <summary>
@@ -482,6 +503,13 @@ ListActors
 </details>
 <details>
 <summary>
+ListAgentInsights
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/ListAgentInsightsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/ListAgentInsightsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/ListAgentInsightsCommandOutput/)
+</details>
+<details>
+<summary>
 ListBatchEvaluations
 </summary>
 
@@ -500,6 +528,13 @@ ListCodeInterpreterSessions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/ListCodeInterpreterSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/ListCodeInterpreterSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/ListCodeInterpreterSessionsCommandOutput/)
+</details>
+<details>
+<summary>
+ListDatasetGenerations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/ListDatasetGenerationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/ListDatasetGenerationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/ListDatasetGenerationsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -601,6 +636,13 @@ StartCodeInterpreterSession
 </details>
 <details>
 <summary>
+StartDatasetGeneration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/StartDatasetGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/StartDatasetGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/StartDatasetGenerationCommandOutput/)
+</details>
+<details>
+<summary>
 StartMemoryExtractionJob
 </summary>
 
@@ -647,6 +689,13 @@ UpdateABTest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/UpdateABTestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/UpdateABTestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/UpdateABTestCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateAgentInsight
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/UpdateAgentInsightCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/UpdateAgentInsightCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/UpdateAgentInsightCommandOutput/)
 </details>
 <details>
 <summary>

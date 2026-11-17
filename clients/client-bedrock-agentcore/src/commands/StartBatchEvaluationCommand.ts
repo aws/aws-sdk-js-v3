@@ -130,6 +130,18 @@ export interface StartBatchEvaluationCommandOutput extends StartBatchEvaluationR
  *       resultDestination: "DEDICATED_LOG_GROUP" || "SOURCE_LOG_GROUP",
  *     },
  *   },
+ *   datasetExecutionConfig: { // DatasetExecutionConfig
+ *     dataset: { // DatasetSource
+ *       datasetId: "STRING_VALUE", // required
+ *       datasetVersion: "STRING_VALUE",
+ *     },
+ *     agentInvocation: { // AgentInvocationConfig Union: only one key present
+ *       agentCoreRuntime: { // AgentCoreRuntimeInvocation
+ *         agentRuntimeEndpointArn: "STRING_VALUE", // required
+ *         requestTemplate: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
  * };
  * const command = new StartBatchEvaluationCommand(input);
  * const response = await client.send(command);

@@ -252,6 +252,19 @@ export interface GetBatchEvaluationCommandOutput extends GetBatchEvaluationRespo
  * //   description: "STRING_VALUE",
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   kmsKeyArn: "STRING_VALUE",
+ * //   datasetExecutionDetails: { // DatasetExecutionDetails
+ * //     dataset: { // DatasetDetails
+ * //       datasetId: "STRING_VALUE", // required
+ * //       datasetVersion: "STRING_VALUE", // required
+ * //     },
+ * //     agentInvocation: { // AgentInvocationDetails Union: only one key present
+ * //       agentCoreRuntime: { // AgentCoreRuntimeInvocationDetails
+ * //         agentRuntimeEndpointArn: "STRING_VALUE", // required
+ * //         agentRuntimeVersion: "STRING_VALUE", // required
+ * //         requestTemplate: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```

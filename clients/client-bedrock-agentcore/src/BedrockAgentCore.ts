@@ -64,6 +64,11 @@ import {
   DeleteCapacityProviderSessionCommand,
 } from "./commands/DeleteCapacityProviderSessionCommand";
 import {
+  type DeleteDatasetGenerationCommandInput,
+  type DeleteDatasetGenerationCommandOutput,
+  DeleteDatasetGenerationCommand,
+} from "./commands/DeleteDatasetGenerationCommand";
+import {
   type DeleteEventCommandInput,
   type DeleteEventCommandOutput,
   DeleteEventCommand,
@@ -96,6 +101,11 @@ import {
   GetAgentCardCommand,
 } from "./commands/GetAgentCardCommand";
 import {
+  type GetAgentInsightCommandInput,
+  type GetAgentInsightCommandOutput,
+  GetAgentInsightCommand,
+} from "./commands/GetAgentInsightCommand";
+import {
   type GetBatchEvaluationCommandInput,
   type GetBatchEvaluationCommandOutput,
   GetBatchEvaluationCommand,
@@ -110,6 +120,11 @@ import {
   type GetCodeInterpreterSessionCommandOutput,
   GetCodeInterpreterSessionCommand,
 } from "./commands/GetCodeInterpreterSessionCommand";
+import {
+  type GetDatasetGenerationCommandInput,
+  type GetDatasetGenerationCommandOutput,
+  GetDatasetGenerationCommand,
+} from "./commands/GetDatasetGenerationCommand";
 import { type GetEventCommandInput, type GetEventCommandOutput, GetEventCommand } from "./commands/GetEventCommand";
 import {
   type GetMemoryRecordCommandInput,
@@ -212,6 +227,11 @@ import {
   ListActorsCommand,
 } from "./commands/ListActorsCommand";
 import {
+  type ListAgentInsightsCommandInput,
+  type ListAgentInsightsCommandOutput,
+  ListAgentInsightsCommand,
+} from "./commands/ListAgentInsightsCommand";
+import {
   type ListBatchEvaluationsCommandInput,
   type ListBatchEvaluationsCommandOutput,
   ListBatchEvaluationsCommand,
@@ -226,6 +246,11 @@ import {
   type ListCodeInterpreterSessionsCommandOutput,
   ListCodeInterpreterSessionsCommand,
 } from "./commands/ListCodeInterpreterSessionsCommand";
+import {
+  type ListDatasetGenerationsCommandInput,
+  type ListDatasetGenerationsCommandOutput,
+  ListDatasetGenerationsCommand,
+} from "./commands/ListDatasetGenerationsCommand";
 import {
   type ListEventsCommandInput,
   type ListEventsCommandOutput,
@@ -297,6 +322,11 @@ import {
   StartCodeInterpreterSessionCommand,
 } from "./commands/StartCodeInterpreterSessionCommand";
 import {
+  type StartDatasetGenerationCommandInput,
+  type StartDatasetGenerationCommandOutput,
+  StartDatasetGenerationCommand,
+} from "./commands/StartDatasetGenerationCommand";
+import {
   type StartMemoryExtractionJobCommandInput,
   type StartMemoryExtractionJobCommandOutput,
   StartMemoryExtractionJobCommand,
@@ -332,13 +362,20 @@ import {
   UpdateABTestCommand,
 } from "./commands/UpdateABTestCommand";
 import {
+  type UpdateAgentInsightCommandInput,
+  type UpdateAgentInsightCommandOutput,
+  UpdateAgentInsightCommand,
+} from "./commands/UpdateAgentInsightCommand";
+import {
   type UpdateBrowserStreamCommandInput,
   type UpdateBrowserStreamCommandOutput,
   UpdateBrowserStreamCommand,
 } from "./commands/UpdateBrowserStreamCommand";
 import { paginateListABTests } from "./pagination/ListABTestsPaginator";
 import { paginateListActors } from "./pagination/ListActorsPaginator";
+import { paginateListAgentInsights } from "./pagination/ListAgentInsightsPaginator";
 import { paginateListBatchEvaluations } from "./pagination/ListBatchEvaluationsPaginator";
+import { paginateListDatasetGenerations } from "./pagination/ListDatasetGenerationsPaginator";
 import { paginateListEvents } from "./pagination/ListEventsPaginator";
 import { paginateListMemoryExtractionJobs } from "./pagination/ListMemoryExtractionJobsPaginator";
 import { paginateListMemoryRecords } from "./pagination/ListMemoryRecordsPaginator";
@@ -360,6 +397,7 @@ const commands = {
   DeleteABTestCommand,
   DeleteBatchEvaluationCommand,
   DeleteCapacityProviderSessionCommand,
+  DeleteDatasetGenerationCommand,
   DeleteEventCommand,
   DeleteMemoryRecordCommand,
   DeletePaymentInstrumentCommand,
@@ -368,9 +406,11 @@ const commands = {
   EvaluateCommand,
   GetABTestCommand,
   GetAgentCardCommand,
+  GetAgentInsightCommand,
   GetBatchEvaluationCommand,
   GetBrowserSessionCommand,
   GetCodeInterpreterSessionCommand,
+  GetDatasetGenerationCommand,
   GetEventCommand,
   GetMemoryRecordCommand,
   GetPaymentInstrumentCommand,
@@ -392,9 +432,11 @@ const commands = {
   InvokeWebSearchCommand,
   ListABTestsCommand,
   ListActorsCommand,
+  ListAgentInsightsCommand,
   ListBatchEvaluationsCommand,
   ListBrowserSessionsCommand,
   ListCodeInterpreterSessionsCommand,
+  ListDatasetGenerationsCommand,
   ListEventsCommand,
   ListMemoryExtractionJobsCommand,
   ListMemoryRecordsCommand,
@@ -409,6 +451,7 @@ const commands = {
   StartBatchEvaluationCommand,
   StartBrowserSessionCommand,
   StartCodeInterpreterSessionCommand,
+  StartDatasetGenerationCommand,
   StartMemoryExtractionJobCommand,
   StartRecommendationCommand,
   StopBatchEvaluationCommand,
@@ -416,12 +459,15 @@ const commands = {
   StopCodeInterpreterSessionCommand,
   StopRuntimeSessionCommand,
   UpdateABTestCommand,
+  UpdateAgentInsightCommand,
   UpdateBrowserStreamCommand,
 };
 const paginators = {
   paginateListABTests,
   paginateListActors,
+  paginateListAgentInsights,
   paginateListBatchEvaluations,
+  paginateListDatasetGenerations,
   paginateListEvents,
   paginateListMemoryExtractionJobs,
   paginateListMemoryRecords,
@@ -628,6 +674,23 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link DeleteDatasetGenerationCommand}
+   */
+  deleteDatasetGeneration(
+    args: DeleteDatasetGenerationCommandInput,
+    options?: BedrockAgentCoreRequestOptions
+  ): Promise<DeleteDatasetGenerationCommandOutput>;
+  deleteDatasetGeneration(
+    args: DeleteDatasetGenerationCommandInput,
+    cb: (err: any, data?: DeleteDatasetGenerationCommandOutput) => void
+  ): void;
+  deleteDatasetGeneration(
+    args: DeleteDatasetGenerationCommandInput,
+    options: BedrockAgentCoreRequestOptions,
+    cb: (err: any, data?: DeleteDatasetGenerationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteEventCommand}
    */
   deleteEvent(
@@ -764,6 +827,23 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link GetAgentInsightCommand}
+   */
+  getAgentInsight(
+    args: GetAgentInsightCommandInput,
+    options?: BedrockAgentCoreRequestOptions
+  ): Promise<GetAgentInsightCommandOutput>;
+  getAgentInsight(
+    args: GetAgentInsightCommandInput,
+    cb: (err: any, data?: GetAgentInsightCommandOutput) => void
+  ): void;
+  getAgentInsight(
+    args: GetAgentInsightCommandInput,
+    options: BedrockAgentCoreRequestOptions,
+    cb: (err: any, data?: GetAgentInsightCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetBatchEvaluationCommand}
    */
   getBatchEvaluation(
@@ -812,6 +892,23 @@ export interface BedrockAgentCore {
     args: GetCodeInterpreterSessionCommandInput,
     options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetCodeInterpreterSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDatasetGenerationCommand}
+   */
+  getDatasetGeneration(
+    args: GetDatasetGenerationCommandInput,
+    options?: BedrockAgentCoreRequestOptions
+  ): Promise<GetDatasetGenerationCommandOutput>;
+  getDatasetGeneration(
+    args: GetDatasetGenerationCommandInput,
+    cb: (err: any, data?: GetDatasetGenerationCommandOutput) => void
+  ): void;
+  getDatasetGeneration(
+    args: GetDatasetGenerationCommandInput,
+    options: BedrockAgentCoreRequestOptions,
+    cb: (err: any, data?: GetDatasetGenerationCommandOutput) => void
   ): void;
 
   /**
@@ -1173,6 +1270,24 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link ListAgentInsightsCommand}
+   */
+  listAgentInsights(): Promise<ListAgentInsightsCommandOutput>;
+  listAgentInsights(
+    args: ListAgentInsightsCommandInput,
+    options?: BedrockAgentCoreRequestOptions
+  ): Promise<ListAgentInsightsCommandOutput>;
+  listAgentInsights(
+    args: ListAgentInsightsCommandInput,
+    cb: (err: any, data?: ListAgentInsightsCommandOutput) => void
+  ): void;
+  listAgentInsights(
+    args: ListAgentInsightsCommandInput,
+    options: BedrockAgentCoreRequestOptions,
+    cb: (err: any, data?: ListAgentInsightsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListBatchEvaluationsCommand}
    */
   listBatchEvaluations(): Promise<ListBatchEvaluationsCommandOutput>;
@@ -1222,6 +1337,23 @@ export interface BedrockAgentCore {
     args: ListCodeInterpreterSessionsCommandInput,
     options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: ListCodeInterpreterSessionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDatasetGenerationsCommand}
+   */
+  listDatasetGenerations(
+    args: ListDatasetGenerationsCommandInput,
+    options?: BedrockAgentCoreRequestOptions
+  ): Promise<ListDatasetGenerationsCommandOutput>;
+  listDatasetGenerations(
+    args: ListDatasetGenerationsCommandInput,
+    cb: (err: any, data?: ListDatasetGenerationsCommandOutput) => void
+  ): void;
+  listDatasetGenerations(
+    args: ListDatasetGenerationsCommandInput,
+    options: BedrockAgentCoreRequestOptions,
+    cb: (err: any, data?: ListDatasetGenerationsCommandOutput) => void
   ): void;
 
   /**
@@ -1464,6 +1596,23 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link StartDatasetGenerationCommand}
+   */
+  startDatasetGeneration(
+    args: StartDatasetGenerationCommandInput,
+    options?: BedrockAgentCoreRequestOptions
+  ): Promise<StartDatasetGenerationCommandOutput>;
+  startDatasetGeneration(
+    args: StartDatasetGenerationCommandInput,
+    cb: (err: any, data?: StartDatasetGenerationCommandOutput) => void
+  ): void;
+  startDatasetGeneration(
+    args: StartDatasetGenerationCommandInput,
+    options: BedrockAgentCoreRequestOptions,
+    cb: (err: any, data?: StartDatasetGenerationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartMemoryExtractionJobCommand}
    */
   startMemoryExtractionJob(
@@ -1583,6 +1732,23 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link UpdateAgentInsightCommand}
+   */
+  updateAgentInsight(
+    args: UpdateAgentInsightCommandInput,
+    options?: BedrockAgentCoreRequestOptions
+  ): Promise<UpdateAgentInsightCommandOutput>;
+  updateAgentInsight(
+    args: UpdateAgentInsightCommandInput,
+    cb: (err: any, data?: UpdateAgentInsightCommandOutput) => void
+  ): void;
+  updateAgentInsight(
+    args: UpdateAgentInsightCommandInput,
+    options: BedrockAgentCoreRequestOptions,
+    cb: (err: any, data?: UpdateAgentInsightCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateBrowserStreamCommand}
    */
   updateBrowserStream(
@@ -1622,6 +1788,17 @@ export interface BedrockAgentCore {
   ): Paginator<ListActorsCommandOutput>;
 
   /**
+   * @see {@link ListAgentInsightsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentInsightsCommandOutput}.
+   */
+  paginateListAgentInsights(
+    args?: ListAgentInsightsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentInsightsCommandOutput>;
+
+  /**
    * @see {@link ListBatchEvaluationsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1631,6 +1808,17 @@ export interface BedrockAgentCore {
     args?: ListBatchEvaluationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListBatchEvaluationsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetGenerationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetGenerationsCommandOutput}.
+   */
+  paginateListDatasetGenerations(
+    args: ListDatasetGenerationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetGenerationsCommandOutput>;
 
   /**
    * @see {@link ListEventsCommand}

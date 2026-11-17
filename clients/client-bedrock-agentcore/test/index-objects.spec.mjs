@@ -10,6 +10,13 @@ import {
   ActorSummary$,
   AffectedSession$,
   AgentCardDefinition$,
+  AgentCoreRuntimeInvocation$,
+  AgentCoreRuntimeInvocationDetails$,
+  AgentInsightArchiveStatus,
+  AgentInsightCustomerMetadataStatus,
+  AgentInsightSummary$,
+  AgentInvocationConfig$,
+  AgentInvocationDetails$,
   AgentSkillsDescriptor$,
   AgentTracesConfig$,
   Amount$,
@@ -26,6 +33,7 @@ import {
   BatchDeleteMemoryRecordsCommand,
   BatchDeleteMemoryRecordsInput$,
   BatchDeleteMemoryRecordsOutput$,
+  BatchEvaluationSourceConfig$,
   BatchEvaluationStatus,
   BatchEvaluationSummary$,
   BatchEvaluationTraceConfig$,
@@ -57,6 +65,7 @@ import {
   CloudWatchLogsFilterOperator,
   CloudWatchLogsRule$,
   CloudWatchLogsSource$,
+  CloudWatchLogsSourceConfig$,
   CloudWatchLogsTraceConfig$,
   CloudWatchOutputConfig$,
   CodeInterpreterResult$,
@@ -105,7 +114,14 @@ import {
   CryptoX402PaymentInput$,
   CryptoX402PaymentOutput$,
   Currency,
+  CustomDataIdentifier$,
   CustomDescriptor$,
+  DatasetDetails$,
+  DatasetExecutionConfig$,
+  DatasetExecutionDetails$,
+  DatasetGenerationStatus,
+  DatasetGenerationSummary$,
+  DatasetSource$,
   DataSourceConfig$,
   DeleteABTest$,
   DeleteABTestCommand,
@@ -119,6 +135,10 @@ import {
   DeleteCapacityProviderSessionCommand,
   DeleteCapacityProviderSessionRequest$,
   DeleteCapacityProviderSessionResponse$,
+  DeleteDatasetGeneration$,
+  DeleteDatasetGenerationCommand,
+  DeleteDatasetGenerationRequest$,
+  DeleteDatasetGenerationResponse$,
   DeleteEvent$,
   DeleteEventCommand,
   DeleteEventInput$,
@@ -159,6 +179,7 @@ import {
   EvaluationResultContent$,
   EvaluationTarget$,
   Evaluator$,
+  EvaluatorFilter$,
   EvaluatorMetric$,
   EvaluatorStatistics$,
   EvaluatorSummary$,
@@ -184,6 +205,19 @@ import {
   FilterValue$,
   FindingTargetType,
   GatewayFilter$,
+  GenerationAttributeFilter$,
+  GenerationErrorDetail$,
+  GenerationFilterOperator,
+  GenerationFilters$,
+  GenerationFilterValue$,
+  GenerationIdentifierCounts$,
+  GenerationIdentifiers$,
+  GenerationResults$,
+  GenerationSamplingConfig$,
+  GenerationSelection$,
+  GenerationSelectionRecord$,
+  GenerationSource$,
+  GenerationSourceRecord$,
   GetABTest$,
   GetABTestCommand,
   GetABTestRequest$,
@@ -192,6 +226,10 @@ import {
   GetAgentCardCommand,
   GetAgentCardRequest$,
   GetAgentCardResponse$,
+  GetAgentInsight$,
+  GetAgentInsightCommand,
+  GetAgentInsightRequest$,
+  GetAgentInsightResponse$,
   GetBatchEvaluation$,
   GetBatchEvaluationCommand,
   GetBatchEvaluationRequest$,
@@ -204,6 +242,10 @@ import {
   GetCodeInterpreterSessionCommand,
   GetCodeInterpreterSessionRequest$,
   GetCodeInterpreterSessionResponse$,
+  GetDatasetGeneration$,
+  GetDatasetGenerationCommand,
+  GetDatasetGenerationRequest$,
+  GetDatasetGenerationResponse$,
   GetEvent$,
   GetEventCommand,
   GetEventInput$,
@@ -252,6 +294,8 @@ import {
   GetWorkloadAccessTokenForUserIdResponse$,
   GetWorkloadAccessTokenRequest$,
   GetWorkloadAccessTokenResponse$,
+  GroundTruthConfig$,
+  GroundTruthField,
   GroundTruthSource$,
   GroundTruthTurn$,
   GroundTruthTurnInput$,
@@ -376,6 +420,10 @@ import {
   ListActorsCommand,
   ListActorsInput$,
   ListActorsOutput$,
+  ListAgentInsights$,
+  ListAgentInsightsCommand,
+  ListAgentInsightsRequest$,
+  ListAgentInsightsResponse$,
   ListBatchEvaluations$,
   ListBatchEvaluationsCommand,
   ListBatchEvaluationsRequest$,
@@ -388,6 +436,10 @@ import {
   ListCodeInterpreterSessionsCommand,
   ListCodeInterpreterSessionsRequest$,
   ListCodeInterpreterSessionsResponse$,
+  ListDatasetGenerations$,
+  ListDatasetGenerationsCommand,
+  ListDatasetGenerationsRequest$,
+  ListDatasetGenerationsResponse$,
   ListEvents$,
   ListEventsCommand,
   ListEventsInput$,
@@ -450,12 +502,15 @@ import {
   OAuthCredentialProvider$,
   OAuthGrantType,
   OnlineEvaluationConfigSource$,
+  OnlineEvaluationSourceConfig$,
   OnlineEvaluationTraceConfig$,
   OperatorType,
   OutputConfig$,
   paginateListABTests,
   paginateListActors,
+  paginateListAgentInsights,
   paginateListBatchEvaluations,
+  paginateListDatasetGenerations,
   paginateListEvents,
   paginateListMemoryExtractionJobs,
   paginateListMemoryRecords,
@@ -501,6 +556,9 @@ import {
   RecommendationType,
   RecordExpiryAction,
   RecordExpirySpecification$,
+  RedactionConfiguration$,
+  RedactionIdentifier,
+  RedactionSummary$,
   RegistryRecordStatus,
   RegistryRecordSummary$,
   ResourceContent$,
@@ -509,6 +567,7 @@ import {
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResponseChunk$,
+  ResultAggregation,
   ResultDestination,
   RetrieveMemoryRecords$,
   RetrieveMemoryRecordsCommand,
@@ -528,6 +587,7 @@ import {
   SaveBrowserSessionProfileCommand,
   SaveBrowserSessionProfileRequest$,
   SaveBrowserSessionProfileResponse$,
+  ScenarioType,
   ScreenshotArguments$,
   ScreenshotFormat,
   ScreenshotResult$,
@@ -567,6 +627,10 @@ import {
   StartCodeInterpreterSessionCommand,
   StartCodeInterpreterSessionRequest$,
   StartCodeInterpreterSessionResponse$,
+  StartDatasetGeneration$,
+  StartDatasetGenerationCommand,
+  StartDatasetGenerationRequest$,
+  StartDatasetGenerationResponse$,
   StartMemoryExtractionJob$,
   StartMemoryExtractionJobCommand,
   StartMemoryExtractionJobInput$,
@@ -621,12 +685,20 @@ import {
   ToolResultStructuredContent$,
   ToolsDefinition$,
   ToolsFileSystemConfiguration$,
+  TraceGenerationRecord$,
+  TraceGenerationSource$,
+  TraceSourceConfig$,
+  TurnCountRange$,
   UnauthorizedException,
   UnauthorizedException$,
   UpdateABTest$,
   UpdateABTestCommand,
   UpdateABTestRequest$,
   UpdateABTestResponse$,
+  UpdateAgentInsight$,
+  UpdateAgentInsightCommand,
+  UpdateAgentInsightRequest$,
+  UpdateAgentInsightResponse$,
   UpdateBrowserStream$,
   UpdateBrowserStreamCommand,
   UpdateBrowserStreamRequest$,
@@ -673,6 +745,8 @@ assert(typeof DeleteBatchEvaluationCommand === "function");
 assert(typeof DeleteBatchEvaluation$ === "object");
 assert(typeof DeleteCapacityProviderSessionCommand === "function");
 assert(typeof DeleteCapacityProviderSession$ === "object");
+assert(typeof DeleteDatasetGenerationCommand === "function");
+assert(typeof DeleteDatasetGeneration$ === "object");
 assert(typeof DeleteEventCommand === "function");
 assert(typeof DeleteEvent$ === "object");
 assert(typeof DeleteMemoryRecordCommand === "function");
@@ -689,12 +763,16 @@ assert(typeof GetABTestCommand === "function");
 assert(typeof GetABTest$ === "object");
 assert(typeof GetAgentCardCommand === "function");
 assert(typeof GetAgentCard$ === "object");
+assert(typeof GetAgentInsightCommand === "function");
+assert(typeof GetAgentInsight$ === "object");
 assert(typeof GetBatchEvaluationCommand === "function");
 assert(typeof GetBatchEvaluation$ === "object");
 assert(typeof GetBrowserSessionCommand === "function");
 assert(typeof GetBrowserSession$ === "object");
 assert(typeof GetCodeInterpreterSessionCommand === "function");
 assert(typeof GetCodeInterpreterSession$ === "object");
+assert(typeof GetDatasetGenerationCommand === "function");
+assert(typeof GetDatasetGeneration$ === "object");
 assert(typeof GetEventCommand === "function");
 assert(typeof GetEvent$ === "object");
 assert(typeof GetMemoryRecordCommand === "function");
@@ -737,12 +815,16 @@ assert(typeof ListABTestsCommand === "function");
 assert(typeof ListABTests$ === "object");
 assert(typeof ListActorsCommand === "function");
 assert(typeof ListActors$ === "object");
+assert(typeof ListAgentInsightsCommand === "function");
+assert(typeof ListAgentInsights$ === "object");
 assert(typeof ListBatchEvaluationsCommand === "function");
 assert(typeof ListBatchEvaluations$ === "object");
 assert(typeof ListBrowserSessionsCommand === "function");
 assert(typeof ListBrowserSessions$ === "object");
 assert(typeof ListCodeInterpreterSessionsCommand === "function");
 assert(typeof ListCodeInterpreterSessions$ === "object");
+assert(typeof ListDatasetGenerationsCommand === "function");
+assert(typeof ListDatasetGenerations$ === "object");
 assert(typeof ListEventsCommand === "function");
 assert(typeof ListEvents$ === "object");
 assert(typeof ListMemoryExtractionJobsCommand === "function");
@@ -771,6 +853,8 @@ assert(typeof StartBrowserSessionCommand === "function");
 assert(typeof StartBrowserSession$ === "object");
 assert(typeof StartCodeInterpreterSessionCommand === "function");
 assert(typeof StartCodeInterpreterSession$ === "object");
+assert(typeof StartDatasetGenerationCommand === "function");
+assert(typeof StartDatasetGeneration$ === "object");
 assert(typeof StartMemoryExtractionJobCommand === "function");
 assert(typeof StartMemoryExtractionJob$ === "object");
 assert(typeof StartRecommendationCommand === "function");
@@ -785,6 +869,8 @@ assert(typeof StopRuntimeSessionCommand === "function");
 assert(typeof StopRuntimeSession$ === "object");
 assert(typeof UpdateABTestCommand === "function");
 assert(typeof UpdateABTest$ === "object");
+assert(typeof UpdateAgentInsightCommand === "function");
+assert(typeof UpdateAgentInsight$ === "object");
 assert(typeof UpdateBrowserStreamCommand === "function");
 assert(typeof UpdateBrowserStream$ === "object");
 // structural schemas
@@ -795,6 +881,11 @@ assert(typeof ABTestSummary$ === "object");
 assert(typeof ActorSummary$ === "object");
 assert(typeof AffectedSession$ === "object");
 assert(typeof AgentCardDefinition$ === "object");
+assert(typeof AgentCoreRuntimeInvocation$ === "object");
+assert(typeof AgentCoreRuntimeInvocationDetails$ === "object");
+assert(typeof AgentInsightSummary$ === "object");
+assert(typeof AgentInvocationConfig$ === "object");
+assert(typeof AgentInvocationDetails$ === "object");
 assert(typeof AgentSkillsDescriptor$ === "object");
 assert(typeof AgentTracesConfig$ === "object");
 assert(typeof Amount$ === "object");
@@ -806,6 +897,7 @@ assert(typeof BatchCreateMemoryRecordsInput$ === "object");
 assert(typeof BatchCreateMemoryRecordsOutput$ === "object");
 assert(typeof BatchDeleteMemoryRecordsInput$ === "object");
 assert(typeof BatchDeleteMemoryRecordsOutput$ === "object");
+assert(typeof BatchEvaluationSourceConfig$ === "object");
 assert(typeof BatchEvaluationSummary$ === "object");
 assert(typeof BatchEvaluationTraceConfig$ === "object");
 assert(typeof BatchUpdateMemoryRecordsInput$ === "object");
@@ -825,6 +917,7 @@ assert(typeof CloudWatchFilterConfig$ === "object");
 assert(typeof CloudWatchLogsFilter$ === "object");
 assert(typeof CloudWatchLogsRule$ === "object");
 assert(typeof CloudWatchLogsSource$ === "object");
+assert(typeof CloudWatchLogsSourceConfig$ === "object");
 assert(typeof CloudWatchLogsTraceConfig$ === "object");
 assert(typeof CloudWatchOutputConfig$ === "object");
 assert(typeof CodeInterpreterResult$ === "object");
@@ -856,7 +949,13 @@ assert(typeof CreatePaymentSessionRequest$ === "object");
 assert(typeof CreatePaymentSessionResponse$ === "object");
 assert(typeof CryptoX402PaymentInput$ === "object");
 assert(typeof CryptoX402PaymentOutput$ === "object");
+assert(typeof CustomDataIdentifier$ === "object");
 assert(typeof CustomDescriptor$ === "object");
+assert(typeof DatasetDetails$ === "object");
+assert(typeof DatasetExecutionConfig$ === "object");
+assert(typeof DatasetExecutionDetails$ === "object");
+assert(typeof DatasetGenerationSummary$ === "object");
+assert(typeof DatasetSource$ === "object");
 assert(typeof DataSourceConfig$ === "object");
 assert(typeof DeleteABTestRequest$ === "object");
 assert(typeof DeleteABTestResponse$ === "object");
@@ -864,6 +963,8 @@ assert(typeof DeleteBatchEvaluationRequest$ === "object");
 assert(typeof DeleteBatchEvaluationResponse$ === "object");
 assert(typeof DeleteCapacityProviderSessionRequest$ === "object");
 assert(typeof DeleteCapacityProviderSessionResponse$ === "object");
+assert(typeof DeleteDatasetGenerationRequest$ === "object");
+assert(typeof DeleteDatasetGenerationResponse$ === "object");
 assert(typeof DeleteEventInput$ === "object");
 assert(typeof DeleteEventOutput$ === "object");
 assert(typeof DeleteMemoryRecordInput$ === "object");
@@ -889,6 +990,7 @@ assert(typeof EvaluationReferenceInput$ === "object");
 assert(typeof EvaluationResultContent$ === "object");
 assert(typeof EvaluationTarget$ === "object");
 assert(typeof Evaluator$ === "object");
+assert(typeof EvaluatorFilter$ === "object");
 assert(typeof EvaluatorMetric$ === "object");
 assert(typeof EvaluatorStatistics$ === "object");
 assert(typeof EvaluatorSummary$ === "object");
@@ -910,16 +1012,32 @@ assert(typeof FailureSubCategoryCluster$ === "object");
 assert(typeof FilterInput$ === "object");
 assert(typeof FilterValue$ === "object");
 assert(typeof GatewayFilter$ === "object");
+assert(typeof GenerationAttributeFilter$ === "object");
+assert(typeof GenerationErrorDetail$ === "object");
+assert(typeof GenerationFilters$ === "object");
+assert(typeof GenerationFilterValue$ === "object");
+assert(typeof GenerationIdentifierCounts$ === "object");
+assert(typeof GenerationIdentifiers$ === "object");
+assert(typeof GenerationResults$ === "object");
+assert(typeof GenerationSamplingConfig$ === "object");
+assert(typeof GenerationSelection$ === "object");
+assert(typeof GenerationSelectionRecord$ === "object");
+assert(typeof GenerationSource$ === "object");
+assert(typeof GenerationSourceRecord$ === "object");
 assert(typeof GetABTestRequest$ === "object");
 assert(typeof GetABTestResponse$ === "object");
 assert(typeof GetAgentCardRequest$ === "object");
 assert(typeof GetAgentCardResponse$ === "object");
+assert(typeof GetAgentInsightRequest$ === "object");
+assert(typeof GetAgentInsightResponse$ === "object");
 assert(typeof GetBatchEvaluationRequest$ === "object");
 assert(typeof GetBatchEvaluationResponse$ === "object");
 assert(typeof GetBrowserSessionRequest$ === "object");
 assert(typeof GetBrowserSessionResponse$ === "object");
 assert(typeof GetCodeInterpreterSessionRequest$ === "object");
 assert(typeof GetCodeInterpreterSessionResponse$ === "object");
+assert(typeof GetDatasetGenerationRequest$ === "object");
+assert(typeof GetDatasetGenerationResponse$ === "object");
 assert(typeof GetEventInput$ === "object");
 assert(typeof GetEventOutput$ === "object");
 assert(typeof GetMemoryRecordInput$ === "object");
@@ -944,6 +1062,7 @@ assert(typeof GetWorkloadAccessTokenForUserIdRequest$ === "object");
 assert(typeof GetWorkloadAccessTokenForUserIdResponse$ === "object");
 assert(typeof GetWorkloadAccessTokenRequest$ === "object");
 assert(typeof GetWorkloadAccessTokenResponse$ === "object");
+assert(typeof GroundTruthConfig$ === "object");
 assert(typeof GroundTruthSource$ === "object");
 assert(typeof GroundTruthTurn$ === "object");
 assert(typeof GroundTruthTurnInput$ === "object");
@@ -1033,12 +1152,16 @@ assert(typeof ListABTestsRequest$ === "object");
 assert(typeof ListABTestsResponse$ === "object");
 assert(typeof ListActorsInput$ === "object");
 assert(typeof ListActorsOutput$ === "object");
+assert(typeof ListAgentInsightsRequest$ === "object");
+assert(typeof ListAgentInsightsResponse$ === "object");
 assert(typeof ListBatchEvaluationsRequest$ === "object");
 assert(typeof ListBatchEvaluationsResponse$ === "object");
 assert(typeof ListBrowserSessionsRequest$ === "object");
 assert(typeof ListBrowserSessionsResponse$ === "object");
 assert(typeof ListCodeInterpreterSessionsRequest$ === "object");
 assert(typeof ListCodeInterpreterSessionsResponse$ === "object");
+assert(typeof ListDatasetGenerationsRequest$ === "object");
+assert(typeof ListDatasetGenerationsResponse$ === "object");
 assert(typeof ListEventsInput$ === "object");
 assert(typeof ListEventsOutput$ === "object");
 assert(typeof ListMemoryExtractionJobsInput$ === "object");
@@ -1082,6 +1205,7 @@ assert(typeof MppPaymentOutput$ === "object");
 assert(typeof OAuth2Authentication$ === "object");
 assert(typeof OAuthCredentialProvider$ === "object");
 assert(typeof OnlineEvaluationConfigSource$ === "object");
+assert(typeof OnlineEvaluationSourceConfig$ === "object");
 assert(typeof OnlineEvaluationTraceConfig$ === "object");
 assert(typeof OutputConfig$ === "object");
 assert(typeof PayloadType$ === "object");
@@ -1109,6 +1233,8 @@ assert(typeof RecommendationResult$ === "object");
 assert(typeof RecommendationResultConfigurationBundle$ === "object");
 assert(typeof RecommendationSummary$ === "object");
 assert(typeof RecordExpirySpecification$ === "object");
+assert(typeof RedactionConfiguration$ === "object");
+assert(typeof RedactionSummary$ === "object");
 assert(typeof RegistryRecordSummary$ === "object");
 assert(typeof ResourceContent$ === "object");
 assert(typeof ResourceLocation$ === "object");
@@ -1145,6 +1271,8 @@ assert(typeof StartBrowserSessionRequest$ === "object");
 assert(typeof StartBrowserSessionResponse$ === "object");
 assert(typeof StartCodeInterpreterSessionRequest$ === "object");
 assert(typeof StartCodeInterpreterSessionResponse$ === "object");
+assert(typeof StartDatasetGenerationRequest$ === "object");
+assert(typeof StartDatasetGenerationResponse$ === "object");
 assert(typeof StartMemoryExtractionJobInput$ === "object");
 assert(typeof StartMemoryExtractionJobOutput$ === "object");
 assert(typeof StartRecommendationRequest$ === "object");
@@ -1179,8 +1307,14 @@ assert(typeof ToolDescriptionTextInput$ === "object");
 assert(typeof ToolResultStructuredContent$ === "object");
 assert(typeof ToolsDefinition$ === "object");
 assert(typeof ToolsFileSystemConfiguration$ === "object");
+assert(typeof TraceGenerationRecord$ === "object");
+assert(typeof TraceGenerationSource$ === "object");
+assert(typeof TraceSourceConfig$ === "object");
+assert(typeof TurnCountRange$ === "object");
 assert(typeof UpdateABTestRequest$ === "object");
 assert(typeof UpdateABTestResponse$ === "object");
+assert(typeof UpdateAgentInsightRequest$ === "object");
+assert(typeof UpdateAgentInsightResponse$ === "object");
 assert(typeof UpdateBrowserStreamRequest$ === "object");
 assert(typeof UpdateBrowserStreamResponse$ === "object");
 assert(typeof UserIdentifier$ === "object");
@@ -1197,6 +1331,8 @@ assert(typeof WebSearchResult$ === "object");
 // enums
 assert(typeof ABTestExecutionStatus === "object");
 assert(typeof ABTestStatus === "object");
+assert(typeof AgentInsightArchiveStatus === "object");
+assert(typeof AgentInsightCustomerMetadataStatus === "object");
 assert(typeof AutomationStreamStatus === "object");
 assert(typeof BatchEvaluationStatus === "object");
 assert(typeof BlockchainChainId === "object");
@@ -1210,11 +1346,14 @@ assert(typeof CommandExecutionStatus === "object");
 assert(typeof ContentBlockType === "object");
 assert(typeof CryptoWalletNetwork === "object");
 assert(typeof Currency === "object");
+assert(typeof DatasetGenerationStatus === "object");
 assert(typeof DescriptorType === "object");
 assert(typeof EventFilterCondition === "object");
 assert(typeof ExtractionJobStatus === "object");
 assert(typeof ExtractionMode === "object");
 assert(typeof FindingTargetType === "object");
+assert(typeof GenerationFilterOperator === "object");
+assert(typeof GroundTruthField === "object");
 assert(typeof HarnessBedrockApiFormat === "object");
 assert(typeof HarnessConversationRole === "object");
 assert(typeof HarnessHookDecision === "object");
@@ -1244,10 +1383,13 @@ assert(typeof ProgrammingLanguage === "object");
 assert(typeof RecommendationStatus === "object");
 assert(typeof RecommendationType === "object");
 assert(typeof RecordExpiryAction === "object");
+assert(typeof RedactionIdentifier === "object");
 assert(typeof RegistryRecordStatus === "object");
 assert(typeof ResourceContentType === "object");
+assert(typeof ResultAggregation === "object");
 assert(typeof ResultDestination === "object");
 assert(typeof Role === "object");
+assert(typeof ScenarioType === "object");
 assert(typeof ScreenshotFormat === "object");
 assert(typeof SessionStatus === "object");
 assert(typeof TaskStatus === "object");
@@ -1290,7 +1432,9 @@ assert(BedrockAgentCoreServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListABTests === "function");
 assert(typeof paginateListActors === "function");
+assert(typeof paginateListAgentInsights === "function");
 assert(typeof paginateListBatchEvaluations === "function");
+assert(typeof paginateListDatasetGenerations === "function");
 assert(typeof paginateListEvents === "function");
 assert(typeof paginateListMemoryExtractionJobs === "function");
 assert(typeof paginateListMemoryRecords === "function");

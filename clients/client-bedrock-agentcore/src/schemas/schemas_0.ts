@@ -4,8 +4,14 @@ const _ABTR = "ABTestResults";
 const _ABTS = "ABTestSummary";
 const _ABTSL = "ABTestSummaryList";
 const _ACD = "AgentCardDefinition";
+const _ACRI = "AgentCoreRuntimeInvocation";
+const _ACRID = "AgentCoreRuntimeInvocationDetails";
 const _AD = "A2aDescriptor";
 const _ADE = "AccessDeniedException";
+const _AIC = "AgentInvocationConfig";
+const _AID = "AgentInvocationDetails";
+const _AIS = "AgentInsightSummary";
+const _AISL = "AgentInsightSummaryList";
 const _AKT = "ApiKeyType";
 const _AL = "AvailableLimits";
 const _AS = "ActorSummary";
@@ -33,6 +39,7 @@ const _BE = "BrowserExtension";
 const _BEP = "BrowserEnterprisePolicy";
 const _BEPr = "BrowserEnterprisePolicies";
 const _BES = "BatchEvaluationSummary";
+const _BESC = "BatchEvaluationSourceConfig";
 const _BESL = "BatchEvaluationSummaryList";
 const _BETC = "BatchEvaluationTraceConfig";
 const _BEr = "BrowserExtensions";
@@ -59,6 +66,8 @@ const _CCTRI = "CoinbaseCdpTokenRequestInput";
 const _CCTRO = "CoinbaseCdpTokenResponseOutput";
 const _CD = "CustomDescriptor";
 const _CDE = "ContentDeltaEvent";
+const _CDI = "CustomDataIdentifier";
+const _CDIL = "CustomDataIdentifierList";
 const _CE = "ConflictException";
 const _CEI = "CreateEventInput";
 const _CEO = "CreateEventOutput";
@@ -90,6 +99,7 @@ const _CWLF = "CloudWatchLogsFilter";
 const _CWLFL = "CloudWatchLogsFilterList";
 const _CWLR = "CloudWatchLogsRule";
 const _CWLS = "CloudWatchLogsSource";
+const _CWLSC = "CloudWatchLogsSourceConfig";
 const _CWLTC = "CloudWatchLogsTraceConfig";
 const _CWOC = "CloudWatchOutputConfig";
 const _CXPI = "CryptoX402PaymentInput";
@@ -108,10 +118,18 @@ const _DBERe = "DeleteBatchEvaluationResponse";
 const _DCPS = "DeleteCapacityProviderSession";
 const _DCPSR = "DeleteCapacityProviderSessionRequest";
 const _DCPSRe = "DeleteCapacityProviderSessionResponse";
+const _DD = "DatasetDetails";
+const _DDG = "DeleteDatasetGeneration";
+const _DDGR = "DeleteDatasetGenerationRequest";
+const _DDGRe = "DeleteDatasetGenerationResponse";
 const _DE = "DeleteEvent";
+const _DEC = "DatasetExecutionConfig";
+const _DED = "DatasetExecutionDetails";
 const _DEI = "DeleteEventInput";
 const _DEO = "DeleteEventOutput";
 const _DF = "DomainFilter";
+const _DGS = "DatasetGenerationSummary";
+const _DGSL = "DatasetGenerationSummaryList";
 const _DIE = "DuplicateIdException";
 const _DMR = "DeleteMemoryRecord";
 const _DMRI = "DeleteMemoryRecordInput";
@@ -125,6 +143,7 @@ const _DPSRe = "DeletePaymentSessionResponse";
 const _DR = "DeleteRecommendation";
 const _DRR = "DeleteRecommendationRequest";
 const _DRRe = "DeleteRecommendationResponse";
+const _DS = "DatasetSource";
 const _DSC = "DataSourceConfig";
 const _De = "Descriptors";
 const _E = "Email";
@@ -135,6 +154,8 @@ const _ECv = "EvaluationContent";
 const _ECx = "ExtractionConfig";
 const _EE = "EvaluationExplanation";
 const _EET = "EvaluationExpectedTrajectory";
+const _EF = "EvaluatorFilter";
+const _EFL = "EvaluatorFilterList";
 const _EI = "EvaluationInput";
 const _EJ = "ExtractionJob";
 const _EJFI = "ExtractionJobFilterInput";
@@ -184,6 +205,11 @@ const _GABTRe = "GetABTestResponse";
 const _GAC = "GetAgentCard";
 const _GACR = "GetAgentCardRequest";
 const _GACRe = "GetAgentCardResponse";
+const _GAF = "GenerationAttributeFilter";
+const _GAFL = "GenerationAttributeFilterList";
+const _GAI = "GetAgentInsight";
+const _GAIR = "GetAgentInsightRequest";
+const _GAIRe = "GetAgentInsightResponse";
 const _GBE = "GetBatchEvaluation";
 const _GBER = "GetBatchEvaluationRequest";
 const _GBERe = "GetBatchEvaluationResponse";
@@ -193,10 +219,19 @@ const _GBSRe = "GetBrowserSessionResponse";
 const _GCIS = "GetCodeInterpreterSession";
 const _GCISR = "GetCodeInterpreterSessionRequest";
 const _GCISRe = "GetCodeInterpreterSessionResponse";
+const _GDG = "GetDatasetGeneration";
+const _GDGR = "GetDatasetGenerationRequest";
+const _GDGRe = "GetDatasetGenerationResponse";
 const _GE = "GetEvent";
+const _GED = "GenerationErrorDetail";
+const _GEDL = "GenerationErrorDetailsList";
 const _GEI = "GetEventInput";
 const _GEO = "GetEventOutput";
 const _GF = "GatewayFilter";
+const _GFV = "GenerationFilterValue";
+const _GFe = "GenerationFilters";
+const _GI = "GenerationIdentifiers";
+const _GIC = "GenerationIdentifierCounts";
 const _GMR = "GetMemoryRecord";
 const _GMRI = "GetMemoryRecordInput";
 const _GMRO = "GetMemoryRecordOutput";
@@ -209,7 +244,7 @@ const _GPIRe = "GetPaymentInstrumentResponse";
 const _GPS = "GetPaymentSession";
 const _GPSR = "GetPaymentSessionRequest";
 const _GPSRe = "GetPaymentSessionResponse";
-const _GR = "GetRecommendation";
+const _GR = "GenerationResults";
 const _GRAK = "GetResourceApiKey";
 const _GRAKR = "GetResourceApiKeyRequest";
 const _GRAKRe = "GetResourceApiKeyResponse";
@@ -221,6 +256,13 @@ const _GRPTR = "GetResourcePaymentTokenRequest";
 const _GRPTRe = "GetResourcePaymentTokenResponse";
 const _GRR = "GetRecommendationRequest";
 const _GRRe = "GetRecommendationResponse";
+const _GRe = "GetRecommendation";
+const _GS = "GenerationSelection";
+const _GSC = "GenerationSamplingConfig";
+const _GSR = "GenerationSelectionRecord";
+const _GSRe = "GenerationSourceRecord";
+const _GSe = "GenerationSource";
+const _GTC = "GroundTruthConfig";
 const _GTS = "GroundTruthSource";
 const _GTT = "GroundTruthTurn";
 const _GTTI = "GroundTruthTurnInput";
@@ -347,6 +389,9 @@ const _LABTRi = "ListABTestsResponse";
 const _LADJ = "LinkedAccountDeveloperJwt";
 const _LAE = "LinkedAccountEmail";
 const _LAI = "ListActorsInput";
+const _LAIR = "ListAgentInsightsRequest";
+const _LAIRi = "ListAgentInsightsResponse";
+const _LAIi = "ListAgentInsights";
 const _LAL = "LinkedAccountList";
 const _LAO = "ListActorsOutput";
 const _LAOA = "LinkedAccountOAuth2";
@@ -361,6 +406,9 @@ const _LBSRi = "ListBrowserSessionsResponse";
 const _LCIS = "ListCodeInterpreterSessions";
 const _LCISR = "ListCodeInterpreterSessionsRequest";
 const _LCISRi = "ListCodeInterpreterSessionsResponse";
+const _LDG = "ListDatasetGenerations";
+const _LDGR = "ListDatasetGenerationsRequest";
+const _LDGRi = "ListDatasetGenerationsResponse";
 const _LE = "LeftExpression";
 const _LEI = "ListEventsInput";
 const _LEO = "ListEventsOutput";
@@ -431,6 +479,7 @@ const _OACPV = "OAuthCustomParametersValue";
 const _OACPu = "OAuthCustomParameters";
 const _OC = "OutputConfig";
 const _OECS = "OnlineEvaluationConfigSource";
+const _OESC = "OnlineEvaluationSourceConfig";
 const _OETC = "OnlineEvaluationTraceConfig";
 const _P = "Proxies";
 const _PB = "ProxyBypass";
@@ -458,15 +507,16 @@ const _PTRO = "PaymentTokenResponseOutput";
 const _PVOEC = "PerVariantOnlineEvaluationConfig";
 const _PVOECL = "PerVariantOnlineEvaluationConfigList";
 const _Pr = "Proxy";
-const _RC = "ResourceContent";
+const _RC = "RedactionConfiguration";
 const _RCC = "RootCauseCluster";
 const _RCCL = "RootCauseClusterList";
 const _RCE = "RetryableConflictException";
 const _RCEo = "RootCauseExplanation";
 const _RCEu = "RuntimeClientError";
 const _RCN = "RootCauseName";
-const _RCe = "ResponseChunk";
+const _RCe = "ResourceContent";
 const _RCec = "RecommendationConfig";
+const _RCes = "ResponseChunk";
 const _RE = "RightExpression";
 const _REC = "RecommendationEvaluationConfig";
 const _REL = "RecommendationEvaluatorList";
@@ -484,6 +534,7 @@ const _RRSL = "RegistryRecordSummaryList";
 const _RS = "ResponseStream";
 const _RSL = "RecommendationSummaryList";
 const _RSe = "RecommendationSummary";
+const _RSed = "RedactionSummary";
 const _S = "State";
 const _SA = "ScreenshotArguments";
 const _SBE = "StartBatchEvaluation";
@@ -510,6 +561,9 @@ const _SCISRtop = "StopCodeInterpreterSessionResponse";
 const _SCISt = "StopCodeInterpreterSession";
 const _SCp = "SpanContext";
 const _SD = "ServerDefinition";
+const _SDG = "StartDatasetGeneration";
+const _SDGR = "StartDatasetGenerationRequest";
+const _SDGRt = "StartDatasetGenerationResponse";
 const _SDk = "SkillDefinition";
 const _SE = "ServiceException";
 const _SF = "SuggestedFix";
@@ -562,6 +616,7 @@ const _SUE = "ServiceUnavailableException";
 const _Sp = "Spans";
 const _TA = "ToolArguments";
 const _TB = "TokenBalance";
+const _TCR = "TurnCountRange";
 const _TD = "ToolsDefinition";
 const _TDC = "ToolDescriptionConfig";
 const _TDCB = "ToolDescriptionConfigurationBundle";
@@ -578,12 +633,18 @@ const _TE = "ThrottledException";
 const _TEh = "ThrottlingException";
 const _TFSC = "ToolsFileSystemConfigurations";
 const _TFSCo = "ToolsFileSystemConfiguration";
+const _TGR = "TraceGenerationRecord";
+const _TGS = "TraceGenerationSource";
 const _TR = "TargetRef";
 const _TRSC = "ToolResultStructuredContent";
+const _TSC = "TraceSourceConfig";
 const _TU = "TokenUsage";
 const _UABT = "UpdateABTest";
 const _UABTR = "UpdateABTestRequest";
 const _UABTRp = "UpdateABTestResponse";
+const _UAI = "UpdateAgentInsight";
+const _UAIR = "UpdateAgentInsightRequest";
+const _UAIRp = "UpdateAgentInsightResponse";
 const _UBS = "UpdateBrowserStream";
 const _UBSR = "UpdateBrowserStreamRequest";
 const _UBSRp = "UpdateBrowserStreamResponse";
@@ -620,28 +681,37 @@ const _aC = "agentCard";
 const _aCB = "agentCoreBrowser";
 const _aCCI = "agentCoreCodeInterpreter";
 const _aCG = "agentCoreGateway";
+const _aCR = "agentCoreRuntime";
 const _aCb = "absoluteChange";
 const _aDE = "accessDeniedException";
-const _aF = "apiFormat";
+const _aF = "attributeFilters";
+const _aFp = "apiFormat";
 const _aI = "actorId";
+const _aII = "agentInsightId";
 const _aIc = "accountId";
+const _aIg = "agentInvocation";
+const _aIge = "agentInsights";
 const _aIp = "appId";
 const _aIw = "awsIam";
 const _aK = "apiKey";
 const _aKA = "apiKeyArn";
 const _aL = "availableLimits";
-const _aN = "agentName";
+const _aN = "applicationName";
+const _aNg = "agentName";
 const _aP = "additionalParams";
 const _aPA = "accessPointArn";
 const _aRA = "agentRuntimeArn";
-const _aS = "automationStream";
+const _aREA = "agentRuntimeEndpointArn";
+const _aRV = "agentRuntimeVersion";
+const _aS = "archiveStatus";
 const _aSA = "availableSpendAmount";
 const _aSC = "affectedSessionCount";
 const _aSU = "automationStreamUpdate";
 const _aSc = "actorSummaries";
 const _aSf = "affectedSessions";
 const _aSg = "agentSkills";
-const _aSu = "authorizationSignature";
+const _aSu = "automationStream";
+const _aSut = "authorizationSignature";
 const _aSv = "averageScore";
 const _aSw = "awsSkills";
 const _aT = "analysisTimestamp";
@@ -655,6 +725,7 @@ const _aTp = "approachTaken";
 const _aU = "authorizationUrl";
 const _ac = "accept";
 const _act = "action";
+const _ag = "aggregation";
 const _am = "amount";
 const _ap = "apple";
 const _ar = "arguments";
@@ -685,6 +756,7 @@ const _buc = "bucket";
 const _by = "bypass";
 const _c = "client";
 const _cA = "createdAt";
+const _cAo = "completedAt";
 const _cAr = "credentialArn";
 const _cB = "configurationBundle";
 const _cBD = "contentBlockDelta";
@@ -696,12 +768,14 @@ const _cCTR = "coinbaseCdpTokenRequest";
 const _cCTRo = "coinbaseCdpTokenResponse";
 const _cCl = "clearContext";
 const _cD = "contentDelta";
+const _cDI = "customDataIdentifiers";
 const _cE = "conflictException";
 const _cI = "clusterId";
 const _cIA = "codeInterpreterArn";
 const _cII = "codeInterpreterIdentifier";
 const _cIo = "confidenceInterval";
 const _cL = "cloudwatchLogs";
+const _cMS = "customerMetadataStatus";
 const _cP = "customParameters";
 const _cPA = "capacityProviderArn";
 const _cPI = "capacityProviderId";
@@ -729,11 +803,16 @@ const _con = "context";
 const _conf = "config";
 const _confi = "confidence";
 const _conv = "conversational";
+const _cou = "count";
 const _cr = "credentials";
 const _cu = "currency";
 const _cus = "custom";
 const _d = "description";
+const _dEC = "datasetExecutionConfig";
+const _dED = "datasetExecutionDetails";
 const _dF = "domainFilter";
+const _dG = "datasetGenerations";
+const _dI = "datasetId";
 const _dJ = "developerJwt";
 const _dP = "domainPatterns";
 const _dPi = "directoryPath";
@@ -741,10 +820,12 @@ const _dRU = "defaultReturnUrl";
 const _dSC = "dataSourceConfig";
 const _dT = "descriptorType";
 const _dTV = "dateTimeValue";
-const _dV = "doubleValue";
+const _dV = "datasetVersion";
+const _dVo = "doubleValue";
 const _dX = "deltaX";
 const _dY = "deltaY";
 const _da = "data";
+const _dat = "dataset";
 const _de = "delta";
 const _dec = "decision";
 const _deci = "decimals";
@@ -761,7 +842,8 @@ const _eCv = "evaluationConfig";
 const _eCx = "extractionConfig";
 const _eD = "errorDetails";
 const _eDN = "evaluationDimensionName";
-const _eF = "eventFilter";
+const _eF = "evaluatorFilters";
+const _eFv = "eventFilter";
 const _eI = "eventId";
 const _eIv = "evaluatorId";
 const _eIva = "evaluationInput";
@@ -788,6 +870,8 @@ const _eTv = "eventTimestamp";
 const _eTva = "evaluationTarget";
 const _eTx = "expectedTrajectory";
 const _eTxe = "executionTime";
+const _eW = "examplesWritten";
+const _eWGT = "examplesWithGroundTruth";
 const _eX = "endX";
 const _eY = "endY";
 const _em = "email";
@@ -803,6 +887,7 @@ const _fA = "forceAuthentication";
 const _fAR = "failureAnalysisResult";
 const _fC = "filterConfig";
 const _fCi = "filesystemConfigurations";
+const _fCin = "findingCounts";
 const _fL = "fieldList";
 const _fO = "finalOutcome";
 const _fR = "failedRecords";
@@ -811,13 +896,16 @@ const _fS = "failureSpans";
 const _fSA = "fileSystemArn";
 const _fT = "fixType";
 const _fa = "failures";
-const _fi = "filter";
+const _fi = "fields";
+const _fil = "filter";
 const _fin = "findings";
 const _fo = "format";
 const _g = "git";
 const _gA = "gatewayArn";
 const _gF = "gatewayFilter";
+const _gI = "generationId";
 const _gMC = "geminiModelConfig";
+const _gR = "generationResults";
 const _gT = "grantType";
 const _gTr = "groundTruth";
 const _gi = "github";
@@ -847,6 +935,7 @@ const _iSs = "isSignificant";
 const _iT = "idempotencyToken";
 const _iTn = "inputTokens";
 const _iWAT = "includeWalletAuthToken";
+const _id = "identifiers";
 const _in = "include";
 const _inl = "inline";
 const _inp = "input";
@@ -900,20 +989,23 @@ const _mR = "memoryRecord";
 const _mRI = "memoryRecordId";
 const _mRS = "memoryRecordSummaries";
 const _mRa = "maxResults";
-const _mS = "mouseScroll";
+const _mS = "maxScenarios";
 const _mSA = "maxSpendAmount";
 const _mSI = "mcpSessionId";
 const _mSIe = "memoryStrategyId";
 const _mSe = "messageStart";
 const _mSes = "messageStop";
+const _mSo = "mouseScroll";
 const _mT = "mimeType";
 const _mTa = "maxTokens";
 const _mV = "metadataValue";
+const _ma = "max";
 const _mc = "mcp";
 const _me = "mean";
 const _mes = "messages";
 const _met = "metadata";
 const _metr = "metrics";
+const _mi = "min";
 const _mo = "model";
 const _mp = "mpp";
 const _n = "name";
@@ -981,6 +1073,7 @@ const _pre = "prefix";
 const _pro = "proxies";
 const _prom = "prompt";
 const _q = "qualifier";
+const _qF = "qualityFilters";
 const _r = "reason";
 const _rA = "roleArn";
 const _rAS = "retryAfterSeconds";
@@ -993,7 +1086,8 @@ const _rCE = "runtimeClientError";
 const _rCPN = "resourceCredentialProviderName";
 const _rCe = "recommendationConfig";
 const _rCea = "reasoningContent";
-const _rCed = "redactedContent";
+const _rCed = "redactionConfiguration";
+const _rCeda = "redactedContent";
 const _rCo = "rootCause";
 const _rD = "resultDestination";
 const _rE = "requestExpiry";
@@ -1012,16 +1106,19 @@ const _rORU = "resourceOauth2ReturnUrl";
 const _rP = "requestPath";
 const _rR = "recommendationResult";
 const _rRe = "registryRecords";
-const _rS = "recommendationSummaries";
+const _rS = "redactionSummary";
 const _rSI = "runtimeSessionId";
 const _rSP = "recommendedSystemPrompt";
-const _rT = "reasoningText";
+const _rSe = "recommendationSummaries";
+const _rT = "requestTemplate";
 const _rTD = "recommendedToolDescription";
+const _rTe = "reasoningText";
 const _rU = "redirectUrl";
 const _rUI = "runtimeUserId";
 const _re = "recommendation";
 const _rec = "records";
-const _reg = "region";
+const _reg = "regex";
+const _regi = "region";
 const _res = "resource";
 const _reso = "resources";
 const _resp = "response";
@@ -1037,23 +1134,29 @@ const _sAt = "startedAt";
 const _sAto = "stoppedAt";
 const _sC = "structuredContent";
 const _sCe = "searchCriteria";
+const _sCo = "sourceConfig";
 const _sCp = "spanContext";
 const _sCt = "statusCode";
 const _sCu = "subCategories";
 const _sD = "skillDefinition";
+const _sDc = "scenariosDeduplicated";
 const _sE = "streamEndpoint";
 const _sEU = "sessionEndpointUrl";
-const _sF = "suggestedFix";
+const _sF = "sessionsFailed";
 const _sFC = "s3FilesConfiguration";
 const _sFt = "statusFilter";
+const _sFu = "suggestedFix";
+const _sG = "scenariosGenerated";
 const _sI = "sessionId";
+const _sIC = "sessionIdCount";
 const _sIe = "sessionIds";
 const _sIp = "spanId";
 const _sIpa = "spanIds";
 const _sIt = "strategyId";
 const _sLV = "stringListValue";
 const _sM = "skillMd";
-const _sMe = "secretsManager";
+const _sMe = "sessionsMatched";
+const _sMec = "secretsManager";
 const _sMes = "sessionMetadata";
 const _sN = "serviceNames";
 const _sNe = "serverName";
@@ -1073,24 +1176,30 @@ const _sRt = "stopReason";
 const _sS = "streamStatus";
 const _sSa = "sampleSize";
 const _sSam = "sampleSessions";
-const _sSe = "sessionStatus";
-const _sSes = "sessionSummaries";
-const _sSess = "sessionSpans";
+const _sSc = "scenariosScanned";
+const _sSe = "sessionsSelected";
+const _sSes = "sessionStatus";
+const _sSess = "sessionSummaries";
+const _sSessi = "sessionSpans";
 const _sT = "startTime";
 const _sTI = "sessionTraceIds";
 const _sTS = "sessionTimeoutSeconds";
+const _sTc = "scenarioType";
 const _sU = "subscriptionUrl";
 const _sUe = "sessionUri";
+const _sUes = "sessionsUnscored";
 const _sUt = "streamUpdate";
 const _sV = "schemaVersion";
 const _sVt = "stringValue";
 const _sX = "startX";
 const _sY = "startY";
 const _s_ = "s3";
+const _sa = "sampling";
 const _sc = "scopes";
 const _sco = "score";
 const _scr = "screenshot";
 const _se = "server";
+const _sel = "selection";
 const _sen = "sensitive";
 const _ser = "service";
 const _si = "size";
@@ -1110,6 +1219,7 @@ const _stre = "stream";
 const _su = "sub";
 const _t = "type";
 const _tB = "tokenBalance";
+const _tC = "turnCount";
 const _tD = "toolDescription";
 const _tDJP = "toolDescriptionJsonPath";
 const _tDRC = "toolDescriptionRecommendationConfig";
@@ -1118,7 +1228,9 @@ const _tDT = "toolDescriptionText";
 const _tE = "totalEvaluated";
 const _tEh = "throttlingException";
 const _tF = "totalFailed";
+const _tG = "traceGeneration";
 const _tI = "traceId";
+const _tIC = "traceIdCount";
 const _tIa = "targetId";
 const _tIas = "taskId";
 const _tIr = "traceIds";
@@ -1399,6 +1511,21 @@ export var AgentCardDefinition$: StaticStructureSchema = [3, n0, _ACD,
   [_sV, _iC],
   [0, 0]
 ];
+export var AgentCoreRuntimeInvocation$: StaticStructureSchema = [3, n0, _ACRI,
+  0,
+  [_aREA, _rT],
+  [0, 0], 1
+];
+export var AgentCoreRuntimeInvocationDetails$: StaticStructureSchema = [3, n0, _ACRID,
+  0,
+  [_aREA, _aRV, _rT],
+  [0, 0, 0], 2
+];
+export var AgentInsightSummary$: StaticStructureSchema = [3, n0, _AIS,
+  0,
+  [_t, _n, _d, _cA, _aII, _aN, _cMS, _uA, _aS, _aSC, _bEI, _lSA],
+  [0, [() => InsightName, 0], [() => InsightDescription, 0], 5, 0, 0, 0, 5, 0, 1, 0, 5], 9
+];
 export var AgentSkillsDescriptor$: StaticStructureSchema = [3, n0, _ASD,
   0,
   [_sM, _sD],
@@ -1449,6 +1576,11 @@ export var BatchDeleteMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _BDM
   [_sR, _fR],
   [() => MemoryRecordsOutputList, () => MemoryRecordsOutputList], 2
 ];
+export var BatchEvaluationSourceConfig$: StaticStructureSchema = [3, n0, _BESC,
+  0,
+  [_bEA],
+  [0], 1
+];
 export var BatchEvaluationSummary$: StaticStructureSchema = [3, n0, _BES,
   0,
   [_bEI, _bEA, _bEN, _sta, _cA, _d, _ev, _i, _eR, _eD, _kKA, _uA],
@@ -1496,7 +1628,7 @@ export var BrowserProfileConfiguration$: StaticStructureSchema = [3, n0, _BPC,
 ];
 export var BrowserSessionStream$: StaticStructureSchema = [3, n0, _BSS,
   0,
-  [_aS, _lVS],
+  [_aSu, _lVS],
   [() => AutomationStream$, () => LiveViewStream$], 1
 ];
 export var BrowserSessionSummary$: StaticStructureSchema = [3, n0, _BSSr,
@@ -1528,6 +1660,11 @@ export var CloudWatchLogsSource$: StaticStructureSchema = [3, n0, _CWLS,
   0,
   [_sN, _lGN, _lGNP, _fC],
   [64 | 0, 64 | 0, 64 | 0, () => CloudWatchFilterConfig$], 1
+];
+export var CloudWatchLogsSourceConfig$: StaticStructureSchema = [3, n0, _CWLSC,
+  0,
+  [_sN, _lGN, _lGNP, _sT, _eT],
+  [64 | 0, 64 | 0, 64 | 0, 5, 5], 1
 ];
 export var CloudWatchLogsTraceConfig$: StaticStructureSchema = [3, n0, _CWLTC,
   0,
@@ -1636,7 +1773,7 @@ export var CreateEventOutput$: StaticStructureSchema = [3, n0, _CEO,
 ];
 export var CreatePaymentInstrumentRequest$: StaticStructureSchema = [3, n0, _CPIR,
   0,
-  [_pMA, _pCI, _pIT, _pID, _uIs, _aN, _cT],
+  [_pMA, _pCI, _pIT, _pID, _uIs, _aNg, _cT],
   [0, 0, 0, [() => PaymentInstrumentDetails$, 0], [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }], [0, 4]], 4
 ];
 export var CreatePaymentInstrumentResponse$: StaticStructureSchema = [3, n0, _CPIRr,
@@ -1646,7 +1783,7 @@ export var CreatePaymentInstrumentResponse$: StaticStructureSchema = [3, n0, _CP
 ];
 export var CreatePaymentSessionRequest$: StaticStructureSchema = [3, n0, _CPSR,
   0,
-  [_pMA, _eTIM, _uIs, _aN, _li, _cT],
+  [_pMA, _eTIM, _uIs, _aNg, _li, _cT],
   [0, 1, [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }], () => SessionLimits$, [0, 4]], 2
 ];
 export var CreatePaymentSessionResponse$: StaticStructureSchema = [3, n0, _CPSRr,
@@ -1664,10 +1801,40 @@ export var CryptoX402PaymentOutput$: StaticStructureSchema = [3, n0, _CXPO,
   [_ve, _p],
   [0, [() => PaymentDocument, 0]], 2
 ];
+export var CustomDataIdentifier$: StaticStructureSchema = [3, n0, _CDI,
+  0,
+  [_n, _reg],
+  [0, 0], 2
+];
 export var CustomDescriptor$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_iC],
   [0]
+];
+export var DatasetDetails$: StaticStructureSchema = [3, n0, _DD,
+  0,
+  [_dI, _dV],
+  [0, 0], 2
+];
+export var DatasetExecutionConfig$: StaticStructureSchema = [3, n0, _DEC,
+  0,
+  [_dat, _aIg],
+  [() => DatasetSource$, () => AgentInvocationConfig$], 2
+];
+export var DatasetExecutionDetails$: StaticStructureSchema = [3, n0, _DED,
+  0,
+  [_dat, _aIg],
+  [() => DatasetDetails$, () => AgentInvocationDetails$], 2
+];
+export var DatasetGenerationSummary$: StaticStructureSchema = [3, n0, _DGS,
+  0,
+  [_gI, _dI, _n, _sTc, _sta, _cA, _d, _cAo],
+  [0, 0, 0, 0, 0, 5, 0, 5], 6
+];
+export var DatasetSource$: StaticStructureSchema = [3, n0, _DS,
+  0,
+  [_dI, _dV],
+  [0, 0], 1
 ];
 export var DeleteABTestRequest$: StaticStructureSchema = [3, n0, _DABTR,
   0,
@@ -1698,6 +1865,16 @@ export var DeleteCapacityProviderSessionResponse$: StaticStructureSchema = [3, n
   0,
   [_cPA, _sI, _sta],
   [0, 0, 0], 3
+];
+export var DeleteDatasetGenerationRequest$: StaticStructureSchema = [3, n0, _DDGR,
+  0,
+  [_dI, _gI],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteDatasetGenerationResponse$: StaticStructureSchema = [3, n0, _DDGRe,
+  0,
+  [_gI, _sta],
+  [0, 0], 2
 ];
 export var DeleteEventInput$: StaticStructureSchema = [3, n0, _DEI,
   0,
@@ -1804,6 +1981,11 @@ export var Evaluator$: StaticStructureSchema = [3, n0, _Ev,
   [_eIv],
   [0], 1
 ];
+export var EvaluatorFilter$: StaticStructureSchema = [3, n0, _EF,
+  0,
+  [_eIv, _o, _v, _eDN, _ag],
+  [0, 0, () => GenerationFilterValue$, 0, 0], 3
+];
 export var EvaluatorMetric$: StaticStructureSchema = [3, n0, _EM,
   0,
   [_eA, _cS, _vR],
@@ -1899,6 +2081,41 @@ export var GatewayFilter$: StaticStructureSchema = [3, n0, _GF,
   [_tP],
   [64 | 0]
 ];
+export var GenerationAttributeFilter$: StaticStructureSchema = [3, n0, _GAF,
+  0,
+  [_k, _o, _v],
+  [0, 0, () => GenerationFilterValue$], 3
+];
+export var GenerationErrorDetail$: StaticStructureSchema = [3, n0, _GED,
+  0,
+  [_eCr, _eMr, _cou, _sIe],
+  [0, 0, 1, 64 | 0]
+];
+export var GenerationFilters$: StaticStructureSchema = [3, n0, _GFe,
+  0,
+  [_aF, _tC, _eF],
+  [() => GenerationAttributeFilterList, () => TurnCountRange$, () => EvaluatorFilterList]
+];
+export var GenerationIdentifierCounts$: StaticStructureSchema = [3, n0, _GIC,
+  0,
+  [_sIC, _tIC],
+  [1, 1]
+];
+export var GenerationIdentifiers$: StaticStructureSchema = [3, n0, _GI,
+  0,
+  [_sIe, _tIr],
+  [64 | 0, 64 | 0]
+];
+export var GenerationResults$: StaticStructureSchema = [3, n0, _GR,
+  0,
+  [_sMe, _sSe, _sUes, _sF, _sG, _sDc, _eW, _eWGT],
+  [1, 1, 1, 1, 1, 1, 1, 1]
+];
+export var GenerationSamplingConfig$: StaticStructureSchema = [3, n0, _GSC,
+  0,
+  [_mS],
+  [1]
+];
 export var GetABTestRequest$: StaticStructureSchema = [3, n0, _GABTR,
   0,
   [_aTI],
@@ -1919,6 +2136,16 @@ export var GetAgentCardResponse$: StaticStructureSchema = [3, n0, _GACRe,
   [_aC, _rSI, _sCt],
   [[15, 16], [0, { [_hH]: _XABARSI }], [1, 32]], 1
 ];
+export var GetAgentInsightRequest$: StaticStructureSchema = [3, n0, _GAIR,
+  0,
+  [_aN, _aII],
+  [[0, { [_hQ]: _aN }], [0, 1]], 2
+];
+export var GetAgentInsightResponse$: StaticStructureSchema = [3, n0, _GAIRe,
+  0,
+  [_t, _n, _d, _cA, _aII, _aN, _cMS, _uA, _aS, _aSC, _sSam, _rC, _bEI, _lSA],
+  [0, [() => InsightName, 0], [() => InsightDescription, 0], 5, 0, 0, 0, 5, 0, 1, [() => InsightSampleSessionList, 0], [() => InsightRootCauseList, 0], 0, 5], 9
+];
 export var GetBatchEvaluationRequest$: StaticStructureSchema = [3, n0, _GBER,
   0,
   [_bEI],
@@ -1926,8 +2153,8 @@ export var GetBatchEvaluationRequest$: StaticStructureSchema = [3, n0, _GBER,
 ];
 export var GetBatchEvaluationResponse$: StaticStructureSchema = [3, n0, _GBERe,
   0,
-  [_bEI, _bEA, _bEN, _sta, _cA, _ev, _i, _dSC, _oC, _eR, _iR, _fAR, _uIR, _eSR, _eD, _d, _uA, _kKA],
-  [0, 0, 0, 0, 5, () => EvaluatorList, () => InsightList, () => DataSourceConfig$, () => OutputConfig$, () => EvaluationJobResults$, [() => InsightResultList, 0], () => FailureAnalysisResultContent$, () => UserIntentClusteringResultContent$, () => ExecutionSummaryClusteringResultContent$, 64 | 0, 0, 5, 0], 5
+  [_bEI, _bEA, _bEN, _sta, _cA, _ev, _i, _dSC, _oC, _eR, _iR, _fAR, _uIR, _eSR, _eD, _d, _uA, _kKA, _dED],
+  [0, 0, 0, 0, 5, () => EvaluatorList, () => InsightList, () => DataSourceConfig$, () => OutputConfig$, () => EvaluationJobResults$, [() => InsightResultList, 0], () => FailureAnalysisResultContent$, () => UserIntentClusteringResultContent$, () => ExecutionSummaryClusteringResultContent$, 64 | 0, 0, 5, 0, () => DatasetExecutionDetails$], 5
 ];
 export var GetBrowserSessionRequest$: StaticStructureSchema = [3, n0, _GBSR,
   0,
@@ -1948,6 +2175,16 @@ export var GetCodeInterpreterSessionResponse$: StaticStructureSchema = [3, n0, _
   0,
   [_cII, _sI, _cA, _n, _sTS, _sta, _ce, _fCi],
   [0, 0, 5, 0, 1, 0, () => Certificates, () => ToolsFileSystemConfigurations], 3
+];
+export var GetDatasetGenerationRequest$: StaticStructureSchema = [3, n0, _GDGR,
+  0,
+  [_dI, _gI],
+  [[0, 1], [0, 1]], 2
+];
+export var GetDatasetGenerationResponse$: StaticStructureSchema = [3, n0, _GDGRe,
+  0,
+  [_gI, _n, _dI, _sTc, _sta, _cA, _d, _fRa, _uA, _cAo, _so, _gR, _rS, _eD],
+  [0, 0, 0, 0, 0, 5, 0, 0, 5, 5, () => GenerationSourceRecord$, () => GenerationResults$, () => RedactionSummary$, () => GenerationErrorDetailsList], 6
 ];
 export var GetEventInput$: StaticStructureSchema = [3, n0, _GEI,
   0,
@@ -1971,7 +2208,7 @@ export var GetMemoryRecordOutput$: StaticStructureSchema = [3, n0, _GMRO,
 ];
 export var GetPaymentInstrumentBalanceRequest$: StaticStructureSchema = [3, n0, _GPIBR,
   0,
-  [_pMA, _pCI, _pII, _ch, _to, _uIs, _aN],
+  [_pMA, _pCI, _pII, _ch, _to, _uIs, _aNg],
   [0, 0, 0, 0, 0, [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }]], 5
 ];
 export var GetPaymentInstrumentBalanceResponse$: StaticStructureSchema = [3, n0, _GPIBRe,
@@ -1981,7 +2218,7 @@ export var GetPaymentInstrumentBalanceResponse$: StaticStructureSchema = [3, n0,
 ];
 export var GetPaymentInstrumentRequest$: StaticStructureSchema = [3, n0, _GPIR,
   0,
-  [_pMA, _pII, _uIs, _aN, _pCI],
+  [_pMA, _pII, _uIs, _aNg, _pCI],
   [0, 0, [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }], 0], 2
 ];
 export var GetPaymentInstrumentResponse$: StaticStructureSchema = [3, n0, _GPIRe,
@@ -1991,7 +2228,7 @@ export var GetPaymentInstrumentResponse$: StaticStructureSchema = [3, n0, _GPIRe
 ];
 export var GetPaymentSessionRequest$: StaticStructureSchema = [3, n0, _GPSR,
   0,
-  [_pMA, _pSI, _uIs, _aN],
+  [_pMA, _pSI, _uIs, _aNg],
   [0, 0, [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }]], 2
 ];
 export var GetPaymentSessionResponse$: StaticStructureSchema = [3, n0, _GPSRe,
@@ -2026,7 +2263,7 @@ export var GetResourceOauth2TokenRequest$: StaticStructureSchema = [3, n0, _GROT
 ];
 export var GetResourceOauth2TokenResponse$: StaticStructureSchema = [3, n0, _GROTRe,
   0,
-  [_aU, _aTc, _sUe, _sSe],
+  [_aU, _aTc, _sUe, _sSes],
   [[() => AuthorizationUrlType, 0], [() => AccessTokenType, 0], 0, 0]
 ];
 export var GetResourcePaymentTokenRequest$: StaticStructureSchema = [3, n0, _GRPTR,
@@ -2069,6 +2306,11 @@ export var GetWorkloadAccessTokenResponse$: StaticStructureSchema = [3, n0, _GWA
   [_wATo],
   [[() => WorkloadIdentityTokenType, 0]], 1
 ];
+export var GroundTruthConfig$: StaticStructureSchema = [3, n0, _GTC,
+  0,
+  [_fi, _qF],
+  [64 | 0, () => EvaluatorFilterList], 1
+];
 export var GroundTruthTurn$: StaticStructureSchema = [3, n0, _GTT,
   0,
   [_inp, _eRx],
@@ -2091,7 +2333,7 @@ export var HarnessAgentCoreGatewayConfig$: StaticStructureSchema = [3, n0, _HACG
 ];
 export var HarnessBedrockModelConfig$: StaticStructureSchema = [3, n0, _HBMC,
   0,
-  [_mIo, _mTa, _tem, _tPo, _aF, _aP],
+  [_mIo, _mTa, _tem, _tPo, _aFp, _aP],
   [0, 1, 1, 1, 0, 15], 1
 ];
 export var HarnessContentBlockDeltaEvent$: StaticStructureSchema = [3, n0, _HCBDE,
@@ -2151,7 +2393,7 @@ export var HarnessMetadataEvent$: StaticStructureSchema = [3, n0, _HME,
 ];
 export var HarnessOpenAiModelConfig$: StaticStructureSchema = [3, n0, _HOAMC,
   0,
-  [_mIo, _aKA, _aB, _mTa, _tem, _tPo, _aF, _aP],
+  [_mIo, _aKA, _aB, _mTa, _tem, _tPo, _aFp, _aP],
   [0, 0, [() => HarnessOpenAiApiBase, 0], 1, 1, 1, 0, 15], 2
 ];
 export var HarnessReasoningTextBlock$: StaticStructureSchema = [3, n0, _HRTB,
@@ -2231,7 +2473,7 @@ export var HarnessToolUseBlockStart$: StaticStructureSchema = [3, n0, _HTUBS,
 ];
 export var IamCredentialProvider$: StaticStructureSchema = [3, n0, _ICP,
   0,
-  [_ser, _reg],
+  [_ser, _regi],
   [0, 0], 1
 ];
 export var IngestDataInput$: StaticStructureSchema = [3, n0, _IDI,
@@ -2271,7 +2513,7 @@ export var InsightResult$: StaticStructureSchema = [3, n0, _IR,
 ];
 export var InsightRootCause$: StaticStructureSchema = [3, n0, _IRC,
   0,
-  [_n, _ex, _aSC, _sF, _sSam],
+  [_n, _ex, _aSC, _sFu, _sSam],
   [[() => RootCauseName, 0], [() => RootCauseExplanation, 0], 1, [() => SuggestedFix, 0], [() => InsightSampleSessionList, 0]], 2
 ];
 export var InsightsFailureSignal$: StaticStructureSchema = [3, n0, _IFS,
@@ -2409,6 +2651,16 @@ export var ListActorsOutput$: StaticStructureSchema = [3, n0, _LAO,
   [_aSc, _nT],
   [() => ActorSummaryList, 0], 1
 ];
+export var ListAgentInsightsRequest$: StaticStructureSchema = [3, n0, _LAIR,
+  0,
+  [_aN, _bEI, _aS, _mRa, _nT],
+  [[0, { [_hQ]: _aN }], [0, { [_hQ]: _bEI }], [0, { [_hQ]: _aS }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
+];
+export var ListAgentInsightsResponse$: StaticStructureSchema = [3, n0, _LAIRi,
+  0,
+  [_aIge, _nT],
+  [[() => AgentInsightSummaryList, 0], 0], 1
+];
 export var ListBatchEvaluationsRequest$: StaticStructureSchema = [3, n0, _LBER,
   0,
   [_mRa, _nT],
@@ -2439,9 +2691,19 @@ export var ListCodeInterpreterSessionsResponse$: StaticStructureSchema = [3, n0,
   [_it, _nT],
   [() => CodeInterpreterSessionSummaries, 0], 1
 ];
+export var ListDatasetGenerationsRequest$: StaticStructureSchema = [3, n0, _LDGR,
+  0,
+  [_dI, _mRa, _nT],
+  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListDatasetGenerationsResponse$: StaticStructureSchema = [3, n0, _LDGRi,
+  0,
+  [_dG, _nT],
+  [() => DatasetGenerationSummaryList, 0], 1
+];
 export var ListEventsInput$: StaticStructureSchema = [3, n0, _LEI,
   0,
-  [_mI, _sI, _aI, _iP, _fi, _mRa, _nT],
+  [_mI, _sI, _aI, _iP, _fil, _mRa, _nT],
   [[0, 1], [0, 1], [0, 1], 2, () => FilterInput$, 1, 0], 3
 ];
 export var ListEventsOutput$: StaticStructureSchema = [3, n0, _LEO,
@@ -2451,7 +2713,7 @@ export var ListEventsOutput$: StaticStructureSchema = [3, n0, _LEO,
 ];
 export var ListMemoryExtractionJobsInput$: StaticStructureSchema = [3, n0, _LMEJI,
   0,
-  [_mI, _mRa, _fi, _nT],
+  [_mI, _mRa, _fil, _nT],
   [[0, 1], 1, () => ExtractionJobFilterInput$, 0], 1
 ];
 export var ListMemoryExtractionJobsOutput$: StaticStructureSchema = [3, n0, _LMEJO,
@@ -2471,7 +2733,7 @@ export var ListMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _LMRO,
 ];
 export var ListPaymentInstrumentsRequest$: StaticStructureSchema = [3, n0, _LPIR,
   0,
-  [_pMA, _uIs, _aN, _pCI, _nT, _mRa],
+  [_pMA, _uIs, _aNg, _pCI, _nT, _mRa],
   [0, [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }], 0, 0, 1], 1
 ];
 export var ListPaymentInstrumentsResponse$: StaticStructureSchema = [3, n0, _LPIRi,
@@ -2481,7 +2743,7 @@ export var ListPaymentInstrumentsResponse$: StaticStructureSchema = [3, n0, _LPI
 ];
 export var ListPaymentSessionsRequest$: StaticStructureSchema = [3, n0, _LPSR,
   0,
-  [_pMA, _uIs, _aN, _nT, _mRa],
+  [_pMA, _uIs, _aNg, _nT, _mRa],
   [0, [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }], 0, 1], 1
 ];
 export var ListPaymentSessionsResponse$: StaticStructureSchema = [3, n0, _LPSRi,
@@ -2496,17 +2758,17 @@ export var ListRecommendationsRequest$: StaticStructureSchema = [3, n0, _LRR,
 ];
 export var ListRecommendationsResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
-  [_rS, _nT],
+  [_rSe, _nT],
   [() => RecommendationSummaryList, 0], 1
 ];
 export var ListSessionsInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
-  [_mI, _aI, _mRa, _nT, _fi],
+  [_mI, _aI, _mRa, _nT, _fil],
   [[0, 1], [0, 1], 1, 0, () => SessionFilter$], 2
 ];
 export var ListSessionsOutput$: StaticStructureSchema = [3, n0, _LSO,
   0,
-  [_sSes, _nT],
+  [_sSess, _nT],
   [() => SessionSummaryList, 0], 1
 ];
 export var LiveViewStream$: StaticStructureSchema = [3, n0, _LVS,
@@ -2629,6 +2891,11 @@ export var OnlineEvaluationConfigSource$: StaticStructureSchema = [3, n0, _OECS,
   [_oECA, _tR],
   [0, () => SessionFilterConfig$], 1
 ];
+export var OnlineEvaluationSourceConfig$: StaticStructureSchema = [3, n0, _OESC,
+  0,
+  [_oECA, _sT, _eT],
+  [0, 5, 5], 1
+];
 export var OnlineEvaluationTraceConfig$: StaticStructureSchema = [3, n0, _OETC,
   0,
   [_oECA, _sT, _eT],
@@ -2661,7 +2928,7 @@ export var PerVariantOnlineEvaluationConfig$: StaticStructureSchema = [3, n0, _P
 ];
 export var ProcessPaymentRequest$: StaticStructureSchema = [3, n0, _PPR,
   0,
-  [_pMA, _pSI, _pII, _pT, _pIaym, _uIs, _aN, _cT],
+  [_pMA, _pSI, _pII, _pT, _pIaym, _uIs, _aNg, _cT],
   [0, 0, 0, 0, [() => PaymentInput$, 0], [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }], [0, 4]], 5
 ];
 export var ProcessPaymentResponse$: StaticStructureSchema = [3, n0, _PPRr,
@@ -2704,17 +2971,27 @@ export var RecommendationSummary$: StaticStructureSchema = [3, n0, _RSe,
   [_rI, _rAe, _n, _t, _sta, _cA, _uA, _d],
   [0, 0, 0, 0, 0, 5, 5, 0], 7
 ];
+export var RedactionConfiguration$: StaticStructureSchema = [3, n0, _RC,
+  0,
+  [_id, _cDI],
+  [64 | 0, () => CustomDataIdentifierList]
+];
+export var RedactionSummary$: StaticStructureSchema = [3, n0, _RSed,
+  0,
+  [_sSc, _fCin],
+  [1, 128 | 1]
+];
 export var RegistryRecordSummary$: StaticStructureSchema = [3, n0, _RRS,
   0,
   [_rAeg, _rAec, _rIec, _n, _dT, _des, _ve, _sta, _cA, _uA, _d],
   [0, 0, 0, 0, 0, () => Descriptors$, 0, 0, 5, 5, [() => Description, 0]], 10
 ];
-export var ResourceContent$: StaticStructureSchema = [3, n0, _RC,
+export var ResourceContent$: StaticStructureSchema = [3, n0, _RCe,
   0,
   [_t, _ur, _mT, _te, _bl],
   [0, 0, 0, 0, 21], 1
 ];
-export var ResponseChunk$: StaticStructureSchema = [3, n0, _RCe,
+export var ResponseChunk$: StaticStructureSchema = [3, n0, _RCes,
   0,
   [_cSo, _cD, _cSon],
   [() => ContentStartEvent$, () => ContentDeltaEvent$, () => ContentStopEvent$]
@@ -2796,7 +3073,7 @@ export var ServerDefinition$: StaticStructureSchema = [3, n0, _SD,
 ];
 export var SessionFilter$: StaticStructureSchema = [3, n0, _SFe,
   0,
-  [_eF],
+  [_eFv],
   [0]
 ];
 export var SessionFilterConfig$: StaticStructureSchema = [3, n0, _SFCe,
@@ -2846,8 +3123,8 @@ export var SpanContext$: StaticStructureSchema = [3, n0, _SCp,
 ];
 export var StartBatchEvaluationRequest$: StaticStructureSchema = [3, n0, _SBER,
   0,
-  [_bEN, _dSC, _ev, _i, _cT, _eMva, _ta, _kKA, _d, _oC],
-  [0, () => DataSourceConfig$, () => EvaluatorList, () => InsightList, [0, 4], () => EvaluationMetadata$, 128 | 0, 0, 0, () => OutputConfig$], 2
+  [_bEN, _dSC, _ev, _i, _cT, _eMva, _ta, _kKA, _d, _oC, _dEC],
+  [0, () => DataSourceConfig$, () => EvaluatorList, () => InsightList, [0, 4], () => EvaluationMetadata$, 128 | 0, 0, 0, () => OutputConfig$, () => DatasetExecutionConfig$], 2
 ];
 export var StartBatchEvaluationResponse$: StaticStructureSchema = [3, n0, _SBERt,
   0,
@@ -2873,6 +3150,16 @@ export var StartCodeInterpreterSessionResponse$: StaticStructureSchema = [3, n0,
   0,
   [_cII, _sI, _cA],
   [0, 0, 5], 3
+];
+export var StartDatasetGenerationRequest$: StaticStructureSchema = [3, n0, _SDGR,
+  0,
+  [_dI, _n, _so, _d, _sTc, _cT],
+  [[0, 1], 0, () => GenerationSource$, 0, 0, [0, 4]], 3
+];
+export var StartDatasetGenerationResponse$: StaticStructureSchema = [3, n0, _SDGRt,
+  0,
+  [_gI, _n, _dI, _sta, _cA],
+  [0, 0, 0, 0, 5], 5
 ];
 export var StartMemoryExtractionJobInput$: StaticStructureSchema = [3, n0, _SMEJI,
   0,
@@ -2941,7 +3228,7 @@ export var StripePrivyTokenRequestInput$: StaticStructureSchema = [3, n0, _SPTRI
 ];
 export var StripePrivyTokenResponseOutput$: StaticStructureSchema = [3, n0, _SPTRO,
   0,
-  [_aIp, _bAT, _aSu, _rE],
+  [_aIp, _bAT, _aSut, _rE],
   [0, [() => StripePrivyBasicAuthTokenType, 0], [() => StripePrivyAuthorizationSignatureType, 0], 1], 2
 ];
 export var SystemPromptConfigurationBundle$: StaticStructureSchema = [3, n0, _SPCB,
@@ -3019,6 +3306,21 @@ export var ToolsDefinition$: StaticStructureSchema = [3, n0, _TD,
   [_pV, _iC],
   [0, 0]
 ];
+export var TraceGenerationRecord$: StaticStructureSchema = [3, n0, _TGR,
+  0,
+  [_sCo, _sel, _sa, _gTr, _rCed],
+  [() => TraceSourceConfig$, () => GenerationSelectionRecord$, () => GenerationSamplingConfig$, () => GroundTruthConfig$, () => RedactionConfiguration$]
+];
+export var TraceGenerationSource$: StaticStructureSchema = [3, n0, _TGS,
+  0,
+  [_sCo, _sel, _sa, _gTr, _rCed],
+  [() => TraceSourceConfig$, () => GenerationSelection$, () => GenerationSamplingConfig$, () => GroundTruthConfig$, () => RedactionConfiguration$], 1
+];
+export var TurnCountRange$: StaticStructureSchema = [3, n0, _TCR,
+  0,
+  [_mi, _ma],
+  [1, 1]
+];
 export var UpdateABTestRequest$: StaticStructureSchema = [3, n0, _UABTR,
   0,
   [_aTI, _cT, _n, _d, _va, _gF, _eCv, _rA, _eS],
@@ -3028,6 +3330,16 @@ export var UpdateABTestResponse$: StaticStructureSchema = [3, n0, _UABTRp,
   0,
   [_aTI, _aTA, _sta, _eS, _uA],
   [0, 0, 0, 0, 4], 5
+];
+export var UpdateAgentInsightRequest$: StaticStructureSchema = [3, n0, _UAIR,
+  0,
+  [_aN, _aII, _aS],
+  [[0, { [_hQ]: _aN }], [0, 1], 0], 3
+];
+export var UpdateAgentInsightResponse$: StaticStructureSchema = [3, n0, _UAIRp,
+  0,
+  [_aII, _aS, _uA],
+  [0, 0, 5], 3
 ];
 export var UpdateBrowserStreamRequest$: StaticStructureSchema = [3, n0, _UBSR,
   0,
@@ -3099,6 +3411,10 @@ var ActorSummaryList: StaticListSchema = [1, n0, _ASL,
 var AffectedSessionList: StaticListSchema = [1, n0, _ASLf,
   0, () => AffectedSession$
 ];
+var AgentInsightSummaryList: StaticListSchema = [1, n0, _AISL,
+  0, [() => AgentInsightSummary$,
+    0]
+];
 var AudiencesListType = 64 | 0;
 var BatchEvaluationSummaryList: StaticListSchema = [1, n0, _BESL,
   0, () => BatchEvaluationSummary$
@@ -3118,6 +3434,8 @@ var Certificates: StaticListSchema = [1, n0, _Ce,
 var CloudWatchLogsFilterList: StaticListSchema = [1, n0, _CWLFL,
   0, () => CloudWatchLogsFilter$
 ];
+var CloudWatchLogsSourceConfigLogGroupNamePrefixesList = 64 | 0;
+var CloudWatchLogsSourceConfigLogGroupNamesList = 64 | 0;
 var CodeInterpreterSessionSummaries: StaticListSchema = [1, n0, _CISSo,
   0, () => CodeInterpreterSessionSummary$
 ];
@@ -3126,6 +3444,12 @@ var ConfigurationBundleToolEntryList: StaticListSchema = [1, n0, _CBTEL,
 ];
 var ContentBlockList: StaticListSchema = [1, n0, _CBL,
   0, () => ContentBlock$
+];
+var CustomDataIdentifierList: StaticListSchema = [1, n0, _CDIL,
+  0, () => CustomDataIdentifier$
+];
+var DatasetGenerationSummaryList: StaticListSchema = [1, n0, _DGSL,
+  0, () => DatasetGenerationSummary$
 ];
 var DomainList = 64 | 0;
 var DomainPatterns = 64 | 0;
@@ -3142,6 +3466,9 @@ var EvaluationResults: StaticListSchema = [1, n0, _ERva,
 ];
 var EvaluationStringList = 64 | 0;
 var EvaluationToolNames = 64 | 0;
+var EvaluatorFilterList: StaticListSchema = [1, n0, _EFL,
+  0, () => EvaluatorFilter$
+];
 var EvaluatorList: StaticListSchema = [1, n0, _EL,
   0, () => Evaluator$
 ];
@@ -3176,6 +3503,16 @@ var FailureSpanDetailList: StaticListSchema = [1, n0, _FSDL,
 var FailureSubCategoryClusterList: StaticListSchema = [1, n0, _FSCCL,
   0, () => FailureSubCategoryCluster$
 ];
+var GenerationAttributeFilterList: StaticListSchema = [1, n0, _GAFL,
+  0, () => GenerationAttributeFilter$
+];
+var GenerationErrorDetailsList: StaticListSchema = [1, n0, _GEDL,
+  0, () => GenerationErrorDetail$
+];
+var GenerationErrorSessionIdList = 64 | 0;
+var GenerationSessionIdList = 64 | 0;
+var GenerationTraceIdList = 64 | 0;
+var GroundTruthFieldList = 64 | 0;
 var GroundTruthTurnList: StaticListSchema = [1, n0, _GTTL,
   0, () => GroundTruthTurn$
 ];
@@ -3291,6 +3628,7 @@ var RecommendationEvaluatorList: StaticListSchema = [1, n0, _REL,
 var RecommendationSummaryList: StaticListSchema = [1, n0, _RSL,
   0, () => RecommendationSummary$
 ];
+var RedactionIdentifierList = 64 | 0;
 var RegistryIdList = 64 | 0;
 var RegistryRecordSummaryList: StaticListSchema = [1, n0, _RRSL,
   0, [() => RegistryRecordSummary$,
@@ -3361,6 +3699,7 @@ var CustomRequestParametersType: StaticMapSchema = [2, n0, _CRPT,
   , [() => CustomRequestValueType,
     0]
 ];
+var FindingCountMap = 128 | 1;
 var HttpHeadersMap: StaticMapSchema = [2, n0, _HHM,
   8, 0, 0
 ];
@@ -3384,24 +3723,34 @@ export var ABTestEvaluationConfig$: StaticUnionSchema = [4, n0, _ABTEC,
   [_oECA, _pVOEC],
   [0, () => PerVariantOnlineEvaluationConfigList]
 ];
+export var AgentInvocationConfig$: StaticUnionSchema = [4, n0, _AIC,
+  0,
+  [_aCR],
+  [() => AgentCoreRuntimeInvocation$]
+];
+export var AgentInvocationDetails$: StaticUnionSchema = [4, n0, _AID,
+  0,
+  [_aCR],
+  [() => AgentCoreRuntimeInvocationDetails$]
+];
 export var AgentTracesConfig$: StaticUnionSchema = [4, n0, _ATC,
   0,
-  [_sSess, _cL, _bEa, _oE],
+  [_sSessi, _cL, _bEa, _oE],
   [[() => Spans, 0], () => CloudWatchLogsTraceConfig$, () => BatchEvaluationTraceConfig$, () => OnlineEvaluationTraceConfig$]
 ];
 export var BrowserAction$: StaticUnionSchema = [4, n0, _BAr,
   0,
-  [_mC, _mMo, _mD, _mS, _kT, _kP, _kS, _scr],
+  [_mC, _mMo, _mD, _mSo, _kT, _kP, _kS, _scr],
   [() => MouseClickArguments$, () => MouseMoveArguments$, () => MouseDragArguments$, () => MouseScrollArguments$, () => KeyTypeArguments$, () => KeyPressArguments$, () => KeyShortcutArguments$, () => ScreenshotArguments$]
 ];
 export var BrowserActionResult$: StaticUnionSchema = [4, n0, _BAR,
   0,
-  [_mC, _mMo, _mD, _mS, _kT, _kP, _kS, _scr],
+  [_mC, _mMo, _mD, _mSo, _kT, _kP, _kS, _scr],
   [() => MouseClickResult$, () => MouseMoveResult$, () => MouseDragResult$, () => MouseScrollResult$, () => KeyTypeResult$, () => KeyPressResult$, () => KeyShortcutResult$, () => ScreenshotResult$]
 ];
 export var CertificateLocation$: StaticUnionSchema = [4, n0, _CL,
   0,
-  [_sMe],
+  [_sMec],
   [() => SecretsManagerLocation$]
 ];
 export var CodeInterpreterStreamOutput$: StaticUnionSchema = [4, n0, _CISO,
@@ -3436,7 +3785,7 @@ export var EvaluationContent$: StaticUnionSchema = [4, n0, _ECv,
 ];
 export var EvaluationInput$: StaticUnionSchema = [4, n0, _EI,
   0,
-  [_sSess],
+  [_sSessi],
   [[() => Spans, 0]]
 ];
 export var EvaluationMetadata$: StaticUnionSchema = [4, n0, _EMv,
@@ -3456,8 +3805,33 @@ export var ExtractionJobMessages$: StaticUnionSchema = [4, n0, _EJMx,
 ];
 export var FilterValue$: StaticUnionSchema = [4, n0, _FV,
   0,
-  [_sVt, _dV, _bVo],
+  [_sVt, _dVo, _bVo],
   [0, 1, 2]
+];
+export var GenerationFilterValue$: StaticUnionSchema = [4, n0, _GFV,
+  0,
+  [_sVt, _dVo, _bVo],
+  [0, 1, 2]
+];
+export var GenerationSelection$: StaticUnionSchema = [4, n0, _GS,
+  0,
+  [_f, _id],
+  [() => GenerationFilters$, () => GenerationIdentifiers$]
+];
+export var GenerationSelectionRecord$: StaticUnionSchema = [4, n0, _GSR,
+  0,
+  [_f, _id],
+  [() => GenerationFilters$, () => GenerationIdentifierCounts$]
+];
+export var GenerationSource$: StaticUnionSchema = [4, n0, _GSe,
+  0,
+  [_tG],
+  [() => TraceGenerationSource$]
+];
+export var GenerationSourceRecord$: StaticUnionSchema = [4, n0, _GSRe,
+  0,
+  [_tG],
+  [() => TraceGenerationRecord$]
 ];
 export var GroundTruthSource$: StaticUnionSchema = [4, n0, _GTS,
   0,
@@ -3496,12 +3870,12 @@ export var HarnessModelConfiguration$: StaticUnionSchema = [4, n0, _HMC,
 ];
 export var HarnessReasoningContentBlock$: StaticUnionSchema = [4, n0, _HRCB,
   8,
-  [_rT, _rCed],
+  [_rTe, _rCeda],
   [[() => HarnessReasoningTextBlock$, 0], 21]
 ];
 export var HarnessReasoningContentBlockDelta$: StaticUnionSchema = [4, n0, _HRCBD,
   8,
-  [_te, _rCed, _sign],
+  [_te, _rCeda, _sign],
   [0, [() => Body, 0], 0]
 ];
 export var HarnessRemoteMcpOutboundAuth$: StaticUnionSchema = [4, n0, _HRMOA,
@@ -3684,6 +4058,11 @@ export var ToolsFileSystemConfiguration$: StaticUnionSchema = [4, n0, _TFSCo,
   [_sFC, _eCf],
   [() => S3FilesConfiguration$, () => EfsConfiguration$]
 ];
+export var TraceSourceConfig$: StaticUnionSchema = [4, n0, _TSC,
+  0,
+  [_cWL, _oE, _bEa],
+  [() => CloudWatchLogsSourceConfig$, () => OnlineEvaluationSourceConfig$, () => BatchEvaluationSourceConfig$]
+];
 export var UserIdentifier$: StaticUnionSchema = [4, n0, _UI,
   0,
   [_uT, _uIs],
@@ -3722,6 +4101,9 @@ export var DeleteBatchEvaluation$: StaticOperationSchema = [9, n0, _DBE,
 export var DeleteCapacityProviderSession$: StaticOperationSchema = [9, n0, _DCPS,
   { [_ht]: ["DELETE", "/capacity-providers/{capacityProviderId}/sessions/{sessionId}", 202] }, () => DeleteCapacityProviderSessionRequest$, () => DeleteCapacityProviderSessionResponse$
 ];
+export var DeleteDatasetGeneration$: StaticOperationSchema = [9, n0, _DDG,
+  { [_ht]: ["DELETE", "/datasets/{datasetId}/generations/{generationId}", 202] }, () => DeleteDatasetGenerationRequest$, () => DeleteDatasetGenerationResponse$
+];
 export var DeleteEvent$: StaticOperationSchema = [9, n0, _DE,
   { [_ht]: ["DELETE", "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}", 200] }, () => DeleteEventInput$, () => DeleteEventOutput$
 ];
@@ -3746,6 +4128,9 @@ export var GetABTest$: StaticOperationSchema = [9, n0, _GABT,
 export var GetAgentCard$: StaticOperationSchema = [9, n0, _GAC,
   { [_ht]: ["GET", "/runtimes/{agentRuntimeArn}/invocations/.well-known/agent-card.json", 200] }, () => GetAgentCardRequest$, () => GetAgentCardResponse$
 ];
+export var GetAgentInsight$: StaticOperationSchema = [9, n0, _GAI,
+  { [_ht]: ["GET", "/agentinsights/{agentInsightId}", 200] }, () => GetAgentInsightRequest$, () => GetAgentInsightResponse$
+];
 export var GetBatchEvaluation$: StaticOperationSchema = [9, n0, _GBE,
   { [_ht]: ["GET", "/evaluations/batch-evaluate/{batchEvaluationId}", 200] }, () => GetBatchEvaluationRequest$, () => GetBatchEvaluationResponse$
 ];
@@ -3754,6 +4139,9 @@ export var GetBrowserSession$: StaticOperationSchema = [9, n0, _GBS,
 ];
 export var GetCodeInterpreterSession$: StaticOperationSchema = [9, n0, _GCIS,
   { [_ht]: ["GET", "/code-interpreters/{codeInterpreterIdentifier}/sessions/get", 200] }, () => GetCodeInterpreterSessionRequest$, () => GetCodeInterpreterSessionResponse$
+];
+export var GetDatasetGeneration$: StaticOperationSchema = [9, n0, _GDG,
+  { [_ht]: ["GET", "/datasets/{datasetId}/generations/{generationId}", 200] }, () => GetDatasetGenerationRequest$, () => GetDatasetGenerationResponse$
 ];
 export var GetEvent$: StaticOperationSchema = [9, n0, _GE,
   { [_ht]: ["GET", "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}", 200] }, () => GetEventInput$, () => GetEventOutput$
@@ -3770,7 +4158,7 @@ export var GetPaymentInstrumentBalance$: StaticOperationSchema = [9, n0, _GPIB,
 export var GetPaymentSession$: StaticOperationSchema = [9, n0, _GPS,
   { [_ht]: ["POST", "/payments/getPaymentSession", 200] }, () => GetPaymentSessionRequest$, () => GetPaymentSessionResponse$
 ];
-export var GetRecommendation$: StaticOperationSchema = [9, n0, _GR,
+export var GetRecommendation$: StaticOperationSchema = [9, n0, _GRe,
   { [_ht]: ["GET", "/recommendations/{recommendationId}", 200] }, () => GetRecommendationRequest$, () => GetRecommendationResponse$
 ];
 export var GetResourceApiKey$: StaticOperationSchema = [9, n0, _GRAK,
@@ -3818,6 +4206,9 @@ export var ListABTests$: StaticOperationSchema = [9, n0, _LABT,
 export var ListActors$: StaticOperationSchema = [9, n0, _LAi,
   { [_ht]: ["POST", "/memories/{memoryId}/actors", 200] }, () => ListActorsInput$, () => ListActorsOutput$
 ];
+export var ListAgentInsights$: StaticOperationSchema = [9, n0, _LAIi,
+  { [_ht]: ["GET", "/agentinsights", 200] }, () => ListAgentInsightsRequest$, () => ListAgentInsightsResponse$
+];
 export var ListBatchEvaluations$: StaticOperationSchema = [9, n0, _LBE,
   { [_ht]: ["GET", "/evaluations/batch-evaluate", 200] }, () => ListBatchEvaluationsRequest$, () => ListBatchEvaluationsResponse$
 ];
@@ -3826,6 +4217,9 @@ export var ListBrowserSessions$: StaticOperationSchema = [9, n0, _LBS,
 ];
 export var ListCodeInterpreterSessions$: StaticOperationSchema = [9, n0, _LCIS,
   { [_ht]: ["POST", "/code-interpreters/{codeInterpreterIdentifier}/sessions/list", 200] }, () => ListCodeInterpreterSessionsRequest$, () => ListCodeInterpreterSessionsResponse$
+];
+export var ListDatasetGenerations$: StaticOperationSchema = [9, n0, _LDG,
+  { [_ht]: ["GET", "/datasets/{datasetId}/generations", 200] }, () => ListDatasetGenerationsRequest$, () => ListDatasetGenerationsResponse$
 ];
 export var ListEvents$: StaticOperationSchema = [9, n0, _LEi,
   { [_ht]: ["POST", "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}", 200] }, () => ListEventsInput$, () => ListEventsOutput$
@@ -3869,6 +4263,9 @@ export var StartBrowserSession$: StaticOperationSchema = [9, n0, _SBS,
 export var StartCodeInterpreterSession$: StaticOperationSchema = [9, n0, _SCIS,
   { [_ht]: ["PUT", "/code-interpreters/{codeInterpreterIdentifier}/sessions/start", 200] }, () => StartCodeInterpreterSessionRequest$, () => StartCodeInterpreterSessionResponse$
 ];
+export var StartDatasetGeneration$: StaticOperationSchema = [9, n0, _SDG,
+  { [_ht]: ["POST", "/datasets/{datasetId}/generations", 202] }, () => StartDatasetGenerationRequest$, () => StartDatasetGenerationResponse$
+];
 export var StartMemoryExtractionJob$: StaticOperationSchema = [9, n0, _SMEJ,
   { [_ht]: ["POST", "/memories/{memoryId}/extractionJobs/start", 200] }, () => StartMemoryExtractionJobInput$, () => StartMemoryExtractionJobOutput$
 ];
@@ -3889,6 +4286,9 @@ export var StopRuntimeSession$: StaticOperationSchema = [9, n0, _SRS,
 ];
 export var UpdateABTest$: StaticOperationSchema = [9, n0, _UABT,
   { [_ht]: ["PUT", "/ab-tests/{abTestId}", 202] }, () => UpdateABTestRequest$, () => UpdateABTestResponse$
+];
+export var UpdateAgentInsight$: StaticOperationSchema = [9, n0, _UAI,
+  { [_ht]: ["PUT", "/agentinsights/{agentInsightId}", 200] }, () => UpdateAgentInsightRequest$, () => UpdateAgentInsightResponse$
 ];
 export var UpdateBrowserStream$: StaticOperationSchema = [9, n0, _UBS,
   { [_ht]: ["PUT", "/browsers/{browserIdentifier}/sessions/streams/update", 200] }, () => UpdateBrowserStreamRequest$, () => UpdateBrowserStreamResponse$

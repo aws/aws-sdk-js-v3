@@ -111,6 +111,46 @@ export type CommandExecutionStatus = (typeof CommandExecutionStatus)[keyof typeo
  * @public
  * @enum
  */
+export const AgentInsightArchiveStatus = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+} as const;
+/**
+ * @public
+ */
+export type AgentInsightArchiveStatus = (typeof AgentInsightArchiveStatus)[keyof typeof AgentInsightArchiveStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentInsightCustomerMetadataStatus = {
+  AVAILABLE: "AVAILABLE",
+  CUSTOMER_KEY_UNAVAILABLE: "CUSTOMER_KEY_UNAVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+/**
+ * @public
+ */
+export type AgentInsightCustomerMetadataStatus =
+  (typeof AgentInsightCustomerMetadataStatus)[keyof typeof AgentInsightCustomerMetadataStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightType = {
+  FAILURE: "FAILURE",
+} as const;
+/**
+ * @public
+ */
+export type InsightType = (typeof InsightType)[keyof typeof InsightType];
+
+/**
+ * @public
+ * @enum
+ */
 export const CloudWatchLogsFilterOperator = {
   CONTAINS: "Contains",
   EQUALS: "Equals",
@@ -261,6 +301,37 @@ export type BatchEvaluationStatus = (typeof BatchEvaluationStatus)[keyof typeof 
  * @public
  * @enum
  */
+export const DatasetGenerationStatus = {
+  /**
+   * <p>The generation finished and added its examples to the dataset's draft.</p>
+   */
+  COMPLETED: "COMPLETED",
+  /**
+   * <p>The generation finished, but some sessions failed. See <code>errorDetails</code> for the errors.</p>
+   */
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  /**
+   * <p>The generation record is being deleted.</p>
+   */
+  DELETING: "DELETING",
+  /**
+   * <p>The generation failed. See <code>failureReason</code> for the reason.</p>
+   */
+  FAILED: "FAILED",
+  /**
+   * <p>The generation is running.</p>
+   */
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type DatasetGenerationStatus = (typeof DatasetGenerationStatus)[keyof typeof DatasetGenerationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const RecommendationStatus = {
   COMPLETED: "COMPLETED",
   DELETING: "DELETING",
@@ -291,18 +362,6 @@ export type FindingTargetType = (typeof FindingTargetType)[keyof typeof FindingT
  * @public
  * @enum
  */
-export const InsightType = {
-  FAILURE: "FAILURE",
-} as const;
-/**
- * @public
- */
-export type InsightType = (typeof InsightType)[keyof typeof InsightType];
-
-/**
- * @public
- * @enum
- */
 export const ResultDestination = {
   DEDICATED_LOG_GROUP: "DEDICATED_LOG_GROUP",
   SOURCE_LOG_GROUP: "SOURCE_LOG_GROUP",
@@ -311,6 +370,205 @@ export const ResultDestination = {
  * @public
  */
 export type ResultDestination = (typeof ResultDestination)[keyof typeof ResultDestination];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScenarioType = {
+  /**
+   * <p>A conversation driven by a simulated user, described by an actor profile, an initial input and a maximum number of turns.</p>
+   */
+  DYNAMIC: "DYNAMIC",
+  /**
+   * <p>A fixed list of turns, with an optional expected response and expected trajectory.</p>
+   */
+  FIXED: "FIXED",
+} as const;
+/**
+ * @public
+ */
+export type ScenarioType = (typeof ScenarioType)[keyof typeof ScenarioType];
+
+/**
+ * @public
+ * @enum
+ */
+export const GroundTruthField = {
+  /**
+   * <p>The agent's final response.</p>
+   */
+  EXPECTED_RESPONSE: "expected_response",
+  /**
+   * <p>The sequence of tool calls the agent made.</p>
+   */
+  EXPECTED_TRAJECTORY: "expected_trajectory",
+} as const;
+/**
+ * @public
+ */
+export type GroundTruthField = (typeof GroundTruthField)[keyof typeof GroundTruthField];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResultAggregation = {
+  /**
+   * <p>Matches when every result has the label.</p>
+   */
+  ALL_MATCH: "AllMatch",
+  /**
+   * <p>Matches when at least one result has the label.</p>
+   */
+  ANY_MATCH: "AnyMatch",
+  /**
+   * <p>Uses the highest score.</p>
+   */
+  MAX: "Max",
+  /**
+   * <p>Uses the average score.</p>
+   */
+  MEAN: "Mean",
+  /**
+   * <p>Uses the lowest score.</p>
+   */
+  MIN: "Min",
+} as const;
+/**
+ * @public
+ */
+export type ResultAggregation = (typeof ResultAggregation)[keyof typeof ResultAggregation];
+
+/**
+ * @public
+ * @enum
+ */
+export const GenerationFilterOperator = {
+  CONTAINS: "Contains",
+  EQUALS: "Equals",
+  GREATER_THAN: "GreaterThan",
+  GREATER_THAN_OR_EQUAL: "GreaterThanOrEqual",
+  LESS_THAN: "LessThan",
+  LESS_THAN_OR_EQUAL: "LessThanOrEqual",
+  NOT_CONTAINS: "NotContains",
+  NOT_EQUALS: "NotEquals",
+} as const;
+/**
+ * @public
+ */
+export type GenerationFilterOperator = (typeof GenerationFilterOperator)[keyof typeof GenerationFilterOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const RedactionIdentifier = {
+  ADDRESS: "ADDRESS",
+  AWS_SECRET_KEY: "AWS_SECRET_KEY",
+  BANK_ACCOUNT_NUMBER_DE: "BANK_ACCOUNT_NUMBER_DE",
+  BANK_ACCOUNT_NUMBER_ES: "BANK_ACCOUNT_NUMBER_ES",
+  BANK_ACCOUNT_NUMBER_FR: "BANK_ACCOUNT_NUMBER_FR",
+  BANK_ACCOUNT_NUMBER_GB: "BANK_ACCOUNT_NUMBER_GB",
+  BANK_ACCOUNT_NUMBER_IT: "BANK_ACCOUNT_NUMBER_IT",
+  BANK_ACCOUNT_NUMBER_US: "BANK_ACCOUNT_NUMBER_US",
+  CEP_CODE_BR: "CEP_CODE_BR",
+  CNPJ_BR: "CNPJ_BR",
+  CPF_CODE_BR: "CPF_CODE_BR",
+  CREDIT_CARD_EXPIRATION: "CREDIT_CARD_EXPIRATION",
+  CREDIT_CARD_MAGNETIC_STRIPE: "CREDIT_CARD_MAGNETIC_STRIPE",
+  CREDIT_CARD_NUMBER: "CREDIT_CARD_NUMBER",
+  CREDIT_CARD_SECURITY_CODE: "CREDIT_CARD_SECURITY_CODE",
+  DATE_OF_BIRTH: "DATE_OF_BIRTH",
+  DRIVERS_LICENSE_AT: "DRIVERS_LICENSE_AT",
+  DRIVERS_LICENSE_AU: "DRIVERS_LICENSE_AU",
+  DRIVERS_LICENSE_BE: "DRIVERS_LICENSE_BE",
+  DRIVERS_LICENSE_BG: "DRIVERS_LICENSE_BG",
+  DRIVERS_LICENSE_CA: "DRIVERS_LICENSE_CA",
+  DRIVERS_LICENSE_CY: "DRIVERS_LICENSE_CY",
+  DRIVERS_LICENSE_CZ: "DRIVERS_LICENSE_CZ",
+  DRIVERS_LICENSE_DE: "DRIVERS_LICENSE_DE",
+  DRIVERS_LICENSE_DK: "DRIVERS_LICENSE_DK",
+  DRIVERS_LICENSE_EE: "DRIVERS_LICENSE_EE",
+  DRIVERS_LICENSE_ES: "DRIVERS_LICENSE_ES",
+  DRIVERS_LICENSE_FI: "DRIVERS_LICENSE_FI",
+  DRIVERS_LICENSE_FR: "DRIVERS_LICENSE_FR",
+  DRIVERS_LICENSE_GB: "DRIVERS_LICENSE_GB",
+  DRIVERS_LICENSE_GR: "DRIVERS_LICENSE_GR",
+  DRIVERS_LICENSE_HR: "DRIVERS_LICENSE_HR",
+  DRIVERS_LICENSE_HU: "DRIVERS_LICENSE_HU",
+  DRIVERS_LICENSE_IE: "DRIVERS_LICENSE_IE",
+  DRIVERS_LICENSE_IT: "DRIVERS_LICENSE_IT",
+  DRIVERS_LICENSE_LT: "DRIVERS_LICENSE_LT",
+  DRIVERS_LICENSE_LU: "DRIVERS_LICENSE_LU",
+  DRIVERS_LICENSE_LV: "DRIVERS_LICENSE_LV",
+  DRIVERS_LICENSE_MT: "DRIVERS_LICENSE_MT",
+  DRIVERS_LICENSE_NL: "DRIVERS_LICENSE_NL",
+  DRIVERS_LICENSE_PL: "DRIVERS_LICENSE_PL",
+  DRIVERS_LICENSE_PT: "DRIVERS_LICENSE_PT",
+  DRIVERS_LICENSE_RO: "DRIVERS_LICENSE_RO",
+  DRIVERS_LICENSE_SE: "DRIVERS_LICENSE_SE",
+  DRIVERS_LICENSE_SI: "DRIVERS_LICENSE_SI",
+  DRIVERS_LICENSE_SK: "DRIVERS_LICENSE_SK",
+  DRIVERS_LICENSE_US: "DRIVERS_LICENSE_US",
+  DRUG_ENFORCEMENT_AGENCY_NUMBER_US: "DRUG_ENFORCEMENT_AGENCY_NUMBER_US",
+  ELECTORAL_ROLL_NUMBER_GB: "ELECTORAL_ROLL_NUMBER_GB",
+  EMAIL_ADDRESS: "EMAIL_ADDRESS",
+  HEALTHCARE_PROCEDURE_CODE_US: "HEALTHCARE_PROCEDURE_CODE_US",
+  HEALTH_INSURANCE_CARD_NUMBER_EU: "HEALTH_INSURANCE_CARD_NUMBER_EU",
+  HEALTH_INSURANCE_CLAIM_NUMBER_US: "HEALTH_INSURANCE_CLAIM_NUMBER_US",
+  HEALTH_INSURANCE_NUMBER_FR: "HEALTH_INSURANCE_NUMBER_FR",
+  INDIVIDUAL_TAX_IDENTIFICATION_NUMBER_US: "INDIVIDUAL_TAX_IDENTIFICATION_NUMBER_US",
+  INSEE_CODE_FR: "INSEE_CODE_FR",
+  IP_ADDRESS: "IP_ADDRESS",
+  LAT_LONG: "LAT_LONG",
+  MEDICARE_BENEFICIARY_NUMBER_US: "MEDICARE_BENEFICIARY_NUMBER_US",
+  NAME: "NAME",
+  NATIONAL_DRUG_CODE_US: "NATIONAL_DRUG_CODE_US",
+  NATIONAL_IDENTIFICATION_NUMBER_DE: "NATIONAL_IDENTIFICATION_NUMBER_DE",
+  NATIONAL_IDENTIFICATION_NUMBER_ES: "NATIONAL_IDENTIFICATION_NUMBER_ES",
+  NATIONAL_IDENTIFICATION_NUMBER_IT: "NATIONAL_IDENTIFICATION_NUMBER_IT",
+  NATIONAL_INSURANCE_NUMBER_GB: "NATIONAL_INSURANCE_NUMBER_GB",
+  NATIONAL_PROVIDER_ID_US: "NATIONAL_PROVIDER_ID_US",
+  NHS_NUMBER_GB: "NHS_NUMBER_GB",
+  NIE_NUMBER_ES: "NIE_NUMBER_ES",
+  NIF_NUMBER_ES: "NIF_NUMBER_ES",
+  OPEN_SSH_PRIVATE_KEY: "OPEN_SSH_PRIVATE_KEY",
+  PASSPORT_NUMBER_CA: "PASSPORT_NUMBER_CA",
+  PASSPORT_NUMBER_DE: "PASSPORT_NUMBER_DE",
+  PASSPORT_NUMBER_ES: "PASSPORT_NUMBER_ES",
+  PASSPORT_NUMBER_FR: "PASSPORT_NUMBER_FR",
+  PASSPORT_NUMBER_GB: "PASSPORT_NUMBER_GB",
+  PASSPORT_NUMBER_IT: "PASSPORT_NUMBER_IT",
+  PASSPORT_NUMBER_US: "PASSPORT_NUMBER_US",
+  PERMANENT_RESIDENCE_NUMBER_CA: "PERMANENT_RESIDENCE_NUMBER_CA",
+  PERSONAL_HEALTH_NUMBER_CA: "PERSONAL_HEALTH_NUMBER_CA",
+  PGP_PRIVATE_KEY: "PGP_PRIVATE_KEY",
+  PHONE_NUMBER_BR: "PHONE_NUMBER_BR",
+  PHONE_NUMBER_DE: "PHONE_NUMBER_DE",
+  PHONE_NUMBER_ES: "PHONE_NUMBER_ES",
+  PHONE_NUMBER_FR: "PHONE_NUMBER_FR",
+  PHONE_NUMBER_GB: "PHONE_NUMBER_GB",
+  PHONE_NUMBER_IT: "PHONE_NUMBER_IT",
+  PHONE_NUMBER_US: "PHONE_NUMBER_US",
+  PKCS_PRIVATE_KEY: "PKCS_PRIVATE_KEY",
+  POSTAL_CODE_CA: "POSTAL_CODE_CA",
+  PUTTY_PRIVATE_KEY: "PUTTY_PRIVATE_KEY",
+  RG_NUMBER_BR: "RG_NUMBER_BR",
+  SOCIAL_INSURANCE_NUMBER_CA: "SOCIAL_INSURANCE_NUMBER_CA",
+  SSN_ES: "SSN_ES",
+  SSN_US: "SSN_US",
+  TAX_ID_DE: "TAX_ID_DE",
+  TAX_ID_ES: "TAX_ID_ES",
+  TAX_ID_FR: "TAX_ID_FR",
+  TAX_ID_GB: "TAX_ID_GB",
+  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
+  ZIP_CODE_US: "ZIP_CODE_US",
+} as const;
+/**
+ * @public
+ */
+export type RedactionIdentifier = (typeof RedactionIdentifier)[keyof typeof RedactionIdentifier];
 
 /**
  * @public

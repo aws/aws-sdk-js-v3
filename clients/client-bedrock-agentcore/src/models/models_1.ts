@@ -9,25 +9,1859 @@ import type {
   EventFilterCondition,
   ExtractionJobStatus,
   ExtractionMode,
+  HarnessConversationRole,
+  HarnessHookDecision,
+  HarnessHookEventType,
+  HarnessStopReason,
+  HarnessToolType,
+  HarnessToolUseStatus,
+  HarnessToolUseType,
   InstrumentBalanceToken,
   MemoryRecordOperatorType,
+  MemoryRecordStatus,
+  OAuthGrantType,
   OperatorType,
   PaymentInstrumentStatus,
   PaymentInstrumentType,
   PaymentSessionStatus,
   PaymentStatus,
   PaymentType,
+  RecordExpiryAction,
   RegistryRecordStatus,
   Role,
 } from "./enums";
+import type { InternalServerException, RuntimeClientError, ValidationException } from "./errors";
 import type {
   A2aDescriptor,
   ActorSummary,
   AgentSkillsDescriptor,
-  MemoryContent,
-  MemoryRecordMetadataValue,
-  MemoryRecordOutput,
+  HarnessAgentCoreBrowserConfig,
+  HarnessMessage,
+  HarnessModelConfiguration,
+  HarnessSkill,
+  HarnessSystemContentBlock,
+  Unit,
 } from "./models_0";
+
+/**
+ * <p>Configuration for AgentCore Code Interpreter.</p>
+ * @public
+ */
+export interface HarnessAgentCoreCodeInterpreterConfig {
+  /**
+   * <p>If not populated, the built-in Code Interpreter ARN is used.</p>
+   * @public
+   */
+  codeInterpreterArn?: string | undefined;
+}
+
+/**
+ * <p>Configuration for an OAuth 2.0 credential provider used to authenticate tool calls.</p>
+ * @public
+ */
+export interface OAuthCredentialProvider {
+  /**
+   * <p>The ARN of the OAuth 2.0 credential provider in AgentCore Identity.</p>
+   * @public
+   */
+  providerArn: string | undefined;
+
+  /**
+   * <p>The OAuth 2.0 scopes to request when obtaining an access token.</p>
+   * @public
+   */
+  scopes: string[] | undefined;
+
+  /**
+   * <p>Additional custom parameters to include in the OAuth 2.0 token request.</p>
+   * @public
+   */
+  customParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>The OAuth 2.0 grant type to use for authentication.</p>
+   * @public
+   */
+  grantType?: OAuthGrantType | undefined;
+
+  /**
+   * <p>The default return URL for the OAuth 2.0 authorization flow.</p>
+   * @public
+   */
+  defaultReturnUrl?: string | undefined;
+}
+
+/**
+ * <p>Authentication method for calling a Gateway.</p>
+ * @public
+ */
+export type HarnessGatewayOutboundAuth =
+  | HarnessGatewayOutboundAuth.AwsIamMember
+  | HarnessGatewayOutboundAuth.NoneMember
+  | HarnessGatewayOutboundAuth.OauthMember
+  | HarnessGatewayOutboundAuth.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessGatewayOutboundAuth {
+  /**
+   * <p>SigV4-sign requests using the agent's execution role.</p>
+   * @public
+   */
+  export interface AwsIamMember {
+    awsIam: Unit;
+    none?: never;
+    oauth?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>No authentication.</p>
+   * @public
+   */
+  export interface NoneMember {
+    awsIam?: never;
+    none: Unit;
+    oauth?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>OAuth 2.0 authentication via AgentCore Identity.</p> <p>The <code>AUTHORIZATION_CODE</code> grant type is not supported for outbound authentication from a harness to an AgentCore Gateway, even when <code>defaultReturnUrl</code> is specified.</p>
+   * @public
+   */
+  export interface OauthMember {
+    awsIam?: never;
+    none?: never;
+    oauth: OAuthCredentialProvider;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    awsIam?: never;
+    none?: never;
+    oauth?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    awsIam: (value: Unit) => T;
+    none: (value: Unit) => T;
+    oauth: (value: OAuthCredentialProvider) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for AgentCore Gateway.</p>
+ * @public
+ */
+export interface HarnessAgentCoreGatewayConfig {
+  /**
+   * <p>The ARN of the desired AgentCore Gateway.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>How harness authenticates to this Gateway. Defaults to AWS_IAM (SigV4) if omitted.</p>
+   * @public
+   */
+  outboundAuth?: HarnessGatewayOutboundAuth | undefined;
+}
+
+/**
+ * <p>Configuration for an inline function tool. When the agent calls this tool, the tool call is returned to the caller for external execution.</p>
+ * @public
+ */
+export interface HarnessInlineFunctionConfig {
+  /**
+   * <p>Description of what the tool does, provided to the model.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>JSON Schema describing the tool's input parameters.</p>
+   * @public
+   */
+  inputSchema: __DocumentType | undefined;
+}
+
+/**
+ * <p>An IAM credential provider for authenticating requests. This structure contains the configuration for authenticating with a target endpoint using IAM credentials and SigV4 signing.</p>
+ * @public
+ */
+export interface IamCredentialProvider {
+  /**
+   * <p>The name of the Amazon Web Services service used for SigV4 signing. This value identifies the service to authenticate with when sending requests to the target endpoint.</p>
+   * @public
+   */
+  service: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region used for SigV4 signing. If not specified, defaults to the Region of the resource that makes the request.</p>
+   * @public
+   */
+  region?: string | undefined;
+}
+
+/**
+ * <p>Authentication method for calling a remote MCP server.</p>
+ * @public
+ */
+export type HarnessRemoteMcpOutboundAuth =
+  | HarnessRemoteMcpOutboundAuth.AwsIamMember
+  | HarnessRemoteMcpOutboundAuth.NoneMember
+  | HarnessRemoteMcpOutboundAuth.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessRemoteMcpOutboundAuth {
+  /**
+   * <p>Sign requests to the remote MCP server with Signature Version 4 (SigV4) using the harness execution role. If you don't specify a Region, the harness Region is used.</p>
+   * @public
+   */
+  export interface AwsIamMember {
+    awsIam: IamCredentialProvider;
+    none?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>No authentication.</p>
+   * @public
+   */
+  export interface NoneMember {
+    awsIam?: never;
+    none: Unit;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    awsIam?: never;
+    none?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    awsIam: (value: IamCredentialProvider) => T;
+    none: (value: Unit) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for connecting to a remote MCP server.</p>
+ * @public
+ */
+export interface HarnessRemoteMcpConfig {
+  /**
+   * <p>URL of the MCP endpoint.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>Custom headers to include when connecting to the remote MCP server.</p>
+   * @public
+   */
+  headers?: Record<string, string> | undefined;
+
+  /**
+   * <p>How the harness authenticates to this MCP server. Defaults to no authentication.</p>
+   * @public
+   */
+  outboundAuth?: HarnessRemoteMcpOutboundAuth | undefined;
+}
+
+/**
+ * <p>Configuration union for different tool types.</p>
+ * @public
+ */
+export type HarnessToolConfiguration =
+  | HarnessToolConfiguration.AgentCoreBrowserMember
+  | HarnessToolConfiguration.AgentCoreCodeInterpreterMember
+  | HarnessToolConfiguration.AgentCoreGatewayMember
+  | HarnessToolConfiguration.InlineFunctionMember
+  | HarnessToolConfiguration.RemoteMcpMember
+  | HarnessToolConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessToolConfiguration {
+  /**
+   * <p>Configuration for remote MCP server.</p>
+   * @public
+   */
+  export interface RemoteMcpMember {
+    remoteMcp: HarnessRemoteMcpConfig;
+    agentCoreBrowser?: never;
+    agentCoreGateway?: never;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for AgentCore Browser.</p>
+   * @public
+   */
+  export interface AgentCoreBrowserMember {
+    remoteMcp?: never;
+    agentCoreBrowser: HarnessAgentCoreBrowserConfig;
+    agentCoreGateway?: never;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for AgentCore Gateway.</p>
+   * @public
+   */
+  export interface AgentCoreGatewayMember {
+    remoteMcp?: never;
+    agentCoreBrowser?: never;
+    agentCoreGateway: HarnessAgentCoreGatewayConfig;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for an inline function tool.</p>
+   * @public
+   */
+  export interface InlineFunctionMember {
+    remoteMcp?: never;
+    agentCoreBrowser?: never;
+    agentCoreGateway?: never;
+    inlineFunction: HarnessInlineFunctionConfig;
+    agentCoreCodeInterpreter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for AgentCore Code Interpreter.</p>
+   * @public
+   */
+  export interface AgentCoreCodeInterpreterMember {
+    remoteMcp?: never;
+    agentCoreBrowser?: never;
+    agentCoreGateway?: never;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter: HarnessAgentCoreCodeInterpreterConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    remoteMcp?: never;
+    agentCoreBrowser?: never;
+    agentCoreGateway?: never;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    remoteMcp: (value: HarnessRemoteMcpConfig) => T;
+    agentCoreBrowser: (value: HarnessAgentCoreBrowserConfig) => T;
+    agentCoreGateway: (value: HarnessAgentCoreGatewayConfig) => T;
+    inlineFunction: (value: HarnessInlineFunctionConfig) => T;
+    agentCoreCodeInterpreter: (value: HarnessAgentCoreCodeInterpreterConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A tool available to the agent loop.</p>
+ * @public
+ */
+export interface HarnessTool {
+  /**
+   * <p>The type of tool.</p>
+   * @public
+   */
+  type: HarnessToolType | undefined;
+
+  /**
+   * <p>Unique name for the tool. If not provided, a name will be inferred or generated.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Tool-specific configuration.</p>
+   * @public
+   */
+  config?: HarnessToolConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InvokeHarnessRequest {
+  /**
+   * <p>The ARN of the harness to invoke.</p>
+   * @public
+   */
+  harnessArn: string | undefined;
+
+  /**
+   * <p>The endpoint name to invoke. If omitted, the DEFAULT endpoint is used.</p>
+   * @public
+   */
+  qualifier?: string | undefined;
+
+  /**
+   * <p>The session ID for the invocation. Use the same session ID across requests to continue a conversation.</p>
+   * @public
+   */
+  runtimeSessionId: string | undefined;
+
+  /**
+   * <p>An identifier for the end user making the request. This value is passed through to the runtime container.</p>
+   * @public
+   */
+  runtimeUserId?: string | undefined;
+
+  /**
+   * <p>W3C trace context parent header containing version, trace ID, parent span ID, and trace flags.</p>
+   * @public
+   */
+  traceParent?: string | undefined;
+
+  /**
+   * <p>W3C trace context state header for vendor-specific trace information.</p>
+   * @public
+   */
+  traceState?: string | undefined;
+
+  /**
+   * <p>Trace ID for maintaining observability through the operation.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>W3C Baggage header for user-defined context propagation. Format: key1=value1,key2=value2</p>
+   * @public
+   */
+  baggage?: string | undefined;
+
+  /**
+   * <p>The messages to send to the agent.</p>
+   * @public
+   */
+  messages: HarnessMessage[] | undefined;
+
+  /**
+   * <p>The model configuration to use for this invocation. If specified, overrides the harness default.</p>
+   * @public
+   */
+  model?: HarnessModelConfiguration | undefined;
+
+  /**
+   * <p>The system prompt to use for this invocation. If specified, overrides the harness default.</p>
+   * @public
+   */
+  systemPrompt?: HarnessSystemContentBlock[] | undefined;
+
+  /**
+   * <p>The tools available to the agent for this invocation. If specified, overrides the harness default.</p>
+   * @public
+   */
+  tools?: HarnessTool[] | undefined;
+
+  /**
+   * <p>The skills available to the agent for this invocation. If specified, overrides the harness default.</p>
+   * @public
+   */
+  skills?: HarnessSkill[] | undefined;
+
+  /**
+   * <p>The tools that the agent is allowed to use for this invocation. If specified, overrides the harness default.</p>
+   * @public
+   */
+  allowedTools?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of iterations the agent loop can execute. If specified, overrides the harness default.</p>
+   * @public
+   */
+  maxIterations?: number | undefined;
+
+  /**
+   * <p>The maximum number of tokens the agent can generate per iteration. If specified, overrides the harness default.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The maximum duration in seconds for the agent loop execution. If specified, overrides the harness default.</p>
+   * @public
+   */
+  timeoutSeconds?: number | undefined;
+
+  /**
+   * <p>The actor ID for memory operations. Overrides the actor ID configured on the harness.</p>
+   * @public
+   */
+  actorId?: string | undefined;
+}
+
+/**
+ * <p>A delta update to a reasoning content block.</p>
+ * @public
+ */
+export type HarnessReasoningContentBlockDelta =
+  | HarnessReasoningContentBlockDelta.RedactedContentMember
+  | HarnessReasoningContentBlockDelta.SignatureMember
+  | HarnessReasoningContentBlockDelta.TextMember
+  | HarnessReasoningContentBlockDelta.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessReasoningContentBlockDelta {
+  /**
+   * <p>Reasoning text delta.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    redactedContent?: never;
+    signature?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Redacted reasoning content.</p>
+   * @public
+   */
+  export interface RedactedContentMember {
+    text?: never;
+    redactedContent: Uint8Array;
+    signature?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Signature for the reasoning content.</p>
+   * @public
+   */
+  export interface SignatureMember {
+    text?: never;
+    redactedContent?: never;
+    signature: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    redactedContent?: never;
+    signature?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    redactedContent: (value: Uint8Array) => T;
+    signature: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A delta update to a tool result content block.</p>
+ * @public
+ */
+export type HarnessToolResultBlockDelta =
+  | HarnessToolResultBlockDelta.JsonMember
+  | HarnessToolResultBlockDelta.TextMember
+  | HarnessToolResultBlockDelta.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessToolResultBlockDelta {
+  /**
+   * <p>A text tool result delta.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    json?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A JSON tool result delta.</p>
+   * @public
+   */
+  export interface JsonMember {
+    text?: never;
+    json: __DocumentType;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    json?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    json: (value: __DocumentType) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Delta payload for a tool result metadata.</p>
+ * @public
+ */
+export interface HarnessToolResultMetadataBlockDelta {
+  /**
+   * <p>The partial JSON-string fragment of the tool result metadata.</p>
+   * @public
+   */
+  metadata: string | undefined;
+}
+
+/**
+ * <p>Delta payload for tool use input.</p>
+ * @public
+ */
+export interface HarnessToolUseBlockDelta {
+  /**
+   * <p>The partial JSON input for the tool call.</p>
+   * @public
+   */
+  input: string | undefined;
+}
+
+/**
+ * <p>A delta update to a content block.</p>
+ * @public
+ */
+export type HarnessContentBlockDelta =
+  | HarnessContentBlockDelta.ReasoningContentMember
+  | HarnessContentBlockDelta.TextMember
+  | HarnessContentBlockDelta.ToolResultMember
+  | HarnessContentBlockDelta.ToolResultMetadataMember
+  | HarnessContentBlockDelta.ToolUseMember
+  | HarnessContentBlockDelta.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessContentBlockDelta {
+  /**
+   * <p>A text delta.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    toolUse?: never;
+    toolResult?: never;
+    reasoningContent?: never;
+    toolResultMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A tool use input delta.</p>
+   * @public
+   */
+  export interface ToolUseMember {
+    text?: never;
+    toolUse: HarnessToolUseBlockDelta;
+    toolResult?: never;
+    reasoningContent?: never;
+    toolResultMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A tool result delta.</p>
+   * @public
+   */
+  export interface ToolResultMember {
+    text?: never;
+    toolUse?: never;
+    toolResult: HarnessToolResultBlockDelta[];
+    reasoningContent?: never;
+    toolResultMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A reasoning content delta.</p>
+   * @public
+   */
+  export interface ReasoningContentMember {
+    text?: never;
+    toolUse?: never;
+    toolResult?: never;
+    reasoningContent: HarnessReasoningContentBlockDelta;
+    toolResultMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A tool result metadata delta.</p>
+   * @public
+   */
+  export interface ToolResultMetadataMember {
+    text?: never;
+    toolUse?: never;
+    toolResult?: never;
+    reasoningContent?: never;
+    toolResultMetadata: HarnessToolResultMetadataBlockDelta;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    toolUse?: never;
+    toolResult?: never;
+    reasoningContent?: never;
+    toolResultMetadata?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    toolUse: (value: HarnessToolUseBlockDelta) => T;
+    toolResult: (value: HarnessToolResultBlockDelta[]) => T;
+    reasoningContent: (value: HarnessReasoningContentBlockDelta) => T;
+    toolResultMetadata: (value: HarnessToolResultMetadataBlockDelta) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Event containing a delta update to a content block.</p>
+ * @public
+ */
+export interface HarnessContentBlockDeltaEvent {
+  /**
+   * <p>The index of the content block being updated.</p>
+   * @public
+   */
+  contentBlockIndex: number | undefined;
+
+  /**
+   * <p>The delta payload.</p>
+   * @public
+   */
+  delta: HarnessContentBlockDelta | undefined;
+}
+
+/**
+ * <p>Start payload for a tool result content block.</p>
+ * @public
+ */
+export interface HarnessToolResultBlockStart {
+  /**
+   * <p>The tool use ID that this result corresponds to.</p>
+   * @public
+   */
+  toolUseId: string | undefined;
+
+  /**
+   * <p>The status of the tool execution.</p>
+   * @public
+   */
+  status?: HarnessToolUseStatus | undefined;
+}
+
+/**
+ * <p>Start payload for a tool use content block.</p>
+ * @public
+ */
+export interface HarnessToolUseBlockStart {
+  /**
+   * <p>The unique ID of this tool use.</p>
+   * @public
+   */
+  toolUseId: string | undefined;
+
+  /**
+   * <p>The name of the tool being called.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of tool use.</p>
+   * @public
+   */
+  type?: HarnessToolUseType | undefined;
+
+  /**
+   * <p>The name of the MCP server providing this tool.</p>
+   * @public
+   */
+  serverName?: string | undefined;
+}
+
+/**
+ * <p>The start payload for a content block.</p>
+ * @public
+ */
+export type HarnessContentBlockStart =
+  | HarnessContentBlockStart.ToolResultMember
+  | HarnessContentBlockStart.ToolUseMember
+  | HarnessContentBlockStart.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessContentBlockStart {
+  /**
+   * <p>Start of a tool use content block.</p>
+   * @public
+   */
+  export interface ToolUseMember {
+    toolUse: HarnessToolUseBlockStart;
+    toolResult?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Start of a tool result content block.</p>
+   * @public
+   */
+  export interface ToolResultMember {
+    toolUse?: never;
+    toolResult: HarnessToolResultBlockStart;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    toolUse?: never;
+    toolResult?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    toolUse: (value: HarnessToolUseBlockStart) => T;
+    toolResult: (value: HarnessToolResultBlockStart) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Event indicating the start of a content block.</p>
+ * @public
+ */
+export interface HarnessContentBlockStartEvent {
+  /**
+   * <p>The index of the content block within the message.</p>
+   * @public
+   */
+  contentBlockIndex: number | undefined;
+
+  /**
+   * <p>The content block start payload.</p>
+   * @public
+   */
+  start: HarnessContentBlockStart | undefined;
+}
+
+/**
+ * <p>Event indicating the end of a content block.</p>
+ * @public
+ */
+export interface HarnessContentBlockStopEvent {
+  /**
+   * <p>The index of the content block that ended.</p>
+   * @public
+   */
+  contentBlockIndex: number | undefined;
+}
+
+/**
+ * <p>A lifecycle hook event emitted in the invocation stream for visibility into hook decisions.</p>
+ * @public
+ */
+export interface HarnessHookEvent {
+  /**
+   * <p>The unique identifier for this hook event.</p>
+   * @public
+   */
+  hookEventId: string | undefined;
+
+  /**
+   * <p>The name of the hook that ran.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of lifecycle hook event.</p>
+   * @public
+   */
+  type: HarnessHookEventType | undefined;
+
+  /**
+   * <p>The decision applied to the hook event. This field is present only for blocking Lambda targets.</p>
+   * @public
+   */
+  decision?: HarnessHookDecision | undefined;
+
+  /**
+   * <p>The optional reason for the applied decision.</p>
+   * @public
+   */
+  reason?: string | undefined;
+}
+
+/**
+ * <p>Event indicating the start of a message.</p>
+ * @public
+ */
+export interface HarnessMessageStartEvent {
+  /**
+   * <p>The role of the message sender.</p>
+   * @public
+   */
+  role: HarnessConversationRole | undefined;
+}
+
+/**
+ * <p>Event indicating the end of a message.</p>
+ * @public
+ */
+export interface HarnessMessageStopEvent {
+  /**
+   * <p>The reason the agent stopped generating.</p>
+   * @public
+   */
+  stopReason: HarnessStopReason | undefined;
+}
+
+/**
+ * <p>Latency metrics for the invocation.</p>
+ * @public
+ */
+export interface HarnessStreamMetrics {
+  /**
+   * <p>The end-to-end latency of the invocation in milliseconds.</p>
+   * @public
+   */
+  latencyMs: number | undefined;
+}
+
+/**
+ * <p>Token usage counts for the invocation.</p>
+ * @public
+ */
+export interface HarnessTokenUsage {
+  /**
+   * <p>The number of input tokens consumed.</p>
+   * @public
+   */
+  inputTokens: number | undefined;
+
+  /**
+   * <p>The number of output tokens generated.</p>
+   * @public
+   */
+  outputTokens: number | undefined;
+
+  /**
+   * <p>The total number of tokens consumed.</p>
+   * @public
+   */
+  totalTokens: number | undefined;
+
+  /**
+   * <p>The number of input tokens read from cache.</p>
+   * @public
+   */
+  cacheReadInputTokens?: number | undefined;
+
+  /**
+   * <p>The number of input tokens written to cache.</p>
+   * @public
+   */
+  cacheWriteInputTokens?: number | undefined;
+}
+
+/**
+ * <p>Token usage and latency metrics for the invocation.</p>
+ * @public
+ */
+export interface HarnessMetadataEvent {
+  /**
+   * <p>Token usage counts.</p>
+   * @public
+   */
+  usage: HarnessTokenUsage | undefined;
+
+  /**
+   * <p>Latency metrics.</p>
+   * @public
+   */
+  metrics: HarnessStreamMetrics | undefined;
+}
+
+/**
+ * <p>The streaming events returned by a harness invocation.</p>
+ * @public
+ */
+export type InvokeHarnessStreamOutput =
+  | InvokeHarnessStreamOutput.ContentBlockDeltaMember
+  | InvokeHarnessStreamOutput.ContentBlockStartMember
+  | InvokeHarnessStreamOutput.ContentBlockStopMember
+  | InvokeHarnessStreamOutput.HookEventMember
+  | InvokeHarnessStreamOutput.InternalServerExceptionMember
+  | InvokeHarnessStreamOutput.MessageStartMember
+  | InvokeHarnessStreamOutput.MessageStopMember
+  | InvokeHarnessStreamOutput.MetadataMember
+  | InvokeHarnessStreamOutput.RuntimeClientErrorMember
+  | InvokeHarnessStreamOutput.ValidationExceptionMember
+  | InvokeHarnessStreamOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InvokeHarnessStreamOutput {
+  /**
+   * <p>Indicates the start of a new message from the agent.</p>
+   * @public
+   */
+  export interface MessageStartMember {
+    messageStart: HarnessMessageStartEvent;
+    contentBlockStart?: never;
+    contentBlockDelta?: never;
+    contentBlockStop?: never;
+    messageStop?: never;
+    metadata?: never;
+    internalServerException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    hookEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Indicates the start of a new content block.</p>
+   * @public
+   */
+  export interface ContentBlockStartMember {
+    messageStart?: never;
+    contentBlockStart: HarnessContentBlockStartEvent;
+    contentBlockDelta?: never;
+    contentBlockStop?: never;
+    messageStop?: never;
+    metadata?: never;
+    internalServerException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    hookEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A delta update to the current content block.</p>
+   * @public
+   */
+  export interface ContentBlockDeltaMember {
+    messageStart?: never;
+    contentBlockStart?: never;
+    contentBlockDelta: HarnessContentBlockDeltaEvent;
+    contentBlockStop?: never;
+    messageStop?: never;
+    metadata?: never;
+    internalServerException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    hookEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Indicates the end of the current content block.</p>
+   * @public
+   */
+  export interface ContentBlockStopMember {
+    messageStart?: never;
+    contentBlockStart?: never;
+    contentBlockDelta?: never;
+    contentBlockStop: HarnessContentBlockStopEvent;
+    messageStop?: never;
+    metadata?: never;
+    internalServerException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    hookEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Indicates the end of the current message.</p>
+   * @public
+   */
+  export interface MessageStopMember {
+    messageStart?: never;
+    contentBlockStart?: never;
+    contentBlockDelta?: never;
+    contentBlockStop?: never;
+    messageStop: HarnessMessageStopEvent;
+    metadata?: never;
+    internalServerException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    hookEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Token usage and latency metrics for the invocation.</p>
+   * @public
+   */
+  export interface MetadataMember {
+    messageStart?: never;
+    contentBlockStart?: never;
+    contentBlockDelta?: never;
+    contentBlockStop?: never;
+    messageStop?: never;
+    metadata: HarnessMetadataEvent;
+    internalServerException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    hookEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+   * @public
+   */
+  export interface InternalServerExceptionMember {
+    messageStart?: never;
+    contentBlockStart?: never;
+    contentBlockDelta?: never;
+    contentBlockStop?: never;
+    messageStop?: never;
+    metadata?: never;
+    internalServerException: InternalServerException;
+    validationException?: never;
+    runtimeClientError?: never;
+    hookEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+   * @public
+   */
+  export interface ValidationExceptionMember {
+    messageStart?: never;
+    contentBlockStart?: never;
+    contentBlockDelta?: never;
+    contentBlockStop?: never;
+    messageStop?: never;
+    metadata?: never;
+    internalServerException?: never;
+    validationException: ValidationException;
+    runtimeClientError?: never;
+    hookEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An error returned by the runtime container during agent execution.</p>
+   * @public
+   */
+  export interface RuntimeClientErrorMember {
+    messageStart?: never;
+    contentBlockStart?: never;
+    contentBlockDelta?: never;
+    contentBlockStop?: never;
+    messageStop?: never;
+    metadata?: never;
+    internalServerException?: never;
+    validationException?: never;
+    runtimeClientError: RuntimeClientError;
+    hookEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A lifecycle hook event emitted when a configured hook runs.</p>
+   * @public
+   */
+  export interface HookEventMember {
+    messageStart?: never;
+    contentBlockStart?: never;
+    contentBlockDelta?: never;
+    contentBlockStop?: never;
+    messageStop?: never;
+    metadata?: never;
+    internalServerException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    hookEvent: HarnessHookEvent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    messageStart?: never;
+    contentBlockStart?: never;
+    contentBlockDelta?: never;
+    contentBlockStop?: never;
+    messageStop?: never;
+    metadata?: never;
+    internalServerException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    hookEvent?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    messageStart: (value: HarnessMessageStartEvent) => T;
+    contentBlockStart: (value: HarnessContentBlockStartEvent) => T;
+    contentBlockDelta: (value: HarnessContentBlockDeltaEvent) => T;
+    contentBlockStop: (value: HarnessContentBlockStopEvent) => T;
+    messageStop: (value: HarnessMessageStopEvent) => T;
+    metadata: (value: HarnessMetadataEvent) => T;
+    internalServerException: (value: InternalServerException) => T;
+    validationException: (value: ValidationException) => T;
+    runtimeClientError: (value: RuntimeClientError) => T;
+    hookEvent: (value: HarnessHookEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface InvokeHarnessResponse {
+  /**
+   * <p>The streaming output from the harness invocation.</p>
+   * @public
+   */
+  stream: AsyncIterable<InvokeHarnessStreamOutput> | undefined;
+}
+
+/**
+ * <p>The domains to include in or exclude from the results. A root domain also matches its subdomains. For example, <code>example.com</code> also matches <code>docs.example.com</code>.</p>
+ * @public
+ */
+export interface DomainFilter {
+  /**
+   * <p>The domains to return results from. Results from other domains are not returned.</p>
+   * @public
+   */
+  include?: string[] | undefined;
+
+  /**
+   * <p>The domains to never return results from.</p>
+   * @public
+   */
+  exclude?: string[] | undefined;
+}
+
+/**
+ * <p>A publication time range for the results. Both bounds are optional, and both are inclusive. If <code>publishedAfter</code> is later than <code>publishedBefore</code>, the request fails with a <code>ValidationException</code>.</p>
+ * @public
+ */
+export interface PublishedDateFilter {
+  /**
+   * <p>The earliest publication time of the results, inclusive.</p>
+   * @public
+   */
+  publishedAfter?: Date | undefined;
+
+  /**
+   * <p>The latest publication time of the results, inclusive. A date without a time, such as one passed to the AWS CLI, means midnight UTC. To include a whole day, use the last second of that day, for example <code>2026-01-31T23:59:59Z</code>.</p>
+   * @public
+   */
+  publishedBefore?: Date | undefined;
+}
+
+/**
+ * <p>The filters to apply to a web search.</p>
+ * @public
+ */
+export interface WebSearchFilters {
+  /**
+   * <p>The domains to include in or exclude from the results.</p>
+   * @public
+   */
+  domainFilter?: DomainFilter | undefined;
+
+  /**
+   * <p>The publication time range of the results.</p>
+   * @public
+   */
+  publishedDateFilter?: PublishedDateFilter | undefined;
+}
+
+/**
+ * <p>Request for the <code>InvokeWebSearch</code> operation.</p>
+ * @public
+ */
+export interface InvokeWebSearchInput {
+  /**
+   * <p>The identifier of the web search tool to invoke. The Amazon Web Services-managed web search tool is <code>web-search.v1</code>.</p>
+   * @public
+   */
+  webSearchId: string | undefined;
+
+  /**
+   * <p>The text to search for.</p>
+   * @public
+   */
+  searchQuery: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Defaults to 25.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The filters to apply to the search results.</p>
+   * @public
+   */
+  filters?: WebSearchFilters | undefined;
+}
+
+/**
+ * <p>A web search result.</p>
+ * @public
+ */
+export interface WebSearchResult {
+  /**
+   * <p>The title of the page.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The URL of the page.</p>
+   * @public
+   */
+  url?: string | undefined;
+
+  /**
+   * <p>A text extract from the page.</p>
+   * @public
+   */
+  text: string | undefined;
+
+  /**
+   * <p>The time the page was published. This field is absent when the publication time is not known.</p>
+   * @public
+   */
+  publishedAt?: Date | undefined;
+}
+
+/**
+ * <p>Response for the <code>InvokeWebSearch</code> operation.</p>
+ * @public
+ */
+export interface InvokeWebSearchOutput {
+  /**
+   * <p>The search results, in ranked order.</p>
+   * @public
+   */
+  results: WebSearchResult[] | undefined;
+}
+
+/**
+ * <p>Specifies the record expiry (long-term memory time-to-live) applied to the records in a batch request. Provide exactly one of <code>recordExpiryDurationDays</code> or <code>action</code>. Set <code>recordExpiryDurationDays</code> to configure or update the expiry, or set <code>action</code> to <code>REMOVE</code> to remove a previously configured expiry.</p>
+ * @public
+ */
+export type RecordExpirySpecification =
+  | RecordExpirySpecification.ActionMember
+  | RecordExpirySpecification.RecordExpiryDurationDaysMember
+  | RecordExpirySpecification.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RecordExpirySpecification {
+  /**
+   * <p>The duration, in days, after which the records in this request expire. The minimum is 31 days.</p>
+   * @public
+   */
+  export interface RecordExpiryDurationDaysMember {
+    recordExpiryDurationDays: number;
+    action?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The action to apply to the existing record expiry configuration. Set to <code>REMOVE</code> to remove a previously configured expiry so that the records no longer expire. This value does not apply when creating records.</p>
+   * @public
+   */
+  export interface ActionMember {
+    recordExpiryDurationDays?: never;
+    action: RecordExpiryAction;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    recordExpiryDurationDays?: never;
+    action?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    recordExpiryDurationDays: (value: number) => T;
+    action: (value: RecordExpiryAction) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Contains the content of a memory record.</p>
+ * @public
+ */
+export type MemoryContent =
+  | MemoryContent.TextMember
+  | MemoryContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MemoryContent {
+  /**
+   * <p>The text content of the memory record.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The value of a memory record metadata entry.</p>
+ * @public
+ */
+export type MemoryRecordMetadataValue =
+  | MemoryRecordMetadataValue.DateTimeValueMember
+  | MemoryRecordMetadataValue.NumberValueMember
+  | MemoryRecordMetadataValue.StringListValueMember
+  | MemoryRecordMetadataValue.StringValueMember
+  | MemoryRecordMetadataValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MemoryRecordMetadataValue {
+  /**
+   * <p>A string value.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    stringValue: string;
+    stringListValue?: never;
+    numberValue?: never;
+    dateTimeValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of string values.</p>
+   * @public
+   */
+  export interface StringListValueMember {
+    stringValue?: never;
+    stringListValue: string[];
+    numberValue?: never;
+    dateTimeValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A numeric value.</p>
+   * @public
+   */
+  export interface NumberValueMember {
+    stringValue?: never;
+    stringListValue?: never;
+    numberValue: number;
+    dateTimeValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A timestamp value in ISO 8601 UTC format.</p>
+   * @public
+   */
+  export interface DateTimeValueMember {
+    stringValue?: never;
+    stringListValue?: never;
+    numberValue?: never;
+    dateTimeValue: Date;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    stringListValue?: never;
+    numberValue?: never;
+    dateTimeValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    stringListValue: (value: string[]) => T;
+    numberValue: (value: number) => T;
+    dateTimeValue: (value: Date) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Input structure to create a new memory record.</p>
+ * @public
+ */
+export interface MemoryRecordCreateInput {
+  /**
+   * <p>A client-provided identifier for tracking this specific record creation request.</p>
+   * @public
+   */
+  requestIdentifier: string | undefined;
+
+  /**
+   * <p>A list of namespace identifiers that categorize or group the memory record.</p>
+   * @public
+   */
+  namespaces: string[] | undefined;
+
+  /**
+   * <p>The content to be stored within the memory record.</p>
+   * @public
+   */
+  content: MemoryContent | undefined;
+
+  /**
+   * <p>Time at which the memory record was created.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The ID of the memory strategy that defines how this memory record is grouped.</p>
+   * @public
+   */
+  memoryStrategyId?: string | undefined;
+
+  /**
+   * <p>Metadata key-value pairs to be stored with the memory record.</p>
+   * @public
+   */
+  metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateMemoryRecordsInput {
+  /**
+   * <p>The unique ID of the memory resource where records will be created.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>A list of memory record creation inputs to be processed in the batch operation.</p>
+   * @public
+   */
+  records: MemoryRecordCreateInput[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotent processing of the batch request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The record expiry (long-term memory time-to-live) applied to every record created by this request. Set <code>recordExpiryDurationDays</code> to the number of days after which the records expire. Only the expiry provided here is applied; the records' strategy association has no effect on their expiry. If you do not provide this value, the records do not expire. The <code>REMOVE</code> action does not apply when creating records.</p>
+   * @public
+   */
+  recordExpirySpecification?: RecordExpirySpecification | undefined;
+}
+
+/**
+ * <p>Output information returned after processing a memory record operation.</p>
+ * @public
+ */
+export interface MemoryRecordOutput {
+  /**
+   * <p>The unique ID associated to the memory record.</p>
+   * @public
+   */
+  memoryRecordId: string | undefined;
+
+  /**
+   * <p>The status of the memory record operation (e.g., SUCCEEDED, FAILED).</p>
+   * @public
+   */
+  status: MemoryRecordStatus | undefined;
+
+  /**
+   * <p>The client-provided identifier that was used to track this record operation.</p>
+   * @public
+   */
+  requestIdentifier?: string | undefined;
+
+  /**
+   * <p>The error code returned when the memory record operation fails.</p>
+   * @public
+   */
+  errorCode?: number | undefined;
+
+  /**
+   * <p>A human-readable error message describing why the memory record operation failed.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateMemoryRecordsOutput {
+  /**
+   * <p>A list of memory records that were successfully created during the batch operation.</p>
+   * @public
+   */
+  successfulRecords: MemoryRecordOutput[] | undefined;
+
+  /**
+   * <p>A list of memory records that failed to be created, including error details for each failure.</p>
+   * @public
+   */
+  failedRecords: MemoryRecordOutput[] | undefined;
+}
+
+/**
+ * <p>Input structure to delete an existing memory record.</p>
+ * @public
+ */
+export interface MemoryRecordDeleteInput {
+  /**
+   * <p>The unique ID of the memory record to be deleted.</p>
+   * @public
+   */
+  memoryRecordId: string | undefined;
+
+  /**
+   * <p>The namespace of the memory record being deleted. This value is used for IAM condition key authorization.</p>
+   * @public
+   */
+  namespace?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteMemoryRecordsInput {
+  /**
+   * <p>The unique ID of the memory resource where records will be deleted.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>A list of memory record deletion inputs to be processed in the batch operation.</p>
+   * @public
+   */
+  records: MemoryRecordDeleteInput[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteMemoryRecordsOutput {
+  /**
+   * <p>A list of memory records that were successfully deleted during the batch operation.</p>
+   * @public
+   */
+  successfulRecords: MemoryRecordOutput[] | undefined;
+
+  /**
+   * <p>A list of memory records that failed to be deleted, including error details for each failure.</p>
+   * @public
+   */
+  failedRecords: MemoryRecordOutput[] | undefined;
+}
+
+/**
+ * <p>Input structure to update an existing memory record.</p>
+ * @public
+ */
+export interface MemoryRecordUpdateInput {
+  /**
+   * <p>The unique ID of the memory record to be updated.</p>
+   * @public
+   */
+  memoryRecordId: string | undefined;
+
+  /**
+   * <p>Time at which the memory record was updated</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The content to be stored within the memory record.</p>
+   * @public
+   */
+  content?: MemoryContent | undefined;
+
+  /**
+   * <p>The updated list of namespace identifiers for categorizing the memory record.</p>
+   * @public
+   */
+  namespaces?: string[] | undefined;
+
+  /**
+   * <p>The namespaces of the source memory record being updated. This value is used for IAM condition key authorization.</p>
+   * @public
+   */
+  sourceNamespaces?: string[] | undefined;
+
+  /**
+   * <p>The updated ID of the memory strategy that defines how this memory record is grouped.</p>
+   * @public
+   */
+  memoryStrategyId?: string | undefined;
+
+  /**
+   * <p>Metadata key-value pairs to be stored with the memory record.</p>
+   * @public
+   */
+  metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateMemoryRecordsInput {
+  /**
+   * <p>The unique ID of the memory resource where records will be updated.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>A list of memory record update inputs to be processed in the batch operation.</p>
+   * @public
+   */
+  records: MemoryRecordUpdateInput[] | undefined;
+
+  /**
+   * <p>The record expiry (long-term memory time-to-live) applied to every record updated by this request. Set <code>recordExpiryDurationDays</code> to configure or overwrite the number of days after which the records expire, or set <code>action</code> to <code>REMOVE</code> to clear a previously configured expiry so that the records no longer expire.</p> <p>When you do not provide this value, the service determines each record's expiry from its current state:</p> <ul> <li> <p>If the record already has an expiry configured, the service resets and reapplies the expiry based on the last applied <code>recordExpiryDurationDays</code>.</p> </li> <li> <p>If the record does not have an expiry configured, no expiry is applied and the record remains non-expiring. This is the outcome regardless of whether the record's strategy configures an expiry.</p> </li> </ul> <p>Providing an explicit <code>recordExpiryDurationDays</code> always takes precedence: it overwrites an existing expiry, or sets one on a record that previously had none.</p>
+   * @public
+   */
+  recordExpirySpecification?: RecordExpirySpecification | undefined;
+}
 
 /**
  * @public
