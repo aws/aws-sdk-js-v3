@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1170.0...v3.1171.0) (2026-11-17)
+
+
+### Features
+
+* **client-appstream:** Adds support for In-Session SmartCard Redirection for Windows Multi-Session fleets ([c377a57](https://github.com/aws/aws-sdk-js-v3/commit/c377a570c3ea86b11a274688311a8315f38d7dc4))
+
+
+
+
+
 # [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
 
 **Note:** Version bump only for package @aws-sdk/client-appstream

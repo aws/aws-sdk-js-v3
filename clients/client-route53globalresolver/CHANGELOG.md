@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1170.0...v3.1171.0) (2026-11-17)
+
+
+### Features
+
+* **client-route53globalresolver:** Adds AWS Cloud WAN support to Route 53 Global Resolver via new core network endpoint APIs to connect a global resolver to a core network, segment-based access sources, and a publicIpStatus setting to disable public IPs so a resolver is reachable only over Cloud WAN. ([4c69f63](https://github.com/aws/aws-sdk-js-v3/commit/4c69f63914c3396f927ba59cde4122b19d9ae3ec))
+
+
+
+
+
 # [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
 
 **Note:** Version bump only for package @aws-sdk/client-route53globalresolver

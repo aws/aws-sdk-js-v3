@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1170.0...v3.1171.0) (2026-11-17)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds support for agent insight stores that help frame insight evaluators, and dataset source support for batch evaluation ([ba4c0db](https://github.com/aws/aws-sdk-js-v3/commit/ba4c0dbfeaba413b149baea8d69c14ef5b151c7d))
+
+
+
+
+
 # [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

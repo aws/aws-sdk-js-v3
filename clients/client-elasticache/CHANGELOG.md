@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1170.0...v3.1171.0) (2026-11-17)
+
+
+### Features
+
+* **client-elasticache:** Enables creation of a serverless Valkey cache that supports write-through caching for DynamoDB table data. ([f08a23f](https://github.com/aws/aws-sdk-js-v3/commit/f08a23fa7ccb6cfa9819fa7b6fcc433981486602))
+
+
+
+
+
 # [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
 
 **Note:** Version bump only for package @aws-sdk/client-elasticache

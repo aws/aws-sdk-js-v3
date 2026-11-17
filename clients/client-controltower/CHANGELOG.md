@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1170.0...v3.1171.0) (2026-11-17)
+
+
+### Features
+
+* **client-controltower:** AWS Control Tower now reports source drift when an enabled baseline no longer matches the landing zone's configuration. ([a86aeb8](https://github.com/aws/aws-sdk-js-v3/commit/a86aeb8f53c3720fc7d8b80a78b9e3b3c1e7adf9))
+
+
+
+
+
 # [3.1170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1169.0...v3.1170.0) (2026-11-16)
 
 **Note:** Version bump only for package @aws-sdk/client-controltower
