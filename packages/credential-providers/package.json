@@ -56,6 +56,7 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.981.0",
     "@aws-sdk/credential-provider-cognito-identity": "workspace:^3.972.83",
+    "@aws-sdk/credential-provider-credential-daemon": "workspace:^3.972.0",
     "@aws-sdk/credential-provider-env": "workspace:^3.972.84",
     "@aws-sdk/credential-provider-http": "workspace:^3.972.86",
     "@aws-sdk/credential-provider-ini": "workspace:^3.973.30",

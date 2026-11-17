@@ -1,0 +1,65 @@
+{
+  "name": "@aws-sdk/credential-provider-credential-daemon",
+  "version": "3.972.0",
+  "description": "AWS credential provider that sources credentials from a local credential daemon named by daemon_credential in ~/.aws/config",
+  "keywords": [
+    "aws",
+    "credential daemon",
+    "credentials"
+  ],
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-credential-daemon",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages-internal/credential-provider-credential-daemon"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": false,
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
+  "typesVersions": {
+    "<4.5": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
+    "build:cjs": "node ../../scripts/compilation/inline",
+    "build:es": "premove dist-es && tsc -p tsconfig.es.json",
+    "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
+    "build:types": "premove dist-types && tsc -p tsconfig.types.json",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "clean": "premove dist-cjs dist-es dist-types",
+    "extract:docs": "api-extractor run --local",
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch"
+  },
+  "dependencies": {
+    "@aws-sdk/core": "workspace:^3.981.0",
+    "@aws-sdk/types": "workspace:^3.975.1",
+    "@smithy/core": "^3.40.0",
+    "@smithy/types": "^4.20.0",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "1.0.1",
+    "@types/node": "^20.14.8",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.10.1",
+    "premove": "4.0.0",
+    "typescript": "~7.0.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

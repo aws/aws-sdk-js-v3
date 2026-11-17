@@ -2,9 +2,10 @@ import type { FromLoginCredentialsInit } from "@aws-sdk/credential-provider-logi
 import type { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity";
 import type { CredentialProviderOptions, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import type { SourceProfileInit } from "@smithy/core/config";
-import { getProfileName, parseKnownFiles } from "@smithy/core/config";
+import { getProfileName } from "@smithy/core/config";
 import type { AwsCredentialIdentity, Pluggable } from "@smithy/types";
 
+import { loadProfiles } from "./loadProfiles";
 import type { AssumeRoleParams } from "./resolveAssumeRoleCredentials";
 import { resolveProfileData } from "./resolveProfileData";
 
@@ -54,6 +55,21 @@ export interface FromIniInit extends SourceProfileInit, CredentialProviderOption
    * This is useful when you need to detect changes to the credentials file.
    */
   ignoreCache?: boolean;
+
+  /**
+   * Timeouts for profiles that get credentials from the credential daemon (daemon_credential).
+   * They can be set only here, in code.
+   */
+  credentialDaemon?: {
+    /**
+     * Milliseconds to wait for the connection to the credential daemon. Defaults to 1000.
+     */
+    connectTimeout?: number;
+    /**
+     * Milliseconds to wait for the whole call to the credential daemon. Defaults to 5000.
+     */
+    timeout?: number;
+  };
 }
 
 /**
@@ -66,7 +82,7 @@ export const fromIni =
   (init: FromIniInit = {}): RuntimeConfigAwsCredentialIdentityProvider =>
   async ({ callerClientConfig } = {}) => {
     init.logger?.debug("@aws-sdk/credential-provider-ini - fromIni");
-    const profiles = await parseKnownFiles(init);
+    const profiles = await loadProfiles(init);
     return resolveProfileData(
       getProfileName({
         profile: init.profile ?? callerClientConfig?.profile,

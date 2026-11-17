@@ -1,11 +1,14 @@
 import {
   getProfileName,
   getSSOTokenFromFile,
+  loadSharedConfigFiles,
   loadSsoSessionData,
   parseKnownFiles,
   TokenProviderError,
 } from "@smithy/core/config";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
+import { loadEmptyDaemonCredentialProfiles } from "@aws-sdk/credential-provider-credential-daemon";
 
 import { EXPIRE_WINDOW_MS, REFRESH_MESSAGE } from "./constants";
 import { fromSso } from "./fromSso";
@@ -18,8 +21,12 @@ vi.mock("@smithy/core/config", async (importActual) => ({
   ...(await importActual<any>()),
   getProfileName: vi.fn(),
   getSSOTokenFromFile: vi.fn(),
+  loadSharedConfigFiles: vi.fn(),
   loadSsoSessionData: vi.fn(),
   parseKnownFiles: vi.fn(),
+}));
+vi.mock("@aws-sdk/credential-provider-credential-daemon", () => ({
+  loadEmptyDaemonCredentialProfiles: vi.fn(),
 }));
 vi.mock("./getNewSsoOidcToken");
 vi.mock("./validateTokenExpiry");
@@ -97,6 +104,86 @@ describe(fromSso.name, () => {
         `Profile '${mockProfileName}' is missing required property 'sso_session'.`
       );
       await expect(fromSso(mockInit)()).rejects.toStrictEqual(expectedError);
+    });
+
+    describe("when the profile gets its SSO session from the credential daemon", () => {
+      const daemonSsoProfile = {
+        ...mockSsoProfile,
+        daemon_credential: "dev",
+        sso_account_id: "123456789012",
+        sso_role_name: "Admin",
+      };
+
+      it("treats a daemon_credential from the config file as no sso_session", async () => {
+        vi.mocked(parseKnownFiles as any).mockReturnValue({ [mockProfileName]: daemonSsoProfile });
+        vi.mocked(loadSharedConfigFiles).mockResolvedValue({
+          configFile: { [mockProfileName]: daemonSsoProfile },
+          credentialsFile: {},
+        });
+        const error = await fromSso(mockInit)().catch((e) => e);
+        expect(error).toBeInstanceOf(TokenProviderError);
+        expect(error.tryNextLink).toBe(true);
+        expect(error.message).toBe(
+          `Profile '${mockProfileName}' gets its SSO session from the credential daemon (daemon_credential), ` +
+            `so it has no sso_session for bearer-token authentication. Services that use bearer tokens need an ` +
+            `SSO session stored in the shared config and SSO token cache files.`
+        );
+        expect(loadSharedConfigFiles).toHaveBeenCalledWith(mockInit);
+        expect(loadSsoSessionData).not.toHaveBeenCalled();
+        expect(getSSOTokenFromFile).not.toHaveBeenCalled();
+      });
+
+      beforeEach(() => {
+        vi.mocked(loadEmptyDaemonCredentialProfiles).mockResolvedValue(new Set());
+      });
+
+      it("treats an empty daemon_credential in the config file as no sso_session", async () => {
+        const { daemon_credential, ...profile } = daemonSsoProfile;
+        vi.mocked(parseKnownFiles as any).mockReturnValue({ [mockProfileName]: profile });
+        vi.mocked(loadSharedConfigFiles).mockResolvedValue({
+          configFile: { [mockProfileName]: profile },
+          credentialsFile: {},
+        });
+        vi.mocked(loadEmptyDaemonCredentialProfiles).mockResolvedValue(new Set([mockProfileName]));
+        const error = await fromSso(mockInit)().catch((e) => e);
+        expect(error).toBeInstanceOf(TokenProviderError);
+        expect(error.message).toContain("gets its SSO session from the credential daemon");
+        expect(loadEmptyDaemonCredentialProfiles).toHaveBeenCalledWith(mockInit);
+        expect(getSSOTokenFromFile).not.toHaveBeenCalled();
+      });
+
+      it("uses the normal flow when daemon_credential comes only from the credentials file", async () => {
+        vi.mocked(parseKnownFiles as any).mockReturnValue({ [mockProfileName]: daemonSsoProfile });
+        vi.mocked(loadSharedConfigFiles).mockResolvedValue({
+          configFile: { [mockProfileName]: mockSsoProfile },
+          credentialsFile: { [mockProfileName]: { daemon_credential: "dev" } },
+        });
+        const expiresAt = new Date(mockDateNow + EXPIRE_WINDOW_MS + 1000).toISOString();
+        vi.mocked(getSSOTokenFromFile).mockResolvedValueOnce({ ...mockSsoToken, expiresAt });
+        await expect(fromSso(mockInit)()).resolves.toStrictEqual({
+          token: mockSsoToken.accessToken,
+          expiration: new Date(expiresAt),
+        });
+      });
+
+      it.each([
+        ["sso_account_id", { sso_account_id: undefined }],
+        ["sso_role_name", { sso_role_name: undefined }],
+      ])("uses the normal flow without %s", async (_, overrides) => {
+        const profile = { ...daemonSsoProfile, ...overrides };
+        vi.mocked(parseKnownFiles as any).mockReturnValue({ [mockProfileName]: profile });
+        vi.mocked(loadSharedConfigFiles).mockResolvedValue({
+          configFile: { [mockProfileName]: profile },
+          credentialsFile: {},
+        });
+        const expiresAt = new Date(mockDateNow + EXPIRE_WINDOW_MS + 1000).toISOString();
+        vi.mocked(getSSOTokenFromFile).mockResolvedValueOnce({ ...mockSsoToken, expiresAt });
+        await expect(fromSso(mockInit)()).resolves.toStrictEqual({
+          token: mockSsoToken.accessToken,
+          expiration: new Date(expiresAt),
+        });
+        expect(loadSharedConfigFiles).not.toHaveBeenCalled();
+      });
     });
 
     it("when sso_session is not defined in configuration file", async () => {

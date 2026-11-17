@@ -16,7 +16,9 @@ import { NodeHttpHandler } from "@smithy/node-http-handler";
 import type { HttpRequest, MiddlewareStack, ParsedIniData } from "@smithy/types";
 import child_process from "node:child_process";
 import { createHash, generateKeyPairSync } from "node:crypto";
-import { promises as fsPromises } from "node:fs";
+import { mkdtempSync, promises as fsPromises, rmSync } from "node:fs";
+import { createServer } from "node:net";
+import type { Server } from "node:net";
 import { homedir, tmpdir } from "node:os";
 import { join } from "node:path";
 import { PassThrough } from "node:stream";
@@ -1749,6 +1751,368 @@ describe("credential-provider-node integration test", () => {
             CREDENTIALS_STS_ASSUME_ROLE: "i",
           },
         });
+      });
+    });
+  });
+
+  describe("credential daemon", () => {
+    let dir: string;
+    let server: Server | undefined;
+    let daemonRequests: any[];
+
+    const startDaemon = async (credential = "dev") => {
+      const sock = join(dir, "d.sock");
+      server = createServer((conn) => {
+        let buffer = "";
+        conn.on("data", (chunk) => {
+          buffer += chunk.toString("utf8");
+          const nl = buffer.indexOf("\n");
+          if (nl < 0) {
+            return;
+          }
+          const request = JSON.parse(buffer.slice(0, nl));
+          daemonRequests.push(request);
+          const reply =
+            request.params?.credential === credential
+              ? {
+                  jsonrpc: "2.0",
+                  id: request.id,
+                  result: {
+                    credential,
+                    material: {
+                      type: "session_credentials",
+                      access_key_id: "DAEMON_ACCESS_KEY",
+                      secret_access_key: "DAEMON_SECRET_KEY",
+                      session_token: "DAEMON_SESSION_TOKEN",
+                    },
+                    expires_at: "3000-01-01T00:00:00.000Z",
+                  },
+                }
+              : {
+                  jsonrpc: "2.0",
+                  id: request.id,
+                  error: { code: -32000, message: "not found", data: { code: "CREDENTIAL_NOT_FOUND" } },
+                };
+          conn.end(JSON.stringify(reply) + "\n");
+        });
+        conn.on("error", () => {});
+      });
+      await new Promise<void>((resolve, reject) => {
+        server!.once("error", reject);
+        server!.listen(sock, resolve);
+      });
+      process.env.AWS_CREDENTIAL_DAEMON_SOCKET = sock;
+    };
+
+    beforeEach(() => {
+      dir = mkdtempSync(join(tmpdir(), "credential-daemon-"));
+      daemonRequests = [];
+    });
+
+    afterEach(async () => {
+      delete process.env.AWS_CREDENTIAL_DAEMON_SOCKET;
+      if (server) {
+        await new Promise((resolve) => server!.close(resolve));
+        server = undefined;
+      }
+      rmSync(dir, { recursive: true, force: true });
+    });
+
+    it("resolves credentials from the credential daemon through the default chain", async () => {
+      await startDaemon();
+      process.env.AWS_PROFILE = "dev";
+      setIniProfileData({
+        dev: {
+          daemon_credential: "dev",
+          aws_access_key_id: "INI_STATIC_ACCESS_KEY",
+          aws_secret_access_key: "INI_STATIC_SECRET_KEY",
+        },
+      });
+
+      const credentials = await defaultProvider()();
+      expect(credentials).toEqual({
+        accessKeyId: "DAEMON_ACCESS_KEY",
+        secretAccessKey: "DAEMON_SECRET_KEY",
+        sessionToken: "DAEMON_SESSION_TOKEN",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: {
+          CREDENTIAL_DAEMON: "Aq",
+        },
+      });
+      expect(daemonRequests).toEqual([
+        { jsonrpc: "2.0", id: 1, method: "credential/get", params: { credential: "dev" } },
+      ]);
+    });
+
+    it("prefers static credentials from the environment when AWS_PROFILE is not set", async () => {
+      await startDaemon("default");
+      process.env.AWS_ACCESS_KEY_ID = "ENV_ACCESS_KEY";
+      process.env.AWS_SECRET_ACCESS_KEY = "ENV_SECRET_KEY";
+      setIniProfileData({
+        default: {
+          daemon_credential: "default",
+        },
+      });
+
+      const credentials = await defaultProvider()();
+      expect(credentials.accessKeyId).toBe("ENV_ACCESS_KEY");
+      expect(daemonRequests).toEqual([]);
+    });
+
+    it("uses the credential daemon over environment credentials when AWS_PROFILE is set", async () => {
+      await startDaemon("default");
+      process.env.AWS_ACCESS_KEY_ID = "ENV_ACCESS_KEY";
+      process.env.AWS_SECRET_ACCESS_KEY = "ENV_SECRET_KEY";
+      process.env.AWS_PROFILE = "default";
+      setIniProfileData({
+        default: {
+          daemon_credential: "default",
+        },
+      });
+
+      const credentials = await defaultProvider()();
+      expect(credentials.accessKeyId).toBe("DAEMON_ACCESS_KEY");
+      expect(daemonRequests).toHaveLength(1);
+    });
+
+    it(
+      "env-web-identity-and-daemon-profile: uses the daemon profile before the web identity " + "environment variables",
+      async () => {
+        await startDaemon();
+        process.env.AWS_ROLE_ARN = "arn:aws:iam::123456789012:role/r";
+        process.env.AWS_WEB_IDENTITY_TOKEN_FILE = "/nonexistent/web-identity-token";
+        process.env.AWS_PROFILE = "dev";
+        setIniProfileData({
+          dev: {
+            daemon_credential: "dev",
+          },
+        });
+
+        const credentials = await defaultProvider()();
+        expect(credentials).toEqual({
+          accessKeyId: "DAEMON_ACCESS_KEY",
+          secretAccessKey: "DAEMON_SECRET_KEY",
+          sessionToken: "DAEMON_SESSION_TOKEN",
+          expiration: new Date("3000-01-01T00:00:00.000Z"),
+          $source: {
+            CREDENTIAL_DAEMON: "Aq",
+          },
+        });
+        expect(daemonRequests).toHaveLength(1);
+      }
+    );
+
+    it("fails with NOT_RUNNING and sends no request when the daemon is not running", async () => {
+      process.env.AWS_CREDENTIAL_DAEMON_SOCKET = join(dir, "missing.sock");
+      process.env.AWS_PROFILE = "dev";
+      process.env.AWS_EC2_METADATA_DISABLED = "true";
+      setIniProfileData({
+        dev: {
+          daemon_credential: "dev",
+        },
+      });
+      const handle = vi.fn();
+      const client = new STS({
+        region: "us-west-2",
+        requestHandler: {
+          handle,
+        } as any,
+      });
+
+      await expect(client.getCallerIdentity({})).rejects.toMatchObject({
+        name: "CredentialDaemonProviderError",
+        code: "NOT_RUNNING",
+        tryNextLink: false,
+      });
+      expect(handle).not.toHaveBeenCalled();
+    });
+
+    it("adds the CREDENTIAL_DAEMON feature to the user agent", async () => {
+      await startDaemon();
+      process.env.AWS_PROFILE = "dev";
+      setIniProfileData({
+        dev: {
+          daemon_credential: "dev",
+        },
+      });
+      let request: HttpRequest | undefined;
+      const client = new STS({ region: "us-west-2" });
+      client.middlewareStack.add(
+        (next: any) => async (args: any) => {
+          request = args.request;
+          return next(args);
+        },
+        { step: "finalizeRequest", priority: "low" }
+      );
+
+      await client.getCallerIdentity({});
+      const userAgent = request!.headers["user-agent"];
+      const features = userAgent.match(/(?:^| )m\/([^ ]+)/)?.[1]?.split(",");
+      expect(features).toContain("Aq");
+    });
+
+    it("keeps the CREDENTIAL_DAEMON feature on requests signed with a role assumed from a daemon profile", async () => {
+      await startDaemon();
+      process.env.AWS_PROFILE = "assume";
+      setIniProfileData({
+        dev: {
+          daemon_credential: "dev",
+        },
+        assume: {
+          region: "us-west-2",
+          role_arn: "ROLE_ARN",
+          role_session_name: "ROLE_SESSION_NAME",
+          source_profile: "dev",
+        },
+      });
+      let request: HttpRequest | undefined;
+      const client = new STS({ region: "us-west-2" });
+      client.middlewareStack.add(
+        (next: any) => async (args: any) => {
+          request = args.request;
+          return next(args);
+        },
+        { step: "finalizeRequest", priority: "low" }
+      );
+
+      await client.getCallerIdentity({});
+      expect(request!.headers.authorization).toContain("STS_AR_ACCESS_KEY_ID");
+      const userAgent = request!.headers["user-agent"];
+      const features = userAgent.match(/(?:^| )m\/([^ ]+)/)?.[1]?.split(",");
+      expect(features).toEqual(expect.arrayContaining(["o", "Aq", "i"]));
+      expect(daemonRequests).toHaveLength(1);
+    });
+
+    /**
+     * The shared credential daemon cases marked requiresCredentialRefresh, run through the default chain
+     * (memoizeChain and its 5-minute window) on a faked clock. A case whose expected outcome needs
+     * credential refresh support is marked it.fails, which fails once the case passes.
+     */
+    describe("refresh", () => {
+      type DaemonReply = { accessKeyId: string; expiresAt: Date; secretAccessKey?: string };
+
+      const T0 = new Date("2030-01-01T00:00:00.000Z");
+      const MINUTE = 60_000;
+
+      let now: number;
+      let socketPath: string;
+      // the reply for the next daemon request. A request with no scripted reply gets CREDENTIAL_NOT_FOUND.
+      let nextReply: DaemonReply | undefined;
+
+      const replyFor = (id: number, reply: DaemonReply | undefined) => {
+        if (reply) {
+          return {
+            jsonrpc: "2.0",
+            id,
+            result: {
+              credential: "dev",
+              material: {
+                type: "session_credentials",
+                access_key_id: reply.accessKeyId,
+                secret_access_key: reply.secretAccessKey ?? "DAEMON_SECRET_KEY",
+                session_token: "DAEMON_SESSION_TOKEN",
+              },
+              expires_at: reply.expiresAt.toISOString(),
+            },
+          };
+        }
+        return {
+          jsonrpc: "2.0",
+          id,
+          error: { code: -32000, message: "denied", data: { code: "CREDENTIAL_NOT_FOUND" } },
+        };
+      };
+
+      /**
+       * Scripts the reply to the next daemon request.
+       */
+      const script = (reply: DaemonReply | undefined) => {
+        nextReply = reply;
+      };
+
+      const startScriptedDaemon = async () => {
+        socketPath = join(dir, "scripted.sock");
+        server = createServer((conn) => {
+          let buffer = "";
+          conn.on("data", (chunk) => {
+            buffer += chunk.toString("utf8");
+            const nl = buffer.indexOf("\n");
+            if (nl < 0) {
+              return;
+            }
+            const request = JSON.parse(buffer.slice(0, nl));
+            daemonRequests.push(request);
+            const reply = nextReply;
+            nextReply = undefined;
+            conn.end(JSON.stringify(replyFor(request.id, reply)) + "\n");
+          });
+          conn.on("error", () => {});
+        });
+        await new Promise<void>((resolve, reject) => {
+          server!.once("error", reject);
+          server!.listen(socketPath, resolve);
+        });
+        process.env.AWS_CREDENTIAL_DAEMON_SOCKET = socketPath;
+        process.env.AWS_PROFILE = "dev";
+        setIniProfileData({ dev: { daemon_credential: "dev" } });
+      };
+
+      beforeEach(() => {
+        vi.useFakeTimers({ toFake: ["Date"] });
+        now = T0.getTime();
+        vi.setSystemTime(new Date(now));
+        nextReply = undefined;
+      });
+
+      afterEach(() => {
+        vi.useRealTimers();
+      });
+
+      // it.fails: nothing drops cached credentials that a service rejected, so the next call returns the
+      // cached copy instead of calling the daemon.
+      it.fails("invalidated-refreshes: the call after an invalidation gets new credentials from the daemon", async () => {
+        await startScriptedDaemon();
+        const provider = defaultProvider();
+
+        script({ accessKeyId: "ASIAREJECTED", expiresAt: new Date(now + 60 * MINUTE) });
+        expect((await provider()).accessKeyId).toBe("ASIAREJECTED");
+        // a service rejects ASIAREJECTED here.
+        script({ accessKeyId: "ASIANEW", expiresAt: new Date(now + 60 * MINUTE) });
+        expect((await provider()).accessKeyId).toBe("ASIANEW");
+        expect(daemonRequests).toHaveLength(2);
+      });
+
+      // it.fails: as above, the daemon is not called again after the rejection. The expected outcome is a
+      // refresh failure with no daemon error code, whose message leaves out the cached secret.
+      it.fails("invalidated-same-key: a reply with the rejected key fails as a refresh failure", async () => {
+        await startScriptedDaemon();
+        const provider = defaultProvider();
+
+        script({ accessKeyId: "ASIAREJECTED", secretAccessKey: "s3cr3t", expiresAt: new Date(now + 60 * MINUTE) });
+        expect((await provider()).accessKeyId).toBe("ASIAREJECTED");
+        // a service rejects ASIAREJECTED here.
+        script({ accessKeyId: "ASIAREJECTED", secretAccessKey: "s3cr3t", expiresAt: new Date(now + 60 * MINUTE) });
+        const error = await provider().then(
+          () => undefined,
+          (e) => e
+        );
+        expect(error, "the second call rejects").toBeInstanceOf(Error);
+        expect(error.code, "no daemon error code").toBeUndefined();
+        expect(error.message).not.toContain("s3cr3t");
+        expect(daemonRequests).toHaveLength(2);
+      });
+
+      // memoizeChain's refresh already gives this case's expected outcome, so it isn't marked it.fails.
+      it("expiry-past: returns a reply whose expires_at is in the past, with its expiration", async () => {
+        await startScriptedDaemon();
+        const provider = defaultProvider();
+        const expiresAt = new Date(now - 60 * MINUTE);
+
+        script({ accessKeyId: "ASIADAEMON", expiresAt });
+        const credentials = await provider();
+        expect(credentials.accessKeyId).toBe("ASIADAEMON");
+        expect(credentials.expiration).toEqual(expiresAt);
+        expect(daemonRequests).toHaveLength(1);
       });
     });
   });

@@ -67,6 +67,7 @@ export type AwsSdkCredentialsFeatures = Partial<{
   CREDENTIALS_IMDS: "0";
   CREDENTIALS_PROFILE_LOGIN: "AC";
   CREDENTIALS_LOGIN: "AD";
+  CREDENTIAL_DAEMON: "Aq";
 }>;
 
 /**
