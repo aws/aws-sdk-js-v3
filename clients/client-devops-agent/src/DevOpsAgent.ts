@@ -128,6 +128,7 @@ import {
   type GetBacklogTaskCommandOutput,
   GetBacklogTaskCommand,
 } from "./commands/GetBacklogTaskCommand";
+import { type GetChatCommandInput, type GetChatCommandOutput, GetChatCommand } from "./commands/GetChatCommand";
 import {
   type GetOperatorAppCommandInput,
   type GetOperatorAppCommandOutput,
@@ -281,6 +282,11 @@ import {
   UpdateBacklogTaskCommand,
 } from "./commands/UpdateBacklogTaskCommand";
 import {
+  type UpdateChatCommandInput,
+  type UpdateChatCommandOutput,
+  UpdateChatCommand,
+} from "./commands/UpdateChatCommand";
+import {
   type UpdateGoalCommandInput,
   type UpdateGoalCommandOutput,
   UpdateGoalCommand,
@@ -350,6 +356,7 @@ const commands = {
   GetAssetFileCommand,
   GetAssociationCommand,
   GetBacklogTaskCommand,
+  GetChatCommand,
   GetOperatorAppCommand,
   GetRecommendationCommand,
   GetServiceCommand,
@@ -382,6 +389,7 @@ const commands = {
   UpdateAssetFileCommand,
   UpdateAssociationCommand,
   UpdateBacklogTaskCommand,
+  UpdateChatCommand,
   UpdateGoalCommand,
   UpdateOperatorAppIdpConfigCommand,
   UpdatePrivateConnectionCertificateCommand,
@@ -836,6 +844,23 @@ export interface DevOpsAgent {
     args: GetBacklogTaskCommandInput,
     options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: GetBacklogTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetChatCommand}
+   */
+  getChat(
+    args: GetChatCommandInput,
+    options?: DevOpsAgentRequestOptions
+  ): Promise<GetChatCommandOutput>;
+  getChat(
+    args: GetChatCommandInput,
+    cb: (err: any, data?: GetChatCommandOutput) => void
+  ): void;
+  getChat(
+    args: GetChatCommandInput,
+    options: DevOpsAgentRequestOptions,
+    cb: (err: any, data?: GetChatCommandOutput) => void
   ): void;
 
   /**
@@ -1384,6 +1409,23 @@ export interface DevOpsAgent {
     args: UpdateBacklogTaskCommandInput,
     options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: UpdateBacklogTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateChatCommand}
+   */
+  updateChat(
+    args: UpdateChatCommandInput,
+    options?: DevOpsAgentRequestOptions
+  ): Promise<UpdateChatCommandOutput>;
+  updateChat(
+    args: UpdateChatCommandInput,
+    cb: (err: any, data?: UpdateChatCommandOutput) => void
+  ): void;
+  updateChat(
+    args: UpdateChatCommandInput,
+    options: DevOpsAgentRequestOptions,
+    cb: (err: any, data?: UpdateChatCommandOutput) => void
   ): void;
 
   /**

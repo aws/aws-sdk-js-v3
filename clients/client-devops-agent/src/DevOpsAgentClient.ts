@@ -109,6 +109,7 @@ import type { GetAssetContentCommandInput, GetAssetContentCommandOutput } from "
 import type { GetAssetFileCommandInput, GetAssetFileCommandOutput } from "./commands/GetAssetFileCommand";
 import type { GetAssociationCommandInput, GetAssociationCommandOutput } from "./commands/GetAssociationCommand";
 import type { GetBacklogTaskCommandInput, GetBacklogTaskCommandOutput } from "./commands/GetBacklogTaskCommand";
+import type { GetChatCommandInput, GetChatCommandOutput } from "./commands/GetChatCommand";
 import type { GetOperatorAppCommandInput, GetOperatorAppCommandOutput } from "./commands/GetOperatorAppCommand";
 import type {
   GetRecommendationCommandInput,
@@ -171,6 +172,7 @@ import type {
   UpdateBacklogTaskCommandInput,
   UpdateBacklogTaskCommandOutput,
 } from "./commands/UpdateBacklogTaskCommand";
+import type { UpdateChatCommandInput, UpdateChatCommandOutput } from "./commands/UpdateChatCommand";
 import type { UpdateGoalCommandInput, UpdateGoalCommandOutput } from "./commands/UpdateGoalCommand";
 import type {
   UpdateOperatorAppIdpConfigCommandInput,
@@ -229,6 +231,7 @@ export type ServiceInputTypes =
   | GetAssetFileCommandInput
   | GetAssociationCommandInput
   | GetBacklogTaskCommandInput
+  | GetChatCommandInput
   | GetOperatorAppCommandInput
   | GetRecommendationCommandInput
   | GetServiceCommandInput
@@ -261,6 +264,7 @@ export type ServiceInputTypes =
   | UpdateAssetFileCommandInput
   | UpdateAssociationCommandInput
   | UpdateBacklogTaskCommandInput
+  | UpdateChatCommandInput
   | UpdateGoalCommandInput
   | UpdateOperatorAppIdpConfigCommandInput
   | UpdatePrivateConnectionCertificateCommandInput
@@ -297,6 +301,7 @@ export type ServiceOutputTypes =
   | GetAssetFileCommandOutput
   | GetAssociationCommandOutput
   | GetBacklogTaskCommandOutput
+  | GetChatCommandOutput
   | GetOperatorAppCommandOutput
   | GetRecommendationCommandOutput
   | GetServiceCommandOutput
@@ -329,6 +334,7 @@ export type ServiceOutputTypes =
   | UpdateAssetFileCommandOutput
   | UpdateAssociationCommandOutput
   | UpdateBacklogTaskCommandOutput
+  | UpdateChatCommandOutput
   | UpdateGoalCommandOutput
   | UpdateOperatorAppIdpConfigCommandOutput
   | UpdatePrivateConnectionCertificateCommandOutput

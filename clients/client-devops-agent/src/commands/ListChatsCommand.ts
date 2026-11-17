@@ -37,6 +37,7 @@ export interface ListChatsCommandOutput extends ListChatsResponse, __MetadataBea
  *   userId: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   archiveStatus: "ACTIVE" || "ARCHIVED",
  * };
  * const command = new ListChatsCommand(input);
  * const response = await client.send(command);
@@ -47,6 +48,7 @@ export interface ListChatsCommandOutput extends ListChatsResponse, __MetadataBea
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       summary: "STRING_VALUE",
+ * //       archiveStatus: "ACTIVE" || "ARCHIVED",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -60,6 +62,9 @@ export interface ListChatsCommandOutput extends ListChatsResponse, __MetadataBea
  * @see {@link ListChatsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsAgentClientResolvedConfig | config} for DevOpsAgentClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to the requested resource is denied due to insufficient permissions.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
  *
@@ -71,9 +76,6 @@ export interface ListChatsCommandOutput extends ListChatsResponse, __MetadataBea
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the service.</p>
- *
- * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to the requested resource is denied due to insufficient permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The request conflicts with the current state of the resource.</p>

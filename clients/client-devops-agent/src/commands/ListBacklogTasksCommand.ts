@@ -44,7 +44,7 @@ export interface ListBacklogTasksCommandOutput extends ListBacklogTasksResponse,
  *       "PENDING_TRIAGE" || "LINKED" || "PENDING_START" || "IN_PROGRESS" || "PENDING_CUSTOMER_APPROVAL" || "COMPLETED" || "FAILED" || "TIMED_OUT" || "CANCELED" || "SKIPPED" || "WAITING",
  *     ],
  *     taskType: [ // TaskTypeList
- *       "INVESTIGATION" || "EVALUATION" || "RELEASE_READINESS_REVIEW" || "RELEASE_TESTING",
+ *       "INVESTIGATION" || "EVALUATION" || "RELEASE_READINESS_REVIEW" || "RELEASE_TESTING" || "CODE_CHANGE_RISK_ANALYSIS",
  *     ],
  *     primaryTaskId: "STRING_VALUE",
  *   },
@@ -70,7 +70,7 @@ export interface ListBacklogTasksCommandOutput extends ListBacklogTasksResponse,
  * //         referenceUrl: "STRING_VALUE", // required
  * //         associationId: "STRING_VALUE", // required
  * //       },
- * //       taskType: "INVESTIGATION" || "EVALUATION" || "RELEASE_READINESS_REVIEW" || "RELEASE_TESTING", // required
+ * //       taskType: "INVESTIGATION" || "EVALUATION" || "RELEASE_READINESS_REVIEW" || "RELEASE_TESTING" || "CODE_CHANGE_RISK_ANALYSIS", // required
  * //       priority: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "MINIMAL", // required
  * //       status: "PENDING_TRIAGE" || "LINKED" || "PENDING_START" || "IN_PROGRESS" || "PENDING_CUSTOMER_APPROVAL" || "COMPLETED" || "FAILED" || "TIMED_OUT" || "CANCELED" || "SKIPPED" || "WAITING", // required
  * //       createdAt: new Date("TIMESTAMP"), // required

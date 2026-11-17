@@ -129,6 +129,9 @@ const _GBT = "GetBacklogTask";
 const _GBTR = "GetBacklogTaskRequest";
 const _GBTRe = "GetBacklogTaskResponse";
 const _GC = "GoalContent";
+const _GCR = "GetChatRequest";
+const _GCRe = "GetChatResponse";
+const _GCe = "GetChat";
 const _GHC = "GitHubConfiguration";
 const _GL = "GoalList";
 const _GLC = "GitLabConfiguration";
@@ -355,6 +358,9 @@ const _UAp = "UpdateAssociation";
 const _UBT = "UpdateBacklogTask";
 const _UBTR = "UpdateBacklogTaskRequest";
 const _UBTRp = "UpdateBacklogTaskResponse";
+const _UC = "UpdateChat";
+const _UCR = "UpdateChatRequest";
+const _UCRp = "UpdateChatResponse";
 const _UG = "UpdateGoal";
 const _UGR = "UpdateGoalRequest";
 const _UGRp = "UpdateGoalResponse";
@@ -412,13 +418,14 @@ const _aP = "argumentPins";
 const _aPI = "alertPolicyIds";
 const _aR = "accessibleResources";
 const _aRA = "assumableRoleArn";
-const _aS = "agentSpace";
+const _aS = "archiveStatus";
 const _aSA = "agentSpaceArn";
 const _aSD = "additionalServiceDetails";
 const _aSI = "agentSpaceId";
 const _aST = "agentSubTask";
 const _aSd = "additionalStep";
-const _aSg = "agentSpaces";
+const _aSg = "agentSpace";
+const _aSge = "agentSpaces";
 const _aSu = "authScopes";
 const _aT = "assetType";
 const _aTc = "accountType";
@@ -596,7 +603,7 @@ const _pag = "pagerduty";
 const _pat = "patterns";
 const _pr = "priority";
 const _pro = "provider";
-const _r = "reference";
+const _r = "reason";
 const _rA = "resourceArn";
 const _rAa = "rankedAt";
 const _rAo = "roleArn";
@@ -620,8 +627,7 @@ const _rT = "recordType";
 const _rTE = "returnToEndpoint";
 const _rU = "referenceUrl";
 const _rV = "recommendationVersion";
-const _re = "resources";
-const _rea = "reason";
+const _re = "reference";
 const _rec = "recommendation";
 const _reco = "records";
 const _recom = "recommendations";
@@ -629,6 +635,7 @@ const _recu = "recurrence";
 const _reg = "region";
 const _rem = "remoteagent";
 const _remo = "remoteagentsigv4";
+const _res = "resources";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.devopsagent";
 const _sA = "startAfter";
 const _sAo = "sourceAws";
@@ -766,8 +773,8 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
 n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0], 1
+  [_m, _r],
+  [0, 0], 1
 ];
 n0_registry.registerError(ConflictException$, ConflictException);
 export var ContentSizeExceededException$: StaticErrorSchema = [-3, n0, _CSEE,
@@ -931,8 +938,8 @@ export var CapabilityConfiguration$: StaticStructureSchema = [3, n0, _CC,
 ];
 export var ChatExecution$: StaticStructureSchema = [3, n0, _CEh,
   0,
-  [_eI, _cA, _uA, _su],
-  [0, 4, 4, 0], 2
+  [_eI, _cA, _uA, _su, _aS],
+  [0, 4, 4, 0, 0], 2
 ];
 export var CreateAgentSpaceInput$: StaticStructureSchema = [3, n0, _CASI,
   0,
@@ -941,7 +948,7 @@ export var CreateAgentSpaceInput$: StaticStructureSchema = [3, n0, _CASI,
 ];
 export var CreateAgentSpaceOutput$: StaticStructureSchema = [3, n0, _CASO,
   0,
-  [_aS, _ta],
+  [_aSg, _ta],
   [[() => AgentSpace$, 0], 128 | 0], 1
 ];
 export var CreateAssetFileRequest$: StaticStructureSchema = [3, n0, _CAFR,
@@ -966,7 +973,7 @@ export var CreateAssetResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateBacklogTaskRequest$: StaticStructureSchema = [3, n0, _CBTR,
   0,
-  [_aSI, _tT, _ti, _pr, _r, _d, _cT],
+  [_aSI, _tT, _ti, _pr, _re, _d, _cT],
   [[0, 1], 0, 0, 0, () => ReferenceInput$, 0, [0, 4]], 4
 ];
 export var CreateBacklogTaskResponse$: StaticStructureSchema = [3, n0, _CBTRr,
@@ -1106,7 +1113,7 @@ export var DisassociateServiceOutput$: StaticStructureSchema = [3, n0, _DSOi,
 ];
 export var DynatraceConfiguration$: StaticStructureSchema = [3, n0, _DC,
   0,
-  [_eIn, _re],
+  [_eIn, _res],
   [0, 64 | 0], 1
 ];
 export var DynatraceOAuthClientCredentialsConfig$: StaticStructureSchema = [3, n0, _DOACCC,
@@ -1166,7 +1173,7 @@ export var GetAgentSpaceInput$: StaticStructureSchema = [3, n0, _GASI,
 ];
 export var GetAgentSpaceOutput$: StaticStructureSchema = [3, n0, _GASO,
   0,
-  [_aS, _ta],
+  [_aSg, _ta],
   [[() => AgentSpace$, 0], 128 | 0], 1
 ];
 export var GetAssetContentRequest$: StaticStructureSchema = [3, n0, _GACR,
@@ -1218,6 +1225,16 @@ export var GetBacklogTaskResponse$: StaticStructureSchema = [3, n0, _GBTRe,
   0,
   [_tas],
   [() => Task$], 1
+];
+export var GetChatRequest$: StaticStructureSchema = [3, n0, _GCR,
+  0,
+  [_aSI, _eI],
+  [[0, 1], [0, 1]], 2
+];
+export var GetChatResponse$: StaticStructureSchema = [3, n0, _GCRe,
+  0,
+  [_eI, _cA, _uA, _aS, _su],
+  [0, 4, 4, 0, 0], 4
 ];
 export var GetOperatorAppInput$: StaticStructureSchema = [3, n0, _GOAI,
   0,
@@ -1326,7 +1343,7 @@ export var ListAgentSpacesInput$: StaticStructureSchema = [3, n0, _LASI,
 ];
 export var ListAgentSpacesOutput$: StaticStructureSchema = [3, n0, _LASO,
   0,
-  [_aSg, _nT],
+  [_aSge, _nT],
   [[() => AgentSpaceList, 0], 0], 1
 ];
 export var ListAssetFilesRequest$: StaticStructureSchema = [3, n0, _LAFR,
@@ -1391,8 +1408,8 @@ export var ListBacklogTasksResponse$: StaticStructureSchema = [3, n0, _LBTRi,
 ];
 export var ListChatsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
-  [_aSI, _uI, _mR, _nT],
-  [[0, 1], [0, { [_hQ]: _uI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+  [_aSI, _uI, _mR, _nT, _aS],
+  [[0, 1], [0, { [_hQ]: _uI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _aS }]], 1
 ];
 export var ListChatsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
@@ -1941,7 +1958,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var Task$: StaticStructureSchema = [3, n0, _T,
   0,
-  [_aSI, _tIa, _ti, _tT, _pr, _st, _cA, _uA, _v, _eI, _d, _r, _sM, _me, _pTI, _sR, _hLT],
+  [_aSI, _tIa, _ti, _tT, _pr, _st, _cA, _uA, _v, _eI, _d, _re, _sM, _me, _pTI, _sR, _hLT],
   [0, 0, 0, 0, 0, 0, 5, 5, 1, 0, 0, () => ReferenceOutput$, 15, 15, 0, 0, 2], 9
 ];
 export var TaskFilter$: StaticStructureSchema = [3, n0, _TF,
@@ -1981,12 +1998,12 @@ export var UpdateAgentSpaceInput$: StaticStructureSchema = [3, n0, _UASI,
 ];
 export var UpdateAgentSpaceOutput$: StaticStructureSchema = [3, n0, _UASO,
   0,
-  [_aS],
+  [_aSg],
   [[() => AgentSpace$, 0]], 1
 ];
 export var UpdateApprovalActionRequest$: StaticStructureSchema = [3, n0, _UAAR,
   0,
-  [_aSI, _aI, _a, _fP, _rea, _tS, _sU],
+  [_aSI, _aI, _a, _fP, _r, _tS, _sU],
   [[0, 1], [0, 1], 0, () => ApprovalPattern$, 0, 1, 2], 3
 ];
 export var UpdateApprovalActionResponse$: StaticStructureSchema = [3, n0, _UAARp,
@@ -2033,6 +2050,16 @@ export var UpdateBacklogTaskResponse$: StaticStructureSchema = [3, n0, _UBTRp,
   0,
   [_tas],
   [() => Task$], 1
+];
+export var UpdateChatRequest$: StaticStructureSchema = [3, n0, _UCR,
+  0,
+  [_aSI, _eI, _su, _aS, _cT],
+  [[0, 1], [0, 1], 0, 0, [0, 4]], 2
+];
+export var UpdateChatResponse$: StaticStructureSchema = [3, n0, _UCRp,
+  0,
+  [_eI, _uA, _aS, _su],
+  [0, 4, 0, 0], 3
 ];
 export var UpdateGoalRequest$: StaticStructureSchema = [3, n0, _UGR,
   0,
@@ -2420,6 +2447,9 @@ export var GetAssociation$: StaticOperationSchema = [9, n0, _GAe,
 export var GetBacklogTask$: StaticOperationSchema = [9, n0, _GBT,
   { [_end]: ["dp."], [_ht]: ["GET", "/backlog/agent-space/{agentSpaceId}/tasks/{taskId}", 200] }, () => GetBacklogTaskRequest$, () => GetBacklogTaskResponse$
 ];
+export var GetChat$: StaticOperationSchema = [9, n0, _GCe,
+  { [_end]: ["dp."], [_ht]: ["GET", "/agents/agent-space/{agentSpaceId}/chat/get/{executionId}", 200] }, () => GetChatRequest$, () => GetChatResponse$
+];
 export var GetOperatorApp$: StaticOperationSchema = [9, n0, _GOA,
   { [_end]: ["cp."], [_ht]: ["GET", "/v2/agentspaces/{agentSpaceId}/operator", 200] }, () => GetOperatorAppInput$, () => GetOperatorAppOutput$
 ];
@@ -2515,6 +2545,9 @@ export var UpdateAssociation$: StaticOperationSchema = [9, n0, _UAp,
 ];
 export var UpdateBacklogTask$: StaticOperationSchema = [9, n0, _UBT,
   { [_end]: ["dp."], [_ht]: ["PATCH", "/backlog/agent-space/{agentSpaceId}/tasks/{taskId}", 200] }, () => UpdateBacklogTaskRequest$, () => UpdateBacklogTaskResponse$
+];
+export var UpdateChat$: StaticOperationSchema = [9, n0, _UC,
+  { [_end]: ["dp."], [_ht]: ["PATCH", "/agents/agent-space/{agentSpaceId}/chat/{executionId}", 200] }, () => UpdateChatRequest$, () => UpdateChatResponse$
 ];
 export var UpdateGoal$: StaticOperationSchema = [9, n0, _UG,
   { [_end]: ["dp."], [_ht]: ["PATCH", "/backlog/agent-space/{agentSpaceId}/goals/{goalId}", 200] }, () => UpdateGoalRequest$, () => UpdateGoalResponse$

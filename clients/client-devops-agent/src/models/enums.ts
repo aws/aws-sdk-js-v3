@@ -127,6 +127,8 @@ export type AgentSpacePreferenceKey = (typeof AgentSpacePreferenceKey)[keyof typ
  * @enum
  */
 export const CapabilityType = {
+  CODE_CHANGE_RISK_ANALYSIS: "CODE_CHANGE_RISK_ANALYSIS",
+  CODE_CHANGE_RISK_ANALYSIS_AUTOMATED_TESTING: "CODE_CHANGE_RISK_ANALYSIS_AUTOMATED_TESTING",
   /**
    * <p>Release readiness review auto-trigger capability.</p>
    */
@@ -252,6 +254,18 @@ export type WebhookType = (typeof WebhookType)[keyof typeof WebhookType];
  * @public
  * @enum
  */
+export const ConflictExceptionReason = {
+  CHAT_ARCHIVED: "CHAT_ARCHIVED",
+} as const;
+/**
+ * @public
+ */
+export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const AuthFlow = {
   /**
    * <p>IAM-based authentication flow</p>
@@ -338,6 +352,19 @@ export type ApprovalStatus = (typeof ApprovalStatus)[keyof typeof ApprovalStatus
  * @public
  * @enum
  */
+export const ChatArchiveStatus = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+} as const;
+/**
+ * @public
+ */
+export type ChatArchiveStatus = (typeof ChatArchiveStatus)[keyof typeof ChatArchiveStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const Priority = {
   /**
    * <p>Highest priority</p>
@@ -370,6 +397,7 @@ export type Priority = (typeof Priority)[keyof typeof Priority];
  * @enum
  */
 export const TaskType = {
+  CODE_CHANGE_RISK_ANALYSIS: "CODE_CHANGE_RISK_ANALYSIS",
   /**
    * <p>Task for evaluating options or solutions (not in use)</p>
    */

@@ -7,6 +7,7 @@ import type {
   ApprovalStatus,
   AuthFlow,
   CapabilityType,
+  ChatArchiveStatus,
   DayOfWeek,
   EventChannelType,
   ExecutionStatus,
@@ -3641,6 +3642,12 @@ export interface ChatExecution {
    * @public
    */
   summary?: string | undefined;
+
+  /**
+   * <p>Indicates whether the chat execution is archived or active.</p>
+   * @public
+   */
+  archiveStatus?: ChatArchiveStatus | undefined;
 }
 
 /**
@@ -5121,6 +5128,58 @@ export interface GetBacklogTaskResponse {
 }
 
 /**
+ * @public
+ */
+export interface GetChatRequest {
+  /**
+   * <p>The unique identifier of the agent space that contains the chat execution.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the chat execution to retrieve.</p>
+   * @public
+   */
+  executionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetChatResponse {
+  /**
+   * <p>The unique identifier of the chat execution.</p>
+   * @public
+   */
+  executionId: string | undefined;
+
+  /**
+   * <p>The summary of the chat execution.</p>
+   * @public
+   */
+  summary?: string | undefined;
+
+  /**
+   * <p>The date and time at which the chat execution was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time at which the chat execution was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Indicates whether the chat execution is archived or active.</p>
+   * @public
+   */
+  archiveStatus: ChatArchiveStatus | undefined;
+}
+
+/**
  * <p>Request structure for retrieving a specific recommendation</p>
  * @public
  */
@@ -5630,6 +5689,12 @@ export interface ListChatsRequest {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>The archive status to filter by. Use this parameter to list only archived chat executions or only active ones.</p>
+   * @public
+   */
+  archiveStatus?: ChatArchiveStatus | undefined;
 }
 
 /**
@@ -9053,6 +9118,70 @@ export interface UpdateBacklogTaskResponse {
    * @public
    */
   task: Task | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateChatRequest {
+  /**
+   * <p>The unique identifier of the agent space that contains the chat execution to update.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the chat execution to update.</p>
+   * @public
+   */
+  executionId: string | undefined;
+
+  /**
+   * <p>The new summary to set for the chat execution.</p>
+   * @public
+   */
+  summary?: string | undefined;
+
+  /**
+   * <p>The archive status to set for the chat execution. Use this parameter to archive the chat execution, hiding it from the default chat list, or to unarchive it, restoring it to the default chat list.</p>
+   * @public
+   */
+  archiveStatus?: ChatArchiveStatus | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateChatResponse {
+  /**
+   * <p>The unique identifier of the updated chat execution.</p>
+   * @public
+   */
+  executionId: string | undefined;
+
+  /**
+   * <p>The summary of the chat execution after the update.</p>
+   * @public
+   */
+  summary?: string | undefined;
+
+  /**
+   * <p>The date and time at which the chat execution was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The archive status of the chat execution after the update.</p>
+   * @public
+   */
+  archiveStatus: ChatArchiveStatus | undefined;
 }
 
 /**

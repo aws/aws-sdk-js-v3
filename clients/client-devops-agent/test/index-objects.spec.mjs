@@ -31,9 +31,11 @@ import {
   AzureDevOpsConfiguration$,
   CapabilityConfiguration$,
   CapabilityType,
+  ChatArchiveStatus,
   ChatExecution$,
   ConflictException,
   ConflictException$,
+  ConflictExceptionReason,
   ContentSizeExceededException,
   ContentSizeExceededException$,
   CreateAgentSpace$,
@@ -149,6 +151,10 @@ import {
   GetBacklogTaskCommand,
   GetBacklogTaskRequest$,
   GetBacklogTaskResponse$,
+  GetChat$,
+  GetChatCommand,
+  GetChatRequest$,
+  GetChatResponse$,
   GetOperatorApp$,
   GetOperatorAppCommand,
   GetOperatorAppInput$,
@@ -442,6 +448,10 @@ import {
   UpdateBacklogTaskCommand,
   UpdateBacklogTaskRequest$,
   UpdateBacklogTaskResponse$,
+  UpdateChat$,
+  UpdateChatCommand,
+  UpdateChatRequest$,
+  UpdateChatResponse$,
   UpdateGoal$,
   UpdateGoalCommand,
   UpdateGoalRequest$,
@@ -533,6 +543,8 @@ assert(typeof GetAssociationCommand === "function");
 assert(typeof GetAssociation$ === "object");
 assert(typeof GetBacklogTaskCommand === "function");
 assert(typeof GetBacklogTask$ === "object");
+assert(typeof GetChatCommand === "function");
+assert(typeof GetChat$ === "object");
 assert(typeof GetOperatorAppCommand === "function");
 assert(typeof GetOperatorApp$ === "object");
 assert(typeof GetRecommendationCommand === "function");
@@ -597,6 +609,8 @@ assert(typeof UpdateAssociationCommand === "function");
 assert(typeof UpdateAssociation$ === "object");
 assert(typeof UpdateBacklogTaskCommand === "function");
 assert(typeof UpdateBacklogTask$ === "object");
+assert(typeof UpdateChatCommand === "function");
+assert(typeof UpdateChat$ === "object");
 assert(typeof UpdateGoalCommand === "function");
 assert(typeof UpdateGoal$ === "object");
 assert(typeof UpdateOperatorAppIdpConfigCommand === "function");
@@ -693,6 +707,8 @@ assert(typeof GetAssociationInput$ === "object");
 assert(typeof GetAssociationOutput$ === "object");
 assert(typeof GetBacklogTaskRequest$ === "object");
 assert(typeof GetBacklogTaskResponse$ === "object");
+assert(typeof GetChatRequest$ === "object");
+assert(typeof GetChatResponse$ === "object");
 assert(typeof GetOperatorAppInput$ === "object");
 assert(typeof GetOperatorAppOutput$ === "object");
 assert(typeof GetRecommendationRequest$ === "object");
@@ -871,6 +887,8 @@ assert(typeof UpdateAssociationInput$ === "object");
 assert(typeof UpdateAssociationOutput$ === "object");
 assert(typeof UpdateBacklogTaskRequest$ === "object");
 assert(typeof UpdateBacklogTaskResponse$ === "object");
+assert(typeof UpdateChatRequest$ === "object");
+assert(typeof UpdateChatResponse$ === "object");
 assert(typeof UpdateGoalRequest$ === "object");
 assert(typeof UpdateGoalResponse$ === "object");
 assert(typeof UpdateOperatorAppIdpConfigInput$ === "object");
@@ -895,6 +913,8 @@ assert(typeof ApprovalActionType === "object");
 assert(typeof ApprovalStatus === "object");
 assert(typeof AuthFlow === "object");
 assert(typeof CapabilityType === "object");
+assert(typeof ChatArchiveStatus === "object");
+assert(typeof ConflictExceptionReason === "object");
 assert(typeof DayOfWeek === "object");
 assert(typeof EventChannelType === "object");
 assert(typeof ExecutionStatus === "object");

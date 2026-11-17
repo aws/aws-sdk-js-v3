@@ -2,6 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
 import { DevOpsAgentServiceException as __BaseException } from "./DevOpsAgentServiceException";
+import type { ConflictExceptionReason } from "./enums";
 import type { ValidationExceptionField } from "./models_0";
 
 /**
@@ -34,6 +35,12 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
+   * <p>A machine-readable reason code that explains why the request conflicted with the current state of the resource. For example, <code>CHAT_ARCHIVED</code> indicates that the request acted on a chat that is archived. This field is absent when no specific reason applies.</p>
+   * @public
+   */
+  reason?: ConflictExceptionReason | undefined;
+
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
@@ -43,6 +50,7 @@ export class ConflictException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ConflictException.prototype);
+    this.reason = opts.reason;
   }
 }
 
