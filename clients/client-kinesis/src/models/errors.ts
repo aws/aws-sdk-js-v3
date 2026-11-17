@@ -26,6 +26,28 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * <p>The processing of the request failed because of an unknown error, exception, or
+ *             failure.</p>
+ * @public
+ */
+export class InternalFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#InternalFailureException";
+  readonly name = "InternalFailureException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+  }
+}
+
+/**
  * <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
  *             For more information, see the returned message.</p>
  * @public
@@ -44,6 +66,50 @@ export class InvalidArgumentException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidArgumentException.prototype);
+  }
+}
+
+/**
+ * <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#ResourceNotFoundException";
+  readonly name = "ResourceNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>The request was denied because the request rate is too high. Reduce the frequency of
+ *             your requests, and retry them with exponential backoff.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#ThrottlingException";
+  readonly name = "ThrottlingException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
   }
 }
 
@@ -92,28 +158,6 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>The requested resource could not be found. The stream might not be specified
- *             correctly.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.kinesis#ResourceNotFoundException";
-  readonly name = "ResourceNotFoundException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
  * <p>The ciphertext references a key that doesn't exist or that you don't have access
  *             to.</p>
  * @public
@@ -136,7 +180,7 @@ export class KMSAccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified customer master key (CMK) isn't
+ * <p>The request was rejected because the specified KMS key isn't
  *             enabled.</p>
  * @public
  */
@@ -249,9 +293,9 @@ export class KMSThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
+ * <p>The request failed validation. For example, a parameter value is not valid, a
+ *             combination of parameters is not supported, or the operation is not supported for the
+ *             stream's capacity mode. The error message describes the specific reason.</p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -331,28 +375,6 @@ export class ExpiredNextTokenException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ExpiredNextTokenException.prototype);
-  }
-}
-
-/**
- * <p>The processing of the request failed because of an unknown error, exception, or
- *             failure.</p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.kinesis#InternalFailureException";
-  readonly name = "InternalFailureException" as const;
-  readonly $fault = "server" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
   }
 }
 

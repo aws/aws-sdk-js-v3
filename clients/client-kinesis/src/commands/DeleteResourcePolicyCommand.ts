@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep3, _mw0, command } from "../commandBuilder";
+import { _ep6, _mw0, command } from "../commandBuilder";
 import type { DeleteResourcePolicyInput } from "../models/models_0";
 import { DeleteResourcePolicy$ } from "../schemas/schemas_0";
 
@@ -23,7 +23,7 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyIn
 export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete a policy for the specified data stream or consumer. Request patterns can be one of the following:</p>
+ * <p>Delete a policy for the specified data stream, consumer, or queue. Request patterns can be one of the following:</p>
  *          <ul>
  *             <li>
  *                <p>Data stream pattern: <code>arn:aws.*:kinesis:.*:\d\{12\}:.*stream/\S+</code>
@@ -31,6 +31,10 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>Consumer pattern: <code>^(arn):aws.*:kinesis:.*:\d\{12\}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Queue pattern: <code>arn:aws.*:kinesis:.*:\d\{12\}:queue/\S+</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -62,6 +66,10 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  *  <p>Specifies that you do not have the permissions required to perform this
  *             operation.</p>
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>The processing of the request failed because of an unknown error, exception, or
+ *             failure.</p>
+ *
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
  *             For more information, see the returned message.</p>
@@ -78,6 +86,11 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation. For example, a parameter value is not valid, a
+ *             combination of parameters is not supported, or the operation is not supported for the
+ *             stream's capacity mode. The error message describes the specific reason.</p>
+ *
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
@@ -85,7 +98,7 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * @public
  */
 export class DeleteResourcePolicyCommand extends command<DeleteResourcePolicyCommandInput, DeleteResourcePolicyCommandOutput>(
-  _ep3,
+  _ep6,
   _mw0,
   "DeleteResourcePolicy",
   DeleteResourcePolicy$

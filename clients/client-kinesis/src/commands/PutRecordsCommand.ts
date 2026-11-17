@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep5, _mw0, command } from "../commandBuilder";
+import { _ep8, _mw0, command } from "../commandBuilder";
 import type { PutRecordsInput, PutRecordsOutput } from "../models/models_0";
 import { PutRecords$ } from "../schemas/schemas_0";
 
@@ -148,7 +148,7 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  *             to.</p>
  *
  * @throws {@link KMSDisabledException} (client fault)
- *  <p>The request was rejected because the specified customer master key (CMK) isn't
+ *  <p>The request was rejected because the specified KMS key isn't
  *             enabled.</p>
  *
  * @throws {@link KMSInvalidStateException} (client fault)
@@ -188,7 +188,7 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  * @public
  */
 export class PutRecordsCommand extends command<PutRecordsCommandInput, PutRecordsCommandOutput>(
-  _ep5,
+  _ep8,
   _mw0,
   "PutRecords",
   PutRecords$

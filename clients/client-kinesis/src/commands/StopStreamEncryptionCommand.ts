@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { StopStreamEncryptionInput } from "../models/models_0";
 import { StopStreamEncryption$ } from "../schemas/schemas_0";
 
@@ -97,7 +97,7 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  * @public
  */
 export class StopStreamEncryptionCommand extends command<StopStreamEncryptionCommandInput, StopStreamEncryptionCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "StopStreamEncryption",
   StopStreamEncryption$

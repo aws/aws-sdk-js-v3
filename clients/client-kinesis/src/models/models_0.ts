@@ -9,6 +9,8 @@ import type {
   MinimumThroughputBillingCommitmentInputStatus,
   MinimumThroughputBillingCommitmentOutputStatus,
   PartitionTransform,
+  QueueStartingPositionType,
+  QueueStatus,
   RecordDistributionStrategy,
   RecordFormatType,
   S3CompressionType,
@@ -19,6 +21,7 @@ import type {
   ShardIteratorType,
   StreamMode,
   StreamStatus,
+  TargetType,
 } from "./enums";
 import type {
   InternalFailureException,
@@ -31,6 +34,176 @@ import type {
   ResourceInUseException,
   ResourceNotFoundException,
 } from "./errors";
+
+/**
+ * <p>A dead-letter record to acknowledge, identified by its receipt handle.</p>
+ * @public
+ */
+export interface AcknowledgeDeadLetterQueueRecordsRequestEntry {
+  /**
+   * <p>The receipt handle of the record to acknowledge, as returned by
+   *             <a>ReceiveDeadLetterQueueRecords</a>.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AcknowledgeDeadLetterQueueRecordsInput {
+  /**
+   * <p>The ARN of the queue whose dead-letter records are acknowledged.</p>
+   * @public
+   */
+  QueueARN: string | undefined;
+
+  /**
+   * <p>The dead-letter records to acknowledge, identified by their receipt handles.</p>
+   * @public
+   */
+  Entries: AcknowledgeDeadLetterQueueRecordsRequestEntry[] | undefined;
+}
+
+/**
+ * <p>A dead-letter record that was not acknowledged, and why.</p>
+ * @public
+ */
+export interface AcknowledgeDeadLetterQueueRecordsErrorEntry {
+  /**
+   * <p>The receipt handle of the record that was not acknowledged.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+
+  /**
+   * <p>A code identifying the type of failure. One of
+   *             <code>ResourceNotFoundException</code>, <code>InvalidArgumentException</code>,
+   *             <code>ThrottlingException</code>, or <code>InternalFailureException</code>.</p>
+   * @public
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>A description of the cause of the failure.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+}
+
+/**
+ * <p>A dead-letter record that was acknowledged.</p>
+ * @public
+ */
+export interface AcknowledgeDeadLetterQueueRecordsResultEntry {
+  /**
+   * <p>The receipt handle of the record that was acknowledged.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AcknowledgeDeadLetterQueueRecordsOutput {
+  /**
+   * <p>The records that were acknowledged.</p>
+   * @public
+   */
+  Successful: AcknowledgeDeadLetterQueueRecordsResultEntry[] | undefined;
+
+  /**
+   * <p>The records that were not acknowledged, each with the reason the entry failed.</p>
+   * @public
+   */
+  Failed: AcknowledgeDeadLetterQueueRecordsErrorEntry[] | undefined;
+}
+
+/**
+ * <p>A record to acknowledge, identified by its receipt handle.</p>
+ * @public
+ */
+export interface AcknowledgeQueueRecordsRequestEntry {
+  /**
+   * <p>The receipt handle of the record to acknowledge, as returned by
+   *             <a>ReceiveQueueRecords</a>.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AcknowledgeQueueRecordsInput {
+  /**
+   * <p>The ARN of the queue the records were received from.</p>
+   * @public
+   */
+  QueueARN: string | undefined;
+
+  /**
+   * <p>The records to acknowledge, identified by their receipt handles.</p>
+   * @public
+   */
+  Entries: AcknowledgeQueueRecordsRequestEntry[] | undefined;
+}
+
+/**
+ * <p>A record that was not acknowledged, and why.</p>
+ * @public
+ */
+export interface AcknowledgeQueueRecordsErrorEntry {
+  /**
+   * <p>The receipt handle of the record that was not acknowledged.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+
+  /**
+   * <p>A code identifying the type of failure. One of
+   *             <code>ResourceNotFoundException</code>, <code>InvalidArgumentException</code>,
+   *             <code>ThrottlingException</code>, or <code>InternalFailureException</code>.</p>
+   * @public
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>A description of the cause of the failure.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+}
+
+/**
+ * <p>A record that was acknowledged.</p>
+ * @public
+ */
+export interface AcknowledgeQueueRecordsResultEntry {
+  /**
+   * <p>The receipt handle of the record that was acknowledged.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AcknowledgeQueueRecordsOutput {
+  /**
+   * <p>The records that were acknowledged.</p>
+   * @public
+   */
+  Successful: AcknowledgeQueueRecordsResultEntry[] | undefined;
+
+  /**
+   * <p>The records that were not acknowledged, each with the reason the entry failed.</p>
+   * @public
+   */
+  Failed: AcknowledgeQueueRecordsErrorEntry[] | undefined;
+}
 
 /**
  * <p>Represents the input for <code>AddTagsToStream</code>.</p>
@@ -888,6 +1061,217 @@ export interface CreateChannelOutput {
 }
 
 /**
+ * <p>The dead-letter handling configuration for a queue. Each queue has built-in dead-letter
+ *             handling. When a record has been received <code>MaxReceiveCount</code> times without being
+ *             acknowledged, it becomes a dead-letter record, and <a>ReceiveQueueRecords</a> no
+ *             longer returns it. The dead-letter record stays in the same queue, and you work with it
+ *             through <a>ReceiveDeadLetterQueueRecords</a>,
+ *             <a>AcknowledgeDeadLetterQueueRecords</a>,
+ *             <a>UpdateDeadLetterQueueRecordsVisibility</a>, and
+ *             <a>RestoreDeadLetterQueueRecords</a>, which use the same queue ARN.</p>
+ *          <p>Dead-letter handling is enabled by default, with a <code>MaxReceiveCount</code> of 6. To
+ *             use a different value, or to turn dead-letter handling off, specify this configuration in
+ *             <code>QueueAttributes</code>.</p>
+ * @public
+ */
+export interface DeadLetterConfiguration {
+  /**
+   * <p>Whether dead-letter handling is enabled for the queue. <code>BUILT_IN</code> enables it:
+   *             when a record has been received <code>MaxReceiveCount</code> times without being
+   *             acknowledged, it becomes a dead-letter record and <a>ReceiveQueueRecords</a> no
+   *             longer returns it. <code>NONE</code> disables it, and an unacknowledged record continues to
+   *             be redelivered until it is acknowledged or its retention period ends.</p>
+   * @public
+   */
+  TargetType: TargetType | undefined;
+
+  /**
+   * <p>The number of times a record can be received without being acknowledged before it
+   *             becomes a dead-letter record. Required when <code>TargetType</code> is
+   *             <code>BUILT_IN</code>. A queue that you create without
+   *             <code>DeadLetterConfiguration</code> gets a <code>MaxReceiveCount</code> of 6.</p>
+   * @public
+   */
+  MaxReceiveCount?: number | undefined;
+}
+
+/**
+ * <p>The configuration attributes for a queue.</p>
+ * @public
+ */
+export interface QueueAttributes {
+  /**
+   * <p>The duration, in seconds, that a record is in flight and not visible to any consumer
+   *             instance after it is received. A record that is not acknowledged before this duration elapses becomes
+   *             visible in the queue again and can be received by any consumer instance. If you omit this
+   *             attribute when you create a queue, the queue uses 30 seconds.</p>
+   * @public
+   */
+  VisibilityTimeoutSeconds?: number | undefined;
+
+  /**
+   * <p>The dead-letter handling configuration for the queue. If you omit this attribute,
+   *             dead-letter handling is enabled with a <code>MaxReceiveCount</code> of 6. If you specify
+   *             it with a <code>TargetType</code> of <code>BUILT_IN</code>, you must also specify
+   *             <code>MaxReceiveCount</code>.</p>
+   * @public
+   */
+  DeadLetterConfiguration?: DeadLetterConfiguration | undefined;
+}
+
+/**
+ * <p>The position in a data stream from which a queue begins delivering records.</p>
+ * @public
+ */
+export interface QueueStartingPosition {
+  /**
+   * <p>You can set the starting position to one of the following values:</p>
+   *          <p>
+   *             <code>LATEST</code>: Delivers records that arrive after you create the queue. This is
+   *             the default.</p>
+   *          <p>
+   *             <code>TRIM_HORIZON</code>: Start delivering at the last untrimmed record in the
+   *             stream, which is the oldest record the stream still retains.</p>
+   *          <p>
+   *             <code>AT_TIMESTAMP</code>: Delivers records that arrive at or after a time stamp that
+   *             you provide.</p>
+   * @public
+   */
+  Type: QueueStartingPositionType | undefined;
+
+  /**
+   * <p>The approximate time from which the queue begins delivering records. Records that arrive
+   *             at approximately this time or later are delivered.</p>
+   *          <p>In a request, specify this value only when <code>Type</code> is
+   *             <code>AT_TIMESTAMP</code>. It is required in that case, and specifying it for any
+   *             other type returns a <code>ValidationException</code>.</p>
+   *          <p>In a response, this value is approximate and reflects the queue's effective starting
+   *             position. While the queue is <code>CREATING</code>, the response echoes what you
+   *             configured: for <code>AT_TIMESTAMP</code>, the timestamp you provided, and for
+   *             <code>TRIM_HORIZON</code> and <code>LATEST</code>, this member is absent because the
+   *             effective position is not yet determined. Once the queue is <code>ACTIVE</code>, the
+   *             response always includes this member. For <code>AT_TIMESTAMP</code>, it is the timestamp you
+   *             provided or the earliest time the stream can be read from, whichever is later.</p>
+   * @public
+   */
+  Timestamp?: Date | undefined;
+}
+
+/**
+ * <p>The data stream a queue delivers records from, and the position in that stream where
+ *             delivery begins.</p>
+ * @public
+ */
+export interface QueueStreamConfiguration {
+  /**
+   * <p>The ARN of the data stream.</p>
+   * @public
+   */
+  StreamARN: string | undefined;
+
+  /**
+   * <p>The position in the stream from which the queue begins delivering records. The default
+   *             is <code>LATEST</code>.</p>
+   * @public
+   */
+  StartingPosition?: QueueStartingPosition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQueueInput {
+  /**
+   * <p>A name for the queue. The name is scoped to the Amazon Web Services account and Region
+   *             used by the request, so two queues in different accounts, or in the same account and
+   *             different Regions, can have the same name.</p>
+   * @public
+   */
+  QueueName: string | undefined;
+
+  /**
+   * <p>The data stream the queue delivers records from, and the position in that stream
+   *             where delivery begins. The list must contain exactly one entry, because a queue
+   *             delivers records from a single data stream.</p>
+   * @public
+   */
+  StreamConfigurationList: QueueStreamConfiguration[] | undefined;
+
+  /**
+   * <p>The configuration attributes for the queue, including its visibility timeout and its
+   *             dead-letter handling configuration.</p>
+   * @public
+   */
+  QueueAttributes?: QueueAttributes | undefined;
+
+  /**
+   * <p>A set of up to 50 key-value pairs to apply to the queue. You can also add, change, and
+   *             remove tags after the queue is created with <a>TagResource</a> and
+   *             <a>UntagResource</a>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A description of a queue. Returned by <a>CreateQueue</a>,
+ *             <a>UpdateQueue</a>, and <a>DescribeQueue</a>.</p>
+ * @public
+ */
+export interface QueueDescription {
+  /**
+   * <p>The name of the queue.</p>
+   * @public
+   */
+  QueueName: string | undefined;
+
+  /**
+   * <p>The ARN of the queue. The resource identifier in the ARN is generated when the queue is
+   *             created and is not derived from <code>QueueName</code>. Use the returned
+   *             <code>QueueARN</code> to identify the queue in subsequent requests.</p>
+   * @public
+   */
+  QueueARN: string | undefined;
+
+  /**
+   * <p>The current status of the queue.</p>
+   * @public
+   */
+  QueueStatus: QueueStatus | undefined;
+
+  /**
+   * <p>The time the queue was created.</p>
+   * @public
+   */
+  QueueCreationTimestamp: Date | undefined;
+
+  /**
+   * <p>The data stream the queue delivers records from, and the position in that stream
+   *             where delivery begins. The list contains exactly one entry, because a queue delivers
+   *             records from a single data stream.</p>
+   * @public
+   */
+  StreamConfigurationList: QueueStreamConfiguration[] | undefined;
+
+  /**
+   * <p>The configuration attributes of the queue.</p>
+   * @public
+   */
+  QueueAttributes?: QueueAttributes | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQueueOutput {
+  /**
+   * <p>A description of the queue that was created.</p>
+   * @public
+   */
+  QueueDescription: QueueDescription | undefined;
+}
+
+/**
  * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
  *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
  * @public
@@ -1022,9 +1406,21 @@ export interface DeleteChannelInput {
 /**
  * @public
  */
+export interface DeleteQueueInput {
+  /**
+   * <p>The ARN of the queue to delete.</p>
+   * @public
+   */
+  QueueARN: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the data stream or consumer.</p>
+   * <p>The Amazon Resource Name (ARN) of a data stream, a queue, or an enhanced fan-out
+   *             consumer.</p>
    * @public
    */
   ResourceARN: string | undefined;
@@ -1049,8 +1445,14 @@ export interface DeleteStreamInput {
 
   /**
    * <p>If this parameter is unset (<code>null</code>) or if you set it to <code>false</code>,
-   *             and the stream has registered consumers, the call to <code>DeleteStream</code> fails
-   *             with a <code>ResourceInUseException</code>. </p>
+   *             and the stream has registered enhanced fan-out consumers, the call to
+   *             <code>DeleteStream</code> fails
+   *             with a <code>ResourceInUseException</code>.</p>
+   *          <p>If you set it to <code>true</code>, <code>DeleteStream</code> deletes the stream and
+   *             every consumer registered with it.</p>
+   *          <p>This parameter does not apply to queues. A stream that has queues cannot be deleted
+   *             until every queue on it is deleted with <a>DeleteQueue</a>, whatever this
+   *             parameter is set to.</p>
    * @public
    */
   EnforceConsumerDeletion?: boolean | undefined;
@@ -1215,6 +1617,28 @@ export interface DescribeLimitsOutput {
    * @public
    */
   ChannelCountLimit?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeQueueInput {
+  /**
+   * <p>The ARN of the queue to describe.</p>
+   * @public
+   */
+  QueueARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeQueueOutput {
+  /**
+   * <p>A description of the queue.</p>
+   * @public
+   */
+  QueueDescription: QueueDescription | undefined;
 }
 
 /**
@@ -1673,7 +2097,7 @@ export interface StreamDescriptionSummary {
 
   /**
    * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
-   *             Kinesis Data Streams, you can choose between an <b>on-demand</b> ycapacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
+   *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
    * @public
    */
   StreamModeDetails?: StreamModeDetails | undefined;
@@ -1756,7 +2180,10 @@ export interface StreamDescriptionSummary {
   OpenShardCount: number | undefined;
 
   /**
-   * <p>The number of enhanced fan-out consumers registered with the stream.</p>
+   * <p>The number of enhanced fan-out consumers registered with the stream. Queues are not
+   *             included in this count, even though they share the stream's registered consumer limit
+   *             with enhanced fan-out consumers. <code>QueueCount</code> reports the number of
+   *             queues.</p>
    * @public
    */
   ConsumerCount?: number | undefined;
@@ -1788,6 +2215,12 @@ export interface StreamDescriptionSummary {
    * @public
    */
   RecordDistributionStrategy?: RecordDistributionStrategy | undefined;
+
+  /**
+   * <p>The number of queues created on the data stream.</p>
+   * @public
+   */
+  QueueCount?: number | undefined;
 }
 
 /**
@@ -2126,7 +2559,8 @@ export interface GetRecordsOutput {
  */
 export interface GetResourcePolicyInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the data stream or consumer.</p>
+   * <p>The Amazon Resource Name (ARN) of a data stream, a queue, or an enhanced fan-out
+   *             consumer.</p>
    * @public
    */
   ResourceARN: string | undefined;
@@ -2335,6 +2769,125 @@ export interface ListChannelsOutput {
 
   /**
    * <p>The pagination token to use in a subsequent call to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters the queues returned by <a>ListQueues</a> to those created on a
+ *             particular data stream.</p>
+ * @public
+ */
+export interface QueueStreamFilter {
+  /**
+   * <p>The ARN of the data stream to filter on.</p>
+   * @public
+   */
+  StreamARN: string | undefined;
+
+  /**
+   * <p>The time the data stream was created. Specify this value to distinguish between a deleted
+   *             stream and a stream that was recreated with the same name.</p>
+   * @public
+   */
+  StreamCreationTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQueuesInput {
+  /**
+   * <p>The maximum number of queue summaries to return in one response. The response might
+   *             contain fewer summaries than this value, and might contain a <code>NextToken</code> even
+   *             when it contains fewer.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The <code>NextToken</code> returned by a previous <code>ListQueues</code> request. Use it
+   *             to retrieve the next page of queue summaries.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Lists only the queues created on the specified data stream.</p>
+   * @public
+   */
+  StreamFilter?: QueueStreamFilter[] | undefined;
+}
+
+/**
+ * <p>Identifies a data stream associated with a queue.</p>
+ * @public
+ */
+export interface QueueStreamIdentifier {
+  /**
+   * <p>The ARN of the data stream.</p>
+   * @public
+   */
+  StreamARN: string | undefined;
+
+  /**
+   * <p>The time the data stream was created.</p>
+   * @public
+   */
+  StreamCreationTimestamp: Date | undefined;
+}
+
+/**
+ * <p>A summary of a queue. Returned by <a>ListQueues</a>. To retrieve a queue's
+ *             configuration attributes, use <a>DescribeQueue</a>.</p>
+ * @public
+ */
+export interface QueueSummary {
+  /**
+   * <p>The name of the queue.</p>
+   * @public
+   */
+  QueueName: string | undefined;
+
+  /**
+   * <p>The ARN of the queue.</p>
+   * @public
+   */
+  QueueARN: string | undefined;
+
+  /**
+   * <p>The current status of the queue.</p>
+   * @public
+   */
+  QueueStatus: QueueStatus | undefined;
+
+  /**
+   * <p>The time the queue was created.</p>
+   * @public
+   */
+  QueueCreationTimestamp: Date | undefined;
+
+  /**
+   * <p>The data stream the queue delivers records from.</p>
+   * @public
+   */
+  Streams: QueueStreamIdentifier[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQueuesOutput {
+  /**
+   * <p>A summary of each queue that matched the request.</p>
+   * @public
+   */
+  QueueSummaries: QueueSummary[] | undefined;
+
+  /**
+   * <p>The token to pass to the next <code>ListQueues</code> request to retrieve the next page
+   *             of queue summaries. This member is absent when no more queues are available.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3163,7 +3716,8 @@ export interface PutRecordsOutput {
  */
 export interface PutResourcePolicyInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the data stream or consumer.</p>
+   * <p>The Amazon Resource Name (ARN) of a data stream, a queue, or an enhanced fan-out
+   *             consumer.</p>
    * @public
    */
   ResourceARN: string | undefined;
@@ -3179,6 +3733,151 @@ export interface PutResourcePolicyInput {
    * @public
    */
   Policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReceiveDeadLetterQueueRecordsInput {
+  /**
+   * <p>The ARN of the queue whose dead-letter records are received.</p>
+   * @public
+   */
+  QueueARN: string | undefined;
+
+  /**
+   * <p>The maximum number of records to return. The queue never returns more dead-letter records
+   *             than this value, and might return fewer. The default is 10.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>The duration, in seconds, that the call waits for a record to become visible before
+   *             returning. The default is 9.</p>
+   * @public
+   */
+  WaitTimeSeconds?: number | undefined;
+
+  /**
+   * <p>The duration, in seconds, that the records returned by this request are in flight and not
+   *             visible to any consumer instance. If you do not specify this value, the queue's visibility
+   *             timeout is used.</p>
+   * @public
+   */
+  VisibilityTimeoutSeconds?: number | undefined;
+}
+
+/**
+ * <p>A data stream record, as delivered through a queue.</p>
+ * @public
+ */
+export interface QueueRecord {
+  /**
+   * <p>The identifier you use to acknowledge this record, change its visibility, or restore it
+   *             after it becomes a dead-letter record. A new receipt handle is issued each time the
+   *             record is received.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+
+  /**
+   * <p>The unique identifier of the record. This value stays the same across every delivery of
+   *             the record, and it is the same in every queue on the stream that delivers the record. To
+   *             identify a single delivery, use <code>ReceiptHandle</code> instead.</p>
+   * @public
+   */
+  RecordId: string | undefined;
+
+  /**
+   * <p>The partition key the record was written to the data stream with.</p>
+   * @public
+   */
+  PartitionKey?: string | undefined;
+
+  /**
+   * <p>The data blob of the record. Amazon Kinesis Data Streams does not inspect, interpret, or
+   *             change the data.</p>
+   * @public
+   */
+  Data: Uint8Array | undefined;
+
+  /**
+   * <p>The approximate time the record arrived in the data stream. The difference between this
+   *             value and the current time is how long the record took to reach your queue consumer.</p>
+   * @public
+   */
+  ApproximateArrivalTimestamp: Date | undefined;
+
+  /**
+   * <p>The approximate time the record was first received from the queue.</p>
+   * @public
+   */
+  FirstReceiveTimestamp: Date | undefined;
+
+  /**
+   * <p>The number of times this record has been received without being
+   *             acknowledged.</p>
+   * @public
+   */
+  ReceiveCount: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReceiveDeadLetterQueueRecordsOutput {
+  /**
+   * <p>The dead-letter records received from the queue. This list is empty when no
+   *             dead-letter records are visible.</p>
+   * @public
+   */
+  QueueRecords: QueueRecord[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReceiveQueueRecordsInput {
+  /**
+   * <p>The ARN of the queue to receive records from.</p>
+   * @public
+   */
+  QueueARN: string | undefined;
+
+  /**
+   * <p>The maximum number of records to return. The queue never returns more records than this
+   *             value, and might return fewer. The default is 10.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>The duration, in seconds, that the call waits for a record to become visible before
+   *             returning. The default is 9.</p>
+   * @public
+   */
+  WaitTimeSeconds?: number | undefined;
+
+  /**
+   * <p>The duration, in seconds, that the records returned by this request are in flight and not
+   *             visible to any consumer instance. If you do not specify this value, the queue's visibility
+   *             timeout is used.</p>
+   * @public
+   */
+  VisibilityTimeoutSeconds?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReceiveQueueRecordsOutput {
+  /**
+   * <p>The records received from the queue. This list is empty when no records are
+   *             visible.</p>
+   * @public
+   */
+  QueueRecords: QueueRecord[] | undefined;
 }
 
 /**
@@ -3253,6 +3952,91 @@ export interface RemoveTagsFromStreamInput {
    * @public
    */
   StreamId?: string | undefined;
+}
+
+/**
+ * <p>A dead-letter record to restore, identified by its receipt handle.</p>
+ * @public
+ */
+export interface RestoreDeadLetterQueueRecordsRequestEntry {
+  /**
+   * <p>The receipt handle of the record to restore, as returned by
+   *             <a>ReceiveDeadLetterQueueRecords</a>.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreDeadLetterQueueRecordsInput {
+  /**
+   * <p>The ARN of the queue whose dead-letter records are restored.</p>
+   * @public
+   */
+  QueueARN: string | undefined;
+
+  /**
+   * <p>The dead-letter records to restore, identified by their receipt handles.</p>
+   * @public
+   */
+  Entries: RestoreDeadLetterQueueRecordsRequestEntry[] | undefined;
+}
+
+/**
+ * <p>A dead-letter record that was not restored, and why.</p>
+ * @public
+ */
+export interface RestoreDeadLetterQueueRecordsErrorEntry {
+  /**
+   * <p>The receipt handle of the record that was not restored.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+
+  /**
+   * <p>A code identifying the type of failure. One of
+   *             <code>ResourceNotFoundException</code>, <code>InvalidArgumentException</code>,
+   *             <code>ThrottlingException</code>, or <code>InternalFailureException</code>.</p>
+   * @public
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>A description of the cause of the failure.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+}
+
+/**
+ * <p>A dead-letter record that was restored.</p>
+ * @public
+ */
+export interface RestoreDeadLetterQueueRecordsResultEntry {
+  /**
+   * <p>The receipt handle of the record that was restored.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreDeadLetterQueueRecordsOutput {
+  /**
+   * <p>The records that were restored.</p>
+   * @public
+   */
+  Successful: RestoreDeadLetterQueueRecordsResultEntry[] | undefined;
+
+  /**
+   * <p>The records that were not restored, each with the reason the entry failed.</p>
+   * @public
+   */
+  Failed: RestoreDeadLetterQueueRecordsErrorEntry[] | undefined;
 }
 
 /**
@@ -3572,8 +4356,8 @@ export type SubscribeToShardEventStream =
 export namespace SubscribeToShardEventStream {
   /**
    * <p>After you call <a>SubscribeToShard</a>, Kinesis Data Streams sends events
-   *             of this type to your consumer. For an example of how to handle these events, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
-   *                 Using the Kinesis Data Streams API</a>.</p>
+   *             of this type to your consumer. For an example of how to handle these events, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Develop enhanced fan-out consumers
+   *                 with the Amazon Web Services SDK for Java</a>.</p>
    * @public
    */
   export interface SubscribeToShardEventMember {
@@ -3629,7 +4413,7 @@ export namespace SubscribeToShardEventStream {
   }
 
   /**
-   * <p>The request was rejected because the specified customer master key (CMK) isn't
+   * <p>The request was rejected because the specified KMS key isn't
    *             enabled.</p>
    * @public
    */
@@ -3973,6 +4757,102 @@ export interface UpdateChannelOutput {
 }
 
 /**
+ * <p>A dead-letter record whose visibility timeout is changed, and the new visibility
+ *             timeout.</p>
+ * @public
+ */
+export interface UpdateDeadLetterQueueRecordsVisibilityRequestEntry {
+  /**
+   * <p>The receipt handle of the record, as returned by
+   *             <a>ReceiveDeadLetterQueueRecords</a>.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+
+  /**
+   * <p>The new duration, in seconds, that the record is in flight and not visible to any consumer
+   *             instance, measured from when this request is processed. Specify <code>0</code> to make the record
+   *             visible immediately.</p>
+   * @public
+   */
+  VisibilityTimeoutSeconds: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDeadLetterQueueRecordsVisibilityInput {
+  /**
+   * <p>The ARN of the queue whose dead-letter records are updated.</p>
+   * @public
+   */
+  QueueARN: string | undefined;
+
+  /**
+   * <p>The dead-letter records whose visibility timeout is changed, identified by their
+   *             receipt handles, and the new visibility timeout for each.</p>
+   * @public
+   */
+  Entries: UpdateDeadLetterQueueRecordsVisibilityRequestEntry[] | undefined;
+}
+
+/**
+ * <p>A dead-letter record whose visibility timeout was not changed, and why.</p>
+ * @public
+ */
+export interface UpdateDeadLetterQueueRecordsVisibilityErrorEntry {
+  /**
+   * <p>The receipt handle of the record whose visibility timeout was not changed.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+
+  /**
+   * <p>A code identifying the type of failure. One of
+   *             <code>ResourceNotFoundException</code>, <code>InvalidArgumentException</code>,
+   *             <code>ThrottlingException</code>, or <code>InternalFailureException</code>.</p>
+   * @public
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>A description of the cause of the failure.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+}
+
+/**
+ * <p>A dead-letter record whose visibility timeout was changed.</p>
+ * @public
+ */
+export interface UpdateDeadLetterQueueRecordsVisibilityResultEntry {
+  /**
+   * <p>The receipt handle of the record whose visibility timeout was changed.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDeadLetterQueueRecordsVisibilityOutput {
+  /**
+   * <p>The records whose visibility timeout was changed.</p>
+   * @public
+   */
+  Successful: UpdateDeadLetterQueueRecordsVisibilityResultEntry[] | undefined;
+
+  /**
+   * <p>The records whose visibility timeout was not changed, each with the reason the entry
+   *             failed.</p>
+   * @public
+   */
+  Failed: UpdateDeadLetterQueueRecordsVisibilityErrorEntry[] | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateMaxRecordSizeInput {
@@ -3993,6 +4873,130 @@ export interface UpdateMaxRecordSizeInput {
    * @public
    */
   MaxRecordSizeInKiB: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueInput {
+  /**
+   * <p>The ARN of the queue to update.</p>
+   * @public
+   */
+  QueueARN: string | undefined;
+
+  /**
+   * <p>The configuration attributes to apply to the queue. Attributes you do not specify are
+   *             left unchanged.</p>
+   * @public
+   */
+  QueueAttributes: QueueAttributes | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueOutput {
+  /**
+   * <p>A description of the queue, including the updated attributes.</p>
+   * @public
+   */
+  QueueDescription: QueueDescription | undefined;
+}
+
+/**
+ * <p>A record whose visibility timeout is changed, and the new visibility timeout.</p>
+ * @public
+ */
+export interface UpdateQueueRecordsVisibilityRequestEntry {
+  /**
+   * <p>The receipt handle of the record, as returned by
+   *             <a>ReceiveQueueRecords</a>.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+
+  /**
+   * <p>The new duration, in seconds, that the record is in flight and not visible to any consumer
+   *             instance, measured from when this request is processed. Specify <code>0</code> to make the record
+   *             visible in the queue immediately.</p>
+   * @public
+   */
+  VisibilityTimeoutSeconds: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueRecordsVisibilityInput {
+  /**
+   * <p>The ARN of the queue the records were received from.</p>
+   * @public
+   */
+  QueueARN: string | undefined;
+
+  /**
+   * <p>The records whose visibility timeout is changed, identified by their receipt handles, and
+   *             the new visibility timeout for each.</p>
+   * @public
+   */
+  Entries: UpdateQueueRecordsVisibilityRequestEntry[] | undefined;
+}
+
+/**
+ * <p>A record whose visibility timeout was not changed, and why.</p>
+ * @public
+ */
+export interface UpdateQueueRecordsVisibilityErrorEntry {
+  /**
+   * <p>The receipt handle of the record whose visibility timeout was not changed.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+
+  /**
+   * <p>A code identifying the type of failure. One of
+   *             <code>ResourceNotFoundException</code>, <code>InvalidArgumentException</code>,
+   *             <code>ThrottlingException</code>, or <code>InternalFailureException</code>.</p>
+   * @public
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>A description of the cause of the failure.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+}
+
+/**
+ * <p>A record whose visibility timeout was changed.</p>
+ * @public
+ */
+export interface UpdateQueueRecordsVisibilityResultEntry {
+  /**
+   * <p>The receipt handle of the record whose visibility timeout was changed.</p>
+   * @public
+   */
+  ReceiptHandle: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueRecordsVisibilityOutput {
+  /**
+   * <p>The records whose visibility timeout was changed.</p>
+   * @public
+   */
+  Successful: UpdateQueueRecordsVisibilityResultEntry[] | undefined;
+
+  /**
+   * <p>The records whose visibility timeout was not changed, each with the reason the entry
+   *             failed.</p>
+   * @public
+   */
+  Failed: UpdateQueueRecordsVisibilityErrorEntry[] | undefined;
 }
 
 /**

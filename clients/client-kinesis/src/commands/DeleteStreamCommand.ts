@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { DeleteStreamInput } from "../models/models_0";
 import { DeleteStream$ } from "../schemas/schemas_0";
 
@@ -42,6 +42,7 @@ export interface DeleteStreamCommandOutput extends __MetadataBearer {}
  *                 <code>DELETING</code> state until the stream deletion is complete.</p>
  *          <p>When you delete a stream, any shards in that stream are also deleted, and any tags are
  *             dissociated from the stream.</p>
+ *          <p>Before you can delete a data stream that has queues, you must delete every queue on the stream with <a>DeleteQueue</a>.</p>
  *          <p>You can use the <a>DescribeStreamSummary</a> operation to check the state
  *             of the stream, which is returned in <code>StreamStatus</code>.</p>
  *          <p>
@@ -100,7 +101,7 @@ export interface DeleteStreamCommandOutput extends __MetadataBearer {}
  * @public
  */
 export class DeleteStreamCommand extends command<DeleteStreamCommandInput, DeleteStreamCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "DeleteStream",
   DeleteStream$

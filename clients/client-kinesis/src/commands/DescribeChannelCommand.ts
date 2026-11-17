@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
+import { _ep4, _mw0, command } from "../commandBuilder";
 import type { DescribeChannelInput, DescribeChannelOutput } from "../models/models_0";
 import { DescribeChannel$ } from "../schemas/schemas_0";
 
@@ -136,75 +136,18 @@ export interface DescribeChannelCommandOutput extends DescribeChannelOutput, __M
  *             correctly.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
+ *  <p>The request failed validation. For example, a parameter value is not valid, a
+ *             combination of parameters is not supported, or the operation is not supported for the
+ *             stream's capacity mode. The error message describes the specific reason.</p>
  *
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  *
- * @example To describe a channel
- * ```javascript
- * //
- * const input = {
- *   ChannelARN: "arn:aws:kinesis:us-east-1:123456789012:channel/my-channel-id"
- * };
- * const command = new DescribeChannelCommand(input);
- * const response = await client.send(command);
- * /* response is
- * {
- *   ChannelDescription: {
- *     ChannelARN: "arn:aws:kinesis:us-east-1:123456789012:channel/my-channel-id",
- *     ChannelCreationTimestamp: "2024-07-02T00:00:00Z",
- *     ChannelId: "my-channel-id",
- *     ChannelName: "my-channel-name",
- *     ChannelStatus: "ACTIVE",
- *     EncryptionConfiguration: {
- *       EncryptionType: "KMS",
- *       KeyId: "arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"
- *     },
- *     LoggingConfiguration: {
- *       CloudWatchLogs: {
- *         Enabled: true,
- *         LogGroupName: "/aws/kinesis/my-channel",
- *         LogStreamName: "my-channel-log-stream"
- *       }
- *     },
- *     S3DestinationConfiguration: {
- *       DataFreshnessInSeconds: 300,
- *       DeadLetterQueueS3Configuration: {
- *         BucketARN: "arn:aws:s3:::my-channel-dlq-bucket",
- *         ErrorOutputPrefix: "kinesis-channel/errors/my-channel/my-channel-id/",
- *         ExpectedBucketOwner: "123456789012"
- *       },
- *       StorageConfiguration: {
- *         BucketARN: "arn:aws:s3:::my-channel-bucket",
- *         CompressionType: "ZSTD",
- *         ExpectedBucketOwner: "123456789012",
- *         OutputKeyTemplate: "kinesis-channel/!{channel-name}/!{channel-id}/!{yyyy}/!{MM}/!{dd}/!{HH}/!{channel-name}-!{channel-id}-!{yyyy}-!{MM}-!{dd}-!{HH}-!{mm}!{extension}",
- *         StorageClass: "STANDARD"
- *       }
- *     },
- *     ServiceExecutionRoleARN: "arn:aws:iam::123456789012:role/my-channel-role",
- *     StreamConfigurationList: [
- *       {
- *         RecordConfiguration: {
- *           RecordFormatType: "JSON"
- *         },
- *         StreamARN: "arn:aws:kinesis:us-east-1:123456789012:stream/my-stream-name",
- *         StreamCreationTimestamp: "2024-07-01T00:00:00Z"
- *       }
- *     ]
- *   }
- * }
- * *\/
- * ```
- *
  * @public
  */
 export class DescribeChannelCommand extends command<DescribeChannelCommandInput, DescribeChannelCommandOutput>(
-  _ep2,
+  _ep4,
   _mw0,
   "DescribeChannel",
   DescribeChannel$

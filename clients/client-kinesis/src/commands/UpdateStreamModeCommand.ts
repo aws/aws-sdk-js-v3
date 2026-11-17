@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { UpdateStreamModeInput } from "../models/models_0";
 import { UpdateStreamMode$ } from "../schemas/schemas_0";
 
@@ -28,6 +28,7 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  *                 <b>provisioned</b> capacity mode for your data stream.
  *         </p>
  *          <p>If you'd still like to proactively scale your on-demand data stream’s capacity, you can unlock the warm throughput feature for on-demand data streams by enabling <code>MinimumThroughputBillingCommitment</code> for your account. Once your account has <code>MinimumThroughputBillingCommitment</code> enabled, you can specify the warm throughput in MiB per second that your stream can support in writes.</p>
+ *          <p>You can't switch a data stream from on-demand to provisioned capacity mode while the stream has one or more queues. Delete the queues with <a>DeleteQueue</a> before you change the capacity mode.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,9 +74,9 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  *             correctly.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
+ *  <p>The request failed validation. For example, a parameter value is not valid, a
+ *             combination of parameters is not supported, or the operation is not supported for the
+ *             stream's capacity mode. The error message describes the specific reason.</p>
  *
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
@@ -84,7 +85,7 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  * @public
  */
 export class UpdateStreamModeCommand extends command<UpdateStreamModeCommandInput, UpdateStreamModeCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "UpdateStreamMode",
   UpdateStreamMode$

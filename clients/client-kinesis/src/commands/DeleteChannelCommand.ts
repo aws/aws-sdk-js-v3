@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
+import { _ep4, _mw0, command } from "../commandBuilder";
 import type { DeleteChannelInput } from "../models/models_0";
 import { DeleteChannel$ } from "../schemas/schemas_0";
 
@@ -66,31 +66,18 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  *             correctly.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
+ *  <p>The request failed validation. For example, a parameter value is not valid, a
+ *             combination of parameters is not supported, or the operation is not supported for the
+ *             stream's capacity mode. The error message describes the specific reason.</p>
  *
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  *
- * @example To delete a channel
- * ```javascript
- * //
- * const input = {
- *   ChannelARN: "arn:aws:kinesis:us-east-1:123456789012:channel/my-channel-id"
- * };
- * const command = new DeleteChannelCommand(input);
- * const response = await client.send(command);
- * /* response is
- * { /* empty *\/ }
- * *\/
- * ```
- *
  * @public
  */
 export class DeleteChannelCommand extends command<DeleteChannelCommandInput, DeleteChannelCommandOutput>(
-  _ep2,
+  _ep4,
   _mw0,
   "DeleteChannel",
   DeleteChannel$

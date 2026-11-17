@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep3, _mw0, command } from "../commandBuilder";
+import { _ep6, _mw0, command } from "../commandBuilder";
 import type { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
 import { ListTagsForResource$ } from "../schemas/schemas_0";
 
@@ -24,6 +24,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
 
 /**
  * <p>List all tags added to the specified Kinesis resource. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.</p>
+ *          <p>The Kinesis resource can be a data stream, a queue, or an enhanced fan-out
+ *             consumer.</p>
  *          <p>For more information about tagging Kinesis resources, see <a href="https://docs.aws.amazon.com/streams/latest/dev/tagging.html">Tag your Amazon Kinesis Data Streams resources</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +62,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  *  <p>Specifies that you do not have the permissions required to perform this
  *             operation.</p>
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>The processing of the request failed because of an unknown error, exception, or
+ *             failure.</p>
+ *
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
  *             For more information, see the returned message.</p>
@@ -76,6 +82,11 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation. For example, a parameter value is not valid, a
+ *             combination of parameters is not supported, or the operation is not supported for the
+ *             stream's capacity mode. The error message describes the specific reason.</p>
+ *
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
@@ -83,7 +94,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @public
  */
 export class ListTagsForResourceCommand extends command<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput>(
-  _ep3,
+  _ep6,
   _mw0,
   "ListTagsForResource",
   ListTagsForResource$

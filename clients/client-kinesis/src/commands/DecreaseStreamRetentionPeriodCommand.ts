@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { DecreaseStreamRetentionPeriodInput } from "../models/models_0";
 import { DecreaseStreamRetentionPeriod$ } from "../schemas/schemas_0";
 
@@ -87,7 +87,7 @@ export interface DecreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  * @public
  */
 export class DecreaseStreamRetentionPeriodCommand extends command<DecreaseStreamRetentionPeriodCommandInput, DecreaseStreamRetentionPeriodCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "DecreaseStreamRetentionPeriod",
   DecreaseStreamRetentionPeriod$

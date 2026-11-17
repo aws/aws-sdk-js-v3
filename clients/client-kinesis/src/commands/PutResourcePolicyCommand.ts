@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep3, _mw0, command } from "../commandBuilder";
+import { _ep6, _mw0, command } from "../commandBuilder";
 import type { PutResourcePolicyInput } from "../models/models_0";
 import { PutResourcePolicy$ } from "../schemas/schemas_0";
 
@@ -23,7 +23,7 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyInput {}
 export interface PutResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Attaches a resource-based policy to a data stream or registered consumer. If you are using an identity other than the root user of
+ * <p>Attaches a resource-based policy to a data stream, a queue, or an enhanced fan-out consumer. If you are using an identity other than the root user of
  *             the Amazon Web Services account that owns the resource, the calling identity must have the <code>PutResourcePolicy</code> permissions on the
  *             specified Kinesis Data Streams resource and belong to the owner's account in order to use this operation.
  *             If you don't have <code>PutResourcePolicy</code> permissions, Amazon Kinesis Data Streams returns a <code>403 Access Denied error</code>.
@@ -37,6 +37,10 @@ export interface PutResourcePolicyCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>Consumer pattern: <code>^(arn):aws.*:kinesis:.*:\d\{12\}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Queue pattern: <code>arn:aws.*:kinesis:.*:\d\{12\}:queue/\S+</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -70,6 +74,10 @@ export interface PutResourcePolicyCommandOutput extends __MetadataBearer {}
  *  <p>Specifies that you do not have the permissions required to perform this
  *             operation.</p>
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>The processing of the request failed because of an unknown error, exception, or
+ *             failure.</p>
+ *
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
  *             For more information, see the returned message.</p>
@@ -86,6 +94,11 @@ export interface PutResourcePolicyCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation. For example, a parameter value is not valid, a
+ *             combination of parameters is not supported, or the operation is not supported for the
+ *             stream's capacity mode. The error message describes the specific reason.</p>
+ *
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
@@ -93,7 +106,7 @@ export interface PutResourcePolicyCommandOutput extends __MetadataBearer {}
  * @public
  */
 export class PutResourcePolicyCommand extends command<PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput>(
-  _ep3,
+  _ep6,
   _mw0,
   "PutResourcePolicy",
   PutResourcePolicy$

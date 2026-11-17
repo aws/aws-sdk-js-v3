@@ -2,8 +2,8 @@
 /* eslint-disable */
 /**
  * <fullname>Amazon Kinesis Data Streams Service API Reference</fullname>
- *          <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time
- *             processing of streaming big data.</p>
+ *          <p>Amazon Kinesis Data Streams is a serverless data streaming service that ingests data
+ *             once and fans it out to multiple consumer applications for real-time processing.</p>
  *
  * @packageDocumentation
  */

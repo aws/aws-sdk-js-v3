@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { RemoveTagsFromStreamInput } from "../models/models_0";
 import { RemoveTagsFromStream$ } from "../schemas/schemas_0";
 
@@ -89,7 +89,7 @@ export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
  * @public
  */
 export class RemoveTagsFromStreamCommand extends command<RemoveTagsFromStreamCommandInput, RemoveTagsFromStreamCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "RemoveTagsFromStream",
   RemoveTagsFromStream$

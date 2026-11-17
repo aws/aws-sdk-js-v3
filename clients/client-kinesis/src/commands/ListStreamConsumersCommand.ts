@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { ListStreamConsumersInput, ListStreamConsumersOutput } from "../models/models_0";
 import { ListStreamConsumers$ } from "../schemas/schemas_0";
 
@@ -89,7 +89,7 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  * @public
  */
 export class ListStreamConsumersCommand extends command<ListStreamConsumersCommandInput, ListStreamConsumersCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "ListStreamConsumers",
   ListStreamConsumers$

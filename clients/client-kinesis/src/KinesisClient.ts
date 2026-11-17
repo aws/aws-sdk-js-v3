@@ -66,14 +66,24 @@ import {
   defaultKinesisHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import type {
+  AcknowledgeDeadLetterQueueRecordsCommandInput,
+  AcknowledgeDeadLetterQueueRecordsCommandOutput,
+} from "./commands/AcknowledgeDeadLetterQueueRecordsCommand";
+import type {
+  AcknowledgeQueueRecordsCommandInput,
+  AcknowledgeQueueRecordsCommandOutput,
+} from "./commands/AcknowledgeQueueRecordsCommand";
 import type { AddTagsToStreamCommandInput, AddTagsToStreamCommandOutput } from "./commands/AddTagsToStreamCommand";
 import type { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import type { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import type { CreateStreamCommandInput, CreateStreamCommandOutput } from "./commands/CreateStreamCommand";
 import type {
   DecreaseStreamRetentionPeriodCommandInput,
   DecreaseStreamRetentionPeriodCommandOutput,
 } from "./commands/DecreaseStreamRetentionPeriodCommand";
 import type { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import type { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
 import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -89,6 +99,7 @@ import type {
 } from "./commands/DescribeAccountSettingsCommand";
 import type { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
 import type { DescribeLimitsCommandInput, DescribeLimitsCommandOutput } from "./commands/DescribeLimitsCommand";
+import type { DescribeQueueCommandInput, DescribeQueueCommandOutput } from "./commands/DescribeQueueCommand";
 import type { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "./commands/DescribeStreamCommand";
 import type {
   DescribeStreamConsumerCommandInput,
@@ -117,6 +128,7 @@ import type {
   IncreaseStreamRetentionPeriodCommandOutput,
 } from "./commands/IncreaseStreamRetentionPeriodCommand";
 import type { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import type { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
 import type { ListShardsCommandInput, ListShardsCommandOutput } from "./commands/ListShardsCommand";
 import type {
   ListStreamConsumersCommandInput,
@@ -139,6 +151,14 @@ import type {
   PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import type {
+  ReceiveDeadLetterQueueRecordsCommandInput,
+  ReceiveDeadLetterQueueRecordsCommandOutput,
+} from "./commands/ReceiveDeadLetterQueueRecordsCommand";
+import type {
+  ReceiveQueueRecordsCommandInput,
+  ReceiveQueueRecordsCommandOutput,
+} from "./commands/ReceiveQueueRecordsCommand";
+import type {
   RegisterStreamConsumerCommandInput,
   RegisterStreamConsumerCommandOutput,
 } from "./commands/RegisterStreamConsumerCommand";
@@ -146,6 +166,10 @@ import type {
   RemoveTagsFromStreamCommandInput,
   RemoveTagsFromStreamCommandOutput,
 } from "./commands/RemoveTagsFromStreamCommand";
+import type {
+  RestoreDeadLetterQueueRecordsCommandInput,
+  RestoreDeadLetterQueueRecordsCommandOutput,
+} from "./commands/RestoreDeadLetterQueueRecordsCommand";
 import type { SplitShardCommandInput, SplitShardCommandOutput } from "./commands/SplitShardCommand";
 import type {
   StartStreamEncryptionCommandInput,
@@ -164,9 +188,18 @@ import type {
 } from "./commands/UpdateAccountSettingsCommand";
 import type { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
 import type {
+  UpdateDeadLetterQueueRecordsVisibilityCommandInput,
+  UpdateDeadLetterQueueRecordsVisibilityCommandOutput,
+} from "./commands/UpdateDeadLetterQueueRecordsVisibilityCommand";
+import type {
   UpdateMaxRecordSizeCommandInput,
   UpdateMaxRecordSizeCommandOutput,
 } from "./commands/UpdateMaxRecordSizeCommand";
+import type { UpdateQueueCommandInput, UpdateQueueCommandOutput } from "./commands/UpdateQueueCommand";
+import type {
+  UpdateQueueRecordsVisibilityCommandInput,
+  UpdateQueueRecordsVisibilityCommandOutput,
+} from "./commands/UpdateQueueRecordsVisibilityCommand";
 import type { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "./commands/UpdateShardCountCommand";
 import type { UpdateStreamModeCommandInput, UpdateStreamModeCommandOutput } from "./commands/UpdateStreamModeCommand";
 import type {
@@ -192,17 +225,22 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AcknowledgeDeadLetterQueueRecordsCommandInput
+  | AcknowledgeQueueRecordsCommandInput
   | AddTagsToStreamCommandInput
   | CreateChannelCommandInput
+  | CreateQueueCommandInput
   | CreateStreamCommandInput
   | DecreaseStreamRetentionPeriodCommandInput
   | DeleteChannelCommandInput
+  | DeleteQueueCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteStreamCommandInput
   | DeregisterStreamConsumerCommandInput
   | DescribeAccountSettingsCommandInput
   | DescribeChannelCommandInput
   | DescribeLimitsCommandInput
+  | DescribeQueueCommandInput
   | DescribeStreamCommandInput
   | DescribeStreamConsumerCommandInput
   | DescribeStreamSummaryCommandInput
@@ -213,6 +251,7 @@ export type ServiceInputTypes =
   | GetShardIteratorCommandInput
   | IncreaseStreamRetentionPeriodCommandInput
   | ListChannelsCommandInput
+  | ListQueuesCommandInput
   | ListShardsCommandInput
   | ListStreamConsumersCommandInput
   | ListStreamsCommandInput
@@ -222,8 +261,11 @@ export type ServiceInputTypes =
   | PutRecordCommandInput
   | PutRecordsCommandInput
   | PutResourcePolicyCommandInput
+  | ReceiveDeadLetterQueueRecordsCommandInput
+  | ReceiveQueueRecordsCommandInput
   | RegisterStreamConsumerCommandInput
   | RemoveTagsFromStreamCommandInput
+  | RestoreDeadLetterQueueRecordsCommandInput
   | SplitShardCommandInput
   | StartStreamEncryptionCommandInput
   | StopStreamEncryptionCommandInput
@@ -232,7 +274,10 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAccountSettingsCommandInput
   | UpdateChannelCommandInput
+  | UpdateDeadLetterQueueRecordsVisibilityCommandInput
   | UpdateMaxRecordSizeCommandInput
+  | UpdateQueueCommandInput
+  | UpdateQueueRecordsVisibilityCommandInput
   | UpdateShardCountCommandInput
   | UpdateStreamModeCommandInput
   | UpdateStreamRecordDistributionStrategyCommandInput
@@ -242,17 +287,22 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AcknowledgeDeadLetterQueueRecordsCommandOutput
+  | AcknowledgeQueueRecordsCommandOutput
   | AddTagsToStreamCommandOutput
   | CreateChannelCommandOutput
+  | CreateQueueCommandOutput
   | CreateStreamCommandOutput
   | DecreaseStreamRetentionPeriodCommandOutput
   | DeleteChannelCommandOutput
+  | DeleteQueueCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteStreamCommandOutput
   | DeregisterStreamConsumerCommandOutput
   | DescribeAccountSettingsCommandOutput
   | DescribeChannelCommandOutput
   | DescribeLimitsCommandOutput
+  | DescribeQueueCommandOutput
   | DescribeStreamCommandOutput
   | DescribeStreamConsumerCommandOutput
   | DescribeStreamSummaryCommandOutput
@@ -263,6 +313,7 @@ export type ServiceOutputTypes =
   | GetShardIteratorCommandOutput
   | IncreaseStreamRetentionPeriodCommandOutput
   | ListChannelsCommandOutput
+  | ListQueuesCommandOutput
   | ListShardsCommandOutput
   | ListStreamConsumersCommandOutput
   | ListStreamsCommandOutput
@@ -272,8 +323,11 @@ export type ServiceOutputTypes =
   | PutRecordCommandOutput
   | PutRecordsCommandOutput
   | PutResourcePolicyCommandOutput
+  | ReceiveDeadLetterQueueRecordsCommandOutput
+  | ReceiveQueueRecordsCommandOutput
   | RegisterStreamConsumerCommandOutput
   | RemoveTagsFromStreamCommandOutput
+  | RestoreDeadLetterQueueRecordsCommandOutput
   | SplitShardCommandOutput
   | StartStreamEncryptionCommandOutput
   | StopStreamEncryptionCommandOutput
@@ -282,7 +336,10 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAccountSettingsCommandOutput
   | UpdateChannelCommandOutput
+  | UpdateDeadLetterQueueRecordsVisibilityCommandOutput
   | UpdateMaxRecordSizeCommandOutput
+  | UpdateQueueCommandOutput
+  | UpdateQueueRecordsVisibilityCommandOutput
   | UpdateShardCountCommandOutput
   | UpdateStreamModeCommandOutput
   | UpdateStreamRecordDistributionStrategyCommandOutput
@@ -495,8 +552,8 @@ export interface KinesisClientResolvedConfig extends KinesisClientResolvedConfig
 
 /**
  * <fullname>Amazon Kinesis Data Streams Service API Reference</fullname>
- *          <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time
- *             processing of streaming big data.</p>
+ *          <p>Amazon Kinesis Data Streams is a serverless data streaming service that ingests data
+ *             once and fans it out to multiple consumer applications for real-time processing.</p>
  * @public
  */
 export class KinesisClient extends __Client<

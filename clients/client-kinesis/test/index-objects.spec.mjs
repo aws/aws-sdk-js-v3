@@ -2,6 +2,20 @@ import {
   _Record$,
   AccessDeniedException,
   AccessDeniedException$,
+  AcknowledgeDeadLetterQueueRecords$,
+  AcknowledgeDeadLetterQueueRecordsCommand,
+  AcknowledgeDeadLetterQueueRecordsErrorEntry$,
+  AcknowledgeDeadLetterQueueRecordsInput$,
+  AcknowledgeDeadLetterQueueRecordsOutput$,
+  AcknowledgeDeadLetterQueueRecordsRequestEntry$,
+  AcknowledgeDeadLetterQueueRecordsResultEntry$,
+  AcknowledgeQueueRecords$,
+  AcknowledgeQueueRecordsCommand,
+  AcknowledgeQueueRecordsErrorEntry$,
+  AcknowledgeQueueRecordsInput$,
+  AcknowledgeQueueRecordsOutput$,
+  AcknowledgeQueueRecordsRequestEntry$,
+  AcknowledgeQueueRecordsResultEntry$,
   AddTagsToStream$,
   AddTagsToStreamCommand,
   AddTagsToStreamInput$,
@@ -26,9 +40,14 @@ import {
   CreateChannelCommand,
   CreateChannelInput$,
   CreateChannelOutput$,
+  CreateQueue$,
+  CreateQueueCommand,
+  CreateQueueInput$,
+  CreateQueueOutput$,
   CreateStream$,
   CreateStreamCommand,
   CreateStreamInput$,
+  DeadLetterConfiguration$,
   DeadLetterQueueS3Configuration$,
   DecreaseStreamRetentionPeriod$,
   DecreaseStreamRetentionPeriodCommand,
@@ -36,6 +55,9 @@ import {
   DeleteChannel$,
   DeleteChannelCommand,
   DeleteChannelInput$,
+  DeleteQueue$,
+  DeleteQueueCommand,
+  DeleteQueueInput$,
   DeleteResourcePolicy$,
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyInput$,
@@ -57,6 +79,10 @@ import {
   DescribeLimitsCommand,
   DescribeLimitsInput$,
   DescribeLimitsOutput$,
+  DescribeQueue$,
+  DescribeQueueCommand,
+  DescribeQueueInput$,
+  DescribeQueueOutput$,
   DescribeStream$,
   DescribeStreamCommand,
   DescribeStreamConsumer$,
@@ -125,6 +151,10 @@ import {
   ListChannelsCommand,
   ListChannelsInput$,
   ListChannelsOutput$,
+  ListQueues$,
+  ListQueuesCommand,
+  ListQueuesInput$,
+  ListQueuesOutput$,
   ListShards$,
   ListShardsCommand,
   ListShardsInput$,
@@ -154,6 +184,7 @@ import {
   MinimumThroughputBillingCommitmentOutput$,
   MinimumThroughputBillingCommitmentOutputStatus,
   paginateListChannels,
+  paginateListQueues,
   paginateListStreamConsumers,
   paginateListStreams,
   PartitionField$,
@@ -174,6 +205,24 @@ import {
   PutResourcePolicy$,
   PutResourcePolicyCommand,
   PutResourcePolicyInput$,
+  QueueAttributes$,
+  QueueDescription$,
+  QueueRecord$,
+  QueueStartingPosition$,
+  QueueStartingPositionType,
+  QueueStatus,
+  QueueStreamConfiguration$,
+  QueueStreamFilter$,
+  QueueStreamIdentifier$,
+  QueueSummary$,
+  ReceiveDeadLetterQueueRecords$,
+  ReceiveDeadLetterQueueRecordsCommand,
+  ReceiveDeadLetterQueueRecordsInput$,
+  ReceiveDeadLetterQueueRecordsOutput$,
+  ReceiveQueueRecords$,
+  ReceiveQueueRecordsCommand,
+  ReceiveQueueRecordsInput$,
+  ReceiveQueueRecordsOutput$,
   RecordConfiguration$,
   RecordDistributionStrategy,
   RecordFormatType,
@@ -188,6 +237,13 @@ import {
   ResourceInUseException$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  RestoreDeadLetterQueueRecords$,
+  RestoreDeadLetterQueueRecordsCommand,
+  RestoreDeadLetterQueueRecordsErrorEntry$,
+  RestoreDeadLetterQueueRecordsInput$,
+  RestoreDeadLetterQueueRecordsOutput$,
+  RestoreDeadLetterQueueRecordsRequestEntry$,
+  RestoreDeadLetterQueueRecordsResultEntry$,
   S3CompressionType,
   S3DestinationConfiguration$,
   S3DestinationDescription$,
@@ -232,6 +288,9 @@ import {
   TagResource$,
   TagResourceCommand,
   TagResourceInput$,
+  TargetType,
+  ThrottlingException,
+  ThrottlingException$,
   UntagResource$,
   UntagResourceCommand,
   UntagResourceInput$,
@@ -243,9 +302,27 @@ import {
   UpdateChannelCommand,
   UpdateChannelInput$,
   UpdateChannelOutput$,
+  UpdateDeadLetterQueueRecordsVisibility$,
+  UpdateDeadLetterQueueRecordsVisibilityCommand,
+  UpdateDeadLetterQueueRecordsVisibilityErrorEntry$,
+  UpdateDeadLetterQueueRecordsVisibilityInput$,
+  UpdateDeadLetterQueueRecordsVisibilityOutput$,
+  UpdateDeadLetterQueueRecordsVisibilityRequestEntry$,
+  UpdateDeadLetterQueueRecordsVisibilityResultEntry$,
   UpdateMaxRecordSize$,
   UpdateMaxRecordSizeCommand,
   UpdateMaxRecordSizeInput$,
+  UpdateQueue$,
+  UpdateQueueCommand,
+  UpdateQueueInput$,
+  UpdateQueueOutput$,
+  UpdateQueueRecordsVisibility$,
+  UpdateQueueRecordsVisibilityCommand,
+  UpdateQueueRecordsVisibilityErrorEntry$,
+  UpdateQueueRecordsVisibilityInput$,
+  UpdateQueueRecordsVisibilityOutput$,
+  UpdateQueueRecordsVisibilityRequestEntry$,
+  UpdateQueueRecordsVisibilityResultEntry$,
   UpdateShardCount$,
   UpdateShardCountCommand,
   UpdateShardCountInput$,
@@ -275,16 +352,24 @@ import assert from "node:assert";
 assert(typeof KinesisClient === "function");
 assert(typeof Kinesis === "function");
 // commands
+assert(typeof AcknowledgeDeadLetterQueueRecordsCommand === "function");
+assert(typeof AcknowledgeDeadLetterQueueRecords$ === "object");
+assert(typeof AcknowledgeQueueRecordsCommand === "function");
+assert(typeof AcknowledgeQueueRecords$ === "object");
 assert(typeof AddTagsToStreamCommand === "function");
 assert(typeof AddTagsToStream$ === "object");
 assert(typeof CreateChannelCommand === "function");
 assert(typeof CreateChannel$ === "object");
+assert(typeof CreateQueueCommand === "function");
+assert(typeof CreateQueue$ === "object");
 assert(typeof CreateStreamCommand === "function");
 assert(typeof CreateStream$ === "object");
 assert(typeof DecreaseStreamRetentionPeriodCommand === "function");
 assert(typeof DecreaseStreamRetentionPeriod$ === "object");
 assert(typeof DeleteChannelCommand === "function");
 assert(typeof DeleteChannel$ === "object");
+assert(typeof DeleteQueueCommand === "function");
+assert(typeof DeleteQueue$ === "object");
 assert(typeof DeleteResourcePolicyCommand === "function");
 assert(typeof DeleteResourcePolicy$ === "object");
 assert(typeof DeleteStreamCommand === "function");
@@ -297,6 +382,8 @@ assert(typeof DescribeChannelCommand === "function");
 assert(typeof DescribeChannel$ === "object");
 assert(typeof DescribeLimitsCommand === "function");
 assert(typeof DescribeLimits$ === "object");
+assert(typeof DescribeQueueCommand === "function");
+assert(typeof DescribeQueue$ === "object");
 assert(typeof DescribeStreamCommand === "function");
 assert(typeof DescribeStream$ === "object");
 assert(typeof DescribeStreamConsumerCommand === "function");
@@ -317,6 +404,8 @@ assert(typeof IncreaseStreamRetentionPeriodCommand === "function");
 assert(typeof IncreaseStreamRetentionPeriod$ === "object");
 assert(typeof ListChannelsCommand === "function");
 assert(typeof ListChannels$ === "object");
+assert(typeof ListQueuesCommand === "function");
+assert(typeof ListQueues$ === "object");
 assert(typeof ListShardsCommand === "function");
 assert(typeof ListShards$ === "object");
 assert(typeof ListStreamConsumersCommand === "function");
@@ -335,10 +424,16 @@ assert(typeof PutRecordsCommand === "function");
 assert(typeof PutRecords$ === "object");
 assert(typeof PutResourcePolicyCommand === "function");
 assert(typeof PutResourcePolicy$ === "object");
+assert(typeof ReceiveDeadLetterQueueRecordsCommand === "function");
+assert(typeof ReceiveDeadLetterQueueRecords$ === "object");
+assert(typeof ReceiveQueueRecordsCommand === "function");
+assert(typeof ReceiveQueueRecords$ === "object");
 assert(typeof RegisterStreamConsumerCommand === "function");
 assert(typeof RegisterStreamConsumer$ === "object");
 assert(typeof RemoveTagsFromStreamCommand === "function");
 assert(typeof RemoveTagsFromStream$ === "object");
+assert(typeof RestoreDeadLetterQueueRecordsCommand === "function");
+assert(typeof RestoreDeadLetterQueueRecords$ === "object");
 assert(typeof SplitShardCommand === "function");
 assert(typeof SplitShard$ === "object");
 assert(typeof StartStreamEncryptionCommand === "function");
@@ -355,8 +450,14 @@ assert(typeof UpdateAccountSettingsCommand === "function");
 assert(typeof UpdateAccountSettings$ === "object");
 assert(typeof UpdateChannelCommand === "function");
 assert(typeof UpdateChannel$ === "object");
+assert(typeof UpdateDeadLetterQueueRecordsVisibilityCommand === "function");
+assert(typeof UpdateDeadLetterQueueRecordsVisibility$ === "object");
 assert(typeof UpdateMaxRecordSizeCommand === "function");
 assert(typeof UpdateMaxRecordSize$ === "object");
+assert(typeof UpdateQueueCommand === "function");
+assert(typeof UpdateQueue$ === "object");
+assert(typeof UpdateQueueRecordsVisibilityCommand === "function");
+assert(typeof UpdateQueueRecordsVisibility$ === "object");
 assert(typeof UpdateShardCountCommand === "function");
 assert(typeof UpdateShardCount$ === "object");
 assert(typeof UpdateStreamModeCommand === "function");
@@ -366,6 +467,16 @@ assert(typeof UpdateStreamRecordDistributionStrategy$ === "object");
 assert(typeof UpdateStreamWarmThroughputCommand === "function");
 assert(typeof UpdateStreamWarmThroughput$ === "object");
 // structural schemas
+assert(typeof AcknowledgeDeadLetterQueueRecordsErrorEntry$ === "object");
+assert(typeof AcknowledgeDeadLetterQueueRecordsInput$ === "object");
+assert(typeof AcknowledgeDeadLetterQueueRecordsOutput$ === "object");
+assert(typeof AcknowledgeDeadLetterQueueRecordsRequestEntry$ === "object");
+assert(typeof AcknowledgeDeadLetterQueueRecordsResultEntry$ === "object");
+assert(typeof AcknowledgeQueueRecordsErrorEntry$ === "object");
+assert(typeof AcknowledgeQueueRecordsInput$ === "object");
+assert(typeof AcknowledgeQueueRecordsOutput$ === "object");
+assert(typeof AcknowledgeQueueRecordsRequestEntry$ === "object");
+assert(typeof AcknowledgeQueueRecordsResultEntry$ === "object");
 assert(typeof AddTagsToStreamInput$ === "object");
 assert(typeof ChannelDescription$ === "object");
 assert(typeof ChannelEncryptionConfiguration$ === "object");
@@ -382,10 +493,14 @@ assert(typeof Consumer$ === "object");
 assert(typeof ConsumerDescription$ === "object");
 assert(typeof CreateChannelInput$ === "object");
 assert(typeof CreateChannelOutput$ === "object");
+assert(typeof CreateQueueInput$ === "object");
+assert(typeof CreateQueueOutput$ === "object");
 assert(typeof CreateStreamInput$ === "object");
+assert(typeof DeadLetterConfiguration$ === "object");
 assert(typeof DeadLetterQueueS3Configuration$ === "object");
 assert(typeof DecreaseStreamRetentionPeriodInput$ === "object");
 assert(typeof DeleteChannelInput$ === "object");
+assert(typeof DeleteQueueInput$ === "object");
 assert(typeof DeleteResourcePolicyInput$ === "object");
 assert(typeof DeleteStreamInput$ === "object");
 assert(typeof DeregisterStreamConsumerInput$ === "object");
@@ -395,6 +510,8 @@ assert(typeof DescribeChannelInput$ === "object");
 assert(typeof DescribeChannelOutput$ === "object");
 assert(typeof DescribeLimitsInput$ === "object");
 assert(typeof DescribeLimitsOutput$ === "object");
+assert(typeof DescribeQueueInput$ === "object");
+assert(typeof DescribeQueueOutput$ === "object");
 assert(typeof DescribeStreamConsumerInput$ === "object");
 assert(typeof DescribeStreamConsumerOutput$ === "object");
 assert(typeof DescribeStreamInput$ === "object");
@@ -415,6 +532,8 @@ assert(typeof HashKeyRange$ === "object");
 assert(typeof IncreaseStreamRetentionPeriodInput$ === "object");
 assert(typeof ListChannelsInput$ === "object");
 assert(typeof ListChannelsOutput$ === "object");
+assert(typeof ListQueuesInput$ === "object");
+assert(typeof ListQueuesOutput$ === "object");
 assert(typeof ListShardsInput$ === "object");
 assert(typeof ListShardsOutput$ === "object");
 assert(typeof ListStreamConsumersInput$ === "object");
@@ -437,11 +556,28 @@ assert(typeof PutRecordsOutput$ === "object");
 assert(typeof PutRecordsRequestEntry$ === "object");
 assert(typeof PutRecordsResultEntry$ === "object");
 assert(typeof PutResourcePolicyInput$ === "object");
+assert(typeof QueueAttributes$ === "object");
+assert(typeof QueueDescription$ === "object");
+assert(typeof QueueRecord$ === "object");
+assert(typeof QueueStartingPosition$ === "object");
+assert(typeof QueueStreamConfiguration$ === "object");
+assert(typeof QueueStreamFilter$ === "object");
+assert(typeof QueueStreamIdentifier$ === "object");
+assert(typeof QueueSummary$ === "object");
+assert(typeof ReceiveDeadLetterQueueRecordsInput$ === "object");
+assert(typeof ReceiveDeadLetterQueueRecordsOutput$ === "object");
+assert(typeof ReceiveQueueRecordsInput$ === "object");
+assert(typeof ReceiveQueueRecordsOutput$ === "object");
 assert(typeof _Record$ === "object");
 assert(typeof RecordConfiguration$ === "object");
 assert(typeof RegisterStreamConsumerInput$ === "object");
 assert(typeof RegisterStreamConsumerOutput$ === "object");
 assert(typeof RemoveTagsFromStreamInput$ === "object");
+assert(typeof RestoreDeadLetterQueueRecordsErrorEntry$ === "object");
+assert(typeof RestoreDeadLetterQueueRecordsInput$ === "object");
+assert(typeof RestoreDeadLetterQueueRecordsOutput$ === "object");
+assert(typeof RestoreDeadLetterQueueRecordsRequestEntry$ === "object");
+assert(typeof RestoreDeadLetterQueueRecordsResultEntry$ === "object");
 assert(typeof S3DestinationConfiguration$ === "object");
 assert(typeof S3DestinationDescription$ === "object");
 assert(typeof S3DestinationUpdateInput$ === "object");
@@ -473,7 +609,19 @@ assert(typeof UpdateAccountSettingsInput$ === "object");
 assert(typeof UpdateAccountSettingsOutput$ === "object");
 assert(typeof UpdateChannelInput$ === "object");
 assert(typeof UpdateChannelOutput$ === "object");
+assert(typeof UpdateDeadLetterQueueRecordsVisibilityErrorEntry$ === "object");
+assert(typeof UpdateDeadLetterQueueRecordsVisibilityInput$ === "object");
+assert(typeof UpdateDeadLetterQueueRecordsVisibilityOutput$ === "object");
+assert(typeof UpdateDeadLetterQueueRecordsVisibilityRequestEntry$ === "object");
+assert(typeof UpdateDeadLetterQueueRecordsVisibilityResultEntry$ === "object");
 assert(typeof UpdateMaxRecordSizeInput$ === "object");
+assert(typeof UpdateQueueInput$ === "object");
+assert(typeof UpdateQueueOutput$ === "object");
+assert(typeof UpdateQueueRecordsVisibilityErrorEntry$ === "object");
+assert(typeof UpdateQueueRecordsVisibilityInput$ === "object");
+assert(typeof UpdateQueueRecordsVisibilityOutput$ === "object");
+assert(typeof UpdateQueueRecordsVisibilityRequestEntry$ === "object");
+assert(typeof UpdateQueueRecordsVisibilityResultEntry$ === "object");
 assert(typeof UpdateShardCountInput$ === "object");
 assert(typeof UpdateShardCountOutput$ === "object");
 assert(typeof UpdateStreamModeInput$ === "object");
@@ -491,6 +639,8 @@ assert(typeof MetricsName === "object");
 assert(typeof MinimumThroughputBillingCommitmentInputStatus === "object");
 assert(typeof MinimumThroughputBillingCommitmentOutputStatus === "object");
 assert(typeof PartitionTransform === "object");
+assert(typeof QueueStartingPositionType === "object");
+assert(typeof QueueStatus === "object");
 assert(typeof RecordDistributionStrategy === "object");
 assert(typeof RecordFormatType === "object");
 assert(typeof S3CompressionType === "object");
@@ -501,6 +651,7 @@ assert(typeof ShardFilterType === "object");
 assert(typeof ShardIteratorType === "object");
 assert(typeof StreamMode === "object");
 assert(typeof StreamStatus === "object");
+assert(typeof TargetType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof KinesisServiceException);
 assert(typeof AccessDeniedException$ === "object");
@@ -534,6 +685,8 @@ assert(ResourceInUseException.prototype instanceof KinesisServiceException);
 assert(typeof ResourceInUseException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof KinesisServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
+assert(ThrottlingException.prototype instanceof KinesisServiceException);
+assert(typeof ThrottlingException$ === "object");
 assert(ValidationException.prototype instanceof KinesisServiceException);
 assert(typeof ValidationException$ === "object");
 assert(KinesisServiceException.prototype instanceof Error);
@@ -546,6 +699,7 @@ assert(typeof waitUntilStreamExists === "function");
 assert(typeof waitUntilStreamNotExists === "function");
 // paginators
 assert(typeof paginateListChannels === "function");
+assert(typeof paginateListQueues === "function");
 assert(typeof paginateListStreamConsumers === "function");
 assert(typeof paginateListStreams === "function");
 console.log(`Kinesis index test passed.`);

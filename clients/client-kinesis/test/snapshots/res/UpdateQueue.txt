@@ -1,0 +1,178 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "QueueDescription": {
+    "QueueName": "__QueueName__",
+    "QueueARN": "__QueueARN__",
+    "QueueStatus": "__QueueStatus__",
+    "QueueCreationTimestamp": 946702799.999,
+    "StreamConfigurationList": [
+      {
+        "StreamARN": "__StreamARN__",
+        "StartingPosition": {
+          "Type": "__Type__",
+          "Timestamp": 946702799.999
+        }
+      },
+      {
+        "StreamARN": "__StreamARN__",
+        "StartingPosition": {
+          "Type": "__Type__",
+          "Timestamp": 946702799.999
+        }
+      },
+      {
+        "StreamARN": "__StreamARN__",
+        "StartingPosition": {
+          "Type": "__Type__",
+          "Timestamp": 946702799.999
+        }
+      }
+    ],
+    "QueueAttributes": {}
+  }
+}
+
+
+--- [output object] ---
+{
+  QueueDescription: {
+    QueueName: "__QueueName__",
+    QueueARN: "__QueueARN__",
+    QueueStatus: "__QueueStatus__",
+    QueueCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    StreamConfigurationList: [
+      {
+        StreamARN: "__StreamARN__",
+        StartingPosition: {
+          Type: "__Type__",
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      },
+      {
+        StreamARN: "__StreamARN__",
+        StartingPosition: {
+          Type: "__Type__",
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      },
+      {
+        StreamARN: "__StreamARN__",
+        StartingPosition: {
+          Type: "__Type__",
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      }
+    ],
+    QueueAttributes: {}
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "QueueDescription": {
+    "QueueName": "__QueueName__",
+    "QueueARN": "__QueueARN__",
+    "QueueStatus": "__QueueStatus__",
+    "QueueCreationTimestamp": 946702799.999,
+    "StreamConfigurationList": [
+      {
+        "StreamARN": "__StreamARN__",
+        "StartingPosition": {
+          "Type": "__Type__",
+          "Timestamp": 946702799.999
+        }
+      },
+      {
+        "StreamARN": "__StreamARN__",
+        "StartingPosition": {
+          "Type": "__Type__",
+          "Timestamp": 946702799.999
+        }
+      },
+      {
+        "StreamARN": "__StreamARN__",
+        "StartingPosition": {
+          "Type": "__Type__",
+          "Timestamp": 946702799.999
+        }
+      }
+    ],
+    "QueueAttributes": {
+      "VisibilityTimeoutSeconds": 0,
+      "DeadLetterConfiguration": {
+        "TargetType": "__TargetType__",
+        "MaxReceiveCount": 0
+      }
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  QueueDescription: {
+    QueueName: "__QueueName__",
+    QueueARN: "__QueueARN__",
+    QueueStatus: "__QueueStatus__",
+    QueueCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    StreamConfigurationList: [
+      {
+        StreamARN: "__StreamARN__",
+        StartingPosition: {
+          Type: "__Type__",
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      },
+      {
+        StreamARN: "__StreamARN__",
+        StartingPosition: {
+          Type: "__Type__",
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      },
+      {
+        StreamARN: "__StreamARN__",
+        StartingPosition: {
+          Type: "__Type__",
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      }
+    ],
+    QueueAttributes: {
+      VisibilityTimeoutSeconds: (number) 0,
+      DeadLetterConfiguration: {
+        TargetType: "__TargetType__",
+        MaxReceiveCount: (number) 0
+      }
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

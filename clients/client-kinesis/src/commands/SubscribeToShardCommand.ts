@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep6, _mw0, command } from "../commandBuilder";
+import { _ep9, _mw0, command } from "../commandBuilder";
 import type { SubscribeToShardInput, SubscribeToShardOutput } from "../models/models_0";
 import { SubscribeToShard$ } from "../schemas/schemas_0";
 
@@ -44,8 +44,8 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  *             seconds or more after a successful call, the second call takes over the subscription and
  *             the previous connection expires or fails with a
  *             <code>ResourceInUseException</code>.</p>
- *          <p>For an example of how to use this operation, see <a href="https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
- *                 Using the Kinesis Data Streams API</a>.</p>
+ *          <p>For an example of how to use this operation, see <a href="https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html">Develop enhanced fan-out consumers
+ *                 with the Amazon Web Services SDK for Java</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -162,7 +162,7 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  * @public
  */
 export class SubscribeToShardCommand extends command<SubscribeToShardCommandInput, SubscribeToShardCommandOutput>(
-  _ep6,
+  _ep9,
   _mw0,
   "SubscribeToShard",
   SubscribeToShard$

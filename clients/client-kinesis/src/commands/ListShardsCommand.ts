@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { ListShardsInput, ListShardsOutput } from "../models/models_0";
 import { ListShards$ } from "../schemas/schemas_0";
 
@@ -120,7 +120,7 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  * @public
  */
 export class ListShardsCommand extends command<ListShardsCommandInput, ListShardsCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "ListShards",
   ListShards$

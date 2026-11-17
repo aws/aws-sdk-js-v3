@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { StartStreamEncryptionInput } from "../models/models_0";
 import { StartStreamEncryption$ } from "../schemas/schemas_0";
 
@@ -84,7 +84,7 @@ export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
  *             to.</p>
  *
  * @throws {@link KMSDisabledException} (client fault)
- *  <p>The request was rejected because the specified customer master key (CMK) isn't
+ *  <p>The request was rejected because the specified KMS key isn't
  *             enabled.</p>
  *
  * @throws {@link KMSInvalidStateException} (client fault)
@@ -125,7 +125,7 @@ export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
  * @public
  */
 export class StartStreamEncryptionCommand extends command<StartStreamEncryptionCommandInput, StartStreamEncryptionCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "StartStreamEncryption",
   StartStreamEncryption$

@@ -7,8 +7,8 @@
 AWS SDK for JavaScript Kinesis Client for Node.js, Browser and React Native.
 
 <fullname>Amazon Kinesis Data Streams Service API Reference</fullname>
-<p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time
-processing of streaming big data.</p>
+<p>Amazon Kinesis Data Streams is a serverless data streaming service that ingests data
+once and fans it out to multiple consumer applications for real-time processing.</p>
 
 ## Installing
 
@@ -24,16 +24,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `KinesisClient` and
-the commands you need, for example `ListShardsCommand`:
+the commands you need, for example `ListQueuesCommand`:
 
 ```js
 // ES5 example
-const { KinesisClient, ListShardsCommand } = require("@aws-sdk/client-kinesis");
+const { KinesisClient, ListQueuesCommand } = require("@aws-sdk/client-kinesis");
 ```
 
 ```ts
 // ES6+ example
-import { KinesisClient, ListShardsCommand } from "@aws-sdk/client-kinesis";
+import { KinesisClient, ListQueuesCommand } from "@aws-sdk/client-kinesis";
 ```
 
 ### Usage
@@ -50,7 +50,7 @@ To send a request:
 const client = new KinesisClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListShardsCommand(params);
+const command = new ListQueuesCommand(params);
 ```
 
 #### Async/await
@@ -106,7 +106,7 @@ const client = new Kinesis({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listShards(params);
+  const data = await client.listQueues(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -114,7 +114,7 @@ try {
 
 // Promises.
 client
-  .listShards(params)
+  .listQueues(params)
   .then((data) => {
     // process data.
   })
@@ -123,7 +123,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listShards(params, (err, data) => {
+client.listQueues(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -183,6 +183,20 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AcknowledgeDeadLetterQueueRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/AcknowledgeDeadLetterQueueRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/AcknowledgeDeadLetterQueueRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/AcknowledgeDeadLetterQueueRecordsCommandOutput/)
+</details>
+<details>
+<summary>
+AcknowledgeQueueRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/AcknowledgeQueueRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/AcknowledgeQueueRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/AcknowledgeQueueRecordsCommandOutput/)
+</details>
+<details>
+<summary>
 AddTagsToStream
 </summary>
 
@@ -194,6 +208,13 @@ CreateChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/CreateChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/CreateChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/CreateChannelCommandOutput/)
+</details>
+<details>
+<summary>
+CreateQueue
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/CreateQueueCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/CreateQueueCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/CreateQueueCommandOutput/)
 </details>
 <details>
 <summary>
@@ -215,6 +236,13 @@ DeleteChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/DeleteChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DeleteChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DeleteChannelCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteQueue
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/DeleteQueueCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DeleteQueueCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DeleteQueueCommandOutput/)
 </details>
 <details>
 <summary>
@@ -257,6 +285,13 @@ DescribeLimits
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/DescribeLimitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DescribeLimitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DescribeLimitsCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeQueue
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/DescribeQueueCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DescribeQueueCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DescribeQueueCommandOutput/)
 </details>
 <details>
 <summary>
@@ -330,6 +365,13 @@ ListChannels
 </details>
 <details>
 <summary>
+ListQueues
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/ListQueuesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ListQueuesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ListQueuesCommandOutput/)
+</details>
+<details>
+<summary>
 ListShards
 </summary>
 
@@ -393,6 +435,20 @@ PutResourcePolicy
 </details>
 <details>
 <summary>
+ReceiveDeadLetterQueueRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/ReceiveDeadLetterQueueRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ReceiveDeadLetterQueueRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ReceiveDeadLetterQueueRecordsCommandOutput/)
+</details>
+<details>
+<summary>
+ReceiveQueueRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/ReceiveQueueRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ReceiveQueueRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ReceiveQueueRecordsCommandOutput/)
+</details>
+<details>
+<summary>
 RegisterStreamConsumer
 </summary>
 
@@ -404,6 +460,13 @@ RemoveTagsFromStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/RemoveTagsFromStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/RemoveTagsFromStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/RemoveTagsFromStreamCommandOutput/)
+</details>
+<details>
+<summary>
+RestoreDeadLetterQueueRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/RestoreDeadLetterQueueRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/RestoreDeadLetterQueueRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/RestoreDeadLetterQueueRecordsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -463,10 +526,31 @@ UpdateChannel
 </details>
 <details>
 <summary>
+UpdateDeadLetterQueueRecordsVisibility
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/UpdateDeadLetterQueueRecordsVisibilityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateDeadLetterQueueRecordsVisibilityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateDeadLetterQueueRecordsVisibilityCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateMaxRecordSize
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/UpdateMaxRecordSizeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateMaxRecordSizeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateMaxRecordSizeCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateQueue
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/UpdateQueueCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateQueueCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateQueueCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateQueueRecordsVisibility
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/UpdateQueueRecordsVisibilityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateQueueRecordsVisibilityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateQueueRecordsVisibilityCommandOutput/)
 </details>
 <details>
 <summary>

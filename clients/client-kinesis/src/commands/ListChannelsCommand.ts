@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep1, _mw0, command } from "../commandBuilder";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { ListChannelsInput, ListChannelsOutput } from "../models/models_0";
 import { ListChannels$ } from "../schemas/schemas_0";
 
@@ -91,82 +91,18 @@ export interface ListChannelsCommandOutput extends ListChannelsOutput, __Metadat
  *             stream requests exceeds the maximum number allowed. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
+ *  <p>The request failed validation. For example, a parameter value is not valid, a
+ *             combination of parameters is not supported, or the operation is not supported for the
+ *             stream's capacity mode. The error message describes the specific reason.</p>
  *
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  *
- * @example To list channels
- * ```javascript
- * //
- * const input = { /* empty *\/ };
- * const command = new ListChannelsCommand(input);
- * const response = await client.send(command);
- * /* response is
- * {
- *   ChannelSummaries: [
- *     {
- *       ChannelARN: "arn:aws:kinesis:us-east-1:123456789012:channel/my-channel-id",
- *       ChannelCreationTimestamp: "2024-07-02T00:00:00Z",
- *       ChannelDestinationType: "S3",
- *       ChannelId: "my-channel-id",
- *       ChannelName: "my-channel-name",
- *       ChannelStatus: "ACTIVE",
- *       Streams: [
- *         {
- *           StreamARN: "arn:aws:kinesis:us-east-1:123456789012:stream/my-stream-name",
- *           StreamCreationTimestamp: "2024-07-01T00:00:00Z"
- *         }
- *       ]
- *     }
- *   ]
- * }
- * *\/
- * ```
- *
- * @example To list channels filtered by stream
- * ```javascript
- * //
- * const input = {
- *   MaxResults: 10,
- *   StreamFilter: [
- *     {
- *       StreamARN: "arn:aws:kinesis:us-east-1:123456789012:stream/my-stream-name"
- *     }
- *   ]
- * };
- * const command = new ListChannelsCommand(input);
- * const response = await client.send(command);
- * /* response is
- * {
- *   ChannelSummaries: [
- *     {
- *       ChannelARN: "arn:aws:kinesis:us-east-1:123456789012:channel/my-channel-id",
- *       ChannelCreationTimestamp: "2024-07-02T00:00:00Z",
- *       ChannelDestinationType: "S3",
- *       ChannelId: "my-channel-id",
- *       ChannelName: "my-channel-name",
- *       ChannelStatus: "ACTIVE",
- *       Streams: [
- *         {
- *           StreamARN: "arn:aws:kinesis:us-east-1:123456789012:stream/my-stream-name",
- *           StreamCreationTimestamp: "2024-07-01T00:00:00Z"
- *         }
- *       ]
- *     }
- *   ],
- *   NextToken: "AAAAAgAAAAEAAAABbXktbmV4dC1wYWdlLXRva2Vu"
- * }
- * *\/
- * ```
- *
  * @public
  */
 export class ListChannelsCommand extends command<ListChannelsCommandInput, ListChannelsCommandOutput>(
-  _ep1,
+  _ep2,
   _mw0,
   "ListChannels",
   ListChannels$

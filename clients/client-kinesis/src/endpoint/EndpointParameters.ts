@@ -65,6 +65,8 @@ export interface EndpointParameters extends __EndpointParameters {
   ConsumerARN?: string | undefined;
   ResourceARN?: string | undefined;
   ChannelARN?: string | undefined;
+  QueueARN?: string | undefined;
+  ResourceType?: string | undefined;
   AccountId?: string | undefined;
   AccountIdEndpointMode?: string | undefined;
 }

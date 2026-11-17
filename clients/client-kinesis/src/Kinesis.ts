@@ -9,6 +9,16 @@ import type {
 } from "@smithy/types";
 
 import {
+  type AcknowledgeDeadLetterQueueRecordsCommandInput,
+  type AcknowledgeDeadLetterQueueRecordsCommandOutput,
+  AcknowledgeDeadLetterQueueRecordsCommand,
+} from "./commands/AcknowledgeDeadLetterQueueRecordsCommand";
+import {
+  type AcknowledgeQueueRecordsCommandInput,
+  type AcknowledgeQueueRecordsCommandOutput,
+  AcknowledgeQueueRecordsCommand,
+} from "./commands/AcknowledgeQueueRecordsCommand";
+import {
   type AddTagsToStreamCommandInput,
   type AddTagsToStreamCommandOutput,
   AddTagsToStreamCommand,
@@ -18,6 +28,11 @@ import {
   type CreateChannelCommandOutput,
   CreateChannelCommand,
 } from "./commands/CreateChannelCommand";
+import {
+  type CreateQueueCommandInput,
+  type CreateQueueCommandOutput,
+  CreateQueueCommand,
+} from "./commands/CreateQueueCommand";
 import {
   type CreateStreamCommandInput,
   type CreateStreamCommandOutput,
@@ -33,6 +48,11 @@ import {
   type DeleteChannelCommandOutput,
   DeleteChannelCommand,
 } from "./commands/DeleteChannelCommand";
+import {
+  type DeleteQueueCommandInput,
+  type DeleteQueueCommandOutput,
+  DeleteQueueCommand,
+} from "./commands/DeleteQueueCommand";
 import {
   type DeleteResourcePolicyCommandInput,
   type DeleteResourcePolicyCommandOutput,
@@ -63,6 +83,11 @@ import {
   type DescribeLimitsCommandOutput,
   DescribeLimitsCommand,
 } from "./commands/DescribeLimitsCommand";
+import {
+  type DescribeQueueCommandInput,
+  type DescribeQueueCommandOutput,
+  DescribeQueueCommand,
+} from "./commands/DescribeQueueCommand";
 import {
   type DescribeStreamCommandInput,
   type DescribeStreamCommandOutput,
@@ -114,6 +139,11 @@ import {
   ListChannelsCommand,
 } from "./commands/ListChannelsCommand";
 import {
+  type ListQueuesCommandInput,
+  type ListQueuesCommandOutput,
+  ListQueuesCommand,
+} from "./commands/ListQueuesCommand";
+import {
   type ListShardsCommandInput,
   type ListShardsCommandOutput,
   ListShardsCommand,
@@ -155,6 +185,16 @@ import {
   PutResourcePolicyCommand,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type ReceiveDeadLetterQueueRecordsCommandInput,
+  type ReceiveDeadLetterQueueRecordsCommandOutput,
+  ReceiveDeadLetterQueueRecordsCommand,
+} from "./commands/ReceiveDeadLetterQueueRecordsCommand";
+import {
+  type ReceiveQueueRecordsCommandInput,
+  type ReceiveQueueRecordsCommandOutput,
+  ReceiveQueueRecordsCommand,
+} from "./commands/ReceiveQueueRecordsCommand";
+import {
   type RegisterStreamConsumerCommandInput,
   type RegisterStreamConsumerCommandOutput,
   RegisterStreamConsumerCommand,
@@ -164,6 +204,11 @@ import {
   type RemoveTagsFromStreamCommandOutput,
   RemoveTagsFromStreamCommand,
 } from "./commands/RemoveTagsFromStreamCommand";
+import {
+  type RestoreDeadLetterQueueRecordsCommandInput,
+  type RestoreDeadLetterQueueRecordsCommandOutput,
+  RestoreDeadLetterQueueRecordsCommand,
+} from "./commands/RestoreDeadLetterQueueRecordsCommand";
 import {
   type SplitShardCommandInput,
   type SplitShardCommandOutput,
@@ -205,10 +250,25 @@ import {
   UpdateChannelCommand,
 } from "./commands/UpdateChannelCommand";
 import {
+  type UpdateDeadLetterQueueRecordsVisibilityCommandInput,
+  type UpdateDeadLetterQueueRecordsVisibilityCommandOutput,
+  UpdateDeadLetterQueueRecordsVisibilityCommand,
+} from "./commands/UpdateDeadLetterQueueRecordsVisibilityCommand";
+import {
   type UpdateMaxRecordSizeCommandInput,
   type UpdateMaxRecordSizeCommandOutput,
   UpdateMaxRecordSizeCommand,
 } from "./commands/UpdateMaxRecordSizeCommand";
+import {
+  type UpdateQueueCommandInput,
+  type UpdateQueueCommandOutput,
+  UpdateQueueCommand,
+} from "./commands/UpdateQueueCommand";
+import {
+  type UpdateQueueRecordsVisibilityCommandInput,
+  type UpdateQueueRecordsVisibilityCommandOutput,
+  UpdateQueueRecordsVisibilityCommand,
+} from "./commands/UpdateQueueRecordsVisibilityCommand";
 import {
   type UpdateShardCountCommandInput,
   type UpdateShardCountCommandOutput,
@@ -233,6 +293,7 @@ import { KinesisClient } from "./KinesisClient";
 import type { ResourceNotFoundException } from "./models/errors";
 import type { KinesisServiceException } from "./models/KinesisServiceException";
 import { paginateListChannels } from "./pagination/ListChannelsPaginator";
+import { paginateListQueues } from "./pagination/ListQueuesPaginator";
 import { paginateListStreamConsumers } from "./pagination/ListStreamConsumersPaginator";
 import { paginateListStreams } from "./pagination/ListStreamsPaginator";
 import { waitUntilChannelActive } from "./waiters/waitForChannelActive";
@@ -240,17 +301,22 @@ import { waitUntilStreamExists } from "./waiters/waitForStreamExists";
 import { waitUntilStreamNotExists } from "./waiters/waitForStreamNotExists";
 
 const commands = {
+  AcknowledgeDeadLetterQueueRecordsCommand,
+  AcknowledgeQueueRecordsCommand,
   AddTagsToStreamCommand,
   CreateChannelCommand,
+  CreateQueueCommand,
   CreateStreamCommand,
   DecreaseStreamRetentionPeriodCommand,
   DeleteChannelCommand,
+  DeleteQueueCommand,
   DeleteResourcePolicyCommand,
   DeleteStreamCommand,
   DeregisterStreamConsumerCommand,
   DescribeAccountSettingsCommand,
   DescribeChannelCommand,
   DescribeLimitsCommand,
+  DescribeQueueCommand,
   DescribeStreamCommand,
   DescribeStreamConsumerCommand,
   DescribeStreamSummaryCommand,
@@ -261,6 +327,7 @@ const commands = {
   GetShardIteratorCommand,
   IncreaseStreamRetentionPeriodCommand,
   ListChannelsCommand,
+  ListQueuesCommand,
   ListShardsCommand,
   ListStreamConsumersCommand,
   ListStreamsCommand,
@@ -270,8 +337,11 @@ const commands = {
   PutRecordCommand,
   PutRecordsCommand,
   PutResourcePolicyCommand,
+  ReceiveDeadLetterQueueRecordsCommand,
+  ReceiveQueueRecordsCommand,
   RegisterStreamConsumerCommand,
   RemoveTagsFromStreamCommand,
+  RestoreDeadLetterQueueRecordsCommand,
   SplitShardCommand,
   StartStreamEncryptionCommand,
   StopStreamEncryptionCommand,
@@ -280,7 +350,10 @@ const commands = {
   UntagResourceCommand,
   UpdateAccountSettingsCommand,
   UpdateChannelCommand,
+  UpdateDeadLetterQueueRecordsVisibilityCommand,
   UpdateMaxRecordSizeCommand,
+  UpdateQueueCommand,
+  UpdateQueueRecordsVisibilityCommand,
   UpdateShardCountCommand,
   UpdateStreamModeCommand,
   UpdateStreamRecordDistributionStrategyCommand,
@@ -288,6 +361,7 @@ const commands = {
 };
 const paginators = {
   paginateListChannels,
+  paginateListQueues,
   paginateListStreamConsumers,
   paginateListStreams,
 };
@@ -305,6 +379,40 @@ export interface KinesisRequestOptions extends __HttpHandlerOptions {
 }
 
 export interface Kinesis {
+  /**
+   * @see {@link AcknowledgeDeadLetterQueueRecordsCommand}
+   */
+  acknowledgeDeadLetterQueueRecords(
+    args: AcknowledgeDeadLetterQueueRecordsCommandInput,
+    options?: KinesisRequestOptions
+  ): Promise<AcknowledgeDeadLetterQueueRecordsCommandOutput>;
+  acknowledgeDeadLetterQueueRecords(
+    args: AcknowledgeDeadLetterQueueRecordsCommandInput,
+    cb: (err: any, data?: AcknowledgeDeadLetterQueueRecordsCommandOutput) => void
+  ): void;
+  acknowledgeDeadLetterQueueRecords(
+    args: AcknowledgeDeadLetterQueueRecordsCommandInput,
+    options: KinesisRequestOptions,
+    cb: (err: any, data?: AcknowledgeDeadLetterQueueRecordsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AcknowledgeQueueRecordsCommand}
+   */
+  acknowledgeQueueRecords(
+    args: AcknowledgeQueueRecordsCommandInput,
+    options?: KinesisRequestOptions
+  ): Promise<AcknowledgeQueueRecordsCommandOutput>;
+  acknowledgeQueueRecords(
+    args: AcknowledgeQueueRecordsCommandInput,
+    cb: (err: any, data?: AcknowledgeQueueRecordsCommandOutput) => void
+  ): void;
+  acknowledgeQueueRecords(
+    args: AcknowledgeQueueRecordsCommandInput,
+    options: KinesisRequestOptions,
+    cb: (err: any, data?: AcknowledgeQueueRecordsCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link AddTagsToStreamCommand}
    */
@@ -337,6 +445,23 @@ export interface Kinesis {
     args: CreateChannelCommandInput,
     options: KinesisRequestOptions,
     cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateQueueCommand}
+   */
+  createQueue(
+    args: CreateQueueCommandInput,
+    options?: KinesisRequestOptions
+  ): Promise<CreateQueueCommandOutput>;
+  createQueue(
+    args: CreateQueueCommandInput,
+    cb: (err: any, data?: CreateQueueCommandOutput) => void
+  ): void;
+  createQueue(
+    args: CreateQueueCommandInput,
+    options: KinesisRequestOptions,
+    cb: (err: any, data?: CreateQueueCommandOutput) => void
   ): void;
 
   /**
@@ -388,6 +513,23 @@ export interface Kinesis {
     args: DeleteChannelCommandInput,
     options: KinesisRequestOptions,
     cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteQueueCommand}
+   */
+  deleteQueue(
+    args: DeleteQueueCommandInput,
+    options?: KinesisRequestOptions
+  ): Promise<DeleteQueueCommandOutput>;
+  deleteQueue(
+    args: DeleteQueueCommandInput,
+    cb: (err: any, data?: DeleteQueueCommandOutput) => void
+  ): void;
+  deleteQueue(
+    args: DeleteQueueCommandInput,
+    options: KinesisRequestOptions,
+    cb: (err: any, data?: DeleteQueueCommandOutput) => void
   ): void;
 
   /**
@@ -494,6 +636,23 @@ export interface Kinesis {
     args: DescribeLimitsCommandInput,
     options: KinesisRequestOptions,
     cb: (err: any, data?: DescribeLimitsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeQueueCommand}
+   */
+  describeQueue(
+    args: DescribeQueueCommandInput,
+    options?: KinesisRequestOptions
+  ): Promise<DescribeQueueCommandOutput>;
+  describeQueue(
+    args: DescribeQueueCommandInput,
+    cb: (err: any, data?: DescribeQueueCommandOutput) => void
+  ): void;
+  describeQueue(
+    args: DescribeQueueCommandInput,
+    options: KinesisRequestOptions,
+    cb: (err: any, data?: DescribeQueueCommandOutput) => void
   ): void;
 
   /**
@@ -671,6 +830,24 @@ export interface Kinesis {
   ): void;
 
   /**
+   * @see {@link ListQueuesCommand}
+   */
+  listQueues(): Promise<ListQueuesCommandOutput>;
+  listQueues(
+    args: ListQueuesCommandInput,
+    options?: KinesisRequestOptions
+  ): Promise<ListQueuesCommandOutput>;
+  listQueues(
+    args: ListQueuesCommandInput,
+    cb: (err: any, data?: ListQueuesCommandOutput) => void
+  ): void;
+  listQueues(
+    args: ListQueuesCommandInput,
+    options: KinesisRequestOptions,
+    cb: (err: any, data?: ListQueuesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListShardsCommand}
    */
   listShards(): Promise<ListShardsCommandOutput>;
@@ -827,6 +1004,40 @@ export interface Kinesis {
   ): void;
 
   /**
+   * @see {@link ReceiveDeadLetterQueueRecordsCommand}
+   */
+  receiveDeadLetterQueueRecords(
+    args: ReceiveDeadLetterQueueRecordsCommandInput,
+    options?: KinesisRequestOptions
+  ): Promise<ReceiveDeadLetterQueueRecordsCommandOutput>;
+  receiveDeadLetterQueueRecords(
+    args: ReceiveDeadLetterQueueRecordsCommandInput,
+    cb: (err: any, data?: ReceiveDeadLetterQueueRecordsCommandOutput) => void
+  ): void;
+  receiveDeadLetterQueueRecords(
+    args: ReceiveDeadLetterQueueRecordsCommandInput,
+    options: KinesisRequestOptions,
+    cb: (err: any, data?: ReceiveDeadLetterQueueRecordsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ReceiveQueueRecordsCommand}
+   */
+  receiveQueueRecords(
+    args: ReceiveQueueRecordsCommandInput,
+    options?: KinesisRequestOptions
+  ): Promise<ReceiveQueueRecordsCommandOutput>;
+  receiveQueueRecords(
+    args: ReceiveQueueRecordsCommandInput,
+    cb: (err: any, data?: ReceiveQueueRecordsCommandOutput) => void
+  ): void;
+  receiveQueueRecords(
+    args: ReceiveQueueRecordsCommandInput,
+    options: KinesisRequestOptions,
+    cb: (err: any, data?: ReceiveQueueRecordsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RegisterStreamConsumerCommand}
    */
   registerStreamConsumer(
@@ -858,6 +1069,23 @@ export interface Kinesis {
     args: RemoveTagsFromStreamCommandInput,
     options: KinesisRequestOptions,
     cb: (err: any, data?: RemoveTagsFromStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RestoreDeadLetterQueueRecordsCommand}
+   */
+  restoreDeadLetterQueueRecords(
+    args: RestoreDeadLetterQueueRecordsCommandInput,
+    options?: KinesisRequestOptions
+  ): Promise<RestoreDeadLetterQueueRecordsCommandOutput>;
+  restoreDeadLetterQueueRecords(
+    args: RestoreDeadLetterQueueRecordsCommandInput,
+    cb: (err: any, data?: RestoreDeadLetterQueueRecordsCommandOutput) => void
+  ): void;
+  restoreDeadLetterQueueRecords(
+    args: RestoreDeadLetterQueueRecordsCommandInput,
+    options: KinesisRequestOptions,
+    cb: (err: any, data?: RestoreDeadLetterQueueRecordsCommandOutput) => void
   ): void;
 
   /**
@@ -997,6 +1225,23 @@ export interface Kinesis {
   ): void;
 
   /**
+   * @see {@link UpdateDeadLetterQueueRecordsVisibilityCommand}
+   */
+  updateDeadLetterQueueRecordsVisibility(
+    args: UpdateDeadLetterQueueRecordsVisibilityCommandInput,
+    options?: KinesisRequestOptions
+  ): Promise<UpdateDeadLetterQueueRecordsVisibilityCommandOutput>;
+  updateDeadLetterQueueRecordsVisibility(
+    args: UpdateDeadLetterQueueRecordsVisibilityCommandInput,
+    cb: (err: any, data?: UpdateDeadLetterQueueRecordsVisibilityCommandOutput) => void
+  ): void;
+  updateDeadLetterQueueRecordsVisibility(
+    args: UpdateDeadLetterQueueRecordsVisibilityCommandInput,
+    options: KinesisRequestOptions,
+    cb: (err: any, data?: UpdateDeadLetterQueueRecordsVisibilityCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateMaxRecordSizeCommand}
    */
   updateMaxRecordSize(
@@ -1011,6 +1256,40 @@ export interface Kinesis {
     args: UpdateMaxRecordSizeCommandInput,
     options: KinesisRequestOptions,
     cb: (err: any, data?: UpdateMaxRecordSizeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateQueueCommand}
+   */
+  updateQueue(
+    args: UpdateQueueCommandInput,
+    options?: KinesisRequestOptions
+  ): Promise<UpdateQueueCommandOutput>;
+  updateQueue(
+    args: UpdateQueueCommandInput,
+    cb: (err: any, data?: UpdateQueueCommandOutput) => void
+  ): void;
+  updateQueue(
+    args: UpdateQueueCommandInput,
+    options: KinesisRequestOptions,
+    cb: (err: any, data?: UpdateQueueCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateQueueRecordsVisibilityCommand}
+   */
+  updateQueueRecordsVisibility(
+    args: UpdateQueueRecordsVisibilityCommandInput,
+    options?: KinesisRequestOptions
+  ): Promise<UpdateQueueRecordsVisibilityCommandOutput>;
+  updateQueueRecordsVisibility(
+    args: UpdateQueueRecordsVisibilityCommandInput,
+    cb: (err: any, data?: UpdateQueueRecordsVisibilityCommandOutput) => void
+  ): void;
+  updateQueueRecordsVisibility(
+    args: UpdateQueueRecordsVisibilityCommandInput,
+    options: KinesisRequestOptions,
+    cb: (err: any, data?: UpdateQueueRecordsVisibilityCommandOutput) => void
   ): void;
 
   /**
@@ -1093,6 +1372,17 @@ export interface Kinesis {
   ): Paginator<ListChannelsCommandOutput>;
 
   /**
+   * @see {@link ListQueuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQueuesCommandOutput}.
+   */
+  paginateListQueues(
+    args?: ListQueuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQueuesCommandOutput>;
+
+  /**
    * @see {@link ListStreamConsumersCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1147,8 +1437,8 @@ export interface Kinesis {
 
 /**
  * <fullname>Amazon Kinesis Data Streams Service API Reference</fullname>
- *          <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time
- *             processing of streaming big data.</p>
+ *          <p>Amazon Kinesis Data Streams is a serverless data streaming service that ingests data
+ *             once and fans it out to multiple consumer applications for real-time processing.</p>
  * @public
  */
 export class Kinesis extends KinesisClient implements Kinesis {}

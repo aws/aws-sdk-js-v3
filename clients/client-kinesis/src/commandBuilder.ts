@@ -16,6 +16,15 @@ export const command = makeBuilder<KinesisClientResolvedConfig, ServiceInputType
  * @internal
  */
 export const _ep0: EndpointParameterInstructions = {
+  ResourceType: { type: "staticContextParams", value: `queue` },
+  OperationType: { type: "staticContextParams", value: `data` },
+  QueueARN: { type: "contextParams", name: "QueueARN" },
+};
+
+/**
+ * @internal
+ */
+export const _ep1: EndpointParameterInstructions = {
   OperationType: { type: "staticContextParams", value: `control` },
   StreamId: { type: "contextParams", name: "StreamId" },
   StreamARN: { type: "contextParams", name: "StreamARN" },
@@ -24,14 +33,22 @@ export const _ep0: EndpointParameterInstructions = {
 /**
  * @internal
  */
-export const _ep1: EndpointParameterInstructions = {
+export const _ep2: EndpointParameterInstructions = {
   OperationType: { type: "staticContextParams", value: `control` },
 };
 
 /**
  * @internal
  */
-export const _ep2: EndpointParameterInstructions = {
+export const _ep3: EndpointParameterInstructions = {
+  ResourceType: { type: "staticContextParams", value: `queue` },
+  OperationType: { type: "staticContextParams", value: `control` },
+};
+
+/**
+ * @internal
+ */
+export const _ep4: EndpointParameterInstructions = {
   OperationType: { type: "staticContextParams", value: `control` },
   ChannelARN: { type: "contextParams", name: "ChannelARN" },
 };
@@ -39,7 +56,16 @@ export const _ep2: EndpointParameterInstructions = {
 /**
  * @internal
  */
-export const _ep3: EndpointParameterInstructions = {
+export const _ep5: EndpointParameterInstructions = {
+  ResourceType: { type: "staticContextParams", value: `queue` },
+  OperationType: { type: "staticContextParams", value: `control` },
+  QueueARN: { type: "contextParams", name: "QueueARN" },
+};
+
+/**
+ * @internal
+ */
+export const _ep6: EndpointParameterInstructions = {
   OperationType: { type: "staticContextParams", value: `control` },
   ResourceARN: { type: "contextParams", name: "ResourceARN" },
   StreamId: { type: "contextParams", name: "StreamId" },
@@ -48,7 +74,7 @@ export const _ep3: EndpointParameterInstructions = {
 /**
  * @internal
  */
-export const _ep4: EndpointParameterInstructions = {
+export const _ep7: EndpointParameterInstructions = {
   OperationType: { type: "staticContextParams", value: `control` },
   StreamId: { type: "contextParams", name: "StreamId" },
   ConsumerARN: { type: "contextParams", name: "ConsumerARN" },
@@ -58,7 +84,7 @@ export const _ep4: EndpointParameterInstructions = {
 /**
  * @internal
  */
-export const _ep5: EndpointParameterInstructions = {
+export const _ep8: EndpointParameterInstructions = {
   OperationType: { type: "staticContextParams", value: `data` },
   StreamId: { type: "contextParams", name: "StreamId" },
   StreamARN: { type: "contextParams", name: "StreamARN" },
@@ -67,7 +93,7 @@ export const _ep5: EndpointParameterInstructions = {
 /**
  * @internal
  */
-export const _ep6: EndpointParameterInstructions = {
+export const _ep9: EndpointParameterInstructions = {
   OperationType: { type: "staticContextParams", value: `data` },
   StreamId: { type: "contextParams", name: "StreamId" },
   ConsumerARN: { type: "contextParams", name: "ConsumerARN" },

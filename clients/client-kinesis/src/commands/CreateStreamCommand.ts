@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep1, _mw0, command } from "../commandBuilder";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { CreateStreamInput } from "../models/models_0";
 import { CreateStream$ } from "../schemas/schemas_0";
 
@@ -104,9 +104,9 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  *             resource must be in the <code>ACTIVE</code> state.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
+ *  <p>The request failed validation. For example, a parameter value is not valid, a
+ *             combination of parameters is not supported, or the operation is not supported for the
+ *             stream's capacity mode. The error message describes the specific reason.</p>
  *
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
@@ -115,7 +115,7 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  * @public
  */
 export class CreateStreamCommand extends command<CreateStreamCommandInput, CreateStreamCommandOutput>(
-  _ep1,
+  _ep2,
   _mw0,
   "CreateStream",
   CreateStream$

@@ -15,8 +15,10 @@ const cache = new EndpointCache({
     "ConsumerARN",
     "Endpoint",
     "OperationType",
+    "QueueARN",
     "Region",
     "ResourceARN",
+    "ResourceType",
     "StreamARN",
     "StreamId",
     "UseDualStack",
@@ -31,9 +33,11 @@ export const defaultEndpointResolver = (
   endpointParams: EndpointParameters,
   context: { logger?: Logger } = {}
 ): EndpointV2 => {
-  return cache.get(endpointParams as EndpointParams, () =>
+  const params = { ...endpointParams } as EndpointParams;
+  params.ResourceType ??= "";
+  return cache.get(params, () =>
     decideEndpoint(bdd, {
-      endpointParams: endpointParams as EndpointParams,
+      endpointParams: params,
       logger: context.logger,
     })
   );

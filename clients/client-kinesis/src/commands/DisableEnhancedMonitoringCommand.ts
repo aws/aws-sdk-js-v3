@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { DisableEnhancedMonitoringInput, EnhancedMonitoringOutput } from "../models/models_0";
 import { DisableEnhancedMonitoring$ } from "../schemas/schemas_0";
 
@@ -93,7 +93,7 @@ export interface DisableEnhancedMonitoringCommandOutput extends EnhancedMonitori
  * @public
  */
 export class DisableEnhancedMonitoringCommand extends command<DisableEnhancedMonitoringCommandInput, DisableEnhancedMonitoringCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "DisableEnhancedMonitoring",
   DisableEnhancedMonitoring$

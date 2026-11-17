@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep1, _mw0, command } from "../commandBuilder";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { DescribeLimitsInput, DescribeLimitsOutput } from "../models/models_0";
 import { DescribeLimits$ } from "../schemas/schemas_0";
 
@@ -66,7 +66,7 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * @public
  */
 export class DescribeLimitsCommand extends command<DescribeLimitsCommandInput, DescribeLimitsCommandOutput>(
-  _ep1,
+  _ep2,
   _mw0,
   "DescribeLimits",
   DescribeLimits$

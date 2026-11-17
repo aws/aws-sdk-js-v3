@@ -1,6 +1,24 @@
 const _AAT = "ApproximateArrivalTimestamp";
 const _ADE = "AccessDeniedException";
+const _ADLQR = "AcknowledgeDeadLetterQueueRecords";
+const _ADLQREE = "AcknowledgeDeadLetterQueueRecordsErrorEntry";
+const _ADLQREEL = "AcknowledgeDeadLetterQueueRecordsErrorEntryList";
+const _ADLQRI = "AcknowledgeDeadLetterQueueRecordsInput";
+const _ADLQRO = "AcknowledgeDeadLetterQueueRecordsOutput";
+const _ADLQRRE = "AcknowledgeDeadLetterQueueRecordsRequestEntry";
+const _ADLQRREL = "AcknowledgeDeadLetterQueueRecordsRequestEntryList";
+const _ADLQRRELc = "AcknowledgeDeadLetterQueueRecordsResultEntryList";
+const _ADLQRREc = "AcknowledgeDeadLetterQueueRecordsResultEntry";
 const _APSI = "AdjacentParentShardId";
+const _AQR = "AcknowledgeQueueRecords";
+const _AQREE = "AcknowledgeQueueRecordsErrorEntry";
+const _AQREEL = "AcknowledgeQueueRecordsErrorEntryList";
+const _AQRI = "AcknowledgeQueueRecordsInput";
+const _AQRO = "AcknowledgeQueueRecordsOutput";
+const _AQRRE = "AcknowledgeQueueRecordsRequestEntry";
+const _AQRREL = "AcknowledgeQueueRecordsRequestEntryList";
+const _AQRRELc = "AcknowledgeQueueRecordsResultEntryList";
+const _AQRREc = "AcknowledgeQueueRecordsResultEntry";
 const _ASTM = "AdjacentShardToMerge";
 const _ATTS = "AddTagsToStream";
 const _ATTSI = "AddTagsToStreamInput";
@@ -27,6 +45,9 @@ const _CLUI = "ChannelLoggingUpdateInput";
 const _CMB = "CurrentMiBps";
 const _CN = "ChannelName";
 const _CNo = "ConsumerName";
+const _CQ = "CreateQueue";
+const _CQI = "CreateQueueInput";
+const _CQO = "CreateQueueOutput";
 const _CS = "ChannelStatus";
 const _CSC = "ChannelStreamConfiguration";
 const _CSCL = "ChannelStreamConfigurationList";
@@ -64,9 +85,15 @@ const _DEM = "DisableEnhancedMonitoring";
 const _DEMI = "DisableEnhancedMonitoringInput";
 const _DFIS = "DataFreshnessInSeconds";
 const _DL = "DescribeLimits";
+const _DLC = "DeadLetterConfiguration";
 const _DLI = "DescribeLimitsInput";
 const _DLO = "DescribeLimitsOutput";
 const _DLQSC = "DeadLetterQueueS3Configuration";
+const _DQ = "DeleteQueue";
+const _DQI = "DeleteQueueInput";
+const _DQIe = "DescribeQueueInput";
+const _DQO = "DescribeQueueOutput";
+const _DQe = "DescribeQueue";
 const _DR = "DryRun";
 const _DROE = "DryRunOperationException";
 const _DRP = "DeleteResourcePolicy";
@@ -87,23 +114,23 @@ const _DSS = "DescribeStreamSummary";
 const _DSSI = "DescribeStreamSummaryInput";
 const _DSSO = "DescribeStreamSummaryOutput";
 const _DSe = "DescribeStream";
-const _E = "Enabled";
+const _E = "Entries";
 const _EA = "EndedAt";
 const _EAEA = "EarliestAllowedEndAt";
 const _EBO = "ExpectedBucketOwner";
-const _EC = "EncryptionConfiguration";
+const _EC = "ErrorCode";
 const _ECD = "EnforceConsumerDeletion";
-const _ECr = "ErrorCode";
+const _ECn = "EncryptionConfiguration";
 const _EEM = "EnableEnhancedMonitoring";
 const _EEMI = "EnableEnhancedMonitoringInput";
 const _EHK = "EndingHashKey";
 const _EHKx = "ExplicitHashKey";
 const _EIE = "ExpiredIteratorException";
-const _EM = "EnhancedMetrics";
+const _EM = "ErrorMessage";
 const _EML = "EnhancedMonitoringList";
 const _EMO = "EnhancedMonitoringOutput";
-const _EMn = "EnhancedMonitoring";
-const _EMr = "ErrorMessage";
+const _EMn = "EnhancedMetrics";
+const _EMnh = "EnhancedMonitoring";
 const _ENTE = "ExpiredNextTokenException";
 const _EOP = "ErrorOutputPrefix";
 const _ES = "EventStream";
@@ -112,7 +139,10 @@ const _ESSI = "ExclusiveStartShardId";
 const _ESSN = "ExclusiveStartStreamName";
 const _ESTK = "ExclusiveStartTagKey";
 const _ET = "EncryptionType";
+const _En = "Enabled";
+const _F = "Failed";
 const _FRC = "FailedRecordCount";
+const _FRT = "FirstReceiveTimestamp";
 const _GR = "GetRecords";
 const _GRI = "GetRecordsInput";
 const _GRO = "GetRecordsOutput";
@@ -146,6 +176,9 @@ const _LCO = "ListChannelsOutput";
 const _LCi = "ListChannels";
 const _LEE = "LimitExceededException";
 const _LGN = "LogGroupName";
+const _LQ = "ListQueues";
+const _LQI = "ListQueuesInput";
+const _LQO = "ListQueuesOutput";
 const _LS = "ListShards";
 const _LSC = "ListStreamConsumers";
 const _LSCI = "ListStreamConsumersInput";
@@ -164,6 +197,7 @@ const _LTFSI = "ListTagsForStreamInput";
 const _LTFSO = "ListTagsForStreamOutput";
 const _MBL = "MillisBehindLatest";
 const _MR = "MaxResults";
+const _MRC = "MaxReceiveCount";
 const _MRSIKB = "MaxRecordSizeInKiB";
 const _MS = "MergeShards";
 const _MSI = "MergeShardsInput";
@@ -199,22 +233,60 @@ const _PS = "ParentShards";
 const _PSI = "ParentShardId";
 const _PSa = "PartitionSpec";
 const _PTEE = "ProvisionedThroughputExceededException";
+const _QA = "QueueAttributes";
+const _QARN = "QueueARN";
+const _QC = "QueueCount";
+const _QCT = "QueueCreationTimestamp";
+const _QD = "QueueDescription";
+const _QN = "QueueName";
+const _QR = "QueueRecord";
+const _QRL = "QueueRecordList";
+const _QRu = "QueueRecords";
+const _QS = "QueueSummaries";
+const _QSC = "QueueStreamConfiguration";
+const _QSCL = "QueueStreamConfigurationList";
+const _QSF = "QueueStreamFilter";
+const _QSFL = "QueueStreamFilterList";
+const _QSI = "QueueStreamIdentifier";
+const _QSIL = "QueueStreamIdentifierList";
+const _QSL = "QueueSummaryList";
+const _QSP = "QueueStartingPosition";
+const _QSu = "QueueStatus";
+const _QSue = "QueueSummary";
 const _R = "Records";
 const _RARN = "ResourceARN";
 const _RC = "RecordConfiguration";
+const _RCe = "ReceiveCount";
+const _RDLQR = "ReceiveDeadLetterQueueRecords";
+const _RDLQREE = "RestoreDeadLetterQueueRecordsErrorEntry";
+const _RDLQREEL = "RestoreDeadLetterQueueRecordsErrorEntryList";
+const _RDLQRI = "ReceiveDeadLetterQueueRecordsInput";
+const _RDLQRIe = "RestoreDeadLetterQueueRecordsInput";
+const _RDLQRO = "ReceiveDeadLetterQueueRecordsOutput";
+const _RDLQROe = "RestoreDeadLetterQueueRecordsOutput";
+const _RDLQRRE = "RestoreDeadLetterQueueRecordsRequestEntry";
+const _RDLQRREL = "RestoreDeadLetterQueueRecordsRequestEntryList";
+const _RDLQRRELe = "RestoreDeadLetterQueueRecordsResultEntryList";
+const _RDLQRREe = "RestoreDeadLetterQueueRecordsResultEntry";
+const _RDLQRe = "RestoreDeadLetterQueueRecords";
 const _RDS = "RecordDistributionStrategy";
 const _RFT = "RecordFormatType";
+const _RH = "ReceiptHandle";
+const _RI = "RecordId";
 const _RIUE = "ResourceInUseException";
 const _RL = "RecordList";
 const _RNFE = "ResourceNotFoundException";
 const _RPH = "RetentionPeriodHours";
+const _RQR = "ReceiveQueueRecords";
+const _RQRI = "ReceiveQueueRecordsInput";
+const _RQRO = "ReceiveQueueRecordsOutput";
 const _RSC = "RegisterStreamConsumer";
 const _RSCI = "RegisterStreamConsumerInput";
 const _RSCO = "RegisterStreamConsumerOutput";
 const _RTFS = "RemoveTagsFromStream";
 const _RTFSI = "RemoveTagsFromStreamInput";
 const _Re = "Record";
-const _S = "Streams";
+const _S = "Successful";
 const _SA = "StartedAt";
 const _SARN = "StreamARN";
 const _SC = "ShardCount";
@@ -275,9 +347,11 @@ const _STSO = "SubscribeToShardOutput";
 const _STSu = "SubscribeToShard";
 const _Sh = "Shards";
 const _Sha = "Shard";
-const _St = "Status";
+const _St = "Streams";
+const _Sta = "Status";
 const _T = "Tags";
 const _TBARN = "TableBucketARN";
+const _TE = "ThrottlingException";
 const _TK = "TagKeys";
 const _TL = "TagList";
 const _TMB = "TargetMiBps";
@@ -285,6 +359,7 @@ const _TN = "TableName";
 const _TR = "TagResource";
 const _TRI = "TagResourceInput";
 const _TSC = "TargetShardCount";
+const _TT = "TargetType";
 const _Ta = "Tag";
 const _Ti = "Timestamp";
 const _Tr = "Transform";
@@ -295,8 +370,29 @@ const _UASO = "UpdateAccountSettingsOutput";
 const _UC = "UpdateChannel";
 const _UCI = "UpdateChannelInput";
 const _UCO = "UpdateChannelOutput";
+const _UDLQRV = "UpdateDeadLetterQueueRecordsVisibility";
+const _UDLQRVEE = "UpdateDeadLetterQueueRecordsVisibilityErrorEntry";
+const _UDLQRVEEL = "UpdateDeadLetterQueueRecordsVisibilityErrorEntryList";
+const _UDLQRVI = "UpdateDeadLetterQueueRecordsVisibilityInput";
+const _UDLQRVO = "UpdateDeadLetterQueueRecordsVisibilityOutput";
+const _UDLQRVRE = "UpdateDeadLetterQueueRecordsVisibilityRequestEntry";
+const _UDLQRVREL = "UpdateDeadLetterQueueRecordsVisibilityRequestEntryList";
+const _UDLQRVRELp = "UpdateDeadLetterQueueRecordsVisibilityResultEntryList";
+const _UDLQRVREp = "UpdateDeadLetterQueueRecordsVisibilityResultEntry";
 const _UMRS = "UpdateMaxRecordSize";
 const _UMRSI = "UpdateMaxRecordSizeInput";
+const _UQ = "UpdateQueue";
+const _UQI = "UpdateQueueInput";
+const _UQO = "UpdateQueueOutput";
+const _UQRV = "UpdateQueueRecordsVisibility";
+const _UQRVEE = "UpdateQueueRecordsVisibilityErrorEntry";
+const _UQRVEEL = "UpdateQueueRecordsVisibilityErrorEntryList";
+const _UQRVI = "UpdateQueueRecordsVisibilityInput";
+const _UQRVO = "UpdateQueueRecordsVisibilityOutput";
+const _UQRVRE = "UpdateQueueRecordsVisibilityRequestEntry";
+const _UQRVREL = "UpdateQueueRecordsVisibilityRequestEntryList";
+const _UQRVRELp = "UpdateQueueRecordsVisibilityResultEntryList";
+const _UQRVREp = "UpdateQueueRecordsVisibilityResultEntry";
 const _UR = "UntagResource";
 const _URI = "UntagResourceInput";
 const _USC = "UpdateShardCount";
@@ -311,9 +407,11 @@ const _USWTI = "UpdateStreamWarmThroughputInput";
 const _USWTO = "UpdateStreamWarmThroughputOutput";
 const _V = "Value";
 const _VE = "ValidationException";
+const _VTS = "VisibilityTimeoutSeconds";
 const _WT = "WarmThroughput";
 const _WTMB = "WarmThroughputMiBps";
 const _WTO = "WarmThroughputObject";
+const _WTS = "WaitTimeSeconds";
 const _c = "client";
 const _e = "error";
 const _m = "message";
@@ -350,6 +448,7 @@ import {
   ProvisionedThroughputExceededException,
   ResourceInUseException,
   ResourceNotFoundException,
+  ThrottlingException,
   ValidationException,
 } from "../models/errors";
 import { KinesisServiceException } from "../models/KinesisServiceException";
@@ -455,6 +554,12 @@ export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   [0]
 ];
 n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c },
   [_m],
@@ -470,6 +575,56 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+export var AcknowledgeDeadLetterQueueRecordsErrorEntry$: StaticStructureSchema = [3, n0, _ADLQREE,
+  0,
+  [_RH, _EC, _EM],
+  [0, 0, 0], 2
+];
+export var AcknowledgeDeadLetterQueueRecordsInput$: StaticStructureSchema = [3, n0, _ADLQRI,
+  0,
+  [_QARN, _E],
+  [0, () => AcknowledgeDeadLetterQueueRecordsRequestEntryList], 2
+];
+export var AcknowledgeDeadLetterQueueRecordsOutput$: StaticStructureSchema = [3, n0, _ADLQRO,
+  0,
+  [_S, _F],
+  [() => AcknowledgeDeadLetterQueueRecordsResultEntryList, () => AcknowledgeDeadLetterQueueRecordsErrorEntryList], 2
+];
+export var AcknowledgeDeadLetterQueueRecordsRequestEntry$: StaticStructureSchema = [3, n0, _ADLQRRE,
+  0,
+  [_RH],
+  [0], 1
+];
+export var AcknowledgeDeadLetterQueueRecordsResultEntry$: StaticStructureSchema = [3, n0, _ADLQRREc,
+  0,
+  [_RH],
+  [0], 1
+];
+export var AcknowledgeQueueRecordsErrorEntry$: StaticStructureSchema = [3, n0, _AQREE,
+  0,
+  [_RH, _EC, _EM],
+  [0, 0, 0], 2
+];
+export var AcknowledgeQueueRecordsInput$: StaticStructureSchema = [3, n0, _AQRI,
+  0,
+  [_QARN, _E],
+  [0, () => AcknowledgeQueueRecordsRequestEntryList], 2
+];
+export var AcknowledgeQueueRecordsOutput$: StaticStructureSchema = [3, n0, _AQRO,
+  0,
+  [_S, _F],
+  [() => AcknowledgeQueueRecordsResultEntryList, () => AcknowledgeQueueRecordsErrorEntryList], 2
+];
+export var AcknowledgeQueueRecordsRequestEntry$: StaticStructureSchema = [3, n0, _AQRRE,
+  0,
+  [_RH],
+  [0], 1
+];
+export var AcknowledgeQueueRecordsResultEntry$: StaticStructureSchema = [3, n0, _AQRREc,
+  0,
+  [_RH],
+  [0], 1
+];
 export var AddTagsToStreamInput$: StaticStructureSchema = [3, n0, _ATTSI,
   0,
   [_T, _SN, _SARN, _SI],
@@ -477,7 +632,7 @@ export var AddTagsToStreamInput$: StaticStructureSchema = [3, n0, _ATTSI,
 ];
 export var ChannelDescription$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_CN, _CARN, _CI, _CS, _CCT, _SERARN, _SCL, _LC, _CSR, _SDC, _STDC, _EC],
+  [_CN, _CARN, _CI, _CS, _CCT, _SERARN, _SCL, _LC, _CSR, _SDC, _STDC, _ECn],
   [0, 0, 0, 0, 4, 0, () => ChannelStreamDescriptionList, () => ChannelLoggingConfiguration$, 0, () => S3DestinationDescription$, () => S3TablesDestinationDescription$, () => ChannelEncryptionConfiguration$], 8
 ];
 export var ChannelEncryptionConfiguration$: StaticStructureSchema = [3, n0, _CEC,
@@ -512,7 +667,7 @@ export var ChannelStreamIdentifier$: StaticStructureSchema = [3, n0, _CSI,
 ];
 export var ChannelSummary$: StaticStructureSchema = [3, n0, _CSh,
   0,
-  [_CN, _CARN, _CI, _CS, _CCT, _CDT, _S, _CSR],
+  [_CN, _CARN, _CI, _CS, _CCT, _CDT, _St, _CSR],
   [0, 0, 0, 0, 4, 0, () => ChannelStreamIdentifierList, 0], 7
 ];
 export var ChildShard$: StaticStructureSchema = [3, n0, _CShi,
@@ -522,12 +677,12 @@ export var ChildShard$: StaticStructureSchema = [3, n0, _CShi,
 ];
 export var CloudWatchLogs$: StaticStructureSchema = [3, n0, _CWL,
   0,
-  [_E, _LGN, _LSN],
+  [_En, _LGN, _LSN],
   [2, 0, 0], 1
 ];
 export var CloudWatchLogsUpdateInput$: StaticStructureSchema = [3, n0, _CWLUI,
   0,
-  [_E, _LGN, _LSN],
+  [_En, _LGN, _LSN],
   [2, 0, 0], 1
 ];
 export var Consumer$: StaticStructureSchema = [3, n0, _C,
@@ -542,7 +697,7 @@ export var ConsumerDescription$: StaticStructureSchema = [3, n0, _CDo,
 ];
 export var CreateChannelInput$: StaticStructureSchema = [3, n0, _CCI,
   0,
-  [_CN, _SERARN, _SCL, _SDC, _STDC, _EC, _T, _LC],
+  [_CN, _SERARN, _SCL, _SDC, _STDC, _ECn, _T, _LC],
   [0, 0, () => ChannelStreamConfigurationList, () => S3DestinationConfiguration$, () => S3TablesDestinationConfiguration$, () => ChannelEncryptionConfiguration$, 128 | 0, () => ChannelLoggingConfiguration$], 3
 ];
 export var CreateChannelOutput$: StaticStructureSchema = [3, n0, _CCO,
@@ -550,10 +705,25 @@ export var CreateChannelOutput$: StaticStructureSchema = [3, n0, _CCO,
   [_CD],
   [() => ChannelDescription$], 1
 ];
+export var CreateQueueInput$: StaticStructureSchema = [3, n0, _CQI,
+  0,
+  [_QN, _SCL, _QA, _T],
+  [0, () => QueueStreamConfigurationList, () => QueueAttributes$, 128 | 0], 2
+];
+export var CreateQueueOutput$: StaticStructureSchema = [3, n0, _CQO,
+  0,
+  [_QD],
+  [() => QueueDescription$], 1
+];
 export var CreateStreamInput$: StaticStructureSchema = [3, n0, _CSIr,
   0,
   [_SN, _SC, _SMD, _T, _WTMB, _MRSIKB, _RDS],
   [0, 1, () => StreamModeDetails$, 128 | 0, 1, 1, 0], 1
+];
+export var DeadLetterConfiguration$: StaticStructureSchema = [3, n0, _DLC,
+  0,
+  [_TT, _MRC],
+  [0, 1], 1
 ];
 export var DeadLetterQueueS3Configuration$: StaticStructureSchema = [3, n0, _DLQSC,
   0,
@@ -568,6 +738,11 @@ export var DecreaseStreamRetentionPeriodInput$: StaticStructureSchema = [3, n0, 
 export var DeleteChannelInput$: StaticStructureSchema = [3, n0, _DCI,
   0,
   [_CARN],
+  [0], 1
+];
+export var DeleteQueueInput$: StaticStructureSchema = [3, n0, _DQI,
+  0,
+  [_QARN],
   [0], 1
 ];
 export var DeleteResourcePolicyInput$: StaticStructureSchema = [3, n0, _DRPI,
@@ -615,6 +790,16 @@ export var DescribeLimitsOutput$: StaticStructureSchema = [3, n0, _DLO,
   [_SL, _OSC, _ODSC, _ODSCL, _CC, _CCL],
   [1, 1, 1, 1, 1, 1], 4
 ];
+export var DescribeQueueInput$: StaticStructureSchema = [3, n0, _DQIe,
+  0,
+  [_QARN],
+  [0], 1
+];
+export var DescribeQueueOutput$: StaticStructureSchema = [3, n0, _DQO,
+  0,
+  [_QD],
+  [() => QueueDescription$], 1
+];
 export var DescribeStreamConsumerInput$: StaticStructureSchema = [3, n0, _DSCIe,
   0,
   [_SARN, _CNo, _CARNo, _SI],
@@ -655,7 +840,7 @@ export var EnableEnhancedMonitoringInput$: StaticStructureSchema = [3, n0, _EEMI
   [_SLM, _SN, _SARN, _SI],
   [64 | 0, 0, 0, 0], 1
 ];
-export var EnhancedMetrics$: StaticStructureSchema = [3, n0, _EM,
+export var EnhancedMetrics$: StaticStructureSchema = [3, n0, _EMn,
   0,
   [_SLM],
   [64 | 0]
@@ -715,6 +900,16 @@ export var ListChannelsOutput$: StaticStructureSchema = [3, n0, _LCO,
   [_CSha, _NT],
   [() => ChannelSummaryList, 0], 1
 ];
+export var ListQueuesInput$: StaticStructureSchema = [3, n0, _LQI,
+  0,
+  [_MR, _NT, _SF],
+  [1, 0, () => QueueStreamFilterList]
+];
+export var ListQueuesOutput$: StaticStructureSchema = [3, n0, _LQO,
+  0,
+  [_QS, _NT],
+  [() => QueueSummaryList, 0], 1
+];
 export var ListShardsInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
   [_SN, _NT, _ESSI, _MR, _SCT, _SFh, _SARN, _SI],
@@ -772,12 +967,12 @@ export var MergeShardsInput$: StaticStructureSchema = [3, n0, _MSI,
 ];
 export var MinimumThroughputBillingCommitmentInput$: StaticStructureSchema = [3, n0, _MTBCI,
   0,
-  [_St],
+  [_Sta],
   [0], 1
 ];
 export var MinimumThroughputBillingCommitmentOutput$: StaticStructureSchema = [3, n0, _MTBCO,
   0,
-  [_St, _SA, _EA, _EAEA],
+  [_Sta, _SA, _EA, _EAEA],
   [0, 4, 4, 4], 1
 ];
 export var PartitionField$: StaticStructureSchema = [3, n0, _PF,
@@ -817,13 +1012,73 @@ export var PutRecordsRequestEntry$: StaticStructureSchema = [3, n0, _PRRE,
 ];
 export var PutRecordsResultEntry$: StaticStructureSchema = [3, n0, _PRREu,
   0,
-  [_SNe, _SIh, _ECr, _EMr],
+  [_SNe, _SIh, _EC, _EM],
   [0, 0, 0, 0]
 ];
 export var PutResourcePolicyInput$: StaticStructureSchema = [3, n0, _PRPI,
   0,
   [_RARN, _P, _SI],
   [0, 0, 0], 2
+];
+export var QueueAttributes$: StaticStructureSchema = [3, n0, _QA,
+  0,
+  [_VTS, _DLC],
+  [1, () => DeadLetterConfiguration$]
+];
+export var QueueDescription$: StaticStructureSchema = [3, n0, _QD,
+  0,
+  [_QN, _QARN, _QSu, _QCT, _SCL, _QA],
+  [0, 0, 0, 4, () => QueueStreamConfigurationList, () => QueueAttributes$], 5
+];
+export var QueueRecord$: StaticStructureSchema = [3, n0, _QR,
+  0,
+  [_RH, _RI, _D, _AAT, _FRT, _RCe, _PK],
+  [0, 0, 21, 4, 4, 1, 0], 6
+];
+export var QueueStartingPosition$: StaticStructureSchema = [3, n0, _QSP,
+  0,
+  [_Ty, _Ti],
+  [0, 4], 1
+];
+export var QueueStreamConfiguration$: StaticStructureSchema = [3, n0, _QSC,
+  0,
+  [_SARN, _SP],
+  [0, () => QueueStartingPosition$], 1
+];
+export var QueueStreamFilter$: StaticStructureSchema = [3, n0, _QSF,
+  0,
+  [_SARN, _SCT],
+  [0, 4], 1
+];
+export var QueueStreamIdentifier$: StaticStructureSchema = [3, n0, _QSI,
+  0,
+  [_SARN, _SCT],
+  [0, 4], 2
+];
+export var QueueSummary$: StaticStructureSchema = [3, n0, _QSue,
+  0,
+  [_QN, _QARN, _QSu, _QCT, _St],
+  [0, 0, 0, 4, () => QueueStreamIdentifierList], 5
+];
+export var ReceiveDeadLetterQueueRecordsInput$: StaticStructureSchema = [3, n0, _RDLQRI,
+  0,
+  [_QARN, _L, _WTS, _VTS],
+  [0, 1, 1, 1], 1
+];
+export var ReceiveDeadLetterQueueRecordsOutput$: StaticStructureSchema = [3, n0, _RDLQRO,
+  0,
+  [_QRu],
+  [() => QueueRecordList], 1
+];
+export var ReceiveQueueRecordsInput$: StaticStructureSchema = [3, n0, _RQRI,
+  0,
+  [_QARN, _L, _WTS, _VTS],
+  [0, 1, 1, 1], 1
+];
+export var ReceiveQueueRecordsOutput$: StaticStructureSchema = [3, n0, _RQRO,
+  0,
+  [_QRu],
+  [() => QueueRecordList], 1
 ];
 export var _Record$: StaticStructureSchema = [3, n0, _Re,
   0,
@@ -849,6 +1104,31 @@ export var RemoveTagsFromStreamInput$: StaticStructureSchema = [3, n0, _RTFSI,
   0,
   [_TK, _SN, _SARN, _SI],
   [64 | 0, 0, 0, 0], 1
+];
+export var RestoreDeadLetterQueueRecordsErrorEntry$: StaticStructureSchema = [3, n0, _RDLQREE,
+  0,
+  [_RH, _EC, _EM],
+  [0, 0, 0], 2
+];
+export var RestoreDeadLetterQueueRecordsInput$: StaticStructureSchema = [3, n0, _RDLQRIe,
+  0,
+  [_QARN, _E],
+  [0, () => RestoreDeadLetterQueueRecordsRequestEntryList], 2
+];
+export var RestoreDeadLetterQueueRecordsOutput$: StaticStructureSchema = [3, n0, _RDLQROe,
+  0,
+  [_S, _F],
+  [() => RestoreDeadLetterQueueRecordsResultEntryList, () => RestoreDeadLetterQueueRecordsErrorEntryList], 2
+];
+export var RestoreDeadLetterQueueRecordsRequestEntry$: StaticStructureSchema = [3, n0, _RDLQRRE,
+  0,
+  [_RH],
+  [0], 1
+];
+export var RestoreDeadLetterQueueRecordsResultEntry$: StaticStructureSchema = [3, n0, _RDLQRREe,
+  0,
+  [_RH],
+  [0], 1
 ];
 export var S3DestinationConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   0,
@@ -927,13 +1207,13 @@ export var StopStreamEncryptionInput$: StaticStructureSchema = [3, n0, _SSEIt,
 ];
 export var StreamDescription$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_SN, _SARN, _SSt, _Sh, _HMSa, _RPH, _SCT, _EMn, _SMD, _ET, _KI],
+  [_SN, _SARN, _SSt, _Sh, _HMSa, _RPH, _SCT, _EMnh, _SMD, _ET, _KI],
   [0, 0, 0, () => ShardList, 2, 1, 4, () => EnhancedMonitoringList, () => StreamModeDetails$, 0, 0], 8
 ];
 export var StreamDescriptionSummary$: StaticStructureSchema = [3, n0, _SDS,
   0,
-  [_SN, _SARN, _SSt, _RPH, _SCT, _EMn, _OSC, _SI, _SMD, _ET, _KI, _CCo, _WT, _MRSIKB, _CC, _RDS],
-  [0, 0, 0, 1, 4, () => EnhancedMonitoringList, 1, 0, () => StreamModeDetails$, 0, 0, 1, () => WarmThroughputObject$, 1, 1, 0], 7
+  [_SN, _SARN, _SSt, _RPH, _SCT, _EMnh, _OSC, _SI, _SMD, _ET, _KI, _CCo, _WT, _MRSIKB, _CC, _RDS, _QC],
+  [0, 0, 0, 1, 4, () => EnhancedMonitoringList, 1, 0, () => StreamModeDetails$, 0, 0, 1, () => WarmThroughputObject$, 1, 1, 0, 1], 7
 ];
 export var StreamFilter$: StaticStructureSchema = [3, n0, _SF,
   0,
@@ -1000,10 +1280,70 @@ export var UpdateChannelOutput$: StaticStructureSchema = [3, n0, _UCO,
   [_CD],
   [() => ChannelDescription$], 1
 ];
+export var UpdateDeadLetterQueueRecordsVisibilityErrorEntry$: StaticStructureSchema = [3, n0, _UDLQRVEE,
+  0,
+  [_RH, _EC, _EM],
+  [0, 0, 0], 2
+];
+export var UpdateDeadLetterQueueRecordsVisibilityInput$: StaticStructureSchema = [3, n0, _UDLQRVI,
+  0,
+  [_QARN, _E],
+  [0, () => UpdateDeadLetterQueueRecordsVisibilityRequestEntryList], 2
+];
+export var UpdateDeadLetterQueueRecordsVisibilityOutput$: StaticStructureSchema = [3, n0, _UDLQRVO,
+  0,
+  [_S, _F],
+  [() => UpdateDeadLetterQueueRecordsVisibilityResultEntryList, () => UpdateDeadLetterQueueRecordsVisibilityErrorEntryList], 2
+];
+export var UpdateDeadLetterQueueRecordsVisibilityRequestEntry$: StaticStructureSchema = [3, n0, _UDLQRVRE,
+  0,
+  [_RH, _VTS],
+  [0, 1], 2
+];
+export var UpdateDeadLetterQueueRecordsVisibilityResultEntry$: StaticStructureSchema = [3, n0, _UDLQRVREp,
+  0,
+  [_RH],
+  [0], 1
+];
 export var UpdateMaxRecordSizeInput$: StaticStructureSchema = [3, n0, _UMRSI,
   0,
   [_MRSIKB, _SARN, _SI],
   [1, 0, 0], 1
+];
+export var UpdateQueueInput$: StaticStructureSchema = [3, n0, _UQI,
+  0,
+  [_QARN, _QA],
+  [0, () => QueueAttributes$], 2
+];
+export var UpdateQueueOutput$: StaticStructureSchema = [3, n0, _UQO,
+  0,
+  [_QD],
+  [() => QueueDescription$], 1
+];
+export var UpdateQueueRecordsVisibilityErrorEntry$: StaticStructureSchema = [3, n0, _UQRVEE,
+  0,
+  [_RH, _EC, _EM],
+  [0, 0, 0], 2
+];
+export var UpdateQueueRecordsVisibilityInput$: StaticStructureSchema = [3, n0, _UQRVI,
+  0,
+  [_QARN, _E],
+  [0, () => UpdateQueueRecordsVisibilityRequestEntryList], 2
+];
+export var UpdateQueueRecordsVisibilityOutput$: StaticStructureSchema = [3, n0, _UQRVO,
+  0,
+  [_S, _F],
+  [() => UpdateQueueRecordsVisibilityResultEntryList, () => UpdateQueueRecordsVisibilityErrorEntryList], 2
+];
+export var UpdateQueueRecordsVisibilityRequestEntry$: StaticStructureSchema = [3, n0, _UQRVRE,
+  0,
+  [_RH, _VTS],
+  [0, 1], 2
+];
+export var UpdateQueueRecordsVisibilityResultEntry$: StaticStructureSchema = [3, n0, _UQRVREp,
+  0,
+  [_RH],
+  [0], 1
 ];
 export var UpdateShardCountInput$: StaticStructureSchema = [3, n0, _USCI,
   0,
@@ -1041,6 +1381,24 @@ export var WarmThroughputObject$: StaticStructureSchema = [3, n0, _WTO,
   [1, 1]
 ];
 var __Unit = "unit" as const;
+var AcknowledgeDeadLetterQueueRecordsErrorEntryList: StaticListSchema = [1, n0, _ADLQREEL,
+  0, () => AcknowledgeDeadLetterQueueRecordsErrorEntry$
+];
+var AcknowledgeDeadLetterQueueRecordsRequestEntryList: StaticListSchema = [1, n0, _ADLQRREL,
+  0, () => AcknowledgeDeadLetterQueueRecordsRequestEntry$
+];
+var AcknowledgeDeadLetterQueueRecordsResultEntryList: StaticListSchema = [1, n0, _ADLQRRELc,
+  0, () => AcknowledgeDeadLetterQueueRecordsResultEntry$
+];
+var AcknowledgeQueueRecordsErrorEntryList: StaticListSchema = [1, n0, _AQREEL,
+  0, () => AcknowledgeQueueRecordsErrorEntry$
+];
+var AcknowledgeQueueRecordsRequestEntryList: StaticListSchema = [1, n0, _AQRREL,
+  0, () => AcknowledgeQueueRecordsRequestEntry$
+];
+var AcknowledgeQueueRecordsResultEntryList: StaticListSchema = [1, n0, _AQRRELc,
+  0, () => AcknowledgeQueueRecordsResultEntry$
+];
 var ChannelStreamConfigurationList: StaticListSchema = [1, n0, _CSCL,
   0, () => ChannelStreamConfiguration$
 ];
@@ -1072,8 +1430,32 @@ var PutRecordsRequestEntryList: StaticListSchema = [1, n0, _PRREL,
 var PutRecordsResultEntryList: StaticListSchema = [1, n0, _PRRELu,
   0, () => PutRecordsResultEntry$
 ];
+var QueueRecordList: StaticListSchema = [1, n0, _QRL,
+  0, () => QueueRecord$
+];
+var QueueStreamConfigurationList: StaticListSchema = [1, n0, _QSCL,
+  0, () => QueueStreamConfiguration$
+];
+var QueueStreamFilterList: StaticListSchema = [1, n0, _QSFL,
+  0, () => QueueStreamFilter$
+];
+var QueueStreamIdentifierList: StaticListSchema = [1, n0, _QSIL,
+  0, () => QueueStreamIdentifier$
+];
+var QueueSummaryList: StaticListSchema = [1, n0, _QSL,
+  0, () => QueueSummary$
+];
 var RecordList: StaticListSchema = [1, n0, _RL,
   0, () => _Record$
+];
+var RestoreDeadLetterQueueRecordsErrorEntryList: StaticListSchema = [1, n0, _RDLQREEL,
+  0, () => RestoreDeadLetterQueueRecordsErrorEntry$
+];
+var RestoreDeadLetterQueueRecordsRequestEntryList: StaticListSchema = [1, n0, _RDLQRREL,
+  0, () => RestoreDeadLetterQueueRecordsRequestEntry$
+];
+var RestoreDeadLetterQueueRecordsResultEntryList: StaticListSchema = [1, n0, _RDLQRRELe,
+  0, () => RestoreDeadLetterQueueRecordsResultEntry$
 ];
 var S3TablesConfigurationList: StaticListSchema = [1, n0, _STCL,
   0, () => S3TablesConfiguration$
@@ -1093,17 +1475,44 @@ var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,
   0, () => Tag$
 ];
+var UpdateDeadLetterQueueRecordsVisibilityErrorEntryList: StaticListSchema = [1, n0, _UDLQRVEEL,
+  0, () => UpdateDeadLetterQueueRecordsVisibilityErrorEntry$
+];
+var UpdateDeadLetterQueueRecordsVisibilityRequestEntryList: StaticListSchema = [1, n0, _UDLQRVREL,
+  0, () => UpdateDeadLetterQueueRecordsVisibilityRequestEntry$
+];
+var UpdateDeadLetterQueueRecordsVisibilityResultEntryList: StaticListSchema = [1, n0, _UDLQRVRELp,
+  0, () => UpdateDeadLetterQueueRecordsVisibilityResultEntry$
+];
+var UpdateQueueRecordsVisibilityErrorEntryList: StaticListSchema = [1, n0, _UQRVEEL,
+  0, () => UpdateQueueRecordsVisibilityErrorEntry$
+];
+var UpdateQueueRecordsVisibilityRequestEntryList: StaticListSchema = [1, n0, _UQRVREL,
+  0, () => UpdateQueueRecordsVisibilityRequestEntry$
+];
+var UpdateQueueRecordsVisibilityResultEntryList: StaticListSchema = [1, n0, _UQRVRELp,
+  0, () => UpdateQueueRecordsVisibilityResultEntry$
+];
 var TagMap = 128 | 0;
 export var SubscribeToShardEventStream$: StaticUnionSchema = [4, n0, _STSES,
   { [_st]: 1 },
   [_STSE, _RNFE, _RIUE, _KMSDE, _KMSISE, _KMSADE, _KMSNFE, _KMSOIR, _KMSTE, _IFE],
   [() => SubscribeToShardEvent$, [() => ResourceNotFoundException$, 0], [() => ResourceInUseException$, 0], [() => KMSDisabledException$, 0], [() => KMSInvalidStateException$, 0], [() => KMSAccessDeniedException$, 0], [() => KMSNotFoundException$, 0], [() => KMSOptInRequired$, 0], [() => KMSThrottlingException$, 0], [() => InternalFailureException$, 0]]
 ];
+export var AcknowledgeDeadLetterQueueRecords$: StaticOperationSchema = [9, n0, _ADLQR,
+  0, () => AcknowledgeDeadLetterQueueRecordsInput$, () => AcknowledgeDeadLetterQueueRecordsOutput$
+];
+export var AcknowledgeQueueRecords$: StaticOperationSchema = [9, n0, _AQR,
+  0, () => AcknowledgeQueueRecordsInput$, () => AcknowledgeQueueRecordsOutput$
+];
 export var AddTagsToStream$: StaticOperationSchema = [9, n0, _ATTS,
   0, () => AddTagsToStreamInput$, () => __Unit
 ];
 export var CreateChannel$: StaticOperationSchema = [9, n0, _CCr,
   0, () => CreateChannelInput$, () => CreateChannelOutput$
+];
+export var CreateQueue$: StaticOperationSchema = [9, n0, _CQ,
+  0, () => CreateQueueInput$, () => CreateQueueOutput$
 ];
 export var CreateStream$: StaticOperationSchema = [9, n0, _CSr,
   0, () => CreateStreamInput$, () => __Unit
@@ -1113,6 +1522,9 @@ export var DecreaseStreamRetentionPeriod$: StaticOperationSchema = [9, n0, _DSRP
 ];
 export var DeleteChannel$: StaticOperationSchema = [9, n0, _DC,
   0, () => DeleteChannelInput$, () => __Unit
+];
+export var DeleteQueue$: StaticOperationSchema = [9, n0, _DQ,
+  0, () => DeleteQueueInput$, () => __Unit
 ];
 export var DeleteResourcePolicy$: StaticOperationSchema = [9, n0, _DRP,
   0, () => DeleteResourcePolicyInput$, () => __Unit
@@ -1131,6 +1543,9 @@ export var DescribeChannel$: StaticOperationSchema = [9, n0, _DCe,
 ];
 export var DescribeLimits$: StaticOperationSchema = [9, n0, _DL,
   0, () => DescribeLimitsInput$, () => DescribeLimitsOutput$
+];
+export var DescribeQueue$: StaticOperationSchema = [9, n0, _DQe,
+  0, () => DescribeQueueInput$, () => DescribeQueueOutput$
 ];
 export var DescribeStream$: StaticOperationSchema = [9, n0, _DSe,
   0, () => DescribeStreamInput$, () => DescribeStreamOutput$
@@ -1162,6 +1577,9 @@ export var IncreaseStreamRetentionPeriod$: StaticOperationSchema = [9, n0, _ISRP
 export var ListChannels$: StaticOperationSchema = [9, n0, _LCi,
   0, () => ListChannelsInput$, () => ListChannelsOutput$
 ];
+export var ListQueues$: StaticOperationSchema = [9, n0, _LQ,
+  0, () => ListQueuesInput$, () => ListQueuesOutput$
+];
 export var ListShards$: StaticOperationSchema = [9, n0, _LS,
   0, () => ListShardsInput$, () => ListShardsOutput$
 ];
@@ -1189,11 +1607,20 @@ export var PutRecords$: StaticOperationSchema = [9, n0, _PRu,
 export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
   0, () => PutResourcePolicyInput$, () => __Unit
 ];
+export var ReceiveDeadLetterQueueRecords$: StaticOperationSchema = [9, n0, _RDLQR,
+  0, () => ReceiveDeadLetterQueueRecordsInput$, () => ReceiveDeadLetterQueueRecordsOutput$
+];
+export var ReceiveQueueRecords$: StaticOperationSchema = [9, n0, _RQR,
+  0, () => ReceiveQueueRecordsInput$, () => ReceiveQueueRecordsOutput$
+];
 export var RegisterStreamConsumer$: StaticOperationSchema = [9, n0, _RSC,
   0, () => RegisterStreamConsumerInput$, () => RegisterStreamConsumerOutput$
 ];
 export var RemoveTagsFromStream$: StaticOperationSchema = [9, n0, _RTFS,
   0, () => RemoveTagsFromStreamInput$, () => __Unit
+];
+export var RestoreDeadLetterQueueRecords$: StaticOperationSchema = [9, n0, _RDLQRe,
+  0, () => RestoreDeadLetterQueueRecordsInput$, () => RestoreDeadLetterQueueRecordsOutput$
 ];
 export var SplitShard$: StaticOperationSchema = [9, n0, _SSp,
   0, () => SplitShardInput$, () => __Unit
@@ -1219,8 +1646,17 @@ export var UpdateAccountSettings$: StaticOperationSchema = [9, n0, _UAS,
 export var UpdateChannel$: StaticOperationSchema = [9, n0, _UC,
   0, () => UpdateChannelInput$, () => UpdateChannelOutput$
 ];
+export var UpdateDeadLetterQueueRecordsVisibility$: StaticOperationSchema = [9, n0, _UDLQRV,
+  0, () => UpdateDeadLetterQueueRecordsVisibilityInput$, () => UpdateDeadLetterQueueRecordsVisibilityOutput$
+];
 export var UpdateMaxRecordSize$: StaticOperationSchema = [9, n0, _UMRS,
   0, () => UpdateMaxRecordSizeInput$, () => __Unit
+];
+export var UpdateQueue$: StaticOperationSchema = [9, n0, _UQ,
+  0, () => UpdateQueueInput$, () => UpdateQueueOutput$
+];
+export var UpdateQueueRecordsVisibility$: StaticOperationSchema = [9, n0, _UQRV,
+  0, () => UpdateQueueRecordsVisibilityInput$, () => UpdateQueueRecordsVisibilityOutput$
 ];
 export var UpdateShardCount$: StaticOperationSchema = [9, n0, _USC,
   0, () => UpdateShardCountInput$, () => UpdateShardCountOutput$

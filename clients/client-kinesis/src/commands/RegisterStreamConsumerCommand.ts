@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { RegisterStreamConsumerInput, RegisterStreamConsumerOutput } from "../models/models_0";
 import { RegisterStreamConsumer$ } from "../schemas/schemas_0";
 
@@ -29,10 +29,13 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  *             shard you subscribe to. This rate is unaffected by the total number of consumers that
  *             read from the same stream.</p>
  *          <p>You can add tags to the registered consumer when making a <code>RegisterStreamConsumer</code> request by setting the <code>Tags</code> parameter. If you pass the <code>Tags</code> parameter, in addition to having the <code>kinesis:RegisterStreamConsumer</code> permission, you must also have the <code>kinesis:TagResource</code> permission for the consumer that will be registered. Tags will take effect from the <code>CREATING</code> status of the consumer.</p>
- *          <p>With On-demand Advantage streams, you can register up to 50 consumers per stream to use Enhanced Fan-out. With On-demand Standard and Provisioned streams, you can register up to 20 consumers per stream to use Enhanced Fan-out. A given consumer can only be
- *             registered with one stream at a time.</p>
- *          <p>For an example of how to use this operation, see <a href="https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
- *                 Using the Kinesis Data Streams API</a>.</p>
+ *          <p>With On-demand Advantage streams, you can register up to 50 consumers per stream to use
+ *             enhanced fan-out. With On-demand Standard and Provisioned streams, you can register up
+ *             to 20 consumers per stream to use enhanced fan-out. Queues share this limit with
+ *             enhanced fan-out consumers: both count as registered consumers on the stream. A given
+ *             consumer can only be registered with one stream at a time.</p>
+ *          <p>For an example of how to use this operation, see <a href="https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html">Develop enhanced fan-out consumers
+ *                 with the Amazon Web Services SDK for Java</a>.</p>
  *          <p>The use of this operation has a limit of five transactions per second per account.
  *             Also, only 5 consumers can be created simultaneously. In other words, you cannot have
  *             more than 5 consumers in a <code>CREATING</code> status at the same time. Registering a
@@ -96,7 +99,7 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  * @public
  */
 export class RegisterStreamConsumerCommand extends command<RegisterStreamConsumerCommandInput, RegisterStreamConsumerCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "RegisterStreamConsumer",
   RegisterStreamConsumer$

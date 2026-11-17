@@ -1,0 +1,162 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "QueueRecords": [
+    {
+      "ReceiptHandle": "__ReceiptHandle__",
+      "RecordId": "__RecordId__",
+      "Data": "AQAAAQ==",
+      "ApproximateArrivalTimestamp": 946702799.999,
+      "FirstReceiveTimestamp": 946702799.999,
+      "ReceiveCount": 0,
+      "PartitionKey": "__PartitionKey__"
+    },
+    {
+      "ReceiptHandle": "__ReceiptHandle__",
+      "RecordId": "__RecordId__",
+      "Data": "AQAAAQ==",
+      "ApproximateArrivalTimestamp": 946702799.999,
+      "FirstReceiveTimestamp": 946702799.999,
+      "ReceiveCount": 0,
+      "PartitionKey": "__PartitionKey__"
+    },
+    {
+      "ReceiptHandle": "__ReceiptHandle__",
+      "RecordId": "__RecordId__",
+      "Data": "AQAAAQ==",
+      "ApproximateArrivalTimestamp": 946702799.999,
+      "FirstReceiveTimestamp": 946702799.999,
+      "ReceiveCount": 0,
+      "PartitionKey": "__PartitionKey__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  QueueRecords: [
+    {
+      ReceiptHandle: "__ReceiptHandle__",
+      RecordId: "__RecordId__",
+      Data: (Uint8Array) bytes[1, 0, 0, 1],
+      ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      FirstReceiveTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReceiveCount: (number) 0,
+      PartitionKey: "__PartitionKey__"
+    },
+    {
+      ReceiptHandle: "__ReceiptHandle__",
+      RecordId: "__RecordId__",
+      Data: (Uint8Array) bytes[1, 0, 0, 1],
+      ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      FirstReceiveTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReceiveCount: (number) 0,
+      PartitionKey: "__PartitionKey__"
+    },
+    {
+      ReceiptHandle: "__ReceiptHandle__",
+      RecordId: "__RecordId__",
+      Data: (Uint8Array) bytes[1, 0, 0, 1],
+      ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      FirstReceiveTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReceiveCount: (number) 0,
+      PartitionKey: "__PartitionKey__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "QueueRecords": [
+    {
+      "ReceiptHandle": "__ReceiptHandle__",
+      "RecordId": "__RecordId__",
+      "Data": "AQAAAQ==",
+      "ApproximateArrivalTimestamp": 946702799.999,
+      "FirstReceiveTimestamp": 946702799.999,
+      "ReceiveCount": 0,
+      "PartitionKey": "__PartitionKey__"
+    },
+    {
+      "ReceiptHandle": "__ReceiptHandle__",
+      "RecordId": "__RecordId__",
+      "Data": "AQAAAQ==",
+      "ApproximateArrivalTimestamp": 946702799.999,
+      "FirstReceiveTimestamp": 946702799.999,
+      "ReceiveCount": 0,
+      "PartitionKey": "__PartitionKey__"
+    },
+    {
+      "ReceiptHandle": "__ReceiptHandle__",
+      "RecordId": "__RecordId__",
+      "Data": "AQAAAQ==",
+      "ApproximateArrivalTimestamp": 946702799.999,
+      "FirstReceiveTimestamp": 946702799.999,
+      "ReceiveCount": 0,
+      "PartitionKey": "__PartitionKey__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  QueueRecords: [
+    {
+      ReceiptHandle: "__ReceiptHandle__",
+      RecordId: "__RecordId__",
+      Data: (Uint8Array) bytes[1, 0, 0, 1],
+      ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      FirstReceiveTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReceiveCount: (number) 0,
+      PartitionKey: "__PartitionKey__"
+    },
+    {
+      ReceiptHandle: "__ReceiptHandle__",
+      RecordId: "__RecordId__",
+      Data: (Uint8Array) bytes[1, 0, 0, 1],
+      ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      FirstReceiveTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReceiveCount: (number) 0,
+      PartitionKey: "__PartitionKey__"
+    },
+    {
+      ReceiptHandle: "__ReceiptHandle__",
+      RecordId: "__RecordId__",
+      Data: (Uint8Array) bytes[1, 0, 0, 1],
+      ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      FirstReceiveTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReceiveCount: (number) 0,
+      PartitionKey: "__PartitionKey__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

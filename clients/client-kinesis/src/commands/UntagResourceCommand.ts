@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep3, _mw0, command } from "../commandBuilder";
+import { _ep6, _mw0, command } from "../commandBuilder";
 import type { UntagResourceInput } from "../models/models_0";
 import { UntagResource$ } from "../schemas/schemas_0";
 
@@ -24,6 +24,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes tags from the specified Kinesis resource. Removed tags are deleted and can't be recovered after this operation completes successfully.</p>
+ *          <p>The Kinesis resource can be a data stream, a queue, or an enhanced fan-out
+ *             consumer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +57,10 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *  <p>Specifies that you do not have the permissions required to perform this
  *             operation.</p>
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>The processing of the request failed because of an unknown error, exception, or
+ *             failure.</p>
+ *
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
  *             For more information, see the returned message.</p>
@@ -71,6 +77,11 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation. For example, a parameter value is not valid, a
+ *             combination of parameters is not supported, or the operation is not supported for the
+ *             stream's capacity mode. The error message describes the specific reason.</p>
+ *
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
@@ -78,7 +89,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @public
  */
 export class UntagResourceCommand extends command<UntagResourceCommandInput, UntagResourceCommandOutput>(
-  _ep3,
+  _ep6,
   _mw0,
   "UntagResource",
   UntagResource$

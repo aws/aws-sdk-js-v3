@@ -127,6 +127,48 @@ export type ConsumerStatus = (typeof ConsumerStatus)[keyof typeof ConsumerStatus
  * @public
  * @enum
  */
+export const TargetType = {
+  BUILT_IN: "BUILT_IN",
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
+
+/**
+ * @public
+ * @enum
+ */
+export const QueueStartingPositionType = {
+  AT_TIMESTAMP: "AT_TIMESTAMP",
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
+/**
+ * @public
+ */
+export type QueueStartingPositionType = (typeof QueueStartingPositionType)[keyof typeof QueueStartingPositionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const QueueStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type QueueStatus = (typeof QueueStatus)[keyof typeof QueueStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const RecordDistributionStrategy = {
   AUTO: "AUTO",
   USER_PARTITION_KEY: "USER_PARTITION_KEY",

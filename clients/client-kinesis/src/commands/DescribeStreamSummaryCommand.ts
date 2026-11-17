@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { DescribeStreamSummaryInput, DescribeStreamSummaryOutput } from "../models/models_0";
 import { DescribeStreamSummary$ } from "../schemas/schemas_0";
 
@@ -80,6 +80,7 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  * //     MaxRecordSizeInKiB: Number("int"),
  * //     ChannelCount: Number("int"),
  * //     RecordDistributionStrategy: "AUTO" || "USER_PARTITION_KEY",
+ * //     QueueCount: Number("int"),
  * //   },
  * // };
  *
@@ -114,7 +115,7 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  * @public
  */
 export class DescribeStreamSummaryCommand extends command<DescribeStreamSummaryCommandInput, DescribeStreamSummaryCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "DescribeStreamSummary",
   DescribeStreamSummary$
