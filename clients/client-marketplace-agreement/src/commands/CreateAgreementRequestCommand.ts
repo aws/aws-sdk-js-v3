@@ -63,11 +63,19 @@ export interface CreateAgreementRequestCommandOutput extends CreateAgreementRequ
  *   taxConfiguration: { // TaxConfiguration
  *     taxEstimation: "DISABLED" || "ENABLED",
  *   },
+ *   acceptorContact: { // AcceptorContact
+ *     firstName: "STRING_VALUE", // required
+ *     lastName: "STRING_VALUE", // required
+ *     emailAddress: "STRING_VALUE", // required
+ *     companyName: "STRING_VALUE", // required
+ *     countryCode: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new CreateAgreementRequestCommand(input);
  * const response = await client.send(command);
  * // { // CreateAgreementRequestOutput
  * //   agreementRequestId: "STRING_VALUE",
+ * //   agreementType: "STRING_VALUE",
  * //   chargeSummary: { // ChargeSummary
  * //     currencyCode: "STRING_VALUE",
  * //     newAgreementValue: "STRING_VALUE",
@@ -78,7 +86,7 @@ export interface CreateAgreementRequestCommandOutput extends CreateAgreementRequ
  * //         time: new Date("TIMESTAMP"),
  * //         amount: "STRING_VALUE",
  * //         amountAfterTax: "STRING_VALUE",
- * //         timing: "ON_ACCEPTANCE" || "SCHEDULED" || "BILLING_PERIOD",
+ * //         timing: "ON_ACCEPTANCE" || "SCHEDULED" || "BILLING_PERIOD" || "NOT_APPLICABLE",
  * //         estimatedTaxes: { // EstimatedTaxes
  * //           breakdown: [ // TaxBreakdown
  * //             { // TaxBreakdownItem
@@ -89,6 +97,7 @@ export interface CreateAgreementRequestCommandOutput extends CreateAgreementRequ
  * //           ],
  * //           totalAmount: "STRING_VALUE",
  * //         },
+ * //         purchaseOrderReference: "STRING_VALUE",
  * //       },
  * //     ],
  * //     estimatedTaxes: {
@@ -115,6 +124,9 @@ export interface CreateAgreementRequestCommandOutput extends CreateAgreementRequ
  * //       branchName: "STRING_VALUE",
  * //     },
  * //   },
+ * //   status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "ACCEPTED" || "REJECTED" || "CANCELLED",
+ * //   approvalRequirement: "REQUIRED" || "NOT_REQUIRED",
+ * //   createdAt: new Date("TIMESTAMP"),
  * // };
  *
  * ```

@@ -69,6 +69,9 @@ export interface AcceptAgreementRequestCommandOutput extends AcceptAgreementRequ
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource which does not exist.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Request exceeded the maximum allowed limit (quota) for a specific resource or API operation.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Request was denied due to request throttling.</p>
  *

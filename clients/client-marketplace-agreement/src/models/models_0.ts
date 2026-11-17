@@ -1,24 +1,114 @@
 // smithy-typescript generated code
 import type {
+  AgreementApprovalPartyType,
+  AgreementApprovalStatus,
+  AgreementApprovalType,
   AgreementCancellationRequestReasonCode,
   AgreementCancellationRequestStatus,
   AgreementEntitlementStatus,
   AgreementEntitlementStatusReasonCode,
+  AgreementRequestStatus,
   AgreementStatus,
+  ApprovalRequirement,
+  ApproverOutcomeStatus,
   BillingAdjustmentErrorCode,
   BillingAdjustmentReasonCode,
   BillingAdjustmentStatus,
+  ContactType,
   EndTimeBehaviorReasonCode,
   EndTimeBehaviorType,
   Intent,
   InvoiceType,
   LineItemGroupBy,
+  OfferVisibilityScope,
   PaymentRequestApprovalStrategy,
   PaymentRequestStatus,
   SortOrder,
   TaxEstimation,
   Timing,
 } from "./enums";
+
+/**
+ * <p>A purchase order reference for a charge on the agreement request.</p>
+ * @public
+ */
+export interface AgreementApprovalPurchaseOrder {
+  /**
+   * <p>The unique identifier of the charge to associate the purchase order with. Use <code>GetAgreementRequest</code> to retrieve the charges of the agreement request.</p>
+   * @public
+   */
+  chargeId: string | undefined;
+
+  /**
+   * <p>The purchase order reference to associate with the charge.</p>
+   * @public
+   */
+  purchaseOrderReference?: string | undefined;
+}
+
+/**
+ * <p>The approval decision for an agreement approval.</p>
+ * @public
+ */
+export interface BuyerAgreementApprovalApproverInput {
+  /**
+   * <p>The unique identifier of the agreement approval to approve.</p>
+   * @public
+   */
+  agreementApprovalId: string | undefined;
+
+  /**
+   * <p>An optional list of purchase order references to associate with charges on the agreement request.</p>
+   * @public
+   */
+  purchaseOrders?: AgreementApprovalPurchaseOrder[] | undefined;
+
+  /**
+   * <p>An optional note that explains the decision (1-1000 characters).</p>
+   * @public
+   */
+  note?: string | undefined;
+
+  /**
+   * <p>The <code>approverOutcomeId</code> of the approver to decide on behalf of. You must be the management account or a delegated administrator of your AWS organization to set this field. Use <code>GetAgreementApproval</code> to retrieve the <code>approverOutcomeId</code> of each approver.</p>
+   * @public
+   */
+  approverOutcomeIdToOverride?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AcceptAgreementApprovalInput {
+  /**
+   * <p>The approval decision for an agreement approval that the buyer's organization requires.</p>
+   * @public
+   */
+  buyerAgreementApprovalApproverInput?: BuyerAgreementApprovalApproverInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AcceptAgreementApprovalOutput {}
+
+/**
+ * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the field associated with the error.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>See applicable actions.</p>
+   * @public
+   */
+  message: string | undefined;
+}
 
 /**
  * @public
@@ -82,24 +172,6 @@ export interface AcceptAgreementCancellationRequestOutput {
    * @public
    */
   updatedAt?: Date | undefined;
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
- * @public
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>The name of the field associated with the error.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>See applicable actions.</p>
-   * @public
-   */
-  message: string | undefined;
 }
 
 /**
@@ -326,7 +398,7 @@ export interface RateCardItem {
   dimensionKey?: string | undefined;
 
   /**
-   * <p>Per unit price for the product dimension that’s used for calculating the amount to be charged.</p>
+   * <p>Per unit price for the product dimension that's used for calculating the amount to be charged.</p>
    * @public
    */
   price?: string | undefined;
@@ -380,7 +452,7 @@ export interface ConfigurableUpfrontRateCardItem {
  */
 export interface ConfigurableUpfrontPricingTerm {
   /**
-   * <p>Category of selector.</p>
+   * <p>Category of the term.</p>
    * @public
    */
   type?: string | undefined;
@@ -471,7 +543,7 @@ export interface FixedUpfrontPricingTerm {
 }
 
 /**
- * <p>Defines a short-term free pricing model where the buyers aren’t charged anything within a specified limit.</p>
+ * <p>Defines a short-term free pricing model where the buyers aren't charged anything within a specified limit.</p>
  * @public
  */
 export interface FreeTrialPricingTerm {
@@ -506,7 +578,7 @@ export interface FreeTrialPricingTerm {
  */
 export interface DocumentItem {
   /**
-   * <p>Category of the document. Document types include:</p> <ul> <li> <p> <code>CustomEula</code> – A custom EULA provided by you as seller. A URL for a EULA stored in an accessible Amazon S3 bucket is required for this document type.</p> </li> <li> <p> <code>CustomDsa</code> – A custom Data Subscription Agreement (DSA) provided by you as seller. A URL for a DSA stored in an accessible Amazon S3 bucket is required for this document type.</p> </li> <li> <p> <code>StandardEula</code> – The Standard Contract for AWS Marketplace (SCMP). For more information about SCMP, see the AWS Marketplace Seller Guide. You don’t provide a URL for this type because it’s managed by AWS Marketplace.</p> </li> <li> <p> <code>StandardDsa</code> – DSA for AWS Marketplace. For more information about the DSA, see the AWS Data Exchange User Guide. You don’t provide a URL for this type because it’s managed by AWS Marketplace.</p> </li> </ul>
+   * <p>Category of the document. Document types include:</p> <ul> <li> <p> <code>CustomEula</code> – A custom EULA provided by you as seller. A URL for a EULA stored in an accessible Amazon S3 bucket is required for this document type.</p> </li> <li> <p> <code>CustomDsa</code> – A custom Data Subscription Agreement (DSA) provided by you as seller. A URL for a DSA stored in an accessible Amazon S3 bucket is required for this document type.</p> </li> <li> <p> <code>StandardEula</code> – The Standard Contract for AWS Marketplace (SCMP). For more information about SCMP, see the AWS Marketplace Seller Guide. You don't provide a URL for this type because it's managed by AWS Marketplace.</p> </li> <li> <p> <code>StandardDsa</code> – DSA for AWS Marketplace. For more information about the DSA, see the AWS Data Exchange User Guide. You don't provide a URL for this type because it's managed by AWS Marketplace.</p> </li> </ul>
    * @public
    */
   type?: string | undefined;
@@ -536,7 +608,7 @@ export interface LegalTerm {
   type?: string | undefined;
 
   /**
-   * <p>The unique identifer for the term.</p>
+   * <p>The unique identifier for the term.</p>
    * @public
    */
   id?: string | undefined;
@@ -970,19 +1042,19 @@ export interface ValidityTerm {
   id?: string | undefined;
 
   /**
-   * <p>Defines the duration that the agreement remains active. If <code>AgreementStartDate</code> isn’t provided, the agreement duration is relative to the agreement signature time. The duration is represented in the ISO_8601 format.</p>
+   * <p>Defines the duration that the agreement remains active. If <code>AgreementStartDate</code> isn't provided, the agreement duration is relative to the agreement signature time. The duration is represented in the ISO_8601 format.</p>
    * @public
    */
   agreementDuration?: string | undefined;
 
   /**
-   * <p>Defines the date when agreement starts. The agreement starts at 00:00:00.000 UTC on the date provided. If <code>AgreementStartDate</code> isn’t provided, the agreement start date is determined based on agreement signature time.</p>
+   * <p>Defines the date when agreement starts. The agreement starts at 00:00:00.000 UTC on the date provided. If <code>AgreementStartDate</code> isn't provided, the agreement start date is determined based on agreement signature time.</p>
    * @public
    */
   agreementStartDate?: Date | undefined;
 
   /**
-   * <p>Defines the date when the agreement ends. The agreement ends at 23:59:59.999 UTC on the date provided. If <code>AgreementEndDate</code> isn’t provided, the agreement end date is determined by the validity of individual terms.</p>
+   * <p>Defines the date when the agreement ends. The agreement ends at 23:59:59.999 UTC on the date provided. If <code>AgreementEndDate</code> isn't provided, the agreement end date is determined by the validity of individual terms.</p>
    * @public
    */
   agreementEndDate?: Date | undefined;
@@ -1000,7 +1072,7 @@ export interface VariablePaymentTermConfiguration {
   paymentRequestApprovalStrategy: PaymentRequestApprovalStrategy | undefined;
 
   /**
-   * <p>Defines the duration after which a payment request is automatically approved if no further action is taken. This only applies when the payment request approval strategy is set to <code>AUTO_APPROVE_ON_EXPIRATION</code>. The duration is represented in the ISO_8601 format (e.g., P10D for 10 days).</p>
+   * <p>Defines the duration after which a payment request is automatically approved if no further action is taken. This only applies when the payment request approval strategy is set to <code>AUTO_APPROVE_ON_EXPIRATION</code>. The duration is represented in the ISO_8601 format (for example, P10D for 10 days).</p>
    * @public
    */
   expirationDuration?: string | undefined;
@@ -1256,7 +1328,7 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * <p>Defines a short-term free pricing model where the buyers aren’t charged anything within a specified limit.</p>
+   * <p>Defines a short-term free pricing model where the buyers aren't charged anything within a specified limit.</p>
    * @public
    */
   export interface FreeTrialPricingTermMember {
@@ -1391,6 +1463,477 @@ export interface Acceptor {
    * @public
    */
   accountId?: string | undefined;
+}
+
+/**
+ * <p>The contact information of the acceptor.</p>
+ * @public
+ */
+export interface AcceptorContact {
+  /**
+   * <p>The first name of the acceptor contact.</p>
+   * @public
+   */
+  firstName: string | undefined;
+
+  /**
+   * <p>The last name of the acceptor contact.</p>
+   * @public
+   */
+  lastName: string | undefined;
+
+  /**
+   * <p>The email address of the acceptor contact.</p>
+   * @public
+   */
+  emailAddress: string | undefined;
+
+  /**
+   * <p>The name of the company that the acceptor contact represents.</p>
+   * @public
+   */
+  companyName: string | undefined;
+
+  /**
+   * <p>The ISO-3166 two-letter country code for the acceptor contact.</p>
+   * @public
+   */
+  countryCode: string | undefined;
+}
+
+/**
+ * <p>The approval criteria for a group of approvers.</p>
+ * @public
+ */
+export interface BuyerAgreementApprovalCriteria {
+  /**
+   * <p>The number of approvers in the group who must approve before the level is approved.</p>
+   * @public
+   */
+  requiredApprovalCount: number | undefined;
+}
+
+/**
+ * <p>An approver that represents the administrators of the buyer's AWS organization. The management account or a delegated administrator of the organization can decide for this approver.</p>
+ * @public
+ */
+export interface AwsOrganizationAdminApprover {
+  /**
+   * <p>The ID of the AWS organization.</p>
+   * @public
+   */
+  organizationId: string | undefined;
+}
+
+/**
+ * <p>An approver who is identified by an email address.</p>
+ * @public
+ */
+export interface EmailApprover {
+  /**
+   * <p>The email address of the approver.</p>
+   * @public
+   */
+  emailAddress: string | undefined;
+
+  /**
+   * <p>The name of the approver.</p>
+   * @public
+   */
+  name?: string | undefined;
+}
+
+/**
+ * <p>A procurement system that approves through the buyer's procurement integration.</p>
+ * @public
+ */
+export interface ProcurementToolApprover {
+  /**
+   * <p>The name of the procurement system.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * <p>An approver in an approval plan.</p>
+ * @public
+ */
+export type Approver =
+  | Approver.AwsOrganizationAdminApproverMember
+  | Approver.EmailApproverMember
+  | Approver.ProcurementToolApproverMember
+  | Approver.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Approver {
+  /**
+   * <p>An approver who is identified by an email address.</p>
+   * @public
+   */
+  export interface EmailApproverMember {
+    emailApprover: EmailApprover;
+    procurementToolApprover?: never;
+    awsOrganizationAdminApprover?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A procurement system that approves through the buyer's procurement integration.</p>
+   * @public
+   */
+  export interface ProcurementToolApproverMember {
+    emailApprover?: never;
+    procurementToolApprover: ProcurementToolApprover;
+    awsOrganizationAdminApprover?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The administrators of the buyer's AWS organization.</p>
+   * @public
+   */
+  export interface AwsOrganizationAdminApproverMember {
+    emailApprover?: never;
+    procurementToolApprover?: never;
+    awsOrganizationAdminApprover: AwsOrganizationAdminApprover;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    emailApprover?: never;
+    procurementToolApprover?: never;
+    awsOrganizationAdminApprover?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    emailApprover: (value: EmailApprover) => T;
+    procurementToolApprover: (value: ProcurementToolApprover) => T;
+    awsOrganizationAdminApprover: (value: AwsOrganizationAdminApprover) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A group of approvers and the number of approvals the group requires.</p>
+ * @public
+ */
+export interface BuyerAgreementApprovalPlanGroup {
+  /**
+   * <p>The number of approvers in the group who must approve.</p>
+   * @public
+   */
+  approvalCriteria: BuyerAgreementApprovalCriteria | undefined;
+
+  /**
+   * <p>The approvers in the group.</p>
+   * @public
+   */
+  approvers: Approver[] | undefined;
+}
+
+/**
+ * <p>A level of an approval plan.</p>
+ * @public
+ */
+export interface BuyerAgreementApprovalPlanLevel {
+  /**
+   * <p>The name of the level.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The group of approvers at this level.</p>
+   * @public
+   */
+  groups: BuyerAgreementApprovalPlanGroup[] | undefined;
+}
+
+/**
+ * <p>An approval plan that the buyer's organization requires, with its approval levels and the approvers at each level.</p>
+ * @public
+ */
+export interface BuyerAgreementApprovalPlan {
+  /**
+   * <p>The identifier of the approval plan. Pass it in <code>StartAgreementApprovals</code> to start an agreement approval for this plan.</p>
+   * @public
+   */
+  planReference: string | undefined;
+
+  /**
+   * <p>The name of the approval plan.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The approval levels of the plan, in the order they are evaluated. Approvers at a level can act only after the previous level is approved.</p>
+   * @public
+   */
+  levels: BuyerAgreementApprovalPlanLevel[] | undefined;
+}
+
+/**
+ * <p>An approval plan that applies to an agreement request.</p>
+ * @public
+ */
+export type AgreementApprovalPlan =
+  | AgreementApprovalPlan.BuyerAgreementApprovalPlanMember
+  | AgreementApprovalPlan.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AgreementApprovalPlan {
+  /**
+   * <p>An approval plan that the buyer's organization requires.</p>
+   * @public
+   */
+  export interface BuyerAgreementApprovalPlanMember {
+    buyerAgreementApprovalPlan: BuyerAgreementApprovalPlan;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    buyerAgreementApprovalPlan?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    buyerAgreementApprovalPlan: (value: BuyerAgreementApprovalPlan) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The approval plan to start an agreement approval for, and an optional note for the approvers.</p>
+ * @public
+ */
+export interface BuyerAgreementApprovalPlanInput {
+  /**
+   * <p>The identifier of the approval plan. Use <code>GetAgreementRequestApprovalPlans</code> to retrieve the approval plans of the agreement request.</p>
+   * @public
+   */
+  planReference: string | undefined;
+
+  /**
+   * <p>An optional note for the approvers, such as the business reason for the purchase (1-1000 characters).</p>
+   * @public
+   */
+  requesterNote?: string | undefined;
+}
+
+/**
+ * <p>The approval plan to start an agreement approval for.</p>
+ * @public
+ */
+export type AgreementApprovalPlanInput =
+  | AgreementApprovalPlanInput.BuyerAgreementApprovalPlanInputMember
+  | AgreementApprovalPlanInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AgreementApprovalPlanInput {
+  /**
+   * <p>An approval plan that the buyer's organization requires.</p>
+   * @public
+   */
+  export interface BuyerAgreementApprovalPlanInputMember {
+    buyerAgreementApprovalPlanInput: BuyerAgreementApprovalPlanInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    buyerAgreementApprovalPlanInput?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    buyerAgreementApprovalPlanInput: (value: BuyerAgreementApprovalPlanInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A resource involved in the agreement, such as a product.</p>
+ * @public
+ */
+export interface AgreementApprovalResource {
+  /**
+   * <p>The unique identifier of the resource.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Type of the resource, which is the product (for example, <code>SaaSProduct</code>, <code>AmiProduct</code>, <code>ContainerProduct</code>).</p>
+   * @public
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The name of the product.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Whether the product is deployed on AWS (for example, <code>DEPLOYED</code>).</p>
+   * @public
+   */
+  deployedOnAws?: string | undefined;
+}
+
+/**
+ * <p>A summary of the proposal received from the proposer.</p>
+ * @public
+ */
+export interface AgreementApprovalProposalSummary {
+  /**
+   * <p>The unique identifier of the offer in AWS Marketplace.</p>
+   * @public
+   */
+  offerId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the offer set containing this offer.</p>
+   * @public
+   */
+  offerSetId?: string | undefined;
+
+  /**
+   * <p>The list of resources involved in the agreement.</p>
+   * @public
+   */
+  resources?: AgreementApprovalResource[] | undefined;
+
+  /**
+   * <p>The visibility of the offer. Valid values are <code>PUBLIC</code> and <code>PRIVATE</code>.</p>
+   * @public
+   */
+  visibilityScope: OfferVisibilityScope | undefined;
+}
+
+/**
+ * <p>Details of the party proposing the agreement terms. This is commonly the seller for <code>PurchaseAgreement</code>.</p>
+ * @public
+ */
+export interface AgreementApprovalProposer {
+  /**
+   * <p>The AWS account ID of the proposer.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The legal name of the proposer.</p>
+   * @public
+   */
+  legalName: string | undefined;
+}
+
+/**
+ * <p>The account that started an agreement approval.</p>
+ * @public
+ */
+export interface AgreementApprovalRequester {
+  /**
+   * <p>The AWS account ID of the requester, which is the buyer of the agreement request.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * <p>Summary view of an agreement approval.</p>
+ * @public
+ */
+export interface AgreementApprovalSummary {
+  /**
+   * <p>The type of the agreement approval. The only value is <code>BUYER_AGREEMENT_APPROVAL</code>, an approval that the buyer's organization requires before the agreement request can be accepted.</p>
+   * @public
+   */
+  approvalType: AgreementApprovalType | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement request that the agreement approval is for.</p>
+   * @public
+   */
+  agreementRequestId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement approval.</p>
+   * @public
+   */
+  agreementApprovalId: string | undefined;
+
+  /**
+   * <p>The descriptive name of the agreement approval.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The current status of the agreement approval. Possible values include <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, <code>EXPIRED</code>, and <code>CANCELLED</code>.</p>
+   * @public
+   */
+  status: AgreementApprovalStatus | undefined;
+
+  /**
+   * <p>The date and time when the agreement approval was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the agreement approval was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time when approvers could start acting on the agreement approval.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the agreement approval expires if it isn't approved or rejected.</p>
+   * @public
+   */
+  expiresAt?: Date | undefined;
+
+  /**
+   * <p>The date and time by which the agreement approval must be completed.</p>
+   * @public
+   */
+  approvalNeededBy: Date | undefined;
 }
 
 /**
@@ -1561,7 +2104,7 @@ export interface PricingCurrencyAmount {
   maxAdjustmentAmount?: string | undefined;
 
   /**
-   * <p>The 3-letter ISO 4217 currency code (e.g., <code>USD</code>, <code>EUR</code>, <code>JPY</code>).</p>
+   * <p>The 3-letter ISO 4217 currency code (for example, <code>USD</code>, <code>EUR</code>, <code>JPY</code>).</p>
    * @public
    */
   currencyCode?: string | undefined;
@@ -1616,18 +2159,6 @@ export interface AgreementInvoiceLineItemGroupSummary {
 }
 
 /**
- * <p>Represents an entitlement associated with an agreement.</p>
- * @public
- */
-export interface Entitlement {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS License Manager license associated with the entitlement.</p>
-   * @public
-   */
-  licenseArn?: string | undefined;
-}
-
-/**
  * <p>A summary of the proposal received from the proposer.</p>
  * @public
  */
@@ -1649,6 +2180,393 @@ export interface ProposalSummary {
    * @public
    */
   offerSetId?: string | undefined;
+}
+
+/**
+ * <p>Summary view of an agreement request.</p>
+ * @public
+ */
+export interface AgreementRequestSummary {
+  /**
+   * <p>The unique identifier of the agreement request.</p>
+   * @public
+   */
+  agreementRequestId?: string | undefined;
+
+  /**
+   * <p>The type of agreement (for example, <code>PurchaseAgreement</code>).</p>
+   * @public
+   */
+  agreementType?: string | undefined;
+
+  /**
+   * <p>The current status of the agreement request. Possible values include <code>DRAFT</code>, <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>ACCEPTED</code>, <code>REJECTED</code>, and <code>CANCELLED</code>.</p>
+   * @public
+   */
+  status?: AgreementRequestStatus | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement that the agreement request is for.</p>
+   * @public
+   */
+  agreementId?: string | undefined;
+
+  /**
+   * <p>A summary of the proposal received from the proposer.</p>
+   * @public
+   */
+  proposalSummary?: ProposalSummary | undefined;
+}
+
+/**
+ * <p>A subset of terms proposed by the proposer, which have been requested by the acceptor as part of the agreement request.</p>
+ * @public
+ */
+export type AgreementRequestTerm =
+  | AgreementRequestTerm.ByolPricingTermMember
+  | AgreementRequestTerm.ConfigurableUpfrontPricingTermMember
+  | AgreementRequestTerm.FixedUpfrontPricingTermMember
+  | AgreementRequestTerm.FreeTrialPricingTermMember
+  | AgreementRequestTerm.LegalTermMember
+  | AgreementRequestTerm.NetPaymentTermMember
+  | AgreementRequestTerm.PaymentScheduleTermMember
+  | AgreementRequestTerm.RecurringPaymentTermMember
+  | AgreementRequestTerm.RenewalTermMember
+  | AgreementRequestTerm.SupportTermMember
+  | AgreementRequestTerm.UsageBasedPricingTermMember
+  | AgreementRequestTerm.ValidityTermMember
+  | AgreementRequestTerm.VariablePaymentTermMember
+  | AgreementRequestTerm.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AgreementRequestTerm {
+  /**
+   * <p>Defines the list of text agreements proposed to the acceptors. An example is the end user license agreement (EULA).</p>
+   * @public
+   */
+  export interface LegalTermMember {
+    legalTerm: LegalTerm;
+    supportTerm?: never;
+    renewalTerm?: never;
+    usageBasedPricingTerm?: never;
+    configurableUpfrontPricingTerm?: never;
+    byolPricingTerm?: never;
+    recurringPaymentTerm?: never;
+    validityTerm?: never;
+    paymentScheduleTerm?: never;
+    freeTrialPricingTerm?: never;
+    fixedUpfrontPricingTerm?: never;
+    variablePaymentTerm?: never;
+    netPaymentTerm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines the customer support available for the acceptors when they purchase the software.</p>
+   * @public
+   */
+  export interface SupportTermMember {
+    legalTerm?: never;
+    supportTerm: SupportTerm;
+    renewalTerm?: never;
+    usageBasedPricingTerm?: never;
+    configurableUpfrontPricingTerm?: never;
+    byolPricingTerm?: never;
+    recurringPaymentTerm?: never;
+    validityTerm?: never;
+    paymentScheduleTerm?: never;
+    freeTrialPricingTerm?: never;
+    fixedUpfrontPricingTerm?: never;
+    variablePaymentTerm?: never;
+    netPaymentTerm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines that on graceful expiration of the agreement (when the agreement ends on its pre-defined end date), a new agreement will be created using the accepted terms on the existing agreement. In other words, the agreement will be renewed. Presence of <code>RenewalTerm</code> in the offer document means that auto-renewal is allowed. The acceptor will have the option to accept or decline auto-renewal at the offer acceptance/agreement creation. The acceptor can also change this flag from <code>True</code> to <code>False</code> or <code>False</code> to <code>True</code>, within the limits set by <code>LockoutPeriod</code> and <code>MaxRenewals</code>. Setting the flag to <code>True</code> doesn't by itself guarantee that the agreement renews, because the proposer can also opt out.</p>
+   * @public
+   */
+  export interface RenewalTermMember {
+    legalTerm?: never;
+    supportTerm?: never;
+    renewalTerm: RenewalTerm;
+    usageBasedPricingTerm?: never;
+    configurableUpfrontPricingTerm?: never;
+    byolPricingTerm?: never;
+    recurringPaymentTerm?: never;
+    validityTerm?: never;
+    paymentScheduleTerm?: never;
+    freeTrialPricingTerm?: never;
+    fixedUpfrontPricingTerm?: never;
+    variablePaymentTerm?: never;
+    netPaymentTerm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines a usage-based pricing model (typically, pay-as-you-go pricing), where the customers are charged based on product usage.</p>
+   * @public
+   */
+  export interface UsageBasedPricingTermMember {
+    legalTerm?: never;
+    supportTerm?: never;
+    renewalTerm?: never;
+    usageBasedPricingTerm: UsageBasedPricingTerm;
+    configurableUpfrontPricingTerm?: never;
+    byolPricingTerm?: never;
+    recurringPaymentTerm?: never;
+    validityTerm?: never;
+    paymentScheduleTerm?: never;
+    freeTrialPricingTerm?: never;
+    fixedUpfrontPricingTerm?: never;
+    variablePaymentTerm?: never;
+    netPaymentTerm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines a prepaid payment model that allows buyers to configure the entitlements they want to purchase and the duration.</p>
+   * @public
+   */
+  export interface ConfigurableUpfrontPricingTermMember {
+    legalTerm?: never;
+    supportTerm?: never;
+    renewalTerm?: never;
+    usageBasedPricingTerm?: never;
+    configurableUpfrontPricingTerm: ConfigurableUpfrontPricingTerm;
+    byolPricingTerm?: never;
+    recurringPaymentTerm?: never;
+    validityTerm?: never;
+    paymentScheduleTerm?: never;
+    freeTrialPricingTerm?: never;
+    fixedUpfrontPricingTerm?: never;
+    variablePaymentTerm?: never;
+    netPaymentTerm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Enables you and your customers to move your existing agreements to AWS Marketplace. The customer won't be charged for product usage in AWS Marketplace because they already paid for the product outside of AWS Marketplace.</p>
+   * @public
+   */
+  export interface ByolPricingTermMember {
+    legalTerm?: never;
+    supportTerm?: never;
+    renewalTerm?: never;
+    usageBasedPricingTerm?: never;
+    configurableUpfrontPricingTerm?: never;
+    byolPricingTerm: ByolPricingTerm;
+    recurringPaymentTerm?: never;
+    validityTerm?: never;
+    paymentScheduleTerm?: never;
+    freeTrialPricingTerm?: never;
+    fixedUpfrontPricingTerm?: never;
+    variablePaymentTerm?: never;
+    netPaymentTerm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines a pricing model where customers are charged a fixed recurring price at the end of each billing period.</p>
+   * @public
+   */
+  export interface RecurringPaymentTermMember {
+    legalTerm?: never;
+    supportTerm?: never;
+    renewalTerm?: never;
+    usageBasedPricingTerm?: never;
+    configurableUpfrontPricingTerm?: never;
+    byolPricingTerm?: never;
+    recurringPaymentTerm: RecurringPaymentTerm;
+    validityTerm?: never;
+    paymentScheduleTerm?: never;
+    freeTrialPricingTerm?: never;
+    fixedUpfrontPricingTerm?: never;
+    variablePaymentTerm?: never;
+    netPaymentTerm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines the conditions that will keep an agreement created from this offer valid.</p>
+   * @public
+   */
+  export interface ValidityTermMember {
+    legalTerm?: never;
+    supportTerm?: never;
+    renewalTerm?: never;
+    usageBasedPricingTerm?: never;
+    configurableUpfrontPricingTerm?: never;
+    byolPricingTerm?: never;
+    recurringPaymentTerm?: never;
+    validityTerm: ValidityTerm;
+    paymentScheduleTerm?: never;
+    freeTrialPricingTerm?: never;
+    fixedUpfrontPricingTerm?: never;
+    variablePaymentTerm?: never;
+    netPaymentTerm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines an installment-based pricing model where customers are charged a fixed price on different dates during the agreement validity period. This is used most commonly for flexible payment schedule pricing.</p>
+   * @public
+   */
+  export interface PaymentScheduleTermMember {
+    legalTerm?: never;
+    supportTerm?: never;
+    renewalTerm?: never;
+    usageBasedPricingTerm?: never;
+    configurableUpfrontPricingTerm?: never;
+    byolPricingTerm?: never;
+    recurringPaymentTerm?: never;
+    validityTerm?: never;
+    paymentScheduleTerm: PaymentScheduleTerm;
+    freeTrialPricingTerm?: never;
+    fixedUpfrontPricingTerm?: never;
+    variablePaymentTerm?: never;
+    netPaymentTerm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines a short-term free pricing model where the buyers aren't charged anything within a specified limit.</p>
+   * @public
+   */
+  export interface FreeTrialPricingTermMember {
+    legalTerm?: never;
+    supportTerm?: never;
+    renewalTerm?: never;
+    usageBasedPricingTerm?: never;
+    configurableUpfrontPricingTerm?: never;
+    byolPricingTerm?: never;
+    recurringPaymentTerm?: never;
+    validityTerm?: never;
+    paymentScheduleTerm?: never;
+    freeTrialPricingTerm: FreeTrialPricingTerm;
+    fixedUpfrontPricingTerm?: never;
+    variablePaymentTerm?: never;
+    netPaymentTerm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines a pre-paid pricing model where the customers are charged a fixed upfront amount.</p>
+   * @public
+   */
+  export interface FixedUpfrontPricingTermMember {
+    legalTerm?: never;
+    supportTerm?: never;
+    renewalTerm?: never;
+    usageBasedPricingTerm?: never;
+    configurableUpfrontPricingTerm?: never;
+    byolPricingTerm?: never;
+    recurringPaymentTerm?: never;
+    validityTerm?: never;
+    paymentScheduleTerm?: never;
+    freeTrialPricingTerm?: never;
+    fixedUpfrontPricingTerm: FixedUpfrontPricingTerm;
+    variablePaymentTerm?: never;
+    netPaymentTerm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines a payment model where sellers can submit variable payment requests up to a maximum charge amount, with configurable approval strategies and expiration timelines.</p>
+   * @public
+   */
+  export interface VariablePaymentTermMember {
+    legalTerm?: never;
+    supportTerm?: never;
+    renewalTerm?: never;
+    usageBasedPricingTerm?: never;
+    configurableUpfrontPricingTerm?: never;
+    byolPricingTerm?: never;
+    recurringPaymentTerm?: never;
+    validityTerm?: never;
+    paymentScheduleTerm?: never;
+    freeTrialPricingTerm?: never;
+    fixedUpfrontPricingTerm?: never;
+    variablePaymentTerm: VariablePaymentTerm;
+    netPaymentTerm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines the net payment due period for the agreement, specifying when payment is due after an invoice is issued.</p>
+   * @public
+   */
+  export interface NetPaymentTermMember {
+    legalTerm?: never;
+    supportTerm?: never;
+    renewalTerm?: never;
+    usageBasedPricingTerm?: never;
+    configurableUpfrontPricingTerm?: never;
+    byolPricingTerm?: never;
+    recurringPaymentTerm?: never;
+    validityTerm?: never;
+    paymentScheduleTerm?: never;
+    freeTrialPricingTerm?: never;
+    fixedUpfrontPricingTerm?: never;
+    variablePaymentTerm?: never;
+    netPaymentTerm: NetPaymentTerm;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    legalTerm?: never;
+    supportTerm?: never;
+    renewalTerm?: never;
+    usageBasedPricingTerm?: never;
+    configurableUpfrontPricingTerm?: never;
+    byolPricingTerm?: never;
+    recurringPaymentTerm?: never;
+    validityTerm?: never;
+    paymentScheduleTerm?: never;
+    freeTrialPricingTerm?: never;
+    fixedUpfrontPricingTerm?: never;
+    variablePaymentTerm?: never;
+    netPaymentTerm?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    legalTerm: (value: LegalTerm) => T;
+    supportTerm: (value: SupportTerm) => T;
+    renewalTerm: (value: RenewalTerm) => T;
+    usageBasedPricingTerm: (value: UsageBasedPricingTerm) => T;
+    configurableUpfrontPricingTerm: (value: ConfigurableUpfrontPricingTerm) => T;
+    byolPricingTerm: (value: ByolPricingTerm) => T;
+    recurringPaymentTerm: (value: RecurringPaymentTerm) => T;
+    validityTerm: (value: ValidityTerm) => T;
+    paymentScheduleTerm: (value: PaymentScheduleTerm) => T;
+    freeTrialPricingTerm: (value: FreeTrialPricingTerm) => T;
+    fixedUpfrontPricingTerm: (value: FixedUpfrontPricingTerm) => T;
+    variablePaymentTerm: (value: VariablePaymentTerm) => T;
+    netPaymentTerm: (value: NetPaymentTerm) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Represents an entitlement associated with an agreement.</p>
+ * @public
+ */
+export interface Entitlement {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS License Manager license associated with the entitlement.</p>
+   * @public
+   */
+  licenseArn?: string | undefined;
 }
 
 /**
@@ -1687,7 +2605,7 @@ export interface AgreementViewSummary {
   startTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the agreement ends. The field is <code>null</code> for pay-as-you-go agreements, which don’t have end dates.</p>
+   * <p>The date and time when the agreement ends. The field is <code>null</code> for pay-as-you-go agreements, which don't have end dates.</p>
    * @public
    */
   endTime?: Date | undefined;
@@ -1757,6 +2675,231 @@ export interface AgreementViewSummary {
    * @public
    */
   freeTrialEndTime?: Date | undefined;
+
+  /**
+   * <p>The types of contact information on file for the agreement. For example, <code>ACCEPTOR</code> indicates that the acceptor's contact information is on file, which you can retrieve with <code>GetAgreementContacts</code>.</p>
+   * @public
+   */
+  includesContactOfType?: ContactType[] | undefined;
+}
+
+/**
+ * <p>The decision of the administrators of the buyer's AWS organization. The management account or a delegated administrator of the organization makes this decision.</p>
+ * @public
+ */
+export interface AwsOrganizationApproverOutcome {
+  /**
+   * <p>The note that the approver provided with the decision.</p>
+   * @public
+   */
+  note?: string | undefined;
+
+  /**
+   * <p>The decision status of the approver. Possible values include <code>QUEUED</code>, <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, <code>EXPIRED</code>, and <code>SKIPPED</code>.</p>
+   * @public
+   */
+  status: ApproverOutcomeStatus | undefined;
+
+  /**
+   * <p>The date and time when the decision was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The unique identifier of this approver in the agreement approval.</p>
+   * @public
+   */
+  approverOutcomeId?: string | undefined;
+
+  /**
+   * <p>The purchase order references that the approver provided with the decision.</p>
+   * @public
+   */
+  purchaseOrders?: AgreementApprovalPurchaseOrder[] | undefined;
+}
+
+/**
+ * <p>The identity of a caller.</p>
+ * @public
+ */
+export interface CallerIdentity {
+  /**
+   * <p>The ARN of the IAM principal that made the call.</p>
+   * @public
+   */
+  principalArn: string | undefined;
+}
+
+/**
+ * <p>The decision of an approver who is identified by an email address.</p>
+ * @public
+ */
+export interface EmailApproverOutcome {
+  /**
+   * <p>The note that the approver provided with the decision.</p>
+   * @public
+   */
+  note?: string | undefined;
+
+  /**
+   * <p>The decision status of the approver. Possible values include <code>QUEUED</code>, <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, <code>EXPIRED</code>, and <code>SKIPPED</code>.</p>
+   * @public
+   */
+  status: ApproverOutcomeStatus | undefined;
+
+  /**
+   * <p>The date and time when the decision was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The unique identifier of this approver in the agreement approval. An administrator of the buyer's AWS organization passes it as <code>approverOutcomeIdToOverride</code> to decide on the approver's behalf.</p>
+   * @public
+   */
+  approverOutcomeId?: string | undefined;
+
+  /**
+   * <p>The email address of the approver.</p>
+   * @public
+   */
+  emailAddress: string | undefined;
+
+  /**
+   * <p>The name of the approver.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The purchase order references that the approver provided with the decision.</p>
+   * @public
+   */
+  purchaseOrders?: AgreementApprovalPurchaseOrder[] | undefined;
+
+  /**
+   * <p>The identity that decided on the approver's behalf. This field is empty unless an administrator of the buyer's AWS organization decided for the approver.</p>
+   * @public
+   */
+  overriddenBy?: CallerIdentity | undefined;
+}
+
+/**
+ * <p>The decision of a procurement system.</p>
+ * @public
+ */
+export interface ProcurementToolApproverOutcome {
+  /**
+   * <p>The note that the approver provided with the decision.</p>
+   * @public
+   */
+  note?: string | undefined;
+
+  /**
+   * <p>The decision status of the approver. Possible values include <code>QUEUED</code>, <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, <code>EXPIRED</code>, and <code>SKIPPED</code>.</p>
+   * @public
+   */
+  status: ApproverOutcomeStatus | undefined;
+
+  /**
+   * <p>The date and time when the decision was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The unique identifier of this approver in the agreement approval. An administrator of the buyer's AWS organization passes it as <code>approverOutcomeIdToOverride</code> to decide on the approver's behalf.</p>
+   * @public
+   */
+  approverOutcomeId?: string | undefined;
+
+  /**
+   * <p>The name of the procurement system.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The purchase order references that the approver provided with the decision.</p>
+   * @public
+   */
+  purchaseOrders?: AgreementApprovalPurchaseOrder[] | undefined;
+
+  /**
+   * <p>The identity that decided on the procurement system's behalf. This field is empty unless an administrator of the buyer's AWS organization decided for the procurement system.</p>
+   * @public
+   */
+  overriddenBy?: CallerIdentity | undefined;
+}
+
+/**
+ * <p>An approver in an agreement approval and the approver's decision.</p>
+ * @public
+ */
+export type ApproverOutcome =
+  | ApproverOutcome.AwsOrganizationApproverOutcomeMember
+  | ApproverOutcome.EmailApproverOutcomeMember
+  | ApproverOutcome.ProcurementToolApproverOutcomeMember
+  | ApproverOutcome.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ApproverOutcome {
+  /**
+   * <p>The decision of an approver who is identified by an email address.</p>
+   * @public
+   */
+  export interface EmailApproverOutcomeMember {
+    emailApproverOutcome: EmailApproverOutcome;
+    procurementToolApproverOutcome?: never;
+    awsOrganizationApproverOutcome?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The decision of a procurement system.</p>
+   * @public
+   */
+  export interface ProcurementToolApproverOutcomeMember {
+    emailApproverOutcome?: never;
+    procurementToolApproverOutcome: ProcurementToolApproverOutcome;
+    awsOrganizationApproverOutcome?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The decision of the administrators of the buyer's AWS organization.</p>
+   * @public
+   */
+  export interface AwsOrganizationApproverOutcomeMember {
+    emailApproverOutcome?: never;
+    procurementToolApproverOutcome?: never;
+    awsOrganizationApproverOutcome: AwsOrganizationApproverOutcome;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    emailApproverOutcome?: never;
+    procurementToolApproverOutcome?: never;
+    awsOrganizationApproverOutcome?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    emailApproverOutcome: (value: EmailApproverOutcome) => T;
+    procurementToolApproverOutcome: (value: ProcurementToolApproverOutcome) => T;
+    awsOrganizationApproverOutcome: (value: AwsOrganizationApproverOutcome) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -2046,6 +3189,22 @@ export interface CancelAgreementPaymentRequestOutput {
 }
 
 /**
+ * @public
+ */
+export interface CancelAgreementRequestInput {
+  /**
+   * <p>The unique identifier of the agreement request to cancel.</p>
+   * @public
+   */
+  agreementRequestId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelAgreementRequestOutput {}
+
+/**
  * <p>A tagged union that represents the term configuration provided by the acceptor. Only one configuration is accepted per term.</p>
  * @public
  */
@@ -2183,6 +3342,12 @@ export interface CreateAgreementRequestInput {
    * @public
    */
   taxConfiguration?: TaxConfiguration | undefined;
+
+  /**
+   * <p>The contact information of the acceptor.</p> <important> <p>Don't provide this parameter if the intent is <code>AMEND</code>.</p> </important>
+   * @public
+   */
+  acceptorContact?: AcceptorContact | undefined;
 }
 
 /**
@@ -2267,6 +3432,12 @@ export interface ExpectedCharge {
    * @public
    */
   estimatedTaxes?: EstimatedTaxes | undefined;
+
+  /**
+   * <p>The purchase order reference associated with the charge, if any.</p>
+   * @public
+   */
+  purchaseOrderReference?: string | undefined;
 }
 
 /**
@@ -2311,7 +3482,7 @@ export interface ItemizedCharge {
  */
 export interface ChargeSummary {
   /**
-   * <p>The three-letter currency code for all charges (e.g., USD).</p>
+   * <p>The three-letter currency code for all charges (for example, USD).</p>
    * @public
    */
   currencyCode?: string | undefined;
@@ -2364,10 +3535,34 @@ export interface CreateAgreementRequestOutput {
   agreementRequestId?: string | undefined;
 
   /**
+   * <p>The type of agreement (for example, <code>PurchaseAgreement</code>).</p>
+   * @public
+   */
+  agreementType?: string | undefined;
+
+  /**
    * <p>Provides details of the charges associated with the agreement request. This is only applicable when a request is created for <code>PurchaseAgreement</code>.</p>
    * @public
    */
   chargeSummary?: ChargeSummary | undefined;
+
+  /**
+   * <p>The current status of the agreement request. Possible values include:</p> <ul> <li> <p> <code>DRAFT</code> – The agreement request has been created but not yet submitted for approval.</p> </li> <li> <p> <code>PENDING_APPROVAL</code> – The agreement request is waiting for one or more approvers to decide.</p> </li> <li> <p> <code>APPROVED</code> – All required approvals have been granted, but the agreement request wasn't accepted automatically. Call <code>AcceptAgreementRequest</code> to accept it. If the call fails, its error explains why.</p> </li> <li> <p> <code>ACCEPTED</code> – The agreement request has been accepted and the resulting agreement has been created.</p> </li> <li> <p> <code>REJECTED</code> – At least one approver rejected the agreement request. It won't proceed.</p> </li> <li> <p> <code>CANCELLED</code> – The agreement request was cancelled before completion, by the acceptor or because the acceptor's account left its AWS organization.</p> </li> </ul>
+   * @public
+   */
+  status?: AgreementRequestStatus | undefined;
+
+  /**
+   * <p>Indicates whether the agreement request requires approval before it can be accepted. Values are <code>REQUIRED</code> and <code>NOT_REQUIRED</code>.</p>
+   * @public
+   */
+  approvalRequirement?: ApprovalRequirement | undefined;
+
+  /**
+   * <p>The date and time when the agreement request was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
 }
 
 /**
@@ -2533,6 +3728,160 @@ export interface DescribeAgreementOutput {
 /**
  * @public
  */
+export interface GetAgreementApprovalInput {
+  /**
+   * <p>The unique identifier of the agreement approval to retrieve.</p>
+   * @public
+   */
+  agreementApprovalId: string | undefined;
+}
+
+/**
+ * <p>A group of approvers, the number of approvals the group requires, and the decision of each approver.</p>
+ * @public
+ */
+export interface BuyerAgreementApprovalGroup {
+  /**
+   * <p>The number of approvers in the group who must approve.</p>
+   * @public
+   */
+  approvalCriteria: BuyerAgreementApprovalCriteria | undefined;
+
+  /**
+   * <p>The approvers in the group and the decision of each one.</p>
+   * @public
+   */
+  approvers: ApproverOutcome[] | undefined;
+}
+
+/**
+ * <p>A level of an agreement approval, with the decision of each approver.</p>
+ * @public
+ */
+export interface BuyerAgreementApprovalLevel {
+  /**
+   * <p>The name of the level.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The group of approvers at this level.</p>
+   * @public
+   */
+  groups: BuyerAgreementApprovalGroup[] | undefined;
+}
+
+/**
+ * <p>The details of an approval that the buyer's organization requires before the agreement request can be accepted, including the approval levels and the decision of each approver.</p>
+ * @public
+ */
+export interface BuyerAgreementApproval {
+  /**
+   * <p>The type of the agreement approval, which is <code>BUYER_AGREEMENT_APPROVAL</code>.</p>
+   * @public
+   */
+  approvalType: AgreementApprovalType | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement approval.</p>
+   * @public
+   */
+  agreementApprovalId: string | undefined;
+
+  /**
+   * <p>The descriptive name of the agreement approval.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement request that the agreement approval is for. Use <code>GetAgreementRequest</code> to retrieve the agreement request details.</p>
+   * @public
+   */
+  agreementRequestId: string | undefined;
+
+  /**
+   * <p>The current status of the agreement approval. Possible values include <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, <code>EXPIRED</code>, and <code>CANCELLED</code>.</p>
+   * @public
+   */
+  status: AgreementApprovalStatus | undefined;
+
+  /**
+   * <p>The account that started the agreement approval.</p>
+   * @public
+   */
+  requester: AgreementApprovalRequester | undefined;
+
+  /**
+   * <p>The date and time when the agreement approval was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the agreement approval was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time when approvers could start acting on the agreement approval.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the agreement approval expires if it isn't approved or rejected.</p>
+   * @public
+   */
+  expiresAt?: Date | undefined;
+
+  /**
+   * <p>The date and time by which the agreement approval must be completed.</p>
+   * @public
+   */
+  approvalNeededBy: Date | undefined;
+
+  /**
+   * <p>The approval levels, in the order they are evaluated. Approvers at a level can act only after the previous level is approved. Each level lists its approvers and the decision of each one.</p>
+   * @public
+   */
+  levels: BuyerAgreementApprovalLevel[] | undefined;
+
+  /**
+   * <p>The approval plan and the note that the requester provided in <code>StartAgreementApprovals</code>.</p>
+   * @public
+   */
+  planInput: BuyerAgreementApprovalPlanInput | undefined;
+
+  /**
+   * <p>The details of the party proposing the agreement terms. This is commonly the seller for <code>PurchaseAgreement</code>.</p>
+   * @public
+   */
+  proposer: AgreementApprovalProposer | undefined;
+
+  /**
+   * <p>A summary of the proposal received from the proposer.</p>
+   * @public
+   */
+  proposalSummary: AgreementApprovalProposalSummary | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgreementApprovalOutput {
+  /**
+   * <p>The details of the agreement approval, when it is a <code>BUYER_AGREEMENT_APPROVAL</code>.</p>
+   * @public
+   */
+  buyerAgreementApproval?: BuyerAgreementApproval | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetAgreementCancellationRequestInput {
   /**
    * <p>The unique identifier of the cancellation request.</p>
@@ -2598,6 +3947,28 @@ export interface GetAgreementCancellationRequestOutput {
    * @public
    */
   updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgreementContactsInput {
+  /**
+   * <p>The unique identifier of the agreement.</p>
+   * @public
+   */
+  agreementId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgreementContactsOutput {
+  /**
+   * <p>The contact information that the acceptor provided when creating the agreement.</p>
+   * @public
+   */
+  acceptorContact?: AcceptorContact | undefined;
 }
 
 /**
@@ -2731,6 +4102,162 @@ export interface GetAgreementPaymentRequestOutput {
 /**
  * @public
  */
+export interface GetAgreementRequestInput {
+  /**
+   * <p>The unique identifier of the agreement request.</p>
+   * @public
+   */
+  agreementRequestId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgreementRequestOutput {
+  /**
+   * <p>The unique identifier of the agreement request.</p>
+   * @public
+   */
+  agreementRequestId?: string | undefined;
+
+  /**
+   * <p>The type of agreement (for example, <code>PurchaseAgreement</code>).</p>
+   * @public
+   */
+  agreementType?: string | undefined;
+
+  /**
+   * <p>The current status of the agreement request. Possible values include:</p> <ul> <li> <p> <code>DRAFT</code> – The agreement request has been created but not yet submitted for approval.</p> </li> <li> <p> <code>PENDING_APPROVAL</code> – The agreement request is waiting for one or more approvers to decide.</p> </li> <li> <p> <code>APPROVED</code> – All required approvals have been granted, but the agreement request wasn't accepted automatically. Call <code>AcceptAgreementRequest</code> to accept it. If the call fails, its error explains why.</p> </li> <li> <p> <code>ACCEPTED</code> – The agreement request has been accepted and the resulting agreement has been created.</p> </li> <li> <p> <code>REJECTED</code> – At least one approver rejected the agreement request. It won't proceed.</p> </li> <li> <p> <code>CANCELLED</code> – The agreement request was cancelled before completion, by the acceptor or because the acceptor's account left its AWS organization.</p> </li> </ul>
+   * @public
+   */
+  status?: AgreementRequestStatus | undefined;
+
+  /**
+   * <p>Indicates whether the agreement request requires approval before it can be accepted. Values are <code>REQUIRED</code> and <code>NOT_REQUIRED</code>.</p>
+   * @public
+   */
+  approvalRequirement?: ApprovalRequirement | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement that the agreement request is for.</p>
+   * @public
+   */
+  agreementId?: string | undefined;
+
+  /**
+   * <p>The purpose and desired outcome of the agreement request.</p> <ul> <li> <p> <code>NEW</code> – Creates a new agreement for terms in the request.</p> </li> <li> <p> <code>AMEND</code> – Modifies an existing agreement with terms that are accepted in the request.</p> </li> <li> <p> <code>REPLACE</code> – Creates a new agreement with accepted terms and replaces the existing agreement.</p> </li> </ul>
+   * @public
+   */
+  intent?: Intent | undefined;
+
+  /**
+   * <p>The date and time when the agreement request was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>Provides details of the charges associated with the agreement request. This is only applicable when a request is created for <code>PurchaseAgreement</code>.</p>
+   * @public
+   */
+  chargeSummary?: ChargeSummary | undefined;
+
+  /**
+   * <p>The details of the party proposing the agreement terms. This is commonly the seller for <code>PurchaseAgreement</code>.</p>
+   * @public
+   */
+  proposer?: Proposer | undefined;
+
+  /**
+   * <p>A summary of the proposal received from the proposer.</p>
+   * @public
+   */
+  proposalSummary?: ProposalSummary | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgreementRequestApprovalPlansInput {
+  /**
+   * <p>The unique identifier of the agreement request to retrieve the approval plans for.</p>
+   * @public
+   */
+  agreementRequestId: string | undefined;
+
+  /**
+   * <p>The maximum number of approval plans to return in a single response (1-50). Default is 10.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to specify where to start pagination.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgreementRequestApprovalPlansOutput {
+  /**
+   * <p>An array of <code>AgreementApprovalPlan</code> objects, one for each approval plan that applies to the agreement request.</p>
+   * @public
+   */
+  items: AgreementApprovalPlan[] | undefined;
+
+  /**
+   * <p>The token used for pagination. The field is <code>null</code> if there are no more results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgreementRequestTermsInput {
+  /**
+   * <p>The unique identifier of the agreement request.</p>
+   * @public
+   */
+  agreementRequestId: string | undefined;
+
+  /**
+   * <p>The maximum number of terms to return in the response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to specify where to start pagination.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgreementRequestTermsOutput {
+  /**
+   * <p>The terms proposed for the agreement request. The terms are fixed when the agreement request is created.</p>
+   * @public
+   */
+  terms: AgreementRequestTerm[] | undefined;
+
+  /**
+   * <p>The token used for pagination. The field is <code>null</code> if there are no more results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetAgreementTermsInput {
   /**
    * <p>The unique identifier of the agreement.</p>
@@ -2854,6 +4381,70 @@ export interface GetBillingAdjustmentRequestOutput {
    * @public
    */
   updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgreementApprovalsInput {
+  /**
+   * <p>An optional parameter to filter agreement approvals by catalog (for example, <code>AWSMarketplace</code>).</p>
+   * @public
+   */
+  catalog?: string | undefined;
+
+  /**
+   * <p>The party type for the agreement approvals. Required parameter. Use <code>REQUESTER</code> to list agreement approvals for agreement requests that you created, or <code>AWS_ORGANIZATION_ADMIN</code> to list agreement approvals as an AWS Organizations administrator.</p>
+   * @public
+   */
+  partyType: AgreementApprovalPartyType | undefined;
+
+  /**
+   * <p>An optional parameter to filter agreement approvals for a specific agreement request.</p>
+   * @public
+   */
+  agreementRequestId?: string | undefined;
+
+  /**
+   * <p>An optional parameter to filter agreement approvals by type. The only valid value is <code>BUYER_AGREEMENT_APPROVAL</code>.</p>
+   * @public
+   */
+  approvalType?: AgreementApprovalType | undefined;
+
+  /**
+   * <p>An optional parameter to filter agreement approvals by status. Valid values include <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, <code>EXPIRED</code>, and <code>CANCELLED</code>. If you don't specify a status, agreement approvals of all statuses are returned.</p>
+   * @public
+   */
+  status?: AgreementApprovalStatus | undefined;
+
+  /**
+   * <p>The maximum number of agreement approvals to return in a single response (1-50). Default is 20.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to specify where to start pagination.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgreementApprovalsOutput {
+  /**
+   * <p>An array of <code>AgreementApprovalSummary</code> objects containing summary information about each agreement approval.</p>
+   * @public
+   */
+  items: AgreementApprovalSummary[] | undefined;
+
+  /**
+   * <p>The token used for pagination. The field is <code>null</code> if there are no more results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3229,6 +4820,58 @@ export interface ListAgreementPaymentRequestsOutput {
 /**
  * @public
  */
+export interface ListAgreementRequestsInput {
+  /**
+   * <p>An optional parameter to list agreement requests by catalog (for example, <code>AWSMarketplace</code>).</p>
+   * @public
+   */
+  catalog?: string | undefined;
+
+  /**
+   * <p>An optional parameter to list agreement requests by status. Valid values include <code>DRAFT</code>, <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>ACCEPTED</code>, <code>REJECTED</code>, and <code>CANCELLED</code>. If you don't specify a status, agreement requests of all statuses are returned.</p>
+   * @public
+   */
+  status?: AgreementRequestStatus | undefined;
+
+  /**
+   * <p>An optional parameter to list agreement requests for a specific resource, such as a product.</p>
+   * @public
+   */
+  resourceId?: string | undefined;
+
+  /**
+   * <p>The maximum number of agreement requests to return in a single response (1-50). Default is 20.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to specify where to start pagination.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgreementRequestsOutput {
+  /**
+   * <p>An array of <code>AgreementRequestSummary</code> objects containing summary information about each agreement request.</p>
+   * @public
+   */
+  items?: AgreementRequestSummary[] | undefined;
+
+  /**
+   * <p>The token used for pagination. The field is <code>null</code> if there are no more results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListBillingAdjustmentRequestsInput {
   /**
    * <p>The unique identifier of the agreement to list billing adjustment requests for.</p>
@@ -3361,6 +5004,46 @@ export interface ListBillingAdjustmentRequestsOutput {
    */
   items: BillingAdjustmentSummary[] | undefined;
 }
+
+/**
+ * <p>The rejection decision for an agreement approval.</p>
+ * @public
+ */
+export interface BuyerAgreementApprovalRejectionInput {
+  /**
+   * <p>The unique identifier of the agreement approval to reject.</p>
+   * @public
+   */
+  agreementApprovalId: string | undefined;
+
+  /**
+   * <p>The reason for the rejection.</p>
+   * @public
+   */
+  note: string | undefined;
+
+  /**
+   * <p>The <code>approverOutcomeId</code> of the approver to decide on behalf of. You must be the management account or a delegated administrator of your AWS organization to set this field. Use <code>GetAgreementApproval</code> to retrieve the <code>approverOutcomeId</code> of each approver.</p>
+   * @public
+   */
+  approverOutcomeIdToOverride?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectAgreementApprovalInput {
+  /**
+   * <p>The rejection decision for an agreement approval that the buyer's organization requires.</p>
+   * @public
+   */
+  buyerAgreementApprovalRejectionInput?: BuyerAgreementApprovalRejectionInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectAgreementApprovalOutput {}
 
 /**
  * @public
@@ -3573,7 +5256,7 @@ export interface SearchAgreementsInput {
   catalog?: string | undefined;
 
   /**
-   * <p>The filter name and value pair used to return a specific list of results.</p> <p>The following filters are supported:</p> <ul> <li> <p> <code>ResourceIdentifier</code> – The unique identifier of the resource.</p> </li> <li> <p> <code>ResourceType</code> – Type of the resource, which is the product (<code>AmiProduct</code>, <code>ContainerProduct</code>, <code>SaaSProduct</code>, <code>ProfessionalServicesProduct</code>, or <code>MachineLearningProduct</code>).</p> </li> <li> <p> <code>PartyType</code> – The party type of the caller. Use <code>Proposer</code> or <code>Acceptor</code>.</p> </li> <li> <p> <code>AcceptorAccountId</code> – The AWS account ID of the party accepting the agreement terms.</p> </li> <li> <p> <code>OfferId</code> – The unique identifier of the offer in which the terms are registered in the agreement token.</p> </li> <li> <p> <code>Status</code> – The current status of the agreement. Values include <code>ACTIVE</code>, <code>CANCELLED</code>, <code>EXPIRED</code>, <code>RENEWED</code>, <code>REPLACED</code>, and <code>TERMINATED</code>.</p> </li> <li> <p> <code>BeforeEndTime</code> – A date used to filter agreements with a date before the <code>endTime</code> of an agreement.</p> </li> <li> <p> <code>AfterEndTime</code> – A date used to filter agreements with a date after the <code>endTime</code> of an agreement.</p> </li> <li> <p> <code>BeforeStartTime</code> – A date used to filter agreements with a date before the <code>startTime</code> of an agreement.</p> </li> <li> <p> <code>AfterStartTime</code> – A date used to filter agreements with a date after the <code>startTime</code> of an agreement.</p> </li> <li> <p> <code>BeforeLastUpdateTime</code> – A date used to filter agreements with a date before the <code>lastUpdateTime</code> of an agreement.</p> </li> <li> <p> <code>AfterLastUpdateTime</code> – A date used to filter agreements with a date after the <code>lastUpdateTime</code> of an agreement.</p> </li> <li> <p> <code>AgreementType</code> – The type of agreement. Supported value includes <code>PurchaseAgreement</code>.</p> </li> <li> <p> <code>OfferSetId</code> – A unique identifier for the offer set containing this offer. All agreements created from offers in this set include this identifier as context.</p> </li> <li> <p> <code>EndTimeBehaviorType</code> – What happens to the agreement when it reaches its end date. Values include <code>RENEW</code>, <code>REPLACE</code>, and <code>EXPIRE</code>.</p> </li> <li> <p> <code>EndTimeBehaviorReasonCode</code> – The reason why the agreement doesn't renew at its end date. Values include <code>PROPOSER_RENEW_OPTED_OUT</code>, <code>ACCEPTOR_RENEW_OPTED_OUT</code>, <code>NO_RENEWAL_TERM</code>, and <code>RENEWAL_LIMIT_EXHAUSTED</code>.</p> </li> <li> <p> <code>InitialAgreementId</code> – The unique identifier of the very first agreement in a chain of related agreements. Use this filter to return every agreement in the same chain.</p> </li> <li> <p> <code>LicenseArn</code> – The Amazon Resource Name (ARN) of the AWS License Manager license associated with an entitlement granted by the agreement.</p> </li> </ul> <p>A proposer can use any combination of the preceding filters along with <code>AgreementType</code>, which is required.</p> <p>The following filter combinations are supported when the <code>PartyType</code> is <code>Acceptor</code>:</p> <ul> <li> <p> <code>AgreementType</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>Status</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> + <code>Status</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceType</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceType</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> + <code>Status</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> + <code>Status</code> + <code>EndTime</code> </p> </li> </ul> <note> <p>To filter by <code>EndTime</code>, you can use <code>BeforeEndTime</code>, <code>AfterEndTime</code>, or both.</p> </note>
+   * <p>The filter name and value pair used to return a specific list of results.</p> <p>The following filters are supported:</p> <ul> <li> <p> <code>ResourceIdentifier</code> – The unique identifier of the resource.</p> </li> <li> <p> <code>ResourceType</code> – Type of the resource, which is the product (<code>AmiProduct</code>, <code>ContainerProduct</code>, <code>SaaSProduct</code>, <code>ProfessionalServicesProduct</code>, or <code>MachineLearningProduct</code>).</p> </li> <li> <p> <code>PartyType</code> – The party type of the caller. Use <code>Proposer</code> or <code>Acceptor</code>.</p> </li> <li> <p> <code>AcceptorAccountId</code> – The AWS account ID of the party accepting the agreement terms.</p> </li> <li> <p> <code>OfferId</code> – The unique identifier of the offer in which the terms are registered in the agreement token.</p> </li> <li> <p> <code>Status</code> – The current status of the agreement. Values include <code>ACTIVE</code>, <code>CANCELLED</code>, <code>EXPIRED</code>, <code>RENEWED</code>, <code>REPLACED</code>, and <code>TERMINATED</code>.</p> </li> <li> <p> <code>BeforeEndTime</code> – A date used to filter agreements with a date before the <code>endTime</code> of an agreement.</p> </li> <li> <p> <code>AfterEndTime</code> – A date used to filter agreements with a date after the <code>endTime</code> of an agreement.</p> </li> <li> <p> <code>BeforeStartTime</code> – A date used to filter agreements with a date before the <code>startTime</code> of an agreement.</p> </li> <li> <p> <code>AfterStartTime</code> – A date used to filter agreements with a date after the <code>startTime</code> of an agreement.</p> </li> <li> <p> <code>BeforeLastUpdateTime</code> – A date used to filter agreements with a date before the <code>lastUpdateTime</code> of an agreement.</p> </li> <li> <p> <code>AfterLastUpdateTime</code> – A date used to filter agreements with a date after the <code>lastUpdateTime</code> of an agreement.</p> </li> <li> <p> <code>AgreementType</code> – The type of agreement. Supported value includes <code>PurchaseAgreement</code>.</p> </li> <li> <p> <code>OfferSetId</code> – A unique identifier for the offer set containing this offer. All agreements created from offers in this set include this identifier as context.</p> </li> <li> <p> <code>EndTimeBehaviorType</code> – What happens to the agreement when it reaches its end date. Values include <code>RENEW</code>, <code>REPLACE</code>, and <code>EXPIRE</code>.</p> </li> <li> <p> <code>EndTimeBehaviorReasonCode</code> – The reason why the agreement doesn't renew at its end date. Values include <code>PROPOSER_RENEW_OPTED_OUT</code>, <code>ACCEPTOR_RENEW_OPTED_OUT</code>, <code>NO_RENEWAL_TERM</code>, and <code>RENEWAL_LIMIT_EXHAUSTED</code>.</p> </li> <li> <p> <code>InitialAgreementId</code> – The unique identifier of the very first agreement in a chain of related agreements. Use this filter to return every agreement in the same chain.</p> </li> <li> <p> <code>LicenseArn</code> – The Amazon Resource Name (ARN) of the AWS License Manager license associated with an entitlement granted by the agreement.</p> </li> <li> <p> <code>IncludesContactOfType</code> – The type of contact information on file for the agreement. Supported value includes <code>ACCEPTOR</code>.</p> </li> </ul> <p>A proposer can use any combination of the preceding filters along with <code>AgreementType</code>, which is required.</p> <p>The following filter combinations are supported when the <code>PartyType</code> is <code>Acceptor</code>:</p> <ul> <li> <p> <code>AgreementType</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>Status</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> + <code>Status</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceType</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceType</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> + <code>Status</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> + <code>Status</code> + <code>EndTime</code> </p> </li> </ul> <note> <p>To filter by <code>EndTime</code>, you can use <code>BeforeEndTime</code>, <code>AfterEndTime</code>, or both.</p> </note>
    * @public
    */
   filters?: Filter[] | undefined;
@@ -3782,6 +5465,40 @@ export interface SendAgreementPaymentRequestOutput {
    * @public
    */
   createdAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAgreementApprovalsInput {
+  /**
+   * <p>The unique identifier of the agreement request to start approvals for.</p>
+   * @public
+   */
+  agreementRequestId: string | undefined;
+
+  /**
+   * <p>The approval plans to start agreement approvals for.</p>
+   * @public
+   */
+  planInputs: AgreementApprovalPlanInput[] | undefined;
+
+  /**
+   * <p>An optional list of purchase order references to associate with charges on the agreement request.</p>
+   * @public
+   */
+  purchaseOrders?: AgreementApprovalPurchaseOrder[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAgreementApprovalsOutput {
+  /**
+   * <p>An array of <code>AgreementApprovalSummary</code> objects, one for each agreement approval that was started.</p>
+   * @public
+   */
+  approvalSummaries: AgreementApprovalSummary[] | undefined;
 }
 
 /**

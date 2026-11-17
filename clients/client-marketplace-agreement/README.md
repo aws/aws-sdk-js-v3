@@ -220,6 +220,13 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AcceptAgreementApproval
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/AcceptAgreementApprovalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/AcceptAgreementApprovalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/AcceptAgreementApprovalCommandOutput/)
+</details>
+<details>
+<summary>
 AcceptAgreementCancellationRequest
 </summary>
 
@@ -269,6 +276,13 @@ CancelAgreementPaymentRequest
 </details>
 <details>
 <summary>
+CancelAgreementRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/CancelAgreementRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/CancelAgreementRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/CancelAgreementRequestCommandOutput/)
+</details>
+<details>
+<summary>
 CreateAgreementRequest
 </summary>
 
@@ -283,10 +297,24 @@ DescribeAgreement
 </details>
 <details>
 <summary>
+GetAgreementApproval
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/GetAgreementApprovalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetAgreementApprovalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetAgreementApprovalCommandOutput/)
+</details>
+<details>
+<summary>
 GetAgreementCancellationRequest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/GetAgreementCancellationRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetAgreementCancellationRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetAgreementCancellationRequestCommandOutput/)
+</details>
+<details>
+<summary>
+GetAgreementContacts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/GetAgreementContactsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetAgreementContactsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetAgreementContactsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -304,6 +332,27 @@ GetAgreementPaymentRequest
 </details>
 <details>
 <summary>
+GetAgreementRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/GetAgreementRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetAgreementRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetAgreementRequestCommandOutput/)
+</details>
+<details>
+<summary>
+GetAgreementRequestApprovalPlans
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/GetAgreementRequestApprovalPlansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetAgreementRequestApprovalPlansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetAgreementRequestApprovalPlansCommandOutput/)
+</details>
+<details>
+<summary>
+GetAgreementRequestTerms
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/GetAgreementRequestTermsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetAgreementRequestTermsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetAgreementRequestTermsCommandOutput/)
+</details>
+<details>
+<summary>
 GetAgreementTerms
 </summary>
 
@@ -315,6 +364,13 @@ GetBillingAdjustmentRequest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/GetBillingAdjustmentRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetBillingAdjustmentRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetBillingAdjustmentRequestCommandOutput/)
+</details>
+<details>
+<summary>
+ListAgreementApprovals
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/ListAgreementApprovalsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/ListAgreementApprovalsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/ListAgreementApprovalsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -346,10 +402,24 @@ ListAgreementPaymentRequests
 </details>
 <details>
 <summary>
+ListAgreementRequests
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/ListAgreementRequestsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/ListAgreementRequestsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/ListAgreementRequestsCommandOutput/)
+</details>
+<details>
+<summary>
 ListBillingAdjustmentRequests
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/ListBillingAdjustmentRequestsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/ListBillingAdjustmentRequestsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/ListBillingAdjustmentRequestsCommandOutput/)
+</details>
+<details>
+<summary>
+RejectAgreementApproval
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/RejectAgreementApprovalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/RejectAgreementApprovalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/RejectAgreementApprovalCommandOutput/)
 </details>
 <details>
 <summary>
@@ -385,6 +455,13 @@ SendAgreementPaymentRequest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/SendAgreementPaymentRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/SendAgreementPaymentRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/SendAgreementPaymentRequestCommandOutput/)
+</details>
+<details>
+<summary>
+StartAgreementApprovals
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/StartAgreementApprovalsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/StartAgreementApprovalsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/StartAgreementApprovalsCommandOutput/)
 </details>
 <details>
 <summary>

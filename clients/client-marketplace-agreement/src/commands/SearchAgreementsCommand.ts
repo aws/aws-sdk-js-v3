@@ -86,6 +86,9 @@ export interface SearchAgreementsCommandOutput extends SearchAgreementsOutput, _
  * //       endTimeBehaviorType: "RENEW" || "REPLACE" || "EXPIRE",
  * //       endTimeBehaviorReasonCode: "PROPOSER_RENEW_OPTED_OUT" || "ACCEPTOR_RENEW_OPTED_OUT" || "NO_RENEWAL_TERM" || "RENEWAL_LIMIT_EXHAUSTED",
  * //       freeTrialEndTime: new Date("TIMESTAMP"),
+ * //       includesContactOfType: [ // ContactTypeList
+ * //         "ACCEPTOR",
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

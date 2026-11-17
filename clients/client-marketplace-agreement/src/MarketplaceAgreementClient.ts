@@ -55,6 +55,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  AcceptAgreementApprovalCommandInput,
+  AcceptAgreementApprovalCommandOutput,
+} from "./commands/AcceptAgreementApprovalCommand";
+import type {
   AcceptAgreementCancellationRequestCommandInput,
   AcceptAgreementCancellationRequestCommandOutput,
 } from "./commands/AcceptAgreementCancellationRequestCommand";
@@ -80,6 +84,10 @@ import type {
   CancelAgreementPaymentRequestCommandOutput,
 } from "./commands/CancelAgreementPaymentRequestCommand";
 import type {
+  CancelAgreementRequestCommandInput,
+  CancelAgreementRequestCommandOutput,
+} from "./commands/CancelAgreementRequestCommand";
+import type {
   CreateAgreementRequestCommandInput,
   CreateAgreementRequestCommandOutput,
 } from "./commands/CreateAgreementRequestCommand";
@@ -88,9 +96,17 @@ import type {
   DescribeAgreementCommandOutput,
 } from "./commands/DescribeAgreementCommand";
 import type {
+  GetAgreementApprovalCommandInput,
+  GetAgreementApprovalCommandOutput,
+} from "./commands/GetAgreementApprovalCommand";
+import type {
   GetAgreementCancellationRequestCommandInput,
   GetAgreementCancellationRequestCommandOutput,
 } from "./commands/GetAgreementCancellationRequestCommand";
+import type {
+  GetAgreementContactsCommandInput,
+  GetAgreementContactsCommandOutput,
+} from "./commands/GetAgreementContactsCommand";
 import type {
   GetAgreementEntitlementsCommandInput,
   GetAgreementEntitlementsCommandOutput,
@@ -100,6 +116,18 @@ import type {
   GetAgreementPaymentRequestCommandOutput,
 } from "./commands/GetAgreementPaymentRequestCommand";
 import type {
+  GetAgreementRequestApprovalPlansCommandInput,
+  GetAgreementRequestApprovalPlansCommandOutput,
+} from "./commands/GetAgreementRequestApprovalPlansCommand";
+import type {
+  GetAgreementRequestCommandInput,
+  GetAgreementRequestCommandOutput,
+} from "./commands/GetAgreementRequestCommand";
+import type {
+  GetAgreementRequestTermsCommandInput,
+  GetAgreementRequestTermsCommandOutput,
+} from "./commands/GetAgreementRequestTermsCommand";
+import type {
   GetAgreementTermsCommandInput,
   GetAgreementTermsCommandOutput,
 } from "./commands/GetAgreementTermsCommand";
@@ -107,6 +135,10 @@ import type {
   GetBillingAdjustmentRequestCommandInput,
   GetBillingAdjustmentRequestCommandOutput,
 } from "./commands/GetBillingAdjustmentRequestCommand";
+import type {
+  ListAgreementApprovalsCommandInput,
+  ListAgreementApprovalsCommandOutput,
+} from "./commands/ListAgreementApprovalsCommand";
 import type {
   ListAgreementCancellationRequestsCommandInput,
   ListAgreementCancellationRequestsCommandOutput,
@@ -124,9 +156,17 @@ import type {
   ListAgreementPaymentRequestsCommandOutput,
 } from "./commands/ListAgreementPaymentRequestsCommand";
 import type {
+  ListAgreementRequestsCommandInput,
+  ListAgreementRequestsCommandOutput,
+} from "./commands/ListAgreementRequestsCommand";
+import type {
   ListBillingAdjustmentRequestsCommandInput,
   ListBillingAdjustmentRequestsCommandOutput,
 } from "./commands/ListBillingAdjustmentRequestsCommand";
+import type {
+  RejectAgreementApprovalCommandInput,
+  RejectAgreementApprovalCommandOutput,
+} from "./commands/RejectAgreementApprovalCommand";
 import type {
   RejectAgreementCancellationRequestCommandInput,
   RejectAgreementCancellationRequestCommandOutput,
@@ -144,6 +184,10 @@ import type {
   SendAgreementPaymentRequestCommandInput,
   SendAgreementPaymentRequestCommandOutput,
 } from "./commands/SendAgreementPaymentRequestCommand";
+import type {
+  StartAgreementApprovalsCommandInput,
+  StartAgreementApprovalsCommandOutput,
+} from "./commands/StartAgreementApprovalsCommand";
 import type {
   UpdatePurchaseOrdersCommandInput,
   UpdatePurchaseOrdersCommandOutput,
@@ -163,6 +207,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AcceptAgreementApprovalCommandInput
   | AcceptAgreementCancellationRequestCommandInput
   | AcceptAgreementPaymentRequestCommandInput
   | AcceptAgreementRequestCommandInput
@@ -170,29 +215,40 @@ export type ServiceInputTypes =
   | CancelAgreementCancellationRequestCommandInput
   | CancelAgreementCommandInput
   | CancelAgreementPaymentRequestCommandInput
+  | CancelAgreementRequestCommandInput
   | CreateAgreementRequestCommandInput
   | DescribeAgreementCommandInput
+  | GetAgreementApprovalCommandInput
   | GetAgreementCancellationRequestCommandInput
+  | GetAgreementContactsCommandInput
   | GetAgreementEntitlementsCommandInput
   | GetAgreementPaymentRequestCommandInput
+  | GetAgreementRequestApprovalPlansCommandInput
+  | GetAgreementRequestCommandInput
+  | GetAgreementRequestTermsCommandInput
   | GetAgreementTermsCommandInput
   | GetBillingAdjustmentRequestCommandInput
+  | ListAgreementApprovalsCommandInput
   | ListAgreementCancellationRequestsCommandInput
   | ListAgreementChargesCommandInput
   | ListAgreementInvoiceLineItemsCommandInput
   | ListAgreementPaymentRequestsCommandInput
+  | ListAgreementRequestsCommandInput
   | ListBillingAdjustmentRequestsCommandInput
+  | RejectAgreementApprovalCommandInput
   | RejectAgreementCancellationRequestCommandInput
   | RejectAgreementPaymentRequestCommandInput
   | SearchAgreementsCommandInput
   | SendAgreementCancellationRequestCommandInput
   | SendAgreementPaymentRequestCommandInput
+  | StartAgreementApprovalsCommandInput
   | UpdatePurchaseOrdersCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | AcceptAgreementApprovalCommandOutput
   | AcceptAgreementCancellationRequestCommandOutput
   | AcceptAgreementPaymentRequestCommandOutput
   | AcceptAgreementRequestCommandOutput
@@ -200,23 +256,33 @@ export type ServiceOutputTypes =
   | CancelAgreementCancellationRequestCommandOutput
   | CancelAgreementCommandOutput
   | CancelAgreementPaymentRequestCommandOutput
+  | CancelAgreementRequestCommandOutput
   | CreateAgreementRequestCommandOutput
   | DescribeAgreementCommandOutput
+  | GetAgreementApprovalCommandOutput
   | GetAgreementCancellationRequestCommandOutput
+  | GetAgreementContactsCommandOutput
   | GetAgreementEntitlementsCommandOutput
   | GetAgreementPaymentRequestCommandOutput
+  | GetAgreementRequestApprovalPlansCommandOutput
+  | GetAgreementRequestCommandOutput
+  | GetAgreementRequestTermsCommandOutput
   | GetAgreementTermsCommandOutput
   | GetBillingAdjustmentRequestCommandOutput
+  | ListAgreementApprovalsCommandOutput
   | ListAgreementCancellationRequestsCommandOutput
   | ListAgreementChargesCommandOutput
   | ListAgreementInvoiceLineItemsCommandOutput
   | ListAgreementPaymentRequestsCommandOutput
+  | ListAgreementRequestsCommandOutput
   | ListBillingAdjustmentRequestsCommandOutput
+  | RejectAgreementApprovalCommandOutput
   | RejectAgreementCancellationRequestCommandOutput
   | RejectAgreementPaymentRequestCommandOutput
   | SearchAgreementsCommandOutput
   | SendAgreementCancellationRequestCommandOutput
   | SendAgreementPaymentRequestCommandOutput
+  | StartAgreementApprovalsCommandOutput
   | UpdatePurchaseOrdersCommandOutput;
 
 /**

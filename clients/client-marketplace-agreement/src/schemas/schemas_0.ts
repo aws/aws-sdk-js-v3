@@ -1,13 +1,31 @@
 const _A = "Acceptor";
+const _AAA = "AcceptAgreementApproval";
+const _AAAI = "AcceptAgreementApprovalInput";
+const _AAAO = "AcceptAgreementApprovalOutput";
 const _AACR = "AcceptAgreementCancellationRequest";
 const _AACRI = "AcceptAgreementCancellationRequestInput";
 const _AACRO = "AcceptAgreementCancellationRequestOutput";
+const _AAN = "AgreementApprovalNote";
+const _AAP = "AgreementApprovalProposer";
+const _AAPI = "AgreementApprovalPlanInputs";
+const _AAPIg = "AgreementApprovalPlanInput";
+const _AAPO = "AgreementApprovalPurchaseOrder";
+const _AAPOg = "AgreementApprovalPurchaseOrders";
 const _AAPR = "AcceptAgreementPaymentRequest";
 const _AAPRI = "AcceptAgreementPaymentRequestInput";
 const _AAPRO = "AcceptAgreementPaymentRequestOutput";
-const _AAR = "AcceptAgreementRequest";
+const _AAPS = "AgreementApprovalProposalSummary";
+const _AAPg = "AgreementApprovalPlans";
+const _AAPgr = "AgreementApprovalPlan";
+const _AAR = "AgreementApprovalRequester";
 const _AARI = "AcceptAgreementRequestInput";
 const _AARO = "AcceptAgreementRequestOutput";
+const _AARc = "AcceptAgreementRequest";
+const _AARg = "AgreementApprovalResource";
+const _AARgr = "AgreementApprovalResources";
+const _AAS = "AgreementApprovalSummary";
+const _AASg = "AgreementApprovalSummaries";
+const _AC = "AcceptorContact";
 const _ACRCR = "AgreementCancellationRequestCancellationReason";
 const _ACRD = "AgreementCancellationRequestDescription";
 const _ACRRR = "AgreementCancellationRequestRejectionReason";
@@ -18,11 +36,36 @@ const _AE = "AgreementEntitlement";
 const _AEL = "AgreementEntitlementList";
 const _AILIGS = "AgreementInvoiceLineItemGroupSummary";
 const _AILIGSg = "AgreementInvoiceLineItemGroupSummaries";
+const _AN = "ApproverName";
+const _AO = "ApproverOutcome";
+const _AOAA = "AwsOrganizationAdminApprover";
+const _AOAO = "AwsOrganizationApproverOutcome";
+const _ARS = "AgreementRequestSummary";
+const _ARSL = "AgreementRequestSummaryList";
+const _ART = "AgreementRequestTerm";
+const _ARTL = "AgreementRequestTermList";
 const _AT = "AcceptedTerm";
 const _ATL = "AcceptedTermList";
 const _AVS = "AgreementViewSummary";
 const _AVSL = "AgreementViewSummaryList";
+const _Ap = "Approver";
+const _BA = "BuyerApprovers";
+const _BAA = "BuyerAgreementApproval";
+const _BAAAI = "BuyerAgreementApprovalApproverInput";
+const _BAAC = "BuyerAgreementApprovalCriteria";
+const _BAAG = "BuyerAgreementApprovalGroup";
+const _BAAGu = "BuyerAgreementApprovalGroups";
+const _BAAL = "BuyerAgreementApprovalLevel";
+const _BAALu = "BuyerAgreementApprovalLevels";
+const _BAAP = "BuyerAgreementApprovalPlan";
+const _BAAPG = "BuyerAgreementApprovalPlanGroup";
+const _BAAPGu = "BuyerAgreementApprovalPlanGroups";
+const _BAAPI = "BuyerAgreementApprovalPlanInput";
+const _BAAPL = "BuyerAgreementApprovalPlanLevel";
+const _BAAPLu = "BuyerAgreementApprovalPlanLevels";
+const _BAARI = "BuyerAgreementApprovalRejectionInput";
 const _BAD = "BillingAdjustmentDescription";
+const _BAO = "BuyerApproverOutcomes";
 const _BAS = "BillingAdjustmentSummary";
 const _BASL = "BillingAdjustmentSummaryList";
 const _BCBAE = "BatchCreateBillingAdjustmentError";
@@ -45,10 +88,15 @@ const _CAO = "CancelAgreementOutput";
 const _CAPR = "CancelAgreementPaymentRequest";
 const _CAPRI = "CancelAgreementPaymentRequestInput";
 const _CAPRO = "CancelAgreementPaymentRequestOutput";
-const _CAR = "CreateAgreementRequest";
-const _CARI = "CreateAgreementRequestInput";
-const _CARO = "CreateAgreementRequestOutput";
+const _CAR = "CancelAgreementRequest";
+const _CARI = "CancelAgreementRequestInput";
+const _CARIr = "CreateAgreementRequestInput";
+const _CARO = "CancelAgreementRequestOutput";
+const _CAROr = "CreateAgreementRequestOutput";
+const _CARr = "CreateAgreementRequest";
+const _CCN = "ContactCompanyName";
 const _CE = "ConflictException";
+const _CI = "CallerIdentity";
 const _CS = "ChargeSummary";
 const _CUPT = "ConfigurableUpfrontPricingTerm";
 const _CUPTC = "ConfigurableUpfrontPricingTermConfiguration";
@@ -64,6 +112,9 @@ const _DI = "DocumentItem";
 const _DL = "DimensionList";
 const _DLo = "DocumentList";
 const _E = "Entitlement";
+const _EA = "EmailAddress";
+const _EAO = "EmailApproverOutcome";
+const _EAm = "EmailApprover";
 const _EC = "EstimatedCharges";
 const _ECL = "ExpectedChargeList";
 const _ECx = "ExpectedCharge";
@@ -76,6 +127,12 @@ const _FP = "FixedPercentage";
 const _FTPT = "FreeTrialPricingTerm";
 const _FTS = "FreeTrialSummary";
 const _FUPT = "FixedUpfrontPricingTerm";
+const _GAA = "GetAgreementApproval";
+const _GAAI = "GetAgreementApprovalInput";
+const _GAAO = "GetAgreementApprovalOutput";
+const _GAC = "GetAgreementContacts";
+const _GACI = "GetAgreementContactsInput";
+const _GACO = "GetAgreementContactsOutput";
 const _GACR = "GetAgreementCancellationRequest";
 const _GACRI = "GetAgreementCancellationRequestInput";
 const _GACRO = "GetAgreementCancellationRequestOutput";
@@ -85,6 +142,15 @@ const _GAEO = "GetAgreementEntitlementsOutput";
 const _GAPR = "GetAgreementPaymentRequest";
 const _GAPRI = "GetAgreementPaymentRequestInput";
 const _GAPRO = "GetAgreementPaymentRequestOutput";
+const _GAR = "GetAgreementRequest";
+const _GARAP = "GetAgreementRequestApprovalPlans";
+const _GARAPI = "GetAgreementRequestApprovalPlansInput";
+const _GARAPO = "GetAgreementRequestApprovalPlansOutput";
+const _GARI = "GetAgreementRequestInput";
+const _GARO = "GetAgreementRequestOutput";
+const _GART = "GetAgreementRequestTerms";
+const _GARTI = "GetAgreementRequestTermsInput";
+const _GARTO = "GetAgreementRequestTermsOutput";
 const _GAT = "GetAgreementTerms";
 const _GATI = "GetAgreementTermsInput";
 const _GATO = "GetAgreementTermsOutput";
@@ -98,6 +164,9 @@ const _IC = "ItemizedCharge";
 const _ICL = "ItemizedChargeList";
 const _IE = "InvoicingEntity";
 const _ISE = "InternalServerException";
+const _LAA = "ListAgreementApprovals";
+const _LAAI = "ListAgreementApprovalsInput";
+const _LAAO = "ListAgreementApprovalsOutput";
 const _LAC = "ListAgreementCharges";
 const _LACI = "ListAgreementChargesInput";
 const _LACO = "ListAgreementChargesOutput";
@@ -110,6 +179,9 @@ const _LAILIO = "ListAgreementInvoiceLineItemsOutput";
 const _LAPR = "ListAgreementPaymentRequests";
 const _LAPRI = "ListAgreementPaymentRequestsInput";
 const _LAPRO = "ListAgreementPaymentRequestsOutput";
+const _LAR = "ListAgreementRequests";
+const _LARI = "ListAgreementRequestsInput";
+const _LARO = "ListAgreementRequestsOutput";
 const _LBAR = "ListBillingAdjustmentRequests";
 const _LBARI = "ListBillingAdjustmentRequestsInput";
 const _LBARO = "ListBillingAdjustmentRequestsOutput";
@@ -118,6 +190,7 @@ const _NPT = "NetPaymentTerm";
 const _P = "Proposer";
 const _PCA = "PricingCurrencyAmount";
 const _PI = "PriceIncrease";
+const _PN = "PersonName";
 const _PO = "PurchaseOrder";
 const _POu = "PurchaseOrders";
 const _PR = "PercentageRange";
@@ -129,7 +202,12 @@ const _PSE = "PaymentScheduleEntry";
 const _PSEL = "PaymentScheduleEntryList";
 const _PST = "PaymentScheduleTerm";
 const _PSTT = "PaymentScheduleTermTemplate";
+const _PTA = "ProcurementToolApprover";
+const _PTAO = "ProcurementToolApproverOutcome";
 const _R = "Resource";
+const _RAA = "RejectAgreementApproval";
+const _RAAI = "RejectAgreementApprovalInput";
+const _RAAO = "RejectAgreementApprovalOutput";
 const _RACR = "RejectAgreementCancellationRequest";
 const _RACRI = "RejectAgreementCancellationRequestInput";
 const _RACRO = "RejectAgreementCancellationRequestOutput";
@@ -141,14 +219,18 @@ const _RCL = "RateCardList";
 const _RNFE = "ResourceNotFoundException";
 const _RPT = "RecurringPaymentTerm";
 const _RS = "RenewalSummary";
-const _RT = "RenewalTerm";
+const _RT = "RegistrationToken";
 const _RTC = "RenewalTermConfiguration";
 const _RTCe = "RequestedTermConfiguration";
 const _RTL = "RequestedTermList";
-const _RTe = "RequestedTerm";
+const _RTe = "RenewalTerm";
+const _RTeq = "RequestedTerm";
 const _Re = "Resources";
 const _S = "Selector";
 const _SA = "SearchAgreements";
+const _SAA = "StartAgreementApprovals";
+const _SAAI = "StartAgreementApprovalsInput";
+const _SAAO = "StartAgreementApprovalsOutput";
 const _SACR = "SendAgreementCancellationRequest";
 const _SACRI = "SendAgreementCancellationRequestInput";
 const _SACRO = "SendAgreementCancellationRequestOutput";
@@ -182,8 +264,11 @@ const _VPTC = "VariablePaymentTermConfiguration";
 const _VT = "ValidityTerm";
 const _a = "acceptor";
 const _aA = "adjustmentAmount";
+const _aAI = "agreementApprovalId";
 const _aAT = "amountAfterTax";
+const _aC = "approvalCriteria";
 const _aCRI = "agreementCancellationRequestId";
+const _aCc = "acceptorContact";
 const _aD = "adjustmentDeadline";
 const _aDg = "agreementDuration";
 const _aE = "agreementEntitlements";
@@ -192,17 +277,31 @@ const _aI = "agreementId";
 const _aILIGS = "agreementInvoiceLineItemGroupSummaries";
 const _aIT = "afterIssuedTime";
 const _aIc = "accountId";
+const _aNB = "approvalNeededBy";
+const _aOAA = "awsOrganizationAdminApprover";
+const _aOAO = "awsOrganizationApproverOutcome";
+const _aOI = "approverOutcomeId";
+const _aOITO = "approverOutcomeIdToOverride";
 const _aPI = "agreementProposalIdentifier";
+const _aR = "approvalRequirement";
 const _aRC = "adjustmentReasonCode";
 const _aRI = "agreementRequestId";
+const _aS = "approvalSummaries";
 const _aSD = "agreementStartDate";
-const _aT = "agreementType";
+const _aT = "approvalType";
 const _aTc = "acceptanceTime";
 const _aTcc = "acceptedTerms";
+const _aTg = "agreementType";
 const _aV = "agreementValue";
 const _aVS = "agreementViewSummaries";
 const _am = "amount";
+const _ap = "approvers";
 const _b = "breakdown";
+const _bAA = "buyerAgreementApproval";
+const _bAAAI = "buyerAgreementApprovalApproverInput";
+const _bAAP = "buyerAgreementApprovalPlan";
+const _bAAPI = "buyerAgreementApprovalPlanInput";
+const _bAARI = "buyerAgreementApprovalRejectionInput";
 const _bARE = "billingAdjustmentRequestEntries";
 const _bARI = "billingAdjustmentRequestId";
 const _bIT = "beforeIssuedTime";
@@ -215,9 +314,11 @@ const _cAh = "chargeAmount";
 const _cAr = "createdAfter";
 const _cB = "createdBefore";
 const _cC = "currencyCode";
+const _cCo = "countryCode";
 const _cD = "chargeDate";
 const _cDO = "chargeDateOffset";
 const _cI = "chargeId";
+const _cN = "companyName";
 const _cP = "chargePercentage";
 const _cR = "cancellationReason";
 const _cRh = "chargeReference";
@@ -232,6 +333,7 @@ const _con = "configuration";
 const _cons = "constraints";
 const _d = "description";
 const _dK = "dimensionKey";
+const _dOA = "deployedOnAws";
 const _dOM = "dayOfMonth";
 const _dV = "dimensionValue";
 const _dVe = "defaultValue";
@@ -239,7 +341,11 @@ const _di = "dimensions";
 const _do = "documents";
 const _du = "duration";
 const _e = "error";
+const _eA = "emailAddress";
+const _eAO = "emailApproverOutcome";
 const _eAR = "enableAutoRenew";
+const _eAm = "emailApprover";
+const _eAx = "expiresAt";
 const _eC = "expectedCharges";
 const _eCs = "estimatedCharges";
 const _eD = "expirationDuration";
@@ -251,28 +357,33 @@ const _eTs = "estimatedTaxes";
 const _en = "entitlements";
 const _er = "errors";
 const _f = "fields";
+const _fN = "firstName";
 const _fP = "fixedPercentage";
 const _fTET = "freeTrialEndTime";
 const _fTPT = "freeTrialPricingTerm";
 const _fTS = "freeTrialSummary";
 const _fUPT = "fixedUpfrontPricingTerm";
 const _fi = "filters";
-const _g = "grants";
+const _g = "groups";
 const _gB = "groupBy";
+const _gr = "grants";
 const _hE = "httpError";
-const _i = "items";
+const _i = "id";
 const _iAI = "initialAgreementId";
 const _iBP = "invoiceBillingPeriod";
 const _iC = "itemizedCharges";
 const _iCA = "incrementalChargeAmount";
+const _iCOT = "includesContactOfType";
 const _iE = "invoicingEntity";
 const _iI = "invoiceId";
 const _iT = "issuedTime";
 const _iTn = "invoiceType";
-const _id = "id";
 const _in = "intent";
+const _it = "items";
+const _l = "levels";
 const _lA = "licenseArn";
-const _lN = "legalName";
+const _lN = "lastName";
+const _lNe = "legalName";
 const _lP = "lockoutPeriod";
 const _lT = "legalTerm";
 const _lUT = "lastUpdateTime";
@@ -292,32 +403,43 @@ const _nAVAT = "newAgreementValueAfterTax";
 const _nPT = "netPaymentTerm";
 const _nQ = "newQuantity";
 const _nT = "nextToken";
+const _no = "note";
+const _oB = "overriddenBy";
 const _oI = "offerId";
 const _oII = "originalInvoiceId";
+const _oIr = "organizationId";
 const _oQ = "oldQuantity";
 const _oSI = "offerSetId";
 const _p = "proposer";
+const _pA = "principalArn";
 const _pCA = "pricingCurrencyAmount";
 const _pDP = "paymentDuePeriod";
-const _pI = "priceIncrease";
+const _pI = "planInput";
+const _pIl = "planInputs";
+const _pIr = "priceIncrease";
 const _pO = "purchaseOrders";
 const _pOR = "purchaseOrderReference";
-const _pR = "percentageRange";
+const _pR = "planReference";
 const _pRAS = "paymentRequestApprovalStrategy";
 const _pRI = "paymentRequestId";
+const _pRe = "percentageRange";
 const _pS = "proposalSummary";
 const _pST = "paymentScheduleTerm";
 const _pSTT = "paymentScheduleTermTemplate";
 const _pT = "partyType";
+const _pTA = "procurementToolApprover";
+const _pTAO = "procurementToolApproverOutcome";
 const _pr = "price";
 const _qC = "quotaCode";
 const _qCu = "quantityConfiguration";
 const _r = "reason";
+const _rAC = "requiredApprovalCount";
 const _rC = "reasonCode";
 const _rCa = "rateCards";
 const _rCat = "rateCard";
 const _rI = "requestId";
 const _rIe = "resourceId";
+const _rN = "requesterNote";
 const _rP = "refundPolicy";
 const _rPT = "recurringPaymentTerm";
 const _rR = "rejectionReason";
@@ -328,10 +450,12 @@ const _rTe = "registrationToken";
 const _rTen = "renewalTerm";
 const _rTeq = "requestedTerms";
 const _ra = "rate";
-const _re = "resource";
-const _res = "resources";
+const _re = "resources";
+const _req = "requester";
+const _res = "resource";
 const _rev = "revision";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.marketplaceagreement";
+const _sA = "startedAt";
 const _sAI = "sourceAgreementIdentifier";
 const _sB = "sortBy";
 const _sC = "serviceCode";
@@ -353,6 +477,7 @@ const _tE = "taxEstimation";
 const _tET = "trialEndTime";
 const _tI = "termId";
 const _tT = "termTemplates";
+const _te = "terms";
 const _ti = "time";
 const _tim = "timing";
 const _u = "url";
@@ -361,6 +486,7 @@ const _uBPT = "usageBasedPricingTerm";
 const _v = "version";
 const _vPT = "variablePaymentTerm";
 const _vPTC = "variablePaymentTermConfiguration";
+const _vS = "visibilityScope";
 const _vT = "validityTerm";
 const _va = "values";
 const _val = "value";
@@ -445,11 +571,27 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var AgreementApprovalNote: StaticSimpleSchema = [0, n0, _AAN, 8, 0];
 var AgreementCancellationRequestCancellationReason: StaticSimpleSchema = [0, n0, _ACRCR, 8, 0];
 var AgreementCancellationRequestDescription: StaticSimpleSchema = [0, n0, _ACRD, 8, 0];
 var AgreementCancellationRequestRejectionReason: StaticSimpleSchema = [0, n0, _ACRRR, 8, 0];
+var ApproverName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
 var BillingAdjustmentDescription: StaticSimpleSchema = [0, n0, _BAD, 8, 0];
+var ContactCompanyName: StaticSimpleSchema = [0, n0, _CCN, 8, 0];
+var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
 var PaymentRequestDescription: StaticSimpleSchema = [0, n0, _PRD, 8, 0];
+var PersonName: StaticSimpleSchema = [0, n0, _PN, 8, 0];
+var RegistrationToken: StaticSimpleSchema = [0, n0, _RT, 8, 0];
+export var AcceptAgreementApprovalInput$: StaticStructureSchema = [3, n0, _AAAI,
+  0,
+  [_bAAAI],
+  [[() => BuyerAgreementApprovalApproverInput$, 0]]
+];
+export var AcceptAgreementApprovalOutput$: StaticStructureSchema = [3, n0, _AAAO,
+  0,
+  [],
+  []
+];
 export var AcceptAgreementCancellationRequestInput$: StaticStructureSchema = [3, n0, _AACRI,
   0,
   [_aI, _aCRI],
@@ -485,25 +627,75 @@ export var Acceptor$: StaticStructureSchema = [3, n0, _A,
   [_aIc],
   [0]
 ];
+export var AcceptorContact$: StaticStructureSchema = [3, n0, _AC,
+  8,
+  [_fN, _lN, _eA, _cN, _cCo],
+  [[() => PersonName, 0], [() => PersonName, 0], [() => EmailAddress, 0], [() => ContactCompanyName, 0], 0], 5
+];
+export var AgreementApprovalProposalSummary$: StaticStructureSchema = [3, n0, _AAPS,
+  0,
+  [_oI, _vS, _oSI, _re],
+  [0, 0, 0, () => AgreementApprovalResources], 2
+];
+export var AgreementApprovalProposer$: StaticStructureSchema = [3, n0, _AAP,
+  0,
+  [_aIc, _lNe],
+  [0, 0], 2
+];
+export var AgreementApprovalPurchaseOrder$: StaticStructureSchema = [3, n0, _AAPO,
+  0,
+  [_cI, _pOR],
+  [0, 0], 1
+];
+export var AgreementApprovalRequester$: StaticStructureSchema = [3, n0, _AAR,
+  0,
+  [_aIc],
+  [0], 1
+];
+export var AgreementApprovalResource$: StaticStructureSchema = [3, n0, _AARg,
+  0,
+  [_i, _t, _n, _dOA],
+  [0, 0, 0, 0], 3
+];
+export var AgreementApprovalSummary$: StaticStructureSchema = [3, n0, _AAS,
+  0,
+  [_aT, _aRI, _aAI, _n, _st, _cA, _uA, _aNB, _sA, _eAx],
+  [0, 0, 0, 0, 0, 4, 4, 4, 4, 4], 8
+];
 export var AgreementCancellationRequestSummary$: StaticStructureSchema = [3, n0, _ACRS,
   0,
-  [_aCRI, _aI, _st, _rC, _aT, _ca, _cA, _uA],
+  [_aCRI, _aI, _st, _rC, _aTg, _ca, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 4, 4]
 ];
 export var AgreementEntitlement$: StaticStructureSchema = [3, n0, _AE,
   0,
-  [_re, _t, _rTe, _st, _sRC, _lA],
-  [() => Resource$, 0, 0, 0, 0, 0]
+  [_res, _t, _rTe, _st, _sRC, _lA],
+  [() => Resource$, 0, [() => RegistrationToken, 0], 0, 0, 0]
 ];
 export var AgreementInvoiceLineItemGroupSummary$: StaticStructureSchema = [3, n0, _AILIGS,
   0,
   [_aI, _iI, _pCA, _iBP, _iT, _iTn, _iE],
   [0, 0, () => PricingCurrencyAmount$, () => InvoiceBillingPeriod$, 4, 0, () => InvoicingEntity$]
 ];
+export var AgreementRequestSummary$: StaticStructureSchema = [3, n0, _ARS,
+  0,
+  [_aRI, _aTg, _st, _aI, _pS],
+  [0, 0, 0, 0, () => ProposalSummary$]
+];
 export var AgreementViewSummary$: StaticStructureSchema = [3, n0, _AVS,
   0,
-  [_aI, _aTc, _sT, _eT, _lUT, _aT, _a, _p, _pS, _st, _en, _iAI, _eTBT, _eTBRC, _fTET],
-  [0, 4, 4, 4, 4, 0, () => Acceptor$, () => Proposer$, () => ProposalSummary$, 0, () => EntitlementList, 0, 0, 0, 4]
+  [_aI, _aTc, _sT, _eT, _lUT, _aTg, _a, _p, _pS, _st, _en, _iAI, _eTBT, _eTBRC, _fTET, _iCOT],
+  [0, 4, 4, 4, 4, 0, () => Acceptor$, () => Proposer$, () => ProposalSummary$, 0, () => EntitlementList, 0, 0, 0, 4, 64 | 0]
+];
+export var AwsOrganizationAdminApprover$: StaticStructureSchema = [3, n0, _AOAA,
+  0,
+  [_oIr],
+  [0], 1
+];
+export var AwsOrganizationApproverOutcome$: StaticStructureSchema = [3, n0, _AOAO,
+  0,
+  [_st, _uA, _no, _aOI, _pO],
+  [0, 4, [() => AgreementApprovalNote, 0], 0, () => AgreementApprovalPurchaseOrders], 2
 ];
 export var BatchCreateBillingAdjustmentError$: StaticStructureSchema = [3, n0, _BCBAE,
   0,
@@ -527,18 +719,73 @@ export var BatchCreateBillingAdjustmentRequestInput$: StaticStructureSchema = [3
 ];
 export var BatchCreateBillingAdjustmentRequestOutput$: StaticStructureSchema = [3, n0, _BCBARO,
   0,
-  [_i, _er],
+  [_it, _er],
   [() => BatchCreateBillingAdjustmentItemList, () => BatchCreateBillingAdjustmentErrorList], 2
 ];
 export var BillingAdjustmentSummary$: StaticStructureSchema = [3, n0, _BAS,
   0,
-  [_bARI, _oII, _aA, _cC, _st, _aI, _cA, _uA, _aT, _ca],
+  [_bARI, _oII, _aA, _cC, _st, _aI, _cA, _uA, _aTg, _ca],
   [0, 0, 0, 0, 0, 0, 4, 4, 0, 0], 10
+];
+export var BuyerAgreementApproval$: StaticStructureSchema = [3, n0, _BAA,
+  0,
+  [_aT, _aAI, _n, _aRI, _st, _req, _cA, _uA, _aNB, _l, _pI, _p, _pS, _sA, _eAx],
+  [0, 0, 0, 0, 0, () => AgreementApprovalRequester$, 4, 4, 4, [() => BuyerAgreementApprovalLevels, 0], [() => BuyerAgreementApprovalPlanInput$, 0], () => AgreementApprovalProposer$, () => AgreementApprovalProposalSummary$, 4, 4], 13
+];
+export var BuyerAgreementApprovalApproverInput$: StaticStructureSchema = [3, n0, _BAAAI,
+  0,
+  [_aAI, _pO, _no, _aOITO],
+  [0, () => AgreementApprovalPurchaseOrders, [() => AgreementApprovalNote, 0], 0], 1
+];
+export var BuyerAgreementApprovalCriteria$: StaticStructureSchema = [3, n0, _BAAC,
+  0,
+  [_rAC],
+  [1], 1
+];
+export var BuyerAgreementApprovalGroup$: StaticStructureSchema = [3, n0, _BAAG,
+  0,
+  [_aC, _ap],
+  [() => BuyerAgreementApprovalCriteria$, [() => BuyerApproverOutcomes, 0]], 2
+];
+export var BuyerAgreementApprovalLevel$: StaticStructureSchema = [3, n0, _BAAL,
+  0,
+  [_g, _n],
+  [[() => BuyerAgreementApprovalGroups, 0], 0], 1
+];
+export var BuyerAgreementApprovalPlan$: StaticStructureSchema = [3, n0, _BAAP,
+  0,
+  [_pR, _l, _n],
+  [0, [() => BuyerAgreementApprovalPlanLevels, 0], 0], 2
+];
+export var BuyerAgreementApprovalPlanGroup$: StaticStructureSchema = [3, n0, _BAAPG,
+  0,
+  [_aC, _ap],
+  [() => BuyerAgreementApprovalCriteria$, [() => BuyerApprovers, 0]], 2
+];
+export var BuyerAgreementApprovalPlanInput$: StaticStructureSchema = [3, n0, _BAAPI,
+  0,
+  [_pR, _rN],
+  [0, [() => AgreementApprovalNote, 0]], 1
+];
+export var BuyerAgreementApprovalPlanLevel$: StaticStructureSchema = [3, n0, _BAAPL,
+  0,
+  [_g, _n],
+  [[() => BuyerAgreementApprovalPlanGroups, 0], 0], 1
+];
+export var BuyerAgreementApprovalRejectionInput$: StaticStructureSchema = [3, n0, _BAARI,
+  0,
+  [_aAI, _no, _aOITO],
+  [0, [() => AgreementApprovalNote, 0], 0], 2
 ];
 export var ByolPricingTerm$: StaticStructureSchema = [3, n0, _BPT,
   0,
-  [_t, _id],
+  [_t, _i],
   [0, 0]
+];
+export var CallerIdentity$: StaticStructureSchema = [3, n0, _CI,
+  0,
+  [_pA],
+  [0], 1
 ];
 export var CancelAgreementCancellationRequestInput$: StaticStructureSchema = [3, n0, _CACRI,
   0,
@@ -570,9 +817,19 @@ export var CancelAgreementPaymentRequestOutput$: StaticStructureSchema = [3, n0,
   [_pRI, _aI, _st, _n, _d, _cAh, _cC, _cA, _uA],
   [0, 0, 0, 0, [() => PaymentRequestDescription, 0], 0, 0, 4, 4]
 ];
+export var CancelAgreementRequestInput$: StaticStructureSchema = [3, n0, _CARI,
+  0,
+  [_aRI],
+  [0], 1
+];
+export var CancelAgreementRequestOutput$: StaticStructureSchema = [3, n0, _CARO,
+  0,
+  [],
+  []
+];
 export var Charge$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_id, _rev, _aI, _aT, _pOR, _cC, _am, _ti],
+  [_i, _rev, _aI, _aTg, _pOR, _cC, _am, _ti],
   [0, 1, 0, 0, 0, 0, 0, 4]
 ];
 export var ChargeSummary$: StaticStructureSchema = [3, n0, _CS,
@@ -582,7 +839,7 @@ export var ChargeSummary$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var ConfigurableUpfrontPricingTerm$: StaticStructureSchema = [3, n0, _CUPT,
   0,
-  [_t, _id, _cC, _rCa, _con],
+  [_t, _i, _cC, _rCa, _con],
   [0, 0, 0, () => ConfigurableUpfrontRateCardList, () => ConfigurableUpfrontPricingTermConfiguration$]
 ];
 export var ConfigurableUpfrontPricingTermConfiguration$: StaticStructureSchema = [3, n0, _CUPTC,
@@ -600,15 +857,15 @@ export var Constraints$: StaticStructureSchema = [3, n0, _Co,
   [_mDS, _qCu],
   [0, 0]
 ];
-export var CreateAgreementRequestInput$: StaticStructureSchema = [3, n0, _CARI,
+export var CreateAgreementRequestInput$: StaticStructureSchema = [3, n0, _CARIr,
   0,
-  [_in, _rTeq, _cT, _sAI, _aPI, _tC],
-  [0, () => RequestedTermList, [0, 4], 0, 0, () => TaxConfiguration$], 2
+  [_in, _rTeq, _cT, _sAI, _aPI, _tC, _aCc],
+  [0, () => RequestedTermList, [0, 4], 0, 0, () => TaxConfiguration$, [() => AcceptorContact$, 0]], 2
 ];
-export var CreateAgreementRequestOutput$: StaticStructureSchema = [3, n0, _CARO,
+export var CreateAgreementRequestOutput$: StaticStructureSchema = [3, n0, _CAROr,
   0,
-  [_aRI, _cS],
-  [0, () => ChargeSummary$]
+  [_aRI, _aTg, _cS, _st, _aR, _cA],
+  [0, 0, () => ChargeSummary$, 0, 0, 4]
 ];
 export var DescribeAgreementInput$: StaticStructureSchema = [3, n0, _DAI,
   0,
@@ -617,7 +874,7 @@ export var DescribeAgreementInput$: StaticStructureSchema = [3, n0, _DAI,
 ];
 export var DescribeAgreementOutput$: StaticStructureSchema = [3, n0, _DAO,
   0,
-  [_aI, _a, _p, _sT, _eT, _aTc, _aT, _eCs, _pS, _st, _iAI, _eTB, _fTS],
+  [_aI, _a, _p, _sT, _eT, _aTc, _aTg, _eCs, _pS, _st, _iAI, _eTB, _fTS],
   [0, () => Acceptor$, () => Proposer$, 4, 4, 4, 0, () => EstimatedCharges$, () => ProposalSummary$, 0, 0, () => EndTimeBehavior$, () => FreeTrialSummary$]
 ];
 export var Dimension$: StaticStructureSchema = [3, n0, _D,
@@ -629,6 +886,16 @@ export var DocumentItem$: StaticStructureSchema = [3, n0, _DI,
   0,
   [_t, _u, _v],
   [0, 0, 0]
+];
+export var EmailApprover$: StaticStructureSchema = [3, n0, _EAm,
+  0,
+  [_eA, _n],
+  [[() => EmailAddress, 0], [() => ApproverName, 0]], 1
+];
+export var EmailApproverOutcome$: StaticStructureSchema = [3, n0, _EAO,
+  0,
+  [_st, _uA, _eA, _no, _aOI, _n, _pO, _oB],
+  [0, 4, [() => EmailAddress, 0], [() => AgreementApprovalNote, 0], 0, [() => ApproverName, 0], () => AgreementApprovalPurchaseOrders, () => CallerIdentity$], 3
 ];
 export var EndTimeBehavior$: StaticStructureSchema = [3, n0, _ETB,
   0,
@@ -652,8 +919,8 @@ export var EstimatedTaxes$: StaticStructureSchema = [3, n0, _ET,
 ];
 export var ExpectedCharge$: StaticStructureSchema = [3, n0, _ECx,
   0,
-  [_id, _ti, _am, _aAT, _tim, _eTs],
-  [0, 4, 0, 0, 0, () => EstimatedTaxes$]
+  [_i, _ti, _am, _aAT, _tim, _eTs, _pOR],
+  [0, 4, 0, 0, 0, () => EstimatedTaxes$, 0]
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
@@ -667,18 +934,28 @@ export var FixedPercentage$: StaticStructureSchema = [3, n0, _FP,
 ];
 export var FixedUpfrontPricingTerm$: StaticStructureSchema = [3, n0, _FUPT,
   0,
-  [_t, _id, _cC, _du, _pr, _g],
+  [_t, _i, _cC, _du, _pr, _gr],
   [0, 0, 0, 0, 0, () => GrantList]
 ];
 export var FreeTrialPricingTerm$: StaticStructureSchema = [3, n0, _FTPT,
   0,
-  [_t, _id, _du, _g],
+  [_t, _i, _du, _gr],
   [0, 0, 0, () => GrantList]
 ];
 export var FreeTrialSummary$: StaticStructureSchema = [3, n0, _FTS,
   0,
   [_tET],
   [4]
+];
+export var GetAgreementApprovalInput$: StaticStructureSchema = [3, n0, _GAAI,
+  0,
+  [_aAI],
+  [0], 1
+];
+export var GetAgreementApprovalOutput$: StaticStructureSchema = [3, n0, _GAAO,
+  0,
+  [_bAA],
+  [[() => BuyerAgreementApproval$, 0]]
 ];
 export var GetAgreementCancellationRequestInput$: StaticStructureSchema = [3, n0, _GACRI,
   0,
@@ -690,6 +967,16 @@ export var GetAgreementCancellationRequestOutput$: StaticStructureSchema = [3, n
   [_aCRI, _aI, _rC, _d, _st, _sM, _cA, _uA],
   [0, 0, 0, [() => AgreementCancellationRequestDescription, 0], 0, 0, 4, 4]
 ];
+export var GetAgreementContactsInput$: StaticStructureSchema = [3, n0, _GACI,
+  0,
+  [_aI],
+  [0], 1
+];
+export var GetAgreementContactsOutput$: StaticStructureSchema = [3, n0, _GACO,
+  0,
+  [_aCc],
+  [[() => AcceptorContact$, 0]]
+];
 export var GetAgreementEntitlementsInput$: StaticStructureSchema = [3, n0, _GAEI,
   0,
   [_aI, _mR, _nT],
@@ -698,7 +985,7 @@ export var GetAgreementEntitlementsInput$: StaticStructureSchema = [3, n0, _GAEI
 export var GetAgreementEntitlementsOutput$: StaticStructureSchema = [3, n0, _GAEO,
   0,
   [_aE, _nT],
-  [() => AgreementEntitlementList, 0]
+  [[() => AgreementEntitlementList, 0], 0]
 ];
 export var GetAgreementPaymentRequestInput$: StaticStructureSchema = [3, n0, _GAPRI,
   0,
@@ -709,6 +996,36 @@ export var GetAgreementPaymentRequestOutput$: StaticStructureSchema = [3, n0, _G
   0,
   [_pRI, _aI, _st, _sM, _n, _d, _cI, _cAh, _cC, _cA, _uA],
   [0, 0, 0, 0, 0, [() => PaymentRequestDescription, 0], 0, 0, 0, 4, 4]
+];
+export var GetAgreementRequestApprovalPlansInput$: StaticStructureSchema = [3, n0, _GARAPI,
+  0,
+  [_aRI, _mR, _nT],
+  [0, 1, 0], 1
+];
+export var GetAgreementRequestApprovalPlansOutput$: StaticStructureSchema = [3, n0, _GARAPO,
+  0,
+  [_it, _nT],
+  [[() => AgreementApprovalPlans, 0], 0], 1
+];
+export var GetAgreementRequestInput$: StaticStructureSchema = [3, n0, _GARI,
+  0,
+  [_aRI],
+  [0], 1
+];
+export var GetAgreementRequestOutput$: StaticStructureSchema = [3, n0, _GARO,
+  0,
+  [_aRI, _aTg, _st, _aR, _aI, _in, _cA, _cS, _p, _pS],
+  [0, 0, 0, 0, 0, 0, 4, () => ChargeSummary$, () => Proposer$, () => ProposalSummary$]
+];
+export var GetAgreementRequestTermsInput$: StaticStructureSchema = [3, n0, _GARTI,
+  0,
+  [_aRI, _mR, _nT],
+  [0, 1, 0], 1
+];
+export var GetAgreementRequestTermsOutput$: StaticStructureSchema = [3, n0, _GARTO,
+  0,
+  [_te, _nT],
+  [() => AgreementRequestTermList, 0], 1
 ];
 export var GetAgreementTermsInput$: StaticStructureSchema = [3, n0, _GATI,
   0,
@@ -742,7 +1059,7 @@ export var InvoiceBillingPeriod$: StaticStructureSchema = [3, n0, _IBP,
 ];
 export var InvoicingEntity$: StaticStructureSchema = [3, n0, _IE,
   0,
-  [_lN, _bN],
+  [_lNe, _bN],
   [0, 0]
 ];
 export var ItemizedCharge$: StaticStructureSchema = [3, n0, _IC,
@@ -752,27 +1069,37 @@ export var ItemizedCharge$: StaticStructureSchema = [3, n0, _IC,
 ];
 export var LegalTerm$: StaticStructureSchema = [3, n0, _LT,
   0,
-  [_t, _id, _do],
+  [_t, _i, _do],
   [0, 0, () => DocumentList]
+];
+export var ListAgreementApprovalsInput$: StaticStructureSchema = [3, n0, _LAAI,
+  0,
+  [_pT, _ca, _aRI, _aT, _st, _mR, _nT],
+  [0, 0, 0, 0, 0, 1, 0], 1
+];
+export var ListAgreementApprovalsOutput$: StaticStructureSchema = [3, n0, _LAAO,
+  0,
+  [_it, _nT],
+  [() => AgreementApprovalSummaries, 0], 1
 ];
 export var ListAgreementCancellationRequestsInput$: StaticStructureSchema = [3, n0, _LACRI,
   0,
-  [_pT, _aI, _st, _aT, _ca, _mR, _nT],
+  [_pT, _aI, _st, _aTg, _ca, _mR, _nT],
   [0, 0, 0, 0, 0, 1, 0], 1
 ];
 export var ListAgreementCancellationRequestsOutput$: StaticStructureSchema = [3, n0, _LACRO,
   0,
-  [_nT, _i],
+  [_nT, _it],
   [0, () => AgreementCancellationRequestSummaryList]
 ];
 export var ListAgreementChargesInput$: StaticStructureSchema = [3, n0, _LACI,
   0,
-  [_ca, _aI, _aT, _mR, _nT],
+  [_ca, _aI, _aTg, _mR, _nT],
   [0, 0, 0, 1, 0]
 ];
 export var ListAgreementChargesOutput$: StaticStructureSchema = [3, n0, _LACO,
   0,
-  [_i, _nT],
+  [_it, _nT],
   [() => Charges, 0]
 ];
 export var ListAgreementInvoiceLineItemsInput$: StaticStructureSchema = [3, n0, _LAILII,
@@ -787,27 +1114,37 @@ export var ListAgreementInvoiceLineItemsOutput$: StaticStructureSchema = [3, n0,
 ];
 export var ListAgreementPaymentRequestsInput$: StaticStructureSchema = [3, n0, _LAPRI,
   0,
-  [_pT, _aT, _ca, _aI, _st, _mR, _nT],
+  [_pT, _aTg, _ca, _aI, _st, _mR, _nT],
   [0, 0, 0, 0, 0, 1, 0], 1
 ];
 export var ListAgreementPaymentRequestsOutput$: StaticStructureSchema = [3, n0, _LAPRO,
   0,
-  [_i, _nT],
+  [_it, _nT],
   [() => PaymentRequestSummaryList, 0], 1
+];
+export var ListAgreementRequestsInput$: StaticStructureSchema = [3, n0, _LARI,
+  0,
+  [_ca, _st, _rIe, _mR, _nT],
+  [0, 0, 0, 1, 0]
+];
+export var ListAgreementRequestsOutput$: StaticStructureSchema = [3, n0, _LARO,
+  0,
+  [_it, _nT],
+  [() => AgreementRequestSummaryList, 0]
 ];
 export var ListBillingAdjustmentRequestsInput$: StaticStructureSchema = [3, n0, _LBARI,
   0,
-  [_aI, _st, _cAr, _cB, _mR, _ca, _aT, _nT],
+  [_aI, _st, _cAr, _cB, _mR, _ca, _aTg, _nT],
   [0, 0, 4, 4, 1, 0, 0, 0]
 ];
 export var ListBillingAdjustmentRequestsOutput$: StaticStructureSchema = [3, n0, _LBARO,
   0,
-  [_i, _nT],
+  [_it, _nT],
   [() => BillingAdjustmentSummaryList, 0], 1
 ];
 export var NetPaymentTerm$: StaticStructureSchema = [3, n0, _NPT,
   0,
-  [_t, _id, _pDP],
+  [_t, _i, _pDP],
   [0, 0, 0]
 ];
 export var PaymentRequestSummary$: StaticStructureSchema = [3, n0, _PRS,
@@ -822,7 +1159,7 @@ export var PaymentScheduleEntry$: StaticStructureSchema = [3, n0, _PSE,
 ];
 export var PaymentScheduleTerm$: StaticStructureSchema = [3, n0, _PST,
   0,
-  [_t, _id, _cC, _sc],
+  [_t, _i, _cC, _sc],
   [0, 0, 0, () => ScheduleList]
 ];
 export var PaymentScheduleTermTemplate$: StaticStructureSchema = [3, n0, _PSTT,
@@ -840,9 +1177,19 @@ export var PricingCurrencyAmount$: StaticStructureSchema = [3, n0, _PCA,
   [_am, _mAA, _cC],
   [0, 0, 0]
 ];
+export var ProcurementToolApprover$: StaticStructureSchema = [3, n0, _PTA,
+  0,
+  [_n],
+  [[() => ApproverName, 0]], 1
+];
+export var ProcurementToolApproverOutcome$: StaticStructureSchema = [3, n0, _PTAO,
+  0,
+  [_st, _uA, _n, _no, _aOI, _pO, _oB],
+  [0, 4, [() => ApproverName, 0], [() => AgreementApprovalNote, 0], 0, () => AgreementApprovalPurchaseOrders, () => CallerIdentity$], 3
+];
 export var ProposalSummary$: StaticStructureSchema = [3, n0, _PS,
   0,
-  [_res, _oI, _oSI],
+  [_re, _oI, _oSI],
   [() => Resources, 0, 0]
 ];
 export var Proposer$: StaticStructureSchema = [3, n0, _P,
@@ -862,8 +1209,18 @@ export var RateCardItem$: StaticStructureSchema = [3, n0, _RCI,
 ];
 export var RecurringPaymentTerm$: StaticStructureSchema = [3, n0, _RPT,
   0,
-  [_t, _id, _cC, _bP, _pr],
+  [_t, _i, _cC, _bP, _pr],
   [0, 0, 0, 0, 0]
+];
+export var RejectAgreementApprovalInput$: StaticStructureSchema = [3, n0, _RAAI,
+  0,
+  [_bAARI],
+  [[() => BuyerAgreementApprovalRejectionInput$, 0]]
+];
+export var RejectAgreementApprovalOutput$: StaticStructureSchema = [3, n0, _RAAO,
+  0,
+  [],
+  []
 ];
 export var RejectAgreementCancellationRequestInput$: StaticStructureSchema = [3, n0, _RACRI,
   0,
@@ -890,9 +1247,9 @@ export var RenewalSummary$: StaticStructureSchema = [3, n0, _RS,
   [_oI],
   [0]
 ];
-export var RenewalTerm$: StaticStructureSchema = [3, n0, _RT,
+export var RenewalTerm$: StaticStructureSchema = [3, n0, _RTe,
   0,
-  [_t, _id, _con, _lP, _mRa, _aD, _pI, _tT],
+  [_t, _i, _con, _lP, _mRa, _aD, _pIr, _tT],
   [0, 0, () => RenewalTermConfiguration$, 0, 1, 0, () => PriceIncrease$, () => TermTemplateList]
 ];
 export var RenewalTermConfiguration$: StaticStructureSchema = [3, n0, _RTC,
@@ -900,14 +1257,14 @@ export var RenewalTermConfiguration$: StaticStructureSchema = [3, n0, _RTC,
   [_eAR],
   [2], 1
 ];
-export var RequestedTerm$: StaticStructureSchema = [3, n0, _RTe,
+export var RequestedTerm$: StaticStructureSchema = [3, n0, _RTeq,
   0,
-  [_id, _con],
+  [_i, _con],
   [0, () => RequestedTermConfiguration$], 1
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_id, _t],
+  [_i, _t],
   [0, 0]
 ];
 export var ScheduleItem$: StaticStructureSchema = [3, n0, _SI,
@@ -955,9 +1312,19 @@ export var Sort$: StaticStructureSchema = [3, n0, _So,
   [_sB, _sO],
   [0, 0]
 ];
+export var StartAgreementApprovalsInput$: StaticStructureSchema = [3, n0, _SAAI,
+  0,
+  [_aRI, _pIl, _pO],
+  [0, [() => AgreementApprovalPlanInputs, 0], () => AgreementApprovalPurchaseOrders], 2
+];
+export var StartAgreementApprovalsOutput$: StaticStructureSchema = [3, n0, _SAAO,
+  0,
+  [_aS],
+  [() => AgreementApprovalSummaries], 1
+];
 export var SupportTerm$: StaticStructureSchema = [3, n0, _ST,
   0,
-  [_t, _id, _rP],
+  [_t, _i, _rP],
   [0, 0, 0]
 ];
 export var TaxBreakdownItem$: StaticStructureSchema = [3, n0, _TBI,
@@ -982,7 +1349,7 @@ export var UpdatePurchaseOrdersOutput$: StaticStructureSchema = [3, n0, _UPOO,
 ];
 export var UsageBasedPricingTerm$: StaticStructureSchema = [3, n0, _UBPT,
   0,
-  [_t, _id, _cC, _rCa],
+  [_t, _i, _cC, _rCa],
   [0, 0, 0, () => UsageBasedRateCardList]
 ];
 export var UsageBasedRateCardItem$: StaticStructureSchema = [3, n0, _UBRCI,
@@ -997,12 +1364,12 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
 ];
 export var ValidityTerm$: StaticStructureSchema = [3, n0, _VT,
   0,
-  [_t, _id, _aDg, _aSD, _aED],
+  [_t, _i, _aDg, _aSD, _aED],
   [0, 0, 0, 4, 4]
 ];
 export var VariablePaymentTerm$: StaticStructureSchema = [3, n0, _VPT,
   0,
-  [_t, _id, _cC, _mTCA, _con],
+  [_t, _i, _cC, _mTCA, _con],
   [0, 0, 0, 0, () => VariablePaymentTermConfiguration$]
 ];
 export var VariablePaymentTermConfiguration$: StaticStructureSchema = [3, n0, _VPTC,
@@ -1013,14 +1380,38 @@ export var VariablePaymentTermConfiguration$: StaticStructureSchema = [3, n0, _V
 var AcceptedTermList: StaticListSchema = [1, n0, _ATL,
   0, () => AcceptedTerm$
 ];
+var AgreementApprovalPlanInputs: StaticListSchema = [1, n0, _AAPI,
+  0, [() => AgreementApprovalPlanInput$,
+    0]
+];
+var AgreementApprovalPlans: StaticListSchema = [1, n0, _AAPg,
+  0, [() => AgreementApprovalPlan$,
+    0]
+];
+var AgreementApprovalPurchaseOrders: StaticListSchema = [1, n0, _AAPOg,
+  0, () => AgreementApprovalPurchaseOrder$
+];
+var AgreementApprovalResources: StaticListSchema = [1, n0, _AARgr,
+  0, () => AgreementApprovalResource$
+];
+var AgreementApprovalSummaries: StaticListSchema = [1, n0, _AASg,
+  0, () => AgreementApprovalSummary$
+];
 var AgreementCancellationRequestSummaryList: StaticListSchema = [1, n0, _ACRSL,
   0, () => AgreementCancellationRequestSummary$
 ];
 var AgreementEntitlementList: StaticListSchema = [1, n0, _AEL,
-  0, () => AgreementEntitlement$
+  0, [() => AgreementEntitlement$,
+    0]
 ];
 var AgreementInvoiceLineItemGroupSummaries: StaticListSchema = [1, n0, _AILIGSg,
   0, () => AgreementInvoiceLineItemGroupSummary$
+];
+var AgreementRequestSummaryList: StaticListSchema = [1, n0, _ARSL,
+  0, () => AgreementRequestSummary$
+];
+var AgreementRequestTermList: StaticListSchema = [1, n0, _ARTL,
+  0, () => AgreementRequestTerm$
 ];
 var AgreementViewSummaryList: StaticListSchema = [1, n0, _AVSL,
   0, () => AgreementViewSummary$
@@ -1038,12 +1429,37 @@ var BatchCreateBillingAdjustmentRequestEntryList: StaticListSchema = [1, n0, _BC
 var BillingAdjustmentSummaryList: StaticListSchema = [1, n0, _BASL,
   0, () => BillingAdjustmentSummary$
 ];
+var BuyerAgreementApprovalGroups: StaticListSchema = [1, n0, _BAAGu,
+  0, [() => BuyerAgreementApprovalGroup$,
+    0]
+];
+var BuyerAgreementApprovalLevels: StaticListSchema = [1, n0, _BAALu,
+  0, [() => BuyerAgreementApprovalLevel$,
+    0]
+];
+var BuyerAgreementApprovalPlanGroups: StaticListSchema = [1, n0, _BAAPGu,
+  0, [() => BuyerAgreementApprovalPlanGroup$,
+    0]
+];
+var BuyerAgreementApprovalPlanLevels: StaticListSchema = [1, n0, _BAAPLu,
+  0, [() => BuyerAgreementApprovalPlanLevel$,
+    0]
+];
+var BuyerApproverOutcomes: StaticListSchema = [1, n0, _BAO,
+  0, [() => ApproverOutcome$,
+    0]
+];
+var BuyerApprovers: StaticListSchema = [1, n0, _BA,
+  0, [() => Approver$,
+    0]
+];
 var Charges: StaticListSchema = [1, n0, _Ch,
   0, () => Charge$
 ];
 var ConfigurableUpfrontRateCardList: StaticListSchema = [1, n0, _CURCL,
   0, () => ConfigurableUpfrontRateCardItem$
 ];
+var ContactTypeList = 64 | 0;
 var DimensionList: StaticListSchema = [1, n0, _DL,
   0, () => Dimension$
 ];
@@ -1104,9 +1520,34 @@ export var AcceptedTerm$: StaticUnionSchema = [4, n0, _AT,
   [_lT, _sTu, _rTen, _uBPT, _cUPT, _bPT, _rPT, _vT, _pST, _fTPT, _fUPT, _vPT, _nPT],
   [() => LegalTerm$, () => SupportTerm$, () => RenewalTerm$, () => UsageBasedPricingTerm$, () => ConfigurableUpfrontPricingTerm$, () => ByolPricingTerm$, () => RecurringPaymentTerm$, () => ValidityTerm$, () => PaymentScheduleTerm$, () => FreeTrialPricingTerm$, () => FixedUpfrontPricingTerm$, () => VariablePaymentTerm$, () => NetPaymentTerm$]
 ];
+export var AgreementApprovalPlan$: StaticUnionSchema = [4, n0, _AAPgr,
+  0,
+  [_bAAP],
+  [[() => BuyerAgreementApprovalPlan$, 0]]
+];
+export var AgreementApprovalPlanInput$: StaticUnionSchema = [4, n0, _AAPIg,
+  0,
+  [_bAAPI],
+  [[() => BuyerAgreementApprovalPlanInput$, 0]]
+];
+export var AgreementRequestTerm$: StaticUnionSchema = [4, n0, _ART,
+  0,
+  [_lT, _sTu, _rTen, _uBPT, _cUPT, _bPT, _rPT, _vT, _pST, _fTPT, _fUPT, _vPT, _nPT],
+  [() => LegalTerm$, () => SupportTerm$, () => RenewalTerm$, () => UsageBasedPricingTerm$, () => ConfigurableUpfrontPricingTerm$, () => ByolPricingTerm$, () => RecurringPaymentTerm$, () => ValidityTerm$, () => PaymentScheduleTerm$, () => FreeTrialPricingTerm$, () => FixedUpfrontPricingTerm$, () => VariablePaymentTerm$, () => NetPaymentTerm$]
+];
+export var Approver$: StaticUnionSchema = [4, n0, _Ap,
+  0,
+  [_eAm, _pTA, _aOAA],
+  [[() => EmailApprover$, 0], [() => ProcurementToolApprover$, 0], () => AwsOrganizationAdminApprover$]
+];
+export var ApproverOutcome$: StaticUnionSchema = [4, n0, _AO,
+  0,
+  [_eAO, _pTAO, _aOAO],
+  [[() => EmailApproverOutcome$, 0], [() => ProcurementToolApproverOutcome$, 0], [() => AwsOrganizationApproverOutcome$, 0]]
+];
 export var PriceIncrease$: StaticUnionSchema = [4, n0, _PI,
   0,
-  [_fP, _pR],
+  [_fP, _pRe],
   [() => FixedPercentage$, () => PercentageRange$]
 ];
 export var RequestedTermConfiguration$: StaticUnionSchema = [4, n0, _RTCe,
@@ -1119,13 +1560,16 @@ export var TermTemplate$: StaticUnionSchema = [4, n0, _TT,
   [_pSTT],
   [() => PaymentScheduleTermTemplate$]
 ];
+export var AcceptAgreementApproval$: StaticOperationSchema = [9, n0, _AAA,
+  0, () => AcceptAgreementApprovalInput$, () => AcceptAgreementApprovalOutput$
+];
 export var AcceptAgreementCancellationRequest$: StaticOperationSchema = [9, n0, _AACR,
   0, () => AcceptAgreementCancellationRequestInput$, () => AcceptAgreementCancellationRequestOutput$
 ];
 export var AcceptAgreementPaymentRequest$: StaticOperationSchema = [9, n0, _AAPR,
   0, () => AcceptAgreementPaymentRequestInput$, () => AcceptAgreementPaymentRequestOutput$
 ];
-export var AcceptAgreementRequest$: StaticOperationSchema = [9, n0, _AAR,
+export var AcceptAgreementRequest$: StaticOperationSchema = [9, n0, _AARc,
   0, () => AcceptAgreementRequestInput$, () => AcceptAgreementRequestOutput$
 ];
 export var BatchCreateBillingAdjustmentRequest$: StaticOperationSchema = [9, n0, _BCBAR,
@@ -1140,14 +1584,23 @@ export var CancelAgreementCancellationRequest$: StaticOperationSchema = [9, n0, 
 export var CancelAgreementPaymentRequest$: StaticOperationSchema = [9, n0, _CAPR,
   0, () => CancelAgreementPaymentRequestInput$, () => CancelAgreementPaymentRequestOutput$
 ];
-export var CreateAgreementRequest$: StaticOperationSchema = [9, n0, _CAR,
+export var CancelAgreementRequest$: StaticOperationSchema = [9, n0, _CAR,
+  2, () => CancelAgreementRequestInput$, () => CancelAgreementRequestOutput$
+];
+export var CreateAgreementRequest$: StaticOperationSchema = [9, n0, _CARr,
   0, () => CreateAgreementRequestInput$, () => CreateAgreementRequestOutput$
 ];
 export var DescribeAgreement$: StaticOperationSchema = [9, n0, _DA,
   0, () => DescribeAgreementInput$, () => DescribeAgreementOutput$
 ];
+export var GetAgreementApproval$: StaticOperationSchema = [9, n0, _GAA,
+  0, () => GetAgreementApprovalInput$, () => GetAgreementApprovalOutput$
+];
 export var GetAgreementCancellationRequest$: StaticOperationSchema = [9, n0, _GACR,
   0, () => GetAgreementCancellationRequestInput$, () => GetAgreementCancellationRequestOutput$
+];
+export var GetAgreementContacts$: StaticOperationSchema = [9, n0, _GAC,
+  0, () => GetAgreementContactsInput$, () => GetAgreementContactsOutput$
 ];
 export var GetAgreementEntitlements$: StaticOperationSchema = [9, n0, _GAE,
   0, () => GetAgreementEntitlementsInput$, () => GetAgreementEntitlementsOutput$
@@ -1155,11 +1608,23 @@ export var GetAgreementEntitlements$: StaticOperationSchema = [9, n0, _GAE,
 export var GetAgreementPaymentRequest$: StaticOperationSchema = [9, n0, _GAPR,
   0, () => GetAgreementPaymentRequestInput$, () => GetAgreementPaymentRequestOutput$
 ];
+export var GetAgreementRequest$: StaticOperationSchema = [9, n0, _GAR,
+  0, () => GetAgreementRequestInput$, () => GetAgreementRequestOutput$
+];
+export var GetAgreementRequestApprovalPlans$: StaticOperationSchema = [9, n0, _GARAP,
+  0, () => GetAgreementRequestApprovalPlansInput$, () => GetAgreementRequestApprovalPlansOutput$
+];
+export var GetAgreementRequestTerms$: StaticOperationSchema = [9, n0, _GART,
+  0, () => GetAgreementRequestTermsInput$, () => GetAgreementRequestTermsOutput$
+];
 export var GetAgreementTerms$: StaticOperationSchema = [9, n0, _GAT,
   0, () => GetAgreementTermsInput$, () => GetAgreementTermsOutput$
 ];
 export var GetBillingAdjustmentRequest$: StaticOperationSchema = [9, n0, _GBAR,
   0, () => GetBillingAdjustmentRequestInput$, () => GetBillingAdjustmentRequestOutput$
+];
+export var ListAgreementApprovals$: StaticOperationSchema = [9, n0, _LAA,
+  0, () => ListAgreementApprovalsInput$, () => ListAgreementApprovalsOutput$
 ];
 export var ListAgreementCancellationRequests$: StaticOperationSchema = [9, n0, _LACR,
   0, () => ListAgreementCancellationRequestsInput$, () => ListAgreementCancellationRequestsOutput$
@@ -1173,8 +1638,14 @@ export var ListAgreementInvoiceLineItems$: StaticOperationSchema = [9, n0, _LAIL
 export var ListAgreementPaymentRequests$: StaticOperationSchema = [9, n0, _LAPR,
   0, () => ListAgreementPaymentRequestsInput$, () => ListAgreementPaymentRequestsOutput$
 ];
+export var ListAgreementRequests$: StaticOperationSchema = [9, n0, _LAR,
+  0, () => ListAgreementRequestsInput$, () => ListAgreementRequestsOutput$
+];
 export var ListBillingAdjustmentRequests$: StaticOperationSchema = [9, n0, _LBAR,
   0, () => ListBillingAdjustmentRequestsInput$, () => ListBillingAdjustmentRequestsOutput$
+];
+export var RejectAgreementApproval$: StaticOperationSchema = [9, n0, _RAA,
+  0, () => RejectAgreementApprovalInput$, () => RejectAgreementApprovalOutput$
 ];
 export var RejectAgreementCancellationRequest$: StaticOperationSchema = [9, n0, _RACR,
   0, () => RejectAgreementCancellationRequestInput$, () => RejectAgreementCancellationRequestOutput$
@@ -1190,6 +1661,9 @@ export var SendAgreementCancellationRequest$: StaticOperationSchema = [9, n0, _S
 ];
 export var SendAgreementPaymentRequest$: StaticOperationSchema = [9, n0, _SAPR,
   0, () => SendAgreementPaymentRequestInput$, () => SendAgreementPaymentRequestOutput$
+];
+export var StartAgreementApprovals$: StaticOperationSchema = [9, n0, _SAA,
+  0, () => StartAgreementApprovalsInput$, () => StartAgreementApprovalsOutput$
 ];
 export var UpdatePurchaseOrders$: StaticOperationSchema = [9, n0, _UPO,
   0, () => UpdatePurchaseOrdersInput$, () => UpdatePurchaseOrdersOutput$

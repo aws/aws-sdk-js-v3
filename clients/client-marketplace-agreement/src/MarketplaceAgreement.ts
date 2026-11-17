@@ -8,6 +8,11 @@ import type {
 } from "@smithy/types";
 
 import {
+  type AcceptAgreementApprovalCommandInput,
+  type AcceptAgreementApprovalCommandOutput,
+  AcceptAgreementApprovalCommand,
+} from "./commands/AcceptAgreementApprovalCommand";
+import {
   type AcceptAgreementCancellationRequestCommandInput,
   type AcceptAgreementCancellationRequestCommandOutput,
   AcceptAgreementCancellationRequestCommand,
@@ -43,6 +48,11 @@ import {
   CancelAgreementPaymentRequestCommand,
 } from "./commands/CancelAgreementPaymentRequestCommand";
 import {
+  type CancelAgreementRequestCommandInput,
+  type CancelAgreementRequestCommandOutput,
+  CancelAgreementRequestCommand,
+} from "./commands/CancelAgreementRequestCommand";
+import {
   type CreateAgreementRequestCommandInput,
   type CreateAgreementRequestCommandOutput,
   CreateAgreementRequestCommand,
@@ -53,10 +63,20 @@ import {
   DescribeAgreementCommand,
 } from "./commands/DescribeAgreementCommand";
 import {
+  type GetAgreementApprovalCommandInput,
+  type GetAgreementApprovalCommandOutput,
+  GetAgreementApprovalCommand,
+} from "./commands/GetAgreementApprovalCommand";
+import {
   type GetAgreementCancellationRequestCommandInput,
   type GetAgreementCancellationRequestCommandOutput,
   GetAgreementCancellationRequestCommand,
 } from "./commands/GetAgreementCancellationRequestCommand";
+import {
+  type GetAgreementContactsCommandInput,
+  type GetAgreementContactsCommandOutput,
+  GetAgreementContactsCommand,
+} from "./commands/GetAgreementContactsCommand";
 import {
   type GetAgreementEntitlementsCommandInput,
   type GetAgreementEntitlementsCommandOutput,
@@ -68,6 +88,21 @@ import {
   GetAgreementPaymentRequestCommand,
 } from "./commands/GetAgreementPaymentRequestCommand";
 import {
+  type GetAgreementRequestApprovalPlansCommandInput,
+  type GetAgreementRequestApprovalPlansCommandOutput,
+  GetAgreementRequestApprovalPlansCommand,
+} from "./commands/GetAgreementRequestApprovalPlansCommand";
+import {
+  type GetAgreementRequestCommandInput,
+  type GetAgreementRequestCommandOutput,
+  GetAgreementRequestCommand,
+} from "./commands/GetAgreementRequestCommand";
+import {
+  type GetAgreementRequestTermsCommandInput,
+  type GetAgreementRequestTermsCommandOutput,
+  GetAgreementRequestTermsCommand,
+} from "./commands/GetAgreementRequestTermsCommand";
+import {
   type GetAgreementTermsCommandInput,
   type GetAgreementTermsCommandOutput,
   GetAgreementTermsCommand,
@@ -77,6 +112,11 @@ import {
   type GetBillingAdjustmentRequestCommandOutput,
   GetBillingAdjustmentRequestCommand,
 } from "./commands/GetBillingAdjustmentRequestCommand";
+import {
+  type ListAgreementApprovalsCommandInput,
+  type ListAgreementApprovalsCommandOutput,
+  ListAgreementApprovalsCommand,
+} from "./commands/ListAgreementApprovalsCommand";
 import {
   type ListAgreementCancellationRequestsCommandInput,
   type ListAgreementCancellationRequestsCommandOutput,
@@ -98,10 +138,20 @@ import {
   ListAgreementPaymentRequestsCommand,
 } from "./commands/ListAgreementPaymentRequestsCommand";
 import {
+  type ListAgreementRequestsCommandInput,
+  type ListAgreementRequestsCommandOutput,
+  ListAgreementRequestsCommand,
+} from "./commands/ListAgreementRequestsCommand";
+import {
   type ListBillingAdjustmentRequestsCommandInput,
   type ListBillingAdjustmentRequestsCommandOutput,
   ListBillingAdjustmentRequestsCommand,
 } from "./commands/ListBillingAdjustmentRequestsCommand";
+import {
+  type RejectAgreementApprovalCommandInput,
+  type RejectAgreementApprovalCommandOutput,
+  RejectAgreementApprovalCommand,
+} from "./commands/RejectAgreementApprovalCommand";
 import {
   type RejectAgreementCancellationRequestCommandInput,
   type RejectAgreementCancellationRequestCommandOutput,
@@ -128,21 +178,31 @@ import {
   SendAgreementPaymentRequestCommand,
 } from "./commands/SendAgreementPaymentRequestCommand";
 import {
+  type StartAgreementApprovalsCommandInput,
+  type StartAgreementApprovalsCommandOutput,
+  StartAgreementApprovalsCommand,
+} from "./commands/StartAgreementApprovalsCommand";
+import {
   type UpdatePurchaseOrdersCommandInput,
   type UpdatePurchaseOrdersCommandOutput,
   UpdatePurchaseOrdersCommand,
 } from "./commands/UpdatePurchaseOrdersCommand";
 import { MarketplaceAgreementClient } from "./MarketplaceAgreementClient";
 import { paginateGetAgreementEntitlements } from "./pagination/GetAgreementEntitlementsPaginator";
+import { paginateGetAgreementRequestApprovalPlans } from "./pagination/GetAgreementRequestApprovalPlansPaginator";
+import { paginateGetAgreementRequestTerms } from "./pagination/GetAgreementRequestTermsPaginator";
 import { paginateGetAgreementTerms } from "./pagination/GetAgreementTermsPaginator";
+import { paginateListAgreementApprovals } from "./pagination/ListAgreementApprovalsPaginator";
 import { paginateListAgreementCancellationRequests } from "./pagination/ListAgreementCancellationRequestsPaginator";
 import { paginateListAgreementCharges } from "./pagination/ListAgreementChargesPaginator";
 import { paginateListAgreementInvoiceLineItems } from "./pagination/ListAgreementInvoiceLineItemsPaginator";
 import { paginateListAgreementPaymentRequests } from "./pagination/ListAgreementPaymentRequestsPaginator";
+import { paginateListAgreementRequests } from "./pagination/ListAgreementRequestsPaginator";
 import { paginateListBillingAdjustmentRequests } from "./pagination/ListBillingAdjustmentRequestsPaginator";
 import { paginateSearchAgreements } from "./pagination/SearchAgreementsPaginator";
 
 const commands = {
+  AcceptAgreementApprovalCommand,
   AcceptAgreementCancellationRequestCommand,
   AcceptAgreementPaymentRequestCommand,
   AcceptAgreementRequestCommand,
@@ -150,32 +210,46 @@ const commands = {
   CancelAgreementCommand,
   CancelAgreementCancellationRequestCommand,
   CancelAgreementPaymentRequestCommand,
+  CancelAgreementRequestCommand,
   CreateAgreementRequestCommand,
   DescribeAgreementCommand,
+  GetAgreementApprovalCommand,
   GetAgreementCancellationRequestCommand,
+  GetAgreementContactsCommand,
   GetAgreementEntitlementsCommand,
   GetAgreementPaymentRequestCommand,
+  GetAgreementRequestCommand,
+  GetAgreementRequestApprovalPlansCommand,
+  GetAgreementRequestTermsCommand,
   GetAgreementTermsCommand,
   GetBillingAdjustmentRequestCommand,
+  ListAgreementApprovalsCommand,
   ListAgreementCancellationRequestsCommand,
   ListAgreementChargesCommand,
   ListAgreementInvoiceLineItemsCommand,
   ListAgreementPaymentRequestsCommand,
+  ListAgreementRequestsCommand,
   ListBillingAdjustmentRequestsCommand,
+  RejectAgreementApprovalCommand,
   RejectAgreementCancellationRequestCommand,
   RejectAgreementPaymentRequestCommand,
   SearchAgreementsCommand,
   SendAgreementCancellationRequestCommand,
   SendAgreementPaymentRequestCommand,
+  StartAgreementApprovalsCommand,
   UpdatePurchaseOrdersCommand,
 };
 const paginators = {
   paginateGetAgreementEntitlements,
+  paginateGetAgreementRequestApprovalPlans,
+  paginateGetAgreementRequestTerms,
   paginateGetAgreementTerms,
+  paginateListAgreementApprovals,
   paginateListAgreementCancellationRequests,
   paginateListAgreementCharges,
   paginateListAgreementInvoiceLineItems,
   paginateListAgreementPaymentRequests,
+  paginateListAgreementRequests,
   paginateListBillingAdjustmentRequests,
   paginateSearchAgreements,
 };
@@ -188,6 +262,24 @@ export interface MarketplaceAgreementRequestOptions extends __HttpHandlerOptions
 }
 
 export interface MarketplaceAgreement {
+  /**
+   * @see {@link AcceptAgreementApprovalCommand}
+   */
+  acceptAgreementApproval(): Promise<AcceptAgreementApprovalCommandOutput>;
+  acceptAgreementApproval(
+    args: AcceptAgreementApprovalCommandInput,
+    options?: MarketplaceAgreementRequestOptions
+  ): Promise<AcceptAgreementApprovalCommandOutput>;
+  acceptAgreementApproval(
+    args: AcceptAgreementApprovalCommandInput,
+    cb: (err: any, data?: AcceptAgreementApprovalCommandOutput) => void
+  ): void;
+  acceptAgreementApproval(
+    args: AcceptAgreementApprovalCommandInput,
+    options: MarketplaceAgreementRequestOptions,
+    cb: (err: any, data?: AcceptAgreementApprovalCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link AcceptAgreementCancellationRequestCommand}
    */
@@ -308,6 +400,23 @@ export interface MarketplaceAgreement {
   ): void;
 
   /**
+   * @see {@link CancelAgreementRequestCommand}
+   */
+  cancelAgreementRequest(
+    args: CancelAgreementRequestCommandInput,
+    options?: MarketplaceAgreementRequestOptions
+  ): Promise<CancelAgreementRequestCommandOutput>;
+  cancelAgreementRequest(
+    args: CancelAgreementRequestCommandInput,
+    cb: (err: any, data?: CancelAgreementRequestCommandOutput) => void
+  ): void;
+  cancelAgreementRequest(
+    args: CancelAgreementRequestCommandInput,
+    options: MarketplaceAgreementRequestOptions,
+    cb: (err: any, data?: CancelAgreementRequestCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateAgreementRequestCommand}
    */
   createAgreementRequest(
@@ -342,6 +451,23 @@ export interface MarketplaceAgreement {
   ): void;
 
   /**
+   * @see {@link GetAgreementApprovalCommand}
+   */
+  getAgreementApproval(
+    args: GetAgreementApprovalCommandInput,
+    options?: MarketplaceAgreementRequestOptions
+  ): Promise<GetAgreementApprovalCommandOutput>;
+  getAgreementApproval(
+    args: GetAgreementApprovalCommandInput,
+    cb: (err: any, data?: GetAgreementApprovalCommandOutput) => void
+  ): void;
+  getAgreementApproval(
+    args: GetAgreementApprovalCommandInput,
+    options: MarketplaceAgreementRequestOptions,
+    cb: (err: any, data?: GetAgreementApprovalCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAgreementCancellationRequestCommand}
    */
   getAgreementCancellationRequest(
@@ -356,6 +482,23 @@ export interface MarketplaceAgreement {
     args: GetAgreementCancellationRequestCommandInput,
     options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: GetAgreementCancellationRequestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgreementContactsCommand}
+   */
+  getAgreementContacts(
+    args: GetAgreementContactsCommandInput,
+    options?: MarketplaceAgreementRequestOptions
+  ): Promise<GetAgreementContactsCommandOutput>;
+  getAgreementContacts(
+    args: GetAgreementContactsCommandInput,
+    cb: (err: any, data?: GetAgreementContactsCommandOutput) => void
+  ): void;
+  getAgreementContacts(
+    args: GetAgreementContactsCommandInput,
+    options: MarketplaceAgreementRequestOptions,
+    cb: (err: any, data?: GetAgreementContactsCommandOutput) => void
   ): void;
 
   /**
@@ -393,6 +536,57 @@ export interface MarketplaceAgreement {
   ): void;
 
   /**
+   * @see {@link GetAgreementRequestCommand}
+   */
+  getAgreementRequest(
+    args: GetAgreementRequestCommandInput,
+    options?: MarketplaceAgreementRequestOptions
+  ): Promise<GetAgreementRequestCommandOutput>;
+  getAgreementRequest(
+    args: GetAgreementRequestCommandInput,
+    cb: (err: any, data?: GetAgreementRequestCommandOutput) => void
+  ): void;
+  getAgreementRequest(
+    args: GetAgreementRequestCommandInput,
+    options: MarketplaceAgreementRequestOptions,
+    cb: (err: any, data?: GetAgreementRequestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgreementRequestApprovalPlansCommand}
+   */
+  getAgreementRequestApprovalPlans(
+    args: GetAgreementRequestApprovalPlansCommandInput,
+    options?: MarketplaceAgreementRequestOptions
+  ): Promise<GetAgreementRequestApprovalPlansCommandOutput>;
+  getAgreementRequestApprovalPlans(
+    args: GetAgreementRequestApprovalPlansCommandInput,
+    cb: (err: any, data?: GetAgreementRequestApprovalPlansCommandOutput) => void
+  ): void;
+  getAgreementRequestApprovalPlans(
+    args: GetAgreementRequestApprovalPlansCommandInput,
+    options: MarketplaceAgreementRequestOptions,
+    cb: (err: any, data?: GetAgreementRequestApprovalPlansCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgreementRequestTermsCommand}
+   */
+  getAgreementRequestTerms(
+    args: GetAgreementRequestTermsCommandInput,
+    options?: MarketplaceAgreementRequestOptions
+  ): Promise<GetAgreementRequestTermsCommandOutput>;
+  getAgreementRequestTerms(
+    args: GetAgreementRequestTermsCommandInput,
+    cb: (err: any, data?: GetAgreementRequestTermsCommandOutput) => void
+  ): void;
+  getAgreementRequestTerms(
+    args: GetAgreementRequestTermsCommandInput,
+    options: MarketplaceAgreementRequestOptions,
+    cb: (err: any, data?: GetAgreementRequestTermsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAgreementTermsCommand}
    */
   getAgreementTerms(
@@ -424,6 +618,23 @@ export interface MarketplaceAgreement {
     args: GetBillingAdjustmentRequestCommandInput,
     options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: GetBillingAdjustmentRequestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAgreementApprovalsCommand}
+   */
+  listAgreementApprovals(
+    args: ListAgreementApprovalsCommandInput,
+    options?: MarketplaceAgreementRequestOptions
+  ): Promise<ListAgreementApprovalsCommandOutput>;
+  listAgreementApprovals(
+    args: ListAgreementApprovalsCommandInput,
+    cb: (err: any, data?: ListAgreementApprovalsCommandOutput) => void
+  ): void;
+  listAgreementApprovals(
+    args: ListAgreementApprovalsCommandInput,
+    options: MarketplaceAgreementRequestOptions,
+    cb: (err: any, data?: ListAgreementApprovalsCommandOutput) => void
   ): void;
 
   /**
@@ -496,6 +707,24 @@ export interface MarketplaceAgreement {
   ): void;
 
   /**
+   * @see {@link ListAgreementRequestsCommand}
+   */
+  listAgreementRequests(): Promise<ListAgreementRequestsCommandOutput>;
+  listAgreementRequests(
+    args: ListAgreementRequestsCommandInput,
+    options?: MarketplaceAgreementRequestOptions
+  ): Promise<ListAgreementRequestsCommandOutput>;
+  listAgreementRequests(
+    args: ListAgreementRequestsCommandInput,
+    cb: (err: any, data?: ListAgreementRequestsCommandOutput) => void
+  ): void;
+  listAgreementRequests(
+    args: ListAgreementRequestsCommandInput,
+    options: MarketplaceAgreementRequestOptions,
+    cb: (err: any, data?: ListAgreementRequestsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListBillingAdjustmentRequestsCommand}
    */
   listBillingAdjustmentRequests(): Promise<ListBillingAdjustmentRequestsCommandOutput>;
@@ -511,6 +740,24 @@ export interface MarketplaceAgreement {
     args: ListBillingAdjustmentRequestsCommandInput,
     options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: ListBillingAdjustmentRequestsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RejectAgreementApprovalCommand}
+   */
+  rejectAgreementApproval(): Promise<RejectAgreementApprovalCommandOutput>;
+  rejectAgreementApproval(
+    args: RejectAgreementApprovalCommandInput,
+    options?: MarketplaceAgreementRequestOptions
+  ): Promise<RejectAgreementApprovalCommandOutput>;
+  rejectAgreementApproval(
+    args: RejectAgreementApprovalCommandInput,
+    cb: (err: any, data?: RejectAgreementApprovalCommandOutput) => void
+  ): void;
+  rejectAgreementApproval(
+    args: RejectAgreementApprovalCommandInput,
+    options: MarketplaceAgreementRequestOptions,
+    cb: (err: any, data?: RejectAgreementApprovalCommandOutput) => void
   ): void;
 
   /**
@@ -600,6 +847,23 @@ export interface MarketplaceAgreement {
   ): void;
 
   /**
+   * @see {@link StartAgreementApprovalsCommand}
+   */
+  startAgreementApprovals(
+    args: StartAgreementApprovalsCommandInput,
+    options?: MarketplaceAgreementRequestOptions
+  ): Promise<StartAgreementApprovalsCommandOutput>;
+  startAgreementApprovals(
+    args: StartAgreementApprovalsCommandInput,
+    cb: (err: any, data?: StartAgreementApprovalsCommandOutput) => void
+  ): void;
+  startAgreementApprovals(
+    args: StartAgreementApprovalsCommandInput,
+    options: MarketplaceAgreementRequestOptions,
+    cb: (err: any, data?: StartAgreementApprovalsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdatePurchaseOrdersCommand}
    */
   updatePurchaseOrders(
@@ -628,6 +892,28 @@ export interface MarketplaceAgreement {
   ): Paginator<GetAgreementEntitlementsCommandOutput>;
 
   /**
+   * @see {@link GetAgreementRequestApprovalPlansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAgreementRequestApprovalPlansCommandOutput}.
+   */
+  paginateGetAgreementRequestApprovalPlans(
+    args: GetAgreementRequestApprovalPlansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAgreementRequestApprovalPlansCommandOutput>;
+
+  /**
+   * @see {@link GetAgreementRequestTermsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAgreementRequestTermsCommandOutput}.
+   */
+  paginateGetAgreementRequestTerms(
+    args: GetAgreementRequestTermsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAgreementRequestTermsCommandOutput>;
+
+  /**
    * @see {@link GetAgreementTermsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -637,6 +923,17 @@ export interface MarketplaceAgreement {
     args: GetAgreementTermsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<GetAgreementTermsCommandOutput>;
+
+  /**
+   * @see {@link ListAgreementApprovalsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgreementApprovalsCommandOutput}.
+   */
+  paginateListAgreementApprovals(
+    args: ListAgreementApprovalsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgreementApprovalsCommandOutput>;
 
   /**
    * @see {@link ListAgreementCancellationRequestsCommand}
@@ -681,6 +978,17 @@ export interface MarketplaceAgreement {
     args: ListAgreementPaymentRequestsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListAgreementPaymentRequestsCommandOutput>;
+
+  /**
+   * @see {@link ListAgreementRequestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgreementRequestsCommandOutput}.
+   */
+  paginateListAgreementRequests(
+    args?: ListAgreementRequestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgreementRequestsCommandOutput>;
 
   /**
    * @see {@link ListBillingAdjustmentRequestsCommand}
