@@ -10169,9 +10169,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/credential-provider-credential-daemon@workspace:^3.972.0, @aws-sdk/credential-provider-credential-daemon@workspace:packages-internal/credential-provider-credential-daemon":
+"@aws-sdk/credential-provider-daemon@workspace:^3.972.0, @aws-sdk/credential-provider-daemon@workspace:packages-internal/credential-provider-daemon":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/credential-provider-credential-daemon@workspace:packages-internal/credential-provider-credential-daemon"
+  resolution: "@aws-sdk/credential-provider-daemon@workspace:packages-internal/credential-provider-daemon"
   dependencies:
     "@aws-sdk/core": "workspace:^3.981.0"
     "@aws-sdk/types": "workspace:^3.975.1"
@@ -10230,7 +10230,7 @@ __metadata:
   resolution: "@aws-sdk/credential-provider-ini@workspace:packages-internal/credential-provider-ini"
   dependencies:
     "@aws-sdk/core": "workspace:^3.981.0"
-    "@aws-sdk/credential-provider-credential-daemon": "workspace:^3.972.0"
+    "@aws-sdk/credential-provider-daemon": "workspace:^3.972.0"
     "@aws-sdk/credential-provider-env": "workspace:^3.972.84"
     "@aws-sdk/credential-provider-http": "workspace:^3.972.86"
     "@aws-sdk/credential-provider-login": "workspace:^3.972.92"
@@ -10358,7 +10358,7 @@ __metadata:
   dependencies:
     "@aws-sdk/core": "workspace:^3.981.0"
     "@aws-sdk/credential-provider-cognito-identity": "workspace:^3.972.83"
-    "@aws-sdk/credential-provider-credential-daemon": "workspace:^3.972.0"
+    "@aws-sdk/credential-provider-daemon": "workspace:^3.972.0"
     "@aws-sdk/credential-provider-env": "workspace:^3.972.84"
     "@aws-sdk/credential-provider-http": "workspace:^3.972.86"
     "@aws-sdk/credential-provider-ini": "workspace:^3.973.30"
@@ -11227,7 +11227,6 @@ __metadata:
   resolution: "@aws-sdk/token-providers@workspace:packages/token-providers"
   dependencies:
     "@aws-sdk/core": "workspace:^3.981.0"
-    "@aws-sdk/credential-provider-credential-daemon": "workspace:^3.972.0"
     "@aws-sdk/nested-clients": "workspace:^3.998.3"
     "@aws-sdk/types": "workspace:^3.975.1"
     "@smithy/core": "npm:^3.40.0"

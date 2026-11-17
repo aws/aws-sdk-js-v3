@@ -1,5 +1,5 @@
 import { S3 } from "@aws-sdk/client-s3";
-import type * as CredentialDaemonPackage from "@aws-sdk/credential-provider-credential-daemon";
+import type * as CredentialDaemonPackage from "@aws-sdk/credential-provider-daemon";
 import { fromCredentialDaemon } from "@aws-sdk/credential-providers";
 import { rmSync } from "node:fs";
 import { createRequire } from "node:module";
@@ -7,11 +7,11 @@ import type * as NodeNet from "node:net";
 import type { Socket } from "node:net";
 import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
-import type { FakeDaemon } from "../../../packages-internal/credential-provider-credential-daemon/tests/fakeDaemon";
+import type { FakeDaemon } from "../../../packages-internal/credential-provider-daemon/src/fakeDaemon.spec";
 import {
   sessionReply,
   startFakeDaemon,
-} from "../../../packages-internal/credential-provider-credential-daemon/tests/fakeDaemon";
+} from "../../../packages-internal/credential-provider-daemon/src/fakeDaemon.spec";
 import { CTest } from "./_test-lib";
 
 const nodeRequire = createRequire(import.meta.url);
@@ -63,7 +63,7 @@ describe(fromCredentialDaemon.name, () => {
   });
 
   const getErrorClass = () =>
-    (nodeRequire("@aws-sdk/credential-provider-credential-daemon") as typeof CredentialDaemonPackage)
+    (nodeRequire("@aws-sdk/credential-provider-daemon") as typeof CredentialDaemonPackage)
       .CredentialDaemonProviderError;
 
   const s3WithSigningCapture = (credentials: ReturnType<typeof fromCredentialDaemon>) => {

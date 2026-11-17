@@ -35,18 +35,6 @@ export interface FromSsoInit extends SourceProfileInit, CredentialProviderOption
 }
 
 /**
- * Whether the shared config file sets daemon_credential for the profile, even to an empty value, which the
- * ini parser drops.
- */
-const usesCredentialDaemon = async (profileName: string, init: FromSsoInit): Promise<boolean> => {
-  if ((await loadSharedConfigFiles(init)).configFile?.[profileName]?.["daemon_credential"] !== undefined) {
-    return true;
-  }
-  const { loadEmptyDaemonCredentialProfiles } = await import("@aws-sdk/credential-provider-credential-daemon");
-  return (await loadEmptyDaemonCredentialProfiles(init)).has(profileName);
-};
-
-/**
  * Creates a token provider that will read from SSO token cache or ssoOidc.createToken() call.
  */
 export const fromSso =
@@ -66,14 +54,15 @@ export const fromSso =
     } else if (
       profile["sso_account_id"] !== undefined &&
       profile["sso_role_name"] !== undefined &&
-      (await usesCredentialDaemon(profileName, init))
+      (await loadSharedConfigFiles(init)).configFile?.[profileName]?.["daemon_credential"] !== undefined
     ) {
       // The credential daemon holds this profile's SSO session, so it has no sso_session for bearer tokens.
       // Not a terminal error, like a missing sso_session.
       throw new TokenProviderError(
         `Profile '${profileName}' gets its SSO session from the credential daemon (daemon_credential), ` +
           `so it has no sso_session for bearer-token authentication. Services that use bearer tokens need an ` +
-          `SSO session stored in the shared config and SSO token cache files.`
+          `SSO session stored in the shared config and SSO token cache files.`,
+        { tryNextLink: true, logger: init.logger }
       );
     } else if (!profile["sso_session"]) {
       // Profile found but it does not contain sso_session. Not a terminal error.

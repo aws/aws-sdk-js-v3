@@ -1,4 +1,4 @@
-import { CredentialDaemonProviderError, fromCredentialDaemon } from "@aws-sdk/credential-provider-credential-daemon";
+import { CredentialDaemonProviderError, fromCredentialDaemon } from "@aws-sdk/credential-provider-daemon";
 import { fromProcess } from "@aws-sdk/credential-provider-process";
 import { fromSSO } from "@aws-sdk/credential-provider-sso";
 import { CredentialsProviderError } from "@smithy/core/config";
@@ -12,7 +12,7 @@ import {
 } from "./resolveCredentialDaemonCredentials";
 import { resolveProfileData } from "./resolveProfileData";
 
-vi.mock("@aws-sdk/credential-provider-credential-daemon", async (importActual) => ({
+vi.mock("@aws-sdk/credential-provider-daemon", async (importActual) => ({
   ...(await importActual<any>()),
   fromCredentialDaemon: vi.fn(),
 }));

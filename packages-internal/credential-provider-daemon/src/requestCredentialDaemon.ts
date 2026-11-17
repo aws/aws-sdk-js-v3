@@ -1,3 +1,4 @@
+import { concatBytes } from "@smithy/core/serde";
 import type { Logger } from "@smithy/types";
 import { createConnection } from "node:net";
 import type { Socket } from "node:net";
@@ -42,7 +43,7 @@ export const requestCredentialDaemon = (
     let settled = false;
     let connected = false;
     let buffered = 0;
-    const chunks: Buffer[] = [];
+    const chunks: Uint8Array[] = [];
     let socket: Socket | undefined = undefined;
     let connectTimer: ReturnType<typeof setTimeout> | undefined = undefined;
     let callTimer: ReturnType<typeof setTimeout> | undefined = undefined;
@@ -77,7 +78,7 @@ export const requestCredentialDaemon = (
         { logger }
       );
 
-    const onLine = (line: Buffer) => {
+    const onLine = (line: Uint8Array) => {
       if (line.length > MAX_REPLY_LINE_BYTES) {
         return settle(protocolError(`reply line exceeds ${MAX_REPLY_LINE_BYTES} bytes`));
       }
@@ -115,14 +116,14 @@ export const requestCredentialDaemon = (
       socket!.write(JSON.stringify(request) + "\n");
     });
 
-    socket.on("data", (chunk: Buffer) => {
+    socket.on("data", (chunk: Uint8Array) => {
       if (settled) {
         return;
       }
       const newlineIndex = chunk.indexOf(NEWLINE);
       if (newlineIndex >= 0) {
         chunks.push(chunk.subarray(0, newlineIndex));
-        return onLine(Buffer.concat(chunks, buffered + newlineIndex));
+        return onLine(concatBytes(chunks, buffered + newlineIndex));
       }
       chunks.push(chunk);
       buffered += chunk.length;

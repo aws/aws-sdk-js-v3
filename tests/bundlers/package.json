@@ -8,7 +8,7 @@
   "overrides": {
     "@aws-sdk/core": "file:../../packages-internal/core",
     "@aws-sdk/crc64-nvme": "file:../../packages-internal/crc64-nvme",
-    "@aws-sdk/credential-provider-credential-daemon": "file:../../packages-internal/credential-provider-credential-daemon",
+    "@aws-sdk/credential-provider-daemon": "file:../../packages-internal/credential-provider-daemon",
     "@aws-sdk/credential-provider-env": "file:../../packages-internal/credential-provider-env",
     "@aws-sdk/credential-provider-http": "file:../../packages-internal/credential-provider-http",
     "@aws-sdk/credential-provider-ini": "file:../../packages-internal/credential-provider-ini",

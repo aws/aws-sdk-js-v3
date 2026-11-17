@@ -50,8 +50,7 @@ export const findEmptyDaemonCredentialProfiles = (text: string): Set<string> => 
 };
 
 /**
- * Returns the profiles of the shared config file that have an empty `daemon_credential`, reading the file
- * from the cache that loadSharedConfigFiles uses.
+ * Returns the profiles of the shared config file that have an empty `daemon_credential`.
  * @internal
  */
 export const loadEmptyDaemonCredentialProfiles = async (init: SourceProfileInit = {}): Promise<Set<string>> => {
@@ -61,8 +60,12 @@ export const loadEmptyDaemonCredentialProfiles = async (init: SourceProfileInit 
     if (configFilepath.startsWith("~/")) {
       configFilepath = join(homeDir, configFilepath.slice(2));
     }
+    // The same cached text loadSharedConfigFiles parsed, unless ignoreCache is set.
     const text = await readFile(configFilepath, { ignoreCache: init.ignoreCache });
-    return findEmptyDaemonCredentialProfiles(typeof text === "string" ? text : "");
+    if (typeof text !== "string" || !text.includes(DAEMON_CREDENTIAL)) {
+      return new Set();
+    }
+    return findEmptyDaemonCredentialProfiles(text);
   } catch {
     return new Set();
   }

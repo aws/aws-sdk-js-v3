@@ -32,6 +32,7 @@ export const fromCredentialDaemonProfile =
     // daemon_credential, so this provider doesn't apply to it.
     if (!isCredentialDaemonProfile(profile) || isSsoProfileWithoutAccountOrRole(profile)) {
       throw new CredentialsProviderError(`Profile ${profileName} does not use a credential daemon.`, {
+        tryNextLink: true,
         logger: init.logger,
       });
     }

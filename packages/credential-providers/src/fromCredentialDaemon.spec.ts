@@ -3,14 +3,14 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const credentials = { accessKeyId: "ASIADAEMON", secretAccessKey: "secret" };
 const innerProvider = vi.fn().mockResolvedValue(credentials);
 
-vi.mock("@aws-sdk/credential-provider-credential-daemon", () => ({
+vi.mock("@aws-sdk/credential-provider-daemon", () => ({
   fromCredentialDaemon: vi.fn(() => innerProvider),
 }));
 vi.mock("@aws-sdk/credential-provider-ini", () => ({
   fromCredentialDaemonProfile: vi.fn(() => innerProvider),
 }));
 
-import { fromCredentialDaemon as mockFromCredentialDaemon } from "@aws-sdk/credential-provider-credential-daemon";
+import { fromCredentialDaemon as mockFromCredentialDaemon } from "@aws-sdk/credential-provider-daemon";
 import { fromCredentialDaemonProfile as mockFromCredentialDaemonProfile } from "@aws-sdk/credential-provider-ini";
 
 import { fromCredentialDaemon } from "./fromCredentialDaemon";

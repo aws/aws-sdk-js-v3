@@ -3,8 +3,8 @@ import { Socket } from "node:net";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, expect, test as it } from "vitest";
 
-import type { FakeDaemon } from "../tests/fakeDaemon";
-import { makeStaleSocket, makeTempDir, startFakeDaemon } from "../tests/fakeDaemon";
+import type { FakeDaemon } from "./fakeDaemon.spec";
+import { makeStaleSocket, makeTempDir, startFakeDaemon } from "./fakeDaemon.spec";
 import { CREDENTIAL_DAEMON_DOC, MAX_REPLY_LINE_BYTES } from "./constants";
 import { requestCredentialDaemon } from "./requestCredentialDaemon";
 

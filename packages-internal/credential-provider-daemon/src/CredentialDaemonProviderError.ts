@@ -3,7 +3,7 @@ import type { Logger } from "@smithy/types";
 
 /**
  * Stable codes for failures of the credential daemon credential provider.
- * @public
+ * @internal
  */
 export type CredentialDaemonErrorCode =
   | "NOT_RUNNING"
@@ -18,7 +18,7 @@ export type CredentialDaemonErrorCode =
 /**
  * A failure of the credential daemon credential provider.
  * It never lets a credential chain try the next provider.
- * @public
+ * @internal
  */
 export class CredentialDaemonProviderError extends CredentialsProviderError {
   name = "CredentialDaemonProviderError";

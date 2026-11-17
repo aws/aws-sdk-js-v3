@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/credential-provider-credential-daemon",
+  "name": "@aws-sdk/credential-provider-daemon",
   "version": "3.972.0",
   "description": "AWS credential provider that sources credentials from a local credential daemon named by daemon_credential in ~/.aws/config",
   "keywords": [
@@ -7,7 +7,7 @@
     "credential daemon",
     "credentials"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-credential-daemon",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-daemon",
   "license": "Apache-2.0",
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -16,7 +16,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages-internal/credential-provider-credential-daemon"
+    "directory": "packages-internal/credential-provider-daemon"
   },
   "files": [
     "dist-*/**"
@@ -40,7 +40,6 @@
     "build:types": "premove dist-types && tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "premove dist-cjs dist-es dist-types",
-    "extract:docs": "api-extractor run --local",
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch"
   },

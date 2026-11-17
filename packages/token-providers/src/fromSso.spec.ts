@@ -8,8 +8,6 @@ import {
 } from "@smithy/core/config";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { loadEmptyDaemonCredentialProfiles } from "@aws-sdk/credential-provider-credential-daemon";
-
 import { EXPIRE_WINDOW_MS, REFRESH_MESSAGE } from "./constants";
 import { fromSso } from "./fromSso";
 import { getNewSsoOidcToken } from "./getNewSsoOidcToken";
@@ -24,9 +22,6 @@ vi.mock("@smithy/core/config", async (importActual) => ({
   loadSharedConfigFiles: vi.fn(),
   loadSsoSessionData: vi.fn(),
   parseKnownFiles: vi.fn(),
-}));
-vi.mock("@aws-sdk/credential-provider-credential-daemon", () => ({
-  loadEmptyDaemonCredentialProfiles: vi.fn(),
 }));
 vi.mock("./getNewSsoOidcToken");
 vi.mock("./validateTokenExpiry");
@@ -130,25 +125,6 @@ describe(fromSso.name, () => {
         );
         expect(loadSharedConfigFiles).toHaveBeenCalledWith(mockInit);
         expect(loadSsoSessionData).not.toHaveBeenCalled();
-        expect(getSSOTokenFromFile).not.toHaveBeenCalled();
-      });
-
-      beforeEach(() => {
-        vi.mocked(loadEmptyDaemonCredentialProfiles).mockResolvedValue(new Set());
-      });
-
-      it("treats an empty daemon_credential in the config file as no sso_session", async () => {
-        const { daemon_credential, ...profile } = daemonSsoProfile;
-        vi.mocked(parseKnownFiles as any).mockReturnValue({ [mockProfileName]: profile });
-        vi.mocked(loadSharedConfigFiles).mockResolvedValue({
-          configFile: { [mockProfileName]: profile },
-          credentialsFile: {},
-        });
-        vi.mocked(loadEmptyDaemonCredentialProfiles).mockResolvedValue(new Set([mockProfileName]));
-        const error = await fromSso(mockInit)().catch((e) => e);
-        expect(error).toBeInstanceOf(TokenProviderError);
-        expect(error.message).toContain("gets its SSO session from the credential daemon");
-        expect(loadEmptyDaemonCredentialProfiles).toHaveBeenCalledWith(mockInit);
         expect(getSSOTokenFromFile).not.toHaveBeenCalled();
       });
 

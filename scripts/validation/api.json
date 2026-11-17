@@ -116,6 +116,7 @@
     "FromCognitoIdentityPoolParameters": "type(interface)",
     "fromContainerMetadata": "function",
     "fromCredentialDaemon": "function",
+    "FromCredentialDaemonInit": "type(interface)",
     "fromEnv": "function",
     "fromHttp": "function",
     "FromHttpOptions": "type(interface)",
@@ -420,13 +421,11 @@
     "ResolvedLogins": "type(object)",
     "Storage": "type(interface)"
   },
-  "@aws-sdk/credential-provider-credential-daemon": {
+  "@aws-sdk/credential-provider-daemon": {
     "CredentialDaemonErrorCode": "type(union)",
     "CredentialDaemonProviderError": "function",
-    "findEmptyDaemonCredentialProfiles": "function",
     "fromCredentialDaemon": "function",
-    "FromCredentialDaemonInit": "type(interface)",
-    "loadEmptyDaemonCredentialProfiles": "function"
+    "FromCredentialDaemonInit": "type(interface)"
   },
   "@aws-sdk/credential-provider-env": {
     "ENV_ACCOUNT_ID": "string",

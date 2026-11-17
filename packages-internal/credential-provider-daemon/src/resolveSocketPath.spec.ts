@@ -2,8 +2,8 @@ import { mkdirSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, expect, test as it } from "vitest";
 
-import type { FakeDaemon, SocketRole } from "../tests/fakeDaemon";
-import { homeSocketPath, makeTempDir, setUpSocketRole, startFakeDaemon } from "../tests/fakeDaemon";
+import type { FakeDaemon, SocketRole } from "./fakeDaemon.spec";
+import { homeSocketPath, makeTempDir, setUpSocketRole, startFakeDaemon } from "./fakeDaemon.spec";
 import { CREDENTIAL_DAEMON_DOC } from "./constants";
 import { CredentialDaemonProviderError } from "./CredentialDaemonProviderError";
 import { resolveSocketPath } from "./resolveSocketPath";

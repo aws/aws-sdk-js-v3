@@ -2,8 +2,8 @@ import { rmSync } from "node:fs";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import type { FakeDaemon, SocketRole, SocketRoleSetup } from "../tests/fakeDaemon";
-import { makeStaleSocket, makeTempDir, sessionReply, setUpSocketRole, startFakeDaemon } from "../tests/fakeDaemon";
+import type { FakeDaemon, SocketRole, SocketRoleSetup } from "./fakeDaemon.spec";
+import { makeStaleSocket, makeTempDir, sessionReply, setUpSocketRole, startFakeDaemon } from "./fakeDaemon.spec";
 import { CREDENTIAL_DAEMON_DOC } from "./constants";
 import { CredentialDaemonProviderError } from "./CredentialDaemonProviderError";
 import { fromCredentialDaemon } from "./fromCredentialDaemon";

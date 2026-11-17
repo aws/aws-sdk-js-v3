@@ -38,8 +38,7 @@ export const resolveCredentialDaemonCredentials = async (
   options: FromIniInit
 ): Promise<AwsCredentialIdentity> => {
   const { logger } = options;
-  const { fromCredentialDaemon, CredentialDaemonProviderError } =
-    await import("@aws-sdk/credential-provider-credential-daemon");
+  const { fromCredentialDaemon, CredentialDaemonProviderError } = await import("@aws-sdk/credential-provider-daemon");
 
   const isSso = hasSsoStartSettings(profile);
   const hasAccount = profile.sso_account_id !== undefined;

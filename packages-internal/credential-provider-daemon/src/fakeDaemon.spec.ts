@@ -3,6 +3,7 @@ import { createServer } from "node:net";
 import type { Server, Socket } from "node:net";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { describe, test as it } from "vitest";
 
 /**
  * What the fake daemon does with a connection after it reads the request line:
@@ -172,3 +173,7 @@ export const setUpSocketRole = async (
     }
   }
 };
+
+describe("placeholder", () => {
+  it("placeholder for exports of testing constructs", () => {});
+});

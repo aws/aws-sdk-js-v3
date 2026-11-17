@@ -1,4 +1,4 @@
-import type { FromCredentialDaemonInit as CredentialDaemonInit } from "@aws-sdk/credential-provider-credential-daemon";
+import type { FromCredentialDaemonInit as CredentialDaemonInit } from "@aws-sdk/credential-provider-daemon";
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import type { SourceProfileInit } from "@smithy/core/config";
 
@@ -48,8 +48,7 @@ export const fromCredentialDaemon = (
       const { fromCredentialDaemonProfile } = await import("@aws-sdk/credential-provider-ini");
       return fromCredentialDaemonProfile({ ...profileInit, credentialDaemon: { connectTimeout, timeout } })(args);
     }
-    const { fromCredentialDaemon: _fromCredentialDaemon } =
-      await import("@aws-sdk/credential-provider-credential-daemon");
+    const { fromCredentialDaemon: _fromCredentialDaemon } = await import("@aws-sdk/credential-provider-daemon");
     return _fromCredentialDaemon({ ...init, credential })(args);
   };
 };

@@ -1,5 +1,9 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
-import type { CredentialProviderOptions, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
+import type {
+  AwsIdentityProperties,
+  CredentialProviderOptions,
+  RuntimeConfigAwsCredentialIdentityProvider,
+} from "@aws-sdk/types";
 
 import {
   CREDENTIAL_NAME_PATTERN,
@@ -14,7 +18,7 @@ import { requestCredentialDaemon } from "./requestCredentialDaemon";
 import { resolveSocketPath } from "./resolveSocketPath";
 
 /**
- * @public
+ * @internal
  */
 export interface FromCredentialDaemonInit extends CredentialProviderOptions {
   /**
@@ -46,13 +50,13 @@ const positiveOrDefault = (value: number | undefined, defaultValue: number): num
  * Creates a credential provider that gets short-lived credentials from the local credential daemon
  * over a Unix domain socket. Failures are CredentialDaemonProviderError, which never lets a
  * credential chain try the next provider.
- * @public
+ * @internal
  */
 export const fromCredentialDaemon =
   (init: FromCredentialDaemonInit): RuntimeConfigAwsCredentialIdentityProvider =>
-  async () => {
+  async (_awsIdentityProperties?: AwsIdentityProperties) => {
     const { credential, accountId, roleName, logger } = init;
-    logger?.debug("@aws-sdk/credential-provider-credential-daemon - fromCredentialDaemon");
+    logger?.debug("@aws-sdk/credential-provider-daemon - fromCredentialDaemon");
 
     if (typeof credential !== "string" || !CREDENTIAL_NAME_PATTERN.test(credential)) {
       throw new CredentialDaemonProviderError(
