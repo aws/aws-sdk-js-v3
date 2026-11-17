@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateMetricMetadataRequest, UpdateMetricMetadataResponse } from "../models/models_4";
+import type { UpdateMetricMetadataRequest, UpdateMetricMetadataResponse } from "../models/models_3";
 import { UpdateMetricMetadata$ } from "../schemas/schemas_0";
 
 /**

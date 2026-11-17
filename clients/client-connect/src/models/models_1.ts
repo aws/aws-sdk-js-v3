@@ -17,6 +17,9 @@ import type {
   DataTableStatus,
   DirectoryType,
   EndpointType,
+  EntityType,
+  EvaluationEnablementStatus,
+  EvaluationItemResolutionStatus,
   EvaluationQuestionAnswerAnalysisType,
   EvaluationStatus,
   EvaluationSuggestedAnswerStatus,
@@ -81,6 +84,8 @@ import type {
   CreatedByInfo,
   DataTableLockVersion,
   DeviceInfo,
+  EvaluationFormItemEnablementSource,
+  EvaluationFormItemEnablementSourceValue,
   ExternalInvocationConfiguration,
   ExtractionConfiguration,
   ExtractionDefinitionDisplay,
@@ -88,7 +93,6 @@ import type {
   HoursOfOperationConfig,
   HoursOfOperationOverrideConfig,
   InstanceStorageConfig,
-  InvisibleFieldInfo,
   LexBot,
   LexV2Bot,
   MediaConcurrency,
@@ -99,81 +103,17 @@ import type {
   PredefinedAttributeValues,
   PreEvaluationFilters,
   QuickConnectConfig,
-  ReadOnlyFieldInfo,
   RecurrenceConfig,
   RoutingProfileQueueReference,
   RuleAction,
   RuleTriggerEventSource,
+  SecurityProfileItem,
+  TaskTemplateConstraints,
+  TaskTemplateContactHooks,
+  TaskTemplateDefaultFieldValue,
   TaskTemplateFieldIdentifier,
   Validation,
 } from "./models_0";
-
-/**
- * <p>Information about a required field.</p>
- * @public
- */
-export interface RequiredFieldInfo {
-  /**
-   * <p>The unique identifier for the field.</p>
-   * @public
-   */
-  Id?: TaskTemplateFieldIdentifier | undefined;
-}
-
-/**
- * <p>Describes constraints that apply to the template fields.</p>
- * @public
- */
-export interface TaskTemplateConstraints {
-  /**
-   * <p>Lists the fields that are required to be filled by agents.</p>
-   * @public
-   */
-  RequiredFields?: RequiredFieldInfo[] | undefined;
-
-  /**
-   * <p>Lists the fields that are read-only to agents, and cannot be edited.</p>
-   * @public
-   */
-  ReadOnlyFields?: ReadOnlyFieldInfo[] | undefined;
-
-  /**
-   * <p>Lists the fields that are invisible to agents.</p>
-   * @public
-   */
-  InvisibleFields?: InvisibleFieldInfo[] | undefined;
-}
-
-/**
- * <p>The event hooks that are set on tasks created by using this template.</p>
- * @public
- */
-export interface TaskTemplateContactHooks {
-  /**
-   * <p>The identifier of the flow module that runs when an agent attempts to disconnect from a task created by referencing this template.
-   * If no agent ever connects to the task, the flow module runs when the task is terminated.</p>
-   * @public
-   */
-  WrapUpFlowId?: string | undefined;
-}
-
-/**
- * <p>Describes a default field and its corresponding value.</p>
- * @public
- */
-export interface TaskTemplateDefaultFieldValue {
-  /**
-   * <p>Identifier of a field. </p>
-   * @public
-   */
-  Id?: TaskTemplateFieldIdentifier | undefined;
-
-  /**
-   * <p>Default value for the field.</p>
-   * @public
-   */
-  DefaultValue?: string | undefined;
-}
 
 /**
  * <p>Describes default values for fields on a template.</p>
@@ -4142,7 +4082,8 @@ export interface EvaluationSuggestedAnswer {
   Input?: EvaluationQuestionInputDetails | undefined;
 
   /**
-   * <p>Type of analysis used to provide suggested answer.</p>
+   * <p>Type of analysis used to provide suggested answer. Valid values: <code>CONTACT_LENS_DATA</code> |
+   *    <code>GEN_AI</code> | <code>CONDITION</code>.</p>
    * @public
    */
   AnalysisType: EvaluationQuestionAnswerAnalysisType | undefined;
@@ -4441,6 +4382,46 @@ export interface EvaluationNote {
 }
 
 /**
+ * <p>The resolved value of an external source that is used by the conditions in an evaluation form.</p>
+ * @public
+ */
+export interface EvaluationResolvedSource {
+  /**
+   * <p>The external source, such as contact data, evaluation metadata, form metadata, or AI metrics.</p>
+   * @public
+   */
+  Source: EvaluationFormItemEnablementSource | undefined;
+
+  /**
+   * <p>The status of resolving the source. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - The source has not been resolved yet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESOLVED</code> - The source has been resolved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The source could not be resolved.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status: EvaluationItemResolutionStatus | undefined;
+
+  /**
+   * <p>The resolved values of the source. Present when <code>Status</code> is <code>RESOLVED</code>. Contains one value
+   *    for a single-valued source, any number of values for a multi-valued source, and no values when the source is not
+   *    present on the contact.</p>
+   * @public
+   */
+  Values?: EvaluationFormItemEnablementSourceValue[] | undefined;
+}
+
+/**
  * <p>Information about a contact evaluation.</p>
  * @public
  */
@@ -4510,6 +4491,47 @@ export interface Evaluation {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of item (section or question) identifiers to their enablement status, computed by the service from each
+   *    item's conditional enablement configuration. Disabled items are excluded from scoring. Valid values:
+   *    <code>ENABLED</code> | <code>DISABLED</code>.</p>
+   * @public
+   */
+  ItemEnablementStatus?: Record<string, EvaluationEnablementStatus> | undefined;
+
+  /**
+   * <p>The aggregate status of resolving the external source data (such as Contact Lens analysis and AI metrics) that is used by
+   *    conditional enablement in the evaluation. Source data is resolved asynchronously after the evaluation is started.
+   *    While a source is pending or after it fails to resolve, conditions that depend on it evaluate to the item's
+   *    <code>DefaultAction</code>. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - One or more sources have not been resolved yet. Call
+   *      <code>DescribeContactEvaluation</code> again to get updated <code>ItemEnablementStatus</code> values.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESOLVED</code> - All sources have been resolved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - One or more sources could not be resolved. Dependent conditions use the item's
+   *      <code>DefaultAction</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SourceResolutionStatus?: EvaluationItemResolutionStatus | undefined;
+
+  /**
+   * <p>The resolved values of the external sources (such as contact data, evaluation metadata, form metadata, and AI
+   *    metrics) that are used by the conditions in the evaluation form. You can use these values to evaluate the conditions
+   *    against the current answers without calling <code>DescribeContactEvaluation</code> again.</p>
+   * @public
+   */
+  SourceValues?: EvaluationResolvedSource[] | undefined;
 }
 
 /**
@@ -8248,4 +8270,84 @@ export interface DisassociateRoutingProfileQueuesRequest {
    * @public
    */
   ManualAssignmentQueueReferences?: RoutingProfileQueueReference[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSecurityKeyRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSecurityProfilesRequest {
+  /**
+   * <p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN)
+   *    of the instance. </p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p> List of Security Profile Object. </p>
+   * @public
+   */
+  SecurityProfiles: SecurityProfileItem[] | undefined;
+
+  /**
+   * <p> Only supported type is AI_AGENT. </p>
+   * @public
+   */
+  EntityType: EntityType | undefined;
+
+  /**
+   * <p> ARN of a Q in Connect AI Agent. </p>
+   * @public
+   */
+  EntityArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTrafficDistributionGroupUserRequest {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN of the traffic distribution group.</p>
+   * @public
+   */
+  TrafficDistributionGroupId: string | undefined;
+
+  /**
+   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
 }

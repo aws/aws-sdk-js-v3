@@ -924,12 +924,16 @@ import {
   EvaluationAutomationRuleCategory$,
   EvaluationContactLensAnswerAnalysisDetails$,
   EvaluationContactParticipant$,
+  EvaluationEnablementStatus,
   EvaluationForm$,
+  EvaluationFormAiMetricsField,
   EvaluationFormAIVersionLifecycle$,
   EvaluationFormAIVersionStatus,
   EvaluationFormAIVersionSummary$,
   EvaluationFormAutoEvaluationConfiguration$,
+  EvaluationFormContactField,
   EvaluationFormContent$,
+  EvaluationFormEvaluationMetadataField,
   EvaluationFormItem$,
   EvaluationFormItemEnablementAction,
   EvaluationFormItemEnablementCondition$,
@@ -984,11 +988,13 @@ import {
   EvaluationFormVersionStatus,
   EvaluationFormVersionSummary$,
   EvaluationGenAIAnswerAnalysisDetails$,
+  EvaluationItemResolutionStatus,
   EvaluationMetadata$,
   EvaluationNote$,
   EvaluationQuestionAnswerAnalysisDetails$,
   EvaluationQuestionAnswerAnalysisType,
   EvaluationQuestionInputDetails$,
+  EvaluationResolvedSource$,
   EvaluationReviewConfiguration$,
   EvaluationReviewMetadata$,
   EvaluationReviewNotificationRecipient$,
@@ -2017,6 +2023,7 @@ import {
   SessionEntityType,
   SignInConfig$,
   SignInDistribution$,
+  SingleSelectQuestionAutomationRule$,
   SingleSelectQuestionRuleCategoryAutomation$,
   SingleSelectQuestionRuleCategoryAutomationCondition,
   SlaAssignmentType,
@@ -3886,6 +3893,7 @@ assert(typeof EvaluationMetadata$ === "object");
 assert(typeof EvaluationNote$ === "object");
 assert(typeof EvaluationQuestionAnswerAnalysisDetails$ === "object");
 assert(typeof EvaluationQuestionInputDetails$ === "object");
+assert(typeof EvaluationResolvedSource$ === "object");
 assert(typeof EvaluationReviewConfiguration$ === "object");
 assert(typeof EvaluationReviewMetadata$ === "object");
 assert(typeof EvaluationReviewNotificationRecipient$ === "object");
@@ -4421,6 +4429,7 @@ assert(typeof SentimentConfiguration$ === "object");
 assert(typeof ServiceQuotaExceededExceptionReason$ === "object");
 assert(typeof SignInConfig$ === "object");
 assert(typeof SignInDistribution$ === "object");
+assert(typeof SingleSelectQuestionAutomationRule$ === "object");
 assert(typeof SingleSelectQuestionRuleCategoryAutomation$ === "object");
 assert(typeof Sort$ === "object");
 assert(typeof SourceCampaign$ === "object");
@@ -4744,7 +4753,11 @@ assert(typeof EmailHeaderType === "object");
 assert(typeof EncryptionType === "object");
 assert(typeof EndpointType === "object");
 assert(typeof EntityType === "object");
+assert(typeof EvaluationEnablementStatus === "object");
+assert(typeof EvaluationFormAiMetricsField === "object");
 assert(typeof EvaluationFormAIVersionStatus === "object");
+assert(typeof EvaluationFormContactField === "object");
+assert(typeof EvaluationFormEvaluationMetadataField === "object");
 assert(typeof EvaluationFormItemEnablementAction === "object");
 assert(typeof EvaluationFormItemEnablementOperator === "object");
 assert(typeof EvaluationFormItemEnablementSourceType === "object");
@@ -4761,6 +4774,7 @@ assert(typeof EvaluationFormSingleSelectQuestionDisplayMode === "object");
 assert(typeof EvaluationFormValidationFindingSeverity === "object");
 assert(typeof EvaluationFormValidationStatus === "object");
 assert(typeof EvaluationFormVersionStatus === "object");
+assert(typeof EvaluationItemResolutionStatus === "object");
 assert(typeof EvaluationQuestionAnswerAnalysisType === "object");
 assert(typeof EvaluationReviewNotificationRecipientType === "object");
 assert(typeof EvaluationStatus === "object");

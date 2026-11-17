@@ -682,8 +682,14 @@ export type EvaluationFormItemEnablementAction =
  */
 export const EvaluationFormItemSourceValuesComparator = {
   ALL_IN: "ALL_IN",
+  EQUAL_TO: "EQUAL_TO",
   EXACT: "EXACT",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
   IN: "IN",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
   NOT_IN: "NOT_IN",
 } as const;
 /**
@@ -696,7 +702,78 @@ export type EvaluationFormItemSourceValuesComparator =
  * @public
  * @enum
  */
+export const EvaluationFormAiMetricsField = {
+  AI_AGENT_MAX_PROMPT_LATENCY: "AI_AGENT_MAX_PROMPT_LATENCY",
+  AI_SESSION_COMPLETENESS_SCORE: "AI_SESSION_COMPLETENESS_SCORE",
+  AI_SESSION_FAITHFULNESS_SCORE: "AI_SESSION_FAITHFULNESS_SCORE",
+  AI_SESSION_GOAL_SUCCESS_RATE: "AI_SESSION_GOAL_SUCCESS_RATE",
+  AI_SESSION_IS_HANDED_OFF: "AI_SESSION_IS_HANDED_OFF",
+  AI_SESSION_SELF_SERVICE_DURATION: "AI_SESSION_SELF_SERVICE_DURATION",
+  AI_TOOL_MAX_LATENCY: "AI_TOOL_MAX_LATENCY",
+  AI_TOOL_PARAMETER_ACCURACY: "AI_TOOL_PARAMETER_ACCURACY",
+  AI_TOOL_SELECTION_ACCURACY: "AI_TOOL_SELECTION_ACCURACY",
+  AI_TOOL_UTILIZATION_ACCURACY: "AI_TOOL_UTILIZATION_ACCURACY",
+} as const;
+/**
+ * @public
+ */
+export type EvaluationFormAiMetricsField =
+  (typeof EvaluationFormAiMetricsField)[keyof typeof EvaluationFormAiMetricsField];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationFormContactField = {
+  AGENT_ARN: "AGENT_ARN",
+  AGENT_INTERACTION_AND_HOLD_DURATION: "AGENT_INTERACTION_AND_HOLD_DURATION",
+  AGENT_INTERACTION_DURATION: "AGENT_INTERACTION_DURATION",
+  CATEGORIES: "CATEGORIES",
+  CHANNEL: "CHANNEL",
+  CONTACT_DURATION: "CONTACT_DURATION",
+  CUSTOMER_HOLD_TIME: "CUSTOMER_HOLD_TIME",
+  CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT: "CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT",
+  CUSTOMER_SENTIMENT_SCORE_WITH_AGENT: "CUSTOMER_SENTIMENT_SCORE_WITH_AGENT",
+  INITIATION_METHOD: "INITIATION_METHOD",
+  IS_QUEUED: "IS_QUEUED",
+  LONGEST_HOLD_DURATION: "LONGEST_HOLD_DURATION",
+  NON_TALK_TIME: "NON_TALK_TIME",
+  NON_TALK_TIME_PERCENTAGE: "NON_TALK_TIME_PERCENTAGE",
+  NUMBER_OF_HOLDS: "NUMBER_OF_HOLDS",
+  NUMBER_OF_INTERRUPTIONS: "NUMBER_OF_INTERRUPTIONS",
+  OVERALL_AGENT_SENTIMENT_SCORE: "OVERALL_AGENT_SENTIMENT_SCORE",
+  OVERALL_CUSTOMER_SENTIMENT_SCORE: "OVERALL_CUSTOMER_SENTIMENT_SCORE",
+  QUEUE_ARN: "QUEUE_ARN",
+  RECORDING_MEDIA_STREAM_TYPES: "RECORDING_MEDIA_STREAM_TYPES",
+  ROUTING_PROFILE_ARN: "ROUTING_PROFILE_ARN",
+} as const;
+/**
+ * @public
+ */
+export type EvaluationFormContactField = (typeof EvaluationFormContactField)[keyof typeof EvaluationFormContactField];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationFormEvaluationMetadataField = {
+  EVALUATION_TYPE: "EVALUATION_TYPE",
+} as const;
+/**
+ * @public
+ */
+export type EvaluationFormEvaluationMetadataField =
+  (typeof EvaluationFormEvaluationMetadataField)[keyof typeof EvaluationFormEvaluationMetadataField];
+
+/**
+ * @public
+ * @enum
+ */
 export const EvaluationFormItemEnablementSourceType = {
+  AI_METRICS: "AI_METRICS",
+  CONTACT: "CONTACT",
+  EVALUATION_METADATA: "EVALUATION_METADATA",
+  FORM_METADATA: "FORM_METADATA",
   QUESTION_REF_ID: "QUESTION_REF_ID",
 } as const;
 /**
@@ -710,7 +787,11 @@ export type EvaluationFormItemEnablementSourceType =
  * @enum
  */
 export const EvaluationFormItemEnablementSourceValueType = {
+  BOOLEAN_VALUE: "BOOLEAN_VALUE",
+  DATETIME_VALUE: "DATETIME_VALUE",
+  NUMERIC_VALUE: "NUMERIC_VALUE",
   OPTION_REF_ID: "OPTION_REF_ID",
+  STRING_VALUE: "STRING_VALUE",
 } as const;
 /**
  * @public
@@ -765,6 +846,7 @@ export type EvaluationFormQuestionType = (typeof EvaluationFormQuestionType)[key
  * @enum
  */
 export const EvaluationFormQuestionAutomationAnswerSourceType = {
+  CONDITION: "CONDITION",
   CONTACT_LENS_DATA: "CONTACT_LENS_DATA",
   GEN_AI: "GEN_AI",
 } as const;
@@ -809,6 +891,15 @@ export type EvaluationFormMultiSelectQuestionDisplayMode =
 export const NumericQuestionPropertyAutomationLabel = {
   AGENT_INTERACTION_AND_HOLD_DURATION: "AGENT_INTERACTION_AND_HOLD_DURATION",
   AGENT_INTERACTION_DURATION: "AGENT_INTERACTION_DURATION",
+  AI_AGENT_MAX_PROMPT_LATENCY: "AI_AGENT_MAX_PROMPT_LATENCY",
+  AI_SESSION_COMPLETENESS_SCORE: "AI_SESSION_COMPLETENESS_SCORE",
+  AI_SESSION_FAITHFULNESS_SCORE: "AI_SESSION_FAITHFULNESS_SCORE",
+  AI_SESSION_GOAL_SUCCESS_RATE: "AI_SESSION_GOAL_SUCCESS_RATE",
+  AI_SESSION_SELF_SERVICE_DURATION: "AI_SESSION_SELF_SERVICE_DURATION",
+  AI_TOOL_MAX_LATENCY: "AI_TOOL_MAX_LATENCY",
+  AI_TOOL_PARAMETER_ACCURACY: "AI_TOOL_PARAMETER_ACCURACY",
+  AI_TOOL_SELECTION_ACCURACY: "AI_TOOL_SELECTION_ACCURACY",
+  AI_TOOL_UTILIZATION_ACCURACY: "AI_TOOL_UTILIZATION_ACCURACY",
   CONTACT_DURATION: "CONTACT_DURATION",
   CUSTOMER_HOLD_TIME: "CUSTOMER_HOLD_TIME",
   CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT: "CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT",
@@ -1892,6 +1983,7 @@ export type QuestionRuleCategoryAutomationCondition =
  * @enum
  */
 export const EvaluationQuestionAnswerAnalysisType = {
+  CONDITION: "CONDITION",
   CONTACT_LENS_DATA: "CONTACT_LENS_DATA",
   GEN_AI: "GEN_AI",
 } as const;
@@ -1946,6 +2038,19 @@ export type EvaluationType = (typeof EvaluationType)[keyof typeof EvaluationType
  * @public
  * @enum
  */
+export const EvaluationEnablementStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type EvaluationEnablementStatus = (typeof EvaluationEnablementStatus)[keyof typeof EvaluationEnablementStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const AutoEvaluationStatus = {
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
@@ -1970,6 +2075,21 @@ export const ContactParticipantRole = {
  * @public
  */
 export type ContactParticipantRole = (typeof ContactParticipantRole)[keyof typeof ContactParticipantRole];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationItemResolutionStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RESOLVED: "RESOLVED",
+} as const;
+/**
+ * @public
+ */
+export type EvaluationItemResolutionStatus =
+  (typeof EvaluationItemResolutionStatus)[keyof typeof EvaluationItemResolutionStatus];
 
 /**
  * @public

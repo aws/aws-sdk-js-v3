@@ -70,6 +70,7 @@ import type {
   TestCaseStatus,
   TrafficDistributionGroupStatus,
   Unit,
+  UseCaseType,
   VocabularyLanguageCode,
 } from "./enums";
 import type {
@@ -98,6 +99,8 @@ import type {
   SecurityProfileItem,
   SuccessfulBatchAssociationSummary,
   TagCondition,
+  TaskTemplateConstraints,
+  TaskTemplateContactHooks,
 } from "./models_0";
 import type {
   Attribute,
@@ -108,91 +111,9 @@ import type {
   HoursOfOperationOverride,
   HoursOfOperationsIdentifier,
   Notification,
-  TaskTemplateConstraints,
-  TaskTemplateContactHooks,
   TaskTemplateDefaults,
   TaskTemplateField,
 } from "./models_1";
-
-/**
- * @public
- */
-export interface DisassociateSecurityKeyRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateSecurityProfilesRequest {
-  /**
-   * <p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN)
-   *    of the instance. </p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p> List of Security Profile Object. </p>
-   * @public
-   */
-  SecurityProfiles: SecurityProfileItem[] | undefined;
-
-  /**
-   * <p> Only supported type is AI_AGENT. </p>
-   * @public
-   */
-  EntityType: EntityType | undefined;
-
-  /**
-   * <p> ARN of a Q in Connect AI Agent. </p>
-   * @public
-   */
-  EntityArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTrafficDistributionGroupUserRequest {
-  /**
-   * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN of the traffic distribution group.</p>
-   * @public
-   */
-  TrafficDistributionGroupId: string | undefined;
-
-  /**
-   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
 
 /**
  * @public
@@ -11513,4 +11434,79 @@ export interface ListTrafficDistributionGroupUsersResponse {
    * @public
    */
   TrafficDistributionGroupUserSummaryList?: TrafficDistributionGroupUserSummary[] | undefined;
+}
+
+/**
+ * <p>Provides summary information about the use cases for the specified integration association.</p>
+ * @public
+ */
+export interface ListUseCasesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the integration association.</p>
+   * @public
+   */
+  IntegrationAssociationId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains the
+ *    use
+ *    case.</p>
+ * @public
+ */
+export interface UseCase {
+  /**
+   * <p>The identifier for the use case.</p>
+   * @public
+   */
+  UseCaseId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the use case.</p>
+   * @public
+   */
+  UseCaseArn?: string | undefined;
+
+  /**
+   * <p>The type of use case to associate to the integration association. Each integration association can have only one
+   *    of each use case type.</p>
+   * @public
+   */
+  UseCaseType?: UseCaseType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUseCasesResponse {
+  /**
+   * <p>The use cases.</p>
+   * @public
+   */
+  UseCaseSummaryList?: UseCase[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }

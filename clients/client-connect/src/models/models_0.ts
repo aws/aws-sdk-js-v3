@@ -29,6 +29,9 @@ import type {
   EncryptionType,
   EndpointType,
   EntityType,
+  EvaluationFormAiMetricsField,
+  EvaluationFormContactField,
+  EvaluationFormEvaluationMetadataField,
   EvaluationFormItemEnablementSourceType,
   EvaluationFormItemEnablementSourceValueType,
   EvaluationFormItemSourceValuesComparator,
@@ -38,7 +41,6 @@ import type {
   EvaluationFormQuestionAutomationAnswerSourceType,
   EvaluationFormScoringMode,
   EvaluationFormScoringStatus,
-  EvaluationFormSingleSelectQuestionDisplayMode,
   EvaluationReviewNotificationRecipientType,
   EventSourceName,
   FailureReasonCode,
@@ -4449,34 +4451,116 @@ export interface EvaluationFormAutoEvaluationConfiguration {
  */
 export interface EvaluationFormItemEnablementSource {
   /**
-   * <p>A type of source item. </p>
+   * <p>A type of source item. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUESTION_REF_ID</code> - The answer to another question in the evaluation form.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONTACT</code> - Data from the evaluated contact.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EVALUATION_METADATA</code> - Metadata of the evaluation, such as the evaluation type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AI_METRICS</code> - Metrics about AI agents, AI sessions, and AI tools on the contact.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Type: EvaluationFormItemEnablementSourceType | undefined;
 
   /**
-   * <p>A referenceId of the source item.</p>
+   * <p>A referenceId of the source item. Use when <code>Type</code> is <code>QUESTION_REF_ID</code>.</p>
    * @public
    */
   RefId?: string | undefined;
+
+  /**
+   * <p>The contact field to use as the source, such as <code>CHANNEL</code>, <code>QUEUE_ARN</code>,
+   *    <code>OVERALL_CUSTOMER_SENTIMENT_SCORE</code>, or <code>RECORDING_MEDIA_STREAM_TYPES</code>. Use when
+   *    <code>Type</code> is <code>CONTACT</code>.</p>
+   * @public
+   */
+  ContactField?: EvaluationFormContactField | undefined;
+
+  /**
+   * <p>The key of the contact attribute to use as the source. Use when <code>Type</code> is <code>CONTACT</code>.</p>
+   * @public
+   */
+  ContactAttributeKey?: string | undefined;
+
+  /**
+   * <p>The key of the contact segment attribute to use as the source. Use when <code>Type</code> is
+   *    <code>CONTACT</code>.</p>
+   * @public
+   */
+  SegmentAttributeKey?: string | undefined;
+
+  /**
+   * <p>The evaluation metadata field to use as the source. Use when <code>Type</code> is
+   *    <code>EVALUATION_METADATA</code>.</p>
+   * @public
+   */
+  EvaluationMetadataField?: EvaluationFormEvaluationMetadataField | undefined;
+
+  /**
+   * <p>The AI metrics field to use as the source. Use when <code>Type</code> is <code>AI_METRICS</code>.</p>
+   * @public
+   */
+  AiMetricsField?: EvaluationFormAiMetricsField | undefined;
 }
 
 /**
- * <p>An enablement expression source value.</p>
+ * <p>An enablement expression source value. Provide only the value member that matches the specified
+ *    <code>Type</code>.</p>
  * @public
  */
 export interface EvaluationFormItemEnablementSourceValue {
   /**
-   * <p>A type of source item value. </p>
+   * <p>A type of source item value. Valid values: <code>OPTION_REF_ID</code> | <code>STRING_VALUE</code> |
+   *    <code>NUMERIC_VALUE</code> | <code>BOOLEAN_VALUE</code> | <code>DATETIME_VALUE</code>.</p>
    * @public
    */
   Type: EvaluationFormItemEnablementSourceValueType | undefined;
 
   /**
-   * <p>A referenceId of the source value.</p>
+   * <p>A referenceId of the source value. Use when <code>Type</code> is <code>OPTION_REF_ID</code>.</p>
    * @public
    */
   RefId?: string | undefined;
+
+  /**
+   * <p>A string value to compare against the source. Use when <code>Type</code> is
+   *    <code>STRING_VALUE</code>.</p>
+   * @public
+   */
+  StringValue?: string | undefined;
+
+  /**
+   * <p>A numeric value to compare against the source. Use when <code>Type</code> is
+   *    <code>NUMERIC_VALUE</code>.</p>
+   * @public
+   */
+  NumericValue?: number | undefined;
+
+  /**
+   * <p>A Boolean value to compare against the source. Use when <code>Type</code> is
+   *    <code>BOOLEAN_VALUE</code>.</p>
+   * @public
+   */
+  BooleanValue?: boolean | undefined;
+
+  /**
+   * <p>A date and time value to compare against the source. Use when <code>Type</code> is
+   *    <code>DATETIME_VALUE</code>.</p>
+   * @public
+   */
+  DateTimeValue?: Date | undefined;
 }
 
 /**
@@ -4497,7 +4581,10 @@ export interface EvaluationFormItemEnablementExpression {
   Values: EvaluationFormItemEnablementSourceValue[] | undefined;
 
   /**
-   * <p>A comparator to be used against list of values. </p>
+   * <p>A comparator to be used against a list of values. <code>IN</code>, <code>NOT_IN</code>, <code>ALL_IN</code>, and
+   *    <code>EXACT</code> compare sets of values. <code>GREATER_THAN</code>, <code>LESS_THAN</code>,
+   *    <code>GREATER_THAN_OR_EQUAL_TO</code>, and <code>LESS_THAN_OR_EQUAL_TO</code> compare a single numeric or date and
+   *    time value. <code>EQUAL_TO</code> and <code>NOT_EQUAL_TO</code> compare a single value.</p>
    * @public
    */
   Comparator: EvaluationFormItemSourceValuesComparator | undefined;
@@ -4550,7 +4637,23 @@ export interface EvaluationFormMetricConfiguration {
  */
 export interface EvaluationFormQuestionAutomationAnswerSource {
   /**
-   * <p>The automation answer source type.</p>
+   * <p>The automation answer source type. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONTACT_LENS_DATA</code> - The answer is based on Contact Lens data, such as rule categories and
+   *      metrics.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GEN_AI</code> - The answer is generated by generative AI.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONDITION</code> - The answer is determined by evaluating the conditions defined in the automation
+   *      rules of the question.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SourceType: EvaluationFormQuestionAutomationAnswerSourceType | undefined;
@@ -4637,7 +4740,7 @@ export interface EvaluationFormMultiSelectQuestionAutomation {
   DefaultOptionRefIds?: string[] | undefined;
 
   /**
-   * <p>A question automation answer.</p>
+   * <p>Automation answer source.</p>
    * @public
    */
   AnswerSource?: EvaluationFormQuestionAutomationAnswerSource | undefined;
@@ -4741,7 +4844,7 @@ export interface EvaluationFormMultiSelectQuestionProperties {
 }
 
 /**
- * <p>Information about the property value used in automation of a numeric questions. Label values are associated with
+ * <p>Information about the property value used in automation of a numeric question. Label values are associated with
  *    minimum and maximum values for the numeric question.</p>
  *          <ul>
  *             <li>
@@ -4926,71 +5029,6 @@ export interface SingleSelectQuestionRuleCategoryAutomation {
 }
 
 /**
- * <p>Information about the automation option of a single select question.</p>
- * @public
- */
-export type EvaluationFormSingleSelectQuestionAutomationOption =
-  | EvaluationFormSingleSelectQuestionAutomationOption.RuleCategoryMember
-  | EvaluationFormSingleSelectQuestionAutomationOption.$UnknownMember;
-
-/**
- * @public
- */
-export namespace EvaluationFormSingleSelectQuestionAutomationOption {
-  /**
-   * <p>The automation option based on a rule category for the single select question.</p>
-   * @public
-   */
-  export interface RuleCategoryMember {
-    RuleCategory: SingleSelectQuestionRuleCategoryAutomation;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    RuleCategory?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    RuleCategory: (value: SingleSelectQuestionRuleCategoryAutomation) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Information about the automation configuration in single select questions. Automation options are evaluated in
- *    order, and the first matched option is applied. If no automation option matches, and there is a default option, then
- *    the default option is applied.</p>
- * @public
- */
-export interface EvaluationFormSingleSelectQuestionAutomation {
-  /**
-   * <p>The automation options of the single select question.</p>
-   * @public
-   */
-  Options?: EvaluationFormSingleSelectQuestionAutomationOption[] | undefined;
-
-  /**
-   * <p>The identifier of the default answer option, when none of the automation options match the criteria.</p>
-   * @public
-   */
-  DefaultOptionRefId?: string | undefined;
-
-  /**
-   * <p>Automation answer source.</p>
-   * @public
-   */
-  AnswerSource?: EvaluationFormQuestionAutomationAnswerSource | undefined;
-}
-
-/**
  * <p>Information about the automation configuration in single select questions.</p>
  * @public
  */
@@ -5034,30 +5072,6 @@ export interface EvaluationFormSingleSelectQuestionOption {
 }
 
 /**
- * <p>Information about the options in single select questions.</p>
- * @public
- */
-export interface EvaluationFormSingleSelectQuestionProperties {
-  /**
-   * <p>The answer options of the single select question.</p>
-   * @public
-   */
-  Options: EvaluationFormSingleSelectQuestionOption[] | undefined;
-
-  /**
-   * <p>The display mode of the single select question.</p>
-   * @public
-   */
-  DisplayAs?: EvaluationFormSingleSelectQuestionDisplayMode | undefined;
-
-  /**
-   * <p>The display mode of the single select question.</p>
-   * @public
-   */
-  Automation?: EvaluationFormSingleSelectQuestionAutomation | undefined;
-}
-
-/**
  * <p>Information about the automation configuration in text questions.</p>
  * @public
  */
@@ -5079,94 +5093,6 @@ export interface EvaluationFormTextQuestionProperties {
    * @public
    */
   Automation?: EvaluationFormTextQuestionAutomation | undefined;
-}
-
-/**
- * <p>Information about properties for a question in an evaluation form. The question type properties must be either
- *    for a numeric question or a single select question.</p>
- * @public
- */
-export type EvaluationFormQuestionTypeProperties =
-  | EvaluationFormQuestionTypeProperties.MultiSelectMember
-  | EvaluationFormQuestionTypeProperties.NumericMember
-  | EvaluationFormQuestionTypeProperties.SingleSelectMember
-  | EvaluationFormQuestionTypeProperties.TextMember
-  | EvaluationFormQuestionTypeProperties.$UnknownMember;
-
-/**
- * @public
- */
-export namespace EvaluationFormQuestionTypeProperties {
-  /**
-   * <p>The properties of the numeric question.</p>
-   * @public
-   */
-  export interface NumericMember {
-    Numeric: EvaluationFormNumericQuestionProperties;
-    SingleSelect?: never;
-    Text?: never;
-    MultiSelect?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The properties of the numeric question.</p>
-   * @public
-   */
-  export interface SingleSelectMember {
-    Numeric?: never;
-    SingleSelect: EvaluationFormSingleSelectQuestionProperties;
-    Text?: never;
-    MultiSelect?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The properties of the text question.</p>
-   * @public
-   */
-  export interface TextMember {
-    Numeric?: never;
-    SingleSelect?: never;
-    Text: EvaluationFormTextQuestionProperties;
-    MultiSelect?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Properties for multi-select question types.</p>
-   * @public
-   */
-  export interface MultiSelectMember {
-    Numeric?: never;
-    SingleSelect?: never;
-    Text?: never;
-    MultiSelect: EvaluationFormMultiSelectQuestionProperties;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    Numeric?: never;
-    SingleSelect?: never;
-    Text?: never;
-    MultiSelect?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    Numeric: (value: EvaluationFormNumericQuestionProperties) => T;
-    SingleSelect: (value: EvaluationFormSingleSelectQuestionProperties) => T;
-    Text: (value: EvaluationFormTextQuestionProperties) => T;
-    MultiSelect: (value: EvaluationFormMultiSelectQuestionProperties) => T;
-    _: (name: string, value: any) => T;
-  }
 }
 
 /**
@@ -7930,4 +7856,71 @@ export interface ReadOnlyFieldInfo {
    * @public
    */
   Id?: TaskTemplateFieldIdentifier | undefined;
+}
+
+/**
+ * <p>Information about a required field.</p>
+ * @public
+ */
+export interface RequiredFieldInfo {
+  /**
+   * <p>The unique identifier for the field.</p>
+   * @public
+   */
+  Id?: TaskTemplateFieldIdentifier | undefined;
+}
+
+/**
+ * <p>Describes constraints that apply to the template fields.</p>
+ * @public
+ */
+export interface TaskTemplateConstraints {
+  /**
+   * <p>Lists the fields that are required to be filled by agents.</p>
+   * @public
+   */
+  RequiredFields?: RequiredFieldInfo[] | undefined;
+
+  /**
+   * <p>Lists the fields that are read-only to agents, and cannot be edited.</p>
+   * @public
+   */
+  ReadOnlyFields?: ReadOnlyFieldInfo[] | undefined;
+
+  /**
+   * <p>Lists the fields that are invisible to agents.</p>
+   * @public
+   */
+  InvisibleFields?: InvisibleFieldInfo[] | undefined;
+}
+
+/**
+ * <p>The event hooks that are set on tasks created by using this template.</p>
+ * @public
+ */
+export interface TaskTemplateContactHooks {
+  /**
+   * <p>The identifier of the flow module that runs when an agent attempts to disconnect from a task created by referencing this template.
+   * If no agent ever connects to the task, the flow module runs when the task is terminated.</p>
+   * @public
+   */
+  WrapUpFlowId?: string | undefined;
+}
+
+/**
+ * <p>Describes a default field and its corresponding value.</p>
+ * @public
+ */
+export interface TaskTemplateDefaultFieldValue {
+  /**
+   * <p>Identifier of a field. </p>
+   * @public
+   */
+  Id?: TaskTemplateFieldIdentifier | undefined;
+
+  /**
+   * <p>Default value for the field.</p>
+   * @public
+   */
+  DefaultValue?: string | undefined;
 }

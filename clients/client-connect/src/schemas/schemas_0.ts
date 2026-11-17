@@ -156,6 +156,7 @@ const _AMAQI = "AssociatedManualAssignmentQueueIds";
 const _AMC = "AllowedMonitorCapabilities";
 const _AMDC = "AnswerMachineDetectionConfig";
 const _AMDS = "AnsweringMachineDetectionStatus";
+const _AMF = "AiMetricsField";
 const _AMn = "AnalyticsMode";
 const _AMna = "AnalyticsModes";
 const _AN = "AttributeName";
@@ -187,6 +188,7 @@ const _ARPQR = "AssociateRoutingProfileQueuesRequest";
 const _ARc = "ActiveRegions";
 const _ARd = "AdditionalRecipients";
 const _ARt = "AttachmentReference";
+const _ARu = "AutomationRule";
 const _AS = "ActionSummary";
 const _ASA = "AssignSlaAction";
 const _ASAD = "AssignSlaActionDefinition";
@@ -333,6 +335,7 @@ const _CAFURo = "CompleteAttachedFileUploadResponse";
 const _CAFr = "CreateAttachedFile";
 const _CAI = "ContactAssociationId";
 const _CAIo = "ContactAgentId";
+const _CAK = "ContactAttributeKey";
 const _CAOCL = "CategoriesAttributeOrConditionList";
 const _CAOCLo = "CommonAttributeOrConditionList";
 const _CAR = "ContactAnalysisReference";
@@ -465,7 +468,8 @@ const _CFVS = "ContactFlowVersionSummary";
 const _CFVSL = "ContactFlowVersionSummaryList";
 const _CFo = "ContactFlow";
 const _CFon = "ContactFields";
-const _CFont = "ContactFlows";
+const _CFont = "ContactField";
+const _CFonta = "ContactFlows";
 const _CH = "ContactHooks";
 const _CHOO = "CreateHoursOfOperation";
 const _CHOOL = "ChildHoursOfOperationsList";
@@ -1150,6 +1154,7 @@ const _EIv = "EvaluationId";
 const _EIx = "ExtractedInformation";
 const _EL = "ExportLocation";
 const _EM = "ErrorMessage";
+const _EMF = "EvaluationMetadataField";
 const _EMPT = "EmailMessagePlainText";
 const _EMPTR = "EmailMessagePlainTextRedacted";
 const _EMR = "EmailMessageReference";
@@ -1178,6 +1183,9 @@ const _ERNRL = "EvaluationReviewNotificationRecipientList";
 const _ERNRV = "EvaluationReviewNotificationRecipientValue";
 const _ERRC = "EvaluationReviewRequestComment";
 const _ERRCL = "EvaluationReviewRequestCommentList";
+const _ERS = "EvaluationResolvedSource";
+const _ERSL = "EvaluationResolvedSourceList";
+const _ERSVL = "EvaluationResolvedSourceValueList";
 const _ERm = "EmailRecipient";
 const _ERma = "EmailReference";
 const _ERr = "ErrorResult";
@@ -1422,6 +1430,7 @@ const _IDs = "IssuesDetected";
 const _IE = "IdempotencyException";
 const _IEC = "InboundEmailContent";
 const _IEFS = "IsExcludedFromScoring";
+const _IES = "ItemEnablementStatus";
 const _IF = "InvisibleFields";
 const _IFI = "InvisibleFieldInfo";
 const _II = "InstanceId";
@@ -2307,6 +2316,7 @@ const _SAFI = "SelfAssignFlowId";
 const _SAFU = "StartAttachedFileUpload";
 const _SAFUR = "StartAttachedFileUploadRequest";
 const _SAFURt = "StartAttachedFileUploadResponse";
+const _SAK = "SegmentAttributeKey";
 const _SAN = "SourceApplicationName";
 const _SAPN = "SearchAvailablePhoneNumbers";
 const _SAPNR = "SearchAvailablePhoneNumbersRequest";
@@ -2523,6 +2533,7 @@ const _SRPR = "SearchRoutingProfilesRequest";
 const _SRPRe = "SearchRoutingProfilesResponse";
 const _SRR = "SearchRulesRequest";
 const _SRRe = "SearchRulesResponse";
+const _SRS = "SourceResolutionStatus";
 const _SRT = "SearchResourceTags";
 const _SRTR = "SearchResourceTagsRequest";
 const _SRTRe = "SearchResourceTagsResponse";
@@ -2542,6 +2553,7 @@ const _SSO = "SingleSelectOptions";
 const _SSP = "SearchSecurityProfiles";
 const _SSPR = "SearchSecurityProfilesRequest";
 const _SSPRe = "SearchSecurityProfilesResponse";
+const _SSQAR = "SingleSelectQuestionAutomationRule";
 const _SSQRCA = "SingleSelectQuestionRuleCategoryAutomation";
 const _SSS = "StartScreenSharing";
 const _SSSR = "StartScreenSharingRequest";
@@ -2596,6 +2608,7 @@ const _SVRear = "SearchVocabulariesResponse";
 const _SVe = "SearchViews";
 const _SVea = "SearchVocabularies";
 const _SVn = "SnapshotVersion";
+const _SVo = "SourceValues";
 const _SVt = "StringValues";
 const _SW = "SearchWorkspaces";
 const _SWA = "SearchWorkspaceAssociations";
@@ -5855,8 +5868,8 @@ export var EvaluateDataTableValuesResponse$: StaticStructureSchema = [3, n0, _ED
 ];
 export var Evaluation$: StaticStructureSchema = [3, n0, _Ev,
   0,
-  [_EIv, _EAv, _Meta, _An, _Not, _St, _CTre, _LMT, _Sco, _ETv, _Ta],
-  [0, 0, () => EvaluationMetadata$, () => EvaluationAnswersOutputMap, () => EvaluationNotesMap, 0, 4, 4, () => EvaluationScoresMap, 0, 128 | 0], 8
+  [_EIv, _EAv, _Meta, _An, _Not, _St, _CTre, _LMT, _Sco, _ETv, _Ta, _IES, _SRS, _SVo],
+  [0, 0, () => EvaluationMetadata$, () => EvaluationAnswersOutputMap, () => EvaluationNotesMap, 0, 4, 4, () => EvaluationScoresMap, 0, 128 | 0, 128 | 0, 0, () => EvaluationResolvedSourceList], 8
 ];
 export var EvaluationAcknowledgement$: StaticStructureSchema = [3, n0, _EAva,
   0,
@@ -5935,13 +5948,13 @@ export var EvaluationFormItemEnablementExpression$: StaticStructureSchema = [3, 
 ];
 export var EvaluationFormItemEnablementSource$: StaticStructureSchema = [3, n0, _EFIES,
   0,
-  [_T, _RIef],
-  [0, 0], 1
+  [_T, _RIef, _CFont, _CAK, _SAK, _EMF, _AMF],
+  [0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var EvaluationFormItemEnablementSourceValue$: StaticStructureSchema = [3, n0, _EFIESV,
   0,
-  [_T, _RIef],
-  [0, 0], 1
+  [_T, _RIef, _SV, _NV, _BV, _DTVa],
+  [0, 0, 0, 1, 2, 4], 1
 ];
 export var EvaluationFormLanguageConfiguration$: StaticStructureSchema = [3, n0, _EFLC,
   0,
@@ -6020,8 +6033,8 @@ export var EvaluationFormSearchSummary$: StaticStructureSchema = [3, n0, _EFSSv,
 ];
 export var EvaluationFormSection$: StaticStructureSchema = [3, n0, _EFS,
   0,
-  [_Tit, _RIef, _It, _Ins, _We, _IEFS, _STco],
-  [0, 0, () => EvaluationFormItemsList, 0, 1, 2, () => EvaluationFormScoreThresholdList], 3
+  [_Tit, _RIef, _It, _Ins, _We, _IEFS, _STco, _Ena],
+  [0, 0, () => EvaluationFormItemsList, 0, 1, 2, () => EvaluationFormScoreThresholdList, () => EvaluationFormItemEnablementConfiguration$], 3
 ];
 export var EvaluationFormSingleSelectQuestionAutomation$: StaticStructureSchema = [3, n0, _EFSSQA,
   0,
@@ -6092,6 +6105,11 @@ export var EvaluationQuestionInputDetails$: StaticStructureSchema = [3, n0, _EQI
   0,
   [_TT],
   [0]
+];
+export var EvaluationResolvedSource$: StaticStructureSchema = [3, n0, _ERS,
+  0,
+  [_So, _St, _Va],
+  [() => EvaluationFormItemEnablementSource$, 0, () => EvaluationResolvedSourceValueList], 2
 ];
 export var EvaluationReviewConfiguration$: StaticStructureSchema = [3, n0, _ERC,
   0,
@@ -8370,7 +8388,7 @@ export var SearchContactFlowsRequest$: StaticStructureSchema = [3, n0, _SCFR,
 ];
 export var SearchContactFlowsResponse$: StaticStructureSchema = [3, n0, _SCFRe,
   0,
-  [_CFont, _NT, _ATC],
+  [_CFonta, _NT, _ATC],
   [() => ContactFlowSearchSummaryList, 0, 1]
 ];
 export var SearchContactsAdditionalTimeRange$: StaticStructureSchema = [3, n0, _SCATR,
@@ -8722,6 +8740,11 @@ export var SignInDistribution$: StaticStructureSchema = [3, n0, _SIDi,
   0,
   [_Re, _En],
   [0, 2], 2
+];
+export var SingleSelectQuestionAutomationRule$: StaticStructureSchema = [3, n0, _SSQAR,
+  0,
+  [_Cond, _ORIp],
+  [() => EvaluationFormItemEnablementCondition$, 0], 2
 ];
 export var SingleSelectQuestionRuleCategoryAutomation$: StaticStructureSchema = [3, n0, _SSQRCA,
   0,
@@ -10378,6 +10401,12 @@ var EvaluationFormValidationFindingList: StaticListSchema = [1, n0, _EFVFL,
 var EvaluationFormVersionSummaryList: StaticListSchema = [1, n0, _EFVSL,
   0, () => EvaluationFormVersionSummary$
 ];
+var EvaluationResolvedSourceList: StaticListSchema = [1, n0, _ERSL,
+  0, () => EvaluationResolvedSource$
+];
+var EvaluationResolvedSourceValueList: StaticListSchema = [1, n0, _ERSVL,
+  0, () => EvaluationFormItemEnablementSourceValue$
+];
 var EvaluationReviewNotificationRecipientList: StaticListSchema = [1, n0, _ERNRL,
   0, () => EvaluationReviewNotificationRecipient$
 ];
@@ -10964,6 +10993,7 @@ var EvaluationAnswersInputMap: StaticMapSchema = [2, n0, _EAIM,
 var EvaluationAnswersOutputMap: StaticMapSchema = [2, n0, _EAOM,
   0, 0, () => EvaluationAnswerOutput$
 ];
+var EvaluationEnablementStatusMap = 128 | 0;
 var EvaluationNotesMap: StaticMapSchema = [2, n0, _ENM,
   0, 0, () => EvaluationNote$
 ];
@@ -11026,8 +11056,8 @@ export var EvaluationFormQuestionTypeProperties$: StaticUnionSchema = [4, n0, _E
 ];
 export var EvaluationFormSingleSelectQuestionAutomationOption$: StaticUnionSchema = [4, n0, _EFSSQAO,
   0,
-  [_RCul],
-  [() => SingleSelectQuestionRuleCategoryAutomation$]
+  [_RCul, _ARu],
+  [() => SingleSelectQuestionRuleCategoryAutomation$, () => SingleSelectQuestionAutomationRule$]
 ];
 export var EvaluationQuestionAnswerAnalysisDetails$: StaticUnionSchema = [4, n0, _EQAAD,
   0,

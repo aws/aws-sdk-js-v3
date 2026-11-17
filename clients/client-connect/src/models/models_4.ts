@@ -14,6 +14,7 @@ import type {
   EvaluationFormItemEnablementAction,
   EvaluationFormItemEnablementOperator,
   EvaluationFormQuestionType,
+  EvaluationFormSingleSelectQuestionDisplayMode,
   EvaluationFormValidationStatus,
   EvaluationFormVersionStatus,
   InitiateAs,
@@ -48,11 +49,15 @@ import type {
   EvaluationFormItemEnablementExpression,
   EvaluationFormLanguageConfiguration,
   EvaluationFormMetricConfiguration,
+  EvaluationFormMultiSelectQuestionProperties,
+  EvaluationFormNumericQuestionProperties,
+  EvaluationFormQuestionAutomationAnswerSource,
   EvaluationFormQuestionScoringConfiguration,
-  EvaluationFormQuestionTypeProperties,
   EvaluationFormScoreThreshold,
   EvaluationFormScoringStrategy,
+  EvaluationFormSingleSelectQuestionOption,
   EvaluationFormTargetConfiguration,
+  EvaluationFormTextQuestionProperties,
   EvaluationReviewConfiguration,
   FlowModule,
   GranularAccessControlConfiguration,
@@ -67,7 +72,10 @@ import type {
   Reference,
   RoutingProfileQueueConfig,
   RuleAction,
+  SingleSelectQuestionRuleCategoryAutomation,
   StringCondition,
+  TaskTemplateConstraints,
+  TaskTemplateContactHooks,
   UserInfo,
   UserProficiency,
 } from "./models_0";
@@ -92,8 +100,6 @@ import type {
   QualityMetrics,
   QueueInfo,
   RecordingInfo,
-  TaskTemplateConstraints,
-  TaskTemplateContactHooks,
   TaskTemplateDefaults,
   TaskTemplateField,
   TaskTemplateInfoV2,
@@ -154,45 +160,6 @@ import type {
   WorkspaceAssociationSearchFilter,
   WorkspaceSearchFilter,
 } from "./models_3";
-
-/**
- * @public
- */
-export interface UpdateMetricContentResponse {}
-
-/**
- * @public
- */
-export interface UpdateMetricMetadataRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the metric to update. Adding the <code>$SAVED</code> qualifier will update the saved version of the metric. Adding <code>$LATEST</code> or omitting a qualifier will update the published version.</p>
-   * @public
-   */
-  MetricId: string | undefined;
-
-  /**
-   * <p>The updated name of the metric.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The updated description of the metric.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMetricMetadataResponse {}
 
 /**
  * @public
@@ -1977,7 +1944,7 @@ export interface EvaluationFormItemEnablementCondition {
   Operands: EvaluationFormItemEnablementConditionOperand[] | undefined;
 
   /**
-   * <p>The operator to be used to be applied to operands if more than one provided. </p>
+   * <p>The operator to apply to the operands when more than one operand is provided.</p>
    * @public
    */
   Operator?: EvaluationFormItemEnablementOperator | undefined;
@@ -2206,13 +2173,14 @@ export interface EvaluationFormItemEnablementConfiguration {
   Condition: EvaluationFormItemEnablementCondition | undefined;
 
   /**
-   * <p>An enablement action that if condition is satisfied. </p>
+   * <p>The enablement action to apply if the condition is satisfied.</p>
    * @public
    */
   Action: EvaluationFormItemEnablementAction | undefined;
 
   /**
-   * <p>An enablement action that if condition is not satisfied. </p>
+   * <p>The enablement action to apply if the condition is not satisfied. This action is also applied when the condition
+   *    depends on an external source that is still pending or could not be resolved.</p>
    * @public
    */
   DefaultAction?: EvaluationFormItemEnablementAction | undefined;
@@ -2707,6 +2675,26 @@ export interface SegmentAttributeValue {
 }
 
 /**
+ * <p>Information about a condition-based automation rule for a single select question. When the condition is
+ *    satisfied, the specified answer option is selected.</p>
+ * @public
+ */
+export interface SingleSelectQuestionAutomationRule {
+  /**
+   * <p>The condition that must be satisfied for the answer option to be selected. The condition uses the same
+   *    sources, comparators, and operators as item enablement conditions.</p>
+   * @public
+   */
+  Condition: EvaluationFormItemEnablementCondition | undefined;
+
+  /**
+   * <p>The identifier of the answer option to select when the condition is satisfied.</p>
+   * @public
+   */
+  OptionRefId: string | undefined;
+}
+
+/**
  * <p>The search criteria to be used to return test cases.</p>
  * @public
  */
@@ -2894,70 +2882,57 @@ export interface WorkspaceSearchCriteria {
 }
 
 /**
- * <p>Information about a question from an evaluation form.</p>
+ * <p>Information about the automation option of a single select question.</p>
  * @public
  */
-export interface EvaluationFormQuestion {
+export type EvaluationFormSingleSelectQuestionAutomationOption =
+  | EvaluationFormSingleSelectQuestionAutomationOption.AutomationRuleMember
+  | EvaluationFormSingleSelectQuestionAutomationOption.RuleCategoryMember
+  | EvaluationFormSingleSelectQuestionAutomationOption.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationFormSingleSelectQuestionAutomationOption {
   /**
-   * <p>The title of the question.</p>
+   * <p>The automation option based on a rule category for the single select question.</p>
    * @public
    */
-  Title: string | undefined;
+  export interface RuleCategoryMember {
+    RuleCategory: SingleSelectQuestionRuleCategoryAutomation;
+    AutomationRule?: never;
+    $unknown?: never;
+  }
 
   /**
-   * <p>The instructions of the section.</p>
+   * <p>The automation option based on a condition for the single select question. Use with the
+   *    <code>CONDITION</code> answer source type.</p>
    * @public
    */
-  Instructions?: string | undefined;
+  export interface AutomationRuleMember {
+    RuleCategory?: never;
+    AutomationRule: SingleSelectQuestionAutomationRule;
+    $unknown?: never;
+  }
 
   /**
-   * <p>The identifier of the question. An identifier must be unique within the evaluation form.</p>
    * @public
    */
-  RefId: string | undefined;
+  export interface $UnknownMember {
+    RuleCategory?: never;
+    AutomationRule?: never;
+    $unknown: [string, any];
+  }
 
   /**
-   * <p>The flag to enable not applicable answers to the question.</p>
-   * @public
+   * @deprecated unused in schema-serde mode.
+   *
    */
-  NotApplicableEnabled?: boolean | undefined;
-
-  /**
-   * <p>The type of the question.</p>
-   * @public
-   */
-  QuestionType: EvaluationFormQuestionType | undefined;
-
-  /**
-   * <p>The properties of the type of question. Text questions do not have to define question type properties.</p>
-   * @public
-   */
-  QuestionTypeProperties?: EvaluationFormQuestionTypeProperties | undefined;
-
-  /**
-   * <p>A question conditional enablement.</p>
-   * @public
-   */
-  Enablement?: EvaluationFormItemEnablementConfiguration | undefined;
-
-  /**
-   * <p>The scoring weight of the section.</p>
-   * @public
-   */
-  Weight?: number | undefined;
-
-  /**
-   * <p>The scoring configuration of the question.</p>
-   * @public
-   */
-  ScoringConfiguration?: EvaluationFormQuestionScoringConfiguration | undefined;
-
-  /**
-   * <p>The metric configuration for the question. Use this to associate a business outcome metric with the
-   *    question.</p>
-   * @public
-   */
-  MetricConfiguration?: EvaluationFormMetricConfiguration | undefined;
+  export interface Visitor<T> {
+    RuleCategory: (value: SingleSelectQuestionRuleCategoryAutomation) => T;
+    AutomationRule: (value: SingleSelectQuestionAutomationRule) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -3923,6 +3898,32 @@ export interface ContactSearchSummarySegmentAttributeValue {
 }
 
 /**
+ * <p>Information about the automation configuration in single select questions. Automation options are evaluated in
+ *    order, and the first matched option is applied. If no automation option matches, and there is a default option, then
+ *    the default option is applied.</p>
+ * @public
+ */
+export interface EvaluationFormSingleSelectQuestionAutomation {
+  /**
+   * <p>The automation options of the single select question.</p>
+   * @public
+   */
+  Options?: EvaluationFormSingleSelectQuestionAutomationOption[] | undefined;
+
+  /**
+   * <p>The identifier of the default answer option, when none of the automation options match the criteria.</p>
+   * @public
+   */
+  DefaultOptionRefId?: string | undefined;
+
+  /**
+   * <p>Automation answer source.</p>
+   * @public
+   */
+  AnswerSource?: EvaluationFormQuestionAutomationAnswerSource | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateContactRequest {
@@ -4053,6 +4054,30 @@ export interface CreateContactRequest {
    * @public
    */
   PreviousContactId?: string | undefined;
+}
+
+/**
+ * <p>Information about the options in single select questions.</p>
+ * @public
+ */
+export interface EvaluationFormSingleSelectQuestionProperties {
+  /**
+   * <p>The answer options of the single select question.</p>
+   * @public
+   */
+  Options: EvaluationFormSingleSelectQuestionOption[] | undefined;
+
+  /**
+   * <p>The display mode of the single select question.</p>
+   * @public
+   */
+  DisplayAs?: EvaluationFormSingleSelectQuestionDisplayMode | undefined;
+
+  /**
+   * <p>The display mode of the single select question.</p>
+   * @public
+   */
+  Automation?: EvaluationFormSingleSelectQuestionAutomation | undefined;
 }
 
 /**
@@ -4786,35 +4811,66 @@ export interface UpdateContactRequest {
 }
 
 /**
- * <p>Information about an item from an evaluation form. The item must be either a section or a question.</p>
+ * <p>Information about properties for a question in an evaluation form. The question type properties must be either
+ *    for a numeric question or a single select question.</p>
  * @public
  */
-export type EvaluationFormItem =
-  | EvaluationFormItem.QuestionMember
-  | EvaluationFormItem.SectionMember
-  | EvaluationFormItem.$UnknownMember;
+export type EvaluationFormQuestionTypeProperties =
+  | EvaluationFormQuestionTypeProperties.MultiSelectMember
+  | EvaluationFormQuestionTypeProperties.NumericMember
+  | EvaluationFormQuestionTypeProperties.SingleSelectMember
+  | EvaluationFormQuestionTypeProperties.TextMember
+  | EvaluationFormQuestionTypeProperties.$UnknownMember;
 
 /**
  * @public
  */
-export namespace EvaluationFormItem {
+export namespace EvaluationFormQuestionTypeProperties {
   /**
-   * <p>The information of the section.</p>
+   * <p>The properties of the numeric question.</p>
    * @public
    */
-  export interface SectionMember {
-    Section: EvaluationFormSection;
-    Question?: never;
+  export interface NumericMember {
+    Numeric: EvaluationFormNumericQuestionProperties;
+    SingleSelect?: never;
+    Text?: never;
+    MultiSelect?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>The information of the question.</p>
+   * <p>The properties of the numeric question.</p>
    * @public
    */
-  export interface QuestionMember {
-    Section?: never;
-    Question: EvaluationFormQuestion;
+  export interface SingleSelectMember {
+    Numeric?: never;
+    SingleSelect: EvaluationFormSingleSelectQuestionProperties;
+    Text?: never;
+    MultiSelect?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The properties of the text question.</p>
+   * @public
+   */
+  export interface TextMember {
+    Numeric?: never;
+    SingleSelect?: never;
+    Text: EvaluationFormTextQuestionProperties;
+    MultiSelect?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Properties for multi-select question types.</p>
+   * @public
+   */
+  export interface MultiSelectMember {
+    Numeric?: never;
+    SingleSelect?: never;
+    Text?: never;
+    MultiSelect: EvaluationFormMultiSelectQuestionProperties;
     $unknown?: never;
   }
 
@@ -4822,8 +4878,10 @@ export namespace EvaluationFormItem {
    * @public
    */
   export interface $UnknownMember {
-    Section?: never;
-    Question?: never;
+    Numeric?: never;
+    SingleSelect?: never;
+    Text?: never;
+    MultiSelect?: never;
     $unknown: [string, any];
   }
 
@@ -4832,8 +4890,10 @@ export namespace EvaluationFormItem {
    *
    */
   export interface Visitor<T> {
-    Section: (value: EvaluationFormSection) => T;
-    Question: (value: EvaluationFormQuestion) => T;
+    Numeric: (value: EvaluationFormNumericQuestionProperties) => T;
+    SingleSelect: (value: EvaluationFormSingleSelectQuestionProperties) => T;
+    Text: (value: EvaluationFormTextQuestionProperties) => T;
+    MultiSelect: (value: EvaluationFormMultiSelectQuestionProperties) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -4881,352 +4941,6 @@ export interface RoutingCriteriaInput {
 }
 
 /**
- * <p>Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation
- *    forms can only contain sections and subsections (two level nesting).</p>
- * @public
- */
-export interface EvaluationFormSection {
-  /**
-   * <p>The title of the section.</p>
-   * @public
-   */
-  Title: string | undefined;
-
-  /**
-   * <p>The identifier of the section. An identifier must be unique within the evaluation form.</p>
-   * @public
-   */
-  RefId: string | undefined;
-
-  /**
-   * <p>The instructions of the section.</p>
-   * @public
-   */
-  Instructions?: string | undefined;
-
-  /**
-   * <p>The items of the section.</p>
-   * @public
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * <p>The scoring weight of the section.</p>
-   * @public
-   */
-  Weight?: number | undefined;
-
-  /**
-   * <p>The flag to exclude the section from scoring.</p>
-   * @public
-   */
-  IsExcludedFromScoring?: boolean | undefined;
-
-  /**
-   * <p>The score thresholds for performance categories.</p>
-   * @public
-   */
-  ScoreThresholds?: EvaluationFormScoreThreshold[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateEvaluationFormRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A title of the evaluation form.</p>
-   * @public
-   */
-  Title: string | undefined;
-
-  /**
-   * <p>The description of the evaluation form.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
-   * @public
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * <p>A scoring strategy of the evaluation form.</p>
-   * @public
-   */
-  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
-
-  /**
-   * <p>Configuration information about automated evaluations.</p>
-   * @public
-   */
-  AutoEvaluationConfiguration?: EvaluationFormAutoEvaluationConfiguration | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>A boolean flag indicating whether to create evaluation form in draft state.</p>
-   * @public
-   */
-  AsDraft?: boolean | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>Configuration information about evaluation reviews.</p>
-   * @public
-   */
-  ReviewConfiguration?: EvaluationReviewConfiguration | undefined;
-
-  /**
-   * <p>Configuration that specifies the target for the evaluation form.</p>
-   * @public
-   */
-  TargetConfiguration?: EvaluationFormTargetConfiguration | undefined;
-
-  /**
-   * <p>Configuration for language settings of the evaluation form.</p>
-   * @public
-   */
-  LanguageConfiguration?: EvaluationFormLanguageConfiguration | undefined;
-
-  /**
-   * <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
-   * @public
-   */
-  AIVersion?: string | undefined;
-}
-
-/**
- * <p>Information about the evaluation form.</p>
- * @public
- */
-export interface EvaluationForm {
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>A version of the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormVersion: number | undefined;
-
-  /**
-   * <p>The flag indicating whether the evaluation form is locked for changes.</p>
-   * @public
-   */
-  Locked: boolean | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
-   * @public
-   */
-  EvaluationFormArn: string | undefined;
-
-  /**
-   * <p>A title of the evaluation form.</p>
-   * @public
-   */
-  Title: string | undefined;
-
-  /**
-   * <p>The description of the evaluation form.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The status of the evaluation form.</p>
-   * @public
-   */
-  Status: EvaluationFormVersionStatus | undefined;
-
-  /**
-   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
-   * @public
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * <p>A scoring strategy of the evaluation form.</p>
-   * @public
-   */
-  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
-
-  /**
-   * <p>The timestamp for when the evaluation form was created.</p>
-   * @public
-   */
-  CreatedTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who created the evaluation form.</p>
-   * @public
-   */
-  CreatedBy: string | undefined;
-
-  /**
-   * <p>The timestamp for when the evaluation form was last updated.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation form.</p>
-   * @public
-   */
-  LastModifiedBy: string | undefined;
-
-  /**
-   * <p>The automatic evaluation configuration of an evaluation form.</p>
-   * @public
-   */
-  AutoEvaluationConfiguration?: EvaluationFormAutoEvaluationConfiguration | undefined;
-
-  /**
-   * <p>Configuration for evaluation review settings of this evaluation form.</p>
-   * @public
-   */
-  ReviewConfiguration?: EvaluationReviewConfiguration | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>Configuration that specifies the target for this evaluation form.</p>
-   * @public
-   */
-  TargetConfiguration?: EvaluationFormTargetConfiguration | undefined;
-
-  /**
-   * <p>Configuration for language settings of this evaluation form.</p>
-   * @public
-   */
-  LanguageConfiguration?: EvaluationFormLanguageConfiguration | undefined;
-
-  /**
-   * <p>The status of the most recent validation run for this evaluation form. Valid values:
-   *    <code>IN_PROGRESS</code>, <code>COMPLETED</code>, <code>FAILED</code>.</p>
-   * @public
-   */
-  LatestValidationStatus?: EvaluationFormValidationStatus | undefined;
-
-  /**
-   * <p>The timestamp when the most recent validation was started for this evaluation form.</p>
-   * @public
-   */
-  LastValidationTime?: Date | undefined;
-
-  /**
-   * <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
-   * @public
-   */
-  AIVersion?: string | undefined;
-}
-
-/**
- * <p>Information about an evaluation form used in a contact evaluation.</p>
- * @public
- */
-export interface EvaluationFormContent {
-  /**
-   * <p>A version of the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormVersion: number | undefined;
-
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
-   * @public
-   */
-  EvaluationFormArn: string | undefined;
-
-  /**
-   * <p>A title of the evaluation form.</p>
-   * @public
-   */
-  Title: string | undefined;
-
-  /**
-   * <p>The description of the evaluation form.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
-   * @public
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * <p>A scoring strategy of the evaluation form.</p>
-   * @public
-   */
-  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
-
-  /**
-   * <p>The configuration of the automated evaluation.</p>
-   * @public
-   */
-  AutoEvaluationConfiguration?: EvaluationFormAutoEvaluationConfiguration | undefined;
-
-  /**
-   * <p>Configuration that specifies the target for this evaluation form content.</p>
-   * @public
-   */
-  TargetConfiguration?: EvaluationFormTargetConfiguration | undefined;
-
-  /**
-   * <p>Configuration for language settings of this evaluation form content.</p>
-   * @public
-   */
-  LanguageConfiguration?: EvaluationFormLanguageConfiguration | undefined;
-
-  /**
-   * <p>Configuration for evaluation review settings of this evaluation form content.</p>
-   * @public
-   */
-  ReviewConfiguration?: EvaluationReviewConfiguration | undefined;
-
-  /**
-   * <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
-   * @public
-   */
-  AIVersion?: string | undefined;
-}
-
-/**
  * @public
  */
 export interface UpdateContactRoutingDataRequest {
@@ -5266,129 +4980,70 @@ export interface UpdateContactRoutingDataRequest {
 }
 
 /**
+ * <p>Information about a question from an evaluation form.</p>
  * @public
  */
-export interface UpdateEvaluationFormRequest {
+export interface EvaluationFormQuestion {
   /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>A version of the evaluation form to update.</p>
-   * @public
-   */
-  EvaluationFormVersion: number | undefined;
-
-  /**
-   * <p>A flag indicating whether the operation must create a new version.</p>
-   * @public
-   */
-  CreateNewVersion?: boolean | undefined;
-
-  /**
-   * <p>A title of the evaluation form.</p>
+   * <p>The title of the question.</p>
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>The description of the evaluation form.</p>
+   * <p>The instructions of the section.</p>
    * @public
    */
-  Description?: string | undefined;
+  Instructions?: string | undefined;
 
   /**
-   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
+   * <p>The identifier of the question. An identifier must be unique within the evaluation form.</p>
    * @public
    */
-  Items: EvaluationFormItem[] | undefined;
+  RefId: string | undefined;
 
   /**
-   * <p>A scoring strategy of the evaluation form.</p>
+   * <p>The flag to enable not applicable answers to the question.</p>
    * @public
    */
-  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
+  NotApplicableEnabled?: boolean | undefined;
 
   /**
-   * <p>Whether automated evaluations are enabled.</p>
+   * <p>The type of the question.</p>
    * @public
    */
-  AutoEvaluationConfiguration?: EvaluationFormAutoEvaluationConfiguration | undefined;
+  QuestionType: EvaluationFormQuestionType | undefined;
 
   /**
-   * <p>Configuration for evaluation review settings of the evaluation form.</p>
+   * <p>The properties of the type of question. Text questions do not have to define question type properties.</p>
    * @public
    */
-  ReviewConfiguration?: EvaluationReviewConfiguration | undefined;
+  QuestionTypeProperties?: EvaluationFormQuestionTypeProperties | undefined;
 
   /**
-   * <p>A boolean flag indicating whether to update evaluation form to draft state.</p>
+   * <p>A question conditional enablement.</p>
    * @public
    */
-  AsDraft?: boolean | undefined;
+  Enablement?: EvaluationFormItemEnablementConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * <p>The scoring weight of the section.</p>
    * @public
    */
-  ClientToken?: string | undefined;
+  Weight?: number | undefined;
 
   /**
-   * <p>Configuration that specifies the target for the evaluation form.</p>
+   * <p>The scoring configuration of the question.</p>
    * @public
    */
-  TargetConfiguration?: EvaluationFormTargetConfiguration | undefined;
+  ScoringConfiguration?: EvaluationFormQuestionScoringConfiguration | undefined;
 
   /**
-   * <p>Configuration for language settings of the evaluation form.</p>
+   * <p>The metric configuration for the question. Use this to associate a business outcome metric with the
+   *    question.</p>
    * @public
    */
-  LanguageConfiguration?: EvaluationFormLanguageConfiguration | undefined;
-
-  /**
-   * <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
-   * @public
-   */
-  AIVersion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeContactEvaluationResponse {
-  /**
-   * <p>Information about the evaluation form completed for a specific contact.</p>
-   * @public
-   */
-  Evaluation: Evaluation | undefined;
-
-  /**
-   * <p>Information about the evaluation form.</p>
-   * @public
-   */
-  EvaluationForm: EvaluationFormContent | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEvaluationFormResponse {
-  /**
-   * <p>Information about the evaluation form.</p>
-   * @public
-   */
-  EvaluationForm: EvaluationForm | undefined;
+  MetricConfiguration?: EvaluationFormMetricConfiguration | undefined;
 }
 
 /**
@@ -5848,6 +5503,115 @@ export interface DescribeContactResponse {
 }
 
 /**
+ * <p>Information about an item from an evaluation form. The item must be either a section or a question.</p>
+ * @public
+ */
+export type EvaluationFormItem =
+  | EvaluationFormItem.QuestionMember
+  | EvaluationFormItem.SectionMember
+  | EvaluationFormItem.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationFormItem {
+  /**
+   * <p>The information of the section.</p>
+   * @public
+   */
+  export interface SectionMember {
+    Section: EvaluationFormSection;
+    Question?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The information of the question.</p>
+   * @public
+   */
+  export interface QuestionMember {
+    Section?: never;
+    Question: EvaluationFormQuestion;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Section?: never;
+    Question?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Section: (value: EvaluationFormSection) => T;
+    Question: (value: EvaluationFormQuestion) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation
+ *    forms can only contain sections and subsections (two level nesting).</p>
+ * @public
+ */
+export interface EvaluationFormSection {
+  /**
+   * <p>The title of the section.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The identifier of the section. An identifier must be unique within the evaluation form.</p>
+   * @public
+   */
+  RefId: string | undefined;
+
+  /**
+   * <p>The instructions of the section.</p>
+   * @public
+   */
+  Instructions?: string | undefined;
+
+  /**
+   * <p>The items of the section.</p>
+   * @public
+   */
+  Items: EvaluationFormItem[] | undefined;
+
+  /**
+   * <p>The scoring weight of the section.</p>
+   * @public
+   */
+  Weight?: number | undefined;
+
+  /**
+   * <p>The flag to exclude the section from scoring.</p>
+   * @public
+   */
+  IsExcludedFromScoring?: boolean | undefined;
+
+  /**
+   * <p>The score thresholds for performance categories.</p>
+   * @public
+   */
+  ScoreThresholds?: EvaluationFormScoreThreshold[] | undefined;
+
+  /**
+   * <p>The conditional enablement configuration of the section. Sections use the same enablement model as
+   *    questions.</p>
+   * @public
+   */
+  Enablement?: EvaluationFormItemEnablementConfiguration | undefined;
+}
+
+/**
  * @public
  */
 export interface SearchContactsResponse {
@@ -5868,4 +5632,427 @@ export interface SearchContactsResponse {
    * @public
    */
   TotalCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEvaluationFormRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A title of the evaluation form.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The description of the evaluation form.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
+   * @public
+   */
+  Items: EvaluationFormItem[] | undefined;
+
+  /**
+   * <p>A scoring strategy of the evaluation form.</p>
+   * @public
+   */
+  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
+
+  /**
+   * <p>Configuration information about automated evaluations.</p>
+   * @public
+   */
+  AutoEvaluationConfiguration?: EvaluationFormAutoEvaluationConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A boolean flag indicating whether to create evaluation form in draft state.</p>
+   * @public
+   */
+  AsDraft?: boolean | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Configuration information about evaluation reviews.</p>
+   * @public
+   */
+  ReviewConfiguration?: EvaluationReviewConfiguration | undefined;
+
+  /**
+   * <p>Configuration that specifies the target for the evaluation form.</p>
+   * @public
+   */
+  TargetConfiguration?: EvaluationFormTargetConfiguration | undefined;
+
+  /**
+   * <p>Configuration for language settings of the evaluation form.</p>
+   * @public
+   */
+  LanguageConfiguration?: EvaluationFormLanguageConfiguration | undefined;
+
+  /**
+   * <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+   * @public
+   */
+  AIVersion?: string | undefined;
+}
+
+/**
+ * <p>Information about the evaluation form.</p>
+ * @public
+ */
+export interface EvaluationForm {
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>A version of the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+
+  /**
+   * <p>The flag indicating whether the evaluation form is locked for changes.</p>
+   * @public
+   */
+  Locked: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+   * @public
+   */
+  EvaluationFormArn: string | undefined;
+
+  /**
+   * <p>A title of the evaluation form.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The description of the evaluation form.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The status of the evaluation form.</p>
+   * @public
+   */
+  Status: EvaluationFormVersionStatus | undefined;
+
+  /**
+   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
+   * @public
+   */
+  Items: EvaluationFormItem[] | undefined;
+
+  /**
+   * <p>A scoring strategy of the evaluation form.</p>
+   * @public
+   */
+  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
+
+  /**
+   * <p>The timestamp for when the evaluation form was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who created the evaluation form.</p>
+   * @public
+   */
+  CreatedBy: string | undefined;
+
+  /**
+   * <p>The timestamp for when the evaluation form was last updated.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation form.</p>
+   * @public
+   */
+  LastModifiedBy: string | undefined;
+
+  /**
+   * <p>The automatic evaluation configuration of an evaluation form.</p>
+   * @public
+   */
+  AutoEvaluationConfiguration?: EvaluationFormAutoEvaluationConfiguration | undefined;
+
+  /**
+   * <p>Configuration for evaluation review settings of this evaluation form.</p>
+   * @public
+   */
+  ReviewConfiguration?: EvaluationReviewConfiguration | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Configuration that specifies the target for this evaluation form.</p>
+   * @public
+   */
+  TargetConfiguration?: EvaluationFormTargetConfiguration | undefined;
+
+  /**
+   * <p>Configuration for language settings of this evaluation form.</p>
+   * @public
+   */
+  LanguageConfiguration?: EvaluationFormLanguageConfiguration | undefined;
+
+  /**
+   * <p>The status of the most recent validation run for this evaluation form. Valid values:
+   *    <code>IN_PROGRESS</code>, <code>COMPLETED</code>, <code>FAILED</code>.</p>
+   * @public
+   */
+  LatestValidationStatus?: EvaluationFormValidationStatus | undefined;
+
+  /**
+   * <p>The timestamp when the most recent validation was started for this evaluation form.</p>
+   * @public
+   */
+  LastValidationTime?: Date | undefined;
+
+  /**
+   * <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+   * @public
+   */
+  AIVersion?: string | undefined;
+}
+
+/**
+ * <p>Information about an evaluation form used in a contact evaluation.</p>
+ * @public
+ */
+export interface EvaluationFormContent {
+  /**
+   * <p>A version of the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+   * @public
+   */
+  EvaluationFormArn: string | undefined;
+
+  /**
+   * <p>A title of the evaluation form.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The description of the evaluation form.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
+   * @public
+   */
+  Items: EvaluationFormItem[] | undefined;
+
+  /**
+   * <p>A scoring strategy of the evaluation form.</p>
+   * @public
+   */
+  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
+
+  /**
+   * <p>The configuration of the automated evaluation.</p>
+   * @public
+   */
+  AutoEvaluationConfiguration?: EvaluationFormAutoEvaluationConfiguration | undefined;
+
+  /**
+   * <p>Configuration that specifies the target for this evaluation form content.</p>
+   * @public
+   */
+  TargetConfiguration?: EvaluationFormTargetConfiguration | undefined;
+
+  /**
+   * <p>Configuration for language settings of this evaluation form content.</p>
+   * @public
+   */
+  LanguageConfiguration?: EvaluationFormLanguageConfiguration | undefined;
+
+  /**
+   * <p>Configuration for evaluation review settings of this evaluation form content.</p>
+   * @public
+   */
+  ReviewConfiguration?: EvaluationReviewConfiguration | undefined;
+
+  /**
+   * <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+   * @public
+   */
+  AIVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEvaluationFormRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>A version of the evaluation form to update.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+
+  /**
+   * <p>A flag indicating whether the operation must create a new version.</p>
+   * @public
+   */
+  CreateNewVersion?: boolean | undefined;
+
+  /**
+   * <p>A title of the evaluation form.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The description of the evaluation form.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
+   * @public
+   */
+  Items: EvaluationFormItem[] | undefined;
+
+  /**
+   * <p>A scoring strategy of the evaluation form.</p>
+   * @public
+   */
+  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
+
+  /**
+   * <p>Whether automated evaluations are enabled.</p>
+   * @public
+   */
+  AutoEvaluationConfiguration?: EvaluationFormAutoEvaluationConfiguration | undefined;
+
+  /**
+   * <p>Configuration for evaluation review settings of the evaluation form.</p>
+   * @public
+   */
+  ReviewConfiguration?: EvaluationReviewConfiguration | undefined;
+
+  /**
+   * <p>A boolean flag indicating whether to update evaluation form to draft state.</p>
+   * @public
+   */
+  AsDraft?: boolean | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Configuration that specifies the target for the evaluation form.</p>
+   * @public
+   */
+  TargetConfiguration?: EvaluationFormTargetConfiguration | undefined;
+
+  /**
+   * <p>Configuration for language settings of the evaluation form.</p>
+   * @public
+   */
+  LanguageConfiguration?: EvaluationFormLanguageConfiguration | undefined;
+
+  /**
+   * <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+   * @public
+   */
+  AIVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContactEvaluationResponse {
+  /**
+   * <p>Information about the evaluation form completed for a specific contact.</p>
+   * @public
+   */
+  Evaluation: Evaluation | undefined;
+
+  /**
+   * <p>Information about the evaluation form.</p>
+   * @public
+   */
+  EvaluationForm: EvaluationFormContent | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEvaluationFormResponse {
+  /**
+   * <p>Information about the evaluation form.</p>
+   * @public
+   */
+  EvaluationForm: EvaluationForm | undefined;
 }
