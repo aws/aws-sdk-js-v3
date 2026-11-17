@@ -36,6 +36,7 @@ x-amz-server-side-encryption-bucket-key-enabled: false
 x-amz-request-charged: __RequestCharged__
 x-amz-checksum-algorithm: CRC64NVME
 x-amz-checksum-type: __ChecksumType__
+x-amz-version-id: __VersionId__
 
 [Uint8Array (xml)]
 <InitiateMultipartUploadResult xmlns="https://placeholder.amazonaws.com">
@@ -64,6 +65,7 @@ x-amz-checksum-type: __ChecksumType__
   RequestCharged: "__RequestCharged__",
   ChecksumAlgorithm: "CRC64NVME",
   ChecksumType: "__ChecksumType__",
+  VersionId: "__VersionId__",
   Bucket: "__Bucket__",
   Key: "__Key__",
   UploadId: "__UploadId__",

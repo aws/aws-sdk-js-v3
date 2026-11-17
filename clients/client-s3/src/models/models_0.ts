@@ -114,6 +114,17 @@ export interface AbortMultipartUploadOutput {
    * @public
    */
   RequestCharged?: RequestCharged | undefined;
+
+  /**
+   * <p>Version ID of the object.</p>
+   *          <p>Returns the Version ID of the object for the aborted multipart upload, if bucket versioning
+   *       is enabled.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  VersionId?: string | undefined;
 }
 
 /**
@@ -2620,6 +2631,17 @@ export interface CreateMultipartUploadOutput {
    * @public
    */
   ChecksumType?: ChecksumType | undefined;
+
+  /**
+   * <p>Version ID of the object.</p>
+   *          <p>Returns the Version ID of the object for the initiated multipart upload, if bucket versioning
+   *       is enabled.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  VersionId?: string | undefined;
 }
 
 /**
@@ -4127,10 +4149,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 403 Forbidden</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4147,10 +4165,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 403 Forbidden</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4169,10 +4183,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 403 Forbidden</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4189,10 +4199,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4231,10 +4237,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4252,10 +4254,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 409 Conflict</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4277,10 +4275,6 @@ export interface _Error {
    *                         <i>Code:</i> 409 Conflict (in all Regions except the North Virginia Region)
    *             </p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4297,10 +4291,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 409 Conflict</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4316,10 +4306,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4338,10 +4324,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 403 Forbidden</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4358,10 +4340,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4380,10 +4358,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4399,10 +4373,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4421,10 +4391,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4442,10 +4408,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4461,10 +4423,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4482,10 +4440,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4501,10 +4455,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 500 Internal Server Error</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Server</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4523,10 +4473,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 403 Forbidden</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4542,10 +4488,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> N/A</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4563,10 +4505,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4582,10 +4520,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4604,10 +4538,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 409 Conflict</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4623,10 +4553,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4644,10 +4570,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4667,10 +4589,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4687,10 +4605,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 403 Forbidden</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4710,10 +4624,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4730,10 +4640,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4752,10 +4658,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 403 Forbidden</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4773,10 +4675,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -4792,10 +4690,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 416 Requested Range Not Satisfiable</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4816,27 +4710,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>Code:</i> N/A</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <i>Code:</i> InvalidRequest</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>Description:</i> SOAP requests must be made over an HTTPS
-   *               connection.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5001,30 +4874,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 403 Forbidden</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <i>Code:</i> InvalidSOAPRequest</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>Description:</i> The SOAP request body is invalid.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5040,10 +4889,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5062,10 +4907,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5083,10 +4924,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5103,10 +4940,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5122,10 +4955,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5144,10 +4973,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5164,10 +4989,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5187,10 +5008,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5206,10 +5023,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5228,10 +5041,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5248,10 +5057,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5270,31 +5075,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 405 Method Not Allowed</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <i>Code:</i> MissingAttachment</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>Description:</i> A SOAP attachment was expected, but none were
-   *               found.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>HTTP Status Code:</i> N/A</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5310,10 +5090,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 411 Length Required</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5332,30 +5108,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <i>Code:</i> MissingSecurityElement</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>Description:</i> The SOAP 1.1 request is missing a security element.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5371,10 +5123,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5393,10 +5141,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5412,10 +5156,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 404 Not Found</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5433,10 +5173,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 404 Not Found</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5453,10 +5189,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 404 Not Found</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5472,10 +5204,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 404 Not Found</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5494,10 +5222,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 404 Not Found</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5515,10 +5239,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 404 Not Found</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5535,10 +5255,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 501 Not Implemented</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Server</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5558,10 +5274,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 403 Forbidden</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5578,10 +5290,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 409 Conflict</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5600,10 +5308,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 301 Moved Permanently</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5621,10 +5325,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 412 Precondition Failed</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5641,10 +5341,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 307 Moved Temporarily</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5660,10 +5356,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 409 Conflict</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5682,10 +5374,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5702,10 +5390,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5724,10 +5408,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 403 Forbidden</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5745,10 +5425,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5761,16 +5437,12 @@ export interface _Error {
    *                      <p>
    *                         <i>Description:</i> The request signature we calculated does not match the
    *               signature you provided. Check your Amazon Web Services secret access key and signing method. For more
-   *               information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/SOAPAuthentication.html">SOAP Authentication</a> for
+   *               information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a> for
    *               details.</p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 403 Forbidden</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5788,10 +5460,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 503 Service Unavailable</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Server</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5807,10 +5475,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 503 Slow Down</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Server</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5829,10 +5493,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 307 Moved Temporarily</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5848,10 +5508,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5870,10 +5526,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5889,10 +5541,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5911,10 +5559,6 @@ export interface _Error {
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
    *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
-   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5931,10 +5575,6 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>HTTP Status Code:</i> 400 Bad Request</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <i>SOAP Fault Code Prefix:</i> Client</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -13294,6 +12934,17 @@ export interface MultipartUpload {
    * @public
    */
   ChecksumType?: ChecksumType | undefined;
+
+  /**
+   * <p>Version ID of the object.</p>
+   *          <p>Returns the Version ID of the object for the multipart upload, if bucket versioning
+   *       is enabled.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  VersionId?: string | undefined;
 }
 
 /**
@@ -14959,6 +14610,17 @@ export interface ListPartsOutput {
    * @public
    */
   ChecksumType?: ChecksumType | undefined;
+
+  /**
+   * <p>Version ID of the object.</p>
+   *          <p>Returns the Version ID of the object for the listed parts, if bucket versioning is
+   *       enabled.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  VersionId?: string | undefined;
 }
 
 /**

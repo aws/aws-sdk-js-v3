@@ -921,9 +921,9 @@ export interface S3ClientResolvedConfig extends S3ClientResolvedConfigType {}
  *          <p>The current version of the Amazon S3 API is <code>2006-03-01</code>.</p>
  *          <p>Amazon S3 supports the REST API.</p>
  *          <note>
- *             <p>Support for SOAP over HTTP is deprecated, but it is still available over HTTPS.
- *         However, new Amazon S3 features will not be supported for SOAP. We recommend that
- *         you use either this REST API or the Amazon Web Services SDKs.</p>
+ *             <p>As announced on May 5, 2025, SOAP API support is discontinued. Requests that use the
+ *         SOAP API return an HTTP <code>400 Bad Request</code> error. Use this REST API or the
+ *         Amazon Web Services SDKs instead.</p>
  *          </note>
  * @public
  */

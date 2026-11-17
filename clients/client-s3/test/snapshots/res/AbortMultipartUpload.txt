@@ -26,6 +26,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 content-type: application/xml
 x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 x-amz-request-charged: __RequestCharged__
+x-amz-version-id: __VersionId__
 
 [Uint8Array (xml)]
 <AbortMultipartUploadOutput xmlns="https://placeholder.amazonaws.com"/>
@@ -34,6 +35,7 @@ x-amz-request-charged: __RequestCharged__
 --- [output object] ---
 {
   RequestCharged: "__RequestCharged__",
+  VersionId: "__VersionId__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

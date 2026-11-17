@@ -1658,6 +1658,17 @@ export interface UploadPartOutput {
    * @public
    */
   RequestCharged?: RequestCharged | undefined;
+
+  /**
+   * <p>Version ID of the object.</p>
+   *          <p>Returns the Version ID of the object for the uploaded part, if bucket versioning is
+   *       enabled.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  VersionId?: string | undefined;
 }
 
 /**
@@ -2067,6 +2078,17 @@ export interface UploadPartCopyOutput {
    * @public
    */
   RequestCharged?: RequestCharged | undefined;
+
+  /**
+   * <p>Version ID of the object.</p>
+   *          <p>Returns the Version ID of the object for the copied part, if bucket versioning is
+   *       enabled.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  VersionId?: string | undefined;
 }
 
 /**

@@ -42,6 +42,7 @@ x-amz-server-side-encryption-customer-key-MD5: __SSECustomerKeyMD5__
 x-amz-server-side-encryption-aws-kms-key-id: __SSEKMSKeyId__
 x-amz-server-side-encryption-bucket-key-enabled: false
 x-amz-request-charged: __RequestCharged__
+x-amz-version-id: __VersionId__
 
 [Uint8Array (xml)]
 <UploadPartOutput xmlns="https://placeholder.amazonaws.com"/>
@@ -66,6 +67,7 @@ x-amz-request-charged: __RequestCharged__
   SSEKMSKeyId: "__SSEKMSKeyId__",
   BucketKeyEnabled: (boolean) false,
   RequestCharged: "__RequestCharged__",
+  VersionId: "__VersionId__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

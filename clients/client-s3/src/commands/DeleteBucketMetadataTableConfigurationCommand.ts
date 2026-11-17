@@ -26,7 +26,7 @@ export interface DeleteBucketMetadataTableConfigurationCommandOutput extends __M
  * <important>
  *             <p>
  *         We recommend that you delete your S3 Metadata configurations by using the V2
- *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataTableConfiguration.html">DeleteBucketMetadataTableConfiguration</a> API operation. We no longer recommend using
+ *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataConfiguration.html">DeleteBucketMetadataConfiguration</a> API operation. We no longer recommend using
  *         the V1 <code>DeleteBucketMetadataTableConfiguration</code> API operation.
  *       </p>
  *             <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete

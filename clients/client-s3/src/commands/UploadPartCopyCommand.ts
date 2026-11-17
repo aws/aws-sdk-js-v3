@@ -293,6 +293,7 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  * //   SSEKMSKeyId: "STRING_VALUE",
  * //   BucketKeyEnabled: true || false,
  * //   RequestCharged: "requester",
+ * //   VersionId: "STRING_VALUE",
  * // };
  *
  * ```

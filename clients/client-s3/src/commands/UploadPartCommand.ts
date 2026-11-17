@@ -167,9 +167,6 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *                         <li>
  *                            <p>HTTP Status Code: 404 Not Found </p>
  *                         </li>
- *                         <li>
- *                            <p>SOAP Fault Code Prefix: Client</p>
- *                         </li>
  *                      </ul>
  *                   </li>
  *                </ul>
@@ -265,6 +262,7 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * //   SSEKMSKeyId: "STRING_VALUE",
  * //   BucketKeyEnabled: true || false,
  * //   RequestCharged: "requester",
+ * //   VersionId: "STRING_VALUE",
  * // };
  *
  * ```

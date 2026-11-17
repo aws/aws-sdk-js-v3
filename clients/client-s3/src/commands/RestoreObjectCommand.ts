@@ -168,11 +168,6 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *                               <i>HTTP Status Code: 409 Conflict</i>
  *                            </p>
  *                         </li>
- *                         <li>
- *                            <p>
- *                               <i>SOAP Fault Code Prefix: Client</i>
- *                            </p>
- *                         </li>
  *                      </ul>
  *                   </li>
  *                   <li>
@@ -193,11 +188,6 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *                         <li>
  *                            <p>
  *                               <i>HTTP Status Code: 503</i>
- *                            </p>
- *                         </li>
- *                         <li>
- *                            <p>
- *                               <i>SOAP Fault Code Prefix: N/A</i>
  *                            </p>
  *                         </li>
  *                      </ul>

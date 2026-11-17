@@ -28,6 +28,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 x-amz-abort-date: Sat, 01 Jan 2000 04:59:59 GMT
 x-amz-abort-rule-id: __AbortRuleId__
 x-amz-request-charged: __RequestCharged__
+x-amz-version-id: __VersionId__
 
 [Uint8Array (xml)]
 <ListPartsResult xmlns="https://placeholder.amazonaws.com">
@@ -217,6 +218,7 @@ x-amz-request-charged: __RequestCharged__
   AbortDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
   AbortRuleId: "__AbortRuleId__",
   RequestCharged: "__RequestCharged__",
+  VersionId: "__VersionId__",
   Bucket: "__Bucket__",
   Key: "__Key__",
   UploadId: "__UploadId__",

@@ -35,10 +35,21 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *       multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html">Multipart
  *         Upload Overview</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
- *             <p>After you initiate a multipart upload and upload one or more parts, to stop being charged for
- *         storing the uploaded parts, you must either complete or abort the multipart upload. Amazon S3 frees up the
- *         space used to store the parts and stops charging you for storing them only after you either complete
- *         or abort a multipart upload. </p>
+ *             <ul>
+ *                <li>
+ *                   <p>After you initiate a multipart upload and upload one or more parts, to stop being charged for
+ *             storing the uploaded parts, you must either complete or abort the multipart upload. Amazon S3 frees up the
+ *             space used to store the parts and stops charging you for storing them only after you either complete
+ *             or abort a multipart upload. </p>
+ *                </li>
+ *                <li>
+ *                   <p>When you initiate a multipart upload, Amazon S3 records the bucket configuration in place at that
+ *             time and uses it for the rest of the upload. Changes that you make to the bucket configuration
+ *             after you initiate the upload don't apply to that upload. To apply new bucket configuration to
+ *             uploads in progress, use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html">ListMultipartUploads</a> to find
+ *             them and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html">AbortMultipartUpload</a> to stop them. Then start the uploads again.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  *          <p>If you have configured a lifecycle rule to abort incomplete multipart uploads, the created multipart
  *       upload must be completed within the number of days specified in the bucket lifecycle configuration.
@@ -336,6 +347,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  * //   RequestCharged: "requester",
  * //   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME" || "SHA512" || "MD5" || "XXHASH64" || "XXHASH3" || "XXHASH128",
  * //   ChecksumType: "COMPOSITE" || "FULL_OBJECT",
+ * //   VersionId: "STRING_VALUE",
  * // };
  *
  * ```

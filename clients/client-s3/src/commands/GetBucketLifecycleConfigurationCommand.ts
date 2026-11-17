@@ -92,9 +92,6 @@ export interface GetBucketLifecycleConfigurationCommandOutput extends GetBucketL
  *                   <li>
  *                      <p>HTTP Status Code: 404 Not Found</p>
  *                   </li>
- *                   <li>
- *                      <p>SOAP Fault Code Prefix: Client</p>
- *                   </li>
  *                </ul>
  *             </li>
  *          </ul>

@@ -1275,8 +1275,8 @@ export var AbortIncompleteMultipartUpload$: StaticStructureSchema = [3, n0, _AIM
 ];
 export var AbortMultipartUploadOutput$: StaticStructureSchema = [3, n0, _AMUO,
   0,
-  [_RC],
-  [[0, { [_hH]: _xarc }]]
+  [_RC, _VI],
+  [[0, { [_hH]: _xarc }], [0, { [_hH]: _xavi }]]
 ];
 export var AbortMultipartUploadRequest$: StaticStructureSchema = [3, n0, _AMUR,
   0,
@@ -1460,8 +1460,8 @@ export var CreateBucketRequest$: StaticStructureSchema = [3, n0, _CBR,
 ];
 export var CreateMultipartUploadOutput$: StaticStructureSchema = [3, n0, _CMUOr,
   { [_xN]: _IMUR },
-  [_ADb, _ARI, _B, _K, _UI, _SSE, _SSECA, _SSECKMD, _SSEKMSKI, _SSEKMSEC, _BKE, _RC, _CA, _CT],
-  [[4, { [_hH]: _xaad }], [0, { [_hH]: _xaari }], [0, { [_xN]: _B }], 0, 0, [0, { [_hH]: _xasse }], [0, { [_hH]: _xasseca }], [0, { [_hH]: _xasseckM }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [() => SSEKMSEncryptionContext, { [_hH]: _xassec }], [2, { [_hH]: _xassebke }], [0, { [_hH]: _xarc }], [0, { [_hH]: _xaca }], [0, { [_hH]: _xact }]]
+  [_ADb, _ARI, _B, _K, _UI, _SSE, _SSECA, _SSECKMD, _SSEKMSKI, _SSEKMSEC, _BKE, _RC, _CA, _CT, _VI],
+  [[4, { [_hH]: _xaad }], [0, { [_hH]: _xaari }], [0, { [_xN]: _B }], 0, 0, [0, { [_hH]: _xasse }], [0, { [_hH]: _xasseca }], [0, { [_hH]: _xasseckM }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [() => SSEKMSEncryptionContext, { [_hH]: _xassec }], [2, { [_hH]: _xassebke }], [0, { [_hH]: _xarc }], [0, { [_hH]: _xaca }], [0, { [_hH]: _xact }], [0, { [_hH]: _xavi }]]
 ];
 export var CreateMultipartUploadRequest$: StaticStructureSchema = [3, n0, _CMURr,
   0,
@@ -2305,8 +2305,8 @@ export var ListObjectVersionsRequest$: StaticStructureSchema = [3, n0, _LOVRi,
 ];
 export var ListPartsOutput$: StaticStructureSchema = [3, n0, _LPO,
   { [_xN]: _LPR },
-  [_ADb, _ARI, _B, _K, _UI, _PNM, _NPNM, _MP, _IT, _Pa, _In, _O, _SC, _RC, _CA, _CT],
-  [[4, { [_hH]: _xaad }], [0, { [_hH]: _xaari }], 0, 0, 0, 0, 0, 1, 2, [() => Parts, { [_xF]: 1, [_xN]: _Par }], () => Initiator$, () => Owner$, 0, [0, { [_hH]: _xarc }], 0, 0]
+  [_ADb, _ARI, _B, _K, _UI, _PNM, _NPNM, _MP, _IT, _Pa, _In, _O, _SC, _RC, _CA, _CT, _VI],
+  [[4, { [_hH]: _xaad }], [0, { [_hH]: _xaari }], 0, 0, 0, 0, 0, 1, 2, [() => Parts, { [_xF]: 1, [_xN]: _Par }], () => Initiator$, () => Owner$, 0, [0, { [_hH]: _xarc }], 0, 0, [0, { [_hH]: _xavi }]]
 ];
 export var ListPartsRequest$: StaticStructureSchema = [3, n0, _LPRi,
   0,
@@ -2370,8 +2370,8 @@ export var MetricsConfiguration$: StaticStructureSchema = [3, n0, _MCe,
 ];
 export var MultipartUpload$: StaticStructureSchema = [3, n0, _MU,
   0,
-  [_UI, _K, _Ini, _SC, _O, _In, _CA, _CT],
-  [0, 0, 4, 0, () => Owner$, () => Initiator$, 0, 0]
+  [_UI, _K, _Ini, _SC, _O, _In, _CA, _CT, _VI],
+  [0, 0, 4, 0, () => Owner$, () => Initiator$, 0, 0, 0]
 ];
 export var NoncurrentVersionExpiration$: StaticStructureSchema = [3, n0, _NVE,
   0,
@@ -2945,8 +2945,8 @@ export var UpdateObjectEncryptionResponse$: StaticStructureSchema = [3, n0, _UOE
 ];
 export var UploadPartCopyOutput$: StaticStructureSchema = [3, n0, _UPCO,
   0,
-  [_CSVI, _CPR, _SSE, _SSECA, _SSECKMD, _SSEKMSKI, _BKE, _RC],
-  [[0, { [_hH]: _xacsvi }], [() => CopyPartResult$, 16], [0, { [_hH]: _xasse }], [0, { [_hH]: _xasseca }], [0, { [_hH]: _xasseckM }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [2, { [_hH]: _xassebke }], [0, { [_hH]: _xarc }]]
+  [_CSVI, _CPR, _SSE, _SSECA, _SSECKMD, _SSEKMSKI, _BKE, _RC, _VI],
+  [[0, { [_hH]: _xacsvi }], [() => CopyPartResult$, 16], [0, { [_hH]: _xasse }], [0, { [_hH]: _xasseca }], [0, { [_hH]: _xasseckM }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [2, { [_hH]: _xassebke }], [0, { [_hH]: _xarc }], [0, { [_hH]: _xavi }]]
 ];
 export var UploadPartCopyRequest$: StaticStructureSchema = [3, n0, _UPCR,
   0,
@@ -2955,8 +2955,8 @@ export var UploadPartCopyRequest$: StaticStructureSchema = [3, n0, _UPCR,
 ];
 export var UploadPartOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
-  [_SSE, _ET, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _CSHAhe, _CMD, _CXXHASH, _CXXHASHh, _CXXHASHhe, _SSECA, _SSECKMD, _SSEKMSKI, _BKE, _RC],
-  [[0, { [_hH]: _xasse }], [0, { [_hH]: _ET }], [0, { [_hH]: _xacc }], [0, { [_hH]: _xacc_ }], [0, { [_hH]: _xacc__ }], [0, { [_hH]: _xacs }], [0, { [_hH]: _xacs_ }], [0, { [_hH]: _xacs__ }], [0, { [_hH]: _xacm }], [0, { [_hH]: _xacx }], [0, { [_hH]: _xacx_ }], [0, { [_hH]: _xacx__ }], [0, { [_hH]: _xasseca }], [0, { [_hH]: _xasseckM }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [2, { [_hH]: _xassebke }], [0, { [_hH]: _xarc }]]
+  [_SSE, _ET, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _CSHAhe, _CMD, _CXXHASH, _CXXHASHh, _CXXHASHhe, _SSECA, _SSECKMD, _SSEKMSKI, _BKE, _RC, _VI],
+  [[0, { [_hH]: _xasse }], [0, { [_hH]: _ET }], [0, { [_hH]: _xacc }], [0, { [_hH]: _xacc_ }], [0, { [_hH]: _xacc__ }], [0, { [_hH]: _xacs }], [0, { [_hH]: _xacs_ }], [0, { [_hH]: _xacs__ }], [0, { [_hH]: _xacm }], [0, { [_hH]: _xacx }], [0, { [_hH]: _xacx_ }], [0, { [_hH]: _xacx__ }], [0, { [_hH]: _xasseca }], [0, { [_hH]: _xasseckM }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [2, { [_hH]: _xassebke }], [0, { [_hH]: _xarc }], [0, { [_hH]: _xavi }]]
 ];
 export var UploadPartRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,

@@ -129,6 +129,7 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * const response = await client.send(command);
  * // { // AbortMultipartUploadOutput
  * //   RequestCharged: "requester",
+ * //   VersionId: "STRING_VALUE",
  * // };
  *
  * ```

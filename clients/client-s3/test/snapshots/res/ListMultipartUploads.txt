@@ -91,6 +91,9 @@ x-amz-request-charged: __RequestCharged__
         <ChecksumType>
             __ChecksumType__
         </ChecksumType>
+        <VersionId>
+            __VersionId__
+        </VersionId>
     </Upload>
     <Upload>
         <UploadId>
@@ -127,6 +130,9 @@ x-amz-request-charged: __RequestCharged__
         <ChecksumType>
             __ChecksumType__
         </ChecksumType>
+        <VersionId>
+            __VersionId__
+        </VersionId>
     </Upload>
     <Upload>
         <UploadId>
@@ -163,6 +169,9 @@ x-amz-request-charged: __RequestCharged__
         <ChecksumType>
             __ChecksumType__
         </ChecksumType>
+        <VersionId>
+            __VersionId__
+        </VersionId>
     </Upload>
     <CommonPrefixes>
         <Prefix>
@@ -212,7 +221,8 @@ x-amz-request-charged: __RequestCharged__
         DisplayName: "__DisplayName__"
       },
       ChecksumAlgorithm: "CRC64NVME",
-      ChecksumType: "__ChecksumType__"
+      ChecksumType: "__ChecksumType__",
+      VersionId: "__VersionId__"
     },
     {
       UploadId: "__UploadId__",
@@ -228,7 +238,8 @@ x-amz-request-charged: __RequestCharged__
         DisplayName: "__DisplayName__"
       },
       ChecksumAlgorithm: "CRC64NVME",
-      ChecksumType: "__ChecksumType__"
+      ChecksumType: "__ChecksumType__",
+      VersionId: "__VersionId__"
     },
     {
       UploadId: "__UploadId__",
@@ -244,7 +255,8 @@ x-amz-request-charged: __RequestCharged__
         DisplayName: "__DisplayName__"
       },
       ChecksumAlgorithm: "CRC64NVME",
-      ChecksumType: "__ChecksumType__"
+      ChecksumType: "__ChecksumType__",
+      VersionId: "__VersionId__"
     }
   ],
   CommonPrefixes: [
