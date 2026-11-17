@@ -1239,6 +1239,12 @@ export interface PutRumEventsRequest {
    * @public
    */
   Alias?: string | undefined;
+
+  /**
+   * <p>A JSON serialization of attributes that apply to every event in this batch, such as the browser, device, and operating system of the end user. CloudWatch RUM merges these attributes into each event in the batch, so you send them once for the batch instead of once for each event. If an attribute appears both here and in an individual event's <code>metadata</code>, CloudWatch RUM uses the value in the event's <code>metadata</code>.</p>
+   * @public
+   */
+  SessionMetadata?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**

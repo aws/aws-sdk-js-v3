@@ -123,6 +123,7 @@ const _REL = "RumEventList";
 const _REu = "RumEvent";
 const _RNFE = "ResourceNotFoundException";
 const _S = "State";
+const _SM = "SessionMetadata";
 const _SQEE = "ServiceQuotaExceededException";
 const _SSR = "SessionSampleRate";
 const _SU = "S3Uri";
@@ -503,8 +504,8 @@ export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
 ];
 export var PutRumEventsRequest$: StaticStructureSchema = [3, n0, _PRER,
   0,
-  [_I, _BI, _AMD, _UD, _RE, _A],
-  [[0, 1], 0, () => AppMonitorDetails$, () => UserDetails$, [() => RumEventList, 0], 0], 5
+  [_I, _BI, _AMD, _UD, _RE, _A, _SM],
+  [[0, 1], 0, () => AppMonitorDetails$, () => UserDetails$, [() => RumEventList, 0], 0, [() => JsonValue, 0]], 5
 ];
 export var PutRumEventsResponse$: StaticStructureSchema = [3, n0, _PRERu,
   0,
