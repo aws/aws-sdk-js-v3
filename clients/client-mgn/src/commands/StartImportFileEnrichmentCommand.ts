@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { StartImportFileEnrichmentRequest, StartImportFileEnrichmentResponse } from "../models/models_0";
+import type { StartImportFileEnrichmentRequest } from "../models/models_0";
+import type { StartImportFileEnrichmentResponse } from "../models/models_1";
 import { StartImportFileEnrichment$ } from "../schemas/schemas_0";
 
 /**

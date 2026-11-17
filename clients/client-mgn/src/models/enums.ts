@@ -352,9 +352,23 @@ export type ImportFileEnrichmentStatus = (typeof ImportFileEnrichmentStatus)[key
  * @public
  * @enum
  */
+export const DefinitionType = {
+  MIGRATION: "MIGRATION",
+  NEW_NETWORK: "NEW_NETWORK",
+} as const;
+/**
+ * @public
+ */
+export type DefinitionType = (typeof DefinitionType)[keyof typeof DefinitionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SourceEnvironment = {
   AWS_DISCOVERY_COLLECTOR: "AWS_DISCOVERY_COLLECTOR",
   CISCO_ACI: "CISCO_ACI",
+  F5_BIGIP: "F5_BIGIP",
   FORTIGATE_FIREWALL: "FORTIGATE_FIREWALL",
   LOGICAL_MODEL: "LOGICAL_MODEL",
   MIGRATION_PLANNING_ARTIFACTS: "MIGRATION_PLANNING_ARTIFACTS",
@@ -599,6 +613,69 @@ export type ExecutionStage = (typeof ExecutionStage)[keyof typeof ExecutionStage
  * @public
  * @enum
  */
+export const InsightType = {
+  BEHAVIOR_CHANGE: "BEHAVIOR_CHANGE",
+  CONTEXT: "CONTEXT",
+  ERROR: "ERROR",
+  EXCLUDED: "EXCLUDED",
+  INFO: "INFO",
+  INTENT_GAP: "INTENT_GAP",
+  QUESTION: "QUESTION",
+  WARNING: "WARNING",
+} as const;
+/**
+ * @public
+ */
+export type InsightType = (typeof InsightType)[keyof typeof InsightType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightLevel = {
+  CONSTRUCT: "CONSTRUCT",
+  RUN: "RUN",
+  SEGMENT: "SEGMENT",
+} as const;
+/**
+ * @public
+ */
+export type InsightLevel = (typeof InsightLevel)[keyof typeof InsightLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightProducerName = {
+  ANALYZE: "ANALYZE",
+  CODE_GENERATION: "CODE_GENERATION",
+  DEPLOY: "DEPLOY",
+  DEPLOYED_STACKS_DELETION: "DEPLOYED_STACKS_DELETION",
+  MAPPING: "MAPPING",
+  MAPPING_UPDATE: "MAPPING_UPDATE",
+} as const;
+/**
+ * @public
+ */
+export type InsightProducerName = (typeof InsightProducerName)[keyof typeof InsightProducerName];
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightProducerType = {
+  API: "API",
+  JOB: "JOB",
+} as const;
+/**
+ * @public
+ */
+export type InsightProducerType = (typeof InsightProducerType)[keyof typeof InsightProducerType];
+
+/**
+ * @public
+ * @enum
+ */
 export const NetworkMigrationMapperSegmentType = {
   APPLIANCE: "APPLIANCE",
   WORKLOAD: "WORKLOAD",
@@ -623,6 +700,44 @@ export const SecurityGroupMappingStrategy = {
  */
 export type SecurityGroupMappingStrategy =
   (typeof SecurityGroupMappingStrategy)[keyof typeof SecurityGroupMappingStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const RemoteSourceActionInvocationStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  DELAYED: "DELAYED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  STALLED: "STALLED",
+  SUCCESS: "SUCCESS",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+/**
+ * @public
+ */
+export type RemoteSourceActionInvocationStatus =
+  (typeof RemoteSourceActionInvocationStatus)[keyof typeof RemoteSourceActionInvocationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RemoteSourceActionJobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STALLED: "STALLED",
+} as const;
+/**
+ * @public
+ */
+export type RemoteSourceActionJobStatus =
+  (typeof RemoteSourceActionJobStatus)[keyof typeof RemoteSourceActionJobStatus];
 
 /**
  * @public
@@ -679,6 +794,19 @@ export const InternetProtocol = {
  * @public
  */
 export type InternetProtocol = (typeof InternetProtocol)[keyof typeof InternetProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const OutpostSnapshotLocation = {
+  OUTPOST: "OUTPOST",
+  REGION: "REGION",
+} as const;
+/**
+ * @public
+ */
+export type OutpostSnapshotLocation = (typeof OutpostSnapshotLocation)[keyof typeof OutpostSnapshotLocation];
 
 /**
  * @public
@@ -876,6 +1004,19 @@ export const ReplicationType = {
  * @public
  */
 export type ReplicationType = (typeof ReplicationType)[keyof typeof ReplicationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeleteOnTermination = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type DeleteOnTermination = (typeof DeleteOnTermination)[keyof typeof DeleteOnTermination];
 
 /**
  * @public

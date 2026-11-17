@@ -62,6 +62,7 @@ export interface CreateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  *   },
  *   enableMapAutoTagging: true || false,
  *   mapAutoTaggingMpeID: "STRING_VALUE",
+ *   mapAutoTaggingKey: "STRING_VALUE",
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -126,6 +127,7 @@ export interface CreateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * //   },
  * //   enableMapAutoTagging: true || false,
  * //   mapAutoTaggingMpeID: "STRING_VALUE",
+ * //   mapAutoTaggingKey: "STRING_VALUE",
  * //   tags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

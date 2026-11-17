@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import type { DocumentType as __DocumentType } from "@smithy/types";
+
 import type {
   ActionCategory,
   AnalyzerType,
@@ -12,6 +14,8 @@ import type {
   DataReplicationInitiationStepName,
   DataReplicationInitiationStepStatus,
   DataReplicationState,
+  DefinitionType,
+  DeleteOnTermination,
   EncryptionAlgorithm,
   ExecutionStage,
   ExecutionStageActivity,
@@ -22,6 +26,10 @@ import type {
   ImportFileEnrichmentStatus,
   ImportStatus,
   InitiatedBy,
+  InsightLevel,
+  InsightProducerName,
+  InsightProducerType,
+  InsightType,
   InternetProtocol,
   IpAssignmentStrategy,
   JobLogEvent,
@@ -40,8 +48,11 @@ import type {
   NetworkMigrationFailedResourceStatus,
   NetworkMigrationJobStatus,
   NetworkMigrationMapperSegmentType,
+  OutpostSnapshotLocation,
   PostLaunchActionExecutionStatus,
   PostLaunchActionsDeploymentType,
+  RemoteSourceActionInvocationStatus,
+  RemoteSourceActionJobStatus,
   ReplicationConfigurationDataPlaneRouting,
   ReplicationConfigurationDefaultLargeStagingDiskType,
   ReplicationConfigurationEbsEncryption,
@@ -57,8 +68,6 @@ import type {
   TargetNetworkTopology,
   VolumeType,
   VpcProvisioningStrategy,
-  WaveHealthStatus,
-  WaveProgressStatus,
 } from "./enums";
 
 /**
@@ -1824,6 +1833,12 @@ export interface CreateLaunchConfigurationTemplateRequest {
   mapAutoTaggingMpeID?: string | undefined;
 
   /**
+   * <p>Launch configuration template map auto tagging key.</p>
+   * @public
+   */
+  mapAutoTaggingKey?: string | undefined;
+
+  /**
    * <p>Request to associate tags during creation of a Launch Configuration Template.</p>
    * @public
    */
@@ -1935,6 +1950,12 @@ export interface LaunchConfigurationTemplate {
    * @public
    */
   mapAutoTaggingMpeID?: string | undefined;
+
+  /**
+   * <p>Launch configuration template map auto tagging key.</p>
+   * @public
+   */
+  mapAutoTaggingKey?: string | undefined;
 
   /**
    * <p>Tags of the Launch Configuration Template.</p>
@@ -2358,6 +2379,12 @@ export interface UpdateLaunchConfigurationTemplateRequest {
   mapAutoTaggingMpeID?: string | undefined;
 
   /**
+   * <p>Launch configuration template map auto tagging key.</p>
+   * @public
+   */
+  mapAutoTaggingKey?: string | undefined;
+
+  /**
    * <p>Launch disposition.</p>
    * @public
    */
@@ -2779,6 +2806,12 @@ export interface CreateNetworkMigrationDefinitionRequest {
   sourceConfigurations?: SourceConfiguration[] | undefined;
 
   /**
+   * <p>Specifies the type of the definition. <code>MIGRATION</code> migrates an existing network. <code>NEW_NETWORK</code> designs a new network. If you omit this value, the definition type is <code>MIGRATION</code>.</p>
+   * @public
+   */
+  definitionType?: DefinitionType | undefined;
+
+  /**
    * <p>The S3 configuration for storing the target network artifacts.</p>
    * @public
    */
@@ -2854,6 +2887,12 @@ export interface NetworkMigrationDefinition {
    * @public
    */
   sourceConfigurations?: SourceConfiguration[] | undefined;
+
+  /**
+   * <p>Specifies the type of the definition. <code>MIGRATION</code> migrates an existing network. <code>NEW_NETWORK</code> designs a new network.</p>
+   * @public
+   */
+  definitionType?: DefinitionType | undefined;
 
   /**
    * <p>The S3 configuration for storing the target network artifacts.</p>
@@ -2967,6 +3006,107 @@ export interface GetNetworkMigrationMapperSegmentConstructRequest {
 }
 
 /**
+ * <p>The associations that bind a security group to source machines before they are provisioned.</p>
+ * @public
+ */
+export interface SecurityGroupAssociations {
+  /**
+   * <p>The CIDR ranges associated with the security group. A provided list replaces the stored list; an empty list clears it, and omitting the field leaves it unchanged.</p>
+   * @public
+   */
+  cidrs?: string[] | undefined;
+
+  /**
+   * <p>The UUIDs of the source machines associated with the security group.</p>
+   * @public
+   */
+  vmUUIDs?: string[] | undefined;
+
+  /**
+   * <p>The user-provided identifiers of the source machines associated with the security group.</p>
+   * @public
+   */
+  userProvidedIDs?: string[] | undefined;
+}
+
+/**
+ * <p>Behavioral configuration for a security group construct.</p>
+ * @public
+ */
+export interface SecurityGroupConfiguration {
+  /**
+   * <p>The CIDR ranges and machine identifiers that associate source machines with the security group. Each list provided replaces the stored list rather than merging into it.</p>
+   * @public
+   */
+  associations?: SecurityGroupAssociations | undefined;
+}
+
+/**
+ * <p>Behavioral configuration for a security group rule construct.</p>
+ * @public
+ */
+export interface SecurityGroupRuleConfiguration {
+  /**
+   * <p>Whether automatic conversion of CIDR-based sources and destinations to security group references applies to this rule.</p>
+   * @public
+   */
+  enableReferencing?: boolean | undefined;
+}
+
+/**
+ * <p>Construct-type-specific behavioral configuration. The variant provided must match the construct type.</p>
+ * @public
+ */
+export type OperationConfigurationUnion =
+  | OperationConfigurationUnion.SecurityGroupMember
+  | OperationConfigurationUnion.SecurityGroupRuleMember
+  | OperationConfigurationUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OperationConfigurationUnion {
+  /**
+   * <p>Behavioral configuration for a security group construct.</p>
+   * @public
+   */
+  export interface SecurityGroupMember {
+    securityGroup: SecurityGroupConfiguration;
+    securityGroupRule?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Behavioral configuration for a security group rule construct.</p>
+   * @public
+   */
+  export interface SecurityGroupRuleMember {
+    securityGroup?: never;
+    securityGroupRule: SecurityGroupRuleConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    securityGroup?: never;
+    securityGroupRule?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    securityGroup: (value: SecurityGroupConfiguration) => T;
+    securityGroupRule: (value: SecurityGroupRuleConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Represents a construct within a mapper segment. A construct is an individual infrastructure component such as a VPC, subnet, security group, route table, or other network resource that is part of the network migration.</p>
  * @public
  */
@@ -3024,6 +3164,18 @@ export interface NetworkMigrationMapperSegmentConstruct {
    * @public
    */
   properties?: Record<string, string> | undefined;
+
+  /**
+   * <p>The construct properties using their native value types. Returned by Get, and by List when includeEnrichedProperties is true.</p>
+   * @public
+   */
+  enrichedProperties?: Record<string, __DocumentType> | undefined;
+
+  /**
+   * <p>The construct-type-specific behavioral configuration. Returned by Get, and by List when includeConfiguration is true.</p>
+   * @public
+   */
+  configuration?: OperationConfigurationUnion | undefined;
 }
 
 /**
@@ -3716,6 +3868,12 @@ export interface NetworkMigrationDefinitionSummary {
    * @public
    */
   scopeTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The type of the network migration definition.</p>
+   * @public
+   */
+  definitionType?: DefinitionType | undefined;
 }
 
 /**
@@ -4078,6 +4236,190 @@ export interface ListNetworkMigrationExecutionsResponse {
 }
 
 /**
+ * <p>Filters for listing network migration insights.</p>
+ * @public
+ */
+export interface ListNetworkMigrationInsightsFilters {
+  /**
+   * <p>The insight types to include in the results.</p>
+   * @public
+   */
+  insightTypes?: InsightType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationInsightsRequest {
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration execution to narrow the results to.</p>
+   * @public
+   */
+  networkMigrationExecutionID?: string | undefined;
+
+  /**
+   * <p>The identifier of the job or API request to narrow the results to.</p>
+   * @public
+   */
+  producerID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the segment to narrow the results to.</p>
+   * @public
+   */
+  segmentID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the construct to narrow the results to.</p>
+   * @public
+   */
+  constructID?: string | undefined;
+
+  /**
+   * <p>Filters to apply when listing insights.</p>
+   * @public
+   */
+  filters?: ListNetworkMigrationInsightsFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The content of a network migration insight.</p>
+ * @public
+ */
+export interface InsightMessage {
+  /**
+   * <p>A stable identifier for the kind of insight.</p>
+   * @public
+   */
+  code?: string | undefined;
+
+  /**
+   * <p>The human-readable insight message.</p>
+   * @public
+   */
+  message?: string | undefined;
+
+  /**
+   * <p>The topic that the insight relates to.</p>
+   * @public
+   */
+  topic?: string | undefined;
+}
+
+/**
+ * <p>An insight produced during a network migration, such as a warning, decision, question, or other context beyond the migrated output.</p>
+ * @public
+ */
+export interface NetworkMigrationInsight {
+  /**
+   * <p>The unique identifier of the network migration definition the insight belongs to.</p>
+   * @public
+   */
+  networkMigrationDefinitionID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration execution the insight belongs to.</p>
+   * @public
+   */
+  networkMigrationExecutionID?: string | undefined;
+
+  /**
+   * <p>The identifier of the job or API request that produced the insight.</p>
+   * @public
+   */
+  producerID?: string | undefined;
+
+  /**
+   * <p>Whether the insight was produced by a job or by an API request.</p>
+   * @public
+   */
+  producerType?: InsightProducerType | undefined;
+
+  /**
+   * <p>The job type or API name that produced the insight.</p>
+   * @public
+   */
+  producerName?: InsightProducerName | undefined;
+
+  /**
+   * <p>The unique identifier of the segment the insight relates to; absent for run-level insights.</p>
+   * @public
+   */
+  segmentID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the construct the insight relates to; absent for run-level and segment-level insights.</p>
+   * @public
+   */
+  constructID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the insight.</p>
+   * @public
+   */
+  insightID?: string | undefined;
+
+  /**
+   * <p>The level that the insight applies to: the run, a segment, or a construct.</p>
+   * @public
+   */
+  insightLevel?: InsightLevel | undefined;
+
+  /**
+   * <p>The type of the insight.</p>
+   * @public
+   */
+  insightType?: InsightType | undefined;
+
+  /**
+   * <p>The content of the insight.</p>
+   * @public
+   */
+  insightMessage?: InsightMessage | undefined;
+
+  /**
+   * <p>The timestamp when the insight was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationInsightsResponse {
+  /**
+   * <p>A list of network migration insights.</p>
+   * @public
+   */
+  items?: NetworkMigrationInsight[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * <p>Filters for listing mapper segment constructs.</p>
  * @public
  */
@@ -4134,6 +4476,18 @@ export interface ListNetworkMigrationMapperSegmentConstructsRequest {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>Whether to return construct properties using their native value types.</p>
+   * @public
+   */
+  includeEnrichedProperties?: boolean | undefined;
+
+  /**
+   * <p>Whether to return construct-type-specific behavioral configuration.</p>
+   * @public
+   */
+  includeConfiguration?: boolean | undefined;
 }
 
 /**
@@ -4661,6 +5015,36 @@ export interface StartNetworkMigrationMappingResponse {
 }
 
 /**
+ * <p>An operation that creates a new construct in the segment.</p>
+ * @public
+ */
+export interface CreateOperation {
+  /**
+   * <p>The name for the new construct.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Whether the new construct is excluded from the migration.</p>
+   * @public
+   */
+  excluded?: boolean | undefined;
+
+  /**
+   * <p>The properties of the new construct, using their native value types.</p>
+   * @public
+   */
+  properties?: Record<string, __DocumentType> | undefined;
+
+  /**
+   * <p>The initial construct-type-specific behavioral configuration for the new construct.</p>
+   * @public
+   */
+  configuration?: OperationConfigurationUnion | undefined;
+}
+
+/**
  * <p>An operation that deletes a construct from the mapping.</p>
  * @public
  */
@@ -4745,14 +5129,52 @@ export interface UpdateOperation {
 }
 
 /**
+ * <p>An operation that updates a construct using native property value types and construct-type-specific behavioral configuration.</p>
+ * @public
+ */
+export interface UpdateOperationV2 {
+  /**
+   * <p>The updated name for the construct.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Whether to exclude this construct from the migration.</p>
+   * @public
+   */
+  excluded?: boolean | undefined;
+
+  /**
+   * <p>The properties to set or overwrite on the construct, using their native value types; omitted keys are unchanged.</p>
+   * @public
+   */
+  properties?: Record<string, __DocumentType> | undefined;
+
+  /**
+   * <p>The property keys to remove from the construct.</p>
+   * @public
+   */
+  propertiesToDelete?: string[] | undefined;
+
+  /**
+   * <p>Construct-type-specific behavioral configuration to apply, such as security group associations or security group rule referencing.</p>
+   * @public
+   */
+  configuration?: OperationConfigurationUnion | undefined;
+}
+
+/**
  * <p>A union type representing the operation to perform on a construct during a mapping update.</p>
  * @public
  */
 export type OperationUnion =
+  | OperationUnion.CreateMember
   | OperationUnion.DeleteMember
   | OperationUnion.MergeMember
   | OperationUnion.SplitMember
   | OperationUnion.UpdateMember
+  | OperationUnion.UpdateV2Member
   | OperationUnion.$UnknownMember;
 
 /**
@@ -4768,6 +5190,8 @@ export namespace OperationUnion {
     split?: never;
     delete?: never;
     update?: never;
+    updateV2?: never;
+    create?: never;
     $unknown?: never;
   }
 
@@ -4780,6 +5204,8 @@ export namespace OperationUnion {
     split: SplitOperation;
     delete?: never;
     update?: never;
+    updateV2?: never;
+    create?: never;
     $unknown?: never;
   }
 
@@ -4792,6 +5218,8 @@ export namespace OperationUnion {
     split?: never;
     delete: DeleteOperation;
     update?: never;
+    updateV2?: never;
+    create?: never;
     $unknown?: never;
   }
 
@@ -4804,6 +5232,36 @@ export namespace OperationUnion {
     split?: never;
     delete?: never;
     update: UpdateOperation;
+    updateV2?: never;
+    create?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An update operation that modifies a construct using native property value types and behavioral configuration, with partial updates and property removal.</p>
+   * @public
+   */
+  export interface UpdateV2Member {
+    merge?: never;
+    split?: never;
+    delete?: never;
+    update?: never;
+    updateV2: UpdateOperationV2;
+    create?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A create operation that adds a new construct to the segment, identified by the constructLogicalID on the parent construct entry.</p>
+   * @public
+   */
+  export interface CreateMember {
+    merge?: never;
+    split?: never;
+    delete?: never;
+    update?: never;
+    updateV2?: never;
+    create: CreateOperation;
     $unknown?: never;
   }
 
@@ -4815,6 +5273,8 @@ export namespace OperationUnion {
     split?: never;
     delete?: never;
     update?: never;
+    updateV2?: never;
+    create?: never;
     $unknown: [string, any];
   }
 
@@ -4827,6 +5287,8 @@ export namespace OperationUnion {
     split: (value: SplitOperation) => T;
     delete: (value: DeleteOperation) => T;
     update: (value: UpdateOperation) => T;
+    updateV2: (value: UpdateOperationV2) => T;
+    create: (value: CreateOperation) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -4840,13 +5302,19 @@ export interface StartNetworkMigrationMappingUpdateConstruct {
    * <p>The ID of the segment containing the construct.</p>
    * @public
    */
-  segmentID: string | undefined;
+  segmentID?: string | undefined;
+
+  /**
+   * <p>The identifier of a segment created in the same request that this construct belongs to. Use it instead of <code>segmentID</code> for a new segment.</p>
+   * @public
+   */
+  segmentLogicalID?: string | undefined;
 
   /**
    * <p>The ID of the construct to update.</p>
    * @public
    */
-  constructID: string | undefined;
+  constructID?: string | undefined;
 
   /**
    * <p>The type of the construct.</p>
@@ -4855,10 +5323,151 @@ export interface StartNetworkMigrationMappingUpdateConstruct {
   constructType: string | undefined;
 
   /**
+   * <p>The logical identifier for a construct created by a create operation; other operations identify the construct by constructID. Other entries in the same request can reference the new construct as \{"Ref": "&lt;constructLogicalID&gt;"\}.</p>
+   * @public
+   */
+  constructLogicalID?: string | undefined;
+
+  /**
    * <p>The operation to perform on the construct.</p>
    * @public
    */
   operation?: OperationUnion | undefined;
+}
+
+/**
+ * <p>An operation that creates a segment.</p>
+ * @public
+ */
+export interface SegmentCreateOperation {
+  /**
+   * <p>The name of the new segment.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the new segment.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The target AWS account for the new segment.</p>
+   * @public
+   */
+  targetAccount?: string | undefined;
+
+  /**
+   * <p>Scope tags for the new segment.</p>
+   * @public
+   */
+  scopeTags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>An operation that deletes a segment from the mapping.</p>
+ * @public
+ */
+export interface SegmentDeleteOperation {}
+
+/**
+ * <p>An operation that updates the properties of a segment.</p>
+ * @public
+ */
+export interface SegmentUpdateOperation {
+  /**
+   * <p>The updated name for the segment.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The updated description for the segment.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated target AWS account for the segment.</p>
+   * @public
+   */
+  targetAccount?: string | undefined;
+
+  /**
+   * <p>The updated scope tags for the segment.</p>
+   * @public
+   */
+  scopeTags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Specifies the operation to perform on a segment during a mapping update. Specify one of a create, update, or delete operation.</p>
+ * @public
+ */
+export type SegmentOperation =
+  | SegmentOperation.CreateMember
+  | SegmentOperation.DeleteMember
+  | SegmentOperation.UpdateMember
+  | SegmentOperation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SegmentOperation {
+  /**
+   * <p>A create operation to add a new segment.</p>
+   * @public
+   */
+  export interface CreateMember {
+    create: SegmentCreateOperation;
+    update?: never;
+    delete?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An update operation to modify segment properties.</p>
+   * @public
+   */
+  export interface UpdateMember {
+    create?: never;
+    update: SegmentUpdateOperation;
+    delete?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A delete operation to remove a segment from the mapping.</p>
+   * @public
+   */
+  export interface DeleteMember {
+    create?: never;
+    update?: never;
+    delete: SegmentDeleteOperation;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    create?: never;
+    update?: never;
+    delete?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    create: (value: SegmentCreateOperation) => T;
+    update: (value: SegmentUpdateOperation) => T;
+    delete: (value: SegmentDeleteOperation) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -4870,7 +5479,19 @@ export interface StartNetworkMigrationMappingUpdateSegment {
    * <p>The ID of the segment to update.</p>
    * @public
    */
-  segmentID: string | undefined;
+  segmentID?: string | undefined;
+
+  /**
+   * <p>An identifier that you choose for a segment created by this request. You can use it in other constructs in the same request to refer to the new segment.</p>
+   * @public
+   */
+  segmentLogicalID?: string | undefined;
+
+  /**
+   * <p>The operation to perform on the segment.</p>
+   * @public
+   */
+  operation?: SegmentOperation | undefined;
 
   /**
    * <p>The updated target AWS account for the segment.</p>
@@ -5036,6 +5657,12 @@ export interface UpdateNetworkMigrationDefinitionRequest {
    * @public
    */
   scopeTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The updated type of the network migration definition.</p>
+   * @public
+   */
+  definitionType?: DefinitionType | undefined;
 }
 
 /**
@@ -5065,6 +5692,634 @@ export interface UpdateNetworkMigrationMapperSegmentRequest {
    * @public
    */
   scopeTags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Filters for listing source action invocations.</p>
+ * @public
+ */
+export interface ListRemoteSourceActionInvocationsRequestFilters {
+  /**
+   * <p>A list of source server ARNs to filter by.</p>
+   * @public
+   */
+  sourceServerArns?: string[] | undefined;
+
+  /**
+   * <p>A list of source action ARNs to filter by.</p>
+   * @public
+   */
+  remoteSourceActionArns?: string[] | undefined;
+
+  /**
+   * <p>A list of invocation statuses to filter by.</p>
+   * @public
+   */
+  statuses?: RemoteSourceActionInvocationStatus[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRemoteSourceActionInvocationsRequest {
+  /**
+   * <p>The unique identifier of the job to list invocations for.</p>
+   * @public
+   */
+  remoteSourceActionJobID: string | undefined;
+
+  /**
+   * <p>Filters to apply when listing invocations, such as source server or status.</p>
+   * @public
+   */
+  filters?: ListRemoteSourceActionInvocationsRequestFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   * @public
+   */
+  accountID?: string | undefined;
+}
+
+/**
+ * <p>The run of a source action on one source server as part of a job.</p>
+ * @public
+ */
+export interface RemoteSourceActionInvocation {
+  /**
+   * <p>The ARN of the source server.</p>
+   * @public
+   */
+  sourceServerArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the source action.</p>
+   * @public
+   */
+  remoteSourceActionArn?: string | undefined;
+
+  /**
+   * <p>The ID of the AWS Systems Manager command that runs the source action on the connector.</p>
+   * @public
+   */
+  ssmCommandInvocationID?: string | undefined;
+
+  /**
+   * <p>The current status of the invocation.</p>
+   * @public
+   */
+  status?: RemoteSourceActionInvocationStatus | undefined;
+
+  /**
+   * <p>The timestamp when the command started running.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the command finished.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRemoteSourceActionInvocationsResponse {
+  /**
+   * <p>A list of source action invocations.</p>
+   * @public
+   */
+  items?: RemoteSourceActionInvocation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters for listing source action jobs.</p>
+ * @public
+ */
+export interface ListRemoteSourceActionJobsRequestFilters {
+  /**
+   * <p>A list of job IDs to filter by.</p>
+   * @public
+   */
+  remoteSourceActionJobIDs?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRemoteSourceActionJobsRequest {
+  /**
+   * <p>Filters to apply when listing source action jobs.</p>
+   * @public
+   */
+  filters?: ListRemoteSourceActionJobsRequestFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   * @public
+   */
+  accountID?: string | undefined;
+}
+
+/**
+ * <p>A job that runs a source action on source servers through a connector.</p>
+ * @public
+ */
+export interface RemoteSourceActionJob {
+  /**
+   * <p>The unique identifier of the job.</p>
+   * @public
+   */
+  remoteSourceActionJobID?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The current status of the job.</p>
+   * @public
+   */
+  status?: RemoteSourceActionJobStatus | undefined;
+
+  /**
+   * <p>The ARNs of the source servers that the job runs on.</p>
+   * @public
+   */
+  sourceServerArns?: string[] | undefined;
+
+  /**
+   * <p>The ARNs of the source actions that the job runs.</p>
+   * @public
+   */
+  remoteSourceActionArns?: string[] | undefined;
+
+  /**
+   * <p>The ARN of the connector that runs the job.</p>
+   * @public
+   */
+  connectorArn?: string | undefined;
+
+  /**
+   * <p>The timestamp when the job started running.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the job completed or failed.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The reason the job failed.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>Tags assigned to the job.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRemoteSourceActionJobsResponse {
+  /**
+   * <p>A list of source action jobs.</p>
+   * @public
+   */
+  items?: RemoteSourceActionJob[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRemoteSourceActionJobRequest {
+  /**
+   * <p>The ARNs of the source actions to run.</p>
+   * @public
+   */
+  remoteSourceActionArns: string[] | undefined;
+
+  /**
+   * <p>The ARN of the connector that runs the source actions.</p>
+   * @public
+   */
+  connectorArn: string | undefined;
+
+  /**
+   * <p>The ARNs of the source servers to run the source actions on.</p>
+   * @public
+   */
+  sourceServerArns: string[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Tags to assign to the job.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   * @public
+   */
+  accountID?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRemoteSourceActionJobResponse {
+  /**
+   * <p>The job that was started.</p>
+   * @public
+   */
+  remoteSourceActionJob?: RemoteSourceActionJob | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRemoteSourceActionRequest {
+  /**
+   * <p>The name of the source action.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the source action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>AWS Systems Manager Parameter Store parameter name.</p>
+   * @public
+   */
+  ssmParameterName: string | undefined;
+
+  /**
+   * <p>The maximum time, in seconds, that the script can run on each source server.</p>
+   * @public
+   */
+  timeoutSeconds?: number | undefined;
+
+  /**
+   * <p>The operating system of the source servers that the script runs on. Set to <code>linux</code> or <code>windows</code> to run the script only on source servers with that operating system, or <code>all</code> to run it on both.</p>
+   * @public
+   */
+  operatingSystem?: string | undefined;
+
+  /**
+   * <p>Tags to assign to the source action.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   * @public
+   */
+  accountID?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRemoteSourceActionResponse {
+  /**
+   * <p>The unique identifier of the source action.</p>
+   * @public
+   */
+  remoteSourceActionID?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source action.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The name of the source action.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description of the source action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>AWS Systems Manager Parameter Store parameter name.</p>
+   * @public
+   */
+  ssmParameterName?: string | undefined;
+
+  /**
+   * <p>The maximum time, in seconds, that the script can run on each source server.</p>
+   * @public
+   */
+  timeoutSeconds?: number | undefined;
+
+  /**
+   * <p>The operating system of the source servers that the script runs on. Absent when the script runs on both Linux and Windows.</p>
+   * @public
+   */
+  operatingSystem?: string | undefined;
+
+  /**
+   * <p>Tags assigned to the source action.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRemoteSourceActionRequest {
+  /**
+   * <p>The unique identifier of the source action to delete.</p>
+   * @public
+   */
+  remoteSourceActionID: string | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   * @public
+   */
+  accountID?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRemoteSourceActionResponse {}
+
+/**
+ * <p>Filters for listing source actions.</p>
+ * @public
+ */
+export interface ListRemoteSourceActionsRequestFilters {
+  /**
+   * <p>A list of source action IDs to filter by.</p>
+   * @public
+   */
+  remoteSourceActionIDs?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRemoteSourceActionsRequest {
+  /**
+   * <p>Filters to apply when listing source actions.</p>
+   * @public
+   */
+  filters?: ListRemoteSourceActionsRequestFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   * @public
+   */
+  accountID?: string | undefined;
+}
+
+/**
+ * <p>A source action, which references a script in AWS Systems Manager Parameter Store that Application Migration Service runs on source servers through a connector.</p>
+ * @public
+ */
+export interface RemoteSourceAction {
+  /**
+   * <p>The unique identifier of the source action.</p>
+   * @public
+   */
+  remoteSourceActionID?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source action.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The name of the source action.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description of the source action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>AWS Systems Manager Parameter Store parameter name.</p>
+   * @public
+   */
+  ssmParameterName?: string | undefined;
+
+  /**
+   * <p>The maximum time, in seconds, that the script can run on each source server.</p>
+   * @public
+   */
+  timeoutSeconds?: number | undefined;
+
+  /**
+   * <p>The operating system of the source servers that the script runs on. Absent when the script runs on both Linux and Windows.</p>
+   * @public
+   */
+  operatingSystem?: string | undefined;
+
+  /**
+   * <p>Tags assigned to the source action.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRemoteSourceActionsResponse {
+  /**
+   * <p>A list of source actions.</p>
+   * @public
+   */
+  items?: RemoteSourceAction[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRemoteSourceActionRequest {
+  /**
+   * <p>The unique identifier of the source action to update.</p>
+   * @public
+   */
+  remoteSourceActionID: string | undefined;
+
+  /**
+   * <p>The updated name of the source action.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The updated description of the source action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>AWS Systems Manager Parameter Store parameter name.</p>
+   * @public
+   */
+  ssmParameterName?: string | undefined;
+
+  /**
+   * <p>The updated maximum time, in seconds, that the script can run on each source server.</p>
+   * @public
+   */
+  timeoutSeconds?: number | undefined;
+
+  /**
+   * <p>The updated operating system of the source servers that the script runs on. Set to <code>linux</code> or <code>windows</code> to run the script only on source servers with that operating system, or <code>all</code> to run it on both.</p>
+   * @public
+   */
+  operatingSystem?: string | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   * @public
+   */
+  accountID?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRemoteSourceActionResponse {
+  /**
+   * <p>The unique identifier of the source action.</p>
+   * @public
+   */
+  remoteSourceActionID?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source action.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The name of the source action.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description of the source action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>AWS Systems Manager Parameter Store parameter name.</p>
+   * @public
+   */
+  ssmParameterName?: string | undefined;
+
+  /**
+   * <p>The maximum time, in seconds, that the script can run on each source server.</p>
+   * @public
+   */
+  timeoutSeconds?: number | undefined;
+
+  /**
+   * <p>The operating system of the source servers that the script runs on. Absent when the script runs on both Linux and Windows.</p>
+   * @public
+   */
+  operatingSystem?: string | undefined;
+
+  /**
+   * <p>Tags assigned to the source action.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5204,6 +6459,12 @@ export interface CreateReplicationConfigurationTemplateRequest {
   storeSnapshotOnLocalZone?: boolean | undefined;
 
   /**
+   * <p>Request to set the location of replication snapshots when the staging area subnet is on an AWS Outpost during Replication Settings template creation. Set to <code>OUTPOST</code> to keep replication snapshots on the Outpost, or <code>REGION</code> to store them in the AWS Region. Required when the staging area subnet is on an Outpost, and not allowed otherwise.</p>
+   * @public
+   */
+  outpostSnapshotLocation?: OutpostSnapshotLocation | undefined;
+
+  /**
    * <p>Request to configure storage during Replication Settings template creation.</p>
    * @public
    */
@@ -5321,6 +6582,12 @@ export interface ReplicationConfigurationTemplate {
    * @public
    */
   storeSnapshotOnLocalZone?: boolean | undefined;
+
+  /**
+   * <p>Indicates the location of replication snapshots in the Replication Configuration template when the staging area subnet is on an AWS Outpost. <code>OUTPOST</code> keeps replication snapshots on the Outpost, and <code>REGION</code> stores them in the AWS Region.</p>
+   * @public
+   */
+  outpostSnapshotLocation?: OutpostSnapshotLocation | undefined;
 
   /**
    * <p>Replication Configuration template storage configuration.</p>
@@ -5490,6 +6757,12 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * @public
    */
   storeSnapshotOnLocalZone?: boolean | undefined;
+
+  /**
+   * <p>Updates the location of replication snapshots in the Replication Configuration template when the staging area subnet is on an AWS Outpost. Set to <code>OUTPOST</code> to keep replication snapshots on the Outpost, or <code>REGION</code> to store them in the AWS Region. Required when the staging area subnet is on an Outpost, and not allowed otherwise.</p>
+   * @public
+   */
+  outpostSnapshotLocation?: OutpostSnapshotLocation | undefined;
 
   /**
    * <p>Update replication configuration template storage configuration request.</p>
@@ -5699,6 +6972,12 @@ export interface DataReplicationInfo {
    * @public
    */
   replicatorId?: string | undefined;
+
+  /**
+   * <p>The ARN of the AWS Outpost that hosts the staging area, when the staging area subnet is on an Outpost.</p>
+   * @public
+   */
+  stagingOutpostArn?: string | undefined;
 }
 
 /**
@@ -6434,6 +7713,94 @@ export interface LaunchConfiguration {
    * @public
    */
   mapAutoTaggingMpeID?: string | undefined;
+
+  /**
+   * <p>Map auto tagging key.</p>
+   * @public
+   */
+  mapAutoTaggingKey?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLaunchConfigurationDefaultsRequest {
+  /**
+   * <p>Request to get the launch configuration defaults by Source Server ID.</p>
+   * @public
+   */
+  sourceServerID: string | undefined;
+
+  /**
+   * <p>Request to get the launch configuration defaults by Account ID.</p>
+   * @public
+   */
+  accountID?: string | undefined;
+}
+
+/**
+ * <p>Contains the Amazon Elastic Block Store (Amazon EBS) volume configuration for the disk mappings created later in the source server's Amazon Elastic Compute Cloud (Amazon EC2) launch template. Fields that aren't set get the service's default values.</p>
+ * @public
+ */
+export interface SourceServerVolumeConfiguration {
+  /**
+   * <p>EBS volume type.</p>
+   * @public
+   */
+  volumeType?: VolumeType | undefined;
+
+  /**
+   * <p>Provisioned IOPS, for io1, io2 and gp3 volumes.</p>
+   * @public
+   */
+  iops?: number | undefined;
+
+  /**
+   * <p>Throughput in MiB/s, for gp3 volumes only.</p>
+   * @public
+   */
+  throughput?: number | undefined;
+
+  /**
+   * <p>Provisioned rate for volume initialization, in MiB/s.</p>
+   * @public
+   */
+  volumeInitializationRate?: number | undefined;
+
+  /**
+   * <p>Specifies whether the volume is deleted when the launched instance terminates.</p>
+   * @public
+   */
+  deleteOnTermination?: DeleteOnTermination | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLaunchConfigurationDefaultsResponse {
+  /**
+   * <p>Source Server ID of the launch configuration defaults.</p>
+   * @public
+   */
+  sourceServerID?: string | undefined;
+
+  /**
+   * <p>Disks up to this size, in GiB, use the small volume configuration, and larger disks use the large one. <code>0</code> means every disk uses the large one.</p>
+   * @public
+   */
+  smallVolumeMaxSize?: number | undefined;
+
+  /**
+   * <p>Volume configuration for disks up to <code>smallVolumeMaxSize</code>. Omitted when none of its fields is set.</p>
+   * @public
+   */
+  smallVolumeConfiguration?: SourceServerVolumeConfiguration | undefined;
+
+  /**
+   * <p>Volume configuration for disks larger than <code>smallVolumeMaxSize</code>. Omitted when none of its fields is set.</p>
+   * @public
+   */
+  largeVolumeConfiguration?: SourceServerVolumeConfiguration | undefined;
 }
 
 /**
@@ -6602,10 +7969,98 @@ export interface ReplicationConfiguration {
   storeSnapshotOnLocalZone?: boolean | undefined;
 
   /**
+   * <p>Indicates the location of replication snapshots when the staging area subnet is on an AWS Outpost. <code>OUTPOST</code> keeps replication snapshots on the Outpost, and <code>REGION</code> stores them in the AWS Region.</p>
+   * @public
+   */
+  outpostSnapshotLocation?: OutpostSnapshotLocation | undefined;
+
+  /**
    * <p>Replication Configuration storage configuration.</p>
    * @public
    */
   storageConfiguration?: StorageConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRemoteSourceActionInvocationResultsRequest {
+  /**
+   * <p>The unique identifier of the source server to list invocation results for.</p>
+   * @public
+   */
+  sourceServerID: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   * @public
+   */
+  accountID?: string | undefined;
+}
+
+/**
+ * <p>The latest invocation result of a source action on a source server.</p>
+ * @public
+ */
+export interface RemoteSourceActionInvocationResult {
+  /**
+   * <p>The unique identifier of the source action.</p>
+   * @public
+   */
+  remoteSourceActionID?: string | undefined;
+
+  /**
+   * <p>The ID of the account that owns the connector that ran the source action.</p>
+   * @public
+   */
+  connectorOwnerAccountID?: string | undefined;
+
+  /**
+   * <p>The status of the latest invocation.</p>
+   * @public
+   */
+  status?: RemoteSourceActionInvocationStatus | undefined;
+
+  /**
+   * <p>The timestamp when the command started running.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the command finished.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRemoteSourceActionInvocationResultsResponse {
+  /**
+   * <p>A list of source action invocation results.</p>
+   * @public
+   */
+  items?: RemoteSourceActionInvocationResult[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7141,10 +8596,80 @@ export interface UpdateLaunchConfigurationRequest {
   mapAutoTaggingMpeID?: string | undefined;
 
   /**
+   * <p>Launch configuration map auto tagging key.</p>
+   * @public
+   */
+  mapAutoTaggingKey?: string | undefined;
+
+  /**
    * <p>Update Launch configuration Account ID.</p>
    * @public
    */
   accountID?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLaunchConfigurationDefaultsRequest {
+  /**
+   * <p>Request to update the launch configuration defaults by Source Server ID.</p>
+   * @public
+   */
+  sourceServerID: string | undefined;
+
+  /**
+   * <p>Request to update the launch configuration defaults by Account ID.</p>
+   * @public
+   */
+  accountID?: string | undefined;
+
+  /**
+   * <p>Disks up to this size, in GiB, use the small volume configuration, and larger disks use the large one. <code>0</code> means every disk uses the large one. If you omit it, the current value is kept.</p>
+   * @public
+   */
+  smallVolumeMaxSize?: number | undefined;
+
+  /**
+   * <p>Volume configuration for disks up to <code>smallVolumeMaxSize</code>. If you omit it, the current one is kept. If you send it, it replaces the current one: fields you omit are cleared, and an empty configuration, <code>\{\}</code>, clears all of them.</p>
+   * @public
+   */
+  smallVolumeConfiguration?: SourceServerVolumeConfiguration | undefined;
+
+  /**
+   * <p>Volume configuration for disks larger than <code>smallVolumeMaxSize</code>. If you omit it, the current one is kept. If you send it, it replaces the current one: fields you omit are cleared, and an empty configuration, <code>\{\}</code>, clears all of them.</p>
+   * @public
+   */
+  largeVolumeConfiguration?: SourceServerVolumeConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLaunchConfigurationDefaultsResponse {
+  /**
+   * <p>Source Server ID of the launch configuration defaults.</p>
+   * @public
+   */
+  sourceServerID?: string | undefined;
+
+  /**
+   * <p>Disks up to this size, in GiB, use the small volume configuration, and larger disks use the large one. <code>0</code> means every disk uses the large one.</p>
+   * @public
+   */
+  smallVolumeMaxSize?: number | undefined;
+
+  /**
+   * <p>Volume configuration for disks up to <code>smallVolumeMaxSize</code>. Omitted when none of its fields is set.</p>
+   * @public
+   */
+  smallVolumeConfiguration?: SourceServerVolumeConfiguration | undefined;
+
+  /**
+   * <p>Volume configuration for disks larger than <code>smallVolumeMaxSize</code>. Omitted when none of its fields is set.</p>
+   * @public
+   */
+  largeVolumeConfiguration?: SourceServerVolumeConfiguration | undefined;
 }
 
 /**
@@ -7264,6 +8789,12 @@ export interface UpdateReplicationConfigurationRequest {
    * @public
    */
   storeSnapshotOnLocalZone?: boolean | undefined;
+
+  /**
+   * <p>Updates the location of replication snapshots when the staging area subnet is on an AWS Outpost. Set to <code>OUTPOST</code> to keep replication snapshots on the Outpost, or <code>REGION</code> to store them in the AWS Region. Required when the staging area subnet is on an Outpost, and not allowed otherwise.</p>
+   * @public
+   */
+  outpostSnapshotLocation?: OutpostSnapshotLocation | undefined;
 
   /**
    * <p>Update replication configuration storage configuration.</p>
@@ -7387,477 +8918,4 @@ export interface StartImportFileEnrichmentRequest {
    * @public
    */
   ipAssignmentStrategy?: IpAssignmentStrategy | undefined;
-}
-
-/**
- * @public
- */
-export interface StartImportFileEnrichmentResponse {
-  /**
-   * <p>The unique identifier of the import file enrichment job that was started.</p>
-   * @public
-   */
-  jobID?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>Tag resource by ARN.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>Tag resource by Tags.</p>
-   * @public
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>Untag resource by ARN.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>Untag resource by Keys.</p>
-   * @public
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVcenterClientRequest {
-  /**
-   * <p>ID of resource to be deleted.</p>
-   * @public
-   */
-  vcenterClientID: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVcenterClientsRequest {
-  /**
-   * <p>Maximum results to be returned in DescribeVcenterClients.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>Next pagination token to be provided for DescribeVcenterClients.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>vCenter client.</p>
- * @public
- */
-export interface VcenterClient {
-  /**
-   * <p>ID of vCenter client.</p>
-   * @public
-   */
-  vcenterClientID?: string | undefined;
-
-  /**
-   * <p>Arn of vCenter client.</p>
-   * @public
-   */
-  arn?: string | undefined;
-
-  /**
-   * <p>Hostname of vCenter client .</p>
-   * @public
-   */
-  hostname?: string | undefined;
-
-  /**
-   * <p>Vcenter UUID of vCenter client.</p>
-   * @public
-   */
-  vcenterUUID?: string | undefined;
-
-  /**
-   * <p>Datacenter name of vCenter client.</p>
-   * @public
-   */
-  datacenterName?: string | undefined;
-
-  /**
-   * <p>Last seen time of vCenter client.</p>
-   * @public
-   */
-  lastSeenDatetime?: string | undefined;
-
-  /**
-   * <p>Tags for Source Server of vCenter client.</p>
-   * @public
-   */
-  sourceServerTags?: Record<string, string> | undefined;
-
-  /**
-   * <p>Tags for vCenter client.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVcenterClientsResponse {
-  /**
-   * <p>List of items returned by DescribeVcenterClients.</p>
-   * @public
-   */
-  items?: VcenterClient[] | undefined;
-
-  /**
-   * <p>Next pagination token returned from DescribeVcenterClients.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ArchiveWaveRequest {
-  /**
-   * <p>Wave ID.</p>
-   * @public
-   */
-  waveID: string | undefined;
-
-  /**
-   * <p>Account ID.</p>
-   * @public
-   */
-  accountID?: string | undefined;
-}
-
-/**
- * <p>Wave aggregated status.</p>
- * @public
- */
-export interface WaveAggregatedStatus {
-  /**
-   * <p>Wave aggregated status last update dateTime.</p>
-   * @public
-   */
-  lastUpdateDateTime?: string | undefined;
-
-  /**
-   * <p>DateTime marking when the first source server in the wave started replication.</p>
-   * @public
-   */
-  replicationStartedDateTime?: string | undefined;
-
-  /**
-   * <p>Wave aggregated status health status.</p>
-   * @public
-   */
-  healthStatus?: WaveHealthStatus | undefined;
-
-  /**
-   * <p>Wave aggregated status progress status.</p>
-   * @public
-   */
-  progressStatus?: WaveProgressStatus | undefined;
-
-  /**
-   * <p>Wave aggregated status total applications amount.</p>
-   * @public
-   */
-  totalApplications?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface Wave {
-  /**
-   * <p>Wave ID.</p>
-   * @public
-   */
-  waveID?: string | undefined;
-
-  /**
-   * <p>Wave ARN.</p>
-   * @public
-   */
-  arn?: string | undefined;
-
-  /**
-   * <p>Wave name.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>Wave description.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Wave archival status.</p>
-   * @public
-   */
-  isArchived?: boolean | undefined;
-
-  /**
-   * <p>Wave aggregated status.</p>
-   * @public
-   */
-  waveAggregatedStatus?: WaveAggregatedStatus | undefined;
-
-  /**
-   * <p>Wave creation dateTime.</p>
-   * @public
-   */
-  creationDateTime?: string | undefined;
-
-  /**
-   * <p>Wave last modified dateTime.</p>
-   * @public
-   */
-  lastModifiedDateTime?: string | undefined;
-
-  /**
-   * <p>Wave tags.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface AssociateApplicationsRequest {
-  /**
-   * <p>Wave ID.</p>
-   * @public
-   */
-  waveID: string | undefined;
-
-  /**
-   * <p>Application IDs list.</p>
-   * @public
-   */
-  applicationIDs: string[] | undefined;
-
-  /**
-   * <p>Account ID.</p>
-   * @public
-   */
-  accountID?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface AssociateApplicationsResponse {}
-
-/**
- * @public
- */
-export interface CreateWaveRequest {
-  /**
-   * <p>Wave name.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>Wave description.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Wave tags.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>Account ID.</p>
-   * @public
-   */
-  accountID?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteWaveRequest {
-  /**
-   * <p>Wave ID.</p>
-   * @public
-   */
-  waveID: string | undefined;
-
-  /**
-   * <p>Account ID.</p>
-   * @public
-   */
-  accountID?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteWaveResponse {}
-
-/**
- * @public
- */
-export interface DisassociateApplicationsRequest {
-  /**
-   * <p>Wave ID.</p>
-   * @public
-   */
-  waveID: string | undefined;
-
-  /**
-   * <p>Application IDs list.</p>
-   * @public
-   */
-  applicationIDs: string[] | undefined;
-
-  /**
-   * <p>Account ID.</p>
-   * @public
-   */
-  accountID?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateApplicationsResponse {}
-
-/**
- * <p>Waves list filters.</p>
- * @public
- */
-export interface ListWavesRequestFilters {
-  /**
-   * <p>Filter waves list by wave ID.</p>
-   * @public
-   */
-  waveIDs?: string[] | undefined;
-
-  /**
-   * <p>Filter waves list by archival status.</p>
-   * @public
-   */
-  isArchived?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWavesRequest {
-  /**
-   * <p>Waves list filters.</p>
-   * @public
-   */
-  filters?: ListWavesRequestFilters | undefined;
-
-  /**
-   * <p>Maximum results to return when listing waves.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>Request next token.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Request account ID.</p>
-   * @public
-   */
-  accountID?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWavesResponse {
-  /**
-   * <p>Waves list.</p>
-   * @public
-   */
-  items?: Wave[] | undefined;
-
-  /**
-   * <p>Response next token.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UnarchiveWaveRequest {
-  /**
-   * <p>Wave ID.</p>
-   * @public
-   */
-  waveID: string | undefined;
-
-  /**
-   * <p>Account ID.</p>
-   * @public
-   */
-  accountID?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateWaveRequest {
-  /**
-   * <p>Wave ID.</p>
-   * @public
-   */
-  waveID: string | undefined;
-
-  /**
-   * <p>Wave name.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>Wave description.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Account ID.</p>
-   * @public
-   */
-  accountID?: string | undefined;
 }

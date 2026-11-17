@@ -67,6 +67,7 @@ export interface UpdateNetworkMigrationDefinitionCommandOutput extends NetworkMi
  *   scopeTags: { // ScopeTagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   definitionType: "STRING_VALUE",
  * };
  * const command = new UpdateNetworkMigrationDefinitionCommand(input);
  * const response = await client.send(command);
@@ -85,6 +86,7 @@ export interface UpdateNetworkMigrationDefinitionCommandOutput extends NetworkMi
  * //       },
  * //     },
  * //   ],
+ * //   definitionType: "STRING_VALUE",
  * //   targetS3Configuration: { // TargetS3Configuration
  * //     s3Bucket: "STRING_VALUE", // required
  * //     s3BucketOwner: "STRING_VALUE", // required

@@ -64,6 +64,7 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  *   accountID: "STRING_VALUE",
  *   internetProtocol: "STRING_VALUE",
  *   storeSnapshotOnLocalZone: true || false,
+ *   outpostSnapshotLocation: "STRING_VALUE",
  *   storageConfiguration: { // StorageConfiguration
  *     storageType: "STRING_VALUE", // required
  *     fsxOntapConfiguration: { // FsxOntapConfiguration
@@ -105,6 +106,7 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * //   useFipsEndpoint: true || false,
  * //   internetProtocol: "STRING_VALUE",
  * //   storeSnapshotOnLocalZone: true || false,
+ * //   outpostSnapshotLocation: "STRING_VALUE",
  * //   storageConfiguration: { // StorageConfiguration
  * //     storageType: "STRING_VALUE", // required
  * //     fsxOntapConfiguration: { // FsxOntapConfiguration

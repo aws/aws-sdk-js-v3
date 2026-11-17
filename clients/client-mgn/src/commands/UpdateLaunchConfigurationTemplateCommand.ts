@@ -63,6 +63,7 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  *   },
  *   enableMapAutoTagging: true || false,
  *   mapAutoTaggingMpeID: "STRING_VALUE",
+ *   mapAutoTaggingKey: "STRING_VALUE",
  *   launchDisposition: "STRING_VALUE",
  *   targetInstanceTypeRightSizingMethod: "STRING_VALUE",
  *   copyPrivateIp: true || false,
@@ -124,6 +125,7 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * //   },
  * //   enableMapAutoTagging: true || false,
  * //   mapAutoTaggingMpeID: "STRING_VALUE",
+ * //   mapAutoTaggingKey: "STRING_VALUE",
  * //   tags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

@@ -72,6 +72,7 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  *   },
  *   enableMapAutoTagging: true || false,
  *   mapAutoTaggingMpeID: "STRING_VALUE",
+ *   mapAutoTaggingKey: "STRING_VALUE",
  *   accountID: "STRING_VALUE",
  * };
  * const command = new UpdateLaunchConfigurationCommand(input);
@@ -117,6 +118,7 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  * //   },
  * //   enableMapAutoTagging: true || false,
  * //   mapAutoTaggingMpeID: "STRING_VALUE",
+ * //   mapAutoTaggingKey: "STRING_VALUE",
  * // };
  *
  * ```

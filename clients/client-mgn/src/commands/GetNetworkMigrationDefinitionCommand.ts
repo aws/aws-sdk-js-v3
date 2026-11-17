@@ -52,6 +52,7 @@ export interface GetNetworkMigrationDefinitionCommandOutput extends NetworkMigra
  * //       },
  * //     },
  * //   ],
+ * //   definitionType: "STRING_VALUE",
  * //   targetS3Configuration: { // TargetS3Configuration
  * //     s3Bucket: "STRING_VALUE", // required
  * //     s3BucketOwner: "STRING_VALUE", // required

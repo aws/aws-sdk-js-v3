@@ -49,6 +49,11 @@ import {
   CreateNetworkMigrationDefinition$,
   CreateNetworkMigrationDefinitionCommand,
   CreateNetworkMigrationDefinitionRequest$,
+  CreateOperation$,
+  CreateRemoteSourceAction$,
+  CreateRemoteSourceActionCommand,
+  CreateRemoteSourceActionRequest$,
+  CreateRemoteSourceActionResponse$,
   CreateReplicationConfigurationTemplate$,
   CreateReplicationConfigurationTemplateCommand,
   CreateReplicationConfigurationTemplateRequest$,
@@ -64,6 +69,7 @@ import {
   DataReplicationInitiationStepName,
   DataReplicationInitiationStepStatus,
   DataReplicationState,
+  DefinitionType,
   DeleteApplication$,
   DeleteApplicationCommand,
   DeleteApplicationRequest$,
@@ -83,7 +89,12 @@ import {
   DeleteNetworkMigrationDefinitionCommand,
   DeleteNetworkMigrationDefinitionRequest$,
   DeleteNetworkMigrationDefinitionResponse$,
+  DeleteOnTermination,
   DeleteOperation$,
+  DeleteRemoteSourceAction$,
+  DeleteRemoteSourceActionCommand,
+  DeleteRemoteSourceActionRequest$,
+  DeleteRemoteSourceActionResponse$,
   DeleteReplicationConfigurationTemplate$,
   DeleteReplicationConfigurationTemplateCommand,
   DeleteReplicationConfigurationTemplateRequest$,
@@ -156,6 +167,10 @@ import {
   FsxOntapConfiguration$,
   GetLaunchConfiguration$,
   GetLaunchConfigurationCommand,
+  GetLaunchConfigurationDefaults$,
+  GetLaunchConfigurationDefaultsCommand,
+  GetLaunchConfigurationDefaultsRequest$,
+  GetLaunchConfigurationDefaultsResponse$,
   GetLaunchConfigurationRequest$,
   GetNetworkMigrationDefinition$,
   GetNetworkMigrationDefinitionCommand,
@@ -184,6 +199,11 @@ import {
   InitializeServiceRequest$,
   InitializeServiceResponse$,
   InitiatedBy,
+  InsightLevel,
+  InsightMessage$,
+  InsightProducerName,
+  InsightProducerType,
+  InsightType,
   InternalServerException,
   InternalServerException$,
   InternetProtocol,
@@ -291,6 +311,11 @@ import {
   ListNetworkMigrationExecutionsCommand,
   ListNetworkMigrationExecutionsRequest$,
   ListNetworkMigrationExecutionsResponse$,
+  ListNetworkMigrationInsights$,
+  ListNetworkMigrationInsightsCommand,
+  ListNetworkMigrationInsightsFilters$,
+  ListNetworkMigrationInsightsRequest$,
+  ListNetworkMigrationInsightsResponse$,
   ListNetworkMigrationMapperSegmentConstructs$,
   ListNetworkMigrationMapperSegmentConstructsCommand,
   ListNetworkMigrationMapperSegmentConstructsFilters$,
@@ -311,6 +336,25 @@ import {
   ListNetworkMigrationMappingUpdatesFilters$,
   ListNetworkMigrationMappingUpdatesRequest$,
   ListNetworkMigrationMappingUpdatesResponse$,
+  ListRemoteSourceActionInvocationResults$,
+  ListRemoteSourceActionInvocationResultsCommand,
+  ListRemoteSourceActionInvocationResultsRequest$,
+  ListRemoteSourceActionInvocationResultsResponse$,
+  ListRemoteSourceActionInvocations$,
+  ListRemoteSourceActionInvocationsCommand,
+  ListRemoteSourceActionInvocationsRequest$,
+  ListRemoteSourceActionInvocationsRequestFilters$,
+  ListRemoteSourceActionInvocationsResponse$,
+  ListRemoteSourceActionJobs$,
+  ListRemoteSourceActionJobsCommand,
+  ListRemoteSourceActionJobsRequest$,
+  ListRemoteSourceActionJobsRequestFilters$,
+  ListRemoteSourceActionJobsResponse$,
+  ListRemoteSourceActions$,
+  ListRemoteSourceActionsCommand,
+  ListRemoteSourceActionsRequest$,
+  ListRemoteSourceActionsRequestFilters$,
+  ListRemoteSourceActionsResponse$,
   ListSourceServerActions$,
   ListSourceServerActionsCommand,
   ListSourceServerActionsRequest$,
@@ -357,14 +401,17 @@ import {
   NetworkMigrationExecution$,
   NetworkMigrationFailedResourceDetails$,
   NetworkMigrationFailedResourceStatus,
+  NetworkMigrationInsight$,
   NetworkMigrationJobStatus,
   NetworkMigrationMapperSegment$,
   NetworkMigrationMapperSegmentConstruct$,
   NetworkMigrationMapperSegmentType,
   NetworkMigrationMappingJobDetails$,
   NetworkMigrationMappingUpdateJobDetails$,
+  OperationConfigurationUnion$,
   OperationUnion$,
   OS$,
+  OutpostSnapshotLocation,
   paginateDescribeJobLogItems,
   paginateDescribeJobs,
   paginateDescribeLaunchConfigurationTemplates,
@@ -387,10 +434,15 @@ import {
   paginateListNetworkMigrationDeployedStacks,
   paginateListNetworkMigrationDeployments,
   paginateListNetworkMigrationExecutions,
+  paginateListNetworkMigrationInsights,
   paginateListNetworkMigrationMapperSegmentConstructs,
   paginateListNetworkMigrationMapperSegments,
   paginateListNetworkMigrationMappings,
   paginateListNetworkMigrationMappingUpdates,
+  paginateListRemoteSourceActionInvocationResults,
+  paginateListRemoteSourceActionInvocations,
+  paginateListRemoteSourceActionJobs,
+  paginateListRemoteSourceActions,
   paginateListSourceServerActions,
   paginateListTemplateActions,
   paginateListWaves,
@@ -408,6 +460,12 @@ import {
   PutTemplateAction$,
   PutTemplateActionCommand,
   PutTemplateActionRequest$,
+  RemoteSourceAction$,
+  RemoteSourceActionInvocation$,
+  RemoteSourceActionInvocationResult$,
+  RemoteSourceActionInvocationStatus,
+  RemoteSourceActionJob$,
+  RemoteSourceActionJobStatus,
   RemoveSourceServerAction$,
   RemoveSourceServerActionCommand,
   RemoveSourceServerActionRequest$,
@@ -434,7 +492,14 @@ import {
   RetryDataReplicationRequest$,
   S3BucketSource$,
   S3Configuration$,
+  SecurityGroupAssociations$,
+  SecurityGroupConfiguration$,
   SecurityGroupMappingStrategy,
+  SecurityGroupRuleConfiguration$,
+  SegmentCreateOperation$,
+  SegmentDeleteOperation$,
+  SegmentOperation$,
+  SegmentUpdateOperation$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   SourceConfiguration$,
@@ -445,6 +510,7 @@ import {
   SourceServerActionDocument$,
   SourceServerActionsRequestFilters$,
   SourceServerConnectorAction$,
+  SourceServerVolumeConfiguration$,
   SplitConstruct$,
   SplitOperation$,
   SsmDocument$,
@@ -490,6 +556,10 @@ import {
   StartNetworkMigrationMappingUpdateRequest$,
   StartNetworkMigrationMappingUpdateResponse$,
   StartNetworkMigrationMappingUpdateSegment$,
+  StartRemoteSourceActionJob$,
+  StartRemoteSourceActionJobCommand,
+  StartRemoteSourceActionJobRequest$,
+  StartRemoteSourceActionJobResponse$,
   StartReplication$,
   StartReplicationCommand,
   StartReplicationRequest$,
@@ -539,6 +609,10 @@ import {
   UpdateConnectorRequest$,
   UpdateLaunchConfiguration$,
   UpdateLaunchConfigurationCommand,
+  UpdateLaunchConfigurationDefaults$,
+  UpdateLaunchConfigurationDefaultsCommand,
+  UpdateLaunchConfigurationDefaultsRequest$,
+  UpdateLaunchConfigurationDefaultsResponse$,
   UpdateLaunchConfigurationRequest$,
   UpdateLaunchConfigurationTemplate$,
   UpdateLaunchConfigurationTemplateCommand,
@@ -550,6 +624,11 @@ import {
   UpdateNetworkMigrationMapperSegmentCommand,
   UpdateNetworkMigrationMapperSegmentRequest$,
   UpdateOperation$,
+  UpdateOperationV2$,
+  UpdateRemoteSourceAction$,
+  UpdateRemoteSourceActionCommand,
+  UpdateRemoteSourceActionRequest$,
+  UpdateRemoteSourceActionResponse$,
   UpdateReplicationConfiguration$,
   UpdateReplicationConfigurationCommand,
   UpdateReplicationConfigurationRequest$,
@@ -600,6 +679,8 @@ assert(typeof CreateLaunchConfigurationTemplateCommand === "function");
 assert(typeof CreateLaunchConfigurationTemplate$ === "object");
 assert(typeof CreateNetworkMigrationDefinitionCommand === "function");
 assert(typeof CreateNetworkMigrationDefinition$ === "object");
+assert(typeof CreateRemoteSourceActionCommand === "function");
+assert(typeof CreateRemoteSourceAction$ === "object");
 assert(typeof CreateReplicationConfigurationTemplateCommand === "function");
 assert(typeof CreateReplicationConfigurationTemplate$ === "object");
 assert(typeof CreateWaveCommand === "function");
@@ -614,6 +695,8 @@ assert(typeof DeleteLaunchConfigurationTemplateCommand === "function");
 assert(typeof DeleteLaunchConfigurationTemplate$ === "object");
 assert(typeof DeleteNetworkMigrationDefinitionCommand === "function");
 assert(typeof DeleteNetworkMigrationDefinition$ === "object");
+assert(typeof DeleteRemoteSourceActionCommand === "function");
+assert(typeof DeleteRemoteSourceAction$ === "object");
 assert(typeof DeleteReplicationConfigurationTemplateCommand === "function");
 assert(typeof DeleteReplicationConfigurationTemplate$ === "object");
 assert(typeof DeleteSourceServerCommand === "function");
@@ -644,6 +727,8 @@ assert(typeof FinalizeCutoverCommand === "function");
 assert(typeof FinalizeCutover$ === "object");
 assert(typeof GetLaunchConfigurationCommand === "function");
 assert(typeof GetLaunchConfiguration$ === "object");
+assert(typeof GetLaunchConfigurationDefaultsCommand === "function");
+assert(typeof GetLaunchConfigurationDefaults$ === "object");
 assert(typeof GetNetworkMigrationDefinitionCommand === "function");
 assert(typeof GetNetworkMigrationDefinition$ === "object");
 assert(typeof GetNetworkMigrationMapperSegmentConstructCommand === "function");
@@ -684,6 +769,8 @@ assert(typeof ListNetworkMigrationDeploymentsCommand === "function");
 assert(typeof ListNetworkMigrationDeployments$ === "object");
 assert(typeof ListNetworkMigrationExecutionsCommand === "function");
 assert(typeof ListNetworkMigrationExecutions$ === "object");
+assert(typeof ListNetworkMigrationInsightsCommand === "function");
+assert(typeof ListNetworkMigrationInsights$ === "object");
 assert(typeof ListNetworkMigrationMapperSegmentConstructsCommand === "function");
 assert(typeof ListNetworkMigrationMapperSegmentConstructs$ === "object");
 assert(typeof ListNetworkMigrationMapperSegmentsCommand === "function");
@@ -692,6 +779,14 @@ assert(typeof ListNetworkMigrationMappingsCommand === "function");
 assert(typeof ListNetworkMigrationMappings$ === "object");
 assert(typeof ListNetworkMigrationMappingUpdatesCommand === "function");
 assert(typeof ListNetworkMigrationMappingUpdates$ === "object");
+assert(typeof ListRemoteSourceActionInvocationResultsCommand === "function");
+assert(typeof ListRemoteSourceActionInvocationResults$ === "object");
+assert(typeof ListRemoteSourceActionInvocationsCommand === "function");
+assert(typeof ListRemoteSourceActionInvocations$ === "object");
+assert(typeof ListRemoteSourceActionJobsCommand === "function");
+assert(typeof ListRemoteSourceActionJobs$ === "object");
+assert(typeof ListRemoteSourceActionsCommand === "function");
+assert(typeof ListRemoteSourceActions$ === "object");
 assert(typeof ListSourceServerActionsCommand === "function");
 assert(typeof ListSourceServerActions$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
@@ -734,6 +829,8 @@ assert(typeof StartNetworkMigrationMappingCommand === "function");
 assert(typeof StartNetworkMigrationMapping$ === "object");
 assert(typeof StartNetworkMigrationMappingUpdateCommand === "function");
 assert(typeof StartNetworkMigrationMappingUpdate$ === "object");
+assert(typeof StartRemoteSourceActionJobCommand === "function");
+assert(typeof StartRemoteSourceActionJob$ === "object");
 assert(typeof StartReplicationCommand === "function");
 assert(typeof StartReplication$ === "object");
 assert(typeof StartTestCommand === "function");
@@ -756,12 +853,16 @@ assert(typeof UpdateConnectorCommand === "function");
 assert(typeof UpdateConnector$ === "object");
 assert(typeof UpdateLaunchConfigurationCommand === "function");
 assert(typeof UpdateLaunchConfiguration$ === "object");
+assert(typeof UpdateLaunchConfigurationDefaultsCommand === "function");
+assert(typeof UpdateLaunchConfigurationDefaults$ === "object");
 assert(typeof UpdateLaunchConfigurationTemplateCommand === "function");
 assert(typeof UpdateLaunchConfigurationTemplate$ === "object");
 assert(typeof UpdateNetworkMigrationDefinitionCommand === "function");
 assert(typeof UpdateNetworkMigrationDefinition$ === "object");
 assert(typeof UpdateNetworkMigrationMapperSegmentCommand === "function");
 assert(typeof UpdateNetworkMigrationMapperSegment$ === "object");
+assert(typeof UpdateRemoteSourceActionCommand === "function");
+assert(typeof UpdateRemoteSourceAction$ === "object");
 assert(typeof UpdateReplicationConfigurationCommand === "function");
 assert(typeof UpdateReplicationConfiguration$ === "object");
 assert(typeof UpdateReplicationConfigurationTemplateCommand === "function");
@@ -793,6 +894,9 @@ assert(typeof CreateApplicationRequest$ === "object");
 assert(typeof CreateConnectorRequest$ === "object");
 assert(typeof CreateLaunchConfigurationTemplateRequest$ === "object");
 assert(typeof CreateNetworkMigrationDefinitionRequest$ === "object");
+assert(typeof CreateOperation$ === "object");
+assert(typeof CreateRemoteSourceActionRequest$ === "object");
+assert(typeof CreateRemoteSourceActionResponse$ === "object");
 assert(typeof CreateReplicationConfigurationTemplateRequest$ === "object");
 assert(typeof CreateWaveRequest$ === "object");
 assert(typeof DataReplicationError$ === "object");
@@ -810,6 +914,8 @@ assert(typeof DeleteLaunchConfigurationTemplateResponse$ === "object");
 assert(typeof DeleteNetworkMigrationDefinitionRequest$ === "object");
 assert(typeof DeleteNetworkMigrationDefinitionResponse$ === "object");
 assert(typeof DeleteOperation$ === "object");
+assert(typeof DeleteRemoteSourceActionRequest$ === "object");
+assert(typeof DeleteRemoteSourceActionResponse$ === "object");
 assert(typeof DeleteReplicationConfigurationTemplateRequest$ === "object");
 assert(typeof DeleteReplicationConfigurationTemplateResponse$ === "object");
 assert(typeof DeleteSourceServerRequest$ === "object");
@@ -846,6 +952,8 @@ assert(typeof ExportTaskError$ === "object");
 assert(typeof ExportTaskSummary$ === "object");
 assert(typeof FinalizeCutoverRequest$ === "object");
 assert(typeof FsxOntapConfiguration$ === "object");
+assert(typeof GetLaunchConfigurationDefaultsRequest$ === "object");
+assert(typeof GetLaunchConfigurationDefaultsResponse$ === "object");
 assert(typeof GetLaunchConfigurationRequest$ === "object");
 assert(typeof GetNetworkMigrationDefinitionRequest$ === "object");
 assert(typeof GetNetworkMigrationMapperSegmentConstructRequest$ === "object");
@@ -862,6 +970,7 @@ assert(typeof ImportTaskSummaryServers$ === "object");
 assert(typeof ImportTaskSummaryWaves$ === "object");
 assert(typeof InitializeServiceRequest$ === "object");
 assert(typeof InitializeServiceResponse$ === "object");
+assert(typeof InsightMessage$ === "object");
 assert(typeof Job$ === "object");
 assert(typeof JobLog$ === "object");
 assert(typeof JobLogEventData$ === "object");
@@ -925,6 +1034,9 @@ assert(typeof ListNetworkMigrationDeploymentsRequest$ === "object");
 assert(typeof ListNetworkMigrationExecutionRequestFilters$ === "object");
 assert(typeof ListNetworkMigrationExecutionsRequest$ === "object");
 assert(typeof ListNetworkMigrationExecutionsResponse$ === "object");
+assert(typeof ListNetworkMigrationInsightsFilters$ === "object");
+assert(typeof ListNetworkMigrationInsightsRequest$ === "object");
+assert(typeof ListNetworkMigrationInsightsResponse$ === "object");
 assert(typeof ListNetworkMigrationMapperSegmentConstructsFilters$ === "object");
 assert(typeof ListNetworkMigrationMapperSegmentConstructsRequest$ === "object");
 assert(typeof ListNetworkMigrationMapperSegmentConstructsResponse$ === "object");
@@ -937,6 +1049,17 @@ assert(typeof ListNetworkMigrationMappingsResponse$ === "object");
 assert(typeof ListNetworkMigrationMappingUpdatesFilters$ === "object");
 assert(typeof ListNetworkMigrationMappingUpdatesRequest$ === "object");
 assert(typeof ListNetworkMigrationMappingUpdatesResponse$ === "object");
+assert(typeof ListRemoteSourceActionInvocationResultsRequest$ === "object");
+assert(typeof ListRemoteSourceActionInvocationResultsResponse$ === "object");
+assert(typeof ListRemoteSourceActionInvocationsRequest$ === "object");
+assert(typeof ListRemoteSourceActionInvocationsRequestFilters$ === "object");
+assert(typeof ListRemoteSourceActionInvocationsResponse$ === "object");
+assert(typeof ListRemoteSourceActionJobsRequest$ === "object");
+assert(typeof ListRemoteSourceActionJobsRequestFilters$ === "object");
+assert(typeof ListRemoteSourceActionJobsResponse$ === "object");
+assert(typeof ListRemoteSourceActionsRequest$ === "object");
+assert(typeof ListRemoteSourceActionsRequestFilters$ === "object");
+assert(typeof ListRemoteSourceActionsResponse$ === "object");
 assert(typeof ListSourceServerActionsRequest$ === "object");
 assert(typeof ListSourceServerActionsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
@@ -964,10 +1087,12 @@ assert(typeof NetworkMigrationDeployedStackDetails$ === "object");
 assert(typeof NetworkMigrationDeployerJobDetails$ === "object");
 assert(typeof NetworkMigrationExecution$ === "object");
 assert(typeof NetworkMigrationFailedResourceDetails$ === "object");
+assert(typeof NetworkMigrationInsight$ === "object");
 assert(typeof NetworkMigrationMapperSegment$ === "object");
 assert(typeof NetworkMigrationMapperSegmentConstruct$ === "object");
 assert(typeof NetworkMigrationMappingJobDetails$ === "object");
 assert(typeof NetworkMigrationMappingUpdateJobDetails$ === "object");
+assert(typeof OperationConfigurationUnion$ === "object");
 assert(typeof OperationUnion$ === "object");
 assert(typeof OS$ === "object");
 assert(typeof ParticipatingServer$ === "object");
@@ -976,6 +1101,10 @@ assert(typeof PostLaunchActions$ === "object");
 assert(typeof PostLaunchActionsStatus$ === "object");
 assert(typeof PutSourceServerActionRequest$ === "object");
 assert(typeof PutTemplateActionRequest$ === "object");
+assert(typeof RemoteSourceAction$ === "object");
+assert(typeof RemoteSourceActionInvocation$ === "object");
+assert(typeof RemoteSourceActionInvocationResult$ === "object");
+assert(typeof RemoteSourceActionJob$ === "object");
 assert(typeof RemoveSourceServerActionRequest$ === "object");
 assert(typeof RemoveSourceServerActionResponse$ === "object");
 assert(typeof RemoveTemplateActionRequest$ === "object");
@@ -987,6 +1116,13 @@ assert(typeof ResumeReplicationRequest$ === "object");
 assert(typeof RetryDataReplicationRequest$ === "object");
 assert(typeof S3BucketSource$ === "object");
 assert(typeof S3Configuration$ === "object");
+assert(typeof SecurityGroupAssociations$ === "object");
+assert(typeof SecurityGroupConfiguration$ === "object");
+assert(typeof SecurityGroupRuleConfiguration$ === "object");
+assert(typeof SegmentCreateOperation$ === "object");
+assert(typeof SegmentDeleteOperation$ === "object");
+assert(typeof SegmentOperation$ === "object");
+assert(typeof SegmentUpdateOperation$ === "object");
 assert(typeof SourceConfiguration$ === "object");
 assert(typeof SourceProperties$ === "object");
 assert(typeof SourceS3Configuration$ === "object");
@@ -994,6 +1130,7 @@ assert(typeof SourceServer$ === "object");
 assert(typeof SourceServerActionDocument$ === "object");
 assert(typeof SourceServerActionsRequestFilters$ === "object");
 assert(typeof SourceServerConnectorAction$ === "object");
+assert(typeof SourceServerVolumeConfiguration$ === "object");
 assert(typeof SplitConstruct$ === "object");
 assert(typeof SplitOperation$ === "object");
 assert(typeof SsmDocument$ === "object");
@@ -1019,6 +1156,8 @@ assert(typeof StartNetworkMigrationMappingUpdateConstruct$ === "object");
 assert(typeof StartNetworkMigrationMappingUpdateRequest$ === "object");
 assert(typeof StartNetworkMigrationMappingUpdateResponse$ === "object");
 assert(typeof StartNetworkMigrationMappingUpdateSegment$ === "object");
+assert(typeof StartRemoteSourceActionJobRequest$ === "object");
+assert(typeof StartRemoteSourceActionJobResponse$ === "object");
 assert(typeof StartReplicationRequest$ === "object");
 assert(typeof StartTestRequest$ === "object");
 assert(typeof StartTestResponse$ === "object");
@@ -1038,11 +1177,16 @@ assert(typeof UnarchiveWaveRequest$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UpdateApplicationRequest$ === "object");
 assert(typeof UpdateConnectorRequest$ === "object");
+assert(typeof UpdateLaunchConfigurationDefaultsRequest$ === "object");
+assert(typeof UpdateLaunchConfigurationDefaultsResponse$ === "object");
 assert(typeof UpdateLaunchConfigurationRequest$ === "object");
 assert(typeof UpdateLaunchConfigurationTemplateRequest$ === "object");
 assert(typeof UpdateNetworkMigrationDefinitionRequest$ === "object");
 assert(typeof UpdateNetworkMigrationMapperSegmentRequest$ === "object");
 assert(typeof UpdateOperation$ === "object");
+assert(typeof UpdateOperationV2$ === "object");
+assert(typeof UpdateRemoteSourceActionRequest$ === "object");
+assert(typeof UpdateRemoteSourceActionResponse$ === "object");
 assert(typeof UpdateReplicationConfigurationRequest$ === "object");
 assert(typeof UpdateReplicationConfigurationTemplateRequest$ === "object");
 assert(typeof UpdateSourceServerReplicationTypeRequest$ === "object");
@@ -1065,6 +1209,8 @@ assert(typeof DataReplicationErrorString === "object");
 assert(typeof DataReplicationInitiationStepName === "object");
 assert(typeof DataReplicationInitiationStepStatus === "object");
 assert(typeof DataReplicationState === "object");
+assert(typeof DefinitionType === "object");
+assert(typeof DeleteOnTermination === "object");
 assert(typeof EncryptionAlgorithm === "object");
 assert(typeof ExecutionStage === "object");
 assert(typeof ExecutionStageActivity === "object");
@@ -1075,6 +1221,10 @@ assert(typeof ImportErrorType === "object");
 assert(typeof ImportFileEnrichmentStatus === "object");
 assert(typeof ImportStatus === "object");
 assert(typeof InitiatedBy === "object");
+assert(typeof InsightLevel === "object");
+assert(typeof InsightProducerName === "object");
+assert(typeof InsightProducerType === "object");
+assert(typeof InsightType === "object");
 assert(typeof InternetProtocol === "object");
 assert(typeof IpAssignmentStrategy === "object");
 assert(typeof JobLogEvent === "object");
@@ -1093,8 +1243,11 @@ assert(typeof NetworkMigrationDeployedStackStatus === "object");
 assert(typeof NetworkMigrationFailedResourceStatus === "object");
 assert(typeof NetworkMigrationJobStatus === "object");
 assert(typeof NetworkMigrationMapperSegmentType === "object");
+assert(typeof OutpostSnapshotLocation === "object");
 assert(typeof PostLaunchActionExecutionStatus === "object");
 assert(typeof PostLaunchActionsDeploymentType === "object");
+assert(typeof RemoteSourceActionInvocationStatus === "object");
+assert(typeof RemoteSourceActionJobStatus === "object");
 assert(typeof ReplicationConfigurationDataPlaneRouting === "object");
 assert(typeof ReplicationConfigurationDefaultLargeStagingDiskType === "object");
 assert(typeof ReplicationConfigurationEbsEncryption === "object");
@@ -1154,10 +1307,15 @@ assert(typeof paginateListNetworkMigrationDefinitions === "function");
 assert(typeof paginateListNetworkMigrationDeployedStacks === "function");
 assert(typeof paginateListNetworkMigrationDeployments === "function");
 assert(typeof paginateListNetworkMigrationExecutions === "function");
+assert(typeof paginateListNetworkMigrationInsights === "function");
 assert(typeof paginateListNetworkMigrationMapperSegmentConstructs === "function");
 assert(typeof paginateListNetworkMigrationMapperSegments === "function");
 assert(typeof paginateListNetworkMigrationMappingUpdates === "function");
 assert(typeof paginateListNetworkMigrationMappings === "function");
+assert(typeof paginateListRemoteSourceActionInvocationResults === "function");
+assert(typeof paginateListRemoteSourceActionInvocations === "function");
+assert(typeof paginateListRemoteSourceActionJobs === "function");
+assert(typeof paginateListRemoteSourceActions === "function");
 assert(typeof paginateListSourceServerActions === "function");
 assert(typeof paginateListTemplateActions === "function");
 assert(typeof paginateListWaves === "function");

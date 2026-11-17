@@ -85,6 +85,10 @@ import type {
   CreateNetworkMigrationDefinitionCommandOutput,
 } from "./commands/CreateNetworkMigrationDefinitionCommand";
 import type {
+  CreateRemoteSourceActionCommandInput,
+  CreateRemoteSourceActionCommandOutput,
+} from "./commands/CreateRemoteSourceActionCommand";
+import type {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
@@ -103,6 +107,10 @@ import type {
   DeleteNetworkMigrationDefinitionCommandInput,
   DeleteNetworkMigrationDefinitionCommandOutput,
 } from "./commands/DeleteNetworkMigrationDefinitionCommand";
+import type {
+  DeleteRemoteSourceActionCommandInput,
+  DeleteRemoteSourceActionCommandOutput,
+} from "./commands/DeleteRemoteSourceActionCommand";
 import type {
   DeleteReplicationConfigurationTemplateCommandInput,
   DeleteReplicationConfigurationTemplateCommandOutput,
@@ -154,6 +162,10 @@ import type {
   GetLaunchConfigurationCommandInput,
   GetLaunchConfigurationCommandOutput,
 } from "./commands/GetLaunchConfigurationCommand";
+import type {
+  GetLaunchConfigurationDefaultsCommandInput,
+  GetLaunchConfigurationDefaultsCommandOutput,
+} from "./commands/GetLaunchConfigurationDefaultsCommand";
 import type {
   GetNetworkMigrationDefinitionCommandInput,
   GetNetworkMigrationDefinitionCommandOutput,
@@ -217,6 +229,10 @@ import type {
   ListNetworkMigrationExecutionsCommandOutput,
 } from "./commands/ListNetworkMigrationExecutionsCommand";
 import type {
+  ListNetworkMigrationInsightsCommandInput,
+  ListNetworkMigrationInsightsCommandOutput,
+} from "./commands/ListNetworkMigrationInsightsCommand";
+import type {
   ListNetworkMigrationMapperSegmentConstructsCommandInput,
   ListNetworkMigrationMapperSegmentConstructsCommandOutput,
 } from "./commands/ListNetworkMigrationMapperSegmentConstructsCommand";
@@ -232,6 +248,22 @@ import type {
   ListNetworkMigrationMappingUpdatesCommandInput,
   ListNetworkMigrationMappingUpdatesCommandOutput,
 } from "./commands/ListNetworkMigrationMappingUpdatesCommand";
+import type {
+  ListRemoteSourceActionInvocationResultsCommandInput,
+  ListRemoteSourceActionInvocationResultsCommandOutput,
+} from "./commands/ListRemoteSourceActionInvocationResultsCommand";
+import type {
+  ListRemoteSourceActionInvocationsCommandInput,
+  ListRemoteSourceActionInvocationsCommandOutput,
+} from "./commands/ListRemoteSourceActionInvocationsCommand";
+import type {
+  ListRemoteSourceActionJobsCommandInput,
+  ListRemoteSourceActionJobsCommandOutput,
+} from "./commands/ListRemoteSourceActionJobsCommand";
+import type {
+  ListRemoteSourceActionsCommandInput,
+  ListRemoteSourceActionsCommandOutput,
+} from "./commands/ListRemoteSourceActionsCommand";
 import type {
   ListSourceServerActionsCommandInput,
   ListSourceServerActionsCommandOutput,
@@ -298,6 +330,10 @@ import type {
   StartNetworkMigrationMappingUpdateCommandInput,
   StartNetworkMigrationMappingUpdateCommandOutput,
 } from "./commands/StartNetworkMigrationMappingUpdateCommand";
+import type {
+  StartRemoteSourceActionJobCommandInput,
+  StartRemoteSourceActionJobCommandOutput,
+} from "./commands/StartRemoteSourceActionJobCommand";
 import type { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
 import type { StartTestCommandInput, StartTestCommandOutput } from "./commands/StartTestCommand";
 import type { StopReplicationCommandInput, StopReplicationCommandOutput } from "./commands/StopReplicationCommand";
@@ -322,6 +358,10 @@ import type {
   UpdateLaunchConfigurationCommandOutput,
 } from "./commands/UpdateLaunchConfigurationCommand";
 import type {
+  UpdateLaunchConfigurationDefaultsCommandInput,
+  UpdateLaunchConfigurationDefaultsCommandOutput,
+} from "./commands/UpdateLaunchConfigurationDefaultsCommand";
+import type {
   UpdateLaunchConfigurationTemplateCommandInput,
   UpdateLaunchConfigurationTemplateCommandOutput,
 } from "./commands/UpdateLaunchConfigurationTemplateCommand";
@@ -333,6 +373,10 @@ import type {
   UpdateNetworkMigrationMapperSegmentCommandInput,
   UpdateNetworkMigrationMapperSegmentCommandOutput,
 } from "./commands/UpdateNetworkMigrationMapperSegmentCommand";
+import type {
+  UpdateRemoteSourceActionCommandInput,
+  UpdateRemoteSourceActionCommandOutput,
+} from "./commands/UpdateRemoteSourceActionCommand";
 import type {
   UpdateReplicationConfigurationCommandInput,
   UpdateReplicationConfigurationCommandOutput,
@@ -374,6 +418,7 @@ export type ServiceInputTypes =
   | CreateConnectorCommandInput
   | CreateLaunchConfigurationTemplateCommandInput
   | CreateNetworkMigrationDefinitionCommandInput
+  | CreateRemoteSourceActionCommandInput
   | CreateReplicationConfigurationTemplateCommandInput
   | CreateWaveCommandInput
   | DeleteApplicationCommandInput
@@ -381,6 +426,7 @@ export type ServiceInputTypes =
   | DeleteJobCommandInput
   | DeleteLaunchConfigurationTemplateCommandInput
   | DeleteNetworkMigrationDefinitionCommandInput
+  | DeleteRemoteSourceActionCommandInput
   | DeleteReplicationConfigurationTemplateCommandInput
   | DeleteSourceServerCommandInput
   | DeleteVcenterClientCommandInput
@@ -396,6 +442,7 @@ export type ServiceInputTypes =
   | DisconnectFromServiceCommandInput
   | FinalizeCutoverCommandInput
   | GetLaunchConfigurationCommandInput
+  | GetLaunchConfigurationDefaultsCommandInput
   | GetNetworkMigrationDefinitionCommandInput
   | GetNetworkMigrationMapperSegmentConstructCommandInput
   | GetReplicationConfigurationCommandInput
@@ -416,10 +463,15 @@ export type ServiceInputTypes =
   | ListNetworkMigrationDeployedStacksCommandInput
   | ListNetworkMigrationDeploymentsCommandInput
   | ListNetworkMigrationExecutionsCommandInput
+  | ListNetworkMigrationInsightsCommandInput
   | ListNetworkMigrationMapperSegmentConstructsCommandInput
   | ListNetworkMigrationMapperSegmentsCommandInput
   | ListNetworkMigrationMappingUpdatesCommandInput
   | ListNetworkMigrationMappingsCommandInput
+  | ListRemoteSourceActionInvocationResultsCommandInput
+  | ListRemoteSourceActionInvocationsCommandInput
+  | ListRemoteSourceActionJobsCommandInput
+  | ListRemoteSourceActionsCommandInput
   | ListSourceServerActionsCommandInput
   | ListTagsForResourceCommandInput
   | ListTemplateActionsCommandInput
@@ -441,6 +493,7 @@ export type ServiceInputTypes =
   | StartNetworkMigrationDeploymentCommandInput
   | StartNetworkMigrationMappingCommandInput
   | StartNetworkMigrationMappingUpdateCommandInput
+  | StartRemoteSourceActionJobCommandInput
   | StartReplicationCommandInput
   | StartTestCommandInput
   | StopReplicationCommandInput
@@ -452,9 +505,11 @@ export type ServiceInputTypes =
   | UpdateApplicationCommandInput
   | UpdateConnectorCommandInput
   | UpdateLaunchConfigurationCommandInput
+  | UpdateLaunchConfigurationDefaultsCommandInput
   | UpdateLaunchConfigurationTemplateCommandInput
   | UpdateNetworkMigrationDefinitionCommandInput
   | UpdateNetworkMigrationMapperSegmentCommandInput
+  | UpdateRemoteSourceActionCommandInput
   | UpdateReplicationConfigurationCommandInput
   | UpdateReplicationConfigurationTemplateCommandInput
   | UpdateSourceServerCommandInput
@@ -474,6 +529,7 @@ export type ServiceOutputTypes =
   | CreateConnectorCommandOutput
   | CreateLaunchConfigurationTemplateCommandOutput
   | CreateNetworkMigrationDefinitionCommandOutput
+  | CreateRemoteSourceActionCommandOutput
   | CreateReplicationConfigurationTemplateCommandOutput
   | CreateWaveCommandOutput
   | DeleteApplicationCommandOutput
@@ -481,6 +537,7 @@ export type ServiceOutputTypes =
   | DeleteJobCommandOutput
   | DeleteLaunchConfigurationTemplateCommandOutput
   | DeleteNetworkMigrationDefinitionCommandOutput
+  | DeleteRemoteSourceActionCommandOutput
   | DeleteReplicationConfigurationTemplateCommandOutput
   | DeleteSourceServerCommandOutput
   | DeleteVcenterClientCommandOutput
@@ -496,6 +553,7 @@ export type ServiceOutputTypes =
   | DisconnectFromServiceCommandOutput
   | FinalizeCutoverCommandOutput
   | GetLaunchConfigurationCommandOutput
+  | GetLaunchConfigurationDefaultsCommandOutput
   | GetNetworkMigrationDefinitionCommandOutput
   | GetNetworkMigrationMapperSegmentConstructCommandOutput
   | GetReplicationConfigurationCommandOutput
@@ -516,10 +574,15 @@ export type ServiceOutputTypes =
   | ListNetworkMigrationDeployedStacksCommandOutput
   | ListNetworkMigrationDeploymentsCommandOutput
   | ListNetworkMigrationExecutionsCommandOutput
+  | ListNetworkMigrationInsightsCommandOutput
   | ListNetworkMigrationMapperSegmentConstructsCommandOutput
   | ListNetworkMigrationMapperSegmentsCommandOutput
   | ListNetworkMigrationMappingUpdatesCommandOutput
   | ListNetworkMigrationMappingsCommandOutput
+  | ListRemoteSourceActionInvocationResultsCommandOutput
+  | ListRemoteSourceActionInvocationsCommandOutput
+  | ListRemoteSourceActionJobsCommandOutput
+  | ListRemoteSourceActionsCommandOutput
   | ListSourceServerActionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTemplateActionsCommandOutput
@@ -541,6 +604,7 @@ export type ServiceOutputTypes =
   | StartNetworkMigrationDeploymentCommandOutput
   | StartNetworkMigrationMappingCommandOutput
   | StartNetworkMigrationMappingUpdateCommandOutput
+  | StartRemoteSourceActionJobCommandOutput
   | StartReplicationCommandOutput
   | StartTestCommandOutput
   | StopReplicationCommandOutput
@@ -552,9 +616,11 @@ export type ServiceOutputTypes =
   | UpdateApplicationCommandOutput
   | UpdateConnectorCommandOutput
   | UpdateLaunchConfigurationCommandOutput
+  | UpdateLaunchConfigurationDefaultsCommandOutput
   | UpdateLaunchConfigurationTemplateCommandOutput
   | UpdateNetworkMigrationDefinitionCommandOutput
   | UpdateNetworkMigrationMapperSegmentCommandOutput
+  | UpdateRemoteSourceActionCommandOutput
   | UpdateReplicationConfigurationCommandOutput
   | UpdateReplicationConfigurationTemplateCommandOutput
   | UpdateSourceServerCommandOutput

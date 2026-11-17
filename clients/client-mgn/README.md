@@ -244,6 +244,13 @@ CreateNetworkMigrationDefinition
 </details>
 <details>
 <summary>
+CreateRemoteSourceAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/CreateRemoteSourceActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/CreateRemoteSourceActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/CreateRemoteSourceActionCommandOutput/)
+</details>
+<details>
+<summary>
 CreateReplicationConfigurationTemplate
 </summary>
 
@@ -290,6 +297,13 @@ DeleteNetworkMigrationDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/DeleteNetworkMigrationDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/DeleteNetworkMigrationDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/DeleteNetworkMigrationDefinitionCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteRemoteSourceAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/DeleteRemoteSourceActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/DeleteRemoteSourceActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/DeleteRemoteSourceActionCommandOutput/)
 </details>
 <details>
 <summary>
@@ -395,6 +409,13 @@ GetLaunchConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/GetLaunchConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/GetLaunchConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/GetLaunchConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
+GetLaunchConfigurationDefaults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/GetLaunchConfigurationDefaultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/GetLaunchConfigurationDefaultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/GetLaunchConfigurationDefaultsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -538,6 +559,13 @@ ListNetworkMigrationExecutions
 </details>
 <details>
 <summary>
+ListNetworkMigrationInsights
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListNetworkMigrationInsightsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationInsightsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationInsightsCommandOutput/)
+</details>
+<details>
+<summary>
 ListNetworkMigrationMapperSegmentConstructs
 </summary>
 
@@ -563,6 +591,34 @@ ListNetworkMigrationMappingUpdates
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListNetworkMigrationMappingUpdatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationMappingUpdatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationMappingUpdatesCommandOutput/)
+</details>
+<details>
+<summary>
+ListRemoteSourceActionInvocationResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListRemoteSourceActionInvocationResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListRemoteSourceActionInvocationResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListRemoteSourceActionInvocationResultsCommandOutput/)
+</details>
+<details>
+<summary>
+ListRemoteSourceActionInvocations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListRemoteSourceActionInvocationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListRemoteSourceActionInvocationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListRemoteSourceActionInvocationsCommandOutput/)
+</details>
+<details>
+<summary>
+ListRemoteSourceActionJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListRemoteSourceActionJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListRemoteSourceActionJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListRemoteSourceActionJobsCommandOutput/)
+</details>
+<details>
+<summary>
+ListRemoteSourceActions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListRemoteSourceActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListRemoteSourceActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListRemoteSourceActionsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -713,6 +769,13 @@ StartNetworkMigrationMappingUpdate
 </details>
 <details>
 <summary>
+StartRemoteSourceActionJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/StartRemoteSourceActionJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/StartRemoteSourceActionJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/StartRemoteSourceActionJobCommandOutput/)
+</details>
+<details>
+<summary>
 StartReplication
 </summary>
 
@@ -790,6 +853,13 @@ UpdateLaunchConfiguration
 </details>
 <details>
 <summary>
+UpdateLaunchConfigurationDefaults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/UpdateLaunchConfigurationDefaultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/UpdateLaunchConfigurationDefaultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/UpdateLaunchConfigurationDefaultsCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateLaunchConfigurationTemplate
 </summary>
 
@@ -808,6 +878,13 @@ UpdateNetworkMigrationMapperSegment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/UpdateNetworkMigrationMapperSegmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/UpdateNetworkMigrationMapperSegmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/UpdateNetworkMigrationMapperSegmentCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateRemoteSourceAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/UpdateRemoteSourceActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/UpdateRemoteSourceActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/UpdateRemoteSourceActionCommandOutput/)
 </details>
 <details>
 <summary>

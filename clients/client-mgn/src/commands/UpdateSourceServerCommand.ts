@@ -96,6 +96,7 @@ export interface UpdateSourceServerCommandOutput extends SourceServer, __Metadat
  * //     },
  * //     lastSnapshotDateTime: "STRING_VALUE",
  * //     replicatorId: "STRING_VALUE",
+ * //     stagingOutpostArn: "STRING_VALUE",
  * //   },
  * //   lifeCycle: { // LifeCycle
  * //     addedToServiceDateTime: "STRING_VALUE",

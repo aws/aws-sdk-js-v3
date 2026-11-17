@@ -79,6 +79,7 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  * //   },
  * //   enableMapAutoTagging: true || false,
  * //   mapAutoTaggingMpeID: "STRING_VALUE",
+ * //   mapAutoTaggingKey: "STRING_VALUE",
  * // };
  *
  * ```

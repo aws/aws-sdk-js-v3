@@ -89,6 +89,7 @@ export interface StopReplicationCommandOutput extends SourceServer, __MetadataBe
  * //     },
  * //     lastSnapshotDateTime: "STRING_VALUE",
  * //     replicatorId: "STRING_VALUE",
+ * //     stagingOutpostArn: "STRING_VALUE",
  * //   },
  * //   lifeCycle: { // LifeCycle
  * //     addedToServiceDateTime: "STRING_VALUE",

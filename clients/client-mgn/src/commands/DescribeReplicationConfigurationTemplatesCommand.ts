@@ -71,6 +71,7 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput extends 
  * //       },
  * //       internetProtocol: "STRING_VALUE",
  * //       storeSnapshotOnLocalZone: true || false,
+ * //       outpostSnapshotLocation: "STRING_VALUE",
  * //       storageConfiguration: { // StorageConfiguration
  * //         storageType: "STRING_VALUE", // required
  * //         fsxOntapConfiguration: { // FsxOntapConfiguration

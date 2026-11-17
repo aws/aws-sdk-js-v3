@@ -59,6 +59,7 @@ export interface ListNetworkMigrationDefinitionsCommandOutput extends ListNetwor
  * //       scopeTags: { // ScopeTagsMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       definitionType: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

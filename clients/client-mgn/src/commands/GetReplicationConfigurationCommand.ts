@@ -69,6 +69,7 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * //   useFipsEndpoint: true || false,
  * //   internetProtocol: "STRING_VALUE",
  * //   storeSnapshotOnLocalZone: true || false,
+ * //   outpostSnapshotLocation: "STRING_VALUE",
  * //   storageConfiguration: { // StorageConfiguration
  * //     storageType: "STRING_VALUE", // required
  * //     fsxOntapConfiguration: { // FsxOntapConfiguration

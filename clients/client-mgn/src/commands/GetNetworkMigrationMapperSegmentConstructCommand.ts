@@ -56,6 +56,27 @@ export interface GetNetworkMigrationMapperSegmentConstructCommandOutput extends 
  * //     properties: { // ConstructProperties
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     enrichedProperties: { // EnrichedProperties
+ * //       "<keys>": "DOCUMENT_VALUE",
+ * //     },
+ * //     configuration: { // OperationConfigurationUnion Union: only one key present
+ * //       securityGroup: { // SecurityGroupConfiguration
+ * //         associations: { // SecurityGroupAssociations
+ * //           cidrs: [ // AssociationCidrList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           vmUUIDs: [ // AssociationVmUUIDList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           userProvidedIDs: [ // AssociationUserProvidedIDList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       securityGroupRule: { // SecurityGroupRuleConfiguration
+ * //         enableReferencing: true || false,
+ * //       },
+ * //     },
  * //   },
  * // };
  *

@@ -46,6 +46,7 @@ export interface CreateNetworkMigrationDefinitionCommandOutput extends NetworkMi
  *       },
  *     },
  *   ],
+ *   definitionType: "STRING_VALUE",
  *   targetS3Configuration: { // TargetS3Configuration
  *     s3Bucket: "STRING_VALUE", // required
  *     s3BucketOwner: "STRING_VALUE", // required
@@ -88,6 +89,7 @@ export interface CreateNetworkMigrationDefinitionCommandOutput extends NetworkMi
  * //       },
  * //     },
  * //   ],
+ * //   definitionType: "STRING_VALUE",
  * //   targetS3Configuration: { // TargetS3Configuration
  * //     s3Bucket: "STRING_VALUE", // required
  * //     s3BucketOwner: "STRING_VALUE", // required

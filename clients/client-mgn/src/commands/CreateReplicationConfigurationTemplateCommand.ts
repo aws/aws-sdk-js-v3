@@ -58,6 +58,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput extends Rep
  *   },
  *   internetProtocol: "STRING_VALUE",
  *   storeSnapshotOnLocalZone: true || false,
+ *   outpostSnapshotLocation: "STRING_VALUE",
  *   storageConfiguration: { // StorageConfiguration
  *     storageType: "STRING_VALUE", // required
  *     fsxOntapConfiguration: { // FsxOntapConfiguration
@@ -93,6 +94,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput extends Rep
  * //   },
  * //   internetProtocol: "STRING_VALUE",
  * //   storeSnapshotOnLocalZone: true || false,
+ * //   outpostSnapshotLocation: "STRING_VALUE",
  * //   storageConfiguration: { // StorageConfiguration
  * //     storageType: "STRING_VALUE", // required
  * //     fsxOntapConfiguration: { // FsxOntapConfiguration

@@ -40,9 +40,11 @@ export interface StartNetworkMigrationMappingUpdateCommandOutput extends StartNe
  *   networkMigrationDefinitionID: "STRING_VALUE", // required
  *   constructs: [ // StartNetworkMigrationMappingUpdateConstructs
  *     { // StartNetworkMigrationMappingUpdateConstruct
- *       segmentID: "STRING_VALUE", // required
- *       constructID: "STRING_VALUE", // required
+ *       segmentID: "STRING_VALUE",
+ *       segmentLogicalID: "STRING_VALUE",
+ *       constructID: "STRING_VALUE",
  *       constructType: "STRING_VALUE", // required
+ *       constructLogicalID: "STRING_VALUE",
  *       operation: { // OperationUnion Union: only one key present
  *         merge: { // MergeOperation
  *           mergeConstructs: [ // MergeConstructs
@@ -67,14 +69,87 @@ export interface StartNetworkMigrationMappingUpdateCommandOutput extends StartNe
  *             "<keys>": "STRING_VALUE",
  *           },
  *         },
+ *         updateV2: { // UpdateOperationV2
+ *           name: "STRING_VALUE",
+ *           excluded: true || false,
+ *           properties: { // EnrichedProperties
+ *             "<keys>": "DOCUMENT_VALUE",
+ *           },
+ *           propertiesToDelete: [ // PropertiesToDelete
+ *             "STRING_VALUE",
+ *           ],
+ *           configuration: { // OperationConfigurationUnion Union: only one key present
+ *             securityGroup: { // SecurityGroupConfiguration
+ *               associations: { // SecurityGroupAssociations
+ *                 cidrs: [ // AssociationCidrList
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 vmUUIDs: [ // AssociationVmUUIDList
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 userProvidedIDs: [ // AssociationUserProvidedIDList
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *             securityGroupRule: { // SecurityGroupRuleConfiguration
+ *               enableReferencing: true || false,
+ *             },
+ *           },
+ *         },
+ *         create: { // CreateOperation
+ *           name: "STRING_VALUE",
+ *           excluded: true || false,
+ *           properties: {
+ *             "<keys>": "DOCUMENT_VALUE",
+ *           },
+ *           configuration: {//  Union: only one key present
+ *             securityGroup: {
+ *               associations: {
+ *                 cidrs: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 vmUUIDs: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 userProvidedIDs: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *             securityGroupRule: {
+ *               enableReferencing: true || false,
+ *             },
+ *           },
+ *         },
  *       },
  *     },
  *   ],
  *   segments: [ // StartNetworkMigrationMappingUpdateSegments
  *     { // StartNetworkMigrationMappingUpdateSegment
- *       segmentID: "STRING_VALUE", // required
+ *       segmentID: "STRING_VALUE",
+ *       segmentLogicalID: "STRING_VALUE",
+ *       operation: { // SegmentOperation Union: only one key present
+ *         create: { // SegmentCreateOperation
+ *           name: "STRING_VALUE", // required
+ *           description: "STRING_VALUE",
+ *           targetAccount: "STRING_VALUE",
+ *           scopeTags: { // ScopeTagsMap
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *         update: { // SegmentUpdateOperation
+ *           name: "STRING_VALUE",
+ *           description: "STRING_VALUE",
+ *           targetAccount: "STRING_VALUE",
+ *           scopeTags: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *         delete: {},
+ *       },
  *       targetAccount: "STRING_VALUE",
- *       scopeTags: { // ScopeTagsMap
+ *       scopeTags: {
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeVcenterClientsRequest, DescribeVcenterClientsResponse } from "../models/models_0";
+import type { DescribeVcenterClientsRequest, DescribeVcenterClientsResponse } from "../models/models_1";
 import { DescribeVcenterClients$ } from "../schemas/schemas_0";
 
 /**

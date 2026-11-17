@@ -53,6 +53,11 @@ import {
   CreateNetworkMigrationDefinitionCommand,
 } from "./commands/CreateNetworkMigrationDefinitionCommand";
 import {
+  type CreateRemoteSourceActionCommandInput,
+  type CreateRemoteSourceActionCommandOutput,
+  CreateRemoteSourceActionCommand,
+} from "./commands/CreateRemoteSourceActionCommand";
+import {
   type CreateReplicationConfigurationTemplateCommandInput,
   type CreateReplicationConfigurationTemplateCommandOutput,
   CreateReplicationConfigurationTemplateCommand,
@@ -83,6 +88,11 @@ import {
   type DeleteNetworkMigrationDefinitionCommandOutput,
   DeleteNetworkMigrationDefinitionCommand,
 } from "./commands/DeleteNetworkMigrationDefinitionCommand";
+import {
+  type DeleteRemoteSourceActionCommandInput,
+  type DeleteRemoteSourceActionCommandOutput,
+  DeleteRemoteSourceActionCommand,
+} from "./commands/DeleteRemoteSourceActionCommand";
 import {
   type DeleteReplicationConfigurationTemplateCommandInput,
   type DeleteReplicationConfigurationTemplateCommandOutput,
@@ -158,6 +168,11 @@ import {
   type GetLaunchConfigurationCommandOutput,
   GetLaunchConfigurationCommand,
 } from "./commands/GetLaunchConfigurationCommand";
+import {
+  type GetLaunchConfigurationDefaultsCommandInput,
+  type GetLaunchConfigurationDefaultsCommandOutput,
+  GetLaunchConfigurationDefaultsCommand,
+} from "./commands/GetLaunchConfigurationDefaultsCommand";
 import {
   type GetNetworkMigrationDefinitionCommandInput,
   type GetNetworkMigrationDefinitionCommandOutput,
@@ -259,6 +274,11 @@ import {
   ListNetworkMigrationExecutionsCommand,
 } from "./commands/ListNetworkMigrationExecutionsCommand";
 import {
+  type ListNetworkMigrationInsightsCommandInput,
+  type ListNetworkMigrationInsightsCommandOutput,
+  ListNetworkMigrationInsightsCommand,
+} from "./commands/ListNetworkMigrationInsightsCommand";
+import {
   type ListNetworkMigrationMapperSegmentConstructsCommandInput,
   type ListNetworkMigrationMapperSegmentConstructsCommandOutput,
   ListNetworkMigrationMapperSegmentConstructsCommand,
@@ -278,6 +298,26 @@ import {
   type ListNetworkMigrationMappingUpdatesCommandOutput,
   ListNetworkMigrationMappingUpdatesCommand,
 } from "./commands/ListNetworkMigrationMappingUpdatesCommand";
+import {
+  type ListRemoteSourceActionInvocationResultsCommandInput,
+  type ListRemoteSourceActionInvocationResultsCommandOutput,
+  ListRemoteSourceActionInvocationResultsCommand,
+} from "./commands/ListRemoteSourceActionInvocationResultsCommand";
+import {
+  type ListRemoteSourceActionInvocationsCommandInput,
+  type ListRemoteSourceActionInvocationsCommandOutput,
+  ListRemoteSourceActionInvocationsCommand,
+} from "./commands/ListRemoteSourceActionInvocationsCommand";
+import {
+  type ListRemoteSourceActionJobsCommandInput,
+  type ListRemoteSourceActionJobsCommandOutput,
+  ListRemoteSourceActionJobsCommand,
+} from "./commands/ListRemoteSourceActionJobsCommand";
+import {
+  type ListRemoteSourceActionsCommandInput,
+  type ListRemoteSourceActionsCommandOutput,
+  ListRemoteSourceActionsCommand,
+} from "./commands/ListRemoteSourceActionsCommand";
 import {
   type ListSourceServerActionsCommandInput,
   type ListSourceServerActionsCommandOutput,
@@ -380,6 +420,11 @@ import {
   StartNetworkMigrationMappingUpdateCommand,
 } from "./commands/StartNetworkMigrationMappingUpdateCommand";
 import {
+  type StartRemoteSourceActionJobCommandInput,
+  type StartRemoteSourceActionJobCommandOutput,
+  StartRemoteSourceActionJobCommand,
+} from "./commands/StartRemoteSourceActionJobCommand";
+import {
   type StartReplicationCommandInput,
   type StartReplicationCommandOutput,
   StartReplicationCommand,
@@ -431,6 +476,11 @@ import {
   UpdateLaunchConfigurationCommand,
 } from "./commands/UpdateLaunchConfigurationCommand";
 import {
+  type UpdateLaunchConfigurationDefaultsCommandInput,
+  type UpdateLaunchConfigurationDefaultsCommandOutput,
+  UpdateLaunchConfigurationDefaultsCommand,
+} from "./commands/UpdateLaunchConfigurationDefaultsCommand";
+import {
   type UpdateLaunchConfigurationTemplateCommandInput,
   type UpdateLaunchConfigurationTemplateCommandOutput,
   UpdateLaunchConfigurationTemplateCommand,
@@ -445,6 +495,11 @@ import {
   type UpdateNetworkMigrationMapperSegmentCommandOutput,
   UpdateNetworkMigrationMapperSegmentCommand,
 } from "./commands/UpdateNetworkMigrationMapperSegmentCommand";
+import {
+  type UpdateRemoteSourceActionCommandInput,
+  type UpdateRemoteSourceActionCommandOutput,
+  UpdateRemoteSourceActionCommand,
+} from "./commands/UpdateRemoteSourceActionCommand";
 import {
   type UpdateReplicationConfigurationCommandInput,
   type UpdateReplicationConfigurationCommandOutput,
@@ -499,12 +554,19 @@ import { paginateListNetworkMigrationDefinitions } from "./pagination/ListNetwor
 import { paginateListNetworkMigrationDeployedStacks } from "./pagination/ListNetworkMigrationDeployedStacksPaginator";
 import { paginateListNetworkMigrationDeployments } from "./pagination/ListNetworkMigrationDeploymentsPaginator";
 import { paginateListNetworkMigrationExecutions } from "./pagination/ListNetworkMigrationExecutionsPaginator";
+import { paginateListNetworkMigrationInsights } from "./pagination/ListNetworkMigrationInsightsPaginator";
 import {
   paginateListNetworkMigrationMapperSegmentConstructs,
 } from "./pagination/ListNetworkMigrationMapperSegmentConstructsPaginator";
 import { paginateListNetworkMigrationMapperSegments } from "./pagination/ListNetworkMigrationMapperSegmentsPaginator";
 import { paginateListNetworkMigrationMappings } from "./pagination/ListNetworkMigrationMappingsPaginator";
 import { paginateListNetworkMigrationMappingUpdates } from "./pagination/ListNetworkMigrationMappingUpdatesPaginator";
+import {
+  paginateListRemoteSourceActionInvocationResults,
+} from "./pagination/ListRemoteSourceActionInvocationResultsPaginator";
+import { paginateListRemoteSourceActionInvocations } from "./pagination/ListRemoteSourceActionInvocationsPaginator";
+import { paginateListRemoteSourceActionJobs } from "./pagination/ListRemoteSourceActionJobsPaginator";
+import { paginateListRemoteSourceActions } from "./pagination/ListRemoteSourceActionsPaginator";
 import { paginateListSourceServerActions } from "./pagination/ListSourceServerActionsPaginator";
 import { paginateListTemplateActions } from "./pagination/ListTemplateActionsPaginator";
 import { paginateListWaves } from "./pagination/ListWavesPaginator";
@@ -519,6 +581,7 @@ const commands = {
   CreateConnectorCommand,
   CreateLaunchConfigurationTemplateCommand,
   CreateNetworkMigrationDefinitionCommand,
+  CreateRemoteSourceActionCommand,
   CreateReplicationConfigurationTemplateCommand,
   CreateWaveCommand,
   DeleteApplicationCommand,
@@ -526,6 +589,7 @@ const commands = {
   DeleteJobCommand,
   DeleteLaunchConfigurationTemplateCommand,
   DeleteNetworkMigrationDefinitionCommand,
+  DeleteRemoteSourceActionCommand,
   DeleteReplicationConfigurationTemplateCommand,
   DeleteSourceServerCommand,
   DeleteVcenterClientCommand,
@@ -541,6 +605,7 @@ const commands = {
   DisconnectFromServiceCommand,
   FinalizeCutoverCommand,
   GetLaunchConfigurationCommand,
+  GetLaunchConfigurationDefaultsCommand,
   GetNetworkMigrationDefinitionCommand,
   GetNetworkMigrationMapperSegmentConstructCommand,
   GetReplicationConfigurationCommand,
@@ -561,10 +626,15 @@ const commands = {
   ListNetworkMigrationDeployedStacksCommand,
   ListNetworkMigrationDeploymentsCommand,
   ListNetworkMigrationExecutionsCommand,
+  ListNetworkMigrationInsightsCommand,
   ListNetworkMigrationMapperSegmentConstructsCommand,
   ListNetworkMigrationMapperSegmentsCommand,
   ListNetworkMigrationMappingsCommand,
   ListNetworkMigrationMappingUpdatesCommand,
+  ListRemoteSourceActionInvocationResultsCommand,
+  ListRemoteSourceActionInvocationsCommand,
+  ListRemoteSourceActionJobsCommand,
+  ListRemoteSourceActionsCommand,
   ListSourceServerActionsCommand,
   ListTagsForResourceCommand,
   ListTemplateActionsCommand,
@@ -586,6 +656,7 @@ const commands = {
   StartNetworkMigrationDeploymentCommand,
   StartNetworkMigrationMappingCommand,
   StartNetworkMigrationMappingUpdateCommand,
+  StartRemoteSourceActionJobCommand,
   StartReplicationCommand,
   StartTestCommand,
   StopReplicationCommand,
@@ -597,9 +668,11 @@ const commands = {
   UpdateApplicationCommand,
   UpdateConnectorCommand,
   UpdateLaunchConfigurationCommand,
+  UpdateLaunchConfigurationDefaultsCommand,
   UpdateLaunchConfigurationTemplateCommand,
   UpdateNetworkMigrationDefinitionCommand,
   UpdateNetworkMigrationMapperSegmentCommand,
+  UpdateRemoteSourceActionCommand,
   UpdateReplicationConfigurationCommand,
   UpdateReplicationConfigurationTemplateCommand,
   UpdateSourceServerCommand,
@@ -629,10 +702,15 @@ const paginators = {
   paginateListNetworkMigrationDeployedStacks,
   paginateListNetworkMigrationDeployments,
   paginateListNetworkMigrationExecutions,
+  paginateListNetworkMigrationInsights,
   paginateListNetworkMigrationMapperSegmentConstructs,
   paginateListNetworkMigrationMapperSegments,
   paginateListNetworkMigrationMappings,
   paginateListNetworkMigrationMappingUpdates,
+  paginateListRemoteSourceActionInvocationResults,
+  paginateListRemoteSourceActionInvocations,
+  paginateListRemoteSourceActionJobs,
+  paginateListRemoteSourceActions,
   paginateListSourceServerActions,
   paginateListTemplateActions,
   paginateListWaves,
@@ -801,6 +879,23 @@ export interface Mgn {
   ): void;
 
   /**
+   * @see {@link CreateRemoteSourceActionCommand}
+   */
+  createRemoteSourceAction(
+    args: CreateRemoteSourceActionCommandInput,
+    options?: MgnRequestOptions
+  ): Promise<CreateRemoteSourceActionCommandOutput>;
+  createRemoteSourceAction(
+    args: CreateRemoteSourceActionCommandInput,
+    cb: (err: any, data?: CreateRemoteSourceActionCommandOutput) => void
+  ): void;
+  createRemoteSourceAction(
+    args: CreateRemoteSourceActionCommandInput,
+    options: MgnRequestOptions,
+    cb: (err: any, data?: CreateRemoteSourceActionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateReplicationConfigurationTemplateCommand}
    */
   createReplicationConfigurationTemplate(
@@ -917,6 +1012,23 @@ export interface Mgn {
     args: DeleteNetworkMigrationDefinitionCommandInput,
     options: MgnRequestOptions,
     cb: (err: any, data?: DeleteNetworkMigrationDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRemoteSourceActionCommand}
+   */
+  deleteRemoteSourceAction(
+    args: DeleteRemoteSourceActionCommandInput,
+    options?: MgnRequestOptions
+  ): Promise<DeleteRemoteSourceActionCommandOutput>;
+  deleteRemoteSourceAction(
+    args: DeleteRemoteSourceActionCommandInput,
+    cb: (err: any, data?: DeleteRemoteSourceActionCommandOutput) => void
+  ): void;
+  deleteRemoteSourceAction(
+    args: DeleteRemoteSourceActionCommandInput,
+    options: MgnRequestOptions,
+    cb: (err: any, data?: DeleteRemoteSourceActionCommandOutput) => void
   ): void;
 
   /**
@@ -1177,6 +1289,23 @@ export interface Mgn {
     args: GetLaunchConfigurationCommandInput,
     options: MgnRequestOptions,
     cb: (err: any, data?: GetLaunchConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetLaunchConfigurationDefaultsCommand}
+   */
+  getLaunchConfigurationDefaults(
+    args: GetLaunchConfigurationDefaultsCommandInput,
+    options?: MgnRequestOptions
+  ): Promise<GetLaunchConfigurationDefaultsCommandOutput>;
+  getLaunchConfigurationDefaults(
+    args: GetLaunchConfigurationDefaultsCommandInput,
+    cb: (err: any, data?: GetLaunchConfigurationDefaultsCommandOutput) => void
+  ): void;
+  getLaunchConfigurationDefaults(
+    args: GetLaunchConfigurationDefaultsCommandInput,
+    options: MgnRequestOptions,
+    cb: (err: any, data?: GetLaunchConfigurationDefaultsCommandOutput) => void
   ): void;
 
   /**
@@ -1528,6 +1657,23 @@ export interface Mgn {
   ): void;
 
   /**
+   * @see {@link ListNetworkMigrationInsightsCommand}
+   */
+  listNetworkMigrationInsights(
+    args: ListNetworkMigrationInsightsCommandInput,
+    options?: MgnRequestOptions
+  ): Promise<ListNetworkMigrationInsightsCommandOutput>;
+  listNetworkMigrationInsights(
+    args: ListNetworkMigrationInsightsCommandInput,
+    cb: (err: any, data?: ListNetworkMigrationInsightsCommandOutput) => void
+  ): void;
+  listNetworkMigrationInsights(
+    args: ListNetworkMigrationInsightsCommandInput,
+    options: MgnRequestOptions,
+    cb: (err: any, data?: ListNetworkMigrationInsightsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListNetworkMigrationMapperSegmentConstructsCommand}
    */
   listNetworkMigrationMapperSegmentConstructs(
@@ -1593,6 +1739,76 @@ export interface Mgn {
     args: ListNetworkMigrationMappingUpdatesCommandInput,
     options: MgnRequestOptions,
     cb: (err: any, data?: ListNetworkMigrationMappingUpdatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRemoteSourceActionInvocationResultsCommand}
+   */
+  listRemoteSourceActionInvocationResults(
+    args: ListRemoteSourceActionInvocationResultsCommandInput,
+    options?: MgnRequestOptions
+  ): Promise<ListRemoteSourceActionInvocationResultsCommandOutput>;
+  listRemoteSourceActionInvocationResults(
+    args: ListRemoteSourceActionInvocationResultsCommandInput,
+    cb: (err: any, data?: ListRemoteSourceActionInvocationResultsCommandOutput) => void
+  ): void;
+  listRemoteSourceActionInvocationResults(
+    args: ListRemoteSourceActionInvocationResultsCommandInput,
+    options: MgnRequestOptions,
+    cb: (err: any, data?: ListRemoteSourceActionInvocationResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRemoteSourceActionInvocationsCommand}
+   */
+  listRemoteSourceActionInvocations(
+    args: ListRemoteSourceActionInvocationsCommandInput,
+    options?: MgnRequestOptions
+  ): Promise<ListRemoteSourceActionInvocationsCommandOutput>;
+  listRemoteSourceActionInvocations(
+    args: ListRemoteSourceActionInvocationsCommandInput,
+    cb: (err: any, data?: ListRemoteSourceActionInvocationsCommandOutput) => void
+  ): void;
+  listRemoteSourceActionInvocations(
+    args: ListRemoteSourceActionInvocationsCommandInput,
+    options: MgnRequestOptions,
+    cb: (err: any, data?: ListRemoteSourceActionInvocationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRemoteSourceActionJobsCommand}
+   */
+  listRemoteSourceActionJobs(): Promise<ListRemoteSourceActionJobsCommandOutput>;
+  listRemoteSourceActionJobs(
+    args: ListRemoteSourceActionJobsCommandInput,
+    options?: MgnRequestOptions
+  ): Promise<ListRemoteSourceActionJobsCommandOutput>;
+  listRemoteSourceActionJobs(
+    args: ListRemoteSourceActionJobsCommandInput,
+    cb: (err: any, data?: ListRemoteSourceActionJobsCommandOutput) => void
+  ): void;
+  listRemoteSourceActionJobs(
+    args: ListRemoteSourceActionJobsCommandInput,
+    options: MgnRequestOptions,
+    cb: (err: any, data?: ListRemoteSourceActionJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRemoteSourceActionsCommand}
+   */
+  listRemoteSourceActions(): Promise<ListRemoteSourceActionsCommandOutput>;
+  listRemoteSourceActions(
+    args: ListRemoteSourceActionsCommandInput,
+    options?: MgnRequestOptions
+  ): Promise<ListRemoteSourceActionsCommandOutput>;
+  listRemoteSourceActions(
+    args: ListRemoteSourceActionsCommandInput,
+    cb: (err: any, data?: ListRemoteSourceActionsCommandOutput) => void
+  ): void;
+  listRemoteSourceActions(
+    args: ListRemoteSourceActionsCommandInput,
+    options: MgnRequestOptions,
+    cb: (err: any, data?: ListRemoteSourceActionsCommandOutput) => void
   ): void;
 
   /**
@@ -1954,6 +2170,23 @@ export interface Mgn {
   ): void;
 
   /**
+   * @see {@link StartRemoteSourceActionJobCommand}
+   */
+  startRemoteSourceActionJob(
+    args: StartRemoteSourceActionJobCommandInput,
+    options?: MgnRequestOptions
+  ): Promise<StartRemoteSourceActionJobCommandOutput>;
+  startRemoteSourceActionJob(
+    args: StartRemoteSourceActionJobCommandInput,
+    cb: (err: any, data?: StartRemoteSourceActionJobCommandOutput) => void
+  ): void;
+  startRemoteSourceActionJob(
+    args: StartRemoteSourceActionJobCommandInput,
+    options: MgnRequestOptions,
+    cb: (err: any, data?: StartRemoteSourceActionJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartReplicationCommand}
    */
   startReplication(
@@ -2141,6 +2374,23 @@ export interface Mgn {
   ): void;
 
   /**
+   * @see {@link UpdateLaunchConfigurationDefaultsCommand}
+   */
+  updateLaunchConfigurationDefaults(
+    args: UpdateLaunchConfigurationDefaultsCommandInput,
+    options?: MgnRequestOptions
+  ): Promise<UpdateLaunchConfigurationDefaultsCommandOutput>;
+  updateLaunchConfigurationDefaults(
+    args: UpdateLaunchConfigurationDefaultsCommandInput,
+    cb: (err: any, data?: UpdateLaunchConfigurationDefaultsCommandOutput) => void
+  ): void;
+  updateLaunchConfigurationDefaults(
+    args: UpdateLaunchConfigurationDefaultsCommandInput,
+    options: MgnRequestOptions,
+    cb: (err: any, data?: UpdateLaunchConfigurationDefaultsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateLaunchConfigurationTemplateCommand}
    */
   updateLaunchConfigurationTemplate(
@@ -2189,6 +2439,23 @@ export interface Mgn {
     args: UpdateNetworkMigrationMapperSegmentCommandInput,
     options: MgnRequestOptions,
     cb: (err: any, data?: UpdateNetworkMigrationMapperSegmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRemoteSourceActionCommand}
+   */
+  updateRemoteSourceAction(
+    args: UpdateRemoteSourceActionCommandInput,
+    options?: MgnRequestOptions
+  ): Promise<UpdateRemoteSourceActionCommandOutput>;
+  updateRemoteSourceAction(
+    args: UpdateRemoteSourceActionCommandInput,
+    cb: (err: any, data?: UpdateRemoteSourceActionCommandOutput) => void
+  ): void;
+  updateRemoteSourceAction(
+    args: UpdateRemoteSourceActionCommandInput,
+    options: MgnRequestOptions,
+    cb: (err: any, data?: UpdateRemoteSourceActionCommandOutput) => void
   ): void;
 
   /**
@@ -2519,6 +2786,17 @@ export interface Mgn {
   ): Paginator<ListNetworkMigrationExecutionsCommandOutput>;
 
   /**
+   * @see {@link ListNetworkMigrationInsightsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkMigrationInsightsCommandOutput}.
+   */
+  paginateListNetworkMigrationInsights(
+    args: ListNetworkMigrationInsightsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkMigrationInsightsCommandOutput>;
+
+  /**
    * @see {@link ListNetworkMigrationMapperSegmentConstructsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2561,6 +2839,50 @@ export interface Mgn {
     args: ListNetworkMigrationMappingUpdatesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListNetworkMigrationMappingUpdatesCommandOutput>;
+
+  /**
+   * @see {@link ListRemoteSourceActionInvocationResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRemoteSourceActionInvocationResultsCommandOutput}.
+   */
+  paginateListRemoteSourceActionInvocationResults(
+    args: ListRemoteSourceActionInvocationResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRemoteSourceActionInvocationResultsCommandOutput>;
+
+  /**
+   * @see {@link ListRemoteSourceActionInvocationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRemoteSourceActionInvocationsCommandOutput}.
+   */
+  paginateListRemoteSourceActionInvocations(
+    args: ListRemoteSourceActionInvocationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRemoteSourceActionInvocationsCommandOutput>;
+
+  /**
+   * @see {@link ListRemoteSourceActionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRemoteSourceActionJobsCommandOutput}.
+   */
+  paginateListRemoteSourceActionJobs(
+    args?: ListRemoteSourceActionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRemoteSourceActionJobsCommandOutput>;
+
+  /**
+   * @see {@link ListRemoteSourceActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRemoteSourceActionsCommandOutput}.
+   */
+  paginateListRemoteSourceActions(
+    args?: ListRemoteSourceActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRemoteSourceActionsCommandOutput>;
 
   /**
    * @see {@link ListSourceServerActionsCommand}

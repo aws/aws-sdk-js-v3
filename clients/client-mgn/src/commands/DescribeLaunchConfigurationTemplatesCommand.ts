@@ -78,6 +78,7 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput extends Descr
  * //       },
  * //       enableMapAutoTagging: true || false,
  * //       mapAutoTaggingMpeID: "STRING_VALUE",
+ * //       mapAutoTaggingKey: "STRING_VALUE",
  * //       tags: { // TagsMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
