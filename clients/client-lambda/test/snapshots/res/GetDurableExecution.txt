@@ -18,7 +18,13 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "Version": "__Version__",
   "TraceHeader": {},
   "ExecutionDataIncluded": false,
-  "DurableConfig": {}
+  "DurableConfig": {},
+  "PauseDetails": {
+    "PauseRequestTimestamp": 946702799.999,
+    "ExecutionTimeoutPaused": false,
+    "Reason": "__Reason__"
+  },
+  "ExpectedExecutionTimeoutTimestamp": 946702799.999
 }
 
 
@@ -37,6 +43,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   TraceHeader: {},
   ExecutionDataIncluded: (boolean) false,
   DurableConfig: {},
+  PauseDetails: {
+    PauseRequestTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    ExecutionTimeoutPaused: (boolean) false,
+    Reason: "__Reason__"
+  },
+  ExpectedExecutionTimeoutTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
@@ -82,7 +94,13 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "KMSKeyArn": "__KMSKeyArn__",
     "RetentionPeriodInDays": 0,
     "ExecutionTimeout": 0
-  }
+  },
+  "PauseDetails": {
+    "PauseRequestTimestamp": 946702799.999,
+    "ExecutionTimeoutPaused": false,
+    "Reason": "__Reason__"
+  },
+  "ExpectedExecutionTimeoutTimestamp": 946702799.999
 }
 
 
@@ -116,6 +134,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     RetentionPeriodInDays: (number) 0,
     ExecutionTimeout: (number) 0
   },
+  PauseDetails: {
+    PauseRequestTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    ExecutionTimeoutPaused: (boolean) false,
+    Reason: "__Reason__"
+  },
+  ExpectedExecutionTimeoutTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

@@ -277,7 +277,10 @@ export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationSta
  * @enum
  */
 export const ExecutionStatus = {
+  DELETING: "DELETING",
   FAILED: "FAILED",
+  PAUSED: "PAUSED",
+  PAUSING: "PAUSING",
   RUNNING: "RUNNING",
   STOPPED: "STOPPED",
   SUCCEEDED: "SUCCEEDED",
@@ -306,6 +309,8 @@ export const EventType = {
   ContextStarted: "ContextStarted",
   ContextSucceeded: "ContextSucceeded",
   ExecutionFailed: "ExecutionFailed",
+  ExecutionPaused: "ExecutionPaused",
+  ExecutionResumed: "ExecutionResumed",
   ExecutionStarted: "ExecutionStarted",
   ExecutionStopped: "ExecutionStopped",
   ExecutionSucceeded: "ExecutionSucceeded",

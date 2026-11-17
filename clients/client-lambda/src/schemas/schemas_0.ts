@@ -142,6 +142,9 @@ const _DCSCR = "DeleteCodeSigningConfigRequest";
 const _DCSCRe = "DeleteCodeSigningConfigResponse";
 const _DCu = "DurableConfig";
 const _DDBESC = "DocumentDBEventSourceConfig";
+const _DDE = "DeleteDurableExecution";
+const _DDER = "DeleteDurableExecutionRequest";
+const _DDERe = "DeleteDurableExecutionResponse";
 const _DE = "DurableExecutions";
 const _DEA = "DurableExecutionArn";
 const _DEASE = "DurableExecutionAlreadyStartedException";
@@ -168,6 +171,7 @@ const _DPCCR = "DeleteProvisionedConcurrencyConfigRequest";
 const _DR = "DryRun";
 const _DRP = "DeleteResourcePolicy";
 const _DRPR = "DeleteResourcePolicyRequest";
+const _DRT = "DeletionRequestTimestamp";
 const _DSR = "DirectS3Read";
 const _De = "Destination";
 const _Du = "Duration";
@@ -183,6 +187,7 @@ const _EDr = "ErrorDetails";
 const _EDx = "ExecutionDetails";
 const _EE = "EnvironmentError";
 const _EEMGBPVC = "ExecutionEnvironmentMemoryGiBPerVCpu";
+const _EETT = "ExpectedExecutionTimeoutTimestamp";
 const _EEv = "EventError";
 const _EFD = "ExecutionFailedDetails";
 const _EFSIOE = "EFSIOException";
@@ -198,8 +203,12 @@ const _ENILRE = "ENILimitReachedException";
 const _ENINRE = "ENINotReadyException";
 const _EO = "ErrorObject";
 const _EP = "EntryPoint";
+const _EPD = "ExecutionPausedDetails";
+const _EPR = "EventPauseReason";
 const _ER = "EnvironmentResponse";
+const _ERD = "ExecutionResumedDetails";
 const _ERF = "EventRecordFormat";
+const _ERR = "EventResumeReason";
 const _ERv = "EventResult";
 const _ES = "EphemeralStorage";
 const _ESA = "EventSourceArn";
@@ -216,6 +225,7 @@ const _EST = "EventSourceToken";
 const _ESv = "EventStream";
 const _ET = "ErrorType";
 const _ETOD = "ExecutionTimedOutDetails";
+const _ETP = "ExecutionTimeoutPaused";
 const _ETn = "EndTimestamp";
 const _ETv = "EventType";
 const _ETve = "EventTimestamp";
@@ -501,6 +511,10 @@ const _PCCLI = "ProvisionedConcurrencyConfigListItem";
 const _PCCNFE = "ProvisionedConcurrencyConfigNotFoundException";
 const _PCE = "ProvisionedConcurrentExecutions";
 const _PCa = "PayloadChunk";
+const _PD = "PauseDetails";
+const _PDE = "PauseDurableExecution";
+const _PDER = "PauseDurableExecutionRequest";
+const _PDERa = "PauseDurableExecutionResponse";
 const _PEEMC = "PerExecutionEnvironmentMaxConcurrency";
 const _PF = "ParallelizationFactor";
 const _PFC = "PutFunctionConcurrency";
@@ -530,12 +544,14 @@ const _PPCC = "PutProvisionedConcurrencyConfig";
 const _PPCCR = "PutProvisionedConcurrencyConfigRequest";
 const _PPCCRu = "PutProvisionedConcurrencyConfigResponse";
 const _PPE = "PublicPolicyException";
+const _PR = "PauseReason";
 const _PRMC = "PutRuntimeManagementConfig";
 const _PRMCR = "PutRuntimeManagementConfigRequest";
 const _PRMCRu = "PutRuntimeManagementConfigResponse";
 const _PRP = "PutResourcePolicy";
 const _PRPR = "PutResourcePolicyRequest";
 const _PRPRu = "PutResourcePolicyResponse";
+const _PRT = "PauseRequestTimestamp";
 const _PT = "PropagateTags";
 const _PTa = "PackageType";
 const _PTu = "PublishTo";
@@ -559,6 +575,9 @@ const _RCEe = "ReservedConcurrentExecutions";
 const _RCe = "ReplayChildren";
 const _RCu = "RuntimeConfig";
 const _RD = "RetryDetails";
+const _RDE = "ResumeDurableExecution";
+const _RDER = "ResumeDurableExecutionRequest";
+const _RDERe = "ResumeDurableExecutionResponse";
 const _RFSC = "RequestedFunctionScalingConfig";
 const _RI = "RevisionId";
 const _RIE = "RecursiveInvocationException";
@@ -575,6 +594,8 @@ const _RP = "RemovePermission";
 const _RPCE = "RequestedProvisionedConcurrentExecutions";
 const _RPID = "RetentionPeriodInDays";
 const _RPR = "RemovePermissionRequest";
+const _RR = "ResumeReason";
+const _RRT = "ResumeRequestTimestamp";
 const _RSCT = "ResponseStreamContentType";
 const _RSO = "ResolvedS3Object";
 const _RT = "RepositoryType";
@@ -1204,6 +1225,8 @@ var ErrorType: StaticSimpleSchema = [0, n0, _ET, 8, 0];
 var InputPayload: StaticSimpleSchema = [0, n0, _IP, 8, 0];
 var OperationPayload: StaticSimpleSchema = [0, n0, _OP, 8, 0];
 var OutputPayload: StaticSimpleSchema = [0, n0, _OPu, 8, 0];
+var PauseReason: StaticSimpleSchema = [0, n0, _PR, 8, 0];
+var ResumeReason: StaticSimpleSchema = [0, n0, _RR, 8, 0];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var StackTraceEntry: StaticSimpleSchema = [0, n0, _STE, 8, 0];
 export var AcceleratorConfig$: StaticStructureSchema = [3, n0, _AC,
@@ -1496,6 +1519,16 @@ export var DeleteCodeSigningConfigResponse$: StaticStructureSchema = [3, n0, _DC
   [],
   []
 ];
+export var DeleteDurableExecutionRequest$: StaticStructureSchema = [3, n0, _DDER,
+  0,
+  [_DEA],
+  [[0, 1]], 1
+];
+export var DeleteDurableExecutionResponse$: StaticStructureSchema = [3, n0, _DDERe,
+  0,
+  [_DRT],
+  [4], 1
+];
 export var DeleteEventSourceMappingRequest$: StaticStructureSchema = [3, n0, _DESMR,
   0,
   [_UUID],
@@ -1588,8 +1621,8 @@ export var ErrorObject$: StaticStructureSchema = [3, n0, _EO,
 ];
 export var Event$: StaticStructureSchema = [3, n0, _Ev,
   0,
-  [_ETv, _STu, _EI, _Id, _N, _ETve, _PI, _ESD, _ESDx, _EFD, _ETOD, _ESDxe, _CSDo, _CSDon, _CFDo, _WSD, _WSDa, _WCD, _SSD, _SSDt, _SFD, _CISD, _CISDha, _CIFD, _CITOD, _CISDh, _CSD, _CSDa, _CFD, _CTOD, _ICD],
-  [0, 0, 1, 0, 0, 4, 0, [() => ExecutionStartedDetails$, 0], [() => ExecutionSucceededDetails$, 0], [() => ExecutionFailedDetails$, 0], [() => ExecutionTimedOutDetails$, 0], [() => ExecutionStoppedDetails$, 0], () => ContextStartedDetails$, [() => ContextSucceededDetails$, 0], [() => ContextFailedDetails$, 0], () => WaitStartedDetails$, () => WaitSucceededDetails$, [() => WaitCancelledDetails$, 0], () => StepStartedDetails$, [() => StepSucceededDetails$, 0], [() => StepFailedDetails$, 0], [() => ChainedInvokeStartedDetails$, 0], [() => ChainedInvokeSucceededDetails$, 0], [() => ChainedInvokeFailedDetails$, 0], [() => ChainedInvokeTimedOutDetails$, 0], [() => ChainedInvokeStoppedDetails$, 0], () => CallbackStartedDetails$, [() => CallbackSucceededDetails$, 0], [() => CallbackFailedDetails$, 0], [() => CallbackTimedOutDetails$, 0], [() => InvocationCompletedDetails$, 0]]
+  [_ETv, _STu, _EI, _Id, _N, _ETve, _PI, _ESD, _ESDx, _EFD, _ETOD, _ESDxe, _CSDo, _CSDon, _CFDo, _WSD, _WSDa, _WCD, _SSD, _SSDt, _SFD, _CISD, _CISDha, _CIFD, _CITOD, _CISDh, _CSD, _CSDa, _CFD, _CTOD, _ICD, _EPD, _ERD],
+  [0, 0, 1, 0, 0, 4, 0, [() => ExecutionStartedDetails$, 0], [() => ExecutionSucceededDetails$, 0], [() => ExecutionFailedDetails$, 0], [() => ExecutionTimedOutDetails$, 0], [() => ExecutionStoppedDetails$, 0], () => ContextStartedDetails$, [() => ContextSucceededDetails$, 0], [() => ContextFailedDetails$, 0], () => WaitStartedDetails$, () => WaitSucceededDetails$, [() => WaitCancelledDetails$, 0], () => StepStartedDetails$, [() => StepSucceededDetails$, 0], [() => StepFailedDetails$, 0], [() => ChainedInvokeStartedDetails$, 0], [() => ChainedInvokeSucceededDetails$, 0], [() => ChainedInvokeFailedDetails$, 0], [() => ChainedInvokeTimedOutDetails$, 0], [() => ChainedInvokeStoppedDetails$, 0], () => CallbackStartedDetails$, [() => CallbackSucceededDetails$, 0], [() => CallbackFailedDetails$, 0], [() => CallbackTimedOutDetails$, 0], [() => InvocationCompletedDetails$, 0], [() => ExecutionPausedDetails$, 0], [() => ExecutionResumedDetails$, 0]]
 ];
 export var EventError$: StaticStructureSchema = [3, n0, _EEv,
   0,
@@ -1601,10 +1634,20 @@ export var EventInput$: StaticStructureSchema = [3, n0, _EIv,
   [_Pa, _Tr],
   [[() => InputPayload, 0], 2]
 ];
+export var EventPauseReason$: StaticStructureSchema = [3, n0, _EPR,
+  0,
+  [_Pa, _Tr],
+  [[() => PauseReason, 0], 2]
+];
 export var EventResult$: StaticStructureSchema = [3, n0, _ERv,
   0,
   [_Pa, _Tr],
   [[() => OperationPayload, 0], 2]
+];
+export var EventResumeReason$: StaticStructureSchema = [3, n0, _ERR,
+  0,
+  [_Pa, _Tr],
+  [[() => ResumeReason, 0], 2]
 ];
 export var EventSourceMappingConfiguration$: StaticStructureSchema = [3, n0, _ESMC,
   0,
@@ -1635,6 +1678,16 @@ export var ExecutionFailedDetails$: StaticStructureSchema = [3, n0, _EFD,
   0,
   [_E],
   [[() => EventError$, 0]], 1
+];
+export var ExecutionPausedDetails$: StaticStructureSchema = [3, n0, _EPD,
+  0,
+  [_PRT, _ETP, _R],
+  [4, 2, [() => EventPauseReason$, 0]], 2
+];
+export var ExecutionResumedDetails$: StaticStructureSchema = [3, n0, _ERD,
+  0,
+  [_RRT, _R],
+  [4, [() => EventResumeReason$, 0]], 1
 ];
 export var ExecutionStartedDetails$: StaticStructureSchema = [3, n0, _ESD,
   0,
@@ -1773,8 +1826,8 @@ export var GetDurableExecutionRequest$: StaticStructureSchema = [3, n0, _GDER,
 ];
 export var GetDurableExecutionResponse$: StaticStructureSchema = [3, n0, _GDERe,
   0,
-  [_DEA, _DEN, _FA, _STt, _Sta, _IP, _Re, _E, _ETn, _Ve, _TH, _EDI, _DCu],
-  [0, 0, 0, 4, 0, [() => InputPayload, 0], [() => OutputPayload, 0], [() => ErrorObject$, 0], 4, 0, () => TraceHeader$, 2, () => DurableConfig$], 5
+  [_DEA, _DEN, _FA, _STt, _Sta, _IP, _Re, _E, _ETn, _Ve, _TH, _EDI, _DCu, _PD, _EETT],
+  [0, 0, 0, 4, 0, [() => InputPayload, 0], [() => OutputPayload, 0], [() => ErrorObject$, 0], 4, 0, () => TraceHeader$, 2, () => DurableConfig$, [() => PauseDetails$, 0], 4], 5
 ];
 export var GetDurableExecutionStateRequest$: StaticStructureSchema = [3, n0, _GDESR,
   0,
@@ -2211,6 +2264,21 @@ export var OperationUpdate$: StaticStructureSchema = [3, n0, _OU,
   [_Id, _T, _A, _PI, _N, _STu, _Pa, _E, _COo, _SO, _WO, _CO, _CIO],
   [0, 0, 0, 0, 0, 0, [() => OperationPayload, 0], [() => ErrorObject$, 0], () => ContextOptions$, () => StepOptions$, () => WaitOptions$, () => CallbackOptions$, () => ChainedInvokeOptions$], 3
 ];
+export var PauseDetails$: StaticStructureSchema = [3, n0, _PD,
+  0,
+  [_PRT, _ETP, _R],
+  [4, 2, [() => PauseReason, 0]], 2
+];
+export var PauseDurableExecutionRequest$: StaticStructureSchema = [3, n0, _PDER,
+  0,
+  [_DEA, _CTl, _R, _ETP],
+  [[0, 1], [0, 4], [() => PauseReason, 0], 2], 1
+];
+export var PauseDurableExecutionResponse$: StaticStructureSchema = [3, n0, _PDERa,
+  0,
+  [],
+  []
+];
 export var PropagateTags$: StaticStructureSchema = [3, n0, _PT,
   0,
   [_Mo, _ETxp],
@@ -2325,6 +2393,16 @@ export var ResolvedS3Object$: StaticStructureSchema = [3, n0, _RSO,
   0,
   [_SB, _SK, _SOV],
   [0, 0, 0]
+];
+export var ResumeDurableExecutionRequest$: StaticStructureSchema = [3, n0, _RDER,
+  0,
+  [_DEA, _CTl, _R],
+  [[0, 1], [0, 4], [() => ResumeReason, 0]], 1
+];
+export var ResumeDurableExecutionResponse$: StaticStructureSchema = [3, n0, _RDERe,
+  0,
+  [],
+  []
 ];
 export var RetryDetails$: StaticStructureSchema = [3, n0, _RD,
   0,
@@ -2723,6 +2801,9 @@ export var DeleteCapacityProvider$: StaticOperationSchema = [9, n0, _DCP,
 export var DeleteCodeSigningConfig$: StaticOperationSchema = [9, n0, _DCSC,
   { [_h]: ["DELETE", "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}", 204] }, () => DeleteCodeSigningConfigRequest$, () => DeleteCodeSigningConfigResponse$
 ];
+export var DeleteDurableExecution$: StaticOperationSchema = [9, n0, _DDE,
+  { [_h]: ["DELETE", "/2025-12-01/durable-executions/{DurableExecutionArn}", 202] }, () => DeleteDurableExecutionRequest$, () => DeleteDurableExecutionResponse$
+];
 export var DeleteEventSourceMapping$: StaticOperationSchema = [9, n0, _DESM,
   { [_h]: ["DELETE", "/2015-03-31/event-source-mappings/{UUID}", 202] }, () => DeleteEventSourceMappingRequest$, () => EventSourceMappingConfiguration$
 ];
@@ -2873,6 +2954,9 @@ export var ListTags$: StaticOperationSchema = [9, n0, _LTi,
 export var ListVersionsByFunction$: StaticOperationSchema = [9, n0, _LVBF,
   { [_h]: ["GET", "/2015-03-31/functions/{FunctionName}/versions", 200] }, () => ListVersionsByFunctionRequest$, () => ListVersionsByFunctionResponse$
 ];
+export var PauseDurableExecution$: StaticOperationSchema = [9, n0, _PDE,
+  { [_h]: ["POST", "/2025-12-01/durable-executions/{DurableExecutionArn}/pause", 202] }, () => PauseDurableExecutionRequest$, () => PauseDurableExecutionResponse$
+];
 export var PublishLayerVersion$: StaticOperationSchema = [9, n0, _PLV,
   { [_h]: ["POST", "/2018-10-31/layers/{LayerName}/versions", 201] }, () => PublishLayerVersionRequest$, () => PublishLayerVersionResponse$
 ];
@@ -2908,6 +2992,9 @@ export var RemoveLayerVersionPermission$: StaticOperationSchema = [9, n0, _RLVP,
 ];
 export var RemovePermission$: StaticOperationSchema = [9, n0, _RP,
   { [_h]: ["DELETE", "/2015-03-31/functions/{FunctionName}/policy/{StatementId}", 204] }, () => RemovePermissionRequest$, () => __Unit
+];
+export var ResumeDurableExecution$: StaticOperationSchema = [9, n0, _RDE,
+  { [_h]: ["POST", "/2025-12-01/durable-executions/{DurableExecutionArn}/resume", 202] }, () => ResumeDurableExecutionRequest$, () => ResumeDurableExecutionResponse$
 ];
 export var SendDurableExecutionCallbackFailure$: StaticOperationSchema = [9, n0, _SDECF,
   { [_h]: ["POST", "/2025-12-01/durable-execution-callbacks/{CallbackId}/fail", 200] }, () => SendDurableExecutionCallbackFailureRequest$, () => SendDurableExecutionCallbackFailureResponse$

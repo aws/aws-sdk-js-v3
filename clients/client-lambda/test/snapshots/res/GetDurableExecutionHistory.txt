@@ -301,6 +301,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           "Truncated": false
         }
+      },
+      "ExecutionPausedDetails": {
+        "PauseRequestTimestamp": 946702799.999,
+        "ExecutionTimeoutPaused": false,
+        "Reason": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "ExecutionResumedDetails": {
+        "ResumeRequestTimestamp": 946702799.999,
+        "Reason": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
       }
     },
     {
@@ -562,6 +577,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           "Truncated": false
         }
+      },
+      "ExecutionPausedDetails": {
+        "PauseRequestTimestamp": 946702799.999,
+        "ExecutionTimeoutPaused": false,
+        "Reason": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "ExecutionResumedDetails": {
+        "ResumeRequestTimestamp": 946702799.999,
+        "Reason": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
       }
     },
     {
@@ -821,6 +851,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "__member__"
             ]
           },
+          "Truncated": false
+        }
+      },
+      "ExecutionPausedDetails": {
+        "PauseRequestTimestamp": 946702799.999,
+        "ExecutionTimeoutPaused": false,
+        "Reason": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "ExecutionResumedDetails": {
+        "ResumeRequestTimestamp": 946702799.999,
+        "Reason": {
+          "Payload": "__Payload__",
           "Truncated": false
         }
       }
@@ -1092,6 +1137,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           Truncated: (boolean) false
         }
+      },
+      ExecutionPausedDetails: {
+        PauseRequestTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        ExecutionTimeoutPaused: (boolean) false,
+        Reason: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      ExecutionResumedDetails: {
+        ResumeRequestTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Reason: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
       }
     },
     {
@@ -1353,6 +1413,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           Truncated: (boolean) false
         }
+      },
+      ExecutionPausedDetails: {
+        PauseRequestTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        ExecutionTimeoutPaused: (boolean) false,
+        Reason: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      ExecutionResumedDetails: {
+        ResumeRequestTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Reason: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
       }
     },
     {
@@ -1612,6 +1687,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "__member__"
             ]
           },
+          Truncated: (boolean) false
+        }
+      },
+      ExecutionPausedDetails: {
+        PauseRequestTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        ExecutionTimeoutPaused: (boolean) false,
+        Reason: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      ExecutionResumedDetails: {
+        ResumeRequestTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Reason: {
+          Payload: "__Payload__",
           Truncated: (boolean) false
         }
       }

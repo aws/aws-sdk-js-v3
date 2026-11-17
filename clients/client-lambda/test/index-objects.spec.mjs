@@ -106,6 +106,10 @@ import {
   DeleteCodeSigningConfigCommand,
   DeleteCodeSigningConfigRequest$,
   DeleteCodeSigningConfigResponse$,
+  DeleteDurableExecution$,
+  DeleteDurableExecutionCommand,
+  DeleteDurableExecutionRequest$,
+  DeleteDurableExecutionResponse$,
   DeleteEventSourceMapping$,
   DeleteEventSourceMappingCommand,
   DeleteEventSourceMappingRequest$,
@@ -167,7 +171,9 @@ import {
   Event$,
   EventError$,
   EventInput$,
+  EventPauseReason$,
   EventResult$,
+  EventResumeReason$,
   EventSourceMappingConfiguration$,
   EventSourceMappingLoggingConfig$,
   EventSourceMappingMetric,
@@ -178,6 +184,8 @@ import {
   Execution$,
   ExecutionDetails$,
   ExecutionFailedDetails$,
+  ExecutionPausedDetails$,
+  ExecutionResumedDetails$,
   ExecutionStartedDetails$,
   ExecutionStatus,
   ExecutionStoppedDetails$,
@@ -442,6 +450,11 @@ import {
   paginateListLayerVersions,
   paginateListProvisionedConcurrencyConfigs,
   paginateListVersionsByFunction,
+  PauseDetails$,
+  PauseDurableExecution$,
+  PauseDurableExecutionCommand,
+  PauseDurableExecutionRequest$,
+  PauseDurableExecutionResponse$,
   PolicyLengthExceededException,
   PolicyLengthExceededException$,
   PreconditionFailedException,
@@ -513,6 +526,10 @@ import {
   ResourceNotReadyException,
   ResourceNotReadyException$,
   ResponseStreamingInvocationType,
+  ResumeDurableExecution$,
+  ResumeDurableExecutionCommand,
+  ResumeDurableExecutionRequest$,
+  ResumeDurableExecutionResponse$,
   RetryDetails$,
   Runtime,
   RuntimeAliasDeletedException,
@@ -675,6 +692,8 @@ assert(typeof DeleteCapacityProviderCommand === "function");
 assert(typeof DeleteCapacityProvider$ === "object");
 assert(typeof DeleteCodeSigningConfigCommand === "function");
 assert(typeof DeleteCodeSigningConfig$ === "object");
+assert(typeof DeleteDurableExecutionCommand === "function");
+assert(typeof DeleteDurableExecution$ === "object");
 assert(typeof DeleteEventSourceMappingCommand === "function");
 assert(typeof DeleteEventSourceMapping$ === "object");
 assert(typeof DeleteFunctionCommand === "function");
@@ -775,6 +794,8 @@ assert(typeof ListTagsCommand === "function");
 assert(typeof ListTags$ === "object");
 assert(typeof ListVersionsByFunctionCommand === "function");
 assert(typeof ListVersionsByFunction$ === "object");
+assert(typeof PauseDurableExecutionCommand === "function");
+assert(typeof PauseDurableExecution$ === "object");
 assert(typeof PublishLayerVersionCommand === "function");
 assert(typeof PublishLayerVersion$ === "object");
 assert(typeof PublishVersionCommand === "function");
@@ -799,6 +820,8 @@ assert(typeof RemoveLayerVersionPermissionCommand === "function");
 assert(typeof RemoveLayerVersionPermission$ === "object");
 assert(typeof RemovePermissionCommand === "function");
 assert(typeof RemovePermission$ === "object");
+assert(typeof ResumeDurableExecutionCommand === "function");
+assert(typeof ResumeDurableExecution$ === "object");
 assert(typeof SendDurableExecutionCallbackFailureCommand === "function");
 assert(typeof SendDurableExecutionCallbackFailure$ === "object");
 assert(typeof SendDurableExecutionCallbackHeartbeatCommand === "function");
@@ -886,6 +909,8 @@ assert(typeof DeleteCapacityProviderRequest$ === "object");
 assert(typeof DeleteCapacityProviderResponse$ === "object");
 assert(typeof DeleteCodeSigningConfigRequest$ === "object");
 assert(typeof DeleteCodeSigningConfigResponse$ === "object");
+assert(typeof DeleteDurableExecutionRequest$ === "object");
+assert(typeof DeleteDurableExecutionResponse$ === "object");
 assert(typeof DeleteEventSourceMappingRequest$ === "object");
 assert(typeof DeleteFunctionCodeSigningConfigRequest$ === "object");
 assert(typeof DeleteFunctionConcurrencyRequest$ === "object");
@@ -907,13 +932,17 @@ assert(typeof ErrorObject$ === "object");
 assert(typeof Event$ === "object");
 assert(typeof EventError$ === "object");
 assert(typeof EventInput$ === "object");
+assert(typeof EventPauseReason$ === "object");
 assert(typeof EventResult$ === "object");
+assert(typeof EventResumeReason$ === "object");
 assert(typeof EventSourceMappingConfiguration$ === "object");
 assert(typeof EventSourceMappingLoggingConfig$ === "object");
 assert(typeof EventSourceMappingMetricsConfig$ === "object");
 assert(typeof Execution$ === "object");
 assert(typeof ExecutionDetails$ === "object");
 assert(typeof ExecutionFailedDetails$ === "object");
+assert(typeof ExecutionPausedDetails$ === "object");
+assert(typeof ExecutionResumedDetails$ === "object");
 assert(typeof ExecutionStartedDetails$ === "object");
 assert(typeof ExecutionStoppedDetails$ === "object");
 assert(typeof ExecutionSucceededDetails$ === "object");
@@ -1030,6 +1059,9 @@ assert(typeof OnFailure$ === "object");
 assert(typeof OnSuccess$ === "object");
 assert(typeof Operation$ === "object");
 assert(typeof OperationUpdate$ === "object");
+assert(typeof PauseDetails$ === "object");
+assert(typeof PauseDurableExecutionRequest$ === "object");
+assert(typeof PauseDurableExecutionResponse$ === "object");
 assert(typeof PropagateTags$ === "object");
 assert(typeof ProvisionedConcurrencyConfigListItem$ === "object");
 assert(typeof ProvisionedPollerConfig$ === "object");
@@ -1053,6 +1085,8 @@ assert(typeof PutRuntimeManagementConfigResponse$ === "object");
 assert(typeof RemoveLayerVersionPermissionRequest$ === "object");
 assert(typeof RemovePermissionRequest$ === "object");
 assert(typeof ResolvedS3Object$ === "object");
+assert(typeof ResumeDurableExecutionRequest$ === "object");
+assert(typeof ResumeDurableExecutionResponse$ === "object");
 assert(typeof RetryDetails$ === "object");
 assert(typeof RuntimeVersionConfig$ === "object");
 assert(typeof RuntimeVersionError$ === "object");

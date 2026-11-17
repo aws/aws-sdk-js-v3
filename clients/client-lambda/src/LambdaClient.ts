@@ -97,6 +97,10 @@ import type {
   DeleteCodeSigningConfigCommandOutput,
 } from "./commands/DeleteCodeSigningConfigCommand";
 import type {
+  DeleteDurableExecutionCommandInput,
+  DeleteDurableExecutionCommandOutput,
+} from "./commands/DeleteDurableExecutionCommand";
+import type {
   DeleteEventSourceMappingCommandInput,
   DeleteEventSourceMappingCommandOutput,
 } from "./commands/DeleteEventSourceMappingCommand";
@@ -264,6 +268,10 @@ import type {
   ListVersionsByFunctionCommandOutput,
 } from "./commands/ListVersionsByFunctionCommand";
 import type {
+  PauseDurableExecutionCommandInput,
+  PauseDurableExecutionCommandOutput,
+} from "./commands/PauseDurableExecutionCommand";
+import type {
   PublishLayerVersionCommandInput,
   PublishLayerVersionCommandOutput,
 } from "./commands/PublishLayerVersionCommand";
@@ -305,6 +313,10 @@ import type {
   RemoveLayerVersionPermissionCommandOutput,
 } from "./commands/RemoveLayerVersionPermissionCommand";
 import type { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
+import type {
+  ResumeDurableExecutionCommandInput,
+  ResumeDurableExecutionCommandOutput,
+} from "./commands/ResumeDurableExecutionCommand";
 import type {
   SendDurableExecutionCallbackFailureCommandInput,
   SendDurableExecutionCallbackFailureCommandOutput,
@@ -379,6 +391,7 @@ export type ServiceInputTypes =
   | DeleteAliasCommandInput
   | DeleteCapacityProviderCommandInput
   | DeleteCodeSigningConfigCommandInput
+  | DeleteDurableExecutionCommandInput
   | DeleteEventSourceMappingCommandInput
   | DeleteFunctionCodeSigningConfigCommandInput
   | DeleteFunctionCommandInput
@@ -429,6 +442,7 @@ export type ServiceInputTypes =
   | ListProvisionedConcurrencyConfigsCommandInput
   | ListTagsCommandInput
   | ListVersionsByFunctionCommandInput
+  | PauseDurableExecutionCommandInput
   | PublishLayerVersionCommandInput
   | PublishVersionCommandInput
   | PutFunctionCodeSigningConfigCommandInput
@@ -441,6 +455,7 @@ export type ServiceInputTypes =
   | PutRuntimeManagementConfigCommandInput
   | RemoveLayerVersionPermissionCommandInput
   | RemovePermissionCommandInput
+  | ResumeDurableExecutionCommandInput
   | SendDurableExecutionCallbackFailureCommandInput
   | SendDurableExecutionCallbackHeartbeatCommandInput
   | SendDurableExecutionCallbackSuccessCommandInput
@@ -472,6 +487,7 @@ export type ServiceOutputTypes =
   | DeleteAliasCommandOutput
   | DeleteCapacityProviderCommandOutput
   | DeleteCodeSigningConfigCommandOutput
+  | DeleteDurableExecutionCommandOutput
   | DeleteEventSourceMappingCommandOutput
   | DeleteFunctionCodeSigningConfigCommandOutput
   | DeleteFunctionCommandOutput
@@ -522,6 +538,7 @@ export type ServiceOutputTypes =
   | ListProvisionedConcurrencyConfigsCommandOutput
   | ListTagsCommandOutput
   | ListVersionsByFunctionCommandOutput
+  | PauseDurableExecutionCommandOutput
   | PublishLayerVersionCommandOutput
   | PublishVersionCommandOutput
   | PutFunctionCodeSigningConfigCommandOutput
@@ -534,6 +551,7 @@ export type ServiceOutputTypes =
   | PutRuntimeManagementConfigCommandOutput
   | RemoveLayerVersionPermissionCommandOutput
   | RemovePermissionCommandOutput
+  | ResumeDurableExecutionCommandOutput
   | SendDurableExecutionCallbackFailureCommandOutput
   | SendDurableExecutionCallbackHeartbeatCommandOutput
   | SendDurableExecutionCallbackSuccessCommandOutput

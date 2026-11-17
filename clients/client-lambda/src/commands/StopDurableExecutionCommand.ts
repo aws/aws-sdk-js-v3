@@ -23,7 +23,7 @@ export interface StopDurableExecutionCommandInput extends StopDurableExecutionRe
 export interface StopDurableExecutionCommandOutput extends StopDurableExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a running <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a>. The execution transitions to STOPPED status and cannot be resumed. Any in-progress operations are terminated.</p>
+ * <p>Stops a running or paused <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a>. The execution transitions to STOPPED status and cannot be resumed. Any in-progress operations are terminated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

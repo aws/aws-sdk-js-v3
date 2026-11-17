@@ -44,7 +44,7 @@ export interface GetDurableExecutionHistoryCommandOutput extends GetDurableExecu
  * // { // GetDurableExecutionHistoryResponse
  * //   Events: [ // Events // required
  * //     { // Event
- * //       EventType: "ExecutionStarted" || "ExecutionSucceeded" || "ExecutionFailed" || "ExecutionTimedOut" || "ExecutionStopped" || "ContextStarted" || "ContextSucceeded" || "ContextFailed" || "WaitStarted" || "WaitSucceeded" || "WaitCancelled" || "StepStarted" || "StepSucceeded" || "StepFailed" || "ChainedInvokeStarted" || "ChainedInvokeSucceeded" || "ChainedInvokeFailed" || "ChainedInvokeTimedOut" || "ChainedInvokeStopped" || "CallbackStarted" || "CallbackSucceeded" || "CallbackFailed" || "CallbackTimedOut" || "InvocationCompleted",
+ * //       EventType: "ExecutionStarted" || "ExecutionSucceeded" || "ExecutionFailed" || "ExecutionTimedOut" || "ExecutionStopped" || "ContextStarted" || "ContextSucceeded" || "ContextFailed" || "WaitStarted" || "WaitSucceeded" || "WaitCancelled" || "StepStarted" || "StepSucceeded" || "StepFailed" || "ChainedInvokeStarted" || "ChainedInvokeSucceeded" || "ChainedInvokeFailed" || "ChainedInvokeTimedOut" || "ChainedInvokeStopped" || "CallbackStarted" || "CallbackSucceeded" || "CallbackFailed" || "CallbackTimedOut" || "InvocationCompleted" || "ExecutionPaused" || "ExecutionResumed",
  * //       SubType: "STRING_VALUE",
  * //       EventId: Number("int"),
  * //       Id: "STRING_VALUE",
@@ -208,6 +208,21 @@ export interface GetDurableExecutionHistoryCommandOutput extends GetDurableExecu
  * //         EndTimestamp: new Date("TIMESTAMP"), // required
  * //         RequestId: "STRING_VALUE", // required
  * //         Error: "<EventError>",
+ * //       },
+ * //       ExecutionPausedDetails: { // ExecutionPausedDetails
+ * //         PauseRequestTimestamp: new Date("TIMESTAMP"), // required
+ * //         Reason: { // EventPauseReason
+ * //           Payload: "STRING_VALUE",
+ * //           Truncated: true || false,
+ * //         },
+ * //         ExecutionTimeoutPaused: true || false, // required
+ * //       },
+ * //       ExecutionResumedDetails: { // ExecutionResumedDetails
+ * //         ResumeRequestTimestamp: new Date("TIMESTAMP"), // required
+ * //         Reason: { // EventResumeReason
+ * //           Payload: "STRING_VALUE",
+ * //           Truncated: true || false,
+ * //         },
  * //       },
  * //     },
  * //   ],

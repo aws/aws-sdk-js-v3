@@ -53,7 +53,7 @@ export interface GetDurableExecutionCommandOutput extends GetDurableExecutionRes
  * //     ],
  * //   },
  * //   StartTimestamp: new Date("TIMESTAMP"), // required
- * //   Status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "STOPPED", // required
+ * //   Status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "STOPPED" || "DELETING" || "PAUSING" || "PAUSED", // required
  * //   EndTimestamp: new Date("TIMESTAMP"),
  * //   Version: "STRING_VALUE",
  * //   TraceHeader: { // TraceHeader
@@ -65,6 +65,12 @@ export interface GetDurableExecutionCommandOutput extends GetDurableExecutionRes
  * //     RetentionPeriodInDays: Number("int"),
  * //     ExecutionTimeout: Number("int"),
  * //   },
+ * //   PauseDetails: { // PauseDetails
+ * //     PauseRequestTimestamp: new Date("TIMESTAMP"), // required
+ * //     Reason: "STRING_VALUE",
+ * //     ExecutionTimeoutPaused: true || false, // required
+ * //   },
+ * //   ExpectedExecutionTimeoutTimestamp: new Date("TIMESTAMP"),
  * // };
  *
  * ```

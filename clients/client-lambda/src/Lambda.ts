@@ -69,6 +69,11 @@ import {
   DeleteCodeSigningConfigCommand,
 } from "./commands/DeleteCodeSigningConfigCommand";
 import {
+  type DeleteDurableExecutionCommandInput,
+  type DeleteDurableExecutionCommandOutput,
+  DeleteDurableExecutionCommand,
+} from "./commands/DeleteDurableExecutionCommand";
+import {
   type DeleteEventSourceMappingCommandInput,
   type DeleteEventSourceMappingCommandOutput,
   DeleteEventSourceMappingCommand,
@@ -303,6 +308,11 @@ import {
   ListVersionsByFunctionCommand,
 } from "./commands/ListVersionsByFunctionCommand";
 import {
+  type PauseDurableExecutionCommandInput,
+  type PauseDurableExecutionCommandOutput,
+  PauseDurableExecutionCommand,
+} from "./commands/PauseDurableExecutionCommand";
+import {
   type PublishLayerVersionCommandInput,
   type PublishLayerVersionCommandOutput,
   PublishLayerVersionCommand,
@@ -362,6 +372,11 @@ import {
   type RemovePermissionCommandOutput,
   RemovePermissionCommand,
 } from "./commands/RemovePermissionCommand";
+import {
+  type ResumeDurableExecutionCommandInput,
+  type ResumeDurableExecutionCommandOutput,
+  ResumeDurableExecutionCommand,
+} from "./commands/ResumeDurableExecutionCommand";
 import {
   type SendDurableExecutionCallbackFailureCommandInput,
   type SendDurableExecutionCallbackFailureCommandOutput,
@@ -472,6 +487,7 @@ const commands = {
   DeleteAliasCommand,
   DeleteCapacityProviderCommand,
   DeleteCodeSigningConfigCommand,
+  DeleteDurableExecutionCommand,
   DeleteEventSourceMappingCommand,
   DeleteFunctionCommand,
   DeleteFunctionCodeSigningConfigCommand,
@@ -522,6 +538,7 @@ const commands = {
   ListProvisionedConcurrencyConfigsCommand,
   ListTagsCommand,
   ListVersionsByFunctionCommand,
+  PauseDurableExecutionCommand,
   PublishLayerVersionCommand,
   PublishVersionCommand,
   PutFunctionCodeSigningConfigCommand,
@@ -534,6 +551,7 @@ const commands = {
   PutRuntimeManagementConfigCommand,
   RemoveLayerVersionPermissionCommand,
   RemovePermissionCommand,
+  ResumeDurableExecutionCommand,
   SendDurableExecutionCallbackFailureCommand,
   SendDurableExecutionCallbackHeartbeatCommand,
   SendDurableExecutionCallbackSuccessCommand,
@@ -786,6 +804,23 @@ export interface Lambda {
     args: DeleteCodeSigningConfigCommandInput,
     options: LambdaRequestOptions,
     cb: (err: any, data?: DeleteCodeSigningConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDurableExecutionCommand}
+   */
+  deleteDurableExecution(
+    args: DeleteDurableExecutionCommandInput,
+    options?: LambdaRequestOptions
+  ): Promise<DeleteDurableExecutionCommandOutput>;
+  deleteDurableExecution(
+    args: DeleteDurableExecutionCommandInput,
+    cb: (err: any, data?: DeleteDurableExecutionCommandOutput) => void
+  ): void;
+  deleteDurableExecution(
+    args: DeleteDurableExecutionCommandInput,
+    options: LambdaRequestOptions,
+    cb: (err: any, data?: DeleteDurableExecutionCommandOutput) => void
   ): void;
 
   /**
@@ -1645,6 +1680,23 @@ export interface Lambda {
   ): void;
 
   /**
+   * @see {@link PauseDurableExecutionCommand}
+   */
+  pauseDurableExecution(
+    args: PauseDurableExecutionCommandInput,
+    options?: LambdaRequestOptions
+  ): Promise<PauseDurableExecutionCommandOutput>;
+  pauseDurableExecution(
+    args: PauseDurableExecutionCommandInput,
+    cb: (err: any, data?: PauseDurableExecutionCommandOutput) => void
+  ): void;
+  pauseDurableExecution(
+    args: PauseDurableExecutionCommandInput,
+    options: LambdaRequestOptions,
+    cb: (err: any, data?: PauseDurableExecutionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PublishLayerVersionCommand}
    */
   publishLayerVersion(
@@ -1846,6 +1898,23 @@ export interface Lambda {
     args: RemovePermissionCommandInput,
     options: LambdaRequestOptions,
     cb: (err: any, data?: RemovePermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResumeDurableExecutionCommand}
+   */
+  resumeDurableExecution(
+    args: ResumeDurableExecutionCommandInput,
+    options?: LambdaRequestOptions
+  ): Promise<ResumeDurableExecutionCommandOutput>;
+  resumeDurableExecution(
+    args: ResumeDurableExecutionCommandInput,
+    cb: (err: any, data?: ResumeDurableExecutionCommandOutput) => void
+  ): void;
+  resumeDurableExecution(
+    args: ResumeDurableExecutionCommandInput,
+    options: LambdaRequestOptions,
+    cb: (err: any, data?: ResumeDurableExecutionCommandOutput) => void
   ): void;
 
   /**

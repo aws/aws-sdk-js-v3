@@ -40,7 +40,7 @@ export interface ListDurableExecutionsByFunctionCommandOutput extends ListDurabl
  *   Qualifier: "STRING_VALUE",
  *   DurableExecutionName: "STRING_VALUE",
  *   Statuses: [ // ExecutionStatusList
- *     "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "STOPPED",
+ *     "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "STOPPED" || "DELETING" || "PAUSING" || "PAUSED",
  *   ],
  *   StartedAfter: new Date("TIMESTAMP"),
  *   StartedBefore: new Date("TIMESTAMP"),
@@ -56,7 +56,7 @@ export interface ListDurableExecutionsByFunctionCommandOutput extends ListDurabl
  * //       DurableExecutionArn: "STRING_VALUE", // required
  * //       DurableExecutionName: "STRING_VALUE", // required
  * //       FunctionArn: "STRING_VALUE", // required
- * //       Status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "STOPPED", // required
+ * //       Status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "STOPPED" || "DELETING" || "PAUSING" || "PAUSED", // required
  * //       StartTimestamp: new Date("TIMESTAMP"), // required
  * //       EndTimestamp: new Date("TIMESTAMP"),
  * //       KMSKeyArn: "STRING_VALUE",

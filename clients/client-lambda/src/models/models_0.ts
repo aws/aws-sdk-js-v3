@@ -1287,7 +1287,7 @@ export interface StepOptions {
 }
 
 /**
- * <p>Specifies how long to pause the durable execution.</p>
+ * <p>Specifies how long the durable execution waits.</p>
  * @public
  */
 export interface WaitOptions {
@@ -1660,6 +1660,28 @@ export interface CheckpointDurableExecutionResponse {
 /**
  * @public
  */
+export interface DeleteDurableExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
+   * @public
+   */
+  DurableExecutionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDurableExecutionResponse {
+  /**
+   * <p>The timestamp when Lambda accepted the deletion request (ISO 8601 format).</p>
+   * @public
+   */
+  DeletionRequestTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetDurableExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
@@ -1696,6 +1718,30 @@ export interface DurableConfig {
    * @public
    */
   ExecutionTimeout?: number | undefined;
+}
+
+/**
+ * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that is pausing or paused.</p>
+ * @public
+ */
+export interface PauseDetails {
+  /**
+   * <p>The date and time when you requested the pause, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * @public
+   */
+  PauseRequestTimestamp: Date | undefined;
+
+  /**
+   * <p>The reason that you provided when you paused the execution. This field is only present if you set <code>IncludeExecutionData</code> to <code>true</code> in the request.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+
+  /**
+   * <p>Specifies whether the pause also pauses the execution timeout.</p>
+   * @public
+   */
+  ExecutionTimeoutPaused: boolean | undefined;
 }
 
 /**
@@ -1758,7 +1804,7 @@ export interface GetDurableExecutionResponse {
   StartTimestamp: Date | undefined;
 
   /**
-   * <p>The current status of the durable execution. Valid values are <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, and <code>STOPPED</code>.</p>
+   * <p>The durable execution has one of the following statuses:</p> <ul> <li> <p> <code>RUNNING</code> – The execution is running or waiting for pending operations to complete.</p> </li> <li> <p> <code>PAUSING</code> – The execution is waiting for an in-progress invocation to reach its next checkpoint before it pauses.</p> </li> <li> <p> <code>PAUSED</code> – The execution is paused, and Lambda doesn't invoke your function.</p> </li> <li> <p> <code>SUCCEEDED</code> – The execution completed successfully.</p> </li> <li> <p> <code>FAILED</code> – The execution completed with an error.</p> </li> <li> <p> <code>TIMED_OUT</code> – The execution exceeded its execution timeout.</p> </li> <li> <p> <code>STOPPED</code> – A <code>StopDurableExecution</code> request stopped the execution.</p> </li> <li> <p> <code>DELETING</code> – A <code>DeleteDurableExecution</code> request is deleting the execution and its data.</p> </li> </ul>
    * @public
    */
   Status: ExecutionStatus | undefined;
@@ -1792,6 +1838,18 @@ export interface GetDurableExecutionResponse {
    * @public
    */
   DurableConfig?: DurableConfig | undefined;
+
+  /**
+   * <p>The details of the pause, including when you requested it and whether it pauses the execution timeout. This field is only present when the execution status is <code>PAUSING</code> or <code>PAUSED</code>.</p>
+   * @public
+   */
+  PauseDetails?: PauseDetails | undefined;
+
+  /**
+   * <p>The date and time when the durable execution will time out, in Unix timestamp format. This value includes any extension from time the execution spent paused. While the execution is paused with its execution timeout paused, this value is 366 days after the start time. This field isn't present for completed executions.</p>
+   * @public
+   */
+  ExpectedExecutionTimeoutTimestamp?: Date | undefined;
 }
 
 /**
@@ -2067,6 +2125,84 @@ export interface ExecutionFailedDetails {
    * @public
    */
   Error: EventError | undefined;
+}
+
+/**
+ * <p>The reason for pausing a durable execution, as recorded in the execution history.</p>
+ * @public
+ */
+export interface EventPauseReason {
+  /**
+   * <p>The reason that you provided when you paused the execution. This field is only present if you set <code>IncludeExecutionData</code> to <code>true</code> in the request.</p>
+   * @public
+   */
+  Payload?: string | undefined;
+
+  /**
+   * <p>Specifies whether Lambda omitted the reason from the response because <code>IncludeExecutionData</code> is <code>false</code>.</p>
+   * @public
+   */
+  Truncated?: boolean | undefined;
+}
+
+/**
+ * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that paused. The event timestamp is when the execution paused.</p>
+ * @public
+ */
+export interface ExecutionPausedDetails {
+  /**
+   * <p>The date and time when you requested the pause, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * @public
+   */
+  PauseRequestTimestamp: Date | undefined;
+
+  /**
+   * <p>The reason that you provided when you paused the execution.</p>
+   * @public
+   */
+  Reason?: EventPauseReason | undefined;
+
+  /**
+   * <p>Specifies whether the pause also paused the execution timeout.</p>
+   * @public
+   */
+  ExecutionTimeoutPaused: boolean | undefined;
+}
+
+/**
+ * <p>The reason for resuming a durable execution, as recorded in the execution history.</p>
+ * @public
+ */
+export interface EventResumeReason {
+  /**
+   * <p>The reason that you provided when you resumed the execution. This field is only present if you set <code>IncludeExecutionData</code> to <code>true</code> in the request.</p>
+   * @public
+   */
+  Payload?: string | undefined;
+
+  /**
+   * <p>Specifies whether Lambda omitted the reason from the response because <code>IncludeExecutionData</code> is <code>false</code>.</p>
+   * @public
+   */
+  Truncated?: boolean | undefined;
+}
+
+/**
+ * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that resumed. The event timestamp is when the execution resumed.</p>
+ * @public
+ */
+export interface ExecutionResumedDetails {
+  /**
+   * <p>The date and time when you requested the resume, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * @public
+   */
+  ResumeRequestTimestamp: Date | undefined;
+
+  /**
+   * <p>The reason that you provided when you resumed the execution.</p>
+   * @public
+   */
+  Reason?: EventResumeReason | undefined;
 }
 
 /**
@@ -2445,6 +2581,18 @@ export interface Event {
    * @public
    */
   InvocationCompletedDetails?: InvocationCompletedDetails | undefined;
+
+  /**
+   * <p>The details of an <code>ExecutionPaused</code> event.</p>
+   * @public
+   */
+  ExecutionPausedDetails?: ExecutionPausedDetails | undefined;
+
+  /**
+   * <p>The details of an <code>ExecutionResumed</code> event.</p>
+   * @public
+   */
+  ExecutionResumedDetails?: ExecutionResumedDetails | undefined;
 }
 
 /**
@@ -2511,6 +2659,68 @@ export interface GetDurableExecutionStateResponse {
    */
   NextMarker?: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface PauseDurableExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
+   * @public
+   */
+  DurableExecutionArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide so that the request completes no more than one time. If you repeat a request with the same client token and parameters within 15 minutes, Lambda doesn't pause the execution again and returns a successful response instead of an error.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A description of why you're pausing the execution. Lambda records the reason in the execution history.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+
+  /**
+   * <p>Specifies whether to pause the execution timeout while the execution is paused. If <code>true</code>, Lambda extends the execution timeout by the time the execution spends paused. An execution with a paused timeout still times out 366 days after it started. The default value is <code>true</code>.</p>
+   * @public
+   */
+  ExecutionTimeoutPaused?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PauseDurableExecutionResponse {}
+
+/**
+ * @public
+ */
+export interface ResumeDurableExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
+   * @public
+   */
+  DurableExecutionArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide so that the request completes no more than one time. If you repeat a request with the same client token and parameters within 15 minutes, Lambda doesn't resume the execution again and returns a successful response instead of an error.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A description of why you're resuming the execution. Lambda records the reason in the execution history.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResumeDurableExecutionResponse {}
 
 /**
  * @public
@@ -5200,7 +5410,7 @@ export interface ListDurableExecutionsByFunctionRequest {
   DurableExecutionName?: string | undefined;
 
   /**
-   * <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
+   * <p>Filters the executions by status. Specify one of the following values:</p> <ul> <li> <p> <code>RUNNING</code> – The execution is running or waiting for pending operations to complete.</p> </li> <li> <p> <code>PAUSING</code> – The execution is waiting for an in-progress invocation to reach its next checkpoint before it pauses.</p> </li> <li> <p> <code>PAUSED</code> – The execution is paused, and Lambda doesn't invoke your function.</p> </li> <li> <p> <code>SUCCEEDED</code> – The execution completed successfully.</p> </li> <li> <p> <code>FAILED</code> – The execution completed with an error.</p> </li> <li> <p> <code>TIMED_OUT</code> – The execution exceeded its execution timeout.</p> </li> <li> <p> <code>STOPPED</code> – A <code>StopDurableExecution</code> request stopped the execution.</p> </li> <li> <p> <code>DELETING</code> – A <code>DeleteDurableExecution</code> request is deleting the execution and its data.</p> </li> </ul>
    * @public
    */
   Statuses?: ExecutionStatus[] | undefined;
