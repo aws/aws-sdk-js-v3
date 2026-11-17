@@ -875,6 +875,11 @@ import {
   FreeTrialStatus$,
   FreeTrialStatusValue,
   FreeTrialType,
+  GcpDetail$,
+  GcpProviderConfiguration$,
+  GcpScopeConfiguration$,
+  GcpScopeType,
+  GcpUpdateConfiguration$,
   GenerateRecommendedPolicyV2$,
   GenerateRecommendedPolicyV2Command,
   GenerateRecommendedPolicyV2Request$,
@@ -2445,6 +2450,10 @@ assert(typeof FirewallPolicyStatefulRuleGroupReferencesDetails$ === "object");
 assert(typeof FirewallPolicyStatelessCustomActionsDetails$ === "object");
 assert(typeof FirewallPolicyStatelessRuleGroupReferencesDetails$ === "object");
 assert(typeof FreeTrialStatus$ === "object");
+assert(typeof GcpDetail$ === "object");
+assert(typeof GcpProviderConfiguration$ === "object");
+assert(typeof GcpScopeConfiguration$ === "object");
+assert(typeof GcpUpdateConfiguration$ === "object");
 assert(typeof GenerateRecommendedPolicyV2Request$ === "object");
 assert(typeof GenerateRecommendedPolicyV2Response$ === "object");
 assert(typeof GeneratorDetails$ === "object");
@@ -2827,6 +2836,7 @@ assert(typeof FindingsSelectableField === "object");
 assert(typeof FindingsTrendsStringField === "object");
 assert(typeof FreeTrialStatusValue === "object");
 assert(typeof FreeTrialType === "object");
+assert(typeof GcpScopeType === "object");
 assert(typeof GranularityField === "object");
 assert(typeof GroupByField === "object");
 assert(typeof GuidanceFormat === "object");

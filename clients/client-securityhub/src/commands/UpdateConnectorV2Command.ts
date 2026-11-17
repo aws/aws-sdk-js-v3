@@ -53,6 +53,17 @@ export interface UpdateConnectorV2CommandOutput extends UpdateConnectorV2Respons
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     GCP: { // GcpUpdateConfiguration
+ *       ScopeConfiguration: { // GcpScopeConfiguration
+ *         ScopeType: "PROJECT" || "ORGANIZATION", // required
+ *         ScopeValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       GCPRegions: [ // GcpRegionList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  * };
  * const command = new UpdateConnectorV2Command(input);

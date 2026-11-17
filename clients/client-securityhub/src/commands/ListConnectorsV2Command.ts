@@ -35,7 +35,7 @@ export interface ListConnectorsV2CommandOutput extends ListConnectorsV2Response,
  * const input = { // ListConnectorsV2Request
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   ProviderName: "JIRA_CLOUD" || "SERVICENOW" || "AZURE",
+ *   ProviderName: "JIRA_CLOUD" || "SERVICENOW" || "AZURE" || "GCP",
  *   ConnectorStatus: "CONNECTED" || "DEGRADED" || "FAILED_TO_CONNECT" || "PENDING_AUTHORIZATION" || "PENDING_CONFIGURATION" || "UNKNOWN",
  *   EnablementStatus: "ENABLED" || "PENDING_ENABLEMENT" || "FAILED_TO_ENABLE" || "PENDING_UPDATE" || "FAILED_TO_UPDATE" || "PENDING_DELETION" || "FAILED_TO_DELETE",
  * };
@@ -50,7 +50,7 @@ export interface ListConnectorsV2CommandOutput extends ListConnectorsV2Response,
  * //       Name: "STRING_VALUE", // required
  * //       Description: "STRING_VALUE",
  * //       ProviderSummary: { // ProviderSummary
- * //         ProviderName: "JIRA_CLOUD" || "SERVICENOW" || "AZURE",
+ * //         ProviderName: "JIRA_CLOUD" || "SERVICENOW" || "AZURE" || "GCP",
  * //         ConnectorStatus: "CONNECTED" || "DEGRADED" || "FAILED_TO_CONNECT" || "PENDING_AUTHORIZATION" || "PENDING_CONFIGURATION" || "UNKNOWN",
  * //         ProviderConfiguration: { // ProviderDetail Union: only one key present
  * //           JiraCloud: { // JiraCloudDetail
@@ -74,6 +74,18 @@ export interface ListConnectorsV2CommandOutput extends ListConnectorsV2Response,
  * //               ],
  * //             },
  * //             AzureRegions: [ // AzureRegionList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           GCP: { // GcpDetail
+ * //             AWSConfigConnectorArn: "STRING_VALUE", // required
+ * //             ScopeConfiguration: { // GcpScopeConfiguration
+ * //               ScopeType: "PROJECT" || "ORGANIZATION", // required
+ * //               ScopeValues: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             GCPRegions: [ // GcpRegionList // required
  * //               "STRING_VALUE",
  * //             ],
  * //           },

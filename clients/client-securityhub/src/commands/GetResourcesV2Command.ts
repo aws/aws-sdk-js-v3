@@ -222,7 +222,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  * //       ResourceCriticality: "Very High" || "High" || "Medium" || "Low" || "Unknown",
  * //       CriticalitySources: [ // CriticalitySourceList
  * //         { // CriticalitySource
- * //           Source: "AutomationRule" || "ResourceName" || "TagInference", // required
+ * //           Source: "AutomationRule" || "ResourceName" || "TagInference" || "CloudWatchTelemetryInference" || "InstalledSoftwareAndPackageInference", // required
  * //           Reason: "STRING_VALUE", // required
  * //         },
  * //       ],

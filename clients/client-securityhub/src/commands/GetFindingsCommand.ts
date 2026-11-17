@@ -482,7 +482,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           Id: "STRING_VALUE", // required
  * //           Partition: "aws" || "aws-cn" || "aws-us-gov" || "aws-us-iso" || "aws-us-iso-b" || "AzureCloud",
  * //           Region: "STRING_VALUE",
- * //           Provider: "Azure" || "AWS",
+ * //           Provider: "Azure" || "AWS" || "GCP",
  * //           Owner: { // ResourceOwner
  * //             Account: { // ResourceOwnerAccount
  * //               Id: "STRING_VALUE",
@@ -4269,6 +4269,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               CodeSecurityIntegrationArn: "STRING_VALUE",
  * //             },
  * //             AzureResource: "DOCUMENT_VALUE",
+ * //             GcpResource: "DOCUMENT_VALUE",
  * //           },
  * //           ApplicationName: "STRING_VALUE",
  * //           ApplicationArn: "STRING_VALUE",

@@ -106,7 +106,7 @@ export interface GetSecurityControlDefinitionCommandOutput extends GetSecurityCo
  * //         },
  * //       },
  * //     },
- * //     Provider: "AWS" || "Azure",
+ * //     Provider: "AWS" || "Azure" || "GCP",
  * //   },
  * // };
  *

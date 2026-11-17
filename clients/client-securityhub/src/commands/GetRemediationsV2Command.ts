@@ -93,7 +93,7 @@ export interface GetRemediationsV2CommandOutput extends GetRemediationsV2Respons
  * //         Id: "STRING_VALUE", // required
  * //         ResourceGuid: "STRING_VALUE",
  * //         ResourceRegion: "STRING_VALUE", // required
- * //         CloudProvider: "Azure" || "AWS", // required
+ * //         CloudProvider: "Azure" || "AWS" || "GCP", // required
  * //       },
  * //       Status: "New" || "Updated" || "Resolved", // required
  * //       Trait: { // RemediationTrait

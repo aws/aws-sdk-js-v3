@@ -1868,18 +1868,21 @@ const _GBV = "GroupByValues";
 const _GBVr = "GroupByValue";
 const _GC = "GetConnector";
 const _GCD = "GitCloneDepth";
-const _GCP = "GetConfigurationPolicy";
+const _GCP = "GCP";
 const _GCPA = "GetConfigurationPolicyAssociation";
 const _GCPAR = "GetConfigurationPolicyAssociationRequest";
 const _GCPARe = "GetConfigurationPolicyAssociationResponse";
-const _GCPR = "GetConfigurationPolicyRequest";
-const _GCPRe = "GetConfigurationPolicyResponse";
+const _GCPR = "GCPRegions";
+const _GCPRe = "GetConfigurationPolicyRequest";
+const _GCPRet = "GetConfigurationPolicyResponse";
+const _GCPe = "GetConfigurationPolicy";
 const _GCR = "GetConnectorRequest";
 const _GCRe = "GetConnectorResponse";
 const _GCV = "GetConnectorV2";
 const _GCVR = "GetConnectorV2Request";
 const _GCVRe = "GetConnectorV2Response";
 const _GD = "GeneratorDetails";
+const _GDc = "GcpDetail";
 const _GEJV = "GetExportJobV2";
 const _GEJVR = "GetExportJobV2Request";
 const _GEJVRe = "GetExportJobV2Response";
@@ -1928,7 +1931,9 @@ const _GMARe = "GetMasterAccountResponse";
 const _GMR = "GetMembersRequest";
 const _GMRe = "GetMembersResponse";
 const _GN = "GroupName";
+const _GPC = "GcpProviderConfiguration";
 const _GPL = "GroupPolicyList";
+const _GR = "GcpResource";
 const _GRPV = "GenerateRecommendedPolicyV2";
 const _GRPVR = "GenerateRecommendedPolicyV2Request";
 const _GRPVRe = "GenerateRecommendedPolicyV2Response";
@@ -1948,6 +1953,7 @@ const _GRVRe = "GetRemediationsV2Response";
 const _GRVRet = "GetResourcesV2Request";
 const _GRVRete = "GetResourcesV2Response";
 const _GRVe = "GetResourcesV2";
+const _GSC = "GcpScopeConfiguration";
 const _GSCD = "GetSecurityControlDefinition";
 const _GSCDR = "GetSecurityControlDefinitionRequest";
 const _GSCDRe = "GetSecurityControlDefinitionResponse";
@@ -1962,6 +1968,7 @@ const _GSV = "GetSoftwareV2";
 const _GSVR = "GetSoftwareV2Request";
 const _GSVRe = "GetSoftwareV2Response";
 const _GTV = "GlobalTableVersion";
+const _GUC = "GcpUpdateConfiguration";
 const _Gi = "Gid";
 const _Gr = "Groups";
 const _Gra = "Granularity";
@@ -7344,6 +7351,26 @@ export var FreeTrialStatus$: StaticStructureSchema = [3, n0, _FTSr,
   [_FT, _St, _SAt, _EAx],
   [0, 0, 5, 5], 4
 ];
+export var GcpDetail$: StaticStructureSchema = [3, n0, _GDc,
+  0,
+  [_AWSCCA, _SCc, _GCPR],
+  [0, () => GcpScopeConfiguration$, 64 | 0], 3
+];
+export var GcpProviderConfiguration$: StaticStructureSchema = [3, n0, _GPC,
+  0,
+  [_AWSCCA, _SCc, _GCPR],
+  [0, () => GcpScopeConfiguration$, 64 | 0], 3
+];
+export var GcpScopeConfiguration$: StaticStructureSchema = [3, n0, _GSC,
+  0,
+  [_STc, _SVco],
+  [0, 64 | 0], 1
+];
+export var GcpUpdateConfiguration$: StaticStructureSchema = [3, n0, _GUC,
+  0,
+  [_SCc, _GCPR],
+  [() => GcpScopeConfiguration$, 64 | 0], 2
+];
 export var GenerateRecommendedPolicyV2Request$: StaticStructureSchema = [3, n0, _GRPVR,
   0,
   [_MUe],
@@ -7404,12 +7431,12 @@ export var GetConfigurationPolicyAssociationResponse$: StaticStructureSchema = [
   [_CPI, _TIa, _TT, _ATs, _UA, _ASss, _ASM],
   [0, 0, 0, 0, 5, 0, 0]
 ];
-export var GetConfigurationPolicyRequest$: StaticStructureSchema = [3, n0, _GCPR,
+export var GetConfigurationPolicyRequest$: StaticStructureSchema = [3, n0, _GCPRe,
   0,
   [_Id],
   [[0, 1]], 1
 ];
-export var GetConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _GCPRe,
+export var GetConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _GCPRet,
   0,
   [_Ar, _I, _N, _D, _UA, _CA, _CPonf],
   [0, 0, 0, 0, 5, 5, () => Policy$]
@@ -8276,8 +8303,8 @@ export var Resource$: StaticStructureSchema = [3, n0, _Reso,
 ];
 export var ResourceDetails$: StaticStructureSchema = [3, n0, _RDe,
   0,
-  [_AASASG, _ACBP, _ACFD, _AEI, _AENI, _AESG, _AEV, _AEVw, _AEE, _AESw, _AENA, _AELB, _AEBE, _AED, _ASB, _ASAPAB, _ASOw, _ASMS, _AIAK, _AIU, _AIP, _AAGVS, _AAGVA, _ADDT, _AAGS, _AAGRA, _ACTT, _ASPC, _ACMC, _ARCw, _AELBw, _AIG, _AIRw, _AKK, _ALF, _ALLV, _ARDI, _AST, _ASQ, _AWWA, _ARDS, _ARDCS, _ARDC, _AECw, _AECws, _AETDw, _Conta, _Ot, _ARES, _AESws, _AASLC, _AEVC, _AECI, _AOSSD, _AEVES, _AXEC, _AWRBR, _AWRRBR, _AER, _AECwsk, _ANFFP, _ANFF, _ANFRG, _ARDSGw, _AKSw, _AETG, _AEAP, _ACFS, _ACWA, _AEVPC, _AWRRG, _AWRR, _AWRWA, _AWR, _AWRG, _AET, _ABBV, _ABBP, _ABRP, _AELT, _ASMNI, _AWWAw, _AWRGw, _AERT, _AAMB, _AASGQA, _AESR, _AGDD, _ASFSM, _AAWG, _AEEw, _ADEw, _AEEws, _ADRT, _ADRI, _ARHZ, _AMC, _ASAP, _AECVE, _CRod, _ARzu],
-  [() => AwsAutoScalingAutoScalingGroupDetails$, () => AwsCodeBuildProjectDetails$, () => AwsCloudFrontDistributionDetails$, () => AwsEc2InstanceDetails$, () => AwsEc2NetworkInterfaceDetails$, () => AwsEc2SecurityGroupDetails$, () => AwsEc2VolumeDetails$, () => AwsEc2VpcDetails$, () => AwsEc2EipDetails$, () => AwsEc2SubnetDetails$, () => AwsEc2NetworkAclDetails$, () => AwsElbv2LoadBalancerDetails$, () => AwsElasticBeanstalkEnvironmentDetails$, () => AwsElasticsearchDomainDetails$, () => AwsS3BucketDetails$, () => AwsS3AccountPublicAccessBlockDetails$, () => AwsS3ObjectDetails$, () => AwsSecretsManagerSecretDetails$, () => AwsIamAccessKeyDetails$, () => AwsIamUserDetails$, () => AwsIamPolicyDetails$, () => AwsApiGatewayV2StageDetails$, () => AwsApiGatewayV2ApiDetails$, () => AwsDynamoDbTableDetails$, () => AwsApiGatewayStageDetails$, () => AwsApiGatewayRestApiDetails$, () => AwsCloudTrailTrailDetails$, () => AwsSsmPatchComplianceDetails$, () => AwsCertificateManagerCertificateDetails$, () => AwsRedshiftClusterDetails$, () => AwsElbLoadBalancerDetails$, () => AwsIamGroupDetails$, () => AwsIamRoleDetails$, () => AwsKmsKeyDetails$, () => AwsLambdaFunctionDetails$, () => AwsLambdaLayerVersionDetails$, () => AwsRdsDbInstanceDetails$, () => AwsSnsTopicDetails$, () => AwsSqsQueueDetails$, () => AwsWafWebAclDetails$, () => AwsRdsDbSnapshotDetails$, () => AwsRdsDbClusterSnapshotDetails$, () => AwsRdsDbClusterDetails$, () => AwsEcsClusterDetails$, () => AwsEcsContainerDetails$, () => AwsEcsTaskDefinitionDetails$, () => ContainerDetails$, 128 | 0, () => AwsRdsEventSubscriptionDetails$, () => AwsEcsServiceDetails$, () => AwsAutoScalingLaunchConfigurationDetails$, () => AwsEc2VpnConnectionDetails$, () => AwsEcrContainerImageDetails$, () => AwsOpenSearchServiceDomainDetails$, () => AwsEc2VpcEndpointServiceDetails$, () => AwsXrayEncryptionConfigDetails$, () => AwsWafRateBasedRuleDetails$, () => AwsWafRegionalRateBasedRuleDetails$, () => AwsEcrRepositoryDetails$, () => AwsEksClusterDetails$, () => AwsNetworkFirewallFirewallPolicyDetails$, () => AwsNetworkFirewallFirewallDetails$, () => AwsNetworkFirewallRuleGroupDetails$, () => AwsRdsDbSecurityGroupDetails$, () => AwsKinesisStreamDetails$, () => AwsEc2TransitGatewayDetails$, () => AwsEfsAccessPointDetails$, () => AwsCloudFormationStackDetails$, () => AwsCloudWatchAlarmDetails$, () => AwsEc2VpcPeeringConnectionDetails$, () => AwsWafRegionalRuleGroupDetails$, () => AwsWafRegionalRuleDetails$, () => AwsWafRegionalWebAclDetails$, () => AwsWafRuleDetails$, () => AwsWafRuleGroupDetails$, () => AwsEcsTaskDetails$, () => AwsBackupBackupVaultDetails$, () => AwsBackupBackupPlanDetails$, () => AwsBackupRecoveryPointDetails$, () => AwsEc2LaunchTemplateDetails$, () => AwsSageMakerNotebookInstanceDetails$, () => AwsWafv2WebAclDetails$, () => AwsWafv2RuleGroupDetails$, () => AwsEc2RouteTableDetails$, () => AwsAmazonMqBrokerDetails$, () => AwsAppSyncGraphQlApiDetails$, () => AwsEventSchemasRegistryDetails$, () => AwsGuardDutyDetectorDetails$, () => AwsStepFunctionStateMachineDetails$, () => AwsAthenaWorkGroupDetails$, () => AwsEventsEventbusDetails$, () => AwsDmsEndpointDetails$, () => AwsEventsEndpointDetails$, () => AwsDmsReplicationTaskDetails$, () => AwsDmsReplicationInstanceDetails$, () => AwsRoute53HostedZoneDetails$, () => AwsMskClusterDetails$, () => AwsS3AccessPointDetails$, () => AwsEc2ClientVpnEndpointDetails$, () => CodeRepositoryDetails$, 15]
+  [_AASASG, _ACBP, _ACFD, _AEI, _AENI, _AESG, _AEV, _AEVw, _AEE, _AESw, _AENA, _AELB, _AEBE, _AED, _ASB, _ASAPAB, _ASOw, _ASMS, _AIAK, _AIU, _AIP, _AAGVS, _AAGVA, _ADDT, _AAGS, _AAGRA, _ACTT, _ASPC, _ACMC, _ARCw, _AELBw, _AIG, _AIRw, _AKK, _ALF, _ALLV, _ARDI, _AST, _ASQ, _AWWA, _ARDS, _ARDCS, _ARDC, _AECw, _AECws, _AETDw, _Conta, _Ot, _ARES, _AESws, _AASLC, _AEVC, _AECI, _AOSSD, _AEVES, _AXEC, _AWRBR, _AWRRBR, _AER, _AECwsk, _ANFFP, _ANFF, _ANFRG, _ARDSGw, _AKSw, _AETG, _AEAP, _ACFS, _ACWA, _AEVPC, _AWRRG, _AWRR, _AWRWA, _AWR, _AWRG, _AET, _ABBV, _ABBP, _ABRP, _AELT, _ASMNI, _AWWAw, _AWRGw, _AERT, _AAMB, _AASGQA, _AESR, _AGDD, _ASFSM, _AAWG, _AEEw, _ADEw, _AEEws, _ADRT, _ADRI, _ARHZ, _AMC, _ASAP, _AECVE, _CRod, _ARzu, _GR],
+  [() => AwsAutoScalingAutoScalingGroupDetails$, () => AwsCodeBuildProjectDetails$, () => AwsCloudFrontDistributionDetails$, () => AwsEc2InstanceDetails$, () => AwsEc2NetworkInterfaceDetails$, () => AwsEc2SecurityGroupDetails$, () => AwsEc2VolumeDetails$, () => AwsEc2VpcDetails$, () => AwsEc2EipDetails$, () => AwsEc2SubnetDetails$, () => AwsEc2NetworkAclDetails$, () => AwsElbv2LoadBalancerDetails$, () => AwsElasticBeanstalkEnvironmentDetails$, () => AwsElasticsearchDomainDetails$, () => AwsS3BucketDetails$, () => AwsS3AccountPublicAccessBlockDetails$, () => AwsS3ObjectDetails$, () => AwsSecretsManagerSecretDetails$, () => AwsIamAccessKeyDetails$, () => AwsIamUserDetails$, () => AwsIamPolicyDetails$, () => AwsApiGatewayV2StageDetails$, () => AwsApiGatewayV2ApiDetails$, () => AwsDynamoDbTableDetails$, () => AwsApiGatewayStageDetails$, () => AwsApiGatewayRestApiDetails$, () => AwsCloudTrailTrailDetails$, () => AwsSsmPatchComplianceDetails$, () => AwsCertificateManagerCertificateDetails$, () => AwsRedshiftClusterDetails$, () => AwsElbLoadBalancerDetails$, () => AwsIamGroupDetails$, () => AwsIamRoleDetails$, () => AwsKmsKeyDetails$, () => AwsLambdaFunctionDetails$, () => AwsLambdaLayerVersionDetails$, () => AwsRdsDbInstanceDetails$, () => AwsSnsTopicDetails$, () => AwsSqsQueueDetails$, () => AwsWafWebAclDetails$, () => AwsRdsDbSnapshotDetails$, () => AwsRdsDbClusterSnapshotDetails$, () => AwsRdsDbClusterDetails$, () => AwsEcsClusterDetails$, () => AwsEcsContainerDetails$, () => AwsEcsTaskDefinitionDetails$, () => ContainerDetails$, 128 | 0, () => AwsRdsEventSubscriptionDetails$, () => AwsEcsServiceDetails$, () => AwsAutoScalingLaunchConfigurationDetails$, () => AwsEc2VpnConnectionDetails$, () => AwsEcrContainerImageDetails$, () => AwsOpenSearchServiceDomainDetails$, () => AwsEc2VpcEndpointServiceDetails$, () => AwsXrayEncryptionConfigDetails$, () => AwsWafRateBasedRuleDetails$, () => AwsWafRegionalRateBasedRuleDetails$, () => AwsEcrRepositoryDetails$, () => AwsEksClusterDetails$, () => AwsNetworkFirewallFirewallPolicyDetails$, () => AwsNetworkFirewallFirewallDetails$, () => AwsNetworkFirewallRuleGroupDetails$, () => AwsRdsDbSecurityGroupDetails$, () => AwsKinesisStreamDetails$, () => AwsEc2TransitGatewayDetails$, () => AwsEfsAccessPointDetails$, () => AwsCloudFormationStackDetails$, () => AwsCloudWatchAlarmDetails$, () => AwsEc2VpcPeeringConnectionDetails$, () => AwsWafRegionalRuleGroupDetails$, () => AwsWafRegionalRuleDetails$, () => AwsWafRegionalWebAclDetails$, () => AwsWafRuleDetails$, () => AwsWafRuleGroupDetails$, () => AwsEcsTaskDetails$, () => AwsBackupBackupVaultDetails$, () => AwsBackupBackupPlanDetails$, () => AwsBackupRecoveryPointDetails$, () => AwsEc2LaunchTemplateDetails$, () => AwsSageMakerNotebookInstanceDetails$, () => AwsWafv2WebAclDetails$, () => AwsWafv2RuleGroupDetails$, () => AwsEc2RouteTableDetails$, () => AwsAmazonMqBrokerDetails$, () => AwsAppSyncGraphQlApiDetails$, () => AwsEventSchemasRegistryDetails$, () => AwsGuardDutyDetectorDetails$, () => AwsStepFunctionStateMachineDetails$, () => AwsAthenaWorkGroupDetails$, () => AwsEventsEventbusDetails$, () => AwsDmsEndpointDetails$, () => AwsEventsEndpointDetails$, () => AwsDmsReplicationTaskDetails$, () => AwsDmsReplicationInstanceDetails$, () => AwsRoute53HostedZoneDetails$, () => AwsMskClusterDetails$, () => AwsS3AccessPointDetails$, () => AwsEc2ClientVpnEndpointDetails$, () => CodeRepositoryDetails$, 15, 15]
 ];
 export var ResourceFindingsSummary$: StaticStructureSchema = [3, n0, _RFS,
   0,
@@ -9603,6 +9630,7 @@ var FreeTrialStatusList: StaticListSchema = [1, n0, _FTSL,
   0, () => FreeTrialStatus$
 ];
 var FreeTrialStatusValueList = 64 | 0;
+var GcpRegionList = 64 | 0;
 var GroupByResults: StaticListSchema = [1, n0, _GBRr,
   0, () => GroupByResult$
 ];
@@ -9962,18 +9990,18 @@ export var Criteria$: StaticUnionSchema = [4, n0, _Cr,
 ];
 export var CspmProviderConfiguration$: StaticUnionSchema = [4, n0, _CPC,
   0,
-  [_Az],
-  [() => AzureProviderConfiguration$]
+  [_Az, _GCP],
+  [() => AzureProviderConfiguration$, () => GcpProviderConfiguration$]
 ];
 export var CspmProviderDetail$: StaticUnionSchema = [4, n0, _CPD,
   0,
-  [_Az],
-  [() => AzureDetail$]
+  [_Az, _GCP],
+  [() => AzureDetail$, () => GcpDetail$]
 ];
 export var CspmProviderUpdateConfiguration$: StaticUnionSchema = [4, n0, _CPUC,
   0,
-  [_Az],
-  [() => AzureUpdateConfiguration$]
+  [_Az, _GCP],
+  [() => AzureUpdateConfiguration$, () => GcpUpdateConfiguration$]
 ];
 export var ExportDestination$: StaticUnionSchema = [4, n0, _EDxpo,
   0,
@@ -10002,18 +10030,18 @@ export var Policy$: StaticUnionSchema = [4, n0, _Pol,
 ];
 export var ProviderConfiguration$: StaticUnionSchema = [4, n0, _PCro,
   0,
-  [_JC, _SNer, _Az],
-  [() => JiraCloudProviderConfiguration$, () => ServiceNowProviderConfiguration$, () => AzureProviderConfiguration$]
+  [_JC, _SNer, _Az, _GCP],
+  [() => JiraCloudProviderConfiguration$, () => ServiceNowProviderConfiguration$, () => AzureProviderConfiguration$, () => GcpProviderConfiguration$]
 ];
 export var ProviderDetail$: StaticUnionSchema = [4, n0, _PD,
   0,
-  [_JC, _SNer, _Az],
-  [() => JiraCloudDetail$, () => ServiceNowDetail$, () => AzureDetail$]
+  [_JC, _SNer, _Az, _GCP],
+  [() => JiraCloudDetail$, () => ServiceNowDetail$, () => AzureDetail$, () => GcpDetail$]
 ];
 export var ProviderUpdateConfiguration$: StaticUnionSchema = [4, n0, _PUC,
   0,
-  [_JC, _SNer, _Az],
-  [() => JiraCloudUpdateConfiguration$, () => ServiceNowUpdateConfiguration$, () => AzureUpdateConfiguration$]
+  [_JC, _SNer, _Az, _GCP],
+  [() => JiraCloudUpdateConfiguration$, () => ServiceNowUpdateConfiguration$, () => AzureUpdateConfiguration$, () => GcpUpdateConfiguration$]
 ];
 export var RecommendationStep$: StaticUnionSchema = [4, n0, _RSeco,
   0,
@@ -10211,7 +10239,7 @@ export var GetAggregatorV2$: StaticOperationSchema = [9, n0, _GAV,
 export var GetAutomationRuleV2$: StaticOperationSchema = [9, n0, _GARV,
   { [_h]: ["GET", "/automationrulesv2/{Identifier}", 200] }, () => GetAutomationRuleV2Request$, () => GetAutomationRuleV2Response$
 ];
-export var GetConfigurationPolicy$: StaticOperationSchema = [9, n0, _GCP,
+export var GetConfigurationPolicy$: StaticOperationSchema = [9, n0, _GCPe,
   { [_h]: ["GET", "/configurationPolicy/get/{Identifier}", 200] }, () => GetConfigurationPolicyRequest$, () => GetConfigurationPolicyResponse$
 ];
 export var GetConfigurationPolicyAssociation$: StaticOperationSchema = [9, n0, _GCPA,

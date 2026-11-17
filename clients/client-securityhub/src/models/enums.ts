@@ -437,6 +437,7 @@ export type Partition = (typeof Partition)[keyof typeof Partition];
 export const CloudProviderName = {
   AWS: "AWS",
   AZURE: "Azure",
+  GCP: "GCP",
 } as const;
 /**
  * @public
@@ -547,6 +548,7 @@ export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
 export const StandardsProvider = {
   AWS: "AWS",
   Azure: "Azure",
+  GCP: "GCP",
 } as const;
 /**
  * @public
@@ -631,6 +633,7 @@ export type ParameterValueType = (typeof ParameterValueType)[keyof typeof Parame
 export const SecurityControlsProvider = {
   AWS: "AWS",
   Azure: "Azure",
+  GCP: "GCP",
 } as const;
 /**
  * @public
@@ -919,6 +922,7 @@ export type ConnectorAuthStatus = (typeof ConnectorAuthStatus)[keyof typeof Conn
  */
 export const ConnectorProviderName = {
   AZURE: "AZURE",
+  GCP: "GCP",
   JIRA_CLOUD: "JIRA_CLOUD",
   SERVICENOW: "SERVICENOW",
 } as const;
@@ -961,6 +965,19 @@ export const EnablementStatus = {
  * @public
  */
 export type EnablementStatus = (typeof EnablementStatus)[keyof typeof EnablementStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const GcpScopeType = {
+  ORGANIZATION: "ORGANIZATION",
+  PROJECT: "PROJECT",
+} as const;
+/**
+ * @public
+ */
+export type GcpScopeType = (typeof GcpScopeType)[keyof typeof GcpScopeType];
 
 /**
  * @public
@@ -1108,6 +1125,8 @@ export type TicketCreationMode = (typeof TicketCreationMode)[keyof typeof Ticket
  */
 export const CriticalitySourceType = {
   AUTOMATION_RULE: "AutomationRule",
+  CLOUDWATCH_TELEMETRY_INFERENCE: "CloudWatchTelemetryInference",
+  INSTALLED_SOFTWARE_AND_PACKAGE_INFERENCE: "InstalledSoftwareAndPackageInference",
   RESOURCE_NAME: "ResourceName",
   TAG_INFERENCE: "TagInference",
 } as const;
@@ -1122,6 +1141,7 @@ export type CriticalitySourceType = (typeof CriticalitySourceType)[keyof typeof 
  */
 export const CspmConnectorProviderName = {
   AZURE: "AZURE",
+  GCP: "GCP",
 } as const;
 /**
  * @public

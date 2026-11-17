@@ -78,9 +78,9 @@ import type {
   FindingAggregator,
   FindingScopes,
   FindingsTrendsStringFilter,
+  GcpUpdateConfiguration,
   GroupByResult,
   Invitation,
-  Member,
   OcsfBooleanFilter,
   OcsfDateFilter,
   OcsfIpFilter,
@@ -90,7 +90,6 @@ import type {
   OrganizationConfiguration,
   ParameterConfiguration,
   Policy,
-  RecommendationError,
   ResourcesDateFilter,
   ResourcesMapFilter,
   ResourcesNumberFilter,
@@ -99,6 +98,159 @@ import type {
   SortCriterion,
   Target,
 } from "./models_2";
+
+/**
+ * <p>The details about a member account.</p>
+ * @public
+ */
+export interface Member {
+  /**
+   * <p>The Amazon Web Services account ID of the member account.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The email address of the member account.</p>
+   * @public
+   */
+  Email?: string | undefined;
+
+  /**
+   * <p>This is replaced by <code>AdministratorID</code>.</p>
+   *          <p>The Amazon Web Services account ID of the Security Hub CSPM administrator account associated with this member account.</p>
+   *
+   * @deprecated This field is deprecated, use AdministratorId instead.
+   * @public
+   */
+  MasterId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the Security Hub CSPM administrator account associated with this member account.</p>
+   * @public
+   */
+  AdministratorId?: string | undefined;
+
+  /**
+   * <p>The status of the relationship between the member account and its administrator account.
+   *       </p>
+   *          <p>The status can have one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Created</code> - Indicates that the administrator account added the member account,
+   *                but has not yet invited the member account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Invited</code> - Indicates that the administrator account invited the member
+   *                account. The member account has not yet responded to the invitation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Enabled</code> - Indicates that the member account is currently active. For
+   *                manually invited member accounts, indicates that the member account accepted the
+   *                invitation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Removed</code> - Indicates that the administrator account disassociated the member
+   *                account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Resigned</code> - Indicates that the member account disassociated themselves
+   *                from the administrator account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Deleted</code> - Indicates that the administrator account deleted the member
+   *                account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AccountSuspended</code> - Indicates that an organization account was suspended from Amazon Web Services at the same time that the administrator account tried to enable the organization account as a member account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MemberStatus?: string | undefined;
+
+  /**
+   * <p>A timestamp for the date and time when the invitation was sent to the member
+   *          account.</p>
+   * @public
+   */
+  InvitedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp for the date and time when the member account was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMembersResponse {
+  /**
+   * <p>The list of details about the Security Hub CSPM member accounts.</p>
+   * @public
+   */
+  Members?: Member[] | undefined;
+
+  /**
+   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
+   *          includes the account ID and the email address.</p>
+   * @public
+   */
+  UnprocessedAccounts?: Result[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRecommendedPolicyV2Request {
+  /**
+   * <p>The unique identifier (ID) of Security Hub OCSF findings found under the <code>metadata.uid</code> field of the finding.</p>
+   * @public
+   */
+  MetadataUid: string | undefined;
+
+  /**
+   * <p>The token used to paginate the <code>RecommendationSteps</code> list returned.
+   *            On your first call to <code>GetRecommendedPolicyV2</code>, omit this parameter or set it
+   *            to <code>NULL</code>. For subsequent calls, use the <code>NextToken</code> value returned in
+   *            the previous response to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of recommendation steps to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains information about the reason that the retrieval of a recommended policy for a finding failed.</p>
+ * @public
+ */
+export interface RecommendationError {
+  /**
+   * <p>The error code for a failed retrieval of a recommended policy for a finding.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>The error message for a failed retrieval of a recommended policy for a finding.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
 
 /**
  * <p>Contains information about the action to take for a policy in an unused permissions finding.</p>
@@ -1442,7 +1594,7 @@ export interface SecurityControlDefinition {
   ParameterDefinitions?: Record<string, ParameterDefinition> | undefined;
 
   /**
-   * <p>The cloud provider whose resources the security control evaluates. For example, <code>AWS</code> or <code>Azure</code>.</p>
+   * <p>The cloud provider whose resources the security control evaluates. For example, <code>AWS</code>, <code>Azure</code>, or <code>GCP</code>.</p>
    * @public
    */
   Provider?: SecurityControlsProvider | undefined;
@@ -2416,7 +2568,7 @@ export interface ListSecurityControlDefinitionsRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>A list of cloud providers to filter the security control definitions by. For example, specify <code>Azure</code> to return only controls that evaluate Azure resources.</p>
+   * <p>A list of cloud providers to filter the security control definitions by. For example, specify <code>Azure</code> to return only controls that evaluate Azure resources, or <code>GCP</code> to return only controls that evaluate GCP resources.</p>
    * @public
    */
   Providers?: SecurityControlsProvider[] | undefined;
@@ -2612,6 +2764,7 @@ export interface ServiceNowUpdateConfiguration {
  */
 export type ProviderUpdateConfiguration =
   | ProviderUpdateConfiguration.AzureMember
+  | ProviderUpdateConfiguration.GCPMember
   | ProviderUpdateConfiguration.JiraCloudMember
   | ProviderUpdateConfiguration.ServiceNowMember
   | ProviderUpdateConfiguration.$UnknownMember;
@@ -2628,6 +2781,7 @@ export namespace ProviderUpdateConfiguration {
     JiraCloud: JiraCloudUpdateConfiguration;
     ServiceNow?: never;
     Azure?: never;
+    GCP?: never;
     $unknown?: never;
   }
 
@@ -2639,6 +2793,7 @@ export namespace ProviderUpdateConfiguration {
     JiraCloud?: never;
     ServiceNow: ServiceNowUpdateConfiguration;
     Azure?: never;
+    GCP?: never;
     $unknown?: never;
   }
 
@@ -2650,6 +2805,19 @@ export namespace ProviderUpdateConfiguration {
     JiraCloud?: never;
     ServiceNow?: never;
     Azure: AzureUpdateConfiguration;
+    GCP?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters required to update the configuration for a Google Cloud Platform (GCP) CSPM integration.</p>
+   * @public
+   */
+  export interface GCPMember {
+    JiraCloud?: never;
+    ServiceNow?: never;
+    Azure?: never;
+    GCP: GcpUpdateConfiguration;
     $unknown?: never;
   }
 
@@ -2660,6 +2828,7 @@ export namespace ProviderUpdateConfiguration {
     JiraCloud?: never;
     ServiceNow?: never;
     Azure?: never;
+    GCP?: never;
     $unknown: [string, any];
   }
 
@@ -2671,6 +2840,7 @@ export namespace ProviderUpdateConfiguration {
     JiraCloud: (value: JiraCloudUpdateConfiguration) => T;
     ServiceNow: (value: ServiceNowUpdateConfiguration) => T;
     Azure: (value: AzureUpdateConfiguration) => T;
+    GCP: (value: GcpUpdateConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }

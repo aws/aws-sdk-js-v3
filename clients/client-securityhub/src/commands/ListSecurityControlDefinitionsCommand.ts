@@ -39,7 +39,7 @@ export interface ListSecurityControlDefinitionsCommandOutput extends ListSecurit
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   Providers: [ // SecurityControlsProviders
- *     "AWS" || "Azure",
+ *     "AWS" || "Azure" || "GCP",
  *   ],
  * };
  * const command = new ListSecurityControlDefinitionsCommand(input);
@@ -112,7 +112,7 @@ export interface ListSecurityControlDefinitionsCommandOutput extends ListSecurit
  * //           },
  * //         },
  * //       },
- * //       Provider: "AWS" || "Azure",
+ * //       Provider: "AWS" || "Azure" || "GCP",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -164,7 +164,7 @@ export interface ListSecurityControlDefinitionsCommandOutput extends ListSecurit
  *       CustomizableProperties:       [],
  *       Description: "This control checks whether Azure Container Apps have managed identity enabled. The control fails if the Container App has a system-assigned or user-assigned managed identity enabled.",
  *       Provider: "Azure",
- *       RemediationUrl: "https://docs.aws.amazon.com/console/securityhub/Azure.App.1/remediation",
+ *       RemediationUrl: "https://learn.microsoft.com/en-us/azure/container-apps/managed-identity",
  *       SecurityControlId: "Azure.App.1",
  *       SeverityRating: "MEDIUM",
  *       Title: "Azure Container Apps with managed identity enabled should follow least privilege"
@@ -174,7 +174,7 @@ export interface ListSecurityControlDefinitionsCommandOutput extends ListSecurit
  *       CustomizableProperties:       [],
  *       Description: "This control checks whether an Azure Container App passes Azure SDK credentials as plain-text container environment variables. The control fails if any container (including initContainers) defines AZURE_CLIENT_SECRET, AZURE_CLIENT_CERTIFICATE_PASSWORD, or AZURE_PASSWORD as a plain-text environment variable instead of referencing a secret via secretRef.",
  *       Provider: "Azure",
- *       RemediationUrl: "https://docs.aws.amazon.com/console/securityhub/Azure.App.2/remediation",
+ *       RemediationUrl: "https://learn.microsoft.com/en-us/azure/container-apps/manage-secrets",
  *       SecurityControlId: "Azure.App.2",
  *       SeverityRating: "CRITICAL",
  *       Title: "Azure Container Apps should not pass Azure SDK credentials as environment variables"
@@ -184,10 +184,60 @@ export interface ListSecurityControlDefinitionsCommandOutput extends ListSecurit
  *       CustomizableProperties:       [],
  *       Description: "This control checks whether Azure Container Apps have external ingress configured. The control fails if the Container App ingress is set to accept traffic from anywhere (external).",
  *       Provider: "Azure",
- *       RemediationUrl: "https://docs.aws.amazon.com/console/securityhub/Azure.App.3/remediation",
+ *       RemediationUrl: "https://learn.microsoft.com/en-us/azure/container-apps/ingress-how-to",
  *       SecurityControlId: "Azure.App.3",
  *       SeverityRating: "HIGH",
  *       Title: "Azure Container Apps should not have external ingress enabled"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example To list GCP security control definitions
+ * ```javascript
+ * // The following example lists security control definitions for a specified provider.
+ * const input = {
+ *   MaxResults: 3,
+ *   Providers: [
+ *     "GCP"
+ *   ]
+ * };
+ * const command = new ListSecurityControlDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   NextToken: "U2FsdGVkX1...",
+ *   SecurityControlDefinitions: [
+ *     {
+ *       CurrentRegionAvailability: "AVAILABLE",
+ *       CustomizableProperties:       [],
+ *       Description: "This control checks whether any GCP API keys exist. The control fails if an API key exists.",
+ *       Provider: "GCP",
+ *       RemediationUrl: "https://cloud.google.com/sdk/gcloud/reference/services/api-keys/delete",
+ *       SecurityControlId: "GCP.ApiKeys.1",
+ *       SeverityRating: "MEDIUM",
+ *       Title: "GCP API keys should not exist"
+ *     },
+ *     {
+ *       CurrentRegionAvailability: "AVAILABLE",
+ *       CustomizableProperties:       [],
+ *       Description: "This control checks whether a GCP API key restricts which hosts or apps may use it. The control fails if the key has no HTTP referrer, IP address, Android app, or iOS app restriction, or if any allowed HTTP referrer or IP address is effectively open. A referrer is effectively open when its host is * or a wildcard over a top-level domain, such as https://* or *.com. An IP address is effectively open when it allows any host, such as 0.0.0.0, 0.0.0.0/0, ::, or ::/0. A single open entry fails the key even when specific entries are also listed, because the key accepts a request that matches any entry.",
+ *       Provider: "GCP",
+ *       RemediationUrl: "https://cloud.google.com/docs/authentication/api-keys#adding-application-restrictions",
+ *       SecurityControlId: "GCP.ApiKeys.2",
+ *       SeverityRating: "MEDIUM",
+ *       Title: "GCP API keys should be restricted to specified hosts and apps"
+ *     },
+ *     {
+ *       CurrentRegionAvailability: "AVAILABLE",
+ *       CustomizableProperties:       [],
+ *       Description: "This control checks whether a GCP API key is restricted to only the specific APIs an application needs. The control fails if the key declares no restrictions.apiTargets entries, or if any entry targets the broad cloudapis.googleapis.com service, which allows the key to call every enabled service.",
+ *       Provider: "GCP",
+ *       RemediationUrl: "https://cloud.google.com/docs/authentication/api-keys#adding-api-restrictions",
+ *       SecurityControlId: "GCP.ApiKeys.3",
+ *       SeverityRating: "HIGH",
+ *       Title: "GCP API keys should be restricted to only the APIs an application needs"
  *     }
  *   ]
  * }
@@ -246,10 +296,20 @@ export interface ListSecurityControlDefinitionsCommandOutput extends ListSecurit
  *       CustomizableProperties:       [],
  *       Description: "This control checks whether Azure Container Apps have managed identity enabled. The control fails if the Container App has a system-assigned or user-assigned managed identity enabled.",
  *       Provider: "Azure",
- *       RemediationUrl: "https://docs.aws.amazon.com/console/securityhub/Azure.App.1/remediation",
+ *       RemediationUrl: "https://learn.microsoft.com/en-us/azure/container-apps/managed-identity",
  *       SecurityControlId: "Azure.App.1",
  *       SeverityRating: "MEDIUM",
  *       Title: "Azure Container Apps with managed identity enabled should follow least privilege"
+ *     },
+ *     {
+ *       CurrentRegionAvailability: "AVAILABLE",
+ *       CustomizableProperties:       [],
+ *       Description: "This control checks whether any GCP API keys exist. The control fails if an API key exists.",
+ *       Provider: "GCP",
+ *       RemediationUrl: "https://cloud.google.com/sdk/gcloud/reference/services/api-keys/delete",
+ *       SecurityControlId: "GCP.ApiKeys.1",
+ *       SeverityRating: "MEDIUM",
+ *       Title: "GCP API keys should not exist"
  *     }
  *   ]
  * }

@@ -74,7 +74,7 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  * //         },
  * //       },
  * //       LastUpdateReason: "STRING_VALUE",
- * //       Provider: "AWS" || "Azure",
+ * //       Provider: "AWS" || "Azure" || "GCP",
  * //     },
  * //   ],
  * //   UnprocessedIds: [ // UnprocessedSecurityControls

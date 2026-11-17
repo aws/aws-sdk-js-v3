@@ -81,6 +81,18 @@ export interface GetConnectorV2CommandOutput extends GetConnectorV2Response, __M
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     GCP: { // GcpDetail
+ * //       AWSConfigConnectorArn: "STRING_VALUE", // required
+ * //       ScopeConfiguration: { // GcpScopeConfiguration
+ * //         ScopeType: "PROJECT" || "ORGANIZATION", // required
+ * //         ScopeValues: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       GCPRegions: [ // GcpRegionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * //   EnablementStatus: "ENABLED" || "PENDING_ENABLEMENT" || "FAILED_TO_ENABLE" || "PENDING_UPDATE" || "FAILED_TO_UPDATE" || "PENDING_DELETION" || "FAILED_TO_DELETE",
  * //   EnablementStatusReason: "STRING_VALUE",

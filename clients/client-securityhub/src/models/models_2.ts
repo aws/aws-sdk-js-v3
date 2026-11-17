@@ -28,6 +28,7 @@ import type {
   FindingHistoryUpdateSourceType,
   FindingsExportFormat,
   FindingsTrendsStringField,
+  GcpScopeType,
   GranularityField,
   HealthIssueCode,
   IntegrationType,
@@ -1784,6 +1785,12 @@ export interface ResourceDetails {
    * @public
    */
   AzureResource?: __DocumentType | undefined;
+
+  /**
+   * <p>Details about a GCP resource that is related to a finding.</p>
+   * @public
+   */
+  GcpResource?: __DocumentType | undefined;
 }
 
 /**
@@ -3968,7 +3975,7 @@ export interface StandardsSubscription {
   StandardsStatusReason?: StandardsStatusReason | undefined;
 
   /**
-   * <p>The cloud provider whose resources the standard evaluates. For example, <code>AWS</code> or <code>Azure</code>.</p>
+   * <p>The cloud provider whose resources the standard evaluates. For example, <code>AWS</code>, <code>Azure</code>, or <code>GCP</code>.</p>
    * @public
    */
   Provider?: StandardsProvider | undefined;
@@ -4648,7 +4655,7 @@ export interface SecurityControl {
   LastUpdateReason?: string | undefined;
 
   /**
-   * <p>The cloud provider whose resources the security control evaluates. For example, <code>AWS</code> or <code>Azure</code>.</p>
+   * <p>The cloud provider whose resources the security control evaluates. For example, <code>AWS</code>, <code>Azure</code>, or <code>GCP</code>.</p>
    * @public
    */
   Provider?: SecurityControlsProvider | undefined;
@@ -6158,6 +6165,48 @@ export interface ConfigurationPolicySummary {
 }
 
 /**
+ * <p>The scope configuration for a GCP connector, defining the organization or project scope.</p>
+ * @public
+ */
+export interface GcpScopeConfiguration {
+  /**
+   * <p>The type of scope. Valid values are <code>ORGANIZATION</code> and <code>PROJECT</code>.</p>
+   * @public
+   */
+  ScopeType: GcpScopeType | undefined;
+
+  /**
+   * <p>The list of scope values. Use an organization ID when the scope type is <code>ORGANIZATION</code>, or project IDs when the scope type is <code>PROJECT</code>.</p>
+   * @public
+   */
+  ScopeValues?: string[] | undefined;
+}
+
+/**
+ * <p>The detailed GCP configuration for a connector.</p>
+ * @public
+ */
+export interface GcpDetail {
+  /**
+   * <p>The ARN of the multi-cloud configuration connector used to establish the connection to GCP.</p>
+   * @public
+   */
+  AWSConfigConnectorArn: string | undefined;
+
+  /**
+   * <p>The scope configuration that defines which GCP resources are monitored.</p>
+   * @public
+   */
+  ScopeConfiguration: GcpScopeConfiguration | undefined;
+
+  /**
+   * <p>The list of GCP regions being monitored.</p>
+   * @public
+   */
+  GCPRegions: string[] | undefined;
+}
+
+/**
  * <p>Information about the configuration and status of a Jira Cloud integration.</p>
  * @public
  */
@@ -6223,6 +6272,7 @@ export interface ServiceNowDetail {
  */
 export type ProviderDetail =
   | ProviderDetail.AzureMember
+  | ProviderDetail.GCPMember
   | ProviderDetail.JiraCloudMember
   | ProviderDetail.ServiceNowMember
   | ProviderDetail.$UnknownMember;
@@ -6239,6 +6289,7 @@ export namespace ProviderDetail {
     JiraCloud: JiraCloudDetail;
     ServiceNow?: never;
     Azure?: never;
+    GCP?: never;
     $unknown?: never;
   }
 
@@ -6250,6 +6301,7 @@ export namespace ProviderDetail {
     JiraCloud?: never;
     ServiceNow: ServiceNowDetail;
     Azure?: never;
+    GCP?: never;
     $unknown?: never;
   }
 
@@ -6261,6 +6313,19 @@ export namespace ProviderDetail {
     JiraCloud?: never;
     ServiceNow?: never;
     Azure: AzureDetail;
+    GCP?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a Google Cloud Platform (GCP) CSPM integration.</p>
+   * @public
+   */
+  export interface GCPMember {
+    JiraCloud?: never;
+    ServiceNow?: never;
+    Azure?: never;
+    GCP: GcpDetail;
     $unknown?: never;
   }
 
@@ -6271,6 +6336,7 @@ export namespace ProviderDetail {
     JiraCloud?: never;
     ServiceNow?: never;
     Azure?: never;
+    GCP?: never;
     $unknown: [string, any];
   }
 
@@ -6282,6 +6348,7 @@ export namespace ProviderDetail {
     JiraCloud: (value: JiraCloudDetail) => T;
     ServiceNow: (value: ServiceNowDetail) => T;
     Azure: (value: AzureDetail) => T;
+    GCP: (value: GcpDetail) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -6892,11 +6959,36 @@ export interface CreateConfigurationPolicyResponse {
 }
 
 /**
- * <p>The cloud provider configuration for creating a connector. This is a union type that currently supports Azure.</p>
+ * <p>The configuration for connecting to a GCP environment.</p>
+ * @public
+ */
+export interface GcpProviderConfiguration {
+  /**
+   * <p>The ARN of the multi-cloud configuration connector used to establish the connection to GCP.</p>
+   * @public
+   */
+  AWSConfigConnectorArn: string | undefined;
+
+  /**
+   * <p>The scope configuration that defines which GCP resources are monitored.</p>
+   * @public
+   */
+  ScopeConfiguration: GcpScopeConfiguration | undefined;
+
+  /**
+   * <p>The list of GCP regions to monitor.</p>
+   * @public
+   */
+  GCPRegions: string[] | undefined;
+}
+
+/**
+ * <p>The cloud provider configuration for creating a connector. This is a union type that currently supports Azure and GCP.</p>
  * @public
  */
 export type CspmProviderConfiguration =
   | CspmProviderConfiguration.AzureMember
+  | CspmProviderConfiguration.GCPMember
   | CspmProviderConfiguration.$UnknownMember;
 
 /**
@@ -6909,6 +7001,17 @@ export namespace CspmProviderConfiguration {
    */
   export interface AzureMember {
     Azure: AzureProviderConfiguration;
+    GCP?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The GCP provider configuration.</p>
+   * @public
+   */
+  export interface GCPMember {
+    Azure?: never;
+    GCP: GcpProviderConfiguration;
     $unknown?: never;
   }
 
@@ -6917,6 +7020,7 @@ export namespace CspmProviderConfiguration {
    */
   export interface $UnknownMember {
     Azure?: never;
+    GCP?: never;
     $unknown: [string, any];
   }
 
@@ -6926,6 +7030,7 @@ export namespace CspmProviderConfiguration {
    */
   export interface Visitor<T> {
     Azure: (value: AzureProviderConfiguration) => T;
+    GCP: (value: GcpProviderConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -7030,6 +7135,7 @@ export interface ServiceNowProviderConfiguration {
  */
 export type ProviderConfiguration =
   | ProviderConfiguration.AzureMember
+  | ProviderConfiguration.GCPMember
   | ProviderConfiguration.JiraCloudMember
   | ProviderConfiguration.ServiceNowMember
   | ProviderConfiguration.$UnknownMember;
@@ -7046,6 +7152,7 @@ export namespace ProviderConfiguration {
     JiraCloud: JiraCloudProviderConfiguration;
     ServiceNow?: never;
     Azure?: never;
+    GCP?: never;
     $unknown?: never;
   }
 
@@ -7057,6 +7164,7 @@ export namespace ProviderConfiguration {
     JiraCloud?: never;
     ServiceNow: ServiceNowProviderConfiguration;
     Azure?: never;
+    GCP?: never;
     $unknown?: never;
   }
 
@@ -7068,6 +7176,19 @@ export namespace ProviderConfiguration {
     JiraCloud?: never;
     ServiceNow?: never;
     Azure: AzureProviderConfiguration;
+    GCP?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings required to establish a CSPM integration with Google Cloud Platform (GCP).</p>
+   * @public
+   */
+  export interface GCPMember {
+    JiraCloud?: never;
+    ServiceNow?: never;
+    Azure?: never;
+    GCP: GcpProviderConfiguration;
     $unknown?: never;
   }
 
@@ -7078,6 +7199,7 @@ export namespace ProviderConfiguration {
     JiraCloud?: never;
     ServiceNow?: never;
     Azure?: never;
+    GCP?: never;
     $unknown: [string, any];
   }
 
@@ -7089,6 +7211,7 @@ export namespace ProviderConfiguration {
     JiraCloud: (value: JiraCloudProviderConfiguration) => T;
     ServiceNow: (value: ServiceNowProviderConfiguration) => T;
     Azure: (value: AzureProviderConfiguration) => T;
+    GCP: (value: GcpProviderConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -7388,11 +7511,12 @@ export interface CriticalitySource {
 }
 
 /**
- * <p>The detailed cloud provider configuration for a connector. This is a union type that currently supports Azure.</p>
+ * <p>The detailed cloud provider configuration for a connector. This is a union type that currently supports Azure and GCP.</p>
  * @public
  */
 export type CspmProviderDetail =
   | CspmProviderDetail.AzureMember
+  | CspmProviderDetail.GCPMember
   | CspmProviderDetail.$UnknownMember;
 
 /**
@@ -7405,6 +7529,17 @@ export namespace CspmProviderDetail {
    */
   export interface AzureMember {
     Azure: AzureDetail;
+    GCP?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The GCP provider detail.</p>
+   * @public
+   */
+  export interface GCPMember {
+    Azure?: never;
+    GCP: GcpDetail;
     $unknown?: never;
   }
 
@@ -7413,6 +7548,7 @@ export namespace CspmProviderDetail {
    */
   export interface $UnknownMember {
     Azure?: never;
+    GCP?: never;
     $unknown: [string, any];
   }
 
@@ -7422,6 +7558,7 @@ export namespace CspmProviderDetail {
    */
   export interface Visitor<T> {
     Azure: (value: AzureDetail) => T;
+    GCP: (value: GcpDetail) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -7553,11 +7690,30 @@ export interface CspmHealthCheck {
 }
 
 /**
- * <p>The cloud provider configuration for updating a connector. This is a union type that currently supports Azure.</p>
+ * <p>The configuration for updating a GCP connector's scope and regions.</p>
+ * @public
+ */
+export interface GcpUpdateConfiguration {
+  /**
+   * <p>The updated scope configuration.</p>
+   * @public
+   */
+  ScopeConfiguration: GcpScopeConfiguration | undefined;
+
+  /**
+   * <p>The updated list of GCP regions to monitor.</p>
+   * @public
+   */
+  GCPRegions: string[] | undefined;
+}
+
+/**
+ * <p>The cloud provider configuration for updating a connector. This is a union type that currently supports Azure and GCP.</p>
  * @public
  */
 export type CspmProviderUpdateConfiguration =
   | CspmProviderUpdateConfiguration.AzureMember
+  | CspmProviderUpdateConfiguration.GCPMember
   | CspmProviderUpdateConfiguration.$UnknownMember;
 
 /**
@@ -7570,6 +7726,17 @@ export namespace CspmProviderUpdateConfiguration {
    */
   export interface AzureMember {
     Azure: AzureUpdateConfiguration;
+    GCP?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The GCP update configuration.</p>
+   * @public
+   */
+  export interface GCPMember {
+    Azure?: never;
+    GCP: GcpUpdateConfiguration;
     $unknown?: never;
   }
 
@@ -7578,6 +7745,7 @@ export namespace CspmProviderUpdateConfiguration {
    */
   export interface $UnknownMember {
     Azure?: never;
+    GCP?: never;
     $unknown: [string, any];
   }
 
@@ -7587,6 +7755,7 @@ export namespace CspmProviderUpdateConfiguration {
    */
   export interface Visitor<T> {
     Azure: (value: AzureUpdateConfiguration) => T;
+    GCP: (value: GcpUpdateConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -8298,7 +8467,7 @@ export interface DescribeStandardsRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>A list of cloud providers to filter the standards by. For example, specify <code>Azure</code> to return only standards that evaluate Azure resources.</p>
+   * <p>A list of cloud providers to filter the standards by. For example, specify <code>Azure</code> to return only standards that evaluate Azure resources, or <code>GCP</code> to return only standards that evaluate GCP resources.</p>
    * @public
    */
   Providers?: StandardsProvider[] | undefined;
@@ -8360,7 +8529,7 @@ export interface Standard {
   EnabledByDefault?: boolean | undefined;
 
   /**
-   * <p>The cloud provider whose resources the standard evaluates. For example, <code>AWS</code> or <code>Azure</code>.</p>
+   * <p>The cloud provider whose resources the standard evaluates. For example, <code>AWS</code>, <code>Azure</code>, or <code>GCP</code>.</p>
    * @public
    */
   Provider?: StandardsProvider | undefined;
@@ -9758,7 +9927,7 @@ export interface GetEnabledStandardsRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>A list of cloud providers to filter the enabled standards by. For example, specify <code>Azure</code> to return only enabled standards that evaluate Azure resources.</p>
+   * <p>A list of cloud providers to filter the enabled standards by. For example, specify <code>Azure</code> to return only enabled standards that evaluate Azure resources, or <code>GCP</code> to return only enabled standards that evaluate GCP resources.</p>
    * @public
    */
   Providers?: StandardsProvider[] | undefined;
@@ -10352,157 +10521,4 @@ export interface GetMembersRequest {
    * @public
    */
   AccountIds: string[] | undefined;
-}
-
-/**
- * <p>The details about a member account.</p>
- * @public
- */
-export interface Member {
-  /**
-   * <p>The Amazon Web Services account ID of the member account.</p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>The email address of the member account.</p>
-   * @public
-   */
-  Email?: string | undefined;
-
-  /**
-   * <p>This is replaced by <code>AdministratorID</code>.</p>
-   *          <p>The Amazon Web Services account ID of the Security Hub CSPM administrator account associated with this member account.</p>
-   *
-   * @deprecated This field is deprecated, use AdministratorId instead.
-   * @public
-   */
-  MasterId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the Security Hub CSPM administrator account associated with this member account.</p>
-   * @public
-   */
-  AdministratorId?: string | undefined;
-
-  /**
-   * <p>The status of the relationship between the member account and its administrator account.
-   *       </p>
-   *          <p>The status can have one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Created</code> - Indicates that the administrator account added the member account,
-   *                but has not yet invited the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Invited</code> - Indicates that the administrator account invited the member
-   *                account. The member account has not yet responded to the invitation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Enabled</code> - Indicates that the member account is currently active. For
-   *                manually invited member accounts, indicates that the member account accepted the
-   *                invitation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Removed</code> - Indicates that the administrator account disassociated the member
-   *                account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Resigned</code> - Indicates that the member account disassociated themselves
-   *                from the administrator account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Deleted</code> - Indicates that the administrator account deleted the member
-   *                account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AccountSuspended</code> - Indicates that an organization account was suspended from Amazon Web Services at the same time that the administrator account tried to enable the organization account as a member account.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  MemberStatus?: string | undefined;
-
-  /**
-   * <p>A timestamp for the date and time when the invitation was sent to the member
-   *          account.</p>
-   * @public
-   */
-  InvitedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp for the date and time when the member account was updated.</p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMembersResponse {
-  /**
-   * <p>The list of details about the Security Hub CSPM member accounts.</p>
-   * @public
-   */
-  Members?: Member[] | undefined;
-
-  /**
-   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
-   *          includes the account ID and the email address.</p>
-   * @public
-   */
-  UnprocessedAccounts?: Result[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRecommendedPolicyV2Request {
-  /**
-   * <p>The unique identifier (ID) of Security Hub OCSF findings found under the <code>metadata.uid</code> field of the finding.</p>
-   * @public
-   */
-  MetadataUid: string | undefined;
-
-  /**
-   * <p>The token used to paginate the <code>RecommendationSteps</code> list returned.
-   *            On your first call to <code>GetRecommendedPolicyV2</code>, omit this parameter or set it
-   *            to <code>NULL</code>. For subsequent calls, use the <code>NextToken</code> value returned in
-   *            the previous response to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of recommendation steps to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains information about the reason that the retrieval of a recommended policy for a finding failed.</p>
- * @public
- */
-export interface RecommendationError {
-  /**
-   * <p>The error code for a failed retrieval of a recommended policy for a finding.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>The error message for a failed retrieval of a recommended policy for a finding.</p>
-   * @public
-   */
-  Message?: string | undefined;
 }

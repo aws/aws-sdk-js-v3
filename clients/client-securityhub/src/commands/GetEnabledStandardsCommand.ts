@@ -39,7 +39,7 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   Providers: [ // StandardsProviders
- *     "AWS" || "Azure",
+ *     "AWS" || "Azure" || "GCP",
  *   ],
  * };
  * const command = new GetEnabledStandardsCommand(input);
@@ -57,7 +57,7 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  * //       StandardsStatusReason: { // StandardsStatusReason
  * //         StatusReasonCode: "NO_AVAILABLE_CONFIGURATION_RECORDER" || "MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED" || "NO_AVAILABLE_MULTICLOUD_CONNECTOR" || "INTERNAL_ERROR", // required
  * //       },
- * //       Provider: "AWS" || "Azure",
+ * //       Provider: "AWS" || "Azure" || "GCP",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

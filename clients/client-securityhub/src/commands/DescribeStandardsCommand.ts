@@ -37,7 +37,7 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   Providers: [ // StandardsProviders
- *     "AWS" || "Azure",
+ *     "AWS" || "Azure" || "GCP",
  *   ],
  * };
  * const command = new DescribeStandardsCommand(input);
@@ -49,7 +49,7 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       EnabledByDefault: true || false,
- * //       Provider: "AWS" || "Azure",
+ * //       Provider: "AWS" || "Azure" || "GCP",
  * //       StandardsManagedBy: { // StandardsManagedBy
  * //         Company: "STRING_VALUE",
  * //         Product: "STRING_VALUE",
@@ -100,6 +100,35 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  *       Name: "CIS Azure Foundations Benchmark v4.0.0",
  *       Provider: "Azure",
  *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/cis-azure-foundations-benchmark/v/4.0.0",
+ *       StandardsManagedBy: {
+ *         Company: "AWS",
+ *         Product: "Security Hub"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example To get available GCP security standards
+ * ```javascript
+ * // The following example returns a list of available security standards from a specified provider.
+ * const input = {
+ *   Providers: [
+ *     "GCP"
+ *   ]
+ * };
+ * const command = new DescribeStandardsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Standards: [
+ *     {
+ *       Description: "The Center for Internet Security (CIS) Google Cloud Platform Foundation Benchmark v4.0.0 is a set of security configuration best practices for Google Cloud Platform. This Security Hub standard automatically checks your compliance readiness against a subset of CIS requirements.",
+ *       EnabledByDefault: false,
+ *       Name: "CIS Google Cloud Platform Foundation Benchmark v4.0.0",
+ *       Provider: "GCP",
+ *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/cis-gcp-foundation-benchmark/v/4.0.0",
  *       StandardsManagedBy: {
  *         Company: "AWS",
  *         Product: "Security Hub"
@@ -169,6 +198,17 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  *       Name: "CIS Azure Foundations Benchmark v4.0.0",
  *       Provider: "Azure",
  *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/cis-azure-foundations-benchmark/v/4.0.0",
+ *       StandardsManagedBy: {
+ *         Company: "AWS",
+ *         Product: "Security Hub"
+ *       }
+ *     },
+ *     {
+ *       Description: "The Center for Internet Security (CIS) Google Cloud Platform Foundation Benchmark v4.0.0 is a set of security configuration best practices for Google Cloud Platform. This Security Hub standard automatically checks your compliance readiness against a subset of CIS requirements.",
+ *       EnabledByDefault: false,
+ *       Name: "CIS Google Cloud Platform Foundation Benchmark v4.0.0",
+ *       Provider: "GCP",
+ *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/cis-gcp-foundation-benchmark/v/4.0.0",
  *       StandardsManagedBy: {
  *         Company: "AWS",
  *         Product: "Security Hub"

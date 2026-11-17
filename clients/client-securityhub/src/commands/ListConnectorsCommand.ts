@@ -35,7 +35,7 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * const input = { // ListConnectorsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   ProviderName: "AZURE",
+ *   ProviderName: "AZURE" || "GCP",
  *   ConnectorStatus: "CONNECTED" || "DEGRADED" || "FAILED_TO_CONNECT" || "UNKNOWN",
  *   EnablementStatus: "ENABLED" || "PENDING_ENABLEMENT" || "PENDING_UPDATE" || "PENDING_DELETION",
  * };
@@ -50,7 +50,7 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       ProviderSummary: { // CspmProviderSummary
- * //         ProviderName: "AZURE",
+ * //         ProviderName: "AZURE" || "GCP",
  * //         ConnectorStatus: "CONNECTED" || "DEGRADED" || "FAILED_TO_CONNECT" || "UNKNOWN",
  * //         ProviderConfiguration: { // CspmProviderDetail Union: only one key present
  * //           Azure: { // AzureDetail
@@ -62,6 +62,18 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * //               ],
  * //             },
  * //             AzureRegions: [ // AzureRegionList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           GCP: { // GcpDetail
+ * //             AWSConfigConnectorArn: "STRING_VALUE", // required
+ * //             ScopeConfiguration: { // GcpScopeConfiguration
+ * //               ScopeType: "PROJECT" || "ORGANIZATION", // required
+ * //               ScopeValues: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             GCPRegions: [ // GcpRegionList // required
  * //               "STRING_VALUE",
  * //             ],
  * //           },

@@ -68,6 +68,18 @@ export interface GetConnectorCommandOutput extends GetConnectorResponse, __Metad
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     GCP: { // GcpDetail
+ * //       AWSConfigConnectorArn: "STRING_VALUE", // required
+ * //       ScopeConfiguration: { // GcpScopeConfiguration
+ * //         ScopeType: "PROJECT" || "ORGANIZATION", // required
+ * //         ScopeValues: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       GCPRegions: [ // GcpRegionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * //   CreatedBy: "STRING_VALUE",
  * //   EnablementStatus: "ENABLED" || "PENDING_ENABLEMENT" || "PENDING_UPDATE" || "PENDING_DELETION",

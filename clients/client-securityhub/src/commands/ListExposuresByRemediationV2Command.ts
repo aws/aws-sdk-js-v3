@@ -61,7 +61,7 @@ export interface ListExposuresByRemediationV2CommandOutput extends ListExposures
  * //     Id: "STRING_VALUE", // required
  * //     ResourceGuid: "STRING_VALUE",
  * //     ResourceRegion: "STRING_VALUE", // required
- * //     CloudProvider: "Azure" || "AWS", // required
+ * //     CloudProvider: "Azure" || "AWS" || "GCP", // required
  * //   },
  * //   TotalCount: Number("int"), // required
  * //   Trait: { // RemediationTrait

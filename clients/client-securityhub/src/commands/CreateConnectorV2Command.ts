@@ -55,6 +55,18 @@ export interface CreateConnectorV2CommandOutput extends CreateConnectorV2Respons
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     GCP: { // GcpProviderConfiguration
+ *       AWSConfigConnectorArn: "STRING_VALUE", // required
+ *       ScopeConfiguration: { // GcpScopeConfiguration
+ *         ScopeType: "PROJECT" || "ORGANIZATION", // required
+ *         ScopeValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       GCPRegions: [ // GcpRegionList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   KmsKeyArn: "STRING_VALUE",
  *   Tags: { // TagMap
