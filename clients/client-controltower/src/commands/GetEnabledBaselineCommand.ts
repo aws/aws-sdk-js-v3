@@ -47,6 +47,9 @@ export interface GetEnabledBaselineCommandOutput extends GetEnabledBaselineOutpu
  * //         inheritance: { // EnabledBaselineInheritanceDrift
  * //           status: "IN_SYNC" || "DRIFTED",
  * //         },
+ * //         source: { // EnabledBaselineSourceDrift
+ * //           status: "IN_SYNC" || "DRIFTED",
+ * //         },
  * //       },
  * //     },
  * //     targetIdentifier: "STRING_VALUE", // required

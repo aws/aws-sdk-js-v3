@@ -33,6 +33,7 @@ const _EBPS = "EnabledBaselineParameterSummary";
 const _EBPSn = "EnabledBaselineParameterSummaries";
 const _EBPn = "EnabledBaselineParameters";
 const _EBS = "EnabledBaselineSummary";
+const _EBSD = "EnabledBaselineSourceDrift";
 const _EBn = "EnableBaseline";
 const _EC = "EnabledControls";
 const _ECD = "EnabledControlDetails";
@@ -190,10 +191,12 @@ const _rDS = "resourceDriftStatuses";
 const _rT = "remediationTypes";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.controltower";
 const _sC = "serviceCode";
+const _sDS = "sourceDriftStatuses";
 const _sM = "statusMessage";
 const _sS = "statusSummary";
 const _sT = "startTime";
 const _se = "server";
+const _so = "source";
 const _st = "status";
 const _sta = "statuses";
 const _t = "tags";
@@ -385,13 +388,13 @@ export var EnabledBaselineDriftStatusSummary$: StaticStructureSchema = [3, n0, _
 ];
 export var EnabledBaselineDriftTypes$: StaticStructureSchema = [3, n0, _EBDT,
   0,
-  [_i],
-  [() => EnabledBaselineInheritanceDrift$]
+  [_i, _so],
+  [() => EnabledBaselineInheritanceDrift$, () => EnabledBaselineSourceDrift$]
 ];
 export var EnabledBaselineFilter$: StaticStructureSchema = [3, n0, _EBF,
   0,
-  [_tIa, _bIa, _pIa, _sta, _iDS],
-  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+  [_tIa, _bIa, _pIa, _sta, _iDS, _sDS],
+  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
 export var EnabledBaselineInheritanceDrift$: StaticStructureSchema = [3, n0, _EBID,
   0,
@@ -407,6 +410,11 @@ export var EnabledBaselineParameterSummary$: StaticStructureSchema = [3, n0, _EB
   0,
   [_k, _va],
   [0, 15], 2
+];
+export var EnabledBaselineSourceDrift$: StaticStructureSchema = [3, n0, _EBSD,
+  0,
+  [_st],
+  [0]
 ];
 export var EnabledBaselineSummary$: StaticStructureSchema = [3, n0, _EBS,
   0,

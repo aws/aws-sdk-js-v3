@@ -49,6 +49,7 @@ import {
   EnabledBaselineInheritanceDrift$,
   EnabledBaselineParameter$,
   EnabledBaselineParameterSummary$,
+  EnabledBaselineSourceDrift$,
   EnabledBaselineSummary$,
   EnabledControlDetails$,
   EnabledControlDriftTypes$,
@@ -264,6 +265,7 @@ assert(typeof EnabledBaselineFilter$ === "object");
 assert(typeof EnabledBaselineInheritanceDrift$ === "object");
 assert(typeof EnabledBaselineParameter$ === "object");
 assert(typeof EnabledBaselineParameterSummary$ === "object");
+assert(typeof EnabledBaselineSourceDrift$ === "object");
 assert(typeof EnabledBaselineSummary$ === "object");
 assert(typeof EnabledControlDetails$ === "object");
 assert(typeof EnabledControlDriftTypes$ === "object");

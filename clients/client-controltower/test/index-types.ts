@@ -123,6 +123,7 @@ export type {
   EnabledBaselineInheritanceDrift,
   EnabledBaselineParameter,
   EnabledBaselineParameterSummary,
+  EnabledBaselineSourceDrift,
   EnabledBaselineSummary,
   EnabledControlDetails,
   EnabledControlDriftTypes,

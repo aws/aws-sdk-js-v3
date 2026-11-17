@@ -540,6 +540,18 @@ export interface EnabledBaselineInheritanceDrift {
 }
 
 /**
+ * <p>The source drift summary for the enabled baseline. Source drift occurs when an enabled baseline no longer matches the landing zone's configuration.</p>
+ * @public
+ */
+export interface EnabledBaselineSourceDrift {
+  /**
+   * <p>The source drift status for the enabled baseline.</p>
+   * @public
+   */
+  status?: EnabledBaselineDriftStatus | undefined;
+}
+
+/**
  * <p>The types of drift that can be detected for an enabled baseline.</p> <ul> <li> <p> Amazon Web Services Control Tower detects inheritance drift on the enabled baselines that target OUs: <code>AWSControlTowerBaseline</code> and <code>BackupBaseline</code>. </p> </li> <li> <p> Amazon Web Services Control Tower does not detect drift on the baselines that apply to your landing zone: <code>IdentityCenterBaseline</code>, <code>AuditBaseline</code>, <code>LogArchiveBaseline</code>, <code>BackupCentralVaultBaseline</code>, or <code>BackupAdminBaseline</code>. For more information, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/types-of-baselines.html">Types of baselines</a>.</p> </li> </ul> <p>Baselines enabled on an OU are inherited by its member accounts as child <code>EnabledBaseline</code> resources. The baseline on the OU serves as the parent <code>EnabledBaseline</code>, which governs the configuration of each child <code>EnabledBaseline</code>.</p> <p>If the baseline configuration of a member account in an OU does not match the configuration of the parent OU, the parent and child baseline is in a state of inheritance drift. This drift could occur in the <code>AWSControlTowerBaseline</code> or the <code>BackupBaseline</code> related to that account.</p>
  * @public
  */
@@ -549,6 +561,12 @@ export interface EnabledBaselineDriftTypes {
    * @public
    */
   inheritance?: EnabledBaselineInheritanceDrift | undefined;
+
+  /**
+   * <p>Source drift occurs when an enabled baseline no longer matches the landing zone's configuration.</p>
+   * @public
+   */
+  source?: EnabledBaselineSourceDrift | undefined;
 }
 
 /**
@@ -698,6 +716,12 @@ export interface EnabledBaselineFilter {
    * @public
    */
   inheritanceDriftStatuses?: EnabledBaselineDriftStatus[] | undefined;
+
+  /**
+   * <p>A list of <code>EnabledBaselineDriftStatus</code> items for enabled baselines.</p>
+   * @public
+   */
+  sourceDriftStatuses?: EnabledBaselineDriftStatus[] | undefined;
 }
 
 /**

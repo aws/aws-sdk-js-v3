@@ -49,6 +49,9 @@ export interface ListEnabledBaselinesCommandOutput extends ListEnabledBaselinesO
  *     inheritanceDriftStatuses: [ // EnabledBaselineDriftStatuses
  *       "IN_SYNC" || "DRIFTED",
  *     ],
+ *     sourceDriftStatuses: [
+ *       "IN_SYNC" || "DRIFTED",
+ *     ],
  *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -65,6 +68,9 @@ export interface ListEnabledBaselinesCommandOutput extends ListEnabledBaselinesO
  * //       driftStatusSummary: { // EnabledBaselineDriftStatusSummary
  * //         types: { // EnabledBaselineDriftTypes
  * //           inheritance: { // EnabledBaselineInheritanceDrift
+ * //             status: "IN_SYNC" || "DRIFTED",
+ * //           },
+ * //           source: { // EnabledBaselineSourceDrift
  * //             status: "IN_SYNC" || "DRIFTED",
  * //           },
  * //         },
