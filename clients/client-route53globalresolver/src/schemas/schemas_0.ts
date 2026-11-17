@@ -37,6 +37,9 @@ const _CASO = "CreateAccessSourceOutput";
 const _CAT = "CreateAccessToken";
 const _CATI = "CreateAccessTokenInput";
 const _CATO = "CreateAccessTokenOutput";
+const _CCNE = "CreateCoreNetworkEndpoint";
+const _CCNEI = "CreateCoreNetworkEndpointInput";
+const _CCNEO = "CreateCoreNetworkEndpointOutput";
 const _CDNSV = "CreateDNSView";
 const _CDNSVI = "CreateDNSViewInput";
 const _CDNSVO = "CreateDNSViewOutput";
@@ -50,12 +53,21 @@ const _CFRO = "CreateFirewallRuleOutput";
 const _CGR = "CreateGlobalResolver";
 const _CGRI = "CreateGlobalResolverInput";
 const _CGRO = "CreateGlobalResolverOutput";
+const _CNE = "CoreNetworkEndpoints";
+const _CNEDII = "CoreNetworkEndpointDnsIpItem";
+const _CNEDIII = "CoreNetworkEndpointDnsIpInputItem";
+const _CNEDIIIo = "CoreNetworkEndpointDnsIpInputItems";
+const _CNEDIIo = "CoreNetworkEndpointDnsIpItems";
+const _CNEI = "CoreNetworkEndpointsItem";
 const _DAS = "DeleteAccessSource";
 const _DASI = "DeleteAccessSourceInput";
 const _DASO = "DeleteAccessSourceOutput";
 const _DAT = "DeleteAccessToken";
 const _DATI = "DeleteAccessTokenInput";
 const _DATO = "DeleteAccessTokenOutput";
+const _DCNE = "DeleteCoreNetworkEndpoint";
+const _DCNEI = "DeleteCoreNetworkEndpointInput";
+const _DCNEO = "DeleteCoreNetworkEndpointOutput";
 const _DDNSV = "DeleteDNSView";
 const _DDNSVI = "DeleteDNSViewInput";
 const _DDNSVIi = "DisableDNSViewInput";
@@ -90,6 +102,9 @@ const _GASO = "GetAccessSourceOutput";
 const _GAT = "GetAccessToken";
 const _GATI = "GetAccessTokenInput";
 const _GATO = "GetAccessTokenOutput";
+const _GCNE = "GetCoreNetworkEndpoint";
+const _GCNEI = "GetCoreNetworkEndpointInput";
+const _GCNEO = "GetCoreNetworkEndpointOutput";
 const _GDNSV = "GetDNSView";
 const _GDNSVI = "GetDNSViewInput";
 const _GDNSVO = "GetDNSViewOutput";
@@ -122,6 +137,9 @@ const _LASO = "ListAccessSourcesOutput";
 const _LAT = "ListAccessTokens";
 const _LATI = "ListAccessTokensInput";
 const _LATO = "ListAccessTokensOutput";
+const _LCNE = "ListCoreNetworkEndpoints";
+const _LCNEI = "ListCoreNetworkEndpointsInput";
+const _LCNEO = "ListCoreNetworkEndpointsOutput";
 const _LDNSV = "ListDNSViews";
 const _LDNSVI = "ListDNSViewsInput";
 const _LDNSVO = "ListDNSViewsOutput";
@@ -166,6 +184,9 @@ const _UASO = "UpdateAccessSourceOutput";
 const _UAT = "UpdateAccessToken";
 const _UATI = "UpdateAccessTokenInput";
 const _UATO = "UpdateAccessTokenOutput";
+const _UCNE = "UpdateCoreNetworkEndpoint";
+const _UCNEI = "UpdateCoreNetworkEndpointInput";
+const _UCNEO = "UpdateCoreNetworkEndpointOutput";
 const _UDNSV = "UpdateDNSView";
 const _UDNSVI = "UpdateDNSViewInput";
 const _UDNSVO = "UpdateDNSViewOutput";
@@ -181,6 +202,8 @@ const _UGRO = "UpdateGlobalResolverOutput";
 const _UHZA = "UpdateHostedZoneAssociation";
 const _UHZAI = "UpdateHostedZoneAssociationInput";
 const _UHZAO = "UpdateHostedZoneAssociationOutput";
+const _UIAE = "UpdateIpAddressEntry";
+const _UIAL = "UpdateIpAddressList";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
@@ -188,6 +211,7 @@ const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
 const _a = "arn";
+const _aR = "availableRegions";
 const _aS = "accessSources";
 const _aSI = "accessSourceId";
 const _aT = "accessTokens";
@@ -199,6 +223,9 @@ const _bOT = "blockOverrideTtl";
 const _bR = "blockResponse";
 const _c = "client";
 const _cA = "createdAt";
+const _cNA = "coreNetworkArn";
+const _cNE = "coreNetworkEndpoints";
+const _cNEI = "coreNetworkEndpointId";
 const _cT = "clientToken";
 const _cTo = "confidenceThreshold";
 const _ci = "cidr";
@@ -208,6 +235,7 @@ const _dA = "deletedAt";
 const _dAP = "dnsAdvancedProtection";
 const _dC = "domainCount";
 const _dFU = "domainFileUrl";
+const _dL = "dnsLabel";
 const _dN = "dnsName";
 const _dV = "dnssecValidation";
 const _dVI = "dnsViewId";
@@ -238,9 +266,12 @@ const _hZAI = "hostedZoneAssociationId";
 const _hZI = "hostedZoneId";
 const _hZN = "hostedZoneName";
 const _i = "id";
-const _iA = "ipv4Addresses";
+const _iA = "ipv4Address";
 const _iAT = "ipAddressType";
-const _iAp = "ipv6Addresses";
+const _iAp = "ipv6Address";
+const _iApd = "ipAddresses";
+const _iApv = "ipv4Addresses";
+const _iApvd = "ipv6Addresses";
 const _m = "message";
 const _mDLN = "managedDomainListName";
 const _mFDL = "managedFirewallDomainLists";
@@ -256,6 +287,7 @@ const _o = "operation";
 const _oAI = "ownerAccountId";
 const _oR = "observabilityRegion";
 const _p = "protocol";
+const _pIS = "publicIpStatus";
 const _pr = "priority";
 const _qC = "quotaCode";
 const _qT = "qType";
@@ -264,17 +296,20 @@ const _r = "reason";
 const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
 const _rI = "resourceId";
+const _rS = "regionScope";
 const _rT = "resourceType";
 const _re = "regions";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.route53globalresolver";
 const _sC = "serviceCode";
 const _sM = "statusMessage";
 const _se = "server";
+const _seg = "segment";
 const _st = "status";
 const _su = "successes";
 const _t = "tags";
 const _tK = "tagKeys";
 const _uA = "updatedAt";
+const _uIA = "updateIpAddresses";
 const _v = "value";
 const n0 = "com.amazonaws.route53globalresolver";
 
@@ -359,8 +394,8 @@ export const errorTypeRegistries = [
 var AccessTokenValue: StaticSimpleSchema = [0, n0, _ATV, 8, 0];
 export var AccessSourcesItem$: StaticStructureSchema = [3, n0, _ASI,
   0,
-  [_a, _ci, _cA, _i, _iAT, _dVI, _p, _st, _uA, _n],
-  [0, 0, 5, 0, 0, 0, 0, 0, 5, 0], 9
+  [_a, _cA, _i, _dVI, _p, _st, _uA, _ci, _cNEI, _iAT, _n, _seg],
+  [0, 5, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0], 7
 ];
 export var AccessTokenItem$: StaticStructureSchema = [3, n0, _ATI,
   0,
@@ -452,15 +487,30 @@ export var BatchUpdateFirewallRuleResult$: StaticStructureSchema = [3, n0, _BUFR
   [_i, _ac, _bODT, _bOD, _bOT, _bR, _cT, _cTo, _cA, _d, _dAP, _fDLI, _n, _pr, _dVI, _qTu, _st, _uA],
   [0, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 1, 0, 0, 0, 5], 1
 ];
+export var CoreNetworkEndpointDnsIpInputItem$: StaticStructureSchema = [3, n0, _CNEDIII,
+  0,
+  [_dL, _rS, _iA, _iAp, _re],
+  [0, 0, 0, 0, 64 | 0], 2
+];
+export var CoreNetworkEndpointDnsIpItem$: StaticStructureSchema = [3, n0, _CNEDII,
+  0,
+  [_dL, _rS, _iA, _iAp, _dN, _re],
+  [0, 0, 0, 0, 0, 64 | 0], 2
+];
+export var CoreNetworkEndpointsItem$: StaticStructureSchema = [3, n0, _CNEI,
+  0,
+  [_a, _aR, _cNA, _cA, _gRI, _i, _iApd, _st, _uA, _n],
+  [0, 64 | 0, 0, 5, 0, 0, () => CoreNetworkEndpointDnsIpItems, 0, 5, 0], 9
+];
 export var CreateAccessSourceInput$: StaticStructureSchema = [3, n0, _CASI,
   0,
-  [_ci, _dVI, _p, _cT, _iAT, _n, _t],
-  [0, 0, 0, [0, 4], 0, 0, 128 | 0], 3
+  [_dVI, _p, _ci, _cT, _iAT, _n, _cNEI, _seg, _t],
+  [0, 0, 0, [0, 4], 0, 0, 0, 0, 128 | 0], 2
 ];
 export var CreateAccessSourceOutput$: StaticStructureSchema = [3, n0, _CASO,
   0,
-  [_a, _ci, _cA, _i, _iAT, _dVI, _p, _st, _uA, _n],
-  [0, 0, 5, 0, 0, 0, 0, 0, 5, 0], 9
+  [_a, _cA, _i, _dVI, _p, _st, _uA, _ci, _iAT, _cNEI, _seg, _n],
+  [0, 5, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0], 7
 ];
 export var CreateAccessTokenInput$: StaticStructureSchema = [3, n0, _CATI,
   0,
@@ -471,6 +521,16 @@ export var CreateAccessTokenOutput$: StaticStructureSchema = [3, n0, _CATO,
   0,
   [_i, _a, _cA, _dVI, _eA, _st, _v, _cT, _n],
   [0, 0, 5, 0, 5, 0, [() => AccessTokenValue, 0], 0, 0], 7
+];
+export var CreateCoreNetworkEndpointInput$: StaticStructureSchema = [3, n0, _CCNEI,
+  0,
+  [_cNA, _gRI, _iApd, _cT, _n, _t],
+  [0, 0, () => CoreNetworkEndpointDnsIpInputItems, [0, 4], 0, 128 | 0], 3
+];
+export var CreateCoreNetworkEndpointOutput$: StaticStructureSchema = [3, n0, _CCNEO,
+  0,
+  [_a, _aR, _cNA, _cA, _gRI, _i, _iApd, _st, _uA, _n],
+  [0, 64 | 0, 0, 5, 0, 0, () => CoreNetworkEndpointDnsIpItems, 0, 5, 0], 9
 ];
 export var CreateDNSViewInput$: StaticStructureSchema = [3, n0, _CDNSVI,
   0,
@@ -504,13 +564,13 @@ export var CreateFirewallRuleOutput$: StaticStructureSchema = [3, n0, _CFRO,
 ];
 export var CreateGlobalResolverInput$: StaticStructureSchema = [3, n0, _CGRI,
   0,
-  [_n, _re, _cT, _d, _iAT, _oR, _t],
-  [0, 64 | 0, [0, 4], 0, 0, 0, 128 | 0], 2
+  [_n, _re, _cT, _d, _iAT, _pIS, _oR, _t],
+  [0, 64 | 0, [0, 4], 0, 0, 0, 0, 128 | 0], 2
 ];
 export var CreateGlobalResolverOutput$: StaticStructureSchema = [3, n0, _CGRO,
   0,
-  [_i, _a, _cT, _cA, _dN, _iA, _n, _re, _st, _uA, _d, _iAT, _iAp, _oR],
-  [0, 0, 0, 5, 0, 64 | 0, 0, 64 | 0, 0, 5, 0, 0, 64 | 0, 0], 10
+  [_i, _a, _cT, _cA, _dN, _iApv, _n, _re, _st, _uA, _d, _iAT, _pIS, _iApvd, _oR],
+  [0, 0, 0, 5, 0, 64 | 0, 0, 64 | 0, 0, 5, 0, 0, 0, 64 | 0, 0], 10
 ];
 export var DeleteAccessSourceInput$: StaticStructureSchema = [3, n0, _DASI,
   0,
@@ -519,8 +579,8 @@ export var DeleteAccessSourceInput$: StaticStructureSchema = [3, n0, _DASI,
 ];
 export var DeleteAccessSourceOutput$: StaticStructureSchema = [3, n0, _DASO,
   0,
-  [_a, _ci, _cA, _i, _iAT, _dVI, _p, _st, _uA, _n],
-  [0, 0, 5, 0, 0, 0, 0, 0, 5, 0], 9
+  [_a, _cA, _i, _dVI, _p, _st, _uA, _ci, _cNEI, _iAT, _n, _seg],
+  [0, 5, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0], 7
 ];
 export var DeleteAccessTokenInput$: StaticStructureSchema = [3, n0, _DATI,
   0,
@@ -531,6 +591,16 @@ export var DeleteAccessTokenOutput$: StaticStructureSchema = [3, n0, _DATO,
   0,
   [_i, _st, _dA],
   [0, 0, 5], 3
+];
+export var DeleteCoreNetworkEndpointInput$: StaticStructureSchema = [3, n0, _DCNEI,
+  0,
+  [_cNEI],
+  [[0, 1]], 1
+];
+export var DeleteCoreNetworkEndpointOutput$: StaticStructureSchema = [3, n0, _DCNEO,
+  0,
+  [_a, _aR, _cNA, _cA, _gRI, _i, _iApd, _st, _uA, _n],
+  [0, 64 | 0, 0, 5, 0, 0, () => CoreNetworkEndpointDnsIpItems, 0, 5, 0], 9
 ];
 export var DeleteDNSViewInput$: StaticStructureSchema = [3, n0, _DDNSVI,
   0,
@@ -569,7 +639,7 @@ export var DeleteGlobalResolverInput$: StaticStructureSchema = [3, n0, _DGRI,
 ];
 export var DeleteGlobalResolverOutput$: StaticStructureSchema = [3, n0, _DGRO,
   0,
-  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iA, _oR, _d, _iAp, _iAT],
+  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iApv, _oR, _d, _iApvd, _iAT],
   [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0, 64 | 0, 0], 10
 ];
 export var DisableDNSViewInput$: StaticStructureSchema = [3, n0, _DDNSVIi,
@@ -624,8 +694,8 @@ export var GetAccessSourceInput$: StaticStructureSchema = [3, n0, _GASI,
 ];
 export var GetAccessSourceOutput$: StaticStructureSchema = [3, n0, _GASO,
   0,
-  [_a, _ci, _cA, _i, _iAT, _dVI, _p, _st, _uA, _n],
-  [0, 0, 5, 0, 0, 0, 0, 0, 5, 0], 9
+  [_a, _cA, _i, _dVI, _p, _st, _uA, _ci, _cNEI, _iAT, _n, _seg],
+  [0, 5, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0], 7
 ];
 export var GetAccessTokenInput$: StaticStructureSchema = [3, n0, _GATI,
   0,
@@ -636,6 +706,16 @@ export var GetAccessTokenOutput$: StaticStructureSchema = [3, n0, _GATO,
   0,
   [_i, _a, _cA, _dVI, _eA, _gRI, _st, _uA, _v, _cT, _n],
   [0, 0, 5, 0, 5, 0, 0, 5, [() => AccessTokenValue, 0], 0, 0], 9
+];
+export var GetCoreNetworkEndpointInput$: StaticStructureSchema = [3, n0, _GCNEI,
+  0,
+  [_cNEI],
+  [[0, 1]], 1
+];
+export var GetCoreNetworkEndpointOutput$: StaticStructureSchema = [3, n0, _GCNEO,
+  0,
+  [_a, _aR, _cNA, _cA, _gRI, _i, _iApd, _st, _uA, _n],
+  [0, 64 | 0, 0, 5, 0, 0, () => CoreNetworkEndpointDnsIpItems, 0, 5, 0], 9
 ];
 export var GetDNSViewInput$: StaticStructureSchema = [3, n0, _GDNSVI,
   0,
@@ -674,8 +754,8 @@ export var GetGlobalResolverInput$: StaticStructureSchema = [3, n0, _GGRI,
 ];
 export var GetGlobalResolverOutput$: StaticStructureSchema = [3, n0, _GGRO,
   0,
-  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iA, _oR, _d, _iAp, _iAT],
-  [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0, 64 | 0, 0], 10
+  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iApv, _oR, _d, _iApvd, _iAT, _pIS],
+  [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0, 64 | 0, 0, 0], 10
 ];
 export var GetHostedZoneAssociationInput$: StaticStructureSchema = [3, n0, _GHZAI,
   0,
@@ -699,8 +779,8 @@ export var GetManagedFirewallDomainListOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var GlobalResolversItem$: StaticStructureSchema = [3, n0, _GRI,
   0,
-  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iA, _oR, _d, _iAp, _iAT],
-  [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0, 64 | 0, 0], 10
+  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iApv, _oR, _d, _iApvd, _iAT, _pIS],
+  [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0, 64 | 0, 0, 0], 10
 ];
 export var HostedZoneAssociationSummary$: StaticStructureSchema = [3, n0, _HZAS,
   0,
@@ -736,6 +816,16 @@ export var ListAccessTokensOutput$: StaticStructureSchema = [3, n0, _LATO,
   0,
   [_nT, _aT],
   [0, () => AccessTokens]
+];
+export var ListCoreNetworkEndpointsInput$: StaticStructureSchema = [3, n0, _LCNEI,
+  0,
+  [_mR, _nT, _fi],
+  [[1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [[2, n0, _F, 0, 0, 64 | 0], 64]]
+];
+export var ListCoreNetworkEndpointsOutput$: StaticStructureSchema = [3, n0, _LCNEO,
+  0,
+  [_cNE, _nT],
+  [() => CoreNetworkEndpoints, 0], 1
 ];
 export var ListDNSViewsInput$: StaticStructureSchema = [3, n0, _LDNSVI,
   0,
@@ -859,13 +949,13 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateAccessSourceInput$: StaticStructureSchema = [3, n0, _UASI,
   0,
-  [_aSI, _ci, _iAT, _n, _p],
-  [[0, 1], 0, 0, 0, 0], 1
+  [_aSI, _ci, _dVI, _iAT, _n, _p],
+  [[0, 1], 0, 0, 0, 0, 0], 1
 ];
 export var UpdateAccessSourceOutput$: StaticStructureSchema = [3, n0, _UASO,
   0,
-  [_a, _ci, _cA, _i, _iAT, _dVI, _p, _st, _uA, _n],
-  [0, 0, 5, 0, 0, 0, 0, 0, 5, 0], 9
+  [_a, _cA, _i, _dVI, _p, _st, _uA, _ci, _cNEI, _iAT, _n, _seg],
+  [0, 5, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0], 7
 ];
 export var UpdateAccessTokenInput$: StaticStructureSchema = [3, n0, _UATI,
   0,
@@ -876,6 +966,16 @@ export var UpdateAccessTokenOutput$: StaticStructureSchema = [3, n0, _UATO,
   0,
   [_i, _n],
   [0, 0], 2
+];
+export var UpdateCoreNetworkEndpointInput$: StaticStructureSchema = [3, n0, _UCNEI,
+  0,
+  [_cNEI, _n, _uIA],
+  [[0, 1], 0, () => UpdateIpAddressList], 1
+];
+export var UpdateCoreNetworkEndpointOutput$: StaticStructureSchema = [3, n0, _UCNEO,
+  0,
+  [_a, _aR, _cNA, _cA, _gRI, _i, _iApd, _st, _uA, _n],
+  [0, 64 | 0, 0, 5, 0, 0, () => CoreNetworkEndpointDnsIpItems, 0, 5, 0], 9
 ];
 export var UpdateDNSViewInput$: StaticStructureSchema = [3, n0, _UDNSVI,
   0,
@@ -909,13 +1009,13 @@ export var UpdateFirewallRuleOutput$: StaticStructureSchema = [3, n0, _UFRO,
 ];
 export var UpdateGlobalResolverInput$: StaticStructureSchema = [3, n0, _UGRI,
   0,
-  [_gRI, _n, _oR, _d, _iAT, _re],
-  [[0, 1], 0, 0, 0, 0, 64 | 0], 1
+  [_gRI, _n, _oR, _d, _iAT, _pIS, _re],
+  [[0, 1], 0, 0, 0, 0, 0, 64 | 0], 1
 ];
 export var UpdateGlobalResolverOutput$: StaticStructureSchema = [3, n0, _UGRO,
   0,
-  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iA, _oR, _d, _iAp, _iAT],
-  [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0, 64 | 0, 0], 10
+  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iApv, _oR, _d, _iApvd, _iAT, _pIS],
+  [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0, 64 | 0, 0, 0], 10
 ];
 export var UpdateHostedZoneAssociationInput$: StaticStructureSchema = [3, n0, _UHZAI,
   0,
@@ -926,6 +1026,11 @@ export var UpdateHostedZoneAssociationOutput$: StaticStructureSchema = [3, n0, _
   0,
   [_i, _rA, _hZI, _hZN, _n, _cA, _uA, _st],
   [0, 0, 0, 0, 0, 5, 5, 0], 8
+];
+export var UpdateIpAddressEntry$: StaticStructureSchema = [3, n0, _UIAE,
+  0,
+  [_o, _iA, _iAp, _dL, _rS, _re],
+  [0, 0, 0, 0, 0, 64 | 0], 1
 ];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
@@ -956,6 +1061,15 @@ var BatchUpdateFirewallRuleInputItems: StaticListSchema = [1, n0, _BUFRIIa,
 var BatchUpdateFirewallRuleOutputItems: StaticListSchema = [1, n0, _BUFROIa,
   0, () => BatchUpdateFirewallRuleOutputItem$
 ];
+var CoreNetworkEndpointDnsIpInputItems: StaticListSchema = [1, n0, _CNEDIIIo,
+  0, () => CoreNetworkEndpointDnsIpInputItem$
+];
+var CoreNetworkEndpointDnsIpItems: StaticListSchema = [1, n0, _CNEDIIo,
+  0, () => CoreNetworkEndpointDnsIpItem$
+];
+var CoreNetworkEndpoints: StaticListSchema = [1, n0, _CNE,
+  0, () => CoreNetworkEndpointsItem$
+];
 var DNSViews: StaticListSchema = [1, n0, _DNSV,
   0, () => DNSViewSummary$
 ];
@@ -983,6 +1097,9 @@ var SharedDNSViews: StaticListSchema = [1, n0, _SDNSV,
 ];
 var Strings = 64 | 0;
 var TagKeys = 64 | 0;
+var UpdateIpAddressList: StaticListSchema = [1, n0, _UIAL,
+  0, () => UpdateIpAddressEntry$
+];
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
 ];
@@ -1008,6 +1125,9 @@ export var CreateAccessSource$: StaticOperationSchema = [9, n0, _CAS,
 export var CreateAccessToken$: StaticOperationSchema = [9, n0, _CAT,
   { [_h]: ["POST", "/tokens/{dnsViewId}", 200] }, () => CreateAccessTokenInput$, () => CreateAccessTokenOutput$
 ];
+export var CreateCoreNetworkEndpoint$: StaticOperationSchema = [9, n0, _CCNE,
+  { [_h]: ["POST", "/core-network-endpoints", 200] }, () => CreateCoreNetworkEndpointInput$, () => CreateCoreNetworkEndpointOutput$
+];
 export var CreateDNSView$: StaticOperationSchema = [9, n0, _CDNSV,
   { [_h]: ["POST", "/dns-views/{globalResolverId}", 200] }, () => CreateDNSViewInput$, () => CreateDNSViewOutput$
 ];
@@ -1025,6 +1145,9 @@ export var DeleteAccessSource$: StaticOperationSchema = [9, n0, _DAS,
 ];
 export var DeleteAccessToken$: StaticOperationSchema = [9, n0, _DAT,
   { [_h]: ["DELETE", "/tokens/{accessTokenId}", 200] }, () => DeleteAccessTokenInput$, () => DeleteAccessTokenOutput$
+];
+export var DeleteCoreNetworkEndpoint$: StaticOperationSchema = [9, n0, _DCNE,
+  { [_h]: ["DELETE", "/core-network-endpoints/{coreNetworkEndpointId}", 200] }, () => DeleteCoreNetworkEndpointInput$, () => DeleteCoreNetworkEndpointOutput$
 ];
 export var DeleteDNSView$: StaticOperationSchema = [9, n0, _DDNSV,
   { [_h]: ["DELETE", "/dns-views/{dnsViewId}", 200] }, () => DeleteDNSViewInput$, () => DeleteDNSViewOutput$
@@ -1053,6 +1176,9 @@ export var GetAccessSource$: StaticOperationSchema = [9, n0, _GAS,
 export var GetAccessToken$: StaticOperationSchema = [9, n0, _GAT,
   { [_h]: ["GET", "/tokens/{accessTokenId}", 200] }, () => GetAccessTokenInput$, () => GetAccessTokenOutput$
 ];
+export var GetCoreNetworkEndpoint$: StaticOperationSchema = [9, n0, _GCNE,
+  { [_h]: ["GET", "/core-network-endpoints/{coreNetworkEndpointId}", 200] }, () => GetCoreNetworkEndpointInput$, () => GetCoreNetworkEndpointOutput$
+];
 export var GetDNSView$: StaticOperationSchema = [9, n0, _GDNSV,
   { [_h]: ["GET", "/dns-views/{dnsViewId}", 200] }, () => GetDNSViewInput$, () => GetDNSViewOutput$
 ];
@@ -1079,6 +1205,9 @@ export var ListAccessSources$: StaticOperationSchema = [9, n0, _LAS,
 ];
 export var ListAccessTokens$: StaticOperationSchema = [9, n0, _LAT,
   { [_h]: ["GET", "/tokens/dns-view/{dnsViewId}", 200] }, () => ListAccessTokensInput$, () => ListAccessTokensOutput$
+];
+export var ListCoreNetworkEndpoints$: StaticOperationSchema = [9, n0, _LCNE,
+  { [_h]: ["GET", "/core-network-endpoints", 200] }, () => ListCoreNetworkEndpointsInput$, () => ListCoreNetworkEndpointsOutput$
 ];
 export var ListDNSViews$: StaticOperationSchema = [9, n0, _LDNSV,
   { [_h]: ["GET", "/dns-views/resolver/{globalResolverId}", 200] }, () => ListDNSViewsInput$, () => ListDNSViewsOutput$
@@ -1118,6 +1247,9 @@ export var UpdateAccessSource$: StaticOperationSchema = [9, n0, _UAS,
 ];
 export var UpdateAccessToken$: StaticOperationSchema = [9, n0, _UAT,
   { [_h]: ["PATCH", "/tokens/{accessTokenId}", 200] }, () => UpdateAccessTokenInput$, () => UpdateAccessTokenOutput$
+];
+export var UpdateCoreNetworkEndpoint$: StaticOperationSchema = [9, n0, _UCNE,
+  { [_h]: ["PATCH", "/core-network-endpoints/{coreNetworkEndpointId}", 200] }, () => UpdateCoreNetworkEndpointInput$, () => UpdateCoreNetworkEndpointOutput$
 ];
 export var UpdateDNSView$: StaticOperationSchema = [9, n0, _UDNSV,
   { [_h]: ["PATCH", "/dns-views/{dnsViewId}", 200] }, () => UpdateDNSViewInput$, () => UpdateDNSViewOutput$

@@ -35,7 +35,8 @@ export interface UpdateAccessSourceCommandOutput extends UpdateAccessSourceOutpu
  * const input = { // UpdateAccessSourceInput
  *   accessSourceId: "STRING_VALUE", // required
  *   cidr: "STRING_VALUE",
- *   ipAddressType: "IPV4" || "IPV6",
+ *   dnsViewId: "STRING_VALUE",
+ *   ipAddressType: "IPV4" || "IPV6" || "NONE",
  *   name: "STRING_VALUE",
  *   protocol: "DO53" || "DOH" || "DOT",
  * };
@@ -43,13 +44,15 @@ export interface UpdateAccessSourceCommandOutput extends UpdateAccessSourceOutpu
  * const response = await client.send(command);
  * // { // UpdateAccessSourceOutput
  * //   arn: "STRING_VALUE", // required
- * //   cidr: "STRING_VALUE", // required
+ * //   cidr: "STRING_VALUE",
+ * //   coreNetworkEndpointId: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   id: "STRING_VALUE", // required
- * //   ipAddressType: "IPV4" || "IPV6", // required
+ * //   ipAddressType: "IPV4" || "IPV6" || "NONE",
  * //   name: "STRING_VALUE",
  * //   dnsViewId: "STRING_VALUE", // required
  * //   protocol: "DO53" || "DOH" || "DOT", // required
+ * //   segment: "STRING_VALUE",
  * //   status: "CREATING" || "OPERATIONAL" || "UPDATING" || "DELETING", // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * // };

@@ -14,7 +14,10 @@ import type {
   HostedZoneAssociationStatus,
   IpAddressType,
   ProfileResourceStatus,
+  PublicIpStatus,
+  RegionScopeType,
   TokenStatus,
+  UpdateIpAddressOperation,
 } from "./enums";
 
 /**
@@ -25,7 +28,7 @@ export interface CreateAccessSourceInput {
    * <p>The IP address or CIDR range that is allowed to send DNS queries to the Route 53 Global Resolver.</p>
    * @public
    */
-  cidr: string | undefined;
+  cidr?: string | undefined;
 
   /**
    * <p>A unique string that identifies the request and ensures idempotency.</p>
@@ -34,7 +37,7 @@ export interface CreateAccessSourceInput {
   clientToken?: string | undefined;
 
   /**
-   * <p>The IP address type for this access source. Valid values are IPv4 and IPv6 (if the Route 53 Global Resolver supports dual-stack).</p>
+   * <p>The IP address type for this access source. Valid values are IPV4, IPV6, and NONE. If you provide a CIDR range, this defaults to IPV4; otherwise it defaults to NONE.</p>
    * @public
    */
   ipAddressType?: IpAddressType | undefined;
@@ -44,6 +47,18 @@ export interface CreateAccessSourceInput {
    * @public
    */
   name?: string | undefined;
+
+  /**
+   * <p>The ID of the core network endpoint to associate with this access source.</p>
+   * @public
+   */
+  coreNetworkEndpointId?: string | undefined;
+
+  /**
+   * <p>The name of the segment to associate with this access source.</p>
+   * @public
+   */
+  segment?: string | undefined;
 
   /**
    * <p>The ID of the DNS view to associate with this access source.</p>
@@ -78,7 +93,7 @@ export interface CreateAccessSourceOutput {
    * <p>The IP address or CIDR range that is allowed to send DNS queries to the Route 53 Global Resolver.</p>
    * @public
    */
-  cidr: string | undefined;
+  cidr?: string | undefined;
 
   /**
    * <p>The date and time when the access source was created.</p>
@@ -93,10 +108,22 @@ export interface CreateAccessSourceOutput {
   id: string | undefined;
 
   /**
-   * <p>The IP address type for this access source (IPv4 or IPv6).</p>
+   * <p>The IP address type for this access source. Valid values are IPV4, IPV6, and NONE.</p>
    * @public
    */
-  ipAddressType: IpAddressType | undefined;
+  ipAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p>The ID of the core network endpoint associated with this access source.</p>
+   * @public
+   */
+  coreNetworkEndpointId?: string | undefined;
+
+  /**
+   * <p>The name of the segment associated with this access source.</p>
+   * @public
+   */
+  segment?: string | undefined;
 
   /**
    * <p>The descriptive name of the access source.</p>
@@ -172,7 +199,13 @@ export interface DeleteAccessSourceOutput {
    * <p>The IP address or CIDR range of the deleted access source.</p>
    * @public
    */
-  cidr: string | undefined;
+  cidr?: string | undefined;
+
+  /**
+   * <p>The ID of the core network endpoint associated with this access source.</p>
+   * @public
+   */
+  coreNetworkEndpointId?: string | undefined;
 
   /**
    * <p>The date and time when the access source was originally created.</p>
@@ -187,10 +220,10 @@ export interface DeleteAccessSourceOutput {
   id: string | undefined;
 
   /**
-   * <p>The IP address type of the deleted access source (IPv4 or IPv6).</p>
+   * <p>The IP address type of the deleted access source. Valid values are IPV4, IPV6, and NONE.</p>
    * @public
    */
-  ipAddressType: IpAddressType | undefined;
+  ipAddressType?: IpAddressType | undefined;
 
   /**
    * <p>The name of the deleted access source.</p>
@@ -209,6 +242,12 @@ export interface DeleteAccessSourceOutput {
    * @public
    */
   protocol: DnsProtocol | undefined;
+
+  /**
+   * <p>The name of the segment associated with this access source.</p>
+   * @public
+   */
+  segment?: string | undefined;
 
   /**
    * <p>The final status of the deleted access source.</p>
@@ -248,7 +287,13 @@ export interface GetAccessSourceOutput {
    * <p>The IP range for the rule's parameters in CIDR notation.</p>
    * @public
    */
-  cidr: string | undefined;
+  cidr?: string | undefined;
+
+  /**
+   * <p>The ID of the core network endpoint associated with this access source.</p>
+   * @public
+   */
+  coreNetworkEndpointId?: string | undefined;
 
   /**
    * <p>The time and date the rule was created.</p>
@@ -266,7 +311,7 @@ export interface GetAccessSourceOutput {
    * <p>The IP address type.</p>
    * @public
    */
-  ipAddressType: IpAddressType | undefined;
+  ipAddressType?: IpAddressType | undefined;
 
   /**
    * <p>Name for the access source.</p>
@@ -285,6 +330,12 @@ export interface GetAccessSourceOutput {
    * @public
    */
   protocol: DnsProtocol | undefined;
+
+  /**
+   * <p>The name of the segment associated with this access source.</p>
+   * @public
+   */
+  segment?: string | undefined;
 
   /**
    * <p>Information about the status of the rule.</p>
@@ -337,7 +388,13 @@ export interface AccessSourcesItem {
    * <p>The CIDR block that defines the IP address range for the access source.</p>
    * @public
    */
-  cidr: string | undefined;
+  cidr?: string | undefined;
+
+  /**
+   * <p>The ID of the core network endpoint associated with this access source.</p>
+   * @public
+   */
+  coreNetworkEndpointId?: string | undefined;
 
   /**
    * <p>The date and time when the access source was created.</p>
@@ -355,7 +412,7 @@ export interface AccessSourcesItem {
    * <p>The IP address type of the access source.</p>
    * @public
    */
-  ipAddressType: IpAddressType | undefined;
+  ipAddressType?: IpAddressType | undefined;
 
   /**
    * <p>The name of the access source.</p>
@@ -374,6 +431,12 @@ export interface AccessSourcesItem {
    * @public
    */
   protocol: DnsProtocol | undefined;
+
+  /**
+   * <p>The name of the segment associated with this access source.</p>
+   * @public
+   */
+  segment?: string | undefined;
 
   /**
    * <p>The current status of the access source.</p>
@@ -399,7 +462,7 @@ export interface ListAccessSourcesOutput {
   nextToken?: string | undefined;
 
   /**
-   * <p>An array containing information about the access sources, such as the ID, CIDR etc.</p>
+   * <p>An array containing information about the access sources, such as the ID and CIDR.</p>
    * @public
    */
   accessSources: AccessSourcesItem[] | undefined;
@@ -420,6 +483,12 @@ export interface UpdateAccessSourceInput {
    * @public
    */
   cidr?: string | undefined;
+
+  /**
+   * <p>The ID of the DNS view to associate with this access source.</p>
+   * @public
+   */
+  dnsViewId?: string | undefined;
 
   /**
    * <p>The IP address type for the access source.</p>
@@ -454,7 +523,13 @@ export interface UpdateAccessSourceOutput {
    * <p>The CIDR block of the updated access source.</p>
    * @public
    */
-  cidr: string | undefined;
+  cidr?: string | undefined;
+
+  /**
+   * <p>The ID of the core network endpoint associated with this access source.</p>
+   * @public
+   */
+  coreNetworkEndpointId?: string | undefined;
 
   /**
    * <p>The date and time when the access source was originally created.</p>
@@ -472,7 +547,7 @@ export interface UpdateAccessSourceOutput {
    * <p>The IP address type of the updated access source.</p>
    * @public
    */
-  ipAddressType: IpAddressType | undefined;
+  ipAddressType?: IpAddressType | undefined;
 
   /**
    * <p>The name of the updated access source.</p>
@@ -491,6 +566,12 @@ export interface UpdateAccessSourceOutput {
    * @public
    */
   protocol: DnsProtocol | undefined;
+
+  /**
+   * <p>The name of the segment associated with this access source.</p>
+   * @public
+   */
+  segment?: string | undefined;
 
   /**
    * <p>The current status of the updated access source.</p>
@@ -1526,6 +1607,578 @@ export interface BatchUpdateFirewallRuleOutput {
 }
 
 /**
+ * <p>A DNS IP address configuration that you provide when you create a core network endpoint. Each item specifies an IP address for the endpoint to receive DNS queries, along with its DNS label, and the scope and Amazon Web Services Regions in which the address applies.</p>
+ * @public
+ */
+export interface CoreNetworkEndpointDnsIpInputItem {
+  /**
+   * <p>The IPv4 address for the core network endpoint to receive DNS queries.</p>
+   * @public
+   */
+  ipv4Address?: string | undefined;
+
+  /**
+   * <p>The IPv6 address for the core network endpoint to receive DNS queries.</p>
+   * @public
+   */
+  ipv6Address?: string | undefined;
+
+  /**
+   * <p>The DNS label to associate with the IP address.</p>
+   * @public
+   */
+  dnsLabel: string | undefined;
+
+  /**
+   * <p>Indicates whether the IP address applies to all Amazon Web Services Regions or only to the specific Regions that you identify. When the value is <code>REGIONAL</code>, the Regions are listed in the <code>regions</code> field.</p>
+   * @public
+   */
+  regionScope: RegionScopeType | undefined;
+
+  /**
+   * <p>The Amazon Web Services Regions in which the IP address applies when the region scope is <code>REGIONAL</code>.</p>
+   * @public
+   */
+  regions?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCoreNetworkEndpointInput {
+  /**
+   * <p>A unique, case-sensitive identifier that ensures the request is idempotent. Making the same request multiple times with the same <code>clientToken</code> produces the same result every time.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Cloud WAN core network to connect to this endpoint.</p>
+   * @public
+   */
+  coreNetworkArn: string | undefined;
+
+  /**
+   * <p>The ID of the Route 53 Global Resolver to associate with this core network endpoint.</p>
+   * @public
+   */
+  globalResolverId: string | undefined;
+
+  /**
+   * <p>The IP addresses that the core network endpoint uses to resolve DNS queries within the Amazon Web Services Cloud WAN core network.</p>
+   * @public
+   */
+  ipAddresses: CoreNetworkEndpointDnsIpInputItem[] | undefined;
+
+  /**
+   * <p>A descriptive name for the core network endpoint.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>An array of user-defined keys and optional values that you can use to categorize and organize the core network endpoint.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A DNS IP address configuration returned for a core network endpoint. Each item describes an IP address that the endpoint uses to receive DNS queries, along with its DNS label and name, and the scope and Amazon Web Services Regions in which the address applies.</p>
+ * @public
+ */
+export interface CoreNetworkEndpointDnsIpItem {
+  /**
+   * <p>The IPv4 address that the core network endpoint uses to receive DNS queries.</p>
+   * @public
+   */
+  ipv4Address?: string | undefined;
+
+  /**
+   * <p>The IPv6 address that the core network endpoint uses to receive DNS queries.</p>
+   * @public
+   */
+  ipv6Address?: string | undefined;
+
+  /**
+   * <p>The DNS label associated with the IP address.</p>
+   * @public
+   */
+  dnsLabel: string | undefined;
+
+  /**
+   * <p>The fully qualified DNS name associated with the IP address.</p>
+   * @public
+   */
+  dnsName?: string | undefined;
+
+  /**
+   * <p>Indicates whether the IP address applies to all Amazon Web Services Regions or only to the specific Regions that you identify. When the value is <code>REGIONAL</code>, the Regions are listed in the <code>regions</code> field.</p>
+   * @public
+   */
+  regionScope: RegionScopeType | undefined;
+
+  /**
+   * <p>The Amazon Web Services Regions in which the IP address applies when the region scope is <code>REGIONAL</code>.</p>
+   * @public
+   */
+  regions?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCoreNetworkEndpointOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the core network endpoint.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Regions in which the core network endpoint is available.</p>
+   * @public
+   */
+  availableRegions: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Cloud WAN core network connected to the endpoint.</p>
+   * @public
+   */
+  coreNetworkArn: string | undefined;
+
+  /**
+   * <p>The date and time when the core network endpoint was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The ID of the Route 53 Global Resolver associated with the core network endpoint.</p>
+   * @public
+   */
+  globalResolverId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the core network endpoint.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The IP addresses that the core network endpoint uses to resolve DNS queries within the Amazon Web Services Cloud WAN core network.</p>
+   * @public
+   */
+  ipAddresses: CoreNetworkEndpointDnsIpItem[] | undefined;
+
+  /**
+   * <p>The name of the core network endpoint.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The current status of the core network endpoint.</p>
+   * @public
+   */
+  status: CRResourceStatus | undefined;
+
+  /**
+   * <p>The date and time when the core network endpoint was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCoreNetworkEndpointInput {
+  /**
+   * <p>The unique identifier of the core network endpoint to delete.</p>
+   * @public
+   */
+  coreNetworkEndpointId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCoreNetworkEndpointOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted core network endpoint.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Regions in which the deleted core network endpoint was available.</p>
+   * @public
+   */
+  availableRegions: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Cloud WAN core network that was connected to the deleted endpoint.</p>
+   * @public
+   */
+  coreNetworkArn: string | undefined;
+
+  /**
+   * <p>The date and time when the core network endpoint was originally created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The ID of the Route 53 Global Resolver that was associated with the deleted core network endpoint.</p>
+   * @public
+   */
+  globalResolverId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the deleted core network endpoint.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The IP addresses that the deleted core network endpoint used to resolve DNS queries within the Amazon Web Services Cloud WAN core network.</p>
+   * @public
+   */
+  ipAddresses: CoreNetworkEndpointDnsIpItem[] | undefined;
+
+  /**
+   * <p>The name of the deleted core network endpoint.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The final status of the deleted core network endpoint.</p>
+   * @public
+   */
+  status: CRResourceStatus | undefined;
+
+  /**
+   * <p>The date and time when the core network endpoint was last updated before deletion.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCoreNetworkEndpointInput {
+  /**
+   * <p>The unique identifier of the core network endpoint to retrieve information about.</p>
+   * @public
+   */
+  coreNetworkEndpointId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCoreNetworkEndpointOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the core network endpoint.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Regions in which the core network endpoint is available.</p>
+   * @public
+   */
+  availableRegions: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Cloud WAN core network connected to the endpoint.</p>
+   * @public
+   */
+  coreNetworkArn: string | undefined;
+
+  /**
+   * <p>The date and time when the core network endpoint was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The ID of the Route 53 Global Resolver associated with the core network endpoint.</p>
+   * @public
+   */
+  globalResolverId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the core network endpoint.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The IP addresses that the core network endpoint uses to resolve DNS queries within the Amazon Web Services Cloud WAN core network.</p>
+   * @public
+   */
+  ipAddresses: CoreNetworkEndpointDnsIpItem[] | undefined;
+
+  /**
+   * <p>The name of the core network endpoint.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The current status of the core network endpoint.</p>
+   * @public
+   */
+  status: CRResourceStatus | undefined;
+
+  /**
+   * <p>The date and time when the core network endpoint was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCoreNetworkEndpointsInput {
+  /**
+   * <p>The maximum number of results to retrieve in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A pagination token used for large sets of results that can't be returned in a single response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Values to filter the results.</p>
+   * @public
+   */
+  filters?: Record<string, string[]> | undefined;
+}
+
+/**
+ * <p>Summary information about a core network endpoint. Route 53 Global Resolver returns one of these items for each endpoint in the response to a <code>ListCoreNetworkEndpoints</code> request. Each item describes the endpoint's identifiers, the Global Resolver and Cloud WAN core network that it connects, its DNS IP addresses, and its current status.</p>
+ * @public
+ */
+export interface CoreNetworkEndpointsItem {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the core network endpoint.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Regions in which the core network endpoint is available.</p>
+   * @public
+   */
+  availableRegions: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Cloud WAN core network that the endpoint connects to.</p>
+   * @public
+   */
+  coreNetworkArn: string | undefined;
+
+  /**
+   * <p>The date and time when the core network endpoint was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The identifier of the Route 53 Global Resolver that the core network endpoint is associated with.</p>
+   * @public
+   */
+  globalResolverId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the core network endpoint.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The DNS IP addresses that the core network endpoint uses to receive DNS queries.</p>
+   * @public
+   */
+  ipAddresses: CoreNetworkEndpointDnsIpItem[] | undefined;
+
+  /**
+   * <p>The name of the core network endpoint.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The current status of the core network endpoint.</p>
+   * @public
+   */
+  status: CRResourceStatus | undefined;
+
+  /**
+   * <p>The date and time when the core network endpoint was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCoreNetworkEndpointsOutput {
+  /**
+   * <p>A pagination token used for large sets of results that can't be returned in a single response. Provide this token in the next call to get the results not returned in this call.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of information about the core network endpoints.</p>
+   * @public
+   */
+  coreNetworkEndpoints: CoreNetworkEndpointsItem[] | undefined;
+}
+
+/**
+ * <p>A single change to apply to the DNS IP addresses of a core network endpoint when you update it. Each entry specifies the operation to perform and the IP address details that the operation acts on.</p>
+ * @public
+ */
+export interface UpdateIpAddressEntry {
+  /**
+   * <p>The operation to perform on the IP address. Valid values are <code>ADD</code>, <code>REMOVE</code>, and <code>UPDATE</code>.</p>
+   * @public
+   */
+  operation: UpdateIpAddressOperation | undefined;
+
+  /**
+   * <p>The IPv4 address that the operation acts on.</p>
+   * @public
+   */
+  ipv4Address?: string | undefined;
+
+  /**
+   * <p>The IPv6 address that the operation acts on.</p>
+   * @public
+   */
+  ipv6Address?: string | undefined;
+
+  /**
+   * <p>The DNS label associated with the IP address.</p>
+   * @public
+   */
+  dnsLabel?: string | undefined;
+
+  /**
+   * <p>Indicates whether the IP address applies to all Amazon Web Services Regions or only to the specific Regions that you identify. When the value is <code>REGIONAL</code>, the Regions are listed in the <code>regions</code> field.</p>
+   * @public
+   */
+  regionScope?: RegionScopeType | undefined;
+
+  /**
+   * <p>The Amazon Web Services Regions in which the IP address applies when the region scope is <code>REGIONAL</code>.</p>
+   * @public
+   */
+  regions?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCoreNetworkEndpointInput {
+  /**
+   * <p>The unique identifier of the core network endpoint to update.</p>
+   * @public
+   */
+  coreNetworkEndpointId: string | undefined;
+
+  /**
+   * <p>The name of the core network endpoint.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The IP address changes to apply to the core network endpoint. Use this parameter to add or remove the IP addresses that the endpoint uses to resolve DNS queries within the Amazon Web Services Cloud WAN core network.</p>
+   * @public
+   */
+  updateIpAddresses?: UpdateIpAddressEntry[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCoreNetworkEndpointOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated core network endpoint.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Regions in which the updated core network endpoint is available.</p>
+   * @public
+   */
+  availableRegions: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Cloud WAN core network connected to the updated endpoint.</p>
+   * @public
+   */
+  coreNetworkArn: string | undefined;
+
+  /**
+   * <p>The date and time when the core network endpoint was originally created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The ID of the Route 53 Global Resolver associated with the updated core network endpoint.</p>
+   * @public
+   */
+  globalResolverId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the updated core network endpoint.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The IP addresses that the updated core network endpoint uses to resolve DNS queries within the Amazon Web Services Cloud WAN core network.</p>
+   * @public
+   */
+  ipAddresses: CoreNetworkEndpointDnsIpItem[] | undefined;
+
+  /**
+   * <p>The name of the updated core network endpoint.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The current status of the updated core network endpoint.</p>
+   * @public
+   */
+  status: CRResourceStatus | undefined;
+
+  /**
+   * <p>The date and time when the core network endpoint was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateDNSViewInput {
@@ -1968,6 +2621,12 @@ export interface CreateGlobalResolverInput {
   ipAddressType?: GlobalResolverIpAddressType | undefined;
 
   /**
+   * <p>Specifies the public IP connectivity to configure for the Route 53 Global Resolver. Public IP addresses let DNS clients send queries to the resolver over the internet. Valid values are the following:</p> <ul> <li> <p> <code>ENABLED_RESERVED</code> - Public IP connectivity is enabled, and the global anycast public IP addresses are reserved for the Route 53 Global Resolver.</p> </li> <li> <p> <code>DISABLED_RESERVED</code> - Public IP connectivity is disabled, and the global anycast public IP addresses remain reserved for the Route 53 Global Resolver.</p> </li> <li> <p> <code>DISABLED_RELEASED</code> - Public IP connectivity is disabled, and the global anycast public IP addresses are released.</p> </li> </ul>
+   * @public
+   */
+  publicIpStatus?: PublicIpStatus | undefined;
+
+  /**
    * <p>A descriptive name for the Route 53 Global Resolver instance. Maximum length of 64 characters.</p>
    * @public
    */
@@ -2037,6 +2696,12 @@ export interface CreateGlobalResolverOutput {
    * @public
    */
   ipAddressType?: GlobalResolverIpAddressType | undefined;
+
+  /**
+   * <p>The public IP connectivity configured for the Route 53 Global Resolver. Public IP addresses let DNS clients send queries to the resolver over the internet. Valid values are the following:</p> <ul> <li> <p> <code>ENABLED_RESERVED</code> - Public IP connectivity is enabled, and the global anycast public IP addresses are reserved for the Route 53 Global Resolver.</p> </li> <li> <p> <code>DISABLED_RESERVED</code> - Public IP connectivity is disabled, and the global anycast public IP addresses remain reserved for the Route 53 Global Resolver.</p> </li> <li> <p> <code>DISABLED_RELEASED</code> - Public IP connectivity is disabled, and the global anycast public IP addresses are released.</p> </li> </ul>
+   * @public
+   */
+  publicIpStatus?: PublicIpStatus | undefined;
 
   /**
    * <p>The global anycast IPv4 addresses associated with the Route 53 Global Resolver. DNS clients can send queries to these addresses from anywhere on the internet.</p>
@@ -2873,7 +3538,7 @@ export interface ListDNSViewsOutput {
   nextToken?: string | undefined;
 
   /**
-   * <p>An array of information about the DNS views, such as whether DNSSEC is enabled, creation time, etc.</p>
+   * <p>An array of information about the DNS views, such as whether DNSSEC is enabled and the creation time.</p>
    * @public
    */
   dnsViews: DNSViewSummary[] | undefined;
@@ -3859,6 +4524,12 @@ export interface GetGlobalResolverOutput {
    * @public
    */
   ipAddressType?: GlobalResolverIpAddressType | undefined;
+
+  /**
+   * <p>The public IP connectivity configured for the Route 53 Global Resolver. Public IP addresses let DNS clients send queries to the resolver over the internet. Valid values are the following:</p> <ul> <li> <p> <code>ENABLED_RESERVED</code> - Public IP connectivity is enabled, and the global anycast public IP addresses are reserved for the Route 53 Global Resolver.</p> </li> <li> <p> <code>DISABLED_RESERVED</code> - Public IP connectivity is disabled, and the global anycast public IP addresses remain reserved for the Route 53 Global Resolver.</p> </li> <li> <p> <code>DISABLED_RELEASED</code> - Public IP connectivity is disabled, and the global anycast public IP addresses are released.</p> </li> </ul>
+   * @public
+   */
+  publicIpStatus?: PublicIpStatus | undefined;
 }
 
 /**
@@ -3966,6 +4637,12 @@ export interface GlobalResolversItem {
    * @public
    */
   ipAddressType?: GlobalResolverIpAddressType | undefined;
+
+  /**
+   * <p>The public IP connectivity configured for the Route 53 Global Resolver. Public IP addresses let DNS clients send queries to the resolver over the internet. Valid values are the following:</p> <ul> <li> <p> <code>ENABLED_RESERVED</code> - Public IP connectivity is enabled, and the global anycast public IP addresses are reserved for the Route 53 Global Resolver.</p> </li> <li> <p> <code>DISABLED_RESERVED</code> - Public IP connectivity is disabled, and the global anycast public IP addresses remain reserved for the Route 53 Global Resolver.</p> </li> <li> <p> <code>DISABLED_RELEASED</code> - Public IP connectivity is disabled, and the global anycast public IP addresses are released.</p> </li> </ul>
+   * @public
+   */
+  publicIpStatus?: PublicIpStatus | undefined;
 }
 
 /**
@@ -4018,6 +4695,12 @@ export interface UpdateGlobalResolverInput {
    * @public
    */
   ipAddressType?: GlobalResolverIpAddressType | undefined;
+
+  /**
+   * <p>Specifies the public IP connectivity to configure for the Route 53 Global Resolver. Public IP addresses let DNS clients send queries to the resolver over the internet. Valid values are the following:</p> <ul> <li> <p> <code>ENABLED_RESERVED</code> - Public IP connectivity is enabled, and the global anycast public IP addresses are reserved for the Route 53 Global Resolver.</p> </li> <li> <p> <code>DISABLED_RESERVED</code> - Public IP connectivity is disabled, and the global anycast public IP addresses remain reserved for the Route 53 Global Resolver.</p> </li> <li> <p> <code>DISABLED_RELEASED</code> - Public IP connectivity is disabled, and the global anycast public IP addresses are released.</p> </li> </ul>
+   * @public
+   */
+  publicIpStatus?: PublicIpStatus | undefined;
 
   /**
    * <p>The list of Amazon Web Services Regions where the Global Resolver will operate. The resolver will be distributed across these Regions to provide global availability and low-latency DNS resolution.</p>
@@ -4113,6 +4796,12 @@ export interface UpdateGlobalResolverOutput {
    * @public
    */
   ipAddressType?: GlobalResolverIpAddressType | undefined;
+
+  /**
+   * <p>The public IP connectivity configured for the Route 53 Global Resolver. Public IP addresses let DNS clients send queries to the resolver over the internet. Valid values are the following:</p> <ul> <li> <p> <code>ENABLED_RESERVED</code> - Public IP connectivity is enabled, and the global anycast public IP addresses are reserved for the Route 53 Global Resolver.</p> </li> <li> <p> <code>DISABLED_RESERVED</code> - Public IP connectivity is disabled, and the global anycast public IP addresses remain reserved for the Route 53 Global Resolver.</p> </li> <li> <p> <code>DISABLED_RELEASED</code> - Public IP connectivity is disabled, and the global anycast public IP addresses are released.</p> </li> </ul>
+   * @public
+   */
+  publicIpStatus?: PublicIpStatus | undefined;
 }
 
 /**

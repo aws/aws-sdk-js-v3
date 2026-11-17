@@ -33,10 +33,12 @@ export interface CreateAccessSourceCommandOutput extends CreateAccessSourceOutpu
  * const config = {}; // type is Route53GlobalResolverClientConfig
  * const client = new Route53GlobalResolverClient(config);
  * const input = { // CreateAccessSourceInput
- *   cidr: "STRING_VALUE", // required
+ *   cidr: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
- *   ipAddressType: "IPV4" || "IPV6",
+ *   ipAddressType: "IPV4" || "IPV6" || "NONE",
  *   name: "STRING_VALUE",
+ *   coreNetworkEndpointId: "STRING_VALUE",
+ *   segment: "STRING_VALUE",
  *   dnsViewId: "STRING_VALUE", // required
  *   protocol: "DO53" || "DOH" || "DOT", // required
  *   tags: { // Tags
@@ -47,10 +49,12 @@ export interface CreateAccessSourceCommandOutput extends CreateAccessSourceOutpu
  * const response = await client.send(command);
  * // { // CreateAccessSourceOutput
  * //   arn: "STRING_VALUE", // required
- * //   cidr: "STRING_VALUE", // required
+ * //   cidr: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   id: "STRING_VALUE", // required
- * //   ipAddressType: "IPV4" || "IPV6", // required
+ * //   ipAddressType: "IPV4" || "IPV6" || "NONE",
+ * //   coreNetworkEndpointId: "STRING_VALUE",
+ * //   segment: "STRING_VALUE",
  * //   name: "STRING_VALUE",
  * //   dnsViewId: "STRING_VALUE", // required
  * //   protocol: "DO53" || "DOH" || "DOT", // required

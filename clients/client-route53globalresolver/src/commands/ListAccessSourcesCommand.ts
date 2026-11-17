@@ -48,13 +48,15 @@ export interface ListAccessSourcesCommandOutput extends ListAccessSourcesOutput,
  * //   accessSources: [ // AccessSources // required
  * //     { // AccessSourcesItem
  * //       arn: "STRING_VALUE", // required
- * //       cidr: "STRING_VALUE", // required
+ * //       cidr: "STRING_VALUE",
+ * //       coreNetworkEndpointId: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       id: "STRING_VALUE", // required
- * //       ipAddressType: "IPV4" || "IPV6", // required
+ * //       ipAddressType: "IPV4" || "IPV6" || "NONE",
  * //       name: "STRING_VALUE",
  * //       dnsViewId: "STRING_VALUE", // required
  * //       protocol: "DO53" || "DOH" || "DOT", // required
+ * //       segment: "STRING_VALUE",
  * //       status: "CREATING" || "OPERATIONAL" || "UPDATING" || "DELETING", // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //     },

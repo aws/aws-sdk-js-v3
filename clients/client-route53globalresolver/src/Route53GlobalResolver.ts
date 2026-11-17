@@ -38,6 +38,11 @@ import {
   CreateAccessTokenCommand,
 } from "./commands/CreateAccessTokenCommand";
 import {
+  type CreateCoreNetworkEndpointCommandInput,
+  type CreateCoreNetworkEndpointCommandOutput,
+  CreateCoreNetworkEndpointCommand,
+} from "./commands/CreateCoreNetworkEndpointCommand";
+import {
   type CreateDNSViewCommandInput,
   type CreateDNSViewCommandOutput,
   CreateDNSViewCommand,
@@ -67,6 +72,11 @@ import {
   type DeleteAccessTokenCommandOutput,
   DeleteAccessTokenCommand,
 } from "./commands/DeleteAccessTokenCommand";
+import {
+  type DeleteCoreNetworkEndpointCommandInput,
+  type DeleteCoreNetworkEndpointCommandOutput,
+  DeleteCoreNetworkEndpointCommand,
+} from "./commands/DeleteCoreNetworkEndpointCommand";
 import {
   type DeleteDNSViewCommandInput,
   type DeleteDNSViewCommandOutput,
@@ -113,6 +123,11 @@ import {
   GetAccessTokenCommand,
 } from "./commands/GetAccessTokenCommand";
 import {
+  type GetCoreNetworkEndpointCommandInput,
+  type GetCoreNetworkEndpointCommandOutput,
+  GetCoreNetworkEndpointCommand,
+} from "./commands/GetCoreNetworkEndpointCommand";
+import {
   type GetDNSViewCommandInput,
   type GetDNSViewCommandOutput,
   GetDNSViewCommand,
@@ -157,6 +172,11 @@ import {
   type ListAccessTokensCommandOutput,
   ListAccessTokensCommand,
 } from "./commands/ListAccessTokensCommand";
+import {
+  type ListCoreNetworkEndpointsCommandInput,
+  type ListCoreNetworkEndpointsCommandOutput,
+  ListCoreNetworkEndpointsCommand,
+} from "./commands/ListCoreNetworkEndpointsCommand";
 import {
   type ListDNSViewsCommandInput,
   type ListDNSViewsCommandOutput,
@@ -223,6 +243,11 @@ import {
   UpdateAccessTokenCommand,
 } from "./commands/UpdateAccessTokenCommand";
 import {
+  type UpdateCoreNetworkEndpointCommandInput,
+  type UpdateCoreNetworkEndpointCommandOutput,
+  UpdateCoreNetworkEndpointCommand,
+} from "./commands/UpdateCoreNetworkEndpointCommand";
+import {
   type UpdateDNSViewCommandInput,
   type UpdateDNSViewCommandOutput,
   UpdateDNSViewCommand,
@@ -249,6 +274,7 @@ import {
 } from "./commands/UpdateHostedZoneAssociationCommand";
 import { paginateListAccessSources } from "./pagination/ListAccessSourcesPaginator";
 import { paginateListAccessTokens } from "./pagination/ListAccessTokensPaginator";
+import { paginateListCoreNetworkEndpoints } from "./pagination/ListCoreNetworkEndpointsPaginator";
 import { paginateListDNSViews } from "./pagination/ListDNSViewsPaginator";
 import { paginateListFirewallDomainLists } from "./pagination/ListFirewallDomainListsPaginator";
 import { paginateListFirewallDomains } from "./pagination/ListFirewallDomainsPaginator";
@@ -266,12 +292,14 @@ const commands = {
   BatchUpdateFirewallRuleCommand,
   CreateAccessSourceCommand,
   CreateAccessTokenCommand,
+  CreateCoreNetworkEndpointCommand,
   CreateDNSViewCommand,
   CreateFirewallDomainListCommand,
   CreateFirewallRuleCommand,
   CreateGlobalResolverCommand,
   DeleteAccessSourceCommand,
   DeleteAccessTokenCommand,
+  DeleteCoreNetworkEndpointCommand,
   DeleteDNSViewCommand,
   DeleteFirewallDomainListCommand,
   DeleteFirewallRuleCommand,
@@ -281,6 +309,7 @@ const commands = {
   EnableDNSViewCommand,
   GetAccessSourceCommand,
   GetAccessTokenCommand,
+  GetCoreNetworkEndpointCommand,
   GetDNSViewCommand,
   GetFirewallDomainListCommand,
   GetFirewallRuleCommand,
@@ -290,6 +319,7 @@ const commands = {
   ImportFirewallDomainsCommand,
   ListAccessSourcesCommand,
   ListAccessTokensCommand,
+  ListCoreNetworkEndpointsCommand,
   ListDNSViewsCommand,
   ListFirewallDomainListsCommand,
   ListFirewallDomainsCommand,
@@ -303,6 +333,7 @@ const commands = {
   UntagResourceCommand,
   UpdateAccessSourceCommand,
   UpdateAccessTokenCommand,
+  UpdateCoreNetworkEndpointCommand,
   UpdateDNSViewCommand,
   UpdateFirewallDomainsCommand,
   UpdateFirewallRuleCommand,
@@ -312,6 +343,7 @@ const commands = {
 const paginators = {
   paginateListAccessSources,
   paginateListAccessTokens,
+  paginateListCoreNetworkEndpoints,
   paginateListDNSViews,
   paginateListFirewallDomainLists,
   paginateListFirewallDomains,
@@ -433,6 +465,23 @@ export interface Route53GlobalResolver {
   ): void;
 
   /**
+   * @see {@link CreateCoreNetworkEndpointCommand}
+   */
+  createCoreNetworkEndpoint(
+    args: CreateCoreNetworkEndpointCommandInput,
+    options?: Route53GlobalResolverRequestOptions
+  ): Promise<CreateCoreNetworkEndpointCommandOutput>;
+  createCoreNetworkEndpoint(
+    args: CreateCoreNetworkEndpointCommandInput,
+    cb: (err: any, data?: CreateCoreNetworkEndpointCommandOutput) => void
+  ): void;
+  createCoreNetworkEndpoint(
+    args: CreateCoreNetworkEndpointCommandInput,
+    options: Route53GlobalResolverRequestOptions,
+    cb: (err: any, data?: CreateCoreNetworkEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateDNSViewCommand}
    */
   createDNSView(
@@ -532,6 +581,23 @@ export interface Route53GlobalResolver {
     args: DeleteAccessTokenCommandInput,
     options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: DeleteAccessTokenCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCoreNetworkEndpointCommand}
+   */
+  deleteCoreNetworkEndpoint(
+    args: DeleteCoreNetworkEndpointCommandInput,
+    options?: Route53GlobalResolverRequestOptions
+  ): Promise<DeleteCoreNetworkEndpointCommandOutput>;
+  deleteCoreNetworkEndpoint(
+    args: DeleteCoreNetworkEndpointCommandInput,
+    cb: (err: any, data?: DeleteCoreNetworkEndpointCommandOutput) => void
+  ): void;
+  deleteCoreNetworkEndpoint(
+    args: DeleteCoreNetworkEndpointCommandInput,
+    options: Route53GlobalResolverRequestOptions,
+    cb: (err: any, data?: DeleteCoreNetworkEndpointCommandOutput) => void
   ): void;
 
   /**
@@ -688,6 +754,23 @@ export interface Route53GlobalResolver {
   ): void;
 
   /**
+   * @see {@link GetCoreNetworkEndpointCommand}
+   */
+  getCoreNetworkEndpoint(
+    args: GetCoreNetworkEndpointCommandInput,
+    options?: Route53GlobalResolverRequestOptions
+  ): Promise<GetCoreNetworkEndpointCommandOutput>;
+  getCoreNetworkEndpoint(
+    args: GetCoreNetworkEndpointCommandInput,
+    cb: (err: any, data?: GetCoreNetworkEndpointCommandOutput) => void
+  ): void;
+  getCoreNetworkEndpoint(
+    args: GetCoreNetworkEndpointCommandInput,
+    options: Route53GlobalResolverRequestOptions,
+    cb: (err: any, data?: GetCoreNetworkEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDNSViewCommand}
    */
   getDNSView(
@@ -839,6 +922,24 @@ export interface Route53GlobalResolver {
     args: ListAccessTokensCommandInput,
     options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: ListAccessTokensCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCoreNetworkEndpointsCommand}
+   */
+  listCoreNetworkEndpoints(): Promise<ListCoreNetworkEndpointsCommandOutput>;
+  listCoreNetworkEndpoints(
+    args: ListCoreNetworkEndpointsCommandInput,
+    options?: Route53GlobalResolverRequestOptions
+  ): Promise<ListCoreNetworkEndpointsCommandOutput>;
+  listCoreNetworkEndpoints(
+    args: ListCoreNetworkEndpointsCommandInput,
+    cb: (err: any, data?: ListCoreNetworkEndpointsCommandOutput) => void
+  ): void;
+  listCoreNetworkEndpoints(
+    args: ListCoreNetworkEndpointsCommandInput,
+    options: Route53GlobalResolverRequestOptions,
+    cb: (err: any, data?: ListCoreNetworkEndpointsCommandOutput) => void
   ): void;
 
   /**
@@ -1067,6 +1168,23 @@ export interface Route53GlobalResolver {
   ): void;
 
   /**
+   * @see {@link UpdateCoreNetworkEndpointCommand}
+   */
+  updateCoreNetworkEndpoint(
+    args: UpdateCoreNetworkEndpointCommandInput,
+    options?: Route53GlobalResolverRequestOptions
+  ): Promise<UpdateCoreNetworkEndpointCommandOutput>;
+  updateCoreNetworkEndpoint(
+    args: UpdateCoreNetworkEndpointCommandInput,
+    cb: (err: any, data?: UpdateCoreNetworkEndpointCommandOutput) => void
+  ): void;
+  updateCoreNetworkEndpoint(
+    args: UpdateCoreNetworkEndpointCommandInput,
+    options: Route53GlobalResolverRequestOptions,
+    cb: (err: any, data?: UpdateCoreNetworkEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateDNSViewCommand}
    */
   updateDNSView(
@@ -1172,6 +1290,17 @@ export interface Route53GlobalResolver {
     args: ListAccessTokensCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListAccessTokensCommandOutput>;
+
+  /**
+   * @see {@link ListCoreNetworkEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCoreNetworkEndpointsCommandOutput}.
+   */
+  paginateListCoreNetworkEndpoints(
+    args?: ListCoreNetworkEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCoreNetworkEndpointsCommandOutput>;
 
   /**
    * @see {@link ListDNSViewsCommand}

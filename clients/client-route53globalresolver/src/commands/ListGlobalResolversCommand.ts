@@ -62,6 +62,7 @@ export interface ListGlobalResolversCommandOutput extends ListGlobalResolversOut
  * //         "STRING_VALUE",
  * //       ],
  * //       ipAddressType: "IPV4" || "DUAL_STACK",
+ * //       publicIpStatus: "ENABLED_RESERVED" || "DISABLED_RESERVED" || "DISABLED_RELEASED",
  * //     },
  * //   ],
  * // };

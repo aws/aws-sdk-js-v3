@@ -36,6 +36,7 @@ export interface CreateGlobalResolverCommandOutput extends CreateGlobalResolverO
  *   clientToken: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   ipAddressType: "IPV4" || "DUAL_STACK",
+ *   publicIpStatus: "ENABLED_RESERVED" || "DISABLED_RESERVED" || "DISABLED_RELEASED",
  *   name: "STRING_VALUE", // required
  *   observabilityRegion: "STRING_VALUE",
  *   regions: [ // Regions // required
@@ -55,6 +56,7 @@ export interface CreateGlobalResolverCommandOutput extends CreateGlobalResolverO
  * //   description: "STRING_VALUE",
  * //   dnsName: "STRING_VALUE", // required
  * //   ipAddressType: "IPV4" || "DUAL_STACK",
+ * //   publicIpStatus: "ENABLED_RESERVED" || "DISABLED_RESERVED" || "DISABLED_RELEASED",
  * //   ipv4Addresses: [ // IPv4Addresses // required
  * //     "STRING_VALUE",
  * //   ],

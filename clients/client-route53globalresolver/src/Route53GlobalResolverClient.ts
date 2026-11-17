@@ -78,6 +78,10 @@ import type {
   CreateAccessTokenCommandInput,
   CreateAccessTokenCommandOutput,
 } from "./commands/CreateAccessTokenCommand";
+import type {
+  CreateCoreNetworkEndpointCommandInput,
+  CreateCoreNetworkEndpointCommandOutput,
+} from "./commands/CreateCoreNetworkEndpointCommand";
 import type { CreateDNSViewCommandInput, CreateDNSViewCommandOutput } from "./commands/CreateDNSViewCommand";
 import type {
   CreateFirewallDomainListCommandInput,
@@ -99,6 +103,10 @@ import type {
   DeleteAccessTokenCommandInput,
   DeleteAccessTokenCommandOutput,
 } from "./commands/DeleteAccessTokenCommand";
+import type {
+  DeleteCoreNetworkEndpointCommandInput,
+  DeleteCoreNetworkEndpointCommandOutput,
+} from "./commands/DeleteCoreNetworkEndpointCommand";
 import type { DeleteDNSViewCommandInput, DeleteDNSViewCommandOutput } from "./commands/DeleteDNSViewCommand";
 import type {
   DeleteFirewallDomainListCommandInput,
@@ -120,6 +128,10 @@ import type {
 import type { EnableDNSViewCommandInput, EnableDNSViewCommandOutput } from "./commands/EnableDNSViewCommand";
 import type { GetAccessSourceCommandInput, GetAccessSourceCommandOutput } from "./commands/GetAccessSourceCommand";
 import type { GetAccessTokenCommandInput, GetAccessTokenCommandOutput } from "./commands/GetAccessTokenCommand";
+import type {
+  GetCoreNetworkEndpointCommandInput,
+  GetCoreNetworkEndpointCommandOutput,
+} from "./commands/GetCoreNetworkEndpointCommand";
 import type { GetDNSViewCommandInput, GetDNSViewCommandOutput } from "./commands/GetDNSViewCommand";
 import type {
   GetFirewallDomainListCommandInput,
@@ -147,6 +159,10 @@ import type {
   ListAccessSourcesCommandOutput,
 } from "./commands/ListAccessSourcesCommand";
 import type { ListAccessTokensCommandInput, ListAccessTokensCommandOutput } from "./commands/ListAccessTokensCommand";
+import type {
+  ListCoreNetworkEndpointsCommandInput,
+  ListCoreNetworkEndpointsCommandOutput,
+} from "./commands/ListCoreNetworkEndpointsCommand";
 import type { ListDNSViewsCommandInput, ListDNSViewsCommandOutput } from "./commands/ListDNSViewsCommand";
 import type {
   ListFirewallDomainListsCommandInput,
@@ -190,6 +206,10 @@ import type {
   UpdateAccessTokenCommandInput,
   UpdateAccessTokenCommandOutput,
 } from "./commands/UpdateAccessTokenCommand";
+import type {
+  UpdateCoreNetworkEndpointCommandInput,
+  UpdateCoreNetworkEndpointCommandOutput,
+} from "./commands/UpdateCoreNetworkEndpointCommand";
 import type { UpdateDNSViewCommandInput, UpdateDNSViewCommandOutput } from "./commands/UpdateDNSViewCommand";
 import type {
   UpdateFirewallDomainsCommandInput,
@@ -228,12 +248,14 @@ export type ServiceInputTypes =
   | BatchUpdateFirewallRuleCommandInput
   | CreateAccessSourceCommandInput
   | CreateAccessTokenCommandInput
+  | CreateCoreNetworkEndpointCommandInput
   | CreateDNSViewCommandInput
   | CreateFirewallDomainListCommandInput
   | CreateFirewallRuleCommandInput
   | CreateGlobalResolverCommandInput
   | DeleteAccessSourceCommandInput
   | DeleteAccessTokenCommandInput
+  | DeleteCoreNetworkEndpointCommandInput
   | DeleteDNSViewCommandInput
   | DeleteFirewallDomainListCommandInput
   | DeleteFirewallRuleCommandInput
@@ -243,6 +265,7 @@ export type ServiceInputTypes =
   | EnableDNSViewCommandInput
   | GetAccessSourceCommandInput
   | GetAccessTokenCommandInput
+  | GetCoreNetworkEndpointCommandInput
   | GetDNSViewCommandInput
   | GetFirewallDomainListCommandInput
   | GetFirewallRuleCommandInput
@@ -252,6 +275,7 @@ export type ServiceInputTypes =
   | ImportFirewallDomainsCommandInput
   | ListAccessSourcesCommandInput
   | ListAccessTokensCommandInput
+  | ListCoreNetworkEndpointsCommandInput
   | ListDNSViewsCommandInput
   | ListFirewallDomainListsCommandInput
   | ListFirewallDomainsCommandInput
@@ -265,6 +289,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAccessSourceCommandInput
   | UpdateAccessTokenCommandInput
+  | UpdateCoreNetworkEndpointCommandInput
   | UpdateDNSViewCommandInput
   | UpdateFirewallDomainsCommandInput
   | UpdateFirewallRuleCommandInput
@@ -281,12 +306,14 @@ export type ServiceOutputTypes =
   | BatchUpdateFirewallRuleCommandOutput
   | CreateAccessSourceCommandOutput
   | CreateAccessTokenCommandOutput
+  | CreateCoreNetworkEndpointCommandOutput
   | CreateDNSViewCommandOutput
   | CreateFirewallDomainListCommandOutput
   | CreateFirewallRuleCommandOutput
   | CreateGlobalResolverCommandOutput
   | DeleteAccessSourceCommandOutput
   | DeleteAccessTokenCommandOutput
+  | DeleteCoreNetworkEndpointCommandOutput
   | DeleteDNSViewCommandOutput
   | DeleteFirewallDomainListCommandOutput
   | DeleteFirewallRuleCommandOutput
@@ -296,6 +323,7 @@ export type ServiceOutputTypes =
   | EnableDNSViewCommandOutput
   | GetAccessSourceCommandOutput
   | GetAccessTokenCommandOutput
+  | GetCoreNetworkEndpointCommandOutput
   | GetDNSViewCommandOutput
   | GetFirewallDomainListCommandOutput
   | GetFirewallRuleCommandOutput
@@ -305,6 +333,7 @@ export type ServiceOutputTypes =
   | ImportFirewallDomainsCommandOutput
   | ListAccessSourcesCommandOutput
   | ListAccessTokensCommandOutput
+  | ListCoreNetworkEndpointsCommandOutput
   | ListDNSViewsCommandOutput
   | ListFirewallDomainListsCommandOutput
   | ListFirewallDomainsCommandOutput
@@ -318,6 +347,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAccessSourceCommandOutput
   | UpdateAccessTokenCommandOutput
+  | UpdateCoreNetworkEndpointCommandOutput
   | UpdateDNSViewCommandOutput
   | UpdateFirewallDomainsCommandOutput
   | UpdateFirewallRuleCommandOutput

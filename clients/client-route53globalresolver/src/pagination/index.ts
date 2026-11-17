@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListAccessSourcesPaginator";
 export * from "./ListAccessTokensPaginator";
+export * from "./ListCoreNetworkEndpointsPaginator";
 export * from "./ListDNSViewsPaginator";
 export * from "./ListFirewallDomainListsPaginator";
 export * from "./ListFirewallDomainsPaginator";

@@ -6,6 +6,7 @@
 export const IpAddressType = {
   IPV4: "IPV4",
   IPV6: "IPV6",
+  NONE: "NONE",
 } as const;
 /**
  * @public
@@ -157,6 +158,48 @@ export type DnsAdvancedProtection = (typeof DnsAdvancedProtection)[keyof typeof 
  * @public
  * @enum
  */
+export const RegionScopeType = {
+  /**
+   * <p>The IP address applies to all Amazon Web Services Regions in which the core network endpoint is available.</p>
+   */
+  ALL: "ALL",
+  /**
+   * <p>The IP address applies only to the specific Amazon Web Services Regions that you identify in the <code>regions</code> field.</p>
+   */
+  REGIONAL: "REGIONAL",
+} as const;
+/**
+ * @public
+ */
+export type RegionScopeType = (typeof RegionScopeType)[keyof typeof RegionScopeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateIpAddressOperation = {
+  /**
+   * <p>Adds a new DNS IP address to the core network endpoint.</p>
+   */
+  ADD: "ADD",
+  /**
+   * <p>Removes an existing DNS IP address from the core network endpoint.</p>
+   */
+  REMOVE: "REMOVE",
+  /**
+   * <p>Updates the configuration of an existing DNS IP address on the core network endpoint.</p>
+   */
+  UPDATE: "UPDATE",
+} as const;
+/**
+ * @public
+ */
+export type UpdateIpAddressOperation = (typeof UpdateIpAddressOperation)[keyof typeof UpdateIpAddressOperation];
+
+/**
+ * @public
+ * @enum
+ */
 export const DnsSecValidationType = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -223,3 +266,17 @@ export const GlobalResolverIpAddressType = {
  */
 export type GlobalResolverIpAddressType =
   (typeof GlobalResolverIpAddressType)[keyof typeof GlobalResolverIpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PublicIpStatus = {
+  DISABLED_RELEASED: "DISABLED_RELEASED",
+  DISABLED_RESERVED: "DISABLED_RESERVED",
+  ENABLED_RESERVED: "ENABLED_RESERVED",
+} as const;
+/**
+ * @public
+ */
+export type PublicIpStatus = (typeof PublicIpStatus)[keyof typeof PublicIpStatus];

@@ -38,6 +38,7 @@ export interface UpdateGlobalResolverCommandOutput extends UpdateGlobalResolverO
  *   observabilityRegion: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   ipAddressType: "IPV4" || "DUAL_STACK",
+ *   publicIpStatus: "ENABLED_RESERVED" || "DISABLED_RESERVED" || "DISABLED_RELEASED",
  *   regions: [ // Regions
  *     "STRING_VALUE",
  *   ],
@@ -65,6 +66,7 @@ export interface UpdateGlobalResolverCommandOutput extends UpdateGlobalResolverO
  * //     "STRING_VALUE",
  * //   ],
  * //   ipAddressType: "IPV4" || "DUAL_STACK",
+ * //   publicIpStatus: "ENABLED_RESERVED" || "DISABLED_RESERVED" || "DISABLED_RELEASED",
  * // };
  *
  * ```

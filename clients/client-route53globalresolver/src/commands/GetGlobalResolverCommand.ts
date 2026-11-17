@@ -58,6 +58,7 @@ export interface GetGlobalResolverCommandOutput extends GetGlobalResolverOutput,
  * //     "STRING_VALUE",
  * //   ],
  * //   ipAddressType: "IPV4" || "DUAL_STACK",
+ * //   publicIpStatus: "ENABLED_RESERVED" || "DISABLED_RESERVED" || "DISABLED_RELEASED",
  * // };
  *
  * ```

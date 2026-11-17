@@ -32,6 +32,9 @@ import {
   ConfidenceThreshold,
   ConflictException,
   ConflictException$,
+  CoreNetworkEndpointDnsIpInputItem$,
+  CoreNetworkEndpointDnsIpItem$,
+  CoreNetworkEndpointsItem$,
   CreateAccessSource$,
   CreateAccessSourceCommand,
   CreateAccessSourceInput$,
@@ -40,6 +43,10 @@ import {
   CreateAccessTokenCommand,
   CreateAccessTokenInput$,
   CreateAccessTokenOutput$,
+  CreateCoreNetworkEndpoint$,
+  CreateCoreNetworkEndpointCommand,
+  CreateCoreNetworkEndpointInput$,
+  CreateCoreNetworkEndpointOutput$,
   CreateDNSView$,
   CreateDNSViewCommand,
   CreateDNSViewInput$,
@@ -65,6 +72,10 @@ import {
   DeleteAccessTokenCommand,
   DeleteAccessTokenInput$,
   DeleteAccessTokenOutput$,
+  DeleteCoreNetworkEndpoint$,
+  DeleteCoreNetworkEndpointCommand,
+  DeleteCoreNetworkEndpointInput$,
+  DeleteCoreNetworkEndpointOutput$,
   DeleteDNSView$,
   DeleteDNSViewCommand,
   DeleteDNSViewInput$,
@@ -111,6 +122,10 @@ import {
   GetAccessTokenCommand,
   GetAccessTokenInput$,
   GetAccessTokenOutput$,
+  GetCoreNetworkEndpoint$,
+  GetCoreNetworkEndpointCommand,
+  GetCoreNetworkEndpointInput$,
+  GetCoreNetworkEndpointOutput$,
   GetDNSView$,
   GetDNSViewCommand,
   GetDNSViewInput$,
@@ -154,6 +169,10 @@ import {
   ListAccessTokensCommand,
   ListAccessTokensInput$,
   ListAccessTokensOutput$,
+  ListCoreNetworkEndpoints$,
+  ListCoreNetworkEndpointsCommand,
+  ListCoreNetworkEndpointsInput$,
+  ListCoreNetworkEndpointsOutput$,
   ListDNSViews$,
   ListDNSViewsCommand,
   ListDNSViewsInput$,
@@ -193,6 +212,7 @@ import {
   ManagedFirewallDomainListsItem$,
   paginateListAccessSources,
   paginateListAccessTokens,
+  paginateListCoreNetworkEndpoints,
   paginateListDNSViews,
   paginateListFirewallDomainLists,
   paginateListFirewallDomains,
@@ -202,6 +222,8 @@ import {
   paginateListManagedFirewallDomainLists,
   paginateListSharedDNSViews,
   ProfileResourceStatus,
+  PublicIpStatus,
+  RegionScopeType,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   Route53GlobalResolver,
@@ -229,6 +251,10 @@ import {
   UpdateAccessTokenCommand,
   UpdateAccessTokenInput$,
   UpdateAccessTokenOutput$,
+  UpdateCoreNetworkEndpoint$,
+  UpdateCoreNetworkEndpointCommand,
+  UpdateCoreNetworkEndpointInput$,
+  UpdateCoreNetworkEndpointOutput$,
   UpdateDNSView$,
   UpdateDNSViewCommand,
   UpdateDNSViewInput$,
@@ -249,6 +275,8 @@ import {
   UpdateHostedZoneAssociationCommand,
   UpdateHostedZoneAssociationInput$,
   UpdateHostedZoneAssociationOutput$,
+  UpdateIpAddressEntry$,
+  UpdateIpAddressOperation,
   ValidationException,
   ValidationException$,
   ValidationExceptionField$,
@@ -271,6 +299,8 @@ assert(typeof CreateAccessSourceCommand === "function");
 assert(typeof CreateAccessSource$ === "object");
 assert(typeof CreateAccessTokenCommand === "function");
 assert(typeof CreateAccessToken$ === "object");
+assert(typeof CreateCoreNetworkEndpointCommand === "function");
+assert(typeof CreateCoreNetworkEndpoint$ === "object");
 assert(typeof CreateDNSViewCommand === "function");
 assert(typeof CreateDNSView$ === "object");
 assert(typeof CreateFirewallDomainListCommand === "function");
@@ -283,6 +313,8 @@ assert(typeof DeleteAccessSourceCommand === "function");
 assert(typeof DeleteAccessSource$ === "object");
 assert(typeof DeleteAccessTokenCommand === "function");
 assert(typeof DeleteAccessToken$ === "object");
+assert(typeof DeleteCoreNetworkEndpointCommand === "function");
+assert(typeof DeleteCoreNetworkEndpoint$ === "object");
 assert(typeof DeleteDNSViewCommand === "function");
 assert(typeof DeleteDNSView$ === "object");
 assert(typeof DeleteFirewallDomainListCommand === "function");
@@ -301,6 +333,8 @@ assert(typeof GetAccessSourceCommand === "function");
 assert(typeof GetAccessSource$ === "object");
 assert(typeof GetAccessTokenCommand === "function");
 assert(typeof GetAccessToken$ === "object");
+assert(typeof GetCoreNetworkEndpointCommand === "function");
+assert(typeof GetCoreNetworkEndpoint$ === "object");
 assert(typeof GetDNSViewCommand === "function");
 assert(typeof GetDNSView$ === "object");
 assert(typeof GetFirewallDomainListCommand === "function");
@@ -319,6 +353,8 @@ assert(typeof ListAccessSourcesCommand === "function");
 assert(typeof ListAccessSources$ === "object");
 assert(typeof ListAccessTokensCommand === "function");
 assert(typeof ListAccessTokens$ === "object");
+assert(typeof ListCoreNetworkEndpointsCommand === "function");
+assert(typeof ListCoreNetworkEndpoints$ === "object");
 assert(typeof ListDNSViewsCommand === "function");
 assert(typeof ListDNSViews$ === "object");
 assert(typeof ListFirewallDomainListsCommand === "function");
@@ -345,6 +381,8 @@ assert(typeof UpdateAccessSourceCommand === "function");
 assert(typeof UpdateAccessSource$ === "object");
 assert(typeof UpdateAccessTokenCommand === "function");
 assert(typeof UpdateAccessToken$ === "object");
+assert(typeof UpdateCoreNetworkEndpointCommand === "function");
+assert(typeof UpdateCoreNetworkEndpoint$ === "object");
 assert(typeof UpdateDNSViewCommand === "function");
 assert(typeof UpdateDNSView$ === "object");
 assert(typeof UpdateFirewallDomainsCommand === "function");
@@ -375,10 +413,15 @@ assert(typeof BatchUpdateFirewallRuleInputItem$ === "object");
 assert(typeof BatchUpdateFirewallRuleOutput$ === "object");
 assert(typeof BatchUpdateFirewallRuleOutputItem$ === "object");
 assert(typeof BatchUpdateFirewallRuleResult$ === "object");
+assert(typeof CoreNetworkEndpointDnsIpInputItem$ === "object");
+assert(typeof CoreNetworkEndpointDnsIpItem$ === "object");
+assert(typeof CoreNetworkEndpointsItem$ === "object");
 assert(typeof CreateAccessSourceInput$ === "object");
 assert(typeof CreateAccessSourceOutput$ === "object");
 assert(typeof CreateAccessTokenInput$ === "object");
 assert(typeof CreateAccessTokenOutput$ === "object");
+assert(typeof CreateCoreNetworkEndpointInput$ === "object");
+assert(typeof CreateCoreNetworkEndpointOutput$ === "object");
 assert(typeof CreateDNSViewInput$ === "object");
 assert(typeof CreateDNSViewOutput$ === "object");
 assert(typeof CreateFirewallDomainListInput$ === "object");
@@ -391,6 +434,8 @@ assert(typeof DeleteAccessSourceInput$ === "object");
 assert(typeof DeleteAccessSourceOutput$ === "object");
 assert(typeof DeleteAccessTokenInput$ === "object");
 assert(typeof DeleteAccessTokenOutput$ === "object");
+assert(typeof DeleteCoreNetworkEndpointInput$ === "object");
+assert(typeof DeleteCoreNetworkEndpointOutput$ === "object");
 assert(typeof DeleteDNSViewInput$ === "object");
 assert(typeof DeleteDNSViewOutput$ === "object");
 assert(typeof DeleteFirewallDomainListInput$ === "object");
@@ -412,6 +457,8 @@ assert(typeof GetAccessSourceInput$ === "object");
 assert(typeof GetAccessSourceOutput$ === "object");
 assert(typeof GetAccessTokenInput$ === "object");
 assert(typeof GetAccessTokenOutput$ === "object");
+assert(typeof GetCoreNetworkEndpointInput$ === "object");
+assert(typeof GetCoreNetworkEndpointOutput$ === "object");
 assert(typeof GetDNSViewInput$ === "object");
 assert(typeof GetDNSViewOutput$ === "object");
 assert(typeof GetFirewallDomainListInput$ === "object");
@@ -432,6 +479,8 @@ assert(typeof ListAccessSourcesInput$ === "object");
 assert(typeof ListAccessSourcesOutput$ === "object");
 assert(typeof ListAccessTokensInput$ === "object");
 assert(typeof ListAccessTokensOutput$ === "object");
+assert(typeof ListCoreNetworkEndpointsInput$ === "object");
+assert(typeof ListCoreNetworkEndpointsOutput$ === "object");
 assert(typeof ListDNSViewsInput$ === "object");
 assert(typeof ListDNSViewsOutput$ === "object");
 assert(typeof ListFirewallDomainListsInput$ === "object");
@@ -460,6 +509,8 @@ assert(typeof UpdateAccessSourceInput$ === "object");
 assert(typeof UpdateAccessSourceOutput$ === "object");
 assert(typeof UpdateAccessTokenInput$ === "object");
 assert(typeof UpdateAccessTokenOutput$ === "object");
+assert(typeof UpdateCoreNetworkEndpointInput$ === "object");
+assert(typeof UpdateCoreNetworkEndpointOutput$ === "object");
 assert(typeof UpdateDNSViewInput$ === "object");
 assert(typeof UpdateDNSViewOutput$ === "object");
 assert(typeof UpdateFirewallDomainsInput$ === "object");
@@ -470,6 +521,7 @@ assert(typeof UpdateGlobalResolverInput$ === "object");
 assert(typeof UpdateGlobalResolverOutput$ === "object");
 assert(typeof UpdateHostedZoneAssociationInput$ === "object");
 assert(typeof UpdateHostedZoneAssociationOutput$ === "object");
+assert(typeof UpdateIpAddressEntry$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 // enums
 assert(typeof BlockOverrideDnsQueryType === "object");
@@ -486,7 +538,10 @@ assert(typeof GlobalResolverIpAddressType === "object");
 assert(typeof HostedZoneAssociationStatus === "object");
 assert(typeof IpAddressType === "object");
 assert(typeof ProfileResourceStatus === "object");
+assert(typeof PublicIpStatus === "object");
+assert(typeof RegionScopeType === "object");
 assert(typeof TokenStatus === "object");
+assert(typeof UpdateIpAddressOperation === "object");
 assert(typeof ValidationExceptionReason === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof Route53GlobalResolverServiceException);
@@ -507,6 +562,7 @@ assert(Route53GlobalResolverServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAccessSources === "function");
 assert(typeof paginateListAccessTokens === "function");
+assert(typeof paginateListCoreNetworkEndpoints === "function");
 assert(typeof paginateListDNSViews === "function");
 assert(typeof paginateListFirewallDomainLists === "function");
 assert(typeof paginateListFirewallDomains === "function");

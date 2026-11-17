@@ -223,6 +223,13 @@ CreateAccessToken
 </details>
 <details>
 <summary>
+CreateCoreNetworkEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53globalresolver/command/CreateCoreNetworkEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/CreateCoreNetworkEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/CreateCoreNetworkEndpointCommandOutput/)
+</details>
+<details>
+<summary>
 CreateDNSView
 </summary>
 
@@ -262,6 +269,13 @@ DeleteAccessToken
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53globalresolver/command/DeleteAccessTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/DeleteAccessTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/DeleteAccessTokenCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteCoreNetworkEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53globalresolver/command/DeleteCoreNetworkEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/DeleteCoreNetworkEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/DeleteCoreNetworkEndpointCommandOutput/)
 </details>
 <details>
 <summary>
@@ -328,6 +342,13 @@ GetAccessToken
 </details>
 <details>
 <summary>
+GetCoreNetworkEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53globalresolver/command/GetCoreNetworkEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/GetCoreNetworkEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/GetCoreNetworkEndpointCommandOutput/)
+</details>
+<details>
+<summary>
 GetDNSView
 </summary>
 
@@ -388,6 +409,13 @@ ListAccessTokens
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53globalresolver/command/ListAccessTokensCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/ListAccessTokensCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/ListAccessTokensCommandOutput/)
+</details>
+<details>
+<summary>
+ListCoreNetworkEndpoints
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53globalresolver/command/ListCoreNetworkEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/ListCoreNetworkEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/ListCoreNetworkEndpointsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -479,6 +507,13 @@ UpdateAccessToken
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53globalresolver/command/UpdateAccessTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/UpdateAccessTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/UpdateAccessTokenCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateCoreNetworkEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53globalresolver/command/UpdateCoreNetworkEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/UpdateCoreNetworkEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/UpdateCoreNetworkEndpointCommandOutput/)
 </details>
 <details>
 <summary>
