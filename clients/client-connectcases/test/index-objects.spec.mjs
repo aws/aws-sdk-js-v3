@@ -7,6 +7,7 @@ import {
   AuditEventPerformedBy$,
   AuditEventType,
   AuditMergeMetadata$,
+  AutoIncludeFields,
   BasicLayout$,
   BatchCreateRelatedItem$,
   BatchCreateRelatedItemCommand,
@@ -615,6 +616,7 @@ assert(typeof UpdateTemplateResponse$ === "object");
 assert(typeof UserUnion$ === "object");
 // enums
 assert(typeof AuditEventType === "object");
+assert(typeof AutoIncludeFields === "object");
 assert(typeof CommentBodyTextType === "object");
 assert(typeof DomainStatus === "object");
 assert(typeof FieldNamespace === "object");

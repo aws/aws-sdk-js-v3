@@ -136,6 +136,29 @@ export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
  * @public
  * @enum
  */
+export const AutoIncludeFields = {
+  /**
+   * All fields on the case
+   */
+  ALL: "All",
+  /**
+   * Custom fields only
+   */
+  CUSTOM: "Custom",
+  /**
+   * System fields only
+   */
+  SYSTEM: "System",
+} as const;
+/**
+ * @public
+ */
+export type AutoIncludeFields = (typeof AutoIncludeFields)[keyof typeof AutoIncludeFields];
+
+/**
+ * @public
+ * @enum
+ */
 export const SearchAllRelatedItemsSortProperty = {
   ASSOCIATION_TIME: "AssociationTime",
   CASE_ID: "CaseId",

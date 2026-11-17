@@ -144,6 +144,7 @@ export type {
   UpdateTemplateCommandInput,
   UpdateTemplateCommandOutput,
   AuditEventType,
+  AutoIncludeFields,
   CommentBodyTextType,
   DomainStatus,
   FieldNamespace,

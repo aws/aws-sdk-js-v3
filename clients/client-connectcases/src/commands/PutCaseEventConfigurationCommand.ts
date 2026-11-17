@@ -43,6 +43,7 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  *             id: "STRING_VALUE", // required
  *           },
  *         ],
+ *         autoIncludeFields: "STRING_VALUE",
  *       },
  *       relatedItemData: { // RelatedItemEventIncludedData
  *         includeContent: true || false, // required

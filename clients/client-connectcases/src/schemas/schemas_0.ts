@@ -290,6 +290,7 @@ const _VE = "ValidationException";
 const _a = "attributes";
 const _aA = "andAll";
 const _aE = "auditEvents";
+const _aIF = "autoIncludeFields";
 const _aT = "associationTime";
 const _ac = "active";
 const _ar = "arn";
@@ -654,8 +655,8 @@ export var BooleanOperands$: StaticStructureSchema = [3, n0, _BO,
 ];
 export var CaseEventIncludedData$: StaticStructureSchema = [3, n0, _CEID,
   0,
-  [_f],
-  [() => FieldIdentifierList], 1
+  [_f, _aIF],
+  [() => FieldIdentifierList, 0], 1
 ];
 export var CaseIdentifier$: StaticStructureSchema = [3, n0, _CI,
   0,
