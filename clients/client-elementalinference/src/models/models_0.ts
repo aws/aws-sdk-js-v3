@@ -1,11 +1,16 @@
 // smithy-typescript generated code
 import type {
+  BedrockApi,
+  ContextType,
   DataSourceSport,
   DictionaryLanguage,
   DictionaryStatus,
+  EventBridgeDeliveryMode,
   ExtendedAnalysisMode,
   FeedStatus,
   FilterName,
+  FrameSamplingMode,
+  FunctionStatus,
   OutputStatus,
   ProfanityFilterMode,
   ScheduleActionErrorCode,
@@ -63,6 +68,42 @@ export interface ClippingConfig {
 }
 
 /**
+ * <p>Identifies one version of a question set. You specify it in CustomQuestionsConfig.</p>
+ * @public
+ */
+export interface QuestionSetReference {
+  /**
+   * <p>The ID of the question set. The question set must be in your account.</p>
+   * @public
+   */
+  questionSetId: string | undefined;
+
+  /**
+   * <p>The version of the question set: DRAFT or the number of a published version. The version must exist. </p> <p>If you specify DRAFT, the output uses the current DRAFT questions and picks up changes that you make later by using UpdateQuestionSet. To keep the questions for the output fixed, specify a published version. </p>
+   * @public
+   */
+  version: string | undefined;
+}
+
+/**
+ * <p>The question sets that you ask Elemental Inference about the media in a contextual metadata output. You must specify at least one of shot or scene. They can reference the same version of the same question set. </p>
+ * @public
+ */
+export interface CustomQuestionsConfig {
+  /**
+   * <p>The version of a question set to ask Elemental Inference about each shot.</p>
+   * @public
+   */
+  shot?: QuestionSetReference | undefined;
+
+  /**
+   * <p>The version of a question set to ask Elemental Inference about each scene.</p>
+   * @public
+   */
+  scene?: QuestionSetReference | undefined;
+}
+
+/**
  * <p>The output configuration settings for the contextual metadata feature. Use this structure when the feed output generates metadata that describes the media content. </p>
  * @public
  */
@@ -74,10 +115,16 @@ export interface ContextualMetadataConfig {
   summaryGeneration?: SummaryGenerationMode | undefined;
 
   /**
-   * <p>Specifies whether Elemental Inference generates extended analysis of the media content for this output. Extended analysis identifies the people, environments, brands, and on-screen text in the media content. This setting is independent of <code>summaryGeneration</code>. </p> <p>Valid values:</p> <ul> <li> <p>ENABLED (default) – Elemental Inference populates the people, environments, brands, and on-screen text fields. </p> </li> <li> <p>DISABLED – Elemental Inference doesn't populate the people, environments, brands, and on-screen text fields. </p> </li> </ul>
+   * <p>Specifies whether Elemental Inference generates extended analysis of the media content for this output. Extended analysis identifies the people, environments, brands, and on-screen text in the media content. This setting is independent of <code>summaryGeneration</code>. </p> <p>Valid values:</p> <ul> <li> <p>ENABLED (default) – Elemental Inference populates the people, environments, brands, and on-screen text fields. </p> </li> <li> <p>DISABLED – Elemental Inference doesn't populate the people, environments, brands, and on-screen text fields. </p> </li> </ul> <p>If you specify <code>customQuestions</code>, you must set this property to DISABLED. </p>
    * @public
    */
   extendedAnalysis?: ExtendedAnalysisMode | undefined;
+
+  /**
+   * <p>The question sets that you ask Elemental Inference about each shot, each scene, or both, in this output. </p> <p>If you specify customQuestions, you must also set extendedAnalysis to DISABLED. If you omit extendedAnalysis, it defaults to ENABLED, and the request fails. </p> <p>While a feed references a version of a question set, you can't delete that version or the question set. </p>
+   * @public
+   */
+  customQuestions?: CustomQuestionsConfig | undefined;
 }
 
 /**
@@ -108,6 +155,255 @@ export interface CroppingConfig {
    * @public
    */
   templateGroups?: TemplateGroup[] | undefined;
+}
+
+/**
+ * <p>The event clipping output on this feed that provides events for a perClip trigger and media.clip for a function. Specify this structure for a perClip trigger, and for a function that references media.clip on a fixedInterval trigger. </p> <p>If the function output is ENABLED, the output that you name must also be ENABLED.</p>
+ * @public
+ */
+export interface ClippingSettings {
+  /**
+   * <p>The name of an ENABLED event clipping output on this feed.</p>
+   * @public
+   */
+  outputName: string | undefined;
+}
+
+/**
+ * <p>The contextual metadata output on this feed that provides scenes for a perScene trigger and media.contextual for a function. Specify this structure for a perScene trigger, and for a function that references media.contextual on a perShot trigger. </p> <p>If the function output is ENABLED, the output that you name must also be ENABLED.</p>
+ * @public
+ */
+export interface ContextualMetadataSettings {
+  /**
+   * <p>The name of an ENABLED contextual metadata output on this feed.</p>
+   * @public
+   */
+  outputName: string | undefined;
+}
+
+/**
+ * <p>Specifies how Elemental Inference chooses frames from the media of each run, and how many frames it chooses. The media of a run is the interval, shot, scene, or clips that the run covers. </p>
+ * @public
+ */
+export interface FrameSamplingStrategy {
+  /**
+   * <p>Which frames of the window to send: FIRST (the first frames), UNIFORM (frames spread evenly across the window), or LAST (the last frames). </p>
+   * @public
+   */
+  mode: FrameSamplingMode | undefined;
+
+  /**
+   * <p>The number of frames to send on each run. Valid range: 1 to 64. The default is 1. Each frame adds to the size of the model request and to what the model charges for it. </p>
+   * @public
+   */
+  count?: number | undefined;
+}
+
+/**
+ * <p>The dimensions, in pixels, of each frame that a function sends. Elemental Inference resizes each frame to exactly this width and height. </p>
+ * @public
+ */
+export interface FrameSize {
+  /**
+   * <p>The width of each frame, in pixels. Valid range: 1 to 1280.</p>
+   * @public
+   */
+  widthPixels: number | undefined;
+
+  /**
+   * <p>The height of each frame, in pixels. Valid range: 1 to 720.</p>
+   * @public
+   */
+  heightPixels: number | undefined;
+}
+
+/**
+ * <p>The frames that a function receives in media.frames on each run: which frames, how many, and at what size. Elemental Inference applies these settings only to a function that references media.frames. </p> <p>When you add or change the function output, Elemental Inference estimates the size of the frames and rejects settings whose frames won't fit in one model request. To send more frames in each request, specify a smaller frameSize. </p>
+ * @public
+ */
+export interface FrameSettings {
+  /**
+   * <p>The method for choosing which frames to send.</p>
+   * @public
+   */
+  frameSampling: FrameSamplingStrategy | undefined;
+
+  /**
+   * <p>The size to resize each frame to. If you omit this structure, frames keep their source size. Smaller frames reduce the size of the model request. </p>
+   * @public
+   */
+  frameSize?: FrameSize | undefined;
+}
+
+/**
+ * <p>The smart subtitles output on this feed that a function reads media.transcript from. Specify this structure for a function that references media.transcript. That function must use a fixedInterval trigger. </p> <p>If the function output is ENABLED, the output that you name must also be ENABLED.</p>
+ * @public
+ */
+export interface SubtitlingSettings {
+  /**
+   * <p>The name of an ENABLED smart subtitles output on this feed.</p>
+   * @public
+   */
+  outputName: string | undefined;
+}
+
+/**
+ * <p>The settings of the fixedInterval trigger, which runs the function once for every intervalSeconds of content. A function that references media.transcript must use this trigger. You can't use this trigger with a function that references media.contextual. </p> <p>If the function references media.transcript, specify subtitlingSettings. If the function references media.clip, specify clippingSettings. Each run then receives the events that the event clipping output reported during the interval, in media.clip.events. </p>
+ * @public
+ */
+export interface FixedIntervalTrigger {
+  /**
+   * <p>The amount of content, in seconds, between runs of the function. Valid range: 1 to 60. For a function with eventBridgeDelivery set to ENABLED, the minimum is 4. </p>
+   * @public
+   */
+  intervalSeconds: number | undefined;
+}
+
+/**
+ * <p>The perClip trigger, which runs the function each time an event clipping output reports events. Events that the output reports together share one run, and media.clip.events contains all of them. To choose this trigger, set perClip to an empty object. </p> <p>Specify clippingSettings to name the event clipping output that reports the events. You can't use this trigger with a function that references media.transcript or media.contextual. </p>
+ * @public
+ */
+export interface ClipTrigger {}
+
+/**
+ * <p>The perScene trigger, which runs the function once for each scene that a contextual metadata output reports. The function runs after the scene ends, with the media of that scene. To choose this trigger, set perScene to an empty object. </p> <p>Specify contextualMetadataSettings to name the contextual metadata output that reports the scenes. You can't use this trigger with a function that references media.transcript or media.clip. </p>
+ * @public
+ */
+export interface SceneTrigger {}
+
+/**
+ * <p>The perShot trigger, which runs the function once for each shot that Elemental Inference detects in the video. The function runs after the shot ends, with the media of that shot. To choose this trigger, set perShot to an empty object. The feed must have a video input. </p> <p>You can't use this trigger with a function that references media.transcript or media.clip. If the function references media.contextual, specify contextualMetadataSettings. </p>
+ * @public
+ */
+export interface ShotTrigger {}
+
+/**
+ * <p>Determines when a function runs. Specify exactly one member.</p>
+ * @public
+ */
+export type Trigger =
+  | Trigger.FixedIntervalMember
+  | Trigger.PerClipMember
+  | Trigger.PerSceneMember
+  | Trigger.PerShotMember
+  | Trigger.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Trigger {
+  /**
+   * <p>Run the function at a fixed interval of content. This is the only trigger for a function that references media.transcript. Can't be used with a function that references media.contextual. </p>
+   * @public
+   */
+  export interface FixedIntervalMember {
+    fixedInterval: FixedIntervalTrigger;
+    perShot?: never;
+    perScene?: never;
+    perClip?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Run the function once for each shot that Elemental Inference detects. Can't be used with a function that references media.transcript or media.clip. </p>
+   * @public
+   */
+  export interface PerShotMember {
+    fixedInterval?: never;
+    perShot: ShotTrigger;
+    perScene?: never;
+    perClip?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Run the function once for each scene boundary that a contextual metadata output reports. Requires contextualMetadataSettings. Can't be used with a function that references media.transcript or media.clip. </p>
+   * @public
+   */
+  export interface PerSceneMember {
+    fixedInterval?: never;
+    perShot?: never;
+    perScene: SceneTrigger;
+    perClip?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Run the function once for each clip that an event clipping output detects. Requires clippingSettings. Can't be used with a function that references media.transcript or media.contextual. </p>
+   * @public
+   */
+  export interface PerClipMember {
+    fixedInterval?: never;
+    perShot?: never;
+    perScene?: never;
+    perClip: ClipTrigger;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    fixedInterval?: never;
+    perShot?: never;
+    perScene?: never;
+    perClip?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    fixedInterval: (value: FixedIntervalTrigger) => T;
+    perShot: (value: ShotTrigger) => T;
+    perScene: (value: SceneTrigger) => T;
+    perClip: (value: ClipTrigger) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The output configuration settings for a function. Use this structure to run a function on this feed. The name of the output is the name that you pass to GetMetadata to read the results. </p> <p>Include the settings that the function's media context and trigger require. Elemental Inference ignores settings that neither uses. It also rejects settings whose frames are estimated to exceed the size of a single model request. </p> <p>A feed that has an enabled function output must also have an enabled cropping, clipping, subtitling, or contextual metadata output. A feed that runs a function with a Bedrock target must specify an accessRoleArn. </p>
+ * @public
+ */
+export interface FunctionConfig {
+  /**
+   * <p>The ARN of the function to run. The function must exist in the same account and the same Region as the feed. </p>
+   * @public
+   */
+  functionArn: string | undefined;
+
+  /**
+   * <p>Determines when the function runs.</p>
+   * @public
+   */
+  trigger: Trigger | undefined;
+
+  /**
+   * <p>The frames to send on each run: how many, which ones, and at what size. Applies to a function that references media.frames. If you omit this structure, Elemental Inference sends the first frame of the window, at its source size. </p>
+   * @public
+   */
+  frameSettings?: FrameSettings | undefined;
+
+  /**
+   * <p>The smart subtitles output on this feed to read the transcript from. Required for a function that references media.transcript. </p>
+   * @public
+   */
+  subtitlingSettings?: SubtitlingSettings | undefined;
+
+  /**
+   * <p>The contextual metadata output on this feed to read scenes and classifications from. Required for a perScene trigger, and for a function that references media.contextual on a perShot trigger. </p>
+   * @public
+   */
+  contextualMetadataSettings?: ContextualMetadataSettings | undefined;
+
+  /**
+   * <p>The event clipping output on this feed to read clips from. Required for a perClip trigger, and for a function that references media.clip. </p>
+   * @public
+   */
+  clippingSettings?: ClippingSettings | undefined;
 }
 
 /**
@@ -148,6 +444,7 @@ export type OutputConfig =
   | OutputConfig.ClippingMember
   | OutputConfig.ContextualMetadataMember
   | OutputConfig.CroppingMember
+  | OutputConfig.FunctionMember
   | OutputConfig.SubtitlingMember
   | OutputConfig.$UnknownMember;
 
@@ -164,6 +461,7 @@ export namespace OutputConfig {
     clipping?: never;
     subtitling?: never;
     contextualMetadata?: never;
+    function?: never;
     $unknown?: never;
   }
 
@@ -176,6 +474,7 @@ export namespace OutputConfig {
     clipping: ClippingConfig;
     subtitling?: never;
     contextualMetadata?: never;
+    function?: never;
     $unknown?: never;
   }
 
@@ -188,6 +487,7 @@ export namespace OutputConfig {
     clipping?: never;
     subtitling: SubtitlingConfig;
     contextualMetadata?: never;
+    function?: never;
     $unknown?: never;
   }
 
@@ -200,6 +500,20 @@ export namespace OutputConfig {
     clipping?: never;
     subtitling?: never;
     contextualMetadata: ContextualMetadataConfig;
+    function?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The output config type that applies to a function.</p>
+   * @public
+   */
+  export interface FunctionMember {
+    cropping?: never;
+    clipping?: never;
+    subtitling?: never;
+    contextualMetadata?: never;
+    function: FunctionConfig;
     $unknown?: never;
   }
 
@@ -211,6 +525,7 @@ export namespace OutputConfig {
     clipping?: never;
     subtitling?: never;
     contextualMetadata?: never;
+    function?: never;
     $unknown: [string, any];
   }
 
@@ -223,6 +538,7 @@ export namespace OutputConfig {
     clipping: (value: ClippingConfig) => T;
     subtitling: (value: SubtitlingConfig) => T;
     contextualMetadata: (value: ContextualMetadataConfig) => T;
+    function: (value: FunctionConfig) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -301,6 +617,66 @@ export interface AssociateFeedResponse {
    * @public
    */
   id: string | undefined;
+}
+
+/**
+ * <p>An Amazon Bedrock model to invoke. Elemental Inference invokes the model in your account by assuming the feed's access role, so a feed that runs this function must specify an accessRoleArn. The invocation is subject to your Amazon Bedrock quotas and appears on your bill. </p>
+ * @public
+ */
+export interface BedrockFunctionTarget {
+  /**
+   * <p>The Amazon Bedrock API to call. The only valid value is INVOKE_MODEL.</p>
+   * @public
+   */
+  api: BedrockApi | undefined;
+
+  /**
+   * <p>The model to invoke. Specify one of the following:</p> <ul> <li> <p>A model ID.</p> </li> <li> <p>An inference profile ID.</p> </li> <li> <p>The ARN of a custom model.</p> </li> <li> <p>The ARN of a provisioned model.</p> </li> </ul> <p>Elemental Inference invokes the model in the Region of the feed. To use a model in other Regions, specify a cross-Region inference profile ID. A custom or provisioned model must be in the Region of the feed. </p> <p>The request expression must produce a request body that this model accepts, and the model must accept the kind of media that the request expression references. For example, a text-only model can't accept a request that references media.frames. </p>
+   * @public
+   */
+  model: string | undefined;
+}
+
+/**
+ * <p>An option in a yesNoPerOption question or a chooseOne question.</p>
+ * @public
+ */
+export interface QuestionOption {
+  /**
+   * <p>A name for the option. The name must be unique among the options of the question. The name can be up to 64 characters. It must start with a letter or an underscore, and can contain only the letters A-Z and a-z, the digits 0-9, and underscores. </p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The text of the option. The text must be unique among the options of the question, ignoring case. The text can be up to 16 bytes, encoded in UTF-8. It can contain the same characters as the text of a question. </p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * <p>A question that you ask Elemental Inference, which answers by choosing one of its options. You specify it in the chooseOne array of a question set. </p>
+ * @public
+ */
+export interface ChooseOneQuestion {
+  /**
+   * <p>A name for the question. The name must be unique among all the questions in the version, across all question types. The name can be up to 64 characters. It must start with a letter or an underscore, and can contain only the letters A-Z and a-z, the digits 0-9, and underscores. </p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The text of the question. The text can be up to 256 bytes, encoded in UTF-8. It can contain letters in any language, combining marks, digits, spaces, and the following characters: <code>. , ? ! ' " ( ) - : ; / &amp; %</code>, plus the curly apostrophe and quotation marks (U+2019, U+201C, and U+201D). </p>
+   * @public
+   */
+  question: string | undefined;
+
+  /**
+   * <p>The options that Elemental Inference chooses from. You can specify from 2 to 26 options. The question counts as one item toward the limit of 100 scored items in a version, regardless of how many options it has. </p>
+   * @public
+   */
+  options: QuestionOption[] | undefined;
 }
 
 /**
@@ -528,6 +904,443 @@ export interface CreateFeedResponse {
 
   /**
    * <p>Any tags that you included when you created the feed.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A target that invokes nothing. Elemental Inference evaluates your request expression, then evaluates your response expression against that result. If the function has no response expression, Elemental Inference stores the result of the request expression. </p> <p>A passthrough function can't reference media.frames. It also needs no access role on the feed. </p>
+ * @public
+ */
+export interface PassthroughFunctionTarget {}
+
+/**
+ * <p>The destination for the request that a function builds. Specify exactly one member.</p>
+ * @public
+ */
+export type FunctionTarget =
+  | FunctionTarget.BedrockMember
+  | FunctionTarget.PassthroughMember
+  | FunctionTarget.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FunctionTarget {
+  /**
+   * <p>Send the request to an Amazon Bedrock model.</p>
+   * @public
+   */
+  export interface BedrockMember {
+    bedrock: BedrockFunctionTarget;
+    passthrough?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Send the request nowhere. Use this target to reshape the metadata that Elemental Inference already produces, with no model invocation and no model charges. </p>
+   * @public
+   */
+  export interface PassthroughMember {
+    bedrock?: never;
+    passthrough: PassthroughFunctionTarget;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    bedrock?: never;
+    passthrough?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    bedrock: (value: BedrockFunctionTarget) => T;
+    passthrough: (value: PassthroughFunctionTarget) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateFunctionRequest {
+  /**
+   * <p>A name for this function.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The destination for the request that the function builds.</p>
+   * @public
+   */
+  target: FunctionTarget | undefined;
+
+  /**
+   * <p>The JSONata expression that builds the request. Elemental Inference evaluates it against the media object of the feed, which holds the media and metadata that the function asked for. Maximum length: 5,120 characters. </p> <p>When you save the function, Elemental Inference evaluates the expression against sample media and rejects it if the evaluation fails. For a Bedrock target, the result must be a JSON object; Elemental Inference doesn't check that the object is a valid request body for the model. The expression can reference at most one of media.transcript, media.contextual, and media.clip. For a passthrough target, it can't reference media.frames. </p>
+   * @public
+   */
+  requestExpression: string | undefined;
+
+  /**
+   * <p>The JSONata expression that selects what to store. Elemental Inference evaluates it against the result as its root: the model response for a Bedrock target, or the output of the request expression for a passthrough target. If a function has no response expression, Elemental Inference stores the entire result. Maximum length: 5,120 characters. </p> <p>When you save the function, Elemental Inference checks that the expression is valid JSONata. For a passthrough target, it also evaluates the request and response expressions together against sample media, and rejects them if they produce no value. </p>
+   * @public
+   */
+  responseExpression?: string | undefined;
+
+  /**
+   * <p>The description of the function. Maximum length: 1,024 characters.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Specifies whether Elemental Inference also sends this function's results to Amazon EventBridge. Elemental Inference sends a result only when the result is a JSON object with a top-level <code>eventBridge</code> field set to <code>true</code>. It sends the result, unchanged, as a Function Metadata Generated event to the default event bus in your account, after the result is available from GetMetadata. If the result is larger than 64 KB, the event has <code>resultOmitted</code> set to <code>true</code> in place of the result. </p> <p>Valid values:</p> <ul> <li> <p>ENABLED – Elemental Inference sends each marked result as an event.</p> </li> <li> <p>DISABLED (default) – Elemental Inference doesn't send events.</p> </li> </ul> <p>For a Bedrock target, ENABLED requires a response expression, because the model response itself never has a top-level <code>eventBridge</code> field. A feed output that runs a function with ENABLED can't use a fixedInterval trigger shorter than 4 seconds. </p>
+   * @public
+   */
+  eventBridgeDelivery?: EventBridgeDeliveryMode | undefined;
+
+  /**
+   * <p>The tags to associate with this function.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateFunctionResponse {
+  /**
+   * <p>The name of the function.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The destination for the request that the function builds.</p>
+   * @public
+   */
+  target: FunctionTarget | undefined;
+
+  /**
+   * <p>The JSONata expression that builds the request. Elemental Inference evaluates it against the media object of the feed, which holds the media and metadata that the function asked for. </p>
+   * @public
+   */
+  requestExpression: string | undefined;
+
+  /**
+   * <p>The JSONata expression that selects what to store. Elemental Inference evaluates it against the result as its root: the model response for a Bedrock target, or the output of the request expression for a passthrough target. If a function has no response expression, Elemental Inference stores the entire result. </p>
+   * @public
+   */
+  responseExpression?: string | undefined;
+
+  /**
+   * <p>The description of the function.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Indicates whether Elemental Inference also sends this function's results to Amazon EventBridge. With ENABLED, each result that is a JSON object with a top-level <code>eventBridge</code> field set to <code>true</code> is also sent as a Function Metadata Generated event to the default event bus in your account. </p>
+   * @public
+   */
+  eventBridgeDelivery?: EventBridgeDeliveryMode | undefined;
+
+  /**
+   * <p>The ARN of the function.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The ID of the function.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The status of the function. A successful request returns CREATING. The function is ready to use as soon as the request succeeds. </p>
+   * @public
+   */
+  status: FunctionStatus | undefined;
+
+  /**
+   * <p>The IDs of the feeds that have a function output, enabled or disabled, that references this function. While this list isn't empty, the function can't be deleted, and its name and target can't be changed. </p>
+   * @public
+   */
+  references?: string[] | undefined;
+
+  /**
+   * <p>The kinds of media context that this function uses. Elemental Inference derives this field from the media paths that the request expression references; you can't set it. An empty list means that the expression references no media, so Elemental Inference supplies none at run time. </p>
+   * @public
+   */
+  contextTypes?: ContextType[] | undefined;
+
+  /**
+   * <p>The tags associated with the function.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A question that you ask Elemental Inference, which answers with yes or no. You specify it in the yesNo array of a question set. </p>
+ * @public
+ */
+export interface YesNoQuestion {
+  /**
+   * <p>A name for the question. The name must be unique among all the questions in the version, across all question types. The name can be up to 64 characters. It must start with a letter or an underscore, and can contain only the letters A-Z and a-z, the digits 0-9, and underscores. </p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The text of the question. The text can be up to 256 bytes, encoded in UTF-8. It can contain letters in any language, combining marks, digits, spaces, and the following characters: <code>. , ? ! ' " ( ) - : ; / &amp; %</code>, plus the curly apostrophe and quotation marks (U+2019, U+201C, and U+201D). </p>
+   * @public
+   */
+  question: string | undefined;
+}
+
+/**
+ * <p>A question that you ask Elemental Inference separately about each of its options. Elemental Inference answers yes or no for each option. Word the question so that it fits any of the options. For example, ask Is this overlay visible? with one option for each overlay. You specify it in the yesNoPerOption array of a question set. </p>
+ * @public
+ */
+export interface YesNoPerOptionQuestion {
+  /**
+   * <p>A name for the question. The name must be unique among all the questions in the version, across all question types. The name can be up to 64 characters. It must start with a letter or an underscore, and can contain only the letters A-Z and a-z, the digits 0-9, and underscores. </p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The text of the question. The text can be up to 256 bytes, encoded in UTF-8. It can contain letters in any language, combining marks, digits, spaces, and the following characters: <code>. , ? ! ' " ( ) - : ; / &amp; %</code>, plus the curly apostrophe and quotation marks (U+2019, U+201C, and U+201D). </p>
+   * @public
+   */
+  question: string | undefined;
+
+  /**
+   * <p>The options that you ask the question about. You can specify from 1 to 50 options. Each option counts as one item toward the limit of 100 scored items in a version. </p>
+   * @public
+   */
+  options: QuestionOption[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQuestionSetRequest {
+  /**
+   * <p>An array of questions that Elemental Inference answers with yes or no. You can specify up to 50 yesNo questions. An empty array is the same as omitting this property. </p>
+   * @public
+   */
+  yesNo?: YesNoQuestion[] | undefined;
+
+  /**
+   * <p>An array of questions that you ask about each of their options. Elemental Inference answers yes or no for each option. You can specify up to 10 yesNoPerOption questions. An empty array is the same as omitting this property. </p>
+   * @public
+   */
+  yesNoPerOption?: YesNoPerOptionQuestion[] | undefined;
+
+  /**
+   * <p>An array of questions that Elemental Inference answers by choosing one of their options. You can specify up to 10 chooseOne questions. An empty array is the same as omitting this property. </p>
+   * @public
+   */
+  chooseOne?: ChooseOneQuestion[] | undefined;
+
+  /**
+   * <p>A user-friendly name for this question set.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Optional tags to associate with the question set. You can also add tags later, using TagResource. </p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQuestionSetResponse {
+  /**
+   * <p>The yesNo questions that you specified in the request, in the order that you specified them. Elemental Inference doesn't return this property if the request didn't include any yesNo questions. </p>
+   * @public
+   */
+  yesNo?: YesNoQuestion[] | undefined;
+
+  /**
+   * <p>The yesNoPerOption questions that you specified in the request, in the order that you specified them. Elemental Inference doesn't return this property if the request didn't include any yesNoPerOption questions. </p>
+   * @public
+   */
+  yesNoPerOption?: YesNoPerOptionQuestion[] | undefined;
+
+  /**
+   * <p>The chooseOne questions that you specified in the request, in the order that you specified them. Elemental Inference doesn't return this property if the request didn't include any chooseOne questions. </p>
+   * @public
+   */
+  chooseOne?: ChooseOneQuestion[] | undefined;
+
+  /**
+   * <p>The ARN of the question set.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>A unique ID that Elemental Inference assigns to the question set.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name that you specified in the request.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The version that this response describes. For CreateQuestionSet, the version is always DRAFT. </p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The description of the version. Elemental Inference doesn't return this property for CreateQuestionSet, because the DRAFT version has no description. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The number of the highest version that you have published for this question set. Elemental Inference doesn't return this property for CreateQuestionSet, because a new question set has no published versions. </p>
+   * @public
+   */
+  latestVersion?: string | undefined;
+
+  /**
+   * <p>The SHA-256 hash of the DRAFT version, as 64 lowercase hexadecimal characters. The hash covers the name of the question set and its questions. You can specify this value in a CreateQuestionSetVersion request, so that Elemental Inference publishes DRAFT only if it hasn't changed. </p>
+   * @public
+   */
+  sha256: string | undefined;
+
+  /**
+   * <p>A list of feed IDs that reference this version of the question set. For a new question set, the list is empty. </p>
+   * @public
+   */
+  references?: string[] | undefined;
+
+  /**
+   * <p>Any tags that you included when you created the question set.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQuestionSetVersionRequest {
+  /**
+   * <p>The ID of the question set whose DRAFT version you want to publish.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The SHA-256 hash of the DRAFT version that you want to publish, as returned by GetQuestionSet or UpdateQuestionSet. If you specify this value, Elemental Inference publishes DRAFT only if its current hash matches. If it doesn't match, because DRAFT changed after you retrieved it, the request fails with ConflictException. </p> <p>If you don't specify this value, Elemental Inference publishes DRAFT as it is when it receives the request. </p>
+   * @public
+   */
+  sha256?: string | undefined;
+
+  /**
+   * <p>A description of the new version. You can't change the description after Elemental Inference publishes the version. If DRAFT hasn't changed since the latest version, Elemental Inference ignores this value and returns the latest version with its existing description. </p> <p>The description can be up to 256 characters. It can contain the letters A-Z and a-z, the digits 0-9, underscores, spaces, and the following characters: <code>- . ' , @ : ;</code>. </p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQuestionSetVersionResponse {
+  /**
+   * <p>The yesNo questions in this version. Elemental Inference doesn't return this property if the version has no yesNo questions. </p>
+   * @public
+   */
+  yesNo?: YesNoQuestion[] | undefined;
+
+  /**
+   * <p>The yesNoPerOption questions in this version. Elemental Inference doesn't return this property if the version has no yesNoPerOption questions. </p>
+   * @public
+   */
+  yesNoPerOption?: YesNoPerOptionQuestion[] | undefined;
+
+  /**
+   * <p>The chooseOne questions in this version. Elemental Inference doesn't return this property if the version has no chooseOne questions. </p>
+   * @public
+   */
+  chooseOne?: ChooseOneQuestion[] | undefined;
+
+  /**
+   * <p>The ARN of the question set.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The ID of the question set.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the question set at this version.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The number of the version that Elemental Inference published. If DRAFT hadn't changed since the latest version, this is the number of that existing version. </p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The description of the version. For a new version, this is the description that you specified in the request. If DRAFT hadn't changed since the latest version, this is the description of that existing version. Elemental Inference doesn't return this property if the version has no description. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The number of the highest version that you have published for this question set. It's the same as version. </p>
+   * @public
+   */
+  latestVersion?: string | undefined;
+
+  /**
+   * <p>The SHA-256 hash of the version, as 64 lowercase hexadecimal characters. It's the same as the hash of the DRAFT version that Elemental Inference published. </p>
+   * @public
+   */
+  sha256: string | undefined;
+
+  /**
+   * <p>A list of feed IDs that reference this version of the question set. For a new version, the list is empty. </p>
+   * @public
+   */
+  references?: string[] | undefined;
+
+  /**
+   * <p>Any tags associated with the question set.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -861,6 +1674,90 @@ export interface DeleteFeedPolicyRequest {
    */
   id: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteFunctionRequest {
+  /**
+   * <p>The ID of the function.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFunctionResponse {
+  /**
+   * <p>The ARN of the function.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The ID of the function.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The status of the function. A successful request returns DELETING. Elemental Inference removes the function before it returns the response. </p>
+   * @public
+   */
+  status: FunctionStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQuestionSetRequest {
+  /**
+   * <p>The ID of the question set to delete.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQuestionSetResponse {
+  /**
+   * <p>The ARN of the deleted question set.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The ID of the deleted question set.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQuestionSetVersionRequest {
+  /**
+   * <p>The ID of the question set that contains the version.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The number of the published version to delete. You can't specify DRAFT.</p>
+   * @public
+   */
+  questionSetVersion: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQuestionSetVersionResponse {}
 
 /**
  * @public
@@ -1543,6 +2440,300 @@ export interface UpdateFeedResponse {
 /**
  * @public
  */
+export interface GetFunctionRequest {
+  /**
+   * <p>The ID of the function.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFunctionResponse {
+  /**
+   * <p>The name of the function.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The destination for the request that the function builds.</p>
+   * @public
+   */
+  target: FunctionTarget | undefined;
+
+  /**
+   * <p>The JSONata expression that builds the request. Elemental Inference evaluates it against the media object of the feed, which holds the media and metadata that the function asked for. </p>
+   * @public
+   */
+  requestExpression: string | undefined;
+
+  /**
+   * <p>The JSONata expression that selects what to store. Elemental Inference evaluates it against the result as its root: the model response for a Bedrock target, or the output of the request expression for a passthrough target. If a function has no response expression, Elemental Inference stores the entire result. </p>
+   * @public
+   */
+  responseExpression?: string | undefined;
+
+  /**
+   * <p>The description of the function.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Indicates whether Elemental Inference also sends this function's results to Amazon EventBridge. With ENABLED, each result that is a JSON object with a top-level <code>eventBridge</code> field set to <code>true</code> is also sent as a Function Metadata Generated event to the default event bus in your account. </p>
+   * @public
+   */
+  eventBridgeDelivery?: EventBridgeDeliveryMode | undefined;
+
+  /**
+   * <p>The ARN of the function.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The ID of the function.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The status of the function.</p>
+   * @public
+   */
+  status: FunctionStatus | undefined;
+
+  /**
+   * <p>The IDs of the feeds that have a function output, enabled or disabled, that references this function. While this list isn't empty, the function can't be deleted, and its name and target can't be changed. </p>
+   * @public
+   */
+  references?: string[] | undefined;
+
+  /**
+   * <p>The kinds of media context that this function uses. Elemental Inference derives this field from the media paths that the request expression references; you can't set it. An empty list means that the expression references no media, so Elemental Inference supplies none at run time. </p>
+   * @public
+   */
+  contextTypes?: ContextType[] | undefined;
+
+  /**
+   * <p>The tags associated with the function.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFunctionsRequest {
+  /**
+   * <p>The maximum number of functions to return in one response. Valid range: 1 to 100. The default is 100. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token that identifies the page of results to return. Use the nextToken value from a previous response. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains identifying and configuration details for a function, including its name, target, status, and derived media context.</p>
+ * @public
+ */
+export interface FunctionSummary {
+  /**
+   * <p>The ARN of the function.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The ID of the function.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the function.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the function.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The status of the function.</p>
+   * @public
+   */
+  status: FunctionStatus | undefined;
+
+  /**
+   * <p>The destination for the request that the function builds.</p>
+   * @public
+   */
+  target?: FunctionTarget | undefined;
+
+  /**
+   * <p>The kinds of media context that this function uses. Elemental Inference derives this field from the media paths that the request expression references; you can't set it. An empty list means that the expression references no media, so Elemental Inference supplies none at run time. </p>
+   * @public
+   */
+  contextTypes?: ContextType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFunctionsResponse {
+  /**
+   * <p>An array of function summaries.</p>
+   * @public
+   */
+  functions: FunctionSummary[] | undefined;
+
+  /**
+   * <p>The token to use in a subsequent request to get the next page of results. This field is absent when there are no more results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFunctionRequest {
+  /**
+   * <p>The ID of the function.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>A new name for the function. You can't change the name while the function is referenced by a feed. </p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A new target for the function. You can't change the target while the function is referenced by a feed. </p>
+   * @public
+   */
+  target?: FunctionTarget | undefined;
+
+  /**
+   * <p>A new request expression for the function. Elemental Inference derives contextTypes again from the new expression. While a feed references the function, the new expression must reference the same media context as the current one. </p>
+   * @public
+   */
+  requestExpression?: string | undefined;
+
+  /**
+   * <p>A new response expression for the function. To remove the response expression, specify an empty string. A function with a Bedrock target and eventBridgeDelivery set to ENABLED must keep a response expression. </p>
+   * @public
+   */
+  responseExpression?: string | undefined;
+
+  /**
+   * <p>A new description for the function.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Specifies whether Elemental Inference also sends this function's marked results to Amazon EventBridge, as described for CreateFunction. If you omit this parameter, the current value is kept. While a feed references the function, you can change this value to DISABLED, but not to ENABLED. </p>
+   * @public
+   */
+  eventBridgeDelivery?: EventBridgeDeliveryMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFunctionResponse {
+  /**
+   * <p>The name of the function.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The destination for the request that the function builds.</p>
+   * @public
+   */
+  target: FunctionTarget | undefined;
+
+  /**
+   * <p>The JSONata expression that builds the request. Elemental Inference evaluates it against the media object of the feed, which holds the media and metadata that the function asked for. </p>
+   * @public
+   */
+  requestExpression: string | undefined;
+
+  /**
+   * <p>The JSONata expression that selects what to store. Elemental Inference evaluates it against the result as its root: the model response for a Bedrock target, or the output of the request expression for a passthrough target. If a function has no response expression, Elemental Inference stores the entire result. </p>
+   * @public
+   */
+  responseExpression?: string | undefined;
+
+  /**
+   * <p>The description of the function.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Indicates whether Elemental Inference also sends this function's results to Amazon EventBridge. With ENABLED, each result that is a JSON object with a top-level <code>eventBridge</code> field set to <code>true</code> is also sent as a Function Metadata Generated event to the default event bus in your account. </p>
+   * @public
+   */
+  eventBridgeDelivery?: EventBridgeDeliveryMode | undefined;
+
+  /**
+   * <p>The ARN of the function.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The ID of the function.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The status of the function.</p>
+   * @public
+   */
+  status: FunctionStatus | undefined;
+
+  /**
+   * <p>The IDs of the feeds that have a function output, enabled or disabled, that references this function. While this list isn't empty, the function can't be deleted, and its name and target can't be changed. </p>
+   * @public
+   */
+  references?: string[] | undefined;
+
+  /**
+   * <p>The kinds of media context that this function uses. Elemental Inference derives this field from the media paths that the request expression references; you can't set it. An empty list means that the expression references no media, so Elemental Inference supplies none at run time. </p>
+   * @public
+   */
+  contextTypes?: ContextType[] | undefined;
+
+  /**
+   * <p>The tags associated with the function.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetFixtureRequest {
   /**
    * <p>The ID of the fixture to retrieve, as returned by SearchFixtures.</p>
@@ -1609,6 +2800,346 @@ export interface ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of the tags that belong to this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQuestionSetRequest {
+  /**
+   * <p>The ID of the question set to retrieve.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The version of the question set to retrieve: DRAFT or the number of a published version. If you don't specify a version, Elemental Inference returns DRAFT. </p>
+   * @public
+   */
+  questionSetVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQuestionSetResponse {
+  /**
+   * <p>The yesNo questions in this version. Elemental Inference doesn't return this property if the version has no yesNo questions. </p>
+   * @public
+   */
+  yesNo?: YesNoQuestion[] | undefined;
+
+  /**
+   * <p>The yesNoPerOption questions in this version. Elemental Inference doesn't return this property if the version has no yesNoPerOption questions. </p>
+   * @public
+   */
+  yesNoPerOption?: YesNoPerOptionQuestion[] | undefined;
+
+  /**
+   * <p>The chooseOne questions in this version. Elemental Inference doesn't return this property if the version has no chooseOne questions. </p>
+   * @public
+   */
+  chooseOne?: ChooseOneQuestion[] | undefined;
+
+  /**
+   * <p>The ARN of the question set.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The ID of the question set.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the question set at this version. For a published version, this is the name that the question set had when the version was published. </p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The version that this response describes: DRAFT or the number of a published version. </p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The description that you specified when you published this version. Elemental Inference doesn't return this property for DRAFT, or for a version that you published without a description. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The number of the highest version that you have published for this question set, even if you have since deleted that version. Elemental Inference doesn't return this property if you haven't published a version. </p>
+   * @public
+   */
+  latestVersion?: string | undefined;
+
+  /**
+   * <p>The SHA-256 hash of this version, as 64 lowercase hexadecimal characters. The hash covers the name of the question set and its questions at this version. For DRAFT, you can specify this value in a CreateQuestionSetVersion request, so that Elemental Inference publishes DRAFT only if it hasn't changed. </p>
+   * @public
+   */
+  sha256: string | undefined;
+
+  /**
+   * <p>A list of feed IDs that reference this version of the question set. The list doesn't include feeds that reference other versions. </p>
+   * @public
+   */
+  references?: string[] | undefined;
+
+  /**
+   * <p>The tags associated with the question set.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQuestionSetsRequest {
+  /**
+   * <p>The maximum number of results to return per API request. Valid range: 1 to 100.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token that identifies the next batch of results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a question set. Used in the ListQuestionSets response. </p>
+ * @public
+ */
+export interface QuestionSetSummary {
+  /**
+   * <p>The ARN of the question set.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The ID of the question set.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the question set.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The number of the highest version that you have published for this question set, even if you have since deleted that version. Elemental Inference doesn't return this property if you haven't published a version. </p>
+   * @public
+   */
+  latestVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQuestionSetsResponse {
+  /**
+   * <p>A list of QuestionSetSummary objects.</p>
+   * @public
+   */
+  questionSets: QuestionSetSummary[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQuestionSetVersionsRequest {
+  /**
+   * <p>The ID of the question set whose versions you want to list.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per API request. Valid range: 1 to 100.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token that identifies the next batch of results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about one version of a question set. Used in the ListQuestionSetVersions response. </p>
+ * @public
+ */
+export interface QuestionSetVersionSummary {
+  /**
+   * <p>The version: DRAFT or the number of a published version.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The description that you specified when you published this version. Elemental Inference doesn't return this property for DRAFT, or for a version that you published without a description. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The SHA-256 hash of this version, as 64 lowercase hexadecimal characters. The hash covers the name of the question set and its questions at this version. </p>
+   * @public
+   */
+  sha256: string | undefined;
+
+  /**
+   * <p>For DRAFT, the time when you created the question set or last updated DRAFT. For a published version, the time when you published it. </p>
+   * @public
+   */
+  lastModifiedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQuestionSetVersionsResponse {
+  /**
+   * <p>A list of QuestionSetVersionSummary objects.</p>
+   * @public
+   */
+  versions: QuestionSetVersionSummary[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQuestionSetRequest {
+  /**
+   * <p>The ID of the question set to update.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>An array of questions that Elemental Inference answers with yes or no, to replace all the yesNo questions in DRAFT. You can specify up to 50 yesNo questions. If not specified, the yesNo questions are not changed. To remove all the yesNo questions, specify an empty array. </p>
+   * @public
+   */
+  yesNo?: YesNoQuestion[] | undefined;
+
+  /**
+   * <p>An array of questions that you ask about each of their options, to replace all the yesNoPerOption questions in DRAFT. You can specify up to 10 yesNoPerOption questions. If not specified, the yesNoPerOption questions are not changed. To remove all the yesNoPerOption questions, specify an empty array. </p>
+   * @public
+   */
+  yesNoPerOption?: YesNoPerOptionQuestion[] | undefined;
+
+  /**
+   * <p>An array of questions that Elemental Inference answers by choosing one of their options, to replace all the chooseOne questions in DRAFT. You can specify up to 10 chooseOne questions. If not specified, the chooseOne questions are not changed. To remove all the chooseOne questions, specify an empty array. </p>
+   * @public
+   */
+  chooseOne?: ChooseOneQuestion[] | undefined;
+
+  /**
+   * <p>A new name for the question set. If not specified, the name is not changed.</p>
+   * @public
+   */
+  name?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQuestionSetResponse {
+  /**
+   * <p>The yesNo questions in this version. Elemental Inference doesn't return this property if the version has no yesNo questions. </p>
+   * @public
+   */
+  yesNo?: YesNoQuestion[] | undefined;
+
+  /**
+   * <p>The yesNoPerOption questions in this version. Elemental Inference doesn't return this property if the version has no yesNoPerOption questions. </p>
+   * @public
+   */
+  yesNoPerOption?: YesNoPerOptionQuestion[] | undefined;
+
+  /**
+   * <p>The chooseOne questions in this version. Elemental Inference doesn't return this property if the version has no chooseOne questions. </p>
+   * @public
+   */
+  chooseOne?: ChooseOneQuestion[] | undefined;
+
+  /**
+   * <p>The ARN of the question set.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The ID of the question set.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The updated or original name of the question set.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The version that this response describes. For UpdateQuestionSet, the version is always DRAFT. </p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The description of the version. Elemental Inference doesn't return this property for UpdateQuestionSet, because the DRAFT version has no description. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The number of the highest version that you have published for this question set, even if you have since deleted that version. Elemental Inference doesn't return this property if you haven't published a version. </p>
+   * @public
+   */
+  latestVersion?: string | undefined;
+
+  /**
+   * <p>The SHA-256 hash of the DRAFT version after the update, as 64 lowercase hexadecimal characters. The hash covers the name of the question set and its questions, so it changes when you rename the question set. You can specify this value in a CreateQuestionSetVersion request, so that Elemental Inference publishes DRAFT only if it hasn't changed since this update. </p>
+   * @public
+   */
+  sha256: string | undefined;
+
+  /**
+   * <p>A list of feed IDs that reference the DRAFT version of the question set.</p>
+   * @public
+   */
+  references?: string[] | undefined;
+
+  /**
+   * <p>Any tags associated with the question set.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;

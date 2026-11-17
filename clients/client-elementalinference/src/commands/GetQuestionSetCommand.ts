@@ -1,0 +1,133 @@
+// smithy-typescript generated code
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { _ep0, _mw0, command } from "../commandBuilder";
+import type { GetQuestionSetRequest, GetQuestionSetResponse } from "../models/models_0";
+import { GetQuestionSet$ } from "../schemas/schemas_0";
+
+/**
+ * @public
+ */
+export type { __MetadataBearer };
+/**
+ * @public
+ *
+ * The input for {@link GetQuestionSetCommand}.
+ */
+export interface GetQuestionSetCommandInput extends GetQuestionSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetQuestionSetCommand}.
+ */
+export interface GetQuestionSetCommandOutput extends GetQuestionSetResponse, __MetadataBearer {}
+
+/**
+ * <p>Retrieves information about the specified question set at one version. By default, GetQuestionSet returns the DRAFT version. To retrieve a published version, specify questionSetVersion. </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElementalInferenceClient, GetQuestionSetCommand } from "@aws-sdk/client-elementalinference"; // ES Modules import
+ * // const { ElementalInferenceClient, GetQuestionSetCommand } = require("@aws-sdk/client-elementalinference"); // CommonJS import
+ * // import type { ElementalInferenceClientConfig } from "@aws-sdk/client-elementalinference";
+ * const config = {}; // type is ElementalInferenceClientConfig
+ * const client = new ElementalInferenceClient(config);
+ * const input = { // GetQuestionSetRequest
+ *   id: "STRING_VALUE", // required
+ *   questionSetVersion: "STRING_VALUE",
+ * };
+ * const command = new GetQuestionSetCommand(input);
+ * const response = await client.send(command);
+ * // { // GetQuestionSetResponse
+ * //   yesNo: [ // YesNoQuestionList
+ * //     { // YesNoQuestion
+ * //       name: "STRING_VALUE", // required
+ * //       question: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   yesNoPerOption: [ // YesNoPerOptionQuestionList
+ * //     { // YesNoPerOptionQuestion
+ * //       name: "STRING_VALUE", // required
+ * //       question: "STRING_VALUE", // required
+ * //       options: [ // YesNoPerOptionOptionList // required
+ * //         { // QuestionOption
+ * //           name: "STRING_VALUE", // required
+ * //           text: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   chooseOne: [ // ChooseOneQuestionList
+ * //     { // ChooseOneQuestion
+ * //       name: "STRING_VALUE", // required
+ * //       question: "STRING_VALUE", // required
+ * //       options: [ // ChooseOneOptionList // required
+ * //         {
+ * //           name: "STRING_VALUE", // required
+ * //           text: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   version: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE",
+ * //   latestVersion: "STRING_VALUE",
+ * //   sha256: "STRING_VALUE", // required
+ * //   references: [ // FeedReferences
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
+ * ```
+ *
+ * @param GetQuestionSetCommandInput - {@link GetQuestionSetCommandInput}
+ * @returns {@link GetQuestionSetCommandOutput}
+ * @see {@link GetQuestionSetCommandInput} for command's `input` shape.
+ * @see {@link GetQuestionSetCommandOutput} for command's `response` shape.
+ * @see {@link ElementalInferenceClientResolvedConfig | config} for ElementalInferenceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the action doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestException} (client fault)
+ *  <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+ *
+ * @throws {@link ElementalInferenceServiceException}
+ * <p>Base exception class for all service exceptions from ElementalInference service.</p>
+ *
+ *
+ * @public
+ */
+export class GetQuestionSetCommand extends command<GetQuestionSetCommandInput, GetQuestionSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetQuestionSet",
+  GetQuestionSet$
+) {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQuestionSetRequest;
+      output: GetQuestionSetResponse;
+    };
+    sdk: {
+      input: GetQuestionSetCommandInput;
+      output: GetQuestionSetCommandOutput;
+    };
+  };
+}

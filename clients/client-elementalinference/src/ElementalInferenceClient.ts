@@ -57,6 +57,15 @@ import {
 import type { AssociateFeedCommandInput, AssociateFeedCommandOutput } from "./commands/AssociateFeedCommand";
 import type { CreateDictionaryCommandInput, CreateDictionaryCommandOutput } from "./commands/CreateDictionaryCommand";
 import type { CreateFeedCommandInput, CreateFeedCommandOutput } from "./commands/CreateFeedCommand";
+import type { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand";
+import type {
+  CreateQuestionSetCommandInput,
+  CreateQuestionSetCommandOutput,
+} from "./commands/CreateQuestionSetCommand";
+import type {
+  CreateQuestionSetVersionCommandInput,
+  CreateQuestionSetVersionCommandOutput,
+} from "./commands/CreateQuestionSetVersionCommand";
 import type {
   CreateScheduleActionCommandInput,
   CreateScheduleActionCommandOutput,
@@ -64,6 +73,15 @@ import type {
 import type { DeleteDictionaryCommandInput, DeleteDictionaryCommandOutput } from "./commands/DeleteDictionaryCommand";
 import type { DeleteFeedCommandInput, DeleteFeedCommandOutput } from "./commands/DeleteFeedCommand";
 import type { DeleteFeedPolicyCommandInput, DeleteFeedPolicyCommandOutput } from "./commands/DeleteFeedPolicyCommand";
+import type { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand";
+import type {
+  DeleteQuestionSetCommandInput,
+  DeleteQuestionSetCommandOutput,
+} from "./commands/DeleteQuestionSetCommand";
+import type {
+  DeleteQuestionSetVersionCommandInput,
+  DeleteQuestionSetVersionCommandOutput,
+} from "./commands/DeleteQuestionSetVersionCommand";
 import type {
   DeleteScheduleActionCommandInput,
   DeleteScheduleActionCommandOutput,
@@ -77,8 +95,16 @@ import type { GetDictionaryCommandInput, GetDictionaryCommandOutput } from "./co
 import type { GetFeedCommandInput, GetFeedCommandOutput } from "./commands/GetFeedCommand";
 import type { GetFeedPolicyCommandInput, GetFeedPolicyCommandOutput } from "./commands/GetFeedPolicyCommand";
 import type { GetFixtureCommandInput, GetFixtureCommandOutput } from "./commands/GetFixtureCommand";
+import type { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
+import type { GetQuestionSetCommandInput, GetQuestionSetCommandOutput } from "./commands/GetQuestionSetCommand";
 import type { ListDictionariesCommandInput, ListDictionariesCommandOutput } from "./commands/ListDictionariesCommand";
 import type { ListFeedsCommandInput, ListFeedsCommandOutput } from "./commands/ListFeedsCommand";
+import type { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
+import type { ListQuestionSetsCommandInput, ListQuestionSetsCommandOutput } from "./commands/ListQuestionSetsCommand";
+import type {
+  ListQuestionSetVersionsCommandInput,
+  ListQuestionSetVersionsCommandOutput,
+} from "./commands/ListQuestionSetVersionsCommand";
 import type {
   ListScheduleActionsCommandInput,
   ListScheduleActionsCommandOutput,
@@ -93,6 +119,11 @@ import type { TagResourceCommandInput, TagResourceCommandOutput } from "./comman
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateDictionaryCommandInput, UpdateDictionaryCommandOutput } from "./commands/UpdateDictionaryCommand";
 import type { UpdateFeedCommandInput, UpdateFeedCommandOutput } from "./commands/UpdateFeedCommand";
+import type { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "./commands/UpdateFunctionCommand";
+import type {
+  UpdateQuestionSetCommandInput,
+  UpdateQuestionSetCommandOutput,
+} from "./commands/UpdateQuestionSetCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -111,10 +142,16 @@ export type ServiceInputTypes =
   | AssociateFeedCommandInput
   | CreateDictionaryCommandInput
   | CreateFeedCommandInput
+  | CreateFunctionCommandInput
+  | CreateQuestionSetCommandInput
+  | CreateQuestionSetVersionCommandInput
   | CreateScheduleActionCommandInput
   | DeleteDictionaryCommandInput
   | DeleteFeedCommandInput
   | DeleteFeedPolicyCommandInput
+  | DeleteFunctionCommandInput
+  | DeleteQuestionSetCommandInput
+  | DeleteQuestionSetVersionCommandInput
   | DeleteScheduleActionCommandInput
   | DisassociateFeedCommandInput
   | ExportDictionaryEntriesCommandInput
@@ -122,8 +159,13 @@ export type ServiceInputTypes =
   | GetFeedCommandInput
   | GetFeedPolicyCommandInput
   | GetFixtureCommandInput
+  | GetFunctionCommandInput
+  | GetQuestionSetCommandInput
   | ListDictionariesCommandInput
   | ListFeedsCommandInput
+  | ListFunctionsCommandInput
+  | ListQuestionSetVersionsCommandInput
+  | ListQuestionSetsCommandInput
   | ListScheduleActionsCommandInput
   | ListTagsForResourceCommandInput
   | PutFeedPolicyCommandInput
@@ -131,7 +173,9 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDictionaryCommandInput
-  | UpdateFeedCommandInput;
+  | UpdateFeedCommandInput
+  | UpdateFunctionCommandInput
+  | UpdateQuestionSetCommandInput;
 
 /**
  * @public
@@ -140,10 +184,16 @@ export type ServiceOutputTypes =
   | AssociateFeedCommandOutput
   | CreateDictionaryCommandOutput
   | CreateFeedCommandOutput
+  | CreateFunctionCommandOutput
+  | CreateQuestionSetCommandOutput
+  | CreateQuestionSetVersionCommandOutput
   | CreateScheduleActionCommandOutput
   | DeleteDictionaryCommandOutput
   | DeleteFeedCommandOutput
   | DeleteFeedPolicyCommandOutput
+  | DeleteFunctionCommandOutput
+  | DeleteQuestionSetCommandOutput
+  | DeleteQuestionSetVersionCommandOutput
   | DeleteScheduleActionCommandOutput
   | DisassociateFeedCommandOutput
   | ExportDictionaryEntriesCommandOutput
@@ -151,8 +201,13 @@ export type ServiceOutputTypes =
   | GetFeedCommandOutput
   | GetFeedPolicyCommandOutput
   | GetFixtureCommandOutput
+  | GetFunctionCommandOutput
+  | GetQuestionSetCommandOutput
   | ListDictionariesCommandOutput
   | ListFeedsCommandOutput
+  | ListFunctionsCommandOutput
+  | ListQuestionSetVersionsCommandOutput
+  | ListQuestionSetsCommandOutput
   | ListScheduleActionsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutFeedPolicyCommandOutput
@@ -160,7 +215,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDictionaryCommandOutput
-  | UpdateFeedCommandOutput;
+  | UpdateFeedCommandOutput
+  | UpdateFunctionCommandOutput
+  | UpdateQuestionSetCommandOutput;
 
 /**
  * @public

@@ -24,6 +24,21 @@ import {
   CreateFeedCommand,
 } from "./commands/CreateFeedCommand";
 import {
+  type CreateFunctionCommandInput,
+  type CreateFunctionCommandOutput,
+  CreateFunctionCommand,
+} from "./commands/CreateFunctionCommand";
+import {
+  type CreateQuestionSetCommandInput,
+  type CreateQuestionSetCommandOutput,
+  CreateQuestionSetCommand,
+} from "./commands/CreateQuestionSetCommand";
+import {
+  type CreateQuestionSetVersionCommandInput,
+  type CreateQuestionSetVersionCommandOutput,
+  CreateQuestionSetVersionCommand,
+} from "./commands/CreateQuestionSetVersionCommand";
+import {
   type CreateScheduleActionCommandInput,
   type CreateScheduleActionCommandOutput,
   CreateScheduleActionCommand,
@@ -43,6 +58,21 @@ import {
   type DeleteFeedPolicyCommandOutput,
   DeleteFeedPolicyCommand,
 } from "./commands/DeleteFeedPolicyCommand";
+import {
+  type DeleteFunctionCommandInput,
+  type DeleteFunctionCommandOutput,
+  DeleteFunctionCommand,
+} from "./commands/DeleteFunctionCommand";
+import {
+  type DeleteQuestionSetCommandInput,
+  type DeleteQuestionSetCommandOutput,
+  DeleteQuestionSetCommand,
+} from "./commands/DeleteQuestionSetCommand";
+import {
+  type DeleteQuestionSetVersionCommandInput,
+  type DeleteQuestionSetVersionCommandOutput,
+  DeleteQuestionSetVersionCommand,
+} from "./commands/DeleteQuestionSetVersionCommand";
 import {
   type DeleteScheduleActionCommandInput,
   type DeleteScheduleActionCommandOutput,
@@ -75,11 +105,36 @@ import {
   GetFixtureCommand,
 } from "./commands/GetFixtureCommand";
 import {
+  type GetFunctionCommandInput,
+  type GetFunctionCommandOutput,
+  GetFunctionCommand,
+} from "./commands/GetFunctionCommand";
+import {
+  type GetQuestionSetCommandInput,
+  type GetQuestionSetCommandOutput,
+  GetQuestionSetCommand,
+} from "./commands/GetQuestionSetCommand";
+import {
   type ListDictionariesCommandInput,
   type ListDictionariesCommandOutput,
   ListDictionariesCommand,
 } from "./commands/ListDictionariesCommand";
 import { type ListFeedsCommandInput, type ListFeedsCommandOutput, ListFeedsCommand } from "./commands/ListFeedsCommand";
+import {
+  type ListFunctionsCommandInput,
+  type ListFunctionsCommandOutput,
+  ListFunctionsCommand,
+} from "./commands/ListFunctionsCommand";
+import {
+  type ListQuestionSetsCommandInput,
+  type ListQuestionSetsCommandOutput,
+  ListQuestionSetsCommand,
+} from "./commands/ListQuestionSetsCommand";
+import {
+  type ListQuestionSetVersionsCommandInput,
+  type ListQuestionSetVersionsCommandOutput,
+  ListQuestionSetVersionsCommand,
+} from "./commands/ListQuestionSetVersionsCommand";
 import {
   type ListScheduleActionsCommandInput,
   type ListScheduleActionsCommandOutput,
@@ -120,11 +175,24 @@ import {
   type UpdateFeedCommandOutput,
   UpdateFeedCommand,
 } from "./commands/UpdateFeedCommand";
+import {
+  type UpdateFunctionCommandInput,
+  type UpdateFunctionCommandOutput,
+  UpdateFunctionCommand,
+} from "./commands/UpdateFunctionCommand";
+import {
+  type UpdateQuestionSetCommandInput,
+  type UpdateQuestionSetCommandOutput,
+  UpdateQuestionSetCommand,
+} from "./commands/UpdateQuestionSetCommand";
 import { ElementalInferenceClient } from "./ElementalInferenceClient";
 import type { ElementalInferenceServiceException } from "./models/ElementalInferenceServiceException";
 import type { ResourceNotFoundException } from "./models/errors";
 import { paginateListDictionaries } from "./pagination/ListDictionariesPaginator";
 import { paginateListFeeds } from "./pagination/ListFeedsPaginator";
+import { paginateListFunctions } from "./pagination/ListFunctionsPaginator";
+import { paginateListQuestionSets } from "./pagination/ListQuestionSetsPaginator";
+import { paginateListQuestionSetVersions } from "./pagination/ListQuestionSetVersionsPaginator";
 import { paginateListScheduleActions } from "./pagination/ListScheduleActionsPaginator";
 import { paginateSearchFixtures } from "./pagination/SearchFixturesPaginator";
 import { waitUntilFeedDeleted } from "./waiters/waitForFeedDeleted";
@@ -133,10 +201,16 @@ const commands = {
   AssociateFeedCommand,
   CreateDictionaryCommand,
   CreateFeedCommand,
+  CreateFunctionCommand,
+  CreateQuestionSetCommand,
+  CreateQuestionSetVersionCommand,
   CreateScheduleActionCommand,
   DeleteDictionaryCommand,
   DeleteFeedCommand,
   DeleteFeedPolicyCommand,
+  DeleteFunctionCommand,
+  DeleteQuestionSetCommand,
+  DeleteQuestionSetVersionCommand,
   DeleteScheduleActionCommand,
   DisassociateFeedCommand,
   ExportDictionaryEntriesCommand,
@@ -144,8 +218,13 @@ const commands = {
   GetFeedCommand,
   GetFeedPolicyCommand,
   GetFixtureCommand,
+  GetFunctionCommand,
+  GetQuestionSetCommand,
   ListDictionariesCommand,
   ListFeedsCommand,
+  ListFunctionsCommand,
+  ListQuestionSetsCommand,
+  ListQuestionSetVersionsCommand,
   ListScheduleActionsCommand,
   ListTagsForResourceCommand,
   PutFeedPolicyCommand,
@@ -154,10 +233,15 @@ const commands = {
   UntagResourceCommand,
   UpdateDictionaryCommand,
   UpdateFeedCommand,
+  UpdateFunctionCommand,
+  UpdateQuestionSetCommand,
 };
 const paginators = {
   paginateListDictionaries,
   paginateListFeeds,
+  paginateListFunctions,
+  paginateListQuestionSets,
+  paginateListQuestionSetVersions,
   paginateListScheduleActions,
   paginateSearchFixtures,
 };
@@ -222,6 +306,57 @@ export interface ElementalInference {
     args: CreateFeedCommandInput,
     options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: CreateFeedCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateFunctionCommand}
+   */
+  createFunction(
+    args: CreateFunctionCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<CreateFunctionCommandOutput>;
+  createFunction(
+    args: CreateFunctionCommandInput,
+    cb: (err: any, data?: CreateFunctionCommandOutput) => void
+  ): void;
+  createFunction(
+    args: CreateFunctionCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: CreateFunctionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateQuestionSetCommand}
+   */
+  createQuestionSet(
+    args: CreateQuestionSetCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<CreateQuestionSetCommandOutput>;
+  createQuestionSet(
+    args: CreateQuestionSetCommandInput,
+    cb: (err: any, data?: CreateQuestionSetCommandOutput) => void
+  ): void;
+  createQuestionSet(
+    args: CreateQuestionSetCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: CreateQuestionSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateQuestionSetVersionCommand}
+   */
+  createQuestionSetVersion(
+    args: CreateQuestionSetVersionCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<CreateQuestionSetVersionCommandOutput>;
+  createQuestionSetVersion(
+    args: CreateQuestionSetVersionCommandInput,
+    cb: (err: any, data?: CreateQuestionSetVersionCommandOutput) => void
+  ): void;
+  createQuestionSetVersion(
+    args: CreateQuestionSetVersionCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: CreateQuestionSetVersionCommandOutput) => void
   ): void;
 
   /**
@@ -290,6 +425,57 @@ export interface ElementalInference {
     args: DeleteFeedPolicyCommandInput,
     options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: DeleteFeedPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteFunctionCommand}
+   */
+  deleteFunction(
+    args: DeleteFunctionCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<DeleteFunctionCommandOutput>;
+  deleteFunction(
+    args: DeleteFunctionCommandInput,
+    cb: (err: any, data?: DeleteFunctionCommandOutput) => void
+  ): void;
+  deleteFunction(
+    args: DeleteFunctionCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: DeleteFunctionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteQuestionSetCommand}
+   */
+  deleteQuestionSet(
+    args: DeleteQuestionSetCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<DeleteQuestionSetCommandOutput>;
+  deleteQuestionSet(
+    args: DeleteQuestionSetCommandInput,
+    cb: (err: any, data?: DeleteQuestionSetCommandOutput) => void
+  ): void;
+  deleteQuestionSet(
+    args: DeleteQuestionSetCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: DeleteQuestionSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteQuestionSetVersionCommand}
+   */
+  deleteQuestionSetVersion(
+    args: DeleteQuestionSetVersionCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<DeleteQuestionSetVersionCommandOutput>;
+  deleteQuestionSetVersion(
+    args: DeleteQuestionSetVersionCommandInput,
+    cb: (err: any, data?: DeleteQuestionSetVersionCommandOutput) => void
+  ): void;
+  deleteQuestionSetVersion(
+    args: DeleteQuestionSetVersionCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: DeleteQuestionSetVersionCommandOutput) => void
   ): void;
 
   /**
@@ -412,6 +598,40 @@ export interface ElementalInference {
   ): void;
 
   /**
+   * @see {@link GetFunctionCommand}
+   */
+  getFunction(
+    args: GetFunctionCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<GetFunctionCommandOutput>;
+  getFunction(
+    args: GetFunctionCommandInput,
+    cb: (err: any, data?: GetFunctionCommandOutput) => void
+  ): void;
+  getFunction(
+    args: GetFunctionCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: GetFunctionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQuestionSetCommand}
+   */
+  getQuestionSet(
+    args: GetQuestionSetCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<GetQuestionSetCommandOutput>;
+  getQuestionSet(
+    args: GetQuestionSetCommandInput,
+    cb: (err: any, data?: GetQuestionSetCommandOutput) => void
+  ): void;
+  getQuestionSet(
+    args: GetQuestionSetCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: GetQuestionSetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDictionariesCommand}
    */
   listDictionaries(): Promise<ListDictionariesCommandOutput>;
@@ -445,6 +665,59 @@ export interface ElementalInference {
     args: ListFeedsCommandInput,
     options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: ListFeedsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFunctionsCommand}
+   */
+  listFunctions(): Promise<ListFunctionsCommandOutput>;
+  listFunctions(
+    args: ListFunctionsCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<ListFunctionsCommandOutput>;
+  listFunctions(
+    args: ListFunctionsCommandInput,
+    cb: (err: any, data?: ListFunctionsCommandOutput) => void
+  ): void;
+  listFunctions(
+    args: ListFunctionsCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: ListFunctionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListQuestionSetsCommand}
+   */
+  listQuestionSets(): Promise<ListQuestionSetsCommandOutput>;
+  listQuestionSets(
+    args: ListQuestionSetsCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<ListQuestionSetsCommandOutput>;
+  listQuestionSets(
+    args: ListQuestionSetsCommandInput,
+    cb: (err: any, data?: ListQuestionSetsCommandOutput) => void
+  ): void;
+  listQuestionSets(
+    args: ListQuestionSetsCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: ListQuestionSetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListQuestionSetVersionsCommand}
+   */
+  listQuestionSetVersions(
+    args: ListQuestionSetVersionsCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<ListQuestionSetVersionsCommandOutput>;
+  listQuestionSetVersions(
+    args: ListQuestionSetVersionsCommandInput,
+    cb: (err: any, data?: ListQuestionSetVersionsCommandOutput) => void
+  ): void;
+  listQuestionSetVersions(
+    args: ListQuestionSetVersionsCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: ListQuestionSetVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -584,6 +857,40 @@ export interface ElementalInference {
   ): void;
 
   /**
+   * @see {@link UpdateFunctionCommand}
+   */
+  updateFunction(
+    args: UpdateFunctionCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<UpdateFunctionCommandOutput>;
+  updateFunction(
+    args: UpdateFunctionCommandInput,
+    cb: (err: any, data?: UpdateFunctionCommandOutput) => void
+  ): void;
+  updateFunction(
+    args: UpdateFunctionCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: UpdateFunctionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateQuestionSetCommand}
+   */
+  updateQuestionSet(
+    args: UpdateQuestionSetCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<UpdateQuestionSetCommandOutput>;
+  updateQuestionSet(
+    args: UpdateQuestionSetCommandInput,
+    cb: (err: any, data?: UpdateQuestionSetCommandOutput) => void
+  ): void;
+  updateQuestionSet(
+    args: UpdateQuestionSetCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: UpdateQuestionSetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDictionariesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -604,6 +911,39 @@ export interface ElementalInference {
     args?: ListFeedsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListFeedsCommandOutput>;
+
+  /**
+   * @see {@link ListFunctionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFunctionsCommandOutput}.
+   */
+  paginateListFunctions(
+    args?: ListFunctionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFunctionsCommandOutput>;
+
+  /**
+   * @see {@link ListQuestionSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQuestionSetsCommandOutput}.
+   */
+  paginateListQuestionSets(
+    args?: ListQuestionSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQuestionSetsCommandOutput>;
+
+  /**
+   * @see {@link ListQuestionSetVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQuestionSetVersionsCommandOutput}.
+   */
+  paginateListQuestionSetVersions(
+    args: ListQuestionSetVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQuestionSetVersionsCommandOutput>;
 
   /**
    * @see {@link ListScheduleActionsCommand}

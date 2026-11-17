@@ -29,6 +29,20 @@ export type SummaryGenerationMode = (typeof SummaryGenerationMode)[keyof typeof 
  * @public
  * @enum
  */
+export const FrameSamplingMode = {
+  FIRST: "FIRST",
+  LAST: "LAST",
+  UNIFORM: "UNIFORM",
+} as const;
+/**
+ * @public
+ */
+export type FrameSamplingMode = (typeof FrameSamplingMode)[keyof typeof FrameSamplingMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const TranscriptionLanguage = {
   DEU: "deu",
   ENG: "eng",
@@ -71,6 +85,33 @@ export const OutputStatus = {
  * @public
  */
 export type OutputStatus = (typeof OutputStatus)[keyof typeof OutputStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BedrockApi = {
+  INVOKE_MODEL: "INVOKE_MODEL",
+} as const;
+/**
+ * @public
+ */
+export type BedrockApi = (typeof BedrockApi)[keyof typeof BedrockApi];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContextType = {
+  CLIP_METADATA: "CLIP_METADATA",
+  CONTEXTUAL_METADATA: "CONTEXTUAL_METADATA",
+  FRAMES: "FRAMES",
+  SUBTITLES: "SUBTITLES",
+} as const;
+/**
+ * @public
+ */
+export type ContextType = (typeof ContextType)[keyof typeof ContextType];
 
 /**
  * @public
@@ -122,6 +163,35 @@ export const FeedStatus = {
  * @public
  */
 export type FeedStatus = (typeof FeedStatus)[keyof typeof FeedStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventBridgeDeliveryMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type EventBridgeDeliveryMode = (typeof EventBridgeDeliveryMode)[keyof typeof EventBridgeDeliveryMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const FunctionStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  REFERENCED: "REFERENCED",
+} as const;
+/**
+ * @public
+ */
+export type FunctionStatus = (typeof FunctionStatus)[keyof typeof FunctionStatus];
 
 /**
  * @public

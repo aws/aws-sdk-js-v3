@@ -68,6 +68,46 @@ export interface UpdateFeedCommandOutput extends UpdateFeedResponse, __MetadataB
  *         contextualMetadata: { // ContextualMetadataConfig
  *           summaryGeneration: "ENABLED" || "DISABLED",
  *           extendedAnalysis: "ENABLED" || "DISABLED",
+ *           customQuestions: { // CustomQuestionsConfig
+ *             shot: { // QuestionSetReference
+ *               questionSetId: "STRING_VALUE", // required
+ *               version: "STRING_VALUE", // required
+ *             },
+ *             scene: {
+ *               questionSetId: "STRING_VALUE", // required
+ *               version: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         },
+ *         function: { // FunctionConfig
+ *           functionArn: "STRING_VALUE", // required
+ *           trigger: { // Trigger Union: only one key present
+ *             fixedInterval: { // FixedIntervalTrigger
+ *               intervalSeconds: Number("int"), // required
+ *             },
+ *             perShot: {},
+ *             perScene: {},
+ *             perClip: {},
+ *           },
+ *           frameSettings: { // FrameSettings
+ *             frameSampling: { // FrameSamplingStrategy
+ *               mode: "FIRST" || "UNIFORM" || "LAST", // required
+ *               count: Number("int"),
+ *             },
+ *             frameSize: { // FrameSize
+ *               widthPixels: Number("int"), // required
+ *               heightPixels: Number("int"), // required
+ *             },
+ *           },
+ *           subtitlingSettings: { // SubtitlingSettings
+ *             outputName: "STRING_VALUE", // required
+ *           },
+ *           contextualMetadataSettings: { // ContextualMetadataSettings
+ *             outputName: "STRING_VALUE", // required
+ *           },
+ *           clippingSettings: { // ClippingSettings
+ *             outputName: "STRING_VALUE", // required
+ *           },
  *         },
  *       },
  *       status: "ENABLED" || "DISABLED", // required
@@ -117,6 +157,46 @@ export interface UpdateFeedCommandOutput extends UpdateFeedResponse, __MetadataB
  * //         contextualMetadata: { // ContextualMetadataConfig
  * //           summaryGeneration: "ENABLED" || "DISABLED",
  * //           extendedAnalysis: "ENABLED" || "DISABLED",
+ * //           customQuestions: { // CustomQuestionsConfig
+ * //             shot: { // QuestionSetReference
+ * //               questionSetId: "STRING_VALUE", // required
+ * //               version: "STRING_VALUE", // required
+ * //             },
+ * //             scene: {
+ * //               questionSetId: "STRING_VALUE", // required
+ * //               version: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //         function: { // FunctionConfig
+ * //           functionArn: "STRING_VALUE", // required
+ * //           trigger: { // Trigger Union: only one key present
+ * //             fixedInterval: { // FixedIntervalTrigger
+ * //               intervalSeconds: Number("int"), // required
+ * //             },
+ * //             perShot: {},
+ * //             perScene: {},
+ * //             perClip: {},
+ * //           },
+ * //           frameSettings: { // FrameSettings
+ * //             frameSampling: { // FrameSamplingStrategy
+ * //               mode: "FIRST" || "UNIFORM" || "LAST", // required
+ * //               count: Number("int"),
+ * //             },
+ * //             frameSize: { // FrameSize
+ * //               widthPixels: Number("int"), // required
+ * //               heightPixels: Number("int"), // required
+ * //             },
+ * //           },
+ * //           subtitlingSettings: { // SubtitlingSettings
+ * //             outputName: "STRING_VALUE", // required
+ * //           },
+ * //           contextualMetadataSettings: { // ContextualMetadataSettings
+ * //             outputName: "STRING_VALUE", // required
+ * //           },
+ * //           clippingSettings: { // ClippingSettings
+ * //             outputName: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //       },
  * //       status: "ENABLED" || "DISABLED", // required
