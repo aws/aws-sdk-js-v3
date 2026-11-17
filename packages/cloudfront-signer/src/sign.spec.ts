@@ -424,6 +424,98 @@ describe("getSignedUrl", () => {
     expect(result).not.toContain("%2520");
   });
 
+  it("should preserve existing percent-encoded sequences in the path", () => {
+    const result = getSignedUrl({
+      url: "https://d111111abcdef8.cloudfront.net/uploads/a%2Ab%27c%3fd%2f.txt",
+      keyPairId,
+      dateLessThan,
+      privateKey,
+      passphrase,
+    });
+    expect(result.startsWith("https://d111111abcdef8.cloudfront.net/uploads/a%2Ab%27c%3Fd%2F.txt?")).toBeTruthy();
+  });
+
+  it("should encode a path segment with a malformed percent sequence as-is", () => {
+    const result = getSignedUrl({
+      url: "https://d111111abcdef8.cloudfront.net/uploads/100%-%20off%2A.pdf",
+      keyPairId,
+      dateLessThan,
+      privateKey,
+      passphrase,
+    });
+    expect(result.startsWith("https://d111111abcdef8.cloudfront.net/uploads/100%25-%2520off%252A.pdf?")).toBeTruthy();
+  });
+
+  it("should decode percent-encoded unreserved characters in the path", () => {
+    const result = getSignedUrl({
+      url: "https://d111111abcdef8.cloudfront.net/uploads/a%7Eb%2dc%41%5f.txt",
+      keyPairId,
+      dateLessThan,
+      privateKey,
+      passphrase,
+    });
+    expect(result.startsWith("https://d111111abcdef8.cloudfront.net/uploads/a~b-cA_.txt?")).toBeTruthy();
+  });
+
+  describe.each(["%2A", "%2a", "%3F", "%3f"])("should keep '%s' percent-encoded in the path", (escape) => {
+    const inputUrl = `https://d111111abcdef8.cloudfront.net/uploads/report${escape}.txt`;
+    const encodedUrl = `https://d111111abcdef8.cloudfront.net/uploads/report${escape.toUpperCase()}.txt`;
+
+    it("with a canned policy", () => {
+      const result = getSignedUrl({
+        url: inputUrl,
+        keyPairId,
+        dateLessThan,
+        privateKey,
+        passphrase,
+      });
+      const policyStr = JSON.stringify({
+        Statement: [
+          {
+            Resource: encodedUrl,
+            Condition: {
+              DateLessThan: {
+                "AWS:EpochTime": epochDateLessThan,
+              },
+            },
+          },
+        ],
+      });
+      expect(result).toBe(
+        `${encodedUrl}?Expires=${epochDateLessThan}&Key-Pair-Id=${keyPairId}&Signature=${createSignature(policyStr)}`
+      );
+    });
+
+    it("with a custom policy", () => {
+      const result = getSignedUrl({
+        url: inputUrl,
+        keyPairId,
+        dateLessThan,
+        ipAddress,
+        privateKey,
+        passphrase,
+      });
+      const policyStr = JSON.stringify({
+        Statement: [
+          {
+            Resource: encodedUrl,
+            Condition: {
+              DateLessThan: {
+                "AWS:EpochTime": epochDateLessThan,
+              },
+              IpAddress: {
+                "AWS:SourceIp": `${ipAddress}/32`,
+              },
+            },
+          },
+        ],
+      });
+      expect(result).toBe(
+        `${encodedUrl}?Policy=${encodeToBase64(policyStr)}&Key-Pair-Id=${keyPairId}&Signature=${createSignature(policyStr)}`
+      );
+    });
+  });
+
   // CloudFront verifies the signature against the URL on the wire (the encoded
   // form). The signed policy Resource must therefore reference the encoded URL,
   // otherwise CloudFront returns 403 AccessDenied. Regression introduced in
