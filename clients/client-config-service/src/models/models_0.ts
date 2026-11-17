@@ -12,6 +12,7 @@ import type {
   ConfigurationRecorderFilterName,
   ConformancePackComplianceType,
   ConformancePackState,
+  ConformancePackType,
   ConnectorFilterName,
   DeliveryStatus,
   EvaluationMode,
@@ -2827,7 +2828,8 @@ export interface ConformancePackComplianceSummary {
 
 /**
  * <p>Input parameters in the form of key-value pairs for the conformance pack, both of which you define.
- * 			Keys can have a maximum character length of 255 characters, and values can have a maximum length of 4096 characters.</p>
+ *         For managed conformance packs, keys can have a maximum character length of 255 characters, and values can have a maximum length of 1024 characters.
+ *         For custom conformance packs, keys can have a maximum character length of 255 characters, and values can have a maximum length of 4096 characters.</p>
  * @public
  */
 export interface ConformancePackInputParameter {
@@ -2842,6 +2844,38 @@ export interface ConformancePackInputParameter {
    * @public
    */
   ParameterValue: string | undefined;
+}
+
+/**
+ * <p>Defines which resources trigger an evaluation for the Config rules in a conformance pack. The scope is a tag key, or a combination of a tag key and value, that is applied to every rule in the conformance pack.
+ * 			Specify a scope to constrain which resources trigger an evaluation for the rules. Otherwise, evaluations of rules in the conformance pack are triggered when any resource in your recording group changes in configuration.</p>
+ * @public
+ */
+export interface ConformancePackScope {
+  /**
+   * <p>The tag key that applies to only those Amazon Web Services resources that you want to trigger an evaluation for the rules in the conformance pack. Defines the <a>Scope$TagKey</a> of all Config rules in the conformance pack. </p>
+   * @public
+   */
+  TagKey: string | undefined;
+
+  /**
+   * <p>The tag value that applies to only those Amazon Web Services resources that you want to trigger an evaluation for the rules in the conformance pack. If you do not specify a value for <code>TagValue</code>,
+   * 			resources that have the tag key <code>TagKey</code> trigger an evaluation, regardless of the tag value. Defines the <a>Scope$TagValue</a> of all Config rules in the conformance pack. </p>
+   * @public
+   */
+  TagValue?: string | undefined;
+}
+
+/**
+ * <p>Provides the identifier of the managed conformance pack that Config deploys in your account.</p>
+ * @public
+ */
+export interface ConformancePackSource {
+  /**
+   * <p>A predefined identifier for a managed conformance pack. The identifier specifies which managed conformance pack Config deploys in your account.</p>
+   * @public
+   */
+  SourceIdentifier: string | undefined;
 }
 
 /**
@@ -2932,6 +2966,40 @@ export interface ConformancePackDetail {
    * @public
    */
   TemplateSSMDocumentDetails?: TemplateSSMDocumentDetails | undefined;
+
+  /**
+   * <p>The type of the conformance pack. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM</code> – A custom conformance pack.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MANAGED</code> – A managed conformance pack.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type?: ConformancePackType | undefined;
+
+  /**
+   * <p>Contains the identifier of the managed conformance pack that Config deploys in your account.</p>
+   *          <note>
+   *             <p>This field applies only to managed conformance packs. Custom conformance packs leave it empty.</p>
+   *          </note>
+   * @public
+   */
+  Source?: ConformancePackSource | undefined;
+
+  /**
+   * <p>An object of type <code>ConformancePackScope</code>, which contains the tag key and optional tag value that defines which resources trigger an evaluation for the Config rules in the managed conformance pack.</p>
+   *          <note>
+   *             <p>Managed conformance packs with a scope populate this field. Custom conformance packs leave it empty.</p>
+   *          </note>
+   * @public
+   */
+  Scope?: ConformancePackScope | undefined;
 }
 
 /**
@@ -3066,6 +3134,15 @@ export interface ConformancePackStatusDetail {
    *                <p>CREATE_FAILED when a conformance pack creation failed in your account.</p>
    *             </li>
    *             <li>
+   *                <p>UPDATE_IN_PROGRESS when a conformance pack update is in progress for an account.</p>
+   *             </li>
+   *             <li>
+   *                <p>UPDATE_COMPLETE when a conformance pack has been successfully updated in your account.</p>
+   *             </li>
+   *             <li>
+   *                <p>UPDATE_FAILED when a conformance pack update failed in your account.</p>
+   *             </li>
+   *             <li>
    *                <p>DELETE_IN_PROGRESS when a conformance pack deletion is in progress. </p>
    *             </li>
    *             <li>
@@ -3078,9 +3155,12 @@ export interface ConformancePackStatusDetail {
 
   /**
    * <p>Amazon Resource Name (ARN) of CloudFormation stack. </p>
+   *          <note>
+   *             <p>Custom conformance packs populate this field. Managed conformance packs leave it empty.</p>
+   *          </note>
    * @public
    */
-  StackArn: string | undefined;
+  StackArn?: string | undefined;
 
   /**
    * <p>The reason of conformance pack creation failure.</p>
@@ -3099,6 +3179,22 @@ export interface ConformancePackStatusDetail {
    * @public
    */
   LastUpdateCompletedTime?: Date | undefined;
+
+  /**
+   * <p>The type of the conformance pack. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM</code> – A custom conformance pack.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MANAGED</code> – A managed conformance pack.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type?: ConformancePackType | undefined;
 }
 
 /**
@@ -4321,6 +4417,29 @@ export interface DescribeConformancePackComplianceResponse {
 }
 
 /**
+ * <p>Filters for filtering results from <a>DescribeConformancePacks</a> and <a>DescribeConformancePackStatus</a> by conformance pack type.</p>
+ * @public
+ */
+export interface DescribeConformancePacksFilters {
+  /**
+   * <p>Filters results by conformance pack type. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM</code> – A custom conformance pack.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MANAGED</code> – A managed conformance pack.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you specify both values, Config returns conformance packs of either type.</p>
+   * @public
+   */
+  Types?: ConformancePackType[] | undefined;
+}
+
+/**
  * @public
  */
 export interface DescribeConformancePacksRequest {
@@ -4329,6 +4448,12 @@ export interface DescribeConformancePacksRequest {
    * @public
    */
   ConformancePackNames?: string[] | undefined;
+
+  /**
+   * <p>Returns a filtered list of custom or managed conformance packs. By default, if the filter is not defined, Config returns details for all your conformance packs.</p>
+   * @public
+   */
+  Filters?: DescribeConformancePacksFilters | undefined;
 
   /**
    * <p>The maximum number of conformance packs returned on each page.</p>
@@ -4369,6 +4494,12 @@ export interface DescribeConformancePackStatusRequest {
    * @public
    */
   ConformancePackNames?: string[] | undefined;
+
+  /**
+   * <p>Returns a filtered list of custom or managed conformance pack statuses. By default, if the filter is not defined, Config returns details for all your conformance packs.</p>
+   * @public
+   */
+  Filters?: DescribeConformancePacksFilters | undefined;
 
   /**
    * <p>The maximum number of conformance packs status returned on each page.</p>
@@ -8145,7 +8276,8 @@ export interface PutConformancePackRequest {
   DeliveryS3KeyPrefix?: string | undefined;
 
   /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   * <p>A list of <code>ConformancePackInputParameter</code> objects. Custom conformance packs can have at most 60 input parameters.
+   *         Managed conformance packs can have at most 330 input parameters.</p>
    * @public
    */
   ConformancePackInputParameters?: ConformancePackInputParameter[] | undefined;
@@ -8161,6 +8293,27 @@ export interface PutConformancePackRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>An object of type <code>ConformancePackSource</code>, which contains the identifier of the managed conformance pack that you want to deploy. If you specify a source, Config creates a managed conformance pack.
+   * 			Managed conformance packs are predefined collections of Config rules that are created and maintained by Amazon Web Services.</p>
+   *          <note>
+   *             <p>If you specify a source, you cannot specify <code>TemplateS3Uri</code>, <code>TemplateBody</code>, <code>TemplateSSMDocumentDetails</code>, <code>DeliveryS3Bucket</code>, or <code>DeliveryS3KeyPrefix</code>.
+   * 			You cannot convert an existing conformance pack between a managed conformance pack and a custom conformance pack. You also cannot change the source of an existing managed conformance pack.</p>
+   *          </note>
+   * @public
+   */
+  Source?: ConformancePackSource | undefined;
+
+  /**
+   * <p>An object of type <code>ConformancePackScope</code> that defines which resources can trigger an evaluation for Config rules in the conformance pack. The scope can include a tag key and optional tag value.
+   *             Specify a scope to constrain the resources that can trigger an evaluation for rules in the conformance pack. If you do not specify a scope, all rules in the conformance pack are unscoped.</p>
+   *          <note>
+   *             <p>This field is optional and is supported only for managed conformance packs. If you specify a scope, you must also specify <code>Source</code>.</p>
+   *          </note>
+   * @public
+   */
+  Scope?: ConformancePackScope | undefined;
 }
 
 /**
@@ -8904,92 +9057,4 @@ export interface StartResourceEvaluationRequest {
    * @public
    */
   ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartResourceEvaluationResponse {
-  /**
-   * <p>A
-   * 			unique ResourceEvaluationId that is associated with a single execution.</p>
-   * @public
-   */
-  ResourceEvaluationId?: string | undefined;
-}
-
-/**
- * <p>The input for the <a>StopConfigurationRecorder</a> operation.</p>
- * @public
- */
-export interface StopConfigurationRecorderRequest {
-  /**
-   * <p>The name of the customer managed configuration recorder that you want to stop.</p>
-   * @public
-   */
-  ConfigurationRecorderName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationRecorder</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigRule</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OrganizationConfigRule</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConformancePack</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OrganizationConformancePack</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationAggregator</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AggregationAuthorization</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>StoredQuery</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Connector</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>An array of tag object.</p>
-   * @public
-   */
-  Tags: Tag[] | undefined;
 }

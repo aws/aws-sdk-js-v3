@@ -73,10 +73,13 @@ import {
   ConformancePackEvaluationResult$,
   ConformancePackInputParameter$,
   ConformancePackRuleCompliance$,
+  ConformancePackScope$,
+  ConformancePackSource$,
   ConformancePackState,
   ConformancePackStatusDetail$,
   ConformancePackTemplateValidationException,
   ConformancePackTemplateValidationException$,
+  ConformancePackType,
   Connector$,
   ConnectorConfiguration$,
   ConnectorFilter$,
@@ -197,6 +200,7 @@ import {
   DescribeConformancePackComplianceResponse$,
   DescribeConformancePacks$,
   DescribeConformancePacksCommand,
+  DescribeConformancePacksFilters$,
   DescribeConformancePacksRequest$,
   DescribeConformancePacksResponse$,
   DescribeConformancePackStatus$,
@@ -967,6 +971,8 @@ assert(typeof ConformancePackEvaluationFilters$ === "object");
 assert(typeof ConformancePackEvaluationResult$ === "object");
 assert(typeof ConformancePackInputParameter$ === "object");
 assert(typeof ConformancePackRuleCompliance$ === "object");
+assert(typeof ConformancePackScope$ === "object");
+assert(typeof ConformancePackSource$ === "object");
 assert(typeof ConformancePackStatusDetail$ === "object");
 assert(typeof Connector$ === "object");
 assert(typeof ConnectorConfiguration$ === "object");
@@ -1024,6 +1030,7 @@ assert(typeof DescribeConfigurationRecorderStatusRequest$ === "object");
 assert(typeof DescribeConfigurationRecorderStatusResponse$ === "object");
 assert(typeof DescribeConformancePackComplianceRequest$ === "object");
 assert(typeof DescribeConformancePackComplianceResponse$ === "object");
+assert(typeof DescribeConformancePacksFilters$ === "object");
 assert(typeof DescribeConformancePacksRequest$ === "object");
 assert(typeof DescribeConformancePacksResponse$ === "object");
 assert(typeof DescribeConformancePackStatusRequest$ === "object");
@@ -1229,6 +1236,7 @@ assert(typeof ConfigurationItemStatus === "object");
 assert(typeof ConfigurationRecorderFilterName === "object");
 assert(typeof ConformancePackComplianceType === "object");
 assert(typeof ConformancePackState === "object");
+assert(typeof ConformancePackType === "object");
 assert(typeof ConnectorFilterName === "object");
 assert(typeof DeliveryStatus === "object");
 assert(typeof EvaluationMode === "object");

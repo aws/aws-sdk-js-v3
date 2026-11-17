@@ -39,6 +39,11 @@ export interface DescribeConformancePackStatusCommandOutput extends DescribeConf
  *   ConformancePackNames: [ // ConformancePackNamesList
  *     "STRING_VALUE",
  *   ],
+ *   Filters: { // DescribeConformancePacksFilters
+ *     Types: [ // ConformancePackTypeList
+ *       "CUSTOM" || "MANAGED",
+ *     ],
+ *   },
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -50,11 +55,12 @@ export interface DescribeConformancePackStatusCommandOutput extends DescribeConf
  * //       ConformancePackName: "STRING_VALUE", // required
  * //       ConformancePackId: "STRING_VALUE", // required
  * //       ConformancePackArn: "STRING_VALUE", // required
- * //       ConformancePackState: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED", // required
- * //       StackArn: "STRING_VALUE", // required
+ * //       ConformancePackState: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED", // required
+ * //       StackArn: "STRING_VALUE",
  * //       ConformancePackStatusReason: "STRING_VALUE",
  * //       LastUpdateRequestedTime: new Date("TIMESTAMP"), // required
  * //       LastUpdateCompletedTime: new Date("TIMESTAMP"),
+ * //       Type: "CUSTOM" || "MANAGED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

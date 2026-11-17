@@ -42,7 +42,8 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  *          <p>This API creates a service-linked role <code>AWSServiceRoleForConfigConforms</code> in your account.
  * 		The service-linked role is created only when the role does not exist in your account. </p>
  *          <note>
- *             <p>You must specify only one of the follow parameters: <code>TemplateS3Uri</code>, <code>TemplateBody</code> or <code>TemplateSSMDocumentDetails</code>.</p>
+ *             <p>For custom conformance packs, you must specify only one of <code>TemplateS3Uri</code>, <code>TemplateBody</code>, <code>TemplateSSMDocumentDetails</code>.</p>
+ *             <p>For managed conformance packs, you must specify <code>Source</code>. Do not specify <code>TemplateS3Uri</code>, <code>TemplateBody</code>, <code>TemplateSSMDocumentDetails</code>, <code>DeliveryS3Bucket</code>, or <code>DeliveryS3KeyPrefix</code>.</p>
  *          </note>
  *          <note>
  *             <p>
@@ -83,6 +84,13 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   Source: { // ConformancePackSource
+ *     SourceIdentifier: "STRING_VALUE", // required
+ *   },
+ *   Scope: { // ConformancePackScope
+ *     TagKey: "STRING_VALUE", // required
+ *     TagValue: "STRING_VALUE",
+ *   },
  * };
  * const command = new PutConformancePackCommand(input);
  * const response = await client.send(command);

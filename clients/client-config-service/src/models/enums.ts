@@ -866,12 +866,28 @@ export type Provider = (typeof Provider)[keyof typeof Provider];
  * @public
  * @enum
  */
+export const ConformancePackType = {
+  CUSTOM: "CUSTOM",
+  MANAGED: "MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type ConformancePackType = (typeof ConformancePackType)[keyof typeof ConformancePackType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ConformancePackState = {
   CREATE_COMPLETE: "CREATE_COMPLETE",
   CREATE_FAILED: "CREATE_FAILED",
   CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
   DELETE_FAILED: "DELETE_FAILED",
   DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
 } as const;
 /**
  * @public

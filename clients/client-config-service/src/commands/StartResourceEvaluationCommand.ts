@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { StartResourceEvaluationRequest, StartResourceEvaluationResponse } from "../models/models_0";
+import type { StartResourceEvaluationRequest } from "../models/models_0";
+import type { StartResourceEvaluationResponse } from "../models/models_1";
 import { StartResourceEvaluation$ } from "../schemas/schemas_0";
 
 /**

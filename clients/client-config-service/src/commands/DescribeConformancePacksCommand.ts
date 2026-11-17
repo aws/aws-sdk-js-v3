@@ -36,6 +36,11 @@ export interface DescribeConformancePacksCommandOutput extends DescribeConforman
  *   ConformancePackNames: [ // ConformancePackNamesList
  *     "STRING_VALUE",
  *   ],
+ *   Filters: { // DescribeConformancePacksFilters
+ *     Types: [ // ConformancePackTypeList
+ *       "CUSTOM" || "MANAGED",
+ *     ],
+ *   },
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -60,6 +65,14 @@ export interface DescribeConformancePacksCommandOutput extends DescribeConforman
  * //       TemplateSSMDocumentDetails: { // TemplateSSMDocumentDetails
  * //         DocumentName: "STRING_VALUE", // required
  * //         DocumentVersion: "STRING_VALUE",
+ * //       },
+ * //       Type: "CUSTOM" || "MANAGED",
+ * //       Source: { // ConformancePackSource
+ * //         SourceIdentifier: "STRING_VALUE", // required
+ * //       },
+ * //       Scope: { // ConformancePackScope
+ * //         TagKey: "STRING_VALUE", // required
+ * //         TagValue: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

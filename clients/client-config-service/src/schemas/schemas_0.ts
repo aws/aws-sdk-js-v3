@@ -101,11 +101,13 @@ const _CPRC = "ConformancePackRuleCompliance";
 const _CPRCL = "ConformancePackRuleComplianceList";
 const _CPRER = "ConformancePackRuleEvaluationResults";
 const _CPRERL = "ConformancePackRuleEvaluationResultsList";
-const _CPS = "ConformancePackState";
+const _CPS = "ConformancePackScope";
 const _CPSD = "ConformancePackStatusDetail";
 const _CPSDL = "ConformancePackStatusDetailsList";
 const _CPSDo = "ConformancePackStatusDetails";
 const _CPSR = "ConformancePackStatusReason";
+const _CPSo = "ConformancePackSource";
+const _CPSon = "ConformancePackState";
 const _CPTVE = "ConformancePackTemplateValidationException";
 const _CR = "ConfigurationRecorder";
 const _CRA = "ConfigurationRecorderArn";
@@ -187,6 +189,7 @@ const _DCP = "DeleteConformancePack";
 const _DCPC = "DescribeConformancePackCompliance";
 const _DCPCR = "DescribeConformancePackComplianceRequest";
 const _DCPCRe = "DescribeConformancePackComplianceResponse";
+const _DCPF = "DescribeConformancePacksFilters";
 const _DCPR = "DeleteConformancePackRequest";
 const _DCPRe = "DescribeConformancePacksRequest";
 const _DCPRes = "DescribeConformancePacksResponse";
@@ -720,12 +723,13 @@ const _TRR = "TagResourceRequest";
 const _TSSMDD = "TemplateSSMDocumentDetails";
 const _TSU = "TemplateS3Uri";
 const _TT = "TargetType";
-const _TV = "TargetVersion";
+const _TV = "TagValue";
 const _TVS = "TagValueScope";
-const _TVa = "TagValue";
+const _TVa = "TargetVersion";
 const _TW = "TimeWindow";
 const _Ta = "Tags";
 const _Tag = "Tag";
+const _Ty = "Types";
 const _UEE = "UnmodifiableEntityException";
 const _UR = "UntagResource";
 const _URI = "UnprocessedResourceIdentifiers";
@@ -1497,8 +1501,8 @@ export var ConformancePackComplianceSummary$: StaticStructureSchema = [3, n0, _C
 ];
 export var ConformancePackDetail$: StaticStructureSchema = [3, n0, _CPD,
   0,
-  [_CPN, _CPA, _CPI, _DSB, _DSKP, _CPIP, _LURT, _CB, _TSSMDD],
-  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, 4, 0, () => TemplateSSMDocumentDetails$], 3
+  [_CPN, _CPA, _CPI, _DSB, _DSKP, _CPIP, _LURT, _CB, _TSSMDD, _T, _S, _Sc],
+  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, 4, 0, () => TemplateSSMDocumentDetails$, 0, () => ConformancePackSource$, () => ConformancePackScope$], 3
 ];
 export var ConformancePackEvaluationFilters$: StaticStructureSchema = [3, n0, _CPEF,
   0,
@@ -1520,10 +1524,20 @@ export var ConformancePackRuleCompliance$: StaticStructureSchema = [3, n0, _CPRC
   [_CRN, _CT, _Co],
   [0, 0, 64 | 0]
 ];
+export var ConformancePackScope$: StaticStructureSchema = [3, n0, _CPS,
+  0,
+  [_TK, _TV],
+  [0, 0], 1
+];
+export var ConformancePackSource$: StaticStructureSchema = [3, n0, _CPSo,
+  0,
+  [_SIo],
+  [0], 1
+];
 export var ConformancePackStatusDetail$: StaticStructureSchema = [3, n0, _CPSD,
   0,
-  [_CPN, _CPI, _CPA, _CPS, _SA, _LURT, _CPSR, _LUCT],
-  [0, 0, 0, 0, 0, 4, 0, 4], 6
+  [_CPN, _CPI, _CPA, _CPSon, _LURT, _SA, _CPSR, _LUCT, _T],
+  [0, 0, 0, 0, 4, 0, 0, 4, 0], 5
 ];
 export var Connector$: StaticStructureSchema = [3, n0, _Con,
   0,
@@ -1805,10 +1819,15 @@ export var DescribeConformancePackComplianceResponse$: StaticStructureSchema = [
   [_CPN, _CPRCL, _NT],
   [0, () => ConformancePackRuleComplianceList, 0], 2
 ];
+export var DescribeConformancePacksFilters$: StaticStructureSchema = [3, n0, _DCPF,
+  0,
+  [_Ty],
+  [64 | 0]
+];
 export var DescribeConformancePacksRequest$: StaticStructureSchema = [3, n0, _DCPRe,
   0,
-  [_CPNo, _L, _NT],
-  [64 | 0, 1, 0]
+  [_CPNo, _F, _L, _NT],
+  [64 | 0, () => DescribeConformancePacksFilters$, 1, 0]
 ];
 export var DescribeConformancePacksResponse$: StaticStructureSchema = [3, n0, _DCPRes,
   0,
@@ -1817,8 +1836,8 @@ export var DescribeConformancePacksResponse$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribeConformancePackStatusRequest$: StaticStructureSchema = [3, n0, _DCPSR,
   0,
-  [_CPNo, _L, _NT],
-  [64 | 0, 1, 0]
+  [_CPNo, _F, _L, _NT],
+  [64 | 0, () => DescribeConformancePacksFilters$, 1, 0]
 ];
 export var DescribeConformancePackStatusResponse$: StaticStructureSchema = [3, n0, _DCPSRe,
   0,
@@ -2397,8 +2416,8 @@ export var PutConfigurationRecorderRequest$: StaticStructureSchema = [3, n0, _PC
 ];
 export var PutConformancePackRequest$: StaticStructureSchema = [3, n0, _PCPR,
   0,
-  [_CPN, _TSU, _TB, _DSB, _DSKP, _CPIP, _TSSMDD, _Ta],
-  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, () => TemplateSSMDocumentDetails$, () => TagsList], 1
+  [_CPN, _TSU, _TB, _DSB, _DSKP, _CPIP, _TSSMDD, _Ta, _S, _Sc],
+  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, () => TemplateSSMDocumentDetails$, () => TagsList, () => ConformancePackSource$, () => ConformancePackScope$], 1
 ];
 export var PutConformancePackResponse$: StaticStructureSchema = [3, n0, _PCPRu,
   0,
@@ -2557,7 +2576,7 @@ export var Relationship$: StaticStructureSchema = [3, n0, _R,
 ];
 export var RemediationConfiguration$: StaticStructureSchema = [3, n0, _RCem,
   0,
-  [_CRN, _TT, _TI, _TV, _P, _RT, _Au, _ECx, _MAA, _RAS, _Ar, _CBS],
+  [_CRN, _TT, _TI, _TVa, _P, _RT, _Au, _ECx, _MAA, _RAS, _Ar, _CBS],
   [0, 0, 0, 0, () => RemediationParameters, 0, 2, () => ExecutionControls$, 1, 1, 0, 0], 3
 ];
 export var RemediationException$: StaticStructureSchema = [3, n0, _REem,
@@ -2637,7 +2656,7 @@ export var RetentionConfiguration$: StaticStructureSchema = [3, n0, _RCet,
 ];
 export var Scope$: StaticStructureSchema = [3, n0, _Sc,
   0,
-  [_CRTo, _TK, _TVa, _CRIo, _SPe],
+  [_CRTo, _TK, _TV, _CRIo, _SPe],
   [64 | 0, 0, 0, 0, 64 | 0]
 ];
 export var ScopeConfiguration$: StaticStructureSchema = [3, n0, _SCc,
@@ -2861,6 +2880,7 @@ var ConformancePackRuleEvaluationResultsList: StaticListSchema = [1, n0, _CPRERL
 var ConformancePackStatusDetailsList: StaticListSchema = [1, n0, _CPSDL,
   0, () => ConformancePackStatusDetail$
 ];
+var ConformancePackTypeList = 64 | 0;
 var ConnectorFilterList: StaticListSchema = [1, n0, _CFL,
   0, () => ConnectorFilter$
 ];
