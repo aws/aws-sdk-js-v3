@@ -591,7 +591,7 @@ new S3Client({
 
 The `AdaptiveRetryStrategy` is similar to the `StandardRetryStrategy`, but
 contains an additional `RateLimiter`. For details, inspect the source code at
-https://github.com/smithy-lang/smithy-typescript/blob/main/packages/util-retry/src/AdaptiveRetryStrategy.ts.
+https://github.com/smithy-lang/smithy-typescript/blob/main/packages/core/src/submodules/retry/util-retry/AdaptiveRetryStrategy.ts.
 
 ### Logger `logger`
 
