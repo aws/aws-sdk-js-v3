@@ -174,6 +174,11 @@ import {
   AssociateSoftwareTokenCommand,
 } from "./commands/AssociateSoftwareTokenCommand";
 import {
+  type CancelPointInTimeRecoveryCommandInput,
+  type CancelPointInTimeRecoveryCommandOutput,
+  CancelPointInTimeRecoveryCommand,
+} from "./commands/CancelPointInTimeRecoveryCommand";
+import {
   type ChangePasswordCommandInput,
   type ChangePasswordCommandOutput,
   ChangePasswordCommand,
@@ -329,6 +334,11 @@ import {
   DescribeManagedLoginBrandingCommand,
 } from "./commands/DescribeManagedLoginBrandingCommand";
 import {
+  type DescribePointInTimeRecoveryCommandInput,
+  type DescribePointInTimeRecoveryCommandOutput,
+  DescribePointInTimeRecoveryCommand,
+} from "./commands/DescribePointInTimeRecoveryCommand";
+import {
   type DescribeResourceServerCommandInput,
   type DescribeResourceServerCommandOutput,
   DescribeResourceServerCommand,
@@ -462,6 +472,11 @@ import {
   InitiateAuthCommand,
 } from "./commands/InitiateAuthCommand";
 import {
+  type InitiatePointInTimeRecoveryCommandInput,
+  type InitiatePointInTimeRecoveryCommandOutput,
+  InitiatePointInTimeRecoveryCommand,
+} from "./commands/InitiatePointInTimeRecoveryCommand";
+import {
   type ListDevicesCommandInput,
   type ListDevicesCommandOutput,
   ListDevicesCommand,
@@ -476,6 +491,11 @@ import {
   type ListIdentityProvidersCommandOutput,
   ListIdentityProvidersCommand,
 } from "./commands/ListIdentityProvidersCommand";
+import {
+  type ListPointInTimeRecoveriesCommandInput,
+  type ListPointInTimeRecoveriesCommandOutput,
+  ListPointInTimeRecoveriesCommand,
+} from "./commands/ListPointInTimeRecoveriesCommand";
 import {
   type ListResourceServersCommandInput,
   type ListResourceServersCommandOutput,
@@ -589,6 +609,11 @@ import {
   SetUserSettingsCommand,
 } from "./commands/SetUserSettingsCommand";
 import { type SignUpCommandInput, type SignUpCommandOutput, SignUpCommand } from "./commands/SignUpCommand";
+import {
+  type StartPointInTimeRecoveryCommandInput,
+  type StartPointInTimeRecoveryCommandOutput,
+  StartPointInTimeRecoveryCommand,
+} from "./commands/StartPointInTimeRecoveryCommand";
 import {
   type StartUserImportJobCommandInput,
   type StartUserImportJobCommandOutput,
@@ -733,6 +758,7 @@ const commands = {
   AdminUpdateUserAttributesCommand,
   AdminUserGlobalSignOutCommand,
   AssociateSoftwareTokenCommand,
+  CancelPointInTimeRecoveryCommand,
   ChangePasswordCommand,
   CompleteWebAuthnRegistrationCommand,
   ConfirmDeviceCommand,
@@ -764,6 +790,7 @@ const commands = {
   DescribeIdentityProviderCommand,
   DescribeManagedLoginBrandingCommand,
   DescribeManagedLoginBrandingByClientCommand,
+  DescribePointInTimeRecoveryCommand,
   DescribeResourceServerCommand,
   DescribeRiskConfigurationCommand,
   DescribeTermsCommand,
@@ -793,9 +820,11 @@ const commands = {
   GetUserPoolSessionConfigurationCommand,
   GlobalSignOutCommand,
   InitiateAuthCommand,
+  InitiatePointInTimeRecoveryCommand,
   ListDevicesCommand,
   ListGroupsCommand,
   ListIdentityProvidersCommand,
+  ListPointInTimeRecoveriesCommand,
   ListResourceServersCommand,
   ListTagsForResourceCommand,
   ListTermsCommand,
@@ -821,6 +850,7 @@ const commands = {
   SetUserPoolSessionConfigurationCommand,
   SetUserSettingsCommand,
   SignUpCommand,
+  StartPointInTimeRecoveryCommand,
   StartUserImportJobCommand,
   StartWebAuthnRegistrationCommand,
   StopUserImportJobCommand,
@@ -1425,6 +1455,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link CancelPointInTimeRecoveryCommand}
+   */
+  cancelPointInTimeRecovery(
+    args: CancelPointInTimeRecoveryCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<CancelPointInTimeRecoveryCommandOutput>;
+  cancelPointInTimeRecovery(
+    args: CancelPointInTimeRecoveryCommandInput,
+    cb: (err: any, data?: CancelPointInTimeRecoveryCommandOutput) => void
+  ): void;
+  cancelPointInTimeRecovery(
+    args: CancelPointInTimeRecoveryCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: CancelPointInTimeRecoveryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ChangePasswordCommand}
    */
   changePassword(
@@ -1952,6 +1999,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link DescribePointInTimeRecoveryCommand}
+   */
+  describePointInTimeRecovery(
+    args: DescribePointInTimeRecoveryCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<DescribePointInTimeRecoveryCommandOutput>;
+  describePointInTimeRecovery(
+    args: DescribePointInTimeRecoveryCommandInput,
+    cb: (err: any, data?: DescribePointInTimeRecoveryCommandOutput) => void
+  ): void;
+  describePointInTimeRecovery(
+    args: DescribePointInTimeRecoveryCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: DescribePointInTimeRecoveryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeResourceServerCommand}
    */
   describeResourceServer(
@@ -2445,6 +2509,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link InitiatePointInTimeRecoveryCommand}
+   */
+  initiatePointInTimeRecovery(
+    args: InitiatePointInTimeRecoveryCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<InitiatePointInTimeRecoveryCommandOutput>;
+  initiatePointInTimeRecovery(
+    args: InitiatePointInTimeRecoveryCommandInput,
+    cb: (err: any, data?: InitiatePointInTimeRecoveryCommandOutput) => void
+  ): void;
+  initiatePointInTimeRecovery(
+    args: InitiatePointInTimeRecoveryCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: InitiatePointInTimeRecoveryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDevicesCommand}
    */
   listDevices(
@@ -2493,6 +2574,23 @@ export interface CognitoIdentityProvider {
     args: ListIdentityProvidersCommandInput,
     options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListIdentityProvidersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPointInTimeRecoveriesCommand}
+   */
+  listPointInTimeRecoveries(
+    args: ListPointInTimeRecoveriesCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<ListPointInTimeRecoveriesCommandOutput>;
+  listPointInTimeRecoveries(
+    args: ListPointInTimeRecoveriesCommandInput,
+    cb: (err: any, data?: ListPointInTimeRecoveriesCommandOutput) => void
+  ): void;
+  listPointInTimeRecoveries(
+    args: ListPointInTimeRecoveriesCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: ListPointInTimeRecoveriesCommandOutput) => void
   ): void;
 
   /**
@@ -2918,6 +3016,23 @@ export interface CognitoIdentityProvider {
     args: SignUpCommandInput,
     options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: SignUpCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartPointInTimeRecoveryCommand}
+   */
+  startPointInTimeRecovery(
+    args: StartPointInTimeRecoveryCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<StartPointInTimeRecoveryCommandOutput>;
+  startPointInTimeRecovery(
+    args: StartPointInTimeRecoveryCommandInput,
+    cb: (err: any, data?: StartPointInTimeRecoveryCommandOutput) => void
+  ): void;
+  startPointInTimeRecovery(
+    args: StartPointInTimeRecoveryCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: StartPointInTimeRecoveryCommandOutput) => void
   ): void;
 
   /**

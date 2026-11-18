@@ -165,6 +165,10 @@ import type {
   AssociateSoftwareTokenCommandInput,
   AssociateSoftwareTokenCommandOutput,
 } from "./commands/AssociateSoftwareTokenCommand";
+import type {
+  CancelPointInTimeRecoveryCommandInput,
+  CancelPointInTimeRecoveryCommandOutput,
+} from "./commands/CancelPointInTimeRecoveryCommand";
 import type { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "./commands/ChangePasswordCommand";
 import type {
   CompleteWebAuthnRegistrationCommandInput,
@@ -260,6 +264,10 @@ import type {
   DescribeManagedLoginBrandingCommandOutput,
 } from "./commands/DescribeManagedLoginBrandingCommand";
 import type {
+  DescribePointInTimeRecoveryCommandInput,
+  DescribePointInTimeRecoveryCommandOutput,
+} from "./commands/DescribePointInTimeRecoveryCommand";
+import type {
   DescribeResourceServerCommandInput,
   DescribeResourceServerCommandOutput,
 } from "./commands/DescribeResourceServerCommand";
@@ -339,12 +347,20 @@ import type {
 } from "./commands/GetUserPoolSessionConfigurationCommand";
 import type { GlobalSignOutCommandInput, GlobalSignOutCommandOutput } from "./commands/GlobalSignOutCommand";
 import type { InitiateAuthCommandInput, InitiateAuthCommandOutput } from "./commands/InitiateAuthCommand";
+import type {
+  InitiatePointInTimeRecoveryCommandInput,
+  InitiatePointInTimeRecoveryCommandOutput,
+} from "./commands/InitiatePointInTimeRecoveryCommand";
 import type { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import type { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import type {
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput,
 } from "./commands/ListIdentityProvidersCommand";
+import type {
+  ListPointInTimeRecoveriesCommandInput,
+  ListPointInTimeRecoveriesCommandOutput,
+} from "./commands/ListPointInTimeRecoveriesCommand";
 import type {
   ListResourceServersCommandInput,
   ListResourceServersCommandOutput,
@@ -421,6 +437,10 @@ import type {
 } from "./commands/SetUserPoolSessionConfigurationCommand";
 import type { SetUserSettingsCommandInput, SetUserSettingsCommandOutput } from "./commands/SetUserSettingsCommand";
 import type { SignUpCommandInput, SignUpCommandOutput } from "./commands/SignUpCommand";
+import type {
+  StartPointInTimeRecoveryCommandInput,
+  StartPointInTimeRecoveryCommandOutput,
+} from "./commands/StartPointInTimeRecoveryCommand";
 import type {
   StartUserImportJobCommandInput,
   StartUserImportJobCommandOutput,
@@ -534,6 +554,7 @@ export type ServiceInputTypes =
   | AdminUpdateUserAttributesCommandInput
   | AdminUserGlobalSignOutCommandInput
   | AssociateSoftwareTokenCommandInput
+  | CancelPointInTimeRecoveryCommandInput
   | ChangePasswordCommandInput
   | CompleteWebAuthnRegistrationCommandInput
   | ConfirmDeviceCommandInput
@@ -565,6 +586,7 @@ export type ServiceInputTypes =
   | DescribeIdentityProviderCommandInput
   | DescribeManagedLoginBrandingByClientCommandInput
   | DescribeManagedLoginBrandingCommandInput
+  | DescribePointInTimeRecoveryCommandInput
   | DescribeResourceServerCommandInput
   | DescribeRiskConfigurationCommandInput
   | DescribeTermsByClientCommandInput
@@ -594,9 +616,11 @@ export type ServiceInputTypes =
   | GetUserPoolSessionConfigurationCommandInput
   | GlobalSignOutCommandInput
   | InitiateAuthCommandInput
+  | InitiatePointInTimeRecoveryCommandInput
   | ListDevicesCommandInput
   | ListGroupsCommandInput
   | ListIdentityProvidersCommandInput
+  | ListPointInTimeRecoveriesCommandInput
   | ListResourceServersCommandInput
   | ListTagsForResourceCommandInput
   | ListTermsCommandInput
@@ -622,6 +646,7 @@ export type ServiceInputTypes =
   | SetUserPoolSessionConfigurationCommandInput
   | SetUserSettingsCommandInput
   | SignUpCommandInput
+  | StartPointInTimeRecoveryCommandInput
   | StartUserImportJobCommandInput
   | StartWebAuthnRegistrationCommandInput
   | StopUserImportJobCommandInput
@@ -680,6 +705,7 @@ export type ServiceOutputTypes =
   | AdminUpdateUserAttributesCommandOutput
   | AdminUserGlobalSignOutCommandOutput
   | AssociateSoftwareTokenCommandOutput
+  | CancelPointInTimeRecoveryCommandOutput
   | ChangePasswordCommandOutput
   | CompleteWebAuthnRegistrationCommandOutput
   | ConfirmDeviceCommandOutput
@@ -711,6 +737,7 @@ export type ServiceOutputTypes =
   | DescribeIdentityProviderCommandOutput
   | DescribeManagedLoginBrandingByClientCommandOutput
   | DescribeManagedLoginBrandingCommandOutput
+  | DescribePointInTimeRecoveryCommandOutput
   | DescribeResourceServerCommandOutput
   | DescribeRiskConfigurationCommandOutput
   | DescribeTermsByClientCommandOutput
@@ -740,9 +767,11 @@ export type ServiceOutputTypes =
   | GetUserPoolSessionConfigurationCommandOutput
   | GlobalSignOutCommandOutput
   | InitiateAuthCommandOutput
+  | InitiatePointInTimeRecoveryCommandOutput
   | ListDevicesCommandOutput
   | ListGroupsCommandOutput
   | ListIdentityProvidersCommandOutput
+  | ListPointInTimeRecoveriesCommandOutput
   | ListResourceServersCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTermsCommandOutput
@@ -768,6 +797,7 @@ export type ServiceOutputTypes =
   | SetUserPoolSessionConfigurationCommandOutput
   | SetUserSettingsCommandOutput
   | SignUpCommandOutput
+  | StartPointInTimeRecoveryCommandOutput
   | StartUserImportJobCommandOutput
   | StartWebAuthnRegistrationCommandOutput
   | StopUserImportJobCommandOutput

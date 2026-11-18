@@ -153,6 +153,10 @@ import {
   AuthEventType$,
   AuthFactorType,
   AuthFlowType,
+  CancelPointInTimeRecovery$,
+  CancelPointInTimeRecoveryCommand,
+  CancelPointInTimeRecoveryRequest$,
+  CancelPointInTimeRecoveryResponse$,
   ChallengeName,
   ChallengeNameType,
   ChallengeResponse,
@@ -302,6 +306,10 @@ import {
   DescribeManagedLoginBrandingCommand,
   DescribeManagedLoginBrandingRequest$,
   DescribeManagedLoginBrandingResponse$,
+  DescribePointInTimeRecovery$,
+  DescribePointInTimeRecoveryCommand,
+  DescribePointInTimeRecoveryRequest$,
+  DescribePointInTimeRecoveryResponse$,
   DescribeResourceServer$,
   DescribeResourceServerCommand,
   DescribeResourceServerRequest$,
@@ -461,6 +469,10 @@ import {
   InitiateAuthCommand,
   InitiateAuthRequest$,
   InitiateAuthResponse$,
+  InitiatePointInTimeRecovery$,
+  InitiatePointInTimeRecoveryCommand,
+  InitiatePointInTimeRecoveryRequest$,
+  InitiatePointInTimeRecoveryResponse$,
   InternalErrorException,
   InternalErrorException$,
   InternalServerException,
@@ -503,6 +515,10 @@ import {
   ListIdentityProvidersCommand,
   ListIdentityProvidersRequest$,
   ListIdentityProvidersResponse$,
+  ListPointInTimeRecoveries$,
+  ListPointInTimeRecoveriesCommand,
+  ListPointInTimeRecoveriesRequest$,
+  ListPointInTimeRecoveriesResponse$,
   ListResourceServers$,
   ListResourceServersCommand,
   ListResourceServersRequest$,
@@ -614,6 +630,10 @@ import {
   RespondToAuthChallengeCommand,
   RespondToAuthChallengeRequest$,
   RespondToAuthChallengeResponse$,
+  RestorationDescriptionType$,
+  RestorationType$,
+  RestorePreviewType$,
+  RestoreStatusType,
   RevokeAssociatedSessionsType,
   RevokeToken$,
   RevokeTokenCommand,
@@ -682,6 +702,10 @@ import {
   SoftwareTokenMFANotFoundException,
   SoftwareTokenMFANotFoundException$,
   SoftwareTokenMfaSettingsType$,
+  StartPointInTimeRecovery$,
+  StartPointInTimeRecoveryCommand,
+  StartPointInTimeRecoveryRequest$,
+  StartPointInTimeRecoveryResponse$,
   StartUserImportJob$,
   StartUserImportJobCommand,
   StartUserImportJobRequest$,
@@ -920,6 +944,8 @@ assert(typeof AdminUserGlobalSignOutCommand === "function");
 assert(typeof AdminUserGlobalSignOut$ === "object");
 assert(typeof AssociateSoftwareTokenCommand === "function");
 assert(typeof AssociateSoftwareToken$ === "object");
+assert(typeof CancelPointInTimeRecoveryCommand === "function");
+assert(typeof CancelPointInTimeRecovery$ === "object");
 assert(typeof ChangePasswordCommand === "function");
 assert(typeof ChangePassword$ === "object");
 assert(typeof CompleteWebAuthnRegistrationCommand === "function");
@@ -982,6 +1008,8 @@ assert(typeof DescribeManagedLoginBrandingCommand === "function");
 assert(typeof DescribeManagedLoginBranding$ === "object");
 assert(typeof DescribeManagedLoginBrandingByClientCommand === "function");
 assert(typeof DescribeManagedLoginBrandingByClient$ === "object");
+assert(typeof DescribePointInTimeRecoveryCommand === "function");
+assert(typeof DescribePointInTimeRecovery$ === "object");
 assert(typeof DescribeResourceServerCommand === "function");
 assert(typeof DescribeResourceServer$ === "object");
 assert(typeof DescribeRiskConfigurationCommand === "function");
@@ -1040,12 +1068,16 @@ assert(typeof GlobalSignOutCommand === "function");
 assert(typeof GlobalSignOut$ === "object");
 assert(typeof InitiateAuthCommand === "function");
 assert(typeof InitiateAuth$ === "object");
+assert(typeof InitiatePointInTimeRecoveryCommand === "function");
+assert(typeof InitiatePointInTimeRecovery$ === "object");
 assert(typeof ListDevicesCommand === "function");
 assert(typeof ListDevices$ === "object");
 assert(typeof ListGroupsCommand === "function");
 assert(typeof ListGroups$ === "object");
 assert(typeof ListIdentityProvidersCommand === "function");
 assert(typeof ListIdentityProviders$ === "object");
+assert(typeof ListPointInTimeRecoveriesCommand === "function");
+assert(typeof ListPointInTimeRecoveries$ === "object");
 assert(typeof ListResourceServersCommand === "function");
 assert(typeof ListResourceServers$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
@@ -1096,6 +1128,8 @@ assert(typeof SetUserSettingsCommand === "function");
 assert(typeof SetUserSettings$ === "object");
 assert(typeof SignUpCommand === "function");
 assert(typeof SignUp$ === "object");
+assert(typeof StartPointInTimeRecoveryCommand === "function");
+assert(typeof StartPointInTimeRecovery$ === "object");
 assert(typeof StartUserImportJobCommand === "function");
 assert(typeof StartUserImportJob$ === "object");
 assert(typeof StartWebAuthnRegistrationCommand === "function");
@@ -1212,6 +1246,8 @@ assert(typeof AssociateSoftwareTokenResponse$ === "object");
 assert(typeof AttributeType$ === "object");
 assert(typeof AuthenticationResultType$ === "object");
 assert(typeof AuthEventType$ === "object");
+assert(typeof CancelPointInTimeRecoveryRequest$ === "object");
+assert(typeof CancelPointInTimeRecoveryResponse$ === "object");
 assert(typeof ChallengeResponseType$ === "object");
 assert(typeof ChangePasswordRequest$ === "object");
 assert(typeof ChangePasswordResponse$ === "object");
@@ -1279,6 +1315,8 @@ assert(typeof DescribeManagedLoginBrandingByClientRequest$ === "object");
 assert(typeof DescribeManagedLoginBrandingByClientResponse$ === "object");
 assert(typeof DescribeManagedLoginBrandingRequest$ === "object");
 assert(typeof DescribeManagedLoginBrandingResponse$ === "object");
+assert(typeof DescribePointInTimeRecoveryRequest$ === "object");
+assert(typeof DescribePointInTimeRecoveryResponse$ === "object");
 assert(typeof DescribeResourceServerRequest$ === "object");
 assert(typeof DescribeResourceServerResponse$ === "object");
 assert(typeof DescribeRiskConfigurationRequest$ === "object");
@@ -1353,6 +1391,8 @@ assert(typeof IdentityProviderType$ === "object");
 assert(typeof InboundFederationLambdaType$ === "object");
 assert(typeof InitiateAuthRequest$ === "object");
 assert(typeof InitiateAuthResponse$ === "object");
+assert(typeof InitiatePointInTimeRecoveryRequest$ === "object");
+assert(typeof InitiatePointInTimeRecoveryResponse$ === "object");
 assert(typeof IssuerConfigurationType$ === "object");
 assert(typeof KeyConfigurationType$ === "object");
 assert(typeof LambdaConfigType$ === "object");
@@ -1364,6 +1404,8 @@ assert(typeof ListGroupsRequest$ === "object");
 assert(typeof ListGroupsResponse$ === "object");
 assert(typeof ListIdentityProvidersRequest$ === "object");
 assert(typeof ListIdentityProvidersResponse$ === "object");
+assert(typeof ListPointInTimeRecoveriesRequest$ === "object");
+assert(typeof ListPointInTimeRecoveriesResponse$ === "object");
 assert(typeof ListResourceServersRequest$ === "object");
 assert(typeof ListResourceServersResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
@@ -1409,6 +1451,9 @@ assert(typeof ResourceServerScopeType$ === "object");
 assert(typeof ResourceServerType$ === "object");
 assert(typeof RespondToAuthChallengeRequest$ === "object");
 assert(typeof RespondToAuthChallengeResponse$ === "object");
+assert(typeof RestorationDescriptionType$ === "object");
+assert(typeof RestorationType$ === "object");
+assert(typeof RestorePreviewType$ === "object");
 assert(typeof RevokeTokenRequest$ === "object");
 assert(typeof RevokeTokenResponse$ === "object");
 assert(typeof RevokeUserSessionRequest$ === "object");
@@ -1444,6 +1489,8 @@ assert(typeof SmsMfaConfigType$ === "object");
 assert(typeof SMSMfaSettingsType$ === "object");
 assert(typeof SoftwareTokenMfaConfigType$ === "object");
 assert(typeof SoftwareTokenMfaSettingsType$ === "object");
+assert(typeof StartPointInTimeRecoveryRequest$ === "object");
+assert(typeof StartPointInTimeRecoveryResponse$ === "object");
 assert(typeof StartUserImportJobRequest$ === "object");
 assert(typeof StartUserImportJobResponse$ === "object");
 assert(typeof StartWebAuthnRegistrationRequest$ === "object");
@@ -1554,6 +1601,7 @@ assert(typeof RecoveryOptionNameType === "object");
 assert(typeof ReplicaRoleType === "object");
 assert(typeof ReplicaStatusType === "object");
 assert(typeof ResourceServerManagedByType === "object");
+assert(typeof RestoreStatusType === "object");
 assert(typeof RevokeAssociatedSessionsType === "object");
 assert(typeof RiskDecisionType === "object");
 assert(typeof RiskLevelType === "object");

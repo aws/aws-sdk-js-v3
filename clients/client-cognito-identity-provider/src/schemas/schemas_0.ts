@@ -180,6 +180,7 @@ const _CCD = "CompromisedCredentialsDetected";
 const _CCO = "CredentialCreationOptions";
 const _CCRC = "CompromisedCredentialsRiskConfiguration";
 const _CCRCT = "CompromisedCredentialsRiskConfigurationType";
+const _CCr = "CreateCount";
 const _CD = "ContextData";
 const _CDC = "CustomDomainConfig";
 const _CDCT = "CustomDomainConfigType";
@@ -224,6 +225,9 @@ const _CMu = "CustomMessage";
 const _CN = "ChallengeName";
 const _CNl = "ClientName";
 const _CP = "ChallengeParameters";
+const _CPITR = "CancelPointInTimeRecovery";
+const _CPITRR = "CancelPointInTimeRecoveryRequest";
+const _CPITRRa = "CancelPointInTimeRecoveryResponse";
 const _CPR = "ChangePasswordRequest";
 const _CPRh = "ChangePasswordResponse";
 const _CPh = "ChangePassword";
@@ -298,6 +302,7 @@ const _DCD = "DeviceCreateDate";
 const _DCT = "DcrConfigurationType";
 const _DCTe = "DeviceConfigurationType";
 const _DCc = "DcrConfiguration";
+const _DCe = "DeleteCount";
 const _DD = "DomainDescription";
 const _DDM = "DesiredDeliveryMediums";
 const _DDT = "DomainDescriptionType";
@@ -329,6 +334,9 @@ const _DOA = "DeveloperOnlyAttribute";
 const _DOROUP = "DeviceOnlyRememberedOnUserPrompt";
 const _DP = "DeletionProtection";
 const _DPE = "DuplicateProviderException";
+const _DPITR = "DescribePointInTimeRecovery";
+const _DPITRR = "DescribePointInTimeRecoveryRequest";
+const _DPITRRe = "DescribePointInTimeRecoveryResponse";
 const _DRC = "DescribeRiskConfiguration";
 const _DRCR = "DescribeRiskConfigurationRequest";
 const _DRCRe = "DescribeRiskConfigurationResponse";
@@ -428,6 +436,7 @@ const _ETR = "EnableTokenRevocation";
 const _EVM = "EmailVerificationMessage";
 const _EVS = "EmailVerificationSubject";
 const _En = "Enforcement";
+const _Ent = "Entity";
 const _Ex = "Extension";
 const _F = "From";
 const _FAC = "ForceAliasCreation";
@@ -541,6 +550,9 @@ const _IOAFE = "InvalidOAuthFlowException";
 const _IP = "IdentityProvider";
 const _IPE = "InvalidParameterException";
 const _IPEn = "InvalidPasswordException";
+const _IPITR = "InitiatePointInTimeRecovery";
+const _IPITRR = "InitiatePointInTimeRecoveryRequest";
+const _IPITRRn = "InitiatePointInTimeRecoveryResponse";
 const _IPT = "IdentityProviderType";
 const _ISE = "InternalServerException";
 const _ISRAPE = "InvalidSmsRoleAccessPolicyException";
@@ -590,6 +602,9 @@ const _LIPRi = "ListIdentityProvidersResponse";
 const _LL = "LogLevel";
 const _LLa = "LastLocation";
 const _LMD = "LastModifiedDate";
+const _LPITR = "ListPointInTimeRecoveries";
+const _LPITRR = "ListPointInTimeRecoveriesRequest";
+const _LPITRRi = "ListPointInTimeRecoveriesResponse";
 const _LRS = "ListResourceServers";
 const _LRSR = "ListResourceServersRequest";
 const _LRSRi = "ListResourceServersResponse";
@@ -713,7 +728,7 @@ const _Pr = "Precedence";
 const _Pri = "Priority";
 const _Pro = "Provider";
 const _Prov = "Providers";
-const _R = "Routing";
+const _R = "Restoration";
 const _RA = "RoleArn";
 const _RAS = "RevokeAssociatedSessions";
 const _RAe = "ReadAttributes";
@@ -724,11 +739,14 @@ const _RCCR = "ResendConfirmationCodeRequest";
 const _RCCRe = "ResendConfirmationCodeResponse";
 const _RCT = "RiskConfigurationType";
 const _RD = "RiskDecision";
+const _RDT = "RestorationDescriptionType";
 const _REC = "RiskExceptionConfiguration";
 const _RECT = "RiskExceptionConfigurationType";
 const _RGPS = "RetryGracePeriodSeconds";
 const _RI = "ResourceId";
+const _RIe = "RestoreId";
 const _RL = "RiskLevel";
+const _RLT = "RestorationListType";
 const _RLV = "RequestedLimitValue";
 const _RLe = "RequireLowercase";
 const _RM = "RecoveryMechanisms";
@@ -738,7 +756,10 @@ const _RN = "RegionName";
 const _RNFE = "ResourceNotFoundException";
 const _RNe = "RequireNumbers";
 const _ROT = "RecoveryOptionType";
+const _RP = "RestorePreview";
 const _RPI = "RelyingPartyId";
+const _RPLT = "RestorePreviewListType";
+const _RPT = "RestorePreviewType";
 const _RR = "ReplicaRegions";
 const _RS = "ResourceServer";
 const _RSLT = "ResourceServersListType";
@@ -747,6 +768,7 @@ const _RSST = "ResourceServerScopeType";
 const _RST = "ResourceServerType";
 const _RSe = "ResourceServers";
 const _RSeq = "RequireSymbols";
+const _RSes = "RestoreStatus";
 const _RT = "RefreshToken";
 const _RTAC = "RespondToAuthChallenge";
 const _RTACR = "RespondToAuthChallengeRequest";
@@ -759,7 +781,9 @@ const _RTRe = "RevokeTokenRequest";
 const _RTRev = "RevokeTokenResponse";
 const _RTT = "RequestedTokenType";
 const _RTV = "RefreshTokenValidity";
-const _RTe = "ReplyTo";
+const _RTe = "RestoreTimestamp";
+const _RTep = "ReplyTo";
+const _RTes = "RestorationType";
 const _RTev = "RevokeToken";
 const _RTo = "RoutingType";
 const _RU = "RequireUppercase";
@@ -769,7 +793,9 @@ const _RUSRe = "RevokeUserSessionResponse";
 const _Re = "Region";
 const _Req = "Required";
 const _Res = "Resources";
-const _Ro = "Role";
+const _Rest = "Restorations";
+const _Ro = "Routing";
+const _Rol = "Role";
 const _S = "Session";
 const _SA = "SourceArn";
 const _SAC = "StringAttributeConstraints";
@@ -814,6 +840,9 @@ const _SMSMST = "SMSMfaSettingsType";
 const _SN = "ServerName";
 const _SNc = "ScopeName";
 const _SP = "ServerPath";
+const _SPITR = "StartPointInTimeRecovery";
+const _SPITRR = "StartPointInTimeRecoveryRequest";
+const _SPITRRt = "StartPointInTimeRecoveryResponse";
 const _SPe = "SecurityPolicy";
 const _SQEE = "ServiceQuotaExceededException";
 const _SR = "SecondaryRegion";
@@ -894,6 +923,7 @@ const _TS = "TermsSource";
 const _TSo = "TokenSession";
 const _TT = "TokenType";
 const _TTe = "TermsType";
+const _TTr = "TriggerTimestamp";
 const _TVU = "TokenValidityUnits";
 const _TVUT = "TokenValidityUnitsType";
 const _Ta = "Tags";
@@ -917,6 +947,7 @@ const _UCDs = "UserContextData";
 const _UCN = "UserConfirmationNecessary";
 const _UCPV = "UseCognitoProvidedValues";
 const _UCT = "UsernameConfigurationType";
+const _UCp = "UpdateCount";
 const _UCs = "UserConfirmed";
 const _UCse = "UserCode";
 const _UDS = "UserDataShared";
@@ -1878,6 +1909,16 @@ export var AuthEventType$: StaticStructureSchema = [3, n0, _AET,
   [_EI, _ET, _CDr, _ER, _ERv, _CR, _ECD, _EF],
   [0, 0, 4, 0, () => EventRiskType$, () => ChallengeResponseListType, () => EventContextDataType$, () => EventFeedbackType$]
 ];
+export var CancelPointInTimeRecoveryRequest$: StaticStructureSchema = [3, n0, _CPITRR,
+  0,
+  [_UPI, _RIe],
+  [0, 0], 2
+];
+export var CancelPointInTimeRecoveryResponse$: StaticStructureSchema = [3, n0, _CPITRRa,
+  0,
+  [_R],
+  [() => RestorationType$]
+];
 export var ChallengeResponseType$: StaticStructureSchema = [3, n0, _CRT,
   0,
   [_CN, _CRh],
@@ -2045,12 +2086,12 @@ export var CreateUserPoolClientResponse$: StaticStructureSchema = [3, n0, _CUPCR
 ];
 export var CreateUserPoolDomainRequest$: StaticStructureSchema = [3, n0, _CUPDR,
   0,
-  [_Do, _UPI, _MLV, _CDC, _R],
+  [_Do, _UPI, _MLV, _CDC, _Ro],
   [0, 0, 1, () => CustomDomainConfigType$, () => RoutingType$], 2
 ];
 export var CreateUserPoolDomainResponse$: StaticStructureSchema = [3, n0, _CUPDRr,
   0,
-  [_MLV, _CFD, _R],
+  [_MLV, _CFD, _Ro],
   [1, 0, () => RoutingType$]
 ];
 export var CreateUserPoolReplicaRequest$: StaticStructureSchema = [3, n0, _CUPRR,
@@ -2213,6 +2254,16 @@ export var DescribeManagedLoginBrandingResponse$: StaticStructureSchema = [3, n0
   [_MLB],
   [() => ManagedLoginBrandingType$]
 ];
+export var DescribePointInTimeRecoveryRequest$: StaticStructureSchema = [3, n0, _DPITRR,
+  0,
+  [_UPI, _RIe],
+  [0, 0], 2
+];
+export var DescribePointInTimeRecoveryResponse$: StaticStructureSchema = [3, n0, _DPITRRe,
+  0,
+  [_R],
+  [() => RestorationType$]
+];
 export var DescribeResourceServerRequest$: StaticStructureSchema = [3, n0, _DRSRe,
   0,
   [_UPI, _I],
@@ -2310,7 +2361,7 @@ export var DeviceType$: StaticStructureSchema = [3, n0, _DT,
 ];
 export var DomainDescriptionType$: StaticStructureSchema = [3, n0, _DDT,
   0,
-  [_UPI, _AWSAI, _Do, _SB, _CFDl, _Ve, _St, _CDC, _MLV, _R],
+  [_UPI, _AWSAI, _Do, _SB, _CFDl, _Ve, _St, _CDC, _MLV, _Ro],
   [0, 0, 0, 0, 0, 0, 0, () => CustomDomainConfigType$, 1, () => RoutingType$]
 ];
 export var EmailConfigurationType$: StaticStructureSchema = [3, n0, _ECT,
@@ -2583,6 +2634,16 @@ export var InitiateAuthResponse$: StaticStructureSchema = [3, n0, _IARn,
   [_CN, _S, _CP, _AR, _AC],
   [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType$, 0], 64 | 0]
 ];
+export var InitiatePointInTimeRecoveryRequest$: StaticStructureSchema = [3, n0, _IPITRR,
+  0,
+  [_UPI, _RTe],
+  [0, 4], 2
+];
+export var InitiatePointInTimeRecoveryResponse$: StaticStructureSchema = [3, n0, _IPITRRn,
+  0,
+  [_R],
+  [() => RestorationType$]
+];
 export var IssuerConfigurationType$: StaticStructureSchema = [3, n0, _ICT,
   0,
   [_Ty],
@@ -2637,6 +2698,16 @@ export var ListIdentityProvidersResponse$: StaticStructureSchema = [3, n0, _LIPR
   0,
   [_Prov, _NT],
   [() => ProvidersListType, 0], 1
+];
+export var ListPointInTimeRecoveriesRequest$: StaticStructureSchema = [3, n0, _LPITRR,
+  0,
+  [_UPI, _NT, _MR],
+  [0, 0, 1], 1
+];
+export var ListPointInTimeRecoveriesResponse$: StaticStructureSchema = [3, n0, _LPITRRi,
+  0,
+  [_Rest, _NT],
+  [() => RestorationListType, 0]
 ];
 export var ListResourceServersRequest$: StaticStructureSchema = [3, n0, _LRSR,
   0,
@@ -2790,7 +2861,7 @@ export var NewDeviceMetadataType$: StaticStructureSchema = [3, n0, _NDMT,
 ];
 export var NotifyConfigurationType$: StaticStructureSchema = [3, n0, _NCT,
   0,
-  [_SA, _F, _RTe, _BE, _NAEo, _ME],
+  [_SA, _F, _RTep, _BE, _NAEo, _ME],
   [0, 0, 0, () => NotifyEmailType$, () => NotifyEmailType$, () => NotifyEmailType$], 1
 ];
 export var NotifyEmailType$: StaticStructureSchema = [3, n0, _NET,
@@ -2862,6 +2933,21 @@ export var RespondToAuthChallengeResponse$: StaticStructureSchema = [3, n0, _RTA
   0,
   [_CN, _S, _CP, _AR, _AC],
   [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType$, 0], 64 | 0]
+];
+export var RestorationDescriptionType$: StaticStructureSchema = [3, n0, _RDT,
+  0,
+  [_RIe, _RSes, _RTe],
+  [0, 0, 4]
+];
+export var RestorationType$: StaticStructureSchema = [3, n0, _RTes,
+  0,
+  [_RIe, _RSes, _RTe, _TTr, _RP],
+  [0, 0, 4, 4, () => RestorePreviewListType]
+];
+export var RestorePreviewType$: StaticStructureSchema = [3, n0, _RPT,
+  0,
+  [_Ent, _CCr, _UCp, _DCe],
+  [0, 1, 1, 1]
 ];
 export var RevokeTokenRequest$: StaticStructureSchema = [3, n0, _RTRe,
   0,
@@ -3037,6 +3123,16 @@ export var SoftwareTokenMfaSettingsType$: StaticStructureSchema = [3, n0, _STMST
   0,
   [_E, _PM],
   [2, 2]
+];
+export var StartPointInTimeRecoveryRequest$: StaticStructureSchema = [3, n0, _SPITRR,
+  0,
+  [_UPI, _RIe],
+  [0, 0], 2
+];
+export var StartPointInTimeRecoveryResponse$: StaticStructureSchema = [3, n0, _SPITRRt,
+  0,
+  [_R],
+  [() => RestorationType$]
 ];
 export var StartUserImportJobRequest$: StaticStructureSchema = [3, n0, _SUIJR,
   0,
@@ -3215,12 +3311,12 @@ export var UpdateUserPoolClientResponse$: StaticStructureSchema = [3, n0, _UUPCR
 ];
 export var UpdateUserPoolDomainRequest$: StaticStructureSchema = [3, n0, _UUPDR,
   0,
-  [_Do, _UPI, _MLV, _CDC, _R],
+  [_Do, _UPI, _MLV, _CDC, _Ro],
   [0, 0, 1, () => CustomDomainConfigType$, () => RoutingType$], 2
 ];
 export var UpdateUserPoolDomainResponse$: StaticStructureSchema = [3, n0, _UUPDRp,
   0,
-  [_MLV, _CFD, _R],
+  [_MLV, _CFD, _Ro],
   [1, 0, () => RoutingType$]
 ];
 export var UpdateUserPoolReplicaRequest$: StaticStructureSchema = [3, n0, _UUPRR,
@@ -3290,7 +3386,7 @@ export var UserPoolPolicyType$: StaticStructureSchema = [3, n0, _UPPT,
 ];
 export var UserPoolReplicaType$: StaticStructureSchema = [3, n0, _UPRT,
   0,
-  [_RN, _St, _Ro, _UPA],
+  [_RN, _St, _Rol, _UPA],
   [0, 0, 0, 0]
 ];
 export var UserPoolTokenSessionConfigType$: StaticStructureSchema = [3, n0, _UPTSCT,
@@ -3418,6 +3514,12 @@ var ResourceServerScopeListType: StaticListSchema = [1, n0, _RSSLT,
 ];
 var ResourceServersListType: StaticListSchema = [1, n0, _RSLT,
   0, () => ResourceServerType$
+];
+var RestorationListType: StaticListSchema = [1, n0, _RLT,
+  0, () => RestorationDescriptionType$
+];
+var RestorePreviewListType: StaticListSchema = [1, n0, _RPLT,
+  0, () => RestorePreviewType$
 ];
 var SchemaAttributesListType: StaticListSchema = [1, n0, _SALT,
   0, () => SchemaAttributeType$
@@ -3574,6 +3676,9 @@ export var AdminUserGlobalSignOut$: StaticOperationSchema = [9, n0, _AUGSO,
 export var AssociateSoftwareToken$: StaticOperationSchema = [9, n0, _AST,
   0, () => AssociateSoftwareTokenRequest$, () => AssociateSoftwareTokenResponse$
 ];
+export var CancelPointInTimeRecovery$: StaticOperationSchema = [9, n0, _CPITR,
+  0, () => CancelPointInTimeRecoveryRequest$, () => CancelPointInTimeRecoveryResponse$
+];
 export var ChangePassword$: StaticOperationSchema = [9, n0, _CPh,
   0, () => ChangePasswordRequest$, () => ChangePasswordResponse$
 ];
@@ -3667,6 +3772,9 @@ export var DescribeManagedLoginBranding$: StaticOperationSchema = [9, n0, _DMLBe
 export var DescribeManagedLoginBrandingByClient$: StaticOperationSchema = [9, n0, _DMLBBC,
   0, () => DescribeManagedLoginBrandingByClientRequest$, () => DescribeManagedLoginBrandingByClientResponse$
 ];
+export var DescribePointInTimeRecovery$: StaticOperationSchema = [9, n0, _DPITR,
+  0, () => DescribePointInTimeRecoveryRequest$, () => DescribePointInTimeRecoveryResponse$
+];
 export var DescribeResourceServer$: StaticOperationSchema = [9, n0, _DRSes,
   0, () => DescribeResourceServerRequest$, () => DescribeResourceServerResponse$
 ];
@@ -3754,6 +3862,9 @@ export var GlobalSignOut$: StaticOperationSchema = [9, n0, _GSO,
 export var InitiateAuth$: StaticOperationSchema = [9, n0, _IAn,
   0, () => InitiateAuthRequest$, () => InitiateAuthResponse$
 ];
+export var InitiatePointInTimeRecovery$: StaticOperationSchema = [9, n0, _IPITR,
+  0, () => InitiatePointInTimeRecoveryRequest$, () => InitiatePointInTimeRecoveryResponse$
+];
 export var ListDevices$: StaticOperationSchema = [9, n0, _LDi,
   0, () => ListDevicesRequest$, () => ListDevicesResponse$
 ];
@@ -3762,6 +3873,9 @@ export var ListGroups$: StaticOperationSchema = [9, n0, _LG,
 ];
 export var ListIdentityProviders$: StaticOperationSchema = [9, n0, _LIP,
   0, () => ListIdentityProvidersRequest$, () => ListIdentityProvidersResponse$
+];
+export var ListPointInTimeRecoveries$: StaticOperationSchema = [9, n0, _LPITR,
+  0, () => ListPointInTimeRecoveriesRequest$, () => ListPointInTimeRecoveriesResponse$
 ];
 export var ListResourceServers$: StaticOperationSchema = [9, n0, _LRS,
   0, () => ListResourceServersRequest$, () => ListResourceServersResponse$
@@ -3837,6 +3951,9 @@ export var SetUserSettings$: StaticOperationSchema = [9, n0, _SUS,
 ];
 export var SignUp$: StaticOperationSchema = [9, n0, _SUi,
   0, () => SignUpRequest$, () => SignUpResponse$
+];
+export var StartPointInTimeRecovery$: StaticOperationSchema = [9, n0, _SPITR,
+  0, () => StartPointInTimeRecoveryRequest$, () => StartPointInTimeRecoveryResponse$
 ];
 export var StartUserImportJob$: StaticOperationSchema = [9, n0, _SUIJ,
   0, () => StartUserImportJobRequest$, () => StartUserImportJobResponse$

@@ -403,6 +403,26 @@ export type VerifiedAttributeType = (typeof VerifiedAttributeType)[keyof typeof 
  * @public
  * @enum
  */
+export const RestoreStatusType = {
+  AWS_ABORTED: "AWS_ABORTED",
+  PREVIEW_CANCELLED: "PREVIEW_CANCELLED",
+  PREVIEW_EXPIRED: "PREVIEW_EXPIRED",
+  PREVIEW_GENERATED: "PREVIEW_GENERATED",
+  PREVIEW_GENERATING: "PREVIEW_GENERATING",
+  PREVIEW_GENERATION_FAILED: "PREVIEW_GENERATION_FAILED",
+  RESTORE_COMPLETED: "RESTORE_COMPLETED",
+  RESTORING: "RESTORING",
+  TEMPORARY_INTERNAL_ERROR_SEE_SUPPORT_CASE: "TEMPORARY_INTERNAL_ERROR_SEE_SUPPORT_CASE",
+} as const;
+/**
+ * @public
+ */
+export type RestoreStatusType = (typeof RestoreStatusType)[keyof typeof RestoreStatusType];
+
+/**
+ * @public
+ * @enum
+ */
 export const IdentityProviderTypeType = {
   Facebook: "Facebook",
   Google: "Google",

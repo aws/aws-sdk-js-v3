@@ -49,6 +49,7 @@ import type {
   ReplicaRoleType,
   ReplicaStatusType,
   ResourceServerManagedByType,
+  RestoreStatusType,
   RevokeAssociatedSessionsType,
   RiskDecisionType,
   RiskLevelType,
@@ -4200,6 +4201,185 @@ export interface AssociateSoftwareTokenResponse {
    * @public
    */
   Session?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelPointInTimeRecoveryRequest {
+  /**
+   * <p>The ID of the user pool that contains the recovery that you want to cancel.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The ID of the recovery that you want to cancel. Amazon Cognito returns this ID in the
+   *             response to an <code>InitiatePointInTimeRecovery</code> request.</p>
+   * @public
+   */
+  RestoreId: string | undefined;
+}
+
+/**
+ * <p>The number of entities of one type that a point-in-time recovery creates, updates,
+ *             and deletes.</p>
+ * @public
+ */
+export interface RestorePreviewType {
+  /**
+   * <p>The type of user pool entity that the recovery changes. Can be one of the following
+   *             values.</p>
+   *          <dl>
+   *             <dt>Users</dt>
+   *             <dd>
+   *                <p>User profiles, including their attributes.</p>
+   *             </dd>
+   *             <dt>Groups</dt>
+   *             <dd>
+   *                <p>User pool groups.</p>
+   *             </dd>
+   *             <dt>User MFAs</dt>
+   *             <dd>
+   *                <p>The MFA settings of users.</p>
+   *             </dd>
+   *             <dt>Passkeys</dt>
+   *             <dd>
+   *                <p>The passkeys that users registered.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  Entity?: string | undefined;
+
+  /**
+   * <p>The number of entities of this type that the recovery creates. These entities
+   *             existed at the recovery point and were deleted after it.</p>
+   * @public
+   */
+  CreateCount?: number | undefined;
+
+  /**
+   * <p>The number of entities of this type that the recovery reverts to their state at the
+   *             recovery point. These entities were modified after the recovery point.</p>
+   * @public
+   */
+  UpdateCount?: number | undefined;
+
+  /**
+   * <p>The number of entities of this type that the recovery deletes. These entities were
+   *             created after the recovery point.</p>
+   * @public
+   */
+  DeleteCount?: number | undefined;
+}
+
+/**
+ * <p>The details of a point-in-time recovery of a user pool.</p>
+ * @public
+ */
+export interface RestorationType {
+  /**
+   * <p>The ID of the recovery. Use this ID in requests to describe, start, or cancel the
+   *             recovery.</p>
+   * @public
+   */
+  RestoreId?: string | undefined;
+
+  /**
+   * <p>The status of the recovery. Can be one of the following values.</p>
+   *          <dl>
+   *             <dt>PREVIEW_GENERATING</dt>
+   *             <dd>
+   *                <p>Amazon Cognito is waiting for available capacity in the Amazon Web Services Region or is
+   *                         generating the recovery preview. Write operations
+   *                         in the user pool are paused.</p>
+   *             </dd>
+   *             <dt>PREVIEW_GENERATED</dt>
+   *             <dd>
+   *                <p>The recovery preview is ready for review. Write operations in the user
+   *                         pool are paused. Within 24 hours after you initiate the recovery, apply
+   *                         it with a <code>StartPointInTimeRecovery</code> request or discard it with
+   *                         a <code>CancelPointInTimeRecovery</code> request.</p>
+   *             </dd>
+   *             <dt>PREVIEW_CANCELLED</dt>
+   *             <dd>
+   *                <p>You canceled the recovery. Amazon Cognito resumed write operations and
+   *                         didn't change your user pool data.</p>
+   *             </dd>
+   *             <dt>PREVIEW_GENERATION_FAILED</dt>
+   *             <dd>
+   *                <p>Amazon Cognito couldn't generate the recovery preview. Amazon Cognito resumed write
+   *                         operations and didn't change your user pool data. You can initiate a
+   *                         new recovery.</p>
+   *             </dd>
+   *             <dt>PREVIEW_EXPIRED</dt>
+   *             <dd>
+   *                <p>You didn't start or cancel the recovery within 24 hours after you
+   *                         initiated it. Amazon Cognito resumed write operations and didn't change your
+   *                         user pool data.</p>
+   *             </dd>
+   *             <dt>RESTORING</dt>
+   *             <dd>
+   *                <p>Amazon Cognito is restoring user data in the user pool to its state at the
+   *                         recovery point. Write operations in the user pool are paused.</p>
+   *             </dd>
+   *             <dt>RESTORE_COMPLETED</dt>
+   *             <dd>
+   *                <p>Amazon Cognito restored your user pool to its state at the recovery point and
+   *                         resumed write operations.</p>
+   *             </dd>
+   *             <dt>TEMPORARY_INTERNAL_ERROR_SEE_SUPPORT_CASE</dt>
+   *             <dd>
+   *                <p>The recovery encountered an internal error. Write operations in the user
+   *                         pool remain paused. Amazon Web Services Support contacts you through a support case to
+   *                         resolve the issue.</p>
+   *             </dd>
+   *             <dt>AWS_ABORTED</dt>
+   *             <dd>
+   *                <p>Amazon Cognito stopped the recovery because of an internal failure. Write
+   *                         operations in the user pool remain paused, and you can't cancel or
+   *                         retry the recovery. Amazon Web Services Support contacts you through a support case to
+   *                         resolve the issue.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  RestoreStatus?: RestoreStatusType | undefined;
+
+  /**
+   * <p>The point in time that the recovery restores the user pool to.</p>
+   * @public
+   */
+  RestoreTimestamp?: Date | undefined;
+
+  /**
+   * <p>The end of the period of changes that the recovery reverts. This time is shortly
+   *             after the time that you initiated the recovery. The recovery reverts changes to user
+   *             data that occurred between <code>RestoreTimestamp</code> and
+   *                 <code>TriggerTimestamp</code>.</p>
+   * @public
+   */
+  TriggerTimestamp?: Date | undefined;
+
+  /**
+   * <p>The recovery preview. For each type of entity, the preview shows the number of
+   *             entities that the recovery creates, updates, and deletes. The preview doesn't
+   *             include user data. Amazon Cognito returns the preview when it's available.</p>
+   * @public
+   */
+  RestorePreview?: RestorePreviewType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelPointInTimeRecoveryResponse {
+  /**
+   * <p>The details of the canceled recovery, including its status.</p>
+   * @public
+   */
+  Restoration?: RestorationType | undefined;
 }
 
 /**
@@ -8701,6 +8881,36 @@ export interface DescribeManagedLoginBrandingByClientResponse {
 /**
  * @public
  */
+export interface DescribePointInTimeRecoveryRequest {
+  /**
+   * <p>The ID of the user pool that contains the recovery that you want to describe.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The ID of the recovery that you want to describe. Amazon Cognito returns this ID in the
+   *             response to an <code>InitiatePointInTimeRecovery</code> request.</p>
+   * @public
+   */
+  RestoreId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePointInTimeRecoveryResponse {
+  /**
+   * <p>The details of the requested recovery, including its status, the point in time that
+   *             it restores the user pool to, and the recovery preview.</p>
+   * @public
+   */
+  Restoration?: RestorationType | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeResourceServerRequest {
   /**
    * <p>The ID of the user pool that hosts the resource server.</p>
@@ -11015,6 +11225,39 @@ export interface InitiateAuthResponse {
 }
 
 /**
+ * @public
+ */
+export interface InitiatePointInTimeRecoveryRequest {
+  /**
+   * <p>The ID of the user pool that you want to recover.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The point in time that you want to recover your user pool to. Amazon Cognito reverts changes
+   *             to user data that occurred after this time. The recovery point must be at least 15
+   *             minutes in the past and within the recovery period of your user pool feature plan: up
+   *             to 1 day in the past with the Essentials feature plan, or up to 14 days in the past
+   *             with the Plus feature plan.</p>
+   * @public
+   */
+  RestoreTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InitiatePointInTimeRecoveryResponse {
+  /**
+   * <p>The details of the recovery that you initiated. Includes the recovery ID that you
+   *             can use in later requests to describe, start, or cancel the recovery.</p>
+   * @public
+   */
+  Restoration?: RestorationType | undefined;
+}
+
+/**
  * <p>Represents the request to list the devices.</p>
  * @public
  */
@@ -11182,6 +11425,79 @@ export interface ListIdentityProvidersResponse {
    * @public
    */
   Providers: ProviderDescription[] | undefined;
+
+  /**
+   * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
+   * you include a pagination token in your request, Amazon Cognito returns the next set of items in
+   * the list. By use of this token, you can paginate through the full list of items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPointInTimeRecoveriesRequest {
+  /**
+   * <p>The ID of the user pool where you want to list point-in-time recoveries.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>This API operation returns a limited number of results. The pagination token is
+   * an identifier that you can present in an additional API request with the same parameters. When
+   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   * Subsequent requests return a new pagination token. By use of this token, you can paginate
+   * through the full list of items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of recoveries that you want Amazon Cognito to return in the response.
+   *             Valid values are 1 through 60. The default value is 60.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A summary of a point-in-time recovery of a user pool.</p>
+ * @public
+ */
+export interface RestorationDescriptionType {
+  /**
+   * <p>The ID of the recovery.</p>
+   * @public
+   */
+  RestoreId?: string | undefined;
+
+  /**
+   * <p>The status of the recovery. For a description of each status, see the
+   *                 <code>RestoreStatus</code> parameter of <code>RestorationType</code>.</p>
+   * @public
+   */
+  RestoreStatus?: RestoreStatusType | undefined;
+
+  /**
+   * <p>The point in time that the recovery restores the user pool to.</p>
+   * @public
+   */
+  RestoreTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPointInTimeRecoveriesResponse {
+  /**
+   * <p>A summary of each requested recovery, including its ID, status, and the point in
+   *             time that it restores the user pool to.</p>
+   * @public
+   */
+  Restorations?: RestorationDescriptionType[] | undefined;
 
   /**
    * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
@@ -11536,399 +11852,6 @@ export interface ListUserPoolClientSecretsResponse {
    * @public
    */
   ClientSecrets?: ClientSecretDescriptorType[] | undefined;
-
-  /**
-   * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
-   * you include a pagination token in your request, Amazon Cognito returns the next set of items in
-   * the list. By use of this token, you can paginate through the full list of items.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserPoolReplicasRequest {
-  /**
-   * <p>The ID of the user pool for which to list replicas.</p>
-   * @public
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>A pagination token for retrieving the next page of results. If this parameter is
-   *             omitted, the operation returns the first page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserPoolReplicasResponse {
-  /**
-   * <p>A list of user pool replicas, including information about their status, role, and
-   *             Region.</p>
-   * @public
-   */
-  UserPoolReplicas?: UserPoolReplicaType[] | undefined;
-
-  /**
-   * <p>A pagination token for retrieving the next page of results. If this value is null,
-   *             there are no more results to retrieve.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Represents the request to list user pools.</p>
- * @public
- */
-export interface ListUserPoolsRequest {
-  /**
-   * <p>This API operation returns a limited number of results. The pagination token is
-   * an identifier that you can present in an additional API request with the same parameters. When
-   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
-   * Subsequent requests return a new pagination token. By use of this token, you can paginate
-   * through the full list of items.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of user pools that you want Amazon Cognito to return in the response.</p>
-   * @public
-   */
-  MaxResults: number | undefined;
-}
-
-/**
- * <p>A short description of a user pool.</p>
- * @public
- */
-export interface UserPoolDescriptionType {
-  /**
-   * <p>The user pool ID.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The user pool name.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible
-   *             stages of user pool operations. Triggers can modify the outcome of the operations that
-   *             invoked them.</p>
-   * @public
-   */
-  LambdaConfig?: LambdaConfigType | undefined;
-
-  /**
-   * <p>The user pool status.</p>
-   *
-   * @deprecated This property is no longer available.
-   * @public
-   */
-  Status?: StatusType | undefined;
-
-  /**
-   * <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a
-   * human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-   * @public
-   */
-  LastModifiedDate?: Date | undefined;
-
-  /**
-   * <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a
-   * human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-   * @public
-   */
-  CreationDate?: Date | undefined;
-
-  /**
-   * <p>A list of Amazon Web Services Regions where replicas of this user pool exist.</p>
-   * @public
-   */
-  ReplicaRegions?: string[] | undefined;
-}
-
-/**
- * <p>Represents the response to list user pools.</p>
- * @public
- */
-export interface ListUserPoolsResponse {
-  /**
-   * <p>An array of user pools and their configuration details.</p>
-   * @public
-   */
-  UserPools?: UserPoolDescriptionType[] | undefined;
-
-  /**
-   * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
-   * you include a pagination token in your request, Amazon Cognito returns the next set of items in
-   * the list. By use of this token, you can paginate through the full list of items.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Represents the request to list users.</p>
- * @public
- */
-export interface ListUsersRequest {
-  /**
-   * <p>The ID of the user pool where you want to display or search for users.</p>
-   * @public
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>A JSON array of user attribute names, for example <code>given_name</code>, that you
-   *             want Amazon Cognito to include in the response for each user. When you don't provide an
-   *                 <code>AttributesToGet</code> parameter, Amazon Cognito returns all attributes for each
-   *             user.</p>
-   *          <p>Use <code>AttributesToGet</code> with required attributes in your user pool, or in
-   *             conjunction with <code>Filter</code>. Amazon Cognito returns an error if not all users in the
-   *             results have set a value for the attribute you request. Attributes that you can't
-   *             filter on, including custom attributes, must have a value set in every user profile
-   *             before an <code>AttributesToGet</code> parameter returns results.</p>
-   * @public
-   */
-  AttributesToGet?: string[] | undefined;
-
-  /**
-   * <p>The maximum number of users that you want Amazon Cognito to return in the response. In some SDK
-   *             contexts, this operation might return fewer items than you specify in the
-   *                 <code>Limit</code> parameter without having reached the end of the full list. If the
-   *             response contains a <code>PaginationToken</code>, then there are more results.</p>
-   * @public
-   */
-  Limit?: number | undefined;
-
-  /**
-   * <p>This API operation returns a limited number of results. The pagination token is
-   * an identifier that you can present in an additional API request with the same parameters. When
-   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
-   * Subsequent requests return a new pagination token. By use of this token, you can paginate
-   * through the full list of items.</p>
-   * @public
-   */
-  PaginationToken?: string | undefined;
-
-  /**
-   * <p>A filter string of the form <code>"AttributeName Filter-Type "AttributeValue"</code>.
-   *             Quotation marks within the filter string must be escaped using the backslash
-   *                 (<code>\</code>) character. For example, <code>"family_name =
-   *             \"Reddy\""</code>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <i>AttributeName</i>: The name of the attribute to search for.
-   *                     You can only search for one attribute at a time.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>Filter-Type</i>: For an exact match, use <code>=</code>, for
-   *                     example, "<code>given_name = \"Jon\"</code>". For a prefix ("starts with")
-   *                     match, use <code>^=</code>, for example, "<code>given_name ^= \"Jon\"</code>".
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>AttributeValue</i>: The attribute value that must be matched
-   *                     for each user.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If the filter string is empty, <code>ListUsers</code> returns all users in the user
-   *             pool.</p>
-   *          <p>You can only search for the following standard attributes:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>username</code> (case-sensitive)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>email</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>phone_number</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>name</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>given_name</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>family_name</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>preferred_username</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>cognito:user_status</code> (called <b>Status</b> in the Console) (case-insensitive)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status (called <b>Enabled</b> in the Console)
-   *                         (case-sensitive)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sub</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Custom attributes aren't searchable.</p>
-   *          <note>
-   *             <p>You can also list users with a client-side filter. The server-side filter matches
-   *                 no more than one attribute. For an advanced search, use a client-side filter with
-   *                 the <code>--query</code> parameter of the <code>list-users</code> action in the
-   *                 CLI. When you use a client-side filter, ListUsers returns a paginated list of zero
-   *                 or more users. You can receive multiple pages in a row with zero results. Repeat the
-   *                 query with each pagination token that is returned until you receive a null
-   *                 pagination token value, and then review the combined result. </p>
-   *             <p>For more information about server-side and client-side filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">FilteringCLI output</a> in the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Command Line Interface
-   *                     User Guide</a>. </p>
-   *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api">Searching for Users Using the ListUsers API</a> and <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples">Examples of Using the ListUsers API</a> in the <i>Amazon Cognito Developer
-   *                 Guide</i>.</p>
-   * @public
-   */
-  Filter?: string | undefined;
-}
-
-/**
- * <p>The response from the request to list users.</p>
- * @public
- */
-export interface ListUsersResponse {
-  /**
-   * <p>An array of user pool users who match your query, and their attributes. Between
-   *             different requests, you might observe variations in the sequence that users in this
-   *             response object are sorted into. The sort order of users isn't guaranteed to follow a
-   *             single pattern, but the paginated list from a single chain of requests won't return
-   *             duplicates.</p>
-   * @public
-   */
-  Users?: UserType[] | undefined;
-
-  /**
-   * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
-   * you include a pagination token in your request, Amazon Cognito returns the next set of items in
-   * the list. By use of this token, you can paginate through the full list of items.</p>
-   * @public
-   */
-  PaginationToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserSessionsRequest {
-  /**
-   * <p>A valid access token that Amazon Cognito issued to the user whose sessions you want to list.
-   *             Amazon Cognito derives the user pool and username from this token.</p>
-   * @public
-   */
-  AccessToken: string | undefined;
-
-  /**
-   * <p>A pagination token that Amazon Cognito returned in a previous response. Use this value to
-   *             retrieve the next page of results if a <code>NextToken</code> was included in a prior
-   *             response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserSessionsResponse {
-  /**
-   * <p>A list of the user's active sessions. Each element describes one token session or SSO
-   *             session.</p>
-   * @public
-   */
-  Sessions?: SessionDescriptionType[] | undefined;
-
-  /**
-   * <p>The pagination token to use in a subsequent request to retrieve the next page of
-   *             results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUsersInGroupRequest {
-  /**
-   * <p>The ID of the user pool where you want to view the membership of the requested
-   *             group.</p>
-   * @public
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>The name of the group that you want to query for user membership.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The maximum number of groups that you want Amazon Cognito to return in the response. In some
-   *             SDK contexts, this operation might return fewer items than you specify in the
-   *                 <code>Limit</code> parameter without having reached the end of the full list. If the
-   *             response contains a <code>PaginationToken</code>, then there are more results.</p>
-   * @public
-   */
-  Limit?: number | undefined;
-
-  /**
-   * <p>This API operation returns a limited number of results. The pagination token is
-   * an identifier that you can present in an additional API request with the same parameters. When
-   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
-   * Subsequent requests return a new pagination token. By use of this token, you can paginate
-   * through the full list of items.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUsersInGroupResponse {
-  /**
-   * <p>An array of users who are members in the group, and their attributes.</p>
-   * @public
-   */
-  Users?: UserType[] | undefined;
 
   /**
    * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
