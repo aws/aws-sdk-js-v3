@@ -172,25 +172,45 @@ export interface AffectedEntity {
   resourceTags?: Record<string, string> | undefined;
 
   /**
-   * <p>A map of account tag key-value pairs attached to the affected entity.</p>
+   * <p>A map of account tag key-value pairs for the account that owns the affected entity. This field is returned only by DescribeAffectedEntitiesForOrganization and is not populated by DescribeAffectedEntities.</p>
    * @public
    */
   accountTags?: Record<string, string> | undefined;
-
-  /**
-   * <p>A map of resource tag key-value pairs attached to the affected entity.</p>
-   *          <note>
-   *             <p>Currently, the <code>tags</code> property isn't supported.</p>
-   *          </note>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Additional metadata about the affected entity.</p>
    * @public
    */
   entityMetadata?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A resource tag key to configure for Health event tracking.</p>
+ * @public
+ */
+export interface ConfigureTagsTagKey {
+  /**
+   * <p>The tag key name.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>Whether this tag key is enabled for EventBridge notifications.</p>
+   * @public
+   */
+  enabledForEventBridge?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ConfigureTagsRequest {
+  /**
+   * <p>The list of resource tag keys to configure for Health event tracking.</p>
+   * @public
+   */
+  tagKeys: ConfigureTagsTagKey[] | undefined;
 }
 
 /**
@@ -220,17 +240,6 @@ export interface ResourceTagKey {
 /**
  * @public
  */
-export interface ConfigureTagsRequest {
-  /**
-   * <p>The list of resource tag keys to configure for Health event tracking.</p>
-   * @public
-   */
-  tagKeys: ResourceTagKey[] | undefined;
-}
-
-/**
- * @public
- */
 export interface ConfigureTagsResponse {
   /**
    * <p>The list of resource tag keys that were successfully configured.</p>
@@ -248,7 +257,7 @@ export interface TagKeyForOrganization {
    * <p>The tag key name.</p>
    * @public
    */
-  key?: string | undefined;
+  key: string | undefined;
 
   /**
    * <p>Whether this tag key is enabled for EventBridge notifications.</p>
@@ -269,14 +278,38 @@ export interface ConfigureTagsForOrganizationRequest {
 }
 
 /**
+ * <p>A tag key configured for Health event tracking across an organization.</p>
+ * @public
+ */
+export interface OrganizationTagKey {
+  /**
+   * <p>The tag key name.</p>
+   * @public
+   */
+  key?: string | undefined;
+
+  /**
+   * <p>Whether this tag key is enabled for EventBridge notifications.</p>
+   * @public
+   */
+  enabledForEventBridge?: boolean | undefined;
+
+  /**
+   * <p>The current status of the tag key configuration.</p>
+   * @public
+   */
+  status?: TagKeyStatus | undefined;
+}
+
+/**
  * @public
  */
 export interface ConfigureTagsForOrganizationResponse {
   /**
-   * <p>The list of tag keys that were successfully configured for the organization.</p>
+   * <p>The list of tag keys that were successfully configured for the organization, with the current status of each tag key.</p>
    * @public
    */
-  configuredTagKeys?: TagKeyForOrganization[] | undefined;
+  configuredTagKeys?: OrganizationTagKey[] | undefined;
 }
 
 /**
@@ -423,10 +456,7 @@ export interface EntityFilter {
   lastUpdatedTimes?: DateTimeRange[] | undefined;
 
   /**
-   * <p>A map of resource tag key-value pairs to filter affected entities.</p>
-   *          <note>
-   *             <p>Currently, the <code>tags</code> property isn't supported.</p>
-   *          </note>
+   * <p>A map of tag keys to lists of tag values. A tag matches when its key is in the map and its value is one of the values listed for that key. The filter matches when at least one key in the map matches.</p>
    * @public
    */
   tags?: Record<string, string[]> | undefined;
@@ -904,10 +934,7 @@ export interface EventFilter {
   eventTypeCategories?: EventTypeCategory[] | undefined;
 
   /**
-   * <p>A map of resource tag key-value pairs to filter affected entities.</p>
-   *          <note>
-   *             <p>Currently, the <code>tags</code> property isn't supported.</p>
-   *          </note>
+   * <p>A map of tag keys to lists of tag values. A tag matches when its key is in the map and its value is one of the values listed for that key. The filter matches when at least one key in the map matches.</p>
    * @public
    */
   tags?: Record<string, string[]> | undefined;
@@ -1997,30 +2024,6 @@ export interface DescribeTagKeysResponse {
    * @public
    */
   keys?: ResourceTagKey[] | undefined;
-}
-
-/**
- * <p>A tag key configured for Health event tracking across an organization.</p>
- * @public
- */
-export interface OrganizationTagKey {
-  /**
-   * <p>The tag key name.</p>
-   * @public
-   */
-  key?: string | undefined;
-
-  /**
-   * <p>Whether this tag key is enabled for EventBridge notifications.</p>
-   * @public
-   */
-  enabledForEventBridge?: boolean | undefined;
-
-  /**
-   * <p>The current status of the tag key configuration.</p>
-   * @public
-   */
-  status?: TagKeyStatus | undefined;
 }
 
 /**

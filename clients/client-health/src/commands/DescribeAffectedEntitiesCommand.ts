@@ -96,9 +96,6 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  * //       accountTags: { // AccountTagSet
  * //         "<keys>": "STRING_VALUE",
  * //       },
- * //       tags: { // tagSet
- * //         "<keys>": "STRING_VALUE",
- * //       },
  * //       entityMetadata: { // entityMetadata
  * //         "<keys>": "STRING_VALUE",
  * //       },

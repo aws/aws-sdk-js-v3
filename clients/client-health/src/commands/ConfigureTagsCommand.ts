@@ -33,11 +33,10 @@ export interface ConfigureTagsCommandOutput extends ConfigureTagsResponse, __Met
  * const config = {}; // type is HealthClientConfig
  * const client = new HealthClient(config);
  * const input = { // ConfigureTagsRequest
- *   tagKeys: [ // ConfigureTagsResourceTagKeyList // required
- *     { // ResourceTagKey
- *       key: "STRING_VALUE",
+ *   tagKeys: [ // ConfigureTagsRequestTagKeyList // required
+ *     { // ConfigureTagsTagKey
+ *       key: "STRING_VALUE", // required
  *       enabledForEventBridge: true || false,
- *       status: "PENDING" || "ACTIVE",
  *     },
  *   ],
  * };

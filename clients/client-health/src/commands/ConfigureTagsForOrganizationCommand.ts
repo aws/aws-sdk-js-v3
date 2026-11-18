@@ -35,7 +35,7 @@ export interface ConfigureTagsForOrganizationCommandOutput extends ConfigureTags
  * const input = { // ConfigureTagsForOrganizationRequest
  *   tagKeys: [ // ConfigureTagsForOrganizationTagKeyList // required
  *     { // TagKeyForOrganization
- *       key: "STRING_VALUE",
+ *       key: "STRING_VALUE", // required
  *       enabledForEventBridge: true || false,
  *     },
  *   ],
@@ -43,10 +43,11 @@ export interface ConfigureTagsForOrganizationCommandOutput extends ConfigureTags
  * const command = new ConfigureTagsForOrganizationCommand(input);
  * const response = await client.send(command);
  * // { // ConfigureTagsForOrganizationResponse
- * //   configuredTagKeys: [ // ConfigureTagsForOrganizationTagKeyList
- * //     { // TagKeyForOrganization
+ * //   configuredTagKeys: [ // ConfigureTagsForOrganizationResponseTagKeyList
+ * //     { // OrganizationTagKey
  * //       key: "STRING_VALUE",
  * //       enabledForEventBridge: true || false,
+ * //       status: "PENDING" || "ACTIVE",
  * //     },
  * //   ],
  * // };

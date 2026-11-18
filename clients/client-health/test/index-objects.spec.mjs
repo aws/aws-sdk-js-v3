@@ -15,6 +15,7 @@ import {
   ConfigureTagsForOrganizationResponse$,
   ConfigureTagsRequest$,
   ConfigureTagsResponse$,
+  ConfigureTagsTagKey$,
   DateTimeRange$,
   DescribeAffectedAccountsForOrganization$,
   DescribeAffectedAccountsForOrganizationCommand,
@@ -227,6 +228,7 @@ assert(typeof ConfigureTagsForOrganizationRequest$ === "object");
 assert(typeof ConfigureTagsForOrganizationResponse$ === "object");
 assert(typeof ConfigureTagsRequest$ === "object");
 assert(typeof ConfigureTagsResponse$ === "object");
+assert(typeof ConfigureTagsTagKey$ === "object");
 assert(typeof DateTimeRange$ === "object");
 assert(typeof DescribeAffectedAccountsForOrganizationRequest$ === "object");
 assert(typeof DescribeAffectedAccountsForOrganizationResponse$ === "object");

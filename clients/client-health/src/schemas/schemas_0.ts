@@ -12,11 +12,14 @@ const _CME = "ConcurrentModificationException";
 const _CT = "ConfigureTags";
 const _CTFO = "ConfigureTagsForOrganization";
 const _CTFOR = "ConfigureTagsForOrganizationRequest";
+const _CTFORTKL = "ConfigureTagsForOrganizationResponseTagKeyList";
 const _CTFORo = "ConfigureTagsForOrganizationResponse";
 const _CTFOTKL = "ConfigureTagsForOrganizationTagKeyList";
 const _CTR = "ConfigureTagsRequest";
-const _CTRTKL = "ConfigureTagsResourceTagKeyList";
+const _CTRTKL = "ConfigureTagsRequestTagKeyList";
+const _CTRTKLo = "ConfigureTagsResourceTagKeyList";
 const _CTRo = "ConfigureTagsResponse";
+const _CTTK = "ConfigureTagsTagKey";
 const _DAAFO = "DescribeAffectedAccountsForOrganization";
 const _DAAFOR = "DescribeAffectedAccountsForOrganizationRequest";
 const _DAAFORe = "DescribeAffectedAccountsForOrganizationResponse";
@@ -294,8 +297,8 @@ export var AffectedAccountFilter$: StaticStructureSchema = [3, n0, _AAF,
 ];
 export var AffectedEntity$: StaticStructureSchema = [3, n0, _AEf,
   0,
-  [_eAn, _eA, _eV, _eU, _aAI, _lUT, _sC, _rT, _aT, _ta, _eM],
-  [0, 0, 0, 0, 0, 4, 0, 128 | 0, 128 | 0, 128 | 0, 128 | 0]
+  [_eAn, _eA, _eV, _eU, _aAI, _lUT, _sC, _rT, _aT, _eM],
+  [0, 0, 0, 0, 0, 4, 0, 128 | 0, 128 | 0, 128 | 0]
 ];
 export var ConfigureTagsForOrganizationRequest$: StaticStructureSchema = [3, n0, _CTFOR,
   0,
@@ -305,17 +308,22 @@ export var ConfigureTagsForOrganizationRequest$: StaticStructureSchema = [3, n0,
 export var ConfigureTagsForOrganizationResponse$: StaticStructureSchema = [3, n0, _CTFORo,
   0,
   [_cTK],
-  [() => ConfigureTagsForOrganizationTagKeyList]
+  [() => ConfigureTagsForOrganizationResponseTagKeyList]
 ];
 export var ConfigureTagsRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_tK],
-  [() => ConfigureTagsResourceTagKeyList], 1
+  [() => ConfigureTagsRequestTagKeyList], 1
 ];
 export var ConfigureTagsResponse$: StaticStructureSchema = [3, n0, _CTRo,
   0,
   [_cTK],
   [() => ConfigureTagsResourceTagKeyList]
+];
+export var ConfigureTagsTagKey$: StaticStructureSchema = [3, n0, _CTTK,
+  0,
+  [_k, _eFEB],
+  [0, 2], 1
 ];
 export var DateTimeRange$: StaticStructureSchema = [3, n0, _DTR,
   0,
@@ -625,7 +633,7 @@ export var ServiceLifecycleFilter$: StaticStructureSchema = [3, n0, _SLF,
 export var TagKeyForOrganization$: StaticStructureSchema = [3, n0, _TKFO,
   0,
   [_k, _eFEB],
-  [0, 2]
+  [0, 2], 1
 ];
 var __Unit = "unit" as const;
 var AccountEntityAggregatesList: StaticListSchema = [1, n0, _AEAL,
@@ -642,10 +650,16 @@ var affectedAccountsList = 64 | 0;
 var AffectedEntitiesForOrganizationTagValueList = 64 | 0;
 var availabilityZones = 64 | 0;
 var awsAccountIdsList = 64 | 0;
+var ConfigureTagsForOrganizationResponseTagKeyList: StaticListSchema = [1, n0, _CTFORTKL,
+  0, () => OrganizationTagKey$
+];
 var ConfigureTagsForOrganizationTagKeyList: StaticListSchema = [1, n0, _CTFOTKL,
   0, () => TagKeyForOrganization$
 ];
-var ConfigureTagsResourceTagKeyList: StaticListSchema = [1, n0, _CTRTKL,
+var ConfigureTagsRequestTagKeyList: StaticListSchema = [1, n0, _CTRTKL,
+  0, () => ConfigureTagsTagKey$
+];
+var ConfigureTagsResourceTagKeyList: StaticListSchema = [1, n0, _CTRTKLo,
   0, () => ResourceTagKey$
 ];
 var dateTimeRangeList: StaticListSchema = [1, n0, _dTRL,
@@ -762,7 +776,6 @@ var OrganizationEventTagFilter: StaticMapSchema = [2, n0, _OETF,
   0, 0, 64 | 0
 ];
 var ResourceTagSet = 128 | 0;
-var tagSet = 128 | 0;
 export var ConfigureTags$: StaticOperationSchema = [9, n0, _CT,
   2, () => ConfigureTagsRequest$, () => ConfigureTagsResponse$
 ];

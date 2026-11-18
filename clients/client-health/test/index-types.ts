@@ -106,6 +106,7 @@ export type {
   ConfigureTagsForOrganizationResponse,
   ConfigureTagsRequest,
   ConfigureTagsResponse,
+  ConfigureTagsTagKey,
   DateTimeRange,
   DescribeAffectedAccountsForOrganizationRequest,
   DescribeAffectedAccountsForOrganizationResponse,
