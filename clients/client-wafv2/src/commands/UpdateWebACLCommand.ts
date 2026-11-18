@@ -1245,6 +1245,9 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *     ],
  *     CurrencyMode: "REAL" || "TEST",
  *   },
+ *   AnalyticsConfig: { // AnalyticsConfig
+ *     Mode: "CROSS_REGION" || "DISABLED", // required
+ *   },
  * };
  * const command = new UpdateWebACLCommand(input);
  * const response = await client.send(command);

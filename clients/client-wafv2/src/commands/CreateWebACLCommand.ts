@@ -1213,6 +1213,9 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *     ],
  *     CurrencyMode: "REAL" || "TEST",
  *   },
+ *   AnalyticsConfig: { // AnalyticsConfig
+ *     Mode: "CROSS_REGION" || "DISABLED", // required
+ *   },
  * };
  * const command = new CreateWebACLCommand(input);
  * const response = await client.send(command);

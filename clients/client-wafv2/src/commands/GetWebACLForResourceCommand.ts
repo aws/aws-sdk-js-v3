@@ -1451,6 +1451,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //       ],
  * //       CurrencyMode: "REAL" || "TEST",
  * //     },
+ * //     AnalyticsConfig: { // AnalyticsConfig
+ * //       Mode: "CROSS_REGION" || "DISABLED", // required
+ * //     },
  * //   },
  * // };
  *

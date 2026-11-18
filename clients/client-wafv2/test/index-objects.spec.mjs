@@ -5,6 +5,8 @@ import {
   All$,
   AllowAction$,
   AllQueryArguments$,
+  AnalyticsConfig$,
+  AnalyticsMode,
   AndStatement$,
   APIKeySummary$,
   ApplicationAttribute$,
@@ -614,6 +616,7 @@ assert(typeof AddressField$ === "object");
 assert(typeof All$ === "object");
 assert(typeof AllowAction$ === "object");
 assert(typeof AllQueryArguments$ === "object");
+assert(typeof AnalyticsConfig$ === "object");
 assert(typeof AndStatement$ === "object");
 assert(typeof APIKeySummary$ === "object");
 assert(typeof ApplicationAttribute$ === "object");
@@ -887,6 +890,7 @@ assert(typeof WebACLSummary$ === "object");
 assert(typeof XssMatchStatement$ === "object");
 // enums
 assert(typeof ActionValue === "object");
+assert(typeof AnalyticsMode === "object");
 assert(typeof AssociatedResourceType === "object");
 assert(typeof BlockchainChain === "object");
 assert(typeof BodyParsingFallbackBehavior === "object");

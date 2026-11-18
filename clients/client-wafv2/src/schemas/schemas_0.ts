@@ -3,6 +3,7 @@ const _AA = "AllowAction";
 const _AAp = "ApplicationAttribute";
 const _AApp = "ApplicationAttributes";
 const _AC = "ActionCondition";
+const _ACn = "AnalyticsConfig";
 const _ACp = "ApplicationConfig";
 const _ACs = "AssociationConfig";
 const _AF = "AddressField";
@@ -379,7 +380,8 @@ const _MS = "MatchScope";
 const _MSC = "MonetizeServedCount";
 const _MSR = "MobileSdkRelease";
 const _Me = "Method";
-const _Mo = "Monetize";
+const _Mo = "Mode";
+const _Mon = "Monetize";
 const _N = "Name";
 const _NA = "NoneAction";
 const _NLT = "NextLockToken";
@@ -846,6 +848,11 @@ export var AllQueryArguments$: StaticStructureSchema = [3, n0, _AQA,
   [],
   []
 ];
+export var AnalyticsConfig$: StaticStructureSchema = [3, n0, _ACn,
+  0,
+  [_Mo],
+  [0], 1
+];
 export var AndStatement$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_S],
@@ -1058,8 +1065,8 @@ export var CreateRuleGroupResponse$: StaticStructureSchema = [3, n0, _CRGRr,
 ];
 export var CreateWebACLRequest$: StaticStructureSchema = [3, n0, _CWACLR,
   0,
-  [_N, _Sc, _DA, _VC, _D, _Ru, _DPC, _T, _CRB, _CC, _CCh, _TD, _ACs, _OSDDSPC, _ACp, _MC],
-  [0, 0, () => DefaultAction$, () => VisibilityConfig$, 0, () => Rules, () => DataProtectionConfig$, () => TagList, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$, () => MonetizationConfig$], 4
+  [_N, _Sc, _DA, _VC, _D, _Ru, _DPC, _T, _CRB, _CC, _CCh, _TD, _ACs, _OSDDSPC, _ACp, _MC, _ACn],
+  [0, 0, () => DefaultAction$, () => VisibilityConfig$, 0, () => Rules, () => DataProtectionConfig$, () => TagList, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$, () => MonetizationConfig$, () => AnalyticsConfig$], 4
 ];
 export var CreateWebACLResponse$: StaticStructureSchema = [3, n0, _CWACLRr,
   0,
@@ -2003,7 +2010,7 @@ export var Rule$: StaticStructureSchema = [3, n0, _Rul,
 ];
 export var RuleAction$: StaticStructureSchema = [3, n0, _RAu,
   0,
-  [_Bl, _All, _Coun, _Cap, _Ch, _Mo],
+  [_Bl, _All, _Coun, _Cap, _Ch, _Mon],
   [() => BlockAction$, () => AllowAction$, () => CountAction$, () => CaptchaAction$, () => ChallengeAction$, () => MonetizeAction$]
 ];
 export var RuleActionOverride$: StaticStructureSchema = [3, n0, _RAOu,
@@ -2153,8 +2160,8 @@ export var UpdateRuleGroupResponse$: StaticStructureSchema = [3, n0, _URGRp,
 ];
 export var UpdateWebACLRequest$: StaticStructureSchema = [3, n0, _UWACLR,
   0,
-  [_N, _Sc, _Id, _DA, _VC, _LT, _D, _Ru, _DPC, _CRB, _CC, _CCh, _TD, _ACs, _OSDDSPC, _ACp, _MC],
-  [0, 0, 0, () => DefaultAction$, () => VisibilityConfig$, 0, 0, () => Rules, () => DataProtectionConfig$, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$, () => MonetizationConfig$], 6
+  [_N, _Sc, _Id, _DA, _VC, _LT, _D, _Ru, _DPC, _CRB, _CC, _CCh, _TD, _ACs, _OSDDSPC, _ACp, _MC, _ACn],
+  [0, 0, 0, () => DefaultAction$, () => VisibilityConfig$, 0, 0, () => Rules, () => DataProtectionConfig$, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$, () => MonetizationConfig$, () => AnalyticsConfig$], 6
 ];
 export var UpdateWebACLResponse$: StaticStructureSchema = [3, n0, _UWACLRp,
   0,
@@ -2188,8 +2195,8 @@ export var VisibilityConfig$: StaticStructureSchema = [3, n0, _VC,
 ];
 export var WebACL$: StaticStructureSchema = [3, n0, _WACL,
   0,
-  [_N, _Id, _ARN, _DA, _VC, _D, _Ru, _DPC, _C, _PPFMRG, _PPFMRGo, _MBFM, _LN, _CRB, _CC, _CCh, _TD, _ACs, _RBFM, _OSDDSPC, _ACp, _MC],
-  [0, 0, 0, () => DefaultAction$, () => VisibilityConfig$, 0, () => Rules, () => DataProtectionConfig$, 1, () => FirewallManagerRuleGroups, () => FirewallManagerRuleGroups, 2, 0, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, 2, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$, () => MonetizationConfig$], 5
+  [_N, _Id, _ARN, _DA, _VC, _D, _Ru, _DPC, _C, _PPFMRG, _PPFMRGo, _MBFM, _LN, _CRB, _CC, _CCh, _TD, _ACs, _RBFM, _OSDDSPC, _ACp, _MC, _ACn],
+  [0, 0, 0, () => DefaultAction$, () => VisibilityConfig$, 0, () => Rules, () => DataProtectionConfig$, 1, () => FirewallManagerRuleGroups, () => FirewallManagerRuleGroups, 2, 0, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, 2, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$, () => MonetizationConfig$, () => AnalyticsConfig$], 5
 ];
 export var WebACLSummary$: StaticStructureSchema = [3, n0, _WACLS,
   0,

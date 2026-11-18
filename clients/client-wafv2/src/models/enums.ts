@@ -21,6 +21,19 @@ export type ActionValue = (typeof ActionValue)[keyof typeof ActionValue];
  * @public
  * @enum
  */
+export const AnalyticsMode = {
+  CROSS_REGION: "CROSS_REGION",
+  DISABLED: "DISABLED",
+} as const;
+/**
+ * @public
+ */
+export type AnalyticsMode = (typeof AnalyticsMode)[keyof typeof AnalyticsMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const FallbackBehavior = {
   MATCH: "MATCH",
   NO_MATCH: "NO_MATCH",

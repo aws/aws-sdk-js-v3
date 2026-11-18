@@ -1444,6 +1444,9 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //       ],
  * //       CurrencyMode: "REAL" || "TEST",
  * //     },
+ * //     AnalyticsConfig: { // AnalyticsConfig
+ * //       Mode: "CROSS_REGION" || "DISABLED", // required
+ * //     },
  * //   },
  * //   LockToken: "STRING_VALUE",
  * //   ApplicationIntegrationURL: "STRING_VALUE",

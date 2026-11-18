@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   ActionValue,
+  AnalyticsMode,
   AssociatedResourceType,
   BlockchainChain,
   BodyParsingFallbackBehavior,
@@ -170,6 +171,29 @@ export interface AllowAction {
  * @public
  */
 export interface AllQueryArguments {}
+
+/**
+ * <p>Specifies the security analytics configuration for the web ACL. Security analytics shows the web ACL's request log data from multiple Amazon Web Services Regions in a single dashboard in the WAF console. </p>
+ *          <p>When you enable security analytics, you authorize Amazon Web Services to transfer and store full request logs outside the Amazon Web Services Region where the web ACL is hosted. For regional web ACLs, security analytics is disabled by default when you omit this configuration. For web ACLs that protect CloudFront distributions (global web ACLs), security analytics is enabled by default. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-security-analytics-enabling.html">Enabling security analytics for a protection pack (web ACL)</a> in the <i>WAF Developer Guide</i>. </p>
+ * @public
+ */
+export interface AnalyticsConfig {
+  /**
+   * <p>The security analytics mode for the web ACL. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CROSS_REGION</code> - Enables security analytics. WAF transfers and stores the web ACL's request logs outside the Amazon Web Services Region where the web ACL is hosted, for aggregation and processing. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> - Disables security analytics. WAF stops transferring the web ACL's request logs. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Mode: AnalyticsMode | undefined;
+}
 
 /**
  * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
@@ -505,15 +529,18 @@ export interface Headers {
  * 						request that has enough TLS Client Hello information for the calculation. Almost
  *                         all web requests include this information.</p>
  *          <note>
- *             <p>You can use this choice only with a string match <code>ByteMatchStatement</code> with the <code>PositionalConstraint</code> set to
- *        <code>EXACTLY</code>.  </p>
+ *             <p>You can use this choice with a <code>ByteMatchStatement</code>,
+ *        <code>RegexMatchStatement</code>, <code>RegexPatternSetReferenceStatement</code>, or
+ *        <code>SizeConstraintStatement</code>. You can't use it with <code>SqliMatchStatement</code> or
+ *        <code>XssMatchStatement</code>.  </p>
  *          </note>
  *          <p>You can obtain the JA3 fingerprint for client requests from the web ACL logs.
  * 						If WAF is able to calculate the fingerprint, it includes it in the logs.
  * 						For information about the logging fields,
  * see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html">Log fields</a> in the <i>WAF Developer Guide</i>. </p>
  *          <p>Provide the JA3 fingerprint string from the logs in your string match statement
- * 							specification, to match with any future requests that have the same TLS configuration.</p>
+ * 							specification, to match with any future requests that have the same TLS configuration.
+ *                      To match a group of TLS configurations with a single pattern, use a regex statement.</p>
  * @public
  */
 export interface JA3Fingerprint {
@@ -540,15 +567,18 @@ export interface JA3Fingerprint {
  * 						request that has enough TLS Client Hello information for the calculation. Almost
  *                         all web requests include this information.</p>
  *          <note>
- *             <p>You can use this choice only with a string match <code>ByteMatchStatement</code> with the <code>PositionalConstraint</code> set to
- *        <code>EXACTLY</code>.  </p>
+ *             <p>You can use this choice with a <code>ByteMatchStatement</code>,
+ *        <code>RegexMatchStatement</code>, <code>RegexPatternSetReferenceStatement</code>, or
+ *        <code>SizeConstraintStatement</code>. You can't use it with <code>SqliMatchStatement</code> or
+ *        <code>XssMatchStatement</code>.  </p>
  *          </note>
  *          <p>You can obtain the JA4 fingerprint for client requests from the web ACL logs.
  * 						If WAF is able to calculate the fingerprint, it includes it in the logs.
  * 						For information about the logging fields,
  * see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html">Log fields</a> in the <i>WAF Developer Guide</i>. </p>
  *          <p>Provide the JA4 fingerprint string from the logs in your string match statement
- * 							specification, to match with any future requests that have the same TLS configuration.</p>
+ * 							specification, to match with any future requests that have the same TLS configuration.
+ *                      To match a group of TLS configurations with a single pattern, use a regex statement.</p>
  * @public
  */
 export interface JA4Fingerprint {
@@ -1009,15 +1039,18 @@ export interface FieldToMatch {
    * 						request that has enough TLS Client Hello information for the calculation. Almost
    *                         all web requests include this information.</p>
    *          <note>
-   *             <p>You can use this choice only with a string match <code>ByteMatchStatement</code> with the <code>PositionalConstraint</code> set to
-   *        <code>EXACTLY</code>.  </p>
+   *             <p>You can use this choice with a <code>ByteMatchStatement</code>,
+   *        <code>RegexMatchStatement</code>, <code>RegexPatternSetReferenceStatement</code>, or
+   *        <code>SizeConstraintStatement</code>. You can't use it with <code>SqliMatchStatement</code> or
+   *        <code>XssMatchStatement</code>.  </p>
    *          </note>
    *          <p>You can obtain the JA3 fingerprint for client requests from the web ACL logs.
    * 						If WAF is able to calculate the fingerprint, it includes it in the logs.
    * 						For information about the logging fields,
    * see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html">Log fields</a> in the <i>WAF Developer Guide</i>. </p>
    *          <p>Provide the JA3 fingerprint string from the logs in your string match statement
-   * 							specification, to match with any future requests that have the same TLS configuration.</p>
+   * 							specification, to match with any future requests that have the same TLS configuration.
+   *                      To match a group of TLS configurations with a single pattern, use a regex statement.</p>
    * @public
    */
   JA3Fingerprint?: JA3Fingerprint | undefined;
@@ -1027,15 +1060,18 @@ export interface FieldToMatch {
    * 						request that has enough TLS Client Hello information for the calculation. Almost
    *                         all web requests include this information.</p>
    *          <note>
-   *             <p>You can use this choice only with a string match <code>ByteMatchStatement</code> with the <code>PositionalConstraint</code> set to
-   *        <code>EXACTLY</code>.  </p>
+   *             <p>You can use this choice with a <code>ByteMatchStatement</code>,
+   *        <code>RegexMatchStatement</code>, <code>RegexPatternSetReferenceStatement</code>, or
+   *        <code>SizeConstraintStatement</code>. You can't use it with <code>SqliMatchStatement</code> or
+   *        <code>XssMatchStatement</code>.  </p>
    *          </note>
    *          <p>You can obtain the JA4 fingerprint for client requests from the web ACL logs.
    * 						If WAF is able to calculate the fingerprint, it includes it in the logs.
    * 						For information about the logging fields,
    * see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html">Log fields</a> in the <i>WAF Developer Guide</i>. </p>
    *          <p>Provide the JA4 fingerprint string from the logs in your string match statement
-   * 							specification, to match with any future requests that have the same TLS configuration.</p>
+   * 							specification, to match with any future requests that have the same TLS configuration.
+   *                      To match a group of TLS configurations with a single pattern, use a regex statement.</p>
    * @public
    */
   JA4Fingerprint?: JA4Fingerprint | undefined;
@@ -1122,8 +1158,10 @@ export interface ByteMatchStatement {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>JA3Fingerprint</code>: Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. You can use this choice only with a string match <code>ByteMatchStatement</code> with the <code>PositionalConstraint</code> set to
-   *        <code>EXACTLY</code>. </p>
+   *                   <code>JA3Fingerprint</code>: Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. You can use this choice with a <code>ByteMatchStatement</code>,
+   *        <code>RegexMatchStatement</code>, <code>RegexPatternSetReferenceStatement</code>, or
+   *        <code>SizeConstraintStatement</code>. You can't use it with <code>SqliMatchStatement</code> or
+   *        <code>XssMatchStatement</code>. </p>
    *                <p>You can obtain the JA3 fingerprint for client requests from the web ACL logs.
    * 						If WAF is able to calculate the fingerprint, it includes it in the logs.
    * 						For information about the logging fields,
@@ -1904,7 +1942,7 @@ export interface ClientSideAction {
    *                <p>If usage is enabled: </p>
    *                <ul>
    *                   <li>
-   *                      <p>The managed rule group adds the label <code>awswaf:managed:aws:anti-ddos:challengeable-request</code> to any web request whose URL does <i>NOT</i> match the regular expressions provided in the
+   *                      <p>The managed rule group adds the label <code>awswaf:managed:aws:anti-ddos:challengeable-request</code> to any web request that does not match the regular expressions provided in the
    *                    <code>ClientSideAction</code> setting <code>ExemptUriRegularExpressions</code>. </p>
    *                   </li>
    *                   <li>
@@ -1962,20 +2000,25 @@ export interface ClientSideAction {
   Sensitivity?: SensitivityToAct | undefined;
 
   /**
-   * <p>The regular expression to match against the web request URI, used to identify requests
+   * <p>The regular expression to match against the request's host followed by its normalized URI path, used to identify requests
    *        that can't handle a silent browser challenge. When the <code>ClientSideAction</code> setting <code>UsageOfAction</code> is enabled,
    *        the managed rule group uses this setting to determine which requests to label with
    *        <code>awswaf:managed:aws:anti-ddos:challengeable-request</code>. If <code>UsageOfAction</code> is disabled, this setting
    *    has no effect and the managed rule group doesn't add the label to any requests.</p>
+   *          <p>WAF matches against the host immediately followed by the normalized URI path and doesn't include the scheme,
+   *        the query string, or the fragment. For example, <code>www.example.com/api/orders</code>. Because the match begins with the host,
+   *        a pattern anchored to the start of the path, such as <code>^/api/</code>, never matches. WAF normalizes the path first,
+   *        removing empty segments (including a trailing slash) and single-dot (<code>.</code>) segments and resolving double-dot (<code>..</code>) segments,
+   *        so <code>/api/</code> is evaluated as <code>/api</code>. Only <code>GET</code> requests are challengeable.</p>
    *          <p>The anti-DDoS managed rule group doesn't
-   *            evaluate the rules <code>ChallengeDDoSRequests</code> or <code>ChallengeAllDuringEvent</code> for web requests whose URIs match this regex. This
+   *            evaluate the rules <code>ChallengeDDoSRequests</code> or <code>ChallengeAllDuringEvent</code> for web requests that match this regex. This
    *        is true regardless of whether you override the rule action for either of the rules in your web ACL configuration. </p>
    *          <p>Amazon Web Services recommends using a regular expression. </p>
    *          <p>This setting is required if <code>UsageOfAction</code> is set to <code>ENABLED</code>. If required, you can provide
    *        between 1 and 5 regex objects in the array of settings. </p>
    *          <p>Amazon Web Services recommends starting with the following setting. Review and update it for your application's needs:</p>
    *          <p>
-   *             <code>\/api\/|\.(acc|avi|css|gif|jpe?g|js|mp[34]|ogg|otf|pdf|png|tiff?|ttf|webm|webp|woff2?)$</code>
+   *             <code>\/api(\/|$)|\.(acc|avi|css|gif|jpe?g|js|mp[34]|ogg|otf|pdf|png|tiff?|ttf|webm|webp|woff2?)$</code>
    *          </p>
    * @public
    */
@@ -9159,6 +9202,12 @@ export interface CreateWebACLRequest {
    * @public
    */
   MonetizationConfig?: MonetizationConfig | undefined;
+
+  /**
+   * <p>Specifies the security analytics configuration for the web ACL. For more information, see <a>AnalyticsConfig</a>. </p>
+   * @public
+   */
+  AnalyticsConfig?: AnalyticsConfig | undefined;
 }
 
 /**
@@ -9494,6 +9543,12 @@ export interface UpdateWebACLRequest {
    * @public
    */
   MonetizationConfig?: MonetizationConfig | undefined;
+
+  /**
+   * <p>Specifies the security analytics configuration for the web ACL. For more information, see <a>AnalyticsConfig</a>. </p>
+   * @public
+   */
+  AnalyticsConfig?: AnalyticsConfig | undefined;
 }
 
 /**
@@ -9708,6 +9763,12 @@ export interface WebACL {
    * @public
    */
   MonetizationConfig?: MonetizationConfig | undefined;
+
+  /**
+   * <p>The security analytics configuration for the web ACL. For more information, see <a>AnalyticsConfig</a>. </p>
+   * @public
+   */
+  AnalyticsConfig?: AnalyticsConfig | undefined;
 }
 
 /**
