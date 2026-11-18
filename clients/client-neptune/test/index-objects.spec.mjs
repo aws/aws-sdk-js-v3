@@ -243,6 +243,9 @@ import {
   DescribePendingMaintenanceActions$,
   DescribePendingMaintenanceActionsCommand,
   DescribePendingMaintenanceActionsMessage$,
+  DescribeServerlessV2PlatformVersions$,
+  DescribeServerlessV2PlatformVersionsCommand,
+  DescribeServerlessV2PlatformVersionsMessage$,
   DescribeValidDBInstanceModifications$,
   DescribeValidDBInstanceModificationsCommand,
   DescribeValidDBInstanceModificationsMessage$,
@@ -382,6 +385,7 @@ import {
   paginateDescribeGlobalClusters,
   paginateDescribeOrderableDBInstanceOptions,
   paginateDescribePendingMaintenanceActions,
+  paginateDescribeServerlessV2PlatformVersions,
   Parameter$,
   PendingCloudwatchLogsExports$,
   PendingMaintenanceAction$,
@@ -429,6 +433,9 @@ import {
   RestoreDBClusterToPointInTimeCommand,
   RestoreDBClusterToPointInTimeMessage$,
   RestoreDBClusterToPointInTimeResult$,
+  ServerlessV2FeaturesSupport$,
+  ServerlessV2PlatformVersionInfo$,
+  ServerlessV2PlatformVersionsMessage$,
   ServerlessV2ScalingConfiguration$,
   ServerlessV2ScalingConfigurationInfo$,
   SharedSnapshotQuotaExceededFault,
@@ -574,6 +581,8 @@ assert(typeof DescribeOrderableDBInstanceOptionsCommand === "function");
 assert(typeof DescribeOrderableDBInstanceOptions$ === "object");
 assert(typeof DescribePendingMaintenanceActionsCommand === "function");
 assert(typeof DescribePendingMaintenanceActions$ === "object");
+assert(typeof DescribeServerlessV2PlatformVersionsCommand === "function");
+assert(typeof DescribeServerlessV2PlatformVersions$ === "object");
 assert(typeof DescribeValidDBInstanceModificationsCommand === "function");
 assert(typeof DescribeValidDBInstanceModifications$ === "object");
 assert(typeof FailoverDBClusterCommand === "function");
@@ -726,6 +735,7 @@ assert(typeof DescribeEventSubscriptionsMessage$ === "object");
 assert(typeof DescribeGlobalClustersMessage$ === "object");
 assert(typeof DescribeOrderableDBInstanceOptionsMessage$ === "object");
 assert(typeof DescribePendingMaintenanceActionsMessage$ === "object");
+assert(typeof DescribeServerlessV2PlatformVersionsMessage$ === "object");
 assert(typeof DescribeValidDBInstanceModificationsMessage$ === "object");
 assert(typeof DescribeValidDBInstanceModificationsResult$ === "object");
 assert(typeof DomainMembership$ === "object");
@@ -790,6 +800,9 @@ assert(typeof RestoreDBClusterFromSnapshotMessage$ === "object");
 assert(typeof RestoreDBClusterFromSnapshotResult$ === "object");
 assert(typeof RestoreDBClusterToPointInTimeMessage$ === "object");
 assert(typeof RestoreDBClusterToPointInTimeResult$ === "object");
+assert(typeof ServerlessV2FeaturesSupport$ === "object");
+assert(typeof ServerlessV2PlatformVersionInfo$ === "object");
+assert(typeof ServerlessV2PlatformVersionsMessage$ === "object");
 assert(typeof ServerlessV2ScalingConfiguration$ === "object");
 assert(typeof ServerlessV2ScalingConfigurationInfo$ === "object");
 assert(typeof StartDBClusterMessage$ === "object");
@@ -970,4 +983,5 @@ assert(typeof paginateDescribeEvents === "function");
 assert(typeof paginateDescribeGlobalClusters === "function");
 assert(typeof paginateDescribeOrderableDBInstanceOptions === "function");
 assert(typeof paginateDescribePendingMaintenanceActions === "function");
+assert(typeof paginateDescribeServerlessV2PlatformVersions === "function");
 console.log(`Neptune index test passed.`);

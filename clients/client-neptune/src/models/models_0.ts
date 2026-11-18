@@ -1667,6 +1667,14 @@ export interface DBCluster {
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfigurationInfo | undefined;
 
   /**
+   * <p>The serverless platform version used by the Neptune Serverless DB cluster.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-using.html">Using Amazon Neptune Serverless</a> in the
+   *       <i>Amazon Neptune User Guide</i>.</p>
+   * @public
+   */
+  ServerlessV2PlatformVersion?: string | undefined;
+
+  /**
    * <p>Contains a user-supplied global database cluster identifier.
    *       This identifier is the unique key that identifies a global database.</p>
    * @public
@@ -5893,6 +5901,160 @@ export interface PendingMaintenanceActionsMessage {
    * @public
    */
   Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeServerlessV2PlatformVersionsMessage {
+  /**
+   * <p>A specific platform version to return details for.</p>
+   *          <p>Example: <code>3</code>
+   *          </p>
+   * @public
+   */
+  ServerlessV2PlatformVersion?: string | undefined;
+
+  /**
+   * <p>The database engine to return platform version details for.</p>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Specifies whether to return only the default platform versions for each engine. The default platform
+   *       version is the version used for new DB clusters.</p>
+   * @public
+   */
+  DefaultOnly?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to also include platform versions which are no longer in use.</p>
+   * @public
+   */
+  IncludeAll?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *       If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is
+   *       included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 20</p>
+   *          <p>Constraints: Minimum 1, maximum 200.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *       If this parameter is specified, the response includes
+   *       only records beyond the marker,
+   *       up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Specifies any Neptune Serverless properties or limits that differ between serverless platform versions.</p>
+ * @public
+ */
+export interface ServerlessV2FeaturesSupport {
+  /**
+   * <p>Specifies the lower Neptune capacity unit (NCU) limit that a serverless platform version supports.</p>
+   * @public
+   */
+  MinCapacity?: number | undefined;
+
+  /**
+   * <p>Specifies the upper Neptune capacity unit (NCU) limit that a serverless platform version supports.</p>
+   * @public
+   */
+  MaxCapacity?: number | undefined;
+}
+
+/**
+ * <p>This data type is used as a response element in the <code>DescribeServerlessV2PlatformVersions</code> action.
+ *       It describes the properties of a specific Neptune Serverless platform version.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-using.html">Using Amazon Neptune Serverless</a> in the
+ *       <i>Amazon Neptune User Guide</i>.</p>
+ * @public
+ */
+export interface ServerlessV2PlatformVersionInfo {
+  /**
+   * <p>The version number of the serverless platform.</p>
+   * @public
+   */
+  ServerlessV2PlatformVersion?: string | undefined;
+
+  /**
+   * <p>The description of the serverless platform.</p>
+   * @public
+   */
+  ServerlessV2PlatformVersionDescription?: string | undefined;
+
+  /**
+   * <p>The name of the database engine.</p>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>Specifies any Neptune Serverless properties or limits that differ between serverless platform versions.
+   *       You can retrieve the platform version of an existing DB cluster and check whether that version
+   *       supports certain serverless features before you attempt to use those features.</p>
+   * @public
+   */
+  ServerlessV2FeaturesSupport?: ServerlessV2FeaturesSupport | undefined;
+
+  /**
+   * <p>The status of the serverless platform version. Valid statuses are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>enabled</code> - The platform version is in use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disabled</code> - The platform version is not in use.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>Indicates whether this platform version is the default version for the engine. The default platform
+   *       version is the version used for new DB clusters.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeServerlessV2PlatformVersions</code> action.</p>
+ * @public
+ */
+export interface ServerlessV2PlatformVersionsMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *       If this parameter is specified, the response includes
+   *       only records beyond the marker,
+   *       up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <a>ServerlessV2PlatformVersionInfo</a> elements.</p>
+   * @public
+   */
+  ServerlessV2PlatformVersions?: ServerlessV2PlatformVersionInfo[] | undefined;
 }
 
 /**

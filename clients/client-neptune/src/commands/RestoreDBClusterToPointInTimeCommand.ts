@@ -171,6 +171,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput extends RestoreDBClu
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
  * //     },
+ * //     ServerlessV2PlatformVersion: "STRING_VALUE",
  * //     GlobalClusterIdentifier: "STRING_VALUE",
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     StorageType: "STRING_VALUE",

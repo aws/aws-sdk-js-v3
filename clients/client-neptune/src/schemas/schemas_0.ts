@@ -275,6 +275,8 @@ const _DPMAM = "DescribePendingMaintenanceActionsMessage";
 const _DR = "DoubleRange";
 const _DRI = "DbiResourceId";
 const _DRL = "DoubleRangeList";
+const _DSVPV = "DescribeServerlessV2PlatformVersions";
+const _DSVPVM = "DescribeServerlessV2PlatformVersionsMessage";
 const _DT = "DataType";
 const _DVDBIM = "DescribeValidDBInstanceModifications";
 const _DVDBIMM = "DescribeValidDBInstanceModificationsMessage";
@@ -346,10 +348,12 @@ const _GCRI = "GlobalClusterResourceId";
 const _GCl = "GlobalClusters";
 const _HZI = "HostedZoneId";
 const _I = "Iops";
+const _IA = "IncludeAll";
 const _IAMDAE = "IAMDatabaseAuthenticationEnabled";
 const _IAMRN = "IAMRoleName";
 const _ICT = "InstanceCreateTime";
 const _ICW = "IsClusterWriter";
+const _ID = "IsDefault";
 const _IDBCCF = "InsufficientDBClusterCapacityFault";
 const _IDBCESF = "InvalidDBClusterEndpointStateFault";
 const _IDBCSF = "InvalidDBClusterStateFault";
@@ -590,6 +594,13 @@ const _STo = "SourceType";
 const _STt = "StatusType";
 const _STta = "StartTime";
 const _STu = "SupportedTimezones";
+const _SVFS = "ServerlessV2FeaturesSupport";
+const _SVPV = "ServerlessV2PlatformVersion";
+const _SVPVD = "ServerlessV2PlatformVersionDescription";
+const _SVPVI = "ServerlessV2PlatformVersionInfo";
+const _SVPVL = "ServerlessV2PlatformVersionList";
+const _SVPVM = "ServerlessV2PlatformVersionsMessage";
+const _SVPVe = "ServerlessV2PlatformVersions";
 const _SVSC = "ServerlessV2ScalingConfiguration";
 const _SVSCI = "ServerlessV2ScalingConfigurationInfo";
 const _So = "Source";
@@ -1321,8 +1332,8 @@ export var CreateGlobalClusterResult$: StaticStructureSchema = [3, n0, _CGCR,
 ];
 export var DBCluster$: StaticStructureSchema = [3, n0, _DBC,
   0,
-  [_AS, _AZv, _BRP, _CSN, _DN, _DBCI, _DBCPG, _DBSGu, _S, _PP, _ERT, _E, _RE, _MAZ, _En, _EV, _LRT, _P, _MU, _DBCOGM, _PBW, _PMW, _RSI, _RRI, _DBCM, _VSG, _HZI, _SE, _KKI, _DCRI, _DBCA, _AR, _IAMDAE, _CGI, _CCT, _CTTS, _ECLEn, _PMV, _DP, _CAC, _ART, _SVSC, _GCI, _IOONAMT, _ST, _NT],
-  [1, [() => AvailabilityZones, 0], 1, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 2, 0, 0, 4, 1, 0, [() => DBClusterOptionGroupMemberships, 0], 0, 0, 0, [() => ReadReplicaIdentifierList, 0], [() => DBClusterMemberList, 0], [() => VpcSecurityGroupMembershipList, 0], 0, 2, 0, 0, 0, [() => DBClusterRoles, 0], 2, 0, 4, 2, 64 | 0, () => ClusterPendingModifiedValues$, 2, 2, 4, () => ServerlessV2ScalingConfigurationInfo$, 0, 4, 0, 0]
+  [_AS, _AZv, _BRP, _CSN, _DN, _DBCI, _DBCPG, _DBSGu, _S, _PP, _ERT, _E, _RE, _MAZ, _En, _EV, _LRT, _P, _MU, _DBCOGM, _PBW, _PMW, _RSI, _RRI, _DBCM, _VSG, _HZI, _SE, _KKI, _DCRI, _DBCA, _AR, _IAMDAE, _CGI, _CCT, _CTTS, _ECLEn, _PMV, _DP, _CAC, _ART, _SVSC, _SVPV, _GCI, _IOONAMT, _ST, _NT],
+  [1, [() => AvailabilityZones, 0], 1, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 2, 0, 0, 4, 1, 0, [() => DBClusterOptionGroupMemberships, 0], 0, 0, 0, [() => ReadReplicaIdentifierList, 0], [() => DBClusterMemberList, 0], [() => VpcSecurityGroupMembershipList, 0], 0, 2, 0, 0, 0, [() => DBClusterRoles, 0], 2, 0, 4, 2, 64 | 0, () => ClusterPendingModifiedValues$, 2, 2, 4, () => ServerlessV2ScalingConfigurationInfo$, 0, 0, 4, 0, 0]
 ];
 export var DBClusterEndpoint$: StaticStructureSchema = [3, n0, _DBCE,
   0,
@@ -1644,6 +1655,11 @@ export var DescribePendingMaintenanceActionsMessage$: StaticStructureSchema = [3
   [_RI, _F, _M, _MR],
   [0, [() => FilterList, 0], 0, 1]
 ];
+export var DescribeServerlessV2PlatformVersionsMessage$: StaticStructureSchema = [3, n0, _DSVPVM,
+  0,
+  [_SVPV, _En, _F, _DO, _IA, _MR, _M],
+  [0, 0, [() => FilterList, 0], 2, 2, 1, 0]
+];
 export var DescribeValidDBInstanceModificationsMessage$: StaticStructureSchema = [3, n0, _DVDBIMM,
   0,
   [_DBII],
@@ -1964,6 +1980,21 @@ export var RestoreDBClusterToPointInTimeResult$: StaticStructureSchema = [3, n0,
   [_DBC],
   [[() => DBCluster$, 0]]
 ];
+export var ServerlessV2FeaturesSupport$: StaticStructureSchema = [3, n0, _SVFS,
+  0,
+  [_MC, _MCa],
+  [1, 1]
+];
+export var ServerlessV2PlatformVersionInfo$: StaticStructureSchema = [3, n0, _SVPVI,
+  0,
+  [_SVPV, _SVPVD, _En, _SVFS, _S, _ID],
+  [0, 0, 0, () => ServerlessV2FeaturesSupport$, 0, 2]
+];
+export var ServerlessV2PlatformVersionsMessage$: StaticStructureSchema = [3, n0, _SVPVM,
+  0,
+  [_M, _SVPVe],
+  [0, () => ServerlessV2PlatformVersionList]
+];
 export var ServerlessV2ScalingConfiguration$: StaticStructureSchema = [3, n0, _SVSC,
   0,
   [_MC, _MCa],
@@ -2200,6 +2231,9 @@ var ReadReplicaIdentifierList: StaticListSchema = [1, n0, _RRIL,
   0, [0,
     { [_xN]: _RRIe }]
 ];
+var ServerlessV2PlatformVersionList: StaticListSchema = [1, n0, _SVPVL,
+  0, () => ServerlessV2PlatformVersionInfo$
+];
 var SourceIdsList: StaticListSchema = [1, n0, _SIL,
   0, [0,
     { [_xN]: _SIou }]
@@ -2372,6 +2406,9 @@ export var DescribeOrderableDBInstanceOptions$: StaticOperationSchema = [9, n0, 
 ];
 export var DescribePendingMaintenanceActions$: StaticOperationSchema = [9, n0, _DPMA,
   0, () => DescribePendingMaintenanceActionsMessage$, () => PendingMaintenanceActionsMessage$
+];
+export var DescribeServerlessV2PlatformVersions$: StaticOperationSchema = [9, n0, _DSVPV,
+  0, () => DescribeServerlessV2PlatformVersionsMessage$, () => ServerlessV2PlatformVersionsMessage$
 ];
 export var DescribeValidDBInstanceModifications$: StaticOperationSchema = [9, n0, _DVDBIM,
   0, () => DescribeValidDBInstanceModificationsMessage$, () => DescribeValidDBInstanceModificationsResult$

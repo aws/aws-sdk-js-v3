@@ -229,6 +229,11 @@ import {
   DescribePendingMaintenanceActionsCommand,
 } from "./commands/DescribePendingMaintenanceActionsCommand";
 import {
+  type DescribeServerlessV2PlatformVersionsCommandInput,
+  type DescribeServerlessV2PlatformVersionsCommandOutput,
+  DescribeServerlessV2PlatformVersionsCommand,
+} from "./commands/DescribeServerlessV2PlatformVersionsCommand";
+import {
   type DescribeValidDBInstanceModificationsCommandInput,
   type DescribeValidDBInstanceModificationsCommandOutput,
   DescribeValidDBInstanceModificationsCommand,
@@ -377,6 +382,9 @@ import { paginateDescribeEventSubscriptions } from "./pagination/DescribeEventSu
 import { paginateDescribeGlobalClusters } from "./pagination/DescribeGlobalClustersPaginator";
 import { paginateDescribeOrderableDBInstanceOptions } from "./pagination/DescribeOrderableDBInstanceOptionsPaginator";
 import { paginateDescribePendingMaintenanceActions } from "./pagination/DescribePendingMaintenanceActionsPaginator";
+import {
+  paginateDescribeServerlessV2PlatformVersions,
+} from "./pagination/DescribeServerlessV2PlatformVersionsPaginator";
 import { waitUntilDBInstanceAvailable } from "./waiters/waitForDBInstanceAvailable";
 import { waitUntilDBInstanceDeleted } from "./waiters/waitForDBInstanceDeleted";
 
@@ -425,6 +433,7 @@ const commands = {
   DescribeGlobalClustersCommand,
   DescribeOrderableDBInstanceOptionsCommand,
   DescribePendingMaintenanceActionsCommand,
+  DescribeServerlessV2PlatformVersionsCommand,
   DescribeValidDBInstanceModificationsCommand,
   FailoverDBClusterCommand,
   FailoverGlobalClusterCommand,
@@ -469,6 +478,7 @@ const paginators = {
   paginateDescribeGlobalClusters,
   paginateDescribeOrderableDBInstanceOptions,
   paginateDescribePendingMaintenanceActions,
+  paginateDescribeServerlessV2PlatformVersions,
 };
 const waiters = {
   waitUntilDBInstanceAvailable,
@@ -1245,6 +1255,24 @@ export interface Neptune {
   ): void;
 
   /**
+   * @see {@link DescribeServerlessV2PlatformVersionsCommand}
+   */
+  describeServerlessV2PlatformVersions(): Promise<DescribeServerlessV2PlatformVersionsCommandOutput>;
+  describeServerlessV2PlatformVersions(
+    args: DescribeServerlessV2PlatformVersionsCommandInput,
+    options?: NeptuneRequestOptions
+  ): Promise<DescribeServerlessV2PlatformVersionsCommandOutput>;
+  describeServerlessV2PlatformVersions(
+    args: DescribeServerlessV2PlatformVersionsCommandInput,
+    cb: (err: any, data?: DescribeServerlessV2PlatformVersionsCommandOutput) => void
+  ): void;
+  describeServerlessV2PlatformVersions(
+    args: DescribeServerlessV2PlatformVersionsCommandInput,
+    options: NeptuneRequestOptions,
+    cb: (err: any, data?: DescribeServerlessV2PlatformVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeValidDBInstanceModificationsCommand}
    */
   describeValidDBInstanceModifications(
@@ -1862,6 +1890,17 @@ export interface Neptune {
     args?: DescribePendingMaintenanceActionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribePendingMaintenanceActionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeServerlessV2PlatformVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeServerlessV2PlatformVersionsCommandOutput}.
+   */
+  paginateDescribeServerlessV2PlatformVersions(
+    args?: DescribeServerlessV2PlatformVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeServerlessV2PlatformVersionsCommandOutput>;
 
   /**
    * @see {@link DescribeDBInstancesCommand}

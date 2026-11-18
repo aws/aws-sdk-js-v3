@@ -505,6 +505,13 @@ DescribePendingMaintenanceActions
 </details>
 <details>
 <summary>
+DescribeServerlessV2PlatformVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune/command/DescribeServerlessV2PlatformVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune/Interface/DescribeServerlessV2PlatformVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune/Interface/DescribeServerlessV2PlatformVersionsCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeValidDBInstanceModifications
 </summary>
 

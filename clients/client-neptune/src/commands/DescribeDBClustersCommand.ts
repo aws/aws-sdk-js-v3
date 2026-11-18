@@ -147,6 +147,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //         MinCapacity: Number("double"),
  * //         MaxCapacity: Number("double"),
  * //       },
+ * //       ServerlessV2PlatformVersion: "STRING_VALUE",
  * //       GlobalClusterIdentifier: "STRING_VALUE",
  * //       IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //       StorageType: "STRING_VALUE",
