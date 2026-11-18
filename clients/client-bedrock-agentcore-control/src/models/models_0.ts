@@ -8,7 +8,6 @@ import type {
   AgentManagedRuntimeType,
   AgentRuntimeEndpointStatus,
   AgentRuntimeStatus,
-  AuthorizerType,
   BrowserEnterprisePolicyType,
   BrowserNetworkMode,
   BrowserProfileStatus,
@@ -32,11 +31,9 @@ import type {
   EvaluatorStatus,
   EvaluatorType,
   ExampleField,
-  ExceptionLevel,
   FallbackError,
   GatewayInterceptionPoint,
   GatewayPolicyEngineMode,
-  GatewayProtocolType,
   GatewayRateLimitStatus,
   InboundTokenClaimValueType,
   IncludedData,
@@ -45,6 +42,7 @@ import type {
   NetworkMode,
   OperatingSystem,
   Period,
+  PrivilegeMode,
   Provider,
   ResourceType,
   SearchType,
@@ -1991,6 +1989,57 @@ export namespace AuthorizerConfiguration {
 }
 
 /**
+ * <p>Contains the operating system configuration of agents that run on Linux instances, such as the privilege mode.</p>
+ * @public
+ */
+export interface LinuxOperatingSystemConfiguration {
+  /**
+   * <p>The privilege mode of the agents. If you omit this field, the agents run in <code>STANDARD</code> privilege mode. The following values are possible:</p> <ul> <li> <p> <code>STANDARD</code> – The agent runs without elevated privileges. This is the default.</p> </li> <li> <p> <code>PRIVILEGED</code> – The agent runs with elevated privileges on its instance. Use this mode for agents that build container images, run containers, or install system packages. A session that runs a <code>PRIVILEGED</code> agent runs only that agent.</p> </li> </ul>
+   * @public
+   */
+  privilegeMode?: PrivilegeMode | undefined;
+}
+
+/**
+ * <p>Contains the operating system configuration of the agents that AgentCore Runtime runs on a capacity provider. Specify the member for the operating system of the capacity provider.</p>
+ * @public
+ */
+export type OperatingSystemConfiguration =
+  | OperatingSystemConfiguration.LinuxMember
+  | OperatingSystemConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OperatingSystemConfiguration {
+  /**
+   * <p>The operating system configuration of agents that run on Linux instances.</p>
+   * @public
+   */
+  export interface LinuxMember {
+    linux: LinuxOperatingSystemConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    linux?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    linux: (value: LinuxOperatingSystemConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Configuration for customer-managed compute capacity for the AgentCore Runtime. A capacity provider runs the AgentCore Runtime on the Instances compute type, using Amazon Web Services managed compute in your account.</p>
  * @public
  */
@@ -2000,6 +2049,12 @@ export interface CapacityProviderConfiguration {
    * @public
    */
   capacityProviderArn: string | undefined;
+
+  /**
+   * <p>The operating system configuration of the agents that Amazon Bedrock AgentCore Runtime runs on the capacity provider.</p>
+   * @public
+   */
+  operatingSystemConfiguration?: OperatingSystemConfiguration | undefined;
 }
 
 /**
@@ -2039,6 +2094,42 @@ export interface EfsAccessPointConfiguration {
 }
 
 /**
+ * <p>Mounts an Amazon S3 bucket in the AgentCore Runtime with Mountpoint for Amazon S3. Files under the mount path map to objects in the bucket.</p>
+ * @public
+ */
+export interface S3BucketMountConfiguration {
+  /**
+   * <p>The name of the S3 bucket to mount. You can specify a general purpose bucket or a directory bucket.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The mount path for the S3 bucket inside the AgentCore Runtime. The path must be under <code>/mnt</code> with exactly one subdirectory level (for example, <code>/mnt/data</code>).</p>
+   * @public
+   */
+  mountPath: string | undefined;
+
+  /**
+   * <p>The key prefix to mount. Only objects under this prefix are visible at the mount path. To give each session its own prefix, include <code>\{runtimeSessionId\}</code> (for example, <code>data/\{runtimeSessionId\}/</code>). If you omit the prefix, the whole bucket is mounted.</p>
+   * @public
+   */
+  prefix?: string | undefined;
+
+  /**
+   * <p>The AWS account ID that must own the bucket. If you omit it, the bucket must be owned by the account that owns the AgentCore Runtime.</p>
+   * @public
+   */
+  s3BucketOwner?: string | undefined;
+
+  /**
+   * <p>The AWS Region of the S3 bucket. If you omit it, the bucket must be in the same Region as the AgentCore Runtime.</p>
+   * @public
+   */
+  s3BucketRegion?: string | undefined;
+}
+
+/**
  * <p>Configuration for an Amazon S3 Files access point filesystem mounted into the AgentCore Runtime. S3 Files access points provide shared file storage accessible from your AgentCore Runtime sessions.</p>
  * @public
  */
@@ -2075,6 +2166,7 @@ export interface SessionStorageConfiguration {
 export type FilesystemConfiguration =
   | FilesystemConfiguration.CapacityProviderVolumeMember
   | FilesystemConfiguration.EfsAccessPointMember
+  | FilesystemConfiguration.S3BucketMountMember
   | FilesystemConfiguration.S3FilesAccessPointMember
   | FilesystemConfiguration.SessionStorageMember
   | FilesystemConfiguration.$UnknownMember;
@@ -2092,6 +2184,7 @@ export namespace FilesystemConfiguration {
     s3FilesAccessPoint?: never;
     efsAccessPoint?: never;
     capacityProviderVolume?: never;
+    s3BucketMount?: never;
     $unknown?: never;
   }
 
@@ -2104,6 +2197,7 @@ export namespace FilesystemConfiguration {
     s3FilesAccessPoint: S3FilesAccessPointConfiguration;
     efsAccessPoint?: never;
     capacityProviderVolume?: never;
+    s3BucketMount?: never;
     $unknown?: never;
   }
 
@@ -2116,6 +2210,7 @@ export namespace FilesystemConfiguration {
     s3FilesAccessPoint?: never;
     efsAccessPoint: EfsAccessPointConfiguration;
     capacityProviderVolume?: never;
+    s3BucketMount?: never;
     $unknown?: never;
   }
 
@@ -2128,6 +2223,20 @@ export namespace FilesystemConfiguration {
     s3FilesAccessPoint?: never;
     efsAccessPoint?: never;
     capacityProviderVolume: CapacityProviderVolumeConfiguration;
+    s3BucketMount?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Mounts an Amazon S3 bucket as a file system in the AgentCore Runtime.</p>
+   * @public
+   */
+  export interface S3BucketMountMember {
+    sessionStorage?: never;
+    s3FilesAccessPoint?: never;
+    efsAccessPoint?: never;
+    capacityProviderVolume?: never;
+    s3BucketMount: S3BucketMountConfiguration;
     $unknown?: never;
   }
 
@@ -2139,6 +2248,7 @@ export namespace FilesystemConfiguration {
     s3FilesAccessPoint?: never;
     efsAccessPoint?: never;
     capacityProviderVolume?: never;
+    s3BucketMount?: never;
     $unknown: [string, any];
   }
 
@@ -2151,6 +2261,7 @@ export namespace FilesystemConfiguration {
     s3FilesAccessPoint: (value: S3FilesAccessPointConfiguration) => T;
     efsAccessPoint: (value: EfsAccessPointConfiguration) => T;
     capacityProviderVolume: (value: CapacityProviderVolumeConfiguration) => T;
+    s3BucketMount: (value: S3BucketMountConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -9101,146 +9212,6 @@ export interface MCPGatewayConfiguration {
    * @public
    */
   disableMcpListToolsPagination?: boolean | undefined;
-}
-
-/**
- * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
- * @public
- */
-export type GatewayProtocolConfiguration =
-  | GatewayProtocolConfiguration.McpMember
-  | GatewayProtocolConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace GatewayProtocolConfiguration {
-  /**
-   * <p>The configuration for the Model Context Protocol (MCP). This protocol enables communication between Amazon Bedrock Agent and external tools.</p>
-   * @public
-   */
-  export interface McpMember {
-    mcp: MCPGatewayConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    mcp?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    mcp: (value: MCPGatewayConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateGatewayRequest {
-  /**
-   * <p>The name of the gateway. The name must be unique within your account.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the gateway.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the gateway to access Amazon Web Services services.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>The protocol type for the gateway.</p>
-   * @public
-   */
-  protocolType?: GatewayProtocolType | undefined;
-
-  /**
-   * <p>The configuration settings for the protocol specified in the <code>protocolType</code> parameter.</p>
-   * @public
-   */
-  protocolConfiguration?: GatewayProtocolConfiguration | undefined;
-
-  /**
-   * <p>The type of authorizer to use for the gateway.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> <li> <p> <code>NONE</code> - No authorization</p> </li> </ul>
-   * @public
-   */
-  authorizerType: AuthorizerType | undefined;
-
-  /**
-   * <p>The authorizer configuration for the gateway. Required if <code>authorizerType</code> is <code>CUSTOM_JWT</code>.</p>
-   * @public
-   */
-  authorizerConfiguration?: AuthorizerConfiguration | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt data associated with the gateway.</p>
-   * @public
-   */
-  kmsKeyArn?: string | undefined;
-
-  /**
-   * <p>A list of configuration settings for a gateway interceptor. Gateway interceptors allow custom code to be invoked during gateway invocations.</p>
-   * @public
-   */
-  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
-
-  /**
-   * <p>The policy engine configuration for the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.</p>
-   * @public
-   */
-  policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
-
-  /**
-   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
-   * @public
-   */
-  exceptionLevel?: ExceptionLevel | undefined;
-
-  /**
-   * <p>A map of key-value pairs to associate with the gateway as metadata tags.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>The public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header. Specify this when clients reach the gateway through your own proxy or custom domain.</p>
-   * @public
-   */
-  domainOverride?: DomainOverride | undefined;
-}
-
-/**
- * <p>The Lambda configuration for custom transformations. This structure defines the Lambda function that the gateway invokes to transform data.</p>
- * @public
- */
-export interface LambdaTransformConfiguration {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function. This function is invoked by the gateway to transform data.</p>
-   * @public
-   */
-  arn?: string | undefined;
 }
 
 /**

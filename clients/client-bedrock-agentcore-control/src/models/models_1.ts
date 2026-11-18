@@ -61,9 +61,8 @@ import type {
   FilesystemConfiguration,
   GatewayInterceptorConfiguration,
   GatewayPolicyEngineConfiguration,
-  GatewayProtocolConfiguration,
-  LambdaTransformConfiguration,
   LifecycleConfiguration,
+  MCPGatewayConfiguration,
   NetworkConfiguration,
   PrivateEndpoint,
   PrivateEndpointOverride,
@@ -72,6 +71,146 @@ import type {
   Unit,
   WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
+ * @public
+ */
+export type GatewayProtocolConfiguration =
+  | GatewayProtocolConfiguration.McpMember
+  | GatewayProtocolConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GatewayProtocolConfiguration {
+  /**
+   * <p>The configuration for the Model Context Protocol (MCP). This protocol enables communication between Amazon Bedrock Agent and external tools.</p>
+   * @public
+   */
+  export interface McpMember {
+    mcp: MCPGatewayConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    mcp?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    mcp: (value: MCPGatewayConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateGatewayRequest {
+  /**
+   * <p>The name of the gateway. The name must be unique within your account.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the gateway.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the gateway to access Amazon Web Services services.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The protocol type for the gateway.</p>
+   * @public
+   */
+  protocolType?: GatewayProtocolType | undefined;
+
+  /**
+   * <p>The configuration settings for the protocol specified in the <code>protocolType</code> parameter.</p>
+   * @public
+   */
+  protocolConfiguration?: GatewayProtocolConfiguration | undefined;
+
+  /**
+   * <p>The type of authorizer to use for the gateway.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> <li> <p> <code>NONE</code> - No authorization</p> </li> </ul>
+   * @public
+   */
+  authorizerType: AuthorizerType | undefined;
+
+  /**
+   * <p>The authorizer configuration for the gateway. Required if <code>authorizerType</code> is <code>CUSTOM_JWT</code>.</p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt data associated with the gateway.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>A list of configuration settings for a gateway interceptor. Gateway interceptors allow custom code to be invoked during gateway invocations.</p>
+   * @public
+   */
+  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
+
+  /**
+   * <p>The policy engine configuration for the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.</p>
+   * @public
+   */
+  policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
+
+  /**
+   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
+   * @public
+   */
+  exceptionLevel?: ExceptionLevel | undefined;
+
+  /**
+   * <p>A map of key-value pairs to associate with the gateway as metadata tags.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The public domain names that the gateway advertises in its OAuth discovery URLs instead of the inbound Host header. Specify this when clients reach the gateway through your own proxy or custom domain.</p>
+   * @public
+   */
+  domainOverride?: DomainOverride | undefined;
+}
+
+/**
+ * <p>The Lambda configuration for custom transformations. This structure defines the Lambda function that the gateway invokes to transform data.</p>
+ * @public
+ */
+export interface LambdaTransformConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function. This function is invoked by the gateway to transform data.</p>
+   * @public
+   */
+  arn?: string | undefined;
+}
 
 /**
  * <p>The configuration for custom transformations applied to requests and responses through the gateway. This structure defines how the gateway transforms data.</p>
@@ -10040,133 +10179,4 @@ export interface DeleteOnlineEvaluationConfigResponse {
    * @public
    */
   status: OnlineEvaluationConfigStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface GetOnlineEvaluationConfigRequest {
-  /**
-   * <p> The unique identifier of the online evaluation configuration to retrieve. </p>
-   * @public
-   */
-  onlineEvaluationConfigId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetOnlineEvaluationConfigResponse {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigArn: string | undefined;
-
-  /**
-   * <p> The unique identifier of the online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigId: string | undefined;
-
-  /**
-   * <p> The name of the online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigName: string | undefined;
-
-  /**
-   * <p> The description of the online evaluation configuration. </p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p> The evaluation rule containing sampling configuration, filters, and session settings. </p>
-   * @public
-   */
-  rule: Rule | undefined;
-
-  /**
-   * <p> The data source configuration specifying CloudWatch log groups and service names to monitor. </p>
-   * @public
-   */
-  dataSourceConfig: DataSourceConfig | undefined;
-
-  /**
-   * <p> The list of evaluators applied during online evaluation. </p>
-   * @public
-   */
-  evaluators?: EvaluatorReference[] | undefined;
-
-  /**
-   * <p>The list of insight types configured for this evaluation.</p>
-   * @public
-   */
-  insights?: Insight[] | undefined;
-
-  /**
-   * <p>The clustering configuration for periodic batch evaluation.</p>
-   * @public
-   */
-  clusteringConfig?: ClusteringConfig | undefined;
-
-  /**
-   * <p> The output configuration specifying where evaluation results are written. </p>
-   * @public
-   */
-  outputConfig?: OutputConfig | undefined;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the IAM role used for evaluation execution. </p>
-   * @public
-   */
-  evaluationExecutionRoleArn?: string | undefined;
-
-  /**
-   * <p> The status of the online evaluation configuration. </p>
-   * @public
-   */
-  status: OnlineEvaluationConfigStatus | undefined;
-
-  /**
-   * <p> The execution status indicating whether the online evaluation is currently running. </p>
-   * @public
-   */
-  executionStatus: OnlineEvaluationExecutionStatus | undefined;
-
-  /**
-   * <p> The timestamp when the online evaluation configuration was created. </p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p> The timestamp when the online evaluation configuration was last updated. </p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p> The reason for failure if the online evaluation configuration execution failed. </p>
-   * @public
-   */
-  failureReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListOnlineEvaluationConfigsRequest {
-  /**
-   * <p> The pagination token from a previous request to retrieve the next page of results. </p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p> The maximum number of online evaluation configurations to return in a single response. </p>
-   * @public
-   */
-  maxResults?: number | undefined;
 }

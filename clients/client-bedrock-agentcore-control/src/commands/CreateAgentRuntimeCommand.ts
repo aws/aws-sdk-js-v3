@@ -209,10 +209,22 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *         volumeName: "STRING_VALUE", // required
  *         mountPath: "STRING_VALUE", // required
  *       },
+ *       s3BucketMount: { // S3BucketMountConfiguration
+ *         bucket: "STRING_VALUE", // required
+ *         mountPath: "STRING_VALUE", // required
+ *         prefix: "STRING_VALUE",
+ *         s3BucketOwner: "STRING_VALUE",
+ *         s3BucketRegion: "STRING_VALUE",
+ *       },
  *     },
  *   ],
  *   capacityProviderConfiguration: { // CapacityProviderConfiguration
  *     capacityProviderArn: "STRING_VALUE", // required
+ *     operatingSystemConfiguration: { // OperatingSystemConfiguration Union: only one key present
+ *       linux: { // LinuxOperatingSystemConfiguration
+ *         privilegeMode: "STANDARD" || "PRIVILEGED",
+ *       },
+ *     },
  *   },
  *   tags: "<TagsMap>",
  *   platformVersion: "STRING_VALUE",

@@ -702,6 +702,7 @@ import {
   LimitEntry$,
   LinkedinOauth2ProviderConfigInput$,
   LinkedinOauth2ProviderConfigOutput$,
+  LinuxOperatingSystemConfiguration$,
   ListAgentInsightStores$,
   ListAgentInsightStoresCommand,
   ListAgentInsightStoresRequest$,
@@ -936,6 +937,7 @@ import {
   OnlineEvaluationExecutionStatus,
   OpenResponsesEvaluatorModelConfig$,
   OperatingSystem,
+  OperatingSystemConfiguration$,
   OutputConfig$,
   OverrideType,
   paginateListAgentInsightStores,
@@ -1014,6 +1016,7 @@ import {
   PrivateEndpointOverride$,
   PrivateKeyJwtConfig$,
   PrivateKeySource$,
+  PrivilegeMode,
   ProtocolConfiguration$,
   Provider,
   ProviderPrefix$,
@@ -1066,6 +1069,7 @@ import {
   RuntimeHooksConfiguration$,
   RuntimeMetadataConfiguration$,
   RuntimeTargetConfiguration$,
+  S3BucketMountConfiguration$,
   S3CertificateConfiguration$,
   S3Configuration$,
   S3FilesAccessPointConfiguration$,
@@ -2129,6 +2133,7 @@ assert(typeof LifecycleHookAction$ === "object");
 assert(typeof LimitEntry$ === "object");
 assert(typeof LinkedinOauth2ProviderConfigInput$ === "object");
 assert(typeof LinkedinOauth2ProviderConfigOutput$ === "object");
+assert(typeof LinuxOperatingSystemConfiguration$ === "object");
 assert(typeof ListAgentInsightStoresRequest$ === "object");
 assert(typeof ListAgentInsightStoresResponse$ === "object");
 assert(typeof ListAgentRuntimeEndpointsRequest$ === "object");
@@ -2266,6 +2271,7 @@ assert(typeof OnBehalfOfAuthenticationConfig$ === "object");
 assert(typeof OnBehalfOfTokenExchangeConfigType$ === "object");
 assert(typeof OnlineEvaluationConfigSummary$ === "object");
 assert(typeof OpenResponsesEvaluatorModelConfig$ === "object");
+assert(typeof OperatingSystemConfiguration$ === "object");
 assert(typeof OutputConfig$ === "object");
 assert(typeof PassthroughTargetConfiguration$ === "object");
 assert(typeof PaymentConnectorSummary$ === "object");
@@ -2320,6 +2326,7 @@ assert(typeof Rule$ === "object");
 assert(typeof RuntimeHooksConfiguration$ === "object");
 assert(typeof RuntimeMetadataConfiguration$ === "object");
 assert(typeof RuntimeTargetConfiguration$ === "object");
+assert(typeof S3BucketMountConfiguration$ === "object");
 assert(typeof S3CertificateConfiguration$ === "object");
 assert(typeof S3Configuration$ === "object");
 assert(typeof S3FilesAccessPointConfiguration$ === "object");
@@ -2583,6 +2590,7 @@ assert(typeof PolicyGenerationStatus === "object");
 assert(typeof PolicyStatus === "object");
 assert(typeof PolicyValidationMode === "object");
 assert(typeof PrincipalMatchOperator === "object");
+assert(typeof PrivilegeMode === "object");
 assert(typeof Provider === "object");
 assert(typeof RecordExpiryAction === "object");
 assert(typeof RegistryAuthorizerType === "object");

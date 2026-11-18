@@ -245,6 +245,19 @@ export type EndpointIpAddressType = (typeof EndpointIpAddressType)[keyof typeof 
  * @public
  * @enum
  */
+export const PrivilegeMode = {
+  PRIVILEGED: "PRIVILEGED",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type PrivilegeMode = (typeof PrivilegeMode)[keyof typeof PrivilegeMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const NetworkMode = {
   PUBLIC: "PUBLIC",
   VPC: "VPC",

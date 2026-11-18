@@ -71,6 +71,13 @@ export interface CreateHarnessCommandOutput extends CreateHarnessResponse, __Met
  *             volumeName: "STRING_VALUE", // required
  *             mountPath: "STRING_VALUE", // required
  *           },
+ *           s3BucketMount: { // S3BucketMountConfiguration
+ *             bucket: "STRING_VALUE", // required
+ *             mountPath: "STRING_VALUE", // required
+ *             prefix: "STRING_VALUE",
+ *             s3BucketOwner: "STRING_VALUE",
+ *             s3BucketRegion: "STRING_VALUE",
+ *           },
  *         },
  *       ],
  *     },
@@ -582,6 +589,13 @@ export interface CreateHarnessCommandOutput extends CreateHarnessResponse, __Met
  * //             capacityProviderVolume: { // CapacityProviderVolumeConfiguration
  * //               volumeName: "STRING_VALUE", // required
  * //               mountPath: "STRING_VALUE", // required
+ * //             },
+ * //             s3BucketMount: { // S3BucketMountConfiguration
+ * //               bucket: "STRING_VALUE", // required
+ * //               mountPath: "STRING_VALUE", // required
+ * //               prefix: "STRING_VALUE",
+ * //               s3BucketOwner: "STRING_VALUE",
+ * //               s3BucketRegion: "STRING_VALUE",
  * //             },
  * //           },
  * //         ],

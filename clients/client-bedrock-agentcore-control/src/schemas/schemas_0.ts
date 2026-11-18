@@ -702,6 +702,7 @@ const _LOECR = "ListOnlineEvaluationConfigsRequest";
 const _LOECRi = "ListOnlineEvaluationConfigsResponse";
 const _LOPCI = "LinkedinOauth2ProviderConfigInput";
 const _LOPCO = "LinkedinOauth2ProviderConfigOutput";
+const _LOSC = "LinuxOperatingSystemConfiguration";
 const _LP = "LaunchParameters";
 const _LPC = "ListPaymentConnectors";
 const _LPCP = "ListPaymentCredentialProviders";
@@ -815,6 +816,7 @@ const _OECSL = "OnlineEvaluationConfigSummaryList";
 const _OPCI = "Oauth2ProviderConfigInput";
 const _OPCO = "Oauth2ProviderConfigOutput";
 const _OREMC = "OpenResponsesEvaluatorModelConfig";
+const _OSC = "OperatingSystemConfiguration";
 const _P = "Prompt";
 const _PC = "PermissionsConfiguration";
 const _PCP = "PaymentCredentialProviders";
@@ -893,6 +895,7 @@ const _RTVKMRe = "ResetTokenVaultKeyMaterialResponse";
 const _RVC = "RootVolumeConfiguration";
 const _Re = "Resource";
 const _S = "Secret";
+const _SBMC = "S3BucketMountConfiguration";
 const _SC = "S3Configuration";
 const _SCC = "S3CertificateConfiguration";
 const _SCO = "SemanticConsolidationOverride";
@@ -1523,6 +1526,7 @@ const _lV = "liveVersion";
 const _la = "label";
 const _lam = "lambda";
 const _le = "level";
+const _li = "linux";
 const _m = "message";
 const _mB = "managedBy";
 const _mBRA = "managedByResourceArn";
@@ -1601,6 +1605,7 @@ const _oECN = "onlineEvaluationConfigName";
 const _oPCI = "oauth2ProviderConfigInput";
 const _oPCO = "oauth2ProviderConfigOutput";
 const _oS = "operatingSystem";
+const _oSC = "operatingSystemConfiguration";
 const _oSu = "outputSchema";
 const _oV = "optionalValue";
 const _oa = "oauth2";
@@ -1639,6 +1644,7 @@ const _pM = "provisionMode";
 const _pMA = "paymentManagerArn";
 const _pMI = "paymentManagerId";
 const _pMa = "paymentManagers";
+const _pMr = "privilegeMode";
 const _pN = "productName";
 const _pO = "parameterOverrides";
 const _pP = "providerPath";
@@ -1720,6 +1726,9 @@ const _rul = "rule";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockagentcorecontrol";
 const _sA = "signingAlgorithm";
 const _sAe = "secretArn";
+const _sBM = "s3BucketMount";
+const _sBO = "s3BucketOwner";
+const _sBR = "s3BucketRegion";
 const _sC = "synchronizationConfiguration";
 const _sCO = "semanticConsolidationOverride";
 const _sCOu = "summaryConsolidationOverride";
@@ -2221,8 +2230,8 @@ export var BuildLifecycleHooks$: StaticStructureSchema = [3, n0, _BLH,
 ];
 export var CapacityProviderConfiguration$: StaticStructureSchema = [3, n0, _CPC,
   0,
-  [_cPAa],
-  [0], 1
+  [_cPAa, _oSC],
+  [0, () => OperatingSystemConfiguration$], 1
 ];
 export var CapacityProviderSummary$: StaticStructureSchema = [3, n0, _CPS,
   0,
@@ -3934,6 +3943,11 @@ export var LinkedinOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, 
   [_oD, _cI],
   [() => Oauth2Discovery$, 0], 1
 ];
+export var LinuxOperatingSystemConfiguration$: StaticStructureSchema = [3, n0, _LOSC,
+  0,
+  [_pMr],
+  [0]
+];
 export var ListAgentInsightStoresRequest$: StaticStructureSchema = [3, n0, _LAISR,
   0,
   [_nTe, _mR],
@@ -4773,6 +4787,11 @@ export var RuntimeTargetConfiguration$: StaticStructureSchema = [3, n0, _RTC,
   0,
   [_ar, _q, _sch],
   [0, 0, [() => HttpApiSchemaConfiguration$, 0]], 1
+];
+export var S3BucketMountConfiguration$: StaticStructureSchema = [3, n0, _SBMC,
+  0,
+  [_buc, _mP, _pre, _sBO, _sBR],
+  [0, 0, 0, 0, 0], 2
 ];
 export var S3CertificateConfiguration$: StaticStructureSchema = [3, n0, _SCC,
   0,
@@ -6179,8 +6198,8 @@ export var ExtractionConfiguration$: StaticUnionSchema = [4, n0, _ECxt,
 ];
 export var FilesystemConfiguration$: StaticUnionSchema = [4, n0, _FCi,
   0,
-  [_sSe, _sFAP, _eAP, _cPVa],
-  [() => SessionStorageConfiguration$, () => S3FilesAccessPointConfiguration$, () => EfsAccessPointConfiguration$, () => CapacityProviderVolumeConfiguration$]
+  [_sSe, _sFAP, _eAP, _cPVa, _sBM],
+  [() => SessionStorageConfiguration$, () => S3FilesAccessPointConfiguration$, () => EfsAccessPointConfiguration$, () => CapacityProviderVolumeConfiguration$, () => S3BucketMountConfiguration$]
 ];
 export var FilterValue$: StaticUnionSchema = [4, n0, _FV,
   0,
@@ -6336,6 +6355,11 @@ export var Oauth2ProviderConfigOutput$: StaticUnionSchema = [4, n0, _OPCO,
   0,
   [_cOPC, _gOPC, _gOPCi, _sOPC, _sOPCa, _mOPC, _aOPC, _lOPC, _iOPC],
   [[() => CustomOauth2ProviderConfigOutput$, 0], () => GoogleOauth2ProviderConfigOutput$, () => GithubOauth2ProviderConfigOutput$, () => SlackOauth2ProviderConfigOutput$, () => SalesforceOauth2ProviderConfigOutput$, () => MicrosoftOauth2ProviderConfigOutput$, () => AtlassianOauth2ProviderConfigOutput$, () => LinkedinOauth2ProviderConfigOutput$, () => IncludedOauth2ProviderConfigOutput$]
+];
+export var OperatingSystemConfiguration$: StaticUnionSchema = [4, n0, _OSC,
+  0,
+  [_li],
+  [() => LinuxOperatingSystemConfiguration$]
 ];
 export var PaymentProviderConfigurationInput$: StaticUnionSchema = [4, n0, _PPCI,
   0,

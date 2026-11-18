@@ -63,6 +63,135 @@ import type {
 } from "./models_1";
 
 /**
+ * @public
+ */
+export interface GetOnlineEvaluationConfigRequest {
+  /**
+   * <p> The unique identifier of the online evaluation configuration to retrieve. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOnlineEvaluationConfigResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+
+  /**
+   * <p> The name of the online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigName: string | undefined;
+
+  /**
+   * <p> The description of the online evaluation configuration. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p> The evaluation rule containing sampling configuration, filters, and session settings. </p>
+   * @public
+   */
+  rule: Rule | undefined;
+
+  /**
+   * <p> The data source configuration specifying CloudWatch log groups and service names to monitor. </p>
+   * @public
+   */
+  dataSourceConfig: DataSourceConfig | undefined;
+
+  /**
+   * <p> The list of evaluators applied during online evaluation. </p>
+   * @public
+   */
+  evaluators?: EvaluatorReference[] | undefined;
+
+  /**
+   * <p>The list of insight types configured for this evaluation.</p>
+   * @public
+   */
+  insights?: Insight[] | undefined;
+
+  /**
+   * <p>The clustering configuration for periodic batch evaluation.</p>
+   * @public
+   */
+  clusteringConfig?: ClusteringConfig | undefined;
+
+  /**
+   * <p> The output configuration specifying where evaluation results are written. </p>
+   * @public
+   */
+  outputConfig?: OutputConfig | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the IAM role used for evaluation execution. </p>
+   * @public
+   */
+  evaluationExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p> The status of the online evaluation configuration. </p>
+   * @public
+   */
+  status: OnlineEvaluationConfigStatus | undefined;
+
+  /**
+   * <p> The execution status indicating whether the online evaluation is currently running. </p>
+   * @public
+   */
+  executionStatus: OnlineEvaluationExecutionStatus | undefined;
+
+  /**
+   * <p> The timestamp when the online evaluation configuration was created. </p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p> The timestamp when the online evaluation configuration was last updated. </p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p> The reason for failure if the online evaluation configuration execution failed. </p>
+   * @public
+   */
+  failureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOnlineEvaluationConfigsRequest {
+  /**
+   * <p> The pagination token from a previous request to retrieve the next page of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p> The maximum number of online evaluation configurations to return in a single response. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
  * <p> The summary information about an online evaluation configuration, including basic metadata and execution status. </p>
  * @public
  */
