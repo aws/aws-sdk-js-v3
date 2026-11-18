@@ -16,6 +16,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <PasswordResetRequired>
             false
         </PasswordResetRequired>
+        <MaxSigninSessionDuration>
+            0
+        </MaxSigninSessionDuration>
     </LoginProfile>
 </CreateLoginProfileResponse>
 
@@ -50,6 +53,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <PasswordResetRequired>
             false
         </PasswordResetRequired>
+        <MaxSigninSessionDuration>
+            0
+        </MaxSigninSessionDuration>
     </LoginProfile>
 </CreateLoginProfileResponse>
 

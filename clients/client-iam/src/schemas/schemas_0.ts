@@ -520,6 +520,7 @@ const _MPDLT = "ManagedPolicyDetailListType";
 const _MPL = "MinimumPasswordLength";
 const _MS = "MatchedStatements";
 const _MSD = "MaxSessionDuration";
+const _MSSD = "MaxSigninSessionDuration";
 const _MV = "MinorVersion";
 const _MVa = "MajorVersion";
 const _Ma = "Marker";
@@ -645,6 +646,7 @@ const _RM = "RequestMessage";
 const _RME = "RoleModifiedException";
 const _RMFAD = "ResyncMFADevice";
 const _RMFADR = "ResyncMFADeviceRequest";
+const _RMSSD = "ResetMaxSigninSessionDuration";
 const _RN = "RoleName";
 const _RNP = "RoleNamePattern";
 const _RNe = "RequestorName";
@@ -1340,8 +1342,8 @@ export var CreateInstanceProfileResponse$: StaticStructureSchema = [3, n0, _CIPR
 ];
 export var CreateLoginProfileRequest$: StaticStructureSchema = [3, n0, _CLPR,
   0,
-  [_UN, _Pas, _PRR],
-  [0, [() => passwordType, 0], 2]
+  [_UN, _Pas, _PRR, _MSSD],
+  [0, [() => passwordType, 0], 2, 1]
 ];
 export var CreateLoginProfileResponse$: StaticStructureSchema = [3, n0, _CLPRr,
   0,
@@ -1380,8 +1382,8 @@ export var CreatePolicyVersionResponse$: StaticStructureSchema = [3, n0, _CPVRr,
 ];
 export var CreateRoleRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_RN, _ARPD, _Pa, _D, _MSD, _PB, _T],
-  [0, 0, 0, 0, 1, 0, () => tagListType], 2
+  [_RN, _ARPD, _Pa, _D, _MSD, _MSSD, _PB, _T],
+  [0, 0, 0, 0, 1, 1, 0, () => tagListType], 2
 ];
 export var CreateRoleResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -2360,8 +2362,8 @@ export var ListVirtualMFADevicesResponse$: StaticStructureSchema = [3, n0, _LVMF
 ];
 export var LoginProfile$: StaticStructureSchema = [3, n0, _LP,
   0,
-  [_UN, _CD, _PRR],
-  [0, 4, 2], 2
+  [_UN, _CD, _PRR, _MSSD],
+  [0, 4, 2, 1], 2
 ];
 export var ManagedPolicyDetail$: StaticStructureSchema = [3, n0, _MPD,
   0,
@@ -2530,8 +2532,8 @@ export var ResyncMFADeviceRequest$: StaticStructureSchema = [3, n0, _RMFADR,
 ];
 export var Role$: StaticStructureSchema = [3, n0, _Ro,
   0,
-  [_Pa, _RN, _RIo, _A, _CD, _ARPD, _D, _MSD, _PB, _T, _RLU, _SRT],
-  [0, 0, 0, 0, 4, 0, 0, 1, () => AttachedPermissionsBoundary$, () => tagListType, () => RoleLastUsed$, () => SourceRoleTemplate$], 5
+  [_Pa, _RN, _RIo, _A, _CD, _ARPD, _D, _MSD, _MSSD, _PB, _T, _RLU, _SRT],
+  [0, 0, 0, 0, 4, 0, 0, 1, 1, () => AttachedPermissionsBoundary$, () => tagListType, () => RoleLastUsed$, () => SourceRoleTemplate$], 5
 ];
 export var RoleDetail$: StaticStructureSchema = [3, n0, _RD,
   0,
@@ -2765,8 +2767,8 @@ export var UpdateGroupRequest$: StaticStructureSchema = [3, n0, _UGR,
 ];
 export var UpdateLoginProfileRequest$: StaticStructureSchema = [3, n0, _ULPR,
   0,
-  [_UN, _Pas, _PRR],
-  [0, [() => passwordType, 0], 2], 1
+  [_UN, _Pas, _PRR, _MSSD, _RMSSD],
+  [0, [() => passwordType, 0], 2, 1, 2], 1
 ];
 export var UpdateOpenIDConnectProviderThumbprintRequest$: StaticStructureSchema = [3, n0, _UOIDCPTR,
   0,
@@ -2785,8 +2787,8 @@ export var UpdateRoleDescriptionResponse$: StaticStructureSchema = [3, n0, _URDR
 ];
 export var UpdateRoleRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
-  [_RN, _D, _MSD],
-  [0, 0, 1], 1
+  [_RN, _D, _MSD, _MSSD, _RMSSD],
+  [0, 0, 1, 1, 2], 1
 ];
 export var UpdateRoleResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,

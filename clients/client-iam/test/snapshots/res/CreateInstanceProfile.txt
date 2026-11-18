@@ -48,6 +48,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <MaxSessionDuration>
                     0
                 </MaxSessionDuration>
+                <MaxSigninSessionDuration>
+                    0
+                </MaxSigninSessionDuration>
                 <PermissionsBoundary/>
 <Tags>
                     <member>
@@ -110,6 +113,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <MaxSessionDuration>
                     0
                 </MaxSessionDuration>
+                <MaxSigninSessionDuration>
+                    0
+                </MaxSigninSessionDuration>
                 <PermissionsBoundary/>
 <Tags>
                     <member>
@@ -172,6 +178,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <MaxSessionDuration>
                     0
                 </MaxSessionDuration>
+                <MaxSigninSessionDuration>
+                    0
+                </MaxSigninSessionDuration>
                 <PermissionsBoundary/>
 <Tags>
                     <member>
@@ -302,6 +311,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <MaxSessionDuration>
                     0
                 </MaxSessionDuration>
+                <MaxSigninSessionDuration>
+                    0
+                </MaxSigninSessionDuration>
                 <PermissionsBoundary>
                     <PermissionsBoundaryType>
                         __PermissionsBoundaryType__
@@ -378,6 +390,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <MaxSessionDuration>
                     0
                 </MaxSessionDuration>
+                <MaxSigninSessionDuration>
+                    0
+                </MaxSigninSessionDuration>
                 <PermissionsBoundary>
                     <PermissionsBoundaryType>
                         __PermissionsBoundaryType__
@@ -454,6 +469,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <MaxSessionDuration>
                     0
                 </MaxSessionDuration>
+                <MaxSigninSessionDuration>
+                    0
+                </MaxSigninSessionDuration>
                 <PermissionsBoundary>
                     <PermissionsBoundaryType>
                         __PermissionsBoundaryType__

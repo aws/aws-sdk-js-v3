@@ -41,6 +41,7 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  *   UserName: "STRING_VALUE",
  *   Password: "STRING_VALUE",
  *   PasswordResetRequired: true || false,
+ *   MaxSigninSessionDuration: Number("int"),
  * };
  * const command = new CreateLoginProfileCommand(input);
  * const response = await client.send(command);
@@ -49,6 +50,7 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  * //     UserName: "STRING_VALUE", // required
  * //     CreateDate: new Date("TIMESTAMP"), // required
  * //     PasswordResetRequired: true || false,
+ * //     MaxSigninSessionDuration: Number("int"),
  * //   },
  * // };
  *

@@ -2,14 +2,14 @@ POST https://iam.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 387
+content-length: 414
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/iam#_.__ m/E,e
 host: iam.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: aaf045fb287ac1d6dfd59ffd52b7fd4fdf920015e3998ba650bffcea528a41d5
+x-amz-content-sha256: c06101211df50fb1017cc5448a9c06bbe92ef3e70bcda76b1e6da922dc05b314
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/iam/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -20,6 +20,7 @@ AssumeRolePolicyDocument=__AssumeRolePolicyDocument__&
 Path=__Path__&
 Description=__Description__&
 MaxSessionDuration=0&
+MaxSigninSessionDuration=0&
 PermissionsBoundary=__PermissionsBoundary__&
 Tags.member.1.Key=__Key__&
 Tags.member.1.Value=__Value__&

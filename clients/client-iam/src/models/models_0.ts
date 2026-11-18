@@ -453,6 +453,15 @@ export interface Role {
   MaxSessionDuration?: number | undefined;
 
   /**
+   * <p>The maximum duration (in seconds) of an Amazon Web Services Sign-In session for users who sign in
+   *          with this role. This value is independent of <code>MaxSessionDuration</code>.</p>
+   *          <p>This member is omitted when the setting is unset. In that case, no default value is
+   *          returned and the existing sign-in session behavior applies.</p>
+   * @public
+   */
+  MaxSigninSessionDuration?: number | undefined;
+
+  /**
    * <p>The ARN of the policy used to set the permissions boundary for the role.</p>
    *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
    *             identities </a> in the <i>IAM User Guide</i>.</p>
@@ -1120,6 +1129,18 @@ export interface CreateLoginProfileRequest {
    * @public
    */
   PasswordResetRequired?: boolean | undefined;
+
+  /**
+   * <p>The maximum duration (in seconds) of an Amazon Web Services Sign-In session for this IAM user.
+   *             This setting can have a value from 1 hour (3600 seconds) to 90 days (7776000 seconds),
+   *             inclusive. If you do not specify a value, the setting remains unset and the existing
+   *             sign-in session behavior applies.</p>
+   *          <note>
+   *             <p>This setting is not supported for the root user.</p>
+   *          </note>
+   * @public
+   */
+  MaxSigninSessionDuration?: number | undefined;
 }
 
 /**
@@ -1146,6 +1167,14 @@ export interface LoginProfile {
    * @public
    */
   PasswordResetRequired?: boolean | undefined;
+
+  /**
+   * <p>The maximum duration (in seconds) of an Amazon Web Services Sign-In session for the user.</p>
+   *          <p>This member is omitted when the setting is unset. In that case, no default value is
+   *          returned and the existing sign-in session behavior applies.</p>
+   * @public
+   */
+  MaxSigninSessionDuration?: number | undefined;
 }
 
 /**
@@ -1639,6 +1668,16 @@ export interface CreateRoleRequest {
    * @public
    */
   MaxSessionDuration?: number | undefined;
+
+  /**
+   * <p>The maximum duration (in seconds) of an Amazon Web Services Sign-In session for users who sign in
+   *             with this role. This setting can have a value from 1 hour (3600 seconds) to 90 days
+   *             (7776000 seconds), inclusive. If you do not specify a value, the setting remains unset
+   *             and the existing sign-in session behavior applies.</p>
+   *          <p>This setting is independent of <code>MaxSessionDuration</code>.</p>
+   * @public
+   */
+  MaxSigninSessionDuration?: number | undefined;
 
   /**
    * <p>The ARN of the managed policy that is used to set the permissions boundary for the

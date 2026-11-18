@@ -23,7 +23,9 @@ export interface UpdateRoleCommandInput extends UpdateRoleRequest {}
 export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the description or maximum session duration setting of a role.</p>
+ * <p>Updates the description, maximum session duration, or maximum sign-in session duration
+ *             of a role. You cannot change the maximum sign-in session duration of a service-linked
+ *             role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -36,6 +38,8 @@ export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataB
  *   RoleName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   MaxSessionDuration: Number("int"),
+ *   MaxSigninSessionDuration: Number("int"),
+ *   ResetMaxSigninSessionDuration: true || false,
  * };
  * const command = new UpdateRoleCommand(input);
  * const response = await client.send(command);
@@ -48,6 +52,10 @@ export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataB
  * @see {@link UpdateRoleCommandInput} for command's `input` shape.
  * @see {@link UpdateRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
  *
  * @throws {@link NoSuchEntityException} (client fault)
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The

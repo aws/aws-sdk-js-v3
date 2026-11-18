@@ -42,6 +42,7 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  *   AssumeRolePolicyDocument: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   MaxSessionDuration: Number("int"),
+ *   MaxSigninSessionDuration: Number("int"),
  *   PermissionsBoundary: "STRING_VALUE",
  *   Tags: [ // tagListType
  *     { // Tag
@@ -62,6 +63,7 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  * //     AssumeRolePolicyDocument: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
  * //     MaxSessionDuration: Number("int"),
+ * //     MaxSigninSessionDuration: Number("int"),
  * //     PermissionsBoundary: { // AttachedPermissionsBoundary
  * //       PermissionsBoundaryType: "PermissionsBoundaryPolicy",
  * //       PermissionsBoundaryArn: "STRING_VALUE",

@@ -488,6 +488,37 @@ export interface UpdateLoginProfileRequest {
    * @public
    */
   PasswordResetRequired?: boolean | undefined;
+
+  /**
+   * <p>The maximum duration (in seconds) of an Amazon Web Services Sign-In session for the specified
+   *             IAM user. This setting can have a value from 1 hour (3600 seconds) to 90 days (7776000
+   *             seconds), inclusive, and replaces any value currently configured for the user.</p>
+   *          <p>If you omit both this parameter and <code>ResetMaxSigninSessionDuration</code>, the
+   *             current setting is unchanged. You cannot specify this parameter and set
+   *                 <code>ResetMaxSigninSessionDuration</code> to <code>true</code> in the same request.
+   *             If you update only the sign-in session duration, the user's password and
+   *                 <code>PasswordResetRequired</code> setting do not change.</p>
+   *          <p>Changes to this setting apply to new sign-in sessions. Sessions that are already
+   *             established are not affected.</p>
+   *          <note>
+   *             <p>This setting is not supported for the root user.</p>
+   *          </note>
+   * @public
+   */
+  MaxSigninSessionDuration?: number | undefined;
+
+  /**
+   * <p>Specifies whether to clear the maximum sign-in session duration for the specified
+   *             IAM user. Set this value to <code>true</code> to return the setting to its unset
+   *             state, so that the existing sign-in session behavior applies. When the setting is unset,
+   *             the user's <code>MaxSigninSessionDuration</code> is omitted from responses.</p>
+   *          <p>If you set this value to <code>false</code> or omit it, the current setting is not
+   *             cleared. You cannot set this value to <code>true</code> and specify
+   *                 <code>MaxSigninSessionDuration</code> in the same request. Clearing a setting that
+   *             is already unset has no effect.</p>
+   * @public
+   */
+  ResetMaxSigninSessionDuration?: boolean | undefined;
 }
 
 /**
@@ -548,6 +579,40 @@ export interface UpdateRoleRequest {
    * @public
    */
   MaxSessionDuration?: number | undefined;
+
+  /**
+   * <p>The maximum duration (in seconds) of an Amazon Web Services Sign-In session for users who sign in
+   *             with the specified role. This setting can have a value from 1 hour (3600 seconds) to 90
+   *             days (7776000 seconds), inclusive, and replaces any value currently configured for the
+   *             role. This setting is independent of <code>MaxSessionDuration</code>.</p>
+   *          <p>If you omit both this parameter and <code>ResetMaxSigninSessionDuration</code>, the
+   *             current setting is unchanged. You cannot specify this parameter and set
+   *                 <code>ResetMaxSigninSessionDuration</code> to <code>true</code> in the same
+   *             request.</p>
+   *          <p>Changes to this setting apply to new sign-in sessions. Sessions that are already
+   *             established are not affected.</p>
+   *          <note>
+   *             <p>You cannot set this value on a service-linked role.</p>
+   *          </note>
+   * @public
+   */
+  MaxSigninSessionDuration?: number | undefined;
+
+  /**
+   * <p>Specifies whether to clear the role's maximum sign-in session duration. Set this value
+   *             to <code>true</code> to return the setting to its unset state, so that the existing
+   *             sign-in session behavior applies. When the setting is unset, the role's
+   *                 <code>MaxSigninSessionDuration</code> is omitted from responses.</p>
+   *          <p>If you set this value to <code>false</code> or omit it, the current setting is not
+   *             cleared. You cannot set this value to <code>true</code> and specify
+   *                 <code>MaxSigninSessionDuration</code> in the same request. Clearing a setting that
+   *             is already unset has no effect.</p>
+   *          <note>
+   *             <p>You cannot reset this value on a service-linked role.</p>
+   *          </note>
+   * @public
+   */
+  ResetMaxSigninSessionDuration?: boolean | undefined;
 }
 
 /**

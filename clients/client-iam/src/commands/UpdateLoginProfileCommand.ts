@@ -23,7 +23,8 @@ export interface UpdateLoginProfileCommandInput extends UpdateLoginProfileReques
 export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Changes the password for the specified IAM user. You can use the CLI, the Amazon Web Services
+ * <p>Changes the password or the maximum sign-in session duration for the specified
+ *             IAM user. You can use the CLI, the Amazon Web Services
  *             API, or the <b>Users</b> page in the IAM console to change
  *             the password for any IAM user. Use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html">ChangePassword</a> to
  *             change your own password in the <b>My Security Credentials</b>
@@ -42,6 +43,8 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  *   UserName: "STRING_VALUE", // required
  *   Password: "STRING_VALUE",
  *   PasswordResetRequired: true || false,
+ *   MaxSigninSessionDuration: Number("int"),
+ *   ResetMaxSigninSessionDuration: true || false,
  * };
  * const command = new UpdateLoginProfileCommand(input);
  * const response = await client.send(command);
@@ -60,6 +63,10 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  *       such as a user name that was deleted and then recreated. The error indicates that the request
  *       is likely to succeed if you try again after waiting several minutes. The error message
  *       describes the entity.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The request was rejected because it attempted to create resources beyond the current

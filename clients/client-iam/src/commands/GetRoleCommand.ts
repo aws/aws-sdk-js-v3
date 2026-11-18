@@ -58,6 +58,7 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  * //     AssumeRolePolicyDocument: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
  * //     MaxSessionDuration: Number("int"),
+ * //     MaxSigninSessionDuration: Number("int"),
  * //     PermissionsBoundary: { // AttachedPermissionsBoundary
  * //       PermissionsBoundaryType: "PermissionsBoundaryPolicy",
  * //       PermissionsBoundaryArn: "STRING_VALUE",

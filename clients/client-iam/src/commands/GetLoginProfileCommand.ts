@@ -51,6 +51,7 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  * //     UserName: "STRING_VALUE", // required
  * //     CreateDate: new Date("TIMESTAMP"), // required
  * //     PasswordResetRequired: true || false,
+ * //     MaxSigninSessionDuration: Number("int"),
  * //   },
  * // };
  *
