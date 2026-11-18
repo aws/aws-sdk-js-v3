@@ -92,6 +92,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.90 (2026-11-18)
+### Tests
+* **middleware-sdk-s3:** count retried commands once in s3 express e2e recorder ([#8428](https://github.com/aws/aws-sdk-js-v3/issues/8428)) ([08770cf](https://github.com/aws/aws-sdk-js-v3/commit/08770cfdf768c02fc68280e9719cf1241326216f))
+
+
+
 # 3.972.89 (2026-11-10)
 ### Chores
 * **codegen:** sync for 2026 retry defaults ([#8415](https://github.com/aws/aws-sdk-js-v3/issues/8415)) ([4fd26c2](https://github.com/aws/aws-sdk-js-v3/commit/4fd26c205f8b01b7755b426c7149e4038690563f))

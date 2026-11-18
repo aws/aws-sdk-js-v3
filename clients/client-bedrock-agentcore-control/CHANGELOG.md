@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1171.0...v3.1172.0) (2026-11-18)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds s3BucketMount to mount an Amazon S3 bucket as a file system in AgentCore Runtime, with an optional per-session key prefix and adds operatingSystemConfiguration with a Linux privilegeMode (STANDARD or PRIVILEGED) to the capacity provider configuration ([7089de7](https://github.com/aws/aws-sdk-js-v3/commit/7089de7dd201221255ec37b34216e46b23edf0b7))
+
+
+
+
+
 # [3.1171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1170.0...v3.1171.0) (2026-11-17)
 
 

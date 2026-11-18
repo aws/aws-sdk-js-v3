@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1171.0...v3.1172.0) (2026-11-18)
+
+
+### Features
+
+* **client-iam:** Adds MaxSignInSessionDuration to IAM Roles and Login Profiles, allowing customers to configure the maximum Console sign-in session duration per principal. Affects CreateRole, UpdateRole, GetRole and LoginProfile APIs. ([fcaf4d9](https://github.com/aws/aws-sdk-js-v3/commit/fcaf4d92b5d18783bfd3a6a2533f41a6df1957fd))
+
+
+
+
+
 # [3.1171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1170.0...v3.1171.0) (2026-11-17)
 
 **Note:** Version bump only for package @aws-sdk/client-iam

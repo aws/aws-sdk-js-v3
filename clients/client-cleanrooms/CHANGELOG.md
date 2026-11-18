@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1171.0...v3.1172.0) (2026-11-18)
+
+
+### Features
+
+* **client-cleanrooms:** Adds support for populating intermediate tables with results from PySpark analysis templates. ([6ae7861](https://github.com/aws/aws-sdk-js-v3/commit/6ae7861385e07332d6550beb2591d93c7c055e8f))
+
+
+
+
+
 # [3.1171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1170.0...v3.1171.0) (2026-11-17)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

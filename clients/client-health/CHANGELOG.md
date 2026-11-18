@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1171.0...v3.1172.0) (2026-11-18)
+
+
+### Features
+
+* **client-health:** Adds resource tags functionality to the AWS Health service ([c5f9fef](https://github.com/aws/aws-sdk-js-v3/commit/c5f9fef3ae53aa6ed0acbdcd138726a3d36d9505))
+
+
+
+
+
 # [3.1171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1170.0...v3.1171.0) (2026-11-17)
 
 **Note:** Version bump only for package @aws-sdk/client-health

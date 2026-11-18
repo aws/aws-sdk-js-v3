@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1171.0...v3.1172.0) (2026-11-18)
+
+
+### Features
+
+* **client-wafv2:** Adds the AnalyticsConfig parameter to CreateWebACL and UpdateWebACL to enable or disable cross-Region security analytics for a WebACL. When you enable security analytics, you authorize AWS to transfer and store full request logs outside the AWS Region where the WebACL is hosted. ([7cc4d98](https://github.com/aws/aws-sdk-js-v3/commit/7cc4d980b7a4538398879c242ef7fdd5fd2c9474))
+
+
+
+
+
 # [3.1171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1170.0...v3.1171.0) (2026-11-17)
 
 **Note:** Version bump only for package @aws-sdk/client-wafv2

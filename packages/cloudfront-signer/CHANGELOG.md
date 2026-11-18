@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1171.0...v3.1172.0) (2026-11-18)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** preserve percent-encoded sequences in URL path ([#8425](https://github.com/aws/aws-sdk-js-v3/issues/8425)) ([9437339](https://github.com/aws/aws-sdk-js-v3/commit/9437339cc5cb92bd4f1556b247ba13a0c328f32d))
+
+
+
+
+
 # [3.1166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1165.0...v3.1166.0) (2026-11-10)
 
 **Note:** Version bump only for package @aws-sdk/cloudfront-signer

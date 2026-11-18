@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1171.0...v3.1172.0) (2026-11-18)
+
+
+### Features
+
+* **client-sesv2:** This release adds support for Spillover Routing in Amazon SES. ([f3c70a6](https://github.com/aws/aws-sdk-js-v3/commit/f3c70a6962453fb1c374b1ca95c34dd2c9de061a))
+
+
+
+
+
 # [3.1171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1170.0...v3.1171.0) (2026-11-17)
 
 **Note:** Version bump only for package @aws-sdk/client-sesv2

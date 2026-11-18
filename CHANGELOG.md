@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1171.0...v3.1172.0) (2026-11-18)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** preserve percent-encoded sequences in URL path ([#8425](https://github.com/aws/aws-sdk-js-v3/issues/8425)) ([9437339](https://github.com/aws/aws-sdk-js-v3/commit/9437339cc5cb92bd4f1556b247ba13a0c328f32d))
+
+
+### Features
+
+* **client-abuse-signal:** This release introduces the AWS Abuse Signal API, enabling customers to programmatically submit and track AWS abuse reports. ([a4db758](https://github.com/aws/aws-sdk-js-v3/commit/a4db758e3fc918cdd716ed1b52b07785453f49c3))
+* **client-bedrock-agentcore-control:** Adds s3BucketMount to mount an Amazon S3 bucket as a file system in AgentCore Runtime, with an optional per-session key prefix and adds operatingSystemConfiguration with a Linux privilegeMode (STANDARD or PRIVILEGED) to the capacity provider configuration ([7089de7](https://github.com/aws/aws-sdk-js-v3/commit/7089de7dd201221255ec37b34216e46b23edf0b7))
+* **client-braket:** Supporting a new PAUSED device status and a DeviceStatusReason. ([296a1bf](https://github.com/aws/aws-sdk-js-v3/commit/296a1bffb5a2a49562a6b4556cd586a1183775a5))
+* **client-cleanrooms:** Adds support for populating intermediate tables with results from PySpark analysis templates. ([6ae7861](https://github.com/aws/aws-sdk-js-v3/commit/6ae7861385e07332d6550beb2591d93c7c055e8f))
+* **client-cloudformation:** AWS CloudFormation StackSets now provides stage-by-stage progress for deployments that span thousands of accounts and AWS Regions, which enables you to see where each deployment stands while it runs ([93ebe4f](https://github.com/aws/aws-sdk-js-v3/commit/93ebe4f185211a8d3e102642ce7f7bd4457ad168))
+* **client-cognito-identity-provider:** Add support for restoring user pool's user data to point in time. ([6cb5166](https://github.com/aws/aws-sdk-js-v3/commit/6cb516626b6dd831e223db7e0632929aed3c32c4))
+* **client-health:** Adds resource tags functionality to the AWS Health service ([c5f9fef](https://github.com/aws/aws-sdk-js-v3/commit/c5f9fef3ae53aa6ed0acbdcd138726a3d36d9505))
+* **client-iam:** Adds MaxSignInSessionDuration to IAM Roles and Login Profiles, allowing customers to configure the maximum Console sign-in session duration per principal. Affects CreateRole, UpdateRole, GetRole and LoginProfile APIs. ([fcaf4d9](https://github.com/aws/aws-sdk-js-v3/commit/fcaf4d92b5d18783bfd3a6a2533f41a6df1957fd))
+* **client-neptune:** Neptune Database Serverless support for graviton3 based r8g instances. ([8f9faa6](https://github.com/aws/aws-sdk-js-v3/commit/8f9faa691574c09844a4525489cd74ef99d2fdc2))
+* **client-resiliencehubv2:** This release includes support for adding new field for the effective policy used in test runs and documentation updates. ([b937d2c](https://github.com/aws/aws-sdk-js-v3/commit/b937d2cbb135c861d902a175048f390cf92bb787))
+* **client-s3:** Adds exclusions and Multi-Region key resolution to S3 Replication. Rule filters support a Not element to exclude prefixes and object tags. Destination EncryptionConfiguration supports UseSourceMultiRegionKey to encrypt replicas with the related replica KMS multi-Region key in the destination Region. ([cfe52d8](https://github.com/aws/aws-sdk-js-v3/commit/cfe52d81cc41006c9ead90a043b5fe2f7937d5af))
+* **client-securityagent:** This release adds support for resuming a paused penetration test job from its last saved checkpoint. ([d9ef9ac](https://github.com/aws/aws-sdk-js-v3/commit/d9ef9ac881ae23ac539ed019c635624ef2d2ea4a))
+* **client-sesv2:** This release adds support for Spillover Routing in Amazon SES. ([f3c70a6](https://github.com/aws/aws-sdk-js-v3/commit/f3c70a6962453fb1c374b1ca95c34dd2c9de061a))
+* **client-signin:** These APIs enable customers and administrators to list, view, and revoke AWS Sign-In Sessions programmatically using the AWS CLI and SDKs, providing greater visibility and control over authenticated access. ([cd05103](https://github.com/aws/aws-sdk-js-v3/commit/cd051030bec7e74024aac6b9edf33ebfbf0ff78f))
+* **client-support:** Updated endpoint resolution for AWS Support, including FIPS and dual-stack endpoints. ([9a0de09](https://github.com/aws/aws-sdk-js-v3/commit/9a0de09c2ae0253e65849ffe4694e0da650beced))
+* **client-wafv2:** Adds the AnalyticsConfig parameter to CreateWebACL and UpdateWebACL to enable or disable cross-Region security analytics for a WebACL. When you enable security analytics, you authorize AWS to transfer and store full request logs outside the AWS Region where the WebACL is hosted. ([7cc4d98](https://github.com/aws/aws-sdk-js-v3/commit/7cc4d980b7a4538398879c242ef7fdd5fd2c9474))
+* **clients:** update client endpoints as of 2026-11-18 ([a96a94a](https://github.com/aws/aws-sdk-js-v3/commit/a96a94a24da850a9c0a47bd4dbaaecb8a333a8c8))
+
+
+
+
+
 # [3.1171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1170.0...v3.1171.0) (2026-11-17)
 
 
