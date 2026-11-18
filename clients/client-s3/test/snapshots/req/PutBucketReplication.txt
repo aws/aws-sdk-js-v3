@@ -6,15 +6,15 @@ x-amz-sdk-checksum-algorithm: CRC64NVME
 x-amz-bucket-object-lock-token: ***
 x-amz-expected-bucket-owner: __ExpectedBucketOwner__
 content-type: application/xml
-content-length: 3946
-x-amz-checksum-crc64nvme: zgul5HghGfo=
+content-length: 6220
+x-amz-checksum-crc64nvme: t5hYhm3X/ic=
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/s3#_.__ m/Z,b,W,E,e
 host: s3.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: ce0f17c5b893a59f916c37fab3c488b64c7854e6618cef7e9dee1a4e5594c476
+x-amz-content-sha256: 3168d1c89c24b4e287aedff86db44fe708fd827d2d86c26a22288bf0606a5674
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-md5;content-type;host;x-amz-bucket-object-lock-token;x-amz-checksum-crc64nvme;x-amz-content-sha256;x-amz-date;x-amz-expected-bucket-owner;x-amz-sdk-checksum-algorithm;x-amz-user-agent, Signature=***
 
 [string (xml)]
@@ -46,6 +46,11 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3/aws4_reques
                 <ReplicaKmsKeyID>
                     __ReplicaKmsKeyID__
                 </ReplicaKmsKeyID>
+                <UseSourceMultiRegionKey>
+                    <Status>
+                        __Status__
+                    </Status>
+                </UseSourceMultiRegionKey>
             </EncryptionConfiguration>
             <ReplicationTime>
                 <Status>
@@ -117,7 +122,103 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3/aws4_reques
                         __Value__
                     </Value>
                 </Tag>
+                <Not>
+                    <Prefix>
+                        __Prefix__
+                    </Prefix>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Or>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                    </Or>
+                </Not>
             </And>
+            <Not>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Or>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                </Or>
+            </Not>
         </Filter>
         <SourceSelectionCriteria>
             <SseKmsEncryptedObjects>
@@ -165,6 +266,11 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3/aws4_reques
                 <ReplicaKmsKeyID>
                     __ReplicaKmsKeyID__
                 </ReplicaKmsKeyID>
+                <UseSourceMultiRegionKey>
+                    <Status>
+                        __Status__
+                    </Status>
+                </UseSourceMultiRegionKey>
             </EncryptionConfiguration>
             <ReplicationTime>
                 <Status>
@@ -236,7 +342,103 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3/aws4_reques
                         __Value__
                     </Value>
                 </Tag>
+                <Not>
+                    <Prefix>
+                        __Prefix__
+                    </Prefix>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Or>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                    </Or>
+                </Not>
             </And>
+            <Not>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Or>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                </Or>
+            </Not>
         </Filter>
         <SourceSelectionCriteria>
             <SseKmsEncryptedObjects>
@@ -284,6 +486,11 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3/aws4_reques
                 <ReplicaKmsKeyID>
                     __ReplicaKmsKeyID__
                 </ReplicaKmsKeyID>
+                <UseSourceMultiRegionKey>
+                    <Status>
+                        __Status__
+                    </Status>
+                </UseSourceMultiRegionKey>
             </EncryptionConfiguration>
             <ReplicationTime>
                 <Status>
@@ -355,7 +562,103 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3/aws4_reques
                         __Value__
                     </Value>
                 </Tag>
+                <Not>
+                    <Prefix>
+                        __Prefix__
+                    </Prefix>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Or>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                    </Or>
+                </Not>
             </And>
+            <Not>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Or>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                </Or>
+            </Not>
         </Filter>
         <SourceSelectionCriteria>
             <SseKmsEncryptedObjects>

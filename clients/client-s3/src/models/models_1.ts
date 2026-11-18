@@ -24,10 +24,168 @@ import type {
 import type {
   Grant,
   MetadataTableEncryptionConfiguration,
+  ObjectLockRetention,
   PublicAccessBlockConfiguration,
   RecordExpiration,
   Tagging,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface PutObjectRetentionRequest {
+  /**
+   * <p>The bucket name that contains the object you want to apply this Object Retention configuration to. </p>
+   *          <p>
+   *             <b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When you use this action with an access point for directory buckets, you must provide the access point name in place of the bucket name. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The key name for the object that you want to apply this Object Retention configuration to.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The container element for the Object Retention configuration.</p>
+   * @public
+   */
+  Retention?: ObjectLockRetention | undefined;
+
+  /**
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
+   *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
+   *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
+   *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  RequestPayer?: RequestPayer | undefined;
+
+  /**
+   * <p>The version ID for the object that you want to apply this Object Retention configuration to.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+
+  /**
+   * <p>Indicates whether this action should bypass Governance-mode restrictions.</p>
+   * @public
+   */
+  BypassGovernanceRetention?: boolean | undefined;
+
+  /**
+   * <p>The MD5 hash for the request body.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
+   * @public
+   */
+  ContentMD5?: string | undefined;
+
+  /**
+   * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
+   *     additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or
+   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
+   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *     the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code>
+   *       parameter.</p>
+   * @public
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutObjectTaggingOutput {
+  /**
+   * <p>The versionId of the object the tag-set was added to.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutObjectTaggingRequest {
+  /**
+   * <p>The bucket name containing the object. </p>
+   *          <p>
+   *             <b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When you use this action with an access point for directory buckets, you must provide the access point name in place of the bucket name. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>
+   *             <b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
+   *                      form <code>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts, the destination bucket must be the Outposts access point ARN or the access point alias. For more information about S3 on Outposts, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Name of the object key.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The versionId of the object that the tag-set will be added to.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+
+  /**
+   * <p>The MD5 hash for the request body.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
+   * @public
+   */
+  ContentMD5?: string | undefined;
+
+  /**
+   * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
+   *     additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or
+   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
+   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *     the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code>
+   *       parameter.</p>
+   * @public
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
+
+  /**
+   * <p>Container for the <code>TagSet</code> and <code>Tag</code> elements</p>
+   * @public
+   */
+  Tagging: Tagging | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+
+  /**
+   * <p>Confirms that the requester knows that she or he will be charged for the tagging object
+   *       request. Bucket owners need not specify this parameter in their requests.</p>
+   * @public
+   */
+  RequestPayer?: RequestPayer | undefined;
+}
 
 /**
  * @public

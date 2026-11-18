@@ -574,6 +574,7 @@ const _NVIM = "NextVersionIdMarker";
 const _NVT = "NoncurrentVersionTransitions";
 const _NVTL = "NoncurrentVersionTransitionList";
 const _NVTo = "NoncurrentVersionTransition";
+const _No = "Not";
 const _O = "Owner";
 const _OA = "ObjectAttributes";
 const _OAIATE = "ObjectAlreadyInActiveTierError";
@@ -614,6 +615,7 @@ const _OVI = "ObjectVersionId";
 const _OVL = "ObjectVersionList";
 const _Ob = "Objects";
 const _Obj = "Object";
+const _Or = "Or";
 const _P = "Prefix";
 const _PABC = "PublicAccessBlockConfiguration";
 const _PBA = "PutBucketAbac";
@@ -695,6 +697,7 @@ const _Payl = "Payload";
 const _Pe = "Permission";
 const _Po = "Policy";
 const _Pr = "Progress";
+const _Pre = "Prefixes";
 const _Pri = "Priority";
 const _Pro = "Protocol";
 const _Q = "Quiet";
@@ -734,10 +737,13 @@ const _ROe = "RestoreObject";
 const _RP = "RequestPayer";
 const _RPB = "RestrictPublicBuckets";
 const _RPC = "RequestPaymentConfiguration";
+const _RPL = "ReplicationPrefixList";
 const _RPe = "RequestProgress";
 const _RR = "RoutingRules";
 const _RRAO = "ReplicationRuleAndOperator";
 const _RRF = "ReplicationRuleFilter";
+const _RRNO = "ReplicationRuleNotOperator";
+const _RROO = "ReplicationRuleOrOperator";
 const _RRe = "ReplicationRule";
 const _RRep = "ReplicationRules";
 const _RReq = "RequestRoute";
@@ -869,6 +875,7 @@ const _UPCR = "UploadPartCopyRequest";
 const _UPO = "UploadPartOutput";
 const _UPR = "UploadPartRequest";
 const _URI = "URI";
+const _USMRK = "UseSourceMultiRegionKey";
 const _Up = "Upload";
 const _V = "Value";
 const _VC = "VersioningConfiguration";
@@ -1650,8 +1657,8 @@ export var Encryption$: StaticStructureSchema = [3, n0, _En,
 ];
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
-  [_RKKID],
-  [0]
+  [_RKKID, _USMRK],
+  [0, () => UseSourceMultiRegionKey$]
 ];
 export var EndEvent$: StaticStructureSchema = [3, n0, _EE,
   0,
@@ -2720,13 +2727,23 @@ export var ReplicationRule$: StaticStructureSchema = [3, n0, _RRe,
 ];
 export var ReplicationRuleAndOperator$: StaticStructureSchema = [3, n0, _RRAO,
   0,
-  [_P, _T],
-  [0, [() => TagSet, { [_xF]: 1, [_xN]: _Ta }]]
+  [_P, _T, _No],
+  [0, [() => TagSet, { [_xF]: 1, [_xN]: _Ta }], [() => ReplicationRuleNotOperator$, 0]]
 ];
 export var ReplicationRuleFilter$: StaticStructureSchema = [3, n0, _RRF,
   0,
-  [_P, _Ta, _An],
-  [0, () => Tag$, [() => ReplicationRuleAndOperator$, 0]]
+  [_P, _Ta, _An, _No],
+  [0, () => Tag$, [() => ReplicationRuleAndOperator$, 0], [() => ReplicationRuleNotOperator$, 0]]
+];
+export var ReplicationRuleNotOperator$: StaticStructureSchema = [3, n0, _RRNO,
+  0,
+  [_P, _Ta, _Or],
+  [0, () => Tag$, [() => ReplicationRuleOrOperator$, 0]]
+];
+export var ReplicationRuleOrOperator$: StaticStructureSchema = [3, n0, _RROO,
+  0,
+  [_Pre, _T],
+  [[() => ReplicationPrefixList, { [_xF]: 1, [_xN]: _P }], [() => TagSet, { [_xF]: 1, [_xN]: _Ta }]]
 ];
 export var ReplicationTime$: StaticStructureSchema = [3, n0, _RT,
   0,
@@ -2963,6 +2980,11 @@ export var UploadPartRequest$: StaticStructureSchema = [3, n0, _UPR,
   [_B, _K, _PN, _UI, _Bo, _CLo, _CMDo, _CA, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _CSHAhe, _CMD, _CXXHASH, _CXXHASHh, _CXXHASHhe, _SSECA, _SSECK, _SSECKMD, _RP, _EBO],
   [[0, 1], [0, 1], [1, { [_hQ]: _pN }], [0, { [_hQ]: _uI }], [() => StreamingBlob, 16], [1, { [_hH]: _CL__ }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xacc }], [0, { [_hH]: _xacc_ }], [0, { [_hH]: _xacc__ }], [0, { [_hH]: _xacs }], [0, { [_hH]: _xacs_ }], [0, { [_hH]: _xacs__ }], [0, { [_hH]: _xacm }], [0, { [_hH]: _xacx }], [0, { [_hH]: _xacx_ }], [0, { [_hH]: _xacx__ }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }]], 4
 ];
+export var UseSourceMultiRegionKey$: StaticStructureSchema = [3, n0, _USMRK,
+  0,
+  [_S],
+  [0], 1
+];
 export var VersioningConfiguration$: StaticStructureSchema = [3, n0, _VC,
   0,
   [_MFAD, _S],
@@ -3082,6 +3104,10 @@ var PartsList: StaticListSchema = [1, n0, _PL,
 var QueueConfigurationList: StaticListSchema = [1, n0, _QCL,
   0, [() => QueueConfiguration$,
     0]
+];
+var ReplicationPrefixList: StaticListSchema = [1, n0, _RPL,
+  0, [0,
+    { [_xN]: _P }]
 ];
 var ReplicationRules: StaticListSchema = [1, n0, _RRep,
   0, [() => ReplicationRule$,

@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep5, _mw5, command } from "../commandBuilder";
-import type { PutObjectTaggingOutput, PutObjectTaggingRequest } from "../models/models_0";
+import type { PutObjectTaggingOutput, PutObjectTaggingRequest } from "../models/models_1";
 import { PutObjectTagging$ } from "../schemas/schemas_0";
 
 /**

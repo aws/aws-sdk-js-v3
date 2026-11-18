@@ -602,6 +602,8 @@ import {
   ReplicationRule$,
   ReplicationRuleAndOperator$,
   ReplicationRuleFilter$,
+  ReplicationRuleNotOperator$,
+  ReplicationRuleOrOperator$,
   ReplicationRuleStatus,
   ReplicationStatus,
   ReplicationTime$,
@@ -691,6 +693,8 @@ import {
   UploadPartCopyRequest$,
   UploadPartOutput$,
   UploadPartRequest$,
+  UseSourceMultiRegionKey$,
+  UseSourceMultiRegionKeyStatus,
   VersioningConfiguration$,
   waitForBucketExists,
   waitForBucketNotExists,
@@ -1231,6 +1235,8 @@ assert(typeof ReplicationConfiguration$ === "object");
 assert(typeof ReplicationRule$ === "object");
 assert(typeof ReplicationRuleAndOperator$ === "object");
 assert(typeof ReplicationRuleFilter$ === "object");
+assert(typeof ReplicationRuleNotOperator$ === "object");
+assert(typeof ReplicationRuleOrOperator$ === "object");
 assert(typeof ReplicationTime$ === "object");
 assert(typeof ReplicationTimeValue$ === "object");
 assert(typeof RequestPaymentConfiguration$ === "object");
@@ -1279,6 +1285,7 @@ assert(typeof UploadPartCopyOutput$ === "object");
 assert(typeof UploadPartCopyRequest$ === "object");
 assert(typeof UploadPartOutput$ === "object");
 assert(typeof UploadPartRequest$ === "object");
+assert(typeof UseSourceMultiRegionKey$ === "object");
 assert(typeof VersioningConfiguration$ === "object");
 assert(typeof WebsiteConfiguration$ === "object");
 assert(typeof WriteGetObjectResponseRequest$ === "object");
@@ -1359,6 +1366,7 @@ assert(typeof Tier === "object");
 assert(typeof TransitionDefaultMinimumObjectSize === "object");
 assert(typeof TransitionStorageClass === "object");
 assert(typeof Type === "object");
+assert(typeof UseSourceMultiRegionKeyStatus === "object");
 // errors
 assert(AccessDenied.prototype instanceof S3ServiceException);
 assert(typeof AccessDenied$ === "object");

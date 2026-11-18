@@ -94,6 +94,31 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  * //                 Value: "STRING_VALUE", // required
  * //               },
  * //             ],
+ * //             Not: { // ReplicationRuleNotOperator
+ * //               Prefix: "STRING_VALUE",
+ * //               Tag: {
+ * //                 Key: "STRING_VALUE", // required
+ * //                 Value: "STRING_VALUE", // required
+ * //               },
+ * //               Or: { // ReplicationRuleOrOperator
+ * //                 Prefixes: [ // ReplicationPrefixList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 Tags: [
+ * //                   "<Tag>",
+ * //                 ],
+ * //               },
+ * //             },
+ * //           },
+ * //           Not: {
+ * //             Prefix: "STRING_VALUE",
+ * //             Tag: "<Tag>",
+ * //             Or: {
+ * //               Prefixes: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               Tags: "<TagSet>",
+ * //             },
  * //           },
  * //         },
  * //         Status: "Enabled" || "Disabled", // required
@@ -117,6 +142,9 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  * //           },
  * //           EncryptionConfiguration: { // EncryptionConfiguration
  * //             ReplicaKmsKeyID: "STRING_VALUE",
+ * //             UseSourceMultiRegionKey: { // UseSourceMultiRegionKey
+ * //               Status: "Enabled" || "Disabled", // required
+ * //             },
  * //           },
  * //           ReplicationTime: { // ReplicationTime
  * //             Status: "Enabled" || "Disabled", // required

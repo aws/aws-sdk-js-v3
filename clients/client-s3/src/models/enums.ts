@@ -753,6 +753,20 @@ export type DeleteMarkerReplicationStatus =
  * @public
  * @enum
  */
+export const UseSourceMultiRegionKeyStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+/**
+ * @public
+ */
+export type UseSourceMultiRegionKeyStatus =
+  (typeof UseSourceMultiRegionKeyStatus)[keyof typeof UseSourceMultiRegionKeyStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const MetricsStatus = {
   Disabled: "Disabled",
   Enabled: "Enabled",

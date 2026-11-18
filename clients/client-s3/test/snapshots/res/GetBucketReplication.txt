@@ -53,6 +53,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <ReplicaKmsKeyID>
                     __ReplicaKmsKeyID__
                 </ReplicaKmsKeyID>
+                <UseSourceMultiRegionKey>
+                    <Status>
+                        __Status__
+                    </Status>
+                </UseSourceMultiRegionKey>
             </EncryptionConfiguration>
             <ReplicationTime>
                 <Status>
@@ -124,7 +129,103 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __Value__
                     </Value>
                 </Tag>
+                <Not>
+                    <Prefix>
+                        __Prefix__
+                    </Prefix>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Or>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                    </Or>
+                </Not>
             </And>
+            <Not>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Or>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                </Or>
+            </Not>
         </Filter>
         <SourceSelectionCriteria>
             <SseKmsEncryptedObjects>
@@ -172,6 +273,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <ReplicaKmsKeyID>
                     __ReplicaKmsKeyID__
                 </ReplicaKmsKeyID>
+                <UseSourceMultiRegionKey>
+                    <Status>
+                        __Status__
+                    </Status>
+                </UseSourceMultiRegionKey>
             </EncryptionConfiguration>
             <ReplicationTime>
                 <Status>
@@ -243,7 +349,103 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __Value__
                     </Value>
                 </Tag>
+                <Not>
+                    <Prefix>
+                        __Prefix__
+                    </Prefix>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Or>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                    </Or>
+                </Not>
             </And>
+            <Not>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Or>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                </Or>
+            </Not>
         </Filter>
         <SourceSelectionCriteria>
             <SseKmsEncryptedObjects>
@@ -291,6 +493,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <ReplicaKmsKeyID>
                     __ReplicaKmsKeyID__
                 </ReplicaKmsKeyID>
+                <UseSourceMultiRegionKey>
+                    <Status>
+                        __Status__
+                    </Status>
+                </UseSourceMultiRegionKey>
             </EncryptionConfiguration>
             <ReplicationTime>
                 <Status>
@@ -362,7 +569,103 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __Value__
                     </Value>
                 </Tag>
+                <Not>
+                    <Prefix>
+                        __Prefix__
+                    </Prefix>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Or>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Prefix>
+                            __member__
+                        </Prefix>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                        <Tag>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </Tag>
+                    </Or>
+                </Not>
             </And>
+            <Not>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Or>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Prefix>
+                        __member__
+                    </Prefix>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                    <Tag>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Tag>
+                </Or>
+            </Not>
         </Filter>
         <SourceSelectionCriteria>
             <SseKmsEncryptedObjects>
@@ -405,7 +708,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             Owner: "__Owner__"
           },
           EncryptionConfiguration: {
-            ReplicaKmsKeyID: "__ReplicaKmsKeyID__"
+            ReplicaKmsKeyID: "__ReplicaKmsKeyID__",
+            UseSourceMultiRegionKey: {
+              Status: "__Status__"
+            }
           },
           ReplicationTime: {
             Status: "__Status__",
@@ -444,7 +750,63 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 Key: "__Key__",
                 Value: "__Value__"
               }
-            ]
+            ],
+            Not: {
+              Prefix: "__Prefix__",
+              Tag: {
+                Key: "__Key__",
+                Value: "__Value__"
+              },
+              Or: {
+                Prefixes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                Tags: [
+                  {
+                    Key: "__Key__",
+                    Value: "__Value__"
+                  },
+                  {
+                    Key: "__Key__",
+                    Value: "__Value__"
+                  },
+                  {
+                    Key: "__Key__",
+                    Value: "__Value__"
+                  }
+                ]
+              }
+            }
+          },
+          Not: {
+            Prefix: "__Prefix__",
+            Tag: {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            Or: {
+              Prefixes: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              Tags: [
+                {
+                  Key: "__Key__",
+                  Value: "__Value__"
+                },
+                {
+                  Key: "__Key__",
+                  Value: "__Value__"
+                },
+                {
+                  Key: "__Key__",
+                  Value: "__Value__"
+                }
+              ]
+            }
           }
         },
         SourceSelectionCriteria: {
@@ -472,7 +834,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             Owner: "__Owner__"
           },
           EncryptionConfiguration: {
-            ReplicaKmsKeyID: "__ReplicaKmsKeyID__"
+            ReplicaKmsKeyID: "__ReplicaKmsKeyID__",
+            UseSourceMultiRegionKey: {
+              Status: "__Status__"
+            }
           },
           ReplicationTime: {
             Status: "__Status__",
@@ -511,7 +876,63 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 Key: "__Key__",
                 Value: "__Value__"
               }
-            ]
+            ],
+            Not: {
+              Prefix: "__Prefix__",
+              Tag: {
+                Key: "__Key__",
+                Value: "__Value__"
+              },
+              Or: {
+                Prefixes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                Tags: [
+                  {
+                    Key: "__Key__",
+                    Value: "__Value__"
+                  },
+                  {
+                    Key: "__Key__",
+                    Value: "__Value__"
+                  },
+                  {
+                    Key: "__Key__",
+                    Value: "__Value__"
+                  }
+                ]
+              }
+            }
+          },
+          Not: {
+            Prefix: "__Prefix__",
+            Tag: {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            Or: {
+              Prefixes: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              Tags: [
+                {
+                  Key: "__Key__",
+                  Value: "__Value__"
+                },
+                {
+                  Key: "__Key__",
+                  Value: "__Value__"
+                },
+                {
+                  Key: "__Key__",
+                  Value: "__Value__"
+                }
+              ]
+            }
           }
         },
         SourceSelectionCriteria: {
@@ -539,7 +960,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             Owner: "__Owner__"
           },
           EncryptionConfiguration: {
-            ReplicaKmsKeyID: "__ReplicaKmsKeyID__"
+            ReplicaKmsKeyID: "__ReplicaKmsKeyID__",
+            UseSourceMultiRegionKey: {
+              Status: "__Status__"
+            }
           },
           ReplicationTime: {
             Status: "__Status__",
@@ -578,7 +1002,63 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 Key: "__Key__",
                 Value: "__Value__"
               }
-            ]
+            ],
+            Not: {
+              Prefix: "__Prefix__",
+              Tag: {
+                Key: "__Key__",
+                Value: "__Value__"
+              },
+              Or: {
+                Prefixes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                Tags: [
+                  {
+                    Key: "__Key__",
+                    Value: "__Value__"
+                  },
+                  {
+                    Key: "__Key__",
+                    Value: "__Value__"
+                  },
+                  {
+                    Key: "__Key__",
+                    Value: "__Value__"
+                  }
+                ]
+              }
+            }
+          },
+          Not: {
+            Prefix: "__Prefix__",
+            Tag: {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            Or: {
+              Prefixes: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              Tags: [
+                {
+                  Key: "__Key__",
+                  Value: "__Value__"
+                },
+                {
+                  Key: "__Key__",
+                  Value: "__Value__"
+                },
+                {
+                  Key: "__Key__",
+                  Value: "__Value__"
+                }
+              ]
+            }
           }
         },
         SourceSelectionCriteria: {

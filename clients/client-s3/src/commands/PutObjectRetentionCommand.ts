@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep5, _mw5, command } from "../commandBuilder";
-import type { PutObjectRetentionOutput, PutObjectRetentionRequest } from "../models/models_0";
+import type { PutObjectRetentionOutput } from "../models/models_0";
+import type { PutObjectRetentionRequest } from "../models/models_1";
 import { PutObjectRetention$ } from "../schemas/schemas_0";
 
 /**
