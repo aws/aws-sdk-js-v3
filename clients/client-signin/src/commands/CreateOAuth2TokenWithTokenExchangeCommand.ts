@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type {
   CreateOAuth2TokenWithTokenExchangeRequest,
   CreateOAuth2TokenWithTokenExchangeResponse,
@@ -39,6 +39,8 @@ export interface CreateOAuth2TokenWithTokenExchangeCommandOutput extends CreateO
  *   grantType: "STRING_VALUE", // required
  *   subjectToken: "STRING_VALUE",
  *   subjectTokenType: "STRING_VALUE",
+ *   assertion: "STRING_VALUE",
+ *   clientId: "STRING_VALUE",
  *   resource: "STRING_VALUE",
  *   scope: "STRING_VALUE",
  * };
@@ -49,6 +51,8 @@ export interface CreateOAuth2TokenWithTokenExchangeCommandOutput extends CreateO
  * //   issuedTokenType: "STRING_VALUE",
  * //   tokenType: "STRING_VALUE", // required
  * //   expiresIn: Number("int"), // required
+ * //   resource: "STRING_VALUE",
+ * //   scope: "STRING_VALUE",
  * // };
  *
  * ```
@@ -84,7 +88,7 @@ export interface CreateOAuth2TokenWithTokenExchangeCommandOutput extends CreateO
  * @public
  */
 export class CreateOAuth2TokenWithTokenExchangeCommand extends command<CreateOAuth2TokenWithTokenExchangeCommandInput, CreateOAuth2TokenWithTokenExchangeCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "CreateOAuth2TokenWithTokenExchange",
   CreateOAuth2TokenWithTokenExchange$

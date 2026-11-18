@@ -8,6 +8,11 @@ import type {
 } from "@smithy/types";
 
 import {
+  type BatchRevokeSessionsCommandInput,
+  type BatchRevokeSessionsCommandOutput,
+  BatchRevokeSessionsCommand,
+} from "./commands/BatchRevokeSessionsCommand";
+import {
   type CreateBearerTokenCommandInput,
   type CreateBearerTokenCommandOutput,
   CreateBearerTokenCommand,
@@ -48,6 +53,11 @@ import {
   GetResourcePolicyCommand,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type GetSessionCommandInput,
+  type GetSessionCommandOutput,
+  GetSessionCommand,
+} from "./commands/GetSessionCommand";
+import {
   type IntrospectOAuth2TokenWithIAMCommandInput,
   type IntrospectOAuth2TokenWithIAMCommandOutput,
   IntrospectOAuth2TokenWithIAMCommand,
@@ -57,6 +67,11 @@ import {
   type ListResourcePermissionStatementsCommandOutput,
   ListResourcePermissionStatementsCommand,
 } from "./commands/ListResourcePermissionStatementsCommand";
+import {
+  type ListSessionsCommandInput,
+  type ListSessionsCommandOutput,
+  ListSessionsCommand,
+} from "./commands/ListSessionsCommand";
 import {
   type PutConsoleAuthorizationConfigurationCommandInput,
   type PutConsoleAuthorizationConfigurationCommandOutput,
@@ -73,9 +88,11 @@ import {
   RevokeOAuth2TokenWithIAMCommand,
 } from "./commands/RevokeOAuth2TokenWithIAMCommand";
 import { paginateListResourcePermissionStatements } from "./pagination/ListResourcePermissionStatementsPaginator";
+import { paginateListSessions } from "./pagination/ListSessionsPaginator";
 import { SigninClient } from "./SigninClient";
 
 const commands = {
+  BatchRevokeSessionsCommand,
   CreateBearerTokenCommand,
   CreateOAuth2TokenCommand,
   CreateOAuth2TokenWithIAMCommand,
@@ -84,14 +101,17 @@ const commands = {
   DeleteResourcePermissionStatementCommand,
   GetConsoleAuthorizationConfigurationCommand,
   GetResourcePolicyCommand,
+  GetSessionCommand,
   IntrospectOAuth2TokenWithIAMCommand,
   ListResourcePermissionStatementsCommand,
+  ListSessionsCommand,
   PutConsoleAuthorizationConfigurationCommand,
   PutResourcePermissionStatementCommand,
   RevokeOAuth2TokenWithIAMCommand,
 };
 const paginators = {
   paginateListResourcePermissionStatements,
+  paginateListSessions,
 };
 
 /**
@@ -102,6 +122,23 @@ export interface SigninRequestOptions extends __HttpHandlerOptions {
 }
 
 export interface Signin {
+  /**
+   * @see {@link BatchRevokeSessionsCommand}
+   */
+  batchRevokeSessions(
+    args: BatchRevokeSessionsCommandInput,
+    options?: SigninRequestOptions
+  ): Promise<BatchRevokeSessionsCommandOutput>;
+  batchRevokeSessions(
+    args: BatchRevokeSessionsCommandInput,
+    cb: (err: any, data?: BatchRevokeSessionsCommandOutput) => void
+  ): void;
+  batchRevokeSessions(
+    args: BatchRevokeSessionsCommandInput,
+    options: SigninRequestOptions,
+    cb: (err: any, data?: BatchRevokeSessionsCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateBearerTokenCommand}
    */
@@ -242,6 +279,23 @@ export interface Signin {
   ): void;
 
   /**
+   * @see {@link GetSessionCommand}
+   */
+  getSession(
+    args: GetSessionCommandInput,
+    options?: SigninRequestOptions
+  ): Promise<GetSessionCommandOutput>;
+  getSession(
+    args: GetSessionCommandInput,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options: SigninRequestOptions,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link IntrospectOAuth2TokenWithIAMCommand}
    */
   introspectOAuth2TokenWithIAM(
@@ -274,6 +328,24 @@ export interface Signin {
     args: ListResourcePermissionStatementsCommandInput,
     options: SigninRequestOptions,
     cb: (err: any, data?: ListResourcePermissionStatementsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   */
+  listSessions(): Promise<ListSessionsCommandOutput>;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options?: SigninRequestOptions
+  ): Promise<ListSessionsCommandOutput>;
+  listSessions(
+    args: ListSessionsCommandInput,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options: SigninRequestOptions,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
   ): void;
 
   /**
@@ -339,6 +411,17 @@ export interface Signin {
     args?: ListResourcePermissionStatementsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListResourcePermissionStatementsCommandOutput>;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSessionsCommandOutput}.
+   */
+  paginateListSessions(
+    args?: ListSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSessionsCommandOutput>;
 }
 
 /**

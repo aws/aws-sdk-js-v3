@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteConsoleAuthorizationConfigurationInput,
   DeleteConsoleAuthorizationConfigurationOutput,
@@ -80,7 +80,7 @@ export interface DeleteConsoleAuthorizationConfigurationCommandOutput extends De
  * @public
  */
 export class DeleteConsoleAuthorizationConfigurationCommand extends command<DeleteConsoleAuthorizationConfigurationCommandInput, DeleteConsoleAuthorizationConfigurationCommandOutput>(
-  _ep2,
+  _ep0,
   _mw0,
   "DeleteConsoleAuthorizationConfiguration",
   DeleteConsoleAuthorizationConfiguration$

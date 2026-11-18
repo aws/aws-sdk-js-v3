@@ -2,6 +2,12 @@ import {
   AccessDeniedException,
   AccessDeniedException$,
   AccessToken$,
+  BatchRevokeSessionError$,
+  BatchRevokeSessions$,
+  BatchRevokeSessionsCommand,
+  BatchRevokeSessionsInput$,
+  BatchRevokeSessionsOutput$,
+  ClientType,
   ConflictException,
   ConflictException$,
   CreateBearerToken$,
@@ -38,6 +44,10 @@ import {
   GetResourcePolicyCommand,
   GetResourcePolicyInput$,
   GetResourcePolicyOutput$,
+  GetSession$,
+  GetSessionCommand,
+  GetSessionInput$,
+  GetSessionOutput$,
   InternalServerException,
   InternalServerException$,
   IntrospectOAuth2TokenWithIAM$,
@@ -52,8 +62,13 @@ import {
   ListResourcePermissionStatementsCommand,
   ListResourcePermissionStatementsInput$,
   ListResourcePermissionStatementsOutput$,
+  ListSessions$,
+  ListSessionsCommand,
+  ListSessionsInput$,
+  ListSessionsOutput$,
   OAuth2ErrorCode,
   paginateListResourcePermissionStatements,
+  paginateListSessions,
   PermissionStatementSummary$,
   PolicyStatement$,
   PutConsoleAuthorizationConfiguration$,
@@ -66,6 +81,7 @@ import {
   PutResourcePermissionStatementOutput$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  RevokedSession$,
   RevokeOAuth2TokenWithIAM$,
   RevokeOAuth2TokenWithIAMCommand,
   RevokeOAuth2TokenWithIAMRequest$,
@@ -74,6 +90,8 @@ import {
   ServiceQuotaExceededException$,
   ServiceUnavailableException,
   ServiceUnavailableException$,
+  Session$,
+  SessionStatus,
   Signin,
   SigninClient,
   SigninResourceBasedPolicy$,
@@ -88,6 +106,8 @@ import assert from "node:assert";
 assert(typeof SigninClient === "function");
 assert(typeof Signin === "function");
 // commands
+assert(typeof BatchRevokeSessionsCommand === "function");
+assert(typeof BatchRevokeSessions$ === "object");
 assert(typeof CreateBearerTokenCommand === "function");
 assert(typeof CreateBearerToken$ === "object");
 assert(typeof CreateOAuth2TokenCommand === "function");
@@ -104,10 +124,14 @@ assert(typeof GetConsoleAuthorizationConfigurationCommand === "function");
 assert(typeof GetConsoleAuthorizationConfiguration$ === "object");
 assert(typeof GetResourcePolicyCommand === "function");
 assert(typeof GetResourcePolicy$ === "object");
+assert(typeof GetSessionCommand === "function");
+assert(typeof GetSession$ === "object");
 assert(typeof IntrospectOAuth2TokenWithIAMCommand === "function");
 assert(typeof IntrospectOAuth2TokenWithIAM$ === "object");
 assert(typeof ListResourcePermissionStatementsCommand === "function");
 assert(typeof ListResourcePermissionStatements$ === "object");
+assert(typeof ListSessionsCommand === "function");
+assert(typeof ListSessions$ === "object");
 assert(typeof PutConsoleAuthorizationConfigurationCommand === "function");
 assert(typeof PutConsoleAuthorizationConfiguration$ === "object");
 assert(typeof PutResourcePermissionStatementCommand === "function");
@@ -116,6 +140,9 @@ assert(typeof RevokeOAuth2TokenWithIAMCommand === "function");
 assert(typeof RevokeOAuth2TokenWithIAM$ === "object");
 // structural schemas
 assert(typeof AccessToken$ === "object");
+assert(typeof BatchRevokeSessionError$ === "object");
+assert(typeof BatchRevokeSessionsInput$ === "object");
+assert(typeof BatchRevokeSessionsOutput$ === "object");
 assert(typeof CreateBearerTokenRequest$ === "object");
 assert(typeof CreateBearerTokenResponse$ === "object");
 assert(typeof CreateOAuth2TokenRequest$ === "object");
@@ -134,21 +161,29 @@ assert(typeof GetConsoleAuthorizationConfigurationInput$ === "object");
 assert(typeof GetConsoleAuthorizationConfigurationOutput$ === "object");
 assert(typeof GetResourcePolicyInput$ === "object");
 assert(typeof GetResourcePolicyOutput$ === "object");
+assert(typeof GetSessionInput$ === "object");
+assert(typeof GetSessionOutput$ === "object");
 assert(typeof IntrospectOAuth2TokenWithIAMRequest$ === "object");
 assert(typeof IntrospectOAuth2TokenWithIAMResponse$ === "object");
 assert(typeof ListResourcePermissionStatementsInput$ === "object");
 assert(typeof ListResourcePermissionStatementsOutput$ === "object");
+assert(typeof ListSessionsInput$ === "object");
+assert(typeof ListSessionsOutput$ === "object");
 assert(typeof PermissionStatementSummary$ === "object");
 assert(typeof PolicyStatement$ === "object");
 assert(typeof PutConsoleAuthorizationConfigurationInput$ === "object");
 assert(typeof PutConsoleAuthorizationConfigurationOutput$ === "object");
 assert(typeof PutResourcePermissionStatementInput$ === "object");
 assert(typeof PutResourcePermissionStatementOutput$ === "object");
+assert(typeof RevokedSession$ === "object");
 assert(typeof RevokeOAuth2TokenWithIAMRequest$ === "object");
 assert(typeof RevokeOAuth2TokenWithIAMResponse$ === "object");
+assert(typeof Session$ === "object");
 assert(typeof SigninResourceBasedPolicy$ === "object");
 // enums
+assert(typeof ClientType === "object");
 assert(typeof OAuth2ErrorCode === "object");
+assert(typeof SessionStatus === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof SigninServiceException);
 assert(typeof AccessDeniedException$ === "object");
@@ -173,4 +208,5 @@ assert(typeof ValidationException$ === "object");
 assert(SigninServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListResourcePermissionStatements === "function");
+assert(typeof paginateListSessions === "function");
 console.log(`Signin index test passed.`);

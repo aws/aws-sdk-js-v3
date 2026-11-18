@@ -1,6 +1,12 @@
-const _A = "Action";
+const _A = "Assertion";
 const _ADE = "AccessDeniedException";
 const _AT = "AccessToken";
+const _Ac = "Action";
+const _BRS = "BatchRevokeSessions";
+const _BRSE = "BatchRevokeSessionError";
+const _BRSEL = "BatchRevokeSessionErrorList";
+const _BRSI = "BatchRevokeSessionsInput";
+const _BRSO = "BatchRevokeSessionsOutput";
 const _C = "Condition";
 const _CB = "ConditionBlock";
 const _CBT = "CreateBearerToken";
@@ -31,6 +37,9 @@ const _GCACO = "GetConsoleAuthorizationConfigurationOutput";
 const _GRP = "GetResourcePolicy";
 const _GRPI = "GetResourcePolicyInput";
 const _GRPO = "GetResourcePolicyOutput";
+const _GS = "GetSession";
+const _GSI = "GetSessionInput";
+const _GSO = "GetSessionOutput";
 const _IGE = "InvalidGrantException";
 const _IOATWIAM = "IntrospectOAuth2TokenWithIAM";
 const _IOATWIAMR = "IntrospectOAuth2TokenWithIAMRequest";
@@ -41,6 +50,9 @@ const _IT = "IntrospectionToken";
 const _LRPS = "ListResourcePermissionStatements";
 const _LRPSI = "ListResourcePermissionStatementsInput";
 const _LRPSO = "ListResourcePermissionStatementsOutput";
+const _LS = "ListSessions";
+const _LSI = "ListSessionsInput";
+const _LSO = "ListSessionsOutput";
 const _OAAT = "OAuthAccessToken";
 const _P = "Principal";
 const _PCAC = "PutConsoleAuthorizationConfiguration";
@@ -58,21 +70,26 @@ const _RNFE = "ResourceNotFoundException";
 const _ROATWIAM = "RevokeOAuth2TokenWithIAM";
 const _ROATWIAMR = "RevokeOAuth2TokenWithIAMRequest";
 const _ROATWIAMRe = "RevokeOAuth2TokenWithIAMResponse";
+const _RS = "RevokedSession";
+const _RSL = "RevokedSessionList";
 const _RT = "RefreshToken";
 const _RTe = "RevocationToken";
-const _S = "Statement";
+const _S = "Session";
 const _SQEE = "ServiceQuotaExceededException";
 const _SRBP = "SigninResourceBasedPolicy";
+const _SSL = "SessionSummaryList";
 const _ST = "SubjectToken";
 const _SUE = "ServiceUnavailableException";
+const _St = "Statement";
 const _TMRE = "TooManyRequestsError";
 const _V = "Version";
 const _VE = "ValidationException";
-const _a = "active";
+const _a = "assertion";
 const _aI = "accountId";
 const _aKI = "accessKeyId";
 const _aT = "accessToken";
-const _ac = "action";
+const _ac = "active";
+const _act = "action";
 const _ai = "account_id";
 const _at = "access_token";
 const _au = "aud";
@@ -81,6 +98,7 @@ const _cAE = "consoleAuthorizationEnabled";
 const _cI = "clientId";
 const _cSV = "consoleSourceVpce";
 const _cT = "clientToken";
+const _cTl = "clientType";
 const _cV = "codeVerifier";
 const _ci = "client_id";
 const _co = "code";
@@ -88,34 +106,49 @@ const _con = "condition";
 const _d = "duration";
 const _dS = "durationSeconds";
 const _e = "error";
+const _eA = "expiresAt";
 const _eI = "expiresIn";
 const _eP = "excludedPrincipal";
 const _ef = "effect";
 const _ei = "expires_in";
+const _er = "errors";
 const _ex = "exp";
 const _gT = "grantType";
 const _gt = "grant_type";
 const _h = "http";
 const _hE = "httpError";
 const _i = "iat";
+const _iA = "issuedAt";
+const _iAs = "issuedAfter";
+const _iB = "issuedBefore";
+const _iIR = "issuedInRegion";
 const _iT = "idToken";
 const _iTT = "issuedTokenType";
 const _is = "iss";
+const _it = "items";
 const _itt = "issued_token_type";
 const _j = "jti";
 const _jN = "jsonName";
+const _lUA = "lastUsedAt";
 const _m = "message";
 const _mR = "maxResults";
 const _n = "nbf";
 const _nT = "nextToken";
+const _oSA = "originSessionArn";
 const _p = "principal";
+const _pA = "principalArn";
 const _pS = "permissionStatements";
-const _r = "resource";
+const _r = "reason";
 const _rR = "requestedRegion";
+const _rS = "revokedSessions";
 const _rT = "refreshToken";
 const _rU = "redirectUri";
+const _re = "resource";
+const _ro = "role";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.signin";
+const _sA = "sessionArn";
 const _sAK = "secretAccessKey";
+const _sAe = "sessionArns";
 const _sI = "statementId";
 const _sIo = "sourceIp";
 const _sRBP = "signinResourceBasedPolicy";
@@ -130,7 +163,8 @@ const _se = "server";
 const _si = "sid";
 const _ss = "signin_session";
 const _st = "subject_token";
-const _sta = "statement";
+const _sta = "status";
+const _stat = "statement";
 const _stt = "subject_token_type";
 const _su = "sub";
 const _t = "token";
@@ -141,6 +175,7 @@ const _tT = "tokenType";
 const _tTH = "tokenTypeHint";
 const _tt = "token_type";
 const _tth = "token_type_hint";
+const _uA = "userAgent";
 const _uI = "userId";
 const _ui = "user_id";
 const _v = "version";
@@ -246,6 +281,7 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var Assertion: StaticSimpleSchema = [0, n0, _A, 8, 0];
 var IntrospectionToken: StaticSimpleSchema = [0, n0, _IT, 8, 0];
 var OAuthAccessToken: StaticSimpleSchema = [0, n0, _OAAT, 8, 0];
 var RefreshToken: StaticSimpleSchema = [0, n0, _RT, 8, 0];
@@ -256,9 +292,24 @@ export var AccessToken$: StaticStructureSchema = [3, n0, _AT,
   [_aKI, _sAK, _sT],
   [[0, { [_jN]: _aKI }], [0, { [_jN]: _sAK }], [0, { [_jN]: _sT }]], 3
 ];
+export var BatchRevokeSessionError$: StaticStructureSchema = [3, n0, _BRSE,
+  0,
+  [_sA, _co, _m],
+  [0, 0, 0], 3
+];
+export var BatchRevokeSessionsInput$: StaticStructureSchema = [3, n0, _BRSI,
+  0,
+  [_sAe, _pA, _r],
+  [64 | 0, 0, 0], 1
+];
+export var BatchRevokeSessionsOutput$: StaticStructureSchema = [3, n0, _BRSO,
+  0,
+  [_rS, _er],
+  [() => RevokedSessionList, () => BatchRevokeSessionErrorList], 2
+];
 export var CreateBearerTokenRequest$: StaticStructureSchema = [3, n0, _CBTR,
   0,
-  [_gT, _r, _dS],
+  [_gT, _re, _dS],
   [[0, { [_jN]: _gt }], 0, [1, { [_jN]: _d }]], 2
 ];
 export var CreateBearerTokenResponse$: StaticStructureSchema = [3, n0, _CBTRr,
@@ -288,7 +339,7 @@ export var CreateOAuth2TokenResponseBody$: StaticStructureSchema = [3, n0, _COAT
 ];
 export var CreateOAuth2TokenWithIAMRequest$: StaticStructureSchema = [3, n0, _COATWIAMR,
   0,
-  [_gT, _r],
+  [_gT, _re],
   [[0, { [_jN]: _gt }], 0], 2
 ];
 export var CreateOAuth2TokenWithIAMResponse$: StaticStructureSchema = [3, n0, _COATWIAMRr,
@@ -298,13 +349,13 @@ export var CreateOAuth2TokenWithIAMResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateOAuth2TokenWithTokenExchangeRequest$: StaticStructureSchema = [3, n0, _COATWTER,
   0,
-  [_gT, _sTu, _sTT, _r, _sc],
-  [[0, { [_jN]: _gt }], [() => SubjectToken, { [_jN]: _st }], [0, { [_jN]: _stt }], 0, 0], 1
+  [_gT, _sTu, _sTT, _a, _cI, _re, _sc],
+  [[0, { [_jN]: _gt }], [() => SubjectToken, { [_jN]: _st }], [0, { [_jN]: _stt }], [() => Assertion, 0], [0, { [_jN]: _ci }], 0, 0], 1
 ];
 export var CreateOAuth2TokenWithTokenExchangeResponse$: StaticStructureSchema = [3, n0, _COATWTERr,
   0,
-  [_aT, _tT, _eI, _iTT],
-  [[() => OAuthAccessToken, { [_jN]: _at }], [0, { [_jN]: _tt }], [1, { [_jN]: _ei }], [0, { [_jN]: _itt }]], 3
+  [_aT, _tT, _eI, _iTT, _re, _sc],
+  [[() => OAuthAccessToken, { [_jN]: _at }], [0, { [_jN]: _tt }], [1, { [_jN]: _ei }], [0, { [_jN]: _itt }], 0, 0], 3
 ];
 export var DeleteConsoleAuthorizationConfigurationInput$: StaticStructureSchema = [3, n0, _DCACI,
   0,
@@ -346,6 +397,16 @@ export var GetResourcePolicyOutput$: StaticStructureSchema = [3, n0, _GRPO,
   [_sRBP],
   [[() => SigninResourceBasedPolicy$, 0]], 1
 ];
+export var GetSessionInput$: StaticStructureSchema = [3, n0, _GSI,
+  0,
+  [_sA, _pA],
+  [0, 0], 1
+];
+export var GetSessionOutput$: StaticStructureSchema = [3, n0, _GSO,
+  0,
+  [_sA, _pA, _iA, _eA, _ro, _sta, _cI, _cTl, _re, _lUA, _iIR, _oSA, _uA],
+  [0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0], 4
+];
 export var IntrospectOAuth2TokenWithIAMRequest$: StaticStructureSchema = [3, n0, _IOATWIAMR,
   0,
   [_t, _tTH],
@@ -353,8 +414,8 @@ export var IntrospectOAuth2TokenWithIAMRequest$: StaticStructureSchema = [3, n0,
 ];
 export var IntrospectOAuth2TokenWithIAMResponse$: StaticStructureSchema = [3, n0, _IOATWIAMRn,
   0,
-  [_a, _cI, _uI, _tT, _ex, _i, _n, _su, _au, _is, _j, _aI, _sS, _r],
-  [2, [0, { [_jN]: _ci }], [0, { [_jN]: _ui }], [0, { [_jN]: _tt }], [1, { [_jN]: _ex }], [1, { [_jN]: _i }], [1, { [_jN]: _n }], [0, { [_jN]: _su }], [0, { [_jN]: _au }], [0, { [_jN]: _is }], [0, { [_jN]: _j }], [0, { [_jN]: _ai }], [0, { [_jN]: _ss }], [0, { [_jN]: _r }]], 1
+  [_ac, _cI, _uI, _tT, _ex, _i, _n, _su, _au, _is, _j, _aI, _sS, _re],
+  [2, [0, { [_jN]: _ci }], [0, { [_jN]: _ui }], [0, { [_jN]: _tt }], [1, { [_jN]: _ex }], [1, { [_jN]: _i }], [1, { [_jN]: _n }], [0, { [_jN]: _su }], [0, { [_jN]: _au }], [0, { [_jN]: _is }], [0, { [_jN]: _j }], [0, { [_jN]: _ai }], [0, { [_jN]: _ss }], [0, { [_jN]: _re }]], 1
 ];
 export var ListResourcePermissionStatementsInput$: StaticStructureSchema = [3, n0, _LRPSI,
   0,
@@ -366,6 +427,16 @@ export var ListResourcePermissionStatementsOutput$: StaticStructureSchema = [3, 
   [_pS, _nT],
   [() => PermissionStatementSummaries, 0], 1
 ];
+export var ListSessionsInput$: StaticStructureSchema = [3, n0, _LSI,
+  0,
+  [_pA, _mR, _nT, _sta, _cI, _iAs, _iB],
+  [0, 1, 0, 0, 0, 1, 1]
+];
+export var ListSessionsOutput$: StaticStructureSchema = [3, n0, _LSO,
+  0,
+  [_it, _nT],
+  [() => SessionSummaryList, 0], 1
+];
 export var PermissionStatementSummary$: StaticStructureSchema = [3, n0, _PSS,
   0,
   [_si, _con],
@@ -373,8 +444,8 @@ export var PermissionStatementSummary$: StaticStructureSchema = [3, n0, _PSS,
 ];
 export var PolicyStatement$: StaticStructureSchema = [3, n0, _PS,
   0,
-  [_ef, _p, _ac, _r, _con],
-  [[0, { [_jN]: _E }], [128 | 0, { [_jN]: _P }], [64 | 0, { [_jN]: _A }], [0, { [_jN]: _R }], [[2, n0, _CB, 0, 0, [2, n0, _C, 0, 0, 64 | 0]], { [_jN]: _C }]]
+  [_ef, _p, _act, _re, _con],
+  [[0, { [_jN]: _E }], [128 | 0, { [_jN]: _P }], [64 | 0, { [_jN]: _Ac }], [0, { [_jN]: _R }], [[2, n0, _CB, 0, 0, [2, n0, _C, 0, 0, 64 | 0]], { [_jN]: _C }]]
 ];
 export var PutConsoleAuthorizationConfigurationInput$: StaticStructureSchema = [3, n0, _PCACI,
   0,
@@ -396,6 +467,11 @@ export var PutResourcePermissionStatementOutput$: StaticStructureSchema = [3, n0
   [_sI],
   [0], 1
 ];
+export var RevokedSession$: StaticStructureSchema = [3, n0, _RS,
+  0,
+  [_sA],
+  [0], 1
+];
 export var RevokeOAuth2TokenWithIAMRequest$: StaticStructureSchema = [3, n0, _ROATWIAMR,
   0,
   [_t],
@@ -406,10 +482,18 @@ export var RevokeOAuth2TokenWithIAMResponse$: StaticStructureSchema = [3, n0, _R
   [],
   []
 ];
+export var Session$: StaticStructureSchema = [3, n0, _S,
+  0,
+  [_sA, _pA, _iA, _eA, _ro, _sta, _cI, _cTl, _re],
+  [0, 0, 1, 1, 0, 0, 0, 0, 0], 4
+];
 export var SigninResourceBasedPolicy$: StaticStructureSchema = [3, n0, _SRBP,
   0,
-  [_v, _sta],
-  [[0, { [_jN]: _V }], [() => PolicyStatements, { [_jN]: _S }]]
+  [_v, _stat],
+  [[0, { [_jN]: _V }], [() => PolicyStatements, { [_jN]: _St }]]
+];
+var BatchRevokeSessionErrorList: StaticListSchema = [1, n0, _BRSEL,
+  0, () => BatchRevokeSessionError$
 ];
 var ConditionValues = 64 | 0;
 var PermissionStatementSummaries: StaticListSchema = [1, n0, _PSSe,
@@ -420,6 +504,13 @@ var PolicyStatements: StaticListSchema = [1, n0, _PSo,
   0, [() => PolicyStatement$,
     0]
 ];
+var RevokedSessionList: StaticListSchema = [1, n0, _RSL,
+  0, () => RevokedSession$
+];
+var SessionArnList = 64 | 0;
+var SessionSummaryList: StaticListSchema = [1, n0, _SSL,
+  0, () => Session$
+];
 var Condition: StaticMapSchema = [2, n0, _C,
   0, 0, 64 | 0
 ];
@@ -427,6 +518,9 @@ var ConditionBlock: StaticMapSchema = [2, n0, _CB,
   0, 0, [2, n0, _C, 0, 0, 64 | 0]
 ];
 var Principal = 128 | 0;
+export var BatchRevokeSessions$: StaticOperationSchema = [9, n0, _BRS,
+  { [_h]: ["POST", "/batch-revoke-sessions", 200] }, () => BatchRevokeSessionsInput$, () => BatchRevokeSessionsOutput$
+];
 export var CreateBearerToken$: StaticOperationSchema = [9, n0, _CBT,
   { [_h]: ["POST", "/v1/token?x-amz-token-request-type=bearer", 200] }, () => CreateBearerTokenRequest$, () => CreateBearerTokenResponse$
 ];
@@ -451,11 +545,17 @@ export var GetConsoleAuthorizationConfiguration$: StaticOperationSchema = [9, n0
 export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
   { [_h]: ["POST", "/get-resource-policy", 200] }, () => GetResourcePolicyInput$, () => GetResourcePolicyOutput$
 ];
+export var GetSession$: StaticOperationSchema = [9, n0, _GS,
+  { [_h]: ["POST", "/get-session", 200] }, () => GetSessionInput$, () => GetSessionOutput$
+];
 export var IntrospectOAuth2TokenWithIAM$: StaticOperationSchema = [9, n0, _IOATWIAM,
   { [_h]: ["POST", "/v1/introspect?x-amz-client-auth-method=iam", 200] }, () => IntrospectOAuth2TokenWithIAMRequest$, () => IntrospectOAuth2TokenWithIAMResponse$
 ];
 export var ListResourcePermissionStatements$: StaticOperationSchema = [9, n0, _LRPS,
   { [_h]: ["POST", "/list-resource-permission-statements", 200] }, () => ListResourcePermissionStatementsInput$, () => ListResourcePermissionStatementsOutput$
+];
+export var ListSessions$: StaticOperationSchema = [9, n0, _LS,
+  { [_h]: ["POST", "/list-sessions", 200] }, () => ListSessionsInput$, () => ListSessionsOutput$
 ];
 export var PutConsoleAuthorizationConfiguration$: StaticOperationSchema = [9, n0, _PCAC,
   { [_h]: ["POST", "/put-console-authorization-configuration", 200] }, () => PutConsoleAuthorizationConfigurationInput$, () => PutConsoleAuthorizationConfigurationOutput$

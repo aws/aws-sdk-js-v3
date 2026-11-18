@@ -33,39 +33,6 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * Error thrown when request conflicts with current state
- *
- * HTTP Status Code: 409 Conflict
- *
- * Used when the request conflicts with the current state of the resource
- * @public
- */
-export class ConflictException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.signin#ConflictException";
-  readonly name = "ConflictException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * OAuth 2.0 error code indicating conflict
-   * Will be CONFLICT
-   * @public
-   */
-  error: OAuth2ErrorCode | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.error = opts.error;
-  }
-}
-
-/**
  * The request failed because of an internal server error.
  * @public
  */
@@ -89,6 +56,39 @@ export class InternalServerException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.error = opts.error;
+  }
+}
+
+/**
+ * Error thrown when requested resource is not found
+ *
+ * HTTP Status Code: 404 Not Found
+ *
+ * Used when the specified resource does not exist
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signin#ResourceNotFoundException";
+  readonly name = "ResourceNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * OAuth 2.0 error code indicating resource not found
+   * Will be RESOURCE_NOT_FOUND
+   * @public
+   */
+  error: OAuth2ErrorCode | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.error = opts.error;
   }
 }
@@ -145,6 +145,39 @@ export class ValidationException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
+    this.error = opts.error;
+  }
+}
+
+/**
+ * Error thrown when request conflicts with current state
+ *
+ * HTTP Status Code: 409 Conflict
+ *
+ * Used when the request conflicts with the current state of the resource
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signin#ConflictException";
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * OAuth 2.0 error code indicating conflict
+   * Will be CONFLICT
+   * @public
+   */
+  error: OAuth2ErrorCode | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
     this.error = opts.error;
   }
 }
@@ -230,39 +263,6 @@ export class ServiceUnavailableException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.error = opts.error;
-  }
-}
-
-/**
- * Error thrown when requested resource is not found
- *
- * HTTP Status Code: 404 Not Found
- *
- * Used when the specified resource does not exist
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.signin#ResourceNotFoundException";
-  readonly name = "ResourceNotFoundException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * OAuth 2.0 error code indicating resource not found
-   * Will be RESOURCE_NOT_FOUND
-   * @public
-   */
-  error: OAuth2ErrorCode | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.error = opts.error;
   }
 }

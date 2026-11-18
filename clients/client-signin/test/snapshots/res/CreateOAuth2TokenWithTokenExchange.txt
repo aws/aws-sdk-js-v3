@@ -9,7 +9,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "access_token": "__accessToken__",
   "token_type": "__tokenType__",
   "expires_in": 0,
-  "issued_token_type": "__issuedTokenType__"
+  "issued_token_type": "__issuedTokenType__",
+  "resource": "__resource__",
+  "scope": "__scope__"
 }
 
 
@@ -19,6 +21,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   tokenType: "__tokenType__",
   expiresIn: (number) 0,
   issuedTokenType: "__issuedTokenType__",
+  resource: "__resource__",
+  scope: "__scope__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
@@ -40,7 +44,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "access_token": "__accessToken__",
   "token_type": "__tokenType__",
   "expires_in": 0,
-  "issued_token_type": "__issuedTokenType__"
+  "issued_token_type": "__issuedTokenType__",
+  "resource": "__resource__",
+  "scope": "__scope__"
 }
 
 
@@ -50,6 +56,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   tokenType: "__tokenType__",
   expiresIn: (number) 0,
   issuedTokenType: "__issuedTokenType__",
+  resource: "__resource__",
+  scope: "__scope__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

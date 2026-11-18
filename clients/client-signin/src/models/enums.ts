@@ -20,6 +20,7 @@ export const OAuth2ErrorCode = {
    * The request is missing a required parameter, includes an invalid parameter value, or is otherwise malformed.
    */
   INVALID_REQUEST: "INVALID_REQUEST",
+  OAUTH_INVALID_CLIENT: "invalid_client",
   OAUTH_INVALID_GRANT: "invalid_grant",
   OAUTH_INVALID_REQUEST: "invalid_request",
   OAUTH_INVALID_SCOPE: "invalid_scope",
@@ -52,3 +53,41 @@ export const OAuth2ErrorCode = {
  * @public
  */
 export type OAuth2ErrorCode = (typeof OAuth2ErrorCode)[keyof typeof OAuth2ErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientType = {
+  /**
+   * The AWS CLI
+   */
+  CLI: "CLI",
+  /**
+   * An MCP server
+   */
+  MCP: "MCP",
+} as const;
+/**
+ * @public
+ */
+export type ClientType = (typeof ClientType)[keyof typeof ClientType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SessionStatus = {
+  /**
+   * The session is active
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * The session has been revoked
+   */
+  REVOKED: "REVOKED",
+} as const;
+/**
+ * @public
+ */
+export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];

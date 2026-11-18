@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import type { ClientType, SessionStatus } from "./enums";
+
 /**
  * Contains the scoped, temporary AWS credentials used to sign requests with SigV4. Valid for 15 minutes.
  * @public
@@ -21,6 +23,85 @@ export interface AccessToken {
    * @public
    */
   sessionToken: string | undefined;
+}
+
+/**
+ * A session that could not be revoked
+ * @public
+ */
+export interface BatchRevokeSessionError {
+  /**
+   * The session ARN
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * The error code
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * The error message
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * Input for BatchRevokeSessions operation
+ * @public
+ */
+export interface BatchRevokeSessionsInput {
+  /**
+   * The identity that owns the sessions. Omit to use the caller. Specify arn:aws:iam::\{account-id\}:* to revoke
+   * any session in the account.
+   * @public
+   */
+  principalArn?: string | undefined;
+
+  /**
+   * The ARNs of the sessions to revoke
+   * @public
+   */
+  sessionArns: string[] | undefined;
+
+  /**
+   * The reason for revoking the sessions
+   * @public
+   */
+  reason?: string | undefined;
+}
+
+/**
+ * A session that was revoked
+ * @public
+ */
+export interface RevokedSession {
+  /**
+   * The revoked session ARN
+   * @public
+   */
+  sessionArn: string | undefined;
+}
+
+/**
+ * Output for BatchRevokeSessions operation
+ * @public
+ */
+export interface BatchRevokeSessionsOutput {
+  /**
+   * Sessions that were revoked
+   * @public
+   */
+  revokedSessions: RevokedSession[] | undefined;
+
+  /**
+   * Sessions that could not be revoked
+   * @public
+   */
+  errors: BatchRevokeSessionError[] | undefined;
 }
 
 /**
@@ -221,7 +302,7 @@ export interface CreateOAuth2TokenWithIAMRequest {
  */
 export interface CreateOAuth2TokenWithIAMResponse {
   /**
-   * Access token containing principal identity, resource scope, and session metadata.
+   * The access token containing principal identity, resource scope, and session metadata.
    * @public
    */
   accessToken: string | undefined;
@@ -233,7 +314,7 @@ export interface CreateOAuth2TokenWithIAMResponse {
   tokenType: string | undefined;
 
   /**
-   * Token lifetime in seconds. Value is the minimum of the caller's session validity and 1 hour (3600 seconds).
+   * The token lifetime in seconds. Value is the minimum of the caller's session validity and 1 hour (3600 seconds).
    * @public
    */
   expiresIn: number | undefined;
@@ -245,7 +326,8 @@ export interface CreateOAuth2TokenWithIAMResponse {
  */
 export interface CreateOAuth2TokenWithTokenExchangeRequest {
   /**
-   * The OAuth 2.0 grant type. Currently only supports "urn:ietf:params:oauth:grant-type:token-exchange".
+   * The OAuth 2.0 grant type. Currently supports "urn:ietf:params:oauth:grant-type:token-exchange"
+   * and "urn:ietf:params:oauth:grant-type:jwt-bearer".
    * @public
    */
   grantType: string | undefined;
@@ -265,17 +347,34 @@ export interface CreateOAuth2TokenWithTokenExchangeRequest {
   subjectTokenType?: string | undefined;
 
   /**
-   * The OAuth resource for which the access token is requested.
-   * Required when "grant_type=urn:ietf:params:oauth:grant-type:token-exchange".
-   * Example: "glue.amazonaws.com".
+   * The JWT authorization grant, as defined in RFC 7523.
+   * Required when "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer".
+   * @public
+   */
+  assertion?: string | undefined;
+
+  /**
+   * The OAuth 2.0 client identifier.
+   * If provided with "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer", must match the assertion's "client_id" claim.
+   * @public
+   */
+  clientId?: string | undefined;
+
+  /**
+   * The OAuth resource for which the access token is requested:
+   *
+   * - "grant_type=urn:ietf:params:oauth:grant-type:token-exchange": Required. Must be a service principal. Example: "glue.amazonaws.com".
+   * - "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer": Required when the assertion has no "resource" claim, otherwise must match it. Must be a URI. Example: "https://aws-mcp.us-east-1.api.aws/mcp".
    * @public
    */
   resource?: string | undefined;
 
   /**
-   * IAM managed policy Amazon Resource Names (ARNs) to apply as session policies that further
+   * The IAM managed policy Amazon Resource Names (ARNs) to apply as session policies that further
    * scope down the permissions of the issued access token, provided as a space-delimited list.
    * Example: "arn:aws:iam::444455556666:policy/MyPolicy".
+   *
+   * If provided with "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer", must match the assertion's "scope" claim.
    * @public
    */
   scope?: string | undefined;
@@ -284,18 +383,19 @@ export interface CreateOAuth2TokenWithTokenExchangeRequest {
 /**
  * Output structure for CreateOAuth2TokenWithTokenExchange operation.
  *
- * Contains the access token, issued token type, token type, and expiration as defined in RFC 6749 §5.1 and RFC 8693 §2.2.1.
+ * Contains the access token, token type, and expiration as defined in RFC 6749 §5.1, plus fields specific to the grant type.
  * @public
  */
 export interface CreateOAuth2TokenWithTokenExchangeResponse {
   /**
-   * Access token containing principal identity, resource scope, and session metadata.
+   * The access token containing principal identity, resource scope, and session metadata.
    * @public
    */
   accessToken: string | undefined;
 
   /**
-   * The token type of the issued token. Always "urn:ietf:params:oauth:token-type:access_token" as defined in RFC 8693 §2.2.1.
+   * The token type of the issued token. Returned when "grant_type=urn:ietf:params:oauth:grant-type:token-exchange".
+   * Value is "urn:ietf:params:oauth:token-type:access_token" as defined in RFC 8693 §2.2.1.
    * @public
    */
   issuedTokenType?: string | undefined;
@@ -307,10 +407,24 @@ export interface CreateOAuth2TokenWithTokenExchangeResponse {
   tokenType: string | undefined;
 
   /**
-   * Token lifetime in seconds. Value is the minimum of the subject token's validity and 1 hour (3600 seconds).
+   * The token lifetime in seconds. Value is the minimum of the provided token's validity and 1 hour (3600 seconds).
    * @public
    */
   expiresIn: number | undefined;
+
+  /**
+   * The resource the access token is scoped to.
+   * Returned when "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer".
+   * @public
+   */
+  resource?: string | undefined;
+
+  /**
+   * The IAM managed policy ARNs applied as session policies, as a space-delimited list.
+   * Returned when "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" and the assertion has a scope.
+   * @public
+   */
+  scope?: string | undefined;
 }
 
 /**
@@ -482,6 +596,109 @@ export interface GetResourcePolicyOutput {
 }
 
 /**
+ * Input for GetSession operation
+ * @public
+ */
+export interface GetSessionInput {
+  /**
+   * The ARN of the session to retrieve
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * The identity that owns the session. Omit to use the caller. Specify arn:aws:iam::\{account-id\}:* to retrieve
+   * any session in the account.
+   * @public
+   */
+  principalArn?: string | undefined;
+}
+
+/**
+ * Output for GetSession operation
+ * @public
+ */
+export interface GetSessionOutput {
+  /**
+   * The session ARN
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * The IAM identity that owns the session
+   * @public
+   */
+  principalArn: string | undefined;
+
+  /**
+   * The IAM role for the session, when the owner is a role
+   * @public
+   */
+  role?: string | undefined;
+
+  /**
+   * The session status
+   * @public
+   */
+  status?: SessionStatus | undefined;
+
+  /**
+   * The OAuth client that created the session
+   * @public
+   */
+  clientId?: string | undefined;
+
+  /**
+   * The type of OAuth client that created the session
+   * @public
+   */
+  clientType?: ClientType | undefined;
+
+  /**
+   * The resource that the session's tokens are bound to
+   * @public
+   */
+  resource?: string | undefined;
+
+  /**
+   * The time the session was created, in Unix epoch seconds
+   * @public
+   */
+  issuedAt: number | undefined;
+
+  /**
+   * The time the session expires, in Unix epoch seconds
+   * @public
+   */
+  expiresAt: number | undefined;
+
+  /**
+   * The time the session was last refreshed, in Unix epoch seconds
+   * @public
+   */
+  lastUsedAt?: number | undefined;
+
+  /**
+   * The AWS Region where the session was created
+   * @public
+   */
+  issuedInRegion?: string | undefined;
+
+  /**
+   * The ARN of the session this session originated from
+   * @public
+   */
+  originSessionArn?: string | undefined;
+
+  /**
+   * The user agent captured when the session was created or last refreshed
+   * @public
+   */
+  userAgent?: string | undefined;
+}
+
+/**
  * Input structure for IntrospectOAuth2TokenWithIAM operation
  *
  * RFC 7662 §2.1 introspection request. Contains the token to inspect and an
@@ -646,6 +863,133 @@ export interface ListResourcePermissionStatementsOutput {
    * @public
    */
   permissionStatements: PermissionStatementSummary[] | undefined;
+
+  /**
+   * Token for next page of results
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * Input for ListSessions operation
+ * @public
+ */
+export interface ListSessionsInput {
+  /**
+   * The identity whose sessions to list. Omit to list the caller's own sessions. Specify
+   * arn:aws:iam::\{account-id\}:* to list all sessions in the account.
+   * @public
+   */
+  principalArn?: string | undefined;
+
+  /**
+   * Maximum number of results to return
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * Token for pagination
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * Returns only sessions with this status
+   * @public
+   */
+  status?: SessionStatus | undefined;
+
+  /**
+   * Returns only sessions created by this OAuth client
+   * @public
+   */
+  clientId?: string | undefined;
+
+  /**
+   * Returns only sessions created at or after this time, in Unix epoch seconds
+   * @public
+   */
+  issuedAfter?: number | undefined;
+
+  /**
+   * Returns only sessions created before this time, in Unix epoch seconds
+   * @public
+   */
+  issuedBefore?: number | undefined;
+}
+
+/**
+ * Summary of a sign-in session
+ * @public
+ */
+export interface Session {
+  /**
+   * The session ARN
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * The IAM identity that owns the session
+   * @public
+   */
+  principalArn: string | undefined;
+
+  /**
+   * The IAM role for the session, when the owner is a role
+   * @public
+   */
+  role?: string | undefined;
+
+  /**
+   * The session status
+   * @public
+   */
+  status?: SessionStatus | undefined;
+
+  /**
+   * The time the session was created, in Unix epoch seconds
+   * @public
+   */
+  issuedAt: number | undefined;
+
+  /**
+   * The time the session expires, in Unix epoch seconds
+   * @public
+   */
+  expiresAt: number | undefined;
+
+  /**
+   * The OAuth client that created the session
+   * @public
+   */
+  clientId?: string | undefined;
+
+  /**
+   * The type of OAuth client that created the session
+   * @public
+   */
+  clientType?: ClientType | undefined;
+
+  /**
+   * The resource that the session's tokens are bound to
+   * @public
+   */
+  resource?: string | undefined;
+}
+
+/**
+ * Output for ListSessions operation
+ * @public
+ */
+export interface ListSessionsOutput {
+  /**
+   * List of session summaries
+   * @public
+   */
+  items: Session[] | undefined;
 
   /**
    * Token for next page of results

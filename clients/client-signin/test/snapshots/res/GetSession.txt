@@ -1,0 +1,98 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "sessionArn": "__sessionArn__",
+  "principalArn": "__principalArn__",
+  "issuedAt": 0,
+  "expiresAt": 0,
+  "role": "__role__",
+  "status": "__status__",
+  "clientId": "__clientId__",
+  "clientType": "__clientType__",
+  "resource": "__resource__",
+  "lastUsedAt": 0,
+  "issuedInRegion": "__issuedInRegion__",
+  "originSessionArn": "__originSessionArn__",
+  "userAgent": "__userAgent__"
+}
+
+
+--- [output object] ---
+{
+  sessionArn: "__sessionArn__",
+  principalArn: "__principalArn__",
+  issuedAt: (number) 0,
+  expiresAt: (number) 0,
+  role: "__role__",
+  status: "__status__",
+  clientId: "__clientId__",
+  clientType: "__clientType__",
+  resource: "__resource__",
+  lastUsedAt: (number) 0,
+  issuedInRegion: "__issuedInRegion__",
+  originSessionArn: "__originSessionArn__",
+  userAgent: "__userAgent__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "sessionArn": "__sessionArn__",
+  "principalArn": "__principalArn__",
+  "issuedAt": 0,
+  "expiresAt": 0,
+  "role": "__role__",
+  "status": "__status__",
+  "clientId": "__clientId__",
+  "clientType": "__clientType__",
+  "resource": "__resource__",
+  "lastUsedAt": 0,
+  "issuedInRegion": "__issuedInRegion__",
+  "originSessionArn": "__originSessionArn__",
+  "userAgent": "__userAgent__"
+}
+
+
+--- [output object] ---
+{
+  sessionArn: "__sessionArn__",
+  principalArn: "__principalArn__",
+  issuedAt: (number) 0,
+  expiresAt: (number) 0,
+  role: "__role__",
+  status: "__status__",
+  clientId: "__clientId__",
+  clientType: "__clientType__",
+  resource: "__resource__",
+  lastUsedAt: (number) 0,
+  issuedInRegion: "__issuedInRegion__",
+  originSessionArn: "__originSessionArn__",
+  userAgent: "__userAgent__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

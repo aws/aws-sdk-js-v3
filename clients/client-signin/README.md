@@ -22,16 +22,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SigninClient` and
-the commands you need, for example `ListResourcePermissionStatementsCommand`:
+the commands you need, for example `ListSessionsCommand`:
 
 ```js
 // ES5 example
-const { SigninClient, ListResourcePermissionStatementsCommand } = require("@aws-sdk/client-signin");
+const { SigninClient, ListSessionsCommand } = require("@aws-sdk/client-signin");
 ```
 
 ```ts
 // ES6+ example
-import { SigninClient, ListResourcePermissionStatementsCommand } from "@aws-sdk/client-signin";
+import { SigninClient, ListSessionsCommand } from "@aws-sdk/client-signin";
 ```
 
 ### Usage
@@ -48,7 +48,7 @@ To send a request:
 const client = new SigninClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListResourcePermissionStatementsCommand(params);
+const command = new ListSessionsCommand(params);
 ```
 
 #### Async/await
@@ -104,7 +104,7 @@ const client = new Signin({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listResourcePermissionStatements(params);
+  const data = await client.listSessions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -112,7 +112,7 @@ try {
 
 // Promises.
 client
-  .listResourcePermissionStatements(params)
+  .listSessions(params)
   .then((data) => {
     // process data.
   })
@@ -121,7 +121,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listResourcePermissionStatements(params, (err, data) => {
+client.listSessions(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -181,6 +181,13 @@ see LICENSE for more information.
 
 <details>
 <summary>
+BatchRevokeSessions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/BatchRevokeSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/BatchRevokeSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/BatchRevokeSessionsCommandOutput/)
+</details>
+<details>
+<summary>
 CreateBearerToken
 </summary>
 
@@ -237,6 +244,13 @@ GetResourcePolicy
 </details>
 <details>
 <summary>
+GetSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/GetSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/GetSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/GetSessionCommandOutput/)
+</details>
+<details>
+<summary>
 IntrospectOAuth2TokenWithIAM
 </summary>
 
@@ -248,6 +262,13 @@ ListResourcePermissionStatements
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/ListResourcePermissionStatementsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/ListResourcePermissionStatementsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/ListResourcePermissionStatementsCommandOutput/)
+</details>
+<details>
+<summary>
+ListSessions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/ListSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/ListSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/ListSessionsCommandOutput/)
 </details>
 <details>
 <summary>

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./BatchRevokeSessionsCommand";
 export * from "./CreateBearerTokenCommand";
 export * from "./CreateOAuth2TokenCommand";
 export * from "./CreateOAuth2TokenWithIAMCommand";
@@ -7,8 +8,10 @@ export * from "./DeleteConsoleAuthorizationConfigurationCommand";
 export * from "./DeleteResourcePermissionStatementCommand";
 export * from "./GetConsoleAuthorizationConfigurationCommand";
 export * from "./GetResourcePolicyCommand";
+export * from "./GetSessionCommand";
 export * from "./IntrospectOAuth2TokenWithIAMCommand";
 export * from "./ListResourcePermissionStatementsCommand";
+export * from "./ListSessionsCommand";
 export * from "./PutConsoleAuthorizationConfigurationCommand";
 export * from "./PutResourcePermissionStatementCommand";
 export * from "./RevokeOAuth2TokenWithIAMCommand";

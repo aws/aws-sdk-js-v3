@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutResourcePermissionStatementInput, PutResourcePermissionStatementOutput } from "../models/models_0";
 import { PutResourcePermissionStatement$ } from "../schemas/schemas_0";
 
@@ -89,7 +89,7 @@ export interface PutResourcePermissionStatementCommandOutput extends PutResource
  * @public
  */
 export class PutResourcePermissionStatementCommand extends command<PutResourcePermissionStatementCommandInput, PutResourcePermissionStatementCommandOutput>(
-  _ep2,
+  _ep0,
   _mw0,
   "PutResourcePermissionStatement",
   PutResourcePermissionStatement$

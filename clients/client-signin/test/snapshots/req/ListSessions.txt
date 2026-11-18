@@ -1,0 +1,24 @@
+POST https://signin.us-east-1.api.aws 
+/list-sessions
+
+content-type: application/json
+content-length: 159
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/signin#_.__ m/E,e
+host: signin.us-east-1.api.aws
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 9d2561c535392b02dca204a3db703a6a86b6c2e6c2ea49c7710a12c8541171df
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/signin/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[Uint8Array (json)]
+{
+  "principalArn": "__principalArn__",
+  "maxResults": 0,
+  "nextToken": "__nextToken__",
+  "status": "__status__",
+  "clientId": "__clientId__",
+  "issuedAfter": 0,
+  "issuedBefore": 0
+}

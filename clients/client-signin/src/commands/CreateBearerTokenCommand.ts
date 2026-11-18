@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { CreateBearerTokenRequest, CreateBearerTokenResponse } from "../models/models_0";
 import { CreateBearerToken$ } from "../schemas/schemas_0";
 
@@ -72,7 +72,7 @@ export interface CreateBearerTokenCommandOutput extends CreateBearerTokenRespons
  * @public
  */
 export class CreateBearerTokenCommand extends command<CreateBearerTokenCommandInput, CreateBearerTokenCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "CreateBearerToken",
   CreateBearerToken$

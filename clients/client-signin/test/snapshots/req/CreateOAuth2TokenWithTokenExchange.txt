@@ -2,7 +2,7 @@ POST https://us-east-1.oauth.signin.aws
 /v1/token?x-amz-oauth-token-method=token-exchange
 
 content-type: application/json
-content-length: 155
+content-length: 210
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/signin#_.__ m/E
 host: us-east-1.oauth.signin.aws
@@ -14,6 +14,8 @@ amz-sdk-request: attempt=1; max=3
   "grant_type": "__grantType__",
   "subject_token": "__subjectToken__",
   "subject_token_type": "__subjectTokenType__",
+  "assertion": "__assertion__",
+  "client_id": "__clientId__",
   "resource": "__resource__",
   "scope": "__scope__"
 }

@@ -5,6 +5,8 @@ import { describe, expect, test as it, vi } from "vitest";
 
 import {
   AccessDeniedException$,
+  BatchRevokeSessions$,
+  BatchRevokeSessionsCommand,
   ConflictException$,
   CreateBearerToken$,
   CreateBearerTokenCommand,
@@ -22,6 +24,8 @@ import {
   GetConsoleAuthorizationConfigurationCommand,
   GetResourcePolicy$,
   GetResourcePolicyCommand,
+  GetSession$,
+  GetSessionCommand,
   InternalServerException$,
   IntrospectOAuth2TokenWithIAM$,
   IntrospectOAuth2TokenWithIAMCommand,
@@ -29,6 +33,8 @@ import {
   InvalidScopeException$,
   ListResourcePermissionStatements$,
   ListResourcePermissionStatementsCommand,
+  ListSessions$,
+  ListSessionsCommand,
   PutConsoleAuthorizationConfiguration$,
   PutConsoleAuthorizationConfigurationCommand,
   PutResourcePermissionStatement$,
@@ -61,6 +67,7 @@ describe("SigninClient" + ` (${mode})`, () => {
       return Promise.resolve();
     },
     schemas: new Map<any, any>([
+      [BatchRevokeSessions$, BatchRevokeSessionsCommand],
       [CreateBearerToken$, CreateBearerTokenCommand],
       [CreateOAuth2Token$, CreateOAuth2TokenCommand],
       [CreateOAuth2TokenWithIAM$, CreateOAuth2TokenWithIAMCommand],
@@ -69,8 +76,10 @@ describe("SigninClient" + ` (${mode})`, () => {
       [DeleteResourcePermissionStatement$, DeleteResourcePermissionStatementCommand],
       [GetConsoleAuthorizationConfiguration$, GetConsoleAuthorizationConfigurationCommand],
       [GetResourcePolicy$, GetResourcePolicyCommand],
+      [GetSession$, GetSessionCommand],
       [IntrospectOAuth2TokenWithIAM$, IntrospectOAuth2TokenWithIAMCommand],
       [ListResourcePermissionStatements$, ListResourcePermissionStatementsCommand],
+      [ListSessions$, ListSessionsCommand],
       [PutConsoleAuthorizationConfiguration$, PutConsoleAuthorizationConfigurationCommand],
       [PutResourcePermissionStatement$, PutResourcePermissionStatementCommand],
       [RevokeOAuth2TokenWithIAM$, RevokeOAuth2TokenWithIAMCommand],

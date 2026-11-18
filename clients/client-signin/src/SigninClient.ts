@@ -55,6 +55,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  BatchRevokeSessionsCommandInput,
+  BatchRevokeSessionsCommandOutput,
+} from "./commands/BatchRevokeSessionsCommand";
+import type {
   CreateBearerTokenCommandInput,
   CreateBearerTokenCommandOutput,
 } from "./commands/CreateBearerTokenCommand";
@@ -86,6 +90,7 @@ import type {
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
+import type { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import type {
   IntrospectOAuth2TokenWithIAMCommandInput,
   IntrospectOAuth2TokenWithIAMCommandOutput,
@@ -94,6 +99,7 @@ import type {
   ListResourcePermissionStatementsCommandInput,
   ListResourcePermissionStatementsCommandOutput,
 } from "./commands/ListResourcePermissionStatementsCommand";
+import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
 import type {
   PutConsoleAuthorizationConfigurationCommandInput,
   PutConsoleAuthorizationConfigurationCommandOutput,
@@ -121,6 +127,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchRevokeSessionsCommandInput
   | CreateBearerTokenCommandInput
   | CreateOAuth2TokenCommandInput
   | CreateOAuth2TokenWithIAMCommandInput
@@ -129,8 +136,10 @@ export type ServiceInputTypes =
   | DeleteResourcePermissionStatementCommandInput
   | GetConsoleAuthorizationConfigurationCommandInput
   | GetResourcePolicyCommandInput
+  | GetSessionCommandInput
   | IntrospectOAuth2TokenWithIAMCommandInput
   | ListResourcePermissionStatementsCommandInput
+  | ListSessionsCommandInput
   | PutConsoleAuthorizationConfigurationCommandInput
   | PutResourcePermissionStatementCommandInput
   | RevokeOAuth2TokenWithIAMCommandInput;
@@ -139,6 +148,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchRevokeSessionsCommandOutput
   | CreateBearerTokenCommandOutput
   | CreateOAuth2TokenCommandOutput
   | CreateOAuth2TokenWithIAMCommandOutput
@@ -147,8 +157,10 @@ export type ServiceOutputTypes =
   | DeleteResourcePermissionStatementCommandOutput
   | GetConsoleAuthorizationConfigurationCommandOutput
   | GetResourcePolicyCommandOutput
+  | GetSessionCommandOutput
   | IntrospectOAuth2TokenWithIAMCommandOutput
   | ListResourcePermissionStatementsCommandOutput
+  | ListSessionsCommandOutput
   | PutConsoleAuthorizationConfigurationCommandOutput
   | PutResourcePermissionStatementCommandOutput
   | RevokeOAuth2TokenWithIAMCommandOutput;
