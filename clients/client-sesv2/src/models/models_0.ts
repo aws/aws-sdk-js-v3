@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  AccountSharedPoolDeliveryMode,
   AttachmentContentDisposition,
   AttachmentContentTransferEncoding,
   BehaviorOnMxFailure,
@@ -47,6 +48,7 @@ import type {
   ReviewStatus,
   ScalingMode,
   SendingStatus,
+  SharedPoolDeliveryMode,
   SignatureFormat,
   Status,
   SubscriptionStatus,
@@ -134,7 +136,7 @@ export interface AccountDetails {
 
   /**
    * <p>The language you would prefer for the case. The contact language can be one of
-   *                 <code>ENGLISH</code> or <code>JAPANESE</code>.</p>
+   *                 <code>EN</code> or <code>JA</code>.</p>
    * @public
    */
   ContactLanguage?: ContactLanguage | undefined;
@@ -749,7 +751,7 @@ export interface ReplacementTemplate {
 }
 
 /**
- * <p>The <code>ReplaceEmailContent</code> object to be used for a specific
+ * <p>The <code>ReplacementEmailContent</code> object to be used for a specific
  *                 <code>BulkEmailEntry</code>. The <code>ReplacementTemplate</code> can be specified
  *             within this object.</p>
  * @public
@@ -824,7 +826,7 @@ export interface BulkEmailEntry {
 
   /**
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
-   *             using the <code>SendBulkTemplatedEmail</code> operation. Tags correspond to
+   *             using the <code>SendBulkEmail</code> operation. Tags correspond to
    *             characteristics of the email that you define, so that you can publish email sending
    *             events.</p>
    * @public
@@ -880,64 +882,78 @@ export interface BulkEmailEntry {
  */
 export interface BulkEmailEntryResult {
   /**
-   * <p>The status of a message sent using the <code>SendBulkTemplatedEmail</code>
+   * <p>The status of a message sent using the <code>SendBulkEmail</code>
    *             operation.</p>
    *          <p>Possible values for this parameter include:</p>
    *          <ul>
    *             <li>
-   *                <p>SUCCESS: Amazon SES accepted the message, and will attempt to deliver it to
+   *                <p>
+   *                   <code>SUCCESS</code> – Amazon SES accepted the message, and will attempt to deliver it to
    *                     the recipients.</p>
    *             </li>
    *             <li>
-   *                <p>MESSAGE_REJECTED: The message was rejected because it contained a
+   *                <p>
+   *                   <code>MESSAGE_REJECTED</code> – The message was rejected because it contained a
    *                     virus.</p>
    *             </li>
    *             <li>
-   *                <p>MAIL_FROM_DOMAIN_NOT_VERIFIED: The sender's email address or domain was not
+   *                <p>
+   *                   <code>MAIL_FROM_DOMAIN_NOT_VERIFIED</code> – The sender's email address or domain was not
    *                     verified.</p>
    *             </li>
    *             <li>
-   *                <p>CONFIGURATION_SET_DOES_NOT_EXIST: The configuration set you specified does not
+   *                <p>
+   *                   <code>CONFIGURATION_SET_NOT_FOUND</code> – The configuration set you specified does not
    *                     exist.</p>
    *             </li>
    *             <li>
-   *                <p>TEMPLATE_DOES_NOT_EXIST: The template you specified does not exist.</p>
+   *                <p>
+   *                   <code>TEMPLATE_NOT_FOUND</code> – The template you specified does not exist.</p>
    *             </li>
    *             <li>
-   *                <p>ACCOUNT_SUSPENDED: Your account has been shut down because of issues related
+   *                <p>
+   *                   <code>ACCOUNT_SUSPENDED</code> – Your account has been shut down because of issues related
    *                     to your email sending practices.</p>
    *             </li>
    *             <li>
-   *                <p>ACCOUNT_THROTTLED: The number of emails you can send has been reduced because
+   *                <p>
+   *                   <code>ACCOUNT_THROTTLED</code> – The number of emails you can send has been reduced because
    *                     your account has exceeded its allocated sending limit.</p>
    *             </li>
    *             <li>
-   *                <p>ACCOUNT_DAILY_QUOTA_EXCEEDED: You have reached or exceeded the maximum number
+   *                <p>
+   *                   <code>ACCOUNT_DAILY_QUOTA_EXCEEDED</code> – You have reached or exceeded the maximum number
    *                     of emails you can send from your account in a 24-hour period.</p>
    *             </li>
    *             <li>
-   *                <p>INVALID_SENDING_POOL_NAME: The configuration set you specified refers to an IP
+   *                <p>
+   *                   <code>INVALID_SENDING_POOL_NAME</code> – The configuration set you specified refers to an IP
    *                     pool that does not exist.</p>
    *             </li>
    *             <li>
-   *                <p>ACCOUNT_SENDING_PAUSED: Email sending for the Amazon SES account was disabled
-   *                     using the <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateAccountSendingEnabled.html">UpdateAccountSendingEnabled</a> operation.</p>
+   *                <p>
+   *                   <code>ACCOUNT_SENDING_PAUSED</code> – Email sending for the Amazon SES account was disabled
+   *                     using the <a href="https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutAccountSendingAttributes.html">PutAccountSendingAttributes</a> operation.</p>
    *             </li>
    *             <li>
-   *                <p>CONFIGURATION_SET_SENDING_PAUSED: Email sending for this configuration set was
-   *                     disabled using the <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateConfigurationSetSendingEnabled.html">UpdateConfigurationSetSendingEnabled</a> operation.</p>
+   *                <p>
+   *                   <code>CONFIGURATION_SET_SENDING_PAUSED</code> – Email sending for this configuration set was
+   *                     disabled using the <a href="https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutConfigurationSetSendingOptions.html">PutConfigurationSetSendingOptions</a> operation.</p>
    *             </li>
    *             <li>
-   *                <p>INVALID_PARAMETER_VALUE: One or more of the parameters you specified when
+   *                <p>
+   *                   <code>INVALID_PARAMETER</code> – One or more of the parameters you specified when
    *                     calling this operation was invalid. See the error message for additional
    *                     information.</p>
    *             </li>
    *             <li>
-   *                <p>TRANSIENT_FAILURE: Amazon SES was unable to process your request because of a
+   *                <p>
+   *                   <code>TRANSIENT_FAILURE</code> – Amazon SES was unable to process your request because of a
    *                     temporary issue.</p>
    *             </li>
    *             <li>
-   *                <p>FAILED: Amazon SES was unable to process your request. See the error message
+   *                <p>
+   *                   <code>FAILED</code> – Amazon SES was unable to process your request. See the error message
    *                     for additional information.</p>
    *             </li>
    *          </ul>
@@ -947,13 +963,13 @@ export interface BulkEmailEntryResult {
 
   /**
    * <p>A description of an error that prevented a message being sent using the
-   *                 <code>SendBulkTemplatedEmail</code> operation.</p>
+   *                 <code>SendBulkEmail</code> operation.</p>
    * @public
    */
   Error?: string | undefined;
 
   /**
-   * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
+   * <p>The unique message identifier returned from the <code>SendBulkEmail</code>
    *             operation.</p>
    * @public
    */
@@ -1004,9 +1020,9 @@ export interface CloudWatchDimensionConfiguration {
   /**
    * <p>The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. To
    *             use the message tags that you specify using an <code>X-SES-MESSAGE-TAGS</code> header or
-   *             a parameter to the <code>SendEmail</code> or <code>SendRawEmail</code> API, choose
-   *                 <code>messageTag</code>. To use your own email headers, choose
-   *                 <code>emailHeader</code>. To use link tags, choose <code>linkTags</code>.</p>
+   *             a parameter to the <code>SendEmail</code> or <code>SendBulkEmail</code> operation, choose
+   *                 <code>MESSAGE_TAG</code>. To use your own email headers, choose
+   *                 <code>EMAIL_HEADER</code>. To use link tags, choose <code>LINK_TAG</code>.</p>
    * @public
    */
   DimensionValueSource: DimensionValueSource | undefined;
@@ -1269,8 +1285,8 @@ export interface ContactListDestination {
 export interface DeliveryOptions {
   /**
    * <p>Specifies whether messages that use the configuration set are required to use
-   *             Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only
-   *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
+   *             Transport Layer Security (TLS). If the value is <code>REQUIRE</code>, messages are only
+   *             delivered if a TLS connection can be established. If the value is <code>OPTIONAL</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    * @public
    */
@@ -1290,6 +1306,35 @@ export interface DeliveryOptions {
    * @public
    */
   MaxDeliverySeconds?: number | undefined;
+
+  /**
+   * <p>The shared pool delivery mode for email that you send with the configuration set
+   *             from shared IP addresses. This setting overrides the shared pool delivery mode of your
+   *             account. Can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>GLOBAL</code> – Amazon SES delivers from your sending Region first and,
+   *                     when it improves your deliverability, also uses Amazon SES shared IP addresses with
+   *                     established sending history in other Amazon Web Services Regions within the same Amazon Web Services
+   *                     partition.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REGIONAL</code> – Amazon SES delivers your email only from shared IP
+   *                     addresses in your sending Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACCOUNT</code> – The configuration set uses the shared pool
+   *                     delivery mode of your account.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a value, the configuration set uses the shared pool delivery
+   *             mode of your account.</p>
+   * @public
+   */
+  SharedPoolDeliveryMode?: SharedPoolDeliveryMode | undefined;
 }
 
 /**
@@ -2299,8 +2344,8 @@ export interface CreateDeliverabilityTestReportResponse {
   /**
    * <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test
    *             is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the
-   *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
-   *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
+   *             test. If the status is <code>COMPLETED</code>, then the test is finished, and you can use
+   *             the <code>GetDeliverabilityTestReport</code> operation to view the results of the test.</p>
    * @public
    */
   DeliverabilityTestStatus: DeliverabilityTestStatus | undefined;
@@ -3945,11 +3990,42 @@ export interface DeliverabilityTestReport {
   /**
    * <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test
    *             is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the
-   *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
-   *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
+   *             test. If the status is <code>COMPLETED</code>, then the test is finished, and you can use
+   *             the <code>GetDeliverabilityTestReport</code> operation to view the results of the test.</p>
    * @public
    */
   DeliverabilityTestStatus?: DeliverabilityTestStatus | undefined;
+}
+
+/**
+ * <p>The delivery attributes that apply to your Amazon SES account in the current Amazon Web Services
+ *             Region.</p>
+ * @public
+ */
+export interface DeliveryAttributes {
+  /**
+   * <p>The shared pool delivery mode for your Amazon SES account in the current Amazon Web Services Region.
+   *             This mode applies to email that you send from shared IP addresses. Can be one of the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>GLOBAL</code> – Amazon SES delivers from your sending Region first and,
+   *                     when it improves your deliverability, also uses Amazon SES shared IP addresses with
+   *                     established sending history in other Amazon Web Services Regions within the same Amazon Web Services
+   *                     partition.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REGIONAL</code> – Amazon SES delivers your email only from shared IP
+   *                     addresses in your sending Region.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Accounts that start sending in a Region on or after the launch of Global Shared
+   *             Delivery use <code>GLOBAL</code> in that Region.</p>
+   * @public
+   */
+  SharedPoolDeliveryMode?: AccountSharedPoolDeliveryMode | undefined;
 }
 
 /**
@@ -4789,6 +4865,13 @@ export interface GetAccountResponse {
    * @public
    */
   PricingAttributes?: PricingAttributes | undefined;
+
+  /**
+   * <p>The delivery attributes that apply to your Amazon SES account in the current Amazon Web Services
+   *             Region.</p>
+   * @public
+   */
+  DeliveryAttributes?: DeliveryAttributes | undefined;
 }
 
 /**
@@ -5593,10 +5676,10 @@ export interface MailFromAttributes {
    *             When you set this value to <code>USE_DEFAULT_VALUE</code>, the mail is sent using
    *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
    *             to <code>REJECT_MESSAGE</code>, the Amazon SES API v2 returns a
-   *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
+   *                 <code>MailFromDomainNotVerifiedException</code> error, and doesn't attempt to deliver the
    *             email.</p>
    *          <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
-   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
+   *                 <code>PENDING</code>, <code>FAILED</code>, and <code>TEMPORARY_FAILURE</code>
    *             states.</p>
    * @public
    */
@@ -6626,11 +6709,15 @@ export interface ImportJobSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ERROR</code> – An error occurred during processing.</p>
+   *                   <code>COMPLETED</code> – Job has completed processing successfully.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>COMPLETED</code> – Job has completed processing successfully.</p>
+   *                   <code>FAILED</code> – An error occurred during processing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELLED</code> – Job has been canceled.</p>
    *             </li>
    *          </ul>
    * @public
@@ -7986,6 +8073,41 @@ export interface PutAccountDedicatedIpWarmupAttributesRequest {
 export interface PutAccountDedicatedIpWarmupAttributesResponse {}
 
 /**
+ * <p>A request to set the shared pool delivery mode for your Amazon SES account.</p>
+ * @public
+ */
+export interface PutAccountDeliveryAttributesRequest {
+  /**
+   * <p>The shared pool delivery mode for your Amazon SES account in the current Amazon Web Services Region.
+   *             This mode applies to email that you send from shared IP addresses. Can be one of the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>GLOBAL</code> – Amazon SES delivers from your sending Region first and,
+   *                     when it improves your deliverability, also uses Amazon SES shared IP addresses with
+   *                     established sending history in other Amazon Web Services Regions within the same Amazon Web Services
+   *                     partition.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REGIONAL</code> – Amazon SES delivers your email only from shared IP
+   *                     addresses in your sending Region.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SharedPoolDeliveryMode: AccountSharedPoolDeliveryMode | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error response if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutAccountDeliveryAttributesResponse {}
+
+/**
  * <p>A request to submit new account details.</p>
  * @public
  */
@@ -8004,7 +8126,8 @@ export interface PutAccountDetailsRequest {
   WebsiteURL: string | undefined;
 
   /**
-   * <p>The language you would prefer to be contacted with.</p>
+   * <p>The language you would prefer to be contacted with. The contact language can be one
+   *             of <code>EN</code> or <code>JA</code>.</p>
    * @public
    */
   ContactLanguage?: ContactLanguage | undefined;
@@ -8209,8 +8332,8 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
 
   /**
    * <p>Specifies whether messages that use the configuration set are required to use
-   *             Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only
-   *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
+   *             Transport Layer Security (TLS). If the value is <code>REQUIRE</code>, messages are only
+   *             delivered if a TLS connection can be established. If the value is <code>OPTIONAL</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    * @public
    */
@@ -8230,6 +8353,34 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
    * @public
    */
   MaxDeliverySeconds?: number | undefined;
+
+  /**
+   * <p>The shared pool delivery mode for email that you send with the configuration set
+   *             from shared IP addresses. This setting overrides the shared pool delivery mode of your
+   *             account. Can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>GLOBAL</code> – Amazon SES delivers from your sending Region first and,
+   *                     when it improves your deliverability, also uses Amazon SES shared IP addresses with
+   *                     established sending history in other Amazon Web Services Regions within the same Amazon Web Services
+   *                     partition.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REGIONAL</code> – Amazon SES delivers your email only from shared IP
+   *                     addresses in your sending Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACCOUNT</code> – The configuration set uses the shared pool
+   *                     delivery mode of your account.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a value, the current value doesn't change.</p>
+   * @public
+   */
+  SharedPoolDeliveryMode?: SharedPoolDeliveryMode | undefined;
 }
 
 /**
@@ -8360,57 +8511,3 @@ export interface PutConfigurationSetSuppressionOptionsRequest {
  * @public
  */
 export interface PutConfigurationSetSuppressionOptionsResponse {}
-
-/**
- * <p>A request to add a custom domain for tracking open and click events to a configuration
- *             set.</p>
- * @public
- */
-export interface PutConfigurationSetTrackingOptionsRequest {
-  /**
-   * <p>The name of the configuration set.</p>
-   * @public
-   */
-  ConfigurationSetName: string | undefined;
-
-  /**
-   * <p>The domain to use to track open and click events.</p>
-   * @public
-   */
-  CustomRedirectDomain?: string | undefined;
-
-  /**
-   * <p>The https policy to use for tracking open and click events. If the value is OPTIONAL or HttpsPolicy is not
-   *         specified, the open trackers use HTTP and click tracker use the original protocol of the link.
-   *         If the value is REQUIRE, both open and click tracker uses HTTPS and if the value is REQUIRE_OPEN_ONLY
-   *             open tracker uses HTTPS and link tracker is same as original protocol of the link.
-   *         </p>
-   * @public
-   */
-  HttpsPolicy?: HttpsPolicy | undefined;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutConfigurationSetTrackingOptionsResponse {}
-
-/**
- * <p>A request to add specific VDM settings to a configuration set.</p>
- * @public
- */
-export interface PutConfigurationSetVdmOptionsRequest {
-  /**
-   * <p>The name of the configuration set.</p>
-   * @public
-   */
-  ConfigurationSetName: string | undefined;
-
-  /**
-   * <p>The VDM options to apply to the configuration set.</p>
-   * @public
-   */
-  VdmOptions?: VdmOptions | undefined;
-}

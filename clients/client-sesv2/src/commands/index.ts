@@ -77,6 +77,7 @@ export * from "./ListTagsForResourceCommand";
 export * from "./ListTenantResourcesCommand";
 export * from "./ListTenantsCommand";
 export * from "./PutAccountDedicatedIpWarmupAttributesCommand";
+export * from "./PutAccountDeliveryAttributesCommand";
 export * from "./PutAccountDetailsCommand";
 export * from "./PutAccountPricingAttributesCommand";
 export * from "./PutAccountSendingAttributesCommand";

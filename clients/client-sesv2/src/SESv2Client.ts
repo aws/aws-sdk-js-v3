@@ -301,6 +301,10 @@ import type {
   PutAccountDedicatedIpWarmupAttributesCommandOutput,
 } from "./commands/PutAccountDedicatedIpWarmupAttributesCommand";
 import type {
+  PutAccountDeliveryAttributesCommandInput,
+  PutAccountDeliveryAttributesCommandOutput,
+} from "./commands/PutAccountDeliveryAttributesCommand";
+import type {
   PutAccountDetailsCommandInput,
   PutAccountDetailsCommandOutput,
 } from "./commands/PutAccountDetailsCommand";
@@ -530,6 +534,7 @@ export type ServiceInputTypes =
   | ListTenantResourcesCommandInput
   | ListTenantsCommandInput
   | PutAccountDedicatedIpWarmupAttributesCommandInput
+  | PutAccountDeliveryAttributesCommandInput
   | PutAccountDetailsCommandInput
   | PutAccountPricingAttributesCommandInput
   | PutAccountSendingAttributesCommandInput
@@ -651,6 +656,7 @@ export type ServiceOutputTypes =
   | ListTenantResourcesCommandOutput
   | ListTenantsCommandOutput
   | PutAccountDedicatedIpWarmupAttributesCommandOutput
+  | PutAccountDeliveryAttributesCommandOutput
   | PutAccountDetailsCommandOutput
   | PutAccountPricingAttributesCommandOutput
   | PutAccountSendingAttributesCommandOutput

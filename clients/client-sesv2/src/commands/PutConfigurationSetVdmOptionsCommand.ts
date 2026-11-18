@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { PutConfigurationSetVdmOptionsRequest } from "../models/models_0";
-import type { PutConfigurationSetVdmOptionsResponse } from "../models/models_1";
+import type { PutConfigurationSetVdmOptionsRequest, PutConfigurationSetVdmOptionsResponse } from "../models/models_1";
 import { PutConfigurationSetVdmOptions$ } from "../schemas/schemas_0";
 
 /**

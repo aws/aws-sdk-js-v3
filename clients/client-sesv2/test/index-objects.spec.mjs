@@ -1,5 +1,6 @@
 import {
   AccountDetails$,
+  AccountSharedPoolDeliveryMode,
   AccountSuspendedException,
   AccountSuspendedException$,
   AlreadyExistsException,
@@ -170,6 +171,7 @@ import {
   DeliverabilityDashboardAccountStatus,
   DeliverabilityTestReport$,
   DeliverabilityTestStatus,
+  DeliveryAttributes$,
   DeliveryEventType,
   DeliveryOptions$,
   Destination$,
@@ -469,6 +471,10 @@ import {
   PutAccountDedicatedIpWarmupAttributesCommand,
   PutAccountDedicatedIpWarmupAttributesRequest$,
   PutAccountDedicatedIpWarmupAttributesResponse$,
+  PutAccountDeliveryAttributes$,
+  PutAccountDeliveryAttributesCommand,
+  PutAccountDeliveryAttributesRequest$,
+  PutAccountDeliveryAttributesResponse$,
   PutAccountDetails$,
   PutAccountDetailsCommand,
   PutAccountDetailsRequest$,
@@ -600,6 +606,7 @@ import {
   SESv2,
   SESv2Client,
   SESv2ServiceException,
+  SharedPoolDeliveryMode,
   SignatureFormat,
   SigningScheme$,
   SmimeSigningScheme$,
@@ -853,6 +860,8 @@ assert(typeof ListTenantsCommand === "function");
 assert(typeof ListTenants$ === "object");
 assert(typeof PutAccountDedicatedIpWarmupAttributesCommand === "function");
 assert(typeof PutAccountDedicatedIpWarmupAttributes$ === "object");
+assert(typeof PutAccountDeliveryAttributesCommand === "function");
+assert(typeof PutAccountDeliveryAttributes$ === "object");
 assert(typeof PutAccountDetailsCommand === "function");
 assert(typeof PutAccountDetails$ === "object");
 assert(typeof PutAccountPricingAttributesCommand === "function");
@@ -1018,6 +1027,7 @@ assert(typeof DeleteTenantResourceAssociationRequest$ === "object");
 assert(typeof DeleteTenantResourceAssociationResponse$ === "object");
 assert(typeof DeleteTenantResponse$ === "object");
 assert(typeof DeliverabilityTestReport$ === "object");
+assert(typeof DeliveryAttributes$ === "object");
 assert(typeof DeliveryOptions$ === "object");
 assert(typeof Destination$ === "object");
 assert(typeof Details$ === "object");
@@ -1165,6 +1175,8 @@ assert(typeof PlacementStatistics$ === "object");
 assert(typeof PricingAttributes$ === "object");
 assert(typeof PutAccountDedicatedIpWarmupAttributesRequest$ === "object");
 assert(typeof PutAccountDedicatedIpWarmupAttributesResponse$ === "object");
+assert(typeof PutAccountDeliveryAttributesRequest$ === "object");
+assert(typeof PutAccountDeliveryAttributesResponse$ === "object");
 assert(typeof PutAccountDetailsRequest$ === "object");
 assert(typeof PutAccountDetailsResponse$ === "object");
 assert(typeof PutAccountPricingAttributesRequest$ === "object");
@@ -1284,6 +1296,7 @@ assert(typeof VdmOptions$ === "object");
 assert(typeof VerificationInfo$ === "object");
 assert(typeof VolumeStatistics$ === "object");
 // enums
+assert(typeof AccountSharedPoolDeliveryMode === "object");
 assert(typeof AttachmentContentDisposition === "object");
 assert(typeof AttachmentContentTransferEncoding === "object");
 assert(typeof BehaviorOnMxFailure === "object");
@@ -1331,6 +1344,7 @@ assert(typeof ResourceType === "object");
 assert(typeof ReviewStatus === "object");
 assert(typeof ScalingMode === "object");
 assert(typeof SendingStatus === "object");
+assert(typeof SharedPoolDeliveryMode === "object");
 assert(typeof SignatureFormat === "object");
 assert(typeof Status === "object");
 assert(typeof SubscriptionStatus === "object");

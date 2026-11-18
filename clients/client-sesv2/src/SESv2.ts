@@ -394,6 +394,11 @@ import {
   PutAccountDedicatedIpWarmupAttributesCommand,
 } from "./commands/PutAccountDedicatedIpWarmupAttributesCommand";
 import {
+  type PutAccountDeliveryAttributesCommandInput,
+  type PutAccountDeliveryAttributesCommandOutput,
+  PutAccountDeliveryAttributesCommand,
+} from "./commands/PutAccountDeliveryAttributesCommand";
+import {
   type PutAccountDetailsCommandInput,
   type PutAccountDetailsCommandOutput,
   PutAccountDetailsCommand,
@@ -682,6 +687,7 @@ const commands = {
   ListTenantResourcesCommand,
   ListTenantsCommand,
   PutAccountDedicatedIpWarmupAttributesCommand,
+  PutAccountDeliveryAttributesCommand,
   PutAccountDetailsCommand,
   PutAccountPricingAttributesCommand,
   PutAccountSendingAttributesCommand,
@@ -2094,6 +2100,23 @@ export interface SESv2 {
     args: PutAccountDedicatedIpWarmupAttributesCommandInput,
     options: SESv2RequestOptions,
     cb: (err: any, data?: PutAccountDedicatedIpWarmupAttributesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAccountDeliveryAttributesCommand}
+   */
+  putAccountDeliveryAttributes(
+    args: PutAccountDeliveryAttributesCommandInput,
+    options?: SESv2RequestOptions
+  ): Promise<PutAccountDeliveryAttributesCommandOutput>;
+  putAccountDeliveryAttributes(
+    args: PutAccountDeliveryAttributesCommandInput,
+    cb: (err: any, data?: PutAccountDeliveryAttributesCommandOutput) => void
+  ): void;
+  putAccountDeliveryAttributes(
+    args: PutAccountDeliveryAttributesCommandInput,
+    options: SESv2RequestOptions,
+    cb: (err: any, data?: PutAccountDeliveryAttributesCommandOutput) => void
   ): void;
 
   /**

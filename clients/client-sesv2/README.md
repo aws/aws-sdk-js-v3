@@ -733,6 +733,13 @@ PutAccountDedicatedIpWarmupAttributes
 </details>
 <details>
 <summary>
+PutAccountDeliveryAttributes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/PutAccountDeliveryAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/PutAccountDeliveryAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/PutAccountDeliveryAttributesCommandOutput/)
+</details>
+<details>
+<summary>
 PutAccountDetails
 </summary>
 

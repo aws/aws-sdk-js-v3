@@ -144,6 +144,7 @@ const _Cont = "Contacts";
 const _D = "Dimensions";
 const _DA = "DkimAttributes";
 const _DAa = "DashboardAttributes";
+const _DAe = "DeliveryAttributes";
 const _DC = "DiagnosticCode";
 const _DCL = "DeleteContactList";
 const _DCLR = "DeleteContactListRequest";
@@ -541,6 +542,9 @@ const _OV = "OverallVolume";
 const _P = "Policy";
 const _PA = "PricingAttributes";
 const _PAD = "PutAccountDetails";
+const _PADA = "PutAccountDeliveryAttributes";
+const _PADAR = "PutAccountDeliveryAttributesRequest";
+const _PADARu = "PutAccountDeliveryAttributesResponse";
 const _PADIWA = "PutAccountDedicatedIpWarmupAttributes";
 const _PADIWAR = "PutAccountDedicatedIpWarmupAttributesRequest";
 const _PADIWARu = "PutAccountDedicatedIpWarmupAttributesResponse";
@@ -711,6 +715,7 @@ const _SO = "SendingOptions";
 const _SOAR = "SOARecord";
 const _SOu = "SuppressionOptions";
 const _SP = "SpamPercentage";
+const _SPDM = "SharedPoolDeliveryMode";
 const _SPE = "SendingPausedException";
 const _SPN = "SendingPoolName";
 const _SPp = "SpfPercentage";
@@ -1406,10 +1411,15 @@ export var DeliverabilityTestReport$: StaticStructureSchema = [3, n0, _DTRel,
   [_RI, _RNe, _Su, _FEA, _CDr, _DTS],
   [0, 0, 0, 0, 4, 0]
 ];
+export var DeliveryAttributes$: StaticStructureSchema = [3, n0, _DAe,
+  0,
+  [_SPDM],
+  [0]
+];
 export var DeliveryOptions$: StaticStructureSchema = [3, n0, _DO,
   0,
-  [_TPl, _SPN, _MDS],
-  [0, 0, 1]
+  [_TPl, _SPN, _MDS, _SPDM],
+  [0, 0, 1, 0]
 ];
 export var Destination$: StaticStructureSchema = [3, n0, _Des,
   0,
@@ -1543,8 +1553,8 @@ export var GetAccountRequest$: StaticStructureSchema = [3, n0, _GAR,
 ];
 export var GetAccountResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
-  [_DIAWE, _ESn, _PAE, _SQ, _SEe, _SA, _Det, _VA, _PA],
-  [2, 0, 2, () => SendQuota$, 2, () => SuppressionAttributes$, [() => AccountDetails$, 0], () => VdmAttributes$, () => PricingAttributes$]
+  [_DIAWE, _ESn, _PAE, _SQ, _SEe, _SA, _Det, _VA, _PA, _DAe],
+  [2, 0, 2, () => SendQuota$, 2, () => SuppressionAttributes$, [() => AccountDetails$, 0], () => VdmAttributes$, () => PricingAttributes$, () => DeliveryAttributes$]
 ];
 export var GetBlacklistReportsRequest$: StaticStructureSchema = [3, n0, _GBRR,
   0,
@@ -2141,6 +2151,16 @@ export var PutAccountDedicatedIpWarmupAttributesResponse$: StaticStructureSchema
   [],
   []
 ];
+export var PutAccountDeliveryAttributesRequest$: StaticStructureSchema = [3, n0, _PADAR,
+  0,
+  [_SPDM],
+  [0], 1
+];
+export var PutAccountDeliveryAttributesResponse$: StaticStructureSchema = [3, n0, _PADARu,
+  0,
+  [],
+  []
+];
 export var PutAccountDetailsRequest$: StaticStructureSchema = [3, n0, _PADR,
   0,
   [_MT, _WURL, _CL, _UCD, _ACEAd, _PAE],
@@ -2203,8 +2223,8 @@ export var PutConfigurationSetArchivingOptionsResponse$: StaticStructureSchema =
 ];
 export var PutConfigurationSetDeliveryOptionsRequest$: StaticStructureSchema = [3, n0, _PCSDOR,
   0,
-  [_CSN, _TPl, _SPN, _MDS],
-  [[0, 1], 0, 0, 1], 1
+  [_CSN, _TPl, _SPN, _MDS, _SPDM],
+  [[0, 1], 0, 0, 1, 0], 1
 ];
 export var PutConfigurationSetDeliveryOptionsResponse$: StaticStructureSchema = [3, n0, _PCSDORu,
   0,
@@ -3133,6 +3153,9 @@ export var ListTenants$: StaticOperationSchema = [9, n0, _LTi,
 ];
 export var PutAccountDedicatedIpWarmupAttributes$: StaticOperationSchema = [9, n0, _PADIWA,
   { [_h]: ["PUT", "/v2/email/account/dedicated-ips/warmup", 200] }, () => PutAccountDedicatedIpWarmupAttributesRequest$, () => PutAccountDedicatedIpWarmupAttributesResponse$
+];
+export var PutAccountDeliveryAttributes$: StaticOperationSchema = [9, n0, _PADA,
+  { [_h]: ["POST", "/v2/email/account/delivery", 200] }, () => PutAccountDeliveryAttributesRequest$, () => PutAccountDeliveryAttributesResponse$
 ];
 export var PutAccountDetails$: StaticOperationSchema = [9, n0, _PAD,
   { [_h]: ["POST", "/v2/email/account/details", 200] }, () => PutAccountDetailsRequest$, () => PutAccountDetailsResponse$

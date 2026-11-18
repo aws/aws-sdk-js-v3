@@ -3,6 +3,7 @@ import type {
   BehaviorOnMxFailure,
   DkimSigningAttributesOrigin,
   DkimStatus,
+  HttpsPolicy,
   ReputationEntityType,
   ScalingMode,
   SendingStatus,
@@ -26,7 +27,62 @@ import type {
   Tag,
   Topic,
   TopicPreference,
+  VdmOptions,
 } from "./models_0";
+
+/**
+ * <p>A request to add a custom domain for tracking open and click events to a configuration
+ *             set.</p>
+ * @public
+ */
+export interface PutConfigurationSetTrackingOptionsRequest {
+  /**
+   * <p>The name of the configuration set.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The domain to use to track open and click events.</p>
+   * @public
+   */
+  CustomRedirectDomain?: string | undefined;
+
+  /**
+   * <p>The https policy to use for tracking open and click events. If the value is OPTIONAL or HttpsPolicy is not
+   *         specified, the open trackers use HTTP and click tracker use the original protocol of the link.
+   *         If the value is REQUIRE, both open and click tracker uses HTTPS and if the value is REQUIRE_OPEN_ONLY
+   *             open tracker uses HTTPS and link tracker is same as original protocol of the link.
+   *         </p>
+   * @public
+   */
+  HttpsPolicy?: HttpsPolicy | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetTrackingOptionsResponse {}
+
+/**
+ * <p>A request to add specific VDM settings to a configuration set.</p>
+ * @public
+ */
+export interface PutConfigurationSetVdmOptionsRequest {
+  /**
+   * <p>The name of the configuration set.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The VDM options to apply to the configuration set.</p>
+   * @public
+   */
+  VdmOptions?: VdmOptions | undefined;
+}
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
@@ -395,13 +451,13 @@ export interface PutEmailIdentityMailFromAttributesRequest {
 
   /**
    * <p>The action to take if the required MX record isn't found when you send an email. When
-   *             you set this value to <code>UseDefaultValue</code>, the mail is sent using
+   *             you set this value to <code>USE_DEFAULT_VALUE</code>, the mail is sent using
    *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
-   *             to <code>RejectMessage</code>, the Amazon SES API v2 returns a
-   *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
+   *             to <code>REJECT_MESSAGE</code>, the Amazon SES API v2 returns a
+   *                 <code>MailFromDomainNotVerifiedException</code> error, and doesn't attempt to deliver the
    *             email.</p>
    *          <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
-   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
+   *                 <code>PENDING</code>, <code>FAILED</code>, and <code>TEMPORARY_FAILURE</code>
    *             states.</p>
    * @public
    */
@@ -561,7 +617,7 @@ export interface SendBulkEmailRequest {
 
   /**
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
-   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
+   *             using the <code>SendBulkEmail</code> operation. Tags correspond to characteristics of the
    *             email that you define, so that you can publish email sending events.</p>
    * @public
    */

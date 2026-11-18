@@ -85,6 +85,9 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * //     CurrentPlan: "NONE" || "ESSENTIALS" || "PRO" || "ENTERPRISE",
  * //     NextPlan: "NONE" || "ESSENTIALS" || "PRO" || "ENTERPRISE",
  * //   },
+ * //   DeliveryAttributes: { // DeliveryAttributes
+ * //     SharedPoolDeliveryMode: "GLOBAL" || "REGIONAL",
+ * //   },
  * // };
  *
  * ```

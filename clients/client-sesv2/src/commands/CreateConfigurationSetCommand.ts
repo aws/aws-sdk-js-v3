@@ -46,6 +46,7 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *     TlsPolicy: "REQUIRE" || "OPTIONAL",
  *     SendingPoolName: "STRING_VALUE",
  *     MaxDeliverySeconds: Number("long"),
+ *     SharedPoolDeliveryMode: "GLOBAL" || "REGIONAL" || "ACCOUNT",
  *   },
  *   ReputationOptions: { // ReputationOptions
  *     ReputationMetricsEnabled: true || false,

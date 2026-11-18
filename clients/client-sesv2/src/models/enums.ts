@@ -44,6 +44,20 @@ export type ReviewStatus = (typeof ReviewStatus)[keyof typeof ReviewStatus];
  * @public
  * @enum
  */
+export const AccountSharedPoolDeliveryMode = {
+  GLOBAL: "GLOBAL",
+  REGIONAL: "REGIONAL",
+} as const;
+/**
+ * @public
+ */
+export type AccountSharedPoolDeliveryMode =
+  (typeof AccountSharedPoolDeliveryMode)[keyof typeof AccountSharedPoolDeliveryMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const AttachmentContentDisposition = {
   ATTACHMENT: "ATTACHMENT",
   INLINE: "INLINE",
@@ -246,6 +260,20 @@ export const ContactListImportAction = {
  * @public
  */
 export type ContactListImportAction = (typeof ContactListImportAction)[keyof typeof ContactListImportAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const SharedPoolDeliveryMode = {
+  ACCOUNT: "ACCOUNT",
+  GLOBAL: "GLOBAL",
+  REGIONAL: "REGIONAL",
+} as const;
+/**
+ * @public
+ */
+export type SharedPoolDeliveryMode = (typeof SharedPoolDeliveryMode)[keyof typeof SharedPoolDeliveryMode];
 
 /**
  * @public

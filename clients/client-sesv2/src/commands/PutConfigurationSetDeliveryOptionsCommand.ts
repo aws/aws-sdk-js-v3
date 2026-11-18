@@ -41,6 +41,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput extends PutConf
  *   TlsPolicy: "REQUIRE" || "OPTIONAL",
  *   SendingPoolName: "STRING_VALUE",
  *   MaxDeliverySeconds: Number("long"),
+ *   SharedPoolDeliveryMode: "GLOBAL" || "REGIONAL" || "ACCOUNT",
  * };
  * const command = new PutConfigurationSetDeliveryOptionsCommand(input);
  * const response = await client.send(command);
