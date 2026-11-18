@@ -201,9 +201,16 @@ async function createClientAndRecorder() {
     calls: {} as Record<string, Record<string, number>>,
   };
 
+  // the deserialize step runs once per attempt, so count each command once even if it is retried.
+  const recordedCommands = new WeakSet<object>();
+
   s3.middlewareStack.add(
     (next, context) => async (args) => {
       const continuation = next(args);
+      if (recordedCommands.has(context)) {
+        return continuation;
+      }
+      recordedCommands.add(context);
 
       let s3ExpressSuffix = " (normal)";
       if (context.s3ExpressIdentity) {
