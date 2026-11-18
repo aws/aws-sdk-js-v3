@@ -48,6 +48,17 @@ export interface PopulateIntermediateTableCommandOutput extends PopulateIntermed
  *         },
  *       },
  *     },
+ *     jobComputeConfiguration: { // ProtectedJobComputeConfiguration Union: only one key present
+ *       worker: { // ProtectedJobWorkerComputeConfiguration
+ *         type: "CR.1X" || "CR.4X", // required
+ *         number: Number("int"), // required
+ *         properties: {//  Union: only one key present
+ *           spark: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
  *   },
  *   analysisPayerAccountId: "STRING_VALUE",
  * };
@@ -55,7 +66,7 @@ export interface PopulateIntermediateTableCommandOutput extends PopulateIntermed
  * const response = await client.send(command);
  * // { // PopulateIntermediateTableOutput
  * //   analysisId: "STRING_VALUE", // required
- * //   analysisType: "QUERY", // required
+ * //   analysisType: "QUERY" || "JOB", // required
  * //   versionId: "STRING_VALUE", // required
  * // };
  *

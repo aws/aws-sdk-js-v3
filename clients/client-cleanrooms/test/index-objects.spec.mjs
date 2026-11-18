@@ -569,6 +569,7 @@ import {
   PopulateIntermediateTableInput$,
   PopulateIntermediateTableOutput$,
   PopulationAnalysisConfiguration$,
+  PopulationAnalysisJobParameters$,
   PopulationAnalysisSqlParameters$,
   PreviewPrivacyImpact$,
   PreviewPrivacyImpactCommand,
@@ -1299,6 +1300,7 @@ assert(typeof PopulateIdMappingTableOutput$ === "object");
 assert(typeof PopulateIntermediateTableInput$ === "object");
 assert(typeof PopulateIntermediateTableOutput$ === "object");
 assert(typeof PopulationAnalysisConfiguration$ === "object");
+assert(typeof PopulationAnalysisJobParameters$ === "object");
 assert(typeof PopulationAnalysisSqlParameters$ === "object");
 assert(typeof PreviewPrivacyImpactInput$ === "object");
 assert(typeof PreviewPrivacyImpactOutput$ === "object");

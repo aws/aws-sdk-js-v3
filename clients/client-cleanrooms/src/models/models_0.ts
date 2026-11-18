@@ -7660,6 +7660,18 @@ export interface UpdateIdNamespaceAssociationOutput {
 }
 
 /**
+ * <p>Contains the PySpark job parameters used to populate an intermediate table, including the ARN of the analysis template that defines the job. Use these parameters instead of SQL parameters when the analysis you use to populate the intermediate table is a PySpark analysis template.</p>
+ * @public
+ */
+export interface PopulationAnalysisJobParameters {
+  /**
+   * <p>Specifies the ARN of the PySpark analysis template that populates the intermediate table. Provide this ARN in <code>jobParameters</code> when you populate the intermediate table with results from a PySpark job.</p>
+   * @public
+   */
+  analysisTemplateArn: string | undefined;
+}
+
+/**
  * <p>Contains the SQL parameters used to populate an intermediate table.</p>
  * @public
  */
@@ -7682,6 +7694,7 @@ export interface PopulationAnalysisSqlParameters {
  * @public
  */
 export type PopulationAnalysisConfiguration =
+  | PopulationAnalysisConfiguration.JobParametersMember
   | PopulationAnalysisConfiguration.SqlParametersMember
   | PopulationAnalysisConfiguration.$UnknownMember;
 
@@ -7695,6 +7708,17 @@ export namespace PopulationAnalysisConfiguration {
    */
   export interface SqlParametersMember {
     sqlParameters: PopulationAnalysisSqlParameters;
+    jobParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies the PySpark job parameters for the population analysis. Use <code>jobParameters</code> instead of <code>sqlParameters</code> when you populate the intermediate table with results from a PySpark job.</p>
+   * @public
+   */
+  export interface JobParametersMember {
+    sqlParameters?: never;
+    jobParameters: PopulationAnalysisJobParameters;
     $unknown?: never;
   }
 
@@ -7703,6 +7727,7 @@ export namespace PopulationAnalysisConfiguration {
    */
   export interface $UnknownMember {
     sqlParameters?: never;
+    jobParameters?: never;
     $unknown: [string, any];
   }
 
@@ -7712,6 +7737,7 @@ export namespace PopulationAnalysisConfiguration {
    */
   export interface Visitor<T> {
     sqlParameters: (value: PopulationAnalysisSqlParameters) => T;
+    jobParameters: (value: PopulationAnalysisJobParameters) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -8685,21 +8711,4 @@ export interface IntermediateTableSummary {
    * @public
    */
   analysisRuleTypes?: IntermediateTableAnalysisRuleType[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIntermediateTablesOutput {
-  /**
-   * <p>The list of intermediate table summaries.</p>
-   * @public
-   */
-  intermediateTableSummaries: IntermediateTableSummary[] | undefined;
-
-  /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
 }

@@ -48,7 +48,7 @@ export interface ListIntermediateTableVersionsCommandOutput extends ListIntermed
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       analysisId: "STRING_VALUE", // required
  * //       status: "POPULATE_STARTED" || "POPULATE_SUCCESS" || "POPULATE_FAILED" || "RETENTION_PERIOD_EXPIRED", // required
- * //       analysisType: "QUERY", // required
+ * //       analysisType: "QUERY" || "JOB", // required
  * //       kmsKeyArn: "STRING_VALUE",
  * //       expirationTime: new Date("TIMESTAMP"),
  * //     },

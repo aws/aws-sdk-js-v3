@@ -454,6 +454,7 @@ const _MTPC = "ModelTrainingPaymentConfig";
 const _OCT = "OutputColumnThreshold";
 const _OCTL = "OutputColumnThresholdList";
 const _PAC = "PopulationAnalysisConfiguration";
+const _PAJP = "PopulationAnalysisJobParameters";
 const _PASP = "PopulationAnalysisSqlParameters";
 const _PB = "PrivacyBudget";
 const _PBS = "PrivacyBudgetSummary";
@@ -814,6 +815,7 @@ const _iTS = "intermediateTableSummaries";
 const _iTV = "intermediateTableVersion";
 const _iTVS = "intermediateTableVersionSummaries";
 const _jC = "joinColumns";
+const _jCC = "jobComputeConfiguration";
 const _jCPAI = "jobComputePayerAccountId";
 const _jCo = "jobCompute";
 const _jLS = "jobLogStatus";
@@ -2589,6 +2591,11 @@ export var PopulateIntermediateTableOutput$: StaticStructureSchema = [3, n0, _PI
   [_aI, _aT, _vI],
   [0, 0, 0], 3
 ];
+export var PopulationAnalysisJobParameters$: StaticStructureSchema = [3, n0, _PAJP,
+  0,
+  [_aTAn],
+  [0], 1
+];
 export var PopulationAnalysisSqlParameters$: StaticStructureSchema = [3, n0, _PASP,
   8,
   [_qS, _aTAn],
@@ -2696,8 +2703,8 @@ export var ProtectedJobStatistics$: StaticStructureSchema = [3, n0, _PJS,
 ];
 export var ProtectedJobSummary$: StaticStructureSchema = [3, n0, _PJSr,
   0,
-  [_i, _mI, _mA, _cT, _st, _rCec, _jCPAI],
-  [0, 0, 0, 4, 0, () => ProtectedJobReceiverConfigurations, 0], 6
+  [_i, _mI, _mA, _cT, _st, _rCec, _jCPAI, _iTC],
+  [0, 0, 0, 4, 0, () => ProtectedJobReceiverConfigurations, 0, () => IntermediateTableOutputConfiguration$], 6
 ];
 export var ProtectedJobWorkerComputeConfiguration$: StaticStructureSchema = [3, n0, _PJWCC,
   0,
@@ -3391,8 +3398,8 @@ export var IntermediateTableAnalysisRulePolicyV1$: StaticUnionSchema = [4, n0, _
 ];
 export var IntermediateTableComputeConfiguration$: StaticUnionSchema = [4, n0, _ITCC,
   0,
-  [_qCC],
-  [() => WorkerComputeConfiguration$]
+  [_qCC, _jCC],
+  [() => WorkerComputeConfiguration$, () => ProtectedJobComputeConfiguration$]
 ];
 export var MembershipProtectedJobOutputConfiguration$: StaticUnionSchema = [4, n0, _MPJOC,
   0,
@@ -3406,8 +3413,8 @@ export var MembershipProtectedQueryOutputConfiguration$: StaticUnionSchema = [4,
 ];
 export var PopulationAnalysisConfiguration$: StaticUnionSchema = [4, n0, _PAC,
   0,
-  [_sPq],
-  [[() => PopulationAnalysisSqlParameters$, 0]]
+  [_sPq, _jP],
+  [[() => PopulationAnalysisSqlParameters$, 0], () => PopulationAnalysisJobParameters$]
 ];
 export var PreviewPrivacyImpactParametersInput$: StaticUnionSchema = [4, n0, _PPIPI,
   0,
@@ -3461,8 +3468,8 @@ export var ProtectedJobOutputConfigurationInput$: StaticUnionSchema = [4, n0, _P
 ];
 export var ProtectedJobOutputConfigurationOutput$: StaticUnionSchema = [4, n0, _PJOCO,
   0,
-  [_s_, _memb],
-  [() => ProtectedJobS3OutputConfigurationOutput$, () => ProtectedJobMemberOutputConfigurationOutput$]
+  [_s_, _memb, _iT],
+  [() => ProtectedJobS3OutputConfigurationOutput$, () => ProtectedJobMemberOutputConfigurationOutput$, () => IntermediateTableOutputConfiguration$]
 ];
 export var ProtectedQueryDistributeOutputConfigurationLocation$: StaticUnionSchema = [4, n0, _PQDOCLr,
   0,

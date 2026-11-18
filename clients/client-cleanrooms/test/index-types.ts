@@ -711,6 +711,7 @@ export type {
   PopulateIntermediateTableInput,
   PopulateIntermediateTableOutput,
   PopulationAnalysisConfiguration,
+  PopulationAnalysisJobParameters,
   PopulationAnalysisSqlParameters,
   PreviewPrivacyImpactInput,
   PreviewPrivacyImpactOutput,

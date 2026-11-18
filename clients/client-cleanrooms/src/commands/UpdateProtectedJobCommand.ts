@@ -61,6 +61,11 @@ export interface UpdateProtectedJobCommandOutput extends UpdateProtectedJobOutpu
  * //         member: { // ProtectedJobMemberOutputConfigurationOutput
  * //           accountId: "STRING_VALUE", // required
  * //         },
+ * //         intermediateTable: { // IntermediateTableOutputConfiguration
+ * //           id: "STRING_VALUE", // required
+ * //           arn: "STRING_VALUE", // required
+ * //           name: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     },
  * //     statistics: { // ProtectedJobStatistics

@@ -67,6 +67,9 @@ export interface GetIntermediateTableCommandOutput extends GetIntermediateTableO
  * //         queryString: "STRING_VALUE",
  * //         analysisTemplateArn: "STRING_VALUE",
  * //       },
+ * //       jobParameters: { // PopulationAnalysisJobParameters
+ * //         analysisTemplateArn: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //     retentionInDays: Number("int"),
  * //     tableDependencies: [ // DependencyList
@@ -81,7 +84,7 @@ export interface GetIntermediateTableCommandOutput extends GetIntermediateTableO
  * //     intermediateTableVersion: { // IntermediateTableActiveVersion
  * //       versionId: "STRING_VALUE", // required
  * //       analysisId: "STRING_VALUE", // required
- * //       analysisType: "QUERY", // required
+ * //       analysisType: "QUERY" || "JOB", // required
  * //       kmsKeyArn: "STRING_VALUE",
  * //       parameters: { // ParameterMap
  * //         "<keys>": "STRING_VALUE",

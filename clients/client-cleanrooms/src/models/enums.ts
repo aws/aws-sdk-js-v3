@@ -911,6 +911,7 @@ export type IntermediateTableAnalysisRuleType =
  * @enum
  */
 export const PopulateIntermediateTableAnalysisType = {
+  JOB: "JOB",
   QUERY: "QUERY",
 } as const;
 /**
@@ -984,6 +985,20 @@ export type IntermediateTableVersionStatus =
  * @public
  * @enum
  */
+export const ProtectedJobWorkerComputeType = {
+  CR1X: "CR.1X",
+  CR4X: "CR.4X",
+} as const;
+/**
+ * @public
+ */
+export type ProtectedJobWorkerComputeType =
+  (typeof ProtectedJobWorkerComputeType)[keyof typeof ProtectedJobWorkerComputeType];
+
+/**
+ * @public
+ * @enum
+ */
 export const WorkerComputeType = {
   CR1X: "CR.1X",
   CR4X: "CR.4X",
@@ -1046,20 +1061,6 @@ export const MembershipStatus = {
  * @public
  */
 export type MembershipStatus = (typeof MembershipStatus)[keyof typeof MembershipStatus];
-
-/**
- * @public
- * @enum
- */
-export const ProtectedJobWorkerComputeType = {
-  CR1X: "CR.1X",
-  CR4X: "CR.4X",
-} as const;
-/**
- * @public
- */
-export type ProtectedJobWorkerComputeType =
-  (typeof ProtectedJobWorkerComputeType)[keyof typeof ProtectedJobWorkerComputeType];
 
 /**
  * @public

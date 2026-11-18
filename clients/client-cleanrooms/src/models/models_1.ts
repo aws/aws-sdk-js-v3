@@ -33,10 +33,28 @@ import type {
   IntermediateTable,
   IntermediateTableAnalysisRule,
   IntermediateTableAnalysisRulePolicy,
+  IntermediateTableSummary,
   MLMemberAbilities,
   PrivacyBudget,
   PrivacyBudgetTemplateParametersOutput,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListIntermediateTablesOutput {
+  /**
+   * <p>The list of intermediate table summaries.</p>
+   * @public
+   */
+  intermediateTableSummaries: IntermediateTableSummary[] | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -178,6 +196,69 @@ export namespace WorkerComputeConfigurationProperties {
 }
 
 /**
+ * <p>The configuration of the compute resources for a PySpark job.</p>
+ * @public
+ */
+export interface ProtectedJobWorkerComputeConfiguration {
+  /**
+   * <p>The worker compute configuration type.</p>
+   * @public
+   */
+  type: ProtectedJobWorkerComputeType | undefined;
+
+  /**
+   * <p>The number of workers for a PySpark job.</p>
+   * @public
+   */
+  number: number | undefined;
+
+  /**
+   * <p>The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.</p>
+   * @public
+   */
+  properties?: WorkerComputeConfigurationProperties | undefined;
+}
+
+/**
+ * <p>The configuration of the compute resources for a PySpark job.</p>
+ * @public
+ */
+export type ProtectedJobComputeConfiguration =
+  | ProtectedJobComputeConfiguration.WorkerMember
+  | ProtectedJobComputeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedJobComputeConfiguration {
+  /**
+   * <p>The worker configuration for the compute environment.</p>
+   * @public
+   */
+  export interface WorkerMember {
+    worker: ProtectedJobWorkerComputeConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    worker?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    worker: (value: ProtectedJobWorkerComputeConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p> The configuration of the compute resources for workers running an analysis with the Clean Rooms SQL analytics engine.</p>
  * @public
  */
@@ -206,6 +287,7 @@ export interface WorkerComputeConfiguration {
  * @public
  */
 export type IntermediateTableComputeConfiguration =
+  | IntermediateTableComputeConfiguration.JobComputeConfigurationMember
   | IntermediateTableComputeConfiguration.QueryComputeConfigurationMember
   | IntermediateTableComputeConfiguration.$UnknownMember;
 
@@ -219,6 +301,17 @@ export namespace IntermediateTableComputeConfiguration {
    */
   export interface QueryComputeConfigurationMember {
     queryComputeConfiguration: WorkerComputeConfiguration;
+    jobComputeConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies the compute configuration for the PySpark job that populates the intermediate table.</p>
+   * @public
+   */
+  export interface JobComputeConfigurationMember {
+    queryComputeConfiguration?: never;
+    jobComputeConfiguration: ProtectedJobComputeConfiguration;
     $unknown?: never;
   }
 
@@ -227,6 +320,7 @@ export namespace IntermediateTableComputeConfiguration {
    */
   export interface $UnknownMember {
     queryComputeConfiguration?: never;
+    jobComputeConfiguration?: never;
     $unknown: [string, any];
   }
 
@@ -236,6 +330,7 @@ export namespace IntermediateTableComputeConfiguration {
    */
   export interface Visitor<T> {
     queryComputeConfiguration: (value: WorkerComputeConfiguration) => T;
+    jobComputeConfiguration: (value: ProtectedJobComputeConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -990,69 +1085,6 @@ export interface GetProtectedJobInput {
 }
 
 /**
- * <p>The configuration of the compute resources for a PySpark job.</p>
- * @public
- */
-export interface ProtectedJobWorkerComputeConfiguration {
-  /**
-   * <p>The worker compute configuration type.</p>
-   * @public
-   */
-  type: ProtectedJobWorkerComputeType | undefined;
-
-  /**
-   * <p>The number of workers for a PySpark job.</p>
-   * @public
-   */
-  number: number | undefined;
-
-  /**
-   * <p>The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.</p>
-   * @public
-   */
-  properties?: WorkerComputeConfigurationProperties | undefined;
-}
-
-/**
- * <p>The configuration of the compute resources for a PySpark job.</p>
- * @public
- */
-export type ProtectedJobComputeConfiguration =
-  | ProtectedJobComputeConfiguration.WorkerMember
-  | ProtectedJobComputeConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ProtectedJobComputeConfiguration {
-  /**
-   * <p>The worker configuration for the compute environment.</p>
-   * @public
-   */
-  export interface WorkerMember {
-    worker: ProtectedJobWorkerComputeConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    worker?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    worker: (value: ProtectedJobWorkerComputeConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
  * <p>Contains information about whether running a failed protected query or protected job again might succeed.</p>
  * @public
  */
@@ -1196,6 +1228,30 @@ export interface ProtectedJobResult {
 }
 
 /**
+ * <p>Contains the output configuration of an intermediate table when a protected query populates it.</p>
+ * @public
+ */
+export interface IntermediateTableOutputConfiguration {
+  /**
+   * <p>The unique identifier of the intermediate table.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the intermediate table.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The name of the intermediate table.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
  * <p> The protected job member output configuration output.</p>
  * @public
  */
@@ -1230,6 +1286,7 @@ export interface ProtectedJobS3OutputConfigurationOutput {
  * @public
  */
 export type ProtectedJobOutputConfigurationOutput =
+  | ProtectedJobOutputConfigurationOutput.IntermediateTableMember
   | ProtectedJobOutputConfigurationOutput.MemberMember
   | ProtectedJobOutputConfigurationOutput.S3Member
   | ProtectedJobOutputConfigurationOutput.$UnknownMember;
@@ -1245,6 +1302,7 @@ export namespace ProtectedJobOutputConfigurationOutput {
   export interface S3Member {
     s3: ProtectedJobS3OutputConfigurationOutput;
     member?: never;
+    intermediateTable?: never;
     $unknown?: never;
   }
 
@@ -1255,6 +1313,18 @@ export namespace ProtectedJobOutputConfigurationOutput {
   export interface MemberMember {
     s3?: never;
     member: ProtectedJobMemberOutputConfigurationOutput;
+    intermediateTable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies the intermediate table that the protected job populated, identified by its ID, Amazon Resource Name (ARN), and name. This field is present when the protected job was triggered by a <code>PopulateIntermediateTable</code> operation.</p>
+   * @public
+   */
+  export interface IntermediateTableMember {
+    s3?: never;
+    member?: never;
+    intermediateTable: IntermediateTableOutputConfiguration;
     $unknown?: never;
   }
 
@@ -1264,6 +1334,7 @@ export namespace ProtectedJobOutputConfigurationOutput {
   export interface $UnknownMember {
     s3?: never;
     member?: never;
+    intermediateTable?: never;
     $unknown: [string, any];
   }
 
@@ -1274,6 +1345,7 @@ export namespace ProtectedJobOutputConfigurationOutput {
   export interface Visitor<T> {
     s3: (value: ProtectedJobS3OutputConfigurationOutput) => T;
     member: (value: ProtectedJobMemberOutputConfigurationOutput) => T;
+    intermediateTable: (value: IntermediateTableOutputConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1735,30 +1807,6 @@ export interface ProtectedQueryDistributeOutputConfiguration {
    * @public
    */
   locations: ProtectedQueryDistributeOutputConfigurationLocation[] | undefined;
-}
-
-/**
- * <p>Contains the output configuration of an intermediate table when a protected query populates it.</p>
- * @public
- */
-export interface IntermediateTableOutputConfiguration {
-  /**
-   * <p>The unique identifier of the intermediate table.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the intermediate table.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The name of the intermediate table.</p>
-   * @public
-   */
-  name: string | undefined;
 }
 
 /**
@@ -2453,6 +2501,12 @@ export interface ProtectedJobSummary {
    * @public
    */
   jobComputePayerAccountId?: string | undefined;
+
+  /**
+   * <p>The intermediate table that the protected job populated. This field is present when the protected job was triggered by a <code>PopulateIntermediateTable</code> operation.</p>
+   * @public
+   */
+  intermediateTableConfiguration?: IntermediateTableOutputConfiguration | undefined;
 }
 
 /**
