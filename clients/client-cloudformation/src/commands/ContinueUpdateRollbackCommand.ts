@@ -37,7 +37,7 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  *       information for troubleshooting a failed update rollback, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">Update rollback failed</a>.</p>
  *          <p>
  *             <code>ForceRollback</code> and <code>ResourcesToSkip</code> are mutually exclusive.
- *       For details, see <a>ContinueUpdateRollbackInput$ForceRollback</a>.</p>
+ *       For details, see the <code>ForceRollback</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

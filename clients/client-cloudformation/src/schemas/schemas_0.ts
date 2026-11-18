@@ -46,6 +46,7 @@ const _BV = "BeforeValue";
 const _BVF = "BeforeValueFrom";
 const _C = "Change";
 const _CA = "CallAs";
+const _CAC = "CompletedAccountsCount";
 const _CAo = "ConnectionArn";
 const _CAon = "ConfigurationAlias";
 const _CAonf = "ConfigurationArn";
@@ -69,6 +70,8 @@ const _CSHRTD = "ChangeSetHookResourceTargetDetails";
 const _CSHTD = "ChangeSetHookTargetDetails";
 const _CSHh = "ChangeSetHooks";
 const _CSI = "ChangeSetId";
+const _CSIC = "CompletedStackInstancesCount";
+const _CSICa = "CancelledStackInstancesCount";
 const _CSII = "CreateStackInstancesInput";
 const _CSIO = "CreateStackInstancesOutput";
 const _CSIr = "CreateStackInput";
@@ -254,6 +257,7 @@ const _Ev = "Evaluation";
 const _Ex = "Export";
 const _Exp = "Exports";
 const _F = "Filters";
+const _FAC = "FailedAccountsCount";
 const _FE = "FailedEvents";
 const _FM = "FailureMode";
 const _FR = "ForceRollback";
@@ -438,6 +442,7 @@ const _OV = "OutputValue";
 const _Ou = "Outputs";
 const _P = "Parameters";
 const _PA = "PolicyAction";
+const _PAC = "PendingAccountsCount";
 const _PC = "PercentageCompleted";
 const _PCSI = "ParentChangeSetId";
 const _PCa = "ParameterConstraints";
@@ -459,6 +464,7 @@ const _PRI = "PhysicalResourceId";
 const _PRIC = "PhysicalResourceIdContext";
 const _PRICKVP = "PhysicalResourceIdContextKeyValuePair";
 const _PS = "PublisherStatus";
+const _PSIC = "PendingStackInstancesCount";
 const _PSr = "ProgressStatus";
 const _PT = "ProvisioningType";
 const _PTA = "PublicTypeArn";
@@ -517,14 +523,18 @@ const _RPO = "RegisterPublisherOutput";
 const _RPe = "ResourcesProcessing";
 const _RPeg = "RegisterPublisher";
 const _RPes = "ResourcesPending";
+const _RPo = "RoleProvisioning";
 const _RR = "RetainResources";
 const _RRe = "ResourcesRead";
 const _RRel = "RelatedResources";
 const _RRem = "RemoveResources";
 const _RReq = "RequiresRecreation";
 const _RS = "RetainStacks";
+const _RSD = "RegionalStatusDetail";
+const _RSDe = "RegionalStatusDetails";
 const _RSF = "RegistrationStatusFilter";
 const _RSI = "ResourceScanId";
+const _RSID = "RegionalStackInstancesDeployment";
 const _RSIPE = "ResourceScanInProgressException";
 const _RSIo = "RollbackStackInput";
 const _RSLEE = "ResourceScanLimitExceededException";
@@ -535,6 +545,7 @@ const _RSR = "ResourceStatusReason";
 const _RSS = "ResourceScanSummaries";
 const _RSSe = "ResourceScanSummary";
 const _RSe = "ResourcesScanned";
+const _RSeg = "RegionalStages";
 const _RSes = "ResourceStatus";
 const _RSeso = "ResourcesSucceeded";
 const _RSo = "RollbackStack";
@@ -561,6 +572,7 @@ const _Rep = "Replacement";
 const _Req = "Required";
 const _S = "Status";
 const _SA = "StagesAvailable";
+const _SAC = "SucceededAccountsCount";
 const _SAI = "SetAliasInput";
 const _SAe = "SetAlias";
 const _SD = "StackDefinitions";
@@ -578,6 +590,7 @@ const _SHP = "SchemaHandlerPackage";
 const _SI = "StackId";
 const _SIA = "StackInstanceAccount";
 const _SICS = "StackInstanceComprehensiveStatus";
+const _SID = "StackInstancesDeployment";
 const _SIF = "StackInstanceFilter";
 const _SIFt = "StackInstanceFilters";
 const _SINFE = "StackInstanceNotFoundException";
@@ -636,6 +649,8 @@ const _SSARN = "StackSetARN";
 const _SSDDD = "StackSetDriftDetectionDetails";
 const _SSF = "StackStatusFilter";
 const _SSI = "StackSetId";
+const _SSIC = "SucceededStackInstancesCount";
+const _SSICk = "SkippedStackInstancesCount";
 const _SSN = "StackSetName";
 const _SSNEE = "StackSetNotEmptyException";
 const _SSNFE = "StackSetNotFoundException";
@@ -671,10 +686,12 @@ const _Sc = "Schema";
 const _Sco = "Scope";
 const _So = "Source";
 const _St = "Stacks";
-const _Sta = "Stack";
+const _Sta = "Stages";
+const _Stac = "Stack";
 const _Su = "Summaries";
 const _T = "Type";
 const _TA = "TypeArn";
+const _TAC = "TotalAccountsCount";
 const _TAEE = "TokenAlreadyExistsException";
 const _TB = "TemplateBody";
 const _TC = "TypeConfigurations";
@@ -1875,6 +1892,21 @@ export var RecordHandlerProgressOutput$: StaticStructureSchema = [3, n0, _RHPO,
   [],
   []
 ];
+export var RegionalStackInstancesDeployment$: StaticStructureSchema = [3, n0, _RSID,
+  0,
+  [_S, _SSIC, _FSIC, _CSIC, _PSIC, _CSICa, _SSICk, _TSIC, _PC],
+  [0, 1, 1, 1, 1, 1, 1, 1, 1]
+];
+export var RegionalStages$: StaticStructureSchema = [3, n0, _RSeg,
+  0,
+  [_RSID],
+  [() => RegionalStackInstancesDeployment$]
+];
+export var RegionalStatusDetail$: StaticStructureSchema = [3, n0, _RSD,
+  0,
+  [_Sta],
+  [() => RegionalStages$]
+];
 export var RegisterPublisherInput$: StaticStructureSchema = [3, n0, _RPI,
   0,
   [_ATAC, _CAo],
@@ -1960,6 +1992,11 @@ export var ResourceToImport$: StaticStructureSchema = [3, n0, _RTIes,
   [_RT, _LRI, _RI],
   [0, 0, 128 | 0], 3
 ];
+export var RoleProvisioning$: StaticStructureSchema = [3, n0, _RPo,
+  0,
+  [_S, _SAC, _FAC, _CAC, _PAC, _PC],
+  [0, 1, 1, 1, 1, 1]
+];
 export var RollbackConfiguration$: StaticStructureSchema = [3, n0, _RCo,
   0,
   [_RTo, _MTIM],
@@ -2030,7 +2067,7 @@ export var SignalResourceInput$: StaticStructureSchema = [3, n0, _SRIi,
   [_SN, _LRI, _UI, _S],
   [0, 0, 0, 0], 4
 ];
-export var Stack$: StaticStructureSchema = [3, n0, _Sta,
+export var Stack$: StaticStructureSchema = [3, n0, _Stac,
   0,
   [_SN, _CT, _SSta, _SI, _CSI, _D, _P, _DTel, _LUT, _RCo, _SSR, _DR, _DC, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO, _ANl],
   [0, 4, 0, 0, 0, 0, () => _Parameters, 4, 4, () => RollbackConfiguration$, 0, 2, () => DeploymentConfig$, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations, 0], 3
@@ -2074,6 +2111,11 @@ export var StackInstanceResourceDriftsSummary$: StaticStructureSchema = [3, n0, 
   0,
   [_SI, _LRI, _RT, _SRDS, _Ti, _PRI, _PRIC, _PDro],
   [0, 0, 0, 0, 4, 0, () => PhysicalResourceIdContext, () => PropertyDifferences], 5
+];
+export var StackInstancesDeployment$: StaticStructureSchema = [3, n0, _SID,
+  0,
+  [_S, _SSIC, _FSIC, _CSIC, _PSIC, _CSICa, _SSICk, _PC],
+  [0, 1, 1, 1, 1, 1, 1, 1]
 ];
 export var StackInstanceSummary$: StaticStructureSchema = [3, n0, _SISt,
   0,
@@ -2137,8 +2179,8 @@ export var StackSetDriftDetectionDetails$: StaticStructureSchema = [3, n0, _SSDD
 ];
 export var StackSetOperation$: StaticStructureSchema = [3, n0, _SSO,
   0,
-  [_OI, _SSI, _Act, _S, _OP, _RS, _ARARN, _ERN, _CTr, _ETn, _DT, _SSDDD, _SR, _SDta],
-  [0, 0, 0, 0, () => StackSetOperationPreferences$, 2, 0, 0, 4, 4, () => DeploymentTargets$, () => StackSetDriftDetectionDetails$, 0, () => StackSetOperationStatusDetails$]
+  [_OI, _SSI, _Act, _S, _OP, _RS, _ARARN, _ERN, _CTr, _ETn, _DT, _SSDDD, _SR, _SDta, _RSDe],
+  [0, 0, 0, 0, () => StackSetOperationPreferences$, 2, 0, 0, 4, 4, () => DeploymentTargets$, () => StackSetDriftDetectionDetails$, 0, () => StackSetOperationStatusDetails$, () => RegionalStatusDetails]
 ];
 export var StackSetOperationPreferences$: StaticStructureSchema = [3, n0, _SSOP,
   0,
@@ -2152,8 +2194,8 @@ export var StackSetOperationResultSummary$: StaticStructureSchema = [3, n0, _SSO
 ];
 export var StackSetOperationStatusDetails$: StaticStructureSchema = [3, n0, _SSOSD,
   0,
-  [_FSIC],
-  [1]
+  [_Sta, _TAC, _TSIC, _FSIC],
+  [() => Stages$, 1, 1, 1]
 ];
 export var StackSetOperationSummary$: StaticStructureSchema = [3, n0, _SSOS,
   0,
@@ -2169,6 +2211,11 @@ export var StackSummary$: StaticStructureSchema = [3, n0, _SStac,
   0,
   [_SN, _CT, _SSta, _SI, _TDe, _LUT, _DTel, _SSR, _PIa, _RIo, _DI, _LO],
   [0, 4, 0, 0, 0, 4, 4, 0, 0, 0, () => StackDriftInformationSummary$, () => LastOperations], 3
+];
+export var Stages$: StaticStructureSchema = [3, n0, _Sta,
+  0,
+  [_RPo, _SID],
+  [() => RoleProvisioning$, () => StackInstancesDeployment$]
 ];
 export var StartResourceScanInput$: StaticStructureSchema = [3, n0, _SRSI,
   0,
@@ -2529,6 +2576,9 @@ var WarningProperties: StaticListSchema = [1, n0, _WPa,
   0, () => WarningProperty$
 ];
 var JazzResourceIdentifierProperties = 128 | 0;
+var RegionalStatusDetails: StaticMapSchema = [2, n0, _RSDe,
+  0, 0, () => RegionalStatusDetail$
+];
 var ResourceIdentifierProperties = 128 | 0;
 export var ActivateOrganizationsAccess$: StaticOperationSchema = [9, n0, _AOA,
   0, () => ActivateOrganizationsAccessInput$, () => ActivateOrganizationsAccessOutput$

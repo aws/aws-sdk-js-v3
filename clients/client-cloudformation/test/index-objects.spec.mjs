@@ -431,6 +431,9 @@ import {
   RecordHandlerProgressCommand,
   RecordHandlerProgressInput$,
   RecordHandlerProgressOutput$,
+  RegionalStackInstancesDeployment$,
+  RegionalStages$,
+  RegionalStatusDetail$,
   RegionConcurrencyType,
   RegisterPublisher$,
   RegisterPublisherCommand,
@@ -469,6 +472,7 @@ import {
   ResourceStatus,
   ResourceTargetDefinition$,
   ResourceToImport$,
+  RoleProvisioning$,
   RollbackConfiguration$,
   RollbackStack$,
   RollbackStackCommand,
@@ -511,6 +515,7 @@ import {
   StackInstanceNotFoundException,
   StackInstanceNotFoundException$,
   StackInstanceResourceDriftsSummary$,
+  StackInstancesDeployment$,
   StackInstanceStatus,
   StackInstanceSummary$,
   StackNotFoundException,
@@ -552,6 +557,8 @@ import {
   StackSetSummary$,
   StackStatus,
   StackSummary$,
+  Stages$,
+  StageStatus,
   StaleRequestException,
   StaleRequestException$,
   StartResourceScan$,
@@ -1002,6 +1009,9 @@ assert(typeof PublishTypeInput$ === "object");
 assert(typeof PublishTypeOutput$ === "object");
 assert(typeof RecordHandlerProgressInput$ === "object");
 assert(typeof RecordHandlerProgressOutput$ === "object");
+assert(typeof RegionalStackInstancesDeployment$ === "object");
+assert(typeof RegionalStages$ === "object");
+assert(typeof RegionalStatusDetail$ === "object");
 assert(typeof RegisterPublisherInput$ === "object");
 assert(typeof RegisterPublisherOutput$ === "object");
 assert(typeof RegisterTypeInput$ === "object");
@@ -1019,6 +1029,7 @@ assert(typeof ResourceMapping$ === "object");
 assert(typeof ResourceScanSummary$ === "object");
 assert(typeof ResourceTargetDefinition$ === "object");
 assert(typeof ResourceToImport$ === "object");
+assert(typeof RoleProvisioning$ === "object");
 assert(typeof RollbackConfiguration$ === "object");
 assert(typeof RollbackStackInput$ === "object");
 assert(typeof RollbackStackOutput$ === "object");
@@ -1042,6 +1053,7 @@ assert(typeof StackInstance$ === "object");
 assert(typeof StackInstanceComprehensiveStatus$ === "object");
 assert(typeof StackInstanceFilter$ === "object");
 assert(typeof StackInstanceResourceDriftsSummary$ === "object");
+assert(typeof StackInstancesDeployment$ === "object");
 assert(typeof StackInstanceSummary$ === "object");
 assert(typeof StackRefactorAction$ === "object");
 assert(typeof StackRefactorSummary$ === "object");
@@ -1061,6 +1073,7 @@ assert(typeof StackSetOperationStatusDetails$ === "object");
 assert(typeof StackSetOperationSummary$ === "object");
 assert(typeof StackSetSummary$ === "object");
 assert(typeof StackSummary$ === "object");
+assert(typeof Stages$ === "object");
 assert(typeof StartResourceScanInput$ === "object");
 assert(typeof StartResourceScanOutput$ === "object");
 assert(typeof StopStackSetOperationInput$ === "object");
@@ -1172,6 +1185,7 @@ assert(typeof StackSetOperationResultStatus === "object");
 assert(typeof StackSetOperationStatus === "object");
 assert(typeof StackSetStatus === "object");
 assert(typeof StackStatus === "object");
+assert(typeof StageStatus === "object");
 assert(typeof TemplateFormat === "object");
 assert(typeof TemplateStage === "object");
 assert(typeof ThirdPartyType === "object");

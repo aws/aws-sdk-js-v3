@@ -78,6 +78,7 @@ import type {
   StackSetOperationStatus,
   StackSetStatus,
   StackStatus,
+  StageStatus,
   TemplateFormat,
   TemplateStage,
   ThirdPartyType,
@@ -6573,10 +6574,304 @@ export interface DescribeStackSetOperationInput {
 }
 
 /**
+ * <p>Provides visibility into the stack instances deployment stage for a single Region, including per-stack-instance progress counts and a completion percentage for that Region.</p>
+ * @public
+ */
+export interface RegionalStackInstancesDeployment {
+  /**
+   * <p>The status of the stack instances deployment stage can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_APPLICABLE</code>: The operation does not deploy stack instances, such as a drift detection operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_STARTED</code>: Stack instances deployment has not started. The operation is still provisioning roles, has not begun, or failed before this stage was reached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code>: At least one stack instance has started deploying.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code>: Deployment finished and succeeded for all stack instances that were not skipped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARTIAL_SUCCESS</code>: Deployment finished with a mix of succeeded, failed, and canceled stack instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: Deployment finished and every stack instance that was not skipped failed or was canceled.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: StageStatus | undefined;
+
+  /**
+   * <p>The number of stack instances that deployed successfully in this Region.</p>
+   * @public
+   */
+  SucceededStackInstancesCount?: number | undefined;
+
+  /**
+   * <p>The number of stack instances that failed to deploy in this Region.</p>
+   * @public
+   */
+  FailedStackInstancesCount?: number | undefined;
+
+  /**
+   * <p>The number of stack instances in this Region that have reached a final state. This count includes stack instances that succeeded, failed, were skipped, or were canceled.</p>
+   * @public
+   */
+  CompletedStackInstancesCount?: number | undefined;
+
+  /**
+   * <p>The number of stack instances in this Region that have not reached a final state. This is the total number of stack instances in this Region minus the completed count.</p>
+   * @public
+   */
+  PendingStackInstancesCount?: number | undefined;
+
+  /**
+   * <p>The number of stack instances in this Region that were canceled because the operation exceeded its failure tolerance or was stopped.</p>
+   * @public
+   */
+  CancelledStackInstancesCount?: number | undefined;
+
+  /**
+   * <p>The number of stack instances in this Region that were skipped because role provisioning failed for their target account.</p>
+   * @public
+   */
+  SkippedStackInstancesCount?: number | undefined;
+
+  /**
+   * <p>The total number of stack instances targeted by this operation in this Region.</p>
+   * @public
+   */
+  TotalStackInstancesCount?: number | undefined;
+
+  /**
+   * <p>The percentage of stack instances in this Region that have reached a final state.</p>
+   * @public
+   */
+  PercentageCompleted?: number | undefined;
+}
+
+/**
+ * <p>Contains the progress information for the individual stages of a StackSet operation in a single Region. Currently reports the stack instances deployment stage for the Region.</p>
+ * @public
+ */
+export interface RegionalStages {
+  /**
+   * <p>The progress detail for the stack instances deployment stage in this Region.</p>
+   * @public
+   */
+  RegionalStackInstancesDeployment?: RegionalStackInstancesDeployment | undefined;
+}
+
+/**
+ * <p>Contains the progress detail for a single Region of a StackSet operation. This information is returned only by <a>DescribeStackSetOperation</a>.</p>
+ * @public
+ */
+export interface RegionalStatusDetail {
+  /**
+   * <p>The progress information for the individual stages of the operation in this Region.</p>
+   * @public
+   */
+  Stages?: RegionalStages | undefined;
+}
+
+/**
+ * <p>Provides visibility into the role provisioning stage of a StackSet operation, including per-account progress counts and a completion percentage. For operations that do not provision IAM roles in target accounts, the <code>Status</code> is <code>NOT_APPLICABLE</code> and the progress counts are omitted.</p>
+ * @public
+ */
+export interface RoleProvisioning {
+  /**
+   * <p>The status of the role provisioning stage can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_APPLICABLE</code>: The operation does not provision roles. This includes self-managed operations and service-managed operations whose configuration does not require role provisioning.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_STARTED</code>: Role provisioning has not started. The operation has not begun resolving target accounts, or it failed or stopped before the total number of target accounts was resolved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code>: Role provisioning is actively processing target accounts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code>: Role provisioning finished and succeeded for all target accounts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARTIAL_SUCCESS</code>: Role provisioning finished, but succeeded for only a subset of target accounts; one or more accounts failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: Role provisioning finished and failed for all target accounts.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: StageStatus | undefined;
+
+  /**
+   * <p>The number of accounts for which role provisioning succeeded.</p>
+   * @public
+   */
+  SucceededAccountsCount?: number | undefined;
+
+  /**
+   * <p>The number of accounts for which role provisioning failed.</p>
+   * @public
+   */
+  FailedAccountsCount?: number | undefined;
+
+  /**
+   * <p>The number of accounts that have finished role provisioning, including both succeeded and failed accounts.</p>
+   * @public
+   */
+  CompletedAccountsCount?: number | undefined;
+
+  /**
+   * <p>The number of accounts that are still awaiting role provisioning.</p>
+   * @public
+   */
+  PendingAccountsCount?: number | undefined;
+
+  /**
+   * <p>The percentage of accounts that have completed role provisioning.</p>
+   * @public
+   */
+  PercentageCompleted?: number | undefined;
+}
+
+/**
+ * <p>Provides visibility into the stack instances deployment stage of a StackSet operation, including per-stack-instance progress counts and a completion percentage. For service-managed operations that provision roles, this stage begins after role provisioning finishes.</p>
+ * @public
+ */
+export interface StackInstancesDeployment {
+  /**
+   * <p>The status of the stack instances deployment stage can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_APPLICABLE</code>: The operation does not deploy stack instances, such as a drift detection operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_STARTED</code>: Stack instances deployment has not started. The operation is still provisioning roles, has not begun, or failed before this stage was reached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code>: At least one stack instance has started deploying.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code>: Deployment finished and succeeded for all stack instances that were not skipped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARTIAL_SUCCESS</code>: Deployment finished with a mix of succeeded, failed, and canceled stack instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: Deployment finished and every stack instance that was not skipped failed or was canceled.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: StageStatus | undefined;
+
+  /**
+   * <p>The number of stack instances that deployed successfully.</p>
+   * @public
+   */
+  SucceededStackInstancesCount?: number | undefined;
+
+  /**
+   * <p>The number of stack instances that failed to deploy.</p>
+   * @public
+   */
+  FailedStackInstancesCount?: number | undefined;
+
+  /**
+   * <p>The number of stack instances that have reached a final state. This count includes stack instances that succeeded, failed, were skipped, or were canceled.</p>
+   * @public
+   */
+  CompletedStackInstancesCount?: number | undefined;
+
+  /**
+   * <p>The number of stack instances that have not reached a final state. This is the total number of stack instances minus the completed count.</p>
+   * @public
+   */
+  PendingStackInstancesCount?: number | undefined;
+
+  /**
+   * <p>The number of stack instances that were canceled because the operation exceeded its failure tolerance or was stopped.</p>
+   * @public
+   */
+  CancelledStackInstancesCount?: number | undefined;
+
+  /**
+   * <p>The number of stack instances that were skipped because role provisioning failed for their target account.</p>
+   * @public
+   */
+  SkippedStackInstancesCount?: number | undefined;
+
+  /**
+   * <p>The percentage of stack instances that have reached a final state.</p>
+   * @public
+   */
+  PercentageCompleted?: number | undefined;
+}
+
+/**
+ * <p>Contains detailed progress information for the individual stages of a StackSet operation: the role provisioning stage and the stack instances deployment stage.</p>
+ * @public
+ */
+export interface Stages {
+  /**
+   * <p>The progress detail for the role provisioning stage. For operations that do not provision roles, this stage is present with a <code>Status</code> of <code>NOT_APPLICABLE</code>.</p>
+   * @public
+   */
+  RoleProvisioning?: RoleProvisioning | undefined;
+
+  /**
+   * <p>The progress detail for the stack instances deployment stage. This stage reports the deployment of stack instances to the target accounts and Amazon Web Services Regions, after any role provisioning has finished.</p>
+   * @public
+   */
+  StackInstancesDeployment?: StackInstancesDeployment | undefined;
+}
+
+/**
  * <p>Detailed information about the StackSet operation.</p>
  * @public
  */
 export interface StackSetOperationStatusDetails {
+  /**
+   * <p>The detailed progress information for the individual stages of the StackSet operation: the role provisioning stage and the stack instances deployment stage.</p>
+   * @public
+   */
+  Stages?: Stages | undefined;
+
+  /**
+   * <p>The total number of accounts targeted by this StackSet operation. Self-managed operations and service-managed operations that do not provision roles also report this value when it is known. CloudFormation populates this value after it resolves the target accounts. Until then, this field is not present.</p>
+   * @public
+   */
+  TotalAccountsCount?: number | undefined;
+
+  /**
+   * <p>The total number of stack instances targeted by this StackSet operation. CloudFormation populates this value after it resolves the target stack instances. Until then, this field is not present.</p>
+   * @public
+   */
+  TotalStackInstancesCount?: number | undefined;
+
   /**
    * <p>The number of stack instances for which the StackSet operation failed.</p>
    * @public
@@ -6729,6 +7024,12 @@ export interface StackSetOperation {
    * @public
    */
   StatusDetails?: StackSetOperationStatusDetails | undefined;
+
+  /**
+   * <p>The progress detail for each Region of the operation, keyed by Region. Each entry reports the stack instances deployment progress for that Region. This field is returned only by <a>DescribeStackSetOperation</a>. It is not included in the <a>ListStackSetOperations</a> summary.</p>
+   * @public
+   */
+  RegionalStatusDetails?: Record<string, RegionalStatusDetail> | undefined;
 }
 
 /**

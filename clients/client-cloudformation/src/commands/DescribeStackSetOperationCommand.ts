@@ -24,6 +24,7 @@ export interface DescribeStackSetOperationCommandOutput extends DescribeStackSet
 
 /**
  * <p>Returns the description of the specified StackSet operation.</p>
+ *          <p>Reports role provisioning and stack instances deployment progress in <code>StatusDetails.Stages</code>. A breakdown for each Amazon Web Services Region is available in <code>RegionalStatusDetails</code>.</p>
  *          <note>
  *             <p>This API provides <i>strongly consistent</i> reads meaning it will always
  *         return the most up-to-date data.</p>
@@ -87,7 +88,46 @@ export interface DescribeStackSetOperationCommandOutput extends DescribeStackSet
  * //     },
  * //     StatusReason: "STRING_VALUE",
  * //     StatusDetails: { // StackSetOperationStatusDetails
+ * //       Stages: { // Stages
+ * //         RoleProvisioning: { // RoleProvisioning
+ * //           Status: "PENDING" || "NOT_APPLICABLE" || "NOT_STARTED" || "IN_PROGRESS" || "SUCCEEDED" || "PARTIAL_SUCCESS" || "FAILED",
+ * //           SucceededAccountsCount: Number("int"),
+ * //           FailedAccountsCount: Number("int"),
+ * //           CompletedAccountsCount: Number("int"),
+ * //           PendingAccountsCount: Number("int"),
+ * //           PercentageCompleted: Number("double"),
+ * //         },
+ * //         StackInstancesDeployment: { // StackInstancesDeployment
+ * //           Status: "PENDING" || "NOT_APPLICABLE" || "NOT_STARTED" || "IN_PROGRESS" || "SUCCEEDED" || "PARTIAL_SUCCESS" || "FAILED",
+ * //           SucceededStackInstancesCount: Number("int"),
+ * //           FailedStackInstancesCount: Number("int"),
+ * //           CompletedStackInstancesCount: Number("int"),
+ * //           PendingStackInstancesCount: Number("int"),
+ * //           CancelledStackInstancesCount: Number("int"),
+ * //           SkippedStackInstancesCount: Number("int"),
+ * //           PercentageCompleted: Number("double"),
+ * //         },
+ * //       },
+ * //       TotalAccountsCount: Number("int"),
+ * //       TotalStackInstancesCount: Number("int"),
  * //       FailedStackInstancesCount: Number("int"),
+ * //     },
+ * //     RegionalStatusDetails: { // RegionalStatusDetails
+ * //       "<keys>": { // RegionalStatusDetail
+ * //         Stages: { // RegionalStages
+ * //           RegionalStackInstancesDeployment: { // RegionalStackInstancesDeployment
+ * //             Status: "PENDING" || "NOT_APPLICABLE" || "NOT_STARTED" || "IN_PROGRESS" || "SUCCEEDED" || "PARTIAL_SUCCESS" || "FAILED",
+ * //             SucceededStackInstancesCount: Number("int"),
+ * //             FailedStackInstancesCount: Number("int"),
+ * //             CompletedStackInstancesCount: Number("int"),
+ * //             PendingStackInstancesCount: Number("int"),
+ * //             CancelledStackInstancesCount: Number("int"),
+ * //             SkippedStackInstancesCount: Number("int"),
+ * //             TotalStackInstancesCount: Number("int"),
+ * //             PercentageCompleted: Number("double"),
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //   },
  * // };

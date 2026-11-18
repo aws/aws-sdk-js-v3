@@ -1014,6 +1014,24 @@ export type StackSetOperationAction = (typeof StackSetOperationAction)[keyof typ
  * @public
  * @enum
  */
+export const StageStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+  NOT_STARTED: "NOT_STARTED",
+  PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type StageStatus = (typeof StageStatus)[keyof typeof StageStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const StackSetOperationStatus = {
   FAILED: "FAILED",
   QUEUED: "QUEUED",
