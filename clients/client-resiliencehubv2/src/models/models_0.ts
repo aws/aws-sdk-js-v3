@@ -1017,7 +1017,7 @@ export interface CreateReportResponse {
 }
 
 /**
- * <p>The AWS DevOps Agent (DevOps Agent) integration configuration that you supply when creating or updating a service. Connecting a service to a DevOps Agent Agent Space lets DevOps Agent investigate the service's resilience test runs and attach its analysis to the results. Include this block with an Agent Space Amazon Resource Name (ARN) to connect or reconnect the service to an Agent Space. Include it without an Agent Space ARN to disconnect the service. Omit it to leave the existing linkage unchanged.</p>
+ * <p>The Amazon Web Services DevOps Agent (DevOps Agent) integration configuration that you supply when creating or updating a service. Connecting a service to an Agent Space lets DevOps Agent investigate the service's resilience test runs and attach its analysis to the results. Include this block with an Agent Space Amazon Resource Name (ARN) to connect or reconnect the service to an Agent Space. Include it without an Agent Space ARN to disconnect the service. Omit it to leave the existing linkage unchanged.</p>
  * @public
  */
 export interface DevOpsAgentConfiguration {
@@ -2540,7 +2540,7 @@ export interface DeleteUserJourneyResponse {
  */
 export interface DependencyInsight {
   /**
-   * <p>The category of the insight. Valid values:</p> <ul> <li> <p>CROSS_REGION - The insight relates to dependencies used across multiple Regions.</p> </li> <li> <p>NEW_DEPENDENCY - The insight relates to a recently detected dependency.</p> </li> <li> <p>THIRD_PARTY - The insight relates to a third-party dependency.</p> </li> <li> <p>UNEVEN_USAGE - The insight relates to a dependency with uneven usage across the service.</p> </li> <li> <p>AWS_SERVICE - The insight relates to a dependency on an Amazon Web Services service.</p> </li> </ul>
+   * <p>The category of the insight. Valid values:</p> <ul> <li> <p>CROSS_REGION - The insight relates to dependencies used across multiple Regions.</p> </li> <li> <p>NEW_DEPENDENCY - The insight relates to a recently detected dependency.</p> </li> <li> <p>THIRD_PARTY - The insight relates to a third-party dependency.</p> </li> <li> <p>UNEVEN_USAGE - The insight relates to a dependency with uneven usage across the service.</p> </li> <li> <p>AWS_SERVICE - The insight relates to a dependency on an Amazon Web Services service. Resilience Hub doesn't currently return this value.</p> </li> </ul>
    * @public
    */
   category: InsightsCategory | undefined;
@@ -3164,6 +3164,60 @@ export interface GetTestRunRequest {
 }
 
 /**
+ * <p>Contains the effective resilience policy values captured onto a test run from the service when the run was started.</p>
+ * @public
+ */
+export interface TestRunEffectivePolicyValues {
+  /**
+   * <p>The effective availability SLO value for the test run.</p>
+   * @public
+   */
+  availabilitySlo?: SloSource | undefined;
+
+  /**
+   * <p>The effective multi-AZ RTO value for the test run, in minutes.</p>
+   * @public
+   */
+  multiAzRto?: TargetSource | undefined;
+
+  /**
+   * <p>The effective multi-AZ RPO value for the test run, in minutes.</p>
+   * @public
+   */
+  multiAzRpo?: TargetSource | undefined;
+
+  /**
+   * <p>The effective multi-Availability Zone (AZ) disaster recovery approach for the test run.</p>
+   * @public
+   */
+  multiAzDrApproach?: DisasterRecoverySource | undefined;
+
+  /**
+   * <p>The effective multi-Region RTO value for the test run, in minutes.</p>
+   * @public
+   */
+  multiRegionRto?: TargetSource | undefined;
+
+  /**
+   * <p>The effective multi-Region RPO value for the test run, in minutes.</p>
+   * @public
+   */
+  multiRegionRpo?: TargetSource | undefined;
+
+  /**
+   * <p>The effective multi-Region disaster recovery approach for the test run.</p>
+   * @public
+   */
+  multiRegionDrApproach?: DisasterRecoverySource | undefined;
+
+  /**
+   * <p>The effective data recovery time between backups value for the test run.</p>
+   * @public
+   */
+  dataRecoveryTimeBetweenBackups?: TargetSource | undefined;
+}
+
+/**
  * <p>A snapshot of the resilience policy captured onto a test run from the service when the run was started.</p>
  * @public
  */
@@ -3317,6 +3371,12 @@ export interface TestRun {
    * @public
    */
   policy?: TestRunPolicySnapshot | undefined;
+
+  /**
+   * <p>The effective resilience policy values snapshotted from the service when the run was started. The test run is evaluated against these values.</p>
+   * @public
+   */
+  effectivePolicyValues?: TestRunEffectivePolicyValues | undefined;
 
   /**
    * <p>The report generation result for the test run. Present after report generation completes or fails.</p>
@@ -7537,7 +7597,19 @@ export interface ListTestSourcesResponse {
 /**
  * @public
  */
-export interface ListTestTemplatesRequest {}
+export interface ListTestTemplatesRequest {
+  /**
+   * <p>Pagination page size.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * <p>Contains summary information about a test template.</p>
@@ -7572,6 +7644,12 @@ export interface ListTestTemplatesResponse {
    * @public
    */
   testTemplates: TestTemplateSummary[] | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**

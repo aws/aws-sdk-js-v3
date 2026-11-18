@@ -377,6 +377,7 @@ import { paginateListTestRunSources } from "./pagination/ListTestRunSourcesPagin
 import { paginateListTestRuns } from "./pagination/ListTestRunsPaginator";
 import { paginateListTestSources } from "./pagination/ListTestSourcesPaginator";
 import { paginateListTests } from "./pagination/ListTestsPaginator";
+import { paginateListTestTemplates } from "./pagination/ListTestTemplatesPaginator";
 import { paginateListUserJourneys } from "./pagination/ListUserJourneysPaginator";
 import { Resiliencehubv2Client } from "./Resiliencehubv2Client";
 import { waitUntilFailureModeAssessmentSuccess } from "./waiters/waitForFailureModeAssessmentSuccess";
@@ -483,6 +484,7 @@ const paginators = {
   paginateListTestRunSources,
   paginateListTests,
   paginateListTestSources,
+  paginateListTestTemplates,
   paginateListUserJourneys,
 };
 const waiters = {
@@ -1999,6 +2001,17 @@ export interface Resiliencehubv2 {
     args: ListTestSourcesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListTestSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListTestTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestTemplatesCommandOutput}.
+   */
+  paginateListTestTemplates(
+    args?: ListTestTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestTemplatesCommandOutput>;
 
   /**
    * @see {@link ListUserJourneysCommand}

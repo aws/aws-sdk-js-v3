@@ -337,6 +337,7 @@ const _TRDS = "TestRunDependencySummary";
 const _TRDSL = "TestRunDependencySummaryList";
 const _TRE = "TestRunEvent";
 const _TREL = "TestRunEventList";
+const _TREPV = "TestRunEffectivePolicyValues";
 const _TRL = "TestingRecommendationsList";
 const _TROAS = "TestRunObservabilityAlarmSummary";
 const _TRPS = "TestRunPolicySnapshot";
@@ -1526,13 +1527,13 @@ export var ListTestsResponse$: StaticStructureSchema = [3, n0, _LTRi,
 ];
 export var ListTestTemplatesRequest$: StaticStructureSchema = [3, n0, _LTTR,
   0,
-  [],
-  []
+  [_mRa, _nT],
+  [[1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
 export var ListTestTemplatesResponse$: StaticStructureSchema = [3, n0, _LTTRi,
   0,
-  [_tTes],
-  [() => TestTemplateSummaryList], 1
+  [_tTes, _nT],
+  [() => TestTemplateSummaryList, 0], 1
 ];
 export var ListUserJourneysRequest$: StaticStructureSchema = [3, n0, _LUJR,
   0,
@@ -1966,13 +1967,18 @@ export var TestingRecommendation$: StaticStructureSchema = [3, n0, _TR,
 ];
 export var TestRun$: StaticStructureSchema = [3, n0, _TRe,
   0,
-  [_tRI, _tI, _sta, _sAt, _tTA, _sA, _eA, _ex, _eCv, _pa, _eM, _sC, _lC, _rN, _rCe, _p, _rO, _rSPA, _rSEI, _pM, _reg, _aT, _dOAI],
-  [0, 0, 0, 4, 0, 0, 4, () => ExperimentDetailsList, 1, [2, n0, _TP, 0, 0, 64 | 0], 0, () => StopConditionList, () => LoggingConfiguration$, 0, () => TestRunReportConfiguration$, () => TestRunPolicySnapshot$, () => ReportGenerationResult$, 0, 0, () => PermissionModel$, 64 | 0, 0, () => DevOpsAgentInvestigation$], 5
+  [_tRI, _tI, _sta, _sAt, _tTA, _sA, _eA, _ex, _eCv, _pa, _eM, _sC, _lC, _rN, _rCe, _p, _ePV, _rO, _rSPA, _rSEI, _pM, _reg, _aT, _dOAI],
+  [0, 0, 0, 4, 0, 0, 4, () => ExperimentDetailsList, 1, [2, n0, _TP, 0, 0, 64 | 0], 0, () => StopConditionList, () => LoggingConfiguration$, 0, () => TestRunReportConfiguration$, () => TestRunPolicySnapshot$, () => TestRunEffectivePolicyValues$, () => ReportGenerationResult$, 0, 0, () => PermissionModel$, 64 | 0, 0, () => DevOpsAgentInvestigation$], 5
 ];
 export var TestRunDependencySummary$: StaticStructureSchema = [3, n0, _TRDS,
   0,
   [_dN, _dNn, _cr, _so, _dI, _l, _sR, _pr],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0], 4
+];
+export var TestRunEffectivePolicyValues$: StaticStructureSchema = [3, n0, _TREPV,
+  0,
+  [_aS, _mAR, _mARu, _mADA, _mRR, _mRRu, _mRDA, _dRTBB],
+  [() => SloSource$, () => TargetSource$, () => TargetSource$, () => DisasterRecoverySource$, () => TargetSource$, () => TargetSource$, () => DisasterRecoverySource$, () => TargetSource$]
 ];
 export var TestRunEvent$: StaticStructureSchema = [3, n0, _TRE,
   0,

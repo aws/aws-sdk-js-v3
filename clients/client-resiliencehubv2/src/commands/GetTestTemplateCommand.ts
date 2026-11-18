@@ -79,6 +79,9 @@ export interface GetTestTemplateCommandOutput extends GetTestTemplateResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource not found.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Too many requests — rate limit exceeded.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation error — invalid input parameters.</p>
  *

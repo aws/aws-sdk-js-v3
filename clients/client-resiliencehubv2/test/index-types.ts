@@ -512,6 +512,7 @@ export type {
   TestingRecommendation,
   TestRun,
   TestRunDependencySummary,
+  TestRunEffectivePolicyValues,
   TestRunEvent,
   TestRunObservabilityAlarmSummary,
   TestRunPolicySnapshot,
@@ -590,6 +591,7 @@ export type {
   paginateListTestRunSources,
   paginateListTestRuns,
   paginateListTestSources,
+  paginateListTestTemplates,
   paginateListTests,
   paginateListUserJourneys,
 } from "../dist-types/index.d";

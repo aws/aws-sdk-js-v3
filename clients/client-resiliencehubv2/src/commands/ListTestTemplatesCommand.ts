@@ -32,7 +32,10 @@ export interface ListTestTemplatesCommandOutput extends ListTestTemplatesRespons
  * // import type { Resiliencehubv2ClientConfig } from "@aws-sdk/client-resiliencehubv2";
  * const config = {}; // type is Resiliencehubv2ClientConfig
  * const client = new Resiliencehubv2Client(config);
- * const input = {};
+ * const input = { // ListTestTemplatesRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTestTemplatesCommand(input);
  * const response = await client.send(command);
  * // { // ListTestTemplatesResponse
@@ -43,6 +46,7 @@ export interface ListTestTemplatesCommandOutput extends ListTestTemplatesRespons
  * //       description: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
@@ -58,6 +62,9 @@ export interface ListTestTemplatesCommandOutput extends ListTestTemplatesRespons
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Too many requests — rate limit exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation error — invalid input parameters.</p>
@@ -77,7 +84,7 @@ export class ListTestTemplatesCommand extends command<ListTestTemplatesCommandIn
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
+      input: ListTestTemplatesRequest;
       output: ListTestTemplatesResponse;
     };
     sdk: {

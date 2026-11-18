@@ -23,4 +23,5 @@ export * from "./ListTestRunSourceEventsPaginator";
 export * from "./ListTestRunSourcesPaginator";
 export * from "./ListTestsPaginator";
 export * from "./ListTestSourcesPaginator";
+export * from "./ListTestTemplatesPaginator";
 export * from "./ListUserJourneysPaginator";

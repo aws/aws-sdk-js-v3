@@ -102,6 +102,48 @@ export interface GetTestRunCommandOutput extends GetTestRunResponse, __MetadataB
  * //         timeBetweenBackupsInMinutes: Number("int"),
  * //       },
  * //     },
+ * //     effectivePolicyValues: { // TestRunEffectivePolicyValues
+ * //       availabilitySlo: { // SloSource
+ * //         value: Number("double"),
+ * //         policyName: "STRING_VALUE",
+ * //         source: "SELF" || "CROSS_ACCOUNT",
+ * //       },
+ * //       multiAzRto: { // TargetSource
+ * //         value: Number("int"),
+ * //         policyName: "STRING_VALUE",
+ * //         source: "SELF" || "CROSS_ACCOUNT",
+ * //       },
+ * //       multiAzRpo: {
+ * //         value: Number("int"),
+ * //         policyName: "STRING_VALUE",
+ * //         source: "SELF" || "CROSS_ACCOUNT",
+ * //       },
+ * //       multiAzDrApproach: { // DisasterRecoverySource
+ * //         value: "STRING_VALUE",
+ * //         policyName: "STRING_VALUE",
+ * //         source: "SELF" || "CROSS_ACCOUNT",
+ * //       },
+ * //       multiRegionRto: {
+ * //         value: Number("int"),
+ * //         policyName: "STRING_VALUE",
+ * //         source: "SELF" || "CROSS_ACCOUNT",
+ * //       },
+ * //       multiRegionRpo: {
+ * //         value: Number("int"),
+ * //         policyName: "STRING_VALUE",
+ * //         source: "SELF" || "CROSS_ACCOUNT",
+ * //       },
+ * //       multiRegionDrApproach: {
+ * //         value: "STRING_VALUE",
+ * //         policyName: "STRING_VALUE",
+ * //         source: "SELF" || "CROSS_ACCOUNT",
+ * //       },
+ * //       dataRecoveryTimeBetweenBackups: {
+ * //         value: Number("int"),
+ * //         policyName: "STRING_VALUE",
+ * //         source: "SELF" || "CROSS_ACCOUNT",
+ * //       },
+ * //     },
  * //     reportOutput: { // ReportGenerationResult
  * //       reportType: "FAILURE_MODE" || "TESTING", // required
  * //       status: "PENDING" || "SUCCEEDED" || "FAILED", // required

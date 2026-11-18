@@ -321,6 +321,7 @@ import {
   paginateListTestRunSources,
   paginateListTests,
   paginateListTestSources,
+  paginateListTestTemplates,
   paginateListUserJourneys,
   ParameterType,
   PermissionModel$,
@@ -445,6 +446,7 @@ import {
   TestRun$,
   TestRunDependencySource,
   TestRunDependencySummary$,
+  TestRunEffectivePolicyValues$,
   TestRunEvent$,
   TestRunObservabilityAlarmSummary$,
   TestRunPolicySnapshot$,
@@ -916,6 +918,7 @@ assert(typeof TestAction$ === "object");
 assert(typeof TestingRecommendation$ === "object");
 assert(typeof TestRun$ === "object");
 assert(typeof TestRunDependencySummary$ === "object");
+assert(typeof TestRunEffectivePolicyValues$ === "object");
 assert(typeof TestRunEvent$ === "object");
 assert(typeof TestRunObservabilityAlarmSummary$ === "object");
 assert(typeof TestRunPolicySnapshot$ === "object");
@@ -1058,6 +1061,7 @@ assert(typeof paginateListTestRunSourceEvents === "function");
 assert(typeof paginateListTestRunSources === "function");
 assert(typeof paginateListTestRuns === "function");
 assert(typeof paginateListTestSources === "function");
+assert(typeof paginateListTestTemplates === "function");
 assert(typeof paginateListTests === "function");
 assert(typeof paginateListUserJourneys === "function");
 console.log(`Resiliencehubv2 index test passed.`);
