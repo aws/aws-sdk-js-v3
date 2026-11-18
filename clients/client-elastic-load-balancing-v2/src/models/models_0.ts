@@ -3040,6 +3040,15 @@ export interface LoadBalancerAttribute {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>routing.http.x_amzn_tls_kx.enabled</code> - Indicates whether the
+   *             <code>x-amzn-tls-kx</code> header, which contains information about the negotiated key
+   *           exchange group, is added to the client request before sending it to the target. The
+   *             <code>x-amzn-tls-kx</code> header uses IANA TLS Supported Groups registry naming. The
+   *           possible values for the attribute are <code>true</code> and <code>false</code>. The
+   *           default is <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>routing.http.xff_client_port.enabled</code> - Indicates whether the
    *             <code>X-Forwarded-For</code> header should preserve the source port that the client used
    *           to connect to the load balancer. The possible values are <code>true</code> and
@@ -3482,6 +3491,33 @@ export interface TargetGroupAttribute {
    *           during which requests from a client should be routed to the same target. After this time
    *           period expires, the load balancer-generated cookie is considered stale. The range is 1
    *           second to 1 week (604800 seconds). The default value is 1 day (86400 seconds). </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>waf.http2.traffic_inspection_behavior</code> – Specifies when Amazon Web Services
+   *           WAF inspects HTTP/2 requests. This attribute applies only to target groups that use the
+   *             <code>HTTP2</code> protocol version. The possible values are:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>inspect_immediately</code> – Inspects each request as soon as data is
+   *               available. This is the default.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>inspect_after_sufficient_data</code> – Accumulates HTTP/2 data frames before
+   *               inspection.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http2.rst_stream_error_forwarding.enabled</code> – Specifies whether the
+   *           load balancer forwards an HTTP/2 or gRPC target's <code>RST_STREAM</code> error code to
+   *           the client, instead of returning an HTTP 502 (Bad Gateway) response. This attribute
+   *           applies only to target groups that use the <code>HTTP2</code> or <code>GRPC</code>
+   *           protocol version. The value is <code>true</code> or <code>false</code>. The default is
+   *             <code>false</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The following attribute is supported only if the load balancer is an Application Load
