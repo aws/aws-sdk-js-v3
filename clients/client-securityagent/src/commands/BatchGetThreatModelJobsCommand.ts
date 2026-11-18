@@ -47,7 +47,7 @@ export interface BatchGetThreatModelJobsCommandOutput extends BatchGetThreatMode
  * //       threatModelId: "STRING_VALUE",
  * //       agentSpaceId: "STRING_VALUE",
  * //       title: "STRING_VALUE",
- * //       status: "IN_PROGRESS" || "STOPPING" || "STOPPED" || "FAILED" || "COMPLETED",
+ * //       status: "IN_PROGRESS" || "STOPPING" || "STOPPED" || "PAUSING" || "PAUSED" || "FAILED" || "COMPLETED",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       executionStartTime: new Date("TIMESTAMP"),
@@ -85,7 +85,7 @@ export interface BatchGetThreatModelJobsCommandOutput extends BatchGetThreatMode
  * //         },
  * //       ],
  * //       errorInformation: { // ErrorInformation
- * //         code: "CLIENT_ERROR" || "INTERNAL_ERROR" || "STOPPED_BY_USER",
+ * //         code: "CLIENT_ERROR" || "INTERNAL_ERROR" || "STOPPED_BY_USER" || "PAUSED_BY_USER",
  * //         message: "STRING_VALUE",
  * //       },
  * //       systemOverview: "STRING_VALUE",

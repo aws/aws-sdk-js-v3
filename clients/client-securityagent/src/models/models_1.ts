@@ -5,6 +5,7 @@ import type {
   DomainVerificationMethod,
   FindingStatus,
   JobStatus,
+  JobType,
   RiskLevel,
   RiskType,
   SkillType,
@@ -24,12 +25,97 @@ import type {
   NetworkTrafficConfig,
   ReportDestination,
   ReportFilters,
+  ScopeChange,
   TestScope,
   ThreatAnchorShape,
   ThreatEvidenceShape,
   VerificationDetails,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Input for starting the execution of a pentest.</p>
+ * @public
+ */
+export interface StartPentestJobInput {
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the pentest to start a job for.</p>
+   * @public
+   */
+  pentestId: string | undefined;
+
+  /**
+   * <p>The type of pentest job to start. Valid values are FULL, REVALIDATION, and CICD. When set to REVALIDATION, the selectedFindingIds parameter is required. When set to CICD, the scopeChanges parameter defines the code changes to test.</p>
+   * @public
+   */
+  jobType?: JobType | undefined;
+
+  /**
+   * <p>The list of finding identifiers to revalidate. Required when jobType is REVALIDATION. Each finding must belong to the same agent space and pentest.</p>
+   * @public
+   */
+  selectedFindingIds?: string[] | undefined;
+
+  /**
+   * <p>The code changes that define the scope of a CI/CD pentest job. Provide this when starting a job with jobType CICD to test only the changes in the current pipeline run.</p>
+   * @public
+   */
+  scopeChanges?: ScopeChange[] | undefined;
+}
+
+/**
+ * <p>Output for the StartPentestJob operation.</p>
+ * @public
+ */
+export interface StartPentestJobOutput {
+  /**
+   * <p>The title of the pentest job.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The current status of the pentest job.</p>
+   * @public
+   */
+  status?: JobStatus | undefined;
+
+  /**
+   * <p>The date and time the pentest job was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the pentest job was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The unique identifier of the pentest.</p>
+   * @public
+   */
+  pentestId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the started pentest job.</p>
+   * @public
+   */
+  pentestJobId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+}
 
 /**
  * <p>Input for starting a threat model job.</p>
@@ -137,6 +223,12 @@ export interface StopPentestJobInput {
    * @public
    */
   pentestJobId: string | undefined;
+
+  /**
+   * <p>Specifies whether to pause the job instead of stopping it. A paused job moves to <code>PAUSING</code> and then to <code>PAUSED</code>, and you can resume it later with <code>ResumePentestJob</code>. You can pause only a job that is <code>IN_PROGRESS</code>. The default is false.</p>
+   * @public
+   */
+  pause?: boolean | undefined;
 }
 
 /**

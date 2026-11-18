@@ -275,6 +275,7 @@ import type {
 } from "./commands/ListThreatModelJobTasksCommand";
 import type { ListThreatModelsCommandInput, ListThreatModelsCommandOutput } from "./commands/ListThreatModelsCommand";
 import type { ListThreatsCommandInput, ListThreatsCommandOutput } from "./commands/ListThreatsCommand";
+import type { ResumePentestJobCommandInput, ResumePentestJobCommandOutput } from "./commands/ResumePentestJobCommand";
 import type {
   StartCodeRemediationCommandInput,
   StartCodeRemediationCommandOutput,
@@ -425,6 +426,7 @@ export type ServiceInputTypes =
   | ListThreatModelJobsCommandInput
   | ListThreatModelsCommandInput
   | ListThreatsCommandInput
+  | ResumePentestJobCommandInput
   | StartCodeRemediationCommandInput
   | StartCodeReviewJobCommandInput
   | StartPentestJobCommandInput
@@ -526,6 +528,7 @@ export type ServiceOutputTypes =
   | ListThreatModelJobsCommandOutput
   | ListThreatModelsCommandOutput
   | ListThreatsCommandOutput
+  | ResumePentestJobCommandOutput
   | StartCodeRemediationCommandOutput
   | StartCodeReviewJobCommandOutput
   | StartPentestJobCommandOutput

@@ -452,6 +452,10 @@ export const ErrorCode = {
    */
   INTERNAL_ERROR: "INTERNAL_ERROR",
   /**
+   * <p>Pentest job was paused by the user.</p>
+   */
+  PAUSED_BY_USER: "PAUSED_BY_USER",
+  /**
    * <p>Pentest job was stopped by the user.</p>
    */
   STOPPED_BY_USER: "STOPPED_BY_USER",
@@ -522,6 +526,14 @@ export const JobStatus = {
    * <p>Pentest job is currently running.</p>
    */
   IN_PROGRESS: "IN_PROGRESS",
+  /**
+   * <p>Pentest job is paused. A paused job can be resumed from its last saved checkpoint within 7 days of the job's creation.</p>
+   */
+  PAUSED: "PAUSED",
+  /**
+   * <p>Pentest job is being paused.</p>
+   */
+  PAUSING: "PAUSING",
   /**
    * <p>Pentest job was stopped by the user.</p>
    */

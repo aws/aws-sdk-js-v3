@@ -47,7 +47,7 @@ export interface ListThreatModelJobsCommandOutput extends ListThreatModelJobsOut
  * //       threatModelId: "STRING_VALUE", // required
  * //       agentSpaceId: "STRING_VALUE",
  * //       title: "STRING_VALUE",
- * //       status: "IN_PROGRESS" || "STOPPING" || "STOPPED" || "FAILED" || "COMPLETED",
+ * //       status: "IN_PROGRESS" || "STOPPING" || "STOPPED" || "PAUSING" || "PAUSED" || "FAILED" || "COMPLETED",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },

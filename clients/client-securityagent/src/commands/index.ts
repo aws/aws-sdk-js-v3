@@ -73,6 +73,7 @@ export * from "./ListThreatModelJobTasksCommand";
 export * from "./ListThreatModelJobsCommand";
 export * from "./ListThreatModelsCommand";
 export * from "./ListThreatsCommand";
+export * from "./ResumePentestJobCommand";
 export * from "./StartCodeRemediationCommand";
 export * from "./StartCodeReviewJobCommand";
 export * from "./StartPentestJobCommand";

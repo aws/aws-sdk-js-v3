@@ -374,6 +374,9 @@ const _PSL = "PentestSummaryList";
 const _RD = "ReportDestination";
 const _RF = "ReportFilters";
 const _RNFE = "ResourceNotFoundException";
+const _RPJ = "ResumePentestJob";
+const _RPJI = "ResumePentestJobInput";
+const _RPJO = "ResumePentestJobOutput";
 const _S = "Step";
 const _SC = "ScopeChange";
 const _SCL = "ScopeChangeList";
@@ -548,6 +551,7 @@ const _c = "client";
 const _cA = "createdAt";
 const _cB = "createdBy";
 const _cC = "clientCertificates";
+const _cCFP = "copyConfigFromPentest";
 const _cCi = "cicdConfiguration";
 const _cD = "createDocument";
 const _cDL = "codeDiffLink";
@@ -751,6 +755,7 @@ const _pT = "providerType";
 const _pa = "pattern";
 const _pat = "path";
 const _patt = "patterns";
+const _pau = "pause";
 const _pe = "pentests";
 const _pr = "provider";
 const _pre = "prerequisites";
@@ -893,6 +898,7 @@ const _vS = "verificationStatus";
 const _vSR = "verificationStatusReason";
 const _vSa = "validationStatus";
 const _vSe = "verificationScript";
+const _ve = "version";
 const _vp = "vpcs";
 const _w = "workspace";
 const _wA = "webhookAction";
@@ -2150,13 +2156,13 @@ export var Pentest$: StaticStructureSchema = [3, n0, _P,
 ];
 export var PentestJob$: StaticStructureSchema = [3, n0, _PJ,
   0,
-  [_pJI, _pIen, _ti, _ov, _sta, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lCo, _vC, _nTC, _eI, _iR, _tCC, _cC, _cRSo, _cUS, _dMS, _mTH, _jT, _sFI, _rD, _rU, _sRc, _sCc, _cCi, _tS, _cA, _uA],
-  [0, 0, 0, 0, 0, () => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, [() => TrustedCaCertificateList, 0], () => ClientCertificateList, 0, 0, 64 | 0, 1, 0, 64 | 0, () => ReportDestination$, 0, () => ScopeResult$, () => ScopeChangeList, () => CiCdConfiguration$, () => TestScope$, 5, 5]
+  [_pJI, _pIen, _ti, _ov, _sta, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lCo, _vC, _nTC, _eI, _iR, _tCC, _cC, _cRSo, _cUS, _dMS, _mTH, _jT, _sFI, _rD, _rU, _sRc, _sCc, _cCi, _tS, _ve, _cA, _uA],
+  [0, 0, 0, 0, 0, () => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, [() => TrustedCaCertificateList, 0], () => ClientCertificateList, 0, 0, 64 | 0, 1, 0, 64 | 0, () => ReportDestination$, 0, () => ScopeResult$, () => ScopeChangeList, () => CiCdConfiguration$, () => TestScope$, 0, 5, 5]
 ];
 export var PentestJobSummary$: StaticStructureSchema = [3, n0, _PJS,
   0,
-  [_pJI, _pIen, _ti, _sta, _cA, _uA, _jT, _rU],
-  [0, 0, 0, 0, 5, 5, 0, 0], 2
+  [_pJI, _pIen, _ti, _sta, _cA, _uA, _jT, _rU, _ve],
+  [0, 0, 0, 0, 5, 5, 0, 0, 0], 2
 ];
 export var PentestSummary$: StaticStructureSchema = [3, n0, _PS,
   0,
@@ -2177,6 +2183,16 @@ export var ReportFilters$: StaticStructureSchema = [3, n0, _RF,
   0,
   [_rLi, _cLo, _statu, _rTi, _fT, _tSas, _aNn, _cRo],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 2, 2]
+];
+export var ResumePentestJobInput$: StaticStructureSchema = [3, n0, _RPJI,
+  0,
+  [_aSI, _pJI, _ac, _nTC, _vC, _mTH, _cCFP],
+  [0, 0, [() => ActorList, 0], () => NetworkTrafficConfig$, () => VpcConfig$, 1, 2]
+];
+export var ResumePentestJobOutput$: StaticStructureSchema = [3, n0, _RPJO,
+  0,
+  [_ti, _sta, _cA, _uA, _pIen, _pJI, _ve],
+  [0, 0, 5, 5, 0, 0, 0]
 ];
 export var ScopeChange$: StaticStructureSchema = [3, n0, _SC,
   0,
@@ -2275,8 +2291,8 @@ export var StopCodeReviewJobOutput$: StaticStructureSchema = [3, n0, _SCRJOt,
 ];
 export var StopPentestJobInput$: StaticStructureSchema = [3, n0, _SPJIt,
   0,
-  [_aSI, _pJI],
-  [0, 0], 2
+  [_aSI, _pJI, _pau],
+  [0, 0, 2], 2
 ];
 export var StopPentestJobOutput$: StaticStructureSchema = [3, n0, _SPJOt,
   0,
@@ -3110,6 +3126,9 @@ export var ListThreatModels$: StaticOperationSchema = [9, n0, _LTM,
 ];
 export var ListThreats$: StaticOperationSchema = [9, n0, _LT,
   { [_h]: ["POST", "/ListThreats", 200] }, () => ListThreatsInput$, () => ListThreatsOutput$
+];
+export var ResumePentestJob$: StaticOperationSchema = [9, n0, _RPJ,
+  { [_h]: ["POST", "/ResumePentestJob", 200] }, () => ResumePentestJobInput$, () => ResumePentestJobOutput$
 ];
 export var StartCodeRemediation$: StaticOperationSchema = [9, n0, _SCRt,
   { [_h]: ["POST", "/StartCodeRemediation", 200] }, () => StartCodeRemediationInput$, () => StartCodeRemediationOutput$

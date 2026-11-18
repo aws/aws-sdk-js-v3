@@ -378,6 +378,11 @@ import {
   ListThreatsCommand,
 } from "./commands/ListThreatsCommand";
 import {
+  type ResumePentestJobCommandInput,
+  type ResumePentestJobCommandOutput,
+  ResumePentestJobCommand,
+} from "./commands/ResumePentestJobCommand";
+import {
   type StartCodeRemediationCommandInput,
   type StartCodeRemediationCommandOutput,
   StartCodeRemediationCommand,
@@ -587,6 +592,7 @@ const commands = {
   ListThreatModelJobTasksCommand,
   ListThreatModelsCommand,
   ListThreatsCommand,
+  ResumePentestJobCommand,
   StartCodeRemediationCommand,
   StartCodeReviewJobCommand,
   StartPentestJobCommand,
@@ -1907,6 +1913,24 @@ export interface SecurityAgent {
     args: ListThreatsCommandInput,
     options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListThreatsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResumePentestJobCommand}
+   */
+  resumePentestJob(): Promise<ResumePentestJobCommandOutput>;
+  resumePentestJob(
+    args: ResumePentestJobCommandInput,
+    options?: SecurityAgentRequestOptions
+  ): Promise<ResumePentestJobCommandOutput>;
+  resumePentestJob(
+    args: ResumePentestJobCommandInput,
+    cb: (err: any, data?: ResumePentestJobCommandOutput) => void
+  ): void;
+  resumePentestJob(
+    args: ResumePentestJobCommandInput,
+    options: SecurityAgentRequestOptions,
+    cb: (err: any, data?: ResumePentestJobCommandOutput) => void
   ): void;
 
   /**

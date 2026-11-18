@@ -455,6 +455,10 @@ import {
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceType,
+  ResumePentestJob$,
+  ResumePentestJobCommand,
+  ResumePentestJobInput$,
+  ResumePentestJobOutput$,
   RiskLevel,
   RiskType,
   ScopeChange$,
@@ -764,6 +768,8 @@ assert(typeof ListThreatModelsCommand === "function");
 assert(typeof ListThreatModels$ === "object");
 assert(typeof ListThreatsCommand === "function");
 assert(typeof ListThreats$ === "object");
+assert(typeof ResumePentestJobCommand === "function");
+assert(typeof ResumePentestJob$ === "object");
 assert(typeof StartCodeRemediationCommand === "function");
 assert(typeof StartCodeRemediation$ === "object");
 assert(typeof StartCodeReviewJobCommand === "function");
@@ -1058,6 +1064,8 @@ assert(typeof ProviderInput$ === "object");
 assert(typeof ProviderResourceCapabilities$ === "object");
 assert(typeof ReportDestination$ === "object");
 assert(typeof ReportFilters$ === "object");
+assert(typeof ResumePentestJobInput$ === "object");
+assert(typeof ResumePentestJobOutput$ === "object");
 assert(typeof ScopeChange$ === "object");
 assert(typeof ScopeResult$ === "object");
 assert(typeof SecurityRequirementArtifact$ === "object");

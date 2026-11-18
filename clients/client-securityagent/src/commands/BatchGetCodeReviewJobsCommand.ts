@@ -47,7 +47,7 @@ export interface BatchGetCodeReviewJobsCommandOutput extends BatchGetCodeReviewJ
  * //       codeReviewId: "STRING_VALUE",
  * //       title: "STRING_VALUE",
  * //       overview: "STRING_VALUE",
- * //       status: "IN_PROGRESS" || "STOPPING" || "STOPPED" || "FAILED" || "COMPLETED",
+ * //       status: "IN_PROGRESS" || "STOPPING" || "STOPPED" || "PAUSING" || "PAUSED" || "FAILED" || "COMPLETED",
  * //       documents: [ // DocumentList
  * //         { // DocumentInfo
  * //           s3Location: "STRING_VALUE",
@@ -84,7 +84,7 @@ export interface BatchGetCodeReviewJobsCommandOutput extends BatchGetCodeReviewJ
  * //         logStream: "STRING_VALUE",
  * //       },
  * //       errorInformation: { // ErrorInformation
- * //         code: "CLIENT_ERROR" || "INTERNAL_ERROR" || "STOPPED_BY_USER",
+ * //         code: "CLIENT_ERROR" || "INTERNAL_ERROR" || "STOPPED_BY_USER" || "PAUSED_BY_USER",
  * //         message: "STRING_VALUE",
  * //       },
  * //       integratedRepositories: [ // IntegratedRepositoryList

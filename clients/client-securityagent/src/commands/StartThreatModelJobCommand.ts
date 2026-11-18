@@ -40,7 +40,7 @@ export interface StartThreatModelJobCommandOutput extends StartThreatModelJobOut
  * const response = await client.send(command);
  * // { // StartThreatModelJobOutput
  * //   title: "STRING_VALUE",
- * //   status: "IN_PROGRESS" || "STOPPING" || "STOPPED" || "FAILED" || "COMPLETED",
+ * //   status: "IN_PROGRESS" || "STOPPING" || "STOPPED" || "PAUSING" || "PAUSED" || "FAILED" || "COMPLETED",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   threatModelId: "STRING_VALUE",

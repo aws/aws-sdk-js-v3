@@ -43,7 +43,7 @@ export interface StartCodeReviewJobCommandOutput extends StartCodeReviewJobOutpu
  * const response = await client.send(command);
  * // { // StartCodeReviewJobOutput
  * //   title: "STRING_VALUE",
- * //   status: "IN_PROGRESS" || "STOPPING" || "STOPPED" || "FAILED" || "COMPLETED",
+ * //   status: "IN_PROGRESS" || "STOPPING" || "STOPPED" || "PAUSING" || "PAUSED" || "FAILED" || "COMPLETED",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   codeReviewId: "STRING_VALUE", // required

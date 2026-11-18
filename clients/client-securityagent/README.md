@@ -699,6 +699,13 @@ ListThreats
 </details>
 <details>
 <summary>
+ResumePentestJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityagent/command/ResumePentestJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/ResumePentestJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/ResumePentestJobCommandOutput/)
+</details>
+<details>
+<summary>
 StartCodeRemediation
 </summary>
 

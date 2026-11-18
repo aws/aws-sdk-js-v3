@@ -46,7 +46,7 @@ export interface BatchDisassociateFindingIssueCommandOutput extends BatchDisasso
  * //   errors: [ // BatchDisassociateFindingIssueErrors // required
  * //     { // BatchDisassociateFindingIssueError
  * //       findingId: "STRING_VALUE", // required
- * //       code: "CLIENT_ERROR" || "INTERNAL_ERROR" || "STOPPED_BY_USER", // required
+ * //       code: "CLIENT_ERROR" || "INTERNAL_ERROR" || "STOPPED_BY_USER" || "PAUSED_BY_USER", // required
  * //       message: "STRING_VALUE", // required
  * //     },
  * //   ],

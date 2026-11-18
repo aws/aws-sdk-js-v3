@@ -46,7 +46,7 @@ export interface ListCodeReviewJobsForCodeReviewCommandOutput extends ListCodeRe
  * //       codeReviewJobId: "STRING_VALUE", // required
  * //       codeReviewId: "STRING_VALUE", // required
  * //       title: "STRING_VALUE",
- * //       status: "IN_PROGRESS" || "STOPPING" || "STOPPED" || "FAILED" || "COMPLETED",
+ * //       status: "IN_PROGRESS" || "STOPPING" || "STOPPED" || "PAUSING" || "PAUSED" || "FAILED" || "COMPLETED",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },
