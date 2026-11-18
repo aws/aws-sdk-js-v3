@@ -7,6 +7,7 @@ import type {
   CancellationStatus,
   CompressionType,
   DeviceStatus,
+  DeviceStatusReasonCode,
   DeviceType,
   ExperimentalCapabilitiesEnablementType,
   HybridJobAdditionalAttributeName,
@@ -153,6 +154,36 @@ export interface DeviceQueueInfo {
 }
 
 /**
+ * <p>Provides information about the reason for the current status of a device.</p>
+ * @public
+ */
+export interface DeviceStatusReason {
+  /**
+   * <p>The reason code for the current status of the device.</p>
+   * @public
+   */
+  reason: DeviceStatusReasonCode | undefined;
+
+  /**
+   * <p>The time at which the device status reason started.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The estimated time at which the current status reason will end.</p>
+   * @public
+   */
+  estimatedEndAt?: Date | undefined;
+
+  /**
+   * <p>The time of the most recent update to the device status reason.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
  * @public
  */
 export interface GetDeviceResponse {
@@ -185,6 +216,12 @@ export interface GetDeviceResponse {
    * @public
    */
   deviceStatus: DeviceStatus | undefined;
+
+  /**
+   * <p>The reason for the current status of the device, including status reason codes and timestamps.</p>
+   * @public
+   */
+  deviceStatusReason?: DeviceStatusReason | undefined;
 
   /**
    * <p>Details about the capabilities of the device.</p>
@@ -768,24 +805,24 @@ export interface GetJobResponse {
 }
 
 /**
- * <p>A filter used to search for Amazon Braket hybrid jobs.</p>
+ * <p>A filter used to search for Amazon Braket hybrid jobs. You can combine multiple filters in a single request, except that <code>jobArn</code> cannot be combined with any other filter.</p>
  * @public
  */
 export interface SearchJobsFilter {
   /**
-   * <p>The name of the hybrid job parameter to filter based on. Filter name can be either <code>jobArn</code> or <code>createdAt</code>. </p>
+   * <p>The name of the hybrid job parameter to filter based on. Supported filter names:</p> <p> <code>jobArn</code> — Filter by the job ARN. Supports the <code>EQUAL</code> operator only. Cannot be combined with other filters.</p> <p> <code>jobName</code> — Filter by the job name. Supports the <code>EQUAL</code> operator for exact match, or the <code>CONTAINS</code> operator for substring match. For example, use <code>CONTAINS</code> with a value of <code>my-experiment</code> to find all jobs whose name includes "my-experiment".</p> <p> <code>deviceArn</code> — Filter by the target device. Supports the <code>EQUAL</code> operator only. The value can be a device ARN (for example, <code>arn:aws:braket:us-east-1::device/qpu/ionq/Aria-1</code>) or a local simulator identifier (for example, <code>local:braket/default</code>).</p> <p> <code>createdAt</code> — Filter by the job creation time. Supports the <code>EQUAL</code>, <code>GT</code>, <code>GTE</code>, <code>LT</code>, <code>LTE</code>, and <code>BETWEEN</code> operators. Values must be in RFC 3339 date-time format.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The values used to filter hybrid jobs based on the filter name and operator.</p>
+   * <p>The values used to filter hybrid jobs based on the filter name and operator. Each filter accepts an array of values. Most filters accept a single value, except <code>createdAt</code> with the <code>BETWEEN</code> operator, which requires exactly two values.</p>
    * @public
    */
   values: string[] | undefined;
 
   /**
-   * <p>An operator to use for the filter.</p>
+   * <p>An operator to use for the filter. The supported operators depend on the filter name. See the <code>name</code> parameter for details.</p>
    * @public
    */
   operator: SearchJobsFilterOperator | undefined;
@@ -1015,7 +1052,7 @@ export interface CreateQuantumTaskRequest {
   outputS3Bucket: string | undefined;
 
   /**
-   * <p>The key prefix for the location in the S3 bucket to store quantum task results in.</p>
+   * <p>The key prefix for the location in the S3 bucket to store quantum task results in. For example, <code>results/</code>. Must not contain path traversal sequences such as <code>../</code> or <code>./</code>. The following characters are not valid in the key prefix:</p> <ul> <li> <p>Braces (<code>\{</code> or <code>\}</code>)</p> </li> <li> <p>Brackets (<code>[</code> or <code>]</code>)</p> </li> <li> <p>Less than or greater than sign (<code>&lt;</code> or <code>&gt;</code>)</p> </li> <li> <p>Backslash (<code>\</code>)</p> </li> <li> <p>Vertical bar or pipe (<code>|</code>)</p> </li> <li> <p>Caret or circumflex (<code>^</code>)</p> </li> <li> <p>Tilde (<code>~</code>)</p> </li> <li> <p>Grave accent or backtick (<code>`</code>)</p> </li> <li> <p>Percent character (<code>%</code>)</p> </li> <li> <p>Pound sign (<code>#</code>)</p> </li> <li> <p>Quotation mark (<code>"</code>)</p> </li> <li> <p>Non-printable ASCII characters (128–255 decimal characters)</p> </li> </ul>
    * @public
    */
   outputS3KeyPrefix: string | undefined;
@@ -1426,7 +1463,7 @@ export interface DeleteSpendingLimitResponse {}
  */
 export interface SearchSpendingLimitsFilter {
   /**
-   * <p>The name of the field to filter on. Currently only supports <code>deviceArn</code>.</p>
+   * <p>The name of the field to filter on. Currently supports <code>deviceArn</code> and <code>spendingLimitArn</code>.</p>
    * @public
    */
   name: string | undefined;

@@ -57,12 +57,27 @@ export type QueuePriority = (typeof QueuePriority)[keyof typeof QueuePriority];
 export const DeviceStatus = {
   OFFLINE: "OFFLINE",
   ONLINE: "ONLINE",
+  PAUSED: "PAUSED",
   RETIRED: "RETIRED",
 } as const;
 /**
  * @public
  */
 export type DeviceStatus = (typeof DeviceStatus)[keyof typeof DeviceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeviceStatusReasonCode = {
+  MAINTENANCE: "MAINTENANCE",
+  OUTSIDE_AVAILABILITY_WINDOW: "OUTSIDE_AVAILABILITY_WINDOW",
+  RESERVATION: "RESERVATION",
+} as const;
+/**
+ * @public
+ */
+export type DeviceStatusReasonCode = (typeof DeviceStatusReasonCode)[keyof typeof DeviceStatusReasonCode];
 
 /**
  * @public
@@ -154,13 +169,6 @@ export const _InstanceType = {
   ML_M5_4XLARGE: "ml.m5.4xlarge",
   ML_M5_LARGE: "ml.m5.large",
   ML_M5_XLARGE: "ml.m5.xlarge",
-  ML_P2_16XLARGE: "ml.p2.16xlarge",
-  ML_P2_8XLARGE: "ml.p2.8xlarge",
-  ML_P2_XLARGE: "ml.p2.xlarge",
-  ML_P3DN_24XLARGE: "ml.p3dn.24xlarge",
-  ML_P3_16XLARGE: "ml.p3.16xlarge",
-  ML_P3_2XLARGE: "ml.p3.2xlarge",
-  ML_P3_8XLARGE: "ml.p3.8xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
   ML_T3_2XLARGE: "ml.t3.2xlarge",
   ML_T3_LARGE: "ml.t3.large",

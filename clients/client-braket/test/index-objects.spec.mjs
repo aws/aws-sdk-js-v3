@@ -46,6 +46,8 @@ import {
   DeviceRetiredException,
   DeviceRetiredException$,
   DeviceStatus,
+  DeviceStatusReason$,
+  DeviceStatusReasonCode,
   DeviceSummary$,
   DeviceType,
   ExperimentalCapabilities$,
@@ -198,6 +200,7 @@ assert(typeof DeleteSpendingLimitRequest$ === "object");
 assert(typeof DeleteSpendingLimitResponse$ === "object");
 assert(typeof DeviceConfig$ === "object");
 assert(typeof DeviceQueueInfo$ === "object");
+assert(typeof DeviceStatusReason$ === "object");
 assert(typeof DeviceSummary$ === "object");
 assert(typeof ExperimentalCapabilities$ === "object");
 assert(typeof GetDeviceRequest$ === "object");
@@ -246,6 +249,7 @@ assert(typeof AssociationType === "object");
 assert(typeof CancellationStatus === "object");
 assert(typeof CompressionType === "object");
 assert(typeof DeviceStatus === "object");
+assert(typeof DeviceStatusReasonCode === "object");
 assert(typeof DeviceType === "object");
 assert(typeof ExperimentalCapabilitiesEnablementType === "object");
 assert(typeof HybridJobAdditionalAttributeName === "object");

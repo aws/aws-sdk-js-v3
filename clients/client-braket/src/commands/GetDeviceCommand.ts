@@ -43,6 +43,12 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * //   providerName: "STRING_VALUE", // required
  * //   deviceType: "STRING_VALUE", // required
  * //   deviceStatus: "STRING_VALUE", // required
+ * //   deviceStatusReason: { // DeviceStatusReason
+ * //     reason: "STRING_VALUE", // required
+ * //     startedAt: new Date("TIMESTAMP"),
+ * //     estimatedEndAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"), // required
+ * //   },
  * //   deviceCapabilities: "STRING_VALUE", // required
  * //   deviceQueueInfo: [ // DeviceQueueInfoList
  * //     { // DeviceQueueInfo

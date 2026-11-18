@@ -30,6 +30,7 @@ const _DSL = "DeviceSummaryList";
 const _DSLR = "DeleteSpendingLimitRequest";
 const _DSLRe = "DeleteSpendingLimitResponse";
 const _DSLe = "DeleteSpendingLimit";
+const _DSR = "DeviceStatusReason";
 const _DSe = "DeviceSummary";
 const _EC = "ExperimentalCapabilities";
 const _GD = "GetDevice";
@@ -126,6 +127,7 @@ const _dN = "deviceName";
 const _dP = "deviceParameters";
 const _dQI = "deviceQueueInfo";
 const _dS = "deviceStatus";
+const _dSR = "deviceStatusReason";
 const _dSa = "dataSource";
 const _dT = "deviceType";
 const _de = "devices";
@@ -134,6 +136,7 @@ const _eA = "endedAt";
 const _eAn = "endAt";
 const _eC = "executableCount";
 const _eCx = "experimentalCapabilities";
+const _eEA = "estimatedEndAt";
 const _eP = "entryPoint";
 const _eT = "eventType";
 const _en = "enabled";
@@ -398,6 +401,11 @@ export var DeviceQueueInfo$: StaticStructureSchema = [3, n0, _DQI,
   [_q, _qS, _qP],
   [0, 0, 0], 2
 ];
+export var DeviceStatusReason$: StaticStructureSchema = [3, n0, _DSR,
+  0,
+  [_r, _uA, _sA, _eEA],
+  [0, 5, 5, 5], 2
+];
 export var DeviceSummary$: StaticStructureSchema = [3, n0, _DSe,
   0,
   [_dA, _dN, _pN, _dT, _dS],
@@ -410,8 +418,8 @@ export var GetDeviceRequest$: StaticStructureSchema = [3, n0, _GDR,
 ];
 export var GetDeviceResponse$: StaticStructureSchema = [3, n0, _GDRe,
   0,
-  [_dA, _dN, _pN, _dT, _dS, _dCe, _dQI],
-  [0, 0, 0, 0, 0, [() => JsonValue, 0], () => DeviceQueueInfoList], 6
+  [_dA, _dN, _pN, _dT, _dS, _dCe, _dSR, _dQI],
+  [0, 0, 0, 0, 0, [() => JsonValue, 0], () => DeviceStatusReason$, () => DeviceQueueInfoList], 6
 ];
 export var GetJobRequest$: StaticStructureSchema = [3, n0, _GJR,
   0,
