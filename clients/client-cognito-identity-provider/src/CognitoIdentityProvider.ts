@@ -204,6 +204,11 @@ import {
   ConfirmSignUpCommand,
 } from "./commands/ConfirmSignUpCommand";
 import {
+  type CreateCIMDPolicyCommandInput,
+  type CreateCIMDPolicyCommandOutput,
+  CreateCIMDPolicyCommand,
+} from "./commands/CreateCIMDPolicyCommand";
+import {
   type CreateGroupCommandInput,
   type CreateGroupCommandOutput,
   CreateGroupCommand,
@@ -253,6 +258,11 @@ import {
   type CreateUserPoolReplicaCommandOutput,
   CreateUserPoolReplicaCommand,
 } from "./commands/CreateUserPoolReplicaCommand";
+import {
+  type DeleteCIMDPolicyCommandInput,
+  type DeleteCIMDPolicyCommandOutput,
+  DeleteCIMDPolicyCommand,
+} from "./commands/DeleteCIMDPolicyCommand";
 import {
   type DeleteGroupCommandInput,
   type DeleteGroupCommandOutput,
@@ -318,6 +328,11 @@ import {
   type DeleteWebAuthnCredentialCommandOutput,
   DeleteWebAuthnCredentialCommand,
 } from "./commands/DeleteWebAuthnCredentialCommand";
+import {
+  type DescribeCIMDPolicyCommandInput,
+  type DescribeCIMDPolicyCommandOutput,
+  DescribeCIMDPolicyCommand,
+} from "./commands/DescribeCIMDPolicyCommand";
 import {
   type DescribeIdentityProviderCommandInput,
   type DescribeIdentityProviderCommandOutput,
@@ -476,6 +491,16 @@ import {
   type InitiatePointInTimeRecoveryCommandOutput,
   InitiatePointInTimeRecoveryCommand,
 } from "./commands/InitiatePointInTimeRecoveryCommand";
+import {
+  type ListCIMDPoliciesCommandInput,
+  type ListCIMDPoliciesCommandOutput,
+  ListCIMDPoliciesCommand,
+} from "./commands/ListCIMDPoliciesCommand";
+import {
+  type ListClientMetadataURLsCommandInput,
+  type ListClientMetadataURLsCommandOutput,
+  ListClientMetadataURLsCommand,
+} from "./commands/ListClientMetadataURLsCommand";
 import {
   type ListDevicesCommandInput,
   type ListDevicesCommandOutput,
@@ -645,6 +670,16 @@ import {
   UpdateAuthEventFeedbackCommand,
 } from "./commands/UpdateAuthEventFeedbackCommand";
 import {
+  type UpdateCIMDPolicyCommandInput,
+  type UpdateCIMDPolicyCommandOutput,
+  UpdateCIMDPolicyCommand,
+} from "./commands/UpdateCIMDPolicyCommand";
+import {
+  type UpdateClientMetadataURLStateCommandInput,
+  type UpdateClientMetadataURLStateCommandOutput,
+  UpdateClientMetadataURLStateCommand,
+} from "./commands/UpdateClientMetadataURLStateCommand";
+import {
   type UpdateDeviceStatusCommandInput,
   type UpdateDeviceStatusCommandOutput,
   UpdateDeviceStatusCommand,
@@ -716,6 +751,8 @@ import {
 } from "./commands/VerifyUserAttributeCommand";
 import { paginateAdminListGroupsForUser } from "./pagination/AdminListGroupsForUserPaginator";
 import { paginateAdminListUserAuthEvents } from "./pagination/AdminListUserAuthEventsPaginator";
+import { paginateListCIMDPolicies } from "./pagination/ListCIMDPoliciesPaginator";
+import { paginateListClientMetadataURLs } from "./pagination/ListClientMetadataURLsPaginator";
 import { paginateListGroups } from "./pagination/ListGroupsPaginator";
 import { paginateListIdentityProviders } from "./pagination/ListIdentityProvidersPaginator";
 import { paginateListResourceServers } from "./pagination/ListResourceServersPaginator";
@@ -764,6 +801,7 @@ const commands = {
   ConfirmDeviceCommand,
   ConfirmForgotPasswordCommand,
   ConfirmSignUpCommand,
+  CreateCIMDPolicyCommand,
   CreateGroupCommand,
   CreateIdentityProviderCommand,
   CreateManagedLoginBrandingCommand,
@@ -774,6 +812,7 @@ const commands = {
   CreateUserPoolClientCommand,
   CreateUserPoolDomainCommand,
   CreateUserPoolReplicaCommand,
+  DeleteCIMDPolicyCommand,
   DeleteGroupCommand,
   DeleteIdentityProviderCommand,
   DeleteManagedLoginBrandingCommand,
@@ -787,6 +826,7 @@ const commands = {
   DeleteUserPoolDomainCommand,
   DeleteUserPoolReplicaCommand,
   DeleteWebAuthnCredentialCommand,
+  DescribeCIMDPolicyCommand,
   DescribeIdentityProviderCommand,
   DescribeManagedLoginBrandingCommand,
   DescribeManagedLoginBrandingByClientCommand,
@@ -821,6 +861,8 @@ const commands = {
   GlobalSignOutCommand,
   InitiateAuthCommand,
   InitiatePointInTimeRecoveryCommand,
+  ListCIMDPoliciesCommand,
+  ListClientMetadataURLsCommand,
   ListDevicesCommand,
   ListGroupsCommand,
   ListIdentityProvidersCommand,
@@ -857,6 +899,8 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAuthEventFeedbackCommand,
+  UpdateCIMDPolicyCommand,
+  UpdateClientMetadataURLStateCommand,
   UpdateDeviceStatusCommand,
   UpdateGroupCommand,
   UpdateIdentityProviderCommand,
@@ -875,6 +919,8 @@ const commands = {
 const paginators = {
   paginateAdminListGroupsForUser,
   paginateAdminListUserAuthEvents,
+  paginateListCIMDPolicies,
+  paginateListClientMetadataURLs,
   paginateListGroups,
   paginateListIdentityProviders,
   paginateListResourceServers,
@@ -1557,6 +1603,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link CreateCIMDPolicyCommand}
+   */
+  createCIMDPolicy(
+    args: CreateCIMDPolicyCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<CreateCIMDPolicyCommandOutput>;
+  createCIMDPolicy(
+    args: CreateCIMDPolicyCommandInput,
+    cb: (err: any, data?: CreateCIMDPolicyCommandOutput) => void
+  ): void;
+  createCIMDPolicy(
+    args: CreateCIMDPolicyCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: CreateCIMDPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateGroupCommand}
    */
   createGroup(
@@ -1724,6 +1787,23 @@ export interface CognitoIdentityProvider {
     args: CreateUserPoolReplicaCommandInput,
     options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: CreateUserPoolReplicaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCIMDPolicyCommand}
+   */
+  deleteCIMDPolicy(
+    args: DeleteCIMDPolicyCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<DeleteCIMDPolicyCommandOutput>;
+  deleteCIMDPolicy(
+    args: DeleteCIMDPolicyCommandInput,
+    cb: (err: any, data?: DeleteCIMDPolicyCommandOutput) => void
+  ): void;
+  deleteCIMDPolicy(
+    args: DeleteCIMDPolicyCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: DeleteCIMDPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1945,6 +2025,23 @@ export interface CognitoIdentityProvider {
     args: DeleteWebAuthnCredentialCommandInput,
     options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DeleteWebAuthnCredentialCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCIMDPolicyCommand}
+   */
+  describeCIMDPolicy(
+    args: DescribeCIMDPolicyCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<DescribeCIMDPolicyCommandOutput>;
+  describeCIMDPolicy(
+    args: DescribeCIMDPolicyCommandInput,
+    cb: (err: any, data?: DescribeCIMDPolicyCommandOutput) => void
+  ): void;
+  describeCIMDPolicy(
+    args: DescribeCIMDPolicyCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: DescribeCIMDPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -2523,6 +2620,40 @@ export interface CognitoIdentityProvider {
     args: InitiatePointInTimeRecoveryCommandInput,
     options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: InitiatePointInTimeRecoveryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCIMDPoliciesCommand}
+   */
+  listCIMDPolicies(
+    args: ListCIMDPoliciesCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<ListCIMDPoliciesCommandOutput>;
+  listCIMDPolicies(
+    args: ListCIMDPoliciesCommandInput,
+    cb: (err: any, data?: ListCIMDPoliciesCommandOutput) => void
+  ): void;
+  listCIMDPolicies(
+    args: ListCIMDPoliciesCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: ListCIMDPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListClientMetadataURLsCommand}
+   */
+  listClientMetadataURLs(
+    args: ListClientMetadataURLsCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<ListClientMetadataURLsCommandOutput>;
+  listClientMetadataURLs(
+    args: ListClientMetadataURLsCommandInput,
+    cb: (err: any, data?: ListClientMetadataURLsCommandOutput) => void
+  ): void;
+  listClientMetadataURLs(
+    args: ListClientMetadataURLsCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: ListClientMetadataURLsCommandOutput) => void
   ): void;
 
   /**
@@ -3138,6 +3269,40 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link UpdateCIMDPolicyCommand}
+   */
+  updateCIMDPolicy(
+    args: UpdateCIMDPolicyCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<UpdateCIMDPolicyCommandOutput>;
+  updateCIMDPolicy(
+    args: UpdateCIMDPolicyCommandInput,
+    cb: (err: any, data?: UpdateCIMDPolicyCommandOutput) => void
+  ): void;
+  updateCIMDPolicy(
+    args: UpdateCIMDPolicyCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: UpdateCIMDPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateClientMetadataURLStateCommand}
+   */
+  updateClientMetadataURLState(
+    args: UpdateClientMetadataURLStateCommandInput,
+    options?: CognitoIdentityProviderRequestOptions
+  ): Promise<UpdateClientMetadataURLStateCommandOutput>;
+  updateClientMetadataURLState(
+    args: UpdateClientMetadataURLStateCommandInput,
+    cb: (err: any, data?: UpdateClientMetadataURLStateCommandOutput) => void
+  ): void;
+  updateClientMetadataURLState(
+    args: UpdateClientMetadataURLStateCommandInput,
+    options: CognitoIdentityProviderRequestOptions,
+    cb: (err: any, data?: UpdateClientMetadataURLStateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateDeviceStatusCommand}
    */
   updateDeviceStatus(
@@ -3397,6 +3562,28 @@ export interface CognitoIdentityProvider {
     args: AdminListUserAuthEventsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<AdminListUserAuthEventsCommandOutput>;
+
+  /**
+   * @see {@link ListCIMDPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCIMDPoliciesCommandOutput}.
+   */
+  paginateListCIMDPolicies(
+    args: ListCIMDPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCIMDPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListClientMetadataURLsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClientMetadataURLsCommandOutput}.
+   */
+  paginateListClientMetadataURLs(
+    args: ListClientMetadataURLsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClientMetadataURLsCommandOutput>;
 
   /**
    * @see {@link ListGroupsCommand}

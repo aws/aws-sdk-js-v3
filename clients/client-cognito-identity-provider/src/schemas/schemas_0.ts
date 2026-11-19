@@ -156,6 +156,7 @@ const _AV = "AcrValue";
 const _AVA = "AutoVerifiedAttributes";
 const _AVT = "AttributeValueType";
 const _AWSAI = "AWSAccountId";
+const _Ac = "Action";
 const _Ar = "Arn";
 const _As = "Assets";
 const _At = "Attributes";
@@ -177,6 +178,10 @@ const _CAr = "CreatedAt";
 const _CC = "ConfirmationCode";
 const _CCAT = "CompromisedCredentialsActionsType";
 const _CCD = "CompromisedCredentialsDetected";
+const _CCIMDP = "CreateCIMDPolicy";
+const _CCIMDPR = "CreateCIMDPolicyRequest";
+const _CCIMDPRr = "CreateCIMDPolicyResponse";
+const _CCIMDURLDNEE = "CachedCIMDURLDoesNotExistException";
 const _CCO = "CredentialCreationOptions";
 const _CCRC = "CompromisedCredentialsRiskConfiguration";
 const _CCRCT = "CompromisedCredentialsRiskConfigurationType";
@@ -192,6 +197,8 @@ const _CDFE = "CodeDeliveryFailureException";
 const _CDR = "ConfirmDeviceRequest";
 const _CDRo = "ConfirmDeviceResponse";
 const _CDT = "ContextDataType";
+const _CDa = "CacheDuration";
+const _CDac = "CachedDate";
 const _CDo = "CompletionDate";
 const _CDon = "ConfirmDevice";
 const _CDr = "CreationDate";
@@ -208,6 +215,12 @@ const _CG = "CreateGroup";
 const _CGR = "CreateGroupRequest";
 const _CGRr = "CreateGroupResponse";
 const _CI = "ClientId";
+const _CIMDP = "CIMDPolicy";
+const _CIMDPI = "CIMDPolicyId";
+const _CIMDPSLT = "CIMDPolicySummaryListType";
+const _CIMDPST = "CIMDPolicySummaryType";
+const _CIMDPT = "CIMDPolicyType";
+const _CIMDPo = "CIMDPolicies";
 const _CIP = "CreateIdentityProvider";
 const _CIPR = "CreateIdentityProviderRequest";
 const _CIPRr = "CreateIdentityProviderResponse";
@@ -219,6 +232,9 @@ const _CMEo = "ConcurrentModificationException";
 const _CMLB = "CreateManagedLoginBranding";
 const _CMLBR = "CreateManagedLoginBrandingRequest";
 const _CMLBRr = "CreateManagedLoginBrandingResponse";
+const _CMURL = "ClientMetadataURLs";
+const _CMURLLT = "ClientMetadataURLListType";
+const _CMURLT = "ClientMetadataURLType";
 const _CMo = "ColorMode";
 const _CMom = "CompletionMessage";
 const _CMu = "CustomMessage";
@@ -241,6 +257,7 @@ const _CRT = "ChallengeResponseType";
 const _CRTh = "ChallengeResponsesType";
 const _CRh = "ChallengeResponse";
 const _CS = "ClientSecret";
+const _CSA = "ClientSecretArn";
 const _CSCD = "ClientSecretCreateDate";
 const _CSD = "ClientSecretDescriptor";
 const _CSDLT = "ClientSecretDescriptorListType";
@@ -299,6 +316,12 @@ const _DA = "DeviceAttributes";
 const _DAC = "DefineAuthChallenge";
 const _DC = "DeviceConfiguration";
 const _DCD = "DeviceCreateDate";
+const _DCIMDP = "DeleteCIMDPolicy";
+const _DCIMDPR = "DeleteCIMDPolicyRequest";
+const _DCIMDPRe = "DeleteCIMDPolicyResponse";
+const _DCIMDPRes = "DescribeCIMDPolicyRequest";
+const _DCIMDPResc = "DescribeCIMDPolicyResponse";
+const _DCIMDPe = "DescribeCIMDPolicy";
 const _DCT = "DcrConfigurationType";
 const _DCTe = "DeviceConfigurationType";
 const _DCc = "DcrConfiguration";
@@ -405,7 +428,8 @@ const _ECDT = "EventContextDataType";
 const _ECE = "ExpiredCodeException";
 const _ECF = "EmailConfigurationFailure";
 const _ECT = "EmailConfigurationType";
-const _ED = "EncodedData";
+const _ED = "ExpirationDate";
+const _EDn = "EncodedData";
 const _EF = "EventFeedback";
 const _EFT = "EventFeedbackType";
 const _EFv = "EventFilter";
@@ -578,7 +602,13 @@ const _LA = "LowAction";
 const _LAD = "LastActiveDate";
 const _LAa = "LambdaArn";
 const _LC = "LambdaConfig";
+const _LCIMDP = "ListCIMDPolicies";
+const _LCIMDPR = "ListCIMDPoliciesRequest";
+const _LCIMDPRi = "ListCIMDPoliciesResponse";
 const _LCLT = "LogConfigurationListType";
+const _LCMURL = "ListClientMetadataURLs";
+const _LCMURLR = "ListClientMetadataURLsRequest";
+const _LCMURLRi = "ListClientMetadataURLsResponse";
 const _LCT = "LambdaConfigType";
 const _LCTo = "LogConfigurationType";
 const _LCi = "LimitClass";
@@ -702,15 +732,17 @@ const _PLT = "ProvidersListType";
 const _PLV = "ProvisionedLimitValue";
 const _PM = "PreferredMfa";
 const _PMS = "PreferredMfaSetting";
-const _PN = "ProviderName";
+const _PN = "PolicyName";
 const _PNME = "PreconditionNotMetException";
 const _PNo = "PoolName";
+const _PNr = "ProviderName";
 const _PP = "ProposedPassword";
 const _PPT = "PasswordPolicyType";
 const _PPa = "PasswordPolicy";
 const _PPr = "PreviousPassword";
 const _PRHCI = "PrimaryRoute53HealthCheckId";
 const _PRRE = "PasswordResetRequiredException";
+const _PSIAWSSM = "PublishSecretsInAWSSecretsManager";
 const _PSU = "PreSignUp";
 const _PSUr = "PreSignedUrl";
 const _PT = "PasswordType";
@@ -944,6 +976,12 @@ const _UC = "UsernameConfiguration";
 const _UCD = "UserCreateDate";
 const _UCDT = "UserContextDataType";
 const _UCDs = "UserContextData";
+const _UCIMDP = "UpdateCIMDPolicy";
+const _UCIMDPR = "UpdateCIMDPolicyRequest";
+const _UCIMDPRp = "UpdateCIMDPolicyResponse";
+const _UCMURLS = "UpdateClientMetadataURLState";
+const _UCMURLSR = "UpdateClientMetadataURLStateRequest";
+const _UCMURLSRp = "UpdateClientMetadataURLStateResponse";
 const _UCN = "UserConfirmationNecessary";
 const _UCPV = "UseCognitoProvidedValues";
 const _UCT = "UsernameConfigurationType";
@@ -1010,6 +1048,8 @@ const _UPTs = "UserPoolTier";
 const _UPTse = "UserPoolType";
 const _UPs = "UserPools";
 const _UR = "UntagResource";
+const _URL = "URL";
+const _URLP = "URLPatterns";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _URS = "UpdateResourceServer";
@@ -1095,6 +1135,7 @@ import { CognitoIdentityProviderServiceException } from "../models/CognitoIdenti
 import {
   AccessDeniedException,
   AliasExistsException,
+  CachedCIMDURLDoesNotExistException,
   CodeDeliveryFailureException,
   CodeMismatchException,
   ConcurrentModificationException,
@@ -1171,6 +1212,12 @@ export var AliasExistsException$: StaticErrorSchema = [-3, n0, _AEE,
   [0]
 ];
 n0_registry.registerError(AliasExistsException$, AliasExistsException);
+export var CachedCIMDURLDoesNotExistException$: StaticErrorSchema = [-3, n0, _CCIMDURLDNEE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CachedCIMDURLDoesNotExistException$, CachedCIMDURLDoesNotExistException);
 export var CodeDeliveryFailureException$: StaticErrorSchema = [-3, n0, _CDFE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
@@ -1934,10 +1981,25 @@ export var ChangePasswordResponse$: StaticStructureSchema = [3, n0, _CPRh,
   [],
   []
 ];
+export var CIMDPolicySummaryType$: StaticStructureSchema = [3, n0, _CIMDPST,
+  0,
+  [_CIMDPI, _PN, _CI, _CDa, _CDr, _LMD],
+  [0, 0, [() => ClientIdType, 0], 1, 4, 4], 2
+];
+export var CIMDPolicyType$: StaticStructureSchema = [3, n0, _CIMDPT,
+  0,
+  [_UPI, _CIMDPI, _PN, _CI, _CDa, _URLP, _CDr, _LMD],
+  [0, 0, 0, [() => ClientIdType, 0], 1, 64 | 0, 4, 4], 3
+];
 export var ClientAuthenticationResultType$: StaticStructureSchema = [3, n0, _CART,
   0,
   [_ATc, _EIxp, _TT],
   [[() => TokenModelType, 0], 1, 0]
+];
+export var ClientMetadataURLType$: StaticStructureSchema = [3, n0, _CMURLT,
+  0,
+  [_URL, _CDac, _ED],
+  [0, 4, 4], 1
 ];
 export var ClientSecretDescriptorType$: StaticStructureSchema = [3, n0, _CSDT,
   0,
@@ -2011,8 +2073,18 @@ export var ConfirmSignUpResponse$: StaticStructureSchema = [3, n0, _CSURo,
 ];
 export var ContextDataType$: StaticStructureSchema = [3, n0, _CDT,
   0,
-  [_IA, _SN, _SP, _HH, _ED],
+  [_IA, _SN, _SP, _HH, _EDn],
   [0, 0, 0, () => HttpHeaderList, 0], 4
+];
+export var CreateCIMDPolicyRequest$: StaticStructureSchema = [3, n0, _CCIMDPR,
+  0,
+  [_UPI, _CI, _PN, _URLP, _CDa],
+  [0, [() => ClientIdType, 0], 0, 64 | 0, 1], 4
+];
+export var CreateCIMDPolicyResponse$: StaticStructureSchema = [3, n0, _CCIMDPRr,
+  0,
+  [_CIMDP],
+  [[() => CIMDPolicyType$, 0]], 1
 ];
 export var CreateGroupRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
@@ -2026,7 +2098,7 @@ export var CreateGroupResponse$: StaticStructureSchema = [3, n0, _CGRr,
 ];
 export var CreateIdentityProviderRequest$: StaticStructureSchema = [3, n0, _CIPR,
   0,
-  [_UPI, _PN, _PTr, _PD, _AMt, _II, _AMc],
+  [_UPI, _PNr, _PTr, _PD, _AMt, _II, _AMc],
   [0, 0, 0, 128 | 0, 128 | 0, 64 | 0, 128 | 0], 4
 ];
 export var CreateIdentityProviderResponse$: StaticStructureSchema = [3, n0, _CIPRr,
@@ -2076,8 +2148,8 @@ export var CreateUserImportJobResponse$: StaticStructureSchema = [3, n0, _CUIJRr
 ];
 export var CreateUserPoolClientRequest$: StaticStructureSchema = [3, n0, _CUPCR,
   0,
-  [_UPI, _CNl, _GS, _CS, _RTV, _ATV, _ITV, _TVU, _RAe, _WA, _EAF, _SIP, _CURL, _LURL, _DRURI, _AOAF, _AOAS, _AOAFUPC, _ACn, _PUEE, _ETR, _EPAUCD, _ASV, _RTR],
-  [0, 0, 2, [() => ClientSecretType, 0], 1, 1, 1, () => TokenValidityUnitsType$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0, 2, () => AnalyticsConfigurationType$, 0, 2, 2, 1, () => RefreshTokenRotationType$], 2
+  [_UPI, _CNl, _GS, _CS, _RTV, _ATV, _ITV, _TVU, _RAe, _WA, _EAF, _SIP, _CURL, _LURL, _DRURI, _AOAF, _AOAS, _AOAFUPC, _ACn, _PUEE, _ETR, _EPAUCD, _ASV, _RTR, _PSIAWSSM],
+  [0, 0, 2, [() => ClientSecretType, 0], 1, 1, 1, () => TokenValidityUnitsType$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0, 2, () => AnalyticsConfigurationType$, 0, 2, 2, 1, () => RefreshTokenRotationType$, 2], 2
 ];
 export var CreateUserPoolClientResponse$: StaticStructureSchema = [3, n0, _CUPCRr,
   0,
@@ -2134,6 +2206,16 @@ export var DcrConfigurationType$: StaticStructureSchema = [3, n0, _DCT,
   [_ES, _ODE, _AGT, _ODGT, _AS],
   [0, 2, 64 | 0, 64 | 0, 64 | 0]
 ];
+export var DeleteCIMDPolicyRequest$: StaticStructureSchema = [3, n0, _DCIMDPR,
+  0,
+  [_UPI, _CIMDPI],
+  [0, 0], 2
+];
+export var DeleteCIMDPolicyResponse$: StaticStructureSchema = [3, n0, _DCIMDPRe,
+  0,
+  [],
+  []
+];
 export var DeleteGroupRequest$: StaticStructureSchema = [3, n0, _DGR,
   0,
   [_GN, _UPI],
@@ -2141,7 +2223,7 @@ export var DeleteGroupRequest$: StaticStructureSchema = [3, n0, _DGR,
 ];
 export var DeleteIdentityProviderRequest$: StaticStructureSchema = [3, n0, _DIPR,
   0,
-  [_UPI, _PN],
+  [_UPI, _PNr],
   [0, 0], 2
 ];
 export var DeleteManagedLoginBrandingRequest$: StaticStructureSchema = [3, n0, _DMLBR,
@@ -2224,9 +2306,19 @@ export var DeleteWebAuthnCredentialResponse$: StaticStructureSchema = [3, n0, _D
   [],
   []
 ];
+export var DescribeCIMDPolicyRequest$: StaticStructureSchema = [3, n0, _DCIMDPRes,
+  0,
+  [_UPI, _CIMDPI],
+  [0, 0], 2
+];
+export var DescribeCIMDPolicyResponse$: StaticStructureSchema = [3, n0, _DCIMDPResc,
+  0,
+  [_CIMDP],
+  [[() => CIMDPolicyType$, 0]], 1
+];
 export var DescribeIdentityProviderRequest$: StaticStructureSchema = [3, n0, _DIPRe,
   0,
-  [_UPI, _PN],
+  [_UPI, _PNr],
   [0, 0], 2
 ];
 export var DescribeIdentityProviderResponse$: StaticStructureSchema = [3, n0, _DIPRes,
@@ -2616,7 +2708,7 @@ export var HttpHeader$: StaticStructureSchema = [3, n0, _HHt,
 ];
 export var IdentityProviderType$: StaticStructureSchema = [3, n0, _IPT,
   0,
-  [_UPI, _PN, _PTr, _PD, _AMt, _II, _AMc, _LMD, _CDr],
+  [_UPI, _PNr, _PTr, _PD, _AMt, _II, _AMc, _LMD, _CDr],
   [0, 0, 0, 128 | 0, 128 | 0, 64 | 0, 128 | 0, 4, 4]
 ];
 export var InboundFederationLambdaType$: StaticStructureSchema = [3, n0, _IFLT,
@@ -2668,6 +2760,26 @@ export var LimitType$: StaticStructureSchema = [3, n0, _LT,
   0,
   [_LD, _PLV, _FLV],
   [() => LimitDefinitionType$, 1, 1], 3
+];
+export var ListCIMDPoliciesRequest$: StaticStructureSchema = [3, n0, _LCIMDPR,
+  0,
+  [_UPI, _NT, _MR],
+  [0, 0, 1], 1
+];
+export var ListCIMDPoliciesResponse$: StaticStructureSchema = [3, n0, _LCIMDPRi,
+  0,
+  [_CIMDPo, _NT],
+  [[() => CIMDPolicySummaryListType, 0], 0], 1
+];
+export var ListClientMetadataURLsRequest$: StaticStructureSchema = [3, n0, _LCMURLR,
+  0,
+  [_UPI, _CIMDPI, _NT, _MR],
+  [0, 0, 0, 1], 2
+];
+export var ListClientMetadataURLsResponse$: StaticStructureSchema = [3, n0, _LCMURLRi,
+  0,
+  [_CMURL, _NT],
+  [() => ClientMetadataURLListType, 0], 1
 ];
 export var ListDevicesRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
@@ -2886,12 +2998,12 @@ export var PreTokenGenerationVersionConfigType$: StaticStructureSchema = [3, n0,
 ];
 export var ProviderDescription$: StaticStructureSchema = [3, n0, _PDr,
   0,
-  [_PN, _PTr, _LMD, _CDr],
+  [_PNr, _PTr, _LMD, _CDr],
   [0, 0, 4, 4]
 ];
 export var ProviderUserIdentifierType$: StaticStructureSchema = [3, n0, _PUIT,
   0,
-  [_PN, _PAN, _PAV],
+  [_PNr, _PAN, _PAV],
   [0, 0, 0]
 ];
 export var RecoveryOptionType$: StaticStructureSchema = [3, n0, _ROT,
@@ -3219,6 +3331,26 @@ export var UpdateAuthEventFeedbackResponse$: StaticStructureSchema = [3, n0, _UA
   [],
   []
 ];
+export var UpdateCIMDPolicyRequest$: StaticStructureSchema = [3, n0, _UCIMDPR,
+  0,
+  [_UPI, _CIMDPI, _CI, _URLP, _PN, _CDa],
+  [0, 0, [() => ClientIdType, 0], 64 | 0, 0, 1], 4
+];
+export var UpdateCIMDPolicyResponse$: StaticStructureSchema = [3, n0, _UCIMDPRp,
+  0,
+  [_CIMDP],
+  [[() => CIMDPolicyType$, 0]], 1
+];
+export var UpdateClientMetadataURLStateRequest$: StaticStructureSchema = [3, n0, _UCMURLSR,
+  0,
+  [_UPI, _CIMDPI, _URL, _Ac],
+  [0, 0, 0, 0], 4
+];
+export var UpdateClientMetadataURLStateResponse$: StaticStructureSchema = [3, n0, _UCMURLSRp,
+  0,
+  [],
+  []
+];
 export var UpdateDeviceStatusRequest$: StaticStructureSchema = [3, n0, _UDSR,
   0,
   [_ATc, _DK, _DRS],
@@ -3241,7 +3373,7 @@ export var UpdateGroupResponse$: StaticStructureSchema = [3, n0, _UGRp,
 ];
 export var UpdateIdentityProviderRequest$: StaticStructureSchema = [3, n0, _UIPR,
   0,
-  [_UPI, _PN, _PD, _AMt, _II, _AMc],
+  [_UPI, _PNr, _PD, _AMt, _II, _AMc],
   [0, 0, 128 | 0, 128 | 0, 64 | 0, 128 | 0], 2
 ];
 export var UpdateIdentityProviderResponse$: StaticStructureSchema = [3, n0, _UIPRp,
@@ -3301,8 +3433,8 @@ export var UpdateUserAttributesResponse$: StaticStructureSchema = [3, n0, _UUARp
 ];
 export var UpdateUserPoolClientRequest$: StaticStructureSchema = [3, n0, _UUPCR,
   0,
-  [_UPI, _CI, _CNl, _RTV, _ATV, _ITV, _TVU, _RAe, _WA, _EAF, _SIP, _CURL, _LURL, _DRURI, _AOAF, _AOAS, _AOAFUPC, _ACn, _PUEE, _ETR, _EPAUCD, _ASV, _RTR],
-  [0, [() => ClientIdType, 0], 0, 1, 1, 1, () => TokenValidityUnitsType$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0, 2, () => AnalyticsConfigurationType$, 0, 2, 2, 1, () => RefreshTokenRotationType$], 2
+  [_UPI, _CI, _CNl, _RTV, _ATV, _ITV, _TVU, _RAe, _WA, _EAF, _SIP, _CURL, _LURL, _DRURI, _AOAF, _AOAS, _AOAFUPC, _ACn, _PUEE, _ETR, _EPAUCD, _ASV, _RTR, _PSIAWSSM],
+  [0, [() => ClientIdType, 0], 0, 1, 1, 1, () => TokenValidityUnitsType$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0, 2, () => AnalyticsConfigurationType$, 0, 2, 2, 1, () => RefreshTokenRotationType$, 2], 2
 ];
 export var UpdateUserPoolClientResponse$: StaticStructureSchema = [3, n0, _UUPCRp,
   0,
@@ -3346,7 +3478,7 @@ export var UserAttributeUpdateSettingsType$: StaticStructureSchema = [3, n0, _UA
 ];
 export var UserContextDataType$: StaticStructureSchema = [3, n0, _UCDT,
   8,
-  [_IA, _ED],
+  [_IA, _EDn],
   [0, 0]
 ];
 export var UserImportJobType$: StaticStructureSchema = [3, n0, _UIJT,
@@ -3371,8 +3503,8 @@ export var UserPoolClientDescription$: StaticStructureSchema = [3, n0, _UPCD,
 ];
 export var UserPoolClientType$: StaticStructureSchema = [3, n0, _UPCT,
   0,
-  [_UPI, _CNl, _CI, _CS, _LMD, _CDr, _RTV, _ATV, _ITV, _TVU, _RAe, _WA, _EAF, _SIP, _CURL, _LURL, _DRURI, _AOAF, _AOAS, _AOAFUPC, _ACn, _PUEE, _ETR, _EPAUCD, _ASV, _RTR, _CT],
-  [0, 0, [() => ClientIdType, 0], [() => ClientSecretType, 0], 4, 4, 1, 1, 1, () => TokenValidityUnitsType$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0, 2, () => AnalyticsConfigurationType$, 0, 2, 2, 1, () => RefreshTokenRotationType$, 0]
+  [_UPI, _CNl, _CI, _CS, _CSA, _LMD, _CDr, _RTV, _ATV, _ITV, _TVU, _RAe, _WA, _EAF, _SIP, _CURL, _LURL, _DRURI, _AOAF, _AOAS, _AOAFUPC, _ACn, _PUEE, _ETR, _EPAUCD, _ASV, _RTR, _CT],
+  [0, 0, [() => ClientIdType, 0], [() => ClientSecretType, 0], 0, 4, 4, 1, 1, 1, () => TokenValidityUnitsType$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0, 2, () => AnalyticsConfigurationType$, 0, 2, 2, 1, () => RefreshTokenRotationType$, 0]
 ];
 export var UserPoolDescriptionType$: StaticStructureSchema = [3, n0, _UPDT,
   0,
@@ -3466,6 +3598,13 @@ var CallbackURLsListType = 64 | 0;
 var ChallengeResponseListType: StaticListSchema = [1, n0, _CRLT,
   0, () => ChallengeResponseType$
 ];
+var CIMDPolicySummaryListType: StaticListSchema = [1, n0, _CIMDPSLT,
+  0, [() => CIMDPolicySummaryType$,
+    0]
+];
+var ClientMetadataURLListType: StaticListSchema = [1, n0, _CMURLLT,
+  0, () => ClientMetadataURLType$
+];
 var ClientPermissionListType = 64 | 0;
 var ClientSecretDescriptorListType: StaticListSchema = [1, n0, _CSDLT,
   0, [() => ClientSecretDescriptorType$,
@@ -3535,6 +3674,7 @@ var SupportedIdentityProvidersListType = 64 | 0;
 var TermsDescriptionListType: StaticListSchema = [1, n0, _TDLT,
   0, () => TermsDescriptionType$
 ];
+var URLPatternListType = 64 | 0;
 var UserImportJobsListType: StaticListSchema = [1, n0, _UIJLT,
   0, () => UserImportJobType$
 ];
@@ -3694,6 +3834,9 @@ export var ConfirmForgotPassword$: StaticOperationSchema = [9, n0, _CFP,
 export var ConfirmSignUp$: StaticOperationSchema = [9, n0, _CSU,
   0, () => ConfirmSignUpRequest$, () => ConfirmSignUpResponse$
 ];
+export var CreateCIMDPolicy$: StaticOperationSchema = [9, n0, _CCIMDP,
+  0, () => CreateCIMDPolicyRequest$, () => CreateCIMDPolicyResponse$
+];
 export var CreateGroup$: StaticOperationSchema = [9, n0, _CG,
   0, () => CreateGroupRequest$, () => CreateGroupResponse$
 ];
@@ -3723,6 +3866,9 @@ export var CreateUserPoolDomain$: StaticOperationSchema = [9, n0, _CUPD,
 ];
 export var CreateUserPoolReplica$: StaticOperationSchema = [9, n0, _CUPRre,
   0, () => CreateUserPoolReplicaRequest$, () => CreateUserPoolReplicaResponse$
+];
+export var DeleteCIMDPolicy$: StaticOperationSchema = [9, n0, _DCIMDP,
+  0, () => DeleteCIMDPolicyRequest$, () => DeleteCIMDPolicyResponse$
 ];
 export var DeleteGroup$: StaticOperationSchema = [9, n0, _DG,
   0, () => DeleteGroupRequest$, () => __Unit
@@ -3762,6 +3908,9 @@ export var DeleteUserPoolReplica$: StaticOperationSchema = [9, n0, _DUPRel,
 ];
 export var DeleteWebAuthnCredential$: StaticOperationSchema = [9, n0, _DWAC,
   0, () => DeleteWebAuthnCredentialRequest$, () => DeleteWebAuthnCredentialResponse$
+];
+export var DescribeCIMDPolicy$: StaticOperationSchema = [9, n0, _DCIMDPe,
+  0, () => DescribeCIMDPolicyRequest$, () => DescribeCIMDPolicyResponse$
 ];
 export var DescribeIdentityProvider$: StaticOperationSchema = [9, n0, _DIPe,
   0, () => DescribeIdentityProviderRequest$, () => DescribeIdentityProviderResponse$
@@ -3864,6 +4013,12 @@ export var InitiateAuth$: StaticOperationSchema = [9, n0, _IAn,
 ];
 export var InitiatePointInTimeRecovery$: StaticOperationSchema = [9, n0, _IPITR,
   0, () => InitiatePointInTimeRecoveryRequest$, () => InitiatePointInTimeRecoveryResponse$
+];
+export var ListCIMDPolicies$: StaticOperationSchema = [9, n0, _LCIMDP,
+  0, () => ListCIMDPoliciesRequest$, () => ListCIMDPoliciesResponse$
+];
+export var ListClientMetadataURLs$: StaticOperationSchema = [9, n0, _LCMURL,
+  0, () => ListClientMetadataURLsRequest$, () => ListClientMetadataURLsResponse$
 ];
 export var ListDevices$: StaticOperationSchema = [9, n0, _LDi,
   0, () => ListDevicesRequest$, () => ListDevicesResponse$
@@ -3972,6 +4127,12 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
 ];
 export var UpdateAuthEventFeedback$: StaticOperationSchema = [9, n0, _UAEF,
   0, () => UpdateAuthEventFeedbackRequest$, () => UpdateAuthEventFeedbackResponse$
+];
+export var UpdateCIMDPolicy$: StaticOperationSchema = [9, n0, _UCIMDP,
+  0, () => UpdateCIMDPolicyRequest$, () => UpdateCIMDPolicyResponse$
+];
+export var UpdateClientMetadataURLState$: StaticOperationSchema = [9, n0, _UCMURLS,
+  0, () => UpdateClientMetadataURLStateRequest$, () => UpdateClientMetadataURLStateResponse$
 ];
 export var UpdateDeviceStatus$: StaticOperationSchema = [9, n0, _UDSp,
   0, () => UpdateDeviceStatusRequest$, () => UpdateDeviceStatusResponse$

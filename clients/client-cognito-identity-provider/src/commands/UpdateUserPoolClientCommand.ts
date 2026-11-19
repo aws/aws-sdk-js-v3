@@ -114,6 +114,7 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  *     Feature: "ENABLED" || "DISABLED", // required
  *     RetryGracePeriodSeconds: Number("int"),
  *   },
+ *   PublishSecretsInAWSSecretsManager: true || false,
  * };
  * const command = new UpdateUserPoolClientCommand(input);
  * const response = await client.send(command);
@@ -123,6 +124,7 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  * //     ClientName: "STRING_VALUE",
  * //     ClientId: "STRING_VALUE",
  * //     ClientSecret: "STRING_VALUE",
+ * //     ClientSecretArn: "STRING_VALUE",
  * //     LastModifiedDate: new Date("TIMESTAMP"),
  * //     CreationDate: new Date("TIMESTAMP"),
  * //     RefreshTokenValidity: Number("int"),

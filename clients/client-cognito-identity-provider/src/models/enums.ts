@@ -981,6 +981,19 @@ export type UserSessionTrackingType = (typeof UserSessionTrackingType)[keyof typ
  * @public
  * @enum
  */
+export const CIMDCacheActionType = {
+  INVALIDATE: "INVALIDATE",
+  REFRESH: "REFRESH",
+} as const;
+/**
+ * @public
+ */
+export type CIMDCacheActionType = (typeof CIMDCacheActionType)[keyof typeof CIMDCacheActionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const UpdateReplicaStatusType = {
   ACTIVE: "ACTIVE",
   INACTIVE: "INACTIVE",

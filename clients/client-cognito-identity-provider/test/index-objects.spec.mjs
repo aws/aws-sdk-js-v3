@@ -153,6 +153,8 @@ import {
   AuthEventType$,
   AuthFactorType,
   AuthFlowType,
+  CachedCIMDURLDoesNotExistException,
+  CachedCIMDURLDoesNotExistException$,
   CancelPointInTimeRecovery$,
   CancelPointInTimeRecoveryCommand,
   CancelPointInTimeRecoveryRequest$,
@@ -165,7 +167,11 @@ import {
   ChangePasswordCommand,
   ChangePasswordRequest$,
   ChangePasswordResponse$,
+  CIMDCacheActionType,
+  CIMDPolicySummaryType$,
+  CIMDPolicyType$,
   ClientAuthenticationResultType$,
+  ClientMetadataURLType$,
   ClientSecretDescriptorType$,
   ClientSSOSessionConfigType$,
   ClientTypeType,
@@ -201,6 +207,10 @@ import {
   ConfirmSignUpRequest$,
   ConfirmSignUpResponse$,
   ContextDataType$,
+  CreateCIMDPolicy$,
+  CreateCIMDPolicyCommand,
+  CreateCIMDPolicyRequest$,
+  CreateCIMDPolicyResponse$,
   CreateGroup$,
   CreateGroupCommand,
   CreateGroupRequest$,
@@ -248,6 +258,10 @@ import {
   CustomSMSSenderLambdaVersionType,
   DcrConfigurationType$,
   DefaultEmailOptionType,
+  DeleteCIMDPolicy$,
+  DeleteCIMDPolicyCommand,
+  DeleteCIMDPolicyRequest$,
+  DeleteCIMDPolicyResponse$,
   DeleteGroup$,
   DeleteGroupCommand,
   DeleteGroupRequest$,
@@ -294,6 +308,10 @@ import {
   DeleteWebAuthnCredentialResponse$,
   DeletionProtectionType,
   DeliveryMediumType,
+  DescribeCIMDPolicy$,
+  DescribeCIMDPolicyCommand,
+  DescribeCIMDPolicyRequest$,
+  DescribeCIMDPolicyResponse$,
   DescribeIdentityProvider$,
   DescribeIdentityProviderCommand,
   DescribeIdentityProviderRequest$,
@@ -503,6 +521,14 @@ import {
   LimitExceededException,
   LimitExceededException$,
   LimitType$,
+  ListCIMDPolicies$,
+  ListCIMDPoliciesCommand,
+  ListCIMDPoliciesRequest$,
+  ListCIMDPoliciesResponse$,
+  ListClientMetadataURLs$,
+  ListClientMetadataURLsCommand,
+  ListClientMetadataURLsRequest$,
+  ListClientMetadataURLsResponse$,
   ListDevices$,
   ListDevicesCommand,
   ListDevicesRequest$,
@@ -590,6 +616,8 @@ import {
   OperationNotEnabledException$,
   paginateAdminListGroupsForUser,
   paginateAdminListUserAuthEvents,
+  paginateListCIMDPolicies,
+  paginateListClientMetadataURLs,
   paginateListGroups,
   paginateListIdentityProviders,
   paginateListResourceServers,
@@ -760,6 +788,14 @@ import {
   UpdateAuthEventFeedbackCommand,
   UpdateAuthEventFeedbackRequest$,
   UpdateAuthEventFeedbackResponse$,
+  UpdateCIMDPolicy$,
+  UpdateCIMDPolicyCommand,
+  UpdateCIMDPolicyRequest$,
+  UpdateCIMDPolicyResponse$,
+  UpdateClientMetadataURLState$,
+  UpdateClientMetadataURLStateCommand,
+  UpdateClientMetadataURLStateRequest$,
+  UpdateClientMetadataURLStateResponse$,
   UpdateDeviceStatus$,
   UpdateDeviceStatusCommand,
   UpdateDeviceStatusRequest$,
@@ -956,6 +992,8 @@ assert(typeof ConfirmForgotPasswordCommand === "function");
 assert(typeof ConfirmForgotPassword$ === "object");
 assert(typeof ConfirmSignUpCommand === "function");
 assert(typeof ConfirmSignUp$ === "object");
+assert(typeof CreateCIMDPolicyCommand === "function");
+assert(typeof CreateCIMDPolicy$ === "object");
 assert(typeof CreateGroupCommand === "function");
 assert(typeof CreateGroup$ === "object");
 assert(typeof CreateIdentityProviderCommand === "function");
@@ -976,6 +1014,8 @@ assert(typeof CreateUserPoolDomainCommand === "function");
 assert(typeof CreateUserPoolDomain$ === "object");
 assert(typeof CreateUserPoolReplicaCommand === "function");
 assert(typeof CreateUserPoolReplica$ === "object");
+assert(typeof DeleteCIMDPolicyCommand === "function");
+assert(typeof DeleteCIMDPolicy$ === "object");
 assert(typeof DeleteGroupCommand === "function");
 assert(typeof DeleteGroup$ === "object");
 assert(typeof DeleteIdentityProviderCommand === "function");
@@ -1002,6 +1042,8 @@ assert(typeof DeleteUserPoolReplicaCommand === "function");
 assert(typeof DeleteUserPoolReplica$ === "object");
 assert(typeof DeleteWebAuthnCredentialCommand === "function");
 assert(typeof DeleteWebAuthnCredential$ === "object");
+assert(typeof DescribeCIMDPolicyCommand === "function");
+assert(typeof DescribeCIMDPolicy$ === "object");
 assert(typeof DescribeIdentityProviderCommand === "function");
 assert(typeof DescribeIdentityProvider$ === "object");
 assert(typeof DescribeManagedLoginBrandingCommand === "function");
@@ -1070,6 +1112,10 @@ assert(typeof InitiateAuthCommand === "function");
 assert(typeof InitiateAuth$ === "object");
 assert(typeof InitiatePointInTimeRecoveryCommand === "function");
 assert(typeof InitiatePointInTimeRecovery$ === "object");
+assert(typeof ListCIMDPoliciesCommand === "function");
+assert(typeof ListCIMDPolicies$ === "object");
+assert(typeof ListClientMetadataURLsCommand === "function");
+assert(typeof ListClientMetadataURLs$ === "object");
 assert(typeof ListDevicesCommand === "function");
 assert(typeof ListDevices$ === "object");
 assert(typeof ListGroupsCommand === "function");
@@ -1142,6 +1188,10 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateAuthEventFeedbackCommand === "function");
 assert(typeof UpdateAuthEventFeedback$ === "object");
+assert(typeof UpdateCIMDPolicyCommand === "function");
+assert(typeof UpdateCIMDPolicy$ === "object");
+assert(typeof UpdateClientMetadataURLStateCommand === "function");
+assert(typeof UpdateClientMetadataURLState$ === "object");
 assert(typeof UpdateDeviceStatusCommand === "function");
 assert(typeof UpdateDeviceStatus$ === "object");
 assert(typeof UpdateGroupCommand === "function");
@@ -1251,7 +1301,10 @@ assert(typeof CancelPointInTimeRecoveryResponse$ === "object");
 assert(typeof ChallengeResponseType$ === "object");
 assert(typeof ChangePasswordRequest$ === "object");
 assert(typeof ChangePasswordResponse$ === "object");
+assert(typeof CIMDPolicySummaryType$ === "object");
+assert(typeof CIMDPolicyType$ === "object");
 assert(typeof ClientAuthenticationResultType$ === "object");
+assert(typeof ClientMetadataURLType$ === "object");
 assert(typeof ClientSecretDescriptorType$ === "object");
 assert(typeof ClientSSOSessionConfigType$ === "object");
 assert(typeof CloudWatchLogsConfigurationType$ === "object");
@@ -1267,6 +1320,8 @@ assert(typeof ConfirmForgotPasswordResponse$ === "object");
 assert(typeof ConfirmSignUpRequest$ === "object");
 assert(typeof ConfirmSignUpResponse$ === "object");
 assert(typeof ContextDataType$ === "object");
+assert(typeof CreateCIMDPolicyRequest$ === "object");
+assert(typeof CreateCIMDPolicyResponse$ === "object");
 assert(typeof CreateGroupRequest$ === "object");
 assert(typeof CreateGroupResponse$ === "object");
 assert(typeof CreateIdentityProviderRequest$ === "object");
@@ -1291,6 +1346,8 @@ assert(typeof CustomDomainConfigType$ === "object");
 assert(typeof CustomEmailLambdaVersionConfigType$ === "object");
 assert(typeof CustomSMSLambdaVersionConfigType$ === "object");
 assert(typeof DcrConfigurationType$ === "object");
+assert(typeof DeleteCIMDPolicyRequest$ === "object");
+assert(typeof DeleteCIMDPolicyResponse$ === "object");
 assert(typeof DeleteGroupRequest$ === "object");
 assert(typeof DeleteIdentityProviderRequest$ === "object");
 assert(typeof DeleteManagedLoginBrandingRequest$ === "object");
@@ -1309,6 +1366,8 @@ assert(typeof DeleteUserPoolRequest$ === "object");
 assert(typeof DeleteUserRequest$ === "object");
 assert(typeof DeleteWebAuthnCredentialRequest$ === "object");
 assert(typeof DeleteWebAuthnCredentialResponse$ === "object");
+assert(typeof DescribeCIMDPolicyRequest$ === "object");
+assert(typeof DescribeCIMDPolicyResponse$ === "object");
 assert(typeof DescribeIdentityProviderRequest$ === "object");
 assert(typeof DescribeIdentityProviderResponse$ === "object");
 assert(typeof DescribeManagedLoginBrandingByClientRequest$ === "object");
@@ -1398,6 +1457,10 @@ assert(typeof KeyConfigurationType$ === "object");
 assert(typeof LambdaConfigType$ === "object");
 assert(typeof LimitDefinitionType$ === "object");
 assert(typeof LimitType$ === "object");
+assert(typeof ListCIMDPoliciesRequest$ === "object");
+assert(typeof ListCIMDPoliciesResponse$ === "object");
+assert(typeof ListClientMetadataURLsRequest$ === "object");
+assert(typeof ListClientMetadataURLsResponse$ === "object");
 assert(typeof ListDevicesRequest$ === "object");
 assert(typeof ListDevicesResponse$ === "object");
 assert(typeof ListGroupsRequest$ === "object");
@@ -1508,6 +1571,10 @@ assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateAuthEventFeedbackRequest$ === "object");
 assert(typeof UpdateAuthEventFeedbackResponse$ === "object");
+assert(typeof UpdateCIMDPolicyRequest$ === "object");
+assert(typeof UpdateCIMDPolicyResponse$ === "object");
+assert(typeof UpdateClientMetadataURLStateRequest$ === "object");
+assert(typeof UpdateClientMetadataURLStateResponse$ === "object");
 assert(typeof UpdateDeviceStatusRequest$ === "object");
 assert(typeof UpdateDeviceStatusResponse$ === "object");
 assert(typeof UpdateGroupRequest$ === "object");
@@ -1566,6 +1633,7 @@ assert(typeof AuthFlowType === "object");
 assert(typeof ChallengeName === "object");
 assert(typeof ChallengeNameType === "object");
 assert(typeof ChallengeResponse === "object");
+assert(typeof CIMDCacheActionType === "object");
 assert(typeof ClientTypeType === "object");
 assert(typeof ColorSchemeModeType === "object");
 assert(typeof CompromisedCredentialsEventActionType === "object");
@@ -1628,6 +1696,8 @@ assert(AccessDeniedException.prototype instanceof CognitoIdentityProviderService
 assert(typeof AccessDeniedException$ === "object");
 assert(AliasExistsException.prototype instanceof CognitoIdentityProviderServiceException);
 assert(typeof AliasExistsException$ === "object");
+assert(CachedCIMDURLDoesNotExistException.prototype instanceof CognitoIdentityProviderServiceException);
+assert(typeof CachedCIMDURLDoesNotExistException$ === "object");
 assert(CodeDeliveryFailureException.prototype instanceof CognitoIdentityProviderServiceException);
 assert(typeof CodeDeliveryFailureException$ === "object");
 assert(CodeMismatchException.prototype instanceof CognitoIdentityProviderServiceException);
@@ -1746,6 +1816,8 @@ assert(CognitoIdentityProviderServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateAdminListGroupsForUser === "function");
 assert(typeof paginateAdminListUserAuthEvents === "function");
+assert(typeof paginateListCIMDPolicies === "function");
+assert(typeof paginateListClientMetadataURLs === "function");
 assert(typeof paginateListGroups === "function");
 assert(typeof paginateListIdentityProviders === "function");
 assert(typeof paginateListResourceServers === "function");

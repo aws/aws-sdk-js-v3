@@ -180,6 +180,7 @@ import type {
   ConfirmForgotPasswordCommandOutput,
 } from "./commands/ConfirmForgotPasswordCommand";
 import type { ConfirmSignUpCommandInput, ConfirmSignUpCommandOutput } from "./commands/ConfirmSignUpCommand";
+import type { CreateCIMDPolicyCommandInput, CreateCIMDPolicyCommandOutput } from "./commands/CreateCIMDPolicyCommand";
 import type { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import type {
   CreateIdentityProviderCommandInput,
@@ -211,6 +212,7 @@ import type {
   CreateUserPoolReplicaCommandInput,
   CreateUserPoolReplicaCommandOutput,
 } from "./commands/CreateUserPoolReplicaCommand";
+import type { DeleteCIMDPolicyCommandInput, DeleteCIMDPolicyCommandOutput } from "./commands/DeleteCIMDPolicyCommand";
 import type { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import type {
   DeleteIdentityProviderCommandInput,
@@ -251,6 +253,10 @@ import type {
   DeleteWebAuthnCredentialCommandInput,
   DeleteWebAuthnCredentialCommandOutput,
 } from "./commands/DeleteWebAuthnCredentialCommand";
+import type {
+  DescribeCIMDPolicyCommandInput,
+  DescribeCIMDPolicyCommandOutput,
+} from "./commands/DescribeCIMDPolicyCommand";
 import type {
   DescribeIdentityProviderCommandInput,
   DescribeIdentityProviderCommandOutput,
@@ -351,6 +357,11 @@ import type {
   InitiatePointInTimeRecoveryCommandInput,
   InitiatePointInTimeRecoveryCommandOutput,
 } from "./commands/InitiatePointInTimeRecoveryCommand";
+import type { ListCIMDPoliciesCommandInput, ListCIMDPoliciesCommandOutput } from "./commands/ListCIMDPoliciesCommand";
+import type {
+  ListClientMetadataURLsCommandInput,
+  ListClientMetadataURLsCommandOutput,
+} from "./commands/ListClientMetadataURLsCommand";
 import type { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import type { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import type {
@@ -459,6 +470,11 @@ import type {
   UpdateAuthEventFeedbackCommandInput,
   UpdateAuthEventFeedbackCommandOutput,
 } from "./commands/UpdateAuthEventFeedbackCommand";
+import type { UpdateCIMDPolicyCommandInput, UpdateCIMDPolicyCommandOutput } from "./commands/UpdateCIMDPolicyCommand";
+import type {
+  UpdateClientMetadataURLStateCommandInput,
+  UpdateClientMetadataURLStateCommandOutput,
+} from "./commands/UpdateClientMetadataURLStateCommand";
 import type {
   UpdateDeviceStatusCommandInput,
   UpdateDeviceStatusCommandOutput,
@@ -560,6 +576,7 @@ export type ServiceInputTypes =
   | ConfirmDeviceCommandInput
   | ConfirmForgotPasswordCommandInput
   | ConfirmSignUpCommandInput
+  | CreateCIMDPolicyCommandInput
   | CreateGroupCommandInput
   | CreateIdentityProviderCommandInput
   | CreateManagedLoginBrandingCommandInput
@@ -570,6 +587,7 @@ export type ServiceInputTypes =
   | CreateUserPoolCommandInput
   | CreateUserPoolDomainCommandInput
   | CreateUserPoolReplicaCommandInput
+  | DeleteCIMDPolicyCommandInput
   | DeleteGroupCommandInput
   | DeleteIdentityProviderCommandInput
   | DeleteManagedLoginBrandingCommandInput
@@ -583,6 +601,7 @@ export type ServiceInputTypes =
   | DeleteUserPoolDomainCommandInput
   | DeleteUserPoolReplicaCommandInput
   | DeleteWebAuthnCredentialCommandInput
+  | DescribeCIMDPolicyCommandInput
   | DescribeIdentityProviderCommandInput
   | DescribeManagedLoginBrandingByClientCommandInput
   | DescribeManagedLoginBrandingCommandInput
@@ -617,6 +636,8 @@ export type ServiceInputTypes =
   | GlobalSignOutCommandInput
   | InitiateAuthCommandInput
   | InitiatePointInTimeRecoveryCommandInput
+  | ListCIMDPoliciesCommandInput
+  | ListClientMetadataURLsCommandInput
   | ListDevicesCommandInput
   | ListGroupsCommandInput
   | ListIdentityProvidersCommandInput
@@ -653,6 +674,8 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAuthEventFeedbackCommandInput
+  | UpdateCIMDPolicyCommandInput
+  | UpdateClientMetadataURLStateCommandInput
   | UpdateDeviceStatusCommandInput
   | UpdateGroupCommandInput
   | UpdateIdentityProviderCommandInput
@@ -711,6 +734,7 @@ export type ServiceOutputTypes =
   | ConfirmDeviceCommandOutput
   | ConfirmForgotPasswordCommandOutput
   | ConfirmSignUpCommandOutput
+  | CreateCIMDPolicyCommandOutput
   | CreateGroupCommandOutput
   | CreateIdentityProviderCommandOutput
   | CreateManagedLoginBrandingCommandOutput
@@ -721,6 +745,7 @@ export type ServiceOutputTypes =
   | CreateUserPoolCommandOutput
   | CreateUserPoolDomainCommandOutput
   | CreateUserPoolReplicaCommandOutput
+  | DeleteCIMDPolicyCommandOutput
   | DeleteGroupCommandOutput
   | DeleteIdentityProviderCommandOutput
   | DeleteManagedLoginBrandingCommandOutput
@@ -734,6 +759,7 @@ export type ServiceOutputTypes =
   | DeleteUserPoolDomainCommandOutput
   | DeleteUserPoolReplicaCommandOutput
   | DeleteWebAuthnCredentialCommandOutput
+  | DescribeCIMDPolicyCommandOutput
   | DescribeIdentityProviderCommandOutput
   | DescribeManagedLoginBrandingByClientCommandOutput
   | DescribeManagedLoginBrandingCommandOutput
@@ -768,6 +794,8 @@ export type ServiceOutputTypes =
   | GlobalSignOutCommandOutput
   | InitiateAuthCommandOutput
   | InitiatePointInTimeRecoveryCommandOutput
+  | ListCIMDPoliciesCommandOutput
+  | ListClientMetadataURLsCommandOutput
   | ListDevicesCommandOutput
   | ListGroupsCommandOutput
   | ListIdentityProvidersCommandOutput
@@ -804,6 +832,8 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAuthEventFeedbackCommandOutput
+  | UpdateCIMDPolicyCommandOutput
+  | UpdateClientMetadataURLStateCommandOutput
   | UpdateDeviceStatusCommandOutput
   | UpdateGroupCommandOutput
   | UpdateIdentityProviderCommandOutput

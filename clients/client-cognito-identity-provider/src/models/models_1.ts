@@ -3,6 +3,8 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
   ChallengeNameType,
+  CIMDCacheActionType,
+  ClientTypeType,
   DeletionProtectionType,
   DeviceRememberedStatusType,
   ExplicitAuthFlowsType,
@@ -30,6 +32,8 @@ import type {
   AssetType,
   AttributeType,
   AuthenticationResultType,
+  CIMDPolicyType,
+  ClientSecretDescriptorType,
   ClientSSOSessionConfigType,
   CodeDeliveryDetailsType,
   CompromisedCredentialsRiskConfigurationType,
@@ -79,6 +83,332 @@ import type {
   WebAuthnConfigurationType,
   WebAuthnMfaSettingsType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListResourceServersResponse {
+  /**
+   * <p>An array of resource servers and the details of their configuration. For each, the
+   *             response includes names, identifiers, and custom scopes.</p>
+   * @public
+   */
+  ResourceServers: ResourceServerType[] | undefined;
+
+  /**
+   * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
+   * you include a pagination token in your request, Amazon Cognito returns the next set of items in
+   * the list. By use of this token, you can paginate through the full list of items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags that are assigned to the user pool.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTermsRequest {
+  /**
+   * <p>The ID of the user pool where you want to list terms documents.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The maximum number of terms documents that you want Amazon Cognito to return in the
+   *             response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>This API operation returns a limited number of results. The pagination token is
+   * an identifier that you can present in an additional API request with the same parameters. When
+   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   * Subsequent requests return a new pagination token. By use of this token, you can paginate
+   * through the full list of items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The details of a set of terms documents. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-terms-documents">Terms documents</a>.</p>
+ * @public
+ */
+export interface TermsDescriptionType {
+  /**
+   * <p>The ID of the requested terms documents.</p>
+   * @public
+   */
+  TermsId: string | undefined;
+
+  /**
+   * <p>The type and friendly name of the requested terms documents.</p>
+   * @public
+   */
+  TermsName: string | undefined;
+
+  /**
+   * <p>This parameter is reserved for future use and currently accepts one value.</p>
+   * @public
+   */
+  Enforcement: TermsEnforcementType | undefined;
+
+  /**
+   * <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a
+   * human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
+   * @public
+   */
+  CreationDate: Date | undefined;
+
+  /**
+   * <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a
+   * human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
+   * @public
+   */
+  LastModifiedDate: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTermsResponse {
+  /**
+   * <p>A summary of the requested terms documents. Includes unique identifiers for later
+   *             changes to the terms documents.</p>
+   * @public
+   */
+  Terms: TermsDescriptionType[] | undefined;
+
+  /**
+   * <p>This API operation returns a limited number of results. The pagination token is
+   * an identifier that you can present in an additional API request with the same parameters. When
+   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   * Subsequent requests return a new pagination token. By use of this token, you can paginate
+   * through the full list of items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Represents the request to list the user import jobs.</p>
+ * @public
+ */
+export interface ListUserImportJobsRequest {
+  /**
+   * <p>The ID of the user pool where you want to list import jobs.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The maximum number of import jobs that you want Amazon Cognito to return in the
+   *             response.</p>
+   * @public
+   */
+  MaxResults: number | undefined;
+
+  /**
+   * <p>This API operation returns a limited number of results. The pagination token is
+   * an identifier that you can present in an additional API request with the same parameters. When
+   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   * Subsequent requests return a new pagination token. By use of this token, you can paginate
+   * through the full list of items.</p>
+   * @public
+   */
+  PaginationToken?: string | undefined;
+}
+
+/**
+ * <p>Represents the response from the server to the request to list the user import
+ *             jobs.</p>
+ * @public
+ */
+export interface ListUserImportJobsResponse {
+  /**
+   * <p>An array of user import jobs from the requested user pool. For each, the response
+   *             includes logging destination, status, and the Amazon S3 pre-signed URL for CSV upload.</p>
+   * @public
+   */
+  UserImportJobs?: UserImportJobType[] | undefined;
+
+  /**
+   * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
+   * you include a pagination token in your request, Amazon Cognito returns the next set of items in
+   * the list. By use of this token, you can paginate through the full list of items.</p>
+   * @public
+   */
+  PaginationToken?: string | undefined;
+}
+
+/**
+ * <p>Represents the request to list the user pool clients.</p>
+ * @public
+ */
+export interface ListUserPoolClientsRequest {
+  /**
+   * <p>The ID of the user pool where you want to list user pool clients.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The maximum number of app clients that you want Amazon Cognito to return in the
+   *             response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>This API operation returns a limited number of results. The pagination token is
+   * an identifier that you can present in an additional API request with the same parameters. When
+   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   * Subsequent requests return a new pagination token. By use of this token, you can paginate
+   * through the full list of items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Returns only app clients of this type. For dynamic client registration
+   *                 (<code>DCR</code>) and other app clients, the following values are valid.</p>
+   *          <dl>
+   *             <dt>REGULAR</dt>
+   *             <dd>
+   *                <p>An app client not created through dynamic client registration.</p>
+   *             </dd>
+   *             <dt>DCR</dt>
+   *             <dd>
+   *                <p>An app client created through dynamic client registration.</p>
+   *             </dd>
+   *          </dl>
+   *          <p>If you omit <code>ClientType</code>, the response includes app clients of all types.
+   *             When you set this filter, a page of results can contain fewer app clients than
+   *                 <code>MaxResults</code>, or none, while the response still includes a
+   *                 <code>NextToken</code>. Continue to request pages until the response has no
+   *                 <code>NextToken</code>. The app clients in the response don't include their
+   *             type. To get the type of an app client, call
+   *                 <code>DescribeUserPoolClient</code>.</p>
+   * @public
+   */
+  ClientType?: ClientTypeType | undefined;
+}
+
+/**
+ * <p>A short description of a user pool app client.</p>
+ * @public
+ */
+export interface UserPoolClientDescription {
+  /**
+   * <p>The app client ID.</p>
+   * @public
+   */
+  ClientId?: string | undefined;
+
+  /**
+   * <p>The ID of the user pool that's associated with the app client.</p>
+   * @public
+   */
+  UserPoolId?: string | undefined;
+
+  /**
+   * <p>The app client name.</p>
+   * @public
+   */
+  ClientName?: string | undefined;
+}
+
+/**
+ * <p>Represents the response from the server that lists user pool clients.</p>
+ * @public
+ */
+export interface ListUserPoolClientsResponse {
+  /**
+   * <p>An array of app clients and their details. Includes app client ID and name.</p>
+   * @public
+   */
+  UserPoolClients?: UserPoolClientDescription[] | undefined;
+
+  /**
+   * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
+   * you include a pagination token in your request, Amazon Cognito returns the next set of items in
+   * the list. By use of this token, you can paginate through the full list of items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The request to list client secrets for a user pool app client.</p>
+ * @public
+ */
+export interface ListUserPoolClientSecretsRequest {
+  /**
+   * <p>The ID of the user pool that contains the app client.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The ID of the app client whose secrets you want to list.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>This API operation returns a limited number of results. The pagination token is
+   * an identifier that you can present in an additional API request with the same parameters. When
+   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   * Subsequent requests return a new pagination token. By use of this token, you can paginate
+   * through the full list of items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The response containing the list of client secret metadata. This response does not include a NextToken field as all secrets are returned in a single response.</p>
+ * @public
+ */
+export interface ListUserPoolClientSecretsResponse {
+  /**
+   * <p>A list of client secret descriptors containing the identifier and creation date for each secret. For security reasons, the response never reveals the actual secret value in ClientSecretValue.</p>
+   * @public
+   */
+  ClientSecrets?: ClientSecretDescriptorType[] | undefined;
+
+  /**
+   * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
+   * you include a pagination token in your request, Amazon Cognito returns the next set of items in
+   * the list. By use of this token, you can paginate through the full list of items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -2074,6 +2404,98 @@ export interface UpdateAuthEventFeedbackRequest {
 export interface UpdateAuthEventFeedbackResponse {}
 
 /**
+ * @public
+ */
+export interface UpdateCIMDPolicyRequest {
+  /**
+   * <p>The ID of the user pool that contains the CIMD policy.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The ID of the CIMD policy that you want to update.</p>
+   * @public
+   */
+  CIMDPolicyId: string | undefined;
+
+  /**
+   * <p>The ID of the app client that you want to associate with the CIMD policy.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>A friendly name for the CIMD policy.</p>
+   * @public
+   */
+  PolicyName?: string | undefined;
+
+  /**
+   * <p>The length of time, in seconds, that Amazon Cognito caches a client metadata document
+   *             that it retrieved from a URL that matches the policy. The value must be between 86,400
+   *             seconds (one day) and 31,556,952 seconds (one year).</p>
+   * @public
+   */
+  CacheDuration?: number | undefined;
+
+  /**
+   * <p>One to five HTTPS URL patterns. Amazon Cognito accepts a client ID metadata document
+   *             URL only when it matches one of these patterns. Patterns can contain the <code>*</code>
+   *             wildcard character.</p>
+   * @public
+   */
+  URLPatterns: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCIMDPolicyResponse {
+  /**
+   * <p>The updated CIMD policy.</p>
+   * @public
+   */
+  CIMDPolicy: CIMDPolicyType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClientMetadataURLStateRequest {
+  /**
+   * <p>The ID of the user pool that contains the CIMD policy.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The ID of the CIMD policy that the URL belongs to.</p>
+   * @public
+   */
+  CIMDPolicyId: string | undefined;
+
+  /**
+   * <p>The client metadata document URL whose cache state you want to change.</p>
+   * @public
+   */
+  URL: string | undefined;
+
+  /**
+   * <p>The action to take on the cached client metadata document. <code>REFRESH</code>
+   *             retrieves the document from the URL again. <code>INVALIDATE</code> removes the cached
+   *             document.</p>
+   * @public
+   */
+  Action: CIMDCacheActionType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClientMetadataURLStateResponse {}
+
+/**
  * <p>Represents the request to update the device status.</p>
  * @public
  */
@@ -3265,6 +3687,29 @@ export interface UpdateUserPoolClientRequest {
    * @public
    */
   RefreshTokenRotation?: RefreshTokenRotationType | undefined;
+
+  /**
+   * <p>Specifies whether Amazon Cognito stores and manages this app client's secret in
+   *                 <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">Amazon Web Services
+   *                 Secrets Manager</a> instead of returning the plaintext value. When you set this
+   *             parameter to <code>true</code>, the response returns <code>ClientSecretArn</code>
+   *             instead of <code>ClientSecret</code>. By default, Amazon Cognito rotates the secret every 7 days.
+   *             You can change the rotation schedule in Secrets Manager.</p>
+   *          <p>Set to <code>true</code> to migrate an existing generated secret into Secrets Manager,
+   *             or <code>false</code> to move it back to Amazon Cognito and delete the Secrets Manager secret. If
+   *             you omit this parameter, Amazon Cognito doesn't change how it manages the existing secret.
+   *             Applies only to app clients that already have a generated secret.</p>
+   *          <p>When you set it to <code>true</code>, Amazon Cognito starts managing the app client's
+   *             secret in Secrets Manager and rotates it right away. If the app client has two secrets,
+   *             that first rotation deletes the older one.</p>
+   *          <important>
+   *             <p>When you set this parameter to <code>false</code>, Amazon Cognito immediately and
+   *                 permanently deletes the Secrets Manager secret. There's no recovery window.
+   *                 Applications that read the secret from Secrets Manager can no longer get it.</p>
+   *          </important>
+   * @public
+   */
+  PublishSecretsInAWSSecretsManager?: boolean | undefined;
 }
 
 /**

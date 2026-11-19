@@ -66,6 +66,7 @@ export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolCli
  * //     ClientName: "STRING_VALUE",
  * //     ClientId: "STRING_VALUE",
  * //     ClientSecret: "STRING_VALUE",
+ * //     ClientSecretArn: "STRING_VALUE",
  * //     LastModifiedDate: new Date("TIMESTAMP"),
  * //     CreationDate: new Date("TIMESTAMP"),
  * //     RefreshTokenValidity: Number("int"),

@@ -1262,6 +1262,28 @@ export class WebAuthnConfigurationMissingException extends __BaseException {
 }
 
 /**
+ * <p>This exception is thrown when Amazon Cognito doesn't have a cached client metadata
+ *             document for the URL in the request.</p>
+ * @public
+ */
+export class CachedCIMDURLDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#CachedCIMDURLDoesNotExistException";
+  readonly name = "CachedCIMDURLDoesNotExistException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CachedCIMDURLDoesNotExistException, __BaseException>) {
+    super({
+      name: "CachedCIMDURLDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CachedCIMDURLDoesNotExistException.prototype);
+  }
+}
+
+/**
  * <p>The request exceeded your account's service quota. To increase your limit, use  or submit a Service Quotas increase request.</p>
  * @public
  */
