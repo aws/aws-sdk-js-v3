@@ -37,6 +37,7 @@ import {
   CertificateSummary$,
   CertificateTransparencyLoggingPreference,
   CertificateType,
+  CertificateUsage,
   CommonNameFilter$,
   ComparisonOperator,
   ConflictException,
@@ -229,6 +230,7 @@ import {
   RevokeCertificateCommand,
   RevokeCertificateRequest$,
   RevokeCertificateResponse$,
+  RootHierarchyType,
   SearchCertificates$,
   SearchCertificatesCommand,
   SearchCertificatesRequest$,
@@ -504,6 +506,7 @@ assert(typeof CertificateManagedBy === "object");
 assert(typeof CertificateStatus === "object");
 assert(typeof CertificateTransparencyLoggingPreference === "object");
 assert(typeof CertificateType === "object");
+assert(typeof CertificateUsage === "object");
 assert(typeof ComparisonOperator === "object");
 assert(typeof DomainScopeOption === "object");
 assert(typeof DomainStatus === "object");
@@ -517,6 +520,7 @@ assert(typeof RecordType === "object");
 assert(typeof RenewalEligibility === "object");
 assert(typeof RenewalStatus === "object");
 assert(typeof RevocationReason === "object");
+assert(typeof RootHierarchyType === "object");
 assert(typeof SearchCertificatesSortBy === "object");
 assert(typeof SearchCertificatesSortOrder === "object");
 assert(typeof SortBy === "object");

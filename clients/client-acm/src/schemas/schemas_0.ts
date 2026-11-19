@@ -65,6 +65,7 @@ const _CSRL = "CertificateSearchResultList";
 const _CSe = "CertificateStatuses";
 const _CT = "CertificateTags";
 const _CTLP = "CertificateTransparencyLoggingPreference";
+const _CU = "CertificateUsage";
 const _Ce = "Certificate";
 const _Co = "Contact";
 const _Cou = "Country";
@@ -253,6 +254,8 @@ const _RCe = "RequestCertificate";
 const _RCev = "RevokeCertificate";
 const _RE = "RenewalEligibility";
 const _RF = "RedirectFrom";
+const _RHT = "RootHierarchyType";
+const _RHTo = "RootHierarchyTypes";
 const _RI = "RegisteredId";
 const _RIPE = "RequestInProgressException";
 const _RIUE = "ResourceInUseException";
@@ -505,8 +508,8 @@ var PrivateKey: StaticSimpleSchema = [0, n0, _PK, 8, 0];
 var PrivateKeyBlob: StaticSimpleSchema = [0, n0, _PKB, 8, 21];
 export var AcmCertificateMetadata$: StaticStructureSchema = [3, n0, _ACM,
   0,
-  [_CA, _E, _IA, _IU, _IAs, _RE, _RA, _S, _RS, _T, _EO, _MB, _VM, _CKPO, _AEA, _AAI],
-  [4, 2, 4, 2, 4, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_CA, _E, _IA, _IU, _IAs, _RE, _RA, _S, _RS, _T, _EO, _MB, _VM, _CKPO, _AEA, _AAI, _CU, _RHT],
+  [4, 2, 4, 2, 4, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var AcmeAccount$: StaticStructureSchema = [3, n0, _AA,
   0,
@@ -555,8 +558,8 @@ export var AddTagsToCertificateRequest$: StaticStructureSchema = [3, n0, _ATTCR,
 ];
 export var CertificateDetail$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_CAer, _DN, _SAN, _MB, _DVO, _Se, _Su, _I, _CA, _IAs, _IA, _S, _RA, _RR, _NB, _NA, _KA, _SA, _IUB, _FR, _T, _RSe, _KU, _EKU, _CAA, _RE, _O, _US, _CKPO, _AEA, _AAI],
-  [0, 0, 64 | 0, 0, () => DomainValidationList, 0, 0, 0, 4, 4, 4, 0, 4, 0, 4, 4, 0, 0, 64 | 0, 0, 0, () => RenewalSummary$, () => KeyUsageList, () => ExtendedKeyUsageList, 0, 0, () => CertificateOptions$, () => UpdateSummary$, 0, 0, 0]
+  [_CAer, _DN, _SAN, _MB, _DVO, _Se, _Su, _I, _CA, _IAs, _IA, _S, _RA, _RR, _NB, _NA, _KA, _SA, _IUB, _FR, _T, _RSe, _KU, _EKU, _CAA, _RE, _O, _US, _CKPO, _AEA, _AAI, _CU, _RHT],
+  [0, 0, 64 | 0, 0, () => DomainValidationList, 0, 0, 0, 4, 4, 4, 0, 4, 0, 4, 4, 0, 0, 64 | 0, 0, 0, () => RenewalSummary$, () => KeyUsageList, () => ExtendedKeyUsageList, 0, 0, () => CertificateOptions$, () => UpdateSummary$, 0, 0, 0, 0, 0]
 ];
 export var CertificateOptions$: StaticStructureSchema = [3, n0, _CO,
   0,
@@ -570,8 +573,8 @@ export var CertificateSearchResult$: StaticStructureSchema = [3, n0, _CSR,
 ];
 export var CertificateSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_CAer, _DN, _SANS, _HASAN, _S, _T, _KA, _KU, _EKU, _EO, _IU, _E, _RE, _NB, _NA, _CA, _IAs, _IA, _RA, _MB, _CKPO],
-  [0, 0, 64 | 0, 2, 0, 0, 0, 64 | 0, 64 | 0, 0, 2, 2, 0, 4, 4, 4, 4, 4, 4, 0, 0]
+  [_CAer, _DN, _SANS, _HASAN, _S, _T, _KA, _KU, _EKU, _EO, _IU, _E, _RE, _NB, _NA, _CA, _IAs, _IA, _RA, _MB, _CKPO, _CU, _RHT],
+  [0, 0, 64 | 0, 2, 0, 0, 0, 64 | 0, 64 | 0, 0, 2, 2, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0]
 ];
 export var CommonNameFilter$: StaticStructureSchema = [3, n0, _CNF,
   0,
@@ -870,8 +873,8 @@ export var ListCertificateDomainValidationsResponse$: StaticStructureSchema = [3
 ];
 export var ListCertificatesRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
-  [_CSe, _CKPOe, _Inc, _NT, _MI, _SB, _SO],
-  [64 | 0, 64 | 0, () => Filters$, 0, 1, 0, 0]
+  [_CSe, _CKPOe, _RHTo, _Inc, _NT, _MI, _SB, _SO],
+  [64 | 0, 64 | 0, 64 | 0, () => Filters$, 0, 1, 0, 0]
 ];
 export var ListCertificatesResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
@@ -930,8 +933,8 @@ export var RenewCertificateRequest$: StaticStructureSchema = [3, n0, _RCR,
 ];
 export var RequestCertificateRequest$: StaticStructureSchema = [3, n0, _RCRe,
   0,
-  [_DN, _VM, _SAN, _IT, _DVO, _O, _CAA, _Ta, _KA, _MB],
-  [0, 0, 64 | 0, 0, () => DomainValidationOptionList, () => CertificateOptions$, 0, () => TagList, 0, 0], 1
+  [_DN, _VM, _SAN, _IT, _DVO, _O, _CAA, _Ta, _KA, _MB, _CU, _RHT],
+  [0, 0, 64 | 0, 0, () => DomainValidationOptionList, () => CertificateOptions$, 0, () => TagList, 0, 0, 0, 0], 1
 ];
 export var RequestCertificateResponse$: StaticStructureSchema = [3, n0, _RCReq,
   0,
@@ -1091,6 +1094,7 @@ var KeyUsageList: StaticListSchema = [1, n0, _KUL,
 ];
 var KeyUsageNames = 64 | 0;
 var PublicKeyAlgorithmList = 64 | 0;
+var RootHierarchyTypes = 64 | 0;
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,
   0, () => Tag$
@@ -1101,8 +1105,8 @@ var ThrottlingReasonList: StaticListSchema = [1, n0, _TRL,
 var ValidationEmailList = 64 | 0;
 export var AcmCertificateMetadataFilter$: StaticUnionSchema = [4, n0, _ACMF,
   0,
-  [_S, _RS, _T, _IU, _E, _EO, _MB, _VM, _CKPO, _AEA, _AAI],
-  [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0]
+  [_S, _RS, _T, _IU, _E, _EO, _MB, _VM, _CKPO, _AEA, _AAI, _RHT],
+  [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var CertificateAuthority$: StaticUnionSchema = [4, n0, _CAe,
   0,

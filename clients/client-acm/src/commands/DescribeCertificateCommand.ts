@@ -139,6 +139,8 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * //     CertificateKeyPairOrigin: "AWS_MANAGED" || "ACME" || "CUSTOMER_PROVIDED",
  * //     AcmeEndpointArn: "STRING_VALUE",
  * //     AcmeAccountId: "STRING_VALUE",
+ * //     CertificateUsage: "CLIENT_AND_SERVER_AUTH" || "CLIENT_AUTH_ONLY",
+ * //     RootHierarchyType: "N2_AMAZON_MANAGED" || "N2_SFG2_AMAZON_MANAGED",
  * //   },
  * // };
  *

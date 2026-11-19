@@ -23,7 +23,7 @@ export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
 export interface ListCertificatesCommandOutput extends ListCertificatesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of certificate ARNs and domain names. You can request that only certificates that match a specific status be listed. You can also filter by specific attributes of the certificate. Default filtering returns only <code>RSA_2048</code> certificates. For more information, see <a>Filters</a>.</p> <note> <p>By default, this action does not return certificates with a <code>CertificateKeyPairOrigin</code> of <code>ACME</code>. To include ACME certificates, specify <code>ACME</code> in the <code>CertificateKeyPairOrigins</code> filter.</p> </note>
+ * <p>Retrieves a list of certificate ARNs and domain names. You can request that only certificates that match a specific status be listed. You can also filter by specific attributes of the certificate. Default filtering returns only <code>RSA_2048</code> certificates. For more information, see <a>Filters</a>.</p> <note> <p>By default, this action does not return certificates with a <code>CertificateKeyPairOrigin</code> of <code>ACME</code>. To include ACME certificates, specify <code>ACME</code> in the <code>CertificateKeyPairOrigins</code> filter.</p> </note> <note> <p>By default, this action does not return certificates with a <code>RootHierarchyType</code> of <code>N2_AMAZON_MANAGED</code> or <code>N2_SFG2_AMAZON_MANAGED</code>. To list only Amazon N2 certificates, specify one or both of these values in the <code>RootHierarchyTypes</code> filter.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,6 +38,9 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  *   ],
  *   CertificateKeyPairOrigins: [ // CertificateKeyPairOrigins
  *     "AWS_MANAGED" || "ACME" || "CUSTOMER_PROVIDED",
+ *   ],
+ *   RootHierarchyTypes: [ // RootHierarchyTypes
+ *     "N2_AMAZON_MANAGED" || "N2_SFG2_AMAZON_MANAGED",
  *   ],
  *   Includes: { // Filters
  *     extendedKeyUsage: [ // ExtendedKeyUsageFilterList
@@ -90,6 +93,8 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * //       RevokedAt: new Date("TIMESTAMP"),
  * //       ManagedBy: "CLOUDFRONT",
  * //       CertificateKeyPairOrigin: "AWS_MANAGED" || "ACME" || "CUSTOMER_PROVIDED",
+ * //       CertificateUsage: "CLIENT_AND_SERVER_AUTH" || "CLIENT_AUTH_ONLY",
+ * //       RootHierarchyType: "N2_AMAZON_MANAGED" || "N2_SFG2_AMAZON_MANAGED",
  * //     },
  * //   ],
  * // };

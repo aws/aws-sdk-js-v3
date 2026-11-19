@@ -17,6 +17,19 @@ export type CertificateKeyPairOrigin = (typeof CertificateKeyPairOrigin)[keyof t
  * @public
  * @enum
  */
+export const CertificateUsage = {
+  CLIENT_AND_SERVER_AUTH: "CLIENT_AND_SERVER_AUTH",
+  CLIENT_AUTH_ONLY: "CLIENT_AUTH_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type CertificateUsage = (typeof CertificateUsage)[keyof typeof CertificateUsage];
+
+/**
+ * @public
+ * @enum
+ */
 export const CertificateExport = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -65,6 +78,19 @@ export const RenewalStatus = {
  * @public
  */
 export type RenewalStatus = (typeof RenewalStatus)[keyof typeof RenewalStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RootHierarchyType = {
+  N2_AMAZON_MANAGED: "N2_AMAZON_MANAGED",
+  N2_SFG2_AMAZON_MANAGED: "N2_SFG2_AMAZON_MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type RootHierarchyType = (typeof RootHierarchyType)[keyof typeof RootHierarchyType];
 
 /**
  * @public
