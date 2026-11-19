@@ -59,6 +59,9 @@ export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssoci
  * @throws {@link AccessDenied} (client fault)
  *  <p>Access denied.</p>
  *
+ * @throws {@link EntityLimitExceeded} (client fault)
+ *  <p>The entity limit has been exceeded.</p>
+ *
  * @throws {@link EntityNotFound} (client fault)
  *  <p>The entity was not found.</p>
  *
@@ -67,6 +70,9 @@ export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssoci
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link InvalidAssociation} (client fault)
+ *  <p>The specified CloudFront resource can't be associated.</p>
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
  *  <p>The <code>If-Match</code> version is missing or not valid.</p>

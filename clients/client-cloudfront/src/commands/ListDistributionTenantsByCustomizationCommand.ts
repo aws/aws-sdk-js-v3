@@ -55,6 +55,7 @@ export interface ListDistributionTenantsByCustomizationCommandOutput extends Lis
  * //         { // DomainResult
  * //           Domain: "STRING_VALUE", // required
  * //           Status: "active" || "inactive",
+ * //           ServeOn: "any" || "anycast-ip-list-only",
  * //         },
  * //       ],
  * //       ConnectionGroupId: "STRING_VALUE",

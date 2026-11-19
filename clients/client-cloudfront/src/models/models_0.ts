@@ -24,6 +24,7 @@ import type {
   ItemSelection,
   Method,
   MinimumProtocolVersion,
+  OnDomainTakeover,
   OriginAccessControlOriginTypes,
   OriginAccessControlSigningBehaviors,
   OriginAccessControlSigningProtocols,
@@ -36,6 +37,7 @@ import type {
   RealtimeMetricsSubscriptionStatus,
   ReferrerPolicyList,
   ResponseHeadersPolicyAccessControlAllowMethodsValues,
+  ServeOn,
   SslProtocol,
   SSLSupportMethod,
   TrustStoreStatus,
@@ -2690,6 +2692,18 @@ export interface CreateConnectionFunctionResult {
 }
 
 /**
+ * <p>The distribution whose certificate CloudFront uses for viewer requests that arrive on the connection group's Anycast static IPs without Server Name Indication (SNI). You can specify one distribution per Anycast static IP list.</p>
+ * @public
+ */
+export interface ViewerFallback {
+  /**
+   * <p>The ID of the distribution whose certificate CloudFront uses to establish TLS connections for viewer requests that don't include SNI.</p>
+   * @public
+   */
+  DistributionId?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateConnectionGroupRequest {
@@ -2722,6 +2736,12 @@ export interface CreateConnectionGroupRequest {
    * @public
    */
   Enabled?: boolean | undefined;
+
+  /**
+   * <p>The distribution whose certificate CloudFront uses for viewer requests that arrive on the connection group's Anycast static IPs without Server Name Indication (SNI).</p>
+   * @public
+   */
+  ViewerFallback?: ViewerFallback | undefined;
 }
 
 /**
@@ -2800,6 +2820,12 @@ export interface ConnectionGroup {
    * @public
    */
   IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The distribution whose certificate CloudFront uses for viewer requests that arrive on the connection group's Anycast static IPs without Server Name Indication (SNI).</p>
+   * @public
+   */
+  ViewerFallback?: ViewerFallback | undefined;
 }
 
 /**
@@ -3103,6 +3129,12 @@ export interface DomainItem {
    * @public
    */
   Domain: string | undefined;
+
+  /**
+   * <p>Specifies which requests for this domain CloudFront routes to the distribution tenant. Valid values are:</p> <ul> <li> <p> <code>any</code> – CloudFront routes requests for this domain to the distribution tenant regardless of the IP address that they arrive on. This is the default if you don't specify a value.</p> </li> <li> <p> <code>anycast-ip-list-only</code> – CloudFront routes requests for this domain to the distribution tenant only when they arrive on the Anycast static IPs of the distribution tenant's connection group. CloudFront treats requests that arrive on other IP addresses as requests for an unknown domain.</p> </li> </ul>
+   * @public
+   */
+  ServeOn?: ServeOn | undefined;
 }
 
 /**
@@ -3204,6 +3236,12 @@ export interface CreateDistributionTenantRequest {
    * @public
    */
   Enabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether CloudFront moves a domain in this request to this distribution tenant when the domain is already associated with another standard distribution or distribution tenant. Valid values are:</p> <ul> <li> <p> <code>allow</code> – CloudFront moves the domain to this distribution tenant when the domain's DNS points to this distribution tenant.</p> </li> <li> <p> <code>reject</code> – CloudFront doesn't move the domain, and the request fails if the domain is associated with another resource. This is the default if you don't specify a value.</p> </li> </ul>
+   * @public
+   */
+  OnDomainTakeover?: OnDomainTakeover | undefined;
 }
 
 /**
@@ -3222,6 +3260,12 @@ export interface DomainResult {
    * @public
    */
   Status?: DomainStatus | undefined;
+
+  /**
+   * <p>Specifies which requests for this domain CloudFront routes to the distribution tenant. Valid values are:</p> <ul> <li> <p> <code>any</code> – CloudFront routes requests for this domain to the distribution tenant regardless of the IP address that they arrive on. This is the default if you don't specify a value.</p> </li> <li> <p> <code>anycast-ip-list-only</code> – CloudFront routes requests for this domain to the distribution tenant only when they arrive on the Anycast static IPs of the distribution tenant's connection group. CloudFront treats requests that arrive on other IP addresses as requests for an unknown domain.</p> </li> </ul>
+   * @public
+   */
+  ServeOn?: ServeOn | undefined;
 }
 
 /**
@@ -6829,15 +6873,4 @@ export interface GetKeyGroupResult {
    * @public
    */
   ETag?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetKeyGroupConfigRequest {
-  /**
-   * <p>The identifier of the key group whose configuration you are getting. To get the identifier, use <code>ListKeyGroups</code>.</p>
-   * @public
-   */
-  Id: string | undefined;
 }

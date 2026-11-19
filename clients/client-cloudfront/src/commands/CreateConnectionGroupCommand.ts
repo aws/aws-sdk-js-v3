@@ -45,6 +45,9 @@ export interface CreateConnectionGroupCommandOutput extends CreateConnectionGrou
  *   },
  *   AnycastIpListId: "STRING_VALUE",
  *   Enabled: true || false,
+ *   ViewerFallback: { // ViewerFallback
+ *     DistributionId: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateConnectionGroupCommand(input);
  * const response = await client.send(command);
@@ -69,6 +72,9 @@ export interface CreateConnectionGroupCommandOutput extends CreateConnectionGrou
  * //     Status: "STRING_VALUE",
  * //     Enabled: true || false,
  * //     IsDefault: true || false,
+ * //     ViewerFallback: { // ViewerFallback
+ * //       DistributionId: "STRING_VALUE",
+ * //     },
  * //   },
  * //   ETag: "STRING_VALUE",
  * // };

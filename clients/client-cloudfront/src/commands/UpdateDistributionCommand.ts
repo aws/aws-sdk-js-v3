@@ -775,6 +775,9 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * @throws {@link ContinuousDeploymentPolicyInUse} (client fault)
  *  <p>You cannot delete a continuous deployment policy that is associated with a primary distribution.</p>
  *
+ * @throws {@link EntityLimitExceeded} (client fault)
+ *  <p>The entity limit has been exceeded.</p>
+ *
  * @throws {@link EntityNotFound} (client fault)
  *  <p>The entity was not found.</p>
  *

@@ -53,6 +53,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <Status>
                         __Status__
                     </Status>
+                    <ServeOn>
+                        __ServeOn__
+                    </ServeOn>
                 </member>
                 <member>
                     <Domain>
@@ -61,6 +64,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <Status>
                         __Status__
                     </Status>
+                    <ServeOn>
+                        __ServeOn__
+                    </ServeOn>
                 </member>
                 <member>
                     <Domain>
@@ -69,95 +75,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <Status>
                         __Status__
                     </Status>
-                </member>
-            </Domains>
-            <CreatedTime>
-                2000-01-01T04:59:59.999Z
-            </CreatedTime>
-            <LastModifiedTime>
-                2000-01-01T04:59:59.999Z
-            </LastModifiedTime>
-            <ETag>
-                __ETag__
-            </ETag>
-            <ConnectionGroupId>
-                __ConnectionGroupId__
-            </ConnectionGroupId>
-            <Customizations>
-                <WebAcl>
-                    <Action>
-                        __Action__
-                    </Action>
-                    <Arn>
-                        __Arn__
-                    </Arn>
-                </WebAcl>
-                <Certificate>
-                    <Arn>
-                        __Arn__
-                    </Arn>
-                </Certificate>
-                <GeoRestrictions>
-                    <RestrictionType>
-                        __RestrictionType__
-                    </RestrictionType>
-                    <Locations>
-                        <Location>
-                            __member__
-                        </Location>
-                        <Location>
-                            __member__
-                        </Location>
-                        <Location>
-                            __member__
-                        </Location>
-                    </Locations>
-                </GeoRestrictions>
-            </Customizations>
-            <Enabled>
-                false
-            </Enabled>
-            <Status>
-                __Status__
-            </Status>
-        </DistributionTenantSummary>
-        <DistributionTenantSummary>
-            <Id>
-                __Id__
-            </Id>
-            <DistributionId>
-                __DistributionId__
-            </DistributionId>
-            <Name>
-                __Name__
-            </Name>
-            <Arn>
-                __Arn__
-            </Arn>
-            <Domains>
-                <member>
-                    <Domain>
-                        __Domain__
-                    </Domain>
-                    <Status>
-                        __Status__
-                    </Status>
-                </member>
-                <member>
-                    <Domain>
-                        __Domain__
-                    </Domain>
-                    <Status>
-                        __Status__
-                    </Status>
-                </member>
-                <member>
-                    <Domain>
-                        __Domain__
-                    </Domain>
-                    <Status>
-                        __Status__
-                    </Status>
+                    <ServeOn>
+                        __ServeOn__
+                    </ServeOn>
                 </member>
             </Domains>
             <CreatedTime>
@@ -231,6 +151,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <Status>
                         __Status__
                     </Status>
+                    <ServeOn>
+                        __ServeOn__
+                    </ServeOn>
                 </member>
                 <member>
                     <Domain>
@@ -239,6 +162,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <Status>
                         __Status__
                     </Status>
+                    <ServeOn>
+                        __ServeOn__
+                    </ServeOn>
                 </member>
                 <member>
                     <Domain>
@@ -247,6 +173,107 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     <Status>
                         __Status__
                     </Status>
+                    <ServeOn>
+                        __ServeOn__
+                    </ServeOn>
+                </member>
+            </Domains>
+            <CreatedTime>
+                2000-01-01T04:59:59.999Z
+            </CreatedTime>
+            <LastModifiedTime>
+                2000-01-01T04:59:59.999Z
+            </LastModifiedTime>
+            <ETag>
+                __ETag__
+            </ETag>
+            <ConnectionGroupId>
+                __ConnectionGroupId__
+            </ConnectionGroupId>
+            <Customizations>
+                <WebAcl>
+                    <Action>
+                        __Action__
+                    </Action>
+                    <Arn>
+                        __Arn__
+                    </Arn>
+                </WebAcl>
+                <Certificate>
+                    <Arn>
+                        __Arn__
+                    </Arn>
+                </Certificate>
+                <GeoRestrictions>
+                    <RestrictionType>
+                        __RestrictionType__
+                    </RestrictionType>
+                    <Locations>
+                        <Location>
+                            __member__
+                        </Location>
+                        <Location>
+                            __member__
+                        </Location>
+                        <Location>
+                            __member__
+                        </Location>
+                    </Locations>
+                </GeoRestrictions>
+            </Customizations>
+            <Enabled>
+                false
+            </Enabled>
+            <Status>
+                __Status__
+            </Status>
+        </DistributionTenantSummary>
+        <DistributionTenantSummary>
+            <Id>
+                __Id__
+            </Id>
+            <DistributionId>
+                __DistributionId__
+            </DistributionId>
+            <Name>
+                __Name__
+            </Name>
+            <Arn>
+                __Arn__
+            </Arn>
+            <Domains>
+                <member>
+                    <Domain>
+                        __Domain__
+                    </Domain>
+                    <Status>
+                        __Status__
+                    </Status>
+                    <ServeOn>
+                        __ServeOn__
+                    </ServeOn>
+                </member>
+                <member>
+                    <Domain>
+                        __Domain__
+                    </Domain>
+                    <Status>
+                        __Status__
+                    </Status>
+                    <ServeOn>
+                        __ServeOn__
+                    </ServeOn>
+                </member>
+                <member>
+                    <Domain>
+                        __Domain__
+                    </Domain>
+                    <Status>
+                        __Status__
+                    </Status>
+                    <ServeOn>
+                        __ServeOn__
+                    </ServeOn>
                 </member>
             </Domains>
             <CreatedTime>
@@ -315,15 +342,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Domains: [
         {
           Domain: "__Domain__",
-          Status: "__Status__"
+          Status: "__Status__",
+          ServeOn: "__ServeOn__"
         },
         {
           Domain: "__Domain__",
-          Status: "__Status__"
+          Status: "__Status__",
+          ServeOn: "__ServeOn__"
         },
         {
           Domain: "__Domain__",
-          Status: "__Status__"
+          Status: "__Status__",
+          ServeOn: "__ServeOn__"
         }
       ],
       CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
@@ -358,15 +388,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Domains: [
         {
           Domain: "__Domain__",
-          Status: "__Status__"
+          Status: "__Status__",
+          ServeOn: "__ServeOn__"
         },
         {
           Domain: "__Domain__",
-          Status: "__Status__"
+          Status: "__Status__",
+          ServeOn: "__ServeOn__"
         },
         {
           Domain: "__Domain__",
-          Status: "__Status__"
+          Status: "__Status__",
+          ServeOn: "__ServeOn__"
         }
       ],
       CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
@@ -401,15 +434,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Domains: [
         {
           Domain: "__Domain__",
-          Status: "__Status__"
+          Status: "__Status__",
+          ServeOn: "__ServeOn__"
         },
         {
           Domain: "__Domain__",
-          Status: "__Status__"
+          Status: "__Status__",
+          ServeOn: "__ServeOn__"
         },
         {
           Domain: "__Domain__",
-          Status: "__Status__"
+          Status: "__Status__",
+          ServeOn: "__ServeOn__"
         }
       ],
       CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,

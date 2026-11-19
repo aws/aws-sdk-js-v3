@@ -8,6 +8,7 @@ import type {
   HttpVersion,
   IpAddressType,
   ManagedCertificateStatus,
+  OnDomainTakeover,
   OriginAccessControlOriginTypes,
   OriginAccessControlSigningBehaviors,
   OriginAccessControlSigningProtocols,
@@ -79,10 +80,22 @@ import type {
   TrustedSigners,
   TrustStore,
   ViewerCertificate,
+  ViewerFallback,
   ViewerMtlsConfig,
   VpcOrigin,
   VpcOriginEndpointConfig,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetKeyGroupConfigRequest {
+  /**
+   * <p>The identifier of the key group whose configuration you are getting. To get the identifier, use <code>ListKeyGroups</code>.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
 
 /**
  * @public
@@ -992,6 +1005,12 @@ export interface ConnectionGroupSummary {
    * @public
    */
   IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The distribution whose certificate CloudFront uses for viewer requests that arrive on the connection group's Anycast static IPs without Server Name Indication (SNI).</p>
+   * @public
+   */
+  ViewerFallback?: ViewerFallback | undefined;
 }
 
 /**
@@ -3942,6 +3961,12 @@ export interface UpdateConnectionGroupRequest {
    * @public
    */
   Enabled?: boolean | undefined;
+
+  /**
+   * <p>The distribution whose certificate CloudFront uses for viewer requests that arrive on the connection group's Anycast static IPs without Server Name Indication (SNI).</p>
+   * @public
+   */
+  ViewerFallback?: ViewerFallback | undefined;
 }
 
 /**
@@ -4100,6 +4125,12 @@ export interface UpdateDistributionTenantRequest {
    * @public
    */
   Enabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether CloudFront moves a domain in this request to this distribution tenant when the domain is already associated with another standard distribution or distribution tenant. Valid values are:</p> <ul> <li> <p> <code>allow</code> – CloudFront moves the domain to this distribution tenant when the domain's DNS points to this distribution tenant.</p> </li> <li> <p> <code>reject</code> – CloudFront doesn't move the domain, and the request fails if the domain is associated with another resource. This is the default if you don't specify a value.</p> </li> </ul>
+   * @public
+   */
+  OnDomainTakeover?: OnDomainTakeover | undefined;
 }
 
 /**

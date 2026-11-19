@@ -38,6 +38,7 @@ export interface UpdateDistributionTenantCommandOutput extends UpdateDistributio
  *   Domains: [ // DomainList
  *     { // DomainItem
  *       Domain: "STRING_VALUE", // required
+ *       ServeOn: "any" || "anycast-ip-list-only",
  *     },
  *   ],
  *   Customizations: { // Customizations
@@ -69,6 +70,7 @@ export interface UpdateDistributionTenantCommandOutput extends UpdateDistributio
  *     CertificateTransparencyLoggingPreference: "enabled" || "disabled",
  *   },
  *   Enabled: true || false,
+ *   OnDomainTakeover: "allow" || "reject",
  * };
  * const command = new UpdateDistributionTenantCommand(input);
  * const response = await client.send(command);
@@ -82,6 +84,7 @@ export interface UpdateDistributionTenantCommandOutput extends UpdateDistributio
  * //       { // DomainResult
  * //         Domain: "STRING_VALUE", // required
  * //         Status: "active" || "inactive",
+ * //         ServeOn: "any" || "anycast-ip-list-only",
  * //       },
  * //     ],
  * //     Tags: { // Tags

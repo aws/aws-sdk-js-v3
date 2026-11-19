@@ -38,6 +38,7 @@ export interface CreateDistributionTenantCommandOutput extends CreateDistributio
  *   Domains: [ // DomainList // required
  *     { // DomainItem
  *       Domain: "STRING_VALUE", // required
+ *       ServeOn: "any" || "anycast-ip-list-only",
  *     },
  *   ],
  *   Tags: { // Tags
@@ -76,6 +77,7 @@ export interface CreateDistributionTenantCommandOutput extends CreateDistributio
  *     CertificateTransparencyLoggingPreference: "enabled" || "disabled",
  *   },
  *   Enabled: true || false,
+ *   OnDomainTakeover: "allow" || "reject",
  * };
  * const command = new CreateDistributionTenantCommand(input);
  * const response = await client.send(command);
@@ -89,6 +91,7 @@ export interface CreateDistributionTenantCommandOutput extends CreateDistributio
  * //       { // DomainResult
  * //         Domain: "STRING_VALUE", // required
  * //         Status: "active" || "inactive",
+ * //         ServeOn: "any" || "anycast-ip-list-only",
  * //       },
  * //     ],
  * //     Tags: { // Tags

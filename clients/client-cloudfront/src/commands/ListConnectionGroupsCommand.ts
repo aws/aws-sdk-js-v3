@@ -56,6 +56,9 @@ export interface ListConnectionGroupsCommandOutput extends ListConnectionGroupsR
  * //       Enabled: true || false,
  * //       Status: "STRING_VALUE",
  * //       IsDefault: true || false,
+ * //       ViewerFallback: { // ViewerFallback
+ * //         DistributionId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

@@ -2,14 +2,14 @@ POST https://cloudfront.amazonaws.com
 /2020-05-31/distribution-tenant
 
 content-type: application/xml
-content-length: 1380
+content-length: 1527
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/cloudfront#_.__ m/E,e
 host: cloudfront.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: bd1a08334809ab216574bc80d3448a3ee13a41f1f8326540d7bf034b64bfb513
+x-amz-content-sha256: f60453666c5d3d56012ba7f561a41a053a61013a2cccab847f46e952efdd1d26
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cloudfront/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (xml)]
@@ -26,16 +26,25 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cloudfront/aws
             <Domain>
                 __Domain__
             </Domain>
+            <ServeOn>
+                __ServeOn__
+            </ServeOn>
         </member>
         <member>
             <Domain>
                 __Domain__
             </Domain>
+            <ServeOn>
+                __ServeOn__
+            </ServeOn>
         </member>
         <member>
             <Domain>
                 __Domain__
             </Domain>
+            <ServeOn>
+                __ServeOn__
+            </ServeOn>
         </member>
     </Domains>
     <Tags>
@@ -119,4 +128,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cloudfront/aws
     <Enabled>
         false
     </Enabled>
+    <OnDomainTakeover>
+        __OnDomainTakeover__
+    </OnDomainTakeover>
 </CreateDistributionTenantRequest>

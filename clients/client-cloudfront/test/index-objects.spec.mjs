@@ -821,6 +821,7 @@ import {
   NoSuchResponseHeadersPolicy$,
   NoSuchStreamingDistribution,
   NoSuchStreamingDistribution$,
+  OnDomainTakeover,
   Origin$,
   OriginAccessControl$,
   OriginAccessControlAlreadyExists,
@@ -957,6 +958,7 @@ import {
   Restrictions$,
   S3Origin$,
   S3OriginConfig$,
+  ServeOn,
   SessionStickinessConfig$,
   Signer$,
   SslProtocol,
@@ -1213,6 +1215,7 @@ import {
   VerifyDnsConfigurationRequest$,
   VerifyDnsConfigurationResult$,
   ViewerCertificate$,
+  ViewerFallback$,
   ViewerMtlsConfig$,
   ViewerMtlsMode,
   ViewerProtocolPolicy,
@@ -2083,6 +2086,7 @@ assert(typeof ValidationTokenDetail$ === "object");
 assert(typeof VerifyDnsConfigurationRequest$ === "object");
 assert(typeof VerifyDnsConfigurationResult$ === "object");
 assert(typeof ViewerCertificate$ === "object");
+assert(typeof ViewerFallback$ === "object");
 assert(typeof ViewerMtlsConfig$ === "object");
 assert(typeof VpcOrigin$ === "object");
 assert(typeof VpcOriginConfig$ === "object");
@@ -2118,6 +2122,7 @@ assert(typeof ItemSelection === "object");
 assert(typeof ManagedCertificateStatus === "object");
 assert(typeof Method === "object");
 assert(typeof MinimumProtocolVersion === "object");
+assert(typeof OnDomainTakeover === "object");
 assert(typeof OriginAccessControlOriginTypes === "object");
 assert(typeof OriginAccessControlSigningBehaviors === "object");
 assert(typeof OriginAccessControlSigningProtocols === "object");
@@ -2132,6 +2137,7 @@ assert(typeof RealtimeMetricsSubscriptionStatus === "object");
 assert(typeof ReferrerPolicyList === "object");
 assert(typeof ResponseHeadersPolicyAccessControlAllowMethodsValues === "object");
 assert(typeof ResponseHeadersPolicyType === "object");
+assert(typeof ServeOn === "object");
 assert(typeof SslProtocol === "object");
 assert(typeof SSLSupportMethod === "object");
 assert(typeof TrustStoreStatus === "object");

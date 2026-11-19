@@ -421,6 +421,19 @@ export type CustomizationActionType = (typeof CustomizationActionType)[keyof typ
  * @public
  * @enum
  */
+export const ServeOn = {
+  Any: "any",
+  AnycastIpListOnly: "anycast-ip-list-only",
+} as const;
+/**
+ * @public
+ */
+export type ServeOn = (typeof ServeOn)[keyof typeof ServeOn];
+
+/**
+ * @public
+ * @enum
+ */
 export const ValidationTokenHost = {
   CloudFront: "cloudfront",
   SelfHosted: "self-hosted",
@@ -429,6 +442,19 @@ export const ValidationTokenHost = {
  * @public
  */
 export type ValidationTokenHost = (typeof ValidationTokenHost)[keyof typeof ValidationTokenHost];
+
+/**
+ * @public
+ * @enum
+ */
+export const OnDomainTakeover = {
+  Allow: "allow",
+  Reject: "reject",
+} as const;
+/**
+ * @public
+ */
+export type OnDomainTakeover = (typeof OnDomainTakeover)[keyof typeof OnDomainTakeover];
 
 /**
  * @public

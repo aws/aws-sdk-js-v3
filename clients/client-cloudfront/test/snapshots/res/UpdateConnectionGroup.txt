@@ -68,6 +68,11 @@ ETag: __ETag__
     <IsDefault>
         false
     </IsDefault>
+    <ViewerFallback>
+        <DistributionId>
+            __DistributionId__
+        </DistributionId>
+    </ViewerFallback>
 </ConnectionGroup>
 
 
@@ -91,7 +96,10 @@ ETag: __ETag__
     AnycastIpListId: "__AnycastIpListId__",
     Status: "__Status__",
     Enabled: (boolean) false,
-    IsDefault: (boolean) false
+    IsDefault: (boolean) false,
+    ViewerFallback: {
+      DistributionId: "__DistributionId__"
+    }
   },
   ETag: "__ETag__",
   $metadata: {

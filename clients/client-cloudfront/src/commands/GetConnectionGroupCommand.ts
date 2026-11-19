@@ -58,6 +58,9 @@ export interface GetConnectionGroupCommandOutput extends GetConnectionGroupResul
  * //     Status: "STRING_VALUE",
  * //     Enabled: true || false,
  * //     IsDefault: true || false,
+ * //     ViewerFallback: { // ViewerFallback
+ * //       DistributionId: "STRING_VALUE",
+ * //     },
  * //   },
  * //   ETag: "STRING_VALUE",
  * // };

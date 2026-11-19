@@ -791,6 +791,7 @@ const _OAI = "OwnerAccountId";
 const _OAIr = "OriginAccessIdentity";
 const _OCH = "OriginCustomHeader";
 const _OCHL = "OriginCustomHeadersList";
+const _ODT = "OnDomainTakeover";
 const _OEA = "OriginEndpointArn";
 const _OG = "OriginGroups";
 const _OGFC = "OriginGroupFailoverCriteria";
@@ -960,8 +961,9 @@ const _SHC = "SecurityHeadersConfig";
 const _SHCi = "SingleHeaderConfig";
 const _SL = "SignerList";
 const _SLC = "StreamingLoggingConfig";
-const _SO = "S3Origin";
+const _SO = "ServeOn";
 const _SOC = "S3OriginConfig";
+const _SOr = "S3Origin";
 const _SP = "SigningProtocol";
 const _SPL = "SslProtocolsList";
 const _SPs = "SslProtocol";
@@ -1141,6 +1143,7 @@ const _VC = "ViewerCertificate";
 const _VDC = "VerifyDnsConfiguration";
 const _VDCR = "VerifyDnsConfigurationRequest";
 const _VDCRe = "VerifyDnsConfigurationResult";
+const _VF = "ViewerFallback";
 const _VMC = "ViewerMtlsConfig";
 const _VO = "VpcOrigin";
 const _VOC = "VpcOriginConfig";
@@ -2450,8 +2453,8 @@ export var ConnectionFunctionTestResult$: StaticStructureSchema = [3, n0, _CFTR,
 ];
 export var ConnectionGroup$: StaticStructureSchema = [3, n0, _CG,
   0,
-  [_Id, _N, _Ar, _CTr, _LMT, _Ta, _IE, _RE, _AILI, _S, _E, _IDs],
-  [0, 0, 0, 4, 4, [() => Tags$, 0], 2, 0, 0, 0, 2, 2]
+  [_Id, _N, _Ar, _CTr, _LMT, _Ta, _IE, _RE, _AILI, _S, _E, _IDs, _VF],
+  [0, 0, 0, 4, 4, [() => Tags$, 0], 2, 0, 0, 0, 2, 2, () => ViewerFallback$]
 ];
 export var ConnectionGroupAssociationFilter$: StaticStructureSchema = [3, n0, _CGAF,
   0,
@@ -2460,8 +2463,8 @@ export var ConnectionGroupAssociationFilter$: StaticStructureSchema = [3, n0, _C
 ];
 export var ConnectionGroupSummary$: StaticStructureSchema = [3, n0, _CGS,
   0,
-  [_Id, _N, _Ar, _RE, _CTr, _LMT, _ET, _AILI, _E, _S, _IDs],
-  [0, 0, 0, 0, 4, 4, 0, 0, 2, 0, 2], 7
+  [_Id, _N, _Ar, _RE, _CTr, _LMT, _ET, _AILI, _E, _S, _IDs, _VF],
+  [0, 0, 0, 0, 4, 4, 0, 0, 2, 0, 2, () => ViewerFallback$], 7
 ];
 export var ContentTypeProfile$: StaticStructureSchema = [3, n0, _CTP,
   0,
@@ -2570,8 +2573,8 @@ export var CreateConnectionFunctionResult$: StaticStructureSchema = [3, n0, _CCF
 ];
 export var CreateConnectionGroupRequest$: StaticStructureSchema = [3, n0, _CCGR,
   0,
-  [_N, _IE, _Ta, _AILI, _E],
-  [0, 2, [() => Tags$, 0], 0, 2], 1
+  [_N, _IE, _Ta, _AILI, _E, _VF],
+  [0, 2, [() => Tags$, 0], 0, 2, () => ViewerFallback$], 1
 ];
 export var CreateConnectionGroupResult$: StaticStructureSchema = [3, n0, _CCGRr,
   0,
@@ -2600,8 +2603,8 @@ export var CreateDistributionResult$: StaticStructureSchema = [3, n0, _CDRre,
 ];
 export var CreateDistributionTenantRequest$: StaticStructureSchema = [3, n0, _CDTR,
   0,
-  [_DI, _N, _Do, _Ta, _Cu, _P, _CGI, _MCR, _E],
-  [0, 0, () => DomainList, [() => Tags$, 0], [() => Customizations$, 0], () => _Parameters, 0, () => ManagedCertificateRequest$, 2], 3
+  [_DI, _N, _Do, _Ta, _Cu, _P, _CGI, _MCR, _E, _ODT],
+  [0, 0, () => DomainList, [() => Tags$, 0], [() => Customizations$, 0], () => _Parameters, 0, () => ManagedCertificateRequest$, 2, 0], 3
 ];
 export var CreateDistributionTenantResult$: StaticStructureSchema = [3, n0, _CDTRr,
   0,
@@ -3065,13 +3068,13 @@ export var DomainConflict$: StaticStructureSchema = [3, n0, _DCo,
 ];
 export var DomainItem$: StaticStructureSchema = [3, n0, _DIo,
   0,
-  [_Dom],
-  [0], 1
+  [_Dom, _SO],
+  [0, 0], 1
 ];
 export var DomainResult$: StaticStructureSchema = [3, n0, _DR,
   0,
-  [_Dom, _S],
-  [0, 0], 1
+  [_Dom, _S, _SO],
+  [0, 0, 0], 1
 ];
 export var EncryptionEntities$: StaticStructureSchema = [3, n0, _EE,
   0,
@@ -4423,7 +4426,7 @@ export var Restrictions$: StaticStructureSchema = [3, n0, _Re,
   [_GRe],
   [[() => GeoRestriction$, 0]], 1
 ];
-export var S3Origin$: StaticStructureSchema = [3, n0, _SO,
+export var S3Origin$: StaticStructureSchema = [3, n0, _SOr,
   0,
   [_DN, _OAIr],
   [0, 0], 2
@@ -4460,7 +4463,7 @@ export var StreamingDistribution$: StaticStructureSchema = [3, n0, _SD,
 ];
 export var StreamingDistributionConfig$: StaticStructureSchema = [3, n0, _SDC,
   0,
-  [_CR, _SO, _Co, _TS, _E, _A, _Lo, _PC],
+  [_CR, _SOr, _Co, _TS, _E, _A, _Lo, _PC],
   [0, () => S3Origin$, 0, [() => TrustedSigners$, 0], 2, [() => Aliases$, 0], () => StreamingLoggingConfig$, 0], 5
 ];
 export var StreamingDistributionConfigWithTags$: StaticStructureSchema = [3, n0, _SDCWT,
@@ -4475,7 +4478,7 @@ export var StreamingDistributionList$: StaticStructureSchema = [3, n0, _SDL,
 ];
 export var StreamingDistributionSummary$: StaticStructureSchema = [3, n0, _SDS,
   0,
-  [_Id, _ARN, _S, _LMT, _DN, _SO, _A, _TS, _Co, _PC, _E],
+  [_Id, _ARN, _S, _LMT, _DN, _SOr, _A, _TS, _Co, _PC, _E],
   [0, 0, 0, 4, 0, () => S3Origin$, [() => Aliases$, 0], [() => TrustedSigners$, 0], 0, 0, 2], 11
 ];
 export var StreamingLoggingConfig$: StaticStructureSchema = [3, n0, _SLC,
@@ -4615,8 +4618,8 @@ export var UpdateConnectionFunctionResult$: StaticStructureSchema = [3, n0, _UCF
 ];
 export var UpdateConnectionGroupRequest$: StaticStructureSchema = [3, n0, _UCGR,
   0,
-  [_Id, _IM, _IE, _AILI, _E],
-  [[0, 1], [0, { [_hH]: _IM_ }], 2, 0, 2], 2
+  [_Id, _IM, _IE, _AILI, _E, _VF],
+  [[0, 1], [0, { [_hH]: _IM_ }], 2, 0, 2, () => ViewerFallback$], 2
 ];
 export var UpdateConnectionGroupResult$: StaticStructureSchema = [3, n0, _UCGRp,
   0,
@@ -4645,8 +4648,8 @@ export var UpdateDistributionResult$: StaticStructureSchema = [3, n0, _UDRp,
 ];
 export var UpdateDistributionTenantRequest$: StaticStructureSchema = [3, n0, _UDTR,
   0,
-  [_Id, _IM, _DI, _Do, _Cu, _P, _CGI, _MCR, _E],
-  [[0, 1], [0, { [_hH]: _IM_ }], 0, () => DomainList, [() => Customizations$, 0], () => _Parameters, 0, () => ManagedCertificateRequest$, 2], 2
+  [_Id, _IM, _DI, _Do, _Cu, _P, _CGI, _MCR, _E, _ODT],
+  [[0, 1], [0, { [_hH]: _IM_ }], 0, () => DomainList, [() => Customizations$, 0], () => _Parameters, 0, () => ManagedCertificateRequest$, 2, 0], 2
 ];
 export var UpdateDistributionTenantResult$: StaticStructureSchema = [3, n0, _UDTRp,
   0,
@@ -4822,6 +4825,11 @@ export var ViewerCertificate$: StaticStructureSchema = [3, n0, _VC,
   0,
   [_CFDC, _IAMCI, _ACMCA, _SSLSM, _MPV, _Ce, _CSe],
   [2, 0, 0, 0, 0, 0, 0]
+];
+export var ViewerFallback$: StaticStructureSchema = [3, n0, _VF,
+  0,
+  [_DI],
+  [0]
 ];
 export var ViewerMtlsConfig$: StaticStructureSchema = [3, n0, _VMC,
   0,

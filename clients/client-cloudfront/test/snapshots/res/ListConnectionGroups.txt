@@ -66,6 +66,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <IsDefault>
                 false
             </IsDefault>
+            <ViewerFallback>
+                <DistributionId>
+                    __DistributionId__
+                </DistributionId>
+            </ViewerFallback>
         </ConnectionGroupSummary>
         <ConnectionGroupSummary>
             <Id>
@@ -101,6 +106,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <IsDefault>
                 false
             </IsDefault>
+            <ViewerFallback>
+                <DistributionId>
+                    __DistributionId__
+                </DistributionId>
+            </ViewerFallback>
         </ConnectionGroupSummary>
         <ConnectionGroupSummary>
             <Id>
@@ -136,6 +146,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <IsDefault>
                 false
             </IsDefault>
+            <ViewerFallback>
+                <DistributionId>
+                    __DistributionId__
+                </DistributionId>
+            </ViewerFallback>
         </ConnectionGroupSummary>
     </ConnectionGroups>
 </ListConnectionGroupsResult>
@@ -156,7 +171,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       AnycastIpListId: "__AnycastIpListId__",
       Enabled: (boolean) false,
       Status: "__Status__",
-      IsDefault: (boolean) false
+      IsDefault: (boolean) false,
+      ViewerFallback: {
+        DistributionId: "__DistributionId__"
+      }
     },
     {
       Id: "__Id__",
@@ -169,7 +187,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       AnycastIpListId: "__AnycastIpListId__",
       Enabled: (boolean) false,
       Status: "__Status__",
-      IsDefault: (boolean) false
+      IsDefault: (boolean) false,
+      ViewerFallback: {
+        DistributionId: "__DistributionId__"
+      }
     },
     {
       Id: "__Id__",
@@ -182,7 +203,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       AnycastIpListId: "__AnycastIpListId__",
       Enabled: (boolean) false,
       Status: "__Status__",
-      IsDefault: (boolean) false
+      IsDefault: (boolean) false,
+      ViewerFallback: {
+        DistributionId: "__DistributionId__"
+      }
     }
   ],
   $metadata: {

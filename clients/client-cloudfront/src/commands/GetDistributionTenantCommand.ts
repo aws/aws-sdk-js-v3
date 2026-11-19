@@ -47,6 +47,7 @@ export interface GetDistributionTenantCommandOutput extends GetDistributionTenan
  * //       { // DomainResult
  * //         Domain: "STRING_VALUE", // required
  * //         Status: "active" || "inactive",
+ * //         ServeOn: "any" || "anycast-ip-list-only",
  * //       },
  * //     ],
  * //     Tags: { // Tags

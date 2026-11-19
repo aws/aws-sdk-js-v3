@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetKeyGroupConfigRequest } from "../models/models_0";
-import type { GetKeyGroupConfigResult } from "../models/models_1";
+import type { GetKeyGroupConfigRequest, GetKeyGroupConfigResult } from "../models/models_1";
 import { GetKeyGroupConfig$ } from "../schemas/schemas_0";
 
 /**
