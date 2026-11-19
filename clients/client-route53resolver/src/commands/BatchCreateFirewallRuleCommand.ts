@@ -63,6 +63,11 @@ export interface BatchCreateFirewallRuleCommandOutput extends BatchCreateFirewal
  *           Value: "STRING_VALUE", // required
  *           ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
  *         },
+ *         AutoAllowlist: { // AutoAllowlistConfig
+ *           InitialDataTimeframeHours: Number("int"), // required
+ *           ImportFromFirewallDomainListId: "STRING_VALUE",
+ *           AutoAllowlistFirewallDomainListId: "STRING_VALUE",
+ *         },
  *       },
  *     },
  *   ],
@@ -103,6 +108,11 @@ export interface BatchCreateFirewallRuleCommandOutput extends BatchCreateFirewal
  * //           Value: "STRING_VALUE", // required
  * //           ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
  * //         },
+ * //         AutoAllowlist: { // AutoAllowlistConfig
+ * //           InitialDataTimeframeHours: Number("int"), // required
+ * //           ImportFromFirewallDomainListId: "STRING_VALUE",
+ * //           AutoAllowlistFirewallDomainListId: "STRING_VALUE",
+ * //         },
  * //       },
  * //       Status: "STRING_VALUE",
  * //       StatusMessage: "STRING_VALUE",
@@ -138,6 +148,11 @@ export interface BatchCreateFirewallRuleCommandOutput extends BatchCreateFirewal
  * //           DnsThreatProtection: {
  * //             Value: "STRING_VALUE", // required
  * //             ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
+ * //           },
+ * //           AutoAllowlist: {
+ * //             InitialDataTimeframeHours: Number("int"), // required
+ * //             ImportFromFirewallDomainListId: "STRING_VALUE",
+ * //             AutoAllowlistFirewallDomainListId: "STRING_VALUE",
  * //           },
  * //         },
  * //       },

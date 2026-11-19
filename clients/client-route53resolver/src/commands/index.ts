@@ -43,6 +43,7 @@ export * from "./ImportFirewallDomainsCommand";
 export * from "./ListFirewallConfigsCommand";
 export * from "./ListFirewallDomainListsCommand";
 export * from "./ListFirewallDomainsCommand";
+export * from "./ListFirewallRuleDomainsCommand";
 export * from "./ListFirewallRuleGroupAssociationsCommand";
 export * from "./ListFirewallRuleGroupsCommand";
 export * from "./ListFirewallRuleTypesCommand";

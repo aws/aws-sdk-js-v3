@@ -18,6 +18,7 @@ import {
   AssociateResolverRuleCommand,
   AssociateResolverRuleRequest$,
   AssociateResolverRuleResponse$,
+  AutoAllowlistConfig$,
   AutodefinedReverseFlag,
   BatchCreateFirewallRule$,
   BatchCreateFirewallRuleCommand,
@@ -125,9 +126,14 @@ import {
   FirewallDomainListMetadata$,
   FirewallDomainListStatus,
   FirewallDomainRedirectionAction,
+  FirewallDomainStatus,
+  FirewallDomainStatusFilter,
   FirewallDomainUpdateOperation,
   FirewallFailOpenStatus,
   FirewallRule$,
+  FirewallRuleDomain$,
+  FirewallRuleDomainSortBy,
+  FirewallRuleDomainSortOrder,
   FirewallRuleGroup$,
   FirewallRuleGroupAssociation$,
   FirewallRuleGroupAssociationStatus,
@@ -229,6 +235,11 @@ import {
   ListFirewallDomainsCommand,
   ListFirewallDomainsRequest$,
   ListFirewallDomainsResponse$,
+  ListFirewallRuleDomains$,
+  ListFirewallRuleDomainsCommand,
+  ListFirewallRuleDomainsQueryOptions$,
+  ListFirewallRuleDomainsRequest$,
+  ListFirewallRuleDomainsResponse$,
   ListFirewallRuleGroupAssociations$,
   ListFirewallRuleGroupAssociationsCommand,
   ListFirewallRuleGroupAssociationsRequest$,
@@ -291,6 +302,7 @@ import {
   paginateListFirewallConfigs,
   paginateListFirewallDomainLists,
   paginateListFirewallDomains,
+  paginateListFirewallRuleDomains,
   paginateListFirewallRuleGroupAssociations,
   paginateListFirewallRuleGroups,
   paginateListFirewallRules,
@@ -503,6 +515,8 @@ assert(typeof ListFirewallDomainListsCommand === "function");
 assert(typeof ListFirewallDomainLists$ === "object");
 assert(typeof ListFirewallDomainsCommand === "function");
 assert(typeof ListFirewallDomains$ === "object");
+assert(typeof ListFirewallRuleDomainsCommand === "function");
+assert(typeof ListFirewallRuleDomains$ === "object");
 assert(typeof ListFirewallRuleGroupAssociationsCommand === "function");
 assert(typeof ListFirewallRuleGroupAssociations$ === "object");
 assert(typeof ListFirewallRuleGroupsCommand === "function");
@@ -568,6 +582,7 @@ assert(typeof AssociateResolverQueryLogConfigRequest$ === "object");
 assert(typeof AssociateResolverQueryLogConfigResponse$ === "object");
 assert(typeof AssociateResolverRuleRequest$ === "object");
 assert(typeof AssociateResolverRuleResponse$ === "object");
+assert(typeof AutoAllowlistConfig$ === "object");
 assert(typeof BatchCreateFirewallRuleError$ === "object");
 assert(typeof BatchCreateFirewallRuleRequest$ === "object");
 assert(typeof BatchCreateFirewallRuleResponse$ === "object");
@@ -623,6 +638,7 @@ assert(typeof FirewallConfig$ === "object");
 assert(typeof FirewallDomainList$ === "object");
 assert(typeof FirewallDomainListMetadata$ === "object");
 assert(typeof FirewallRule$ === "object");
+assert(typeof FirewallRuleDomain$ === "object");
 assert(typeof FirewallRuleGroup$ === "object");
 assert(typeof FirewallRuleGroupAssociation$ === "object");
 assert(typeof FirewallRuleGroupMetadata$ === "object");
@@ -669,6 +685,9 @@ assert(typeof ListFirewallDomainListsRequest$ === "object");
 assert(typeof ListFirewallDomainListsResponse$ === "object");
 assert(typeof ListFirewallDomainsRequest$ === "object");
 assert(typeof ListFirewallDomainsResponse$ === "object");
+assert(typeof ListFirewallRuleDomainsQueryOptions$ === "object");
+assert(typeof ListFirewallRuleDomainsRequest$ === "object");
+assert(typeof ListFirewallRuleDomainsResponse$ === "object");
 assert(typeof ListFirewallRuleGroupAssociationsRequest$ === "object");
 assert(typeof ListFirewallRuleGroupAssociationsResponse$ === "object");
 assert(typeof ListFirewallRuleGroupsRequest$ === "object");
@@ -751,8 +770,12 @@ assert(typeof DomainListType === "object");
 assert(typeof FirewallDomainImportOperation === "object");
 assert(typeof FirewallDomainListStatus === "object");
 assert(typeof FirewallDomainRedirectionAction === "object");
+assert(typeof FirewallDomainStatus === "object");
+assert(typeof FirewallDomainStatusFilter === "object");
 assert(typeof FirewallDomainUpdateOperation === "object");
 assert(typeof FirewallFailOpenStatus === "object");
+assert(typeof FirewallRuleDomainSortBy === "object");
+assert(typeof FirewallRuleDomainSortOrder === "object");
 assert(typeof FirewallRuleGroupAssociationStatus === "object");
 assert(typeof FirewallRuleGroupStatus === "object");
 assert(typeof IpAddressStatus === "object");
@@ -813,6 +836,7 @@ assert(Route53ResolverServiceException.prototype instanceof Error);
 assert(typeof paginateListFirewallConfigs === "function");
 assert(typeof paginateListFirewallDomainLists === "function");
 assert(typeof paginateListFirewallDomains === "function");
+assert(typeof paginateListFirewallRuleDomains === "function");
 assert(typeof paginateListFirewallRuleGroupAssociations === "function");
 assert(typeof paginateListFirewallRuleGroups === "function");
 assert(typeof paginateListFirewallRuleTypes === "function");

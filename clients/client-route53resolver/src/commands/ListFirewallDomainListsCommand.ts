@@ -48,8 +48,11 @@ export interface ListFirewallDomainListsCommandOutput extends ListFirewallDomain
  * //       Name: "STRING_VALUE",
  * //       CreatorRequestId: "STRING_VALUE",
  * //       ManagedOwnerName: "STRING_VALUE",
- * //       ManagedListType: "THREAT" || "CONTENT",
+ * //       ManagedListType: "THREAT" || "CONTENT" || "AUTOALLOWLIST",
  * //       Category: "STRING_VALUE",
+ * //       FirewallRuleGroupId: "STRING_VALUE",
+ * //       FirewallThreatProtectionId: "STRING_VALUE",
+ * //       Status: "COMPLETE" || "COMPLETE_IMPORT_FAILED" || "IMPORTING" || "DELETING" || "UPDATING",
  * //     },
  * //   ],
  * // };

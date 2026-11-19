@@ -24,6 +24,7 @@ export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomain
 
 /**
  * <p>Imports domain names from a file into a domain list, for use in a DNS firewall rule group. </p>
+ *          <p>You can't import into an AutoAllowlist rule's managed domain list. To seed such a list, specify <code>ImportFromFirewallDomainListId</code> when you create the rule.</p>
  *          <p>Each domain specification in your domain list must satisfy the following
  * 	requirements: </p>
  *          <ul>

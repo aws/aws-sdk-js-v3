@@ -237,6 +237,7 @@ export type FirewallDomainRedirectionAction =
  * @enum
  */
 export const DomainListType = {
+  AUTOALLOWLIST: "AUTOALLOWLIST",
   CONTENT: "CONTENT",
   THREAT: "THREAT",
 } as const;
@@ -384,8 +385,38 @@ export type FirewallDomainImportOperation =
  * @public
  * @enum
  */
+export const FirewallDomainStatus = {
+  ALLOWED: "ALLOWED",
+  DENIED: "DENIED",
+  OBSERVED: "OBSERVED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type FirewallDomainStatus = (typeof FirewallDomainStatus)[keyof typeof FirewallDomainStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const FirewallDomainStatusFilter = {
+  ALLOWED: "ALLOWED",
+  DENIED: "DENIED",
+  OBSERVED: "OBSERVED",
+} as const;
+/**
+ * @public
+ */
+export type FirewallDomainStatusFilter = (typeof FirewallDomainStatusFilter)[keyof typeof FirewallDomainStatusFilter];
+
+/**
+ * @public
+ * @enum
+ */
 export const FirewallDomainUpdateOperation = {
   ADD: "ADD",
+  DENY: "DENY",
   REMOVE: "REMOVE",
   REPLACE: "REPLACE",
 } as const;
@@ -394,6 +425,34 @@ export const FirewallDomainUpdateOperation = {
  */
 export type FirewallDomainUpdateOperation =
   (typeof FirewallDomainUpdateOperation)[keyof typeof FirewallDomainUpdateOperation];
+
+/**
+ * @public
+ * @enum
+ */
+export const FirewallRuleDomainSortBy = {
+  DAILY_TOTAL: "DAILY_TOTAL",
+  TIME_ADDED: "TIME_ADDED",
+  TOTAL_REQUESTS: "TOTAL_REQUESTS",
+} as const;
+/**
+ * @public
+ */
+export type FirewallRuleDomainSortBy = (typeof FirewallRuleDomainSortBy)[keyof typeof FirewallRuleDomainSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const FirewallRuleDomainSortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+/**
+ * @public
+ */
+export type FirewallRuleDomainSortOrder =
+  (typeof FirewallRuleDomainSortOrder)[keyof typeof FirewallRuleDomainSortOrder];
 
 /**
  * @public

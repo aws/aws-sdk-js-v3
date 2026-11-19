@@ -515,6 +515,13 @@ ListFirewallDomains
 </details>
 <details>
 <summary>
+ListFirewallRuleDomains
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListFirewallRuleDomainsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallRuleDomainsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallRuleDomainsCommandOutput/)
+</details>
+<details>
+<summary>
 ListFirewallRuleGroupAssociations
 </summary>
 

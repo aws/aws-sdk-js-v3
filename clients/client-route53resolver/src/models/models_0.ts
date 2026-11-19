@@ -10,8 +10,12 @@ import type {
   FirewallDomainImportOperation,
   FirewallDomainListStatus,
   FirewallDomainRedirectionAction,
+  FirewallDomainStatus,
+  FirewallDomainStatusFilter,
   FirewallDomainUpdateOperation,
   FirewallFailOpenStatus,
+  FirewallRuleDomainSortBy,
+  FirewallRuleDomainSortOrder,
   FirewallRuleGroupAssociationStatus,
   FirewallRuleGroupStatus,
   IpAddressStatus,
@@ -730,6 +734,32 @@ export interface AssociateResolverRuleResponse {
 }
 
 /**
+ * <p>The configuration for an AutoAllowlist firewall rule, which observes the DNS traffic of the VPCs that use the rule group, through a rule group association or a Route 53 Profile. The rule allows the domains on its managed domain list. When you create the rule, DNS Firewall seeds the observed domains from the look-back window of each VPC. After that, a domain is listed as observed when any DNS Firewall rule blocks a query for it from a VPC that uses the rule group, including rules in other rule groups, so place a rule that blocks the domains you haven't approved after the AutoAllowlist rule. To review the observed domains, call <a>ListFirewallRuleDomains</a>. To approve or deny them, call <a>UpdateFirewallDomains</a> on the rule's managed domain list.</p>
+ *          <p>An AutoAllowlist rule uses the <code>ALLOW</code> action, applies to all query types, and always inspects redirection domains. You can't set <code>Qtype</code>, <code>FirewallDomainRedirectionAction</code>, <code>BlockResponse</code>, or the DNS Firewall Advanced settings on it. A rule group can contain one AutoAllowlist rule.</p>
+ *          <p>A new AutoAllowlist rule has status <code>CREATING</code> while DNS Firewall reads the look-back window of each VPC that uses the rule group, which can take hours for a rule group that many VPCs use. Until the status is <code>COMPLETE</code>, the observed domains and request counts are partial and <a>UpdateFirewallRule</a> rejects the rule. You can approve, remove, and deny domains while the rule is <code>CREATING</code>.</p>
+ * @public
+ */
+export interface AutoAllowlistConfig {
+  /**
+   * <p>The look-back window, in hours, of historical DNS traffic that DNS Firewall uses to seed the initial set of observed domains when you create the rule. Valid values are from <code>1</code> to <code>168</code> (7 days). You can't change this value after you create the rule.</p>
+   * @public
+   */
+  InitialDataTimeframeHours: number | undefined;
+
+  /**
+   * <p>The ID of a domain list whose domains DNS Firewall copies into the AutoAllowlist rule's managed domain list after you create the rule. You must own the source list, and it must be in <code>COMPLETE</code> status, in the same Region, and not a managed or AutoAllowlist list. DNS Firewall reads the source list while the copy runs, so don't change or delete it until the managed list's status is no longer <code>IMPORTING</code>. A change made to the source list during the copy can be reflected in the managed list, and deleting the source list fails the copy. The managed list then has status <code>COMPLETE</code>, or <code>COMPLETE_IMPORT_FAILED</code> if the copy failed. DNS Firewall uses this value only when you create the rule.</p>
+   * @public
+   */
+  ImportFromFirewallDomainListId?: string | undefined;
+
+  /**
+   * <p>The ID of the managed domain list that DNS Firewall creates and maintains for this AutoAllowlist rule. The list is named <code>AutoAllowlist - </code> followed by the rule name, cut to 64 characters, and is renamed when you rename the rule. DNS Firewall returns this value in responses. You can't set it.</p>
+   * @public
+   */
+  AutoAllowlistFirewallDomainListId?: string | undefined;
+}
+
+/**
  * <p>The configuration for a DNS threat protection rule type within the rule type framework.</p>
  * @public
  */
@@ -813,7 +843,7 @@ export interface PartnerThreatProtectionConfig {
 
 /**
  * <p>The rule-type configuration for a DNS Firewall rule. <code>FirewallRuleType</code> is a tagged union — exactly one member must be set per rule, and the member determines what the rule matches against. This shape is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields on <a>CreateFirewallRule</a> and <a>UpdateFirewallRule</a>.</p>
- *          <p>Call <a>ListFirewallRuleTypes</a> to discover which rule-type variants and which values within each variant are available in your account and Region.</p>
+ *          <p>Call <a>ListFirewallRuleTypes</a> to discover which rule-type variants and which values within each variant are available in your account and Region. It doesn't return the <code>AutoAllowlist</code> variant.</p>
  * @public
  */
 export interface FirewallRuleType {
@@ -841,6 +871,12 @@ export interface FirewallRuleType {
    * @public
    */
   DnsThreatProtection?: DnsThreatProtectionRuleTypeConfig | undefined;
+
+  /**
+   * <p>Configures the rule as an AutoAllowlist rule, which observes the DNS traffic of the VPCs that use the rule group, through a rule group association or a Route 53 Profile, so that you can review the domains and allow them. See <a>AutoAllowlistConfig</a>.</p>
+   * @public
+   */
+  AutoAllowlist?: AutoAllowlistConfig | undefined;
 }
 
 /**
@@ -1056,8 +1092,12 @@ export interface CreateFirewallRuleEntry {
    *                <p>
    *                   <code>PartnerThreatProtection</code> — match a third-party threat feed delivered through Amazon Web Services Marketplace. The selected partner must be an active subscription on the calling account.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AutoAllowlist</code> — automatically observe the domains that the VPCs associated with the rule group resolve, and allow the ones that you approve. See <a>AutoAllowlistConfig</a>.</p>
+   *             </li>
    *          </ul>
-   *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>.</p>
+   *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>. It doesn't return <code>AutoAllowlist</code>.</p>
    * @public
    */
   FirewallRuleType?: FirewallRuleType | undefined;
@@ -1325,8 +1365,12 @@ export interface FirewallRule {
    *                <p>
    *                   <code>PartnerThreatProtection</code> — a third-party threat feed delivered through Amazon Web Services Marketplace.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AutoAllowlist</code> — an AutoAllowlist rule, which allows the domains on its managed domain list. See <a>AutoAllowlistConfig</a>.</p>
+   *             </li>
    *          </ul>
-   *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>.</p>
+   *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>. It doesn't return <code>AutoAllowlist</code>.</p>
    * @public
    */
   FirewallRuleType?: FirewallRuleType | undefined;
@@ -1336,7 +1380,7 @@ export interface FirewallRule {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATING</code> — DNS Firewall is provisioning the rule. Rules created with the <code>PartnerThreatProtection</code> rule type begin in this state while DNS Firewall verifies the calling account's Amazon Web Services Marketplace entitlement.</p>
+   *                   <code>CREATING</code> — DNS Firewall is provisioning the rule. Rules created with the <code>PartnerThreatProtection</code> rule type begin in this state while DNS Firewall verifies the calling account's Amazon Web Services Marketplace entitlement. Rules created with the <code>AutoAllowlist</code> rule type begin in this state while DNS Firewall reads the look-back window of each VPC that uses the rule group.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1696,7 +1740,8 @@ export interface UpdateFirewallRuleEntry {
    *                   <code>PartnerThreatProtection</code> — match a third-party threat feed delivered through Amazon Web Services Marketplace. The selected partner must be an active subscription on the calling account.</p>
    *             </li>
    *          </ul>
-   *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>.</p>
+   *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>. It doesn't return <code>AutoAllowlist</code>.</p>
+   *          <p>You can't specify <code>FirewallRuleType</code> when you update an AutoAllowlist rule, even with its current values. <code>InitialDataTimeframeHours</code> and <code>ImportFromFirewallDomainListId</code> can't be changed. To change them, delete the rule and create a new one. Deleting an AutoAllowlist rule also deletes its managed domain list and the domains that you allowed.</p>
    * @public
    */
   FirewallRuleType?: FirewallRuleType | undefined;
@@ -1984,6 +2029,7 @@ export interface CreateFirewallRuleRequest {
    *          <p>
    *             <code>TRUST_REDIRECTION_DOMAIN</code>: Inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
    * 			the domain list.</p>
+   *          <p>You can't set this value on an AutoAllowlist rule, which always inspects the redirection chain.</p>
    * @public
    */
   FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction | undefined;
@@ -2041,6 +2087,7 @@ export interface CreateFirewallRuleRequest {
    * 				<a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List of DNS record types</a>.</p>
    *             </li>
    *          </ul>
+   *          <p>You can't set <code>Qtype</code> on an AutoAllowlist rule, because the rule applies to all query types.</p>
    * @public
    */
   Qtype?: string | undefined;
@@ -2109,8 +2156,12 @@ export interface CreateFirewallRuleRequest {
    *                <p>
    *                   <code>PartnerThreatProtection</code> — match a third-party threat feed delivered through Amazon Web Services Marketplace. The selected partner must be an active subscription on the calling account.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AutoAllowlist</code> — automatically observe the domains that the VPCs associated with the rule group resolve, and allow the ones that you approve. See <a>AutoAllowlistConfig</a>.</p>
+   *             </li>
    *          </ul>
-   *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>.</p>
+   *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>. It doesn't return <code>AutoAllowlist</code>.</p>
    * @public
    */
   FirewallRuleType?: FirewallRuleType | undefined;
@@ -3724,6 +3775,74 @@ export interface FirewallDomainListMetadata {
    * @public
    */
   Category?: string | undefined;
+
+  /**
+   * <p>For an AutoAllowlist domain list, the ID of the firewall rule group that contains the auto-allowlist rule that owns this domain list. Use it to navigate to the rule group and its VPC associations. Present only when <code>ManagedListType</code> is <code>AUTOALLOWLIST</code>.</p>
+   * @public
+   */
+  FirewallRuleGroupId?: string | undefined;
+
+  /**
+   * <p>For an AutoAllowlist domain list, the threat protection ID of the auto-allowlist rule that owns this domain list. Provide it to <a>ListFirewallRuleDomains</a> to review the observed, allowed, and denied domains. Present only when <code>ManagedListType</code> is <code>AUTOALLOWLIST</code>.</p>
+   * @public
+   */
+  FirewallThreatProtectionId?: string | undefined;
+
+  /**
+   * <p>For an AutoAllowlist domain list, the status of the list: <code>IMPORTING</code> while domains are being copied from the source domain list specified at rule creation, <code>COMPLETE_IMPORT_FAILED</code> if that copy failed, <code>UPDATING</code> while a change made with <a>UpdateFirewallDomains</a> is being applied, <code>COMPLETE</code> otherwise, and <code>DELETING</code> while the owning rule is being deleted. The first change that you make after a failed copy replaces <code>COMPLETE_IMPORT_FAILED</code> with <code>UPDATING</code> and then <code>COMPLETE</code>. Present only when <code>ManagedListType</code> is <code>AUTOALLOWLIST</code>. Use <a>GetFirewallDomainList</a> for the status of other domain lists.</p>
+   * @public
+   */
+  Status?: FirewallDomainListStatus | undefined;
+}
+
+/**
+ * <p>A domain that DNS Firewall observed for an AutoAllowlist rule, with its review status and request volume. Counts are aggregated across all VPCs that use the rule group, through a rule group association or through a Route 53 Profile that includes the rule group, including VPCs in other accounts. The domain isn't attributed to the VPC or account in which it was observed.</p>
+ * @public
+ */
+export interface FirewallRuleDomain {
+  /**
+   * <p>The domain name.</p>
+   * @public
+   */
+  DomainName?: string | undefined;
+
+  /**
+   * <p>The review status of the domain:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>OBSERVED</code> - DNS Firewall saw the domain in the VPCs' DNS traffic and you haven't allowed or denied it. The look-back window seeds the initial observed domains. After that, a domain becomes observed when any DNS Firewall rule blocks a query for it from a VPC that uses the rule group, including rules in other rule groups, or when you remove it from the managed domain list with <code>REMOVE</code>. To keep observing new domains, place a rule that blocks the domains you haven't approved after the AutoAllowlist rule. Domains from the look-back period that keep being queried and aren't blocked move to <code>ALLOWED</code> within about a day after the rule is created. Observed domains aren't evaluated for safety, so review them before you allow them.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOWED</code> - DNS Firewall allowed queries for the domain, whether or not the domain is in the rule's managed domain list. To get the domains in the managed domain list (the allowlist that the rule enforces), call <a>ListFirewallRuleDomains</a> with <code>FirewallDomainListId</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DENIED</code> - The domain was denied with the <code>DENY</code> operation of <a>UpdateFirewallDomains</a>, which also removes it from the managed domain list if it was there. A denied domain that is still queried and not blocked can move to <code>ALLOWED</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DomainStatus?: FirewallDomainStatus | undefined;
+
+  /**
+   * <p>The number of DNS requests observed for this domain in the last 24 hours.</p>
+   * @public
+   */
+  Last24HourRequests?: number | undefined;
+
+  /**
+   * <p>The total number of DNS requests observed for this domain since it was first added, including the requests in the look-back window that seeded the rule.</p>
+   * @public
+   */
+  TotalRequests?: number | undefined;
+
+  /**
+   * <p>The date and time when the domain was first observed and added, in RFC 3339 format.</p>
+   * @public
+   */
+  AddedTime?: string | undefined;
 }
 
 /**
@@ -3870,6 +3989,18 @@ export interface GetFirewallDomainListResponse {
    * @public
    */
   FirewallDomainList?: FirewallDomainList | undefined;
+
+  /**
+   * <p>For an AutoAllowlist domain list, the ID of the firewall rule group that contains the AutoAllowlist rule that owns this domain list. Present only when <code>ManagedListType</code> is <code>AUTOALLOWLIST</code>.</p>
+   * @public
+   */
+  FirewallRuleGroupId?: string | undefined;
+
+  /**
+   * <p>For an AutoAllowlist domain list, the threat protection ID of the auto-allowlist rule that owns this domain list. Provide it to <a>ListFirewallRuleDomains</a> to review the observed, allowed, and denied domains. Present only when <code>ManagedListType</code> is <code>AUTOALLOWLIST</code>.</p>
+   * @public
+   */
+  FirewallThreatProtectionId?: string | undefined;
 }
 
 /**
@@ -4512,6 +4643,124 @@ export interface ListFirewallDomainsResponse {
    * @public
    */
   Domains?: string[] | undefined;
+}
+
+/**
+ * <p>Optional filters and sort order for <a>ListFirewallRuleDomains</a>.</p>
+ * @public
+ */
+export interface ListFirewallRuleDomainsQueryOptions {
+  /**
+   * <p>Filters the returned domains by review status. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>OBSERVED</code> - Domains that DNS Firewall saw in the VPCs' DNS traffic and that you haven't allowed or denied. After the look-back window, a domain is observed when any DNS Firewall rule blocks a query for it from a VPC that uses the rule group, including rules in other rule groups, or when you remove it from the managed domain list. Domains from the look-back period that keep being queried and aren't blocked move to <code>ALLOWED</code> within about a day after the rule is created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOWED</code> - Domains that DNS Firewall allowed queries for, whether or not they're in the rule's managed domain list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DENIED</code> - Domains that were denied with the <code>DENY</code> operation. A denied domain that is still queried and not blocked can move to <code>ALLOWED</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a value, the operation returns <code>OBSERVED</code> domains.</p>
+   * @public
+   */
+  DomainStatus?: FirewallDomainStatusFilter | undefined;
+
+  /**
+   * <p>The attribute to sort the returned domains by. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TIME_ADDED</code> - The <code>AddedTime</code> of the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DAILY_TOTAL</code> - The <code>Last24HourRequests</code> count.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TOTAL_REQUESTS</code> - The <code>TotalRequests</code> count.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a value, the operation sorts by <code>TIME_ADDED</code>.</p>
+   * @public
+   */
+  SortBy?: FirewallRuleDomainSortBy | undefined;
+
+  /**
+   * <p>The sort direction: <code>ASC</code> for ascending or <code>DESC</code> for descending. If you don't specify a value, the operation sorts in descending order.</p>
+   * @public
+   */
+  SortOrder?: FirewallRuleDomainSortOrder | undefined;
+
+  /**
+   * <p>Returns only the domains whose name contains this substring.</p>
+   * @public
+   */
+  DomainNameFilter?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFirewallRuleDomainsRequest {
+  /**
+   * <p>The unique identifier of the firewall rule group that contains the rule.</p>
+   * @public
+   */
+  FirewallRuleGroupId: string | undefined;
+
+  /**
+   * <p>The threat protection ID that identifies an AutoAllowlist rule. Provide this to list an AutoAllowlist rule's domains.</p>
+   * @public
+   */
+  FirewallThreatProtectionId?: string | undefined;
+
+  /**
+   * <p>The ID of the AutoAllowlist rule's managed domain list. Provide this to list the domains that the rule currently allows.</p>
+   * @public
+   */
+  FirewallDomainListId?: string | undefined;
+
+  /**
+   * <p>Optional filters and sort order for the returned domains. If you don't specify this, the operation returns the <code>OBSERVED</code> domains sorted by <code>TIME_ADDED</code> in descending order. See <a>ListFirewallRuleDomainsQueryOptions</a>.</p>
+   * @public
+   */
+  QueryOptions?: ListFirewallRuleDomainsQueryOptions | undefined;
+
+  /**
+   * <p>The maximum number of domains that you want to return in a single call. If more domains remain than can be returned, the response includes a <code>NextToken</code> value that you can use in a subsequent call to get the next batch. The default is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>For the first call to this operation, omit this value. If more domains remain than can be returned in a single call, the response includes a <code>NextToken</code> value. In your next call, specify that value to get the next batch of domains.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFirewallRuleDomainsResponse {
+  /**
+   * <p>The domains for the rule. See <a>FirewallRuleDomain</a>.</p>
+   * @public
+   */
+  Domains?: FirewallRuleDomain[] | undefined;
+
+  /**
+   * <p>If more domains remain than were returned in this response, DNS Firewall provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of domains.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5797,15 +6046,19 @@ export interface UpdateFirewallDomainsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ADD</code> - Add the domains to the ones that are already in the domain list. </p>
+   *                   <code>ADD</code> - Add the domains to the ones that are already in the domain list. For an AutoAllowlist rule's managed domain list, this also marks the observed domains as allowed.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>REMOVE</code> - Search the domain list for the domains and remove them from the list.</p>
+   *                   <code>REMOVE</code> - Search the domain list for the domains and remove them from the list. For an AutoAllowlist rule's managed domain list, the rule no longer allows the removed domains, unless a wildcard entry that's still on the list matches them.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>REPLACE</code> - Update the domain list to exactly match the list that you are providing. </p>
+   *                   <code>REPLACE</code> - Update the domain list to exactly match the list that you are providing. Not supported for an AutoAllowlist rule's managed domain list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> - For an AutoAllowlist rule's managed domain list only, mark the specified observed domains as denied so that they're no longer listed for review. If a domain is on the managed domain list, <code>DENY</code> also removes it from the list. Specify fully qualified domain names. Wildcards aren't accepted.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5974,6 +6227,7 @@ export interface UpdateFirewallRuleRequest {
    *          <p>
    *             <code>TRUST_REDIRECTION_DOMAIN</code>: Inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
    * 			the domain list.</p>
+   *          <p>You can't set this value on an AutoAllowlist rule, which always inspects the redirection chain.</p>
    * @public
    */
   FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction | undefined;
@@ -6035,6 +6289,7 @@ export interface UpdateFirewallRuleRequest {
    *                </note>
    *             </li>
    *          </ul>
+   *          <p>You can't set <code>Qtype</code> on an AutoAllowlist rule, because the rule applies to all query types.</p>
    * @public
    */
   Qtype?: string | undefined;
@@ -6106,7 +6361,8 @@ export interface UpdateFirewallRuleRequest {
    *                   <code>PartnerThreatProtection</code> — match a third-party threat feed delivered through Amazon Web Services Marketplace. The selected partner must be an active subscription on the calling account.</p>
    *             </li>
    *          </ul>
-   *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>.</p>
+   *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>. It doesn't return <code>AutoAllowlist</code>.</p>
+   *          <p>You can't specify <code>FirewallRuleType</code> when you update an AutoAllowlist rule, even with its current values. <code>InitialDataTimeframeHours</code> and <code>ImportFromFirewallDomainListId</code> can't be changed. To change them, delete the rule and create a new one. Deleting an AutoAllowlist rule also deletes its managed domain list and the domains that you allowed.</p>
    * @public
    */
   FirewallRuleType?: FirewallRuleType | undefined;

@@ -35,10 +35,10 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  *             </li>
  *             <li>
  *                <p>
- *                   <code>FirewallRuleType</code> — match one of the rule-type variants returned by <a>ListFirewallRuleTypes</a>: <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, or <code>PartnerThreatProtection</code>. The <code>PartnerThreatProtection</code> variant requires an active Amazon Web Services Marketplace subscription to the named partner product.</p>
+ *                   <code>FirewallRuleType</code> — match one of the rule-type variants: <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, <code>PartnerThreatProtection</code>, or <code>AutoAllowlist</code>. <a>ListFirewallRuleTypes</a> returns the first four. The <code>PartnerThreatProtection</code> variant requires an active Amazon Web Services Marketplace subscription to the named partner product.</p>
  *             </li>
  *          </ul>
- *          <p>For rules that require asynchronous provisioning (today, the <code>PartnerThreatProtection</code> rule type), the rule's <code>Status</code> begins at <code>CREATING</code> and transitions to <code>COMPLETE</code> once the rule is provisioned and the marketplace entitlement is verified. If provisioning fails, <code>Status</code> becomes <code>CREATION_FAILED</code> and <code>StatusMessage</code> contains a human-readable reason; the rule is then immutable and must be removed with <a>DeleteFirewallRule</a>.</p>
+ *          <p>For rules that require asynchronous provisioning (the <code>PartnerThreatProtection</code> and <code>AutoAllowlist</code> rule types), the rule's <code>Status</code> begins at <code>CREATING</code> and transitions to <code>COMPLETE</code> once the rule is provisioned: for <code>PartnerThreatProtection</code>, when the marketplace entitlement is verified, and for <code>AutoAllowlist</code>, when DNS Firewall has read the look-back window of every VPC that uses the rule group, which can take hours for a rule group that many VPCs use. If provisioning fails, <code>Status</code> becomes <code>CREATION_FAILED</code> and <code>StatusMessage</code> contains a human-readable reason; the rule is then immutable and must be removed with <a>DeleteFirewallRule</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +76,11 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  *       Value: "STRING_VALUE", // required
  *       ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
  *     },
+ *     AutoAllowlist: { // AutoAllowlistConfig
+ *       InitialDataTimeframeHours: Number("int"), // required
+ *       ImportFromFirewallDomainListId: "STRING_VALUE",
+ *       AutoAllowlistFirewallDomainListId: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new CreateFirewallRuleCommand(input);
@@ -112,6 +117,11 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  * //       DnsThreatProtection: { // DnsThreatProtectionRuleTypeConfig
  * //         Value: "STRING_VALUE", // required
  * //         ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
+ * //       },
+ * //       AutoAllowlist: { // AutoAllowlistConfig
+ * //         InitialDataTimeframeHours: Number("int"), // required
+ * //         ImportFromFirewallDomainListId: "STRING_VALUE",
+ * //         AutoAllowlistFirewallDomainListId: "STRING_VALUE",
  * //       },
  * //     },
  * //     Status: "STRING_VALUE",

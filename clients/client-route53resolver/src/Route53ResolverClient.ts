@@ -228,6 +228,10 @@ import type {
   ListFirewallDomainsCommandOutput,
 } from "./commands/ListFirewallDomainsCommand";
 import type {
+  ListFirewallRuleDomainsCommandInput,
+  ListFirewallRuleDomainsCommandOutput,
+} from "./commands/ListFirewallRuleDomainsCommand";
+import type {
   ListFirewallRuleGroupAssociationsCommandInput,
   ListFirewallRuleGroupAssociationsCommandOutput,
 } from "./commands/ListFirewallRuleGroupAssociationsCommand";
@@ -392,6 +396,7 @@ export type ServiceInputTypes =
   | ListFirewallConfigsCommandInput
   | ListFirewallDomainListsCommandInput
   | ListFirewallDomainsCommandInput
+  | ListFirewallRuleDomainsCommandInput
   | ListFirewallRuleGroupAssociationsCommandInput
   | ListFirewallRuleGroupsCommandInput
   | ListFirewallRuleTypesCommandInput
@@ -469,6 +474,7 @@ export type ServiceOutputTypes =
   | ListFirewallConfigsCommandOutput
   | ListFirewallDomainListsCommandOutput
   | ListFirewallDomainsCommandOutput
+  | ListFirewallRuleDomainsCommandOutput
   | ListFirewallRuleGroupAssociationsCommandOutput
   | ListFirewallRuleGroupsCommandOutput
   | ListFirewallRuleTypesCommandOutput

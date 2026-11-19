@@ -50,7 +50,7 @@ export interface DeleteFirewallDomainListCommandOutput extends DeleteFirewallDom
  * //     CreationTime: "STRING_VALUE",
  * //     ModificationTime: "STRING_VALUE",
  * //     Category: "STRING_VALUE",
- * //     ManagedListType: "THREAT" || "CONTENT",
+ * //     ManagedListType: "THREAT" || "CONTENT" || "AUTOALLOWLIST",
  * //   },
  * // };
  *

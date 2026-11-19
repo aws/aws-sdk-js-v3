@@ -50,8 +50,10 @@ export interface GetFirewallDomainListCommandOutput extends GetFirewallDomainLis
  * //     CreationTime: "STRING_VALUE",
  * //     ModificationTime: "STRING_VALUE",
  * //     Category: "STRING_VALUE",
- * //     ManagedListType: "THREAT" || "CONTENT",
+ * //     ManagedListType: "THREAT" || "CONTENT" || "AUTOALLOWLIST",
  * //   },
+ * //   FirewallRuleGroupId: "STRING_VALUE",
+ * //   FirewallThreatProtectionId: "STRING_VALUE",
  * // };
  *
  * ```

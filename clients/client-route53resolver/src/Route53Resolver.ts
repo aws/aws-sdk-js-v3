@@ -228,6 +228,11 @@ import {
   ListFirewallDomainsCommand,
 } from "./commands/ListFirewallDomainsCommand";
 import {
+  type ListFirewallRuleDomainsCommandInput,
+  type ListFirewallRuleDomainsCommandOutput,
+  ListFirewallRuleDomainsCommand,
+} from "./commands/ListFirewallRuleDomainsCommand";
+import {
   type ListFirewallRuleGroupAssociationsCommandInput,
   type ListFirewallRuleGroupAssociationsCommandOutput,
   ListFirewallRuleGroupAssociationsCommand,
@@ -370,6 +375,7 @@ import {
 import { paginateListFirewallConfigs } from "./pagination/ListFirewallConfigsPaginator";
 import { paginateListFirewallDomainLists } from "./pagination/ListFirewallDomainListsPaginator";
 import { paginateListFirewallDomains } from "./pagination/ListFirewallDomainsPaginator";
+import { paginateListFirewallRuleDomains } from "./pagination/ListFirewallRuleDomainsPaginator";
 import { paginateListFirewallRuleGroupAssociations } from "./pagination/ListFirewallRuleGroupAssociationsPaginator";
 import { paginateListFirewallRuleGroups } from "./pagination/ListFirewallRuleGroupsPaginator";
 import { paginateListFirewallRules } from "./pagination/ListFirewallRulesPaginator";
@@ -433,6 +439,7 @@ const commands = {
   ListFirewallConfigsCommand,
   ListFirewallDomainListsCommand,
   ListFirewallDomainsCommand,
+  ListFirewallRuleDomainsCommand,
   ListFirewallRuleGroupAssociationsCommand,
   ListFirewallRuleGroupsCommand,
   ListFirewallRulesCommand,
@@ -466,6 +473,7 @@ const paginators = {
   paginateListFirewallConfigs,
   paginateListFirewallDomainLists,
   paginateListFirewallDomains,
+  paginateListFirewallRuleDomains,
   paginateListFirewallRuleGroupAssociations,
   paginateListFirewallRuleGroups,
   paginateListFirewallRules,
@@ -1241,6 +1249,23 @@ export interface Route53Resolver {
   ): void;
 
   /**
+   * @see {@link ListFirewallRuleDomainsCommand}
+   */
+  listFirewallRuleDomains(
+    args: ListFirewallRuleDomainsCommandInput,
+    options?: Route53ResolverRequestOptions
+  ): Promise<ListFirewallRuleDomainsCommandOutput>;
+  listFirewallRuleDomains(
+    args: ListFirewallRuleDomainsCommandInput,
+    cb: (err: any, data?: ListFirewallRuleDomainsCommandOutput) => void
+  ): void;
+  listFirewallRuleDomains(
+    args: ListFirewallRuleDomainsCommandInput,
+    options: Route53ResolverRequestOptions,
+    cb: (err: any, data?: ListFirewallRuleDomainsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListFirewallRuleGroupAssociationsCommand}
    */
   listFirewallRuleGroupAssociations(): Promise<ListFirewallRuleGroupAssociationsCommandOutput>;
@@ -1759,6 +1784,17 @@ export interface Route53Resolver {
     args: ListFirewallDomainsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListFirewallDomainsCommandOutput>;
+
+  /**
+   * @see {@link ListFirewallRuleDomainsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFirewallRuleDomainsCommandOutput}.
+   */
+  paginateListFirewallRuleDomains(
+    args: ListFirewallRuleDomainsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFirewallRuleDomainsCommandOutput>;
 
   /**
    * @see {@link ListFirewallRuleGroupAssociationsCommand}

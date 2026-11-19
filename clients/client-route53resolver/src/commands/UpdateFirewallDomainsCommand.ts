@@ -24,6 +24,12 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
 
 /**
  * <p>Updates the firewall domain list from an array of domain specifications. </p>
+ *          <p>For an AutoAllowlist rule's managed domain list, use <code>ADD</code> to approve observed domains, <code>REMOVE</code> to stop allowing domains, unless a wildcard entry that's still on the list matches them, and <code>DENY</code> to dismiss observed domains. <code>REPLACE</code> and <a>ImportFirewallDomains</a> aren't supported for these lists.</p>
+ *          <p>DNS Firewall throttles <code>UpdateFirewallDomains</code> requests based on both the request rate and the total number of domains across your requests.</p>
+ *          <p>
+ *             <b>Best Practice for Updating Domain Lists</b>
+ *          </p>
+ *          <p>If you only need to modify a subset of domains, use the <code>ADD</code> or <code>REMOVE</code> operations instead of <code>REPLACE</code>. With <code>REPLACE</code>, you send the complete list you want to end up with, and throttling counts every domain in that request, including domains that aren't changing, which can use up your available throttling capacity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -34,7 +40,7 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
  * const client = new Route53ResolverClient(config);
  * const input = { // UpdateFirewallDomainsRequest
  *   FirewallDomainListId: "STRING_VALUE", // required
- *   Operation: "ADD" || "REMOVE" || "REPLACE", // required
+ *   Operation: "ADD" || "REMOVE" || "REPLACE" || "DENY", // required
  *   Domains: [ // FirewallDomains // required
  *     "STRING_VALUE",
  *   ],

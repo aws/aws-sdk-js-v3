@@ -61,6 +61,11 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  *       Value: "STRING_VALUE", // required
  *       ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
  *     },
+ *     AutoAllowlist: { // AutoAllowlistConfig
+ *       InitialDataTimeframeHours: Number("int"), // required
+ *       ImportFromFirewallDomainListId: "STRING_VALUE",
+ *       AutoAllowlistFirewallDomainListId: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new UpdateFirewallRuleCommand(input);
@@ -97,6 +102,11 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  * //       DnsThreatProtection: { // DnsThreatProtectionRuleTypeConfig
  * //         Value: "STRING_VALUE", // required
  * //         ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
+ * //       },
+ * //       AutoAllowlist: { // AutoAllowlistConfig
+ * //         InitialDataTimeframeHours: Number("int"), // required
+ * //         ImportFromFirewallDomainListId: "STRING_VALUE",
+ * //         AutoAllowlistFirewallDomainListId: "STRING_VALUE",
  * //       },
  * //     },
  * //     Status: "STRING_VALUE",

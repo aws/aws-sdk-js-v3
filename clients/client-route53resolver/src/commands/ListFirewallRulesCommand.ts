@@ -25,7 +25,7 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
 /**
  * <p>Retrieves the firewall rules that you have defined for the specified firewall rule group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for a VPC.</p>
  *          <p>A single call might return only a partial list of the rules. For information, see <code>MaxResults</code>.</p>
- *          <p>For rules that require asynchronous provisioning, the response includes <code>Status</code> (see <a>FirewallRuleStatus</a>) and, on failure, <code>StatusMessage</code> with the reason.</p>
+ *          <p>For rules that require asynchronous provisioning, the response includes <code>Status</code> (see <a>FirewallRule</a>) and, on failure, <code>StatusMessage</code> with the reason.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +77,11 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * //         DnsThreatProtection: { // DnsThreatProtectionRuleTypeConfig
  * //           Value: "STRING_VALUE", // required
  * //           ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
+ * //         },
+ * //         AutoAllowlist: { // AutoAllowlistConfig
+ * //           InitialDataTimeframeHours: Number("int"), // required
+ * //           ImportFromFirewallDomainListId: "STRING_VALUE",
+ * //           AutoAllowlistFirewallDomainListId: "STRING_VALUE",
  * //         },
  * //       },
  * //       Status: "STRING_VALUE",

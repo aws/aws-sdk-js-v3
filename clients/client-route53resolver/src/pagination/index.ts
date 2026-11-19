@@ -3,6 +3,7 @@ export * from "./Interfaces";
 export * from "./ListFirewallConfigsPaginator";
 export * from "./ListFirewallDomainListsPaginator";
 export * from "./ListFirewallDomainsPaginator";
+export * from "./ListFirewallRuleDomainsPaginator";
 export * from "./ListFirewallRuleGroupAssociationsPaginator";
 export * from "./ListFirewallRuleGroupsPaginator";
 export * from "./ListFirewallRulesPaginator";
