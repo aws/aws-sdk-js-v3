@@ -42,7 +42,7 @@ export interface GetPaymentConnectorCommandOutput extends GetPaymentConnectorRes
  * //   paymentConnectorId: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
- * //   type: "CoinbaseCDP" || "StripePrivy", // required
+ * //   type: "CoinbaseCDP" || "StripePrivy" || "AwsBilling", // required
  * //   provisionMode: "MANUAL" || "QUICK_CREATE",
  * //   credentialProviderConfigurations: [ // CredentialsProviderConfigurations // required
  * //     { // CredentialsProviderConfiguration Union: only one key present
@@ -51,6 +51,9 @@ export interface GetPaymentConnectorCommandOutput extends GetPaymentConnectorRes
  * //       },
  * //       stripePrivy: {
  * //         credentialProviderArn: "STRING_VALUE", // required
+ * //       },
+ * //       awsBilling: { // AwsBillingConnectorConfiguration
+ * //         iamRoleArn: "STRING_VALUE", // required
  * //       },
  * //     },
  * //   ],

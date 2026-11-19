@@ -87,6 +87,9 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  *           propagatedTags: {
  *             "<keys>": "STRING_VALUE",
  *           },
+ *           cpuOptions: { // CpuOptions
+ *             nestedVirtualization: "ENABLED" || "DISABLED",
+ *           },
  *         },
  *       },
  *       vpcConfiguration: { // VpcConfiguration

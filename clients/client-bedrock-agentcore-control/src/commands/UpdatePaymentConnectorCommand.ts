@@ -36,7 +36,7 @@ export interface UpdatePaymentConnectorCommandOutput extends UpdatePaymentConnec
  *   paymentManagerId: "STRING_VALUE", // required
  *   paymentConnectorId: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   type: "CoinbaseCDP" || "StripePrivy",
+ *   type: "CoinbaseCDP" || "StripePrivy" || "AwsBilling",
  *   credentialProviderConfigurations: [ // CredentialsProviderConfigurations
  *     { // CredentialsProviderConfiguration Union: only one key present
  *       coinbaseCDP: { // PaymentCredentialProviderConfiguration
@@ -44,6 +44,9 @@ export interface UpdatePaymentConnectorCommandOutput extends UpdatePaymentConnec
  *       },
  *       stripePrivy: {
  *         credentialProviderArn: "STRING_VALUE", // required
+ *       },
+ *       awsBilling: { // AwsBillingConnectorConfiguration
+ *         iamRoleArn: "STRING_VALUE", // required
  *       },
  *     },
  *   ],
@@ -55,7 +58,7 @@ export interface UpdatePaymentConnectorCommandOutput extends UpdatePaymentConnec
  * //   paymentConnectorId: "STRING_VALUE", // required
  * //   paymentManagerId: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
- * //   type: "CoinbaseCDP" || "StripePrivy", // required
+ * //   type: "CoinbaseCDP" || "StripePrivy" || "AwsBilling", // required
  * //   credentialProviderConfigurations: [ // CredentialsProviderConfigurations // required
  * //     { // CredentialsProviderConfiguration Union: only one key present
  * //       coinbaseCDP: { // PaymentCredentialProviderConfiguration
@@ -63,6 +66,9 @@ export interface UpdatePaymentConnectorCommandOutput extends UpdatePaymentConnec
  * //       },
  * //       stripePrivy: {
  * //         credentialProviderArn: "STRING_VALUE", // required
+ * //       },
+ * //       awsBilling: { // AwsBillingConnectorConfiguration
+ * //         iamRoleArn: "STRING_VALUE", // required
  * //       },
  * //     },
  * //   ],

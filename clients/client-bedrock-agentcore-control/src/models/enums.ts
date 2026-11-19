@@ -404,6 +404,19 @@ export type CapacityReservationPreference =
  * @public
  * @enum
  */
+export const NestedVirtualization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type NestedVirtualization = (typeof NestedVirtualization)[keyof typeof NestedVirtualization];
+
+/**
+ * @public
+ * @enum
+ */
 export const EbsVolumeType = {
   GP2: "gp2",
   GP3: "gp3",
@@ -1623,6 +1636,7 @@ export type PaymentConnectorProvisionMode =
  * @enum
  */
 export const PaymentConnectorType = {
+  AWS_BILLING: "AwsBilling",
   COINBASE_CDP: "CoinbaseCDP",
   STRIPE_PRIVY: "StripePrivy",
 } as const;

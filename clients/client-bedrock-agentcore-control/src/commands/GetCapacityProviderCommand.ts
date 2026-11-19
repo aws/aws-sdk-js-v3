@@ -93,6 +93,9 @@ export interface GetCapacityProviderCommandOutput extends GetCapacityProviderOut
  * //           propagatedTags: { // TagsMap
  * //             "<keys>": "STRING_VALUE",
  * //           },
+ * //           cpuOptions: { // CpuOptions
+ * //             nestedVirtualization: "ENABLED" || "DISABLED",
+ * //           },
  * //         },
  * //       },
  * //       vpcConfiguration: { // VpcConfiguration

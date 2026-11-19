@@ -65,6 +65,29 @@ import type {
 /**
  * @public
  */
+export interface DeleteOnlineEvaluationConfigResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the deleted online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the deleted online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+
+  /**
+   * <p> The status of the online evaluation configuration deletion operation. </p>
+   * @public
+   */
+  status: OnlineEvaluationConfigStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetOnlineEvaluationConfigRequest {
   /**
    * <p> The unique identifier of the online evaluation configuration to retrieve. </p>
@@ -1321,6 +1344,18 @@ export interface ListPaymentManagersResponse {
 }
 
 /**
+ * <p>The configuration for an AWS Billing payment connector. Payments made through an AWS Billing payment connector are charged to the AWS account that owns the payment manager, and appear on that account's AWS bill as AWS Marketplace charges.</p>
+ * @public
+ */
+export interface AwsBillingConnectorConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Marketplace service-linked role in the account that owns the payment manager. The service sets this value when it creates the connector.</p>
+   * @public
+   */
+  iamRoleArn: string | undefined;
+}
+
+/**
  * <p>Configuration for a payment credential provider that stores authentication credentials for a payment provider.</p>
  * @public
  */
@@ -1333,10 +1368,11 @@ export interface PaymentCredentialProviderConfiguration {
 }
 
 /**
- * <p>The credential provider configuration for a payment connector. Specifies the payment provider type and its associated credential provider.</p>
+ * <p>The configuration for a payment connector. Specifies the payment provider type and either its associated credential provider or, for an AWS Billing payment connector, its billing configuration.</p>
  * @public
  */
 export type CredentialsProviderConfiguration =
+  | CredentialsProviderConfiguration.AwsBillingMember
   | CredentialsProviderConfiguration.CoinbaseCDPMember
   | CredentialsProviderConfiguration.StripePrivyMember
   | CredentialsProviderConfiguration.$UnknownMember;
@@ -1352,6 +1388,7 @@ export namespace CredentialsProviderConfiguration {
   export interface CoinbaseCDPMember {
     coinbaseCDP: PaymentCredentialProviderConfiguration;
     stripePrivy?: never;
+    awsBilling?: never;
     $unknown?: never;
   }
 
@@ -1362,6 +1399,18 @@ export namespace CredentialsProviderConfiguration {
   export interface StripePrivyMember {
     coinbaseCDP?: never;
     stripePrivy: PaymentCredentialProviderConfiguration;
+    awsBilling?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for an AWS Billing payment connector. The service sets this configuration when it creates the connector and returns it in responses. Don't specify it when you create an AWS Billing payment connector.</p>
+   * @public
+   */
+  export interface AwsBillingMember {
+    coinbaseCDP?: never;
+    stripePrivy?: never;
+    awsBilling: AwsBillingConnectorConfiguration;
     $unknown?: never;
   }
 
@@ -1371,6 +1420,7 @@ export namespace CredentialsProviderConfiguration {
   export interface $UnknownMember {
     coinbaseCDP?: never;
     stripePrivy?: never;
+    awsBilling?: never;
     $unknown: [string, any];
   }
 
@@ -1381,6 +1431,7 @@ export namespace CredentialsProviderConfiguration {
   export interface Visitor<T> {
     coinbaseCDP: (value: PaymentCredentialProviderConfiguration) => T;
     stripePrivy: (value: PaymentCredentialProviderConfiguration) => T;
+    awsBilling: (value: AwsBillingConnectorConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1414,10 +1465,10 @@ export interface CreatePaymentConnectorRequest {
   type: PaymentConnectorType | undefined;
 
   /**
-   * <p>The credential provider configurations for the payment connector. These configurations specify how the connector authenticates with the payment provider.</p>
+   * <p>The credential provider configurations for the payment connector. These configurations specify how the connector authenticates with the payment provider.</p> <p>For an <code>AwsBilling</code> payment connector, omit this parameter or specify an empty list. The service uses the AWS Marketplace service-linked role in your account, which must exist before you create the connector, and you must have permission to call <code>iam:GetRole</code> on it.</p>
    * @public
    */
-  credentialProviderConfigurations: CredentialsProviderConfiguration[] | undefined;
+  credentialProviderConfigurations?: CredentialsProviderConfiguration[] | undefined;
 
   /**
    * <p>The provision mode for creating the payment connector. If you don't specify a value, the default is <code>MANUAL</code>.</p> <ul> <li> <p> <code>MANUAL</code> - You provide the credential provider configurations directly.</p> </li> <li> <p> <code>QUICK_CREATE</code> - The service orchestrates OAuth consent and provisions the credential provider for you.</p> </li> </ul>

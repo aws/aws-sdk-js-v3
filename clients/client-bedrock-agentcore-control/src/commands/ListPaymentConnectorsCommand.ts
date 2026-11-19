@@ -44,7 +44,7 @@ export interface ListPaymentConnectorsCommandOutput extends ListPaymentConnector
  * //     { // PaymentConnectorSummary
  * //       paymentConnectorId: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
- * //       type: "CoinbaseCDP" || "StripePrivy", // required
+ * //       type: "CoinbaseCDP" || "StripePrivy" || "AwsBilling", // required
  * //       provisionMode: "MANUAL" || "QUICK_CREATE",
  * //       status: "CREATING" || "UPDATING" || "DELETING" || "READY" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED" || "AWS_MARKETPLACE_SUBSCRIPTION_REQUIRED" || "PENDING_AUTHENTICATION" || "PROVISIONING" || "AUTHENTICATION_EXPIRED" || "AUTHENTICATION_FAILED", // required
  * //       lastUpdatedAt: new Date("TIMESTAMP"), // required

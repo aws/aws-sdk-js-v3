@@ -44,6 +44,7 @@ import type {
   RecordExpiryAction,
   RestApiMethod,
   ResultDestination,
+  SearchType,
   SecretSourceType,
   SigningAlgorithm,
   StaticQueryParameterConflictResolution,
@@ -62,15 +63,58 @@ import type {
   GatewayInterceptorConfiguration,
   GatewayPolicyEngineConfiguration,
   LifecycleConfiguration,
-  MCPGatewayConfiguration,
   NetworkConfiguration,
   PrivateEndpoint,
   PrivateEndpointOverride,
   Secret,
   SecretReference,
+  SessionConfiguration,
+  StreamingConfiguration,
   Unit,
   WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * <p>The configuration for a Model Context Protocol (MCP) gateway. This structure defines how the gateway implements the MCP protocol.</p>
+ * @public
+ */
+export interface MCPGatewayConfiguration {
+  /**
+   * <p>The supported versions of the Model Context Protocol. This field specifies which versions of the protocol the gateway can use.</p>
+   * @public
+   */
+  supportedVersions?: string[] | undefined;
+
+  /**
+   * <p>The instructions for using the Model Context Protocol gateway. These instructions provide guidance on how to interact with the gateway.</p>
+   * @public
+   */
+  instructions?: string | undefined;
+
+  /**
+   * <p>The search type for the Model Context Protocol gateway. This field specifies how the gateway handles search operations.</p>
+   * @public
+   */
+  searchType?: SearchType | undefined;
+
+  /**
+   * <p>The session configuration for the MCP gateway. This configuration controls session behavior, including session timeout settings.</p>
+   * @public
+   */
+  sessionConfiguration?: SessionConfiguration | undefined;
+
+  /**
+   * <p>The streaming configuration for the MCP gateway. This configuration controls whether response streaming is enabled for the gateway.</p>
+   * @public
+   */
+  streamingConfiguration?: StreamingConfiguration | undefined;
+
+  /**
+   * <p>Specifies whether the gateway disables pagination for the Model Context Protocol (MCP) <code>tools/list</code> operation. When set to <code>true</code>, the gateway returns the complete list of tools in a single response without a pagination cursor. When set to <code>false</code> or omitted, the gateway returns tools in paginated responses. For information about changing this value on an existing gateway, see <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.html">UpdateGateway</a>.</p>
+   * @public
+   */
+  disableMcpListToolsPagination?: boolean | undefined;
+}
 
 /**
  * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
@@ -10156,27 +10200,4 @@ export interface DeleteOnlineEvaluationConfigRequest {
    * @public
    */
   onlineEvaluationConfigId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteOnlineEvaluationConfigResponse {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the deleted online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigArn: string | undefined;
-
-  /**
-   * <p> The unique identifier of the deleted online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigId: string | undefined;
-
-  /**
-   * <p> The status of the online evaluation configuration deletion operation. </p>
-   * @public
-   */
-  status: OnlineEvaluationConfigStatus | undefined;
 }

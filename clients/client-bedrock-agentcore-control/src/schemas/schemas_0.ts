@@ -1,4 +1,5 @@
 const _A = "Actions";
+const _ABCC = "AwsBillingConnectorConfiguration";
 const _AC = "ApprovalConfiguration";
 const _ACD = "AgentCardDefinition";
 const _ACMVT = "AuthorizingClaimMatchValueType";
@@ -154,6 +155,7 @@ const _CMI = "CreateMemoryInput";
 const _CMO = "CreateMemoryOutput";
 const _CMSI = "CustomMemoryStrategyInput";
 const _CMVT = "ClaimMatchValueType";
+const _CO = "CpuOptions";
 const _COCP = "CreateOauth2CredentialProvider";
 const _COCPR = "CreateOauth2CredentialProviderRequest";
 const _COCPRr = "CreateOauth2CredentialProviderResponse";
@@ -1128,6 +1130,7 @@ const _a = "audience";
 const _aA = "autoApproval";
 const _aAl = "allowedAudience";
 const _aB = "apiBase";
+const _aBw = "awsBilling";
 const _aC = "agentCard";
 const _aCB = "agentCoreBrowser";
 const _aCCI = "agentCoreCodeInterpreter";
@@ -1266,6 +1269,7 @@ const _cM = "commitMessage";
 const _cMO = "claimMatchOperator";
 const _cMS = "customMemoryStrategy";
 const _cMV = "claimMatchValue";
+const _cO = "cpuOptions";
 const _cOPC = "customOauth2ProviderConfig";
 const _cP = "credentialProvider";
 const _cPA = "credentialProviderArn";
@@ -1470,6 +1474,7 @@ const _iPA = "instanceProfileArn";
 const _iPa = "iamPrincipal";
 const _iPn = "inlinePayload";
 const _iR = "instanceRequirements";
+const _iRA = "iamRoleArn";
 const _iRST = "idleRuntimeSessionTimeout";
 const _iS = "inputSchema";
 const _iST = "idleSessionTimeout";
@@ -1585,7 +1590,8 @@ const _nM = "networkMode";
 const _nMC = "networkModeConfig";
 const _nT = "namespaceTemplates";
 const _nTe = "nextToken";
-const _nV = "numberValidation";
+const _nV = "nestedVirtualization";
+const _nVu = "numberValidation";
 const _na = "namespaces";
 const _no = "none";
 const _nu = "numerical";
@@ -2173,6 +2179,11 @@ export var AuthorizingClaimMatchValueType$: StaticStructureSchema = [3, n0, _ACM
   [_cMV, _cMO],
   [() => ClaimMatchValueType$, 0], 2
 ];
+export var AwsBillingConnectorConfiguration$: StaticStructureSchema = [3, n0, _ABCC,
+  0,
+  [_iRA],
+  [0], 1
+];
 export var BatchPutGatewayRateLimitsRequest$: StaticStructureSchema = [3, n0, _BPGRLR,
   0,
   [_gI, _rL, _cT],
@@ -2382,6 +2393,11 @@ export var ContentConfiguration$: StaticStructureSchema = [3, n0, _CConte,
   0,
   [_t, _le],
   [0, 0], 1
+];
+export var CpuOptions$: StaticStructureSchema = [3, n0, _CO,
+  0,
+  [_nV],
+  [0]
 ];
 export var CreateAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _CARER,
   0,
@@ -2595,8 +2611,8 @@ export var CreateOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0
 ];
 export var CreatePaymentConnectorRequest$: StaticStructureSchema = [3, n0, _CPCR,
   0,
-  [_pMI, _n, _t, _cPCr, _d, _pM, _cT],
-  [[0, 1], 0, 0, () => CredentialsProviderConfigurations, 0, 0, [0, 4]], 4
+  [_pMI, _n, _t, _d, _cPCr, _pM, _cT],
+  [[0, 1], 0, 0, 0, () => CredentialsProviderConfigurations, 0, [0, 4]], 3
 ];
 export var CreatePaymentConnectorResponse$: StaticStructureSchema = [3, n0, _CPCRr,
   0,
@@ -3910,8 +3926,8 @@ export var LambdaTransformConfiguration$: StaticStructureSchema = [3, n0, _LTC,
 ];
 export var LaunchParameters$: StaticStructureSchema = [3, n0, _LP,
   0,
-  [_oS, _iR, _eVp, _mon, _lS, _cRS, _sKN, _iPA, _pTr],
-  [0, () => InstanceRequirements$, () => EphemeralBlockDeviceMappingList, 0, () => LicenseSpecificationList, () => CapacityReservationSpecification$, 0, 0, 128 | 0], 2
+  [_oS, _iR, _eVp, _mon, _lS, _cRS, _sKN, _iPA, _pTr, _cO],
+  [0, () => InstanceRequirements$, () => EphemeralBlockDeviceMappingList, 0, () => LicenseSpecificationList, () => CapacityReservationSpecification$, 0, 0, 128 | 0, () => CpuOptions$], 2
 ];
 export var LicenseSpecification$: StaticStructureSchema = [3, n0, _LS,
   0,
@@ -6118,8 +6134,8 @@ export var CredentialRotationConfig$: StaticUnionSchema = [4, n0, _CRC,
 ];
 export var CredentialsProviderConfiguration$: StaticUnionSchema = [4, n0, _CPCrede,
   0,
-  [_cCDP, _sPt],
-  [() => PaymentCredentialProviderConfiguration$, () => PaymentCredentialProviderConfiguration$]
+  [_cCDP, _sPt, _aBw],
+  [() => PaymentCredentialProviderConfiguration$, () => PaymentCredentialProviderConfiguration$, () => AwsBillingConnectorConfiguration$]
 ];
 export var CustomConfigurationInput$: StaticUnionSchema = [4, n0, _CCI,
   0,
@@ -6463,7 +6479,7 @@ export var TriggerConditionInput$: StaticUnionSchema = [4, n0, _TCI,
 ];
 export var Validation$: StaticUnionSchema = [4, n0, _V,
   0,
-  [_sVtr, _sLV, _nV],
+  [_sVtr, _sLV, _nVu],
   [() => StringValidation$, () => StringListValidation$, () => NumberValidation$]
 ];
 export var VolumeConfiguration$: StaticUnionSchema = [4, n0, _VCo,

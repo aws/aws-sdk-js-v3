@@ -39,13 +39,13 @@ import type {
   IncludedData,
   InterceptorPayloadExclusion,
   Monitoring,
+  NestedVirtualization,
   NetworkMode,
   OperatingSystem,
   Period,
   PrivilegeMode,
   Provider,
   ResourceType,
-  SearchType,
   SecretSourceType,
   ServerProtocol,
 } from "./enums";
@@ -4502,6 +4502,18 @@ export interface CapacityReservationSpecification {
 }
 
 /**
+ * <p>The CPU configuration for capacity provider instances, including nested virtualization.</p>
+ * @public
+ */
+export interface CpuOptions {
+  /**
+   * <p>Specifies whether your agents can use hardware virtualization on their instances. The following values are possible:</p> <ul> <li> <p> <code>ENABLED</code> – Your agents can use hardware virtualization on their instances. To use this value, choose the <code>LINUX_X86_64</code> operating system and instance types that support nested virtualization.</p> </li> <li> <p> <code>DISABLED</code> – Your agents can't use hardware virtualization on their instances. This is the default.</p> </li> </ul>
+   * @public
+   */
+  nestedVirtualization?: NestedVirtualization | undefined;
+}
+
+/**
  * <p>The shared Amazon EBS performance and encryption properties for a volume. These properties are common across the different volume configurations for a capacity provider.</p>
  * @public
  */
@@ -4667,6 +4679,12 @@ export interface LaunchParameters {
    * @public
    */
   propagatedTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The central processing unit (CPU) options for the instances that the capacity provider launches.</p>
+   * @public
+   */
+  cpuOptions?: CpuOptions | undefined;
 }
 
 /**
@@ -9170,48 +9188,6 @@ export interface StreamingConfiguration {
    * @public
    */
   enableResponseStreaming?: boolean | undefined;
-}
-
-/**
- * <p>The configuration for a Model Context Protocol (MCP) gateway. This structure defines how the gateway implements the MCP protocol.</p>
- * @public
- */
-export interface MCPGatewayConfiguration {
-  /**
-   * <p>The supported versions of the Model Context Protocol. This field specifies which versions of the protocol the gateway can use.</p>
-   * @public
-   */
-  supportedVersions?: string[] | undefined;
-
-  /**
-   * <p>The instructions for using the Model Context Protocol gateway. These instructions provide guidance on how to interact with the gateway.</p>
-   * @public
-   */
-  instructions?: string | undefined;
-
-  /**
-   * <p>The search type for the Model Context Protocol gateway. This field specifies how the gateway handles search operations.</p>
-   * @public
-   */
-  searchType?: SearchType | undefined;
-
-  /**
-   * <p>The session configuration for the MCP gateway. This configuration controls session behavior, including session timeout settings.</p>
-   * @public
-   */
-  sessionConfiguration?: SessionConfiguration | undefined;
-
-  /**
-   * <p>The streaming configuration for the MCP gateway. This configuration controls whether response streaming is enabled for the gateway.</p>
-   * @public
-   */
-  streamingConfiguration?: StreamingConfiguration | undefined;
-
-  /**
-   * <p>Specifies whether the gateway disables pagination for the Model Context Protocol (MCP) <code>tools/list</code> operation. When set to <code>true</code>, the gateway returns the complete list of tools in a single response without a pagination cursor. When set to <code>false</code> or omitted, the gateway returns tools in paginated responses. For information about changing this value on an existing gateway, see <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.html">UpdateGateway</a>.</p>
-   * @public
-   */
-  disableMcpListToolsPagination?: boolean | undefined;
 }
 
 /**

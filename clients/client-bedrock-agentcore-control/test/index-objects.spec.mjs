@@ -38,6 +38,7 @@ import {
   AuthorizerConfiguration$,
   AuthorizerType,
   AuthorizingClaimMatchValueType$,
+  AwsBillingConnectorConfiguration$,
   BatchPutGatewayRateLimits$,
   BatchPutGatewayRateLimitsCommand,
   BatchPutGatewayRateLimitsRequest$,
@@ -118,6 +119,7 @@ import {
   ContentConfiguration$,
   ContentLevel,
   ContentType,
+  CpuOptions$,
   CreateAgentRuntime$,
   CreateAgentRuntimeCommand,
   CreateAgentRuntimeEndpoint$,
@@ -916,6 +918,7 @@ import {
   Monitoring,
   NamespaceKeyEntry$,
   NamespaceKeyValidation$,
+  NestedVirtualization,
   NetworkConfiguration$,
   NetworkMode,
   NumberValidation$,
@@ -1729,6 +1732,7 @@ assert(typeof AtlassianOauth2ProviderConfigOutput$ === "object");
 assert(typeof AuthorizationData$ === "object");
 assert(typeof AuthorizerConfiguration$ === "object");
 assert(typeof AuthorizingClaimMatchValueType$ === "object");
+assert(typeof AwsBillingConnectorConfiguration$ === "object");
 assert(typeof BatchPutGatewayRateLimitsRequest$ === "object");
 assert(typeof BatchPutGatewayRateLimitsResponse$ === "object");
 assert(typeof BatchPutLimitEntry$ === "object");
@@ -1781,6 +1785,7 @@ assert(typeof ConsolidationConfiguration$ === "object");
 assert(typeof ContainerConfiguration$ === "object");
 assert(typeof Content$ === "object");
 assert(typeof ContentConfiguration$ === "object");
+assert(typeof CpuOptions$ === "object");
 assert(typeof CreateAgentRuntimeEndpointRequest$ === "object");
 assert(typeof CreateAgentRuntimeEndpointResponse$ === "object");
 assert(typeof CreateAgentRuntimeRequest$ === "object");
@@ -2569,6 +2574,7 @@ assert(typeof MemoryStrategyType === "object");
 assert(typeof MemoryView === "object");
 assert(typeof MetadataValueType === "object");
 assert(typeof Monitoring === "object");
+assert(typeof NestedVirtualization === "object");
 assert(typeof NetworkMode === "object");
 assert(typeof OAuthGrantType === "object");
 assert(typeof OnBehalfOfClientAuthenticationMethod === "object");
