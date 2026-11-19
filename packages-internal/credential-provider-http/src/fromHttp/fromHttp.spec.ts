@@ -25,6 +25,7 @@ const mockHandle = vi.fn().mockResolvedValue({
 });
 
 const mockDestroy = vi.fn();
+const mockCreate = vi.fn();
 
 vi.mock("@smithy/node-http-handler", () => ({
   NodeHttpHandler: (() => {
@@ -33,7 +34,10 @@ vi.mock("@smithy/node-http-handler", () => ({
       handle: mockHandle,
     });
     const impl = Object.assign(vi.fn().mockImplementation(getImpl), {
-      create: () => getImpl(),
+      create: (...args: unknown[]) => {
+        mockCreate(...args);
+        return getImpl();
+      },
     });
     return impl;
   })(),
@@ -165,6 +169,19 @@ describe(fromHttp.name, () => {
     await provider();
 
     expect(mockHandle).toHaveBeenCalledWith(expect.anything(), { requestTimeout: 5000 });
+  });
+
+  it("makes the request handler throw when the requestTimeout is exceeded", async () => {
+    mockCreate.mockClear();
+    const provider = fromHttp({
+      awsContainerCredentialsFullUri: "https://u1.aws",
+      awsContainerCredentialsRelativeUri: "",
+      timeout: 5000,
+    });
+
+    await provider();
+
+    expect(mockCreate).toHaveBeenCalledWith({ connectionTimeout: 5000, throwOnRequestTimeout: true });
   });
 
   it("destroys the request handler after the provider resolves", async () => {
