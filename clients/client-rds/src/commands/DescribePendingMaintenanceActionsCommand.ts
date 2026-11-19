@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage } from "../models/models_0";
+import type { DescribePendingMaintenanceActionsMessage } from "../models/models_0";
+import type { PendingMaintenanceActionsMessage } from "../models/models_1";
 import { DescribePendingMaintenanceActions$ } from "../schemas/schemas_0";
 
 /**

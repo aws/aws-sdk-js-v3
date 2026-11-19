@@ -160,6 +160,8 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //           CAIdentifier: "STRING_VALUE",
  * //           ValidTill: new Date("TIMESTAMP"),
  * //         },
+ * //         VPCNetworkingEnabled: true || false,
+ * //         InternetAccessGatewayEnabled: true || false,
  * //       },
  * //       EngineMode: "STRING_VALUE",
  * //       ScalingConfigurationInfo: { // ScalingConfigurationInfo

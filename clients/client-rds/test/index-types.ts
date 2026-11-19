@@ -884,6 +884,7 @@ export type {
   PerformanceInsightsMetricDimensionGroup,
   PerformanceInsightsMetricQuery,
   PerformanceIssueDetails,
+  PrimaryEndpoint,
   ProcessorFeature,
   PromoteReadReplicaDBClusterMessage,
   PromoteReadReplicaDBClusterResult,

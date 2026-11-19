@@ -364,7 +364,7 @@ export interface ApplyPendingMaintenanceActionMessage {
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>The pending maintenance action to apply to this resource.</p> <p>Valid Values:</p> <ul> <li> <p> <code>ca-certificate-rotation</code> </p> </li> <li> <p> <code>db-upgrade</code> </p> </li> <li> <p> <code>hardware-maintenance</code> </p> </li> <li> <p> <code>os-upgrade</code> </p> </li> <li> <p> <code>system-update</code> </p> </li> </ul> <p>For more information about these actions, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-aurora">Maintenance actions for Amazon Aurora</a> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-rds">Maintenance actions for Amazon RDS</a>.</p>
+   * <p>The pending maintenance action to apply to this resource.</p> <p>Valid Values:</p> <ul> <li> <p> <code>ca-certificate-rotation</code> </p> </li> <li> <p> <code>db-upgrade</code> </p> </li> <li> <p> <code>hardware-maintenance</code> </p> </li> <li> <p> <code>os-upgrade</code> </p> </li> <li> <p> <code>serverless-platform-version-update</code> </p> </li> <li> <p> <code>system-update</code> </p> </li> </ul> <p>For more information about these actions, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-aurora">Maintenance actions for Amazon Aurora</a> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-rds">Maintenance actions for Amazon RDS</a>.</p>
    * @public
    */
   ApplyAction: string | undefined;
@@ -2856,13 +2856,13 @@ export interface CreateDBClusterMessage {
   DBClusterParameterGroupName?: string | undefined;
 
   /**
-   * <p>A list of EC2 VPC security groups to associate with this DB cluster.</p> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
+   * <p>A list of EC2 VPC security groups to associate with this DB cluster.</p> <p>Valid only for DB clusters inside a VPC. Don't specify it when you set <code>EnableVPCNetworking</code> to <code>false</code>.</p> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
   VpcSecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>A DB subnet group to associate with this DB cluster.</p> <p>This setting is required to create a Multi-AZ DB cluster.</p> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p> <p>Constraints:</p> <ul> <li> <p>Must match the name of an existing DB subnet group.</p> </li> </ul> <p>Example: <code>mydbsubnetgroup</code> </p>
+   * <p>A DB subnet group to associate with this DB cluster.</p> <p>This setting is required to create a Multi-AZ DB cluster.</p> <p>Valid only for DB clusters inside a VPC. Don't specify it when you set <code>EnableVPCNetworking</code> to <code>false</code>.</p> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p> <p>Constraints:</p> <ul> <li> <p>Must match the name of an existing DB subnet group.</p> </li> </ul> <p>Example: <code>mydbsubnetgroup</code> </p>
    * @public
    */
   DBSubnetGroupName?: string | undefined;
@@ -3060,7 +3060,7 @@ export interface CreateDBClusterMessage {
   EnableGlobalWriteForwarding?: boolean | undefined;
 
   /**
-   * <p>The network type of the DB cluster.</p> <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the DB cluster. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html"> Working with a DB instance in a VPC</a> in the <i>Amazon Aurora User Guide.</i> </p> <p>Valid for Cluster Type: Aurora DB clusters only</p> <p>Valid Values: <code>IPV4 | DUAL</code> </p>
+   * <p>The network type of the DB cluster.</p> <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the DB cluster. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html"> Working with a DB instance in a VPC</a> in the <i>Amazon Aurora User Guide.</i> </p> <p>Don't specify it when you set <code>EnableVPCNetworking</code> to <code>false</code>.</p> <p>Valid for Cluster Type: Aurora DB clusters only</p> <p>Valid Values: <code>IPV4 | DUAL</code> </p>
    * @public
    */
   NetworkType?: string | undefined;
@@ -3168,10 +3168,22 @@ export interface CreateDBClusterMessage {
   MasterUserAuthenticationType?: MasterUserAuthenticationType | undefined;
 
   /**
-   * <p>Specifies to create an Aurora DB Cluster with express configuration in seconds. Express configuration provides a cluster with a writer instance and feature specific values set to all other input parameters of this API. </p> <p>Valid for Cluster Type: Aurora DB clusters</p>
+   * <p>Specifies whether VPC networking is enabled for the DB cluster. Set to <code>false</code> to create a DB cluster without VPC networking.</p> <p>A DB cluster without VPC networking needs an internet access gateway and IAM database authentication. Set <code>EnableInternetAccessGateway</code> and <code>EnableIAMDatabaseAuthentication</code> to <code>true</code>, and set <code>MasterUserAuthenticationType</code> to <code>iam-db-auth</code>.</p> <p>Default: <code>true</code>. With <code>WithExpressConfiguration</code>, the default is <code>false</code>.</p> <p>Valid for Cluster Type: Aurora PostgreSQL DB clusters only</p>
+   * @public
+   */
+  EnableVPCNetworking?: boolean | undefined;
+
+  /**
+   * <p>Specifies to create an Aurora DB Cluster with express configuration in seconds. Express configuration provides a cluster with a writer instance and feature specific values set to all other input parameters of this API. </p> <p>By default, a DB cluster with express configuration doesn't use VPC networking. You connect to it over the internet through an internet access gateway.</p> <p>To create the DB cluster in a VPC instead, set <code>EnableVPCNetworking</code> to <code>true</code> and <code>EnableInternetAccessGateway</code> to <code>false</code>. You can also specify <code>DBSubnetGroupName</code>, <code>VpcSecurityGroupIds</code>, and <code>NetworkType</code>. If you don't specify <code>DBSubnetGroupName</code>, the DB cluster uses the default DB subnet group for your Amazon Web Services account, in your default VPC.</p> <p>A DB cluster with express configuration in a VPC takes longer to become available than one without VPC networking.</p> <p>Valid for Cluster Type: Aurora DB clusters</p>
    * @public
    */
   WithExpressConfiguration?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the DB cluster uses an internet access gateway. With an internet access gateway, you connect to the DB cluster over the internet without a VPC.</p> <p>Set to <code>true</code> only when you set <code>EnableVPCNetworking</code> to <code>false</code>. A DB cluster can't use VPC networking and an internet access gateway at the same time.</p> <p>Default: <code>false</code>. With <code>WithExpressConfiguration</code>, the default is <code>true</code>. To create a DB cluster with express configuration in a VPC, set this parameter to <code>false</code>.</p> <p>Valid for Cluster Type: Aurora PostgreSQL DB clusters only</p>
+   * @public
+   */
+  EnableInternetAccessGateway?: boolean | undefined;
 
   /**
    * <p>A list of Amazon Web Services Identity and Access Management (IAM) roles to associate with the DB cluster. Each role grants the DB cluster permission to access other Amazon Web Services on your behalf. For each role, specify a role ARN and, optionally, the feature name (such as <code>s3Import</code>, <code>s3Export</code>, or <code>Lambda</code>).</p> <p>Valid for Cluster Type: Aurora DB clusters only</p>
@@ -3448,6 +3460,18 @@ export interface ClusterPendingModifiedValues {
    * @public
    */
   CertificateDetails?: CertificateDetails | undefined;
+
+  /**
+   * <p>Indicates whether the DB cluster will use VPC networking after a pending networking change completes. For a pending move to a different DB subnet group, the value is <code>true</code>.</p> <p>Valid for Cluster Type: Aurora DB clusters only</p>
+   * @public
+   */
+  VPCNetworkingEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the DB cluster will use an internet access gateway after a pending networking change completes.</p> <p>Valid for Cluster Type: Aurora PostgreSQL DB clusters only</p>
+   * @public
+   */
+  InternetAccessGatewayEnabled?: boolean | undefined;
 }
 
 /**
@@ -4068,13 +4092,13 @@ export interface DBCluster {
   EngineLifecycleSupport?: string | undefined;
 
   /**
-   * <p>Indicates whether the DB cluster uses VPC-based networking.</p> <p>This setting is applicable only for Aurora PostgreSQL clusters created through express configuration.</p>
+   * <p>Indicates whether the DB cluster uses VPC-based networking. The value is <code>false</code> only for an Aurora PostgreSQL DB cluster without VPC networking.</p> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
   VPCNetworkingEnabled?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the DB cluster has internet-based connectivity enabled through an internet access gateway.</p> <p>This setting is applicable only for Aurora PostgreSQL clusters created through express configuration.</p>
+   * <p>Indicates whether the DB cluster has internet-based connectivity enabled through an internet access gateway.</p> <p>Valid for Cluster Type: Aurora PostgreSQL DB clusters only</p>
    * @public
    */
   InternetAccessGatewayEnabled?: boolean | undefined;
@@ -5037,6 +5061,24 @@ export interface PendingModifiedValues {
 }
 
 /**
+ * <p>Contains the information you need to connect to the DB instance that currently has the primary role. The endpoint stays the same when the primary role moves to another DB instance, so you don't have to connect to a different DNS name after a switchover.</p>
+ * @public
+ */
+export interface PrimaryEndpoint {
+  /**
+   * <p>Specifies the DNS address of the DB instance that currently has the primary role. This address doesn't change when the DB instance is renamed.</p>
+   * @public
+   */
+  Address?: string | undefined;
+
+  /**
+   * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
+   * @public
+   */
+  HostedZoneId?: string | undefined;
+}
+
+/**
  * <p>Provides a list of status information for a DB instance.</p>
  * @public
  */
@@ -5112,6 +5154,12 @@ export interface DBInstance {
    * @public
    */
   Endpoint?: Endpoint | undefined;
+
+  /**
+   * <p>Specifies the connection endpoint for the DB instance that currently has the primary role.</p> <p>This endpoint points to the new primary DB instance after a switchover, so you don't have to connect to a different DNS name.</p> <p>A read replica reports the same primary endpoint as the DB instance it replicates from. When you promote a read replica, it reports its own primary endpoint.</p>
+   * @public
+   */
+  PrimaryEndpoint?: PrimaryEndpoint | undefined;
 
   /**
    * <p>The amount of storage in gibibytes (GiB) allocated for the DB instance.</p>
@@ -5634,6 +5682,12 @@ export interface DBInstance {
    * @public
    */
   DBCapacityReservationIdentifier?: string | undefined;
+
+  /**
+   * <p>Indicates whether the DB instance uses VPC networking. For a DB instance in an Aurora PostgreSQL DB cluster without VPC networking, the value is <code>false</code>.</p>
+   * @public
+   */
+  VPCNetworkingEnabled?: boolean | undefined;
 }
 
 /**
@@ -11942,22 +11996,4 @@ export interface DescribePendingMaintenanceActionsMessage {
    * @public
    */
   MaxRecords?: number | undefined;
-}
-
-/**
- * <p>Data returned from the <b>DescribePendingMaintenanceActions</b> action.</p>
- * @public
- */
-export interface PendingMaintenanceActionsMessage {
-  /**
-   * <p>A list of the pending maintenance actions for the resource.</p>
-   * @public
-   */
-  PendingMaintenanceActions?: ResourcePendingMaintenanceActions[] | undefined;
-
-  /**
-   * <p>An optional pagination token provided by a previous <code>DescribePendingMaintenanceActions</code> request. If this parameter is specified, the response includes only records beyond the marker, up to a number of records specified by <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
 }

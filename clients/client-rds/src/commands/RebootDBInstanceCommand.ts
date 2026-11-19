@@ -51,6 +51,10 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * //       Port: Number("int"),
  * //       HostedZoneId: "STRING_VALUE",
  * //     },
+ * //     PrimaryEndpoint: { // PrimaryEndpoint
+ * //       Address: "STRING_VALUE",
+ * //       HostedZoneId: "STRING_VALUE",
+ * //     },
  * //     AllocatedStorage: Number("int"),
  * //     InstanceCreateTime: new Date("TIMESTAMP"),
  * //     PreferredBackupWindow: "STRING_VALUE",
@@ -293,6 +297,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * //     StorageOperationStatus: "STRING_VALUE",
  * //     StorageOperationPercentProgress: Number("int"),
  * //     DBCapacityReservationIdentifier: "STRING_VALUE",
+ * //     VPCNetworkingEnabled: true || false,
  * //   },
  * // };
  *

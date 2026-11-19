@@ -928,6 +928,7 @@ import {
   PerformanceIssueDetails$,
   PointInTimeRestoreNotEnabledFault,
   PointInTimeRestoreNotEnabledFault$,
+  PrimaryEndpoint$,
   ProcessorFeature$,
   PromoteReadReplica$,
   PromoteReadReplicaCommand,
@@ -1865,6 +1866,7 @@ assert(typeof PendingModifiedValues$ === "object");
 assert(typeof PerformanceInsightsMetricDimensionGroup$ === "object");
 assert(typeof PerformanceInsightsMetricQuery$ === "object");
 assert(typeof PerformanceIssueDetails$ === "object");
+assert(typeof PrimaryEndpoint$ === "object");
 assert(typeof ProcessorFeature$ === "object");
 assert(typeof PromoteReadReplicaDBClusterMessage$ === "object");
 assert(typeof PromoteReadReplicaDBClusterResult$ === "object");

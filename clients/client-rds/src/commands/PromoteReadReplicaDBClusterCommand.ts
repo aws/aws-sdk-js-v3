@@ -147,6 +147,8 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  * //         CAIdentifier: "STRING_VALUE",
  * //         ValidTill: new Date("TIMESTAMP"),
  * //       },
+ * //       VPCNetworkingEnabled: true || false,
+ * //       InternetAccessGatewayEnabled: true || false,
  * //     },
  * //     EngineMode: "STRING_VALUE",
  * //     ScalingConfigurationInfo: { // ScalingConfigurationInfo

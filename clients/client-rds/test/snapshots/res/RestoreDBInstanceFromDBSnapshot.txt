@@ -58,6 +58,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 __HostedZoneId__
             </HostedZoneId>
         </Endpoint>
+        <PrimaryEndpoint>
+            <Address>
+                __Address__
+            </Address>
+            <HostedZoneId>
+                __HostedZoneId__
+            </HostedZoneId>
+        </PrimaryEndpoint>
         <AllocatedStorage>
             0
         </AllocatedStorage>
@@ -1022,6 +1030,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <DBCapacityReservationIdentifier>
             __DBCapacityReservationIdentifier__
         </DBCapacityReservationIdentifier>
+        <VPCNetworkingEnabled>
+            false
+        </VPCNetworkingEnabled>
     </DBInstance>
 </RestoreDBInstanceFromDBSnapshotResult>
 

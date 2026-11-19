@@ -133,6 +133,10 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput extends RestoreDBI
  * //       Port: Number("int"),
  * //       HostedZoneId: "STRING_VALUE",
  * //     },
+ * //     PrimaryEndpoint: { // PrimaryEndpoint
+ * //       Address: "STRING_VALUE",
+ * //       HostedZoneId: "STRING_VALUE",
+ * //     },
  * //     AllocatedStorage: Number("int"),
  * //     InstanceCreateTime: new Date("TIMESTAMP"),
  * //     PreferredBackupWindow: "STRING_VALUE",
@@ -375,6 +379,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput extends RestoreDBI
  * //     StorageOperationStatus: "STRING_VALUE",
  * //     StorageOperationPercentProgress: Number("int"),
  * //     DBCapacityReservationIdentifier: "STRING_VALUE",
+ * //     VPCNetworkingEnabled: true || false,
  * //   },
  * // };
  *
