@@ -52,6 +52,10 @@ import {
   DeleteTableReplicationRequest$,
   DeleteTableRequest$,
   DestinationTable$,
+  DisassociateTableReplication$,
+  DisassociateTableReplicationCommand,
+  DisassociateTableReplicationRequest$,
+  DisassociateTableReplicationResponse$,
   EncryptionConfiguration$,
   FindingCategory,
   ForbiddenException,
@@ -347,6 +351,8 @@ assert(typeof DeleteTablePolicyCommand === "function");
 assert(typeof DeleteTablePolicy$ === "object");
 assert(typeof DeleteTableReplicationCommand === "function");
 assert(typeof DeleteTableReplication$ === "object");
+assert(typeof DisassociateTableReplicationCommand === "function");
+assert(typeof DisassociateTableReplication$ === "object");
 assert(typeof GetNamespaceCommand === "function");
 assert(typeof GetNamespace$ === "object");
 assert(typeof GetTableCommand === "function");
@@ -455,6 +461,8 @@ assert(typeof DeleteTablePolicyRequest$ === "object");
 assert(typeof DeleteTableReplicationRequest$ === "object");
 assert(typeof DeleteTableRequest$ === "object");
 assert(typeof DestinationTable$ === "object");
+assert(typeof DisassociateTableReplicationRequest$ === "object");
+assert(typeof DisassociateTableReplicationResponse$ === "object");
 assert(typeof EncryptionConfiguration$ === "object");
 assert(typeof GetNamespaceRequest$ === "object");
 assert(typeof GetNamespaceResponse$ === "object");

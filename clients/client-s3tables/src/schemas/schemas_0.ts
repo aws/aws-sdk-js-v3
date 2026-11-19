@@ -31,7 +31,10 @@ const _DTP = "DeleteTablePolicy";
 const _DTPR = "DeleteTablePolicyRequest";
 const _DTR = "DeleteTableRequest";
 const _DTRR = "DeleteTableReplicationRequest";
+const _DTRRi = "DisassociateTableReplicationRequest";
+const _DTRRis = "DisassociateTableReplicationResponse";
 const _DTRe = "DeleteTableReplication";
+const _DTRi = "DisassociateTableReplication";
 const _DTe = "DeleteTable";
 const _EC = "EncryptionConfiguration";
 const _FE = "ForbiddenException";
@@ -572,6 +575,16 @@ export var DestinationTable$: StaticStructureSchema = [3, n0, _DT,
   0,
   [_tBARN, _n, _na, _eC, _sCC, _t, _p, _sc, _iSO],
   [0, 0, 0, () => EncryptionConfiguration$, () => StorageClassConfiguration$, 128 | 0, () => MigrationTableProperties$, [() => IcebergSchemaV2$, 0], [() => IcebergSortOrder$, 0]], 3
+];
+export var DisassociateTableReplicationRequest$: StaticStructureSchema = [3, n0, _DTRRi,
+  0,
+  [_tA],
+  [[0, { [_hQ]: _tA }]], 1
+];
+export var DisassociateTableReplicationResponse$: StaticStructureSchema = [3, n0, _DTRRis,
+  0,
+  [],
+  []
 ];
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
@@ -1325,6 +1338,9 @@ export var DeleteTablePolicy$: StaticOperationSchema = [9, n0, _DTP,
 ];
 export var DeleteTableReplication$: StaticOperationSchema = [9, n0, _DTRe,
   { [_h]: ["DELETE", "/table-replication", 204] }, () => DeleteTableReplicationRequest$, () => __Unit
+];
+export var DisassociateTableReplication$: StaticOperationSchema = [9, n0, _DTRi,
+  { [_h]: ["PUT", "/table-replication/disassociate", 200] }, () => DisassociateTableReplicationRequest$, () => DisassociateTableReplicationResponse$
 ];
 export var GetNamespace$: StaticOperationSchema = [9, n0, _GN,
   { [_h]: ["GET", "/namespaces/{tableBucketARN}/{namespace}", 200] }, () => GetNamespaceRequest$, () => GetNamespaceResponse$

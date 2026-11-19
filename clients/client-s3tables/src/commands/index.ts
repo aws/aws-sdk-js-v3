@@ -12,6 +12,7 @@ export * from "./DeleteTableBucketReplicationCommand";
 export * from "./DeleteTableCommand";
 export * from "./DeleteTablePolicyCommand";
 export * from "./DeleteTableReplicationCommand";
+export * from "./DisassociateTableReplicationCommand";
 export * from "./GetNamespaceCommand";
 export * from "./GetTableBucketCommand";
 export * from "./GetTableBucketEncryptionCommand";

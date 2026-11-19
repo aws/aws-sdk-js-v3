@@ -73,6 +73,11 @@ import {
   DeleteTableReplicationCommand,
 } from "./commands/DeleteTableReplicationCommand";
 import {
+  type DisassociateTableReplicationCommandInput,
+  type DisassociateTableReplicationCommandOutput,
+  DisassociateTableReplicationCommand,
+} from "./commands/DisassociateTableReplicationCommand";
+import {
   type GetNamespaceCommandInput,
   type GetNamespaceCommandOutput,
   GetNamespaceCommand,
@@ -308,6 +313,7 @@ const commands = {
   DeleteTableBucketReplicationCommand,
   DeleteTablePolicyCommand,
   DeleteTableReplicationCommand,
+  DisassociateTableReplicationCommand,
   GetNamespaceCommand,
   GetTableCommand,
   GetTableBucketCommand,
@@ -587,6 +593,23 @@ export interface S3Tables {
     args: DeleteTableReplicationCommandInput,
     options: S3TablesRequestOptions,
     cb: (err: any, data?: DeleteTableReplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateTableReplicationCommand}
+   */
+  disassociateTableReplication(
+    args: DisassociateTableReplicationCommandInput,
+    options?: S3TablesRequestOptions
+  ): Promise<DisassociateTableReplicationCommandOutput>;
+  disassociateTableReplication(
+    args: DisassociateTableReplicationCommandInput,
+    cb: (err: any, data?: DisassociateTableReplicationCommandOutput) => void
+  ): void;
+  disassociateTableReplication(
+    args: DisassociateTableReplicationCommandInput,
+    options: S3TablesRequestOptions,
+    cb: (err: any, data?: DisassociateTableReplicationCommandOutput) => void
   ): void;
 
   /**

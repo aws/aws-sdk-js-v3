@@ -94,6 +94,10 @@ import type {
   DeleteTableReplicationCommandInput,
   DeleteTableReplicationCommandOutput,
 } from "./commands/DeleteTableReplicationCommand";
+import type {
+  DisassociateTableReplicationCommandInput,
+  DisassociateTableReplicationCommandOutput,
+} from "./commands/DisassociateTableReplicationCommand";
 import type { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
 import type { GetTableBucketCommandInput, GetTableBucketCommandOutput } from "./commands/GetTableBucketCommand";
 import type {
@@ -265,6 +269,7 @@ export type ServiceInputTypes =
   | DeleteTableCommandInput
   | DeleteTablePolicyCommandInput
   | DeleteTableReplicationCommandInput
+  | DisassociateTableReplicationCommandInput
   | GetNamespaceCommandInput
   | GetTableBucketCommandInput
   | GetTableBucketEncryptionCommandInput
@@ -327,6 +332,7 @@ export type ServiceOutputTypes =
   | DeleteTableCommandOutput
   | DeleteTablePolicyCommandOutput
   | DeleteTableReplicationCommandOutput
+  | DisassociateTableReplicationCommandOutput
   | GetNamespaceCommandOutput
   | GetTableBucketCommandOutput
   | GetTableBucketEncryptionCommandOutput

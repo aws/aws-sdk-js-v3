@@ -272,6 +272,13 @@ DeleteTableReplication
 </details>
 <details>
 <summary>
+DisassociateTableReplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3tables/command/DisassociateTableReplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3tables/Interface/DisassociateTableReplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3tables/Interface/DisassociateTableReplicationCommandOutput/)
+</details>
+<details>
+<summary>
 GetNamespace
 </summary>
 

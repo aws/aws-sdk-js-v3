@@ -844,6 +844,22 @@ export interface DestinationTable {
 /**
  * @public
  */
+export interface DisassociateTableReplicationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replica table to disassociate from replication.</p>
+   * @public
+   */
+  tableArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTableReplicationResponse {}
+
+/**
+ * @public
+ */
 export interface GetNamespaceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
