@@ -236,6 +236,8 @@ const _EN = "ExportName";
 const _EP = "ExpectedProperties";
 const _ERA = "ExecutionRoleArn";
 const _ERN = "ExecutionRoleName";
+const _ERTB = "ExecutionRoleTemplateBody";
+const _ERTU = "ExecutionRoleTemplateUrl";
 const _ES = "ExecutionStatus";
 const _ESC = "EnableStackCreation";
 const _ESF = "ExecutionStatusFilter";
@@ -655,6 +657,8 @@ const _SSN = "StackSetName";
 const _SSNEE = "StackSetNotEmptyException";
 const _SSNFE = "StackSetNotFoundException";
 const _SSO = "StackSetOperation";
+const _SSOB = "StackSetOutputBucket";
+const _SSOBP = "StackSetOutputBucketPath";
 const _SSOP = "StackSetOperationPreferences";
 const _SSORS = "StackSetOperationResultSummary";
 const _SSORSt = "StackSetOperationResultSummaries";
@@ -748,6 +752,7 @@ const _Tar = "Target";
 const _Ti = "Timestamp";
 const _Ty = "Types";
 const _U = "Url";
+const _UAER = "UseAdminExecutionRole";
 const _UGT = "UpdateGeneratedTemplate";
 const _UGTI = "UpdateGeneratedTemplateInput";
 const _UGTO = "UpdateGeneratedTemplateOutput";
@@ -1174,8 +1179,8 @@ export var CreateStackRefactorOutput$: StaticStructureSchema = [3, n0, _CSRO,
 ];
 export var CreateStackSetInput$: StaticStructureSchema = [3, n0, _CSSI,
   0,
-  [_SSN, _D, _TB, _TURL, _SI, _P, _Ca, _Ta, _ARARN, _ERN, _PM, _AD, _CA, _CRT, _ME],
-  [0, 0, 0, 0, 0, () => _Parameters, 64 | 0, () => Tags, 0, 0, 0, () => AutoDeployment$, 0, [0, 4], () => ManagedExecution$], 1
+  [_SSN, _D, _TB, _TURL, _SI, _P, _Ca, _Ta, _ARARN, _ERN, _PM, _AD, _CA, _CRT, _ME, _ERTB, _ERTU, _SSOB],
+  [0, 0, 0, 0, 0, () => _Parameters, 64 | 0, () => Tags, 0, 0, 0, () => AutoDeployment$, 0, [0, 4], () => ManagedExecution$, 0, 0, 0], 1
 ];
 export var CreateStackSetOutput$: StaticStructureSchema = [3, n0, _CSSO,
   0,
@@ -2164,8 +2169,8 @@ export var StackResourceSummary$: StaticStructureSchema = [3, n0, _SRStac,
 ];
 export var StackSet$: StaticStructureSchema = [3, n0, _SS,
   0,
-  [_SSN, _SSI, _D, _S, _TB, _P, _Ca, _Ta, _SSARN, _ARARN, _ERN, _SSDDD, _AD, _PM, _OUI, _ME, _Re],
-  [0, 0, 0, 0, 0, () => _Parameters, 64 | 0, () => Tags, 0, 0, 0, () => StackSetDriftDetectionDetails$, () => AutoDeployment$, 0, 64 | 0, () => ManagedExecution$, 64 | 0]
+  [_SSN, _SSI, _D, _S, _TB, _P, _Ca, _Ta, _SSARN, _ARARN, _ERN, _SSDDD, _AD, _PM, _OUI, _ME, _Re, _SSOBP],
+  [0, 0, 0, 0, 0, () => _Parameters, 64 | 0, () => Tags, 0, 0, 0, () => StackSetDriftDetectionDetails$, () => AutoDeployment$, 0, 64 | 0, () => ManagedExecution$, 64 | 0, 0]
 ];
 export var StackSetAutoDeploymentTargetSummary$: StaticStructureSchema = [3, n0, _SSADTS,
   0,
@@ -2334,8 +2339,8 @@ export var UpdateStackOutput$: StaticStructureSchema = [3, n0, _USO,
 ];
 export var UpdateStackSetInput$: StaticStructureSchema = [3, n0, _USSI,
   0,
-  [_SSN, _D, _TB, _TURL, _UPT, _P, _Ca, _Ta, _OP, _ARARN, _ERN, _DT, _PM, _AD, _OI, _Ac, _Re, _CA, _ME],
-  [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, () => Tags, () => StackSetOperationPreferences$, 0, 0, () => DeploymentTargets$, 0, () => AutoDeployment$, [0, 4], 64 | 0, 64 | 0, 0, () => ManagedExecution$], 1
+  [_SSN, _D, _TB, _TURL, _UPT, _P, _Ca, _Ta, _OP, _ARARN, _ERN, _DT, _PM, _AD, _OI, _Ac, _Re, _CA, _ME, _ERTB, _ERTU, _UAER, _SSOB],
+  [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, () => Tags, () => StackSetOperationPreferences$, 0, 0, () => DeploymentTargets$, 0, () => AutoDeployment$, [0, 4], 64 | 0, 64 | 0, 0, () => ManagedExecution$, 0, 0, 2, 0], 1
 ];
 export var UpdateStackSetOutput$: StaticStructureSchema = [3, n0, _USSO,
   0,

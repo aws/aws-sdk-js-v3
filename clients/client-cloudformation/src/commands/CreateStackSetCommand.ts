@@ -70,6 +70,9 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
  *   ManagedExecution: { // ManagedExecution
  *     Active: true || false,
  *   },
+ *   ExecutionRoleTemplateBody: "STRING_VALUE",
+ *   ExecutionRoleTemplateUrl: "STRING_VALUE",
+ *   StackSetOutputBucket: "STRING_VALUE",
  * };
  * const command = new CreateStackSetCommand(input);
  * const response = await client.send(command);

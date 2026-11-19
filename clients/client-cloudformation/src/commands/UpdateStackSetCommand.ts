@@ -120,6 +120,10 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  *   ManagedExecution: { // ManagedExecution
  *     Active: true || false,
  *   },
+ *   ExecutionRoleTemplateBody: "STRING_VALUE",
+ *   ExecutionRoleTemplateUrl: "STRING_VALUE",
+ *   UseAdminExecutionRole: true || false,
+ *   StackSetOutputBucket: "STRING_VALUE",
  * };
  * const command = new UpdateStackSetCommand(input);
  * const response = await client.send(command);

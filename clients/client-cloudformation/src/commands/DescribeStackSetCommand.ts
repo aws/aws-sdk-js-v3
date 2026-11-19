@@ -96,6 +96,7 @@ export interface DescribeStackSetCommandOutput extends DescribeStackSetOutput, _
  * //     Regions: [ // RegionList
  * //       "STRING_VALUE",
  * //     ],
+ * //     StackSetOutputBucketPath: "STRING_VALUE",
  * //   },
  * // };
  *
