@@ -33,6 +33,8 @@ const _CCBNFE = "CaCertificatesBundleNotFoundException";
 const _CCBSB = "CaCertificatesBundleS3Bucket";
 const _CCBSK = "CaCertificatesBundleS3Key";
 const _CCBSOV = "CaCertificatesBundleS3ObjectVersion";
+const _CCIF = "ClientCertificateIdentityFilter";
+const _CCIFl = "ClientCertificateIdentityFilters";
 const _CDRLEE = "CapacityDecreaseRequestsLimitExceededException";
 const _CHZI = "CanonicalHostedZoneId";
 const _CI = "ClientId";
@@ -153,12 +155,12 @@ const _E = "Enabled";
 const _ECU = "EffectiveCapacityUnits";
 const _EPFISN = "EnablePrefixForIpv6SourceNat";
 const _ESGIROPLT = "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic";
-const _F = "Format";
+const _F = "Field";
 const _FAC = "ForwardActionConfig";
 const _FC = "ForwardConfig";
 const _FRAC = "FixedResponseActionConfig";
 const _FRC = "FixedResponseConfig";
-const _Fi = "Field";
+const _Fo = "Format";
 const _GC = "GrpcCode";
 const _GRP = "GetResourcePolicy";
 const _GRPI = "GetResourcePolicyInput";
@@ -260,6 +262,7 @@ const _MLO = "ModifyListenerOutput";
 const _MR = "ModifyRule";
 const _MRI = "ModifyRuleInput";
 const _MRO = "ModifyRuleOutput";
+const _MT = "MatchType";
 const _MTG = "ModifyTargetGroup";
 const _MTGA = "ModifyTargetGroupAttributes";
 const _MTGAI = "ModifyTargetGroupAttributesInput";
@@ -450,9 +453,9 @@ const _UPD = "UserPoolDomain";
 const _UPE = "UnsupportedProtocolException";
 const _URC = "UrlRewriteConfig";
 const _UTC = "UnhealthyThresholdCount";
-const _V = "Values";
+const _V = "Value";
 const _VI = "VpcId";
-const _Va = "Value";
+const _Va = "Values";
 const _W = "Weight";
 const _ZCRS = "ZonalCapacityReservationState";
 const _ZCRSo = "ZonalCapacityReservationStates";
@@ -960,6 +963,11 @@ export var Cipher$: StaticStructureSchema = [3, n0, _Ci,
   [_N, _P],
   [0, 1]
 ];
+export var ClientCertificateIdentityFilter$: StaticStructureSchema = [3, n0, _CCIF,
+  0,
+  [_F, _A, _MT, _V],
+  [0, 0, 0, 0], 4
+];
 export var CreateListenerInput$: StaticStructureSchema = [3, n0, _CLI,
   0,
   [_LBAo, _DA, _Pr, _Po, _SP, _C, _AP, _Ta, _MA],
@@ -1287,7 +1295,7 @@ export var GetTrustStoreRevocationContentOutput$: StaticStructureSchema = [3, n0
 ];
 export var HostHeaderConditionConfig$: StaticStructureSchema = [3, n0, _HHCC,
   0,
-  [_V, _RV],
+  [_Va, _RV],
   [64 | 0, 64 | 0]
 ];
 export var HostHeaderRewriteConfig$: StaticStructureSchema = [3, n0, _HHRC,
@@ -1297,12 +1305,12 @@ export var HostHeaderRewriteConfig$: StaticStructureSchema = [3, n0, _HHRC,
 ];
 export var HttpHeaderConditionConfig$: StaticStructureSchema = [3, n0, _HHCCt,
   0,
-  [_HHN, _V, _RV],
+  [_HHN, _Va, _RV],
   [0, 64 | 0, 64 | 0]
 ];
 export var HttpRequestMethodConditionConfig$: StaticStructureSchema = [3, n0, _HRMCC,
   0,
-  [_V],
+  [_Va],
   [64 | 0]
 ];
 export var IpamPools$: StaticStructureSchema = [3, n0, _IP,
@@ -1312,7 +1320,7 @@ export var IpamPools$: StaticStructureSchema = [3, n0, _IP,
 ];
 export var JwtValidationActionAdditionalClaim$: StaticStructureSchema = [3, n0, _JVAAC,
   0,
-  [_F, _N, _V],
+  [_Fo, _N, _Va],
   [0, 0, 64 | 0], 3
 ];
 export var JwtValidationActionConfig$: StaticStructureSchema = [3, n0, _JVAC,
@@ -1332,7 +1340,7 @@ export var Listener$: StaticStructureSchema = [3, n0, _Lis,
 ];
 export var ListenerAttribute$: StaticStructureSchema = [3, n0, _LAis,
   0,
-  [_K, _Va],
+  [_K, _V],
   [0, 0]
 ];
 export var LoadBalancer$: StaticStructureSchema = [3, n0, _LBo,
@@ -1347,7 +1355,7 @@ export var LoadBalancerAddress$: StaticStructureSchema = [3, n0, _LBAoad,
 ];
 export var LoadBalancerAttribute$: StaticStructureSchema = [3, n0, _LBAoada,
   0,
-  [_K, _Va],
+  [_K, _V],
   [0, 0]
 ];
 export var LoadBalancerState$: StaticStructureSchema = [3, n0, _LBS,
@@ -1457,22 +1465,22 @@ export var ModifyTrustStoreOutput$: StaticStructureSchema = [3, n0, _MTSO,
 ];
 export var MutualAuthenticationAttributes$: StaticStructureSchema = [3, n0, _MAA,
   0,
-  [_Mo, _TSA, _ICCE, _TSAS, _ATSCN],
-  [0, 0, 2, 0, 0]
+  [_Mo, _TSA, _ICCE, _TSAS, _ATSCN, _CCIFl],
+  [0, 0, 2, 0, 0, () => ClientCertificateIdentityFilters]
 ];
 export var PathPatternConditionConfig$: StaticStructureSchema = [3, n0, _PPCC,
   0,
-  [_V, _RV],
+  [_Va, _RV],
   [64 | 0, 64 | 0]
 ];
 export var QueryStringConditionConfig$: StaticStructureSchema = [3, n0, _QSCC,
   0,
-  [_V],
+  [_Va],
   [() => QueryStringKeyValuePairList]
 ];
 export var QueryStringKeyValuePair$: StaticStructureSchema = [3, n0, _QSKVP,
   0,
-  [_K, _Va],
+  [_K, _V],
   [0, 0]
 ];
 export var RedirectActionConfig$: StaticStructureSchema = [3, n0, _RAC,
@@ -1537,7 +1545,7 @@ export var Rule$: StaticStructureSchema = [3, n0, _Rul,
 ];
 export var RuleCondition$: StaticStructureSchema = [3, n0, _RCu,
   0,
-  [_Fi, _V, _HHC, _PPC, _HHCt, _QSC, _HRMC, _SIC, _RV],
+  [_F, _Va, _HHC, _PPC, _HHCt, _QSC, _HRMC, _SIC, _RV],
   [0, 64 | 0, () => HostHeaderConditionConfig$, () => PathPatternConditionConfig$, () => HttpHeaderConditionConfig$, () => QueryStringConditionConfig$, () => HttpRequestMethodConditionConfig$, () => SourceIpConditionConfig$, 64 | 0]
 ];
 export var RulePriorityPair$: StaticStructureSchema = [3, n0, _RPP,
@@ -1592,7 +1600,7 @@ export var SetSubnetsOutput$: StaticStructureSchema = [3, n0, _SSO,
 ];
 export var SourceIpConditionConfig$: StaticStructureSchema = [3, n0, _SICC,
   0,
-  [_V, _IAT],
+  [_Va, _IAT],
   [64 | 0, 0]
 ];
 export var SslPolicy$: StaticStructureSchema = [3, n0, _SP,
@@ -1607,7 +1615,7 @@ export var SubnetMapping$: StaticStructureSchema = [3, n0, _SMu,
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
-  [_K, _Va],
+  [_K, _V],
   [0, 0], 1
 ];
 export var TagDescription$: StaticStructureSchema = [3, n0, _TDa,
@@ -1627,7 +1635,7 @@ export var TargetGroup$: StaticStructureSchema = [3, n0, _TGa,
 ];
 export var TargetGroupAttribute$: StaticStructureSchema = [3, n0, _TGAar,
   0,
-  [_K, _Va],
+  [_K, _V],
   [0, 0]
 ];
 export var TargetGroupStickinessConfig$: StaticStructureSchema = [3, n0, _TGSC,
@@ -1687,6 +1695,9 @@ var CertificateList: StaticListSchema = [1, n0, _CL,
 ];
 var Ciphers: StaticListSchema = [1, n0, _Cip,
   0, () => Cipher$
+];
+var ClientCertificateIdentityFilters: StaticListSchema = [1, n0, _CCIFl,
+  0, () => ClientCertificateIdentityFilter$
 ];
 var DescribeTrustStoreRevocationResponse: StaticListSchema = [1, n0, _DTSRR,
   0, () => DescribeTrustStoreRevocation$

@@ -140,6 +140,14 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  * //         IgnoreClientCertificateExpiry: true || false,
  * //         TrustStoreAssociationStatus: "active" || "removed",
  * //         AdvertiseTrustStoreCaNames: "on" || "off",
+ * //         ClientCertificateIdentityFilters: [ // ClientCertificateIdentityFilters
+ * //           { // ClientCertificateIdentityFilter
+ * //             Field: "subject-cn" || "subject-ou" || "san-dns" || "san-uri", // required
+ * //             Action: "accept", // required
+ * //             MatchType: "exact" || "prefix", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //   ],

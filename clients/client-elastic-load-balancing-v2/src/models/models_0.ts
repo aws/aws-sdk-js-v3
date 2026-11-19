@@ -6,6 +6,9 @@ import type {
   AuthenticateCognitoActionConditionalBehaviorEnum,
   AuthenticateOidcActionConditionalBehaviorEnum,
   CapacityReservationStateEnum,
+  ClientCertificateIdentityFilterAction,
+  ClientCertificateIdentityFilterField,
+  ClientCertificateIdentityFilterMatchType,
   DescribeTargetHealthInputIncludeEnum,
   EnablePrefixForIpv6SourceNatEnum,
   EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum,
@@ -827,14 +830,75 @@ export interface Cipher {
 }
 
 /**
+ * <p>Describes a client certificate identity filter.</p>
+ * @public
+ */
+export interface ClientCertificateIdentityFilter {
+  /**
+   * <p>The client certificate field to match. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>subject-cn</code> – The common name in the certificate subject.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subject-ou</code> – The organizational unit in the certificate subject.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>san-dns</code> – A DNS name in the subject alternative name (SAN).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>san-uri</code> – A URI in the subject alternative name (SAN).</p>
+   *             </li>
+   *          </ul>
+   *          <p>If the client certificate doesn't contain the field, the filter doesn't match. If the
+   *       field has multiple values, the filter matches if it matches any one of the values.</p>
+   * @public
+   */
+  Field: ClientCertificateIdentityFilterField | undefined;
+
+  /**
+   * <p>The action to take when the client certificate matches the filter. The only supported
+   *       action is <code>accept</code>.</p>
+   * @public
+   */
+  Action: ClientCertificateIdentityFilterAction | undefined;
+
+  /**
+   * <p>The match type. The possible values are <code>exact</code> and
+   *       <code>prefix</code>.</p>
+   *          <p>For the <code>subject-cn</code>, <code>subject-ou</code>, and <code>san-dns</code>
+   *       fields, matching is case-insensitive. For the <code>san-uri</code> field, the scheme and host
+   *       are matched case-insensitively, and the rest of the URI is matched case-sensitively.</p>
+   * @public
+   */
+  MatchType: ClientCertificateIdentityFilterMatchType | undefined;
+
+  /**
+   * <p>The value to match. The value must be 1–256 printable ASCII characters.</p>
+   *          <p>If the field is <code>san-uri</code>, the value must begin with a letter. Before the
+   *       first colon, the value can contain only letters, digits, plus signs (+), hyphens (-), or
+   *       periods (.). If the match type is <code>exact</code>, the value must contain a colon. For
+   *       example, <code>spiffe://example.com/workload</code> is a valid value.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
  * <p>Information about the mutual authentication attributes of a listener.</p>
  * @public
  */
 export interface MutualAuthenticationAttributes {
   /**
-   * <p>The client certificate handling method. Options are <code>off</code>,
-   *       <code>passthrough</code> or <code>verify</code>. The default value is
-   *       <code>off</code>.</p>
+   * <p>The client certificate handling method. The default value is <code>off</code>.</p>
+   *          <p>[Application Load Balancers] The possible values are <code>off</code>,
+   *       <code>passthrough</code>, and <code>verify</code>.</p>
+   *          <p>[Network Load Balancers] The possible values are <code>off</code> and
+   *       <code>verify</code>.</p>
    * @public
    */
   Mode?: string | undefined;
@@ -862,6 +926,17 @@ export interface MutualAuthenticationAttributes {
    * @public
    */
   AdvertiseTrustStoreCaNames?: AdvertiseTrustStoreCaNamesEnum | undefined;
+
+  /**
+   * <p>[Network Load Balancers] The client certificate identity filters. The load balancer
+   *       admits a connection only if the client certificate matches at least one filter. If you
+   *       don't specify any filters, the load balancer admits every client certificate that passes
+   *       trust store validation and revocation checks.</p>
+   *          <p>You can specify filters only when the mode is <code>verify</code>. You can specify up
+   *       to 100 filters per listener.</p>
+   * @public
+   */
+  ClientCertificateIdentityFilters?: ClientCertificateIdentityFilter[] | undefined;
 }
 
 /**
@@ -957,7 +1032,7 @@ export interface CreateListenerInput {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>[HTTPS listeners] The mutual authentication configuration information.</p>
+   * <p>[HTTPS and TLS listeners] The mutual authentication configuration information.</p>
    * @public
    */
   MutualAuthentication?: MutualAuthenticationAttributes | undefined;
@@ -4296,7 +4371,7 @@ export interface ModifyListenerInput {
   AlpnPolicy?: string[] | undefined;
 
   /**
-   * <p>[HTTPS listeners] The mutual authentication configuration information.</p>
+   * <p>[HTTPS and TLS listeners] The mutual authentication configuration information.</p>
    * @public
    */
   MutualAuthentication?: MutualAuthenticationAttributes | undefined;

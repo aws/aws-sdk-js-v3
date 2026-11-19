@@ -42,6 +42,10 @@ import {
   CertificateNotFoundException,
   CertificateNotFoundException$,
   Cipher$,
+  ClientCertificateIdentityFilter$,
+  ClientCertificateIdentityFilterAction,
+  ClientCertificateIdentityFilterField,
+  ClientCertificateIdentityFilterMatchType,
   CreateListener$,
   CreateListenerCommand,
   CreateListenerInput$,
@@ -546,6 +550,7 @@ assert(typeof AvailabilityZone$ === "object");
 assert(typeof CapacityReservationStatus$ === "object");
 assert(typeof Certificate$ === "object");
 assert(typeof Cipher$ === "object");
+assert(typeof ClientCertificateIdentityFilter$ === "object");
 assert(typeof CreateListenerInput$ === "object");
 assert(typeof CreateListenerOutput$ === "object");
 assert(typeof CreateLoadBalancerInput$ === "object");
@@ -696,6 +701,9 @@ assert(typeof AnomalyResultEnum === "object");
 assert(typeof AuthenticateCognitoActionConditionalBehaviorEnum === "object");
 assert(typeof AuthenticateOidcActionConditionalBehaviorEnum === "object");
 assert(typeof CapacityReservationStateEnum === "object");
+assert(typeof ClientCertificateIdentityFilterAction === "object");
+assert(typeof ClientCertificateIdentityFilterField === "object");
+assert(typeof ClientCertificateIdentityFilterMatchType === "object");
 assert(typeof DescribeTargetHealthInputIncludeEnum === "object");
 assert(typeof EnablePrefixForIpv6SourceNatEnum === "object");
 assert(typeof EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum === "object");

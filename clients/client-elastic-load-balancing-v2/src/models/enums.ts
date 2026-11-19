@@ -179,6 +179,49 @@ export type CapacityReservationStateEnum =
  * @public
  * @enum
  */
+export const ClientCertificateIdentityFilterAction = {
+  ACCEPT: "accept",
+} as const;
+/**
+ * @public
+ */
+export type ClientCertificateIdentityFilterAction =
+  (typeof ClientCertificateIdentityFilterAction)[keyof typeof ClientCertificateIdentityFilterAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientCertificateIdentityFilterField = {
+  SAN_DNS: "san-dns",
+  SAN_URI: "san-uri",
+  SUBJECT_CN: "subject-cn",
+  SUBJECT_OU: "subject-ou",
+} as const;
+/**
+ * @public
+ */
+export type ClientCertificateIdentityFilterField =
+  (typeof ClientCertificateIdentityFilterField)[keyof typeof ClientCertificateIdentityFilterField];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientCertificateIdentityFilterMatchType = {
+  EXACT: "exact",
+  PREFIX: "prefix",
+} as const;
+/**
+ * @public
+ */
+export type ClientCertificateIdentityFilterMatchType =
+  (typeof ClientCertificateIdentityFilterMatchType)[keyof typeof ClientCertificateIdentityFilterMatchType];
+
+/**
+ * @public
+ * @enum
+ */
 export const TrustStoreAssociationStatusEnum = {
   ACTIVE: "active",
   REMOVED: "removed",

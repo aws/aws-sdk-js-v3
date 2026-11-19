@@ -24,7 +24,8 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreOutput, _
 
 /**
  * <p>Creates a trust store.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/mutual-authentication.html">Mutual TLS for Application Load Balancers</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/mutual-authentication.html">Mutual TLS for Application Load Balancers</a>
+ *       or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/mutual-authentication.html">Mutual TLS for Network Load Balancers</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
