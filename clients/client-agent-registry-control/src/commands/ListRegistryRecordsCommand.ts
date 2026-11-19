@@ -58,7 +58,7 @@ export interface ListRegistryRecordsCommandOutput extends ListRegistryRecordsRes
  * //       description: "STRING_VALUE",
  * //       recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY", // required
  * //       recordVersion: "STRING_VALUE", // required
- * //       status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED", // required
+ * //       status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "CREATE_PENDING_AUTH" || "UPDATE_PENDING_AUTH", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       createdByAutoDetection: true || false,

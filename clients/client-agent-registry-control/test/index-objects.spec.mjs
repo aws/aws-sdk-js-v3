@@ -13,8 +13,12 @@ import {
   AgentSkillsAdditionalData$,
   AgentSkillsDefinitionDescriptor$,
   AgentSkillsMdDescriptor$,
+  AgentSkillsPackageDescriptor$,
+  AgentSkillsRepositoryProvider,
+  AgentSkillsSourceConfiguration$,
   AgUiDescriptor$,
   ApprovalConfiguration$,
+  AuthorizationData$,
   AuthorizerConfiguration$,
   AuthorizingClaimMatchValueType$,
   AutoApprovalRule,
@@ -61,6 +65,7 @@ import {
   GetRegistryRecordResponse$,
   GetRegistryRequest$,
   GetRegistryResponse$,
+  GitHubSynchronizedSource$,
   HttpDescriptor$,
   InboundTokenClaimValueType,
   InternalServerException,
@@ -81,6 +86,7 @@ import {
   McpServerAdditionalData$,
   McpServerDescriptor$,
   McpToolsDescriptor$,
+  OAuth2AuthorizationData$,
   paginateListRegistries,
   paginateListRegistryRecords,
   PrivateEndpoint$,
@@ -93,6 +99,8 @@ import {
   RegistryAuthorizerType,
   RegistryFilter$,
   RegistryFilterName,
+  RegistryRecordArtifactDownload$,
+  RegistryRecordArtifactUpload$,
   RegistryRecordCredentialProviderConfiguration$,
   RegistryRecordCredentialProviderType,
   RegistryRecordCredentialProviderUnion$,
@@ -103,10 +111,13 @@ import {
   RegistryRecordOAuthGrantType,
   RegistryRecordStatus,
   RegistryRecordSummary$,
+  RegistryRecordSynchronizedSource$,
   RegistryStatus,
   RegistrySummary$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  S3SourceConfiguration$,
+  S3SynchronizedSource$,
   SelfManagedLatticeResource$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
@@ -134,6 +145,9 @@ import {
   UpdatedAgentSkillsDefinitionDescriptorFields$,
   UpdatedAgentSkillsMdDescriptor$,
   UpdatedAgentSkillsMdDescriptorFields$,
+  UpdatedAgentSkillsPackageDescriptor$,
+  UpdatedAgentSkillsRepositoryProvider$,
+  UpdatedAgentSkillsSourceConfiguration$,
   UpdatedAgUiDescriptor$,
   UpdatedAgUiDescriptorFields$,
   UpdatedApprovalConfiguration$,
@@ -159,6 +173,7 @@ import {
   UpdatedMcpServerDescriptorFields$,
   UpdatedMcpToolsDescriptor$,
   UpdatedMcpToolsDescriptorFields$,
+  UpdatedRegistryRecordArtifact$,
   UpdateRegistry$,
   UpdateRegistryCommand,
   UpdateRegistryRecord$,
@@ -224,8 +239,11 @@ assert(typeof AgentCoreRuntimeSourceDetails$ === "object");
 assert(typeof AgentSkillsAdditionalData$ === "object");
 assert(typeof AgentSkillsDefinitionDescriptor$ === "object");
 assert(typeof AgentSkillsMdDescriptor$ === "object");
+assert(typeof AgentSkillsPackageDescriptor$ === "object");
+assert(typeof AgentSkillsSourceConfiguration$ === "object");
 assert(typeof AgUiDescriptor$ === "object");
 assert(typeof ApprovalConfiguration$ === "object");
+assert(typeof AuthorizationData$ === "object");
 assert(typeof AuthorizerConfiguration$ === "object");
 assert(typeof AuthorizingClaimMatchValueType$ === "object");
 assert(typeof AutoDetection$ === "object");
@@ -252,6 +270,7 @@ assert(typeof GetRegistryRecordRequest$ === "object");
 assert(typeof GetRegistryRecordResponse$ === "object");
 assert(typeof GetRegistryRequest$ === "object");
 assert(typeof GetRegistryResponse$ === "object");
+assert(typeof GitHubSynchronizedSource$ === "object");
 assert(typeof HttpDescriptor$ === "object");
 assert(typeof ListRegistriesRequest$ === "object");
 assert(typeof ListRegistriesResponse$ === "object");
@@ -263,19 +282,25 @@ assert(typeof ManagedVpcResource$ === "object");
 assert(typeof McpServerAdditionalData$ === "object");
 assert(typeof McpServerDescriptor$ === "object");
 assert(typeof McpToolsDescriptor$ === "object");
+assert(typeof OAuth2AuthorizationData$ === "object");
 assert(typeof PrivateEndpoint$ === "object");
 assert(typeof PrivateEndpointOverride$ === "object");
 assert(typeof Provenance$ === "object");
 assert(typeof ProvenanceSummary$ === "object");
 assert(typeof RecordTypeSchemaOverride$ === "object");
 assert(typeof RegistryFilter$ === "object");
+assert(typeof RegistryRecordArtifactDownload$ === "object");
+assert(typeof RegistryRecordArtifactUpload$ === "object");
 assert(typeof RegistryRecordCredentialProviderConfiguration$ === "object");
 assert(typeof RegistryRecordCredentialProviderUnion$ === "object");
 assert(typeof RegistryRecordFilter$ === "object");
 assert(typeof RegistryRecordIamCredentialProvider$ === "object");
 assert(typeof RegistryRecordOAuthCredentialProvider$ === "object");
 assert(typeof RegistryRecordSummary$ === "object");
+assert(typeof RegistryRecordSynchronizedSource$ === "object");
 assert(typeof RegistrySummary$ === "object");
+assert(typeof S3SourceConfiguration$ === "object");
+assert(typeof S3SynchronizedSource$ === "object");
 assert(typeof SelfManagedLatticeResource$ === "object");
 assert(typeof SourceDetails$ === "object");
 assert(typeof SubmitRegistryRecordForApprovalRequest$ === "object");
@@ -292,6 +317,9 @@ assert(typeof UpdatedAgentSkillsDefinitionDescriptor$ === "object");
 assert(typeof UpdatedAgentSkillsDefinitionDescriptorFields$ === "object");
 assert(typeof UpdatedAgentSkillsMdDescriptor$ === "object");
 assert(typeof UpdatedAgentSkillsMdDescriptorFields$ === "object");
+assert(typeof UpdatedAgentSkillsPackageDescriptor$ === "object");
+assert(typeof UpdatedAgentSkillsRepositoryProvider$ === "object");
+assert(typeof UpdatedAgentSkillsSourceConfiguration$ === "object");
 assert(typeof UpdatedAgUiDescriptor$ === "object");
 assert(typeof UpdatedAgUiDescriptorFields$ === "object");
 assert(typeof UpdatedApprovalConfiguration$ === "object");
@@ -317,6 +345,7 @@ assert(typeof UpdatedMcpServerDescriptor$ === "object");
 assert(typeof UpdatedMcpServerDescriptorFields$ === "object");
 assert(typeof UpdatedMcpToolsDescriptor$ === "object");
 assert(typeof UpdatedMcpToolsDescriptorFields$ === "object");
+assert(typeof UpdatedRegistryRecordArtifact$ === "object");
 assert(typeof UpdateRegistryRecordRequest$ === "object");
 assert(typeof UpdateRegistryRecordResponse$ === "object");
 assert(typeof UpdateRegistryRecordStatusRequest$ === "object");
@@ -328,6 +357,7 @@ assert(typeof WorkloadIdentityDetails$ === "object");
 // enums
 assert(typeof AgentCoreGatewayProtocolType === "object");
 assert(typeof AgentCoreRuntimeServerProtocol === "object");
+assert(typeof AgentSkillsRepositoryProvider === "object");
 assert(typeof AutoApprovalRule === "object");
 assert(typeof AutoDetectionScope === "object");
 assert(typeof AutoDetectionStatus === "object");

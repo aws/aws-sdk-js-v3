@@ -23,7 +23,7 @@ export interface CreateRegistryRecordCommandInput extends CreateRegistryRecordRe
 export interface CreateRegistryRecordCommandOutput extends CreateRegistryRecordResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a registry record within a registry. A registry record describes a discoverable resource, such as an MCP server, an agent, an agent skill, or a custom resource. Creation is asynchronous: the record is returned with the CREATING status while it is processed.</p>
+ * <p>Creates a registry record within a registry. A registry record describes a discoverable resource, such as an MCP server, an agent, an agent skill, or a custom resource. For an agent skill, you can upload a skill package in <code>artifact</code>, or synchronize the skill from an Amazon S3 or GitHub source. Creation is asynchronous: the operation returns the record with the <code>CREATING</code> status while the registry processes it. If a GitHub user must first authorize access to the source, the operation returns the record with the <code>CREATE_PENDING_AUTH</code> status instead.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,13 +57,14 @@ export interface CreateRegistryRecordCommandOutput extends CreateRegistryRecordR
  *               credentialProvider: { // RegistryRecordCredentialProviderUnion Union: only one key present
  *                 oauthCredentialProvider: { // RegistryRecordOAuthCredentialProvider
  *                   providerArn: "STRING_VALUE", // required
- *                   grantType: "CLIENT_CREDENTIALS",
+ *                   grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
  *                   scopes: [ // ScopeList
  *                     "STRING_VALUE",
  *                   ],
  *                   customParameters: { // CustomParameterMap
  *                     "<keys>": "STRING_VALUE",
  *                   },
+ *                   returnUrl: "STRING_VALUE",
  *                 },
  *                 iamCredentialProvider: { // RegistryRecordIamCredentialProvider
  *                   roleArn: "STRING_VALUE",
@@ -88,13 +89,14 @@ export interface CreateRegistryRecordCommandOutput extends CreateRegistryRecordR
  *               credentialProvider: {//  Union: only one key present
  *                 oauthCredentialProvider: {
  *                   providerArn: "STRING_VALUE", // required
- *                   grantType: "CLIENT_CREDENTIALS",
+ *                   grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
  *                   scopes: [
  *                     "STRING_VALUE",
  *                   ],
  *                   customParameters: {
  *                     "<keys>": "STRING_VALUE",
  *                   },
+ *                   returnUrl: "STRING_VALUE",
  *                 },
  *                 iamCredentialProvider: {
  *                   roleArn: "STRING_VALUE",
@@ -123,13 +125,14 @@ export interface CreateRegistryRecordCommandOutput extends CreateRegistryRecordR
  *                   credentialProvider: {//  Union: only one key present
  *                     oauthCredentialProvider: {
  *                       providerArn: "STRING_VALUE", // required
- *                       grantType: "CLIENT_CREDENTIALS",
+ *                       grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
  *                       scopes: [
  *                         "STRING_VALUE",
  *                       ],
  *                       customParameters: {
  *                         "<keys>": "STRING_VALUE",
  *                       },
+ *                       returnUrl: "STRING_VALUE",
  *                     },
  *                     iamCredentialProvider: {
  *                       roleArn: "STRING_VALUE",
@@ -140,6 +143,42 @@ export interface CreateRegistryRecordCommandOutput extends CreateRegistryRecordR
  *                 },
  *               ],
  *             },
+ *           },
+ *         },
+ *         skillPackage: { // AgentSkillsPackageDescriptor
+ *           source: {
+ *             fromUrl: {
+ *               url: "STRING_VALUE", // required
+ *               credentialProviderConfigurations: [
+ *                 {
+ *                   credentialProviderType: "OAUTH" || "IAM", // required
+ *                   credentialProvider: {//  Union: only one key present
+ *                     oauthCredentialProvider: {
+ *                       providerArn: "STRING_VALUE", // required
+ *                       grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
+ *                       scopes: [
+ *                         "STRING_VALUE",
+ *                       ],
+ *                       customParameters: {
+ *                         "<keys>": "STRING_VALUE",
+ *                       },
+ *                       returnUrl: "STRING_VALUE",
+ *                     },
+ *                     iamCredentialProvider: {
+ *                       roleArn: "STRING_VALUE",
+ *                       service: "STRING_VALUE",
+ *                       region: "STRING_VALUE",
+ *                     },
+ *                   },
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         },
+ *         repositoryProvider: "GITHUB",
+ *         sourceConfiguration: { // AgentSkillsSourceConfiguration Union: only one key present
+ *           s3: { // S3SourceConfiguration
+ *             bucketOwnerAccountId: "STRING_VALUE",
  *           },
  *         },
  *       },
@@ -157,13 +196,14 @@ export interface CreateRegistryRecordCommandOutput extends CreateRegistryRecordR
  *               credentialProvider: {//  Union: only one key present
  *                 oauthCredentialProvider: {
  *                   providerArn: "STRING_VALUE", // required
- *                   grantType: "CLIENT_CREDENTIALS",
+ *                   grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
  *                   scopes: [
  *                     "STRING_VALUE",
  *                   ],
  *                   customParameters: {
  *                     "<keys>": "STRING_VALUE",
  *                   },
+ *                   returnUrl: "STRING_VALUE",
  *                 },
  *                 iamCredentialProvider: {
  *                   roleArn: "STRING_VALUE",
@@ -177,34 +217,12 @@ export interface CreateRegistryRecordCommandOutput extends CreateRegistryRecordR
  *       },
  *     },
  *     agui: { // AgUiDescriptor
- *       source: {
- *         fromUrl: {
- *           url: "STRING_VALUE", // required
- *           credentialProviderConfigurations: [
- *             {
- *               credentialProviderType: "OAUTH" || "IAM", // required
- *               credentialProvider: {//  Union: only one key present
- *                 oauthCredentialProvider: {
- *                   providerArn: "STRING_VALUE", // required
- *                   grantType: "CLIENT_CREDENTIALS",
- *                   scopes: [
- *                     "STRING_VALUE",
- *                   ],
- *                   customParameters: {
- *                     "<keys>": "STRING_VALUE",
- *                   },
- *                 },
- *                 iamCredentialProvider: {
- *                   roleArn: "STRING_VALUE",
- *                   service: "STRING_VALUE",
- *                   region: "STRING_VALUE",
- *                 },
- *               },
- *             },
- *           ],
- *         },
- *       },
+ *       source: "<DescriptorSource>",
  *     },
+ *   },
+ *   artifact: { // RegistryRecordArtifactUpload
+ *     content: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")     // required
+ *     sha256: "STRING_VALUE",
  *   },
  *   recordVersion: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
@@ -383,7 +401,15 @@ export interface CreateRegistryRecordCommandOutput extends CreateRegistryRecordR
  * const response = await client.send(command);
  * // { // CreateRegistryRecordResponse
  * //   recordArn: "STRING_VALUE", // required
- * //   status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED", // required
+ * //   status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "CREATE_PENDING_AUTH" || "UPDATE_PENDING_AUTH", // required
+ * //   authorizationData: { // AuthorizationData Union: only one key present
+ * //     oauth2: { // OAuth2AuthorizationData
+ * //       authorizationUrl: "STRING_VALUE", // required
+ * //       userId: "STRING_VALUE",
+ * //       authorizationAttemptId: "STRING_VALUE",
+ * //       expiresAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   },
  * // };
  *
  * ```

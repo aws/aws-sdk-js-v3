@@ -4,6 +4,7 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 import type {
   AgentCoreGatewayProtocolType,
   AgentCoreRuntimeServerProtocol,
+  AgentSkillsRepositoryProvider,
   AutoApprovalRule,
   AutoDetectionScope,
   AutoDetectionStatus,
@@ -24,7 +25,7 @@ import type {
 } from "./enums";
 
 /**
- * <p>The configuration for an IAM role credential provider that signs requests to a registry record's source with Amazon Web Services Signature Version 4 (SigV4).</p>
+ * <p>The configuration for an IAM role credential provider that signs requests to a registry record's source with Amazon Web Services Signature Version 4 (SigV4). For an Amazon S3 skill source (an <code>s3://</code> URL), Amazon Web Services Agent Registry assumes the role to read the object. The role must be in your Amazon Web Services account.</p>
  * @public
  */
 export interface RegistryRecordIamCredentialProvider {
@@ -35,13 +36,13 @@ export interface RegistryRecordIamCredentialProvider {
   roleArn?: string | undefined;
 
   /**
-   * <p>The service name to use for request signing, such as execute-api.</p>
+   * <p>The service name to use for request signing, such as execute-api. For an Amazon S3 skill source, omit it or set it to <code>s3</code>.</p>
    * @public
    */
   service?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region to use for request signing. If not specified, the Region is derived from the source URL hostname, falling back to the Region of the registry.</p>
+   * <p>The Amazon Web Services Region to use for request signing. If not specified, the Region is derived from the source URL hostname, falling back to the Region of the registry. For an Amazon S3 skill source, omit it or set it to the Region of the registry.</p>
    * @public
    */
   region?: string | undefined;
@@ -59,7 +60,7 @@ export interface RegistryRecordOAuthCredentialProvider {
   providerArn: string | undefined;
 
   /**
-   * <p>The OAuth 2.0 grant type used to obtain access tokens.</p>
+   * <p>The OAuth 2.0 grant type used to obtain access tokens. A GitHub skill source requires <code>AUTHORIZATION_CODE</code>. Other sources, such as MCP server and A2A agent card sources, use <code>CLIENT_CREDENTIALS</code>. A GitHub source takes exactly one OAuth credential provider, in the registry's Amazon Web Services account and Region. Only an IAM role or IAM user in the account that owns the registry can set, synchronize, or reauthorize it, and the caller needs <code>bedrock-agentcore:GetWorkloadAccessTokenForUserId</code> and <code>bedrock-agentcore:GetResourceOauth2Token</code> on the registry's workload identity, <code>registry-</code> followed by the registry ID.</p>
    * @public
    */
   grantType?: RegistryRecordOAuthGrantType | undefined;
@@ -75,6 +76,12 @@ export interface RegistryRecordOAuthCredentialProvider {
    * @public
    */
   customParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>The URL that the user's browser returns to after the user approves access on GitHub, for the <code>AUTHORIZATION_CODE</code> grant. There, your application completes the authorization by calling the Amazon Bedrock AgentCore Identity <code>CompleteResourceTokenAuth</code> operation with the <code>userId</code> from <code>authorizationData</code>. If you omit it, the user returns to the Amazon Web Services Agent Registry console, which completes the authorization when the user is signed in as the IAM principal that made the request. A request that joins an authorization already in progress uses the return URL of the request that started it.</p>
+   * @public
+   */
+  returnUrl?: string | undefined;
 }
 
 /**
@@ -154,7 +161,7 @@ export interface RegistryRecordCredentialProviderConfiguration {
  */
 export interface DescriptorSourceFromUrl {
   /**
-   * <p>The URL from which the descriptor content is retrieved.</p>
+   * <p>The URL from which the descriptor content is retrieved. For an agent skill source, specify an <code>s3://</code> URL of an object in a bucket in the same Amazon Web Services Region as the registry. For a GitHub skill source, specify a GitHub folder URL in the form <code>https://host/owner/repo/tree/branch-or-tag/path</code>. Other descriptor sources use <code>https://</code> URLs.</p>
    * @public
    */
   url: string | undefined;
@@ -655,6 +662,24 @@ export interface ValidationExceptionField {
 }
 
 /**
+ * <p>A skill package to upload with a registry record: a ZIP archive of a skill that follows the Agent Skills specification. The registry validates the package asynchronously, stores it, and sets <code>skillMd.data</code> from the package's SKILL.md.</p>
+ * @public
+ */
+export interface RegistryRecordArtifactUpload {
+  /**
+   * <p>The ZIP archive of the skill package, up to 5 MiB (5,242,880 bytes). In a JSON request, the content is base64-encoded. The Amazon Web Services SDKs encode it for you.</p>
+   * @public
+   */
+  content: Uint8Array | undefined;
+
+  /**
+   * <p>The optional SHA-256 checksum of the ZIP archive, as 64 lowercase hexadecimal characters, computed over the archive's bytes rather than its base64 text. If it doesn't match the content, the request fails with a <code>ValidationException</code>.</p>
+   * @public
+   */
+  sha256?: string | undefined;
+}
+
+/**
  * <p>Markdown-format descriptor containing an agent skills document.</p>
  * @public
  */
@@ -672,14 +697,77 @@ export interface AgentSkillsMdDescriptor {
   dataSchemaVersion?: string | undefined;
 
   /**
-   * <p>The optional source configuration used to synchronize the agent skills markdown content.</p>
+   * <p>The optional source of the skill's SKILL.md only. The registry synchronizes the SKILL.md from this source into <code>data</code>. Specify an <code>s3://</code> URL of a SKILL.md object, or a GitHub folder URL together with <code>repositoryProvider</code> set to <code>GITHUB</code>. The registry rejects a new <code>https://</code> URL without <code>repositoryProvider</code>, and you can't set both this source and <code>skillPackage.source</code>.</p>
    * @public
    */
   source?: DescriptorSource | undefined;
 }
 
 /**
- * <p>Additional data associated with an agent skills definition descriptor.</p>
+ * <p>Descriptor that names the source that the registry synchronizes a full skill package from. It holds only the source. The record's <code>artifact</code> member returns the package that the registry reads from this source.</p>
+ * @public
+ */
+export interface AgentSkillsPackageDescriptor {
+  /**
+   * <p>The source of the skill package. Specify an <code>s3://</code> URL of a ZIP object, or a GitHub folder URL together with <code>repositoryProvider</code> set to <code>GITHUB</code>. For a GitHub folder, the registry builds the package from every file in the folder.</p>
+   * @public
+   */
+  source?: DescriptorSource | undefined;
+}
+
+/**
+ * <p>The settings of a source that the registry reads from Amazon S3.</p>
+ * @public
+ */
+export interface S3SourceConfiguration {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the source bucket. The registry checks that the bucket belongs to this account each time it reads the source. If you omit it for a source that uses an IAM role, the registry expects the bucket to be in the role's account. If you omit it for a source that has no credential provider, which the registry reads as a public object, the request fails with a <code>ValidationException</code>.</p>
+   * @public
+   */
+  bucketOwnerAccountId?: string | undefined;
+}
+
+/**
+ * <p>The provider-specific settings of a skill source. Specify the member that matches the source's provider, such as <code>s3</code> for an Amazon S3 source.</p>
+ * @public
+ */
+export type AgentSkillsSourceConfiguration =
+  | AgentSkillsSourceConfiguration.S3Member
+  | AgentSkillsSourceConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AgentSkillsSourceConfiguration {
+  /**
+   * <p>The settings of an Amazon S3 source.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: S3SourceConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: S3SourceConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Additional data associated with an agent skills definition descriptor: the skill's SKILL.md and the source that the registry synchronizes the skill from. A record synchronizes from one source at most, either <code>skillMd.source</code> for SKILL.md only or <code>skillPackage.source</code> for the full skill package. When the record has a skill package or a synchronized source, the registry sets <code>skillMd.data</code> from the SKILL.md in that package or source.</p>
  * @public
  */
 export interface AgentSkillsAdditionalData {
@@ -688,6 +776,24 @@ export interface AgentSkillsAdditionalData {
    * @public
    */
   skillMd?: AgentSkillsMdDescriptor | undefined;
+
+  /**
+   * <p>The source that the registry synchronizes the full skill package from. The registry validates and stores the package, sets <code>skillMd.data</code> from its SKILL.md, and returns the package in the <code>artifact</code> member of <code>GetRegistryRecord</code>. You can't set both this source and <code>skillMd.source</code>.</p>
+   * @public
+   */
+  skillPackage?: AgentSkillsPackageDescriptor | undefined;
+
+  /**
+   * <p>The repository provider of the record's skill source. Set it to <code>GITHUB</code> when <code>skillMd.source</code> or <code>skillPackage.source</code> is a GitHub folder URL. The registry treats an <code>https://</code> source as a GitHub source only when this member is set. Don't set it for an Amazon S3 source.</p>
+   * @public
+   */
+  repositoryProvider?: AgentSkillsRepositoryProvider | undefined;
+
+  /**
+   * <p>The provider-specific settings of the record's skill source. For an Amazon S3 source, <code>s3.bucketOwnerAccountId</code> specifies the account that owns the source bucket.</p>
+   * @public
+   */
+  sourceConfiguration?: AgentSkillsSourceConfiguration | undefined;
 }
 
 /**
@@ -976,6 +1082,12 @@ export interface CreateRegistryRecordRequest {
   descriptors: Descriptors | undefined;
 
   /**
+   * <p>The skill package to store with the record, for a record of type <code>SKILL</code> with an <code>agentSkillsDefinition</code> descriptor. The registry validates the package after the operation returns and sets <code>skillMd.data</code> from the package's SKILL.md. A request that uploads a package can't also set a skill source or send new <code>skillMd.data</code>.</p>
+   * @public
+   */
+  artifact?: RegistryRecordArtifactUpload | undefined;
+
+  /**
    * <p>The version of the registry record</p>
    * @public
    */
@@ -1007,6 +1119,75 @@ export interface CreateRegistryRecordRequest {
 }
 
 /**
+ * <p>An OAuth 2.0 authorization that waits for a user's approval. The user opens <code>authorizationUrl</code> and approves access on GitHub. Amazon Bedrock AgentCore Identity then redirects the browser to the source's <code>returnUrl</code>. There, your application completes the authorization by calling the AgentCore Identity <code>CompleteResourceTokenAuth</code> operation with <code>userId</code>. If the source has no <code>returnUrl</code>, the user returns to the Amazon Web Services Agent Registry console, which completes the authorization. After the authorization completes, the registry synchronizes the record without another request. If the user doesn't approve access before <code>expiresAt</code>, the record moves to <code>CREATE_FAILED</code> or <code>UPDATE_FAILED</code>. To start again, call <code>UpdateRegistryRecord</code> with <code>triggerSynchronization</code>.</p>
+ * @public
+ */
+export interface OAuth2AuthorizationData {
+  /**
+   * <p>The URL that the user opens to approve access. The link is valid for up to 10 minutes. Treat it as sensitive and give it only to the user who approves access.</p>
+   * @public
+   */
+  authorizationUrl: string | undefined;
+
+  /**
+   * <p>The AgentCore Identity user ID that the authorization is for. Store it with your signed-in user and pass it as <code>userIdentifier.userId</code> when your application calls <code>CompleteResourceTokenAuth</code>.</p>
+   * @public
+   */
+  userId?: string | undefined;
+
+  /**
+   * <p>The identifier of this authorization attempt.</p>
+   * @public
+   */
+  authorizationAttemptId?: string | undefined;
+
+  /**
+   * <p>The timestamp when the authorization link expires, 10 minutes after the authorization started. A request that joins an authorization in progress gets less time, and the link might stop working shortly before this time.</p>
+   * @public
+   */
+  expiresAt?: Date | undefined;
+}
+
+/**
+ * <p>The authorization that a user must complete before a registry record can synchronize from its source. Only <code>CreateRegistryRecord</code> and <code>UpdateRegistryRecord</code> return it. <code>GetRegistryRecord</code> and <code>ListRegistryRecords</code> never do.</p>
+ * @public
+ */
+export type AuthorizationData =
+  | AuthorizationData.Oauth2Member
+  | AuthorizationData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AuthorizationData {
+  /**
+   * <p>The OAuth 2.0 authorization that a GitHub user must approve.</p>
+   * @public
+   */
+  export interface Oauth2Member {
+    oauth2: OAuth2AuthorizationData;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    oauth2?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    oauth2: (value: OAuth2AuthorizationData) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Response structure for creating a registry record</p>
  * @public
  */
@@ -1018,10 +1199,16 @@ export interface CreateRegistryRecordResponse {
   recordArn: string | undefined;
 
   /**
-   * <p>The status of the registry record, set to CREATING while the asynchronous workflow is in progress</p>
+   * <p>The status of the registry record. <code>CREATING</code> means that the asynchronous workflow is in progress. <code>CREATE_PENDING_AUTH</code> means that the record waits for a GitHub user to authorize access before it synchronizes from its GitHub source. For the authorization link, see <code>authorizationData</code>.</p>
    * @public
    */
   status: RegistryRecordStatus | undefined;
+
+  /**
+   * <p>The authorization that a GitHub user must complete before the record's synchronization starts. Present only in this response, and only while the status is <code>CREATE_PENDING_AUTH</code>. If the status is <code>CREATE_PENDING_AUTH</code> but this member is absent, call <code>UpdateRegistryRecord</code> with <code>triggerSynchronization</code> to get a new authorization link.</p>
+   * @public
+   */
+  authorizationData?: AuthorizationData | undefined;
 }
 
 /**
@@ -1062,6 +1249,131 @@ export interface GetRegistryRecordRequest {
    * @public
    */
   recordId: string | undefined;
+}
+
+/**
+ * <p>The skill package of a registry record, as a short-lived download URL and the package's SHA-256 checksum. Responses never include the package bytes.</p>
+ * @public
+ */
+export interface RegistryRecordArtifactDownload {
+  /**
+   * <p>The SHA-256 checksum of the package, as 64 lowercase hexadecimal characters. The download response carries no signature that you can check, so compare the checksum of the file that you download with this value before you use the package.</p>
+   * @public
+   */
+  sha256?: string | undefined;
+
+  /**
+   * <p>A presigned Amazon S3 URL that downloads the package. The URL is valid for up to 5 minutes, and the response doesn't include its expiry time. To get a new URL, call the operation again. Anyone who has the URL can download the package until it expires, so don't log, store, or share it.</p>
+   * @public
+   */
+  downloadUrl?: string | undefined;
+}
+
+/**
+ * <p>A GitHub source that a skill record's content was synchronized from, and the commit that the registry read.</p>
+ * @public
+ */
+export interface GitHubSynchronizedSource {
+  /**
+   * <p>The source URL that the registry read.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>The timestamp when the registry read the source.</p>
+   * @public
+   */
+  synchronizedAt: Date | undefined;
+
+  /**
+   * <p>The commit that the source's branch or tag pointed to when the registry read it.</p>
+   * @public
+   */
+  commitId: string | undefined;
+}
+
+/**
+ * <p>An Amazon S3 source that a skill record's content was synchronized from, and the object version that the registry read. At most one of <code>versionId</code> and <code>eTag</code> is set.</p>
+ * @public
+ */
+export interface S3SynchronizedSource {
+  /**
+   * <p>The source URL that the registry read.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>The timestamp when the registry read the source.</p>
+   * @public
+   */
+  synchronizedAt: Date | undefined;
+
+  /**
+   * <p>The version ID of the object that the registry read. Absent when the bucket isn't versioned.</p>
+   * @public
+   */
+  versionId?: string | undefined;
+
+  /**
+   * <p>The entity tag (ETag) of the object that the registry read, without quotes, when the object has no version ID. Not recorded for a SKILL.md source on a registry that is encrypted with a customer managed key.</p>
+   * @public
+   */
+  eTag?: string | undefined;
+}
+
+/**
+ * <p>The source that a skill record's content was last synchronized from. Exactly one member is set, for the source's provider.</p>
+ * @public
+ */
+export type RegistryRecordSynchronizedSource =
+  | RegistryRecordSynchronizedSource.GitHubMember
+  | RegistryRecordSynchronizedSource.S3Member
+  | RegistryRecordSynchronizedSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RegistryRecordSynchronizedSource {
+  /**
+   * <p>The Amazon S3 source that the registry read.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: S3SynchronizedSource;
+    gitHub?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The GitHub source that the registry read.</p>
+   * @public
+   */
+  export interface GitHubMember {
+    s3?: never;
+    gitHub: GitHubSynchronizedSource;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    gitHub?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: S3SynchronizedSource) => T;
+    gitHub: (value: GitHubSynchronizedSource) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -1112,7 +1424,7 @@ export interface GetRegistryRecordResponse {
   recordType: RecordType | undefined;
 
   /**
-   * <p>The typed descriptors that define the content of the registry record.</p>
+   * <p>The typed descriptors that define the content of the registry record. For a skill record with a skill package or a synchronized source, <code>skillMd.data</code> contains the SKILL.md that the registry took from the package or the source.</p>
    * @public
    */
   descriptors?: Descriptors | undefined;
@@ -1176,6 +1488,18 @@ export interface GetRegistryRecordResponse {
    * @public
    */
   customMetadataSchemaComplianceStatus?: CustomMetadataSchemaComplianceStatus | undefined;
+
+  /**
+   * <p>The skill package of the record's latest revision, including a revision in <code>DRAFT</code> or <code>PENDING_APPROVAL</code> status, as a download URL and a SHA-256 checksum. While an update of the record is in progress or after it fails, this is the last package that passed validation, unless the update switches between an uploaded package and a synchronized one: then it is absent until the update succeeds. Absent while the record is being created or after its creation fails, and when the record has no package, for example when its content is inline or it synchronizes only SKILL.md.</p>
+   * @public
+   */
+  artifact?: RegistryRecordArtifactDownload | undefined;
+
+  /**
+   * <p>The source that the registry last synchronized the record's skill content from, including when the registry read the source and which version it read. Absent until the first successful synchronization, and after an update replaces the synchronized content, for example with an uploaded package. A failed synchronization leaves this member unchanged. After you change the source, this member shows the previous source until the registry successfully synchronizes from the new source.</p>
+   * @public
+   */
+  synchronizedSource?: RegistryRecordSynchronizedSource | undefined;
 }
 
 /**
@@ -1417,6 +1741,18 @@ export interface SubmitRegistryRecordForApprovalResponse {
 }
 
 /**
+ * <p>The skill package patch wrapper. Omit to leave the package unchanged; supply an empty object to remove an uploaded package; supply optionalValue to upload a new package.</p>
+ * @public
+ */
+export interface UpdatedRegistryRecordArtifact {
+  /**
+   * <p>The skill package to upload. It replaces the record's current package or its synchronized content.</p>
+   * @public
+   */
+  optionalValue?: RegistryRecordArtifactUpload | undefined;
+}
+
+/**
  * <p>The custom metadata patch wrapper. Omit to leave the existing metadata unchanged; supply with a null value to clear all metadata; supply with key-value pairs to replace the existing metadata.</p>
  * @public
  */
@@ -1513,6 +1849,18 @@ export interface UpdatedA2aAgentCardDescriptor {
 }
 
 /**
+ * <p>The repository provider patch wrapper. Omit to leave the repository provider unchanged; supply an empty object to remove it; supply optionalValue to set it. When you remove it, also remove or replace the GitHub source in the same request.</p>
+ * @public
+ */
+export interface UpdatedAgentSkillsRepositoryProvider {
+  /**
+   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * @public
+   */
+  optionalValue?: AgentSkillsRepositoryProvider | undefined;
+}
+
+/**
  * <p>The set of agent skills markdown descriptor fields that can be individually updated.</p>
  * @public
  */
@@ -1549,6 +1897,30 @@ export interface UpdatedAgentSkillsMdDescriptor {
 }
 
 /**
+ * <p>The skill package source patch wrapper. Omit to leave the source unchanged; supply an empty object to remove it and stop synchronizing the package; supply optionalValue to replace it.</p>
+ * @public
+ */
+export interface UpdatedAgentSkillsPackageDescriptor {
+  /**
+   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * @public
+   */
+  optionalValue?: AgentSkillsPackageDescriptor | undefined;
+}
+
+/**
+ * <p>The source configuration patch wrapper. Omit to leave the configuration unchanged; supply an empty object to remove it; supply optionalValue to replace it. When you move an Amazon S3 source to another bucket, the record keeps its configuration. In the same request, specify the new bucket's owner, or specify an empty object so that the registry expects the bucket in the role's account.</p>
+ * @public
+ */
+export interface UpdatedAgentSkillsSourceConfiguration {
+  /**
+   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * @public
+   */
+  optionalValue?: AgentSkillsSourceConfiguration | undefined;
+}
+
+/**
  * <p>The set of agent skills additional-data fields that can be individually updated.</p>
  * @public
  */
@@ -1558,6 +1930,24 @@ export interface UpdatedAgentSkillsAdditionalDataFields {
    * @public
    */
   skillMd?: UpdatedAgentSkillsMdDescriptor | undefined;
+
+  /**
+   * <p>The patch for the skill package source field.</p>
+   * @public
+   */
+  skillPackage?: UpdatedAgentSkillsPackageDescriptor | undefined;
+
+  /**
+   * <p>The patch for the repository provider field.</p>
+   * @public
+   */
+  repositoryProvider?: UpdatedAgentSkillsRepositoryProvider | undefined;
+
+  /**
+   * <p>The patch for the source configuration field.</p>
+   * @public
+   */
+  sourceConfiguration?: UpdatedAgentSkillsSourceConfiguration | undefined;
 }
 
 /**
@@ -1889,6 +2279,12 @@ export interface UpdateRegistryRecordRequest {
   descriptors?: UpdatedDescriptors | undefined;
 
   /**
+   * <p>The change to the record's uploaded skill package. Omit it to keep the current package, specify an empty object to remove an uploaded package, or specify <code>optionalValue</code> to upload a new package. An empty object doesn't remove a package that the record synchronizes from a source. To stop that synchronization, remove <code>skillPackage</code>. A request that changes <code>skillMd.data</code> replaces the record's package with that text, even if you omit this member.</p>
+   * @public
+   */
+  artifact?: UpdatedRegistryRecordArtifact | undefined;
+
+  /**
    * <p>The updated version of the registry record. Omit to leave the version unchanged.</p>
    * @public
    */
@@ -1901,10 +2297,16 @@ export interface UpdateRegistryRecordRequest {
   customMetadata?: UpdatedCustomMetadataMap | undefined;
 
   /**
-   * <p>Whether to trigger synchronization of the record's descriptor content from its source</p>
+   * <p>Specifies whether to synchronize the record's descriptor content from its source. For a skill record, the registry reads the stored <code>skillMd.source</code> or <code>skillPackage.source</code> again, because it doesn't watch the source for changes. For a GitHub source, the operation also returns a new authorization link when one is needed. An update that sets a different skill source starts a synchronization even if you omit this member.</p>
    * @public
    */
   triggerSynchronization?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to ask a GitHub user to authorize access again, even when the current authorization still works, for example to use a different GitHub account. You can use it only together with <code>triggerSynchronization</code>, for a GitHub source whose credential provider uses the <code>AUTHORIZATION_CODE</code> grant. The new authorization also replaces the one that the same IAM principal's other records in the registry use for the same host, credential provider, scopes, and custom parameters.</p>
+   * @public
+   */
+  forceAuthentication?: boolean | undefined;
 
   /**
    * <p>The provenance lineage re-assertion for the registry record. This field is reserved for the Amazon Web Services Agent Registry auto-detection service principal. Requests that include this field from other callers are rejected. The source identity of an existing lineage is immutable; a re-assertion may only refresh the source details.</p>
@@ -1973,7 +2375,7 @@ export interface UpdateRegistryRecordResponse {
   recordVersion?: string | undefined;
 
   /**
-   * <p>The lifecycle status of the registry record.</p>
+   * <p>The lifecycle status of the registry record. <code>UPDATE_PENDING_AUTH</code> means that the update waits for a GitHub user to authorize access before the record synchronizes from its GitHub source. For the authorization link, see <code>authorizationData</code>.</p>
    * @public
    */
   status: RegistryRecordStatus | undefined;
@@ -2025,6 +2427,12 @@ export interface UpdateRegistryRecordResponse {
    * @public
    */
   customMetadataSchemaComplianceStatus?: CustomMetadataSchemaComplianceStatus | undefined;
+
+  /**
+   * <p>The authorization that a GitHub user must complete before the record's synchronization starts. Present only in this response, and only while the status is <code>UPDATE_PENDING_AUTH</code>. If the status is <code>UPDATE_PENDING_AUTH</code> but this member is absent, call <code>UpdateRegistryRecord</code> again with <code>triggerSynchronization</code> to get a new authorization link.</p>
+   * @public
+   */
+  authorizationData?: AuthorizationData | undefined;
 }
 
 /**

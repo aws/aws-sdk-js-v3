@@ -23,7 +23,7 @@ export interface GetRegistryRecordCommandInput extends GetRegistryRecordRequest 
 export interface GetRegistryRecordCommandOutput extends GetRegistryRecordResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details of a registry record</p>
+ * <p>Retrieves the details of a registry record. The response describes the record's latest revision, including a revision that isn't approved yet. For a skill record, the operation also returns the skill package in <code>artifact</code> and the source that the registry last synchronized the skill from in <code>synchronizedSource</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,13 +65,14 @@ export interface GetRegistryRecordCommandOutput extends GetRegistryRecordRespons
  * //               credentialProvider: { // RegistryRecordCredentialProviderUnion Union: only one key present
  * //                 oauthCredentialProvider: { // RegistryRecordOAuthCredentialProvider
  * //                   providerArn: "STRING_VALUE", // required
- * //                   grantType: "CLIENT_CREDENTIALS",
+ * //                   grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
  * //                   scopes: [ // ScopeList
  * //                     "STRING_VALUE",
  * //                   ],
  * //                   customParameters: { // CustomParameterMap
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
+ * //                   returnUrl: "STRING_VALUE",
  * //                 },
  * //                 iamCredentialProvider: { // RegistryRecordIamCredentialProvider
  * //                   roleArn: "STRING_VALUE",
@@ -96,13 +97,14 @@ export interface GetRegistryRecordCommandOutput extends GetRegistryRecordRespons
  * //               credentialProvider: {//  Union: only one key present
  * //                 oauthCredentialProvider: {
  * //                   providerArn: "STRING_VALUE", // required
- * //                   grantType: "CLIENT_CREDENTIALS",
+ * //                   grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
  * //                   scopes: [
  * //                     "STRING_VALUE",
  * //                   ],
  * //                   customParameters: {
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
+ * //                   returnUrl: "STRING_VALUE",
  * //                 },
  * //                 iamCredentialProvider: {
  * //                   roleArn: "STRING_VALUE",
@@ -131,13 +133,14 @@ export interface GetRegistryRecordCommandOutput extends GetRegistryRecordRespons
  * //                   credentialProvider: {//  Union: only one key present
  * //                     oauthCredentialProvider: {
  * //                       providerArn: "STRING_VALUE", // required
- * //                       grantType: "CLIENT_CREDENTIALS",
+ * //                       grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
  * //                       scopes: [
  * //                         "STRING_VALUE",
  * //                       ],
  * //                       customParameters: {
  * //                         "<keys>": "STRING_VALUE",
  * //                       },
+ * //                       returnUrl: "STRING_VALUE",
  * //                     },
  * //                     iamCredentialProvider: {
  * //                       roleArn: "STRING_VALUE",
@@ -148,6 +151,42 @@ export interface GetRegistryRecordCommandOutput extends GetRegistryRecordRespons
  * //                 },
  * //               ],
  * //             },
+ * //           },
+ * //         },
+ * //         skillPackage: { // AgentSkillsPackageDescriptor
+ * //           source: {
+ * //             fromUrl: {
+ * //               url: "STRING_VALUE", // required
+ * //               credentialProviderConfigurations: [
+ * //                 {
+ * //                   credentialProviderType: "OAUTH" || "IAM", // required
+ * //                   credentialProvider: {//  Union: only one key present
+ * //                     oauthCredentialProvider: {
+ * //                       providerArn: "STRING_VALUE", // required
+ * //                       grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
+ * //                       scopes: [
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                       customParameters: {
+ * //                         "<keys>": "STRING_VALUE",
+ * //                       },
+ * //                       returnUrl: "STRING_VALUE",
+ * //                     },
+ * //                     iamCredentialProvider: {
+ * //                       roleArn: "STRING_VALUE",
+ * //                       service: "STRING_VALUE",
+ * //                       region: "STRING_VALUE",
+ * //                     },
+ * //                   },
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         },
+ * //         repositoryProvider: "GITHUB",
+ * //         sourceConfiguration: { // AgentSkillsSourceConfiguration Union: only one key present
+ * //           s3: { // S3SourceConfiguration
+ * //             bucketOwnerAccountId: "STRING_VALUE",
  * //           },
  * //         },
  * //       },
@@ -165,13 +204,14 @@ export interface GetRegistryRecordCommandOutput extends GetRegistryRecordRespons
  * //               credentialProvider: {//  Union: only one key present
  * //                 oauthCredentialProvider: {
  * //                   providerArn: "STRING_VALUE", // required
- * //                   grantType: "CLIENT_CREDENTIALS",
+ * //                   grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
  * //                   scopes: [
  * //                     "STRING_VALUE",
  * //                   ],
  * //                   customParameters: {
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
+ * //                   returnUrl: "STRING_VALUE",
  * //                 },
  * //                 iamCredentialProvider: {
  * //                   roleArn: "STRING_VALUE",
@@ -185,37 +225,11 @@ export interface GetRegistryRecordCommandOutput extends GetRegistryRecordRespons
  * //       },
  * //     },
  * //     agui: { // AgUiDescriptor
- * //       source: {
- * //         fromUrl: {
- * //           url: "STRING_VALUE", // required
- * //           credentialProviderConfigurations: [
- * //             {
- * //               credentialProviderType: "OAUTH" || "IAM", // required
- * //               credentialProvider: {//  Union: only one key present
- * //                 oauthCredentialProvider: {
- * //                   providerArn: "STRING_VALUE", // required
- * //                   grantType: "CLIENT_CREDENTIALS",
- * //                   scopes: [
- * //                     "STRING_VALUE",
- * //                   ],
- * //                   customParameters: {
- * //                     "<keys>": "STRING_VALUE",
- * //                   },
- * //                 },
- * //                 iamCredentialProvider: {
- * //                   roleArn: "STRING_VALUE",
- * //                   service: "STRING_VALUE",
- * //                   region: "STRING_VALUE",
- * //                 },
- * //               },
- * //             },
- * //           ],
- * //         },
- * //       },
+ * //       source: "<DescriptorSource>",
  * //     },
  * //   },
  * //   recordVersion: "STRING_VALUE",
- * //   status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED", // required
+ * //   status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "CREATE_PENDING_AUTH" || "UPDATE_PENDING_AUTH", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   statusReason: "STRING_VALUE",
@@ -391,6 +405,23 @@ export interface GetRegistryRecordCommandOutput extends GetRegistryRecordRespons
  * //   createdBy: "STRING_VALUE",
  * //   customMetadata: "DOCUMENT_VALUE",
  * //   customMetadataSchemaComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
+ * //   artifact: { // RegistryRecordArtifactDownload
+ * //     sha256: "STRING_VALUE",
+ * //     downloadUrl: "STRING_VALUE",
+ * //   },
+ * //   synchronizedSource: { // RegistryRecordSynchronizedSource Union: only one key present
+ * //     s3: { // S3SynchronizedSource
+ * //       url: "STRING_VALUE", // required
+ * //       synchronizedAt: new Date("TIMESTAMP"), // required
+ * //       versionId: "STRING_VALUE",
+ * //       eTag: "STRING_VALUE",
+ * //     },
+ * //     gitHub: { // GitHubSynchronizedSource
+ * //       url: "STRING_VALUE", // required
+ * //       synchronizedAt: new Date("TIMESTAMP"), // required
+ * //       commitId: "STRING_VALUE", // required
+ * //     },
+ * //   },
  * // };
  *
  * ```

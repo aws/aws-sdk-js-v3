@@ -4,6 +4,7 @@
  * @enum
  */
 export const RegistryRecordOAuthGrantType = {
+  AUTHORIZATION_CODE: "AUTHORIZATION_CODE",
   CLIENT_CREDENTIALS: "CLIENT_CREDENTIALS",
 } as const;
 /**
@@ -105,11 +106,25 @@ export const ValidationExceptionReason = {
   IDEMPOTENT_PARAMETER_MISMATCH_EXCEPTION: "IdempotentParameterMismatchException",
   RESOURCE_CONFLICT: "ResourceConflict",
   ROOT_EVENT_IN_OTHER_SESSION: "EventInOtherSession",
+  UNSUPPORTED_IN_REGION: "UnsupportedInRegion",
 } as const;
 /**
  * @public
  */
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentSkillsRepositoryProvider = {
+  GITHUB: "GITHUB",
+} as const;
+/**
+ * @public
+ */
+export type AgentSkillsRepositoryProvider =
+  (typeof AgentSkillsRepositoryProvider)[keyof typeof AgentSkillsRepositoryProvider];
 
 /**
  * @public
@@ -159,12 +174,14 @@ export type RecordType = (typeof RecordType)[keyof typeof RecordType];
 export const RegistryRecordStatus = {
   APPROVED: "APPROVED",
   CREATE_FAILED: "CREATE_FAILED",
+  CREATE_PENDING_AUTH: "CREATE_PENDING_AUTH",
   CREATING: "CREATING",
   DEPRECATED: "DEPRECATED",
   DRAFT: "DRAFT",
   PENDING_APPROVAL: "PENDING_APPROVAL",
   REJECTED: "REJECTED",
   UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_PENDING_AUTH: "UPDATE_PENDING_AUTH",
   UPDATING: "UPDATING",
 } as const;
 /**

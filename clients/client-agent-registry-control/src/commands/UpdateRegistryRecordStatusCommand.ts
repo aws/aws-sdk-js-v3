@@ -35,7 +35,7 @@ export interface UpdateRegistryRecordStatusCommandOutput extends UpdateRegistryR
  * const input = { // UpdateRegistryRecordStatusRequest
  *   registryId: "STRING_VALUE", // required
  *   recordId: "STRING_VALUE", // required
- *   status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED", // required
+ *   status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "CREATE_PENDING_AUTH" || "UPDATE_PENDING_AUTH", // required
  *   statusReason: "STRING_VALUE", // required
  * };
  * const command = new UpdateRegistryRecordStatusCommand(input);
@@ -44,7 +44,7 @@ export interface UpdateRegistryRecordStatusCommandOutput extends UpdateRegistryR
  * //   registryArn: "STRING_VALUE", // required
  * //   recordArn: "STRING_VALUE", // required
  * //   recordId: "STRING_VALUE", // required
- * //   status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED", // required
+ * //   status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "CREATE_PENDING_AUTH" || "UPDATE_PENDING_AUTH", // required
  * //   statusReason: "STRING_VALUE", // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * // };

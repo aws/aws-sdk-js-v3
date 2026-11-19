@@ -45,7 +45,7 @@ export interface SubmitRegistryRecordForApprovalCommandOutput extends SubmitRegi
  * //   registryArn: "STRING_VALUE", // required
  * //   recordArn: "STRING_VALUE", // required
  * //   recordId: "STRING_VALUE", // required
- * //   status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED", // required
+ * //   status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "CREATE_PENDING_AUTH" || "UPDATE_PENDING_AUTH", // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * // };
  *

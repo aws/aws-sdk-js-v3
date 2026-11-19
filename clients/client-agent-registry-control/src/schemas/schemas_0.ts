@@ -1,16 +1,20 @@
 const _AACD = "A2aAgentCardDescriptor";
-const _AC = "ApprovalConfiguration";
+const _AC = "ArtifactContent";
 const _ACGSD = "AgentCoreGatewaySourceDetails";
 const _ACMVT = "AuthorizingClaimMatchValueType";
 const _ACRPC = "AgentCoreRuntimeProtocolConfiguration";
 const _ACRSD = "AgentCoreRuntimeSourceDetails";
+const _ACp = "ApprovalConfiguration";
 const _ACu = "AuthorizerConfiguration";
 const _AD = "AutoDetection";
 const _ADC = "AutoDetectionConfiguration";
 const _ADE = "AccessDeniedException";
+const _ADu = "AuthorizationData";
 const _ASAD = "AgentSkillsAdditionalData";
 const _ASDD = "AgentSkillsDefinitionDescriptor";
 const _ASMD = "AgentSkillsMdDescriptor";
+const _ASPD = "AgentSkillsPackageDescriptor";
+const _ASSC = "AgentSkillsSourceConfiguration";
 const _AUD = "AgUiDescriptor";
 const _CCVT = "CustomClaimValidationType";
 const _CCVTu = "CustomClaimValidationsType";
@@ -21,6 +25,7 @@ const _CMD = "CustomMetadataDocument";
 const _CMSC = "CustomMetadataSchemaConfiguration";
 const _CMSD = "CustomMetadataSchemaDefinition";
 const _CMVT = "ClaimMatchValueType";
+const _CPM = "CustomParameterMap";
 const _CR = "CreateRegistry";
 const _CRR = "CreateRegistryRequest";
 const _CRRR = "CreateRegistryRecordRequest";
@@ -40,6 +45,7 @@ const _DS = "DescriptorSource";
 const _DSFU = "DescriptorSourceFromUrl";
 const _De = "Descriptors";
 const _EC = "EncryptionConfiguration";
+const _GHSS = "GitHubSynchronizedSource";
 const _GR = "GetRegistry";
 const _GRR = "GetRegistryRequest";
 const _GRRR = "GetRegistryRecordRequest";
@@ -61,7 +67,11 @@ const _MSAD = "McpServerAdditionalData";
 const _MSD = "McpServerDescriptor";
 const _MTD = "McpToolsDescriptor";
 const _MVR = "ManagedVpcResource";
+const _OAAD = "OAuth2AuthorizationData";
+const _OAAU = "OAuthAuthorizationUrl";
+const _OAUI = "OAuthUserId";
 const _P = "Provenance";
+const _PDU = "PresignedDownloadUrl";
 const _PE = "PrivateEndpoint";
 const _PEO = "PrivateEndpointOverride";
 const _PEOr = "PrivateEndpointOverrides";
@@ -71,6 +81,8 @@ const _PSL = "ProvenanceSummaryList";
 const _RF = "RegistryFilter";
 const _RFL = "RegistryFilterList";
 const _RNFE = "ResourceNotFoundException";
+const _RRAD = "RegistryRecordArtifactDownload";
+const _RRAU = "RegistryRecordArtifactUpload";
 const _RRCPC = "RegistryRecordCredentialProviderConfiguration";
 const _RRCPCL = "RegistryRecordCredentialProviderConfigurationList";
 const _RRCPU = "RegistryRecordCredentialProviderUnion";
@@ -80,6 +92,7 @@ const _RRICP = "RegistryRecordIamCredentialProvider";
 const _RROACP = "RegistryRecordOAuthCredentialProvider";
 const _RRS = "RegistryRecordSummary";
 const _RRSL = "RegistryRecordSummaryList";
+const _RRSS = "RegistryRecordSynchronizedSource";
 const _RS = "RegistrySummary";
 const _RSL = "RegistrySummaryList";
 const _RTSO = "RecordTypeSchemaOverride";
@@ -90,6 +103,9 @@ const _SQEE = "ServiceQuotaExceededException";
 const _SRRFA = "SubmitRegistryRecordForApproval";
 const _SRRFAR = "SubmitRegistryRecordForApprovalRequest";
 const _SRRFARu = "SubmitRegistryRecordForApprovalResponse";
+const _SSC = "S3SourceConfiguration";
+const _SSS = "S3SynchronizedSource";
+const _SSU = "SynchronizedSourceUrl";
 const _TE = "ThrottlingException";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
@@ -105,6 +121,9 @@ const _UASDD = "UpdatedAgentSkillsDefinitionDescriptor";
 const _UASDDF = "UpdatedAgentSkillsDefinitionDescriptorFields";
 const _UASMD = "UpdatedAgentSkillsMdDescriptor";
 const _UASMDF = "UpdatedAgentSkillsMdDescriptorFields";
+const _UASPD = "UpdatedAgentSkillsPackageDescriptor";
+const _UASRP = "UpdatedAgentSkillsRepositoryProvider";
+const _UASSC = "UpdatedAgentSkillsSourceConfiguration";
 const _UAUD = "UpdatedAgUiDescriptor";
 const _UAUDF = "UpdatedAgUiDescriptorFields";
 const _UCD = "UpdatedCustomDescriptor";
@@ -129,6 +148,7 @@ const _UMTD = "UpdatedMcpToolsDescriptor";
 const _UMTDF = "UpdatedMcpToolsDescriptorFields";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
+const _URRA = "UpdatedRegistryRecordArtifact";
 const _URRR = "UpdateRegistryRecordRequest";
 const _URRRp = "UpdateRegistryRecordResponse";
 const _URRS = "UpdateRegistryRecordStatus";
@@ -143,9 +163,10 @@ const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
 const _WID = "WorkloadIdentityDetails";
-const _a = "agui";
+const _a = "artifact";
 const _aA = "allowedAudience";
 const _aAC = "a2aAgentCard";
+const _aAI = "authorizationAttemptId";
 const _aAR = "autoApprovalRules";
 const _aC = "authorizerConfiguration";
 const _aCMV = "authorizingClaimMatchValue";
@@ -153,17 +174,22 @@ const _aCl = "allowedClients";
 const _aCp = "approvalConfiguration";
 const _aD = "additionalData";
 const _aDC = "autoDetectionConfiguration";
-const _aDu = "autoDetection";
+const _aDu = "authorizationData";
+const _aDut = "autoDetection";
 const _aG = "agentcoreGateway";
 const _aR = "agentcoreRuntime";
 const _aS = "allowedScopes";
 const _aSD = "agentSkillsDefinition";
 const _aT = "authorizerType";
+const _aU = "authorizationUrl";
+const _ag = "agui";
+const _bOAI = "bucketOwnerAccountId";
 const _c = "client";
 const _cA = "createdAt";
 const _cB = "createdBy";
 const _cBAD = "createdByAutoDetection";
 const _cC = "customClaims";
+const _cI = "commitId";
 const _cJWTA = "customJWTAuthorizer";
 const _cM = "customMetadata";
 const _cMO = "claimMatchOperator";
@@ -176,6 +202,7 @@ const _cPT = "credentialProviderType";
 const _cPu = "customParameters";
 const _cT = "clientToken";
 const _co = "configuration";
+const _con = "content";
 const _cu = "custom";
 const _d = "data";
 const _dC = "discoveryConfiguration";
@@ -183,16 +210,21 @@ const _dN = "displayName";
 const _dS = "defaultSchema";
 const _dSV = "dataSchemaVersion";
 const _dU = "discoveryUrl";
+const _dUo = "downloadUrl";
 const _de = "descriptors";
 const _des = "description";
 const _do = "domain";
 const _e = "error";
+const _eA = "expiresAt";
 const _eC = "encryptionConfiguration";
 const _eIAT = "endpointIpAddressType";
+const _eT = "eTag";
 const _en = "enabled";
 const _f = "filters";
+const _fA = "forceAuthentication";
 const _fL = "fieldList";
 const _fU = "fromUrl";
+const _gH = "gitHub";
 const _gT = "grantType";
 const _h = "http";
 const _hE = "httpError";
@@ -209,6 +241,7 @@ const _mVS = "matchValueString";
 const _mVSL = "matchValueStringList";
 const _n = "name";
 const _nT = "nextToken";
+const _o = "oauth2";
 const _oCP = "oauthCredentialProvider";
 const _oV = "optionalValue";
 const _p = "provenance";
@@ -227,14 +260,18 @@ const _rCI = "resourceConfigurationIdentifier";
 const _rD = "routingDomain";
 const _rI = "registryId";
 const _rIe = "recordId";
+const _rP = "repositoryProvider";
 const _rR = "registryRecords";
 const _rT = "recordType";
 const _rTSO = "recordTypeSchemaOverrides";
+const _rU = "returnUrl";
 const _rV = "recordVersion";
 const _re = "registries";
 const _reg = "region";
 const _rel = "relation";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.agentregistrycontrol";
+const _sA = "synchronizedAt";
+const _sC = "sourceConfiguration";
 const _sD = "sourceDetails";
 const _sGI = "securityGroupIds";
 const _sI = "subnetIds";
@@ -242,13 +279,17 @@ const _sIo = "sourceId";
 const _sM = "skillMd";
 const _sMLR = "selfManagedLatticeResource";
 const _sP = "serverProtocol";
+const _sPk = "skillPackage";
 const _sR = "statusReason";
+const _sS = "synchronizedSource";
 const _sT = "sourceType";
+const _s_ = "s3";
 const _sc = "scope";
 const _sch = "schema";
 const _sco = "scopes";
 const _se = "server";
 const _ser = "service";
+const _sh = "sha256";
 const _so = "source";
 const _st = "status";
 const _t = "tags";
@@ -257,8 +298,10 @@ const _tS = "triggerSynchronization";
 const _to = "tools";
 const _u = "url";
 const _uA = "updatedAt";
+const _uI = "userId";
 const _v = "values";
 const _vI = "vpcIdentifier";
+const _vIe = "versionId";
 const _wIA = "workloadIdentityArn";
 const _wID = "workloadIdentityDetails";
 const n0 = "com.amazonaws.agentregistrycontrol";
@@ -342,14 +385,19 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var ArtifactContent: StaticSimpleSchema = [0, n0, _AC, 8, 21];
 var CustomMetadataDocument: StaticSimpleSchema = [0, n0, _CMD, 8, 15];
 var CustomMetadataSchemaDefinition: StaticSimpleSchema = [0, n0, _CMSD, 8, 0];
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var DescriptorData: StaticSimpleSchema = [0, n0, _DD, 8, 0];
+var OAuthAuthorizationUrl: StaticSimpleSchema = [0, n0, _OAAU, 8, 0];
+var OAuthUserId: StaticSimpleSchema = [0, n0, _OAUI, 8, 0];
+var PresignedDownloadUrl: StaticSimpleSchema = [0, n0, _PDU, 8, 0];
+var SynchronizedSourceUrl: StaticSimpleSchema = [0, n0, _SSU, 8, 0];
 export var A2aAgentCardDescriptor$: StaticStructureSchema = [3, n0, _AACD,
   0,
   [_d, _dSV, _so],
-  [[() => DescriptorData, 0], 0, () => DescriptorSource$]
+  [[() => DescriptorData, 0], 0, [() => DescriptorSource$, 0]]
 ];
 export var AgentCoreGatewaySourceDetails$: StaticStructureSchema = [3, n0, _ACGSD,
   0,
@@ -368,8 +416,8 @@ export var AgentCoreRuntimeSourceDetails$: StaticStructureSchema = [3, n0, _ACRS
 ];
 export var AgentSkillsAdditionalData$: StaticStructureSchema = [3, n0, _ASAD,
   0,
-  [_sM],
-  [[() => AgentSkillsMdDescriptor$, 0]]
+  [_sM, _sPk, _rP, _sC],
+  [[() => AgentSkillsMdDescriptor$, 0], [() => AgentSkillsPackageDescriptor$, 0], 0, () => AgentSkillsSourceConfiguration$]
 ];
 export var AgentSkillsDefinitionDescriptor$: StaticStructureSchema = [3, n0, _ASDD,
   0,
@@ -379,14 +427,19 @@ export var AgentSkillsDefinitionDescriptor$: StaticStructureSchema = [3, n0, _AS
 export var AgentSkillsMdDescriptor$: StaticStructureSchema = [3, n0, _ASMD,
   0,
   [_d, _dSV, _so],
-  [[() => DescriptorData, 0], 0, () => DescriptorSource$]
+  [[() => DescriptorData, 0], 0, [() => DescriptorSource$, 0]]
+];
+export var AgentSkillsPackageDescriptor$: StaticStructureSchema = [3, n0, _ASPD,
+  0,
+  [_so],
+  [[() => DescriptorSource$, 0]]
 ];
 export var AgUiDescriptor$: StaticStructureSchema = [3, n0, _AUD,
   0,
   [_so],
-  [() => DescriptorSource$]
+  [[() => DescriptorSource$, 0]]
 ];
-export var ApprovalConfiguration$: StaticStructureSchema = [3, n0, _AC,
+export var ApprovalConfiguration$: StaticStructureSchema = [3, n0, _ACp,
   0,
   [_aAR],
   [64 | 0]
@@ -408,13 +461,13 @@ export var AutoDetectionConfiguration$: StaticStructureSchema = [3, n0, _ADC,
 ];
 export var CreateRegistryRecordRequest$: StaticStructureSchema = [3, n0, _CRRR,
   0,
-  [_rI, _n, _rT, _de, _dN, _des, _rV, _cT, _p, _cM, _t],
-  [[0, 1], 0, 0, [() => Descriptors$, 0], 0, [() => Description, 0], 0, [0, 4], () => ProvenanceList, [() => CustomMetadataDocument, 0], 128 | 0], 4
+  [_rI, _n, _rT, _de, _dN, _des, _a, _rV, _cT, _p, _cM, _t],
+  [[0, 1], 0, 0, [() => Descriptors$, 0], 0, [() => Description, 0], [() => RegistryRecordArtifactUpload$, 0], 0, [0, 4], () => ProvenanceList, [() => CustomMetadataDocument, 0], 128 | 0], 4
 ];
 export var CreateRegistryRecordResponse$: StaticStructureSchema = [3, n0, _CRRRr,
   0,
-  [_rA, _st],
-  [0, 0], 2
+  [_rA, _st, _aDu],
+  [0, 0, [() => AuthorizationData$, 0]], 2
 ];
 export var CreateRegistryRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
@@ -468,18 +521,18 @@ export var DeleteRegistryResponse$: StaticStructureSchema = [3, n0, _DRRe,
 ];
 export var Descriptors$: StaticStructureSchema = [3, n0, _De,
   0,
-  [_mS, _aAC, _aSD, _cu, _h, _a],
-  [[() => McpServerDescriptor$, 0], [() => A2aAgentCardDescriptor$, 0], [() => AgentSkillsDefinitionDescriptor$, 0], [() => CustomDescriptor$, 0], () => HttpDescriptor$, () => AgUiDescriptor$]
+  [_mS, _aAC, _aSD, _cu, _h, _ag],
+  [[() => McpServerDescriptor$, 0], [() => A2aAgentCardDescriptor$, 0], [() => AgentSkillsDefinitionDescriptor$, 0], [() => CustomDescriptor$, 0], [() => HttpDescriptor$, 0], [() => AgUiDescriptor$, 0]]
 ];
 export var DescriptorSource$: StaticStructureSchema = [3, n0, _DS,
   0,
   [_fU],
-  [() => DescriptorSourceFromUrl$]
+  [[() => DescriptorSourceFromUrl$, 0]]
 ];
 export var DescriptorSourceFromUrl$: StaticStructureSchema = [3, n0, _DSFU,
   0,
   [_u, _cPC],
-  [0, () => RegistryRecordCredentialProviderConfigurationList], 1
+  [0, [() => RegistryRecordCredentialProviderConfigurationList, 0]], 1
 ];
 export var DiscoveryConfiguration$: StaticStructureSchema = [3, n0, _DC,
   0,
@@ -498,8 +551,8 @@ export var GetRegistryRecordRequest$: StaticStructureSchema = [3, n0, _GRRR,
 ];
 export var GetRegistryRecordResponse$: StaticStructureSchema = [3, n0, _GRRRe,
   0,
-  [_rAe, _rA, _rIe, _n, _rT, _st, _cA, _uA, _dN, _des, _de, _rV, _sR, _p, _cBAD, _cB, _cM, _cMSCS],
-  [0, 0, 0, 0, 0, 0, 5, 5, 0, [() => Description, 0], [() => Descriptors$, 0], 0, 0, () => ProvenanceList, 2, 0, [() => CustomMetadataDocument, 0], 0], 8
+  [_rAe, _rA, _rIe, _n, _rT, _st, _cA, _uA, _dN, _des, _de, _rV, _sR, _p, _cBAD, _cB, _cM, _cMSCS, _a, _sS],
+  [0, 0, 0, 0, 0, 0, 5, 5, 0, [() => Description, 0], [() => Descriptors$, 0], 0, 0, () => ProvenanceList, 2, 0, [() => CustomMetadataDocument, 0], 0, [() => RegistryRecordArtifactDownload$, 0], [() => RegistryRecordSynchronizedSource$, 0]], 8
 ];
 export var GetRegistryRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
@@ -508,13 +561,18 @@ export var GetRegistryRequest$: StaticStructureSchema = [3, n0, _GRR,
 ];
 export var GetRegistryResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
-  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dC, _eC, _aCp, _cMSC, _sR, _aDu],
+  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dC, _eC, _aCp, _cMSC, _sR, _aDut],
   [0, 0, 0, 0, 5, 5, [() => Description, 0], () => DiscoveryConfiguration$, () => EncryptionConfiguration$, () => ApprovalConfiguration$, [() => CustomMetadataSchemaConfiguration$, 0], 0, () => AutoDetection$], 6
+];
+export var GitHubSynchronizedSource$: StaticStructureSchema = [3, n0, _GHSS,
+  0,
+  [_u, _sA, _cI],
+  [[() => SynchronizedSourceUrl, 0], 5, 0], 3
 ];
 export var HttpDescriptor$: StaticStructureSchema = [3, n0, _HD,
   0,
   [_so],
-  [() => DescriptorSource$]
+  [[() => DescriptorSource$, 0]]
 ];
 export var ListRegistriesRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
@@ -559,12 +617,17 @@ export var McpServerAdditionalData$: StaticStructureSchema = [3, n0, _MSAD,
 export var McpServerDescriptor$: StaticStructureSchema = [3, n0, _MSD,
   0,
   [_d, _dSV, _aD, _so],
-  [[() => DescriptorData, 0], 0, [() => McpServerAdditionalData$, 0], () => DescriptorSource$]
+  [[() => DescriptorData, 0], 0, [() => McpServerAdditionalData$, 0], [() => DescriptorSource$, 0]]
 ];
 export var McpToolsDescriptor$: StaticStructureSchema = [3, n0, _MTD,
   0,
   [_d, _dSV],
   [[() => DescriptorData, 0], 0]
+];
+export var OAuth2AuthorizationData$: StaticStructureSchema = [3, n0, _OAAD,
+  0,
+  [_aU, _uI, _aAI, _eA],
+  [[() => OAuthAuthorizationUrl, 0], [() => OAuthUserId, 0], 0, 5], 1
 ];
 export var PrivateEndpointOverride$: StaticStructureSchema = [3, n0, _PEO,
   0,
@@ -591,10 +654,20 @@ export var RegistryFilter$: StaticStructureSchema = [3, n0, _RF,
   [_n, _v],
   [0, 64 | 0], 2
 ];
+export var RegistryRecordArtifactDownload$: StaticStructureSchema = [3, n0, _RRAD,
+  0,
+  [_sh, _dUo],
+  [0, [() => PresignedDownloadUrl, 0]]
+];
+export var RegistryRecordArtifactUpload$: StaticStructureSchema = [3, n0, _RRAU,
+  0,
+  [_con, _sh],
+  [[() => ArtifactContent, 0], 0], 1
+];
 export var RegistryRecordCredentialProviderConfiguration$: StaticStructureSchema = [3, n0, _RRCPC,
   0,
   [_cPT, _cP],
-  [0, () => RegistryRecordCredentialProviderUnion$], 2
+  [0, [() => RegistryRecordCredentialProviderUnion$, 0]], 2
 ];
 export var RegistryRecordFilter$: StaticStructureSchema = [3, n0, _RRF,
   0,
@@ -608,8 +681,8 @@ export var RegistryRecordIamCredentialProvider$: StaticStructureSchema = [3, n0,
 ];
 export var RegistryRecordOAuthCredentialProvider$: StaticStructureSchema = [3, n0, _RROACP,
   0,
-  [_pA, _gT, _sco, _cPu],
-  [0, 0, 64 | 0, 128 | 0], 1
+  [_pA, _gT, _sco, _cPu, _rU],
+  [0, 0, 64 | 0, [() => CustomParameterMap, 0], 0], 1
 ];
 export var RegistryRecordSummary$: StaticStructureSchema = [3, n0, _RRS,
   0,
@@ -618,8 +691,18 @@ export var RegistryRecordSummary$: StaticStructureSchema = [3, n0, _RRS,
 ];
 export var RegistrySummary$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dC, _sR, _aDu],
+  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dC, _sR, _aDut],
   [0, 0, 0, 0, 5, 5, [() => Description, 0], () => DiscoveryConfiguration$, 0, () => AutoDetection$], 6
+];
+export var S3SourceConfiguration$: StaticStructureSchema = [3, n0, _SSC,
+  0,
+  [_bOAI],
+  [0]
+];
+export var S3SynchronizedSource$: StaticStructureSchema = [3, n0, _SSS,
+  0,
+  [_u, _sA, _vIe, _eT],
+  [[() => SynchronizedSourceUrl, 0], 5, 0, 0], 2
 ];
 export var SubmitRegistryRecordForApprovalRequest$: StaticStructureSchema = [3, n0, _SRRFAR,
   0,
@@ -659,7 +742,7 @@ export var UpdatedA2aAgentCardDescriptor$: StaticStructureSchema = [3, n0, _UAAC
 export var UpdatedA2aAgentCardDescriptorFields$: StaticStructureSchema = [3, n0, _UAACDF,
   0,
   [_d, _dSV, _so],
-  [[() => UpdatedDescriptorData$, 0], () => UpdatedDataSchemaVersion$, () => UpdatedDescriptorSource$]
+  [[() => UpdatedDescriptorData$, 0], () => UpdatedDataSchemaVersion$, [() => UpdatedDescriptorSource$, 0]]
 ];
 export var UpdatedAgentSkillsAdditionalData$: StaticStructureSchema = [3, n0, _UASAD,
   0,
@@ -668,8 +751,8 @@ export var UpdatedAgentSkillsAdditionalData$: StaticStructureSchema = [3, n0, _U
 ];
 export var UpdatedAgentSkillsAdditionalDataFields$: StaticStructureSchema = [3, n0, _UASADF,
   0,
-  [_sM],
-  [[() => UpdatedAgentSkillsMdDescriptor$, 0]]
+  [_sM, _sPk, _rP, _sC],
+  [[() => UpdatedAgentSkillsMdDescriptor$, 0], [() => UpdatedAgentSkillsPackageDescriptor$, 0], () => UpdatedAgentSkillsRepositoryProvider$, () => UpdatedAgentSkillsSourceConfiguration$]
 ];
 export var UpdatedAgentSkillsDefinitionDescriptor$: StaticStructureSchema = [3, n0, _UASDD,
   0,
@@ -689,17 +772,32 @@ export var UpdatedAgentSkillsMdDescriptor$: StaticStructureSchema = [3, n0, _UAS
 export var UpdatedAgentSkillsMdDescriptorFields$: StaticStructureSchema = [3, n0, _UASMDF,
   0,
   [_d, _dSV, _so],
-  [[() => UpdatedDescriptorData$, 0], () => UpdatedDataSchemaVersion$, () => UpdatedDescriptorSource$]
+  [[() => UpdatedDescriptorData$, 0], () => UpdatedDataSchemaVersion$, [() => UpdatedDescriptorSource$, 0]]
+];
+export var UpdatedAgentSkillsPackageDescriptor$: StaticStructureSchema = [3, n0, _UASPD,
+  0,
+  [_oV],
+  [[() => AgentSkillsPackageDescriptor$, 0]]
+];
+export var UpdatedAgentSkillsRepositoryProvider$: StaticStructureSchema = [3, n0, _UASRP,
+  0,
+  [_oV],
+  [0]
+];
+export var UpdatedAgentSkillsSourceConfiguration$: StaticStructureSchema = [3, n0, _UASSC,
+  0,
+  [_oV],
+  [() => AgentSkillsSourceConfiguration$]
 ];
 export var UpdatedAgUiDescriptor$: StaticStructureSchema = [3, n0, _UAUD,
   0,
   [_oV],
-  [() => UpdatedAgUiDescriptorFields$]
+  [[() => UpdatedAgUiDescriptorFields$, 0]]
 ];
 export var UpdatedAgUiDescriptorFields$: StaticStructureSchema = [3, n0, _UAUDF,
   0,
   [_so],
-  [() => UpdatedDescriptorSource$]
+  [[() => UpdatedDescriptorSource$, 0]]
 ];
 export var UpdatedApprovalConfiguration$: StaticStructureSchema = [3, n0, _UAC,
   0,
@@ -758,13 +856,13 @@ export var UpdatedDescriptors$: StaticStructureSchema = [3, n0, _UDp,
 ];
 export var UpdatedDescriptorsFields$: StaticStructureSchema = [3, n0, _UDF,
   0,
-  [_mS, _aAC, _aSD, _cu, _h, _a],
-  [[() => UpdatedMcpServerDescriptor$, 0], [() => UpdatedA2aAgentCardDescriptor$, 0], [() => UpdatedAgentSkillsDefinitionDescriptor$, 0], [() => UpdatedCustomDescriptor$, 0], () => UpdatedHttpDescriptor$, () => UpdatedAgUiDescriptor$]
+  [_mS, _aAC, _aSD, _cu, _h, _ag],
+  [[() => UpdatedMcpServerDescriptor$, 0], [() => UpdatedA2aAgentCardDescriptor$, 0], [() => UpdatedAgentSkillsDefinitionDescriptor$, 0], [() => UpdatedCustomDescriptor$, 0], [() => UpdatedHttpDescriptor$, 0], [() => UpdatedAgUiDescriptor$, 0]]
 ];
 export var UpdatedDescriptorSource$: StaticStructureSchema = [3, n0, _UDS,
   0,
   [_oV],
-  [() => DescriptorSource$]
+  [[() => DescriptorSource$, 0]]
 ];
 export var UpdatedDiscoveryConfiguration$: StaticStructureSchema = [3, n0, _UDC,
   0,
@@ -779,12 +877,12 @@ export var UpdatedDisplayName$: StaticStructureSchema = [3, n0, _UDN,
 export var UpdatedHttpDescriptor$: StaticStructureSchema = [3, n0, _UHD,
   0,
   [_oV],
-  [() => UpdatedHttpDescriptorFields$]
+  [[() => UpdatedHttpDescriptorFields$, 0]]
 ];
 export var UpdatedHttpDescriptorFields$: StaticStructureSchema = [3, n0, _UHDF,
   0,
   [_so],
-  [() => UpdatedDescriptorSource$]
+  [[() => UpdatedDescriptorSource$, 0]]
 ];
 export var UpdatedMcpServerAdditionalData$: StaticStructureSchema = [3, n0, _UMSAD,
   0,
@@ -804,7 +902,7 @@ export var UpdatedMcpServerDescriptor$: StaticStructureSchema = [3, n0, _UMSD,
 export var UpdatedMcpServerDescriptorFields$: StaticStructureSchema = [3, n0, _UMSDF,
   0,
   [_d, _dSV, _so, _aD],
-  [[() => UpdatedDescriptorData$, 0], () => UpdatedDataSchemaVersion$, () => UpdatedDescriptorSource$, [() => UpdatedMcpServerAdditionalData$, 0]]
+  [[() => UpdatedDescriptorData$, 0], () => UpdatedDataSchemaVersion$, [() => UpdatedDescriptorSource$, 0], [() => UpdatedMcpServerAdditionalData$, 0]]
 ];
 export var UpdatedMcpToolsDescriptor$: StaticStructureSchema = [3, n0, _UMTD,
   0,
@@ -816,15 +914,20 @@ export var UpdatedMcpToolsDescriptorFields$: StaticStructureSchema = [3, n0, _UM
   [_d, _dSV],
   [[() => UpdatedDescriptorData$, 0], () => UpdatedDataSchemaVersion$]
 ];
+export var UpdatedRegistryRecordArtifact$: StaticStructureSchema = [3, n0, _URRA,
+  0,
+  [_oV],
+  [[() => RegistryRecordArtifactUpload$, 0]]
+];
 export var UpdateRegistryRecordRequest$: StaticStructureSchema = [3, n0, _URRR,
   0,
-  [_rI, _rIe, _n, _dN, _des, _rT, _de, _rV, _cM, _tS, _p],
-  [[0, 1], [0, 1], 0, () => UpdatedDisplayName$, [() => UpdatedDescription$, 0], 0, [() => UpdatedDescriptors$, 0], 0, [() => UpdatedCustomMetadataMap$, 0], 2, () => ProvenanceList], 2
+  [_rI, _rIe, _n, _dN, _des, _rT, _de, _a, _rV, _cM, _tS, _fA, _p],
+  [[0, 1], [0, 1], 0, () => UpdatedDisplayName$, [() => UpdatedDescription$, 0], 0, [() => UpdatedDescriptors$, 0], [() => UpdatedRegistryRecordArtifact$, 0], 0, [() => UpdatedCustomMetadataMap$, 0], 2, 2, () => ProvenanceList], 2
 ];
 export var UpdateRegistryRecordResponse$: StaticStructureSchema = [3, n0, _URRRp,
   0,
-  [_rAe, _rA, _rIe, _n, _rT, _st, _cA, _uA, _dN, _des, _de, _rV, _sR, _p, _cBAD, _cB, _cM, _cMSCS],
-  [0, 0, 0, 0, 0, 0, 5, 5, 0, [() => Description, 0], [() => Descriptors$, 0], 0, 0, () => ProvenanceList, 2, 0, [() => CustomMetadataDocument, 0], 0], 8
+  [_rAe, _rA, _rIe, _n, _rT, _st, _cA, _uA, _dN, _des, _de, _rV, _sR, _p, _cBAD, _cB, _cM, _cMSCS, _aDu],
+  [0, 0, 0, 0, 0, 0, 5, 5, 0, [() => Description, 0], [() => Descriptors$, 0], 0, 0, () => ProvenanceList, 2, 0, [() => CustomMetadataDocument, 0], 0, [() => AuthorizationData$, 0]], 8
 ];
 export var UpdateRegistryRecordStatusRequest$: StaticStructureSchema = [3, n0, _URRSR,
   0,
@@ -843,7 +946,7 @@ export var UpdateRegistryRequest$: StaticStructureSchema = [3, n0, _URRp,
 ];
 export var UpdateRegistryResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
-  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dC, _eC, _aCp, _cMSC, _sR, _aDu],
+  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dC, _eC, _aCp, _cMSC, _sR, _aDut],
   [0, 0, 0, 0, 5, 5, [() => Description, 0], () => DiscoveryConfiguration$, () => EncryptionConfiguration$, () => ApprovalConfiguration$, [() => CustomMetadataSchemaConfiguration$, 0], 0, () => AutoDetection$], 6
 ];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
@@ -882,7 +985,8 @@ var RegistryFilterList: StaticListSchema = [1, n0, _RFL,
   0, () => RegistryFilter$
 ];
 var RegistryRecordCredentialProviderConfigurationList: StaticListSchema = [1, n0, _RRCPCL,
-  0, () => RegistryRecordCredentialProviderConfiguration$
+  0, [() => RegistryRecordCredentialProviderConfiguration$,
+    0]
 ];
 var RegistryRecordFilterList: StaticListSchema = [1, n0, _RRFL,
   0, () => RegistryRecordFilter$
@@ -902,9 +1006,21 @@ var TagKeyList = 64 | 0;
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
 ];
-var CustomParameterMap = 128 | 0;
+var CustomParameterMap: StaticMapSchema = [2, n0, _CPM,
+  8, 0, 0
+];
 var ResourceTagsMap = 128 | 0;
 var TagsMap = 128 | 0;
+export var AgentSkillsSourceConfiguration$: StaticUnionSchema = [4, n0, _ASSC,
+  0,
+  [_s_],
+  [() => S3SourceConfiguration$]
+];
+export var AuthorizationData$: StaticUnionSchema = [4, n0, _ADu,
+  0,
+  [_o],
+  [[() => OAuth2AuthorizationData$, 0]]
+];
 export var AuthorizerConfiguration$: StaticUnionSchema = [4, n0, _ACu,
   0,
   [_cJWTA],
@@ -923,7 +1039,12 @@ export var PrivateEndpoint$: StaticUnionSchema = [4, n0, _PE,
 export var RegistryRecordCredentialProviderUnion$: StaticUnionSchema = [4, n0, _RRCPU,
   0,
   [_oCP, _iCP],
-  [() => RegistryRecordOAuthCredentialProvider$, () => RegistryRecordIamCredentialProvider$]
+  [[() => RegistryRecordOAuthCredentialProvider$, 0], () => RegistryRecordIamCredentialProvider$]
+];
+export var RegistryRecordSynchronizedSource$: StaticUnionSchema = [4, n0, _RRSS,
+  0,
+  [_s_, _gH],
+  [[() => S3SynchronizedSource$, 0], [() => GitHubSynchronizedSource$, 0]]
 ];
 export var SelfManagedLatticeResource$: StaticUnionSchema = [4, n0, _SMLR,
   0,
