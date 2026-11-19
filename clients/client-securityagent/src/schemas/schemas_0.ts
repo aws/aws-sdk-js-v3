@@ -798,6 +798,7 @@ const _sB = "s3Buckets";
 const _sC = "serviceCode";
 const _sCc = "scopeChanges";
 const _sCo = "sourceCode";
+const _sCt = "statusCode";
 const _sD = "scopeDocs";
 const _sFI = "selectedFindingIds";
 const _sGA = "securityGroupArns";
@@ -1396,8 +1397,8 @@ export var CodeRemediationTask$: StaticStructureSchema = [3, n0, _CRT,
 ];
 export var CodeRemediationTaskDetails$: StaticStructureSchema = [3, n0, _CRTD,
   0,
-  [_rN, _cDL, _pRL],
-  [0, 0, 0]
+  [_rN, _cDL, _pRL, _sta, _sCt, _sRt],
+  [0, 0, 0, 0, 0, 0]
 ];
 export var CodeReview$: StaticStructureSchema = [3, n0, _CR,
   0,

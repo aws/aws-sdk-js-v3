@@ -656,6 +656,22 @@ export type CodeRemediationTaskStatus = (typeof CodeRemediationTaskStatus)[keyof
  * @public
  * @enum
  */
+export const CodeRemediationJobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NO_CHANGE_REQUIRED: "NO_CHANGE_REQUIRED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type CodeRemediationJobStatus = (typeof CodeRemediationJobStatus)[keyof typeof CodeRemediationJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ValidationStatus = {
   CONFIRMED: "CONFIRMED",
   NOT_REPRODUCED: "NOT_REPRODUCED",

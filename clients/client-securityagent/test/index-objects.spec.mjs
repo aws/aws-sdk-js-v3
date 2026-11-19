@@ -133,6 +133,7 @@ import {
   ClientCertificate$,
   CloudWatchLog$,
   CodeLocation$,
+  CodeRemediationJobStatus,
   CodeRemediationStrategy,
   CodeRemediationTask$,
   CodeRemediationTaskDetails$,
@@ -1150,6 +1151,7 @@ assert(typeof AccessType === "object");
 assert(typeof ArtifactType === "object");
 assert(typeof AuthenticationProviderType === "object");
 assert(typeof CleanUpStrategy === "object");
+assert(typeof CodeRemediationJobStatus === "object");
 assert(typeof CodeRemediationStrategy === "object");
 assert(typeof CodeRemediationTaskStatus === "object");
 assert(typeof ConfidenceLevel === "object");

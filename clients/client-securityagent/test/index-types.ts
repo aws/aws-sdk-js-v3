@@ -297,6 +297,7 @@ export type {
   ArtifactType,
   AuthenticationProviderType,
   CleanUpStrategy,
+  CodeRemediationJobStatus,
   CodeRemediationStrategy,
   CodeRemediationTaskStatus,
   ConfidenceLevel,

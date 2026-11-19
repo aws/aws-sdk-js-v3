@@ -4,6 +4,7 @@ import type {
   ArtifactType,
   AuthenticationProviderType,
   CleanUpStrategy,
+  CodeRemediationJobStatus,
   CodeRemediationStrategy,
   CodeRemediationTaskStatus,
   ConfidenceLevel,
@@ -2811,7 +2812,7 @@ export interface CodeLocation {
  */
 export interface CodeRemediationTaskDetails {
   /**
-   * <p>The name of the repository where the remediation was applied.</p>
+   * <p>The name of an associated repository where the remediation was applied.</p>
    * @public
    */
   repoName?: string | undefined;
@@ -2827,6 +2828,24 @@ export interface CodeRemediationTaskDetails {
    * @public
    */
   pullRequestLink?: string | undefined;
+
+  /**
+   * <p>The current status of the code remediation task for the particular repository.</p>
+   * @public
+   */
+  status?: CodeRemediationJobStatus | undefined;
+
+  /**
+   * <p>A category classifier if a repository's code remediation fails.</p>
+   * @public
+   */
+  statusCode?: string | undefined;
+
+  /**
+   * <p>A descriptive reason when a repository's code remediation fails.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
 }
 
 /**
@@ -2835,19 +2854,19 @@ export interface CodeRemediationTaskDetails {
  */
 export interface CodeRemediationTask {
   /**
-   * <p>The current status of the code remediation task.</p>
+   * <p>The current status of the overall code remediation task.</p>
    * @public
    */
   status: CodeRemediationTaskStatus | undefined;
 
   /**
-   * <p>The reason for the current status of the code remediation task.</p>
+   * <p>The reason for the current status of the overall code remediation task.</p>
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The list of details for the code remediation task, including repository name, code diff link, and pull request link.</p>
+   * <p>The list of details for a code remediation task, including repository names, status of code remediation for each associated repository, and generated code diff or pull request links.</p>
    * @public
    */
   taskDetails?: CodeRemediationTaskDetails[] | undefined;
