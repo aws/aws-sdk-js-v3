@@ -87,6 +87,12 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  *       ],
  *     },
  *   },
+ *   WebAuthnRedirection: { // WebAuthnRedirection
+ *     Enabled: true || false, // required
+ *     ProcessCompatibilityList: [ // ProcessCompatibilityList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  *   AgentAccessConfig: { // AgentAccessConfig
  *     Settings: [ // AgentAccessSettingList // required
  *       { // AgentAccessSetting
@@ -167,6 +173,12 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //     },
+ * //     WebAuthnRedirection: { // WebAuthnRedirection
+ * //       Enabled: true || false, // required
+ * //       ProcessCompatibilityList: [ // ProcessCompatibilityList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //     AgentAccessConfig: { // AgentAccessConfig
  * //       Settings: [ // AgentAccessSettingList // required

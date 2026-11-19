@@ -511,6 +511,7 @@ import {
   waitForFleetStopped,
   waitUntilFleetStarted,
   waitUntilFleetStopped,
+  WebAuthnRedirection$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -938,6 +939,7 @@ assert(typeof UserStackAssociation$ === "object");
 assert(typeof UserStackAssociationError$ === "object");
 assert(typeof VolumeConfig$ === "object");
 assert(typeof VpcConfig$ === "object");
+assert(typeof WebAuthnRedirection$ === "object");
 // enums
 assert(typeof AccessEndpointType === "object");
 assert(typeof Action === "object");

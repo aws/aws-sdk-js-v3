@@ -563,6 +563,7 @@ export type {
   UserStackAssociationError,
   VolumeConfig,
   VpcConfig,
+  WebAuthnRedirection,
   ConcurrentModificationException,
   DryRunOperationException,
   EntitlementAlreadyExistsException,

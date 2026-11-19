@@ -4051,6 +4051,24 @@ export interface UserSetting {
 }
 
 /**
+ * <p>Describes the WebAuthn redirection configuration for a stack. With WebAuthn redirection, your users can complete passkey and security-key authentication from a streaming session by using an authenticator attached to their local device.</p>
+ * @public
+ */
+export interface WebAuthnRedirection {
+  /**
+   * <p>Specifies whether WebAuthn redirection is enabled for the stack.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The list of process executable names for which you enable WebAuthn redirection. For example, chrome.exe.</p>
+   * @public
+   */
+  ProcessCompatibilityList?: string[] | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateStackRequest {
@@ -4135,6 +4153,12 @@ export interface CreateStackRequest {
    * @public
    */
   ContentRedirection?: ContentRedirection | undefined;
+
+  /**
+   * <p>Configuration for WebAuthn redirection between the streaming session and the user's local device. Use ProcessCompatibilityList to specify which processes can use WebAuthn redirection on Windows fleets.</p>
+   * @public
+   */
+  WebAuthnRedirection?: WebAuthnRedirection | undefined;
 
   /**
    * <p>The configuration for agent access on the stack. If specified, agent access is enabled for the stack.</p>
@@ -4261,6 +4285,12 @@ export interface Stack {
    * @public
    */
   ContentRedirection?: ContentRedirection | undefined;
+
+  /**
+   * <p>Configuration for WebAuthn redirection between the streaming session and the user's local device. Use ProcessCompatibilityList to specify which processes can use WebAuthn redirection on Windows fleets.</p>
+   * @public
+   */
+  WebAuthnRedirection?: WebAuthnRedirection | undefined;
 
   /**
    * <p>The agent access configuration of the stack, if agent access is enabled.</p>
@@ -7563,6 +7593,12 @@ export interface UpdateStackRequest {
    * @public
    */
   ContentRedirection?: ContentRedirection | undefined;
+
+  /**
+   * <p>Configuration for WebAuthn redirection between the streaming session and the user's local device. Use ProcessCompatibilityList to specify which processes can use WebAuthn redirection on Windows fleets. To remove WebAuthn redirection, use AttributesToDelete with the WEB_AUTHN_REDIRECTION value.</p>
+   * @public
+   */
+  WebAuthnRedirection?: WebAuthnRedirection | undefined;
 
   /**
    * <p>The configuration for agent access on the stack. Specify this to update agent access settings. To remove agent access, use AttributesToDelete with the AGENT_ACCESS_CONFIG value.</p>

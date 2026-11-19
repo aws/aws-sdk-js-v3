@@ -52,7 +52,7 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  *   RedirectURL: "STRING_VALUE",
  *   FeedbackURL: "STRING_VALUE",
  *   AttributesToDelete: [ // StackAttributes
- *     "STORAGE_CONNECTORS" || "STORAGE_CONNECTOR_HOMEFOLDERS" || "STORAGE_CONNECTOR_GOOGLE_DRIVE" || "STORAGE_CONNECTOR_ONE_DRIVE" || "REDIRECT_URL" || "FEEDBACK_URL" || "THEME_NAME" || "USER_SETTINGS" || "EMBED_HOST_DOMAINS" || "IAM_ROLE_ARN" || "ACCESS_ENDPOINTS" || "STREAMING_EXPERIENCE_SETTINGS" || "CONTENT_REDIRECTION" || "AGENT_ACCESS_CONFIG" || "STORAGE_CONNECTOR_AUTHENTICATION" || "AGENT_ACCESS_CONFIG_KMS_KEY_ARN",
+ *     "STORAGE_CONNECTORS" || "STORAGE_CONNECTOR_HOMEFOLDERS" || "STORAGE_CONNECTOR_GOOGLE_DRIVE" || "STORAGE_CONNECTOR_ONE_DRIVE" || "REDIRECT_URL" || "FEEDBACK_URL" || "THEME_NAME" || "USER_SETTINGS" || "EMBED_HOST_DOMAINS" || "IAM_ROLE_ARN" || "ACCESS_ENDPOINTS" || "STREAMING_EXPERIENCE_SETTINGS" || "CONTENT_REDIRECTION" || "WEB_AUTHN_REDIRECTION" || "AGENT_ACCESS_CONFIG" || "STORAGE_CONNECTOR_AUTHENTICATION" || "AGENT_ACCESS_CONFIG_KMS_KEY_ARN",
  *   ],
  *   UserSettings: [ // UserSettingList
  *     { // UserSetting
@@ -87,6 +87,12 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  *         "STRING_VALUE",
  *       ],
  *     },
+ *   },
+ *   WebAuthnRedirection: { // WebAuthnRedirection
+ *     Enabled: true || false, // required
+ *     ProcessCompatibilityList: [ // ProcessCompatibilityList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   AgentAccessConfig: { // AgentAccessConfigForUpdate
  *     Settings: [ // AgentAccessSettingList
@@ -168,6 +174,12 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //     },
+ * //     WebAuthnRedirection: { // WebAuthnRedirection
+ * //       Enabled: true || false, // required
+ * //       ProcessCompatibilityList: [ // ProcessCompatibilityList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //     AgentAccessConfig: { // AgentAccessConfig
  * //       Settings: [ // AgentAccessSettingList // required

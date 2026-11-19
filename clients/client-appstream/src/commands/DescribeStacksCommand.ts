@@ -103,6 +103,12 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * //           ],
  * //         },
  * //       },
+ * //       WebAuthnRedirection: { // WebAuthnRedirection
+ * //         Enabled: true || false, // required
+ * //         ProcessCompatibilityList: [ // ProcessCompatibilityList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //       AgentAccessConfig: { // AgentAccessConfig
  * //         Settings: [ // AgentAccessSettingList // required
  * //           { // AgentAccessSetting

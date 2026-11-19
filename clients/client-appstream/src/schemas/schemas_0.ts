@@ -427,6 +427,7 @@ const _OUDN = "OrganizationalUnitDistinguishedNames";
 const _OUDNr = "OrganizationalUnitDistinguishedName";
 const _P = "Permission";
 const _PBIRD = "PublicBaseImageReleasedDate";
+const _PCL = "ProcessCompatibilityList";
 const _PP = "PreferredProtocol";
 const _PSSD = "PostSetupScriptDetails";
 const _PT = "PackagingType";
@@ -604,6 +605,7 @@ const _VSIG = "VolumeSizeInGb";
 const _Va = "Value";
 const _Val = "Values";
 const _Vi = "Visibility";
+const _WAR = "WebAuthnRedirection";
 const _WD = "WorkingDirectory";
 const _WII = "WorkspaceImageId";
 const _aF = "allowFleet";
@@ -1049,8 +1051,8 @@ export var CreateImportedImageResult$: StaticStructureSchema = [3, n0, _CIIRr,
 ];
 export var CreateStackRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_N, _D, _DN, _SC, _RURL, _FURL, _US, _AS, _T, _AEc, _EHD, _SES, _CR, _AAC, _SCA],
-  [0, 0, 0, () => StorageConnectorList, 0, 0, () => UserSettingList, () => ApplicationSettings$, 128 | 0, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfig$, 0], 1
+  [_N, _D, _DN, _SC, _RURL, _FURL, _US, _AS, _T, _AEc, _EHD, _SES, _CR, _WAR, _AAC, _SCA],
+  [0, 0, 0, () => StorageConnectorList, 0, 0, () => UserSettingList, () => ApplicationSettings$, 128 | 0, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => WebAuthnRedirection$, () => AgentAccessConfig$, 0], 1
 ];
 export var CreateStackResult$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -1719,8 +1721,8 @@ export var SoftwareAssociations$: StaticStructureSchema = [3, n0, _SA,
 ];
 export var Stack$: StaticStructureSchema = [3, n0, _Stac,
   0,
-  [_N, _A, _D, _DN, _CT, _SC, _RURL, _FURL, _SE, _US, _AS, _AEc, _EHD, _SES, _CR, _AAC, _SCA],
-  [0, 0, 0, 0, 4, () => StorageConnectorList, 0, 0, () => StackErrors, () => UserSettingList, () => ApplicationSettingsResponse$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfig$, 0], 1
+  [_N, _A, _D, _DN, _CT, _SC, _RURL, _FURL, _SE, _US, _AS, _AEc, _EHD, _SES, _CR, _WAR, _AAC, _SCA],
+  [0, 0, 0, 0, 4, () => StorageConnectorList, 0, 0, () => StackErrors, () => UserSettingList, () => ApplicationSettingsResponse$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => WebAuthnRedirection$, () => AgentAccessConfig$, 0], 1
 ];
 export var StackError$: StaticStructureSchema = [3, n0, _SEt,
   0,
@@ -1909,8 +1911,8 @@ export var UpdateImagePermissionsResult$: StaticStructureSchema = [3, n0, _UIPRp
 ];
 export var UpdateStackRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_N, _DN, _D, _SC, _DSC, _RURL, _FURL, _ATD, _US, _AS, _AEc, _EHD, _SES, _CR, _AAC, _SCA],
-  [0, 0, 0, () => StorageConnectorList, 2, 0, 0, 64 | 0, () => UserSettingList, () => ApplicationSettings$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfigForUpdate$, 0], 1
+  [_N, _DN, _D, _SC, _DSC, _RURL, _FURL, _ATD, _US, _AS, _AEc, _EHD, _SES, _CR, _WAR, _AAC, _SCA],
+  [0, 0, 0, () => StorageConnectorList, 2, 0, 0, 64 | 0, () => UserSettingList, () => ApplicationSettings$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => WebAuthnRedirection$, () => AgentAccessConfigForUpdate$, 0], 1
 ];
 export var UpdateStackResult$: StaticStructureSchema = [3, n0, _USRp,
   0,
@@ -1966,6 +1968,11 @@ export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
   0,
   [_SIu, _SGI],
   [64 | 0, 64 | 0]
+];
+export var WebAuthnRedirection$: StaticStructureSchema = [3, n0, _WAR,
+  0,
+  [_E, _PCL],
+  [2, 64 | 0], 1
 ];
 var AccessEndpointList: StaticListSchema = [1, n0, _AEL,
   0, () => AccessEndpoint$
@@ -2044,6 +2051,7 @@ var LastReportGenerationExecutionErrors: StaticListSchema = [1, n0, _LRGEEa,
 ];
 var OrganizationalUnitDistinguishedNamesList = 64 | 0;
 var Platforms = 64 | 0;
+var ProcessCompatibilityList = 64 | 0;
 var ResourceErrors: StaticListSchema = [1, n0, _REe,
   0, () => ResourceError$
 ];
