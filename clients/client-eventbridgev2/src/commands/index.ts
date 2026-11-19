@@ -19,6 +19,7 @@ export * from "./PutEventsCommand";
 export * from "./PutRawEventsCommand";
 export * from "./PutResourcePolicyCommand";
 export * from "./RevokeResourceCommand";
+export * from "./RotateWebhookCredentialsCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateEventBusCommand";

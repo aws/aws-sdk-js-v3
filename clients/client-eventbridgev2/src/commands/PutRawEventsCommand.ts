@@ -23,7 +23,7 @@ export interface PutRawEventsCommandInput extends PutRawEventsRequest {}
 export interface PutRawEventsCommandOutput extends PutRawEventsResponse, __MetadataBearer {}
 
 /**
- * Publishes pre-shaped events to an event bus.
+ * <p>Publishes pre-shaped events to an event bus.</p> <p>The total size of all event entries in a request must not exceed 1 MB (1,048,576 bytes), including the <code>Data</code> payload and the keys and values of <code>Metadata</code> for each entry. The limit applies to the request as a whole, not to individual entries.</p> <p>If you exceed the limit, the request fails with <code>InvalidInputException</code>, and the service doesn't publish any of the entries in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,29 +81,25 @@ export interface PutRawEventsCommandOutput extends PutRawEventsResponse, __Metad
  * @see {@link EventBridgeV2ClientResolvedConfig | config} for EventBridgeV2Client's `config` shape.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  The resource is not in a state that allows the operation. For example, an
- * event bus that is still being created cannot accept events.
+ *  <p>The resource is not in a state that allows the operation. For example, an event bus that is still being created cannot accept events.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  The resource does not exist.
+ *  <p>The resource does not exist.</p>
  *
  * @throws {@link SchemaRegistryUnavailableException} (client fault)
- *  The configured schema registry could not be reached. Retry the request.
+ *  <p>The configured schema registry could not be reached. Retry the request.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  The caller does not have the permissions required to perform the operation.
- * This error is also returned when the operation cannot use the AWS KMS key for
- * the event bus.
+ *  <p>The caller does not have the permissions required to perform the operation. This error is also returned when the operation cannot use the AWS KMS key for the event bus.</p>
  *
  * @throws {@link InternalException} (server fault)
- *  The request failed because of an internal service error. Retry the request.
+ *  <p>The request failed because of an internal service error. Retry the request.</p>
  *
  * @throws {@link InvalidInputException} (client fault)
- *  A request parameter is missing or not valid.
+ *  <p>A request parameter is missing or not valid.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  The request was throttled because it exceeds a request rate limit. Retry the
- * request with backoff.
+ *  <p>The request was throttled because it exceeds a request rate limit. Retry the request with backoff.</p>
  *
  * @throws {@link EventBridgeV2ServiceException}
  * <p>Base exception class for all service exceptions from EventBridgeV2 service.</p>

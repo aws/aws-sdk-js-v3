@@ -107,6 +107,10 @@ import type {
   PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import type { RevokeResourceCommandInput, RevokeResourceCommandOutput } from "./commands/RevokeResourceCommand";
+import type {
+  RotateWebhookCredentialsCommandInput,
+  RotateWebhookCredentialsCommandOutput,
+} from "./commands/RotateWebhookCredentialsCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateEventBusCommandInput, UpdateEventBusCommandOutput } from "./commands/UpdateEventBusCommand";
@@ -150,6 +154,7 @@ export type ServiceInputTypes =
   | PutRawEventsCommandInput
   | PutResourcePolicyCommandInput
   | RevokeResourceCommandInput
+  | RotateWebhookCredentialsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateEventBusCommandInput
@@ -180,6 +185,7 @@ export type ServiceOutputTypes =
   | PutRawEventsCommandOutput
   | PutResourcePolicyCommandOutput
   | RevokeResourceCommandOutput
+  | RotateWebhookCredentialsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateEventBusCommandOutput
@@ -385,13 +391,7 @@ export type EventBridgeV2ClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface EventBridgeV2ClientResolvedConfig extends EventBridgeV2ClientResolvedConfigType {}
 
 /**
- * Amazon EventBridge event bus API. An event bus receives events published by
- * your applications and AWS services, stores them for a configurable retention
- * period, and delivers them to subscribers. A subscriber filters events,
- * optionally transforms them, and invokes a target such as Lambda, SQS, SNS,
- * Kinesis, Step Functions, or an HTTP endpoint. The API manages event buses,
- * subscribers, event sources, resource policies, and tags, and publishes
- * events through PutEvents and PutRawEvents.
+ * <fullname>Amazon EventBridge Custom Event Bus</fullname> <p>Amazon EventBridge event bus API. An event bus receives events published by your applications and AWS services, stores them for a configurable retention period, and delivers them to subscribers. A subscriber filters events, optionally transforms them, and invokes a target such as Lambda, SQS, SNS, Kinesis, Step Functions, or an HTTP endpoint. The API manages event buses, subscribers, event sources, resource policies, and tags, and publishes events through PutEvents and PutRawEvents.</p>
  * @public
  */
 export class EventBridgeV2Client extends __Client<

@@ -23,8 +23,7 @@ export interface ListResourcePoliciesCommandInput extends ListResourcePoliciesRe
 export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesResponse, __MetadataBearer {}
 
 /**
- * Lists the resource policies attached to an event bus as summaries (policy
- * name and revision ID). Use GetResourcePolicy to retrieve a policy document.
+ * <p>Lists the resource policies attached to an event bus as summaries (policy name and revision ID). Use GetResourcePolicy to retrieve a policy document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,22 +58,19 @@ export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesR
  * @see {@link EventBridgeV2ClientResolvedConfig | config} for EventBridgeV2Client's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  The resource does not exist.
+ *  <p>The resource does not exist.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  The caller does not have the permissions required to perform the operation.
- * This error is also returned when the operation cannot use the AWS KMS key for
- * the event bus.
+ *  <p>The caller does not have the permissions required to perform the operation. This error is also returned when the operation cannot use the AWS KMS key for the event bus.</p>
  *
  * @throws {@link InternalException} (server fault)
- *  The request failed because of an internal service error. Retry the request.
+ *  <p>The request failed because of an internal service error. Retry the request.</p>
  *
  * @throws {@link InvalidInputException} (client fault)
- *  A request parameter is missing or not valid.
+ *  <p>A request parameter is missing or not valid.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  The request was throttled because it exceeds a request rate limit. Retry the
- * request with backoff.
+ *  <p>The request was throttled because it exceeds a request rate limit. Retry the request with backoff.</p>
  *
  * @throws {@link EventBridgeV2ServiceException}
  * <p>Base exception class for all service exceptions from EventBridgeV2 service.</p>

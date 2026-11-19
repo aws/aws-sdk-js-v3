@@ -23,7 +23,7 @@ export interface DescribeEventSourceCommandInput extends DescribeEventSourceRequ
 export interface DescribeEventSourceCommandOutput extends DescribeEventSourceResponse, __MetadataBearer {}
 
 /**
- * Returns the full configuration and lifecycle state of an EventSource.
+ * <p>Returns the full configuration and lifecycle state of an EventSource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,10 +57,54 @@ export interface DescribeEventSourceCommandOutput extends DescribeEventSourceRes
  * //         Arn: "STRING_VALUE",
  * //       },
  * //     },
+ * //     WebhookEventsConfiguration: { // WebhookEventsSourceConfiguration
+ * //       AuthConfiguration: { // WebhookAuthConfiguration Union: only one key present
+ * //         StaticTokenAuthConfiguration: { // WebhookStaticTokenAuthConfiguration
+ * //           TokenHttpHeader: "STRING_VALUE", // required
+ * //           SecretValue: "STRING_VALUE",
+ * //         },
+ * //         BasicHttpAuthConfiguration: { // WebhookBasicHttpAuthConfiguration
+ * //           Username: "STRING_VALUE",
+ * //           Password: "STRING_VALUE",
+ * //         },
+ * //         HmacAuthConfiguration: { // WebhookHmacAuthConfiguration
+ * //           Algorithm: "SHA256" || "SHA1", // required
+ * //           Encoding: "HEX" || "BASE64", // required
+ * //           SignatureHttpHeader: "STRING_VALUE", // required
+ * //           SignaturePrefix: "STRING_VALUE",
+ * //           Delimiter: "STRING_VALUE",
+ * //           TimestampHttpHeader: "STRING_VALUE",
+ * //           TimestampPrefix: "STRING_VALUE",
+ * //           TimestampToleranceInSeconds: Number("int"),
+ * //           MessageIdHttpHeader: "STRING_VALUE",
+ * //           SignedMessageComposition: "BODY" || "TIMESTAMP_DOT_BODY" || "MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY", // required
+ * //           SecretValue: "STRING_VALUE",
+ * //           SecretEncoding: "RAW" || "BASE64",
+ * //         },
+ * //       },
+ * //       KmsKeyIdentifier: "STRING_VALUE",
+ * //       RoleArn: "STRING_VALUE", // required
+ * //       MetadataHttpHeaders: [ // WebhookMetadataHttpHeaderList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DeduplicationConfiguration: { // WebhookDeduplicationConfiguration
+ * //         DeduplicationType: "CONTENT_BASED", // required
+ * //       },
+ * //       LogConfiguration: { // LogConfiguration
+ * //         Level: "OFF" || "ERROR" || "INFO",
+ * //         IncludePayload: "FULL" || "ON_ERROR_ONLY",
+ * //       },
+ * //     },
  * //   },
  * //   Description: "STRING_VALUE",
  * //   State: "CREATING" || "ACTIVE" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
  * //   Revoked: true || false,
+ * //   EventSourceDetails: { // EventSourceDetails
+ * //     WebhookDetails: { // WebhookDetails
+ * //       WebhookUrl: "STRING_VALUE",
+ * //       SecretArn: "STRING_VALUE",
+ * //     },
+ * //   },
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
  * // };
@@ -74,22 +118,19 @@ export interface DescribeEventSourceCommandOutput extends DescribeEventSourceRes
  * @see {@link EventBridgeV2ClientResolvedConfig | config} for EventBridgeV2Client's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  The resource does not exist.
+ *  <p>The resource does not exist.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  The caller does not have the permissions required to perform the operation.
- * This error is also returned when the operation cannot use the AWS KMS key for
- * the event bus.
+ *  <p>The caller does not have the permissions required to perform the operation. This error is also returned when the operation cannot use the AWS KMS key for the event bus.</p>
  *
  * @throws {@link InternalException} (server fault)
- *  The request failed because of an internal service error. Retry the request.
+ *  <p>The request failed because of an internal service error. Retry the request.</p>
  *
  * @throws {@link InvalidInputException} (client fault)
- *  A request parameter is missing or not valid.
+ *  <p>A request parameter is missing or not valid.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  The request was throttled because it exceeds a request rate limit. Retry the
- * request with backoff.
+ *  <p>The request was throttled because it exceeds a request rate limit. Retry the request with backoff.</p>
  *
  * @throws {@link EventBridgeV2ServiceException}
  * <p>Base exception class for all service exceptions from EventBridgeV2 service.</p>

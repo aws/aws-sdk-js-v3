@@ -23,7 +23,7 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRe
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * Deletes the named resource policy attached to an event bus.
+ * <p>Deletes the named resource policy attached to an event bus.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,37 +52,25 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @see {@link EventBridgeV2ClientResolvedConfig | config} for EventBridgeV2Client's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  Another change to the resource is already in progress. Retry the request.
+ *  <p>Another change to the resource is already in progress. Retry the request.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  A client-supplied precondition (e.g. ExpectedRevisionId on a resource-policy
- * write) did not match the current state of the resource. Retrying the same
- * request will fail again; re-read the resource and re-evaluate before retrying.
- *
- * A conditional request is not retry-safe on its own. If an earlier attempt
- * committed but its response never reached the caller, retrying fails with this
- * error, which is indistinguishable from another writer having won. Compare the
- * resource's current contents with what the request intended: a successful
- * attempt stores a revision ID the caller never saw, so the revision alone
- * cannot tell the two apart, but matching contents mean the change took effect.
+ *  <p>A client-supplied precondition (e.g. ExpectedRevisionId on a resource-policy write) did not match the current state of the resource. Retrying the same request will fail again; re-read the resource and re-evaluate before retrying.</p> <p>A conditional request is not retry-safe on its own. If an earlier attempt committed but its response never reached the caller, retrying fails with this error, which is indistinguishable from another writer having won. Compare the resource's current contents with what the request intended: a successful attempt stores a revision ID the caller never saw, so the revision alone cannot tell the two apart, but matching contents mean the change took effect.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  The resource does not exist.
+ *  <p>The resource does not exist.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  The caller does not have the permissions required to perform the operation.
- * This error is also returned when the operation cannot use the AWS KMS key for
- * the event bus.
+ *  <p>The caller does not have the permissions required to perform the operation. This error is also returned when the operation cannot use the AWS KMS key for the event bus.</p>
  *
  * @throws {@link InternalException} (server fault)
- *  The request failed because of an internal service error. Retry the request.
+ *  <p>The request failed because of an internal service error. Retry the request.</p>
  *
  * @throws {@link InvalidInputException} (client fault)
- *  A request parameter is missing or not valid.
+ *  <p>A request parameter is missing or not valid.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  The request was throttled because it exceeds a request rate limit. Retry the
- * request with backoff.
+ *  <p>The request was throttled because it exceeds a request rate limit. Retry the request with backoff.</p>
  *
  * @throws {@link EventBridgeV2ServiceException}
  * <p>Base exception class for all service exceptions from EventBridgeV2 service.</p>

@@ -4,9 +4,7 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { EventBridgeV2ServiceException as __BaseException } from "./EventBridgeV2ServiceException";
 
 /**
- * The caller does not have the permissions required to perform the operation.
- * This error is also returned when the operation cannot use the AWS KMS key for
- * the event bus.
+ * <p>The caller does not have the permissions required to perform the operation. This error is also returned when the operation cannot use the AWS KMS key for the event bus.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,7 +27,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * Another change to the resource is already in progress. Retry the request.
+ * <p>Another change to the resource is already in progress. Retry the request.</p>
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -53,8 +51,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * The request reuses the client token of an earlier request with different
- * parameters. Use a new client token, or resend the earlier request unchanged.
+ * <p>The request reuses the client token of an earlier request with different parameters. Use a new client token, or resend the earlier request unchanged.</p>
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
@@ -77,7 +74,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
- * The request failed because of an internal service error. Retry the request.
+ * <p>The request failed because of an internal service error. Retry the request.</p>
  * @public
  */
 export class InternalException extends __BaseException {
@@ -101,7 +98,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * A request parameter is missing or not valid.
+ * <p>A request parameter is missing or not valid.</p>
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -124,8 +121,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * The resource is not in a state that allows the operation. For example, an
- * event bus that is still being created cannot accept events.
+ * <p>The resource is not in a state that allows the operation. For example, an event bus that is still being created cannot accept events.</p>
  * @public
  */
 export class InvalidStateException extends __BaseException {
@@ -148,7 +144,7 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
- * The request would exceed a service quota for the account.
+ * <p>The request would exceed a service quota for the account.</p>
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -171,7 +167,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * A resource with the same name already exists.
+ * <p>A resource with the same name already exists.</p>
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -194,8 +190,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * The request was throttled because it exceeds a request rate limit. Retry the
- * request with backoff.
+ * <p>The request was throttled because it exceeds a request rate limit. Retry the request with backoff.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -221,7 +216,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * The resource does not exist.
+ * <p>The resource does not exist.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -244,8 +239,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * The resource is in use and cannot be deleted. For example, an event bus with
- * subscribers or event sources cannot be deleted until they are deleted.
+ * <p>The resource is in use and cannot be deleted. For example, an event bus with subscribers or event sources cannot be deleted until they are deleted.</p>
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -268,16 +262,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * A client-supplied precondition (e.g. ExpectedRevisionId on a resource-policy
- * write) did not match the current state of the resource. Retrying the same
- * request will fail again; re-read the resource and re-evaluate before retrying.
- *
- * A conditional request is not retry-safe on its own. If an earlier attempt
- * committed but its response never reached the caller, retrying fails with this
- * error, which is indistinguishable from another writer having won. Compare the
- * resource's current contents with what the request intended: a successful
- * attempt stores a revision ID the caller never saw, so the revision alone
- * cannot tell the two apart, but matching contents mean the change took effect.
+ * <p>A client-supplied precondition (e.g. ExpectedRevisionId on a resource-policy write) did not match the current state of the resource. Retrying the same request will fail again; re-read the resource and re-evaluate before retrying.</p> <p>A conditional request is not retry-safe on its own. If an earlier attempt committed but its response never reached the caller, retrying fails with this error, which is indistinguishable from another writer having won. Compare the resource's current contents with what the request intended: a successful attempt stores a revision ID the caller never saw, so the revision alone cannot tell the two apart, but matching contents mean the change took effect.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -300,7 +285,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * The configured schema registry could not be reached. Retry the request.
+ * <p>The configured schema registry could not be reached. Retry the request.</p>
  * @public
  */
 export class SchemaRegistryUnavailableException extends __BaseException {
@@ -324,8 +309,7 @@ export class SchemaRegistryUnavailableException extends __BaseException {
 }
 
 /**
- * The policy document is larger than the account's resource policy size quota, or
- * larger than the service maximum.
+ * <p>The policy document exceeds the maximum allowed size.</p>
  * @public
  */
 export class PolicyLengthExceededException extends __BaseException {
@@ -348,15 +332,7 @@ export class PolicyLengthExceededException extends __BaseException {
 }
 
 /**
- * The policy was rejected because it would grant public access to the event bus.
- * A statement grants public access when its principal is a wildcard and no
- * condition limits the callers to specific AWS accounts or principals. To fix
- * it, replace the wildcard principal with specific principals, or add a
- * condition that limits the callers to specific AWS accounts. Conditions on
- * event content (events:source, events:detail-type, events:Metadata/*) do not
- * identify the caller and do not make a wildcard principal non-public. Returned
- * only for the "default" policy; the "AWS_RAM" policy is composed by AWS
- * Resource Access Manager and never grants public access.
+ * <p>The policy was rejected because it would grant public access to the event bus. A statement grants public access when its principal is a wildcard and no condition limits the callers to specific AWS accounts or principals. To fix it, replace the wildcard principal with specific principals, or add a condition that limits the callers to specific AWS accounts. Conditions on event content (events:source, events:detail-type, events:Metadata/*) do not identify the caller and do not make a wildcard principal non-public. Returned only for the "default" policy; the "AWS_RAM" policy is composed by AWS Resource Access Manager and never grants public access.</p>
  * @public
  */
 export class PublicPolicyException extends __BaseException {

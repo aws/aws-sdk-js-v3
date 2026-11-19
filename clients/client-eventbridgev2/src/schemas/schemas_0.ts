@@ -1,9 +1,14 @@
-const _A = "Arn";
+const _A = "Acks";
+const _AC = "AuthConfiguration";
 const _ADE = "AccessDeniedException";
 const _AS = "AwsService";
 const _ASEC = "AwsServiceEventsConfiguration";
 const _ASESC = "AwsServiceEventsSourceConfiguration";
+const _Al = "Algorithm";
+const _Ar = "Arn";
 const _BC = "BatchConfiguration";
+const _BHAC = "BasicHttpAuthConfiguration";
+const _BHP = "BasicHttpPassword";
 const _BV = "BinaryValue";
 const _C = "Configuration";
 const _CA = "ConnectionArn";
@@ -14,14 +19,19 @@ const _CEBRr = "CreateEventBusResponse";
 const _CES = "CreateEventSource";
 const _CESR = "CreateEventSourceRequest";
 const _CESRr = "CreateEventSourceResponse";
+const _CI = "ClientId";
 const _CME = "ConcurrentModificationException";
 const _CPRC = "ConfluentPublicRegistryConfiguration";
-const _CS = "CreateSubscriber";
+const _CS = "ConnectivityState";
 const _CSR = "CreateSubscriberRequest";
 const _CSRr = "CreateSubscriberResponse";
+const _CSr = "CreateSubscriber";
 const _CT = "ClientToken";
 const _CTo = "ContentType";
 const _CTr = "CreationTime";
+const _Co = "Connectivity";
+const _Com = "Compression";
+const _Cr = "Credential";
 const _D = "Description";
 const _DC = "DeduplicationConfiguration";
 const _DEB = "DeleteEventBus";
@@ -53,6 +63,7 @@ const _DTa = "DataType";
 const _DTe = "DetailType";
 const _Da = "Data";
 const _De = "Detail";
+const _Del = "Delimiter";
 const _E = "Expression";
 const _EB = "EventBuses";
 const _EBA = "EventBusArn";
@@ -78,9 +89,11 @@ const _ES = "EventSources";
 const _ESA = "EventSourceArn";
 const _ESAI = "EventSourceAccountId";
 const _ESC = "EventSourceConfiguration";
+const _ESD = "EventSourceDetails";
 const _ESS = "EventSourceSummary";
 const _ESSL = "EventSourceSummaryList";
 const _En = "Entries";
+const _Enc = "Encoding";
 const _F = "Filter";
 const _FC = "FilterConfiguration";
 const _FEC = "FailedEntryCount";
@@ -89,8 +102,11 @@ const _Fi = "Filters";
 const _GRP = "GetResourcePolicy";
 const _GRPR = "GetResourcePolicyRequest";
 const _GRPRe = "GetResourcePolicyResponse";
+const _H = "Headers";
+const _HAC = "HmacAuthConfiguration";
 const _HP = "HttpParameters";
 const _HPe = "HeaderParameters";
+const _HSV = "HmacSecretValue";
 const _I = "Input";
 const _IC = "InvokeConfiguration";
 const _IE = "InternalException";
@@ -101,6 +117,7 @@ const _ISE = "InvalidStateException";
 const _IT = "InvocationType";
 const _ITS = "InvocationTimeoutSeconds";
 const _JC = "JsonataConfiguration";
+const _K = "Key";
 const _KKI = "KmsKeyIdentifier";
 const _KP = "KinesisParameters";
 const _L = "Language";
@@ -128,9 +145,15 @@ const _M = "Message";
 const _MA = "MessageAttributes";
 const _MBS = "MaxBatchSize";
 const _MBWIS = "MaxBatchWindowInSeconds";
+const _MD = "MskDetails";
 const _MDI = "MessageDeduplicationId";
 const _MEAIS = "MaxEventAgeInSeconds";
 const _MGI = "MessageGroupId";
+const _MH = "MskHeader";
+const _MHH = "MetadataHttpHeaders";
+const _MHL = "MskHeaderList";
+const _MIHH = "MessageIdHttpHeader";
+const _MP = "MskParameters";
 const _MR = "MaxResults";
 const _MRA = "MaxRetryAttempts";
 const _MS = "MessageStructure";
@@ -173,6 +196,7 @@ const _PRPR = "PutResourcePolicyRequest";
 const _PRPRu = "PutResourcePolicyResponse";
 const _PS = "PolicySummaries";
 const _PT = "PointType";
+const _Pa = "Password";
 const _Q = "Qualifier";
 const _QSP = "QueryStringParameters";
 const _R = "Revoked";
@@ -192,22 +216,31 @@ const _RRR = "RevokeResourceRequest";
 const _RRRe = "RevokeResourceResponse";
 const _RS = "RetryStrategy";
 const _RU = "RegistryUri";
+const _RWC = "RotateWebhookCredentials";
+const _RWCR = "RotateWebhookCredentialsRequest";
+const _RWCRo = "RotateWebhookCredentialsResponse";
 const _RWST = "RetentionWindowStartTime";
 const _Re = "Resources";
 const _S = "State";
 const _SA = "SubscriberArn";
 const _SAI = "SubscriberAccountId";
+const _SAe = "SecretArn";
 const _SC = "StorageConfiguration";
 const _SCO = "StorageConfigurationOutput";
 const _SCu = "SuccessCode";
+const _SD = "SubscriberDetails";
+const _SE = "SecretEncoding";
 const _SFP = "StepFunctionsParameters";
+const _SHH = "SignatureHttpHeader";
 const _SM = "SystemMetadata";
 const _SMAM = "SnsMessageAttributeMap";
 const _SMAMq = "SqsMessageAttributeMap";
 const _SMAV = "SnsMessageAttributeValue";
 const _SMAVq = "SqsMessageAttributeValue";
+const _SMC = "SignedMessageComposition";
 const _SN = "SequenceNumber";
 const _SP = "StartingPosition";
+const _SPi = "SignaturePrefix";
 const _SPn = "SnsParameters";
 const _SPq = "SqsParameters";
 const _SPt = "StartingPoint";
@@ -216,7 +249,10 @@ const _SRC = "SchemaRegistryConfiguration";
 const _SRUE = "SchemaRegistryUnavailableException";
 const _SS = "SubscriberSummary";
 const _SSL = "SubscriberSummaryList";
+const _STAC = "StaticTokenAuthConfiguration";
+const _STSV = "StaticTokenSecretValue";
 const _SV = "StringValue";
+const _SVe = "SecretValue";
 const _Sc = "Scope";
 const _So = "Source";
 const _Su = "Subscribers";
@@ -225,14 +261,20 @@ const _T = "Tags";
 const _TA = "TargetArn";
 const _TE = "ThrottlingException";
 const _TH = "TraceHeader";
+const _THH = "TimestampHttpHeader";
+const _THHo = "TokenHttpHeader";
 const _TI = "TenantId";
 const _TK = "TagKeys";
+const _TN = "TopicName";
+const _TP = "TimestampPrefix";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
+const _TTIS = "TimestampToleranceInSeconds";
 const _Ti = "Time";
 const _Tr = "Transformer";
 const _Ty = "Type";
+const _U = "Username";
 const _UEB = "UpdateEventBus";
 const _UEBR = "UpdateEventBusRequest";
 const _UEBRp = "UpdateEventBusResponse";
@@ -247,6 +289,19 @@ const _US = "UpdateSubscriber";
 const _USR = "UpdateSubscriberRequest";
 const _USRp = "UpdateSubscriberResponse";
 const _UTP = "UniversalTargetParameters";
+const _V = "Value";
+const _VCA = "VpcConnectionArn";
+const _WAC = "WebhookAuthConfiguration";
+const _WBHAC = "WebhookBasicHttpAuthConfiguration";
+const _WC = "WebhookCredential";
+const _WD = "WebhookDetails";
+const _WDC = "WebhookDeduplicationConfiguration";
+const _WEC = "WebhookEventsConfiguration";
+const _WESC = "WebhookEventsSourceConfiguration";
+const _WHAC = "WebhookHmacAuthConfiguration";
+const _WSTAC = "WebhookStaticTokenAuthConfiguration";
+const _WSV = "WebhookSecretValue";
+const _WU = "WebhookUrl";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
@@ -393,6 +448,8 @@ var EventData: StaticSimpleSchema = [0, n0, _ED, 8, 21];
 var EventDetail: StaticSimpleSchema = [0, n0, _EDv, 8, 0];
 var EventMetadataValue: StaticSimpleSchema = [0, n0, _EMV, 8, 0];
 var EventPattern: StaticSimpleSchema = [0, n0, _EP, 8, 0];
+var WebhookSecretValue: StaticSimpleSchema = [0, n0, _WSV, 8, 0];
+var WebhookUrl: StaticSimpleSchema = [0, n0, _WU, 8, 0];
 export var AwsServiceEventsSourceConfiguration$: StaticStructureSchema = [3, n0, _ASESC,
   0,
   [_AS, _P, _OFC],
@@ -425,8 +482,8 @@ export var CreateEventSourceRequest$: StaticStructureSchema = [3, n0, _CESR,
 ];
 export var CreateEventSourceResponse$: StaticStructureSchema = [3, n0, _CESRr,
   0,
-  [_ESA, _N, _EBA, _S, _CTr],
-  [0, 0, 0, 0, 4]
+  [_ESA, _N, _EBA, _S, _ESD, _CTr],
+  [0, 0, 0, 0, [() => EventSourceDetails$, 0], 4]
 ];
 export var CreateSubscriberRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
@@ -435,8 +492,8 @@ export var CreateSubscriberRequest$: StaticStructureSchema = [3, n0, _CSR,
 ];
 export var CreateSubscriberResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
-  [_SA, _N, _EBA, _Ty, _SP, _PITC, _S, _CTr],
-  [0, 0, 0, 0, 0, () => PointInTimeConfiguration$, 0, 4]
+  [_SA, _N, _EBA, _Ty, _SP, _PITC, _S, _CTr, _SD],
+  [0, 0, 0, 0, 0, () => PointInTimeConfiguration$, 0, 4, () => SubscriberDetails$]
 ];
 export var DeduplicationConfiguration$: StaticStructureSchema = [3, n0, _DC,
   0,
@@ -500,8 +557,8 @@ export var DescribeEventSourceRequest$: StaticStructureSchema = [3, n0, _DESRes,
 ];
 export var DescribeEventSourceResponse$: StaticStructureSchema = [3, n0, _DESResc,
   0,
-  [_ESA, _N, _EBA, _C, _D, _S, _R, _CTr, _LMT],
-  [0, 0, 0, [() => EventSourceConfiguration$, 0], 0, 0, 2, 4, 4]
+  [_ESA, _N, _EBA, _C, _D, _S, _R, _ESD, _CTr, _LMT],
+  [0, 0, 0, [() => EventSourceConfiguration$, 0], 0, 0, 2, [() => EventSourceDetails$, 0], 4, 4]
 ];
 export var DescribeSubscriberRequest$: StaticStructureSchema = [3, n0, _DSRes,
   0,
@@ -510,8 +567,8 @@ export var DescribeSubscriberRequest$: StaticStructureSchema = [3, n0, _DSRes,
 ];
 export var DescribeSubscriberResponse$: StaticStructureSchema = [3, n0, _DSResc,
   0,
-  [_SA, _N, _EBA, _IC, _D, _FC, _Ty, _SP, _PITC, _BC, _Tr, _RP, _OFC, _LC, _S, _R, _CTr, _LMT],
-  [0, 0, 0, [() => InvokeConfiguration$, 0], 0, [() => FilterConfiguration$, 0], 0, 0, () => PointInTimeConfiguration$, () => BatchConfiguration$, [() => Transformer$, 0], () => RetryPolicy$, () => OnFailureConfiguration$, () => LogConfiguration$, 0, 2, 4, 4]
+  [_SA, _N, _EBA, _IC, _D, _FC, _Ty, _SP, _PITC, _BC, _Tr, _RP, _OFC, _LC, _S, _R, _CTr, _LMT, _SD],
+  [0, 0, 0, [() => InvokeConfiguration$, 0], 0, [() => FilterConfiguration$, 0], 0, 0, () => PointInTimeConfiguration$, () => BatchConfiguration$, [() => Transformer$, 0], () => RetryPolicy$, () => OnFailureConfiguration$, () => LogConfiguration$, 0, 2, 4, 4, () => SubscriberDetails$]
 ];
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
@@ -532,6 +589,11 @@ export var EventBusV2SystemMetadata$: StaticStructureSchema = [3, n0, _EBVSM,
   0,
   [_EGI, _DI],
   [0, 0]
+];
+export var EventSourceDetails$: StaticStructureSchema = [3, n0, _ESD,
+  0,
+  [_WD],
+  [[() => WebhookDetails$, 0]]
 ];
 export var EventSourceSummary$: StaticStructureSchema = [3, n0, _ESS,
   0,
@@ -565,8 +627,8 @@ export var HttpParameters$: StaticStructureSchema = [3, n0, _HP,
 ];
 export var InvokeConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
-  [_RAo, _TA, _LP, _SPq, _SPn, _KP, _SFP, _HP, _UTP, _EBVP],
-  [0, 0, [() => LambdaParameters$, 0], [() => SqsParameters$, 0], [() => SnsParameters$, 0], [() => KinesisParameters$, 0], [() => StepFunctionsParameters$, 0], [() => HttpParameters$, 0], [() => UniversalTargetParameters$, 0], [() => EventBusV2Parameters$, 0]], 2
+  [_RAo, _TA, _LP, _SPq, _SPn, _KP, _SFP, _HP, _UTP, _EBVP, _MP],
+  [0, 0, [() => LambdaParameters$, 0], [() => SqsParameters$, 0], [() => SnsParameters$, 0], [() => KinesisParameters$, 0], [() => StepFunctionsParameters$, 0], [() => HttpParameters$, 0], [() => UniversalTargetParameters$, 0], [() => EventBusV2Parameters$, 0], [() => MskParameters$, 0]], 2
 ];
 export var JsonataConfiguration$: StaticStructureSchema = [3, n0, _JC,
   8,
@@ -638,9 +700,24 @@ export var LogConfiguration$: StaticStructureSchema = [3, n0, _LC,
   [_Le, _IP],
   [0, 0]
 ];
+export var MskDetails$: StaticStructureSchema = [3, n0, _MD,
+  0,
+  [_CS, _SR, _VCA],
+  [0, 0, 0]
+];
+export var MskHeader$: StaticStructureSchema = [3, n0, _MH,
+  0,
+  [_K, _V],
+  [0, 0], 1
+];
+export var MskParameters$: StaticStructureSchema = [3, n0, _MP,
+  8,
+  [_TN, _Co, _Com, _A, _PK, _H, _CI],
+  [0, 0, 0, 0, 0, () => MskHeaderList, 0], 2
+];
 export var OnFailureConfiguration$: StaticStructureSchema = [3, n0, _OFC,
   0,
-  [_A],
+  [_Ar],
   [0]
 ];
 export var PartnerEventsSourceConfiguration$: StaticStructureSchema = [3, n0, _PESC,
@@ -725,13 +802,23 @@ export var RetryPolicy$: StaticStructureSchema = [3, n0, _RP,
 ];
 export var RevokeResourceRequest$: StaticStructureSchema = [3, n0, _RRR,
   0,
-  [_A],
+  [_Ar],
   [0], 1
 ];
 export var RevokeResourceResponse$: StaticStructureSchema = [3, n0, _RRRe,
   0,
-  [_A],
+  [_Ar],
   [0]
+];
+export var RotateWebhookCredentialsRequest$: StaticStructureSchema = [3, n0, _RWCR,
+  0,
+  [_ESA, _Cr, _CT],
+  [0, [() => WebhookCredential$, 0], [0, 4]], 1
+];
+export var RotateWebhookCredentialsResponse$: StaticStructureSchema = [3, n0, _RWCRo,
+  0,
+  [_SAe],
+  [0], 1
 ];
 export var SchemaRegistryConfiguration$: StaticStructureSchema = [3, n0, _SRC,
   0,
@@ -772,6 +859,11 @@ export var StorageConfigurationOutput$: StaticStructureSchema = [3, n0, _SCO,
   0,
   [_RPID, _RWST],
   [1, 4]
+];
+export var SubscriberDetails$: StaticStructureSchema = [3, n0, _SD,
+  0,
+  [_MD],
+  [() => MskDetails$]
 ];
 export var SubscriberSummary$: StaticStructureSchema = [3, n0, _SS,
   0,
@@ -830,8 +922,8 @@ export var UpdateEventSourceResponse$: StaticStructureSchema = [3, n0, _UESRp,
 ];
 export var UpdateInvokeConfiguration$: StaticStructureSchema = [3, n0, _UIC,
   0,
-  [_RAo, _LP, _SPq, _SPn, _KP, _SFP, _HP, _UTP, _EBVP],
-  [0, [() => LambdaParameters$, 0], [() => SqsParameters$, 0], [() => SnsParameters$, 0], [() => KinesisParameters$, 0], [() => StepFunctionsParameters$, 0], [() => HttpParameters$, 0], [() => UniversalTargetParameters$, 0], [() => EventBusV2Parameters$, 0]], 1
+  [_RAo, _LP, _SPq, _SPn, _KP, _SFP, _HP, _UTP, _EBVP, _MP],
+  [0, [() => LambdaParameters$, 0], [() => SqsParameters$, 0], [() => SnsParameters$, 0], [() => KinesisParameters$, 0], [() => StepFunctionsParameters$, 0], [() => HttpParameters$, 0], [() => UniversalTargetParameters$, 0], [() => EventBusV2Parameters$, 0], [() => MskParameters$, 0]], 1
 ];
 export var UpdateSubscriberRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
@@ -840,8 +932,38 @@ export var UpdateSubscriberRequest$: StaticStructureSchema = [3, n0, _USR,
 ];
 export var UpdateSubscriberResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
-  [_SA, _N, _EBA, _Ty, _SP, _PITC, _S, _LMT],
-  [0, 0, 0, 0, 0, () => PointInTimeConfiguration$, 0, 4]
+  [_SA, _N, _EBA, _Ty, _SP, _PITC, _S, _LMT, _SD],
+  [0, 0, 0, 0, 0, () => PointInTimeConfiguration$, 0, 4, () => SubscriberDetails$]
+];
+export var WebhookBasicHttpAuthConfiguration$: StaticStructureSchema = [3, n0, _WBHAC,
+  0,
+  [_U, _Pa],
+  [0, [() => WebhookSecretValue, 0]]
+];
+export var WebhookDeduplicationConfiguration$: StaticStructureSchema = [3, n0, _WDC,
+  0,
+  [_DT],
+  [0], 1
+];
+export var WebhookDetails$: StaticStructureSchema = [3, n0, _WD,
+  0,
+  [_WU, _SAe],
+  [[() => WebhookUrl, 0], 0]
+];
+export var WebhookEventsSourceConfiguration$: StaticStructureSchema = [3, n0, _WESC,
+  0,
+  [_AC, _RAo, _KKI, _MHH, _DC, _LC],
+  [[() => WebhookAuthConfiguration$, 0], 0, 0, 64 | 0, () => WebhookDeduplicationConfiguration$, () => LogConfiguration$], 2
+];
+export var WebhookHmacAuthConfiguration$: StaticStructureSchema = [3, n0, _WHAC,
+  0,
+  [_Al, _Enc, _SHH, _SMC, _SPi, _Del, _THH, _TP, _TTIS, _MIHH, _SVe, _SE],
+  [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, [() => WebhookSecretValue, 0], 0], 4
+];
+export var WebhookStaticTokenAuthConfiguration$: StaticStructureSchema = [3, n0, _WSTAC,
+  0,
+  [_THHo, _SVe],
+  [0, [() => WebhookSecretValue, 0]], 1
 ];
 var EventBusSummaryList: StaticListSchema = [1, n0, _EBSL,
   0, () => EventBusSummary$
@@ -852,6 +974,9 @@ var EventSourceSummaryList: StaticListSchema = [1, n0, _ESSL,
 var FilterList: StaticListSchema = [1, n0, _FL,
   0, [() => Filter$,
     0]
+];
+var MskHeaderList: StaticListSchema = [1, n0, _MHL,
+  0, () => MskHeader$
 ];
 var PathParameterList = 64 | 0;
 var PutEventsRequestEntryList: StaticListSchema = [1, n0, _PEREL,
@@ -876,6 +1001,7 @@ var SubscriberSummaryList: StaticListSchema = [1, n0, _SSL,
   0, () => SubscriberSummary$
 ];
 var TagKeyList = 64 | 0;
+var WebhookMetadataHttpHeaderList = 64 | 0;
 var EventBusV2MetadataMap = 128 | 0;
 var EventMetadataMap: StaticMapSchema = [2, n0, _EMM,
   0, [0,
@@ -894,8 +1020,18 @@ var SqsMessageAttributeMap: StaticMapSchema = [2, n0, _SMAMq,
 var TagMap = 128 | 0;
 export var EventSourceConfiguration$: StaticUnionSchema = [4, n0, _ESC,
   0,
-  [_ASEC, _PEC],
-  [[() => AwsServiceEventsSourceConfiguration$, 0], [() => PartnerEventsSourceConfiguration$, 0]]
+  [_ASEC, _PEC, _WEC],
+  [[() => AwsServiceEventsSourceConfiguration$, 0], [() => PartnerEventsSourceConfiguration$, 0], [() => WebhookEventsSourceConfiguration$, 0]]
+];
+export var WebhookAuthConfiguration$: StaticUnionSchema = [4, n0, _WAC,
+  0,
+  [_STAC, _BHAC, _HAC],
+  [[() => WebhookStaticTokenAuthConfiguration$, 0], [() => WebhookBasicHttpAuthConfiguration$, 0], [() => WebhookHmacAuthConfiguration$, 0]]
+];
+export var WebhookCredential$: StaticUnionSchema = [4, n0, _WC,
+  0,
+  [_STSV, _BHP, _HSV],
+  [[() => WebhookSecretValue, 0], [() => WebhookSecretValue, 0], [() => WebhookSecretValue, 0]]
 ];
 export var CreateEventBus$: StaticOperationSchema = [9, n0, _CEB,
   0, () => CreateEventBusRequest$, () => CreateEventBusResponse$
@@ -903,7 +1039,7 @@ export var CreateEventBus$: StaticOperationSchema = [9, n0, _CEB,
 export var CreateEventSource$: StaticOperationSchema = [9, n0, _CES,
   0, () => CreateEventSourceRequest$, () => CreateEventSourceResponse$
 ];
-export var CreateSubscriber$: StaticOperationSchema = [9, n0, _CS,
+export var CreateSubscriber$: StaticOperationSchema = [9, n0, _CSr,
   0, () => CreateSubscriberRequest$, () => CreateSubscriberResponse$
 ];
 export var DeleteEventBus$: StaticOperationSchema = [9, n0, _DEB,
@@ -956,6 +1092,9 @@ export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
 ];
 export var RevokeResource$: StaticOperationSchema = [9, n0, _RR,
   2, () => RevokeResourceRequest$, () => RevokeResourceResponse$
+];
+export var RotateWebhookCredentials$: StaticOperationSchema = [9, n0, _RWC,
+  0, () => RotateWebhookCredentialsRequest$, () => RotateWebhookCredentialsResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   2, () => TagResourceRequest$, () => TagResourceResponse$

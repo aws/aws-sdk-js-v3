@@ -23,10 +23,7 @@ export interface ListEventBusesCommandInput extends ListEventBusesRequest {}
 export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __MetadataBearer {}
 
 /**
- * Lists the event buses visible to the caller: buses the account owns and buses
- * shared with it through AWS RAM. Shared entries carry identity fields only
- * (Name, EventBusArn, EventBusAccountId); owned entries carry every summary field.
- * Set EventBusAccountId to scope the list to one owner account.
+ * <p>Lists the event buses visible to the caller: buses the account owns and buses shared with it through AWS RAM. Shared entries carry identity fields only (Name, EventBusArn, EventBusAccountId); owned entries carry every summary field. Set EventBusAccountId to scope the list to one owner account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,19 +65,16 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * @see {@link EventBridgeV2ClientResolvedConfig | config} for EventBridgeV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  The caller does not have the permissions required to perform the operation.
- * This error is also returned when the operation cannot use the AWS KMS key for
- * the event bus.
+ *  <p>The caller does not have the permissions required to perform the operation. This error is also returned when the operation cannot use the AWS KMS key for the event bus.</p>
  *
  * @throws {@link InternalException} (server fault)
- *  The request failed because of an internal service error. Retry the request.
+ *  <p>The request failed because of an internal service error. Retry the request.</p>
  *
  * @throws {@link InvalidInputException} (client fault)
- *  A request parameter is missing or not valid.
+ *  <p>A request parameter is missing or not valid.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  The request was throttled because it exceeds a request rate limit. Retry the
- * request with backoff.
+ *  <p>The request was throttled because it exceeds a request rate limit. Retry the request with backoff.</p>
  *
  * @throws {@link EventBridgeV2ServiceException}
  * <p>Base exception class for all service exceptions from EventBridgeV2 service.</p>

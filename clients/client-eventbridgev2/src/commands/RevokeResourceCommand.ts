@@ -23,10 +23,7 @@ export interface RevokeResourceCommandInput extends RevokeResourceRequest {}
 export interface RevokeResourceCommandOutput extends RevokeResourceResponse, __MetadataBearer {}
 
 /**
- * Revokes a subscriber or an EventSource. The bus owner calls this to withdraw a
- * misbehaving resource attached to their bus. Revocation is terminal: there is no
- * operation that clears it. A revoked resource refuses mutating operations with
- * InvalidStateException; delete stays available for cleanup.
+ * <p>Revokes a subscriber or an EventSource. The bus owner calls this to withdraw a misbehaving resource attached to their bus. Revocation is terminal: there is no operation that clears it. A revoked resource refuses mutating operations with InvalidStateException; delete stays available for cleanup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,29 +50,25 @@ export interface RevokeResourceCommandOutput extends RevokeResourceResponse, __M
  * @see {@link EventBridgeV2ClientResolvedConfig | config} for EventBridgeV2Client's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  Another change to the resource is already in progress. Retry the request.
+ *  <p>Another change to the resource is already in progress. Retry the request.</p>
  *
  * @throws {@link InvalidStateException} (client fault)
- *  The resource is not in a state that allows the operation. For example, an
- * event bus that is still being created cannot accept events.
+ *  <p>The resource is not in a state that allows the operation. For example, an event bus that is still being created cannot accept events.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  The resource does not exist.
+ *  <p>The resource does not exist.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  The caller does not have the permissions required to perform the operation.
- * This error is also returned when the operation cannot use the AWS KMS key for
- * the event bus.
+ *  <p>The caller does not have the permissions required to perform the operation. This error is also returned when the operation cannot use the AWS KMS key for the event bus.</p>
  *
  * @throws {@link InternalException} (server fault)
- *  The request failed because of an internal service error. Retry the request.
+ *  <p>The request failed because of an internal service error. Retry the request.</p>
  *
  * @throws {@link InvalidInputException} (client fault)
- *  A request parameter is missing or not valid.
+ *  <p>A request parameter is missing or not valid.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  The request was throttled because it exceeds a request rate limit. Retry the
- * request with backoff.
+ *  <p>The request was throttled because it exceeds a request rate limit. Retry the request with backoff.</p>
  *
  * @throws {@link EventBridgeV2ServiceException}
  * <p>Base exception class for all service exceptions from EventBridgeV2 service.</p>

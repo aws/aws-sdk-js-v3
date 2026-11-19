@@ -105,6 +105,11 @@ import {
   RevokeResourceCommand,
 } from "./commands/RevokeResourceCommand";
 import {
+  type RotateWebhookCredentialsCommandInput,
+  type RotateWebhookCredentialsCommandOutput,
+  RotateWebhookCredentialsCommand,
+} from "./commands/RotateWebhookCredentialsCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
@@ -138,6 +143,7 @@ import { paginateListResourcePolicies } from "./pagination/ListResourcePoliciesP
 import { paginateListSubscribers } from "./pagination/ListSubscribersPaginator";
 import { waitUntilEventBusActive } from "./waiters/waitForEventBusActive";
 import { waitUntilEventBusDeleted } from "./waiters/waitForEventBusDeleted";
+import { waitUntilMskSubscriberActive } from "./waiters/waitForMskSubscriberActive";
 
 const commands = {
   CreateEventBusCommand,
@@ -160,6 +166,7 @@ const commands = {
   PutRawEventsCommand,
   PutResourcePolicyCommand,
   RevokeResourceCommand,
+  RotateWebhookCredentialsCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateEventBusCommand,
@@ -175,6 +182,7 @@ const paginators = {
 const waiters = {
   waitUntilEventBusActive,
   waitUntilEventBusDeleted,
+  waitUntilMskSubscriberActive,
 };
 
 /**
@@ -529,6 +537,23 @@ export interface EventBridgeV2 {
   ): void;
 
   /**
+   * @see {@link RotateWebhookCredentialsCommand}
+   */
+  rotateWebhookCredentials(
+    args: RotateWebhookCredentialsCommandInput,
+    options?: EventBridgeV2RequestOptions
+  ): Promise<RotateWebhookCredentialsCommandOutput>;
+  rotateWebhookCredentials(
+    args: RotateWebhookCredentialsCommandInput,
+    cb: (err: any, data?: RotateWebhookCredentialsCommandOutput) => void
+  ): void;
+  rotateWebhookCredentials(
+    args: RotateWebhookCredentialsCommandInput,
+    options: EventBridgeV2RequestOptions,
+    cb: (err: any, data?: RotateWebhookCredentialsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(
@@ -676,16 +701,20 @@ export interface EventBridgeV2 {
     args: DescribeEventBusCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EventBridgeV2>, "client">
   ): Promise<WaiterResult<ResourceNotFoundException>>;
+
+  /**
+   * @see {@link DescribeSubscriberCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMskSubscriberActive(
+    args: DescribeSubscriberCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EventBridgeV2>, "client">
+  ): Promise<WaiterResult<DescribeSubscriberCommandOutput>>;
 }
 
 /**
- * Amazon EventBridge event bus API. An event bus receives events published by
- * your applications and AWS services, stores them for a configurable retention
- * period, and delivers them to subscribers. A subscriber filters events,
- * optionally transforms them, and invokes a target such as Lambda, SQS, SNS,
- * Kinesis, Step Functions, or an HTTP endpoint. The API manages event buses,
- * subscribers, event sources, resource policies, and tags, and publishes
- * events through PutEvents and PutRawEvents.
+ * <fullname>Amazon EventBridge Custom Event Bus</fullname> <p>Amazon EventBridge event bus API. An event bus receives events published by your applications and AWS services, stores them for a configurable retention period, and delivers them to subscribers. A subscriber filters events, optionally transforms them, and invokes a target such as Lambda, SQS, SNS, Kinesis, Step Functions, or an HTTP endpoint. The API manages event buses, subscribers, event sources, resource policies, and tags, and publishes events through PutEvents and PutRawEvents.</p>
  * @public
  */
 export class EventBridgeV2 extends EventBridgeV2Client implements EventBridgeV2 {}

@@ -23,9 +23,7 @@ export interface CreateEventSourceCommandInput extends CreateEventSourceRequest 
 export interface CreateEventSourceCommandOutput extends CreateEventSourceResponse, __MetadataBearer {}
 
 /**
- * Creates an EventSource, which forwards events from an origin (an AWS service
- * or another account) onto an event bus. The bus must be ACTIVE. Retries
- * carrying the same ClientToken are idempotent.
+ * <p>Creates an EventSource, which forwards events from an origin (an AWS service, a partner, or a third-party webhook provider) to an event bus. The event bus must be in the ACTIVE state. This operation is idempotent: retries that use the same ClientToken return the same result.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +51,44 @@ export interface CreateEventSourceCommandOutput extends CreateEventSourceRespons
  *         Arn: "STRING_VALUE",
  *       },
  *     },
+ *     WebhookEventsConfiguration: { // WebhookEventsSourceConfiguration
+ *       AuthConfiguration: { // WebhookAuthConfiguration Union: only one key present
+ *         StaticTokenAuthConfiguration: { // WebhookStaticTokenAuthConfiguration
+ *           TokenHttpHeader: "STRING_VALUE", // required
+ *           SecretValue: "STRING_VALUE",
+ *         },
+ *         BasicHttpAuthConfiguration: { // WebhookBasicHttpAuthConfiguration
+ *           Username: "STRING_VALUE",
+ *           Password: "STRING_VALUE",
+ *         },
+ *         HmacAuthConfiguration: { // WebhookHmacAuthConfiguration
+ *           Algorithm: "SHA256" || "SHA1", // required
+ *           Encoding: "HEX" || "BASE64", // required
+ *           SignatureHttpHeader: "STRING_VALUE", // required
+ *           SignaturePrefix: "STRING_VALUE",
+ *           Delimiter: "STRING_VALUE",
+ *           TimestampHttpHeader: "STRING_VALUE",
+ *           TimestampPrefix: "STRING_VALUE",
+ *           TimestampToleranceInSeconds: Number("int"),
+ *           MessageIdHttpHeader: "STRING_VALUE",
+ *           SignedMessageComposition: "BODY" || "TIMESTAMP_DOT_BODY" || "MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY", // required
+ *           SecretValue: "STRING_VALUE",
+ *           SecretEncoding: "RAW" || "BASE64",
+ *         },
+ *       },
+ *       KmsKeyIdentifier: "STRING_VALUE",
+ *       RoleArn: "STRING_VALUE", // required
+ *       MetadataHttpHeaders: [ // WebhookMetadataHttpHeaderList
+ *         "STRING_VALUE",
+ *       ],
+ *       DeduplicationConfiguration: { // WebhookDeduplicationConfiguration
+ *         DeduplicationType: "CONTENT_BASED", // required
+ *       },
+ *       LogConfiguration: { // LogConfiguration
+ *         Level: "OFF" || "ERROR" || "INFO",
+ *         IncludePayload: "FULL" || "ON_ERROR_ONLY",
+ *       },
+ *     },
  *   },
  *   Description: "STRING_VALUE",
  *   Tags: { // TagMap
@@ -67,6 +103,12 @@ export interface CreateEventSourceCommandOutput extends CreateEventSourceRespons
  * //   Name: "STRING_VALUE",
  * //   EventBusArn: "STRING_VALUE",
  * //   State: "CREATING" || "ACTIVE" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
+ * //   EventSourceDetails: { // EventSourceDetails
+ * //     WebhookDetails: { // WebhookDetails
+ * //       WebhookUrl: "STRING_VALUE",
+ * //       SecretArn: "STRING_VALUE",
+ * //     },
+ * //   },
  * //   CreationTime: new Date("TIMESTAMP"),
  * // };
  *
@@ -79,39 +121,34 @@ export interface CreateEventSourceCommandOutput extends CreateEventSourceRespons
  * @see {@link EventBridgeV2ClientResolvedConfig | config} for EventBridgeV2Client's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  Another change to the resource is already in progress. Retry the request.
+ *  <p>Another change to the resource is already in progress. Retry the request.</p>
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  The request reuses the client token of an earlier request with different
- * parameters. Use a new client token, or resend the earlier request unchanged.
+ *  <p>The request reuses the client token of an earlier request with different parameters. Use a new client token, or resend the earlier request unchanged.</p>
  *
  * @throws {@link InvalidStateException} (client fault)
- *  The resource is not in a state that allows the operation. For example, an
- * event bus that is still being created cannot accept events.
+ *  <p>The resource is not in a state that allows the operation. For example, an event bus that is still being created cannot accept events.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  The request would exceed a service quota for the account.
+ *  <p>The request would exceed a service quota for the account.</p>
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  A resource with the same name already exists.
+ *  <p>A resource with the same name already exists.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  The resource does not exist.
+ *  <p>The resource does not exist.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  The caller does not have the permissions required to perform the operation.
- * This error is also returned when the operation cannot use the AWS KMS key for
- * the event bus.
+ *  <p>The caller does not have the permissions required to perform the operation. This error is also returned when the operation cannot use the AWS KMS key for the event bus.</p>
  *
  * @throws {@link InternalException} (server fault)
- *  The request failed because of an internal service error. Retry the request.
+ *  <p>The request failed because of an internal service error. Retry the request.</p>
  *
  * @throws {@link InvalidInputException} (client fault)
- *  A request parameter is missing or not valid.
+ *  <p>A request parameter is missing or not valid.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  The request was throttled because it exceeds a request rate limit. Retry the
- * request with backoff.
+ *  <p>The request was throttled because it exceeds a request rate limit. Retry the request with backoff.</p>
  *
  * @throws {@link EventBridgeV2ServiceException}
  * <p>Base exception class for all service exceptions from EventBridgeV2 service.</p>

@@ -9,6 +9,7 @@ import {
   ConflictException,
   ConflictException$,
   ConfluentPublicRegistryConfiguration$,
+  ConnectivityState,
   CreateEventBus$,
   CreateEventBusCommand,
   CreateEventBusRequest$,
@@ -59,6 +60,7 @@ import {
   EventBusV2Parameters$,
   EventBusV2SystemMetadata$,
   EventSourceConfiguration$,
+  EventSourceDetails$,
   EventSourceState,
   EventSourceSummary$,
   EventSourceType,
@@ -109,6 +111,12 @@ import {
   ListTagsForResourceResponse$,
   LogConfiguration$,
   LogLevel,
+  MskAcks,
+  MskCompression,
+  MskConnectivity,
+  MskDetails$,
+  MskHeader$,
+  MskParameters$,
   OnFailureConfiguration$,
   OrderingType,
   paginateListEventBuses,
@@ -154,6 +162,10 @@ import {
   RevokeResourceCommand,
   RevokeResourceRequest$,
   RevokeResourceResponse$,
+  RotateWebhookCredentials$,
+  RotateWebhookCredentialsCommand,
+  RotateWebhookCredentialsRequest$,
+  RotateWebhookCredentialsResponse$,
   SchemaRegistryConfiguration$,
   SchemaRegistryUnavailableException,
   SchemaRegistryUnavailableException$,
@@ -165,6 +177,7 @@ import {
   StepFunctionsParameters$,
   StorageConfiguration$,
   StorageConfigurationOutput$,
+  SubscriberDetails$,
   SubscriberState,
   SubscriberSummary$,
   SuccessCode,
@@ -196,8 +209,23 @@ import {
   UpdateSubscriberResponse$,
   waitForEventBusActive,
   waitForEventBusDeleted,
+  waitForMskSubscriberActive,
   waitUntilEventBusActive,
   waitUntilEventBusDeleted,
+  waitUntilMskSubscriberActive,
+  WebhookAuthConfiguration$,
+  WebhookBasicHttpAuthConfiguration$,
+  WebhookCredential$,
+  WebhookDeduplicationConfiguration$,
+  WebhookDeduplicationType,
+  WebhookDetails$,
+  WebhookEventsSourceConfiguration$,
+  WebhookHmacAlgorithm,
+  WebhookHmacAuthConfiguration$,
+  WebhookHmacEncoding,
+  WebhookSecretEncoding,
+  WebhookSignedMessageComposition,
+  WebhookStaticTokenAuthConfiguration$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -244,6 +272,8 @@ assert(typeof PutResourcePolicyCommand === "function");
 assert(typeof PutResourcePolicy$ === "object");
 assert(typeof RevokeResourceCommand === "function");
 assert(typeof RevokeResource$ === "object");
+assert(typeof RotateWebhookCredentialsCommand === "function");
+assert(typeof RotateWebhookCredentials$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -284,6 +314,7 @@ assert(typeof EventBusSummary$ === "object");
 assert(typeof EventBusV2Parameters$ === "object");
 assert(typeof EventBusV2SystemMetadata$ === "object");
 assert(typeof EventSourceConfiguration$ === "object");
+assert(typeof EventSourceDetails$ === "object");
 assert(typeof EventSourceSummary$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof FilterConfiguration$ === "object");
@@ -305,6 +336,9 @@ assert(typeof ListSubscribersResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof LogConfiguration$ === "object");
+assert(typeof MskDetails$ === "object");
+assert(typeof MskHeader$ === "object");
+assert(typeof MskParameters$ === "object");
 assert(typeof OnFailureConfiguration$ === "object");
 assert(typeof PartnerEventsSourceConfiguration$ === "object");
 assert(typeof PointInTimeConfiguration$ === "object");
@@ -324,6 +358,8 @@ assert(typeof ResourcePolicySummary$ === "object");
 assert(typeof RetryPolicy$ === "object");
 assert(typeof RevokeResourceRequest$ === "object");
 assert(typeof RevokeResourceResponse$ === "object");
+assert(typeof RotateWebhookCredentialsRequest$ === "object");
+assert(typeof RotateWebhookCredentialsResponse$ === "object");
 assert(typeof SchemaRegistryConfiguration$ === "object");
 assert(typeof SnsMessageAttributeValue$ === "object");
 assert(typeof SnsParameters$ === "object");
@@ -332,6 +368,7 @@ assert(typeof SqsParameters$ === "object");
 assert(typeof StepFunctionsParameters$ === "object");
 assert(typeof StorageConfiguration$ === "object");
 assert(typeof StorageConfigurationOutput$ === "object");
+assert(typeof SubscriberDetails$ === "object");
 assert(typeof SubscriberSummary$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
@@ -346,8 +383,17 @@ assert(typeof UpdateEventSourceResponse$ === "object");
 assert(typeof UpdateInvokeConfiguration$ === "object");
 assert(typeof UpdateSubscriberRequest$ === "object");
 assert(typeof UpdateSubscriberResponse$ === "object");
+assert(typeof WebhookAuthConfiguration$ === "object");
+assert(typeof WebhookBasicHttpAuthConfiguration$ === "object");
+assert(typeof WebhookCredential$ === "object");
+assert(typeof WebhookDeduplicationConfiguration$ === "object");
+assert(typeof WebhookDetails$ === "object");
+assert(typeof WebhookEventsSourceConfiguration$ === "object");
+assert(typeof WebhookHmacAuthConfiguration$ === "object");
+assert(typeof WebhookStaticTokenAuthConfiguration$ === "object");
 // enums
 assert(typeof BusState === "object");
+assert(typeof ConnectivityState === "object");
 assert(typeof DeduplicationType === "object");
 assert(typeof EventSourceState === "object");
 assert(typeof EventSourceType === "object");
@@ -356,6 +402,9 @@ assert(typeof FilterScope === "object");
 assert(typeof IncludePayload === "object");
 assert(typeof InvocationType === "object");
 assert(typeof LogLevel === "object");
+assert(typeof MskAcks === "object");
+assert(typeof MskCompression === "object");
+assert(typeof MskConnectivity === "object");
 assert(typeof OrderingType === "object");
 assert(typeof PointType === "object");
 assert(typeof ResumePosition === "object");
@@ -364,6 +413,11 @@ assert(typeof StartingPosition === "object");
 assert(typeof SubscriberState === "object");
 assert(typeof SuccessCode === "object");
 assert(typeof TransformerType === "object");
+assert(typeof WebhookDeduplicationType === "object");
+assert(typeof WebhookHmacAlgorithm === "object");
+assert(typeof WebhookHmacEncoding === "object");
+assert(typeof WebhookSecretEncoding === "object");
+assert(typeof WebhookSignedMessageComposition === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof EventBridgeV2ServiceException);
 assert(typeof AccessDeniedException$ === "object");
@@ -399,8 +453,10 @@ assert(EventBridgeV2ServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForEventBusActive === "function");
 assert(typeof waitForEventBusDeleted === "function");
+assert(typeof waitForMskSubscriberActive === "function");
 assert(typeof waitUntilEventBusActive === "function");
 assert(typeof waitUntilEventBusDeleted === "function");
+assert(typeof waitUntilMskSubscriberActive === "function");
 // paginators
 assert(typeof paginateListEventBuses === "function");
 assert(typeof paginateListEventSources === "function");
