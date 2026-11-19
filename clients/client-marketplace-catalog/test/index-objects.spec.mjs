@@ -1,6 +1,8 @@
 import {
   AccessDeniedException,
   AccessDeniedException$,
+  AdditionalResource$,
+  AdditionalResourcesAlternative$,
   AmiProductEntityIdFilter$,
   AmiProductFilters$,
   AmiProductLastModifiedDateFilter$,
@@ -26,6 +28,7 @@ import {
   CancelChangeSetCommand,
   CancelChangeSetRequest$,
   CancelChangeSetResponse$,
+  CaseStudiesAlternative$,
   Change$,
   ChangeSetSummaryListItem$,
   ChangeStatus,
@@ -42,9 +45,14 @@ import {
   ContainerProductVisibilityString,
   ContainerSecurityFilters$,
   ContainerSecuritySummary$,
+  ContentAlternatives$,
+  ContentRecommendation$,
+  ContentRecommendationStatus,
   ControlAssessment$,
   ControlAssessmentResult,
   ControlError$,
+  ControlInput$,
+  ControlSummary$,
   DataProductEntityIdFilter$,
   DataProductFilters$,
   DataProductLastModifiedDateFilter$,
@@ -88,7 +96,10 @@ import {
   ExpressPrivateOfferConfigurationStateString,
   ExpressPrivateOfferConfigurationSummary$,
   FailureCode,
+  FeatureRecommendation$,
+  FeatureRecommendations$,
   Filter$,
+  FollowUpQuestion$,
   FrameworkFilters$,
   FrameworkSummary$,
   GetResourcePolicy$,
@@ -110,6 +121,14 @@ import {
   ListEntitiesCommand,
   ListEntitiesRequest$,
   ListEntitiesResponse$,
+  ListingCaseStudy$,
+  ListingFinding$,
+  ListingFindingStatus,
+  ListingQualitySummary$,
+  ListingQualityTier,
+  ListingRecommendations$,
+  ListingRecommendationsSummary$,
+  ListingUseCase$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -160,6 +179,7 @@ import {
   OfferSortBy,
   OfferStateFilter$,
   OfferStateString,
+  OfferSubsidiaryAuthorizationIdFilter$,
   OfferSummary$,
   OfferTargetAgreementIdFilter$,
   OfferTargetAgreementIntentFilter$,
@@ -171,10 +191,15 @@ import {
   paginateListAssessments,
   paginateListChangeSets,
   paginateListEntities,
+  ProductContentRecommendations$,
   PutResourcePolicy$,
   PutResourcePolicyCommand,
   PutResourcePolicyRequest$,
   PutResourcePolicyResponse$,
+  RecommendationCitation$,
+  RecommendationSeverity,
+  RecommendedFeatureId,
+  RecommendedFeatureStatus,
   ResaleAuthorizationAvailabilityEndDateFilter$,
   ResaleAuthorizationAvailabilityEndDateFilterDateRange$,
   ResaleAuthorizationCreatedDateFilter$,
@@ -218,8 +243,13 @@ import {
   SaaSProductVisibilityString,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  SolutionContentRecommendations$,
   Sort$,
   SortOrder,
+  StartAssessment$,
+  StartAssessmentCommand,
+  StartAssessmentRequest$,
+  StartAssessmentResponse$,
   StartChangeSet$,
   StartChangeSetCommand,
   StartChangeSetRequest$,
@@ -244,16 +274,20 @@ import {
   TagResourceCommand,
   TagResourceRequest$,
   TagResourceResponse$,
+  TextAlternative$,
+  TextListAlternative$,
   ThrottlingException,
   ThrottlingException$,
   UntagResource$,
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UseCasesAlternative$,
   ValidationException,
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
+  VerificationSource,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -284,6 +318,8 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof PutResourcePolicyCommand === "function");
 assert(typeof PutResourcePolicy$ === "object");
+assert(typeof StartAssessmentCommand === "function");
+assert(typeof StartAssessment$ === "object");
 assert(typeof StartChangeSetCommand === "function");
 assert(typeof StartChangeSet$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -291,6 +327,8 @@ assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 // structural schemas
+assert(typeof AdditionalResource$ === "object");
+assert(typeof AdditionalResourcesAlternative$ === "object");
 assert(typeof AmiProductEntityIdFilter$ === "object");
 assert(typeof AmiProductFilters$ === "object");
 assert(typeof AmiProductLastModifiedDateFilter$ === "object");
@@ -309,6 +347,7 @@ assert(typeof BatchDescribeEntitiesResponse$ === "object");
 assert(typeof BatchDescribeErrorDetail$ === "object");
 assert(typeof CancelChangeSetRequest$ === "object");
 assert(typeof CancelChangeSetResponse$ === "object");
+assert(typeof CaseStudiesAlternative$ === "object");
 assert(typeof Change$ === "object");
 assert(typeof ChangeSetSummaryListItem$ === "object");
 assert(typeof ChangeSummary$ === "object");
@@ -322,8 +361,12 @@ assert(typeof ContainerProductTitleFilter$ === "object");
 assert(typeof ContainerProductVisibilityFilter$ === "object");
 assert(typeof ContainerSecurityFilters$ === "object");
 assert(typeof ContainerSecuritySummary$ === "object");
+assert(typeof ContentAlternatives$ === "object");
+assert(typeof ContentRecommendation$ === "object");
 assert(typeof ControlAssessment$ === "object");
 assert(typeof ControlError$ === "object");
+assert(typeof ControlInput$ === "object");
+assert(typeof ControlSummary$ === "object");
 assert(typeof DataProductEntityIdFilter$ === "object");
 assert(typeof DataProductFilters$ === "object");
 assert(typeof DataProductLastModifiedDateFilter$ === "object");
@@ -354,7 +397,10 @@ assert(typeof ExpressPrivateOfferConfigurationProductIdFilter$ === "object");
 assert(typeof ExpressPrivateOfferConfigurationSort$ === "object");
 assert(typeof ExpressPrivateOfferConfigurationStateFilter$ === "object");
 assert(typeof ExpressPrivateOfferConfigurationSummary$ === "object");
+assert(typeof FeatureRecommendation$ === "object");
+assert(typeof FeatureRecommendations$ === "object");
 assert(typeof Filter$ === "object");
+assert(typeof FollowUpQuestion$ === "object");
 assert(typeof FrameworkFilters$ === "object");
 assert(typeof FrameworkSummary$ === "object");
 assert(typeof GetResourcePolicyRequest$ === "object");
@@ -365,6 +411,12 @@ assert(typeof ListChangeSetsRequest$ === "object");
 assert(typeof ListChangeSetsResponse$ === "object");
 assert(typeof ListEntitiesRequest$ === "object");
 assert(typeof ListEntitiesResponse$ === "object");
+assert(typeof ListingCaseStudy$ === "object");
+assert(typeof ListingFinding$ === "object");
+assert(typeof ListingQualitySummary$ === "object");
+assert(typeof ListingRecommendations$ === "object");
+assert(typeof ListingRecommendationsSummary$ === "object");
+assert(typeof ListingUseCase$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof MachineLearningProductEntityIdFilter$ === "object");
@@ -403,12 +455,15 @@ assert(typeof OfferSetStateFilter$ === "object");
 assert(typeof OfferSetSummary$ === "object");
 assert(typeof OfferSort$ === "object");
 assert(typeof OfferStateFilter$ === "object");
+assert(typeof OfferSubsidiaryAuthorizationIdFilter$ === "object");
 assert(typeof OfferSummary$ === "object");
 assert(typeof OfferTargetAgreementIdFilter$ === "object");
 assert(typeof OfferTargetAgreementIntentFilter$ === "object");
 assert(typeof OfferTargetingFilter$ === "object");
+assert(typeof ProductContentRecommendations$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResponse$ === "object");
+assert(typeof RecommendationCitation$ === "object");
 assert(typeof ResaleAuthorizationAvailabilityEndDateFilter$ === "object");
 assert(typeof ResaleAuthorizationAvailabilityEndDateFilterDateRange$ === "object");
 assert(typeof ResaleAuthorizationCreatedDateFilter$ === "object");
@@ -439,7 +494,10 @@ assert(typeof SaaSProductSort$ === "object");
 assert(typeof SaaSProductSummary$ === "object");
 assert(typeof SaaSProductTitleFilter$ === "object");
 assert(typeof SaaSProductVisibilityFilter$ === "object");
+assert(typeof SolutionContentRecommendations$ === "object");
 assert(typeof Sort$ === "object");
+assert(typeof StartAssessmentRequest$ === "object");
+assert(typeof StartAssessmentResponse$ === "object");
 assert(typeof StartChangeSetRequest$ === "object");
 assert(typeof StartChangeSetResponse$ === "object");
 assert(typeof SubsidiaryAuthorizationCreatedDateFilter$ === "object");
@@ -458,8 +516,11 @@ assert(typeof SubsidiaryAuthorizationSummary$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
+assert(typeof TextAlternative$ === "object");
+assert(typeof TextListAlternative$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof UseCasesAlternative$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 // enums
 assert(typeof AmiProductSortBy === "object");
@@ -468,6 +529,7 @@ assert(typeof AssessmentResult === "object");
 assert(typeof ChangeStatus === "object");
 assert(typeof ContainerProductSortBy === "object");
 assert(typeof ContainerProductVisibilityString === "object");
+assert(typeof ContentRecommendationStatus === "object");
 assert(typeof ControlAssessmentResult === "object");
 assert(typeof DataProductSortBy === "object");
 assert(typeof DataProductVisibilityString === "object");
@@ -475,6 +537,8 @@ assert(typeof ExpressPrivateOfferConfigurationSortBy === "object");
 assert(typeof ExpressPrivateOfferConfigurationStateString === "object");
 assert(typeof FailureCode === "object");
 assert(typeof Intent === "object");
+assert(typeof ListingFindingStatus === "object");
+assert(typeof ListingQualityTier === "object");
 assert(typeof MachineLearningProductSortBy === "object");
 assert(typeof MachineLearningProductVisibilityString === "object");
 assert(typeof OfferCreatedBySourceString === "object");
@@ -485,6 +549,9 @@ assert(typeof OfferStateString === "object");
 assert(typeof OfferTargetAgreementIntentString === "object");
 assert(typeof OfferTargetingString === "object");
 assert(typeof OwnershipType === "object");
+assert(typeof RecommendationSeverity === "object");
+assert(typeof RecommendedFeatureId === "object");
+assert(typeof RecommendedFeatureStatus === "object");
 assert(typeof ResaleAuthorizationResellerRoleString === "object");
 assert(typeof ResaleAuthorizationSortBy === "object");
 assert(typeof ResaleAuthorizationStatusString === "object");
@@ -494,6 +561,7 @@ assert(typeof SortOrder === "object");
 assert(typeof SubsidiaryAuthorizationSortBy === "object");
 assert(typeof SubsidiaryAuthorizationStatusString === "object");
 assert(typeof ValidationExceptionReason === "object");
+assert(typeof VerificationSource === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof MarketplaceCatalogServiceException);
 assert(typeof AccessDeniedException$ === "object");

@@ -145,6 +145,11 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *           "STRING_VALUE",
  *         ],
  *       },
+ *       SubsidiaryAuthorizationId: { // OfferSubsidiaryAuthorizationIdFilter
+ *         ValueList: [ // OfferSubsidiaryAuthorizationIdFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *       ReleaseDate: { // OfferReleaseDateFilter
  *         DateRange: { // OfferReleaseDateFilterDateRange
  *           AfterValue: "STRING_VALUE",
@@ -460,7 +465,7 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *     OfferSort: { // OfferSort
- *       SortBy: "EntityId" || "Name" || "ProductId" || "ResaleAuthorizationId" || "ReleaseDate" || "AvailabilityEndDate" || "BuyerAccounts" || "State" || "Targeting" || "LastModifiedDate" || "OfferSetId" || "TargetAgreementId" || "TargetAgreementIntent" || "CreatedBySource",
+ *       SortBy: "EntityId" || "Name" || "ProductId" || "ResaleAuthorizationId" || "SubsidiaryAuthorizationId" || "ReleaseDate" || "AvailabilityEndDate" || "BuyerAccounts" || "State" || "Targeting" || "LastModifiedDate" || "OfferSetId" || "TargetAgreementId" || "TargetAgreementIntent" || "CreatedBySource",
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *     ContainerProductSort: { // ContainerProductSort
@@ -520,6 +525,7 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * //         Name: "STRING_VALUE",
  * //         ProductId: "STRING_VALUE",
  * //         ResaleAuthorizationId: "STRING_VALUE",
+ * //         SubsidiaryAuthorizationId: "STRING_VALUE",
  * //         ReleaseDate: "STRING_VALUE",
  * //         AvailabilityEndDate: "STRING_VALUE",
  * //         BuyerAccounts: [ // OfferBuyerAccountsList

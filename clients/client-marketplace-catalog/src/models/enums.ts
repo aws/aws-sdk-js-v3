@@ -59,6 +59,21 @@ export type AssessmentResult = (typeof AssessmentResult)[keyof typeof Assessment
  * @public
  * @enum
  */
+export const ListingQualityTier = {
+  BASIC: "BASIC",
+  EXCELLENT: "EXCELLENT",
+  NEEDS_IMPROVEMENT: "NEEDS_IMPROVEMENT",
+  STRONG: "STRONG",
+} as const;
+/**
+ * @public
+ */
+export type ListingQualityTier = (typeof ListingQualityTier)[keyof typeof ListingQualityTier];
+
+/**
+ * @public
+ * @enum
+ */
 export const ValidationExceptionReason = {
   CANNOT_PARSE: "CannotParse",
   FIELD_VALIDATION_FAILED: "FieldValidationFailed",
@@ -84,6 +99,88 @@ export const ControlAssessmentResult = {
  * @public
  */
 export type ControlAssessmentResult = (typeof ControlAssessmentResult)[keyof typeof ControlAssessmentResult];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendedFeatureId = {
+  FREE_TRIAL: "FREE_TRIAL",
+  PROMOTIONAL_MEDIA: "PROMOTIONAL_MEDIA",
+  QUICK_LAUNCH: "QUICK_LAUNCH",
+  REQUEST_A_DEMO: "REQUEST_A_DEMO",
+  REQUEST_PRIVATE_OFFER: "REQUEST_PRIVATE_OFFER",
+} as const;
+/**
+ * @public
+ */
+export type RecommendedFeatureId = (typeof RecommendedFeatureId)[keyof typeof RecommendedFeatureId];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationSeverity = {
+  ADVISORY: "ADVISORY",
+  BLOCKING: "BLOCKING",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationSeverity = (typeof RecommendationSeverity)[keyof typeof RecommendationSeverity];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendedFeatureStatus = {
+  FAIL: "FAIL",
+  PASS: "PASS",
+} as const;
+/**
+ * @public
+ */
+export type RecommendedFeatureStatus = (typeof RecommendedFeatureStatus)[keyof typeof RecommendedFeatureStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ListingFindingStatus = {
+  FAIL: "FAIL",
+  PASS: "PASS",
+} as const;
+/**
+ * @public
+ */
+export type ListingFindingStatus = (typeof ListingFindingStatus)[keyof typeof ListingFindingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentRecommendationStatus = {
+  GENERATED: "GENERATED",
+  INSUFFICIENT_CONTEXT: "INSUFFICIENT_CONTEXT",
+} as const;
+/**
+ * @public
+ */
+export type ContentRecommendationStatus =
+  (typeof ContentRecommendationStatus)[keyof typeof ContentRecommendationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VerificationSource = {
+  AWS_VERIFIED: "AWS_VERIFIED",
+  SELF_ATTESTED: "SELF_ATTESTED",
+} as const;
+/**
+ * @public
+ */
+export type VerificationSource = (typeof VerificationSource)[keyof typeof VerificationSource];
 
 /**
  * @public
@@ -413,6 +510,7 @@ export const OfferSortBy = {
   ReleaseDate: "ReleaseDate",
   ResaleAuthorizationId: "ResaleAuthorizationId",
   State: "State",
+  SubsidiaryAuthorizationId: "SubsidiaryAuthorizationId",
   TargetAgreementId: "TargetAgreementId",
   TargetAgreementIntent: "TargetAgreementIntent",
   Targeting: "Targeting",

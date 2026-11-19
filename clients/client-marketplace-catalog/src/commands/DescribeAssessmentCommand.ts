@@ -59,6 +59,14 @@ export interface DescribeAssessmentCommandOutput extends DescribeAssessmentRespo
  * //     ContainerSecuritySummary: { // ContainerSecuritySummary
  * //       DeliveryOptionId: "STRING_VALUE",
  * //     },
+ * //     ListingQualitySummary: { // ListingQualitySummary
+ * //       Tier: "NEEDS_IMPROVEMENT" || "BASIC" || "STRONG" || "EXCELLENT", // required
+ * //       EntityRevision: "STRING_VALUE",
+ * //     },
+ * //     ListingRecommendationsSummary: { // ListingRecommendationsSummary
+ * //       Tier: "NEEDS_IMPROVEMENT" || "BASIC" || "STRONG" || "EXCELLENT", // required
+ * //       EntityRevision: "STRING_VALUE",
+ * //     },
  * //   },
  * //   AssessmentResult: "PASS" || "FAIL",
  * //   CreatedAt: "STRING_VALUE",
@@ -67,6 +75,7 @@ export interface DescribeAssessmentCommandOutput extends DescribeAssessmentRespo
  * //     { // ControlAssessment
  * //       ControlId: "STRING_VALUE",
  * //       ControlAssessmentResult: "PASS" || "FAIL" || "NOT_EXECUTED" || "EXEMPTION_PASS",
+ * //       VerificationSource: "AWS_VERIFIED" || "SELF_ATTESTED",
  * //       Errors: [ // ControlErrorList
  * //         { // ControlError
  * //           Code: "STRING_VALUE",
@@ -79,6 +88,410 @@ export interface DescribeAssessmentCommandOutput extends DescribeAssessmentRespo
  * //           ],
  * //         },
  * //       ],
+ * //       ControlSummary: { // ControlSummary Union: only one key present
+ * //         ListingRecommendations: { // ListingRecommendations Union: only one key present
+ * //           ProductContentRecommendations: { // ProductContentRecommendations
+ * //             ProductTitle: { // ContentRecommendation
+ * //               Status: "GENERATED" || "INSUFFICIENT_CONTEXT", // required
+ * //               Alternatives: { // ContentAlternatives Union: only one key present
+ * //                 Text: [ // TextAlternativeList
+ * //                   { // TextAlternative
+ * //                     Value: "STRING_VALUE", // required
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 TextList: [ // TextListAlternativeList
+ * //                   { // TextListAlternative
+ * //                     Value: [ // FieldTextList // required
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 AdditionalResources: [ // AdditionalResourcesAlternativeList
+ * //                   { // AdditionalResourcesAlternative
+ * //                     Value: [ // AdditionalResourceList // required
+ * //                       { // AdditionalResource
+ * //                         Type: "STRING_VALUE", // required
+ * //                         Text: "STRING_VALUE", // required
+ * //                         Url: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 UseCases: [ // UseCasesAlternativeList
+ * //                   { // UseCasesAlternative
+ * //                     Value: [ // UseCaseList // required
+ * //                       { // ListingUseCase
+ * //                         Id: "STRING_VALUE", // required
+ * //                         Rank: Number("int"), // required
+ * //                         Name: "STRING_VALUE", // required
+ * //                         Group: "STRING_VALUE", // required
+ * //                         Subgroup: "STRING_VALUE", // required
+ * //                         UseCaseDetails: "STRING_VALUE",
+ * //                         Rationale: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 CaseStudies: [ // CaseStudiesAlternativeList
+ * //                   { // CaseStudiesAlternative
+ * //                     Value: [ // CaseStudyList // required
+ * //                       { // ListingCaseStudy
+ * //                         Id: "STRING_VALUE", // required
+ * //                         Title: "STRING_VALUE", // required
+ * //                         Rationale: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               FollowUpQuestions: [ // FollowUpQuestionList // required
+ * //                 { // FollowUpQuestion
+ * //                   Question: "STRING_VALUE", // required
+ * //                   Justification: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //               Findings: [ // FindingList // required
+ * //                 { // ListingFinding
+ * //                   Action: "STRING_VALUE", // required
+ * //                   Description: "STRING_VALUE", // required
+ * //                   Severity: "BLOCKING" || "ADVISORY", // required
+ * //                   Status: "PASS" || "FAIL", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //             ShortDescription: {
+ * //               Status: "GENERATED" || "INSUFFICIENT_CONTEXT", // required
+ * //               Alternatives: {//  Union: only one key present
+ * //                 Text: [
+ * //                   {
+ * //                     Value: "STRING_VALUE", // required
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 TextList: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 AdditionalResources: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       {
+ * //                         Type: "STRING_VALUE", // required
+ * //                         Text: "STRING_VALUE", // required
+ * //                         Url: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 UseCases: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       {
+ * //                         Id: "STRING_VALUE", // required
+ * //                         Rank: Number("int"), // required
+ * //                         Name: "STRING_VALUE", // required
+ * //                         Group: "STRING_VALUE", // required
+ * //                         Subgroup: "STRING_VALUE", // required
+ * //                         UseCaseDetails: "STRING_VALUE",
+ * //                         Rationale: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 CaseStudies: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       {
+ * //                         Id: "STRING_VALUE", // required
+ * //                         Title: "STRING_VALUE", // required
+ * //                         Rationale: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               FollowUpQuestions: [ // required
+ * //                 {
+ * //                   Question: "STRING_VALUE", // required
+ * //                   Justification: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //               Findings: [ // required
+ * //                 {
+ * //                   Action: "STRING_VALUE", // required
+ * //                   Description: "STRING_VALUE", // required
+ * //                   Severity: "BLOCKING" || "ADVISORY", // required
+ * //                   Status: "PASS" || "FAIL", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //             LongDescription: {
+ * //               Status: "GENERATED" || "INSUFFICIENT_CONTEXT", // required
+ * //               Alternatives: {//  Union: only one key present
+ * //                 Text: [
+ * //                   {
+ * //                     Value: "STRING_VALUE", // required
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 TextList: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 AdditionalResources: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       {
+ * //                         Type: "STRING_VALUE", // required
+ * //                         Text: "STRING_VALUE", // required
+ * //                         Url: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 UseCases: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       {
+ * //                         Id: "STRING_VALUE", // required
+ * //                         Rank: Number("int"), // required
+ * //                         Name: "STRING_VALUE", // required
+ * //                         Group: "STRING_VALUE", // required
+ * //                         Subgroup: "STRING_VALUE", // required
+ * //                         UseCaseDetails: "STRING_VALUE",
+ * //                         Rationale: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 CaseStudies: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       {
+ * //                         Id: "STRING_VALUE", // required
+ * //                         Title: "STRING_VALUE", // required
+ * //                         Rationale: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               FollowUpQuestions: [ // required
+ * //                 {
+ * //                   Question: "STRING_VALUE", // required
+ * //                   Justification: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //               Findings: [ // required
+ * //                 {
+ * //                   Action: "STRING_VALUE", // required
+ * //                   Description: "STRING_VALUE", // required
+ * //                   Severity: "BLOCKING" || "ADVISORY", // required
+ * //                   Status: "PASS" || "FAIL", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //             SupportDescription: {
+ * //               Status: "GENERATED" || "INSUFFICIENT_CONTEXT", // required
+ * //               Alternatives: {//  Union: only one key present
+ * //                 Text: [
+ * //                   {
+ * //                     Value: "STRING_VALUE", // required
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 TextList: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 AdditionalResources: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       {
+ * //                         Type: "STRING_VALUE", // required
+ * //                         Text: "STRING_VALUE", // required
+ * //                         Url: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 UseCases: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       {
+ * //                         Id: "STRING_VALUE", // required
+ * //                         Rank: Number("int"), // required
+ * //                         Name: "STRING_VALUE", // required
+ * //                         Group: "STRING_VALUE", // required
+ * //                         Subgroup: "STRING_VALUE", // required
+ * //                         UseCaseDetails: "STRING_VALUE",
+ * //                         Rationale: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 CaseStudies: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       {
+ * //                         Id: "STRING_VALUE", // required
+ * //                         Title: "STRING_VALUE", // required
+ * //                         Rationale: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               FollowUpQuestions: [ // required
+ * //                 {
+ * //                   Question: "STRING_VALUE", // required
+ * //                   Justification: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //               Findings: [ // required
+ * //                 {
+ * //                   Action: "STRING_VALUE", // required
+ * //                   Description: "STRING_VALUE", // required
+ * //                   Severity: "BLOCKING" || "ADVISORY", // required
+ * //                   Status: "PASS" || "FAIL", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //             Highlights: {
+ * //               Status: "GENERATED" || "INSUFFICIENT_CONTEXT", // required
+ * //               Alternatives: {//  Union: only one key present
+ * //                 Text: [
+ * //                   {
+ * //                     Value: "STRING_VALUE", // required
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 TextList: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 AdditionalResources: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       {
+ * //                         Type: "STRING_VALUE", // required
+ * //                         Text: "STRING_VALUE", // required
+ * //                         Url: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 UseCases: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       {
+ * //                         Id: "STRING_VALUE", // required
+ * //                         Rank: Number("int"), // required
+ * //                         Name: "STRING_VALUE", // required
+ * //                         Group: "STRING_VALUE", // required
+ * //                         Subgroup: "STRING_VALUE", // required
+ * //                         UseCaseDetails: "STRING_VALUE",
+ * //                         Rationale: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 CaseStudies: [
+ * //                   {
+ * //                     Value: [ // required
+ * //                       {
+ * //                         Id: "STRING_VALUE", // required
+ * //                         Title: "STRING_VALUE", // required
+ * //                         Rationale: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     Rationale: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               FollowUpQuestions: [ // required
+ * //                 {
+ * //                   Question: "STRING_VALUE", // required
+ * //                   Justification: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //               Findings: [ // required
+ * //                 {
+ * //                   Action: "STRING_VALUE", // required
+ * //                   Description: "STRING_VALUE", // required
+ * //                   Severity: "BLOCKING" || "ADVISORY", // required
+ * //                   Status: "PASS" || "FAIL", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //             SearchKeywords: "<ContentRecommendation>",
+ * //             Categories: "<ContentRecommendation>",
+ * //             AdditionalResources: "<ContentRecommendation>",
+ * //             Citations: [ // CitationList // required
+ * //               { // RecommendationCitation
+ * //                 Url: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           SolutionContentRecommendations: { // SolutionContentRecommendations
+ * //             Title: "<ContentRecommendation>",
+ * //             ShortDescription: "<ContentRecommendation>",
+ * //             LongDescription: "<ContentRecommendation>",
+ * //             IntegrationDetails: "<ContentRecommendation>",
+ * //             AdditionalResources: "<ContentRecommendation>",
+ * //             UseCases: "<ContentRecommendation>",
+ * //             CaseStudies: "<ContentRecommendation>",
+ * //             Citations: [ // required
+ * //               {
+ * //                 Url: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           FeatureRecommendations: { // FeatureRecommendations
+ * //             Recommendations: [ // FeatureRecommendationList // required
+ * //               { // FeatureRecommendation
+ * //                 FeatureId: "REQUEST_PRIVATE_OFFER" || "REQUEST_A_DEMO" || "PROMOTIONAL_MEDIA" || "FREE_TRIAL" || "QUICK_LAUNCH", // required
+ * //                 Action: "STRING_VALUE", // required
+ * //                 Rationale: "STRING_VALUE", // required
+ * //                 Severity: "BLOCKING" || "ADVISORY", // required
+ * //                 Status: "PASS" || "FAIL", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

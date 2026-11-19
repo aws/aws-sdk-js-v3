@@ -270,6 +270,13 @@ PutResourcePolicy
 </details>
 <details>
 <summary>
+StartAssessment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/StartAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/StartAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/StartAssessmentCommandOutput/)
+</details>
+<details>
+<summary>
 StartChangeSet
 </summary>
 

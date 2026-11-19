@@ -87,6 +87,7 @@ import type {
   PutResourcePolicyCommandInput,
   PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
+import type { StartAssessmentCommandInput, StartAssessmentCommandOutput } from "./commands/StartAssessmentCommand";
 import type { StartChangeSetCommandInput, StartChangeSetCommandOutput } from "./commands/StartChangeSetCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -117,6 +118,7 @@ export type ServiceInputTypes =
   | ListEntitiesCommandInput
   | ListTagsForResourceCommandInput
   | PutResourcePolicyCommandInput
+  | StartAssessmentCommandInput
   | StartChangeSetCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
@@ -137,6 +139,7 @@ export type ServiceOutputTypes =
   | ListEntitiesCommandOutput
   | ListTagsForResourceCommandOutput
   | PutResourcePolicyCommandOutput
+  | StartAssessmentCommandOutput
   | StartChangeSetCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;

@@ -68,6 +68,11 @@ import {
   PutResourcePolicyCommand,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type StartAssessmentCommandInput,
+  type StartAssessmentCommandOutput,
+  StartAssessmentCommand,
+} from "./commands/StartAssessmentCommand";
+import {
   type StartChangeSetCommandInput,
   type StartChangeSetCommandOutput,
   StartChangeSetCommand,
@@ -101,6 +106,7 @@ const commands = {
   ListEntitiesCommand,
   ListTagsForResourceCommand,
   PutResourcePolicyCommand,
+  StartAssessmentCommand,
   StartChangeSetCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -322,6 +328,23 @@ export interface MarketplaceCatalog {
     args: PutResourcePolicyCommandInput,
     options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartAssessmentCommand}
+   */
+  startAssessment(
+    args: StartAssessmentCommandInput,
+    options?: MarketplaceCatalogRequestOptions
+  ): Promise<StartAssessmentCommandOutput>;
+  startAssessment(
+    args: StartAssessmentCommandInput,
+    cb: (err: any, data?: StartAssessmentCommandOutput) => void
+  ): void;
+  startAssessment(
+    args: StartAssessmentCommandInput,
+    options: MarketplaceCatalogRequestOptions,
+    cb: (err: any, data?: StartAssessmentCommandOutput) => void
   ): void;
 
   /**

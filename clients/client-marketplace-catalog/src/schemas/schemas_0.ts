@@ -1,3 +1,4 @@
+const _A = "Alternatives";
 const _AA = "AssessmentArn";
 const _ADE = "AccessDeniedException";
 const _AED = "AvailabilityEndDate";
@@ -14,12 +15,18 @@ const _APS = "AmiProductSort";
 const _APSm = "AmiProductSummary";
 const _APTF = "AmiProductTitleFilter";
 const _APVF = "AmiProductVisibilityFilter";
-const _AR = "AssessmentResult";
+const _AR = "AdditionalResource";
+const _ARA = "AdditionalResourcesAlternative";
+const _ARAL = "AdditionalResourcesAlternativeList";
+const _ARL = "AdditionalResourceList";
+const _ARd = "AdditionalResources";
+const _ARs = "AssessmentResult";
 const _AS = "AssessmentSummary";
 const _ASL = "AssessmentSummaryList";
 const _ATF = "AssessmentTargetFilter";
 const _ATS = "AssessmentTargetSummary";
 const _AV = "AfterValue";
+const _Ac = "Action";
 const _BA = "BuyerAccounts";
 const _BDE = "BatchDescribeEntities";
 const _BDED = "BatchDescribeErrorDetail";
@@ -32,6 +39,7 @@ const _CAL = "ControlAssessmentList";
 const _CAR = "ControlAssessmentResult";
 const _CAo = "ControlAssessment";
 const _CAon = "ControlAssessments";
+const _CAont = "ContentAlternatives";
 const _CBS = "CreatedBySource";
 const _CCS = "CancelChangeSet";
 const _CCSR = "CancelChangeSetRequest";
@@ -40,6 +48,9 @@ const _CD = "CreatedDate";
 const _CE = "ControlError";
 const _CEL = "ControlErrorList";
 const _CI = "ControlId";
+const _CIL = "ControlInputList";
+const _CIo = "ControlInput";
+const _CL = "CitationList";
 const _CN = "ChangeName";
 const _CPEIF = "ContainerProductEntityIdFilter";
 const _CPF = "ContainerProductFilters";
@@ -49,21 +60,31 @@ const _CPS = "ContainerProductSort";
 const _CPSo = "ContainerProductSummary";
 const _CPTF = "ContainerProductTitleFilter";
 const _CPVF = "ContainerProductVisibilityFilter";
+const _CR = "ContentRecommendation";
 const _CRT = "ClientRequestToken";
 const _CS = "ChangeSummary";
 const _CSA = "ChangeSetArn";
+const _CSAL = "CaseStudiesAlternativeList";
+const _CSAa = "CaseStudiesAlternative";
 const _CSD = "ChangeSetDescription";
 const _CSF = "ContainerSecurityFilters";
 const _CSI = "ChangeSetId";
+const _CSL = "CaseStudyList";
 const _CSN = "ChangeSetName";
 const _CSS = "ContainerSecuritySummary";
 const _CSSL = "ChangeSetSummaryList";
 const _CSSLI = "ChangeSetSummaryListItem";
 const _CST = "ChangeSetTags";
+const _CSa = "CaseStudies";
 const _CSh = "ChangeSet";
+const _CSo = "ControlSummary";
 const _CT = "ChangeType";
+const _CTl = "ClientToken";
+const _Ca = "Categories";
 const _Ch = "Change";
+const _Ci = "Citations";
 const _Co = "Code";
+const _Con = "Controls";
 const _D = "Details";
 const _DA = "DescribeAssessment";
 const _DAR = "DescribeAssessmentRequest";
@@ -88,6 +109,7 @@ const _DR = "DateRange";
 const _DRP = "DeleteResourcePolicy";
 const _DRPR = "DeleteResourcePolicyRequest";
 const _DRPRe = "DeleteResourcePolicyResponse";
+const _De = "Description";
 const _E = "Errors";
 const _EA = "ExpiresAt";
 const _EAn = "EntityArn";
@@ -98,7 +120,8 @@ const _EDn = "EntityDetail";
 const _EDr = "ErrorDetail";
 const _EI = "EntityId";
 const _EIL = "EntityIdList";
-const _EIn = "EntityIdentifier";
+const _EIn = "EntityIds";
+const _EInt = "EntityIdentifier";
 const _EM = "ErrorMessage";
 const _EPOCEIF = "ExpressPrivateOfferConfigurationEntityIdFilter";
 const _EPOCF = "ExpressPrivateOfferConfigurationFilters";
@@ -108,6 +131,7 @@ const _EPOCSF = "ExpressPrivateOfferConfigurationStateFilter";
 const _EPOCSx = "ExpressPrivateOfferConfigurationSort";
 const _ER = "EntityRequest";
 const _ERL = "EntityRequestList";
+const _ERn = "EntityRevision";
 const _ES = "EntitySummary";
 const _ESL = "EntitySummaryList";
 const _ESLr = "ErrorScopeList";
@@ -118,35 +142,57 @@ const _ETS = "EntityTypeSort";
 const _ETn = "EndTime";
 const _ETnt = "EntityType";
 const _En = "Entity";
-const _F = "Filter";
+const _F = "Findings";
 const _FC = "FailureCode";
 const _FD = "FailureDescription";
 const _FF = "FrameworkFilters";
 const _FI = "FrameworkId";
+const _FIe = "FeatureId";
 const _FL = "FilterList";
+const _FLi = "FindingList";
+const _FR = "FeatureRecommendation";
+const _FRL = "FeatureRecommendationList";
+const _FRe = "FeatureRecommendations";
 const _FS = "FrameworkSummary";
-const _Fi = "Field";
+const _FUQ = "FollowUpQuestions";
+const _FUQL = "FollowUpQuestionList";
+const _FUQo = "FollowUpQuestion";
+const _Fi = "Filter";
+const _Fie = "Field";
+const _G = "Group";
 const _GRP = "GetResourcePolicy";
 const _GRPR = "GetResourcePolicyRequest";
 const _GRPRe = "GetResourcePolicyResponse";
-const _I = "Intent";
+const _H = "Highlights";
+const _I = "Input";
 const _IAI = "IssuerAccountId";
+const _ID = "IntegrationDetails";
 const _ISE = "InternalServiceException";
 const _Id = "Identifier";
+const _Id_ = "Id";
+const _In = "Intent";
+const _J = "Justification";
 const _K = "Key";
 const _LA = "ListAssessments";
 const _LAR = "ListAssessmentsRequest";
 const _LARi = "ListAssessmentsResponse";
-const _LCS = "ListChangeSets";
+const _LCS = "ListingCaseStudy";
 const _LCSR = "ListChangeSetsRequest";
 const _LCSRi = "ListChangeSetsResponse";
+const _LCSi = "ListChangeSets";
+const _LD = "LongDescription";
 const _LE = "ListEntities";
 const _LER = "ListEntitiesRequest";
 const _LERi = "ListEntitiesResponse";
+const _LF = "ListingFinding";
 const _LMD = "LastModifiedDate";
+const _LQS = "ListingQualitySummary";
+const _LR = "ListingRecommendations";
+const _LRS = "ListingRecommendationsSummary";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
+const _LUC = "ListingUseCase";
 const _M = "Message";
 const _MAI = "ManufacturerAccountId";
 const _MLN = "ManufacturerLegalName";
@@ -176,6 +222,7 @@ const _ORAIF = "OfferResaleAuthorizationIdFilter";
 const _ORDF = "OfferReleaseDateFilter";
 const _ORDFDR = "OfferReleaseDateFilterDateRange";
 const _OS = "OfferSummary";
+const _OSAIF = "OfferSubsidiaryAuthorizationIdFilter";
 const _OSAOIF = "OfferSetAssociatedOfferIdsFilter";
 const _OSEIF = "OfferSetEntityIdFilter";
 const _OSF = "OfferSetFilters";
@@ -197,13 +244,15 @@ const _OTAIF = "OfferTargetAgreementIdFilter";
 const _OTAIFf = "OfferTargetAgreementIntentFilter";
 const _OTF = "OfferTargetingFilter";
 const _P = "Policy";
+const _PCR = "ProductContentRecommendations";
 const _PI = "ProductId";
 const _PN = "ProductName";
 const _PRP = "PutResourcePolicy";
 const _PRPR = "PutResourcePolicyRequest";
 const _PRPRu = "PutResourcePolicyResponse";
 const _PT = "ProductTitle";
-const _R = "Reason";
+const _Q = "Question";
+const _R = "Rationale";
 const _RA = "ResourceArn";
 const _RAAEDF = "ResaleAuthorizationAvailabilityEndDateFilter";
 const _RAAEDFDR = "ResaleAuthorizationAvailabilityEndDateFilterDateRange";
@@ -229,6 +278,7 @@ const _RAS = "ResaleAuthorizationSummary";
 const _RASAF = "ResaleAuthorizationSourceAuthorizationFilter";
 const _RASF = "ResaleAuthorizationStatusFilter";
 const _RASe = "ResaleAuthorizationSort";
+const _RC = "RecommendationCitation";
 const _RCL = "RequestedChangeList";
 const _RD = "ReleaseDate";
 const _RI = "ResourceId";
@@ -238,27 +288,38 @@ const _RN = "ResourceName";
 const _RNFE = "ResourceNotFoundException";
 const _RNSE = "ResourceNotSupportedException";
 const _RR = "ResellerRole";
+const _Ra = "Rank";
+const _Re = "Recommendations";
+const _Rea = "Reason";
 const _S = "Status";
 const _SA = "SourceAuthorization";
 const _SACDF = "SubsidiaryAuthorizationCreatedDateFilter";
 const _SACDFDR = "SubsidiaryAuthorizationCreatedDateFilterDateRange";
 const _SAEIF = "SubsidiaryAuthorizationEntityIdFilter";
 const _SAF = "SubsidiaryAuthorizationFilters";
-const _SAI = "SubsidiaryAccountId";
+const _SAI = "SubsidiaryAuthorizationId";
+const _SAIu = "SubsidiaryAccountId";
 const _SALMDF = "SubsidiaryAuthorizationLastModifiedDateFilter";
 const _SALMDFDR = "SubsidiaryAuthorizationLastModifiedDateFilterDateRange";
 const _SANF = "SubsidiaryAuthorizationNameFilter";
+const _SAR = "StartAssessmentRequest";
 const _SARIF = "SubsidiaryAuthorizationResourceIdFilter";
 const _SARNF = "SubsidiaryAuthorizationResourceNameFilter";
+const _SARt = "StartAssessmentResponse";
 const _SAS = "SubsidiaryAuthorizationSummary";
 const _SASAIF = "SubsidiaryAuthorizationSubsidiaryAccountIdFilter";
 const _SASF = "SubsidiaryAuthorizationStatusFilter";
 const _SASu = "SubsidiaryAuthorizationSort";
+const _SAt = "StartAssessment";
 const _SB = "SortBy";
+const _SCR = "SolutionContentRecommendations";
 const _SCS = "StartChangeSet";
 const _SCSR = "StartChangeSetRequest";
 const _SCSRt = "StartChangeSetResponse";
+const _SD = "ShortDescription";
+const _SDu = "SupportDescription";
 const _SI = "SolutionId";
+const _SK = "SearchKeywords";
 const _SO = "SortOrder";
 const _SQEE = "ServiceQuotaExceededException";
 const _SSPEIF = "SaaSProductEntityIdFilter";
@@ -271,29 +332,46 @@ const _SSPTF = "SaaSProductTitleFilter";
 const _SSPVF = "SaaSProductVisibilityFilter";
 const _ST = "StartTime";
 const _Sc = "Scope";
+const _Se = "Severity";
 const _So = "Sort";
 const _St = "State";
+const _Su = "Subgroup";
 const _T = "Type";
+const _TA = "TextAlternative";
 const _TAI = "TargetAgreementId";
 const _TAIa = "TargetAgreementIntent";
+const _TAL = "TextAlternativeList";
 const _TE = "ThrottlingException";
 const _TK = "TagKeys";
 const _TL = "TagList";
+const _TLA = "TextListAlternative";
+const _TLAL = "TextListAlternativeList";
+const _TLe = "TextList";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _Ta = "Tags";
 const _Tag = "Tag";
 const _Tar = "Targeting";
+const _Te = "Text";
+const _Ti = "Title";
+const _Tie = "Tier";
+const _U = "Url";
+const _UC = "UseCases";
+const _UCA = "UseCasesAlternative";
+const _UCAL = "UseCasesAlternativeList";
+const _UCD = "UseCaseDetails";
+const _UCL = "UseCaseList";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
-const _V = "Visibility";
+const _V = "Value";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
 const _VL = "ValueList";
-const _Va = "Value";
+const _VS = "VerificationSource";
+const _Vi = "Visibility";
 const _WCV = "WildCardValue";
 const _c = "client";
 const _cSI = "changeSetId";
@@ -393,6 +471,16 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+export var AdditionalResource$: StaticStructureSchema = [3, n0, _AR,
+  0,
+  [_T, _Te, _U],
+  [0, 0, 0], 3
+];
+export var AdditionalResourcesAlternative$: StaticStructureSchema = [3, n0, _ARA,
+  0,
+  [_V, _R],
+  [() => AdditionalResourceList, 0], 2
+];
 export var AmiProductEntityIdFilter$: StaticStructureSchema = [3, n0, _APEIF,
   0,
   [_VL],
@@ -400,7 +488,7 @@ export var AmiProductEntityIdFilter$: StaticStructureSchema = [3, n0, _APEIF,
 ];
 export var AmiProductFilters$: StaticStructureSchema = [3, n0, _APF,
   0,
-  [_EI, _LMD, _PT, _V],
+  [_EI, _LMD, _PT, _Vi],
   [() => AmiProductEntityIdFilter$, () => AmiProductLastModifiedDateFilter$, () => AmiProductTitleFilter$, () => AmiProductVisibilityFilter$]
 ];
 export var AmiProductLastModifiedDateFilter$: StaticStructureSchema = [3, n0, _APLMDF,
@@ -420,7 +508,7 @@ export var AmiProductSort$: StaticStructureSchema = [3, n0, _APS,
 ];
 export var AmiProductSummary$: StaticStructureSchema = [3, n0, _APSm,
   0,
-  [_PT, _V],
+  [_PT, _Vi],
   [0, 0]
 ];
 export var AmiProductTitleFilter$: StaticStructureSchema = [3, n0, _APTF,
@@ -445,13 +533,13 @@ export var AMISecuritySummary$: StaticStructureSchema = [3, n0, _AMISS,
 ];
 export var AssessmentSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_AA, _AI, _FI, _ATS, _FS, _AR, _CA, _EA],
+  [_AA, _AI, _FI, _ATS, _FS, _ARs, _CA, _EA],
   [0, 0, 0, () => AssessmentTargetSummary$, () => FrameworkSummary$, 0, 0, 0]
 ];
 export var AssessmentTargetFilter$: StaticStructureSchema = [3, n0, _ATF,
   0,
-  [_EI, _CSI],
-  [0, 0]
+  [_EI, _CSI, _EIn],
+  [0, 0, 64 | 0]
 ];
 export var AssessmentTargetSummary$: StaticStructureSchema = [3, n0, _ATS,
   0,
@@ -483,6 +571,11 @@ export var CancelChangeSetResponse$: StaticStructureSchema = [3, n0, _CCSRa,
   [_CSI, _CSA],
   [0, 0]
 ];
+export var CaseStudiesAlternative$: StaticStructureSchema = [3, n0, _CSAa,
+  0,
+  [_V, _R],
+  [() => CaseStudyList, 0], 2
+];
 export var Change$: StaticStructureSchema = [3, n0, _Ch,
   0,
   [_CT, _En, _ET, _D, _DD, _CN],
@@ -505,7 +598,7 @@ export var ContainerProductEntityIdFilter$: StaticStructureSchema = [3, n0, _CPE
 ];
 export var ContainerProductFilters$: StaticStructureSchema = [3, n0, _CPF,
   0,
-  [_EI, _LMD, _PT, _V],
+  [_EI, _LMD, _PT, _Vi],
   [() => ContainerProductEntityIdFilter$, () => ContainerProductLastModifiedDateFilter$, () => ContainerProductTitleFilter$, () => ContainerProductVisibilityFilter$]
 ];
 export var ContainerProductLastModifiedDateFilter$: StaticStructureSchema = [3, n0, _CPLMDF,
@@ -525,7 +618,7 @@ export var ContainerProductSort$: StaticStructureSchema = [3, n0, _CPS,
 ];
 export var ContainerProductSummary$: StaticStructureSchema = [3, n0, _CPSo,
   0,
-  [_PT, _V],
+  [_PT, _Vi],
   [0, 0]
 ];
 export var ContainerProductTitleFilter$: StaticStructureSchema = [3, n0, _CPTF,
@@ -548,15 +641,25 @@ export var ContainerSecuritySummary$: StaticStructureSchema = [3, n0, _CSS,
   [_DOI],
   [0]
 ];
+export var ContentRecommendation$: StaticStructureSchema = [3, n0, _CR,
+  0,
+  [_S, _A, _FUQ, _F],
+  [0, () => ContentAlternatives$, () => FollowUpQuestionList, () => FindingList], 4
+];
 export var ControlAssessment$: StaticStructureSchema = [3, n0, _CAo,
   0,
-  [_CI, _CAR, _E],
-  [0, 0, () => ControlErrorList]
+  [_CI, _CAR, _VS, _E, _CSo],
+  [0, 0, 0, () => ControlErrorList, () => ControlSummary$]
 ];
 export var ControlError$: StaticStructureSchema = [3, n0, _CE,
   0,
   [_Co, _M, _Sc],
   [0, 0, () => ErrorScopeList]
+];
+export var ControlInput$: StaticStructureSchema = [3, n0, _CIo,
+  0,
+  [_CI, _I],
+  [0, 15], 1
 ];
 export var DataProductEntityIdFilter$: StaticStructureSchema = [3, n0, _DPEIF,
   0,
@@ -565,7 +668,7 @@ export var DataProductEntityIdFilter$: StaticStructureSchema = [3, n0, _DPEIF,
 ];
 export var DataProductFilters$: StaticStructureSchema = [3, n0, _DPF,
   0,
-  [_EI, _PT, _V, _LMD],
+  [_EI, _PT, _Vi, _LMD],
   [() => DataProductEntityIdFilter$, () => DataProductTitleFilter$, () => DataProductVisibilityFilter$, () => DataProductLastModifiedDateFilter$]
 ];
 export var DataProductLastModifiedDateFilter$: StaticStructureSchema = [3, n0, _DPLMDF,
@@ -585,7 +688,7 @@ export var DataProductSort$: StaticStructureSchema = [3, n0, _DPS,
 ];
 export var DataProductSummary$: StaticStructureSchema = [3, n0, _DPSa,
   0,
-  [_PT, _V],
+  [_PT, _Vi],
   [0, 0]
 ];
 export var DataProductTitleFilter$: StaticStructureSchema = [3, n0, _DPTF,
@@ -615,7 +718,7 @@ export var DescribeAssessmentRequest$: StaticStructureSchema = [3, n0, _DAR,
 ];
 export var DescribeAssessmentResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
-  [_AA, _AI, _FI, _ATS, _FS, _AR, _CA, _EA, _CAon, _NT],
+  [_AA, _AI, _FI, _ATS, _FS, _ARs, _CA, _EA, _CAon, _NT],
   [0, 0, 0, () => AssessmentTargetSummary$, () => FrameworkSummary$, 0, 0, 0, () => ControlAssessmentList, 0]
 ];
 export var DescribeChangeSetRequest$: StaticStructureSchema = [3, n0, _DCSR,
@@ -625,7 +728,7 @@ export var DescribeChangeSetRequest$: StaticStructureSchema = [3, n0, _DCSR,
 ];
 export var DescribeChangeSetResponse$: StaticStructureSchema = [3, n0, _DCSRe,
   0,
-  [_CSI, _CSA, _CSN, _I, _ST, _ETn, _S, _FC, _FD, _CSh],
+  [_CSI, _CSA, _CSN, _In, _ST, _ETn, _S, _FC, _FD, _CSh],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, () => ChangeSetDescription]
 ];
 export var DescribeEntityRequest$: StaticStructureSchema = [3, n0, _DER,
@@ -635,7 +738,7 @@ export var DescribeEntityRequest$: StaticStructureSchema = [3, n0, _DER,
 ];
 export var DescribeEntityResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
-  [_ETnt, _EIn, _EAn, _LMD, _D, _DD],
+  [_ETnt, _EInt, _EAn, _LMD, _D, _DD],
   [0, 0, 0, 0, 0, 15]
 ];
 export var Entity$: StaticStructureSchema = [3, n0, _En,
@@ -645,7 +748,7 @@ export var Entity$: StaticStructureSchema = [3, n0, _En,
 ];
 export var EntityDetail$: StaticStructureSchema = [3, n0, _EDn,
   0,
-  [_ETnt, _EAn, _EIn, _LMD, _DD],
+  [_ETnt, _EAn, _EInt, _LMD, _DD],
   [0, 0, 0, 0, 15]
 ];
 export var EntityRequest$: StaticStructureSchema = [3, n0, _ER,
@@ -655,7 +758,7 @@ export var EntityRequest$: StaticStructureSchema = [3, n0, _ER,
 ];
 export var EntitySummary$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_N, _ETnt, _EI, _EAn, _LMD, _V, _APSm, _CPSo, _DPSa, _SSPS, _OS, _RAS, _MLPS, _OSS, _EPOCS, _SAS],
+  [_N, _ETnt, _EI, _EAn, _LMD, _Vi, _APSm, _CPSo, _DPSa, _SSPS, _OS, _RAS, _MLPS, _OSS, _EPOCS, _SAS],
   [0, 0, 0, 0, 0, 0, () => AmiProductSummary$, () => ContainerProductSummary$, () => DataProductSummary$, () => SaaSProductSummary$, () => OfferSummary$, () => ResaleAuthorizationSummary$, () => MachineLearningProductSummary$, () => OfferSetSummary$, () => ExpressPrivateOfferConfigurationSummary$, () => SubsidiaryAuthorizationSummary$]
 ];
 export var ErrorDetail$: StaticStructureSchema = [3, n0, _EDr,
@@ -665,7 +768,7 @@ export var ErrorDetail$: StaticStructureSchema = [3, n0, _EDr,
 ];
 export var ErrorScope$: StaticStructureSchema = [3, n0, _ESr,
   0,
-  [_N, _Va],
+  [_N, _V],
   [0, 0]
 ];
 export var ExpressPrivateOfferConfigurationEntityIdFilter$: StaticStructureSchema = [3, n0, _EPOCEIF,
@@ -698,10 +801,25 @@ export var ExpressPrivateOfferConfigurationSummary$: StaticStructureSchema = [3,
   [_PI, _St],
   [0, 0]
 ];
-export var Filter$: StaticStructureSchema = [3, n0, _F,
+export var FeatureRecommendation$: StaticStructureSchema = [3, n0, _FR,
+  0,
+  [_FIe, _Ac, _R, _Se, _S],
+  [0, 0, 0, 0, 0], 5
+];
+export var FeatureRecommendations$: StaticStructureSchema = [3, n0, _FRe,
+  0,
+  [_Re],
+  [() => FeatureRecommendationList], 1
+];
+export var Filter$: StaticStructureSchema = [3, n0, _Fi,
   0,
   [_N, _VL],
   [0, 64 | 0]
+];
+export var FollowUpQuestion$: StaticStructureSchema = [3, n0, _FUQo,
+  0,
+  [_Q, _J],
+  [0, 0], 2
 ];
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
@@ -743,6 +861,31 @@ export var ListEntitiesResponse$: StaticStructureSchema = [3, n0, _LERi,
   [_ESL, _NT],
   [() => EntitySummaryList, 0]
 ];
+export var ListingCaseStudy$: StaticStructureSchema = [3, n0, _LCS,
+  0,
+  [_Id_, _Ti, _R],
+  [0, 0, 0], 3
+];
+export var ListingFinding$: StaticStructureSchema = [3, n0, _LF,
+  0,
+  [_Ac, _De, _Se, _S],
+  [0, 0, 0, 0], 4
+];
+export var ListingQualitySummary$: StaticStructureSchema = [3, n0, _LQS,
+  0,
+  [_Tie, _ERn],
+  [0, 0], 1
+];
+export var ListingRecommendationsSummary$: StaticStructureSchema = [3, n0, _LRS,
+  0,
+  [_Tie, _ERn],
+  [0, 0], 1
+];
+export var ListingUseCase$: StaticStructureSchema = [3, n0, _LUC,
+  0,
+  [_Id_, _Ra, _N, _G, _Su, _R, _UCD],
+  [0, 1, 0, 0, 0, 0, 0], 6
+];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
@@ -760,7 +903,7 @@ export var MachineLearningProductEntityIdFilter$: StaticStructureSchema = [3, n0
 ];
 export var MachineLearningProductFilters$: StaticStructureSchema = [3, n0, _MLPF,
   0,
-  [_EI, _LMD, _PT, _V],
+  [_EI, _LMD, _PT, _Vi],
   [() => MachineLearningProductEntityIdFilter$, () => MachineLearningProductLastModifiedDateFilter$, () => MachineLearningProductTitleFilter$, () => MachineLearningProductVisibilityFilter$]
 ];
 export var MachineLearningProductLastModifiedDateFilter$: StaticStructureSchema = [3, n0, _MLPLMDF,
@@ -780,7 +923,7 @@ export var MachineLearningProductSort$: StaticStructureSchema = [3, n0, _MLPSa,
 ];
 export var MachineLearningProductSummary$: StaticStructureSchema = [3, n0, _MLPS,
   0,
-  [_PT, _V],
+  [_PT, _Vi],
   [0, 0]
 ];
 export var MachineLearningProductTitleFilter$: StaticStructureSchema = [3, n0, _MLPTF,
@@ -820,8 +963,8 @@ export var OfferEntityIdFilter$: StaticStructureSchema = [3, n0, _OEIF,
 ];
 export var OfferFilters$: StaticStructureSchema = [3, n0, _OF,
   0,
-  [_EI, _N, _PI, _RAI, _RD, _AED, _BA, _St, _Tar, _LMD, _OSI, _TAI, _TAIa, _CBS],
-  [() => OfferEntityIdFilter$, () => OfferNameFilter$, () => OfferProductIdFilter$, () => OfferResaleAuthorizationIdFilter$, () => OfferReleaseDateFilter$, () => OfferAvailabilityEndDateFilter$, () => OfferBuyerAccountsFilter$, () => OfferStateFilter$, () => OfferTargetingFilter$, () => OfferLastModifiedDateFilter$, () => OfferSetIdFilter$, () => OfferTargetAgreementIdFilter$, () => OfferTargetAgreementIntentFilter$, () => OfferCreatedBySourceFilter$]
+  [_EI, _N, _PI, _RAI, _SAI, _RD, _AED, _BA, _St, _Tar, _LMD, _OSI, _TAI, _TAIa, _CBS],
+  [() => OfferEntityIdFilter$, () => OfferNameFilter$, () => OfferProductIdFilter$, () => OfferResaleAuthorizationIdFilter$, () => OfferSubsidiaryAuthorizationIdFilter$, () => OfferReleaseDateFilter$, () => OfferAvailabilityEndDateFilter$, () => OfferBuyerAccountsFilter$, () => OfferStateFilter$, () => OfferTargetingFilter$, () => OfferLastModifiedDateFilter$, () => OfferSetIdFilter$, () => OfferTargetAgreementIdFilter$, () => OfferTargetAgreementIntentFilter$, () => OfferCreatedBySourceFilter$]
 ];
 export var OfferLastModifiedDateFilter$: StaticStructureSchema = [3, n0, _OLMDF,
   0,
@@ -933,10 +1076,15 @@ export var OfferStateFilter$: StaticStructureSchema = [3, n0, _OSFf,
   [_VL],
   [64 | 0]
 ];
+export var OfferSubsidiaryAuthorizationIdFilter$: StaticStructureSchema = [3, n0, _OSAIF,
+  0,
+  [_VL],
+  [64 | 0]
+];
 export var OfferSummary$: StaticStructureSchema = [3, n0, _OS,
   0,
-  [_N, _PI, _RAI, _RD, _AED, _BA, _St, _Tar, _OSI, _TAI, _TAIa, _CBS],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 64 | 0, 0, 0, 0, 0]
+  [_N, _PI, _RAI, _SAI, _RD, _AED, _BA, _St, _Tar, _OSI, _TAI, _TAIa, _CBS],
+  [0, 0, 0, 0, 0, 0, 64 | 0, 0, 64 | 0, 0, 0, 0, 0]
 ];
 export var OfferTargetAgreementIdFilter$: StaticStructureSchema = [3, n0, _OTAIF,
   0,
@@ -953,6 +1101,11 @@ export var OfferTargetingFilter$: StaticStructureSchema = [3, n0, _OTF,
   [_VL],
   [64 | 0]
 ];
+export var ProductContentRecommendations$: StaticStructureSchema = [3, n0, _PCR,
+  0,
+  [_Ci, _PT, _SD, _LD, _SDu, _H, _SK, _Ca, _ARd],
+  [() => CitationList, () => ContentRecommendation$, () => ContentRecommendation$, () => ContentRecommendation$, () => ContentRecommendation$, () => ContentRecommendation$, () => ContentRecommendation$, () => ContentRecommendation$, () => ContentRecommendation$], 1
+];
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_RA, _P],
@@ -962,6 +1115,11 @@ export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
   [],
   []
+];
+export var RecommendationCitation$: StaticStructureSchema = [3, n0, _RC,
+  0,
+  [_U],
+  [0], 1
 ];
 export var ResaleAuthorizationAvailabilityEndDateFilter$: StaticStructureSchema = [3, n0, _RAAEDF,
   0,
@@ -1080,7 +1238,7 @@ export var SaaSProductEntityIdFilter$: StaticStructureSchema = [3, n0, _SSPEIF,
 ];
 export var SaaSProductFilters$: StaticStructureSchema = [3, n0, _SSPF,
   0,
-  [_EI, _PT, _V, _LMD],
+  [_EI, _PT, _Vi, _LMD],
   [() => SaaSProductEntityIdFilter$, () => SaaSProductTitleFilter$, () => SaaSProductVisibilityFilter$, () => SaaSProductLastModifiedDateFilter$]
 ];
 export var SaaSProductLastModifiedDateFilter$: StaticStructureSchema = [3, n0, _SSPLMDF,
@@ -1100,7 +1258,7 @@ export var SaaSProductSort$: StaticStructureSchema = [3, n0, _SSPSa,
 ];
 export var SaaSProductSummary$: StaticStructureSchema = [3, n0, _SSPS,
   0,
-  [_PT, _V],
+  [_PT, _Vi],
   [0, 0]
 ];
 export var SaaSProductTitleFilter$: StaticStructureSchema = [3, n0, _SSPTF,
@@ -1113,14 +1271,29 @@ export var SaaSProductVisibilityFilter$: StaticStructureSchema = [3, n0, _SSPVF,
   [_VL],
   [64 | 0]
 ];
+export var SolutionContentRecommendations$: StaticStructureSchema = [3, n0, _SCR,
+  0,
+  [_Ci, _Ti, _SD, _LD, _ID, _ARd, _UC, _CSa],
+  [() => CitationList, () => ContentRecommendation$, () => ContentRecommendation$, () => ContentRecommendation$, () => ContentRecommendation$, () => ContentRecommendation$, () => ContentRecommendation$, () => ContentRecommendation$], 1
+];
 export var Sort$: StaticStructureSchema = [3, n0, _So,
   0,
   [_SB, _SO],
   [0, 0]
 ];
+export var StartAssessmentRequest$: StaticStructureSchema = [3, n0, _SAR,
+  0,
+  [_C, _FI, _EI, _CTl, _Con, _Ta],
+  [0, 0, 0, [0, 4], () => ControlInputList, 128 | 0], 3
+];
+export var StartAssessmentResponse$: StaticStructureSchema = [3, n0, _SARt,
+  0,
+  [_AI],
+  [0]
+];
 export var StartChangeSetRequest$: StaticStructureSchema = [3, n0, _SCSR,
   0,
-  [_C, _CSh, _CSN, _CRT, _CST, _I],
+  [_C, _CSh, _CSN, _CRT, _CST, _In],
   [0, () => RequestedChangeList, 0, [0, 4], () => TagList, 0], 2
 ];
 export var StartChangeSetResponse$: StaticStructureSchema = [3, n0, _SCSRt,
@@ -1145,7 +1318,7 @@ export var SubsidiaryAuthorizationEntityIdFilter$: StaticStructureSchema = [3, n
 ];
 export var SubsidiaryAuthorizationFilters$: StaticStructureSchema = [3, n0, _SAF,
   0,
-  [_EI, _S, _RI, _RN, _N, _SAI, _CD, _LMD],
+  [_EI, _S, _RI, _RN, _N, _SAIu, _CD, _LMD],
   [() => SubsidiaryAuthorizationEntityIdFilter$, () => SubsidiaryAuthorizationStatusFilter$, () => SubsidiaryAuthorizationResourceIdFilter$, () => SubsidiaryAuthorizationResourceNameFilter$, () => SubsidiaryAuthorizationNameFilter$, () => SubsidiaryAuthorizationSubsidiaryAccountIdFilter$, () => SubsidiaryAuthorizationCreatedDateFilter$, () => SubsidiaryAuthorizationLastModifiedDateFilter$]
 ];
 export var SubsidiaryAuthorizationLastModifiedDateFilter$: StaticStructureSchema = [3, n0, _SALMDF,
@@ -1190,12 +1363,12 @@ export var SubsidiaryAuthorizationSubsidiaryAccountIdFilter$: StaticStructureSch
 ];
 export var SubsidiaryAuthorizationSummary$: StaticStructureSchema = [3, n0, _SAS,
   0,
-  [_N, _S, _RI, _RN, _SAI, _CD],
+  [_N, _S, _RI, _RN, _SAIu, _CD],
   [0, 0, 0, 0, 0, 0]
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
-  [_K, _Va],
+  [_K, _V],
   [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
@@ -1208,6 +1381,16 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
+export var TextAlternative$: StaticStructureSchema = [3, n0, _TA,
+  0,
+  [_V, _R],
+  [0, 0], 2
+];
+export var TextListAlternative$: StaticStructureSchema = [3, n0, _TLA,
+  0,
+  [_V, _R],
+  [64 | 0, 0], 2
+];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -1218,10 +1401,21 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
+export var UseCasesAlternative$: StaticStructureSchema = [3, n0, _UCA,
+  0,
+  [_V, _R],
+  [() => UseCaseList, 0], 2
+];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
-  [_R, _ETnt, _EI, _CT, _Fi, _M],
+  [_Rea, _ETnt, _EI, _CT, _Fie, _M],
   [0, 0, 0, 0, 0, 0]
+];
+var AdditionalResourceList: StaticListSchema = [1, n0, _ARL,
+  0, () => AdditionalResource$
+];
+var AdditionalResourcesAlternativeList: StaticListSchema = [1, n0, _ARAL,
+  0, () => AdditionalResourcesAlternative$
 ];
 var AmiProductEntityIdFilterValueList = 64 | 0;
 var AmiProductTitleFilterValueList = 64 | 0;
@@ -1229,11 +1423,20 @@ var AmiProductVisibilityFilterValueList = 64 | 0;
 var AssessmentSummaryList: StaticListSchema = [1, n0, _ASL,
   0, () => AssessmentSummary$
 ];
+var CaseStudiesAlternativeList: StaticListSchema = [1, n0, _CSAL,
+  0, () => CaseStudiesAlternative$
+];
+var CaseStudyList: StaticListSchema = [1, n0, _CSL,
+  0, () => ListingCaseStudy$
+];
 var ChangeSetDescription: StaticListSchema = [1, n0, _CSD,
   0, () => ChangeSummary$
 ];
 var ChangeSetSummaryList: StaticListSchema = [1, n0, _CSSL,
   0, () => ChangeSetSummaryListItem$
+];
+var CitationList: StaticListSchema = [1, n0, _CL,
+  0, () => RecommendationCitation$
 ];
 var ContainerProductEntityIdFilterValueList = 64 | 0;
 var ContainerProductTitleFilterValueList = 64 | 0;
@@ -1244,9 +1447,13 @@ var ControlAssessmentList: StaticListSchema = [1, n0, _CAL,
 var ControlErrorList: StaticListSchema = [1, n0, _CEL,
   0, () => ControlError$
 ];
+var ControlInputList: StaticListSchema = [1, n0, _CIL,
+  0, () => ControlInput$
+];
 var DataProductEntityIdFilterValueList = 64 | 0;
 var DataProductTitleFilterValueList = 64 | 0;
 var DataProductVisibilityFilterValueList = 64 | 0;
+var EntityIdList = 64 | 0;
 var EntityRequestList: StaticListSchema = [1, n0, _ERL,
   0, () => EntityRequest$
 ];
@@ -1262,8 +1469,18 @@ var ErrorScopeList: StaticListSchema = [1, n0, _ESLr,
 var ExpressPrivateOfferConfigurationEntityIdFilterValueList = 64 | 0;
 var ExpressPrivateOfferConfigurationProductIdFilterValueList = 64 | 0;
 var ExpressPrivateOfferConfigurationStateFilterValueList = 64 | 0;
+var FeatureRecommendationList: StaticListSchema = [1, n0, _FRL,
+  0, () => FeatureRecommendation$
+];
+var FieldTextList = 64 | 0;
 var FilterList: StaticListSchema = [1, n0, _FL,
   0, () => Filter$
+];
+var FindingList: StaticListSchema = [1, n0, _FLi,
+  0, () => ListingFinding$
+];
+var FollowUpQuestionList: StaticListSchema = [1, n0, _FUQL,
+  0, () => FollowUpQuestion$
 ];
 var MachineLearningProductEntityIdFilterValueList = 64 | 0;
 var MachineLearningProductTitleFilterValueList = 64 | 0;
@@ -1282,6 +1499,7 @@ var OfferSetNameFilterValueList = 64 | 0;
 var OfferSetSolutionIdFilterValueList = 64 | 0;
 var OfferSetStateFilterValueList = 64 | 0;
 var OfferStateFilterValueList = 64 | 0;
+var OfferSubsidiaryAuthorizationIdFilterValueList = 64 | 0;
 var OfferTargetAgreementIdFilterValueList = 64 | 0;
 var OfferTargetAgreementIntentFilterValueList = 64 | 0;
 var OfferTargetingFilterValueList = 64 | 0;
@@ -1318,6 +1536,18 @@ var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,
   0, () => Tag$
 ];
+var TextAlternativeList: StaticListSchema = [1, n0, _TAL,
+  0, () => TextAlternative$
+];
+var TextListAlternativeList: StaticListSchema = [1, n0, _TLAL,
+  0, () => TextListAlternative$
+];
+var UseCaseList: StaticListSchema = [1, n0, _UCL,
+  0, () => ListingUseCase$
+];
+var UseCasesAlternativeList: StaticListSchema = [1, n0, _UCAL,
+  0, () => UseCasesAlternative$
+];
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
 ];
@@ -1327,6 +1557,17 @@ var EntityDetails: StaticMapSchema = [2, n0, _ED,
 ];
 var Errors: StaticMapSchema = [2, n0, _E,
   0, 0, () => BatchDescribeErrorDetail$
+];
+var TagMap = 128 | 0;
+export var ContentAlternatives$: StaticUnionSchema = [4, n0, _CAont,
+  0,
+  [_Te, _TLe, _ARd, _UC, _CSa],
+  [() => TextAlternativeList, () => TextListAlternativeList, () => AdditionalResourcesAlternativeList, () => UseCasesAlternativeList, () => CaseStudiesAlternativeList]
+];
+export var ControlSummary$: StaticUnionSchema = [4, n0, _CSo,
+  0,
+  [_LR],
+  [() => ListingRecommendations$]
 ];
 export var EntityTypeFilters$: StaticUnionSchema = [4, n0, _ETF,
   0,
@@ -1345,8 +1586,13 @@ export var FrameworkFilters$: StaticUnionSchema = [4, n0, _FF,
 ];
 export var FrameworkSummary$: StaticUnionSchema = [4, n0, _FS,
   0,
-  [_AMISS, _CSS],
-  [() => AMISecuritySummary$, () => ContainerSecuritySummary$]
+  [_AMISS, _CSS, _LQS, _LRS],
+  [() => AMISecuritySummary$, () => ContainerSecuritySummary$, () => ListingQualitySummary$, () => ListingRecommendationsSummary$]
+];
+export var ListingRecommendations$: StaticUnionSchema = [4, n0, _LR,
+  0,
+  [_PCR, _SCR, _FRe],
+  [() => ProductContentRecommendations$, () => SolutionContentRecommendations$, () => FeatureRecommendations$]
 ];
 export var BatchDescribeEntities$: StaticOperationSchema = [9, n0, _BDE,
   { [_h]: ["POST", "/BatchDescribeEntities", 200] }, () => BatchDescribeEntitiesRequest$, () => BatchDescribeEntitiesResponse$
@@ -1372,7 +1618,7 @@ export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
 export var ListAssessments$: StaticOperationSchema = [9, n0, _LA,
   { [_h]: ["POST", "/ListAssessments", 200] }, () => ListAssessmentsRequest$, () => ListAssessmentsResponse$
 ];
-export var ListChangeSets$: StaticOperationSchema = [9, n0, _LCS,
+export var ListChangeSets$: StaticOperationSchema = [9, n0, _LCSi,
   { [_h]: ["POST", "/ListChangeSets", 200] }, () => ListChangeSetsRequest$, () => ListChangeSetsResponse$
 ];
 export var ListEntities$: StaticOperationSchema = [9, n0, _LE,
@@ -1383,6 +1629,9 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 ];
 export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
   { [_h]: ["POST", "/PutResourcePolicy", 200] }, () => PutResourcePolicyRequest$, () => PutResourcePolicyResponse$
+];
+export var StartAssessment$: StaticOperationSchema = [9, n0, _SAt,
+  { [_h]: ["POST", "/StartAssessment", 200] }, () => StartAssessmentRequest$, () => StartAssessmentResponse$
 ];
 export var StartChangeSet$: StaticOperationSchema = [9, n0, _SCS,
   { [_h]: ["POST", "/StartChangeSet", 200] }, () => StartChangeSetRequest$, () => StartChangeSetResponse$

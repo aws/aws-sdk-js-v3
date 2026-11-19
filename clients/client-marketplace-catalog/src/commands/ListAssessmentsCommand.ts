@@ -46,6 +46,9 @@ export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, _
  *   AssessmentTargetFilter: { // AssessmentTargetFilter
  *     EntityId: "STRING_VALUE",
  *     ChangeSetId: "STRING_VALUE",
+ *     EntityIds: [ // EntityIdList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   FrameworkFilters: { // FrameworkFilters Union: only one key present
  *     AMISecurityFilters: { // AMISecurityFilters
@@ -76,6 +79,14 @@ export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, _
  * //         },
  * //         ContainerSecuritySummary: { // ContainerSecuritySummary
  * //           DeliveryOptionId: "STRING_VALUE",
+ * //         },
+ * //         ListingQualitySummary: { // ListingQualitySummary
+ * //           Tier: "NEEDS_IMPROVEMENT" || "BASIC" || "STRONG" || "EXCELLENT", // required
+ * //           EntityRevision: "STRING_VALUE",
+ * //         },
+ * //         ListingRecommendationsSummary: { // ListingRecommendationsSummary
+ * //           Tier: "NEEDS_IMPROVEMENT" || "BASIC" || "STRONG" || "EXCELLENT", // required
+ * //           EntityRevision: "STRING_VALUE",
  * //         },
  * //       },
  * //       AssessmentResult: "PASS" || "FAIL",

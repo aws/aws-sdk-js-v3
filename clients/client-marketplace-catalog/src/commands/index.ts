@@ -11,6 +11,7 @@ export * from "./ListChangeSetsCommand";
 export * from "./ListEntitiesCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PutResourcePolicyCommand";
+export * from "./StartAssessmentCommand";
 export * from "./StartChangeSetCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";

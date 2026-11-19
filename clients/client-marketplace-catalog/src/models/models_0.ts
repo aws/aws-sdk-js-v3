@@ -8,6 +8,7 @@ import type {
   ChangeStatus,
   ContainerProductSortBy,
   ContainerProductVisibilityString,
+  ContentRecommendationStatus,
   ControlAssessmentResult,
   DataProductSortBy,
   DataProductVisibilityString,
@@ -15,6 +16,8 @@ import type {
   ExpressPrivateOfferConfigurationStateString,
   FailureCode,
   Intent,
+  ListingFindingStatus,
+  ListingQualityTier,
   MachineLearningProductSortBy,
   MachineLearningProductVisibilityString,
   OfferCreatedBySourceString,
@@ -25,6 +28,9 @@ import type {
   OfferTargetAgreementIntentString,
   OfferTargetingString,
   OwnershipType,
+  RecommendationSeverity,
+  RecommendedFeatureId,
+  RecommendedFeatureStatus,
   ResaleAuthorizationResellerRoleString,
   ResaleAuthorizationSortBy,
   ResaleAuthorizationStatusString,
@@ -34,7 +40,51 @@ import type {
   SubsidiaryAuthorizationSortBy,
   SubsidiaryAuthorizationStatusString,
   ValidationExceptionReason,
+  VerificationSource,
 } from "./enums";
+
+/**
+ * <p>An additional resource for a listing, with its type, display text, and URL.</p>
+ * @public
+ */
+export interface AdditionalResource {
+  /**
+   * <p>The type of the resource. Currently, the only value that the service returns is
+   *             <code>Link</code>.</p>
+   * @public
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>The text to display for the resource.</p>
+   * @public
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The URL of the resource.</p>
+   * @public
+   */
+  Url: string | undefined;
+}
+
+/**
+ * <p>A proposed set of additional resources for a listing.</p>
+ * @public
+ */
+export interface AdditionalResourcesAlternative {
+  /**
+   * <p>The proposed additional resources.</p>
+   * @public
+   */
+  Value: AdditionalResource[] | undefined;
+
+  /**
+   * <p>Why this alternative is recommended.</p>
+   * @public
+   */
+  Rationale: string | undefined;
+}
 
 /**
  * <p>Object that allows filtering on entity id of an AMI product.</p>
@@ -231,6 +281,47 @@ export interface ContainerSecuritySummary {
 }
 
 /**
+ * <p>The details of the resource assessed under the Listing Quality framework.</p>
+ * @public
+ */
+export interface ListingQualitySummary {
+  /**
+   * <p>The quality tier of the listing. Valid values are <code>NEEDS_IMPROVEMENT</code>,
+   *             <code>BASIC</code>, <code>STRONG</code>, and <code>EXCELLENT</code>.</p>
+   * @public
+   */
+  Tier: ListingQualityTier | undefined;
+
+  /**
+   * <p>The revision of the entity that the tier was evaluated against. To check whether the
+   *             tier is out of date, compare this value with the current revision of the entity.</p>
+   * @public
+   */
+  EntityRevision?: string | undefined;
+}
+
+/**
+ * <p>The details of the resource assessed under the Listing Recommendations framework.</p>
+ * @public
+ */
+export interface ListingRecommendationsSummary {
+  /**
+   * <p>The quality tier of the listing. Valid values are <code>NEEDS_IMPROVEMENT</code>,
+   *             <code>BASIC</code>, <code>STRONG</code>, and <code>EXCELLENT</code>.</p>
+   * @public
+   */
+  Tier: ListingQualityTier | undefined;
+
+  /**
+   * <p>The revision of the entity that the recommendations were generated against. To check whether
+   *             the recommendations are out of date, compare this value with the current revision of the
+   *             entity.</p>
+   * @public
+   */
+  EntityRevision?: string | undefined;
+}
+
+/**
  * <p>The framework-specific details of the assessed resource. Exactly one member is set,
  *             corresponding to the framework that was assessed.</p>
  * @public
@@ -238,6 +329,8 @@ export interface ContainerSecuritySummary {
 export type FrameworkSummary =
   | FrameworkSummary.AMISecuritySummaryMember
   | FrameworkSummary.ContainerSecuritySummaryMember
+  | FrameworkSummary.ListingQualitySummaryMember
+  | FrameworkSummary.ListingRecommendationsSummaryMember
   | FrameworkSummary.$UnknownMember;
 
 /**
@@ -251,6 +344,8 @@ export namespace FrameworkSummary {
   export interface AMISecuritySummaryMember {
     AMISecuritySummary: AMISecuritySummary;
     ContainerSecuritySummary?: never;
+    ListingQualitySummary?: never;
+    ListingRecommendationsSummary?: never;
     $unknown?: never;
   }
 
@@ -261,6 +356,32 @@ export namespace FrameworkSummary {
   export interface ContainerSecuritySummaryMember {
     AMISecuritySummary?: never;
     ContainerSecuritySummary: ContainerSecuritySummary;
+    ListingQualitySummary?: never;
+    ListingRecommendationsSummary?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The details of the resource assessed under the Listing Quality framework.</p>
+   * @public
+   */
+  export interface ListingQualitySummaryMember {
+    AMISecuritySummary?: never;
+    ContainerSecuritySummary?: never;
+    ListingQualitySummary: ListingQualitySummary;
+    ListingRecommendationsSummary?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The details of the resource assessed under the Listing Recommendations framework.</p>
+   * @public
+   */
+  export interface ListingRecommendationsSummaryMember {
+    AMISecuritySummary?: never;
+    ContainerSecuritySummary?: never;
+    ListingQualitySummary?: never;
+    ListingRecommendationsSummary: ListingRecommendationsSummary;
     $unknown?: never;
   }
 
@@ -270,6 +391,8 @@ export namespace FrameworkSummary {
   export interface $UnknownMember {
     AMISecuritySummary?: never;
     ContainerSecuritySummary?: never;
+    ListingQualitySummary?: never;
+    ListingRecommendationsSummary?: never;
     $unknown: [string, any];
   }
 
@@ -280,6 +403,8 @@ export namespace FrameworkSummary {
   export interface Visitor<T> {
     AMISecuritySummary: (value: AMISecuritySummary) => T;
     ContainerSecuritySummary: (value: ContainerSecuritySummary) => T;
+    ListingQualitySummary: (value: ListingQualitySummary) => T;
+    ListingRecommendationsSummary: (value: ListingRecommendationsSummary) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -361,6 +486,15 @@ export interface AssessmentTargetFilter {
    * @public
    */
   ChangeSetId?: string | undefined;
+
+  /**
+   * <p>A list of up to 50 entity IDs whose assessments you want to list. The response includes
+   *             only the latest published assessment of each entity. You must also specify
+   *             <code>FrameworkId</code> in the request, and you can't combine <code>EntityIds</code>
+   *             with <code>EntityId</code> or <code>ChangeSetId</code>.</p>
+   * @public
+   */
+  EntityIds?: string[] | undefined;
 }
 
 /**
@@ -605,6 +739,682 @@ export interface DescribeAssessmentRequest {
 }
 
 /**
+ * <p>A recommended AWS Marketplace feature for a listing.</p>
+ * @public
+ */
+export interface FeatureRecommendation {
+  /**
+   * <p>The feature that is recommended. Valid values are
+   *             <code>REQUEST_PRIVATE_OFFER</code>, <code>REQUEST_A_DEMO</code>,
+   *             <code>PROMOTIONAL_MEDIA</code>, <code>FREE_TRIAL</code>, and
+   *             <code>QUICK_LAUNCH</code>.</p>
+   * @public
+   */
+  FeatureId: RecommendedFeatureId | undefined;
+
+  /**
+   * <p>What you should do. It might contain a link to the console.</p>
+   * @public
+   */
+  Action: string | undefined;
+
+  /**
+   * <p>Why the feature is recommended.</p>
+   * @public
+   */
+  Rationale: string | undefined;
+
+  /**
+   * <p>How much the recommendation blocks the listing. Valid values are
+   *             <code>BLOCKING</code> and <code>ADVISORY</code>.</p>
+   * @public
+   */
+  Severity: RecommendationSeverity | undefined;
+
+  /**
+   * <p>Whether the listing has the feature. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PASS</code> - The listing already has the feature.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAIL</code> - The feature is one to turn on.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status: RecommendedFeatureStatus | undefined;
+}
+
+/**
+ * <p>The feature recommendations for a listing, for a product or a solution.</p>
+ * @public
+ */
+export interface FeatureRecommendations {
+  /**
+   * <p>The recommended features, in ranked order. The list has at most one entry for each
+   *             feature and up to 5 entries.</p>
+   * @public
+   */
+  Recommendations: FeatureRecommendation[] | undefined;
+}
+
+/**
+ * <p>A recommended case study.</p>
+ * @public
+ */
+export interface ListingCaseStudy {
+  /**
+   * <p>The ID of the case study entity. Identify a case study by this ID and not by
+   *             <code>Title</code>, which you can edit.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The title of the case study.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>Why this case study was selected.</p>
+   * @public
+   */
+  Rationale: string | undefined;
+}
+
+/**
+ * <p>A proposed set of case studies for a solution.</p>
+ * @public
+ */
+export interface CaseStudiesAlternative {
+  /**
+   * <p>The proposed case studies.</p>
+   * @public
+   */
+  Value: ListingCaseStudy[] | undefined;
+
+  /**
+   * <p>Why this set of case studies fits the solution.</p>
+   * @public
+   */
+  Rationale: string | undefined;
+}
+
+/**
+ * <p>A proposed text value for a listing field.</p>
+ * @public
+ */
+export interface TextAlternative {
+  /**
+   * <p>The proposed text. The limit of the field itself, such as 255 characters for a
+   *             title, applies.</p>
+   * @public
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>Why this alternative is recommended.</p>
+   * @public
+   */
+  Rationale: string | undefined;
+}
+
+/**
+ * <p>A proposed list of text values for a listing field.</p>
+ * @public
+ */
+export interface TextListAlternative {
+  /**
+   * <p>The proposed list of text values. The list has 1–15 items.</p>
+   * @public
+   */
+  Value: string[] | undefined;
+
+  /**
+   * <p>Why this alternative is recommended.</p>
+   * @public
+   */
+  Rationale: string | undefined;
+}
+
+/**
+ * <p>A use case from the AWS Marketplace use case taxonomy.</p>
+ * @public
+ */
+export interface ListingUseCase {
+  /**
+   * <p>The unique identifier of the use case.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The rank of the use case. A rank of 1 is the strongest match. Valid values range
+   *             from 1 to 5.</p>
+   * @public
+   */
+  Rank: number | undefined;
+
+  /**
+   * <p>The name of the use case.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The group of the use case in the taxonomy.</p>
+   * @public
+   */
+  Group: string | undefined;
+
+  /**
+   * <p>The subgroup of the use case in the taxonomy.</p>
+   * @public
+   */
+  Subgroup: string | undefined;
+
+  /**
+   * <p>How the solution serves the use case.</p>
+   * @public
+   */
+  UseCaseDetails?: string | undefined;
+
+  /**
+   * <p>Why this use case is recommended.</p>
+   * @public
+   */
+  Rationale: string | undefined;
+}
+
+/**
+ * <p>A proposed set of use cases for a solution.</p>
+ * @public
+ */
+export interface UseCasesAlternative {
+  /**
+   * <p>The proposed use cases, in ranked order.</p>
+   * @public
+   */
+  Value: ListingUseCase[] | undefined;
+
+  /**
+   * <p>Why this alternative is recommended.</p>
+   * @public
+   */
+  Rationale: string | undefined;
+}
+
+/**
+ * <p>The proposed values for a listing field. Exactly one member is set, depending on
+ *             the field. The list in that member is empty if the status of the recommendation is
+ *             <code>INSUFFICIENT_CONTEXT</code>.</p>
+ * @public
+ */
+export type ContentAlternatives =
+  | ContentAlternatives.AdditionalResourcesMember
+  | ContentAlternatives.CaseStudiesMember
+  | ContentAlternatives.TextMember
+  | ContentAlternatives.TextListMember
+  | ContentAlternatives.UseCasesMember
+  | ContentAlternatives.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ContentAlternatives {
+  /**
+   * <p>The proposed values for a text field, such as <code>ProductTitle</code> or
+   *             <code>LongDescription</code>. You can have up to 3 alternatives.</p>
+   * @public
+   */
+  export interface TextMember {
+    Text: TextAlternative[];
+    TextList?: never;
+    AdditionalResources?: never;
+    UseCases?: never;
+    CaseStudies?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The proposed values for <code>Highlights</code>, <code>SearchKeywords</code>, or
+   *             <code>Categories</code>. You can have up to 3 alternatives.</p>
+   * @public
+   */
+  export interface TextListMember {
+    Text?: never;
+    TextList: TextListAlternative[];
+    AdditionalResources?: never;
+    UseCases?: never;
+    CaseStudies?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The proposed values for <code>AdditionalResources</code>. You can have up to 3
+   *             alternatives.</p>
+   * @public
+   */
+  export interface AdditionalResourcesMember {
+    Text?: never;
+    TextList?: never;
+    AdditionalResources: AdditionalResourcesAlternative[];
+    UseCases?: never;
+    CaseStudies?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The proposed values for <code>UseCases</code>. You can have up to 3 alternatives.</p>
+   * @public
+   */
+  export interface UseCasesMember {
+    Text?: never;
+    TextList?: never;
+    AdditionalResources?: never;
+    UseCases: UseCasesAlternative[];
+    CaseStudies?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The proposed values for <code>CaseStudies</code>. You can have up to 3
+   *             alternatives.</p>
+   * @public
+   */
+  export interface CaseStudiesMember {
+    Text?: never;
+    TextList?: never;
+    AdditionalResources?: never;
+    UseCases?: never;
+    CaseStudies: CaseStudiesAlternative[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Text?: never;
+    TextList?: never;
+    AdditionalResources?: never;
+    UseCases?: never;
+    CaseStudies?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Text: (value: TextAlternative[]) => T;
+    TextList: (value: TextListAlternative[]) => T;
+    AdditionalResources: (value: AdditionalResourcesAlternative[]) => T;
+    UseCases: (value: UseCasesAlternative[]) => T;
+    CaseStudies: (value: CaseStudiesAlternative[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>One row of the checklist of criteria for a listing field. A row is either a
+ *             criterion that the field already meets or advice for a criterion that it doesn't.</p>
+ * @public
+ */
+export interface ListingFinding {
+  /**
+   * <p>What you should do to meet the criterion.</p>
+   * @public
+   */
+  Action: string | undefined;
+
+  /**
+   * <p>What the criterion asks for. The text is the same for every listing. The reasoning
+   *             for a specific listing is in the rationale of the alternatives.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>How much the criterion blocks the listing. It is set on every row. For a row with
+   *             a status of <code>PASS</code>, it is the weight of a criterion that is already met.
+   *             Valid values are <code>BLOCKING</code> and <code>ADVISORY</code>.</p>
+   * @public
+   */
+  Severity: RecommendationSeverity | undefined;
+
+  /**
+   * <p>The result for the criterion. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PASS</code> - The criterion is met and no action is needed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAIL</code> - The criterion isn't met or wasn't scored.</p>
+   *             </li>
+   *          </ul>
+   *          <p>This value is different from the status of the content recommendation.</p>
+   * @public
+   */
+  Status: ListingFindingStatus | undefined;
+}
+
+/**
+ * <p>A question that you can answer to get a better recommendation, and the
+ *             reason that it's asked.</p>
+ * @public
+ */
+export interface FollowUpQuestion {
+  /**
+   * <p>The question to answer.</p>
+   * @public
+   */
+  Question: string | undefined;
+
+  /**
+   * <p>Why the question is asked.</p>
+   * @public
+   */
+  Justification: string | undefined;
+}
+
+/**
+ * <p>A recommendation for a listing field.</p>
+ * @public
+ */
+export interface ContentRecommendation {
+  /**
+   * <p>The status of the recommendation. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>GENERATED</code> - The service proposed values for the field.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INSUFFICIENT_CONTEXT</code> - The service couldn't propose a value. The follow-up questions say what is missing.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status: ContentRecommendationStatus | undefined;
+
+  /**
+   * <p>The proposed values for the field, in ranked order.</p>
+   * @public
+   */
+  Alternatives: ContentAlternatives | undefined;
+
+  /**
+   * <p>Questions that you can answer to get a better recommendation. The list is empty if
+   *             there are none.</p>
+   * @public
+   */
+  FollowUpQuestions: FollowUpQuestion[] | undefined;
+
+  /**
+   * <p>The checklist of criteria for the field, in ranked order. It includes the criteria
+   *             that the field passes and the criteria that it fails. The list is empty if there are
+   *             none.</p>
+   * @public
+   */
+  Findings: ListingFinding[] | undefined;
+}
+
+/**
+ * <p>A source that the recommendations are based on.</p>
+ * @public
+ */
+export interface RecommendationCitation {
+  /**
+   * <p>The HTTPS URL of the source.</p>
+   * @public
+   */
+  Url: string | undefined;
+}
+
+/**
+ * <p>The content recommendations for a product listing, with one member for each
+ *             listing field. A member is absent if nothing is recommended for that field.</p>
+ * @public
+ */
+export interface ProductContentRecommendations {
+  /**
+   * <p>The recommendation for the product title.</p>
+   * @public
+   */
+  ProductTitle?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The recommendation for the short description.</p>
+   * @public
+   */
+  ShortDescription?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The recommendation for the long description.</p>
+   * @public
+   */
+  LongDescription?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The recommendation for the support description.</p>
+   * @public
+   */
+  SupportDescription?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The recommendation for the highlights.</p>
+   * @public
+   */
+  Highlights?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The recommendation for the search keywords.</p>
+   * @public
+   */
+  SearchKeywords?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The recommendation for the categories.</p>
+   * @public
+   */
+  Categories?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The recommendation for the additional resources. Each alternative has up to 3
+   *             resources.</p>
+   * @public
+   */
+  AdditionalResources?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The sources that the recommendations are based on. You can have up to 5 sources.
+   *             The list is empty if there are none.</p>
+   * @public
+   */
+  Citations: RecommendationCitation[] | undefined;
+}
+
+/**
+ * <p>The content recommendations for a solution listing, with one member for each
+ *             listing field. A member is absent if nothing is recommended for that field.</p>
+ * @public
+ */
+export interface SolutionContentRecommendations {
+  /**
+   * <p>The recommendation for the external title of the solution.</p>
+   * @public
+   */
+  Title?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The recommendation for the value proposition of the solution.</p>
+   * @public
+   */
+  ShortDescription?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The recommendation for the long description of the solution.</p>
+   * @public
+   */
+  LongDescription?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The recommendation for the integration details of the solution.</p>
+   * @public
+   */
+  IntegrationDetails?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The recommendation for the additional resources. Each alternative has up to 8
+   *             resources.</p>
+   * @public
+   */
+  AdditionalResources?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The recommendation for the use cases of the solution.</p>
+   * @public
+   */
+  UseCases?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The recommendation for the case studies of the solution. Each alternative has up
+   *             to 20 case studies.</p>
+   * @public
+   */
+  CaseStudies?: ContentRecommendation | undefined;
+
+  /**
+   * <p>The sources that the recommendations are based on. You can have up to 5 sources.
+   *             The list is empty if there are none.</p>
+   * @public
+   */
+  Citations: RecommendationCitation[] | undefined;
+}
+
+/**
+ * <p>The recommendations that a listing recommendations control produced. Exactly one
+ *             member is set, corresponding to the control: content recommendations for a product,
+ *             content recommendations for a solution, or feature recommendations.</p>
+ * @public
+ */
+export type ListingRecommendations =
+  | ListingRecommendations.FeatureRecommendationsMember
+  | ListingRecommendations.ProductContentRecommendationsMember
+  | ListingRecommendations.SolutionContentRecommendationsMember
+  | ListingRecommendations.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ListingRecommendations {
+  /**
+   * <p>The content recommendations for a product listing.</p>
+   * @public
+   */
+  export interface ProductContentRecommendationsMember {
+    ProductContentRecommendations: ProductContentRecommendations;
+    SolutionContentRecommendations?: never;
+    FeatureRecommendations?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The content recommendations for a solution listing.</p>
+   * @public
+   */
+  export interface SolutionContentRecommendationsMember {
+    ProductContentRecommendations?: never;
+    SolutionContentRecommendations: SolutionContentRecommendations;
+    FeatureRecommendations?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The recommendations for AWS Marketplace features to use with the listing, for a
+   *             product or a solution.</p>
+   * @public
+   */
+  export interface FeatureRecommendationsMember {
+    ProductContentRecommendations?: never;
+    SolutionContentRecommendations?: never;
+    FeatureRecommendations: FeatureRecommendations;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ProductContentRecommendations?: never;
+    SolutionContentRecommendations?: never;
+    FeatureRecommendations?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ProductContentRecommendations: (value: ProductContentRecommendations) => T;
+    SolutionContentRecommendations: (value: SolutionContentRecommendations) => T;
+    FeatureRecommendations: (value: FeatureRecommendations) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A summary of what a control produced. Exactly one member is set, corresponding to
+ *             the kind of control.</p>
+ * @public
+ */
+export type ControlSummary =
+  | ControlSummary.ListingRecommendationsMember
+  | ControlSummary.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ControlSummary {
+  /**
+   * <p>The recommendations that a listing recommendations control produced for the
+   *             listing.</p>
+   * @public
+   */
+  export interface ListingRecommendationsMember {
+    ListingRecommendations: ListingRecommendations;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ListingRecommendations?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ListingRecommendations: (value: ListingRecommendations) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>A name-value pair that identifies the resource or attribute that a
  *             <code>ControlError</code> applies to.</p>
  * @public
@@ -667,11 +1477,35 @@ export interface ControlAssessment {
   ControlAssessmentResult?: ControlAssessmentResult | undefined;
 
   /**
+   * <p>Where the result of the control came from. This value doesn't say whether the control
+   *             passed. A control that you attested to can still have a result of <code>PASS</code>. Valid values
+   *             are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_VERIFIED</code> - AWS evaluated the control.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SELF_ATTESTED</code> - You attested to the result of the control.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  VerificationSource?: VerificationSource | undefined;
+
+  /**
    * <p>An array of <code>ControlError</code> objects associated with the control
    *             evaluation.</p>
    * @public
    */
   Errors?: ControlError[] | undefined;
+
+  /**
+   * <p>A summary of what the control produced, such as recommendations for the listing.</p>
+   * @public
+   */
+  ControlSummary?: ControlSummary | undefined;
 }
 
 /**
@@ -1094,7 +1928,8 @@ export interface ListAssessmentsRequest {
 
   /**
    * <p>The unique identifier of a framework. When specified, only assessments performed
-   *             against this framework are returned. For example, <code>AMISecurity</code>.</p>
+   *             against this framework are returned. For example, <code>AMISecurity</code>. Required
+   *             when you use <code>EntityIds</code> in <code>AssessmentTargetFilter</code>.</p>
    * @public
    */
   FrameworkId?: string | undefined;
@@ -1928,6 +2763,23 @@ export interface OfferStateFilter {
 }
 
 /**
+ * <p>A filter that matches offers by the ID of the subsidiary authorization they were
+ *             created from.</p>
+ *          <note>
+ *             <p>Not all offers have a <code>SubsidiaryAuthorizationId</code>.</p>
+ *          </note>
+ * @public
+ */
+export interface OfferSubsidiaryAuthorizationIdFilter {
+  /**
+   * <p>A list of subsidiary authorization IDs to filter offers by. You can include up to 10
+   *             subsidiary authorization IDs in this list.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+}
+
+/**
  * <p>Allows filtering on the <code>TargetAgreementId</code> of an offer.</p>
  * @public
  */
@@ -1995,6 +2847,16 @@ export interface OfferFilters {
    * @public
    */
   ResaleAuthorizationId?: OfferResaleAuthorizationIdFilter | undefined;
+
+  /**
+   * <p>A filter that matches offers by the ID of the subsidiary authorization that they were created
+   *             from.</p>
+   *          <note>
+   *             <p>Not all offers have a <code>SubsidiaryAuthorizationId</code>.</p>
+   *          </note>
+   * @public
+   */
+  SubsidiaryAuthorizationId?: OfferSubsidiaryAuthorizationIdFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>ReleaseDate</code> of an offer.</p>
@@ -3833,6 +4695,13 @@ export interface OfferSummary {
   ResaleAuthorizationId?: string | undefined;
 
   /**
+   * <p>The ID of the subsidiary authorization that the offer was created from. The ID begins with
+   *             <code>subauthz-</code> followed by 13 alphanumeric characters.</p>
+   * @public
+   */
+  SubsidiaryAuthorizationId?: string | undefined;
+
+  /**
    * <p>The release date of the offer.</p>
    * @public
    */
@@ -4257,6 +5126,81 @@ export interface PutResourcePolicyRequest {
  * @public
  */
 export interface PutResourcePolicyResponse {}
+
+/**
+ * <p>A control to run as part of an assessment, and the input to run it with.</p>
+ * @public
+ */
+export interface ControlInput {
+  /**
+   * <p>The unique identifier of the control to run.</p>
+   * @public
+   */
+  ControlId: string | undefined;
+
+  /**
+   * <p>Optional. The input for the control, as a JSON document. The fields that a control accepts
+   *             depend on the control.</p>
+   * @public
+   */
+  Input?: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAssessmentRequest {
+  /**
+   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
+   *          </p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>A unique token to identify the request to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the framework that defines the controls to run.</p>
+   * @public
+   */
+  FrameworkId: string | undefined;
+
+  /**
+   * <p>The unique ID of the product entity to assess.</p>
+   * @public
+   */
+  EntityId: string | undefined;
+
+  /**
+   * <p>The controls to provide input for. Every control in the framework is included in the
+   *             assessment, and a control that you don't specify gets no input. You can specify
+   *             1–100 controls.</p>
+   * @public
+   */
+  Controls?: ControlInput[] | undefined;
+
+  /**
+   * <p>A map of tags to apply to the assessment when you create it. Each tag is a key-value
+   *             pair. You can specify 1–200 tags.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAssessmentResponse {
+  /**
+   * <p>The unique ID of the assessment that was started.</p>
+   * @public
+   */
+  AssessmentId?: string | undefined;
+}
 
 /**
  * <p>An object that contains the <code>ChangeType</code>, <code>Details</code>, and
