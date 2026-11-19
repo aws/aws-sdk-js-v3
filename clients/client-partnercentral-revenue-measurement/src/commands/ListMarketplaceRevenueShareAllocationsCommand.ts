@@ -37,10 +37,12 @@ export interface ListMarketplaceRevenueShareAllocationsCommandOutput extends Lis
  * const client = new PartnerCentralRevenueMeasurementClient(config);
  * const input = { // ListMarketplaceRevenueShareAllocationsInput
  *   Catalog: "AWS" || "Sandbox", // required
- *   ProductId: "STRING_VALUE", // required
- *   Status: "ACTIVE" || "INACTIVE",
+ *   MarketplaceRevenueShareIdentifier: "STRING_VALUE", // required
+ *   StatusFilter: "ACTIVE" || "INACTIVE",
  *   AfterEffectiveFrom: "STRING_VALUE",
  *   BeforeEffectiveFrom: "STRING_VALUE",
+ *   AfterEffectiveUntil: "STRING_VALUE",
+ *   BeforeEffectiveUntil: "STRING_VALUE",
  *   SortBy: "EffectiveFrom",
  *   SortOrder: "ASCENDING" || "DESCENDING",
  *   MaxResults: Number("int"),
@@ -53,15 +55,13 @@ export interface ListMarketplaceRevenueShareAllocationsCommandOutput extends Lis
  * //   MarketplaceRevenueShareAllocationSummaries: [ // MarketplaceRevenueShareAllocationSummaryList // required
  * //     { // MarketplaceRevenueShareAllocationSummary
  * //       MarketplaceRevenueShareAllocationId: "STRING_VALUE", // required
- * //       ProductId: "STRING_VALUE", // required
- * //       ProductName: "STRING_VALUE",
- * //       Arn: "STRING_VALUE", // required
+ * //       MarketplaceRevenueShareIdentifier: "STRING_VALUE", // required
  * //       EffectiveFrom: "STRING_VALUE", // required
- * //       EffectiveUntil: "STRING_VALUE",
+ * //       EffectiveUntil: "STRING_VALUE", // required
  * //       RevenueSharePercent: "STRING_VALUE", // required
  * //       Status: "ACTIVE" || "INACTIVE", // required
- * //       CreatedDate: new Date("TIMESTAMP"),
- * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       CreatedDate: new Date("TIMESTAMP"), // required
+ * //       LastModifiedDate: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -99,13 +99,25 @@ export interface ListMarketplaceRevenueShareAllocationsCommandOutput extends Lis
  * //
  * const input = {
  *   Catalog: "AWS",
- *   ProductId: "prod-abc123def4567"
+ *   MarketplaceRevenueShareIdentifier: "mrs-abc123def4567",
+ *   StatusFilter: "ACTIVE"
  * };
  * const command = new ListMarketplaceRevenueShareAllocationsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   MarketplaceRevenueShareAllocationSummaries:   []
+ *   MarketplaceRevenueShareAllocationSummaries: [
+ *     {
+ *       CreatedDate: 1784505600,
+ *       EffectiveFrom: "2026-07-01",
+ *       EffectiveUntil: "2026-12-31",
+ *       LastModifiedDate: 1784505600,
+ *       MarketplaceRevenueShareAllocationId: "mrsa-abc123def4567",
+ *       MarketplaceRevenueShareIdentifier: "mrs-abc123def4567",
+ *       RevenueSharePercent: "15.50",
+ *       Status: "ACTIVE"
+ *     }
+ *   ]
  * }
  * *\/
  * ```

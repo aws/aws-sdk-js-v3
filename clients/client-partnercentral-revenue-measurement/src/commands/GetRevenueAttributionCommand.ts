@@ -59,6 +59,9 @@ export interface GetRevenueAttributionCommandOutput extends GetRevenueAttributio
  * //   EffectiveUntil: "STRING_VALUE",
  * //   TotalActiveRevenueAttributionAllocationCount: Number("int"),
  * //   TotalRevenueAttributionAllocationCount: Number("int"),
+ * //   Context: { // RevenueAttributionContext
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

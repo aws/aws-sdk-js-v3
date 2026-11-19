@@ -34,23 +34,39 @@ export interface GetMarketplaceRevenueShareCommandOutput extends GetMarketplaceR
  * const client = new PartnerCentralRevenueMeasurementClient(config);
  * const input = { // GetMarketplaceRevenueShareInput
  *   Catalog: "AWS" || "Sandbox", // required
- *   ProductId: "STRING_VALUE", // required
- *   Revision: Number("int"),
+ *   Identifier: "STRING_VALUE", // required
+ *   Revision: "STRING_VALUE",
  * };
  * const command = new GetMarketplaceRevenueShareCommand(input);
  * const response = await client.send(command);
  * // { // GetMarketplaceRevenueShareOutput
- * //   ProductId: "STRING_VALUE", // required
+ * //   Id: "STRING_VALUE", // required
  * //   Arn: "STRING_VALUE", // required
  * //   Catalog: "AWS" || "Sandbox", // required
- * //   ProductCode: "STRING_VALUE",
- * //   ProductName: "STRING_VALUE",
- * //   CreatedDate: new Date("TIMESTAMP"),
- * //   LastModifiedDate: new Date("TIMESTAMP"),
- * //   Revision: Number("int"),
- * //   LatestRevision: Number("int"),
- * //   TotalActiveMarketplaceRevenueShareAllocationCount: Number("int"),
- * //   TotalMarketplaceRevenueShareAllocationCount: Number("int"),
+ * //   Products: [ // MarketplaceRevenueShareProductDetailList // required
+ * //     { // MarketplaceRevenueShareProductDetail
+ * //       ProductId: "STRING_VALUE", // required
+ * //       ProductCode: "STRING_VALUE",
+ * //       ProductName: "STRING_VALUE",
+ * //       Accounts: [ // RevenueShareProductAccountDetailList
+ * //         { // RevenueShareProductAccountDetail
+ * //           AccountType: "DEPLOYMENT" || "ORGANIZATION", // required
+ * //           Count: Number("int"), // required
+ * //           AccountIds: [ // RevenueShareProductAccountIdList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   CreatedDate: new Date("TIMESTAMP"), // required
+ * //   LastModifiedDate: new Date("TIMESTAMP"), // required
+ * //   Revision: "STRING_VALUE", // required
+ * //   LatestRevision: "STRING_VALUE", // required
+ * //   EffectiveFrom: "STRING_VALUE",
+ * //   EffectiveUntil: "STRING_VALUE",
+ * //   TotalActiveMarketplaceRevenueShareAllocationCount: Number("int"), // required
+ * //   TotalMarketplaceRevenueShareAllocationCount: Number("int"), // required
  * // };
  *
  * ```
@@ -88,15 +104,37 @@ export interface GetMarketplaceRevenueShareCommandOutput extends GetMarketplaceR
  * //
  * const input = {
  *   Catalog: "AWS",
- *   ProductId: "prod-abc123def4567"
+ *   Identifier: "mrs-abc123def4567"
  * };
  * const command = new GetMarketplaceRevenueShareCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   Arn: "arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/marketplace-revenue-share/prod-abc123def4567",
+ *   Arn: "arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/marketplace-revenue-share/mrs-abc123def4567",
  *   Catalog: "AWS",
- *   ProductId: "prod-abc123def4567"
+ *   CreatedDate: 1784419200,
+ *   EffectiveFrom: "2026-07-01",
+ *   EffectiveUntil: "2026-12-31",
+ *   Id: "mrs-abc123def4567",
+ *   LastModifiedDate: 1784505600,
+ *   LatestRevision: "2",
+ *   Products: [
+ *     {
+ *       Accounts: [
+ *         {
+ *           AccountIds: [
+ *             "111122223333"
+ *           ],
+ *           AccountType: "DEPLOYMENT",
+ *           Count: 1
+ *         }
+ *       ],
+ *       ProductId: "prod-abc123def4567"
+ *     }
+ *   ],
+ *   Revision: "2",
+ *   TotalActiveMarketplaceRevenueShareAllocationCount: 1,
+ *   TotalMarketplaceRevenueShareAllocationCount: 1
  * }
  * *\/
  * ```

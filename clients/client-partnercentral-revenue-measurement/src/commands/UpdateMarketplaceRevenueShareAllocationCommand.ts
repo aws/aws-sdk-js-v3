@@ -26,7 +26,7 @@ export interface UpdateMarketplaceRevenueShareAllocationCommandInput extends Upd
 export interface UpdateMarketplaceRevenueShareAllocationCommandOutput extends UpdateMarketplaceRevenueShareAllocationOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing marketplace revenue share allocation. Supports modifying effective dates, revenue share percentage, and status with time-based mutability rules.</p>
+ * <p>Updates an existing marketplace revenue share allocation. Supports modifying the revenue share percentage and status only, with time-based mutability rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,12 +37,10 @@ export interface UpdateMarketplaceRevenueShareAllocationCommandOutput extends Up
  * const client = new PartnerCentralRevenueMeasurementClient(config);
  * const input = { // UpdateMarketplaceRevenueShareAllocationInput
  *   Catalog: "AWS" || "Sandbox", // required
- *   ProductId: "STRING_VALUE", // required
+ *   MarketplaceRevenueShareIdentifier: "STRING_VALUE", // required
  *   MarketplaceRevenueShareAllocationId: "STRING_VALUE", // required
  *   MarketplaceRevenueShareRevision: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
- *   EffectiveFrom: "STRING_VALUE",
- *   EffectiveUntil: "STRING_VALUE",
  *   RevenueSharePercent: "STRING_VALUE",
  *   Status: "ACTIVE" || "INACTIVE",
  * };
@@ -50,16 +48,15 @@ export interface UpdateMarketplaceRevenueShareAllocationCommandOutput extends Up
  * const response = await client.send(command);
  * // { // UpdateMarketplaceRevenueShareAllocationOutput
  * //   MarketplaceRevenueShareAllocationId: "STRING_VALUE", // required
- * //   ProductId: "STRING_VALUE", // required
- * //   ProductName: "STRING_VALUE",
- * //   Arn: "STRING_VALUE", // required
+ * //   MarketplaceRevenueShareIdentifier: "STRING_VALUE", // required
  * //   EffectiveFrom: "STRING_VALUE", // required
- * //   EffectiveUntil: "STRING_VALUE",
+ * //   EffectiveUntil: "STRING_VALUE", // required
  * //   RevenueSharePercent: "STRING_VALUE", // required
  * //   Status: "ACTIVE" || "INACTIVE", // required
- * //   CreatedDate: new Date("TIMESTAMP"),
- * //   LastModifiedDate: new Date("TIMESTAMP"),
- * //   LatestMarketplaceRevenueShareRevision: "STRING_VALUE",
+ * //   CreatedDate: new Date("TIMESTAMP"), // required
+ * //   LastModifiedDate: new Date("TIMESTAMP"), // required
+ * //   MarketplaceRevenueShareRevision: "STRING_VALUE", // required
+ * //   MarketplaceRevenueShareLatestRevision: "STRING_VALUE", // required
  * // };
  *
  * ```
@@ -98,18 +95,22 @@ export interface UpdateMarketplaceRevenueShareAllocationCommandOutput extends Up
  * const input = {
  *   Catalog: "AWS",
  *   MarketplaceRevenueShareAllocationId: "mrsa-abc123def4567",
- *   MarketplaceRevenueShareRevision: "1",
- *   ProductId: "prod-abc123def4567",
+ *   MarketplaceRevenueShareIdentifier: "mrs-abc123def4567",
+ *   MarketplaceRevenueShareRevision: "2",
  *   RevenueSharePercent: "20.00"
  * };
  * const command = new UpdateMarketplaceRevenueShareAllocationCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   Arn: "arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/marketplace-revenue-share-allocation/mrsa-abc123def4567",
+ *   CreatedDate: 1784505600,
  *   EffectiveFrom: "2026-07-01",
+ *   EffectiveUntil: "2026-12-31",
+ *   LastModifiedDate: 1784592000,
  *   MarketplaceRevenueShareAllocationId: "mrsa-abc123def4567",
- *   ProductId: "prod-abc123def4567",
+ *   MarketplaceRevenueShareIdentifier: "mrs-abc123def4567",
+ *   MarketplaceRevenueShareLatestRevision: "3",
+ *   MarketplaceRevenueShareRevision: "3",
  *   RevenueSharePercent: "20.00",
  *   Status: "ACTIVE"
  * }

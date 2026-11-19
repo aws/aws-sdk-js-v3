@@ -117,6 +117,10 @@ import type {
   UpdateMarketplaceRevenueShareAllocationCommandOutput,
 } from "./commands/UpdateMarketplaceRevenueShareAllocationCommand";
 import type {
+  UpdateMarketplaceRevenueShareCommandInput,
+  UpdateMarketplaceRevenueShareCommandOutput,
+} from "./commands/UpdateMarketplaceRevenueShareCommand";
+import type {
   UpdateRevenueAttributionCommandInput,
   UpdateRevenueAttributionCommandOutput,
 } from "./commands/UpdateRevenueAttributionCommand";
@@ -152,6 +156,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateMarketplaceRevenueShareAllocationCommandInput
+  | UpdateMarketplaceRevenueShareCommandInput
   | UpdateRevenueAttributionCommandInput;
 
 /**
@@ -175,6 +180,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateMarketplaceRevenueShareAllocationCommandOutput
+  | UpdateMarketplaceRevenueShareCommandOutput
   | UpdateRevenueAttributionCommandOutput;
 
 /**

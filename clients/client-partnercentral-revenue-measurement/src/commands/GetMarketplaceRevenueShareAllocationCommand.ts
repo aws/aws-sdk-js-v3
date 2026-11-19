@@ -37,7 +37,7 @@ export interface GetMarketplaceRevenueShareAllocationCommandOutput extends GetMa
  * const client = new PartnerCentralRevenueMeasurementClient(config);
  * const input = { // GetMarketplaceRevenueShareAllocationInput
  *   Catalog: "AWS" || "Sandbox", // required
- *   ProductId: "STRING_VALUE", // required
+ *   MarketplaceRevenueShareIdentifier: "STRING_VALUE", // required
  *   MarketplaceRevenueShareAllocationId: "STRING_VALUE", // required
  *   MarketplaceRevenueShareRevision: "STRING_VALUE",
  * };
@@ -45,16 +45,15 @@ export interface GetMarketplaceRevenueShareAllocationCommandOutput extends GetMa
  * const response = await client.send(command);
  * // { // GetMarketplaceRevenueShareAllocationOutput
  * //   MarketplaceRevenueShareAllocationId: "STRING_VALUE", // required
- * //   ProductId: "STRING_VALUE", // required
- * //   ProductName: "STRING_VALUE",
- * //   Arn: "STRING_VALUE", // required
+ * //   MarketplaceRevenueShareIdentifier: "STRING_VALUE", // required
  * //   EffectiveFrom: "STRING_VALUE", // required
- * //   EffectiveUntil: "STRING_VALUE",
+ * //   EffectiveUntil: "STRING_VALUE", // required
  * //   RevenueSharePercent: "STRING_VALUE", // required
  * //   Status: "ACTIVE" || "INACTIVE", // required
- * //   CreatedDate: new Date("TIMESTAMP"),
- * //   LastModifiedDate: new Date("TIMESTAMP"),
- * //   LatestMarketplaceRevenueShareRevision: "STRING_VALUE",
+ * //   CreatedDate: new Date("TIMESTAMP"), // required
+ * //   LastModifiedDate: new Date("TIMESTAMP"), // required
+ * //   MarketplaceRevenueShareRevision: "STRING_VALUE", // required
+ * //   MarketplaceRevenueShareLatestRevision: "STRING_VALUE", // required
  * // };
  *
  * ```
@@ -90,16 +89,20 @@ export interface GetMarketplaceRevenueShareAllocationCommandOutput extends GetMa
  * const input = {
  *   Catalog: "AWS",
  *   MarketplaceRevenueShareAllocationId: "mrsa-abc123def4567",
- *   ProductId: "prod-abc123def4567"
+ *   MarketplaceRevenueShareIdentifier: "mrs-abc123def4567"
  * };
  * const command = new GetMarketplaceRevenueShareAllocationCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   Arn: "arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/marketplace-revenue-share-allocation/mrsa-abc123def4567",
+ *   CreatedDate: 1784505600,
  *   EffectiveFrom: "2026-07-01",
+ *   EffectiveUntil: "2026-12-31",
+ *   LastModifiedDate: 1784505600,
  *   MarketplaceRevenueShareAllocationId: "mrsa-abc123def4567",
- *   ProductId: "prod-abc123def4567",
+ *   MarketplaceRevenueShareIdentifier: "mrs-abc123def4567",
+ *   MarketplaceRevenueShareLatestRevision: "2",
+ *   MarketplaceRevenueShareRevision: "2",
  *   RevenueSharePercent: "15.50",
  *   Status: "ACTIVE"
  * }

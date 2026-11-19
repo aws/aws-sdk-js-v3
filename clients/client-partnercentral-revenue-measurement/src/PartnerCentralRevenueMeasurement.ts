@@ -93,6 +93,11 @@ import {
   UpdateMarketplaceRevenueShareAllocationCommand,
 } from "./commands/UpdateMarketplaceRevenueShareAllocationCommand";
 import {
+  type UpdateMarketplaceRevenueShareCommandInput,
+  type UpdateMarketplaceRevenueShareCommandOutput,
+  UpdateMarketplaceRevenueShareCommand,
+} from "./commands/UpdateMarketplaceRevenueShareCommand";
+import {
   type UpdateRevenueAttributionCommandInput,
   type UpdateRevenueAttributionCommandOutput,
   UpdateRevenueAttributionCommand,
@@ -122,6 +127,7 @@ const commands = {
   StartRevenueAttributionAllocationsTaskCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateMarketplaceRevenueShareCommand,
   UpdateMarketplaceRevenueShareAllocationCommand,
   UpdateRevenueAttributionCommand,
 };
@@ -410,6 +416,23 @@ export interface PartnerCentralRevenueMeasurement {
     args: UntagResourceCommandInput,
     options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMarketplaceRevenueShareCommand}
+   */
+  updateMarketplaceRevenueShare(
+    args: UpdateMarketplaceRevenueShareCommandInput,
+    options?: PartnerCentralRevenueMeasurementRequestOptions
+  ): Promise<UpdateMarketplaceRevenueShareCommandOutput>;
+  updateMarketplaceRevenueShare(
+    args: UpdateMarketplaceRevenueShareCommandInput,
+    cb: (err: any, data?: UpdateMarketplaceRevenueShareCommandOutput) => void
+  ): void;
+  updateMarketplaceRevenueShare(
+    args: UpdateMarketplaceRevenueShareCommandInput,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
+    cb: (err: any, data?: UpdateMarketplaceRevenueShareCommandOutput) => void
   ): void;
 
   /**

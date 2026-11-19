@@ -82,6 +82,20 @@ export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typ
  * @public
  * @enum
  */
+export const RevenueShareProductAccountType = {
+  DEPLOYMENT: "DEPLOYMENT",
+  ORGANIZATION: "ORGANIZATION",
+} as const;
+/**
+ * @public
+ */
+export type RevenueShareProductAccountType =
+  (typeof RevenueShareProductAccountType)[keyof typeof RevenueShareProductAccountType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceNotFoundExceptionReason = {
   RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
 } as const;

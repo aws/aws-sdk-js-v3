@@ -2,8 +2,11 @@ const _A = "Arn";
 const _ADE = "AccessDeniedException";
 const _AEF = "AfterEffectiveFrom";
 const _AEU = "AfterEffectiveUntil";
+const _AI = "AccountIds";
 const _AS = "AttributionSummary";
-const _Ac = "Action";
+const _AT = "AccountType";
+const _Ac = "Accounts";
+const _Act = "Action";
 const _BEF = "BeforeEffectiveFrom";
 const _BEU = "BeforeEffectiveUntil";
 const _C = "Catalog";
@@ -14,6 +17,9 @@ const _CAAIFL = "CustomerAwsAccountIdFilterList";
 const _CB = "CreatedBefore";
 const _CD = "CreatedDate";
 const _CE = "ConflictException";
+const _CF = "ContextFilter";
+const _CFL = "ContextFilterList";
+const _CFo = "ContextFilters";
 const _CMRS = "CreateMarketplaceRevenueShare";
 const _CMRSA = "CreateMarketplaceRevenueShareAllocation";
 const _CMRSAI = "CreateMarketplaceRevenueShareAllocationInput";
@@ -24,7 +30,9 @@ const _CRA = "CreateRevenueAttribution";
 const _CRAI = "CreateRevenueAttributionInput";
 const _CRAO = "CreateRevenueAttributionOutput";
 const _CT = "ClientToken";
-const _Co = "Code";
+const _Co = "Context";
+const _Cod = "Code";
+const _Cou = "Count";
 const _D = "Description";
 const _EA = "EndedAt";
 const _EC = "ErrorCode";
@@ -66,7 +74,6 @@ const _LMRSAI = "ListMarketplaceRevenueShareAllocationsInput";
 const _LMRSAO = "ListMarketplaceRevenueShareAllocationsOutput";
 const _LMRSI = "ListMarketplaceRevenueSharesInput";
 const _LMRSO = "ListMarketplaceRevenueSharesOutput";
-const _LMRSR = "LatestMarketplaceRevenueShareRevision";
 const _LR = "LatestRevision";
 const _LRA = "ListRevenueAttributions";
 const _LRAA = "ListRevenueAttributionAllocations";
@@ -85,18 +92,26 @@ const _MRSAI = "MarketplaceRevenueShareAllocationId";
 const _MRSAS = "MarketplaceRevenueShareAllocationSummaries";
 const _MRSASL = "MarketplaceRevenueShareAllocationSummaryList";
 const _MRSASa = "MarketplaceRevenueShareAllocationSummary";
+const _MRSI = "MarketplaceRevenueShareIdentifier";
+const _MRSLR = "MarketplaceRevenueShareLatestRevision";
+const _MRSPD = "MarketplaceRevenueShareProductDetail";
+const _MRSPDL = "MarketplaceRevenueShareProductDetailList";
+const _MRSPE = "MarketplaceRevenueShareProductEntry";
+const _MRSPEL = "MarketplaceRevenueShareProductEntryList";
+const _MRSPS = "MarketplaceRevenueShareProductSummary";
+const _MRSPSL = "MarketplaceRevenueShareProductSummaryList";
 const _MRSR = "MarketplaceRevenueShareRevision";
 const _MRSS = "MarketplaceRevenueShareSummaries";
 const _MRSSL = "MarketplaceRevenueShareSummaryList";
 const _MRSSa = "MarketplaceRevenueShareSummary";
-const _MRSTL = "MarketplaceRevenueShareTagList";
 const _N = "Name";
 const _NT = "NextToken";
-const _PC = "ProductCode";
-const _PCr = "ProductCodes";
-const _PI = "ProductId";
-const _PIr = "ProductIdentifier";
-const _PIro = "ProductIds";
+const _P = "Products";
+const _PC = "ProductCodes";
+const _PCr = "ProductCode";
+const _PI = "ProductIdentifier";
+const _PIr = "ProductIds";
+const _PIro = "ProductId";
 const _PN = "ProductName";
 const _QC = "QuotaCode";
 const _R = "Reason";
@@ -116,6 +131,14 @@ const _RSA = "RevenueShareAllocation";
 const _RSACL = "RevenueShareAllocationChangeList";
 const _RSAe = "RevenueShareAllocations";
 const _RSP = "RevenueSharePercent";
+const _RSPAD = "RevenueShareProductAccountDetail";
+const _RSPADL = "RevenueShareProductAccountDetailList";
+const _RSPAE = "RevenueShareProductAccountEntry";
+const _RSPAEL = "RevenueShareProductAccountEntryList";
+const _RSPAI = "RevenueShareProductAccountId";
+const _RSPAIL = "RevenueShareProductAccountIdList";
+const _RSPAS = "RevenueShareProductAccountSummary";
+const _RSPASL = "RevenueShareProductAccountSummaryList";
 const _Re = "Revision";
 const _S = "Status";
 const _SA = "StartedAt";
@@ -140,18 +163,22 @@ const _TRAAC = "TotalRevenueAttributionAllocationCount";
 const _TRAAR = "TotalRevenueAttributionAllocationRecords";
 const _TRI = "TagResourceInput";
 const _Ta = "Tag";
+const _UMRS = "UpdateMarketplaceRevenueShare";
 const _UMRSA = "UpdateMarketplaceRevenueShareAllocation";
 const _UMRSAI = "UpdateMarketplaceRevenueShareAllocationInput";
 const _UMRSAO = "UpdateMarketplaceRevenueShareAllocationOutput";
+const _UMRSI = "UpdateMarketplaceRevenueShareInput";
+const _UMRSO = "UpdateMarketplaceRevenueShareOutput";
 const _UR = "UntagResource";
 const _URA = "UpdateRevenueAttribution";
 const _URAI = "UpdateRevenueAttributionInput";
 const _URAO = "UpdateRevenueAttributionOutput";
 const _URI = "UntagResourceInput";
-const _V = "Value";
+const _V = "Values";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
+const _Va = "Value";
 const _c = "client";
 const _e = "error";
 const _h = "http";
@@ -168,6 +195,7 @@ import { TypeRegistry } from "@smithy/core/schema";
 import type {
   StaticErrorSchema,
   StaticListSchema,
+  StaticMapSchema,
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
@@ -243,60 +271,66 @@ export const errorTypeRegistries = [
   n0_registry,
 ]
 var CustomerAwsAccountId: StaticSimpleSchema = [0, n0, _CAAI, 8, 0];
+var RevenueShareProductAccountId: StaticSimpleSchema = [0, n0, _RSPAI, 8, 0];
 export var AttributionSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_TM, _A, _I, _C, _N, _MP, _CD, _LMD, _LR, _EF, _EU, _TARAAC, _TRAAC],
-  [0, 0, 0, 0, 0, () => MarketplaceProductSummary$, 4, 4, 0, 0, 0, 1, 1], 1
+  [_TM, _A, _I, _C, _N, _MP, _CD, _LMD, _LR, _EF, _EU, _TARAAC, _TRAAC, _Co],
+  [0, 0, 0, 0, 0, () => MarketplaceProductSummary$, 4, 4, 0, 0, 0, 1, 1, 128 | 0], 1
+];
+export var ContextFilter$: StaticStructureSchema = [3, n0, _CF,
+  0,
+  [_K, _V],
+  [0, 64 | 0], 1
 ];
 export var CreateMarketplaceRevenueShareAllocationInput$: StaticStructureSchema = [3, n0, _CMRSAI,
   0,
-  [_C, _PI, _EF, _RSP, _CT, _EU],
-  [0, 0, 0, 0, [0, 4], 0], 4
+  [_C, _MRSI, _MRSR, _EF, _EU, _RSP, _CT],
+  [0, 0, 0, 0, 0, 0, [0, 4]], 6
 ];
 export var CreateMarketplaceRevenueShareAllocationOutput$: StaticStructureSchema = [3, n0, _CMRSAO,
   0,
-  [_MRSAI, _PI, _A, _EF, _RSP, _S, _PN, _EU, _CD, _LMD, _LMRSR],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0], 6
+  [_MRSAI, _MRSI, _EF, _EU, _RSP, _S, _CD, _LMD, _MRSR, _MRSLR],
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0], 10
 ];
 export var CreateMarketplaceRevenueShareInput$: StaticStructureSchema = [3, n0, _CMRSI,
   0,
-  [_C, _PI, _CT, _T],
-  [0, 0, [0, 4], () => MarketplaceRevenueShareTagList], 2
+  [_C, _P, _CT, _T],
+  [0, [() => MarketplaceRevenueShareProductEntryList, 0], [0, 4], () => TagList], 2
 ];
 export var CreateMarketplaceRevenueShareOutput$: StaticStructureSchema = [3, n0, _CMRSO,
   0,
-  [_PI, _A, _C, _PC, _PN, _CD, _LMD, _Re],
-  [0, 0, 0, 0, 0, 4, 4, 1], 2
+  [_I, _A, _C, _P, _CD, _LMD, _Re],
+  [0, 0, 0, () => MarketplaceRevenueShareProductSummaryList, 4, 4, 0], 7
 ];
 export var CreateRevenueAttributionInput$: StaticStructureSchema = [3, n0, _CRAI,
   0,
-  [_C, _N, _TM, _CT, _D, _PIr, _T],
-  [0, 0, 0, [0, 4], 0, 0, () => TagList], 3
+  [_C, _N, _TM, _CT, _D, _PI, _T, _Co],
+  [0, 0, 0, [0, 4], 0, 0, () => TagList, 128 | 0], 3
 ];
 export var CreateRevenueAttributionOutput$: StaticStructureSchema = [3, n0, _CRAO,
   0,
-  [_I, _A, _TM, _N, _D, _MP, _Re],
-  [0, 0, 0, 0, 0, () => MarketplaceProductSummary$, 0], 3
+  [_I, _A, _TM, _N, _D, _MP, _Re, _Co],
+  [0, 0, 0, 0, 0, () => MarketplaceProductSummary$, 0, 128 | 0], 3
 ];
 export var GetMarketplaceRevenueShareAllocationInput$: StaticStructureSchema = [3, n0, _GMRSAI,
   0,
-  [_C, _PI, _MRSAI, _MRSR],
+  [_C, _MRSI, _MRSAI, _MRSR],
   [0, 0, 0, 0], 3
 ];
 export var GetMarketplaceRevenueShareAllocationOutput$: StaticStructureSchema = [3, n0, _GMRSAO,
   0,
-  [_MRSAI, _PI, _A, _EF, _RSP, _S, _PN, _EU, _CD, _LMD, _LMRSR],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0], 6
+  [_MRSAI, _MRSI, _EF, _EU, _RSP, _S, _CD, _LMD, _MRSR, _MRSLR],
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0], 10
 ];
 export var GetMarketplaceRevenueShareInput$: StaticStructureSchema = [3, n0, _GMRSI,
   0,
-  [_C, _PI, _Re],
-  [0, 0, 1], 2
+  [_C, _Id, _Re],
+  [0, 0, 0], 2
 ];
 export var GetMarketplaceRevenueShareOutput$: StaticStructureSchema = [3, n0, _GMRSO,
   0,
-  [_PI, _A, _C, _PC, _PN, _CD, _LMD, _Re, _LR, _TAMRSAC, _TMRSAC],
-  [0, 0, 0, 0, 0, 4, 4, 1, 1, 1, 1], 3
+  [_I, _A, _C, _P, _CD, _LMD, _Re, _LR, _TAMRSAC, _TMRSAC, _EF, _EU],
+  [0, 0, 0, [() => MarketplaceRevenueShareProductDetailList, 0], 4, 4, 0, 0, 1, 1, 0, 0], 10
 ];
 export var GetRevenueAttributionAllocationInput$: StaticStructureSchema = [3, n0, _GRAAI,
   0,
@@ -325,13 +359,13 @@ export var GetRevenueAttributionInput$: StaticStructureSchema = [3, n0, _GRAI,
 ];
 export var GetRevenueAttributionOutput$: StaticStructureSchema = [3, n0, _GRAO,
   0,
-  [_A, _I, _C, _TM, _N, _D, _MP, _CD, _LMD, _Re, _LR, _EF, _EU, _TARAAC, _TRAAC],
-  [0, 0, 0, 0, 0, 0, () => MarketplaceProductSummary$, 4, 4, 0, 0, 0, 0, 1, 1], 4
+  [_A, _I, _C, _TM, _N, _D, _MP, _CD, _LMD, _Re, _LR, _EF, _EU, _TARAAC, _TRAAC, _Co],
+  [0, 0, 0, 0, 0, 0, () => MarketplaceProductSummary$, 4, 4, 0, 0, 0, 0, 1, 1, 128 | 0], 4
 ];
 export var ListMarketplaceRevenueShareAllocationsInput$: StaticStructureSchema = [3, n0, _LMRSAI,
   0,
-  [_C, _PI, _S, _AEF, _BEF, _SB, _SO, _MR, _NT, _MRSR],
-  [0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 2
+  [_C, _MRSI, _SF, _AEF, _BEF, _AEU, _BEU, _SB, _SO, _MR, _NT, _MRSR],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 2
 ];
 export var ListMarketplaceRevenueShareAllocationsOutput$: StaticStructureSchema = [3, n0, _LMRSAO,
   0,
@@ -340,8 +374,8 @@ export var ListMarketplaceRevenueShareAllocationsOutput$: StaticStructureSchema 
 ];
 export var ListMarketplaceRevenueSharesInput$: StaticStructureSchema = [3, n0, _LMRSI,
   0,
-  [_C, _PIro, _PCr, _MR, _NT, _SB, _SO, _CA, _CB],
-  [0, 64 | 0, 64 | 0, 1, 0, 0, 0, 4, 4], 1
+  [_C, _Ide, _PIr, _PC, _MR, _NT, _SB, _SO, _CA, _CB],
+  [0, 64 | 0, 64 | 0, 64 | 0, 1, 0, 0, 0, 4, 4], 1
 ];
 export var ListMarketplaceRevenueSharesOutput$: StaticStructureSchema = [3, n0, _LMRSO,
   0,
@@ -360,8 +394,8 @@ export var ListRevenueAttributionAllocationsOutput$: StaticStructureSchema = [3,
 ];
 export var ListRevenueAttributionsInput$: StaticStructureSchema = [3, n0, _LRAI,
   0,
-  [_C, _Ide, _CA, _CB, _SB, _SO, _MR, _NT],
-  [0, 64 | 0, 4, 4, 0, 0, 1, 0], 1
+  [_C, _Ide, _CA, _CB, _SB, _SO, _MR, _NT, _CFo],
+  [0, 64 | 0, 4, 4, 0, 0, 1, 0, () => ContextFilterList], 1
 ];
 export var ListRevenueAttributionsOutput$: StaticStructureSchema = [3, n0, _LRAO,
   0,
@@ -380,22 +414,37 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 ];
 export var MarketplaceProductSummary$: StaticStructureSchema = [3, n0, _MPS,
   0,
-  [_PI, _PC, _PN],
+  [_PIro, _PCr, _PN],
   [0, 0, 0]
 ];
 export var MarketplaceRevenueShareAllocationSummary$: StaticStructureSchema = [3, n0, _MRSASa,
   0,
-  [_MRSAI, _PI, _A, _EF, _RSP, _S, _PN, _EU, _CD, _LMD],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 4], 6
+  [_MRSAI, _MRSI, _EF, _EU, _RSP, _S, _CD, _LMD],
+  [0, 0, 0, 0, 0, 0, 4, 4], 8
+];
+export var MarketplaceRevenueShareProductDetail$: StaticStructureSchema = [3, n0, _MRSPD,
+  0,
+  [_PIro, _PCr, _PN, _Ac],
+  [0, 0, 0, [() => RevenueShareProductAccountDetailList, 0]], 1
+];
+export var MarketplaceRevenueShareProductEntry$: StaticStructureSchema = [3, n0, _MRSPE,
+  0,
+  [_PIro, _Ac],
+  [0, [() => RevenueShareProductAccountEntryList, 0]], 1
+];
+export var MarketplaceRevenueShareProductSummary$: StaticStructureSchema = [3, n0, _MRSPS,
+  0,
+  [_PIro, _PCr, _PN, _Ac],
+  [0, 0, 0, () => RevenueShareProductAccountSummaryList], 1
 ];
 export var MarketplaceRevenueShareSummary$: StaticStructureSchema = [3, n0, _MRSSa,
   0,
-  [_PI, _A, _C, _PC, _PN, _CD, _LMD, _LR, _TAMRSAC, _TMRSAC],
-  [0, 0, 0, 0, 0, 4, 4, 1, 1, 1], 2
+  [_I, _A, _C, _P, _CD, _LMD, _LR, _TAMRSAC, _TMRSAC, _EF, _EU],
+  [0, 0, 0, () => MarketplaceRevenueShareProductSummaryList, 4, 4, 0, 1, 1, 0, 0], 9
 ];
 export var RevenueAttributionAllocationErrorDetail$: StaticStructureSchema = [3, n0, _RAAED,
   0,
-  [_ET, _EIn, _CAAI, _EF, _EU, _Ac, _EC, _EM, _RAAI],
+  [_ET, _EIn, _CAAI, _EF, _EU, _Act, _EC, _EM, _RAAI],
   [0, 0, [() => CustomerAwsAccountId, 0], 0, 0, 0, 0, 0, 0], 8
 ];
 export var RevenueAttributionAllocationSummary$: StaticStructureSchema = [3, n0, _RAASe,
@@ -405,8 +454,23 @@ export var RevenueAttributionAllocationSummary$: StaticStructureSchema = [3, n0,
 ];
 export var RevenueShareAllocation$: StaticStructureSchema = [3, n0, _RSA,
   0,
-  [_Ac, _ET, _EI, _CAAI, _RSP, _EF, _EU, _RAAI, _S],
+  [_Act, _ET, _EI, _CAAI, _RSP, _EF, _EU, _RAAI, _S],
   [0, 0, 0, [() => CustomerAwsAccountId, 0], 0, 0, 0, 0, 0], 7
+];
+export var RevenueShareProductAccountDetail$: StaticStructureSchema = [3, n0, _RSPAD,
+  0,
+  [_AT, _Cou, _AI],
+  [0, 1, [() => RevenueShareProductAccountIdList, 0]], 3
+];
+export var RevenueShareProductAccountEntry$: StaticStructureSchema = [3, n0, _RSPAE,
+  0,
+  [_AT, _AI],
+  [0, [() => RevenueShareProductAccountIdList, 0]], 2
+];
+export var RevenueShareProductAccountSummary$: StaticStructureSchema = [3, n0, _RSPAS,
+  0,
+  [_AT, _Cou],
+  [0, 1], 2
 ];
 export var StartRevenueAttributionAllocationsTaskInput$: StaticStructureSchema = [3, n0, _SRAATI,
   0,
@@ -420,7 +484,7 @@ export var StartRevenueAttributionAllocationsTaskOutput$: StaticStructureSchema 
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
-  [_K, _V],
+  [_K, _Va],
   [0, 0], 2
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
@@ -435,30 +499,44 @@ export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
 ];
 export var UpdateMarketplaceRevenueShareAllocationInput$: StaticStructureSchema = [3, n0, _UMRSAI,
   0,
-  [_C, _PI, _MRSAI, _MRSR, _CT, _EF, _EU, _RSP, _S],
-  [0, 0, 0, 0, [0, 4], 0, 0, 0, 0], 4
+  [_C, _MRSI, _MRSAI, _MRSR, _CT, _RSP, _S],
+  [0, 0, 0, 0, [0, 4], 0, 0], 4
 ];
 export var UpdateMarketplaceRevenueShareAllocationOutput$: StaticStructureSchema = [3, n0, _UMRSAO,
   0,
-  [_MRSAI, _PI, _A, _EF, _RSP, _S, _PN, _EU, _CD, _LMD, _LMRSR],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0], 6
+  [_MRSAI, _MRSI, _EF, _EU, _RSP, _S, _CD, _LMD, _MRSR, _MRSLR],
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0], 10
+];
+export var UpdateMarketplaceRevenueShareInput$: StaticStructureSchema = [3, n0, _UMRSI,
+  0,
+  [_C, _Id, _Re, _P, _CT],
+  [0, 0, 0, [() => MarketplaceRevenueShareProductEntryList, 0], [0, 4]], 4
+];
+export var UpdateMarketplaceRevenueShareOutput$: StaticStructureSchema = [3, n0, _UMRSO,
+  0,
+  [_I, _A, _P, _LMD, _LR],
+  [0, 0, () => MarketplaceRevenueShareProductSummaryList, 4, 0], 5
 ];
 export var UpdateRevenueAttributionInput$: StaticStructureSchema = [3, n0, _URAI,
   0,
-  [_C, _Id, _Re, _CT, _D],
-  [0, 0, 0, [0, 4], 0], 3
+  [_C, _Id, _Re, _CT, _D, _Co],
+  [0, 0, 0, [0, 4], 0, 128 | 0], 3
 ];
 export var UpdateRevenueAttributionOutput$: StaticStructureSchema = [3, n0, _URAO,
   0,
-  [_I, _A, _LMD, _D, _LR],
-  [0, 0, 4, 0, 0], 3
+  [_I, _A, _LMD, _D, _LR, _Co],
+  [0, 0, 4, 0, 0, 128 | 0], 3
 ];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
-  [_N, _M, _Co],
+  [_N, _M, _Cod],
   [0, 0, 0], 3
 ];
 var __Unit = "unit" as const;
+var ContextFilterList: StaticListSchema = [1, n0, _CFL,
+  0, () => ContextFilter$
+];
+var ContextFilterValueList = 64 | 0;
 var CustomerAwsAccountIdFilterList: StaticListSchema = [1, n0, _CAAIFL,
   0, [() => CustomerAwsAccountId,
     0]
@@ -469,11 +547,20 @@ var MarketplaceProductIdList = 64 | 0;
 var MarketplaceRevenueShareAllocationSummaryList: StaticListSchema = [1, n0, _MRSASL,
   0, () => MarketplaceRevenueShareAllocationSummary$
 ];
+var MarketplaceRevenueShareIdentifierList = 64 | 0;
+var MarketplaceRevenueShareProductDetailList: StaticListSchema = [1, n0, _MRSPDL,
+  0, [() => MarketplaceRevenueShareProductDetail$,
+    0]
+];
+var MarketplaceRevenueShareProductEntryList: StaticListSchema = [1, n0, _MRSPEL,
+  0, [() => MarketplaceRevenueShareProductEntry$,
+    0]
+];
+var MarketplaceRevenueShareProductSummaryList: StaticListSchema = [1, n0, _MRSPSL,
+  0, () => MarketplaceRevenueShareProductSummary$
+];
 var MarketplaceRevenueShareSummaryList: StaticListSchema = [1, n0, _MRSSL,
   0, () => MarketplaceRevenueShareSummary$
-];
-var MarketplaceRevenueShareTagList: StaticListSchema = [1, n0, _MRSTL,
-  0, () => Tag$
 ];
 var ProductCodeList = 64 | 0;
 var RevenueAttributionAllocationErrorDetailList: StaticListSchema = [1, n0, _RAAEDL,
@@ -492,6 +579,21 @@ var RevenueShareAllocationChangeList: StaticListSchema = [1, n0, _RSACL,
   0, [() => RevenueShareAllocation$,
     0]
 ];
+var RevenueShareProductAccountDetailList: StaticListSchema = [1, n0, _RSPADL,
+  0, [() => RevenueShareProductAccountDetail$,
+    0]
+];
+var RevenueShareProductAccountEntryList: StaticListSchema = [1, n0, _RSPAEL,
+  0, [() => RevenueShareProductAccountEntry$,
+    0]
+];
+var RevenueShareProductAccountIdList: StaticListSchema = [1, n0, _RSPAIL,
+  0, [() => RevenueShareProductAccountId,
+    0]
+];
+var RevenueShareProductAccountSummaryList: StaticListSchema = [1, n0, _RSPASL,
+  0, () => RevenueShareProductAccountSummary$
+];
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,
   0, () => Tag$
@@ -499,6 +601,7 @@ var TagList: StaticListSchema = [1, n0, _TL,
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
 ];
+var RevenueAttributionContext = 128 | 0;
 export var CreateMarketplaceRevenueShare$: StaticOperationSchema = [9, n0, _CMRS,
   { [_h]: ["POST", "/CreateMarketplaceRevenueShare", 200] }, () => CreateMarketplaceRevenueShareInput$, () => CreateMarketplaceRevenueShareOutput$
 ];
@@ -546,6 +649,9 @@ export var TagResource$: StaticOperationSchema = [9, n0, _TR,
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   { [_h]: ["POST", "/UntagResource", 200] }, () => UntagResourceInput$, () => __Unit
+];
+export var UpdateMarketplaceRevenueShare$: StaticOperationSchema = [9, n0, _UMRS,
+  { [_h]: ["POST", "/UpdateMarketplaceRevenueShare", 200] }, () => UpdateMarketplaceRevenueShareInput$, () => UpdateMarketplaceRevenueShareOutput$
 ];
 export var UpdateMarketplaceRevenueShareAllocation$: StaticOperationSchema = [9, n0, _UMRSA,
   { [_h]: ["POST", "/UpdateMarketplaceRevenueShareAllocation", 200] }, () => UpdateMarketplaceRevenueShareAllocationInput$, () => UpdateMarketplaceRevenueShareAllocationOutput$

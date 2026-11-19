@@ -293,6 +293,13 @@ UntagResource
 </details>
 <details>
 <summary>
+UpdateMarketplaceRevenueShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-revenue-measurement/command/UpdateMarketplaceRevenueShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-revenue-measurement/Interface/UpdateMarketplaceRevenueShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-revenue-measurement/Interface/UpdateMarketplaceRevenueShareCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateMarketplaceRevenueShareAllocation
 </summary>
 

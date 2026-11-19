@@ -43,6 +43,14 @@ export interface ListRevenueAttributionsCommandOutput extends ListRevenueAttribu
  *   SortOrder: "ASCENDING" || "DESCENDING",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   ContextFilters: [ // ContextFilterList
+ *     { // ContextFilter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // ContextFilterValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new ListRevenueAttributionsCommand(input);
  * const response = await client.send(command);
@@ -66,6 +74,9 @@ export interface ListRevenueAttributionsCommandOutput extends ListRevenueAttribu
  * //       EffectiveUntil: "STRING_VALUE",
  * //       TotalActiveRevenueAttributionAllocationCount: Number("int"),
  * //       TotalRevenueAttributionAllocationCount: Number("int"),
+ * //       Context: { // RevenueAttributionContext
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

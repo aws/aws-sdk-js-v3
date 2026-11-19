@@ -21,7 +21,12 @@ export class AccessDeniedException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.partnercentralrevenuemeasurement#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>A human-readable message describing the access denial reason.</p>
+   * @public
+   */
   Message: string | undefined;
+
   /**
    * <p>The reason for the access denial.</p>
    * @public
@@ -50,7 +55,12 @@ export class ConflictException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.partnercentralrevenuemeasurement#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>A human-readable message describing the conflict that occurred.</p>
+   * @public
+   */
   Message: string | undefined;
+
   /**
    * <p>The reason for the conflict.</p>
    * @public
@@ -80,6 +90,10 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
+  /**
+   * <p>A human-readable message describing the internal server error.</p>
+   * @public
+   */
   Message: string | undefined;
   /**
    * @internal
@@ -103,7 +117,12 @@ export class ResourceNotFoundException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.partnercentralrevenuemeasurement#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>A human-readable message describing which resource was not found.</p>
+   * @public
+   */
   Message: string | undefined;
+
   /**
    * <p>The reason the resource was not found.</p>
    * @public
@@ -132,7 +151,12 @@ export class ServiceQuotaExceededException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.partnercentralrevenuemeasurement#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>A human-readable message describing which service quota would be exceeded.</p>
+   * @public
+   */
   Message: string | undefined;
+
   /**
    * <p>The reason the service quota was exceeded.</p>
    * @public
@@ -162,7 +186,12 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
+  /**
+   * <p>A human-readable message indicating that the request rate limit has been exceeded.</p>
+   * @public
+   */
   Message: string | undefined;
+
   /**
    * <p>The service code associated with the throttling error.</p>
    * @public
@@ -198,7 +227,12 @@ export class ValidationException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.partnercentralrevenuemeasurement#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>A human-readable message describing the validation failure.</p>
+   * @public
+   */
   Message: string | undefined;
+
   /**
    * <p>The reason for the validation failure.</p>
    * @public

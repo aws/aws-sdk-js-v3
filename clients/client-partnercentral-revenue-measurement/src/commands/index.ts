@@ -16,4 +16,5 @@ export * from "./StartRevenueAttributionAllocationsTaskCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateMarketplaceRevenueShareAllocationCommand";
+export * from "./UpdateMarketplaceRevenueShareCommand";
 export * from "./UpdateRevenueAttributionCommand";

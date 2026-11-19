@@ -45,6 +45,9 @@ export interface CreateRevenueAttributionCommandOutput extends CreateRevenueAttr
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   Context: { // RevenueAttributionContext
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateRevenueAttributionCommand(input);
  * const response = await client.send(command);
@@ -60,6 +63,9 @@ export interface CreateRevenueAttributionCommandOutput extends CreateRevenueAttr
  * //     ProductName: "STRING_VALUE",
  * //   },
  * //   Revision: "STRING_VALUE",
+ * //   Context: { // RevenueAttributionContext
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

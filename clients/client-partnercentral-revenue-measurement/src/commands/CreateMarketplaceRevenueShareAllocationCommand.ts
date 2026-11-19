@@ -26,7 +26,7 @@ export interface CreateMarketplaceRevenueShareAllocationCommandInput extends Cre
 export interface CreateMarketplaceRevenueShareAllocationCommandOutput extends CreateMarketplaceRevenueShareAllocationOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new marketplace revenue share allocation for the specified product.</p>
+ * <p>Creates a new allocation under the specified marketplace revenue share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,26 +37,26 @@ export interface CreateMarketplaceRevenueShareAllocationCommandOutput extends Cr
  * const client = new PartnerCentralRevenueMeasurementClient(config);
  * const input = { // CreateMarketplaceRevenueShareAllocationInput
  *   Catalog: "AWS" || "Sandbox", // required
- *   ProductId: "STRING_VALUE", // required
+ *   MarketplaceRevenueShareIdentifier: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
+ *   MarketplaceRevenueShareRevision: "STRING_VALUE", // required
  *   EffectiveFrom: "STRING_VALUE", // required
- *   EffectiveUntil: "STRING_VALUE",
+ *   EffectiveUntil: "STRING_VALUE", // required
  *   RevenueSharePercent: "STRING_VALUE", // required
  * };
  * const command = new CreateMarketplaceRevenueShareAllocationCommand(input);
  * const response = await client.send(command);
  * // { // CreateMarketplaceRevenueShareAllocationOutput
  * //   MarketplaceRevenueShareAllocationId: "STRING_VALUE", // required
- * //   ProductId: "STRING_VALUE", // required
- * //   ProductName: "STRING_VALUE",
- * //   Arn: "STRING_VALUE", // required
+ * //   MarketplaceRevenueShareIdentifier: "STRING_VALUE", // required
  * //   EffectiveFrom: "STRING_VALUE", // required
- * //   EffectiveUntil: "STRING_VALUE",
+ * //   EffectiveUntil: "STRING_VALUE", // required
  * //   RevenueSharePercent: "STRING_VALUE", // required
  * //   Status: "ACTIVE" || "INACTIVE", // required
- * //   CreatedDate: new Date("TIMESTAMP"),
- * //   LastModifiedDate: new Date("TIMESTAMP"),
- * //   LatestMarketplaceRevenueShareRevision: "STRING_VALUE",
+ * //   CreatedDate: new Date("TIMESTAMP"), // required
+ * //   LastModifiedDate: new Date("TIMESTAMP"), // required
+ * //   MarketplaceRevenueShareRevision: "STRING_VALUE", // required
+ * //   MarketplaceRevenueShareLatestRevision: "STRING_VALUE", // required
  * // };
  *
  * ```
@@ -79,6 +79,9 @@ export interface CreateMarketplaceRevenueShareAllocationCommandOutput extends Cr
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would exceed a service quota limit.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled due to too many requests. Retry your request.</p>
  *
@@ -95,17 +98,23 @@ export interface CreateMarketplaceRevenueShareAllocationCommandOutput extends Cr
  * const input = {
  *   Catalog: "AWS",
  *   EffectiveFrom: "2026-07-01",
- *   ProductId: "prod-abc123def4567",
+ *   EffectiveUntil: "2026-12-31",
+ *   MarketplaceRevenueShareIdentifier: "mrs-abc123def4567",
+ *   MarketplaceRevenueShareRevision: "1",
  *   RevenueSharePercent: "15.50"
  * };
  * const command = new CreateMarketplaceRevenueShareAllocationCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   Arn: "arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/marketplace-revenue-share-allocation/mrsa-abc123def4567",
+ *   CreatedDate: 1784505600,
  *   EffectiveFrom: "2026-07-01",
+ *   EffectiveUntil: "2026-12-31",
+ *   LastModifiedDate: 1784505600,
  *   MarketplaceRevenueShareAllocationId: "mrsa-abc123def4567",
- *   ProductId: "prod-abc123def4567",
+ *   MarketplaceRevenueShareIdentifier: "mrs-abc123def4567",
+ *   MarketplaceRevenueShareLatestRevision: "2",
+ *   MarketplaceRevenueShareRevision: "2",
  *   RevenueSharePercent: "15.50",
  *   Status: "ACTIVE"
  * }

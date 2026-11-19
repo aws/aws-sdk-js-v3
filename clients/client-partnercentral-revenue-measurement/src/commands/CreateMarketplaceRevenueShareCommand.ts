@@ -35,8 +35,20 @@ export interface CreateMarketplaceRevenueShareCommandOutput extends CreateMarket
  * const input = { // CreateMarketplaceRevenueShareInput
  *   Catalog: "AWS" || "Sandbox", // required
  *   ClientToken: "STRING_VALUE",
- *   ProductId: "STRING_VALUE", // required
- *   Tags: [ // MarketplaceRevenueShareTagList
+ *   Products: [ // MarketplaceRevenueShareProductEntryList // required
+ *     { // MarketplaceRevenueShareProductEntry
+ *       ProductId: "STRING_VALUE", // required
+ *       Accounts: [ // RevenueShareProductAccountEntryList
+ *         { // RevenueShareProductAccountEntry
+ *           AccountType: "DEPLOYMENT" || "ORGANIZATION", // required
+ *           AccountIds: [ // RevenueShareProductAccountIdList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
@@ -46,14 +58,25 @@ export interface CreateMarketplaceRevenueShareCommandOutput extends CreateMarket
  * const command = new CreateMarketplaceRevenueShareCommand(input);
  * const response = await client.send(command);
  * // { // CreateMarketplaceRevenueShareOutput
- * //   ProductId: "STRING_VALUE", // required
+ * //   Id: "STRING_VALUE", // required
  * //   Arn: "STRING_VALUE", // required
- * //   Catalog: "AWS" || "Sandbox",
- * //   ProductCode: "STRING_VALUE",
- * //   ProductName: "STRING_VALUE",
- * //   CreatedDate: new Date("TIMESTAMP"),
- * //   LastModifiedDate: new Date("TIMESTAMP"),
- * //   Revision: Number("int"),
+ * //   Catalog: "AWS" || "Sandbox", // required
+ * //   Products: [ // MarketplaceRevenueShareProductSummaryList // required
+ * //     { // MarketplaceRevenueShareProductSummary
+ * //       ProductId: "STRING_VALUE", // required
+ * //       ProductCode: "STRING_VALUE",
+ * //       ProductName: "STRING_VALUE",
+ * //       Accounts: [ // RevenueShareProductAccountSummaryList
+ * //         { // RevenueShareProductAccountSummary
+ * //           AccountType: "DEPLOYMENT" || "ORGANIZATION", // required
+ * //           Count: Number("int"), // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   CreatedDate: new Date("TIMESTAMP"), // required
+ * //   LastModifiedDate: new Date("TIMESTAMP"), // required
+ * //   Revision: "STRING_VALUE", // required
  * // };
  *
  * ```
@@ -94,14 +117,41 @@ export interface CreateMarketplaceRevenueShareCommandOutput extends CreateMarket
  * //
  * const input = {
  *   Catalog: "AWS",
- *   ProductId: "prod-abc123def4567"
+ *   Products: [
+ *     {
+ *       Accounts: [
+ *         {
+ *           AccountIds: [
+ *             "111122223333"
+ *           ],
+ *           AccountType: "DEPLOYMENT"
+ *         }
+ *       ],
+ *       ProductId: "prod-abc123def4567"
+ *     }
+ *   ]
  * };
  * const command = new CreateMarketplaceRevenueShareCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   Arn: "arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/marketplace-revenue-share/prod-abc123def4567",
- *   ProductId: "prod-abc123def4567"
+ *   Arn: "arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/marketplace-revenue-share/mrs-abc123def4567",
+ *   Catalog: "AWS",
+ *   CreatedDate: 1784419200,
+ *   Id: "mrs-abc123def4567",
+ *   LastModifiedDate: 1784419200,
+ *   Products: [
+ *     {
+ *       Accounts: [
+ *         {
+ *           AccountType: "DEPLOYMENT",
+ *           Count: 1
+ *         }
+ *       ],
+ *       ProductId: "prod-abc123def4567"
+ *     }
+ *   ],
+ *   Revision: "1"
  * }
  * *\/
  * ```

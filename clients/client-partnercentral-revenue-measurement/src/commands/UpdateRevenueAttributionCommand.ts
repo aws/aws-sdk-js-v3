@@ -38,6 +38,9 @@ export interface UpdateRevenueAttributionCommandOutput extends UpdateRevenueAttr
  *   ClientToken: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   Revision: "STRING_VALUE", // required
+ *   Context: { // RevenueAttributionContext
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateRevenueAttributionCommand(input);
  * const response = await client.send(command);
@@ -47,6 +50,9 @@ export interface UpdateRevenueAttributionCommandOutput extends UpdateRevenueAttr
  * //   Description: "STRING_VALUE",
  * //   LastModifiedDate: new Date("TIMESTAMP"), // required
  * //   LatestRevision: "STRING_VALUE",
+ * //   Context: { // RevenueAttributionContext
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

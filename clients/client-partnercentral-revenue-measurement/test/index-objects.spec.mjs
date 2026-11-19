@@ -9,6 +9,7 @@ import {
   ConflictException,
   ConflictException$,
   ConflictExceptionReason,
+  ContextFilter$,
   CreateMarketplaceRevenueShare$,
   CreateMarketplaceRevenueShareAllocation$,
   CreateMarketplaceRevenueShareAllocationCommand,
@@ -68,6 +69,9 @@ import {
   MarketplaceProductSummary$,
   MarketplaceRevenueShareAllocationSortField,
   MarketplaceRevenueShareAllocationSummary$,
+  MarketplaceRevenueShareProductDetail$,
+  MarketplaceRevenueShareProductEntry$,
+  MarketplaceRevenueShareProductSummary$,
   MarketplaceRevenueShareSortBy,
   MarketplaceRevenueShareSummary$,
   paginateListMarketplaceRevenueShareAllocations,
@@ -87,6 +91,10 @@ import {
   RevenueAttributionAllocationSummary$,
   RevenueAttributionAllocationTaskStatus,
   RevenueShareAllocation$,
+  RevenueShareProductAccountDetail$,
+  RevenueShareProductAccountEntry$,
+  RevenueShareProductAccountSummary$,
+  RevenueShareProductAccountType,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   ServiceQuotaExceededExceptionReason,
@@ -105,10 +113,14 @@ import {
   UntagResource$,
   UntagResourceCommand,
   UntagResourceInput$,
+  UpdateMarketplaceRevenueShare$,
   UpdateMarketplaceRevenueShareAllocation$,
   UpdateMarketplaceRevenueShareAllocationCommand,
   UpdateMarketplaceRevenueShareAllocationInput$,
   UpdateMarketplaceRevenueShareAllocationOutput$,
+  UpdateMarketplaceRevenueShareCommand,
+  UpdateMarketplaceRevenueShareInput$,
+  UpdateMarketplaceRevenueShareOutput$,
   UpdateRevenueAttribution$,
   UpdateRevenueAttributionCommand,
   UpdateRevenueAttributionInput$,
@@ -155,12 +167,15 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateMarketplaceRevenueShareCommand === "function");
+assert(typeof UpdateMarketplaceRevenueShare$ === "object");
 assert(typeof UpdateMarketplaceRevenueShareAllocationCommand === "function");
 assert(typeof UpdateMarketplaceRevenueShareAllocation$ === "object");
 assert(typeof UpdateRevenueAttributionCommand === "function");
 assert(typeof UpdateRevenueAttribution$ === "object");
 // structural schemas
 assert(typeof AttributionSummary$ === "object");
+assert(typeof ContextFilter$ === "object");
 assert(typeof CreateMarketplaceRevenueShareAllocationInput$ === "object");
 assert(typeof CreateMarketplaceRevenueShareAllocationOutput$ === "object");
 assert(typeof CreateMarketplaceRevenueShareInput$ === "object");
@@ -189,10 +204,16 @@ assert(typeof ListTagsForResourceInput$ === "object");
 assert(typeof ListTagsForResourceOutput$ === "object");
 assert(typeof MarketplaceProductSummary$ === "object");
 assert(typeof MarketplaceRevenueShareAllocationSummary$ === "object");
+assert(typeof MarketplaceRevenueShareProductDetail$ === "object");
+assert(typeof MarketplaceRevenueShareProductEntry$ === "object");
+assert(typeof MarketplaceRevenueShareProductSummary$ === "object");
 assert(typeof MarketplaceRevenueShareSummary$ === "object");
 assert(typeof RevenueAttributionAllocationErrorDetail$ === "object");
 assert(typeof RevenueAttributionAllocationSummary$ === "object");
 assert(typeof RevenueShareAllocation$ === "object");
+assert(typeof RevenueShareProductAccountDetail$ === "object");
+assert(typeof RevenueShareProductAccountEntry$ === "object");
+assert(typeof RevenueShareProductAccountSummary$ === "object");
 assert(typeof StartRevenueAttributionAllocationsTaskInput$ === "object");
 assert(typeof StartRevenueAttributionAllocationsTaskOutput$ === "object");
 assert(typeof Tag$ === "object");
@@ -200,6 +221,8 @@ assert(typeof TagResourceInput$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UpdateMarketplaceRevenueShareAllocationInput$ === "object");
 assert(typeof UpdateMarketplaceRevenueShareAllocationOutput$ === "object");
+assert(typeof UpdateMarketplaceRevenueShareInput$ === "object");
+assert(typeof UpdateMarketplaceRevenueShareOutput$ === "object");
 assert(typeof UpdateRevenueAttributionInput$ === "object");
 assert(typeof UpdateRevenueAttributionOutput$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
@@ -218,6 +241,7 @@ assert(typeof RevenueAttributionAllocationAction === "object");
 assert(typeof RevenueAttributionAllocationErrorCode === "object");
 assert(typeof RevenueAttributionAllocationSortField === "object");
 assert(typeof RevenueAttributionAllocationTaskStatus === "object");
+assert(typeof RevenueShareProductAccountType === "object");
 assert(typeof ServiceQuotaExceededExceptionReason === "object");
 assert(typeof SortOrder === "object");
 assert(typeof TenancyModel === "object");
