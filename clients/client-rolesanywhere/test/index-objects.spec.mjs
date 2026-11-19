@@ -108,6 +108,10 @@ import {
   TagResourceCommand,
   TagResourceRequest$,
   TagResourceResponse$,
+  TipConfiguration$,
+  TipStatus,
+  TipSubjectSource,
+  TipSubjectType,
   TooManyTagsException,
   TooManyTagsException$,
   TrustAnchorDetail$,
@@ -236,6 +240,7 @@ assert(typeof SubjectSummary$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
+assert(typeof TipConfiguration$ === "object");
 assert(typeof TrustAnchorDetail$ === "object");
 assert(typeof TrustAnchorDetailResponse$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
@@ -247,6 +252,9 @@ assert(typeof UpdateTrustAnchorRequest$ === "object");
 assert(typeof CertificateField === "object");
 assert(typeof NotificationChannel === "object");
 assert(typeof NotificationEvent === "object");
+assert(typeof TipStatus === "object");
+assert(typeof TipSubjectSource === "object");
+assert(typeof TipSubjectType === "object");
 assert(typeof TrustAnchorType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof RolesAnywhereServiceException);

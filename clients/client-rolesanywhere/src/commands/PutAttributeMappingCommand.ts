@@ -74,6 +74,11 @@ export interface PutAttributeMappingCommandOutput extends PutAttributeMappingRes
  * //     ],
  * //     aliasName: "STRING_VALUE",
  * //     aliasArn: "STRING_VALUE",
+ * //     tipConfiguration: { // TipConfiguration
+ * //       status: "STRING_VALUE", // required
+ * //       subjectType: "STRING_VALUE",
+ * //       subjectSource: "STRING_VALUE",
+ * //     },
  * //     previousAliasName: "STRING_VALUE",
  * //   },
  * // };

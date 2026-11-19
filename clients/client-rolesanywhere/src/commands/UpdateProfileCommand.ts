@@ -45,6 +45,11 @@ export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __Met
  *   durationSeconds: Number("int"),
  *   acceptRoleSessionName: true || false,
  *   aliasName: "STRING_VALUE",
+ *   tipConfiguration: { // TipConfiguration
+ *     status: "STRING_VALUE", // required
+ *     subjectType: "STRING_VALUE",
+ *     subjectSource: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
@@ -79,6 +84,11 @@ export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __Met
  * //     ],
  * //     aliasName: "STRING_VALUE",
  * //     aliasArn: "STRING_VALUE",
+ * //     tipConfiguration: { // TipConfiguration
+ * //       status: "STRING_VALUE", // required
+ * //       subjectType: "STRING_VALUE",
+ * //       subjectSource: "STRING_VALUE",
+ * //     },
  * //     previousAliasName: "STRING_VALUE",
  * //   },
  * // };

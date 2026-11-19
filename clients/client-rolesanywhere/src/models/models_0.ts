@@ -1,5 +1,13 @@
 // smithy-typescript generated code
-import type { CertificateField, NotificationChannel, NotificationEvent, TrustAnchorType } from "./enums";
+import type {
+  CertificateField,
+  NotificationChannel,
+  NotificationEvent,
+  TipStatus,
+  TipSubjectSource,
+  TipSubjectType,
+  TrustAnchorType,
+} from "./enums";
 
 /**
  * <p>A single mapping entry for each supported specifier or sub-field.</p>
@@ -47,6 +55,30 @@ export interface Tag {
    * @public
    */
   value: string | undefined;
+}
+
+/**
+ * <p>The trusted identity propagation (TIP) settings of a profile. When you enable TIP, sessions from the profile include the identity from the certificate in <code>aws:OriginIdentity</code> condition keys, which callers can't set.</p>
+ * @public
+ */
+export interface TipConfiguration {
+  /**
+   * <p>Specifies whether you use trusted identity propagation (TIP) for the profile. This field supports the following values:</p> <ul> <li> <p> <code>ENABLED</code> – Sessions from the profile include the <code>aws:OriginIdentity</code> condition keys.</p> </li> <li> <p> <code>DISABLED</code> – Sessions from the profile don't include these keys.</p> </li> </ul>
+   * @public
+   */
+  status: TipStatus | undefined;
+
+  /**
+   * <p>Specifies whether the certificates for the profile identify workloads or people. This field supports the following values:</p> <ul> <li> <p> <code>workload</code> – The certificates identify workloads.</p> </li> <li> <p> <code>user</code> – The certificates identify people.</p> </li> </ul> <p>Sessions include the value in <code>aws:OriginIdentity/SubjectType</code>. If you omit this field, sessions don't include that key.</p>
+   * @public
+   */
+  subjectType?: TipSubjectType | undefined;
+
+  /**
+   * <p>The certificate field whose value becomes the subject, <code>aws:OriginIdentity/Subject</code>. This field supports the following values:</p> <ul> <li> <p> <code>x509Subject/CN</code> (default) – The common name (CN) in the certificate's Subject.</p> </li> <li> <p> <code>x509SAN/URI</code> – The first URI in the certificate's Subject Alternative Name (SAN) extension.</p> </li> </ul> <p>The profile's attribute mappings must include a rule for this field, and the default attribute mappings include one for each value. If the certificate has no value for the field, <code>CreateSession</code> denies the request.</p>
+   * @public
+   */
+  subjectSource?: TipSubjectSource | undefined;
 }
 
 /**
@@ -112,6 +144,12 @@ export interface CreateProfileRequest {
    * @public
    */
   aliasName?: string | undefined;
+
+  /**
+   * <p>The trusted identity propagation (TIP) settings for the profile. When you enable TIP, sessions from the profile include the identity from the certificate in <code>aws:OriginIdentity</code> condition keys.</p> <p>If you omit this parameter, the profile doesn't use TIP.</p>
+   * @public
+   */
+  tipConfiguration?: TipConfiguration | undefined;
 }
 
 /**
@@ -214,6 +252,12 @@ export interface ProfileDetail {
    * @public
    */
   aliasArn?: string | undefined;
+
+  /**
+   * <p>The trusted identity propagation (TIP) settings of the profile.</p>
+   * @public
+   */
+  tipConfiguration?: TipConfiguration | undefined;
 
   /**
    * <p>The alias that the resource had before the update request. IAM Roles Anywhere returns this value only in the response to an update request that changed or removed an existing alias. It isn't returned when the alias was unchanged, when the resource had no alias before the request, or by other operations.</p>
@@ -1132,6 +1176,12 @@ export interface UpdateProfileRequest {
    * @public
    */
   aliasName?: string | undefined;
+
+  /**
+   * <p>The trusted identity propagation (TIP) settings for the profile. The settings that you specify replace the current settings, and a field that you omit returns to its default. If you omit this parameter, the TIP settings don't change.</p>
+   * @public
+   */
+  tipConfiguration?: TipConfiguration | undefined;
 }
 
 /**

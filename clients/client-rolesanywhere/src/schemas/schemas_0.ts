@@ -78,6 +78,7 @@ const _T = "Tag";
 const _TAD = "TrustAnchorDetail";
 const _TADR = "TrustAnchorDetailResponse";
 const _TADr = "TrustAnchorDetails";
+const _TC = "TipConfiguration";
 const _TK = "TagKey";
 const _TKL = "TagKeyList";
 const _TL = "TagList";
@@ -151,11 +152,14 @@ const _sD = "sourceData";
 const _sI = "subjectId";
 const _sN = "serialNumber";
 const _sP = "sessionPolicy";
+const _sS = "subjectSource";
 const _sT = "sourceType";
+const _sTu = "subjectType";
 const _se = "server";
 const _so = "source";
 const _sp = "specifiers";
 const _spe = "specifier";
+const _st = "status";
 const _su = "subjects";
 const _sub = "subject";
 const _t = "tags";
@@ -163,6 +167,7 @@ const _tA = "trustAnchors";
 const _tAA = "trustAnchorArn";
 const _tAI = "trustAnchorId";
 const _tAr = "trustAnchor";
+const _tC = "tipConfiguration";
 const _tK = "tagKeys";
 const _th = "threshold";
 const _uA = "updatedAt";
@@ -245,8 +250,8 @@ export var AttributeMapping$: StaticStructureSchema = [3, n0, _AM,
 ];
 export var CreateProfileRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_n, _rA, _rIP, _sP, _mPA, _dS, _en, _t, _aRSN, _aN],
-  [0, 64 | 0, 2, 0, 64 | 0, 1, 2, [() => TagList, 0], 2, 0], 2
+  [_n, _rA, _rIP, _sP, _mPA, _dS, _en, _t, _aRSN, _aN, _tC],
+  [0, 64 | 0, 2, 0, 64 | 0, 1, 2, [() => TagList, 0], 2, 0, () => TipConfiguration$], 2
 ];
 export var CreateTrustAnchorRequest$: StaticStructureSchema = [3, n0, _CTAR,
   0,
@@ -345,8 +350,8 @@ export var NotificationSettingKey$: StaticStructureSchema = [3, n0, _NSK,
 ];
 export var ProfileDetail$: StaticStructureSchema = [3, n0, _PD,
   0,
-  [_pI, _pA, _n, _rIP, _en, _cBr, _sP, _rA, _mPA, _cAr, _uA, _dS, _aRSN, _aM, _aN, _aA, _pAN],
-  [0, 0, 0, 2, 2, 0, 0, 64 | 0, 64 | 0, 5, 5, 1, 2, () => AttributeMappings, 0, 0, 0]
+  [_pI, _pA, _n, _rIP, _en, _cBr, _sP, _rA, _mPA, _cAr, _uA, _dS, _aRSN, _aM, _aN, _aA, _tC, _pAN],
+  [0, 0, 0, 2, 2, 0, 0, 64 | 0, 64 | 0, 5, 5, 1, 2, () => AttributeMappings, 0, 0, () => TipConfiguration$, 0]
 ];
 export var ProfileDetailResponse$: StaticStructureSchema = [3, n0, _PDR,
   0,
@@ -438,6 +443,11 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
+export var TipConfiguration$: StaticStructureSchema = [3, n0, _TC,
+  0,
+  [_st, _sTu, _sS],
+  [0, 0, 0], 1
+];
 export var TrustAnchorDetail$: StaticStructureSchema = [3, n0, _TAD,
   0,
   [_tAI, _tAA, _n, _so, _en, _cDRE, _cAr, _uA, _nS, _aN, _aA, _pAN],
@@ -465,8 +475,8 @@ export var UpdateCrlRequest$: StaticStructureSchema = [3, n0, _UCR,
 ];
 export var UpdateProfileRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_pI, _n, _sP, _rA, _mPA, _dS, _aRSN, _aN],
-  [[0, 1], 0, 0, 64 | 0, 64 | 0, 1, 2, 0], 1
+  [_pI, _n, _sP, _rA, _mPA, _dS, _aRSN, _aN, _tC],
+  [[0, 1], 0, 0, 64 | 0, 64 | 0, 1, 2, 0, () => TipConfiguration$], 1
 ];
 export var UpdateTrustAnchorRequest$: StaticStructureSchema = [3, n0, _UTAR,
   0,

@@ -17,6 +17,45 @@ export type CertificateField = (typeof CertificateField)[keyof typeof Certificat
  * @public
  * @enum
  */
+export const TipStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type TipStatus = (typeof TipStatus)[keyof typeof TipStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TipSubjectSource = {
+  x509SAN_URI: "x509SAN/URI",
+  x509Subject_CN: "x509Subject/CN",
+} as const;
+/**
+ * @public
+ */
+export type TipSubjectSource = (typeof TipSubjectSource)[keyof typeof TipSubjectSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const TipSubjectType = {
+  user: "user",
+  workload: "workload",
+} as const;
+/**
+ * @public
+ */
+export type TipSubjectType = (typeof TipSubjectType)[keyof typeof TipSubjectType];
+
+/**
+ * @public
+ * @enum
+ */
 export const NotificationChannel = {
   ALL: "ALL",
 } as const;
