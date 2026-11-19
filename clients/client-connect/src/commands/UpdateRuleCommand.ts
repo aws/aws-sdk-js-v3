@@ -49,7 +49,7 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  *         References: { // ContactReferences
  *           "<keys>": { // Reference
  *             Value: "STRING_VALUE",
- *             Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT" || "EMAIL_MESSAGE_PLAIN_TEXT_REDACTED" || "EMAIL_MESSAGE_REDACTED", // required
+ *             Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT" || "EMAIL_MESSAGE_PLAIN_TEXT_REDACTED" || "EMAIL_MESSAGE_REDACTED" || "VOICEMAIL_RECORDING" || "VOICEMAIL_RECORDING_REDACTED" || "VOICEMAIL_ANALYSIS" || "VOICEMAIL_ANALYSIS_REDACTED", // required
  *             Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED" || "DRAFTING",
  *             Arn: "STRING_VALUE",
  *             StatusReason: "STRING_VALUE",

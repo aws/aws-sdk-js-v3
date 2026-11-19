@@ -70,7 +70,6 @@ import type {
   TestCaseStatus,
   TrafficDistributionGroupStatus,
   Unit,
-  UseCaseType,
   VocabularyLanguageCode,
 } from "./enums";
 import type {
@@ -114,6 +113,30 @@ import type {
   TaskTemplateDefaults,
   TaskTemplateField,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface DisassociateTrafficDistributionGroupUserRequest {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN of the traffic distribution group.</p>
+   * @public
+   */
+  TrafficDistributionGroupId: string | undefined;
+
+  /**
+   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
 
 /**
  * @public
@@ -6489,6 +6512,68 @@ export interface UrlReference {
 }
 
 /**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>VOICEMAIL_ANALYSIS</code> or
+ *    <code>VOICEMAIL_ANALYSIS_REDACTED</code>. Otherwise, null.</p>
+ * @public
+ */
+export interface VoicemailAnalysisReference {
+  /**
+   * <p>Identifier of the voicemail analysis reference.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The location path of the voicemail analysis reference.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>Status of the voicemail analysis reference type.</p>
+   * @public
+   */
+  Status?: ReferenceStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the voicemail analysis reference.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>VOICEMAIL_RECORDING</code> or
+ *    <code>VOICEMAIL_RECORDING_REDACTED</code>. Otherwise, null.</p>
+ * @public
+ */
+export interface VoicemailRecordingReference {
+  /**
+   * <p>Identifier of the voicemail recording reference.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The location path of the voicemail recording reference.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>Status of the voicemail recording reference type.</p>
+   * @public
+   */
+  Status?: ReferenceStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the voicemail recording reference.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
  * <p>Contains summary information about a reference. <code>ReferenceSummary</code> contains only one non null field
  *    between the URL and attachment based on the reference type.</p>
  * @public
@@ -6505,6 +6590,10 @@ export type ReferenceSummary =
   | ReferenceSummary.NumberMember
   | ReferenceSummary.StringMember
   | ReferenceSummary.UrlMember
+  | ReferenceSummary.VoicemailAnalysisMember
+  | ReferenceSummary.VoicemailAnalysisRedactedMember
+  | ReferenceSummary.VoicemailRecordingMember
+  | ReferenceSummary.VoicemailRecordingRedactedMember
   | ReferenceSummary.$UnknownMember;
 
 /**
@@ -6527,6 +6616,10 @@ export namespace ReferenceSummary {
     Date?: never;
     Email?: never;
     ContactAnalysis?: never;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted?: never;
     $unknown?: never;
   }
 
@@ -6547,6 +6640,10 @@ export namespace ReferenceSummary {
     Date?: never;
     Email?: never;
     ContactAnalysis?: never;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted?: never;
     $unknown?: never;
   }
 
@@ -6566,6 +6663,10 @@ export namespace ReferenceSummary {
     Date?: never;
     Email?: never;
     ContactAnalysis?: never;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted?: never;
     $unknown?: never;
   }
 
@@ -6585,6 +6686,10 @@ export namespace ReferenceSummary {
     Date?: never;
     Email?: never;
     ContactAnalysis?: never;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted?: never;
     $unknown?: never;
   }
 
@@ -6604,6 +6709,10 @@ export namespace ReferenceSummary {
     Date?: never;
     Email?: never;
     ContactAnalysis?: never;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted?: never;
     $unknown?: never;
   }
 
@@ -6623,6 +6732,10 @@ export namespace ReferenceSummary {
     Date?: never;
     Email?: never;
     ContactAnalysis?: never;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted?: never;
     $unknown?: never;
   }
 
@@ -6643,6 +6756,10 @@ export namespace ReferenceSummary {
     Date?: never;
     Email?: never;
     ContactAnalysis?: never;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted?: never;
     $unknown?: never;
   }
 
@@ -6663,6 +6780,10 @@ export namespace ReferenceSummary {
     Date?: never;
     Email?: never;
     ContactAnalysis?: never;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted?: never;
     $unknown?: never;
   }
 
@@ -6682,6 +6803,10 @@ export namespace ReferenceSummary {
     Date: DateReference;
     Email?: never;
     ContactAnalysis?: never;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted?: never;
     $unknown?: never;
   }
 
@@ -6701,6 +6826,10 @@ export namespace ReferenceSummary {
     Date?: never;
     Email: EmailReference;
     ContactAnalysis?: never;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted?: never;
     $unknown?: never;
   }
 
@@ -6721,6 +6850,106 @@ export namespace ReferenceSummary {
     Date?: never;
     Email?: never;
     ContactAnalysis: ContactAnalysisReference;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about the reference when the <code>referenceType</code> is <code>VOICEMAIL_RECORDING</code>.
+   *    Otherwise, null.</p>
+   * @public
+   */
+  export interface VoicemailRecordingMember {
+    Url?: never;
+    Attachment?: never;
+    EmailMessage?: never;
+    EmailMessageRedacted?: never;
+    EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    ContactAnalysis?: never;
+    VoicemailRecording: VoicemailRecordingReference;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about the reference when the <code>referenceType</code> is
+   *    <code>VOICEMAIL_RECORDING_REDACTED</code>. Otherwise, null.</p>
+   * @public
+   */
+  export interface VoicemailRecordingRedactedMember {
+    Url?: never;
+    Attachment?: never;
+    EmailMessage?: never;
+    EmailMessageRedacted?: never;
+    EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    ContactAnalysis?: never;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted: VoicemailRecordingReference;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about the reference when the <code>referenceType</code> is <code>VOICEMAIL_ANALYSIS</code>.
+   *    Otherwise, null.</p>
+   * @public
+   */
+  export interface VoicemailAnalysisMember {
+    Url?: never;
+    Attachment?: never;
+    EmailMessage?: never;
+    EmailMessageRedacted?: never;
+    EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    ContactAnalysis?: never;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis: VoicemailAnalysisReference;
+    VoicemailAnalysisRedacted?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about the reference when the <code>referenceType</code> is
+   *    <code>VOICEMAIL_ANALYSIS_REDACTED</code>. Otherwise, null.</p>
+   * @public
+   */
+  export interface VoicemailAnalysisRedactedMember {
+    Url?: never;
+    Attachment?: never;
+    EmailMessage?: never;
+    EmailMessageRedacted?: never;
+    EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    ContactAnalysis?: never;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted: VoicemailAnalysisReference;
     $unknown?: never;
   }
 
@@ -6739,6 +6968,10 @@ export namespace ReferenceSummary {
     Date?: never;
     Email?: never;
     ContactAnalysis?: never;
+    VoicemailRecording?: never;
+    VoicemailRecordingRedacted?: never;
+    VoicemailAnalysis?: never;
+    VoicemailAnalysisRedacted?: never;
     $unknown: [string, any];
   }
 
@@ -6758,6 +6991,10 @@ export namespace ReferenceSummary {
     Date: (value: DateReference) => T;
     Email: (value: EmailReference) => T;
     ContactAnalysis: (value: ContactAnalysisReference) => T;
+    VoicemailRecording: (value: VoicemailRecordingReference) => T;
+    VoicemailRecordingRedacted: (value: VoicemailRecordingReference) => T;
+    VoicemailAnalysis: (value: VoicemailAnalysisReference) => T;
+    VoicemailAnalysisRedacted: (value: VoicemailAnalysisReference) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -11434,79 +11671,4 @@ export interface ListTrafficDistributionGroupUsersResponse {
    * @public
    */
   TrafficDistributionGroupUserSummaryList?: TrafficDistributionGroupUserSummary[] | undefined;
-}
-
-/**
- * <p>Provides summary information about the use cases for the specified integration association.</p>
- * @public
- */
-export interface ListUseCasesRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the integration association.</p>
-   * @public
-   */
-  IntegrationAssociationId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains the
- *    use
- *    case.</p>
- * @public
- */
-export interface UseCase {
-  /**
-   * <p>The identifier for the use case.</p>
-   * @public
-   */
-  UseCaseId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the use case.</p>
-   * @public
-   */
-  UseCaseArn?: string | undefined;
-
-  /**
-   * <p>The type of use case to associate to the integration association. Each integration association can have only one
-   *    of each use case type.</p>
-   * @public
-   */
-  UseCaseType?: UseCaseType | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUseCasesResponse {
-  /**
-   * <p>The use cases.</p>
-   * @public
-   */
-  UseCaseSummaryList?: UseCase[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

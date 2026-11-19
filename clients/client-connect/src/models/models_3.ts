@@ -70,6 +70,7 @@ import type {
   TestCaseExecutionStatus,
   TrafficType,
   TrendIndicator,
+  UseCaseType,
   ViewStatus,
   ViewType,
   Visibility,
@@ -130,6 +131,81 @@ import type {
   View,
   VoiceEnhancementConfig,
 } from "./models_1";
+
+/**
+ * <p>Provides summary information about the use cases for the specified integration association.</p>
+ * @public
+ */
+export interface ListUseCasesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the integration association.</p>
+   * @public
+   */
+  IntegrationAssociationId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains the
+ *    use
+ *    case.</p>
+ * @public
+ */
+export interface UseCase {
+  /**
+   * <p>The identifier for the use case.</p>
+   * @public
+   */
+  UseCaseId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the use case.</p>
+   * @public
+   */
+  UseCaseArn?: string | undefined;
+
+  /**
+   * <p>The type of use case to associate to the integration association. Each integration association can have only one
+   *    of each use case type.</p>
+   * @public
+   */
+  UseCaseType?: UseCaseType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUseCasesResponse {
+  /**
+   * <p>The use cases.</p>
+   * @public
+   */
+  UseCaseSummaryList?: UseCase[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -7804,42 +7880,3 @@ export interface UpdateMetricContentRequest {
    */
   PositiveTrendIndicator?: TrendIndicator | undefined;
 }
-
-/**
- * @public
- */
-export interface UpdateMetricContentResponse {}
-
-/**
- * @public
- */
-export interface UpdateMetricMetadataRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the metric to update. Adding the <code>$SAVED</code> qualifier will update the saved version of the metric. Adding <code>$LATEST</code> or omitting a qualifier will update the published version.</p>
-   * @public
-   */
-  MetricId: string | undefined;
-
-  /**
-   * <p>The updated name of the metric.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The updated description of the metric.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMetricMetadataResponse {}

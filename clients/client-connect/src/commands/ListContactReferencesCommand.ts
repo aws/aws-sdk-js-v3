@@ -39,7 +39,7 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  *   InstanceId: "STRING_VALUE", // required
  *   ContactId: "STRING_VALUE", // required
  *   ReferenceTypes: [ // ReferenceTypes // required
- *     "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT" || "EMAIL_MESSAGE_PLAIN_TEXT_REDACTED" || "EMAIL_MESSAGE_REDACTED",
+ *     "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT" || "EMAIL_MESSAGE_PLAIN_TEXT_REDACTED" || "EMAIL_MESSAGE_REDACTED" || "VOICEMAIL_RECORDING" || "VOICEMAIL_RECORDING_REDACTED" || "VOICEMAIL_ANALYSIS" || "VOICEMAIL_ANALYSIS_REDACTED",
  *   ],
  *   NextToken: "STRING_VALUE",
  * };
@@ -97,6 +97,30 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  * //         Arn: "STRING_VALUE",
  * //         AnalyticsMode: "PostContact" || "RealTime" || "ContactLens" || "AutomatedInteraction",
  * //         IsRedacted: true || false,
+ * //       },
+ * //       VoicemailRecording: { // VoicemailRecordingReference
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //         Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED" || "DRAFTING",
+ * //         Arn: "STRING_VALUE",
+ * //       },
+ * //       VoicemailRecordingRedacted: {
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //         Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED" || "DRAFTING",
+ * //         Arn: "STRING_VALUE",
+ * //       },
+ * //       VoicemailAnalysis: { // VoicemailAnalysisReference
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //         Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED" || "DRAFTING",
+ * //         Arn: "STRING_VALUE",
+ * //       },
+ * //       VoicemailAnalysisRedacted: {
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //         Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED" || "DRAFTING",
+ * //         Arn: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

@@ -2505,6 +2505,9 @@ import {
   VoiceCallEntryPointParameters$,
   VoiceEnhancementConfig$,
   VoiceEnhancementMode,
+  VoicemailAnalysisReference$,
+  VoicemailInfo$,
+  VoicemailRecordingReference$,
   VoiceRecordingConfiguration$,
   VoiceRecordingTrack,
   WebNotificationContent$,
@@ -4674,6 +4677,9 @@ assert(typeof Vocabulary$ === "object");
 assert(typeof VocabularySummary$ === "object");
 assert(typeof VoiceCallEntryPointParameters$ === "object");
 assert(typeof VoiceEnhancementConfig$ === "object");
+assert(typeof VoicemailAnalysisReference$ === "object");
+assert(typeof VoicemailInfo$ === "object");
+assert(typeof VoicemailRecordingReference$ === "object");
 assert(typeof VoiceRecordingConfiguration$ === "object");
 assert(typeof WebNotificationContent$ === "object");
 assert(typeof WebNotificationSource$ === "object");

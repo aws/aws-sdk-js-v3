@@ -2,8 +2,10 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DisassociateTrafficDistributionGroupUserRequest } from "../models/models_1";
-import type { DisassociateTrafficDistributionGroupUserResponse } from "../models/models_2";
+import type {
+  DisassociateTrafficDistributionGroupUserRequest,
+  DisassociateTrafficDistributionGroupUserResponse,
+} from "../models/models_2";
 import { DisassociateTrafficDistributionGroupUser$ } from "../schemas/schemas_0";
 
 /**

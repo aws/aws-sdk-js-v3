@@ -55,7 +55,7 @@ export interface BatchGetAttachedFileMetadataCommandOutput extends BatchGetAttac
  * //         ConnectUserArn: "STRING_VALUE",
  * //         AWSIdentityArn: "STRING_VALUE",
  * //       },
- * //       FileUseCaseType: "CONTACT_ANALYSIS" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT" || "EMAIL_MESSAGE_REDACTED" || "EMAIL_MESSAGE_PLAIN_TEXT_REDACTED" || "ATTACHMENT" || "VOICE_RECORDING",
+ * //       FileUseCaseType: "CONTACT_ANALYSIS" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT" || "EMAIL_MESSAGE_REDACTED" || "EMAIL_MESSAGE_PLAIN_TEXT_REDACTED" || "ATTACHMENT" || "VOICE_RECORDING" || "VOICEMAIL_RECORDING" || "VOICEMAIL_RECORDING_REDACTED" || "VOICEMAIL_ANALYSIS" || "VOICEMAIL_ANALYSIS_REDACTED",
  * //       AssociatedResourceArn: "STRING_VALUE",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",

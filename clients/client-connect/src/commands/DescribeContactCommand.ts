@@ -495,6 +495,9 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //         },
  * //       },
  * //     },
+ * //     VoicemailInfo: { // VoicemailInfo
+ * //       NumberOfVoicemails: Number("int"),
+ * //     },
  * //   },
  * // };
  *

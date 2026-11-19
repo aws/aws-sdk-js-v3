@@ -3766,6 +3766,18 @@ export interface TaskTemplateInfoV2 {
 }
 
 /**
+ * <p>Information about the voicemails recorded for a voice contact.</p>
+ * @public
+ */
+export interface VoicemailInfo {
+  /**
+   * <p>The number of voicemails recorded for the contact. Valid range is 1-3.</p>
+   * @public
+   */
+  NumberOfVoicemails?: number | undefined;
+}
+
+/**
  * <p>Information about Connect Customer Wisdom.</p>
  * @public
  */
@@ -8326,28 +8338,4 @@ export interface DisassociateSecurityProfilesRequest {
    * @public
    */
   EntityArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTrafficDistributionGroupUserRequest {
-  /**
-   * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN of the traffic distribution group.</p>
-   * @public
-   */
-  TrafficDistributionGroupId: string | undefined;
-
-  /**
-   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
 }

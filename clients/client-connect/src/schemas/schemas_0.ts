@@ -1884,6 +1884,7 @@ const _NI = "NotificationId";
 const _NOAMAQ = "NumberOfAssociatedManualAssignmentQueues";
 const _NOAQ = "NumberOfAssociatedQueues";
 const _NOAU = "NumberOfAssociatedUsers";
+const _NOV = "NumberOfVoicemails";
 const _NP = "NewPage";
 const _NPV = "NewPrimaryValues";
 const _NQPVA = "NumericQuestionPropertyValueAutomation";
@@ -3007,10 +3008,13 @@ const _Use = "User";
 const _User = "Users";
 const _V = "Value";
 const _VA = "ViewAction";
+const _VAR = "VoicemailAnalysisReference";
+const _VARo = "VoicemailAnalysisRedacted";
 const _VAa = "ValueArn";
 const _VAi = "ViewArn";
 const _VAie = "ViewActions";
 const _VAo = "VocabularyArn";
+const _VAoi = "VoicemailAnalysis";
 const _VC = "ViewContent";
 const _VCEPP = "VoiceCallEntryPointParameters";
 const _VCS = "ViewContentSha256";
@@ -3024,13 +3028,17 @@ const _VIC = "ViewInputContent";
 const _VIS = "ViewInputSchema";
 const _VIa = "ValueInteger";
 const _VIi = "ViewId";
+const _VIo = "VoicemailInfo";
 const _VL = "ValueList";
 const _VLL = "ValueLockLevel";
 const _VM = "ValueMap";
 const _VN = "ViewName";
 const _VNe = "VersionNumber";
 const _VNo = "VocabularyName";
+const _VR = "VoicemailRecording";
 const _VRC = "VoiceRecordingConfiguration";
+const _VRR = "VoicemailRecordingReference";
+const _VRRo = "VoicemailRecordingRedacted";
 const _VRT = "VoiceRecordingTrack";
 const _VS = "ValueString";
 const _VSC = "ViewSearchCriteria";
@@ -4093,8 +4101,8 @@ export var ConnectionData$: StaticStructureSchema = [3, n0, _CD,
 ];
 export var Contact$: StaticStructureSchema = [3, n0, _Cont,
   0,
-  [_A, _I, _ICI, _PCI, _CAI, _IM, _N, _D, _C, _QIu, _AI, _IT, _DT, _LUT, _LPT, _LRT, _RST, _TPC, _TPDIS, _STc, _RCI, _WIi, _CIu, _CEu, _SE, _QTAS, _QP, _Ta, _CTST, _RCo, _Cu, _Cam, _AMDS, _CVA, _QM, _CMh, _DD, _AER, _SAe, _Rec, _DR, _CEo, _TTI, _Cas, _CDo, _OSu, _Attr, _NCe, _GRM, _CLo],
-  [0, 0, 0, 0, 0, 0, [() => Name, 0], [() => Description, 0], 0, () => QueueInfo$, () => AgentInfo$, 4, 4, 4, 4, 4, 4, 1, 1, 4, 0, () => WisdomInfo$, 0, () => EndpointInfo$, () => EndpointInfo$, 1, 1, 128 | 0, 4, () => RoutingCriteria$, () => Customer$, () => Campaign$, 0, () => CustomerVoiceActivity$, () => QualityMetrics$, () => ChatMetrics$, () => DisconnectDetails$, () => AdditionalEmailRecipients$, () => SegmentAttributes, () => Recordings, 0, () => ContactEvaluations, () => TaskTemplateInfoV2$, () => CaseEntries, () => ContactDetails$, () => OutboundStrategy$, 128 | 0, () => NextContacts, () => GlobalResiliencyMetadata$, () => ContactLens$]
+  [_A, _I, _ICI, _PCI, _CAI, _IM, _N, _D, _C, _QIu, _AI, _IT, _DT, _LUT, _LPT, _LRT, _RST, _TPC, _TPDIS, _STc, _RCI, _WIi, _CIu, _CEu, _SE, _QTAS, _QP, _Ta, _CTST, _RCo, _Cu, _Cam, _AMDS, _CVA, _QM, _CMh, _DD, _AER, _SAe, _Rec, _DR, _CEo, _TTI, _Cas, _CDo, _OSu, _Attr, _NCe, _GRM, _CLo, _VIo],
+  [0, 0, 0, 0, 0, 0, [() => Name, 0], [() => Description, 0], 0, () => QueueInfo$, () => AgentInfo$, 4, 4, 4, 4, 4, 4, 1, 1, 4, 0, () => WisdomInfo$, 0, () => EndpointInfo$, () => EndpointInfo$, 1, 1, 128 | 0, 4, () => RoutingCriteria$, () => Customer$, () => Campaign$, 0, () => CustomerVoiceActivity$, () => QualityMetrics$, () => ChatMetrics$, () => DisconnectDetails$, () => AdditionalEmailRecipients$, () => SegmentAttributes, () => Recordings, 0, () => ContactEvaluations, () => TaskTemplateInfoV2$, () => CaseEntries, () => ContactDetails$, () => OutboundStrategy$, 128 | 0, () => NextContacts, () => GlobalResiliencyMetadata$, () => ContactLens$, () => VoicemailInfo$]
 ];
 export var ContactAnalysis$: StaticStructureSchema = [3, n0, _CAo,
   0,
@@ -9961,6 +9969,21 @@ export var VoiceEnhancementConfig$: StaticStructureSchema = [3, n0, _VECo,
   [_C, _VEM],
   [0, 0], 2
 ];
+export var VoicemailAnalysisReference$: StaticStructureSchema = [3, n0, _VAR,
+  0,
+  [_N, _V, _St, _A],
+  [0, 0, 0, 0]
+];
+export var VoicemailInfo$: StaticStructureSchema = [3, n0, _VIo,
+  0,
+  [_NOV],
+  [1]
+];
+export var VoicemailRecordingReference$: StaticStructureSchema = [3, n0, _VRR,
+  0,
+  [_N, _V, _St, _A],
+  [0, 0, 0, 0]
+];
 export var VoiceRecordingConfiguration$: StaticStructureSchema = [3, n0, _VRC,
   0,
   [_VRT, _IRT],
@@ -11101,8 +11124,8 @@ export var RealTimeContactAnalysisTimeData$: StaticUnionSchema = [4, n0, _RTCATD
 ];
 export var ReferenceSummary$: StaticUnionSchema = [4, n0, _RSe,
   0,
-  [_Ur, _Attac, _EMm, _EMRm, _EMPT, _EMPTR, _Stri, _Nu, _Da, _E, _CAo],
-  [() => UrlReference$, () => AttachmentReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => StringReference$, () => NumberReference$, () => DateReference$, () => EmailReference$, () => ContactAnalysisReference$]
+  [_Ur, _Attac, _EMm, _EMRm, _EMPT, _EMPTR, _Stri, _Nu, _Da, _E, _CAo, _VR, _VRRo, _VAoi, _VARo],
+  [() => UrlReference$, () => AttachmentReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => StringReference$, () => NumberReference$, () => DateReference$, () => EmailReference$, () => ContactAnalysisReference$, () => VoicemailRecordingReference$, () => VoicemailRecordingReference$, () => VoicemailAnalysisReference$, () => VoicemailAnalysisReference$]
 ];
 export var ServiceQuotaExceededExceptionReason$: StaticUnionSchema = [4, n0, _SQEER,
   0,

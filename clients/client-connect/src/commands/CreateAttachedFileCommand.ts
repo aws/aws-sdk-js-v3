@@ -46,7 +46,7 @@ export interface CreateAttachedFileCommandOutput extends CreateAttachedFileRespo
  * const input = { // CreateAttachedFileRequest
  *   ClientToken: "STRING_VALUE",
  *   InstanceId: "STRING_VALUE", // required
- *   FileUseCaseType: "CONTACT_ANALYSIS" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT" || "EMAIL_MESSAGE_REDACTED" || "EMAIL_MESSAGE_PLAIN_TEXT_REDACTED" || "ATTACHMENT" || "VOICE_RECORDING", // required
+ *   FileUseCaseType: "CONTACT_ANALYSIS" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT" || "EMAIL_MESSAGE_REDACTED" || "EMAIL_MESSAGE_PLAIN_TEXT_REDACTED" || "ATTACHMENT" || "VOICE_RECORDING" || "VOICEMAIL_RECORDING" || "VOICEMAIL_RECORDING_REDACTED" || "VOICEMAIL_ANALYSIS" || "VOICEMAIL_ANALYSIS_REDACTED", // required
  *   FileSourceUri: "STRING_VALUE", // required
  *   AssociatedResourceArn: "STRING_VALUE", // required
  *   Tags: { // TagMap
