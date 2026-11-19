@@ -325,6 +325,7 @@ export class AgentRegistryClient extends __Client<
         identityProviderConfigProvider: async (config: AgentRegistryClientResolvedConfig) =>
           new DefaultIdentityProviderConfig({
             "aws.auth#sigv4": config.credentials,
+            "smithy.api#httpBearerAuth": config.token,
           }),
       })
     );

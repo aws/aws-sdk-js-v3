@@ -15,6 +15,7 @@ export type {
   RecordType,
   RegistryRecordFilterName,
   RegistryRecordStatus,
+  SearchType,
   ValidationExceptionReason,
   A2aAgentCardDescriptor,
   AgentSkillsAdditionalData,
@@ -35,6 +36,7 @@ export type {
   McpServerAdditionalData,
   McpServerDescriptor,
   McpToolsDescriptor,
+  RegistryRecordArtifactDownload,
   RegistryRecordFilter,
   RegistryRecordsEntry,
   RegistryRecordSummary,
@@ -49,4 +51,5 @@ export type {
   ValidationException,
   AgentRegistryServiceException,
   paginateListDiscoverableRegistryRecords,
+  paginateSearchDiscoverableRegistryRecords,
 } from "../dist-types/index.d";

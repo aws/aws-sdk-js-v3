@@ -37,12 +37,14 @@ export type RecordType = (typeof RecordType)[keyof typeof RecordType];
 export const RegistryRecordStatus = {
   APPROVED: "APPROVED",
   CREATE_FAILED: "CREATE_FAILED",
+  CREATE_PENDING_AUTH: "CREATE_PENDING_AUTH",
   CREATING: "CREATING",
   DEPRECATED: "DEPRECATED",
   DRAFT: "DRAFT",
   PENDING_APPROVAL: "PENDING_APPROVAL",
   REJECTED: "REJECTED",
   UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_PENDING_AUTH: "UPDATE_PENDING_AUTH",
   UPDATING: "UPDATING",
 } as const;
 /**
@@ -60,6 +62,7 @@ export const ValidationExceptionReason = {
   IDEMPOTENT_PARAMETER_MISMATCH_EXCEPTION: "IdempotentParameterMismatchException",
   RESOURCE_CONFLICT: "ResourceConflict",
   ROOT_EVENT_IN_OTHER_SESSION: "EventInOtherSession",
+  UNSUPPORTED_IN_REGION: "UnsupportedInRegion",
 } as const;
 /**
  * @public
@@ -81,3 +84,26 @@ export const RegistryRecordFilterName = {
  * @public
  */
 export type RegistryRecordFilterName = (typeof RegistryRecordFilterName)[keyof typeof RegistryRecordFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchType = {
+  /**
+   * <p> Combines keyword ranking and semantic ranking. Use this type when a query mixes specific terms with a natural language description.</p>
+   */
+  HYBRID: "HYBRID",
+  /**
+   * <p> Ranks records by keyword match between the query terms and the record name, description, descriptors, and custom metadata text values. Use this type for queries built from specific terms, such as tool names or API names.</p>
+   */
+  KEYWORD: "KEYWORD",
+  /**
+   * <p> Ranks records by semantic similarity to the query. Use this type for natural language descriptions of a task. Returns the most similar records even when none of them closely matches the query.</p>
+   */
+  SEMANTIC: "SEMANTIC",
+} as const;
+/**
+ * @public
+ */
+export type SearchType = (typeof SearchType)[keyof typeof SearchType];

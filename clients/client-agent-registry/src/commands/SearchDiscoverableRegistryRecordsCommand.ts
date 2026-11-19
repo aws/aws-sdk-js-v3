@@ -26,7 +26,7 @@ export interface SearchDiscoverableRegistryRecordsCommandInput extends SearchDis
 export interface SearchDiscoverableRegistryRecordsCommandOutput extends SearchDiscoverableRegistryRecordsResponse, __MetadataBearer {}
 
 /**
- * <p> Searches the discoverable registry records in a registry using a natural language query. Returns metadata for the matching records ordered by relevance.</p>
+ * <p> Searches the discoverable registry records in a registry using a natural language query. Returns metadata for the matching records ordered by relevance.</p> <p> Returns at most 1000 results across all pages when <code>searchType</code> is <code>KEYWORD</code>, and at most 20 results when it is <code>HYBRID</code> or <code>SEMANTIC</code>. To retrieve more records, refine the query or filters, or use <code>ListDiscoverableRegistryRecords</code> to list every record.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,6 +42,8 @@ export interface SearchDiscoverableRegistryRecordsCommandOutput extends SearchDi
  *   ],
  *   maxResults: Number("int"),
  *   filters: "DOCUMENT_VALUE",
+ *   searchType: "HYBRID" || "SEMANTIC" || "KEYWORD",
+ *   nextToken: "STRING_VALUE",
  * };
  * const command = new SearchDiscoverableRegistryRecordsCommand(input);
  * const response = await client.send(command);
@@ -114,12 +116,18 @@ export interface SearchDiscoverableRegistryRecordsCommandOutput extends SearchDi
  * //         },
  * //       },
  * //       recordVersion: "STRING_VALUE", // required
- * //       status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED", // required
+ * //       status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "CREATE_PENDING_AUTH" || "UPDATE_PENDING_AUTH", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       customMetadata: "DOCUMENT_VALUE",
+ * //       artifact: { // RegistryRecordArtifactDownload
+ * //         sha256: "STRING_VALUE",
+ * //         downloadUrl: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
+ * //   searchType: "HYBRID" || "SEMANTIC" || "KEYWORD",
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```

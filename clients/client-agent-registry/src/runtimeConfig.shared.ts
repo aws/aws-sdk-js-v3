@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core/httpAuthSchemes";
 import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
+import { HttpBearerAuthSigner } from "@smithy/core";
 import { Sha256 } from "@smithy/core/checksum";
 import { NoOpLogger } from "@smithy/core/client";
 import { parseUrl } from "@smithy/core/protocols";
@@ -30,6 +31,12 @@ export const getRuntimeConfig = (config: AgentRegistryClientConfig) => {
         identityProvider: (ipc: IdentityProviderConfig) =>
           ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
+      },
+      {
+        schemeId: "smithy.api#httpBearerAuth",
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("smithy.api#httpBearerAuth"),
+        signer: new HttpBearerAuthSigner(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),

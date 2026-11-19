@@ -5,15 +5,19 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
+import type { FromSsoInit } from "@aws-sdk/token-providers";
+import { doesIdentityRequireRefresh, isIdentityExpired, memoizeIdentityProvider } from "@smithy/core";
 import { getSmithyContext, normalizeProvider } from "@smithy/core/client";
-import type {
-  HandlerExecutionContext,
-  HttpAuthOption,
-  HttpAuthScheme,
-  HttpAuthSchemeParameters,
-  HttpAuthSchemeParametersProvider,
-  HttpAuthSchemeProvider,
-  Provider,
+import {
+  type HandlerExecutionContext,
+  type HttpAuthOption,
+  type HttpAuthScheme,
+  type HttpAuthSchemeParameters,
+  type HttpAuthSchemeParametersProvider,
+  type HttpAuthSchemeProvider,
+  type Provider,
+  TokenIdentity,
+  TokenIdentityProvider,
 } from "@smithy/types";
 
 import { type AgentRegistryClientResolvedConfig, AgentRegistryClientConfig } from "../AgentRegistryClient";
@@ -71,6 +75,28 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: AgentRegistryHttpAuthS
   };
 }
 
+function createSmithyApiHttpBearerAuthHttpAuthOption(authParameters: AgentRegistryHttpAuthSchemeParameters): HttpAuthOption {
+  return {
+    schemeId: "smithy.api#httpBearerAuth",
+    propertiesExtractor: <T>({
+      profile,
+      filepath,
+      configFilepath,
+      ignoreCache,
+    }: T & FromSsoInit, context: HandlerExecutionContext) => ({
+      /**
+       * @internal
+       */
+      identityProperties: {
+        profile,
+        filepath,
+        configFilepath,
+        ignoreCache,
+      },
+    }),
+  };
+}
+
 /**
  * @internal
  */
@@ -85,6 +111,7 @@ export const defaultAgentRegistryHttpAuthSchemeProvider: AgentRegistryHttpAuthSc
   switch (authParameters.operation) {
     default: {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
+      options.push(createSmithyApiHttpBearerAuthHttpAuthOption(authParameters));
     }
   }
   return options;
@@ -113,6 +140,10 @@ export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
    * @internal
    */
   httpAuthSchemeProvider?: AgentRegistryHttpAuthSchemeProvider;
+  /**
+   * The token used to authenticate requests.
+   */
+  token?: TokenIdentity | TokenIdentityProvider;
 }
 
 /**
@@ -138,6 +169,10 @@ export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedCon
    * @internal
    */
   readonly httpAuthSchemeProvider: AgentRegistryHttpAuthSchemeProvider;
+  /**
+   * The token used to authenticate requests.
+   */
+  readonly token?: TokenIdentityProvider;
 }
 
 /**
@@ -146,8 +181,10 @@ export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedCon
 export const resolveHttpAuthSchemeConfig = <T>(
   config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved
 ): T & HttpAuthSchemeResolvedConfig => {
+  const token = memoizeIdentityProvider(config.token, isIdentityExpired, doesIdentityRequireRefresh);
   const config_0 = resolveAwsSdkSigV4Config(config);
   return Object.assign(config_0, {
     authSchemePreference: normalizeProvider(config.authSchemePreference ?? []),
+    token,
   }) as T & HttpAuthSchemeResolvedConfig;
 };

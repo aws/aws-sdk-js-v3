@@ -31,7 +31,9 @@ import {
   McpServerDescriptor$,
   McpToolsDescriptor$,
   paginateListDiscoverableRegistryRecords,
+  paginateSearchDiscoverableRegistryRecords,
   RecordType,
+  RegistryRecordArtifactDownload$,
   RegistryRecordFilter$,
   RegistryRecordFilterName,
   RegistryRecordsEntry$,
@@ -43,6 +45,7 @@ import {
   SearchDiscoverableRegistryRecordsCommand,
   SearchDiscoverableRegistryRecordsRequest$,
   SearchDiscoverableRegistryRecordsResponse$,
+  SearchType,
   ThrottlingException,
   ThrottlingException$,
   UnauthorizedException,
@@ -83,6 +86,7 @@ assert(typeof ListDiscoverableRegistryRecordsResponse$ === "object");
 assert(typeof McpServerAdditionalData$ === "object");
 assert(typeof McpServerDescriptor$ === "object");
 assert(typeof McpToolsDescriptor$ === "object");
+assert(typeof RegistryRecordArtifactDownload$ === "object");
 assert(typeof RegistryRecordFilter$ === "object");
 assert(typeof RegistryRecordsEntry$ === "object");
 assert(typeof RegistryRecordSummary$ === "object");
@@ -94,6 +98,7 @@ assert(typeof BatchGetDiscoverableRegistryRecordErrorCode === "object");
 assert(typeof RecordType === "object");
 assert(typeof RegistryRecordFilterName === "object");
 assert(typeof RegistryRecordStatus === "object");
+assert(typeof SearchType === "object");
 assert(typeof ValidationExceptionReason === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof AgentRegistryServiceException);
@@ -111,4 +116,5 @@ assert(typeof ValidationException$ === "object");
 assert(AgentRegistryServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDiscoverableRegistryRecords === "function");
+assert(typeof paginateSearchDiscoverableRegistryRecords === "function");
 console.log(`AgentRegistry index test passed.`);

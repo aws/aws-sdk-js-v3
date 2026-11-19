@@ -27,7 +27,9 @@ const _MFE = "MetadataFilterExpression";
 const _MSAD = "McpServerAdditionalData";
 const _MSD = "McpServerDescriptor";
 const _MTD = "McpToolsDescriptor";
+const _PDU = "PresignedDownloadUrl";
 const _RNFE = "ResourceNotFoundException";
+const _RRAD = "RegistryRecordArtifactDownload";
 const _RRE = "RegistryRecordsEntry";
 const _RREL = "RegistryRecordsEntryList";
 const _RRF = "RegistryRecordFilter";
@@ -47,6 +49,7 @@ const _a = "agui";
 const _aAC = "a2aAgentCard";
 const _aD = "additionalData";
 const _aSD = "agentSkillsDefinition";
+const _ar = "artifact";
 const _c = "client";
 const _cA = "createdAt";
 const _cM = "customMetadata";
@@ -55,6 +58,7 @@ const _d = "data";
 const _dN = "displayName";
 const _dSV = "dataSchemaVersion";
 const _dT = "descriptorTypes";
+const _dU = "downloadUrl";
 const _de = "description";
 const _des = "descriptors";
 const _e = "error";
@@ -84,7 +88,9 @@ const _rV = "recordVersion";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.agentregistry";
 const _sM = "skillMd";
 const _sQ = "searchQuery";
+const _sT = "searchType";
 const _se = "server";
+const _sh = "sha256";
 const _so = "source";
 const _st = "status";
 const _t = "tools";
@@ -167,6 +173,7 @@ var CustomMetadataDocument: StaticSimpleSchema = [0, n0, _CMD, 8, 15];
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var DescriptorData: StaticSimpleSchema = [0, n0, _DD, 8, 0];
 var MetadataFilterExpression: StaticSimpleSchema = [0, n0, _MFE, 8, 15];
+var PresignedDownloadUrl: StaticSimpleSchema = [0, n0, _PDU, 8, 0];
 var SearchQuery: StaticSimpleSchema = [0, n0, _SQ, 8, 0];
 export var A2aAgentCardDescriptor$: StaticStructureSchema = [3, n0, _AACD,
   0,
@@ -263,6 +270,11 @@ export var McpToolsDescriptor$: StaticStructureSchema = [3, n0, _MTD,
   [_d, _dSV],
   [[() => DescriptorData, 0], 0]
 ];
+export var RegistryRecordArtifactDownload$: StaticStructureSchema = [3, n0, _RRAD,
+  0,
+  [_sh, _dU],
+  [0, [() => PresignedDownloadUrl, 0]]
+];
 export var RegistryRecordFilter$: StaticStructureSchema = [3, n0, _RRF,
   0,
   [_n, _v],
@@ -275,18 +287,18 @@ export var RegistryRecordsEntry$: StaticStructureSchema = [3, n0, _RRE,
 ];
 export var RegistryRecordSummary$: StaticStructureSchema = [3, n0, _RRS,
   0,
-  [_rA, _rAe, _rIe, _n, _rT, _des, _rV, _st, _cA, _uA, _de, _dN, _cM],
-  [0, 0, 0, 0, 0, [() => Descriptors$, 0], 0, 0, 5, 5, [() => Description, 0], 0, [() => CustomMetadataDocument, 0]], 10
+  [_rA, _rAe, _rIe, _n, _rT, _des, _rV, _st, _cA, _uA, _de, _dN, _cM, _ar],
+  [0, 0, 0, 0, 0, [() => Descriptors$, 0], 0, 0, 5, 5, [() => Description, 0], 0, [() => CustomMetadataDocument, 0], [() => RegistryRecordArtifactDownload$, 0]], 10
 ];
 export var SearchDiscoverableRegistryRecordsRequest$: StaticStructureSchema = [3, n0, _SDRRR,
   0,
-  [_sQ, _rIeg, _mR, _f],
-  [[() => SearchQuery, 0], 64 | 0, 1, [() => MetadataFilterExpression, 0]], 2
+  [_sQ, _rIeg, _mR, _f, _sT, _nT],
+  [[() => SearchQuery, 0], 64 | 0, 1, [() => MetadataFilterExpression, 0], 0, 0], 2
 ];
 export var SearchDiscoverableRegistryRecordsResponse$: StaticStructureSchema = [3, n0, _SDRRRe,
   0,
-  [_rR],
-  [[() => RegistryRecordSummaryList, 0]], 1
+  [_rR, _sT, _nT],
+  [[() => RegistryRecordSummaryList, 0], 0, 0], 1
 ];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,

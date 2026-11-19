@@ -24,6 +24,7 @@ import {
   SearchDiscoverableRegistryRecordsCommand,
 } from "./commands/SearchDiscoverableRegistryRecordsCommand";
 import { paginateListDiscoverableRegistryRecords } from "./pagination/ListDiscoverableRegistryRecordsPaginator";
+import { paginateSearchDiscoverableRegistryRecords } from "./pagination/SearchDiscoverableRegistryRecordsPaginator";
 
 const commands = {
   BatchGetDiscoverableRegistryRecordCommand,
@@ -32,6 +33,7 @@ const commands = {
 };
 const paginators = {
   paginateListDiscoverableRegistryRecords,
+  paginateSearchDiscoverableRegistryRecords,
 };
 
 /**
@@ -103,6 +105,17 @@ export interface AgentRegistry {
     args: ListDiscoverableRegistryRecordsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListDiscoverableRegistryRecordsCommandOutput>;
+
+  /**
+   * @see {@link SearchDiscoverableRegistryRecordsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchDiscoverableRegistryRecordsCommandOutput}.
+   */
+  paginateSearchDiscoverableRegistryRecords(
+    args: SearchDiscoverableRegistryRecordsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchDiscoverableRegistryRecordsCommandOutput>;
 }
 
 /**

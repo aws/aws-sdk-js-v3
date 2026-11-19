@@ -6,6 +6,7 @@ import type {
   RecordType,
   RegistryRecordFilterName,
   RegistryRecordStatus,
+  SearchType,
 } from "./enums";
 
 /**
@@ -14,7 +15,7 @@ import type {
  */
 export interface DescriptorSourceFromUrl {
   /**
-   * <p> The URL from which the descriptor content is retrieved.</p>
+   * <p> The URL from which the descriptor content is retrieved. For an agent skill that synchronizes its SKILL.md from GitHub, this is the GitHub folder URL. The data plane doesn't return Amazon S3 (<code>s3://</code>) source URLs.</p>
    * @public
    */
   url: string | undefined;
@@ -113,6 +114,24 @@ export interface BatchGetDiscoverableRegistryRecordError {
    * @public
    */
   message?: string | undefined;
+}
+
+/**
+ * <p>The skill package of a registry record, as a short-lived download URL and the package's SHA-256 checksum. Responses never include the package bytes.</p>
+ * @public
+ */
+export interface RegistryRecordArtifactDownload {
+  /**
+   * <p>The SHA-256 checksum of the package, as 64 lowercase hexadecimal characters. The download response carries no signature that you can check, so compare the checksum of the file that you download with this value before you use the package.</p>
+   * @public
+   */
+  sha256?: string | undefined;
+
+  /**
+   * <p>A presigned Amazon S3 URL that downloads the package. The URL is valid for up to 5 minutes, and the response doesn't include its expiry time. To get a new URL, call the operation again. Anyone who has the URL can download the package until it expires, so don't log, store, or share it.</p>
+   * @public
+   */
+  downloadUrl?: string | undefined;
 }
 
 /**
@@ -395,6 +414,12 @@ export interface RegistryRecordSummary {
    * @public
    */
   customMetadata?: __DocumentType | undefined;
+
+  /**
+   * <p> The skill package of the record's latest approved revision, as the package's SHA-256 checksum and a download URL that is valid for up to 5 minutes. Only <code>BatchGetDiscoverableRegistryRecord</code> returns this member, not <code>SearchDiscoverableRegistryRecords</code>. Absent when the record has no skill package.</p>
+   * @public
+   */
+  artifact?: RegistryRecordArtifactDownload | undefined;
 }
 
 /**
@@ -579,7 +604,7 @@ export interface ListDiscoverableRegistryRecordsResponse {
  */
 export interface SearchDiscoverableRegistryRecordsRequest {
   /**
-   * <p> The natural language query to search for matching registry records.</p>
+   * <p> The natural language query to search for matching registry records. If you specify an empty string, the operation returns the records that match the <code>filters</code>, most recently updated first, up to the result limit for the <code>searchType</code>.</p>
    * @public
    */
   searchQuery: string | undefined;
@@ -591,7 +616,7 @@ export interface SearchDiscoverableRegistryRecordsRequest {
   registryIds: string[] | undefined;
 
   /**
-   * <p> The maximum number of results to return. Valid values are 1 through 20. The default value is 10.</p>
+   * <p> The maximum number of results to return in one page. Valid values are 1 through 50 when <code>searchType</code> is <code>KEYWORD</code>, and 1 through 20 when it is <code>HYBRID</code> or <code>SEMANTIC</code>. The default value is 10.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -601,6 +626,18 @@ export interface SearchDiscoverableRegistryRecordsRequest {
    * @public
    */
   filters?: __DocumentType | undefined;
+
+  /**
+   * <p> Specifies how the service ranks registry records against the search query. If you omit this parameter, the service uses <code>HYBRID</code> in Amazon Web Services Regions that support semantic search and <code>KEYWORD</code> in Regions that do not. The response reports the search type that the service used. Valid values are the following:</p> <ul> <li> <p> <code>KEYWORD</code> – Ranks records by keyword match between the query terms and the record name, description, descriptors, and custom metadata text values. Available in every Amazon Web Services Region.</p> </li> <li> <p> <code>SEMANTIC</code> – Ranks records by semantic similarity to the query and returns the most similar records, up to <code>maxResults</code>, even when none of them closely matches the query.</p> </li> <li> <p> <code>HYBRID</code> – Combines keyword ranking and semantic ranking.</p> </li> </ul> <p> <code>HYBRID</code> and <code>SEMANTIC</code> are available in a limited number of Regions. If you specify either one in a Region that does not support semantic search, the request fails with a <code>ValidationException</code> that has the reason <code>UnsupportedInRegion</code>.</p>
+   * @public
+   */
+  searchType?: SearchType | undefined;
+
+  /**
+   * <p> The pagination token from a previous response. Use it to retrieve the next page of results, and send the same <code>searchQuery</code>, <code>registryIds</code>, <code>filters</code>, and <code>searchType</code> that you used for the first page. If any of them differ, the request fails with a <code>ValidationException</code>. A pagination token expires 15 minutes after the service returns the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -608,8 +645,20 @@ export interface SearchDiscoverableRegistryRecordsRequest {
  */
 export interface SearchDiscoverableRegistryRecordsResponse {
   /**
-   * <p> The registry records that match the search query, ordered by relevance.</p>
+   * <p> The registry records that match the search query, ordered by relevance. A page can contain fewer than <code>maxResults</code> records, or none, even when the response includes a <code>nextToken</code>. To retrieve every result, continue until the response has no <code>nextToken</code>.</p>
    * @public
    */
   registryRecords: RegistryRecordSummary[] | undefined;
+
+  /**
+   * <p> Specifies the search type that the service used to rank the returned records. If you omitted <code>searchType</code> in the request, this is the default for the Amazon Web Services Region: <code>HYBRID</code> where semantic search is supported, and <code>KEYWORD</code> elsewhere.</p>
+   * @public
+   */
+  searchType?: SearchType | undefined;
+
+  /**
+   * <p> The pagination token to pass to a subsequent request to retrieve the next page of results. This field is absent when there are no more results, or when the search has returned the maximum number of results for its search type.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }

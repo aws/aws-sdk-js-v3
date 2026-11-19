@@ -8,8 +8,10 @@ import {
   getDefaultSocketTimeout,
   NODE_APP_ID_CONFIG_OPTIONS,
 } from "@aws-sdk/core/client";
-import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
+import { AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
+import { FromSsoInit, nodeProvider } from "@aws-sdk/token-providers";
+import { HttpBearerAuthSigner } from "@smithy/core";
 import { emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode } from "@smithy/core/client";
 import {
   loadConfig as loadNodeConfig,
@@ -26,6 +28,7 @@ import {
 } from "@smithy/core/retry";
 import { calculateBodyLength } from "@smithy/core/serde";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
+import type { IdentityProviderConfig } from "@smithy/types";
 
 import type { AgentRegistryClientConfig } from "./AgentRegistryClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
@@ -53,6 +56,22 @@ export const getRuntimeConfig = (config: AgentRegistryClientConfig) => {
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
     defaultSocketTimeout: getDefaultSocketTimeout(config?.requestHandler, 300_000),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
+    httpAuthSchemes: config?.httpAuthSchemes ?? [
+      {
+        schemeId: "aws.auth#sigv4",
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
+        signer: new AwsSdkSigV4Signer(),
+      },
+      {
+        schemeId: "smithy.api#httpBearerAuth",
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("smithy.api#httpBearerAuth") || (async (idProps) => {
+        return await nodeProvider(idProps as FromSsoInit)(idProps);
+      }),
+        signer: new HttpBearerAuthSigner(),
+      },
+    ],
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
     region: config?.region ?? loadNodeConfig(
         NODE_REGION_CONFIG_OPTIONS,

@@ -26,7 +26,7 @@ export interface BatchGetDiscoverableRegistryRecordCommandInput extends BatchGet
 export interface BatchGetDiscoverableRegistryRecordCommandOutput extends BatchGetDiscoverableRegistryRecordResponse, __MetadataBearer {}
 
 /**
- * <p> Retrieves multiple discoverable registry records by ID from a single registry. Records that cannot be retrieved are reported individually in the <code>errors</code> list rather than failing the entire request.</p>
+ * <p> Retrieves multiple discoverable registry records by ID from a single registry. Records that cannot be retrieved are reported individually in the <code>errors</code> list rather than failing the entire request. For each skill record that has a skill package, the operation also returns <code>artifact</code>. It contains a short-lived download URL and a SHA-256 checksum for the package of the record's latest approved revision. If the registry can't create a download URL for a package, the whole request fails.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,10 +116,14 @@ export interface BatchGetDiscoverableRegistryRecordCommandOutput extends BatchGe
  * //         },
  * //       },
  * //       recordVersion: "STRING_VALUE", // required
- * //       status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED", // required
+ * //       status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "CREATE_PENDING_AUTH" || "UPDATE_PENDING_AUTH", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       customMetadata: "DOCUMENT_VALUE",
+ * //       artifact: { // RegistryRecordArtifactDownload
+ * //         sha256: "STRING_VALUE",
+ * //         downloadUrl: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   errors: [ // BatchGetDiscoverableRegistryRecordErrorList // required
