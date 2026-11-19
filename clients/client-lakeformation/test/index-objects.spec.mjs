@@ -337,6 +337,8 @@ import {
   RLSPolicy$,
   RLSPolicyAttachment$,
   RLSPolicyResource$,
+  RLSPolicyStatus,
+  RLSPolicyStatusReason,
   RowFilter$,
   SearchDatabasesByLFTags$,
   SearchDatabasesByLFTagsCommand,
@@ -784,6 +786,8 @@ assert(typeof PermissionType === "object");
 assert(typeof QueryStateString === "object");
 assert(typeof ResourceShareType === "object");
 assert(typeof ResourceType === "object");
+assert(typeof RLSPolicyStatus === "object");
+assert(typeof RLSPolicyStatusReason === "object");
 assert(typeof ServiceAuthorization === "object");
 assert(typeof TransactionStatus === "object");
 assert(typeof TransactionStatusFilter === "object");

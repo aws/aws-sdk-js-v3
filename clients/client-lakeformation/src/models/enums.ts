@@ -140,6 +140,32 @@ export type QueryStateString = (typeof QueryStateString)[keyof typeof QueryState
  * @public
  * @enum
  */
+export const RLSPolicyStatus = {
+  INVALID: "INVALID",
+  VALID: "VALID",
+} as const;
+/**
+ * @public
+ */
+export type RLSPolicyStatus = (typeof RLSPolicyStatus)[keyof typeof RLSPolicyStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RLSPolicyStatusReason = {
+  REFERENCED_LOOKUP_TABLE_DELETED: "REFERENCED_LOOKUP_TABLE_DELETED",
+  REFERENCED_UDF_DELETED: "REFERENCED_UDF_DELETED",
+} as const;
+/**
+ * @public
+ */
+export type RLSPolicyStatusReason = (typeof RLSPolicyStatusReason)[keyof typeof RLSPolicyStatusReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const CredentialsScope = {
   READ: "READ",
   READWRITE: "READWRITE",

@@ -15,6 +15,8 @@ import type {
   QueryStateString,
   ResourceShareType,
   ResourceType,
+  RLSPolicyStatus,
+  RLSPolicyStatusReason,
   ServiceAuthorization,
   TransactionStatus,
   TransactionStatusFilter,
@@ -2401,6 +2403,18 @@ export interface RLSPolicy {
    * @public
    */
   FilterExpression?: string | undefined;
+
+  /**
+   * <p>Whether the row-level security policy can be evaluated. <code>VALID</code> means that every lookup table and user-defined function the filter expression references exists. <code>INVALID</code> means that a lookup table or user-defined function the filter expression references was deleted.</p>
+   * @public
+   */
+  Status?: RLSPolicyStatus | undefined;
+
+  /**
+   * <p>The reason the row-level security policy is <code>INVALID</code>. <code>REFERENCED_LOOKUP_TABLE_DELETED</code> means that a lookup table the filter expression references was deleted. <code>REFERENCED_UDF_DELETED</code> means that a user-defined function the filter expression references was deleted. Not returned when the status is <code>VALID</code>.</p>
+   * @public
+   */
+  StatusReason?: RLSPolicyStatusReason | undefined;
 }
 
 /**

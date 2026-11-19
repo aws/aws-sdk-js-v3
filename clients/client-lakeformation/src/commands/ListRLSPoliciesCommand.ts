@@ -50,6 +50,8 @@ export interface ListRLSPoliciesCommandOutput extends ListRLSPoliciesResponse, _
  * //         },
  * //       ],
  * //       FilterExpression: "STRING_VALUE",
+ * //       Status: "VALID" || "INVALID",
+ * //       StatusReason: "REFERENCED_UDF_DELETED" || "REFERENCED_LOOKUP_TABLE_DELETED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

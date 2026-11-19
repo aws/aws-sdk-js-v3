@@ -48,6 +48,8 @@ export interface GetRLSPolicyCommandOutput extends GetRLSPolicyResponse, __Metad
  * //       },
  * //     ],
  * //     FilterExpression: "STRING_VALUE",
+ * //     Status: "VALID" || "INVALID",
+ * //     StatusReason: "REFERENCED_UDF_DELETED" || "REFERENCED_LOOKUP_TABLE_DELETED",
  * //   },
  * // };
  *

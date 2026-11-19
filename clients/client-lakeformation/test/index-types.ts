@@ -228,6 +228,8 @@ export type {
   QueryStateString,
   ResourceShareType,
   ResourceType,
+  RLSPolicyStatus,
+  RLSPolicyStatusReason,
   ServiceAuthorization,
   TransactionStatus,
   TransactionStatusFilter,

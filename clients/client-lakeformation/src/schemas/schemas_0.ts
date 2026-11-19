@@ -385,6 +385,7 @@ const _SQP = "StartQueryPlanning";
 const _SQPR = "StartQueryPlanningRequest";
 const _SQPRt = "StartQueryPlanningResponse";
 const _SR = "ShareRecipients";
+const _SRt = "StatusReason";
 const _SSQPRQS = "SyntheticStartQueryPlanningRequestQueryString";
 const _ST = "SessionToken";
 const _STBLFT = "SearchTablesByLFTags";
@@ -1456,8 +1457,8 @@ export var RevokePermissionsResponse$: StaticStructureSchema = [3, n0, _RPRe,
 ];
 export var RLSPolicy$: StaticStructureSchema = [3, n0, _RLSP,
   0,
-  [_CI, _N, _ACt, _FE],
-  [0, 0, () => ColumnList, 0]
+  [_CI, _N, _ACt, _FE, _St, _SRt],
+  [0, 0, () => ColumnList, 0, 0, 0]
 ];
 export var RLSPolicyAttachment$: StaticStructureSchema = [3, n0, _RLSPAo,
   0,
