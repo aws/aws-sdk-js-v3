@@ -19,8 +19,10 @@ import type {
   OnDemandResourceType,
   OnDemandScanStatus,
   OnDemandScanStatusReason,
+  Operation,
   ResourceType,
   ScanType,
+  Service,
   SortField,
   SortOrder,
   StopCisSessionStatus,
@@ -72,11 +74,63 @@ import type {
   Finding,
   GcpProviderDetailUpdate,
   Member,
-  Permission,
   Schedule,
   StringFilter,
   TagFilter,
 } from "./models_0";
+
+/**
+ * <p>Contains the details required to register the GitHub App on the GitHub Enterprise Server instance.</p>
+ * @public
+ */
+export interface GitHubEnterpriseServerAppRegistrationDetail {
+  /**
+   * <p>The manifest code used to register the GitHub App on the GitHub Enterprise Server instance.</p>
+   * @public
+   */
+  manifestCode: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAccountPermissionsRequest {
+  /**
+   * <p>The service scan type to check permissions for.</p>
+   * @public
+   */
+  service?: Service | undefined;
+
+  /**
+   * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains information on the permissions an account has within Amazon Inspector.</p>
+ * @public
+ */
+export interface Permission {
+  /**
+   * <p>The services that the permissions allow an account to perform the given operations for.</p>
+   * @public
+   */
+  service: Service | undefined;
+
+  /**
+   * <p>The operations that can be performed with the given permissions.</p>
+   * @public
+   */
+  operation: Operation | undefined;
+}
 
 /**
  * @public
@@ -1719,6 +1773,89 @@ export interface UpdateGitHubIntegrationDetail {
    * @public
    */
   installationId: string | undefined;
+
+  /**
+   * <p>The PKCE state token used to validate the authorization request.</p>
+   * @public
+   */
+  stateToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the details required to complete the GitHub App installation for a GitHub Enterprise Server integration.</p>
+ * @public
+ */
+export interface UpdateGitHubEnterpriseServerAppInstallationDetail {
+  /**
+   * <p>The authorization code received from GitHub Enterprise Server.</p>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>The installation ID of the GitHub App associated with the integration.</p>
+   * @public
+   */
+  installationId: string | undefined;
+
+  /**
+   * <p>The PKCE state token used to validate the authorization request.</p>
+   * @public
+   */
+  stateToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the details required to update an integration with a GitHub Enterprise Server instance. Provide one of the following, depending on the step of the setup flow.</p>
+ * @public
+ */
+export type UpdateGitHubEnterpriseServerIntegrationDetail =
+  | UpdateGitHubEnterpriseServerIntegrationDetail.AppInstallationMember
+  | UpdateGitHubEnterpriseServerIntegrationDetail.AppRegistrationMember
+  | UpdateGitHubEnterpriseServerIntegrationDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UpdateGitHubEnterpriseServerIntegrationDetail {
+  /**
+   * <p>Details for completing the GitHub App installation step of the GitHub Enterprise Server integration.</p>
+   * @public
+   */
+  export interface AppInstallationMember {
+    appInstallation: UpdateGitHubEnterpriseServerAppInstallationDetail;
+    appRegistration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details for completing the GitHub App manifest registration step of the GitHub Enterprise Server integration.</p>
+   * @public
+   */
+  export interface AppRegistrationMember {
+    appInstallation?: never;
+    appRegistration: GitHubEnterpriseServerAppRegistrationDetail;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    appInstallation?: never;
+    appRegistration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    appInstallation: (value: UpdateGitHubEnterpriseServerAppInstallationDetail) => T;
+    appRegistration: (value: GitHubEnterpriseServerAppRegistrationDetail) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -1731,6 +1868,12 @@ export interface UpdateGitLabSelfManagedIntegrationDetail {
    * @public
    */
   authCode: string | undefined;
+
+  /**
+   * <p>The PKCE state token used to validate the authorization request.</p>
+   * @public
+   */
+  stateToken?: string | undefined;
 }
 
 /**
@@ -1739,6 +1882,7 @@ export interface UpdateGitLabSelfManagedIntegrationDetail {
  */
 export type UpdateIntegrationDetails =
   | UpdateIntegrationDetails.GithubMember
+  | UpdateIntegrationDetails.GithubEnterpriseServerMember
   | UpdateIntegrationDetails.GitlabSelfManagedMember
   | UpdateIntegrationDetails.$UnknownMember;
 
@@ -1753,6 +1897,7 @@ export namespace UpdateIntegrationDetails {
   export interface GitlabSelfManagedMember {
     gitlabSelfManaged: UpdateGitLabSelfManagedIntegrationDetail;
     github?: never;
+    githubEnterpriseServer?: never;
     $unknown?: never;
   }
 
@@ -1763,6 +1908,18 @@ export namespace UpdateIntegrationDetails {
   export interface GithubMember {
     gitlabSelfManaged?: never;
     github: UpdateGitHubIntegrationDetail;
+    githubEnterpriseServer?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details specific to updating an integration with a GitHub Enterprise Server instance.</p>
+   * @public
+   */
+  export interface GithubEnterpriseServerMember {
+    gitlabSelfManaged?: never;
+    github?: never;
+    githubEnterpriseServer: UpdateGitHubEnterpriseServerIntegrationDetail;
     $unknown?: never;
   }
 
@@ -1772,6 +1929,7 @@ export namespace UpdateIntegrationDetails {
   export interface $UnknownMember {
     gitlabSelfManaged?: never;
     github?: never;
+    githubEnterpriseServer?: never;
     $unknown: [string, any];
   }
 
@@ -1782,6 +1940,7 @@ export namespace UpdateIntegrationDetails {
   export interface Visitor<T> {
     gitlabSelfManaged: (value: UpdateGitLabSelfManagedIntegrationDetail) => T;
     github: (value: UpdateGitHubIntegrationDetail) => T;
+    githubEnterpriseServer: (value: UpdateGitHubEnterpriseServerIntegrationDetail) => T;
     _: (name: string, value: any) => T;
   }
 }

@@ -43,8 +43,8 @@ export interface ListCodeSecurityIntegrationsCommandOutput extends ListCodeSecur
  * //     { // CodeSecurityIntegrationSummary
  * //       integrationArn: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
- * //       type: "GITLAB_SELF_MANAGED" || "GITHUB", // required
- * //       status: "PENDING" || "IN_PROGRESS" || "ACTIVE" || "INACTIVE" || "DISABLING", // required
+ * //       type: "GITLAB_SELF_MANAGED" || "GITHUB" || "GITHUB_ENTERPRISE_SERVER", // required
+ * //       status: "PENDING" || "IN_PROGRESS" || "ACTIVE" || "INACTIVE" || "DISABLING" || "ESTABLISHING_CONNECTION_IN_PROGRESS" || "ESTABLISHING_CONNECTION_COMPLETED" || "ESTABLISHING_CONNECTION_FAILED" || "PENDING_MANIFEST_CODE" || "DELETE_IN_PROGRESS" || "DELETE_FAILED", // required
  * //       statusReason: "STRING_VALUE", // required
  * //       createdOn: new Date("TIMESTAMP"), // required
  * //       lastUpdateOn: new Date("TIMESTAMP"), // required

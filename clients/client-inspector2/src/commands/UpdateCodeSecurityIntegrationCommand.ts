@@ -37,10 +37,22 @@ export interface UpdateCodeSecurityIntegrationCommandOutput extends UpdateCodeSe
  *   details: { // UpdateIntegrationDetails Union: only one key present
  *     gitlabSelfManaged: { // UpdateGitLabSelfManagedIntegrationDetail
  *       authCode: "STRING_VALUE", // required
+ *       stateToken: "STRING_VALUE",
  *     },
  *     github: { // UpdateGitHubIntegrationDetail
  *       code: "STRING_VALUE", // required
  *       installationId: "STRING_VALUE", // required
+ *       stateToken: "STRING_VALUE",
+ *     },
+ *     githubEnterpriseServer: { // UpdateGitHubEnterpriseServerIntegrationDetail Union: only one key present
+ *       appInstallation: { // UpdateGitHubEnterpriseServerAppInstallationDetail
+ *         code: "STRING_VALUE", // required
+ *         installationId: "STRING_VALUE", // required
+ *         stateToken: "STRING_VALUE",
+ *       },
+ *       appRegistration: { // GitHubEnterpriseServerAppRegistrationDetail
+ *         manifestCode: "STRING_VALUE", // required
+ *       },
  *     },
  *   },
  * };
@@ -48,7 +60,7 @@ export interface UpdateCodeSecurityIntegrationCommandOutput extends UpdateCodeSe
  * const response = await client.send(command);
  * // { // UpdateCodeSecurityIntegrationResponse
  * //   integrationArn: "STRING_VALUE", // required
- * //   status: "PENDING" || "IN_PROGRESS" || "ACTIVE" || "INACTIVE" || "DISABLING", // required
+ * //   status: "PENDING" || "IN_PROGRESS" || "ACTIVE" || "INACTIVE" || "DISABLING" || "ESTABLISHING_CONNECTION_IN_PROGRESS" || "ESTABLISHING_CONNECTION_COMPLETED" || "ESTABLISHING_CONNECTION_FAILED" || "PENDING_MANIFEST_CODE" || "DELETE_IN_PROGRESS" || "DELETE_FAILED", // required
  * // };
  *
  * ```

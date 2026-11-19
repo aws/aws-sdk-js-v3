@@ -143,6 +143,7 @@ import {
   CodeRepositorySortBy,
   CodeScanStatus,
   CodeSecurityIntegrationSummary$,
+  CodeSecurityIntegrationVpcConfiguration$,
   CodeSecurityResource$,
   CodeSecurityScanConfiguration$,
   CodeSecurityScanConfigurationAssociationSummary$,
@@ -213,6 +214,7 @@ import {
   CreateFindingsReportCommand,
   CreateFindingsReportRequest$,
   CreateFindingsReportResponse$,
+  CreateGitHubEnterpriseIntegrationDetail$,
   CreateGitLabSelfManagedIntegrationDetail$,
   CreateIntegrationDetail$,
   CreateSbomExport$,
@@ -392,6 +394,7 @@ import {
   GetSbomExportCommand,
   GetSbomExportRequest$,
   GetSbomExportResponse$,
+  GitHubEnterpriseServerAppRegistrationDetail$,
   GroupKey,
   Image$,
   ImageLayerAggregation$,
@@ -706,6 +709,8 @@ import {
   UpdateFilterCommand,
   UpdateFilterRequest$,
   UpdateFilterResponse$,
+  UpdateGitHubEnterpriseServerAppInstallationDetail$,
+  UpdateGitHubEnterpriseServerIntegrationDetail$,
   UpdateGitHubIntegrationDetail$,
   UpdateGitLabSelfManagedIntegrationDetail$,
   UpdateIntegrationDetails$,
@@ -999,6 +1004,7 @@ assert(typeof CodeRepositoryDetails$ === "object");
 assert(typeof CodeRepositoryMetadata$ === "object");
 assert(typeof CodeRepositoryOnDemandScan$ === "object");
 assert(typeof CodeSecurityIntegrationSummary$ === "object");
+assert(typeof CodeSecurityIntegrationVpcConfiguration$ === "object");
 assert(typeof CodeSecurityResource$ === "object");
 assert(typeof CodeSecurityScanConfiguration$ === "object");
 assert(typeof CodeSecurityScanConfigurationAssociationSummary$ === "object");
@@ -1041,6 +1047,7 @@ assert(typeof CreateFilterRequest$ === "object");
 assert(typeof CreateFilterResponse$ === "object");
 assert(typeof CreateFindingsReportRequest$ === "object");
 assert(typeof CreateFindingsReportResponse$ === "object");
+assert(typeof CreateGitHubEnterpriseIntegrationDetail$ === "object");
 assert(typeof CreateGitLabSelfManagedIntegrationDetail$ === "object");
 assert(typeof CreateIntegrationDetail$ === "object");
 assert(typeof CreateSbomExportRequest$ === "object");
@@ -1142,6 +1149,7 @@ assert(typeof GetOnDemandScanStatusRequest$ === "object");
 assert(typeof GetOnDemandScanStatusResponse$ === "object");
 assert(typeof GetSbomExportRequest$ === "object");
 assert(typeof GetSbomExportResponse$ === "object");
+assert(typeof GitHubEnterpriseServerAppRegistrationDetail$ === "object");
 assert(typeof Image$ === "object");
 assert(typeof ImageLayerAggregation$ === "object");
 assert(typeof ImageLayerAggregationResponse$ === "object");
@@ -1297,6 +1305,8 @@ assert(typeof UpdateEncryptionKeyRequest$ === "object");
 assert(typeof UpdateEncryptionKeyResponse$ === "object");
 assert(typeof UpdateFilterRequest$ === "object");
 assert(typeof UpdateFilterResponse$ === "object");
+assert(typeof UpdateGitHubEnterpriseServerAppInstallationDetail$ === "object");
+assert(typeof UpdateGitHubEnterpriseServerIntegrationDetail$ === "object");
 assert(typeof UpdateGitHubIntegrationDetail$ === "object");
 assert(typeof UpdateGitLabSelfManagedIntegrationDetail$ === "object");
 assert(typeof UpdateIntegrationDetails$ === "object");

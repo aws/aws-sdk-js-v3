@@ -34,11 +34,38 @@ export interface CreateCodeSecurityIntegrationCommandOutput extends CreateCodeSe
  * const client = new Inspector2Client(config);
  * const input = { // CreateCodeSecurityIntegrationRequest
  *   name: "STRING_VALUE", // required
- *   type: "GITLAB_SELF_MANAGED" || "GITHUB", // required
+ *   type: "GITLAB_SELF_MANAGED" || "GITHUB" || "GITHUB_ENTERPRISE_SERVER", // required
  *   details: { // CreateIntegrationDetail Union: only one key present
  *     gitlabSelfManaged: { // CreateGitLabSelfManagedIntegrationDetail
  *       instanceUrl: "STRING_VALUE", // required
  *       accessToken: "STRING_VALUE", // required
+ *       vpcConfiguration: { // CodeSecurityIntegrationVpcConfiguration
+ *         vpcId: "STRING_VALUE", // required
+ *         vpcEndpointId: "STRING_VALUE", // required
+ *         codeConnectionsHostArn: "STRING_VALUE",
+ *         subnetIds: [ // SubnetIdList
+ *           "STRING_VALUE",
+ *         ],
+ *         securityGroups: [ // SecurityGroupIdList
+ *           "STRING_VALUE",
+ *         ],
+ *         tlsCertificate: "STRING_VALUE",
+ *       },
+ *     },
+ *     githubEnterprise: { // CreateGitHubEnterpriseIntegrationDetail
+ *       instanceUrl: "STRING_VALUE", // required
+ *       vpcConfiguration: {
+ *         vpcId: "STRING_VALUE", // required
+ *         vpcEndpointId: "STRING_VALUE", // required
+ *         codeConnectionsHostArn: "STRING_VALUE",
+ *         subnetIds: [
+ *           "STRING_VALUE",
+ *         ],
+ *         securityGroups: [
+ *           "STRING_VALUE",
+ *         ],
+ *         tlsCertificate: "STRING_VALUE",
+ *       },
  *     },
  *   },
  *   tags: { // TagMap
@@ -49,7 +76,7 @@ export interface CreateCodeSecurityIntegrationCommandOutput extends CreateCodeSe
  * const response = await client.send(command);
  * // { // CreateCodeSecurityIntegrationResponse
  * //   integrationArn: "STRING_VALUE", // required
- * //   status: "PENDING" || "IN_PROGRESS" || "ACTIVE" || "INACTIVE" || "DISABLING", // required
+ * //   status: "PENDING" || "IN_PROGRESS" || "ACTIVE" || "INACTIVE" || "DISABLING" || "ESTABLISHING_CONNECTION_IN_PROGRESS" || "ESTABLISHING_CONNECTION_COMPLETED" || "ESTABLISHING_CONNECTION_FAILED" || "PENDING_MANIFEST_CODE" || "DELETE_IN_PROGRESS" || "DELETE_FAILED", // required
  * //   authorizationUrl: "STRING_VALUE",
  * // };
  *

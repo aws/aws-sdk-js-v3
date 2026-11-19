@@ -83,7 +83,6 @@ import type {
   OnDemandResourceType,
   OnDemandScanStatus,
   OnDemandScanStatusReason,
-  Operation,
   PackageManager,
   PackageSortBy,
   PackageType,
@@ -110,7 +109,6 @@ import type {
   ScopeState,
   ScopeType,
   ServerlessFunctionSortBy,
-  Service,
   Severity,
   SortOrder,
   Status,
@@ -5500,6 +5498,48 @@ export interface CodeSecurityIntegrationSummary {
 }
 
 /**
+ * <p>The VPC configuration that Amazon Inspector uses to connect to a source code repository provider that is hosted in a private network.</p>
+ * @public
+ */
+export interface CodeSecurityIntegrationVpcConfiguration {
+  /**
+   * <p>The ID of the VPC that Amazon Inspector connects through to reach the repository provider.</p>
+   * @public
+   */
+  vpcId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC endpoint used for the connection.</p>
+   * @public
+   */
+  vpcEndpointId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS CodeConnections host used for the connection.</p>
+   * @public
+   */
+  codeConnectionsHostArn?: string | undefined;
+
+  /**
+   * <p>The IDs of the subnets used for the connection.</p>
+   * @public
+   */
+  subnetIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the security groups used for the connection.</p>
+   * @public
+   */
+  securityGroups?: string[] | undefined;
+
+  /**
+   * <p>The TLS certificate used to establish a trusted connection to the repository provider.</p>
+   * @public
+   */
+  tlsCertificate?: string | undefined;
+}
+
+/**
  * <p>Configuration settings for continuous integration scans that run automatically when code changes are made.</p>
  * @public
  */
@@ -6788,6 +6828,24 @@ export interface CreateCisScanConfigurationResponse {
 }
 
 /**
+ * <p>Contains the details required to create an integration with a GitHub Enterprise Server instance.</p>
+ * @public
+ */
+export interface CreateGitHubEnterpriseIntegrationDetail {
+  /**
+   * <p>The URL of the GitHub Enterprise Server instance.</p>
+   * @public
+   */
+  instanceUrl: string | undefined;
+
+  /**
+   * <p>The VPC configuration used to connect to the GitHub Enterprise Server instance in a private network. For publicly accessible instances, omit this field.</p>
+   * @public
+   */
+  vpcConfiguration?: CodeSecurityIntegrationVpcConfiguration | undefined;
+}
+
+/**
  * <p>Contains details required to create an integration with a self-managed GitLab instance.</p>
  * @public
  */
@@ -6803,6 +6861,12 @@ export interface CreateGitLabSelfManagedIntegrationDetail {
    * @public
    */
   accessToken: string | undefined;
+
+  /**
+   * <p>The VPC configuration used to connect to the self-managed GitLab instance in a private network. For publicly accessible instances, omit this field.</p>
+   * @public
+   */
+  vpcConfiguration?: CodeSecurityIntegrationVpcConfiguration | undefined;
 }
 
 /**
@@ -6810,6 +6874,7 @@ export interface CreateGitLabSelfManagedIntegrationDetail {
  * @public
  */
 export type CreateIntegrationDetail =
+  | CreateIntegrationDetail.GithubEnterpriseMember
   | CreateIntegrationDetail.GitlabSelfManagedMember
   | CreateIntegrationDetail.$UnknownMember;
 
@@ -6823,6 +6888,17 @@ export namespace CreateIntegrationDetail {
    */
   export interface GitlabSelfManagedMember {
     gitlabSelfManaged: CreateGitLabSelfManagedIntegrationDetail;
+    githubEnterprise?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details specific to creating an integration with a GitHub Enterprise Server instance.</p>
+   * @public
+   */
+  export interface GithubEnterpriseMember {
+    gitlabSelfManaged?: never;
+    githubEnterprise: CreateGitHubEnterpriseIntegrationDetail;
     $unknown?: never;
   }
 
@@ -6831,6 +6907,7 @@ export namespace CreateIntegrationDetail {
    */
   export interface $UnknownMember {
     gitlabSelfManaged?: never;
+    githubEnterprise?: never;
     $unknown: [string, any];
   }
 
@@ -6840,6 +6917,7 @@ export namespace CreateIntegrationDetail {
    */
   export interface Visitor<T> {
     gitlabSelfManaged: (value: CreateGitLabSelfManagedIntegrationDetail) => T;
+    githubEnterprise: (value: CreateGitHubEnterpriseIntegrationDetail) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -8952,72 +9030,72 @@ export interface Image {
 }
 
 /**
- * Details about a machine image resource scanned directly by Inspector.
+ * <p>Contains details about an Amazon Machine Image (AMI) that Amazon Inspector scanned directly.</p>
  * @public
  */
 export interface MachineImageDetails {
   /**
-   * The machine image ID (e.g., ami-0abcdef1234567890)
+   * <p>The ID of the machine image, for example <code>ami-0abcdef1234567890</code>.</p>
    * @public
    */
   machineImageId: string | undefined;
 
   /**
-   * Human-readable image name
+   * <p>The name of the machine image.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * Account ID that owns the image
+   * <p>The ID of the account that owns the machine image.</p>
    * @public
    */
   ownerAccountId?: string | undefined;
 
   /**
-   * OS platform (Linux/Windows)
+   * <p>The operating system platform of the machine image.</p>
    * @public
    */
   platform?: string | undefined;
 
   /**
-   * CPU architecture (x86_64/arm64)
+   * <p>The CPU architecture of the machine image, for example <code>x86_64</code> or <code>arm64</code>.</p>
    * @public
    */
   architecture?: Architecture | undefined;
 
   /**
-   * When the image was created
+   * <p>The date and time that the machine image was created.</p>
    * @public
    */
   creationDate?: Date | undefined;
 
   /**
-   * Image state (available/pending/deregistered)
+   * <p>The state of the machine image, for example <code>available</code>, <code>pending</code>, or <code>deregistered</code>.</p>
    * @public
    */
   state?: string | undefined;
 
   /**
-   * Whether the image is publicly shared
+   * <p>Indicates whether the machine image is shared publicly.</p>
    * @public
    */
   isPublic?: boolean | undefined;
 
   /**
-   * Root device type (ebs/instance-store) — AWS-specific
+   * <p>The root device type of the machine image, either <code>ebs</code> or <code>instance-store</code>.</p>
    * @public
    */
   rootDeviceType?: string | undefined;
 
   /**
-   * Virtualization type (hvm/paravirtual) — AWS-specific
+   * <p>The virtualization type of the machine image, either <code>hvm</code> or <code>paravirtual</code>.</p>
    * @public
    */
   virtualizationType?: string | undefined;
 
   /**
-   * Source resource the image was created from (nullable)
+   * <p>The ID of the Amazon EC2 instance that the machine image was created from, if available.</p>
    * @public
    */
   sourceResourceId?: string | undefined;
@@ -9209,7 +9287,7 @@ export interface ResourceDetails {
   codeRepository?: CodeRepositoryDetails | undefined;
 
   /**
-   * Details about a machine image resource scanned directly by Inspector.
+   * <p>An object that contains details about the Amazon Machine Image (AMI) involved in the finding.</p>
    * @public
    */
   machineImage?: MachineImageDetails | undefined;
@@ -9667,6 +9745,18 @@ export interface GetCodeSecurityIntegrationResponse {
    * @public
    */
   authorizationUrl?: string | undefined;
+
+  /**
+   * <p>The VPC configuration associated with the integration, if it connects to a repository provider in a private network.</p>
+   * @public
+   */
+  vpcConfiguration?: CodeSecurityIntegrationVpcConfiguration | undefined;
+
+  /**
+   * <p>The URL of the self-managed GitLab or GitHub Enterprise Server instance associated with the integration.</p>
+   * @public
+   */
+  instanceUrl?: string | undefined;
 
   /**
    * <p>The tags associated with the code security integration.</p>
@@ -10151,45 +10241,4 @@ export interface GetSbomExportResponse {
    * @public
    */
   filterCriteria?: ResourceFilterCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAccountPermissionsRequest {
-  /**
-   * <p>The service scan type to check permissions for.</p>
-   * @public
-   */
-  service?: Service | undefined;
-
-  /**
-   * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Contains information on the permissions an account has within Amazon Inspector.</p>
- * @public
- */
-export interface Permission {
-  /**
-   * <p>The services that the permissions allow an account to perform the given operations for.</p>
-   * @public
-   */
-  service: Service | undefined;
-
-  /**
-   * <p>The operations that can be performed with the given permissions.</p>
-   * @public
-   */
-  operation: Operation | undefined;
 }

@@ -106,6 +106,7 @@ const _CFRr = "CreateFilterResponse";
 const _CFRre = "CreateFindingsReport";
 const _CFSF = "CisFindingStatusFilter";
 const _CFSFL = "CisFindingStatusFilterList";
+const _CGHEID = "CreateGitHubEnterpriseIntegrationDetail";
 const _CGLSMID = "CreateGitLabSelfManagedIntegrationDetail";
 const _CH = "ConnectorHealth";
 const _CI = "ClusterInformation";
@@ -165,6 +166,7 @@ const _CSF = "CisStringFilter";
 const _CSFL = "CoverageStringFilterList";
 const _CSFo = "CoverageStringFilter";
 const _CSIS = "CodeSecurityIntegrationSummary";
+const _CSIVC = "CodeSecurityIntegrationVpcConfiguration";
 const _CSL = "CisScanList";
 const _CSLF = "CisSecurityLevelFilter";
 const _CSLFL = "CisSecurityLevelFilterList";
@@ -318,6 +320,8 @@ const _GFRS = "GetFindingsReportStatus";
 const _GFRSR = "GetFindingsReportStatusRequest";
 const _GFRSRe = "GetFindingsReportStatusResponse";
 const _GHAC = "GitHubAuthCode";
+const _GHESARD = "GitHubEnterpriseServerAppRegistrationDetail";
+const _GHESMC = "GitHubEnterpriseServerManifestCode";
 const _GLAC = "GitLabAuthCode";
 const _GLAT = "GitLabAccessToken";
 const _GM = "GetMember";
@@ -445,6 +449,7 @@ const _PPSCL = "ProjectPeriodicScanConfigurationList";
 const _PR = "PortRange";
 const _PRF = "PortRangeFilter";
 const _PRFL = "PortRangeFilterList";
+const _PS = "PkceState";
 const _PSC = "PeriodicScanConfiguration";
 const _PVD = "PackageVulnerabilityDetails";
 const _Pe = "Permissions";
@@ -520,6 +525,7 @@ const _St = "Step";
 const _T = "Time";
 const _TA = "TitleAggregation";
 const _TAR = "TitleAggregationResponse";
+const _TC = "TlsCertificate";
 const _TE = "ThrottlingException";
 const _TF = "TagFilter";
 const _TFL = "TitleFilterList";
@@ -559,6 +565,8 @@ const _UEKRp = "UpdateEncryptionKeyResponse";
 const _UF = "UpdateFilter";
 const _UFR = "UpdateFilterRequest";
 const _UFRp = "UpdateFilterResponse";
+const _UGHESAID = "UpdateGitHubEnterpriseServerAppInstallationDetail";
+const _UGHESID = "UpdateGitHubEnterpriseServerIntegrationDetail";
 const _UGHID = "UpdateGitHubIntegrationDetail";
 const _UGLSMID = "UpdateGitLabSelfManagedIntegrationDetail";
 const _UID = "UpdateIntegrationDetails";
@@ -614,9 +622,11 @@ const _aIc = "accountIds";
 const _aIf = "affectedInstances";
 const _aIff = "affectedImages";
 const _aIm = "amiId";
+const _aIp = "appInstallation";
 const _aLF = "awsLambdaFunction";
 const _aR = "azureRegions";
 const _aRg = "aggregationRequest";
+const _aRp = "appRegistration";
 const _aT = "accessToken";
 const _aTg = "aggregationType";
 const _aU = "authorizationUrl";
@@ -652,6 +662,7 @@ const _cAomp = "componentArn";
 const _cAon = "connectorArns";
 const _cAr = "createdAt";
 const _cBG = "countsByGroup";
+const _cCHA = "codeConnectionsHostArn";
 const _cCIT = "cloudContainerImageTags";
 const _cCRN = "cloudContainerRepositoryName";
 const _cCRNl = "cloudContainerRegistryName";
@@ -843,6 +854,8 @@ const _fo = "format";
 const _fr = "frequency";
 const _g = "gcp";
 const _gB = "groupBy";
+const _gE = "githubEnterprise";
+const _gES = "githubEnterpriseServer";
 const _gK = "groupKey";
 const _gR = "gcpRegions";
 const _gSC = "gcpScopeConfiguration";
@@ -927,6 +940,7 @@ const _le = "level";
 const _lo = "low";
 const _m = "message";
 const _mALR = "maxAccountLimitReached";
+const _mC = "manifestCode";
 const _mI = "machineImage";
 const _mII = "machineImageId";
 const _mIN = "machineImageName";
@@ -1065,6 +1079,7 @@ const _sFN = "serverlessFunctionName";
 const _sFc = "scanFrequency";
 const _sFe = "serverlessFunction";
 const _sFu = "suggestedFixes";
+const _sG = "securityGroups";
 const _sGI = "securityGroupIds";
 const _sI = "subnetId";
 const _sIc = "scanId";
@@ -1101,6 +1116,7 @@ const _sT = "scanType";
 const _sTc = "scopeType";
 const _sTe = "sessionToken";
 const _sTt = "startTime";
+const _sTta = "stateToken";
 const _sU = "sourceUrl";
 const _sUC = "stoppedUnitCount";
 const _sV = "scoringVector";
@@ -1122,6 +1138,7 @@ const _tA = "targetAccounts";
 const _tAIF = "targetAccountIdFilters";
 const _tAi = "titleAggregation";
 const _tC = "totalChecks";
+const _tCl = "tlsCertificate";
 const _tCo = "totalCounts";
 const _tDA = "taskDefinitionArn";
 const _tF = "titleFilters";
@@ -1156,6 +1173,8 @@ const _us = "usage";
 const _v = "value";
 const _vC = "vpcConfig";
 const _vCA = "vendorCreatedAt";
+const _vCp = "vpcConfiguration";
+const _vEI = "vpcEndpointId";
 const _vI = "vpcId";
 const _vIA = "vmInstanceAggregation";
 const _vIR = "vmImageReference";
@@ -1268,9 +1287,12 @@ export const errorTypeRegistries = [
 var AuthorizationUrl: StaticSimpleSchema = [0, n0, _AU, 8, 0];
 var ConnectorNextToken: StaticSimpleSchema = [0, n0, _CNT, 8, 0];
 var GitHubAuthCode: StaticSimpleSchema = [0, n0, _GHAC, 8, 0];
+var GitHubEnterpriseServerManifestCode: StaticSimpleSchema = [0, n0, _GHESMC, 8, 0];
 var GitLabAccessToken: StaticSimpleSchema = [0, n0, _GLAT, 8, 0];
 var GitLabAuthCode: StaticSimpleSchema = [0, n0, _GLAC, 8, 0];
 var InstanceUrl: StaticSimpleSchema = [0, n0, _IU, 8, 0];
+var PkceState: StaticSimpleSchema = [0, n0, _PS, 8, 0];
+var TlsCertificate: StaticSimpleSchema = [0, n0, _TC, 8, 0];
 export var Account$: StaticStructureSchema = [3, n0, _A,
   0,
   [_aI, _st, _rS],
@@ -1666,6 +1688,11 @@ export var CodeSecurityIntegrationSummary$: StaticStructureSchema = [3, n0, _CSI
   [_iA, _na, _ty, _st, _sR, _cO, _lUO],
   [0, 0, 0, 0, 0, 4, 4], 7
 ];
+export var CodeSecurityIntegrationVpcConfiguration$: StaticStructureSchema = [3, n0, _CSIVC,
+  0,
+  [_vI, _vEI, _cCHA, _sIu, _sG, _tCl],
+  [0, 0, 0, 64 | 0, 64 | 0, [() => TlsCertificate, 0]], 2
+];
 export var CodeSecurityScanConfiguration$: StaticStructureSchema = [3, n0, _CSSC,
   0,
   [_rSC, _pSC, _cISC],
@@ -1871,10 +1898,15 @@ export var CreateFindingsReportResponse$: StaticStructureSchema = [3, n0, _CFRRr
   [_rIep],
   [0]
 ];
+export var CreateGitHubEnterpriseIntegrationDetail$: StaticStructureSchema = [3, n0, _CGHEID,
+  0,
+  [_iU, _vCp],
+  [[() => InstanceUrl, 0], [() => CodeSecurityIntegrationVpcConfiguration$, 0]], 1
+];
 export var CreateGitLabSelfManagedIntegrationDetail$: StaticStructureSchema = [3, n0, _CGLSMID,
   0,
-  [_iU, _aT],
-  [[() => InstanceUrl, 0], [() => GitLabAccessToken, 0]], 2
+  [_iU, _aT, _vCp],
+  [[() => InstanceUrl, 0], [() => GitLabAccessToken, 0], [() => CodeSecurityIntegrationVpcConfiguration$, 0]], 2
 ];
 export var CreateSbomExportRequest$: StaticStructureSchema = [3, n0, _CSERr,
   0,
@@ -2268,8 +2300,8 @@ export var GetCodeSecurityIntegrationRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var GetCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n0, _GCSIRe,
   0,
-  [_iA, _na, _ty, _st, _sR, _cO, _lUO, _aU, _t],
-  [0, 0, 0, 0, 0, 4, 4, [() => AuthorizationUrl, 0], 128 | 0], 7
+  [_iA, _na, _ty, _st, _sR, _cO, _lUO, _aU, _vCp, _iU, _t],
+  [0, 0, 0, 0, 0, 4, 4, [() => AuthorizationUrl, 0], [() => CodeSecurityIntegrationVpcConfiguration$, 0], [() => InstanceUrl, 0], 128 | 0], 7
 ];
 export var GetCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _GCSSCR,
   0,
@@ -2370,6 +2402,11 @@ export var GetSbomExportResponse$: StaticStructureSchema = [3, n0, _GSERe,
   0,
   [_rIep, _fo, _st, _eC, _eM, _sDe, _fCi],
   [0, 0, 0, 0, 0, () => Destination$, () => ResourceFilterCriteria$]
+];
+export var GitHubEnterpriseServerAppRegistrationDetail$: StaticStructureSchema = [3, n0, _GHESARD,
+  0,
+  [_mC],
+  [[() => GitHubEnterpriseServerManifestCode, 0]], 1
 ];
 export var Image$: StaticStructureSchema = [3, n0, _I,
   0,
@@ -3131,15 +3168,20 @@ export var UpdateFilterResponse$: StaticStructureSchema = [3, n0, _UFRp,
   [_arn],
   [0], 1
 ];
+export var UpdateGitHubEnterpriseServerAppInstallationDetail$: StaticStructureSchema = [3, n0, _UGHESAID,
+  0,
+  [_cod, _iInst, _sTta],
+  [[() => GitHubAuthCode, 0], 0, [() => PkceState, 0]], 2
+];
 export var UpdateGitHubIntegrationDetail$: StaticStructureSchema = [3, n0, _UGHID,
   0,
-  [_cod, _iInst],
-  [[() => GitHubAuthCode, 0], 0], 2
+  [_cod, _iInst, _sTta],
+  [[() => GitHubAuthCode, 0], 0, [() => PkceState, 0]], 2
 ];
 export var UpdateGitLabSelfManagedIntegrationDetail$: StaticStructureSchema = [3, n0, _UGLSMID,
   0,
-  [_aCu],
-  [[() => GitLabAuthCode, 0]], 1
+  [_aCu, _sTta],
+  [[() => GitLabAuthCode, 0], [() => PkceState, 0]], 1
 ];
 export var UpdateOrganizationConfigurationRequest$: StaticStructureSchema = [3, n0, _UOCR,
   0,
@@ -3567,8 +3609,8 @@ export var CodeSecurityResource$: StaticUnionSchema = [4, n0, _CSRo,
 ];
 export var CreateIntegrationDetail$: StaticUnionSchema = [4, n0, _CID,
   0,
-  [_gSM],
-  [[() => CreateGitLabSelfManagedIntegrationDetail$, 0]]
+  [_gSM, _gE],
+  [[() => CreateGitLabSelfManagedIntegrationDetail$, 0], [() => CreateGitHubEnterpriseIntegrationDetail$, 0]]
 ];
 export var ProviderDetailCreate$: StaticUnionSchema = [4, n0, _PDC,
   0,
@@ -3585,10 +3627,15 @@ export var Schedule$: StaticUnionSchema = [4, n0, _Sc,
   [_oT, _dai, _w, _mo],
   [() => OneTimeSchedule$, () => DailySchedule$, () => WeeklySchedule$, () => MonthlySchedule$]
 ];
+export var UpdateGitHubEnterpriseServerIntegrationDetail$: StaticUnionSchema = [4, n0, _UGHESID,
+  0,
+  [_aIp, _aRp],
+  [[() => UpdateGitHubEnterpriseServerAppInstallationDetail$, 0], [() => GitHubEnterpriseServerAppRegistrationDetail$, 0]]
+];
 export var UpdateIntegrationDetails$: StaticUnionSchema = [4, n0, _UID,
   0,
-  [_gSM, _gi],
-  [[() => UpdateGitLabSelfManagedIntegrationDetail$, 0], [() => UpdateGitHubIntegrationDetail$, 0]]
+  [_gSM, _gi, _gES],
+  [[() => UpdateGitLabSelfManagedIntegrationDetail$, 0], [() => UpdateGitHubIntegrationDetail$, 0], [() => UpdateGitHubEnterpriseServerIntegrationDetail$, 0]]
 ];
 export var AssociateMember$: StaticOperationSchema = [9, n0, _AM,
   { [_ht]: ["POST", "/members/associate", 200] }, () => AssociateMemberRequest$, () => AssociateMemberResponse$
