@@ -167,6 +167,7 @@ export * from "./UpdateAssumeRolePolicyCommand";
 export * from "./UpdateDelegationRequestCommand";
 export * from "./UpdateGroupCommand";
 export * from "./UpdateLoginProfileCommand";
+export * from "./UpdateOpenIDConnectProviderCommand";
 export * from "./UpdateOpenIDConnectProviderThumbprintCommand";
 export * from "./UpdateRoleCommand";
 export * from "./UpdateRoleDescriptionCommand";

@@ -1412,6 +1412,13 @@ UpdateLoginProfile
 </details>
 <details>
 <summary>
+UpdateOpenIDConnectProvider
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/UpdateOpenIDConnectProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/UpdateOpenIDConnectProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/UpdateOpenIDConnectProviderCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateOpenIDConnectProviderThumbprint
 </summary>
 

@@ -48,6 +48,8 @@ import {
   ConcurrentModificationException$,
   ContextEntry$,
   ContextKeyTypeEnum,
+  ContextProvider$,
+  ContextProviderKeyDefinition$,
   CreateAccessKey$,
   CreateAccessKeyCommand,
   CreateAccessKeyRequest$,
@@ -681,6 +683,7 @@ import {
   RoleTemplateDisabledException$,
   RoleTemplateVersion$,
   RoleUsageType$,
+  SAMLKeyHashEntry$,
   SAMLPrivateKey$,
   SAMLProviderListEntry$,
   SendDelegationToken$,
@@ -793,6 +796,9 @@ import {
   UpdateLoginProfile$,
   UpdateLoginProfileCommand,
   UpdateLoginProfileRequest$,
+  UpdateOpenIDConnectProvider$,
+  UpdateOpenIDConnectProviderCommand,
+  UpdateOpenIDConnectProviderRequest$,
   UpdateOpenIDConnectProviderThumbprint$,
   UpdateOpenIDConnectProviderThumbprintCommand,
   UpdateOpenIDConnectProviderThumbprintRequest$,
@@ -1188,6 +1194,8 @@ assert(typeof UpdateGroupCommand === "function");
 assert(typeof UpdateGroup$ === "object");
 assert(typeof UpdateLoginProfileCommand === "function");
 assert(typeof UpdateLoginProfile$ === "object");
+assert(typeof UpdateOpenIDConnectProviderCommand === "function");
+assert(typeof UpdateOpenIDConnectProvider$ === "object");
 assert(typeof UpdateOpenIDConnectProviderThumbprintCommand === "function");
 assert(typeof UpdateOpenIDConnectProviderThumbprint$ === "object");
 assert(typeof UpdateRoleCommand === "function");
@@ -1231,6 +1239,8 @@ assert(typeof AttachRolePolicyRequest$ === "object");
 assert(typeof AttachUserPolicyRequest$ === "object");
 assert(typeof ChangePasswordRequest$ === "object");
 assert(typeof ContextEntry$ === "object");
+assert(typeof ContextProvider$ === "object");
+assert(typeof ContextProviderKeyDefinition$ === "object");
 assert(typeof CreateAccessKeyRequest$ === "object");
 assert(typeof CreateAccessKeyResponse$ === "object");
 assert(typeof CreateAccountAliasRequest$ === "object");
@@ -1484,6 +1494,7 @@ assert(typeof RoleDetail$ === "object");
 assert(typeof RoleLastUsed$ === "object");
 assert(typeof RoleTemplateVersion$ === "object");
 assert(typeof RoleUsageType$ === "object");
+assert(typeof SAMLKeyHashEntry$ === "object");
 assert(typeof SAMLPrivateKey$ === "object");
 assert(typeof SAMLProviderListEntry$ === "object");
 assert(typeof SendDelegationTokenRequest$ === "object");
@@ -1527,6 +1538,7 @@ assert(typeof UpdateAssumeRolePolicyRequest$ === "object");
 assert(typeof UpdateDelegationRequestRequest$ === "object");
 assert(typeof UpdateGroupRequest$ === "object");
 assert(typeof UpdateLoginProfileRequest$ === "object");
+assert(typeof UpdateOpenIDConnectProviderRequest$ === "object");
 assert(typeof UpdateOpenIDConnectProviderThumbprintRequest$ === "object");
 assert(typeof UpdateRoleDescriptionRequest$ === "object");
 assert(typeof UpdateRoleDescriptionResponse$ === "object");

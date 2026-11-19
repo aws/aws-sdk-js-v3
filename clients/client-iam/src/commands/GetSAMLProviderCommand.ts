@@ -44,6 +44,25 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  * // { // GetSAMLProviderResponse
  * //   SAMLProviderUUID: "STRING_VALUE",
  * //   SAMLMetadataDocument: "STRING_VALUE",
+ * //   ContextProvider: { // ContextProvider
+ * //     KeyDefinitionList: [ // keyDefinitionListType
+ * //       { // ContextProviderKeyDefinition
+ * //         SourceKey: "STRING_VALUE", // required
+ * //         TargetKey: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     SubjectSourceKey: "STRING_VALUE", // required
+ * //     SubjectTypeValue: "STRING_VALUE",
+ * //     SubjectTypeSourceKey: "STRING_VALUE",
+ * //   },
+ * //   SAMLKeyHashes: [ // SAMLKeyHashListType
+ * //     { // SAMLKeyHashEntry
+ * //       IssuerURL: "STRING_VALUE",
+ * //       KeyHashes: [ // KeyHashListType
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
  * //   CreateDate: new Date("TIMESTAMP"),
  * //   ValidUntil: new Date("TIMESTAMP"),
  * //   Tags: [ // tagListType
@@ -59,6 +78,8 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  * //       Timestamp: new Date("TIMESTAMP"),
  * //     },
  * //   ],
+ * //   IdentityCenterInstanceArn: "STRING_VALUE",
+ * //   IdentityStoreArn: "STRING_VALUE",
  * // };
  *
  * ```
@@ -84,6 +105,45 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
+ * @example To get information about a SAML provider
+ * ```javascript
+ * // The following example returns the configuration of a SAML provider, including its trusted identity propagation context provider, the issuer key hashes, and the associated IAM Identity Center instance.
+ * const input = {
+ *   SAMLProviderArn: "arn:aws:iam::123456789012:saml-provider/MyUniversity"
+ * };
+ * const command = new GetSAMLProviderCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   AssertionEncryptionMode: "Allowed",
+ *   ContextProvider: {
+ *     KeyDefinitionList: [
+ *       {
+ *         SourceKey: "department",
+ *         TargetKey: "department"
+ *       }
+ *     ],
+ *     SubjectSourceKey: "email",
+ *     SubjectTypeValue: "user"
+ *   },
+ *   CreateDate: "2026-11-01T17:22:18Z",
+ *   IdentityCenterInstanceArn: "arn:aws:sso:::instance/ssoins-1234567890abcdef",
+ *   IdentityStoreArn: "arn:aws:identitystore::123456789012:identitystore/d-1234567890",
+ *   SAMLKeyHashes: [
+ *     {
+ *       IssuerURL: "https://idp.example.com/saml",
+ *       KeyHashes: [
+ *         "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8EXAMPLE"
+ *       ]
+ *     }
+ *   ],
+ *   SAMLProviderUUID: "SAMLPROVIDERUUIDEXAMPLE",
+ *   Tags:   [],
+ *   ValidUntil: "2036-11-01T17:22:18Z"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

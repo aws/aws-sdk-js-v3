@@ -82,6 +82,49 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             </Value>
         </member>
     </Tags>
+    <ContextProvider>
+        <SubjectSourceKey>
+            __SubjectSourceKey__
+        </SubjectSourceKey>
+        <KeyDefinitionList>
+            <member>
+                <SourceKey>
+                    __SourceKey__
+                </SourceKey>
+                <TargetKey>
+                    __TargetKey__
+                </TargetKey>
+            </member>
+            <member>
+                <SourceKey>
+                    __SourceKey__
+                </SourceKey>
+                <TargetKey>
+                    __TargetKey__
+                </TargetKey>
+            </member>
+            <member>
+                <SourceKey>
+                    __SourceKey__
+                </SourceKey>
+                <TargetKey>
+                    __TargetKey__
+                </TargetKey>
+            </member>
+        </KeyDefinitionList>
+        <SubjectTypeValue>
+            __SubjectTypeValue__
+        </SubjectTypeValue>
+        <SubjectTypeSourceKey>
+            __SubjectTypeSourceKey__
+        </SubjectTypeSourceKey>
+    </ContextProvider>
+    <IdentityCenterInstanceArn>
+        __IdentityCenterInstanceArn__
+    </IdentityCenterInstanceArn>
+    <IdentityStoreArn>
+        __IdentityStoreArn__
+    </IdentityStoreArn>
 </GetOpenIDConnectProviderResponse>
 
 

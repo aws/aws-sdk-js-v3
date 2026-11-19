@@ -553,6 +553,10 @@ import type {
   UpdateLoginProfileCommandOutput,
 } from "./commands/UpdateLoginProfileCommand";
 import type {
+  UpdateOpenIDConnectProviderCommandInput,
+  UpdateOpenIDConnectProviderCommandOutput,
+} from "./commands/UpdateOpenIDConnectProviderCommand";
+import type {
   UpdateOpenIDConnectProviderThumbprintCommandInput,
   UpdateOpenIDConnectProviderThumbprintCommandOutput,
 } from "./commands/UpdateOpenIDConnectProviderThumbprintCommand";
@@ -777,6 +781,7 @@ export type ServiceInputTypes =
   | UpdateDelegationRequestCommandInput
   | UpdateGroupCommandInput
   | UpdateLoginProfileCommandInput
+  | UpdateOpenIDConnectProviderCommandInput
   | UpdateOpenIDConnectProviderThumbprintCommandInput
   | UpdateRoleCommandInput
   | UpdateRoleDescriptionCommandInput
@@ -962,6 +967,7 @@ export type ServiceOutputTypes =
   | UpdateDelegationRequestCommandOutput
   | UpdateGroupCommandOutput
   | UpdateLoginProfileCommandOutput
+  | UpdateOpenIDConnectProviderCommandOutput
   | UpdateOpenIDConnectProviderThumbprintCommandOutput
   | UpdateRoleCommandOutput
   | UpdateRoleDescriptionCommandOutput

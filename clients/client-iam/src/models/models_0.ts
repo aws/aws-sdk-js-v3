@@ -1191,6 +1191,87 @@ export interface CreateLoginProfileResponse {
 }
 
 /**
+ * <p>Defines a single mapping from a source key in the external identity provider's assertion
+ *          or token to a target trusted context key.</p>
+ *          <p>This data type is used as a member of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextProvider.html">ContextProvider</a> data
+ *          type.</p>
+ * @public
+ */
+export interface ContextProviderKeyDefinition {
+  /**
+   * <p>The key in the external identity provider's assertion or token to read the value
+   *          from.</p>
+   *          <p>The key can contain only ASCII letters (A-Z, a-z), numbers (0-9), single spaces, and the
+   *          following characters: <code>_ . : / = + - @ #</code>. It can't start or end with a space
+   *          or contain two spaces in a row.</p>
+   * @public
+   */
+  SourceKey: string | undefined;
+
+  /**
+   * <p>The trusted context key to map the source value into.</p>
+   *          <p>The key can contain only ASCII letters (A-Z, a-z), numbers (0-9), single spaces, and the
+   *          following characters: <code>_ . : / = + - @ #</code>. It can't start or end with a space
+   *          or contain two spaces in a row.</p>
+   * @public
+   */
+  TargetKey?: string | undefined;
+}
+
+/**
+ * <p>Contains the trusted identity propagation context provider configuration for a SAML or
+ *          OpenID Connect (OIDC) identity provider. The context provider defines how the subject is
+ *          derived and how keys from the external identity provider's assertion or token are mapped
+ *          into trusted context keys.</p>
+ *          <p>This data type is used as a request parameter in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateOpenIDConnectProvider.html">UpdateOpenIDConnectProvider</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateSAMLProvider.html">CreateSAMLProvider</a>,
+ *          and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSAMLProvider.html">UpdateSAMLProvider</a> operations, and as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIDConnectProvider.html">GetOpenIDConnectProvider</a> and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html">GetSAMLProvider</a>
+ *          operations.</p>
+ * @public
+ */
+export interface ContextProvider {
+  /**
+   * <p>A list of source-to-target key mappings that define how keys from the external identity
+   *          provider's assertion or token are mapped into trusted context keys. You can specify from 0
+   *          to 10 mappings.</p>
+   * @public
+   */
+  KeyDefinitionList?: ContextProviderKeyDefinition[] | undefined;
+
+  /**
+   * <p>The source key that is used to derive the subject for the injected trusted context. This
+   *          value identifies the claim or attribute in the external identity provider's assertion or
+   *          token that supplies the subject.</p>
+   *          <p>The key can contain only ASCII letters (A-Z, a-z), numbers (0-9), single spaces, and the
+   *          following characters: <code>_ . : / = + - @ #</code>. It can't start or end with a space
+   *          or contain two spaces in a row.</p>
+   * @public
+   */
+  SubjectSourceKey: string | undefined;
+
+  /**
+   * <p>A static value for the subject type, such as <code>user</code> or
+   *          <code>workload</code>.</p>
+   *          <p>This parameter is optional and is mutually exclusive with
+   *             <code>SubjectTypeSourceKey</code>. Specify either <code>SubjectTypeValue</code> or
+   *             <code>SubjectTypeSourceKey</code>, but not both.</p>
+   * @public
+   */
+  SubjectTypeValue?: string | undefined;
+
+  /**
+   * <p>The source key that supplies the subject type from the external identity provider's
+   *          assertion or token.</p>
+   *          <p>The key can contain only ASCII letters (A-Z, a-z), numbers (0-9), single spaces, and the
+   *          following characters: <code>_ . : / = + - @ #</code>. It can't start or end with a space
+   *          or contain two spaces in a row.</p>
+   *          <p>This parameter is mutually exclusive with <code>SubjectTypeValue</code>. Specify either
+   *             <code>SubjectTypeSourceKey</code> or <code>SubjectTypeValue</code>, but not both.</p>
+   * @public
+   */
+  SubjectTypeSourceKey?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateOpenIDConnectProviderRequest {
@@ -1262,6 +1343,25 @@ export interface CreateOpenIDConnectProviderRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The trusted identity propagation context provider configuration to associate with the
+   *             OpenID Connect (OIDC) provider. The context provider defines how the subject is derived
+   *             and how keys from the provider's token are mapped into trusted context keys. Specifying a
+   *             context provider enables trusted identity propagation for the provider. For more
+   *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextProvider.html">ContextProvider</a>.</p>
+   * @public
+   */
+  ContextProvider?: ContextProvider | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance to associate with
+   *             the OpenID Connect (OIDC) provider. If you specify this parameter, you must also specify
+   *                 <code>ContextProvider</code>.</p>
+   *          <p>For the format, see <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_InstanceMetadata.html">InstanceMetadata</a> in the <i>IAM Identity Center API Reference</i>.</p>
+   * @public
+   */
+  IdentityCenterInstanceArn?: string | undefined;
 }
 
 /**
@@ -1768,6 +1868,25 @@ export interface CreateSAMLProviderRequest {
    * @public
    */
   AddPrivateKey?: string | undefined;
+
+  /**
+   * <p>The trusted identity propagation context provider configuration to associate with the
+   *             SAML provider. The context provider defines how the subject is derived and how keys from
+   *             the provider's SAML assertion are mapped into trusted context keys. Specifying a context
+   *             provider enables trusted identity propagation for the provider. For more information,
+   *             see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextProvider.html">ContextProvider</a>.</p>
+   * @public
+   */
+  ContextProvider?: ContextProvider | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance to associate with
+   *             the SAML provider. If you specify this parameter, you must also specify
+   *                 <code>ContextProvider</code>.</p>
+   *          <p>For the format, see <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_InstanceMetadata.html">InstanceMetadata</a> in the <i>IAM Identity Center API Reference</i>.</p>
+   * @public
+   */
+  IdentityCenterInstanceArn?: string | undefined;
 }
 
 /**
@@ -4185,6 +4304,32 @@ export interface GetOpenIDConnectProviderResponse {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The trusted identity propagation context provider configuration associated with the IAM
+   *             OIDC provider resource object. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextProvider.html">ContextProvider</a>.</p>
+   *          <p>This element is returned only when a trusted identity propagation context provider is configured for the OIDC provider.</p>
+   * @public
+   */
+  ContextProvider?: ContextProvider | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance associated with
+   *             the IAM OIDC provider resource object.</p>
+   *          <p>For the format, see <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_InstanceMetadata.html">InstanceMetadata</a> in the <i>IAM Identity Center API Reference</i>.</p>
+   *          <p>This element is returned only when an IAM Identity Center instance is associated with the OIDC provider.</p>
+   * @public
+   */
+  IdentityCenterInstanceArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the identity store that is resolved from the
+   *             associated IAM Identity Center instance.</p>
+   *          <p>For the format, see <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_InstanceMetadata.html">InstanceMetadata</a> in the <i>IAM Identity Center API Reference</i>.</p>
+   *          <p>This element is returned only when an IAM Identity Center instance is associated with the OIDC provider.</p>
+   * @public
+   */
+  IdentityStoreArn?: string | undefined;
 }
 
 /**
@@ -4794,6 +4939,27 @@ export interface SAMLPrivateKey {
 }
 
 /**
+ * <p>Contains the key hashes that are associated with a SAML identity provider issuer.</p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html">GetSAMLProvider</a>
+ *          operation.</p>
+ * @public
+ */
+export interface SAMLKeyHashEntry {
+  /**
+   * <p>The issuer URL of the SAML identity provider that the key hashes are associated
+   *          with.</p>
+   * @public
+   */
+  IssuerURL?: string | undefined;
+
+  /**
+   * <p>The list of key hashes for the SAML identity provider issuer.</p>
+   * @public
+   */
+  KeyHashes?: string[] | undefined;
+}
+
+/**
  * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html">GetSAMLProvider</a> request.
  *     </p>
  * @public
@@ -4810,6 +4976,21 @@ export interface GetSAMLProviderResponse {
    * @public
    */
   SAMLMetadataDocument?: string | undefined;
+
+  /**
+   * <p>The trusted identity propagation context provider configuration associated with the SAML
+   *             provider. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextProvider.html">ContextProvider</a>.</p>
+   *          <p>This element is returned only when a trusted identity propagation context provider is configured for the SAML provider.</p>
+   * @public
+   */
+  ContextProvider?: ContextProvider | undefined;
+
+  /**
+   * <p>The key hashes associated with the SAML provider, grouped by identity provider issuer.
+   *             For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SAMLKeyHashEntry.html">SAMLKeyHashEntry</a>.</p>
+   * @public
+   */
+  SAMLKeyHashes?: SAMLKeyHashEntry[] | undefined;
 
   /**
    * <p>The date and time when the SAML provider was created.</p>
@@ -4842,6 +5023,24 @@ export interface GetSAMLProviderResponse {
    * @public
    */
   PrivateKeyList?: SAMLPrivateKey[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance associated with
+   *             the SAML provider.</p>
+   *          <p>For the format, see <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_InstanceMetadata.html">InstanceMetadata</a> in the <i>IAM Identity Center API Reference</i>.</p>
+   *          <p>This element is returned only when an IAM Identity Center instance is associated with the SAML provider.</p>
+   * @public
+   */
+  IdentityCenterInstanceArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the identity store that is resolved from the
+   *             associated IAM Identity Center instance.</p>
+   *          <p>For the format, see <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_InstanceMetadata.html">InstanceMetadata</a> in the <i>IAM Identity Center API Reference</i>.</p>
+   *          <p>This element is returned only when an IAM Identity Center instance is associated with the SAML provider.</p>
+   * @public
+   */
+  IdentityStoreArn?: string | undefined;
 }
 
 /**
@@ -6781,6 +6980,14 @@ export interface OpenIDConnectProviderListEntry {
    * @public
    */
   Arn?: string | undefined;
+
+  /**
+   * <p>Specifies whether trusted identity propagation is enabled for the OpenID Connect (OIDC)
+   *          provider. This is <code>true</code> when an IAM Identity Center instance is associated
+   *          with the provider.</p>
+   * @public
+   */
+  IsTrustedIdentityPropagationEnabled?: boolean | undefined;
 }
 
 /**
@@ -7489,6 +7696,14 @@ export interface SAMLProviderListEntry {
    * @public
    */
   CreateDate?: Date | undefined;
+
+  /**
+   * <p>Specifies whether trusted identity propagation is enabled for the SAML provider. This is
+   *          <code>true</code> when an IAM Identity Center instance is associated with the
+   *          provider.</p>
+   * @public
+   */
+  IsTrustedIdentityPropagationEnabled?: boolean | undefined;
 }
 
 /**
@@ -9736,65 +9951,6 @@ export interface TagMFADeviceRequest {
   /**
    * <p>The list of tags that you want to attach to the IAM virtual MFA device.
    *       Each tag consists of a key name and an associated value.</p>
-   * @public
-   */
-  Tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TagOpenIDConnectProviderRequest {
-  /**
-   * <p>The ARN of the OIDC identity provider in IAM to which you want to add tags.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  OpenIDConnectProviderArn: string | undefined;
-
-  /**
-   * <p>The list of tags that you want to attach to the OIDC identity provider in IAM.
-   *       Each tag consists of a key name and an associated value.</p>
-   * @public
-   */
-  Tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TagPolicyRequest {
-  /**
-   * <p>The ARN of the IAM customer managed policy to which you want to add tags.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  PolicyArn: string | undefined;
-
-  /**
-   * <p>The list of tags that you want to attach to the IAM customer managed policy.
-   *       Each tag consists of a key name and an associated value.</p>
-   * @public
-   */
-  Tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TagRoleRequest {
-  /**
-   * <p>The name of the IAM role to which you want to add tags.</p>
-   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  RoleName: string | undefined;
-
-  /**
-   * <p>The list of tags that you want to attach to the IAM role. Each tag consists of a key name and an associated value.</p>
    * @public
    */
   Tags: Tag[] | undefined;

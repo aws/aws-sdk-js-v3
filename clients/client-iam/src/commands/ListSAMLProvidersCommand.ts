@@ -46,6 +46,7 @@ export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersRespons
  * //       Arn: "STRING_VALUE",
  * //       ValidUntil: new Date("TIMESTAMP"),
  * //       CreateDate: new Date("TIMESTAMP"),
+ * //       IsTrustedIdentityPropagationEnabled: true || false,
  * //     },
  * //   ],
  * // };
@@ -65,6 +66,32 @@ export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersRespons
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
+ * @example To list the SAML providers in an account
+ * ```javascript
+ * // The following example lists the SAML providers in the current account and shows whether trusted identity propagation is enabled for each provider.
+ * const input = { /* empty *\/ };
+ * const command = new ListSAMLProvidersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   SAMLProviderList: [
+ *     {
+ *       Arn: "arn:aws:iam::123456789012:saml-provider/MyUniversity",
+ *       CreateDate: "2026-11-01T17:22:18Z",
+ *       IsTrustedIdentityPropagationEnabled: true,
+ *       ValidUntil: "2036-11-01T17:22:18Z"
+ *     },
+ *     {
+ *       Arn: "arn:aws:iam::123456789012:saml-provider/MyCompany",
+ *       CreateDate: "2020-03-11T13:11:02Z",
+ *       IsTrustedIdentityPropagationEnabled: false,
+ *       ValidUntil: "2030-03-11T13:11:02Z"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

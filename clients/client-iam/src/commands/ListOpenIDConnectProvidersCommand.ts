@@ -44,6 +44,7 @@ export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConne
  * //   OpenIDConnectProviderList: [ // OpenIDConnectProviderListType
  * //     { // OpenIDConnectProviderListEntry
  * //       Arn: "STRING_VALUE",
+ * //       IsTrustedIdentityPropagationEnabled: true || false,
  * //     },
  * //   ],
  * // };
@@ -63,6 +64,28 @@ export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConne
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
+ * @example To list the OIDC providers in an account
+ * ```javascript
+ * // The following example lists the OIDC providers in the current account and shows whether trusted identity propagation is enabled for each provider.
+ * const input = { /* empty *\/ };
+ * const command = new ListOpenIDConnectProvidersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   OpenIDConnectProviderList: [
+ *     {
+ *       Arn: "arn:aws:iam::123456789012:oidc-provider/server.example.com",
+ *       IsTrustedIdentityPropagationEnabled: true
+ *     },
+ *     {
+ *       Arn: "arn:aws:iam::123456789012:oidc-provider/server.example.org",
+ *       IsTrustedIdentityPropagationEnabled: false
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

@@ -805,6 +805,11 @@ import {
   UpdateLoginProfileCommand,
 } from "./commands/UpdateLoginProfileCommand";
 import {
+  type UpdateOpenIDConnectProviderCommandInput,
+  type UpdateOpenIDConnectProviderCommandOutput,
+  UpdateOpenIDConnectProviderCommand,
+} from "./commands/UpdateOpenIDConnectProviderCommand";
+import {
   type UpdateOpenIDConnectProviderThumbprintCommandInput,
   type UpdateOpenIDConnectProviderThumbprintCommandOutput,
   UpdateOpenIDConnectProviderThumbprintCommand,
@@ -1074,6 +1079,7 @@ const commands = {
   UpdateDelegationRequestCommand,
   UpdateGroupCommand,
   UpdateLoginProfileCommand,
+  UpdateOpenIDConnectProviderCommand,
   UpdateOpenIDConnectProviderThumbprintCommand,
   UpdateRoleCommand,
   UpdateRoleDescriptionCommand,
@@ -4029,6 +4035,23 @@ export interface IAM {
     args: UpdateLoginProfileCommandInput,
     options: IAMRequestOptions,
     cb: (err: any, data?: UpdateLoginProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateOpenIDConnectProviderCommand}
+   */
+  updateOpenIDConnectProvider(
+    args: UpdateOpenIDConnectProviderCommandInput,
+    options?: IAMRequestOptions
+  ): Promise<UpdateOpenIDConnectProviderCommandOutput>;
+  updateOpenIDConnectProvider(
+    args: UpdateOpenIDConnectProviderCommandInput,
+    cb: (err: any, data?: UpdateOpenIDConnectProviderCommandOutput) => void
+  ): void;
+  updateOpenIDConnectProvider(
+    args: UpdateOpenIDConnectProviderCommandInput,
+    options: IAMRequestOptions,
+    cb: (err: any, data?: UpdateOpenIDConnectProviderCommandOutput) => void
   ): void;
 
   /**

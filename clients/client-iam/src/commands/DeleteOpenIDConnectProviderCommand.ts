@@ -23,12 +23,12 @@ export interface DeleteOpenIDConnectProviderCommandInput extends DeleteOpenIDCon
 export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an OpenID Connect identity provider (IdP) resource object in IAM.</p>
+ * <p>Deletes an OpenID Connect identity provider (IdP) resource object in IAM. Deleting the
+ *             provider also deletes its trusted identity propagation context provider and removes any
+ *             IAM Identity Center instance association.</p>
  *          <p>Deleting an IAM OIDC provider resource does not update any roles that reference the
  *             provider as a principal in their trust policies. Any attempt to assume a role that
  *             references a deleted provider fails.</p>
- *          <p>This operation is idempotent; it does not fail or return an error if you call the
- *             operation for a provider that does not exist.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,6 +51,10 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
  * @see {@link DeleteOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
  *
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an

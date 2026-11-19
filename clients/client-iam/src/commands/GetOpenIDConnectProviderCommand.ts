@@ -53,6 +53,19 @@ export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectP
  * //       Value: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   ContextProvider: { // ContextProvider
+ * //     KeyDefinitionList: [ // keyDefinitionListType
+ * //       { // ContextProviderKeyDefinition
+ * //         SourceKey: "STRING_VALUE", // required
+ * //         TargetKey: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     SubjectSourceKey: "STRING_VALUE", // required
+ * //     SubjectTypeValue: "STRING_VALUE",
+ * //     SubjectTypeSourceKey: "STRING_VALUE",
+ * //   },
+ * //   IdentityCenterInstanceArn: "STRING_VALUE",
+ * //   IdentityStoreArn: "STRING_VALUE",
  * // };
  *
  * ```
@@ -78,6 +91,41 @@ export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectP
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
+ * @example To get information about an OIDC provider
+ * ```javascript
+ * // The following example returns the configuration of an OIDC provider, including its trusted identity propagation context provider and the associated IAM Identity Center instance.
+ * const input = {
+ *   OpenIDConnectProviderArn: "arn:aws:iam::123456789012:oidc-provider/server.example.com"
+ * };
+ * const command = new GetOpenIDConnectProviderCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ClientIDList: [
+ *     "my-application-id"
+ *   ],
+ *   ContextProvider: {
+ *     KeyDefinitionList: [
+ *       {
+ *         SourceKey: "department",
+ *         TargetKey: "department"
+ *       }
+ *     ],
+ *     SubjectSourceKey: "sub",
+ *     SubjectTypeValue: "user"
+ *   },
+ *   CreateDate: "2026-11-01T17:22:18Z",
+ *   IdentityCenterInstanceArn: "arn:aws:sso:::instance/ssoins-1234567890abcdef",
+ *   IdentityStoreArn: "arn:aws:identitystore::123456789012:identitystore/d-1234567890",
+ *   Tags:   [],
+ *   ThumbprintList: [
+ *     "3768084dfb3d2b68b7897bf5f565da8efEXAMPLE"
+ *   ],
+ *   Url: "server.example.com"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

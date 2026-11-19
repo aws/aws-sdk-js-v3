@@ -49,9 +49,20 @@ export interface CreateOpenIDConnectProviderCommandOutput extends CreateOpenIDCo
  *                <p>A list of thumbprints of one or more server certificates that the IdP
  *                     uses</p>
  *             </li>
+ *             <li>
+ *                <p>A trusted identity propagation context provider that defines how the subject
+ *                     is derived and how keys from the provider's token are mapped into trusted
+ *                     context keys. Specifying a context provider enables trusted identity propagation
+ *                     for the provider. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextProvider.html">ContextProvider</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>The ARN of an IAM Identity Center instance to associate with the OIDC
+ *                     provider. If you specify an IAM Identity Center instance, you must also
+ *                     specify a context provider.</p>
+ *             </li>
  *          </ul>
- *          <p>You get all of this information from the OIDC IdP you want to use to access
- *             Amazon Web Services.</p>
+ *          <p>You get the URL, client IDs, and thumbprints from the OIDC IdP you want to use to
+ *             access Amazon Web Services.</p>
  *          <note>
  *             <p>Amazon Web Services secures communication with OIDC identity providers (IdPs) using our library of
  *             trusted root certificate authorities (CAs) to verify the JSON Web Key Set (JWKS)
@@ -64,6 +75,10 @@ export interface CreateOpenIDConnectProviderCommandOutput extends CreateOpenIDCo
  *                 operation creates. Therefore, it is best to limit access to the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a> operation to highly privileged
  *                 users.</p>
  *          </note>
+ *          <p>To control who can configure trusted identity propagation on an OIDC provider, use the
+ *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityPropagation">iam:EnableIdentityPropagation</a>, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityCenterAssociation">iam:EnableIdentityCenterAssociation</a>, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityProviderIssuers">iam:RequestIdentityProviderIssuers</a>, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityProviderIssuers">iam:ResourceIdentityProviderIssuers</a>, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityCenterInstanceArn">iam:RequestIdentityCenterInstanceArn</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityCenterInstanceArn">iam:ResourceIdentityCenterInstanceArn</a> condition keys in IAM
+ *             policies. The <code>Request</code> keys contain the values in the request. The
+ *                 <code>Resource</code> keys contain the values stored on the provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,6 +101,18 @@ export interface CreateOpenIDConnectProviderCommandOutput extends CreateOpenIDCo
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   ContextProvider: { // ContextProvider
+ *     KeyDefinitionList: [ // keyDefinitionListType
+ *       { // ContextProviderKeyDefinition
+ *         SourceKey: "STRING_VALUE", // required
+ *         TargetKey: "STRING_VALUE",
+ *       },
+ *     ],
+ *     SubjectSourceKey: "STRING_VALUE", // required
+ *     SubjectTypeValue: "STRING_VALUE",
+ *     SubjectTypeSourceKey: "STRING_VALUE",
+ *   },
+ *   IdentityCenterInstanceArn: "STRING_VALUE",
  * };
  * const command = new CreateOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
@@ -142,6 +169,38 @@ export interface CreateOpenIDConnectProviderCommandOutput extends CreateOpenIDCo
  *   ClientIDList: [
  *     "my-application-id"
  *   ],
+ *   ThumbprintList: [
+ *     "3768084dfb3d2b68b7897bf5f565da8efEXAMPLE"
+ *   ],
+ *   Url: "https://server.example.com"
+ * };
+ * const command = new CreateOpenIDConnectProviderCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   OpenIDConnectProviderArn: "arn:aws:iam::123456789012:oidc-provider/server.example.com"
+ * }
+ * *\/
+ * ```
+ *
+ * @example To create an OIDC provider with trusted identity propagation
+ * ```javascript
+ * // The following example creates an OIDC provider with a context provider that uses the sub claim as the subject and maps the department claim to a trusted context key. It also associates an IAM Identity Center instance with the provider.
+ * const input = {
+ *   ClientIDList: [
+ *     "my-application-id"
+ *   ],
+ *   ContextProvider: {
+ *     KeyDefinitionList: [
+ *       {
+ *         SourceKey: "department",
+ *         TargetKey: "department"
+ *       }
+ *     ],
+ *     SubjectSourceKey: "sub",
+ *     SubjectTypeValue: "user"
+ *   },
+ *   IdentityCenterInstanceArn: "arn:aws:sso:::instance/ssoins-1234567890abcdef",
  *   ThumbprintList: [
  *     "3768084dfb3d2b68b7897bf5f565da8efEXAMPLE"
  *   ],

@@ -34,6 +34,63 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     <SAMLMetadataDocument>
         __SAMLMetadataDocument__
     </SAMLMetadataDocument>
+    <ContextProvider>
+        <SubjectSourceKey>
+            __SubjectSourceKey__
+        </SubjectSourceKey>
+        <KeyDefinitionList>
+            <member>
+                <SourceKey>
+                    __SourceKey__
+                </SourceKey>
+                <TargetKey>
+                    __TargetKey__
+                </TargetKey>
+            </member>
+            <member>
+                <SourceKey>
+                    __SourceKey__
+                </SourceKey>
+                <TargetKey>
+                    __TargetKey__
+                </TargetKey>
+            </member>
+            <member>
+                <SourceKey>
+                    __SourceKey__
+                </SourceKey>
+                <TargetKey>
+                    __TargetKey__
+                </TargetKey>
+            </member>
+        </KeyDefinitionList>
+        <SubjectTypeValue>
+            __SubjectTypeValue__
+        </SubjectTypeValue>
+        <SubjectTypeSourceKey>
+            __SubjectTypeSourceKey__
+        </SubjectTypeSourceKey>
+    </ContextProvider>
+    <SAMLKeyHashes>
+        <member>
+            <IssuerURL>
+                __IssuerURL__
+            </IssuerURL>
+            <KeyHashes/>
+        </member>
+        <member>
+            <IssuerURL>
+                __IssuerURL__
+            </IssuerURL>
+            <KeyHashes/>
+        </member>
+        <member>
+            <IssuerURL>
+                __IssuerURL__
+            </IssuerURL>
+            <KeyHashes/>
+        </member>
+    </SAMLKeyHashes>
     <CreateDate>
         2000-01-01T04:59:59.999Z
     </CreateDate>
@@ -95,6 +152,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             </Timestamp>
         </member>
     </PrivateKeyList>
+    <IdentityCenterInstanceArn>
+        __IdentityCenterInstanceArn__
+    </IdentityCenterInstanceArn>
+    <IdentityStoreArn>
+        __IdentityStoreArn__
+    </IdentityStoreArn>
 </GetSAMLProviderResponse>
 
 

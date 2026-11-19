@@ -41,6 +41,10 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  *          <p> For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html">Enabling SAML 2.0
  *                 federated users to access the Amazon Web Services Management Console</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based
  *                 federation</a> in the <i>IAM User Guide</i>.</p>
+ *          <p>To control who can configure trusted identity propagation on a SAML provider, use the
+ *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityPropagation">iam:EnableIdentityPropagation</a>, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityCenterAssociation">iam:EnableIdentityCenterAssociation</a>, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityProviderIssuers">iam:RequestIdentityProviderIssuers</a>, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityProviderIssuers">iam:ResourceIdentityProviderIssuers</a>, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityCenterInstanceArn">iam:RequestIdentityCenterInstanceArn</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityCenterInstanceArn">iam:ResourceIdentityCenterInstanceArn</a> condition keys in IAM
+ *             policies. The <code>Request</code> keys contain the values in the request. The
+ *                 <code>Resource</code> keys contain the values stored on the provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +64,18 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  *   ],
  *   AssertionEncryptionMode: "Required" || "Allowed",
  *   AddPrivateKey: "STRING_VALUE",
+ *   ContextProvider: { // ContextProvider
+ *     KeyDefinitionList: [ // keyDefinitionListType
+ *       { // ContextProviderKeyDefinition
+ *         SourceKey: "STRING_VALUE", // required
+ *         TargetKey: "STRING_VALUE",
+ *       },
+ *     ],
+ *     SubjectSourceKey: "STRING_VALUE", // required
+ *     SubjectTypeValue: "STRING_VALUE",
+ *     SubjectTypeSourceKey: "STRING_VALUE",
+ *   },
+ *   IdentityCenterInstanceArn: "STRING_VALUE",
  * };
  * const command = new CreateSAMLProviderCommand(input);
  * const response = await client.send(command);
@@ -104,6 +120,49 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
+ * @example To create a SAML provider
+ * ```javascript
+ * // The following example creates a SAML provider named MyUniversity from a SAML metadata document.
+ * const input = {
+ *   Name: "MyUniversity",
+ *   SAMLMetadataDocument: `<?xml version="1.0" encoding="UTF-8"?><md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.example.com/saml"><md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:KeyDescriptor use="signing"><ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:X509Data><ds:X509Certificate>MIIDdzCCAl+gAwIBAgIEbySuqTANBgkqhkiG9w0BAQsFADBsMRAwDgYDVQQGEwdVbmtub3duMRAwDgYDVQQIEwdVbmtub3duMRAwDgYDVQQHEwdVbmtub3duMRAwDgYDVQQKEwdVbmtub3duMRAwDgYDVQQLEwdVbmtub3duMRAwDgYDVQQDEwdFWEFNUExFMB4XDTI2MTEwMTAwMDAwMFoXDTM2MTEwMTAwMDAwMFowbDEQMA4GA1UEBhMHVW5rbm93bjEQMA4GA1UECBMHVW5rbm93bjEQMA4GA1UEBxMHVW5rbm93bjEQMA4GA1UEChMHVW5rbm93bjEQMA4GA1UECxMHVW5rbm93bjEQMA4GA1UEAxMHRVhBTVBMRTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAEXAMPLE</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.example.com/saml/sso"/></md:IDPSSODescriptor></md:EntityDescriptor>`
+ * };
+ * const command = new CreateSAMLProviderCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   SAMLProviderArn: "arn:aws:iam::123456789012:saml-provider/MyUniversity"
+ * }
+ * *\/
+ * ```
+ *
+ * @example To create a SAML provider with trusted identity propagation
+ * ```javascript
+ * // The following example creates a SAML provider with a context provider that uses the email attribute as the subject and maps the department attribute to a trusted context key. It also associates an IAM Identity Center instance with the provider.
+ * const input = {
+ *   ContextProvider: {
+ *     KeyDefinitionList: [
+ *       {
+ *         SourceKey: "department",
+ *         TargetKey: "department"
+ *       }
+ *     ],
+ *     SubjectSourceKey: "email",
+ *     SubjectTypeValue: "user"
+ *   },
+ *   IdentityCenterInstanceArn: "arn:aws:sso:::instance/ssoins-1234567890abcdef",
+ *   Name: "MyUniversity",
+ *   SAMLMetadataDocument: `<?xml version="1.0" encoding="UTF-8"?><md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.example.com/saml"><md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:KeyDescriptor use="signing"><ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:X509Data><ds:X509Certificate>MIIDdzCCAl+gAwIBAgIEbySuqTANBgkqhkiG9w0BAQsFADBsMRAwDgYDVQQGEwdVbmtub3duMRAwDgYDVQQIEwdVbmtub3duMRAwDgYDVQQHEwdVbmtub3duMRAwDgYDVQQKEwdVbmtub3duMRAwDgYDVQQLEwdVbmtub3duMRAwDgYDVQQDEwdFWEFNUExFMB4XDTI2MTEwMTAwMDAwMFoXDTM2MTEwMTAwMDAwMFowbDEQMA4GA1UEBhMHVW5rbm93bjEQMA4GA1UECBMHVW5rbm93bjEQMA4GA1UEBxMHVW5rbm93bjEQMA4GA1UEChMHVW5rbm93bjEQMA4GA1UECxMHVW5rbm93bjEQMA4GA1UEAxMHRVhBTVBMRTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAEXAMPLE</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.example.com/saml/sso"/></md:IDPSSODescriptor></md:EntityDescriptor>`
+ * };
+ * const command = new CreateSAMLProviderCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   SAMLProviderArn: "arn:aws:iam::123456789012:saml-provider/MyUniversity"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

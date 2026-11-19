@@ -90,13 +90,15 @@ const _CME = "ConcurrentModificationException";
 const _COIDCP = "CreateOpenIDConnectProvider";
 const _COIDCPR = "CreateOpenIDConnectProviderRequest";
 const _COIDCPRr = "CreateOpenIDConnectProviderResponse";
-const _CP = "ChangePassword";
+const _CP = "ContextProvider";
+const _CPKD = "ContextProviderKeyDefinition";
 const _CPR = "ChangePasswordRequest";
 const _CPRr = "CreatePolicyRequest";
 const _CPRre = "CreatePolicyResponse";
 const _CPV = "CreatePolicyVersion";
 const _CPVR = "CreatePolicyVersionRequest";
 const _CPVRr = "CreatePolicyVersionResponse";
+const _CPh = "ChangePassword";
 const _CPr = "CreatePolicy";
 const _CR = "CreateRole";
 const _CREE = "CredentialReportExpiredException";
@@ -357,6 +359,7 @@ const _I = "Id";
 const _IA = "IsAttachable";
 const _IACE = "InvalidAuthenticationCodeException";
 const _ICE = "InvalidCertificateException";
+const _ICIA = "IdentityCenterInstanceArn";
 const _IDV = "IsDefaultVersion";
 const _II = "IssuerIdentifier";
 const _IIE = "InvalidInputException";
@@ -371,7 +374,10 @@ const _IPT = "InlinePolicyTemplates";
 const _IPn = "InlinePolicy";
 const _IPns = "InstanceProfiles";
 const _IR = "IsRequired";
+const _ISA = "IdentityStoreArn";
 const _IT = "IsTruncated";
+const _ITIPE = "IsTrustedIdentityPropagationEnabled";
+const _IURL = "IssuerURL";
 const _IUTE = "InvalidUserTypeException";
 const _Im = "Immutable";
 const _JCD = "JobCreationDate";
@@ -381,6 +387,8 @@ const _JS = "JobStatus";
 const _JT = "JobType";
 const _JVE = "JwtVendingEnabled";
 const _K = "Key";
+const _KDL = "KeyDefinitionList";
+const _KH = "KeyHashes";
 const _KI = "KeyId";
 const _KPME = "KeyPairMismatchException";
 const _L = "Locale";
@@ -630,6 +638,7 @@ const _R = "Region";
 const _RA = "ResourceArns";
 const _RCIDFOIDCP = "RemoveClientIDFromOpenIDConnectProvider";
 const _RCIDFOIDCPR = "RemoveClientIDFromOpenIDConnectProviderRequest";
+const _RCP = "RemoveContextProvider";
 const _RD = "RoleDetail";
 const _RDL = "RoleDetailList";
 const _RDP = "RoleDescriptionPattern";
@@ -639,6 +648,7 @@ const _RF = "ReportFormat";
 const _RGLEE = "ReportGenerationLimitExceededException";
 const _RHO = "ResourceHandlingOption";
 const _RI = "RequestorId";
+const _RICI = "RemoveIdentityCenterInstance";
 const _RIo = "RoleId";
 const _RLC = "RequireLowercaseCharacters";
 const _RLU = "RoleLastUsed";
@@ -687,6 +697,9 @@ const _Rol = "Roles";
 const _S = "Status";
 const _SAD = "SetAsDefault";
 const _SAK = "SecretAccessKey";
+const _SAMLKH = "SAMLKeyHashes";
+const _SAMLKHE = "SAMLKeyHashEntry";
+const _SAMLKHLT = "SAMLKeyHashListType";
 const _SAMLMD = "SAMLMetadataDocument";
 const _SAMLPA = "SAMLProviderArn";
 const _SAMLPK = "SAMLPrivateKey";
@@ -713,7 +726,8 @@ const _SDPVR = "SetDefaultPolicyVersionRequest";
 const _SDT = "SendDelegationToken";
 const _SDTR = "SendDelegationTokenRequest";
 const _SFE = "ServiceFailureException";
-const _SK = "SortKey";
+const _SK = "SourceKey";
+const _SKo = "SortKey";
 const _SLA = "ServicesLastAccessed";
 const _SLAe = "ServiceLastAccessed";
 const _SLT = "StatementListType";
@@ -743,9 +757,12 @@ const _SSHPKI = "SSHPublicKeyId";
 const _SSHPKLT = "SSHPublicKeyListType";
 const _SSHPKM = "SSHPublicKeyMetadata";
 const _SSHPKu = "SSHPublicKeys";
+const _SSK = "SubjectSourceKey";
 const _SSTSP = "SetSecurityTokenServicePreferences";
 const _SSTSPR = "SetSecurityTokenServicePreferencesRequest";
 const _ST = "SubType";
+const _STSK = "SubjectTypeSourceKey";
+const _STV = "SubjectTypeValue";
 const _SUN = "ServiceUserName";
 const _Sc = "Scope";
 const _St = "State";
@@ -757,7 +774,8 @@ const _TALA = "TrackedActionsLastAccessed";
 const _TALAr = "TrackedActionLastAccessed";
 const _TIP = "TagInstanceProfile";
 const _TIPR = "TagInstanceProfileRequest";
-const _TK = "TagKeys";
+const _TK = "TargetKey";
+const _TKa = "TagKeys";
 const _TL = "ThumbprintList";
 const _TMFAD = "TagMFADevice";
 const _TMFADR = "TagMFADeviceRequest";
@@ -806,8 +824,10 @@ const _UMFADR = "UntagMFADeviceRequest";
 const _UN = "UserName";
 const _UOIDCP = "UntagOpenIDConnectProvider";
 const _UOIDCPR = "UntagOpenIDConnectProviderRequest";
+const _UOIDCPRp = "UpdateOpenIDConnectProviderRequest";
 const _UOIDCPT = "UpdateOpenIDConnectProviderThumbprint";
 const _UOIDCPTR = "UpdateOpenIDConnectProviderThumbprintRequest";
+const _UOIDCPp = "UpdateOpenIDConnectProvider";
 const _UP = "UntagPolicy";
 const _UPKEE = "UnrecognizedPublicKeyEncodingException";
 const _UPL = "UserPolicyList";
@@ -876,6 +896,7 @@ const _hE = "httpError";
 const _iPLT = "instanceProfileListType";
 const _iPTLT = "inlinePolicyTemplateListType";
 const _iT = "isTruncated";
+const _kDLT = "keyDefinitionListType";
 const _lPGSARLT = "listPolicyGrantingServiceAccessResponseListType";
 const _m = "message";
 const _mDLT = "mfaDeviceListType";
@@ -1295,6 +1316,16 @@ export var ContextEntry$: StaticStructureSchema = [3, n0, _CE,
   [_CKN, _CKV, _CKT],
   [0, 64 | 0, 0]
 ];
+export var ContextProvider$: StaticStructureSchema = [3, n0, _CP,
+  0,
+  [_SSK, _KDL, _STV, _STSK],
+  [0, () => keyDefinitionListType, 0, 0], 1
+];
+export var ContextProviderKeyDefinition$: StaticStructureSchema = [3, n0, _CPKD,
+  0,
+  [_SK, _TK],
+  [0, 0], 1
+];
 export var CreateAccessKeyRequest$: StaticStructureSchema = [3, n0, _CAKR,
   0,
   [_UN],
@@ -1352,8 +1383,8 @@ export var CreateLoginProfileResponse$: StaticStructureSchema = [3, n0, _CLPRr,
 ];
 export var CreateOpenIDConnectProviderRequest$: StaticStructureSchema = [3, n0, _COIDCPR,
   0,
-  [_U, _CIDL, _TL, _T],
-  [0, 64 | 0, 64 | 0, () => tagListType], 1
+  [_U, _CIDL, _TL, _T, _CP, _ICIA],
+  [0, 64 | 0, 64 | 0, () => tagListType, () => ContextProvider$, 0], 1
 ];
 export var CreateOpenIDConnectProviderResponse$: StaticStructureSchema = [3, n0, _COIDCPRr,
   0,
@@ -1392,8 +1423,8 @@ export var CreateRoleResponse$: StaticStructureSchema = [3, n0, _CRRr,
 ];
 export var CreateSAMLProviderRequest$: StaticStructureSchema = [3, n0, _CSAMLPR,
   0,
-  [_SAMLMD, _N, _T, _AEM, _APK],
-  [0, 0, () => tagListType, 0, [() => privateKeyType, 0]], 2
+  [_SAMLMD, _N, _T, _AEM, _APK, _CP, _ICIA],
+  [0, 0, () => tagListType, 0, [() => privateKeyType, 0], () => ContextProvider$, 0], 2
 ];
 export var CreateSAMLProviderResponse$: StaticStructureSchema = [3, n0, _CSAMLPRr,
   0,
@@ -1822,12 +1853,12 @@ export var GetOpenIDConnectProviderRequest$: StaticStructureSchema = [3, n0, _GO
 ];
 export var GetOpenIDConnectProviderResponse$: StaticStructureSchema = [3, n0, _GOIDCPRe,
   0,
-  [_U, _CIDL, _TL, _CD, _T],
-  [0, 64 | 0, 64 | 0, 4, () => tagListType]
+  [_U, _CIDL, _TL, _CD, _T, _CP, _ICIA, _ISA],
+  [0, 64 | 0, 64 | 0, 4, () => tagListType, () => ContextProvider$, 0, 0]
 ];
 export var GetOrganizationsAccessReportRequest$: StaticStructureSchema = [3, n0, _GOARRet,
   0,
-  [_JI, _MI, _Ma, _SK],
+  [_JI, _MI, _Ma, _SKo],
   [0, 1, 0, 0], 1
 ];
 export var GetOrganizationsAccessReportResponse$: StaticStructureSchema = [3, n0, _GOARRetr,
@@ -1897,8 +1928,8 @@ export var GetSAMLProviderRequest$: StaticStructureSchema = [3, n0, _GSAMLPR,
 ];
 export var GetSAMLProviderResponse$: StaticStructureSchema = [3, n0, _GSAMLPRe,
   0,
-  [_SAMLPUUID, _SAMLMD, _CD, _VU, _T, _AEM, _PKL],
-  [0, 0, 4, 4, () => tagListType, 0, () => privateKeyList]
+  [_SAMLPUUID, _SAMLMD, _CP, _SAMLKH, _CD, _VU, _T, _AEM, _PKL, _ICIA, _ISA],
+  [0, 0, () => ContextProvider$, () => SAMLKeyHashListType, 4, 4, () => tagListType, 0, () => privateKeyList, 0, 0]
 ];
 export var GetServerCertificateRequest$: StaticStructureSchema = [3, n0, _GSCR,
   0,
@@ -2377,8 +2408,8 @@ export var MFADevice$: StaticStructureSchema = [3, n0, _MFADe,
 ];
 export var OpenIDConnectProviderListEntry$: StaticStructureSchema = [3, n0, _OIDCPLE,
   0,
-  [_A],
-  [0]
+  [_A, _ITIPE],
+  [0, 2]
 ];
 export var OrderedOrganizationPolicyType$: StaticStructureSchema = [3, n0, _OOPT,
   0,
@@ -2555,6 +2586,11 @@ export var RoleUsageType$: StaticStructureSchema = [3, n0, _RUT,
   [_R, _Res],
   [0, 64 | 0]
 ];
+export var SAMLKeyHashEntry$: StaticStructureSchema = [3, n0, _SAMLKHE,
+  0,
+  [_IURL, _KH],
+  [0, 64 | 0]
+];
 export var SAMLPrivateKey$: StaticStructureSchema = [3, n0, _SAMLPK,
   0,
   [_KI, _Ti],
@@ -2562,8 +2598,8 @@ export var SAMLPrivateKey$: StaticStructureSchema = [3, n0, _SAMLPK,
 ];
 export var SAMLProviderListEntry$: StaticStructureSchema = [3, n0, _SAMLPLE,
   0,
-  [_A, _VU, _CD],
-  [0, 4, 4]
+  [_A, _VU, _CD, _ITIPE],
+  [0, 4, 4, 2]
 ];
 export var SendDelegationTokenRequest$: StaticStructureSchema = [3, n0, _SDTR,
   0,
@@ -2702,42 +2738,42 @@ export var TrackedActionLastAccessed$: StaticStructureSchema = [3, n0, _TALAr,
 ];
 export var UntagInstanceProfileRequest$: StaticStructureSchema = [3, n0, _UIPR,
   0,
-  [_IPN, _TK],
+  [_IPN, _TKa],
   [0, 64 | 0], 2
 ];
 export var UntagMFADeviceRequest$: StaticStructureSchema = [3, n0, _UMFADR,
   0,
-  [_SNer, _TK],
+  [_SNer, _TKa],
   [0, 64 | 0], 2
 ];
 export var UntagOpenIDConnectProviderRequest$: StaticStructureSchema = [3, n0, _UOIDCPR,
   0,
-  [_OIDCPA, _TK],
+  [_OIDCPA, _TKa],
   [0, 64 | 0], 2
 ];
 export var UntagPolicyRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_PA, _TK],
+  [_PA, _TKa],
   [0, 64 | 0], 2
 ];
 export var UntagRoleRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_RN, _TK],
+  [_RN, _TKa],
   [0, 64 | 0], 2
 ];
 export var UntagSAMLProviderRequest$: StaticStructureSchema = [3, n0, _USAMLPR,
   0,
-  [_SAMLPA, _TK],
+  [_SAMLPA, _TKa],
   [0, 64 | 0], 2
 ];
 export var UntagServerCertificateRequest$: StaticStructureSchema = [3, n0, _USCR,
   0,
-  [_SCN, _TK],
+  [_SCN, _TKa],
   [0, 64 | 0], 2
 ];
 export var UntagUserRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
-  [_UN, _TK],
+  [_UN, _TKa],
   [0, 64 | 0], 2
 ];
 export var UpdateAccessKeyRequest$: StaticStructureSchema = [3, n0, _UAKR,
@@ -2770,6 +2806,11 @@ export var UpdateLoginProfileRequest$: StaticStructureSchema = [3, n0, _ULPR,
   [_UN, _Pas, _PRR, _MSSD, _RMSSD],
   [0, [() => passwordType, 0], 2, 1, 2], 1
 ];
+export var UpdateOpenIDConnectProviderRequest$: StaticStructureSchema = [3, n0, _UOIDCPRp,
+  0,
+  [_OIDCPA, _CP, _ICIA, _RCP, _RICI],
+  [0, () => ContextProvider$, 0, 2, 2], 1
+];
 export var UpdateOpenIDConnectProviderThumbprintRequest$: StaticStructureSchema = [3, n0, _UOIDCPTR,
   0,
   [_OIDCPA, _TL],
@@ -2797,8 +2838,8 @@ export var UpdateRoleResponse$: StaticStructureSchema = [3, n0, _URRpd,
 ];
 export var UpdateSAMLProviderRequest$: StaticStructureSchema = [3, n0, _USAMLPRp,
   0,
-  [_SAMLPA, _SAMLMD, _AEM, _APK, _RPK],
-  [0, 0, 0, [() => privateKeyType, 0], 0], 1
+  [_SAMLPA, _SAMLMD, _AEM, _APK, _RPK, _CP, _ICIA, _RCP, _RICI],
+  [0, 0, 0, [() => privateKeyType, 0], 0, () => ContextProvider$, 0, 2, 2], 1
 ];
 export var UpdateSAMLProviderResponse$: StaticStructureSchema = [3, n0, _USAMLPRpd,
   0,
@@ -2921,6 +2962,10 @@ var inlinePolicyTemplateListType: StaticListSchema = [1, n0, _iPTLT,
 var instanceProfileListType: StaticListSchema = [1, n0, _iPLT,
   0, () => InstanceProfile$
 ];
+var keyDefinitionListType: StaticListSchema = [1, n0, _kDLT,
+  0, () => ContextProviderKeyDefinition$
+];
+var KeyHashListType = 64 | 0;
 var listPolicyGrantingServiceAccessResponseListType: StaticListSchema = [1, n0, _lPGSARLT,
   0, () => ListPoliciesGrantingServiceAccessEntry$
 ];
@@ -2986,6 +3031,9 @@ var roleListType: StaticListSchema = [1, n0, _rLT,
 var rolePermissionRestrictionArnListType = 64 | 0;
 var RoleUsageListType: StaticListSchema = [1, n0, _RULT,
   0, () => RoleUsageType$
+];
+var SAMLKeyHashListType: StaticListSchema = [1, n0, _SAMLKHLT,
+  0, () => SAMLKeyHashEntry$
 ];
 var SAMLProviderListType: StaticListSchema = [1, n0, _SAMLPLT,
   0, () => SAMLProviderListEntry$
@@ -3067,7 +3115,7 @@ export var AttachRolePolicy$: StaticOperationSchema = [9, n0, _ARP,
 export var AttachUserPolicy$: StaticOperationSchema = [9, n0, _AUP,
   0, () => AttachUserPolicyRequest$, () => __Unit
 ];
-export var ChangePassword$: StaticOperationSchema = [9, n0, _CP,
+export var ChangePassword$: StaticOperationSchema = [9, n0, _CPh,
   0, () => ChangePasswordRequest$, () => __Unit
 ];
 export var CreateAccessKey$: StaticOperationSchema = [9, n0, _CAK,
@@ -3543,6 +3591,9 @@ export var UpdateGroup$: StaticOperationSchema = [9, n0, _UG,
 ];
 export var UpdateLoginProfile$: StaticOperationSchema = [9, n0, _ULP,
   0, () => UpdateLoginProfileRequest$, () => __Unit
+];
+export var UpdateOpenIDConnectProvider$: StaticOperationSchema = [9, n0, _UOIDCPp,
+  0, () => UpdateOpenIDConnectProviderRequest$, () => __Unit
 ];
 export var UpdateOpenIDConnectProviderThumbprint$: StaticOperationSchema = [9, n0, _UOIDCPT,
   0, () => UpdateOpenIDConnectProviderThumbprintRequest$, () => __Unit

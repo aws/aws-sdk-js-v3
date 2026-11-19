@@ -26,6 +26,21 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  * <p>Updates the metadata document, SAML encryption settings, and private keys for an
  *             existing SAML provider. To rotate private keys, add your new private key and then remove
  *             the old key in a separate request.</p>
+ *          <p>You can also use this operation to set, change, or remove the trusted identity
+ *             propagation context provider, and to associate or disassociate an IAM Identity Center
+ *             instance with the provider. To remove a configuration rather than replace it, use the
+ *                 <code>RemoveContextProvider</code> and <code>RemoveIdentityCenterInstance</code>
+ *             parameters. For each configuration, provide either the new value or the corresponding
+ *                 <code>Remove</code> flag in a single request, but not both.</p>
+ *          <p>A single request can change either the context provider or the provider metadata, but
+ *             not both. Provider metadata includes the SAML metadata document, assertion encryption
+ *             mode, private keys, and IAM Identity Center association. To change both, make separate
+ *                 <code>UpdateSAMLProvider</code> requests. To remove the context provider, first
+ *             remove the IAM Identity Center association in a separate request.</p>
+ *          <p>To control who can configure trusted identity propagation on a SAML provider, use the
+ *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityPropagation">iam:EnableIdentityPropagation</a>, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityCenterAssociation">iam:EnableIdentityCenterAssociation</a>, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityProviderIssuers">iam:RequestIdentityProviderIssuers</a>, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityProviderIssuers">iam:ResourceIdentityProviderIssuers</a>, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityCenterInstanceArn">iam:RequestIdentityCenterInstanceArn</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityCenterInstanceArn">iam:ResourceIdentityCenterInstanceArn</a> condition keys in IAM
+ *             policies. The <code>Request</code> keys contain the values in the request. The
+ *                 <code>Resource</code> keys contain the values stored on the provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,6 +55,20 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  *   AssertionEncryptionMode: "Required" || "Allowed",
  *   AddPrivateKey: "STRING_VALUE",
  *   RemovePrivateKey: "STRING_VALUE",
+ *   ContextProvider: { // ContextProvider
+ *     KeyDefinitionList: [ // keyDefinitionListType
+ *       { // ContextProviderKeyDefinition
+ *         SourceKey: "STRING_VALUE", // required
+ *         TargetKey: "STRING_VALUE",
+ *       },
+ *     ],
+ *     SubjectSourceKey: "STRING_VALUE", // required
+ *     SubjectTypeValue: "STRING_VALUE",
+ *     SubjectTypeSourceKey: "STRING_VALUE",
+ *   },
+ *   IdentityCenterInstanceArn: "STRING_VALUE",
+ *   RemoveContextProvider: true || false,
+ *   RemoveIdentityCenterInstance: true || false,
  * };
  * const command = new UpdateSAMLProviderCommand(input);
  * const response = await client.send(command);
@@ -78,6 +107,47 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
+ * @example To set the context provider for a SAML provider
+ * ```javascript
+ * // The following example sets a trusted identity propagation context provider on an existing SAML provider. The context provider uses the email attribute as the subject and maps the department attribute to a trusted context key.
+ * const input = {
+ *   ContextProvider: {
+ *     KeyDefinitionList: [
+ *       {
+ *         SourceKey: "department",
+ *         TargetKey: "department"
+ *       }
+ *     ],
+ *     SubjectSourceKey: "email",
+ *     SubjectTypeValue: "user"
+ *   },
+ *   SAMLProviderArn: "arn:aws:iam::123456789012:saml-provider/MyUniversity"
+ * };
+ * const command = new UpdateSAMLProviderCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   SAMLProviderArn: "arn:aws:iam::123456789012:saml-provider/MyUniversity"
+ * }
+ * *\/
+ * ```
+ *
+ * @example To associate an IAM Identity Center instance with a SAML provider
+ * ```javascript
+ * // The following example associates an IAM Identity Center instance with an existing SAML provider.
+ * const input = {
+ *   IdentityCenterInstanceArn: "arn:aws:sso:::instance/ssoins-1234567890abcdef",
+ *   SAMLProviderArn: "arn:aws:iam::123456789012:saml-provider/MyUniversity"
+ * };
+ * const command = new UpdateSAMLProviderCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   SAMLProviderArn: "arn:aws:iam::123456789012:saml-provider/MyUniversity"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

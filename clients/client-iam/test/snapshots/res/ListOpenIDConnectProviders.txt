@@ -33,16 +33,25 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <Arn>
                 __Arn__
             </Arn>
+            <IsTrustedIdentityPropagationEnabled>
+                false
+            </IsTrustedIdentityPropagationEnabled>
         </member>
         <member>
             <Arn>
                 __Arn__
             </Arn>
+            <IsTrustedIdentityPropagationEnabled>
+                false
+            </IsTrustedIdentityPropagationEnabled>
         </member>
         <member>
             <Arn>
                 __Arn__
             </Arn>
+            <IsTrustedIdentityPropagationEnabled>
+                false
+            </IsTrustedIdentityPropagationEnabled>
         </member>
     </OpenIDConnectProviderList>
 </ListOpenIDConnectProvidersResponse>

@@ -39,6 +39,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <CreateDate>
                 2000-01-01T04:59:59.999Z
             </CreateDate>
+            <IsTrustedIdentityPropagationEnabled>
+                false
+            </IsTrustedIdentityPropagationEnabled>
         </member>
         <member>
             <Arn>
@@ -50,6 +53,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <CreateDate>
                 2000-01-01T04:59:59.999Z
             </CreateDate>
+            <IsTrustedIdentityPropagationEnabled>
+                false
+            </IsTrustedIdentityPropagationEnabled>
         </member>
         <member>
             <Arn>
@@ -61,6 +67,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <CreateDate>
                 2000-01-01T04:59:59.999Z
             </CreateDate>
+            <IsTrustedIdentityPropagationEnabled>
+                false
+            </IsTrustedIdentityPropagationEnabled>
         </member>
     </SAMLProviderList>
 </ListSAMLProvidersResponse>

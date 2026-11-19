@@ -1,6 +1,72 @@
 // smithy-typescript generated code
 import type { AssertionEncryptionModeType, StatusType } from "./enums";
-import type { Role, ServerCertificateMetadata, SigningCertificate, SSHPublicKey, Tag } from "./models_0";
+import type {
+  ContextProvider,
+  Role,
+  ServerCertificateMetadata,
+  SigningCertificate,
+  SSHPublicKey,
+  Tag,
+} from "./models_0";
+
+/**
+ * @public
+ */
+export interface TagOpenIDConnectProviderRequest {
+  /**
+   * <p>The ARN of the OIDC identity provider in IAM to which you want to add tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  OpenIDConnectProviderArn: string | undefined;
+
+  /**
+   * <p>The list of tags that you want to attach to the OIDC identity provider in IAM.
+   *       Each tag consists of a key name and an associated value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagPolicyRequest {
+  /**
+   * <p>The ARN of the IAM customer managed policy to which you want to add tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  PolicyArn: string | undefined;
+
+  /**
+   * <p>The list of tags that you want to attach to the IAM customer managed policy.
+   *       Each tag consists of a key name and an associated value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagRoleRequest {
+  /**
+   * <p>The name of the IAM role to which you want to add tags.</p>
+   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p>The list of tags that you want to attach to the IAM role. Each tag consists of a key name and an associated value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
 
 /**
  * @public
@@ -524,6 +590,62 @@ export interface UpdateLoginProfileRequest {
 /**
  * @public
  */
+export interface UpdateOpenIDConnectProviderRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource object to update.
+   *             You can get a list of OIDC provider resource ARNs by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> operation.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  OpenIDConnectProviderArn: string | undefined;
+
+  /**
+   * <p>The trusted identity propagation context provider configuration to set on the OIDC
+   *             provider. This configuration defines the subject mapping and the source-to-target key
+   *             mappings that are used when trusted context is injected. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextProvider.html">ContextProvider</a>.</p>
+   *          <p>To remove the existing context provider instead of replacing it, use
+   *                 <code>RemoveContextProvider</code>. Do not specify both <code>ContextProvider</code>
+   *             and <code>RemoveContextProvider</code> in the same request.</p>
+   * @public
+   */
+  ContextProvider?: ContextProvider | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance to associate with
+   *             the OIDC provider.</p>
+   *          <p>For the format, see <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_InstanceMetadata.html">InstanceMetadata</a> in the <i>IAM Identity Center API Reference</i>.</p>
+   *          <p>To disassociate the currently associated instance instead of changing it, use
+   *                 <code>RemoveIdentityCenterInstance</code>. Do not specify both
+   *                 <code>IdentityCenterInstanceArn</code> and
+   *                 <code>RemoveIdentityCenterInstance</code> in the same request.</p>
+   * @public
+   */
+  IdentityCenterInstanceArn?: string | undefined;
+
+  /**
+   * <p>Specifies whether to remove the existing context provider configuration from the OIDC
+   *             provider. Set this value to <code>true</code> to remove the context provider.</p>
+   *          <p>This parameter is mutually exclusive with <code>ContextProvider</code>. In a single
+   *             request, specify either a new <code>ContextProvider</code> value or
+   *                 <code>RemoveContextProvider</code>, but not both.</p>
+   * @public
+   */
+  RemoveContextProvider?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to disassociate the IAM Identity Center instance from the OIDC
+   *             provider. Set this value to <code>true</code> to remove the association.</p>
+   *          <p>This parameter is mutually exclusive with <code>IdentityCenterInstanceArn</code>. In a
+   *             single request, specify either a new <code>IdentityCenterInstanceArn</code> value or
+   *                 <code>RemoveIdentityCenterInstance</code>, but not both.</p>
+   * @public
+   */
+  RemoveIdentityCenterInstance?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateOpenIDConnectProviderThumbprintRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which
@@ -688,6 +810,39 @@ export interface UpdateSAMLProviderRequest {
    * @public
    */
   RemovePrivateKey?: string | undefined;
+
+  /**
+   * <p>The trusted identity propagation context provider configuration to associate with the
+   *             SAML provider. This replaces the existing context provider configuration. For more
+   *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextProvider.html">ContextProvider</a>.</p>
+   * @public
+   */
+  ContextProvider?: ContextProvider | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance to associate with
+   *             the SAML provider.</p>
+   *          <p>For the format, see <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_InstanceMetadata.html">InstanceMetadata</a> in the <i>IAM Identity Center API Reference</i>.</p>
+   * @public
+   */
+  IdentityCenterInstanceArn?: string | undefined;
+
+  /**
+   * <p>Specifies whether to remove the existing trusted identity propagation context provider
+   *             configuration from the SAML provider. When set to <code>true</code>, the context
+   *             provider is removed. This parameter is mutually exclusive with
+   *             <code>ContextProvider</code>.</p>
+   * @public
+   */
+  RemoveContextProvider?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to disassociate the IAM Identity Center instance from the SAML
+   *             provider. When set to <code>true</code>, the instance is disassociated. This parameter
+   *             is mutually exclusive with <code>IdentityCenterInstanceArn</code>.</p>
+   * @public
+   */
+  RemoveIdentityCenterInstance?: boolean | undefined;
 }
 
 /**
