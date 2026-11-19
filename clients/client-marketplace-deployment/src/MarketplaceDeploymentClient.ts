@@ -55,6 +55,18 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  GetDeploymentConfigurationCommandInput,
+  GetDeploymentConfigurationCommandOutput,
+} from "./commands/GetDeploymentConfigurationCommand";
+import type {
+  GetDeploymentConfigurationJobCommandInput,
+  GetDeploymentConfigurationJobCommandOutput,
+} from "./commands/GetDeploymentConfigurationJobCommand";
+import type {
+  ListDeploymentConfigurationJobsCommandInput,
+  ListDeploymentConfigurationJobsCommandOutput,
+} from "./commands/ListDeploymentConfigurationJobsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -62,6 +74,10 @@ import type {
   PutDeploymentParameterCommandInput,
   PutDeploymentParameterCommandOutput,
 } from "./commands/PutDeploymentParameterCommand";
+import type {
+  StartDeploymentConfigurationJobCommandInput,
+  StartDeploymentConfigurationJobCommandOutput,
+} from "./commands/StartDeploymentConfigurationJobCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -79,8 +95,12 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | GetDeploymentConfigurationCommandInput
+  | GetDeploymentConfigurationJobCommandInput
+  | ListDeploymentConfigurationJobsCommandInput
   | ListTagsForResourceCommandInput
   | PutDeploymentParameterCommandInput
+  | StartDeploymentConfigurationJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
@@ -88,8 +108,12 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | GetDeploymentConfigurationCommandOutput
+  | GetDeploymentConfigurationJobCommandOutput
+  | ListDeploymentConfigurationJobsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutDeploymentParameterCommandOutput
+  | StartDeploymentConfigurationJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
@@ -285,10 +309,7 @@ export type MarketplaceDeploymentClientResolvedConfigType = __SmithyResolvedConf
 export interface MarketplaceDeploymentClientResolvedConfig extends MarketplaceDeploymentClientResolvedConfigType {}
 
 /**
- * <p>The AWS Marketplace Deployment Service supports the Quick Launch experience, which is a deployment option for software as a service (SaaS) products.
- *       Quick Launch simplifies and reduces the time, resources, and steps required to configure, deploy, and launch a products.
- *       The AWS Marketplace Deployment Service provides sellers with a secure method for passing deployment parameters, such as
- *       API keys and external IDs, to buyers during the Quick Launch experience.</p>
+ * <p>The AWS Marketplace Deployment Service supports the Quick Launch experience, which is a deployment option for software as a service (SaaS) products. Quick Launch simplifies and reduces the time, resources, and steps required to configure, deploy, and launch a product. The AWS Marketplace Deployment Service provides sellers with a secure method for passing deployment parameters, such as API keys and external IDs, to buyers during the Quick Launch experience.</p> <p>You can also use the AWS Marketplace Deployment Service to publish deployment configurations. A deployment configuration defines how buyers access a product's delivery option after they subscribe. For example, for the Data as a Service delivery option, it specifies the seller's fulfillment URL.</p>
  * @public
  */
 export class MarketplaceDeploymentClient extends __Client<

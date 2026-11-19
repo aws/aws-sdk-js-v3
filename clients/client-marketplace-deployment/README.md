@@ -6,10 +6,7 @@
 
 AWS SDK for JavaScript MarketplaceDeployment Client for Node.js, Browser and React Native.
 
-<p>The AWS Marketplace Deployment Service supports the Quick Launch experience, which is a deployment option for software as a service (SaaS) products.
-Quick Launch simplifies and reduces the time, resources, and steps required to configure, deploy, and launch a products.
-The AWS Marketplace Deployment Service provides sellers with a secure method for passing deployment parameters, such as
-API keys and external IDs, to buyers during the Quick Launch experience.</p>
+<p>The AWS Marketplace Deployment Service supports the Quick Launch experience, which is a deployment option for software as a service (SaaS) products. Quick Launch simplifies and reduces the time, resources, and steps required to configure, deploy, and launch a product. The AWS Marketplace Deployment Service provides sellers with a secure method for passing deployment parameters, such as API keys and external IDs, to buyers during the Quick Launch experience.</p> <p>You can also use the AWS Marketplace Deployment Service to publish deployment configurations. A deployment configuration defines how buyers access a product's delivery option after they subscribe. For example, for the Data as a Service delivery option, it specifies the seller's fulfillment URL.</p>
 
 ## Installing
 
@@ -184,6 +181,27 @@ see LICENSE for more information.
 
 <details>
 <summary>
+GetDeploymentConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-deployment/command/GetDeploymentConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/GetDeploymentConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/GetDeploymentConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
+GetDeploymentConfigurationJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-deployment/command/GetDeploymentConfigurationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/GetDeploymentConfigurationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/GetDeploymentConfigurationJobCommandOutput/)
+</details>
+<details>
+<summary>
+ListDeploymentConfigurationJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-deployment/command/ListDeploymentConfigurationJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/ListDeploymentConfigurationJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/ListDeploymentConfigurationJobsCommandOutput/)
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
@@ -195,6 +213,13 @@ PutDeploymentParameter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-deployment/command/PutDeploymentParameterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/PutDeploymentParameterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/PutDeploymentParameterCommandOutput/)
+</details>
+<details>
+<summary>
+StartDeploymentConfigurationJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-deployment/command/StartDeploymentConfigurationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/StartDeploymentConfigurationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/StartDeploymentConfigurationJobCommandOutput/)
 </details>
 <details>
 <summary>

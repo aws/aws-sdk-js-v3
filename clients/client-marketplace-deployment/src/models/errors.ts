@@ -25,34 +25,6 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.marketplacedeployment#ConflictException";
-  readonly name = "ConflictException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>The unique identifier for the resource associated with the error.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-  }
-}
-
-/**
  * <p>There was an internal service exception.</p>
  * @public
  */
@@ -92,27 +64,6 @@ export class ResourceNotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The maximum number of requests per account has been exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.marketplacedeployment#ServiceQuotaExceededException";
-  readonly name = "ServiceQuotaExceededException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
   }
 }
 
@@ -165,5 +116,54 @@ export class ValidationException extends __BaseException {
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
     this.fieldName = opts.fieldName;
+  }
+}
+
+/**
+ * <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacedeployment#ConflictException";
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The unique identifier for the resource associated with the error.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
+  }
+}
+
+/**
+ * <p>The maximum number of requests per account has been exceeded.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacedeployment#ServiceQuotaExceededException";
+  readonly name = "ServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
   }
 }

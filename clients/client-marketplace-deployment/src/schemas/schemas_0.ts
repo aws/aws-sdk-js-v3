@@ -1,7 +1,20 @@
 const _ADE = "AccessDeniedException";
 const _CE = "ConflictException";
+const _DAASCD = "DataAsAServiceConfigurationDetail";
+const _DCD = "DeploymentConfigurationDetail";
+const _DCJS = "DeploymentConfigurationJobSummary";
+const _DCJSe = "DeploymentConfigurationJobSummaries";
 const _DPI = "DeploymentParameterInput";
+const _GDC = "GetDeploymentConfiguration";
+const _GDCJ = "GetDeploymentConfigurationJob";
+const _GDCJR = "GetDeploymentConfigurationJobRequest";
+const _GDCJRe = "GetDeploymentConfigurationJobResponse";
+const _GDCR = "GetDeploymentConfigurationRequest";
+const _GDCRe = "GetDeploymentConfigurationResponse";
 const _ISE = "InternalServerException";
+const _LDCJ = "ListDeploymentConfigurationJobs";
+const _LDCJR = "ListDeploymentConfigurationJobsRequest";
+const _LDCJRi = "ListDeploymentConfigurationJobsResponse";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -9,6 +22,9 @@ const _PDP = "PutDeploymentParameter";
 const _PDPR = "PutDeploymentParameterRequest";
 const _PDPRu = "PutDeploymentParameterResponse";
 const _RNFE = "ResourceNotFoundException";
+const _SDCJ = "StartDeploymentConfigurationJob";
+const _SDCJR = "StartDeploymentConfigurationJobRequest";
+const _SDCJRt = "StartDeploymentConfigurationJobResponse";
 const _SQEE = "ServiceQuotaExceededException";
 const _SS = "SecretString";
 const _TE = "ThrottlingException";
@@ -21,24 +37,37 @@ const _URRn = "UntagResourceResponse";
 const _VE = "ValidationException";
 const _aI = "agreementId";
 const _c = "client";
+const _cA = "createdAt";
+const _cAo = "configurationArn";
 const _cT = "clientToken";
 const _ca = "catalog";
+const _co = "configuration";
+const _dAAS = "dataAsAService";
+const _dOT = "deliveryOptionType";
 const _dP = "deploymentParameter";
 const _dPI = "deploymentParameterId";
 const _e = "error";
+const _eA = "endedAt";
+const _eC = "errorCode";
 const _eD = "expirationDate";
 const _fN = "fieldName";
+const _fU = "fulfillmentUrl";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
+const _j = "jobs";
+const _jI = "jobId";
 const _m = "message";
+const _mR = "maxResults";
 const _n = "name";
+const _nT = "nextToken";
 const _pI = "productId";
 const _rA = "resourceArn";
 const _rI = "resourceId";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.marketplacedeployment";
 const _sS = "secretString";
 const _se = "server";
+const _st = "status";
 const _t = "tags";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.marketplacedeployment";
@@ -52,6 +81,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -122,10 +152,50 @@ export const errorTypeRegistries = [
   n0_registry,
 ]
 var SecretString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+export var DataAsAServiceConfigurationDetail$: StaticStructureSchema = [3, n0, _DAASCD,
+  0,
+  [_fU],
+  [0], 1
+];
+export var DeploymentConfigurationJobSummary$: StaticStructureSchema = [3, n0, _DCJS,
+  0,
+  [_jI, _st, _co, _cA],
+  [0, 0, () => DeploymentConfigurationDetail$, 5], 4
+];
 export var DeploymentParameterInput$: StaticStructureSchema = [3, n0, _DPI,
   0,
   [_n, _sS],
   [0, [() => SecretString, 0]], 2
+];
+export var GetDeploymentConfigurationJobRequest$: StaticStructureSchema = [3, n0, _GDCJR,
+  0,
+  [_ca, _pI, _dOT, _jI],
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
+];
+export var GetDeploymentConfigurationJobResponse$: StaticStructureSchema = [3, n0, _GDCJRe,
+  0,
+  [_jI, _co, _st, _cA, _cAo, _eA, _eC, _m],
+  [0, () => DeploymentConfigurationDetail$, 0, 5, 0, 5, 0, 0], 4
+];
+export var GetDeploymentConfigurationRequest$: StaticStructureSchema = [3, n0, _GDCR,
+  0,
+  [_ca, _pI, _dOT],
+  [[0, 1], [0, 1], [0, 1]], 3
+];
+export var GetDeploymentConfigurationResponse$: StaticStructureSchema = [3, n0, _GDCRe,
+  0,
+  [_co],
+  [() => DeploymentConfigurationDetail$], 1
+];
+export var ListDeploymentConfigurationJobsRequest$: StaticStructureSchema = [3, n0, _LDCJR,
+  0,
+  [_ca, _pI, _dOT, _mR, _nT],
+  [[0, 1], [0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 3
+];
+export var ListDeploymentConfigurationJobsResponse$: StaticStructureSchema = [3, n0, _LDCJRi,
+  0,
+  [_j, _nT],
+  [() => DeploymentConfigurationJobSummaries, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
@@ -147,6 +217,16 @@ export var PutDeploymentParameterResponse$: StaticStructureSchema = [3, n0, _PDP
   [_rA, _aI, _dPI, _t],
   [0, 0, 0, 128 | 0], 3
 ];
+export var StartDeploymentConfigurationJobRequest$: StaticStructureSchema = [3, n0, _SDCJR,
+  0,
+  [_ca, _pI, _dOT, _co, _t, _cT],
+  [[0, 1], [0, 1], [0, 1], () => DeploymentConfigurationDetail$, 128 | 0, [0, 4]], 4
+];
+export var StartDeploymentConfigurationJobResponse$: StaticStructureSchema = [3, n0, _SDCJRt,
+  0,
+  [_jI, _co, _st, _cA],
+  [0, () => DeploymentConfigurationDetail$, 0, 5], 4
+];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
@@ -167,14 +247,34 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
+var DeploymentConfigurationJobSummaries: StaticListSchema = [1, n0, _DCJSe,
+  0, () => DeploymentConfigurationJobSummary$
+];
 var StringList = 64 | 0;
 var Tags = 128 | 0;
 var TagsMap = 128 | 0;
+export var DeploymentConfigurationDetail$: StaticUnionSchema = [4, n0, _DCD,
+  0,
+  [_dAAS],
+  [() => DataAsAServiceConfigurationDetail$]
+];
+export var GetDeploymentConfiguration$: StaticOperationSchema = [9, n0, _GDC,
+  { [_h]: ["GET", "/catalogs/{catalog}/products/{productId}/delivery-options/{deliveryOptionType}/deployment-configuration", 200] }, () => GetDeploymentConfigurationRequest$, () => GetDeploymentConfigurationResponse$
+];
+export var GetDeploymentConfigurationJob$: StaticOperationSchema = [9, n0, _GDCJ,
+  { [_h]: ["GET", "/catalogs/{catalog}/products/{productId}/delivery-options/{deliveryOptionType}/deployment-configuration/jobs/{jobId}", 200] }, () => GetDeploymentConfigurationJobRequest$, () => GetDeploymentConfigurationJobResponse$
+];
+export var ListDeploymentConfigurationJobs$: StaticOperationSchema = [9, n0, _LDCJ,
+  { [_h]: ["GET", "/catalogs/{catalog}/products/{productId}/delivery-options/{deliveryOptionType}/deployment-configuration/jobs", 200] }, () => ListDeploymentConfigurationJobsRequest$, () => ListDeploymentConfigurationJobsResponse$
+];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
 export var PutDeploymentParameter$: StaticOperationSchema = [9, n0, _PDP,
   { [_h]: ["POST", "/catalogs/{catalog}/products/{productId}/deployment-parameters", 200] }, () => PutDeploymentParameterRequest$, () => PutDeploymentParameterResponse$
+];
+export var StartDeploymentConfigurationJob$: StaticOperationSchema = [9, n0, _SDCJ,
+  { [_h]: ["POST", "/catalogs/{catalog}/products/{productId}/delivery-options/{deliveryOptionType}/deployment-configuration/jobs", 200] }, () => StartDeploymentConfigurationJobRequest$, () => StartDeploymentConfigurationJobResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 204] }, () => TagResourceRequest$, () => TagResourceResponse$
