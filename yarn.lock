@@ -10191,6 +10191,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/credential-provider-daemon@workspace:^3.972.0, @aws-sdk/credential-provider-daemon@workspace:packages-internal/credential-provider-daemon":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/credential-provider-daemon@workspace:packages-internal/credential-provider-daemon"
+  dependencies:
+    "@aws-sdk/core": "workspace:^3.981.0"
+    "@aws-sdk/types": "workspace:^3.975.1"
+    "@smithy/core": "npm:^3.40.0"
+    "@smithy/types": "npm:^4.20.0"
+    "@tsconfig/recommended": "npm:1.0.1"
+    "@types/node": "npm:^20.14.8"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~7.0.2"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/credential-provider-env@workspace:^3.972.84, @aws-sdk/credential-provider-env@workspace:packages-internal/credential-provider-env":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/credential-provider-env@workspace:packages-internal/credential-provider-env"
@@ -10234,6 +10252,7 @@ __metadata:
   resolution: "@aws-sdk/credential-provider-ini@workspace:packages-internal/credential-provider-ini"
   dependencies:
     "@aws-sdk/core": "workspace:^3.981.0"
+    "@aws-sdk/credential-provider-daemon": "workspace:^3.972.0"
     "@aws-sdk/credential-provider-env": "workspace:^3.972.84"
     "@aws-sdk/credential-provider-http": "workspace:^3.972.86"
     "@aws-sdk/credential-provider-login": "workspace:^3.972.92"
@@ -10361,6 +10380,7 @@ __metadata:
   dependencies:
     "@aws-sdk/core": "workspace:^3.981.0"
     "@aws-sdk/credential-provider-cognito-identity": "workspace:^3.972.83"
+    "@aws-sdk/credential-provider-daemon": "workspace:^3.972.0"
     "@aws-sdk/credential-provider-env": "workspace:^3.972.84"
     "@aws-sdk/credential-provider-http": "workspace:^3.972.86"
     "@aws-sdk/credential-provider-ini": "workspace:^3.973.30"

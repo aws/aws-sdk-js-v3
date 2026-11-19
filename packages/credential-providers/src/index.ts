@@ -6,6 +6,8 @@ export { fromCognitoIdentityPool } from "./fromCognitoIdentityPool";
 export type { FromCognitoIdentityPoolParameters } from "./fromCognitoIdentityPool";
 export { fromContainerMetadata } from "./fromContainerMetadata";
 export type { RemoteProviderInit } from "./fromContainerMetadata";
+export { fromCredentialDaemon } from "./fromCredentialDaemon";
+export type { FromCredentialDaemonInit } from "./fromCredentialDaemon";
 export { fromEnv } from "./fromEnv";
 export { fromHttp } from "./fromHttp";
 export type { FromHttpOptions, HttpProviderCredentials } from "./fromHttp";

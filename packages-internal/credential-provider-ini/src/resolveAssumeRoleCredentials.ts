@@ -1,5 +1,5 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
-import type { AwsIdentityProperties } from "@aws-sdk/types";
+import type { AttributedAwsCredentialIdentity, AwsIdentityProperties } from "@aws-sdk/types";
 import { CredentialsProviderError, getProfileName } from "@smithy/core/config";
 import type { AwsCredentialIdentity, IniSection, Logger, ParsedIniData, Profile } from "@smithy/types";
 
@@ -188,10 +188,14 @@ export const resolveAssumeRoleCredentials = async (
       params.TokenCode = await options.mfaCodeProvider(mfa_serial);
     }
 
-    const sourceCreds = await sourceCredsProvider;
-    return options.roleAssumer!(sourceCreds, params).then((creds) =>
-      setCredentialFeature(creds, "CREDENTIALS_PROFILE_SOURCE_PROFILE", "o")
-    );
+    const sourceCreds: AttributedAwsCredentialIdentity = await sourceCredsProvider;
+    return options.roleAssumer!(sourceCreds, params).then((creds) => {
+      // Requests signed with the assumed role still report that the credentials came from a credential daemon.
+      if (sourceCreds.$source?.CREDENTIAL_DAEMON) {
+        setCredentialFeature(creds, "CREDENTIAL_DAEMON", "Aq");
+      }
+      return setCredentialFeature(creds, "CREDENTIALS_PROFILE_SOURCE_PROFILE", "o");
+    });
   }
 };
 

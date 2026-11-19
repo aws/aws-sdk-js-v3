@@ -31,6 +31,8 @@ A collection of all credential providers.
 - [From Login Credentials](#fromLoginCredentials)
   - [Login with AWS CLI](#login-with-aws-cli)
   - [Sample Files](#sample-files-3)
+- [From Credential Daemon](#fromcredentialdaemon)
+  - [Sample Files](#sample-files-4)
 - [From Node.js default credentials provider chain](#fromnodeproviderchain)
 - [Creating a custom credentials chain](#createcredentialchain)
 
@@ -1024,6 +1026,68 @@ After running `aws login`, the configuration file will contain a `login_session`
 [default]
 login_session = arn:aws:iam::0123456789012:user/username
 region = us-east-1
+```
+
+## `fromCredentialDaemon()`
+
+- Not available in browsers & native apps
+- Supported on Linux and macOS
+
+`fromCredentialDaemon` creates an `AwsCredentialIdentityProvider` function that gets short-lived credentials from a
+local credential daemon over a Unix domain socket.
+
+This provider is not typically used in an explicit fashion. The default credential provider chain and `fromIni()` use
+it for a profile that sets `daemon_credential`. Construct it in code to read a specific profile, to name the
+credential directly, or to change the timeouts.
+
+```javascript
+import { fromCredentialDaemon } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromCredentialDaemon } = require("@aws-sdk/credential-providers"); // CommonJS import
+
+const client = new FooClient({
+  credentials: fromCredentialDaemon({
+    // Optional. The profile that sets daemon_credential. Defaults to the client's profile if that is set,
+    // then the AWS_PROFILE environment variable, then "default".
+    profile: "my-profile",
+    // Optional. The name of the credential to get from the credential daemon, instead of reading a profile.
+    // credential: "my-credential",
+    // Optional, used only with credential. SSO account ID and role name to ask for. Sent only when both are set.
+    // accountId: "012345678901",
+    // roleName: "SampleRole",
+    // Optional. Milliseconds to wait for the connection to the credential daemon. Defaults to 1000.
+    connectTimeout: 1000,
+    // Optional. Milliseconds to wait for the whole call to the credential daemon. Defaults to 5000.
+    timeout: 5000,
+  }),
+});
+```
+
+The provider connects to the socket named by the `AWS_CREDENTIAL_DAEMON_SOCKET` environment variable when it is an
+absolute path. Otherwise it connects to `$HOME/.aws/credential-daemon.sock` when anything is at that path, such as a
+socket or a link to the daemon's socket. When neither applies, it fails with `NOT_RUNNING` without connecting.
+
+### Sample Files
+
+`daemon_credential` is read from the config file only. A profile that sets it doesn't use its other credential
+settings.
+
+#### `~/.aws/config`
+
+```ini
+[profile dev]
+daemon_credential = dev
+region = us-east-1
+
+# An SSO session stored in the credential daemon
+[profile corp-ro]
+sso_session = corp
+sso_account_id = 012345678901
+sso_role_name = ReadOnly
+daemon_credential = corp
+
+[sso-session corp]
+sso_start_url = https://d-abc123.awsapps.com/start
+sso_region = us-east-1
 ```
 
 ## `fromNodeProviderChain()`

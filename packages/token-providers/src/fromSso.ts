@@ -3,6 +3,7 @@ import type { SourceProfileInit, SSOToken } from "@smithy/core/config";
 import {
   getProfileName,
   getSSOTokenFromFile,
+  loadSharedConfigFiles,
   loadSsoSessionData,
   parseKnownFiles,
   TokenProviderError,
@@ -50,6 +51,19 @@ export const fromSso =
     if (!profile) {
       // Profile not found. This is a terminal error.
       throw new TokenProviderError(`Profile '${profileName}' could not be found in shared credentials file.`, false);
+    } else if (
+      profile["sso_account_id"] !== undefined &&
+      profile["sso_role_name"] !== undefined &&
+      (await loadSharedConfigFiles(init)).configFile?.[profileName]?.["daemon_credential"] !== undefined
+    ) {
+      // The credential daemon holds this profile's SSO session, so it has no sso_session for bearer tokens.
+      // Not a terminal error, like a missing sso_session.
+      throw new TokenProviderError(
+        `Profile '${profileName}' gets its SSO session from the credential daemon (daemon_credential), ` +
+          `so it has no sso_session for bearer-token authentication. Services that use bearer tokens need an ` +
+          `SSO session stored in the shared config and SSO token cache files.`,
+        { tryNextLink: true, logger: init.logger }
+      );
     } else if (!profile["sso_session"]) {
       // Profile found but it does not contain sso_session. Not a terminal error.
       throw new TokenProviderError(`Profile '${profileName}' is missing required property 'sso_session'.`);
