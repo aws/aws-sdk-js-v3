@@ -174,6 +174,18 @@ export type Size = (typeof Size)[keyof typeof Size];
  * @public
  * @enum
  */
+export const JobSubmitPluginType = {
+  STARLARK: "STARLARK",
+} as const;
+/**
+ * @public
+ */
+export type JobSubmitPluginType = (typeof JobSubmitPluginType)[keyof typeof JobSubmitPluginType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SlurmRestMode = {
   NONE: "NONE",
   STANDARD: "STANDARD",

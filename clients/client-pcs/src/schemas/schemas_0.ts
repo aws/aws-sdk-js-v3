@@ -54,6 +54,9 @@ const _IL = "InstanceList";
 const _ISE = "InternalServerException";
 const _JA = "JwtAuth";
 const _JK = "JwtKey";
+const _JSP = "JobSubmitPlugin";
+const _JSPL = "JobSubmitPluginList";
+const _JSSS = "JobSubmitScriptSource";
 const _LC = "ListClusters";
 const _LCNG = "ListComputeNodeGroups";
 const _LCNGR = "ListComputeNodeGroupsRequest";
@@ -166,6 +169,7 @@ const _iIPA = "iamInstanceProfileArn";
 const _iT = "instanceType";
 const _jA = "jwtAuth";
 const _jK = "jwtKey";
+const _jSP = "jobSubmitPlugins";
 const _lTM = "launchTemplateMode";
 const _m = "message";
 const _mA = "modifiedAt";
@@ -330,13 +334,13 @@ export var Cluster$: StaticStructureSchema = [3, n0, _C,
 ];
 export var ClusterSlurmConfiguration$: StaticStructureSchema = [3, n0, _CSC,
   0,
-  [_sDITIS, _sCS, _sCSl, _cCS, _aK, _jA, _ac, _sR],
-  [1, () => SlurmCustomSettings, () => SlurmdbdCustomSettings, () => CgroupCustomSettings, () => SlurmAuthKey$, () => JwtAuth$, () => Accounting$, () => SlurmRest$]
+  [_sDITIS, _sCS, _sCSl, _cCS, _jSP, _aK, _jA, _ac, _sR],
+  [1, () => SlurmCustomSettings, () => SlurmdbdCustomSettings, () => CgroupCustomSettings, () => JobSubmitPluginList, () => SlurmAuthKey$, () => JwtAuth$, () => Accounting$, () => SlurmRest$]
 ];
 export var ClusterSlurmConfigurationRequest$: StaticStructureSchema = [3, n0, _CSCR,
   0,
-  [_sDITIS, _sCS, _sCSl, _cCS, _ac, _sR],
-  [1, () => SlurmCustomSettings, () => SlurmdbdCustomSettings, () => CgroupCustomSettings, () => AccountingRequest$, () => SlurmRestRequest$]
+  [_sDITIS, _sCS, _sCSl, _cCS, _jSP, _ac, _sR],
+  [1, () => SlurmCustomSettings, () => SlurmdbdCustomSettings, () => CgroupCustomSettings, () => JobSubmitPluginList, () => AccountingRequest$, () => SlurmRestRequest$]
 ];
 export var ClusterSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
@@ -477,6 +481,16 @@ export var InstanceConfig$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_iT],
   [0]
+];
+export var JobSubmitPlugin$: StaticStructureSchema = [3, n0, _JSP,
+  0,
+  [_n, _ty, _sS],
+  [0, 0, () => JobSubmitScriptSource$], 3
+];
+export var JobSubmitScriptSource$: StaticStructureSchema = [3, n0, _JSSS,
+  0,
+  [_sL, _sVI, _ch],
+  [0, 0, 0], 1
 ];
 export var JwtAuth$: StaticStructureSchema = [3, n0, _JA,
   0,
@@ -680,8 +694,8 @@ export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRp,
 ];
 export var UpdateClusterSlurmConfigurationRequest$: StaticStructureSchema = [3, n0, _UCSCR,
   0,
-  [_sDITIS, _sCS, _sCSl, _cCS, _ac, _sR],
-  [1, () => SlurmCustomSettings, () => SlurmdbdCustomSettings, () => CgroupCustomSettings, () => UpdateAccountingRequest$, () => UpdateSlurmRestRequest$]
+  [_sDITIS, _sCS, _sCSl, _cCS, _jSP, _ac, _sR],
+  [1, () => SlurmCustomSettings, () => SlurmdbdCustomSettings, () => CgroupCustomSettings, () => JobSubmitPluginList, () => UpdateAccountingRequest$, () => UpdateSlurmRestRequest$]
 ];
 export var UpdateComputeNodeGroupRequest$: StaticStructureSchema = [3, n0, _UCNGR,
   0,
@@ -756,6 +770,9 @@ var GresCustomSettings: StaticListSchema = [1, n0, _GCS,
 ];
 var InstanceList: StaticListSchema = [1, n0, _IL,
   0, () => InstanceConfig$
+];
+var JobSubmitPluginList: StaticListSchema = [1, n0, _JSPL,
+  0, () => JobSubmitPlugin$
 ];
 var NodeLifecycleScriptArguments = 64 | 0;
 var NodeLifecycleScriptList: StaticListSchema = [1, n0, _NLSL,

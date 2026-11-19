@@ -68,6 +68,17 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *         parameterValue: "STRING_VALUE", // required
  *       },
  *     ],
+ *     jobSubmitPlugins: [ // JobSubmitPluginList
+ *       { // JobSubmitPlugin
+ *         name: "STRING_VALUE", // required
+ *         type: "STARLARK", // required
+ *         scriptSource: { // JobSubmitScriptSource
+ *           scriptLocation: "STRING_VALUE", // required
+ *           s3VersionId: "STRING_VALUE",
+ *           checksum: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
  *     accounting: { // AccountingRequest
  *       defaultPurgeTimeInDays: Number("int"),
  *       mode: "STANDARD" || "NONE", // required
@@ -114,6 +125,17 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //         { // CgroupCustomSetting
  * //           parameterName: "STRING_VALUE", // required
  * //           parameterValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       jobSubmitPlugins: [ // JobSubmitPluginList
+ * //         { // JobSubmitPlugin
+ * //           name: "STRING_VALUE", // required
+ * //           type: "STARLARK", // required
+ * //           scriptSource: { // JobSubmitScriptSource
+ * //             scriptLocation: "STRING_VALUE", // required
+ * //             s3VersionId: "STRING_VALUE",
+ * //             checksum: "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //       authKey: { // SlurmAuthKey

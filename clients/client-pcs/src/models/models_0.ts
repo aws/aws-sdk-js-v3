@@ -5,6 +5,7 @@ import type {
   ComputeNodeGroupStatus,
   EndpointType,
   ExecutionPolicy,
+  JobSubmitPluginType,
   LaunchTemplateMode,
   NetworkType,
   OnError,
@@ -950,6 +951,54 @@ export interface CgroupCustomSetting {
 }
 
 /**
+ * <p>The source location and integrity information for the script.</p>
+ * @public
+ */
+export interface JobSubmitScriptSource {
+  /**
+   * <p>The location of the script. Specify an Amazon S3 URI in the format <code>s3://bucket-name/key</code>.</p>
+   * @public
+   */
+  scriptLocation: string | undefined;
+
+  /**
+   * <p>The Amazon S3 version ID of the script. Use this value to pin the script to a specific version in a versioned Amazon S3 bucket.</p>
+   * @public
+   */
+  s3VersionId?: string | undefined;
+
+  /**
+   * <p>The SHA-256 checksum of the script content, as a 64-character hexadecimal string. This value is optional. When specified, PCS uses this value to verify the integrity of the downloaded script.</p>
+   * @public
+   */
+  checksum?: string | undefined;
+}
+
+/**
+ * <p>A job submit plugin configuration, including its name, runtime language, and script source.</p>
+ * @public
+ */
+export interface JobSubmitPlugin {
+  /**
+   * <p>A unique name for the plugin. The name can be up to 64 characters long. Valid characters are letters, numbers, spaces, underscores (<code>_</code>), and hyphens (<code>-</code>). The first character must be a letter or a number.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The runtime language used to execute the custom script. Valid values:</p> <ul> <li> <p> <code>STARLARK</code> – The script uses Starlark syntax.</p> </li> </ul>
+   * @public
+   */
+  type: JobSubmitPluginType | undefined;
+
+  /**
+   * <p>The source location and integrity information for the script.</p>
+   * @public
+   */
+  scriptSource: JobSubmitScriptSource | undefined;
+}
+
+/**
  * <p>Additional settings that directly map to SlurmDBD settings.</p> <important> <p>PCS supports a subset of SlurmDBD settings. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurmdbd-custom-settings.html">Configuring custom SlurmDBD settings in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
  * @public
  */
@@ -1007,6 +1056,12 @@ export interface ClusterSlurmConfigurationRequest {
    * @public
    */
   cgroupCustomSettings?: CgroupCustomSetting[] | undefined;
+
+  /**
+   * <p>The job submit plugins to run on the cluster controller. Use job submit plugins to execute custom scripts during job submission and job modification to validate or modify the job's configuration. Custom scripts can accept or reject jobs based on their configuration or modify the configuration before job execution.</p>
+   * @public
+   */
+  jobSubmitPlugins?: JobSubmitPlugin[] | undefined;
 
   /**
    * <p>The accounting configuration includes configurable settings for Slurm accounting.</p>
@@ -1234,6 +1289,12 @@ export interface ClusterSlurmConfiguration {
    * @public
    */
   cgroupCustomSettings?: CgroupCustomSetting[] | undefined;
+
+  /**
+   * <p>The job submit plugins to run on the cluster controller. Use job submit plugins to execute custom scripts during job submission and job modification to validate or modify the job's configuration. Custom scripts can accept or reject jobs based on their configuration or modify the configuration before job execution.</p>
+   * @public
+   */
+  jobSubmitPlugins?: JobSubmitPlugin[] | undefined;
 
   /**
    * <p>The shared Slurm key for authentication, also known as the <b>cluster secret</b>.</p>
@@ -1965,6 +2026,12 @@ export interface UpdateClusterSlurmConfigurationRequest {
    * @public
    */
   cgroupCustomSettings?: CgroupCustomSetting[] | undefined;
+
+  /**
+   * <p>The job submit plugins to run on the cluster controller. Use job submit plugins to execute custom scripts during job submission and job modification to validate or modify the job's configuration. Custom scripts can accept or reject jobs based on their configuration or modify the configuration before job execution.</p>
+   * @public
+   */
+  jobSubmitPlugins?: JobSubmitPlugin[] | undefined;
 
   /**
    * <p>The accounting configuration includes configurable settings for Slurm accounting.</p>

@@ -70,6 +70,17 @@ export interface GetClusterCommandOutput extends GetClusterResponse, __MetadataB
  * //           parameterValue: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       jobSubmitPlugins: [ // JobSubmitPluginList
+ * //         { // JobSubmitPlugin
+ * //           name: "STRING_VALUE", // required
+ * //           type: "STARLARK", // required
+ * //           scriptSource: { // JobSubmitScriptSource
+ * //             scriptLocation: "STRING_VALUE", // required
+ * //             s3VersionId: "STRING_VALUE",
+ * //             checksum: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
  * //       authKey: { // SlurmAuthKey
  * //         secretArn: "STRING_VALUE", // required
  * //         secretVersion: "STRING_VALUE", // required

@@ -62,6 +62,9 @@ import {
   InstanceConfig$,
   InternalServerException,
   InternalServerException$,
+  JobSubmitPlugin$,
+  JobSubmitPluginType,
+  JobSubmitScriptSource$,
   JwtAuth$,
   JwtKey$,
   LaunchTemplateMode,
@@ -237,6 +240,8 @@ assert(typeof GetComputeNodeGroupResponse$ === "object");
 assert(typeof GetQueueRequest$ === "object");
 assert(typeof GetQueueResponse$ === "object");
 assert(typeof InstanceConfig$ === "object");
+assert(typeof JobSubmitPlugin$ === "object");
+assert(typeof JobSubmitScriptSource$ === "object");
 assert(typeof JwtAuth$ === "object");
 assert(typeof JwtKey$ === "object");
 assert(typeof ListClustersRequest$ === "object");
@@ -294,6 +299,7 @@ assert(typeof ClusterStatus === "object");
 assert(typeof ComputeNodeGroupStatus === "object");
 assert(typeof EndpointType === "object");
 assert(typeof ExecutionPolicy === "object");
+assert(typeof JobSubmitPluginType === "object");
 assert(typeof LaunchTemplateMode === "object");
 assert(typeof NetworkType === "object");
 assert(typeof OnError === "object");
