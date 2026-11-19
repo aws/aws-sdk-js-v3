@@ -29,6 +29,7 @@ const _EI = "ExternalId";
 const _EM = "EncodedMessage";
 const _ETE = "ExpiredTokenException";
 const _ETITE = "ExpiredTradeInTokenException";
+const _FPA = "FederatedProviderArn";
 const _FU = "FederatedUser";
 const _FUI = "FederatedUserId";
 const _GAKI = "GetAccessKeyInfo";
@@ -43,6 +44,9 @@ const _GDATRe = "GetDelegatedAccessTokenResponse";
 const _GFT = "GetFederationToken";
 const _GFTR = "GetFederationTokenRequest";
 const _GFTRe = "GetFederationTokenResponse";
+const _GSC = "GetScopedCredentials";
+const _GSCR = "GetScopedCredentialsRequest";
+const _GSCRe = "GetScopedCredentialsResponse";
 const _GST = "GetSessionToken";
 const _GSTR = "GetSessionTokenRequest";
 const _GSTRe = "GetSessionTokenResponse";
@@ -51,15 +55,20 @@ const _GWITR = "GetWebIdentityTokenRequest";
 const _GWITRe = "GetWebIdentityTokenResponse";
 const _I = "Issuer";
 const _IAME = "InvalidAuthorizationMessageException";
+const _ICAE = "InvalidContextAssertionException";
 const _IDPCEE = "IDPCommunicationErrorException";
 const _IDPRCE = "IDPRejectedClaimException";
 const _IITE = "InvalidIdentityTokenException";
+const _IP = "IdentityProvider";
+const _ISCE = "InvalidSubjectCredentialsException";
+const _ISLE = "InsufficientSessionLifetimeException";
 const _JWTPSEE = "JWTPayloadSizeExceededException";
 const _K = "Key";
 const _MPDE = "MalformedPolicyDocumentException";
 const _MSTS = "MinimumSessionTokenSize";
 const _N = "Name";
 const _NQ = "NameQualifier";
+const _OI = "OriginIdentity";
 const _OWIFDE = "OutboundWebIdentityFederationDisabledException";
 const _P = "Policy";
 const _PA = "PolicyArns";
@@ -84,13 +93,22 @@ const _SAMLAT = "SAMLAssertionType";
 const _SDEE = "SessionDurationEscalationException";
 const _SFWIT = "SubjectFromWebIdentityToken";
 const _SI = "SourceIdentity";
+const _SIe = "SessionInfo";
+const _SM = "SubjectMode";
 const _SN = "SerialNumber";
+const _SPC = "ScopedPoliciesCount";
+const _SS = "ScopedSession";
+const _SSD = "ScopedSessionDescription";
+const _SSI = "ScopedSessionId";
 const _ST = "SubjectType";
 const _STS = "SessionTokenSize";
 const _STU = "SessionTokenUtilization";
 const _STe = "SessionToken";
+const _Sc = "Scope";
 const _T = "Tags";
 const _TC = "TokenCode";
+const _TCr = "TransactionContext";
+const _TIPC = "TrustedIdentityPropagationContext";
 const _TIT = "TradeInToken";
 const _TP = "TargetPrincipal";
 const _TPA = "TaskPolicyArn";
@@ -107,8 +125,13 @@ const _cTT = "clientTokenType";
 const _e = "error";
 const _hE = "httpError";
 const _m = "message";
+const _oIIT = "originIdentityIssuerType";
+const _oIST = "originIdentitySubjectType";
+const _oISTT = "originIdentitySubjectTypeType";
 const _pDLT = "policyDescriptorListType";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.sts";
+const _tCIPMT = "transactionContextIdentityProviderMapType";
+const _tCVT = "transactionContextValueType";
 const _tITT = "tradeInTokenType";
 const _tLT = "tagListType";
 const _wITT = "webIdentityTokenType";
@@ -119,6 +142,7 @@ import { TypeRegistry } from "@smithy/core/schema";
 import type {
   StaticErrorSchema,
   StaticListSchema,
+  StaticMapSchema,
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
@@ -129,8 +153,11 @@ import {
   ExpiredTradeInTokenException,
   IDPCommunicationErrorException,
   IDPRejectedClaimException,
+  InsufficientSessionLifetimeException,
   InvalidAuthorizationMessageException,
+  InvalidContextAssertionException,
   InvalidIdentityTokenException,
+  InvalidSubjectCredentialsException,
   JWTPayloadSizeExceededException,
   MalformedPolicyDocumentException,
   OutboundWebIdentityFederationDisabledException,
@@ -169,18 +196,36 @@ export var IDPRejectedClaimException$: StaticErrorSchema = [-3, n0, _IDPRCE,
   [0]
 ];
 n0_registry.registerError(IDPRejectedClaimException$, IDPRejectedClaimException);
+export var InsufficientSessionLifetimeException$: StaticErrorSchema = [-3, n0, _ISLE,
+  { [_aQE]: [`InsufficientSessionLifetime`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InsufficientSessionLifetimeException$, InsufficientSessionLifetimeException);
 export var InvalidAuthorizationMessageException$: StaticErrorSchema = [-3, n0, _IAME,
   { [_aQE]: [`InvalidAuthorizationMessageException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
 n0_registry.registerError(InvalidAuthorizationMessageException$, InvalidAuthorizationMessageException);
+export var InvalidContextAssertionException$: StaticErrorSchema = [-3, n0, _ICAE,
+  { [_aQE]: [`InvalidContextAssertion`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidContextAssertionException$, InvalidContextAssertionException);
 export var InvalidIdentityTokenException$: StaticErrorSchema = [-3, n0, _IITE,
   { [_aQE]: [`InvalidIdentityToken`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
 n0_registry.registerError(InvalidIdentityTokenException$, InvalidIdentityTokenException);
+export var InvalidSubjectCredentialsException$: StaticErrorSchema = [-3, n0, _ISCE,
+  { [_aQE]: [`InvalidSubjectCredentials`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSubjectCredentialsException$, InvalidSubjectCredentialsException);
 export var JWTPayloadSizeExceededException$: StaticErrorSchema = [-3, n0, _JWTPSEE,
   { [_aQE]: [`JWTPayloadSizeExceededException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
@@ -228,8 +273,12 @@ export const errorTypeRegistries = [
 ]
 var accessKeySecretType: StaticSimpleSchema = [0, n0, _aKST, 8, 0];
 var clientTokenType: StaticSimpleSchema = [0, n0, _cTT, 8, 0];
+var originIdentityIssuerType: StaticSimpleSchema = [0, n0, _oIIT, 8, 0];
+var originIdentitySubjectType: StaticSimpleSchema = [0, n0, _oIST, 8, 0];
+var originIdentitySubjectTypeType: StaticSimpleSchema = [0, n0, _oISTT, 8, 0];
 var SAMLAssertionType: StaticSimpleSchema = [0, n0, _SAMLAT, 8, 0];
 var tradeInTokenType: StaticSimpleSchema = [0, n0, _tITT, 8, 0];
+var transactionContextValueType: StaticSimpleSchema = [0, n0, _tCVT, 8, 0];
 var webIdentityTokenType: StaticSimpleSchema = [0, n0, _wITT, 8, 0];
 export var AssumedRoleUser$: StaticStructureSchema = [3, n0, _ARU,
   0,
@@ -253,8 +302,8 @@ export var AssumeRoleWithSAMLRequest$: StaticStructureSchema = [3, n0, _ARWSAMLR
 ];
 export var AssumeRoleWithSAMLResponse$: StaticStructureSchema = [3, n0, _ARWSAMLRs,
   0,
-  [_C, _ARU, _PPS, _S, _ST, _I, _Au, _NQ, _SI, _STU, _STS],
-  [[() => Credentials$, 0], () => AssumedRoleUser$, 1, 0, 0, 0, 0, 0, 0, 1, 1]
+  [_C, _ARU, _PPS, _S, _ST, _I, _Au, _NQ, _SI, _STU, _STS, _TIPC],
+  [[() => Credentials$, 0], () => AssumedRoleUser$, 1, 0, 0, 0, 0, 0, 0, 1, 1, [() => TrustedIdentityPropagationContext$, 0]]
 ];
 export var AssumeRoleWithWebIdentityRequest$: StaticStructureSchema = [3, n0, _ARWWIR,
   0,
@@ -263,8 +312,8 @@ export var AssumeRoleWithWebIdentityRequest$: StaticStructureSchema = [3, n0, _A
 ];
 export var AssumeRoleWithWebIdentityResponse$: StaticStructureSchema = [3, n0, _ARWWIRs,
   0,
-  [_C, _SFWIT, _ARU, _PPS, _Pr, _Au, _SI, _STU, _STS],
-  [[() => Credentials$, 0], 0, () => AssumedRoleUser$, 1, 0, 0, 0, 1, 1]
+  [_C, _SFWIT, _ARU, _PPS, _Pr, _Au, _SI, _STU, _STS, _TIPC],
+  [[() => Credentials$, 0], 0, () => AssumedRoleUser$, 1, 0, 0, 0, 1, 1, [() => TrustedIdentityPropagationContext$, 0]]
 ];
 export var AssumeRootRequest$: StaticStructureSchema = [3, n0, _ARRss,
   0,
@@ -336,6 +385,16 @@ export var GetFederationTokenResponse$: StaticStructureSchema = [3, n0, _GFTRe,
   [_C, _FU, _PPS, _STU, _STS],
   [[() => Credentials$, 0], () => FederatedUser$, 1, 1, 1]
 ];
+export var GetScopedCredentialsRequest$: StaticStructureSchema = [3, n0, _GSCR,
+  0,
+  [_P, _DS, _MSTS, _SSD],
+  [0, 1, 1, 0]
+];
+export var GetScopedCredentialsResponse$: StaticStructureSchema = [3, n0, _GSCRe,
+  0,
+  [_C, _SIe, _STU, _STS, _SPC, _SI],
+  [[() => Credentials$, 0], () => ScopedSession$, 1, 1, 1, 0]
+];
 export var GetSessionTokenRequest$: StaticStructureSchema = [3, n0, _GSTR,
   0,
   [_DS, _SN, _TC, _MSTS],
@@ -348,13 +407,18 @@ export var GetSessionTokenResponse$: StaticStructureSchema = [3, n0, _GSTRe,
 ];
 export var GetWebIdentityTokenRequest$: StaticStructureSchema = [3, n0, _GWITR,
   0,
-  [_Au, _SA, _DS, _T],
-  [64 | 0, 0, 1, () => tagListType], 2
+  [_Au, _SA, _DS, _Sc, _SM, _T],
+  [64 | 0, 0, 1, 0, 0, () => tagListType], 2
 ];
 export var GetWebIdentityTokenResponse$: StaticStructureSchema = [3, n0, _GWITRe,
   0,
   [_WIT, _E],
   [[() => webIdentityTokenType, 0], 4]
+];
+export var OriginIdentity$: StaticStructureSchema = [3, n0, _OI,
+  0,
+  [_S, _ST, _I, _FPA],
+  [[() => originIdentitySubjectType, 0], [() => originIdentitySubjectTypeType, 0], [() => originIdentityIssuerType, 0], 0]
 ];
 export var PolicyDescriptorType$: StaticStructureSchema = [3, n0, _PDT,
   0,
@@ -366,10 +430,25 @@ export var ProvidedContext$: StaticStructureSchema = [3, n0, _PCr,
   [_PAro, _CA],
   [0, 0]
 ];
+export var ScopedSession$: StaticStructureSchema = [3, n0, _SS,
+  0,
+  [_SSI, _A],
+  [0, 0], 2
+];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
   [0, 0], 2
+];
+export var TransactionContext$: StaticStructureSchema = [3, n0, _TCr,
+  0,
+  [_IP],
+  [[() => transactionContextIdentityProviderMapType, 0]]
+];
+export var TrustedIdentityPropagationContext$: StaticStructureSchema = [3, n0, _TIPC,
+  8,
+  [_OI, _TCr],
+  [[() => OriginIdentity$, 0], [() => TransactionContext$, 0]]
 ];
 var policyDescriptorListType: StaticListSchema = [1, n0, _pDLT,
   0, () => PolicyDescriptorType$
@@ -382,6 +461,12 @@ var tagListType: StaticListSchema = [1, n0, _tLT,
   0, () => Tag$
 ];
 var webIdentityTokenAudienceListType = 64 | 0;
+var transactionContextIdentityProviderMapType: StaticMapSchema = [2, n0, _tCIPMT,
+  0, [0,
+    0]
+  , [() => transactionContextValueType,
+    0]
+];
 export var AssumeRole$: StaticOperationSchema = [9, n0, _AR,
   0, () => AssumeRoleRequest$, () => AssumeRoleResponse$
 ];
@@ -408,6 +493,9 @@ export var GetDelegatedAccessToken$: StaticOperationSchema = [9, n0, _GDAT,
 ];
 export var GetFederationToken$: StaticOperationSchema = [9, n0, _GFT,
   0, () => GetFederationTokenRequest$, () => GetFederationTokenResponse$
+];
+export var GetScopedCredentials$: StaticOperationSchema = [9, n0, _GSC,
+  0, () => GetScopedCredentialsRequest$, () => GetScopedCredentialsResponse$
 ];
 export var GetSessionToken$: StaticOperationSchema = [9, n0, _GST,
   0, () => GetSessionTokenRequest$, () => GetSessionTokenResponse$

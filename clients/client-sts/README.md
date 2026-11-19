@@ -266,6 +266,13 @@ GetFederationToken
 </details>
 <details>
 <summary>
+GetScopedCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/GetScopedCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/GetScopedCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/GetScopedCredentialsCommandOutput/)
+</details>
+<details>
+<summary>
 GetSessionToken
 </summary>
 

@@ -26,6 +26,29 @@ export class ExpiredTokenException extends __BaseException {
 }
 
 /**
+ * <p>The request was rejected because the context assertion that was provided is invalid.
+ *             This can happen if the context assertion supplied in the <code>ProvidedContexts</code>
+ *             parameter is malformed, has expired, or does not match a trusted context provider.</p>
+ * @public
+ */
+export class InvalidContextAssertionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sts#InvalidContextAssertionException";
+  readonly name = "InvalidContextAssertionException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidContextAssertionException, __BaseException>) {
+    super({
+      name: "InvalidContextAssertionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidContextAssertionException.prototype);
+  }
+}
+
+/**
  * <p>The request was rejected because the policy document was malformed. The error message
  *             describes the specific error.</p>
  * @public
@@ -48,14 +71,14 @@ export class MalformedPolicyDocumentException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the total packed size of the session policies and
- *             session tags combined was too large. An Amazon Web Services conversion compresses the session policy
- *             document, session policy ARNs, and session tags into a packed binary format that has a
- *             separate limit. The error message indicates by percentage how close the policies and
- *             tags are to the upper size limit. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
+ * <p>The request was rejected because the session token exceeded the maximum allowed size.
+ *             The error message reports the session token size and the maximum allowed size, both in
+ *             bytes. Session policies and session tags add to the session token size. For more
+ *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
  *             the <i>IAM User Guide</i>.</p>
- *          <p>You could receive this error even though you meet other defined session policy and
- *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity Character Limits</a> in the <i>IAM User
+ *          <p>You might receive this error even though you meet the individual session policy and
+ *             session tag limits. Monitor <code>SessionTokenUtilization</code> to track how close the
+ *             session token is to the maximum allowed size. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity Character Limits</a> in the <i>IAM User
  *                 Guide</i>.</p>
  * @public
  */
@@ -214,6 +237,54 @@ export class ExpiredTradeInTokenException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ExpiredTradeInTokenException.prototype);
+  }
+}
+
+/**
+ * <p>The request was rejected because the requested <code>DurationSeconds</code> is greater
+ *             than the remaining lifetime of the calling session. <code>GetScopedCredentials</code>
+ *             cannot extend a session beyond its original expiration. Request a duration that is less
+ *             than or equal to the calling session's remaining lifetime, or omit
+ *             <code>DurationSeconds</code> to inherit it.</p>
+ * @public
+ */
+export class InsufficientSessionLifetimeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sts#InsufficientSessionLifetimeException";
+  readonly name = "InsufficientSessionLifetimeException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientSessionLifetimeException, __BaseException>) {
+    super({
+      name: "InsufficientSessionLifetimeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientSessionLifetimeException.prototype);
+  }
+}
+
+/**
+ * <p>The request was rejected because the session used to call
+ *         <code>GetScopedCredentials</code> is not a valid session. The calling session's credentials
+ *         could not be validated or resolved.</p>
+ * @public
+ */
+export class InvalidSubjectCredentialsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sts#InvalidSubjectCredentialsException";
+  readonly name = "InvalidSubjectCredentialsException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSubjectCredentialsException, __BaseException>) {
+    super({
+      name: "InvalidSubjectCredentialsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSubjectCredentialsException.prototype);
   }
 }
 

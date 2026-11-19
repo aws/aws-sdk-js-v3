@@ -8,5 +8,6 @@ export * from "./GetAccessKeyInfoCommand";
 export * from "./GetCallerIdentityCommand";
 export * from "./GetDelegatedAccessTokenCommand";
 export * from "./GetFederationTokenCommand";
+export * from "./GetScopedCredentialsCommand";
 export * from "./GetSessionTokenCommand";
 export * from "./GetWebIdentityTokenCommand";

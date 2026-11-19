@@ -71,6 +71,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     <SessionTokenSize>
         0
     </SessionTokenSize>
+    <TrustedIdentityPropagationContext>
+        <OriginIdentity>
+            <Subject>
+                __Subject__
+            </Subject>
+            <SubjectType>
+                __SubjectType__
+            </SubjectType>
+            <Issuer>
+                __Issuer__
+            </Issuer>
+            <FederatedProviderArn>
+                __FederatedProviderArn__
+            </FederatedProviderArn>
+        </OriginIdentity>
+        <TransactionContext>
+            <IdentityProvider>
+                <entry>
+                    <key>
+                        key1
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+                <entry>
+                    <key>
+                        key2
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+                <entry>
+                    <key>
+                        key3
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+            </IdentityProvider>
+        </TransactionContext>
+    </TrustedIdentityPropagationContext>
 </AssumeRoleWithWebIdentityResponse>
 
 

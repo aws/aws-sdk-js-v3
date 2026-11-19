@@ -63,7 +63,9 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *             </li>
  *             <li>
  *                <p>You cannot call any STS API <i>except</i>
- *                   <code>AssumeRole</code> or <code>GetCallerIdentity</code>.</p>
+ *                   <code>AssumeRole</code>, <code>GetCallerIdentity</code>,
+ *                <code>GetScopedCredentials</code>, <code>GetWebIdentityToken</code>, or
+ *                <code>GetDelegatedAccessToken</code>.</p>
  *             </li>
  *          </ul>
  *          <p>The credentials that <code>GetSessionToken</code> returns are based on permissions

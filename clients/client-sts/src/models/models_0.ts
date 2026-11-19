@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import type { WebIdentityTokenSubjectModeType } from "./enums";
+
 /**
  * <p>The identifiers for the temporary security credentials that the operation
  *          returns.</p>
@@ -121,13 +123,6 @@ export interface AssumeRoleRequest {
    *          plaintext that you use for both inline and managed session policies can't exceed 2,048
    *          characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services
    *             Service Namespaces</a> in the Amazon Web Services General Reference.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    *          <p>Passing policies to this operation returns new
    *          temporary credentials. The resulting session's permissions are the intersection of the
    *          role's identity-based policy and the session policies. You can use the role's temporary
@@ -155,13 +150,6 @@ export interface AssumeRoleRequest {
    *          character to the end of the valid character list (\u0020 through \u00FF). It can also
    *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
    *          characters.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    *          <p>For more information about role session permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
    *             policies</a>.</p>
    * @public
@@ -204,13 +192,6 @@ export interface AssumeRoleRequest {
    *          tag keys can’t exceed 128 characters, and the values can’t exceed 256 characters. For these
    *          and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
    *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    *          <p>You can pass a session tag with the same key as a tag that is already attached to the
    *          role. When you do, session tags override a role tag with the same key. </p>
    *          <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you
@@ -319,9 +300,10 @@ export interface AssumeRoleRequest {
   ProvidedContexts?: ProvidedContext[] | undefined;
 
   /**
-   * The minimum size, in bytes, of the session token that STS issues for the request. STS increases
-   *     the session token to at least this size, regardless of its actual content. The value must not
-   *     exceed 4,096 bytes. When set to 0 or not specified, the session token size is unchanged.
+   * <p>The minimum size, in bytes, of the session token that STS issues for the request. STS
+   *          increases the session token to at least this size, regardless of its actual content. The
+   *          value must not exceed 4,096 bytes. When set to 0 or not specified, the session token size is
+   *          unchanged.</p>
    * @public
    */
   MinimumSessionTokenSize?: number | undefined;
@@ -386,9 +368,9 @@ export interface AssumeRoleResponse {
   AssumedRoleUser?: AssumedRoleUser | undefined;
 
   /**
-   * <p>A percentage value that indicates the packed size of the session policies and session
-   *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
-   *       which means the policies and tags exceeded the allowed space.</p>
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
+   *          <p>This field is deprecated. Use <code>SessionTokenUtilization</code> instead.</p>
    *
    * @deprecated (since 2026-06-17) Deprecated. Replaced by SessionTokenUtilization.
    * @public
@@ -414,14 +396,15 @@ export interface AssumeRoleResponse {
   SourceIdentity?: string | undefined;
 
   /**
-   * The percentage (0-100) of the maximum allowed session token size that the returned session
-   *     token consumes.
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
    * @public
    */
   SessionTokenUtilization?: number | undefined;
 
   /**
-   * The size, in bytes, of the session token returned in the Credentials for this response.
+   * <p>The size, in bytes, of the session token returned in the Credentials for this
+   *          response.</p>
    * @public
    */
   SessionTokenSize?: number | undefined;
@@ -459,13 +442,6 @@ export interface AssumeRoleWithSAMLRequest {
    *          plaintext that you use for both inline and managed session policies can't exceed 2,048
    *          characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services
    *             Service Namespaces</a> in the Amazon Web Services General Reference.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    *          <p>Passing policies to this operation returns new
    *          temporary credentials. The resulting session's permissions are the intersection of the
    *          role's identity-based policy and the session policies. You can use the role's temporary
@@ -495,13 +471,6 @@ export interface AssumeRoleWithSAMLRequest {
    *          characters.</p>
    *          <p>For more information about role session permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
    *             policies</a>.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    * @public
    */
   Policy?: string | undefined;
@@ -533,12 +502,92 @@ export interface AssumeRoleWithSAMLRequest {
   DurationSeconds?: number | undefined;
 
   /**
-   * The minimum size, in bytes, of the session token that STS issues for the request. STS increases
-   *     the session token to at least this size, regardless of its actual content. The value must not
-   *     exceed 4,096 bytes. When set to 0 or not specified, the session token size is unchanged.
+   * <p>The minimum size, in bytes, of the session token that STS issues for the request. STS
+   *          increases the session token to at least this size, regardless of its actual content. The
+   *          value must not exceed 4,096 bytes. When set to 0 or not specified, the session token size is
+   *          unchanged.</p>
    * @public
    */
   MinimumSessionTokenSize?: number | undefined;
+}
+
+/**
+ * <p>The session's <code>aws:OriginIdentity/Subject</code>,
+ *             <code>aws:OriginIdentity/SubjectType</code>, <code>aws:OriginIdentity/Issuer</code> and
+ *             <code>aws:OriginIdentity/FederatedProviderArn</code> keys. A member is absent when the
+ *          session does not have the key.</p>
+ * @public
+ */
+export interface OriginIdentity {
+  /**
+   * <p>The value of the <code>aws:OriginIdentity/Subject</code> key: the end user's identifier,
+   *          taken from the token claim that the context provider maps as the subject.</p>
+   * @public
+   */
+  Subject?: string | undefined;
+
+  /**
+   * <p>The value of the <code>aws:OriginIdentity/SubjectType</code> key, which indicates whether
+   *          the end user is a person (<code>user</code>) or a non-human caller such as an application
+   *          or service (<code>workload</code>).</p>
+   * @public
+   */
+  SubjectType?: string | undefined;
+
+  /**
+   * <p>The value of the <code>aws:OriginIdentity/Issuer</code> key. For
+   *             <code>AssumeRoleWithWebIdentity</code>, this is the <code>iss</code> claim of the token
+   *          without the <code>https://</code> prefix. For <code>AssumeRoleWithSAML</code>, this is a
+   *          hash of the key that signed the SAML assertion, not the <code>Issuer</code> element of the
+   *          assertion.</p>
+   * @public
+   */
+  Issuer?: string | undefined;
+
+  /**
+   * <p>The value of the <code>aws:OriginIdentity/FederatedProviderArn</code> key: the ARN of
+   *          the IAM identity provider that the request federated through.</p>
+   * @public
+   */
+  FederatedProviderArn?: string | undefined;
+}
+
+/**
+ * <p>The session's <code>aws:TransactionContext/IdentityProvider/*</code> keys.</p>
+ * @public
+ */
+export interface TransactionContext {
+  /**
+   * <p>The session's <code>aws:TransactionContext/IdentityProvider/*</code> keys, keyed by the
+   *          part of the key name after <code>aws:TransactionContext/IdentityProvider/</code>. Each
+   *          value is up to 128 characters.</p>
+   *          <p>The number of entries is bounded twice. IAM limits how many keys a context provider
+   *          maps when you configure it on the identity provider, and Amazon Web Services STS rejects a
+   *          session whose session token exceeds the maximum size with
+   *             <code>PackedPolicyTooLarge</code>.</p>
+   * @public
+   */
+  IdentityProvider?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The trusted identity propagation context that Amazon Web Services STS set in a session
+ *          from the identity provider's token. A member is absent when the session has none of its
+ *          keys.</p>
+ * @public
+ */
+export interface TrustedIdentityPropagationContext {
+  /**
+   * <p>The identity of the end user on whose behalf the session acts.</p>
+   * @public
+   */
+  OriginIdentity?: OriginIdentity | undefined;
+
+  /**
+   * <p>Additional claims about the request that the identity provider asserted.</p>
+   * @public
+   */
+  TransactionContext?: TransactionContext | undefined;
 }
 
 /**
@@ -566,9 +615,9 @@ export interface AssumeRoleWithSAMLResponse {
   AssumedRoleUser?: AssumedRoleUser | undefined;
 
   /**
-   * <p>A percentage value that indicates the packed size of the session policies and session
-   *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
-   *       which means the policies and tags exceeded the allowed space.</p>
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
+   *          <p>This field is deprecated. Use <code>SessionTokenUtilization</code> instead.</p>
    *
    * @deprecated (since 2026-06-17) Deprecated. Replaced by SessionTokenUtilization.
    * @public
@@ -578,6 +627,9 @@ export interface AssumeRoleWithSAMLResponse {
   /**
    * <p>The value of the <code>NameID</code> element in the <code>Subject</code> element of the
    *          SAML assertion.</p>
+   *          <p>This is not the trusted identity propagation subject (<code>aws:OriginIdentity/Subject</code>).
+   *          When the session carries trusted identity propagation context, that value is returned in
+   *             <code>TrustedIdentityPropagationContext</code>.</p>
    * @public
    */
   Subject?: string | undefined;
@@ -591,12 +643,19 @@ export interface AssumeRoleWithSAMLResponse {
    *          example, <code>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</code> is returned as
    *             <code>transient</code>. If the format includes any other prefix, the format is returned
    *          with no modifications.</p>
+   *          <p>This is not the trusted identity propagation subject type
+   *             (<code>aws:OriginIdentity/SubjectType</code>). When the session carries trusted identity
+   *          propagation context, that value is returned in
+   *          <code>TrustedIdentityPropagationContext</code>.</p>
    * @public
    */
   SubjectType?: string | undefined;
 
   /**
    * <p>The value of the <code>Issuer</code> element of the SAML assertion.</p>
+   *          <p>This is not the trusted identity propagation issuer (<code>aws:OriginIdentity/Issuer</code>).
+   *          When the session carries trusted identity propagation context, that value is returned in
+   *             <code>TrustedIdentityPropagationContext</code>.</p>
    * @public
    */
   Issuer?: string | undefined;
@@ -654,17 +713,40 @@ export interface AssumeRoleWithSAMLResponse {
   SourceIdentity?: string | undefined;
 
   /**
-   * The percentage (0-100) of the maximum allowed session token size that the returned session
-   *     token consumes.
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
    * @public
    */
   SessionTokenUtilization?: number | undefined;
 
   /**
-   * The size, in bytes, of the session token returned in the Credentials for this response.
+   * <p>The size, in bytes, of the session token returned in the Credentials for this
+   *          response.</p>
    * @public
    */
   SessionTokenSize?: number | undefined;
+
+  /**
+   * <p>The trusted identity propagation context that Amazon Web Services STS set in the
+   *          session from the SAML assertion, through the context provider attached to the SAML
+   *          identity provider. It is present only when Amazon Web Services STS set such context in
+   *          the session. It contains the <code>aws:OriginIdentity/Subject</code>,
+   *             <code>aws:OriginIdentity/SubjectType</code>, <code>aws:OriginIdentity/Issuer</code> and
+   *             <code>aws:OriginIdentity/FederatedProviderArn</code> keys and the
+   *             <code>aws:TransactionContext/IdentityProvider/*</code> keys that Amazon Web Services STS
+   *          set in the session. Other keys in the session, such as
+   *             <code>aws:IdentityCenterInstanceArn</code> and <code>aws:IdentityStoreArn</code> for an
+   *          identity provider with an Identity Center instance attached, are not returned.</p>
+   *          <p>Its <code>OriginIdentity</code> members share the names <code>Subject</code>,
+   *             <code>SubjectType</code> and <code>Issuer</code> with members of this response but
+   *          carry the trusted identity propagation values, which differ from the SAML assertion
+   *          values.</p>
+   *          <p>It is not returned when the SAML assertion is encrypted, even though the session carries
+   *          the context.</p>
+   *          <p>This element contains information about the end user. Do not log it.</p>
+   * @public
+   */
+  TrustedIdentityPropagationContext?: TrustedIdentityPropagationContext | undefined;
 }
 
 /**
@@ -734,13 +816,6 @@ export interface AssumeRoleWithWebIdentityRequest {
    *          plaintext that you use for both inline and managed session policies can't exceed 2,048
    *          characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services
    *             Service Namespaces</a> in the Amazon Web Services General Reference.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    *          <p>Passing policies to this operation returns new
    *          temporary credentials. The resulting session's permissions are the intersection of the
    *          role's identity-based policy and the session policies. You can use the role's temporary
@@ -770,13 +845,6 @@ export interface AssumeRoleWithWebIdentityRequest {
    *          characters.</p>
    *          <p>For more information about role session permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
    *             policies</a>.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    * @public
    */
   Policy?: string | undefined;
@@ -805,9 +873,10 @@ export interface AssumeRoleWithWebIdentityRequest {
   DurationSeconds?: number | undefined;
 
   /**
-   * The minimum size, in bytes, of the session token that STS issues for the request. STS increases
-   *     the session token to at least this size, regardless of its actual content. The value must not
-   *     exceed 4,096 bytes. When set to 0 or not specified, the session token size is unchanged.
+   * <p>The minimum size, in bytes, of the session token that STS issues for the request. STS
+   *          increases the session token to at least this size, regardless of its actual content. The
+   *          value must not exceed 4,096 bytes. When set to 0 or not specified, the session token size is
+   *          unchanged.</p>
    * @public
    */
   MinimumSessionTokenSize?: number | undefined;
@@ -852,9 +921,9 @@ export interface AssumeRoleWithWebIdentityResponse {
   AssumedRoleUser?: AssumedRoleUser | undefined;
 
   /**
-   * <p>A percentage value that indicates the packed size of the session policies and session
-   *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
-   *       which means the policies and tags exceeded the allowed space.</p>
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
+   *          <p>This field is deprecated. Use <code>SessionTokenUtilization</code> instead.</p>
    *
    * @deprecated (since 2026-06-17) Deprecated. Replaced by SessionTokenUtilization.
    * @public
@@ -901,17 +970,34 @@ export interface AssumeRoleWithWebIdentityResponse {
   SourceIdentity?: string | undefined;
 
   /**
-   * The percentage (0-100) of the maximum allowed session token size that the returned session
-   *     token consumes.
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
    * @public
    */
   SessionTokenUtilization?: number | undefined;
 
   /**
-   * The size, in bytes, of the session token returned in the Credentials for this response.
+   * <p>The size, in bytes, of the session token returned in the Credentials for this
+   *          response.</p>
    * @public
    */
   SessionTokenSize?: number | undefined;
+
+  /**
+   * <p>The trusted identity propagation context that Amazon Web Services STS set in the
+   *          session from the web identity token, through the context provider attached to the OpenID
+   *          Connect identity provider. It is present only when Amazon Web Services STS set such
+   *          context in the session. It contains the <code>aws:OriginIdentity/Subject</code>,
+   *             <code>aws:OriginIdentity/SubjectType</code>, <code>aws:OriginIdentity/Issuer</code> and
+   *             <code>aws:OriginIdentity/FederatedProviderArn</code> keys and the
+   *             <code>aws:TransactionContext/IdentityProvider/*</code> keys that Amazon Web Services STS
+   *          set in the session. Other keys in the session, such as
+   *             <code>aws:IdentityCenterInstanceArn</code> and <code>aws:IdentityStoreArn</code> for an
+   *          identity provider with an Identity Center instance attached, are not returned.</p>
+   *          <p>This element contains information about the end user. Do not log it.</p>
+   * @public
+   */
+  TrustedIdentityPropagationContext?: TrustedIdentityPropagationContext | undefined;
 }
 
 /**
@@ -971,9 +1057,10 @@ export interface AssumeRootRequest {
   DurationSeconds?: number | undefined;
 
   /**
-   * The minimum size, in bytes, of the session token that STS issues for the request. STS increases
-   *     the session token to at least this size, regardless of its actual content. The value must not
-   *     exceed 4,096 bytes. When set to 0 or not specified, the session token size is unchanged.
+   * <p>The minimum size, in bytes, of the session token that STS issues for the request. STS
+   *          increases the session token to at least this size, regardless of its actual content. The
+   *          value must not exceed 4,096 bytes. When set to 0 or not specified, the session token size is
+   *          unchanged.</p>
    * @public
    */
   MinimumSessionTokenSize?: number | undefined;
@@ -1009,14 +1096,15 @@ export interface AssumeRootResponse {
   SourceIdentity?: string | undefined;
 
   /**
-   * The percentage (0-100) of the maximum allowed session token size that the returned session
-   *     token consumes.
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
    * @public
    */
   SessionTokenUtilization?: number | undefined;
 
   /**
-   * The size, in bytes, of the session token returned in the Credentials for this response.
+   * <p>The size, in bytes, of the session token returned in the Credentials for this
+   *          response.</p>
    * @public
    */
   SessionTokenSize?: number | undefined;
@@ -1127,9 +1215,8 @@ export interface GetDelegatedAccessTokenResponse {
   Credentials?: Credentials | undefined;
 
   /**
-   * <p>The percentage of the maximum policy size that is used by the session policy. The policy
-   *          size is calculated as the sum of all the session policies and permission boundaries
-   *          attached to the session. If the packed size exceeds 100%, the request fails.</p>
+   * <p>This field is deprecated. It is not populated for
+   *          <code>GetDelegatedAccessToken</code>.</p>
    *
    * @deprecated (since 2026-06-17) Deprecated. This field is not populated for GetDelegatedAccessToken.
    * @public
@@ -1184,13 +1271,6 @@ export interface GetFederationTokenRequest {
    *          character to the end of the valid character list (\u0020 through \u00FF). It can also
    *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
    *          characters.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    * @public
    */
   Policy?: string | undefined;
@@ -1218,13 +1298,6 @@ export interface GetFederationTokenRequest {
    *             <code>Principal</code> element of the policy, the session has the permissions allowed by
    *          the policy. These permissions are granted in addition to the permissions that are granted
    *          by the session policies.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    * @public
    */
   PolicyArns?: PolicyDescriptorType[] | undefined;
@@ -1248,13 +1321,6 @@ export interface GetFederationTokenRequest {
    *          tag keys can’t exceed 128 characters and the values can’t exceed 256 characters. For these
    *          and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
    *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    *          <p>You can pass a session tag with the same key as a tag that is already attached to the
    *          user you are federating. When you do, session tags override a user tag with the same key. </p>
    *          <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you
@@ -1268,9 +1334,10 @@ export interface GetFederationTokenRequest {
   Tags?: Tag[] | undefined;
 
   /**
-   * The minimum size, in bytes, of the session token that STS issues for the request. STS increases
-   *     the session token to at least this size, regardless of its actual content. The value must not
-   *     exceed 4,096 bytes. When set to 0 or not specified, the session token size is unchanged.
+   * <p>The minimum size, in bytes, of the session token that STS issues for the request. STS
+   *          increases the session token to at least this size, regardless of its actual content. The
+   *          value must not exceed 4,096 bytes. When set to 0 or not specified, the session token size is
+   *          unchanged.</p>
    * @public
    */
   MinimumSessionTokenSize?: number | undefined;
@@ -1324,9 +1391,9 @@ export interface GetFederationTokenResponse {
   FederatedUser?: FederatedUser | undefined;
 
   /**
-   * <p>A percentage value that indicates the packed size of the session policies and session
-   *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
-   *       which means the policies and tags exceeded the allowed space.</p>
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
+   *          <p>This field is deprecated. Use <code>SessionTokenUtilization</code> instead.</p>
    *
    * @deprecated (since 2026-06-17) Deprecated. Replaced by SessionTokenUtilization.
    * @public
@@ -1334,17 +1401,156 @@ export interface GetFederationTokenResponse {
   PackedPolicySize?: number | undefined;
 
   /**
-   * The percentage (0-100) of the maximum allowed session token size that the returned session
-   *     token consumes.
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
    * @public
    */
   SessionTokenUtilization?: number | undefined;
 
   /**
-   * The size, in bytes, of the session token returned in the Credentials for this response.
+   * <p>The size, in bytes, of the session token returned in the Credentials for this
+   *          response.</p>
    * @public
    */
   SessionTokenSize?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetScopedCredentialsRequest {
+  /**
+   * <p>An IAM policy in JSON format that you want to use as a scope down policy.</p>
+   *          <p>A request must provide at least one of <code>Policy</code> or <code>DurationSeconds</code>.
+   *       Both parameters are optional individually, but you must specify at least one of them.</p>
+   *          <p>The resulting session's permissions are the intersection of the calling session's existing
+   *       permissions and this scope down policy. You cannot use this scope down policy to grant more
+   *       permissions than the calling session already has.</p>
+   *          <p>The plaintext of the scope down policy cannot exceed 2,048 characters. The JSON policy
+   *       characters can be any ASCII character from the space character to the end of the valid
+   *       character list (\u0020 through \u00FF). It can also include the tab (\u0009), linefeed
+   *       (\u000A), and carriage return (\u000D) characters.</p>
+   *          <note>
+   *             <p>An internal conversion compresses the inline scope down policy into a packed binary
+   *         format that has a separate limit. If the packed policy exceeds this limit, the request fails
+   *         with <code>PackedPolicyTooLarge</code>.</p>
+   *             <p>If the document is not valid IAM policy JSON, the request fails with
+   *         <code>MalformedPolicyDocument</code>.</p>
+   *          </note>
+   * @public
+   */
+  Policy?: string | undefined;
+
+  /**
+   * <p>The duration, in seconds, of the resulting scoped down credentials. The value can range
+   *       from 1 second to 129,600 seconds (36 hours).</p>
+   *          <p>If you do not specify this value, the scoped down credentials will inherit the calling
+   *       session's expiration time.</p>
+   * @public
+   */
+  DurationSeconds?: number | undefined;
+
+  /**
+   * <p>The minimum size, in bytes, of the session token that STS issues for the request. STS
+   *          increases the session token to at least this size, regardless of its actual content. The
+   *          value must not exceed 4,096 bytes. When set to 0 or not specified, the session token size is
+   *          unchanged.</p>
+   * @public
+   */
+  MinimumSessionTokenSize?: number | undefined;
+
+  /**
+   * <p>A caller-supplied description of the scoped session. The value cannot exceed 256
+   *       characters. This description is logged to CloudTrail for the request, so you can use it to
+   *       record the purpose of the scoped session.</p>
+   * @public
+   */
+  ScopedSessionDescription?: string | undefined;
+}
+
+/**
+ * <p>Identifiers for the scoped session that <code>GetScopedCredentials</code> returns. The
+ *       underlying identity and session name do not change from the caller principal.</p>
+ * @public
+ */
+export interface ScopedSession {
+  /**
+   * <p>A unique identifier for the scoped session. Because the identity is preserved, this
+   *          identifies the same principal as the calling session.</p>
+   * @public
+   */
+  ScopedSessionId: string | undefined;
+
+  /**
+   * <p>The ARN of the scoped session. For more information about ARNs and how to use them in
+   *          policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
+   *          <i>IAM User Guide</i>.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * <p>Contains the response to a successful <a>GetScopedCredentials</a> request,
+ *          including the scoped-down temporary Amazon Web Services credentials and metadata about the resulting
+ *          session.</p>
+ * @public
+ */
+export interface GetScopedCredentialsResponse {
+  /**
+   * <p>The temporary security credentials for the scoped down session, which include an access
+   *       key ID, a secret access key, and a security token.</p>
+   *          <note>
+   *             <p>The size of the security token that STS API operations return is not fixed. We
+   *         strongly recommend that you make no assumptions about the maximum size.</p>
+   *          </note>
+   * @public
+   */
+  Credentials?: Credentials | undefined;
+
+  /**
+   * <p>Metadata about the resulting scoped session, including its identifier and ARN. Because the
+   *       identity does not change, the identifiers reflect the same principal and session name as the
+   *       calling session.</p>
+   * @public
+   */
+  SessionInfo?: ScopedSession | undefined;
+
+  /**
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
+   * @public
+   */
+  SessionTokenUtilization?: number | undefined;
+
+  /**
+   * <p>The size, in bytes, of the session token returned in the Credentials for this
+   *          response.</p>
+   * @public
+   */
+  SessionTokenSize?: number | undefined;
+
+  /**
+   * <p>
+   *             <code>GetScopedCredentials</code> can be called recursively and
+   *       <code>ScopedPoliciesCount</code> specifies the number of scope down policies applied to the
+   *       session. Each recursive call adds another scope down policy layer. A maximum of 3 scope down
+   *       policy layers are allowed per session. If a session already has 3
+   *       <code>GetScopedCredentials</code> scope-down policies, a subsequent
+   *       <code>GetScopedCredentials</code> call that supplies a <code>Policy</code> (attempting to
+   *       append a fourth scope-down policy) is denied.</p>
+   * @public
+   */
+  ScopedPoliciesCount?: number | undefined;
+
+  /**
+   * <p>The source identity of the calling session, carried forward unchanged. This operation
+   *       never sets or modifies the source identity; it reflects the value established when the source
+   *       identity was first set. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control
+   *         actions taken with assumed roles</a> in the IAM User Guide.</p>
+   * @public
+   */
+  SourceIdentity?: string | undefined;
 }
 
 /**
@@ -1387,9 +1593,10 @@ export interface GetSessionTokenRequest {
   TokenCode?: string | undefined;
 
   /**
-   * The minimum size, in bytes, of the session token that STS issues for the request. STS increases
-   *     the session token to at least this size, regardless of its actual content. The value must not
-   *     exceed 4,096 bytes. When set to 0 or not specified, the session token size is unchanged.
+   * <p>The minimum size, in bytes, of the session token that STS issues for the request. STS
+   *          increases the session token to at least this size, regardless of its actual content. The
+   *          value must not exceed 4,096 bytes. When set to 0 or not specified, the session token size is
+   *          unchanged.</p>
    * @public
    */
   MinimumSessionTokenSize?: number | undefined;
@@ -1413,14 +1620,15 @@ export interface GetSessionTokenResponse {
   Credentials?: Credentials | undefined;
 
   /**
-   * The percentage (0-100) of the maximum allowed session token size that the returned session
-   *     token consumes.
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
    * @public
    */
   SessionTokenUtilization?: number | undefined;
 
   /**
-   * The size, in bytes, of the session token returned in the Credentials for this response.
+   * <p>The size, in bytes, of the session token returned in the Credentials for this
+   *          response.</p>
    * @public
    */
   SessionTokenSize?: number | undefined;
@@ -1455,6 +1663,59 @@ export interface GetWebIdentityTokenRequest {
   SigningAlgorithm: string | undefined;
 
   /**
+   * <p>One or more OAuth 2.0 scope values to include in the JSON Web Token (JWT). Amazon Web Services STS copies the
+   *          value exactly as you send it into the top-level <code>scope</code> claim of the token. If you don't
+   *          specify <code>Scope</code>, the token doesn't include a <code>scope</code> claim.</p>
+   *          <p>Separate multiple values with a single space, as defined in <a href="https://www.rfc-editor.org/rfc/rfc6749#section-3.3">RFC 6749, section 3.3</a> on the IETF
+   *          website. Don't begin or end <code>Scope</code> with a space. Each scope value can contain printable
+   *          ASCII characters except spaces, double quotation marks (<code>"</code>), commas (<code>,</code>), and
+   *          backslashes (<code>\</code>).</p>
+   *          <p>You can't repeat a scope value. Scope values are case sensitive. This means that
+   *             <code>read</code> and <code>READ</code> are separate values.</p>
+   *          <p>You can specify <code>Scope</code> only when <code>SubjectMode</code> is <code>OriginIdentity</code>
+   *          and you request exactly one audience. To specify <code>Scope</code>, the calling principal must have
+   *          permission for the <code>sts:SetWebIdentityTokenScope</code> action in addition to
+   *             <code>sts:GetWebIdentityToken</code>. You can use the multivalued
+   *          <code>sts:IdentityTokenScope</code> condition key in a policy to control which scope values a principal
+   *          can request.</p>
+   * @public
+   */
+  Scope?: string | undefined;
+
+  /**
+   * <p>Specifies which identity STS puts in the <code>sub</code> (subject) claim of the JSON Web Token
+   *          (JWT). Valid values are <code>AWSIdentity</code> and <code>OriginIdentity</code>. If you don't specify a
+   *          value, Amazon Web Services STS uses <code>AWSIdentity</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWSIdentity</code> – The <code>sub</code> claim contains the ARN of the calling Amazon Web Services principal.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginIdentity</code> – The <code>sub</code> claim contains the value of the
+   *                   <code>aws:OriginIdentity/Subject</code> key in the trusted identity propagation context of the
+   *                calling session. For example, this can identify the human user or workload on whose behalf the calling
+   *                session acts.
+   *                Amazon Web Services STS also adds a <code>subject_mode</code> claim to the token.</p>
+   *                <p>To use <code>OriginIdentity</code>, the trusted identity propagation context of the calling
+   *                session must contain the <code>aws:OriginIdentity/Subject</code> key and either the
+   *                   <code>aws:OriginIdentity/Issuer</code> key or the
+   *                   <code>aws:OriginIdentity/FederatedProviderArn</code> key. If it doesn't, or if the subject is
+   *                blank, Amazon Web Services STS rejects the request with a validation error.</p>
+   *                <p>Amazon Web Services STS denies the request if the subject begins with the text <code>arn:</code>, in any
+   *                combination of uppercase and lowercase letters. Amazon Web Services STS also denies the request if the subject
+   *                begins or ends with a space, or contains a control, format, or separator character other than a
+   *                space.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can use the <code>sts:SubjectMode</code> condition key in a policy to control which subject
+   *          modes a principal can request.</p>
+   * @public
+   */
+  SubjectMode?: WebIdentityTokenSubjectModeType | undefined;
+
+  /**
    * <p>An optional list of tags to include in the JSON Web Token (JWT). These tags are added as custom
    *          claims to the JWT and can be used by the downstream service for authorization decisions. </p>
    * @public
@@ -1467,9 +1728,12 @@ export interface GetWebIdentityTokenRequest {
  */
 export interface GetWebIdentityTokenResponse {
   /**
-   * <p>A signed JSON Web Token (JWT) that represents the caller's Amazon Web Services identity. The token contains
+   * <p>A signed JSON Web Token (JWT) that represents the caller's Amazon Web Services identity or, if you set
+   *             <code>SubjectMode</code> to <code>OriginIdentity</code>, the human user or workload on whose behalf the
+   *          calling session acts. The token contains
    *          standard JWT claims such as subject, audience, expiration time, and additional identity attributes
-   *          added by STS as custom claims. You can also add your own custom claims to the token by passing tags
+   *          added by STS as custom claims. These can include the <code>principal_id</code> claim, which contains the ARN of
+   *          the principal that requested the token, whichever subject mode you use. You can also add your own custom claims to the token by passing tags
    *          as request parameters to the <code>GetWebIdentityToken</code> API. The token is signed using the specified signing
    *          algorithm and can be verified using the verification keys available at the issuer's JWKS endpoint.</p>
    * @public

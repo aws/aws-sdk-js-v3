@@ -42,6 +42,10 @@ import {
   GetFederationTokenCommand,
   GetFederationTokenRequest$,
   GetFederationTokenResponse$,
+  GetScopedCredentials$,
+  GetScopedCredentialsCommand,
+  GetScopedCredentialsRequest$,
+  GetScopedCredentialsResponse$,
   GetSessionToken$,
   GetSessionTokenCommand,
   GetSessionTokenRequest$,
@@ -54,14 +58,21 @@ import {
   IDPCommunicationErrorException$,
   IDPRejectedClaimException,
   IDPRejectedClaimException$,
+  InsufficientSessionLifetimeException,
+  InsufficientSessionLifetimeException$,
   InvalidAuthorizationMessageException,
   InvalidAuthorizationMessageException$,
+  InvalidContextAssertionException,
+  InvalidContextAssertionException$,
   InvalidIdentityTokenException,
   InvalidIdentityTokenException$,
+  InvalidSubjectCredentialsException,
+  InvalidSubjectCredentialsException$,
   JWTPayloadSizeExceededException,
   JWTPayloadSizeExceededException$,
   MalformedPolicyDocumentException,
   MalformedPolicyDocumentException$,
+  OriginIdentity$,
   OutboundWebIdentityFederationDisabledException,
   OutboundWebIdentityFederationDisabledException$,
   PackedPolicyTooLargeException,
@@ -70,12 +81,16 @@ import {
   ProvidedContext$,
   RegionDisabledException,
   RegionDisabledException$,
+  ScopedSession$,
   SessionDurationEscalationException,
   SessionDurationEscalationException$,
   STS,
   STSClient,
   STSServiceException,
   Tag$,
+  TransactionContext$,
+  TrustedIdentityPropagationContext$,
+  WebIdentityTokenSubjectModeType,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -100,6 +115,8 @@ assert(typeof GetDelegatedAccessTokenCommand === "function");
 assert(typeof GetDelegatedAccessToken$ === "object");
 assert(typeof GetFederationTokenCommand === "function");
 assert(typeof GetFederationToken$ === "object");
+assert(typeof GetScopedCredentialsCommand === "function");
+assert(typeof GetScopedCredentials$ === "object");
 assert(typeof GetSessionTokenCommand === "function");
 assert(typeof GetSessionToken$ === "object");
 assert(typeof GetWebIdentityTokenCommand === "function");
@@ -126,13 +143,21 @@ assert(typeof GetDelegatedAccessTokenRequest$ === "object");
 assert(typeof GetDelegatedAccessTokenResponse$ === "object");
 assert(typeof GetFederationTokenRequest$ === "object");
 assert(typeof GetFederationTokenResponse$ === "object");
+assert(typeof GetScopedCredentialsRequest$ === "object");
+assert(typeof GetScopedCredentialsResponse$ === "object");
 assert(typeof GetSessionTokenRequest$ === "object");
 assert(typeof GetSessionTokenResponse$ === "object");
 assert(typeof GetWebIdentityTokenRequest$ === "object");
 assert(typeof GetWebIdentityTokenResponse$ === "object");
+assert(typeof OriginIdentity$ === "object");
 assert(typeof PolicyDescriptorType$ === "object");
 assert(typeof ProvidedContext$ === "object");
+assert(typeof ScopedSession$ === "object");
 assert(typeof Tag$ === "object");
+assert(typeof TransactionContext$ === "object");
+assert(typeof TrustedIdentityPropagationContext$ === "object");
+// enums
+assert(typeof WebIdentityTokenSubjectModeType === "object");
 // errors
 assert(ExpiredTokenException.prototype instanceof STSServiceException);
 assert(typeof ExpiredTokenException$ === "object");
@@ -142,10 +167,16 @@ assert(IDPCommunicationErrorException.prototype instanceof STSServiceException);
 assert(typeof IDPCommunicationErrorException$ === "object");
 assert(IDPRejectedClaimException.prototype instanceof STSServiceException);
 assert(typeof IDPRejectedClaimException$ === "object");
+assert(InsufficientSessionLifetimeException.prototype instanceof STSServiceException);
+assert(typeof InsufficientSessionLifetimeException$ === "object");
 assert(InvalidAuthorizationMessageException.prototype instanceof STSServiceException);
 assert(typeof InvalidAuthorizationMessageException$ === "object");
+assert(InvalidContextAssertionException.prototype instanceof STSServiceException);
+assert(typeof InvalidContextAssertionException$ === "object");
 assert(InvalidIdentityTokenException.prototype instanceof STSServiceException);
 assert(typeof InvalidIdentityTokenException$ === "object");
+assert(InvalidSubjectCredentialsException.prototype instanceof STSServiceException);
+assert(typeof InvalidSubjectCredentialsException$ === "object");
 assert(JWTPayloadSizeExceededException.prototype instanceof STSServiceException);
 assert(typeof JWTPayloadSizeExceededException$ === "object");
 assert(MalformedPolicyDocumentException.prototype instanceof STSServiceException);

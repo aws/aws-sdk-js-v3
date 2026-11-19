@@ -23,9 +23,14 @@ export interface GetWebIdentityTokenCommandInput extends GetWebIdentityTokenRequ
 export interface GetWebIdentityTokenCommandOutput extends GetWebIdentityTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a signed JSON Web Token (JWT) that represents the calling Amazon Web Services identity.
- *          The returned JWT can be used to authenticate with external services that support OIDC discovery.
+ * <p>Returns a signed JSON Web Token (JWT) that represents the calling Amazon Web Services identity or, if you set
+ *             <code>SubjectMode</code> to <code>OriginIdentity</code>, the human user or workload on whose behalf the
+ *          calling session acts. The returned JWT can be used to authenticate with external services that support OIDC discovery.
  *          The token is signed by Amazon Web Services STS and can be publicly verified using the verification keys published at the issuer's JWKS endpoint.</p>
+ *          <p>The <code>sub</code> (subject) claim contains the identity that <code>SubjectMode</code> selects. Whichever
+ *          subject mode you use, the <code>principal_id</code> claim under the <code>https://sts.amazonaws.com/</code>
+ *          namespace contains the ARN of the principal that requested the token, when that principal has an ARN. For a
+ *          role session, this is the ARN of the role.</p>
  *          <note>
  *             <p>The <code>GetWebIdentityToken</code> API is not available on the STS Global endpoint.</p>
  *          </note>
@@ -43,6 +48,8 @@ export interface GetWebIdentityTokenCommandOutput extends GetWebIdentityTokenRes
  *   ],
  *   DurationSeconds: Number("int"),
  *   SigningAlgorithm: "STRING_VALUE", // required
+ *   Scope: "STRING_VALUE",
+ *   SubjectMode: "AWSIdentity" || "OriginIdentity",
  *   Tags: [ // tagListType
  *     { // Tag
  *       Key: "STRING_VALUE", // required

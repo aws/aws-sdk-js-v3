@@ -81,6 +81,10 @@ import type {
   GetFederationTokenCommandInput,
   GetFederationTokenCommandOutput,
 } from "./commands/GetFederationTokenCommand";
+import type {
+  GetScopedCredentialsCommandInput,
+  GetScopedCredentialsCommandOutput,
+} from "./commands/GetScopedCredentialsCommand";
 import type { GetSessionTokenCommandInput, GetSessionTokenCommandOutput } from "./commands/GetSessionTokenCommand";
 import type {
   GetWebIdentityTokenCommandInput,
@@ -110,6 +114,7 @@ export type ServiceInputTypes =
   | GetCallerIdentityCommandInput
   | GetDelegatedAccessTokenCommandInput
   | GetFederationTokenCommandInput
+  | GetScopedCredentialsCommandInput
   | GetSessionTokenCommandInput
   | GetWebIdentityTokenCommandInput;
 
@@ -126,6 +131,7 @@ export type ServiceOutputTypes =
   | GetCallerIdentityCommandOutput
   | GetDelegatedAccessTokenCommandOutput
   | GetFederationTokenCommandOutput
+  | GetScopedCredentialsCommandOutput
   | GetSessionTokenCommandOutput
   | GetWebIdentityTokenCommandOutput;
 

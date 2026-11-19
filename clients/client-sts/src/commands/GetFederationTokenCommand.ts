@@ -64,7 +64,8 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *                limitation does not apply to console sessions.</p>
  *             </li>
  *             <li>
- *                <p>You cannot call any STS operations except <code>GetCallerIdentity</code>.</p>
+ *                <p>You cannot call any STS operations except <code>GetCallerIdentity</code>,
+ *                <code>GetScopedCredentials</code>, or <code>GetDelegatedAccessToken</code>.</p>
  *             </li>
  *          </ul>
  *          <p>You can use temporary credentials for single sign-on (SSO) to the console.</p>
@@ -168,14 +169,14 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *             describes the specific error.</p>
  *
  * @throws {@link PackedPolicyTooLargeException} (client fault)
- *  <p>The request was rejected because the total packed size of the session policies and
- *             session tags combined was too large. An Amazon Web Services conversion compresses the session policy
- *             document, session policy ARNs, and session tags into a packed binary format that has a
- *             separate limit. The error message indicates by percentage how close the policies and
- *             tags are to the upper size limit. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
+ *  <p>The request was rejected because the session token exceeded the maximum allowed size.
+ *             The error message reports the session token size and the maximum allowed size, both in
+ *             bytes. Session policies and session tags add to the session token size. For more
+ *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
  *             the <i>IAM User Guide</i>.</p>
- *          <p>You could receive this error even though you meet other defined session policy and
- *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity Character Limits</a> in the <i>IAM User
+ *          <p>You might receive this error even though you meet the individual session policy and
+ *             session tag limits. Monitor <code>SessionTokenUtilization</code> to track how close the
+ *             session token is to the maximum allowed size. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity Character Limits</a> in the <i>IAM User
  *                 Guide</i>.</p>
  *
  * @throws {@link RegionDisabledException} (client fault)

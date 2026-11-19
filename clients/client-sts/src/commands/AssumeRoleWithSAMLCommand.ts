@@ -106,13 +106,6 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *          characters and the values can’t exceed 256 characters. For these and additional limits, see
  *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
  *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
- *          <note>
- *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
- *             and session tags into a packed binary format that has a separate limit. Your request can
- *             fail for this limit even if your plaintext meets the other requirements. The
- *                <code>PackedPolicySize</code> response element indicates by percentage how close the
- *             policies and tags for your request are to the upper size limit.</p>
- *          </note>
  *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
  *          you do, session tags override the role's tags with the same key.</p>
  *          <p>An administrator must grant you the permissions necessary to pass session tags. The
@@ -199,6 +192,19 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  * //   SourceIdentity: "STRING_VALUE",
  * //   SessionTokenUtilization: Number("int"),
  * //   SessionTokenSize: Number("int"),
+ * //   TrustedIdentityPropagationContext: { // TrustedIdentityPropagationContext
+ * //     OriginIdentity: { // OriginIdentity
+ * //       Subject: "STRING_VALUE",
+ * //       SubjectType: "STRING_VALUE",
+ * //       Issuer: "STRING_VALUE",
+ * //       FederatedProviderArn: "STRING_VALUE",
+ * //     },
+ * //     TransactionContext: { // TransactionContext
+ * //       IdentityProvider: { // transactionContextIdentityProviderMapType
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```
@@ -228,14 +234,14 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *             describes the specific error.</p>
  *
  * @throws {@link PackedPolicyTooLargeException} (client fault)
- *  <p>The request was rejected because the total packed size of the session policies and
- *             session tags combined was too large. An Amazon Web Services conversion compresses the session policy
- *             document, session policy ARNs, and session tags into a packed binary format that has a
- *             separate limit. The error message indicates by percentage how close the policies and
- *             tags are to the upper size limit. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
+ *  <p>The request was rejected because the session token exceeded the maximum allowed size.
+ *             The error message reports the session token size and the maximum allowed size, both in
+ *             bytes. Session policies and session tags add to the session token size. For more
+ *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
  *             the <i>IAM User Guide</i>.</p>
- *          <p>You could receive this error even though you meet other defined session policy and
- *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity Character Limits</a> in the <i>IAM User
+ *          <p>You might receive this error even though you meet the individual session policy and
+ *             session tag limits. Monitor <code>SessionTokenUtilization</code> to track how close the
+ *             session token is to the maximum allowed size. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity Character Limits</a> in the <i>IAM User
  *                 Guide</i>.</p>
  *
  * @throws {@link RegionDisabledException} (client fault)

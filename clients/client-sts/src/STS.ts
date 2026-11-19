@@ -48,6 +48,11 @@ import {
   GetFederationTokenCommand,
 } from "./commands/GetFederationTokenCommand";
 import {
+  type GetScopedCredentialsCommandInput,
+  type GetScopedCredentialsCommandOutput,
+  GetScopedCredentialsCommand,
+} from "./commands/GetScopedCredentialsCommand";
+import {
   type GetSessionTokenCommandInput,
   type GetSessionTokenCommandOutput,
   GetSessionTokenCommand,
@@ -69,6 +74,7 @@ const commands = {
   GetCallerIdentityCommand,
   GetDelegatedAccessTokenCommand,
   GetFederationTokenCommand,
+  GetScopedCredentialsCommand,
   GetSessionTokenCommand,
   GetWebIdentityTokenCommand,
 };
@@ -233,6 +239,24 @@ export interface STS {
     args: GetFederationTokenCommandInput,
     options: STSRequestOptions,
     cb: (err: any, data?: GetFederationTokenCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetScopedCredentialsCommand}
+   */
+  getScopedCredentials(): Promise<GetScopedCredentialsCommandOutput>;
+  getScopedCredentials(
+    args: GetScopedCredentialsCommandInput,
+    options?: STSRequestOptions
+  ): Promise<GetScopedCredentialsCommandOutput>;
+  getScopedCredentials(
+    args: GetScopedCredentialsCommandInput,
+    cb: (err: any, data?: GetScopedCredentialsCommandOutput) => void
+  ): void;
+  getScopedCredentials(
+    args: GetScopedCredentialsCommandInput,
+    options: STSRequestOptions,
+    cb: (err: any, data?: GetScopedCredentialsCommandOutput) => void
   ): void;
 
   /**
