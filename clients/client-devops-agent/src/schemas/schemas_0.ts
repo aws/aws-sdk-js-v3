@@ -246,6 +246,10 @@ const _NRAKC = "NewRelicApiKeyConfig";
 const _NRSAC = "NewRelicServiceAuthorizationConfig";
 const _NRSD = "NewRelicServiceDetails";
 const _OAASD = "OAuthAdditionalStepDetails";
+const _OSDS = "OrgSourceDeploymentState";
+const _OSI = "OrgSourceIssue";
+const _OSIL = "OrgSourceIssueList";
+const _OSIM = "OrgSourceIssueMessage";
 const _PCM = "PrivateConnectionMode";
 const _PCS = "PrivateConnectionSummary";
 const _PCSL = "PrivateConnectionSummaryList";
@@ -293,6 +297,8 @@ const _RSSD = "RegisteredSlackServiceDetails";
 const _RSe = "RegisterService";
 const _Re = "Recurrence";
 const _SAC = "SourceAwsConfiguration";
+const _SAOC = "SourceAwsOrgConfiguration";
+const _SAOU = "SourceAwsOrgUnit";
 const _SBC = "SlackBidirectionalConfiguration";
 const _SC = "ScheduleCondition";
 const _SCe = "ServiceConfiguration";
@@ -396,6 +402,7 @@ const _WS = "WebhookSecret";
 const _a = "action";
 const _aA = "approvalAction";
 const _aC = "authorizationConfig";
+const _aCc = "accountCount";
 const _aCd = "additionalContext";
 const _aD = "authorizationDiscovery";
 const _aERA = "agentElevatedRoleArn";
@@ -404,6 +411,7 @@ const _aF = "authFlow";
 const _aH = "authorizationHeader";
 const _aI = "approvalId";
 const _aIc = "accountId";
+const _aIcc = "accountIds";
 const _aIp = "applicationIds";
 const _aIs = "assetId";
 const _aIss = "associationId";
@@ -422,6 +430,7 @@ const _aS = "archiveStatus";
 const _aSA = "agentSpaceArn";
 const _aSD = "additionalServiceDetails";
 const _aSI = "agentSpaceId";
+const _aSM = "awsSourceMode";
 const _aST = "agentSubTask";
 const _aSd = "additionalStep";
 const _aSg = "agentSpace";
@@ -471,9 +480,11 @@ const _cond = "condition";
 const _cont = "context";
 const _cr = "cron";
 const _d = "description";
+const _dAC = "deployedAccountCount";
 const _dOM = "dayOfMonth";
 const _dOW = "dayOfWeek";
 const _dR = "dnsResolution";
+const _dS = "deploymentState";
 const _da = "daily";
 const _de = "delta";
 const _dy = "dynatrace";
@@ -538,6 +549,7 @@ const _id = "idc";
 const _id_ = "id";
 const _idp = "idp";
 const _in = "index";
+const _is = "issues";
 const _it = "items";
 const _jD = "jsonDelta";
 const _kKA = "kmsKeyArn";
@@ -583,6 +595,8 @@ const _oOT = "opsOncallTarget";
 const _oSRET = "opsSRETarget";
 const _oT = "ownerType";
 const _oTu = "outputTokens";
+const _oU = "organizationalUnit";
+const _oUI = "organizationalUnitId";
 const _oa = "oauth";
 const _ob = "objectives";
 const _or = "order";
@@ -607,9 +621,10 @@ const _r = "reason";
 const _rA = "resourceArn";
 const _rAa = "rankedAt";
 const _rAo = "roleArn";
-const _rC = "responseCreated";
+const _rC = "reasonCode";
 const _rCI = "resourceConfigurationId";
-const _rCe = "responseCompleted";
+const _rCe = "responseCreated";
+const _rCes = "responseCompleted";
 const _rF = "responseFailed";
 const _rGI = "resourceGatewayId";
 const _rI = "recommendationId";
@@ -638,6 +653,7 @@ const _remo = "remoteagentsigv4";
 const _res = "resources";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.devopsagent";
 const _sA = "startAfter";
+const _sAO = "sourceAwsOrg";
 const _sAo = "sourceAws";
 const _sB = "startBefore";
 const _sCC = "supportCodeChallenge";
@@ -648,6 +664,7 @@ const _sI = "serviceId";
 const _sIu = "subscriptionId";
 const _sIub = "subnetIds";
 const _sM = "supportMetadata";
+const _sMRA = "serviceManagementRoleArn";
 const _sMe = "serviceManaged";
 const _sMel = "selfManaged";
 const _sN = "sequenceNumber";
@@ -844,12 +861,13 @@ var ExchangeParameterValue: StaticSimpleSchema = [0, n0, _EPV, 8, 0];
 var GitLabTokenValue: StaticSimpleSchema = [0, n0, _GLTV, 8, 0];
 var IdpClientSecret: StaticSimpleSchema = [0, n0, _ICS, 8, 0];
 var NewRelicApiKey: StaticSimpleSchema = [0, n0, _NRAK, 8, 0];
+var OrgSourceIssueMessage: StaticSimpleSchema = [0, n0, _OSIM, 8, 0];
 var TokenValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 var WebhookSecret: StaticSimpleSchema = [0, n0, _WS, 8, 0];
 export var AgentSpace$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_n, _cA, _uA, _aSI, _d, _l, _kKA, _p],
-  [0, 5, 5, 0, [() => Description, 0], 0, 0, 128 | 2], 4
+  [_n, _cA, _uA, _aSI, _d, _l, _kKA, _p, _aSM],
+  [0, 5, 5, 0, [() => Description, 0], 0, 0, 128 | 2, 0], 4
 ];
 export var ApprovalAction$: StaticStructureSchema = [3, n0, _AA,
   0,
@@ -918,8 +936,8 @@ export var Association$: StaticStructureSchema = [3, n0, _As,
 ];
 export var AWSConfiguration$: StaticStructureSchema = [3, n0, _AWSC,
   0,
-  [_aRA, _aIc, _aTc, _aERA, _aERAS],
-  [0, 0, 0, 0, 0], 3
+  [_aRA, _aIc, _aTc, _aERA, _aERAS, _sMRA],
+  [0, 0, 0, 0, 0, 0], 3
 ];
 export var AzureConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
@@ -943,8 +961,8 @@ export var ChatExecution$: StaticStructureSchema = [3, n0, _CEh,
 ];
 export var CreateAgentSpaceInput$: StaticStructureSchema = [3, n0, _CASI,
   0,
-  [_n, _d, _l, _kKA, _cT, _ta, _p],
-  [0, [() => Description, 0], 0, 0, [0, 4], 128 | 0, 128 | 2], 1
+  [_n, _d, _l, _kKA, _cT, _ta, _p, _aSM],
+  [0, [() => Description, 0], 0, 0, [0, 4], 128 | 0, 128 | 2, 0], 1
 ];
 export var CreateAgentSpaceOutput$: StaticStructureSchema = [3, n0, _CASO,
   0,
@@ -1636,6 +1654,16 @@ export var OAuthAdditionalStepDetails$: StaticStructureSchema = [3, n0, _OAASD,
   [_aUu],
   [0], 1
 ];
+export var OrgSourceDeploymentState$: StaticStructureSchema = [3, n0, _OSDS,
+  0,
+  [_dAC, _is, _lEA],
+  [1, [() => OrgSourceIssueList, 0], 5]
+];
+export var OrgSourceIssue$: StaticStructureSchema = [3, n0, _OSI,
+  0,
+  [_rC, _aCc, _aIcc, _m],
+  [0, 1, 64 | 0, [() => OrgSourceIssueMessage, 0]], 3
+];
 export var PagerDutyConfiguration$: StaticStructureSchema = [3, n0, _PDC,
   0,
   [_serv, _cE],
@@ -1946,6 +1974,16 @@ export var SourceAwsConfiguration$: StaticStructureSchema = [3, n0, _SAC,
   [_aIc, _aTc, _aRA, _eIx, _aERA, _aERAS],
   [0, 0, 0, 0, 0, 0], 3
 ];
+export var SourceAwsOrgConfiguration$: StaticStructureSchema = [3, n0, _SAOC,
+  0,
+  [_aTc, _oU, _dS],
+  [0, () => SourceAwsOrgUnit$, [() => OrgSourceDeploymentState$, 0]], 2
+];
+export var SourceAwsOrgUnit$: StaticStructureSchema = [3, n0, _SAOU,
+  0,
+  [_oUI, _aIcc],
+  [0, 64 | 0], 1
+];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _ta],
@@ -1993,8 +2031,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateAgentSpaceInput$: StaticStructureSchema = [3, n0, _UASI,
   0,
-  [_aSI, _n, _d, _l, _p],
-  [[0, 1], 0, [() => Description, 0], 0, 128 | 2], 1
+  [_aSI, _n, _d, _l, _p, _aSM],
+  [[0, 1], 0, [() => Description, 0], 0, 128 | 2, 0], 1
 ];
 export var UpdateAgentSpaceOutput$: StaticStructureSchema = [3, n0, _UASO,
   0,
@@ -2147,6 +2185,7 @@ export var WeeklyRecurrence$: StaticStructureSchema = [3, n0, _WR,
   [0], 1
 ];
 var __Unit = "unit" as const;
+var AccountIdList = 64 | 0;
 var AgentSpaceList: StaticListSchema = [1, n0, _ASL,
   0, [() => AgentSpace$,
     0]
@@ -2195,6 +2234,10 @@ var MCPToolsList = 64 | 0;
 var NewRelicAlertPolicyIds = 64 | 0;
 var NewRelicApplicationIds = 64 | 0;
 var NewRelicEntityGuids = 64 | 0;
+var OrgSourceIssueList: StaticListSchema = [1, n0, _OSIL,
+  0, [() => OrgSourceIssue$,
+    0]
+];
 var PagerDutyScopes = 64 | 0;
 var PagerDutyScopesList = 64 | 0;
 var PagerDutyServicesList = 64 | 0;
@@ -2344,13 +2387,13 @@ export var SendMessageContentBlockDelta$: StaticUnionSchema = [4, n0, _SMCBD,
 ];
 export var SendMessageEvents$: StaticUnionSchema = [4, n0, _SME,
   { [_str]: 1 },
-  [_rC, _rIP, _rCe, _rF, _su, _he, _cBS, _cBD, _cBSo],
+  [_rCe, _rIP, _rCes, _rF, _su, _he, _cBS, _cBD, _cBSo],
   [() => SendMessageResponseCreatedEvent$, () => SendMessageResponseInProgressEvent$, () => SendMessageResponseCompletedEvent$, () => SendMessageResponseFailedEvent$, () => SendMessageSummaryEvent$, () => SendMessageHeartbeatEvent$, () => SendMessageContentBlockStartEvent$, () => SendMessageContentBlockDeltaEvent$, () => SendMessageContentBlockStopEvent$]
 ];
 export var ServiceConfiguration$: StaticUnionSchema = [4, n0, _SCe,
   0,
-  [_sAo, _aw, _gi, _sl, _dy, _servi, _mcpse, _mc, _mcp, _git, _mcps, _eCv, _azur, _az, _mcpser, _pag, _mcpserv, _rem, _remo, _ms, _rM],
-  [() => SourceAwsConfiguration$, () => AWSConfiguration$, () => GitHubConfiguration$, () => SlackConfiguration$, () => DynatraceConfiguration$, () => ServiceNowConfiguration$, () => MCPServerNewRelicConfiguration$, () => MCPServerDatadogConfiguration$, () => MCPServerConfiguration$, () => GitLabConfiguration$, () => MCPServerSplunkConfiguration$, () => EventChannelConfiguration$, () => AzureConfiguration$, () => AzureDevOpsConfiguration$, () => MCPServerGrafanaConfiguration$, [() => PagerDutyConfiguration$, 0], () => MCPServerSigV4Configuration$, () => RemoteAgentConfiguration$, () => RemoteAgentSigV4Configuration$, () => MSTeamsConfiguration$, () => ReleaseManagementConfiguration$]
+  [_sAo, _sAO, _aw, _gi, _sl, _dy, _servi, _mcpse, _mc, _mcp, _git, _mcps, _eCv, _azur, _az, _mcpser, _pag, _mcpserv, _rem, _remo, _ms, _rM],
+  [() => SourceAwsConfiguration$, [() => SourceAwsOrgConfiguration$, 0], () => AWSConfiguration$, () => GitHubConfiguration$, () => SlackConfiguration$, () => DynatraceConfiguration$, () => ServiceNowConfiguration$, () => MCPServerNewRelicConfiguration$, () => MCPServerDatadogConfiguration$, () => MCPServerConfiguration$, () => GitLabConfiguration$, () => MCPServerSplunkConfiguration$, () => EventChannelConfiguration$, () => AzureConfiguration$, () => AzureDevOpsConfiguration$, () => MCPServerGrafanaConfiguration$, [() => PagerDutyConfiguration$, 0], () => MCPServerSigV4Configuration$, () => RemoteAgentConfiguration$, () => RemoteAgentSigV4Configuration$, () => MSTeamsConfiguration$, () => ReleaseManagementConfiguration$]
 ];
 export var ServiceDetails$: StaticUnionSchema = [4, n0, _SD,
   0,

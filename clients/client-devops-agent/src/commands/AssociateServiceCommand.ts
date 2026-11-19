@@ -44,12 +44,36 @@ export interface AssociateServiceCommandOutput extends AssociateServiceOutput, _
  *       agentElevatedRoleArn: "STRING_VALUE",
  *       agentElevatedRoleArnStatus: "valid" || "invalid" || "pending-confirmation",
  *     },
+ *     sourceAwsOrg: { // SourceAwsOrgConfiguration
+ *       accountType: "source", // required
+ *       organizationalUnit: { // SourceAwsOrgUnit
+ *         organizationalUnitId: "STRING_VALUE", // required
+ *         accountIds: [ // AccountIdList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       deploymentState: { // OrgSourceDeploymentState
+ *         deployedAccountCount: Number("int"),
+ *         issues: [ // OrgSourceIssueList
+ *           { // OrgSourceIssue
+ *             reasonCode: "accountSuspended" || "accountNotInScope" || "managementAccountNotSupported" || "stackInstanceInoperable" || "accessDenied" || "deploymentFailed" || "secondaryAccountLimitExceeded", // required
+ *             accountCount: Number("int"), // required
+ *             accountIds: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *             message: "STRING_VALUE",
+ *           },
+ *         ],
+ *         lastEvaluatedAt: new Date("TIMESTAMP"),
+ *       },
+ *     },
  *     aws: { // AWSConfiguration
  *       assumableRoleArn: "STRING_VALUE", // required
  *       accountId: "STRING_VALUE", // required
  *       accountType: "monitor", // required
  *       agentElevatedRoleArn: "STRING_VALUE",
  *       agentElevatedRoleArnStatus: "valid" || "invalid" || "pending-confirmation",
+ *       serviceManagementRoleArn: "STRING_VALUE",
  *     },
  *     github: { // GitHubConfiguration
  *       repoName: "STRING_VALUE", // required
@@ -227,12 +251,36 @@ export interface AssociateServiceCommandOutput extends AssociateServiceOutput, _
  * //         agentElevatedRoleArn: "STRING_VALUE",
  * //         agentElevatedRoleArnStatus: "valid" || "invalid" || "pending-confirmation",
  * //       },
+ * //       sourceAwsOrg: { // SourceAwsOrgConfiguration
+ * //         accountType: "source", // required
+ * //         organizationalUnit: { // SourceAwsOrgUnit
+ * //           organizationalUnitId: "STRING_VALUE", // required
+ * //           accountIds: [ // AccountIdList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         deploymentState: { // OrgSourceDeploymentState
+ * //           deployedAccountCount: Number("int"),
+ * //           issues: [ // OrgSourceIssueList
+ * //             { // OrgSourceIssue
+ * //               reasonCode: "accountSuspended" || "accountNotInScope" || "managementAccountNotSupported" || "stackInstanceInoperable" || "accessDenied" || "deploymentFailed" || "secondaryAccountLimitExceeded", // required
+ * //               accountCount: Number("int"), // required
+ * //               accountIds: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               message: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           lastEvaluatedAt: new Date("TIMESTAMP"),
+ * //         },
+ * //       },
  * //       aws: { // AWSConfiguration
  * //         assumableRoleArn: "STRING_VALUE", // required
  * //         accountId: "STRING_VALUE", // required
  * //         accountType: "monitor", // required
  * //         agentElevatedRoleArn: "STRING_VALUE",
  * //         agentElevatedRoleArnStatus: "valid" || "invalid" || "pending-confirmation",
+ * //         serviceManagementRoleArn: "STRING_VALUE",
  * //       },
  * //       github: { // GitHubConfiguration
  * //         repoName: "STRING_VALUE", // required

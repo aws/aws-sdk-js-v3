@@ -40,6 +40,7 @@ export interface UpdateAgentSpaceCommandOutput extends UpdateAgentSpaceOutput, _
  *   preferences: { // AgentSpacePreferences
  *     "<keys>": true || false,
  *   },
+ *   awsSourceMode: "standalone" || "organization",
  * };
  * const command = new UpdateAgentSpaceCommand(input);
  * const response = await client.send(command);
@@ -55,6 +56,7 @@ export interface UpdateAgentSpaceCommandOutput extends UpdateAgentSpaceOutput, _
  * //     preferences: { // AgentSpacePreferences
  * //       "<keys>": true || false,
  * //     },
+ * //     awsSourceMode: "standalone" || "organization",
  * //   },
  * // };
  *

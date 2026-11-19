@@ -27,6 +27,7 @@ import {
   Association$,
   AuthFlow,
   AWSConfiguration$,
+  AwsSourceMode,
   AzureConfiguration$,
   AzureDevOpsConfiguration$,
   CapabilityConfiguration$,
@@ -299,6 +300,9 @@ import {
   NewRelicServiceDetails$,
   OAuthAdditionalStepDetails$,
   OrderType,
+  OrgSourceAccountReasonCode,
+  OrgSourceDeploymentState$,
+  OrgSourceIssue$,
   PagerDutyAuthorizationConfig$,
   PagerDutyConfiguration$,
   PagerDutyDetails$,
@@ -402,6 +406,8 @@ import {
   SlackTransmissionTarget$,
   SourceAccountType,
   SourceAwsConfiguration$,
+  SourceAwsOrgConfiguration$,
+  SourceAwsOrgUnit$,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
@@ -793,6 +799,8 @@ assert(typeof NewRelicApiKeyConfig$ === "object");
 assert(typeof NewRelicServiceAuthorizationConfig$ === "object");
 assert(typeof NewRelicServiceDetails$ === "object");
 assert(typeof OAuthAdditionalStepDetails$ === "object");
+assert(typeof OrgSourceDeploymentState$ === "object");
+assert(typeof OrgSourceIssue$ === "object");
 assert(typeof PagerDutyAuthorizationConfig$ === "object");
 assert(typeof PagerDutyConfiguration$ === "object");
 assert(typeof PagerDutyDetails$ === "object");
@@ -865,6 +873,8 @@ assert(typeof SlackChannel$ === "object");
 assert(typeof SlackConfiguration$ === "object");
 assert(typeof SlackTransmissionTarget$ === "object");
 assert(typeof SourceAwsConfiguration$ === "object");
+assert(typeof SourceAwsOrgConfiguration$ === "object");
+assert(typeof SourceAwsOrgUnit$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof Task$ === "object");
@@ -912,6 +922,7 @@ assert(typeof AgentSpacePreferenceKey === "object");
 assert(typeof ApprovalActionType === "object");
 assert(typeof ApprovalStatus === "object");
 assert(typeof AuthFlow === "object");
+assert(typeof AwsSourceMode === "object");
 assert(typeof CapabilityType === "object");
 assert(typeof ChatArchiveStatus === "object");
 assert(typeof ConflictExceptionReason === "object");
@@ -928,6 +939,7 @@ assert(typeof MCPServerAuthorizationMethod === "object");
 assert(typeof MonitorAccountType === "object");
 assert(typeof NewRelicRegion === "object");
 assert(typeof OrderType === "object");
+assert(typeof OrgSourceAccountReasonCode === "object");
 assert(typeof PostRegisterServiceSupportedService === "object");
 assert(typeof Priority === "object");
 assert(typeof PrivateConnectionStatus === "object");

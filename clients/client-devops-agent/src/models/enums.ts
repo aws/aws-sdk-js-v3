@@ -114,6 +114,19 @@ export type RemoteAgentAuthorizationMethod =
  * @public
  * @enum
  */
+export const AwsSourceMode = {
+  ORGANIZATION: "organization",
+  STANDALONE: "standalone",
+} as const;
+/**
+ * @public
+ */
+export type AwsSourceMode = (typeof AwsSourceMode)[keyof typeof AwsSourceMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgentSpacePreferenceKey = {
   ELEVATED_ACTIONS_ENABLED: "elevatedActionsEnabled",
 } as const;
@@ -222,6 +235,24 @@ export const SourceAccountType = {
  * @public
  */
 export type SourceAccountType = (typeof SourceAccountType)[keyof typeof SourceAccountType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrgSourceAccountReasonCode = {
+  ACCESS_DENIED: "accessDenied",
+  ACCOUNT_NOT_IN_SCOPE: "accountNotInScope",
+  ACCOUNT_SUSPENDED: "accountSuspended",
+  DEPLOYMENT_FAILED: "deploymentFailed",
+  MANAGEMENT_ACCOUNT_NOT_SUPPORTED: "managementAccountNotSupported",
+  SECONDARY_ACCOUNT_LIMIT_EXCEEDED: "secondaryAccountLimitExceeded",
+  STACK_INSTANCE_INOPERABLE: "stackInstanceInoperable",
+} as const;
+/**
+ * @public
+ */
+export type OrgSourceAccountReasonCode = (typeof OrgSourceAccountReasonCode)[keyof typeof OrgSourceAccountReasonCode];
 
 /**
  * @public

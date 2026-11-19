@@ -50,6 +50,7 @@ export interface GetAgentSpaceCommandOutput extends GetAgentSpaceOutput, __Metad
  * //     preferences: { // AgentSpacePreferences
  * //       "<keys>": true || false,
  * //     },
+ * //     awsSourceMode: "standalone" || "organization",
  * //   },
  * //   tags: { // Tags
  * //     "<keys>": "STRING_VALUE",

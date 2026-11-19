@@ -53,6 +53,7 @@ export interface ListAgentSpacesCommandOutput extends ListAgentSpacesOutput, __M
  * //       preferences: { // AgentSpacePreferences
  * //         "<keys>": true || false,
  * //       },
+ * //       awsSourceMode: "standalone" || "organization",
  * //     },
  * //   ],
  * // };

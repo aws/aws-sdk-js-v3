@@ -6,6 +6,7 @@ import type {
   ApprovalActionType,
   ApprovalStatus,
   AuthFlow,
+  AwsSourceMode,
   CapabilityType,
   ChatArchiveStatus,
   DayOfWeek,
@@ -21,6 +22,7 @@ import type {
   MonitorAccountType,
   NewRelicRegion,
   OrderType,
+  OrgSourceAccountReasonCode,
   PostRegisterServiceSupportedService,
   Priority,
   PrivateConnectionStatus,
@@ -913,6 +915,12 @@ export interface AgentSpace {
    * @public
    */
   preferences?: Partial<Record<AgentSpacePreferenceKey, boolean>> | undefined;
+
+  /**
+   * <p>The Amazon Web Services source mode for the AgentSpace, indicating whether its Amazon Web Services source configuration targets an individual Amazon Web Services account or an Amazon Web Services Organization.</p>
+   * @public
+   */
+  awsSourceMode?: AwsSourceMode | undefined;
 }
 
 /**
@@ -997,6 +1005,12 @@ export interface AWSConfiguration {
    * @public
    */
   agentElevatedRoleArnStatus?: ValidationStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Organizations service-managed role that AIDevOps uses to deploy and manage resources across the accounts in your Amazon Web Services Organization.</p>
+   * @public
+   */
+  serviceManagementRoleArn?: string | undefined;
 }
 
 /**
@@ -1601,6 +1615,102 @@ export interface SourceAwsConfiguration {
 }
 
 /**
+ * <p>Describes an issue encountered while deploying or evaluating an Amazon Web Services Organization source configuration.</p>
+ * @public
+ */
+export interface OrgSourceIssue {
+  /**
+   * <p>A code that identifies the reason for the issue.</p>
+   * @public
+   */
+  reasonCode: OrgSourceAccountReasonCode | undefined;
+
+  /**
+   * <p>The number of accounts affected by this issue.</p>
+   * @public
+   */
+  accountCount: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services account IDs affected by this issue.</p>
+   * @public
+   */
+  accountIds: string[] | undefined;
+
+  /**
+   * <p>A description of the issue.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * <p>Describes the current rollout state of an Amazon Web Services Organization source configuration, including the number of accounts that have been deployed to and any issues encountered during deployment.</p>
+ * @public
+ */
+export interface OrgSourceDeploymentState {
+  /**
+   * <p>The number of accounts in the targeted Amazon Web Services Organization or organizational unit that have successfully been deployed to.</p>
+   * @public
+   */
+  deployedAccountCount?: number | undefined;
+
+  /**
+   * <p>The issues encountered while deploying the source configuration across the accounts in the Amazon Web Services Organization.</p>
+   * @public
+   */
+  issues?: OrgSourceIssue[] | undefined;
+
+  /**
+   * <p>The timestamp of the most recent evaluation of the organization-wide deployment state.</p>
+   * @public
+   */
+  lastEvaluatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Identifies an Organizations organizational unit and its member accounts that are targeted for source monitoring.</p>
+ * @public
+ */
+export interface SourceAwsOrgUnit {
+  /**
+   * <p>The identifier of the Organizations organizational unit.</p>
+   * @public
+   */
+  organizationalUnitId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account IDs that belong to this organizational unit and are targeted for source monitoring.</p>
+   * @public
+   */
+  accountIds?: string[] | undefined;
+}
+
+/**
+ * <p>Configuration for Amazon Web Services Organization-wide source account integration. Use this configuration to monitor Amazon Web Services resources across multiple accounts within an organization or within targeted organizational units.</p>
+ * @public
+ */
+export interface SourceAwsOrgConfiguration {
+  /**
+   * <p>The account type for this configuration. For Amazon Web Services Organization-level configurations, this value is <code>source</code>.</p>
+   * @public
+   */
+  accountType: SourceAccountType | undefined;
+
+  /**
+   * <p>The organizational units within the Amazon Web Services Organization that are targeted for source monitoring.</p>
+   * @public
+   */
+  organizationalUnit: SourceAwsOrgUnit | undefined;
+
+  /**
+   * <p>The current deployment state of the Amazon Web Services Organization-wide source configuration.</p>
+   * @public
+   */
+  deploymentState?: OrgSourceDeploymentState | undefined;
+}
+
+/**
  * <p>Union of all supported service configuration types. Each service has its own specific configuration structure.</p>
  * @public
  */
@@ -1626,6 +1736,7 @@ export type ServiceConfiguration =
   | ServiceConfiguration.ServicenowMember
   | ServiceConfiguration.SlackMember
   | ServiceConfiguration.SourceAwsMember
+  | ServiceConfiguration.SourceAwsOrgMember
   | ServiceConfiguration.$UnknownMember;
 
 /**
@@ -1638,6 +1749,37 @@ export namespace ServiceConfiguration {
    */
   export interface SourceAwsMember {
     sourceAws: SourceAwsConfiguration;
+    sourceAwsOrg?: never;
+    aws?: never;
+    github?: never;
+    slack?: never;
+    dynatrace?: never;
+    servicenow?: never;
+    mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
+    gitlab?: never;
+    mcpserversplunk?: never;
+    eventChannel?: never;
+    azure?: never;
+    azuredevops?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
+    msteams?: never;
+    releaseManagement?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon Web Services Organization source configuration used to monitor resources across an entire Amazon Web Services Organization or specified organizational units.</p>
+   * @public
+   */
+  export interface SourceAwsOrgMember {
+    sourceAws?: never;
+    sourceAwsOrg: SourceAwsOrgConfiguration;
     aws?: never;
     github?: never;
     slack?: never;
@@ -1667,6 +1809,7 @@ export namespace ServiceConfiguration {
    */
   export interface AwsMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws: AWSConfiguration;
     github?: never;
     slack?: never;
@@ -1696,6 +1839,7 @@ export namespace ServiceConfiguration {
    */
   export interface GithubMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github: GitHubConfiguration;
     slack?: never;
@@ -1725,6 +1869,7 @@ export namespace ServiceConfiguration {
    */
   export interface SlackMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack: SlackConfiguration;
@@ -1754,6 +1899,7 @@ export namespace ServiceConfiguration {
    */
   export interface DynatraceMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -1783,6 +1929,7 @@ export namespace ServiceConfiguration {
    */
   export interface ServicenowMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -1812,6 +1959,7 @@ export namespace ServiceConfiguration {
    */
   export interface McpservernewrelicMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -1841,6 +1989,7 @@ export namespace ServiceConfiguration {
    */
   export interface McpserverdatadogMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -1870,6 +2019,7 @@ export namespace ServiceConfiguration {
    */
   export interface McpserverMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -1899,6 +2049,7 @@ export namespace ServiceConfiguration {
    */
   export interface GitlabMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -1928,6 +2079,7 @@ export namespace ServiceConfiguration {
    */
   export interface McpserversplunkMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -1957,6 +2109,7 @@ export namespace ServiceConfiguration {
    */
   export interface EventChannelMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -1986,6 +2139,7 @@ export namespace ServiceConfiguration {
    */
   export interface AzureMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -2015,6 +2169,7 @@ export namespace ServiceConfiguration {
    */
   export interface AzuredevopsMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -2044,6 +2199,7 @@ export namespace ServiceConfiguration {
    */
   export interface McpservergrafanaMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -2073,6 +2229,7 @@ export namespace ServiceConfiguration {
    */
   export interface PagerdutyMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -2102,6 +2259,7 @@ export namespace ServiceConfiguration {
    */
   export interface Mcpserversigv4Member {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -2131,6 +2289,7 @@ export namespace ServiceConfiguration {
    */
   export interface RemoteagentMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -2160,6 +2319,7 @@ export namespace ServiceConfiguration {
    */
   export interface Remoteagentsigv4Member {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -2189,6 +2349,7 @@ export namespace ServiceConfiguration {
    */
   export interface MsteamsMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -2218,6 +2379,7 @@ export namespace ServiceConfiguration {
    */
   export interface ReleaseManagementMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -2246,6 +2408,7 @@ export namespace ServiceConfiguration {
    */
   export interface $UnknownMember {
     sourceAws?: never;
+    sourceAwsOrg?: never;
     aws?: never;
     github?: never;
     slack?: never;
@@ -2275,6 +2438,7 @@ export namespace ServiceConfiguration {
    */
   export interface Visitor<T> {
     sourceAws: (value: SourceAwsConfiguration) => T;
+    sourceAwsOrg: (value: SourceAwsOrgConfiguration) => T;
     aws: (value: AWSConfiguration) => T;
     github: (value: GitHubConfiguration) => T;
     slack: (value: SlackConfiguration) => T;
@@ -2723,6 +2887,12 @@ export interface CreateAgentSpaceInput {
    * @public
    */
   preferences?: Partial<Record<AgentSpacePreferenceKey, boolean>> | undefined;
+
+  /**
+   * <p>Specifies whether the AgentSpace's Amazon Web Services source configuration targets an individual Amazon Web Services account or an Amazon Web Services Organization.</p>
+   * @public
+   */
+  awsSourceMode?: AwsSourceMode | undefined;
 }
 
 /**
@@ -3125,6 +3295,12 @@ export interface UpdateAgentSpaceInput {
    * @public
    */
   preferences?: Partial<Record<AgentSpacePreferenceKey, boolean>> | undefined;
+
+  /**
+   * <p>Specifies whether the AgentSpace's Amazon Web Services source configuration targets an individual Amazon Web Services account or an Amazon Web Services Organization. Use this parameter to switch an existing AgentSpace between source modes.</p>
+   * @public
+   */
+  awsSourceMode?: AwsSourceMode | undefined;
 }
 
 /**
