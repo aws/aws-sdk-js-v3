@@ -51,7 +51,7 @@ export interface CreateRequesterGatewayCommandOutput extends CreateRequesterGate
  * // { // CreateRequesterGatewayResponse
  * //   gatewayId: "STRING_VALUE", // required
  * //   domainName: "STRING_VALUE", // required
- * //   status: "PENDING_CREATION" || "ACTIVE" || "PENDING_DELETION" || "DELETED" || "ERROR" || "PENDING_UPDATE" || "ISOLATED" || "PENDING_ISOLATION" || "PENDING_RESTORATION", // required
+ * //   status: "PENDING_CREATION" || "ACTIVE" || "PENDING_DELETION" || "DELETED" || "ERROR" || "PENDING_UPDATE" || "ISOLATED" || "PENDING_ISOLATION" || "PENDING_RESTORATION" || "CREATE_FAILED" || "DELETE_FAILED", // required
  * // };
  *
  * ```

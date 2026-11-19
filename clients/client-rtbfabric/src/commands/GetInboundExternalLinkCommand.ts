@@ -41,7 +41,7 @@ export interface GetInboundExternalLinkCommandOutput extends GetInboundExternalL
  * // { // GetInboundExternalLinkResponse
  * //   gatewayId: "STRING_VALUE", // required
  * //   linkId: "STRING_VALUE", // required
- * //   status: "PENDING_CREATION" || "PENDING_REQUEST" || "REQUESTED" || "ACCEPTED" || "ACTIVE" || "REJECTED" || "FAILED" || "PENDING_DELETION" || "DELETED" || "PENDING_UPDATE" || "PENDING_ISOLATION" || "ISOLATED" || "PENDING_RESTORATION", // required
+ * //   status: "PENDING_CREATION" || "PENDING_REQUEST" || "REQUESTED" || "ACCEPTED" || "ACTIVE" || "REJECTED" || "FAILED" || "PENDING_DELETION" || "DELETED" || "PENDING_UPDATE" || "PENDING_ISOLATION" || "ISOLATED" || "PENDING_RESTORATION" || "CREATE_FAILED" || "DELETE_FAILED", // required
  * //   domainName: "STRING_VALUE", // required
  * //   flowModules: [ // ModuleConfigurationList
  * //     { // ModuleConfiguration
@@ -158,6 +158,55 @@ export interface GetInboundExternalLinkCommandOutput extends GetInboundExternalL
  * //     },
  * //   },
  * //   connectivityType: "DEFAULT" || "PUBLIC_INGRESS" || "PUBLIC_EGRESS" || "EXTERNAL_INBOUND",
+ * //   errorDetails: [ // ErrorDetails
+ * //     { // ErrorDetail
+ * //       code: "VPC_NOT_FOUND" || "EC2_SUBNET_NOT_FOUND" || "EC2_SECURITY_GROUP_NOT_FOUND" || "EC2_SUBNET_IP_EXHAUSTION" || "IAM_ASSUME_ROLE_ACCESS_DENIED" || "INTERNAL_ERROR", // required
+ * //       message: "STRING_VALUE", // required
+ * //       resourceIds: [ // AwsResourceIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   lockToken: "STRING_VALUE",
+ * //   flows: [ // FlowList
+ * //     { // Flow
+ * //       name: "STRING_VALUE", // required
+ * //       pipeline: { // FlowPipeline Union: only one key present
+ * //         sequential: { // SequentialPipeline
+ * //           modules: [ // FlowModuleList // required
+ * //             { // FlowModule
+ * //               name: "STRING_VALUE", // required
+ * //               moduleVersionArn: "STRING_VALUE", // required
+ * //               selectedActions: [ // SelectedActionList
+ * //                 "FILTER" || "ENRICH_REQUEST_EXT" || "ENRICH_REQUEST_HEADERS" || "OBSERVE",
+ * //               ],
+ * //               failureMode: "OPEN" || "CLOSED",
+ * //               activationPercentage: Number("float"),
+ * //               configurationValues: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //         phased: { // PhasedPipeline
+ * //           phases: [ // FlowPhaseList // required
+ * //             { // FlowPhase
+ * //               modules: [ // required
+ * //                 {
+ * //                   name: "STRING_VALUE", // required
+ * //                   moduleVersionArn: "STRING_VALUE", // required
+ * //                   selectedActions: [
+ * //                     "FILTER" || "ENRICH_REQUEST_EXT" || "ENRICH_REQUEST_HEADERS" || "OBSERVE",
+ * //                   ],
+ * //                   failureMode: "OPEN" || "CLOSED",
+ * //                   activationPercentage: Number("float"),
+ * //                   configurationValues: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
  * // };
  *
  * ```

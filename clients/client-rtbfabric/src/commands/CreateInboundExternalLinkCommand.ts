@@ -65,7 +65,7 @@ export interface CreateInboundExternalLinkCommandOutput extends CreateInboundExt
  * // { // CreateInboundExternalLinkResponse
  * //   gatewayId: "STRING_VALUE", // required
  * //   linkId: "STRING_VALUE", // required
- * //   status: "PENDING_CREATION" || "PENDING_REQUEST" || "REQUESTED" || "ACCEPTED" || "ACTIVE" || "REJECTED" || "FAILED" || "PENDING_DELETION" || "DELETED" || "PENDING_UPDATE" || "PENDING_ISOLATION" || "ISOLATED" || "PENDING_RESTORATION", // required
+ * //   status: "PENDING_CREATION" || "PENDING_REQUEST" || "REQUESTED" || "ACCEPTED" || "ACTIVE" || "REJECTED" || "FAILED" || "PENDING_DELETION" || "DELETED" || "PENDING_UPDATE" || "PENDING_ISOLATION" || "ISOLATED" || "PENDING_RESTORATION" || "CREATE_FAILED" || "DELETE_FAILED", // required
  * //   domainName: "STRING_VALUE", // required
  * // };
  *

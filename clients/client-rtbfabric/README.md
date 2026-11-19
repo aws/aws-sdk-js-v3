@@ -286,6 +286,20 @@ DisassociateCertificate
 </details>
 <details>
 <summary>
+GetAvailableModule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/GetAvailableModuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/GetAvailableModuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/GetAvailableModuleCommandOutput/)
+</details>
+<details>
+<summary>
+GetAvailableModuleVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/GetAvailableModuleVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/GetAvailableModuleVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/GetAvailableModuleVersionCommandOutput/)
+</details>
+<details>
+<summary>
 GetCertificateAssociation
 </summary>
 
@@ -335,6 +349,27 @@ GetResponderGateway
 </details>
 <details>
 <summary>
+GetUpdate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/GetUpdateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/GetUpdateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/GetUpdateCommandOutput/)
+</details>
+<details>
+<summary>
+ListAvailableModules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/ListAvailableModulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/ListAvailableModulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/ListAvailableModulesCommandOutput/)
+</details>
+<details>
+<summary>
+ListAvailableModuleVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/ListAvailableModuleVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/ListAvailableModuleVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/ListAvailableModuleVersionsCommandOutput/)
+</details>
+<details>
+<summary>
 ListCertificateAssociations
 </summary>
 
@@ -374,6 +409,20 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/ListTagsForResourceCommandOutput/)
+</details>
+<details>
+<summary>
+ListUpdates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/ListUpdatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/ListUpdatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/ListUpdatesCommandOutput/)
+</details>
+<details>
+<summary>
+PutLinkFlows
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/PutLinkFlowsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/PutLinkFlowsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/PutLinkFlowsCommandOutput/)
 </details>
 <details>
 <summary>

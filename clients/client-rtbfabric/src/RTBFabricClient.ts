@@ -106,6 +106,14 @@ import type {
   DisassociateCertificateCommandOutput,
 } from "./commands/DisassociateCertificateCommand";
 import type {
+  GetAvailableModuleCommandInput,
+  GetAvailableModuleCommandOutput,
+} from "./commands/GetAvailableModuleCommand";
+import type {
+  GetAvailableModuleVersionCommandInput,
+  GetAvailableModuleVersionCommandOutput,
+} from "./commands/GetAvailableModuleVersionCommand";
+import type {
   GetCertificateAssociationCommandInput,
   GetCertificateAssociationCommandOutput,
 } from "./commands/GetCertificateAssociationCommand";
@@ -130,6 +138,15 @@ import type {
   GetResponderGatewayCommandInput,
   GetResponderGatewayCommandOutput,
 } from "./commands/GetResponderGatewayCommand";
+import type { GetUpdateCommandInput, GetUpdateCommandOutput } from "./commands/GetUpdateCommand";
+import type {
+  ListAvailableModulesCommandInput,
+  ListAvailableModulesCommandOutput,
+} from "./commands/ListAvailableModulesCommand";
+import type {
+  ListAvailableModuleVersionsCommandInput,
+  ListAvailableModuleVersionsCommandOutput,
+} from "./commands/ListAvailableModuleVersionsCommand";
 import type {
   ListCertificateAssociationsCommandInput,
   ListCertificateAssociationsCommandOutput,
@@ -151,6 +168,8 @@ import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type { ListUpdatesCommandInput, ListUpdatesCommandOutput } from "./commands/ListUpdatesCommand";
+import type { PutLinkFlowsCommandInput, PutLinkFlowsCommandOutput } from "./commands/PutLinkFlowsCommand";
 import type { RejectLinkCommandInput, RejectLinkCommandOutput } from "./commands/RejectLinkCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -201,6 +220,8 @@ export type ServiceInputTypes =
   | DeleteRequesterGatewayCommandInput
   | DeleteResponderGatewayCommandInput
   | DisassociateCertificateCommandInput
+  | GetAvailableModuleCommandInput
+  | GetAvailableModuleVersionCommandInput
   | GetCertificateAssociationCommandInput
   | GetInboundExternalLinkCommandInput
   | GetLinkCommandInput
@@ -208,12 +229,17 @@ export type ServiceInputTypes =
   | GetOutboundExternalLinkCommandInput
   | GetRequesterGatewayCommandInput
   | GetResponderGatewayCommandInput
+  | GetUpdateCommandInput
+  | ListAvailableModuleVersionsCommandInput
+  | ListAvailableModulesCommandInput
   | ListCertificateAssociationsCommandInput
   | ListLinkRoutingRulesCommandInput
   | ListLinksCommandInput
   | ListRequesterGatewaysCommandInput
   | ListResponderGatewaysCommandInput
   | ListTagsForResourceCommandInput
+  | ListUpdatesCommandInput
+  | PutLinkFlowsCommandInput
   | RejectLinkCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -242,6 +268,8 @@ export type ServiceOutputTypes =
   | DeleteRequesterGatewayCommandOutput
   | DeleteResponderGatewayCommandOutput
   | DisassociateCertificateCommandOutput
+  | GetAvailableModuleCommandOutput
+  | GetAvailableModuleVersionCommandOutput
   | GetCertificateAssociationCommandOutput
   | GetInboundExternalLinkCommandOutput
   | GetLinkCommandOutput
@@ -249,12 +277,17 @@ export type ServiceOutputTypes =
   | GetOutboundExternalLinkCommandOutput
   | GetRequesterGatewayCommandOutput
   | GetResponderGatewayCommandOutput
+  | GetUpdateCommandOutput
+  | ListAvailableModuleVersionsCommandOutput
+  | ListAvailableModulesCommandOutput
   | ListCertificateAssociationsCommandOutput
   | ListLinkRoutingRulesCommandOutput
   | ListLinksCommandOutput
   | ListRequesterGatewaysCommandOutput
   | ListResponderGatewaysCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListUpdatesCommandOutput
+  | PutLinkFlowsCommandOutput
   | RejectLinkCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

@@ -84,6 +84,16 @@ import {
   DisassociateCertificateCommand,
 } from "./commands/DisassociateCertificateCommand";
 import {
+  type GetAvailableModuleCommandInput,
+  type GetAvailableModuleCommandOutput,
+  GetAvailableModuleCommand,
+} from "./commands/GetAvailableModuleCommand";
+import {
+  type GetAvailableModuleVersionCommandInput,
+  type GetAvailableModuleVersionCommandOutput,
+  GetAvailableModuleVersionCommand,
+} from "./commands/GetAvailableModuleVersionCommand";
+import {
   type GetCertificateAssociationCommandInput,
   type GetCertificateAssociationCommandOutput,
   GetCertificateAssociationCommand,
@@ -114,6 +124,17 @@ import {
   type GetResponderGatewayCommandOutput,
   GetResponderGatewayCommand,
 } from "./commands/GetResponderGatewayCommand";
+import { type GetUpdateCommandInput, type GetUpdateCommandOutput, GetUpdateCommand } from "./commands/GetUpdateCommand";
+import {
+  type ListAvailableModulesCommandInput,
+  type ListAvailableModulesCommandOutput,
+  ListAvailableModulesCommand,
+} from "./commands/ListAvailableModulesCommand";
+import {
+  type ListAvailableModuleVersionsCommandInput,
+  type ListAvailableModuleVersionsCommandOutput,
+  ListAvailableModuleVersionsCommand,
+} from "./commands/ListAvailableModuleVersionsCommand";
 import {
   type ListCertificateAssociationsCommandInput,
   type ListCertificateAssociationsCommandOutput,
@@ -140,6 +161,16 @@ import {
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  type ListUpdatesCommandInput,
+  type ListUpdatesCommandOutput,
+  ListUpdatesCommand,
+} from "./commands/ListUpdatesCommand";
+import {
+  type PutLinkFlowsCommandInput,
+  type PutLinkFlowsCommandOutput,
+  PutLinkFlowsCommand,
+} from "./commands/PutLinkFlowsCommand";
 import {
   type RejectLinkCommandInput,
   type RejectLinkCommandOutput,
@@ -182,11 +213,14 @@ import {
 } from "./commands/UpdateResponderGatewayCommand";
 import type { ResourceNotFoundException } from "./models/errors";
 import type { RTBFabricServiceException } from "./models/RTBFabricServiceException";
+import { paginateListAvailableModules } from "./pagination/ListAvailableModulesPaginator";
+import { paginateListAvailableModuleVersions } from "./pagination/ListAvailableModuleVersionsPaginator";
 import { paginateListCertificateAssociations } from "./pagination/ListCertificateAssociationsPaginator";
 import { paginateListLinkRoutingRules } from "./pagination/ListLinkRoutingRulesPaginator";
 import { paginateListLinks } from "./pagination/ListLinksPaginator";
 import { paginateListRequesterGateways } from "./pagination/ListRequesterGatewaysPaginator";
 import { paginateListResponderGateways } from "./pagination/ListResponderGatewaysPaginator";
+import { paginateListUpdates } from "./pagination/ListUpdatesPaginator";
 import { RTBFabricClient } from "./RTBFabricClient";
 import { waitUntilCertificateAssociated } from "./waiters/waitForCertificateAssociated";
 import { waitUntilCertificateDisassociated } from "./waiters/waitForCertificateDisassociated";
@@ -220,6 +254,8 @@ const commands = {
   DeleteRequesterGatewayCommand,
   DeleteResponderGatewayCommand,
   DisassociateCertificateCommand,
+  GetAvailableModuleCommand,
+  GetAvailableModuleVersionCommand,
   GetCertificateAssociationCommand,
   GetInboundExternalLinkCommand,
   GetLinkCommand,
@@ -227,12 +263,17 @@ const commands = {
   GetOutboundExternalLinkCommand,
   GetRequesterGatewayCommand,
   GetResponderGatewayCommand,
+  GetUpdateCommand,
+  ListAvailableModulesCommand,
+  ListAvailableModuleVersionsCommand,
   ListCertificateAssociationsCommand,
   ListLinkRoutingRulesCommand,
   ListLinksCommand,
   ListRequesterGatewaysCommand,
   ListResponderGatewaysCommand,
   ListTagsForResourceCommand,
+  ListUpdatesCommand,
+  PutLinkFlowsCommand,
   RejectLinkCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -243,11 +284,14 @@ const commands = {
   UpdateResponderGatewayCommand,
 };
 const paginators = {
+  paginateListAvailableModules,
+  paginateListAvailableModuleVersions,
   paginateListCertificateAssociations,
   paginateListLinkRoutingRules,
   paginateListLinks,
   paginateListRequesterGateways,
   paginateListResponderGateways,
+  paginateListUpdates,
 };
 const waiters = {
   waitUntilCertificateAssociated,
@@ -531,6 +575,40 @@ export interface RTBFabric {
   ): void;
 
   /**
+   * @see {@link GetAvailableModuleCommand}
+   */
+  getAvailableModule(
+    args: GetAvailableModuleCommandInput,
+    options?: RTBFabricRequestOptions
+  ): Promise<GetAvailableModuleCommandOutput>;
+  getAvailableModule(
+    args: GetAvailableModuleCommandInput,
+    cb: (err: any, data?: GetAvailableModuleCommandOutput) => void
+  ): void;
+  getAvailableModule(
+    args: GetAvailableModuleCommandInput,
+    options: RTBFabricRequestOptions,
+    cb: (err: any, data?: GetAvailableModuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAvailableModuleVersionCommand}
+   */
+  getAvailableModuleVersion(
+    args: GetAvailableModuleVersionCommandInput,
+    options?: RTBFabricRequestOptions
+  ): Promise<GetAvailableModuleVersionCommandOutput>;
+  getAvailableModuleVersion(
+    args: GetAvailableModuleVersionCommandInput,
+    cb: (err: any, data?: GetAvailableModuleVersionCommandOutput) => void
+  ): void;
+  getAvailableModuleVersion(
+    args: GetAvailableModuleVersionCommandInput,
+    options: RTBFabricRequestOptions,
+    cb: (err: any, data?: GetAvailableModuleVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCertificateAssociationCommand}
    */
   getCertificateAssociation(
@@ -650,6 +728,58 @@ export interface RTBFabric {
   ): void;
 
   /**
+   * @see {@link GetUpdateCommand}
+   */
+  getUpdate(
+    args: GetUpdateCommandInput,
+    options?: RTBFabricRequestOptions
+  ): Promise<GetUpdateCommandOutput>;
+  getUpdate(
+    args: GetUpdateCommandInput,
+    cb: (err: any, data?: GetUpdateCommandOutput) => void
+  ): void;
+  getUpdate(
+    args: GetUpdateCommandInput,
+    options: RTBFabricRequestOptions,
+    cb: (err: any, data?: GetUpdateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAvailableModulesCommand}
+   */
+  listAvailableModules(): Promise<ListAvailableModulesCommandOutput>;
+  listAvailableModules(
+    args: ListAvailableModulesCommandInput,
+    options?: RTBFabricRequestOptions
+  ): Promise<ListAvailableModulesCommandOutput>;
+  listAvailableModules(
+    args: ListAvailableModulesCommandInput,
+    cb: (err: any, data?: ListAvailableModulesCommandOutput) => void
+  ): void;
+  listAvailableModules(
+    args: ListAvailableModulesCommandInput,
+    options: RTBFabricRequestOptions,
+    cb: (err: any, data?: ListAvailableModulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAvailableModuleVersionsCommand}
+   */
+  listAvailableModuleVersions(
+    args: ListAvailableModuleVersionsCommandInput,
+    options?: RTBFabricRequestOptions
+  ): Promise<ListAvailableModuleVersionsCommandOutput>;
+  listAvailableModuleVersions(
+    args: ListAvailableModuleVersionsCommandInput,
+    cb: (err: any, data?: ListAvailableModuleVersionsCommandOutput) => void
+  ): void;
+  listAvailableModuleVersions(
+    args: ListAvailableModuleVersionsCommandInput,
+    options: RTBFabricRequestOptions,
+    cb: (err: any, data?: ListAvailableModuleVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCertificateAssociationsCommand}
    */
   listCertificateAssociations(
@@ -751,6 +881,40 @@ export interface RTBFabric {
     args: ListTagsForResourceCommandInput,
     options: RTBFabricRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListUpdatesCommand}
+   */
+  listUpdates(
+    args: ListUpdatesCommandInput,
+    options?: RTBFabricRequestOptions
+  ): Promise<ListUpdatesCommandOutput>;
+  listUpdates(
+    args: ListUpdatesCommandInput,
+    cb: (err: any, data?: ListUpdatesCommandOutput) => void
+  ): void;
+  listUpdates(
+    args: ListUpdatesCommandInput,
+    options: RTBFabricRequestOptions,
+    cb: (err: any, data?: ListUpdatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutLinkFlowsCommand}
+   */
+  putLinkFlows(
+    args: PutLinkFlowsCommandInput,
+    options?: RTBFabricRequestOptions
+  ): Promise<PutLinkFlowsCommandOutput>;
+  putLinkFlows(
+    args: PutLinkFlowsCommandInput,
+    cb: (err: any, data?: PutLinkFlowsCommandOutput) => void
+  ): void;
+  putLinkFlows(
+    args: PutLinkFlowsCommandInput,
+    options: RTBFabricRequestOptions,
+    cb: (err: any, data?: PutLinkFlowsCommandOutput) => void
   ): void;
 
   /**
@@ -890,6 +1054,28 @@ export interface RTBFabric {
   ): void;
 
   /**
+   * @see {@link ListAvailableModulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAvailableModulesCommandOutput}.
+   */
+  paginateListAvailableModules(
+    args?: ListAvailableModulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAvailableModulesCommandOutput>;
+
+  /**
+   * @see {@link ListAvailableModuleVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAvailableModuleVersionsCommandOutput}.
+   */
+  paginateListAvailableModuleVersions(
+    args: ListAvailableModuleVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAvailableModuleVersionsCommandOutput>;
+
+  /**
    * @see {@link ListCertificateAssociationsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -943,6 +1129,17 @@ export interface RTBFabric {
     args?: ListResponderGatewaysCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListResponderGatewaysCommandOutput>;
+
+  /**
+   * @see {@link ListUpdatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUpdatesCommandOutput}.
+   */
+  paginateListUpdates(
+    args: ListUpdatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUpdatesCommandOutput>;
 
   /**
    * @see {@link GetCertificateAssociationCommand}

@@ -81,8 +81,9 @@ export interface UpdateResponderGatewayCommandOutput extends UpdateResponderGate
  * const response = await client.send(command);
  * // { // UpdateResponderGatewayResponse
  * //   gatewayId: "STRING_VALUE", // required
- * //   status: "PENDING_CREATION" || "ACTIVE" || "PENDING_DELETION" || "DELETED" || "ERROR" || "PENDING_UPDATE" || "ISOLATED" || "PENDING_ISOLATION" || "PENDING_RESTORATION", // required
+ * //   status: "PENDING_CREATION" || "ACTIVE" || "PENDING_DELETION" || "DELETED" || "ERROR" || "PENDING_UPDATE" || "ISOLATED" || "PENDING_ISOLATION" || "PENDING_RESTORATION" || "CREATE_FAILED" || "DELETE_FAILED", // required
  * //   clientRoutingPolicy: "AVAILABILITY_ZONE_AFFINITY" || "ANY_AVAILABILITY_ZONE",
+ * //   updateId: "STRING_VALUE", // required
  * // };
  *
  * ```
@@ -130,7 +131,8 @@ export interface UpdateResponderGatewayCommandOutput extends UpdateResponderGate
  * /* response is
  * {
  *   gatewayId: "rtb-gw-12345678",
- *   status: "PENDING_UPDATE"
+ *   status: "PENDING_UPDATE",
+ *   updateId: "update-4d5e6f7a8b9c"
  * }
  * *\/
  * ```

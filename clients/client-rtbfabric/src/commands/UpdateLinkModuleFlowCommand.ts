@@ -86,7 +86,8 @@ export interface UpdateLinkModuleFlowCommandOutput extends UpdateLinkModuleFlowR
  * // { // UpdateLinkModuleFlowResponse
  * //   gatewayId: "STRING_VALUE", // required
  * //   linkId: "STRING_VALUE", // required
- * //   status: "PENDING_CREATION" || "PENDING_REQUEST" || "REQUESTED" || "ACCEPTED" || "ACTIVE" || "REJECTED" || "FAILED" || "PENDING_DELETION" || "DELETED" || "PENDING_UPDATE" || "PENDING_ISOLATION" || "ISOLATED" || "PENDING_RESTORATION", // required
+ * //   status: "PENDING_CREATION" || "PENDING_REQUEST" || "REQUESTED" || "ACCEPTED" || "ACTIVE" || "REJECTED" || "FAILED" || "PENDING_DELETION" || "DELETED" || "PENDING_UPDATE" || "PENDING_ISOLATION" || "ISOLATED" || "PENDING_RESTORATION" || "CREATE_FAILED" || "DELETE_FAILED", // required
+ * //   updateId: "STRING_VALUE", // required
  * // };
  *
  * ```
@@ -150,7 +151,8 @@ export interface UpdateLinkModuleFlowCommandOutput extends UpdateLinkModuleFlowR
  * {
  *   gatewayId: "rtb-gw-12345678",
  *   linkId: "link-87654321",
- *   status: "ACTIVE"
+ *   status: "ACTIVE",
+ *   updateId: "update-3c4d5e6f7a8b"
  * }
  * *\/
  * ```

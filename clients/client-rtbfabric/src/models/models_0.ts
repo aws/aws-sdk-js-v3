@@ -2,17 +2,26 @@
 import type {
   CertificateAssociationStatus,
   ClientRoutingPolicy,
+  ConfigurableAction,
   ConnectivityType,
+  ErrorCode,
+  FailureMode,
   FilterType,
   GatewayType,
   LinkDirection,
   LinkStatus,
+  ModulePermission,
+  ModuleVersionStatus,
   Protocol,
   RequesterGatewayStatus,
   ResponderErrorMaskingAction,
   ResponderErrorMaskingLoggingType,
   ResponderGatewayStatus,
   RuleStatus,
+  SubscriptionStatus,
+  SubscriptionType,
+  UpdateStatus,
+  UpdateType,
 } from "./enums";
 
 /**
@@ -138,6 +147,30 @@ export interface AcceptLinkRequest {
    * @public
    */
   timeoutInMillis?: number | undefined;
+}
+
+/**
+ * <p>Describes one cause of a failure of a resource or an update, with an error code, a description, and the IDs of the resources involved.</p>
+ * @public
+ */
+export interface ErrorDetail {
+  /**
+   * <p>The error code for what failed.</p>
+   * @public
+   */
+  code: ErrorCode | undefined;
+
+  /**
+   * <p>A description of the failure.</p>
+   * @public
+   */
+  message: string | undefined;
+
+  /**
+   * <p>The IDs of the resources involved, such as a subnet or security group.</p>
+   * @public
+   */
+  resourceIds?: string[] | undefined;
 }
 
 /**
@@ -489,6 +522,12 @@ export interface AcceptLinkResponse {
   connectivityType?: ConnectivityType | undefined;
 
   /**
+   * <p>The causes of the failure, such as a deleted subnet. Present only when the resource has failed.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetail[] | undefined;
+
+  /**
    * <p>The unique identifier of the link.</p>
    * @public
    */
@@ -617,6 +656,78 @@ export interface AutoScalingGroupsConfiguration {
    * @public
    */
   healthCheckConfig?: HealthCheckConfig | undefined;
+}
+
+/**
+ * <p>A module that you can attach, as ListAvailableModules returns it. ListAvailableModules and GetAvailableModule never return how a module is implemented.</p>
+ * @public
+ */
+export interface AvailableModuleSummary {
+  /**
+   * <p>The module's ID.</p>
+   * @public
+   */
+  moduleId: string | undefined;
+
+  /**
+   * <p>The module's ARN.</p>
+   * @public
+   */
+  moduleArn: string | undefined;
+
+  /**
+   * <p>A label, not unique: modules can share a name.</p>
+   * @public
+   */
+  moduleName: string | undefined;
+
+  /**
+   * <p>The type of access that you have to the module.</p>
+   * @public
+   */
+  subscriptionType: SubscriptionType | undefined;
+
+  /**
+   * <p>Specifies whether your access to the module is current.</p>
+   * @public
+   */
+  subscriptionStatus: SubscriptionStatus | undefined;
+
+  /**
+   * <p>The Marketplace product the module is sold under. Present only when subscriptionType is MARKETPLACE.</p>
+   * @public
+   */
+  marketplaceProductId?: string | undefined;
+}
+
+/**
+ * <p>A version of a module that you can attach, as ListAvailableModuleVersions returns it. ListAvailableModuleVersions and GetAvailableModuleVersion never return how a version is implemented.</p>
+ * @public
+ */
+export interface AvailableModuleVersionSummary {
+  /**
+   * <p>The version.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The version's ARN.</p>
+   * @public
+   */
+  moduleVersionArn: string | undefined;
+
+  /**
+   * <p>ACTIVE or DEPRECATED.</p>
+   * @public
+   */
+  status: ModuleVersionStatus | undefined;
+
+  /**
+   * <p>The time when the version was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
 }
 
 /**
@@ -829,6 +940,12 @@ export interface CreateLinkResponse {
    * @public
    */
   connectivityType?: ConnectivityType | undefined;
+
+  /**
+   * <p>The causes of the failure, such as a deleted subnet. Present only when the resource has failed.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetail[] | undefined;
 
   /**
    * <p>The unique identifier of the link.</p>
@@ -1577,6 +1694,155 @@ export interface DisassociateCertificateResponse {
 }
 
 /**
+ * <p>A version attached to a flow, with its settings.</p>
+ * @public
+ */
+export interface FlowModule {
+  /**
+   * <p>The module's name, unique within the flow.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The version to attach. It must be ACTIVE and available to you (see ListAvailableModuleVersions). You can keep a version that's already in the link's flows after it's deprecated, but you can't give it a higher share of traffic.</p>
+   * @public
+   */
+  moduleVersionArn: string | undefined;
+
+  /**
+   * <p>The capabilities to turn on, chosen from the version's <code>configurableActions</code>. If the version exposes one, it's the default. If the version exposes more than one, this field is required. If it exposes none, omit this field.</p>
+   * @public
+   */
+  selectedActions?: ConfigurableAction[] | undefined;
+
+  /**
+   * <p>Specifies what happens when the module fails – when its call fails or times out, or when an express module's dataset is stale. The default is OPEN.</p>
+   * @public
+   */
+  failureMode?: FailureMode | undefined;
+
+  /**
+   * <p>The percentage of the flow's requests that the module runs on. The flow skips the module on the rest of the requests. The default is 100.</p>
+   * @public
+   */
+  activationPercentage?: number | undefined;
+
+  /**
+   * <p>RTB Fabric validates the value against the version's <code>configurationSchema</code> and rejects a value that fails with ValidationException. Omit it when the schema is empty or fully defaulted.</p>
+   * @public
+   */
+  configurationValues?: string | undefined;
+}
+
+/**
+ * <p>One phase of a phased pipeline. Its modules run concurrently on the previous phase's output.</p>
+ * @public
+ */
+export interface FlowPhase {
+  /**
+   * <p>At most one MUTATE_REQUEST_BODY module.</p>
+   * @public
+   */
+  modules: FlowModule[] | undefined;
+}
+
+/**
+ * <p>Phases that run in order; each starts after the previous one completes.</p>
+ * @public
+ */
+export interface PhasedPipeline {
+  /**
+   * <p>At most 8 modules in total across the phases; more fails with ValidationException.</p>
+   * @public
+   */
+  phases: FlowPhase[] | undefined;
+}
+
+/**
+ * <p>Modules that run one after another, each on the previous module's output.</p>
+ * @public
+ */
+export interface SequentialPipeline {
+  /**
+   * <p>In execution order.</p>
+   * @public
+   */
+  modules: FlowModule[] | undefined;
+}
+
+/**
+ * <p>How a flow's modules run. In <code>sequential</code>, each module sees the previous module's output; in <code>phased</code>, a phase's modules see the prior phase's output, not each other's. Set exactly one. New members can be added, so handle an unknown one.</p>
+ * @public
+ */
+export type FlowPipeline =
+  | FlowPipeline.PhasedMember
+  | FlowPipeline.SequentialMember
+  | FlowPipeline.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FlowPipeline {
+  /**
+   * <p>Modules run in list order. Use it when each module needs the previous module's output.</p>
+   * @public
+   */
+  export interface SequentialMember {
+    sequential: SequentialPipeline;
+    phased?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Phases run in order; a phase's modules run concurrently on the same input. Use it when a phase's modules don't depend on each other.</p>
+   * @public
+   */
+  export interface PhasedMember {
+    sequential?: never;
+    phased: PhasedPipeline;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    sequential?: never;
+    phased?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    sequential: (value: SequentialPipeline) => T;
+    phased: (value: PhasedPipeline) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>One flow on a link: a set of modules that runs on the link's bid requests.</p>
+ * @public
+ */
+export interface Flow {
+  /**
+   * <p>The flow's name, unique within the link.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The pipeline that the flow's modules run in. In a sequential pipeline, each module sees the previous module's output. In a phased pipeline, a phase's modules see the prior phase's output, not each other's.</p>
+   * @public
+   */
+  pipeline: FlowPipeline | undefined;
+}
+
+/**
  * @public
  */
 export interface GetLinkRequest {
@@ -1664,6 +1930,12 @@ export interface GetLinkResponse {
   connectivityType?: ConnectivityType | undefined;
 
   /**
+   * <p>The causes of the failure, such as a deleted subnet. Present only when the resource has failed.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetail[] | undefined;
+
+  /**
    * <p>The unique identifier of the link.</p>
    * @public
    */
@@ -1686,6 +1958,18 @@ export interface GetLinkResponse {
    * @public
    */
   timeoutInMillis?: number | undefined;
+
+  /**
+   * <p>The link's concurrency token. Pass it to PutLinkFlows unchanged; it changes whenever the link does.</p>
+   * @public
+   */
+  lockToken?: string | undefined;
+
+  /**
+   * <p>The link's active flows, in the form PutLinkFlows takes. Empty when the link has no modules, and absent when its modules were set with UpdateLinkModuleFlow.</p>
+   * @public
+   */
+  flows?: Flow[] | undefined;
 }
 
 /**
@@ -1768,6 +2052,12 @@ export interface GetLinkRoutingRuleResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The causes of the failure, such as a deleted subnet. Present only when the resource has failed.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetail[] | undefined;
 }
 
 /**
@@ -1839,6 +2129,12 @@ export interface LinkRoutingRuleSummary {
    * @public
    */
   updatedAt: Date | undefined;
+
+  /**
+   * <p>The causes of the failure, such as a deleted subnet. Present only when the resource has failed.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetail[] | undefined;
 }
 
 /**
@@ -1891,6 +2187,12 @@ export interface UpdateLinkRoutingRuleRequest {
    * @public
    */
   conditions: RuleCondition | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier for the request. The SDK generates one when you don't.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1914,6 +2216,12 @@ export interface UpdateLinkRoutingRuleResponse {
    * @public
    */
   updatedAt: Date | undefined;
+
+  /**
+   * <p>The ID of the update this call started.</p>
+   * @public
+   */
+  updateId: string | undefined;
 }
 
 /**
@@ -2011,6 +2319,12 @@ export interface ListLinksResponseStructure {
   connectivityType?: ConnectivityType | undefined;
 
   /**
+   * <p>The causes of the failure, such as a deleted subnet. Present only when the resource has failed.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetail[] | undefined;
+
+  /**
    * <p>The unique identifier of the link.</p>
    * @public
    */
@@ -2044,6 +2358,70 @@ export interface ListLinksResponse {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutLinkFlowsRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the link.</p>
+   * @public
+   */
+  linkId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the operation completes no more than one time. If you retry with the same token and parameters, you get the original response without an error. If you retry with the same token but different parameters, the call fails with ValidationException. If you don't provide a token, the SDK generates one, and RTB Fabric remembers it for 8 hours. A retry returns the original <code>updateId</code> before <code>lockToken</code> is checked.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The concurrency token that you read from GetLink. If the link changed since that read, by any operation, the call fails with ConflictException.</p>
+   * @public
+   */
+  lockToken: string | undefined;
+
+  /**
+   * <p>The link's flows, replacing the current ones. An empty list removes every flow.</p>
+   * @public
+   */
+  flows: Flow[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutLinkFlowsResponse {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the link.</p>
+   * @public
+   */
+  linkId: string | undefined;
+
+  /**
+   * <p>The link's status. A successful call returns PENDING_UPDATE, and the link serves its prior flows until the change completes.</p>
+   * @public
+   */
+  status: LinkStatus | undefined;
+
+  /**
+   * <p>The ID of the update this call started.</p>
+   * @public
+   */
+  updateId: string | undefined;
 }
 
 /**
@@ -2134,6 +2512,12 @@ export interface RejectLinkResponse {
   connectivityType?: ConnectivityType | undefined;
 
   /**
+   * <p>The causes of the failure, such as a deleted subnet. Present only when the resource has failed.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetail[] | undefined;
+
+  /**
    * <p>The unique identifier of the link.</p>
    * @public
    */
@@ -2167,6 +2551,12 @@ export interface UpdateLinkRequest {
    * @public
    */
   timeoutInMillis?: number | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier for the request. The SDK generates one when you don't.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2184,6 +2574,12 @@ export interface UpdateLinkResponse {
    * @public
    */
   status: LinkStatus | undefined;
+
+  /**
+   * <p>The ID of the update this call started.</p>
+   * @public
+   */
+  updateId: string | undefined;
 }
 
 /**
@@ -2236,6 +2632,662 @@ export interface UpdateLinkModuleFlowResponse {
    * @public
    */
   status: LinkStatus | undefined;
+
+  /**
+   * <p>The ID of the update this call started.</p>
+   * @public
+   */
+  updateId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetUpdateRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the update.</p>
+   * @public
+   */
+  updateId: string | undefined;
+}
+
+/**
+ * <p>A requested link configuration.</p>
+ * @public
+ */
+export interface LinkConfigParameters {
+  /**
+   * <p>Describes the settings for a link log.</p>
+   * @public
+   */
+  logSettings?: LinkLogSettings | undefined;
+
+  /**
+   * <p>The timeout value in milliseconds.</p>
+   * @public
+   */
+  timeoutInMillis?: number | undefined;
+}
+
+/**
+ * <p>A requested link flow.</p>
+ * @public
+ */
+export type LinkFlowParameters =
+  | LinkFlowParameters.FlowsMember
+  | LinkFlowParameters.ModulesMember
+  | LinkFlowParameters.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace LinkFlowParameters {
+  /**
+   * <p>The requested modules.</p>
+   * @public
+   */
+  export interface ModulesMember {
+    modules: ModuleConfiguration[];
+    flows?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A link's flows: at most one.</p>
+   * @public
+   */
+  export interface FlowsMember {
+    modules?: never;
+    flows: Flow[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    modules?: never;
+    flows?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    modules: (value: ModuleConfiguration[]) => T;
+    flows: (value: Flow[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A requested responder gateway configuration.</p>
+ * @public
+ */
+export interface ResponderGatewayConfigParameters {
+  /**
+   * <p>The gateway's description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The gateway's client routing policy.</p>
+   * @public
+   */
+  clientRoutingPolicy?: ClientRoutingPolicy | undefined;
+
+  /**
+   * <p>The gateway's domain name.</p>
+   * @public
+   */
+  domainName?: string | undefined;
+
+  /**
+   * <p>The networking port.</p>
+   * @public
+   */
+  port: number | undefined;
+
+  /**
+   * <p>The networking protocol.</p>
+   * @public
+   */
+  protocol: Protocol | undefined;
+
+  /**
+   * <p>Listener configuration for the protocols (HTTP, HTTPS, or both) accepted by the gateway.</p>
+   * @public
+   */
+  listenerConfig?: ListenerConfig | undefined;
+
+  /**
+   * <p>Describes the configuration of a trust store.</p>
+   * @public
+   */
+  trustStoreConfiguration?: TrustStoreConfiguration | undefined;
+
+  /**
+   * <p>Describes the configuration of a managed endpoint.</p>
+   * @public
+   */
+  managedEndpointConfiguration?: ManagedEndpointConfiguration | undefined;
+}
+
+/**
+ * <p>A requested routing rule.</p>
+ * @public
+ */
+export interface RoutingRuleParameters {
+  /**
+   * <p>WAF-style evaluation priority. Lower number = evaluated first (priority 1 before 10). Gaps are allowed (1, 10, 20 is valid). Must be between 1 and 1000 inclusive. Uniqueness per link among non-deleted rules is enforced at the API layer (HTTP 409 on conflict).</p>
+   * @public
+   */
+  priority: number | undefined;
+
+  /**
+   * <p>The conditions for a routing rule. All specified fields must match for the rule to apply (AND logic). At least one condition field must be set.</p>
+   * @public
+   */
+  conditions: RuleCondition | undefined;
+}
+
+/**
+ * <p>What an update requested.</p>
+ * @public
+ */
+export type UpdateParameters =
+  | UpdateParameters.LinkConfigMember
+  | UpdateParameters.LinkFlowMember
+  | UpdateParameters.ResponderGatewayConfigMember
+  | UpdateParameters.RoutingRuleMember
+  | UpdateParameters.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UpdateParameters {
+  /**
+   * <p>The requested responder gateway configuration.</p>
+   * @public
+   */
+  export interface ResponderGatewayConfigMember {
+    responderGatewayConfig: ResponderGatewayConfigParameters;
+    linkConfig?: never;
+    linkFlow?: never;
+    routingRule?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The requested link configuration.</p>
+   * @public
+   */
+  export interface LinkConfigMember {
+    responderGatewayConfig?: never;
+    linkConfig: LinkConfigParameters;
+    linkFlow?: never;
+    routingRule?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The requested link flow.</p>
+   * @public
+   */
+  export interface LinkFlowMember {
+    responderGatewayConfig?: never;
+    linkConfig?: never;
+    linkFlow: LinkFlowParameters;
+    routingRule?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The requested routing rule.</p>
+   * @public
+   */
+  export interface RoutingRuleMember {
+    responderGatewayConfig?: never;
+    linkConfig?: never;
+    linkFlow?: never;
+    routingRule: RoutingRuleParameters;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    responderGatewayConfig?: never;
+    linkConfig?: never;
+    linkFlow?: never;
+    routingRule?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    responderGatewayConfig: (value: ResponderGatewayConfigParameters) => T;
+    linkConfig: (value: LinkConfigParameters) => T;
+    linkFlow: (value: LinkFlowParameters) => T;
+    routingRule: (value: RoutingRuleParameters) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface Unit {}
+
+/**
+ * <p>The link an update targeted.</p>
+ * @public
+ */
+export interface LinkTarget {
+  /**
+   * <p>The unique identifier of the link.</p>
+   * @public
+   */
+  linkId: string | undefined;
+}
+
+/**
+ * <p>The routing rule an update targeted.</p>
+ * @public
+ */
+export interface RoutingRuleTarget {
+  /**
+   * <p>The unique identifier of the rule's link.</p>
+   * @public
+   */
+  linkId: string | undefined;
+
+  /**
+   * <p>Identifier for a routing rule</p>
+   * @public
+   */
+  ruleId: string | undefined;
+}
+
+/**
+ * <p>What an update targeted.</p>
+ * @public
+ */
+export type UpdateTarget =
+  | UpdateTarget.GatewayMember
+  | UpdateTarget.LinkMember
+  | UpdateTarget.RoutingRuleMember
+  | UpdateTarget.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UpdateTarget {
+  /**
+   * <p>The gateway itself.</p>
+   * @public
+   */
+  export interface GatewayMember {
+    gateway: Unit;
+    link?: never;
+    routingRule?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A link on the gateway.</p>
+   * @public
+   */
+  export interface LinkMember {
+    gateway?: never;
+    link: LinkTarget;
+    routingRule?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A routing rule on one of the gateway's links.</p>
+   * @public
+   */
+  export interface RoutingRuleMember {
+    gateway?: never;
+    link?: never;
+    routingRule: RoutingRuleTarget;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    gateway?: never;
+    link?: never;
+    routingRule?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    gateway: (value: Unit) => T;
+    link: (value: LinkTarget) => T;
+    routingRule: (value: RoutingRuleTarget) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>An accepted configuration change and its status.</p>
+ * @public
+ */
+export interface Update {
+  /**
+   * <p>The unique identifier of the update.</p>
+   * @public
+   */
+  updateId: string | undefined;
+
+  /**
+   * <p>The type of change.</p>
+   * @public
+   */
+  type: UpdateType | undefined;
+
+  /**
+   * <p>The status of the update.</p>
+   * @public
+   */
+  status: UpdateStatus | undefined;
+
+  /**
+   * <p>The resource that the update targeted.</p>
+   * @public
+   */
+  target: UpdateTarget | undefined;
+
+  /**
+   * <p>The timestamp of when the update was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The changes that the update requested.</p>
+   * @public
+   */
+  parameters?: UpdateParameters | undefined;
+
+  /**
+   * <p>The causes of the failure. Present only when the update has failed.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetail[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetUpdateResponse {
+  /**
+   * <p>The update.</p>
+   * @public
+   */
+  update: Update | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUpdatesRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The ID of a link on this gateway, to list only that link's updates. Omit both <code>linkId</code> and <code>ruleId</code> to list the gateway's own updates.</p>
+   * @public
+   */
+  linkId?: string | undefined;
+
+  /**
+   * <p>The ID of a routing rule, to list only that rule's updates. Requires <code>linkId</code>, because you address a rule through its link. A <code>ruleId</code> without <code>linkId</code> fails with ValidationException.</p>
+   * @public
+   */
+  ruleId?: string | undefined;
+
+  /**
+   * <p>Lists only updates of this type.</p>
+   * @public
+   */
+  type?: UpdateType | undefined;
+
+  /**
+   * <p>Lists only updates in this status.</p>
+   * @public
+   */
+  status?: UpdateStatus | undefined;
+
+  /**
+   * <p>If nextToken is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>A summary of an update.</p>
+ * @public
+ */
+export interface UpdateSummary {
+  /**
+   * <p>The unique identifier of the update.</p>
+   * @public
+   */
+  updateId: string | undefined;
+
+  /**
+   * <p>The type of change.</p>
+   * @public
+   */
+  type: UpdateType | undefined;
+
+  /**
+   * <p>The status of the update.</p>
+   * @public
+   */
+  status: UpdateStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the update was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUpdatesResponse {
+  /**
+   * <p>The updates on this page.</p>
+   * @public
+   */
+  updates: UpdateSummary[] | undefined;
+
+  /**
+   * <p>If nextToken is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAvailableModuleRequest {
+  /**
+   * <p>The module's ID.</p>
+   * @public
+   */
+  moduleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAvailableModuleResponse {
+  /**
+   * <p>The module's ID.</p>
+   * @public
+   */
+  moduleId: string | undefined;
+
+  /**
+   * <p>The module's ARN.</p>
+   * @public
+   */
+  moduleArn: string | undefined;
+
+  /**
+   * <p>A label, not unique: modules can share a name.</p>
+   * @public
+   */
+  moduleName: string | undefined;
+
+  /**
+   * <p>The module's description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The type of access that you have to the module.</p>
+   * @public
+   */
+  subscriptionType: SubscriptionType | undefined;
+
+  /**
+   * <p>Specifies whether your access to the module is current.</p>
+   * @public
+   */
+  subscriptionStatus: SubscriptionStatus | undefined;
+
+  /**
+   * <p>The Marketplace product the module is sold under. Present only when subscriptionType is MARKETPLACE.</p>
+   * @public
+   */
+  marketplaceProductId?: string | undefined;
+
+  /**
+   * <p>The time when the module was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAvailableModuleVersionRequest {
+  /**
+   * <p>The module's ID.</p>
+   * @public
+   */
+  moduleId: string | undefined;
+
+  /**
+   * <p>The version.</p>
+   * @public
+   */
+  version: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAvailableModuleVersionResponse {
+  /**
+   * <p>The module's ID.</p>
+   * @public
+   */
+  moduleId: string | undefined;
+
+  /**
+   * <p>The version.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The version's ARN.</p>
+   * @public
+   */
+  moduleVersionArn: string | undefined;
+
+  /**
+   * <p>ACTIVE or DEPRECATED.</p>
+   * @public
+   */
+  status: ModuleVersionStatus | undefined;
+
+  /**
+   * <p>The data-access grants the version holds.</p>
+   * @public
+   */
+  permissions: ModulePermission[] | undefined;
+
+  /**
+   * <p>The capabilities that you can turn on when you attach the version.</p>
+   * @public
+   */
+  configurableActions: ConfigurableAction[] | undefined;
+
+  /**
+   * <p>The JSON Schema for the parameters that you can set in <code>configurationValues</code> when you attach the version.</p>
+   * @public
+   */
+  configurationSchema?: string | undefined;
+
+  /**
+   * <p>The vendor's release notes.</p>
+   * @public
+   */
+  releaseNotes?: string | undefined;
+
+  /**
+   * <p>The time when the version was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The time when the version last changed.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
 }
 
 /**
@@ -2288,6 +3340,12 @@ export interface GetCertificateAssociationResponse {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The causes of the failure, such as a deleted subnet. Present only when the resource has failed.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetail[] | undefined;
 }
 
 /**
@@ -2382,6 +3440,24 @@ export interface GetInboundExternalLinkResponse {
    * @public
    */
   connectivityType?: ConnectivityType | undefined;
+
+  /**
+   * <p>The causes of the failure, such as a deleted subnet. Present only when the resource has failed.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetail[] | undefined;
+
+  /**
+   * <p>The link's concurrency token. Pass it to PutLinkFlows unchanged; it changes whenever the link does.</p>
+   * @public
+   */
+  lockToken?: string | undefined;
+
+  /**
+   * <p>The link's active flows, in the form PutLinkFlows takes. Empty when the link has no modules, and absent when its modules were set with UpdateLinkModuleFlow.</p>
+   * @public
+   */
+  flows?: Flow[] | undefined;
 }
 
 /**
@@ -2476,6 +3552,24 @@ export interface GetOutboundExternalLinkResponse {
    * @public
    */
   connectivityType?: ConnectivityType | undefined;
+
+  /**
+   * <p>The causes of the failure, such as a deleted subnet. Present only when the resource has failed.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetail[] | undefined;
+
+  /**
+   * <p>The link's concurrency token. Pass it to PutLinkFlows unchanged; it changes whenever the link does.</p>
+   * @public
+   */
+  lockToken?: string | undefined;
+
+  /**
+   * <p>The link's active flows, in the form PutLinkFlows takes. Empty when the link has no modules, and absent when its modules were set with UpdateLinkModuleFlow.</p>
+   * @public
+   */
+  flows?: Flow[] | undefined;
 }
 
 /**
@@ -2522,6 +3616,12 @@ export interface GetRequesterGatewayResponse {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The causes of the failure, such as a deleted subnet. Present only when the resource has failed.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetail[] | undefined;
 
   /**
    * <p>The unique identifier of the Virtual Private Cloud (VPC).</p>
@@ -2624,6 +3724,12 @@ export interface GetResponderGatewayResponse {
   updatedAt?: Date | undefined;
 
   /**
+   * <p>The causes of the failure, such as a deleted subnet. Present only when the resource has failed.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetail[] | undefined;
+
+  /**
    * <p>The domain name of the responder gateway.</p>
    * @public
    */
@@ -2706,6 +3812,98 @@ export interface GetResponderGatewayResponse {
    * @public
    */
   clientRoutingPolicy?: ClientRoutingPolicy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAvailableModulesRequest {
+  /**
+   * <p>Lists only modules that you have access to this way.</p>
+   * @public
+   */
+  subscriptionType?: SubscriptionType | undefined;
+
+  /**
+   * <p>The maximum number of results for each page, from 1 to 10. The default is 10.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If nextToken is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours; using an expired token fails with ValidationException.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAvailableModulesResponse {
+  /**
+   * <p>The modules on this page, newest first.</p>
+   * @public
+   */
+  modules: AvailableModuleSummary[] | undefined;
+
+  /**
+   * <p>If nextToken is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours; using an expired token fails with ValidationException.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAvailableModuleVersionsRequest {
+  /**
+   * <p>The module's ID.</p>
+   * @public
+   */
+  moduleId: string | undefined;
+
+  /**
+   * <p>Lists only versions in this status. Only ACTIVE and DEPRECATED versions are listed, so another value returns an empty list.</p>
+   * @public
+   */
+  status?: ModuleVersionStatus | undefined;
+
+  /**
+   * <p>The maximum number of results for each page, from 1 to 10. The default is 10.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If nextToken is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours; using an expired token fails with ValidationException.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAvailableModuleVersionsResponse {
+  /**
+   * <p>The module's ID.</p>
+   * @public
+   */
+  moduleId: string | undefined;
+
+  /**
+   * <p>The versions on this page, highest version first.</p>
+   * @public
+   */
+  versions: AvailableModuleVersionSummary[] | undefined;
+
+  /**
+   * <p>If nextToken is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours; using an expired token fails with ValidationException.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2964,6 +4162,12 @@ export interface UpdateResponderGatewayResponse {
    * @public
    */
   clientRoutingPolicy?: ClientRoutingPolicy | undefined;
+
+  /**
+   * <p>The ID of the update this call started.</p>
+   * @public
+   */
+  updateId: string | undefined;
 }
 
 /**

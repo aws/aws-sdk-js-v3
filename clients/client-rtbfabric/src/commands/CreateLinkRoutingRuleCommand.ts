@@ -56,7 +56,7 @@ export interface CreateLinkRoutingRuleCommandOutput extends CreateLinkRoutingRul
  * const response = await client.send(command);
  * // { // CreateLinkRoutingRuleResponse
  * //   ruleId: "STRING_VALUE", // required
- * //   status: "CREATION_IN_PROGRESS" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETION_IN_PROGRESS" || "DELETED" || "FAILED", // required
+ * //   status: "CREATION_IN_PROGRESS" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETION_IN_PROGRESS" || "DELETED" || "FAILED" || "CREATE_FAILED" || "DELETE_FAILED", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * // };
  *

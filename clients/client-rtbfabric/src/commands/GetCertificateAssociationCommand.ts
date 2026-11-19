@@ -44,6 +44,15 @@ export interface GetCertificateAssociationCommandOutput extends GetCertificateAs
  * //   status: "PENDING_ASSOCIATION" || "ASSOCIATED" || "PENDING_DISASSOCIATION" || "DISASSOCIATED" || "FAILED", // required
  * //   associatedAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
+ * //   errorDetails: [ // ErrorDetails
+ * //     { // ErrorDetail
+ * //       code: "VPC_NOT_FOUND" || "EC2_SUBNET_NOT_FOUND" || "EC2_SECURITY_GROUP_NOT_FOUND" || "EC2_SUBNET_IP_EXHAUSTION" || "IAM_ASSUME_ROLE_ACCESS_DENIED" || "INTERNAL_ERROR", // required
+ * //       message: "STRING_VALUE", // required
+ * //       resourceIds: [ // AwsResourceIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
  * // };
  *
  * ```

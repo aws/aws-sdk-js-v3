@@ -6,6 +6,10 @@ const _ADE = "AccessDeniedException";
 const _AL = "AcceptLink";
 const _ALR = "AcceptLinkRequest";
 const _ALRc = "AcceptLinkResponse";
+const _AMS = "AvailableModuleSummary";
+const _AMSL = "AvailableModuleSummaryList";
+const _AMVS = "AvailableModuleVersionSummary";
+const _AMVSL = "AvailableModuleVersionSummaryList";
 const _ASGC = "AutoScalingGroupsConfiguration";
 const _BECC = "Base64EncodedCertificateChain";
 const _CAC = "CertificateAuthorityCertificates";
@@ -51,11 +55,26 @@ const _DRGRe = "DeleteRequesterGatewayResponse";
 const _DRGRel = "DeleteResponderGatewayRequest";
 const _DRGRele = "DeleteResponderGatewayResponse";
 const _DRGe = "DeleteResponderGateway";
+const _ED = "ErrorDetail";
+const _EDr = "ErrorDetails";
 const _EEC = "EksEndpointsConfiguration";
 const _F = "Filter";
 const _FC = "FilterCriterion";
 const _FCi = "FilterConfiguration";
 const _FCil = "FilterCriteria";
+const _FL = "FlowList";
+const _FM = "FlowModule";
+const _FML = "FlowModuleList";
+const _FP = "FlowPhase";
+const _FPL = "FlowPhaseList";
+const _FPl = "FlowPipeline";
+const _Fl = "Flow";
+const _GAM = "GetAvailableModule";
+const _GAMR = "GetAvailableModuleRequest";
+const _GAMRe = "GetAvailableModuleResponse";
+const _GAMV = "GetAvailableModuleVersion";
+const _GAMVR = "GetAvailableModuleVersionRequest";
+const _GAMVRe = "GetAvailableModuleVersionResponse";
 const _GCA = "GetCertificateAssociation";
 const _GCAR = "GetCertificateAssociationRequest";
 const _GCARe = "GetCertificateAssociationResponse";
@@ -77,16 +96,27 @@ const _GRGRe = "GetRequesterGatewayResponse";
 const _GRGRet = "GetResponderGatewayRequest";
 const _GRGRete = "GetResponderGatewayResponse";
 const _GRGe = "GetResponderGateway";
+const _GU = "GetUpdate";
+const _GUR = "GetUpdateRequest";
+const _GURe = "GetUpdateResponse";
 const _HCC = "HealthCheckConfig";
 const _HTA = "HeaderTagAction";
 const _ISE = "InternalServerException";
 const _LA = "LinkAttributes";
 const _LALC = "LinkApplicationLogConfiguration";
 const _LALS = "LinkApplicationLogSampling";
+const _LAM = "ListAvailableModules";
+const _LAMR = "ListAvailableModulesRequest";
+const _LAMRi = "ListAvailableModulesResponse";
+const _LAMV = "ListAvailableModuleVersions";
+const _LAMVR = "ListAvailableModuleVersionsRequest";
+const _LAMVRi = "ListAvailableModuleVersionsResponse";
 const _LC = "ListenerConfig";
 const _LCA = "ListCertificateAssociations";
 const _LCAR = "ListCertificateAssociationsRequest";
 const _LCARi = "ListCertificateAssociationsResponse";
+const _LCP = "LinkConfigParameters";
+const _LFP = "LinkFlowParameters";
 const _LL = "LinkList";
 const _LLR = "ListLinksRequest";
 const _LLRR = "ListLinkRoutingRules";
@@ -104,9 +134,13 @@ const _LRGRist = "ListResponderGatewaysResponse";
 const _LRGi = "ListResponderGateways";
 const _LRRL = "LinkRoutingRuleList";
 const _LRRS = "LinkRoutingRuleSummary";
+const _LT = "LinkTarget";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
+const _LU = "ListUpdates";
+const _LUR = "ListUpdatesRequest";
+const _LURi = "ListUpdatesResponse";
 const _MC = "ModuleConfiguration";
 const _MCL = "ModuleConfigurationList";
 const _MEC = "ManagedEndpointConfiguration";
@@ -114,21 +148,30 @@ const _MP = "ModuleParameters";
 const _NBA = "NoBidAction";
 const _NBMP = "NoBidModuleParameters";
 const _ORAMP = "OpenRtbAttributeModuleParameters";
+const _PLF = "PutLinkFlows";
+const _PLFR = "PutLinkFlowsRequest";
+const _PLFRu = "PutLinkFlowsResponse";
+const _PP = "PhasedPipeline";
 const _QSKVP = "QueryStringKeyValuePair";
 const _RC = "RuleCondition";
 const _REM = "ResponderErrorMasking";
 const _REMFHC = "ResponderErrorMaskingForHttpCode";
+const _RGCP = "ResponderGatewayConfigParameters";
 const _RL = "RejectLink";
 const _RLMP = "RateLimiterModuleParameters";
 const _RLR = "RejectLinkRequest";
 const _RLRe = "RejectLinkResponse";
 const _RNFE = "ResourceNotFoundException";
+const _RRP = "RoutingRuleParameters";
+const _RRT = "RoutingRuleTarget";
+const _SP = "SequentialPipeline";
 const _SQEE = "ServiceQuotaExceededException";
 const _TE = "ThrottlingException";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TSC = "TrustStoreConfiguration";
+const _U = "Update";
 const _UL = "UpdateLink";
 const _ULMF = "UpdateLinkModuleFlow";
 const _ULMFR = "UpdateLinkModuleFlowRequest";
@@ -138,6 +181,7 @@ const _ULRR = "UpdateLinkRoutingRule";
 const _ULRRR = "UpdateLinkRoutingRuleRequest";
 const _ULRRRp = "UpdateLinkRoutingRuleResponse";
 const _ULRp = "UpdateLinkResponse";
+const _UP = "UpdateParameters";
 const _UR = "UntagResource";
 const _URG = "UpdateRequesterGateway";
 const _URGR = "UpdateRequesterGatewayRequest";
@@ -147,12 +191,16 @@ const _URGRpda = "UpdateResponderGatewayResponse";
 const _URGp = "UpdateResponderGateway";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
+const _US = "UpdateSummary";
+const _USL = "UpdateSummaryList";
+const _UT = "UpdateTarget";
 const _VE = "ValidationException";
 const _a = "attributes";
 const _aA = "associatedAt";
 const _aCA = "acmCertificateArn";
 const _aL = "applicationLogs";
 const _aLC = "activeLinksCount";
+const _aP = "activationPercentage";
 const _aSG = "autoScalingGroups";
 const _aSGN = "autoScalingGroupNames";
 const _ac = "action";
@@ -162,27 +210,35 @@ const _cAC = "certificateAuthorityCertificates";
 const _cASCCC = "clusterApiServerCaCertificateChain";
 const _cASEU = "clusterApiServerEndpointUri";
 const _cAe = "certificateAssociations";
+const _cAo = "configurableActions";
 const _cN = "clusterName";
 const _cPI = "customerProvidedId";
 const _cRP = "clientRoutingPolicy";
+const _cS = "configurationSchema";
 const _cT = "connectivityType";
 const _cTl = "clientToken";
+const _cV = "configurationValues";
 const _co = "conditions";
+const _cod = "code";
 const _cr = "criteria";
 const _d = "direction";
 const _dN = "domainName";
 const _dO = "dependsOn";
 const _de = "description";
 const _e = "error";
+const _eD = "errorDetails";
 const _eE = "eksEndpoints";
 const _eIE = "externalInboundEndpoint";
 const _eL = "errorLog";
 const _eRN = "endpointsResourceName";
 const _eRNn = "endpointsResourceNamespace";
+const _f = "flows";
 const _fC = "filterConfiguration";
 const _fL = "filterLog";
 const _fM = "flowModules";
+const _fMa = "failureMode";
 const _fT = "filterType";
+const _g = "gateway";
 const _gI = "gatewayId";
 const _gIa = "gatewayIds";
 const _gT = "gatewayType";
@@ -201,14 +257,23 @@ const _iS = "intervalSeconds";
 const _k = "key";
 const _l = "links";
 const _lC = "listenerConfig";
+const _lCi = "linkConfig";
+const _lF = "linkFlow";
 const _lI = "linkId";
 const _lRC = "linksRequestedCount";
 const _lS = "logSettings";
-const _lT = "loggingTypes";
+const _lT = "lockToken";
+const _lTo = "loggingTypes";
+const _li = "link";
 const _m = "message";
+const _mA = "moduleArn";
 const _mEC = "managedEndpointConfiguration";
+const _mI = "moduleId";
+const _mN = "moduleName";
 const _mP = "moduleParameters";
+const _mPI = "marketplaceProductId";
 const _mR = "maxResults";
+const _mVA = "moduleVersionArn";
 const _mo = "modules";
 const _n = "name";
 const _nB = "noBid";
@@ -223,6 +288,11 @@ const _pGI = "peerGatewayId";
 const _pP = "pathPrefix";
 const _pTP = "passThroughPercentage";
 const _pa = "path";
+const _par = "parameters";
+const _pe = "permissions";
+const _ph = "phases";
+const _pha = "phased";
+const _pi = "pipeline";
 const _po = "port";
 const _pr = "protocol";
 const _pro = "protocols";
@@ -233,16 +303,24 @@ const _rA = "roleArn";
 const _rAe = "resourceArn";
 const _rC = "reasonCode";
 const _rEM = "responderErrorMasking";
+const _rGC = "responderGatewayConfig";
 const _rI = "ruleId";
+const _rIe = "resourceIds";
 const _rL = "rateLimiter";
 const _rLP = "responseLoggingPercentage";
+const _rN = "releaseNotes";
+const _rR = "routingRule";
 const _re = "reason";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.rtbfabric";
+const _sA = "selectedActions";
 const _sCM = "statusCodeMatcher";
 const _sGI = "securityGroupIds";
 const _sI = "subnetIds";
+const _sS = "subscriptionStatus";
+const _sT = "subscriptionType";
 const _sa = "sampling";
 const _se = "server";
+const _seq = "sequential";
 const _st = "status";
 const _t = "tags";
 const _tIM = "timeoutInMillis";
@@ -250,13 +328,19 @@ const _tK = "tagKeys";
 const _tLC = "totalLinksCount";
 const _tM = "timeoutMs";
 const _tSC = "trustStoreConfiguration";
+const _ta = "target";
 const _tp = "tps";
+const _ty = "type";
+const _u = "update";
 const _uA = "updatedAt";
+const _uI = "updateId";
 const _uTC = "unhealthyThresholdCount";
-const _v = "values";
+const _up = "updates";
+const _v = "version";
 const _vI = "vpcId";
-const _va = "value";
-const _ve = "version";
+const _va = "values";
+const _val = "value";
+const _ve = "versions";
 const n0 = "com.amazonaws.rtbfabric";
 
 // smithy-typescript generated code
@@ -346,8 +430,8 @@ export var AcceptLinkRequest$: StaticStructureSchema = [3, n0, _ALR,
 ];
 export var AcceptLinkResponse$: StaticStructureSchema = [3, n0, _ALRc,
   0,
-  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT],
-  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0], 6
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT, _eD],
+  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0, () => ErrorDetails], 6
 ];
 export var AssociateCertificateRequest$: StaticStructureSchema = [3, n0, _ACR,
   0,
@@ -363,6 +447,16 @@ export var AutoScalingGroupsConfiguration$: StaticStructureSchema = [3, n0, _ASG
   0,
   [_aSGN, _rA, _hCC],
   [64 | 0, 0, () => HealthCheckConfig$], 2
+];
+export var AvailableModuleSummary$: StaticStructureSchema = [3, n0, _AMS,
+  0,
+  [_mI, _mA, _mN, _sT, _sS, _mPI],
+  [0, 0, 0, 0, 0, 0], 5
+];
+export var AvailableModuleVersionSummary$: StaticStructureSchema = [3, n0, _AMVS,
+  0,
+  [_v, _mVA, _st, _cA],
+  [0, 0, 0, 4], 4
 ];
 export var CertificateAssociationSummary$: StaticStructureSchema = [3, n0, _CAS,
   0,
@@ -386,8 +480,8 @@ export var CreateLinkRequest$: StaticStructureSchema = [3, n0, _CLR,
 ];
 export var CreateLinkResponse$: StaticStructureSchema = [3, n0, _CLRr,
   0,
-  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT, _cPI],
-  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0, 0], 6
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT, _eD, _cPI],
+  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0, () => ErrorDetails, 0], 6
 ];
 export var CreateLinkRoutingRuleRequest$: StaticStructureSchema = [3, n0, _CLRRR,
   0,
@@ -504,6 +598,11 @@ export var EksEndpointsConfiguration$: StaticStructureSchema = [3, n0, _EEC,
   [_eRN, _eRNn, _cASEU, _cASCCC, _cN, _rA],
   [0, 0, 0, [() => Base64EncodedCertificateChain, 0], 0, 0], 6
 ];
+export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
+  0,
+  [_cod, _m, _rIe],
+  [0, 0, 64 | 0], 2
+];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
   [_cr],
@@ -511,8 +610,43 @@ export var Filter$: StaticStructureSchema = [3, n0, _F,
 ];
 export var FilterCriterion$: StaticStructureSchema = [3, n0, _FC,
   0,
-  [_pa, _v],
+  [_pa, _va],
   [0, 64 | 0], 2
+];
+export var Flow$: StaticStructureSchema = [3, n0, _Fl,
+  0,
+  [_n, _pi],
+  [0, () => FlowPipeline$], 2
+];
+export var FlowModule$: StaticStructureSchema = [3, n0, _FM,
+  0,
+  [_n, _mVA, _sA, _fMa, _aP, _cV],
+  [0, 0, 64 | 0, 0, 1, 0], 2
+];
+export var FlowPhase$: StaticStructureSchema = [3, n0, _FP,
+  0,
+  [_mo],
+  [() => FlowModuleList], 1
+];
+export var GetAvailableModuleRequest$: StaticStructureSchema = [3, n0, _GAMR,
+  0,
+  [_mI],
+  [[0, 1]], 1
+];
+export var GetAvailableModuleResponse$: StaticStructureSchema = [3, n0, _GAMRe,
+  0,
+  [_mI, _mA, _mN, _sT, _sS, _cA, _de, _mPI],
+  [0, 0, 0, 0, 0, 4, 0, 0], 6
+];
+export var GetAvailableModuleVersionRequest$: StaticStructureSchema = [3, n0, _GAMVR,
+  0,
+  [_mI, _v],
+  [[0, 1], [0, 1]], 2
+];
+export var GetAvailableModuleVersionResponse$: StaticStructureSchema = [3, n0, _GAMVRe,
+  0,
+  [_mI, _v, _mVA, _st, _pe, _cAo, _cA, _uA, _cS, _rN],
+  [0, 0, 0, 0, 64 | 0, 64 | 0, 4, 4, 0, 0], 8
 ];
 export var GetCertificateAssociationRequest$: StaticStructureSchema = [3, n0, _GCAR,
   0,
@@ -521,8 +655,8 @@ export var GetCertificateAssociationRequest$: StaticStructureSchema = [3, n0, _G
 ];
 export var GetCertificateAssociationResponse$: StaticStructureSchema = [3, n0, _GCARe,
   0,
-  [_gI, _aCA, _st, _aA, _uA],
-  [0, 0, 0, 4, 4], 3
+  [_gI, _aCA, _st, _aA, _uA, _eD],
+  [0, 0, 0, 4, 4, () => ErrorDetails], 3
 ];
 export var GetInboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _GIELR,
   0,
@@ -531,8 +665,8 @@ export var GetInboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _GIEL
 ];
 export var GetInboundExternalLinkResponse$: StaticStructureSchema = [3, n0, _GIELRe,
   0,
-  [_gI, _lI, _st, _dN, _fM, _pFM, _a, _cA, _uA, _t, _lS, _cT],
-  [0, 0, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, 4, 4, 128 | 0, () => LinkLogSettings$, 0], 4
+  [_gI, _lI, _st, _dN, _fM, _pFM, _a, _cA, _uA, _t, _lS, _cT, _eD, _lT, _f],
+  [0, 0, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, 4, 4, 128 | 0, () => LinkLogSettings$, 0, () => ErrorDetails, 0, () => FlowList], 4
 ];
 export var GetLinkRequest$: StaticStructureSchema = [3, n0, _GLR,
   0,
@@ -541,8 +675,8 @@ export var GetLinkRequest$: StaticStructureSchema = [3, n0, _GLR,
 ];
 export var GetLinkResponse$: StaticStructureSchema = [3, n0, _GLRe,
   0,
-  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT, _t, _hRA, _tIM],
-  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0, 128 | 0, 2, 1], 6
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT, _eD, _t, _hRA, _tIM, _lT, _f],
+  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0, () => ErrorDetails, 128 | 0, 2, 1, 0, () => FlowList], 6
 ];
 export var GetLinkRoutingRuleRequest$: StaticStructureSchema = [3, n0, _GLRRR,
   0,
@@ -551,8 +685,8 @@ export var GetLinkRoutingRuleRequest$: StaticStructureSchema = [3, n0, _GLRRR,
 ];
 export var GetLinkRoutingRuleResponse$: StaticStructureSchema = [3, n0, _GLRRRe,
   0,
-  [_gI, _lI, _rI, _p, _co, _st, _cA, _uA, _t],
-  [0, 0, 0, 1, () => RuleCondition$, 0, 4, 4, 128 | 0], 8
+  [_gI, _lI, _rI, _p, _co, _st, _cA, _uA, _t, _eD],
+  [0, 0, 0, 1, () => RuleCondition$, 0, 4, 4, 128 | 0, () => ErrorDetails], 8
 ];
 export var GetOutboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _GOELR,
   0,
@@ -561,8 +695,8 @@ export var GetOutboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _GOE
 ];
 export var GetOutboundExternalLinkResponse$: StaticStructureSchema = [3, n0, _GOELRe,
   0,
-  [_gI, _lI, _st, _pE, _fM, _pFM, _a, _cA, _uA, _t, _lS, _cT],
-  [0, 0, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, 4, 4, 128 | 0, () => LinkLogSettings$, 0], 4
+  [_gI, _lI, _st, _pE, _fM, _pFM, _a, _cA, _uA, _t, _lS, _cT, _eD, _lT, _f],
+  [0, 0, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, 4, 4, 128 | 0, () => LinkLogSettings$, 0, () => ErrorDetails, 0, () => FlowList], 4
 ];
 export var GetRequesterGatewayRequest$: StaticStructureSchema = [3, n0, _GRGR,
   0,
@@ -571,8 +705,8 @@ export var GetRequesterGatewayRequest$: StaticStructureSchema = [3, n0, _GRGR,
 ];
 export var GetRequesterGatewayResponse$: StaticStructureSchema = [3, n0, _GRGRe,
   0,
-  [_st, _dN, _vI, _sI, _sGI, _gI, _de, _cA, _uA, _t, _aLC, _tLC],
-  [0, 0, 0, 64 | 0, 64 | 0, 0, 0, 4, 4, 128 | 0, 1, 1], 6
+  [_st, _dN, _vI, _sI, _sGI, _gI, _de, _cA, _uA, _eD, _t, _aLC, _tLC],
+  [0, 0, 0, 64 | 0, 64 | 0, 0, 0, 4, 4, () => ErrorDetails, 128 | 0, 1, 1], 6
 ];
 export var GetResponderGatewayRequest$: StaticStructureSchema = [3, n0, _GRGRet,
   0,
@@ -581,12 +715,22 @@ export var GetResponderGatewayRequest$: StaticStructureSchema = [3, n0, _GRGRet,
 ];
 export var GetResponderGatewayResponse$: StaticStructureSchema = [3, n0, _GRGRete,
   0,
-  [_vI, _sI, _sGI, _st, _po, _pr, _gI, _de, _cA, _uA, _dN, _lC, _tSC, _mEC, _t, _aLC, _tLC, _lRC, _gT, _eIE, _cRP],
-  [0, 64 | 0, 64 | 0, 0, 1, 0, 0, 0, 4, 4, 0, () => ListenerConfig$, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], 128 | 0, 1, 1, 1, 0, 0, 0], 7
+  [_vI, _sI, _sGI, _st, _po, _pr, _gI, _de, _cA, _uA, _eD, _dN, _lC, _tSC, _mEC, _t, _aLC, _tLC, _lRC, _gT, _eIE, _cRP],
+  [0, 64 | 0, 64 | 0, 0, 1, 0, 0, 0, 4, 4, () => ErrorDetails, 0, () => ListenerConfig$, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], 128 | 0, 1, 1, 1, 0, 0, 0], 7
+];
+export var GetUpdateRequest$: StaticStructureSchema = [3, n0, _GUR,
+  0,
+  [_gI, _uI],
+  [[0, 1], [0, 1]], 2
+];
+export var GetUpdateResponse$: StaticStructureSchema = [3, n0, _GURe,
+  0,
+  [_u],
+  [[() => Update$, 0]], 1
 ];
 export var HeaderTagAction$: StaticStructureSchema = [3, n0, _HTA,
   0,
-  [_n, _va],
+  [_n, _val],
   [0, 0], 2
 ];
 export var HealthCheckConfig$: StaticStructureSchema = [3, n0, _HCC,
@@ -609,6 +753,11 @@ export var LinkAttributes$: StaticStructureSchema = [3, n0, _LA,
   [_rEM, _cPI],
   [() => ResponderErrorMasking, 0]
 ];
+export var LinkConfigParameters$: StaticStructureSchema = [3, n0, _LCP,
+  0,
+  [_lS, _tIM],
+  [() => LinkLogSettings$, 1]
+];
 export var LinkLogSettings$: StaticStructureSchema = [3, n0, _LLS,
   0,
   [_aL],
@@ -616,8 +765,33 @@ export var LinkLogSettings$: StaticStructureSchema = [3, n0, _LLS,
 ];
 export var LinkRoutingRuleSummary$: StaticStructureSchema = [3, n0, _LRRS,
   0,
-  [_rI, _p, _co, _st, _cA, _uA],
-  [0, 1, () => RuleCondition$, 0, 4, 4], 6
+  [_rI, _p, _co, _st, _cA, _uA, _eD],
+  [0, 1, () => RuleCondition$, 0, 4, 4, () => ErrorDetails], 6
+];
+export var LinkTarget$: StaticStructureSchema = [3, n0, _LT,
+  0,
+  [_lI],
+  [0], 1
+];
+export var ListAvailableModulesRequest$: StaticStructureSchema = [3, n0, _LAMR,
+  0,
+  [_sT, _mR, _nT],
+  [[0, { [_hQ]: _sT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+];
+export var ListAvailableModulesResponse$: StaticStructureSchema = [3, n0, _LAMRi,
+  0,
+  [_mo, _nT],
+  [() => AvailableModuleSummaryList, 0], 1
+];
+export var ListAvailableModuleVersionsRequest$: StaticStructureSchema = [3, n0, _LAMVR,
+  0,
+  [_mI, _st, _mR, _nT],
+  [[0, 1], [0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListAvailableModuleVersionsResponse$: StaticStructureSchema = [3, n0, _LAMVRi,
+  0,
+  [_mI, _ve, _nT],
+  [0, () => AvailableModuleVersionSummaryList, 0], 2
 ];
 export var ListCertificateAssociationsRequest$: StaticStructureSchema = [3, n0, _LCAR,
   0,
@@ -656,8 +830,8 @@ export var ListLinksResponse$: StaticStructureSchema = [3, n0, _LLRi,
 ];
 export var ListLinksResponseStructure$: StaticStructureSchema = [3, n0, _LLRS,
   0,
-  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT, _t, _pE],
-  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0, 128 | 0, 0], 6
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT, _eD, _t, _pE],
+  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0, () => ErrorDetails, 128 | 0, 0], 6
 ];
 export var ListRequesterGatewaysRequest$: StaticStructureSchema = [3, n0, _LRGR,
   0,
@@ -689,9 +863,19 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_t],
   [128 | 0]
 ];
+export var ListUpdatesRequest$: StaticStructureSchema = [3, n0, _LUR,
+  0,
+  [_gI, _lI, _rI, _ty, _st, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _lI }], [0, { [_hQ]: _rI }], [0, { [_hQ]: _ty }], [0, { [_hQ]: _st }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
+];
+export var ListUpdatesResponse$: StaticStructureSchema = [3, n0, _LURi,
+  0,
+  [_up, _nT],
+  [() => UpdateSummaryList, 0], 1
+];
 export var ModuleConfiguration$: StaticStructureSchema = [3, n0, _MC,
   0,
-  [_n, _ve, _dO, _mP],
+  [_n, _v, _dO, _mP],
   [0, 0, 64 | 0, () => ModuleParameters$], 1
 ];
 export var NoBidAction$: StaticStructureSchema = [3, n0, _NBA,
@@ -709,9 +893,24 @@ export var OpenRtbAttributeModuleParameters$: StaticStructureSchema = [3, n0, _O
   [_fT, _fC, _ac, _hP],
   [0, () => FilterConfiguration, () => Action$, 1], 4
 ];
+export var PhasedPipeline$: StaticStructureSchema = [3, n0, _PP,
+  0,
+  [_ph],
+  [() => FlowPhaseList], 1
+];
+export var PutLinkFlowsRequest$: StaticStructureSchema = [3, n0, _PLFR,
+  0,
+  [_gI, _lI, _lT, _f, _cTl],
+  [[0, 1], [0, 1], 0, () => FlowList, [0, 4]], 4
+];
+export var PutLinkFlowsResponse$: StaticStructureSchema = [3, n0, _PLFRu,
+  0,
+  [_gI, _lI, _st, _uI],
+  [0, 0, 0, 0], 4
+];
 export var QueryStringKeyValuePair$: StaticStructureSchema = [3, n0, _QSKVP,
   0,
-  [_k, _va],
+  [_k, _val],
   [0, 0], 2
 ];
 export var RateLimiterModuleParameters$: StaticStructureSchema = [3, n0, _RLMP,
@@ -726,18 +925,38 @@ export var RejectLinkRequest$: StaticStructureSchema = [3, n0, _RLR,
 ];
 export var RejectLinkResponse$: StaticStructureSchema = [3, n0, _RLRe,
   0,
-  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT],
-  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0], 6
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT, _eD],
+  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0, () => ErrorDetails], 6
 ];
 export var ResponderErrorMaskingForHttpCode$: StaticStructureSchema = [3, n0, _REMFHC,
   0,
-  [_hC, _ac, _lT, _rLP],
+  [_hC, _ac, _lTo, _rLP],
   [0, 0, 64 | 0, 1], 3
+];
+export var ResponderGatewayConfigParameters$: StaticStructureSchema = [3, n0, _RGCP,
+  0,
+  [_po, _pr, _de, _cRP, _dN, _lC, _tSC, _mEC],
+  [1, 0, 0, 0, 0, () => ListenerConfig$, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0]], 2
+];
+export var RoutingRuleParameters$: StaticStructureSchema = [3, n0, _RRP,
+  0,
+  [_p, _co],
+  [1, () => RuleCondition$], 2
+];
+export var RoutingRuleTarget$: StaticStructureSchema = [3, n0, _RRT,
+  0,
+  [_lI, _rI],
+  [0, 0], 2
 ];
 export var RuleCondition$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_hH, _hHW, _pP, _pEa, _qSE, _qSEu],
   [0, 0, 0, 0, () => QueryStringKeyValuePair$, 0]
+];
+export var SequentialPipeline$: StaticStructureSchema = [3, n0, _SP,
+  0,
+  [_mo],
+  [() => FlowModuleList], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
@@ -764,6 +983,11 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
+export var Update$: StaticStructureSchema = [3, n0, _U,
+  0,
+  [_uI, _ty, _st, _ta, _cA, _par, _eD],
+  [0, 0, 0, () => UpdateTarget$, 4, [() => UpdateParameters$, 0], () => ErrorDetails], 5
+];
 export var UpdateLinkModuleFlowRequest$: StaticStructureSchema = [3, n0, _ULMFR,
   0,
   [_gI, _lI, _mo, _cTl],
@@ -771,28 +995,28 @@ export var UpdateLinkModuleFlowRequest$: StaticStructureSchema = [3, n0, _ULMFR,
 ];
 export var UpdateLinkModuleFlowResponse$: StaticStructureSchema = [3, n0, _ULMFRp,
   0,
-  [_gI, _lI, _st],
-  [0, 0, 0], 3
+  [_gI, _lI, _st, _uI],
+  [0, 0, 0, 0], 4
 ];
 export var UpdateLinkRequest$: StaticStructureSchema = [3, n0, _ULR,
   0,
-  [_gI, _lI, _lS, _tIM],
-  [[0, 1], [0, 1], () => LinkLogSettings$, 1], 2
+  [_gI, _lI, _lS, _tIM, _cTl],
+  [[0, 1], [0, 1], () => LinkLogSettings$, 1, [0, 4]], 2
 ];
 export var UpdateLinkResponse$: StaticStructureSchema = [3, n0, _ULRp,
   0,
-  [_lI, _st],
-  [0, 0], 2
+  [_lI, _st, _uI],
+  [0, 0, 0], 3
 ];
 export var UpdateLinkRoutingRuleRequest$: StaticStructureSchema = [3, n0, _ULRRR,
   0,
-  [_gI, _lI, _rI, _p, _co],
-  [[0, 1], [0, 1], [0, 1], 1, () => RuleCondition$], 5
+  [_gI, _lI, _rI, _p, _co, _cTl],
+  [[0, 1], [0, 1], [0, 1], 1, () => RuleCondition$, [0, 4]], 5
 ];
 export var UpdateLinkRoutingRuleResponse$: StaticStructureSchema = [3, n0, _ULRRRp,
   0,
-  [_rI, _st, _uA],
-  [0, 0, 4], 3
+  [_rI, _st, _uA, _uI],
+  [0, 0, 4, 0], 4
 ];
 export var UpdateRequesterGatewayRequest$: StaticStructureSchema = [3, n0, _URGR,
   0,
@@ -811,10 +1035,23 @@ export var UpdateResponderGatewayRequest$: StaticStructureSchema = [3, n0, _URGR
 ];
 export var UpdateResponderGatewayResponse$: StaticStructureSchema = [3, n0, _URGRpda,
   0,
-  [_gI, _st, _cRP],
-  [0, 0, 0], 2
+  [_gI, _st, _uI, _cRP],
+  [0, 0, 0, 0], 3
 ];
+export var UpdateSummary$: StaticStructureSchema = [3, n0, _US,
+  0,
+  [_uI, _ty, _st, _cA],
+  [0, 0, 0, 4], 4
+];
+var __Unit = "unit" as const;
 var AutoScalingGroupNameList = 64 | 0;
+var AvailableModuleSummaryList: StaticListSchema = [1, n0, _AMSL,
+  0, () => AvailableModuleSummary$
+];
+var AvailableModuleVersionSummaryList: StaticListSchema = [1, n0, _AMVSL,
+  0, () => AvailableModuleVersionSummary$
+];
+var AwsResourceIdList = 64 | 0;
 var CertificateAssociationSummaryList: StaticListSchema = [1, n0, _CASL,
   0, () => CertificateAssociationSummary$
 ];
@@ -822,13 +1059,26 @@ var CertificateAuthorityCertificates: StaticListSchema = [1, n0, _CAC,
   0, [() => Base64EncodedCertificateChain,
     0]
 ];
+var ConfigurableActionList = 64 | 0;
+var ErrorDetails: StaticListSchema = [1, n0, _EDr,
+  0, () => ErrorDetail$
+];
 var FilterConfiguration: StaticListSchema = [1, n0, _FCi,
   0, () => Filter$
 ];
 var FilterCriteria: StaticListSchema = [1, n0, _FCil,
   0, () => FilterCriterion$
 ];
+var FlowList: StaticListSchema = [1, n0, _FL,
+  0, () => Flow$
+];
+var FlowModuleList: StaticListSchema = [1, n0, _FML,
+  0, () => FlowModule$
+];
 var FlowModuleNameList = 64 | 0;
+var FlowPhaseList: StaticListSchema = [1, n0, _FPL,
+  0, () => FlowPhase$
+];
 var GatewayIdList = 64 | 0;
 var LinkList: StaticListSchema = [1, n0, _LL,
   0, () => ListLinksResponseStructure$
@@ -839,20 +1089,35 @@ var LinkRoutingRuleList: StaticListSchema = [1, n0, _LRRL,
 var ModuleConfigurationList: StaticListSchema = [1, n0, _MCL,
   0, () => ModuleConfiguration$
 ];
+var ModulePermissionList = 64 | 0;
 var ProtocolList = 64 | 0;
 var ResponderErrorMasking: StaticListSchema = [1, n0, _REM,
   0, () => ResponderErrorMaskingForHttpCode$
 ];
 var ResponderErrorMaskingLoggingTypes = 64 | 0;
 var SecurityGroupIdList = 64 | 0;
+var SelectedActionList = 64 | 0;
 var SubnetIdList = 64 | 0;
 var TagKeyList = 64 | 0;
+var UpdateSummaryList: StaticListSchema = [1, n0, _USL,
+  0, () => UpdateSummary$
+];
 var ValueList = 64 | 0;
 var TagsMap = 128 | 0;
 export var Action$: StaticUnionSchema = [4, n0, _A,
   0,
   [_nB, _hT],
   [() => NoBidAction$, () => HeaderTagAction$]
+];
+export var FlowPipeline$: StaticUnionSchema = [4, n0, _FPl,
+  0,
+  [_seq, _pha],
+  [() => SequentialPipeline$, () => PhasedPipeline$]
+];
+export var LinkFlowParameters$: StaticUnionSchema = [4, n0, _LFP,
+  0,
+  [_mo, _f],
+  [() => ModuleConfigurationList, () => FlowList]
 ];
 export var ManagedEndpointConfiguration$: StaticUnionSchema = [4, n0, _MEC,
   0,
@@ -863,6 +1128,16 @@ export var ModuleParameters$: StaticUnionSchema = [4, n0, _MP,
   0,
   [_nB, _oRA, _rL],
   [() => NoBidModuleParameters$, () => OpenRtbAttributeModuleParameters$, () => RateLimiterModuleParameters$]
+];
+export var UpdateParameters$: StaticUnionSchema = [4, n0, _UP,
+  0,
+  [_rGC, _lCi, _lF, _rR],
+  [[() => ResponderGatewayConfigParameters$, 0], () => LinkConfigParameters$, () => LinkFlowParameters$, () => RoutingRuleParameters$]
+];
+export var UpdateTarget$: StaticUnionSchema = [4, n0, _UT,
+  0,
+  [_g, _li, _rR],
+  [() => __Unit, () => LinkTarget$, () => RoutingRuleTarget$]
 ];
 export var AcceptLink$: StaticOperationSchema = [9, n0, _AL,
   { [_h]: ["POST", "/gateway/{gatewayId}/link/{linkId}/accept", 200] }, () => AcceptLinkRequest$, () => AcceptLinkResponse$
@@ -909,6 +1184,12 @@ export var DeleteResponderGateway$: StaticOperationSchema = [9, n0, _DRGe,
 export var DisassociateCertificate$: StaticOperationSchema = [9, n0, _DC,
   { [_h]: ["DELETE", "/responder-gateway/{gatewayId}/certificate", 200] }, () => DisassociateCertificateRequest$, () => DisassociateCertificateResponse$
 ];
+export var GetAvailableModule$: StaticOperationSchema = [9, n0, _GAM,
+  { [_h]: ["GET", "/available-modules/{moduleId}", 200] }, () => GetAvailableModuleRequest$, () => GetAvailableModuleResponse$
+];
+export var GetAvailableModuleVersion$: StaticOperationSchema = [9, n0, _GAMV,
+  { [_h]: ["GET", "/available-modules/{moduleId}/versions/{version}", 200] }, () => GetAvailableModuleVersionRequest$, () => GetAvailableModuleVersionResponse$
+];
 export var GetCertificateAssociation$: StaticOperationSchema = [9, n0, _GCA,
   { [_h]: ["GET", "/responder-gateway/{gatewayId}/certificate", 200] }, () => GetCertificateAssociationRequest$, () => GetCertificateAssociationResponse$
 ];
@@ -930,6 +1211,15 @@ export var GetRequesterGateway$: StaticOperationSchema = [9, n0, _GRG,
 export var GetResponderGateway$: StaticOperationSchema = [9, n0, _GRGe,
   { [_h]: ["GET", "/responder-gateway/{gatewayId}", 200] }, () => GetResponderGatewayRequest$, () => GetResponderGatewayResponse$
 ];
+export var GetUpdate$: StaticOperationSchema = [9, n0, _GU,
+  { [_h]: ["GET", "/gateway/{gatewayId}/updates/{updateId}", 200] }, () => GetUpdateRequest$, () => GetUpdateResponse$
+];
+export var ListAvailableModules$: StaticOperationSchema = [9, n0, _LAM,
+  { [_h]: ["GET", "/available-modules", 200] }, () => ListAvailableModulesRequest$, () => ListAvailableModulesResponse$
+];
+export var ListAvailableModuleVersions$: StaticOperationSchema = [9, n0, _LAMV,
+  { [_h]: ["GET", "/available-modules/{moduleId}/versions", 200] }, () => ListAvailableModuleVersionsRequest$, () => ListAvailableModuleVersionsResponse$
+];
 export var ListCertificateAssociations$: StaticOperationSchema = [9, n0, _LCA,
   { [_h]: ["GET", "/responder-gateway/{gatewayId}/certificates", 200] }, () => ListCertificateAssociationsRequest$, () => ListCertificateAssociationsResponse$
 ];
@@ -947,6 +1237,12 @@ export var ListResponderGateways$: StaticOperationSchema = [9, n0, _LRGi,
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var ListUpdates$: StaticOperationSchema = [9, n0, _LU,
+  { [_h]: ["GET", "/gateway/{gatewayId}/updates", 200] }, () => ListUpdatesRequest$, () => ListUpdatesResponse$
+];
+export var PutLinkFlows$: StaticOperationSchema = [9, n0, _PLF,
+  { [_h]: ["PUT", "/gateway/{gatewayId}/link/{linkId}/flows", 200] }, () => PutLinkFlowsRequest$, () => PutLinkFlowsResponse$
 ];
 export var RejectLink$: StaticOperationSchema = [9, n0, _RL,
   { [_h]: ["POST", "/gateway/{gatewayId}/link/{linkId}/reject", 200] }, () => RejectLinkRequest$, () => RejectLinkResponse$

@@ -91,7 +91,7 @@ export interface CreateResponderGatewayCommandOutput extends CreateResponderGate
  * const response = await client.send(command);
  * // { // CreateResponderGatewayResponse
  * //   gatewayId: "STRING_VALUE", // required
- * //   status: "PENDING_CREATION" || "ACTIVE" || "PENDING_DELETION" || "DELETED" || "ERROR" || "PENDING_UPDATE" || "ISOLATED" || "PENDING_ISOLATION" || "PENDING_RESTORATION", // required
+ * //   status: "PENDING_CREATION" || "ACTIVE" || "PENDING_DELETION" || "DELETED" || "ERROR" || "PENDING_UPDATE" || "ISOLATED" || "PENDING_ISOLATION" || "PENDING_RESTORATION" || "CREATE_FAILED" || "DELETE_FAILED", // required
  * //   listenerConfig: { // ListenerConfig
  * //     protocols: [ // ProtocolList // required
  * //       "HTTP" || "HTTPS",

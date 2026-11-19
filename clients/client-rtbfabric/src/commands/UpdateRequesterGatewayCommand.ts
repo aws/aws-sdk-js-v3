@@ -41,7 +41,7 @@ export interface UpdateRequesterGatewayCommandOutput extends UpdateRequesterGate
  * const response = await client.send(command);
  * // { // UpdateRequesterGatewayResponse
  * //   gatewayId: "STRING_VALUE", // required
- * //   status: "PENDING_CREATION" || "ACTIVE" || "PENDING_DELETION" || "DELETED" || "ERROR" || "PENDING_UPDATE" || "ISOLATED" || "PENDING_ISOLATION" || "PENDING_RESTORATION", // required
+ * //   status: "PENDING_CREATION" || "ACTIVE" || "PENDING_DELETION" || "DELETED" || "ERROR" || "PENDING_UPDATE" || "ISOLATED" || "PENDING_ISOLATION" || "PENDING_RESTORATION" || "CREATE_FAILED" || "DELETE_FAILED", // required
  * // };
  *
  * ```

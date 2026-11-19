@@ -44,12 +44,14 @@ export interface UpdateLinkCommandOutput extends UpdateLinkResponse, __MetadataB
  *     },
  *   },
  *   timeoutInMillis: Number("long"),
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateLinkCommand(input);
  * const response = await client.send(command);
  * // { // UpdateLinkResponse
  * //   linkId: "STRING_VALUE", // required
- * //   status: "PENDING_CREATION" || "PENDING_REQUEST" || "REQUESTED" || "ACCEPTED" || "ACTIVE" || "REJECTED" || "FAILED" || "PENDING_DELETION" || "DELETED" || "PENDING_UPDATE" || "PENDING_ISOLATION" || "ISOLATED" || "PENDING_RESTORATION", // required
+ * //   status: "PENDING_CREATION" || "PENDING_REQUEST" || "REQUESTED" || "ACCEPTED" || "ACTIVE" || "REJECTED" || "FAILED" || "PENDING_DELETION" || "DELETED" || "PENDING_UPDATE" || "PENDING_ISOLATION" || "ISOLATED" || "PENDING_RESTORATION" || "CREATE_FAILED" || "DELETE_FAILED", // required
+ * //   updateId: "STRING_VALUE", // required
  * // };
  *
  * ```
@@ -102,7 +104,8 @@ export interface UpdateLinkCommandOutput extends UpdateLinkResponse, __MetadataB
  * /* response is
  * {
  *   linkId: "link-87654321",
- *   status: "ACTIVE"
+ *   status: "ACTIVE",
+ *   updateId: "update-1a2b3c4d5e6f"
  * }
  * *\/
  * ```

@@ -48,13 +48,15 @@ export interface UpdateLinkRoutingRuleCommandOutput extends UpdateLinkRoutingRul
  *     },
  *     queryStringExists: "STRING_VALUE",
  *   },
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateLinkRoutingRuleCommand(input);
  * const response = await client.send(command);
  * // { // UpdateLinkRoutingRuleResponse
  * //   ruleId: "STRING_VALUE", // required
- * //   status: "CREATION_IN_PROGRESS" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETION_IN_PROGRESS" || "DELETED" || "FAILED", // required
+ * //   status: "CREATION_IN_PROGRESS" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETION_IN_PROGRESS" || "DELETED" || "FAILED" || "CREATE_FAILED" || "DELETE_FAILED", // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   updateId: "STRING_VALUE", // required
  * // };
  *
  * ```
@@ -106,6 +108,7 @@ export interface UpdateLinkRoutingRuleCommandOutput extends UpdateLinkRoutingRul
  * {
  *   ruleId: "rule-abc123def456",
  *   status: "UPDATE_IN_PROGRESS",
+ *   updateId: "update-2b3c4d5e6f7a",
  *   updatedAt: "2024-01-01T12:30:00Z"
  * }
  * *\/

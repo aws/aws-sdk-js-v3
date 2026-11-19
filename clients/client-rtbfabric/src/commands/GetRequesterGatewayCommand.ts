@@ -38,11 +38,20 @@ export interface GetRequesterGatewayCommandOutput extends GetRequesterGatewayRes
  * const command = new GetRequesterGatewayCommand(input);
  * const response = await client.send(command);
  * // { // GetRequesterGatewayResponse
- * //   status: "PENDING_CREATION" || "ACTIVE" || "PENDING_DELETION" || "DELETED" || "ERROR" || "PENDING_UPDATE" || "ISOLATED" || "PENDING_ISOLATION" || "PENDING_RESTORATION", // required
+ * //   status: "PENDING_CREATION" || "ACTIVE" || "PENDING_DELETION" || "DELETED" || "ERROR" || "PENDING_UPDATE" || "ISOLATED" || "PENDING_ISOLATION" || "PENDING_RESTORATION" || "CREATE_FAILED" || "DELETE_FAILED", // required
  * //   domainName: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
+ * //   errorDetails: [ // ErrorDetails
+ * //     { // ErrorDetail
+ * //       code: "VPC_NOT_FOUND" || "EC2_SUBNET_NOT_FOUND" || "EC2_SECURITY_GROUP_NOT_FOUND" || "EC2_SUBNET_IP_EXHAUSTION" || "IAM_ASSUME_ROLE_ACCESS_DENIED" || "INTERNAL_ERROR", // required
+ * //       message: "STRING_VALUE", // required
+ * //       resourceIds: [ // AwsResourceIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
  * //   vpcId: "STRING_VALUE", // required
  * //   subnetIds: [ // SubnetIdList // required
  * //     "STRING_VALUE",

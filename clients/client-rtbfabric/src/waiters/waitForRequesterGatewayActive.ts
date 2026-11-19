@@ -24,6 +24,14 @@ const checkState = async (client: RTBFabricClient, input: GetRequesterGatewayCom
       const returnComparator = () => {
         return result.status;
       }
+      if (returnComparator() === "CREATE_FAILED") {
+        return { state: WaiterState.FAILURE, reason };
+      }
+    } catch (e) {}
+    try {
+      const returnComparator = () => {
+        return result.status;
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }

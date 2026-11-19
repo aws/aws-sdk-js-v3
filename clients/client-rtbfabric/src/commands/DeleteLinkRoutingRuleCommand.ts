@@ -41,7 +41,7 @@ export interface DeleteLinkRoutingRuleCommandOutput extends DeleteLinkRoutingRul
  * const response = await client.send(command);
  * // { // DeleteLinkRoutingRuleResponse
  * //   ruleId: "STRING_VALUE", // required
- * //   status: "CREATION_IN_PROGRESS" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETION_IN_PROGRESS" || "DELETED" || "FAILED", // required
+ * //   status: "CREATION_IN_PROGRESS" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETION_IN_PROGRESS" || "DELETED" || "FAILED" || "CREATE_FAILED" || "DELETE_FAILED", // required
  * // };
  *
  * ```

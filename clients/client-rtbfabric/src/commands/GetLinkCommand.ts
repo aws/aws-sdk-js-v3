@@ -41,7 +41,7 @@ export interface GetLinkCommandOutput extends GetLinkResponse, __MetadataBearer 
  * // { // GetLinkResponse
  * //   gatewayId: "STRING_VALUE", // required
  * //   peerGatewayId: "STRING_VALUE", // required
- * //   status: "PENDING_CREATION" || "PENDING_REQUEST" || "REQUESTED" || "ACCEPTED" || "ACTIVE" || "REJECTED" || "FAILED" || "PENDING_DELETION" || "DELETED" || "PENDING_UPDATE" || "PENDING_ISOLATION" || "ISOLATED" || "PENDING_RESTORATION", // required
+ * //   status: "PENDING_CREATION" || "PENDING_REQUEST" || "REQUESTED" || "ACCEPTED" || "ACTIVE" || "REJECTED" || "FAILED" || "PENDING_DELETION" || "DELETED" || "PENDING_UPDATE" || "PENDING_ISOLATION" || "ISOLATED" || "PENDING_RESTORATION" || "CREATE_FAILED" || "DELETE_FAILED", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   direction: "RESPONSE" || "REQUEST",
@@ -155,12 +155,61 @@ export interface GetLinkCommandOutput extends GetLinkResponse, __MetadataBearer 
  * //     },
  * //   },
  * //   connectivityType: "DEFAULT" || "PUBLIC_INGRESS" || "PUBLIC_EGRESS" || "EXTERNAL_INBOUND",
+ * //   errorDetails: [ // ErrorDetails
+ * //     { // ErrorDetail
+ * //       code: "VPC_NOT_FOUND" || "EC2_SUBNET_NOT_FOUND" || "EC2_SECURITY_GROUP_NOT_FOUND" || "EC2_SUBNET_IP_EXHAUSTION" || "IAM_ASSUME_ROLE_ACCESS_DENIED" || "INTERNAL_ERROR", // required
+ * //       message: "STRING_VALUE", // required
+ * //       resourceIds: [ // AwsResourceIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
  * //   linkId: "STRING_VALUE", // required
  * //   tags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   httpResponderAllowed: true || false,
  * //   timeoutInMillis: Number("long"),
+ * //   lockToken: "STRING_VALUE",
+ * //   flows: [ // FlowList
+ * //     { // Flow
+ * //       name: "STRING_VALUE", // required
+ * //       pipeline: { // FlowPipeline Union: only one key present
+ * //         sequential: { // SequentialPipeline
+ * //           modules: [ // FlowModuleList // required
+ * //             { // FlowModule
+ * //               name: "STRING_VALUE", // required
+ * //               moduleVersionArn: "STRING_VALUE", // required
+ * //               selectedActions: [ // SelectedActionList
+ * //                 "FILTER" || "ENRICH_REQUEST_EXT" || "ENRICH_REQUEST_HEADERS" || "OBSERVE",
+ * //               ],
+ * //               failureMode: "OPEN" || "CLOSED",
+ * //               activationPercentage: Number("float"),
+ * //               configurationValues: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //         phased: { // PhasedPipeline
+ * //           phases: [ // FlowPhaseList // required
+ * //             { // FlowPhase
+ * //               modules: [ // required
+ * //                 {
+ * //                   name: "STRING_VALUE", // required
+ * //                   moduleVersionArn: "STRING_VALUE", // required
+ * //                   selectedActions: [
+ * //                     "FILTER" || "ENRICH_REQUEST_EXT" || "ENRICH_REQUEST_HEADERS" || "OBSERVE",
+ * //                   ],
+ * //                   failureMode: "OPEN" || "CLOSED",
+ * //                   activationPercentage: Number("float"),
+ * //                   configurationValues: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
  * // };
  *
  * ```

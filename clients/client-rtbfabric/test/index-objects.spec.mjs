@@ -11,9 +11,12 @@ import {
   AssociateCertificateRequest$,
   AssociateCertificateResponse$,
   AutoScalingGroupsConfiguration$,
+  AvailableModuleSummary$,
+  AvailableModuleVersionSummary$,
   CertificateAssociationStatus,
   CertificateAssociationSummary$,
   ClientRoutingPolicy,
+  ConfigurableAction,
   ConflictException,
   ConflictException$,
   ConnectivityType,
@@ -70,10 +73,25 @@ import {
   DisassociateCertificateRequest$,
   DisassociateCertificateResponse$,
   EksEndpointsConfiguration$,
+  ErrorCode,
+  ErrorDetail$,
+  FailureMode,
   Filter$,
   FilterCriterion$,
   FilterType,
+  Flow$,
+  FlowModule$,
+  FlowPhase$,
+  FlowPipeline$,
   GatewayType,
+  GetAvailableModule$,
+  GetAvailableModuleCommand,
+  GetAvailableModuleRequest$,
+  GetAvailableModuleResponse$,
+  GetAvailableModuleVersion$,
+  GetAvailableModuleVersionCommand,
+  GetAvailableModuleVersionRequest$,
+  GetAvailableModuleVersionResponse$,
   GetCertificateAssociation$,
   GetCertificateAssociationCommand,
   GetCertificateAssociationRequest$,
@@ -102,6 +120,10 @@ import {
   GetResponderGatewayCommand,
   GetResponderGatewayRequest$,
   GetResponderGatewayResponse$,
+  GetUpdate$,
+  GetUpdateCommand,
+  GetUpdateRequest$,
+  GetUpdateResponse$,
   HeaderTagAction$,
   HealthCheckConfig$,
   InternalServerException,
@@ -109,10 +131,21 @@ import {
   LinkApplicationLogConfiguration$,
   LinkApplicationLogSampling$,
   LinkAttributes$,
+  LinkConfigParameters$,
   LinkDirection,
+  LinkFlowParameters$,
   LinkLogSettings$,
   LinkRoutingRuleSummary$,
   LinkStatus,
+  LinkTarget$,
+  ListAvailableModules$,
+  ListAvailableModulesCommand,
+  ListAvailableModulesRequest$,
+  ListAvailableModulesResponse$,
+  ListAvailableModuleVersions$,
+  ListAvailableModuleVersionsCommand,
+  ListAvailableModuleVersionsRequest$,
+  ListAvailableModuleVersionsResponse$,
   ListCertificateAssociations$,
   ListCertificateAssociationsCommand,
   ListCertificateAssociationsRequest$,
@@ -139,18 +172,32 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  ListUpdates$,
+  ListUpdatesCommand,
+  ListUpdatesRequest$,
+  ListUpdatesResponse$,
   ManagedEndpointConfiguration$,
   ModuleConfiguration$,
   ModuleParameters$,
+  ModulePermission,
+  ModuleVersionStatus,
   NoBidAction$,
   NoBidModuleParameters$,
   OpenRtbAttributeModuleParameters$,
+  paginateListAvailableModules,
+  paginateListAvailableModuleVersions,
   paginateListCertificateAssociations,
   paginateListLinkRoutingRules,
   paginateListLinks,
   paginateListRequesterGateways,
   paginateListResponderGateways,
+  paginateListUpdates,
+  PhasedPipeline$,
   Protocol,
+  PutLinkFlows$,
+  PutLinkFlowsCommand,
+  PutLinkFlowsRequest$,
+  PutLinkFlowsResponse$,
   QueryStringKeyValuePair$,
   RateLimiterModuleParameters$,
   RejectLink$,
@@ -163,14 +210,20 @@ import {
   ResponderErrorMaskingAction,
   ResponderErrorMaskingForHttpCode$,
   ResponderErrorMaskingLoggingType,
+  ResponderGatewayConfigParameters$,
   ResponderGatewayStatus,
+  RoutingRuleParameters$,
+  RoutingRuleTarget$,
   RTBFabric,
   RTBFabricClient,
   RTBFabricServiceException,
   RuleCondition$,
   RuleStatus,
+  SequentialPipeline$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  SubscriptionStatus,
+  SubscriptionType,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
@@ -182,6 +235,7 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  Update$,
   UpdateLink$,
   UpdateLinkCommand,
   UpdateLinkModuleFlow$,
@@ -194,6 +248,7 @@ import {
   UpdateLinkRoutingRuleCommand,
   UpdateLinkRoutingRuleRequest$,
   UpdateLinkRoutingRuleResponse$,
+  UpdateParameters$,
   UpdateRequesterGateway$,
   UpdateRequesterGatewayCommand,
   UpdateRequesterGatewayRequest$,
@@ -202,6 +257,10 @@ import {
   UpdateResponderGatewayCommand,
   UpdateResponderGatewayRequest$,
   UpdateResponderGatewayResponse$,
+  UpdateStatus,
+  UpdateSummary$,
+  UpdateTarget$,
+  UpdateType,
   ValidationException,
   ValidationException$,
   waitForCertificateAssociated,
@@ -270,6 +329,10 @@ assert(typeof DeleteResponderGatewayCommand === "function");
 assert(typeof DeleteResponderGateway$ === "object");
 assert(typeof DisassociateCertificateCommand === "function");
 assert(typeof DisassociateCertificate$ === "object");
+assert(typeof GetAvailableModuleCommand === "function");
+assert(typeof GetAvailableModule$ === "object");
+assert(typeof GetAvailableModuleVersionCommand === "function");
+assert(typeof GetAvailableModuleVersion$ === "object");
 assert(typeof GetCertificateAssociationCommand === "function");
 assert(typeof GetCertificateAssociation$ === "object");
 assert(typeof GetInboundExternalLinkCommand === "function");
@@ -284,6 +347,12 @@ assert(typeof GetRequesterGatewayCommand === "function");
 assert(typeof GetRequesterGateway$ === "object");
 assert(typeof GetResponderGatewayCommand === "function");
 assert(typeof GetResponderGateway$ === "object");
+assert(typeof GetUpdateCommand === "function");
+assert(typeof GetUpdate$ === "object");
+assert(typeof ListAvailableModulesCommand === "function");
+assert(typeof ListAvailableModules$ === "object");
+assert(typeof ListAvailableModuleVersionsCommand === "function");
+assert(typeof ListAvailableModuleVersions$ === "object");
 assert(typeof ListCertificateAssociationsCommand === "function");
 assert(typeof ListCertificateAssociations$ === "object");
 assert(typeof ListLinkRoutingRulesCommand === "function");
@@ -296,6 +365,10 @@ assert(typeof ListResponderGatewaysCommand === "function");
 assert(typeof ListResponderGateways$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof ListUpdatesCommand === "function");
+assert(typeof ListUpdates$ === "object");
+assert(typeof PutLinkFlowsCommand === "function");
+assert(typeof PutLinkFlows$ === "object");
 assert(typeof RejectLinkCommand === "function");
 assert(typeof RejectLink$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -319,6 +392,8 @@ assert(typeof Action$ === "object");
 assert(typeof AssociateCertificateRequest$ === "object");
 assert(typeof AssociateCertificateResponse$ === "object");
 assert(typeof AutoScalingGroupsConfiguration$ === "object");
+assert(typeof AvailableModuleSummary$ === "object");
+assert(typeof AvailableModuleVersionSummary$ === "object");
 assert(typeof CertificateAssociationSummary$ === "object");
 assert(typeof CreateInboundExternalLinkRequest$ === "object");
 assert(typeof CreateInboundExternalLinkResponse$ === "object");
@@ -347,8 +422,17 @@ assert(typeof DeleteResponderGatewayResponse$ === "object");
 assert(typeof DisassociateCertificateRequest$ === "object");
 assert(typeof DisassociateCertificateResponse$ === "object");
 assert(typeof EksEndpointsConfiguration$ === "object");
+assert(typeof ErrorDetail$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof FilterCriterion$ === "object");
+assert(typeof Flow$ === "object");
+assert(typeof FlowModule$ === "object");
+assert(typeof FlowPhase$ === "object");
+assert(typeof FlowPipeline$ === "object");
+assert(typeof GetAvailableModuleRequest$ === "object");
+assert(typeof GetAvailableModuleResponse$ === "object");
+assert(typeof GetAvailableModuleVersionRequest$ === "object");
+assert(typeof GetAvailableModuleVersionResponse$ === "object");
 assert(typeof GetCertificateAssociationRequest$ === "object");
 assert(typeof GetCertificateAssociationResponse$ === "object");
 assert(typeof GetInboundExternalLinkRequest$ === "object");
@@ -363,13 +447,22 @@ assert(typeof GetRequesterGatewayRequest$ === "object");
 assert(typeof GetRequesterGatewayResponse$ === "object");
 assert(typeof GetResponderGatewayRequest$ === "object");
 assert(typeof GetResponderGatewayResponse$ === "object");
+assert(typeof GetUpdateRequest$ === "object");
+assert(typeof GetUpdateResponse$ === "object");
 assert(typeof HeaderTagAction$ === "object");
 assert(typeof HealthCheckConfig$ === "object");
 assert(typeof LinkApplicationLogConfiguration$ === "object");
 assert(typeof LinkApplicationLogSampling$ === "object");
 assert(typeof LinkAttributes$ === "object");
+assert(typeof LinkConfigParameters$ === "object");
+assert(typeof LinkFlowParameters$ === "object");
 assert(typeof LinkLogSettings$ === "object");
 assert(typeof LinkRoutingRuleSummary$ === "object");
+assert(typeof LinkTarget$ === "object");
+assert(typeof ListAvailableModulesRequest$ === "object");
+assert(typeof ListAvailableModulesResponse$ === "object");
+assert(typeof ListAvailableModuleVersionsRequest$ === "object");
+assert(typeof ListAvailableModuleVersionsResponse$ === "object");
 assert(typeof ListCertificateAssociationsRequest$ === "object");
 assert(typeof ListCertificateAssociationsResponse$ === "object");
 assert(typeof ListenerConfig$ === "object");
@@ -384,47 +477,69 @@ assert(typeof ListResponderGatewaysRequest$ === "object");
 assert(typeof ListResponderGatewaysResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof ListUpdatesRequest$ === "object");
+assert(typeof ListUpdatesResponse$ === "object");
 assert(typeof ManagedEndpointConfiguration$ === "object");
 assert(typeof ModuleConfiguration$ === "object");
 assert(typeof ModuleParameters$ === "object");
 assert(typeof NoBidAction$ === "object");
 assert(typeof NoBidModuleParameters$ === "object");
 assert(typeof OpenRtbAttributeModuleParameters$ === "object");
+assert(typeof PhasedPipeline$ === "object");
+assert(typeof PutLinkFlowsRequest$ === "object");
+assert(typeof PutLinkFlowsResponse$ === "object");
 assert(typeof QueryStringKeyValuePair$ === "object");
 assert(typeof RateLimiterModuleParameters$ === "object");
 assert(typeof RejectLinkRequest$ === "object");
 assert(typeof RejectLinkResponse$ === "object");
 assert(typeof ResponderErrorMaskingForHttpCode$ === "object");
+assert(typeof ResponderGatewayConfigParameters$ === "object");
+assert(typeof RoutingRuleParameters$ === "object");
+assert(typeof RoutingRuleTarget$ === "object");
 assert(typeof RuleCondition$ === "object");
+assert(typeof SequentialPipeline$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof TrustStoreConfiguration$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof Update$ === "object");
 assert(typeof UpdateLinkModuleFlowRequest$ === "object");
 assert(typeof UpdateLinkModuleFlowResponse$ === "object");
 assert(typeof UpdateLinkRequest$ === "object");
 assert(typeof UpdateLinkResponse$ === "object");
 assert(typeof UpdateLinkRoutingRuleRequest$ === "object");
 assert(typeof UpdateLinkRoutingRuleResponse$ === "object");
+assert(typeof UpdateParameters$ === "object");
 assert(typeof UpdateRequesterGatewayRequest$ === "object");
 assert(typeof UpdateRequesterGatewayResponse$ === "object");
 assert(typeof UpdateResponderGatewayRequest$ === "object");
 assert(typeof UpdateResponderGatewayResponse$ === "object");
+assert(typeof UpdateSummary$ === "object");
+assert(typeof UpdateTarget$ === "object");
 // enums
 assert(typeof CertificateAssociationStatus === "object");
 assert(typeof ClientRoutingPolicy === "object");
+assert(typeof ConfigurableAction === "object");
 assert(typeof ConnectivityType === "object");
+assert(typeof ErrorCode === "object");
+assert(typeof FailureMode === "object");
 assert(typeof FilterType === "object");
 assert(typeof GatewayType === "object");
 assert(typeof LinkDirection === "object");
 assert(typeof LinkStatus === "object");
+assert(typeof ModulePermission === "object");
+assert(typeof ModuleVersionStatus === "object");
 assert(typeof Protocol === "object");
 assert(typeof RequesterGatewayStatus === "object");
 assert(typeof ResponderErrorMaskingAction === "object");
 assert(typeof ResponderErrorMaskingLoggingType === "object");
 assert(typeof ResponderGatewayStatus === "object");
 assert(typeof RuleStatus === "object");
+assert(typeof SubscriptionStatus === "object");
+assert(typeof SubscriptionType === "object");
+assert(typeof UpdateStatus === "object");
+assert(typeof UpdateType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof RTBFabricServiceException);
 assert(typeof AccessDeniedException$ === "object");
@@ -473,9 +588,12 @@ assert(typeof waitUntilRequesterGatewayDeleted === "function");
 assert(typeof waitUntilResponderGatewayActive === "function");
 assert(typeof waitUntilResponderGatewayDeleted === "function");
 // paginators
+assert(typeof paginateListAvailableModuleVersions === "function");
+assert(typeof paginateListAvailableModules === "function");
 assert(typeof paginateListCertificateAssociations === "function");
 assert(typeof paginateListLinkRoutingRules === "function");
 assert(typeof paginateListLinks === "function");
 assert(typeof paginateListRequesterGateways === "function");
 assert(typeof paginateListResponderGateways === "function");
+assert(typeof paginateListUpdates === "function");
 console.log(`RTBFabric index test passed.`);

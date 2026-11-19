@@ -56,9 +56,18 @@ export interface ListLinkRoutingRulesCommandOutput extends ListLinkRoutingRulesR
  * //         },
  * //         queryStringExists: "STRING_VALUE",
  * //       },
- * //       status: "CREATION_IN_PROGRESS" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETION_IN_PROGRESS" || "DELETED" || "FAILED", // required
+ * //       status: "CREATION_IN_PROGRESS" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETION_IN_PROGRESS" || "DELETED" || "FAILED" || "CREATE_FAILED" || "DELETE_FAILED", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //       errorDetails: [ // ErrorDetails
+ * //         { // ErrorDetail
+ * //           code: "VPC_NOT_FOUND" || "EC2_SUBNET_NOT_FOUND" || "EC2_SECURITY_GROUP_NOT_FOUND" || "EC2_SUBNET_IP_EXHAUSTION" || "IAM_ASSUME_ROLE_ACCESS_DENIED" || "INTERNAL_ERROR", // required
+ * //           message: "STRING_VALUE", // required
+ * //           resourceIds: [ // AwsResourceIdList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
