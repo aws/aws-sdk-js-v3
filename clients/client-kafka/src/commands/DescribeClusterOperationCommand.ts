@@ -39,6 +39,10 @@ export interface DescribeClusterOperationCommandOutput extends DescribeClusterOp
  * const response = await client.send(command);
  * // { // DescribeClusterOperationResponse
  * //   ClusterOperationInfo: { // ClusterOperationInfo
+ * //     BrokerTypeUpgradeInfo: { // BrokerTypeUpgradeInfo
+ * //       TopicReassignmentMode: "AUTO" || "MANUAL",
+ * //       TopicReassignmentOperationArn: "STRING_VALUE",
+ * //     },
  * //     ClientRequestId: "STRING_VALUE",
  * //     ClusterArn: "STRING_VALUE",
  * //     CreationTime: new Date("TIMESTAMP"),

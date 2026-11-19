@@ -1,6 +1,9 @@
 // smithy-typescript generated code
 import type {
+  AssessmentStatus,
+  AssessmentType,
   BrokerAZDistribution,
+  BrokerNodeType,
   ChannelDestinationType,
   ChannelStatus,
   ClientBroker,
@@ -10,6 +13,8 @@ import type {
   ConsumerGroupOffsetSyncMode,
   CustomerActionStatus,
   EnhancedMonitoring,
+  FindingCategory,
+  FindingSeverity,
   IcebergCompressionType,
   JwtSigningAlgorithm,
   KafkaClusterEncryptionInTransitType,
@@ -27,11 +32,116 @@ import type {
   StorageMode,
   TargetCompressionType,
   TokenEndpointAuthenticationMethod,
+  TopicReassignment,
+  TopicReassignmentMode,
+  TopicReassignmentStatus,
   TopicState,
   UserIdentityType,
   ValueConverter,
   VpcConnectionState,
 } from "./enums";
+
+/**
+ * <p>Guidance for resolving a finding.</p>
+ * @public
+ */
+export interface FindingRemediation {
+  /**
+   * <p>The recommended action to resolve this finding.</p>
+   * @public
+   */
+  Action?: string | undefined;
+
+  /**
+   * <p>A link to documentation with more detail about this finding and how to resolve it.</p>
+   * @public
+   */
+  DocumentationUrl?: string | undefined;
+}
+
+/**
+ * <p>A single finding from an assessment, describing a specific issue or observation.</p>
+ * @public
+ */
+export interface AssessmentFinding {
+  /**
+   * <p>The category of this finding.</p>
+   * @public
+   */
+  Category: FindingCategory | undefined;
+
+  /**
+   * <p>A deterministic content-based identifier for this finding. Generated from hash(category + resource + check_type). The same resource with the same problem always produces the same findingId across assessment runs.</p>
+   * @public
+   */
+  FindingId: string | undefined;
+
+  /**
+   * <p>Human-readable description of what is wrong, why it matters, and what to do.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>Guidance for resolving this finding. Absent when no specific remediation applies.</p>
+   * @public
+   */
+  Remediation?: FindingRemediation | undefined;
+
+  /**
+   * <p>The specific resource affected (e.g., topic name). Absent for cluster-level findings.</p>
+   * @public
+   */
+  Resource?: string | undefined;
+
+  /**
+   * <p>The severity of this finding.</p>
+   * @public
+   */
+  Severity: FindingSeverity | undefined;
+}
+
+/**
+ * <p>Summary information about an assessment, returned by ListAssessments.</p>
+ * @public
+ */
+export interface AssessmentInfo {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the assessment.</p>
+   * @public
+   */
+  AssessmentArn?: string | undefined;
+
+  /**
+   * <p>The type of assessment.</p>
+   * @public
+   */
+  AssessmentType?: AssessmentType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster that was assessed.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>The time when the assessment was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The current status of the assessment.</p>
+   * @public
+   */
+  Status?: AssessmentStatus | undefined;
+
+  /**
+   * <p>The tags attached to the assessment.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
 
 /**
  * <p>Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.</p>
@@ -1084,6 +1194,24 @@ export interface ClusterInfo {
 }
 
 /**
+ * <p>Information about the topic reassignment of an UpdateBrokerType operation that upgrades a cluster from Standard brokers to Express brokers. Present only on the operation that initiated the upgrade.</p>
+ * @public
+ */
+export interface BrokerTypeUpgradeInfo {
+  /**
+   * <p>How topics are reassigned to the Express brokers.</p>
+   * @public
+   */
+  TopicReassignmentMode?: TopicReassignmentMode | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic reassignment operation that Amazon MSK started for this upgrade. Present once that reassignment has started. Under MANUAL you start reassignments yourself, so Amazon MSK starts none.</p>
+   * @public
+   */
+  TopicReassignmentOperationArn?: string | undefined;
+}
+
+/**
  * <p>Returns information about an error state of the cluster.</p>
  * @public
  */
@@ -1328,6 +1456,12 @@ export interface VpcConnectionInfo {
  * @public
  */
 export interface ClusterOperationInfo {
+  /**
+   * <p>Topic reassignment details of the UpdateBrokerType operation that started an upgrade from Standard brokers to Express brokers.</p>
+   * @public
+   */
+  BrokerTypeUpgradeInfo?: BrokerTypeUpgradeInfo | undefined;
+
   /**
    * <p>The ID of the API request that triggered this operation.</p>
    * @public
@@ -1949,6 +2083,12 @@ export interface BrokerNodeInfo {
   BrokerId?: number | undefined;
 
   /**
+   * <p>Whether this broker is a Standard broker or an Express broker. While an UpdateBrokerType operation upgrades a cluster in place from Standard brokers to Express brokers, the cluster contains brokers of both types and this field tells them apart.</p>
+   * @public
+   */
+  BrokerNodeType?: BrokerNodeType | undefined;
+
+  /**
    * <p>The client subnet to which this broker node belongs.</p>
    * @public
    */
@@ -2421,6 +2561,12 @@ export interface TopicInfo {
    * @public
    */
   OutOfSyncReplicaCount?: number | undefined;
+
+  /**
+   * <p>The broker IDs hosting replicas of this topic's partitions.</p>
+   * @public
+   */
+  ReplicaIds?: number[] | undefined;
 }
 
 /**
@@ -2451,6 +2597,48 @@ export interface TopicPartitionInfo {
    * @public
    */
   Isr?: number[] | undefined;
+}
+
+/**
+ * <p>Summary information about a topic reassignment operation.</p>
+ * @public
+ */
+export interface TopicReassignmentInfo {
+  /**
+   * <p>Number of topics fully migrated.</p>
+   * @public
+   */
+  CompletedTopics?: number | undefined;
+
+  /**
+   * <p>When the operation was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The current status of the reassignment operation.</p>
+   * @public
+   */
+  Status?: TopicReassignmentStatus | undefined;
+
+  /**
+   * <p>The target broker instance type for this reassignment.</p>
+   * @public
+   */
+  TargetInstanceType?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic reassignment operation.</p>
+   * @public
+   */
+  TopicReassignmentOperationArn?: string | undefined;
+
+  /**
+   * <p>Total number of topics matching the selector.</p>
+   * @public
+   */
+  TotalTopics?: number | undefined;
 }
 
 /**
@@ -2517,6 +2705,54 @@ export interface VpcConnection {
    * @public
    */
   State?: VpcConnectionState | undefined;
+}
+
+/**
+ * <p>Type-specific parameters for the assessment. All fields are optional.</p>
+ * @public
+ */
+export interface AssessmentParameters {
+  /**
+   * <p>The target instance type to assess against (for example, express.m7g.large). Optional: when omitted, the assessment reports a recommended instance type as a CAPACITY finding. Supply it to assess readiness for a specific instance type.</p>
+   * @public
+   */
+  TargetInstanceType?: string | undefined;
+}
+
+/**
+ * <p>Summary of assessment findings broken down by category and severity.</p>
+ * @public
+ */
+export interface AssessmentSummary {
+  /**
+   * <p>Count of findings grouped by category.</p>
+   * @public
+   */
+  ByCategory?: Record<string, number> | undefined;
+
+  /**
+   * <p>Count of findings grouped by severity.</p>
+   * @public
+   */
+  BySeverity?: Record<string, number> | undefined;
+
+  /**
+   * <p>True when the assessment detected more findings than it stores. Resolve the reported findings and re-run the assessment to surface the remaining ones.</p>
+   * @public
+   */
+  FindingsCapped?: boolean | undefined;
+
+  /**
+   * <p>True when the assessment detected at least one ERROR-severity finding. ERROR findings block the migration until resolved.</p>
+   * @public
+   */
+  HasBlockingFindings?: boolean | undefined;
+
+  /**
+   * <p>The total number of findings detected by the assessment, including any findings beyond the stored-findings cap.</p>
+   * @public
+   */
+  TotalFindings?: number | undefined;
 }
 
 /**
@@ -2654,6 +2890,12 @@ export interface ChannelStateInfo {
  * @public
  */
 export interface ClusterOperationV2Provisioned {
+  /**
+   * <p>Topic reassignment details of the UpdateBrokerType operation that started an upgrade from Standard brokers to Express brokers.</p>
+   * @public
+   */
+  BrokerTypeUpgradeInfo?: BrokerTypeUpgradeInfo | undefined;
+
   /**
    * <p>Steps completed during the operation.</p>
    * @public
@@ -2827,6 +3069,72 @@ export interface ConsumerGroupReplicationUpdate {
    * @public
    */
   SynchroniseConsumerGroupOffsets: boolean | undefined;
+}
+
+/**
+ * <p>Creates a new assessment for a cluster. Kicks off an asynchronous scan and returns immediately with an assessment ARN and status.</p>
+ * @public
+ */
+export interface CreateAssessmentRequest {
+  /**
+   * <p>Optional type-specific parameters for the assessment.</p>
+   * @public
+   */
+  AssessmentParameters?: AssessmentParameters | undefined;
+
+  /**
+   * <p>The type of assessment to perform.</p>
+   * @public
+   */
+  AssessmentType: AssessmentType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster to assess.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The tags to attach to the assessment.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Returns information about the created assessment.</p>
+ * @public
+ */
+export interface CreateAssessmentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the assessment.</p>
+   * @public
+   */
+  AssessmentArn?: string | undefined;
+
+  /**
+   * <p>The type of assessment.</p>
+   * @public
+   */
+  AssessmentType?: AssessmentType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster being assessed.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>The time when the assessment was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The current status of the assessment.</p>
+   * @public
+   */
+  Status?: AssessmentStatus | undefined;
 }
 
 /**
@@ -3729,6 +4037,41 @@ export interface CreateVpcConnectionResponse {
 /**
  * @public
  */
+export interface DeleteAssessmentRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the assessment to delete.</p>
+   * @public
+   */
+  AssessmentArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * <p>Returns the result of deleting an assessment.</p>
+ * @public
+ */
+export interface DeleteAssessmentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the assessment being deleted.</p>
+   * @public
+   */
+  AssessmentArn?: string | undefined;
+
+  /**
+   * <p>The current status of the assessment. Will be DELETING.</p>
+   * @public
+   */
+  Status?: AssessmentStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteChannelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the channel.</p>
@@ -3939,6 +4282,89 @@ export interface DeleteVpcConnectionResponse {
    * @public
    */
   State?: VpcConnectionState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAssessmentRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the assessment.</p>
+   * @public
+   */
+  AssessmentArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * <p>Returns the status and summary of an assessment.</p>
+ * @public
+ */
+export interface DescribeAssessmentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the assessment.</p>
+   * @public
+   */
+  AssessmentArn?: string | undefined;
+
+  /**
+   * <p>The parameters that were provided when creating the assessment.</p>
+   * @public
+   */
+  AssessmentParameters?: AssessmentParameters | undefined;
+
+  /**
+   * <p>The type of assessment.</p>
+   * @public
+   */
+  AssessmentType?: AssessmentType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster that was assessed.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>The time when the assessment completed. Present only when status is COMPLETE or FAILED.</p>
+   * @public
+   */
+  CompletionTime?: Date | undefined;
+
+  /**
+   * <p>The time when the assessment was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The current status of the assessment.</p>
+   * @public
+   */
+  Status?: AssessmentStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status. Present when status is FAILED.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>Summary of findings by category and severity. Present only when status is COMPLETE.</p>
+   * @public
+   */
+  Summary?: AssessmentSummary | undefined;
+
+  /**
+   * <p>The tags attached to the assessment.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4415,6 +4841,12 @@ export interface DescribeTopicResponse {
    * @public
    */
   Status?: TopicState | undefined;
+
+  /**
+   * <p>The broker IDs hosting replicas of this topic's partitions.</p>
+   * @public
+   */
+  ReplicaIds?: number[] | undefined;
 }
 
 /**
@@ -4463,6 +4895,107 @@ export interface DescribeTopicPartitionsResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicReassignmentRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic reassignment operation.</p>
+   * @public
+   */
+  TopicReassignmentOperationArn: string | undefined;
+}
+
+/**
+ * <p>Returns the status and progress of a topic reassignment operation.</p>
+ * @public
+ */
+export interface DescribeTopicReassignmentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>Number of topics fully migrated to the target broker type.</p>
+   * @public
+   */
+  CompletedTopics?: number | undefined;
+
+  /**
+   * <p>When the operation was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>Error details. Present only when status is FAILED.</p>
+   * @public
+   */
+  ErrorInfo?: ErrorInfo | undefined;
+
+  /**
+   * <p>Last time the status or progress counters were updated.</p>
+   * @public
+   */
+  LastUpdateTime?: Date | undefined;
+
+  /**
+   * <p>Number of partitions confirmed on the target broker type.</p>
+   * @public
+   */
+  MigratedPartitions?: number | undefined;
+
+  /**
+   * <p>The current status of the reassignment operation.</p>
+   * @public
+   */
+  Status?: TopicReassignmentStatus | undefined;
+
+  /**
+   * <p>The target broker instance type for this reassignment.</p>
+   * @public
+   */
+  TargetInstanceType?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic reassignment operation.</p>
+   * @public
+   */
+  TopicReassignmentOperationArn?: string | undefined;
+
+  /**
+   * <p>The original exclude patterns provided in the request.</p>
+   * @public
+   */
+  TopicsToExclude?: string[] | undefined;
+
+  /**
+   * <p>The original include patterns provided in the request.</p>
+   * @public
+   */
+  TopicsToInclude?: string[] | undefined;
+
+  /**
+   * <p>Total number of partitions across all matched topics.</p>
+   * @public
+   */
+  TotalPartitions?: number | undefined;
+
+  /**
+   * <p>Total number of topics matching the selector at resolution time.</p>
+   * @public
+   */
+  TotalTopics?: number | undefined;
 }
 
 /**
@@ -4695,6 +5228,112 @@ export interface IcebergDestinationUpdate {
    * @public
    */
   DataFreshnessInSeconds: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssessmentFindingsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the assessment.</p>
+   * @public
+   */
+  AssessmentArn: string | undefined;
+
+  /**
+   * <p>Optional filter. Only return findings matching this category.</p>
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>Maximum number of findings to return. Default 100, maximum 500.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the response is truncated, it returns a nextToken. Send this in the subsequent request to get the remaining results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Optional filter. Only return findings matching this severity.</p>
+   * @public
+   */
+  Severity?: string | undefined;
+}
+
+/**
+ * <p>Returns the findings for a completed assessment.</p>
+ * @public
+ */
+export interface ListAssessmentFindingsResponse {
+  /**
+   * <p>A list of findings from the assessment.</p>
+   * @public
+   */
+  Findings?: AssessmentFinding[] | undefined;
+
+  /**
+   * <p>If the response is truncated, it returns a nextToken. Send this in the subsequent request to get the remaining results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssessmentsRequest {
+  /**
+   * <p>Optional filter. The type of assessment to filter by.</p>
+   * @public
+   */
+  AssessmentType?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster to list assessments for.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>Maximum number of assessments to return. Default 25, maximum 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the response is truncated, it returns a nextToken. Send this in the subsequent request to get the remaining results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Returns a list of assessments.</p>
+ * @public
+ */
+export interface ListAssessmentsResponse {
+  /**
+   * <p>A list of assessment summaries.</p>
+   * @public
+   */
+  Assessments?: AssessmentInfo[] | undefined;
+
+  /**
+   * <p>If the response is truncated, it returns a nextToken. Send this in the subsequent request to get the remaining results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5206,6 +5845,53 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
+export interface ListTopicReassignmentsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>Maximum number of reassignment operations to return. Default 50, maximum 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the response is truncated, it returns a nextToken. Send this in the subsequent request to get the remaining results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Optional filter. Only return reassignments matching these statuses.</p>
+   * @public
+   */
+  StatusFilter?: string | undefined;
+}
+
+/**
+ * <p>Returns a list of topic reassignment operations for a cluster.</p>
+ * @public
+ */
+export interface ListTopicReassignmentsResponse {
+  /**
+   * <p>If the response is truncated, it returns a nextToken. Send this in the subsequent request to get the remaining results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of topic reassignment operation summaries.</p>
+   * @public
+   */
+  Reassignments?: TopicReassignmentInfo[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTopicsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -5379,6 +6065,101 @@ export interface RejectClientVpcConnectionRequest {
 export interface RejectClientVpcConnectionResponse {}
 
 /**
+ * <p>Initiates topic partition reassignment between broker types in a mixed-mode cluster.</p>
+ * @public
+ */
+export interface StartTopicReassignmentRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request with the same client token within 24 hours, the API returns the original response without creating a duplicate operation.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>Instance type of the target brokers. Must exist in the cluster. Use Express instance type (e.g., express.m7g.large) for Standard-to-Express migration. Use Standard instance type (e.g., kafka.m7g.large) to move topics back to Standard.</p>
+   * @public
+   */
+  TargetInstanceType: string | undefined;
+
+  /**
+   * <p>Regex patterns for topics to exclude from reassignment. Evaluated after include patterns.</p>
+   * @public
+   */
+  TopicsToExclude?: string[] | undefined;
+
+  /**
+   * <p>Regex patterns for topics to reassign. Use ['.*'] for all topics. Max 10 patterns.</p>
+   * @public
+   */
+  TopicsToInclude: string[] | undefined;
+}
+
+/**
+ * <p>Returns information about the initiated topic reassignment operation.</p>
+ * @public
+ */
+export interface StartTopicReassignmentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>The current status of the reassignment operation.</p>
+   * @public
+   */
+  Status?: TopicReassignmentStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic reassignment operation.</p>
+   * @public
+   */
+  TopicReassignmentOperationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTopicReassignmentRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic reassignment operation to stop.</p>
+   * @public
+   */
+  TopicReassignmentOperationArn: string | undefined;
+}
+
+/**
+ * <p>Returns the result of stopping a topic reassignment operation.</p>
+ * @public
+ */
+export interface StopTopicReassignmentResponse {
+  /**
+   * <p>The current status of the operation. Will be STOPPING.</p>
+   * @public
+   */
+  Status?: TopicReassignmentStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic reassignment operation.</p>
+   * @public
+   */
+  TopicReassignmentOperationArn?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface TagResourceRequest {
@@ -5528,10 +6309,16 @@ export interface UpdateBrokerTypeRequest {
   CurrentVersion: string | undefined;
 
   /**
-   * <p>The Amazon MSK broker type that you want all of the brokers in this cluster to be.</p>
+   * <p>The type of Amazon EC2 instances to use for Kafka brokers. For in-place upgrades to Express, use the composite format to initiate mixed mode, the Express instance type to complete the upgrade, or the Standard instance type to rollback.</p>
    * @public
    */
   TargetInstanceType: string | undefined;
+
+  /**
+   * <p>Controls automatic topic reassignment when entering mixed broker mode. When set to AUTO, MSK automatically reassigns all topics to the target broker type after adding new brokers. When set to MANUAL (default), customers manage topic reassignment using the StartTopicReassignment API. Only valid when targetInstanceType is a composite mixed-mode value. Must be set to MANUAL before completing the upgrade or rolling back.</p>
+   * @public
+   */
+  TopicReassignment?: TopicReassignment | undefined;
 }
 
 /**

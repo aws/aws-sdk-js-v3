@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./DescribeTopicPartitionsPaginator";
+export * from "./ListAssessmentFindingsPaginator";
+export * from "./ListAssessmentsPaginator";
 export * from "./ListClientVpcConnectionsPaginator";
 export * from "./ListClusterOperationsPaginator";
 export * from "./ListClusterOperationsV2Paginator";
@@ -12,5 +14,6 @@ export * from "./ListKafkaVersionsPaginator";
 export * from "./ListNodesPaginator";
 export * from "./ListReplicatorsPaginator";
 export * from "./ListScramSecretsPaginator";
+export * from "./ListTopicReassignmentsPaginator";
 export * from "./ListTopicsPaginator";
 export * from "./ListVpcConnectionsPaginator";

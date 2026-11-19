@@ -36,6 +36,7 @@ export interface UpdateBrokerTypeCommandOutput extends UpdateBrokerTypeResponse,
  *   ClusterArn: "STRING_VALUE", // required
  *   CurrentVersion: "STRING_VALUE", // required
  *   TargetInstanceType: "STRING_VALUE", // required
+ *   TopicReassignment: "AUTO" || "MANUAL",
  * };
  * const command = new UpdateBrokerTypeCommand(input);
  * const response = await client.send(command);

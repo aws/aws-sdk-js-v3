@@ -18,6 +18,11 @@ import {
   BatchDisassociateScramSecretCommand,
 } from "./commands/BatchDisassociateScramSecretCommand";
 import {
+  type CreateAssessmentCommandInput,
+  type CreateAssessmentCommandOutput,
+  CreateAssessmentCommand,
+} from "./commands/CreateAssessmentCommand";
+import {
   type CreateChannelCommandInput,
   type CreateChannelCommandOutput,
   CreateChannelCommand,
@@ -53,6 +58,11 @@ import {
   CreateVpcConnectionCommand,
 } from "./commands/CreateVpcConnectionCommand";
 import {
+  type DeleteAssessmentCommandInput,
+  type DeleteAssessmentCommandOutput,
+  DeleteAssessmentCommand,
+} from "./commands/DeleteAssessmentCommand";
+import {
   type DeleteChannelCommandInput,
   type DeleteChannelCommandOutput,
   DeleteChannelCommand,
@@ -87,6 +97,11 @@ import {
   type DeleteVpcConnectionCommandOutput,
   DeleteVpcConnectionCommand,
 } from "./commands/DeleteVpcConnectionCommand";
+import {
+  type DescribeAssessmentCommandInput,
+  type DescribeAssessmentCommandOutput,
+  DescribeAssessmentCommand,
+} from "./commands/DescribeAssessmentCommand";
 import {
   type DescribeChannelCommandInput,
   type DescribeChannelCommandOutput,
@@ -138,6 +153,11 @@ import {
   DescribeTopicPartitionsCommand,
 } from "./commands/DescribeTopicPartitionsCommand";
 import {
+  type DescribeTopicReassignmentCommandInput,
+  type DescribeTopicReassignmentCommandOutput,
+  DescribeTopicReassignmentCommand,
+} from "./commands/DescribeTopicReassignmentCommand";
+import {
   type DescribeVpcConnectionCommandInput,
   type DescribeVpcConnectionCommandOutput,
   DescribeVpcConnectionCommand,
@@ -157,6 +177,16 @@ import {
   type GetCompatibleKafkaVersionsCommandOutput,
   GetCompatibleKafkaVersionsCommand,
 } from "./commands/GetCompatibleKafkaVersionsCommand";
+import {
+  type ListAssessmentFindingsCommandInput,
+  type ListAssessmentFindingsCommandOutput,
+  ListAssessmentFindingsCommand,
+} from "./commands/ListAssessmentFindingsCommand";
+import {
+  type ListAssessmentsCommandInput,
+  type ListAssessmentsCommandOutput,
+  ListAssessmentsCommand,
+} from "./commands/ListAssessmentsCommand";
 import {
   type ListChannelsCommandInput,
   type ListChannelsCommandOutput,
@@ -219,6 +249,11 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTopicReassignmentsCommandInput,
+  type ListTopicReassignmentsCommandOutput,
+  ListTopicReassignmentsCommand,
+} from "./commands/ListTopicReassignmentsCommand";
+import {
   type ListTopicsCommandInput,
   type ListTopicsCommandOutput,
   ListTopicsCommand,
@@ -243,6 +278,16 @@ import {
   type RejectClientVpcConnectionCommandOutput,
   RejectClientVpcConnectionCommand,
 } from "./commands/RejectClientVpcConnectionCommand";
+import {
+  type StartTopicReassignmentCommandInput,
+  type StartTopicReassignmentCommandOutput,
+  StartTopicReassignmentCommand,
+} from "./commands/StartTopicReassignmentCommand";
+import {
+  type StopTopicReassignmentCommandInput,
+  type StopTopicReassignmentCommandOutput,
+  StopTopicReassignmentCommand,
+} from "./commands/StopTopicReassignmentCommand";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -325,6 +370,8 @@ import {
 } from "./commands/UpdateTopicCommand";
 import { KafkaClient } from "./KafkaClient";
 import { paginateDescribeTopicPartitions } from "./pagination/DescribeTopicPartitionsPaginator";
+import { paginateListAssessmentFindings } from "./pagination/ListAssessmentFindingsPaginator";
+import { paginateListAssessments } from "./pagination/ListAssessmentsPaginator";
 import { paginateListClientVpcConnections } from "./pagination/ListClientVpcConnectionsPaginator";
 import { paginateListClusterOperations } from "./pagination/ListClusterOperationsPaginator";
 import { paginateListClusterOperationsV2 } from "./pagination/ListClusterOperationsV2Paginator";
@@ -336,12 +383,14 @@ import { paginateListKafkaVersions } from "./pagination/ListKafkaVersionsPaginat
 import { paginateListNodes } from "./pagination/ListNodesPaginator";
 import { paginateListReplicators } from "./pagination/ListReplicatorsPaginator";
 import { paginateListScramSecrets } from "./pagination/ListScramSecretsPaginator";
+import { paginateListTopicReassignments } from "./pagination/ListTopicReassignmentsPaginator";
 import { paginateListTopics } from "./pagination/ListTopicsPaginator";
 import { paginateListVpcConnections } from "./pagination/ListVpcConnectionsPaginator";
 
 const commands = {
   BatchAssociateScramSecretCommand,
   BatchDisassociateScramSecretCommand,
+  CreateAssessmentCommand,
   CreateChannelCommand,
   CreateClusterCommand,
   CreateClusterV2Command,
@@ -349,6 +398,7 @@ const commands = {
   CreateReplicatorCommand,
   CreateTopicCommand,
   CreateVpcConnectionCommand,
+  DeleteAssessmentCommand,
   DeleteChannelCommand,
   DeleteClusterCommand,
   DeleteClusterPolicyCommand,
@@ -356,6 +406,7 @@ const commands = {
   DeleteReplicatorCommand,
   DeleteTopicCommand,
   DeleteVpcConnectionCommand,
+  DescribeAssessmentCommand,
   DescribeChannelCommand,
   DescribeClusterCommand,
   DescribeClusterOperationCommand,
@@ -366,10 +417,13 @@ const commands = {
   DescribeReplicatorCommand,
   DescribeTopicCommand,
   DescribeTopicPartitionsCommand,
+  DescribeTopicReassignmentCommand,
   DescribeVpcConnectionCommand,
   GetBootstrapBrokersCommand,
   GetClusterPolicyCommand,
   GetCompatibleKafkaVersionsCommand,
+  ListAssessmentFindingsCommand,
+  ListAssessmentsCommand,
   ListChannelsCommand,
   ListClientVpcConnectionsCommand,
   ListClusterOperationsCommand,
@@ -383,11 +437,14 @@ const commands = {
   ListReplicatorsCommand,
   ListScramSecretsCommand,
   ListTagsForResourceCommand,
+  ListTopicReassignmentsCommand,
   ListTopicsCommand,
   ListVpcConnectionsCommand,
   PutClusterPolicyCommand,
   RebootBrokerCommand,
   RejectClientVpcConnectionCommand,
+  StartTopicReassignmentCommand,
+  StopTopicReassignmentCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateBrokerCountCommand,
@@ -407,6 +464,8 @@ const commands = {
 };
 const paginators = {
   paginateDescribeTopicPartitions,
+  paginateListAssessmentFindings,
+  paginateListAssessments,
   paginateListClientVpcConnections,
   paginateListClusterOperations,
   paginateListClusterOperationsV2,
@@ -418,6 +477,7 @@ const paginators = {
   paginateListNodes,
   paginateListReplicators,
   paginateListScramSecrets,
+  paginateListTopicReassignments,
   paginateListTopics,
   paginateListVpcConnections,
 };
@@ -462,6 +522,23 @@ export interface Kafka {
     args: BatchDisassociateScramSecretCommandInput,
     options: KafkaRequestOptions,
     cb: (err: any, data?: BatchDisassociateScramSecretCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAssessmentCommand}
+   */
+  createAssessment(
+    args: CreateAssessmentCommandInput,
+    options?: KafkaRequestOptions
+  ): Promise<CreateAssessmentCommandOutput>;
+  createAssessment(
+    args: CreateAssessmentCommandInput,
+    cb: (err: any, data?: CreateAssessmentCommandOutput) => void
+  ): void;
+  createAssessment(
+    args: CreateAssessmentCommandInput,
+    options: KafkaRequestOptions,
+    cb: (err: any, data?: CreateAssessmentCommandOutput) => void
   ): void;
 
   /**
@@ -584,6 +661,23 @@ export interface Kafka {
   ): void;
 
   /**
+   * @see {@link DeleteAssessmentCommand}
+   */
+  deleteAssessment(
+    args: DeleteAssessmentCommandInput,
+    options?: KafkaRequestOptions
+  ): Promise<DeleteAssessmentCommandOutput>;
+  deleteAssessment(
+    args: DeleteAssessmentCommandInput,
+    cb: (err: any, data?: DeleteAssessmentCommandOutput) => void
+  ): void;
+  deleteAssessment(
+    args: DeleteAssessmentCommandInput,
+    options: KafkaRequestOptions,
+    cb: (err: any, data?: DeleteAssessmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteChannelCommand}
    */
   deleteChannel(
@@ -700,6 +794,23 @@ export interface Kafka {
     args: DeleteVpcConnectionCommandInput,
     options: KafkaRequestOptions,
     cb: (err: any, data?: DeleteVpcConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAssessmentCommand}
+   */
+  describeAssessment(
+    args: DescribeAssessmentCommandInput,
+    options?: KafkaRequestOptions
+  ): Promise<DescribeAssessmentCommandOutput>;
+  describeAssessment(
+    args: DescribeAssessmentCommandInput,
+    cb: (err: any, data?: DescribeAssessmentCommandOutput) => void
+  ): void;
+  describeAssessment(
+    args: DescribeAssessmentCommandInput,
+    options: KafkaRequestOptions,
+    cb: (err: any, data?: DescribeAssessmentCommandOutput) => void
   ): void;
 
   /**
@@ -873,6 +984,23 @@ export interface Kafka {
   ): void;
 
   /**
+   * @see {@link DescribeTopicReassignmentCommand}
+   */
+  describeTopicReassignment(
+    args: DescribeTopicReassignmentCommandInput,
+    options?: KafkaRequestOptions
+  ): Promise<DescribeTopicReassignmentCommandOutput>;
+  describeTopicReassignment(
+    args: DescribeTopicReassignmentCommandInput,
+    cb: (err: any, data?: DescribeTopicReassignmentCommandOutput) => void
+  ): void;
+  describeTopicReassignment(
+    args: DescribeTopicReassignmentCommandInput,
+    options: KafkaRequestOptions,
+    cb: (err: any, data?: DescribeTopicReassignmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeVpcConnectionCommand}
    */
   describeVpcConnection(
@@ -939,6 +1067,40 @@ export interface Kafka {
     args: GetCompatibleKafkaVersionsCommandInput,
     options: KafkaRequestOptions,
     cb: (err: any, data?: GetCompatibleKafkaVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssessmentFindingsCommand}
+   */
+  listAssessmentFindings(
+    args: ListAssessmentFindingsCommandInput,
+    options?: KafkaRequestOptions
+  ): Promise<ListAssessmentFindingsCommandOutput>;
+  listAssessmentFindings(
+    args: ListAssessmentFindingsCommandInput,
+    cb: (err: any, data?: ListAssessmentFindingsCommandOutput) => void
+  ): void;
+  listAssessmentFindings(
+    args: ListAssessmentFindingsCommandInput,
+    options: KafkaRequestOptions,
+    cb: (err: any, data?: ListAssessmentFindingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssessmentsCommand}
+   */
+  listAssessments(
+    args: ListAssessmentsCommandInput,
+    options?: KafkaRequestOptions
+  ): Promise<ListAssessmentsCommandOutput>;
+  listAssessments(
+    args: ListAssessmentsCommandInput,
+    cb: (err: any, data?: ListAssessmentsCommandOutput) => void
+  ): void;
+  listAssessments(
+    args: ListAssessmentsCommandInput,
+    options: KafkaRequestOptions,
+    cb: (err: any, data?: ListAssessmentsCommandOutput) => void
   ): void;
 
   /**
@@ -1168,6 +1330,23 @@ export interface Kafka {
   ): void;
 
   /**
+   * @see {@link ListTopicReassignmentsCommand}
+   */
+  listTopicReassignments(
+    args: ListTopicReassignmentsCommandInput,
+    options?: KafkaRequestOptions
+  ): Promise<ListTopicReassignmentsCommandOutput>;
+  listTopicReassignments(
+    args: ListTopicReassignmentsCommandInput,
+    cb: (err: any, data?: ListTopicReassignmentsCommandOutput) => void
+  ): void;
+  listTopicReassignments(
+    args: ListTopicReassignmentsCommandInput,
+    options: KafkaRequestOptions,
+    cb: (err: any, data?: ListTopicReassignmentsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTopicsCommand}
    */
   listTopics(
@@ -1251,6 +1430,40 @@ export interface Kafka {
     args: RejectClientVpcConnectionCommandInput,
     options: KafkaRequestOptions,
     cb: (err: any, data?: RejectClientVpcConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartTopicReassignmentCommand}
+   */
+  startTopicReassignment(
+    args: StartTopicReassignmentCommandInput,
+    options?: KafkaRequestOptions
+  ): Promise<StartTopicReassignmentCommandOutput>;
+  startTopicReassignment(
+    args: StartTopicReassignmentCommandInput,
+    cb: (err: any, data?: StartTopicReassignmentCommandOutput) => void
+  ): void;
+  startTopicReassignment(
+    args: StartTopicReassignmentCommandInput,
+    options: KafkaRequestOptions,
+    cb: (err: any, data?: StartTopicReassignmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopTopicReassignmentCommand}
+   */
+  stopTopicReassignment(
+    args: StopTopicReassignmentCommandInput,
+    options?: KafkaRequestOptions
+  ): Promise<StopTopicReassignmentCommandOutput>;
+  stopTopicReassignment(
+    args: StopTopicReassignmentCommandInput,
+    cb: (err: any, data?: StopTopicReassignmentCommandOutput) => void
+  ): void;
+  stopTopicReassignment(
+    args: StopTopicReassignmentCommandInput,
+    options: KafkaRequestOptions,
+    cb: (err: any, data?: StopTopicReassignmentCommandOutput) => void
   ): void;
 
   /**
@@ -1537,6 +1750,28 @@ export interface Kafka {
   ): Paginator<DescribeTopicPartitionsCommandOutput>;
 
   /**
+   * @see {@link ListAssessmentFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssessmentFindingsCommandOutput}.
+   */
+  paginateListAssessmentFindings(
+    args: ListAssessmentFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssessmentFindingsCommandOutput>;
+
+  /**
+   * @see {@link ListAssessmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssessmentsCommandOutput}.
+   */
+  paginateListAssessments(
+    args: ListAssessmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssessmentsCommandOutput>;
+
+  /**
    * @see {@link ListClientVpcConnectionsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1656,6 +1891,17 @@ export interface Kafka {
     args: ListScramSecretsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListScramSecretsCommandOutput>;
+
+  /**
+   * @see {@link ListTopicReassignmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTopicReassignmentsCommandOutput}.
+   */
+  paginateListTopicReassignments(
+    args: ListTopicReassignmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTopicReassignmentsCommandOutput>;
 
   /**
    * @see {@link ListTopicsCommand}

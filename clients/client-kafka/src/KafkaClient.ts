@@ -62,6 +62,7 @@ import type {
   BatchDisassociateScramSecretCommandInput,
   BatchDisassociateScramSecretCommandOutput,
 } from "./commands/BatchDisassociateScramSecretCommand";
+import type { CreateAssessmentCommandInput, CreateAssessmentCommandOutput } from "./commands/CreateAssessmentCommand";
 import type { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
 import type { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import type { CreateClusterV2CommandInput, CreateClusterV2CommandOutput } from "./commands/CreateClusterV2Command";
@@ -75,6 +76,7 @@ import type {
   CreateVpcConnectionCommandInput,
   CreateVpcConnectionCommandOutput,
 } from "./commands/CreateVpcConnectionCommand";
+import type { DeleteAssessmentCommandInput, DeleteAssessmentCommandOutput } from "./commands/DeleteAssessmentCommand";
 import type { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
 import type { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import type {
@@ -91,6 +93,10 @@ import type {
   DeleteVpcConnectionCommandInput,
   DeleteVpcConnectionCommandOutput,
 } from "./commands/DeleteVpcConnectionCommand";
+import type {
+  DescribeAssessmentCommandInput,
+  DescribeAssessmentCommandOutput,
+} from "./commands/DescribeAssessmentCommand";
 import type { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
 import type { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import type {
@@ -123,6 +129,10 @@ import type {
   DescribeTopicPartitionsCommandOutput,
 } from "./commands/DescribeTopicPartitionsCommand";
 import type {
+  DescribeTopicReassignmentCommandInput,
+  DescribeTopicReassignmentCommandOutput,
+} from "./commands/DescribeTopicReassignmentCommand";
+import type {
   DescribeVpcConnectionCommandInput,
   DescribeVpcConnectionCommandOutput,
 } from "./commands/DescribeVpcConnectionCommand";
@@ -135,6 +145,11 @@ import type {
   GetCompatibleKafkaVersionsCommandInput,
   GetCompatibleKafkaVersionsCommandOutput,
 } from "./commands/GetCompatibleKafkaVersionsCommand";
+import type {
+  ListAssessmentFindingsCommandInput,
+  ListAssessmentFindingsCommandOutput,
+} from "./commands/ListAssessmentFindingsCommand";
+import type { ListAssessmentsCommandInput, ListAssessmentsCommandOutput } from "./commands/ListAssessmentsCommand";
 import type { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
 import type {
   ListClientVpcConnectionsCommandInput,
@@ -169,6 +184,10 @@ import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type {
+  ListTopicReassignmentsCommandInput,
+  ListTopicReassignmentsCommandOutput,
+} from "./commands/ListTopicReassignmentsCommand";
 import type { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
 import type {
   ListVpcConnectionsCommandInput,
@@ -180,6 +199,14 @@ import type {
   RejectClientVpcConnectionCommandInput,
   RejectClientVpcConnectionCommandOutput,
 } from "./commands/RejectClientVpcConnectionCommand";
+import type {
+  StartTopicReassignmentCommandInput,
+  StartTopicReassignmentCommandOutput,
+} from "./commands/StartTopicReassignmentCommand";
+import type {
+  StopTopicReassignmentCommandInput,
+  StopTopicReassignmentCommandOutput,
+} from "./commands/StopTopicReassignmentCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
@@ -237,6 +264,7 @@ export { __Client };
 export type ServiceInputTypes =
   | BatchAssociateScramSecretCommandInput
   | BatchDisassociateScramSecretCommandInput
+  | CreateAssessmentCommandInput
   | CreateChannelCommandInput
   | CreateClusterCommandInput
   | CreateClusterV2CommandInput
@@ -244,6 +272,7 @@ export type ServiceInputTypes =
   | CreateReplicatorCommandInput
   | CreateTopicCommandInput
   | CreateVpcConnectionCommandInput
+  | DeleteAssessmentCommandInput
   | DeleteChannelCommandInput
   | DeleteClusterCommandInput
   | DeleteClusterPolicyCommandInput
@@ -251,6 +280,7 @@ export type ServiceInputTypes =
   | DeleteReplicatorCommandInput
   | DeleteTopicCommandInput
   | DeleteVpcConnectionCommandInput
+  | DescribeAssessmentCommandInput
   | DescribeChannelCommandInput
   | DescribeClusterCommandInput
   | DescribeClusterOperationCommandInput
@@ -261,10 +291,13 @@ export type ServiceInputTypes =
   | DescribeReplicatorCommandInput
   | DescribeTopicCommandInput
   | DescribeTopicPartitionsCommandInput
+  | DescribeTopicReassignmentCommandInput
   | DescribeVpcConnectionCommandInput
   | GetBootstrapBrokersCommandInput
   | GetClusterPolicyCommandInput
   | GetCompatibleKafkaVersionsCommandInput
+  | ListAssessmentFindingsCommandInput
+  | ListAssessmentsCommandInput
   | ListChannelsCommandInput
   | ListClientVpcConnectionsCommandInput
   | ListClusterOperationsCommandInput
@@ -278,11 +311,14 @@ export type ServiceInputTypes =
   | ListReplicatorsCommandInput
   | ListScramSecretsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTopicReassignmentsCommandInput
   | ListTopicsCommandInput
   | ListVpcConnectionsCommandInput
   | PutClusterPolicyCommandInput
   | RebootBrokerCommandInput
   | RejectClientVpcConnectionCommandInput
+  | StartTopicReassignmentCommandInput
+  | StopTopicReassignmentCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBrokerCountCommandInput
@@ -306,6 +342,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | BatchAssociateScramSecretCommandOutput
   | BatchDisassociateScramSecretCommandOutput
+  | CreateAssessmentCommandOutput
   | CreateChannelCommandOutput
   | CreateClusterCommandOutput
   | CreateClusterV2CommandOutput
@@ -313,6 +350,7 @@ export type ServiceOutputTypes =
   | CreateReplicatorCommandOutput
   | CreateTopicCommandOutput
   | CreateVpcConnectionCommandOutput
+  | DeleteAssessmentCommandOutput
   | DeleteChannelCommandOutput
   | DeleteClusterCommandOutput
   | DeleteClusterPolicyCommandOutput
@@ -320,6 +358,7 @@ export type ServiceOutputTypes =
   | DeleteReplicatorCommandOutput
   | DeleteTopicCommandOutput
   | DeleteVpcConnectionCommandOutput
+  | DescribeAssessmentCommandOutput
   | DescribeChannelCommandOutput
   | DescribeClusterCommandOutput
   | DescribeClusterOperationCommandOutput
@@ -330,10 +369,13 @@ export type ServiceOutputTypes =
   | DescribeReplicatorCommandOutput
   | DescribeTopicCommandOutput
   | DescribeTopicPartitionsCommandOutput
+  | DescribeTopicReassignmentCommandOutput
   | DescribeVpcConnectionCommandOutput
   | GetBootstrapBrokersCommandOutput
   | GetClusterPolicyCommandOutput
   | GetCompatibleKafkaVersionsCommandOutput
+  | ListAssessmentFindingsCommandOutput
+  | ListAssessmentsCommandOutput
   | ListChannelsCommandOutput
   | ListClientVpcConnectionsCommandOutput
   | ListClusterOperationsCommandOutput
@@ -347,11 +389,14 @@ export type ServiceOutputTypes =
   | ListReplicatorsCommandOutput
   | ListScramSecretsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTopicReassignmentsCommandOutput
   | ListTopicsCommandOutput
   | ListVpcConnectionsCommandOutput
   | PutClusterPolicyCommandOutput
   | RebootBrokerCommandOutput
   | RejectClientVpcConnectionCommandOutput
+  | StartTopicReassignmentCommandOutput
+  | StopTopicReassignmentCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBrokerCountCommandOutput

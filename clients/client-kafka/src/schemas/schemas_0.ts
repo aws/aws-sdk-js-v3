@@ -1,13 +1,21 @@
 const _A = "Authentication";
+const _AA = "AssessmentArn";
 const _AENII = "AttachedENIId";
+const _AF = "AssessmentFinding";
+const _AI = "AssessmentInfo";
 const _AKC = "ApacheKafkaCluster";
 const _AKCI = "ApacheKafkaClusterId";
 const _AL = "AuthorizerLogs";
 const _AMC = "AmazonMskCluster";
 const _AO = "AppendOnly";
 const _AOA = "ActiveOperationArn";
+const _AP = "AssessmentParameters";
+const _AS = "AssessmentSummary";
+const _AT = "AssessmentType";
 const _ATCT = "AddedToClusterTime";
+const _Ac = "Action";
 const _Ar = "Arn";
+const _As = "Assessments";
 const _Au = "Audience";
 const _B = "Bucket";
 const _BA = "BucketArn";
@@ -29,6 +37,7 @@ const _BBSTI = "BootstrapBrokerStringTlsIpv6";
 const _BBSVCSI = "BootstrapBrokerStringVpcConnectivitySaslIam";
 const _BBSVCSS = "BootstrapBrokerStringVpcConnectivitySaslScram";
 const _BBSVCT = "BootstrapBrokerStringVpcConnectivityTls";
+const _BC = "ByCategory";
 const _BCUI = "BrokerCountUpdateInfo";
 const _BDSS = "BatchDisassociateScramSecret";
 const _BDSSR = "BatchDisassociateScramSecretRequest";
@@ -39,17 +48,23 @@ const _BIr = "BrokerIds";
 const _BL = "BrokerLogs";
 const _BNGI = "BrokerNodeGroupInfo";
 const _BNI = "BrokerNodeInfo";
+const _BNT = "BrokerNodeType";
 const _BRE = "BadRequestException";
+const _BS = "BySeverity";
 const _BSI = "BrokerSoftwareInfo";
-const _C = "Catalog";
+const _BTUI = "BrokerTypeUpgradeInfo";
+const _C = "Category";
 const _CA = "ClusterArn";
 const _CAAL = "CertificateAuthorityArnList";
 const _CACLFT = "CopyAccessControlListsForTopics";
+const _CAR = "CreateAssessmentRequest";
+const _CARr = "CreateAssessmentResponse";
 const _CAS = "CustomerActionStatus";
 const _CAa = "CatalogArn";
 const _CAh = "ChannelArn";
 const _CAl = "ClientAuthentication";
 const _CAo = "ConfigurationArn";
+const _CAr = "CreateAssessment";
 const _CB = "ClientBroker";
 const _CBI = "CreatedBrokerIds";
 const _CBSI = "CurrentBrokerSoftwareInfo";
@@ -110,7 +125,10 @@ const _CTF = "ClusterTypeFilter";
 const _CTR = "CreateTopicRequest";
 const _CTRr = "CreateTopicResponse";
 const _CTl = "ClusterType";
-const _CTo = "CompressionType";
+const _CTli = "ClientToken";
+const _CTo = "CompletionTime";
+const _CTom = "CompletedTopics";
+const _CTomp = "CompressionType";
 const _CTr = "CreateTopic";
 const _CV = "CurrentVersion";
 const _CVC = "ClientVpcConnection";
@@ -120,6 +138,7 @@ const _CVCl = "ClientVpcConnections";
 const _CVCr = "CreateVpcConnection";
 const _CVIA = "ClientVpcIpAddress";
 const _CWL = "CloudWatchLogs";
+const _Ca = "Catalog";
 const _Ch = "Channels";
 const _Cl = "Cluster";
 const _Co = "Code";
@@ -127,8 +146,14 @@ const _Con = "Configuration";
 const _Conf = "Configs";
 const _Confi = "Configurations";
 const _D = "Description";
+const _DA = "DeleteAssessment";
 const _DACNCG = "DetectAndCopyNewConsumerGroups";
 const _DACNT = "DetectAndCopyNewTopics";
+const _DAR = "DeleteAssessmentRequest";
+const _DARe = "DeleteAssessmentResponse";
+const _DARes = "DescribeAssessmentRequest";
+const _DAResc = "DescribeAssessmentResponse";
+const _DAe = "DescribeAssessment";
 const _DBI = "DeletedBrokerIds";
 const _DC = "DeleteChannel";
 const _DCO = "DescribeClusterOperation";
@@ -180,12 +205,16 @@ const _DTP = "DescribeTopicPartitions";
 const _DTPR = "DescribeTopicPartitionsRequest";
 const _DTPRe = "DescribeTopicPartitionsResponse";
 const _DTR = "DeleteTopicRequest";
+const _DTRR = "DescribeTopicReassignmentRequest";
+const _DTRRe = "DescribeTopicReassignmentResponse";
 const _DTRe = "DeleteTopicResponse";
 const _DTRes = "DescribeTopicRequest";
 const _DTResc = "DescribeTopicResponse";
+const _DTRescr = "DescribeTopicReassignment";
 const _DTe = "DestinationTable";
 const _DTel = "DeleteTopic";
 const _DTes = "DescribeTopic";
+const _DU = "DocumentationUrl";
 const _DVC = "DeleteVpcConnection";
 const _DVCR = "DeleteVpcConnectionRequest";
 const _DVCRe = "DeleteVpcConnectionResponse";
@@ -214,7 +243,11 @@ const _ETC = "EnableTableCreation";
 const _ETn = "EncryptionType";
 const _En = "Enabled";
 const _F = "Firehose";
+const _FC = "FindingsCapped";
 const _FE = "ForbiddenException";
+const _FI = "FindingId";
+const _FR = "FindingRemediation";
+const _Fi = "Findings";
 const _GA = "GsrArn";
 const _GBB = "GetBootstrapBrokers";
 const _GBBR = "GetBootstrapBrokersRequest";
@@ -226,6 +259,7 @@ const _GCP = "GetClusterPolicy";
 const _GCPR = "GetClusterPolicyRequest";
 const _GCPRe = "GetClusterPolicyResponse";
 const _GSTTE = "GroupSubscribedToTopicException";
+const _HBF = "HasBlockingFindings";
 const _I = "Iam";
 const _IC = "InCluster";
 const _IDC = "IcebergDestinationConfiguration";
@@ -260,6 +294,12 @@ const _KTE = "KafkaTimeoutException";
 const _KV = "KafkaVersion";
 const _KVa = "KafkaVersions";
 const _L = "Leader";
+const _LA = "ListAssessments";
+const _LAF = "ListAssessmentFindings";
+const _LAFR = "ListAssessmentFindingsRequest";
+const _LAFRi = "ListAssessmentFindingsResponse";
+const _LAR = "ListAssessmentsRequest";
+const _LARi = "ListAssessmentsResponse";
 const _LC = "ListChannels";
 const _LCO = "ListClusterOperations";
 const _LCOR = "ListClusterOperationsRequest";
@@ -305,13 +345,18 @@ const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _LTR = "ListTopicsRequest";
+const _LTRR = "ListTopicReassignmentsRequest";
+const _LTRRi = "ListTopicReassignmentsResponse";
 const _LTRi = "ListTopicsResponse";
+const _LTRis = "ListTopicReassignments";
+const _LUT = "LastUpdateTime";
 const _LVC = "ListVpcConnections";
 const _LVCR = "ListVpcConnectionsRequest";
 const _LVCRi = "ListVpcConnectionsResponse";
 const _M = "Message";
 const _MCA = "MskClusterArn";
 const _MCI = "MutableClusterInfo";
+const _MP = "MigratedPartitions";
 const _MR = "MaxResults";
 const _MTLS = "MTLS";
 const _Me = "Mechanism";
@@ -355,7 +400,7 @@ const _Par = "Partition";
 const _Po = "Policy";
 const _Pr = "Prometheus";
 const _Pre = "Prefix";
-const _R = "Rebalancing";
+const _R = "Remediation";
 const _RA = "ReplicatorArn";
 const _RAe = "ResourceArn";
 const _RB = "RebootBroker";
@@ -370,12 +415,13 @@ const _RCWL = "ReplicatorCloudWatchLogs";
 const _RD = "ReplicatorDescription";
 const _RF = "ReplicationFactor";
 const _RFe = "ReplicatorFirehose";
-const _RI = "ReplicationInfo";
+const _RI = "ReplicaIds";
 const _RID = "ReplicationInfoDescription";
 const _RIL = "ReplicationInfoList";
 const _RIPE = "ReassignmentInProgressException";
 const _RIS = "ReplicationInfoSummary";
 const _RISL = "ReplicationInfoSummaryList";
+const _RIe = "ReplicationInfo";
 const _RLD = "ReplicatorLogDelivery";
 const _RN = "ReplicatorName";
 const _RNF = "ReplicatorNameFilter";
@@ -387,11 +433,14 @@ const _RSe = "RecordSchema";
 const _RSep = "ReplicatorS3";
 const _RSepl = "ReplicatorSummary";
 const _RTNC = "ReplicationTopicNameConfiguration";
-const _Re = "Revision";
+const _Re = "Resource";
+const _Rea = "Reassignments";
+const _Reb = "Rebalancing";
 const _Rep = "Replicators";
 const _Repl = "Replicas";
-const _Rev = "Revisions";
-const _S = "S3";
+const _Rev = "Revision";
+const _Revi = "Revisions";
+const _S = "Severity";
 const _SA = "SecretArn";
 const _SAL = "SecretArnList";
 const _SAi = "SigningAlgorithm";
@@ -404,6 +453,7 @@ const _SDC = "S3DestinationConfiguration";
 const _SDU = "S3DestinationUpdate";
 const _SE = "SchemaEvolution";
 const _SERA = "ServiceExecutionRoleArn";
+const _SF = "StatusFilter";
 const _SG = "SecurityGroups";
 const _SGI = "SecurityGroupIds";
 const _SI = "StorageInfo";
@@ -415,6 +465,7 @@ const _SKCAo = "SourceKafkaClusterAlias";
 const _SKCI = "SourceKafkaClusterId";
 const _SL = "SourceList";
 const _SM = "StorageMode";
+const _SMt = "StatusMessage";
 const _SN = "StepName";
 const _SNo = "SourceName";
 const _SOAB = "SaslOAuthBearer";
@@ -426,8 +477,15 @@ const _SSa = "SaslScram";
 const _SSe = "ServerlessSasl";
 const _SSt = "S3Storage";
 const _ST = "StartTime";
+const _STR = "StartTopicReassignment";
+const _STRR = "StartTopicReassignmentRequest";
+const _STRRt = "StartTopicReassignmentResponse";
+const _STRRto = "StopTopicReassignmentRequest";
+const _STRRtop = "StopTopicReassignmentResponse";
+const _STRt = "StopTopicReassignment";
 const _SUE = "ServiceUnavailableException";
 const _SV = "SourceVersion";
+const _S_ = "S3";
 const _Sa = "Sasl";
 const _Sc = "Scope";
 const _Scr = "Scram";
@@ -435,8 +493,9 @@ const _Se = "Serverless";
 const _St = "Status";
 const _Sta = "State";
 const _Sto = "Storage";
-const _Su = "Subnets";
-const _T = "Tls";
+const _Su = "Summary";
+const _Sub = "Subnets";
+const _T = "Tags";
 const _TA = "TopicArn";
 const _TBEBSVI = "TargetBrokerEBSVolumeInfo";
 const _TC = "TableCreation";
@@ -449,6 +508,7 @@ const _TEAM = "TokenEndpointAuthenticationMethod";
 const _TEE = "TopicExistsException";
 const _TETCA = "TokenEndpointTlsCertificateArn";
 const _TEU = "TokenEndpointUrl";
+const _TF = "TotalFindings";
 const _TI = "TopicInfo";
 const _TIT = "TargetInstanceType";
 const _TK = "TagKeys";
@@ -461,16 +521,23 @@ const _TN = "TopicName";
 const _TNC = "TopicNameConfiguration";
 const _TNF = "TopicNameFilter";
 const _TNOBN = "TargetNumberOfBrokerNodes";
+const _TP = "TotalPartitions";
 const _TPI = "TopicPartitionInfo";
 const _TR = "TopicReplication";
+const _TRI = "TopicReassignmentInfo";
+const _TRM = "TopicReassignmentMode";
+const _TROA = "TopicReassignmentOperationArn";
 const _TRR = "TagResourceRequest";
 const _TRSA = "TokenRequestSecretArn";
 const _TRU = "TopicReplicationUpdate";
 const _TRa = "TagResource";
+const _TRo = "TopicReassignment";
+const _TT = "TotalTopics";
 const _TTE = "TopicsToExclude";
+const _TTI = "TopicsToInclude";
 const _TTR = "TopicsToReplicate";
 const _TV = "TargetVersions";
-const _Ta = "Tags";
+const _Tl = "Tls";
 const _To = "Topics";
 const _Ty = "Type";
 const _U = "Unauthenticated";
@@ -551,6 +618,7 @@ const _ZIo = "ZookeeperId";
 const _ZNI = "ZookeeperNodeInfo";
 const _ZV = "ZookeeperVersion";
 const _a = "authentication";
+const _aA = "assessmentArn";
 const _aENII = "attachedENIId";
 const _aKC = "apacheKafkaCluster";
 const _aKCI = "apacheKafkaClusterId";
@@ -558,8 +626,12 @@ const _aL = "authorizerLogs";
 const _aMC = "amazonMskCluster";
 const _aO = "appendOnly";
 const _aOA = "activeOperationArn";
+const _aP = "assessmentParameters";
+const _aT = "assessmentType";
 const _aTCT = "addedToClusterTime";
+const _ac = "action";
 const _ar = "arn";
+const _as = "assessments";
 const _au = "audience";
 const _b = "bucket";
 const _bA = "bucketArn";
@@ -578,6 +650,7 @@ const _bBSTI = "bootstrapBrokerStringTlsIpv6";
 const _bBSVCSI = "bootstrapBrokerStringVpcConnectivitySaslIam";
 const _bBSVCSS = "bootstrapBrokerStringVpcConnectivitySaslScram";
 const _bBSVCT = "bootstrapBrokerStringVpcConnectivityTls";
+const _bC = "byCategory";
 const _bCUI = "brokerCountUpdateInfo";
 const _bEBSVI = "brokerEBSVolumeInfo";
 const _bI = "brokerId";
@@ -585,6 +658,9 @@ const _bIr = "brokerIds";
 const _bL = "brokerLogs";
 const _bNGI = "brokerNodeGroupInfo";
 const _bNI = "brokerNodeInfo";
+const _bNT = "brokerNodeType";
+const _bS = "bySeverity";
+const _bTUI = "brokerTypeUpgradeInfo";
 const _c = "client";
 const _cA = "clusterArn";
 const _cAAL = "certificateAuthorityArnList";
@@ -623,12 +699,16 @@ const _cT = "creationTime";
 const _cTC = "copyTopicConfigurations";
 const _cTF = "clusterTypeFilter";
 const _cTl = "clusterType";
-const _cTo = "compressionType";
+const _cTli = "clientToken";
+const _cTo = "completionTime";
+const _cTom = "completedTopics";
+const _cTomp = "compressionType";
 const _cV = "currentVersion";
 const _cVC = "clientVpcConnections";
 const _cVIA = "clientVpcIpAddress";
 const _cWL = "cloudWatchLogs";
-const _ca = "catalog";
+const _ca = "category";
+const _cat = "catalog";
 const _ch = "channels";
 const _co = "code";
 const _con = "configs";
@@ -644,6 +724,7 @@ const _dS = "deliveryStream";
 const _dT = "destinationType";
 const _dTL = "destinationTableList";
 const _dTN = "destinationTableName";
+const _dU = "documentationUrl";
 const _dVKMSKI = "dataVolumeKMSKeyId";
 const _e = "error";
 const _eAR = "encryptionAtRest";
@@ -666,8 +747,12 @@ const _eTn = "encryptionType";
 const _en = "endpoints";
 const _ena = "enabled";
 const _f = "firehose";
+const _fC = "findingsCapped";
+const _fI = "findingId";
+const _fi = "findings";
 const _gA = "gsrArn";
 const _h = "http";
+const _hBF = "hasBlockingFindings";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _i = "iam";
@@ -692,6 +777,8 @@ const _l = "leader";
 const _lD = "logDelivery";
 const _lG = "logGroup";
 const _lI = "loggingInfo";
+const _lOAF = "__listOfAssessmentFinding";
+const _lOAI = "__listOfAssessmentInfo";
 const _lOBEBSVI = "__listOfBrokerEBSVolumeInfo";
 const _lOC = "__listOfCluster";
 const _lOCI = "__listOfChannelInfo";
@@ -717,12 +804,15 @@ const _lORS = "__listOfReplicatorSummary";
 const _lOTC = "__listOfTopicConfiguration";
 const _lOTI = "__listOfTopicInfo";
 const _lOTPI = "__listOfTopicPartitionInfo";
+const _lOTRI = "__listOfTopicReassignmentInfo";
 const _lOUSS = "__listOfUnprocessedScramSecret";
 const _lOVC = "__listOfVpcConfig";
 const _lOVCi = "__listOfVpcConnection";
 const _lR = "latestRevision";
+const _lUT = "lastUpdateTime";
 const _m = "message";
 const _mCA = "mskClusterArn";
+const _mP = "migratedPartitions";
 const _mR = "maxResults";
 const _mTLS = "mTLS";
 const _me = "mechanism";
@@ -755,12 +845,13 @@ const _par = "partition";
 const _po = "policy";
 const _pr = "prometheus";
 const _pre = "prefix";
-const _r = "rebalancing";
+const _r = "remediation";
 const _rA = "replicatorArn";
 const _rC = "recordConverter";
 const _rCC = "rootCaCertificate";
 const _rD = "replicatorDescription";
 const _rF = "replicationFactor";
+const _rI = "replicaIds";
 const _rIL = "replicationInfoList";
 const _rISL = "replicationInfoSummaryList";
 const _rLD = "replicatorLogDelivery";
@@ -769,10 +860,13 @@ const _rNF = "replicatorNameFilter";
 const _rRA = "replicatorResourceArn";
 const _rS = "replicatorState";
 const _rSe = "recordSchema";
-const _re = "revision";
+const _re = "resource";
+const _rea = "reassignments";
+const _reb = "rebalancing";
 const _rep = "replicators";
 const _repl = "replicas";
-const _rev = "revisions";
+const _rev = "revision";
+const _revi = "revisions";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.kafka";
 const _sA = "secretArn";
 const _sAL = "secretArnList";
@@ -784,6 +878,7 @@ const _sDC = "s3DestinationConfiguration";
 const _sDU = "s3DestinationUpdate";
 const _sE = "schemaEvolution";
 const _sERA = "serviceExecutionRoleArn";
+const _sF = "statusFilter";
 const _sG = "securityGroups";
 const _sGI = "securityGroupIds";
 const _sI = "storageInfo";
@@ -795,6 +890,7 @@ const _sKCAo = "sourceKafkaClusterAlias";
 const _sKCI = "sourceKafkaClusterId";
 const _sL = "sourceList";
 const _sM = "storageMode";
+const _sMt = "statusMessage";
 const _sN = "stepName";
 const _sNo = "sourceName";
 const _sOAB = "saslOAuthBearer";
@@ -810,11 +906,13 @@ const _sc = "scope";
 const _scr = "scram";
 const _se = "server";
 const _ser = "serverless";
+const _sev = "severity";
 const _st = "status";
 const _sta = "state";
 const _sto = "storage";
-const _su = "subnets";
-const _t = "tls";
+const _su = "summary";
+const _sub = "subnets";
+const _t = "tags";
 const _tA = "topicArn";
 const _tBEBSVI = "targetBrokerEBSVolumeInfo";
 const _tC = "tableCreation";
@@ -825,6 +923,7 @@ const _tCT = "targetCompressionType";
 const _tEAM = "tokenEndpointAuthenticationMethod";
 const _tETCA = "tokenEndpointTlsCertificateArn";
 const _tEU = "tokenEndpointUrl";
+const _tF = "totalFindings";
 const _tIT = "targetInstanceType";
 const _tK = "tagKeys";
 const _tKCA = "targetKafkaClusterArn";
@@ -835,12 +934,18 @@ const _tN = "topicName";
 const _tNC = "topicNameConfiguration";
 const _tNF = "topicNameFilter";
 const _tNOBN = "targetNumberOfBrokerNodes";
+const _tP = "totalPartitions";
 const _tR = "topicReplication";
+const _tRM = "topicReassignmentMode";
+const _tROA = "topicReassignmentOperationArn";
 const _tRSA = "tokenRequestSecretArn";
+const _tRo = "topicReassignment";
+const _tT = "totalTopics";
 const _tTE = "topicsToExclude";
+const _tTI = "topicsToInclude";
 const _tTR = "topicsToReplicate";
 const _tV = "targetVersions";
-const _ta = "tags";
+const _tl = "tls";
 const _to = "topics";
 const _ty = "type";
 const _u = "unauthenticated";
@@ -1025,9 +1130,29 @@ export var ApacheKafkaCluster$: StaticStructureSchema = [3, n0, _AKC,
   [_AKCI, _BBS],
   [[0, { [_jN]: _aKCI }], [0, { [_jN]: _bBS }]], 2
 ];
+export var AssessmentFinding$: StaticStructureSchema = [3, n0, _AF,
+  0,
+  [_C, _FI, _M, _S, _R, _Re],
+  [[0, { [_jN]: _ca }], [0, { [_jN]: _fI }], [0, { [_jN]: _m }], [0, { [_jN]: _sev }], [() => FindingRemediation$, { [_jN]: _r }], [0, { [_jN]: _re }]], 4
+];
+export var AssessmentInfo$: StaticStructureSchema = [3, n0, _AI,
+  0,
+  [_AA, _AT, _CA, _CT, _St, _T],
+  [[0, { [_jN]: _aA }], [0, { [_jN]: _aT }], [0, { [_jN]: _cA }], [5, { [_jN]: _cT }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _t }]]
+];
+export var AssessmentParameters$: StaticStructureSchema = [3, n0, _AP,
+  0,
+  [_TIT],
+  [[0, { [_jN]: _tIT }]]
+];
+export var AssessmentSummary$: StaticStructureSchema = [3, n0, _AS,
+  0,
+  [_BC, _BS, _FC, _HBF, _TF],
+  [[128 | 1, { [_jN]: _bC }], [128 | 1, { [_jN]: _bS }], [2, { [_jN]: _fC }], [2, { [_jN]: _hBF }], [1, { [_jN]: _tF }]]
+];
 export var AuthorizerLogs$: StaticStructureSchema = [3, n0, _AL,
   0,
-  [_CWL, _F, _S],
+  [_CWL, _F, _S_],
   [[() => CloudWatchLogs$, { [_jN]: _cWL }], [() => Firehose$, { [_jN]: _f }], [() => S3$, { [_jN]: _s_ }]]
 ];
 export var BatchAssociateScramSecretRequest$: StaticStructureSchema = [3, n0, _BASSR,
@@ -1062,7 +1187,7 @@ export var BrokerEBSVolumeInfo$: StaticStructureSchema = [3, n0, _BEBSVI,
 ];
 export var BrokerLogs$: StaticStructureSchema = [3, n0, _BL,
   0,
-  [_CWL, _F, _S],
+  [_CWL, _F, _S_],
   [[() => CloudWatchLogs$, { [_jN]: _cWL }], [() => Firehose$, { [_jN]: _f }], [() => S3$, { [_jN]: _s_ }]]
 ];
 export var BrokerNodeGroupInfo$: StaticStructureSchema = [3, n0, _BNGI,
@@ -1072,15 +1197,20 @@ export var BrokerNodeGroupInfo$: StaticStructureSchema = [3, n0, _BNGI,
 ];
 export var BrokerNodeInfo$: StaticStructureSchema = [3, n0, _BNI,
   0,
-  [_AENII, _BI, _CSl, _CVIA, _CBSI, _E],
-  [[0, { [_jN]: _aENII }], [1, { [_jN]: _bI }], [0, { [_jN]: _cSl }], [0, { [_jN]: _cVIA }], [() => BrokerSoftwareInfo$, { [_jN]: _cBSI }], [64 | 0, { [_jN]: _en }]]
+  [_AENII, _BI, _BNT, _CSl, _CVIA, _CBSI, _E],
+  [[0, { [_jN]: _aENII }], [1, { [_jN]: _bI }], [0, { [_jN]: _bNT }], [0, { [_jN]: _cSl }], [0, { [_jN]: _cVIA }], [() => BrokerSoftwareInfo$, { [_jN]: _cBSI }], [64 | 0, { [_jN]: _en }]]
 ];
 export var BrokerSoftwareInfo$: StaticStructureSchema = [3, n0, _BSI,
   0,
   [_CAo, _CR, _KV],
   [[0, { [_jN]: _cAo }], [1, { [_jN]: _cR }], [0, { [_jN]: _kV }]]
 ];
-export var Catalog$: StaticStructureSchema = [3, n0, _C,
+export var BrokerTypeUpgradeInfo$: StaticStructureSchema = [3, n0, _BTUI,
+  0,
+  [_TRM, _TROA],
+  [[0, { [_jN]: _tRM }], [0, { [_jN]: _tROA }]]
+];
+export var Catalog$: StaticStructureSchema = [3, n0, _Ca,
   0,
   [_CAa, _WL],
   [[0, { [_jN]: _cAa }], [0, { [_jN]: _wL }]]
@@ -1092,7 +1222,7 @@ export var ChannelInfo$: StaticStructureSchema = [3, n0, _CIh,
 ];
 export var ChannelLoggingInfo$: StaticStructureSchema = [3, n0, _CLI,
   0,
-  [_CWL, _F, _S],
+  [_CWL, _F, _S_],
   [[() => CloudWatchLogs$, { [_jN]: _cWL }], [() => Firehose$, { [_jN]: _f }], [() => S3$, { [_jN]: _s_ }]]
 ];
 export var ChannelStateInfo$: StaticStructureSchema = [3, n0, _CSI,
@@ -1102,8 +1232,8 @@ export var ChannelStateInfo$: StaticStructureSchema = [3, n0, _CSI,
 ];
 export var ClientAuthentication$: StaticStructureSchema = [3, n0, _CAl,
   0,
-  [_Sa, _T, _U],
-  [[() => Sasl$, { [_jN]: _sa }], [() => Tls$, { [_jN]: _t }], [() => Unauthenticated$, { [_jN]: _u }]]
+  [_Sa, _Tl, _U],
+  [[() => Sasl$, { [_jN]: _sa }], [() => Tls$, { [_jN]: _tl }], [() => Unauthenticated$, { [_jN]: _u }]]
 ];
 export var ClientVpcConnection$: StaticStructureSchema = [3, n0, _CVC,
   0,
@@ -1117,18 +1247,18 @@ export var CloudWatchLogs$: StaticStructureSchema = [3, n0, _CWL,
 ];
 export var Cluster$: StaticStructureSchema = [3, n0, _Cl,
   0,
-  [_AOA, _CTl, _CA, _CNl, _CT, _CV, _Sta, _SIt, _Ta, _P, _Se],
-  [[0, { [_jN]: _aOA }], [0, { [_jN]: _cTl }], [0, { [_jN]: _cA }], [0, { [_jN]: _cNl }], [5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [0, { [_jN]: _sta }], [() => StateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _ta }], [() => Provisioned$, { [_jN]: _p }], [() => Serverless$, { [_jN]: _ser }]]
+  [_AOA, _CTl, _CA, _CNl, _CT, _CV, _Sta, _SIt, _T, _P, _Se],
+  [[0, { [_jN]: _aOA }], [0, { [_jN]: _cTl }], [0, { [_jN]: _cA }], [0, { [_jN]: _cNl }], [5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [0, { [_jN]: _sta }], [() => StateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _t }], [() => Provisioned$, { [_jN]: _p }], [() => Serverless$, { [_jN]: _ser }]]
 ];
 export var ClusterInfo$: StaticStructureSchema = [3, n0, _CIl,
   0,
-  [_AOA, _BNGI, _R, _CAl, _CA, _CNl, _CT, _CBSI, _CV, _EI, _EM, _OM, _LI, _NOBN, _Sta, _SIt, _Ta, _ZCS, _ZCST, _SM, _CAS],
-  [[0, { [_jN]: _aOA }], [() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [() => Rebalancing$, { [_jN]: _r }], [() => ClientAuthentication$, { [_jN]: _cAl }], [0, { [_jN]: _cA }], [0, { [_jN]: _cNl }], [5, { [_jN]: _cT }], [() => BrokerSoftwareInfo$, { [_jN]: _cBSI }], [0, { [_jN]: _cV }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoring$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }], [1, { [_jN]: _nOBN }], [0, { [_jN]: _sta }], [() => StateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _zCS }], [0, { [_jN]: _zCST }], [0, { [_jN]: _sM }], [0, { [_jN]: _cAS }]]
+  [_AOA, _BNGI, _Reb, _CAl, _CA, _CNl, _CT, _CBSI, _CV, _EI, _EM, _OM, _LI, _NOBN, _Sta, _SIt, _T, _ZCS, _ZCST, _SM, _CAS],
+  [[0, { [_jN]: _aOA }], [() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [() => Rebalancing$, { [_jN]: _reb }], [() => ClientAuthentication$, { [_jN]: _cAl }], [0, { [_jN]: _cA }], [0, { [_jN]: _cNl }], [5, { [_jN]: _cT }], [() => BrokerSoftwareInfo$, { [_jN]: _cBSI }], [0, { [_jN]: _cV }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoring$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }], [1, { [_jN]: _nOBN }], [0, { [_jN]: _sta }], [() => StateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _t }], [0, { [_jN]: _zCS }], [0, { [_jN]: _zCST }], [0, { [_jN]: _sM }], [0, { [_jN]: _cAS }]]
 ];
 export var ClusterOperationInfo$: StaticStructureSchema = [3, n0, _COI,
   0,
-  [_CRI, _CA, _CT, _ET, _EIr, _OA, _OS, _OSp, _OT, _SCI, _TCI, _VCI],
-  [[0, { [_jN]: _cRI }], [0, { [_jN]: _cA }], [5, { [_jN]: _cT }], [5, { [_jN]: _eT }], [() => ErrorInfo$, { [_jN]: _eIr }], [0, { [_jN]: _oA }], [0, { [_jN]: _oS }], [() => __listOfClusterOperationStep, { [_jN]: _oSp }], [0, { [_jN]: _oT }], [() => MutableClusterInfo$, { [_jN]: _sCI }], [() => MutableClusterInfo$, { [_jN]: _tCI }], [() => VpcConnectionInfo$, { [_jN]: _vCI }]]
+  [_BTUI, _CRI, _CA, _CT, _ET, _EIr, _OA, _OS, _OSp, _OT, _SCI, _TCI, _VCI],
+  [[() => BrokerTypeUpgradeInfo$, { [_jN]: _bTUI }], [0, { [_jN]: _cRI }], [0, { [_jN]: _cA }], [5, { [_jN]: _cT }], [5, { [_jN]: _eT }], [() => ErrorInfo$, { [_jN]: _eIr }], [0, { [_jN]: _oA }], [0, { [_jN]: _oS }], [() => __listOfClusterOperationStep, { [_jN]: _oSp }], [0, { [_jN]: _oT }], [() => MutableClusterInfo$, { [_jN]: _sCI }], [() => MutableClusterInfo$, { [_jN]: _tCI }], [() => VpcConnectionInfo$, { [_jN]: _vCI }]]
 ];
 export var ClusterOperationStep$: StaticStructureSchema = [3, n0, _COS,
   0,
@@ -1147,8 +1277,8 @@ export var ClusterOperationV2$: StaticStructureSchema = [3, n0, _COV,
 ];
 export var ClusterOperationV2Provisioned$: StaticStructureSchema = [3, n0, _COVP,
   0,
-  [_OSp, _SCI, _TCI, _VCI],
-  [[() => __listOfClusterOperationStep, { [_jN]: _oSp }], [() => MutableClusterInfo$, { [_jN]: _sCI }], [() => MutableClusterInfo$, { [_jN]: _tCI }], [() => VpcConnectionInfo$, { [_jN]: _vCI }]]
+  [_BTUI, _OSp, _SCI, _TCI, _VCI],
+  [[() => BrokerTypeUpgradeInfo$, { [_jN]: _bTUI }], [() => __listOfClusterOperationStep, { [_jN]: _oSp }], [() => MutableClusterInfo$, { [_jN]: _sCI }], [() => MutableClusterInfo$, { [_jN]: _tCI }], [() => VpcConnectionInfo$, { [_jN]: _vCI }]]
 ];
 export var ClusterOperationV2Serverless$: StaticStructureSchema = [3, n0, _COVS,
   0,
@@ -1172,13 +1302,13 @@ export var Configuration$: StaticStructureSchema = [3, n0, _Con,
 ];
 export var ConfigurationInfo$: StaticStructureSchema = [3, n0, _CIo,
   0,
-  [_Ar, _Re],
-  [[0, { [_jN]: _ar }], [1, { [_jN]: _re }]], 2
+  [_Ar, _Rev],
+  [[0, { [_jN]: _ar }], [1, { [_jN]: _rev }]], 2
 ];
 export var ConfigurationRevision$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_CT, _Re, _D],
-  [[5, { [_jN]: _cT }], [1, { [_jN]: _re }], [0, { [_jN]: _d }]], 2
+  [_CT, _Rev, _D],
+  [[5, { [_jN]: _cT }], [1, { [_jN]: _rev }], [0, { [_jN]: _d }]], 2
 ];
 export var ConnectivityInfo$: StaticStructureSchema = [3, n0, _CI,
   0,
@@ -1200,10 +1330,20 @@ export var ControllerNodeInfo$: StaticStructureSchema = [3, n0, _CNI,
   [_E],
   [[64 | 0, { [_jN]: _en }]]
 ];
+export var CreateAssessmentRequest$: StaticStructureSchema = [3, n0, _CAR,
+  0,
+  [_AT, _CA, _AP, _T],
+  [[0, { [_jN]: _aT }], [0, 1], [() => AssessmentParameters$, { [_jN]: _aP }], [128 | 0, { [_jN]: _t }]], 2
+];
+export var CreateAssessmentResponse$: StaticStructureSchema = [3, n0, _CARr,
+  0,
+  [_AA, _AT, _CA, _CT, _St],
+  [[0, { [_jN]: _aA }], [0, { [_jN]: _aT }], [0, { [_jN]: _cA }], [5, { [_jN]: _cT }], [0, { [_jN]: _st }]]
+];
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_CN, _CA, _TCL, _EC, _IDC, _SDC, _Ta, _LI],
-  [[0, { [_jN]: _cN }], [0, 1], [() => __listOfTopicConfiguration, { [_jN]: _tCL }], [() => EncryptionConfiguration$, { [_jN]: _eC }], [() => IcebergDestinationConfiguration$, { [_jN]: _iDC }], [() => S3DestinationConfiguration$, { [_jN]: _sDC }], [128 | 0, { [_jN]: _ta }], [() => ChannelLoggingInfo$, { [_jN]: _lI }]], 3
+  [_CN, _CA, _TCL, _EC, _IDC, _SDC, _T, _LI],
+  [[0, { [_jN]: _cN }], [0, 1], [() => __listOfTopicConfiguration, { [_jN]: _tCL }], [() => EncryptionConfiguration$, { [_jN]: _eC }], [() => IcebergDestinationConfiguration$, { [_jN]: _iDC }], [() => S3DestinationConfiguration$, { [_jN]: _sDC }], [128 | 0, { [_jN]: _t }], [() => ChannelLoggingInfo$, { [_jN]: _lI }]], 3
 ];
 export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -1212,8 +1352,8 @@ export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCRre,
   0,
-  [_BNGI, _CNl, _KV, _NOBN, _R, _CAl, _CIo, _EI, _EM, _OM, _LI, _Ta, _SM],
-  [[() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [0, { [_jN]: _cNl }], [0, { [_jN]: _kV }], [1, { [_jN]: _nOBN }], [() => Rebalancing$, { [_jN]: _r }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => ConfigurationInfo$, { [_jN]: _cIo }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoringInfo$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _sM }]], 4
+  [_BNGI, _CNl, _KV, _NOBN, _Reb, _CAl, _CIo, _EI, _EM, _OM, _LI, _T, _SM],
+  [[() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [0, { [_jN]: _cNl }], [0, { [_jN]: _kV }], [1, { [_jN]: _nOBN }], [() => Rebalancing$, { [_jN]: _reb }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => ConfigurationInfo$, { [_jN]: _cIo }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoringInfo$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }], [128 | 0, { [_jN]: _t }], [0, { [_jN]: _sM }]], 4
 ];
 export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRrea,
   0,
@@ -1222,8 +1362,8 @@ export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRrea,
 ];
 export var CreateClusterV2Request$: StaticStructureSchema = [3, n0, _CCVR,
   0,
-  [_CNl, _Ta, _P, _Se],
-  [[0, { [_jN]: _cNl }], [128 | 0, { [_jN]: _ta }], [() => ProvisionedRequest$, { [_jN]: _p }], [() => ServerlessRequest$, { [_jN]: _ser }]], 1
+  [_CNl, _T, _P, _Se],
+  [[0, { [_jN]: _cNl }], [128 | 0, { [_jN]: _t }], [() => ProvisionedRequest$, { [_jN]: _p }], [() => ServerlessRequest$, { [_jN]: _ser }]], 1
 ];
 export var CreateClusterV2Response$: StaticStructureSchema = [3, n0, _CCVRr,
   0,
@@ -1242,8 +1382,8 @@ export var CreateConfigurationResponse$: StaticStructureSchema = [3, n0, _CCRrea
 ];
 export var CreateReplicatorRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_KC, _RIL, _RN, _SERA, _D, _Ta, _LD],
-  [[() => __listOfKafkaCluster, { [_jN]: _kC }], [() => __listOfReplicationInfo, { [_jN]: _rIL }], [0, { [_jN]: _rN }], [0, { [_jN]: _sERA }], [0, { [_jN]: _d }], [128 | 0, { [_jN]: _ta }], [() => LogDelivery$, { [_jN]: _lD }]], 4
+  [_KC, _RIL, _RN, _SERA, _D, _T, _LD],
+  [[() => __listOfKafkaCluster, { [_jN]: _kC }], [() => __listOfReplicationInfo, { [_jN]: _rIL }], [0, { [_jN]: _rN }], [0, { [_jN]: _sERA }], [0, { [_jN]: _d }], [128 | 0, { [_jN]: _t }], [() => LogDelivery$, { [_jN]: _lD }]], 4
 ];
 export var CreateReplicatorResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -1262,18 +1402,28 @@ export var CreateTopicResponse$: StaticStructureSchema = [3, n0, _CTRr,
 ];
 export var CreateVpcConnectionRequest$: StaticStructureSchema = [3, n0, _CVCR,
   0,
-  [_TCA, _A, _VI, _CS, _SG, _Ta],
-  [[0, { [_jN]: _tCA }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [64 | 0, { [_jN]: _cS }], [64 | 0, { [_jN]: _sG }], [128 | 0, { [_jN]: _ta }]], 5
+  [_TCA, _A, _VI, _CS, _SG, _T],
+  [[0, { [_jN]: _tCA }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [64 | 0, { [_jN]: _cS }], [64 | 0, { [_jN]: _sG }], [128 | 0, { [_jN]: _t }]], 5
 ];
 export var CreateVpcConnectionResponse$: StaticStructureSchema = [3, n0, _CVCRr,
   0,
-  [_VCA, _Sta, _A, _VI, _CS, _SG, _CT, _Ta],
-  [[0, { [_jN]: _vCA }], [0, { [_jN]: _sta }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [64 | 0, { [_jN]: _cS }], [64 | 0, { [_jN]: _sG }], [5, { [_jN]: _cT }], [128 | 0, { [_jN]: _ta }]]
+  [_VCA, _Sta, _A, _VI, _CS, _SG, _CT, _T],
+  [[0, { [_jN]: _vCA }], [0, { [_jN]: _sta }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [64 | 0, { [_jN]: _cS }], [64 | 0, { [_jN]: _sG }], [5, { [_jN]: _cT }], [128 | 0, { [_jN]: _t }]]
 ];
 export var DeadLetterQueueS3$: StaticStructureSchema = [3, n0, _DLQS,
   0,
   [_BA, _EOP, _EBO],
   [[0, { [_jN]: _bA }], [0, { [_jN]: _eOP }], [0, { [_jN]: _eBO }]], 1
+];
+export var DeleteAssessmentRequest$: StaticStructureSchema = [3, n0, _DAR,
+  0,
+  [_AA, _CA],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteAssessmentResponse$: StaticStructureSchema = [3, n0, _DARe,
+  0,
+  [_AA, _St],
+  [[0, { [_jN]: _aA }], [0, { [_jN]: _st }]]
 ];
 export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
@@ -1345,6 +1495,16 @@ export var DeleteVpcConnectionResponse$: StaticStructureSchema = [3, n0, _DVCRe,
   [_VCA, _Sta],
   [[0, { [_jN]: _vCA }], [0, { [_jN]: _sta }]]
 ];
+export var DescribeAssessmentRequest$: StaticStructureSchema = [3, n0, _DARes,
+  0,
+  [_AA, _CA],
+  [[0, 1], [0, 1]], 2
+];
+export var DescribeAssessmentResponse$: StaticStructureSchema = [3, n0, _DAResc,
+  0,
+  [_AA, _AP, _AT, _CA, _CTo, _CT, _St, _SMt, _Su, _T],
+  [[0, { [_jN]: _aA }], [() => AssessmentParameters$, { [_jN]: _aP }], [0, { [_jN]: _aT }], [0, { [_jN]: _cA }], [5, { [_jN]: _cTo }], [5, { [_jN]: _cT }], [0, { [_jN]: _st }], [0, { [_jN]: _sMt }], [() => AssessmentSummary$, { [_jN]: _su }], [128 | 0, { [_jN]: _t }]]
+];
 export var DescribeChannelRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
   [_CAh, _CA],
@@ -1352,8 +1512,8 @@ export var DescribeChannelRequest$: StaticStructureSchema = [3, n0, _DCRes,
 ];
 export var DescribeChannelResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
-  [_CAh, _CN, _St, _DT, _CT, _TCL, _EC, _IDC, _SDC, _LI, _SIt, _COA, _Ta],
-  [[0, { [_jN]: _cAh }], [0, { [_jN]: _cN }], [0, { [_jN]: _st }], [0, { [_jN]: _dT }], [5, { [_jN]: _cT }], [() => __listOfTopicConfiguration, { [_jN]: _tCL }], [() => EncryptionConfiguration$, { [_jN]: _eC }], [() => IcebergDestinationConfiguration$, { [_jN]: _iDC }], [() => S3DestinationConfiguration$, { [_jN]: _sDC }], [() => ChannelLoggingInfo$, { [_jN]: _lI }], [() => ChannelStateInfo$, { [_jN]: _sIt }], [0, { [_jN]: _cOA }], [128 | 0, { [_jN]: _ta }]], 6
+  [_CAh, _CN, _St, _DT, _CT, _TCL, _EC, _IDC, _SDC, _LI, _SIt, _COA, _T],
+  [[0, { [_jN]: _cAh }], [0, { [_jN]: _cN }], [0, { [_jN]: _st }], [0, { [_jN]: _dT }], [5, { [_jN]: _cT }], [() => __listOfTopicConfiguration, { [_jN]: _tCL }], [() => EncryptionConfiguration$, { [_jN]: _eC }], [() => IcebergDestinationConfiguration$, { [_jN]: _iDC }], [() => S3DestinationConfiguration$, { [_jN]: _sDC }], [() => ChannelLoggingInfo$, { [_jN]: _lI }], [() => ChannelStateInfo$, { [_jN]: _sIt }], [0, { [_jN]: _cOA }], [128 | 0, { [_jN]: _t }]], 6
 ];
 export var DescribeClusterOperationRequest$: StaticStructureSchema = [3, n0, _DCOR,
   0,
@@ -1407,13 +1567,13 @@ export var DescribeConfigurationResponse$: StaticStructureSchema = [3, n0, _DCRe
 ];
 export var DescribeConfigurationRevisionRequest$: StaticStructureSchema = [3, n0, _DCRR,
   0,
-  [_Ar, _Re],
+  [_Ar, _Rev],
   [[0, 1], [1, 1]], 2
 ];
 export var DescribeConfigurationRevisionResponse$: StaticStructureSchema = [3, n0, _DCRRe,
   0,
-  [_Ar, _CT, _D, _Re, _SP],
-  [[0, { [_jN]: _ar }], [5, { [_jN]: _cT }], [0, { [_jN]: _d }], [1, { [_jN]: _re }], [21, { [_jN]: _sP }]]
+  [_Ar, _CT, _D, _Rev, _SP],
+  [[0, { [_jN]: _ar }], [5, { [_jN]: _cT }], [0, { [_jN]: _d }], [1, { [_jN]: _rev }], [21, { [_jN]: _sP }]]
 ];
 export var DescribeReplicatorRequest$: StaticStructureSchema = [3, n0, _DRRes,
   0,
@@ -1422,8 +1582,8 @@ export var DescribeReplicatorRequest$: StaticStructureSchema = [3, n0, _DRRes,
 ];
 export var DescribeReplicatorResponse$: StaticStructureSchema = [3, n0, _DRResc,
   0,
-  [_CT, _CV, _IRR, _KC, _RIL, _RA, _RD, _RN, _RRA, _RS, _SERA, _SIt, _Ta, _LD],
-  [[5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [2, { [_jN]: _iRR }], [() => __listOfKafkaClusterDescription, { [_jN]: _kC }], [() => __listOfReplicationInfoDescription, { [_jN]: _rIL }], [0, { [_jN]: _rA }], [0, { [_jN]: _rD }], [0, { [_jN]: _rN }], [0, { [_jN]: _rRA }], [0, { [_jN]: _rS }], [0, { [_jN]: _sERA }], [() => ReplicationStateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _ta }], [() => LogDelivery$, { [_jN]: _lD }]]
+  [_CT, _CV, _IRR, _KC, _RIL, _RA, _RD, _RN, _RRA, _RS, _SERA, _SIt, _T, _LD],
+  [[5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [2, { [_jN]: _iRR }], [() => __listOfKafkaClusterDescription, { [_jN]: _kC }], [() => __listOfReplicationInfoDescription, { [_jN]: _rIL }], [0, { [_jN]: _rA }], [0, { [_jN]: _rD }], [0, { [_jN]: _rN }], [0, { [_jN]: _rRA }], [0, { [_jN]: _rS }], [0, { [_jN]: _sERA }], [() => ReplicationStateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _t }], [() => LogDelivery$, { [_jN]: _lD }]]
 ];
 export var DescribeTopicPartitionsRequest$: StaticStructureSchema = [3, n0, _DTPR,
   0,
@@ -1435,6 +1595,16 @@ export var DescribeTopicPartitionsResponse$: StaticStructureSchema = [3, n0, _DT
   [_Pa, _NTe],
   [[() => __listOfTopicPartitionInfo, { [_jN]: _pa }], [0, { [_jN]: _nTe }]]
 ];
+export var DescribeTopicReassignmentRequest$: StaticStructureSchema = [3, n0, _DTRR,
+  0,
+  [_CA, _TROA],
+  [[0, 1], [0, 1]], 2
+];
+export var DescribeTopicReassignmentResponse$: StaticStructureSchema = [3, n0, _DTRRe,
+  0,
+  [_CA, _CTom, _CT, _EIr, _LUT, _MP, _St, _TIT, _TROA, _TTE, _TTI, _TP, _TT],
+  [[0, { [_jN]: _cA }], [1, { [_jN]: _cTom }], [5, { [_jN]: _cT }], [() => ErrorInfo$, { [_jN]: _eIr }], [5, { [_jN]: _lUT }], [1, { [_jN]: _mP }], [0, { [_jN]: _st }], [0, { [_jN]: _tIT }], [0, { [_jN]: _tROA }], [64 | 0, { [_jN]: _tTE }], [64 | 0, { [_jN]: _tTI }], [1, { [_jN]: _tP }], [1, { [_jN]: _tT }]]
+];
 export var DescribeTopicRequest$: StaticStructureSchema = [3, n0, _DTRes,
   0,
   [_CA, _TN],
@@ -1442,8 +1612,8 @@ export var DescribeTopicRequest$: StaticStructureSchema = [3, n0, _DTRes,
 ];
 export var DescribeTopicResponse$: StaticStructureSchema = [3, n0, _DTResc,
   0,
-  [_TA, _TN, _RF, _PC, _Conf, _St],
-  [[0, { [_jN]: _tA }], [0, { [_jN]: _tN }], [1, { [_jN]: _rF }], [1, { [_jN]: _pC }], [0, { [_jN]: _con }], [0, { [_jN]: _st }]]
+  [_TA, _TN, _RF, _PC, _Conf, _St, _RI],
+  [[0, { [_jN]: _tA }], [0, { [_jN]: _tN }], [1, { [_jN]: _rF }], [1, { [_jN]: _pC }], [0, { [_jN]: _con }], [0, { [_jN]: _st }], [64 | 1, { [_jN]: _rI }]]
 ];
 export var DescribeVpcConnectionRequest$: StaticStructureSchema = [3, n0, _DVCRes,
   0,
@@ -1452,8 +1622,8 @@ export var DescribeVpcConnectionRequest$: StaticStructureSchema = [3, n0, _DVCRe
 ];
 export var DescribeVpcConnectionResponse$: StaticStructureSchema = [3, n0, _DVCResc,
   0,
-  [_VCA, _TCA, _Sta, _A, _VI, _Su, _SG, _CT, _Ta],
-  [[0, { [_jN]: _vCA }], [0, { [_jN]: _tCA }], [0, { [_jN]: _sta }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [64 | 0, { [_jN]: _su }], [64 | 0, { [_jN]: _sG }], [5, { [_jN]: _cT }], [128 | 0, { [_jN]: _ta }]]
+  [_VCA, _TCA, _Sta, _A, _VI, _Sub, _SG, _CT, _T],
+  [[0, { [_jN]: _vCA }], [0, { [_jN]: _tCA }], [0, { [_jN]: _sta }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [64 | 0, { [_jN]: _sub }], [64 | 0, { [_jN]: _sG }], [5, { [_jN]: _cT }], [128 | 0, { [_jN]: _t }]]
 ];
 export var DestinationTable$: StaticStructureSchema = [3, n0, _DTe,
   0,
@@ -1489,6 +1659,11 @@ export var ErrorInfo$: StaticStructureSchema = [3, n0, _EIr,
   0,
   [_ECr, _ES],
   [[0, { [_jN]: _eCr }], [0, { [_jN]: _eS }]]
+];
+export var FindingRemediation$: StaticStructureSchema = [3, n0, _FR,
+  0,
+  [_Ac, _DU],
+  [[0, { [_jN]: _ac }], [0, { [_jN]: _dU }]]
 ];
 export var Firehose$: StaticStructureSchema = [3, n0, _F,
   0,
@@ -1532,8 +1707,8 @@ export var Iam$: StaticStructureSchema = [3, n0, _I,
 ];
 export var IcebergDestinationConfiguration$: StaticStructureSchema = [3, n0, _IDC,
   0,
-  [_AO, _DLQS, _DTL, _SE, _SERA, _TC, _C, _DFIS, _CTo],
-  [[2, { [_jN]: _aO }], [() => DeadLetterQueueS3$, { [_jN]: _dLQS }], [() => __listOfDestinationTable, { [_jN]: _dTL }], [() => SchemaEvolution$, { [_jN]: _sE }], [0, { [_jN]: _sERA }], [() => TableCreation$, { [_jN]: _tC }], [() => Catalog$, { [_jN]: _ca }], [1, { [_jN]: _dFIS }], [0, { [_jN]: _cTo }]], 6
+  [_AO, _DLQS, _DTL, _SE, _SERA, _TC, _Ca, _DFIS, _CTomp],
+  [[2, { [_jN]: _aO }], [() => DeadLetterQueueS3$, { [_jN]: _dLQS }], [() => __listOfDestinationTable, { [_jN]: _dTL }], [() => SchemaEvolution$, { [_jN]: _sE }], [0, { [_jN]: _sERA }], [() => TableCreation$, { [_jN]: _tC }], [() => Catalog$, { [_jN]: _cat }], [1, { [_jN]: _dFIS }], [0, { [_jN]: _cTomp }]], 6
 ];
 export var IcebergDestinationUpdate$: StaticStructureSchema = [3, n0, _IDU,
   0,
@@ -1615,6 +1790,26 @@ export var KafkaVersion$: StaticStructureSchema = [3, n0, _KV,
   [_V, _St],
   [[0, { [_jN]: _v }], [0, { [_jN]: _st }]]
 ];
+export var ListAssessmentFindingsRequest$: StaticStructureSchema = [3, n0, _LAFR,
+  0,
+  [_AA, _CA, _C, _MR, _NTe, _S],
+  [[0, 1], [0, 1], [0, { [_hQ]: _ca }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }], [0, { [_hQ]: _sev }]], 2
+];
+export var ListAssessmentFindingsResponse$: StaticStructureSchema = [3, n0, _LAFRi,
+  0,
+  [_Fi, _NTe],
+  [[() => __listOfAssessmentFinding, { [_jN]: _fi }], [0, { [_jN]: _nTe }]]
+];
+export var ListAssessmentsRequest$: StaticStructureSchema = [3, n0, _LAR,
+  0,
+  [_CA, _AT, _MR, _NTe],
+  [[0, 1], [0, { [_hQ]: _aT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]], 1
+];
+export var ListAssessmentsResponse$: StaticStructureSchema = [3, n0, _LARi,
+  0,
+  [_As, _NTe],
+  [[() => __listOfAssessmentInfo, { [_jN]: _as }], [0, { [_jN]: _nTe }]]
+];
 export var ListChannelsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_CA, _MR, _NTe, _TNF],
@@ -1682,8 +1877,8 @@ export var ListConfigurationRevisionsRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var ListConfigurationRevisionsResponse$: StaticStructureSchema = [3, n0, _LCRRi,
   0,
-  [_NTe, _Rev],
-  [[0, { [_jN]: _nTe }], [() => __listOfConfigurationRevision, { [_jN]: _rev }]]
+  [_NTe, _Revi],
+  [[0, { [_jN]: _nTe }], [() => __listOfConfigurationRevision, { [_jN]: _revi }]]
 ];
 export var ListConfigurationsRequest$: StaticStructureSchema = [3, n0, _LCRisto,
   0,
@@ -1742,8 +1937,18 @@ export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
-  [_Ta],
-  [[128 | 0, { [_jN]: _ta }]]
+  [_T],
+  [[128 | 0, { [_jN]: _t }]]
+];
+export var ListTopicReassignmentsRequest$: StaticStructureSchema = [3, n0, _LTRR,
+  0,
+  [_CA, _MR, _NTe, _SF],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }], [0, { [_hQ]: _sF }]], 1
+];
+export var ListTopicReassignmentsResponse$: StaticStructureSchema = [3, n0, _LTRRi,
+  0,
+  [_NTe, _Rea],
+  [[0, { [_jN]: _nTe }], [() => __listOfTopicReassignmentInfo, { [_jN]: _rea }]]
 ];
 export var ListTopicsRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
@@ -1777,8 +1982,8 @@ export var LoggingInfo$: StaticStructureSchema = [3, n0, _LI,
 ];
 export var MutableClusterInfo$: StaticStructureSchema = [3, n0, _MCI,
   0,
-  [_BEBSVI, _CIo, _NOBN, _EM, _OM, _ZA, _KV, _LI, _IT, _CAl, _EI, _CI, _SM, _BCUI, _R],
-  [[() => __listOfBrokerEBSVolumeInfo, { [_jN]: _bEBSVI }], [() => ConfigurationInfo$, { [_jN]: _cIo }], [1, { [_jN]: _nOBN }], [0, { [_jN]: _eM }], [() => OpenMonitoring$, { [_jN]: _oM }], [() => ZookeeperAccess$, { [_jN]: _zA }], [0, { [_jN]: _kV }], [() => LoggingInfo$, { [_jN]: _lI }], [0, { [_jN]: _iT }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => EncryptionInfo$, { [_jN]: _eI }], [() => ConnectivityInfo$, { [_jN]: _cI }], [0, { [_jN]: _sM }], [() => BrokerCountUpdateInfo$, { [_jN]: _bCUI }], [() => Rebalancing$, { [_jN]: _r }]]
+  [_BEBSVI, _CIo, _NOBN, _EM, _OM, _ZA, _KV, _LI, _IT, _CAl, _EI, _CI, _SM, _BCUI, _Reb],
+  [[() => __listOfBrokerEBSVolumeInfo, { [_jN]: _bEBSVI }], [() => ConfigurationInfo$, { [_jN]: _cIo }], [1, { [_jN]: _nOBN }], [0, { [_jN]: _eM }], [() => OpenMonitoring$, { [_jN]: _oM }], [() => ZookeeperAccess$, { [_jN]: _zA }], [0, { [_jN]: _kV }], [() => LoggingInfo$, { [_jN]: _lI }], [0, { [_jN]: _iT }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => EncryptionInfo$, { [_jN]: _eI }], [() => ConnectivityInfo$, { [_jN]: _cI }], [0, { [_jN]: _sM }], [() => BrokerCountUpdateInfo$, { [_jN]: _bCUI }], [() => Rebalancing$, { [_jN]: _reb }]]
 ];
 export var NodeExporter$: StaticStructureSchema = [3, n0, _NE,
   0,
@@ -1827,13 +2032,13 @@ export var PrometheusInfo$: StaticStructureSchema = [3, n0, _PI,
 ];
 export var Provisioned$: StaticStructureSchema = [3, n0, _P,
   0,
-  [_BNGI, _NOBN, _R, _CBSI, _CAl, _EI, _EM, _OM, _LI, _ZCS, _ZCST, _SM, _CAS],
-  [[() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [1, { [_jN]: _nOBN }], [() => Rebalancing$, { [_jN]: _r }], [() => BrokerSoftwareInfo$, { [_jN]: _cBSI }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoringInfo$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }], [0, { [_jN]: _zCS }], [0, { [_jN]: _zCST }], [0, { [_jN]: _sM }], [0, { [_jN]: _cAS }]], 2
+  [_BNGI, _NOBN, _Reb, _CBSI, _CAl, _EI, _EM, _OM, _LI, _ZCS, _ZCST, _SM, _CAS],
+  [[() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [1, { [_jN]: _nOBN }], [() => Rebalancing$, { [_jN]: _reb }], [() => BrokerSoftwareInfo$, { [_jN]: _cBSI }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoringInfo$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }], [0, { [_jN]: _zCS }], [0, { [_jN]: _zCST }], [0, { [_jN]: _sM }], [0, { [_jN]: _cAS }]], 2
 ];
 export var ProvisionedRequest$: StaticStructureSchema = [3, n0, _PR,
   0,
-  [_BNGI, _KV, _NOBN, _R, _CAl, _CIo, _EI, _EM, _OM, _LI, _SM],
-  [[() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [0, { [_jN]: _kV }], [1, { [_jN]: _nOBN }], [() => Rebalancing$, { [_jN]: _r }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => ConfigurationInfo$, { [_jN]: _cIo }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoringInfo$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }], [0, { [_jN]: _sM }]], 3
+  [_BNGI, _KV, _NOBN, _Reb, _CAl, _CIo, _EI, _EM, _OM, _LI, _SM],
+  [[() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [0, { [_jN]: _kV }], [1, { [_jN]: _nOBN }], [() => Rebalancing$, { [_jN]: _reb }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => ConfigurationInfo$, { [_jN]: _cIo }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoringInfo$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }], [0, { [_jN]: _sM }]], 3
 ];
 export var ProvisionedThroughput$: StaticStructureSchema = [3, n0, _PT,
   0,
@@ -1855,7 +2060,7 @@ export var PutClusterPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu,
   [_CV],
   [[0, { [_jN]: _cV }]]
 ];
-export var Rebalancing$: StaticStructureSchema = [3, n0, _R,
+export var Rebalancing$: StaticStructureSchema = [3, n0, _Reb,
   0,
   [_St],
   [[0, { [_jN]: _st }]]
@@ -1890,7 +2095,7 @@ export var RejectClientVpcConnectionResponse$: StaticStructureSchema = [3, n0, _
   [],
   []
 ];
-export var ReplicationInfo$: StaticStructureSchema = [3, n0, _RI,
+export var ReplicationInfo$: StaticStructureSchema = [3, n0, _RIe,
   0,
   [_CGR, _TCT, _TR, _SKCA, _SKCI, _TKCA, _TKCI],
   [[() => ConsumerGroupReplication$, { [_jN]: _cGR }], [0, { [_jN]: _tCT }], [() => TopicReplication$, { [_jN]: _tR }], [0, { [_jN]: _sKCA }], [0, { [_jN]: _sKCI }], [0, { [_jN]: _tKCA }], [0, { [_jN]: _tKCI }]], 3
@@ -1932,7 +2137,7 @@ export var ReplicatorFirehose$: StaticStructureSchema = [3, n0, _RFe,
 ];
 export var ReplicatorLogDelivery$: StaticStructureSchema = [3, n0, _RLD,
   0,
-  [_CWL, _F, _S],
+  [_CWL, _F, _S_],
   [[() => ReplicatorCloudWatchLogs$, { [_jN]: _cWL }], [() => ReplicatorFirehose$, { [_jN]: _f }], [() => ReplicatorS3$, { [_jN]: _s_ }]]
 ];
 export var ReplicatorS3$: StaticStructureSchema = [3, n0, _RSep,
@@ -1945,7 +2150,7 @@ export var ReplicatorSummary$: StaticStructureSchema = [3, n0, _RSepl,
   [_CT, _CV, _IRR, _KCSa, _RISL, _RA, _RN, _RRA, _RS],
   [[5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [2, { [_jN]: _iRR }], [() => __listOfKafkaClusterSummary, { [_jN]: _kCS }], [() => __listOfReplicationInfoSummary, { [_jN]: _rISL }], [0, { [_jN]: _rA }], [0, { [_jN]: _rN }], [0, { [_jN]: _rRA }], [0, { [_jN]: _rS }]]
 ];
-export var S3$: StaticStructureSchema = [3, n0, _S,
+export var S3$: StaticStructureSchema = [3, n0, _S_,
   0,
   [_En, _B, _Pre],
   [[2, { [_jN]: _ena }], [0, { [_jN]: _b }], [0, { [_jN]: _pre }]], 1
@@ -1962,8 +2167,8 @@ export var S3DestinationUpdate$: StaticStructureSchema = [3, n0, _SDU,
 ];
 export var S3Storage$: StaticStructureSchema = [3, n0, _SSt,
   0,
-  [_BA, _CTo, _SC, _OP, _OKT, _EBO],
-  [[0, { [_jN]: _bA }], [0, { [_jN]: _cTo }], [0, { [_jN]: _sC }], [0, { [_jN]: _oP }], [0, { [_jN]: _oKT }], [0, { [_jN]: _eBO }]], 3
+  [_BA, _CTomp, _SC, _OP, _OKT, _EBO],
+  [[0, { [_jN]: _bA }], [0, { [_jN]: _cTomp }], [0, { [_jN]: _sC }], [0, { [_jN]: _oP }], [0, { [_jN]: _oKT }], [0, { [_jN]: _eBO }]], 3
 ];
 export var Sasl$: StaticStructureSchema = [3, n0, _Sa,
   0,
@@ -2005,10 +2210,30 @@ export var ServerlessSasl$: StaticStructureSchema = [3, n0, _SSe,
   [_I],
   [[() => Iam$, { [_jN]: _i }]]
 ];
+export var StartTopicReassignmentRequest$: StaticStructureSchema = [3, n0, _STRR,
+  0,
+  [_CA, _TIT, _TTI, _CTli, _TTE],
+  [[0, 1], [0, { [_jN]: _tIT }], [64 | 0, { [_jN]: _tTI }], [0, { [_jN]: _cTli }], [64 | 0, { [_jN]: _tTE }]], 3
+];
+export var StartTopicReassignmentResponse$: StaticStructureSchema = [3, n0, _STRRt,
+  0,
+  [_CA, _St, _TROA],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _st }], [0, { [_jN]: _tROA }]]
+];
 export var StateInfo$: StaticStructureSchema = [3, n0, _SIt,
   0,
   [_Co, _M],
   [[0, { [_jN]: _co }], [0, { [_jN]: _m }]]
+];
+export var StopTopicReassignmentRequest$: StaticStructureSchema = [3, n0, _STRRto,
+  0,
+  [_CA, _TROA],
+  [[0, 1], [0, 1]], 2
+];
+export var StopTopicReassignmentResponse$: StaticStructureSchema = [3, n0, _STRRtop,
+  0,
+  [_St, _TROA],
+  [[0, { [_jN]: _st }], [0, { [_jN]: _tROA }]]
 ];
 export var StorageInfo$: StaticStructureSchema = [3, n0, _SI,
   0,
@@ -2022,10 +2247,10 @@ export var TableCreation$: StaticStructureSchema = [3, n0, _TC,
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_RAe, _Ta],
-  [[0, 1], [128 | 0, { [_jN]: _ta }]], 2
+  [_RAe, _T],
+  [[0, 1], [128 | 0, { [_jN]: _t }]], 2
 ];
-export var Tls$: StaticStructureSchema = [3, n0, _T,
+export var Tls$: StaticStructureSchema = [3, n0, _Tl,
   0,
   [_CAAL, _En],
   [[64 | 0, { [_jN]: _cAAL }], [2, { [_jN]: _ena }]]
@@ -2037,13 +2262,18 @@ export var TopicConfiguration$: StaticStructureSchema = [3, n0, _TCo,
 ];
 export var TopicInfo$: StaticStructureSchema = [3, n0, _TI,
   0,
-  [_TA, _TN, _RF, _PC, _OOSRC],
-  [[0, { [_jN]: _tA }], [0, { [_jN]: _tN }], [1, { [_jN]: _rF }], [1, { [_jN]: _pC }], [1, { [_jN]: _oOSRC }]]
+  [_TA, _TN, _RF, _PC, _OOSRC, _RI],
+  [[0, { [_jN]: _tA }], [0, { [_jN]: _tN }], [1, { [_jN]: _rF }], [1, { [_jN]: _pC }], [1, { [_jN]: _oOSRC }], [64 | 1, { [_jN]: _rI }]]
 ];
 export var TopicPartitionInfo$: StaticStructureSchema = [3, n0, _TPI,
   0,
   [_Par, _L, _Repl, _Is],
   [[1, { [_jN]: _par }], [1, { [_jN]: _l }], [64 | 1, { [_jN]: _repl }], [64 | 1, { [_jN]: _is }]]
+];
+export var TopicReassignmentInfo$: StaticStructureSchema = [3, n0, _TRI,
+  0,
+  [_CTom, _CT, _St, _TIT, _TROA, _TT],
+  [[1, { [_jN]: _cTom }], [5, { [_jN]: _cT }], [0, { [_jN]: _st }], [0, { [_jN]: _tIT }], [0, { [_jN]: _tROA }], [1, { [_jN]: _tT }]]
 ];
 export var TopicReplication$: StaticStructureSchema = [3, n0, _TR,
   0,
@@ -2092,8 +2322,8 @@ export var UpdateBrokerStorageResponse$: StaticStructureSchema = [3, n0, _UBSRp,
 ];
 export var UpdateBrokerTypeRequest$: StaticStructureSchema = [3, n0, _UBTR,
   0,
-  [_CA, _CV, _TIT],
-  [[0, 1], [0, { [_jN]: _cV }], [0, { [_jN]: _tIT }]], 3
+  [_CA, _CV, _TIT, _TRo],
+  [[0, 1], [0, { [_jN]: _cV }], [0, { [_jN]: _tIT }], [0, { [_jN]: _tRo }]], 3
 ];
 export var UpdateBrokerTypeResponse$: StaticStructureSchema = [3, n0, _UBTRp,
   0,
@@ -2162,8 +2392,8 @@ export var UpdateMonitoringResponse$: StaticStructureSchema = [3, n0, _UMRp,
 ];
 export var UpdateRebalancingRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
-  [_CA, _CV, _R],
-  [[0, 1], [0, { [_jN]: _cV }], [() => Rebalancing$, { [_jN]: _r }]], 3
+  [_CA, _CV, _Reb],
+  [[0, 1], [0, { [_jN]: _cV }], [() => Rebalancing$, { [_jN]: _reb }]], 3
 ];
 export var UpdateRebalancingResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
@@ -2242,8 +2472,8 @@ export var VpcConnectivity$: StaticStructureSchema = [3, n0, _VC,
 ];
 export var VpcConnectivityClientAuthentication$: StaticStructureSchema = [3, n0, _VCCA,
   0,
-  [_Sa, _T],
-  [[() => VpcConnectivitySasl$, { [_jN]: _sa }], [() => VpcConnectivityTls$, { [_jN]: _t }]]
+  [_Sa, _Tl],
+  [[() => VpcConnectivitySasl$, { [_jN]: _sa }], [() => VpcConnectivityTls$, { [_jN]: _tl }]]
 ];
 export var VpcConnectivityIam$: StaticStructureSchema = [3, n0, _VCIp,
   0,
@@ -2281,6 +2511,15 @@ var __listOf__integer = 64 | 1;
 var __listOf__string = 64 | 0;
 var __listOf__stringMax249 = 64 | 0;
 var __listOf__stringMax256 = 64 | 0;
+var __listOf__stringMin1Max256 = 64 | 0;
+var __listOfAssessmentFinding: StaticListSchema = [1, n0, _lOAF,
+  0, [() => AssessmentFinding$,
+    0]
+];
+var __listOfAssessmentInfo: StaticListSchema = [1, n0, _lOAI,
+  0, [() => AssessmentInfo$,
+    0]
+];
 var __listOfBrokerEBSVolumeInfo: StaticListSchema = [1, n0, _lOBEBSVI,
   0, [() => BrokerEBSVolumeInfo$,
     0]
@@ -2381,6 +2620,10 @@ var __listOfTopicPartitionInfo: StaticListSchema = [1, n0, _lOTPI,
   0, [() => TopicPartitionInfo$,
     0]
 ];
+var __listOfTopicReassignmentInfo: StaticListSchema = [1, n0, _lOTRI,
+  0, [() => TopicReassignmentInfo$,
+    0]
+];
 var __listOfUnprocessedScramSecret: StaticListSchema = [1, n0, _lOUSS,
   0, [() => UnprocessedScramSecret$,
     0]
@@ -2393,12 +2636,16 @@ var __listOfVpcConnection: StaticListSchema = [1, n0, _lOVCi,
   0, [() => VpcConnection$,
     0]
 ];
+var __mapOf__integer = 128 | 1;
 var __mapOf__string = 128 | 0;
 export var BatchAssociateScramSecret$: StaticOperationSchema = [9, n0, _BASS,
   { [_h]: ["POST", "/v1/clusters/{ClusterArn}/scram-secrets", 200] }, () => BatchAssociateScramSecretRequest$, () => BatchAssociateScramSecretResponse$
 ];
 export var BatchDisassociateScramSecret$: StaticOperationSchema = [9, n0, _BDSS,
   { [_h]: ["PATCH", "/v1/clusters/{ClusterArn}/scram-secrets", 200] }, () => BatchDisassociateScramSecretRequest$, () => BatchDisassociateScramSecretResponse$
+];
+export var CreateAssessment$: StaticOperationSchema = [9, n0, _CAr,
+  { [_h]: ["POST", "/v1/clusters/{ClusterArn}/assessments", 200] }, () => CreateAssessmentRequest$, () => CreateAssessmentResponse$
 ];
 export var CreateChannel$: StaticOperationSchema = [9, n0, _CCr,
   { [_h]: ["POST", "/v1/clusters/{ClusterArn}/channels", 200] }, () => CreateChannelRequest$, () => CreateChannelResponse$
@@ -2421,6 +2668,9 @@ export var CreateTopic$: StaticOperationSchema = [9, n0, _CTr,
 export var CreateVpcConnection$: StaticOperationSchema = [9, n0, _CVCr,
   { [_h]: ["POST", "/v1/vpc-connection", 200] }, () => CreateVpcConnectionRequest$, () => CreateVpcConnectionResponse$
 ];
+export var DeleteAssessment$: StaticOperationSchema = [9, n0, _DA,
+  { [_h]: ["DELETE", "/v1/clusters/{ClusterArn}/assessments/{AssessmentArn}", 200] }, () => DeleteAssessmentRequest$, () => DeleteAssessmentResponse$
+];
 export var DeleteChannel$: StaticOperationSchema = [9, n0, _DC,
   { [_h]: ["DELETE", "/v1/clusters/{ClusterArn}/channels/{ChannelArn}", 200] }, () => DeleteChannelRequest$, () => DeleteChannelResponse$
 ];
@@ -2441,6 +2691,9 @@ export var DeleteTopic$: StaticOperationSchema = [9, n0, _DTel,
 ];
 export var DeleteVpcConnection$: StaticOperationSchema = [9, n0, _DVC,
   { [_h]: ["DELETE", "/v1/vpc-connection/{Arn}", 200] }, () => DeleteVpcConnectionRequest$, () => DeleteVpcConnectionResponse$
+];
+export var DescribeAssessment$: StaticOperationSchema = [9, n0, _DAe,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/assessments/{AssessmentArn}", 200] }, () => DescribeAssessmentRequest$, () => DescribeAssessmentResponse$
 ];
 export var DescribeChannel$: StaticOperationSchema = [9, n0, _DCes,
   { [_h]: ["GET", "/v1/clusters/{ClusterArn}/channels/{ChannelArn}", 200] }, () => DescribeChannelRequest$, () => DescribeChannelResponse$
@@ -2472,6 +2725,9 @@ export var DescribeTopic$: StaticOperationSchema = [9, n0, _DTes,
 export var DescribeTopicPartitions$: StaticOperationSchema = [9, n0, _DTP,
   { [_h]: ["GET", "/v1/clusters/{ClusterArn}/topics/{TopicName}/partitions", 200] }, () => DescribeTopicPartitionsRequest$, () => DescribeTopicPartitionsResponse$
 ];
+export var DescribeTopicReassignment$: StaticOperationSchema = [9, n0, _DTRescr,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/topic-reassignments/{TopicReassignmentOperationArn}", 200] }, () => DescribeTopicReassignmentRequest$, () => DescribeTopicReassignmentResponse$
+];
 export var DescribeVpcConnection$: StaticOperationSchema = [9, n0, _DVCe,
   { [_h]: ["GET", "/v1/vpc-connection/{Arn}", 200] }, () => DescribeVpcConnectionRequest$, () => DescribeVpcConnectionResponse$
 ];
@@ -2483,6 +2739,12 @@ export var GetClusterPolicy$: StaticOperationSchema = [9, n0, _GCP,
 ];
 export var GetCompatibleKafkaVersions$: StaticOperationSchema = [9, n0, _GCKV,
   { [_h]: ["GET", "/v1/compatible-kafka-versions", 200] }, () => GetCompatibleKafkaVersionsRequest$, () => GetCompatibleKafkaVersionsResponse$
+];
+export var ListAssessmentFindings$: StaticOperationSchema = [9, n0, _LAF,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/assessments/{AssessmentArn}/findings", 200] }, () => ListAssessmentFindingsRequest$, () => ListAssessmentFindingsResponse$
+];
+export var ListAssessments$: StaticOperationSchema = [9, n0, _LA,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/assessments", 200] }, () => ListAssessmentsRequest$, () => ListAssessmentsResponse$
 ];
 export var ListChannels$: StaticOperationSchema = [9, n0, _LC,
   { [_h]: ["GET", "/v1/clusters/{ClusterArn}/channels", 200] }, () => ListChannelsRequest$, () => ListChannelsResponse$
@@ -2523,6 +2785,9 @@ export var ListScramSecrets$: StaticOperationSchema = [9, n0, _LSS,
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_h]: ["GET", "/v1/tags/{ResourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
+export var ListTopicReassignments$: StaticOperationSchema = [9, n0, _LTRis,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/topic-reassignments", 200] }, () => ListTopicReassignmentsRequest$, () => ListTopicReassignmentsResponse$
+];
 export var ListTopics$: StaticOperationSchema = [9, n0, _LT,
   { [_h]: ["GET", "/v1/clusters/{ClusterArn}/topics", 200] }, () => ListTopicsRequest$, () => ListTopicsResponse$
 ];
@@ -2537,6 +2802,12 @@ export var RebootBroker$: StaticOperationSchema = [9, n0, _RB,
 ];
 export var RejectClientVpcConnection$: StaticOperationSchema = [9, n0, _RCVC,
   { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/client-vpc-connection", 200] }, () => RejectClientVpcConnectionRequest$, () => RejectClientVpcConnectionResponse$
+];
+export var StartTopicReassignment$: StaticOperationSchema = [9, n0, _STR,
+  { [_h]: ["POST", "/v1/clusters/{ClusterArn}/topic-reassignments", 200] }, () => StartTopicReassignmentRequest$, () => StartTopicReassignmentResponse$
+];
+export var StopTopicReassignment$: StaticOperationSchema = [9, n0, _STRt,
+  { [_h]: ["POST", "/v1/clusters/{ClusterArn}/topic-reassignments/{TopicReassignmentOperationArn}/stop", 200] }, () => StopTopicReassignmentRequest$, () => StopTopicReassignmentResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TRa,
   { [_h]: ["POST", "/v1/tags/{ResourceArn}", 204] }, () => TagResourceRequest$, () => __Unit

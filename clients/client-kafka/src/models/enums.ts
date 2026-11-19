@@ -3,6 +3,63 @@
  * @public
  * @enum
  */
+export const FindingCategory = {
+  BROKER_CONFIGURATION: "BROKER_CONFIGURATION",
+  CAPACITY: "CAPACITY",
+  HEALTH: "HEALTH",
+  INFRASTRUCTURE: "INFRASTRUCTURE",
+  TOPIC_CONFIGURATION: "TOPIC_CONFIGURATION",
+} as const;
+/**
+ * @public
+ */
+export type FindingCategory = (typeof FindingCategory)[keyof typeof FindingCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingSeverity = {
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARNING: "WARNING",
+} as const;
+/**
+ * @public
+ */
+export type FindingSeverity = (typeof FindingSeverity)[keyof typeof FindingSeverity];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssessmentType = {
+  UPDATE_BROKER_TYPE: "UPDATE_BROKER_TYPE",
+} as const;
+/**
+ * @public
+ */
+export type AssessmentType = (typeof AssessmentType)[keyof typeof AssessmentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssessmentStatus = {
+  COMPLETE: "COMPLETE",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type AssessmentStatus = (typeof AssessmentStatus)[keyof typeof AssessmentStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ChannelDestinationType = {
   ICEBERG: "ICEBERG",
   S3: "S3",
@@ -179,6 +236,19 @@ export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
  * @public
  * @enum
  */
+export const TopicReassignmentMode = {
+  AUTO: "AUTO",
+  MANUAL: "MANUAL",
+} as const;
+/**
+ * @public
+ */
+export type TopicReassignmentMode = (typeof TopicReassignmentMode)[keyof typeof TopicReassignmentMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const UserIdentityType = {
   AWSACCOUNT: "AWSACCOUNT",
   AWSSERVICE: "AWSSERVICE",
@@ -286,6 +356,19 @@ export type KafkaVersionStatus = (typeof KafkaVersionStatus)[keyof typeof KafkaV
  * @public
  * @enum
  */
+export const BrokerNodeType = {
+  EXPRESS: "EXPRESS",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type BrokerNodeType = (typeof BrokerNodeType)[keyof typeof BrokerNodeType];
+
+/**
+ * @public
+ * @enum
+ */
 export const NodeType = {
   BROKER: "BROKER",
 } as const;
@@ -387,6 +470,23 @@ export type ValueConverter = (typeof ValueConverter)[keyof typeof ValueConverter
  * @public
  * @enum
  */
+export const TopicReassignmentStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+/**
+ * @public
+ */
+export type TopicReassignmentStatus = (typeof TopicReassignmentStatus)[keyof typeof TopicReassignmentStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const IcebergCompressionType = {
   SNAPPY: "SNAPPY",
   ZSTD: "ZSTD",
@@ -438,3 +538,16 @@ export const TopicState = {
  * @public
  */
 export type TopicState = (typeof TopicState)[keyof typeof TopicState];
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicReassignment = {
+  AUTO: "AUTO",
+  MANUAL: "MANUAL",
+} as const;
+/**
+ * @public
+ */
+export type TopicReassignment = (typeof TopicReassignment)[keyof typeof TopicReassignment];

@@ -45,6 +45,9 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * //   PartitionCount: Number("int"),
  * //   Configs: "STRING_VALUE",
  * //   Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
+ * //   ReplicaIds: [ // __listOf__integer
+ * //     Number("int"),
+ * //   ],
  * // };
  *
  * ```

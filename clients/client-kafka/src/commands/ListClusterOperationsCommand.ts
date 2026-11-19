@@ -42,6 +42,10 @@ export interface ListClusterOperationsCommandOutput extends ListClusterOperation
  * // { // ListClusterOperationsResponse
  * //   ClusterOperationInfoList: [ // __listOfClusterOperationInfo
  * //     { // ClusterOperationInfo
+ * //       BrokerTypeUpgradeInfo: { // BrokerTypeUpgradeInfo
+ * //         TopicReassignmentMode: "AUTO" || "MANUAL",
+ * //         TopicReassignmentOperationArn: "STRING_VALUE",
+ * //       },
  * //       ClientRequestId: "STRING_VALUE",
  * //       ClusterArn: "STRING_VALUE",
  * //       CreationTime: new Date("TIMESTAMP"),

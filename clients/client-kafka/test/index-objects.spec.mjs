@@ -1,6 +1,12 @@
 import {
   AmazonMskCluster$,
   ApacheKafkaCluster$,
+  AssessmentFinding$,
+  AssessmentInfo$,
+  AssessmentParameters$,
+  AssessmentStatus,
+  AssessmentSummary$,
+  AssessmentType,
   AuthorizerLogs$,
   BadRequestException,
   BadRequestException$,
@@ -18,7 +24,9 @@ import {
   BrokerLogs$,
   BrokerNodeGroupInfo$,
   BrokerNodeInfo$,
+  BrokerNodeType,
   BrokerSoftwareInfo$,
+  BrokerTypeUpgradeInfo$,
   Catalog$,
   ChannelDestinationType,
   ChannelInfo$,
@@ -56,6 +64,10 @@ import {
   ControllerMovedException,
   ControllerMovedException$,
   ControllerNodeInfo$,
+  CreateAssessment$,
+  CreateAssessmentCommand,
+  CreateAssessmentRequest$,
+  CreateAssessmentResponse$,
   CreateChannel$,
   CreateChannelCommand,
   CreateChannelRequest$,
@@ -86,6 +98,10 @@ import {
   CreateVpcConnectionResponse$,
   CustomerActionStatus,
   DeadLetterQueueS3$,
+  DeleteAssessment$,
+  DeleteAssessmentCommand,
+  DeleteAssessmentRequest$,
+  DeleteAssessmentResponse$,
   DeleteChannel$,
   DeleteChannelCommand,
   DeleteChannelRequest$,
@@ -114,6 +130,10 @@ import {
   DeleteVpcConnectionCommand,
   DeleteVpcConnectionRequest$,
   DeleteVpcConnectionResponse$,
+  DescribeAssessment$,
+  DescribeAssessmentCommand,
+  DescribeAssessmentRequest$,
+  DescribeAssessmentResponse$,
   DescribeChannel$,
   DescribeChannelCommand,
   DescribeChannelRequest$,
@@ -152,6 +172,10 @@ import {
   DescribeTopicPartitionsCommand,
   DescribeTopicPartitionsRequest$,
   DescribeTopicPartitionsResponse$,
+  DescribeTopicReassignment$,
+  DescribeTopicReassignmentCommand,
+  DescribeTopicReassignmentRequest$,
+  DescribeTopicReassignmentResponse$,
   DescribeTopicRequest$,
   DescribeTopicResponse$,
   DescribeVpcConnection$,
@@ -166,6 +190,9 @@ import {
   EncryptionInTransit$,
   EnhancedMonitoring,
   ErrorInfo$,
+  FindingCategory,
+  FindingRemediation$,
+  FindingSeverity,
   Firehose$,
   ForbiddenException,
   ForbiddenException$,
@@ -215,6 +242,14 @@ import {
   KafkaTimeoutException$,
   KafkaVersion$,
   KafkaVersionStatus,
+  ListAssessmentFindings$,
+  ListAssessmentFindingsCommand,
+  ListAssessmentFindingsRequest$,
+  ListAssessmentFindingsResponse$,
+  ListAssessments$,
+  ListAssessmentsCommand,
+  ListAssessmentsRequest$,
+  ListAssessmentsResponse$,
   ListChannels$,
   ListChannelsCommand,
   ListChannelsRequest$,
@@ -267,6 +302,10 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  ListTopicReassignments$,
+  ListTopicReassignmentsCommand,
+  ListTopicReassignmentsRequest$,
+  ListTopicReassignmentsResponse$,
   ListTopics$,
   ListTopicsCommand,
   ListTopicsRequest$,
@@ -290,6 +329,8 @@ import {
   OpenMonitoring$,
   OpenMonitoringInfo$,
   paginateDescribeTopicPartitions,
+  paginateListAssessmentFindings,
+  paginateListAssessments,
   paginateListClientVpcConnections,
   paginateListClusterOperations,
   paginateListClusterOperationsV2,
@@ -301,6 +342,7 @@ import {
   paginateListNodes,
   paginateListReplicators,
   paginateListScramSecrets,
+  paginateListTopicReassignments,
   paginateListTopics,
   paginateListVpcConnections,
   PartitionSource$,
@@ -360,7 +402,15 @@ import {
   ServerlessSasl$,
   ServiceUnavailableException,
   ServiceUnavailableException$,
+  StartTopicReassignment$,
+  StartTopicReassignmentCommand,
+  StartTopicReassignmentRequest$,
+  StartTopicReassignmentResponse$,
   StateInfo$,
+  StopTopicReassignment$,
+  StopTopicReassignmentCommand,
+  StopTopicReassignmentRequest$,
+  StopTopicReassignmentResponse$,
   StorageInfo$,
   StorageMode,
   TableCreation$,
@@ -377,6 +427,10 @@ import {
   TopicExistsException$,
   TopicInfo$,
   TopicPartitionInfo$,
+  TopicReassignment,
+  TopicReassignmentInfo$,
+  TopicReassignmentMode,
+  TopicReassignmentStatus,
   TopicReplication$,
   TopicReplicationUpdate$,
   TopicState,
@@ -471,6 +525,8 @@ assert(typeof BatchAssociateScramSecretCommand === "function");
 assert(typeof BatchAssociateScramSecret$ === "object");
 assert(typeof BatchDisassociateScramSecretCommand === "function");
 assert(typeof BatchDisassociateScramSecret$ === "object");
+assert(typeof CreateAssessmentCommand === "function");
+assert(typeof CreateAssessment$ === "object");
 assert(typeof CreateChannelCommand === "function");
 assert(typeof CreateChannel$ === "object");
 assert(typeof CreateClusterCommand === "function");
@@ -485,6 +541,8 @@ assert(typeof CreateTopicCommand === "function");
 assert(typeof CreateTopic$ === "object");
 assert(typeof CreateVpcConnectionCommand === "function");
 assert(typeof CreateVpcConnection$ === "object");
+assert(typeof DeleteAssessmentCommand === "function");
+assert(typeof DeleteAssessment$ === "object");
 assert(typeof DeleteChannelCommand === "function");
 assert(typeof DeleteChannel$ === "object");
 assert(typeof DeleteClusterCommand === "function");
@@ -499,6 +557,8 @@ assert(typeof DeleteTopicCommand === "function");
 assert(typeof DeleteTopic$ === "object");
 assert(typeof DeleteVpcConnectionCommand === "function");
 assert(typeof DeleteVpcConnection$ === "object");
+assert(typeof DescribeAssessmentCommand === "function");
+assert(typeof DescribeAssessment$ === "object");
 assert(typeof DescribeChannelCommand === "function");
 assert(typeof DescribeChannel$ === "object");
 assert(typeof DescribeClusterCommand === "function");
@@ -519,6 +579,8 @@ assert(typeof DescribeTopicCommand === "function");
 assert(typeof DescribeTopic$ === "object");
 assert(typeof DescribeTopicPartitionsCommand === "function");
 assert(typeof DescribeTopicPartitions$ === "object");
+assert(typeof DescribeTopicReassignmentCommand === "function");
+assert(typeof DescribeTopicReassignment$ === "object");
 assert(typeof DescribeVpcConnectionCommand === "function");
 assert(typeof DescribeVpcConnection$ === "object");
 assert(typeof GetBootstrapBrokersCommand === "function");
@@ -527,6 +589,10 @@ assert(typeof GetClusterPolicyCommand === "function");
 assert(typeof GetClusterPolicy$ === "object");
 assert(typeof GetCompatibleKafkaVersionsCommand === "function");
 assert(typeof GetCompatibleKafkaVersions$ === "object");
+assert(typeof ListAssessmentFindingsCommand === "function");
+assert(typeof ListAssessmentFindings$ === "object");
+assert(typeof ListAssessmentsCommand === "function");
+assert(typeof ListAssessments$ === "object");
 assert(typeof ListChannelsCommand === "function");
 assert(typeof ListChannels$ === "object");
 assert(typeof ListClientVpcConnectionsCommand === "function");
@@ -553,6 +619,8 @@ assert(typeof ListScramSecretsCommand === "function");
 assert(typeof ListScramSecrets$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof ListTopicReassignmentsCommand === "function");
+assert(typeof ListTopicReassignments$ === "object");
 assert(typeof ListTopicsCommand === "function");
 assert(typeof ListTopics$ === "object");
 assert(typeof ListVpcConnectionsCommand === "function");
@@ -563,6 +631,10 @@ assert(typeof RebootBrokerCommand === "function");
 assert(typeof RebootBroker$ === "object");
 assert(typeof RejectClientVpcConnectionCommand === "function");
 assert(typeof RejectClientVpcConnection$ === "object");
+assert(typeof StartTopicReassignmentCommand === "function");
+assert(typeof StartTopicReassignment$ === "object");
+assert(typeof StopTopicReassignmentCommand === "function");
+assert(typeof StopTopicReassignment$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -598,6 +670,10 @@ assert(typeof UpdateTopic$ === "object");
 // structural schemas
 assert(typeof AmazonMskCluster$ === "object");
 assert(typeof ApacheKafkaCluster$ === "object");
+assert(typeof AssessmentFinding$ === "object");
+assert(typeof AssessmentInfo$ === "object");
+assert(typeof AssessmentParameters$ === "object");
+assert(typeof AssessmentSummary$ === "object");
 assert(typeof AuthorizerLogs$ === "object");
 assert(typeof BatchAssociateScramSecretRequest$ === "object");
 assert(typeof BatchAssociateScramSecretResponse$ === "object");
@@ -609,6 +685,7 @@ assert(typeof BrokerLogs$ === "object");
 assert(typeof BrokerNodeGroupInfo$ === "object");
 assert(typeof BrokerNodeInfo$ === "object");
 assert(typeof BrokerSoftwareInfo$ === "object");
+assert(typeof BrokerTypeUpgradeInfo$ === "object");
 assert(typeof Catalog$ === "object");
 assert(typeof ChannelInfo$ === "object");
 assert(typeof ChannelLoggingInfo$ === "object");
@@ -633,6 +710,8 @@ assert(typeof ConnectivityInfo$ === "object");
 assert(typeof ConsumerGroupReplication$ === "object");
 assert(typeof ConsumerGroupReplicationUpdate$ === "object");
 assert(typeof ControllerNodeInfo$ === "object");
+assert(typeof CreateAssessmentRequest$ === "object");
+assert(typeof CreateAssessmentResponse$ === "object");
 assert(typeof CreateChannelRequest$ === "object");
 assert(typeof CreateChannelResponse$ === "object");
 assert(typeof CreateClusterRequest$ === "object");
@@ -648,6 +727,8 @@ assert(typeof CreateTopicResponse$ === "object");
 assert(typeof CreateVpcConnectionRequest$ === "object");
 assert(typeof CreateVpcConnectionResponse$ === "object");
 assert(typeof DeadLetterQueueS3$ === "object");
+assert(typeof DeleteAssessmentRequest$ === "object");
+assert(typeof DeleteAssessmentResponse$ === "object");
 assert(typeof DeleteChannelRequest$ === "object");
 assert(typeof DeleteChannelResponse$ === "object");
 assert(typeof DeleteClusterPolicyRequest$ === "object");
@@ -662,6 +743,8 @@ assert(typeof DeleteTopicRequest$ === "object");
 assert(typeof DeleteTopicResponse$ === "object");
 assert(typeof DeleteVpcConnectionRequest$ === "object");
 assert(typeof DeleteVpcConnectionResponse$ === "object");
+assert(typeof DescribeAssessmentRequest$ === "object");
+assert(typeof DescribeAssessmentResponse$ === "object");
 assert(typeof DescribeChannelRequest$ === "object");
 assert(typeof DescribeChannelResponse$ === "object");
 assert(typeof DescribeClusterOperationRequest$ === "object");
@@ -680,6 +763,8 @@ assert(typeof DescribeReplicatorRequest$ === "object");
 assert(typeof DescribeReplicatorResponse$ === "object");
 assert(typeof DescribeTopicPartitionsRequest$ === "object");
 assert(typeof DescribeTopicPartitionsResponse$ === "object");
+assert(typeof DescribeTopicReassignmentRequest$ === "object");
+assert(typeof DescribeTopicReassignmentResponse$ === "object");
 assert(typeof DescribeTopicRequest$ === "object");
 assert(typeof DescribeTopicResponse$ === "object");
 assert(typeof DescribeVpcConnectionRequest$ === "object");
@@ -691,6 +776,7 @@ assert(typeof EncryptionConfiguration$ === "object");
 assert(typeof EncryptionInfo$ === "object");
 assert(typeof EncryptionInTransit$ === "object");
 assert(typeof ErrorInfo$ === "object");
+assert(typeof FindingRemediation$ === "object");
 assert(typeof Firehose$ === "object");
 assert(typeof GetBootstrapBrokersRequest$ === "object");
 assert(typeof GetBootstrapBrokersResponse$ === "object");
@@ -716,6 +802,10 @@ assert(typeof KafkaClusterSaslOAuthBearerAuthentication$ === "object");
 assert(typeof KafkaClusterSaslScramAuthentication$ === "object");
 assert(typeof KafkaClusterSummary$ === "object");
 assert(typeof KafkaVersion$ === "object");
+assert(typeof ListAssessmentFindingsRequest$ === "object");
+assert(typeof ListAssessmentFindingsResponse$ === "object");
+assert(typeof ListAssessmentsRequest$ === "object");
+assert(typeof ListAssessmentsResponse$ === "object");
 assert(typeof ListChannelsRequest$ === "object");
 assert(typeof ListChannelsResponse$ === "object");
 assert(typeof ListClientVpcConnectionsRequest$ === "object");
@@ -742,6 +832,8 @@ assert(typeof ListScramSecretsRequest$ === "object");
 assert(typeof ListScramSecretsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof ListTopicReassignmentsRequest$ === "object");
+assert(typeof ListTopicReassignmentsResponse$ === "object");
 assert(typeof ListTopicsRequest$ === "object");
 assert(typeof ListTopicsResponse$ === "object");
 assert(typeof ListVpcConnectionsRequest$ === "object");
@@ -794,7 +886,11 @@ assert(typeof ServerlessClientAuthentication$ === "object");
 assert(typeof ServerlessConnectivityInfo$ === "object");
 assert(typeof ServerlessRequest$ === "object");
 assert(typeof ServerlessSasl$ === "object");
+assert(typeof StartTopicReassignmentRequest$ === "object");
+assert(typeof StartTopicReassignmentResponse$ === "object");
 assert(typeof StateInfo$ === "object");
+assert(typeof StopTopicReassignmentRequest$ === "object");
+assert(typeof StopTopicReassignmentResponse$ === "object");
 assert(typeof StorageInfo$ === "object");
 assert(typeof TableCreation$ === "object");
 assert(typeof TagResourceRequest$ === "object");
@@ -802,6 +898,7 @@ assert(typeof Tls$ === "object");
 assert(typeof TopicConfiguration$ === "object");
 assert(typeof TopicInfo$ === "object");
 assert(typeof TopicPartitionInfo$ === "object");
+assert(typeof TopicReassignmentInfo$ === "object");
 assert(typeof TopicReplication$ === "object");
 assert(typeof TopicReplicationUpdate$ === "object");
 assert(typeof Unauthenticated$ === "object");
@@ -849,7 +946,10 @@ assert(typeof VpcConnectivityTls$ === "object");
 assert(typeof ZookeeperAccess$ === "object");
 assert(typeof ZookeeperNodeInfo$ === "object");
 // enums
+assert(typeof AssessmentStatus === "object");
+assert(typeof AssessmentType === "object");
 assert(typeof BrokerAZDistribution === "object");
+assert(typeof BrokerNodeType === "object");
 assert(typeof ChannelDestinationType === "object");
 assert(typeof ChannelStatus === "object");
 assert(typeof ClientBroker === "object");
@@ -859,6 +959,8 @@ assert(typeof ConfigurationState === "object");
 assert(typeof ConsumerGroupOffsetSyncMode === "object");
 assert(typeof CustomerActionStatus === "object");
 assert(typeof EnhancedMonitoring === "object");
+assert(typeof FindingCategory === "object");
+assert(typeof FindingSeverity === "object");
 assert(typeof IcebergCompressionType === "object");
 assert(typeof JwtSigningAlgorithm === "object");
 assert(typeof KafkaClusterEncryptionInTransitType === "object");
@@ -876,6 +978,9 @@ assert(typeof S3StorageClass === "object");
 assert(typeof StorageMode === "object");
 assert(typeof TargetCompressionType === "object");
 assert(typeof TokenEndpointAuthenticationMethod === "object");
+assert(typeof TopicReassignment === "object");
+assert(typeof TopicReassignmentMode === "object");
+assert(typeof TopicReassignmentStatus === "object");
 assert(typeof TopicState === "object");
 assert(typeof UserIdentityType === "object");
 assert(typeof ValueConverter === "object");
@@ -918,6 +1023,8 @@ assert(typeof UnknownTopicOrPartitionException$ === "object");
 assert(KafkaServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeTopicPartitions === "function");
+assert(typeof paginateListAssessmentFindings === "function");
+assert(typeof paginateListAssessments === "function");
 assert(typeof paginateListClientVpcConnections === "function");
 assert(typeof paginateListClusterOperations === "function");
 assert(typeof paginateListClusterOperationsV2 === "function");
@@ -929,6 +1036,7 @@ assert(typeof paginateListKafkaVersions === "function");
 assert(typeof paginateListNodes === "function");
 assert(typeof paginateListReplicators === "function");
 assert(typeof paginateListScramSecrets === "function");
+assert(typeof paginateListTopicReassignments === "function");
 assert(typeof paginateListTopics === "function");
 assert(typeof paginateListVpcConnections === "function");
 console.log(`Kafka index test passed.`);

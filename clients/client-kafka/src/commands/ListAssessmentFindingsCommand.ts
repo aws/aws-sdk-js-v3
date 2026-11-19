@@ -1,0 +1,117 @@
+// smithy-typescript generated code
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { _ep0, _mw0, command } from "../commandBuilder";
+import type { ListAssessmentFindingsRequest, ListAssessmentFindingsResponse } from "../models/models_0";
+import { ListAssessmentFindings$ } from "../schemas/schemas_0";
+
+/**
+ * @public
+ */
+export type { __MetadataBearer };
+/**
+ * @public
+ *
+ * The input for {@link ListAssessmentFindingsCommand}.
+ */
+export interface ListAssessmentFindingsCommandInput extends ListAssessmentFindingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAssessmentFindingsCommand}.
+ */
+export interface ListAssessmentFindingsCommandOutput extends ListAssessmentFindingsResponse, __MetadataBearer {}
+
+/**
+ * <p>Returns the findings for a completed assessment. Paginated.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KafkaClient, ListAssessmentFindingsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
+ * // const { KafkaClient, ListAssessmentFindingsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // import type { KafkaClientConfig } from "@aws-sdk/client-kafka";
+ * const config = {}; // type is KafkaClientConfig
+ * const client = new KafkaClient(config);
+ * const input = { // ListAssessmentFindingsRequest
+ *   AssessmentArn: "STRING_VALUE", // required
+ *   Category: "STRING_VALUE",
+ *   ClusterArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Severity: "STRING_VALUE",
+ * };
+ * const command = new ListAssessmentFindingsCommand(input);
+ * const response = await client.send(command);
+ * // { // ListAssessmentFindingsResponse
+ * //   Findings: [ // __listOfAssessmentFinding
+ * //     { // AssessmentFinding
+ * //       Category: "INFRASTRUCTURE" || "BROKER_CONFIGURATION" || "TOPIC_CONFIGURATION" || "CAPACITY" || "HEALTH", // required
+ * //       FindingId: "STRING_VALUE", // required
+ * //       Message: "STRING_VALUE", // required
+ * //       Remediation: { // FindingRemediation
+ * //         Action: "STRING_VALUE",
+ * //         DocumentationUrl: "STRING_VALUE",
+ * //       },
+ * //       Resource: "STRING_VALUE",
+ * //       Severity: "ERROR" || "WARNING" || "INFO", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param ListAssessmentFindingsCommandInput - {@link ListAssessmentFindingsCommandInput}
+ * @returns {@link ListAssessmentFindingsCommandOutput}
+ * @see {@link ListAssessmentFindingsCommandInput} for command's `input` shape.
+ * @see {@link ListAssessmentFindingsCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
+ *
+ *
+ * @public
+ */
+export class ListAssessmentFindingsCommand extends command<ListAssessmentFindingsCommandInput, ListAssessmentFindingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAssessmentFindings",
+  ListAssessmentFindings$
+) {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssessmentFindingsRequest;
+      output: ListAssessmentFindingsResponse;
+    };
+    sdk: {
+      input: ListAssessmentFindingsCommandInput;
+      output: ListAssessmentFindingsCommandOutput;
+    };
+  };
+}

@@ -195,6 +195,13 @@ BatchDisassociateScramSecret
 </details>
 <details>
 <summary>
+CreateAssessment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafka/command/CreateAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/CreateAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/CreateAssessmentCommandOutput/)
+</details>
+<details>
+<summary>
 CreateChannel
 </summary>
 
@@ -244,6 +251,13 @@ CreateVpcConnection
 </details>
 <details>
 <summary>
+DeleteAssessment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafka/command/DeleteAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/DeleteAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/DeleteAssessmentCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteChannel
 </summary>
 
@@ -290,6 +304,13 @@ DeleteVpcConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafka/command/DeleteVpcConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/DeleteVpcConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/DeleteVpcConnectionCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeAssessment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafka/command/DescribeAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/DescribeAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/DescribeAssessmentCommandOutput/)
 </details>
 <details>
 <summary>
@@ -363,6 +384,13 @@ DescribeTopicPartitions
 </details>
 <details>
 <summary>
+DescribeTopicReassignment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafka/command/DescribeTopicReassignmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/DescribeTopicReassignmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/DescribeTopicReassignmentCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeVpcConnection
 </summary>
 
@@ -388,6 +416,20 @@ GetCompatibleKafkaVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafka/command/GetCompatibleKafkaVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/GetCompatibleKafkaVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/GetCompatibleKafkaVersionsCommandOutput/)
+</details>
+<details>
+<summary>
+ListAssessmentFindings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafka/command/ListAssessmentFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/ListAssessmentFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/ListAssessmentFindingsCommandOutput/)
+</details>
+<details>
+<summary>
+ListAssessments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafka/command/ListAssessmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/ListAssessmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/ListAssessmentsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -482,6 +524,13 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+ListTopicReassignments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafka/command/ListTopicReassignmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/ListTopicReassignmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/ListTopicReassignmentsCommandOutput/)
+</details>
+<details>
+<summary>
 ListTopics
 </summary>
 
@@ -514,6 +563,20 @@ RejectClientVpcConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafka/command/RejectClientVpcConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/RejectClientVpcConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/RejectClientVpcConnectionCommandOutput/)
+</details>
+<details>
+<summary>
+StartTopicReassignment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafka/command/StartTopicReassignmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/StartTopicReassignmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/StartTopicReassignmentCommandOutput/)
+</details>
+<details>
+<summary>
+StopTopicReassignment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafka/command/StopTopicReassignmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/StopTopicReassignmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/StopTopicReassignmentCommandOutput/)
 </details>
 <details>
 <summary>

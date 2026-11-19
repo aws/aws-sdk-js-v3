@@ -48,6 +48,9 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  * //       ReplicationFactor: Number("int"),
  * //       PartitionCount: Number("int"),
  * //       OutOfSyncReplicaCount: Number("int"),
+ * //       ReplicaIds: [ // __listOf__integer
+ * //         Number("int"),
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

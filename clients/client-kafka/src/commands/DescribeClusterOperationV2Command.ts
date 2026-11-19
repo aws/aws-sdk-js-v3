@@ -51,6 +51,10 @@ export interface DescribeClusterOperationV2CommandOutput extends DescribeCluster
  * //     OperationState: "STRING_VALUE",
  * //     OperationType: "STRING_VALUE",
  * //     Provisioned: { // ClusterOperationV2Provisioned
+ * //       BrokerTypeUpgradeInfo: { // BrokerTypeUpgradeInfo
+ * //         TopicReassignmentMode: "AUTO" || "MANUAL",
+ * //         TopicReassignmentOperationArn: "STRING_VALUE",
+ * //       },
  * //       OperationSteps: [ // __listOfClusterOperationStep
  * //         { // ClusterOperationStep
  * //           StepInfo: { // ClusterOperationStepInfo

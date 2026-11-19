@@ -47,6 +47,7 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  * //       BrokerNodeInfo: { // BrokerNodeInfo
  * //         AttachedENIId: "STRING_VALUE",
  * //         BrokerId: Number("double"),
+ * //         BrokerNodeType: "STANDARD" || "EXPRESS",
  * //         ClientSubnet: "STRING_VALUE",
  * //         ClientVpcIpAddress: "STRING_VALUE",
  * //         CurrentBrokerSoftwareInfo: { // BrokerSoftwareInfo
