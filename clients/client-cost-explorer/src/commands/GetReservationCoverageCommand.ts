@@ -24,11 +24,12 @@ export interface GetReservationCoverageCommandOutput extends GetReservationCover
 
 /**
  * <p>Retrieves the reservation coverage for your account, which you can use to see how much
- *       of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service,
- *       or Amazon Redshift usage is covered by a reservation. An organization's management account can
- *       see the coverage of the associated member accounts. This supports dimensions, cost categories,
- *       and nested expressions. For any time period, you can filter data about reservation usage by
- *       the following dimensions:</p>
+ *       of your Amazon Elastic Compute Cloud, Amazon Relational Database Service, Amazon ElastiCache,
+ *       Amazon MemoryDB, Amazon Redshift, Amazon Elasticsearch Service, or Amazon OpenSearch Service
+ *       usage is covered by a reservation. An organization's management account can see the coverage
+ *       of the associated member accounts. This supports dimensions, cost categories, and nested
+ *       expressions. For any time period, you can filter data about reservation usage by the following
+ *       dimensions:</p>
  *          <ul>
  *             <li>
  *                <p>AZ</p>
@@ -46,10 +47,10 @@ export interface GetReservationCoverageCommandOutput extends GetReservationCover
  *                <p>INSTANCE_TYPE</p>
  *             </li>
  *             <li>
- *                <p>LINKED_ACCOUNT</p>
+ *                <p>INSTANCE_TYPE_FAMILY</p>
  *             </li>
  *             <li>
- *                <p>OPERATING_SYSTEM</p>
+ *                <p>LINKED_ACCOUNT</p>
  *             </li>
  *             <li>
  *                <p>PLATFORM</p>
@@ -67,6 +68,8 @@ export interface GetReservationCoverageCommandOutput extends GetReservationCover
  *                <p>TENANCY</p>
  *             </li>
  *          </ul>
+ *          <p>The dimensions that you can use depend on the service in the <code>SERVICE</code> filter.
+ *       For details, see <code>Filter</code>.</p>
  *          <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code>
  *       operation. </p>
  * @example

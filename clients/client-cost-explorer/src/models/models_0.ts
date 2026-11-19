@@ -6332,8 +6332,15 @@ export interface GetCostAndUsageRequest {
    *         appear on some line items in my bill?</a>. </p>
    *          <p>Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>,
    *         <code>NetAmortizedCost</code>, <code>NetUnblendedCost</code>,
-   *         <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
-   *         <code>UsageQuantity</code>. </p>
+   *         <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>,
+   *         <code>UsageQuantity</code>, <code>BilledCost</code>, <code>ContractedCost</code>,
+   *         <code>ListCost</code>, <code>PublicEquivalentBilledCost</code>, and
+   *         <code>PublicOnDemandCost</code>. </p>
+   *          <p>
+   *             <code>BilledCost</code>, <code>ContractedCost</code>, <code>ListCost</code>,
+   *         <code>PublicEquivalentBilledCost</code>, and <code>PublicOnDemandCost</code> are cost
+   *         analytics metrics. They use the same definitions as the cost analytics columns in Cost and
+   *         Usage Report (CUR) 2.0.</p>
    *          <note>
    *             <p>If you return the <code>UsageQuantity</code> metric, the service aggregates all usage
    *         numbers without taking into account the units. For example, if you aggregate
@@ -6441,8 +6448,15 @@ export interface GetCostAndUsageWithResourcesRequest {
    *         appear on some line items in my bill?</a>. </p>
    *          <p>Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>,
    *         <code>NetAmortizedCost</code>, <code>NetUnblendedCost</code>,
-   *         <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
-   *         <code>UsageQuantity</code>. </p>
+   *         <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>,
+   *         <code>UsageQuantity</code>, <code>BilledCost</code>, <code>ContractedCost</code>,
+   *         <code>ListCost</code>, <code>PublicEquivalentBilledCost</code>, and
+   *         <code>PublicOnDemandCost</code>. </p>
+   *          <p>
+   *             <code>BilledCost</code>, <code>ContractedCost</code>, <code>ListCost</code>,
+   *         <code>PublicEquivalentBilledCost</code>, and <code>PublicOnDemandCost</code> are cost
+   *         analytics metrics. They use the same definitions as the cost analytics columns in Cost and
+   *         Usage Report (CUR) 2.0.</p>
    *          <note>
    *             <p>If you return the <code>UsageQuantity</code> metric, the service aggregates all usage
    *         numbers without taking the units into account. For example, if you aggregate
@@ -6693,6 +6707,31 @@ export interface GetCostCategoriesRequest {
    *             <li>
    *                <p>
    *                   <code>NormalizedUsageAmount</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BilledCost</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ContractedCost</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ListCost</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PublicEquivalentBilledCost</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PublicOnDemandCost</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -7537,6 +7576,31 @@ export interface GetDimensionValuesRequest {
    *                   <code>NormalizedUsageAmount</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BilledCost</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ContractedCost</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ListCost</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PublicEquivalentBilledCost</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PublicOnDemandCost</code>
+   *                </p>
+   *             </li>
    *          </ul>
    *          <p>The supported values for the <code>SortOrder</code> key are <code>ASCENDING</code> or
    *         <code>DESCENDING</code>.</p>
@@ -7593,42 +7657,38 @@ export interface GetReservationCoverageRequest {
   TimePeriod: DateInterval | undefined;
 
   /**
-   * <p>You can group the data by the following attributes:</p>
+   * <p>You can group the data by the following attributes. The attributes that you can use
+   *       depend on the service in the <code>SERVICE</code> filter. If you don't provide a
+   *         <code>SERVICE</code> filter, Cost Explorer uses Amazon Elastic Compute Cloud -
+   *       Compute.</p>
    *          <ul>
    *             <li>
-   *                <p>AZ</p>
+   *                <p>Amazon Elastic Compute Cloud - Compute: <code>AZ</code>, <code>INSTANCE_TYPE</code>,
+   *             <code>INSTANCE_TYPE_FAMILY</code>, <code>LINKED_ACCOUNT</code>, <code>PLATFORM</code>,
+   *             <code>REGION</code>, and <code>TENANCY</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>CACHE_ENGINE</p>
+   *                <p>Amazon Relational Database Service: <code>AZ</code>, <code>DATABASE_ENGINE</code>,
+   *             <code>DEPLOYMENT_OPTION</code>, <code>INSTANCE_TYPE</code>, <code>LINKED_ACCOUNT</code>,
+   *           and <code>REGION</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>DATABASE_ENGINE</p>
+   *                <p>Amazon ElastiCache and Amazon MemoryDB: <code>AZ</code>, <code>CACHE_ENGINE</code>,
+   *             <code>INSTANCE_TYPE</code>, <code>LINKED_ACCOUNT</code>, and <code>REGION</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>DEPLOYMENT_OPTION</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTANCE_TYPE</p>
-   *             </li>
-   *             <li>
-   *                <p>INVOICING_ENTITY</p>
-   *             </li>
-   *             <li>
-   *                <p>LINKED_ACCOUNT</p>
-   *             </li>
-   *             <li>
-   *                <p>OPERATING_SYSTEM</p>
-   *             </li>
-   *             <li>
-   *                <p>PLATFORM</p>
-   *             </li>
-   *             <li>
-   *                <p>REGION</p>
-   *             </li>
-   *             <li>
-   *                <p>TENANCY</p>
+   *                <p>Amazon Redshift, Amazon Elasticsearch Service, and Amazon OpenSearch Service:
+   *             <code>AZ</code>, <code>INSTANCE_TYPE</code>, <code>LINKED_ACCOUNT</code>, and
+   *             <code>REGION</code>
+   *                </p>
    *             </li>
    *          </ul>
+   *          <p>If you specify two <code>SERVICE</code> values, use only attributes that both services
+   *       support. You can specify up to four attributes, and only the <code>DIMENSION</code> type is
+   *       supported.</p>
    * @public
    */
   GroupBy?: GroupDefinition[] | undefined;
@@ -7646,7 +7706,7 @@ export interface GetReservationCoverageRequest {
   Granularity?: Granularity | undefined;
 
   /**
-   * <p>Filters utilization data by dimensions. You can filter by the following
+   * <p>Filters coverage data by dimensions. You can filter by the following
    *       dimensions:</p>
    *          <ul>
    *             <li>
@@ -7665,10 +7725,10 @@ export interface GetReservationCoverageRequest {
    *                <p>INSTANCE_TYPE</p>
    *             </li>
    *             <li>
-   *                <p>LINKED_ACCOUNT</p>
+   *                <p>INSTANCE_TYPE_FAMILY</p>
    *             </li>
    *             <li>
-   *                <p>OPERATING_SYSTEM</p>
+   *                <p>LINKED_ACCOUNT</p>
    *             </li>
    *             <li>
    *                <p>PLATFORM</p>
@@ -7678,6 +7738,12 @@ export interface GetReservationCoverageRequest {
    *             </li>
    *             <li>
    *                <p>SERVICE</p>
+   *                <note>
+   *                   <p>Supported values for <code>SERVICE</code> are Amazon Elastic Compute Cloud -
+   *             Compute, Amazon Relational Database Service, Amazon ElastiCache, Amazon MemoryDB, Amazon
+   *             Redshift, Amazon Elasticsearch Service, and Amazon OpenSearch Service. You can specify
+   *             up to two <code>SERVICE</code> values.</p>
+   *                </note>
    *             </li>
    *             <li>
    *                <p>TAG</p>
@@ -7686,6 +7752,12 @@ export interface GetReservationCoverageRequest {
    *                <p>TENANCY</p>
    *             </li>
    *          </ul>
+   *          <p>The dimensions that you can use depend on the service in the <code>SERVICE</code>
+   *       filter. <code>CACHE_ENGINE</code> applies only to Amazon ElastiCache and Amazon MemoryDB.
+   *         <code>DATABASE_ENGINE</code> and <code>DEPLOYMENT_OPTION</code> apply only to Amazon
+   *       Relational Database Service. <code>INSTANCE_TYPE_FAMILY</code>, <code>PLATFORM</code>, and
+   *         <code>TENANCY</code> apply only to Amazon Elastic Compute Cloud - Compute. If you specify
+   *       two <code>SERVICE</code> values, use only dimensions that both services support.</p>
    *          <p>
    *             <code>GetReservationCoverage</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
    *       as the other operations, but only <code>AND</code> is supported among each dimension. You can
@@ -7701,7 +7773,11 @@ export interface GetReservationCoverageRequest {
   /**
    * <p>The measurement that you want your reservation coverage reported in.</p>
    *          <p>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You can use
-   *       multiple values in a request.</p>
+   *       multiple values in a request. <code>Hour</code> returns <code>CoverageHours</code>,
+   *         <code>Unit</code> returns <code>CoverageNormalizedUnits</code>, and <code>Cost</code>
+   *       returns <code>CoverageCost</code>. <code>Unit</code> is supported only for Amazon Elastic
+   *       Compute Cloud - Compute. If you don't specify <code>Metrics</code>, the response includes
+   *       only <code>CoverageHours</code>.</p>
    * @public
    */
   Metrics?: string[] | undefined;
@@ -8031,19 +8107,13 @@ export interface GetReservationUtilizationRequest {
    *                <p>AZ</p>
    *             </li>
    *             <li>
-   *                <p>CACHE_ENGINE</p>
-   *             </li>
-   *             <li>
-   *                <p>DEPLOYMENT_OPTION</p>
-   *             </li>
-   *             <li>
    *                <p>INSTANCE_TYPE</p>
    *             </li>
    *             <li>
-   *                <p>LINKED_ACCOUNT</p>
+   *                <p>INSTANCE_TYPE_FAMILY</p>
    *             </li>
    *             <li>
-   *                <p>OPERATING_SYSTEM</p>
+   *                <p>LINKED_ACCOUNT</p>
    *             </li>
    *             <li>
    *                <p>PLATFORM</p>
@@ -8054,15 +8124,21 @@ export interface GetReservationUtilizationRequest {
    *             <li>
    *                <p>SERVICE</p>
    *                <note>
-   *                   <p>If  not specified, the <code>SERVICE</code> filter defaults to Amazon Elastic
+   *                   <p>If not specified, the <code>SERVICE</code> filter defaults to Amazon Elastic
    *             Compute Cloud - Compute. Supported values for <code>SERVICE</code> are Amazon Elastic
    *             Compute Cloud - Compute, Amazon Relational Database Service, Amazon ElastiCache, Amazon
-   *             Redshift, and Amazon Elasticsearch Service. The value for the <code>SERVICE</code>
-   *             filter should not exceed "1".</p>
+   *             MemoryDB, Amazon Redshift, Amazon Elasticsearch Service, and Amazon OpenSearch
+   *             Service.</p>
    *                </note>
    *             </li>
    *             <li>
    *                <p>SCOPE</p>
+   *             </li>
+   *             <li>
+   *                <p>SUBSCRIPTION_ID</p>
+   *                <note>
+   *                   <p>Values for <code>SUBSCRIPTION_ID</code> must contain only digits.</p>
+   *                </note>
    *             </li>
    *             <li>
    *                <p>TENANCY</p>
@@ -8983,6 +9059,31 @@ export interface GetTagsRequest {
    *             <li>
    *                <p>
    *                   <code>NormalizedUsageAmount</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BilledCost</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ContractedCost</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ListCost</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PublicEquivalentBilledCost</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PublicOnDemandCost</code>
    *                </p>
    *             </li>
    *          </ul>

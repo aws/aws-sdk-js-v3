@@ -38,7 +38,7 @@ export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse,
  *     Start: "STRING_VALUE", // required
  *     End: "STRING_VALUE", // required
  *   },
- *   Metric: "BLENDED_COST" || "UNBLENDED_COST" || "AMORTIZED_COST" || "NET_UNBLENDED_COST" || "NET_AMORTIZED_COST" || "USAGE_QUANTITY" || "NORMALIZED_USAGE_AMOUNT", // required
+ *   Metric: "BLENDED_COST" || "UNBLENDED_COST" || "AMORTIZED_COST" || "NET_UNBLENDED_COST" || "NET_AMORTIZED_COST" || "USAGE_QUANTITY" || "NORMALIZED_USAGE_AMOUNT" || "LIST_COST" || "CONTRACTED_COST" || "BILLED_COST" || "PUBLIC_EQUIVALENT_BILLED_COST" || "PUBLIC_ON_DEMAND_COST", // required
  *   Granularity: "DAILY" || "MONTHLY" || "HOURLY", // required
  *   Filter: { // Expression
  *     Or: [ // Expressions
