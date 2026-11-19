@@ -1504,7 +1504,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *     },
  *   ],
  *   InputSpecification: { // InputSpecification
- *     Codec: "MPEG2" || "AVC" || "HEVC",
+ *     Codec: "MPEG2" || "AVC" || "HEVC" || "JPEGXS",
  *     MaximumBitrate: "MAX_10_MBPS" || "MAX_20_MBPS" || "MAX_50_MBPS",
  *     Resolution: "SD" || "HD" || "UHD",
  *   },
@@ -1548,6 +1548,11 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *   },
  *   SpecialRouterSettings: { // SpecialRouterSettings
  *     RouterArn: "STRING_VALUE",
+ *   },
+ *   JpegXsInputSpecification: { // JpegXsInputSpecification
+ *     Codec: "MPEG2" || "AVC" || "HEVC" || "JPEGXS",
+ *     MaximumBitrate: "MAX_500_MBPS",
+ *     Resolution: "HD",
  *   },
  * };
  * const command = new UpdateChannelCommand(input);
@@ -3032,7 +3037,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //       },
  * //     ],
  * //     InputSpecification: { // InputSpecification
- * //       Codec: "MPEG2" || "AVC" || "HEVC",
+ * //       Codec: "MPEG2" || "AVC" || "HEVC" || "JPEGXS",
  * //       MaximumBitrate: "MAX_10_MBPS" || "MAX_20_MBPS" || "MAX_50_MBPS",
  * //       Resolution: "SD" || "HD" || "UHD",
  * //     },
@@ -3104,6 +3109,11 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //       EnrichmentMethods: [ // __listOfEnrichmentMethod
  * //         "SCTE35_ELEMENTAL_INFERENCE_QUERY_PARAMS",
  * //       ],
+ * //     },
+ * //     JpegXsInputSpecification: { // JpegXsInputSpecification
+ * //       Codec: "MPEG2" || "AVC" || "HEVC" || "JPEGXS",
+ * //       MaximumBitrate: "MAX_500_MBPS",
+ * //       Resolution: "HD",
  * //     },
  * //   },
  * // };

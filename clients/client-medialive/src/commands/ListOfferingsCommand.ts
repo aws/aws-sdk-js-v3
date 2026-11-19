@@ -63,8 +63,8 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __Met
  * //       Region: "STRING_VALUE",
  * //       ResourceSpecification: { // ReservationResourceSpecification
  * //         ChannelClass: "STANDARD" || "SINGLE_PIPELINE",
- * //         Codec: "MPEG2" || "AVC" || "HEVC" || "AUDIO" || "LINK" || "AV1",
- * //         MaximumBitrate: "MAX_10_MBPS" || "MAX_20_MBPS" || "MAX_50_MBPS",
+ * //         Codec: "MPEG2" || "AVC" || "HEVC" || "AUDIO" || "LINK" || "AV1" || "JPEGXS",
+ * //         MaximumBitrate: "MAX_10_MBPS" || "MAX_20_MBPS" || "MAX_50_MBPS" || "MAX_500_MBPS",
  * //         MaximumFramerate: "MAX_30_FPS" || "MAX_60_FPS",
  * //         Resolution: "SD" || "HD" || "FHD" || "UHD",
  * //         ResourceType: "INPUT" || "OUTPUT" || "MULTIPLEX" || "CHANNEL",

@@ -1519,7 +1519,7 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //     },
  * //   ],
  * //   InputSpecification: { // InputSpecification
- * //     Codec: "MPEG2" || "AVC" || "HEVC",
+ * //     Codec: "MPEG2" || "AVC" || "HEVC" || "JPEGXS",
  * //     MaximumBitrate: "MAX_10_MBPS" || "MAX_20_MBPS" || "MAX_50_MBPS",
  * //     Resolution: "SD" || "HD" || "UHD",
  * //   },
@@ -1592,6 +1592,11 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //     EnrichmentMethods: [ // __listOfEnrichmentMethod
  * //       "SCTE35_ELEMENTAL_INFERENCE_QUERY_PARAMS",
  * //     ],
+ * //   },
+ * //   JpegXsInputSpecification: { // JpegXsInputSpecification
+ * //     Codec: "MPEG2" || "AVC" || "HEVC" || "JPEGXS",
+ * //     MaximumBitrate: "MAX_500_MBPS",
+ * //     Resolution: "HD",
  * //   },
  * // };
  *

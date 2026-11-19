@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateNodeRequest, UpdateNodeResponse } from "../models/models_1";
+import type { UpdateNodeRequest } from "../models/models_1";
+import type { UpdateNodeResponse } from "../models/models_2";
 import { UpdateNode$ } from "../schemas/schemas_0";
 
 /**

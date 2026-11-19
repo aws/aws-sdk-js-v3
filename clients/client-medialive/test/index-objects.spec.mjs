@@ -677,6 +677,9 @@ import {
   IpPool$,
   IpPoolCreateRequest$,
   IpPoolUpdateRequest$,
+  JpegXsInputMaximumBitrate,
+  JpegXsInputResolution,
+  JpegXsInputSpecification$,
   KeyProviderSettings$,
   LastFrameClippingBehavior,
   LinkedChannelSettings$,
@@ -1849,6 +1852,7 @@ assert(typeof InterfaceMappingUpdateRequest$ === "object");
 assert(typeof IpPool$ === "object");
 assert(typeof IpPoolCreateRequest$ === "object");
 assert(typeof IpPoolUpdateRequest$ === "object");
+assert(typeof JpegXsInputSpecification$ === "object");
 assert(typeof KeyProviderSettings$ === "object");
 assert(typeof LinkedChannelSettings$ === "object");
 assert(typeof ListAlertsRequest$ === "object");
@@ -2378,6 +2382,8 @@ assert(typeof InputSourceType === "object");
 assert(typeof InputState === "object");
 assert(typeof InputTimecodeSource === "object");
 assert(typeof InputType === "object");
+assert(typeof JpegXsInputMaximumBitrate === "object");
+assert(typeof JpegXsInputResolution === "object");
 assert(typeof LastFrameClippingBehavior === "object");
 assert(typeof LinkedChannelType === "object");
 assert(typeof LogLevel === "object");

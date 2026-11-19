@@ -11,6 +11,78 @@ import type { NodeInterfaceMapping, RenewalSettings, Reservation, SdiSourceMappi
 import type { SdiSource } from "./models_1";
 
 /**
+ * Placeholder documentation for UpdateNodeResponse
+ * @public
+ */
+export interface UpdateNodeResponse {
+  /**
+   * The ARN of the Node. It is automatically assigned when the Node is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * An array of IDs. Each ID is one ChannelPlacementGroup that is associated with this Node. Empty if the Node is not yet associated with any groups.
+   * @public
+   */
+  ChannelPlacementGroups?: string[] | undefined;
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string | undefined;
+
+  /**
+   * The current connection state of the Node.
+   * @public
+   */
+  ConnectionState?: NodeConnectionState | undefined;
+
+  /**
+   * The unique ID of the Node. Unique in the Cluster. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The ARN of the EC2 instance hosting the Node.
+   * @public
+   */
+  InstanceArn?: string | undefined;
+
+  /**
+   * The name that you specified for the Node.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  NodeInterfaceMappings?: NodeInterfaceMapping[] | undefined;
+
+  /**
+   * The initial role current role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole | undefined;
+
+  /**
+   * The current state of the Node.
+   * @public
+   */
+  State?: NodeState | undefined;
+
+  /**
+   * An array of SDI source mappings. Each mapping connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses.
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMapping[] | undefined;
+}
+
+/**
  * A request to update the state of a node.
  * @public
  */

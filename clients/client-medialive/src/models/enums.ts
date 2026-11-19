@@ -1305,6 +1305,7 @@ export type VideoSelectorColorSpaceUsage =
 export const InputCodec = {
   AVC: "AVC",
   HEVC: "HEVC",
+  JPEGXS: "JPEGXS",
   MPEG2: "MPEG2",
 } as const;
 /**
@@ -1339,6 +1340,30 @@ export const InputResolution = {
  * @public
  */
 export type InputResolution = (typeof InputResolution)[keyof typeof InputResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const JpegXsInputMaximumBitrate = {
+  MAX_500_MBPS: "MAX_500_MBPS",
+} as const;
+/**
+ * @public
+ */
+export type JpegXsInputMaximumBitrate = (typeof JpegXsInputMaximumBitrate)[keyof typeof JpegXsInputMaximumBitrate];
+
+/**
+ * @public
+ * @enum
+ */
+export const JpegXsInputResolution = {
+  HD: "HD",
+} as const;
+/**
+ * @public
+ */
+export type JpegXsInputResolution = (typeof JpegXsInputResolution)[keyof typeof JpegXsInputResolution];
 
 /**
  * @public
@@ -2052,6 +2077,7 @@ export const ReservationCodec = {
   AV1: "AV1",
   AVC: "AVC",
   HEVC: "HEVC",
+  JPEGXS: "JPEGXS",
   LINK: "LINK",
   MPEG2: "MPEG2",
 } as const;
@@ -2067,6 +2093,7 @@ export type ReservationCodec = (typeof ReservationCodec)[keyof typeof Reservatio
 export const ReservationMaximumBitrate = {
   MAX_10_MBPS: "MAX_10_MBPS",
   MAX_20_MBPS: "MAX_20_MBPS",
+  MAX_500_MBPS: "MAX_500_MBPS",
   MAX_50_MBPS: "MAX_50_MBPS",
 } as const;
 /**
