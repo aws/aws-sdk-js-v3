@@ -2,6 +2,8 @@
 import type { StreamingBlobTypes } from "@smithy/types";
 
 import type {
+  AudioFormat,
+  CustomVoiceLanguageCode,
   Engine,
   Gender,
   LanguageCode,
@@ -10,6 +12,8 @@ import type {
   TaskStatus,
   TextType,
   VoiceId,
+  VoiceOrigin,
+  VoiceStatus,
 } from "./enums";
 import type {
   ServiceFailureException,
@@ -39,6 +43,371 @@ export interface AudioEvent {
 export interface CloseStreamEvent {}
 
 /**
+ * <p>The customer managed key that encrypts your custom voice. If you
+ *       don't specify a key, Amazon Polly encrypts the voice with an Amazon Web Services owned
+ *       key.</p>
+ * @public
+ */
+export interface CustomerManagedEncryption {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the key. The key must be a
+   *       symmetric encryption key in the same Amazon Web Services Region as the voice. To create
+   *       the voice, you need <code>kms:DescribeKey</code>,
+   *       <code>kms:GenerateDataKey</code>, and <code>kms:Decrypt</code> permissions
+   *       on the key. To synthesize speech with the voice, you need
+   *       <code>kms:Decrypt</code> permission on the key.</p>
+   * @public
+   */
+  KmsKeyArn: string | undefined;
+
+  /**
+   * <p>The key-value pairs that Amazon Polly includes as the encryption context
+   *       when it encrypts or decrypts the voice with the key. You can use these
+   *       pairs in key policy conditions. Don't use keys that start with
+   *       <code>aws:</code>, which are reserved.</p>
+   * @public
+   */
+  EncryptionContext?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The audio source of a recording. In a <code>CreateVoice</code>
+ *       request, specify exactly one of <code>S3Url</code> and <code>Bytes</code>.
+ *       In a response, a recording that Amazon Polly read from Amazon S3 includes its
+ *       <code>S3Url</code>. A recording that you passed as <code>Bytes</code>
+ *       includes neither field, because Amazon Polly doesn't return the
+ *       audio.</p>
+ * @public
+ */
+export interface RecordingData {
+  /**
+   * <p>The Amazon S3 URL of the audio object, in the form
+   *       <code>s3://bucket/key</code>. You need <code>s3:GetObject</code>
+   *       permission on the object.</p>
+   * @public
+   */
+  S3Url?: string | undefined;
+
+  /**
+   * <p>The audio data, passed directly in the request. The data must be
+   *       in the format that <code>Format</code> specifies and can be up to 5 MB.
+   *       Amazon Polly doesn't store the audio after it creates the voice, and doesn't
+   *       return this field in responses.</p>
+   * @public
+   */
+  Bytes?: Uint8Array | undefined;
+}
+
+/**
+ * <p>A recording of the speaker whose voice you want to create. The
+ *       recording specifies its audio format and its audio source.</p>
+ * @public
+ */
+export interface Recording {
+  /**
+   * <p>The audio format of the recording: <code>wav</code>,
+   *       <code>flac</code>, <code>ogg_vorbis</code>, or <code>mp3</code>. The
+   *       format must match the audio data.</p>
+   * @public
+   */
+  Format: AudioFormat | undefined;
+
+  /**
+   * <p>The audio source of the recording. Specify either an Amazon S3
+   *       object or the audio data.</p>
+   * @public
+   */
+  Data: RecordingData | undefined;
+}
+
+/**
+ * <p>The audio that you provide to create a custom voice.</p>
+ * @public
+ */
+export interface VoiceCreationData {
+  /**
+   * <p>The recordings of the speaker. Each recording specifies its audio
+   *       format and its audio source.</p>
+   * @public
+   */
+  Recordings: Recording[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVoiceInput {
+  /**
+   * <p>The name of the voice. Use the name to identify the voice in your
+   *       application. The name can contain letters, digits, hyphens, and
+   *       underscores, and can be up to 64 characters long. The name doesn't have to
+   *       be unique. The name isn't the voice ID, which Amazon Polly assigns.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The language of the recordings, for example, <code>en-US</code>.
+   *       Amazon Polly doesn't detect the language from the recordings.</p>
+   * @public
+   */
+  LanguageCode: CustomVoiceLanguageCode | undefined;
+
+  /**
+   * <p>Confirms the following two statements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>"I confirm that I have obtained all necessary consents required
+   *           under any applicable laws and regulations, including biometric privacy
+   *           laws, from the owner of this voice to clone these voice
+   *           samples."</p>
+   *             </li>
+   *             <li>
+   *                <p>"I confirm that I will not use the generated content for any
+   *           illegal, fraudulent, or harmful purpose and reaffirm my obligation to
+   *           abide by the AWS Service Terms, Biometric Notice and Consent Terms,
+   *           AWS Responsible AI Policy, and AWS Acceptable Use Policy."</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can read the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>, the <a href="https://aws.amazon.com/legal/biometric-notice-and-consent-terms/">Biometric Notice and Consent Terms</a>, the <a href="https://aws.amazon.com/ai/responsible-ai/policy/">AWS Responsible
+   *         AI Policy</a>, and the <a href="https://aws.amazon.com/aup/">AWS
+   *         Acceptable Use Policy</a> on the Amazon Web Services website.</p>
+   *          <p>You must set this parameter to <code>true</code> to create a voice.
+   *       Otherwise, the request fails with <code>ValidationException</code>.</p>
+   * @public
+   */
+  TermsAccepted: boolean | undefined;
+
+  /**
+   * <p>The recordings that Amazon Polly uses to create the voice.</p>
+   * @public
+   */
+  VoiceCreationData: VoiceCreationData | undefined;
+
+  /**
+   * <p>The customer managed key that you want Amazon Polly to encrypt the voice
+   *       with. If you omit this parameter, Amazon Polly encrypts the voice with an Amazon Web Services
+   *       owned key.</p>
+   * @public
+   */
+  CustomerManagedEncryption?: CustomerManagedEncryption | undefined;
+
+  /**
+   * <p>The tags that you apply to the voice to help you categorize and
+   *       organize it. Each tag consists of a key and an optional value, both of
+   *       which you define.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the
+   *       idempotency of the request. If you don't specify a client token, the
+   *       Amazon Web Services SDKs generate one for you. If you retry a request that succeeded
+   *       with the same client token and the same parameters, Amazon Polly returns the
+   *       voice that the first request created and doesn't create a second
+   *       voice.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * <p>Describes a voice. Amazon Polly provides voices, and you can create custom
+ *       voices with <code>CreateVoice</code>. <code>Origin</code> indicates
+ *       whether Amazon Polly provides the voice or you created it.
+ *       <code>DescribeVoices</code> returns a subset of the fields for each
+ *       voice. <code>GetVoice</code> returns all fields of a custom
+ *       voice.</p>
+ * @public
+ */
+export interface Voice {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a custom voice, in the form
+   *       <code>arn:partition:polly:region:account-id:voice/voice-id</code>.
+   *       <code>CreateVoice</code> and <code>GetVoice</code> return this field.
+   *       Voices that Amazon Polly provides don't have an ARN.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The gender of the voice. Custom voices don't include this
+   *       field.</p>
+   * @public
+   */
+  Gender?: Gender | undefined;
+
+  /**
+   * <p>The voice ID that Amazon Polly assigns. You specify this ID when you
+   *       call the <code>SynthesizeSpeech</code> operation. For a custom voice,
+   *       Amazon Polly assigns an ID that consists of <code>vc-</code> followed by
+   *       hexadecimal characters, for example, <code>vc-9a8fa85dd3</code>.</p>
+   * @public
+   */
+  Id?: VoiceId | undefined;
+
+  /**
+   * <p>Language code of the voice.</p>
+   * @public
+   */
+  LanguageCode?: LanguageCode | undefined;
+
+  /**
+   * <p>Human readable name of the language in English.</p>
+   * @public
+   */
+  LanguageName?: string | undefined;
+
+  /**
+   * <p>The name of the voice, for example, Salli or Kendra. The name is
+   *       human-readable, and you might display it in your application. For a custom
+   *       voice, this is the <code>Name</code> that you specified in
+   *       <code>CreateVoice</code>.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Indicates who provides the voice. The origin is one of the
+   *       following:</p>
+   *          <dl>
+   *             <dt>aws</dt>
+   *             <dd>
+   *                <p>A voice that Amazon Polly provides.</p>
+   *             </dd>
+   *             <dt>customer</dt>
+   *             <dd>
+   *                <p>A custom voice that you created with
+   *             <code>CreateVoice</code>.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  Origin?: VoiceOrigin | undefined;
+
+  /**
+   * <p>The status of a custom voice. Voices that Amazon Polly provides don't
+   *       include this field. The status is one of the following:</p>
+   *          <dl>
+   *             <dt>pending</dt>
+   *             <dd>
+   *                <p>Amazon Polly is creating the voice.</p>
+   *             </dd>
+   *             <dt>active</dt>
+   *             <dd>
+   *                <p>The voice is ready for speech synthesis.</p>
+   *             </dd>
+   *             <dt>failed</dt>
+   *             <dd>
+   *                <p>Amazon Polly couldn't create the voice. <code>StatusReason</code>
+   *             describes why.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  Status?: VoiceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of a custom voice. When the
+   *       status is <code>failed</code>, this field describes why Amazon Polly couldn't
+   *       create the voice.</p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+
+  /**
+   * <p>Additional codes for languages available for the specified voice in
+   *       addition to its default language. </p>
+   *          <p>For example, the default language for Aditi is Indian English (en-IN)
+   *       because it was first used for that language. Since Aditi is bilingual and
+   *       fluent in both Indian English and Hindi, this parameter would show the
+   *       code <code>hi-IN</code>.</p>
+   * @public
+   */
+  AdditionalLanguageCodes?: LanguageCode[] | undefined;
+
+  /**
+   * <p>Specifies which engines (<code>standard</code>, <code>neural</code>,
+   *       <code>long-form</code> or <code>generative</code>) are supported by a given voice.</p>
+   * @public
+   */
+  SupportedEngines?: Engine[] | undefined;
+
+  /**
+   * <p>The data from which you created the custom voice.
+   *       <code>CreateVoice</code> and <code>GetVoice</code> return this field. The
+   *       response doesn't include the audio: a recording that Amazon Polly read from
+   *       Amazon S3 includes its <code>S3Url</code>, and a recording that you passed
+   *       as <code>Bytes</code> has no fields in <code>Data</code>.</p>
+   * @public
+   */
+  VoiceCreationData?: VoiceCreationData | undefined;
+
+  /**
+   * <p>The customer managed key that encrypts your custom voice.
+   *       <code>CreateVoice</code> and <code>GetVoice</code> return this field if
+   *       you specified a key in <code>CreateVoice</code>.</p>
+   * @public
+   */
+  CustomerManagedEncryption?: CustomerManagedEncryption | undefined;
+
+  /**
+   * <p>The date and time when you created the custom voice. Voices that
+   *       Amazon Polly provides don't include this field.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVoiceOutput {
+  /**
+   * <p>The new voice, in <code>pending</code> status.</p>
+   * @public
+   */
+  Voice?: Voice | undefined;
+}
+
+/**
+ * <p>Provides information about a specific throttling reason.</p>
+ * @public
+ */
+export interface ThrottlingReason {
+  /**
+   * <p>The reason code explaining why the request was throttled.</p>
+   * @public
+   */
+  reason?: string | undefined;
+
+  /**
+   * <p>The resource that caused the throttling.</p>
+   * @public
+   */
+  resource?: string | undefined;
+}
+
+/**
+ * <p>Information about a field that failed validation.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the field that failed validation.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A message describing why the field failed validation.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteLexiconInput {
@@ -54,6 +423,24 @@ export interface DeleteLexiconInput {
  * @public
  */
 export interface DeleteLexiconOutput {}
+
+/**
+ * @public
+ */
+export interface DeleteVoiceInput {
+  /**
+   * <p>The ID of the custom voice to delete, for example,
+   *       <code>vc-9a8fa85dd3</code>. You can't specify the ARN of the
+   *       voice.</p>
+   * @public
+   */
+  VoiceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVoiceOutput {}
 
 /**
  * @public
@@ -94,63 +481,6 @@ export interface DescribeVoicesInput {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>Description of the voice.</p>
- * @public
- */
-export interface Voice {
-  /**
-   * <p>Gender of the voice.</p>
-   * @public
-   */
-  Gender?: Gender | undefined;
-
-  /**
-   * <p>Amazon Polly assigned voice ID. This is the ID that you specify when
-   *       calling the <code>SynthesizeSpeech</code> operation.</p>
-   * @public
-   */
-  Id?: VoiceId | undefined;
-
-  /**
-   * <p>Language code of the voice.</p>
-   * @public
-   */
-  LanguageCode?: LanguageCode | undefined;
-
-  /**
-   * <p>Human readable name of the language in English.</p>
-   * @public
-   */
-  LanguageName?: string | undefined;
-
-  /**
-   * <p>Name of the voice (for example, Salli, Kendra, etc.). This provides
-   *       a human readable voice name that you might display in your
-   *       application.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Additional codes for languages available for the specified voice in
-   *       addition to its default language. </p>
-   *          <p>For example, the default language for Aditi is Indian English (en-IN)
-   *       because it was first used for that language. Since Aditi is bilingual and
-   *       fluent in both Indian English and Hindi, this parameter would show the
-   *       code <code>hi-IN</code>.</p>
-   * @public
-   */
-  AdditionalLanguageCodes?: LanguageCode[] | undefined;
-
-  /**
-   * <p>Specifies which engines (<code>standard</code>, <code>neural</code>,
-   *       <code>long-form</code> or <code>generative</code>) are supported by a given voice.</p>
-   * @public
-   */
-  SupportedEngines?: Engine[] | undefined;
 }
 
 /**
@@ -432,6 +762,30 @@ export interface GetSpeechSynthesisTaskOutput {
 }
 
 /**
+ * @public
+ */
+export interface GetVoiceInput {
+  /**
+   * <p>The ID of the custom voice that <code>CreateVoice</code> returned,
+   *       for example, <code>vc-9a8fa85dd3</code>. You can't specify the ARN of the
+   *       voice.</p>
+   * @public
+   */
+  VoiceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVoiceOutput {
+  /**
+   * <p>The custom voice.</p>
+   * @public
+   */
+  Voice?: Voice | undefined;
+}
+
+/**
  * <p>Describes the content of the lexicon.</p>
  * @public
  */
@@ -533,9 +887,8 @@ export interface ListSpeechSynthesisTasksOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource for which
-   *       to list the tags. Currently, the only supported resource is an Amazon Polly
-   *       lexicon.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to list the tags for.
+   *       You can tag Amazon Polly lexicons and custom voices.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -550,42 +903,6 @@ export interface ListTagsForResourceOutput {
    * @public
    */
   Tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Provides information about a specific throttling reason.</p>
- * @public
- */
-export interface ThrottlingReason {
-  /**
-   * <p>The reason code explaining why the request was throttled.</p>
-   * @public
-   */
-  reason?: string | undefined;
-
-  /**
-   * <p>The resource that caused the throttling.</p>
-   * @public
-   */
-  resource?: string | undefined;
-}
-
-/**
- * <p>Information about a field that failed validation.</p>
- * @public
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>The name of the field that failed validation.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A message describing why the field failed validation.</p>
-   * @public
-   */
-  message: string | undefined;
 }
 
 /**
@@ -741,7 +1058,7 @@ export interface StartSpeechSynthesisStreamInput {
   SampleRate?: string | undefined;
 
   /**
-   * <p>The voice to use in synthesis. To get a list of available voice IDs, use the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation.</p>
+   * <p>The voice ID to use for the synthesis. To get a list of available voice IDs, use the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation. To use a custom voice, specify the voice ID that <code>CreateVoice</code> returned, for example, <code>vc-9a8fa85dd3</code>. You can't specify the ARN of a voice.</p>
    * @public
    */
   VoiceId: VoiceId | undefined;
@@ -1001,7 +1318,9 @@ export interface StartSpeechSynthesisTaskInput {
   TextType?: TextType | undefined;
 
   /**
-   * <p>Voice ID to use for the synthesis. </p>
+   * <p>The voice ID to use for the synthesis. To use a custom voice, specify the
+   *       voice ID that <code>CreateVoice</code> returned, for example,
+   *       <code>vc-9a8fa85dd3</code>. You can't specify the ARN of a voice.</p>
    * @public
    */
   VoiceId: VoiceId | undefined;
@@ -1103,8 +1422,10 @@ export interface SynthesizeSpeechInput {
   TextType?: TextType | undefined;
 
   /**
-   * <p> Voice ID to use for the synthesis. You can get a list of available
-   *       voice IDs by calling the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation. </p>
+   * <p>The voice ID to use for the synthesis. You can get a list of available
+   *       voice IDs by calling the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation. To use a custom voice, specify the
+   *       voice ID that <code>CreateVoice</code> returned, for example,
+   *       <code>vc-9a8fa85dd3</code>. You can't specify the ARN of a voice.</p>
    * @public
    */
   VoiceId: VoiceId | undefined;
@@ -1180,8 +1501,8 @@ export interface SynthesizeSpeechOutput {
  */
 export interface TagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to which to add tags.
-   *       Currently, the only supported resource is an Amazon Polly lexicon.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to add tags to. You
+   *       can tag Amazon Polly lexicons and custom voices.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -1205,8 +1526,8 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which to remove
-   *       tags. Currently, the only supported resource is an Amazon Polly lexicon.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to remove tags from.
+   *       You can tag Amazon Polly lexicons and custom voices.</p>
    * @public
    */
   ResourceArn: string | undefined;

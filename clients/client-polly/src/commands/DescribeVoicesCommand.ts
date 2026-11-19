@@ -23,20 +23,34 @@ export interface DescribeVoicesCommandInput extends DescribeVoicesInput {}
 export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the list of voices that are available for use when
- *       requesting speech synthesis. Each voice speaks a specified language, is
- *       either male or female, and is identified by an ID, which is the ASCII
- *       version of the voice name. </p>
- *          <p>When synthesizing speech ( <code>SynthesizeSpeech</code> ), you
+ * <p>Returns the list of voices: the voices that Amazon Polly provides and
+ *       the custom voices in your account. Each voice speaks a specified language
+ *       and is identified by an ID. A voice that Amazon Polly provides is either male or
+ *       female, and its ID is the ASCII version of the voice name.</p>
+ *          <p>When synthesizing speech (<code>SynthesizeSpeech</code>), you
  *       provide the voice ID for the voice you want from the list of voices
  *       returned by <code>DescribeVoices</code>.</p>
- *          <p>For example, you want your news reader application to read news in
- *       a specific language, but giving a user the option to choose the voice.
- *       Using the <code>DescribeVoices</code> operation you can provide the user
- *       with a list of available voices to select from.</p>
+ *          <p>For example, your news reader application reads news in a specific
+ *       language, and you want to give users the option to choose the voice. With
+ *       the <code>DescribeVoices</code> operation, you can provide a list of
+ *       available voices for users to choose from.</p>
  *          <p> You can optionally specify a language code to filter the available
  *       voices. For example, if you specify <code>en-US</code>, the operation
  *       returns a list of all available US English voices. </p>
+ *          <p>The list includes custom voices in every status. For each voice, <code>Origin</code> indicates whether Amazon Polly
+ *       provides the voice or you created it. You can use a custom voice for
+ *       synthesis only when its status is <code>active</code>. A voice in
+ *       <code>failed</code> status stays in the list until you delete it.</p>
+ *          <p>For a custom voice, <code>DescribeVoices</code> returns
+ *       <code>Origin</code>, <code>Id</code>, <code>Name</code>,
+ *       <code>Status</code>, <code>LanguageCode</code>, <code>LanguageName</code>,
+ *       <code>SupportedEngines</code>, and <code>CreationTime</code>. To get
+ *       <code>Arn</code>, <code>StatusReason</code>,
+ *       <code>VoiceCreationData</code>, and
+ *       <code>CustomerManagedEncryption</code>, use <code>GetVoice</code>.</p>
+ *          <p>The <code>LanguageCode</code> and <code>Engine</code> filters apply
+ *       to custom voices in the same way as to voices that Amazon Polly
+ *       provides.</p>
  *          <p>This operation requires permissions to perform the
  *         <code>polly:DescribeVoices</code> action.</p>
  * @example
@@ -58,17 +72,39 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  * // { // DescribeVoicesOutput
  * //   Voices: [ // VoiceList
  * //     { // Voice
+ * //       Arn: "STRING_VALUE",
  * //       Gender: "Female" || "Male",
  * //       Id: "Aditi" || "Amy" || "Astrid" || "Bianca" || "Brian" || "Camila" || "Carla" || "Carmen" || "Celine" || "Chantal" || "Conchita" || "Cristiano" || "Dora" || "Emma" || "Enrique" || "Ewa" || "Filiz" || "Gabrielle" || "Geraint" || "Giorgio" || "Gwyneth" || "Hans" || "Ines" || "Ivy" || "Jacek" || "Jan" || "Joanna" || "Joey" || "Justin" || "Karl" || "Kendra" || "Kevin" || "Kimberly" || "Lea" || "Liv" || "Lotte" || "Lucia" || "Lupe" || "Mads" || "Maja" || "Marlene" || "Mathieu" || "Matthew" || "Maxim" || "Mia" || "Miguel" || "Mizuki" || "Naja" || "Nicole" || "Olivia" || "Penelope" || "Raveena" || "Ricardo" || "Ruben" || "Russell" || "Salli" || "Seoyeon" || "Takumi" || "Tatyana" || "Vicki" || "Vitoria" || "Zeina" || "Zhiyu" || "Aria" || "Ayanda" || "Arlet" || "Hannah" || "Arthur" || "Daniel" || "Liam" || "Pedro" || "Kajal" || "Hiujin" || "Laura" || "Elin" || "Ida" || "Suvi" || "Ola" || "Hala" || "Andres" || "Sergio" || "Remi" || "Adriano" || "Thiago" || "Ruth" || "Stephen" || "Kazuha" || "Tomoko" || "Niamh" || "Sofie" || "Lisa" || "Isabelle" || "Zayd" || "Danielle" || "Gregory" || "Burcu" || "Jitka" || "Sabrina" || "Jasmine" || "Jihye" || "Ambre" || "Beatrice" || "Florian" || "Lennart" || "Lorenzo" || "Tiffany" || "Arjun" || "Carlos" || "Carolina" || "Curtis" || "Hyunduk" || "Kenneth" || "Kiara" || "Leo" || "Nate" || "Tina",
  * //       LanguageCode: "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI" || "en-IE" || "nl-BE" || "fr-BE" || "cs-CZ" || "de-CH" || "en-SG",
  * //       LanguageName: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
+ * //       Origin: "aws" || "customer",
+ * //       Status: "pending" || "active" || "failed",
+ * //       StatusReason: "STRING_VALUE",
  * //       AdditionalLanguageCodes: [ // LanguageCodeList
  * //         "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI" || "en-IE" || "nl-BE" || "fr-BE" || "cs-CZ" || "de-CH" || "en-SG",
  * //       ],
  * //       SupportedEngines: [ // EngineList
  * //         "standard" || "neural" || "long-form" || "generative",
  * //       ],
+ * //       VoiceCreationData: { // VoiceCreationData
+ * //         Recordings: [ // RecordingList // required
+ * //           { // Recording
+ * //             Format: "wav" || "flac" || "ogg_vorbis" || "mp3", // required
+ * //             Data: { // RecordingData
+ * //               S3Url: "STRING_VALUE",
+ * //               Bytes: new Uint8Array(),
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //       CustomerManagedEncryption: { // CustomerManagedEncryption
+ * //         KmsKeyArn: "STRING_VALUE", // required
+ * //         EncryptionContext: { // EncryptionContext
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       CreationTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

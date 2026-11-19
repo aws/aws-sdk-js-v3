@@ -60,8 +60,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Polly can't find the specified resource. Verify that the resource
- *       exists in the Amazon Web Services account and Region of the request and that its ARN is
- *       spelled correctly, and then try again.</p>
+ *       exists in the Amazon Web Services account and Region of the request and that its ARN or
+ *       ID is spelled correctly, and then try again.</p>
  *
  * @throws {@link ServiceFailureException} (server fault)
  *  <p>An unknown condition has caused a service failure.</p>

@@ -6,6 +6,251 @@ import type { ThrottlingReason, ValidationExceptionField } from "./models_0";
 import { PollyServiceException as __BaseException } from "./PollyServiceException";
 
 /**
+ * <p>You don't have sufficient permissions to perform this action. For a
+ *       custom voice that uses a customer managed key, Amazon Polly also returns this
+ *       exception if you don't have the required Amazon Web Services KMS permissions on the
+ *       key.</p>
+ * @public
+ */
+export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#AccessDeniedException";
+  readonly name = "AccessDeniedException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request conflicts with the current state of the resource. For
+ *       a custom voice, the voice isn't in the status that the operation
+ *       requires. Check the status with <code>GetVoice</code>, and then try
+ *       again.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#ConflictException";
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The ID of the resource that the request conflicts with.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource that the request conflicts with.</p>
+   * @public
+   */
+  resourceType: ResourceType | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
+ * <p>The resource ARN or a tag in the request isn't valid. Specify the ARN
+ *       of a supported resource in the Amazon Web Services account and Region of the request.
+ *       Tag keys can have a maximum length of 128 characters, and tag values can
+ *       have a maximum length of 256 characters. Correct the ARN or the tags, and
+ *       then try again.</p>
+ * @public
+ */
+export class InvalidTagParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#InvalidTagParameterException";
+  readonly name = "InvalidTagParameterException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTagParameterException, __BaseException>) {
+    super({
+      name: "InvalidTagParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTagParameterException.prototype);
+  }
+}
+
+/**
+ * <p>An unknown condition has caused a service failure.</p>
+ * @public
+ */
+export class ServiceFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#ServiceFailureException";
+  readonly name = "ServiceFailureException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceFailureException, __BaseException>) {
+    super({
+      name: "ServiceFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceFailureException.prototype);
+  }
+}
+
+/**
+ * <p>The request would cause a service quota to be exceeded.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#ServiceQuotaExceededException";
+  readonly name = "ServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The quota code identifying the specific quota.</p>
+   * @public
+   */
+  quotaCode: QuotaCode | undefined;
+
+  /**
+   * <p>The service code identifying the originating service.</p>
+   * @public
+   */
+  serviceCode: ServiceCode | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.quotaCode = opts.quotaCode;
+    this.serviceCode = opts.serviceCode;
+  }
+}
+
+/**
+ * <p>The request was denied because of request throttling.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#ThrottlingException";
+  readonly name = "ThrottlingException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A list of reasons explaining why the request was throttled.</p>
+   * @public
+   */
+  throttlingReasons?: ThrottlingReason[] | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.throttlingReasons = opts.throttlingReasons;
+  }
+}
+
+/**
+ * <p>The list of tags on the resource is over the limit. The maximum number
+ *       of tags that can be applied to a resource is 50. Remove unused tags or
+ *       reduce the number of tags in the request, and then try again.</p>
+ * @public
+ */
+export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#TooManyTagsException";
+  readonly name = "TooManyTagsException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+  }
+}
+
+/**
+ * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#ValidationException";
+  readonly name = "ValidationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The reason the request failed validation. If Amazon Polly can't use the
+   *       Amazon Web Services KMS key that you specified in <code>CreateVoice</code>,
+   *       <code>fields</code> names <code>CustomerManagedEncryption.KmsKeyArn</code>
+   *       and the reason is one of the following:</p>
+   *          <dl>
+   *             <dt>kmsKeyNotFound</dt>
+   *             <dd>
+   *                <p>No key with the specified ARN exists.</p>
+   *             </dd>
+   *             <dt>kmsKeyUnusable</dt>
+   *             <dd>
+   *                <p>The key is disabled, scheduled for deletion, or missing its
+   *             key material, or it isn't a symmetric encryption key.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  reason: ValidationExceptionReason | undefined;
+
+  /**
+   * <p>The fields that caused the validation error.</p>
+   * @public
+   */
+  fields?: ValidationExceptionField[] | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fields = opts.fields;
+  }
+}
+
+/**
  * <p>Amazon Polly can't find the specified lexicon. This could be caused by a
  *       lexicon that is missing, its name is misspelled or specifying a lexicon
  *       that is in a different region.</p>
@@ -31,23 +276,39 @@ export class LexiconNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An unknown condition has caused a service failure.</p>
+ * <p>Amazon Polly can't find the specified resource. Verify that the resource
+ *       exists in the Amazon Web Services account and Region of the request and that its ARN or
+ *       ID is spelled correctly, and then try again.</p>
  * @public
  */
-export class ServiceFailureException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.polly#ServiceFailureException";
-  readonly name = "ServiceFailureException" as const;
-  readonly $fault = "server" as const;
+export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#ResourceNotFoundException";
+  readonly name = "ResourceNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The identifier of the resource that wasn't found.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource that wasn't found.</p>
+   * @public
+   */
+  resourceType: ResourceType | undefined;
+
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ServiceFailureException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
     super({
-      name: "ServiceFailureException",
-      $fault: "server",
+      name: "ResourceNotFoundException",
+      $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, ServiceFailureException.prototype);
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
   }
 }
 
@@ -272,31 +533,6 @@ export class InvalidSsmlException extends __BaseException {
 }
 
 /**
- * <p>The resource ARN or a tag in the request isn't valid. Specify the ARN
- *       of a supported resource in the Amazon Web Services account and Region of the request.
- *       Tag keys can have a maximum length of 128 characters, and tag values can
- *       have a maximum length of 256 characters. Correct the ARN or the tags, and
- *       then try again.</p>
- * @public
- */
-export class InvalidTagParameterException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.polly#InvalidTagParameterException";
-  readonly name = "InvalidTagParameterException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTagParameterException, __BaseException>) {
-    super({
-      name: "InvalidTagParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTagParameterException.prototype);
-  }
-}
-
-/**
  * <p>The language specified is not currently supported by Amazon Polly in this
  *       capacity.</p>
  * @public
@@ -337,106 +573,6 @@ export class LexiconSizeExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, LexiconSizeExceededException.prototype);
-  }
-}
-
-/**
- * <p>Amazon Polly can't find the specified resource. Verify that the resource
- *       exists in the Amazon Web Services account and Region of the request and that its ARN is
- *       spelled correctly, and then try again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.polly#ResourceNotFoundException";
-  readonly name = "ResourceNotFoundException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>The identifier of the resource that wasn't found.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource that wasn't found.</p>
-   * @public
-   */
-  resourceType: ResourceType | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>The request was denied because of request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.polly#ThrottlingException";
-  readonly name = "ThrottlingException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>A list of reasons explaining why the request was throttled.</p>
-   * @public
-   */
-  throttlingReasons?: ThrottlingReason[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.throttlingReasons = opts.throttlingReasons;
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.polly#ValidationException";
-  readonly name = "ValidationException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>The reason the request failed validation.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The fields that caused the validation error.</p>
-   * @public
-   */
-  fields?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fields = opts.fields;
   }
 }
 
@@ -508,29 +644,6 @@ export class MaxLexiconsNumberExceededException extends __BaseException {
 }
 
 /**
- * <p>The list of tags on the resource is over the limit. The maximum number
- *       of tags that can be applied to a resource is 50. Remove unused tags or
- *       reduce the number of tags in the request, and then try again.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.polly#TooManyTagsException";
-  readonly name = "TooManyTagsException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-  }
-}
-
-/**
  * <p>The alphabet specified by the lexicon is not a supported alphabet.
  *       Valid values are <code>ipa</code>, <code>x-sampa</code>,
  *       <code>x-amazon-pinyin</code>, <code>x-amazon-jyutping</code>,
@@ -575,41 +688,6 @@ export class UnsupportedPlsLanguageException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, UnsupportedPlsLanguageException.prototype);
-  }
-}
-
-/**
- * <p>The request would cause a service quota to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.polly#ServiceQuotaExceededException";
-  readonly name = "ServiceQuotaExceededException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>The quota code identifying the specific quota.</p>
-   * @public
-   */
-  quotaCode: QuotaCode | undefined;
-
-  /**
-   * <p>The service code identifying the originating service.</p>
-   * @public
-   */
-  serviceCode: ServiceCode | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.quotaCode = opts.quotaCode;
-    this.serviceCode = opts.serviceCode;
   }
 }
 

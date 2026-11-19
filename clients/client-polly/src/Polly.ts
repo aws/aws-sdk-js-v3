@@ -1,17 +1,28 @@
 // smithy-typescript generated code
-import { createAggregatedClient } from "@smithy/core/client";
+import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
+  WaiterConfiguration,
 } from "@smithy/types";
 
+import {
+  type CreateVoiceCommandInput,
+  type CreateVoiceCommandOutput,
+  CreateVoiceCommand,
+} from "./commands/CreateVoiceCommand";
 import {
   type DeleteLexiconCommandInput,
   type DeleteLexiconCommandOutput,
   DeleteLexiconCommand,
 } from "./commands/DeleteLexiconCommand";
+import {
+  type DeleteVoiceCommandInput,
+  type DeleteVoiceCommandOutput,
+  DeleteVoiceCommand,
+} from "./commands/DeleteVoiceCommand";
 import {
   type DescribeVoicesCommandInput,
   type DescribeVoicesCommandOutput,
@@ -27,6 +38,7 @@ import {
   type GetSpeechSynthesisTaskCommandOutput,
   GetSpeechSynthesisTaskCommand,
 } from "./commands/GetSpeechSynthesisTaskCommand";
+import { type GetVoiceCommandInput, type GetVoiceCommandOutput, GetVoiceCommand } from "./commands/GetVoiceCommand";
 import {
   type ListLexiconsCommandInput,
   type ListLexiconsCommandOutput,
@@ -72,14 +84,19 @@ import {
   type UntagResourceCommandOutput,
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
+import type { PollyServiceException } from "./models/PollyServiceException";
 import { paginateListSpeechSynthesisTasks } from "./pagination/ListSpeechSynthesisTasksPaginator";
 import { PollyClient } from "./PollyClient";
+import { waitUntilVoiceActive } from "./waiters/waitForVoiceActive";
 
 const commands = {
+  CreateVoiceCommand,
   DeleteLexiconCommand,
+  DeleteVoiceCommand,
   DescribeVoicesCommand,
   GetLexiconCommand,
   GetSpeechSynthesisTaskCommand,
+  GetVoiceCommand,
   ListLexiconsCommand,
   ListSpeechSynthesisTasksCommand,
   ListTagsForResourceCommand,
@@ -93,6 +110,9 @@ const commands = {
 const paginators = {
   paginateListSpeechSynthesisTasks,
 };
+const waiters = {
+  waitUntilVoiceActive,
+};
 
 /**
  * @public
@@ -102,6 +122,23 @@ export interface PollyRequestOptions extends __HttpHandlerOptions {
 }
 
 export interface Polly {
+  /**
+   * @see {@link CreateVoiceCommand}
+   */
+  createVoice(
+    args: CreateVoiceCommandInput,
+    options?: PollyRequestOptions
+  ): Promise<CreateVoiceCommandOutput>;
+  createVoice(
+    args: CreateVoiceCommandInput,
+    cb: (err: any, data?: CreateVoiceCommandOutput) => void
+  ): void;
+  createVoice(
+    args: CreateVoiceCommandInput,
+    options: PollyRequestOptions,
+    cb: (err: any, data?: CreateVoiceCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link DeleteLexiconCommand}
    */
@@ -117,6 +154,23 @@ export interface Polly {
     args: DeleteLexiconCommandInput,
     options: PollyRequestOptions,
     cb: (err: any, data?: DeleteLexiconCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVoiceCommand}
+   */
+  deleteVoice(
+    args: DeleteVoiceCommandInput,
+    options?: PollyRequestOptions
+  ): Promise<DeleteVoiceCommandOutput>;
+  deleteVoice(
+    args: DeleteVoiceCommandInput,
+    cb: (err: any, data?: DeleteVoiceCommandOutput) => void
+  ): void;
+  deleteVoice(
+    args: DeleteVoiceCommandInput,
+    options: PollyRequestOptions,
+    cb: (err: any, data?: DeleteVoiceCommandOutput) => void
   ): void;
 
   /**
@@ -169,6 +223,23 @@ export interface Polly {
     args: GetSpeechSynthesisTaskCommandInput,
     options: PollyRequestOptions,
     cb: (err: any, data?: GetSpeechSynthesisTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceCommand}
+   */
+  getVoice(
+    args: GetVoiceCommandInput,
+    options?: PollyRequestOptions
+  ): Promise<GetVoiceCommandOutput>;
+  getVoice(
+    args: GetVoiceCommandInput,
+    cb: (err: any, data?: GetVoiceCommandOutput) => void
+  ): void;
+  getVoice(
+    args: GetVoiceCommandInput,
+    options: PollyRequestOptions,
+    cb: (err: any, data?: GetVoiceCommandOutput) => void
   ): void;
 
   /**
@@ -336,6 +407,16 @@ export interface Polly {
     args?: ListSpeechSynthesisTasksCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListSpeechSynthesisTasksCommandOutput>;
+
+  /**
+   * @see {@link GetVoiceCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVoiceActive(
+    args: GetVoiceCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Polly>, "client">
+  ): Promise<WaiterResult<GetVoiceCommandOutput>>;
 }
 
 /**
@@ -349,4 +430,4 @@ export interface Polly {
  * @public
  */
 export class Polly extends PollyClient implements Polly {}
-createAggregatedClient(commands, Polly, { paginators });
+createAggregatedClient(commands, Polly, { paginators, waiters });

@@ -3,16 +3,47 @@
  * @public
  * @enum
  */
-export const Engine = {
-  GENERATIVE: "generative",
-  LONG_FORM: "long-form",
-  NEURAL: "neural",
-  STANDARD: "standard",
+export const AudioFormat = {
+  FLAC: "flac",
+  MP3: "mp3",
+  OGG_VORBIS: "ogg_vorbis",
+  WAV: "wav",
 } as const;
 /**
  * @public
  */
-export type Engine = (typeof Engine)[keyof typeof Engine];
+export type AudioFormat = (typeof AudioFormat)[keyof typeof AudioFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  LEXICON: "lexicon",
+  VOICE: "voice",
+} as const;
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomVoiceLanguageCode = {
+  DE_DE: "de-DE",
+  EN_US: "en-US",
+  ES_US: "es-US",
+  FR_FR: "fr-FR",
+  HI_IN: "hi-IN",
+  IT_IT: "it-IT",
+  PT_BR: "pt-BR",
+} as const;
+/**
+ * @public
+ */
+export type CustomVoiceLanguageCode = (typeof CustomVoiceLanguageCode)[keyof typeof CustomVoiceLanguageCode];
 
 /**
  * @public
@@ -211,6 +242,91 @@ export type VoiceId = (typeof VoiceId)[keyof typeof VoiceId];
  * @public
  * @enum
  */
+export const VoiceOrigin = {
+  AWS: "aws",
+  CUSTOMER: "customer",
+} as const;
+/**
+ * @public
+ */
+export type VoiceOrigin = (typeof VoiceOrigin)[keyof typeof VoiceOrigin];
+
+/**
+ * @public
+ * @enum
+ */
+export const VoiceStatus = {
+  ACTIVE: "active",
+  FAILED: "failed",
+  PENDING: "pending",
+} as const;
+/**
+ * @public
+ */
+export type VoiceStatus = (typeof VoiceStatus)[keyof typeof VoiceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const Engine = {
+  GENERATIVE: "generative",
+  LONG_FORM: "long-form",
+  NEURAL: "neural",
+  STANDARD: "standard",
+} as const;
+/**
+ * @public
+ */
+export type Engine = (typeof Engine)[keyof typeof Engine];
+
+/**
+ * @public
+ * @enum
+ */
+export const QuotaCode = {
+  CUSTOM_VOICE_MAX_COUNT: "custom-voice-max-count",
+  INPUT_STREAM_INBOUND_EVENT_TIMEOUT: "input-stream-inbound-event-timeout",
+  INPUT_STREAM_TIMEOUT: "input-stream-timeout",
+} as const;
+/**
+ * @public
+ */
+export type QuotaCode = (typeof QuotaCode)[keyof typeof QuotaCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceCode = {
+  POLLY: "polly",
+} as const;
+/**
+ * @public
+ */
+export type ServiceCode = (typeof ServiceCode)[keyof typeof ServiceCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  INVALID_INBOUND_EVENT: "invalidInboundEvent",
+  KMS_KEY_NOT_FOUND: "kmsKeyNotFound",
+  KMS_KEY_UNUSABLE: "kmsKeyUnusable",
+  OTHER: "other",
+  UNSUPPORTED_OPERATION: "unsupportedOperation",
+} as const;
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const OutputFormat = {
   ALAW: "alaw",
   JSON: "json",
@@ -267,55 +383,3 @@ export const TextType = {
  * @public
  */
 export type TextType = (typeof TextType)[keyof typeof TextType];
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  LEXICON: "lexicon",
-} as const;
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  INVALID_INBOUND_EVENT: "invalidInboundEvent",
-  OTHER: "other",
-  UNSUPPORTED_OPERATION: "unsupportedOperation",
-} as const;
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * @public
- * @enum
- */
-export const QuotaCode = {
-  INPUT_STREAM_INBOUND_EVENT_TIMEOUT: "input-stream-inbound-event-timeout",
-  INPUT_STREAM_TIMEOUT: "input-stream-timeout",
-} as const;
-/**
- * @public
- */
-export type QuotaCode = (typeof QuotaCode)[keyof typeof QuotaCode];
-
-/**
- * @public
- * @enum
- */
-export const ServiceCode = {
-  POLLY: "polly",
-} as const;
-/**
- * @public
- */
-export type ServiceCode = (typeof ServiceCode)[keyof typeof ServiceCode];

@@ -23,16 +23,26 @@ export interface StartSpeechSynthesisTaskCommandInput extends StartSpeechSynthes
 export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthesisTaskOutput, __MetadataBearer {}
 
 /**
- * <p>Allows the creation of an asynchronous synthesis task, by starting a
- *       new <code>SpeechSynthesisTask</code>. This operation requires all the
- *       standard information needed for speech synthesis, plus the name of an
- *       Amazon S3 bucket for the service to store the output of the synthesis task
- *       and two optional parameters (<code>OutputS3KeyPrefix</code> and
- *         <code>SnsTopicArn</code>). Once the synthesis task is created, this
- *       operation will return a <code>SpeechSynthesisTask</code> object, which
- *       will include an identifier of this task as well as the current status. The
- *         <code>SpeechSynthesisTask</code> object is available for 72 hours after
- *       starting the asynchronous synthesis task.</p>
+ * <p>Starts an asynchronous synthesis task by creating a new
+ *       <code>SpeechSynthesisTask</code>. This operation requires all the standard
+ *       information needed for speech synthesis, plus the name of an Amazon S3
+ *       bucket for the service to store the output of the synthesis task and two
+ *       optional parameters (<code>OutputS3KeyPrefix</code> and
+ *       <code>SnsTopicArn</code>). After Amazon Polly creates the synthesis task, the
+ *       operation returns a <code>SpeechSynthesisTask</code> object that includes
+ *       an identifier for the task and its current status. The
+ *       <code>SpeechSynthesisTask</code> object is available for 72 hours after
+ *       you start the asynchronous synthesis task.</p>
+ *          <p>To use a custom voice, specify its ID in <code>VoiceId</code>. The
+ *       voice must be in <code>active</code> status. If the voice is in
+ *       <code>pending</code> or <code>failed</code> status, the request fails with
+ *       <code>ConflictException</code>. If no custom voice with the specified ID
+ *       exists in your account and Region, the request fails with
+ *       <code>ResourceNotFoundException</code>. If the custom voice uses a
+ *       customer managed key, you need <code>kms:Decrypt</code> permission on the
+ *       key. If you disable the key or schedule it for deletion before the task
+ *       runs, the task fails and <code>TaskStatusReason</code> describes the
+ *       cause.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,6 +103,12 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  * @see {@link StartSpeechSynthesisTaskCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request conflicts with the current state of the resource. For
+ *       a custom voice, the voice isn't in the status that the operation
+ *       requires. Check the status with <code>GetVoice</code>, and then try
+ *       again.</p>
+ *
  * @throws {@link EngineNotSupportedException} (client fault)
  *  <p>This engine is not compatible with the voice that you have designated.
  *       Choose a new voice that is compatible with the engine or change the engine
@@ -132,6 +148,11 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  *  <p>Speech marks are not supported for the <code>OutputFormat</code>
  *       selected. Speech marks are only available for content in <code>json</code>
  *       format.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Amazon Polly can't find the specified resource. Verify that the resource
+ *       exists in the Amazon Web Services account and Region of the request and that its ARN or
+ *       ID is spelled correctly, and then try again.</p>
  *
  * @throws {@link ServiceFailureException} (server fault)
  *  <p>An unknown condition has caused a service failure.</p>

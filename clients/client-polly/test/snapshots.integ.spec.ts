@@ -4,8 +4,14 @@ import { join } from "node:path";
 import { describe, expect, test as it, vi } from "vitest";
 
 import {
+  AccessDeniedException$,
+  ConflictException$,
+  CreateVoice$,
+  CreateVoiceCommand,
   DeleteLexicon$,
   DeleteLexiconCommand,
+  DeleteVoice$,
+  DeleteVoiceCommand,
   DescribeVoices$,
   DescribeVoicesCommand,
   EngineNotSupportedException$,
@@ -13,6 +19,8 @@ import {
   GetLexiconCommand,
   GetSpeechSynthesisTask$,
   GetSpeechSynthesisTaskCommand,
+  GetVoice$,
+  GetVoiceCommand,
   InvalidLexiconException$,
   InvalidNextTokenException$,
   InvalidS3BucketException$,
@@ -78,10 +86,13 @@ describe("PollyClient" + ` (${mode})`, () => {
       return Promise.resolve();
     },
     schemas: new Map<any, any>([
+      [CreateVoice$, CreateVoiceCommand],
       [DeleteLexicon$, DeleteLexiconCommand],
+      [DeleteVoice$, DeleteVoiceCommand],
       [DescribeVoices$, DescribeVoicesCommand],
       [GetLexicon$, GetLexiconCommand],
       [GetSpeechSynthesisTask$, GetSpeechSynthesisTaskCommand],
+      [GetVoice$, GetVoiceCommand],
       [ListLexicons$, ListLexiconsCommand],
       [ListSpeechSynthesisTasks$, ListSpeechSynthesisTasksCommand],
       [ListTagsForResource$, ListTagsForResourceCommand],
@@ -93,6 +104,8 @@ describe("PollyClient" + ` (${mode})`, () => {
       [UntagResource$, UntagResourceCommand],
     ]),
     errors: [
+      AccessDeniedException$,
+      ConflictException$,
       EngineNotSupportedException$,
       InvalidLexiconException$,
       InvalidNextTokenException$,

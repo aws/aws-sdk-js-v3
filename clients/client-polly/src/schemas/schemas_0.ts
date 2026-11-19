@@ -1,26 +1,41 @@
 const _A = "Alphabet";
 const _AC = "AudioChunk";
+const _ADE = "AccessDeniedException";
 const _AE = "AudioEvent";
 const _ALC = "AdditionalLanguageCodes";
 const _AS = "AudioStream";
 const _ASc = "ActionStream";
+const _Ar = "Arn";
 const _At = "Attributes";
+const _B = "Bytes";
 const _C = "Content";
+const _CE = "ConflictException";
+const _CME = "CustomerManagedEncryption";
 const _CSE = "CloseStreamEvent";
-const _CT = "CreationTime";
+const _CT = "ClientToken";
 const _CT_ = "Content-Type";
 const _CTo = "ContentType";
+const _CTr = "CreationTime";
+const _CV = "CreateVoice";
+const _CVI = "CreateVoiceInput";
+const _CVO = "CreateVoiceOutput";
+const _D = "Data";
 const _DL = "DeleteLexicon";
 const _DLI = "DeleteLexiconInput";
 const _DLO = "DeleteLexiconOutput";
-const _DV = "DescribeVoices";
-const _DVI = "DescribeVoicesInput";
-const _DVO = "DescribeVoicesOutput";
+const _DV = "DeleteVoice";
+const _DVI = "DeleteVoiceInput";
+const _DVIe = "DescribeVoicesInput";
+const _DVO = "DeleteVoiceOutput";
+const _DVOe = "DescribeVoicesOutput";
+const _DVe = "DescribeVoices";
 const _E = "Engine";
+const _EC = "EncryptionContext";
 const _ENSE = "EngineNotSupportedException";
 const _ES = "EventStream";
 const _F = "Force";
 const _FSC = "FlushStreamConfiguration";
+const _Fo = "Format";
 const _G = "Gender";
 const _GL = "GetLexicon";
 const _GLI = "GetLexiconInput";
@@ -28,6 +43,9 @@ const _GLO = "GetLexiconOutput";
 const _GSST = "GetSpeechSynthesisTask";
 const _GSSTI = "GetSpeechSynthesisTaskInput";
 const _GSSTO = "GetSpeechSynthesisTaskOutput";
+const _GV = "GetVoice";
+const _GVI = "GetVoiceInput";
+const _GVO = "GetVoiceOutput";
 const _I = "Id";
 const _IALC = "IncludeAdditionalLanguageCodes";
 const _ILE = "InvalidLexiconException";
@@ -39,6 +57,7 @@ const _ISRE = "InvalidSampleRateException";
 const _ISTAE = "InvalidSnsTopicArnException";
 const _ITIE = "InvalidTaskIdException";
 const _ITPE = "InvalidTagParameterException";
+const _KKA = "KmsKeyArn";
 const _L = "Lexicon";
 const _LA = "LexiconAttributes";
 const _LAe = "LexiconArn";
@@ -63,12 +82,14 @@ const _LTFR = "ListTagsForResource";
 const _LTFRI = "ListTagsForResourceInput";
 const _LTFRO = "ListTagsForResourceOutput";
 const _Le = "Lexicons";
+const _M = "Message";
 const _MLLEE = "MaxLexemeLengthExceededException";
 const _MLNEE = "MaxLexiconsNumberExceededException";
 const _MNSFFE = "MarksNotSupportedForFormatException";
 const _MR = "MaxResults";
 const _N = "Name";
 const _NT = "NextToken";
+const _O = "Origin";
 const _OF = "OutputFormat";
 const _OSBN = "OutputS3BucketName";
 const _OSKP = "OutputS3KeyPrefix";
@@ -76,9 +97,14 @@ const _OU = "OutputUri";
 const _PL = "PutLexicon";
 const _PLI = "PutLexiconInput";
 const _PLO = "PutLexiconOutput";
+const _R = "Recording";
 const _RA = "ResourceArn";
+const _RB = "RecordingBytes";
 const _RC = "RequestCharacters";
+const _RD = "RecordingData";
+const _RL = "RecordingList";
 const _RNFE = "ResourceNotFoundException";
+const _Re = "Recordings";
 const _S = "Size";
 const _SCE = "StreamClosedEvent";
 const _SE = "SupportedEngines";
@@ -87,6 +113,7 @@ const _SMNSFTTE = "SsmlMarksNotSupportedForTextTypeException";
 const _SMT = "SpeechMarkTypes";
 const _SQEE = "ServiceQuotaExceededException";
 const _SR = "SampleRate";
+const _SRt = "StatusReason";
 const _SS = "SynthesizeSpeech";
 const _SSI = "SynthesizeSpeechInput";
 const _SSO = "SynthesizeSpeechOutput";
@@ -102,8 +129,10 @@ const _ST = "SynthesisTask";
 const _STA = "SnsTopicArn";
 const _STNFE = "SynthesisTaskNotFoundException";
 const _STy = "SynthesisTasks";
+const _SU = "S3Url";
 const _St = "Status";
 const _T = "Tags";
+const _TA = "TermsAccepted";
 const _TE = "ThrottlingException";
 const _TEe = "TextEvent";
 const _TI = "TaskId";
@@ -124,13 +153,14 @@ const _UPLE = "UnsupportedPlsLanguageException";
 const _UR = "UntagResource";
 const _URI = "UntagResourceInput";
 const _URO = "UntagResourceOutput";
-const _V = "Voices";
+const _V = "Voice";
+const _VCD = "VoiceCreationData";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
 const _VI = "VoiceId";
 const _VL = "VoiceList";
-const _Vo = "Voice";
+const _Vo = "Voices";
 const _a = "arn";
 const _aQE = "awsQueryError";
 const _c = "client";
@@ -175,6 +205,8 @@ import type {
 } from "@smithy/types";
 
 import {
+  AccessDeniedException,
+  ConflictException,
   EngineNotSupportedException,
   InvalidLexiconException,
   InvalidNextTokenException,
@@ -210,6 +242,18 @@ const _s_registry = new TypeRegistry(_s);
 export var PollyServiceException$: StaticErrorSchema = [-3, _s, "PollyServiceException", 0, [], []];
 _s_registry.registerError(PollyServiceException$, PollyServiceException);
 const n0_registry = new TypeRegistry(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_aQE]: [`AccessDenied`, 403], [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
 export var EngineNotSupportedException$: StaticErrorSchema = [-3, n0, _ENSE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
@@ -383,6 +427,7 @@ export const errorTypeRegistries = [
 ]
 var AudioStream: StaticSimpleSchema = [0, n0, _AS, { [_st]: 1 }, 42];
 var LexiconContent: StaticSimpleSchema = [0, n0, _LC, 8, 0];
+var RecordingBytes: StaticSimpleSchema = [0, n0, _RB, 8, 21];
 export var AudioEvent$: StaticStructureSchema = [3, n0, _AE,
   0,
   [_AC],
@@ -392,6 +437,21 @@ export var CloseStreamEvent$: StaticStructureSchema = [3, n0, _CSE,
   0,
   [],
   []
+];
+export var CreateVoiceInput$: StaticStructureSchema = [3, n0, _CVI,
+  0,
+  [_N, _LCa, _TA, _VCD, _CME, _T, _CT],
+  [0, 0, 2, [() => VoiceCreationData$, 0], () => CustomerManagedEncryption$, 128 | 0, [0, 4]], 4
+];
+export var CreateVoiceOutput$: StaticStructureSchema = [3, n0, _CVO,
+  0,
+  [_V],
+  [[() => Voice$, 0]]
+];
+export var CustomerManagedEncryption$: StaticStructureSchema = [3, n0, _CME,
+  0,
+  [_KKA, _EC],
+  [0, 128 | 0], 1
 ];
 export var DeleteLexiconInput$: StaticStructureSchema = [3, n0, _DLI,
   0,
@@ -403,15 +463,25 @@ export var DeleteLexiconOutput$: StaticStructureSchema = [3, n0, _DLO,
   [],
   []
 ];
-export var DescribeVoicesInput$: StaticStructureSchema = [3, n0, _DVI,
+export var DeleteVoiceInput$: StaticStructureSchema = [3, n0, _DVI,
+  0,
+  [_VI],
+  [[0, 1]], 1
+];
+export var DeleteVoiceOutput$: StaticStructureSchema = [3, n0, _DVO,
+  0,
+  [],
+  []
+];
+export var DescribeVoicesInput$: StaticStructureSchema = [3, n0, _DVIe,
   0,
   [_E, _LCa, _IALC, _NT],
   [[0, { [_hQ]: _E }], [0, { [_hQ]: _LCa }], [2, { [_hQ]: _IALC }], [0, { [_hQ]: _NT }]]
 ];
-export var DescribeVoicesOutput$: StaticStructureSchema = [3, n0, _DVO,
+export var DescribeVoicesOutput$: StaticStructureSchema = [3, n0, _DVOe,
   0,
-  [_V, _NT],
-  [() => VoiceList, 0]
+  [_Vo, _NT],
+  [[() => VoiceList, 0], 0]
 ];
 export var FlushStreamConfiguration$: StaticStructureSchema = [3, n0, _FSC,
   0,
@@ -437,6 +507,16 @@ export var GetSpeechSynthesisTaskOutput$: StaticStructureSchema = [3, n0, _GSSTO
   0,
   [_ST],
   [() => SynthesisTask$]
+];
+export var GetVoiceInput$: StaticStructureSchema = [3, n0, _GVI,
+  0,
+  [_VI],
+  [[0, 1]], 1
+];
+export var GetVoiceOutput$: StaticStructureSchema = [3, n0, _GVO,
+  0,
+  [_V],
+  [[() => Voice$, 0]]
 ];
 export var Lexicon$: StaticStructureSchema = [3, n0, _L,
   0,
@@ -493,6 +573,16 @@ export var PutLexiconOutput$: StaticStructureSchema = [3, n0, _PLO,
   [],
   []
 ];
+export var Recording$: StaticStructureSchema = [3, n0, _R,
+  0,
+  [_Fo, _D],
+  [0, [() => RecordingData$, 0]], 2
+];
+export var RecordingData$: StaticStructureSchema = [3, n0, _RD,
+  0,
+  [_SU, _B],
+  [0, [() => RecordingBytes, 0]]
+];
 export var StartSpeechSynthesisStreamInput$: StaticStructureSchema = [3, n0, _SSSSI,
   0,
   [_E, _OF, _VI, _LCa, _LN, _SR, _ASc],
@@ -520,7 +610,7 @@ export var StreamClosedEvent$: StaticStructureSchema = [3, n0, _SCE,
 ];
 export var SynthesisTask$: StaticStructureSchema = [3, n0, _ST,
   0,
-  [_E, _TI, _TS, _TSR, _OU, _CT, _RC, _STA, _LN, _OF, _SR, _SMT, _TT, _VI, _LCa],
+  [_E, _TI, _TS, _TSR, _OU, _CTr, _RC, _STA, _LN, _OF, _SR, _SMT, _TT, _VI, _LCa],
   [0, 0, 0, 0, 0, 4, 1, 0, 64 | 0, 0, 0, 64 | 0, 0, 0, 0]
 ];
 export var SynthesizeSpeechInput$: StaticStructureSchema = [3, n0, _SSI,
@@ -568,10 +658,15 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   [_n, _m],
   [0, 0], 2
 ];
-export var Voice$: StaticStructureSchema = [3, n0, _Vo,
+export var Voice$: StaticStructureSchema = [3, n0, _V,
   0,
-  [_G, _I, _LCa, _LNa, _N, _ALC, _SE],
-  [0, 0, 0, 0, 0, 64 | 0, 64 | 0]
+  [_Ar, _G, _I, _LCa, _LNa, _N, _O, _St, _SRt, _ALC, _SE, _VCD, _CME, _CTr],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, [() => VoiceCreationData$, 0], () => CustomerManagedEncryption$, 4]
+];
+export var VoiceCreationData$: StaticStructureSchema = [3, n0, _VCD,
+  0,
+  [_Re],
+  [[() => RecordingList, 0]], 1
 ];
 var EngineList = 64 | 0;
 var LanguageCodeList = 64 | 0;
@@ -579,6 +674,10 @@ var LexiconDescriptionList: StaticListSchema = [1, n0, _LDL,
   0, () => LexiconDescription$
 ];
 var LexiconNameList = 64 | 0;
+var RecordingList: StaticListSchema = [1, n0, _RL,
+  0, [() => Recording$,
+    0]
+];
 var SpeechMarkTypeList = 64 | 0;
 var SynthesisTasks: StaticListSchema = [1, n0, _STy,
   0, () => SynthesisTask$
@@ -591,8 +690,10 @@ var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
 ];
 var VoiceList: StaticListSchema = [1, n0, _VL,
-  0, () => Voice$
+  0, [() => Voice$,
+    0]
 ];
+var EncryptionContext = 128 | 0;
 var TagMap = 128 | 0;
 export var StartSpeechSynthesisStreamActionStream$: StaticUnionSchema = [4, n0, _SSSSAS,
   { [_st]: 1 },
@@ -604,10 +705,16 @@ export var StartSpeechSynthesisStreamEventStream$: StaticUnionSchema = [4, n0, _
   [_AE, _SCE, _VE, _SQEE, _SFE, _TE],
   [[() => AudioEvent$, 0], () => StreamClosedEvent$, [() => ValidationException$, 0], [() => ServiceQuotaExceededException$, 0], [() => ServiceFailureException$, 0], [() => ThrottlingException$, 0]]
 ];
+export var CreateVoice$: StaticOperationSchema = [9, n0, _CV,
+  { [_h]: ["POST", "/v1/voices", 200] }, () => CreateVoiceInput$, () => CreateVoiceOutput$
+];
 export var DeleteLexicon$: StaticOperationSchema = [9, n0, _DL,
   { [_h]: ["DELETE", "/v1/lexicons/{Name}", 200] }, () => DeleteLexiconInput$, () => DeleteLexiconOutput$
 ];
-export var DescribeVoices$: StaticOperationSchema = [9, n0, _DV,
+export var DeleteVoice$: StaticOperationSchema = [9, n0, _DV,
+  { [_h]: ["DELETE", "/v1/voices/{VoiceId}", 200] }, () => DeleteVoiceInput$, () => DeleteVoiceOutput$
+];
+export var DescribeVoices$: StaticOperationSchema = [9, n0, _DVe,
   { [_h]: ["GET", "/v1/voices", 200] }, () => DescribeVoicesInput$, () => DescribeVoicesOutput$
 ];
 export var GetLexicon$: StaticOperationSchema = [9, n0, _GL,
@@ -615,6 +722,9 @@ export var GetLexicon$: StaticOperationSchema = [9, n0, _GL,
 ];
 export var GetSpeechSynthesisTask$: StaticOperationSchema = [9, n0, _GSST,
   { [_h]: ["GET", "/v1/synthesisTasks/{TaskId}", 200] }, () => GetSpeechSynthesisTaskInput$, () => GetSpeechSynthesisTaskOutput$
+];
+export var GetVoice$: StaticOperationSchema = [9, n0, _GV,
+  { [_h]: ["GET", "/v1/voices/{VoiceId}", 200] }, () => GetVoiceInput$, () => GetVoiceOutput$
 ];
 export var ListLexicons$: StaticOperationSchema = [9, n0, _LL,
   { [_h]: ["GET", "/v1/lexicons", 200] }, () => ListLexiconsInput$, () => ListLexiconsOutput$

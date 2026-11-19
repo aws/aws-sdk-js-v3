@@ -67,13 +67,16 @@ import {
   defaultPollyHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import type { CreateVoiceCommandInput, CreateVoiceCommandOutput } from "./commands/CreateVoiceCommand";
 import type { DeleteLexiconCommandInput, DeleteLexiconCommandOutput } from "./commands/DeleteLexiconCommand";
+import type { DeleteVoiceCommandInput, DeleteVoiceCommandOutput } from "./commands/DeleteVoiceCommand";
 import type { DescribeVoicesCommandInput, DescribeVoicesCommandOutput } from "./commands/DescribeVoicesCommand";
 import type { GetLexiconCommandInput, GetLexiconCommandOutput } from "./commands/GetLexiconCommand";
 import type {
   GetSpeechSynthesisTaskCommandInput,
   GetSpeechSynthesisTaskCommandOutput,
 } from "./commands/GetSpeechSynthesisTaskCommand";
+import type { GetVoiceCommandInput, GetVoiceCommandOutput } from "./commands/GetVoiceCommand";
 import type { ListLexiconsCommandInput, ListLexiconsCommandOutput } from "./commands/ListLexiconsCommand";
 import type {
   ListSpeechSynthesisTasksCommandInput,
@@ -110,10 +113,13 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateVoiceCommandInput
   | DeleteLexiconCommandInput
+  | DeleteVoiceCommandInput
   | DescribeVoicesCommandInput
   | GetLexiconCommandInput
   | GetSpeechSynthesisTaskCommandInput
+  | GetVoiceCommandInput
   | ListLexiconsCommandInput
   | ListSpeechSynthesisTasksCommandInput
   | ListTagsForResourceCommandInput
@@ -128,10 +134,13 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateVoiceCommandOutput
   | DeleteLexiconCommandOutput
+  | DeleteVoiceCommandOutput
   | DescribeVoicesCommandOutput
   | GetLexiconCommandOutput
   | GetSpeechSynthesisTaskCommandOutput
+  | GetVoiceCommandOutput
   | ListLexiconsCommandOutput
   | ListSpeechSynthesisTasksCommandOutput
   | ListTagsForResourceCommandOutput

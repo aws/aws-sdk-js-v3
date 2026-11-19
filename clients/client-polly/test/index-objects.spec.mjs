@@ -1,10 +1,25 @@
 import {
+  AccessDeniedException,
+  AccessDeniedException$,
   AudioEvent$,
+  AudioFormat,
   CloseStreamEvent$,
+  ConflictException,
+  ConflictException$,
+  CreateVoice$,
+  CreateVoiceCommand,
+  CreateVoiceInput$,
+  CreateVoiceOutput$,
+  CustomerManagedEncryption$,
+  CustomVoiceLanguageCode,
   DeleteLexicon$,
   DeleteLexiconCommand,
   DeleteLexiconInput$,
   DeleteLexiconOutput$,
+  DeleteVoice$,
+  DeleteVoiceCommand,
+  DeleteVoiceInput$,
+  DeleteVoiceOutput$,
   DescribeVoices$,
   DescribeVoicesCommand,
   DescribeVoicesInput$,
@@ -22,6 +37,10 @@ import {
   GetSpeechSynthesisTaskCommand,
   GetSpeechSynthesisTaskInput$,
   GetSpeechSynthesisTaskOutput$,
+  GetVoice$,
+  GetVoiceCommand,
+  GetVoiceInput$,
+  GetVoiceOutput$,
   InvalidLexiconException,
   InvalidLexiconException$,
   InvalidNextTokenException,
@@ -78,6 +97,8 @@ import {
   PutLexiconInput$,
   PutLexiconOutput$,
   QuotaCode,
+  Recording$,
+  RecordingData$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceType,
@@ -134,21 +155,32 @@ import {
   ValidationExceptionField$,
   ValidationExceptionReason,
   Voice$,
+  VoiceCreationData$,
   VoiceId,
+  VoiceOrigin,
+  VoiceStatus,
+  waitForVoiceActive,
+  waitUntilVoiceActive,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
 assert(typeof PollyClient === "function");
 assert(typeof Polly === "function");
 // commands
+assert(typeof CreateVoiceCommand === "function");
+assert(typeof CreateVoice$ === "object");
 assert(typeof DeleteLexiconCommand === "function");
 assert(typeof DeleteLexicon$ === "object");
+assert(typeof DeleteVoiceCommand === "function");
+assert(typeof DeleteVoice$ === "object");
 assert(typeof DescribeVoicesCommand === "function");
 assert(typeof DescribeVoices$ === "object");
 assert(typeof GetLexiconCommand === "function");
 assert(typeof GetLexicon$ === "object");
 assert(typeof GetSpeechSynthesisTaskCommand === "function");
 assert(typeof GetSpeechSynthesisTask$ === "object");
+assert(typeof GetVoiceCommand === "function");
+assert(typeof GetVoice$ === "object");
 assert(typeof ListLexiconsCommand === "function");
 assert(typeof ListLexicons$ === "object");
 assert(typeof ListSpeechSynthesisTasksCommand === "function");
@@ -170,8 +202,13 @@ assert(typeof UntagResource$ === "object");
 // structural schemas
 assert(typeof AudioEvent$ === "object");
 assert(typeof CloseStreamEvent$ === "object");
+assert(typeof CreateVoiceInput$ === "object");
+assert(typeof CreateVoiceOutput$ === "object");
+assert(typeof CustomerManagedEncryption$ === "object");
 assert(typeof DeleteLexiconInput$ === "object");
 assert(typeof DeleteLexiconOutput$ === "object");
+assert(typeof DeleteVoiceInput$ === "object");
+assert(typeof DeleteVoiceOutput$ === "object");
 assert(typeof DescribeVoicesInput$ === "object");
 assert(typeof DescribeVoicesOutput$ === "object");
 assert(typeof FlushStreamConfiguration$ === "object");
@@ -179,6 +216,8 @@ assert(typeof GetLexiconInput$ === "object");
 assert(typeof GetLexiconOutput$ === "object");
 assert(typeof GetSpeechSynthesisTaskInput$ === "object");
 assert(typeof GetSpeechSynthesisTaskOutput$ === "object");
+assert(typeof GetVoiceInput$ === "object");
+assert(typeof GetVoiceOutput$ === "object");
 assert(typeof Lexicon$ === "object");
 assert(typeof LexiconAttributes$ === "object");
 assert(typeof LexiconDescription$ === "object");
@@ -190,6 +229,8 @@ assert(typeof ListTagsForResourceInput$ === "object");
 assert(typeof ListTagsForResourceOutput$ === "object");
 assert(typeof PutLexiconInput$ === "object");
 assert(typeof PutLexiconOutput$ === "object");
+assert(typeof Recording$ === "object");
+assert(typeof RecordingData$ === "object");
 assert(typeof StartSpeechSynthesisStreamActionStream$ === "object");
 assert(typeof StartSpeechSynthesisStreamEventStream$ === "object");
 assert(typeof StartSpeechSynthesisStreamInput$ === "object");
@@ -208,7 +249,10 @@ assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof Voice$ === "object");
+assert(typeof VoiceCreationData$ === "object");
 // enums
+assert(typeof AudioFormat === "object");
+assert(typeof CustomVoiceLanguageCode === "object");
 assert(typeof Engine === "object");
 assert(typeof Gender === "object");
 assert(typeof LanguageCode === "object");
@@ -221,7 +265,13 @@ assert(typeof TaskStatus === "object");
 assert(typeof TextType === "object");
 assert(typeof ValidationExceptionReason === "object");
 assert(typeof VoiceId === "object");
+assert(typeof VoiceOrigin === "object");
+assert(typeof VoiceStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof PollyServiceException);
+assert(typeof AccessDeniedException$ === "object");
+assert(ConflictException.prototype instanceof PollyServiceException);
+assert(typeof ConflictException$ === "object");
 assert(EngineNotSupportedException.prototype instanceof PollyServiceException);
 assert(typeof EngineNotSupportedException$ === "object");
 assert(InvalidLexiconException.prototype instanceof PollyServiceException);
@@ -277,6 +327,9 @@ assert(typeof UnsupportedPlsLanguageException$ === "object");
 assert(ValidationException.prototype instanceof PollyServiceException);
 assert(typeof ValidationException$ === "object");
 assert(PollyServiceException.prototype instanceof Error);
+// waiters
+assert(typeof waitForVoiceActive === "function");
+assert(typeof waitUntilVoiceActive === "function");
 // paginators
 assert(typeof paginateListSpeechSynthesisTasks === "function");
 console.log(`Polly index test passed.`);
