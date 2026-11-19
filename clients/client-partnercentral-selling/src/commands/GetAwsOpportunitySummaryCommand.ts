@@ -177,6 +177,7 @@ export interface GetAwsOpportunitySummaryCommandOutput extends GetAwsOpportunity
  * //     AwsPartition: "aws-eusc",
  * //   },
  * //   CosellMotion: "STRING_VALUE",
+ * //   CosellMotionReason: "STRING_VALUE",
  * //   SoftwareRevenue: { // AwsSoftwareRevenue
  * //     Value: { // MonetaryValue
  * //       Amount: "STRING_VALUE", // required

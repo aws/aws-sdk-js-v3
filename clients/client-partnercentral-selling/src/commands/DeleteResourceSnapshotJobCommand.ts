@@ -23,7 +23,7 @@ export interface DeleteResourceSnapshotJobCommandInput extends DeleteResourceSna
 export interface DeleteResourceSnapshotJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p> Use this action to deletes a previously created resource snapshot job. The job must be in a stopped state before it can be deleted. </p>
+ * <p>Use this action to deletes a previously created resource snapshot job. The job must be in a stopped state before it can be deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

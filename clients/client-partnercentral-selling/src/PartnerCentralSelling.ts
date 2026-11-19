@@ -23,6 +23,11 @@ import {
   AssociateOpportunityCommand,
 } from "./commands/AssociateOpportunityCommand";
 import {
+  type CreateCustomerAccountCommandInput,
+  type CreateCustomerAccountCommandOutput,
+  CreateCustomerAccountCommand,
+} from "./commands/CreateCustomerAccountCommand";
+import {
   type CreateEngagementCommandInput,
   type CreateEngagementCommandOutput,
   CreateEngagementCommand,
@@ -53,6 +58,11 @@ import {
   CreateResourceSnapshotJobCommand,
 } from "./commands/CreateResourceSnapshotJobCommand";
 import {
+  type DeleteCustomerAccountCommandInput,
+  type DeleteCustomerAccountCommandOutput,
+  DeleteCustomerAccountCommand,
+} from "./commands/DeleteCustomerAccountCommand";
+import {
   type DeleteResourceSnapshotJobCommandInput,
   type DeleteResourceSnapshotJobCommandOutput,
   DeleteResourceSnapshotJobCommand,
@@ -68,6 +78,26 @@ import {
   GetAwsOpportunitySummaryCommand,
 } from "./commands/GetAwsOpportunitySummaryCommand";
 import {
+  type GetCustomerAccountBulkJobCommandInput,
+  type GetCustomerAccountBulkJobCommandOutput,
+  GetCustomerAccountBulkJobCommand,
+} from "./commands/GetCustomerAccountBulkJobCommand";
+import {
+  type GetCustomerAccountBulkJobReportUrlCommandInput,
+  type GetCustomerAccountBulkJobReportUrlCommandOutput,
+  GetCustomerAccountBulkJobReportUrlCommand,
+} from "./commands/GetCustomerAccountBulkJobReportUrlCommand";
+import {
+  type GetCustomerAccountCommandInput,
+  type GetCustomerAccountCommandOutput,
+  GetCustomerAccountCommand,
+} from "./commands/GetCustomerAccountCommand";
+import {
+  type GetCustomerAccountStatisticsCommandInput,
+  type GetCustomerAccountStatisticsCommandOutput,
+  GetCustomerAccountStatisticsCommand,
+} from "./commands/GetCustomerAccountStatisticsCommand";
+import {
   type GetEngagementCommandInput,
   type GetEngagementCommandOutput,
   GetEngagementCommand,
@@ -77,6 +107,11 @@ import {
   type GetEngagementInvitationCommandOutput,
   GetEngagementInvitationCommand,
 } from "./commands/GetEngagementInvitationCommand";
+import {
+  type GetOpportunityBulkJobReportUrlCommandInput,
+  type GetOpportunityBulkJobReportUrlCommandOutput,
+  GetOpportunityBulkJobReportUrlCommand,
+} from "./commands/GetOpportunityBulkJobReportUrlCommand";
 import {
   type GetOpportunityCommandInput,
   type GetOpportunityCommandOutput,
@@ -103,6 +138,16 @@ import {
   GetSellingSystemSettingsCommand,
 } from "./commands/GetSellingSystemSettingsCommand";
 import {
+  type ListCustomerAccountBulkJobResultsCommandInput,
+  type ListCustomerAccountBulkJobResultsCommandOutput,
+  ListCustomerAccountBulkJobResultsCommand,
+} from "./commands/ListCustomerAccountBulkJobResultsCommand";
+import {
+  type ListCustomerAccountBulkJobsCommandInput,
+  type ListCustomerAccountBulkJobsCommandOutput,
+  ListCustomerAccountBulkJobsCommand,
+} from "./commands/ListCustomerAccountBulkJobsCommand";
+import {
   type ListEngagementByAcceptingInvitationTasksCommandInput,
   type ListEngagementByAcceptingInvitationTasksCommandOutput,
   ListEngagementByAcceptingInvitationTasksCommand,
@@ -112,6 +157,11 @@ import {
   type ListEngagementFromOpportunityTasksCommandOutput,
   ListEngagementFromOpportunityTasksCommand,
 } from "./commands/ListEngagementFromOpportunityTasksCommand";
+import {
+  type ListEngagementGroupsCommandInput,
+  type ListEngagementGroupsCommandOutput,
+  ListEngagementGroupsCommand,
+} from "./commands/ListEngagementGroupsCommand";
 import {
   type ListEngagementInvitationsCommandInput,
   type ListEngagementInvitationsCommandOutput,
@@ -137,6 +187,16 @@ import {
   type ListOpportunitiesCommandOutput,
   ListOpportunitiesCommand,
 } from "./commands/ListOpportunitiesCommand";
+import {
+  type ListOpportunityBulkJobResultsCommandInput,
+  type ListOpportunityBulkJobResultsCommandOutput,
+  ListOpportunityBulkJobResultsCommand,
+} from "./commands/ListOpportunityBulkJobResultsCommand";
+import {
+  type ListOpportunityBulkJobsCommandInput,
+  type ListOpportunityBulkJobsCommandOutput,
+  ListOpportunityBulkJobsCommand,
+} from "./commands/ListOpportunityBulkJobsCommand";
 import {
   type ListOpportunityFromEngagementTasksCommandInput,
   type ListOpportunityFromEngagementTasksCommandOutput,
@@ -178,6 +238,26 @@ import {
   RejectEngagementInvitationCommand,
 } from "./commands/RejectEngagementInvitationCommand";
 import {
+  type SearchCustomerAccountsCommandInput,
+  type SearchCustomerAccountsCommandOutput,
+  SearchCustomerAccountsCommand,
+} from "./commands/SearchCustomerAccountsCommand";
+import {
+  type SearchEngagementsCommandInput,
+  type SearchEngagementsCommandOutput,
+  SearchEngagementsCommand,
+} from "./commands/SearchEngagementsCommand";
+import {
+  type SearchOpportunitiesCommandInput,
+  type SearchOpportunitiesCommandOutput,
+  SearchOpportunitiesCommand,
+} from "./commands/SearchOpportunitiesCommand";
+import {
+  type StartCustomerAccountBulkJobCommandInput,
+  type StartCustomerAccountBulkJobCommandOutput,
+  StartCustomerAccountBulkJobCommand,
+} from "./commands/StartCustomerAccountBulkJobCommand";
+import {
   type StartEngagementByAcceptingInvitationTaskCommandInput,
   type StartEngagementByAcceptingInvitationTaskCommandOutput,
   StartEngagementByAcceptingInvitationTaskCommand,
@@ -187,6 +267,11 @@ import {
   type StartEngagementFromOpportunityTaskCommandOutput,
   StartEngagementFromOpportunityTaskCommand,
 } from "./commands/StartEngagementFromOpportunityTaskCommand";
+import {
+  type StartOpportunityBulkJobCommandInput,
+  type StartOpportunityBulkJobCommandOutput,
+  StartOpportunityBulkJobCommand,
+} from "./commands/StartOpportunityBulkJobCommand";
 import {
   type StartOpportunityFromEngagementTaskCommandInput,
   type StartOpportunityFromEngagementTaskCommandOutput,
@@ -223,6 +308,11 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateCustomerAccountCommandInput,
+  type UpdateCustomerAccountCommandOutput,
+  UpdateCustomerAccountCommand,
+} from "./commands/UpdateCustomerAccountCommand";
+import {
   type UpdateEngagementContextCommandInput,
   type UpdateEngagementContextCommandOutput,
   UpdateEngagementContextCommand,
@@ -232,49 +322,69 @@ import {
   type UpdateOpportunityCommandOutput,
   UpdateOpportunityCommand,
 } from "./commands/UpdateOpportunityCommand";
+import { paginateListCustomerAccountBulkJobResults } from "./pagination/ListCustomerAccountBulkJobResultsPaginator";
+import { paginateListCustomerAccountBulkJobs } from "./pagination/ListCustomerAccountBulkJobsPaginator";
 import {
   paginateListEngagementByAcceptingInvitationTasks,
 } from "./pagination/ListEngagementByAcceptingInvitationTasksPaginator";
 import { paginateListEngagementFromOpportunityTasks } from "./pagination/ListEngagementFromOpportunityTasksPaginator";
+import { paginateListEngagementGroups } from "./pagination/ListEngagementGroupsPaginator";
 import { paginateListEngagementInvitations } from "./pagination/ListEngagementInvitationsPaginator";
 import { paginateListEngagementMembers } from "./pagination/ListEngagementMembersPaginator";
 import { paginateListEngagementResourceAssociations } from "./pagination/ListEngagementResourceAssociationsPaginator";
 import { paginateListEngagements } from "./pagination/ListEngagementsPaginator";
 import { paginateListOpportunities } from "./pagination/ListOpportunitiesPaginator";
+import { paginateListOpportunityBulkJobResults } from "./pagination/ListOpportunityBulkJobResultsPaginator";
+import { paginateListOpportunityBulkJobs } from "./pagination/ListOpportunityBulkJobsPaginator";
 import { paginateListOpportunityFromEngagementTasks } from "./pagination/ListOpportunityFromEngagementTasksPaginator";
 import { paginateListProspectingFromEngagementTasks } from "./pagination/ListProspectingFromEngagementTasksPaginator";
 import { paginateListResourceSnapshotJobs } from "./pagination/ListResourceSnapshotJobsPaginator";
 import { paginateListResourceSnapshots } from "./pagination/ListResourceSnapshotsPaginator";
 import { paginateListSolutions } from "./pagination/ListSolutionsPaginator";
+import { paginateSearchCustomerAccounts } from "./pagination/SearchCustomerAccountsPaginator";
+import { paginateSearchEngagements } from "./pagination/SearchEngagementsPaginator";
+import { paginateSearchOpportunities } from "./pagination/SearchOpportunitiesPaginator";
 import { PartnerCentralSellingClient } from "./PartnerCentralSellingClient";
 
 const commands = {
   AcceptEngagementInvitationCommand,
   AssignOpportunityCommand,
   AssociateOpportunityCommand,
+  CreateCustomerAccountCommand,
   CreateEngagementCommand,
   CreateEngagementContextCommand,
   CreateEngagementInvitationCommand,
   CreateOpportunityCommand,
   CreateResourceSnapshotCommand,
   CreateResourceSnapshotJobCommand,
+  DeleteCustomerAccountCommand,
   DeleteResourceSnapshotJobCommand,
   DisassociateOpportunityCommand,
   GetAwsOpportunitySummaryCommand,
+  GetCustomerAccountCommand,
+  GetCustomerAccountBulkJobCommand,
+  GetCustomerAccountBulkJobReportUrlCommand,
+  GetCustomerAccountStatisticsCommand,
   GetEngagementCommand,
   GetEngagementInvitationCommand,
   GetOpportunityCommand,
+  GetOpportunityBulkJobReportUrlCommand,
   GetProspectingFromEngagementTaskCommand,
   GetResourceSnapshotCommand,
   GetResourceSnapshotJobCommand,
   GetSellingSystemSettingsCommand,
+  ListCustomerAccountBulkJobResultsCommand,
+  ListCustomerAccountBulkJobsCommand,
   ListEngagementByAcceptingInvitationTasksCommand,
   ListEngagementFromOpportunityTasksCommand,
+  ListEngagementGroupsCommand,
   ListEngagementInvitationsCommand,
   ListEngagementMembersCommand,
   ListEngagementResourceAssociationsCommand,
   ListEngagementsCommand,
   ListOpportunitiesCommand,
+  ListOpportunityBulkJobResultsCommand,
+  ListOpportunityBulkJobsCommand,
   ListOpportunityFromEngagementTasksCommand,
   ListProspectingFromEngagementTasksCommand,
   ListResourceSnapshotJobsCommand,
@@ -283,8 +393,13 @@ const commands = {
   ListTagsForResourceCommand,
   PutSellingSystemSettingsCommand,
   RejectEngagementInvitationCommand,
+  SearchCustomerAccountsCommand,
+  SearchEngagementsCommand,
+  SearchOpportunitiesCommand,
+  StartCustomerAccountBulkJobCommand,
   StartEngagementByAcceptingInvitationTaskCommand,
   StartEngagementFromOpportunityTaskCommand,
+  StartOpportunityBulkJobCommand,
   StartOpportunityFromEngagementTaskCommand,
   StartProspectingFromEngagementTaskCommand,
   StartResourceSnapshotJobCommand,
@@ -292,22 +407,31 @@ const commands = {
   SubmitOpportunityCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateCustomerAccountCommand,
   UpdateEngagementContextCommand,
   UpdateOpportunityCommand,
 };
 const paginators = {
+  paginateListCustomerAccountBulkJobResults,
+  paginateListCustomerAccountBulkJobs,
   paginateListEngagementByAcceptingInvitationTasks,
   paginateListEngagementFromOpportunityTasks,
+  paginateListEngagementGroups,
   paginateListEngagementInvitations,
   paginateListEngagementMembers,
   paginateListEngagementResourceAssociations,
   paginateListEngagements,
   paginateListOpportunities,
+  paginateListOpportunityBulkJobResults,
+  paginateListOpportunityBulkJobs,
   paginateListOpportunityFromEngagementTasks,
   paginateListProspectingFromEngagementTasks,
   paginateListResourceSnapshotJobs,
   paginateListResourceSnapshots,
   paginateListSolutions,
+  paginateSearchCustomerAccounts,
+  paginateSearchEngagements,
+  paginateSearchOpportunities,
 };
 
 /**
@@ -367,6 +491,23 @@ export interface PartnerCentralSelling {
     args: AssociateOpportunityCommandInput,
     options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: AssociateOpportunityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCustomerAccountCommand}
+   */
+  createCustomerAccount(
+    args: CreateCustomerAccountCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<CreateCustomerAccountCommandOutput>;
+  createCustomerAccount(
+    args: CreateCustomerAccountCommandInput,
+    cb: (err: any, data?: CreateCustomerAccountCommandOutput) => void
+  ): void;
+  createCustomerAccount(
+    args: CreateCustomerAccountCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: CreateCustomerAccountCommandOutput) => void
   ): void;
 
   /**
@@ -472,6 +613,23 @@ export interface PartnerCentralSelling {
   ): void;
 
   /**
+   * @see {@link DeleteCustomerAccountCommand}
+   */
+  deleteCustomerAccount(
+    args: DeleteCustomerAccountCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<DeleteCustomerAccountCommandOutput>;
+  deleteCustomerAccount(
+    args: DeleteCustomerAccountCommandInput,
+    cb: (err: any, data?: DeleteCustomerAccountCommandOutput) => void
+  ): void;
+  deleteCustomerAccount(
+    args: DeleteCustomerAccountCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: DeleteCustomerAccountCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteResourceSnapshotJobCommand}
    */
   deleteResourceSnapshotJob(
@@ -523,6 +681,74 @@ export interface PartnerCentralSelling {
   ): void;
 
   /**
+   * @see {@link GetCustomerAccountCommand}
+   */
+  getCustomerAccount(
+    args: GetCustomerAccountCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<GetCustomerAccountCommandOutput>;
+  getCustomerAccount(
+    args: GetCustomerAccountCommandInput,
+    cb: (err: any, data?: GetCustomerAccountCommandOutput) => void
+  ): void;
+  getCustomerAccount(
+    args: GetCustomerAccountCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: GetCustomerAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCustomerAccountBulkJobCommand}
+   */
+  getCustomerAccountBulkJob(
+    args: GetCustomerAccountBulkJobCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<GetCustomerAccountBulkJobCommandOutput>;
+  getCustomerAccountBulkJob(
+    args: GetCustomerAccountBulkJobCommandInput,
+    cb: (err: any, data?: GetCustomerAccountBulkJobCommandOutput) => void
+  ): void;
+  getCustomerAccountBulkJob(
+    args: GetCustomerAccountBulkJobCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: GetCustomerAccountBulkJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCustomerAccountBulkJobReportUrlCommand}
+   */
+  getCustomerAccountBulkJobReportUrl(
+    args: GetCustomerAccountBulkJobReportUrlCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<GetCustomerAccountBulkJobReportUrlCommandOutput>;
+  getCustomerAccountBulkJobReportUrl(
+    args: GetCustomerAccountBulkJobReportUrlCommandInput,
+    cb: (err: any, data?: GetCustomerAccountBulkJobReportUrlCommandOutput) => void
+  ): void;
+  getCustomerAccountBulkJobReportUrl(
+    args: GetCustomerAccountBulkJobReportUrlCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: GetCustomerAccountBulkJobReportUrlCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCustomerAccountStatisticsCommand}
+   */
+  getCustomerAccountStatistics(
+    args: GetCustomerAccountStatisticsCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<GetCustomerAccountStatisticsCommandOutput>;
+  getCustomerAccountStatistics(
+    args: GetCustomerAccountStatisticsCommandInput,
+    cb: (err: any, data?: GetCustomerAccountStatisticsCommandOutput) => void
+  ): void;
+  getCustomerAccountStatistics(
+    args: GetCustomerAccountStatisticsCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: GetCustomerAccountStatisticsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetEngagementCommand}
    */
   getEngagement(
@@ -571,6 +797,23 @@ export interface PartnerCentralSelling {
     args: GetOpportunityCommandInput,
     options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: GetOpportunityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetOpportunityBulkJobReportUrlCommand}
+   */
+  getOpportunityBulkJobReportUrl(
+    args: GetOpportunityBulkJobReportUrlCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<GetOpportunityBulkJobReportUrlCommandOutput>;
+  getOpportunityBulkJobReportUrl(
+    args: GetOpportunityBulkJobReportUrlCommandInput,
+    cb: (err: any, data?: GetOpportunityBulkJobReportUrlCommandOutput) => void
+  ): void;
+  getOpportunityBulkJobReportUrl(
+    args: GetOpportunityBulkJobReportUrlCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: GetOpportunityBulkJobReportUrlCommandOutput) => void
   ): void;
 
   /**
@@ -642,6 +885,40 @@ export interface PartnerCentralSelling {
   ): void;
 
   /**
+   * @see {@link ListCustomerAccountBulkJobResultsCommand}
+   */
+  listCustomerAccountBulkJobResults(
+    args: ListCustomerAccountBulkJobResultsCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<ListCustomerAccountBulkJobResultsCommandOutput>;
+  listCustomerAccountBulkJobResults(
+    args: ListCustomerAccountBulkJobResultsCommandInput,
+    cb: (err: any, data?: ListCustomerAccountBulkJobResultsCommandOutput) => void
+  ): void;
+  listCustomerAccountBulkJobResults(
+    args: ListCustomerAccountBulkJobResultsCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: ListCustomerAccountBulkJobResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCustomerAccountBulkJobsCommand}
+   */
+  listCustomerAccountBulkJobs(
+    args: ListCustomerAccountBulkJobsCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<ListCustomerAccountBulkJobsCommandOutput>;
+  listCustomerAccountBulkJobs(
+    args: ListCustomerAccountBulkJobsCommandInput,
+    cb: (err: any, data?: ListCustomerAccountBulkJobsCommandOutput) => void
+  ): void;
+  listCustomerAccountBulkJobs(
+    args: ListCustomerAccountBulkJobsCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: ListCustomerAccountBulkJobsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListEngagementByAcceptingInvitationTasksCommand}
    */
   listEngagementByAcceptingInvitationTasks(
@@ -673,6 +950,23 @@ export interface PartnerCentralSelling {
     args: ListEngagementFromOpportunityTasksCommandInput,
     options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListEngagementFromOpportunityTasksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEngagementGroupsCommand}
+   */
+  listEngagementGroups(
+    args: ListEngagementGroupsCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<ListEngagementGroupsCommandOutput>;
+  listEngagementGroups(
+    args: ListEngagementGroupsCommandInput,
+    cb: (err: any, data?: ListEngagementGroupsCommandOutput) => void
+  ): void;
+  listEngagementGroups(
+    args: ListEngagementGroupsCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: ListEngagementGroupsCommandOutput) => void
   ): void;
 
   /**
@@ -758,6 +1052,40 @@ export interface PartnerCentralSelling {
     args: ListOpportunitiesCommandInput,
     options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListOpportunitiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListOpportunityBulkJobResultsCommand}
+   */
+  listOpportunityBulkJobResults(
+    args: ListOpportunityBulkJobResultsCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<ListOpportunityBulkJobResultsCommandOutput>;
+  listOpportunityBulkJobResults(
+    args: ListOpportunityBulkJobResultsCommandInput,
+    cb: (err: any, data?: ListOpportunityBulkJobResultsCommandOutput) => void
+  ): void;
+  listOpportunityBulkJobResults(
+    args: ListOpportunityBulkJobResultsCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: ListOpportunityBulkJobResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListOpportunityBulkJobsCommand}
+   */
+  listOpportunityBulkJobs(
+    args: ListOpportunityBulkJobsCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<ListOpportunityBulkJobsCommandOutput>;
+  listOpportunityBulkJobs(
+    args: ListOpportunityBulkJobsCommandInput,
+    cb: (err: any, data?: ListOpportunityBulkJobsCommandOutput) => void
+  ): void;
+  listOpportunityBulkJobs(
+    args: ListOpportunityBulkJobsCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: ListOpportunityBulkJobsCommandOutput) => void
   ): void;
 
   /**
@@ -897,6 +1225,74 @@ export interface PartnerCentralSelling {
   ): void;
 
   /**
+   * @see {@link SearchCustomerAccountsCommand}
+   */
+  searchCustomerAccounts(
+    args: SearchCustomerAccountsCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<SearchCustomerAccountsCommandOutput>;
+  searchCustomerAccounts(
+    args: SearchCustomerAccountsCommandInput,
+    cb: (err: any, data?: SearchCustomerAccountsCommandOutput) => void
+  ): void;
+  searchCustomerAccounts(
+    args: SearchCustomerAccountsCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: SearchCustomerAccountsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchEngagementsCommand}
+   */
+  searchEngagements(
+    args: SearchEngagementsCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<SearchEngagementsCommandOutput>;
+  searchEngagements(
+    args: SearchEngagementsCommandInput,
+    cb: (err: any, data?: SearchEngagementsCommandOutput) => void
+  ): void;
+  searchEngagements(
+    args: SearchEngagementsCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: SearchEngagementsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchOpportunitiesCommand}
+   */
+  searchOpportunities(
+    args: SearchOpportunitiesCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<SearchOpportunitiesCommandOutput>;
+  searchOpportunities(
+    args: SearchOpportunitiesCommandInput,
+    cb: (err: any, data?: SearchOpportunitiesCommandOutput) => void
+  ): void;
+  searchOpportunities(
+    args: SearchOpportunitiesCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: SearchOpportunitiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartCustomerAccountBulkJobCommand}
+   */
+  startCustomerAccountBulkJob(
+    args: StartCustomerAccountBulkJobCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<StartCustomerAccountBulkJobCommandOutput>;
+  startCustomerAccountBulkJob(
+    args: StartCustomerAccountBulkJobCommandInput,
+    cb: (err: any, data?: StartCustomerAccountBulkJobCommandOutput) => void
+  ): void;
+  startCustomerAccountBulkJob(
+    args: StartCustomerAccountBulkJobCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: StartCustomerAccountBulkJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartEngagementByAcceptingInvitationTaskCommand}
    */
   startEngagementByAcceptingInvitationTask(
@@ -928,6 +1324,23 @@ export interface PartnerCentralSelling {
     args: StartEngagementFromOpportunityTaskCommandInput,
     options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: StartEngagementFromOpportunityTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartOpportunityBulkJobCommand}
+   */
+  startOpportunityBulkJob(
+    args: StartOpportunityBulkJobCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<StartOpportunityBulkJobCommandOutput>;
+  startOpportunityBulkJob(
+    args: StartOpportunityBulkJobCommandInput,
+    cb: (err: any, data?: StartOpportunityBulkJobCommandOutput) => void
+  ): void;
+  startOpportunityBulkJob(
+    args: StartOpportunityBulkJobCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: StartOpportunityBulkJobCommandOutput) => void
   ): void;
 
   /**
@@ -1050,6 +1463,23 @@ export interface PartnerCentralSelling {
   ): void;
 
   /**
+   * @see {@link UpdateCustomerAccountCommand}
+   */
+  updateCustomerAccount(
+    args: UpdateCustomerAccountCommandInput,
+    options?: PartnerCentralSellingRequestOptions
+  ): Promise<UpdateCustomerAccountCommandOutput>;
+  updateCustomerAccount(
+    args: UpdateCustomerAccountCommandInput,
+    cb: (err: any, data?: UpdateCustomerAccountCommandOutput) => void
+  ): void;
+  updateCustomerAccount(
+    args: UpdateCustomerAccountCommandInput,
+    options: PartnerCentralSellingRequestOptions,
+    cb: (err: any, data?: UpdateCustomerAccountCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateEngagementContextCommand}
    */
   updateEngagementContext(
@@ -1084,6 +1514,28 @@ export interface PartnerCentralSelling {
   ): void;
 
   /**
+   * @see {@link ListCustomerAccountBulkJobResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomerAccountBulkJobResultsCommandOutput}.
+   */
+  paginateListCustomerAccountBulkJobResults(
+    args: ListCustomerAccountBulkJobResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomerAccountBulkJobResultsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomerAccountBulkJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomerAccountBulkJobsCommandOutput}.
+   */
+  paginateListCustomerAccountBulkJobs(
+    args: ListCustomerAccountBulkJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomerAccountBulkJobsCommandOutput>;
+
+  /**
    * @see {@link ListEngagementByAcceptingInvitationTasksCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1104,6 +1556,17 @@ export interface PartnerCentralSelling {
     args: ListEngagementFromOpportunityTasksCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListEngagementFromOpportunityTasksCommandOutput>;
+
+  /**
+   * @see {@link ListEngagementGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEngagementGroupsCommandOutput}.
+   */
+  paginateListEngagementGroups(
+    args: ListEngagementGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEngagementGroupsCommandOutput>;
 
   /**
    * @see {@link ListEngagementInvitationsCommand}
@@ -1161,6 +1624,28 @@ export interface PartnerCentralSelling {
   ): Paginator<ListOpportunitiesCommandOutput>;
 
   /**
+   * @see {@link ListOpportunityBulkJobResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOpportunityBulkJobResultsCommandOutput}.
+   */
+  paginateListOpportunityBulkJobResults(
+    args: ListOpportunityBulkJobResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOpportunityBulkJobResultsCommandOutput>;
+
+  /**
+   * @see {@link ListOpportunityBulkJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOpportunityBulkJobsCommandOutput}.
+   */
+  paginateListOpportunityBulkJobs(
+    args: ListOpportunityBulkJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOpportunityBulkJobsCommandOutput>;
+
+  /**
    * @see {@link ListOpportunityFromEngagementTasksCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1214,6 +1699,39 @@ export interface PartnerCentralSelling {
     args: ListSolutionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListSolutionsCommandOutput>;
+
+  /**
+   * @see {@link SearchCustomerAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchCustomerAccountsCommandOutput}.
+   */
+  paginateSearchCustomerAccounts(
+    args: SearchCustomerAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchCustomerAccountsCommandOutput>;
+
+  /**
+   * @see {@link SearchEngagementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchEngagementsCommandOutput}.
+   */
+  paginateSearchEngagements(
+    args: SearchEngagementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchEngagementsCommandOutput>;
+
+  /**
+   * @see {@link SearchOpportunitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchOpportunitiesCommandOutput}.
+   */
+  paginateSearchOpportunities(
+    args: SearchOpportunitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchOpportunitiesCommandOutput>;
 }
 
 /**

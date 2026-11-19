@@ -40,7 +40,7 @@ export interface GetEngagementInvitationCommandOutput extends GetEngagementInvit
  * const response = await client.send(command);
  * // { // GetEngagementInvitationResponse
  * //   Arn: "STRING_VALUE",
- * //   PayloadType: "OpportunityInvitation" || "LeadInvitation",
+ * //   PayloadType: "OpportunityInvitation" || "LeadInvitation" || "AccountPlanningInvitation",
  * //   Id: "STRING_VALUE", // required
  * //   EngagementId: "STRING_VALUE",
  * //   EngagementTitle: "STRING_VALUE",
@@ -91,6 +91,7 @@ export interface GetEngagementInvitationCommandOutput extends GetEngagementInvit
  * //           },
  * //         ],
  * //       },
+ * //       OpportunityType: "Net New Business" || "Flat Renewal" || "Expansion",
  * //     },
  * //     LeadInvitation: { // LeadInvitationPayload
  * //       Customer: { // LeadInvitationCustomer
@@ -107,6 +108,28 @@ export interface GetEngagementInvitationCommandOutput extends GetEngagementInvit
  * //         SourceName: "STRING_VALUE",
  * //         Usecase: "STRING_VALUE",
  * //         ContactBusinessTitle: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     AccountPlanningInvitation: { // AccountPlanningInvitationPayload
+ * //       AccountIdentifier: "STRING_VALUE",
+ * //       Customer: { // AccountCustomer
+ * //         Industry: "STRING_VALUE",
+ * //         CompanyName: "STRING_VALUE", // required
+ * //         WebsiteUrl: "STRING_VALUE",
+ * //         CountryCode: "US" || "AF" || "AX" || "AL" || "DZ" || "AS" || "AD" || "AO" || "AI" || "AQ" || "AG" || "AR" || "AM" || "AW" || "AU" || "AT" || "AZ" || "BS" || "BH" || "BD" || "BB" || "BY" || "BE" || "BZ" || "BJ" || "BM" || "BT" || "BO" || "BQ" || "BA" || "BW" || "BV" || "BR" || "IO" || "BN" || "BG" || "BF" || "BI" || "KH" || "CM" || "CA" || "CV" || "KY" || "CF" || "TD" || "CL" || "CN" || "CX" || "CC" || "CO" || "KM" || "CG" || "CK" || "CR" || "CI" || "HR" || "CU" || "CW" || "CY" || "CZ" || "CD" || "DK" || "DJ" || "DM" || "DO" || "EC" || "EG" || "SV" || "GQ" || "ER" || "EE" || "ET" || "FK" || "FO" || "FJ" || "FI" || "FR" || "GF" || "PF" || "TF" || "GA" || "GM" || "GE" || "DE" || "GH" || "GI" || "GR" || "GL" || "GD" || "GP" || "GU" || "GT" || "GG" || "GN" || "GW" || "GY" || "HT" || "HM" || "VA" || "HN" || "HK" || "HU" || "IS" || "IN" || "ID" || "IR" || "IQ" || "IE" || "IM" || "IL" || "IT" || "JM" || "JP" || "JE" || "JO" || "KZ" || "KE" || "KI" || "KR" || "KW" || "KG" || "LA" || "LV" || "LB" || "LS" || "LR" || "LY" || "LI" || "LT" || "LU" || "MO" || "MK" || "MG" || "MW" || "MY" || "MV" || "ML" || "MT" || "MH" || "MQ" || "MR" || "MU" || "YT" || "MX" || "FM" || "MD" || "MC" || "MN" || "ME" || "MS" || "MA" || "MZ" || "MM" || "NA" || "NR" || "NP" || "NL" || "AN" || "NC" || "NZ" || "NI" || "NE" || "NG" || "NU" || "NF" || "MP" || "NO" || "OM" || "PK" || "PW" || "PS" || "PA" || "PG" || "PY" || "PE" || "PH" || "PN" || "PL" || "PT" || "PR" || "QA" || "RE" || "RO" || "RU" || "RW" || "BL" || "SH" || "KN" || "LC" || "MF" || "PM" || "VC" || "WS" || "SM" || "ST" || "SA" || "SN" || "RS" || "SC" || "SL" || "SG" || "SX" || "SK" || "SI" || "SB" || "SO" || "ZA" || "GS" || "SS" || "ES" || "LK" || "SD" || "SR" || "SJ" || "SZ" || "SE" || "CH" || "SY" || "TW" || "TJ" || "TZ" || "TH" || "TL" || "TG" || "TK" || "TO" || "TT" || "TN" || "TR" || "TM" || "TC" || "TV" || "UG" || "UA" || "AE" || "GB" || "UM" || "UY" || "UZ" || "VU" || "VE" || "VN" || "VG" || "VI" || "WF" || "EH" || "YE" || "ZM" || "ZW",
+ * //       },
+ * //       SenderContacts: [
+ * //         {
+ * //           Email: "STRING_VALUE", // required
+ * //           FirstName: "STRING_VALUE",
+ * //           LastName: "STRING_VALUE",
+ * //           BusinessTitle: "STRING_VALUE",
+ * //           Phone: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       PreferredContact: { // PreferredContactWindow
+ * //         Window: "MORNING" || "AFTERNOON" || "EVENING",
+ * //         Timezone: "STRING_VALUE",
  * //       },
  * //     },
  * //   },
@@ -144,6 +167,16 @@ export interface GetEngagementInvitationCommandOutput extends GetEngagementInvit
  * //     },
  * //     LeadInsights: { // LeadInsights
  * //       LeadReadinessScore: "STRING_VALUE",
+ * //       ChannelRecommendation: { // ChannelRecommendation
+ * //         RecommendedChannel: "STRING_VALUE", // required
+ * //         BestOutreachWindows: [ // BestOutreachWindowList
+ * //           { // BestOutreachWindow
+ * //             Day: "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY" || "SUNDAY", // required
+ * //             StartTimeUtc: "STRING_VALUE", // required
+ * //             EndTimeUtc: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   },
  * // };

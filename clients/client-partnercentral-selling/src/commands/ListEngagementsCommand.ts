@@ -41,10 +41,10 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResponse, _
  *     "STRING_VALUE",
  *   ],
  *   ContextTypes: [ // EngagementContextTypeList
- *     "CustomerProject" || "Lead" || "ProspectingResult",
+ *     "CustomerProject" || "Lead" || "ProspectingResult" || "CustomerAccount",
  *   ],
  *   ExcludeContextTypes: [
- *     "CustomerProject" || "Lead" || "ProspectingResult",
+ *     "CustomerProject" || "Lead" || "ProspectingResult" || "CustomerAccount",
  *   ],
  *   Sort: { // EngagementSort
  *     SortOrder: "ASCENDING" || "DESCENDING", // required
@@ -70,7 +70,7 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResponse, _
  * //       ModifiedAt: new Date("TIMESTAMP"),
  * //       ModifiedBy: "STRING_VALUE",
  * //       ContextTypes: [ // EngagementContextTypeList
- * //         "CustomerProject" || "Lead" || "ProspectingResult",
+ * //         "CustomerProject" || "Lead" || "ProspectingResult" || "CustomerAccount",
  * //       ],
  * //     },
  * //   ],

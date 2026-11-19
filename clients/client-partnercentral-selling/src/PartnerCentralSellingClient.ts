@@ -66,6 +66,10 @@ import type {
   AssociateOpportunityCommandInput,
   AssociateOpportunityCommandOutput,
 } from "./commands/AssociateOpportunityCommand";
+import type {
+  CreateCustomerAccountCommandInput,
+  CreateCustomerAccountCommandOutput,
+} from "./commands/CreateCustomerAccountCommand";
 import type { CreateEngagementCommandInput, CreateEngagementCommandOutput } from "./commands/CreateEngagementCommand";
 import type {
   CreateEngagementContextCommandInput,
@@ -88,6 +92,10 @@ import type {
   CreateResourceSnapshotJobCommandOutput,
 } from "./commands/CreateResourceSnapshotJobCommand";
 import type {
+  DeleteCustomerAccountCommandInput,
+  DeleteCustomerAccountCommandOutput,
+} from "./commands/DeleteCustomerAccountCommand";
+import type {
   DeleteResourceSnapshotJobCommandInput,
   DeleteResourceSnapshotJobCommandOutput,
 } from "./commands/DeleteResourceSnapshotJobCommand";
@@ -99,11 +107,31 @@ import type {
   GetAwsOpportunitySummaryCommandInput,
   GetAwsOpportunitySummaryCommandOutput,
 } from "./commands/GetAwsOpportunitySummaryCommand";
+import type {
+  GetCustomerAccountBulkJobCommandInput,
+  GetCustomerAccountBulkJobCommandOutput,
+} from "./commands/GetCustomerAccountBulkJobCommand";
+import type {
+  GetCustomerAccountBulkJobReportUrlCommandInput,
+  GetCustomerAccountBulkJobReportUrlCommandOutput,
+} from "./commands/GetCustomerAccountBulkJobReportUrlCommand";
+import type {
+  GetCustomerAccountCommandInput,
+  GetCustomerAccountCommandOutput,
+} from "./commands/GetCustomerAccountCommand";
+import type {
+  GetCustomerAccountStatisticsCommandInput,
+  GetCustomerAccountStatisticsCommandOutput,
+} from "./commands/GetCustomerAccountStatisticsCommand";
 import type { GetEngagementCommandInput, GetEngagementCommandOutput } from "./commands/GetEngagementCommand";
 import type {
   GetEngagementInvitationCommandInput,
   GetEngagementInvitationCommandOutput,
 } from "./commands/GetEngagementInvitationCommand";
+import type {
+  GetOpportunityBulkJobReportUrlCommandInput,
+  GetOpportunityBulkJobReportUrlCommandOutput,
+} from "./commands/GetOpportunityBulkJobReportUrlCommand";
 import type { GetOpportunityCommandInput, GetOpportunityCommandOutput } from "./commands/GetOpportunityCommand";
 import type {
   GetProspectingFromEngagementTaskCommandInput,
@@ -122,6 +150,14 @@ import type {
   GetSellingSystemSettingsCommandOutput,
 } from "./commands/GetSellingSystemSettingsCommand";
 import type {
+  ListCustomerAccountBulkJobResultsCommandInput,
+  ListCustomerAccountBulkJobResultsCommandOutput,
+} from "./commands/ListCustomerAccountBulkJobResultsCommand";
+import type {
+  ListCustomerAccountBulkJobsCommandInput,
+  ListCustomerAccountBulkJobsCommandOutput,
+} from "./commands/ListCustomerAccountBulkJobsCommand";
+import type {
   ListEngagementByAcceptingInvitationTasksCommandInput,
   ListEngagementByAcceptingInvitationTasksCommandOutput,
 } from "./commands/ListEngagementByAcceptingInvitationTasksCommand";
@@ -129,6 +165,10 @@ import type {
   ListEngagementFromOpportunityTasksCommandInput,
   ListEngagementFromOpportunityTasksCommandOutput,
 } from "./commands/ListEngagementFromOpportunityTasksCommand";
+import type {
+  ListEngagementGroupsCommandInput,
+  ListEngagementGroupsCommandOutput,
+} from "./commands/ListEngagementGroupsCommand";
 import type {
   ListEngagementInvitationsCommandInput,
   ListEngagementInvitationsCommandOutput,
@@ -146,6 +186,14 @@ import type {
   ListOpportunitiesCommandInput,
   ListOpportunitiesCommandOutput,
 } from "./commands/ListOpportunitiesCommand";
+import type {
+  ListOpportunityBulkJobResultsCommandInput,
+  ListOpportunityBulkJobResultsCommandOutput,
+} from "./commands/ListOpportunityBulkJobResultsCommand";
+import type {
+  ListOpportunityBulkJobsCommandInput,
+  ListOpportunityBulkJobsCommandOutput,
+} from "./commands/ListOpportunityBulkJobsCommand";
 import type {
   ListOpportunityFromEngagementTasksCommandInput,
   ListOpportunityFromEngagementTasksCommandOutput,
@@ -176,6 +224,22 @@ import type {
   RejectEngagementInvitationCommandOutput,
 } from "./commands/RejectEngagementInvitationCommand";
 import type {
+  SearchCustomerAccountsCommandInput,
+  SearchCustomerAccountsCommandOutput,
+} from "./commands/SearchCustomerAccountsCommand";
+import type {
+  SearchEngagementsCommandInput,
+  SearchEngagementsCommandOutput,
+} from "./commands/SearchEngagementsCommand";
+import type {
+  SearchOpportunitiesCommandInput,
+  SearchOpportunitiesCommandOutput,
+} from "./commands/SearchOpportunitiesCommand";
+import type {
+  StartCustomerAccountBulkJobCommandInput,
+  StartCustomerAccountBulkJobCommandOutput,
+} from "./commands/StartCustomerAccountBulkJobCommand";
+import type {
   StartEngagementByAcceptingInvitationTaskCommandInput,
   StartEngagementByAcceptingInvitationTaskCommandOutput,
 } from "./commands/StartEngagementByAcceptingInvitationTaskCommand";
@@ -183,6 +247,10 @@ import type {
   StartEngagementFromOpportunityTaskCommandInput,
   StartEngagementFromOpportunityTaskCommandOutput,
 } from "./commands/StartEngagementFromOpportunityTaskCommand";
+import type {
+  StartOpportunityBulkJobCommandInput,
+  StartOpportunityBulkJobCommandOutput,
+} from "./commands/StartOpportunityBulkJobCommand";
 import type {
   StartOpportunityFromEngagementTaskCommandInput,
   StartOpportunityFromEngagementTaskCommandOutput,
@@ -205,6 +273,10 @@ import type {
 } from "./commands/SubmitOpportunityCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateCustomerAccountCommandInput,
+  UpdateCustomerAccountCommandOutput,
+} from "./commands/UpdateCustomerAccountCommand";
 import type {
   UpdateEngagementContextCommandInput,
   UpdateEngagementContextCommandOutput,
@@ -231,29 +303,41 @@ export type ServiceInputTypes =
   | AcceptEngagementInvitationCommandInput
   | AssignOpportunityCommandInput
   | AssociateOpportunityCommandInput
+  | CreateCustomerAccountCommandInput
   | CreateEngagementCommandInput
   | CreateEngagementContextCommandInput
   | CreateEngagementInvitationCommandInput
   | CreateOpportunityCommandInput
   | CreateResourceSnapshotCommandInput
   | CreateResourceSnapshotJobCommandInput
+  | DeleteCustomerAccountCommandInput
   | DeleteResourceSnapshotJobCommandInput
   | DisassociateOpportunityCommandInput
   | GetAwsOpportunitySummaryCommandInput
+  | GetCustomerAccountBulkJobCommandInput
+  | GetCustomerAccountBulkJobReportUrlCommandInput
+  | GetCustomerAccountCommandInput
+  | GetCustomerAccountStatisticsCommandInput
   | GetEngagementCommandInput
   | GetEngagementInvitationCommandInput
+  | GetOpportunityBulkJobReportUrlCommandInput
   | GetOpportunityCommandInput
   | GetProspectingFromEngagementTaskCommandInput
   | GetResourceSnapshotCommandInput
   | GetResourceSnapshotJobCommandInput
   | GetSellingSystemSettingsCommandInput
+  | ListCustomerAccountBulkJobResultsCommandInput
+  | ListCustomerAccountBulkJobsCommandInput
   | ListEngagementByAcceptingInvitationTasksCommandInput
   | ListEngagementFromOpportunityTasksCommandInput
+  | ListEngagementGroupsCommandInput
   | ListEngagementInvitationsCommandInput
   | ListEngagementMembersCommandInput
   | ListEngagementResourceAssociationsCommandInput
   | ListEngagementsCommandInput
   | ListOpportunitiesCommandInput
+  | ListOpportunityBulkJobResultsCommandInput
+  | ListOpportunityBulkJobsCommandInput
   | ListOpportunityFromEngagementTasksCommandInput
   | ListProspectingFromEngagementTasksCommandInput
   | ListResourceSnapshotJobsCommandInput
@@ -262,8 +346,13 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | PutSellingSystemSettingsCommandInput
   | RejectEngagementInvitationCommandInput
+  | SearchCustomerAccountsCommandInput
+  | SearchEngagementsCommandInput
+  | SearchOpportunitiesCommandInput
+  | StartCustomerAccountBulkJobCommandInput
   | StartEngagementByAcceptingInvitationTaskCommandInput
   | StartEngagementFromOpportunityTaskCommandInput
+  | StartOpportunityBulkJobCommandInput
   | StartOpportunityFromEngagementTaskCommandInput
   | StartProspectingFromEngagementTaskCommandInput
   | StartResourceSnapshotJobCommandInput
@@ -271,6 +360,7 @@ export type ServiceInputTypes =
   | SubmitOpportunityCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateCustomerAccountCommandInput
   | UpdateEngagementContextCommandInput
   | UpdateOpportunityCommandInput;
 
@@ -281,29 +371,41 @@ export type ServiceOutputTypes =
   | AcceptEngagementInvitationCommandOutput
   | AssignOpportunityCommandOutput
   | AssociateOpportunityCommandOutput
+  | CreateCustomerAccountCommandOutput
   | CreateEngagementCommandOutput
   | CreateEngagementContextCommandOutput
   | CreateEngagementInvitationCommandOutput
   | CreateOpportunityCommandOutput
   | CreateResourceSnapshotCommandOutput
   | CreateResourceSnapshotJobCommandOutput
+  | DeleteCustomerAccountCommandOutput
   | DeleteResourceSnapshotJobCommandOutput
   | DisassociateOpportunityCommandOutput
   | GetAwsOpportunitySummaryCommandOutput
+  | GetCustomerAccountBulkJobCommandOutput
+  | GetCustomerAccountBulkJobReportUrlCommandOutput
+  | GetCustomerAccountCommandOutput
+  | GetCustomerAccountStatisticsCommandOutput
   | GetEngagementCommandOutput
   | GetEngagementInvitationCommandOutput
+  | GetOpportunityBulkJobReportUrlCommandOutput
   | GetOpportunityCommandOutput
   | GetProspectingFromEngagementTaskCommandOutput
   | GetResourceSnapshotCommandOutput
   | GetResourceSnapshotJobCommandOutput
   | GetSellingSystemSettingsCommandOutput
+  | ListCustomerAccountBulkJobResultsCommandOutput
+  | ListCustomerAccountBulkJobsCommandOutput
   | ListEngagementByAcceptingInvitationTasksCommandOutput
   | ListEngagementFromOpportunityTasksCommandOutput
+  | ListEngagementGroupsCommandOutput
   | ListEngagementInvitationsCommandOutput
   | ListEngagementMembersCommandOutput
   | ListEngagementResourceAssociationsCommandOutput
   | ListEngagementsCommandOutput
   | ListOpportunitiesCommandOutput
+  | ListOpportunityBulkJobResultsCommandOutput
+  | ListOpportunityBulkJobsCommandOutput
   | ListOpportunityFromEngagementTasksCommandOutput
   | ListProspectingFromEngagementTasksCommandOutput
   | ListResourceSnapshotJobsCommandOutput
@@ -312,8 +414,13 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | PutSellingSystemSettingsCommandOutput
   | RejectEngagementInvitationCommandOutput
+  | SearchCustomerAccountsCommandOutput
+  | SearchEngagementsCommandOutput
+  | SearchOpportunitiesCommandOutput
+  | StartCustomerAccountBulkJobCommandOutput
   | StartEngagementByAcceptingInvitationTaskCommandOutput
   | StartEngagementFromOpportunityTaskCommandOutput
+  | StartOpportunityBulkJobCommandOutput
   | StartOpportunityFromEngagementTaskCommandOutput
   | StartProspectingFromEngagementTaskCommandOutput
   | StartResourceSnapshotJobCommandOutput
@@ -321,6 +428,7 @@ export type ServiceOutputTypes =
   | SubmitOpportunityCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateCustomerAccountCommandOutput
   | UpdateEngagementContextCommandOutput
   | UpdateOpportunityCommandOutput;
 

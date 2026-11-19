@@ -41,7 +41,7 @@ export interface ListEngagementInvitationsCommandOutput extends ListEngagementIn
  *     SortBy: "InvitationDate", // required
  *   },
  *   PayloadType: [ // EngagementInvitationsPayloadType
- *     "OpportunityInvitation" || "LeadInvitation",
+ *     "OpportunityInvitation" || "LeadInvitation" || "AccountPlanningInvitation",
  *   ],
  *   ParticipantType: "SENDER" || "RECEIVER", // required
  *   Status: [ // InvitationStatusList
@@ -60,7 +60,7 @@ export interface ListEngagementInvitationsCommandOutput extends ListEngagementIn
  * //   EngagementInvitationSummaries: [ // EngagementInvitationSummaries
  * //     { // EngagementInvitationSummary
  * //       Arn: "STRING_VALUE",
- * //       PayloadType: "OpportunityInvitation" || "LeadInvitation",
+ * //       PayloadType: "OpportunityInvitation" || "LeadInvitation" || "AccountPlanningInvitation",
  * //       Id: "STRING_VALUE", // required
  * //       EngagementId: "STRING_VALUE",
  * //       EngagementTitle: "STRING_VALUE",

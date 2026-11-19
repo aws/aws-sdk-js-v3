@@ -13,7 +13,12 @@ export class AccessDeniedException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.partnercentralselling#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>A message that describes why access was denied.</p>
+   * @public
+   */
   Message?: string | undefined;
+
   /**
    * <p>The reason why access was denied for the requested operation.</p>
    * @public
@@ -42,6 +47,10 @@ export class ConflictException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.partnercentralselling#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>A message that describes the conflict.</p>
+   * @public
+   */
   Message?: string | undefined;
   /**
    * @internal
@@ -65,6 +74,10 @@ export class InternalServerException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.partnercentralselling#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
+  /**
+   * <p>A message that describes the internal error.</p>
+   * @public
+   */
   Message?: string | undefined;
   /**
    * @internal
@@ -88,6 +101,10 @@ export class ResourceNotFoundException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.partnercentralselling#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>A message that describes which resource the service couldn't find.</p>
+   * @public
+   */
   Message?: string | undefined;
   /**
    * @internal
@@ -111,6 +128,10 @@ export class ThrottlingException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.partnercentralselling#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>A message that describes why the service throttled the request.</p>
+   * @public
+   */
   Message?: string | undefined;
   /**
    * @internal
@@ -134,7 +155,12 @@ export class ValidationException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.partnercentralselling#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>A message that describes the validation error.</p>
+   * @public
+   */
   Message: string | undefined;
+
   /**
    * <p>The primary reason for this validation exception to occur.</p> <ul> <li> <p> <i>REQUEST_VALIDATION_FAILED:</i> The request format is not valid.</p> <p>Fix: Verify your request payload includes all required fields, uses correct data types and string formats.</p> </li> <li> <p> <i>BUSINESS_VALIDATION_FAILED:</i> The requested change doesn't pass the business validation rules.</p> <p>Fix: Check that your change aligns with the business rules defined by AWS Partner Central.</p> </li> </ul>
    * @public
@@ -170,6 +196,10 @@ export class ServiceQuotaExceededException extends __BaseException {
   public static readonly shapeId: string = "com.amazonaws.partnercentralselling#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>A message that describes which quota the request exceeded.</p>
+   * @public
+   */
   Message?: string | undefined;
   /**
    * @internal

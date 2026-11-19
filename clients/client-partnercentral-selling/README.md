@@ -202,6 +202,13 @@ AssociateOpportunity
 </details>
 <details>
 <summary>
+CreateCustomerAccount
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/CreateCustomerAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/CreateCustomerAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/CreateCustomerAccountCommandOutput/)
+</details>
+<details>
+<summary>
 CreateEngagement
 </summary>
 
@@ -244,6 +251,13 @@ CreateResourceSnapshotJob
 </details>
 <details>
 <summary>
+DeleteCustomerAccount
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/DeleteCustomerAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/DeleteCustomerAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/DeleteCustomerAccountCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteResourceSnapshotJob
 </summary>
 
@@ -265,6 +279,34 @@ GetAwsOpportunitySummary
 </details>
 <details>
 <summary>
+GetCustomerAccount
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/GetCustomerAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/GetCustomerAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/GetCustomerAccountCommandOutput/)
+</details>
+<details>
+<summary>
+GetCustomerAccountBulkJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/GetCustomerAccountBulkJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/GetCustomerAccountBulkJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/GetCustomerAccountBulkJobCommandOutput/)
+</details>
+<details>
+<summary>
+GetCustomerAccountBulkJobReportUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/GetCustomerAccountBulkJobReportUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/GetCustomerAccountBulkJobReportUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/GetCustomerAccountBulkJobReportUrlCommandOutput/)
+</details>
+<details>
+<summary>
+GetCustomerAccountStatistics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/GetCustomerAccountStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/GetCustomerAccountStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/GetCustomerAccountStatisticsCommandOutput/)
+</details>
+<details>
+<summary>
 GetEngagement
 </summary>
 
@@ -283,6 +325,13 @@ GetOpportunity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/GetOpportunityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/GetOpportunityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/GetOpportunityCommandOutput/)
+</details>
+<details>
+<summary>
+GetOpportunityBulkJobReportUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/GetOpportunityBulkJobReportUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/GetOpportunityBulkJobReportUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/GetOpportunityBulkJobReportUrlCommandOutput/)
 </details>
 <details>
 <summary>
@@ -314,6 +363,20 @@ GetSellingSystemSettings
 </details>
 <details>
 <summary>
+ListCustomerAccountBulkJobResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/ListCustomerAccountBulkJobResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListCustomerAccountBulkJobResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListCustomerAccountBulkJobResultsCommandOutput/)
+</details>
+<details>
+<summary>
+ListCustomerAccountBulkJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/ListCustomerAccountBulkJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListCustomerAccountBulkJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListCustomerAccountBulkJobsCommandOutput/)
+</details>
+<details>
+<summary>
 ListEngagementByAcceptingInvitationTasks
 </summary>
 
@@ -325,6 +388,13 @@ ListEngagementFromOpportunityTasks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/ListEngagementFromOpportunityTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListEngagementFromOpportunityTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListEngagementFromOpportunityTasksCommandOutput/)
+</details>
+<details>
+<summary>
+ListEngagementGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/ListEngagementGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListEngagementGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListEngagementGroupsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -360,6 +430,20 @@ ListOpportunities
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/ListOpportunitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListOpportunitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListOpportunitiesCommandOutput/)
+</details>
+<details>
+<summary>
+ListOpportunityBulkJobResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/ListOpportunityBulkJobResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListOpportunityBulkJobResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListOpportunityBulkJobResultsCommandOutput/)
+</details>
+<details>
+<summary>
+ListOpportunityBulkJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/ListOpportunityBulkJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListOpportunityBulkJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListOpportunityBulkJobsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -419,6 +503,34 @@ RejectEngagementInvitation
 </details>
 <details>
 <summary>
+SearchCustomerAccounts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/SearchCustomerAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/SearchCustomerAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/SearchCustomerAccountsCommandOutput/)
+</details>
+<details>
+<summary>
+SearchEngagements
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/SearchEngagementsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/SearchEngagementsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/SearchEngagementsCommandOutput/)
+</details>
+<details>
+<summary>
+SearchOpportunities
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/SearchOpportunitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/SearchOpportunitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/SearchOpportunitiesCommandOutput/)
+</details>
+<details>
+<summary>
+StartCustomerAccountBulkJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/StartCustomerAccountBulkJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/StartCustomerAccountBulkJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/StartCustomerAccountBulkJobCommandOutput/)
+</details>
+<details>
+<summary>
 StartEngagementByAcceptingInvitationTask
 </summary>
 
@@ -430,6 +542,13 @@ StartEngagementFromOpportunityTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/StartEngagementFromOpportunityTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/StartEngagementFromOpportunityTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/StartEngagementFromOpportunityTaskCommandOutput/)
+</details>
+<details>
+<summary>
+StartOpportunityBulkJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/StartOpportunityBulkJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/StartOpportunityBulkJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/StartOpportunityBulkJobCommandOutput/)
 </details>
 <details>
 <summary>
@@ -479,6 +598,13 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/UntagResourceCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateCustomerAccount
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/UpdateCustomerAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/UpdateCustomerAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/UpdateCustomerAccountCommandOutput/)
 </details>
 <details>
 <summary>

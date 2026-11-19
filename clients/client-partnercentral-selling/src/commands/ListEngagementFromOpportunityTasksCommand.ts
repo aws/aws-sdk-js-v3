@@ -26,7 +26,7 @@ export interface ListEngagementFromOpportunityTasksCommandInput extends ListEnga
 export interface ListEngagementFromOpportunityTasksCommandOutput extends ListEngagementFromOpportunityTasksResponse, __MetadataBearer {}
 
 /**
- * <p> Lists all in-progress, completed, or failed <code>EngagementFromOpportunity</code> tasks that were initiated by the caller's account. </p>
+ * <p>Lists all in-progress, completed, or failed EngagementFromOpportunity tasks that were initiated by the caller's account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -26,7 +26,7 @@ export interface ListEngagementByAcceptingInvitationTasksCommandInput extends Li
 export interface ListEngagementByAcceptingInvitationTasksCommandOutput extends ListEngagementByAcceptingInvitationTasksResponse, __MetadataBearer {}
 
 /**
- * <p> Lists all in-progress, completed, or failed StartEngagementByAcceptingInvitationTask tasks that were initiated by the caller's account. </p>
+ * <p>Lists all in-progress, completed, or failed StartEngagementByAcceptingInvitationTask tasks that were initiated by the caller's account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

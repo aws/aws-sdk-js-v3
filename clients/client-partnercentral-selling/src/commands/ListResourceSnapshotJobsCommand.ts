@@ -23,7 +23,7 @@ export interface ListResourceSnapshotJobsCommandInput extends ListResourceSnapsh
 export interface ListResourceSnapshotJobsCommandOutput extends ListResourceSnapshotJobsResponse, __MetadataBearer {}
 
 /**
- * <p> Lists resource snapshot jobs owned by the customer. This operation supports various filtering scenarios, including listing all jobs owned by the caller, jobs for a specific engagement, jobs with a specific status, or any combination of these filters. </p>
+ * <p>Lists resource snapshot jobs owned by the customer. This operation supports various filtering scenarios, including listing all jobs owned by the caller, jobs for a specific engagement, jobs with a specific status, or any combination of these filters. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

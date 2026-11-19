@@ -37,7 +37,7 @@ export interface UpdateEngagementContextCommandOutput extends UpdateEngagementCo
  *   EngagementIdentifier: "STRING_VALUE", // required
  *   ContextIdentifier: "STRING_VALUE", // required
  *   EngagementLastModifiedAt: new Date("TIMESTAMP"), // required
- *   Type: "CustomerProject" || "Lead" || "ProspectingResult", // required
+ *   Type: "CustomerProject" || "Lead" || "ProspectingResult" || "CustomerAccount", // required
  *   Payload: { // UpdateEngagementContextPayload Union: only one key present
  *     Lead: { // UpdateLeadContext
  *       QualificationStatus: "STRING_VALUE",
@@ -72,6 +72,16 @@ export interface UpdateEngagementContextCommandOutput extends UpdateEngagementCo
  *       },
  *       Insights: { // LeadInsights
  *         LeadReadinessScore: "STRING_VALUE",
+ *         ChannelRecommendation: { // ChannelRecommendation
+ *           RecommendedChannel: "STRING_VALUE", // required
+ *           BestOutreachWindows: [ // BestOutreachWindowList
+ *             { // BestOutreachWindow
+ *               Day: "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY" || "SUNDAY", // required
+ *               StartTimeUtc: "STRING_VALUE", // required
+ *               EndTimeUtc: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
  *       },
  *     },
  *     CustomerProject: { // CustomerProjectsContext

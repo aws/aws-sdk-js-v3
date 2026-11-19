@@ -5,6 +5,9 @@
  */
 export const AccessDeniedExceptionErrorCode = {
   INCOMPATIBLE_BENEFIT_AWS_PARTNER_STATE: "INCOMPATIBLE_BENEFIT_AWS_PARTNER_STATE",
+  OPPORTUNITY_BULK_JOB_NOT_ENABLED: "OPPORTUNITY_BULK_JOB_NOT_ENABLED",
+  SEARCH_OPPORTUNITIES_DATA_NOT_ROUTED_TO_DDB: "SEARCH_OPPORTUNITIES_DATA_NOT_ROUTED_TO_DDB",
+  SEARCH_OPPORTUNITIES_NOT_ENABLED: "SEARCH_OPPORTUNITIES_NOT_ENABLED",
 } as const;
 /**
  * @public
@@ -345,6 +348,75 @@ export const Industry = {
  * @public
  */
 export type Industry = (typeof Industry)[keyof typeof Industry];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContactWindow = {
+  AFTERNOON: "AFTERNOON",
+  EVENING: "EVENING",
+  MORNING: "MORNING",
+} as const;
+/**
+ * @public
+ */
+export type ContactWindow = (typeof ContactWindow)[keyof typeof ContactWindow];
+
+/**
+ * @public
+ * @enum
+ */
+export const AggregatableField = {
+  /**
+   * <p>Group by whether the customer qualifies for account planning.</p>
+   */
+  ACCOUNT_PLANNING_QUALIFICATION: "ACCOUNT_PLANNING_QUALIFICATION",
+  /**
+   * <p>Group by the industry of the customer, as classified by AWS.</p>
+   */
+  AWS_INDUSTRY: "AWS_INDUSTRY",
+  /**
+   * <p>Group by the country of the customer.</p>
+   */
+  COUNTRY: "COUNTRY",
+  /**
+   * <p>Group by the enrichment status of the customer account.</p>
+   */
+  ENRICHMENT_STATUS: "ENRICHMENT_STATUS",
+  /**
+   * <p>Group by the geographic area of the customer.</p>
+   */
+  GEO: "GEO",
+  /**
+   * <p>Group by the AWS Marketplace engagement score of the customer.</p>
+   */
+  MARKETPLACE_ENGAGEMENT_SCORE: "MARKETPLACE_ENGAGEMENT_SCORE",
+  /**
+   * <p>Group by the AWS programs that the customer is eligible for.</p>
+   */
+  PROGRAM_ELIGIBILITY: "PROGRAM_ELIGIBILITY",
+  /**
+   * <p>Group by the region of the customer.</p>
+   */
+  REGION: "REGION",
+  /**
+   * <p>Group by the market segment of the customer.</p>
+   */
+  SEGMENT: "SEGMENT",
+  /**
+   * <p>Group by the category of the recommended solution.</p>
+   */
+  SOLUTION_CATEGORY: "SOLUTION_CATEGORY",
+  /**
+   * <p>Group by the score of the recommended solution.</p>
+   */
+  SOLUTION_SCORE: "SOLUTION_SCORE",
+} as const;
+/**
+ * @public
+ */
+export type AggregatableField = (typeof AggregatableField)[keyof typeof AggregatableField];
 
 /**
  * @public
@@ -765,7 +837,47 @@ export type Visibility = (typeof Visibility)[keyof typeof Visibility];
  * @public
  * @enum
  */
+export const DayOfWeek = {
+  /**
+   * <p>The day is Friday.</p>
+   */
+  FRIDAY: "FRIDAY",
+  /**
+   * <p>The day is Monday.</p>
+   */
+  MONDAY: "MONDAY",
+  /**
+   * <p>The day is Saturday.</p>
+   */
+  SATURDAY: "SATURDAY",
+  /**
+   * <p>The day is Sunday.</p>
+   */
+  SUNDAY: "SUNDAY",
+  /**
+   * <p>The day is Thursday.</p>
+   */
+  THURSDAY: "THURSDAY",
+  /**
+   * <p>The day is Tuesday.</p>
+   */
+  TUESDAY: "TUESDAY",
+  /**
+   * <p>The day is Wednesday.</p>
+   */
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+/**
+ * @public
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
+
+/**
+ * @public
+ * @enum
+ */
 export const EngagementContextType = {
+  CUSTOMER_ACCOUNT: "CustomerAccount",
   CUSTOMER_PROJECT: "CustomerProject",
   LEAD: "Lead",
   PROSPECTING_RESULT: "ProspectingResult",
@@ -774,6 +886,261 @@ export const EngagementContextType = {
  * @public
  */
 export type EngagementContextType = (typeof EngagementContextType)[keyof typeof EngagementContextType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EnrichmentStatus = {
+  /**
+   * <p>The customer account needs your action. See <code>ReasonCode</code> and <code>Message</code> for details.</p>
+   */
+  ACTION_REQUIRED: "ACTION_REQUIRED",
+  /**
+   * <p>AWS matched the customer account to a customer and added enrichment information.</p>
+   */
+  ENRICHED: "ENRICHED",
+  /**
+   * <p>AWS couldn't match the customer account to a customer.</p>
+   */
+  NO_MATCH_FOUND: "NO_MATCH_FOUND",
+  /**
+   * <p>AWS is matching the customer account to a customer.</p>
+   */
+  PENDING: "PENDING",
+} as const;
+/**
+ * @public
+ */
+export type EnrichmentStatus = (typeof EnrichmentStatus)[keyof typeof EnrichmentStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomerAccountFailureReason = {
+  /**
+   * <p>The customer is already mapped by another customer account. <code>ExistingCustomerAccountArn</code> identifies that account.</p>
+   */
+  DUPLICATE_CUSTOMER_MATCH: "DUPLICATE_CUSTOMER_MATCH",
+  /**
+   * <p>An error occurred while processing the customer account.</p>
+   */
+  PROCESSING_ERROR: "PROCESSING_ERROR",
+} as const;
+/**
+ * @public
+ */
+export type CustomerAccountFailureReason =
+  (typeof CustomerAccountFailureReason)[keyof typeof CustomerAccountFailureReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterableField = {
+  /**
+   * <p>Filter by whether the customer qualifies for account planning.</p>
+   */
+  ACCOUNT_PLANNING_QUALIFICATION: "ACCOUNT_PLANNING_QUALIFICATION",
+  /**
+   * <p>Filter by the industry of the customer, as classified by AWS.</p>
+   */
+  AWS_INDUSTRY: "AWS_INDUSTRY",
+  /**
+   * <p>Filter by the customer company name.</p>
+   */
+  COMPANY_NAME: "COMPANY_NAME",
+  /**
+   * <p>Filter by the country of the customer.</p>
+   */
+  COUNTRY: "COUNTRY",
+  /**
+   * <p>Filter by the date when the customer account was created.</p>
+   */
+  CREATED_DATE: "CREATED_DATE",
+  /**
+   * <p>Filter by the enrichment status of the customer account.</p>
+   */
+  ENRICHMENT_STATUS: "ENRICHMENT_STATUS",
+  /**
+   * <p>Filter by the geographic area of the customer.</p>
+   */
+  GEO: "GEO",
+  /**
+   * <p>Filter by the import that created the customer account.</p>
+   */
+  IMPORT_ID: "IMPORT_ID",
+  /**
+   * <p>Filter by the date when the customer account was last modified.</p>
+   */
+  LAST_MODIFIED_DATE: "LAST_MODIFIED_DATE",
+  /**
+   * <p>Filter by the AWS Marketplace engagement score of the customer.</p>
+   */
+  MARKETPLACE_ENGAGEMENT_SCORE: "MARKETPLACE_ENGAGEMENT_SCORE",
+  /**
+   * <p>Filter by the AWS programs that the customer is eligible for.</p>
+   */
+  PROGRAM_ELIGIBILITY: "PROGRAM_ELIGIBILITY",
+  /**
+   * <p>Filter by the market segment of the customer.</p>
+   */
+  SEGMENT: "SEGMENT",
+  /**
+   * <p>Filter by the category of the recommended solution.</p>
+   */
+  SOLUTION_CATEGORY: "SOLUTION_CATEGORY",
+  /**
+   * <p>Filter by the score of the recommended solution.</p>
+   */
+  SOLUTION_SCORE: "SOLUTION_SCORE",
+} as const;
+/**
+ * @public
+ */
+export type FilterableField = (typeof FilterableField)[keyof typeof FilterableField];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortableField = {
+  /**
+   * <p>Sort by the customer company name.</p>
+   */
+  COMPANY_NAME: "COMPANY_NAME",
+  /**
+   * <p>Sort by the date when the customer account was created.</p>
+   */
+  CREATED_DATE: "CREATED_DATE",
+  /**
+   * <p>Sort by the date when the customer account was last modified.</p>
+   */
+  LAST_MODIFIED_DATE: "LAST_MODIFIED_DATE",
+  /**
+   * <p>Sort by the AWS Marketplace engagement score. Scores sort in the order <code>High</code>, <code>Medium</code>, <code>Low</code>, with accounts that have no score last.</p>
+   */
+  MARKETPLACE_ENGAGEMENT_SCORE: "MARKETPLACE_ENGAGEMENT_SCORE",
+  /**
+   * <p>Sort by the score of the recommended solution. Scores sort in the order <code>High</code>, <code>Medium</code>, <code>Low</code>, with accounts that have no score last.</p>
+   */
+  SOLUTION_SCORE: "SOLUTION_SCORE",
+} as const;
+/**
+ * @public
+ */
+export type SortableField = (typeof SortableField)[keyof typeof SortableField];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const BulkJobStatus = {
+  /**
+   * <p>The job finished processing all records. Some records might have failed.</p>
+   */
+  COMPLETED: "COMPLETED",
+  /**
+   * <p>The job failed. See <code>FailureReason</code> for details.</p>
+   */
+  FAILED: "FAILED",
+  /**
+   * <p>The job is processing records.</p>
+   */
+  IN_PROGRESS: "IN_PROGRESS",
+  /**
+   * <p>The job was created and is waiting to start.</p>
+   */
+  SUBMITTED: "SUBMITTED",
+} as const;
+/**
+ * @public
+ */
+export type BulkJobStatus = (typeof BulkJobStatus)[keyof typeof BulkJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BulkReportType = {
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  ALL_RECORDS: "ALL_RECORDS",
+  /**
+   * <p>The report covers only the records that failed.</p>
+   */
+  FAILED_RECORDS: "FAILED_RECORDS",
+} as const;
+/**
+ * @public
+ */
+export type BulkReportType = (typeof BulkReportType)[keyof typeof BulkReportType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BulkReportStatus = {
+  /**
+   * <p>The report is ready to download.</p>
+   */
+  AVAILABLE: "AVAILABLE",
+  /**
+   * The report was generated but its retention window has passed, so the
+   * stored file no longer exists and no download URL can be issued.
+   */
+  EXPIRED: "EXPIRED",
+  /**
+   * <p>The report couldn't be generated. See <code>FailureReason</code> for details.</p>
+   */
+  FAILED: "FAILED",
+  /**
+   * <p>The report is being generated.</p>
+   */
+  IN_PROGRESS: "IN_PROGRESS",
+  /**
+   * <p>The report hasn't been generated yet.</p>
+   */
+  NOT_STARTED: "NOT_STARTED",
+} as const;
+/**
+ * @public
+ */
+export type BulkReportStatus = (typeof BulkReportStatus)[keyof typeof BulkReportStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BulkRecordStatus = {
+  /**
+   * <p>The record failed.</p>
+   */
+  FAILED: "FAILED",
+  /**
+   * <p>The record was processed successfully.</p>
+   */
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type BulkRecordStatus = (typeof BulkRecordStatus)[keyof typeof BulkRecordStatus];
 
 /**
  * @public
@@ -791,14 +1158,243 @@ export type EngagementSortName = (typeof EngagementSortName)[keyof typeof Engage
  * @public
  * @enum
  */
-export const SortOrder = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
+export const EngagementSearchFilterName = {
+  /**
+   * <p>Filter on the context type field.</p>
+   */
+  CONTEXT_TYPE: "ContextType",
+  /**
+   * <p>Filter on the created at field.</p>
+   */
+  CREATED_AT: "CreatedAt",
+  /**
+   * <p>Filter on the engagement id field.</p>
+   */
+  ENGAGEMENT_ID: "EngagementId",
+  /**
+   * <p>Filter on the last modified at field.</p>
+   */
+  LAST_MODIFIED_AT: "LastModifiedAt",
+  /**
+   * <p>Filter on the lead customer aws maturity field.</p>
+   */
+  LEAD_CUSTOMER_AWS_MATURITY: "LeadCustomerAwsMaturity",
+  /**
+   * <p>Filter on the lead customer company name field.</p>
+   */
+  LEAD_CUSTOMER_COMPANY_NAME: "LeadCustomerCompanyName",
+  /**
+   * <p>Filter on the lead customer country code field.</p>
+   */
+  LEAD_CUSTOMER_COUNTRY_CODE: "LeadCustomerCountryCode",
+  /**
+   * <p>Filter on the lead customer industry field.</p>
+   */
+  LEAD_CUSTOMER_INDUSTRY: "LeadCustomerIndustry",
+  /**
+   * <p>Filter on the lead customer market segment field.</p>
+   */
+  LEAD_CUSTOMER_MARKET_SEGMENT: "LeadCustomerMarketSegment",
+  /**
+   * <p>Filter on the lead interactions contact business title field.</p>
+   */
+  LEAD_INTERACTIONS_CONTACT_BUSINESS_TITLE: "LeadInteractionsContactBusinessTitle",
+  /**
+   * <p>Filter on the lead interactions contact first name field.</p>
+   */
+  LEAD_INTERACTIONS_CONTACT_FIRST_NAME: "LeadInteractionsContactFirstName",
+  /**
+   * <p>Filter on the lead interactions contact last name field.</p>
+   */
+  LEAD_INTERACTIONS_CONTACT_LAST_NAME: "LeadInteractionsContactLastName",
+  /**
+   * <p>Filter on the lead interactions source name field.</p>
+   */
+  LEAD_INTERACTIONS_SOURCE_NAME: "LeadInteractionsSourceName",
+  /**
+   * <p>Filter on the lead interactions source type field.</p>
+   */
+  LEAD_INTERACTIONS_SOURCE_TYPE: "LeadInteractionsSourceType",
+  /**
+   * <p>Filter on the lead interactions usecase field.</p>
+   */
+  LEAD_INTERACTIONS_USECASE: "LeadInteractionsUsecase",
+  /**
+   * <p>Filter on the lead qualification status field.</p>
+   */
+  LEAD_QUALIFICATION_STATUS: "LeadQualificationStatus",
+  /**
+   * <p>Filter on the lead readiness score field.</p>
+   */
+  LEAD_READINESS_SCORE: "LeadReadinessScore",
+  /**
+   * <p>Filter on the member count field.</p>
+   */
+  MEMBER_COUNT: "MemberCount",
+  /**
+   * <p>Filter on the partner id field.</p>
+   */
+  PARTNER_ID: "PartnerId",
+  /**
+   * <p>Filter on the prospecting customer company size field.</p>
+   */
+  PROSPECTING_CUSTOMER_COMPANY_SIZE: "ProspectingCustomerCompanySize",
+  /**
+   * <p>Filter on the prospecting customer country field.</p>
+   */
+  PROSPECTING_CUSTOMER_COUNTRY: "ProspectingCustomerCountry",
+  /**
+   * <p>Filter on the prospecting customer geo field.</p>
+   */
+  PROSPECTING_CUSTOMER_GEO: "ProspectingCustomerGeo",
+  /**
+   * <p>Filter on the prospecting customer industry field.</p>
+   */
+  PROSPECTING_CUSTOMER_INDUSTRY: "ProspectingCustomerIndustry",
+  /**
+   * <p>Filter on the prospecting customer region field.</p>
+   */
+  PROSPECTING_CUSTOMER_REGION: "ProspectingCustomerRegion",
+  /**
+   * <p>Filter on the prospecting customer segment field.</p>
+   */
+  PROSPECTING_CUSTOMER_SEGMENT: "ProspectingCustomerSegment",
+  /**
+   * <p>Filter on the prospecting insights marketplace engagement score field.</p>
+   */
+  PROSPECTING_INSIGHTS_MARKETPLACE_ENGAGEMENT_SCORE: "ProspectingInsightsMarketplaceEngagementScore",
+  /**
+   * <p>Filter on the prospecting insights solution category field.</p>
+   */
+  PROSPECTING_INSIGHTS_SOLUTION_CATEGORY: "ProspectingInsightsSolutionCategory",
+  /**
+   * <p>Filter on the prospecting insights solution sub category field.</p>
+   */
+  PROSPECTING_INSIGHTS_SOLUTION_SUB_CATEGORY: "ProspectingInsightsSolutionSubCategory",
+  /**
+   * <p>Filter on the title field.</p>
+   */
+  TITLE: "Title",
 } as const;
 /**
  * @public
  */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+export type EngagementSearchFilterName = (typeof EngagementSearchFilterName)[keyof typeof EngagementSearchFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const EngagementSearchSortName = {
+  /**
+   * <p>Sort by the created at field.</p>
+   */
+  CREATED_AT: "CreatedAt",
+  /**
+   * <p>Sort by the engagement id field.</p>
+   */
+  ENGAGEMENT_ID: "EngagementId",
+  /**
+   * <p>Sort by the last modified at field.</p>
+   */
+  LAST_MODIFIED_AT: "LastModifiedAt",
+  /**
+   * <p>Sort by the lead customer aws maturity field.</p>
+   */
+  LEAD_CUSTOMER_AWS_MATURITY: "LeadCustomerAwsMaturity",
+  /**
+   * <p>Sort by the lead customer company name field.</p>
+   */
+  LEAD_CUSTOMER_COMPANY_NAME: "LeadCustomerCompanyName",
+  /**
+   * <p>Sort by the lead customer country code field.</p>
+   */
+  LEAD_CUSTOMER_COUNTRY_CODE: "LeadCustomerCountryCode",
+  /**
+   * <p>Sort by the lead customer industry field.</p>
+   */
+  LEAD_CUSTOMER_INDUSTRY: "LeadCustomerIndustry",
+  /**
+   * <p>Sort by the lead customer market segment field.</p>
+   */
+  LEAD_CUSTOMER_MARKET_SEGMENT: "LeadCustomerMarketSegment",
+  /**
+   * <p>Sort by the lead interactions contact business title field.</p>
+   */
+  LEAD_INTERACTIONS_CONTACT_BUSINESS_TITLE: "LeadInteractionsContactBusinessTitle",
+  /**
+   * <p>Sort by the lead interactions contact first name field.</p>
+   */
+  LEAD_INTERACTIONS_CONTACT_FIRST_NAME: "LeadInteractionsContactFirstName",
+  /**
+   * <p>Sort by the lead interactions contact last name field.</p>
+   */
+  LEAD_INTERACTIONS_CONTACT_LAST_NAME: "LeadInteractionsContactLastName",
+  /**
+   * <p>Sort by the lead interactions usecase field.</p>
+   */
+  LEAD_INTERACTIONS_USECASE: "LeadInteractionsUsecase",
+  /**
+   * <p>Sort by the lead qualification status field.</p>
+   */
+  LEAD_QUALIFICATION_STATUS: "LeadQualificationStatus",
+  /**
+   * <p>Sort by the lead readiness score field.</p>
+   */
+  LEAD_READINESS_SCORE: "LeadReadinessScore",
+  /**
+   * <p>Sort by the member count field.</p>
+   */
+  MEMBER_COUNT: "MemberCount",
+  /**
+   * <p>Sort by the partner id field.</p>
+   */
+  PARTNER_ID: "PartnerId",
+  /**
+   * <p>Sort by the prospecting customer company size field.</p>
+   */
+  PROSPECTING_CUSTOMER_COMPANY_SIZE: "ProspectingCustomerCompanySize",
+  /**
+   * <p>Sort by the prospecting customer country field.</p>
+   */
+  PROSPECTING_CUSTOMER_COUNTRY: "ProspectingCustomerCountry",
+  /**
+   * <p>Sort by the prospecting customer geo field.</p>
+   */
+  PROSPECTING_CUSTOMER_GEO: "ProspectingCustomerGeo",
+  /**
+   * <p>Sort by the prospecting customer industry field.</p>
+   */
+  PROSPECTING_CUSTOMER_INDUSTRY: "ProspectingCustomerIndustry",
+  /**
+   * <p>Sort by the prospecting customer region field.</p>
+   */
+  PROSPECTING_CUSTOMER_REGION: "ProspectingCustomerRegion",
+  /**
+   * <p>Sort by the prospecting customer segment field.</p>
+   */
+  PROSPECTING_CUSTOMER_SEGMENT: "ProspectingCustomerSegment",
+  /**
+   * <p>Sort by the prospecting insights marketplace engagement score field.</p>
+   */
+  PROSPECTING_INSIGHTS_MARKETPLACE_ENGAGEMENT_SCORE: "ProspectingInsightsMarketplaceEngagementScore",
+  /**
+   * <p>Sort by the prospecting insights solution category field.</p>
+   */
+  PROSPECTING_INSIGHTS_SOLUTION_CATEGORY: "ProspectingInsightsSolutionCategory",
+  /**
+   * <p>Sort by the prospecting insights solution sub category field.</p>
+   */
+  PROSPECTING_INSIGHTS_SOLUTION_SUB_CATEGORY: "ProspectingInsightsSolutionSubCategory",
+  /**
+   * <p>Sort by the title field.</p>
+   */
+  TITLE: "Title",
+} as const;
+/**
+ * @public
+ */
+export type EngagementSearchSortName = (typeof EngagementSearchSortName)[keyof typeof EngagementSearchSortName];
 
 /**
  * @public
@@ -863,6 +1459,62 @@ export type ReasonCode = (typeof ReasonCode)[keyof typeof ReasonCode];
  * @public
  * @enum
  */
+export const ReadinessLevel = {
+  /**
+   * <p>Leads with low potential that are suited to a nurture campaign.</p>
+   */
+  LOW_POTENTIAL: "LowPotential",
+  /**
+   * <p>Leads that are suited to a marketing campaign rather than direct outreach.</p>
+   */
+  MARKETING_READY: "MarketingReady",
+  /**
+   * <p>Leads that are ready for direct sales outreach.</p>
+   */
+  SALES_READY: "SalesReady",
+} as const;
+/**
+ * @public
+ */
+export type ReadinessLevel = (typeof ReadinessLevel)[keyof typeof ReadinessLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const EngagementGroupSortName = {
+  /**
+   * <p>Sort by the number of engagements in the group.</p>
+   */
+  COUNT: "Count",
+  /**
+   * <p>Sort by the date and time when the group was last updated.</p>
+   */
+  UPDATED_AT: "UpdatedAt",
+} as const;
+/**
+ * @public
+ */
+export type EngagementGroupSortName = (typeof EngagementGroupSortName)[keyof typeof EngagementGroupSortName];
+
+/**
+ * @public
+ * @enum
+ */
+export const OpportunityType = {
+  EXPANSION: "Expansion",
+  FLAT_RENEWAL: "Flat Renewal",
+  NET_NEW_BUSINESS: "Net New Business",
+} as const;
+/**
+ * @public
+ */
+export type OpportunityType = (typeof OpportunityType)[keyof typeof OpportunityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ReceiverResponsibility = {
   CO_SELL_FACILITATOR: "Co-Sell Facilitator",
   DISTRIBUTOR: "Distributor",
@@ -884,6 +1536,7 @@ export type ReceiverResponsibility = (typeof ReceiverResponsibility)[keyof typeo
  * @enum
  */
 export const EngagementInvitationPayloadType = {
+  ACCOUNT_PLANNING_INVITATION: "AccountPlanningInvitation",
   LEAD_INVITATION: "LeadInvitation",
   OPPORTUNITY_INVITATION: "OpportunityInvitation",
 } as const;
@@ -1053,20 +1706,6 @@ export type NationalSecurity = (typeof NationalSecurity)[keyof typeof NationalSe
  * @public
  * @enum
  */
-export const OpportunityType = {
-  EXPANSION: "Expansion",
-  FLAT_RENEWAL: "Flat Renewal",
-  NET_NEW_BUSINESS: "Net New Business",
-} as const;
-/**
- * @public
- */
-export type OpportunityType = (typeof OpportunityType)[keyof typeof OpportunityType];
-
-/**
- * @public
- * @enum
- */
 export const PrimaryNeedFromAws = {
   CO_SELL_ARCHITECTURAL_VALIDATION: "Co-Sell - Architectural Validation",
   CO_SELL_BUSINESS_PRESENTATION: "Co-Sell - Business Presentation",
@@ -1182,6 +1821,121 @@ export const OpportunitySortName = {
  * @public
  */
 export type OpportunitySortName = (typeof OpportunitySortName)[keyof typeof OpportunitySortName];
+
+/**
+ * @public
+ * @enum
+ */
+export const OpportunitySearchFilterName = {
+  APN_PROGRAMS: "ApnPrograms",
+  AWS_ACCOUNT_ID: "AwsAccountId",
+  AWS_MARKETPLACE_SOLUTION: "AwsMarketplaceSolution",
+  COSELL_MOTION: "CosellMotion",
+  COUNTRY_CODE: "CountryCode",
+  CREATED_DATE: "CreatedDate",
+  CUSTOMER_COMPANY_NAME: "CustomerCompanyName",
+  ENGAGEMENT_SCORE: "EngagementScore",
+  ESTIMATED_MRR: "EstimatedMrr",
+  INDUSTRY: "Industry",
+  LAST_MODIFIED_DATE: "LastModifiedDate",
+  NEXT_STEP: "NextStep",
+  OFFER_ID: "OfferId",
+  OFFER_SET_ID: "OfferSetId",
+  OPPORTUNITY_ID: "OpportunityId",
+  OPPORTUNITY_OWNER: "OpportunityOwner",
+  OPPORTUNITY_TYPE: "OpportunityType",
+  ORIGIN: "Origin",
+  PARTNER_OPPORTUNITY_IDENTIFIER: "PartnerOpportunityIdentifier",
+  PARTNER_PROJECT_TITLE: "PartnerProjectTitle",
+  REVIEW_STATUS: "ReviewStatus",
+  STAGE: "Stage",
+  TAGS: "Tags",
+  TARGET_CLOSE_DATE: "TargetCloseDate",
+} as const;
+/**
+ * @public
+ */
+export type OpportunitySearchFilterName =
+  (typeof OpportunitySearchFilterName)[keyof typeof OpportunitySearchFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const OpportunitySearchSortName = {
+  APN_PROGRAMS: "ApnPrograms",
+  AWS_ACCOUNT_ID: "AwsAccountId",
+  COSELL_MOTION: "CosellMotion",
+  COUNTRY_CODE: "CountryCode",
+  CREATED_DATE: "CreatedDate",
+  CUSTOMER_COMPANY_NAME: "CustomerCompanyName",
+  ENGAGEMENT_SCORE: "EngagementScore",
+  ESTIMATED_MRR: "EstimatedMrr",
+  INDUSTRY: "Industry",
+  LAST_MODIFIED_DATE: "LastModifiedDate",
+  NEXT_STEP: "NextStep",
+  OFFER_ID: "OfferId",
+  OFFER_SET_ID: "OfferSetId",
+  OPPORTUNITY_ID: "OpportunityId",
+  OPPORTUNITY_OWNER: "OpportunityOwner",
+  OPPORTUNITY_TYPE: "OpportunityType",
+  ORIGIN: "Origin",
+  PARTNER_OPPORTUNITY_IDENTIFIER: "PartnerOpportunityIdentifier",
+  PARTNER_PROJECT_TITLE: "PartnerProjectTitle",
+  REVIEW_STATUS: "ReviewStatus",
+  STAGE: "Stage",
+  TAGS: "Tags",
+  TARGET_CLOSE_DATE: "TargetCloseDate",
+} as const;
+/**
+ * @public
+ */
+export type OpportunitySearchSortName = (typeof OpportunitySearchSortName)[keyof typeof OpportunitySearchSortName];
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchEngagementScore = {
+  HIGH: "High",
+  LOW: "Low",
+  MEDIUM: "Medium",
+} as const;
+/**
+ * @public
+ */
+export type SearchEngagementScore = (typeof SearchEngagementScore)[keyof typeof SearchEngagementScore];
+
+/**
+ * @public
+ * @enum
+ */
+export const BulkFileFormat = {
+  CSV: "CSV",
+} as const;
+/**
+ * @public
+ */
+export type BulkFileFormat = (typeof BulkFileFormat)[keyof typeof BulkFileFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const BulkOperationType = {
+  /**
+   * <p>The job creates new opportunities.</p>
+   */
+  BULK_CREATE: "BULK_CREATE",
+  /**
+   * <p>The job updates existing opportunities.</p>
+   */
+  BULK_UPDATE: "BULK_UPDATE",
+} as const;
+/**
+ * @public
+ */
+export type BulkOperationType = (typeof BulkOperationType)[keyof typeof BulkOperationType];
 
 /**
  * @public
