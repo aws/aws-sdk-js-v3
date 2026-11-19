@@ -24,6 +24,9 @@ import {
   AutomationStreamStatus,
   AutomationStreamUpdate$,
   AvailableLimits$,
+  AwsBillingPaymentOptions$,
+  AwsBillingX402PaymentInput$,
+  AwsBillingX402PaymentOutput$,
   BasicAuth$,
   BatchCreateMemoryRecords$,
   BatchCreateMemoryRecordsCommand,
@@ -162,6 +165,7 @@ import {
   Descriptors$,
   DescriptorType,
   DomainFilter$,
+  DpopJwk$,
   DuplicateIdException,
   DuplicateIdException$,
   EfsConfiguration$,
@@ -399,6 +403,8 @@ import {
   InvokeWebSearchCommand,
   InvokeWebSearchInput$,
   InvokeWebSearchOutput$,
+  JwkEllipticCurve,
+  JwkKeyType,
   KeyPressArguments$,
   KeyPressResult$,
   KeyShortcutArguments$,
@@ -892,6 +898,9 @@ assert(typeof Amount$ === "object");
 assert(typeof AutomationStream$ === "object");
 assert(typeof AutomationStreamUpdate$ === "object");
 assert(typeof AvailableLimits$ === "object");
+assert(typeof AwsBillingPaymentOptions$ === "object");
+assert(typeof AwsBillingX402PaymentInput$ === "object");
+assert(typeof AwsBillingX402PaymentOutput$ === "object");
 assert(typeof BasicAuth$ === "object");
 assert(typeof BatchCreateMemoryRecordsInput$ === "object");
 assert(typeof BatchCreateMemoryRecordsOutput$ === "object");
@@ -977,6 +986,7 @@ assert(typeof DeleteRecommendationRequest$ === "object");
 assert(typeof DeleteRecommendationResponse$ === "object");
 assert(typeof Descriptors$ === "object");
 assert(typeof DomainFilter$ === "object");
+assert(typeof DpopJwk$ === "object");
 assert(typeof EfsConfiguration$ === "object");
 assert(typeof EmbeddedCryptoWallet$ === "object");
 assert(typeof EvaluateRequest$ === "object");
@@ -1366,6 +1376,8 @@ assert(typeof HarnessToolUseType === "object");
 assert(typeof InsightsFailureCategory === "object");
 assert(typeof InsightType === "object");
 assert(typeof InstrumentBalanceToken === "object");
+assert(typeof JwkEllipticCurve === "object");
+assert(typeof JwkKeyType === "object");
 assert(typeof LanguageRuntime === "object");
 assert(typeof MemoryRecordOperatorType === "object");
 assert(typeof MemoryRecordStatus === "object");

@@ -1109,7 +1109,34 @@ export type PaymentSessionStatus = (typeof PaymentSessionStatus)[keyof typeof Pa
  * @public
  * @enum
  */
+export const JwkEllipticCurve = {
+  P256: "P-256",
+  P384: "P-384",
+  P521: "P-521",
+} as const;
+/**
+ * @public
+ */
+export type JwkEllipticCurve = (typeof JwkEllipticCurve)[keyof typeof JwkEllipticCurve];
+
+/**
+ * @public
+ * @enum
+ */
+export const JwkKeyType = {
+  EC: "EC",
+} as const;
+/**
+ * @public
+ */
+export type JwkKeyType = (typeof JwkKeyType)[keyof typeof JwkKeyType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PaymentType = {
+  AWS_BILLING_X402: "AWS_BILLING_X402",
   CRYPTO_X402: "CRYPTO_X402",
   MPP: "MPP",
 } as const;

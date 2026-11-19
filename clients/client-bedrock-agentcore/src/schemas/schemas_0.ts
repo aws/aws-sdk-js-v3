@@ -1,8 +1,12 @@
 const _A = "Amount";
+const _ABPO = "AwsBillingPaymentOptions";
+const _ABPT = "AwsBillingPaymentToken";
 const _ABTEC = "ABTestEvaluationConfig";
 const _ABTR = "ABTestResults";
 const _ABTS = "ABTestSummary";
 const _ABTSL = "ABTestSummaryList";
+const _ABXPI = "AwsBillingX402PaymentInput";
+const _ABXPO = "AwsBillingX402PaymentOutput";
 const _ACD = "AgentCardDefinition";
 const _ACRI = "AgentCoreRuntimeInvocation";
 const _ACRID = "AgentCoreRuntimeInvocationDetails";
@@ -131,6 +135,7 @@ const _DF = "DomainFilter";
 const _DGS = "DatasetGenerationSummary";
 const _DGSL = "DatasetGenerationSummaryList";
 const _DIE = "DuplicateIdException";
+const _DJ = "DpopJwk";
 const _DMR = "DeleteMemoryRecord";
 const _DMRI = "DeleteMemoryRecordInput";
 const _DMRO = "DeleteMemoryRecordOutput";
@@ -677,6 +682,7 @@ const _XABARUI = "X-Amzn-Bedrock-AgentCore-Runtime-User-Id";
 const _XATI = "X-Amzn-Trace-Id";
 const _a = "a2a";
 const _aB = "apiBase";
+const _aBX = "awsBillingX402";
 const _aC = "agentCard";
 const _aCB = "agentCoreBrowser";
 const _aCCI = "agentCoreCodeInterpreter";
@@ -804,7 +810,8 @@ const _conf = "config";
 const _confi = "confidence";
 const _conv = "conversational";
 const _cou = "count";
-const _cr = "credentials";
+const _cr = "crv";
+const _cre = "credentials";
 const _cu = "currency";
 const _cus = "custom";
 const _d = "description";
@@ -813,7 +820,8 @@ const _dED = "datasetExecutionDetails";
 const _dF = "domainFilter";
 const _dG = "datasetGenerations";
 const _dI = "datasetId";
-const _dJ = "developerJwt";
+const _dJ = "dpopJwk";
+const _dJe = "developerJwt";
 const _dP = "domainPatterns";
 const _dPi = "directoryPath";
 const _dRU = "defaultReturnUrl";
@@ -951,6 +959,7 @@ const _kS = "keyShortcut";
 const _kT = "keyType";
 const _ke = "keys";
 const _ki = "kid";
+const _kt = "kty";
 const _l = "location";
 const _lA = "linkedAccounts";
 const _lGA = "logGroupArns";
@@ -1021,7 +1030,7 @@ const _na = "namespace";
 const _nam = "namespaces";
 const _ne = "network";
 const _no = "none";
-const _o = "operator";
+const _o = "options";
 const _oA = "outboundAuth";
 const _oAMC = "openAiModelConfig";
 const _oAu = "oAuth2";
@@ -1032,6 +1041,7 @@ const _oECS = "onlineEvaluationConfigSource";
 const _oF = "oauth2Flow";
 const _oT = "outputTokens";
 const _oa = "oauth";
+const _op = "operator";
 const _p = "payload";
 const _pA = "providerArn";
 const _pAL = "permit2AllowanceLimit";
@@ -1059,9 +1069,10 @@ const _pPI = "processPaymentId";
 const _pS = "paymentSession";
 const _pSI = "paymentSessionId";
 const _pSa = "paymentSessions";
-const _pT = "paymentType";
+const _pT = "paymentToken";
 const _pTR = "paymentTokenRequest";
 const _pTRa = "paymentTokenResponse";
+const _pTa = "paymentType";
 const _pV = "protocolVersion";
 const _pVOEC = "perVariantOnlineEvaluationConfig";
 const _pVa = "pValue";
@@ -1447,6 +1458,7 @@ export const errorTypeRegistries = [
 var AccessTokenType: StaticSimpleSchema = [0, n0, _ATT, 8, 0];
 var ApiKeyType: StaticSimpleSchema = [0, n0, _AKT, 8, 0];
 var AuthorizationUrlType: StaticSimpleSchema = [0, n0, _AUT, 8, 0];
+var AwsBillingPaymentToken: StaticSimpleSchema = [0, n0, _ABPT, 8, 0];
 var Body: StaticSimpleSchema = [0, n0, _B, 8, 21];
 var CoinbaseCdpPaymentJwtTokenType: StaticSimpleSchema = [0, n0, _CCPJTT, 8, 0];
 var CustomRequestValueType: StaticSimpleSchema = [0, n0, _CRVT, 8, 0];
@@ -1551,6 +1563,21 @@ export var AvailableLimits$: StaticStructureSchema = [3, n0, _AL,
   [_aSA, _uA],
   [() => Amount$, 5]
 ];
+export var AwsBillingPaymentOptions$: StaticStructureSchema = [3, n0, _ABPO,
+  0,
+  [_dJ],
+  [() => DpopJwk$]
+];
+export var AwsBillingX402PaymentInput$: StaticStructureSchema = [3, n0, _ABXPI,
+  0,
+  [_ve, _p, _o],
+  [0, [() => PaymentDocument, 0], () => AwsBillingPaymentOptions$], 2
+];
+export var AwsBillingX402PaymentOutput$: StaticStructureSchema = [3, n0, _ABXPO,
+  0,
+  [_ve, _pT],
+  [0, [() => AwsBillingPaymentToken, 0]], 2
+];
 export var BasicAuth$: StaticStructureSchema = [3, n0, _BA,
   0,
   [_sA],
@@ -1648,7 +1675,7 @@ export var CloudWatchFilterConfig$: StaticStructureSchema = [3, n0, _CWFC,
 ];
 export var CloudWatchLogsFilter$: StaticStructureSchema = [3, n0, _CWLF,
   0,
-  [_k, _o, _v],
+  [_k, _op, _v],
   [0, 0, () => FilterValue$], 3
 ];
 export var CloudWatchLogsRule$: StaticStructureSchema = [3, n0, _CWLR,
@@ -1936,6 +1963,11 @@ export var DomainFilter$: StaticStructureSchema = [3, n0, _DF,
   [_in, _exc],
   [64 | 0, 64 | 0]
 ];
+export var DpopJwk$: StaticStructureSchema = [3, n0, _DJ,
+  0,
+  [_kt, _cr, _x, _y],
+  [0, 0, 0, 0], 4
+];
 export var EfsConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_aPA, _mP, _fSA],
@@ -1983,7 +2015,7 @@ export var Evaluator$: StaticStructureSchema = [3, n0, _Ev,
 ];
 export var EvaluatorFilter$: StaticStructureSchema = [3, n0, _EF,
   0,
-  [_eIv, _o, _v, _eDN, _ag],
+  [_eIv, _op, _v, _eDN, _ag],
   [0, 0, () => GenerationFilterValue$, 0, 0], 3
 ];
 export var EvaluatorMetric$: StaticStructureSchema = [3, n0, _EM,
@@ -2008,7 +2040,7 @@ export var Event$: StaticStructureSchema = [3, n0, _Eve,
 ];
 export var EventMetadataFilterExpression$: StaticStructureSchema = [3, n0, _EMFE,
   0,
-  [_le, _o, _ri],
+  [_le, _op, _ri],
   [() => LeftExpression$, 0, () => RightExpression$], 2
 ];
 export var ExecutionSummaryAffectedSession$: StaticStructureSchema = [3, n0, _ESAS,
@@ -2028,7 +2060,7 @@ export var ExecutionSummaryClusteringResultContent$: StaticStructureSchema = [3,
 ];
 export var ExternalProxy$: StaticStructureSchema = [3, n0, _EP,
   0,
-  [_se, _po, _dP, _cr],
+  [_se, _po, _dP, _cre],
   [0, 1, 64 | 0, () => ProxyCredentials$], 2
 ];
 export var ExtractionConfig$: StaticStructureSchema = [3, n0, _ECx,
@@ -2083,7 +2115,7 @@ export var GatewayFilter$: StaticStructureSchema = [3, n0, _GF,
 ];
 export var GenerationAttributeFilter$: StaticStructureSchema = [3, n0, _GAF,
   0,
-  [_k, _o, _v],
+  [_k, _op, _v],
   [0, 0, () => GenerationFilterValue$], 3
 ];
 export var GenerationErrorDetail$: StaticStructureSchema = [3, n0, _GED,
@@ -2788,7 +2820,7 @@ export var MemoryJsonData$: StaticStructureSchema = [3, n0, _MJD,
 ];
 export var MemoryMetadataFilterExpression$: StaticStructureSchema = [3, n0, _MMFE,
   0,
-  [_le, _o, _ri],
+  [_le, _op, _ri],
   [() => MemoryRecordLeftExpression$, 0, () => MemoryRecordRightExpression$], 2
 ];
 export var MemoryRecord$: StaticStructureSchema = [3, n0, _MR,
@@ -2928,12 +2960,12 @@ export var PerVariantOnlineEvaluationConfig$: StaticStructureSchema = [3, n0, _P
 ];
 export var ProcessPaymentRequest$: StaticStructureSchema = [3, n0, _PPR,
   0,
-  [_pMA, _pSI, _pII, _pT, _pIaym, _uIs, _aNg, _cT],
+  [_pMA, _pSI, _pII, _pTa, _pIaym, _uIs, _aNg, _cT],
   [0, 0, 0, 0, [() => PaymentInput$, 0], [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }], [0, 4]], 5
 ];
 export var ProcessPaymentResponse$: StaticStructureSchema = [3, n0, _PPRr,
   0,
-  [_pPI, _pMA, _pSI, _pII, _pT, _sta, _pO, _cA, _uA],
+  [_pPI, _pMA, _pSI, _pII, _pTa, _sta, _pO, _cA, _uA],
   [0, 0, 0, 0, 0, 0, [() => PaymentOutput$, 0], 5, 5], 9
 ];
 export var ProxyBypass$: StaticStructureSchema = [3, n0, _PB,
@@ -3930,7 +3962,7 @@ export var LeftExpression$: StaticUnionSchema = [4, n0, _LE,
 ];
 export var LinkedAccount$: StaticUnionSchema = [4, n0, _LA,
   8,
-  [_em, _sm, _dJ, _oAu],
+  [_em, _sm, _dJe, _oAu],
   [[() => LinkedAccountEmail$, 0], [() => LinkedAccountSms$, 0], () => LinkedAccountDeveloperJwt$, [() => LinkedAccountOAuth2$, 0]]
 ];
 export var LinkedAccountOAuth2$: StaticUnionSchema = [4, n0, _LAOA,
@@ -3975,8 +4007,8 @@ export var PayloadType$: StaticUnionSchema = [4, n0, _PT,
 ];
 export var PaymentInput$: StaticUnionSchema = [4, n0, _PIa,
   0,
-  [_cX, _mp],
-  [[() => CryptoX402PaymentInput$, 0], () => MppPaymentInput$]
+  [_cX, _mp, _aBX],
+  [[() => CryptoX402PaymentInput$, 0], () => MppPaymentInput$, [() => AwsBillingX402PaymentInput$, 0]]
 ];
 export var PaymentInstrumentDetails$: StaticUnionSchema = [4, n0, _PID,
   0,
@@ -3985,8 +4017,8 @@ export var PaymentInstrumentDetails$: StaticUnionSchema = [4, n0, _PID,
 ];
 export var PaymentOutput$: StaticUnionSchema = [4, n0, _PO,
   0,
-  [_cX, _mp],
-  [[() => CryptoX402PaymentOutput$, 0], [() => MppPaymentOutput$, 0]]
+  [_cX, _mp, _aBX],
+  [[() => CryptoX402PaymentOutput$, 0], [() => MppPaymentOutput$, 0], [() => AwsBillingX402PaymentOutput$, 0]]
 ];
 export var PaymentTokenRequestInput$: StaticUnionSchema = [4, n0, _PTRI,
   0,

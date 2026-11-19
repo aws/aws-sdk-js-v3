@@ -17,6 +17,8 @@ import type {
   HarnessToolUseStatus,
   HarnessToolUseType,
   InstrumentBalanceToken,
+  JwkEllipticCurve,
+  JwkKeyType,
   MemoryRecordOperatorType,
   MemoryRecordStatus,
   OAuthGrantType,
@@ -4544,6 +4546,72 @@ export interface ListPaymentSessionsResponse {
 }
 
 /**
+ * <p>An elliptic curve public key in JSON Web Key (JWK) format, as described in RFC 7518 section 6.2, used to bind a payment token to the agent.</p>
+ * @public
+ */
+export interface DpopJwk {
+  /**
+   * <p>The key type. The only valid value is <code>EC</code>.</p>
+   * @public
+   */
+  kty: JwkKeyType | undefined;
+
+  /**
+   * <p>The elliptic curve of the key.</p>
+   * @public
+   */
+  crv: JwkEllipticCurve | undefined;
+
+  /**
+   * <p>The x-coordinate of the elliptic curve point, base64url-encoded.</p>
+   * @public
+   */
+  x: string | undefined;
+
+  /**
+   * <p>The y-coordinate of the elliptic curve point, base64url-encoded.</p>
+   * @public
+   */
+  y: string | undefined;
+}
+
+/**
+ * <p>Optional settings for an AWS Billing payment.</p>
+ * @public
+ */
+export interface AwsBillingPaymentOptions {
+  /**
+   * <p>The agent's public key for Demonstrating Proof of Possession (DPoP), as described in RFC 9449. If you specify a key, the payment token is bound to it, and the seller can verify that the token is presented by the holder of the matching private key. If you don't specify a key, the payment token isn't bound to a key.</p>
+   * @public
+   */
+  dpopJwk?: DpopJwk | undefined;
+}
+
+/**
+ * <p>The input for an AWS Billing x402 payment. The payment pays an AWS Marketplace seller's x402 (HTTP 402) payment requirement and is billed to the AWS account that owns the payment manager, through the payment manager's AWS Billing payment connector.</p>
+ * @public
+ */
+export interface AwsBillingX402PaymentInput {
+  /**
+   * <p>The x402 protocol version of the seller's HTTP 402 response, from its <code>x402Version</code> field. For example, <code>2</code>.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The seller's x402 payment requirement for AWS Billing, passed unchanged as a JSON object. The service reads the seller-signed quote token from <code>extra.quoteToken</code> and returns a <code>ValidationException</code> if it is missing or invalid. Any change to the quote token invalidates its signature.</p>
+   * @public
+   */
+  payload: __DocumentType | undefined;
+
+  /**
+   * <p>Optional settings for the AWS Billing payment.</p>
+   * @public
+   */
+  options?: AwsBillingPaymentOptions | undefined;
+}
+
+/**
  * <p>The input for a crypto X402 payment.</p>
  * @public
  */
@@ -4596,6 +4664,7 @@ export interface MppPaymentInput {
  * @public
  */
 export type PaymentInput =
+  | PaymentInput.AwsBillingX402Member
   | PaymentInput.CryptoX402Member
   | PaymentInput.MppMember
   | PaymentInput.$UnknownMember;
@@ -4611,6 +4680,7 @@ export namespace PaymentInput {
   export interface CryptoX402Member {
     cryptoX402: CryptoX402PaymentInput;
     mpp?: never;
+    awsBillingX402?: never;
     $unknown?: never;
   }
 
@@ -4621,6 +4691,18 @@ export namespace PaymentInput {
   export interface MppMember {
     cryptoX402?: never;
     mpp: MppPaymentInput;
+    awsBillingX402?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Input for an AWS Billing x402 payment, which pays an AWS Marketplace seller's quote and charges it to the AWS account that owns the payment manager.</p>
+   * @public
+   */
+  export interface AwsBillingX402Member {
+    cryptoX402?: never;
+    mpp?: never;
+    awsBillingX402: AwsBillingX402PaymentInput;
     $unknown?: never;
   }
 
@@ -4630,6 +4712,7 @@ export namespace PaymentInput {
   export interface $UnknownMember {
     cryptoX402?: never;
     mpp?: never;
+    awsBillingX402?: never;
     $unknown: [string, any];
   }
 
@@ -4640,6 +4723,7 @@ export namespace PaymentInput {
   export interface Visitor<T> {
     cryptoX402: (value: CryptoX402PaymentInput) => T;
     mpp: (value: MppPaymentInput) => T;
+    awsBillingX402: (value: AwsBillingX402PaymentInput) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -4674,7 +4758,7 @@ export interface ProcessPaymentRequest {
   paymentSessionId: string | undefined;
 
   /**
-   * <p>The ID of the payment instrument to use.</p>
+   * <p>The ID of the payment instrument to use. For the <code>CRYPTO_X402</code> and <code>MPP</code> payment types, specify the ID of a payment instrument that you created. For the <code>AWS_BILLING_X402</code> payment type, specify the service-managed instrument ID <code>aws.agentcorepayments.awsbilling.v1</code>. You don't create this instrument; it's available for any payment manager that has an AWS Billing payment connector.</p>
    * @public
    */
   paymentInstrumentId: string | undefined;
@@ -4696,6 +4780,24 @@ export interface ProcessPaymentRequest {
    * @public
    */
   clientToken?: string | undefined;
+}
+
+/**
+ * <p>The output of an AWS Billing x402 payment.</p>
+ * @public
+ */
+export interface AwsBillingX402PaymentOutput {
+  /**
+   * <p>The x402 protocol version. This is the same value as the <code>version</code> in the request.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The payment token, a signed JSON Web Token (JWT). Include it when you retry your request to the seller. Treat the payment token as a credential: don't log or share it.</p>
+   * @public
+   */
+  paymentToken: string | undefined;
 }
 
 /**
@@ -4745,6 +4847,7 @@ export interface MppPaymentOutput {
  * @public
  */
 export type PaymentOutput =
+  | PaymentOutput.AwsBillingX402Member
   | PaymentOutput.CryptoX402Member
   | PaymentOutput.MppMember
   | PaymentOutput.$UnknownMember;
@@ -4760,6 +4863,7 @@ export namespace PaymentOutput {
   export interface CryptoX402Member {
     cryptoX402: CryptoX402PaymentOutput;
     mpp?: never;
+    awsBillingX402?: never;
     $unknown?: never;
   }
 
@@ -4770,6 +4874,18 @@ export namespace PaymentOutput {
   export interface MppMember {
     cryptoX402?: never;
     mpp: MppPaymentOutput;
+    awsBillingX402?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Output from an AWS Billing x402 payment.</p>
+   * @public
+   */
+  export interface AwsBillingX402Member {
+    cryptoX402?: never;
+    mpp?: never;
+    awsBillingX402: AwsBillingX402PaymentOutput;
     $unknown?: never;
   }
 
@@ -4779,6 +4895,7 @@ export namespace PaymentOutput {
   export interface $UnknownMember {
     cryptoX402?: never;
     mpp?: never;
+    awsBillingX402?: never;
     $unknown: [string, any];
   }
 
@@ -4789,6 +4906,7 @@ export namespace PaymentOutput {
   export interface Visitor<T> {
     cryptoX402: (value: CryptoX402PaymentOutput) => T;
     mpp: (value: MppPaymentOutput) => T;
+    awsBillingX402: (value: AwsBillingX402PaymentOutput) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -4817,7 +4935,7 @@ export interface ProcessPaymentResponse {
   paymentSessionId: string | undefined;
 
   /**
-   * <p>The ID of the payment instrument used.</p>
+   * <p>The ID of the payment instrument used. For the <code>AWS_BILLING_X402</code> payment type, this is the service-managed instrument ID <code>aws.agentcorepayments.awsbilling.v1</code>.</p>
    * @public
    */
   paymentInstrumentId: string | undefined;

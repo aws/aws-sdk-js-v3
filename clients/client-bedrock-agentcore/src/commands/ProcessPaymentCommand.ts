@@ -38,7 +38,7 @@ export interface ProcessPaymentCommandOutput extends ProcessPaymentResponse, __M
  *   paymentManagerArn: "STRING_VALUE", // required
  *   paymentSessionId: "STRING_VALUE", // required
  *   paymentInstrumentId: "STRING_VALUE", // required
- *   paymentType: "CRYPTO_X402" || "MPP", // required
+ *   paymentType: "CRYPTO_X402" || "MPP" || "AWS_BILLING_X402", // required
  *   paymentInput: { // PaymentInput Union: only one key present
  *     cryptoX402: { // CryptoX402PaymentInput
  *       version: "STRING_VALUE", // required
@@ -52,6 +52,18 @@ export interface ProcessPaymentCommandOutput extends ProcessPaymentResponse, __M
  *       ],
  *       buyerPaysGasFees: true || false,
  *     },
+ *     awsBillingX402: { // AwsBillingX402PaymentInput
+ *       version: "STRING_VALUE", // required
+ *       payload: "DOCUMENT_VALUE", // required
+ *       options: { // AwsBillingPaymentOptions
+ *         dpopJwk: { // DpopJwk
+ *           kty: "EC", // required
+ *           crv: "P-256" || "P-384" || "P-521", // required
+ *           x: "STRING_VALUE", // required
+ *           y: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
  *   },
  *   clientToken: "STRING_VALUE",
  * };
@@ -62,7 +74,7 @@ export interface ProcessPaymentCommandOutput extends ProcessPaymentResponse, __M
  * //   paymentManagerArn: "STRING_VALUE", // required
  * //   paymentSessionId: "STRING_VALUE", // required
  * //   paymentInstrumentId: "STRING_VALUE", // required
- * //   paymentType: "CRYPTO_X402" || "MPP", // required
+ * //   paymentType: "CRYPTO_X402" || "MPP" || "AWS_BILLING_X402", // required
  * //   status: "PROOF_GENERATED", // required
  * //   paymentOutput: { // PaymentOutput Union: only one key present
  * //     cryptoX402: { // CryptoX402PaymentOutput
@@ -73,6 +85,10 @@ export interface ProcessPaymentCommandOutput extends ProcessPaymentResponse, __M
  * //       version: "STRING_VALUE", // required
  * //       selectedPaymentId: "STRING_VALUE", // required
  * //       paymentCredential: "STRING_VALUE", // required
+ * //     },
+ * //     awsBillingX402: { // AwsBillingX402PaymentOutput
+ * //       version: "STRING_VALUE", // required
+ * //       paymentToken: "STRING_VALUE", // required
  * //     },
  * //   },
  * //   createdAt: new Date("TIMESTAMP"), // required
