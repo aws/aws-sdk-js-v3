@@ -3883,7 +3883,7 @@ export interface CreateFunctionRequest {
   Description?: string | undefined;
 
   /**
-   * <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds, and the maximum allowed value is 900 seconds. For functions using Lambda Managed Instances, asynchronous invocations and event source mapping invocations (except Amazon MQ and Amazon DocumentDB) support a maximum allowed value of 5,400 seconds (90 minutes). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
+   * <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds, and the maximum allowed value is 1,800 seconds. For functions using Lambda Managed Instances, asynchronous invocations and event source mapping invocations (except Amazon MQ and Amazon DocumentDB) support a maximum allowed value of 5,400 seconds (90 minutes). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
    * @public
    */
   Timeout?: number | undefined;
@@ -5119,7 +5119,7 @@ export interface InvocationRequest {
   LogType?: LogType | undefined;
 
   /**
-   * <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object. Lambda passes the <code>ClientContext</code> object to your function for synchronous invocations only.</p>
+   * <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object. Lambda passes the <code>ClientContext</code> object to your function for synchronous invocations only.</p> <p> <code>ClientContext</code> is logged to CloudTrail if you turn on data events.</p>
    * @public
    */
   ClientContext?: string | undefined;
@@ -5239,7 +5239,7 @@ export interface InvokeWithResponseStreamRequest {
   LogType?: LogType | undefined;
 
   /**
-   * <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>
+   * <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p> <p> <code>ClientContext</code> is logged to CloudTrail if you turn on data events.</p>
    * @public
    */
   ClientContext?: string | undefined;
@@ -6012,7 +6012,7 @@ export interface UpdateFunctionConfigurationRequest {
   Description?: string | undefined;
 
   /**
-   * <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds, and the maximum allowed value is 900 seconds. For functions using Lambda Managed Instances, asynchronous invocations and event source mapping invocations (except Amazon MQ and Amazon DocumentDB) support a maximum allowed value of 5,400 seconds (90 minutes). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
+   * <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds, and the maximum allowed value is 1,800 seconds. For functions using Lambda Managed Instances, asynchronous invocations and event source mapping invocations (except Amazon MQ and Amazon DocumentDB) support a maximum allowed value of 5,400 seconds (90 minutes). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
    * @public
    */
   Timeout?: number | undefined;
