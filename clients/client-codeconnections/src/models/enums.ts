@@ -32,6 +32,7 @@ export const ProviderType = {
   AZURE_DEV_OPS: "AzureDevOps",
   BITBUCKET: "Bitbucket",
   GITHUB: "GitHub",
+  GITHUB_ENTERPRISE_CLOUD_DATA_RESIDENCY: "GitHubEnterpriseCloudDataResidency",
   GITHUB_ENTERPRISE_SERVER: "GitHubEnterpriseServer",
   GITLAB: "GitLab",
   GITLAB_SELF_MANAGED: "GitLabSelfManaged",

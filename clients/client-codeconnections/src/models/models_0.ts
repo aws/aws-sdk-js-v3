@@ -59,6 +59,12 @@ export interface CreateConnectionInput {
    * @public
    */
   HostArn?: string | undefined;
+
+  /**
+   * <p>The endpoint of the ghe.com tenant where your organization resides. Provide this parameter only when <code>ProviderType</code> is <code>GitHubEnterpriseCloudDataResidency</code>. Leave this parameter empty for all other provider types.</p>
+   * @public
+   */
+  ProviderEndpoint?: string | undefined;
 }
 
 /**
@@ -554,6 +560,12 @@ export interface Connection {
    * @public
    */
   HostArn?: string | undefined;
+
+  /**
+   * <p>The endpoint of the ghe.com tenant where your organization resides. This value is populated only for a connection with a <code>ProviderType</code> of <code>GitHubEnterpriseCloudDataResidency</code>. It is empty for all other provider types.</p>
+   * @public
+   */
+  ProviderEndpoint?: string | undefined;
 }
 
 /**
@@ -1071,17 +1083,17 @@ export interface GetSyncConfigurationOutput {
  */
 export interface ListConnectionsInput {
   /**
+   * <p>Filters the list of connections to those associated with a specified host.</p>
+   * @public
+   */
+  HostArnFilter?: string | undefined;
+
+  /**
    * <p>Filters the list of connections to those associated with a specified provider, such as
    *       Bitbucket.</p>
    * @public
    */
   ProviderTypeFilter?: ProviderType | undefined;
-
-  /**
-   * <p>Filters the list of connections to those associated with a specified host.</p>
-   * @public
-   */
-  HostArnFilter?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining

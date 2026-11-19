@@ -43,7 +43,7 @@ export interface GetSyncConfigurationCommandOutput extends GetSyncConfigurationO
  * //     Branch: "STRING_VALUE", // required
  * //     ConfigFile: "STRING_VALUE",
  * //     OwnerId: "STRING_VALUE", // required
- * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps", // required
+ * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps" || "GitHubEnterpriseCloudDataResidency", // required
  * //     RepositoryLinkId: "STRING_VALUE", // required
  * //     RepositoryName: "STRING_VALUE", // required
  * //     ResourceName: "STRING_VALUE", // required

@@ -27,6 +27,29 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * <p>The input is not valid. Verify that the action is typed correctly.</p>
+ * @public
+ */
+export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#InvalidInputException";
+  readonly name = "InvalidInputException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
+    super({
+      name: "InvalidInputException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInputException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>Exceeded the maximum limit for connections.</p>
  * @public
  */
@@ -96,6 +119,29 @@ export class ResourceUnavailableException extends __BaseException {
 }
 
 /**
+ * <p>The specified provider type is not supported for connections.</p>
+ * @public
+ */
+export class UnsupportedProviderTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#UnsupportedProviderTypeException";
+  readonly name = "UnsupportedProviderTypeException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedProviderTypeException, __BaseException>) {
+    super({
+      name: "UnsupportedProviderTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedProviderTypeException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time. </p>
  * @public
  */
@@ -137,29 +183,6 @@ export class InternalServerException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The input is not valid. Verify that the action is typed correctly.</p>
- * @public
- */
-export class InvalidInputException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.codeconnections#InvalidInputException";
-  readonly name = "InvalidInputException" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
-    super({
-      name: "InvalidInputException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -229,29 +252,6 @@ export class SyncConfigurationStillExistsException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, SyncConfigurationStillExistsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified provider type is not supported for connections.</p>
- * @public
- */
-export class UnsupportedProviderTypeException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.codeconnections#UnsupportedProviderTypeException";
-  readonly name = "UnsupportedProviderTypeException" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedProviderTypeException, __BaseException>) {
-    super({
-      name: "UnsupportedProviderTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedProviderTypeException.prototype);
     this.Message = opts.Message;
   }
 }

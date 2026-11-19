@@ -33,8 +33,8 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // ListConnectionsInput
- *   ProviderTypeFilter: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps",
  *   HostArnFilter: "STRING_VALUE",
+ *   ProviderTypeFilter: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps" || "GitHubEnterpriseCloudDataResidency",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -45,10 +45,11 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //     { // Connection
  * //       ConnectionName: "STRING_VALUE",
  * //       ConnectionArn: "STRING_VALUE",
- * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps",
+ * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps" || "GitHubEnterpriseCloudDataResidency",
  * //       OwnerAccountId: "STRING_VALUE",
  * //       ConnectionStatus: "PENDING" || "AVAILABLE" || "ERROR",
  * //       HostArn: "STRING_VALUE",
+ * //       ProviderEndpoint: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

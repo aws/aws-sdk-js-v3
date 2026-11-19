@@ -336,13 +336,13 @@ export const errorTypeRegistries = [
 ]
 export var Connection$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_CN, _CA, _PT, _OAI, _CS, _HA],
-  [0, 0, 0, 0, 0, 0]
+  [_CN, _CA, _PT, _OAI, _CS, _HA, _PE],
+  [0, 0, 0, 0, 0, 0, 0]
 ];
 export var CreateConnectionInput$: StaticStructureSchema = [3, n0, _CCI,
   0,
-  [_CN, _PT, _T, _HA],
-  [0, 0, () => TagList, 0], 1
+  [_CN, _PT, _T, _HA, _PE],
+  [0, 0, () => TagList, 0, 0], 1
 ];
 export var CreateConnectionOutput$: StaticStructureSchema = [3, n0, _CCO,
   0,
@@ -496,7 +496,7 @@ export var Host$: StaticStructureSchema = [3, n0, _H,
 ];
 export var ListConnectionsInput$: StaticStructureSchema = [3, n0, _LCI,
   0,
-  [_PTF, _HAF, _MR, _NT],
+  [_HAF, _PTF, _MR, _NT],
   [0, 0, 1, 0]
 ];
 export var ListConnectionsOutput$: StaticStructureSchema = [3, n0, _LCO,

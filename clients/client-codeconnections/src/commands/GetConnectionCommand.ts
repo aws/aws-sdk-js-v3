@@ -41,10 +41,11 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * //   Connection: { // Connection
  * //     ConnectionName: "STRING_VALUE",
  * //     ConnectionArn: "STRING_VALUE",
- * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps",
+ * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps" || "GitHubEnterpriseCloudDataResidency",
  * //     OwnerAccountId: "STRING_VALUE",
  * //     ConnectionStatus: "PENDING" || "AVAILABLE" || "ERROR",
  * //     HostArn: "STRING_VALUE",
+ * //     ProviderEndpoint: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -41,7 +41,7 @@ export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
  * // { // GetHostOutput
  * //   Name: "STRING_VALUE",
  * //   Status: "STRING_VALUE",
- * //   ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps",
+ * //   ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps" || "GitHubEnterpriseCloudDataResidency",
  * //   ProviderEndpoint: "STRING_VALUE",
  * //   VpcConfiguration: { // VpcConfiguration
  * //     VpcId: "STRING_VALUE", // required

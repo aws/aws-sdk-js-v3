@@ -52,7 +52,7 @@ export interface CreateSyncConfigurationCommandOutput extends CreateSyncConfigur
  * //     Branch: "STRING_VALUE", // required
  * //     ConfigFile: "STRING_VALUE",
  * //     OwnerId: "STRING_VALUE", // required
- * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps", // required
+ * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps" || "GitHubEnterpriseCloudDataResidency", // required
  * //     RepositoryLinkId: "STRING_VALUE", // required
  * //     RepositoryName: "STRING_VALUE", // required
  * //     ResourceName: "STRING_VALUE", // required
@@ -89,6 +89,9 @@ export interface CreateSyncConfigurationCommandOutput extends CreateSyncConfigur
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>Unable to create resource. Resource already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

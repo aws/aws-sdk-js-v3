@@ -35,7 +35,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // CreateConnectionInput
- *   ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps",
+ *   ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps" || "GitHubEnterpriseCloudDataResidency",
  *   ConnectionName: "STRING_VALUE", // required
  *   Tags: [ // TagList
  *     { // Tag
@@ -44,6 +44,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *     },
  *   ],
  *   HostArn: "STRING_VALUE",
+ *   ProviderEndpoint: "STRING_VALUE",
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
@@ -65,6 +66,9 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * @see {@link CreateConnectionCommandOutput} for command's `response` shape.
  * @see {@link CodeConnectionsClientResolvedConfig | config} for CodeConnectionsClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input is not valid. Verify that the action is typed correctly.</p>
+ *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Exceeded the maximum limit for connections.</p>
  *
@@ -73,6 +77,9 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+ *
+ * @throws {@link UnsupportedProviderTypeException} (client fault)
+ *  <p>The specified provider type is not supported for connections.</p>
  *
  * @throws {@link CodeConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeConnections service.</p>
