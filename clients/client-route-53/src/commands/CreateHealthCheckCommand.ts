@@ -39,9 +39,15 @@ export interface CreateHealthCheckCommandOutput extends CreateHealthCheckRespons
  * 			zone. Note the following:</p>
  *          <ul>
  *             <li>
- *                <p>Route 53 health checkers are outside the VPC. To check the health of an
- * 					endpoint within a VPC by IP address, you must assign a public IP address to the
- * 					instance in the VPC.</p>
+ *                <p>For a public health check, Route 53 health checkers are outside the VPC. To
+ * 					check the health of an endpoint within a VPC by IP address, you must assign a
+ * 					public IP address to the instance in the VPC.</p>
+ *             </li>
+ *             <li>
+ *                <p>To check the health of an endpoint within a VPC by using a private IP
+ * 					address, use a private endpoint health check (<code>EndpointType</code> of
+ * 					<code>PRIVATE</code>). For more information, see
+ * 					<code>CreateHealthCheckSource</code>.</p>
  *             </li>
  *             <li>
  *                <p>You can configure a health checker to check the health of an external resource
@@ -94,6 +100,8 @@ export interface CreateHealthCheckCommandOutput extends CreateHealthCheckRespons
  *     },
  *     InsufficientDataHealthStatus: "Healthy" || "Unhealthy" || "LastKnownStatus",
  *     RoutingControlArn: "STRING_VALUE",
+ *     EndpointType: "PUBLIC" || "PRIVATE",
+ *     HealthCheckSourceId: "STRING_VALUE",
  *   },
  * };
  * const command = new CreateHealthCheckCommand(input);
@@ -132,6 +140,8 @@ export interface CreateHealthCheckCommandOutput extends CreateHealthCheckRespons
  * //       },
  * //       InsufficientDataHealthStatus: "Healthy" || "Unhealthy" || "LastKnownStatus",
  * //       RoutingControlArn: "STRING_VALUE",
+ * //       EndpointType: "PUBLIC" || "PRIVATE",
+ * //       HealthCheckSourceId: "STRING_VALUE",
  * //     },
  * //     HealthCheckVersion: Number("long"), // required
  * //     CloudWatchAlarmConfiguration: { // CloudWatchAlarmConfiguration
@@ -182,7 +192,9 @@ export interface CreateHealthCheckCommandOutput extends CreateHealthCheckRespons
  *
  * @throws {@link TooManyHealthChecks} (client fault)
  *  <p>This health check can't be created because the current account has reached the limit
- * 			on the number of active health checks.</p>
+ * 			on the number of active health checks, or because the health check source for a private
+ * 			health check has reached its limit on active health checks. In the second case,
+ * 			specify a different health check source.</p>
  *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
  * 				<i>Amazon Route 53 Developer Guide</i>.</p>
  *          <p>For information about how to get the current limit for an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support

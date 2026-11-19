@@ -7,7 +7,10 @@ import type {
   CidrCollectionChangeAction,
   CloudWatchRegion,
   ComparisonOperator,
+  EndpointType,
   HealthCheckRegion,
+  HealthCheckSourceStatus,
+  HealthCheckSourceStatusReasonCode,
   HealthCheckType,
   HostedZoneLimitType,
   HostedZoneType,
@@ -35,6 +38,11 @@ export interface AccountLimit {
    *                <p>
    *                   <b>MAX_HEALTH_CHECKS_BY_OWNER</b>: The maximum
    * 					number of health checks that you can create using the current account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>MAX_HEALTH_CHECK_SOURCES_BY_OWNER</b> The maximum
+   * 					number of health check sources that you can create using the current account.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1761,6 +1769,9 @@ export interface ChangeTagsForResourceRequest {
    *                <p>The resource type for health checks is <code>healthcheck</code>.</p>
    *             </li>
    *             <li>
+   *                <p>The resource type for health check sources is <code>healthchecksource</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>The resource type for hosted zones is <code>hostedzone</code>.</p>
    *             </li>
    *          </ul>
@@ -1778,7 +1789,7 @@ export interface ChangeTagsForResourceRequest {
    * <p>A complex type that contains a list of the tags that you want to add to the specified
    * 			health check or hosted zone and/or the tags that you want to edit <code>Value</code>
    * 			for.</p>
-   *          <p>You can add a maximum of 10 tags to a health check or a hosted zone.</p>
+   *          <p>You can add a maximum of 10 tags to a health check, a health check source, or a hosted zone.</p>
    * @public
    */
   AddTags?: Tag[] | undefined;
@@ -1897,14 +1908,15 @@ export interface HealthCheckConfig {
    * 						<code>2001:db8:85a3::abcd:1:2345</code>.</p>
    *             </li>
    *          </ul>
-   *          <p>If the endpoint is an EC2 instance, we recommend that you create an Elastic IP
+   *          <p>For a public health check, if the endpoint is an EC2 instance, we recommend that you create an Elastic IP
    * 			address, associate it with your EC2 instance, and specify the Elastic IP address for
    * 				<code>IPAddress</code>. This ensures that the IP address of your instance will never
    * 			change.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-FullyQualifiedDomainName">FullyQualifiedDomainName</a>. </p>
-   *          <p>Constraints: Route 53 can't check the health of endpoints for which the IP address is
+   *          <p>Constraints: For a public health check (<code>EndpointType</code> of <code>PUBLIC</code>, the
+   * 			default), Route 53 can't check the health of endpoints for which the IP address is
    * 			in local, private, non-routable, or multicast ranges. For more information about IP
-   * 			addresses for which you can't create health checks, see the following documents:</p>
+   * 			addresses for which you can't create public health checks, see the following documents:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1925,6 +1937,9 @@ export interface HealthCheckConfig {
    *                </p>
    *             </li>
    *          </ul>
+   *          <p>For a private endpoint health check (<code>EndpointType</code> of <code>PRIVATE</code>),
+   * 			if you specify <code>IPAddress</code>, it must be a private IPv4 or IPv6 address. Route 53 sends health checks to it from
+   * 			the health check source that you specify in <code>HealthCheckSourceId</code>.</p>
    *          <p>When the value of <code>Type</code> is <code>CALCULATED</code> or
    * 				<code>CLOUDWATCH_METRIC</code>, omit <code>IPAddress</code>.</p>
    * @public
@@ -2307,6 +2322,40 @@ export interface HealthCheckConfig {
    * @public
    */
   RoutingControlArn?: string | undefined;
+
+  /**
+   * <p>Specifies whether the health check targets a public endpoint or a private endpoint in a
+   * 			virtual private cloud (VPC). Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PUBLIC</code>: The health check targets an endpoint that is reachable over the
+   * 					internet. This is the default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PRIVATE</code>: The health check targets a private endpoint in your virtual private cloud. You must also
+   * 					specify <code>HealthCheckSourceId</code>. <code>PRIVATE</code> isn't supported for health
+   * 					checks with a <code>Type</code> of <code>CALCULATED</code>, <code>CLOUDWATCH_METRIC</code>, or <code>RECOVERY_CONTROL</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <important>
+   *             <p>You can't change the value of <code>EndpointType</code> after you create a health
+   * 				check.</p>
+   *          </important>
+   * @public
+   */
+  EndpointType?: EndpointType | undefined;
+
+  /**
+   * <p>The ID of the health check source that Route 53 uses to send health checks to a private
+   * 			endpoint. Required when <code>EndpointType</code> is <code>PRIVATE</code>.</p>
+   *          <p>You can change <code>HealthCheckSourceId</code> on an existing private health check. You can't add it to a public
+   * 			health check.</p>
+   *          <p>Each health check source supports a limited number of active health checks. If you reach that limit, specify a different health check source.</p>
+   * @public
+   */
+  HealthCheckSourceId?: string | undefined;
 }
 
 /**
@@ -2530,6 +2579,96 @@ export interface CreateHealthCheckResponse {
 
   /**
    * <p>The unique URL representing the new health check.</p>
+   * @public
+   */
+  Location: string | undefined;
+}
+
+/**
+ * <p>A complex type that identifies one subnet for a health check source and the security groups that Route 53 associates with the network interfaces that it creates in that subnet.</p>
+ * @public
+ */
+export interface SubnetConfiguration {
+  /**
+   * <p>The ID of the subnet that Route 53 uses to send health check requests.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone that contains the subnet, for example <code>use1-az1</code>. Specify the Availability Zone ID, not the Availability Zone name.</p>
+   * @public
+   */
+  AvailabilityZoneId: string | undefined;
+
+  /**
+   * <p>The IDs of the security groups in the same virtual private cloud (VPC) to associate with the network interfaces that Route 53 creates in this subnet. The security groups must allow outbound traffic to the endpoints that the health checks monitor.</p>
+   * @public
+   */
+  SecurityGroupIdList: string[] | undefined;
+}
+
+/**
+ * <p>A complex type that contains the virtual private cloud (VPC), subnets, and security groups for a health check source. You can't change these values after you create the source.</p>
+ * @public
+ */
+export interface HealthCheckSourceConfig {
+  /**
+   * <p>The ID of the virtual private cloud (VPC) that contains the subnets for the health check source. All subnets in <code>SubnetConfigurationList</code> must belong to this VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>A complex type that contains two or three <code>SubnetConfiguration</code> elements, one in each Availability Zone that Route 53 uses for private endpoint health checks in the Amazon Web Services Region. The Availability Zones must be distinct. Route 53 creates network interfaces in each subnet and sends health check requests from all of them.</p>
+   * @public
+   */
+  SubnetConfigurationList: SubnetConfiguration[] | undefined;
+}
+
+/**
+ * <p>Contains the virtual private cloud (VPC), subnets, and security groups that are required to create a health check source, and a caller reference that identifies the request.</p>
+ * @public
+ */
+export interface CreateHealthCheckSourceRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that ensures that the operation completes no more than one time. If you retry a <code>CreateHealthCheckSource</code> request with the same <code>CallerReference</code> and the same settings as a previous request, Route 53 returns the existing health check source without creating a duplicate. If that health check source has a status of <code>CREATE_FAILED</code>, Route 53 tries to create it again. To create a new health check source after a failure, specify a new value for <code>CallerReference</code>. If a health check source with the same <code>CallerReference</code> already exists and the settings differ, Route 53 returns a <code>HealthCheckSourceAlreadyExists</code> error.</p>
+   * @public
+   */
+  CallerReference?: string | undefined;
+
+  /**
+   * <p>A complex type that contains the virtual private cloud (VPC), subnets, and security groups for the health check source.</p>
+   * @public
+   */
+  HealthCheckSourceConfig: HealthCheckSourceConfig | undefined;
+
+  /**
+   * <p>A complex type that contains a list of the tags that you want to apply to the health check source when you create it.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Returns the ID, status, and location URL of the new health check source.</p>
+ * @public
+ */
+export interface CreateHealthCheckSourceResponse {
+  /**
+   * <p>The ID of the new health check source. Route 53 assigns this ID when it creates the source.</p>
+   * @public
+   */
+  HealthCheckSourceId: string | undefined;
+
+  /**
+   * <p>The current status of the health check source. Immediately after you create a health check source, the status is <code>CREATE_PENDING</code>. If the request is a retry with the same <code>CallerReference</code>, the status is the current status of the existing health check source.</p>
+   * @public
+   */
+  HealthCheckSourceStatus: HealthCheckSourceStatus | undefined;
+
+  /**
+   * <p>The unique URL representing the new health check source.</p>
    * @public
    */
   Location: string | undefined;
@@ -3668,6 +3807,36 @@ export interface DeleteHealthCheckRequest {
 export interface DeleteHealthCheckResponse {}
 
 /**
+ * <p>Contains the ID of the health check source that you want to delete.</p>
+ * @public
+ */
+export interface DeleteHealthCheckSourceRequest {
+  /**
+   * <p>The ID of the health check source that you want to delete.</p>
+   * @public
+   */
+  HealthCheckSourceId: string | undefined;
+}
+
+/**
+ * <p>Contains the ID and status of the health check source that <code>DeleteHealthCheckSource</code> deletes.</p>
+ * @public
+ */
+export interface DeleteHealthCheckSourceResponse {
+  /**
+   * <p>The ID of the health check source that is being deleted.</p>
+   * @public
+   */
+  HealthCheckSourceId: string | undefined;
+
+  /**
+   * <p>The status of the health check source after Route 53 accepts the delete request. The value is <code>DELETE_PENDING</code>, or the current status if deletion of the health check source was already in progress.</p>
+   * @public
+   */
+  HealthCheckSourceStatus: HealthCheckSourceStatus | undefined;
+}
+
+/**
  * <p>A request to delete a hosted zone.</p>
  * @public
  */
@@ -3970,6 +4139,11 @@ export interface GetAccountLimitRequest {
    *                <p>
    *                   <b>MAX_HEALTH_CHECKS_BY_OWNER</b>: The maximum
    * 					number of health checks that you can create using the current account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>MAX_HEALTH_CHECK_SOURCES_BY_OWNER</b> The maximum
+   * 					number of health check sources that you can create using the current account.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4400,6 +4574,131 @@ export interface GetHealthCheckLastFailureReasonResponse {
    * @public
    */
   HealthCheckObservations: HealthCheckObservation[] | undefined;
+}
+
+/**
+ * <p>Contains the ID of the health check source that you want to get information about.</p>
+ * @public
+ */
+export interface GetHealthCheckSourceRequest {
+  /**
+   * <p>The ID of the health check source that you want to get information about.</p>
+   * @public
+   */
+  HealthCheckSourceId: string | undefined;
+}
+
+/**
+ * <p>A complex type that contains information about a health check source: its ID, its status, and the virtual private cloud (VPC), subnets, and security groups from which Route 53 sends health check requests to private endpoints.</p>
+ * @public
+ */
+export interface HealthCheckSource {
+  /**
+   * <p>The ID of the health check source. Route 53 assigns this ID when it creates the source.</p>
+   * @public
+   */
+  HealthCheckSourceId: string | undefined;
+
+  /**
+   * <p>The current status of the health check source. The health check source status can have one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - Route 53 accepted the request to create the source and hasn't started creating it. You can't use the source in a health check until its status is <code>CREATE_COMPLETED</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - Route 53 is creating the source. You can't use the source in a health check until its status is <code>CREATE_COMPLETED</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_COMPLETED</code> - The source is ready to use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_FAILED</code> - Route 53 couldn't create the source. <code>StatusReasonCode</code> and <code>StatusReason</code> explain why.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_PENDING</code> - Route 53 accepted the request to delete the source and hasn't started deleting it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_IN_PROGRESS</code> - Route 53 is deleting the source.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_COMPLETED</code> - Route 53 has deleted the source. You can't retrieve a health check source in this status: <code>GetHealthCheckSource</code> returns <code>NoSuchHealthCheckSource</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_FAILED</code> - Route 53 couldn't delete the source. <code>StatusReasonCode</code> and <code>StatusReason</code> explain why.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If the status is <code>CREATE_FAILED</code>, fix the cause that <code>StatusReasonCode</code> indicates, and then either retry <code>CreateHealthCheckSource</code> with the same <code>CallerReference</code> and settings, or delete the source and create a new one. If the status is <code>DELETE_FAILED</code>, retry the <code>DeleteHealthCheckSource</code> request.</p>
+   * @public
+   */
+  HealthCheckSourceStatus: HealthCheckSourceStatus | undefined;
+
+  /**
+   * <p>The virtual private cloud (VPC), subnets, and security groups for the health check source.</p>
+   * @public
+   */
+  HealthCheckSourceConfig: HealthCheckSourceConfig | undefined;
+
+  /**
+   * <p>A code that indicates why the health check source has a status of <code>CREATE_FAILED</code> or <code>DELETE_FAILED</code>. Route 53 returns this member only when the status is one of those values. The code can have one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INSUFFICIENT_SUBNET_IPS</code> - One of the specified subnets doesn't have enough free private IP addresses. Check the available IP addresses in each subnet, and delete network interfaces that you don't need.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EC2_LIMIT_EXCEEDED</code> - Your account reached an Amazon virtual private cloud (VPC) quota for network interfaces or security groups. Delete network interfaces that you don't need, specify fewer security groups, or request a quota increase.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_SUBNET</code> - One of the specified subnets doesn't exist or isn't valid, or an <code>AvailabilityZoneId</code> doesn't match the Availability Zone of its subnet. Check that each subnet ID is correct, that the subnet exists, and that each <code>AvailabilityZoneId</code> matches its subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_SECURITY_GROUP</code> - One of the specified security groups doesn't exist or isn't valid. Check that each security group ID is correct and that the security group exists.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_CONFIGURATION</code> - The combination of VPC, subnets, and security groups isn't valid. Check that <code>VpcId</code> is correct and exists, that each subnet is in that VPC, and that the security groups for each subnet are in the same VPC as that subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SLR_MISSING_OR_NOT_ASSUMABLE</code> - Route 53 couldn't assume its service-linked role in your account. In IAM, check that the service-linked role for Route 53 private endpoint health checks exists and that no deletion task for it is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INTERNAL_ERROR</code> - Route 53 encountered an internal error. Contact Amazon Web Services Support and provide the health check source ID.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StatusReasonCode?: HealthCheckSourceStatusReasonCode | undefined;
+
+  /**
+   * <p>A description of why the health check source has a status of <code>CREATE_FAILED</code> or <code>DELETE_FAILED</code>, and what you can do about it. The text corresponds to the value of <code>StatusReasonCode</code>. Route 53 returns this member only when <code>StatusReasonCode</code> is present.</p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+}
+
+/**
+ * <p>Contains the health check source that <code>GetHealthCheckSource</code> returns.</p>
+ * @public
+ */
+export interface GetHealthCheckSourceResponse {
+  /**
+   * <p>A complex type that contains information about the specified health check source.</p>
+   * @public
+   */
+  HealthCheckSource: HealthCheckSource | undefined;
 }
 
 /**
@@ -5156,6 +5455,102 @@ export interface ListHealthChecksResponse {
 }
 
 /**
+ * <p>Contains the parameters for retrieving a list of the health checks that use a specified health check source.</p>
+ * @public
+ */
+export interface ListHealthChecksBySourceRequest {
+  /**
+   * <p>The ID of the health check source whose health checks you want to list.</p>
+   * @public
+   */
+  HealthCheckSourceId: string | undefined;
+
+  /**
+   * <p>The <code>NextMarker</code> value from the previous response, if the value of <code>IsTruncated</code> was <code>true</code>. Specify it to get the next group of health checks. If <code>IsTruncated</code> was <code>false</code>, there are no more health checks to get.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of health checks that you want <code>ListHealthChecksBySource</code> to return. Route 53 returns a maximum of 1000 health checks. If you specify a value greater than 1000, Route 53 returns only the first 1000.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * <p>Contains the health checks and pagination information that <code>ListHealthChecksBySource</code> returns.</p>
+ * @public
+ */
+export interface ListHealthChecksBySourceResponse {
+  /**
+   * <p>A complex type that contains one <code>HealthCheck</code> element for each health check that uses the specified health check source.</p>
+   * @public
+   */
+  HealthChecks: HealthCheck[] | undefined;
+
+  /**
+   * <p>The value that you specified for the <code>marker</code> parameter in the call to <code>ListHealthChecksBySource</code> that produced the current response. This value is present for the second and subsequent calls to <code>ListHealthChecksBySource</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Specifies whether there are more health checks to list. If the value is <code>true</code>, specify the <code>NextMarker</code> value for <code>marker</code> to get the next group of health checks.</p>
+   * @public
+   */
+  IsTruncated: boolean | undefined;
+
+  /**
+   * <p>The identifier of the first health check in the next group of health checks. If <code>IsTruncated</code> is <code>true</code>, specify this value in the <code>marker</code> parameter of another <code>ListHealthChecksBySource</code> request.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+
+  /**
+   * <p>The value that you specified for the <code>maxitems</code> parameter in the call to <code>ListHealthChecksBySource</code> that produced the current response.</p>
+   * @public
+   */
+  MaxItems: number | undefined;
+}
+
+/**
+ * <p>Contains the parameters for retrieving a list of the health check sources that are associated with the current Amazon Web Services account.</p>
+ * @public
+ */
+export interface ListHealthCheckSourcesRequest {
+  /**
+   * <p>The <code>NextToken</code> value from the previous response, if it included one. Specify it to get the next group of health check sources.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of health check sources that you want <code>ListHealthCheckSources</code> to return. Route 53 returns a maximum of 100 health check sources. If you specify a value greater than 100, Route 53 returns only the first 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains the health check sources and pagination information that <code>ListHealthCheckSources</code> returns.</p>
+ * @public
+ */
+export interface ListHealthCheckSourcesResponse {
+  /**
+   * <p>A complex type that contains one <code>HealthCheckSource</code> element for each health check source that is associated with the current Amazon Web Services account.</p>
+   * @public
+   */
+  HealthCheckSources: HealthCheckSource[] | undefined;
+
+  /**
+   * <p>A pagination token. If there are more health check sources to list, specify this value for <code>NextToken</code> in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * <p>A request to retrieve a list of the public and private hosted zones that are
  * 			associated with the current Amazon Web Services account.</p>
  * @public
@@ -5858,6 +6253,9 @@ export interface ListTagsForResourceRequest {
    *                <p>The resource type for health checks is <code>healthcheck</code>.</p>
    *             </li>
    *             <li>
+   *                <p>The resource type for health check sources is <code>healthchecksource</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>The resource type for hosted zones is <code>hostedzone</code>.</p>
    *             </li>
    *          </ul>
@@ -5882,6 +6280,9 @@ export interface ResourceTagSet {
    *          <ul>
    *             <li>
    *                <p>The resource type for health checks is <code>healthcheck</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The resource type for health check sources is <code>healthchecksource</code>.</p>
    *             </li>
    *             <li>
    *                <p>The resource type for hosted zones is <code>hostedzone</code>.</p>
@@ -5929,6 +6330,9 @@ export interface ListTagsForResourcesRequest {
    *          <ul>
    *             <li>
    *                <p>The resource type for health checks is <code>healthcheck</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The resource type for health check sources is <code>healthchecksource</code>.</p>
    *             </li>
    *             <li>
    *                <p>The resource type for hosted zones is <code>hostedzone</code>.</p>
@@ -6747,7 +7151,7 @@ export interface UpdateHealthCheckRequest {
    * 						<code>2001:db8:85a3::abcd:1:2345</code>.</p>
    *             </li>
    *          </ul>
-   *          <p>If the endpoint is an EC2 instance, we recommend that you create an Elastic IP
+   *          <p>For a public health check, if the endpoint is an EC2 instance, we recommend that you create an Elastic IP
    * 			address, associate it with your EC2 instance, and specify the Elastic IP address for
    * 				<code>IPAddress</code>. This ensures that the IP address of your instance never
    * 			changes. For more information, see the applicable documentation:</p>
@@ -6771,9 +7175,10 @@ export interface UpdateHealthCheckRequest {
    * 				value of <code>IPAddress</code>. </p>
    *          </note>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-FullyQualifiedDomainName">FullyQualifiedDomainName</a>. </p>
-   *          <p>Constraints: Route 53 can't check the health of endpoints for which the IP address is
+   *          <p>Constraints: For a public health check (<code>EndpointType</code> of <code>PUBLIC</code>, the
+   * 			default), Route 53 can't check the health of endpoints for which the IP address is
    * 			in local, private, non-routable, or multicast ranges. For more information about IP
-   * 			addresses for which you can't create health checks, see the following documents:</p>
+   * 			addresses for which you can't create public health checks, see the following documents:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6794,6 +7199,9 @@ export interface UpdateHealthCheckRequest {
    *                </p>
    *             </li>
    *          </ul>
+   *          <p>For a private endpoint health check (<code>EndpointType</code> of <code>PRIVATE</code>),
+   * 			if you specify <code>IPAddress</code>, it must be a private IPv4 or IPv6 address. Route 53 sends health checks to it from
+   * 			the health check source that you specify in <code>HealthCheckSourceId</code>.</p>
    * @public
    */
   IPAddress?: string | undefined;
@@ -7081,6 +7489,13 @@ export interface UpdateHealthCheckRequest {
    * @public
    */
   ResetElements?: ResettableElementName[] | undefined;
+
+  /**
+   * <p>The ID of the health check source from which Route 53 sends requests to the endpoint. Applies only to health checks that have an <code>EndpointType</code> of <code>PRIVATE</code>. The health check source must be in the same account and have a status of <code>CREATE_COMPLETED</code>.</p>
+   *          <p>Each health check source supports a limited number of active health checks. If you reach that limit, specify a different health check source.</p>
+   * @public
+   */
+  HealthCheckSourceId?: string | undefined;
 }
 
 /**

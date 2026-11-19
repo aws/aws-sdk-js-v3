@@ -62,6 +62,7 @@ export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckRespons
  *   ResetElements: [ // ResettableElementNameList
  *     "FullyQualifiedDomainName" || "Regions" || "ResourcePath" || "ChildHealthChecks",
  *   ],
+ *   HealthCheckSourceId: "STRING_VALUE",
  * };
  * const command = new UpdateHealthCheckCommand(input);
  * const response = await client.send(command);
@@ -99,6 +100,8 @@ export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckRespons
  * //       },
  * //       InsufficientDataHealthStatus: "Healthy" || "Unhealthy" || "LastKnownStatus",
  * //       RoutingControlArn: "STRING_VALUE",
+ * //       EndpointType: "PUBLIC" || "PRIVATE",
+ * //       HealthCheckSourceId: "STRING_VALUE",
  * //     },
  * //     HealthCheckVersion: Number("long"), // required
  * //     CloudWatchAlarmConfiguration: { // CloudWatchAlarmConfiguration

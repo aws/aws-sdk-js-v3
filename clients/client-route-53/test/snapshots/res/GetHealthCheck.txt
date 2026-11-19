@@ -89,6 +89,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <RoutingControlArn>
                 __RoutingControlArn__
             </RoutingControlArn>
+            <EndpointType>
+                __EndpointType__
+            </EndpointType>
+            <HealthCheckSourceId>
+                __HealthCheckSourceId__
+            </HealthCheckSourceId>
         </HealthCheckConfig>
         <HealthCheckVersion>
             0
@@ -181,7 +187,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Name: "__Name__"
       },
       InsufficientDataHealthStatus: "__InsufficientDataHealthStatus__",
-      RoutingControlArn: "__RoutingControlArn__"
+      RoutingControlArn: "__RoutingControlArn__",
+      EndpointType: "__EndpointType__",
+      HealthCheckSourceId: "__HealthCheckSourceId__"
     },
     HealthCheckVersion: (number) 0,
     LinkedService: {},
@@ -310,6 +318,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <RoutingControlArn>
                 __RoutingControlArn__
             </RoutingControlArn>
+            <EndpointType>
+                __EndpointType__
+            </EndpointType>
+            <HealthCheckSourceId>
+                __HealthCheckSourceId__
+            </HealthCheckSourceId>
         </HealthCheckConfig>
         <HealthCheckVersion>
             0
@@ -409,7 +423,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Name: "__Name__"
       },
       InsufficientDataHealthStatus: "__InsufficientDataHealthStatus__",
-      RoutingControlArn: "__RoutingControlArn__"
+      RoutingControlArn: "__RoutingControlArn__",
+      EndpointType: "__EndpointType__",
+      HealthCheckSourceId: "__HealthCheckSourceId__"
     },
     HealthCheckVersion: (number) 0,
     LinkedService: {

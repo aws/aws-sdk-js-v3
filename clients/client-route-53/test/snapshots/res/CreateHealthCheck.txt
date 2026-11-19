@@ -90,6 +90,12 @@ Location: __Location__
             <RoutingControlArn>
                 __RoutingControlArn__
             </RoutingControlArn>
+            <EndpointType>
+                __EndpointType__
+            </EndpointType>
+            <HealthCheckSourceId>
+                __HealthCheckSourceId__
+            </HealthCheckSourceId>
         </HealthCheckConfig>
         <HealthCheckVersion>
             0
@@ -183,7 +189,9 @@ Location: __Location__
         Name: "__Name__"
       },
       InsufficientDataHealthStatus: "__InsufficientDataHealthStatus__",
-      RoutingControlArn: "__RoutingControlArn__"
+      RoutingControlArn: "__RoutingControlArn__",
+      EndpointType: "__EndpointType__",
+      HealthCheckSourceId: "__HealthCheckSourceId__"
     },
     HealthCheckVersion: (number) 0,
     LinkedService: {},
@@ -313,6 +321,12 @@ Location: __Location__
             <RoutingControlArn>
                 __RoutingControlArn__
             </RoutingControlArn>
+            <EndpointType>
+                __EndpointType__
+            </EndpointType>
+            <HealthCheckSourceId>
+                __HealthCheckSourceId__
+            </HealthCheckSourceId>
         </HealthCheckConfig>
         <HealthCheckVersion>
             0
@@ -413,7 +427,9 @@ Location: __Location__
         Name: "__Name__"
       },
       InsufficientDataHealthStatus: "__InsufficientDataHealthStatus__",
-      RoutingControlArn: "__RoutingControlArn__"
+      RoutingControlArn: "__RoutingControlArn__",
+      EndpointType: "__EndpointType__",
+      HealthCheckSourceId: "__HealthCheckSourceId__"
     },
     HealthCheckVersion: (number) 0,
     LinkedService: {

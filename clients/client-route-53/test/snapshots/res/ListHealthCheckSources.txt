@@ -1,0 +1,758 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListHealthCheckSourcesResponse xmlns="https://placeholder.amazonaws.com">
+    <HealthCheckSources>
+        <HealthCheckSource>
+            <HealthCheckSourceId>
+                __HealthCheckSourceId__
+            </HealthCheckSourceId>
+            <HealthCheckSourceStatus>
+                __HealthCheckSourceStatus__
+            </HealthCheckSourceStatus>
+            <HealthCheckSourceConfig>
+                <VpcId>
+                    __VpcId__
+                </VpcId>
+                <SubnetConfigurationList>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                </SubnetConfigurationList>
+            </HealthCheckSourceConfig>
+            <StatusReasonCode>
+                __StatusReasonCode__
+            </StatusReasonCode>
+            <StatusReason>
+                __StatusReason__
+            </StatusReason>
+        </HealthCheckSource>
+        <HealthCheckSource>
+            <HealthCheckSourceId>
+                __HealthCheckSourceId__
+            </HealthCheckSourceId>
+            <HealthCheckSourceStatus>
+                __HealthCheckSourceStatus__
+            </HealthCheckSourceStatus>
+            <HealthCheckSourceConfig>
+                <VpcId>
+                    __VpcId__
+                </VpcId>
+                <SubnetConfigurationList>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                </SubnetConfigurationList>
+            </HealthCheckSourceConfig>
+            <StatusReasonCode>
+                __StatusReasonCode__
+            </StatusReasonCode>
+            <StatusReason>
+                __StatusReason__
+            </StatusReason>
+        </HealthCheckSource>
+        <HealthCheckSource>
+            <HealthCheckSourceId>
+                __HealthCheckSourceId__
+            </HealthCheckSourceId>
+            <HealthCheckSourceStatus>
+                __HealthCheckSourceStatus__
+            </HealthCheckSourceStatus>
+            <HealthCheckSourceConfig>
+                <VpcId>
+                    __VpcId__
+                </VpcId>
+                <SubnetConfigurationList>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                </SubnetConfigurationList>
+            </HealthCheckSourceConfig>
+            <StatusReasonCode>
+                __StatusReasonCode__
+            </StatusReasonCode>
+            <StatusReason>
+                __StatusReason__
+            </StatusReason>
+        </HealthCheckSource>
+    </HealthCheckSources>
+    <NextToken>
+        __NextToken__
+    </NextToken>
+</ListHealthCheckSourcesResponse>
+
+
+--- [output object] ---
+{
+  HealthCheckSources: [
+    {
+      HealthCheckSourceId: "__HealthCheckSourceId__",
+      HealthCheckSourceStatus: "__HealthCheckSourceStatus__",
+      HealthCheckSourceConfig: {
+        VpcId: "__VpcId__",
+        SubnetConfigurationList: [
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ]
+      },
+      StatusReasonCode: "__StatusReasonCode__",
+      StatusReason: "__StatusReason__"
+    },
+    {
+      HealthCheckSourceId: "__HealthCheckSourceId__",
+      HealthCheckSourceStatus: "__HealthCheckSourceStatus__",
+      HealthCheckSourceConfig: {
+        VpcId: "__VpcId__",
+        SubnetConfigurationList: [
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ]
+      },
+      StatusReasonCode: "__StatusReasonCode__",
+      StatusReason: "__StatusReason__"
+    },
+    {
+      HealthCheckSourceId: "__HealthCheckSourceId__",
+      HealthCheckSourceStatus: "__HealthCheckSourceStatus__",
+      HealthCheckSourceConfig: {
+        VpcId: "__VpcId__",
+        SubnetConfigurationList: [
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ]
+      },
+      StatusReasonCode: "__StatusReasonCode__",
+      StatusReason: "__StatusReason__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListHealthCheckSourcesResponse xmlns="https://placeholder.amazonaws.com">
+    <HealthCheckSources>
+        <HealthCheckSource>
+            <HealthCheckSourceId>
+                __HealthCheckSourceId__
+            </HealthCheckSourceId>
+            <HealthCheckSourceStatus>
+                __HealthCheckSourceStatus__
+            </HealthCheckSourceStatus>
+            <HealthCheckSourceConfig>
+                <VpcId>
+                    __VpcId__
+                </VpcId>
+                <SubnetConfigurationList>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                </SubnetConfigurationList>
+            </HealthCheckSourceConfig>
+            <StatusReasonCode>
+                __StatusReasonCode__
+            </StatusReasonCode>
+            <StatusReason>
+                __StatusReason__
+            </StatusReason>
+        </HealthCheckSource>
+        <HealthCheckSource>
+            <HealthCheckSourceId>
+                __HealthCheckSourceId__
+            </HealthCheckSourceId>
+            <HealthCheckSourceStatus>
+                __HealthCheckSourceStatus__
+            </HealthCheckSourceStatus>
+            <HealthCheckSourceConfig>
+                <VpcId>
+                    __VpcId__
+                </VpcId>
+                <SubnetConfigurationList>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                </SubnetConfigurationList>
+            </HealthCheckSourceConfig>
+            <StatusReasonCode>
+                __StatusReasonCode__
+            </StatusReasonCode>
+            <StatusReason>
+                __StatusReason__
+            </StatusReason>
+        </HealthCheckSource>
+        <HealthCheckSource>
+            <HealthCheckSourceId>
+                __HealthCheckSourceId__
+            </HealthCheckSourceId>
+            <HealthCheckSourceStatus>
+                __HealthCheckSourceStatus__
+            </HealthCheckSourceStatus>
+            <HealthCheckSourceConfig>
+                <VpcId>
+                    __VpcId__
+                </VpcId>
+                <SubnetConfigurationList>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                    <SubnetConfiguration>
+                        <SubnetId>
+                            __SubnetId__
+                        </SubnetId>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <SecurityGroupIdList>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                            <SecurityGroupId>
+                                __member__
+                            </SecurityGroupId>
+                        </SecurityGroupIdList>
+                    </SubnetConfiguration>
+                </SubnetConfigurationList>
+            </HealthCheckSourceConfig>
+            <StatusReasonCode>
+                __StatusReasonCode__
+            </StatusReasonCode>
+            <StatusReason>
+                __StatusReason__
+            </StatusReason>
+        </HealthCheckSource>
+    </HealthCheckSources>
+    <NextToken>
+        __NextToken__
+    </NextToken>
+</ListHealthCheckSourcesResponse>
+
+
+--- [output object] ---
+{
+  HealthCheckSources: [
+    {
+      HealthCheckSourceId: "__HealthCheckSourceId__",
+      HealthCheckSourceStatus: "__HealthCheckSourceStatus__",
+      HealthCheckSourceConfig: {
+        VpcId: "__VpcId__",
+        SubnetConfigurationList: [
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ]
+      },
+      StatusReasonCode: "__StatusReasonCode__",
+      StatusReason: "__StatusReason__"
+    },
+    {
+      HealthCheckSourceId: "__HealthCheckSourceId__",
+      HealthCheckSourceStatus: "__HealthCheckSourceStatus__",
+      HealthCheckSourceConfig: {
+        VpcId: "__VpcId__",
+        SubnetConfigurationList: [
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ]
+      },
+      StatusReasonCode: "__StatusReasonCode__",
+      StatusReason: "__StatusReason__"
+    },
+    {
+      HealthCheckSourceId: "__HealthCheckSourceId__",
+      HealthCheckSourceStatus: "__HealthCheckSourceStatus__",
+      HealthCheckSourceConfig: {
+        VpcId: "__VpcId__",
+        SubnetConfigurationList: [
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            SubnetId: "__SubnetId__",
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            SecurityGroupIdList: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ]
+      },
+      StatusReasonCode: "__StatusReasonCode__",
+      StatusReason: "__StatusReason__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

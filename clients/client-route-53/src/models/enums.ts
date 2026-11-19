@@ -24,6 +24,7 @@ export type AcceleratedRecoveryStatus = (typeof AcceleratedRecoveryStatus)[keyof
  */
 export const AccountLimitType = {
   MAX_HEALTH_CHECKS_BY_OWNER: "MAX_HEALTH_CHECKS_BY_OWNER",
+  MAX_HEALTH_CHECK_SOURCES_BY_OWNER: "MAX_HEALTH_CHECK_SOURCES_BY_OWNER",
   MAX_HOSTED_ZONES_BY_OWNER: "MAX_HOSTED_ZONES_BY_OWNER",
   MAX_REUSABLE_DELEGATION_SETS_BY_OWNER: "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER",
   MAX_TRAFFIC_POLICIES_BY_OWNER: "MAX_TRAFFIC_POLICIES_BY_OWNER",
@@ -285,12 +286,26 @@ export type RRType = (typeof RRType)[keyof typeof RRType];
  */
 export const TagResourceType = {
   healthcheck: "healthcheck",
+  healthchecksource: "healthchecksource",
   hostedzone: "hostedzone",
 } as const;
 /**
  * @public
  */
 export type TagResourceType = (typeof TagResourceType)[keyof typeof TagResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointType = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
+/**
+ * @public
+ */
+export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
 /**
  * @public
@@ -375,6 +390,44 @@ export const Statistic = {
  * @public
  */
 export type Statistic = (typeof Statistic)[keyof typeof Statistic];
+
+/**
+ * @public
+ * @enum
+ */
+export const HealthCheckSourceStatus = {
+  CREATE_COMPLETED: "CREATE_COMPLETED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_PENDING: "CREATE_PENDING",
+  DELETE_COMPLETED: "DELETE_COMPLETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  DELETE_PENDING: "DELETE_PENDING",
+} as const;
+/**
+ * @public
+ */
+export type HealthCheckSourceStatus = (typeof HealthCheckSourceStatus)[keyof typeof HealthCheckSourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const HealthCheckSourceStatusReasonCode = {
+  EC2_LIMIT_EXCEEDED: "EC2_LIMIT_EXCEEDED",
+  INSUFFICIENT_SUBNET_IPS: "INSUFFICIENT_SUBNET_IPS",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_CONFIGURATION: "INVALID_CONFIGURATION",
+  INVALID_SECURITY_GROUP: "INVALID_SECURITY_GROUP",
+  INVALID_SUBNET: "INVALID_SUBNET",
+  SLR_MISSING_OR_NOT_ASSUMABLE: "SLR_MISSING_OR_NOT_ASSUMABLE",
+} as const;
+/**
+ * @public
+ */
+export type HealthCheckSourceStatusReasonCode =
+  (typeof HealthCheckSourceStatusReasonCode)[keyof typeof HealthCheckSourceStatusReasonCode];
 
 /**
  * @public

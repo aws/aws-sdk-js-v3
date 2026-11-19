@@ -71,6 +71,8 @@ export interface GetHealthCheckCommandOutput extends GetHealthCheckResponse, __M
  * //       },
  * //       InsufficientDataHealthStatus: "Healthy" || "Unhealthy" || "LastKnownStatus",
  * //       RoutingControlArn: "STRING_VALUE",
+ * //       EndpointType: "PUBLIC" || "PRIVATE",
+ * //       HealthCheckSourceId: "STRING_VALUE",
  * //     },
  * //     HealthCheckVersion: Number("long"), // required
  * //     CloudWatchAlarmConfiguration: { // CloudWatchAlarmConfiguration

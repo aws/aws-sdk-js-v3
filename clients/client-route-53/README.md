@@ -246,6 +246,13 @@ CreateHealthCheck
 </details>
 <details>
 <summary>
+CreateHealthCheckSource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53/command/CreateHealthCheckSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/CreateHealthCheckSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/CreateHealthCheckSourceCommandOutput/)
+</details>
+<details>
+<summary>
 CreateHostedZone
 </summary>
 
@@ -327,6 +334,13 @@ DeleteHealthCheck
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53/command/DeleteHealthCheckCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/DeleteHealthCheckCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/DeleteHealthCheckCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteHealthCheckSource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53/command/DeleteHealthCheckSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/DeleteHealthCheckSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/DeleteHealthCheckSourceCommandOutput/)
 </details>
 <details>
 <summary>
@@ -463,6 +477,13 @@ GetHealthCheckLastFailureReason
 </details>
 <details>
 <summary>
+GetHealthCheckSource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53/command/GetHealthCheckSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/GetHealthCheckSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/GetHealthCheckSourceCommandOutput/)
+</details>
+<details>
+<summary>
 GetHealthCheckStatus
 </summary>
 
@@ -565,6 +586,20 @@ ListHealthChecks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53/command/ListHealthChecksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/ListHealthChecksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/ListHealthChecksCommandOutput/)
+</details>
+<details>
+<summary>
+ListHealthChecksBySource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53/command/ListHealthChecksBySourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/ListHealthChecksBySourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/ListHealthChecksBySourceCommandOutput/)
+</details>
+<details>
+<summary>
+ListHealthCheckSources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53/command/ListHealthCheckSourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/ListHealthCheckSourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/ListHealthCheckSourcesCommandOutput/)
 </details>
 <details>
 <summary>

@@ -23,7 +23,7 @@ export interface ChangeTagsForResourceCommandInput extends ChangeTagsForResource
 export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds, edits, or deletes tags for a health check or a hosted zone.</p>
+ * <p>Adds, edits, or deletes tags for a health check, a health check source, or a hosted zone.</p>
  *          <p>For information about using tags for cost allocation, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
  * 				Tags</a> in the <i>Billing and Cost Management User Guide</i>.</p>
  * @example
@@ -35,7 +35,7 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // ChangeTagsForResourceRequest
- *   ResourceType: "healthcheck" || "hostedzone", // required
+ *   ResourceType: "healthcheck" || "hostedzone" || "healthchecksource", // required
  *   ResourceId: "STRING_VALUE", // required
  *   AddTags: [ // TagList
  *     { // Tag
@@ -64,6 +64,9 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  *
  * @throws {@link NoSuchHealthCheck} (client fault)
  *  <p>No health check exists with the specified ID.</p>
+ *
+ * @throws {@link NoSuchHealthCheckSource} (client fault)
+ *  <p>No health check source exists with the specified ID. Verify that the ID is correct and that the health check source hasn't been deleted.</p>
  *
  * @throws {@link NoSuchHostedZone} (client fault)
  *  <p>No hosted zone exists with the ID that you specified.</p>

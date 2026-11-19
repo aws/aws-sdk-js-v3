@@ -4,6 +4,8 @@ export * from "./ListCidrBlocksPaginator";
 export * from "./ListCidrCollectionsPaginator";
 export * from "./ListCidrLocationsPaginator";
 export * from "./ListHealthChecksPaginator";
+export * from "./ListHealthChecksBySourcePaginator";
+export * from "./ListHealthCheckSourcesPaginator";
 export * from "./ListHostedZonesPaginator";
 export * from "./ListQueryLoggingConfigsPaginator";
 export * from "./ListResourceRecordSetProtectionsPaginator";

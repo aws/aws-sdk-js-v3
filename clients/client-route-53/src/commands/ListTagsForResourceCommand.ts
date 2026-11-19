@@ -35,14 +35,14 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceType: "healthcheck" || "hostedzone", // required
+ *   ResourceType: "healthcheck" || "hostedzone" || "healthchecksource", // required
  *   ResourceId: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * // { // ListTagsForResourceResponse
  * //   ResourceTagSet: { // ResourceTagSet
- * //     ResourceType: "healthcheck" || "hostedzone",
+ * //     ResourceType: "healthcheck" || "hostedzone" || "healthchecksource",
  * //     ResourceId: "STRING_VALUE",
  * //     Tags: [ // TagList
  * //       { // Tag
@@ -66,6 +66,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @throws {@link NoSuchHealthCheck} (client fault)
  *  <p>No health check exists with the specified ID.</p>
+ *
+ * @throws {@link NoSuchHealthCheckSource} (client fault)
+ *  <p>No health check source exists with the specified ID. Verify that the ID is correct and that the health check source hasn't been deleted.</p>
  *
  * @throws {@link NoSuchHostedZone} (client fault)
  *  <p>No hosted zone exists with the ID that you specified.</p>

@@ -41,13 +41,13 @@ export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, _
  * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // GetAccountLimitRequest
- *   Type: "MAX_HEALTH_CHECKS_BY_OWNER" || "MAX_HOSTED_ZONES_BY_OWNER" || "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER" || "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER" || "MAX_TRAFFIC_POLICIES_BY_OWNER", // required
+ *   Type: "MAX_HEALTH_CHECKS_BY_OWNER" || "MAX_HOSTED_ZONES_BY_OWNER" || "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER" || "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER" || "MAX_TRAFFIC_POLICIES_BY_OWNER" || "MAX_HEALTH_CHECK_SOURCES_BY_OWNER", // required
  * };
  * const command = new GetAccountLimitCommand(input);
  * const response = await client.send(command);
  * // { // GetAccountLimitResponse
  * //   Limit: { // AccountLimit
- * //     Type: "MAX_HEALTH_CHECKS_BY_OWNER" || "MAX_HOSTED_ZONES_BY_OWNER" || "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER" || "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER" || "MAX_TRAFFIC_POLICIES_BY_OWNER", // required
+ * //     Type: "MAX_HEALTH_CHECKS_BY_OWNER" || "MAX_HOSTED_ZONES_BY_OWNER" || "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER" || "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER" || "MAX_TRAFFIC_POLICIES_BY_OWNER" || "MAX_HEALTH_CHECK_SOURCES_BY_OWNER", // required
  * //     Value: Number("long"), // required
  * //   },
  * //   Count: Number("long"), // required

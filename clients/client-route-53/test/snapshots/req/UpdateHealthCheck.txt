@@ -2,14 +2,14 @@ POST https://route53.amazonaws.com
 /2013-04-01/healthcheck/__HealthCheckId__
 
 content-type: application/xml
-content-length: 1220
+content-length: 1286
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/route-53#_.__ m/E,e
 host: route53.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: d72798db9bb007ccca6a216d6163fbe69ff2f9512694eb7aa707765926fe06d7
+x-amz-content-sha256: 118fa37feef4561e29668934addf9f8f2d6d8d3b7fb146f8496b0d045906452e
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/route53/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (xml)]
@@ -92,4 +92,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/route53/aws4_r
             __member__
         </ResettableElementName>
     </ResetElements>
+    <HealthCheckSourceId>
+        __HealthCheckSourceId__
+    </HealthCheckSourceId>
 </UpdateHealthCheckRequest>

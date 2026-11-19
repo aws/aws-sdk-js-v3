@@ -61,6 +61,10 @@ import {
   CreateHealthCheckCommand,
   CreateHealthCheckRequest$,
   CreateHealthCheckResponse$,
+  CreateHealthCheckSource$,
+  CreateHealthCheckSourceCommand,
+  CreateHealthCheckSourceRequest$,
+  CreateHealthCheckSourceResponse$,
   CreateHostedZone$,
   CreateHostedZoneCommand,
   CreateHostedZoneRequest$,
@@ -120,6 +124,10 @@ import {
   DeleteHealthCheckCommand,
   DeleteHealthCheckRequest$,
   DeleteHealthCheckResponse$,
+  DeleteHealthCheckSource$,
+  DeleteHealthCheckSourceCommand,
+  DeleteHealthCheckSourceRequest$,
+  DeleteHealthCheckSourceResponse$,
   DeleteHostedZone$,
   DeleteHostedZoneCommand,
   DeleteHostedZoneRequest$,
@@ -168,6 +176,7 @@ import {
   EnableHostedZoneDNSSECCommand,
   EnableHostedZoneDNSSECRequest$,
   EnableHostedZoneDNSSECResponse$,
+  EndpointType,
   GeoLocation$,
   GeoLocationDetails$,
   GeoProximityLocation$,
@@ -203,6 +212,10 @@ import {
   GetHealthCheckLastFailureReasonResponse$,
   GetHealthCheckRequest$,
   GetHealthCheckResponse$,
+  GetHealthCheckSource$,
+  GetHealthCheckSourceCommand,
+  GetHealthCheckSourceRequest$,
+  GetHealthCheckSourceResponse$,
   GetHealthCheckStatus$,
   GetHealthCheckStatusCommand,
   GetHealthCheckStatusRequest$,
@@ -251,6 +264,12 @@ import {
   HealthCheckInUse$,
   HealthCheckObservation$,
   HealthCheckRegion,
+  HealthCheckSource$,
+  HealthCheckSourceAlreadyExists,
+  HealthCheckSourceAlreadyExists$,
+  HealthCheckSourceConfig$,
+  HealthCheckSourceStatus,
+  HealthCheckSourceStatusReasonCode,
   HealthCheckType,
   HealthCheckVersionMismatch,
   HealthCheckVersionMismatch$,
@@ -333,7 +352,15 @@ import {
   ListGeoLocationsRequest$,
   ListGeoLocationsResponse$,
   ListHealthChecks$,
+  ListHealthChecksBySource$,
+  ListHealthChecksBySourceCommand,
+  ListHealthChecksBySourceRequest$,
+  ListHealthChecksBySourceResponse$,
   ListHealthChecksCommand,
+  ListHealthCheckSources$,
+  ListHealthCheckSourcesCommand,
+  ListHealthCheckSourcesRequest$,
+  ListHealthCheckSourcesResponse$,
   ListHealthChecksRequest$,
   ListHealthChecksResponse$,
   ListHostedZones$,
@@ -411,6 +438,8 @@ import {
   NoSuchGeoLocation$,
   NoSuchHealthCheck,
   NoSuchHealthCheck$,
+  NoSuchHealthCheckSource,
+  NoSuchHealthCheckSource$,
   NoSuchHostedZone,
   NoSuchHostedZone$,
   NoSuchKeySigningKey,
@@ -427,6 +456,8 @@ import {
   paginateListCidrCollections,
   paginateListCidrLocations,
   paginateListHealthChecks,
+  paginateListHealthChecksBySource,
+  paginateListHealthCheckSources,
   paginateListHostedZones,
   paginateListQueryLoggingConfigs,
   paginateListResourceRecordSetProtections,
@@ -457,6 +488,7 @@ import {
   RRType,
   Statistic,
   StatusReport$,
+  SubnetConfiguration$,
   Tag$,
   TagResourceType,
   TestDNSAnswer$,
@@ -467,6 +499,8 @@ import {
   ThrottlingException$,
   TooManyHealthChecks,
   TooManyHealthChecks$,
+  TooManyHealthCheckSources,
+  TooManyHealthCheckSources$,
   TooManyHostedZones,
   TooManyHostedZones$,
   TooManyKeySigningKeys,
@@ -514,7 +548,11 @@ import {
   VPCAssociationNotFound,
   VPCAssociationNotFound$,
   VPCRegion,
+  waitForHealthCheckSourceCreated,
+  waitForHealthCheckSourceDeleted,
   waitForResourceRecordSetsChanged,
+  waitUntilHealthCheckSourceCreated,
+  waitUntilHealthCheckSourceDeleted,
   waitUntilResourceRecordSetsChanged,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -536,6 +574,8 @@ assert(typeof CreateCidrCollectionCommand === "function");
 assert(typeof CreateCidrCollection$ === "object");
 assert(typeof CreateHealthCheckCommand === "function");
 assert(typeof CreateHealthCheck$ === "object");
+assert(typeof CreateHealthCheckSourceCommand === "function");
+assert(typeof CreateHealthCheckSource$ === "object");
 assert(typeof CreateHostedZoneCommand === "function");
 assert(typeof CreateHostedZone$ === "object");
 assert(typeof CreateKeySigningKeyCommand === "function");
@@ -560,6 +600,8 @@ assert(typeof DeleteCidrCollectionCommand === "function");
 assert(typeof DeleteCidrCollection$ === "object");
 assert(typeof DeleteHealthCheckCommand === "function");
 assert(typeof DeleteHealthCheck$ === "object");
+assert(typeof DeleteHealthCheckSourceCommand === "function");
+assert(typeof DeleteHealthCheckSource$ === "object");
 assert(typeof DeleteHostedZoneCommand === "function");
 assert(typeof DeleteHostedZone$ === "object");
 assert(typeof DeleteKeySigningKeyCommand === "function");
@@ -598,6 +640,8 @@ assert(typeof GetHealthCheckCountCommand === "function");
 assert(typeof GetHealthCheckCount$ === "object");
 assert(typeof GetHealthCheckLastFailureReasonCommand === "function");
 assert(typeof GetHealthCheckLastFailureReason$ === "object");
+assert(typeof GetHealthCheckSourceCommand === "function");
+assert(typeof GetHealthCheckSource$ === "object");
 assert(typeof GetHealthCheckStatusCommand === "function");
 assert(typeof GetHealthCheckStatus$ === "object");
 assert(typeof GetHostedZoneCommand === "function");
@@ -628,6 +672,10 @@ assert(typeof ListGeoLocationsCommand === "function");
 assert(typeof ListGeoLocations$ === "object");
 assert(typeof ListHealthChecksCommand === "function");
 assert(typeof ListHealthChecks$ === "object");
+assert(typeof ListHealthChecksBySourceCommand === "function");
+assert(typeof ListHealthChecksBySource$ === "object");
+assert(typeof ListHealthCheckSourcesCommand === "function");
+assert(typeof ListHealthCheckSources$ === "object");
 assert(typeof ListHostedZonesCommand === "function");
 assert(typeof ListHostedZones$ === "object");
 assert(typeof ListHostedZonesByNameCommand === "function");
@@ -698,6 +746,8 @@ assert(typeof CreateCidrCollectionRequest$ === "object");
 assert(typeof CreateCidrCollectionResponse$ === "object");
 assert(typeof CreateHealthCheckRequest$ === "object");
 assert(typeof CreateHealthCheckResponse$ === "object");
+assert(typeof CreateHealthCheckSourceRequest$ === "object");
+assert(typeof CreateHealthCheckSourceResponse$ === "object");
 assert(typeof CreateHostedZoneRequest$ === "object");
 assert(typeof CreateHostedZoneResponse$ === "object");
 assert(typeof CreateKeySigningKeyRequest$ === "object");
@@ -723,6 +773,8 @@ assert(typeof DeleteCidrCollectionRequest$ === "object");
 assert(typeof DeleteCidrCollectionResponse$ === "object");
 assert(typeof DeleteHealthCheckRequest$ === "object");
 assert(typeof DeleteHealthCheckResponse$ === "object");
+assert(typeof DeleteHealthCheckSourceRequest$ === "object");
+assert(typeof DeleteHealthCheckSourceResponse$ === "object");
 assert(typeof DeleteHostedZoneRequest$ === "object");
 assert(typeof DeleteHostedZoneResponse$ === "object");
 assert(typeof DeleteKeySigningKeyRequest$ === "object");
@@ -766,6 +818,8 @@ assert(typeof GetHealthCheckLastFailureReasonRequest$ === "object");
 assert(typeof GetHealthCheckLastFailureReasonResponse$ === "object");
 assert(typeof GetHealthCheckRequest$ === "object");
 assert(typeof GetHealthCheckResponse$ === "object");
+assert(typeof GetHealthCheckSourceRequest$ === "object");
+assert(typeof GetHealthCheckSourceResponse$ === "object");
 assert(typeof GetHealthCheckStatusRequest$ === "object");
 assert(typeof GetHealthCheckStatusResponse$ === "object");
 assert(typeof GetHostedZoneCountRequest$ === "object");
@@ -789,6 +843,8 @@ assert(typeof GetTrafficPolicyResponse$ === "object");
 assert(typeof HealthCheck$ === "object");
 assert(typeof HealthCheckConfig$ === "object");
 assert(typeof HealthCheckObservation$ === "object");
+assert(typeof HealthCheckSource$ === "object");
+assert(typeof HealthCheckSourceConfig$ === "object");
 assert(typeof HostedZone$ === "object");
 assert(typeof HostedZoneConfig$ === "object");
 assert(typeof HostedZoneFailureReasons$ === "object");
@@ -806,6 +862,10 @@ assert(typeof ListCidrLocationsRequest$ === "object");
 assert(typeof ListCidrLocationsResponse$ === "object");
 assert(typeof ListGeoLocationsRequest$ === "object");
 assert(typeof ListGeoLocationsResponse$ === "object");
+assert(typeof ListHealthChecksBySourceRequest$ === "object");
+assert(typeof ListHealthChecksBySourceResponse$ === "object");
+assert(typeof ListHealthCheckSourcesRequest$ === "object");
+assert(typeof ListHealthCheckSourcesResponse$ === "object");
 assert(typeof ListHealthChecksRequest$ === "object");
 assert(typeof ListHealthChecksResponse$ === "object");
 assert(typeof ListHostedZonesByNameRequest$ === "object");
@@ -849,6 +909,7 @@ assert(typeof ResourceRecordSetProtectionKey$ === "object");
 assert(typeof ResourceTagSet$ === "object");
 assert(typeof ReusableDelegationSetLimit$ === "object");
 assert(typeof StatusReport$ === "object");
+assert(typeof SubnetConfiguration$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TestDNSAnswerRequest$ === "object");
 assert(typeof TestDNSAnswerResponse$ === "object");
@@ -874,7 +935,10 @@ assert(typeof ChangeStatus === "object");
 assert(typeof CidrCollectionChangeAction === "object");
 assert(typeof CloudWatchRegion === "object");
 assert(typeof ComparisonOperator === "object");
+assert(typeof EndpointType === "object");
 assert(typeof HealthCheckRegion === "object");
+assert(typeof HealthCheckSourceStatus === "object");
+assert(typeof HealthCheckSourceStatusReasonCode === "object");
 assert(typeof HealthCheckType === "object");
 assert(typeof HostedZoneLimitType === "object");
 assert(typeof HostedZoneType === "object");
@@ -918,6 +982,8 @@ assert(HealthCheckAlreadyExists.prototype instanceof Route53ServiceException);
 assert(typeof HealthCheckAlreadyExists$ === "object");
 assert(HealthCheckInUse.prototype instanceof Route53ServiceException);
 assert(typeof HealthCheckInUse$ === "object");
+assert(HealthCheckSourceAlreadyExists.prototype instanceof Route53ServiceException);
+assert(typeof HealthCheckSourceAlreadyExists$ === "object");
 assert(HealthCheckVersionMismatch.prototype instanceof Route53ServiceException);
 assert(typeof HealthCheckVersionMismatch$ === "object");
 assert(HostedZoneAlreadyExists.prototype instanceof Route53ServiceException);
@@ -984,6 +1050,8 @@ assert(NoSuchGeoLocation.prototype instanceof Route53ServiceException);
 assert(typeof NoSuchGeoLocation$ === "object");
 assert(NoSuchHealthCheck.prototype instanceof Route53ServiceException);
 assert(typeof NoSuchHealthCheck$ === "object");
+assert(NoSuchHealthCheckSource.prototype instanceof Route53ServiceException);
+assert(typeof NoSuchHealthCheckSource$ === "object");
 assert(NoSuchHostedZone.prototype instanceof Route53ServiceException);
 assert(typeof NoSuchHostedZone$ === "object");
 assert(NoSuchKeySigningKey.prototype instanceof Route53ServiceException);
@@ -1008,6 +1076,8 @@ assert(ThrottlingException.prototype instanceof Route53ServiceException);
 assert(typeof ThrottlingException$ === "object");
 assert(TooManyHealthChecks.prototype instanceof Route53ServiceException);
 assert(typeof TooManyHealthChecks$ === "object");
+assert(TooManyHealthCheckSources.prototype instanceof Route53ServiceException);
+assert(typeof TooManyHealthCheckSources$ === "object");
 assert(TooManyHostedZones.prototype instanceof Route53ServiceException);
 assert(typeof TooManyHostedZones$ === "object");
 assert(TooManyKeySigningKeys.prototype instanceof Route53ServiceException);
@@ -1032,13 +1102,19 @@ assert(VPCAssociationNotFound.prototype instanceof Route53ServiceException);
 assert(typeof VPCAssociationNotFound$ === "object");
 assert(Route53ServiceException.prototype instanceof Error);
 // waiters
+assert(typeof waitForHealthCheckSourceCreated === "function");
+assert(typeof waitForHealthCheckSourceDeleted === "function");
 assert(typeof waitForResourceRecordSetsChanged === "function");
+assert(typeof waitUntilHealthCheckSourceCreated === "function");
+assert(typeof waitUntilHealthCheckSourceDeleted === "function");
 assert(typeof waitUntilResourceRecordSetsChanged === "function");
 // paginators
 assert(typeof paginateListCidrBlocks === "function");
 assert(typeof paginateListCidrCollections === "function");
 assert(typeof paginateListCidrLocations === "function");
+assert(typeof paginateListHealthCheckSources === "function");
 assert(typeof paginateListHealthChecks === "function");
+assert(typeof paginateListHealthChecksBySource === "function");
 assert(typeof paginateListHostedZones === "function");
 assert(typeof paginateListQueryLoggingConfigs === "function");
 assert(typeof paginateListResourceRecordSetProtections === "function");

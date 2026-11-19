@@ -44,6 +44,11 @@ import {
   CreateHealthCheckCommand,
 } from "./commands/CreateHealthCheckCommand";
 import {
+  type CreateHealthCheckSourceCommandInput,
+  type CreateHealthCheckSourceCommandOutput,
+  CreateHealthCheckSourceCommand,
+} from "./commands/CreateHealthCheckSourceCommand";
+import {
   type CreateHostedZoneCommandInput,
   type CreateHostedZoneCommandOutput,
   CreateHostedZoneCommand,
@@ -103,6 +108,11 @@ import {
   type DeleteHealthCheckCommandOutput,
   DeleteHealthCheckCommand,
 } from "./commands/DeleteHealthCheckCommand";
+import {
+  type DeleteHealthCheckSourceCommandInput,
+  type DeleteHealthCheckSourceCommandOutput,
+  DeleteHealthCheckSourceCommand,
+} from "./commands/DeleteHealthCheckSourceCommand";
 import {
   type DeleteHostedZoneCommandInput,
   type DeleteHostedZoneCommandOutput,
@@ -191,6 +201,11 @@ import {
   GetHealthCheckLastFailureReasonCommand,
 } from "./commands/GetHealthCheckLastFailureReasonCommand";
 import {
+  type GetHealthCheckSourceCommandInput,
+  type GetHealthCheckSourceCommandOutput,
+  GetHealthCheckSourceCommand,
+} from "./commands/GetHealthCheckSourceCommand";
+import {
   type GetHealthCheckStatusCommandInput,
   type GetHealthCheckStatusCommandOutput,
   GetHealthCheckStatusCommand,
@@ -261,10 +276,20 @@ import {
   ListGeoLocationsCommand,
 } from "./commands/ListGeoLocationsCommand";
 import {
+  type ListHealthChecksBySourceCommandInput,
+  type ListHealthChecksBySourceCommandOutput,
+  ListHealthChecksBySourceCommand,
+} from "./commands/ListHealthChecksBySourceCommand";
+import {
   type ListHealthChecksCommandInput,
   type ListHealthChecksCommandOutput,
   ListHealthChecksCommand,
 } from "./commands/ListHealthChecksCommand";
+import {
+  type ListHealthCheckSourcesCommandInput,
+  type ListHealthCheckSourcesCommandOutput,
+  ListHealthCheckSourcesCommand,
+} from "./commands/ListHealthCheckSourcesCommand";
 import {
   type ListHostedZonesByNameCommandInput,
   type ListHostedZonesByNameCommandOutput,
@@ -370,15 +395,20 @@ import {
   type UpdateTrafficPolicyInstanceCommandOutput,
   UpdateTrafficPolicyInstanceCommand,
 } from "./commands/UpdateTrafficPolicyInstanceCommand";
+import type { NoSuchHealthCheckSource } from "./models/errors";
 import type { Route53ServiceException } from "./models/Route53ServiceException";
 import { paginateListCidrBlocks } from "./pagination/ListCidrBlocksPaginator";
 import { paginateListCidrCollections } from "./pagination/ListCidrCollectionsPaginator";
 import { paginateListCidrLocations } from "./pagination/ListCidrLocationsPaginator";
+import { paginateListHealthChecksBySource } from "./pagination/ListHealthChecksBySourcePaginator";
+import { paginateListHealthCheckSources } from "./pagination/ListHealthCheckSourcesPaginator";
 import { paginateListHealthChecks } from "./pagination/ListHealthChecksPaginator";
 import { paginateListHostedZones } from "./pagination/ListHostedZonesPaginator";
 import { paginateListQueryLoggingConfigs } from "./pagination/ListQueryLoggingConfigsPaginator";
 import { paginateListResourceRecordSetProtections } from "./pagination/ListResourceRecordSetProtectionsPaginator";
 import { Route53Client } from "./Route53Client";
+import { waitUntilHealthCheckSourceCreated } from "./waiters/waitForHealthCheckSourceCreated";
+import { waitUntilHealthCheckSourceDeleted } from "./waiters/waitForHealthCheckSourceDeleted";
 import { waitUntilResourceRecordSetsChanged } from "./waiters/waitForResourceRecordSetsChanged";
 
 const commands = {
@@ -389,6 +419,7 @@ const commands = {
   ChangeTagsForResourceCommand,
   CreateCidrCollectionCommand,
   CreateHealthCheckCommand,
+  CreateHealthCheckSourceCommand,
   CreateHostedZoneCommand,
   CreateKeySigningKeyCommand,
   CreateQueryLoggingConfigCommand,
@@ -401,6 +432,7 @@ const commands = {
   DeactivateKeySigningKeyCommand,
   DeleteCidrCollectionCommand,
   DeleteHealthCheckCommand,
+  DeleteHealthCheckSourceCommand,
   DeleteHostedZoneCommand,
   DeleteKeySigningKeyCommand,
   DeleteQueryLoggingConfigCommand,
@@ -420,6 +452,7 @@ const commands = {
   GetHealthCheckCommand,
   GetHealthCheckCountCommand,
   GetHealthCheckLastFailureReasonCommand,
+  GetHealthCheckSourceCommand,
   GetHealthCheckStatusCommand,
   GetHostedZoneCommand,
   GetHostedZoneCountCommand,
@@ -435,6 +468,8 @@ const commands = {
   ListCidrLocationsCommand,
   ListGeoLocationsCommand,
   ListHealthChecksCommand,
+  ListHealthChecksBySourceCommand,
+  ListHealthCheckSourcesCommand,
   ListHostedZonesCommand,
   ListHostedZonesByNameCommand,
   ListHostedZonesByVPCCommand,
@@ -462,12 +497,16 @@ const paginators = {
   paginateListCidrCollections,
   paginateListCidrLocations,
   paginateListHealthChecks,
+  paginateListHealthChecksBySource,
+  paginateListHealthCheckSources,
   paginateListHostedZones,
   paginateListQueryLoggingConfigs,
   paginateListResourceRecordSetProtections,
 };
 const waiters = {
   waitUntilResourceRecordSetsChanged,
+  waitUntilHealthCheckSourceCreated,
+  waitUntilHealthCheckSourceDeleted,
 };
 
 /**
@@ -595,6 +634,23 @@ export interface Route53 {
     args: CreateHealthCheckCommandInput,
     options: Route53RequestOptions,
     cb: (err: any, data?: CreateHealthCheckCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateHealthCheckSourceCommand}
+   */
+  createHealthCheckSource(
+    args: CreateHealthCheckSourceCommandInput,
+    options?: Route53RequestOptions
+  ): Promise<CreateHealthCheckSourceCommandOutput>;
+  createHealthCheckSource(
+    args: CreateHealthCheckSourceCommandInput,
+    cb: (err: any, data?: CreateHealthCheckSourceCommandOutput) => void
+  ): void;
+  createHealthCheckSource(
+    args: CreateHealthCheckSourceCommandInput,
+    options: Route53RequestOptions,
+    cb: (err: any, data?: CreateHealthCheckSourceCommandOutput) => void
   ): void;
 
   /**
@@ -799,6 +855,23 @@ export interface Route53 {
     args: DeleteHealthCheckCommandInput,
     options: Route53RequestOptions,
     cb: (err: any, data?: DeleteHealthCheckCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteHealthCheckSourceCommand}
+   */
+  deleteHealthCheckSource(
+    args: DeleteHealthCheckSourceCommandInput,
+    options?: Route53RequestOptions
+  ): Promise<DeleteHealthCheckSourceCommandOutput>;
+  deleteHealthCheckSource(
+    args: DeleteHealthCheckSourceCommandInput,
+    cb: (err: any, data?: DeleteHealthCheckSourceCommandOutput) => void
+  ): void;
+  deleteHealthCheckSource(
+    args: DeleteHealthCheckSourceCommandInput,
+    options: Route53RequestOptions,
+    cb: (err: any, data?: DeleteHealthCheckSourceCommandOutput) => void
   ): void;
 
   /**
@@ -1128,6 +1201,23 @@ export interface Route53 {
   ): void;
 
   /**
+   * @see {@link GetHealthCheckSourceCommand}
+   */
+  getHealthCheckSource(
+    args: GetHealthCheckSourceCommandInput,
+    options?: Route53RequestOptions
+  ): Promise<GetHealthCheckSourceCommandOutput>;
+  getHealthCheckSource(
+    args: GetHealthCheckSourceCommandInput,
+    cb: (err: any, data?: GetHealthCheckSourceCommandOutput) => void
+  ): void;
+  getHealthCheckSource(
+    args: GetHealthCheckSourceCommandInput,
+    options: Route53RequestOptions,
+    cb: (err: any, data?: GetHealthCheckSourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetHealthCheckStatusCommand}
    */
   getHealthCheckStatus(
@@ -1385,6 +1475,41 @@ export interface Route53 {
     args: ListHealthChecksCommandInput,
     options: Route53RequestOptions,
     cb: (err: any, data?: ListHealthChecksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListHealthChecksBySourceCommand}
+   */
+  listHealthChecksBySource(
+    args: ListHealthChecksBySourceCommandInput,
+    options?: Route53RequestOptions
+  ): Promise<ListHealthChecksBySourceCommandOutput>;
+  listHealthChecksBySource(
+    args: ListHealthChecksBySourceCommandInput,
+    cb: (err: any, data?: ListHealthChecksBySourceCommandOutput) => void
+  ): void;
+  listHealthChecksBySource(
+    args: ListHealthChecksBySourceCommandInput,
+    options: Route53RequestOptions,
+    cb: (err: any, data?: ListHealthChecksBySourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListHealthCheckSourcesCommand}
+   */
+  listHealthCheckSources(): Promise<ListHealthCheckSourcesCommandOutput>;
+  listHealthCheckSources(
+    args: ListHealthCheckSourcesCommandInput,
+    options?: Route53RequestOptions
+  ): Promise<ListHealthCheckSourcesCommandOutput>;
+  listHealthCheckSources(
+    args: ListHealthCheckSourcesCommandInput,
+    cb: (err: any, data?: ListHealthCheckSourcesCommandOutput) => void
+  ): void;
+  listHealthCheckSources(
+    args: ListHealthCheckSourcesCommandInput,
+    options: Route53RequestOptions,
+    cb: (err: any, data?: ListHealthCheckSourcesCommandOutput) => void
   ): void;
 
   /**
@@ -1795,6 +1920,28 @@ export interface Route53 {
   ): Paginator<ListHealthChecksCommandOutput>;
 
   /**
+   * @see {@link ListHealthChecksBySourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHealthChecksBySourceCommandOutput}.
+   */
+  paginateListHealthChecksBySource(
+    args: ListHealthChecksBySourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHealthChecksBySourceCommandOutput>;
+
+  /**
+   * @see {@link ListHealthCheckSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHealthCheckSourcesCommandOutput}.
+   */
+  paginateListHealthCheckSources(
+    args?: ListHealthCheckSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHealthCheckSourcesCommandOutput>;
+
+  /**
    * @see {@link ListHostedZonesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1836,6 +1983,26 @@ export interface Route53 {
     args: GetChangeCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Route53>, "client">
   ): Promise<WaiterResult<GetChangeCommandOutput>>;
+
+  /**
+   * @see {@link GetHealthCheckSourceCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilHealthCheckSourceCreated(
+    args: GetHealthCheckSourceCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Route53>, "client">
+  ): Promise<WaiterResult<GetHealthCheckSourceCommandOutput>>;
+
+  /**
+   * @see {@link GetHealthCheckSourceCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilHealthCheckSourceDeleted(
+    args: GetHealthCheckSourceCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Route53>, "client">
+  ): Promise<WaiterResult<GetHealthCheckSourceCommandOutput | NoSuchHealthCheckSource>>;
 }
 
 /**

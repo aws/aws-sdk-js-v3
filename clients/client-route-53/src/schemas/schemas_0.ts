@@ -12,6 +12,7 @@ const _AVPCWHZ = "AssociateVPCWithHostedZone";
 const _AVPCWHZR = "AssociateVPCWithHostedZoneRequest";
 const _AVPCWHZRs = "AssociateVPCWithHostedZoneResponse";
 const _AWSR = "AWSRegion";
+const _AZI = "AvailabilityZoneId";
 const _Ar = "Arn";
 const _B = "Bias";
 const _C = "Comment";
@@ -42,6 +43,9 @@ const _CHC = "ChildHealthChecks";
 const _CHCL = "ChildHealthCheckList";
 const _CHCR = "CreateHealthCheckRequest";
 const _CHCRr = "CreateHealthCheckResponse";
+const _CHCS = "CreateHealthCheckSource";
+const _CHCSR = "CreateHealthCheckSourceRequest";
+const _CHCSRr = "CreateHealthCheckSourceResponse";
 const _CHCh = "ChildHealthCheck";
 const _CHCr = "CreateHealthCheck";
 const _CHZ = "CreateHostedZone";
@@ -112,6 +116,9 @@ const _DCCRe = "DeleteCidrCollectionResponse";
 const _DHC = "DeleteHealthCheck";
 const _DHCR = "DeleteHealthCheckRequest";
 const _DHCRe = "DeleteHealthCheckResponse";
+const _DHCS = "DeleteHealthCheckSource";
+const _DHCSR = "DeleteHealthCheckSourceRequest";
+const _DHCSRe = "DeleteHealthCheckSourceResponse";
 const _DHZ = "DeleteHostedZone";
 const _DHZDNSSEC = "DisableHostedZoneDNSSEC";
 const _DHZDNSSECR = "DisableHostedZoneDNSSECRequest";
@@ -175,6 +182,7 @@ const _EHZDNSSECRn = "EnableHostedZoneDNSSECResponse";
 const _EM = "ErrorMessages";
 const _EP = "EvaluationPeriods";
 const _ESNI = "EnableSNI";
+const _ET = "EndpointType";
 const _ETH = "EvaluateTargetHealth";
 const _F = "Features";
 const _FQDN = "FullyQualifiedDomainName";
@@ -206,9 +214,12 @@ const _GHCLFRR = "GetHealthCheckLastFailureReasonRequest";
 const _GHCLFRRe = "GetHealthCheckLastFailureReasonResponse";
 const _GHCR = "GetHealthCheckRequest";
 const _GHCRe = "GetHealthCheckResponse";
-const _GHCS = "GetHealthCheckStatus";
-const _GHCSR = "GetHealthCheckStatusRequest";
-const _GHCSRe = "GetHealthCheckStatusResponse";
+const _GHCS = "GetHealthCheckSource";
+const _GHCSR = "GetHealthCheckSourceRequest";
+const _GHCSRe = "GetHealthCheckSourceResponse";
+const _GHCSRet = "GetHealthCheckStatusRequest";
+const _GHCSRete = "GetHealthCheckStatusResponse";
+const _GHCSe = "GetHealthCheckStatus";
 const _GHZ = "GetHostedZone";
 const _GHZC = "GetHostedZoneCount";
 const _GHZCR = "GetHostedZoneCountRequest";
@@ -249,6 +260,12 @@ const _HCIU = "HealthCheckInUse";
 const _HCO = "HealthCheckObservations";
 const _HCOe = "HealthCheckObservation";
 const _HCRL = "HealthCheckRegionList";
+const _HCS = "HealthCheckSource";
+const _HCSAE = "HealthCheckSourceAlreadyExists";
+const _HCSC = "HealthCheckSourceConfig";
+const _HCSI = "HealthCheckSourceId";
+const _HCSS = "HealthCheckSourceStatus";
+const _HCSe = "HealthCheckSources";
 const _HCV = "HealthCheckVersion";
 const _HCVM = "HealthCheckVersionMismatch";
 const _HCe = "HealthChecks";
@@ -315,8 +332,14 @@ const _LGL = "ListGeoLocations";
 const _LGLR = "ListGeoLocationsRequest";
 const _LGLRi = "ListGeoLocationsResponse";
 const _LHC = "ListHealthChecks";
+const _LHCBS = "ListHealthChecksBySource";
+const _LHCBSR = "ListHealthChecksBySourceRequest";
+const _LHCBSRi = "ListHealthChecksBySourceResponse";
 const _LHCR = "ListHealthChecksRequest";
 const _LHCRi = "ListHealthChecksResponse";
+const _LHCS = "ListHealthCheckSources";
+const _LHCSR = "ListHealthCheckSourcesRequest";
+const _LHCSRi = "ListHealthCheckSourcesResponse";
 const _LHZ = "ListHostedZones";
 const _LHZBN = "ListHostedZonesByName";
 const _LHZBNR = "ListHostedZonesByNameRequest";
@@ -399,6 +422,7 @@ const _NSCe = "NextSubdivisionCode";
 const _NSDS = "NoSuchDelegationSet";
 const _NSGL = "NoSuchGeoLocation";
 const _NSHC = "NoSuchHealthCheck";
+const _NSHCS = "NoSuchHealthCheckSource";
 const _NSHZ = "NoSuchHostedZone";
 const _NSKSK = "NoSuchKeySigningKey";
 const _NSQLC = "NoSuchQueryLoggingConfig";
@@ -465,14 +489,21 @@ const _SAT = "SigningAlgorithmType";
 const _SC = "SubdivisionCode";
 const _SCC = "StartContinentCode";
 const _SCCt = "StartCountryCode";
+const _SCL = "SubnetConfigurationList";
+const _SCu = "SubnetConfiguration";
+const _SGI = "SecurityGroupId";
+const _SGIL = "SecurityGroupIdList";
 const _SI = "SetIdentifier";
+const _SIu = "SubnetId";
 const _SM = "StatusMessage";
 const _SN = "SubdivisionName";
 const _SP = "ServicePrincipal";
 const _SR = "StatusReport";
+const _SRC = "StatusReasonCode";
 const _SRI = "StartRecordIdentifier";
 const _SRN = "StartRecordName";
 const _SRT = "StartRecordType";
+const _SRt = "StatusReason";
 const _SS = "ServeSignature";
 const _SSC = "StartSubdivisionCode";
 const _SSe = "SearchString";
@@ -486,6 +517,7 @@ const _TE = "ThrottlingException";
 const _TKL = "TagKeyList";
 const _TL = "TagList";
 const _TMHC = "TooManyHealthChecks";
+const _TMHCS = "TooManyHealthCheckSources";
 const _TMHZ = "TooManyHostedZones";
 const _TMKSK = "TooManyKeySigningKeys";
 const _TMTP = "TooManyTrafficPolicies";
@@ -532,6 +564,7 @@ const _UTPI = "UpdateTrafficPolicyInstance";
 const _UTPIR = "UpdateTrafficPolicyInstanceRequest";
 const _UTPIRp = "UpdateTrafficPolicyInstanceResponse";
 const _V = "Value";
+const _VI = "VpcId";
 const _VPC = "VPC";
 const _VPCAANF = "VPCAssociationAuthorizationNotFound";
 const _VPCANF = "VPCAssociationNotFound";
@@ -604,6 +637,7 @@ import {
   DNSSECNotFound,
   HealthCheckAlreadyExists,
   HealthCheckInUse,
+  HealthCheckSourceAlreadyExists,
   HealthCheckVersionMismatch,
   HostedZoneAlreadyExists,
   HostedZoneNotEmpty,
@@ -637,6 +671,7 @@ import {
   NoSuchDelegationSet,
   NoSuchGeoLocation,
   NoSuchHealthCheck,
+  NoSuchHealthCheckSource,
   NoSuchHostedZone,
   NoSuchKeySigningKey,
   NoSuchQueryLoggingConfig,
@@ -649,6 +684,7 @@ import {
   QueryLoggingConfigAlreadyExists,
   ThrottlingException,
   TooManyHealthChecks,
+  TooManyHealthCheckSources,
   TooManyHostedZones,
   TooManyKeySigningKeys,
   TooManyTrafficPolicies,
@@ -758,6 +794,12 @@ export var HealthCheckInUse$: StaticErrorSchema = [-3, n0, _HCIU,
   [0]
 ];
 n0_registry.registerError(HealthCheckInUse$, HealthCheckInUse);
+export var HealthCheckSourceAlreadyExists$: StaticErrorSchema = [-3, n0, _HCSAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HealthCheckSourceAlreadyExists$, HealthCheckSourceAlreadyExists);
 export var HealthCheckVersionMismatch$: StaticErrorSchema = [-3, n0, _HCVM,
   { [_e]: _c, [_hE]: 409 },
   [_m],
@@ -956,6 +998,12 @@ export var NoSuchHealthCheck$: StaticErrorSchema = [-3, n0, _NSHC,
   [0]
 ];
 n0_registry.registerError(NoSuchHealthCheck$, NoSuchHealthCheck);
+export var NoSuchHealthCheckSource$: StaticErrorSchema = [-3, n0, _NSHCS,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchHealthCheckSource$, NoSuchHealthCheckSource);
 export var NoSuchHostedZone$: StaticErrorSchema = [-3, n0, _NSHZ,
   { [_e]: _c, [_hE]: 404 },
   [_m],
@@ -1028,6 +1076,12 @@ export var TooManyHealthChecks$: StaticErrorSchema = [-3, n0, _TMHC,
   [0]
 ];
 n0_registry.registerError(TooManyHealthChecks$, TooManyHealthChecks);
+export var TooManyHealthCheckSources$: StaticErrorSchema = [-3, n0, _TMHCS,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyHealthCheckSources$, TooManyHealthCheckSources);
 export var TooManyHostedZones$: StaticErrorSchema = [-3, n0, _TMHZ,
   { [_e]: _c, [_hE]: 400 },
   [_m],
@@ -1238,6 +1292,16 @@ export var CreateHealthCheckResponse$: StaticStructureSchema = [3, n0, _CHCRr,
   [_HC, _Loc],
   [[() => HealthCheck$, 0], [0, { [_hH]: _Loc }]], 2
 ];
+export var CreateHealthCheckSourceRequest$: StaticStructureSchema = [3, n0, _CHCSR,
+  0,
+  [_HCSC, _CR, _Ta],
+  [[() => HealthCheckSourceConfig$, 0], [0, 4], [() => TagList, 0]], 1
+];
+export var CreateHealthCheckSourceResponse$: StaticStructureSchema = [3, n0, _CHCSRr,
+  0,
+  [_HCSI, _HCSS, _Loc],
+  [0, 0, [0, { [_hH]: _Loc }]], 3
+];
 export var CreateHostedZoneRequest$: StaticStructureSchema = [3, n0, _CHZR,
   0,
   [_N, _CR, _VPC, _HZC, _DSI],
@@ -1362,6 +1426,16 @@ export var DeleteHealthCheckResponse$: StaticStructureSchema = [3, n0, _DHCRe,
   0,
   [],
   []
+];
+export var DeleteHealthCheckSourceRequest$: StaticStructureSchema = [3, n0, _DHCSR,
+  0,
+  [_HCSI],
+  [[0, 1]], 1
+];
+export var DeleteHealthCheckSourceResponse$: StaticStructureSchema = [3, n0, _DHCSRe,
+  0,
+  [_HCSI, _HCSS],
+  [0, 0], 2
 ];
 export var DeleteHostedZoneRequest$: StaticStructureSchema = [3, n0, _DHZR,
   0,
@@ -1578,12 +1652,22 @@ export var GetHealthCheckResponse$: StaticStructureSchema = [3, n0, _GHCRe,
   [_HC],
   [[() => HealthCheck$, 0]], 1
 ];
-export var GetHealthCheckStatusRequest$: StaticStructureSchema = [3, n0, _GHCSR,
+export var GetHealthCheckSourceRequest$: StaticStructureSchema = [3, n0, _GHCSR,
+  0,
+  [_HCSI],
+  [[0, 1]], 1
+];
+export var GetHealthCheckSourceResponse$: StaticStructureSchema = [3, n0, _GHCSRe,
+  0,
+  [_HCS],
+  [[() => HealthCheckSource$, 0]], 1
+];
+export var GetHealthCheckStatusRequest$: StaticStructureSchema = [3, n0, _GHCSRet,
   0,
   [_HCI],
   [[0, 1]], 1
 ];
-export var GetHealthCheckStatusResponse$: StaticStructureSchema = [3, n0, _GHCSRe,
+export var GetHealthCheckStatusResponse$: StaticStructureSchema = [3, n0, _GHCSRete,
   0,
   [_HCO],
   [[() => HealthCheckObservations, 0]], 1
@@ -1685,13 +1769,23 @@ export var HealthCheck$: StaticStructureSchema = [3, n0, _HC,
 ];
 export var HealthCheckConfig$: StaticStructureSchema = [3, n0, _HCC,
   0,
-  [_T, _IPA, _Po, _RP, _FQDN, _SSe, _RIe, _FT, _ML, _In, _Dis, _HT, _CHC, _ESNI, _Re, _AI, _IDHS, _RCA],
-  [0, 0, 1, 0, 0, 0, 1, 1, 2, 2, 2, 1, [() => ChildHealthCheckList, 0], 2, [() => HealthCheckRegionList, 0], () => AlarmIdentifier$, 0, 0], 1
+  [_T, _IPA, _Po, _RP, _FQDN, _SSe, _RIe, _FT, _ML, _In, _Dis, _HT, _CHC, _ESNI, _Re, _AI, _IDHS, _RCA, _ET, _HCSI],
+  [0, 0, 1, 0, 0, 0, 1, 1, 2, 2, 2, 1, [() => ChildHealthCheckList, 0], 2, [() => HealthCheckRegionList, 0], () => AlarmIdentifier$, 0, 0, 0, 0], 1
 ];
 export var HealthCheckObservation$: StaticStructureSchema = [3, n0, _HCOe,
   0,
   [_R, _IPA, _SR],
   [0, 0, () => StatusReport$]
+];
+export var HealthCheckSource$: StaticStructureSchema = [3, n0, _HCS,
+  0,
+  [_HCSI, _HCSS, _HCSC, _SRC, _SRt],
+  [0, 0, [() => HealthCheckSourceConfig$, 0], 0, 0], 3
+];
+export var HealthCheckSourceConfig$: StaticStructureSchema = [3, n0, _HCSC,
+  0,
+  [_VI, _SCL],
+  [0, [() => SubnetConfigurationList, 0]], 2
 ];
 export var HostedZone$: StaticStructureSchema = [3, n0, _HZ,
   0,
@@ -1777,6 +1871,26 @@ export var ListGeoLocationsResponse$: StaticStructureSchema = [3, n0, _LGLRi,
   0,
   [_GLDL, _IT, _MI, _NCC, _NCCe, _NSCe],
   [[() => GeoLocationDetailsList, 0], 2, 1, 0, 0, 0], 3
+];
+export var ListHealthChecksBySourceRequest$: StaticStructureSchema = [3, n0, _LHCBSR,
+  0,
+  [_HCSI, _Ma, _MI],
+  [[0, 1], [0, { [_hQ]: _mar }], [1, { [_hQ]: _max }]], 1
+];
+export var ListHealthChecksBySourceResponse$: StaticStructureSchema = [3, n0, _LHCBSRi,
+  0,
+  [_HCe, _IT, _MI, _Ma, _NM],
+  [[() => HealthChecks, 0], 2, 1, 0, 0], 3
+];
+export var ListHealthCheckSourcesRequest$: StaticStructureSchema = [3, n0, _LHCSR,
+  0,
+  [_NT, _MR],
+  [[0, { [_hQ]: _n }], [1, { [_hQ]: _ma }]]
+];
+export var ListHealthCheckSourcesResponse$: StaticStructureSchema = [3, n0, _LHCSRi,
+  0,
+  [_HCSe, _NT],
+  [[() => HealthCheckSources, 0], 0], 1
 ];
 export var ListHealthChecksRequest$: StaticStructureSchema = [3, n0, _LHCR,
   0,
@@ -1993,6 +2107,11 @@ export var StatusReport$: StaticStructureSchema = [3, n0, _SR,
   [_S, _CTh],
   [0, 4]
 ];
+export var SubnetConfiguration$: StaticStructureSchema = [3, n0, _SCu,
+  0,
+  [_SIu, _AZI, _SGIL],
+  [0, 0, [() => SecurityGroupIdList, 0]], 3
+];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
@@ -2025,8 +2144,8 @@ export var TrafficPolicySummary$: StaticStructureSchema = [3, n0, _TPSr,
 ];
 export var UpdateHealthCheckRequest$: StaticStructureSchema = [3, n0, _UHCR,
   0,
-  [_HCI, _HCV, _IPA, _Po, _RP, _FQDN, _SSe, _FT, _In, _Dis, _HT, _CHC, _ESNI, _Re, _AI, _IDHS, _RE],
-  [[0, 1], 1, 0, 1, 0, 0, 0, 1, 2, 2, 1, [() => ChildHealthCheckList, 0], 2, [() => HealthCheckRegionList, 0], () => AlarmIdentifier$, 0, [() => ResettableElementNameList, 0]], 1
+  [_HCI, _HCV, _IPA, _Po, _RP, _FQDN, _SSe, _FT, _In, _Dis, _HT, _CHC, _ESNI, _Re, _AI, _IDHS, _RE, _HCSI],
+  [[0, 1], 1, 0, 1, 0, 0, 0, 1, 2, 2, 1, [() => ChildHealthCheckList, 0], 2, [() => HealthCheckRegionList, 0], () => AlarmIdentifier$, 0, [() => ResettableElementNameList, 0], 0], 1
 ];
 export var UpdateHealthCheckResponse$: StaticStructureSchema = [3, n0, _UHCRp,
   0,
@@ -2133,6 +2252,10 @@ var HealthChecks: StaticListSchema = [1, n0, _HCe,
   0, [() => HealthCheck$,
     { [_xN]: _HC }]
 ];
+var HealthCheckSources: StaticListSchema = [1, n0, _HCSe,
+  0, [() => HealthCheckSource$,
+    { [_xN]: _HCS }]
+];
 var HostedZones: StaticListSchema = [1, n0, _HZo,
   0, [() => HostedZone$,
     { [_xN]: _HZ }]
@@ -2187,6 +2310,14 @@ var ResourceTagSetList: StaticListSchema = [1, n0, _RTSL,
   0, [() => ResourceTagSet$,
     { [_xN]: _RTS }]
 ];
+var SecurityGroupIdList: StaticListSchema = [1, n0, _SGIL,
+  0, [0,
+    { [_xN]: _SGI }]
+];
+var SubnetConfigurationList: StaticListSchema = [1, n0, _SCL,
+  0, [() => SubnetConfiguration$,
+    { [_xN]: _SCu }]
+];
 var TagKeyList: StaticListSchema = [1, n0, _TKL,
   0, [0,
     { [_xN]: _K }]
@@ -2236,6 +2367,9 @@ export var CreateCidrCollection$: StaticOperationSchema = [9, n0, _CCCr,
 export var CreateHealthCheck$: StaticOperationSchema = [9, n0, _CHCr,
   { [_ht]: ["POST", "/2013-04-01/healthcheck", 201] }, () => CreateHealthCheckRequest$, () => CreateHealthCheckResponse$
 ];
+export var CreateHealthCheckSource$: StaticOperationSchema = [9, n0, _CHCS,
+  { [_ht]: ["POST", "/2013-04-01/healthchecksource", 201] }, () => CreateHealthCheckSourceRequest$, () => CreateHealthCheckSourceResponse$
+];
 export var CreateHostedZone$: StaticOperationSchema = [9, n0, _CHZ,
   { [_ht]: ["POST", "/2013-04-01/hostedzone", 201] }, () => CreateHostedZoneRequest$, () => CreateHostedZoneResponse$
 ];
@@ -2271,6 +2405,9 @@ export var DeleteCidrCollection$: StaticOperationSchema = [9, n0, _DCC,
 ];
 export var DeleteHealthCheck$: StaticOperationSchema = [9, n0, _DHC,
   { [_ht]: ["DELETE", "/2013-04-01/healthcheck/{HealthCheckId}", 200] }, () => DeleteHealthCheckRequest$, () => DeleteHealthCheckResponse$
+];
+export var DeleteHealthCheckSource$: StaticOperationSchema = [9, n0, _DHCS,
+  { [_ht]: ["DELETE", "/2013-04-01/healthchecksource/{HealthCheckSourceId}", 200] }, () => DeleteHealthCheckSourceRequest$, () => DeleteHealthCheckSourceResponse$
 ];
 export var DeleteHostedZone$: StaticOperationSchema = [9, n0, _DHZ,
   { [_ht]: ["DELETE", "/2013-04-01/hostedzone/{Id}", 200] }, () => DeleteHostedZoneRequest$, () => DeleteHostedZoneResponse$
@@ -2329,7 +2466,10 @@ export var GetHealthCheckCount$: StaticOperationSchema = [9, n0, _GHCC,
 export var GetHealthCheckLastFailureReason$: StaticOperationSchema = [9, n0, _GHCLFR,
   { [_ht]: ["GET", "/2013-04-01/healthcheck/{HealthCheckId}/lastfailurereason", 200] }, () => GetHealthCheckLastFailureReasonRequest$, () => GetHealthCheckLastFailureReasonResponse$
 ];
-export var GetHealthCheckStatus$: StaticOperationSchema = [9, n0, _GHCS,
+export var GetHealthCheckSource$: StaticOperationSchema = [9, n0, _GHCS,
+  { [_ht]: ["GET", "/2013-04-01/healthchecksource/{HealthCheckSourceId}", 200] }, () => GetHealthCheckSourceRequest$, () => GetHealthCheckSourceResponse$
+];
+export var GetHealthCheckStatus$: StaticOperationSchema = [9, n0, _GHCSe,
   { [_ht]: ["GET", "/2013-04-01/healthcheck/{HealthCheckId}/status", 200] }, () => GetHealthCheckStatusRequest$, () => GetHealthCheckStatusResponse$
 ];
 export var GetHostedZone$: StaticOperationSchema = [9, n0, _GHZ,
@@ -2373,6 +2513,12 @@ export var ListGeoLocations$: StaticOperationSchema = [9, n0, _LGL,
 ];
 export var ListHealthChecks$: StaticOperationSchema = [9, n0, _LHC,
   { [_ht]: ["GET", "/2013-04-01/healthcheck", 200] }, () => ListHealthChecksRequest$, () => ListHealthChecksResponse$
+];
+export var ListHealthChecksBySource$: StaticOperationSchema = [9, n0, _LHCBS,
+  { [_ht]: ["GET", "/2013-04-01/healthchecks/source/{HealthCheckSourceId}", 200] }, () => ListHealthChecksBySourceRequest$, () => ListHealthChecksBySourceResponse$
+];
+export var ListHealthCheckSources$: StaticOperationSchema = [9, n0, _LHCS,
+  { [_ht]: ["GET", "/2013-04-01/healthchecksource", 200] }, () => ListHealthCheckSourcesRequest$, () => ListHealthCheckSourcesResponse$
 ];
 export var ListHostedZones$: StaticOperationSchema = [9, n0, _LHZ,
   { [_ht]: ["GET", "/2013-04-01/hostedzone", 200] }, () => ListHostedZonesRequest$, () => ListHostedZonesResponse$

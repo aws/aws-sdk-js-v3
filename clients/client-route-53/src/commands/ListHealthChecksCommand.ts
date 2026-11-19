@@ -73,6 +73,8 @@ export interface ListHealthChecksCommandOutput extends ListHealthChecksResponse,
  * //         },
  * //         InsufficientDataHealthStatus: "Healthy" || "Unhealthy" || "LastKnownStatus",
  * //         RoutingControlArn: "STRING_VALUE",
+ * //         EndpointType: "PUBLIC" || "PRIVATE",
+ * //         HealthCheckSourceId: "STRING_VALUE",
  * //       },
  * //       HealthCheckVersion: Number("long"), // required
  * //       CloudWatchAlarmConfiguration: { // CloudWatchAlarmConfiguration

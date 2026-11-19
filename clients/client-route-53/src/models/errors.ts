@@ -439,6 +439,27 @@ export class NoSuchHealthCheck extends __BaseException {
 }
 
 /**
+ * <p>No health check source exists with the specified ID. Verify that the ID is correct and that the health check source hasn't been deleted.</p>
+ * @public
+ */
+export class NoSuchHealthCheckSource extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#NoSuchHealthCheckSource";
+  readonly name = "NoSuchHealthCheckSource" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchHealthCheckSource, __BaseException>) {
+    super({
+      name: "NoSuchHealthCheckSource",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchHealthCheckSource.prototype);
+  }
+}
+
+/**
  * <p>The limit on the number of requests per second was exceeded.</p>
  * @public
  */
@@ -518,7 +539,9 @@ export class HealthCheckAlreadyExists extends __BaseException {
 
 /**
  * <p>This health check can't be created because the current account has reached the limit
- * 			on the number of active health checks.</p>
+ * 			on the number of active health checks, or because the health check source for a private
+ * 			health check has reached its limit on active health checks. In the second case,
+ * 			specify a different health check source.</p>
  *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
  * 				<i>Amazon Route 53 Developer Guide</i>.</p>
  *          <p>For information about how to get the current limit for an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
@@ -541,6 +564,50 @@ export class TooManyHealthChecks extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, TooManyHealthChecks.prototype);
+  }
+}
+
+/**
+ * <p>The health check source that you're attempting to create already exists. Route 53 returns this error when you submit a request that has the same value for <code>CallerReference</code> as an existing health check source and one or more values that differ from the existing health check source. To create another health check source, specify a new value for <code>CallerReference</code>. To find the existing health check source, call <code>ListHealthCheckSources</code>.</p>
+ * @public
+ */
+export class HealthCheckSourceAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#HealthCheckSourceAlreadyExists";
+  readonly name = "HealthCheckSourceAlreadyExists" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HealthCheckSourceAlreadyExists, __BaseException>) {
+    super({
+      name: "HealthCheckSourceAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HealthCheckSourceAlreadyExists.prototype);
+  }
+}
+
+/**
+ * <p>You can't create this health check source because the current account has reached its maximum number of health check sources. The maximum includes every health check source that hasn't reached <code>DELETE_COMPLETED</code> status, including a health check source with a status of <code>CREATE_FAILED</code>.</p>
+ *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
+ *          <p>For information about how to get the current limit for an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support Center.</p>
+ * @public
+ */
+export class TooManyHealthCheckSources extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#TooManyHealthCheckSources";
+  readonly name = "TooManyHealthCheckSources" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyHealthCheckSources, __BaseException>) {
+    super({
+      name: "TooManyHealthCheckSources",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyHealthCheckSources.prototype);
   }
 }
 

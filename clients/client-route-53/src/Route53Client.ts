@@ -82,6 +82,10 @@ import type {
   CreateHealthCheckCommandInput,
   CreateHealthCheckCommandOutput,
 } from "./commands/CreateHealthCheckCommand";
+import type {
+  CreateHealthCheckSourceCommandInput,
+  CreateHealthCheckSourceCommandOutput,
+} from "./commands/CreateHealthCheckSourceCommand";
 import type { CreateHostedZoneCommandInput, CreateHostedZoneCommandOutput } from "./commands/CreateHostedZoneCommand";
 import type {
   CreateKeySigningKeyCommandInput,
@@ -127,6 +131,10 @@ import type {
   DeleteHealthCheckCommandInput,
   DeleteHealthCheckCommandOutput,
 } from "./commands/DeleteHealthCheckCommand";
+import type {
+  DeleteHealthCheckSourceCommandInput,
+  DeleteHealthCheckSourceCommandOutput,
+} from "./commands/DeleteHealthCheckSourceCommand";
 import type { DeleteHostedZoneCommandInput, DeleteHostedZoneCommandOutput } from "./commands/DeleteHostedZoneCommand";
 import type {
   DeleteKeySigningKeyCommandInput,
@@ -186,6 +194,10 @@ import type {
   GetHealthCheckLastFailureReasonCommandOutput,
 } from "./commands/GetHealthCheckLastFailureReasonCommand";
 import type {
+  GetHealthCheckSourceCommandInput,
+  GetHealthCheckSourceCommandOutput,
+} from "./commands/GetHealthCheckSourceCommand";
+import type {
   GetHealthCheckStatusCommandInput,
   GetHealthCheckStatusCommandOutput,
 } from "./commands/GetHealthCheckStatusCommand";
@@ -229,7 +241,15 @@ import type {
   ListCidrLocationsCommandOutput,
 } from "./commands/ListCidrLocationsCommand";
 import type { ListGeoLocationsCommandInput, ListGeoLocationsCommandOutput } from "./commands/ListGeoLocationsCommand";
+import type {
+  ListHealthChecksBySourceCommandInput,
+  ListHealthChecksBySourceCommandOutput,
+} from "./commands/ListHealthChecksBySourceCommand";
 import type { ListHealthChecksCommandInput, ListHealthChecksCommandOutput } from "./commands/ListHealthChecksCommand";
+import type {
+  ListHealthCheckSourcesCommandInput,
+  ListHealthCheckSourcesCommandOutput,
+} from "./commands/ListHealthCheckSourcesCommand";
 import type {
   ListHostedZonesByNameCommandInput,
   ListHostedZonesByNameCommandOutput,
@@ -330,6 +350,7 @@ export type ServiceInputTypes =
   | ChangeTagsForResourceCommandInput
   | CreateCidrCollectionCommandInput
   | CreateHealthCheckCommandInput
+  | CreateHealthCheckSourceCommandInput
   | CreateHostedZoneCommandInput
   | CreateKeySigningKeyCommandInput
   | CreateQueryLoggingConfigCommandInput
@@ -342,6 +363,7 @@ export type ServiceInputTypes =
   | DeactivateKeySigningKeyCommandInput
   | DeleteCidrCollectionCommandInput
   | DeleteHealthCheckCommandInput
+  | DeleteHealthCheckSourceCommandInput
   | DeleteHostedZoneCommandInput
   | DeleteKeySigningKeyCommandInput
   | DeleteQueryLoggingConfigCommandInput
@@ -361,6 +383,7 @@ export type ServiceInputTypes =
   | GetHealthCheckCommandInput
   | GetHealthCheckCountCommandInput
   | GetHealthCheckLastFailureReasonCommandInput
+  | GetHealthCheckSourceCommandInput
   | GetHealthCheckStatusCommandInput
   | GetHostedZoneCommandInput
   | GetHostedZoneCountCommandInput
@@ -375,6 +398,8 @@ export type ServiceInputTypes =
   | ListCidrCollectionsCommandInput
   | ListCidrLocationsCommandInput
   | ListGeoLocationsCommandInput
+  | ListHealthCheckSourcesCommandInput
+  | ListHealthChecksBySourceCommandInput
   | ListHealthChecksCommandInput
   | ListHostedZonesByNameCommandInput
   | ListHostedZonesByVPCCommandInput
@@ -409,6 +434,7 @@ export type ServiceOutputTypes =
   | ChangeTagsForResourceCommandOutput
   | CreateCidrCollectionCommandOutput
   | CreateHealthCheckCommandOutput
+  | CreateHealthCheckSourceCommandOutput
   | CreateHostedZoneCommandOutput
   | CreateKeySigningKeyCommandOutput
   | CreateQueryLoggingConfigCommandOutput
@@ -421,6 +447,7 @@ export type ServiceOutputTypes =
   | DeactivateKeySigningKeyCommandOutput
   | DeleteCidrCollectionCommandOutput
   | DeleteHealthCheckCommandOutput
+  | DeleteHealthCheckSourceCommandOutput
   | DeleteHostedZoneCommandOutput
   | DeleteKeySigningKeyCommandOutput
   | DeleteQueryLoggingConfigCommandOutput
@@ -440,6 +467,7 @@ export type ServiceOutputTypes =
   | GetHealthCheckCommandOutput
   | GetHealthCheckCountCommandOutput
   | GetHealthCheckLastFailureReasonCommandOutput
+  | GetHealthCheckSourceCommandOutput
   | GetHealthCheckStatusCommandOutput
   | GetHostedZoneCommandOutput
   | GetHostedZoneCountCommandOutput
@@ -454,6 +482,8 @@ export type ServiceOutputTypes =
   | ListCidrCollectionsCommandOutput
   | ListCidrLocationsCommandOutput
   | ListGeoLocationsCommandOutput
+  | ListHealthCheckSourcesCommandOutput
+  | ListHealthChecksBySourceCommandOutput
   | ListHealthChecksCommandOutput
   | ListHostedZonesByNameCommandOutput
   | ListHostedZonesByVPCCommandOutput
