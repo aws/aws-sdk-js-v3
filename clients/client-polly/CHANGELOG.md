@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1173.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1172.0...v3.1173.0) (2026-11-19)
+
+
+### Features
+
+* **client-polly:** Adds voice cloning to Amazon Polly. The new CreateVoice, GetVoice and DeleteVoice operations create and manage a custom voice from a speaker's recording, usable with the generative engine in all synthesis operations. ([e755968](https://github.com/aws/aws-sdk-js-v3/commit/e755968b239ee4dd8e5dc97d26353e7dade00f85))
+
+
+
+
+
 # [3.1172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1171.0...v3.1172.0) (2026-11-18)
 
 **Note:** Version bump only for package @aws-sdk/client-polly

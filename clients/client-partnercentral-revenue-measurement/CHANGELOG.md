@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1173.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1172.0...v3.1173.0) (2026-11-19)
+
+
+### Features
+
+* **client-partnercentral-revenue-measurement:** Marketplace revenue shares are now identified by a marketplace revenue share ID. Adds the UpdateMarketplaceRevenueShare API, optional grouping of AWS Marketplace products that run on the same backend AWS infrastructure, and context attributes for revenue attributions. ([ab8dd84](https://github.com/aws/aws-sdk-js-v3/commit/ab8dd84734237292a9a52fc4d1118f784b4eb7aa))
+
+
+
+
+
 # [3.1172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1171.0...v3.1172.0) (2026-11-18)
 
 **Note:** Version bump only for package @aws-sdk/client-partnercentral-revenue-measurement

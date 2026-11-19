@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1173.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1172.0...v3.1173.0) (2026-11-19)
+
+
+### Features
+
+* **client-rds:** Adds the PrimaryEndpoint structure to DBInstance. It returns the connection endpoint for the current primary instance, so no need to reconnect to a different DNS name after the switchover. Create Aurora clusters with express configuration in a VPC, and move clusters into, out of, or between VPCs. ([f7d15ef](https://github.com/aws/aws-sdk-js-v3/commit/f7d15efee168aafbfecc45a8ad3c5455d390e476))
+
+
+
+
+
 # [3.1172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1171.0...v3.1172.0) (2026-11-18)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

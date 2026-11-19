@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1173.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1172.0...v3.1173.0) (2026-11-19)
+
+
+### Features
+
+* **client-devops-agent:** AWS DevOps Agent adds AWS Organizations support so that agent spaces can monitor member accounts across an organizational unit. ([b2e6777](https://github.com/aws/aws-sdk-js-v3/commit/b2e6777fa1a1bf55a34909d0ac10fdb8008f5374))
+
+
+
+
+
 # [3.1172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1171.0...v3.1172.0) (2026-11-18)
 
 **Note:** Version bump only for package @aws-sdk/client-devops-agent

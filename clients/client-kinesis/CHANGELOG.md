@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1173.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1172.0...v3.1173.0) (2026-11-19)
+
+
+### Features
+
+* **client-kinesis:** mark ReceiveQueueRecords and ReceiveDeadLetterQueueRecords as long-poll ([#8426](https://github.com/aws/aws-sdk-js-v3/issues/8426)) ([7493a8d](https://github.com/aws/aws-sdk-js-v3/commit/7493a8d208f634f9e933fd385421c2005919526c))
+
+
+
+
+
 # [3.1172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1171.0...v3.1172.0) (2026-11-18)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis

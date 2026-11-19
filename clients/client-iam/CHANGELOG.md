@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1173.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1172.0...v3.1173.0) (2026-11-19)
+
+
+### Features
+
+* **client-iam:** This release adds API support for configuring trusted identity propagation for IAM SAML and OpenIDConnect providers. ([500e548](https://github.com/aws/aws-sdk-js-v3/commit/500e5489102dace808d4b821b987ca5a7b55bc0d))
+
+
+
+
+
 # [3.1172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1171.0...v3.1172.0) (2026-11-18)
 
 
