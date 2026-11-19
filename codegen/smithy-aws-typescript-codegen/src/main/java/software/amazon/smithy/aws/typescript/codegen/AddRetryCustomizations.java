@@ -123,6 +123,8 @@ public class AddRetryCustomizations implements TypeScriptIntegration {
             case "SQS" -> opName.equals("ReceiveMessage");
             case "SWF" -> opName.equals("PollForActivityTask") || opName.equals("PollForDecisionTask");
             case "SFN" -> opName.equals("GetActivityTask");
+            case "Kinesis" -> opName.equals("ReceiveQueueRecords")
+                || opName.equals("ReceiveDeadLetterQueueRecords");
             default -> false;
         };
     }

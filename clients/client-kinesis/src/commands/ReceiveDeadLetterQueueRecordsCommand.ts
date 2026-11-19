@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { ReceiveDeadLetterQueueRecordsInput, ReceiveDeadLetterQueueRecordsOutput } from "../models/models_0";
 import { ReceiveDeadLetterQueueRecords$ } from "../schemas/schemas_0";
 
@@ -132,7 +132,7 @@ export interface ReceiveDeadLetterQueueRecordsCommandOutput extends ReceiveDeadL
  */
 export class ReceiveDeadLetterQueueRecordsCommand extends command<ReceiveDeadLetterQueueRecordsCommandInput, ReceiveDeadLetterQueueRecordsCommandOutput>(
   _ep0,
-  _mw0,
+  _mw1,
   "ReceiveDeadLetterQueueRecords",
   ReceiveDeadLetterQueueRecords$
 ) {
