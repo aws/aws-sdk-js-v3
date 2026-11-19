@@ -17,6 +17,7 @@ export * from "./DeleteWorkloadEstimateCommand";
 export * from "./GetBillEstimateCommand";
 export * from "./GetBillScenarioCommand";
 export * from "./GetPreferencesCommand";
+export * from "./GetUsageLinesEstimatedCostCommand";
 export * from "./GetWorkloadEstimateCommand";
 export * from "./ListBillEstimateCommitmentsCommand";
 export * from "./ListBillEstimateInputCommitmentModificationsCommand";

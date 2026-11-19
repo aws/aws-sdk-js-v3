@@ -279,6 +279,22 @@ export type RateType = (typeof RateType)[keyof typeof RateType];
  * @public
  * @enum
  */
+export const GetUsageLinesEstimatedCostErrorCode = {
+  BAD_REQUEST: "BAD_REQUEST",
+  CONFLICT: "CONFLICT",
+  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
+  NOT_FOUND: "NOT_FOUND",
+} as const;
+/**
+ * @public
+ */
+export type GetUsageLinesEstimatedCostErrorCode =
+  (typeof GetUsageLinesEstimatedCostErrorCode)[keyof typeof GetUsageLinesEstimatedCostErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
 export const WorkloadEstimateRateType = {
   AFTER_DISCOUNTS: "AFTER_DISCOUNTS",
   AFTER_DISCOUNTS_AND_COMMITMENTS: "AFTER_DISCOUNTS_AND_COMMITMENTS",

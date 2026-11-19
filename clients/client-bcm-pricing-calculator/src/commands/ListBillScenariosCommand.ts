@@ -87,7 +87,7 @@ export interface ListBillScenariosCommandOutput extends ListBillScenariosRespons
  *  <p> The requested data is currently unavailable. </p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You do not have sufficient access to perform this action. </p>
+ *  <p> The request is denied because you don't have sufficient permissions to perform this operation. Verify that you have the required permissions and try again. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>

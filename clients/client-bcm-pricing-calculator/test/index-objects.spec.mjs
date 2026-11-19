@@ -126,6 +126,15 @@ import {
   GetPreferencesCommand,
   GetPreferencesRequest$,
   GetPreferencesResponse$,
+  GetUsageLinesEstimatedCost$,
+  GetUsageLinesEstimatedCostCommand,
+  GetUsageLinesEstimatedCostError$,
+  GetUsageLinesEstimatedCostErrorCode,
+  GetUsageLinesEstimatedCostEstimatedCost$,
+  GetUsageLinesEstimatedCostInput$,
+  GetUsageLinesEstimatedCostLineItem$,
+  GetUsageLinesEstimatedCostRequest$,
+  GetUsageLinesEstimatedCostResponse$,
   GetWorkloadEstimate$,
   GetWorkloadEstimateCommand,
   GetWorkloadEstimateRequest$,
@@ -289,6 +298,8 @@ assert(typeof GetBillScenarioCommand === "function");
 assert(typeof GetBillScenario$ === "object");
 assert(typeof GetPreferencesCommand === "function");
 assert(typeof GetPreferences$ === "object");
+assert(typeof GetUsageLinesEstimatedCostCommand === "function");
+assert(typeof GetUsageLinesEstimatedCost$ === "object");
 assert(typeof GetWorkloadEstimateCommand === "function");
 assert(typeof GetWorkloadEstimate$ === "object");
 assert(typeof ListBillEstimateCommitmentsCommand === "function");
@@ -398,6 +409,12 @@ assert(typeof GetBillScenarioRequest$ === "object");
 assert(typeof GetBillScenarioResponse$ === "object");
 assert(typeof GetPreferencesRequest$ === "object");
 assert(typeof GetPreferencesResponse$ === "object");
+assert(typeof GetUsageLinesEstimatedCostError$ === "object");
+assert(typeof GetUsageLinesEstimatedCostEstimatedCost$ === "object");
+assert(typeof GetUsageLinesEstimatedCostInput$ === "object");
+assert(typeof GetUsageLinesEstimatedCostLineItem$ === "object");
+assert(typeof GetUsageLinesEstimatedCostRequest$ === "object");
+assert(typeof GetUsageLinesEstimatedCostResponse$ === "object");
 assert(typeof GetWorkloadEstimateRequest$ === "object");
 assert(typeof GetWorkloadEstimateResponse$ === "object");
 assert(typeof HistoricalUsageEntity$ === "object");
@@ -460,6 +477,7 @@ assert(typeof BatchUpdateBillScenarioUsageModificationErrorCode === "object");
 assert(typeof BillEstimateStatus === "object");
 assert(typeof BillScenarioStatus === "object");
 assert(typeof CurrencyCode === "object");
+assert(typeof GetUsageLinesEstimatedCostErrorCode === "object");
 assert(typeof GroupSharingPreferenceEnum === "object");
 assert(typeof ListBillEstimateLineItemsFilterName === "object");
 assert(typeof ListBillEstimatesFilterName === "object");

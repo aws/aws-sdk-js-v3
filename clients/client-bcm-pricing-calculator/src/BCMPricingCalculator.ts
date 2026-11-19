@@ -99,6 +99,11 @@ import {
   GetPreferencesCommand,
 } from "./commands/GetPreferencesCommand";
 import {
+  type GetUsageLinesEstimatedCostCommandInput,
+  type GetUsageLinesEstimatedCostCommandOutput,
+  GetUsageLinesEstimatedCostCommand,
+} from "./commands/GetUsageLinesEstimatedCostCommand";
+import {
   type GetWorkloadEstimateCommandInput,
   type GetWorkloadEstimateCommandOutput,
   GetWorkloadEstimateCommand,
@@ -224,6 +229,7 @@ const commands = {
   GetBillEstimateCommand,
   GetBillScenarioCommand,
   GetPreferencesCommand,
+  GetUsageLinesEstimatedCostCommand,
   GetWorkloadEstimateCommand,
   ListBillEstimateCommitmentsCommand,
   ListBillEstimateInputCommitmentModificationsCommand,
@@ -569,6 +575,23 @@ export interface BCMPricingCalculator {
     args: GetPreferencesCommandInput,
     options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: GetPreferencesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetUsageLinesEstimatedCostCommand}
+   */
+  getUsageLinesEstimatedCost(
+    args: GetUsageLinesEstimatedCostCommandInput,
+    options?: BCMPricingCalculatorRequestOptions
+  ): Promise<GetUsageLinesEstimatedCostCommandOutput>;
+  getUsageLinesEstimatedCost(
+    args: GetUsageLinesEstimatedCostCommandInput,
+    cb: (err: any, data?: GetUsageLinesEstimatedCostCommandOutput) => void
+  ): void;
+  getUsageLinesEstimatedCost(
+    args: GetUsageLinesEstimatedCostCommandInput,
+    options: BCMPricingCalculatorRequestOptions,
+    cb: (err: any, data?: GetUsageLinesEstimatedCostCommandOutput) => void
   ): void;
 
   /**

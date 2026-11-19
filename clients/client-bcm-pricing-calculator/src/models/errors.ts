@@ -6,7 +6,7 @@ import type { ValidationExceptionReason } from "./enums";
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p> You do not have sufficient access to perform this action. </p>
+ * <p> The request is denied because you don't have sufficient permissions to perform this operation. Verify that you have the required permissions and try again. </p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -76,7 +76,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p> The specified resource was not found. </p>
+ * <p> The specified resource wasn't found. </p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -84,13 +84,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p> The identifier of the resource that was not found. </p>
+   * <p> The identifier of the resource that wasn't found. </p>
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p> The type of the resource that was not found. </p>
+   * <p> The type of the resource that wasn't found. </p>
    * @public
    */
   resourceType: string | undefined;
@@ -188,7 +188,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p> The request could not be processed because of conflict in the current state of the resource. </p>
+ * <p> The request couldn't be processed because the resource is in a conflicting state. Verify the resource's current state and retry the request. </p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -196,13 +196,13 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p> The identifier of the resource that was not found. </p>
+   * <p> The identifier of the resource that is in a conflicting state. </p>
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p> The type of the resource that was not found. </p>
+   * <p> The type of the resource that is in a conflicting state. </p>
    * @public
    */
   resourceType: string | undefined;

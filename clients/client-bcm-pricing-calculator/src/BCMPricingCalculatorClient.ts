@@ -118,6 +118,10 @@ import type { GetBillEstimateCommandInput, GetBillEstimateCommandOutput } from "
 import type { GetBillScenarioCommandInput, GetBillScenarioCommandOutput } from "./commands/GetBillScenarioCommand";
 import type { GetPreferencesCommandInput, GetPreferencesCommandOutput } from "./commands/GetPreferencesCommand";
 import type {
+  GetUsageLinesEstimatedCostCommandInput,
+  GetUsageLinesEstimatedCostCommandOutput,
+} from "./commands/GetUsageLinesEstimatedCostCommand";
+import type {
   GetWorkloadEstimateCommandInput,
   GetWorkloadEstimateCommandOutput,
 } from "./commands/GetWorkloadEstimateCommand";
@@ -216,6 +220,7 @@ export type ServiceInputTypes =
   | GetBillEstimateCommandInput
   | GetBillScenarioCommandInput
   | GetPreferencesCommandInput
+  | GetUsageLinesEstimatedCostCommandInput
   | GetWorkloadEstimateCommandInput
   | ListBillEstimateCommitmentsCommandInput
   | ListBillEstimateInputCommitmentModificationsCommandInput
@@ -257,6 +262,7 @@ export type ServiceOutputTypes =
   | GetBillEstimateCommandOutput
   | GetBillScenarioCommandOutput
   | GetPreferencesCommandOutput
+  | GetUsageLinesEstimatedCostCommandOutput
   | GetWorkloadEstimateCommandOutput
   | ListBillEstimateCommitmentsCommandOutput
   | ListBillEstimateInputCommitmentModificationsCommandOutput

@@ -64,7 +64,7 @@ export interface CreateWorkloadEstimateCommandOutput extends CreateWorkloadEstim
  * @see {@link BCMPricingCalculatorClientResolvedConfig | config} for BCMPricingCalculatorClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> The request could not be processed because of conflict in the current state of the resource. </p>
+ *  <p> The request couldn't be processed because the resource is in a conflicting state. Verify the resource's current state and retry the request. </p>
  *
  * @throws {@link DataUnavailableException} (client fault)
  *  <p> The requested data is currently unavailable. </p>
@@ -73,7 +73,7 @@ export interface CreateWorkloadEstimateCommandOutput extends CreateWorkloadEstim
  *  <p> The request would cause you to exceed your service quota. </p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You do not have sufficient access to perform this action. </p>
+ *  <p> The request is denied because you don't have sufficient permissions to perform this operation. Verify that you have the required permissions and try again. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>

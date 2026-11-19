@@ -307,6 +307,13 @@ GetPreferences
 </details>
 <details>
 <summary>
+GetUsageLinesEstimatedCost
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/GetUsageLinesEstimatedCostCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/GetUsageLinesEstimatedCostCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/GetUsageLinesEstimatedCostCommandOutput/)
+</details>
+<details>
+<summary>
 GetWorkloadEstimate
 </summary>
 

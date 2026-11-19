@@ -118,6 +118,16 @@ const _GBSRe = "GetBillScenarioResponse";
 const _GP = "GetPreferences";
 const _GPR = "GetPreferencesRequest";
 const _GPRe = "GetPreferencesResponse";
+const _GULEC = "GetUsageLinesEstimatedCost";
+const _GULECE = "GetUsageLinesEstimatedCostError";
+const _GULECEC = "GetUsageLinesEstimatedCostEstimatedCost";
+const _GULECEe = "GetUsageLinesEstimatedCostErrors";
+const _GULECI = "GetUsageLinesEstimatedCostInput";
+const _GULECIL = "GetUsageLinesEstimatedCostInputList";
+const _GULECLI = "GetUsageLinesEstimatedCostLineItem";
+const _GULECLIL = "GetUsageLinesEstimatedCostLineItemList";
+const _GULECR = "GetUsageLinesEstimatedCostRequest";
+const _GULECRe = "GetUsageLinesEstimatedCostResponse";
 const _GWE = "GetWorkloadEstimate";
 const _GWER = "GetWorkloadEstimateRequest";
 const _GWERe = "GetWorkloadEstimateResponse";
@@ -261,6 +271,7 @@ const _ide = "identifier";
 const _it = "items";
 const _k = "key";
 const _l = "location";
+const _lI = "lineItems";
 const _lII = "lineItemId";
 const _lIT = "lineItemType";
 const _m = "message";
@@ -310,10 +321,12 @@ const _tCD = "totalCostDifference";
 const _tK = "tagKeys";
 const _tL = "termLength";
 const _u = "usage";
+const _uA = "usageAmount";
 const _uAI = "usageAccountId";
 const _uM = "usageModifications";
 const _uP = "upfrontPayment";
 const _uT = "usageType";
+const _uU = "usageUnit";
 const _un = "unit";
 const _v = "values";
 const _wEI = "workloadEstimateId";
@@ -759,6 +772,36 @@ export var GetPreferencesResponse$: StaticStructureSchema = [3, n0, _GPRe,
   [_mARTS, _mARTSe, _sARTS],
   [64 | 0, 64 | 0, 64 | 0]
 ];
+export var GetUsageLinesEstimatedCostError$: StaticStructureSchema = [3, n0, _GULECE,
+  0,
+  [_k, _sC, _uT, _o, _eC, _eM],
+  [0, 0, 0, 0, 0, 0], 6
+];
+export var GetUsageLinesEstimatedCostEstimatedCost$: StaticStructureSchema = [3, n0, _GULECEC,
+  0,
+  [_uA, _uU, _cos, _cu],
+  [1, 0, 1, 0]
+];
+export var GetUsageLinesEstimatedCostInput$: StaticStructureSchema = [3, n0, _GULECI,
+  0,
+  [_sC, _uT, _o, _k, _am],
+  [0, 0, 0, 0, 1], 5
+];
+export var GetUsageLinesEstimatedCostLineItem$: StaticStructureSchema = [3, n0, _GULECLI,
+  0,
+  [_k, _sC, _uT, _o, _eCs],
+  [0, 0, 0, 0, () => GetUsageLinesEstimatedCostEstimatedCost$], 1
+];
+export var GetUsageLinesEstimatedCostRequest$: StaticStructureSchema = [3, n0, _GULECR,
+  0,
+  [_u, _rTa],
+  [() => GetUsageLinesEstimatedCostInputList, 0], 2
+];
+export var GetUsageLinesEstimatedCostResponse$: StaticStructureSchema = [3, n0, _GULECRe,
+  0,
+  [_rTa, _tC, _cu, _lI, _er],
+  [0, 1, 0, () => GetUsageLinesEstimatedCostLineItemList, () => GetUsageLinesEstimatedCostErrors]
+];
 export var GetWorkloadEstimateRequest$: StaticStructureSchema = [3, n0, _GWER,
   0,
   [_ide],
@@ -1098,6 +1141,15 @@ var BillScenarioUsageModificationItems: StaticListSchema = [1, n0, _BSUMIi,
 var ExpressionList: StaticListSchema = [1, n0, _EL,
   0, () => Expression$
 ];
+var GetUsageLinesEstimatedCostErrors: StaticListSchema = [1, n0, _GULECEe,
+  0, () => GetUsageLinesEstimatedCostError$
+];
+var GetUsageLinesEstimatedCostInputList: StaticListSchema = [1, n0, _GULECIL,
+  0, () => GetUsageLinesEstimatedCostInput$
+];
+var GetUsageLinesEstimatedCostLineItemList: StaticListSchema = [1, n0, _GULECLIL,
+  0, () => GetUsageLinesEstimatedCostLineItem$
+];
 var ListBillEstimateLineItemsFilters: StaticListSchema = [1, n0, _LBELIFi,
   0, () => ListBillEstimateLineItemsFilter$
 ];
@@ -1199,6 +1251,9 @@ export var GetBillScenario$: StaticOperationSchema = [9, n0, _GBS,
 ];
 export var GetPreferences$: StaticOperationSchema = [9, n0, _GP,
   0, () => GetPreferencesRequest$, () => GetPreferencesResponse$
+];
+export var GetUsageLinesEstimatedCost$: StaticOperationSchema = [9, n0, _GULEC,
+  0, () => GetUsageLinesEstimatedCostRequest$, () => GetUsageLinesEstimatedCostResponse$
 ];
 export var GetWorkloadEstimate$: StaticOperationSchema = [9, n0, _GWE,
   0, () => GetWorkloadEstimateRequest$, () => GetWorkloadEstimateResponse$

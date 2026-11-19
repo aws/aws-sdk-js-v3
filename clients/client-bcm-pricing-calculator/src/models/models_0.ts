@@ -10,6 +10,7 @@ import type {
   BillEstimateStatus,
   BillScenarioStatus,
   CurrencyCode,
+  GetUsageLinesEstimatedCostErrorCode,
   GroupSharingPreferenceEnum,
   ListBillEstimateLineItemsFilterName,
   ListBillEstimatesFilterName,
@@ -55,7 +56,7 @@ export interface AddSavingsPlanAction {
   savingsPlanOfferingId?: string | undefined;
 
   /**
-   * <p> The hourly commitment, in the same currency of the <code>savingsPlanOfferingId</code>. This is a value between 0.001 and 1 million. You cannot specify more than five digits after the decimal point. </p>
+   * <p> The hourly commitment, in the same currency of the <code>savingsPlanOfferingId</code>. This is a value between 0.001 and 1 million. You can't specify more than five digits after the decimal point. </p>
    * @public
    */
   commitment?: number | undefined;
@@ -799,7 +800,7 @@ export interface CreateBillEstimateResponse {
   expiresAt?: Date | undefined;
 
   /**
-   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * <p>The setting for the reserved instance and savings plans group sharing used in this estimate.</p>
    * @public
    */
   groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
@@ -897,7 +898,7 @@ export interface GetBillEstimateResponse {
   expiresAt?: Date | undefined;
 
   /**
-   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * <p>The setting for the reserved instance and savings plans group sharing used in this estimate.</p>
    * @public
    */
   groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
@@ -1127,7 +1128,7 @@ export interface UpdateBillEstimateResponse {
   expiresAt?: Date | undefined;
 
   /**
-   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * <p>The setting for the reserved instance and savings plans group sharing used in this estimate.</p>
    * @public
    */
   groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
@@ -1269,7 +1270,7 @@ export interface BatchCreateBillScenarioCommitmentModificationResponse {
   items?: BatchCreateBillScenarioCommitmentModificationItem[] | undefined;
 
   /**
-   * <p> Returns the list of errors reason and the commitment item keys that cannot be created in the Bill Scenario. </p>
+   * <p> Returns the list of errors reason and the commitment item keys that can't be created in the Bill Scenario. </p>
    * @public
    */
   errors?: BatchCreateBillScenarioCommitmentModificationError[] | undefined;
@@ -1321,7 +1322,7 @@ export interface BatchDeleteBillScenarioCommitmentModificationError {
  */
 export interface BatchDeleteBillScenarioCommitmentModificationResponse {
   /**
-   * <p> Returns the list of errors reason and the commitment item keys that cannot be deleted from the Bill Scenario. </p>
+   * <p> Returns the list of errors reason and the commitment item keys that can't be deleted from the Bill Scenario. </p>
    * @public
    */
   errors?: BatchDeleteBillScenarioCommitmentModificationError[] | undefined;
@@ -1427,7 +1428,7 @@ export interface BatchUpdateBillScenarioCommitmentModificationResponse {
   items?: BillScenarioCommitmentModificationItem[] | undefined;
 
   /**
-   * <p> Returns the list of error reasons and commitment line item IDs that could not be updated for the Bill Scenario. </p>
+   * <p> Returns the list of error reasons and commitment line item IDs that couldn't be updated for the Bill Scenario. </p>
    * @public
    */
   errors?: BatchUpdateBillScenarioCommitmentModificationError[] | undefined;
@@ -1561,7 +1562,7 @@ export interface BatchDeleteBillScenarioUsageModificationError {
  */
 export interface BatchDeleteBillScenarioUsageModificationResponse {
   /**
-   * <p> Returns the list of errors reason and the usage item keys that cannot be deleted from the Bill Scenario. </p>
+   * <p> Returns the list of errors reason and the usage item keys that can't be deleted from the Bill Scenario. </p>
    * @public
    */
   errors?: BatchDeleteBillScenarioUsageModificationError[] | undefined;
@@ -1684,7 +1685,7 @@ export interface CreateBillScenarioRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * <p>The setting for the reserved instance and savings plans group sharing used in this estimate.</p>
    * @public
    */
   groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
@@ -1743,7 +1744,7 @@ export interface CreateBillScenarioResponse {
   failureMessage?: string | undefined;
 
   /**
-   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * <p>The setting for the reserved instance and savings plans group sharing used in this estimate.</p>
    * @public
    */
   groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
@@ -1829,7 +1830,7 @@ export interface GetBillScenarioResponse {
   failureMessage?: string | undefined;
 
   /**
-   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * <p>The setting for the reserved instance and savings plans group sharing used in this estimate.</p>
    * @public
    */
   groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
@@ -2000,7 +2001,7 @@ export interface UpdateBillScenarioRequest {
   expiresAt?: Date | undefined;
 
   /**
-   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * <p>The setting for the reserved instance and savings plans group sharing used in this estimate.</p>
    * @public
    */
   groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
@@ -2059,7 +2060,7 @@ export interface UpdateBillScenarioResponse {
   failureMessage?: string | undefined;
 
   /**
-   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * <p>The setting for the reserved instance and savings plans group sharing used in this estimate.</p>
    * @public
    */
   groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
@@ -2097,6 +2098,202 @@ export interface GetPreferencesResponse {
    * @public
    */
   standaloneAccountRateTypeSelections?: RateType[] | undefined;
+}
+
+/**
+ * <p> Represents a usage line that you want to estimate. </p>
+ * @public
+ */
+export interface GetUsageLinesEstimatedCostInput {
+  /**
+   * <p> The Amazon Web Services service code of the usage line, for example <code>AmazonEC2</code>. </p>
+   * @public
+   */
+  serviceCode: string | undefined;
+
+  /**
+   * <p> The usage type of the usage line, for example <code>BoxUsage:t3.micro</code>. </p>
+   * @public
+   */
+  usageType: string | undefined;
+
+  /**
+   * <p> The operation of the usage line, for example <code>RunInstances</code>. </p>
+   * @public
+   */
+  operation: string | undefined;
+
+  /**
+   * <p> A unique identifier for the usage line in the request. Use the key to match the usage line with its result in <code>lineItems</code> or <code>errors</code> in the response. </p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p> The usage amount to price for the usage line in the usage type's pricing unit. This value must be 0 or greater. </p>
+   * @public
+   */
+  amount: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetUsageLinesEstimatedCostRequest {
+  /**
+   * <p> The usage lines that you want to estimate. You can include up to 500 usage lines in a request. </p>
+   * @public
+   */
+  usage: GetUsageLinesEstimatedCostInput[] | undefined;
+
+  /**
+   * <p> The type of pricing rates to use to estimate the cost of the usage lines. You can only use a rate type that your Pricing Calculator rate preferences allow. If you use billing transfer as a bill source account, you can only use BEFORE_DISCOUNTS </p>
+   * @public
+   */
+  rateType: RateType | undefined;
+}
+
+/**
+ * <p> Represents a usage line that couldn't be priced. </p>
+ * @public
+ */
+export interface GetUsageLinesEstimatedCostError {
+  /**
+   * <p> The key of the usage line in the request that couldn't be priced. </p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p> The Amazon Web Services service code of the usage line that couldn't be priced. </p>
+   * @public
+   */
+  serviceCode: string | undefined;
+
+  /**
+   * <p> The usage type of the usage line that couldn't be priced. </p>
+   * @public
+   */
+  usageType: string | undefined;
+
+  /**
+   * <p> The operation of the usage line that couldn't be priced. </p>
+   * @public
+   */
+  operation: string | undefined;
+
+  /**
+   * <p> The code associated with the error. </p>
+   * @public
+   */
+  errorCode: GetUsageLinesEstimatedCostErrorCode | undefined;
+
+  /**
+   * <p> The message that describes the error. </p>
+   * @public
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * <p> Represents the estimated cost of the usage amount for a usage line. </p>
+ * @public
+ */
+export interface GetUsageLinesEstimatedCostEstimatedCost {
+  /**
+   * <p> The usage amount that was priced. </p>
+   * @public
+   */
+  usageAmount?: number | undefined;
+
+  /**
+   * <p> The unit of the usage amount, for example <code>Hrs</code> or <code>GB-Mo</code>. </p>
+   * @public
+   */
+  usageUnit?: string | undefined;
+
+  /**
+   * <p> The estimated cost for the given usage amount. </p>
+   * @public
+   */
+  cost?: number | undefined;
+
+  /**
+   * <p> The currency of the estimated cost. </p>
+   * @public
+   */
+  currency?: CurrencyCode | undefined;
+}
+
+/**
+ * <p> Represents the estimated cost of a usage line that was priced. </p>
+ * @public
+ */
+export interface GetUsageLinesEstimatedCostLineItem {
+  /**
+   * <p> The key of the usage line in the request. </p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p> The Amazon Web Services service code of the usage line. </p>
+   * @public
+   */
+  serviceCode?: string | undefined;
+
+  /**
+   * <p> The usage type of the usage line. </p>
+   * @public
+   */
+  usageType?: string | undefined;
+
+  /**
+   * <p> The operation of the usage line. </p>
+   * @public
+   */
+  operation?: string | undefined;
+
+  /**
+   * <p> The estimated cost of the usage amount in the request. </p>
+   * @public
+   */
+  estimatedCost?: GetUsageLinesEstimatedCostEstimatedCost | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetUsageLinesEstimatedCostResponse {
+  /**
+   * <p> The type of pricing rates used to estimate the cost of the usage lines. </p>
+   * @public
+   */
+  rateType?: RateType | undefined;
+
+  /**
+   * <p> The sum of the estimated costs of all usage lines that were priced. Usage lines returned in <code>errors</code> aren't included. </p>
+   * @public
+   */
+  totalCost?: number | undefined;
+
+  /**
+   * <p> The currency of the costs in the response. </p>
+   * @public
+   */
+  currency?: CurrencyCode | undefined;
+
+  /**
+   * <p> The estimated cost of each usage line that was priced. </p>
+   * @public
+   */
+  lineItems?: GetUsageLinesEstimatedCostLineItem[] | undefined;
+
+  /**
+   * <p> The usage lines that couldn't be priced, and the reason that each one couldn't be priced. </p>
+   * @public
+   */
+  errors?: GetUsageLinesEstimatedCostError[] | undefined;
 }
 
 /**
@@ -2228,7 +2425,7 @@ export interface CreateWorkloadEstimateRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p> The type of pricing rates to use for the estimate. </p>
+   * <p> The type of pricing rates for the estimate. You can only use a rate type that your Pricing Calculator rate preferences allow. If you use billing transfer as a bill source account, you can only use BEFORE_DISCOUNTS. </p>
    * @public
    */
   rateType?: WorkloadEstimateRateType | undefined;
@@ -2718,7 +2915,7 @@ export interface BatchDeleteWorkloadEstimateUsageError {
  */
 export interface BatchDeleteWorkloadEstimateUsageResponse {
   /**
-   * <p> Returns the list of errors reason and the usage item keys that cannot be deleted from the Workload estimate. </p>
+   * <p> Returns the list of errors reason and the usage item keys that can't be deleted from the Workload estimate. </p>
    * @public
    */
   errors?: BatchDeleteWorkloadEstimateUsageError[] | undefined;
@@ -3422,7 +3619,7 @@ export interface BatchCreateBillScenarioUsageModificationResponse {
   items?: BatchCreateBillScenarioUsageModificationItem[] | undefined;
 
   /**
-   * <p> Returns the list of errors reason and the usage item keys that cannot be created in the Bill Scenario. </p>
+   * <p> Returns the list of errors reason and the usage item keys that can't be created in the Bill Scenario. </p>
    * @public
    */
   errors?: BatchCreateBillScenarioUsageModificationError[] | undefined;
@@ -3462,7 +3659,7 @@ export interface BatchCreateWorkloadEstimateUsageResponse {
   items?: BatchCreateWorkloadEstimateUsageItem[] | undefined;
 
   /**
-   * <p> Returns the list of errors reason and the usage item keys that cannot be created in the Workload estimate. </p>
+   * <p> Returns the list of errors reason and the usage item keys that can't be created in the Workload estimate. </p>
    * @public
    */
   errors?: BatchCreateWorkloadEstimateUsageError[] | undefined;
@@ -3479,7 +3676,7 @@ export interface BatchUpdateBillScenarioUsageModificationResponse {
   items?: BillScenarioUsageModificationItem[] | undefined;
 
   /**
-   * <p> Returns the list of error reasons and usage line item IDs that could not be updated for the Bill Scenario. </p>
+   * <p> Returns the list of error reasons and usage line item IDs that couldn't be updated for the Bill Scenario. </p>
    * @public
    */
   errors?: BatchUpdateBillScenarioUsageModificationError[] | undefined;
@@ -3496,7 +3693,7 @@ export interface BatchUpdateWorkloadEstimateUsageResponse {
   items?: WorkloadEstimateUsageItem[] | undefined;
 
   /**
-   * <p> Returns the list of error reasons and usage line item IDs that could not be updated for the Workload estimate. </p>
+   * <p> Returns the list of error reasons and usage line item IDs that couldn't be updated for the Workload estimate. </p>
    * @public
    */
   errors?: BatchUpdateWorkloadEstimateUsageError[] | undefined;
