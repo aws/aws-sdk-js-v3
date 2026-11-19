@@ -297,7 +297,7 @@ export interface SlaInputConfiguration {
   type: SlaType | undefined;
 
   /**
-   * <p>Unique identifier of a field.</p>
+   * <p>Unique identifier of the case field that the SLA tracks. The field must be a single-select field, such as the system <code>status</code> field or a custom single-select field.</p>
    * @public
    */
   fieldId?: string | undefined;
@@ -1972,12 +1972,64 @@ export interface CustomUpdateContent {
 }
 
 /**
- * <p>Represents the content of a related item to be updated. This is a union type that can contain either comment content or custom content.</p>
+ * <p>Represents the SLA configuration to update.</p>
+ * @public
+ */
+export interface SlaUpdateConfiguration {
+  /**
+   * <p>New target duration in minutes within which an SLA should be completed. The new deadline is counted from when the SLA was created.</p>
+   * @public
+   */
+  targetSlaMinutes: number | undefined;
+}
+
+/**
+ * <p>Represents the updated content of an SLA related item.</p>
+ * @public
+ */
+export type SlaUpdateContent =
+  | SlaUpdateContent.SlaUpdateConfigurationMember
+  | SlaUpdateContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SlaUpdateContent {
+  /**
+   * <p>Represents the SLA configuration to update.</p>
+   * @public
+   */
+  export interface SlaUpdateConfigurationMember {
+    slaUpdateConfiguration: SlaUpdateConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    slaUpdateConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    slaUpdateConfiguration: (value: SlaUpdateConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Represents the content of a related item to be updated. This is a union type that can contain comment content, custom content, or SLA content.</p>
  * @public
  */
 export type RelatedItemUpdateContent =
   | RelatedItemUpdateContent.CommentMember
   | RelatedItemUpdateContent.CustomMember
+  | RelatedItemUpdateContent.SlaMember
   | RelatedItemUpdateContent.$UnknownMember;
 
 /**
@@ -1991,6 +2043,7 @@ export namespace RelatedItemUpdateContent {
   export interface CommentMember {
     comment: CommentUpdateContent;
     custom?: never;
+    sla?: never;
     $unknown?: never;
   }
 
@@ -2001,6 +2054,18 @@ export namespace RelatedItemUpdateContent {
   export interface CustomMember {
     comment?: never;
     custom: CustomUpdateContent;
+    sla?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents the content of an SLA to be updated.</p>
+   * @public
+   */
+  export interface SlaMember {
+    comment?: never;
+    custom?: never;
+    sla: SlaUpdateContent;
     $unknown?: never;
   }
 
@@ -2010,6 +2075,7 @@ export namespace RelatedItemUpdateContent {
   export interface $UnknownMember {
     comment?: never;
     custom?: never;
+    sla?: never;
     $unknown: [string, any];
   }
 
@@ -2020,6 +2086,7 @@ export namespace RelatedItemUpdateContent {
   export interface Visitor<T> {
     comment: (value: CommentUpdateContent) => T;
     custom: (value: CustomUpdateContent) => T;
+    sla: (value: SlaUpdateContent) => T;
     _: (name: string, value: any) => T;
   }
 }

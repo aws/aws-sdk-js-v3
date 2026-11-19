@@ -322,6 +322,8 @@ export type {
   SlaFilter,
   SlaInputConfiguration,
   SlaInputContent,
+  SlaUpdateConfiguration,
+  SlaUpdateContent,
   Sort,
   StartMergeCasesRequest,
   StartMergeCasesResponse,

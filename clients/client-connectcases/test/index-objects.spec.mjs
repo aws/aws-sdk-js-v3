@@ -277,6 +277,8 @@ import {
   SlaInputContent$,
   SlaStatus,
   SlaType,
+  SlaUpdateConfiguration$,
+  SlaUpdateContent$,
   Sort$,
   StartMergeCases$,
   StartMergeCasesCommand,
@@ -590,6 +592,8 @@ assert(typeof SlaContent$ === "object");
 assert(typeof SlaFilter$ === "object");
 assert(typeof SlaInputConfiguration$ === "object");
 assert(typeof SlaInputContent$ === "object");
+assert(typeof SlaUpdateConfiguration$ === "object");
+assert(typeof SlaUpdateContent$ === "object");
 assert(typeof Sort$ === "object");
 assert(typeof StartMergeCasesRequest$ === "object");
 assert(typeof StartMergeCasesResponse$ === "object");

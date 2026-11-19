@@ -251,6 +251,8 @@ const _SRIR = "SearchRelatedItemsRequest";
 const _SRIRI = "SearchRelatedItemsResponseItem";
 const _SRIRIL = "SearchRelatedItemsResponseItemList";
 const _SRIRe = "SearchRelatedItemsResponse";
+const _SUC = "SlaUpdateConfiguration";
+const _SUCl = "SlaUpdateContent";
 const _Se = "Section";
 const _T = "Tags";
 const _TA = "TextAttributes";
@@ -430,6 +432,7 @@ const _sIC = "slaInputConfiguration";
 const _sO = "sortOrder";
 const _sP = "sortProperty";
 const _sT = "searchTerm";
+const _sUC = "slaUpdateConfiguration";
 const _sV = "stringValue";
 const _se = "server";
 const _sec = "sections";
@@ -1268,6 +1271,11 @@ export var SlaInputConfiguration$: StaticStructureSchema = [3, n0, _SIC,
   [_n, _t, _tSM, _fIi, _tFV],
   [[() => SlaName, 0], 0, 1, 0, () => SlaFieldValueUnionList], 3
 ];
+export var SlaUpdateConfiguration$: StaticStructureSchema = [3, n0, _SUC,
+  0,
+  [_tSM],
+  [1], 1
+];
 export var Sort$: StaticStructureSchema = [3, n0, _S,
   0,
   [_fIi, _sO],
@@ -1605,8 +1613,8 @@ export var RelatedItemTypeFilter$: StaticUnionSchema = [4, n0, _RITF,
 ];
 export var RelatedItemUpdateContent$: StaticUnionSchema = [4, n0, _RIUC,
   0,
-  [_com, _cu],
-  [() => CommentUpdateContent$, () => CustomUpdateContent$]
+  [_com, _cu, _sl],
+  [() => CommentUpdateContent$, () => CustomUpdateContent$, () => SlaUpdateContent$]
 ];
 export var Section$: StaticUnionSchema = [4, n0, _Se,
   0,
@@ -1617,6 +1625,11 @@ export var SlaInputContent$: StaticUnionSchema = [4, n0, _SICl,
   0,
   [_sIC],
   [[() => SlaInputConfiguration$, 0]]
+];
+export var SlaUpdateContent$: StaticUnionSchema = [4, n0, _SUCl,
+  0,
+  [_sUC],
+  [() => SlaUpdateConfiguration$]
 ];
 export var TagFilter$: StaticUnionSchema = [4, n0, _TF,
   0,
