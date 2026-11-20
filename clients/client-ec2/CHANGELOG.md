@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1174.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1173.0...v3.1174.0) (2026-11-20)
+
+
+### Features
+
+* **client-ec2:** This release adds documentation for the T9g instance family to the EC2 ModifyDefaultCreditSpecification and GetDefaultCreditSpecification APIs, adds the disable-complete state for IPAM routing policy registrations, and adds Network Firewall automated Internet firewall API changes. ([610facc](https://github.com/aws/aws-sdk-js-v3/commit/610facc8e62aae4a88b9ef4e78ef0b74e36a88c9))
+
+
+
+
+
 # [3.1173.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1172.0...v3.1173.0) (2026-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

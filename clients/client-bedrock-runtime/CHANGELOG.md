@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1174.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1173.0...v3.1174.0) (2026-11-20)
+
+
+### Features
+
+* **client-bedrock-runtime:** Amazon Bedrock Runtime adds an optional projectIdentifier parameter to InvokeModel, InvokeModelWithResponseStream, Converse, and ConverseStream, allowing requests to specify a project by ID or ARN. ([aaab9c4](https://github.com/aws/aws-sdk-js-v3/commit/aaab9c44b91029376ea7363ce7f7589fcd4a065c))
+
+
+
+
+
 # [3.1173.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1172.0...v3.1173.0) (2026-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-runtime

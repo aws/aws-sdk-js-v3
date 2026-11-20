@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1174.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1173.0...v3.1174.0) (2026-11-20)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds responseInterceptionMode and responseStreamingConfiguration to gateway interceptor configurations. Set responseInterceptionMode to STREAM to have the response interceptor process streaming responses from HTTP and inference targets in batches of events. ([de009d4](https://github.com/aws/aws-sdk-js-v3/commit/de009d49fef1c6a2a74f18e7c4d8e1335f2a3512))
+
+
+
+
+
 # [3.1173.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1172.0...v3.1173.0) (2026-11-19)
 
 

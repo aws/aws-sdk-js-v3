@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1174.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1173.0...v3.1174.0) (2026-11-20)
+
+
+### Features
+
+* **client-cloudfront:** Amazon CloudFront now supports HTTP2 connections to custom and VPC origins, so you can multiplex many requests over fewer origin connections, including WebSocket connections to HTTP2 origins that support extended CONNECT. ([8cb8ac3](https://github.com/aws/aws-sdk-js-v3/commit/8cb8ac37620327961db8e50bdf09f278a1651c04))
+
+
+
+
+
 # [3.1173.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1172.0...v3.1173.0) (2026-11-19)
 
 

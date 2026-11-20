@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1174.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1173.0...v3.1174.0) (2026-11-20)
+
+
+### Features
+
+* **client-ssm:** This release adds a CloudProviders field to SSM documents. Specify the cloud providers (AWS, Azure, GCP) a document can run on in CreateDocument and UpdateDocument, view it in DescribeDocument, ListDocuments and ListDocumentVersions, and filter ListDocuments by cloud provider. ([909b413](https://github.com/aws/aws-sdk-js-v3/commit/909b413af65ade83d123a09cd015c4123ba1712a))
+
+
+
+
+
 # [3.1173.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1172.0...v3.1173.0) (2026-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm
