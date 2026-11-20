@@ -29,6 +29,7 @@ import type {
   OriginAccessControlSigningBehaviors,
   OriginAccessControlSigningProtocols,
   OriginGroupSelectionCriteria,
+  OriginHttpVersion,
   OriginProtocolPolicy,
   OriginRequestPolicyCookieBehavior,
   OriginRequestPolicyHeaderBehavior,
@@ -1732,6 +1733,12 @@ export interface CustomOriginConfig {
    * @public
    */
   OriginMtlsConfig?: OriginMtlsConfig | undefined;
+
+  /**
+   * <p>The HTTP version that CloudFront uses for requests to your custom origin. Valid values are <code>http1.1</code> and <code>http2</code>. If you don't specify a value, CloudFront uses HTTP/1.1.</p> <p>When you specify <code>http2</code>, CloudFront offers HTTP/2 to the origin by using ALPN. If the origin doesn't negotiate HTTP/2, CloudFront uses HTTP/1.1. CloudFront uses HTTP/2 only over Transport Layer Security (TLS) 1.2 or later. Otherwise, it uses HTTP/1.1.</p> <p>If you use a version of an AWS SDK or the AWS CLI that doesn't support this field, an update that sends back a configuration you got from CloudFront removes the value, and CloudFront then uses HTTP/1.1.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginHttpVersion">Origin HTTP version</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * @public
+   */
+  OriginHttpVersion?: OriginHttpVersion | undefined;
 }
 
 /**
@@ -1798,6 +1805,12 @@ export interface VpcOriginConfig {
    * @public
    */
   OriginKeepaliveTimeout?: number | undefined;
+
+  /**
+   * <p>The HTTP version that CloudFront uses for requests to the VPC origin for this distribution. Valid values are <code>http1.1</code> and <code>http2</code>. If you don't specify a value, CloudFront uses HTTP/1.1.</p> <p>When you specify <code>http2</code>, CloudFront offers HTTP/2 to the origin by using ALPN. If the origin doesn't negotiate HTTP/2, CloudFront uses HTTP/1.1. CloudFront uses HTTP/2 only over Transport Layer Security (TLS) 1.2 or later. Otherwise, it uses HTTP/1.1.</p> <p>If you use a version of an AWS SDK or the AWS CLI that doesn't support this field, an update that sends back a configuration you got from CloudFront removes the value, and CloudFront then uses HTTP/1.1.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginHttpVersion">Origin HTTP version</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * @public
+   */
+  OriginHttpVersion?: OriginHttpVersion | undefined;
 }
 
 /**

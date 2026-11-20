@@ -535,6 +535,7 @@ export type {
   OriginAccessControlSigningBehaviors,
   OriginAccessControlSigningProtocols,
   OriginGroupSelectionCriteria,
+  OriginHttpVersion,
   OriginProtocolPolicy,
   OriginRequestPolicyCookieBehavior,
   OriginRequestPolicyHeaderBehavior,

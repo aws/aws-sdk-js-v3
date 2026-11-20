@@ -800,6 +800,7 @@ const _OGM = "OriginGroupMember";
 const _OGML = "OriginGroupMemberList";
 const _OGMr = "OriginGroupMembers";
 const _OGr = "OriginGroup";
+const _OHV = "OriginHttpVersion";
 const _OI = "OriginId";
 const _OKT = "OriginKeepaliveTimeout";
 const _OL = "OriginList";
@@ -2813,8 +2814,8 @@ export var Customizations$: StaticStructureSchema = [3, n0, _Cu,
 ];
 export var CustomOriginConfig$: StaticStructureSchema = [3, n0, _COC,
   0,
-  [_HTTPP, _HTTPSP, _OPP, _OSP, _ORT, _OKT, _IAT, _OMC],
-  [1, 1, 0, [() => OriginSslProtocols$, 0], 1, 1, 0, () => OriginMtlsConfig$], 3
+  [_HTTPP, _HTTPSP, _OPP, _OSP, _ORT, _OKT, _IAT, _OMC, _OHV],
+  [1, 1, 0, [() => OriginSslProtocols$, 0], 1, 1, 0, () => OriginMtlsConfig$, 0], 3
 ];
 export var DefaultCacheBehavior$: StaticStructureSchema = [3, n0, _DCB,
   0,
@@ -4843,8 +4844,8 @@ export var VpcOrigin$: StaticStructureSchema = [3, n0, _VO,
 ];
 export var VpcOriginConfig$: StaticStructureSchema = [3, n0, _VOC,
   0,
-  [_VOI, _OAI, _ORT, _OKT],
-  [0, 0, 1, 1], 1
+  [_VOI, _OAI, _ORT, _OKT, _OHV],
+  [0, 0, 1, 1, 0], 1
 ];
 export var VpcOriginEndpointConfig$: StaticStructureSchema = [3, n0, _VOEC,
   0,

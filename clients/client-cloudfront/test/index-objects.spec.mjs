@@ -841,6 +841,7 @@ import {
   OriginGroupMembers$,
   OriginGroups$,
   OriginGroupSelectionCriteria,
+  OriginHttpVersion,
   OriginMtlsConfig$,
   OriginProtocolPolicy,
   OriginRequestPolicy$,
@@ -2127,6 +2128,7 @@ assert(typeof OriginAccessControlOriginTypes === "object");
 assert(typeof OriginAccessControlSigningBehaviors === "object");
 assert(typeof OriginAccessControlSigningProtocols === "object");
 assert(typeof OriginGroupSelectionCriteria === "object");
+assert(typeof OriginHttpVersion === "object");
 assert(typeof OriginProtocolPolicy === "object");
 assert(typeof OriginRequestPolicyCookieBehavior === "object");
 assert(typeof OriginRequestPolicyHeaderBehavior === "object");

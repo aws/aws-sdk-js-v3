@@ -124,12 +124,14 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  * //               OriginMtlsConfig: { // OriginMtlsConfig
  * //                 ClientCertificateArn: "STRING_VALUE", // required
  * //               },
+ * //               OriginHttpVersion: "http1.1" || "http2",
  * //             },
  * //             VpcOriginConfig: { // VpcOriginConfig
  * //               VpcOriginId: "STRING_VALUE", // required
  * //               OwnerAccountId: "STRING_VALUE",
  * //               OriginReadTimeout: Number("int"),
  * //               OriginKeepaliveTimeout: Number("int"),
+ * //               OriginHttpVersion: "http1.1" || "http2",
  * //             },
  * //             ConnectionAttempts: Number("int"),
  * //             ConnectionTimeout: Number("int"),

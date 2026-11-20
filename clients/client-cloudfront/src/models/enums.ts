@@ -262,6 +262,19 @@ export type OriginGroupSelectionCriteria =
  * @public
  * @enum
  */
+export const OriginHttpVersion = {
+  Http1_1: "http1.1",
+  Http2: "http2",
+} as const;
+/**
+ * @public
+ */
+export type OriginHttpVersion = (typeof OriginHttpVersion)[keyof typeof OriginHttpVersion];
+
+/**
+ * @public
+ * @enum
+ */
 export const OriginProtocolPolicy = {
   http_only: "http-only",
   https_only: "https-only",
