@@ -49,6 +49,9 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  *   DocumentVersion: "STRING_VALUE",
  *   DocumentFormat: "YAML" || "JSON" || "TEXT",
  *   TargetType: "STRING_VALUE",
+ *   CloudProviders: [ // CloudProviderList
+ *     "AWS" || "Azure" || "GCP",
+ *   ],
  * };
  * const command = new UpdateDocumentCommand(input);
  * const response = await client.send(command);
@@ -118,6 +121,9 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  * //     ],
  * //     CategoryEnum: [ // CategoryEnumList
  * //       "STRING_VALUE",
+ * //     ],
+ * //     CloudProviders: [ // CloudProviderList
+ * //       "AWS" || "Azure" || "GCP",
  * //     ],
  * //   },
  * // };

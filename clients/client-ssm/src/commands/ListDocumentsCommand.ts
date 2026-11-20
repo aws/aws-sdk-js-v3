@@ -85,6 +85,9 @@ export interface ListDocumentsCommandOutput extends ListDocumentsResult, __Metad
  * //       ],
  * //       ReviewStatus: "APPROVED" || "NOT_REVIEWED" || "PENDING" || "REJECTED",
  * //       Author: "STRING_VALUE",
+ * //       CloudProviders: [ // CloudProviderList
+ * //         "AWS" || "Azure" || "GCP",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

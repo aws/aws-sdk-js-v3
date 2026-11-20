@@ -66,6 +66,9 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   CloudProviders: [ // CloudProviderList
+ *     "AWS" || "Azure" || "GCP",
+ *   ],
  * };
  * const command = new CreateDocumentCommand(input);
  * const response = await client.send(command);
@@ -135,6 +138,9 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  * //     ],
  * //     CategoryEnum: [ // CategoryEnumList
  * //       "STRING_VALUE",
+ * //     ],
+ * //     CloudProviders: [ // CloudProviderList
+ * //       "AWS" || "Azure" || "GCP",
  * //     ],
  * //   },
  * // };

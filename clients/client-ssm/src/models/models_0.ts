@@ -15,6 +15,7 @@ import type {
   AutomationSubtype,
   AutomationType,
   CalendarState,
+  CloudProvider,
   CommandInvocationStatus,
   ConnectionStatus,
   DeletionMode,
@@ -633,10 +634,29 @@ export interface InstanceAssociationOutputLocation {
  *                      </p>
  *                   </li>
  *                </ul>
- *                <p>Supported JSON keys: <code>CloudConnectorId</code> (required),
- *       <code>SsmManagedNodeFilter</code>, <code>CloudProviderRegions</code>, and, for GCP,
- *       <code>IncludesLabels</code>, <code>ExcludesLabels</code>,
- *       <code>OsPolicyComplianceFilter</code>, and <code>OsPolicyOrchestratorId</code>.</p>
+ *                <p>Instead of <code>CloudConnector</code>, you can use <code>AzureCloudConnector</code> or
+ *       <code>GcpCloudConnector</code> for a cloud connector to that provider. You must specify
+ *      exactly one value. A cloud connector ID alone targets every running virtual machine (VM) in the
+ *      cloud connector's scope. In the JSON value, <code>CloudConnectorId</code> is required, and the
+ *      following optional keys narrow that scope:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>For both providers: <code>SsmManagedNodeFilter</code>, which filters VMs by whether
+ *        they are Systems Manager managed nodes.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>For Microsoft Azure: <code>CloudProviderRegions</code>,
+ *         <code>AzureSubscriptions</code>, <code>AzureResourceGroups</code>, <code>AzureTag</code>,
+ *         <code>AzureVmPowerStates</code>, and <code>AzureResourceType</code>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>For GCP: <code>Zones</code>, <code>GcpProjects</code>, <code>IncludesLabels</code>,
+ *         <code>ExcludesLabels</code>, <code>GcpInstanceStates</code>,
+ *         <code>OsPolicyComplianceFilter</code>, <code>OsPolicyOrchestratorName</code>,
+ *         <code>OsPolicyOrchestratorId</code>, and <code>GcpAssetType</code>.</p>
+ *                   </li>
+ *                </ul>
+ *                <p>For descriptions, valid values, and defaults of these keys, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-cloud-connector-target.html">Cloud Connector target reference</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -2197,6 +2217,28 @@ export interface CreateDocumentRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The cloud providers that the document can run against. Valid values include the
+   *    following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS</code> - The document runs against Amazon Web Services resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Azure</code> - The document runs against Microsoft Azure resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GCP</code> - The document runs against Google Cloud resources.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a value, the default is <code>AWS</code>.</p>
+   * @public
+   */
+  CloudProviders?: CloudProvider[] | undefined;
 }
 
 /**
@@ -2466,6 +2508,13 @@ export interface DocumentDescription {
    * @public
    */
   CategoryEnum?: string[] | undefined;
+
+  /**
+   * <p>This field specifies the cloud providers that the returned version of the document can run
+   *    against.</p>
+   * @public
+   */
+  CloudProviders?: CloudProvider[] | undefined;
 }
 
 /**

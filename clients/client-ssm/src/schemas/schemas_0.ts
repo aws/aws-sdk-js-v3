@@ -222,7 +222,10 @@ const _CP = "CommandPlugins";
 const _CPB = "CreatePatchBaseline";
 const _CPBR = "CreatePatchBaselineRequest";
 const _CPBRr = "CreatePatchBaselineResult";
-const _CPL = "CommandPluginList";
+const _CPL = "CloudProviderList";
+const _CPLo = "CommandPluginList";
+const _CPl = "CloudProviders";
+const _CPlo = "CloudProvider";
 const _CPo = "CommandPlugin";
 const _CRDS = "CreateResourceDataSync";
 const _CRDSR = "CreateResourceDataSyncRequest";
@@ -2840,8 +2843,8 @@ export var CreateCloudConnectorResult$: StaticStructureSchema = [3, n0, _CCCRr,
 ];
 export var CreateDocumentRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_Cont, _N, _Req, _At, _DNi, _VN, _DT, _DF, _TT, _T],
-  [0, 0, () => DocumentRequiresList, () => AttachmentsSourceList, 0, 0, 0, 0, 0, () => TagList], 2
+  [_Cont, _N, _Req, _At, _DNi, _VN, _DT, _DF, _TT, _T, _CPl],
+  [0, 0, () => DocumentRequiresList, () => AttachmentsSourceList, 0, 0, 0, 0, 0, () => TagList, [() => CloudProviderList, 0]], 2
 ];
 export var CreateDocumentResult$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -3435,8 +3438,8 @@ export var DocumentDefaultVersionDescription$: StaticStructureSchema = [3, n0, _
 ];
 export var DocumentDescription$: StaticStructureSchema = [3, n0, _DD,
   0,
-  [_Sha, _H, _HT, _N, _DNi, _VN, _Ow, _CD, _St, _SI, _DV, _D, _P, _PTl, _DT, _SV, _LV, _DVe, _DF, _TT, _T, _AItt, _Req, _Au, _RIe, _AVp, _PRV, _RS, _Ca, _CEa],
-  [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, [() => DocumentParameterList, 0], [() => PlatformTypeList, 0], 0, 0, 0, 0, 0, 0, () => TagList, [() => AttachmentInformationList, 0], () => DocumentRequiresList, 0, [() => ReviewInformationList, 0], 0, 0, 0, 64 | 0, 64 | 0]
+  [_Sha, _H, _HT, _N, _DNi, _VN, _Ow, _CD, _St, _SI, _DV, _D, _P, _PTl, _DT, _SV, _LV, _DVe, _DF, _TT, _T, _AItt, _Req, _Au, _RIe, _AVp, _PRV, _RS, _Ca, _CEa, _CPl],
+  [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, [() => DocumentParameterList, 0], [() => PlatformTypeList, 0], 0, 0, 0, 0, 0, 0, () => TagList, [() => AttachmentInformationList, 0], () => DocumentRequiresList, 0, [() => ReviewInformationList, 0], 0, 0, 0, 64 | 0, 64 | 0, [() => CloudProviderList, 0]]
 ];
 export var DocumentFilter$: StaticStructureSchema = [3, n0, _DFo,
   0,
@@ -3445,8 +3448,8 @@ export var DocumentFilter$: StaticStructureSchema = [3, n0, _DFo,
 ];
 export var DocumentIdentifier$: StaticStructureSchema = [3, n0, _DIo,
   0,
-  [_N, _CD, _DNi, _Ow, _VN, _PTl, _DV, _DT, _SV, _DF, _TT, _T, _Req, _RS, _Au],
-  [0, 4, 0, 0, 0, [() => PlatformTypeList, 0], 0, 0, 0, 0, 0, () => TagList, () => DocumentRequiresList, 0, 0]
+  [_N, _CD, _DNi, _Ow, _VN, _PTl, _DV, _DT, _SV, _DF, _TT, _T, _Req, _RS, _Au, _CPl],
+  [0, 4, 0, 0, 0, [() => PlatformTypeList, 0], 0, 0, 0, 0, 0, () => TagList, () => DocumentRequiresList, 0, 0, [() => CloudProviderList, 0]]
 ];
 export var DocumentKeyValuesFilter$: StaticStructureSchema = [3, n0, _DKVF,
   0,
@@ -3485,8 +3488,8 @@ export var DocumentReviews$: StaticStructureSchema = [3, n0, _DRoc,
 ];
 export var DocumentVersionInfo$: StaticStructureSchema = [3, n0, _DVI,
   0,
-  [_N, _DNi, _DV, _VN, _CD, _IDVs, _DF, _St, _SI, _RS],
-  [0, 0, 0, 0, 4, 2, 0, 0, 0, 0]
+  [_N, _DNi, _DV, _VN, _CD, _IDVs, _DF, _St, _SI, _RS, _CPl],
+  [0, 0, 0, 0, 4, 2, 0, 0, 0, 0, [() => CloudProviderList, 0]]
 ];
 export var EffectivePatch$: StaticStructureSchema = [3, n0, _EPf,
   0,
@@ -4031,7 +4034,7 @@ export var ListDocumentVersionsRequest$: StaticStructureSchema = [3, n0, _LDVR,
 export var ListDocumentVersionsResult$: StaticStructureSchema = [3, n0, _LDVRi,
   0,
   [_DVo, _NT],
-  [() => DocumentVersionList, 0]
+  [[() => DocumentVersionList, 0], 0]
 ];
 export var ListInventoryEntriesRequest$: StaticStructureSchema = [3, n0, _LIER,
   0,
@@ -4855,8 +4858,8 @@ export var UpdateDocumentMetadataResponse$: StaticStructureSchema = [3, n0, _UDM
 ];
 export var UpdateDocumentRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
-  [_Cont, _N, _At, _DNi, _VN, _DV, _DF, _TT],
-  [0, 0, () => AttachmentsSourceList, 0, 0, 0, 0, 0], 2
+  [_Cont, _N, _At, _DNi, _VN, _DV, _DF, _TT, _CPl],
+  [0, 0, () => AttachmentsSourceList, 0, 0, 0, 0, 0, [() => CloudProviderList, 0]], 2
 ];
 export var UpdateDocumentResult$: StaticStructureSchema = [3, n0, _UDRp,
   0,
@@ -5060,6 +5063,10 @@ var CloudConnectorFilterValues = 64 | 0;
 var CloudConnectorSummaryList: StaticListSchema = [1, n0, _CCSL,
   0, () => CloudConnectorSummary$
 ];
+var CloudProviderList: StaticListSchema = [1, n0, _CPL,
+  0, [0,
+    { [_xN]: _CPlo }]
+];
 var CommandFilterList: StaticListSchema = [1, n0, _CFL,
   0, () => CommandFilter$
 ];
@@ -5070,7 +5077,7 @@ var CommandList: StaticListSchema = [1, n0, _CLo,
   0, [() => Command$,
     0]
 ];
-var CommandPluginList: StaticListSchema = [1, n0, _CPL,
+var CommandPluginList: StaticListSchema = [1, n0, _CPLo,
   0, () => CommandPlugin$
 ];
 var ComplianceItemEntryList: StaticListSchema = [1, n0, _CIEL,
@@ -5127,7 +5134,8 @@ var DocumentReviewerResponseList: StaticListSchema = [1, n0, _DRRL,
   0, () => DocumentReviewerResponseSource$
 ];
 var DocumentVersionList: StaticListSchema = [1, n0, _DVL,
-  0, () => DocumentVersionInfo$
+  0, [() => DocumentVersionInfo$,
+    0]
 ];
 var EffectivePatchList: StaticListSchema = [1, n0, _EPL,
   0, () => EffectivePatch$

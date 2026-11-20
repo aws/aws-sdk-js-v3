@@ -4,6 +4,7 @@ import type {
   AssociationFilterKey,
   AssociationSyncCompliance,
   CloudConnectorFilterKey,
+  CloudProvider,
   CommandFilterKey,
   CommandInvocationStatus,
   CommandPluginStatus,
@@ -2741,6 +2742,27 @@ export interface DocumentFilter {
  *          <p>You can also use Amazon Web Services-provided keys, some of which have specific allowed values. These keys
  *    and their associated values are as follows:</p>
  *          <dl>
+ *             <dt>CloudProviders</dt>
+ *             <dd>
+ *                <p>Returns documents whose default version can run against any of the specified cloud
+ *       providers. The <code>CloudProviders</code> key supports the following values:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>AWS</code> - Documents that run against Amazon Web Services resources.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>Azure</code> - Documents that run against Microsoft Azure resources.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>GCP</code> - Documents that run against Google Cloud resources.</p>
+ *                   </li>
+ *                </ul>
+ *                <p>If you created a document before Systems Manager supported cloud providers, the document runs
+ *       against <code>AWS</code>.</p>
+ *             </dd>
  *             <dt>DocumentType</dt>
  *             <dd>
  *                <ul>
@@ -2885,7 +2907,8 @@ export interface ListDocumentsRequest {
    * <p>One or more <code>DocumentKeyValuesFilter</code> objects. Use a filter to return a more
    *    specific list of results. For keys, you can specify one or more key-value pair tags that have
    *    been applied to a document. Other valid keys include <code>Owner</code>, <code>Name</code>,
-   *     <code>PlatformTypes</code>, <code>DocumentType</code>, and <code>TargetType</code>. For example,
+   *     <code>PlatformTypes</code>, <code>DocumentType</code>, <code>TargetType</code>, and
+   *     <code>CloudProviders</code>. For example,
    *    to return documents you own use <code>Key=Owner,Values=Self</code>. To specify a custom key-value
    *    pair, use the format <code>Key=tag:tagName,Values=valueName</code>.</p>
    *          <note>
@@ -3013,6 +3036,13 @@ export interface DocumentIdentifier {
    * @public
    */
   Author?: string | undefined;
+
+  /**
+   * <p>This field specifies the cloud providers that the default version of the document can run
+   *    against.</p>
+   * @public
+   */
+  CloudProviders?: CloudProvider[] | undefined;
 }
 
 /**
@@ -3127,6 +3157,13 @@ export interface DocumentVersionInfo {
    * @public
    */
   ReviewStatus?: ReviewStatus | undefined;
+
+  /**
+   * <p>This field specifies the cloud providers that this version of the document can run
+   *    against.</p>
+   * @public
+   */
+  CloudProviders?: CloudProvider[] | undefined;
 }
 
 /**
@@ -6726,6 +6763,29 @@ export interface UpdateDocumentRequest {
    * @public
    */
   TargetType?: string | undefined;
+
+  /**
+   * <p>The cloud providers that the new document version can run against. Valid values include
+   *    the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS</code> - The document runs against Amazon Web Services resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Azure</code> - The document runs against Microsoft Azure resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GCP</code> - The document runs against Google Cloud resources.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a value, the new version uses the cloud providers of the latest
+   *    version.</p>
+   * @public
+   */
+  CloudProviders?: CloudProvider[] | undefined;
 }
 
 /**

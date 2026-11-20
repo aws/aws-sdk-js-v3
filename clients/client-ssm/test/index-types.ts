@@ -481,6 +481,7 @@ export type {
   AutomationType,
   CalendarState,
   CloudConnectorFilterKey,
+  CloudProvider,
   CommandFilterKey,
   CommandInvocationStatus,
   CommandPluginStatus,

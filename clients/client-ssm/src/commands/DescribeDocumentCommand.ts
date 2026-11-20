@@ -106,6 +106,9 @@ export interface DescribeDocumentCommandOutput extends DescribeDocumentResult, _
  * //     CategoryEnum: [ // CategoryEnumList
  * //       "STRING_VALUE",
  * //     ],
+ * //     CloudProviders: [ // CloudProviderList
+ * //       "AWS" || "Azure" || "GCP",
+ * //     ],
  * //   },
  * // };
  *

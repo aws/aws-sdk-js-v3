@@ -89,6 +89,7 @@ import {
   CloudConnectorFilter$,
   CloudConnectorFilterKey,
   CloudConnectorSummary$,
+  CloudProvider,
   CloudWatchOutputConfig$,
   Command$,
   CommandFilter$,
@@ -2060,6 +2061,7 @@ assert(typeof AutomationSubtype === "object");
 assert(typeof AutomationType === "object");
 assert(typeof CalendarState === "object");
 assert(typeof CloudConnectorFilterKey === "object");
+assert(typeof CloudProvider === "object");
 assert(typeof CommandFilterKey === "object");
 assert(typeof CommandInvocationStatus === "object");
 assert(typeof CommandPluginStatus === "object");

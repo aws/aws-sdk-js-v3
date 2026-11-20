@@ -138,6 +138,20 @@ export type AttachmentsSourceKey = (typeof AttachmentsSourceKey)[keyof typeof At
  * @public
  * @enum
  */
+export const CloudProvider = {
+  AWS: "AWS",
+  AZURE: "Azure",
+  GCP: "GCP",
+} as const;
+/**
+ * @public
+ */
+export type CloudProvider = (typeof CloudProvider)[keyof typeof CloudProvider];
+
+/**
+ * @public
+ * @enum
+ */
 export const DocumentFormat = {
   JSON: "JSON",
   TEXT: "TEXT",

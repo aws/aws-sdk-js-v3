@@ -52,6 +52,9 @@ export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsR
  * //       Status: "Creating" || "Active" || "Updating" || "Deleting" || "Failed",
  * //       StatusInformation: "STRING_VALUE",
  * //       ReviewStatus: "APPROVED" || "NOT_REVIEWED" || "PENDING" || "REJECTED",
+ * //       CloudProviders: [ // CloudProviderList
+ * //         "AWS" || "Azure" || "GCP",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
