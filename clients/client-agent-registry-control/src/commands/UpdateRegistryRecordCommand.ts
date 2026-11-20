@@ -42,7 +42,7 @@ export interface UpdateRegistryRecordCommandOutput extends UpdateRegistryRecordR
  *   description: { // UpdatedDescription
  *     optionalValue: "STRING_VALUE",
  *   },
- *   recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY",
+ *   recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY" || "WEB_BOT",
  *   descriptors: { // UpdatedDescriptors
  *     optionalValue: { // UpdatedDescriptorsFields
  *       mcpServer: { // UpdatedMcpServerDescriptor
@@ -224,6 +224,20 @@ export interface UpdateRegistryRecordCommandOutput extends UpdateRegistryRecordR
  *         optionalValue: { // UpdatedAgUiDescriptorFields
  *           source: {
  *             optionalValue: "<DescriptorSource>",
+ *           },
+ *         },
+ *       },
+ *       signatureAgentCard: { // UpdatedSignatureAgentCardDescriptor
+ *         optionalValue: { // UpdatedSignatureAgentCardDescriptorFields
+ *           data: "<UpdatedDescriptorData>",
+ *           dataSchemaVersion: "<UpdatedDataSchemaVersion>",
+ *           source: "<UpdatedDescriptorSource>",
+ *           additionalData: { // UpdatedSignatureAgentCardAdditionalData
+ *             optionalValue: { // UpdatedSignatureAgentCardAdditionalDataFields
+ *               category: { // UpdatedBotCategory
+ *                 optionalValue: "advertising" || "archiver" || "content_fetcher" || "email_client" || "http_library" || "link_checker" || "miscellaneous" || "monitoring" || "page_preview" || "scraping_framework" || "search_engine" || "security" || "seo" || "social_media" || "ai_training" || "ai_search" || "ai_assistant" || "ai_content_optimization",
+ *               },
+ *             },
  *           },
  *         },
  *       },
@@ -419,7 +433,7 @@ export interface UpdateRegistryRecordCommandOutput extends UpdateRegistryRecordR
  * //   name: "STRING_VALUE", // required
  * //   displayName: "STRING_VALUE",
  * //   description: "STRING_VALUE",
- * //   recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY", // required
+ * //   recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY" || "WEB_BOT", // required
  * //   descriptors: { // Descriptors
  * //     mcpServer: { // McpServerDescriptor
  * //       data: "STRING_VALUE",
@@ -600,6 +614,14 @@ export interface UpdateRegistryRecordCommandOutput extends UpdateRegistryRecordR
  * //     },
  * //     agui: { // AgUiDescriptor
  * //       source: "<DescriptorSource>",
+ * //     },
+ * //     signatureAgentCard: { // SignatureAgentCardDescriptor
+ * //       data: "STRING_VALUE",
+ * //       dataSchemaVersion: "STRING_VALUE",
+ * //       source: "<DescriptorSource>",
+ * //       additionalData: { // SignatureAgentCardAdditionalData
+ * //         category: "advertising" || "archiver" || "content_fetcher" || "email_client" || "http_library" || "link_checker" || "miscellaneous" || "monitoring" || "page_preview" || "scraping_framework" || "search_engine" || "security" || "seo" || "social_media" || "ai_training" || "ai_search" || "ai_assistant" || "ai_content_optimization",
+ * //       },
  * //     },
  * //   },
  * //   recordVersion: "STRING_VALUE",

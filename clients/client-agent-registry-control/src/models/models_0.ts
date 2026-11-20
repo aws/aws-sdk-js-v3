@@ -5,12 +5,16 @@ import type {
   AgentCoreGatewayProtocolType,
   AgentCoreRuntimeServerProtocol,
   AgentSkillsRepositoryProvider,
+  AssociationApprovalStatus,
+  AssociationStatus,
   AutoApprovalRule,
   AutoDetectionScope,
   AutoDetectionStatus,
+  BotCategory,
   ClaimMatchOperatorType,
   CustomMetadataSchemaComplianceStatus,
   EndpointIpAddressType,
+  IdentifierType,
   InboundTokenClaimValueType,
   ProvenanceRelation,
   RecordType,
@@ -22,6 +26,7 @@ import type {
   RegistryRecordStatus,
   RegistryStatus,
   SourceType,
+  VerificationStatus,
 } from "./enums";
 
 /**
@@ -624,6 +629,271 @@ export interface AgentCoreRuntimeSourceDetails {
 /**
  * @public
  */
+export interface AssociatePublisherRequest {
+  /**
+   * The Record being associated.
+   * @public
+   */
+  recordArn: string | undefined;
+
+  /**
+   * The Publisher to associate the Record with.
+   * @public
+   */
+  publisherArn: string | undefined;
+
+  /**
+   * Optional single DNS label placed in front of the publisher domain (e.g. "agents" ->
+   * agents.acme.com). Absent means the Record sits directly on the publisher domain.
+   * @public
+   */
+  subdomain?: string | undefined;
+
+  /**
+   * Optional categorization/hierarchy applied to the public identifier.
+   * @public
+   */
+  categories?: string[] | undefined;
+
+  /**
+   * Optional client-provided idempotency token. Retries carrying the same token return the
+   * originally-created association instead of creating a duplicate.
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * The new association between the registry record and the publisher, including the record's public
+ * identifier. A retry with the original clientToken returns the original association.
+ * @public
+ */
+export interface AssociatePublisherResponse {
+  /**
+   * <p>Registry Record Amazon Resource Name</p>
+   * @public
+   */
+  recordArn: string | undefined;
+
+  /**
+   * Server-generated public identifier. This is a URN, NOT an ARN: the public identifier is a
+   * public-facing, provider-neutral name (a Record may be hosted outside AWS), so it deliberately
+   * does not use the arn: scheme.
+   *
+   * Layout: `urn:air:[<subdomain>.]<domain>:<namespace>:<identity>[;<kind>]`
+   *   - authority `[<subdomain>.]<domain>` — the publisher FQDN, with the optional subdomain folded
+   *     in as a leading label (e.g. `agents.acme.com`; without a subdomain, just `acme.com`).
+   *   - `<namespace>` — the association's category values concatenated with `:` (zero-or-more
+   *     segments; absent when no categories were supplied).
+   *   - `<identity>` — the Record name: letters, digits, `.`, `_`, `/` and `-`, as Vestry allows.
+   *   - `<kind>` — the artifact kind from the Record's `recordType` (ai-catalog issue 59): `MCP` is `mcp`,
+   *     `AGENT` and `CUSTOM` are `agent`, `SKILL` is `skill`, `WEB_BOT` is `webbot`. Absent for `GATEWAY`
+   *     and when the association carried no `recordType`. The kind is part of the identifier, so
+   *     `urn:air:acme.com:x;mcp` and `urn:air:acme.com:x` are two identifiers. Belfry mints `;`; the
+   *     pattern also admits `#`, `+`, `$` and `@`, so identifiers minted with `#` before the delimiter
+   *     settled on `;` stay valid until they're re-minted.
+   * Examples: `urn:air:acme.com:finance-agent` (no subdomain/categories),
+   * `urn:air:agents.acme.com:financial:money:finance-agent`, `urn:air:acme.com:weather;mcp`.
+   * @public
+   */
+  publicIdentifier: string | undefined;
+
+  /**
+   * ARN for an Identifier resource. Global (region-less) resource, so the region field is
+   * empty; the resource segment carries the identifier value, which may contain dots.
+   *
+   * Named `PublisherIdentifierArn` (RegionalCP's local name) so RegionalCP consumes it
+   * without a rename — which keeps its c2j/SDK model (generated from the un-projected
+   * source, where the top-level c2j plugin runs to preserve @idempotencyToken) showing the
+   * correct shape name. GlobalCP renames this to `identifierArn` in its own coral-export
+   * projection.
+   * @public
+   */
+  publisher: string | undefined;
+
+  /**
+   * The Record<->Publisher association's status.
+   * @public
+   */
+  status: AssociationStatus | undefined;
+
+  /**
+   * The reason for the association's current status, such as why it is suspended. Present only
+   * when a reason is available.
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * <p>Describes a single input field that failed validation.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the field that failed validation.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of why the field failed validation.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociatePublisherRequest {
+  /**
+   * <p>Registry Record Amazon Resource Name</p>
+   * @public
+   */
+  recordArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPublisherAssociationsRequest {
+  /**
+   * ARN for an Identifier resource. Global (region-less) resource, so the region field is
+   * empty; the resource segment carries the identifier value, which may contain dots.
+   *
+   * Named `PublisherIdentifierArn` (RegionalCP's local name) so RegionalCP consumes it
+   * without a rename — which keeps its c2j/SDK model (generated from the un-projected
+   * source, where the top-level c2j plugin runs to preserve @idempotencyToken) showing the
+   * correct shape name. GlobalCP renames this to `identifierArn` in its own coral-export
+   * projection.
+   * @public
+   */
+  publisherArn?: string | undefined;
+
+  /**
+   * <p>Maximum number of items to be listed</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Opaque continuation token of previous paginated response</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * An association between a registry record and a publisher, including the record's public
+ * identifier.
+ * @public
+ */
+export interface PublisherAssociation {
+  /**
+   * <p>Registry Record Amazon Resource Name</p>
+   * @public
+   */
+  recordArn: string | undefined;
+
+  /**
+   * Server-generated public identifier. This is a URN, NOT an ARN: the public identifier is a
+   * public-facing, provider-neutral name (a Record may be hosted outside AWS), so it deliberately
+   * does not use the arn: scheme.
+   *
+   * Layout: `urn:air:[<subdomain>.]<domain>:<namespace>:<identity>[;<kind>]`
+   *   - authority `[<subdomain>.]<domain>` — the publisher FQDN, with the optional subdomain folded
+   *     in as a leading label (e.g. `agents.acme.com`; without a subdomain, just `acme.com`).
+   *   - `<namespace>` — the association's category values concatenated with `:` (zero-or-more
+   *     segments; absent when no categories were supplied).
+   *   - `<identity>` — the Record name: letters, digits, `.`, `_`, `/` and `-`, as Vestry allows.
+   *   - `<kind>` — the artifact kind from the Record's `recordType` (ai-catalog issue 59): `MCP` is `mcp`,
+   *     `AGENT` and `CUSTOM` are `agent`, `SKILL` is `skill`, `WEB_BOT` is `webbot`. Absent for `GATEWAY`
+   *     and when the association carried no `recordType`. The kind is part of the identifier, so
+   *     `urn:air:acme.com:x;mcp` and `urn:air:acme.com:x` are two identifiers. Belfry mints `;`; the
+   *     pattern also admits `#`, `+`, `$` and `@`, so identifiers minted with `#` before the delimiter
+   *     settled on `;` stay valid until they're re-minted.
+   * Examples: `urn:air:acme.com:finance-agent` (no subdomain/categories),
+   * `urn:air:agents.acme.com:financial:money:finance-agent`, `urn:air:acme.com:weather;mcp`.
+   * @public
+   */
+  publicIdentifier: string | undefined;
+
+  /**
+   * ARN for an Identifier resource. Global (region-less) resource, so the region field is
+   * empty; the resource segment carries the identifier value, which may contain dots.
+   *
+   * Named `PublisherIdentifierArn` (RegionalCP's local name) so RegionalCP consumes it
+   * without a rename — which keeps its c2j/SDK model (generated from the un-projected
+   * source, where the top-level c2j plugin runs to preserve @idempotencyToken) showing the
+   * correct shape name. GlobalCP renames this to `identifierArn` in its own coral-export
+   * projection.
+   * @public
+   */
+  publisher: string | undefined;
+
+  /**
+   * The Record<->Publisher association's status.
+   * @public
+   */
+  status: AssociationStatus | undefined;
+
+  /**
+   * The reason for the association's current status, such as why it is suspended. Present only
+   * when a reason is available.
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPublisherAssociationsResponse {
+  /**
+   * The publisher associations on this page of results.
+   * @public
+   */
+  items: PublisherAssociation[] | undefined;
+
+  /**
+   * <p>Opaque continuation token of previous paginated response</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePublisherAssociationApprovalStatusRequest {
+  /**
+   * <p>Registry Record Amazon Resource Name</p>
+   * @public
+   */
+  recordArn: string | undefined;
+
+  /**
+   * The curator's decision on a Record's Publisher association.
+   * @public
+   */
+  approvalStatus: AssociationApprovalStatus | undefined;
+
+  /**
+   * The curator's reason for the decision; may be empty.
+   * @public
+   */
+  approvalStatusReason: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePublisherAssociationApprovalStatusResponse {}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to list tags for. Supported resources include registries and registry records.</p>
@@ -644,21 +914,483 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * <p>Describes a single input field that failed validation.</p>
+ * The identifier value. Discriminated union — exactly one member is set.
+ * GA supports `domain` only; other identifier types are added as new members
+ * (backward-compatible) in a later task.
  * @public
  */
-export interface ValidationExceptionField {
+export type Identifier =
+  | Identifier.DomainMember
+  | Identifier.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Identifier {
   /**
-   * <p>The name of the field that failed validation.</p>
+   * FQDN per RFC-1035/1123, case-insensitive, at least two labels.
    * @public
    */
-  name: string | undefined;
+  export interface DomainMember {
+    domain: string;
+    $unknown?: never;
+  }
 
   /**
-   * <p>A description of why the field failed validation.</p>
    * @public
    */
-  message: string | undefined;
+  export interface $UnknownMember {
+    domain?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    domain: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreatePublisherRequest {
+  /**
+   * The identifier value. Discriminated union — exactly one member is set.
+   * GA supports `domain` only; other identifier types are added as new members
+   * (backward-compatible) in a later task.
+   * @public
+   */
+  value: Identifier | undefined;
+
+  /**
+   * The tags to attach to the publisher. Each tag is a key-value pair. You can attach up to
+   * 50 tags.
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * Optional client-provided idempotency token. Retries of the same Create request carrying the
+   * same token return the originally-created resource instead of creating a duplicate. Forwarded
+   * to BelfryGlobalCP. Optional and backward-compatible.
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * Server-generated DNS-01 challenge the caller must publish to prove ownership.
+ * @public
+ */
+export interface DomainChallenge {
+  /**
+   * The name of the DNS TXT record to create, such as `_acme-challenge.example.com`.
+   * @public
+   */
+  recordName: string | undefined;
+
+  /**
+   * The value to publish in the DNS TXT record. A new value is issued each time verification
+   * restarts, and earlier values no longer verify the domain.
+   * @public
+   */
+  recordValue: string | undefined;
+}
+
+/**
+ * The new publisher, in ACTION_REQUIRED, with the domainChallenge to publish as a DNS TXT record.
+ * A retry with the original clientToken returns the existing publisher.
+ * @public
+ */
+export interface CreatePublisherResponse {
+  /**
+   * The identifier value. Discriminated union — exactly one member is set.
+   * GA supports `domain` only; other identifier types are added as new members
+   * (backward-compatible) in a later task.
+   * @public
+   */
+  value: Identifier | undefined;
+
+  /**
+   * The identifier type. `DOMAIN` is the only supported value.
+   * @public
+   */
+  identifierType?: IdentifierType | undefined;
+
+  /**
+   * The domain verification status of the publisher:
+   *
+   * - `ACTION_REQUIRED`: The registry is waiting to find the DNS TXT record described by
+   *   `domainChallenge`.
+   * - `ACTIVE`: The domain is verified. You can associate registry records with the publisher.
+   * - `SUSPENDED`: The domain was verified, but a later check found the TXT record missing or
+   *   changed. The publisher returns to `ACTIVE` when the record is found again, and becomes
+   *   `FAILED` if the record stays missing.
+   * - `FAILED`: Verification didn't succeed, for example because the TXT record wasn't found
+   *   in time or another account verified the domain first. Call `ValidatePublisher` to try
+   *   again.
+   * - `DELETING`: A delete is in progress.
+   * @public
+   */
+  status: VerificationStatus | undefined;
+
+  /**
+   * The reason for the publisher's current status, such as why verification failed. Present
+   * only when a reason is available.
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * Server-generated DNS-01 challenge the caller must publish to prove ownership.
+   * @public
+   */
+  domainChallenge?: DomainChallenge | undefined;
+
+  /**
+   * The tags attached to the publisher.
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * The date and time that the publisher was created.
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * The date and time that the publisher was last updated.
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * ARN for an Identifier resource. Global (region-less) resource, so the region field is
+   * empty; the resource segment carries the identifier value, which may contain dots.
+   *
+   * Named `PublisherIdentifierArn` (RegionalCP's local name) so RegionalCP consumes it
+   * without a rename — which keeps its c2j/SDK model (generated from the un-projected
+   * source, where the top-level c2j plugin runs to preserve @idempotencyToken) showing the
+   * correct shape name. GlobalCP renames this to `identifierArn` in its own coral-export
+   * projection.
+   * @public
+   */
+  publisherArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePublisherRequest {
+  /**
+   * ARN for an Identifier resource. Global (region-less) resource, so the region field is
+   * empty; the resource segment carries the identifier value, which may contain dots.
+   *
+   * Named `PublisherIdentifierArn` (RegionalCP's local name) so RegionalCP consumes it
+   * without a rename — which keeps its c2j/SDK model (generated from the un-projected
+   * source, where the top-level c2j plugin runs to preserve @idempotencyToken) showing the
+   * correct shape name. GlobalCP renames this to `identifierArn` in its own coral-export
+   * projection.
+   * @public
+   */
+  publisherArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPublisherRequest {
+  /**
+   * ARN for an Identifier resource. Global (region-less) resource, so the region field is
+   * empty; the resource segment carries the identifier value, which may contain dots.
+   *
+   * Named `PublisherIdentifierArn` (RegionalCP's local name) so RegionalCP consumes it
+   * without a rename — which keeps its c2j/SDK model (generated from the un-projected
+   * source, where the top-level c2j plugin runs to preserve @idempotencyToken) showing the
+   * correct shape name. GlobalCP renames this to `identifierArn` in its own coral-export
+   * projection.
+   * @public
+   */
+  publisherArn: string | undefined;
+}
+
+/**
+ * A publisher, including its verification status and the DNS challenge for its domain.
+ * @public
+ */
+export interface Publisher {
+  /**
+   * The identifier value. Discriminated union — exactly one member is set.
+   * GA supports `domain` only; other identifier types are added as new members
+   * (backward-compatible) in a later task.
+   * @public
+   */
+  value: Identifier | undefined;
+
+  /**
+   * The identifier type. `DOMAIN` is the only supported value.
+   * @public
+   */
+  identifierType?: IdentifierType | undefined;
+
+  /**
+   * The domain verification status of the publisher:
+   *
+   * - `ACTION_REQUIRED`: The registry is waiting to find the DNS TXT record described by
+   *   `domainChallenge`.
+   * - `ACTIVE`: The domain is verified. You can associate registry records with the publisher.
+   * - `SUSPENDED`: The domain was verified, but a later check found the TXT record missing or
+   *   changed. The publisher returns to `ACTIVE` when the record is found again, and becomes
+   *   `FAILED` if the record stays missing.
+   * - `FAILED`: Verification didn't succeed, for example because the TXT record wasn't found
+   *   in time or another account verified the domain first. Call `ValidatePublisher` to try
+   *   again.
+   * - `DELETING`: A delete is in progress.
+   * @public
+   */
+  status: VerificationStatus | undefined;
+
+  /**
+   * The reason for the publisher's current status, such as why verification failed. Present
+   * only when a reason is available.
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * Server-generated DNS-01 challenge the caller must publish to prove ownership.
+   * @public
+   */
+  domainChallenge?: DomainChallenge | undefined;
+
+  /**
+   * The tags attached to the publisher.
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * The date and time that the publisher was created.
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * The date and time that the publisher was last updated.
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * ARN for an Identifier resource. Global (region-less) resource, so the region field is
+   * empty; the resource segment carries the identifier value, which may contain dots.
+   *
+   * Named `PublisherIdentifierArn` (RegionalCP's local name) so RegionalCP consumes it
+   * without a rename — which keeps its c2j/SDK model (generated from the un-projected
+   * source, where the top-level c2j plugin runs to preserve @idempotencyToken) showing the
+   * correct shape name. GlobalCP renames this to `identifierArn` in its own coral-export
+   * projection.
+   * @public
+   */
+  publisherArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPublishersRequest {
+  /**
+   * <p>Maximum number of items to be listed</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Opaque continuation token of previous paginated response</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * Lightweight projection for list results.
+ * @public
+ */
+export interface PublisherSummary {
+  /**
+   * The identifier value. Discriminated union — exactly one member is set.
+   * GA supports `domain` only; other identifier types are added as new members
+   * (backward-compatible) in a later task.
+   * @public
+   */
+  value: Identifier | undefined;
+
+  /**
+   * The identifier type. `DOMAIN` is the only supported value.
+   * @public
+   */
+  identifierType?: IdentifierType | undefined;
+
+  /**
+   * The domain verification status of the publisher: `ACTION_REQUIRED`, `ACTIVE`, `SUSPENDED`,
+   * `FAILED`, or `DELETING`. Only an `ACTIVE` publisher accepts new registry record associations.
+   * @public
+   */
+  status: VerificationStatus | undefined;
+
+  /**
+   * The date and time that the publisher was created.
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * ARN for an Identifier resource. Global (region-less) resource, so the region field is
+   * empty; the resource segment carries the identifier value, which may contain dots.
+   *
+   * Named `PublisherIdentifierArn` (RegionalCP's local name) so RegionalCP consumes it
+   * without a rename — which keeps its c2j/SDK model (generated from the un-projected
+   * source, where the top-level c2j plugin runs to preserve @idempotencyToken) showing the
+   * correct shape name. GlobalCP renames this to `identifierArn` in its own coral-export
+   * projection.
+   * @public
+   */
+  publisherArn: string | undefined;
+
+  /**
+   * The number of registry records associated with the publisher, in any association status.
+   * Omitted when the count isn't available.
+   * @public
+   */
+  associationCount?: number | undefined;
+
+  /**
+   * The number of the publisher's associations that are in PENDING_APPROVAL. Omitted when the
+   * count isn't available.
+   * @public
+   */
+  pendingAssociationApprovalCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPublishersResponse {
+  /**
+   * Summaries of the publishers on this page of results.
+   * @public
+   */
+  items: PublisherSummary[] | undefined;
+
+  /**
+   * <p>Opaque continuation token of previous paginated response</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ValidatePublisherRequest {
+  /**
+   * ARN for an Identifier resource. Global (region-less) resource, so the region field is
+   * empty; the resource segment carries the identifier value, which may contain dots.
+   *
+   * Named `PublisherIdentifierArn` (RegionalCP's local name) so RegionalCP consumes it
+   * without a rename — which keeps its c2j/SDK model (generated from the un-projected
+   * source, where the top-level c2j plugin runs to preserve @idempotencyToken) showing the
+   * correct shape name. GlobalCP renames this to `identifierArn` in its own coral-export
+   * projection.
+   * @public
+   */
+  publisherArn: string | undefined;
+}
+
+/**
+ * The publisher after verification restarts, in ACTION_REQUIRED with a new domainChallenge.
+ * @public
+ */
+export interface ValidatePublisherResponse {
+  /**
+   * The identifier value. Discriminated union — exactly one member is set.
+   * GA supports `domain` only; other identifier types are added as new members
+   * (backward-compatible) in a later task.
+   * @public
+   */
+  value: Identifier | undefined;
+
+  /**
+   * The identifier type. `DOMAIN` is the only supported value.
+   * @public
+   */
+  identifierType?: IdentifierType | undefined;
+
+  /**
+   * The domain verification status of the publisher:
+   *
+   * - `ACTION_REQUIRED`: The registry is waiting to find the DNS TXT record described by
+   *   `domainChallenge`.
+   * - `ACTIVE`: The domain is verified. You can associate registry records with the publisher.
+   * - `SUSPENDED`: The domain was verified, but a later check found the TXT record missing or
+   *   changed. The publisher returns to `ACTIVE` when the record is found again, and becomes
+   *   `FAILED` if the record stays missing.
+   * - `FAILED`: Verification didn't succeed, for example because the TXT record wasn't found
+   *   in time or another account verified the domain first. Call `ValidatePublisher` to try
+   *   again.
+   * - `DELETING`: A delete is in progress.
+   * @public
+   */
+  status: VerificationStatus | undefined;
+
+  /**
+   * The reason for the publisher's current status, such as why verification failed. Present
+   * only when a reason is available.
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * Server-generated DNS-01 challenge the caller must publish to prove ownership.
+   * @public
+   */
+  domainChallenge?: DomainChallenge | undefined;
+
+  /**
+   * The tags attached to the publisher.
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * The date and time that the publisher was created.
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * The date and time that the publisher was last updated.
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * ARN for an Identifier resource. Global (region-less) resource, so the region field is
+   * empty; the resource segment carries the identifier value, which may contain dots.
+   *
+   * Named `PublisherIdentifierArn` (RegionalCP's local name) so RegionalCP consumes it
+   * without a rename — which keeps its c2j/SDK model (generated from the un-projected
+   * source, where the top-level c2j plugin runs to preserve @idempotencyToken) showing the
+   * correct shape name. GlobalCP renames this to `identifierArn` in its own coral-export
+   * projection.
+   * @public
+   */
+  publisherArn: string | undefined;
 }
 
 /**
@@ -917,6 +1649,48 @@ export interface McpServerDescriptor {
 }
 
 /**
+ * <p>The additional data for a signature agent card descriptor, such as the bot category of the web bot.</p>
+ * @public
+ */
+export interface SignatureAgentCardAdditionalData {
+  /**
+   * <p>The bot category that describes the purpose of the web bot identified by the signature agent card descriptor.</p>
+   * @public
+   */
+  category?: BotCategory | undefined;
+}
+
+/**
+ * <p>Descriptor that defines the content of a signature agent card, which identifies a web bot and references the JSON Web Key Set used to verify its HTTP message signatures.</p>
+ * @public
+ */
+export interface SignatureAgentCardDescriptor {
+  /**
+   * <p>The signature agent card content, serialized as descriptor payload data.</p>
+   * @public
+   */
+  data?: string | undefined;
+
+  /**
+   * <p>The schema version of the descriptor payload.</p>
+   * @public
+   */
+  dataSchemaVersion?: string | undefined;
+
+  /**
+   * <p>The optional source configuration used to synchronize the signature agent card descriptor content.</p>
+   * @public
+   */
+  source?: DescriptorSource | undefined;
+
+  /**
+   * <p>Additional data associated with the signature agent card descriptor, such as the bot category.</p>
+   * @public
+   */
+  additionalData?: SignatureAgentCardAdditionalData | undefined;
+}
+
+/**
  * <p>The typed set of descriptors for a registry record. Exactly one descriptor field is populated based on the record type.</p>
  * @public
  */
@@ -956,6 +1730,12 @@ export interface Descriptors {
    * @public
    */
   agui?: AgUiDescriptor | undefined;
+
+  /**
+   * <p>The signature agent card descriptor, populated when the record type is WEB_BOT.</p>
+   * @public
+   */
+  signatureAgentCard?: SignatureAgentCardDescriptor | undefined;
 }
 
 /**
@@ -2167,6 +2947,84 @@ export interface UpdatedMcpServerDescriptor {
 }
 
 /**
+ * <p>Leaf patch wrapper for a bot category. Omit to leave unchanged; supply an empty object to unset; supply optionalValue to set.</p>
+ * @public
+ */
+export interface UpdatedBotCategory {
+  /**
+   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * @public
+   */
+  optionalValue?: BotCategory | undefined;
+}
+
+/**
+ * <p>The set of signature agent card additional-data fields that can be individually updated.</p>
+ * @public
+ */
+export interface UpdatedSignatureAgentCardAdditionalDataFields {
+  /**
+   * <p>The patch for the bot category field.</p>
+   * @public
+   */
+  category?: UpdatedBotCategory | undefined;
+}
+
+/**
+ * <p>The signature agent card additional-data patch wrapper. Omit to leave the additional data unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.</p>
+ * @public
+ */
+export interface UpdatedSignatureAgentCardAdditionalData {
+  /**
+   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * @public
+   */
+  optionalValue?: UpdatedSignatureAgentCardAdditionalDataFields | undefined;
+}
+
+/**
+ * <p>The set of signature agent card descriptor fields that can be individually updated.</p>
+ * @public
+ */
+export interface UpdatedSignatureAgentCardDescriptorFields {
+  /**
+   * <p>The patch for the descriptor's data field.</p>
+   * @public
+   */
+  data?: UpdatedDescriptorData | undefined;
+
+  /**
+   * <p>The patch for the descriptor's data schema version field.</p>
+   * @public
+   */
+  dataSchemaVersion?: UpdatedDataSchemaVersion | undefined;
+
+  /**
+   * <p>The patch for the descriptor's source field.</p>
+   * @public
+   */
+  source?: UpdatedDescriptorSource | undefined;
+
+  /**
+   * <p>The patch for the descriptor's additional data field.</p>
+   * @public
+   */
+  additionalData?: UpdatedSignatureAgentCardAdditionalData | undefined;
+}
+
+/**
+ * <p>The signature agent card descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.</p>
+ * @public
+ */
+export interface UpdatedSignatureAgentCardDescriptor {
+  /**
+   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * @public
+   */
+  optionalValue?: UpdatedSignatureAgentCardDescriptorFields | undefined;
+}
+
+/**
  * <p>The patchable descriptor fields applied during an UpdateRegistryRecord call. Each field is independently patchable.</p>
  * @public
  */
@@ -2206,6 +3064,12 @@ export interface UpdatedDescriptorsFields {
    * @public
    */
   agui?: UpdatedAgUiDescriptor | undefined;
+
+  /**
+   * <p>The patch for the signature agent card descriptor.</p>
+   * @public
+   */
+  signatureAgentCard?: UpdatedSignatureAgentCardDescriptor | undefined;
 }
 
 /**

@@ -129,7 +129,7 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * //     defaultSchema: "STRING_VALUE",
  * //     recordTypeSchemaOverrides: [ // RecordTypeSchemaOverrideList
  * //       { // RecordTypeSchemaOverride
- * //         recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY", // required
+ * //         recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY" || "WEB_BOT", // required
  * //         schema: "STRING_VALUE", // required
  * //       },
  * //     ],

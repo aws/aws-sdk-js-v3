@@ -100,6 +100,21 @@ export type AgentCoreRuntimeServerProtocol =
  * @public
  * @enum
  */
+export const AssociationStatus = {
+  APPROVED: "APPROVED",
+  PENDING_APPROVAL: "PENDING_APPROVAL",
+  REJECTED: "REJECTED",
+  SUSPENDED: "SUSPENDED",
+} as const;
+/**
+ * @public
+ */
+export type AssociationStatus = (typeof AssociationStatus)[keyof typeof AssociationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ValidationExceptionReason = {
   CANNOT_PARSE: "CannotParse",
   FIELD_VALIDATION_FAILED: "FieldValidationFailed",
@@ -117,6 +132,50 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
  * @public
  * @enum
  */
+export const AssociationApprovalStatus = {
+  APPROVED: "APPROVED",
+  REJECTED: "REJECTED",
+} as const;
+/**
+ * @public
+ */
+export type AssociationApprovalStatus = (typeof AssociationApprovalStatus)[keyof typeof AssociationApprovalStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const IdentifierType = {
+  DOMAIN: "DOMAIN",
+} as const;
+/**
+ * @public
+ */
+export type IdentifierType = (typeof IdentifierType)[keyof typeof IdentifierType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VerificationStatus = {
+  ACTION_REQUIRED: "ACTION_REQUIRED",
+  ACTIVE: "ACTIVE",
+  /**
+   * A delete is in progress.
+   */
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  SUSPENDED: "SUSPENDED",
+} as const;
+/**
+ * @public
+ */
+export type VerificationStatus = (typeof VerificationStatus)[keyof typeof VerificationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgentSkillsRepositoryProvider = {
   GITHUB: "GITHUB",
 } as const;
@@ -125,6 +184,35 @@ export const AgentSkillsRepositoryProvider = {
  */
 export type AgentSkillsRepositoryProvider =
   (typeof AgentSkillsRepositoryProvider)[keyof typeof AgentSkillsRepositoryProvider];
+
+/**
+ * @public
+ * @enum
+ */
+export const BotCategory = {
+  ADVERTISING: "advertising",
+  AI_ASSISTANT: "ai_assistant",
+  AI_CONTENT_OPTIMIZATION: "ai_content_optimization",
+  AI_SEARCH: "ai_search",
+  AI_TRAINING: "ai_training",
+  ARCHIVER: "archiver",
+  CONTENT_FETCHER: "content_fetcher",
+  EMAIL_CLIENT: "email_client",
+  HTTP_LIBRARY: "http_library",
+  LINK_CHECKER: "link_checker",
+  MISCELLANEOUS: "miscellaneous",
+  MONITORING: "monitoring",
+  PAGE_PREVIEW: "page_preview",
+  SCRAPING_FRAMEWORK: "scraping_framework",
+  SEARCH_ENGINE: "search_engine",
+  SECURITY: "security",
+  SEO: "seo",
+  SOCIAL_MEDIA: "social_media",
+} as const;
+/**
+ * @public
+ */
+export type BotCategory = (typeof BotCategory)[keyof typeof BotCategory];
 
 /**
  * @public
@@ -161,6 +249,7 @@ export const RecordType = {
   GATEWAY: "GATEWAY",
   MCP: "MCP",
   SKILL: "SKILL",
+  WEB_BOT: "WEB_BOT",
 } as const;
 /**
  * @public

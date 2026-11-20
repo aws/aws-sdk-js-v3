@@ -10,6 +10,9 @@ const _AD = "AutoDetection";
 const _ADC = "AutoDetectionConfiguration";
 const _ADE = "AccessDeniedException";
 const _ADu = "AuthorizationData";
+const _AP = "AssociatePublisher";
+const _APR = "AssociatePublisherRequest";
+const _APRs = "AssociatePublisherResponse";
 const _ASAD = "AgentSkillsAdditionalData";
 const _ASDD = "AgentSkillsDefinitionDescriptor";
 const _ASMD = "AgentSkillsMdDescriptor";
@@ -25,7 +28,10 @@ const _CMD = "CustomMetadataDocument";
 const _CMSC = "CustomMetadataSchemaConfiguration";
 const _CMSD = "CustomMetadataSchemaDefinition";
 const _CMVT = "ClaimMatchValueType";
+const _CP = "CreatePublisher";
 const _CPM = "CustomParameterMap";
+const _CPR = "CreatePublisherRequest";
+const _CPRr = "CreatePublisherResponse";
 const _CR = "CreateRegistry";
 const _CRR = "CreateRegistryRequest";
 const _CRRR = "CreateRegistryRecordRequest";
@@ -34,7 +40,13 @@ const _CRRr = "CreateRegistryResponse";
 const _CRRre = "CreateRegistryRecord";
 const _D = "Description";
 const _DC = "DiscoveryConfiguration";
+const _DCo = "DomainChallenge";
 const _DD = "DescriptorData";
+const _DE = "DependencyException";
+const _DP = "DeletePublisher";
+const _DPR = "DeletePublisherRequest";
+const _DPRi = "DisassociatePublisherRequest";
+const _DPi = "DisassociatePublisher";
 const _DR = "DeleteRegistry";
 const _DRR = "DeleteRegistryRequest";
 const _DRRR = "DeleteRegistryRecordRequest";
@@ -46,6 +58,8 @@ const _DSFU = "DescriptorSourceFromUrl";
 const _De = "Descriptors";
 const _EC = "EncryptionConfiguration";
 const _GHSS = "GitHubSynchronizedSource";
+const _GP = "GetPublisher";
+const _GPR = "GetPublisherRequest";
 const _GR = "GetRegistry";
 const _GRR = "GetRegistryRequest";
 const _GRRR = "GetRegistryRecordRequest";
@@ -53,7 +67,14 @@ const _GRRRe = "GetRegistryRecordResponse";
 const _GRRe = "GetRegistryResponse";
 const _GRRet = "GetRegistryRecord";
 const _HD = "HttpDescriptor";
+const _I = "Identifier";
 const _ISE = "InternalServerException";
+const _LP = "ListPublishers";
+const _LPA = "ListPublisherAssociations";
+const _LPAR = "ListPublisherAssociationsRequest";
+const _LPARi = "ListPublisherAssociationsResponse";
+const _LPR = "ListPublishersRequest";
+const _LPRi = "ListPublishersResponse";
 const _LR = "ListRegistries";
 const _LRR = "ListRegistriesRequest";
 const _LRRR = "ListRegistryRecordsRequest";
@@ -71,6 +92,8 @@ const _OAAD = "OAuth2AuthorizationData";
 const _OAAU = "OAuthAuthorizationUrl";
 const _OAUI = "OAuthUserId";
 const _P = "Provenance";
+const _PA = "PublisherAssociation";
+const _PAL = "PublisherAssociationList";
 const _PDU = "PresignedDownloadUrl";
 const _PE = "PrivateEndpoint";
 const _PEO = "PrivateEndpointOverride";
@@ -78,6 +101,9 @@ const _PEOr = "PrivateEndpointOverrides";
 const _PL = "ProvenanceList";
 const _PS = "ProvenanceSummary";
 const _PSL = "ProvenanceSummaryList";
+const _PSLu = "PublisherSummaryList";
+const _PSu = "PublisherSummary";
+const _Pu = "Publisher";
 const _RF = "RegistryFilter";
 const _RFL = "RegistryFilterList";
 const _RNFE = "ResourceNotFoundException";
@@ -97,6 +123,8 @@ const _RS = "RegistrySummary";
 const _RSL = "RegistrySummaryList";
 const _RTSO = "RecordTypeSchemaOverride";
 const _RTSOL = "RecordTypeSchemaOverrideList";
+const _SACAD = "SignatureAgentCardAdditionalData";
+const _SACD = "SignatureAgentCardDescriptor";
 const _SD = "SourceDetails";
 const _SMLR = "SelfManagedLatticeResource";
 const _SQEE = "ServiceQuotaExceededException";
@@ -126,6 +154,7 @@ const _UASRP = "UpdatedAgentSkillsRepositoryProvider";
 const _UASSC = "UpdatedAgentSkillsSourceConfiguration";
 const _UAUD = "UpdatedAgUiDescriptor";
 const _UAUDF = "UpdatedAgUiDescriptorFields";
+const _UBC = "UpdatedBotCategory";
 const _UCD = "UpdatedCustomDescriptor";
 const _UCDF = "UpdatedCustomDescriptorFields";
 const _UCMM = "UpdatedCustomMetadataMap";
@@ -146,6 +175,9 @@ const _UMSD = "UpdatedMcpServerDescriptor";
 const _UMSDF = "UpdatedMcpServerDescriptorFields";
 const _UMTD = "UpdatedMcpToolsDescriptor";
 const _UMTDF = "UpdatedMcpToolsDescriptorFields";
+const _UPAAS = "UpdatePublisherAssociationApprovalStatus";
+const _UPAASR = "UpdatePublisherAssociationApprovalStatusRequest";
+const _UPAASRp = "UpdatePublisherAssociationApprovalStatusResponse";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRA = "UpdatedRegistryRecordArtifact";
@@ -159,9 +191,16 @@ const _URRp = "UpdateRegistryRequest";
 const _URRpd = "UpdateRegistryResponse";
 const _URRpda = "UpdateRegistryRecord";
 const _URp = "UpdateRegistry";
+const _USACAD = "UpdatedSignatureAgentCardAdditionalData";
+const _USACADF = "UpdatedSignatureAgentCardAdditionalDataFields";
+const _USACD = "UpdatedSignatureAgentCardDescriptor";
+const _USACDF = "UpdatedSignatureAgentCardDescriptorFields";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
+const _VP = "ValidatePublisher";
+const _VPR = "ValidatePublisherRequest";
+const _VPRa = "ValidatePublisherResponse";
 const _WID = "WorkloadIdentityDetails";
 const _a = "artifact";
 const _aA = "allowedAudience";
@@ -172,6 +211,7 @@ const _aC = "authorizerConfiguration";
 const _aCMV = "authorizingClaimMatchValue";
 const _aCl = "allowedClients";
 const _aCp = "approvalConfiguration";
+const _aCs = "associationCount";
 const _aD = "additionalData";
 const _aDC = "autoDetectionConfiguration";
 const _aDu = "authorizationData";
@@ -180,6 +220,8 @@ const _aG = "agentcoreGateway";
 const _aR = "agentcoreRuntime";
 const _aS = "allowedScopes";
 const _aSD = "agentSkillsDefinition";
+const _aSR = "approvalStatusReason";
+const _aSp = "approvalStatus";
 const _aT = "authorizerType";
 const _aU = "authorizationUrl";
 const _ag = "agui";
@@ -201,11 +243,14 @@ const _cPC = "credentialProviderConfigurations";
 const _cPT = "credentialProviderType";
 const _cPu = "customParameters";
 const _cT = "clientToken";
+const _ca = "categories";
+const _cat = "category";
 const _co = "configuration";
 const _con = "content";
 const _cu = "custom";
 const _d = "data";
-const _dC = "discoveryConfiguration";
+const _dC = "domainChallenge";
+const _dCi = "discoveryConfiguration";
 const _dN = "displayName";
 const _dS = "defaultSchema";
 const _dSV = "dataSchemaVersion";
@@ -229,7 +274,9 @@ const _gT = "grantType";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
+const _i = "items";
 const _iCP = "iamCredentialProvider";
+const _iT = "identifierType";
 const _iTCN = "inboundTokenClaimName";
 const _iTCVT = "inboundTokenClaimValueType";
 const _kKA = "kmsKeyArn";
@@ -244,13 +291,17 @@ const _nT = "nextToken";
 const _o = "oauth2";
 const _oCP = "oauthCredentialProvider";
 const _oV = "optionalValue";
-const _p = "provenance";
-const _pA = "providerArn";
+const _p = "publisher";
+const _pA = "publisherArn";
+const _pAAC = "pendingAssociationApprovalCount";
+const _pAr = "providerArn";
 const _pC = "protocolConfiguration";
 const _pE = "privateEndpoint";
 const _pEO = "privateEndpointOverrides";
+const _pI = "publicIdentifier";
 const _pSL = "provenanceSummaryList";
 const _pT = "protocolType";
+const _pr = "provenance";
 const _r = "reason";
 const _rA = "recordArn";
 const _rAe = "registryArn";
@@ -260,17 +311,20 @@ const _rCI = "resourceConfigurationIdentifier";
 const _rD = "routingDomain";
 const _rI = "registryId";
 const _rIe = "recordId";
+const _rN = "recordName";
 const _rP = "repositoryProvider";
 const _rR = "registryRecords";
 const _rT = "recordType";
 const _rTSO = "recordTypeSchemaOverrides";
 const _rU = "returnUrl";
 const _rV = "recordVersion";
+const _rVe = "recordValue";
 const _re = "registries";
 const _reg = "region";
 const _rel = "relation";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.agentregistrycontrol";
 const _sA = "synchronizedAt";
+const _sAC = "signatureAgentCard";
 const _sC = "sourceConfiguration";
 const _sD = "sourceDetails";
 const _sGI = "securityGroupIds";
@@ -292,6 +346,7 @@ const _ser = "service";
 const _sh = "sha256";
 const _so = "source";
 const _st = "status";
+const _su = "subdomain";
 const _t = "tags";
 const _tK = "tagKeys";
 const _tS = "triggerSynchronization";
@@ -299,9 +354,10 @@ const _to = "tools";
 const _u = "url";
 const _uA = "updatedAt";
 const _uI = "userId";
-const _v = "values";
+const _v = "value";
 const _vI = "vpcIdentifier";
 const _vIe = "versionId";
+const _va = "values";
 const _wIA = "workloadIdentityArn";
 const _wID = "workloadIdentityDetails";
 const n0 = "com.amazonaws.agentregistrycontrol";
@@ -322,6 +378,7 @@ import { AgentRegistryControlServiceException } from "../models/AgentRegistryCon
 import {
   AccessDeniedException,
   ConflictException,
+  DependencyException,
   InternalServerException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
@@ -346,6 +403,12 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   [0]
 ];
 n0_registry.registerError(ConflictException$, ConflictException);
+export var DependencyException$: StaticErrorSchema = [-3, n0, _DE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DependencyException$, DependencyException);
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
@@ -444,6 +507,16 @@ export var ApprovalConfiguration$: StaticStructureSchema = [3, n0, _ACp,
   [_aAR],
   [64 | 0]
 ];
+export var AssociatePublisherRequest$: StaticStructureSchema = [3, n0, _APR,
+  0,
+  [_rA, _pA, _su, _ca, _cT],
+  [0, 0, 0, 64 | 0, [0, 4]], 2
+];
+export var AssociatePublisherResponse$: StaticStructureSchema = [3, n0, _APRs,
+  0,
+  [_rA, _pI, _p, _st, _sR],
+  [0, 0, 0, 0, 0], 4
+];
 export var AuthorizingClaimMatchValueType$: StaticStructureSchema = [3, n0, _ACMVT,
   0,
   [_cMV, _cMO],
@@ -459,9 +532,19 @@ export var AutoDetectionConfiguration$: StaticStructureSchema = [3, n0, _ADC,
   [_sc, _en],
   [0, 2], 2
 ];
+export var CreatePublisherRequest$: StaticStructureSchema = [3, n0, _CPR,
+  0,
+  [_v, _t, _cT],
+  [() => Identifier$, 128 | 0, [0, 4]], 1
+];
+export var CreatePublisherResponse$: StaticStructureSchema = [3, n0, _CPRr,
+  0,
+  [_v, _st, _cA, _uA, _pA, _iT, _sR, _dC, _t],
+  [() => Identifier$, 0, 4, 4, 0, 0, 0, () => DomainChallenge$, 128 | 0], 5
+];
 export var CreateRegistryRecordRequest$: StaticStructureSchema = [3, n0, _CRRR,
   0,
-  [_rI, _n, _rT, _de, _dN, _des, _a, _rV, _cT, _p, _cM, _t],
+  [_rI, _n, _rT, _de, _dN, _des, _a, _rV, _cT, _pr, _cM, _t],
   [[0, 1], 0, 0, [() => Descriptors$, 0], 0, [() => Description, 0], [() => RegistryRecordArtifactUpload$, 0], 0, [0, 4], () => ProvenanceList, [() => CustomMetadataDocument, 0], 128 | 0], 4
 ];
 export var CreateRegistryRecordResponse$: StaticStructureSchema = [3, n0, _CRRRr,
@@ -471,7 +554,7 @@ export var CreateRegistryRecordResponse$: StaticStructureSchema = [3, n0, _CRRRr
 ];
 export var CreateRegistryRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_n, _des, _eC, _dC, _cT, _t, _aCp, _cMSC, _aDC],
+  [_n, _des, _eC, _dCi, _cT, _t, _aCp, _cMSC, _aDC],
   [0, [() => Description, 0], () => EncryptionConfiguration$, () => DiscoveryConfiguration$, [0, 4], 128 | 0, () => ApprovalConfiguration$, [() => CustomMetadataSchemaConfiguration$, 0], () => AutoDetectionConfiguration$], 1
 ];
 export var CreateRegistryResponse$: StaticStructureSchema = [3, n0, _CRRr,
@@ -499,6 +582,11 @@ export var CustomMetadataSchemaConfiguration$: StaticStructureSchema = [3, n0, _
   [_dS, _rTSO],
   [[() => CustomMetadataSchemaDefinition, 0], [() => RecordTypeSchemaOverrideList, 0]]
 ];
+export var DeletePublisherRequest$: StaticStructureSchema = [3, n0, _DPR,
+  0,
+  [_pA],
+  [[0, 1]], 1
+];
 export var DeleteRegistryRecordRequest$: StaticStructureSchema = [3, n0, _DRRR,
   0,
   [_rI, _rIe],
@@ -521,8 +609,8 @@ export var DeleteRegistryResponse$: StaticStructureSchema = [3, n0, _DRRe,
 ];
 export var Descriptors$: StaticStructureSchema = [3, n0, _De,
   0,
-  [_mS, _aAC, _aSD, _cu, _h, _ag],
-  [[() => McpServerDescriptor$, 0], [() => A2aAgentCardDescriptor$, 0], [() => AgentSkillsDefinitionDescriptor$, 0], [() => CustomDescriptor$, 0], [() => HttpDescriptor$, 0], [() => AgUiDescriptor$, 0]]
+  [_mS, _aAC, _aSD, _cu, _h, _ag, _sAC],
+  [[() => McpServerDescriptor$, 0], [() => A2aAgentCardDescriptor$, 0], [() => AgentSkillsDefinitionDescriptor$, 0], [() => CustomDescriptor$, 0], [() => HttpDescriptor$, 0], [() => AgUiDescriptor$, 0], [() => SignatureAgentCardDescriptor$, 0]]
 ];
 export var DescriptorSource$: StaticStructureSchema = [3, n0, _DS,
   0,
@@ -534,15 +622,30 @@ export var DescriptorSourceFromUrl$: StaticStructureSchema = [3, n0, _DSFU,
   [_u, _cPC],
   [0, [() => RegistryRecordCredentialProviderConfigurationList, 0]], 1
 ];
+export var DisassociatePublisherRequest$: StaticStructureSchema = [3, n0, _DPRi,
+  0,
+  [_rA],
+  [[0, 1]], 1
+];
 export var DiscoveryConfiguration$: StaticStructureSchema = [3, n0, _DC,
   0,
   [_aC, _aT],
   [() => AuthorizerConfiguration$, 0]
 ];
+export var DomainChallenge$: StaticStructureSchema = [3, n0, _DCo,
+  0,
+  [_rN, _rVe],
+  [0, 0], 2
+];
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_kKA],
   [0], 1
+];
+export var GetPublisherRequest$: StaticStructureSchema = [3, n0, _GPR,
+  0,
+  [_pA],
+  [[0, 1]], 1
 ];
 export var GetRegistryRecordRequest$: StaticStructureSchema = [3, n0, _GRRR,
   0,
@@ -551,7 +654,7 @@ export var GetRegistryRecordRequest$: StaticStructureSchema = [3, n0, _GRRR,
 ];
 export var GetRegistryRecordResponse$: StaticStructureSchema = [3, n0, _GRRRe,
   0,
-  [_rAe, _rA, _rIe, _n, _rT, _st, _cA, _uA, _dN, _des, _de, _rV, _sR, _p, _cBAD, _cB, _cM, _cMSCS, _a, _sS],
+  [_rAe, _rA, _rIe, _n, _rT, _st, _cA, _uA, _dN, _des, _de, _rV, _sR, _pr, _cBAD, _cB, _cM, _cMSCS, _a, _sS],
   [0, 0, 0, 0, 0, 0, 5, 5, 0, [() => Description, 0], [() => Descriptors$, 0], 0, 0, () => ProvenanceList, 2, 0, [() => CustomMetadataDocument, 0], 0, [() => RegistryRecordArtifactDownload$, 0], [() => RegistryRecordSynchronizedSource$, 0]], 8
 ];
 export var GetRegistryRequest$: StaticStructureSchema = [3, n0, _GRR,
@@ -561,7 +664,7 @@ export var GetRegistryRequest$: StaticStructureSchema = [3, n0, _GRR,
 ];
 export var GetRegistryResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
-  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dC, _eC, _aCp, _cMSC, _sR, _aDut],
+  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dCi, _eC, _aCp, _cMSC, _sR, _aDut],
   [0, 0, 0, 0, 5, 5, [() => Description, 0], () => DiscoveryConfiguration$, () => EncryptionConfiguration$, () => ApprovalConfiguration$, [() => CustomMetadataSchemaConfiguration$, 0], 0, () => AutoDetection$], 6
 ];
 export var GitHubSynchronizedSource$: StaticStructureSchema = [3, n0, _GHSS,
@@ -573,6 +676,26 @@ export var HttpDescriptor$: StaticStructureSchema = [3, n0, _HD,
   0,
   [_so],
   [[() => DescriptorSource$, 0]]
+];
+export var ListPublisherAssociationsRequest$: StaticStructureSchema = [3, n0, _LPAR,
+  0,
+  [_pA, _mR, _nT],
+  [[0, { [_hQ]: _pA }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+];
+export var ListPublisherAssociationsResponse$: StaticStructureSchema = [3, n0, _LPARi,
+  0,
+  [_i, _nT],
+  [() => PublisherAssociationList, 0], 1
+];
+export var ListPublishersRequest$: StaticStructureSchema = [3, n0, _LPR,
+  0,
+  [_mR, _nT],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+];
+export var ListPublishersResponse$: StaticStructureSchema = [3, n0, _LPRi,
+  0,
+  [_i, _nT],
+  [() => PublisherSummaryList, 0], 1
 ];
 export var ListRegistriesRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
@@ -644,6 +767,21 @@ export var ProvenanceSummary$: StaticStructureSchema = [3, n0, _PS,
   [_rel, _sIo, _sT],
   [0, 0, 0], 2
 ];
+export var Publisher$: StaticStructureSchema = [3, n0, _Pu,
+  0,
+  [_v, _st, _cA, _uA, _pA, _iT, _sR, _dC, _t],
+  [() => Identifier$, 0, 4, 4, 0, 0, 0, () => DomainChallenge$, 128 | 0], 5
+];
+export var PublisherAssociation$: StaticStructureSchema = [3, n0, _PA,
+  0,
+  [_rA, _pI, _p, _st, _sR],
+  [0, 0, 0, 0, 0], 4
+];
+export var PublisherSummary$: StaticStructureSchema = [3, n0, _PSu,
+  0,
+  [_v, _st, _cA, _pA, _iT, _aCs, _pAAC],
+  [() => Identifier$, 0, 4, 0, 0, 1, 1], 4
+];
 export var RecordTypeSchemaOverride$: StaticStructureSchema = [3, n0, _RTSO,
   0,
   [_rT, _sch],
@@ -651,7 +789,7 @@ export var RecordTypeSchemaOverride$: StaticStructureSchema = [3, n0, _RTSO,
 ];
 export var RegistryFilter$: StaticStructureSchema = [3, n0, _RF,
   0,
-  [_n, _v],
+  [_n, _va],
   [0, 64 | 0], 2
 ];
 export var RegistryRecordArtifactDownload$: StaticStructureSchema = [3, n0, _RRAD,
@@ -671,7 +809,7 @@ export var RegistryRecordCredentialProviderConfiguration$: StaticStructureSchema
 ];
 export var RegistryRecordFilter$: StaticStructureSchema = [3, n0, _RRF,
   0,
-  [_n, _v],
+  [_n, _va],
   [0, 64 | 0], 2
 ];
 export var RegistryRecordIamCredentialProvider$: StaticStructureSchema = [3, n0, _RRICP,
@@ -681,7 +819,7 @@ export var RegistryRecordIamCredentialProvider$: StaticStructureSchema = [3, n0,
 ];
 export var RegistryRecordOAuthCredentialProvider$: StaticStructureSchema = [3, n0, _RROACP,
   0,
-  [_pA, _gT, _sco, _cPu, _rU],
+  [_pAr, _gT, _sco, _cPu, _rU],
   [0, 0, 64 | 0, [() => CustomParameterMap, 0], 0], 1
 ];
 export var RegistryRecordSummary$: StaticStructureSchema = [3, n0, _RRS,
@@ -691,7 +829,7 @@ export var RegistryRecordSummary$: StaticStructureSchema = [3, n0, _RRS,
 ];
 export var RegistrySummary$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dC, _sR, _aDut],
+  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dCi, _sR, _aDut],
   [0, 0, 0, 0, 5, 5, [() => Description, 0], () => DiscoveryConfiguration$, 0, () => AutoDetection$], 6
 ];
 export var S3SourceConfiguration$: StaticStructureSchema = [3, n0, _SSC,
@@ -703,6 +841,16 @@ export var S3SynchronizedSource$: StaticStructureSchema = [3, n0, _SSS,
   0,
   [_u, _sA, _vIe, _eT],
   [[() => SynchronizedSourceUrl, 0], 5, 0, 0], 2
+];
+export var SignatureAgentCardAdditionalData$: StaticStructureSchema = [3, n0, _SACAD,
+  0,
+  [_cat],
+  [0]
+];
+export var SignatureAgentCardDescriptor$: StaticStructureSchema = [3, n0, _SACD,
+  0,
+  [_d, _dSV, _so, _aD],
+  [[() => DescriptorData, 0], 0, [() => DescriptorSource$, 0], () => SignatureAgentCardAdditionalData$]
 ];
 export var SubmitRegistryRecordForApprovalRequest$: StaticStructureSchema = [3, n0, _SRRFAR,
   0,
@@ -814,6 +962,11 @@ export var UpdatedAutoDetectionConfiguration$: StaticStructureSchema = [3, n0, _
   [_oV],
   [() => AutoDetectionConfiguration$]
 ];
+export var UpdatedBotCategory$: StaticStructureSchema = [3, n0, _UBC,
+  0,
+  [_oV],
+  [0]
+];
 export var UpdatedCustomDescriptor$: StaticStructureSchema = [3, n0, _UCD,
   0,
   [_oV],
@@ -856,8 +1009,8 @@ export var UpdatedDescriptors$: StaticStructureSchema = [3, n0, _UDp,
 ];
 export var UpdatedDescriptorsFields$: StaticStructureSchema = [3, n0, _UDF,
   0,
-  [_mS, _aAC, _aSD, _cu, _h, _ag],
-  [[() => UpdatedMcpServerDescriptor$, 0], [() => UpdatedA2aAgentCardDescriptor$, 0], [() => UpdatedAgentSkillsDefinitionDescriptor$, 0], [() => UpdatedCustomDescriptor$, 0], [() => UpdatedHttpDescriptor$, 0], [() => UpdatedAgUiDescriptor$, 0]]
+  [_mS, _aAC, _aSD, _cu, _h, _ag, _sAC],
+  [[() => UpdatedMcpServerDescriptor$, 0], [() => UpdatedA2aAgentCardDescriptor$, 0], [() => UpdatedAgentSkillsDefinitionDescriptor$, 0], [() => UpdatedCustomDescriptor$, 0], [() => UpdatedHttpDescriptor$, 0], [() => UpdatedAgUiDescriptor$, 0], [() => UpdatedSignatureAgentCardDescriptor$, 0]]
 ];
 export var UpdatedDescriptorSource$: StaticStructureSchema = [3, n0, _UDS,
   0,
@@ -919,14 +1072,44 @@ export var UpdatedRegistryRecordArtifact$: StaticStructureSchema = [3, n0, _URRA
   [_oV],
   [[() => RegistryRecordArtifactUpload$, 0]]
 ];
+export var UpdatedSignatureAgentCardAdditionalData$: StaticStructureSchema = [3, n0, _USACAD,
+  0,
+  [_oV],
+  [() => UpdatedSignatureAgentCardAdditionalDataFields$]
+];
+export var UpdatedSignatureAgentCardAdditionalDataFields$: StaticStructureSchema = [3, n0, _USACADF,
+  0,
+  [_cat],
+  [() => UpdatedBotCategory$]
+];
+export var UpdatedSignatureAgentCardDescriptor$: StaticStructureSchema = [3, n0, _USACD,
+  0,
+  [_oV],
+  [[() => UpdatedSignatureAgentCardDescriptorFields$, 0]]
+];
+export var UpdatedSignatureAgentCardDescriptorFields$: StaticStructureSchema = [3, n0, _USACDF,
+  0,
+  [_d, _dSV, _so, _aD],
+  [[() => UpdatedDescriptorData$, 0], () => UpdatedDataSchemaVersion$, [() => UpdatedDescriptorSource$, 0], () => UpdatedSignatureAgentCardAdditionalData$]
+];
+export var UpdatePublisherAssociationApprovalStatusRequest$: StaticStructureSchema = [3, n0, _UPAASR,
+  0,
+  [_rA, _aSp, _aSR],
+  [[0, 1], 0, 0], 3
+];
+export var UpdatePublisherAssociationApprovalStatusResponse$: StaticStructureSchema = [3, n0, _UPAASRp,
+  0,
+  [],
+  []
+];
 export var UpdateRegistryRecordRequest$: StaticStructureSchema = [3, n0, _URRR,
   0,
-  [_rI, _rIe, _n, _dN, _des, _rT, _de, _a, _rV, _cM, _tS, _fA, _p],
+  [_rI, _rIe, _n, _dN, _des, _rT, _de, _a, _rV, _cM, _tS, _fA, _pr],
   [[0, 1], [0, 1], 0, () => UpdatedDisplayName$, [() => UpdatedDescription$, 0], 0, [() => UpdatedDescriptors$, 0], [() => UpdatedRegistryRecordArtifact$, 0], 0, [() => UpdatedCustomMetadataMap$, 0], 2, 2, () => ProvenanceList], 2
 ];
 export var UpdateRegistryRecordResponse$: StaticStructureSchema = [3, n0, _URRRp,
   0,
-  [_rAe, _rA, _rIe, _n, _rT, _st, _cA, _uA, _dN, _des, _de, _rV, _sR, _p, _cBAD, _cB, _cM, _cMSCS, _aDu],
+  [_rAe, _rA, _rIe, _n, _rT, _st, _cA, _uA, _dN, _des, _de, _rV, _sR, _pr, _cBAD, _cB, _cM, _cMSCS, _aDu],
   [0, 0, 0, 0, 0, 0, 5, 5, 0, [() => Description, 0], [() => Descriptors$, 0], 0, 0, () => ProvenanceList, 2, 0, [() => CustomMetadataDocument, 0], 0, [() => AuthorizationData$, 0]], 8
 ];
 export var UpdateRegistryRecordStatusRequest$: StaticStructureSchema = [3, n0, _URRSR,
@@ -941,13 +1124,23 @@ export var UpdateRegistryRecordStatusResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateRegistryRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
-  [_rI, _n, _des, _dC, _aCp, _cMSC, _aDC],
+  [_rI, _n, _des, _dCi, _aCp, _cMSC, _aDC],
   [[0, 1], 0, [() => UpdatedDescription$, 0], () => UpdatedDiscoveryConfiguration$, () => UpdatedApprovalConfiguration$, [() => UpdatedCustomMetadataSchemaConfiguration$, 0], () => UpdatedAutoDetectionConfiguration$], 1
 ];
 export var UpdateRegistryResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
-  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dC, _eC, _aCp, _cMSC, _sR, _aDut],
+  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dCi, _eC, _aCp, _cMSC, _sR, _aDut],
   [0, 0, 0, 0, 5, 5, [() => Description, 0], () => DiscoveryConfiguration$, () => EncryptionConfiguration$, () => ApprovalConfiguration$, [() => CustomMetadataSchemaConfiguration$, 0], 0, () => AutoDetection$], 6
+];
+export var ValidatePublisherRequest$: StaticStructureSchema = [3, n0, _VPR,
+  0,
+  [_pA],
+  [[0, 1]], 1
+];
+export var ValidatePublisherResponse$: StaticStructureSchema = [3, n0, _VPRa,
+  0,
+  [_v, _st, _cA, _uA, _pA, _iT, _sR, _dC, _t],
+  [() => Identifier$, 0, 4, 4, 0, 0, 0, () => DomainChallenge$, 128 | 0], 5
 ];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
@@ -959,10 +1152,12 @@ export var WorkloadIdentityDetails$: StaticStructureSchema = [3, n0, _WID,
   [_wIA],
   [0], 1
 ];
+var __Unit = "unit" as const;
 var AllowedAudienceList = 64 | 0;
 var AllowedClientsList = 64 | 0;
 var AllowedScopesType = 64 | 0;
 var AutoApprovalRuleList = 64 | 0;
+var CategoryList = 64 | 0;
 var CustomClaimValidationsType: StaticListSchema = [1, n0, _CCVTu,
   0, () => CustomClaimValidationType$
 ];
@@ -976,6 +1171,12 @@ var ProvenanceList: StaticListSchema = [1, n0, _PL,
 ];
 var ProvenanceSummaryList: StaticListSchema = [1, n0, _PSL,
   0, () => ProvenanceSummary$
+];
+var PublisherAssociationList: StaticListSchema = [1, n0, _PAL,
+  0, () => PublisherAssociation$
+];
+var PublisherSummaryList: StaticListSchema = [1, n0, _PSLu,
+  0, () => PublisherSummary$
 ];
 var RecordTypeSchemaOverrideList: StaticListSchema = [1, n0, _RTSOL,
   0, [() => RecordTypeSchemaOverride$,
@@ -1010,6 +1211,7 @@ var CustomParameterMap: StaticMapSchema = [2, n0, _CPM,
   8, 0, 0
 ];
 var ResourceTagsMap = 128 | 0;
+var TagMap = 128 | 0;
 var TagsMap = 128 | 0;
 export var AgentSkillsSourceConfiguration$: StaticUnionSchema = [4, n0, _ASSC,
   0,
@@ -1030,6 +1232,11 @@ export var ClaimMatchValueType$: StaticUnionSchema = [4, n0, _CMVT,
   0,
   [_mVS, _mVSL],
   [0, 64 | 0]
+];
+export var Identifier$: StaticUnionSchema = [4, n0, _I,
+  0,
+  [_do],
+  [0]
 ];
 export var PrivateEndpoint$: StaticUnionSchema = [4, n0, _PE,
   0,
@@ -1056,11 +1263,20 @@ export var SourceDetails$: StaticUnionSchema = [4, n0, _SD,
   [_aR, _aG],
   [() => AgentCoreRuntimeSourceDetails$, () => AgentCoreGatewaySourceDetails$]
 ];
+export var AssociatePublisher$: StaticOperationSchema = [9, n0, _AP,
+  { [_h]: ["POST", "/associations", 201] }, () => AssociatePublisherRequest$, () => AssociatePublisherResponse$
+];
+export var CreatePublisher$: StaticOperationSchema = [9, n0, _CP,
+  { [_h]: ["POST", "/publishers", 201] }, () => CreatePublisherRequest$, () => CreatePublisherResponse$
+];
 export var CreateRegistry$: StaticOperationSchema = [9, n0, _CR,
   { [_h]: ["POST", "/registries", 202] }, () => CreateRegistryRequest$, () => CreateRegistryResponse$
 ];
 export var CreateRegistryRecord$: StaticOperationSchema = [9, n0, _CRRre,
   { [_h]: ["POST", "/registries/{registryId}/records", 202] }, () => CreateRegistryRecordRequest$, () => CreateRegistryRecordResponse$
+];
+export var DeletePublisher$: StaticOperationSchema = [9, n0, _DP,
+  { [_h]: ["DELETE", "/publishers/{publisherArn}", 204] }, () => DeletePublisherRequest$, () => __Unit
 ];
 export var DeleteRegistry$: StaticOperationSchema = [9, n0, _DR,
   { [_h]: ["DELETE", "/registries/{registryId}", 202] }, () => DeleteRegistryRequest$, () => DeleteRegistryResponse$
@@ -1068,11 +1284,23 @@ export var DeleteRegistry$: StaticOperationSchema = [9, n0, _DR,
 export var DeleteRegistryRecord$: StaticOperationSchema = [9, n0, _DRRel,
   { [_h]: ["DELETE", "/registries/{registryId}/records/{recordId}", 200] }, () => DeleteRegistryRecordRequest$, () => DeleteRegistryRecordResponse$
 ];
+export var DisassociatePublisher$: StaticOperationSchema = [9, n0, _DPi,
+  { [_h]: ["DELETE", "/associations/{recordArn+}", 204] }, () => DisassociatePublisherRequest$, () => __Unit
+];
+export var GetPublisher$: StaticOperationSchema = [9, n0, _GP,
+  { [_h]: ["GET", "/publishers/{publisherArn}", 200] }, () => GetPublisherRequest$, () => Publisher$
+];
 export var GetRegistry$: StaticOperationSchema = [9, n0, _GR,
   { [_h]: ["GET", "/registries/{registryId}", 200] }, () => GetRegistryRequest$, () => GetRegistryResponse$
 ];
 export var GetRegistryRecord$: StaticOperationSchema = [9, n0, _GRRet,
   { [_h]: ["GET", "/registries/{registryId}/records/{recordId}", 200] }, () => GetRegistryRecordRequest$, () => GetRegistryRecordResponse$
+];
+export var ListPublisherAssociations$: StaticOperationSchema = [9, n0, _LPA,
+  { [_h]: ["GET", "/associations", 200] }, () => ListPublisherAssociationsRequest$, () => ListPublisherAssociationsResponse$
+];
+export var ListPublishers$: StaticOperationSchema = [9, n0, _LP,
+  { [_h]: ["GET", "/publishers", 200] }, () => ListPublishersRequest$, () => ListPublishersResponse$
 ];
 export var ListRegistries$: StaticOperationSchema = [9, n0, _LR,
   { [_h]: ["POST", "/registries-list", 200] }, () => ListRegistriesRequest$, () => ListRegistriesResponse$
@@ -1092,6 +1320,9 @@ export var TagResource$: StaticOperationSchema = [9, n0, _TR,
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn+}", 204] }, () => UntagResourceRequest$, () => UntagResourceResponse$
 ];
+export var UpdatePublisherAssociationApprovalStatus$: StaticOperationSchema = [9, n0, _UPAAS,
+  { [_h]: ["PATCH", "/associations/{recordArn+}", 200] }, () => UpdatePublisherAssociationApprovalStatusRequest$, () => UpdatePublisherAssociationApprovalStatusResponse$
+];
 export var UpdateRegistry$: StaticOperationSchema = [9, n0, _URp,
   { [_h]: ["PATCH", "/registries/{registryId}", 202] }, () => UpdateRegistryRequest$, () => UpdateRegistryResponse$
 ];
@@ -1100,4 +1331,7 @@ export var UpdateRegistryRecord$: StaticOperationSchema = [9, n0, _URRpda,
 ];
 export var UpdateRegistryRecordStatus$: StaticOperationSchema = [9, n0, _URRS,
   { [_h]: ["PATCH", "/registries/{registryId}/records/{recordId}/status", 202] }, () => UpdateRegistryRecordStatusRequest$, () => UpdateRegistryRecordStatusResponse$
+];
+export var ValidatePublisher$: StaticOperationSchema = [9, n0, _VP,
+  { [_h]: ["POST", "/publishers/{publisherArn}/verification", 200] }, () => ValidatePublisherRequest$, () => ValidatePublisherResponse$
 ];

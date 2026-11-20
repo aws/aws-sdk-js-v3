@@ -27,6 +27,52 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * <p>The request conflicts with the current state of the resource.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.agentregistrycontrol#ConflictException";
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
+ * This exception is thrown on a database (or other dependency) error. Modeled as a
+ * server error so SDKs retry it (5xx) and it feeds server-error alarming. Marked
+ * @retryable because it represents a transient downstream failure that is safe to retry
+ * (matches the forwarder's own retry-on-DependencyException behavior).
+ * @public
+ */
+export class DependencyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.agentregistrycontrol#DependencyException";
+  readonly name = "DependencyException" as const;
+  readonly $fault = "server" as const;
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependencyException, __BaseException>) {
+    super({
+      name: "DependencyException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependencyException.prototype);
+  }
+}
+
+/**
  * <p>The request failed due to an unexpected internal error; the caller may retry.</p>
  * @public
  */
@@ -48,23 +94,23 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested resource was not found.</p>
+ * <p>The request would exceed a service quota.</p>
  * @public
  */
-export class ResourceNotFoundException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.agentregistrycontrol#ResourceNotFoundException";
-  readonly name = "ResourceNotFoundException" as const;
+export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.agentregistrycontrol#ServiceQuotaExceededException";
+  readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
     super({
-      name: "ResourceNotFoundException",
+      name: "ServiceQuotaExceededException",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
   }
 }
 
@@ -125,43 +171,22 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request conflicts with the current state of the resource.</p>
+ * <p>The requested resource was not found.</p>
  * @public
  */
-export class ConflictException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.agentregistrycontrol#ConflictException";
-  readonly name = "ConflictException" as const;
+export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.agentregistrycontrol#ResourceNotFoundException";
+  readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
     super({
-      name: "ConflictException",
+      name: "ResourceNotFoundException",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * <p>The request would exceed a service quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.agentregistrycontrol#ServiceQuotaExceededException";
-  readonly name = "ServiceQuotaExceededException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
   }
 }

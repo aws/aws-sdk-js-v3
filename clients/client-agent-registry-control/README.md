@@ -22,16 +22,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AgentRegistryControlClient` and
-the commands you need, for example `ListRegistriesCommand`:
+the commands you need, for example `ListPublishersCommand`:
 
 ```js
 // ES5 example
-const { AgentRegistryControlClient, ListRegistriesCommand } = require("@aws-sdk/client-agent-registry-control");
+const { AgentRegistryControlClient, ListPublishersCommand } = require("@aws-sdk/client-agent-registry-control");
 ```
 
 ```ts
 // ES6+ example
-import { AgentRegistryControlClient, ListRegistriesCommand } from "@aws-sdk/client-agent-registry-control";
+import { AgentRegistryControlClient, ListPublishersCommand } from "@aws-sdk/client-agent-registry-control";
 ```
 
 ### Usage
@@ -48,7 +48,7 @@ To send a request:
 const client = new AgentRegistryControlClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListRegistriesCommand(params);
+const command = new ListPublishersCommand(params);
 ```
 
 #### Async/await
@@ -104,7 +104,7 @@ const client = new AgentRegistryControl({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listRegistries(params);
+  const data = await client.listPublishers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -112,7 +112,7 @@ try {
 
 // Promises.
 client
-  .listRegistries(params)
+  .listPublishers(params)
   .then((data) => {
     // process data.
   })
@@ -121,7 +121,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listRegistries(params, (err, data) => {
+client.listPublishers(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -181,6 +181,20 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AssociatePublisher
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/agent-registry-control/command/AssociatePublisherCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/AssociatePublisherCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/AssociatePublisherCommandOutput/)
+</details>
+<details>
+<summary>
+CreatePublisher
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/agent-registry-control/command/CreatePublisherCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/CreatePublisherCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/CreatePublisherCommandOutput/)
+</details>
+<details>
+<summary>
 CreateRegistry
 </summary>
 
@@ -192,6 +206,13 @@ CreateRegistryRecord
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/agent-registry-control/command/CreateRegistryRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/CreateRegistryRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/CreateRegistryRecordCommandOutput/)
+</details>
+<details>
+<summary>
+DeletePublisher
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/agent-registry-control/command/DeletePublisherCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/DeletePublisherCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/DeletePublisherCommandOutput/)
 </details>
 <details>
 <summary>
@@ -209,6 +230,20 @@ DeleteRegistryRecord
 </details>
 <details>
 <summary>
+DisassociatePublisher
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/agent-registry-control/command/DisassociatePublisherCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/DisassociatePublisherCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/DisassociatePublisherCommandOutput/)
+</details>
+<details>
+<summary>
+GetPublisher
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/agent-registry-control/command/GetPublisherCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/GetPublisherCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/GetPublisherCommandOutput/)
+</details>
+<details>
+<summary>
 GetRegistry
 </summary>
 
@@ -220,6 +255,20 @@ GetRegistryRecord
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/agent-registry-control/command/GetRegistryRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/GetRegistryRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/GetRegistryRecordCommandOutput/)
+</details>
+<details>
+<summary>
+ListPublisherAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/agent-registry-control/command/ListPublisherAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/ListPublisherAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/ListPublisherAssociationsCommandOutput/)
+</details>
+<details>
+<summary>
+ListPublishers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/agent-registry-control/command/ListPublishersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/ListPublishersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/ListPublishersCommandOutput/)
 </details>
 <details>
 <summary>
@@ -265,6 +314,13 @@ UntagResource
 </details>
 <details>
 <summary>
+UpdatePublisherAssociationApprovalStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/agent-registry-control/command/UpdatePublisherAssociationApprovalStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/UpdatePublisherAssociationApprovalStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/UpdatePublisherAssociationApprovalStatusCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateRegistry
 </summary>
 
@@ -283,4 +339,11 @@ UpdateRegistryRecordStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/agent-registry-control/command/UpdateRegistryRecordStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/UpdateRegistryRecordStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/UpdateRegistryRecordStatusCommandOutput/)
+</details>
+<details>
+<summary>
+ValidatePublisher
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/agent-registry-control/command/ValidatePublisherCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/ValidatePublisherCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-agent-registry-control/Interface/ValidatePublisherCommandOutput/)
 </details>

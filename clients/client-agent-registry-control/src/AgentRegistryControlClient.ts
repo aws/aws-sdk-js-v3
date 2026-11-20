@@ -54,21 +54,37 @@ import {
   defaultAgentRegistryControlHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import type {
+  AssociatePublisherCommandInput,
+  AssociatePublisherCommandOutput,
+} from "./commands/AssociatePublisherCommand";
+import type { CreatePublisherCommandInput, CreatePublisherCommandOutput } from "./commands/CreatePublisherCommand";
 import type { CreateRegistryCommandInput, CreateRegistryCommandOutput } from "./commands/CreateRegistryCommand";
 import type {
   CreateRegistryRecordCommandInput,
   CreateRegistryRecordCommandOutput,
 } from "./commands/CreateRegistryRecordCommand";
+import type { DeletePublisherCommandInput, DeletePublisherCommandOutput } from "./commands/DeletePublisherCommand";
 import type { DeleteRegistryCommandInput, DeleteRegistryCommandOutput } from "./commands/DeleteRegistryCommand";
 import type {
   DeleteRegistryRecordCommandInput,
   DeleteRegistryRecordCommandOutput,
 } from "./commands/DeleteRegistryRecordCommand";
+import type {
+  DisassociatePublisherCommandInput,
+  DisassociatePublisherCommandOutput,
+} from "./commands/DisassociatePublisherCommand";
+import type { GetPublisherCommandInput, GetPublisherCommandOutput } from "./commands/GetPublisherCommand";
 import type { GetRegistryCommandInput, GetRegistryCommandOutput } from "./commands/GetRegistryCommand";
 import type {
   GetRegistryRecordCommandInput,
   GetRegistryRecordCommandOutput,
 } from "./commands/GetRegistryRecordCommand";
+import type {
+  ListPublisherAssociationsCommandInput,
+  ListPublisherAssociationsCommandOutput,
+} from "./commands/ListPublisherAssociationsCommand";
+import type { ListPublishersCommandInput, ListPublishersCommandOutput } from "./commands/ListPublishersCommand";
 import type { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand";
 import type {
   ListRegistryRecordsCommandInput,
@@ -84,6 +100,10 @@ import type {
 } from "./commands/SubmitRegistryRecordForApprovalCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdatePublisherAssociationApprovalStatusCommandInput,
+  UpdatePublisherAssociationApprovalStatusCommandOutput,
+} from "./commands/UpdatePublisherAssociationApprovalStatusCommand";
 import type { UpdateRegistryCommandInput, UpdateRegistryCommandOutput } from "./commands/UpdateRegistryCommand";
 import type {
   UpdateRegistryRecordCommandInput,
@@ -93,6 +113,10 @@ import type {
   UpdateRegistryRecordStatusCommandInput,
   UpdateRegistryRecordStatusCommandOutput,
 } from "./commands/UpdateRegistryRecordStatusCommand";
+import type {
+  ValidatePublisherCommandInput,
+  ValidatePublisherCommandOutput,
+} from "./commands/ValidatePublisherCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -108,41 +132,59 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociatePublisherCommandInput
+  | CreatePublisherCommandInput
   | CreateRegistryCommandInput
   | CreateRegistryRecordCommandInput
+  | DeletePublisherCommandInput
   | DeleteRegistryCommandInput
   | DeleteRegistryRecordCommandInput
+  | DisassociatePublisherCommandInput
+  | GetPublisherCommandInput
   | GetRegistryCommandInput
   | GetRegistryRecordCommandInput
+  | ListPublisherAssociationsCommandInput
+  | ListPublishersCommandInput
   | ListRegistriesCommandInput
   | ListRegistryRecordsCommandInput
   | ListTagsForResourceCommandInput
   | SubmitRegistryRecordForApprovalCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdatePublisherAssociationApprovalStatusCommandInput
   | UpdateRegistryCommandInput
   | UpdateRegistryRecordCommandInput
-  | UpdateRegistryRecordStatusCommandInput;
+  | UpdateRegistryRecordStatusCommandInput
+  | ValidatePublisherCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociatePublisherCommandOutput
+  | CreatePublisherCommandOutput
   | CreateRegistryCommandOutput
   | CreateRegistryRecordCommandOutput
+  | DeletePublisherCommandOutput
   | DeleteRegistryCommandOutput
   | DeleteRegistryRecordCommandOutput
+  | DisassociatePublisherCommandOutput
+  | GetPublisherCommandOutput
   | GetRegistryCommandOutput
   | GetRegistryRecordCommandOutput
+  | ListPublisherAssociationsCommandOutput
+  | ListPublishersCommandOutput
   | ListRegistriesCommandOutput
   | ListRegistryRecordsCommandOutput
   | ListTagsForResourceCommandOutput
   | SubmitRegistryRecordForApprovalCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdatePublisherAssociationApprovalStatusCommandOutput
   | UpdateRegistryCommandOutput
   | UpdateRegistryRecordCommandOutput
-  | UpdateRegistryRecordStatusCommandOutput;
+  | UpdateRegistryRecordStatusCommandOutput
+  | ValidatePublisherCommandOutput;
 
 /**
  * @public

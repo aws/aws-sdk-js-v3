@@ -10,6 +10,16 @@ import type {
 
 import { AgentRegistryControlClient } from "./AgentRegistryControlClient";
 import {
+  type AssociatePublisherCommandInput,
+  type AssociatePublisherCommandOutput,
+  AssociatePublisherCommand,
+} from "./commands/AssociatePublisherCommand";
+import {
+  type CreatePublisherCommandInput,
+  type CreatePublisherCommandOutput,
+  CreatePublisherCommand,
+} from "./commands/CreatePublisherCommand";
+import {
   type CreateRegistryCommandInput,
   type CreateRegistryCommandOutput,
   CreateRegistryCommand,
@@ -19,6 +29,11 @@ import {
   type CreateRegistryRecordCommandOutput,
   CreateRegistryRecordCommand,
 } from "./commands/CreateRegistryRecordCommand";
+import {
+  type DeletePublisherCommandInput,
+  type DeletePublisherCommandOutput,
+  DeletePublisherCommand,
+} from "./commands/DeletePublisherCommand";
 import {
   type DeleteRegistryCommandInput,
   type DeleteRegistryCommandOutput,
@@ -30,6 +45,16 @@ import {
   DeleteRegistryRecordCommand,
 } from "./commands/DeleteRegistryRecordCommand";
 import {
+  type DisassociatePublisherCommandInput,
+  type DisassociatePublisherCommandOutput,
+  DisassociatePublisherCommand,
+} from "./commands/DisassociatePublisherCommand";
+import {
+  type GetPublisherCommandInput,
+  type GetPublisherCommandOutput,
+  GetPublisherCommand,
+} from "./commands/GetPublisherCommand";
+import {
   type GetRegistryCommandInput,
   type GetRegistryCommandOutput,
   GetRegistryCommand,
@@ -39,6 +64,16 @@ import {
   type GetRegistryRecordCommandOutput,
   GetRegistryRecordCommand,
 } from "./commands/GetRegistryRecordCommand";
+import {
+  type ListPublisherAssociationsCommandInput,
+  type ListPublisherAssociationsCommandOutput,
+  ListPublisherAssociationsCommand,
+} from "./commands/ListPublisherAssociationsCommand";
+import {
+  type ListPublishersCommandInput,
+  type ListPublishersCommandOutput,
+  ListPublishersCommand,
+} from "./commands/ListPublishersCommand";
 import {
   type ListRegistriesCommandInput,
   type ListRegistriesCommandOutput,
@@ -70,6 +105,11 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdatePublisherAssociationApprovalStatusCommandInput,
+  type UpdatePublisherAssociationApprovalStatusCommandOutput,
+  UpdatePublisherAssociationApprovalStatusCommand,
+} from "./commands/UpdatePublisherAssociationApprovalStatusCommand";
+import {
   type UpdateRegistryCommandInput,
   type UpdateRegistryCommandOutput,
   UpdateRegistryCommand,
@@ -84,30 +124,48 @@ import {
   type UpdateRegistryRecordStatusCommandOutput,
   UpdateRegistryRecordStatusCommand,
 } from "./commands/UpdateRegistryRecordStatusCommand";
+import {
+  type ValidatePublisherCommandInput,
+  type ValidatePublisherCommandOutput,
+  ValidatePublisherCommand,
+} from "./commands/ValidatePublisherCommand";
 import type { AgentRegistryControlServiceException } from "./models/AgentRegistryControlServiceException";
+import { paginateListPublisherAssociations } from "./pagination/ListPublisherAssociationsPaginator";
+import { paginateListPublishers } from "./pagination/ListPublishersPaginator";
 import { paginateListRegistries } from "./pagination/ListRegistriesPaginator";
 import { paginateListRegistryRecords } from "./pagination/ListRegistryRecordsPaginator";
 import { waitUntilRegistryReady } from "./waiters/waitForRegistryReady";
 import { waitUntilRegistryRecordApproved } from "./waiters/waitForRegistryRecordApproved";
 
 const commands = {
+  AssociatePublisherCommand,
+  CreatePublisherCommand,
   CreateRegistryCommand,
   CreateRegistryRecordCommand,
+  DeletePublisherCommand,
   DeleteRegistryCommand,
   DeleteRegistryRecordCommand,
+  DisassociatePublisherCommand,
+  GetPublisherCommand,
   GetRegistryCommand,
   GetRegistryRecordCommand,
+  ListPublisherAssociationsCommand,
+  ListPublishersCommand,
   ListRegistriesCommand,
   ListRegistryRecordsCommand,
   ListTagsForResourceCommand,
   SubmitRegistryRecordForApprovalCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdatePublisherAssociationApprovalStatusCommand,
   UpdateRegistryCommand,
   UpdateRegistryRecordCommand,
   UpdateRegistryRecordStatusCommand,
+  ValidatePublisherCommand,
 };
 const paginators = {
+  paginateListPublisherAssociations,
+  paginateListPublishers,
   paginateListRegistries,
   paginateListRegistryRecords,
 };
@@ -124,6 +182,40 @@ export interface AgentRegistryControlRequestOptions extends __HttpHandlerOptions
 }
 
 export interface AgentRegistryControl {
+  /**
+   * @see {@link AssociatePublisherCommand}
+   */
+  associatePublisher(
+    args: AssociatePublisherCommandInput,
+    options?: AgentRegistryControlRequestOptions
+  ): Promise<AssociatePublisherCommandOutput>;
+  associatePublisher(
+    args: AssociatePublisherCommandInput,
+    cb: (err: any, data?: AssociatePublisherCommandOutput) => void
+  ): void;
+  associatePublisher(
+    args: AssociatePublisherCommandInput,
+    options: AgentRegistryControlRequestOptions,
+    cb: (err: any, data?: AssociatePublisherCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePublisherCommand}
+   */
+  createPublisher(
+    args: CreatePublisherCommandInput,
+    options?: AgentRegistryControlRequestOptions
+  ): Promise<CreatePublisherCommandOutput>;
+  createPublisher(
+    args: CreatePublisherCommandInput,
+    cb: (err: any, data?: CreatePublisherCommandOutput) => void
+  ): void;
+  createPublisher(
+    args: CreatePublisherCommandInput,
+    options: AgentRegistryControlRequestOptions,
+    cb: (err: any, data?: CreatePublisherCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateRegistryCommand}
    */
@@ -156,6 +248,23 @@ export interface AgentRegistryControl {
     args: CreateRegistryRecordCommandInput,
     options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: CreateRegistryRecordCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePublisherCommand}
+   */
+  deletePublisher(
+    args: DeletePublisherCommandInput,
+    options?: AgentRegistryControlRequestOptions
+  ): Promise<DeletePublisherCommandOutput>;
+  deletePublisher(
+    args: DeletePublisherCommandInput,
+    cb: (err: any, data?: DeletePublisherCommandOutput) => void
+  ): void;
+  deletePublisher(
+    args: DeletePublisherCommandInput,
+    options: AgentRegistryControlRequestOptions,
+    cb: (err: any, data?: DeletePublisherCommandOutput) => void
   ): void;
 
   /**
@@ -193,6 +302,40 @@ export interface AgentRegistryControl {
   ): void;
 
   /**
+   * @see {@link DisassociatePublisherCommand}
+   */
+  disassociatePublisher(
+    args: DisassociatePublisherCommandInput,
+    options?: AgentRegistryControlRequestOptions
+  ): Promise<DisassociatePublisherCommandOutput>;
+  disassociatePublisher(
+    args: DisassociatePublisherCommandInput,
+    cb: (err: any, data?: DisassociatePublisherCommandOutput) => void
+  ): void;
+  disassociatePublisher(
+    args: DisassociatePublisherCommandInput,
+    options: AgentRegistryControlRequestOptions,
+    cb: (err: any, data?: DisassociatePublisherCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPublisherCommand}
+   */
+  getPublisher(
+    args: GetPublisherCommandInput,
+    options?: AgentRegistryControlRequestOptions
+  ): Promise<GetPublisherCommandOutput>;
+  getPublisher(
+    args: GetPublisherCommandInput,
+    cb: (err: any, data?: GetPublisherCommandOutput) => void
+  ): void;
+  getPublisher(
+    args: GetPublisherCommandInput,
+    options: AgentRegistryControlRequestOptions,
+    cb: (err: any, data?: GetPublisherCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetRegistryCommand}
    */
   getRegistry(
@@ -224,6 +367,42 @@ export interface AgentRegistryControl {
     args: GetRegistryRecordCommandInput,
     options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: GetRegistryRecordCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPublisherAssociationsCommand}
+   */
+  listPublisherAssociations(): Promise<ListPublisherAssociationsCommandOutput>;
+  listPublisherAssociations(
+    args: ListPublisherAssociationsCommandInput,
+    options?: AgentRegistryControlRequestOptions
+  ): Promise<ListPublisherAssociationsCommandOutput>;
+  listPublisherAssociations(
+    args: ListPublisherAssociationsCommandInput,
+    cb: (err: any, data?: ListPublisherAssociationsCommandOutput) => void
+  ): void;
+  listPublisherAssociations(
+    args: ListPublisherAssociationsCommandInput,
+    options: AgentRegistryControlRequestOptions,
+    cb: (err: any, data?: ListPublisherAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPublishersCommand}
+   */
+  listPublishers(): Promise<ListPublishersCommandOutput>;
+  listPublishers(
+    args: ListPublishersCommandInput,
+    options?: AgentRegistryControlRequestOptions
+  ): Promise<ListPublishersCommandOutput>;
+  listPublishers(
+    args: ListPublishersCommandInput,
+    cb: (err: any, data?: ListPublishersCommandOutput) => void
+  ): void;
+  listPublishers(
+    args: ListPublishersCommandInput,
+    options: AgentRegistryControlRequestOptions,
+    cb: (err: any, data?: ListPublishersCommandOutput) => void
   ): void;
 
   /**
@@ -330,6 +509,23 @@ export interface AgentRegistryControl {
   ): void;
 
   /**
+   * @see {@link UpdatePublisherAssociationApprovalStatusCommand}
+   */
+  updatePublisherAssociationApprovalStatus(
+    args: UpdatePublisherAssociationApprovalStatusCommandInput,
+    options?: AgentRegistryControlRequestOptions
+  ): Promise<UpdatePublisherAssociationApprovalStatusCommandOutput>;
+  updatePublisherAssociationApprovalStatus(
+    args: UpdatePublisherAssociationApprovalStatusCommandInput,
+    cb: (err: any, data?: UpdatePublisherAssociationApprovalStatusCommandOutput) => void
+  ): void;
+  updatePublisherAssociationApprovalStatus(
+    args: UpdatePublisherAssociationApprovalStatusCommandInput,
+    options: AgentRegistryControlRequestOptions,
+    cb: (err: any, data?: UpdatePublisherAssociationApprovalStatusCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateRegistryCommand}
    */
   updateRegistry(
@@ -379,6 +575,45 @@ export interface AgentRegistryControl {
     options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: UpdateRegistryRecordStatusCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ValidatePublisherCommand}
+   */
+  validatePublisher(
+    args: ValidatePublisherCommandInput,
+    options?: AgentRegistryControlRequestOptions
+  ): Promise<ValidatePublisherCommandOutput>;
+  validatePublisher(
+    args: ValidatePublisherCommandInput,
+    cb: (err: any, data?: ValidatePublisherCommandOutput) => void
+  ): void;
+  validatePublisher(
+    args: ValidatePublisherCommandInput,
+    options: AgentRegistryControlRequestOptions,
+    cb: (err: any, data?: ValidatePublisherCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPublisherAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPublisherAssociationsCommandOutput}.
+   */
+  paginateListPublisherAssociations(
+    args?: ListPublisherAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPublisherAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListPublishersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPublishersCommandOutput}.
+   */
+  paginateListPublishers(
+    args?: ListPublishersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPublishersCommandOutput>;
 
   /**
    * @see {@link ListRegistriesCommand}

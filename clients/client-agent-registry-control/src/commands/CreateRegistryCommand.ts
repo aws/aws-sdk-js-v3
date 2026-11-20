@@ -124,7 +124,7 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  *     defaultSchema: "STRING_VALUE",
  *     recordTypeSchemaOverrides: [ // RecordTypeSchemaOverrideList
  *       { // RecordTypeSchemaOverride
- *         recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY", // required
+ *         recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY" || "WEB_BOT", // required
  *         schema: "STRING_VALUE", // required
  *       },
  *     ],
