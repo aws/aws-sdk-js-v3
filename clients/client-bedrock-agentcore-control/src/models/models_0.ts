@@ -46,6 +46,7 @@ import type {
   PrivilegeMode,
   Provider,
   ResourceType,
+  ResponseInterceptionMode,
   SecretSourceType,
   ServerProtocol,
 } from "./enums";
@@ -9125,6 +9126,18 @@ export namespace InterceptorConfiguration {
 }
 
 /**
+ * <p>Specifies the settings that the gateway uses to send a streamed target response to the interceptor in batches.</p>
+ * @public
+ */
+export interface ResponseStreamingConfiguration {
+  /**
+   * <p>Specifies the maximum number of response events that the gateway sends to the interceptor in one invocation. The interceptor's output for the first batch determines the status code and headers of the response. The gateway ignores the status code and headers that the interceptor returns for later batches.</p>
+   * @public
+   */
+  maxEventsPerInvocation?: number | undefined;
+}
+
+/**
  * <p>The configuration for an interceptor on a gateway. This structure defines settings for an interceptor that will be invoked during the invocation of the gateway.</p>
  * @public
  */
@@ -9146,6 +9159,18 @@ export interface GatewayInterceptorConfiguration {
    * @public
    */
   inputConfiguration?: InterceptorInputConfiguration | undefined;
+
+  /**
+   * <p>Specifies how the interceptor processes streamed target responses. You can set this field only on an interceptor that includes the <code>RESPONSE</code> interception point. Valid values include:</p> <ul> <li> <p> <code>BUFFERED</code> - The gateway collects the complete target response and then invokes the interceptor once. This is the default.</p> </li> <li> <p> <code>STREAM</code> - The gateway sends a streamed target response to the interceptor in batches of events and returns each processed batch to the client as soon as it's ready. Non-streamed responses still use <code>BUFFERED</code> processing. If you specify <code>STREAM</code>, you must also specify <code>responseStreamingConfiguration</code>, and the input configuration can't exclude the response body.</p> </li> </ul>
+   * @public
+   */
+  responseInterceptionMode?: ResponseInterceptionMode | undefined;
+
+  /**
+   * <p>Specifies the batching settings for a streamed response. Specify this field only when <code>responseInterceptionMode</code> is <code>STREAM</code>. You must specify it for <code>STREAM</code>.</p>
+   * @public
+   */
+  responseStreamingConfiguration?: ResponseStreamingConfiguration | undefined;
 }
 
 /**
@@ -9176,18 +9201,6 @@ export interface SessionConfiguration {
    * @public
    */
   sessionTimeoutInSeconds?: number | undefined;
-}
-
-/**
- * <p>The streaming configuration for an MCP gateway. This structure defines settings that control response streaming behavior.</p>
- * @public
- */
-export interface StreamingConfiguration {
-  /**
-   * <p>Indicates whether response streaming is enabled for the gateway. When set to <code>true</code>, the gateway streams responses from targets back to the client.</p>
-   * @public
-   */
-  enableResponseStreaming?: boolean | undefined;
 }
 
 /**

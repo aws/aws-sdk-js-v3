@@ -887,6 +887,7 @@ const _RROACP = "RegistryRecordOAuthCredentialProvider";
 const _RRS = "RegistryRecordSummary";
 const _RRSL = "RegistryRecordSummaryList";
 const _RS = "RegistrySummary";
+const _RSC = "ResponseStreamingConfiguration";
 const _RSL = "RegistrySummaryList";
 const _RSa = "RatingScale";
 const _RTC = "RuntimeTargetConfiguration";
@@ -1541,6 +1542,7 @@ const _mCe = "messagesCount";
 const _mCes = "messageCount";
 const _mCo = "modelConfig";
 const _mD = "multiDimensional";
+const _mEPI = "maxEventsPerInvocation";
 const _mERA = "memoryExecutionRoleArn";
 const _mI = "modelId";
 const _mIa = "maxIterations";
@@ -1699,6 +1701,7 @@ const _rGA = "resourceGatewayArn";
 const _rHA = "requestHeaderAllowlist";
 const _rHC = "requestHeaderConfiguration";
 const _rI = "ruleId";
+const _rIM = "responseInterceptionMode";
 const _rIe = "registryId";
 const _rIec = "recordId";
 const _rL = "rateLimits";
@@ -1709,6 +1712,7 @@ const _rP = "resourcePriority";
 const _rPe = "regexPattern";
 const _rR = "registryRecords";
 const _rS = "relevanceScore";
+const _rSC = "responseStreamingConfiguration";
 const _rSSE = "requireServiceS3Endpoint";
 const _rSa = "ratingScale";
 const _rT = "responseTypes";
@@ -3201,8 +3205,8 @@ export var GatewayApiKeyCredentialProvider$: StaticStructureSchema = [3, n0, _GA
 ];
 export var GatewayInterceptorConfiguration$: StaticStructureSchema = [3, n0, _GIC,
   0,
-  [_int, _iP, _iCnp],
-  [() => InterceptorConfiguration$, 64 | 0, () => InterceptorInputConfiguration$], 2
+  [_int, _iP, _iCnp, _rIM, _rSC],
+  [() => InterceptorConfiguration$, 64 | 0, () => InterceptorInputConfiguration$, 0, () => ResponseStreamingConfiguration$], 2
 ];
 export var GatewayPolicyEngineConfiguration$: StaticStructureSchema = [3, n0, _GPEC,
   0,
@@ -4768,6 +4772,11 @@ export var ResourceConfiguration$: StaticStructureSchema = [3, n0, _RCes,
   0,
   [_mMIMB],
   [1], 1
+];
+export var ResponseStreamingConfiguration$: StaticStructureSchema = [3, n0, _RSC,
+  0,
+  [_mEPI],
+  [1]
 ];
 export var RootVolumeConfiguration$: StaticStructureSchema = [3, n0, _RVC,
   0,

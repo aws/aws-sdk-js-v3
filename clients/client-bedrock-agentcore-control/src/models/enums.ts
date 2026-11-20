@@ -793,6 +793,19 @@ export type GatewayInterceptionPoint = (typeof GatewayInterceptionPoint)[keyof t
  * @public
  * @enum
  */
+export const ResponseInterceptionMode = {
+  BUFFERED: "BUFFERED",
+  STREAM: "STREAM",
+} as const;
+/**
+ * @public
+ */
+export type ResponseInterceptionMode = (typeof ResponseInterceptionMode)[keyof typeof ResponseInterceptionMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const GatewayPolicyEngineMode = {
   ENFORCE: "ENFORCE",
   LOG_ONLY: "LOG_ONLY",

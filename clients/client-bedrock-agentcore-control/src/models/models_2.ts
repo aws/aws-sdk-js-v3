@@ -65,6 +65,17 @@ import type {
 /**
  * @public
  */
+export interface DeleteOnlineEvaluationConfigRequest {
+  /**
+   * <p> The unique identifier of the online evaluation configuration to delete. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteOnlineEvaluationConfigResponse {
   /**
    * <p> The Amazon Resource Name (ARN) of the deleted online evaluation configuration. </p>

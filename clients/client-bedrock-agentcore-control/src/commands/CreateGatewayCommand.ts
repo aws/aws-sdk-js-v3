@@ -172,6 +172,10 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *           ],
  *         },
  *       },
+ *       responseInterceptionMode: "BUFFERED" || "STREAM",
+ *       responseStreamingConfiguration: { // ResponseStreamingConfiguration
+ *         maxEventsPerInvocation: Number("int"),
+ *       },
  *     },
  *   ],
  *   policyEngineConfiguration: { // GatewayPolicyEngineConfiguration
@@ -341,6 +345,10 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * //             },
  * //           ],
  * //         },
+ * //       },
+ * //       responseInterceptionMode: "BUFFERED" || "STREAM",
+ * //       responseStreamingConfiguration: { // ResponseStreamingConfiguration
+ * //         maxEventsPerInvocation: Number("int"),
  * //       },
  * //     },
  * //   ],

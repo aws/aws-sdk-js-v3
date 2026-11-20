@@ -190,6 +190,10 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * //           ],
  * //         },
  * //       },
+ * //       responseInterceptionMode: "BUFFERED" || "STREAM",
+ * //       responseStreamingConfiguration: { // ResponseStreamingConfiguration
+ * //         maxEventsPerInvocation: Number("int"),
+ * //       },
  * //     },
  * //   ],
  * //   policyEngineConfiguration: { // GatewayPolicyEngineConfiguration

@@ -69,10 +69,21 @@ import type {
   Secret,
   SecretReference,
   SessionConfiguration,
-  StreamingConfiguration,
   Unit,
   WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * <p>The streaming configuration for an MCP gateway. This structure defines settings that control response streaming behavior.</p>
+ * @public
+ */
+export interface StreamingConfiguration {
+  /**
+   * <p>Indicates whether response streaming is enabled for the gateway. When set to <code>true</code>, the gateway streams responses from targets back to the client.</p>
+   * @public
+   */
+  enableResponseStreaming?: boolean | undefined;
+}
 
 /**
  * <p>The configuration for a Model Context Protocol (MCP) gateway. This structure defines how the gateway implements the MCP protocol.</p>
@@ -10189,15 +10200,4 @@ export interface CreateOnlineEvaluationConfigResponse {
    * @public
    */
   failureReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteOnlineEvaluationConfigRequest {
-  /**
-   * <p> The unique identifier of the online evaluation configuration to delete. </p>
-   * @public
-   */
-  onlineEvaluationConfigId: string | undefined;
 }

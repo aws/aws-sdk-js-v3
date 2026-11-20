@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DeleteOnlineEvaluationConfigRequest } from "../models/models_1";
-import type { DeleteOnlineEvaluationConfigResponse } from "../models/models_2";
+import type { DeleteOnlineEvaluationConfigRequest, DeleteOnlineEvaluationConfigResponse } from "../models/models_2";
 import { DeleteOnlineEvaluationConfig$ } from "../schemas/schemas_0";
 
 /**

@@ -1058,6 +1058,8 @@ import {
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceType,
+  ResponseInterceptionMode,
+  ResponseStreamingConfiguration$,
   RestApiMethod,
   ResultDestination,
   RetryableConflictException,
@@ -2323,6 +2325,7 @@ assert(typeof ResetTokenVaultKeyMaterialResponse$ === "object");
 assert(typeof Resource$ === "object");
 assert(typeof ResourceConfiguration$ === "object");
 assert(typeof ResourceLocation$ === "object");
+assert(typeof ResponseStreamingConfiguration$ === "object");
 assert(typeof RootVolumeConfiguration$ === "object");
 assert(typeof RotatePaymentConnectorCredentialsRequest$ === "object");
 assert(typeof RotatePaymentConnectorCredentialsResponse$ === "object");
@@ -2605,6 +2608,7 @@ assert(typeof RegistryRecordOAuthGrantType === "object");
 assert(typeof RegistryRecordStatus === "object");
 assert(typeof RegistryStatus === "object");
 assert(typeof ResourceType === "object");
+assert(typeof ResponseInterceptionMode === "object");
 assert(typeof RestApiMethod === "object");
 assert(typeof ResultDestination === "object");
 assert(typeof SchemaType === "object");
