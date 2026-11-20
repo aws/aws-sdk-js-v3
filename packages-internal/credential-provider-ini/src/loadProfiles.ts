@@ -4,15 +4,15 @@ import type { ParsedIniData } from "@smithy/types";
 
 import { loadEmptyDaemonCredentialProfiles } from "./findEmptyDaemonCredentialProfiles";
 
-const DAEMON_CREDENTIAL = "daemon_credential";
+const CREDENTIAL_DAEMON_KEY = "credential_daemon";
 
 const getOwnSection = (data: ParsedIniData, name: string) => (Object.hasOwn(data, name) ? data[name] : undefined);
 
 /**
  * Merges the shared config and credentials files like parseKnownFiles, except that
- * daemon_credential is taken from the config file only.
+ * credential_daemon is taken from the config file only.
  *
- * An empty `daemon_credential =` line in the config file gives "", because the ini parser drops it.
+ * An empty `credential_daemon =` line in the config file gives "", because the ini parser drops it.
  * @internal
  */
 export const loadProfiles = async (init: SourceProfileInit = {}): Promise<ParsedIniData> => {
@@ -26,17 +26,17 @@ export const loadProfiles = async (init: SourceProfileInit = {}): Promise<Parsed
   }
 
   for (const [name, section] of Object.entries(profiles)) {
-    const fromConfig = getOwnSection(configFile, name)?.[DAEMON_CREDENTIAL];
+    const fromConfig = getOwnSection(configFile, name)?.[CREDENTIAL_DAEMON_KEY];
     if (fromConfig === undefined) {
-      delete section[DAEMON_CREDENTIAL];
+      delete section[CREDENTIAL_DAEMON_KEY];
     } else {
-      section[DAEMON_CREDENTIAL] = fromConfig;
+      section[CREDENTIAL_DAEMON_KEY] = fromConfig;
     }
   }
 
   for (const name of await loadEmptyDaemonCredentialProfiles(init)) {
-    if (getOwnSection(configFile, name)?.[DAEMON_CREDENTIAL] === undefined) {
-      profiles[name] = { ...getOwnSection(profiles, name), [DAEMON_CREDENTIAL]: "" };
+    if (getOwnSection(configFile, name)?.[CREDENTIAL_DAEMON_KEY] === undefined) {
+      profiles[name] = { ...getOwnSection(profiles, name), [CREDENTIAL_DAEMON_KEY]: "" };
     }
   }
 

@@ -40,7 +40,7 @@ export const resolveProfileData = async (
 ): Promise<AwsCredentialIdentity> => {
   const data = profiles[profileName];
 
-  // A profile with daemon_credential gets its credentials from the credential daemon only.
+  // A profile with credential_daemon gets its credentials from the credential daemon only.
   // This is checked first so that it applies to every profile in a source_profile chain.
   if (isCredentialDaemonProfile(data) && !isSsoProfileWithoutAccountOrRole(data)) {
     return resolveCredentialDaemonCredentials(profileName, data, options);

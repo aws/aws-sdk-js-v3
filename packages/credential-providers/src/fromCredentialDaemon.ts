@@ -8,7 +8,7 @@ import type { SourceProfileInit } from "@smithy/core/config";
 export interface FromCredentialDaemonInit extends Omit<CredentialDaemonInit, "credential">, SourceProfileInit {
   /**
    * The name of the credential to get from the credential daemon. When it is not set, the provider reads
-   * daemon_credential, sso_account_id and sso_role_name from the profile instead, and ignores accountId
+   * credential_daemon, sso_account_id and sso_role_name from the profile instead, and ignores accountId
    * and roleName.
    */
   credential?: string;
@@ -24,11 +24,13 @@ export interface FromCredentialDaemonInit extends Omit<CredentialDaemonInit, "cr
  *
  * const client = new FooClient({
  *   credentials: fromCredentialDaemon({
- *     // Optional. The profile that sets daemon_credential. Defaults to the client's profile, then
+ *     // Optional. The profile that sets credential_daemon. Defaults to the client's profile, then
  *     // AWS_PROFILE, then "default". Not used when credential is set.
  *     profile: "my-profile",
  *     // Optional. The name of the credential to get from the credential daemon, instead of a profile.
  *     credential: "my-credential",
+ *     // Optional. Absolute path to the credential daemon socket, used before AWS_CREDENTIAL_DAEMON_SOCKET.
+ *     socketPath: "/path/to/credential-daemon.sock",
  *     // Optional. Milliseconds to wait for the connection to the credential daemon. Defaults to 1000.
  *     connectTimeout: 1000,
  *     // Optional. Milliseconds to wait for the whole call to the credential daemon. Defaults to 5000.
@@ -43,10 +45,12 @@ export const fromCredentialDaemon = (
   init: FromCredentialDaemonInit = {}
 ): RuntimeConfigAwsCredentialIdentityProvider => {
   return async (args?: AwsIdentityProperties) => {
-    const { credential, accountId, roleName, connectTimeout, timeout, ...profileInit } = init;
+    const { credential, accountId, roleName, socketPath, connectTimeout, timeout, ...profileInit } = init;
     if (credential === undefined) {
       const { fromCredentialDaemonProfile } = await import("@aws-sdk/credential-provider-ini");
-      return fromCredentialDaemonProfile({ ...profileInit, credentialDaemon: { connectTimeout, timeout } })(args);
+      return fromCredentialDaemonProfile({ ...profileInit, credentialDaemon: { socketPath, connectTimeout, timeout } })(
+        args
+      );
     }
     const { fromCredentialDaemon: _fromCredentialDaemon } = await import("@aws-sdk/credential-provider-daemon");
     return _fromCredentialDaemon({ ...init, credential })(args);

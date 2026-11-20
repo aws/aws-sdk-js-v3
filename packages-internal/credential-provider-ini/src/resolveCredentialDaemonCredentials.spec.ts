@@ -58,13 +58,14 @@ describe("credential daemon profiles", () => {
       ["login_session", { login_session: "arn:aws:iam::123456789012:user/x" }],
     ])("uses the daemon over %s", async (_, settings) => {
       const credentials = await resolve({
-        dev: { daemon_credential: "dev", ...settings },
+        dev: { credential_daemon: "dev", ...settings },
         other: { aws_access_key_id: "OTHER", aws_secret_access_key: "OTHER" },
       });
       expect(credentials).toBe(daemonCreds);
       expect(fromCredentialDaemon).toHaveBeenCalledWith({
         credential: "dev",
         logger: undefined,
+        socketPath: undefined,
         connectTimeout: undefined,
         timeout: undefined,
       });
@@ -79,7 +80,7 @@ describe("credential daemon profiles", () => {
       await expect(
         resolve({
           dev: {
-            daemon_credential: "dev",
+            credential_daemon: "dev",
             aws_access_key_id: "AKID",
             aws_secret_access_key: "SECRET",
             credential_process: "some-command",
@@ -89,15 +90,25 @@ describe("credential daemon profiles", () => {
       expect(fromProcess).not.toHaveBeenCalled();
     });
 
-    it("passes an empty daemon_credential to the daemon provider for validation", async () => {
-      await resolve({ dev: { daemon_credential: "", aws_access_key_id: "AKID", aws_secret_access_key: "SECRET" } });
+    it("passes an empty credential_daemon to the daemon provider for validation", async () => {
+      await resolve({ dev: { credential_daemon: "", aws_access_key_id: "AKID", aws_secret_access_key: "SECRET" } });
       expect(fromCredentialDaemon).toHaveBeenCalledWith(expect.objectContaining({ credential: "" }));
     });
 
-    it("passes the credentialDaemon timeouts", async () => {
-      options.credentialDaemon = { connectTimeout: 10, timeout: 20 };
-      await resolve({ dev: { daemon_credential: "dev" } });
-      expect(fromCredentialDaemon).toHaveBeenCalledWith(expect.objectContaining({ connectTimeout: 10, timeout: 20 }));
+    it("passes the credentialDaemon socket path and timeouts", async () => {
+      options.credentialDaemon = { socketPath: "/run/daemon.sock", connectTimeout: 10, timeout: 20 };
+      await resolve({ dev: { credential_daemon: "dev" } });
+      expect(fromCredentialDaemon).toHaveBeenCalledWith(
+        expect.objectContaining({ socketPath: "/run/daemon.sock", connectTimeout: 10, timeout: 20 })
+      );
+    });
+
+    it("does not treat the old daemon_credential key as a daemon profile", async () => {
+      const credentials = await resolve({
+        dev: { daemon_credential: "dev", aws_access_key_id: "AKID", aws_secret_access_key: "SECRET" },
+      });
+      expect(credentials).toMatchObject({ accessKeyId: "AKID", secretAccessKey: "SECRET" });
+      expect(fromCredentialDaemon).not.toHaveBeenCalled();
     });
   });
 
@@ -107,13 +118,13 @@ describe("credential daemon profiles", () => {
       ["credential_source", { role_arn: "arn:aws:iam::123456789012:role/r", credential_source: "Environment" }],
       ["no other key", { role_arn: "arn:aws:iam::123456789012:role/r" }],
     ])("conflict-role-arn: gives INVALID_CONFIG for role_arn with %s", async (_, settings) => {
-      const profile = { daemon_credential: "dev", ...settings } as Record<string, string>;
+      const profile = { credential_daemon: "dev", ...settings } as Record<string, string>;
       await expect(resolve({ dev: profile, other: {} })).rejects.toMatchObject({
         name: "CredentialDaemonProviderError",
         code: "INVALID_CONFIG",
         tryNextLink: false,
         message:
-          `Profile dev sets both daemon_credential and role_arn. ` +
+          `Profile dev sets both credential_daemon and role_arn. ` +
           `Move the role to its own profile that uses source_profile = dev.`,
       });
       expect(fromCredentialDaemon).not.toHaveBeenCalled();
@@ -127,18 +138,18 @@ describe("credential daemon profiles", () => {
         { web_identity_token_file: "/token", role_arn: "arn:aws:iam::123456789012:role/r" },
       ],
     ])("%s: gives INVALID_CONFIG naming both credential sources", async (_, settings) => {
-      const profile = { daemon_credential: "dev", ...settings } as Record<string, string>;
+      const profile = { credential_daemon: "dev", ...settings } as Record<string, string>;
       const error = await resolve({ dev: profile }).catch((e) => e);
       expect(error).toMatchObject({
         name: "CredentialDaemonProviderError",
         code: "INVALID_CONFIG",
         tryNextLink: false,
         message:
-          "Profile dev has two credential sources, daemon_credential and web_identity_token_file. " +
+          "Profile dev has two credential sources, credential_daemon and web_identity_token_file. " +
           "Remove one of them.",
       });
       expect(error.message).toContain("web_identity_token_file");
-      expect(error.message).toContain("daemon_credential");
+      expect(error.message).toContain("credential_daemon");
       expect(error.message).not.toContain("source_profile");
       expect(fromCredentialDaemon).not.toHaveBeenCalled();
       expect(options.roleAssumer).not.toHaveBeenCalled();
@@ -149,7 +160,7 @@ describe("credential daemon profiles", () => {
     it("assumes a role with daemon credentials from the source profile", async () => {
       const credentials = await resolve({
         dev: { role_arn: "arn:aws:iam::123456789012:role/r", source_profile: "base" },
-        base: { daemon_credential: "base", aws_access_key_id: "AKID", aws_secret_access_key: "SECRET" },
+        base: { credential_daemon: "base", aws_access_key_id: "AKID", aws_secret_access_key: "SECRET" },
       });
       expect(credentials).toEqual({ ...roleCreds, $source: { CREDENTIALS_PROFILE_SOURCE_PROFILE: "o" } });
       expect(fromCredentialDaemon).toHaveBeenCalledWith(expect.objectContaining({ credential: "base" }));
@@ -163,7 +174,7 @@ describe("credential daemon profiles", () => {
       await resolve({
         dev: { role_arn: "arn:aws:iam::123456789012:role/a", source_profile: "middle" },
         middle: { role_arn: "arn:aws:iam::123456789012:role/b", source_profile: "base" },
-        base: { daemon_credential: "base" },
+        base: { credential_daemon: "base" },
       });
       expect(fromCredentialDaemon).toHaveBeenCalledTimes(1);
       expect(fromCredentialDaemon).toHaveBeenCalledWith(expect.objectContaining({ credential: "base" }));
@@ -179,7 +190,7 @@ describe("credential daemon profiles", () => {
       const credentials: AttributedAwsCredentialIdentity = await resolve({
         dev: { role_arn: "arn:aws:iam::123456789012:role/a", source_profile: "middle" },
         middle: { role_arn: "arn:aws:iam::123456789012:role/b", source_profile: "base" },
-        base: { daemon_credential: "base" },
+        base: { credential_daemon: "base" },
       });
       expect(credentials.$source).toEqual({ CREDENTIAL_DAEMON: "Aq", CREDENTIALS_PROFILE_SOURCE_PROFILE: "o" });
     });
@@ -205,7 +216,7 @@ describe("credential daemon profiles", () => {
       ["sso_start_url", { sso_start_url: "https://example.awsapps.com/start", sso_region: "us-east-1" }],
     ])("sends sso_account_id and sso_role_name with %s", async (_, settings) => {
       await resolve({
-        dev: { daemon_credential: "dev", ...settings, sso_account_id: "123456789012", sso_role_name: "Admin" },
+        dev: { credential_daemon: "dev", ...settings, sso_account_id: "123456789012", sso_role_name: "Admin" },
       });
       expect(fromCredentialDaemon).toHaveBeenCalledWith(
         expect.objectContaining({ credential: "dev", accountId: "123456789012", roleName: "Admin" })
@@ -217,7 +228,7 @@ describe("credential daemon profiles", () => {
       ["sso_account_id", { sso_account_id: "123456789012" }],
       ["sso_role_name", { sso_role_name: "Admin" }],
     ])("gives the SSO validation error with only %s, without calling the daemon", async (_, settings) => {
-      const error = await resolve({ dev: { daemon_credential: "dev", ...sso, ...settings } }).catch((e) => e);
+      const error = await resolve({ dev: { credential_daemon: "dev", ...sso, ...settings } }).catch((e) => e);
       expect(error).toBeInstanceOf(CredentialsProviderError);
       expect(error.tryNextLink).toBe(false);
       expect(error.message).toContain("Profile is configured with invalid SSO credentials");
@@ -226,19 +237,19 @@ describe("credential daemon profiles", () => {
     });
 
     it("resolves as a normal SSO profile with neither, and allows role_arn", async () => {
-      expect(await resolve({ dev: { daemon_credential: "dev", ...sso } })).toMatchObject({ accessKeyId: "SSO" });
+      expect(await resolve({ dev: { credential_daemon: "dev", ...sso } })).toMatchObject({ accessKeyId: "SSO" });
       expect(fromSSO).toHaveBeenCalledTimes(1);
 
       const credentials = await resolve({
         dev: { role_arn: "arn:aws:iam::123456789012:role/r", source_profile: "base" },
-        base: { daemon_credential: "base", ...sso, role_arn: "arn:aws:iam::123456789012:role/x" },
+        base: { credential_daemon: "base", ...sso, role_arn: "arn:aws:iam::123456789012:role/x" },
       });
       expect(fromCredentialDaemon).not.toHaveBeenCalled();
       expect(credentials).toMatchObject({ accessKeyId: "ROLE_AKID" });
     });
 
     it("sends no SSO fields for a daemon profile without sso_session or sso_start_url", async () => {
-      await resolve({ dev: { daemon_credential: "dev", sso_account_id: "123456789012", sso_role_name: "Admin" } });
+      await resolve({ dev: { credential_daemon: "dev", sso_account_id: "123456789012", sso_role_name: "Admin" } });
       expect(fromCredentialDaemon).toHaveBeenCalledWith({
         credential: "dev",
         logger: undefined,
@@ -250,9 +261,10 @@ describe("credential daemon profiles", () => {
 
   describe("helpers", () => {
     it(isCredentialDaemonProfile.name, () => {
-      expect(isCredentialDaemonProfile({ daemon_credential: "" })).toBe(true);
-      expect(isCredentialDaemonProfile({ daemon_credential: "x" })).toBe(true);
+      expect(isCredentialDaemonProfile({ credential_daemon: "" })).toBe(true);
+      expect(isCredentialDaemonProfile({ credential_daemon: "x" })).toBe(true);
       expect(isCredentialDaemonProfile({})).toBe(false);
+      expect(isCredentialDaemonProfile({ daemon_credential: "x" })).toBe(false);
       expect(isCredentialDaemonProfile(undefined)).toBe(false);
     });
 
@@ -264,7 +276,7 @@ describe("credential daemon profiles", () => {
     });
 
     it("can be called directly", async () => {
-      await expect(resolveCredentialDaemonCredentials("dev", { daemon_credential: "dev" }, {})).resolves.toBe(
+      await expect(resolveCredentialDaemonCredentials("dev", { credential_daemon: "dev" }, {})).resolves.toBe(
         daemonCreds
       );
     });

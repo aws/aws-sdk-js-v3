@@ -39,7 +39,7 @@ describe(fromCredentialDaemonProfile.name, () => {
   });
 
   it("gets the profile's credential from the credential daemon", async () => {
-    const credentials = await provider("[profile dev]\ndaemon_credential = dev\n", "", {
+    const credentials = await provider("[profile dev]\ncredential_daemon = dev\n", "", {
       profile: "dev",
       credentialDaemon: { connectTimeout: 250, timeout: 2000 },
     })();
@@ -53,7 +53,7 @@ describe(fromCredentialDaemonProfile.name, () => {
   it("sends the SSO account and role of an SSO profile", async () => {
     await provider(
       "[profile dev]\nsso_session = corp\nsso_account_id = 111122223333\nsso_role_name = Admin\n" +
-        "daemon_credential = corp\n[sso-session corp]\nsso_start_url = https://corp.awsapps.com/start\n" +
+        "credential_daemon = corp\n[sso-session corp]\nsso_start_url = https://corp.awsapps.com/start\n" +
         "sso_region = us-east-1\n",
       "",
       { profile: "dev" }
@@ -65,7 +65,7 @@ describe(fromCredentialDaemonProfile.name, () => {
   });
 
   it("uses the client's profile when none is given", async () => {
-    await provider("[profile client-profile]\ndaemon_credential = from-client\n")({
+    await provider("[profile client-profile]\ncredential_daemon = from-client\n")({
       callerClientConfig: { profile: "client-profile" } as any,
     });
 
@@ -73,11 +73,11 @@ describe(fromCredentialDaemonProfile.name, () => {
   });
 
   it.each([
-    ["has no daemon_credential", "[profile dev]\naws_access_key_id = AKID\naws_secret_access_key = SECRET\n", ""],
-    ["has daemon_credential only in the credentials file", "", "[dev]\ndaemon_credential = dev\n"],
+    ["has no credential_daemon", "[profile dev]\naws_access_key_id = AKID\naws_secret_access_key = SECRET\n", ""],
+    ["has credential_daemon only in the credentials file", "", "[dev]\ncredential_daemon = dev\n"],
     [
       "is an SSO profile with neither sso_account_id nor sso_role_name",
-      "[profile dev]\nsso_session = corp\ndaemon_credential = corp\n[sso-session corp]\n" +
+      "[profile dev]\nsso_session = corp\ncredential_daemon = corp\n[sso-session corp]\n" +
         "sso_start_url = https://corp.awsapps.com/start\nsso_region = us-east-1\n",
       "",
     ],
@@ -92,7 +92,7 @@ describe(fromCredentialDaemonProfile.name, () => {
 
   it("follows fromIni's rules for a daemon profile, such as role_arn being a configuration error", async () => {
     const error = await provider(
-      "[profile dev]\ndaemon_credential = dev\nrole_arn = arn:aws:iam::123456789012:role/r\n",
+      "[profile dev]\ncredential_daemon = dev\nrole_arn = arn:aws:iam::123456789012:role/r\n",
       "",
       { profile: "dev" }
     )().catch((e) => e);

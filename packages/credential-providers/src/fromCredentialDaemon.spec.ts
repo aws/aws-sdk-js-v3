@@ -20,8 +20,8 @@ describe("fromCredentialDaemon", () => {
     vi.clearAllMocks();
   });
 
-  it("passes init, including the timeouts, to the underlying fromCredentialDaemon", async () => {
-    const init = { credential: "my-credential", connectTimeout: 250, timeout: 2000 };
+  it("passes init, including the socket path and timeouts, to the underlying fromCredentialDaemon", async () => {
+    const init = { credential: "my-credential", socketPath: "/run/daemon.sock", connectTimeout: 250, timeout: 2000 };
     const args = { callerClientConfig: { region: async () => "us-east-1" } };
     const provider = fromCredentialDaemon(init);
 
@@ -44,6 +44,7 @@ describe("fromCredentialDaemon", () => {
       configFilepath: "/tmp/config",
       accountId: "111122223333",
       roleName: "Admin",
+      socketPath: "/run/daemon.sock",
       connectTimeout: 250,
       timeout: 2000,
     });
@@ -52,7 +53,7 @@ describe("fromCredentialDaemon", () => {
     expect(mockFromCredentialDaemonProfile).toHaveBeenCalledWith({
       profile: "dev",
       configFilepath: "/tmp/config",
-      credentialDaemon: { connectTimeout: 250, timeout: 2000 },
+      credentialDaemon: { socketPath: "/run/daemon.sock", connectTimeout: 250, timeout: 2000 },
     });
     expect(innerProvider).toHaveBeenCalledWith(args);
     expect(mockFromCredentialDaemon).not.toHaveBeenCalled();

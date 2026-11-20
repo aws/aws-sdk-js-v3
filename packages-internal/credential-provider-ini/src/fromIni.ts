@@ -57,10 +57,15 @@ export interface FromIniInit extends SourceProfileInit, CredentialProviderOption
   ignoreCache?: boolean;
 
   /**
-   * Timeouts for profiles that get credentials from the credential daemon (daemon_credential).
+   * Settings for profiles that get credentials from the credential daemon (credential_daemon).
    * They can be set only here, in code.
    */
   credentialDaemon?: {
+    /**
+     * Absolute path to the credential daemon socket. When set, it is used before AWS_CREDENTIAL_DAEMON_SOCKET
+     * and $HOME/.aws/credential-daemon.sock. An empty or relative value counts as unset.
+     */
+    socketPath?: string;
     /**
      * Milliseconds to wait for the connection to the credential daemon. Defaults to 1000.
      */

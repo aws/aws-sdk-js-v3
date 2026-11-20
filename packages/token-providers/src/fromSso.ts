@@ -54,12 +54,12 @@ export const fromSso =
     } else if (
       profile["sso_account_id"] !== undefined &&
       profile["sso_role_name"] !== undefined &&
-      (await loadSharedConfigFiles(init)).configFile?.[profileName]?.["daemon_credential"] !== undefined
+      (await loadSharedConfigFiles(init)).configFile?.[profileName]?.["credential_daemon"] !== undefined
     ) {
       // The credential daemon holds this profile's SSO session, so it has no sso_session for bearer tokens.
       // Not a terminal error, like a missing sso_session.
       throw new TokenProviderError(
-        `Profile '${profileName}' gets its SSO session from the credential daemon (daemon_credential), ` +
+        `Profile '${profileName}' gets its SSO session from the credential daemon (credential_daemon), ` +
           `so it has no sso_session for bearer-token authentication. Services that use bearer tokens need an ` +
           `SSO session stored in the shared config and SSO token cache files.`,
         { tryNextLink: true, logger: init.logger }

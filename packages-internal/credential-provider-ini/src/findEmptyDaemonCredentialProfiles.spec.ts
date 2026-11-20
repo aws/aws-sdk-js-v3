@@ -9,28 +9,28 @@ import {
 } from "./findEmptyDaemonCredentialProfiles";
 
 describe(findEmptyDaemonCredentialProfiles.name, () => {
-  it("finds profiles with an empty daemon_credential", () => {
+  it("finds profiles with an empty credential_daemon", () => {
     expect(
       findEmptyDaemonCredentialProfiles(
         [
           "[default]",
-          "daemon_credential =",
+          "credential_daemon =",
           "[profile a]",
-          "daemon_credential=   ",
+          "credential_daemon=   ",
           "[profile 'b']",
-          "daemon_credential = ; a comment",
+          "credential_daemon = ; a comment",
           "[profile c]",
-          "daemon_credential = c",
+          "credential_daemon = c",
           "[profile d]",
-          "  daemon_credential =",
+          "  credential_daemon =",
           "[profile e]",
-          "# daemon_credential =",
+          "# credential_daemon =",
           "[sso-session f]",
-          "daemon_credential =",
+          "credential_daemon =",
           "[g]",
-          "daemon_credential =",
+          "credential_daemon =",
           "[profile h] ; comment",
-          "daemon_credential = # comment",
+          "credential_daemon = # comment",
         ].join("\r\n")
       )
     ).toEqual(new Set(["default", "a", "b", "d", "h"]));
@@ -42,23 +42,23 @@ describe(findEmptyDaemonCredentialProfiles.name, () => {
         [
           "[profile in-subsection]",
           "s3 =",
-          "  daemon_credential =",
+          "  credential_daemon =",
           "[profile after-subsection]",
           "s3 =",
           "  addressing_style = path",
-          "daemon_credential =",
+          "credential_daemon =",
           "[profile indented-after-subsection]",
           "s3 =",
           "  addressing_style = path",
           "region = us-east-1",
-          "  daemon_credential =",
+          "  credential_daemon =",
         ].join("\n")
       )
     ).toEqual(new Set(["after-subsection", "indented-after-subsection"]));
   });
 
   it("finds nothing in a file the ini parser rejects", () => {
-    expect(findEmptyDaemonCredentialProfiles("[profile a]\ndaemon_credential =\n[profile __proto__]\n")).toEqual(
+    expect(findEmptyDaemonCredentialProfiles("[profile a]\ncredential_daemon =\n[profile __proto__]\n")).toEqual(
       new Set()
     );
   });
@@ -69,7 +69,7 @@ describe(loadEmptyDaemonCredentialProfiles.name, () => {
     const dir = mkdtempSync(join(tmpdir(), "daemon-empty-"));
     try {
       const configFilepath = join(dir, "config");
-      writeFileSync(configFilepath, "[profile dev]\ndaemon_credential =\n");
+      writeFileSync(configFilepath, "[profile dev]\ncredential_daemon =\n");
       await expect(loadEmptyDaemonCredentialProfiles({ configFilepath, ignoreCache: true })).resolves.toEqual(
         new Set(["dev"])
       );

@@ -39,16 +39,16 @@ describe(loadProfiles.name, () => {
     });
   });
 
-  it("takes daemon_credential from the config file", async () => {
-    expect(await load("[profile dev]\ndaemon_credential = dev\n", "")).toEqual({ dev: { daemon_credential: "dev" } });
+  it("takes credential_daemon from the config file", async () => {
+    expect(await load("[profile dev]\ncredential_daemon = dev\n", "")).toEqual({ dev: { credential_daemon: "dev" } });
   });
 
-  it("ignores daemon_credential that is only in the credentials file", async () => {
+  it("ignores credential_daemon that is only in the credentials file", async () => {
     expect(
       await load(
         "[profile dev]\nregion = us-west-2\n",
-        "[dev]\ndaemon_credential = dev\naws_access_key_id = AKID\naws_secret_access_key = SECRET\n" +
-          "[other]\ndaemon_credential = other\n"
+        "[dev]\ncredential_daemon = dev\naws_access_key_id = AKID\naws_secret_access_key = SECRET\n" +
+          "[other]\ncredential_daemon = other\n"
       )
     ).toEqual({
       dev: { region: "us-west-2", aws_access_key_id: "AKID", aws_secret_access_key: "SECRET" },
@@ -56,44 +56,44 @@ describe(loadProfiles.name, () => {
     });
   });
 
-  it("keeps the config file's daemon_credential over the credentials file's", async () => {
+  it("keeps the config file's credential_daemon over the credentials file's", async () => {
     expect(
-      await load("[profile dev]\ndaemon_credential = from-config\n", "[dev]\ndaemon_credential = from-creds\n")
+      await load("[profile dev]\ncredential_daemon = from-config\n", "[dev]\ncredential_daemon = from-creds\n")
     ).toEqual({
-      dev: { daemon_credential: "from-config" },
+      dev: { credential_daemon: "from-config" },
     });
   });
 
-  it("gives an empty daemon_credential in the config file as an empty string", async () => {
+  it("gives an empty credential_daemon in the config file as an empty string", async () => {
     expect(
       await load(
-        "[profile dev]\ndaemon_credential =\naws_access_key_id = AKID\naws_secret_access_key = SECRET\n",
-        "[dev]\ndaemon_credential = from-creds\n"
+        "[profile dev]\ncredential_daemon =\naws_access_key_id = AKID\naws_secret_access_key = SECRET\n",
+        "[dev]\ncredential_daemon = from-creds\n"
       )
     ).toEqual({
-      dev: { daemon_credential: "", aws_access_key_id: "AKID", aws_secret_access_key: "SECRET" },
+      dev: { credential_daemon: "", aws_access_key_id: "AKID", aws_secret_access_key: "SECRET" },
     });
   });
 
-  it("gives an indented empty daemon_credential as an empty string", async () => {
+  it("gives an indented empty credential_daemon as an empty string", async () => {
     expect(
-      await load("[profile dev]\naws_access_key_id = AKID\naws_secret_access_key = SECRET\n  daemon_credential =\n", "")
+      await load("[profile dev]\naws_access_key_id = AKID\naws_secret_access_key = SECRET\n  credential_daemon =\n", "")
     ).toEqual({
-      dev: { daemon_credential: "", aws_access_key_id: "AKID", aws_secret_access_key: "SECRET" },
+      dev: { credential_daemon: "", aws_access_key_id: "AKID", aws_secret_access_key: "SECRET" },
     });
   });
 
-  it("adds a profile that has only an empty daemon_credential", async () => {
-    expect(await load("[profile dev]\ndaemon_credential =\n", "")).toEqual({ dev: { daemon_credential: "" } });
+  it("adds a profile that has only an empty credential_daemon", async () => {
+    expect(await load("[profile dev]\ncredential_daemon =\n", "")).toEqual({ dev: { credential_daemon: "" } });
   });
 
-  it.each(["[default]", "[profile default]"])("reads an empty daemon_credential under %s", async (header) => {
-    expect(await load(`${header}\ndaemon_credential =\n`, "")).toEqual({ default: { daemon_credential: "" } });
+  it.each(["[default]", "[profile default]"])("reads an empty credential_daemon under %s", async (header) => {
+    expect(await load(`${header}\ncredential_daemon =\n`, "")).toEqual({ default: { credential_daemon: "" } });
   });
 
   it("does not change the profile objects of the shared file cache", async () => {
     writeFileSync(configFilepath, "[profile dev]\nregion = us-west-2\n");
-    writeFileSync(filepath, "[dev]\ndaemon_credential = x\n");
+    writeFileSync(filepath, "[dev]\ncredential_daemon = x\n");
     const first = await loadProfiles({ configFilepath, filepath, ignoreCache: true });
     first.dev.region = "changed";
     const second = await loadProfiles({ configFilepath, filepath });

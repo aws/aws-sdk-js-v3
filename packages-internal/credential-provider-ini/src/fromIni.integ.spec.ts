@@ -377,7 +377,7 @@ describe("fromIni with the credential daemon", () => {
     await startDaemon();
     setIniProfileData({
       dev: {
-        daemon_credential: "dev",
+        credential_daemon: "dev",
         aws_access_key_id: "INI_STATIC_ACCESS_KEY",
         aws_secret_access_key: "INI_STATIC_SECRET_KEY",
       },
@@ -394,26 +394,26 @@ describe("fromIni with the credential daemon", () => {
     ]);
   });
 
-  it("gives INVALID_CONFIG for an empty daemon_credential in the config file", async () => {
+  it("gives INVALID_CONFIG for an empty credential_daemon in the config file", async () => {
     await startDaemon();
     externalDataInterceptor.interceptFile(
       join(homedir(), ".aws", "config"),
-      "[profile dev]\ndaemon_credential =\naws_access_key_id = AKID\naws_secret_access_key = SECRET\n"
+      "[profile dev]\ncredential_daemon =\naws_access_key_id = AKID\naws_secret_access_key = SECRET\n"
     );
     await expect(fromIni()()).rejects.toMatchObject({
       code: "INVALID_CONFIG",
       tryNextLink: false,
-      message: expect.stringContaining("daemon_credential"),
+      message: expect.stringContaining("credential_daemon"),
     });
     expect(daemonRequests).toEqual([]);
   });
 
-  it("ignores daemon_credential in the credentials file", async () => {
+  it("ignores credential_daemon in the credentials file", async () => {
     await startDaemon();
     setIniProfileData({ dev: { region: "us-west-2" } });
     externalDataInterceptor.interceptFile(
       credentialsFilepath,
-      "[dev]\ndaemon_credential = dev\naws_access_key_id = CREDS_FILE_KEY\naws_secret_access_key = CREDS_FILE_SECRET\n"
+      "[dev]\ncredential_daemon = dev\naws_access_key_id = CREDS_FILE_KEY\naws_secret_access_key = CREDS_FILE_SECRET\n"
     );
     expect(await fromIni()()).toMatchObject({
       accessKeyId: "CREDS_FILE_KEY",
@@ -433,7 +433,7 @@ describe("fromIni with the credential daemon", () => {
     externalDataInterceptor.interceptFile(
       join(homedir(), ".aws", "config"),
       "[profile dev]\nsso_session = corp\nsso_account_id = 111111111111\nsso_role_name = ReadOnly\n" +
-        "daemon_credential = corp\n[sso-session corp]\nsso_start_url = https://corp.awsapps.com/start\n" +
+        "credential_daemon = corp\n[sso-session corp]\nsso_start_url = https://corp.awsapps.com/start\n" +
         "sso_region = us-east-1\n"
     );
     await expect(fromIni()()).rejects.toMatchObject({
@@ -456,7 +456,7 @@ describe("fromIni with the credential daemon", () => {
     await startDaemon();
     externalDataInterceptor.interceptFile(
       join(homedir(), ".aws", "config"),
-      "[profile dev]\nsso_session = corp\ndaemon_credential = corp\n" +
+      "[profile dev]\nsso_session = corp\ncredential_daemon = corp\n" +
         "role_arn = arn:aws:iam::123456789012:role/Admin\nsource_profile = base\n" +
         "[profile base]\naws_access_key_id = AKIDBASE\naws_secret_access_key = s\n" +
         "[sso-session corp]\nsso_start_url = https://corp.awsapps.com/start\nsso_region = us-east-1\n"
@@ -472,7 +472,7 @@ describe("fromIni with the credential daemon", () => {
 
   it("rejects with NOT_RUNNING and sends no request when the daemon is not running", async () => {
     process.env.AWS_CREDENTIAL_DAEMON_SOCKET = join(dir, "missing.sock");
-    setIniProfileData({ dev: { daemon_credential: "dev" } });
+    setIniProfileData({ dev: { credential_daemon: "dev" } });
     const handler = new MockNodeHttpHandler();
     const handle = vi.spyOn(handler, "handle");
     const sts = new STS({
