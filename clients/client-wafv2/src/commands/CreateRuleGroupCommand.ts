@@ -806,6 +806,17 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *                     },
  *                     SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
  *                   },
+ *                   AWSManagedRulesAISecurityRuleSet: { // AWSManagedRulesAISecurityRuleSet
+ *                     BedrockGuardrails: { // BedrockGuardrails
+ *                       Disable: {},
+ *                       ProtectRequestOnly: { // BedrockGuardrailsRequestOnly
+ *                         RoleArn: "STRING_VALUE", // required
+ *                       },
+ *                       ProtectRequestAndResponse: { // BedrockGuardrailsRequestAndResponse
+ *                         RoleArn: "STRING_VALUE", // required
+ *                       },
+ *                     },
+ *                   },
  *                 },
  *               ],
  *               RuleActionOverrides: [
@@ -1048,6 +1059,17 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *                   },
  *                 },
  *                 SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ *               },
+ *               AWSManagedRulesAISecurityRuleSet: {
+ *                 BedrockGuardrails: {
+ *                   Disable: {},
+ *                   ProtectRequestOnly: {
+ *                     RoleArn: "STRING_VALUE", // required
+ *                   },
+ *                   ProtectRequestAndResponse: {
+ *                     RoleArn: "STRING_VALUE", // required
+ *                   },
+ *                 },
  *               },
  *             },
  *           ],

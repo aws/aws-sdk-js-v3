@@ -566,9 +566,24 @@ export type SensitivityLevel = (typeof SensitivityLevel)[keyof typeof Sensitivit
  * @public
  * @enum
  */
+export const Confidence = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+/**
+ * @public
+ */
+export type Confidence = (typeof Confidence)[keyof typeof Confidence];
+
+/**
+ * @public
+ * @enum
+ */
 export const AssociatedResourceType = {
   AGENTCORE_GATEWAY: "AGENTCORE_GATEWAY",
   API_GATEWAY: "API_GATEWAY",
+  APPLICATION_LOAD_BALANCER: "APPLICATION_LOAD_BALANCER",
   APP_RUNNER_SERVICE: "APP_RUNNER_SERVICE",
   CLOUDFRONT: "CLOUDFRONT",
   COGNITO_USER_POOL: "COGNITO_USER_POOL",
@@ -589,6 +604,7 @@ export const ParameterExceptionField = {
   ASSOCIABLE_RESOURCE: "ASSOCIABLE_RESOURCE",
   ASSOCIATED_RESOURCE_TYPE: "ASSOCIATED_RESOURCE_TYPE",
   ATP_RULE_SET_RESPONSE_INSPECTION: "ATP_RULE_SET_RESPONSE_INSPECTION",
+  BEDROCK_GUARDRAILS: "BEDROCK_GUARDRAILS",
   BODY_PARSING_FALLBACK_BEHAVIOR: "BODY_PARSING_FALLBACK_BEHAVIOR",
   BYTE_MATCH_STATEMENT: "BYTE_MATCH_STATEMENT",
   CHALLENGE_CONFIG: "CHALLENGE_CONFIG",
@@ -644,6 +660,7 @@ export const ParameterExceptionField = {
   RESOURCE_ARN: "RESOURCE_ARN",
   RESOURCE_TYPE: "RESOURCE_TYPE",
   RESPONSE_CONTENT_TYPE: "RESPONSE_CONTENT_TYPE",
+  ROLE_ARN: "ROLE_ARN",
   RULE: "RULE",
   RULE_ACTION: "RULE_ACTION",
   RULE_GROUP: "RULE_GROUP",
@@ -677,6 +694,7 @@ export const SizeInspectionLimit = {
   KB_32: "KB_32",
   KB_48: "KB_48",
   KB_64: "KB_64",
+  KB_8: "KB_8",
 } as const;
 /**
  * @public
@@ -861,6 +879,33 @@ export type Platform = (typeof Platform)[keyof typeof Platform];
  * @public
  * @enum
  */
+export const EventCategory = {
+  API_SECURITY: "API_SECURITY",
+} as const;
+/**
+ * @public
+ */
+export type EventCategory = (typeof EventCategory)[keyof typeof EventCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventStatus = {
+  EVENT_COMPLETED: "EVENT_COMPLETED",
+  EVENT_ENDED: "EVENT_ENDED",
+  EVENT_IN_PROGRESS: "EVENT_IN_PROGRESS",
+  EVENT_STARTED: "EVENT_STARTED",
+} as const;
+/**
+ * @public
+ */
+export type EventStatus = (typeof EventStatus)[keyof typeof EventStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const FilterBehavior = {
   DROP: "DROP",
   KEEP: "KEEP",
@@ -993,6 +1038,57 @@ export const FailureReason = {
  * @public
  */
 export type FailureReason = (typeof FailureReason)[keyof typeof FailureReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventActorSortBy = {
+  EVENT_COUNT: "EVENT_COUNT",
+} as const;
+/**
+ * @public
+ */
+export type EventActorSortBy = (typeof EventActorSortBy)[keyof typeof EventActorSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventFilterKey = {
+  EVENT_CATEGORY: "EVENT_CATEGORY",
+  RESOURCE_ARN: "RESOURCE_ARN",
+} as const;
+/**
+ * @public
+ */
+export type EventFilterKey = (typeof EventFilterKey)[keyof typeof EventFilterKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventIncludeField = {
+  TIMELINE: "TIMELINE",
+} as const;
+/**
+ * @public
+ */
+export type EventIncludeField = (typeof EventIncludeField)[keyof typeof EventIncludeField];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventSortBy = {
+  CONFIDENCE: "CONFIDENCE",
+  END_TIME: "END_TIME",
+  START_TIME: "START_TIME",
+} as const;
+/**
+ * @public
+ */
+export type EventSortBy = (typeof EventSortBy)[keyof typeof EventSortBy];
 
 /**
  * @public

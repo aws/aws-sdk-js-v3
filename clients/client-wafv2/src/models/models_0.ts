@@ -6,12 +6,19 @@ import type {
   BlockchainChain,
   BodyParsingFallbackBehavior,
   ComparisonOperator,
+  Confidence,
   ConnectedAccountChain,
   CountryCode,
   CryptoCurrency,
   Currency,
   CurrencyMode,
   DataProtectionAction,
+  EventActorSortBy,
+  EventCategory,
+  EventFilterKey,
+  EventIncludeField,
+  EventSortBy,
+  EventStatus,
   FailureReason,
   FallbackBehavior,
   FieldToProtectType,
@@ -274,7 +281,11 @@ export interface Body {
    *     only forwards the contents that are within the limit to WAF for inspection. </p>
    *          <ul>
    *             <li>
-   *                <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
+   *                <p>For AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
+   *             </li>
+   *             <li>
+   *                <p>For Application Load Balancer, the default limit is 8 KB (8,192 bytes), and
+   *           you can change the limit in the web ACL <code>AssociationConfig</code>. </p>
    *             </li>
    *             <li>
    *                <p>For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and
@@ -709,7 +720,11 @@ export interface JsonBody {
    *     only forwards the contents that are within the limit to WAF for inspection. </p>
    *          <ul>
    *             <li>
-   *                <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
+   *                <p>For AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
+   *             </li>
+   *             <li>
+   *                <p>For Application Load Balancer, the default limit is 8 KB (8,192 bytes), and
+   *           you can change the limit in the web ACL <code>AssociationConfig</code>. </p>
    *             </li>
    *             <li>
    *                <p>For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and
@@ -951,7 +966,11 @@ export interface FieldToMatch {
    *     only forwards the contents that are within the limit to WAF for inspection. </p>
    *          <ul>
    *             <li>
-   *                <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
+   *                <p>For AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
+   *             </li>
+   *             <li>
+   *                <p>For Application Load Balancer, the default limit is 8 KB (8,192 bytes), and
+   *           you can change the limit in the web ACL <code>AssociationConfig</code>. </p>
    *             </li>
    *             <li>
    *                <p>For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and
@@ -983,7 +1002,11 @@ export interface FieldToMatch {
    *     only forwards the contents that are within the limit to WAF for inspection. </p>
    *          <ul>
    *             <li>
-   *                <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
+   *                <p>For AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
+   *             </li>
+   *             <li>
+   *                <p>For Application Load Balancer, the default limit is 8 KB (8,192 bytes), and
+   *           you can change the limit in the web ACL <code>AssociationConfig</code>. </p>
    *             </li>
    *             <li>
    *                <p>For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and
@@ -1917,6 +1940,84 @@ export interface AWSManagedRulesACFPRuleSet {
 }
 
 /**
+ * <p>Turns off the use of Amazon Bedrock Guardrails in the AI security managed rule group. The rule group continues to run its own inspections. </p>
+ *          <p>This is used in the <code>BedrockGuardrails</code> setting of <code>AWSManagedRulesAISecurityRuleSet</code>. </p>
+ *          <p>JSON specification: <code>"Disable": \{\}</code>
+ *          </p>
+ * @public
+ */
+export interface DisableBedrockGuardrails {}
+
+/**
+ * <p>Configures the AI security managed rule group to use Amazon Bedrock Guardrails to inspect web requests and the responses to them. </p>
+ *          <p>This is used in the <code>BedrockGuardrails</code> setting of <code>AWSManagedRulesAISecurityRuleSet</code>. </p>
+ * @public
+ */
+export interface BedrockGuardrailsRequestAndResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that WAF uses to call Amazon Bedrock Guardrails for the rule group. The role must be in the same Amazon Web Services account as the web ACL. </p>
+   *          <p>To specify the role, you must have permission to call <code>iam:PassRole</code> on it, to pass it to the WAF service principal <code>wafv2.amazonaws.com</code>. </p>
+   * @public
+   */
+  RoleArn: string | undefined;
+}
+
+/**
+ * <p>Configures the AI security managed rule group to use Amazon Bedrock Guardrails to inspect web requests. </p>
+ *          <p>This is used in the <code>BedrockGuardrails</code> setting of <code>AWSManagedRulesAISecurityRuleSet</code>. </p>
+ * @public
+ */
+export interface BedrockGuardrailsRequestOnly {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that WAF uses to call Amazon Bedrock Guardrails for the rule group. The role must be in the same Amazon Web Services account as the web ACL. </p>
+   *          <p>To specify the role, you must have permission to call <code>iam:PassRole</code> on it, to pass it to the WAF service principal <code>wafv2.amazonaws.com</code>. </p>
+   * @public
+   */
+  RoleArn: string | undefined;
+}
+
+/**
+ * <p>Specifies whether the AI security managed rule group, <code>AWSManagedRulesAISecurityRuleSet</code>, uses Amazon Bedrock Guardrails to inspect web requests, or web requests and responses. </p>
+ *          <p>Specify exactly one of the following settings: <code>Disable</code>, <code>ProtectRequestOnly</code>, or <code>ProtectRequestAndResponse</code>. </p>
+ * @public
+ */
+export interface BedrockGuardrails {
+  /**
+   * <p>Turns off the use of Amazon Bedrock Guardrails. The rule group continues to run its own inspections. </p>
+   *          <p>JSON specification: <code>"Disable": \{\}</code>
+   *          </p>
+   * @public
+   */
+  Disable?: DisableBedrockGuardrails | undefined;
+
+  /**
+   * <p>Uses Amazon Bedrock Guardrails to inspect web requests. </p>
+   * @public
+   */
+  ProtectRequestOnly?: BedrockGuardrailsRequestOnly | undefined;
+
+  /**
+   * <p>Uses Amazon Bedrock Guardrails to inspect web requests and the responses to them. </p>
+   * @public
+   */
+  ProtectRequestAndResponse?: BedrockGuardrailsRequestAndResponse | undefined;
+}
+
+/**
+ * <p>Configures the use of the AI security managed rule group, <code>AWSManagedRulesAISecurityRuleSet</code>. This configuration is used in <code>ManagedRuleGroupConfig</code>. </p>
+ *          <p>The rule group always runs its own inspections. The configuration that you provide here determines whether the rule group also uses Amazon Bedrock Guardrails to inspect web requests, or web requests and responses. </p>
+ *          <p>Use of this rule group is not supported in Firewall Manager. </p>
+ * @public
+ */
+export interface AWSManagedRulesAISecurityRuleSet {
+  /**
+   * <p>Specifies whether and how the rule group uses Amazon Bedrock Guardrails. </p>
+   * @public
+   */
+  BedrockGuardrails: BedrockGuardrails | undefined;
+}
+
+/**
  * <p>A single regular expression. This is used in a <a>RegexPatternSet</a> and
  *            also in the configuration for the Amazon Web Services Managed Rules rule group <code>AWSManagedRulesAntiDDoSRuleSet</code>.</p>
  * @public
@@ -2228,6 +2329,9 @@ export interface AWSManagedRulesBotControlRuleSet {
  *                <p>Use the <code>AWSManagedRulesACFPRuleSet</code> configuration object to configure the account creation fraud prevention managed rule group. The configuration includes the registration and sign-up pages of your application and the locations in the account creation request payload of data, such as the user email and phone number fields. </p>
  *             </li>
  *             <li>
+ *                <p>Use the <code>AWSManagedRulesAISecurityRuleSet</code> configuration object to configure the AI security managed rule group. The configuration specifies whether the rule group uses Amazon Bedrock Guardrails to inspect web requests, or web requests and responses, and the IAM role that WAF uses to call Amazon Bedrock Guardrails. </p>
+ *             </li>
+ *             <li>
  *                <p>Use the <code>AWSManagedRulesAntiDDoSRuleSet</code> configuration object to configure the anti-DDoS managed rule group. The configuration includes the sensitivity levels to use in the rules that typically block and challenge requests that might be participating in DDoS attacks and the specification to use to indicate whether a request can handle a silent browser challenge. </p>
  *             </li>
  *             <li>
@@ -2327,6 +2431,15 @@ export interface ManagedRuleGroupConfig {
    * @public
    */
   AWSManagedRulesAntiDDoSRuleSet?: AWSManagedRulesAntiDDoSRuleSet | undefined;
+
+  /**
+   * <p>Additional configuration for using the AI security managed rule group, <code>AWSManagedRulesAISecurityRuleSet</code>.
+   *        Use this to specify whether the rule group uses Amazon Bedrock Guardrails to inspect web requests, or web requests and responses. </p>
+   *          <p>For information about the Amazon Web Services Managed Rules rule groups, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list">Amazon Web Services Managed Rules rule groups list</a>
+   *                in the <i>WAF Developer Guide</i>.</p>
+   * @public
+   */
+  AWSManagedRulesAISecurityRuleSet?: AWSManagedRulesAISecurityRuleSet | undefined;
 }
 
 /**
@@ -3106,6 +3219,157 @@ export interface APIKeySummary {
 }
 
 /**
+ * <p>An API endpoint pattern that an API security event involves.</p>
+ * @public
+ */
+export interface ApiPattern {
+  /**
+   * <p>The HTTP method of the API pattern. For example, <code>GET</code> or <code>POST</code>.</p>
+   * @public
+   */
+  Method?: string | undefined;
+
+  /**
+   * <p>The normalized URI path of the API pattern. Templated path segments are shown in braces. For example, <code>/api/v1/accounts/\{id\}</code>.</p>
+   * @public
+   */
+  PathPattern?: string | undefined;
+
+  /**
+   * <p>The port of the API pattern. For example, <code>443</code>.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>The domains that the API pattern was observed on. For example, <code>api.example.com</code>.</p>
+   * @public
+   */
+  Domains?: string[] | undefined;
+}
+
+/**
+ * <p>An API pattern to filter events by, used in <a>ListEvents</a> and <a>ListEventsByWebACL</a>.</p>
+ * @public
+ */
+export interface ApiPatternFilter {
+  /**
+   * <p>The HTTP method that you want the filter to match. For example, <code>GET</code> or <code>POST</code>.</p>
+   * @public
+   */
+  Method?: string | undefined;
+
+  /**
+   * <p>The normalized URI path that you want the filter to match. For example, <code>/api/v1/accounts/\{id\}</code>.</p>
+   * @public
+   */
+  PathPattern?: string | undefined;
+
+  /**
+   * <p>The port that you want the filter to match. For example, <code>443</code>.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>The domains that you want the filter to match. You can specify up to 10 domains.</p>
+   * @public
+   */
+  Domains?: string[] | undefined;
+}
+
+/**
+ * <p>A reference to an event actor that is associated with an API security event.</p>
+ * @public
+ */
+export interface EventActorReference {
+  /**
+   * <p>The unique identifier of the event actor. You provide this to <a>GetEventActor</a> to retrieve the details of the event actor.</p>
+   * @public
+   */
+  EventActorId?: string | undefined;
+
+  /**
+   * <p>The observed identifier of the event actor. For example, a client IP address or an authentication fingerprint.</p>
+   * @public
+   */
+  EventActorValue?: string | undefined;
+}
+
+/**
+ * <p>A change to the label, confidence, or API patterns of an API security event.</p>
+ * @public
+ */
+export interface EventTimelineEntry {
+  /**
+   * <p>The time of the change.</p>
+   * @public
+   */
+  ChangeTime?: Date | undefined;
+
+  /**
+   * <p>The fully qualified name of the label that was assigned to the event at the time of the change.</p>
+   * @public
+   */
+  Label?: string | undefined;
+
+  /**
+   * <p>The confidence level of the event detection at the time of the change: <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>.</p>
+   * @public
+   */
+  Confidence?: Confidence | undefined;
+
+  /**
+   * <p>The API patterns that the event involved at the time of the change.</p>
+   * @public
+   */
+  ApiPatterns?: ApiPattern[] | undefined;
+}
+
+/**
+ * <p>The API security details of an event.</p>
+ * @public
+ */
+export interface ApiSecurityEventDetail {
+  /**
+   * <p>The fully qualified name of the label that WAF assigned to the event. For example, <code>awswaf:managed:aws:api-security:credential-stuffing-high</code>.</p>
+   * @public
+   */
+  Label?: string | undefined;
+
+  /**
+   * <p>The API security threat category of the event. For example, <code>API2:2023</code>.</p>
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * <p>The confidence level of the event detection: <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>.</p>
+   * @public
+   */
+  Confidence?: Confidence | undefined;
+
+  /**
+   * <p>The API patterns that the event involves. The list contains up to 20 API patterns.</p>
+   * @public
+   */
+  ApiPatterns?: ApiPattern[] | undefined;
+
+  /**
+   * <p>The event actors that are associated with the event. The list contains up to 20 event actors. To retrieve the details of an event actor, provide its <code>EventActorId</code> to <a>GetEventActor</a>.</p>
+   * @public
+   */
+  EventActors?: EventActorReference[] | undefined;
+
+  /**
+   * <p>The changes to the event's label, confidence, and API patterns over time, ordered from oldest to newest. The list contains up to 32 entries.</p>
+   *          <p>For <a>ListEvents</a> and <a>ListEventsByWebACL</a>, this is returned only if you specify <code>TIMELINE</code> in the request <code>Include</code> setting.</p>
+   * @public
+   */
+  Timeline?: EventTimelineEntry[] | undefined;
+}
+
+/**
  * <p>Application details defined during the web ACL creation process. Application attributes help WAF give recommendations for protection packs.</p>
  * @public
  */
@@ -3229,24 +3493,25 @@ export interface DisallowedFeature {
 export interface ChallengeJavascriptSdkInjectionConfig {}
 
 /**
- * <p>Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types. </p>
+ * <p>Customizes the maximum size of the request body that your protected Application Load Balancer, CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to WAF for inspection. The default size is 8 KB (8,192 bytes) for Application Load Balancer and 16 KB (16,384 bytes) for the other resource types. You can change the setting for any of the available resource types. </p>
  *          <note>
  *             <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
  *          </note>
  *          <p>Example JSON: <code> \{
  *     "API_GATEWAY": "KB_48",
- *     "APP_RUNNER_SERVICE": "KB_32"
+ *     "APP_RUNNER_SERVICE": "KB_32",
+ *     "APPLICATION_LOAD_BALANCER": "KB_16"
  *     \}</code>
  *          </p>
- *          <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
+ *          <p>For AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
  *          <p>This is used in the <code>AssociationConfig</code> of the web ACL. </p>
  * @public
  */
 export interface RequestBodyAssociatedResourceTypeConfig {
   /**
-   * <p>Specifies the maximum size of the web request body component that an associated CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resource should send to WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. </p>
-   *          <p>Default: <code>16 KB (16,384 bytes)</code>
-   *          </p>
+   * <p>Specifies the maximum size of the web request body component that an associated Application Load Balancer, CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resource should send to WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. </p>
+   *          <p>You can specify <code>KB_8</code> only for Application Load Balancer, with the <code>APPLICATION_LOAD_BALANCER</code> resource type. </p>
+   *          <p>Default: <code>8 KB (8,192 bytes)</code> for Application Load Balancer and <code>16 KB (16,384 bytes)</code> for the other resource types</p>
    * @public
    */
   DefaultSizeInspectionLimit: SizeInspectionLimit | undefined;
@@ -3255,26 +3520,27 @@ export interface RequestBodyAssociatedResourceTypeConfig {
 /**
  * <p>Specifies custom configurations for the associations between the web ACL and protected resources.  </p>
  *          <p>Use this to customize the maximum size of the request body that your protected resources forward to WAF for inspection. You can
- *     customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes). </p>
+ *     customize this setting for Application Load Balancer, CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 8 KB (8,192 bytes) for Application Load Balancer and 16 KB (16,384 bytes) for the other resource types. </p>
  *          <note>
  *             <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
  *          </note>
- *          <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
+ *          <p>For AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
  *          <p>You can also use this to have your CloudFront distributions insert the WAF challenge JavaScript SDK into the HTML responses that they return. For more information, see the <code>ChallengeJavascriptSdkInjection</code> setting. </p>
  * @public
  */
 export interface AssociationConfig {
   /**
-   * <p>Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types. </p>
+   * <p>Customizes the maximum size of the request body that your protected Application Load Balancer, CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to WAF for inspection. The default size is 8 KB (8,192 bytes) for Application Load Balancer and 16 KB (16,384 bytes) for the other resource types. You can change the setting for any of the available resource types. </p>
    *          <note>
    *             <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
    *          </note>
    *          <p>Example JSON: <code> \{
    *     "API_GATEWAY": "KB_48",
-   *     "APP_RUNNER_SERVICE": "KB_32"
+   *     "APP_RUNNER_SERVICE": "KB_32",
+   *     "APPLICATION_LOAD_BALANCER": "KB_16"
    *     \}</code>
    *          </p>
-   *          <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
+   *          <p>For AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
    * @public
    */
   RequestBody?: Partial<Record<AssociatedResourceType, RequestBodyAssociatedResourceTypeConfig>> | undefined;
@@ -4843,6 +5109,308 @@ export interface GetDecryptedAPIKeyResponse {
    * @public
    */
   CreationTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEventRequest {
+  /**
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Scope: Scope | undefined;
+
+  /**
+   * <p>The unique identifier of the event. WAF returns the event ID in the responses to <a>ListEvents</a> and <a>ListEventsByWebACL</a>.</p>
+   * @public
+   */
+  EventId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the web ACL that the event is associated with.</p>
+   * @public
+   */
+  WebAclArn: string | undefined;
+}
+
+/**
+ * <p>Information about an API security event, returned by <a>ListEvents</a>, <a>ListEventsByWebACL</a>, and <a>GetEvent</a>.</p>
+ * @public
+ */
+export interface EventDetailSummary {
+  /**
+   * <p>The unique identifier of the event. You provide this to <a>GetEvent</a> to retrieve the details of the event.</p>
+   * @public
+   */
+  EventId: string | undefined;
+
+  /**
+   * <p>The current status of the event.</p>
+   * @public
+   */
+  EventStatus?: EventStatus | undefined;
+
+  /**
+   * <p>The category of the event. The only supported value is <code>API_SECURITY</code>.</p>
+   * @public
+   */
+  EventCategory?: EventCategory | undefined;
+
+  /**
+   * <p>The time when the event started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The time when the event was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The time when the event ended. This is not populated while the event is ongoing.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protected resource that the event is associated with.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the web ACL that the event is associated with.</p>
+   * @public
+   */
+  WebAclArn?: string | undefined;
+
+  /**
+   * <p>The API security details of the event, such as the label, category, confidence, API patterns, and event actors.</p>
+   * @public
+   */
+  ApiSecurityEventDetail?: ApiSecurityEventDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEventResponse {
+  /**
+   * <p>The details of the event.</p>
+   * @public
+   */
+  Event?: EventDetailSummary | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEventActorRequest {
+  /**
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Scope: Scope | undefined;
+
+  /**
+   * <p>The unique identifier of the event actor. WAF returns the event actor ID in the event details of <a>ListEvents</a>, <a>ListEventsByWebACL</a>, and <a>GetEvent</a>, and in the response to <a>ListEventActors</a>.</p>
+   * @public
+   */
+  EventActorId: string | undefined;
+}
+
+/**
+ * <p>A change to the network attributes of an event actor.</p>
+ * @public
+ */
+export interface EventActorChange {
+  /**
+   * <p>The time of the change.</p>
+   * @public
+   */
+  ChangeTime?: Date | undefined;
+
+  /**
+   * <p>The client IP address of the event actor after the change.</p>
+   * @public
+   */
+  ClientIp?: string | undefined;
+
+  /**
+   * <p>The TLS fingerprint of the event actor after the change, such as a JA3 or JA4 fingerprint.</p>
+   * @public
+   */
+  TlsFingerprint?: string | undefined;
+
+  /**
+   * <p>The autonomous system number (ASN) that is associated with the client IP address after the change.</p>
+   * @public
+   */
+  Asn?: string | undefined;
+
+  /**
+   * <p>The name of the organization that owns the ASN after the change.</p>
+   * @public
+   */
+  AsnOrganization?: string | undefined;
+
+  /**
+   * <p>The country of the client IP address after the change.</p>
+   * @public
+   */
+  Country?: string | undefined;
+}
+
+/**
+ * <p>An API security event that an event actor is associated with.</p>
+ * @public
+ */
+export interface RelatedEvent {
+  /**
+   * <p>The unique identifier of the event. You provide this to <a>GetEvent</a> to retrieve the details of the event.</p>
+   * @public
+   */
+  EventId?: string | undefined;
+
+  /**
+   * <p>The time when the event started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The fully qualified name of the label that WAF assigned to the event.</p>
+   * @public
+   */
+  Label?: string | undefined;
+
+  /**
+   * <p>The API security threat category of the event. For example, <code>API2:2023</code>.</p>
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * <p>The confidence level of the event detection: <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>.</p>
+   * @public
+   */
+  Confidence?: Confidence | undefined;
+
+  /**
+   * <p>The API patterns that the event involves.</p>
+   * @public
+   */
+  ApiPatterns?: ApiPattern[] | undefined;
+}
+
+/**
+ * <p>The latest observed attributes of an event actor.</p>
+ * @public
+ */
+export interface EventActorDetailSummary {
+  /**
+   * <p>The unique identifier of the event actor.</p>
+   * @public
+   */
+  EventActorId: string | undefined;
+
+  /**
+   * <p>The client IP address of the event actor.</p>
+   * @public
+   */
+  ClientIp?: string | undefined;
+
+  /**
+   * <p>The TLS fingerprint of the event actor, such as a JA3 or JA4 fingerprint.</p>
+   * @public
+   */
+  TlsFingerprint?: string | undefined;
+
+  /**
+   * <p>The autonomous system number (ASN) that is associated with the client IP address of the event actor.</p>
+   * @public
+   */
+  Asn?: string | undefined;
+
+  /**
+   * <p>The name of the organization that owns the ASN. For example, <code>AMAZON-02</code>.</p>
+   * @public
+   */
+  AsnOrganization?: string | undefined;
+
+  /**
+   * <p>The country of the client IP address of the event actor.</p>
+   * @public
+   */
+  Country?: string | undefined;
+
+  /**
+   * <p>A hash of the authentication credentials that the client of the event actor provides in the request. These can include a JSON Web Token (JWT), a JSON Web Encryption (JWE) token, an Amazon Web Services Signature Version 4 (SigV4) signature, or basic authentication credentials. You can use the fingerprint to match the same client across events and in your WAF logs.</p>
+   * @public
+   */
+  AuthFingerprint?: string | undefined;
+
+  /**
+   * <p>The time when WAF first observed the event actor.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+}
+
+/**
+ * <p>The details of an event actor, returned by <a>GetEventActor</a>.</p>
+ * @public
+ */
+export interface EventActorDetail {
+  /**
+   * <p>The latest observed attributes of the event actor.</p>
+   * @public
+   */
+  Summary: EventActorDetailSummary | undefined;
+
+  /**
+   * <p>The API security events that the event actor is associated with. The list contains up to 20 events.</p>
+   * @public
+   */
+  Events?: RelatedEvent[] | undefined;
+
+  /**
+   * <p>The history of changes to the network attributes of the event actor, ordered from oldest to newest. The list contains up to 20 entries.</p>
+   * @public
+   */
+  Changes?: EventActorChange[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEventActorResponse {
+  /**
+   * <p>The details of the event actor.</p>
+   * @public
+   */
+  EventActor?: EventActorDetail | undefined;
 }
 
 /**
@@ -7059,6 +7627,395 @@ export interface ListAvailableManagedRuleGroupVersionsResponse {
 /**
  * @public
  */
+export interface ListEventActorsRequest {
+  /**
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Scope: Scope | undefined;
+
+  /**
+   * <p>The time range for the event actors to return. The time window can't be longer than one year.</p>
+   * @public
+   */
+  TimeWindow: TimeWindow | undefined;
+
+  /**
+   * <p>The field to sort event actors by. The only supported value is <code>EVENT_COUNT</code>.</p>
+   * @public
+   */
+  SortBy?: EventActorSortBy | undefined;
+
+  /**
+   * <p>The maximum number of event actors that you want WAF to return for this request. Valid values are 1 to 100. If more event actors are available, WAF returns a <code>NextMarker</code> value in the response that you can use in a subsequent call to get the next batch of event actors.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the limit, WAF returns a <code>NextMarker</code>
+   *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+}
+
+/**
+ * <p>High-level information about an event actor, returned by <a>ListEventActors</a>.</p>
+ * @public
+ */
+export interface EventActorSummary {
+  /**
+   * <p>The unique identifier of the event actor. You provide this to <a>GetEventActor</a> to retrieve the details of the event actor.</p>
+   * @public
+   */
+  EventActorId: string | undefined;
+
+  /**
+   * <p>The client IP address of the event actor.</p>
+   * @public
+   */
+  ClientIp?: string | undefined;
+
+  /**
+   * <p>The TLS fingerprint of the event actor, such as a JA3 or JA4 fingerprint.</p>
+   * @public
+   */
+  TlsFingerprint?: string | undefined;
+
+  /**
+   * <p>The autonomous system number (ASN) that is associated with the client IP address of the event actor.</p>
+   * @public
+   */
+  Asn?: string | undefined;
+
+  /**
+   * <p>The name of the organization that owns the ASN. For example, <code>AMAZON-02</code>.</p>
+   * @public
+   */
+  AsnOrganization?: string | undefined;
+
+  /**
+   * <p>The country of the client IP address of the event actor.</p>
+   * @public
+   */
+  Country?: string | undefined;
+
+  /**
+   * <p>A hash of the authentication credentials that the client of the event actor provides in the request. These can include a JSON Web Token (JWT), a JSON Web Encryption (JWE) token, an Amazon Web Services Signature Version 4 (SigV4) signature, or basic authentication credentials. You can use the fingerprint to match the same client across events and in your WAF logs.</p>
+   * @public
+   */
+  AuthFingerprint?: string | undefined;
+
+  /**
+   * <p>The time when WAF first observed the event actor.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The number of API security events that the event actor is associated with in the requested time window.</p>
+   * @public
+   */
+  EventCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEventActorsResponse {
+  /**
+   * <p>The list of event actor summaries.</p>
+   * @public
+   */
+  EventActors: EventActorSummary[] | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the limit, WAF returns a <code>NextMarker</code>
+   *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+}
+
+/**
+ * <p>A filter to narrow the events that are returned by <a>ListEvents</a> and <a>ListEventsByWebACL</a>.</p>
+ * @public
+ */
+export interface EventFilter {
+  /**
+   * <p>The name of the field to filter on. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EVENT_CATEGORY</code> - Filter by event category. The only supported filter value is <code>API_SECURITY</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESOURCE_ARN</code> - Filter by protected resource. The filter values are the Amazon Resource Name (ARN)s of the protected resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Name: EventFilterKey | undefined;
+
+  /**
+   * <p>The values to filter on. You can specify up to 10 values.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEventsRequest {
+  /**
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Scope: Scope | undefined;
+
+  /**
+   * <p>The time range for the events to return. If you don't specify a time window, WAF returns events from the past year. The time window can't be longer than one year.</p>
+   * @public
+   */
+  TimeWindow?: TimeWindow | undefined;
+
+  /**
+   * <p>Filters that narrow the results by event category or by the Amazon Resource Name (ARN) of the protected resource. You can specify up to 8 filters.</p>
+   * @public
+   */
+  Filters?: EventFilter[] | undefined;
+
+  /**
+   * <p>Filters that narrow the results to events that involve the specified API patterns. If you specify more than one API pattern filter, WAF returns the events that match any of the filters. You can specify up to 20 API pattern filters.</p>
+   * @public
+   */
+  ApiPatternFilters?: ApiPatternFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of events that you want WAF to return for this request. Valid values are 1 to 20. If more events are available, WAF returns a <code>NextMarker</code> value in the response that you can use in a subsequent call to get the next batch of events.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the limit, WAF returns a <code>NextMarker</code>
+   *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
+   *          <p>The marker is valid only for a request with the same <code>TimeWindow</code>, <code>Filters</code>, <code>SortBy</code>, and <code>SortOrder</code> settings as the request that returned it.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+
+  /**
+   * <p>The order in which WAF sorts the events. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ASC</code> - Sort in ascending order.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DESC</code> - Sort in descending order. This is the default.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The field that WAF sorts the events by. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONFIDENCE</code> - Sort by the confidence level of the event detection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>END_TIME</code> - Sort by the time that the event ended.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>START_TIME</code> - Sort by the time that the event started.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SortBy?: EventSortBy | undefined;
+
+  /**
+   * <p>Additional fields to return with each event summary. By default, the response includes only the default summary fields.</p>
+   *          <p>Specify <code>TIMELINE</code> to return the timeline of each event in <code>ApiSecurityEventDetail$Timeline</code>.</p>
+   * @public
+   */
+  Include?: EventIncludeField[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEventsResponse {
+  /**
+   * <p>The list of event summaries.</p>
+   * @public
+   */
+  Events: EventDetailSummary[] | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the limit, WAF returns a <code>NextMarker</code>
+   *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEventsByWebACLRequest {
+  /**
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Scope: Scope | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the web ACL whose events you want to retrieve.</p>
+   * @public
+   */
+  WebAclArn: string | undefined;
+
+  /**
+   * <p>The time range for the events to return. If you don't specify a time window, WAF returns events from the past year. The time window can't be longer than one year.</p>
+   * @public
+   */
+  TimeWindow?: TimeWindow | undefined;
+
+  /**
+   * <p>Filters that narrow the results by event category or by the Amazon Resource Name (ARN) of the protected resource. You can specify up to 8 filters.</p>
+   * @public
+   */
+  Filters?: EventFilter[] | undefined;
+
+  /**
+   * <p>Filters that narrow the results to events that involve the specified API patterns. If you specify more than one API pattern filter, WAF returns the events that match any of the filters. You can specify up to 20 API pattern filters.</p>
+   * @public
+   */
+  ApiPatternFilters?: ApiPatternFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of events that you want WAF to return for this request. Valid values are 1 to 20. If more events are available, WAF returns a <code>NextMarker</code> value in the response that you can use in a subsequent call to get the next batch of events.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the limit, WAF returns a <code>NextMarker</code>
+   *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
+   *          <p>The marker is valid only for a request with the same <code>WebAclArn</code>, <code>TimeWindow</code>, <code>Filters</code>, <code>SortBy</code>, and <code>SortOrder</code> settings as the request that returned it.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+
+  /**
+   * <p>The order in which WAF sorts the events. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ASC</code> - Sort in ascending order.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DESC</code> - Sort in descending order. This is the default.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The field that WAF sorts the events by. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONFIDENCE</code> - Sort by the confidence level of the event detection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>END_TIME</code> - Sort by the time that the event ended.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>START_TIME</code> - Sort by the time that the event started.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SortBy?: EventSortBy | undefined;
+
+  /**
+   * <p>Additional fields to return with each event summary. By default, the response includes only the default summary fields.</p>
+   *          <p>Specify <code>TIMELINE</code> to return the timeline of each event in <code>ApiSecurityEventDetail$Timeline</code>.</p>
+   * @public
+   */
+  Include?: EventIncludeField[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEventsByWebACLResponse {
+  /**
+   * <p>The list of event summaries.</p>
+   * @public
+   */
+  Events: EventDetailSummary[] | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the limit, WAF returns a <code>NextMarker</code>
+   *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListIPSetsRequest {
   /**
    * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
@@ -8550,6 +9507,9 @@ export interface ManagedRuleGroupStatement {
    *                <p>Use the <code>AWSManagedRulesACFPRuleSet</code> configuration object to configure the account creation fraud prevention managed rule group. The configuration includes the registration and sign-up pages of your application and the locations in the account creation request payload of data, such as the user email and phone number fields. </p>
    *             </li>
    *             <li>
+   *                <p>Use the <code>AWSManagedRulesAISecurityRuleSet</code> configuration object to configure the AI security managed rule group. The configuration specifies whether the rule group uses Amazon Bedrock Guardrails to inspect web requests, or web requests and responses, and the IAM role that WAF uses to call Amazon Bedrock Guardrails. </p>
+   *             </li>
+   *             <li>
    *                <p>Use the <code>AWSManagedRulesAntiDDoSRuleSet</code> configuration object to configure the anti-DDoS managed rule group. The configuration includes the sensitivity levels to use in the rules that typically block and challenge requests that might be participating in DDoS attacks and the specification to use to indicate whether a request can handle a silent browser challenge. </p>
    *             </li>
    *             <li>
@@ -9174,11 +10134,11 @@ export interface CreateWebACLRequest {
   /**
    * <p>Specifies custom configurations for the associations between the web ACL and protected resources.  </p>
    *          <p>Use this to customize the maximum size of the request body that your protected resources forward to WAF for inspection. You can
-   *     customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes). </p>
+   *     customize this setting for Application Load Balancer, CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 8 KB (8,192 bytes) for Application Load Balancer and 16 KB (16,384 bytes) for the other resource types. </p>
    *          <note>
    *             <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
    *          </note>
-   *          <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
+   *          <p>For AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
    *          <p>You can also use this to have your CloudFront distributions insert the WAF challenge JavaScript SDK into the HTML responses that they return. For more information, see the <code>ChallengeJavascriptSdkInjection</code> setting. </p>
    * @public
    */
@@ -9505,11 +10465,11 @@ export interface UpdateWebACLRequest {
   /**
    * <p>Specifies custom configurations for the associations between the web ACL and protected resources.  </p>
    *          <p>Use this to customize the maximum size of the request body that your protected resources forward to WAF for inspection. You can
-   *     customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes). </p>
+   *     customize this setting for Application Load Balancer, CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 8 KB (8,192 bytes) for Application Load Balancer and 16 KB (16,384 bytes) for the other resource types. </p>
    *          <note>
    *             <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
    *          </note>
-   *          <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
+   *          <p>For AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
    *          <p>You can also use this to have your CloudFront distributions insert the WAF challenge JavaScript SDK into the HTML responses that they return. For more information, see the <code>ChallengeJavascriptSdkInjection</code> setting. </p>
    * @public
    */
@@ -9549,261 +10509,4 @@ export interface UpdateWebACLRequest {
    * @public
    */
   AnalyticsConfig?: AnalyticsConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRuleGroupResponse {
-  /**
-   * <p></p>
-   * @public
-   */
-  RuleGroup?: RuleGroup | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
-   * @public
-   */
-  LockToken?: string | undefined;
-}
-
-/**
- * <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user pool, App Runner service, Amplify application, Amazon Web Services Verified Access instance, and Amazon Bedrock AgentCore Gateway.  </p>
- * @public
- */
-export interface WebACL {
-  /**
-   * <p>The name of the web ACL. You cannot change the name of a web ACL after you create it.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A unique identifier for the <code>WebACL</code>. This ID is returned in the responses to
-   *          create and list commands. You use this ID to do things like get, update, and delete a
-   *             <code>WebACL</code>.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the web ACL that you want to associate with the
-   *          resource.</p>
-   * @public
-   */
-  ARN: string | undefined;
-
-  /**
-   * <p>The action to perform if none of the <code>Rules</code> contained in the <code>WebACL</code> match. </p>
-   * @public
-   */
-  DefaultAction: DefaultAction | undefined;
-
-  /**
-   * <p>A description of the web ACL that helps with identification. </p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The <a>Rule</a> statements used to identify the web requests that you
-   *          want to manage. Each rule includes one top-level statement that WAF uses to identify matching
-   *          web requests, and parameters that govern how WAF handles them.
-   *       </p>
-   * @public
-   */
-  Rules?: Rule[] | undefined;
-
-  /**
-   * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
-   * @public
-   */
-  VisibilityConfig: VisibilityConfig | undefined;
-
-  /**
-   * <p>Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. </p>
-   *          <p>The data protection that you configure for the web ACL alters the data that's available for any other data collection activity,
-   *   including your WAF logging destinations, web ACL request sampling, and Amazon Security Lake data collection and management. Your other option for data protection is in the logging configuration, which only affects logging. </p>
-   * @public
-   */
-  DataProtectionConfig?: DataProtectionConfig | undefined;
-
-  /**
-   * <p>The web ACL capacity units (WCUs) currently being used by this web ACL. </p>
-   *          <p>WAF uses WCUs to calculate and control the operating
-   *          resources that are used to run your rules, rule groups, and web ACLs. WAF
-   *          calculates capacity differently for each rule type, to reflect the relative cost of each rule.
-   *          Simple rules that cost little to run use fewer WCUs than more complex rules
-   * 				that use more processing power.
-   * 				Rule group capacity is fixed at creation, which helps users plan their
-   *          web ACL WCU usage when they use a rule group. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html">WAF web ACL capacity units (WCU)</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
-   * @public
-   */
-  Capacity?: number | undefined;
-
-  /**
-   * <p>The first set of rules for WAF to process in the web ACL. This is defined in an
-   *          Firewall Manager WAF policy and contains only rule group references. You can't alter these. Any
-   *          rules and rule groups that you define for the web ACL are prioritized after these. </p>
-   *          <p>In the Firewall Manager WAF policy, the Firewall Manager administrator can define a set of rule groups to run
-   *          first in the web ACL and a set of rule groups to run last. Within each set, the
-   *          administrator prioritizes the rule groups, to determine their relative processing
-   *          order.</p>
-   * @public
-   */
-  PreProcessFirewallManagerRuleGroups?: FirewallManagerRuleGroup[] | undefined;
-
-  /**
-   * <p>The last set of rules for WAF to process in the web ACL. This is defined in an
-   *          Firewall Manager WAF policy and contains only rule group references. You can't alter these. Any
-   *          rules and rule groups that you define for the web ACL are prioritized before these. </p>
-   *          <p>In the Firewall Manager WAF policy, the Firewall Manager administrator can define a set of rule groups to run
-   *          first in the web ACL and a set of rule groups to run last. Within each set, the
-   *          administrator prioritizes the rule groups, to determine their relative processing
-   *          order.</p>
-   * @public
-   */
-  PostProcessFirewallManagerRuleGroups?: FirewallManagerRuleGroup[] | undefined;
-
-  /**
-   * <p>Indicates whether this web ACL was created by Firewall Manager and is being managed by Firewall Manager. If true, then only Firewall Manager can
-   *           delete the web ACL or any Firewall Manager rule groups in the web ACL.
-   *            See also the properties <code>RetrofittedByFirewallManager</code>, <code>PreProcessFirewallManagerRuleGroups</code>, and <code>PostProcessFirewallManagerRuleGroups</code>. </p>
-   * @public
-   */
-  ManagedByFirewallManager?: boolean | undefined;
-
-  /**
-   * <p>The label namespace prefix for this web ACL. All labels added by rules in this web ACL have this prefix. </p>
-   *          <ul>
-   *             <li>
-   *                <p>The syntax for the label namespace prefix for a web ACL is the following: </p>
-   *                <p>
-   *                   <code>awswaf:<account ID>:webacl:<web ACL name>:</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>When a rule with a label matches a web request, WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon: </p>
-   *                <p>
-   *                   <code><label namespace>:<label from rule></code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  LabelNamespace?: string | undefined;
-
-  /**
-   * <p>A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL. </p>
-   *          <p>For information about customizing web requests and responses,
-   *            see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
-   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a>
-   *      in the <i>WAF Developer Guide</i>. </p>
-   * @public
-   */
-  CustomResponseBodies?: Record<string, CustomResponseBody> | undefined;
-
-  /**
-   * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>
-   * @public
-   */
-  CaptchaConfig?: CaptchaConfig | undefined;
-
-  /**
-   * <p>Specifies how WAF should handle challenge evaluations for rules that don't have
-   * their own <code>ChallengeConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>ChallengeConfig</code>. </p>
-   * @public
-   */
-  ChallengeConfig?: ChallengeConfig | undefined;
-
-  /**
-   * <p>Specifies the domains that WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When WAF provides a token, it uses the domain of the Amazon Web Services resource that the web ACL is protecting. If you don't specify a list of token domains, WAF accepts tokens only for the domain of the protected resource. With a token domain list, WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.</p>
-   * @public
-   */
-  TokenDomains?: string[] | undefined;
-
-  /**
-   * <p>Specifies custom configurations for the associations between the web ACL and protected resources.  </p>
-   *          <p>Use this to customize the maximum size of the request body that your protected resources forward to WAF for inspection. You can
-   *     customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes). </p>
-   *          <note>
-   *             <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
-   *          </note>
-   *          <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
-   *          <p>You can also use this to have your CloudFront distributions insert the WAF challenge JavaScript SDK into the HTML responses that they return. For more information, see the <code>ChallengeJavascriptSdkInjection</code> setting. </p>
-   * @public
-   */
-  AssociationConfig?: AssociationConfig | undefined;
-
-  /**
-   * <p>Indicates whether this web ACL was created by a customer account and then retrofitted by Firewall Manager. If true, then the web ACL is currently being
-   *        managed by a Firewall Manager WAF policy, and only Firewall Manager can manage any Firewall Manager rule groups in the web ACL.
-   *            See also the properties <code>ManagedByFirewallManager</code>, <code>PreProcessFirewallManagerRuleGroups</code>, and <code>PostProcessFirewallManagerRuleGroups</code>. </p>
-   * @public
-   */
-  RetrofittedByFirewallManager?: boolean | undefined;
-
-  /**
-   * <p>Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.</p>
-   * @public
-   */
-  OnSourceDDoSProtectionConfig?: OnSourceDDoSProtectionConfig | undefined;
-
-  /**
-   * <p>Returns a list of <code>ApplicationAttribute</code>s.</p>
-   * @public
-   */
-  ApplicationConfig?: ApplicationConfig | undefined;
-
-  /**
-   * <p>The monetization configuration for the web ACL. Required when any rule in the web ACL uses the <code>Monetize</code> action. Specifies the payment settlement options and currency mode for AI bot monetization.</p>
-   * @public
-   */
-  MonetizationConfig?: MonetizationConfig | undefined;
-
-  /**
-   * <p>The security analytics configuration for the web ACL. For more information, see <a>AnalyticsConfig</a>. </p>
-   * @public
-   */
-  AnalyticsConfig?: AnalyticsConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface GetWebACLForResourceResponse {
-  /**
-   * <p>The web ACL that is associated with the resource. If there is no associated resource,
-   *          WAF returns a null web ACL.</p>
-   * @public
-   */
-  WebACL?: WebACL | undefined;
-}
-
-/**
- * @public
- */
-export interface GetWebACLResponse {
-  /**
-   * <p>The web ACL specification. You can modify the settings in this web ACL and use it to
-   *          update this web ACL or create a new one.</p>
-   * @public
-   */
-  WebACL?: WebACL | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
-   * @public
-   */
-  LockToken?: string | undefined;
-
-  /**
-   * <p>The URL to use in SDK integrations with Amazon Web Services managed rule groups. For example, you can use the integration SDKs with the account takeover prevention managed rule group <code>AWSManagedRulesATPRuleSet</code> and the account creation fraud prevention managed rule group <code>AWSManagedRulesACFPRuleSet</code>. This is only populated if you are using a rule group in your web ACL that integrates with your applications in this way. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a>
-   * in the <i>WAF Developer Guide</i>.</p>
-   * @public
-   */
-  ApplicationIntegrationURL?: string | undefined;
 }

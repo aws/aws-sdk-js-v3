@@ -9,6 +9,9 @@ import {
   AnalyticsMode,
   AndStatement$,
   APIKeySummary$,
+  ApiPattern$,
+  ApiPatternFilter$,
+  ApiSecurityEventDetail$,
   ApplicationAttribute$,
   ApplicationConfig$,
   AsnMatchStatement$,
@@ -19,9 +22,13 @@ import {
   AssociateWebACLResponse$,
   AssociationConfig$,
   AWSManagedRulesACFPRuleSet$,
+  AWSManagedRulesAISecurityRuleSet$,
   AWSManagedRulesAntiDDoSRuleSet$,
   AWSManagedRulesATPRuleSet$,
   AWSManagedRulesBotControlRuleSet$,
+  BedrockGuardrails$,
+  BedrockGuardrailsRequestAndResponse$,
+  BedrockGuardrailsRequestOnly$,
   BlockAction$,
   BlockchainChain,
   Body$,
@@ -43,6 +50,7 @@ import {
   ClientSideActionConfig$,
   ComparisonOperator,
   Condition$,
+  Confidence,
   ConnectedAccountChain,
   ConnectedAccountChainConfig$,
   ConnectedAccountConfig$,
@@ -128,12 +136,27 @@ import {
   DescribeManagedRuleGroupCommand,
   DescribeManagedRuleGroupRequest$,
   DescribeManagedRuleGroupResponse$,
+  DisableBedrockGuardrails$,
   DisallowedFeature$,
   DisassociateWebACL$,
   DisassociateWebACLCommand,
   DisassociateWebACLRequest$,
   DisassociateWebACLResponse$,
   EmailField$,
+  EventActorChange$,
+  EventActorDetail$,
+  EventActorDetailSummary$,
+  EventActorReference$,
+  EventActorSortBy,
+  EventActorSummary$,
+  EventCategory,
+  EventDetailSummary$,
+  EventFilter$,
+  EventFilterKey,
+  EventIncludeField,
+  EventSortBy,
+  EventStatus,
+  EventTimelineEntry$,
   ExcludedRule$,
   FailureReason,
   FallbackBehavior,
@@ -157,6 +180,14 @@ import {
   GetDecryptedAPIKeyCommand,
   GetDecryptedAPIKeyRequest$,
   GetDecryptedAPIKeyResponse$,
+  GetEvent$,
+  GetEventActor$,
+  GetEventActorCommand,
+  GetEventActorRequest$,
+  GetEventActorResponse$,
+  GetEventCommand,
+  GetEventRequest$,
+  GetEventResponse$,
   GetIPSet$,
   GetIPSetCommand,
   GetIPSetRequest$,
@@ -253,6 +284,18 @@ import {
   ListAvailableManagedRuleGroupVersionsCommand,
   ListAvailableManagedRuleGroupVersionsRequest$,
   ListAvailableManagedRuleGroupVersionsResponse$,
+  ListEventActors$,
+  ListEventActorsCommand,
+  ListEventActorsRequest$,
+  ListEventActorsResponse$,
+  ListEvents$,
+  ListEventsByWebACL$,
+  ListEventsByWebACLCommand,
+  ListEventsByWebACLRequest$,
+  ListEventsByWebACLResponse$,
+  ListEventsCommand,
+  ListEventsRequest$,
+  ListEventsResponse$,
   ListIPSets$,
   ListIPSetsCommand,
   ListIPSetsRequest$,
@@ -365,6 +408,7 @@ import {
   RegexPatternSet$,
   RegexPatternSetReferenceStatement$,
   RegexPatternSetSummary$,
+  RelatedEvent$,
   ReleaseSummary$,
   RequestBodyAssociatedResourceTypeConfig$,
   RequestInspection$,
@@ -534,6 +578,10 @@ assert(typeof GenerateMobileSdkReleaseUrlCommand === "function");
 assert(typeof GenerateMobileSdkReleaseUrl$ === "object");
 assert(typeof GetDecryptedAPIKeyCommand === "function");
 assert(typeof GetDecryptedAPIKey$ === "object");
+assert(typeof GetEventCommand === "function");
+assert(typeof GetEvent$ === "object");
+assert(typeof GetEventActorCommand === "function");
+assert(typeof GetEventActor$ === "object");
 assert(typeof GetIPSetCommand === "function");
 assert(typeof GetIPSet$ === "object");
 assert(typeof GetLoggingConfigurationCommand === "function");
@@ -570,6 +618,12 @@ assert(typeof ListAvailableManagedRuleGroupsCommand === "function");
 assert(typeof ListAvailableManagedRuleGroups$ === "object");
 assert(typeof ListAvailableManagedRuleGroupVersionsCommand === "function");
 assert(typeof ListAvailableManagedRuleGroupVersions$ === "object");
+assert(typeof ListEventActorsCommand === "function");
+assert(typeof ListEventActors$ === "object");
+assert(typeof ListEventsCommand === "function");
+assert(typeof ListEvents$ === "object");
+assert(typeof ListEventsByWebACLCommand === "function");
+assert(typeof ListEventsByWebACL$ === "object");
 assert(typeof ListIPSetsCommand === "function");
 assert(typeof ListIPSets$ === "object");
 assert(typeof ListLoggingConfigurationsCommand === "function");
@@ -619,6 +673,9 @@ assert(typeof AllQueryArguments$ === "object");
 assert(typeof AnalyticsConfig$ === "object");
 assert(typeof AndStatement$ === "object");
 assert(typeof APIKeySummary$ === "object");
+assert(typeof ApiPattern$ === "object");
+assert(typeof ApiPatternFilter$ === "object");
+assert(typeof ApiSecurityEventDetail$ === "object");
 assert(typeof ApplicationAttribute$ === "object");
 assert(typeof ApplicationConfig$ === "object");
 assert(typeof AsnMatchStatement$ === "object");
@@ -626,9 +683,13 @@ assert(typeof AssociateWebACLRequest$ === "object");
 assert(typeof AssociateWebACLResponse$ === "object");
 assert(typeof AssociationConfig$ === "object");
 assert(typeof AWSManagedRulesACFPRuleSet$ === "object");
+assert(typeof AWSManagedRulesAISecurityRuleSet$ === "object");
 assert(typeof AWSManagedRulesAntiDDoSRuleSet$ === "object");
 assert(typeof AWSManagedRulesATPRuleSet$ === "object");
 assert(typeof AWSManagedRulesBotControlRuleSet$ === "object");
+assert(typeof BedrockGuardrails$ === "object");
+assert(typeof BedrockGuardrailsRequestAndResponse$ === "object");
+assert(typeof BedrockGuardrailsRequestOnly$ === "object");
 assert(typeof BlockAction$ === "object");
 assert(typeof Body$ === "object");
 assert(typeof BotStatistics$ === "object");
@@ -692,10 +753,19 @@ assert(typeof DescribeManagedProductsByVendorRequest$ === "object");
 assert(typeof DescribeManagedProductsByVendorResponse$ === "object");
 assert(typeof DescribeManagedRuleGroupRequest$ === "object");
 assert(typeof DescribeManagedRuleGroupResponse$ === "object");
+assert(typeof DisableBedrockGuardrails$ === "object");
 assert(typeof DisallowedFeature$ === "object");
 assert(typeof DisassociateWebACLRequest$ === "object");
 assert(typeof DisassociateWebACLResponse$ === "object");
 assert(typeof EmailField$ === "object");
+assert(typeof EventActorChange$ === "object");
+assert(typeof EventActorDetail$ === "object");
+assert(typeof EventActorDetailSummary$ === "object");
+assert(typeof EventActorReference$ === "object");
+assert(typeof EventActorSummary$ === "object");
+assert(typeof EventDetailSummary$ === "object");
+assert(typeof EventFilter$ === "object");
+assert(typeof EventTimelineEntry$ === "object");
 assert(typeof ExcludedRule$ === "object");
 assert(typeof FieldToMatch$ === "object");
 assert(typeof FieldToProtect$ === "object");
@@ -709,6 +779,10 @@ assert(typeof GenerateMobileSdkReleaseUrlResponse$ === "object");
 assert(typeof GeoMatchStatement$ === "object");
 assert(typeof GetDecryptedAPIKeyRequest$ === "object");
 assert(typeof GetDecryptedAPIKeyResponse$ === "object");
+assert(typeof GetEventActorRequest$ === "object");
+assert(typeof GetEventActorResponse$ === "object");
+assert(typeof GetEventRequest$ === "object");
+assert(typeof GetEventResponse$ === "object");
 assert(typeof GetIPSetRequest$ === "object");
 assert(typeof GetIPSetResponse$ === "object");
 assert(typeof GetLoggingConfigurationRequest$ === "object");
@@ -763,6 +837,12 @@ assert(typeof ListAvailableManagedRuleGroupsRequest$ === "object");
 assert(typeof ListAvailableManagedRuleGroupsResponse$ === "object");
 assert(typeof ListAvailableManagedRuleGroupVersionsRequest$ === "object");
 assert(typeof ListAvailableManagedRuleGroupVersionsResponse$ === "object");
+assert(typeof ListEventActorsRequest$ === "object");
+assert(typeof ListEventActorsResponse$ === "object");
+assert(typeof ListEventsByWebACLRequest$ === "object");
+assert(typeof ListEventsByWebACLResponse$ === "object");
+assert(typeof ListEventsRequest$ === "object");
+assert(typeof ListEventsResponse$ === "object");
 assert(typeof ListIPSetsRequest$ === "object");
 assert(typeof ListIPSetsResponse$ === "object");
 assert(typeof ListLoggingConfigurationsRequest$ === "object");
@@ -836,6 +916,7 @@ assert(typeof RegexMatchStatement$ === "object");
 assert(typeof RegexPatternSet$ === "object");
 assert(typeof RegexPatternSetReferenceStatement$ === "object");
 assert(typeof RegexPatternSetSummary$ === "object");
+assert(typeof RelatedEvent$ === "object");
 assert(typeof ReleaseSummary$ === "object");
 assert(typeof RequestBodyAssociatedResourceTypeConfig$ === "object");
 assert(typeof RequestInspection$ === "object");
@@ -895,12 +976,19 @@ assert(typeof AssociatedResourceType === "object");
 assert(typeof BlockchainChain === "object");
 assert(typeof BodyParsingFallbackBehavior === "object");
 assert(typeof ComparisonOperator === "object");
+assert(typeof Confidence === "object");
 assert(typeof ConnectedAccountChain === "object");
 assert(typeof CountryCode === "object");
 assert(typeof CryptoCurrency === "object");
 assert(typeof Currency === "object");
 assert(typeof CurrencyMode === "object");
 assert(typeof DataProtectionAction === "object");
+assert(typeof EventActorSortBy === "object");
+assert(typeof EventCategory === "object");
+assert(typeof EventFilterKey === "object");
+assert(typeof EventIncludeField === "object");
+assert(typeof EventSortBy === "object");
+assert(typeof EventStatus === "object");
 assert(typeof FailureReason === "object");
 assert(typeof FallbackBehavior === "object");
 assert(typeof FieldToProtectType === "object");

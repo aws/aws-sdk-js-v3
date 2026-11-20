@@ -108,6 +108,8 @@ import type {
   GetDecryptedAPIKeyCommandInput,
   GetDecryptedAPIKeyCommandOutput,
 } from "./commands/GetDecryptedAPIKeyCommand";
+import type { GetEventActorCommandInput, GetEventActorCommandOutput } from "./commands/GetEventActorCommand";
+import type { GetEventCommandInput, GetEventCommandOutput } from "./commands/GetEventCommand";
 import type { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import type {
   GetLoggingConfigurationCommandInput,
@@ -168,6 +170,12 @@ import type {
   ListAvailableManagedRuleGroupVersionsCommandInput,
   ListAvailableManagedRuleGroupVersionsCommandOutput,
 } from "./commands/ListAvailableManagedRuleGroupVersionsCommand";
+import type { ListEventActorsCommandInput, ListEventActorsCommandOutput } from "./commands/ListEventActorsCommand";
+import type {
+  ListEventsByWebACLCommandInput,
+  ListEventsByWebACLCommandOutput,
+} from "./commands/ListEventsByWebACLCommand";
+import type { ListEventsCommandInput, ListEventsCommandOutput } from "./commands/ListEventsCommand";
 import type { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
 import type {
   ListLoggingConfigurationsCommandInput,
@@ -260,6 +268,8 @@ export type ServiceInputTypes =
   | DisassociateWebACLCommandInput
   | GenerateMobileSdkReleaseUrlCommandInput
   | GetDecryptedAPIKeyCommandInput
+  | GetEventActorCommandInput
+  | GetEventCommandInput
   | GetIPSetCommandInput
   | GetLoggingConfigurationCommandInput
   | GetManagedRuleSetCommandInput
@@ -278,6 +288,9 @@ export type ServiceInputTypes =
   | ListAPIKeysCommandInput
   | ListAvailableManagedRuleGroupVersionsCommandInput
   | ListAvailableManagedRuleGroupsCommandInput
+  | ListEventActorsCommandInput
+  | ListEventsByWebACLCommandInput
+  | ListEventsCommandInput
   | ListIPSetsCommandInput
   | ListLoggingConfigurationsCommandInput
   | ListManagedRuleSetsCommandInput
@@ -324,6 +337,8 @@ export type ServiceOutputTypes =
   | DisassociateWebACLCommandOutput
   | GenerateMobileSdkReleaseUrlCommandOutput
   | GetDecryptedAPIKeyCommandOutput
+  | GetEventActorCommandOutput
+  | GetEventCommandOutput
   | GetIPSetCommandOutput
   | GetLoggingConfigurationCommandOutput
   | GetManagedRuleSetCommandOutput
@@ -342,6 +357,9 @@ export type ServiceOutputTypes =
   | ListAPIKeysCommandOutput
   | ListAvailableManagedRuleGroupVersionsCommandOutput
   | ListAvailableManagedRuleGroupsCommandOutput
+  | ListEventActorsCommandOutput
+  | ListEventsByWebACLCommandOutput
+  | ListEventsCommandOutput
   | ListIPSetsCommandOutput
   | ListLoggingConfigurationsCommandOutput
   | ListManagedRuleSetsCommandOutput

@@ -809,6 +809,17 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *                     },
  *                     SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
  *                   },
+ *                   AWSManagedRulesAISecurityRuleSet: { // AWSManagedRulesAISecurityRuleSet
+ *                     BedrockGuardrails: { // BedrockGuardrails
+ *                       Disable: {},
+ *                       ProtectRequestOnly: { // BedrockGuardrailsRequestOnly
+ *                         RoleArn: "STRING_VALUE", // required
+ *                       },
+ *                       ProtectRequestAndResponse: { // BedrockGuardrailsRequestAndResponse
+ *                         RoleArn: "STRING_VALUE", // required
+ *                       },
+ *                     },
+ *                   },
  *                 },
  *               ],
  *               RuleActionOverrides: [
@@ -1044,6 +1055,17 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *                 },
  *                 SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
  *               },
+ *               AWSManagedRulesAISecurityRuleSet: {
+ *                 BedrockGuardrails: {
+ *                   Disable: {},
+ *                   ProtectRequestOnly: {
+ *                     RoleArn: "STRING_VALUE", // required
+ *                   },
+ *                   ProtectRequestAndResponse: {
+ *                     RoleArn: "STRING_VALUE", // required
+ *                   },
+ *                 },
+ *               },
  *             },
  *           ],
  *           RuleActionOverrides: [
@@ -1160,7 +1182,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *   AssociationConfig: { // AssociationConfig
  *     RequestBody: { // RequestBody
  *       "<keys>": { // RequestBodyAssociatedResourceTypeConfig
- *         DefaultSizeInspectionLimit: "KB_16" || "KB_32" || "KB_48" || "KB_64", // required
+ *         DefaultSizeInspectionLimit: "KB_8" || "KB_16" || "KB_32" || "KB_48" || "KB_64", // required
  *       },
  *     },
  *     ChallengeJavascriptSdkInjection: { // ChallengeJavascriptSdkInjection

@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetWebACLForResourceRequest, GetWebACLForResourceResponse } from "../models/models_0";
+import type { GetWebACLForResourceRequest } from "../models/models_0";
+import type { GetWebACLForResourceResponse } from "../models/models_1";
 import { GetWebACLForResource$ } from "../schemas/schemas_0";
 
 /**
@@ -825,6 +826,17 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                       },
  * //                       SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
  * //                     },
+ * //                     AWSManagedRulesAISecurityRuleSet: { // AWSManagedRulesAISecurityRuleSet
+ * //                       BedrockGuardrails: { // BedrockGuardrails
+ * //                         Disable: {},
+ * //                         ProtectRequestOnly: { // BedrockGuardrailsRequestOnly
+ * //                           RoleArn: "STRING_VALUE", // required
+ * //                         },
+ * //                         ProtectRequestAndResponse: { // BedrockGuardrailsRequestAndResponse
+ * //                           RoleArn: "STRING_VALUE", // required
+ * //                         },
+ * //                       },
+ * //                     },
  * //                   },
  * //                 ],
  * //                 RuleActionOverrides: [
@@ -1060,6 +1072,17 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                   },
  * //                   SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
  * //                 },
+ * //                 AWSManagedRulesAISecurityRuleSet: {
+ * //                   BedrockGuardrails: {
+ * //                     Disable: {},
+ * //                     ProtectRequestOnly: {
+ * //                       RoleArn: "STRING_VALUE", // required
+ * //                     },
+ * //                     ProtectRequestAndResponse: {
+ * //                       RoleArn: "STRING_VALUE", // required
+ * //                     },
+ * //                   },
+ * //                 },
  * //               },
  * //             ],
  * //             RuleActionOverrides: [
@@ -1257,6 +1280,17 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                   },
  * //                   SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
  * //                 },
+ * //                 AWSManagedRulesAISecurityRuleSet: {
+ * //                   BedrockGuardrails: {
+ * //                     Disable: {},
+ * //                     ProtectRequestOnly: {
+ * //                       RoleArn: "STRING_VALUE", // required
+ * //                     },
+ * //                     ProtectRequestAndResponse: {
+ * //                       RoleArn: "STRING_VALUE", // required
+ * //                     },
+ * //                   },
+ * //                 },
  * //               },
  * //             ],
  * //             RuleActionOverrides: [
@@ -1352,6 +1386,17 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                   },
  * //                   SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
  * //                 },
+ * //                 AWSManagedRulesAISecurityRuleSet: {
+ * //                   BedrockGuardrails: {
+ * //                     Disable: {},
+ * //                     ProtectRequestOnly: {
+ * //                       RoleArn: "STRING_VALUE", // required
+ * //                     },
+ * //                     ProtectRequestAndResponse: {
+ * //                       RoleArn: "STRING_VALUE", // required
+ * //                     },
+ * //                   },
+ * //                 },
  * //               },
  * //             ],
  * //             RuleActionOverrides: "<RuleActionOverrides>",
@@ -1397,7 +1442,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //     AssociationConfig: { // AssociationConfig
  * //       RequestBody: { // RequestBody
  * //         "<keys>": { // RequestBodyAssociatedResourceTypeConfig
- * //           DefaultSizeInspectionLimit: "KB_16" || "KB_32" || "KB_48" || "KB_64", // required
+ * //           DefaultSizeInspectionLimit: "KB_8" || "KB_16" || "KB_32" || "KB_48" || "KB_64", // required
  * //         },
  * //       },
  * //       ChallengeJavascriptSdkInjection: { // ChallengeJavascriptSdkInjection

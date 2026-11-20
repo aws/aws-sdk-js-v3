@@ -363,6 +363,20 @@ GetDecryptedAPIKey
 </details>
 <details>
 <summary>
+GetEvent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GetEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetEventCommandOutput/)
+</details>
+<details>
+<summary>
+GetEventActor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GetEventActorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetEventActorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetEventActorCommandOutput/)
+</details>
+<details>
+<summary>
 GetIPSet
 </summary>
 
@@ -486,6 +500,27 @@ ListAvailableManagedRuleGroupVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListAvailableManagedRuleGroupVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListAvailableManagedRuleGroupVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListAvailableManagedRuleGroupVersionsCommandOutput/)
+</details>
+<details>
+<summary>
+ListEventActors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListEventActorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListEventActorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListEventActorsCommandOutput/)
+</details>
+<details>
+<summary>
+ListEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListEventsCommandOutput/)
+</details>
+<details>
+<summary>
+ListEventsByWebACL
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListEventsByWebACLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListEventsByWebACLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListEventsByWebACLCommandOutput/)
 </details>
 <details>
 <summary>

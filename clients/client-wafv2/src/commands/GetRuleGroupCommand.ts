@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetRuleGroupRequest, GetRuleGroupResponse } from "../models/models_0";
+import type { GetRuleGroupRequest } from "../models/models_0";
+import type { GetRuleGroupResponse } from "../models/models_1";
 import { GetRuleGroup$ } from "../schemas/schemas_0";
 
 /**
@@ -815,6 +816,17 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                       },
  * //                       SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
  * //                     },
+ * //                     AWSManagedRulesAISecurityRuleSet: { // AWSManagedRulesAISecurityRuleSet
+ * //                       BedrockGuardrails: { // BedrockGuardrails
+ * //                         Disable: {},
+ * //                         ProtectRequestOnly: { // BedrockGuardrailsRequestOnly
+ * //                           RoleArn: "STRING_VALUE", // required
+ * //                         },
+ * //                         ProtectRequestAndResponse: { // BedrockGuardrailsRequestAndResponse
+ * //                           RoleArn: "STRING_VALUE", // required
+ * //                         },
+ * //                       },
+ * //                     },
  * //                   },
  * //                 ],
  * //                 RuleActionOverrides: [
@@ -1057,6 +1069,17 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                     },
  * //                   },
  * //                   SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                 },
+ * //                 AWSManagedRulesAISecurityRuleSet: {
+ * //                   BedrockGuardrails: {
+ * //                     Disable: {},
+ * //                     ProtectRequestOnly: {
+ * //                       RoleArn: "STRING_VALUE", // required
+ * //                     },
+ * //                     ProtectRequestAndResponse: {
+ * //                       RoleArn: "STRING_VALUE", // required
+ * //                     },
+ * //                   },
  * //                 },
  * //               },
  * //             ],

@@ -107,6 +107,12 @@ import {
   type GetDecryptedAPIKeyCommandOutput,
   GetDecryptedAPIKeyCommand,
 } from "./commands/GetDecryptedAPIKeyCommand";
+import {
+  type GetEventActorCommandInput,
+  type GetEventActorCommandOutput,
+  GetEventActorCommand,
+} from "./commands/GetEventActorCommand";
+import { type GetEventCommandInput, type GetEventCommandOutput, GetEventCommand } from "./commands/GetEventCommand";
 import { type GetIPSetCommandInput, type GetIPSetCommandOutput, GetIPSetCommand } from "./commands/GetIPSetCommand";
 import {
   type GetLoggingConfigurationCommandInput,
@@ -189,6 +195,21 @@ import {
   type ListAvailableManagedRuleGroupVersionsCommandOutput,
   ListAvailableManagedRuleGroupVersionsCommand,
 } from "./commands/ListAvailableManagedRuleGroupVersionsCommand";
+import {
+  type ListEventActorsCommandInput,
+  type ListEventActorsCommandOutput,
+  ListEventActorsCommand,
+} from "./commands/ListEventActorsCommand";
+import {
+  type ListEventsByWebACLCommandInput,
+  type ListEventsByWebACLCommandOutput,
+  ListEventsByWebACLCommand,
+} from "./commands/ListEventsByWebACLCommand";
+import {
+  type ListEventsCommandInput,
+  type ListEventsCommandOutput,
+  ListEventsCommand,
+} from "./commands/ListEventsCommand";
 import {
   type ListIPSetsCommandInput,
   type ListIPSetsCommandOutput,
@@ -313,6 +334,8 @@ const commands = {
   DisassociateWebACLCommand,
   GenerateMobileSdkReleaseUrlCommand,
   GetDecryptedAPIKeyCommand,
+  GetEventCommand,
+  GetEventActorCommand,
   GetIPSetCommand,
   GetLoggingConfigurationCommand,
   GetManagedRuleSetCommand,
@@ -331,6 +354,9 @@ const commands = {
   ListAPIKeysCommand,
   ListAvailableManagedRuleGroupsCommand,
   ListAvailableManagedRuleGroupVersionsCommand,
+  ListEventActorsCommand,
+  ListEventsCommand,
+  ListEventsByWebACLCommand,
   ListIPSetsCommand,
   ListLoggingConfigurationsCommand,
   ListManagedRuleSetsCommand,
@@ -719,6 +745,40 @@ export interface WAFV2 {
   ): void;
 
   /**
+   * @see {@link GetEventCommand}
+   */
+  getEvent(
+    args: GetEventCommandInput,
+    options?: WAFV2RequestOptions
+  ): Promise<GetEventCommandOutput>;
+  getEvent(
+    args: GetEventCommandInput,
+    cb: (err: any, data?: GetEventCommandOutput) => void
+  ): void;
+  getEvent(
+    args: GetEventCommandInput,
+    options: WAFV2RequestOptions,
+    cb: (err: any, data?: GetEventCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEventActorCommand}
+   */
+  getEventActor(
+    args: GetEventActorCommandInput,
+    options?: WAFV2RequestOptions
+  ): Promise<GetEventActorCommandOutput>;
+  getEventActor(
+    args: GetEventActorCommandInput,
+    cb: (err: any, data?: GetEventActorCommandOutput) => void
+  ): void;
+  getEventActor(
+    args: GetEventActorCommandInput,
+    options: WAFV2RequestOptions,
+    cb: (err: any, data?: GetEventActorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetIPSetCommand}
    */
   getIPSet(
@@ -1024,6 +1084,57 @@ export interface WAFV2 {
     args: ListAvailableManagedRuleGroupVersionsCommandInput,
     options: WAFV2RequestOptions,
     cb: (err: any, data?: ListAvailableManagedRuleGroupVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEventActorsCommand}
+   */
+  listEventActors(
+    args: ListEventActorsCommandInput,
+    options?: WAFV2RequestOptions
+  ): Promise<ListEventActorsCommandOutput>;
+  listEventActors(
+    args: ListEventActorsCommandInput,
+    cb: (err: any, data?: ListEventActorsCommandOutput) => void
+  ): void;
+  listEventActors(
+    args: ListEventActorsCommandInput,
+    options: WAFV2RequestOptions,
+    cb: (err: any, data?: ListEventActorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEventsCommand}
+   */
+  listEvents(
+    args: ListEventsCommandInput,
+    options?: WAFV2RequestOptions
+  ): Promise<ListEventsCommandOutput>;
+  listEvents(
+    args: ListEventsCommandInput,
+    cb: (err: any, data?: ListEventsCommandOutput) => void
+  ): void;
+  listEvents(
+    args: ListEventsCommandInput,
+    options: WAFV2RequestOptions,
+    cb: (err: any, data?: ListEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEventsByWebACLCommand}
+   */
+  listEventsByWebACL(
+    args: ListEventsByWebACLCommandInput,
+    options?: WAFV2RequestOptions
+  ): Promise<ListEventsByWebACLCommandOutput>;
+  listEventsByWebACL(
+    args: ListEventsByWebACLCommandInput,
+    cb: (err: any, data?: ListEventsByWebACLCommandOutput) => void
+  ): void;
+  listEventsByWebACL(
+    args: ListEventsByWebACLCommandInput,
+    options: WAFV2RequestOptions,
+    cb: (err: any, data?: ListEventsByWebACLCommandOutput) => void
   ): void;
 
   /**

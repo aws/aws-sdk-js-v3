@@ -813,6 +813,17 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *                     },
  *                     SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
  *                   },
+ *                   AWSManagedRulesAISecurityRuleSet: { // AWSManagedRulesAISecurityRuleSet
+ *                     BedrockGuardrails: { // BedrockGuardrails
+ *                       Disable: {},
+ *                       ProtectRequestOnly: { // BedrockGuardrailsRequestOnly
+ *                         RoleArn: "STRING_VALUE", // required
+ *                       },
+ *                       ProtectRequestAndResponse: { // BedrockGuardrailsRequestAndResponse
+ *                         RoleArn: "STRING_VALUE", // required
+ *                       },
+ *                     },
+ *                   },
  *                 },
  *               ],
  *               RuleActionOverrides: [
@@ -1055,6 +1066,17 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *                   },
  *                 },
  *                 SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ *               },
+ *               AWSManagedRulesAISecurityRuleSet: {
+ *                 BedrockGuardrails: {
+ *                   Disable: {},
+ *                   ProtectRequestOnly: {
+ *                     RoleArn: "STRING_VALUE", // required
+ *                   },
+ *                   ProtectRequestAndResponse: {
+ *                     RoleArn: "STRING_VALUE", // required
+ *                   },
+ *                 },
  *               },
  *             },
  *           ],
