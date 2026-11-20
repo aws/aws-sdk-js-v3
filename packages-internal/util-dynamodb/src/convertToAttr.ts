@@ -3,6 +3,7 @@ import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 import type { marshallOptions } from "./marshall";
 import type { NativeAttributeBinary, NativeAttributeValue } from "./models";
 import { NumberValue } from "./NumberValue";
+import { setKey } from "./setKey";
 
 /**
  * Convert a JavaScript value to its equivalent DynamoDB AttributeValue type.
@@ -127,7 +128,7 @@ const convertToMapAttrFromIterable = (
     const map: Record<string, AttributeValue> = {};
     for (const [key, value] of data) {
       if (typeof value !== "function" && (value !== undefined || !options?.removeUndefinedValues)) {
-        map[key] = convertToAttr(value, options);
+        setKey(map, key, convertToAttr(value, options));
       }
     }
     return map;
@@ -143,7 +144,7 @@ const convertToMapAttrFromEnumerableProps = (
     for (const key in data) {
       const value = data[key];
       if (typeof value !== "function" && (value !== undefined || !options?.removeUndefinedValues)) {
-        map[key] = convertToAttr(value, options);
+        setKey(map, key, convertToAttr(value, options));
       }
     }
     return map;
