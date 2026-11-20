@@ -503,6 +503,13 @@ ListAutonomousDatabasePeers
 </details>
 <details>
 <summary>
+ListAutonomousDatabaseRefreshableClones
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/ListAutonomousDatabaseRefreshableClonesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListAutonomousDatabaseRefreshableClonesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListAutonomousDatabaseRefreshableClonesCommandOutput/)
+</details>
+<details>
+<summary>
 ListAutonomousDatabases
 </summary>
 
@@ -661,6 +668,13 @@ StartAutonomousDatabase
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/StartAutonomousDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/StartAutonomousDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/StartAutonomousDatabaseCommandOutput/)
+</details>
+<details>
+<summary>
+StartAutonomousDatabaseRefresh
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/StartAutonomousDatabaseRefreshCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/StartAutonomousDatabaseRefreshCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/StartAutonomousDatabaseRefreshCommandOutput/)
 </details>
 <details>
 <summary>

@@ -32,6 +32,7 @@ import {
   AutonomousDatabaseConnectionStrings$,
   AutonomousDatabaseConnectionUrls$,
   AutonomousDatabasePeerSummary$,
+  AutonomousDatabaseRefreshableCloneSummary$,
   AutonomousDatabaseResourceStatus,
   AutonomousDatabaseSummary$,
   AutonomousDatabaseVersionSummary$,
@@ -283,6 +284,10 @@ import {
   ListAutonomousDatabasePeersCommand,
   ListAutonomousDatabasePeersInput$,
   ListAutonomousDatabasePeersOutput$,
+  ListAutonomousDatabaseRefreshableClones$,
+  ListAutonomousDatabaseRefreshableClonesCommand,
+  ListAutonomousDatabaseRefreshableClonesInput$,
+  ListAutonomousDatabaseRefreshableClonesOutput$,
   ListAutonomousDatabases$,
   ListAutonomousDatabasesCommand,
   ListAutonomousDatabasesInput$,
@@ -385,6 +390,7 @@ import {
   paginateListAutonomousDatabaseCharacterSets,
   paginateListAutonomousDatabaseClones,
   paginateListAutonomousDatabasePeers,
+  paginateListAutonomousDatabaseRefreshableClones,
   paginateListAutonomousDatabases,
   paginateListAutonomousDatabaseVersions,
   paginateListAutonomousVirtualMachines,
@@ -444,6 +450,10 @@ import {
   StartAutonomousDatabaseCommand,
   StartAutonomousDatabaseInput$,
   StartAutonomousDatabaseOutput$,
+  StartAutonomousDatabaseRefresh$,
+  StartAutonomousDatabaseRefreshCommand,
+  StartAutonomousDatabaseRefreshInput$,
+  StartAutonomousDatabaseRefreshOutput$,
   StartDbNode$,
   StartDbNodeCommand,
   StartDbNodeInput$,
@@ -631,6 +641,8 @@ assert(typeof ListAutonomousDatabaseClonesCommand === "function");
 assert(typeof ListAutonomousDatabaseClones$ === "object");
 assert(typeof ListAutonomousDatabasePeersCommand === "function");
 assert(typeof ListAutonomousDatabasePeers$ === "object");
+assert(typeof ListAutonomousDatabaseRefreshableClonesCommand === "function");
+assert(typeof ListAutonomousDatabaseRefreshableClones$ === "object");
 assert(typeof ListAutonomousDatabasesCommand === "function");
 assert(typeof ListAutonomousDatabases$ === "object");
 assert(typeof ListAutonomousDatabaseVersionsCommand === "function");
@@ -677,6 +689,8 @@ assert(typeof ShrinkAutonomousDatabaseCommand === "function");
 assert(typeof ShrinkAutonomousDatabase$ === "object");
 assert(typeof StartAutonomousDatabaseCommand === "function");
 assert(typeof StartAutonomousDatabase$ === "object");
+assert(typeof StartAutonomousDatabaseRefreshCommand === "function");
+assert(typeof StartAutonomousDatabaseRefresh$ === "object");
 assert(typeof StartDbNodeCommand === "function");
 assert(typeof StartDbNode$ === "object");
 assert(typeof StopAutonomousDatabaseCommand === "function");
@@ -731,6 +745,7 @@ assert(typeof AutonomousDatabaseCharacterSetSummary$ === "object");
 assert(typeof AutonomousDatabaseConnectionStrings$ === "object");
 assert(typeof AutonomousDatabaseConnectionUrls$ === "object");
 assert(typeof AutonomousDatabasePeerSummary$ === "object");
+assert(typeof AutonomousDatabaseRefreshableCloneSummary$ === "object");
 assert(typeof AutonomousDatabaseSummary$ === "object");
 assert(typeof AutonomousDatabaseVersionSummary$ === "object");
 assert(typeof AutonomousDatabaseWalletDetails$ === "object");
@@ -867,6 +882,8 @@ assert(typeof ListAutonomousDatabaseClonesInput$ === "object");
 assert(typeof ListAutonomousDatabaseClonesOutput$ === "object");
 assert(typeof ListAutonomousDatabasePeersInput$ === "object");
 assert(typeof ListAutonomousDatabasePeersOutput$ === "object");
+assert(typeof ListAutonomousDatabaseRefreshableClonesInput$ === "object");
+assert(typeof ListAutonomousDatabaseRefreshableClonesOutput$ === "object");
 assert(typeof ListAutonomousDatabasesInput$ === "object");
 assert(typeof ListAutonomousDatabasesOutput$ === "object");
 assert(typeof ListAutonomousDatabaseVersionsInput$ === "object");
@@ -934,6 +951,8 @@ assert(typeof ShrinkAutonomousDatabaseOutput$ === "object");
 assert(typeof SourceConfiguration$ === "object");
 assert(typeof StartAutonomousDatabaseInput$ === "object");
 assert(typeof StartAutonomousDatabaseOutput$ === "object");
+assert(typeof StartAutonomousDatabaseRefreshInput$ === "object");
+assert(typeof StartAutonomousDatabaseRefreshOutput$ === "object");
 assert(typeof StartDbNodeInput$ === "object");
 assert(typeof StartDbNodeOutput$ === "object");
 assert(typeof StopAutonomousDatabaseInput$ === "object");
@@ -1058,6 +1077,7 @@ assert(typeof paginateListAutonomousDatabaseBackups === "function");
 assert(typeof paginateListAutonomousDatabaseCharacterSets === "function");
 assert(typeof paginateListAutonomousDatabaseClones === "function");
 assert(typeof paginateListAutonomousDatabasePeers === "function");
+assert(typeof paginateListAutonomousDatabaseRefreshableClones === "function");
 assert(typeof paginateListAutonomousDatabaseVersions === "function");
 assert(typeof paginateListAutonomousDatabases === "function");
 assert(typeof paginateListAutonomousVirtualMachines === "function");

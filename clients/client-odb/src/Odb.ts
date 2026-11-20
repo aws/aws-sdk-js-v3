@@ -234,6 +234,11 @@ import {
   ListAutonomousDatabasePeersCommand,
 } from "./commands/ListAutonomousDatabasePeersCommand";
 import {
+  type ListAutonomousDatabaseRefreshableClonesCommandInput,
+  type ListAutonomousDatabaseRefreshableClonesCommandOutput,
+  ListAutonomousDatabaseRefreshableClonesCommand,
+} from "./commands/ListAutonomousDatabaseRefreshableClonesCommand";
+import {
   type ListAutonomousDatabasesCommandInput,
   type ListAutonomousDatabasesCommandOutput,
   ListAutonomousDatabasesCommand,
@@ -349,6 +354,11 @@ import {
   StartAutonomousDatabaseCommand,
 } from "./commands/StartAutonomousDatabaseCommand";
 import {
+  type StartAutonomousDatabaseRefreshCommandInput,
+  type StartAutonomousDatabaseRefreshCommandOutput,
+  StartAutonomousDatabaseRefreshCommand,
+} from "./commands/StartAutonomousDatabaseRefreshCommand";
+import {
   type StartDbNodeCommandInput,
   type StartDbNodeCommandOutput,
   StartDbNodeCommand,
@@ -438,6 +448,9 @@ import { paginateListAutonomousDatabaseBackups } from "./pagination/ListAutonomo
 import { paginateListAutonomousDatabaseCharacterSets } from "./pagination/ListAutonomousDatabaseCharacterSetsPaginator";
 import { paginateListAutonomousDatabaseClones } from "./pagination/ListAutonomousDatabaseClonesPaginator";
 import { paginateListAutonomousDatabasePeers } from "./pagination/ListAutonomousDatabasePeersPaginator";
+import {
+  paginateListAutonomousDatabaseRefreshableClones,
+} from "./pagination/ListAutonomousDatabaseRefreshableClonesPaginator";
 import { paginateListAutonomousDatabases } from "./pagination/ListAutonomousDatabasesPaginator";
 import { paginateListAutonomousDatabaseVersions } from "./pagination/ListAutonomousDatabaseVersionsPaginator";
 import { paginateListAutonomousVirtualMachines } from "./pagination/ListAutonomousVirtualMachinesPaginator";
@@ -503,6 +516,7 @@ const commands = {
   ListAutonomousDatabaseCharacterSetsCommand,
   ListAutonomousDatabaseClonesCommand,
   ListAutonomousDatabasePeersCommand,
+  ListAutonomousDatabaseRefreshableClonesCommand,
   ListAutonomousDatabasesCommand,
   ListAutonomousDatabaseVersionsCommand,
   ListAutonomousVirtualMachinesCommand,
@@ -526,6 +540,7 @@ const commands = {
   RestoreAutonomousDatabaseCommand,
   ShrinkAutonomousDatabaseCommand,
   StartAutonomousDatabaseCommand,
+  StartAutonomousDatabaseRefreshCommand,
   StartDbNodeCommand,
   StopAutonomousDatabaseCommand,
   StopDbNodeCommand,
@@ -549,6 +564,7 @@ const paginators = {
   paginateListAutonomousDatabaseCharacterSets,
   paginateListAutonomousDatabaseClones,
   paginateListAutonomousDatabasePeers,
+  paginateListAutonomousDatabaseRefreshableClones,
   paginateListAutonomousDatabases,
   paginateListAutonomousDatabaseVersions,
   paginateListAutonomousVirtualMachines,
@@ -1363,6 +1379,23 @@ export interface Odb {
   ): void;
 
   /**
+   * @see {@link ListAutonomousDatabaseRefreshableClonesCommand}
+   */
+  listAutonomousDatabaseRefreshableClones(
+    args: ListAutonomousDatabaseRefreshableClonesCommandInput,
+    options?: OdbRequestOptions
+  ): Promise<ListAutonomousDatabaseRefreshableClonesCommandOutput>;
+  listAutonomousDatabaseRefreshableClones(
+    args: ListAutonomousDatabaseRefreshableClonesCommandInput,
+    cb: (err: any, data?: ListAutonomousDatabaseRefreshableClonesCommandOutput) => void
+  ): void;
+  listAutonomousDatabaseRefreshableClones(
+    args: ListAutonomousDatabaseRefreshableClonesCommandInput,
+    options: OdbRequestOptions,
+    cb: (err: any, data?: ListAutonomousDatabaseRefreshableClonesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAutonomousDatabasesCommand}
    */
   listAutonomousDatabases(): Promise<ListAutonomousDatabasesCommandOutput>;
@@ -1767,6 +1800,23 @@ export interface Odb {
   ): void;
 
   /**
+   * @see {@link StartAutonomousDatabaseRefreshCommand}
+   */
+  startAutonomousDatabaseRefresh(
+    args: StartAutonomousDatabaseRefreshCommandInput,
+    options?: OdbRequestOptions
+  ): Promise<StartAutonomousDatabaseRefreshCommandOutput>;
+  startAutonomousDatabaseRefresh(
+    args: StartAutonomousDatabaseRefreshCommandInput,
+    cb: (err: any, data?: StartAutonomousDatabaseRefreshCommandOutput) => void
+  ): void;
+  startAutonomousDatabaseRefresh(
+    args: StartAutonomousDatabaseRefreshCommandInput,
+    options: OdbRequestOptions,
+    cb: (err: any, data?: StartAutonomousDatabaseRefreshCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartDbNodeCommand}
    */
   startDbNode(
@@ -2098,6 +2148,17 @@ export interface Odb {
     args: ListAutonomousDatabasePeersCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListAutonomousDatabasePeersCommandOutput>;
+
+  /**
+   * @see {@link ListAutonomousDatabaseRefreshableClonesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutonomousDatabaseRefreshableClonesCommandOutput}.
+   */
+  paginateListAutonomousDatabaseRefreshableClones(
+    args: ListAutonomousDatabaseRefreshableClonesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutonomousDatabaseRefreshableClonesCommandOutput>;
 
   /**
    * @see {@link ListAutonomousDatabasesCommand}

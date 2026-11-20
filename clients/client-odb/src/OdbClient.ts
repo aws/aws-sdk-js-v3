@@ -224,6 +224,10 @@ import type {
   ListAutonomousDatabasePeersCommandOutput,
 } from "./commands/ListAutonomousDatabasePeersCommand";
 import type {
+  ListAutonomousDatabaseRefreshableClonesCommandInput,
+  ListAutonomousDatabaseRefreshableClonesCommandOutput,
+} from "./commands/ListAutonomousDatabaseRefreshableClonesCommand";
+import type {
   ListAutonomousDatabasesCommandInput,
   ListAutonomousDatabasesCommandOutput,
 } from "./commands/ListAutonomousDatabasesCommand";
@@ -300,6 +304,10 @@ import type {
   StartAutonomousDatabaseCommandInput,
   StartAutonomousDatabaseCommandOutput,
 } from "./commands/StartAutonomousDatabaseCommand";
+import type {
+  StartAutonomousDatabaseRefreshCommandInput,
+  StartAutonomousDatabaseRefreshCommandOutput,
+} from "./commands/StartAutonomousDatabaseRefreshCommand";
 import type { StartDbNodeCommandInput, StartDbNodeCommandOutput } from "./commands/StartDbNodeCommand";
 import type {
   StopAutonomousDatabaseCommandInput,
@@ -414,6 +422,7 @@ export type ServiceInputTypes =
   | ListAutonomousDatabaseCharacterSetsCommandInput
   | ListAutonomousDatabaseClonesCommandInput
   | ListAutonomousDatabasePeersCommandInput
+  | ListAutonomousDatabaseRefreshableClonesCommandInput
   | ListAutonomousDatabaseVersionsCommandInput
   | ListAutonomousDatabasesCommandInput
   | ListAutonomousVirtualMachinesCommandInput
@@ -437,6 +446,7 @@ export type ServiceInputTypes =
   | RestoreAutonomousDatabaseCommandInput
   | ShrinkAutonomousDatabaseCommandInput
   | StartAutonomousDatabaseCommandInput
+  | StartAutonomousDatabaseRefreshCommandInput
   | StartDbNodeCommandInput
   | StopAutonomousDatabaseCommandInput
   | StopDbNodeCommandInput
@@ -505,6 +515,7 @@ export type ServiceOutputTypes =
   | ListAutonomousDatabaseCharacterSetsCommandOutput
   | ListAutonomousDatabaseClonesCommandOutput
   | ListAutonomousDatabasePeersCommandOutput
+  | ListAutonomousDatabaseRefreshableClonesCommandOutput
   | ListAutonomousDatabaseVersionsCommandOutput
   | ListAutonomousDatabasesCommandOutput
   | ListAutonomousVirtualMachinesCommandOutput
@@ -528,6 +539,7 @@ export type ServiceOutputTypes =
   | RestoreAutonomousDatabaseCommandOutput
   | ShrinkAutonomousDatabaseCommandOutput
   | StartAutonomousDatabaseCommandOutput
+  | StartAutonomousDatabaseRefreshCommandOutput
   | StartDbNodeCommandOutput
   | StopAutonomousDatabaseCommandOutput
   | StopDbNodeCommandOutput

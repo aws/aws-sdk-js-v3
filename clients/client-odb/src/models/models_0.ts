@@ -2638,6 +2638,36 @@ export interface AutonomousDatabasePeerSummary {
 }
 
 /**
+ * <p>A summary of a refreshable clone of an Autonomous Database.</p>
+ * @public
+ */
+export interface AutonomousDatabaseRefreshableCloneSummary {
+  /**
+   * <p>The unique identifier of the refreshable clone Autonomous Database.</p>
+   * @public
+   */
+  autonomousDatabaseId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the refreshable clone Autonomous Database.</p>
+   * @public
+   */
+  autonomousDatabaseArn?: string | undefined;
+
+  /**
+   * <p>The Oracle Cloud Identifier (OCID) of the refreshable clone Autonomous Database.</p>
+   * @public
+   */
+  ocid?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the refreshable clone Autonomous Database is located.</p>
+   * @public
+   */
+  region?: string | undefined;
+}
+
+/**
  * <p>The configuration of the Amazon Web Services Key Management Service (KMS) encryption key to use for an Autonomous Database.</p>
  * @public
  */
@@ -3644,6 +3674,46 @@ export interface ListAutonomousDatabasePeersOutput {
 /**
  * @public
  */
+export interface ListAutonomousDatabaseRefreshableClonesInput {
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the source Autonomous Database whose refreshable clones you want to list.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutonomousDatabaseRefreshableClonesOutput {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of refreshable clones for the Autonomous Database.</p>
+   * @public
+   */
+  autonomousDatabaseRefreshableClones: AutonomousDatabaseRefreshableCloneSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListAutonomousDatabasesInput {
   /**
    * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
@@ -3845,6 +3915,58 @@ export interface StartAutonomousDatabaseOutput {
    * @public
    */
   statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAutonomousDatabaseRefreshInput {
+  /**
+   * <p>The unique identifier of the refreshable clone Autonomous Database to refresh.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The date and time up to which the refreshable clone Autonomous Database is refreshed from its source database. Data committed on the source database after this time isn't applied to the refreshable clone. The time must be at least 1 minute and at most 7 days in the past, and later than the clone's last refresh point.</p>
+   * @public
+   */
+  timeOfRefreshCutoff?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAutonomousDatabaseRefreshOutput {
+  /**
+   * <p>The unique identifier of the refreshable clone Autonomous Database that is being refreshed.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the Autonomous Database.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the Autonomous Database.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The refresh status of the refreshable clone Autonomous Database.</p>
+   * @public
+   */
+  refreshableStatus?: RefreshableStatus | undefined;
 }
 
 /**

@@ -11,6 +11,8 @@ const _ADE = "AccessDeniedException";
 const _ADL = "AutonomousDatabaseList";
 const _ADPL = "AutonomousDatabasePeerList";
 const _ADPS = "AutonomousDatabasePeerSummary";
+const _ADRCL = "AutonomousDatabaseRefreshableCloneList";
+const _ADRCS = "AutonomousDatabaseRefreshableCloneSummary";
 const _ADS = "AutonomousDatabaseSummary";
 const _ADVL = "AutonomousDatabaseVersionList";
 const _ADVS = "AutonomousDatabaseVersionSummary";
@@ -232,6 +234,9 @@ const _LADO = "ListAutonomousDatabasesOutput";
 const _LADP = "ListAutonomousDatabasePeers";
 const _LADPI = "ListAutonomousDatabasePeersInput";
 const _LADPO = "ListAutonomousDatabasePeersOutput";
+const _LADRC = "ListAutonomousDatabaseRefreshableClones";
+const _LADRCI = "ListAutonomousDatabaseRefreshableClonesInput";
+const _LADRCO = "ListAutonomousDatabaseRefreshableClonesOutput";
 const _LADV = "ListAutonomousDatabaseVersions";
 const _LADVI = "ListAutonomousDatabaseVersionsInput";
 const _LADVO = "ListAutonomousDatabaseVersionsOutput";
@@ -326,6 +331,9 @@ const _SADO = "ShrinkAutonomousDatabaseOutput";
 const _SADOt = "StartAutonomousDatabaseOutput";
 const _SADOto = "StopAutonomousDatabaseOutput";
 const _SADOw = "SwitchoverAutonomousDatabaseOutput";
+const _SADR = "StartAutonomousDatabaseRefresh";
+const _SADRI = "StartAutonomousDatabaseRefreshInput";
+const _SADRO = "StartAutonomousDatabaseRefreshOutput";
 const _SADt = "StartAutonomousDatabase";
 const _SADto = "StopAutonomousDatabase";
 const _SADw = "SwitchoverAutonomousDatabase";
@@ -417,6 +425,7 @@ const _aDNSIGB = "availableDbNodeStorageInGBs";
 const _aDOASMI = "autonomousDatabaseOciAwsSecretsManagerIntegration";
 const _aDOIIR = "autonomousDatabaseOciIntegrationIamRoles";
 const _aDP = "autonomousDatabasePeers";
+const _aDRC = "autonomousDatabaseRefreshableClones";
 const _aDSIGB = "availableDbStorageInGBs";
 const _aDSITB = "availableDataStorageInTBs";
 const _aDSP = "autonomousDataStoragePercentage";
@@ -877,6 +886,7 @@ const _tOLR = "timeOfLastRefresh";
 const _tOLRP = "timeOfLastRefreshPoint";
 const _tOLS = "timeOfLastSwitchover";
 const _tONR = "timeOfNextRefresh";
+const _tORC = "timeOfRefreshCutoff";
 const _tPE = "timePatchingEnded";
 const _tPS = "timePatchingStarted";
 const _tR = "timeRotated";
@@ -1081,6 +1091,11 @@ export var AutonomousDatabaseConnectionUrls$: StaticStructureSchema = [3, n0, _A
   [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var AutonomousDatabasePeerSummary$: StaticStructureSchema = [3, n0, _ADPS,
+  0,
+  [_aDI, _aDA, _o, _re],
+  [0, 0, 0, 0]
+];
+export var AutonomousDatabaseRefreshableCloneSummary$: StaticStructureSchema = [3, n0, _ADRCS,
   0,
   [_aDI, _aDA, _o, _re],
   [0, 0, 0, 0]
@@ -1755,6 +1770,16 @@ export var ListAutonomousDatabasePeersOutput$: StaticStructureSchema = [3, n0, _
   [_aDP, _nT],
   [() => AutonomousDatabasePeerList, 0], 1
 ];
+export var ListAutonomousDatabaseRefreshableClonesInput$: StaticStructureSchema = [3, n0, _LADRCI,
+  0,
+  [_aDI, _mR, _nT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListAutonomousDatabaseRefreshableClonesOutput$: StaticStructureSchema = [3, n0, _LADRCO,
+  0,
+  [_aDRC, _nT],
+  [() => AutonomousDatabaseRefreshableCloneList, 0], 1
+];
 export var ListAutonomousDatabasesInput$: StaticStructureSchema = [3, n0, _LADI,
   0,
   [_mR, _nT],
@@ -2085,6 +2110,16 @@ export var StartAutonomousDatabaseOutput$: StaticStructureSchema = [3, n0, _SADO
   [_aDI, _dN, _st, _sR],
   [0, 0, 0, 0], 1
 ];
+export var StartAutonomousDatabaseRefreshInput$: StaticStructureSchema = [3, n0, _SADRI,
+  0,
+  [_aDI, _tORC],
+  [0, 5], 1
+];
+export var StartAutonomousDatabaseRefreshOutput$: StaticStructureSchema = [3, n0, _SADRO,
+  0,
+  [_aDI, _dN, _st, _sR, _rS],
+  [0, 0, 0, 0, 0], 1
+];
 export var StartDbNodeInput$: StaticStructureSchema = [3, n0, _SDNI,
   0,
   [_dNI, _cVCI, _eVCI],
@@ -2302,6 +2337,9 @@ var AutonomousDatabaseList: StaticListSchema = [1, n0, _ADL,
 ];
 var AutonomousDatabasePeerList: StaticListSchema = [1, n0, _ADPL,
   0, () => AutonomousDatabasePeerSummary$
+];
+var AutonomousDatabaseRefreshableCloneList: StaticListSchema = [1, n0, _ADRCL,
+  0, () => AutonomousDatabaseRefreshableCloneSummary$
 ];
 var AutonomousDatabaseVersionList: StaticListSchema = [1, n0, _ADVL,
   0, () => AutonomousDatabaseVersionSummary$
@@ -2589,6 +2627,9 @@ export var ListAutonomousDatabaseClones$: StaticOperationSchema = [9, n0, _LADC,
 export var ListAutonomousDatabasePeers$: StaticOperationSchema = [9, n0, _LADP,
   0, () => ListAutonomousDatabasePeersInput$, () => ListAutonomousDatabasePeersOutput$
 ];
+export var ListAutonomousDatabaseRefreshableClones$: StaticOperationSchema = [9, n0, _LADRC,
+  0, () => ListAutonomousDatabaseRefreshableClonesInput$, () => ListAutonomousDatabaseRefreshableClonesOutput$
+];
 export var ListAutonomousDatabases$: StaticOperationSchema = [9, n0, _LAD,
   0, () => ListAutonomousDatabasesInput$, () => ListAutonomousDatabasesOutput$
 ];
@@ -2657,6 +2698,9 @@ export var ShrinkAutonomousDatabase$: StaticOperationSchema = [9, n0, _SAD,
 ];
 export var StartAutonomousDatabase$: StaticOperationSchema = [9, n0, _SADt,
   0, () => StartAutonomousDatabaseInput$, () => StartAutonomousDatabaseOutput$
+];
+export var StartAutonomousDatabaseRefresh$: StaticOperationSchema = [9, n0, _SADR,
+  0, () => StartAutonomousDatabaseRefreshInput$, () => StartAutonomousDatabaseRefreshOutput$
 ];
 export var StartDbNode$: StaticOperationSchema = [9, n0, _SDN,
   0, () => StartDbNodeInput$, () => StartDbNodeOutput$

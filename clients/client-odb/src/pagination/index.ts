@@ -4,6 +4,7 @@ export * from "./ListAutonomousDatabaseBackupsPaginator";
 export * from "./ListAutonomousDatabaseCharacterSetsPaginator";
 export * from "./ListAutonomousDatabaseClonesPaginator";
 export * from "./ListAutonomousDatabasePeersPaginator";
+export * from "./ListAutonomousDatabaseRefreshableClonesPaginator";
 export * from "./ListAutonomousDatabasesPaginator";
 export * from "./ListAutonomousDatabaseVersionsPaginator";
 export * from "./ListAutonomousVirtualMachinesPaginator";
