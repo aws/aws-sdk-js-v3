@@ -173,6 +173,7 @@ export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateAccountPoolCommand";
 export * from "./UpdateAssetFilterCommand";
+export * from "./UpdateAssetOwnerCommand";
 export * from "./UpdateConnectionCommand";
 export * from "./UpdateDataSourceCommand";
 export * from "./UpdateDesignationCommand";

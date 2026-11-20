@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   AcceptRuleBehavior,
+  AssetOwnershipTransferStatus,
   AttributeEntityType,
   AuthenticationType,
   AuthType,
@@ -17,7 +18,6 @@ import type {
   DataSourceRunStatus,
   DataSourceStatus,
   DataZoneEntityType,
-  DeploymentMode,
   DeploymentStatus,
   DeploymentType,
   DesignationType,
@@ -2324,6 +2324,42 @@ export interface AssetListingDetails {
 }
 
 /**
+ * <p>The details of an asset ownership transfer.</p>
+ * @public
+ */
+export interface AssetOwnershipTransfer {
+  /**
+   * <p>The status of the ownership transfer. Valid values:</p> <ul> <li> <p> <code>IN_PROGRESS</code> — The transfer is in progress. Requests that change the asset or its listing fail until the transfer completes.</p> </li> <li> <p> <code>SUCCEEDED</code> — The transfer completed. The target project owns the asset, its listing, and the subscriptions to the asset.</p> </li> <li> <p> <code>FAILED</code> — The transfer didn't complete, and the service rolled back its changes. The source project owns the asset.</p> </li> </ul>
+   * @public
+   */
+  status: AssetOwnershipTransferStatus | undefined;
+
+  /**
+   * <p>The ID of the project that owned the asset when the transfer started.</p>
+   * @public
+   */
+  sourceProjectId: string | undefined;
+
+  /**
+   * <p>The ID of the project that the asset is transferred to.</p>
+   * @public
+   */
+  targetProjectId: string | undefined;
+
+  /**
+   * <p>The timestamp of when the transfer started.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the status of the transfer was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
  * <p>The details of a metadata form.</p>
  * @public
  */
@@ -2961,6 +2997,64 @@ export interface GetAssetOutput {
    * @public
    */
   latestTimeSeriesDataPointFormsOutput?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
+
+  /**
+   * <p>The most recent ownership transfer of the asset. The response omits this member if the asset has never had an ownership transfer.</p>
+   * @public
+   */
+  ownershipTransfer?: AssetOwnershipTransfer | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAssetOwnerInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain that contains the asset.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the asset whose ownership is transferred.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The ID of the project that the asset is transferred to. The project must be in the same domain and must be different from the project that currently owns the asset.</p> <p>If the domain's administration project owns the asset, the target can be any project. Otherwise, the target must be the administration project.</p>
+   * @public
+   */
+  targetProjectIdentifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request while its transfer is in progress, the service returns that transfer and doesn't start a new one. This field is automatically populated if not provided.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAssetOwnerOutput {
+  /**
+   * <p>The ID of the asset.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The revision of the asset that was created when the transfer started.</p>
+   * @public
+   */
+  revision: string | undefined;
+
+  /**
+   * <p>The state of the ownership transfer that the request started.</p>
+   * @public
+   */
+  ownershipTransfer: AssetOwnershipTransfer | undefined;
 }
 
 /**
@@ -11554,6 +11648,12 @@ export interface EnvironmentConfigurationUserParameter {
   environmentId?: string | undefined;
 
   /**
+   * <p>The ID of the environment blueprint.</p>
+   * @public
+   */
+  environmentBlueprintId?: string | undefined;
+
+  /**
    * <p>Specifies the account/Region that is to be used during project creation for a particular blueprint.</p>
    * @public
    */
@@ -11919,118 +12019,4 @@ export interface EnvironmentConfigurationParameter {
    * @public
    */
   isEditable?: boolean | undefined;
-}
-
-/**
- * <p>The details of the environment configuration parameter.</p>
- * @public
- */
-export interface EnvironmentConfigurationParametersDetails {
-  /**
-   * <p>Ssm path environment configuration parameters.</p>
-   * @public
-   */
-  ssmPath?: string | undefined;
-
-  /**
-   * <p>The parameter overrides.</p>
-   * @public
-   */
-  parameterOverrides?: EnvironmentConfigurationParameter[] | undefined;
-
-  /**
-   * <p>The resolved environment configuration parameters.</p>
-   * @public
-   */
-  resolvedParameters?: EnvironmentConfigurationParameter[] | undefined;
-}
-
-/**
- * <p>The configuration of an environment.</p>
- * @public
- */
-export interface EnvironmentConfiguration {
-  /**
-   * <p>The environment name.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The environment ID.</p>
-   * @public
-   */
-  id?: string | undefined;
-
-  /**
-   * <p>The environment blueprint ID.</p>
-   * @public
-   */
-  environmentBlueprintId: string | undefined;
-
-  /**
-   * <p>The environment description.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The deployment mode of the environment.</p>
-   * @public
-   */
-  deploymentMode?: DeploymentMode | undefined;
-
-  /**
-   * <p>The configuration parameters of the environment.</p>
-   * @public
-   */
-  configurationParameters?: EnvironmentConfigurationParametersDetails | undefined;
-
-  /**
-   * <p>The Amazon Web Services account of the environment.</p>
-   * @public
-   */
-  awsAccount?: AwsAccount | undefined;
-
-  /**
-   * <p>The account pools used by a custom project profile.</p>
-   * @public
-   */
-  accountPools?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region of the environment.</p>
-   * @public
-   */
-  awsRegion?: Region | undefined;
-
-  /**
-   * <p>The deployment order of the environment.</p>
-   * @public
-   */
-  deploymentOrder?: number | undefined;
-}
-
-/**
- * <p>The resource tag parameter of the project profile.</p>
- * @public
- */
-export interface ResourceTagParameter {
-  /**
-   * <p>The key of the resource tag parameter of the project profile.</p>
-   * @public
-   */
-  key: string | undefined;
-
-  /**
-   * <p>The value of the resource tag parameter key of the project profile.</p>
-   * @public
-   */
-  value: string | undefined;
-
-  /**
-   * <p>Specifies whether the value of the resource tag parameter of the project profile is editable at the project level.</p>
-   * @public
-   */
-  isValueEditable: boolean | undefined;
 }

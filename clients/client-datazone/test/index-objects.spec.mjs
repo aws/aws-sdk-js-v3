@@ -44,6 +44,8 @@ import {
   AssetListingDetails$,
   AssetListingItem$,
   AssetListingItemAdditionalAttributes$,
+  AssetOwnershipTransfer$,
+  AssetOwnershipTransferStatus,
   AssetPermission$,
   AssetRevision$,
   AssetScope$,
@@ -958,6 +960,7 @@ import {
   ProjectMember$,
   ProjectMembershipAssignment$,
   ProjectPolicyGrantPrincipal$,
+  ProjectProfileAction,
   ProjectProfileSummary$,
   ProjectsForRule$,
   ProjectStatus,
@@ -1191,6 +1194,10 @@ import {
   UpdateAssetFilterCommand,
   UpdateAssetFilterInput$,
   UpdateAssetFilterOutput$,
+  UpdateAssetOwner$,
+  UpdateAssetOwnerCommand,
+  UpdateAssetOwnerInput$,
+  UpdateAssetOwnerOutput$,
   UpdateConnection$,
   UpdateConnectionCommand,
   UpdateConnectionInput$,
@@ -1650,6 +1657,8 @@ assert(typeof UpdateAccountPoolCommand === "function");
 assert(typeof UpdateAccountPool$ === "object");
 assert(typeof UpdateAssetFilterCommand === "function");
 assert(typeof UpdateAssetFilter$ === "object");
+assert(typeof UpdateAssetOwnerCommand === "function");
+assert(typeof UpdateAssetOwner$ === "object");
 assert(typeof UpdateConnectionCommand === "function");
 assert(typeof UpdateConnection$ === "object");
 assert(typeof UpdateDataSourceCommand === "function");
@@ -1727,6 +1736,7 @@ assert(typeof AssetListing$ === "object");
 assert(typeof AssetListingDetails$ === "object");
 assert(typeof AssetListingItem$ === "object");
 assert(typeof AssetListingItemAdditionalAttributes$ === "object");
+assert(typeof AssetOwnershipTransfer$ === "object");
 assert(typeof AssetPermission$ === "object");
 assert(typeof AssetRevision$ === "object");
 assert(typeof AssetScope$ === "object");
@@ -2377,6 +2387,8 @@ assert(typeof UpdateAccountPoolInput$ === "object");
 assert(typeof UpdateAccountPoolOutput$ === "object");
 assert(typeof UpdateAssetFilterInput$ === "object");
 assert(typeof UpdateAssetFilterOutput$ === "object");
+assert(typeof UpdateAssetOwnerInput$ === "object");
+assert(typeof UpdateAssetOwnerOutput$ === "object");
 assert(typeof UpdateConnectionInput$ === "object");
 assert(typeof UpdateConnectionOutput$ === "object");
 assert(typeof UpdateDataSourceInput$ === "object");
@@ -2434,6 +2446,7 @@ assert(typeof WorkflowsServerlessPropertiesInput$ === "object");
 assert(typeof WorkflowsServerlessPropertiesOutput$ === "object");
 // enums
 assert(typeof AcceptRuleBehavior === "object");
+assert(typeof AssetOwnershipTransferStatus === "object");
 assert(typeof AttributeEntityType === "object");
 assert(typeof AuthenticationType === "object");
 assert(typeof AuthType === "object");
@@ -2504,6 +2517,7 @@ assert(typeof OpenLineageRunState === "object");
 assert(typeof OverallDeploymentStatus === "object");
 assert(typeof PackageManager === "object");
 assert(typeof ProjectDesignation === "object");
+assert(typeof ProjectProfileAction === "object");
 assert(typeof ProjectStatus === "object");
 assert(typeof Protocol === "object");
 assert(typeof RejectRuleBehavior === "object");

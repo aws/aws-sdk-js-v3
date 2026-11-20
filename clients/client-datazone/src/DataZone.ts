@@ -854,6 +854,11 @@ import {
   UpdateAssetFilterCommand,
 } from "./commands/UpdateAssetFilterCommand";
 import {
+  type UpdateAssetOwnerCommandInput,
+  type UpdateAssetOwnerCommandOutput,
+  UpdateAssetOwnerCommand,
+} from "./commands/UpdateAssetOwnerCommand";
+import {
   type UpdateConnectionCommandInput,
   type UpdateConnectionCommandOutput,
   UpdateConnectionCommand,
@@ -1178,6 +1183,7 @@ const commands = {
   UntagResourceCommand,
   UpdateAccountPoolCommand,
   UpdateAssetFilterCommand,
+  UpdateAssetOwnerCommand,
   UpdateConnectionCommand,
   UpdateDataSourceCommand,
   UpdateDesignationCommand,
@@ -4209,6 +4215,23 @@ export interface DataZone {
     args: UpdateAssetFilterCommandInput,
     options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateAssetFilterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAssetOwnerCommand}
+   */
+  updateAssetOwner(
+    args: UpdateAssetOwnerCommandInput,
+    options?: DataZoneRequestOptions
+  ): Promise<UpdateAssetOwnerCommandOutput>;
+  updateAssetOwner(
+    args: UpdateAssetOwnerCommandInput,
+    cb: (err: any, data?: UpdateAssetOwnerCommandOutput) => void
+  ): void;
+  updateAssetOwner(
+    args: UpdateAssetOwnerCommandInput,
+    options: DataZoneRequestOptions,
+    cb: (err: any, data?: UpdateAssetOwnerCommandOutput) => void
   ): void;
 
   /**

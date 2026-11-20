@@ -148,6 +148,21 @@ export type ListingStatus = (typeof ListingStatus)[keyof typeof ListingStatus];
  * @public
  * @enum
  */
+export const AssetOwnershipTransferStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type AssetOwnershipTransferStatus =
+  (typeof AssetOwnershipTransferStatus)[keyof typeof AssetOwnershipTransferStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const FilterStatus = {
   INVALID: "INVALID",
   VALID: "VALID",
@@ -1779,3 +1794,15 @@ export const UserSearchType = {
  * @public
  */
 export type UserSearchType = (typeof UserSearchType)[keyof typeof UserSearchType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProjectProfileAction = {
+  DISASSOCIATE: "DISASSOCIATE",
+} as const;
+/**
+ * @public
+ */
+export type ProjectProfileAction = (typeof ProjectProfileAction)[keyof typeof ProjectProfileAction];

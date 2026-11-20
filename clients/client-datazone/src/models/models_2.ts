@@ -18,12 +18,15 @@ import type {
   GroupSearchType,
   InventorySearchScope,
   ManagedPolicyType,
+  MetadataGenerationRunStatus,
+  MetadataGenerationRunType,
   NetworkAccessType,
   NotebookExportStatus,
   NotebookRunStatus,
   NotebookStatus,
   NotebookType,
   NotifyOnState,
+  ProjectProfileAction,
   ProjectStatus,
   RejectRuleBehavior,
   RelationDirection,
@@ -70,7 +73,6 @@ import type {
   Deployment,
   DeploymentProperties,
   EnvironmentConfig,
-  EnvironmentConfiguration,
   EnvironmentConfigurationUserParameter,
   EnvironmentDeploymentDetails,
   EnvironmentParameter,
@@ -87,7 +89,6 @@ import type {
   ProvisioningProperties,
   Resource,
   ResourceTag,
-  ResourceTagParameter,
   RowFilterExpression,
   SubscribedListing,
   SubscribedPrincipal,
@@ -98,9 +99,12 @@ import type {
   DataProductListingItem,
   DataProductResultItem,
   EncryptionConfiguration,
+  EnvironmentConfiguration,
   FailureCause,
   GrantedEntity,
   Import,
+  MetadataGenerationRunTarget,
+  ResourceTagParameter,
   RuleDetail,
   RuleScope,
   RuleTarget,
@@ -108,6 +112,121 @@ import type {
   SubscriptionTargetForm,
   TimeSeriesDataPointFormOutput,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface StartMetadataGenerationRunInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain where you want to start a metadata generation run.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the metadata generation run.</p>
+   *
+   * @deprecated (since 2025-11-21) This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types.
+   * @public
+   */
+  type?: MetadataGenerationRunType | undefined;
+
+  /**
+   * <p>The types of the metadata generation run.</p>
+   * @public
+   */
+  types?: MetadataGenerationRunType[] | undefined;
+
+  /**
+   * <p>The asset for which you want to start a metadata generation run.</p>
+   * @public
+   */
+  target: MetadataGenerationRunTarget | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The ID of the project that owns the asset for which you want to start a metadata generation run.</p>
+   * @public
+   */
+  owningProjectIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMetadataGenerationRunOutput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the metadata generation run was started.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the metadata generation run.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The status of the metadata generation run.</p>
+   * @public
+   */
+  status?: MetadataGenerationRunStatus | undefined;
+
+  /**
+   * <p>The type of the metadata generation run.</p>
+   *
+   * @deprecated (since 2025-11-21) This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types.
+   * @public
+   */
+  type?: MetadataGenerationRunType | undefined;
+
+  /**
+   * <p>The types of the metadata generation run.</p>
+   * @public
+   */
+  types?: MetadataGenerationRunType[] | undefined;
+
+  /**
+   * <p>The timestamp at which the metadata generation run was started.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The ID of the user who started the metadata generation run.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The ID of the project that owns the asset for which the metadata generation run was started.</p>
+   * @public
+   */
+  owningProjectId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNotebookInput {
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook to delete.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
 
 /**
  * @public
@@ -4891,6 +5010,12 @@ export interface UpdateProjectInput {
    * @public
    */
   projectProfileVersion?: string | undefined;
+
+  /**
+   * <p>The action to perform on the project profile of the project. Specify <code>DISASSOCIATE</code> to disassociate the project from its project profile.</p>
+   * @public
+   */
+  projectProfileAction?: ProjectProfileAction | undefined;
 }
 
 /**

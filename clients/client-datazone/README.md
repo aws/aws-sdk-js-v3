@@ -1399,6 +1399,13 @@ UpdateAssetFilter
 </details>
 <details>
 <summary>
+UpdateAssetOwner
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/UpdateAssetOwnerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/UpdateAssetOwnerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/UpdateAssetOwnerCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateConnection
 </summary>
 

@@ -89,6 +89,13 @@ export interface GetAssetCommandOutput extends GetAssetOutput, __MetadataBearer 
  * //       id: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   ownershipTransfer: { // AssetOwnershipTransfer
+ * //     status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED", // required
+ * //     sourceProjectId: "STRING_VALUE", // required
+ * //     targetProjectId: "STRING_VALUE", // required
+ * //     startedAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //   },
  * // };
  *
  * ```

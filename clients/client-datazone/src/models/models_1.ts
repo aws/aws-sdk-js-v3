@@ -10,6 +10,7 @@ import type {
   DataSourceRunType,
   DataSourceStatus,
   DataZoneEntityType,
+  DeploymentMode,
   DesignationType,
   DomainStatus,
   DomainVersion,
@@ -76,6 +77,7 @@ import type {
   AssetScope,
   AssetTargetNameMap,
   AssetTypesForRule,
+  AwsAccount,
   ConfigurableEnvironmentAction,
   Configuration,
   ConnectionCredentials,
@@ -90,7 +92,7 @@ import type {
   DeploymentProperties,
   DetailedGlossaryTerm,
   DomainUnitOwnerProperties,
-  EnvironmentConfiguration,
+  EnvironmentConfigurationParameter,
   EnvironmentConfigurationUserParameter,
   EnvironmentDeploymentDetails,
   FormInput,
@@ -105,9 +107,9 @@ import type {
   ProjectDeletionError,
   ProvisioningProperties,
   RecommendationConfiguration,
+  Region,
   Resource,
   ResourceTag,
-  ResourceTagParameter,
   ScheduleConfiguration,
   SingleSignOn,
   SubscribedListing,
@@ -116,6 +118,120 @@ import type {
   TimeSeriesDataPointSummaryFormOutput,
   UserProfileDetails,
 } from "./models_0";
+
+/**
+ * <p>The details of the environment configuration parameter.</p>
+ * @public
+ */
+export interface EnvironmentConfigurationParametersDetails {
+  /**
+   * <p>Ssm path environment configuration parameters.</p>
+   * @public
+   */
+  ssmPath?: string | undefined;
+
+  /**
+   * <p>The parameter overrides.</p>
+   * @public
+   */
+  parameterOverrides?: EnvironmentConfigurationParameter[] | undefined;
+
+  /**
+   * <p>The resolved environment configuration parameters.</p>
+   * @public
+   */
+  resolvedParameters?: EnvironmentConfigurationParameter[] | undefined;
+}
+
+/**
+ * <p>The configuration of an environment.</p>
+ * @public
+ */
+export interface EnvironmentConfiguration {
+  /**
+   * <p>The environment name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The environment ID.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The environment blueprint ID.</p>
+   * @public
+   */
+  environmentBlueprintId: string | undefined;
+
+  /**
+   * <p>The environment description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The deployment mode of the environment.</p>
+   * @public
+   */
+  deploymentMode?: DeploymentMode | undefined;
+
+  /**
+   * <p>The configuration parameters of the environment.</p>
+   * @public
+   */
+  configurationParameters?: EnvironmentConfigurationParametersDetails | undefined;
+
+  /**
+   * <p>The Amazon Web Services account of the environment.</p>
+   * @public
+   */
+  awsAccount?: AwsAccount | undefined;
+
+  /**
+   * <p>The account pools used by a custom project profile.</p>
+   * @public
+   */
+  accountPools?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the environment.</p>
+   * @public
+   */
+  awsRegion?: Region | undefined;
+
+  /**
+   * <p>The deployment order of the environment.</p>
+   * @public
+   */
+  deploymentOrder?: number | undefined;
+}
+
+/**
+ * <p>The resource tag parameter of the project profile.</p>
+ * @public
+ */
+export interface ResourceTagParameter {
+  /**
+   * <p>The key of the resource tag parameter of the project profile.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value of the resource tag parameter key of the project profile.</p>
+   * @public
+   */
+  value: string | undefined;
+
+  /**
+   * <p>Specifies whether the value of the resource tag parameter of the project profile is editable at the project level.</p>
+   * @public
+   */
+  isValueEditable: boolean | undefined;
+}
 
 /**
  * @public
@@ -11141,119 +11257,4 @@ export interface ListMetadataGenerationRunsOutput {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMetadataGenerationRunInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain where you want to start a metadata generation run.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The type of the metadata generation run.</p>
-   *
-   * @deprecated (since 2025-11-21) This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types.
-   * @public
-   */
-  type?: MetadataGenerationRunType | undefined;
-
-  /**
-   * <p>The types of the metadata generation run.</p>
-   * @public
-   */
-  types?: MetadataGenerationRunType[] | undefined;
-
-  /**
-   * <p>The asset for which you want to start a metadata generation run.</p>
-   * @public
-   */
-  target: MetadataGenerationRunTarget | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The ID of the project that owns the asset for which you want to start a metadata generation run.</p>
-   * @public
-   */
-  owningProjectIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMetadataGenerationRunOutput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which the metadata generation run was started.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The ID of the metadata generation run.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The status of the metadata generation run.</p>
-   * @public
-   */
-  status?: MetadataGenerationRunStatus | undefined;
-
-  /**
-   * <p>The type of the metadata generation run.</p>
-   *
-   * @deprecated (since 2025-11-21) This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types.
-   * @public
-   */
-  type?: MetadataGenerationRunType | undefined;
-
-  /**
-   * <p>The types of the metadata generation run.</p>
-   * @public
-   */
-  types?: MetadataGenerationRunType[] | undefined;
-
-  /**
-   * <p>The timestamp at which the metadata generation run was started.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The ID of the user who started the metadata generation run.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The ID of the project that owns the asset for which the metadata generation run was started.</p>
-   * @public
-   */
-  owningProjectId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNotebookInput {
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the notebook to delete.</p>
-   * @public
-   */
-  identifier: string | undefined;
 }

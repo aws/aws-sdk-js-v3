@@ -47,6 +47,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *   userParameters: [ // EnvironmentConfigurationUserParametersList
  *     { // EnvironmentConfigurationUserParameter
  *       environmentId: "STRING_VALUE",
+ *       environmentBlueprintId: "STRING_VALUE",
  *       environmentResolvedAccount: { // EnvironmentResolvedAccount
  *         awsAccountId: "STRING_VALUE", // required
  *         regionName: "STRING_VALUE", // required
@@ -106,6 +107,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //   userParameters: [ // EnvironmentConfigurationUserParametersList
  * //     { // EnvironmentConfigurationUserParameter
  * //       environmentId: "STRING_VALUE",
+ * //       environmentBlueprintId: "STRING_VALUE",
  * //       environmentResolvedAccount: { // EnvironmentResolvedAccount
  * //         awsAccountId: "STRING_VALUE", // required
  * //         regionName: "STRING_VALUE", // required

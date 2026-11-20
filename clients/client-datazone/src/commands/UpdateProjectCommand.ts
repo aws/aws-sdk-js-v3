@@ -58,6 +58,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  *   userParameters: [ // EnvironmentConfigurationUserParametersList
  *     { // EnvironmentConfigurationUserParameter
  *       environmentId: "STRING_VALUE",
+ *       environmentBlueprintId: "STRING_VALUE",
  *       environmentResolvedAccount: { // EnvironmentResolvedAccount
  *         awsAccountId: "STRING_VALUE", // required
  *         regionName: "STRING_VALUE", // required
@@ -73,6 +74,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  *     },
  *   ],
  *   projectProfileVersion: "STRING_VALUE",
+ *   projectProfileAction: "DISASSOCIATE",
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
@@ -106,6 +108,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * //   userParameters: [ // EnvironmentConfigurationUserParametersList
  * //     { // EnvironmentConfigurationUserParameter
  * //       environmentId: "STRING_VALUE",
+ * //       environmentBlueprintId: "STRING_VALUE",
  * //       environmentResolvedAccount: { // EnvironmentResolvedAccount
  * //         awsAccountId: "STRING_VALUE", // required
  * //         regionName: "STRING_VALUE", // required

@@ -528,6 +528,7 @@ import type {
   UpdateAssetFilterCommandInput,
   UpdateAssetFilterCommandOutput,
 } from "./commands/UpdateAssetFilterCommand";
+import type { UpdateAssetOwnerCommandInput, UpdateAssetOwnerCommandOutput } from "./commands/UpdateAssetOwnerCommand";
 import type { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
 import type { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import type {
@@ -777,6 +778,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAccountPoolCommandInput
   | UpdateAssetFilterCommandInput
+  | UpdateAssetOwnerCommandInput
   | UpdateConnectionCommandInput
   | UpdateDataSourceCommandInput
   | UpdateDesignationCommandInput
@@ -977,6 +979,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAccountPoolCommandOutput
   | UpdateAssetFilterCommandOutput
+  | UpdateAssetOwnerCommandOutput
   | UpdateConnectionCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateDesignationCommandOutput

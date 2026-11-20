@@ -47,6 +47,7 @@ const _AO = "AggregationOutput";
 const _AOI = "AggregationOutputItem";
 const _AOIg = "AggregationOutputItems";
 const _AOL = "AggregationOutputList";
+const _AOT = "AssetOwnershipTransfer";
 const _AP = "AssetPermission";
 const _APG = "AddPolicyGrant";
 const _APGI = "AddPolicyGrantInput";
@@ -1025,6 +1026,9 @@ const _U = "Unit";
 const _UAF = "UpdateAssetFilter";
 const _UAFI = "UpdateAssetFilterInput";
 const _UAFO = "UpdateAssetFilterOutput";
+const _UAO = "UpdateAssetOwner";
+const _UAOI = "UpdateAssetOwnerInput";
+const _UAOO = "UpdateAssetOwnerOutput";
 const _UAP = "UpdateAccountPool";
 const _UAPI = "UpdateAccountPoolInput";
 const _UAPO = "UpdateAccountPoolOutput";
@@ -1558,6 +1562,7 @@ const _oPIw = "owningProjectIdentifier";
 const _oPIwn = "ownerProjectId";
 const _oPN = "ownerProjectName";
 const _oPO = "overrideProjectOwners";
+const _oT = "ownershipTransfer";
 const _oUI = "owningUserId";
 const _op = "operator";
 const _or = "orchestrator";
@@ -1590,6 +1595,7 @@ const _pM = "packageManager";
 const _pO = "parameterOverrides";
 const _pOI = "publishOnImport";
 const _pP = "pythonProperties";
+const _pPA = "projectProfileAction";
 const _pPI = "projectProfileId";
 const _pPV = "projectProfileVersion";
 const _pPr = "provisioningProperties";
@@ -1674,14 +1680,14 @@ const _res = "resource";
 const _ro = "role";
 const _ru = "rule";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.datazone";
-const _sA = "secretArn";
+const _sA = "startedAt";
 const _sAGLI = "s3AccessGrantLocationId";
 const _sAK = "secretAccessKey";
 const _sAPI = "sourceAccountPoolId";
 const _sAT = "specificAssetTypes";
+const _sAe = "secretArn";
 const _sAs = "sseAlgorithm";
-const _sAt = "startedAt";
-const _sAto = "stoppedAt";
+const _sAt = "stoppedAt";
 const _sB = "sortBy";
 const _sC = "storageConfiguration";
 const _sD = "shortDescription";
@@ -1717,6 +1723,7 @@ const _sNe = "sessionName";
 const _sO = "sortOrder";
 const _sOt = "startOffset";
 const _sP = "subscribedPrincipals";
+const _sPI = "sourceProjectId";
 const _sPn = "snowflakeProperties";
 const _sPp = "sparkProperties";
 const _sPpe = "specificProjects";
@@ -1773,6 +1780,8 @@ const _tMC = "totalMatchCount";
 const _tN = "targetName";
 const _tNe = "technicalName";
 const _tNy = "typeName";
+const _tPI = "targetProjectId";
+const _tPIa = "targetProjectIdentifier";
 const _tQP = "totalQueriesProcessed";
 const _tR = "typeRevision";
 const _tRe = "termRelations";
@@ -2120,6 +2129,11 @@ export var AssetListingItemAdditionalAttributes$: StaticStructureSchema = [3, n0
   [_f, _mR, _lTSDPF],
   [0, () => MatchRationale, () => TimeSeriesDataPointSummaryFormOutputList]
 ];
+export var AssetOwnershipTransfer$: StaticStructureSchema = [3, n0, _AOT,
+  0,
+  [_st, _sPI, _tPI, _sA, _uA],
+  [0, 0, 0, 4, 4], 3
+];
 export var AssetPermission$: StaticStructureSchema = [3, n0, _AP,
   0,
   [_aI, _pe],
@@ -2197,17 +2211,17 @@ export var AttributeInput$: StaticStructureSchema = [3, n0, _AIt,
 ];
 export var AuthenticationConfiguration$: StaticStructureSchema = [3, n0, _ACu,
   0,
-  [_aTu, _sA, _oAP],
+  [_aTu, _sAe, _oAP],
   [0, 0, [() => OAuth2Properties$, 0]]
 ];
 export var AuthenticationConfigurationInput$: StaticStructureSchema = [3, n0, _ACI,
   0,
-  [_aTu, _oAP, _sA, _kKA, _bAC, _cAC],
+  [_aTu, _oAP, _sAe, _kKA, _bAC, _cAC],
   [0, [() => OAuth2Properties$, 0], 0, 0, [() => BasicAuthenticationCredentials$, 0], [() => CredentialMap, 0]]
 ];
 export var AuthenticationConfigurationPatch$: StaticStructureSchema = [3, n0, _ACP,
   0,
-  [_sA, _bAC, _oAP],
+  [_sAe, _bAC, _oAP],
   [0, [() => BasicAuthenticationCredentials$, 0], () => OAuth2PropertiesPatch$]
 ];
 export var AuthorizationCodeProperties$: StaticStructureSchema = [3, n0, _ACPu,
@@ -2737,7 +2751,7 @@ export var DataSourceRunLineageSummary$: StaticStructureSchema = [3, n0, _DSRLS,
 ];
 export var DataSourceRunSummary$: StaticStructureSchema = [3, n0, _DSRS,
   0,
-  [_id, _dSI, _ty, _st, _pI, _cA, _uA, _rSFA, _eM, _sAt, _sAto, _lSi],
+  [_id, _dSI, _ty, _st, _pI, _cA, _uA, _rSFA, _eM, _sA, _sAt, _lSi],
   [0, 0, 0, 0, 0, 5, 5, () => RunStatisticsForAssets$, () => DataSourceErrorMessage$, 5, 5, () => DataSourceRunLineageSummary$], 7
 ];
 export var DataSourceSummary$: StaticStructureSchema = [3, n0, _DSS,
@@ -3137,8 +3151,8 @@ export var EnvironmentConfigurationParametersDetails$: StaticStructureSchema = [
 ];
 export var EnvironmentConfigurationUserParameter$: StaticStructureSchema = [3, n0, _ECUP,
   0,
-  [_eInvi, _eRAn, _eCNn, _eP],
-  [0, () => EnvironmentResolvedAccount$, [() => EnvironmentConfigurationName, 0], () => EnvironmentParametersList]
+  [_eInvi, _eBIn, _eRAn, _eCNn, _eP],
+  [0, 0, () => EnvironmentResolvedAccount$, [() => EnvironmentConfigurationName, 0], () => EnvironmentParametersList]
 ];
 export var EnvironmentDeploymentDetails$: StaticStructureSchema = [3, n0, _EDD,
   0,
@@ -3247,8 +3261,8 @@ export var GetAssetInput$: StaticStructureSchema = [3, n0, _GAI,
 ];
 export var GetAssetOutput$: StaticStructureSchema = [3, n0, _GAO,
   0,
-  [_id, _n, _tI, _tR, _r, _oPI, _dIo, _fO, _eIx, _de, _cA, _cB, _fRCA, _fRCB, _gT, _gGT, _l, _rOFO, _lTSDPFO],
-  [0, [() => AssetName, 0], 0, 0, 0, 0, 0, [() => FormOutputList, 0], 0, [() => Description, 0], 4, 0, 4, 0, 64 | 0, 64 | 0, () => AssetListingDetails$, [() => FormOutputList, 0], () => TimeSeriesDataPointSummaryFormOutputList], 8
+  [_id, _n, _tI, _tR, _r, _oPI, _dIo, _fO, _eIx, _de, _cA, _cB, _fRCA, _fRCB, _gT, _gGT, _l, _rOFO, _lTSDPFO, _oT],
+  [0, [() => AssetName, 0], 0, 0, 0, 0, 0, [() => FormOutputList, 0], 0, [() => Description, 0], 4, 0, 4, 0, 64 | 0, 64 | 0, () => AssetListingDetails$, [() => FormOutputList, 0], () => TimeSeriesDataPointSummaryFormOutputList, () => AssetOwnershipTransfer$], 8
 ];
 export var GetAssetTypeInput$: StaticStructureSchema = [3, n0, _GATI,
   0,
@@ -3307,7 +3321,7 @@ export var GetDataSourceRunInput$: StaticStructureSchema = [3, n0, _GDSRI,
 ];
 export var GetDataSourceRunOutput$: StaticStructureSchema = [3, n0, _GDSRO,
   0,
-  [_dIo, _dSI, _id, _pI, _st, _ty, _cA, _uA, _dSCS, _rSFA, _lSi, _eM, _sAt, _sAto],
+  [_dIo, _dSI, _id, _pI, _st, _ty, _cA, _uA, _dSCS, _rSFA, _lSi, _eM, _sA, _sAt],
   [0, 0, 0, 0, 0, 0, 5, 5, 0, () => RunStatisticsForAssets$, () => DataSourceRunLineageSummary$, () => DataSourceErrorMessage$, 5, 5], 8
 ];
 export var GetDesignationInput$: StaticStructureSchema = [3, n0, _GDI,
@@ -3527,7 +3541,7 @@ export var GetNotebookRunInput$: StaticStructureSchema = [3, n0, _GNRI,
 ];
 export var GetNotebookRunOutput$: StaticStructureSchema = [3, n0, _GNRO,
   0,
-  [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _me, _par, _cCo, _nC, _tC, _eC, _sC, _nCo, _tSr, _e, _cA, _cB, _uA, _uB, _sAt, _cAo],
+  [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _me, _par, _cCo, _nC, _tC, _eC, _sC, _nCo, _tSr, _e, _cA, _cB, _uA, _uB, _sA, _cAo],
   [0, 0, 0, 0, 0, 0, () => CellOrder, [() => Metadata, 0], [() => _Parameters, 0], () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => EnvironmentConfig$, () => StorageConfig$, () => NotificationConfig$, () => TriggerSource$, () => NotebookRunError$, 4, 0, 4, 0, 4, 4], 5
 ];
 export var GetProjectInput$: StaticStructureSchema = [3, n0, _GPI,
@@ -4262,8 +4276,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ListTimeSeriesDataPointsInput$: StaticStructureSchema = [3, n0, _LTSDPI,
   0,
-  [_dI, _eI, _eT, _fNo, _sAt, _eAn, _nT, _mRa],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _fNo }], [4, { [_hQ]: _sAt }], [4, { [_hQ]: _eAn }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 4
+  [_dI, _eI, _eT, _fNo, _sA, _eAn, _nT, _mRa],
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _fNo }], [4, { [_hQ]: _sA }], [4, { [_hQ]: _eAn }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 4
 ];
 export var ListTimeSeriesDataPointsOutput$: StaticStructureSchema = [3, n0, _LTSDPO,
   0,
@@ -4352,7 +4366,7 @@ export var NotebookRunError$: StaticStructureSchema = [3, n0, _NRE,
 ];
 export var NotebookRunSummary$: StaticStructureSchema = [3, n0, _NRS,
   0,
-  [_id, _dIo, _oPI, _nI, _st, _sIc, _tSr, _cA, _cB, _uA, _uB, _sAt, _cAo],
+  [_id, _dIo, _oPI, _nI, _st, _sIc, _tSr, _cA, _cB, _uA, _uB, _sA, _cAo],
   [0, 0, 0, 0, 0, 0, () => TriggerSource$, 4, 0, 4, 0, 4, 4], 5
 ];
 export var NotebookSummary$: StaticStructureSchema = [3, n0, _NS,
@@ -4897,7 +4911,7 @@ export var StartDataSourceRunInput$: StaticStructureSchema = [3, n0, _SDSRI,
 ];
 export var StartDataSourceRunOutput$: StaticStructureSchema = [3, n0, _SDSRO,
   0,
-  [_dIo, _dSI, _id, _pI, _st, _ty, _cA, _uA, _dSCS, _rSFA, _eM, _sAt, _sAto],
+  [_dIo, _dSI, _id, _pI, _st, _ty, _cA, _uA, _dSCS, _rSFA, _eM, _sA, _sAt],
   [0, 0, 0, 0, 0, 0, 5, 5, 0, () => RunStatisticsForAssets$, () => DataSourceErrorMessage$, 5, 5], 8
 ];
 export var StartMetadataGenerationRunInput$: StaticStructureSchema = [3, n0, _SMGRI,
@@ -4937,7 +4951,7 @@ export var StartNotebookRunInput$: StaticStructureSchema = [3, n0, _SNRI,
 ];
 export var StartNotebookRunOutput$: StaticStructureSchema = [3, n0, _SNRO,
   0,
-  [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _me, _par, _cCo, _nC, _tC, _eC, _sC, _nCo, _tSr, _e, _cA, _cB, _uA, _uB, _sAt, _cAo],
+  [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _me, _par, _cCo, _nC, _tC, _eC, _sC, _nCo, _tSr, _e, _cA, _cB, _uA, _uB, _sA, _cAo],
   [0, 0, 0, 0, 0, 0, () => CellOrder, [() => Metadata, 0], [() => _Parameters, 0], () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => EnvironmentConfig$, () => StorageConfig$, () => NotificationConfig$, () => TriggerSource$, () => NotebookRunError$, 4, 0, 4, 0, 4, 4], 5
 ];
 export var StartNotebookSyncInput$: StaticStructureSchema = [3, n0, _SNSI,
@@ -5140,6 +5154,16 @@ export var UpdateAssetFilterOutput$: StaticStructureSchema = [3, n0, _UAFO,
   [_id, _dIo, _aI, _n, _conf, _de, _st, _cA, _eM, _eCN, _eRF],
   [0, 0, 0, [() => FilterName, 0], () => AssetFilterConfiguration$, [() => Description, 0], 0, 4, 0, 64 | 0, 0], 5
 ];
+export var UpdateAssetOwnerInput$: StaticStructureSchema = [3, n0, _UAOI,
+  0,
+  [_dI, _i, _tPIa, _cT],
+  [[0, 1], [0, 1], 0, [0, 4]], 3
+];
+export var UpdateAssetOwnerOutput$: StaticStructureSchema = [3, n0, _UAOO,
+  0,
+  [_id, _r, _oT],
+  [0, 0, () => AssetOwnershipTransfer$], 3
+];
 export var UpdateConnectionInput$: StaticStructureSchema = [3, n0, _UCI,
   0,
   [_dI, _i, _con, _de, _aL, _pro],
@@ -5272,8 +5296,8 @@ export var UpdateNotebookOutput$: StaticStructureSchema = [3, n0, _UNO,
 ];
 export var UpdateProjectInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
-  [_dI, _i, _n, _de, _rT, _gT, _dUI, _eDD, _uP, _pPV],
-  [[0, 1], [0, 1], [() => ProjectName, 0], [() => Description, 0], 128 | 0, 64 | 0, 0, () => EnvironmentDeploymentDetails$, [() => EnvironmentConfigurationUserParametersList, 0], 0], 2
+  [_dI, _i, _n, _de, _rT, _gT, _dUI, _eDD, _uP, _pPV, _pPA],
+  [[0, 1], [0, 1], [() => ProjectName, 0], [() => Description, 0], 128 | 0, 64 | 0, 0, () => EnvironmentDeploymentDetails$, [() => EnvironmentConfigurationUserParametersList, 0], 0, 0], 2
 ];
 export var UpdateProjectOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
@@ -6015,7 +6039,7 @@ export var ProvisioningProperties$: StaticUnionSchema = [4, n0, _PP,
 ];
 export var RedshiftCredentials$: StaticUnionSchema = [4, n0, _RCed,
   8,
-  [_sA, _uPs],
+  [_sAe, _uPs],
   [0, [() => UsernamePassword$, 0]]
 ];
 export var RedshiftStorage$: StaticUnionSchema = [4, n0, _RSe,
@@ -6629,6 +6653,9 @@ export var UpdateAccountPool$: StaticOperationSchema = [9, n0, _UAP,
 ];
 export var UpdateAssetFilter$: StaticOperationSchema = [9, n0, _UAF,
   { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters/{identifier}", 200] }, () => UpdateAssetFilterInput$, () => UpdateAssetFilterOutput$
+];
+export var UpdateAssetOwner$: StaticOperationSchema = [9, n0, _UAO,
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/assets/{identifier}", 202] }, () => UpdateAssetOwnerInput$, () => UpdateAssetOwnerOutput$
 ];
 export var UpdateConnection$: StaticOperationSchema = [9, n0, _UC,
   { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/connections/{identifier}", 200] }, () => UpdateConnectionInput$, () => UpdateConnectionOutput$
