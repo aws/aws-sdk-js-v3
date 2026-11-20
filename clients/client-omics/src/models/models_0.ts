@@ -1872,7 +1872,7 @@ export interface InlineSetting {
   runTags?: Record<string, string> | undefined;
 
   /**
-   * <p>Per-run engine-specific settings. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles). Overrides <code>defaultRunSetting.engineSettings</code> for this run.</p>
+   * <p>Per-run engine-specific settings. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles, Nextflow runtime configuration). Overrides <code>defaultRunSetting.engineSettings</code> for this run.</p>
    * @public
    */
   engineSettings?: __DocumentType | undefined;
@@ -3615,7 +3615,7 @@ export interface DefaultRunSetting {
   sessionPolicy?: string | undefined;
 
   /**
-   * <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
+   * <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles, Nextflow runtime configuration).</p>
    * @public
    */
   engineSettings?: __DocumentType | undefined;
@@ -3625,6 +3625,12 @@ export interface DefaultRunSetting {
    * @public
    */
   scratchStorageMode?: ScratchStorageMode | undefined;
+
+  /**
+   * <p>Specifies whether each workflow run in the batch can read inputs from Amazon Simple Storage Service (Amazon S3) buckets that use Requester Pays. Your account pays the request and data transfer charges for those reads. The default is <code>false</code>.</p>
+   * @public
+   */
+  requesterPaysEnabled?: boolean | undefined;
 }
 
 /**
@@ -5419,6 +5425,18 @@ export interface GetRunResponse {
    * @public
    */
   outputUriPrefixMode?: RunOutputUriPrefixMode | undefined;
+
+  /**
+   * <p>Specifies whether this workflow run can read inputs from Amazon S3 buckets that use Requester Pays, as set in the <code>StartRun</code> or <code>StartRunBatch</code> request.</p>
+   * @public
+   */
+  requesterPaysEnabled?: boolean | undefined;
+
+  /**
+   * <p>For a run that you started with <code>parametersUri</code>, the service returns the location of the run parameters in this field instead of <code>parameters</code>. The value is one of the following values:</p> <ul> <li> <p>A presigned HTTPS URL for the copy of the parameters file that Amazon Web Services HealthOmics stores for the run</p> </li> <li> <p>The S3 URI that you submitted, if Amazon Web Services HealthOmics has not stored a copy of the file yet or the run failed validation</p> </li> </ul> <p>A presigned URL expires after a limited time. Call <code>GetRun</code> again to get a new URL. Treat the URL as a credential and do not share it. If the run failed because the parameters were not valid, check <code>failureReason</code> and <code>statusMessage</code>.</p>
+   * @public
+   */
+  parametersUri?: string | undefined;
 }
 
 /**
@@ -9140,7 +9158,7 @@ export interface StartRunRequest {
   priority?: number | undefined;
 
   /**
-   * <p>Parameters for the run. The run needs all required parameters and can include optional parameters. The run cannot include any parameters that are not defined in the parameter template. To retrieve parameters from the run, use the GetRun API operation.</p>
+   * <p>Parameters for the run. The run needs all required parameters and can include optional parameters. The run cannot include any parameters that are not defined in the parameter template. To retrieve parameters from the run, use the GetRun API operation. To supply the parameters in a file in S3 instead, use <code>parametersUri</code>. Specify either <code>parameters</code> or <code>parametersUri</code>, not both.</p>
    * @public
    */
   parameters?: __DocumentType | undefined;
@@ -9224,7 +9242,7 @@ export interface StartRunRequest {
   sessionPolicy?: string | undefined;
 
   /**
-   * <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
+   * <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles, Nextflow runtime configuration).</p>
    * @public
    */
   engineSettings?: __DocumentType | undefined;
@@ -9234,6 +9252,18 @@ export interface StartRunRequest {
    * @public
    */
   outputUriPrefixMode?: RunOutputUriPrefixMode | undefined;
+
+  /**
+   * <p>Specifies whether the workflow run that this request starts can read inputs from Amazon S3 buckets that use Requester Pays. Your account pays the request and data transfer charges for those reads. The default is <code>false</code>.</p>
+   * @public
+   */
+  requesterPaysEnabled?: boolean | undefined;
+
+  /**
+   * <p>The S3 URI of a JSON file that contains the run parameters. Use this field instead of <code>parameters</code> when your parameters are too large for the request. Specify either <code>parameters</code> or <code>parametersUri</code>, not both.</p> <p>Amazon Web Services HealthOmics validates the file after <code>StartRun</code> returns. If the file isn't valid, Amazon Web Services HealthOmics fails the run with the failure reason <code>INVALID_RUN_PARAMETERS</code>. For more information about permissions, limits, and other requirements, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-run-inputs.html">Amazon Web Services HealthOmics run inputs</a> and <a href="https://docs.aws.amazon.com/omics/latest/dev/fixed-quotas.html">Amazon Web Services HealthOmics service quotas</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * @public
+   */
+  parametersUri?: string | undefined;
 }
 
 /**

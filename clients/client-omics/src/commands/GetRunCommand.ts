@@ -105,6 +105,8 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * //   engineSettings: "DOCUMENT_VALUE",
  * //   sessionPolicy: "STRING_VALUE",
  * //   outputUriPrefixMode: "STRING_VALUE",
+ * //   requesterPaysEnabled: true || false,
+ * //   parametersUri: "STRING_VALUE",
  * // };
  *
  * ```

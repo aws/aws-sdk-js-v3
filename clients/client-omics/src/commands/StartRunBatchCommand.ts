@@ -64,6 +64,7 @@ export interface StartRunBatchCommandOutput extends StartRunBatchResponse, __Met
  *     sessionPolicy: "STRING_VALUE",
  *     engineSettings: "DOCUMENT_VALUE",
  *     scratchStorageMode: "STRING_VALUE",
+ *     requesterPaysEnabled: true || false,
  *   },
  *   batchRunSettings: { // BatchRunSettings Union: only one key present
  *     inlineSettings: [ // InlineSettings

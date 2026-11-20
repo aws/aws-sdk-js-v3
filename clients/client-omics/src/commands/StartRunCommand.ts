@@ -60,6 +60,8 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *   sessionPolicy: "STRING_VALUE",
  *   engineSettings: "DOCUMENT_VALUE",
  *   outputUriPrefixMode: "STRING_VALUE",
+ *   requesterPaysEnabled: true || false,
+ *   parametersUri: "STRING_VALUE",
  * };
  * const command = new StartRunCommand(input);
  * const response = await client.send(command);

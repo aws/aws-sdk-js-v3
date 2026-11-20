@@ -73,6 +73,7 @@ export interface GetBatchCommandOutput extends GetBatchResponse, __MetadataBeare
  * //     sessionPolicy: "STRING_VALUE",
  * //     engineSettings: "DOCUMENT_VALUE",
  * //     scratchStorageMode: "STRING_VALUE",
+ * //     requesterPaysEnabled: true || false,
  * //   },
  * //   submissionSummary: { // SubmissionSummary
  * //     successfulStartSubmissionCount: Number("int"),
