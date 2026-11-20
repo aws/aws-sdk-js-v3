@@ -1,3 +1,4 @@
+import { NoOpLogger } from "@smithy/core/client";
 import type { HandlerExecutionContext, Logger, MiddlewareStack } from "@smithy/types";
 import { afterEach, describe, expect, test as it, vi } from "vitest";
 
@@ -79,6 +80,54 @@ describe("loggerMiddleware", () => {
     const logger = {} as Logger;
     const response = await expect(loggerMiddleware()(mockNext, { logger })(mockArgs)).rejects.toThrow(nextError);
     expect(mockNext).toHaveBeenCalledTimes(1);
+  });
+
+  describe("NoOpLogger", () => {
+    it("skips the sensitive log filters on success", async () => {
+      mockNext.mockResolvedValueOnce(mockResponse);
+      const logger = new NoOpLogger();
+      const infoSpy = vi.spyOn(logger, "info");
+      const inputFilterSensitiveLog = vi.fn();
+      const outputFilterSensitiveLog = vi.fn();
+
+      const response = await loggerMiddleware()(mockNext, {
+        logger,
+        inputFilterSensitiveLog,
+        outputFilterSensitiveLog,
+      })(mockArgs);
+
+      expect(response).toStrictEqual(mockResponse);
+      expect(inputFilterSensitiveLog).not.toHaveBeenCalled();
+      expect(outputFilterSensitiveLog).not.toHaveBeenCalled();
+      expect(infoSpy).not.toHaveBeenCalled();
+    });
+
+    it("skips the override log filters on success", async () => {
+      mockNext.mockResolvedValueOnce(mockResponse);
+      const overrideInputFilterSensitiveLog = vi.fn();
+      const overrideOutputFilterSensitiveLog = vi.fn();
+
+      await loggerMiddleware()(mockNext, {
+        logger: new NoOpLogger(),
+        dynamoDbDocumentClientOptions: { overrideInputFilterSensitiveLog, overrideOutputFilterSensitiveLog },
+      })(mockArgs);
+
+      expect(overrideInputFilterSensitiveLog).not.toHaveBeenCalled();
+      expect(overrideOutputFilterSensitiveLog).not.toHaveBeenCalled();
+    });
+
+    it("still runs the filters for a custom logger", async () => {
+      mockNext.mockResolvedValueOnce(mockResponse);
+      const logger = { info: vi.fn() } as unknown as Logger;
+      const inputFilterSensitiveLog = vi.fn().mockReturnValue({});
+      const outputFilterSensitiveLog = vi.fn().mockReturnValue({});
+
+      await loggerMiddleware()(mockNext, { logger, inputFilterSensitiveLog, outputFilterSensitiveLog })(mockArgs);
+
+      expect(inputFilterSensitiveLog).toHaveBeenCalledTimes(1);
+      expect(outputFilterSensitiveLog).toHaveBeenCalledTimes(1);
+      expect(logger.info).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe("logs if context.logger has info function", () => {
