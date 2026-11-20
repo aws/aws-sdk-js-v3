@@ -111,11 +111,19 @@ import type {
   ListDeploymentSnapshotsCommandInput,
   ListDeploymentSnapshotsCommandOutput,
 } from "./commands/ListDeploymentSnapshotsCommand";
+import type {
+  ListEntityCoveragesCommandInput,
+  ListEntityCoveragesCommandOutput,
+} from "./commands/ListEntityCoveragesCommand";
 import type { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
 import type {
   ListPolicySnapshotsCommandInput,
   ListPolicySnapshotsCommandOutput,
 } from "./commands/ListPolicySnapshotsCommand";
+import type {
+  ListProtectedResourceCoveragesCommandInput,
+  ListProtectedResourceCoveragesCommandOutput,
+} from "./commands/ListProtectedResourceCoveragesCommand";
 import type {
   ListResourceAssociationsCommandInput,
   ListResourceAssociationsCommandOutput,
@@ -193,8 +201,10 @@ export type ServiceInputTypes =
   | ListAggregateResourceSynchronizationStatusesCommandInput
   | ListDeploymentSnapshotsCommandInput
   | ListDeploymentsCommandInput
+  | ListEntityCoveragesCommandInput
   | ListPoliciesCommandInput
   | ListPolicySnapshotsCommandInput
+  | ListProtectedResourceCoveragesCommandInput
   | ListResourceAssociationsCommandInput
   | ListResourceSynchronizationStatusesCommandInput
   | ListRuleSnapshotsCommandInput
@@ -244,8 +254,10 @@ export type ServiceOutputTypes =
   | ListAggregateResourceSynchronizationStatusesCommandOutput
   | ListDeploymentSnapshotsCommandOutput
   | ListDeploymentsCommandOutput
+  | ListEntityCoveragesCommandOutput
   | ListPoliciesCommandOutput
   | ListPolicySnapshotsCommandOutput
+  | ListProtectedResourceCoveragesCommandOutput
   | ListResourceAssociationsCommandOutput
   | ListResourceSynchronizationStatusesCommandOutput
   | ListRuleSnapshotsCommandOutput

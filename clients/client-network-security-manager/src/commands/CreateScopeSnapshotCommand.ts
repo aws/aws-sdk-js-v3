@@ -118,6 +118,7 @@ export interface CreateScopeSnapshotCommandOutput extends CreateScopeSnapshotOut
  * //       },
  * //     },
  * //   },
+ * //   specializedScopeType: "IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE",
  * //   status: "DRAFT" || "ACTIVE" || "DISABLED", // required
  * //   version: "STRING_VALUE", // required
  * //   updateToken: "STRING_VALUE",
@@ -148,6 +149,9 @@ export interface CreateScopeSnapshotCommandOutput extends CreateScopeSnapshotOut
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request would exceed a service quota.</p>
+ *
+ * @throws {@link TagPolicyViolationException} (client fault)
+ *  <p>The request violates a tag policy that is in effect for the account or organization.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because of request throttling. Reduce your request rate and try again.</p>

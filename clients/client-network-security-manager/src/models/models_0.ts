@@ -3,6 +3,8 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
   AdminAccountStatus,
+  CoverageStatus,
+  DefaultSubnetConnectivity,
   EntityStatus,
   EntityStatusFilter,
   ExistingCustomerWebACLResolution,
@@ -14,8 +16,11 @@ import type {
   Scheme,
   ScopeResourceType,
   ServiceResourceType,
+  SpecializedScopeType,
+  SubnetConnectivity,
   SynchronizationStatus,
   TemplateFirewallType,
+  TemplateOwner,
   WAFConfigDataType,
   WAFConflictResolutionOptions,
 } from "./enums";
@@ -983,6 +988,42 @@ export namespace TemplateOrRuleReference {
 }
 
 /**
+ * <p>An override that applies a connectivity treatment to the subnets that a scope selects, instead of the policy's <code>defaultSubnetConnectivity</code>.</p>
+ * @public
+ */
+export interface SubnetConnectivityOverride {
+  /**
+   * <p>The connectivity treatment to apply to the selected subnets. You select both the override value as well as the subnets they apply to. The Network Firewall automated internet firewall applies the override value to the specified subnets, and applies the default connectivity to the rest of the subnets. Valid values:</p> <ul> <li> <p> <code>flexible</code> – Sets the connectivity for each network interface in the subnet based on whether it is associated with a public IP address. A network interface with a public IP address gets bidirectional internet connectivity. A network interface without a public IP address gets outbound-only connectivity. All traffic is inspected against your firewall rules.</p> </li> <li> <p> <code>bidirectional</code> – Provides bidirectional internet connectivity to every network interface that has a public IP association. Any network interface without a public IP cannot communicate with the internet unless a NAT device is explicitly inserted in the path. All inbound and outbound traffic is inspected against your firewall rules.</p> </li> <li> <p> <code>outbound-only</code> – Provides egress-only connectivity for all network interfaces in the subnet. All outbound traffic and inbound responses are inspected against your firewall rules. Unsolicited inbound connections are dropped. For IPv4 traffic, the Network Firewall automated internet firewall performs NAT.</p> </li> <li> <p> <code>exclude</code> – The Network Firewall automated internet firewall doesn't inspect traffic for the selected subnets. The subnets bypass the firewall entirely, and their traffic passes directly through the internet gateway. You can specify this value only in an override, not as the <code>defaultSubnetConnectivity</code>.</p> </li> </ul>
+   * @public
+   */
+  connectivityType: SubnetConnectivity | undefined;
+
+  /**
+   * <p>A list that contains the Amazon Resource Name (ARN) of the scope that selects the subnets to override. The list must contain exactly one scope ARN. The deployment determines which accounts are in scope, and the referenced scope selects subnets within those accounts.</p>
+   * @public
+   */
+  scopes: string[] | undefined;
+}
+
+/**
+ * <p>Policy configuration settings for Network Firewall automated internet firewall policies.</p>
+ * @public
+ */
+export interface IgwFirewallConfig {
+  /**
+   * <p>The default internet connectivity treatment that AWS Network Security Manager applies to subnets in scope, unless a subnet connectivity override applies. Required for Network Firewall automated internet firewall policies. Valid values:</p> <ul> <li> <p> <code>flexible</code> – Sets the connectivity for each network interface in the subnet based on whether it is associated with a public IP address. A network interface with a public IP address gets bidirectional internet connectivity. A network interface without a public IP address gets outbound-only connectivity. All traffic is inspected against your firewall rules.</p> </li> <li> <p> <code>bidirectional</code> – Provides bidirectional internet connectivity to every network interface that has a public IP association. Any network interface without a public IP cannot communicate with the internet unless a NAT device is explicitly inserted in the path. All inbound and outbound traffic is inspected against your firewall rules.</p> </li> <li> <p> <code>outbound-only</code> – Provides egress-only connectivity for all network interfaces in the subnet. All outbound traffic and inbound responses are inspected against your firewall rules. Unsolicited inbound connections are dropped. For IPv4 traffic, the Network Firewall automated internet firewall performs NAT.</p> </li> </ul>
+   * @public
+   */
+  defaultSubnetConnectivity?: DefaultSubnetConnectivity | undefined;
+
+  /**
+   * <p>An ordered list of overrides that apply a different connectivity treatment to the subnets that a scope selects. When a subnet matches more than one override, the first matching override in the list applies. You can specify at most one override for each connectivity type.</p>
+   * @public
+   */
+  subnetConnectivityOverrides?: SubnetConnectivityOverride[] | undefined;
+}
+
+/**
  * <p>AWS WAF-specific policy configuration settings.</p>
  * @public
  */
@@ -1012,7 +1053,7 @@ export interface PolicyConfiguration {
   remediationEnabled: boolean | undefined;
 
   /**
-   * <p>Specifies whether AWS Network Security Manager automatically removes the resources it created when they are no longer needed. Default: <code>false</code>.</p>
+   * <p>Specifies whether AWS Network Security Manager automatically removes the resources it created when they are no longer needed. This member is required, and the only supported value is <code>true</code>.</p>
    * @public
    */
   resourcesCleanUp: boolean | undefined;
@@ -1022,6 +1063,12 @@ export interface PolicyConfiguration {
    * @public
    */
   wafConfig?: WafConfig | undefined;
+
+  /**
+   * <p>Policy settings for Network Firewall automated internet firewall policies. Specify these settings only for this policy type.</p>
+   * @public
+   */
+  igwFirewallConfig?: IgwFirewallConfig | undefined;
 }
 
 /**
@@ -2222,11 +2269,36 @@ export interface InvalidFirewallReasons {
 }
 
 /**
- * <p>Describes why a firewall is out of sync. Exactly one of <code>missingFirewall</code> or <code>invalidFirewall</code> is set.</p>
+ * <p>Describes a single related resource whose configuration does not match the intended configuration.</p>
+ * @public
+ */
+export interface InvalidResourceIssue {
+  /**
+   * <p>The identifier of the resource, such as a subnet ARN.</p>
+   * @public
+   */
+  resourceId?: string | undefined;
+
+  /**
+   * <p>The attribute value that the policy configuration requires, such as the connectivity type for a subnet.</p>
+   * @public
+   */
+  expectedValue?: string | undefined;
+
+  /**
+   * <p>The current attribute value on the resource.</p>
+   * @public
+   */
+  actualValue?: string | undefined;
+}
+
+/**
+ * <p>Describes why a firewall is out of sync. Exactly one of <code>missingFirewall</code>, <code>invalidFirewall</code>, or <code>invalidResource</code> contains a value.</p>
  * @public
  */
 export type FirewallSyncReason =
   | FirewallSyncReason.InvalidFirewallMember
+  | FirewallSyncReason.InvalidResourceMember
   | FirewallSyncReason.MissingFirewallMember
   | FirewallSyncReason.$UnknownMember;
 
@@ -2241,6 +2313,7 @@ export namespace FirewallSyncReason {
   export interface MissingFirewallMember {
     missingFirewall: string;
     invalidFirewall?: never;
+    invalidResource?: never;
     $unknown?: never;
   }
 
@@ -2251,6 +2324,18 @@ export namespace FirewallSyncReason {
   export interface InvalidFirewallMember {
     missingFirewall?: never;
     invalidFirewall: InvalidFirewallReasons;
+    invalidResource?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A map of related resources whose configuration does not match the intended configuration, grouped by resource type. Each entry lists the resources of that type that are out of sync. For example, subnets whose connectivity type differs from the connectivity type that the policy specifies.</p>
+   * @public
+   */
+  export interface InvalidResourceMember {
+    missingFirewall?: never;
+    invalidFirewall?: never;
+    invalidResource: Partial<Record<ScopeResourceType, InvalidResourceIssue[]>>;
     $unknown?: never;
   }
 
@@ -2260,6 +2345,7 @@ export namespace FirewallSyncReason {
   export interface $UnknownMember {
     missingFirewall?: never;
     invalidFirewall?: never;
+    invalidResource?: never;
     $unknown: [string, any];
   }
 
@@ -2270,6 +2356,7 @@ export namespace FirewallSyncReason {
   export interface Visitor<T> {
     missingFirewall: (value: string) => T;
     invalidFirewall: (value: InvalidFirewallReasons) => T;
+    invalidResource: (value: Partial<Record<ScopeResourceType, InvalidResourceIssue[]>>) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3079,6 +3166,112 @@ export interface ListAggregateResourceSynchronizationStatusesOutput {
 /**
  * @public
  */
+export interface ListEntityCoveragesInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Network Security Manager entity to list covered resources for. The ARN must not include a <code>:DRAFT</code> qualifier.</p>
+   * @public
+   */
+  entityArn: string | undefined;
+
+  /**
+   * <p>Filters the results to the protected resources owned by the specified AWS account.</p>
+   * @public
+   */
+  resourceOwnerAccountId?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. Valid range: 1–100. The default value is 100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes how an AWS Network Security Manager entity covers a protected resource.</p>
+ * @public
+ */
+export interface ResourceCoverageSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protected resource.</p>
+   * @public
+   */
+  resourceArn?: string | undefined;
+
+  /**
+   * <p>The type of the entity that covers the resource, such as <code>Policy</code>.</p>
+   * @public
+   */
+  entityType?: ServiceResourceType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the entity that covers the resource.</p>
+   * @public
+   */
+  entityArn?: string | undefined;
+
+  /**
+   * <p>The AWS account ID that owns the protected resource. This can differ from the account that owns the entity.</p>
+   * @public
+   */
+  resourceOwnerAccountId?: string | undefined;
+
+  /**
+   * <p>The type of the protected resource, in AWS CloudFormation format.</p>
+   * @public
+   */
+  resourceType?: ScopeResourceType | undefined;
+
+  /**
+   * <p>The firewall type of the policy that covers the resource. This is present when <code>entityType</code> is <code>Policy</code>.</p>
+   * @public
+   */
+  firewallType?: PolicyFirewallType | undefined;
+
+  /**
+   * <p>Specifies whether the entity contributes to the effective configuration of the resource for its firewall type. For firewall types that combine policies, such as AWS WAF and AWS Shield Advanced, every policy that covers the resource is <code>IN_EFFECT</code>. For firewall types that apply a single policy, only the highest-priority policy is <code>IN_EFFECT</code> and the others are <code>SUPERSEDED</code>.</p>
+   * @public
+   */
+  coverageStatus?: CoverageStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the deployments through which the entity covers the resource.</p>
+   * @public
+   */
+  deploymentArns?: string[] | undefined;
+
+  /**
+   * <p>The time when AWS Network Security Manager last evaluated the coverage.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEntityCoveragesOutput {
+  /**
+   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of resource coverages for the Network Security Manager entity.</p>
+   * @public
+   */
+  resourceCoverages: ResourceCoverageSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListPoliciesInput {
   /**
    * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
@@ -3214,6 +3407,52 @@ export interface ListPolicySnapshotsOutput {
    * @public
    */
   snapshots: PolicySummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProtectedResourceCoveragesInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protected resource to list coverage for. You must own the resource.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>Filters the results by the type of the entity that covers the resource. The only supported value is <code>Policy</code>.</p>
+   * @public
+   */
+  entityType?: ServiceResourceType | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. Valid range: 1–100. The default value is 100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProtectedResourceCoveragesOutput {
+  /**
+   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of resource coverages for the protected resource.</p>
+   * @public
+   */
+  resourceCoverages: ResourceCoverageSummary[] | undefined;
 }
 
 /**
@@ -3461,6 +3700,12 @@ export interface ScopeSummary {
   scopeName?: string | undefined;
 
   /**
+   * <p>The specialized type of the scope, if the scope is built for one specific purpose. A scope with no <code>specializedScopeType</code> is a standard scope that you can associate with a deployment. A specialized scope can be used only for the purpose that its type defines and can't be associated with a deployment. This value is set when the scope is created and can't be changed.</p>
+   * @public
+   */
+  specializedScopeType?: SpecializedScopeType | undefined;
+
+  /**
    * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable), <code>ACTIVE</code> (published, in use), or <code>DISABLED</code> (deactivated; changes cannot be published until the resource is re-enabled).</p>
    * @public
    */
@@ -3585,6 +3830,12 @@ export interface ListTemplatesInput {
    * @public
    */
   status?: EntityStatusFilter | undefined;
+
+  /**
+   * <p>Specifies which templates to list. The default is <code>CUSTOMER</code>. Valid values:</p> <ul> <li> <p> <code>CUSTOMER</code> – Lists the templates in your account.</p> </li> <li> <p> <code>AWS</code> – Lists the AWS managed templates.</p> </li> </ul>
+   * @public
+   */
+  templateOwner?: TemplateOwner | undefined;
 }
 
 /**
@@ -3609,6 +3860,12 @@ export interface TemplateSummary {
    * @public
    */
   templateName: string | undefined;
+
+  /**
+   * <p>The owner of the template. Valid values:</p> <ul> <li> <p> <code>CUSTOMER</code> – The template is in your account.</p> </li> <li> <p> <code>AWS</code> – The template is an AWS managed template.</p> </li> </ul>
+   * @public
+   */
+  templateOwner?: TemplateOwner | undefined;
 
   /**
    * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
@@ -4342,6 +4599,12 @@ export interface CreateScopeInput {
   scopeConfiguration: ScopeConfiguration | undefined;
 
   /**
+   * <p>The specialized type of the scope. Omit this value to create a standard scope that you can associate with a deployment. Set it to create a scope that is built for one specific purpose: a specialized scope can be used only for the purpose that its type defines, is validated against that use, and can't be associated with a deployment. This value is set when the scope is created and can't be changed.</p>
+   * @public
+   */
+  specializedScopeType?: SpecializedScopeType | undefined;
+
+  /**
    * <p>Specifies whether to publish the resource. When <code>true</code>, the resource is saved in published (<code>ACTIVE</code>) state. When <code>false</code>, it is saved as a draft (<code>DRAFT</code>). Default: <code>true</code>.</p>
    * @public
    */
@@ -4387,6 +4650,12 @@ export interface CreateScopeOutput {
    * @public
    */
   scopeConfiguration?: ScopeConfiguration | undefined;
+
+  /**
+   * <p>The specialized type of the scope, if the scope is built for one specific purpose. A scope with no <code>specializedScopeType</code> is a standard scope that you can associate with a deployment. A specialized scope can be used only for the purpose that its type defines and can't be associated with a deployment. This value is set when the scope is created and can't be changed.</p>
+   * @public
+   */
+  specializedScopeType?: SpecializedScopeType | undefined;
 
   /**
    * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
@@ -4460,6 +4729,12 @@ export interface CreateScopeSnapshotOutput {
   scopeConfiguration?: ScopeConfiguration | undefined;
 
   /**
+   * <p>The specialized type of the scope, if the scope is built for one specific purpose. A scope with no <code>specializedScopeType</code> is a standard scope that you can associate with a deployment. A specialized scope can be used only for the purpose that its type defines and can't be associated with a deployment. This value is set when the scope is created and can't be changed.</p>
+   * @public
+   */
+  specializedScopeType?: SpecializedScopeType | undefined;
+
+  /**
    * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
    * @public
    */
@@ -4529,6 +4804,12 @@ export interface GetScopeOutput {
    * @public
    */
   scopeConfiguration?: ScopeConfiguration | undefined;
+
+  /**
+   * <p>The specialized type of the scope, if the scope is built for one specific purpose. A scope with no <code>specializedScopeType</code> is a standard scope that you can associate with a deployment. A specialized scope can be used only for the purpose that its type defines and can't be associated with a deployment. This value is set when the scope is created and can't be changed.</p>
+   * @public
+   */
+  specializedScopeType?: SpecializedScopeType | undefined;
 
   /**
    * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable), <code>ACTIVE</code> (published, in use), or <code>DISABLED</code> (deactivated; changes cannot be published until the resource is re-enabled).</p>
@@ -4641,6 +4922,12 @@ export interface UpdateScopeOutput {
    * @public
    */
   scopeConfiguration?: ScopeConfiguration | undefined;
+
+  /**
+   * <p>The specialized type of the scope, if the scope is built for one specific purpose. A scope with no <code>specializedScopeType</code> is a standard scope that you can associate with a deployment. A specialized scope can be used only for the purpose that its type defines and can't be associated with a deployment. This value is set when the scope is created and can't be changed.</p>
+   * @public
+   */
+  specializedScopeType?: SpecializedScopeType | undefined;
 
   /**
    * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>

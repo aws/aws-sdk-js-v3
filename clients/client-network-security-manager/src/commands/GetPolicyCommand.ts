@@ -54,13 +54,24 @@ export interface GetPolicyCommandOutput extends GetPolicyOutput, __MetadataBeare
  * //   updateToken: "STRING_VALUE",
  * //   isSnapshot: true || false,
  * //   hasPublishedVersion: true || false,
- * //   firewallType: "WAF" || "SHIELD_ADVANCED", // required
+ * //   firewallType: "WAF" || "SHIELD_ADVANCED" || "IGW_FIREWALL", // required
  * //   policyConfiguration: { // PolicyConfiguration
  * //     remediationEnabled: true || false, // required
  * //     resourcesCleanUp: true || false, // required
  * //     wafConfig: { // WafConfig
  * //       existingCustomerWebACLResolution: "RETROFIT" || "OVERRIDE_ASSOCIATION" || "NO_REMEDIATION", // required
  * //       conflictResolution: "MERGE_WHERE_APPLICABLE", // required
+ * //     },
+ * //     igwFirewallConfig: { // IgwFirewallConfig
+ * //       defaultSubnetConnectivity: "flexible" || "bidirectional" || "outbound-only",
+ * //       subnetConnectivityOverrides: [ // SubnetConnectivityOverrideList
+ * //         { // SubnetConnectivityOverride
+ * //           connectivityType: "flexible" || "bidirectional" || "outbound-only" || "exclude", // required
+ * //           scopes: [ // SubnetConnectivityScopeArnList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * //   updatedAt: new Date("TIMESTAMP"),

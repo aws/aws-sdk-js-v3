@@ -46,6 +46,7 @@ export interface ListScopeSnapshotsCommandOutput extends ListScopeSnapshotsOutpu
  * //       scopeId: "STRING_VALUE", // required
  * //       scopeArn: "STRING_VALUE", // required
  * //       scopeName: "STRING_VALUE",
+ * //       specializedScopeType: "IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE",
  * //       status: "DRAFT" || "ACTIVE" || "DISABLED",
  * //       version: "STRING_VALUE",
  * //       hasPublishedVersion: true || false,

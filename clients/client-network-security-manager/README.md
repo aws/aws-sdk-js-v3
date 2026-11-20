@@ -370,6 +370,13 @@ ListDeploymentSnapshots
 </details>
 <details>
 <summary>
+ListEntityCoverages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-security-manager/command/ListEntityCoveragesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-security-manager/Interface/ListEntityCoveragesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-security-manager/Interface/ListEntityCoveragesCommandOutput/)
+</details>
+<details>
+<summary>
 ListPolicies
 </summary>
 
@@ -381,6 +388,13 @@ ListPolicySnapshots
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-security-manager/command/ListPolicySnapshotsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-security-manager/Interface/ListPolicySnapshotsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-security-manager/Interface/ListPolicySnapshotsCommandOutput/)
+</details>
+<details>
+<summary>
+ListProtectedResourceCoverages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-security-manager/command/ListProtectedResourceCoveragesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-security-manager/Interface/ListProtectedResourceCoveragesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-security-manager/Interface/ListProtectedResourceCoveragesCommandOutput/)
 </details>
 <details>
 <summary>

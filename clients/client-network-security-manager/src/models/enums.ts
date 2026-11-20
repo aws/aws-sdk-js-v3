@@ -4,6 +4,7 @@
  * @enum
  */
 export const PolicyFirewallType = {
+  IGW_FIREWALL: "IGW_FIREWALL",
   SHIELD_ADVANCED: "SHIELD_ADVANCED",
   WAF: "WAF",
 } as const;
@@ -56,12 +57,27 @@ export type Scheme = (typeof Scheme)[keyof typeof Scheme];
  * @public
  * @enum
  */
+export const CoverageStatus = {
+  IN_EFFECT: "IN_EFFECT",
+  SUPERSEDED: "SUPERSEDED",
+} as const;
+/**
+ * @public
+ */
+export type CoverageStatus = (typeof CoverageStatus)[keyof typeof CoverageStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ScopeResourceType = {
   ALB: "AWS::ElasticLoadBalancingV2::LoadBalancer::application",
   APIGW: "AWS::ApiGateway::Stage",
   CFD: "AWS::CloudFront::Distribution",
   CLB: "AWS::ElasticLoadBalancing::LoadBalancer",
   EIP: "AWS::EC2::EIP",
+  SUBNET: "AWS::EC2::Subnet",
+  VPC: "AWS::EC2::VPC",
 } as const;
 /**
  * @public
@@ -100,6 +116,35 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
  * @public
  * @enum
  */
+export const DefaultSubnetConnectivity = {
+  BIDIRECTIONAL: "bidirectional",
+  FLEXIBLE: "flexible",
+  OUTBOUND_ONLY: "outbound-only",
+} as const;
+/**
+ * @public
+ */
+export type DefaultSubnetConnectivity = (typeof DefaultSubnetConnectivity)[keyof typeof DefaultSubnetConnectivity];
+
+/**
+ * @public
+ * @enum
+ */
+export const SubnetConnectivity = {
+  BIDIRECTIONAL: "bidirectional",
+  EXCLUDE: "exclude",
+  FLEXIBLE: "flexible",
+  OUTBOUND_ONLY: "outbound-only",
+} as const;
+/**
+ * @public
+ */
+export type SubnetConnectivity = (typeof SubnetConnectivity)[keyof typeof SubnetConnectivity];
+
+/**
+ * @public
+ * @enum
+ */
 export const WAFConflictResolutionOptions = {
   MERGE_WHERE_APPLICABLE: "MERGE_WHERE_APPLICABLE",
 } as const;
@@ -129,6 +174,7 @@ export type ExistingCustomerWebACLResolution =
  * @enum
  */
 export const RuleFirewallType = {
+  IGW_FIREWALL: "IGW_FIREWALL",
   WAF: "WAF",
 } as const;
 /**
@@ -153,7 +199,20 @@ export type RuleType = (typeof RuleType)[keyof typeof RuleType];
  * @public
  * @enum
  */
+export const SpecializedScopeType = {
+  IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE: "IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE",
+} as const;
+/**
+ * @public
+ */
+export type SpecializedScopeType = (typeof SpecializedScopeType)[keyof typeof SpecializedScopeType];
+
+/**
+ * @public
+ * @enum
+ */
 export const TemplateFirewallType = {
+  IGW_FIREWALL: "IGW_FIREWALL",
   WAF: "WAF",
 } as const;
 /**
@@ -201,6 +260,7 @@ export const ResourceType = {
   EIP: "AWS::EC2::EIP",
   SHIELDREGIONAL_PROTECTION: "AWS::ShieldRegional::Protection",
   SHIELD_PROTECTION: "AWS::Shield::Protection",
+  VPC: "AWS::EC2::VPC",
   WAF_V2_WEBACL: "AWS::WAFv2::WebACL",
 } as const;
 /**
@@ -244,3 +304,16 @@ export const ServiceResourceType = {
  * @public
  */
 export type ServiceResourceType = (typeof ServiceResourceType)[keyof typeof ServiceResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TemplateOwner = {
+  AWS: "AWS",
+  CUSTOMER: "CUSTOMER",
+} as const;
+/**
+ * @public
+ */
+export type TemplateOwner = (typeof TemplateOwner)[keyof typeof TemplateOwner];

@@ -61,7 +61,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateOutput, __Met
  * //   updateToken: "STRING_VALUE",
  * //   isSnapshot: true || false,
  * //   hasPublishedVersion: true || false,
- * //   firewallType: "WAF", // required
+ * //   firewallType: "WAF" || "IGW_FIREWALL", // required
  * //   updatedAt: new Date("TIMESTAMP"),
  * // };
  *

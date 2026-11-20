@@ -58,7 +58,7 @@ export interface PutAdminAccountCommandOutput extends PutAdminAccountResponse, _
  *     firewallTypeScope: { // AdminFirewallTypeScope
  *       allFirewallTypesEnabled: true || false,
  *       firewallTypes: [ // FirewallTypeList
- *         "WAF" || "SHIELD_ADVANCED",
+ *         "WAF" || "SHIELD_ADVANCED" || "IGW_FIREWALL",
  *       ],
  *     },
  *   },
@@ -106,7 +106,7 @@ export interface PutAdminAccountCommandOutput extends PutAdminAccountResponse, _
  * //       firewallTypeScope: { // AdminFirewallTypeScope
  * //         allFirewallTypesEnabled: true || false,
  * //         firewallTypes: [ // FirewallTypeList
- * //           "WAF" || "SHIELD_ADVANCED",
+ * //           "WAF" || "SHIELD_ADVANCED" || "IGW_FIREWALL",
  * //         ],
  * //       },
  * //     },

@@ -34,7 +34,7 @@ export interface GenerateRuleConfigurationCommandOutput extends GenerateRuleConf
  * const client = new NetworkSecurityManagerClient(config);
  * const input = { // GenerateRuleConfigurationRequest
  *   prompt: "STRING_VALUE", // required
- *   ruleFirewallType: "WAF", // required
+ *   ruleFirewallType: "WAF" || "IGW_FIREWALL", // required
  *   ruleType: "CONFIGURATION" || "INSPECTION", // required
  *   wafConfigDataType: "DefaultAction" || "VisibilityConfig" || "CaptchaConfig" || "ChallengeConfig" || "CustomResponseBodies" || "LoggingConfiguration" || "DataProtectionConfig" || "AssociationConfig" || "OnSourceDDoSProtectionConfig" || "TokenDomains",
  *   currentConfiguration: "STRING_VALUE",

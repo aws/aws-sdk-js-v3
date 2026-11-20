@@ -41,7 +41,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateOutput, __Met
  *       ruleIdentifier: "STRING_VALUE", // required
  *     },
  *   ],
- *   firewallType: "WAF", // required
+ *   firewallType: "WAF" || "IGW_FIREWALL", // required
  *   isPublished: true || false,
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
@@ -64,7 +64,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateOutput, __Met
  * //   updateToken: "STRING_VALUE",
  * //   isSnapshot: true || false,
  * //   hasPublishedVersion: true || false,
- * //   firewallType: "WAF", // required
+ * //   firewallType: "WAF" || "IGW_FIREWALL", // required
  * //   updatedAt: new Date("TIMESTAMP"),
  * // };
  *

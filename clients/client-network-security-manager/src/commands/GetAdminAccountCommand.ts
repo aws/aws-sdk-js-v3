@@ -78,7 +78,7 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
  * //       firewallTypeScope: { // AdminFirewallTypeScope
  * //         allFirewallTypesEnabled: true || false,
  * //         firewallTypes: [ // FirewallTypeList
- * //           "WAF" || "SHIELD_ADVANCED",
+ * //           "WAF" || "SHIELD_ADVANCED" || "IGW_FIREWALL",
  * //         ],
  * //       },
  * //     },

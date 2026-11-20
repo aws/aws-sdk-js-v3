@@ -46,7 +46,7 @@ export interface ListRuleSnapshotsCommandOutput extends ListRuleSnapshotsOutput,
  * //       ruleId: "STRING_VALUE", // required
  * //       ruleArn: "STRING_VALUE", // required
  * //       ruleName: "STRING_VALUE", // required
- * //       firewallType: "WAF",
+ * //       firewallType: "WAF" || "IGW_FIREWALL",
  * //       ruleType: "CONFIGURATION" || "INSPECTION",
  * //       status: "DRAFT" || "ACTIVE" || "DISABLED",
  * //       version: "STRING_VALUE",

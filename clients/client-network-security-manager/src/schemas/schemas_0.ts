@@ -96,7 +96,11 @@ const _GSO = "GetScopeOutput";
 const _GT = "GetTemplate";
 const _GTI = "GetTemplateInput";
 const _GTO = "GetTemplateOutput";
+const _IFC = "IgwFirewallConfig";
 const _IFR = "InvalidFirewallReasons";
+const _IRBT = "InvalidResourcesByType";
+const _IRI = "InvalidResourceIssue";
+const _IRIL = "InvalidResourceIssueList";
 const _ISE = "InternalServerException";
 const _LAA = "ListAdminAccounts";
 const _LAAR = "ListAdminAccountsRequest";
@@ -110,9 +114,15 @@ const _LDO = "ListDeploymentsOutput";
 const _LDS = "ListDeploymentSnapshots";
 const _LDSI = "ListDeploymentSnapshotsInput";
 const _LDSO = "ListDeploymentSnapshotsOutput";
+const _LEC = "ListEntityCoverages";
+const _LECI = "ListEntityCoveragesInput";
+const _LECO = "ListEntityCoveragesOutput";
 const _LP = "ListPolicies";
 const _LPI = "ListPoliciesInput";
 const _LPO = "ListPoliciesOutput";
+const _LPRC = "ListProtectedResourceCoverages";
+const _LPRCI = "ListProtectedResourceCoveragesInput";
+const _LPRCO = "ListProtectedResourceCoveragesOutput";
 const _LPS = "ListPolicySnapshots";
 const _LPSI = "ListPolicySnapshotsInput";
 const _LPSO = "ListPolicySnapshotsOutput";
@@ -159,6 +169,8 @@ const _PSL = "PolicySummaryList";
 const _RA = "ResourceAssociation";
 const _RAL = "ResourceAssociationList";
 const _RC = "ResourceCriteria";
+const _RCS = "ResourceCoverageSummary";
+const _RCSL = "ResourceCoverageSummaryList";
 const _RI = "RemediationIssues";
 const _RID = "RemediationIssueDetails";
 const _RIV = "RemediationIssuesView";
@@ -177,6 +189,8 @@ const _RSu = "RuleSummary";
 const _SAE = "SensitiveAccountEmail";
 const _SAN = "SensitiveAccountName";
 const _SC = "ScopeConfiguration";
+const _SCO = "SubnetConnectivityOverride";
+const _SCOL = "SubnetConnectivityOverrideList";
 const _SE = "SensitiveEmail";
 const _SN = "SensitiveName";
 const _SQEE = "ServiceQuotaExceededException";
@@ -239,25 +253,31 @@ const _cA = "correctiveAction";
 const _cC = "currentConfiguration";
 const _cN = "configurationName";
 const _cR = "conflictResolution";
+const _cS = "coverageStatus";
 const _cT = "clientToken";
+const _cTo = "connectivityType";
 const _co = "configuration";
 const _cod = "code";
 const _cr = "criteria";
 const _d = "description";
 const _dA = "deploymentArn";
+const _dAe = "deploymentArns";
 const _dC = "deploymentConfiguration";
 const _dCe = "deploymentCoverage";
 const _dD = "deploymentDescription";
 const _dI = "deploymentId";
 const _dIe = "deploymentIdentifier";
 const _dN = "deploymentName";
+const _dSC = "defaultSubnetConnectivity";
 const _de = "deployments";
 const _e = "error";
-const _eA = "explicitArns";
+const _eA = "entityArn";
 const _eAv = "evaluatedAt";
+const _eAx = "explicitArns";
 const _eCAV = "enableCrossAccountVisibility";
 const _eCWACLR = "existingCustomerWebACLResolution";
 const _eO = "excludeOnly";
+const _eT = "entityType";
 const _eV = "expectedValue";
 const _em = "email";
 const _ex = "exclude";
@@ -275,8 +295,10 @@ const _iA = "includeAll";
 const _iACO = "incorrectAppendableConfigurationOrder";
 const _iAT = "ipAddressType";
 const _iF = "invalidFirewall";
+const _iFC = "igwFirewallConfig";
 const _iO = "includeOnly";
 const _iP = "isPublished";
+const _iR = "invalidResource";
 const _iS = "isSnapshot";
 const _iSRT = "inScopeResourceTypes";
 const _iSVC = "incorrectSingleValueConfigurations";
@@ -309,8 +331,9 @@ const _qC = "quotaCode";
 const _r = "reason";
 const _rA = "ruleArn";
 const _rAS = "retryAfterSeconds";
-const _rAe = "resourceAssociations";
-const _rAes = "resourceArn";
+const _rAe = "resourceArn";
+const _rAes = "resourceAssociations";
+const _rC = "resourceCoverages";
 const _rCU = "resourcesCleanUp";
 const _rD = "ruleDescription";
 const _rE = "remediationEnabled";
@@ -321,6 +344,7 @@ const _rIem = "remediationIssues";
 const _rIu = "ruleId";
 const _rIul = "ruleIdentifier";
 const _rN = "ruleName";
+const _rOAI = "resourceOwnerAccountId";
 const _rS = "resourceScopes";
 const _rSS = "resourceSynchronizationStatuses";
 const _rT = "resourceType";
@@ -330,6 +354,7 @@ const _ru = "rules";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.networksecuritymanager";
 const _sA = "scopeArn";
 const _sC = "serviceCode";
+const _sCO = "subnetConnectivityOverrides";
 const _sCc = "scopeConfiguration";
 const _sD = "scopeDescription";
 const _sF = "scopeFilter";
@@ -337,6 +362,7 @@ const _sI = "scopeId";
 const _sIc = "scopeIdentifier";
 const _sN = "scopeName";
 const _sS = "synchronizationStatus";
+const _sST = "specializedScopeType";
 const _sc = "scheme";
 const _sco = "scopes";
 const _se = "server";
@@ -349,6 +375,7 @@ const _tI = "templateId";
 const _tIe = "templateIdentifier";
 const _tK = "tagKeys";
 const _tN = "templateName";
+const _tO = "templateOwner";
 const _te = "templates";
 const _uA = "updatedAt";
 const _uACV = "unexpectedAppendableConfigurationValues";
@@ -590,13 +617,13 @@ export var CreateRuleSnapshotOutput$: StaticStructureSchema = [3, n0, _CRSO,
 ];
 export var CreateScopeInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
-  [_sN, _sCc, _cT, _sD, _iP, _t],
-  [0, () => ScopeConfiguration$, [0, 4], 0, 2, 128 | 0], 2
+  [_sN, _sCc, _cT, _sD, _sST, _iP, _t],
+  [0, () => ScopeConfiguration$, [0, 4], 0, 0, 2, 128 | 0], 2
 ];
 export var CreateScopeOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
-  [_sI, _sA, _sN, _st, _v, _sD, _sCc, _uT, _iS, _hPV, _uA],
-  [0, 0, 0, 0, 0, 0, () => ScopeConfiguration$, 0, 2, 2, 5], 5
+  [_sI, _sA, _sN, _st, _v, _sD, _sCc, _sST, _uT, _iS, _hPV, _uA],
+  [0, 0, 0, 0, 0, 0, () => ScopeConfiguration$, 0, 0, 2, 2, 5], 5
 ];
 export var CreateScopeSnapshotInput$: StaticStructureSchema = [3, n0, _CSSI,
   0,
@@ -605,8 +632,8 @@ export var CreateScopeSnapshotInput$: StaticStructureSchema = [3, n0, _CSSI,
 ];
 export var CreateScopeSnapshotOutput$: StaticStructureSchema = [3, n0, _CSSO,
   0,
-  [_sI, _sA, _sN, _st, _v, _sD, _sCc, _uT, _iS, _hPV, _uA],
-  [0, 0, 0, 0, 0, 0, () => ScopeConfiguration$, 0, 2, 2, 5], 5
+  [_sI, _sA, _sN, _st, _v, _sD, _sCc, _sST, _uT, _iS, _hPV, _uA],
+  [0, 0, 0, 0, 0, 0, () => ScopeConfiguration$, 0, 0, 2, 2, 5], 5
 ];
 export var CreateTemplateInput$: StaticStructureSchema = [3, n0, _CTI,
   0,
@@ -735,8 +762,8 @@ export var GetScopeInput$: StaticStructureSchema = [3, n0, _GSI,
 ];
 export var GetScopeOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
-  [_sI, _sA, _sN, _st, _v, _sD, _sCc, _uT, _iS, _hPV, _uA],
-  [0, 0, 0, 0, 0, 0, () => ScopeConfiguration$, 0, 2, 2, 5], 5
+  [_sI, _sA, _sN, _st, _v, _sD, _sCc, _sST, _uT, _iS, _hPV, _uA],
+  [0, 0, 0, 0, 0, 0, () => ScopeConfiguration$, 0, 0, 2, 2, 5], 5
 ];
 export var GetTemplateInput$: StaticStructureSchema = [3, n0, _GTI,
   0,
@@ -748,10 +775,20 @@ export var GetTemplateOutput$: StaticStructureSchema = [3, n0, _GTO,
   [_tI, _tA, _tN, _st, _v, _aRL, _fTi, _tD, _uT, _iS, _hPV, _uA],
   [0, 0, 0, 0, 0, () => AssociatedRuleList, 0, 0, 0, 2, 2, 5], 7
 ];
+export var IgwFirewallConfig$: StaticStructureSchema = [3, n0, _IFC,
+  0,
+  [_dSC, _sCO],
+  [0, () => SubnetConnectivityOverrideList]
+];
 export var InvalidFirewallReasons$: StaticStructureSchema = [3, n0, _IFR,
   0,
   [_iSVC, _mACV, _uACV, _iACO, _mMCV, _uMCV],
   [() => ConfigurationIssueList, () => ConfigurationIssueList, () => ConfigurationIssueList, () => ConfigurationIssueList, () => ConfigurationIssueList, () => ConfigurationIssueList]
+];
+export var InvalidResourceIssue$: StaticStructureSchema = [3, n0, _IRI,
+  0,
+  [_rI, _eV, _aV],
+  [0, 0, 0]
 ];
 export var ListAdminAccountsRequest$: StaticStructureSchema = [3, n0, _LAAR,
   0,
@@ -793,6 +830,16 @@ export var ListDeploymentsOutput$: StaticStructureSchema = [3, n0, _LDO,
   [_de, _nT],
   [() => DeploymentSummaryList, 0], 1
 ];
+export var ListEntityCoveragesInput$: StaticStructureSchema = [3, n0, _LECI,
+  0,
+  [_eA, _rOAI, _mR, _nT],
+  [[0, { [_hQ]: _eA }], [0, { [_hQ]: _rOAI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListEntityCoveragesOutput$: StaticStructureSchema = [3, n0, _LECO,
+  0,
+  [_rC, _nT],
+  [() => ResourceCoverageSummaryList, 0], 1
+];
 export var ListPoliciesInput$: StaticStructureSchema = [3, n0, _LPI,
   0,
   [_mR, _nT, _st],
@@ -813,6 +860,16 @@ export var ListPolicySnapshotsOutput$: StaticStructureSchema = [3, n0, _LPSO,
   [_sn, _nT],
   [() => PolicySummaryList, 0], 1
 ];
+export var ListProtectedResourceCoveragesInput$: StaticStructureSchema = [3, n0, _LPRCI,
+  0,
+  [_rAe, _eT, _mR, _nT],
+  [[0, { [_hQ]: _rAe }], [0, { [_hQ]: _eT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListProtectedResourceCoveragesOutput$: StaticStructureSchema = [3, n0, _LPRCO,
+  0,
+  [_rC, _nT],
+  [() => ResourceCoverageSummaryList, 0], 1
+];
 export var ListResourceAssociationsInput$: StaticStructureSchema = [3, n0, _LRAI,
   0,
   [_rIe, _mR, _nT],
@@ -820,7 +877,7 @@ export var ListResourceAssociationsInput$: StaticStructureSchema = [3, n0, _LRAI
 ];
 export var ListResourceAssociationsOutput$: StaticStructureSchema = [3, n0, _LRAO,
   0,
-  [_rAe, _nT],
+  [_rAes, _nT],
   [() => ResourceAssociationList, 0], 1
 ];
 export var ListResourceSynchronizationStatusesInput$: StaticStructureSchema = [3, n0, _LRSSI,
@@ -875,7 +932,7 @@ export var ListScopesOutput$: StaticStructureSchema = [3, n0, _LSO,
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
-  [_rAes],
+  [_rAe],
   [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
@@ -885,8 +942,8 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 ];
 export var ListTemplatesInput$: StaticStructureSchema = [3, n0, _LTI,
   0,
-  [_mR, _nT, _st],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _st }]]
+  [_mR, _nT, _st, _tO],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _st }], [0, { [_hQ]: _tO }]]
 ];
 export var ListTemplateSnapshotsInput$: StaticStructureSchema = [3, n0, _LTSI,
   0,
@@ -915,8 +972,8 @@ export var OrganizationalUnitReference$: StaticStructureSchema = [3, n0, _OUR,
 ];
 export var PolicyConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
-  [_rE, _rCU, _wC],
-  [2, 2, () => WafConfig$], 2
+  [_rE, _rCU, _wC, _iFC],
+  [2, 2, () => WafConfig$, () => IgwFirewallConfig$], 2
 ];
 export var PolicyReference$: StaticStructureSchema = [3, n0, _PR,
   0,
@@ -948,6 +1005,11 @@ export var ResourceAssociation$: StaticStructureSchema = [3, n0, _RA,
   [_ar, _rT],
   [0, 0], 2
 ];
+export var ResourceCoverageSummary$: StaticStructureSchema = [3, n0, _RCS,
+  0,
+  [_rAe, _eT, _eA, _rOAI, _rT, _fTi, _cS, _dAe, _uA],
+  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 5]
+];
 export var ResourceScope$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_iA, _i, _ex],
@@ -955,12 +1017,12 @@ export var ResourceScope$: StaticStructureSchema = [3, n0, _RS,
 ];
 export var ResourceSet$: StaticStructureSchema = [3, n0, _RSe,
   0,
-  [_eA, _exp],
+  [_eAx, _exp],
   [64 | 0, () => ResourceLogicalExpression$]
 ];
 export var ResourceSynchronizationStatusSummary$: StaticStructureSchema = [3, n0, _RSSS,
   0,
-  [_sS, _aI, _rAes, _uA, _dA, _rT, _oOSR, _rIem, _eAv],
+  [_sS, _aI, _rAe, _uA, _dA, _rT, _oOSR, _rIem, _eAv],
   [0, 0, 0, 5, 0, 0, () => OutOfSyncReasonsView$, () => RemediationIssuesView$, 5], 4
 ];
 export var RuleReference$: StaticStructureSchema = [3, n0, _RR,
@@ -985,12 +1047,17 @@ export var ScopeReference$: StaticStructureSchema = [3, n0, _SR,
 ];
 export var ScopeSummary$: StaticStructureSchema = [3, n0, _SSc,
   0,
-  [_sI, _sA, _sN, _st, _v, _hPV, _uA],
-  [0, 0, 0, 0, 0, 2, 5], 2
+  [_sI, _sA, _sN, _sST, _st, _v, _hPV, _uA],
+  [0, 0, 0, 0, 0, 0, 2, 5], 2
+];
+export var SubnetConnectivityOverride$: StaticStructureSchema = [3, n0, _SCO,
+  0,
+  [_cTo, _sco],
+  [0, 64 | 0], 2
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
-  [_rAes, _t],
+  [_rAe, _t],
   [[0, 1], 128 | 0], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
@@ -1000,12 +1067,12 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 ];
 export var TemplateSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_tI, _tA, _tN, _st, _v, _hPV, _fTi, _uA],
-  [0, 0, 0, 0, 0, 2, 0, 5], 3
+  [_tI, _tA, _tN, _tO, _st, _v, _hPV, _fTi, _uA],
+  [0, 0, 0, 0, 0, 0, 2, 0, 5], 3
 ];
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
-  [_rAes, _tK],
+  [_rAe, _tK],
   [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
@@ -1050,8 +1117,8 @@ export var UpdateScopeInput$: StaticStructureSchema = [3, n0, _USI,
 ];
 export var UpdateScopeOutput$: StaticStructureSchema = [3, n0, _USO,
   0,
-  [_sI, _sA, _sN, _st, _v, _sD, _sCc, _uT, _iS, _hPV, _uA],
-  [0, 0, 0, 0, 0, 0, () => ScopeConfiguration$, 0, 2, 2, 5], 5
+  [_sI, _sA, _sN, _st, _v, _sD, _sCc, _sST, _uT, _iS, _hPV, _uA],
+  [0, 0, 0, 0, 0, 0, () => ScopeConfiguration$, 0, 0, 2, 2, 5], 5
 ];
 export var UpdateTemplateInput$: StaticStructureSchema = [3, n0, _UTI,
   0,
@@ -1099,6 +1166,7 @@ var AssociatedTemplateAndRuleList: StaticListSchema = [1, n0, _ATARL,
 var ConfigurationIssueList: StaticListSchema = [1, n0, _CIL,
   0, () => ConfigurationIssue$
 ];
+var DeploymentArnSet = 64 | 0;
 var DeploymentCoverageList: StaticListSchema = [1, n0, _DCL,
   0, () => DeploymentCoverageEntry$
 ];
@@ -1111,6 +1179,9 @@ var DeploymentWarningList: StaticListSchema = [1, n0, _DWL,
   0, () => DeploymentWarningEntry$
 ];
 var FirewallTypeList = 64 | 0;
+var InvalidResourceIssueList: StaticListSchema = [1, n0, _IRIL,
+  0, () => InvalidResourceIssue$
+];
 var OrganizationalUnitIdList = 64 | 0;
 var OrganizationalUnitList = 64 | 0;
 var OrganizationalUnitReferenceList: StaticListSchema = [1, n0, _OURL,
@@ -1125,6 +1196,9 @@ var PolicySummaryList: StaticListSchema = [1, n0, _PSL,
 var ResourceArnList = 64 | 0;
 var ResourceAssociationList: StaticListSchema = [1, n0, _RAL,
   0, () => ResourceAssociation$
+];
+var ResourceCoverageSummaryList: StaticListSchema = [1, n0, _RCSL,
+  0, () => ResourceCoverageSummary$
 ];
 var ResourceLogicalExpressionList: StaticListSchema = [1, n0, _RLEL,
   0, () => ResourceLogicalExpression$
@@ -1144,6 +1218,10 @@ var ScopeReferenceList: StaticListSchema = [1, n0, _SRL,
 var ScopeSummaryList: StaticListSchema = [1, n0, _SSL,
   0, () => ScopeSummary$
 ];
+var SubnetConnectivityOverrideList: StaticListSchema = [1, n0, _SCOL,
+  0, () => SubnetConnectivityOverride$
+];
+var SubnetConnectivityScopeArnList = 64 | 0;
 var TagKeyList = 64 | 0;
 var TemplateAndRuleReferenceList: StaticListSchema = [1, n0, _TARRL,
   0, () => TemplateOrRuleReference$
@@ -1153,6 +1231,9 @@ var TemplateSummaryList: StaticListSchema = [1, n0, _TSL,
 ];
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
+];
+var InvalidResourcesByType: StaticMapSchema = [2, n0, _IRBT,
+  0, 0, () => InvalidResourceIssueList
 ];
 var OutOfSyncReasons: StaticMapSchema = [2, n0, _OOSR,
   0, 0, () => FirewallSyncReason$
@@ -1187,8 +1268,8 @@ export var AssociatedTemplateOrRule$: StaticUnionSchema = [4, n0, _ATOR,
 ];
 export var FirewallSyncReason$: StaticUnionSchema = [4, n0, _FSR,
   0,
-  [_mF, _iF],
-  [0, () => InvalidFirewallReasons$]
+  [_mF, _iF, _iR],
+  [0, () => InvalidFirewallReasons$, () => InvalidResourcesByType]
 ];
 export var OutOfSyncReasonsView$: StaticUnionSchema = [4, n0, _OOSRV,
   0,
@@ -1296,11 +1377,17 @@ export var ListDeployments$: StaticOperationSchema = [9, n0, _LD,
 export var ListDeploymentSnapshots$: StaticOperationSchema = [9, n0, _LDS,
   { [_h]: ["GET", "/deployments/{deploymentIdentifier}/snapshots", 200] }, () => ListDeploymentSnapshotsInput$, () => ListDeploymentSnapshotsOutput$
 ];
+export var ListEntityCoverages$: StaticOperationSchema = [9, n0, _LEC,
+  { [_h]: ["GET", "/resource-coverage/entities", 200] }, () => ListEntityCoveragesInput$, () => ListEntityCoveragesOutput$
+];
 export var ListPolicies$: StaticOperationSchema = [9, n0, _LP,
   { [_h]: ["GET", "/policies", 200] }, () => ListPoliciesInput$, () => ListPoliciesOutput$
 ];
 export var ListPolicySnapshots$: StaticOperationSchema = [9, n0, _LPS,
   { [_h]: ["GET", "/policies/{policyIdentifier}/snapshots", 200] }, () => ListPolicySnapshotsInput$, () => ListPolicySnapshotsOutput$
+];
+export var ListProtectedResourceCoverages$: StaticOperationSchema = [9, n0, _LPRC,
+  { [_h]: ["GET", "/resource-coverage/protected-resources", 200] }, () => ListProtectedResourceCoveragesInput$, () => ListProtectedResourceCoveragesOutput$
 ];
 export var ListResourceAssociations$: StaticOperationSchema = [9, n0, _LRA,
   { [_h]: ["GET", "/resource-associations", 200] }, () => ListResourceAssociationsInput$, () => ListResourceAssociationsOutput$

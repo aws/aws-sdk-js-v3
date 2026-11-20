@@ -52,7 +52,7 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  * //   updateToken: "STRING_VALUE",
  * //   isSnapshot: true || false,
  * //   hasPublishedVersion: true || false,
- * //   firewallType: "WAF", // required
+ * //   firewallType: "WAF" || "IGW_FIREWALL", // required
  * //   updatedAt: new Date("TIMESTAMP"),
  * // };
  *

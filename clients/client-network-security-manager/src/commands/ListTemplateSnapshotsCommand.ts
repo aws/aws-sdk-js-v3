@@ -46,10 +46,11 @@ export interface ListTemplateSnapshotsCommandOutput extends ListTemplateSnapshot
  * //       templateId: "STRING_VALUE", // required
  * //       templateArn: "STRING_VALUE", // required
  * //       templateName: "STRING_VALUE", // required
+ * //       templateOwner: "CUSTOMER" || "AWS",
  * //       status: "DRAFT" || "ACTIVE" || "DISABLED",
  * //       version: "STRING_VALUE",
  * //       hasPublishedVersion: true || false,
- * //       firewallType: "WAF",
+ * //       firewallType: "WAF" || "IGW_FIREWALL",
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],

@@ -45,7 +45,7 @@ export interface CreateRuleSnapshotCommandOutput extends CreateRuleSnapshotOutpu
  * //   ruleId: "STRING_VALUE", // required
  * //   ruleArn: "STRING_VALUE", // required
  * //   ruleName: "STRING_VALUE", // required
- * //   firewallType: "WAF", // required
+ * //   firewallType: "WAF" || "IGW_FIREWALL", // required
  * //   ruleType: "CONFIGURATION" || "INSPECTION",
  * //   ruleDescription: "STRING_VALUE",
  * //   configuration: "DOCUMENT_VALUE", // required
@@ -79,6 +79,9 @@ export interface CreateRuleSnapshotCommandOutput extends CreateRuleSnapshotOutpu
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request would exceed a service quota.</p>
+ *
+ * @throws {@link TagPolicyViolationException} (client fault)
+ *  <p>The request violates a tag policy that is in effect for the account or organization.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because of request throttling. Reduce your request rate and try again.</p>

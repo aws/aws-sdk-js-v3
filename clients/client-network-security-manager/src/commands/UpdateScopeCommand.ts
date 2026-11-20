@@ -190,6 +190,7 @@ export interface UpdateScopeCommandOutput extends UpdateScopeOutput, __MetadataB
  * //       },
  * //     },
  * //   },
+ * //   specializedScopeType: "IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE",
  * //   status: "DRAFT" || "ACTIVE" || "DISABLED", // required
  * //   version: "STRING_VALUE", // required
  * //   updateToken: "STRING_VALUE",

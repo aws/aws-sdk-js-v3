@@ -51,7 +51,7 @@ export interface ListResourceSynchronizationStatusesCommandOutput extends ListRe
  * //       accountId: "STRING_VALUE", // required
  * //       resourceArn: "STRING_VALUE", // required
  * //       deploymentArn: "STRING_VALUE",
- * //       resourceType: "AWS::ApiGateway::Stage" || "AWS::CloudFront::Distribution" || "AWS::EC2::EIP" || "AWS::ElasticLoadBalancingV2::LoadBalancer::application" || "AWS::ElasticLoadBalancing::LoadBalancer" || "AWS::WAFv2::WebACL" || "AWS::Shield::Protection" || "AWS::ShieldRegional::Protection",
+ * //       resourceType: "AWS::ApiGateway::Stage" || "AWS::CloudFront::Distribution" || "AWS::EC2::EIP" || "AWS::ElasticLoadBalancingV2::LoadBalancer::application" || "AWS::ElasticLoadBalancing::LoadBalancer" || "AWS::WAFv2::WebACL" || "AWS::Shield::Protection" || "AWS::ShieldRegional::Protection" || "AWS::EC2::VPC",
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       outOfSyncReasons: { // OutOfSyncReasonsView Union: only one key present
  * //         reasons: { // OutOfSyncReasons
@@ -94,6 +94,15 @@ export interface ListResourceSynchronizationStatusesCommandOutput extends ListRe
  * //                 },
  * //               ],
  * //               unexpectedMergeableConfigurationValues: "<ConfigurationIssueList>",
+ * //             },
+ * //             invalidResource: { // InvalidResourcesByType
+ * //               "<keys>": [ // InvalidResourceIssueList
+ * //                 { // InvalidResourceIssue
+ * //                   resourceId: "STRING_VALUE",
+ * //                   expectedValue: "STRING_VALUE",
+ * //                   actualValue: "STRING_VALUE",
+ * //                 },
+ * //               ],
  * //             },
  * //           },
  * //         },

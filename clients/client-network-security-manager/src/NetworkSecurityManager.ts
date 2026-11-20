@@ -131,6 +131,11 @@ import {
   ListDeploymentSnapshotsCommand,
 } from "./commands/ListDeploymentSnapshotsCommand";
 import {
+  type ListEntityCoveragesCommandInput,
+  type ListEntityCoveragesCommandOutput,
+  ListEntityCoveragesCommand,
+} from "./commands/ListEntityCoveragesCommand";
+import {
   type ListPoliciesCommandInput,
   type ListPoliciesCommandOutput,
   ListPoliciesCommand,
@@ -140,6 +145,11 @@ import {
   type ListPolicySnapshotsCommandOutput,
   ListPolicySnapshotsCommand,
 } from "./commands/ListPolicySnapshotsCommand";
+import {
+  type ListProtectedResourceCoveragesCommandInput,
+  type ListProtectedResourceCoveragesCommandOutput,
+  ListProtectedResourceCoveragesCommand,
+} from "./commands/ListProtectedResourceCoveragesCommand";
 import {
   type ListResourceAssociationsCommandInput,
   type ListResourceAssociationsCommandOutput,
@@ -228,8 +238,10 @@ import {
 } from "./pagination/ListAggregateResourceSynchronizationStatusesPaginator";
 import { paginateListDeploymentSnapshots } from "./pagination/ListDeploymentSnapshotsPaginator";
 import { paginateListDeployments } from "./pagination/ListDeploymentsPaginator";
+import { paginateListEntityCoverages } from "./pagination/ListEntityCoveragesPaginator";
 import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";
 import { paginateListPolicySnapshots } from "./pagination/ListPolicySnapshotsPaginator";
+import { paginateListProtectedResourceCoverages } from "./pagination/ListProtectedResourceCoveragesPaginator";
 import { paginateListResourceAssociations } from "./pagination/ListResourceAssociationsPaginator";
 import { paginateListResourceSynchronizationStatuses } from "./pagination/ListResourceSynchronizationStatusesPaginator";
 import { paginateListRuleSnapshots } from "./pagination/ListRuleSnapshotsPaginator";
@@ -267,8 +279,10 @@ const commands = {
   ListAggregateResourceSynchronizationStatusesCommand,
   ListDeploymentsCommand,
   ListDeploymentSnapshotsCommand,
+  ListEntityCoveragesCommand,
   ListPoliciesCommand,
   ListPolicySnapshotsCommand,
+  ListProtectedResourceCoveragesCommand,
   ListResourceAssociationsCommand,
   ListResourceSynchronizationStatusesCommand,
   ListRulesCommand,
@@ -292,8 +306,10 @@ const paginators = {
   paginateListAggregateResourceSynchronizationStatuses,
   paginateListDeployments,
   paginateListDeploymentSnapshots,
+  paginateListEntityCoverages,
   paginateListPolicies,
   paginateListPolicySnapshots,
+  paginateListProtectedResourceCoverages,
   paginateListResourceAssociations,
   paginateListResourceSynchronizationStatuses,
   paginateListRules,
@@ -775,6 +791,23 @@ export interface NetworkSecurityManager {
   ): void;
 
   /**
+   * @see {@link ListEntityCoveragesCommand}
+   */
+  listEntityCoverages(
+    args: ListEntityCoveragesCommandInput,
+    options?: NetworkSecurityManagerRequestOptions
+  ): Promise<ListEntityCoveragesCommandOutput>;
+  listEntityCoverages(
+    args: ListEntityCoveragesCommandInput,
+    cb: (err: any, data?: ListEntityCoveragesCommandOutput) => void
+  ): void;
+  listEntityCoverages(
+    args: ListEntityCoveragesCommandInput,
+    options: NetworkSecurityManagerRequestOptions,
+    cb: (err: any, data?: ListEntityCoveragesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPoliciesCommand}
    */
   listPolicies(): Promise<ListPoliciesCommandOutput>;
@@ -807,6 +840,23 @@ export interface NetworkSecurityManager {
     args: ListPolicySnapshotsCommandInput,
     options: NetworkSecurityManagerRequestOptions,
     cb: (err: any, data?: ListPolicySnapshotsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProtectedResourceCoveragesCommand}
+   */
+  listProtectedResourceCoverages(
+    args: ListProtectedResourceCoveragesCommandInput,
+    options?: NetworkSecurityManagerRequestOptions
+  ): Promise<ListProtectedResourceCoveragesCommandOutput>;
+  listProtectedResourceCoverages(
+    args: ListProtectedResourceCoveragesCommandInput,
+    cb: (err: any, data?: ListProtectedResourceCoveragesCommandOutput) => void
+  ): void;
+  listProtectedResourceCoverages(
+    args: ListProtectedResourceCoveragesCommandInput,
+    options: NetworkSecurityManagerRequestOptions,
+    cb: (err: any, data?: ListProtectedResourceCoveragesCommandOutput) => void
   ): void;
 
   /**
@@ -1146,6 +1196,17 @@ export interface NetworkSecurityManager {
   ): Paginator<ListDeploymentSnapshotsCommandOutput>;
 
   /**
+   * @see {@link ListEntityCoveragesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEntityCoveragesCommandOutput}.
+   */
+  paginateListEntityCoverages(
+    args: ListEntityCoveragesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEntityCoveragesCommandOutput>;
+
+  /**
    * @see {@link ListPoliciesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1166,6 +1227,17 @@ export interface NetworkSecurityManager {
     args: ListPolicySnapshotsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListPolicySnapshotsCommandOutput>;
+
+  /**
+   * @see {@link ListProtectedResourceCoveragesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProtectedResourceCoveragesCommandOutput}.
+   */
+  paginateListProtectedResourceCoverages(
+    args: ListProtectedResourceCoveragesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProtectedResourceCoveragesCommandOutput>;
 
   /**
    * @see {@link ListResourceAssociationsCommand}

@@ -81,12 +81,12 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * //   hasPublishedVersion: true || false,
  * //   deploymentCoverage: [ // DeploymentCoverageList
  * //     { // DeploymentCoverageEntry
- * //       firewallType: "WAF" || "SHIELD_ADVANCED", // required
+ * //       firewallType: "WAF" || "SHIELD_ADVANCED" || "IGW_FIREWALL", // required
  * //       policyArns: [ // DeploymentPolicyArnList // required
  * //         "STRING_VALUE",
  * //       ],
  * //       inScopeResourceTypes: [ // DeploymentResourceTypeList // required
- * //         "AWS::ApiGateway::Stage" || "AWS::CloudFront::Distribution" || "AWS::EC2::EIP" || "AWS::ElasticLoadBalancingV2::LoadBalancer::application" || "AWS::ElasticLoadBalancing::LoadBalancer",
+ * //         "AWS::ApiGateway::Stage" || "AWS::CloudFront::Distribution" || "AWS::EC2::EIP" || "AWS::ElasticLoadBalancingV2::LoadBalancer::application" || "AWS::ElasticLoadBalancing::LoadBalancer" || "AWS::EC2::VPC" || "AWS::EC2::Subnet",
  * //       ],
  * //     },
  * //   ],

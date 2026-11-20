@@ -49,7 +49,7 @@ export interface ListPolicySnapshotsCommandOutput extends ListPolicySnapshotsOut
  * //       status: "DRAFT" || "ACTIVE" || "DISABLED",
  * //       version: "STRING_VALUE",
  * //       hasPublishedVersion: true || false,
- * //       firewallType: "WAF" || "SHIELD_ADVANCED",
+ * //       firewallType: "WAF" || "SHIELD_ADVANCED" || "IGW_FIREWALL",
  * //       priority: Number("int"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },

@@ -56,7 +56,7 @@ export interface CreateTemplateSnapshotCommandOutput extends CreateTemplateSnaps
  * //   updateToken: "STRING_VALUE",
  * //   isSnapshot: true || false,
  * //   hasPublishedVersion: true || false,
- * //   firewallType: "WAF", // required
+ * //   firewallType: "WAF" || "IGW_FIREWALL", // required
  * //   updatedAt: new Date("TIMESTAMP"),
  * // };
  *
@@ -82,6 +82,9 @@ export interface CreateTemplateSnapshotCommandOutput extends CreateTemplateSnaps
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request would exceed a service quota.</p>
+ *
+ * @throws {@link TagPolicyViolationException} (client fault)
+ *  <p>The request violates a tag policy that is in effect for the account or organization.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because of request throttling. Reduce your request rate and try again.</p>

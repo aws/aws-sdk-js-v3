@@ -22,6 +22,7 @@ import {
   ConfigurationIssue$,
   ConflictException,
   ConflictException$,
+  CoverageStatus,
   CreateDeployment$,
   CreateDeploymentCommand,
   CreateDeploymentInput$,
@@ -62,6 +63,7 @@ import {
   CreateTemplateSnapshotCommand,
   CreateTemplateSnapshotInput$,
   CreateTemplateSnapshotOutput$,
+  DefaultSubnetConnectivity,
   DeleteAdminAccount$,
   DeleteAdminAccountCommand,
   DeleteAdminAccountRequest$,
@@ -116,9 +118,11 @@ import {
   GetTemplateCommand,
   GetTemplateInput$,
   GetTemplateOutput$,
+  IgwFirewallConfig$,
   InternalServerException,
   InternalServerException$,
   InvalidFirewallReasons$,
+  InvalidResourceIssue$,
   IpAddressType,
   ListAdminAccounts$,
   ListAdminAccountsCommand,
@@ -136,6 +140,10 @@ import {
   ListDeploymentSnapshotsInput$,
   ListDeploymentSnapshotsOutput$,
   ListDeploymentsOutput$,
+  ListEntityCoverages$,
+  ListEntityCoveragesCommand,
+  ListEntityCoveragesInput$,
+  ListEntityCoveragesOutput$,
   ListPolicies$,
   ListPoliciesCommand,
   ListPoliciesInput$,
@@ -144,6 +152,10 @@ import {
   ListPolicySnapshotsCommand,
   ListPolicySnapshotsInput$,
   ListPolicySnapshotsOutput$,
+  ListProtectedResourceCoverages$,
+  ListProtectedResourceCoveragesCommand,
+  ListProtectedResourceCoveragesInput$,
+  ListProtectedResourceCoveragesOutput$,
   ListResourceAssociations$,
   ListResourceAssociationsCommand,
   ListResourceAssociationsInput$,
@@ -190,8 +202,10 @@ import {
   paginateListAggregateResourceSynchronizationStatuses,
   paginateListDeployments,
   paginateListDeploymentSnapshots,
+  paginateListEntityCoverages,
   paginateListPolicies,
   paginateListPolicySnapshots,
+  paginateListProtectedResourceCoverages,
   paginateListResourceAssociations,
   paginateListResourceSynchronizationStatuses,
   paginateListRules,
@@ -211,6 +225,7 @@ import {
   RemediationIssueDetails$,
   RemediationIssuesView$,
   ResourceAssociation$,
+  ResourceCoverageSummary$,
   ResourceCriteria$,
   ResourceLogicalExpression$,
   ResourceNotFoundException,
@@ -233,6 +248,9 @@ import {
   ServiceResourceType,
   ServiceUnavailableException,
   ServiceUnavailableException$,
+  SpecializedScopeType,
+  SubnetConnectivity,
+  SubnetConnectivityOverride$,
   SynchronizationStatus,
   TagPolicyViolationException,
   TagPolicyViolationException$,
@@ -242,6 +260,7 @@ import {
   TagResourceOutput$,
   TemplateFirewallType,
   TemplateOrRuleReference$,
+  TemplateOwner,
   TemplateSummary$,
   ThrottlingException,
   ThrottlingException$,
@@ -336,10 +355,14 @@ assert(typeof ListDeploymentsCommand === "function");
 assert(typeof ListDeployments$ === "object");
 assert(typeof ListDeploymentSnapshotsCommand === "function");
 assert(typeof ListDeploymentSnapshots$ === "object");
+assert(typeof ListEntityCoveragesCommand === "function");
+assert(typeof ListEntityCoverages$ === "object");
 assert(typeof ListPoliciesCommand === "function");
 assert(typeof ListPolicies$ === "object");
 assert(typeof ListPolicySnapshotsCommand === "function");
 assert(typeof ListPolicySnapshots$ === "object");
+assert(typeof ListProtectedResourceCoveragesCommand === "function");
+assert(typeof ListProtectedResourceCoverages$ === "object");
 assert(typeof ListResourceAssociationsCommand === "function");
 assert(typeof ListResourceAssociations$ === "object");
 assert(typeof ListResourceSynchronizationStatusesCommand === "function");
@@ -438,7 +461,9 @@ assert(typeof GetScopeInput$ === "object");
 assert(typeof GetScopeOutput$ === "object");
 assert(typeof GetTemplateInput$ === "object");
 assert(typeof GetTemplateOutput$ === "object");
+assert(typeof IgwFirewallConfig$ === "object");
 assert(typeof InvalidFirewallReasons$ === "object");
+assert(typeof InvalidResourceIssue$ === "object");
 assert(typeof ListAdminAccountsRequest$ === "object");
 assert(typeof ListAdminAccountsResponse$ === "object");
 assert(typeof ListAggregateResourceSynchronizationStatusesInput$ === "object");
@@ -447,10 +472,14 @@ assert(typeof ListDeploymentsInput$ === "object");
 assert(typeof ListDeploymentSnapshotsInput$ === "object");
 assert(typeof ListDeploymentSnapshotsOutput$ === "object");
 assert(typeof ListDeploymentsOutput$ === "object");
+assert(typeof ListEntityCoveragesInput$ === "object");
+assert(typeof ListEntityCoveragesOutput$ === "object");
 assert(typeof ListPoliciesInput$ === "object");
 assert(typeof ListPoliciesOutput$ === "object");
 assert(typeof ListPolicySnapshotsInput$ === "object");
 assert(typeof ListPolicySnapshotsOutput$ === "object");
+assert(typeof ListProtectedResourceCoveragesInput$ === "object");
+assert(typeof ListProtectedResourceCoveragesOutput$ === "object");
 assert(typeof ListResourceAssociationsInput$ === "object");
 assert(typeof ListResourceAssociationsOutput$ === "object");
 assert(typeof ListResourceSynchronizationStatusesInput$ === "object");
@@ -480,6 +509,7 @@ assert(typeof PutAdminAccountResponse$ === "object");
 assert(typeof RemediationIssueDetails$ === "object");
 assert(typeof RemediationIssuesView$ === "object");
 assert(typeof ResourceAssociation$ === "object");
+assert(typeof ResourceCoverageSummary$ === "object");
 assert(typeof ResourceCriteria$ === "object");
 assert(typeof ResourceLogicalExpression$ === "object");
 assert(typeof ResourceScope$ === "object");
@@ -490,6 +520,7 @@ assert(typeof RuleSummary$ === "object");
 assert(typeof ScopeConfiguration$ === "object");
 assert(typeof ScopeReference$ === "object");
 assert(typeof ScopeSummary$ === "object");
+assert(typeof SubnetConnectivityOverride$ === "object");
 assert(typeof TagResourceInput$ === "object");
 assert(typeof TagResourceOutput$ === "object");
 assert(typeof TemplateOrRuleReference$ === "object");
@@ -510,6 +541,8 @@ assert(typeof ValidationExceptionField$ === "object");
 assert(typeof WafConfig$ === "object");
 // enums
 assert(typeof AdminAccountStatus === "object");
+assert(typeof CoverageStatus === "object");
+assert(typeof DefaultSubnetConnectivity === "object");
 assert(typeof EntityStatus === "object");
 assert(typeof EntityStatusFilter === "object");
 assert(typeof ExistingCustomerWebACLResolution === "object");
@@ -521,8 +554,11 @@ assert(typeof RuleType === "object");
 assert(typeof Scheme === "object");
 assert(typeof ScopeResourceType === "object");
 assert(typeof ServiceResourceType === "object");
+assert(typeof SpecializedScopeType === "object");
+assert(typeof SubnetConnectivity === "object");
 assert(typeof SynchronizationStatus === "object");
 assert(typeof TemplateFirewallType === "object");
+assert(typeof TemplateOwner === "object");
 assert(typeof ValidationExceptionReason === "object");
 assert(typeof WAFConfigDataType === "object");
 assert(typeof WAFConflictResolutionOptions === "object");
@@ -551,8 +587,10 @@ assert(typeof paginateListAdminAccounts === "function");
 assert(typeof paginateListAggregateResourceSynchronizationStatuses === "function");
 assert(typeof paginateListDeploymentSnapshots === "function");
 assert(typeof paginateListDeployments === "function");
+assert(typeof paginateListEntityCoverages === "function");
 assert(typeof paginateListPolicies === "function");
 assert(typeof paginateListPolicySnapshots === "function");
+assert(typeof paginateListProtectedResourceCoverages === "function");
 assert(typeof paginateListResourceAssociations === "function");
 assert(typeof paginateListResourceSynchronizationStatuses === "function");
 assert(typeof paginateListRuleSnapshots === "function");

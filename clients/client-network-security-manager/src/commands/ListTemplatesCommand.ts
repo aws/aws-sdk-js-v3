@@ -36,6 +36,7 @@ export interface ListTemplatesCommandOutput extends ListTemplatesOutput, __Metad
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   status: "ACTIVE" || "DRAFT" || "DISABLED",
+ *   templateOwner: "CUSTOMER" || "AWS",
  * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
@@ -46,10 +47,11 @@ export interface ListTemplatesCommandOutput extends ListTemplatesOutput, __Metad
  * //       templateId: "STRING_VALUE", // required
  * //       templateArn: "STRING_VALUE", // required
  * //       templateName: "STRING_VALUE", // required
+ * //       templateOwner: "CUSTOMER" || "AWS",
  * //       status: "DRAFT" || "ACTIVE" || "DISABLED",
  * //       version: "STRING_VALUE",
  * //       hasPublishedVersion: true || false,
- * //       firewallType: "WAF",
+ * //       firewallType: "WAF" || "IGW_FIREWALL",
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],

@@ -58,13 +58,24 @@ export interface CreatePolicySnapshotCommandOutput extends CreatePolicySnapshotO
  * //   updateToken: "STRING_VALUE",
  * //   isSnapshot: true || false,
  * //   hasPublishedVersion: true || false,
- * //   firewallType: "WAF" || "SHIELD_ADVANCED", // required
+ * //   firewallType: "WAF" || "SHIELD_ADVANCED" || "IGW_FIREWALL", // required
  * //   policyConfiguration: { // PolicyConfiguration
  * //     remediationEnabled: true || false, // required
  * //     resourcesCleanUp: true || false, // required
  * //     wafConfig: { // WafConfig
  * //       existingCustomerWebACLResolution: "RETROFIT" || "OVERRIDE_ASSOCIATION" || "NO_REMEDIATION", // required
  * //       conflictResolution: "MERGE_WHERE_APPLICABLE", // required
+ * //     },
+ * //     igwFirewallConfig: { // IgwFirewallConfig
+ * //       defaultSubnetConnectivity: "flexible" || "bidirectional" || "outbound-only",
+ * //       subnetConnectivityOverrides: [ // SubnetConnectivityOverrideList
+ * //         { // SubnetConnectivityOverride
+ * //           connectivityType: "flexible" || "bidirectional" || "outbound-only" || "exclude", // required
+ * //           scopes: [ // SubnetConnectivityScopeArnList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * //   updatedAt: new Date("TIMESTAMP"),
@@ -92,6 +103,9 @@ export interface CreatePolicySnapshotCommandOutput extends CreatePolicySnapshotO
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request would exceed a service quota.</p>
+ *
+ * @throws {@link TagPolicyViolationException} (client fault)
+ *  <p>The request violates a tag policy that is in effect for the account or organization.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because of request throttling. Reduce your request rate and try again.</p>

@@ -35,7 +35,7 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * const input = { // CreateRuleInput
  *   clientToken: "STRING_VALUE",
  *   ruleName: "STRING_VALUE", // required
- *   firewallType: "WAF", // required
+ *   firewallType: "WAF" || "IGW_FIREWALL", // required
  *   ruleType: "CONFIGURATION" || "INSPECTION", // required
  *   ruleDescription: "STRING_VALUE",
  *   configuration: "DOCUMENT_VALUE", // required
@@ -50,7 +50,7 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * //   ruleId: "STRING_VALUE", // required
  * //   ruleArn: "STRING_VALUE", // required
  * //   ruleName: "STRING_VALUE", // required
- * //   firewallType: "WAF", // required
+ * //   firewallType: "WAF" || "IGW_FIREWALL", // required
  * //   ruleType: "CONFIGURATION" || "INSPECTION",
  * //   ruleDescription: "STRING_VALUE",
  * //   configuration: "DOCUMENT_VALUE", // required
