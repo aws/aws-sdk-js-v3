@@ -943,6 +943,20 @@ export type EbuTtDDestinationStyleControl =
  * @public
  * @enum
  */
+export const EmbeddedModeType = {
+  EMBEDDED_608_AND_708: "EMBEDDED_608_AND_708",
+  EMBEDDED_608_ONLY: "EMBEDDED_608_ONLY",
+  EMBEDDED_708_ONLY: "EMBEDDED_708_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type EmbeddedModeType = (typeof EmbeddedModeType)[keyof typeof EmbeddedModeType];
+
+/**
+ * @public
+ * @enum
+ */
 export const EmbeddedDestinationStyleControl = {
   MANUAL: "MANUAL",
   PASSTHROUGH: "PASSTHROUGH",

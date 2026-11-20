@@ -271,6 +271,7 @@ const _CRI = "ConnectionRetryInterval";
 const _CRIo = "ConnectedRouterInputs";
 const _CRr = "CropRectangle";
 const _CS = "ContainerSettings";
+const _CSC = "CaptionServiceChannel";
 const _CSG = "ChannelSecurityGroups";
 const _CSM = "CaptionSynchronizationMode";
 const _CSMR = "CreateSignalMapRequest";
@@ -492,6 +493,7 @@ const _EIM = "EventIdMode";
 const _ELM = "EbpLookaheadMs";
 const _ELS = "EpochLockingSettings";
 const _EM = "ErrorMessage";
+const _EMm = "EmbeddedMode";
 const _EMn = "EnrichmentMethods";
 const _EP = "EvaluationPeriods";
 const _EPP = "EtvPlatformPid";
@@ -1509,6 +1511,7 @@ const _WDS = "WebvttDestinationSettings";
 const _WIL = "WatermarkIdLength";
 const _WR = "WhitelistRules";
 const _WS = "WavSettings";
+const _WSS = "WebvttSourceSettings";
 const _WSa = "WatermarkingSettings";
 const _X = "X";
 const _XP = "XPosition";
@@ -1682,6 +1685,7 @@ const _cR = "cropRectangle";
 const _cRI = "connectionRetryInterval";
 const _cRIo = "connectedRouterInputs";
 const _cS = "containerSettings";
+const _cSC = "captionServiceChannel";
 const _cSG = "channelSecurityGroups";
 const _cSM = "captionSynchronizationMode";
 const _cSN = "captionSelectorName";
@@ -1778,6 +1782,7 @@ const _eIM = "eventIdMode";
 const _eLM = "ebpLookaheadMs";
 const _eLS = "epochLockingSettings";
 const _eM = "errorMessage";
+const _eMm = "embeddedMode";
 const _eMn = "enrichmentMethods";
 const _eP = "evaluationPeriods";
 const _ePP = "etvPlatformPid";
@@ -2554,6 +2559,7 @@ const _wDS = "webvttDestinationSettings";
 const _wIL = "watermarkIdLength";
 const _wR = "whitelistRules";
 const _wS = "wavSettings";
+const _wSS = "webvttSourceSettings";
 const _wSa = "watermarkingSettings";
 const _x = "x";
 const _xP = "xPosition";
@@ -2989,8 +2995,8 @@ export var CaptionSelector$: StaticStructureSchema = [3, n0, _CSa,
 ];
 export var CaptionSelectorSettings$: StaticStructureSchema = [3, n0, _CSSa,
   0,
-  [_ASS, _ASSri, _DSSS, _ESS, _SSSc, _SSSct, _TSS, _SSSS],
-  [[() => AncillarySourceSettings$, { [_jN]: _aSSn }], [() => AribSourceSettings$, { [_jN]: _aSSr }], [() => DvbSubSourceSettings$, { [_jN]: _dSSS }], [() => EmbeddedSourceSettings$, { [_jN]: _eSS }], [() => Scte20SourceSettings$, { [_jN]: _sSSc }], [() => Scte27SourceSettings$, { [_jN]: _sSSct }], [() => TeletextSourceSettings$, { [_jN]: _tSS }], [() => SmartSubtitleSourceSettings$, { [_jN]: _sSSS }]]
+  [_ASS, _ASSri, _DSSS, _ESS, _SSSc, _SSSct, _TSS, _SSSS, _WSS],
+  [[() => AncillarySourceSettings$, { [_jN]: _aSSn }], [() => AribSourceSettings$, { [_jN]: _aSSr }], [() => DvbSubSourceSettings$, { [_jN]: _dSSS }], [() => EmbeddedSourceSettings$, { [_jN]: _eSS }], [() => Scte20SourceSettings$, { [_jN]: _sSSc }], [() => Scte27SourceSettings$, { [_jN]: _sSSct }], [() => TeletextSourceSettings$, { [_jN]: _tSS }], [() => SmartSubtitleSourceSettings$, { [_jN]: _sSSS }], [() => WebvttSourceSettings$, { [_jN]: _wSS }]]
 ];
 export var CdiInputSpecification$: StaticStructureSchema = [3, n0, _CIS,
   0,
@@ -3704,8 +3710,8 @@ export var EmbeddedCaptionPositionSettings$: StaticStructureSchema = [3, n0, _EC
 ];
 export var EmbeddedDestinationSettings$: StaticStructureSchema = [3, n0, _EDS,
   0,
-  [_Po, _SCt],
-  [[() => EmbeddedCaptionPositionSettings$, { [_jN]: _po }], [0, { [_jN]: _sCt }]]
+  [_Po, _SCt, _CSC, _EMm],
+  [[() => EmbeddedCaptionPositionSettings$, { [_jN]: _po }], [0, { [_jN]: _sCt }], [1, { [_jN]: _cSC }], [0, { [_jN]: _eMm }]]
 ];
 export var EmbeddedPlusScte20DestinationSettings$: StaticStructureSchema = [3, n0, _EPSDS,
   0,
@@ -5691,6 +5697,11 @@ export var WebvttDestinationSettings$: StaticStructureSchema = [3, n0, _WDS,
   0,
   [_SCt, _Po],
   [[0, { [_jN]: _sCt }], [() => TextCaptionPositionSettings$, { [_jN]: _po }]]
+];
+export var WebvttSourceSettings$: StaticStructureSchema = [3, n0, _WSS,
+  0,
+  [_GI, _N],
+  [[0, { [_jN]: _gI }], [0, { [_jN]: _n }]]
 ];
 var __Unit = "unit" as const;
 var __listOf__integer = 64 | 1;

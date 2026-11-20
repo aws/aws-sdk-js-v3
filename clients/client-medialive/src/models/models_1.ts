@@ -105,7 +105,9 @@ import type {
 import type {
   AudioDescription,
   AudioFeedInput,
+  AutoFilterSettings,
   Av1Settings,
+  BandwidthReductionFilterSettings,
   BatchFailedResultModel,
   BatchSuccessfulResultModel,
   CaptionDescription,
@@ -132,7 +134,6 @@ import type {
   FrameCaptureSettings,
   H264Settings,
   H265ColorSpaceSettings,
-  H265FilterSettings,
   Input,
   InputAttachment,
   InputDestination,
@@ -171,9 +172,11 @@ import type {
   MultiplexSummary,
   NodeInterfaceMapping,
   NodeInterfaceMappingCreateRequest,
+  NoneFilterSettings,
   Offering,
   OutputDestination,
   OutputGroup,
+  PerceptualFilterSettings,
   PipelineDetail,
   RenewalSettings,
   Reservation,
@@ -196,6 +199,51 @@ import type {
   TransferringInputDeviceSummary,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * H265 Filter Settings
+ * @public
+ */
+export interface H265FilterSettings {
+  /**
+   * Temporal Filter Settings
+   * @public
+   */
+  TemporalFilterSettings?: TemporalFilterSettings | undefined;
+
+  /**
+   * Bandwidth Reduction Filter Settings
+   * @public
+   */
+  BandwidthReductionFilterSettings?: BandwidthReductionFilterSettings | undefined;
+
+  /**
+   * System-managed filter selection. Resolves to the perceptual filter at strength 1 where the codec
+   * is eligible (AV1 and H.265 unconditionally; H.264 only at enhanced_quality), and to no filter
+   * otherwise. An empty / undefined filter_settings_choice is treated as "auto".
+   *
+   * Carries no body (extends EmptySettings, which sets additionalProperties: false), mirroring the
+   * ColorSpacePassthroughSettings empty-settings pattern.
+   * @public
+   */
+  AutoFilterSettings?: AutoFilterSettings | undefined;
+
+  /**
+   * Explicitly disables the video filter. This is the customer opt-out: a video description set to
+   * "none" never has a filter applied and is never overridden by the system-managed "auto" default.
+   *
+   * Carries no body (extends EmptySettings, which sets additionalProperties: false), mirroring the
+   * ColorSpacePassthroughSettings empty-settings pattern.
+   * @public
+   */
+  NoneFilterSettings?: NoneFilterSettings | undefined;
+
+  /**
+   * Perceptual Filter Settings
+   * @public
+   */
+  PerceptualFilterSettings?: PerceptualFilterSettings | undefined;
+}
 
 /**
  * H265 Settings
@@ -10375,40 +10423,4 @@ export interface SdiSourceMappingUpdateRequest {
    * @public
    */
   SdiSource?: string | undefined;
-}
-
-/**
- * A request to update the node.
- * @public
- */
-export interface UpdateNodeRequest {
-  /**
-   * The ID of the cluster
-   * @public
-   */
-  ClusterId: string | undefined;
-
-  /**
-   * Include this parameter only if you want to change the current name of the Node. Specify a name that is unique in the Cluster. You can't change the name. Names are case-sensitive.
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * The ID of the node.
-   * @public
-   */
-  NodeId: string | undefined;
-
-  /**
-   * The initial role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
-   * @public
-   */
-  Role?: NodeRole | undefined;
-
-  /**
-   * The mappings of a SDI capture card port to a logical SDI data stream
-   * @public
-   */
-  SdiSourceMappings?: SdiSourceMappingUpdateRequest[] | undefined;
 }

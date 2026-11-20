@@ -103,6 +103,7 @@ import type {
   EbuTtDFillLineGapControl,
   EmbeddedConvert608To708,
   EmbeddedDestinationStyleControl,
+  EmbeddedModeType,
   EmbeddedScte20Detection,
   EnrichmentMethod,
   EventBridgeRuleTemplateEventType,
@@ -1654,6 +1655,28 @@ export interface EmbeddedDestinationSettings {
    * @public
    */
   StyleControl?: EmbeddedDestinationStyleControl | undefined;
+
+  /**
+   * CC Channel / Service number for 608/708 encode mode. Serves as both the 608 CC channel
+   * and the 708 service number (e.g., 1 = CC1 + Service 1). Only takes effect when the source
+   * is non-embedded (teletext, smart captions, etc.) — ignored in passthrough mode.
+   *
+   * Range 1-4: valid for embedded608Only, embedded708Only, or embedded608And708.
+   * Range 5-63: valid for embedded708Only.
+   * @public
+   */
+  CaptionServiceChannel?: number | undefined;
+
+  /**
+   * Controls what the encoder generates when in encode mode (non-embedded source → embedded destination).
+   * Ignored in passthrough mode (embedded source → embedded destination).
+   *
+   * - "embedded608Only": Generate CEA-608 CC pairs only (channel must be 1-4)
+   * - "embedded708Only": Generate CEA-708 service blocks only (channel 1-63)
+   * - "embedded608And708": Generate both 608 CC pairs and 708 service blocks (channel 1-4 gets both, 5-63 gets 708 only)
+   * @public
+   */
+  EmbeddedMode?: EmbeddedModeType | undefined;
 }
 
 /**
@@ -1728,7 +1751,7 @@ export interface TtmlDestinationSettings {
  */
 export interface WebvttDestinationSettings {
   /**
-   * Controls whether the color and position of the source captions is passed through to the WebVTT output captions.  PASSTHROUGH - Valid only if the source captions are EMBEDDED, TELETEXT, or SMART SUBTITLES.  NO_STYLE_DATA - Don't pass through the style. The output captions will not contain any font styling information. MANUAL - Applies the specified styling and positioning. All other styling and positioning is given default values.
+   * Controls whether the color and position of the source captions is passed through to the WebVTT output captions.  PASSTHROUGH - Valid only if the source captions are EMBEDDED, TELETEXT, SMART SUBTITLES, or WEBVTT.  NO_STYLE_DATA - Don't pass through the style. The output captions will not contain any font styling information. MANUAL - Applies the specified styling and positioning. All other styling and positioning is given default values.
    * @public
    */
   StyleControl?: WebvttDestinationStyleControl | undefined;
@@ -2086,6 +2109,32 @@ export interface TeletextSourceSettings {
 }
 
 /**
+ * Webvtt Source Settings
+ * @public
+ */
+export interface WebvttSourceSettings {
+  /**
+   * Optional. The "GROUP-ID" attribute of the #EXT-X-MEDIA subtitle rendition to use from the HLS source. Specify it
+   * together with name; the pair must exactly match one rendition, otherwise this caption selector produces no
+   * captions. If neither groupId nor name is specified, MediaLive selects the rendition whose LANGUAGE matches the
+   * caption selector's language code (case-insensitive), then the DEFAULT=YES rendition, then the first subtitle
+   * rendition listed in the master playlist.
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * Optional. The "NAME" attribute of the #EXT-X-MEDIA subtitle rendition to use from the HLS source. Specify it
+   * together with groupId; the pair must exactly match one rendition, otherwise this caption selector produces no
+   * captions. If neither groupId nor name is specified, MediaLive selects the rendition whose LANGUAGE matches the
+   * caption selector's language code (case-insensitive), then the DEFAULT=YES rendition, then the first subtitle
+   * rendition listed in the master playlist.
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
  * Caption Selector Settings
  * @public
  */
@@ -2137,6 +2186,12 @@ export interface CaptionSelectorSettings {
    * @public
    */
   SmartSubtitleSourceSettings?: SmartSubtitleSourceSettings | undefined;
+
+  /**
+   * Webvtt Source Settings
+   * @public
+   */
+  WebvttSourceSettings?: WebvttSourceSettings | undefined;
 }
 
 /**
@@ -10119,49 +10174,4 @@ export interface H265ColorSpaceSettings {
    * @public
    */
   Hlg2020Settings?: Hlg2020Settings | undefined;
-}
-
-/**
- * H265 Filter Settings
- * @public
- */
-export interface H265FilterSettings {
-  /**
-   * Temporal Filter Settings
-   * @public
-   */
-  TemporalFilterSettings?: TemporalFilterSettings | undefined;
-
-  /**
-   * Bandwidth Reduction Filter Settings
-   * @public
-   */
-  BandwidthReductionFilterSettings?: BandwidthReductionFilterSettings | undefined;
-
-  /**
-   * System-managed filter selection. Resolves to the perceptual filter at strength 1 where the codec
-   * is eligible (AV1 and H.265 unconditionally; H.264 only at enhanced_quality), and to no filter
-   * otherwise. An empty / undefined filter_settings_choice is treated as "auto".
-   *
-   * Carries no body (extends EmptySettings, which sets additionalProperties: false), mirroring the
-   * ColorSpacePassthroughSettings empty-settings pattern.
-   * @public
-   */
-  AutoFilterSettings?: AutoFilterSettings | undefined;
-
-  /**
-   * Explicitly disables the video filter. This is the customer opt-out: a video description set to
-   * "none" never has a filter applied and is never overridden by the system-managed "auto" default.
-   *
-   * Carries no body (extends EmptySettings, which sets additionalProperties: false), mirroring the
-   * ColorSpacePassthroughSettings empty-settings pattern.
-   * @public
-   */
-  NoneFilterSettings?: NoneFilterSettings | undefined;
-
-  /**
-   * Perceptual Filter Settings
-   * @public
-   */
-  PerceptualFilterSettings?: PerceptualFilterSettings | undefined;
 }

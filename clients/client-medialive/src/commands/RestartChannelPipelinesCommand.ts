@@ -332,6 +332,8 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //               YPositionLine: Number("int"),
  * //             },
  * //             StyleControl: "MANUAL" || "PASSTHROUGH",
+ * //             CaptionServiceChannel: Number("int"),
+ * //             EmbeddedMode: "EMBEDDED_608_AND_708" || "EMBEDDED_608_ONLY" || "EMBEDDED_708_ONLY",
  * //           },
  * //           EmbeddedPlusScte20DestinationSettings: {},
  * //           RtmpCaptionInfoDestinationSettings: {},
@@ -1470,6 +1472,10 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //               SmartSubtitleSourceSettings: { // SmartSubtitleSourceSettings
  * //                 CaptionSynchronizationMode: "NO_VIDEO_DELAY" || "VIDEO_ALIGNED_CAPTIONS",
  * //                 InferenceFeedOutput: "STRING_VALUE",
+ * //               },
+ * //               WebvttSourceSettings: { // WebvttSourceSettings
+ * //                 GroupId: "STRING_VALUE",
+ * //                 Name: "STRING_VALUE",
  * //               },
  * //             },
  * //           },

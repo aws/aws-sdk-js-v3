@@ -444,6 +444,7 @@ import {
   EmbeddedConvert608To708,
   EmbeddedDestinationSettings$,
   EmbeddedDestinationStyleControl,
+  EmbeddedModeType,
   EmbeddedPlusScte20DestinationSettings$,
   EmbeddedScte20Detection,
   EmbeddedSourceSettings$,
@@ -1292,6 +1293,7 @@ import {
   WavSettings$,
   WebvttDestinationSettings$,
   WebvttDestinationStyleControl,
+  WebvttSourceSettings$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -2152,6 +2154,7 @@ assert(typeof VpcOutputSettings$ === "object");
 assert(typeof VpcOutputSettingsDescription$ === "object");
 assert(typeof WavSettings$ === "object");
 assert(typeof WebvttDestinationSettings$ === "object");
+assert(typeof WebvttSourceSettings$ === "object");
 // enums
 assert(typeof AacCodingMode === "object");
 assert(typeof AacInputType === "object");
@@ -2262,6 +2265,7 @@ assert(typeof EbuTtDDestinationStyleControl === "object");
 assert(typeof EbuTtDFillLineGapControl === "object");
 assert(typeof EmbeddedConvert608To708 === "object");
 assert(typeof EmbeddedDestinationStyleControl === "object");
+assert(typeof EmbeddedModeType === "object");
 assert(typeof EmbeddedScte20Detection === "object");
 assert(typeof EnrichmentMethod === "object");
 assert(typeof EventBridgeRuleTemplateEventType === "object");

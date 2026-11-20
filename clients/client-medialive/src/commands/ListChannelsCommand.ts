@@ -252,6 +252,10 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //                     CaptionSynchronizationMode: "NO_VIDEO_DELAY" || "VIDEO_ALIGNED_CAPTIONS",
  * //                     InferenceFeedOutput: "STRING_VALUE",
  * //                   },
+ * //                   WebvttSourceSettings: { // WebvttSourceSettings
+ * //                     GroupId: "STRING_VALUE",
+ * //                     Name: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //               },
  * //             ],

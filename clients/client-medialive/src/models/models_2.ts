@@ -8,7 +8,43 @@ import type {
   UpdateNodeStateShape,
 } from "./enums";
 import type { NodeInterfaceMapping, RenewalSettings, Reservation, SdiSourceMapping } from "./models_0";
-import type { SdiSource } from "./models_1";
+import type { SdiSource, SdiSourceMappingUpdateRequest } from "./models_1";
+
+/**
+ * A request to update the node.
+ * @public
+ */
+export interface UpdateNodeRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * Include this parameter only if you want to change the current name of the Node. Specify a name that is unique in the Cluster. You can't change the name. Names are case-sensitive.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The ID of the node.
+   * @public
+   */
+  NodeId: string | undefined;
+
+  /**
+   * The initial role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole | undefined;
+
+  /**
+   * The mappings of a SDI capture card port to a logical SDI data stream
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMappingUpdateRequest[] | undefined;
+}
 
 /**
  * Placeholder documentation for UpdateNodeResponse

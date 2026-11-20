@@ -376,6 +376,8 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                 YPositionLine: Number("int"),
  * //               },
  * //               StyleControl: "MANUAL" || "PASSTHROUGH",
+ * //               CaptionServiceChannel: Number("int"),
+ * //               EmbeddedMode: "EMBEDDED_608_AND_708" || "EMBEDDED_608_ONLY" || "EMBEDDED_708_ONLY",
  * //             },
  * //             EmbeddedPlusScte20DestinationSettings: {},
  * //             RtmpCaptionInfoDestinationSettings: {},
@@ -1514,6 +1516,10 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                 SmartSubtitleSourceSettings: { // SmartSubtitleSourceSettings
  * //                   CaptionSynchronizationMode: "NO_VIDEO_DELAY" || "VIDEO_ALIGNED_CAPTIONS",
  * //                   InferenceFeedOutput: "STRING_VALUE",
+ * //                 },
+ * //                 WebvttSourceSettings: { // WebvttSourceSettings
+ * //                   GroupId: "STRING_VALUE",
+ * //                   Name: "STRING_VALUE",
  * //                 },
  * //               },
  * //             },
