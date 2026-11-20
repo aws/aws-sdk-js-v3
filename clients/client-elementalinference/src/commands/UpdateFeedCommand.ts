@@ -57,7 +57,7 @@ export interface UpdateFeedCommandOutput extends UpdateFeedResponse, __MetadataB
  *           },
  *         },
  *         subtitling: { // SubtitlingConfig
- *           language: "eng" || "eng-au" || "eng-gb" || "eng-us" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ *           language: "eng" || "eng-au" || "eng-gb" || "eng-us" || "fra" || "ita" || "deu" || "spa" || "por" || "ara", // required
  *           aspectRatio: { // AspectRatio
  *             width: Number("int"), // required
  *             height: Number("int"), // required
@@ -146,7 +146,7 @@ export interface UpdateFeedCommandOutput extends UpdateFeedResponse, __MetadataB
  * //           },
  * //         },
  * //         subtitling: { // SubtitlingConfig
- * //           language: "eng" || "eng-au" || "eng-gb" || "eng-us" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ * //           language: "eng" || "eng-au" || "eng-gb" || "eng-us" || "fra" || "ita" || "deu" || "spa" || "por" || "ara", // required
  * //           aspectRatio: { // AspectRatio
  * //             width: Number("int"), // required
  * //             height: Number("int"), // required

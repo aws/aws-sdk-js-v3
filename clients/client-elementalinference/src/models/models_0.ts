@@ -412,7 +412,7 @@ export interface FunctionConfig {
  */
 export interface SubtitlingConfig {
   /**
-   * <p>The language of the audio in the source media. Elemental Inference uses this setting to optimize transcription accuracy. Specify the language using an ISO 639-2/T three-letter code, optionally with a region subtag. Supported values: eng, eng-au, eng-gb, eng-us, fra, ita, deu, spa, por. </p>
+   * <p>The language of the audio in the source media. Elemental Inference uses this setting to optimize transcription accuracy. Specify the language using an ISO 639-2/T three-letter code, optionally with a region subtag. Supported values: </p> <ul> <li> <p>eng – English</p> </li> <li> <p>eng-au – English (Australia)</p> </li> <li> <p>eng-gb – English (United Kingdom)</p> </li> <li> <p>eng-us – English (United States)</p> </li> <li> <p>fra – French</p> </li> <li> <p>ita – Italian</p> </li> <li> <p>deu – German</p> </li> <li> <p>spa – Spanish</p> </li> <li> <p>por – Portuguese</p> </li> <li> <p>ara – Arabic</p> </li> </ul>
    * @public
    */
   language: TranscriptionLanguage | undefined;
@@ -708,7 +708,7 @@ export interface CreateDictionaryRequest {
   name: string | undefined;
 
   /**
-   * <p>The language of the dictionary entries. Specify the language using an ISO 639-2/T three-letter code. Supported values: eng, fra, ita, deu, spa, por. </p>
+   * <p>The language of the dictionary entries. Specify the language using an ISO 639-2/T three-letter code. Supported values: </p> <ul> <li> <p>eng – English</p> </li> <li> <p>fra – French</p> </li> <li> <p>ita – Italian</p> </li> <li> <p>deu – German</p> </li> <li> <p>spa – Spanish</p> </li> <li> <p>por – Portuguese</p> </li> <li> <p>ara – Arabic</p> </li> </ul>
    * @public
    */
   language: DictionaryLanguage | undefined;

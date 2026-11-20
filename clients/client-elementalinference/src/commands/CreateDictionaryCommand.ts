@@ -34,7 +34,7 @@ export interface CreateDictionaryCommandOutput extends CreateDictionaryResponse,
  * const client = new ElementalInferenceClient(config);
  * const input = { // CreateDictionaryRequest
  *   name: "STRING_VALUE", // required
- *   language: "eng" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ *   language: "eng" || "fra" || "ita" || "deu" || "spa" || "por" || "ara", // required
  *   entries: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
@@ -46,7 +46,7 @@ export interface CreateDictionaryCommandOutput extends CreateDictionaryResponse,
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
  * //   id: "STRING_VALUE", // required
- * //   language: "eng" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ * //   language: "eng" || "fra" || "ita" || "deu" || "spa" || "por" || "ara", // required
  * //   status: "CREATING" || "AVAILABLE" || "REFERENCED" || "DELETING" || "DELETED", // required
  * //   references: [ // FeedReferences
  * //     "STRING_VALUE",

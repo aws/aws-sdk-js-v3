@@ -44,6 +44,7 @@ export type FrameSamplingMode = (typeof FrameSamplingMode)[keyof typeof FrameSam
  * @enum
  */
 export const TranscriptionLanguage = {
+  ARA: "ara",
   DEU: "deu",
   ENG: "eng",
   ENG_AU: "eng-au",
@@ -118,6 +119,7 @@ export type ContextType = (typeof ContextType)[keyof typeof ContextType];
  * @enum
  */
 export const DictionaryLanguage = {
+  ARA: "ara",
   DEU: "deu",
   ENG: "eng",
   FRA: "fra",

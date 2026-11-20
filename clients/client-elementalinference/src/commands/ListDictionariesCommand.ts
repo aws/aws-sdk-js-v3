@@ -44,7 +44,7 @@ export interface ListDictionariesCommandOutput extends ListDictionariesResponse,
  * //       arn: "STRING_VALUE", // required
  * //       id: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
- * //       language: "eng" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ * //       language: "eng" || "fra" || "ita" || "deu" || "spa" || "por" || "ara", // required
  * //       status: "CREATING" || "AVAILABLE" || "REFERENCED" || "DELETING" || "DELETED", // required
  * //     },
  * //   ],

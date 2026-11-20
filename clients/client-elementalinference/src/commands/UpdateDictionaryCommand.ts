@@ -35,7 +35,7 @@ export interface UpdateDictionaryCommandOutput extends UpdateDictionaryResponse,
  * const input = { // UpdateDictionaryRequest
  *   id: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
- *   language: "eng" || "fra" || "ita" || "deu" || "spa" || "por",
+ *   language: "eng" || "fra" || "ita" || "deu" || "spa" || "por" || "ara",
  *   entries: "STRING_VALUE",
  * };
  * const command = new UpdateDictionaryCommand(input);
@@ -44,7 +44,7 @@ export interface UpdateDictionaryCommandOutput extends UpdateDictionaryResponse,
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
  * //   id: "STRING_VALUE", // required
- * //   language: "eng" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ * //   language: "eng" || "fra" || "ita" || "deu" || "spa" || "por" || "ara", // required
  * //   status: "CREATING" || "AVAILABLE" || "REFERENCED" || "DELETING" || "DELETED", // required
  * //   references: [ // FeedReferences
  * //     "STRING_VALUE",

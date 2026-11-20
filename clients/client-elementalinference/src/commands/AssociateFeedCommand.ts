@@ -56,7 +56,7 @@ export interface AssociateFeedCommandOutput extends AssociateFeedResponse, __Met
  *           },
  *         },
  *         subtitling: { // SubtitlingConfig
- *           language: "eng" || "eng-au" || "eng-gb" || "eng-us" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ *           language: "eng" || "eng-au" || "eng-gb" || "eng-us" || "fra" || "ita" || "deu" || "spa" || "por" || "ara", // required
  *           aspectRatio: { // AspectRatio
  *             width: Number("int"), // required
  *             height: Number("int"), // required

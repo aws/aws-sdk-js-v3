@@ -41,7 +41,7 @@ export interface GetDictionaryCommandOutput extends GetDictionaryResponse, __Met
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
  * //   id: "STRING_VALUE", // required
- * //   language: "eng" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ * //   language: "eng" || "fra" || "ita" || "deu" || "spa" || "por" || "ara", // required
  * //   status: "CREATING" || "AVAILABLE" || "REFERENCED" || "DELETING" || "DELETED", // required
  * //   references: [ // FeedReferences
  * //     "STRING_VALUE",
