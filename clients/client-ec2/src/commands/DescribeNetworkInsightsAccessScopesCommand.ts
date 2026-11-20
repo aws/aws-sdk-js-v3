@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeNetworkInsightsAccessScopesRequest,
   DescribeNetworkInsightsAccessScopesResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import { DescribeNetworkInsightsAccessScopes$ } from "../schemas/schemas_0";
 
 /**

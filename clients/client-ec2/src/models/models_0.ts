@@ -3147,9 +3147,6 @@ export interface Address {
 
   /**
    * <p>The service that manages the elastic IP address.</p>
-   *          <note>
-   *             <p>The only option supported today is <code>alb</code>.</p>
-   *          </note>
    * @public
    */
   ServiceManaged?: ServiceManaged | undefined;

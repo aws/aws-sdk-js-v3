@@ -46,7 +46,7 @@ export interface GetIpamPolicyAllocationRulesCommandOutput extends GetIpamPolicy
  *     },
  *   ],
  *   Locale: "STRING_VALUE",
- *   ResourceType: "alb" || "eip" || "rds" || "rnat",
+ *   ResourceType: "alb" || "eip" || "rds" || "rnat" || "lambda-network-connector" || "igw-firewall",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -57,7 +57,7 @@ export interface GetIpamPolicyAllocationRulesCommandOutput extends GetIpamPolicy
  * //     { // IpamPolicyDocument
  * //       IpamPolicyId: "STRING_VALUE",
  * //       Locale: "STRING_VALUE",
- * //       ResourceType: "alb" || "eip" || "rds" || "rnat",
+ * //       ResourceType: "alb" || "eip" || "rds" || "rnat" || "lambda-network-connector" || "igw-firewall",
  * //       AllocationRules: [ // IpamPolicyAllocationRuleList
  * //         { // IpamPolicyAllocationRule
  * //           SourceIpamPoolId: "STRING_VALUE",

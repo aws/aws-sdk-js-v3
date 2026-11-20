@@ -94,7 +94,6 @@ import type {
   VolumeType,
   VpcEncryptionControlExclusionStateInput,
   VpcEncryptionControlMode,
-  VpcTenancy,
   VpnEcmpSupportValue,
 } from "./enums";
 import type {
@@ -116,6 +115,7 @@ import type {
   SubnetAssociation,
   Tag,
   TagSpecification,
+  TargetConfigurationRequest,
   TransitGatewayPeeringAttachment,
   TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
@@ -206,6 +206,58 @@ import type {
   ManagedResourceVisibilitySettings,
   RouteServerPropagation,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetPasswordDataResult {
+  /**
+   * <p>The ID of the Windows instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The time the data was last updated.</p>
+   * @public
+   */
+  Timestamp?: Date | undefined;
+
+  /**
+   * <p>The password of the instance. Returns an empty string if the password is not
+   *             available.</p>
+   * @public
+   */
+  PasswordData?: string | undefined;
+}
+
+/**
+ * <p>Contains the parameters for GetReservedInstanceExchangeQuote.</p>
+ * @public
+ */
+export interface GetReservedInstancesExchangeQuoteRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making
+   *       the request, and provides an error response. If you have the required permissions, the error
+   *       response is <code>DryRunOperation</code>. Otherwise, it is
+   *       <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IDs of the Convertible Reserved Instances to exchange.</p>
+   * @public
+   */
+  ReservedInstanceIds: string[] | undefined;
+
+  /**
+   * <p>The configuration of the target Convertible Reserved Instance to exchange for your current
+   *       Convertible Reserved Instances.</p>
+   * @public
+   */
+  TargetConfigurations?: TargetConfigurationRequest[] | undefined;
+}
 
 /**
  * <p>The cost associated with the Reserved Instance.</p>
@@ -6119,6 +6171,21 @@ export interface ModifyIpamPolicyAllocationRulesRequest {
    *             <li>
    *                <p>Elastic IP addresses</p>
    *             </li>
+   *             <li>
+   *                <p>Application Load Balancers</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon RDS</p>
+   *             </li>
+   *             <li>
+   *                <p>NAT gateways in regional availability mode</p>
+   *             </li>
+   *             <li>
+   *                <p>Lambda Network Connector</p>
+   *             </li>
+   *             <li>
+   *                <p>Automated Internet Firewall</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -10200,46 +10267,4 @@ export interface PeeringConnectionOptions {
    * @public
    */
   MultipathResilienceMode?: MultipathResilienceMode | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcPeeringConnectionOptionsResult {
-  /**
-   * <p>Information about the VPC peering connection options for the accepter VPC.</p>
-   * @public
-   */
-  AccepterPeeringConnectionOptions?: PeeringConnectionOptions | undefined;
-
-  /**
-   * <p>Information about the VPC peering connection options for the requester VPC.</p>
-   * @public
-   */
-  RequesterPeeringConnectionOptions?: PeeringConnectionOptions | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcTenancyRequest {
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>The instance tenancy attribute for the VPC. </p>
-   * @public
-   */
-  InstanceTenancy: VpcTenancy | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

@@ -50,14 +50,14 @@ export interface ModifyDefaultCreditSpecificationCommandOutput extends ModifyDef
  * const client = new EC2Client(config);
  * const input = { // ModifyDefaultCreditSpecificationRequest
  *   DryRun: true || false,
- *   InstanceFamily: "t2" || "t3" || "t3a" || "t4g" || "t8i", // required
+ *   InstanceFamily: "t2" || "t3" || "t3a" || "t4g" || "t8i" || "t9g", // required
  *   CpuCredits: "STRING_VALUE", // required
  * };
  * const command = new ModifyDefaultCreditSpecificationCommand(input);
  * const response = await client.send(command);
  * // { // ModifyDefaultCreditSpecificationResult
  * //   InstanceFamilyCreditSpecification: { // InstanceFamilyCreditSpecification
- * //     InstanceFamily: "t2" || "t3" || "t3a" || "t4g" || "t8i",
+ * //     InstanceFamily: "t2" || "t3" || "t3a" || "t4g" || "t8i" || "t9g",
  * //     CpuCredits: "STRING_VALUE",
  * //   },
  * // };

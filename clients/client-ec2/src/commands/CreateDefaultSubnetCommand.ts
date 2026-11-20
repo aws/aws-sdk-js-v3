@@ -82,6 +82,7 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
  * //       InternetGatewayBlockMode: "off" || "block-bidirectional" || "block-ingress",
  * //     },
  * //     Type: "STRING_VALUE",
+ * //     NetworkFirewallConnectivityType: "flexible" || "outbound-only" || "bidirectional" || "exclude" || "az-unsupported",
  * //     SubnetId: "STRING_VALUE",
  * //     State: "pending" || "available" || "unavailable" || "failed" || "failed-insufficient-capacity",
  * //     VpcId: "STRING_VALUE",

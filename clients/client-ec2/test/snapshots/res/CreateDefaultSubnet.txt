@@ -172,6 +172,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <type>
             __Type__
         </type>
+        <networkFirewallConnectivityType>
+            __NetworkFirewallConnectivityType__
+        </networkFirewallConnectivityType>
         <subnetId>
             __SubnetId__
         </subnetId>
@@ -268,6 +271,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       InternetGatewayBlockMode: "__InternetGatewayBlockMode__"
     },
     Type: "__Type__",
+    NetworkFirewallConnectivityType: "__NetworkFirewallConnectivityType__",
     SubnetId: "__SubnetId__",
     State: "__State__",
     VpcId: "__VpcId__",

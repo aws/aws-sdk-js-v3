@@ -20,6 +20,7 @@ import type {
   DnsSupportValue,
   DynamicRoutingValue,
   EncryptionStateValue,
+  FirewallOnboardingStatus,
   FleetStateCode,
   FlexCostAllocationCostDimension,
   FlexCostAllocationNetworkResourceType,
@@ -144,17 +145,34 @@ import type {
   CoipCidr,
   CoipPool,
   ConnectionTrackingSpecificationRequest,
-  Ec2InstanceConnectEndpoint,
   IcmpTypeCode,
   InstanceIpv6Address,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  NetworkAcl,
   OperatorRequest,
   PrivateIpAddressSpecification,
   Subnet,
   Vpc,
   VpcEncryptionControl,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateNetworkAclResult {
+  /**
+   * <p>Information about the network ACL.</p>
+   * @public
+   */
+  NetworkAcl?: NetworkAcl | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
 
 /**
  * @public
@@ -2900,6 +2918,24 @@ export interface PropagatingVgw {
 }
 
 /**
+ * <p>Describes the Automated Internet Firewall that inspects traffic for an internet gateway or egress-only internet gateway route.</p>
+ * @public
+ */
+export interface IgwFirewall {
+  /**
+   * <p>The ARN of the firewall that inspects traffic for this route.</p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The status of the firewall that inspects traffic for this route. Uses the same values as <code>NetworkFirewallAssociation$firewallOnboardingStatus</code>: <code>active</code>, <code>disabling</code>, or <code>pending</code>.</p>
+   * @public
+   */
+  Status?: FirewallOnboardingStatus | undefined;
+}
+
+/**
  * <p>Describes a route in a route table.</p>
  * @public
  */
@@ -3032,6 +3068,12 @@ export interface Route {
    * @public
    */
   IpAddress?: string | undefined;
+
+  /**
+   * <p>Information about the Automated Internet Firewall that inspects traffic for this route. The response includes this value only for routes that target an internet gateway or egress-only internet gateway in a VPC that has a firewall. The route target remains the internet gateway or egress-only internet gateway.</p>
+   * @public
+   */
+  IgwFirewall?: IgwFirewall | undefined;
 }
 
 /**
@@ -11507,34 +11549,4 @@ export interface DeleteImageUsageReportResult {
    * @public
    */
   Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteInstanceConnectEndpointRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the EC2 Instance Connect Endpoint to delete.</p>
-   * @public
-   */
-  InstanceConnectEndpointId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteInstanceConnectEndpointResult {
-  /**
-   * <p>Information about the EC2 Instance Connect Endpoint.</p>
-   * @public
-   */
-  InstanceConnectEndpoint?: Ec2InstanceConnectEndpoint | undefined;
 }

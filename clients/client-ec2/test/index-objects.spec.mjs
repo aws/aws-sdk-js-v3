@@ -2640,6 +2640,8 @@ import {
   FilterByDimension,
   FilterPortRange$,
   FindingsFound,
+  FirewallMode,
+  FirewallOnboardingStatus,
   FirewallStatefulRule$,
   FirewallStatelessRule$,
   FleetActivityStatus,
@@ -3062,6 +3064,7 @@ import {
   IcmpTypeCode$,
   IdFormat$,
   Igmpv2SupportValue,
+  IgwFirewall$,
   IKEVersionsListValue$,
   IKEVersionsRequestListValue$,
   Image$,
@@ -3878,6 +3881,8 @@ import {
   NetworkBandwidthGbpsRequest$,
   NetworkCardInfo$,
   NetworkCardInterfaceType,
+  NetworkFirewallAssociation$,
+  NetworkFirewallConnectivityType,
   NetworkInfo$,
   NetworkInsightsAccessScope$,
   NetworkInsightsAccessScopeAnalysis$,
@@ -8286,6 +8291,7 @@ assert(typeof IamInstanceProfileAssociation$ === "object");
 assert(typeof IamInstanceProfileSpecification$ === "object");
 assert(typeof IcmpTypeCode$ === "object");
 assert(typeof IdFormat$ === "object");
+assert(typeof IgwFirewall$ === "object");
 assert(typeof IKEVersionsListValue$ === "object");
 assert(typeof IKEVersionsRequestListValue$ === "object");
 assert(typeof Image$ === "object");
@@ -8765,6 +8771,7 @@ assert(typeof NetworkAclEntry$ === "object");
 assert(typeof NetworkBandwidthGbps$ === "object");
 assert(typeof NetworkBandwidthGbpsRequest$ === "object");
 assert(typeof NetworkCardInfo$ === "object");
+assert(typeof NetworkFirewallAssociation$ === "object");
 assert(typeof NetworkInfo$ === "object");
 assert(typeof NetworkInsightsAccessScope$ === "object");
 assert(typeof NetworkInsightsAccessScopeAnalysis$ === "object");
@@ -9446,6 +9453,8 @@ assert(typeof FastLaunchStateCode === "object");
 assert(typeof FastSnapshotRestoreStateCode === "object");
 assert(typeof FilterByDimension === "object");
 assert(typeof FindingsFound === "object");
+assert(typeof FirewallMode === "object");
+assert(typeof FirewallOnboardingStatus === "object");
 assert(typeof FleetActivityStatus === "object");
 assert(typeof FleetCapacityReservationTenancy === "object");
 assert(typeof FleetCapacityReservationUsageStrategy === "object");
@@ -9611,6 +9620,7 @@ assert(typeof NatGatewayApplianceType === "object");
 assert(typeof NatGatewayState === "object");
 assert(typeof NestedVirtualizationSpecification === "object");
 assert(typeof NetworkCardInterfaceType === "object");
+assert(typeof NetworkFirewallConnectivityType === "object");
 assert(typeof NetworkInterfaceAttribute === "object");
 assert(typeof NetworkInterfaceCreationType === "object");
 assert(typeof NetworkInterfacePermissionStateCode === "object");

@@ -39,6 +39,7 @@ import type {
   TpmSupportValues,
   TransitGatewayAttachmentResourceType,
   VerificationMethod,
+  VpcTenancy,
   VpnTunnelBandwidth,
   ZeroSizePreference,
 } from "./enums";
@@ -105,7 +106,49 @@ import type {
   SpotPlacement,
 } from "./models_5";
 import type { CapacityManagerMonitoredTagKey, Purchase } from "./models_6";
-import type { CapacityReservationSpecification, EnclaveOptionsRequest } from "./models_7";
+import type { CapacityReservationSpecification, EnclaveOptionsRequest, PeeringConnectionOptions } from "./models_7";
+
+/**
+ * @public
+ */
+export interface ModifyVpcPeeringConnectionOptionsResult {
+  /**
+   * <p>Information about the VPC peering connection options for the accepter VPC.</p>
+   * @public
+   */
+  AccepterPeeringConnectionOptions?: PeeringConnectionOptions | undefined;
+
+  /**
+   * <p>Information about the VPC peering connection options for the requester VPC.</p>
+   * @public
+   */
+  RequesterPeeringConnectionOptions?: PeeringConnectionOptions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcTenancyRequest {
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The instance tenancy attribute for the VPC. </p>
+   * @public
+   */
+  InstanceTenancy: VpcTenancy | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public

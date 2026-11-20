@@ -616,6 +616,8 @@ export type DomainType = (typeof DomainType)[keyof typeof DomainType];
  */
 export const ServiceManaged = {
   alb: "alb",
+  igw_firewall: "igw-firewall",
+  lambda_network_connector: "lambda-network-connector",
   nlb: "nlb",
   rds: "rds",
   rnat: "rnat",
@@ -3455,6 +3457,23 @@ export type BlockPublicAccessMode = (typeof BlockPublicAccessMode)[keyof typeof 
  * @public
  * @enum
  */
+export const NetworkFirewallConnectivityType = {
+  az_unsupported: "az-unsupported",
+  bidirectional: "bidirectional",
+  exclude: "exclude",
+  flexible: "flexible",
+  outbound_only: "outbound-only",
+} as const;
+/**
+ * @public
+ */
+export type NetworkFirewallConnectivityType =
+  (typeof NetworkFirewallConnectivityType)[keyof typeof NetworkFirewallConnectivityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const HostnameType = {
   ip_name: "ip-name",
   resource_name: "resource-name",
@@ -3526,6 +3545,33 @@ export const Tenancy = {
  * @public
  */
 export type Tenancy = (typeof Tenancy)[keyof typeof Tenancy];
+
+/**
+ * @public
+ * @enum
+ */
+export const FirewallMode = {
+  enforce: "enforce",
+  monitor: "monitor",
+} as const;
+/**
+ * @public
+ */
+export type FirewallMode = (typeof FirewallMode)[keyof typeof FirewallMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const FirewallOnboardingStatus = {
+  active: "active",
+  disabling: "disabling",
+  pending: "pending",
+} as const;
+/**
+ * @public
+ */
+export type FirewallOnboardingStatus = (typeof FirewallOnboardingStatus)[keyof typeof FirewallOnboardingStatus];
 
 /**
  * @public
@@ -8390,6 +8436,7 @@ export const UnlimitedSupportedInstanceFamily = {
   t3a: "t3a",
   t4g: "t4g",
   t8i: "t8i",
+  t9g: "t9g",
 } as const;
 /**
  * @public
@@ -8647,6 +8694,8 @@ export type IpamByoipCidrState = (typeof IpamByoipCidrState)[keyof typeof IpamBy
 export const IpamPolicyResourceType = {
   alb: "alb",
   eip: "eip",
+  igw_firewall: "igw-firewall",
+  lambda_network_connector: "lambda-network-connector",
   rds: "rds",
   rnat: "rnat",
 } as const;
@@ -8719,6 +8768,7 @@ export const IpamRoutingPolicyRegistrationState = {
   create_in_progress: "create-in-progress",
   delete_complete: "delete-complete",
   delete_in_progress: "delete-in-progress",
+  disable_complete: "disable-complete",
   pending_activate: "pending-activate",
   update_complete: "update-complete",
   update_in_progress: "update-in-progress",

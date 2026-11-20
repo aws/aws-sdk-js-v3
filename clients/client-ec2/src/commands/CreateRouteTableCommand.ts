@@ -94,6 +94,10 @@ export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, _
  * //         CoreNetworkArn: "STRING_VALUE",
  * //         OdbNetworkArn: "STRING_VALUE",
  * //         IpAddress: "STRING_VALUE",
+ * //         IgwFirewall: { // IgwFirewall
+ * //           FirewallArn: "STRING_VALUE",
+ * //           Status: "pending" || "active" || "disabling",
+ * //         },
  * //       },
  * //     ],
  * //     Tags: [ // TagList

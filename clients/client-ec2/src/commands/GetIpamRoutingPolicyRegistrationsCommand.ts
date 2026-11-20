@@ -55,7 +55,7 @@ export interface GetIpamRoutingPolicyRegistrationsCommandOutput extends GetIpamR
  * //       MaxLength: Number("int"),
  * //       Description: "STRING_VALUE",
  * //       LatestDeltaId: "STRING_VALUE",
- * //       State: "pending-activate" || "activate-failed" || "create-in-progress" || "create-complete" || "update-in-progress" || "update-complete" || "delete-in-progress" || "delete-complete",
+ * //       State: "pending-activate" || "activate-failed" || "create-in-progress" || "create-complete" || "update-in-progress" || "update-complete" || "delete-in-progress" || "delete-complete" || "disable-complete",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

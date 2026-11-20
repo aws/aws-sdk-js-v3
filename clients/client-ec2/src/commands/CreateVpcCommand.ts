@@ -161,6 +161,13 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  * //     BlockPublicAccessStates: { // BlockPublicAccessStates
  * //       InternetGatewayBlockMode: "off" || "block-bidirectional" || "block-ingress",
  * //     },
+ * //     NetworkFirewallAssociations: [ // NetworkFirewallAssociationSet
+ * //       { // NetworkFirewallAssociation
+ * //         FirewallArn: "STRING_VALUE",
+ * //         FirewallOnboardingStatus: "pending" || "active" || "disabling",
+ * //         FirewallMode: "monitor" || "enforce",
+ * //       },
+ * //     ],
  * //     VpcId: "STRING_VALUE",
  * //     State: "pending" || "available" || "deleting",
  * //     CidrBlock: "STRING_VALUE",

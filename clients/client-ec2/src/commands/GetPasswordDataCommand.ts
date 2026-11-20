@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetPasswordDataRequest, GetPasswordDataResult } from "../models/models_6";
+import type { GetPasswordDataRequest } from "../models/models_6";
+import type { GetPasswordDataResult } from "../models/models_7";
 import { GetPasswordData$ } from "../schemas/schemas_0";
 
 /**

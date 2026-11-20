@@ -38,7 +38,7 @@ export interface ModifyIpamPolicyAllocationRulesCommandOutput extends ModifyIpam
  *   DryRun: true || false,
  *   IpamPolicyId: "STRING_VALUE", // required
  *   Locale: "STRING_VALUE", // required
- *   ResourceType: "alb" || "eip" || "rds" || "rnat", // required
+ *   ResourceType: "alb" || "eip" || "rds" || "rnat" || "lambda-network-connector" || "igw-firewall", // required
  *   AllocationRules: [ // IpamPolicyAllocationRuleListRequest
  *     { // IpamPolicyAllocationRuleRequest
  *       SourceIpamPoolId: "STRING_VALUE",
@@ -51,7 +51,7 @@ export interface ModifyIpamPolicyAllocationRulesCommandOutput extends ModifyIpam
  * //   IpamPolicyDocument: { // IpamPolicyDocument
  * //     IpamPolicyId: "STRING_VALUE",
  * //     Locale: "STRING_VALUE",
- * //     ResourceType: "alb" || "eip" || "rds" || "rnat",
+ * //     ResourceType: "alb" || "eip" || "rds" || "rnat" || "lambda-network-connector" || "igw-firewall",
  * //     AllocationRules: [ // IpamPolicyAllocationRuleList
  * //       { // IpamPolicyAllocationRule
  * //         SourceIpamPoolId: "STRING_VALUE",

@@ -334,6 +334,41 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __InternetGatewayBlockMode__
                 </internetGatewayBlockMode>
             </blockPublicAccessStates>
+            <networkFirewallAssociationSet>
+                <item>
+                    <firewallArn>
+                        __FirewallArn__
+                    </firewallArn>
+                    <firewallOnboardingStatus>
+                        __FirewallOnboardingStatus__
+                    </firewallOnboardingStatus>
+                    <firewallMode>
+                        __FirewallMode__
+                    </firewallMode>
+                </item>
+                <item>
+                    <firewallArn>
+                        __FirewallArn__
+                    </firewallArn>
+                    <firewallOnboardingStatus>
+                        __FirewallOnboardingStatus__
+                    </firewallOnboardingStatus>
+                    <firewallMode>
+                        __FirewallMode__
+                    </firewallMode>
+                </item>
+                <item>
+                    <firewallArn>
+                        __FirewallArn__
+                    </firewallArn>
+                    <firewallOnboardingStatus>
+                        __FirewallOnboardingStatus__
+                    </firewallOnboardingStatus>
+                    <firewallMode>
+                        __FirewallMode__
+                    </firewallMode>
+                </item>
+            </networkFirewallAssociationSet>
             <vpcId>
                 __VpcId__
             </vpcId>
@@ -649,6 +684,41 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __InternetGatewayBlockMode__
                 </internetGatewayBlockMode>
             </blockPublicAccessStates>
+            <networkFirewallAssociationSet>
+                <item>
+                    <firewallArn>
+                        __FirewallArn__
+                    </firewallArn>
+                    <firewallOnboardingStatus>
+                        __FirewallOnboardingStatus__
+                    </firewallOnboardingStatus>
+                    <firewallMode>
+                        __FirewallMode__
+                    </firewallMode>
+                </item>
+                <item>
+                    <firewallArn>
+                        __FirewallArn__
+                    </firewallArn>
+                    <firewallOnboardingStatus>
+                        __FirewallOnboardingStatus__
+                    </firewallOnboardingStatus>
+                    <firewallMode>
+                        __FirewallMode__
+                    </firewallMode>
+                </item>
+                <item>
+                    <firewallArn>
+                        __FirewallArn__
+                    </firewallArn>
+                    <firewallOnboardingStatus>
+                        __FirewallOnboardingStatus__
+                    </firewallOnboardingStatus>
+                    <firewallMode>
+                        __FirewallMode__
+                    </firewallMode>
+                </item>
+            </networkFirewallAssociationSet>
             <vpcId>
                 __VpcId__
             </vpcId>
@@ -964,6 +1034,41 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __InternetGatewayBlockMode__
                 </internetGatewayBlockMode>
             </blockPublicAccessStates>
+            <networkFirewallAssociationSet>
+                <item>
+                    <firewallArn>
+                        __FirewallArn__
+                    </firewallArn>
+                    <firewallOnboardingStatus>
+                        __FirewallOnboardingStatus__
+                    </firewallOnboardingStatus>
+                    <firewallMode>
+                        __FirewallMode__
+                    </firewallMode>
+                </item>
+                <item>
+                    <firewallArn>
+                        __FirewallArn__
+                    </firewallArn>
+                    <firewallOnboardingStatus>
+                        __FirewallOnboardingStatus__
+                    </firewallOnboardingStatus>
+                    <firewallMode>
+                        __FirewallMode__
+                    </firewallMode>
+                </item>
+                <item>
+                    <firewallArn>
+                        __FirewallArn__
+                    </firewallArn>
+                    <firewallOnboardingStatus>
+                        __FirewallOnboardingStatus__
+                    </firewallOnboardingStatus>
+                    <firewallMode>
+                        __FirewallMode__
+                    </firewallMode>
+                </item>
+            </networkFirewallAssociationSet>
             <vpcId>
                 __VpcId__
             </vpcId>
@@ -1133,6 +1238,23 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       BlockPublicAccessStates: {
         InternetGatewayBlockMode: "__InternetGatewayBlockMode__"
       },
+      NetworkFirewallAssociations: [
+        {
+          FirewallArn: "__FirewallArn__",
+          FirewallOnboardingStatus: "__FirewallOnboardingStatus__",
+          FirewallMode: "__FirewallMode__"
+        },
+        {
+          FirewallArn: "__FirewallArn__",
+          FirewallOnboardingStatus: "__FirewallOnboardingStatus__",
+          FirewallMode: "__FirewallMode__"
+        },
+        {
+          FirewallArn: "__FirewallArn__",
+          FirewallOnboardingStatus: "__FirewallOnboardingStatus__",
+          FirewallMode: "__FirewallMode__"
+        }
+      ],
       VpcId: "__VpcId__",
       State: "__State__",
       CidrBlock: "__CidrBlock__",
@@ -1286,6 +1408,23 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       BlockPublicAccessStates: {
         InternetGatewayBlockMode: "__InternetGatewayBlockMode__"
       },
+      NetworkFirewallAssociations: [
+        {
+          FirewallArn: "__FirewallArn__",
+          FirewallOnboardingStatus: "__FirewallOnboardingStatus__",
+          FirewallMode: "__FirewallMode__"
+        },
+        {
+          FirewallArn: "__FirewallArn__",
+          FirewallOnboardingStatus: "__FirewallOnboardingStatus__",
+          FirewallMode: "__FirewallMode__"
+        },
+        {
+          FirewallArn: "__FirewallArn__",
+          FirewallOnboardingStatus: "__FirewallOnboardingStatus__",
+          FirewallMode: "__FirewallMode__"
+        }
+      ],
       VpcId: "__VpcId__",
       State: "__State__",
       CidrBlock: "__CidrBlock__",
@@ -1439,6 +1578,23 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       BlockPublicAccessStates: {
         InternetGatewayBlockMode: "__InternetGatewayBlockMode__"
       },
+      NetworkFirewallAssociations: [
+        {
+          FirewallArn: "__FirewallArn__",
+          FirewallOnboardingStatus: "__FirewallOnboardingStatus__",
+          FirewallMode: "__FirewallMode__"
+        },
+        {
+          FirewallArn: "__FirewallArn__",
+          FirewallOnboardingStatus: "__FirewallOnboardingStatus__",
+          FirewallMode: "__FirewallMode__"
+        },
+        {
+          FirewallArn: "__FirewallArn__",
+          FirewallOnboardingStatus: "__FirewallOnboardingStatus__",
+          FirewallMode: "__FirewallMode__"
+        }
+      ],
       VpcId: "__VpcId__",
       State: "__State__",
       CidrBlock: "__CidrBlock__",

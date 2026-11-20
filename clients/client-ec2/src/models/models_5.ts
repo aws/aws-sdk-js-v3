@@ -107,6 +107,7 @@ import type {
   ConnectionNotification,
   DnsEntry,
   GroupIdentifier,
+  NetworkInsightsAccessScope,
   NetworkInsightsPath,
   NetworkInterface,
   NetworkInterfaceAttachment,
@@ -155,6 +156,61 @@ import type {
   ProductCode,
   RegisteredInstance,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeNetworkInsightsAccessScopesRequest {
+  /**
+   * <p>The IDs of the Network Access Scopes.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeIds?: string[] | undefined;
+
+  /**
+   * <p>There are no supported filters.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNetworkInsightsAccessScopesResult {
+  /**
+   * <p>The Network Access Scopes.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopes?: NetworkInsightsAccessScope[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -12892,41 +12948,4 @@ export interface DisableIpamOrganizationAdminAccountResult {
    * @public
    */
   Success?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableIpamPolicyRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM policy to disable.</p>
-   * @public
-   */
-  IpamPolicyId: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services Organizations target for which to disable the IPAM policy. This parameter is required only when IPAM is integrated with Amazon Web Services Organizations. When IPAM is not integrated with Amazon Web Services Organizations, omit this parameter and the policy will be disabled for the current account.</p>
-   *          <p>A target can be an individual Amazon Web Services account or an entity within an Amazon Web Services Organization to which an IPAM policy can be applied.</p>
-   * @public
-   */
-  OrganizationTargetId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableIpamPolicyResult {
-  /**
-   * <p>Returns true if the IPAM policy was successfully disabled.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
 }

@@ -2833,8 +2833,9 @@ const _FA = "FederatedAuthentication";
 const _FAD = "FilterAtDestination";
 const _FAR = "FederatedAuthenticationRequest";
 const _FAS = "FilterAtSource";
-const _FAi = "FixAvailable";
+const _FAi = "FirewallArn";
 const _FAir = "FirstAddress";
+const _FAix = "FixAvailable";
 const _FB = "FilterBy";
 const _FBDMR = "FleetBlockDeviceMappingRequest";
 const _FBDMRL = "FleetBlockDeviceMappingRequestList";
@@ -2925,10 +2926,12 @@ const _FLTSR = "FleetLaunchTemplateSpecificationRequest";
 const _FLi = "FilterList";
 const _FLl = "FlowLog";
 const _FM = "FailureMessage";
+const _FMi = "FirewallMode";
 const _FOA = "FirstObservedAt";
 const _FOAi = "FilterOutArns";
 const _FOAil = "FilterOutArn";
 const _FODC = "FulfilledOnDemandCapacity";
+const _FOS = "FirewallOnboardingStatus";
 const _FP = "FromPort";
 const _FPA = "FcaPolicyAssociations";
 const _FPAF = "FcaPolicyAssociationFailures";
@@ -3448,6 +3451,7 @@ const _IFPS = "ImageFindingPathSet";
 const _IFR = "IamFleetRole";
 const _IFRn = "IngressFilterRules";
 const _IFd = "IdFormat";
+const _IFg = "IgwFirewall";
 const _IFm = "ImageFindings";
 const _IFma = "ImageFinding";
 const _IG = "InternetGateway";
@@ -4640,9 +4644,13 @@ const _NDIL = "NeuronDeviceInfoList";
 const _NDMI = "NeuronDeviceMemoryInfo";
 const _NDe = "NeuronDevices";
 const _NES = "NitroEnclavesSupport";
+const _NFA = "NetworkFirewallAssociation";
 const _NFAAZIL = "NetworkFunctionAttachmentAZIdList";
 const _NFAAZNL = "NetworkFunctionAttachmentAZNameList";
+const _NFAS = "NetworkFirewallAssociationSet";
+const _NFAe = "NetworkFirewallAssociations";
 const _NFCAPD = "NatFlexCostAllocationPolicyDocument";
+const _NFCT = "NetworkFirewallConnectivityType";
 const _NFPD = "NatFcaPolicyDocument";
 const _NG = "NatGateway";
 const _NGA = "NatGatewayAddresses";
@@ -7344,8 +7352,9 @@ const _f = "failed";
 const _fA = "federatedAuthentication";
 const _fAD = "filterAtDestination";
 const _fAS = "filterAtSource";
-const _fAi = "fixAvailable";
+const _fAi = "firewallArn";
 const _fAir = "firstAddress";
+const _fAix = "fixAvailable";
 const _fC = "fulfilledCapacity";
 const _fCAP = "flexCostAllocationPolicies";
 const _fCRS = "fleetCapacityReservationSet";
@@ -7372,9 +7381,11 @@ const _fLISa = "fastLaunchImageSet";
 const _fLS = "flowLogSet";
 const _fLSl = "flowLogStatus";
 const _fM = "failureMessage";
+const _fMi = "firewallMode";
 const _fOA = "firstObservedAt";
 const _fOAS = "filterOutArnSet";
 const _fODC = "fulfilledOnDemandCapacity";
+const _fOS = "firewallOnboardingStatus";
 const _fP = "fromPort";
 const _fPA = "fcaPolicyAssociations";
 const _fPAF = "fcaPolicyAssociationFailures";
@@ -7522,6 +7533,7 @@ const _iFPD = "instanceFcaPolicyDocument";
 const _iFR = "iamFleetRole";
 const _iFRS = "ingressFilterRuleSet";
 const _iFS = "imageFindingSet";
+const _iFg = "igwFirewall";
 const _iG = "internetGateway";
 const _iGBM = "internetGatewayBlockMode";
 const _iGEM = "internetGatewayExclusionMode";
@@ -7966,6 +7978,8 @@ const _nCa = "natCidr";
 const _nD = "noDevice";
 const _nDe = "neuronDevices";
 const _nES = "nitroEnclavesSupport";
+const _nFAS = "networkFirewallAssociationSet";
+const _nFCT = "networkFirewallConnectivityType";
 const _nFPD = "natFcaPolicyDocument";
 const _nG = "natGateway";
 const _nGAS = "natGatewayAddressSet";
@@ -19539,6 +19553,13 @@ export var IdFormat$: StaticStructureSchema = [3, n0, _IFd,
   , [_xN]: _res }], [2, { [_eQN]: `UseLongIds`
   , [_xN]: _uLI }]]
 ];
+export var IgwFirewall$: StaticStructureSchema = [3, n0, _IFg,
+  0,
+  [_FAi, _Sta],
+  [[0, { [_eQN]: `FirewallArn`
+  , [_xN]: _fAi }], [0, { [_eQN]: `Status`
+  , [_xN]: _sta }]]
+];
 export var IKEVersionsListValue$: StaticStructureSchema = [3, n0, _IKEVLV,
   0,
   [_V],
@@ -19649,9 +19670,9 @@ export var ImageDiskContainer$: StaticStructureSchema = [3, n0, _IDC,
 ];
 export var ImageFinding$: StaticStructureSchema = [3, n0, _IFma,
   0,
-  [_FAi, _Sco, _FOA, _UA, _Tit, _Pat, _SLe, _SIn],
+  [_FAix, _Sco, _FOA, _UA, _Tit, _Pat, _SLe, _SIn],
   [[2, { [_eQN]: `FixAvailable`
-  , [_xN]: _fAi }], [1, { [_eQN]: `Score`
+  , [_xN]: _fAix }], [1, { [_eQN]: `Score`
   , [_xN]: _sco }], [4, { [_eQN]: `FirstObservedAt`
   , [_xN]: _fOA }], [4, { [_eQN]: `UpdatedAt`
   , [_xN]: _uA }], [0, { [_eQN]: `Title`
@@ -23357,6 +23378,14 @@ export var NetworkCardInfo$: StaticStructureSchema = [3, n0, _NCIe,
   , [_xN]: _mEQCPI }], [() => NetworkCardInterfaceTypeList, { [_eQN]: `InterfaceTypeSet`
   , [_xN]: _iTSnt }]]
 ];
+export var NetworkFirewallAssociation$: StaticStructureSchema = [3, n0, _NFA,
+  0,
+  [_FAi, _FOS, _FMi],
+  [[0, { [_eQN]: `FirewallArn`
+  , [_xN]: _fAi }], [0, { [_eQN]: `FirewallOnboardingStatus`
+  , [_xN]: _fOS }], [0, { [_eQN]: `FirewallMode`
+  , [_xN]: _fMi }]]
+];
 export var NetworkInfo$: StaticStructureSchema = [3, n0, _NIetw,
   0,
   [_NPe, _MNI, _MNC, _DNCI, _NC, _IAPI, _IAPIp, _ISpvu, _ESna, _ESf, _EIf, _EITS, _ESSn, _BWa, _FEQS, _CTC, _SNSe, _MSNI, _IAPSI],
@@ -25107,7 +25136,7 @@ export var RevokeSecurityGroupIngressResult$: StaticStructureSchema = [3, n0, _R
 ];
 export var Route$: StaticStructureSchema = [3, n0, _Ro,
   0,
-  [_DCB, _DICB, _DPLI, _EOIGI, _GI, _II, _IOIn, _NGI, _TGI, _LGI, _CGI, _NII, _O, _St, _VPCI, _CNA, _ONA, _IAp],
+  [_DCB, _DICB, _DPLI, _EOIGI, _GI, _II, _IOIn, _NGI, _TGI, _LGI, _CGI, _NII, _O, _St, _VPCI, _CNA, _ONA, _IAp, _IFg],
   [[0, { [_eQN]: `DestinationCidrBlock`
   , [_xN]: _dCB }], [0, { [_eQN]: `DestinationIpv6CidrBlock`
   , [_xN]: _dICB }], [0, { [_eQN]: `DestinationPrefixListId`
@@ -25126,7 +25155,8 @@ export var Route$: StaticStructureSchema = [3, n0, _Ro,
   , [_xN]: _vPCI }], [0, { [_eQN]: `CoreNetworkArn`
   , [_xN]: _cNA }], [0, { [_eQN]: `OdbNetworkArn`
   , [_xN]: _oNA }], [0, { [_eQN]: `IpAddress`
-  , [_xN]: _iAp }]]
+  , [_xN]: _iAp }], [() => IgwFirewall$, { [_eQN]: `IgwFirewall`
+  , [_xN]: _iFg }]]
 ];
 export var RouteServer$: StaticStructureSchema = [3, n0, _RSo,
   0,
@@ -26193,7 +26223,7 @@ export var StoreImageTaskResult$: StaticStructureSchema = [3, n0, _SITRt,
 ];
 export var Subnet$: StaticStructureSchema = [3, n0, _Su,
   0,
-  [_AZI, _ELADI, _MCOIOL, _COIP, _OI, _AIAOC, _ICBAS, _T, _SAub, _OA, _EDn, _IN, _PDNOOL, _BPAS, _Ty, _SIu, _St, _VI, _CB, _AIAC, _AZ, _DFA, _MPIOL],
+  [_AZI, _ELADI, _MCOIOL, _COIP, _OI, _AIAOC, _ICBAS, _T, _SAub, _OA, _EDn, _IN, _PDNOOL, _BPAS, _Ty, _NFCT, _SIu, _St, _VI, _CB, _AIAC, _AZ, _DFA, _MPIOL],
   [[0, { [_eQN]: `AvailabilityZoneId`
   , [_xN]: _aZI }], [1, { [_eQN]: `EnableLniAtDeviceIndex`
   , [_xN]: _eLADI }], [2, { [_eQN]: `MapCustomerOwnedIpOnLaunch`
@@ -26209,7 +26239,8 @@ export var Subnet$: StaticStructureSchema = [3, n0, _Su,
   , [_xN]: _iN }], [() => PrivateDnsNameOptionsOnLaunch$, { [_eQN]: `PrivateDnsNameOptionsOnLaunch`
   , [_xN]: _pDNOOL }], [() => BlockPublicAccessStates$, { [_eQN]: `BlockPublicAccessStates`
   , [_xN]: _bPAS }], [0, { [_eQN]: `Type`
-  , [_xN]: _ty }], [0, { [_eQN]: `SubnetId`
+  , [_xN]: _ty }], [0, { [_eQN]: `NetworkFirewallConnectivityType`
+  , [_xN]: _nFCT }], [0, { [_eQN]: `SubnetId`
   , [_xN]: _sIu }], [0, { [_eQN]: `State`
   , [_xN]: _st }], [0, { [_eQN]: `VpcId`
   , [_xN]: _vI }], [0, { [_eQN]: `CidrBlock`
@@ -27752,7 +27783,7 @@ export var VolumeStatusItem$: StaticStructureSchema = [3, n0, _VSIo,
 ];
 export var Vpc$: StaticStructureSchema = [3, n0, _Vp,
   0,
-  [_OI, _ITns, _ICBAS, _CBAS, _IDs, _ECn, _T, _BPAS, _VI, _St, _CB, _DOI],
+  [_OI, _ITns, _ICBAS, _CBAS, _IDs, _ECn, _T, _BPAS, _NFAe, _VI, _St, _CB, _DOI],
   [[0, { [_eQN]: `OwnerId`
   , [_xN]: _oI }], [0, { [_eQN]: `InstanceTenancy`
   , [_xN]: _iTns }], [() => VpcIpv6CidrBlockAssociationSet, { [_eQN]: `Ipv6CidrBlockAssociationSet`
@@ -27761,7 +27792,8 @@ export var Vpc$: StaticStructureSchema = [3, n0, _Vp,
   , [_xN]: _iDs }], [() => VpcEncryptionControl$, { [_eQN]: `EncryptionControl`
   , [_xN]: _eCn }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [() => BlockPublicAccessStates$, { [_eQN]: `BlockPublicAccessStates`
-  , [_xN]: _bPAS }], [0, { [_eQN]: `VpcId`
+  , [_xN]: _bPAS }], [() => NetworkFirewallAssociationSet, { [_eQN]: `NetworkFirewallAssociationSet`
+  , [_xN]: _nFAS }], [0, { [_eQN]: `VpcId`
   , [_xN]: _vI }], [0, { [_eQN]: `State`
   , [_xN]: _st }], [0, { [_eQN]: `CidrBlock`
   , [_xN]: _cB }], [0, { [_eQN]: `DhcpOptionsId`
@@ -29928,6 +29960,10 @@ var NetworkCardInfoList: StaticListSchema = [1, n0, _NCIL,
 ];
 var NetworkCardInterfaceTypeList: StaticListSchema = [1, n0, _NCITL,
   0, [0,
+    { [_xN]: _it }]
+];
+var NetworkFirewallAssociationSet: StaticListSchema = [1, n0, _NFAS,
+  0, [() => NetworkFirewallAssociation$,
     { [_xN]: _it }]
 ];
 var NetworkFunctionAttachmentAZIdList: StaticListSchema = [1, n0, _NFAAZIL,

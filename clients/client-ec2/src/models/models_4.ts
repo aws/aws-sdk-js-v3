@@ -20,6 +20,7 @@ import type {
   DefaultTargetCapacityType,
   DestinationFileFormat,
   DeviceType,
+  DiskImageFormat,
   DiskType,
   EbsEncryptionSupport,
   EbsNvmeSupport,
@@ -166,17 +167,60 @@ import type {
   GroupIdentifier,
   InstanceFlexCostAllocationPolicyDocument,
   NatFlexCostAllocationPolicyDocument,
-  NetworkInsightsAccessScope,
   PcxFlexCostAllocationPolicyDocument,
 } from "./models_2";
-import type {
-  Byoasn,
-  DiskImageDescription,
-  DiskImageVolumeDescription,
-  Filter,
-  IdFormat,
-  InstanceTagNotificationAttribute,
-} from "./models_3";
+import type { Byoasn, Filter, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+
+/**
+ * <p>Describes a disk image.</p>
+ * @public
+ */
+export interface DiskImageDescription {
+  /**
+   * <p>The checksum computed for the disk image.</p>
+   * @public
+   */
+  Checksum?: string | undefined;
+
+  /**
+   * <p>The disk image format.</p>
+   * @public
+   */
+  Format?: DiskImageFormat | undefined;
+
+  /**
+   * <p>A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for
+   *    an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in
+   *    the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+   * @public
+   */
+  ImportManifestUrl?: string | undefined;
+
+  /**
+   * <p>The size of the disk image, in GiB.</p>
+   * @public
+   */
+  Size?: number | undefined;
+}
+
+/**
+ * <p>Describes a disk image volume.</p>
+ * @public
+ */
+export interface DiskImageVolumeDescription {
+  /**
+   * <p>The volume identifier.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   * @public
+   */
+  Size?: number | undefined;
+}
 
 /**
  * <p>Describes an import volume task.</p>
@@ -14206,61 +14250,6 @@ export interface DescribeNetworkInsightsAccessScopeAnalysesResult {
    * @public
    */
   NetworkInsightsAccessScopeAnalyses?: NetworkInsightsAccessScopeAnalysis[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeNetworkInsightsAccessScopesRequest {
-  /**
-   * <p>The IDs of the Network Access Scopes.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeIds?: string[] | undefined;
-
-  /**
-   * <p>There are no supported filters.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeNetworkInsightsAccessScopesResult {
-  /**
-   * <p>The Network Access Scopes.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopes?: NetworkInsightsAccessScope[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>

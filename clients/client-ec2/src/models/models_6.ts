@@ -95,7 +95,6 @@ import type {
   SuccessfulAssociationResponseObject,
   Tag,
   TagSpecification,
-  TargetConfigurationRequest,
   TransitGatewayAssociation,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPolicyTableAssociation,
@@ -124,6 +123,43 @@ import type {
   RegisteredInstance,
 } from "./models_4";
 import type { SuccessfulSuppressionResponseObject, UnsuccessfulSuppressionResponseObject } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DisableIpamPolicyRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM policy to disable.</p>
+   * @public
+   */
+  IpamPolicyId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services Organizations target for which to disable the IPAM policy. This parameter is required only when IPAM is integrated with Amazon Web Services Organizations. When IPAM is not integrated with Amazon Web Services Organizations, omit this parameter and the policy will be disabled for the current account.</p>
+   *          <p>A target can be an individual Amazon Web Services account or an entity within an Amazon Web Services Organization to which an IPAM policy can be applied.</p>
+   * @public
+   */
+  OrganizationTargetId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableIpamPolicyResult {
+  /**
+   * <p>Returns true if the IPAM policy was successfully disabled.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
 
 /**
  * @public
@@ -6917,6 +6953,21 @@ export interface GetIpamPolicyAllocationRulesRequest {
    *             <li>
    *                <p>Elastic IP addresses</p>
    *             </li>
+   *             <li>
+   *                <p>Application Load Balancers</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon RDS</p>
+   *             </li>
+   *             <li>
+   *                <p>NAT gateways in regional availability mode</p>
+   *             </li>
+   *             <li>
+   *                <p>Lambda Network Connector</p>
+   *             </li>
+   *             <li>
+   *                <p>Automated Internet Firewall</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -6972,6 +7023,21 @@ export interface IpamPolicyDocument {
    *          <ul>
    *             <li>
    *                <p>Elastic IP addresses</p>
+   *             </li>
+   *             <li>
+   *                <p>Application Load Balancers</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon RDS</p>
+   *             </li>
+   *             <li>
+   *                <p>NAT gateways in regional availability mode</p>
+   *             </li>
+   *             <li>
+   *                <p>Lambda Network Connector</p>
+   *             </li>
+   *             <li>
+   *                <p>Automated Internet Firewall</p>
    *             </li>
    *          </ul>
    * @public
@@ -8744,56 +8810,4 @@ export interface GetPasswordDataRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPasswordDataResult {
-  /**
-   * <p>The ID of the Windows instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The time the data was last updated.</p>
-   * @public
-   */
-  Timestamp?: Date | undefined;
-
-  /**
-   * <p>The password of the instance. Returns an empty string if the password is not
-   *             available.</p>
-   * @public
-   */
-  PasswordData?: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for GetReservedInstanceExchangeQuote.</p>
- * @public
- */
-export interface GetReservedInstancesExchangeQuoteRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making
-   *       the request, and provides an error response. If you have the required permissions, the error
-   *       response is <code>DryRunOperation</code>. Otherwise, it is
-   *       <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the Convertible Reserved Instances to exchange.</p>
-   * @public
-   */
-  ReservedInstanceIds: string[] | undefined;
-
-  /**
-   * <p>The configuration of the target Convertible Reserved Instance to exchange for your current
-   *       Convertible Reserved Instances.</p>
-   * @public
-   */
-  TargetConfigurations?: TargetConfigurationRequest[] | undefined;
 }

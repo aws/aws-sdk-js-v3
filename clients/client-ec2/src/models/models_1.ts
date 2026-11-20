@@ -33,6 +33,8 @@ import type {
   EndpointIpAddressType,
   ExportEnvironment,
   ExportTaskState,
+  FirewallMode,
+  FirewallOnboardingStatus,
   FleetCapacityReservationTenancy,
   FleetCapacityReservationUsageStrategy,
   FleetExcessCapacityTerminationPolicy,
@@ -98,6 +100,7 @@ import type {
   NatGatewayApplianceType,
   NatGatewayState,
   NestedVirtualizationSpecification,
+  NetworkFirewallConnectivityType,
   PlatformValues,
   PrefixListState,
   ReservedCapacityAllocationStrategy,
@@ -2599,6 +2602,34 @@ export interface Subnet {
   Type?: string | undefined;
 
   /**
+   * <p>The internet connectivity treatment that the Automated Internet Firewall applies to the subnet. The response includes this value only if the subnet is in a VPC that has a firewall. Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>az-unsupported</code>: The firewall doesn't support the subnet's Availability Zone, so it doesn't inspect traffic for the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bidirectional</code>: Provides bidirectional internet connectivity to every network interface that has a public IP association. Any network interface without a public IP cannot communicate with the internet unless a NAT device is explicitly inserted in the path. All inbound and outbound traffic is inspected against your firewall rules.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>exclude</code>: The firewall doesn't inspect traffic for the subnet. The subnet bypasses the firewall, and its traffic passes directly through the internet gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>flexible</code>: Sets the connectivity for each network interface in the subnet based on whether it is associated with a public IP address. A network interface with a public IP address gets bidirectional internet connectivity. A network interface without a public IP address gets outbound-only connectivity. All traffic is inspected against your firewall rules.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>outbound-only</code>: Provides egress-only connectivity for all network interfaces in the subnet. All outbound traffic and inbound responses are inspected against your firewall rules. Unsolicited inbound connections are dropped. For IPv4 traffic, the firewall performs NAT.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  NetworkFirewallConnectivityType?: NetworkFirewallConnectivityType | undefined;
+
+  /**
    * <p>The ID of the subnet.</p>
    * @public
    */
@@ -2822,6 +2853,54 @@ export interface VpcEncryptionControl {
 }
 
 /**
+ * <p>Describes an Automated Internet Firewall that inspects traffic between a VPC and its internet gateway or egress-only internet gateway.</p>
+ * @public
+ */
+export interface NetworkFirewallAssociation {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The status of the firewall for the VPC. Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>active</code>: The firewall inspects traffic for the VPC.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disabling</code>: AWS is removing the firewall from the VPC.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code>: AWS is setting up the firewall for the VPC. The firewall might not inspect traffic yet.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FirewallOnboardingStatus?: FirewallOnboardingStatus | undefined;
+
+  /**
+   * <p>The mode of the firewall. Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>enforce</code>: The firewall applies its policy to traffic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>monitor</code>: The firewall logs traffic that its policy would act on, but doesn't block it.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FirewallMode?: FirewallMode | undefined;
+}
+
+/**
  * <p>Describes a VPC.</p>
  * @public
  */
@@ -2874,6 +2953,12 @@ export interface Vpc {
    * @public
    */
   BlockPublicAccessStates?: BlockPublicAccessStates | undefined;
+
+  /**
+   * <p>Information about the firewall associations for the VPC. Automated Internet Firewall, a feature of Amazon Virtual Private Cloud (Amazon VPC), inspects traffic between the VPC and its internet gateway or egress-only internet gateway. This list is empty if the VPC doesn't have a firewall.</p>
+   * @public
+   */
+  NetworkFirewallAssociations?: NetworkFirewallAssociation[] | undefined;
 
   /**
    * <p>The ID of the VPC.</p>
@@ -14137,21 +14222,4 @@ export interface NetworkAcl {
    * @public
    */
   OwnerId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkAclResult {
-  /**
-   * <p>Information about the network ACL.</p>
-   * @public
-   */
-  NetworkAcl?: NetworkAcl | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
 }
