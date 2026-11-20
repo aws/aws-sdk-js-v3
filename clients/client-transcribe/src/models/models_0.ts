@@ -7,6 +7,7 @@ import type {
   CLMLanguageCode,
   InputType,
   LanguageCode,
+  LanguageDetectionMode,
   MediaFormat,
   MedicalContentIdentificationType,
   MedicalScribeJobStatus,
@@ -23,6 +24,8 @@ import type {
   SentimentValue,
   Specialty,
   SubtitleFormat,
+  SyncLanguage,
+  SyncLanguageCode,
   ToxicityCategory,
   TranscriptFilterType,
   TranscriptionJobStatus,
@@ -203,7 +206,7 @@ export interface Media {
 }
 
 /**
- * <p>Makes it possible to redact or flag specified personally identifiable information (PII) in
+ * <p>Makes it possible to redact specified personally identifiable information (PII) in
  *             your transcript. If you use <code>ContentRedaction</code>, you must also include the
  *             sub-parameters: <code>RedactionOutput</code> and <code>RedactionType</code>. You can
  *             optionally include <code>PiiEntityTypes</code> to choose which types of PII you want to
@@ -226,8 +229,11 @@ export interface ContentRedaction {
    *          <p>When you choose <code>redacted</code>
    *             Amazon Transcribe creates only a redacted transcript.</p>
    *          <p>When you choose <code>redacted_and_unredacted</code>
-   *             Amazon Transcribe creates a redacted and an unredacted transcript (as two separate
-   *             files).</p>
+   *             Amazon Transcribe creates a redacted and an unredacted transcript. For batch jobs,
+   *                 Amazon Transcribe creates two separate files. For <code>TranscribeAudio</code>,
+   *                 Amazon Transcribe returns them in <code>RedactedResults</code> and
+   *                 <code>Results</code>, or writes them as two separate files if you use
+   *                 <code>OutputConfiguration</code>.</p>
    * @public
    */
   RedactionOutput: RedactionOutput | undefined;
@@ -371,7 +377,7 @@ export interface CallAnalyticsJobSettings {
   LanguageModelName?: string | undefined;
 
   /**
-   * <p>Makes it possible to redact or flag specified personally identifiable information (PII) in
+   * <p>Makes it possible to redact specified personally identifiable information (PII) in
    *             your transcript. If you use <code>ContentRedaction</code>, you must also include the
    *             sub-parameters: <code>RedactionOutput</code> and <code>RedactionType</code>. You can
    *             optionally include <code>PiiEntityTypes</code> to choose which types of PII you want to
@@ -1309,7 +1315,7 @@ export interface CreateCallAnalyticsCategoryResponse {
 }
 
 /**
- * Encryption configuration for the invocation
+ * <p>The encryption configuration for your custom resource. Specify a customer managed KMS key, and optionally an encryption context, to encrypt your custom vocabulary, custom vocabulary filter, or custom language model artifacts at rest. If you do not provide a key, your artifacts are encrypted with an Amazon Web Services owned key.</p>
  * @public
  */
 export interface EncryptionConfiguration {
@@ -1427,7 +1433,7 @@ export interface CreateLanguageModelRequest {
   InputDataConfig: InputDataConfig | undefined;
 
   /**
-   * <p>Specifies the encryption configuration for your custom language model. Your model artifacts are encrypted with the specified KMS key or with an AWS-owned key if a key is not supplied.</p>
+   * <p>Specifies the encryption configuration for your custom language model. Your model artifacts are encrypted with the specified KMS key or with an Amazon Web Services owned key if a key is not supplied.</p>
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;
@@ -1648,7 +1654,7 @@ export interface CreateVocabularyRequest {
   DataAccessRoleArn?: string | undefined;
 
   /**
-   * <p>Specifies the encryption configuration for your custom vocabulary. Your vocabulary artifacts are encrypted with the specified KMS key or with an AWS-owned key if a key is not supplied.</p>
+   * <p>Specifies the encryption configuration for your custom vocabulary. Your vocabulary artifacts are encrypted with the specified KMS key or with an Amazon Web Services owned key if a key is not supplied.</p>
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;
@@ -1777,7 +1783,7 @@ export interface CreateVocabularyFilterRequest {
   DataAccessRoleArn?: string | undefined;
 
   /**
-   * <p>Specifies the encryption configuration for your custom vocabulary filter. Your vocabulary filter artifacts are encrypted with the specified KMS key or with an AWS-owned key if a key is not supplied.</p>
+   * <p>Specifies the encryption configuration for your custom vocabulary filter. Your vocabulary filter artifacts are encrypted with the specified KMS key or with an Amazon Web Services owned key if a key is not supplied.</p>
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;
@@ -5033,7 +5039,7 @@ export interface StartTranscriptionJobRequest {
   JobExecutionSettings?: JobExecutionSettings | undefined;
 
   /**
-   * <p>Makes it possible to redact or flag specified personally identifiable information (PII) in
+   * <p>Makes it possible to redact specified personally identifiable information (PII) in
    *             your transcript. If you use <code>ContentRedaction</code>, you must also include the
    *             sub-parameters: <code>RedactionOutput</code> and <code>RedactionType</code>. You can
    *             optionally include <code>PiiEntityTypes</code> to choose which types of PII you want to redact.
@@ -5175,6 +5181,219 @@ export interface StartTranscriptionJobResponse {
 }
 
 /**
+ * <p>A type of personally identifiable information (PII) redacted from an item.</p>
+ * @public
+ */
+export interface SyncRedaction {
+  /**
+   * <p>The type of PII that was redacted, for example <code>NAME</code> or
+   *                 <code>SSN</code>.</p>
+   * @public
+   */
+  Type?: PiiEntityType | undefined;
+}
+
+/**
+ * <p>A word or punctuation mark in your transcript. Labels such as
+ *                 <code>SpeakerLabel</code> and <code>ChannelLabel</code> are present only if you
+ *             enabled the related feature.</p>
+ * @public
+ */
+export interface SyncItem {
+  /**
+   * <p>The position of this item in the transcript, starting at 0.</p>
+   * @public
+   */
+  Id?: number | undefined;
+
+  /**
+   * <p>The word or punctuation mark. In <code>RedactedResults</code>, Amazon Transcribe
+   *             replaces redacted words with <code>[PII]</code>.</p>
+   * @public
+   */
+  Content?: string | undefined;
+
+  /**
+   * <p>The time, in seconds from the start of your audio, when this item starts.</p>
+   * @public
+   */
+  StartTime?: number | undefined;
+
+  /**
+   * <p>The time, in seconds from the start of your audio, when this item ends.</p>
+   * @public
+   */
+  EndTime?: number | undefined;
+
+  /**
+   * <p>The language of this item, as a locale (for example, <code>en-US</code>).</p>
+   * @public
+   */
+  LanguageCode?: SyncLanguageCode | undefined;
+
+  /**
+   * <p>The audio channel this item came from (<code>ch_0</code> or <code>ch_1</code>).
+   *             Present if you enabled <code>ChannelIdentification</code>.</p>
+   *          <p>Item start and end times are measured from the start of the audio, separately for
+   *             each channel.</p>
+   * @public
+   */
+  ChannelLabel?: string | undefined;
+
+  /**
+   * <p>The speaker of this item (for example, <code>spk_0</code>). Present if you enabled
+   *                 <code>ShowSpeakerLabels</code>.</p>
+   * @public
+   */
+  SpeakerLabel?: string | undefined;
+
+  /**
+   * <p>Indicates whether this item matched a word in your custom vocabulary filter. Present
+   *             if you included <code>VocabularyFilterSettings</code>.</p>
+   * @public
+   */
+  VocabularyFilterMatch?: boolean | undefined;
+
+  /**
+   * <p>The types of personally identifiable information (PII) that Amazon Transcribe
+   *             redacted from this item. Present only on redacted items in
+   *                 <code>RedactedResults</code>.</p>
+   * @public
+   */
+  Redactions?: SyncRedaction[] | undefined;
+}
+
+/**
+ * <p>A language identified in your audio, and how long it's spoken.</p>
+ * @public
+ */
+export interface SyncLanguageCodeItem {
+  /**
+   * <p>The identified language, as a locale (for example, <code>en-US</code>).</p>
+   * @public
+   */
+  LanguageCode?: SyncLanguageCode | undefined;
+
+  /**
+   * <p>The total time, in seconds, the identified language is spoken in your audio.</p>
+   * @public
+   */
+  DurationInSeconds?: number | undefined;
+}
+
+/**
+ * <p>The audio to transcribe. Specify exactly one of <code>MediaBytes</code> or
+ *                 <code>MediaFileUri</code>.</p>
+ *          <p>Audio sent in the request (<code>MediaBytes</code>) can be up to 25 MB. Audio in
+ *             Amazon S3 (<code>MediaFileUri</code>) can be up to 500 MB.</p>
+ * @public
+ */
+export type SyncMedia =
+  | SyncMedia.MediaBytesMember
+  | SyncMedia.MediaFileUriMember
+  | SyncMedia.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SyncMedia {
+  /**
+   * <p>Your audio file, provided inline in the request. The maximum size is 25 MB (26,214,400
+   *             bytes) of audio, measured before base64 encoding.</p>
+   *          <p>If you use an Amazon Web Services SDK, the SDK base64-encodes the bytes for you. If you
+   *             call the API directly, base64-encode the bytes yourself.</p>
+   * @public
+   */
+  export interface MediaBytesMember {
+    MediaBytes: Uint8Array;
+    MediaFileUri?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon S3 location of the media file you want to transcribe. For
+   *             example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>s3://amzn-s3-demo-bucket/my-media-file.flac</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>s3://amzn-s3-demo-bucket/media-files/my-media-file.flac</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>The maximum file size is 500 MB. You must have read permission for the file.</p>
+   *          <p>The Amazon S3 bucket that contains your input media must be located in the
+   *             same Amazon Web Services Region where you're making your transcription request.</p>
+   * @public
+   */
+  export interface MediaFileUriMember {
+    MediaBytes?: never;
+    MediaFileUri: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    MediaBytes?: never;
+    MediaFileUri?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    MediaBytes: (value: Uint8Array) => T;
+    MediaFileUri: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The Amazon S3 location where your transcript is written.</p>
+ * @public
+ */
+export interface SyncOutputConfiguration {
+  /**
+   * <p>The Amazon S3 location where you want your transcript written. For
+   *             example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>s3://amzn-s3-demo-bucket/my-transcript.json</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>s3://amzn-s3-demo-bucket/transcripts/</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>If the location ends with an object key, Amazon Transcribe writes the transcript to
+   *             that key. If it is a bucket or ends with a forward slash (<code>/</code>), it's treated
+   *             as a prefix, and Amazon Transcribe writes the transcript under it to a file named with the
+   *             request ID of your call and a <code>.json</code> extension.</p>
+   *          <p>If you use <code>ContentRedaction</code>, Amazon Transcribe writes the redacted
+   *             transcript to the same location and adds <code>redacted-</code> before the file name
+   *             (for example, <code>redacted-my-transcript.json</code>). With
+   *                 <code>redacted_and_unredacted</code>, Amazon Transcribe writes both files.</p>
+   *          <p>If an object already exists at that key, Amazon Transcribe overwrites it.</p>
+   *          <p>In a response, this is the location where Amazon Transcribe wrote your
+   *             transcript. If you requested <code>redacted_and_unredacted</code> output, this is the
+   *             location of the unredacted transcript.</p>
+   * @public
+   */
+  OutputMediaFileUri: string | undefined;
+}
+
+/**
  * @public
  */
 export interface TagResourceRequest {
@@ -5205,6 +5424,365 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
+
+/**
+ * <p>A custom vocabulary filter for one language. Specify exactly one of
+ *                 <code>VocabularyFilterName</code> or <code>Words</code>.</p>
+ * @public
+ */
+export interface VocabularyFilterEntry {
+  /**
+   * <p>The language this custom vocabulary filter applies to, as a base language code (for example, <code>en</code>). Each language can appear in only one
+   *             entry.</p>
+   * @public
+   */
+  Language: SyncLanguage | undefined;
+
+  /**
+   * <p>The name of a custom vocabulary filter you created. The filter's language must match
+   *             this entry's <code>Language</code>.</p>
+   *          <p>Vocabulary filter names are case sensitive.</p>
+   *          <p>Include either <code>VocabularyFilterName</code> or <code>Words</code> in each entry,
+   *             but not both.</p>
+   * @public
+   */
+  VocabularyFilterName?: string | undefined;
+
+  /**
+   * <p>The words to filter, provided inline. You don't need to create the vocabulary filter
+   *             first.</p>
+   *          <p>Include either <code>Words</code> or <code>VocabularyFilterName</code> in each entry,
+   *             but not both.</p>
+   * @public
+   */
+  Words?: string[] | undefined;
+}
+
+/**
+ * <p>Custom vocabulary filters to apply to your transcript, and how to apply them.</p>
+ * @public
+ */
+export interface VocabularyFilterSettings {
+  /**
+   * <p>Specify how you want your custom vocabulary filter applied to your transcript.</p>
+   *          <p>To replace words with <code>***</code>, choose <code>mask</code>.</p>
+   *          <p>To delete words, choose <code>remove</code>.</p>
+   *          <p>To flag words without changing them, choose <code>tag</code>.</p>
+   * @public
+   */
+  VocabularyFilterMethod: VocabularyFilterMethod | undefined;
+
+  /**
+   * <p>Custom vocabulary filters, with one entry per language. In each entry, you can
+   *             reference a custom vocabulary filter you created or provide words inline. All entries
+   *             must use the same type, either all by name or all inline.</p>
+   *          <p>If you specify <code>Language</code>, include exactly one entry, and its
+   *                 <code>Language</code> must match. If you use <code>LanguageDetectionMode</code>,
+   *             you can include one entry for each language in <code>LanguageOptions</code>.</p>
+   * @public
+   */
+  Filters: VocabularyFilterEntry[] | undefined;
+}
+
+/**
+ * <p>A phrase in an inline custom vocabulary.</p>
+ * @public
+ */
+export interface VocabularyPhrase {
+  /**
+   * <p>The phrase to recognize in your audio.</p>
+   * @public
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>How the phrase is written in your transcript. If you don't include
+   *                 <code>DisplayAs</code>, the phrase is written as it appears in
+   *                 <code>Text</code>.</p>
+   * @public
+   */
+  DisplayAs?: string | undefined;
+}
+
+/**
+ * <p>A custom vocabulary for one language. Specify exactly one of
+ *                 <code>VocabularyName</code> or <code>Phrases</code>.</p>
+ * @public
+ */
+export interface VocabularySettingsEntry {
+  /**
+   * <p>The language this custom vocabulary applies to, as a base language code (for example, <code>en</code>). Each language can appear in only one entry.</p>
+   * @public
+   */
+  Language: SyncLanguage | undefined;
+
+  /**
+   * <p>The name of a custom vocabulary you created. The vocabulary must be in the
+   *                 <code>READY</code> state, and its language must match this entry's
+   *                 <code>Language</code>.</p>
+   *          <p>Vocabulary names are case sensitive.</p>
+   *          <p>Include either <code>VocabularyName</code> or <code>Phrases</code> in each entry, but
+   *             not both.</p>
+   * @public
+   */
+  VocabularyName?: string | undefined;
+
+  /**
+   * <p>Up to 100 phrases to use as a custom vocabulary, provided inline. You don't need to
+   *             create the vocabulary first.</p>
+   *          <p>Include either <code>Phrases</code> or <code>VocabularyName</code> in each entry, but
+   *             not both.</p>
+   * @public
+   */
+  Phrases?: VocabularyPhrase[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TranscribeAudioRequest {
+  /**
+   * <p>The audio to transcribe. Specify exactly one of <code>MediaBytes</code> or
+   *                 <code>MediaFileUri</code>.</p>
+   *          <p>Audio sent in the request (<code>MediaBytes</code>) can be up to 25 MB. Audio in
+   *             Amazon S3 (<code>MediaFileUri</code>) can be up to 500 MB.</p>
+   * @public
+   */
+  Media: SyncMedia | undefined;
+
+  /**
+   * <p>The language spoken in your audio, as a base language code (for example,
+   *                 <code>en</code> or <code>es</code>).</p>
+   *          <p>Include either <code>Language</code> or <code>LanguageDetectionMode</code> in your
+   *             request, but not both.</p>
+   * @public
+   */
+  Language?: SyncLanguage | undefined;
+
+  /**
+   * <p>Enables automatic language identification. Use <code>IDENTIFY_LANGUAGE</code> if
+   *             your audio contains a single language that you don't know in advance.</p>
+   *          <p>You can optionally include <code>LanguageOptions</code> to limit identification to
+   *             languages you think may be present, which can improve accuracy.</p>
+   *          <p>Amazon Transcribe returns the identified language, as a locale (for example,
+   *                 <code>en-US</code>), in the response metadata.</p>
+   *          <p>Include either <code>Language</code> or <code>LanguageDetectionMode</code> in your
+   *             request, but not both.</p>
+   * @public
+   */
+  LanguageDetectionMode?: LanguageDetectionMode | undefined;
+
+  /**
+   * <p>A list of two or more languages that you think may be present in your audio, as base language codes (for example, <code>en</code> and <code>es</code>).
+   *             Each language can appear only once. A list with only one language returns a
+   *                 <code>BadRequestException</code>.</p>
+   *          <p>You can use <code>LanguageOptions</code> only with
+   *                 <code>LanguageDetectionMode</code>.</p>
+   * @public
+   */
+  LanguageOptions?: SyncLanguage[] | undefined;
+
+  /**
+   * <p>Enables channel identification in multi-channel audio. Each channel is transcribed
+   *             independently, and each item in the transcript is labeled with its channel.</p>
+   *          <p>Channel identification supports up to two channels.</p>
+   * @public
+   */
+  ChannelIdentification?: boolean | undefined;
+
+  /**
+   * <p>Enables speaker partitioning (diarization) in your transcript. Speaker partitioning
+   *             labels the speech from individual speakers in your media file.</p>
+   *          <p>If you set <code>ShowSpeakerLabels</code> to <code>true</code>, you must also include
+   *                 <code>MaxSpeakerLabels</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers
+   *                 (diarization)</a>.</p>
+   * @public
+   */
+  ShowSpeakerLabels?: boolean | undefined;
+
+  /**
+   * <p>Specify the maximum number of speakers you want to partition in your media.</p>
+   *          <p>Note that if your media contains more speakers than the specified number, Amazon Transcribe treats multiple speakers as a single speaker.</p>
+   *          <p>You can set <code>MaxSpeakerLabels</code> only if <code>ShowSpeakerLabels</code> is
+   *                 <code>true</code>.</p>
+   * @public
+   */
+  MaxSpeakerLabels?: number | undefined;
+
+  /**
+   * <p>Custom vocabularies to apply to your transcript, with one entry per language. In each
+   *             entry, you can reference a custom vocabulary you created or provide phrases inline. All
+   *             entries must use the same type, either all by name or all inline.</p>
+   *          <p>If you specify <code>Language</code>, include exactly one entry, and its
+   *                 <code>Language</code> must match. If you use <code>LanguageDetectionMode</code>,
+   *             you can include one entry for each language in <code>LanguageOptions</code>.</p>
+   * @public
+   */
+  VocabularySettings?: VocabularySettingsEntry[] | undefined;
+
+  /**
+   * <p>Custom vocabulary filters to apply to your transcript, and how to apply them.</p>
+   * @public
+   */
+  VocabularyFilterSettings?: VocabularyFilterSettings | undefined;
+
+  /**
+   * <p>Redacts personally identifiable information (PII) from your transcript. Amazon Transcribe returns the redacted transcript in <code>RedactedResults</code>.</p>
+   *          <p>If you set <code>RedactionOutput</code> to <code>redacted_and_unredacted</code>,
+   *                 Amazon Transcribe also returns the unredacted transcript in
+   *             <code>Results</code>.</p>
+   *          <p>In Sync, content redaction has these limits:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Languages:</b> English (<code>en</code>),
+   *                     Spanish (<code>es</code>), French (<code>fr</code>), Italian (<code>it</code>),
+   *                     German (<code>de</code>), and Portuguese (<code>pt</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Language identification:</b> If you use
+   *                         <code>LanguageDetectionMode</code>, you must also include
+   *                         <code>LanguageOptions</code>, and every language in it must be one of the
+   *                     languages above. A request that has no <code>LanguageOptions</code>, or that
+   *                     lists a language that isn't supported, returns a
+   *                         <code>BadRequestException</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Regions:</b> Content redaction isn't available in
+   *                     the South America (São Paulo) Region (<code>sa-east-1</code>). It's
+   *                     available in the other Amazon Web Services Regions where Sync is available.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ContentRedaction?: ContentRedaction | undefined;
+
+  /**
+   * <p>Writes the transcript to an Amazon S3 location instead of returning it in the
+   *             response. If you include <code>OutputConfiguration</code>, the response contains only
+   *             the output location.</p>
+   *          <p>You must have write permission for the location you specify.</p>
+   * @public
+   */
+  OutputConfiguration?: SyncOutputConfiguration | undefined;
+}
+
+/**
+ * <p>Information about your audio.</p>
+ * @public
+ */
+export interface TranscribeAudioMetadata {
+  /**
+   * <p>The language of your transcript, as a locale (for example,
+   *             <code>en-US</code>). Present if you used <code>LanguageDetectionMode</code>.</p>
+   * @public
+   */
+  LanguageCode?: SyncLanguageCode | undefined;
+
+  /**
+   * <p>The language identified in your audio, and how long it's spoken. Present if you used
+   *                 <code>LanguageDetectionMode</code>.</p>
+   * @public
+   */
+  LanguageCodes?: SyncLanguageCodeItem[] | undefined;
+
+  /**
+   * <p>The format of your audio, as detected by Amazon Transcribe.</p>
+   * @public
+   */
+  MediaFormat?: MediaFormat | undefined;
+
+  /**
+   * <p>The sample rate of your audio, in hertz, as detected by Amazon Transcribe.</p>
+   * @public
+   */
+  MediaSampleRateHertz?: number | undefined;
+
+  /**
+   * <p>The number of speakers identified in your audio. Present if you enabled
+   *                 <code>ShowSpeakerLabels</code>.</p>
+   * @public
+   */
+  SpeakersCount?: number | undefined;
+
+  /**
+   * <p>The number of audio channels in your media. Present if you enabled
+   *                 <code>ChannelIdentification</code>.</p>
+   * @public
+   */
+  NumberOfChannels?: number | undefined;
+}
+
+/**
+ * <p>A transcript of your audio.</p>
+ * @public
+ */
+export interface TranscribeAudioResults {
+  /**
+   * <p>The full text of your transcript.</p>
+   *          <p>If you enabled <code>ChannelIdentification</code>, the text of channel
+   *                 <code>ch_0</code> is followed by the text of channel <code>ch_1</code>.</p>
+   * @public
+   */
+  Transcript?: string | undefined;
+
+  /**
+   * <p>The words and punctuation in your transcript, with timing and any labels you requested.</p>
+   * @public
+   */
+  Items?: SyncItem[] | undefined;
+}
+
+/**
+ * <p>Your transcript and information about your audio.</p>
+ * @public
+ */
+export interface TranscriptResponse {
+  /**
+   * <p>Information about your audio, such as the detected language, format, and sample
+   *             rate.</p>
+   * @public
+   */
+  Metadata?: TranscribeAudioMetadata | undefined;
+
+  /**
+   * <p>Your unredacted transcript.</p>
+   *          <p>If you set <code>RedactionOutput</code> to <code>redacted</code>, Amazon Transcribe
+   *             doesn't return this field. Use <code>RedactedResults</code> instead.</p>
+   * @public
+   */
+  Results?: TranscribeAudioResults | undefined;
+
+  /**
+   * <p>Your transcript with personally identifiable information (PII) redacted. Present only
+   *             if you included <code>ContentRedaction</code> in your request.</p>
+   * @public
+   */
+  RedactedResults?: TranscribeAudioResults | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TranscribeAudioResponse {
+  /**
+   * <p>The Amazon S3 location where your transcript was written. Present only if
+   *             you included <code>OutputConfiguration</code> in your request. In that case,
+   *                 <code>TranscriptResponse</code> isn't returned.</p>
+   * @public
+   */
+  OutputConfiguration?: SyncOutputConfiguration | undefined;
+
+  /**
+   * <p>Your transcript and information about your audio. Present only if you didn't include
+   *                 <code>OutputConfiguration</code> in your request.</p>
+   * @public
+   */
+  TranscriptResponse?: TranscriptResponse | undefined;
+}
 
 /**
  * @public
@@ -5301,7 +5879,7 @@ export interface UpdateLanguageModelRequest {
   DataAccessRoleArn?: string | undefined;
 
   /**
-   * <p>Specifies the new encryption configuration for your custom language model. The model artifacts are re-encrypted in place using the specified KMS key or with an AWS-owned key if a key is not supplied.</p>
+   * <p>Specifies the new encryption configuration for your custom language model. The model artifacts are re-encrypted in place using the specified KMS key or with an Amazon Web Services owned key if a key is not supplied.</p>
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;
@@ -5467,7 +6045,7 @@ export interface UpdateVocabularyRequest {
   DataAccessRoleArn?: string | undefined;
 
   /**
-   * <p>Specifies the new encryption configuration for your custom vocabulary. The vocabulary artifacts are re-encrypted in place using the specified KMS key or with an AWS-owned key if a key is not supplied.</p>
+   * <p>Specifies the encryption configuration for your custom vocabulary. Your vocabulary artifacts are encrypted with the specified KMS key or with an Amazon Web Services owned key if a key is not supplied.</p>
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;
@@ -5563,7 +6141,7 @@ export interface UpdateVocabularyFilterRequest {
   DataAccessRoleArn?: string | undefined;
 
   /**
-   * <p>Specifies the new encryption configuration for your custom vocabulary filter. The vocabulary filter artifacts are re-encrypted in place using the specified KMS key or with an AWS-owned key if a key is not supplied.</p>
+   * <p>Specifies the encryption configuration for your custom vocabulary filter. Your vocabulary filter artifacts are encrypted with the specified KMS key or with an Amazon Web Services owned key if a key is not supplied.</p>
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;

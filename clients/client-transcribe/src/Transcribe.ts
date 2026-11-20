@@ -199,6 +199,11 @@ import {
   TagResourceCommand,
 } from "./commands/TagResourceCommand";
 import {
+  type TranscribeAudioCommandInput,
+  type TranscribeAudioCommandOutput,
+  TranscribeAudioCommand,
+} from "./commands/TranscribeAudioCommand";
+import {
   type UntagResourceCommandInput,
   type UntagResourceCommandOutput,
   UntagResourceCommand,
@@ -286,6 +291,7 @@ const commands = {
   StartMedicalTranscriptionJobCommand,
   StartTranscriptionJobCommand,
   TagResourceCommand,
+  TranscribeAudioCommand,
   UntagResourceCommand,
   UpdateCallAnalyticsCategoryCommand,
   UpdateLanguageModelCommand,
@@ -975,6 +981,23 @@ export interface Transcribe {
     args: TagResourceCommandInput,
     options: TranscribeRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TranscribeAudioCommand}
+   */
+  transcribeAudio(
+    args: TranscribeAudioCommandInput,
+    options?: TranscribeRequestOptions
+  ): Promise<TranscribeAudioCommandOutput>;
+  transcribeAudio(
+    args: TranscribeAudioCommandInput,
+    cb: (err: any, data?: TranscribeAudioCommandOutput) => void
+  ): void;
+  transcribeAudio(
+    args: TranscribeAudioCommandInput,
+    options: TranscribeRequestOptions,
+    cb: (err: any, data?: TranscribeAudioCommandOutput) => void
   ): void;
 
   /**

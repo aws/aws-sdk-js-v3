@@ -37,6 +37,7 @@ export * from "./StartMedicalScribeJobCommand";
 export * from "./StartMedicalTranscriptionJobCommand";
 export * from "./StartTranscriptionJobCommand";
 export * from "./TagResourceCommand";
+export * from "./TranscribeAudioCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateCallAnalyticsCategoryCommand";
 export * from "./UpdateLanguageModelCommand";

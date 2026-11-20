@@ -507,6 +507,13 @@ TagResource
 </details>
 <details>
 <summary>
+TranscribeAudio
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/TranscribeAudioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/TranscribeAudioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/TranscribeAudioCommandOutput/)
+</details>
+<details>
+<summary>
 UntagResource
 </summary>
 

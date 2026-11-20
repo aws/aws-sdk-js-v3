@@ -191,6 +191,7 @@ import type {
   StartTranscriptionJobCommandOutput,
 } from "./commands/StartTranscriptionJobCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { TranscribeAudioCommandInput, TranscribeAudioCommandOutput } from "./commands/TranscribeAudioCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
   UpdateCallAnalyticsCategoryCommandInput,
@@ -262,6 +263,7 @@ export type ServiceInputTypes =
   | StartMedicalTranscriptionJobCommandInput
   | StartTranscriptionJobCommandInput
   | TagResourceCommandInput
+  | TranscribeAudioCommandInput
   | UntagResourceCommandInput
   | UpdateCallAnalyticsCategoryCommandInput
   | UpdateLanguageModelCommandInput
@@ -311,6 +313,7 @@ export type ServiceOutputTypes =
   | StartMedicalTranscriptionJobCommandOutput
   | StartTranscriptionJobCommandOutput
   | TagResourceCommandOutput
+  | TranscribeAudioCommandOutput
   | UntagResourceCommandOutput
   | UpdateCallAnalyticsCategoryCommandOutput
   | UpdateLanguageModelCommandOutput

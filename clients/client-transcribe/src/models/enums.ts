@@ -3,6 +3,24 @@
  * @public
  * @enum
  */
+export const BadRequestExceptionReason = {
+  AUDIO_FILE_TOO_LARGE: "audioFileTooLarge",
+  AUDIO_TOO_LONG: "audioTooLong",
+  AUDIO_TOO_SHORT: "audioTooShort",
+  INVALID_AUDIO: "invalidAudio",
+  MEDIA_DOWNLOAD_FAILED: "mediaDownloadFailed",
+  UNSUPPORTED_AUDIO_FORMAT: "unsupportedAudioFormat",
+  UNSUPPORTED_CHANNEL_COUNT: "unsupportedChannelCount",
+} as const;
+/**
+ * @public
+ */
+export type BadRequestExceptionReason = (typeof BadRequestExceptionReason)[keyof typeof BadRequestExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const BaseModelName = {
   NARROW_BAND: "NarrowBand",
   WIDE_BAND: "WideBand",
@@ -520,6 +538,18 @@ export type ToxicityCategory = (typeof ToxicityCategory)[keyof typeof ToxicityCa
  * @public
  * @enum
  */
+export const LanguageDetectionMode = {
+  IDENTIFY_LANGUAGE: "IDENTIFY_LANGUAGE",
+} as const;
+/**
+ * @public
+ */
+export type LanguageDetectionMode = (typeof LanguageDetectionMode)[keyof typeof LanguageDetectionMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const OutputLocationType = {
   CUSTOMER_BUCKET: "CUSTOMER_BUCKET",
   SERVICE_BUCKET: "SERVICE_BUCKET",
@@ -542,3 +572,60 @@ export const Pronouns = {
  * @public
  */
 export type Pronouns = (typeof Pronouns)[keyof typeof Pronouns];
+
+/**
+ * @public
+ * @enum
+ */
+export const SyncLanguageCode = {
+  DE_CH: "de-CH",
+  DE_DE: "de-DE",
+  EN_AB: "en-AB",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_IE: "en-IE",
+  EN_IN: "en-IN",
+  EN_NZ: "en-NZ",
+  EN_US: "en-US",
+  EN_WL: "en-WL",
+  EN_ZA: "en-ZA",
+  ES_ES: "es-ES",
+  ES_MX: "es-MX",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  IT_IT: "it-IT",
+  JA_JP: "ja-JP",
+  KO_KR: "ko-KR",
+  PT_BR: "pt-BR",
+  PT_PT: "pt-PT",
+  ZH_CN: "zh-CN",
+  ZH_HK: "zh-HK",
+  ZH_TW: "zh-TW",
+} as const;
+/**
+ * @public
+ */
+export type SyncLanguageCode = (typeof SyncLanguageCode)[keyof typeof SyncLanguageCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SyncLanguage = {
+  DE: "de",
+  EN: "en",
+  ES: "es",
+  FR: "fr",
+  IT: "it",
+  JA: "ja",
+  KO: "ko",
+  PT: "pt",
+  ZH_CN: "zh-CN",
+  ZH_HK: "zh-HK",
+  ZH_TW: "zh-TW",
+} as const;
+/**
+ * @public
+ */
+export type SyncLanguage = (typeof SyncLanguage)[keyof typeof SyncLanguage];

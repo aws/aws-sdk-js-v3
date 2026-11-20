@@ -22,6 +22,7 @@ const _CE = "ConflictException";
 const _CI = "ChannelId";
 const _CIT = "ContentIdentificationType";
 const _CIh = "ChannelIdentification";
+const _CL = "ChannelLabel";
 const _CLM = "CreateLanguageModel";
 const _CLMR = "CreateLanguageModelRequest";
 const _CLMRr = "CreateLanguageModelResponse";
@@ -42,6 +43,8 @@ const _CVFR = "CreateVocabularyFilterRequest";
 const _CVFRr = "CreateVocabularyFilterResponse";
 const _CVR = "CreateVocabularyRequest";
 const _CVRr = "CreateVocabularyResponse";
+const _Co = "Content";
+const _DA = "DisplayAs";
 const _DARA = "DataAccessRoleArn";
 const _DCAC = "DeleteCallAnalyticsCategory";
 const _DCACR = "DeleteCallAnalyticsCategoryRequest";
@@ -74,6 +77,7 @@ const _ET = "EndTime";
 const _F = "First";
 const _FR = "FailureReason";
 const _Fe = "Feature";
+const _Fi = "Filters";
 const _Fo = "Formats";
 const _GAS = "GenerateAbstractiveSummary";
 const _GCAC = "GetCallAnalyticsCategory";
@@ -100,6 +104,7 @@ const _GVFR = "GetVocabularyFilterRequest";
 const _GVFRe = "GetVocabularyFilterResponse";
 const _GVR = "GetVocabularyRequest";
 const _GVRe = "GetVocabularyResponse";
+const _I = "Id";
 const _IDC = "InputDataConfig";
 const _IF = "InterruptionFilter";
 const _IFE = "InternalFailureException";
@@ -107,6 +112,7 @@ const _IL = "IdentifyLanguage";
 const _ILS = "IdentifiedLanguageScore";
 const _IML = "IdentifyMultipleLanguages";
 const _IT = "InputType";
+const _It = "Items";
 const _JES = "JobExecutionSettings";
 const _JNC = "JobNameContains";
 const _K = "Key";
@@ -123,6 +129,7 @@ const _LCAJRi = "ListCallAnalyticsJobsResponse";
 const _LCI = "LanguageCodeItem";
 const _LCL = "LanguageCodeList";
 const _LCa = "LanguageCodes";
+const _LDM = "LanguageDetectionMode";
 const _LEE = "LimitExceededException";
 const _LIS = "LanguageIdSettings";
 const _LISM = "LanguageIdSettingsMap";
@@ -155,8 +162,10 @@ const _LVFR = "ListVocabularyFiltersRequest";
 const _LVFRi = "ListVocabularyFiltersResponse";
 const _LVR = "ListVocabulariesRequest";
 const _LVRi = "ListVocabulariesResponse";
+const _La = "Language";
 const _M = "Message";
 const _MA = "MaxAlternatives";
+const _MB = "MediaBytes";
 const _MF = "MediaFormat";
 const _MFU = "MediaFileUri";
 const _MN = "ModelName";
@@ -184,36 +193,45 @@ const _MTJS = "MedicalTranscriptionJobSummaries";
 const _MTJSe = "MedicalTranscriptionJobSummary";
 const _MTS = "MedicalTranscriptionSetting";
 const _Me = "Media";
+const _Met = "Metadata";
 const _Mo = "Models";
 const _N = "Negate";
 const _NC = "NameContains";
 const _NFE = "NotFoundException";
+const _NOC = "NumberOfChannels";
 const _NT = "NoteTemplate";
 const _NTTF = "NonTalkTimeFilter";
 const _NTe = "NextToken";
 const _OBN = "OutputBucketName";
+const _OC = "OutputConfiguration";
 const _OEKMSKI = "OutputEncryptionKMSKeyId";
 const _OK = "OutputKey";
 const _OL = "OutputLocation";
 const _OLT = "OutputLocationType";
+const _OMFU = "OutputMediaFileUri";
 const _OSI = "OutputStartIndex";
 const _P = "Pronouns";
 const _PC = "PatientContext";
 const _PET = "PiiEntityTypes";
 const _PR = "ParticipantRole";
 const _Ph = "Phrases";
-const _R = "Rules";
+const _R = "Reason";
 const _RA = "ResourceArn";
 const _RC = "ReasonCode";
 const _RL = "RuleList";
 const _RMFU = "RedactedMediaFileUri";
 const _RO = "RedactionOutput";
+const _RR = "RedactedResults";
 const _RT = "RedactionType";
 const _RTFU = "RedactedTranscriptFileUri";
 const _RTR = "RelativeTimeRange";
-const _Ru = "Rule";
+const _Re = "Redactions";
+const _Res = "Results";
+const _Ru = "Rules";
+const _Rul = "Rule";
 const _S = "Settings";
 const _SA = "ShowAlternatives";
+const _SC = "SpeakersCount";
 const _SCAJ = "StartCallAnalyticsJob";
 const _SCAJR = "StartCallAnalyticsJobRequest";
 const _SCAJRt = "StartCallAnalyticsJobResponse";
@@ -222,6 +240,12 @@ const _SEt = "         StatusEquals";
 const _SEta = "StateEquals";
 const _SF = "SentimentFilter";
 const _SFU = "SubtitleFileUris";
+const _SI = "SyncItem";
+const _SIL = "SyncItemList";
+const _SL = "SpeakerLabel";
+const _SLCI = "SyncLanguageCodeItem";
+const _SLCL = "SyncLanguageCodeList";
+const _SM = "SyncMedia";
 const _SMSJ = "StartMedicalScribeJob";
 const _SMSJR = "StartMedicalScribeJobRequest";
 const _SMSJRt = "StartMedicalScribeJobResponse";
@@ -229,7 +253,10 @@ const _SMTJ = "StartMedicalTranscriptionJob";
 const _SMTJR = "StartMedicalTranscriptionJobRequest";
 const _SMTJRt = "StartMedicalTranscriptionJobResponse";
 const _SO = "SubtitlesOutput";
+const _SOC = "SyncOutputConfiguration";
 const _SP = "StartPercentage";
+const _SR = "SyncRedaction";
+const _SRL = "SyncRedactionList";
 const _SSL = "ShowSpeakerLabels";
 const _ST = "StartTime";
 const _STJ = "StartTranscriptionJob";
@@ -243,6 +270,11 @@ const _St = "Status";
 const _Su = "Summarization";
 const _Sub = "Subtitles";
 const _T = "Transcript";
+const _TA = "TranscribeAudio";
+const _TAM = "TranscribeAudioMetadata";
+const _TAR = "TranscribeAudioRequest";
+const _TARr = "TranscribeAudioResponse";
+const _TARra = "TranscribeAudioResults";
 const _TC = "ToxicityCategories";
 const _TD = "ToxicityDetection";
 const _TDS = "ToxicityDetectionSettings";
@@ -257,12 +289,14 @@ const _TJSr = "TranscriptionJobStatus";
 const _TJSra = "TranscriptionJobSummary";
 const _TK = "TagKeys";
 const _TL = "TagList";
-const _TR = "TagResource";
+const _TR = "TranscriptResponse";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
+const _TRa = "TagResource";
 const _Ta = "Tags";
 const _Tag = "Tag";
 const _Tar = "Targets";
+const _Te = "Text";
 const _Th = "Threshold";
 const _Ty = "Type";
 const _UA = "UpgradeAvailability";
@@ -286,14 +320,23 @@ const _UVR = "UpdateVocabularyRequest";
 const _UVRp = "UpdateVocabularyResponse";
 const _V = "Vocabularies";
 const _VF = "VocabularyFilters";
+const _VFE = "VocabularyFilterEntry";
+const _VFEL = "VocabularyFilterEntryList";
 const _VFFU = "VocabularyFilterFileUri";
 const _VFI = "VocabularyFilterInfo";
 const _VFM = "VocabularyFilterMethod";
+const _VFMo = "VocabularyFilterMatch";
 const _VFN = "VocabularyFilterName";
+const _VFS = "VocabularyFilterSettings";
 const _VFU = "VocabularyFileUri";
 const _VI = "VocabularyInfo";
 const _VN = "VocabularyName";
+const _VP = "VocabularyPhrase";
+const _VPL = "VocabularyPhraseList";
 const _VS = "VocabularyState";
+const _VSE = "VocabularySettingsEntry";
+const _VSL = "VocabularySettingsList";
+const _VSo = "VocabularySettings";
 const _Va = "Value";
 const _W = "Words";
 const _c = "client";
@@ -334,8 +377,8 @@ _s_registry.registerError(TranscribeServiceException$, TranscribeServiceExceptio
 const n0_registry = new TypeRegistry(n0);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
+  [_M, _R],
+  [0, 0]
 ];
 n0_registry.registerError(BadRequestException$, BadRequestException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
@@ -404,7 +447,7 @@ export var CallAnalyticsSkippedFeature$: StaticStructureSchema = [3, n0, _CASF,
 ];
 export var CategoryProperties$: StaticStructureSchema = [3, n0, _CP,
   0,
-  [_CN, _R, _CTr, _LUT, _Ta, _IT],
+  [_CN, _Ru, _CTr, _LUT, _Ta, _IT],
   [0, () => RuleList, 4, 4, () => TagList, 0]
 ];
 export var ChannelDefinition$: StaticStructureSchema = [3, n0, _CDh,
@@ -424,7 +467,7 @@ export var ContentRedaction$: StaticStructureSchema = [3, n0, _CR,
 ];
 export var CreateCallAnalyticsCategoryRequest$: StaticStructureSchema = [3, n0, _CCACR,
   0,
-  [_CN, _R, _Ta, _IT],
+  [_CN, _Ru, _Ta, _IT],
   [[0, 1], () => RuleList, () => TagList, 0], 2
 ];
 export var CreateCallAnalyticsCategoryResponse$: StaticStructureSchema = [3, n0, _CCACRr,
@@ -892,6 +935,26 @@ export var Summarization$: StaticStructureSchema = [3, n0, _Su,
   [_GAS],
   [2], 1
 ];
+export var SyncItem$: StaticStructureSchema = [3, n0, _SI,
+  0,
+  [_I, _Co, _ST, _ET, _LC, _CL, _SL, _VFMo, _Re],
+  [1, 0, 1, 1, 0, 0, 0, 2, () => SyncRedactionList]
+];
+export var SyncLanguageCodeItem$: StaticStructureSchema = [3, n0, _SLCI,
+  0,
+  [_LC, _DIS],
+  [0, 1]
+];
+export var SyncOutputConfiguration$: StaticStructureSchema = [3, n0, _SOC,
+  0,
+  [_OMFU],
+  [0], 1
+];
+export var SyncRedaction$: StaticStructureSchema = [3, n0, _SR,
+  0,
+  [_Ty],
+  [0]
+];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _Va],
@@ -911,6 +974,26 @@ export var ToxicityDetectionSettings$: StaticStructureSchema = [3, n0, _TDS,
   0,
   [_TC],
   [64 | 0], 1
+];
+export var TranscribeAudioMetadata$: StaticStructureSchema = [3, n0, _TAM,
+  0,
+  [_LC, _LCa, _MF, _MSRH, _SC, _NOC],
+  [0, () => SyncLanguageCodeList, 0, 1, 1, 1]
+];
+export var TranscribeAudioRequest$: StaticStructureSchema = [3, n0, _TAR,
+  0,
+  [_Me, _La, _LDM, _LO, _CIh, _SSL, _MSL, _VSo, _VFS, _CR, _OC],
+  [() => SyncMedia$, 0, 0, 64 | 0, 2, 2, 1, () => VocabularySettingsList, () => VocabularyFilterSettings$, () => ContentRedaction$, () => SyncOutputConfiguration$], 1
+];
+export var TranscribeAudioResponse$: StaticStructureSchema = [3, n0, _TARr,
+  0,
+  [_OC, _TR],
+  [() => SyncOutputConfiguration$, () => TranscriptResponse$]
+];
+export var TranscribeAudioResults$: StaticStructureSchema = [3, n0, _TARra,
+  0,
+  [_T, _It],
+  [0, () => SyncItemList]
 ];
 export var Transcript$: StaticStructureSchema = [3, n0, _T,
   0,
@@ -932,6 +1015,11 @@ export var TranscriptionJobSummary$: StaticStructureSchema = [3, n0, _TJSra,
   [_TJN, _CT, _ST, _CTo, _LC, _TJSr, _FR, _OLT, _CR, _MSo, _IL, _IML, _ILS, _LCa, _TD],
   [0, 4, 4, 4, 0, 0, 0, 0, () => ContentRedaction$, () => ModelSettings$, 2, 2, 1, () => LanguageCodeList, () => ToxicityDetection]
 ];
+export var TranscriptResponse$: StaticStructureSchema = [3, n0, _TR,
+  0,
+  [_Met, _Res, _RR],
+  [() => TranscribeAudioMetadata$, () => TranscribeAudioResults$, () => TranscribeAudioResults$]
+];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -944,7 +1032,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateCallAnalyticsCategoryRequest$: StaticStructureSchema = [3, n0, _UCACR,
   0,
-  [_CN, _R, _IT],
+  [_CN, _Ru, _IT],
   [[0, 1], () => RuleList, 0], 2
 ];
 export var UpdateCallAnalyticsCategoryResponse$: StaticStructureSchema = [3, n0, _UCACRp,
@@ -992,15 +1080,35 @@ export var UpdateVocabularyResponse$: StaticStructureSchema = [3, n0, _UVRp,
   [_VN, _LC, _LMT, _VS],
   [0, 0, 4, 0]
 ];
+export var VocabularyFilterEntry$: StaticStructureSchema = [3, n0, _VFE,
+  0,
+  [_La, _VFN, _W],
+  [0, 0, 64 | 0], 1
+];
 export var VocabularyFilterInfo$: StaticStructureSchema = [3, n0, _VFI,
   0,
   [_VFN, _LC, _LMT],
   [0, 0, 4]
 ];
+export var VocabularyFilterSettings$: StaticStructureSchema = [3, n0, _VFS,
+  0,
+  [_VFM, _Fi],
+  [0, () => VocabularyFilterEntryList], 2
+];
 export var VocabularyInfo$: StaticStructureSchema = [3, n0, _VI,
   0,
   [_VN, _LC, _LMT, _VS],
   [0, 0, 4, 0]
+];
+export var VocabularyPhrase$: StaticStructureSchema = [3, n0, _VP,
+  0,
+  [_Te, _DA],
+  [0, 0], 1
+];
+export var VocabularySettingsEntry$: StaticStructureSchema = [3, n0, _VSE,
+  0,
+  [_La, _VN, _Ph],
+  [0, 0, () => VocabularyPhraseList], 1
 ];
 var __Unit = "unit" as const;
 var CallAnalyticsJobSummaries: StaticListSchema = [1, n0, _CAJSall,
@@ -1040,6 +1148,16 @@ var SentimentValueList = 64 | 0;
 var StringTargetList = 64 | 0;
 var SubtitleFileUris = 64 | 0;
 var SubtitleFormats = 64 | 0;
+var SyncItemList: StaticListSchema = [1, n0, _SIL,
+  0, () => SyncItem$
+];
+var SyncLanguageCodeList: StaticListSchema = [1, n0, _SLCL,
+  0, () => SyncLanguageCodeItem$
+];
+var SyncLanguageOptions = 64 | 0;
+var SyncRedactionList: StaticListSchema = [1, n0, _SRL,
+  0, () => SyncRedaction$
+];
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,
   0, () => Tag$
@@ -1054,18 +1172,32 @@ var TranscriptionJobSummaries: StaticListSchema = [1, n0, _TJS,
 var Vocabularies: StaticListSchema = [1, n0, _V,
   0, () => VocabularyInfo$
 ];
+var VocabularyFilterEntryList: StaticListSchema = [1, n0, _VFEL,
+  0, () => VocabularyFilterEntry$
+];
 var VocabularyFilters: StaticListSchema = [1, n0, _VF,
   0, () => VocabularyFilterInfo$
+];
+var VocabularyPhraseList: StaticListSchema = [1, n0, _VPL,
+  0, () => VocabularyPhrase$
+];
+var VocabularySettingsList: StaticListSchema = [1, n0, _VSL,
+  0, () => VocabularySettingsEntry$
 ];
 var Words = 64 | 0;
 var KMSEncryptionContextMap = 128 | 0;
 var LanguageIdSettingsMap: StaticMapSchema = [2, n0, _LISM,
   0, 0, () => LanguageIdSettings$
 ];
-export var Rule$: StaticUnionSchema = [4, n0, _Ru,
+export var Rule$: StaticUnionSchema = [4, n0, _Rul,
   0,
   [_NTTF, _IF, _TF, _SF],
   [() => NonTalkTimeFilter$, () => InterruptionFilter$, () => TranscriptFilter$, () => SentimentFilter$]
+];
+export var SyncMedia$: StaticUnionSchema = [4, n0, _SM,
+  0,
+  [_MB, _MFU],
+  [21, 0]
 ];
 export var CreateCallAnalyticsCategory$: StaticOperationSchema = [9, n0, _CCAC,
   { [_h]: ["PUT", "/callanalyticscategories/{CategoryName}", 200] }, () => CreateCallAnalyticsCategoryRequest$, () => CreateCallAnalyticsCategoryResponse$
@@ -1178,8 +1310,11 @@ export var StartMedicalTranscriptionJob$: StaticOperationSchema = [9, n0, _SMTJ,
 export var StartTranscriptionJob$: StaticOperationSchema = [9, n0, _STJ,
   { [_h]: ["PUT", "/transcriptionjobs/{TranscriptionJobName}", 200] }, () => StartTranscriptionJobRequest$, () => StartTranscriptionJobResponse$
 ];
-export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+export var TagResource$: StaticOperationSchema = [9, n0, _TRa,
   { [_h]: ["PUT", "/tags/{ResourceArn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$
+];
+export var TranscribeAudio$: StaticOperationSchema = [9, n0, _TA,
+  { [_h]: ["POST", "/synctranscriptions", 200] }, () => TranscribeAudioRequest$, () => TranscribeAudioResponse$
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] }, () => UntagResourceRequest$, () => UntagResourceResponse$

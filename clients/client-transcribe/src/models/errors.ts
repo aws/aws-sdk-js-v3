@@ -1,13 +1,15 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
+import type { BadRequestExceptionReason } from "./enums";
 import { TranscribeServiceException as __BaseException } from "./TranscribeServiceException";
 
 /**
- * <p>Your request didn't pass one or more validation tests. This can occur when the entity
- *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
- *                 <code>IN PROGRESS</code>). See the exception message field for more
- *             information.</p>
+ * <p>Your request didn't pass one or more validation tests. This can occur when a
+ *             parameter has an invalid value, when you combine parameters in a way that isn't
+ *             supported, when the entity you're trying to delete doesn't exist, or if it's in a
+ *             non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field
+ *             for more information.</p>
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -15,6 +17,49 @@ export class BadRequestException extends __BaseException {
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
+  /**
+   * <p>A code that identifies why the audio in your request was rejected. Currently,
+   *                 <code>TranscribeAudio</code> returns this field, and only for problems with your
+   *             audio. It isn't returned for other validation errors.</p>
+   *          <p>Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>audioTooLong</code>: The audio is longer than the maximum duration of 1
+   *                     hour.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>audioTooShort</code>: The audio is shorter than 0.5 seconds.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>audioFileTooLarge</code>: The audio is larger than the maximum
+   *                     size.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unsupportedAudioFormat</code>: The media format isn't supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unsupportedChannelCount</code>: You enabled
+   *                         <code>ChannelIdentification</code> and the audio has more than two
+   *                     channels.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>invalidAudio</code>: Amazon Transcribe couldn't decode the audio.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mediaDownloadFailed</code>: Amazon Transcribe couldn't download the audio at
+   *                     your <code>MediaFileUri</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Reason?: BadRequestExceptionReason | undefined;
   /**
    * @internal
    */
@@ -26,6 +71,7 @@ export class BadRequestException extends __BaseException {
     });
     Object.setPrototypeOf(this, BadRequestException.prototype);
     this.Message = opts.Message;
+    this.Reason = opts.Reason;
   }
 }
 

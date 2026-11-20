@@ -2,6 +2,7 @@ import {
   AbsoluteTimeRange$,
   BadRequestException,
   BadRequestException$,
+  BadRequestExceptionReason,
   BaseModelName,
   CallAnalyticsFeature,
   CallAnalyticsJob$,
@@ -112,6 +113,7 @@ import {
   JobExecutionSettings$,
   LanguageCode,
   LanguageCodeItem$,
+  LanguageDetectionMode,
   LanguageIdSettings$,
   LanguageModel$,
   LimitExceededException,
@@ -220,6 +222,13 @@ import {
   Subtitles$,
   SubtitlesOutput$,
   Summarization$,
+  SyncItem$,
+  SyncLanguage,
+  SyncLanguageCode,
+  SyncLanguageCodeItem$,
+  SyncMedia$,
+  SyncOutputConfiguration$,
+  SyncRedaction$,
   Tag$,
   TagResource$,
   TagResourceCommand,
@@ -228,6 +237,12 @@ import {
   ToxicityCategory,
   ToxicityDetectionSettings$,
   Transcribe,
+  TranscribeAudio$,
+  TranscribeAudioCommand,
+  TranscribeAudioMetadata$,
+  TranscribeAudioRequest$,
+  TranscribeAudioResponse$,
+  TranscribeAudioResults$,
   TranscribeClient,
   TranscribeServiceException,
   Transcript$,
@@ -236,6 +251,7 @@ import {
   TranscriptionJob$,
   TranscriptionJobStatus,
   TranscriptionJobSummary$,
+  TranscriptResponse$,
   Type,
   UntagResource$,
   UntagResourceCommand,
@@ -261,9 +277,13 @@ import {
   UpdateVocabularyFilterResponse$,
   UpdateVocabularyRequest$,
   UpdateVocabularyResponse$,
+  VocabularyFilterEntry$,
   VocabularyFilterInfo$,
   VocabularyFilterMethod,
+  VocabularyFilterSettings$,
   VocabularyInfo$,
+  VocabularyPhrase$,
+  VocabularySettingsEntry$,
   VocabularyState,
   waitForCallAnalyticsJobCompleted,
   waitForLanguageModelCompleted,
@@ -361,6 +381,8 @@ assert(typeof StartTranscriptionJobCommand === "function");
 assert(typeof StartTranscriptionJob$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
+assert(typeof TranscribeAudioCommand === "function");
+assert(typeof TranscribeAudio$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateCallAnalyticsCategoryCommand === "function");
@@ -479,14 +501,24 @@ assert(typeof StartTranscriptionJobResponse$ === "object");
 assert(typeof Subtitles$ === "object");
 assert(typeof SubtitlesOutput$ === "object");
 assert(typeof Summarization$ === "object");
+assert(typeof SyncItem$ === "object");
+assert(typeof SyncLanguageCodeItem$ === "object");
+assert(typeof SyncMedia$ === "object");
+assert(typeof SyncOutputConfiguration$ === "object");
+assert(typeof SyncRedaction$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof ToxicityDetectionSettings$ === "object");
+assert(typeof TranscribeAudioMetadata$ === "object");
+assert(typeof TranscribeAudioRequest$ === "object");
+assert(typeof TranscribeAudioResponse$ === "object");
+assert(typeof TranscribeAudioResults$ === "object");
 assert(typeof Transcript$ === "object");
 assert(typeof TranscriptFilter$ === "object");
 assert(typeof TranscriptionJob$ === "object");
 assert(typeof TranscriptionJobSummary$ === "object");
+assert(typeof TranscriptResponse$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateCallAnalyticsCategoryRequest$ === "object");
@@ -499,9 +531,14 @@ assert(typeof UpdateVocabularyFilterRequest$ === "object");
 assert(typeof UpdateVocabularyFilterResponse$ === "object");
 assert(typeof UpdateVocabularyRequest$ === "object");
 assert(typeof UpdateVocabularyResponse$ === "object");
+assert(typeof VocabularyFilterEntry$ === "object");
 assert(typeof VocabularyFilterInfo$ === "object");
+assert(typeof VocabularyFilterSettings$ === "object");
 assert(typeof VocabularyInfo$ === "object");
+assert(typeof VocabularyPhrase$ === "object");
+assert(typeof VocabularySettingsEntry$ === "object");
 // enums
+assert(typeof BadRequestExceptionReason === "object");
 assert(typeof BaseModelName === "object");
 assert(typeof CallAnalyticsFeature === "object");
 assert(typeof CallAnalyticsJobStatus === "object");
@@ -509,6 +546,7 @@ assert(typeof CallAnalyticsSkippedReasonCode === "object");
 assert(typeof CLMLanguageCode === "object");
 assert(typeof InputType === "object");
 assert(typeof LanguageCode === "object");
+assert(typeof LanguageDetectionMode === "object");
 assert(typeof MediaFormat === "object");
 assert(typeof MedicalContentIdentificationType === "object");
 assert(typeof MedicalScribeJobStatus === "object");
@@ -525,6 +563,8 @@ assert(typeof RedactionType === "object");
 assert(typeof SentimentValue === "object");
 assert(typeof Specialty === "object");
 assert(typeof SubtitleFormat === "object");
+assert(typeof SyncLanguage === "object");
+assert(typeof SyncLanguageCode === "object");
 assert(typeof ToxicityCategory === "object");
 assert(typeof TranscriptFilterType === "object");
 assert(typeof TranscriptionJobStatus === "object");
