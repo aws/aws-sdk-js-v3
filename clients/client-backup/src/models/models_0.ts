@@ -4700,6 +4700,19 @@ export interface DescribeRegionSettingsOutput {
    * @public
    */
   ResourceTypeManagementPreference?: Record<string, boolean> | undefined;
+
+  /**
+   * <p>Specifies whether you have opted in to incremental backups for each resource type in
+   *          the Region. When you opt in, each backup captures only the changes made since your
+   *          previous backup. Incremental backup opt-in is currently available for
+   *          Amazon DynamoDB.</p>
+   *          <p>Consider opting in if your resources are large and change infrequently, because
+   *          incremental backups can reduce your backup storage and backup time. To opt in, use the
+   *          <code>UpdateRegionSettings</code> API. For a list of the Backup features that
+   *          each resource type supports, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature availability by resource</a>.</p>
+   * @public
+   */
+  ResourceTypeOptInIncremental?: Record<string, boolean> | undefined;
 }
 
 /**
@@ -11507,6 +11520,18 @@ export interface UpdateRegionSettingsInput {
    * @public
    */
   ResourceTypeManagementPreference?: Record<string, boolean> | undefined;
+
+  /**
+   * <p>Specifies whether you opt in to incremental backups for each resource type in the
+   *          Region. Opt in when you want to reduce backup storage and backup time for large resources
+   *          that change infrequently. Incremental backup opt-in is currently available for
+   *          Amazon DynamoDB.</p>
+   *          <p>To view your current incremental backup settings, use the
+   *          <code>DescribeRegionSettings</code> API. For the resource types that each
+   *          Backup feature supports, see the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature availability by resource</a> table.</p>
+   * @public
+   */
+  ResourceTypeOptInIncremental?: Record<string, boolean> | undefined;
 }
 
 /**

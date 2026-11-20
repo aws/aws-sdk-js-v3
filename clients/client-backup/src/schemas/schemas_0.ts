@@ -594,6 +594,7 @@ const _RSe = "ResourceSelection";
 const _RSes = "ResourceSelections";
 const _RT = "ResourceType";
 const _RTMP = "ResourceTypeManagementPreference";
+const _RTOII = "ResourceTypeOptInIncremental";
 const _RTOIP = "ResourceTypeOptInPreference";
 const _RTP = "RestoreTestingPlan";
 const _RTPA = "RestoreTestingPlanArn";
@@ -1299,8 +1300,8 @@ export var DescribeRegionSettingsInput$: StaticStructureSchema = [3, n0, _DRSI,
 ];
 export var DescribeRegionSettingsOutput$: StaticStructureSchema = [3, n0, _DRSO,
   0,
-  [_RTOIP, _RTMP],
-  [128 | 2, 128 | 2]
+  [_RTOIP, _RTMP, _RTOII],
+  [128 | 2, 128 | 2, 128 | 2]
 ];
 export var DescribeReportJobInput$: StaticStructureSchema = [3, n0, _DRJI,
   0,
@@ -2219,8 +2220,8 @@ export var UpdateRecoveryPointLifecycleOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateRegionSettingsInput$: StaticStructureSchema = [3, n0, _URSI,
   0,
-  [_RTOIP, _RTMP],
-  [128 | 2, 128 | 2]
+  [_RTOIP, _RTMP, _RTOII],
+  [128 | 2, 128 | 2, 128 | 2]
 ];
 export var UpdateReportPlanInput$: StaticStructureSchema = [3, n0, _URPI,
   0,
@@ -2417,6 +2418,7 @@ var Metadata: StaticMapSchema = [2, n0, _Me,
   8, 0, 0
 ];
 var ResourceTypeManagementPreference = 128 | 2;
+var ResourceTypeOptInIncremental = 128 | 2;
 var ResourceTypeOptInPreference = 128 | 2;
 var SensitiveStringMap: StaticMapSchema = [2, n0, _SSM,
   8, 0, 0

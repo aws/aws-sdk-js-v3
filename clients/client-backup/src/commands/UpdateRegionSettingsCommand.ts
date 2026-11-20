@@ -42,6 +42,9 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  *   ResourceTypeManagementPreference: { // ResourceTypeManagementPreference
  *     "<keys>": true || false,
  *   },
+ *   ResourceTypeOptInIncremental: { // ResourceTypeOptInIncremental
+ *     "<keys>": true || false,
+ *   },
  * };
  * const command = new UpdateRegionSettingsCommand(input);
  * const response = await client.send(command);

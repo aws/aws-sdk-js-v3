@@ -46,6 +46,9 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  * //   ResourceTypeManagementPreference: { // ResourceTypeManagementPreference
  * //     "<keys>": true || false,
  * //   },
+ * //   ResourceTypeOptInIncremental: { // ResourceTypeOptInIncremental
+ * //     "<keys>": true || false,
+ * //   },
  * // };
  *
  * ```
