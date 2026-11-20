@@ -860,6 +860,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/client-agent-discovery@workspace:clients/client-agent-discovery":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/client-agent-discovery@workspace:clients/client-agent-discovery"
+  dependencies:
+    "@aws-sdk/core": "workspace:^3.981.0"
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.97"
+    "@aws-sdk/types": "workspace:^3.975.1"
+    "@smithy/core": "npm:^3.40.0"
+    "@smithy/fetch-http-handler": "npm:^5.8.1"
+    "@smithy/node-http-handler": "npm:^4.14.2"
+    "@smithy/types": "npm:^4.20.0"
+    "@tsconfig/node20": "npm:20.1.8"
+    "@types/node": "npm:^20.14.8"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~7.0.2"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/client-agent-registry-control@workspace:clients/client-agent-registry-control":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-agent-registry-control@workspace:clients/client-agent-registry-control"
@@ -1054,6 +1075,27 @@ __metadata:
 "@aws-sdk/client-apigatewayv2@workspace:clients/client-apigatewayv2":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-apigatewayv2@workspace:clients/client-apigatewayv2"
+  dependencies:
+    "@aws-sdk/core": "workspace:^3.981.0"
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.97"
+    "@aws-sdk/types": "workspace:^3.975.1"
+    "@smithy/core": "npm:^3.40.0"
+    "@smithy/fetch-http-handler": "npm:^5.8.1"
+    "@smithy/node-http-handler": "npm:^4.14.2"
+    "@smithy/types": "npm:^4.20.0"
+    "@tsconfig/node20": "npm:20.1.8"
+    "@types/node": "npm:^20.14.8"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~7.0.2"
+  languageName: unknown
+  linkType: soft
+
+"@aws-sdk/client-apiportal@workspace:clients/client-apiportal":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/client-apiportal@workspace:clients/client-apiportal"
   dependencies:
     "@aws-sdk/core": "workspace:^3.981.0"
     "@aws-sdk/credential-provider-node": "workspace:^3.972.97"
@@ -7217,6 +7259,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/client-payments@workspace:clients/client-payments":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/client-payments@workspace:clients/client-payments"
+  dependencies:
+    "@aws-sdk/core": "workspace:^3.981.0"
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.97"
+    "@aws-sdk/types": "workspace:^3.975.1"
+    "@smithy/core": "npm:^3.40.0"
+    "@smithy/fetch-http-handler": "npm:^5.8.1"
+    "@smithy/node-http-handler": "npm:^4.14.2"
+    "@smithy/types": "npm:^4.20.0"
+    "@tsconfig/node20": "npm:20.1.8"
+    "@types/node": "npm:^20.14.8"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~7.0.2"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/client-pca-connector-ad@workspace:clients/client-pca-connector-ad":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-pca-connector-ad@workspace:clients/client-pca-connector-ad"
@@ -8383,6 +8446,27 @@ __metadata:
 "@aws-sdk/client-sagemaker-featurestore-runtime@workspace:clients/client-sagemaker-featurestore-runtime":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-sagemaker-featurestore-runtime@workspace:clients/client-sagemaker-featurestore-runtime"
+  dependencies:
+    "@aws-sdk/core": "workspace:^3.981.0"
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.97"
+    "@aws-sdk/types": "workspace:^3.975.1"
+    "@smithy/core": "npm:^3.40.0"
+    "@smithy/fetch-http-handler": "npm:^5.8.1"
+    "@smithy/node-http-handler": "npm:^4.14.2"
+    "@smithy/types": "npm:^4.20.0"
+    "@tsconfig/node20": "npm:20.1.8"
+    "@types/node": "npm:^20.14.8"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~7.0.2"
+  languageName: unknown
+  linkType: soft
+
+"@aws-sdk/client-sagemaker-gateway-runtime@workspace:clients/client-sagemaker-gateway-runtime":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/client-sagemaker-gateway-runtime@workspace:clients/client-sagemaker-gateway-runtime"
   dependencies:
     "@aws-sdk/core": "workspace:^3.981.0"
     "@aws-sdk/credential-provider-node": "workspace:^3.972.97"
