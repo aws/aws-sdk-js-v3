@@ -174,6 +174,146 @@ export type AutoUpdate = (typeof AutoUpdate)[keyof typeof AutoUpdate];
  * @public
  * @enum
  */
+export const ResourceOwner = {
+  ACCOUNT: "ACCOUNT",
+  SERVICE: "SERVICE",
+} as const;
+/**
+ * @public
+ */
+export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
+
+/**
+ * @public
+ * @enum
+ */
+export const State = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExtractionGranularityType = {
+  DOCUMENT: "DOCUMENT",
+  ELEMENT: "ELEMENT",
+  LINE: "LINE",
+  PAGE: "PAGE",
+  WORD: "WORD",
+} as const;
+/**
+ * @public
+ */
+export type ExtractionGranularityType = (typeof ExtractionGranularityType)[keyof typeof ExtractionGranularityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OutputTextFormatType = {
+  CSV: "CSV",
+  HTML: "HTML",
+  MARKDOWN: "MARKDOWN",
+  PLAIN_TEXT: "PLAIN_TEXT",
+} as const;
+/**
+ * @public
+ */
+export type OutputTextFormatType = (typeof OutputTextFormatType)[keyof typeof OutputTextFormatType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SensitiveDataDetectionMode = {
+  DETECTION: "DETECTION",
+  DETECTION_AND_REDACTION: "DETECTION_AND_REDACTION",
+  DISABLED: "DISABLED",
+} as const;
+/**
+ * @public
+ */
+export type SensitiveDataDetectionMode = (typeof SensitiveDataDetectionMode)[keyof typeof SensitiveDataDetectionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PIIEntityType = {
+  ADDRESS: "ADDRESS",
+  AGE: "AGE",
+  ALL: "ALL",
+  AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
+  AWS_SECRET_KEY: "AWS_SECRET_KEY",
+  CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
+  CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
+  CREDIT_DEBIT_CARD_CVV: "CREDIT_DEBIT_CARD_CVV",
+  CREDIT_DEBIT_CARD_EXPIRY: "CREDIT_DEBIT_CARD_EXPIRY",
+  CREDIT_DEBIT_CARD_NUMBER: "CREDIT_DEBIT_CARD_NUMBER",
+  DRIVER_ID: "DRIVER_ID",
+  EMAIL: "EMAIL",
+  INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+  IP_ADDRESS: "IP_ADDRESS",
+  LICENSE_PLATE: "LICENSE_PLATE",
+  MAC_ADDRESS: "MAC_ADDRESS",
+  NAME: "NAME",
+  PASSWORD: "PASSWORD",
+  PHONE: "PHONE",
+  PIN: "PIN",
+  SWIFT_CODE: "SWIFT_CODE",
+  UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+  UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
+  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+  URL: "URL",
+  USERNAME: "USERNAME",
+  US_BANK_ACCOUNT_NUMBER: "US_BANK_ACCOUNT_NUMBER",
+  US_BANK_ROUTING_NUMBER: "US_BANK_ROUTING_NUMBER",
+  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+  US_PASSPORT_NUMBER: "US_PASSPORT_NUMBER",
+  US_SOCIAL_SECURITY_NUMBER: "US_SOCIAL_SECURITY_NUMBER",
+  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
+} as const;
+/**
+ * @public
+ */
+export type PIIEntityType = (typeof PIIEntityType)[keyof typeof PIIEntityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PIIRedactionMaskMode = {
+  ENTITY_TYPE: "ENTITY_TYPE",
+  PII: "PII",
+} as const;
+/**
+ * @public
+ */
+export type PIIRedactionMaskMode = (typeof PIIRedactionMaskMode)[keyof typeof PIIRedactionMaskMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProjectStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const JobStatus = {
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",

@@ -7,10 +7,18 @@ import type {
   BlockType,
   ContentClassifier,
   EntityType,
+  ExtractionGranularityType,
   FeatureType,
   JobStatus,
+  OutputTextFormatType,
+  PIIEntityType,
+  PIIRedactionMaskMode,
+  ProjectStatus,
   RelationshipType,
+  ResourceOwner,
   SelectionStatus,
+  SensitiveDataDetectionMode,
+  State,
   TextType,
   ValueType,
 } from "./enums";
@@ -1375,6 +1383,99 @@ export interface AnalyzeIDResponse {
 }
 
 /**
+ * <p>A filter used to limit results to a specific blueprint, and optionally a specific
+ *          version.</p>
+ * @public
+ */
+export interface BlueprintFilter {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the blueprint to filter by.</p>
+   * @public
+   */
+  BlueprintArn: string | undefined;
+
+  /**
+   * <p>The version of the blueprint to filter by.</p>
+   * @public
+   */
+  BlueprintVersion?: string | undefined;
+}
+
+/**
+ * <p>Associates a blueprint, and optionally a specific blueprint version, with a project for
+ *          custom output extraction.</p>
+ * @public
+ */
+export interface BlueprintItem {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the blueprint.</p>
+   * @public
+   */
+  BlueprintArn: string | undefined;
+
+  /**
+   * <p>The version of the blueprint. If omitted, the latest version is used.</p>
+   * @public
+   */
+  BlueprintVersion?: string | undefined;
+}
+
+/**
+ * <p>A summary of a blueprint, returned in the results of <code>ListBlueprints</code>.</p>
+ * @public
+ */
+export interface BlueprintSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the blueprint.</p>
+   * @public
+   */
+  BlueprintArn: string | undefined;
+
+  /**
+   * <p>The name of the blueprint.</p>
+   * @public
+   */
+  BlueprintName?: string | undefined;
+
+  /**
+   * <p>The version of the blueprint.</p>
+   * @public
+   */
+  BlueprintVersion?: string | undefined;
+
+  /**
+   * <p>Whether the blueprint is owned by your account or provided by Amazon Textract.</p>
+   * @public
+   */
+  ResourceOwner?: ResourceOwner | undefined;
+
+  /**
+   * <p>The date and time that the blueprint was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the blueprint was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * <p>Controls whether bounding box geometry is returned in the extraction output.</p>
+ * @public
+ */
+export interface BoundingBoxConfiguration {
+  /**
+   * <p>Set to <code>ENABLED</code> to return bounding box geometry, or <code>DISABLED</code> to
+   *          omit it.</p>
+   * @public
+   */
+  State: State | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateAdapterRequest {
@@ -1543,6 +1644,430 @@ export interface CreateAdapterVersionResponse {
 }
 
 /**
+ * <p>Specifies the AWS Key Management Service (AWS KMS) key and encryption context used to encrypt a resource at
+ *          rest. When omitted, Amazon Textract encrypts the resource using an AWS owned key.</p>
+ * @public
+ */
+export interface EncryptionConfiguration {
+  /**
+   * <p>The identifier of the AWS KMS key to use for encryption. This can be a key ID, key ARN,
+   *          alias name, or alias ARN.</p>
+   * @public
+   */
+  KmsKeyId: string | undefined;
+
+  /**
+   * <p>A set of key-value pairs that Amazon Textract includes as the AWS KMS encryption context
+   *          when encrypting and decrypting the resource.</p>
+   *          <p>On <code>UpdateProject</code> and <code>UpdateBlueprint</code>, this member is the one
+   *          exception to replacing a supplied configuration whole. If you omit it, the stored encryption
+   *          context is kept. To clear a custom encryption context, specify an empty map
+   *          (<code>\{\}</code>).</p>
+   * @public
+   */
+  KmsEncryptionContext?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBlueprintRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the operation
+   *          completes no more than one time. If you use the same token for a request that matches a
+   *          previous request, the service ignores the request, but does not return an error.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>A unique name for the blueprint.</p>
+   * @public
+   */
+  BlueprintName: string | undefined;
+
+  /**
+   * <p>The schema of the blueprint, which defines the fields to extract and their expected
+   *          structure.</p>
+   * @public
+   */
+  Schema: string | undefined;
+
+  /**
+   * <p>The AWS KMS encryption configuration used to encrypt the blueprint at rest.</p>
+   * @public
+   */
+  EncryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>A set of tags (key-value pairs) to assign to the blueprint.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBlueprintResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the blueprint that was created.</p>
+   * @public
+   */
+  BlueprintArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBlueprintVersionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the blueprint to create a new version of.</p>
+   * @public
+   */
+  BlueprintArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the operation
+   *          completes no more than one time. If you use the same token for a request that matches a
+   *          previous request, the service ignores the request, but does not return an error.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBlueprintVersionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the blueprint.</p>
+   * @public
+   */
+  BlueprintArn: string | undefined;
+
+  /**
+   * <p>The version of the blueprint that was created.</p>
+   * @public
+   */
+  BlueprintVersion: string | undefined;
+}
+
+/**
+ * <p>Associates blueprints with a project to produce custom structured output. A fallback
+ *          blueprint can be supplied for documents that do not match a primary blueprint.</p>
+ * @public
+ */
+export interface CustomConfiguration {
+  /**
+   * <p>The blueprints used to extract custom structured output.</p>
+   * @public
+   */
+  Blueprints: BlueprintItem[] | undefined;
+
+  /**
+   * <p>The blueprint used when a document does not match any of the primary blueprints. Requires
+   *          at least one blueprint in <code>Blueprints</code>.</p>
+   * @public
+   */
+  FallbackBlueprints?: BlueprintItem[] | undefined;
+}
+
+/**
+ * <p>Specifies the granularity levels at which Amazon Textract extracts content from a
+ *          document.</p>
+ * @public
+ */
+export interface ExtractionGranularity {
+  /**
+   * <p>The granularity levels at which Amazon Textract extracts content, from the whole document
+   *          down to individual lines of text. Each type can appear only once.</p>
+   * @public
+   */
+  Types?: ExtractionGranularityType[] | undefined;
+}
+
+/**
+ * <p>Controls whether an additional file format is produced alongside the primary extraction
+ *          output.</p>
+ * @public
+ */
+export interface OutputAdditionalFileFormat {
+  /**
+   * <p>Set to <code>ENABLED</code> to produce an additional file format, or
+   *          <code>DISABLED</code> to omit it.</p>
+   * @public
+   */
+  State: State | undefined;
+}
+
+/**
+ * <p>Specifies the text formats produced in the extraction output.</p>
+ * @public
+ */
+export interface OutputTextFormat {
+  /**
+   * <p>The text formats produced in the extraction output. Each type can appear only once, and
+   *          <code>CSV</code> can't be the only type.</p>
+   * @public
+   */
+  Types?: OutputTextFormatType[] | undefined;
+}
+
+/**
+ * <p>Controls the format of the extraction output, including the text format and any
+ *          additional file formats.</p>
+ * @public
+ */
+export interface OutputFormat {
+  /**
+   * <p>Controls whether an additional file format is produced alongside the primary
+   *          output.</p>
+   * @public
+   */
+  AdditionalFileFormat: OutputAdditionalFileFormat | undefined;
+
+  /**
+   * <p>Controls the text formats produced in the extraction output.</p>
+   * @public
+   */
+  TextFormat: OutputTextFormat | undefined;
+}
+
+/**
+ * <p>Controls how Amazon Textract extracts content from a document, including whether bounding
+ *          boxes are returned, the granularity of extraction, and the output format.</p>
+ * @public
+ */
+export interface ExtractionConfiguration {
+  /**
+   * <p>Controls whether bounding box geometry is included in the extraction output.</p>
+   * @public
+   */
+  BoundingBox: BoundingBoxConfiguration | undefined;
+
+  /**
+   * <p>Controls the granularity levels at which content is extracted.</p>
+   * @public
+   */
+  Granularity: ExtractionGranularity | undefined;
+
+  /**
+   * <p>Controls the format of the extraction output.</p>
+   * @public
+   */
+  OutputFormat: OutputFormat | undefined;
+}
+
+/**
+ * <p>Controls whether generative captions are produced for figures detected in the
+ *          document.</p>
+ * @public
+ */
+export interface FigureCaptionConfiguration {
+  /**
+   * <p>Set to <code>ENABLED</code> to produce figure captions, or <code>DISABLED</code> to omit
+   *          them.</p>
+   * @public
+   */
+  State: State | undefined;
+}
+
+/**
+ * <p>Controls whether a generative summary of the document is produced.</p>
+ * @public
+ */
+export interface SummarizationConfiguration {
+  /**
+   * <p>Set to <code>ENABLED</code> to produce a summary, or <code>DISABLED</code> to omit
+   *          it.</p>
+   * @public
+   */
+  State: State | undefined;
+}
+
+/**
+ * <p>Controls the generative capabilities applied during a document insights job, such
+ *          as summarization and figure captioning.</p>
+ * @public
+ */
+export interface GenerativeConfiguration {
+  /**
+   * <p>Controls whether a generative summary of the document is produced. If you omit it, no
+   *          summary is produced.</p>
+   * @public
+   */
+  Summarization?: SummarizationConfiguration | undefined;
+
+  /**
+   * <p>Controls whether generative captions are produced for figures detected in the
+   *          document. If you omit it, no figure captions are produced.</p>
+   * @public
+   */
+  FigureCaption?: FigureCaptionConfiguration | undefined;
+}
+
+/**
+ * <p>Specifies which personally identifiable information (PII) entity types to detect and how
+ *          to mask them.</p>
+ * @public
+ */
+export interface PIIEntitiesConfiguration {
+  /**
+   * <p>The list of PII entity types to detect. Each type can appear only once.</p>
+   * @public
+   */
+  PiiEntityTypes: PIIEntityType[] | undefined;
+
+  /**
+   * <p>How detected PII is masked in the redacted output.</p>
+   * @public
+   */
+  RedactionMaskMode: PIIRedactionMaskMode | undefined;
+}
+
+/**
+ * <p>Controls detection and redaction of sensitive data, such as personally identifiable
+ *          information (PII), in the output.</p>
+ * @public
+ */
+export interface SensitiveDataConfiguration {
+  /**
+   * <p>The detection mode. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DETECTION</code> - Only detects sensitive data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DETECTION_AND_REDACTION</code> - Detects and redacts sensitive data in the
+   *                output.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> - Does not detect sensitive data.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DetectionMode: SensitiveDataDetectionMode | undefined;
+
+  /**
+   * <p>The configuration that specifies which PII entity types to detect and how to mask
+   *          them. If you omit it, Amazon Textract detects all PII entity types (<code>ALL</code>) and
+   *          masks them with <code>ENTITY_TYPE</code>.</p>
+   * @public
+   */
+  PiiEntitiesConfiguration?: PIIEntitiesConfiguration | undefined;
+}
+
+/**
+ * <p>Controls whether a multi-document packet is split into individual documents before
+ *          analysis.</p>
+ * @public
+ */
+export interface SplitterConfiguration {
+  /**
+   * <p>Set to <code>ENABLED</code> to split multi-document packets, or <code>DISABLED</code> to
+   *          treat the input as a single document.</p>
+   * @public
+   */
+  State: State | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateProjectRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the operation
+   *          completes no more than one time. If you use the same token for a request that matches a
+   *          previous request, the service ignores the request, but does not return an error.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>A unique name for the project.</p>
+   * @public
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>A description of the project.</p>
+   * @public
+   */
+  ProjectDescription?: string | undefined;
+
+  /**
+   * <p>The configuration that controls how Amazon Textract extracts content from the document,
+   *          including bounding boxes, granularity, and output format.</p>
+   * @public
+   */
+  ExtractionConfiguration: ExtractionConfiguration | undefined;
+
+  /**
+   * <p>The configuration that controls generative capabilities such as summarization and figure
+   *          captioning.</p>
+   * @public
+   */
+  GenerativeConfiguration?: GenerativeConfiguration | undefined;
+
+  /**
+   * <p>The configuration that associates blueprints with the project for custom output
+   *          extraction.</p>
+   * @public
+   */
+  CustomConfiguration?: CustomConfiguration | undefined;
+
+  /**
+   * <p>The configuration that controls whether multi-document packets are split into individual
+   *          documents.</p>
+   * @public
+   */
+  SplitterConfiguration?: SplitterConfiguration | undefined;
+
+  /**
+   * <p>The configuration that controls detection and redaction of sensitive data, such as
+   *          personally identifiable information (PII).</p>
+   * @public
+   */
+  SensitiveDataConfiguration?: SensitiveDataConfiguration | undefined;
+
+  /**
+   * <p>The AWS KMS encryption configuration used to encrypt the project at rest. If you don't
+   *          specify a value, Amazon Textract encrypts the project using an AWS owned key.</p>
+   * @public
+   */
+  EncryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>A set of tags (key-value pairs) to assign to the project.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateProjectResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project that was created.</p>
+   * @public
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * <p>The status of the project, indicating whether creation completed successfully or
+   *          failed.</p>
+   * @public
+   */
+  Status?: ProjectStatus | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteAdapterRequest {
@@ -1579,6 +2104,45 @@ export interface DeleteAdapterVersionRequest {
  * @public
  */
 export interface DeleteAdapterVersionResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteBlueprintRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the blueprint to delete.</p>
+   * @public
+   */
+  BlueprintArn: string | undefined;
+
+  /**
+   * <p>The version of the blueprint to delete. If omitted, the entire blueprint and all of its
+   *          versions are deleted.</p>
+   * @public
+   */
+  BlueprintVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBlueprintResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteProjectRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project to delete.</p>
+   * @public
+   */
+  ProjectArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProjectResponse {}
 
 /**
  * @public
@@ -1705,6 +2269,19 @@ export interface DocumentLocation {
    * @public
    */
   S3Object?: S3Object | undefined;
+}
+
+/**
+ * <p>Event bus settings for a job.</p>
+ * @public
+ */
+export interface EventBridgeConfiguration {
+  /**
+   * <p>Set to <code>ENABLED</code> to send events to an event bus, or <code>DISABLED</code> to
+   *          not send them.</p>
+   * @public
+   */
+  State: State | undefined;
 }
 
 /**
@@ -1990,6 +2567,78 @@ export interface GetAdapterVersionResponse {
 /**
  * @public
  */
+export interface GetBlueprintRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the blueprint to retrieve.</p>
+   * @public
+   */
+  BlueprintArn: string | undefined;
+
+  /**
+   * <p>The version of the blueprint to retrieve. If omitted, the latest version is
+   *          returned.</p>
+   * @public
+   */
+  BlueprintVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBlueprintResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the blueprint.</p>
+   * @public
+   */
+  BlueprintArn: string | undefined;
+
+  /**
+   * <p>The name of the blueprint.</p>
+   * @public
+   */
+  BlueprintName: string | undefined;
+
+  /**
+   * <p>The version of the blueprint.</p>
+   * @public
+   */
+  BlueprintVersion?: string | undefined;
+
+  /**
+   * <p>The schema of the blueprint, which defines the fields to extract and their expected
+   *          structure.</p>
+   * @public
+   */
+  Schema: string | undefined;
+
+  /**
+   * <p>The identifier of the AWS KMS key used to encrypt the blueprint.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The AWS KMS encryption context used when encrypting the blueprint.</p>
+   * @public
+   */
+  KmsEncryptionContext?: Record<string, string> | undefined;
+
+  /**
+   * <p>The date and time that the blueprint was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the blueprint was last modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetDocumentAnalysisRequest {
   /**
    * <p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from
@@ -2083,6 +2732,63 @@ export interface GetDocumentAnalysisResponse {
    * @public
    */
   AnalyzeDocumentModelVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDocumentInsightsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the document insights job to retrieve.</p>
+   * @public
+   */
+  JobArn: string | undefined;
+}
+
+/**
+ * <p>The Amazon S3 location where the results of a document insights job are
+ *          written.</p>
+ * @public
+ */
+export interface OutputConfiguration {
+  /**
+   * <p>The Amazon S3 URI where the analysis results are written.</p>
+   * @public
+   */
+  S3Uri: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDocumentInsightsResponse {
+  /**
+   * <p>The current status of the document insights job, indicating whether it is
+   *          still running, has completed, or has failed. When the job has failed, inspect
+   *          <code>ErrorType</code> and <code>ErrorMessage</code> for details.</p>
+   * @public
+   */
+  Status: JobStatus | undefined;
+
+  /**
+   * <p>The Amazon S3 location where the analysis results are written.</p>
+   * @public
+   */
+  OutputConfiguration?: OutputConfiguration | undefined;
+
+  /**
+   * <p>The type of error that caused the job to fail. Present only when the job status is a
+   *          failure state.</p>
+   * @public
+   */
+  ErrorType?: string | undefined;
+
+  /**
+   * <p>A human-readable description of the error that caused the job to fail. Present only when
+   *          the job status is a failure state.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -2457,6 +3163,112 @@ export interface GetLendingAnalysisSummaryResponse {
 /**
  * @public
  */
+export interface GetProjectRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project to retrieve.</p>
+   * @public
+   */
+  ProjectArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProjectResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * @public
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * <p>The name of the project.</p>
+   * @public
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>The description of the project.</p>
+   * @public
+   */
+  ProjectDescription?: string | undefined;
+
+  /**
+   * <p>The status of the project, indicating whether it was created successfully or
+   *          failed.</p>
+   * @public
+   */
+  Status: ProjectStatus | undefined;
+
+  /**
+   * <p>The configuration that controls how Amazon Textract extracts content from the document,
+   *          including bounding boxes, granularity, and output format.</p>
+   * @public
+   */
+  ExtractionConfiguration?: ExtractionConfiguration | undefined;
+
+  /**
+   * <p>The configuration that controls generative capabilities such as summarization and figure
+   *          captioning.</p>
+   * @public
+   */
+  GenerativeConfiguration?: GenerativeConfiguration | undefined;
+
+  /**
+   * <p>The configuration that associates blueprints with the project for custom output
+   *          extraction.</p>
+   * @public
+   */
+  CustomConfiguration?: CustomConfiguration | undefined;
+
+  /**
+   * <p>The configuration that controls whether multi-document packets are split into individual
+   *          documents.</p>
+   * @public
+   */
+  SplitterConfiguration?: SplitterConfiguration | undefined;
+
+  /**
+   * <p>The configuration that controls detection and redaction of sensitive data, such as
+   *          personally identifiable information (PII).</p>
+   * @public
+   */
+  SensitiveDataConfiguration?: SensitiveDataConfiguration | undefined;
+
+  /**
+   * <p>The AWS KMS encryption configuration used to encrypt the project at rest.</p>
+   * @public
+   */
+  EncryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>The date and time that the project was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the project was last modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+/**
+ * <p>The Amazon S3 location of the input document for a document insights job.</p>
+ * @public
+ */
+export interface InputConfiguration {
+  /**
+   * <p>The Amazon S3 URI of the input document.</p>
+   * @public
+   */
+  S3Uri: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListAdaptersRequest {
   /**
    * <p>Specifies the lower bound for the ListAdapters operation.
@@ -2557,6 +3369,153 @@ export interface ListAdapterVersionsResponse {
 }
 
 /**
+ * <p>A filter used to limit results to a specific project.</p>
+ * @public
+ */
+export interface ProjectFilter {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project to filter by.</p>
+   * @public
+   */
+  ProjectArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBlueprintsRequest {
+  /**
+   * <p>The maximum number of blueprints to return in each page of results. If you don't specify
+   *          a value, the service selects a default page size. Use the <code>NextToken</code> value in
+   *          the response to retrieve any remaining results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A pagination token returned from a previous call to <code>ListBlueprints</code>. Use it
+   *          to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a blueprint to filter the results by.</p>
+   * @public
+   */
+  BlueprintArn?: string | undefined;
+
+  /**
+   * <p>A filter that limits the results to blueprints associated with the specified
+   *          project.</p>
+   * @public
+   */
+  ProjectFilter?: ProjectFilter | undefined;
+
+  /**
+   * <p>A filter that limits the results to blueprints owned by your account or to blueprints
+   *          provided by Amazon Textract.</p>
+   * @public
+   */
+  ResourceOwner?: ResourceOwner | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBlueprintsResponse {
+  /**
+   * <p>A list of blueprint summaries that match the request.</p>
+   * @public
+   */
+  Blueprints: BlueprintSummary[] | undefined;
+
+  /**
+   * <p>A pagination token to use in a subsequent call to <code>ListBlueprints</code> to
+   *          retrieve the next page of results. This value is <code>null</code> when there are no more
+   *          results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProjectsRequest {
+  /**
+   * <p>The maximum number of projects to return in each page of results. If you don't specify a
+   *          value, the service selects a default page size. Use the <code>NextToken</code> value in the
+   *          response to retrieve any remaining results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A pagination token returned from a previous call to <code>ListProjects</code>. Use it to
+   *          retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A filter that limits the results to projects associated with the specified
+   *          blueprint.</p>
+   * @public
+   */
+  BlueprintFilter?: BlueprintFilter | undefined;
+}
+
+/**
+ * <p>A summary of a project, returned in the results of <code>ListProjects</code>.</p>
+ * @public
+ */
+export interface ProjectSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * @public
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * <p>The name of the project.</p>
+   * @public
+   */
+  ProjectName?: string | undefined;
+
+  /**
+   * <p>The date and time that the project was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the project was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProjectsResponse {
+  /**
+   * <p>A list of project summaries that match the request.</p>
+   * @public
+   */
+  Projects: ProjectSummary[] | undefined;
+
+  /**
+   * <p>A pagination token to use in a subsequent call to <code>ListProjects</code> to retrieve
+   *          the next page of results. This value is <code>null</code> when there are no more results to
+   *          return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListTagsForResourceRequest {
@@ -2595,6 +3554,18 @@ export interface NotificationChannel {
    * @public
    */
   RoleArn: string | undefined;
+}
+
+/**
+ * <p>Notification settings for a job.</p>
+ * @public
+ */
+export interface NotificationConfiguration {
+  /**
+   * <p>Event bus settings.</p>
+   * @public
+   */
+  EventBridgeConfiguration: EventBridgeConfiguration | undefined;
 }
 
 /**
@@ -2685,6 +3656,68 @@ export interface StartDocumentAnalysisResponse {
    * @public
    */
   JobId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDocumentInsightsRequest {
+  /**
+   * <p>The Amazon S3 location of the input document to analyze.</p>
+   * @public
+   */
+  InputConfiguration: InputConfiguration | undefined;
+
+  /**
+   * <p>The Amazon S3 location where the analysis results are written.</p>
+   * @public
+   */
+  OutputConfiguration: OutputConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project whose configuration is used to analyze the
+   *          document.</p>
+   * @public
+   */
+  ProjectArn?: string | undefined;
+
+  /**
+   * <p>The blueprints used to extract custom structured output from the document.</p>
+   * @public
+   */
+  Blueprints?: BlueprintItem[] | undefined;
+
+  /**
+   * <p>The AWS KMS encryption configuration used to encrypt the analysis output. If you don't
+   *          specify a value, Amazon Textract encrypts the output using an AWS owned key.</p>
+   * @public
+   */
+  EncryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>Notification settings for the job.</p>
+   * @public
+   */
+  NotificationConfiguration?: NotificationConfiguration | undefined;
+
+  /**
+   * <p>A set of tags (key-value pairs) to assign to the document insights job.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDocumentInsightsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the document insights job that was
+   *          started. Use it with <a>GetDocumentInsights</a> to retrieve the
+   *          results.</p>
+   * @public
+   */
+  JobArn: string | undefined;
 }
 
 /**
@@ -3015,4 +4048,118 @@ export interface UpdateAdapterResponse {
    * @public
    */
   AutoUpdate?: AutoUpdate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBlueprintRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the blueprint to update.</p>
+   * @public
+   */
+  BlueprintArn: string | undefined;
+
+  /**
+   * <p>The updated schema of the blueprint, which defines the fields to extract and their
+   *          expected structure.</p>
+   * @public
+   */
+  Schema?: string | undefined;
+
+  /**
+   * <p>The AWS KMS encryption configuration used to encrypt the blueprint at rest.</p>
+   * @public
+   */
+  EncryptionConfiguration?: EncryptionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBlueprintResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the blueprint that was updated.</p>
+   * @public
+   */
+  BlueprintArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProjectRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project to update.</p>
+   * @public
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * <p>The updated description of the project.</p>
+   * @public
+   */
+  ProjectDescription?: string | undefined;
+
+  /**
+   * <p>The configuration that controls how Amazon Textract extracts content from the document,
+   *          including bounding boxes, granularity, and output format. Replaces the stored extraction
+   *          configuration.</p>
+   * @public
+   */
+  ExtractionConfiguration?: ExtractionConfiguration | undefined;
+
+  /**
+   * <p>The configuration that controls generative capabilities such as summarization and figure
+   *          captioning. Replaces the stored generative configuration, so a capability that you omit is
+   *          turned off.</p>
+   * @public
+   */
+  GenerativeConfiguration?: GenerativeConfiguration | undefined;
+
+  /**
+   * <p>The configuration that associates blueprints with the project for custom output
+   *          extraction. Replaces the stored custom configuration. To disable custom
+   *          configuration, specify an empty <code>Blueprints</code> list.</p>
+   * @public
+   */
+  CustomConfiguration?: CustomConfiguration | undefined;
+
+  /**
+   * <p>The configuration that controls whether multi-document packets are split into individual
+   *          documents. Replaces the stored splitter configuration.</p>
+   * @public
+   */
+  SplitterConfiguration?: SplitterConfiguration | undefined;
+
+  /**
+   * <p>The configuration that controls detection and redaction of sensitive data, such as
+   *          personally identifiable information (PII). Replaces the stored sensitive data configuration.
+   *          To turn off detection, set <code>DetectionMode</code> to <code>DISABLED</code>.</p>
+   * @public
+   */
+  SensitiveDataConfiguration?: SensitiveDataConfiguration | undefined;
+
+  /**
+   * <p>The AWS KMS encryption configuration used to encrypt the project at rest.</p>
+   * @public
+   */
+  EncryptionConfiguration?: EncryptionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProjectResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project that was updated.</p>
+   * @public
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * <p>The status of the project after the update.</p>
+   * @public
+   */
+  Status?: ProjectStatus | undefined;
 }

@@ -29,6 +29,21 @@ import {
   CreateAdapterVersionCommand,
 } from "./commands/CreateAdapterVersionCommand";
 import {
+  type CreateBlueprintCommandInput,
+  type CreateBlueprintCommandOutput,
+  CreateBlueprintCommand,
+} from "./commands/CreateBlueprintCommand";
+import {
+  type CreateBlueprintVersionCommandInput,
+  type CreateBlueprintVersionCommandOutput,
+  CreateBlueprintVersionCommand,
+} from "./commands/CreateBlueprintVersionCommand";
+import {
+  type CreateProjectCommandInput,
+  type CreateProjectCommandOutput,
+  CreateProjectCommand,
+} from "./commands/CreateProjectCommand";
+import {
   type DeleteAdapterCommandInput,
   type DeleteAdapterCommandOutput,
   DeleteAdapterCommand,
@@ -38,6 +53,16 @@ import {
   type DeleteAdapterVersionCommandOutput,
   DeleteAdapterVersionCommand,
 } from "./commands/DeleteAdapterVersionCommand";
+import {
+  type DeleteBlueprintCommandInput,
+  type DeleteBlueprintCommandOutput,
+  DeleteBlueprintCommand,
+} from "./commands/DeleteBlueprintCommand";
+import {
+  type DeleteProjectCommandInput,
+  type DeleteProjectCommandOutput,
+  DeleteProjectCommand,
+} from "./commands/DeleteProjectCommand";
 import {
   type DetectDocumentTextCommandInput,
   type DetectDocumentTextCommandOutput,
@@ -54,10 +79,20 @@ import {
   GetAdapterVersionCommand,
 } from "./commands/GetAdapterVersionCommand";
 import {
+  type GetBlueprintCommandInput,
+  type GetBlueprintCommandOutput,
+  GetBlueprintCommand,
+} from "./commands/GetBlueprintCommand";
+import {
   type GetDocumentAnalysisCommandInput,
   type GetDocumentAnalysisCommandOutput,
   GetDocumentAnalysisCommand,
 } from "./commands/GetDocumentAnalysisCommand";
+import {
+  type GetDocumentInsightsCommandInput,
+  type GetDocumentInsightsCommandOutput,
+  GetDocumentInsightsCommand,
+} from "./commands/GetDocumentInsightsCommand";
 import {
   type GetDocumentTextDetectionCommandInput,
   type GetDocumentTextDetectionCommandOutput,
@@ -79,6 +114,11 @@ import {
   GetLendingAnalysisSummaryCommand,
 } from "./commands/GetLendingAnalysisSummaryCommand";
 import {
+  type GetProjectCommandInput,
+  type GetProjectCommandOutput,
+  GetProjectCommand,
+} from "./commands/GetProjectCommand";
+import {
   type ListAdaptersCommandInput,
   type ListAdaptersCommandOutput,
   ListAdaptersCommand,
@@ -89,6 +129,16 @@ import {
   ListAdapterVersionsCommand,
 } from "./commands/ListAdapterVersionsCommand";
 import {
+  type ListBlueprintsCommandInput,
+  type ListBlueprintsCommandOutput,
+  ListBlueprintsCommand,
+} from "./commands/ListBlueprintsCommand";
+import {
+  type ListProjectsCommandInput,
+  type ListProjectsCommandOutput,
+  ListProjectsCommand,
+} from "./commands/ListProjectsCommand";
+import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
@@ -98,6 +148,11 @@ import {
   type StartDocumentAnalysisCommandOutput,
   StartDocumentAnalysisCommand,
 } from "./commands/StartDocumentAnalysisCommand";
+import {
+  type StartDocumentInsightsCommandInput,
+  type StartDocumentInsightsCommandOutput,
+  StartDocumentInsightsCommand,
+} from "./commands/StartDocumentInsightsCommand";
 import {
   type StartDocumentTextDetectionCommandInput,
   type StartDocumentTextDetectionCommandOutput,
@@ -128,8 +183,20 @@ import {
   type UpdateAdapterCommandOutput,
   UpdateAdapterCommand,
 } from "./commands/UpdateAdapterCommand";
+import {
+  type UpdateBlueprintCommandInput,
+  type UpdateBlueprintCommandOutput,
+  UpdateBlueprintCommand,
+} from "./commands/UpdateBlueprintCommand";
+import {
+  type UpdateProjectCommandInput,
+  type UpdateProjectCommandOutput,
+  UpdateProjectCommand,
+} from "./commands/UpdateProjectCommand";
 import { paginateListAdapters } from "./pagination/ListAdaptersPaginator";
 import { paginateListAdapterVersions } from "./pagination/ListAdapterVersionsPaginator";
+import { paginateListBlueprints } from "./pagination/ListBlueprintsPaginator";
+import { paginateListProjects } from "./pagination/ListProjectsPaginator";
 import { TextractClient } from "./TextractClient";
 
 const commands = {
@@ -138,30 +205,45 @@ const commands = {
   AnalyzeIDCommand,
   CreateAdapterCommand,
   CreateAdapterVersionCommand,
+  CreateBlueprintCommand,
+  CreateBlueprintVersionCommand,
+  CreateProjectCommand,
   DeleteAdapterCommand,
   DeleteAdapterVersionCommand,
+  DeleteBlueprintCommand,
+  DeleteProjectCommand,
   DetectDocumentTextCommand,
   GetAdapterCommand,
   GetAdapterVersionCommand,
+  GetBlueprintCommand,
   GetDocumentAnalysisCommand,
+  GetDocumentInsightsCommand,
   GetDocumentTextDetectionCommand,
   GetExpenseAnalysisCommand,
   GetLendingAnalysisCommand,
   GetLendingAnalysisSummaryCommand,
+  GetProjectCommand,
   ListAdaptersCommand,
   ListAdapterVersionsCommand,
+  ListBlueprintsCommand,
+  ListProjectsCommand,
   ListTagsForResourceCommand,
   StartDocumentAnalysisCommand,
+  StartDocumentInsightsCommand,
   StartDocumentTextDetectionCommand,
   StartExpenseAnalysisCommand,
   StartLendingAnalysisCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAdapterCommand,
+  UpdateBlueprintCommand,
+  UpdateProjectCommand,
 };
 const paginators = {
   paginateListAdapters,
   paginateListAdapterVersions,
+  paginateListBlueprints,
+  paginateListProjects,
 };
 
 /**
@@ -258,6 +340,57 @@ export interface Textract {
   ): void;
 
   /**
+   * @see {@link CreateBlueprintCommand}
+   */
+  createBlueprint(
+    args: CreateBlueprintCommandInput,
+    options?: TextractRequestOptions
+  ): Promise<CreateBlueprintCommandOutput>;
+  createBlueprint(
+    args: CreateBlueprintCommandInput,
+    cb: (err: any, data?: CreateBlueprintCommandOutput) => void
+  ): void;
+  createBlueprint(
+    args: CreateBlueprintCommandInput,
+    options: TextractRequestOptions,
+    cb: (err: any, data?: CreateBlueprintCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateBlueprintVersionCommand}
+   */
+  createBlueprintVersion(
+    args: CreateBlueprintVersionCommandInput,
+    options?: TextractRequestOptions
+  ): Promise<CreateBlueprintVersionCommandOutput>;
+  createBlueprintVersion(
+    args: CreateBlueprintVersionCommandInput,
+    cb: (err: any, data?: CreateBlueprintVersionCommandOutput) => void
+  ): void;
+  createBlueprintVersion(
+    args: CreateBlueprintVersionCommandInput,
+    options: TextractRequestOptions,
+    cb: (err: any, data?: CreateBlueprintVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateProjectCommand}
+   */
+  createProject(
+    args: CreateProjectCommandInput,
+    options?: TextractRequestOptions
+  ): Promise<CreateProjectCommandOutput>;
+  createProject(
+    args: CreateProjectCommandInput,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
+  createProject(
+    args: CreateProjectCommandInput,
+    options: TextractRequestOptions,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAdapterCommand}
    */
   deleteAdapter(
@@ -289,6 +422,40 @@ export interface Textract {
     args: DeleteAdapterVersionCommandInput,
     options: TextractRequestOptions,
     cb: (err: any, data?: DeleteAdapterVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteBlueprintCommand}
+   */
+  deleteBlueprint(
+    args: DeleteBlueprintCommandInput,
+    options?: TextractRequestOptions
+  ): Promise<DeleteBlueprintCommandOutput>;
+  deleteBlueprint(
+    args: DeleteBlueprintCommandInput,
+    cb: (err: any, data?: DeleteBlueprintCommandOutput) => void
+  ): void;
+  deleteBlueprint(
+    args: DeleteBlueprintCommandInput,
+    options: TextractRequestOptions,
+    cb: (err: any, data?: DeleteBlueprintCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProjectCommand}
+   */
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    options?: TextractRequestOptions
+  ): Promise<DeleteProjectCommandOutput>;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    cb: (err: any, data?: DeleteProjectCommandOutput) => void
+  ): void;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    options: TextractRequestOptions,
+    cb: (err: any, data?: DeleteProjectCommandOutput) => void
   ): void;
 
   /**
@@ -343,6 +510,23 @@ export interface Textract {
   ): void;
 
   /**
+   * @see {@link GetBlueprintCommand}
+   */
+  getBlueprint(
+    args: GetBlueprintCommandInput,
+    options?: TextractRequestOptions
+  ): Promise<GetBlueprintCommandOutput>;
+  getBlueprint(
+    args: GetBlueprintCommandInput,
+    cb: (err: any, data?: GetBlueprintCommandOutput) => void
+  ): void;
+  getBlueprint(
+    args: GetBlueprintCommandInput,
+    options: TextractRequestOptions,
+    cb: (err: any, data?: GetBlueprintCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDocumentAnalysisCommand}
    */
   getDocumentAnalysis(
@@ -357,6 +541,23 @@ export interface Textract {
     args: GetDocumentAnalysisCommandInput,
     options: TextractRequestOptions,
     cb: (err: any, data?: GetDocumentAnalysisCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDocumentInsightsCommand}
+   */
+  getDocumentInsights(
+    args: GetDocumentInsightsCommandInput,
+    options?: TextractRequestOptions
+  ): Promise<GetDocumentInsightsCommandOutput>;
+  getDocumentInsights(
+    args: GetDocumentInsightsCommandInput,
+    cb: (err: any, data?: GetDocumentInsightsCommandOutput) => void
+  ): void;
+  getDocumentInsights(
+    args: GetDocumentInsightsCommandInput,
+    options: TextractRequestOptions,
+    cb: (err: any, data?: GetDocumentInsightsCommandOutput) => void
   ): void;
 
   /**
@@ -428,6 +629,23 @@ export interface Textract {
   ): void;
 
   /**
+   * @see {@link GetProjectCommand}
+   */
+  getProject(
+    args: GetProjectCommandInput,
+    options?: TextractRequestOptions
+  ): Promise<GetProjectCommandOutput>;
+  getProject(
+    args: GetProjectCommandInput,
+    cb: (err: any, data?: GetProjectCommandOutput) => void
+  ): void;
+  getProject(
+    args: GetProjectCommandInput,
+    options: TextractRequestOptions,
+    cb: (err: any, data?: GetProjectCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAdaptersCommand}
    */
   listAdapters(): Promise<ListAdaptersCommandOutput>;
@@ -464,6 +682,42 @@ export interface Textract {
   ): void;
 
   /**
+   * @see {@link ListBlueprintsCommand}
+   */
+  listBlueprints(): Promise<ListBlueprintsCommandOutput>;
+  listBlueprints(
+    args: ListBlueprintsCommandInput,
+    options?: TextractRequestOptions
+  ): Promise<ListBlueprintsCommandOutput>;
+  listBlueprints(
+    args: ListBlueprintsCommandInput,
+    cb: (err: any, data?: ListBlueprintsCommandOutput) => void
+  ): void;
+  listBlueprints(
+    args: ListBlueprintsCommandInput,
+    options: TextractRequestOptions,
+    cb: (err: any, data?: ListBlueprintsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProjectsCommand}
+   */
+  listProjects(): Promise<ListProjectsCommandOutput>;
+  listProjects(
+    args: ListProjectsCommandInput,
+    options?: TextractRequestOptions
+  ): Promise<ListProjectsCommandOutput>;
+  listProjects(
+    args: ListProjectsCommandInput,
+    cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
+  listProjects(
+    args: ListProjectsCommandInput,
+    options: TextractRequestOptions,
+    cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -495,6 +749,23 @@ export interface Textract {
     args: StartDocumentAnalysisCommandInput,
     options: TextractRequestOptions,
     cb: (err: any, data?: StartDocumentAnalysisCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartDocumentInsightsCommand}
+   */
+  startDocumentInsights(
+    args: StartDocumentInsightsCommandInput,
+    options?: TextractRequestOptions
+  ): Promise<StartDocumentInsightsCommandOutput>;
+  startDocumentInsights(
+    args: StartDocumentInsightsCommandInput,
+    cb: (err: any, data?: StartDocumentInsightsCommandOutput) => void
+  ): void;
+  startDocumentInsights(
+    args: StartDocumentInsightsCommandInput,
+    options: TextractRequestOptions,
+    cb: (err: any, data?: StartDocumentInsightsCommandOutput) => void
   ): void;
 
   /**
@@ -600,6 +871,40 @@ export interface Textract {
   ): void;
 
   /**
+   * @see {@link UpdateBlueprintCommand}
+   */
+  updateBlueprint(
+    args: UpdateBlueprintCommandInput,
+    options?: TextractRequestOptions
+  ): Promise<UpdateBlueprintCommandOutput>;
+  updateBlueprint(
+    args: UpdateBlueprintCommandInput,
+    cb: (err: any, data?: UpdateBlueprintCommandOutput) => void
+  ): void;
+  updateBlueprint(
+    args: UpdateBlueprintCommandInput,
+    options: TextractRequestOptions,
+    cb: (err: any, data?: UpdateBlueprintCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProjectCommand}
+   */
+  updateProject(
+    args: UpdateProjectCommandInput,
+    options?: TextractRequestOptions
+  ): Promise<UpdateProjectCommandOutput>;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    options: TextractRequestOptions,
+    cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAdaptersCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -620,6 +925,28 @@ export interface Textract {
     args?: ListAdapterVersionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListAdapterVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListBlueprintsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBlueprintsCommandOutput}.
+   */
+  paginateListBlueprints(
+    args?: ListBlueprintsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBlueprintsCommandOutput>;
+
+  /**
+   * @see {@link ListProjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProjectsCommandOutput}.
+   */
+  paginateListProjects(
+    args?: ListProjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProjectsCommandOutput>;
 }
 
 /**

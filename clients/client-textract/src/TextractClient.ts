@@ -62,11 +62,19 @@ import type {
   CreateAdapterVersionCommandInput,
   CreateAdapterVersionCommandOutput,
 } from "./commands/CreateAdapterVersionCommand";
+import type { CreateBlueprintCommandInput, CreateBlueprintCommandOutput } from "./commands/CreateBlueprintCommand";
+import type {
+  CreateBlueprintVersionCommandInput,
+  CreateBlueprintVersionCommandOutput,
+} from "./commands/CreateBlueprintVersionCommand";
+import type { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
 import type { DeleteAdapterCommandInput, DeleteAdapterCommandOutput } from "./commands/DeleteAdapterCommand";
 import type {
   DeleteAdapterVersionCommandInput,
   DeleteAdapterVersionCommandOutput,
 } from "./commands/DeleteAdapterVersionCommand";
+import type { DeleteBlueprintCommandInput, DeleteBlueprintCommandOutput } from "./commands/DeleteBlueprintCommand";
+import type { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
 import type {
   DetectDocumentTextCommandInput,
   DetectDocumentTextCommandOutput,
@@ -76,10 +84,15 @@ import type {
   GetAdapterVersionCommandInput,
   GetAdapterVersionCommandOutput,
 } from "./commands/GetAdapterVersionCommand";
+import type { GetBlueprintCommandInput, GetBlueprintCommandOutput } from "./commands/GetBlueprintCommand";
 import type {
   GetDocumentAnalysisCommandInput,
   GetDocumentAnalysisCommandOutput,
 } from "./commands/GetDocumentAnalysisCommand";
+import type {
+  GetDocumentInsightsCommandInput,
+  GetDocumentInsightsCommandOutput,
+} from "./commands/GetDocumentInsightsCommand";
 import type {
   GetDocumentTextDetectionCommandInput,
   GetDocumentTextDetectionCommandOutput,
@@ -96,11 +109,14 @@ import type {
   GetLendingAnalysisSummaryCommandInput,
   GetLendingAnalysisSummaryCommandOutput,
 } from "./commands/GetLendingAnalysisSummaryCommand";
+import type { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
 import type { ListAdaptersCommandInput, ListAdaptersCommandOutput } from "./commands/ListAdaptersCommand";
 import type {
   ListAdapterVersionsCommandInput,
   ListAdapterVersionsCommandOutput,
 } from "./commands/ListAdapterVersionsCommand";
+import type { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "./commands/ListBlueprintsCommand";
+import type { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
 import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -109,6 +125,10 @@ import type {
   StartDocumentAnalysisCommandInput,
   StartDocumentAnalysisCommandOutput,
 } from "./commands/StartDocumentAnalysisCommand";
+import type {
+  StartDocumentInsightsCommandInput,
+  StartDocumentInsightsCommandOutput,
+} from "./commands/StartDocumentInsightsCommand";
 import type {
   StartDocumentTextDetectionCommandInput,
   StartDocumentTextDetectionCommandOutput,
@@ -124,6 +144,8 @@ import type {
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateAdapterCommandInput, UpdateAdapterCommandOutput } from "./commands/UpdateAdapterCommand";
+import type { UpdateBlueprintCommandInput, UpdateBlueprintCommandOutput } from "./commands/UpdateBlueprintCommand";
+import type { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -144,26 +166,39 @@ export type ServiceInputTypes =
   | AnalyzeIDCommandInput
   | CreateAdapterCommandInput
   | CreateAdapterVersionCommandInput
+  | CreateBlueprintCommandInput
+  | CreateBlueprintVersionCommandInput
+  | CreateProjectCommandInput
   | DeleteAdapterCommandInput
   | DeleteAdapterVersionCommandInput
+  | DeleteBlueprintCommandInput
+  | DeleteProjectCommandInput
   | DetectDocumentTextCommandInput
   | GetAdapterCommandInput
   | GetAdapterVersionCommandInput
+  | GetBlueprintCommandInput
   | GetDocumentAnalysisCommandInput
+  | GetDocumentInsightsCommandInput
   | GetDocumentTextDetectionCommandInput
   | GetExpenseAnalysisCommandInput
   | GetLendingAnalysisCommandInput
   | GetLendingAnalysisSummaryCommandInput
+  | GetProjectCommandInput
   | ListAdapterVersionsCommandInput
   | ListAdaptersCommandInput
+  | ListBlueprintsCommandInput
+  | ListProjectsCommandInput
   | ListTagsForResourceCommandInput
   | StartDocumentAnalysisCommandInput
+  | StartDocumentInsightsCommandInput
   | StartDocumentTextDetectionCommandInput
   | StartExpenseAnalysisCommandInput
   | StartLendingAnalysisCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateAdapterCommandInput;
+  | UpdateAdapterCommandInput
+  | UpdateBlueprintCommandInput
+  | UpdateProjectCommandInput;
 
 /**
  * @public
@@ -174,26 +209,39 @@ export type ServiceOutputTypes =
   | AnalyzeIDCommandOutput
   | CreateAdapterCommandOutput
   | CreateAdapterVersionCommandOutput
+  | CreateBlueprintCommandOutput
+  | CreateBlueprintVersionCommandOutput
+  | CreateProjectCommandOutput
   | DeleteAdapterCommandOutput
   | DeleteAdapterVersionCommandOutput
+  | DeleteBlueprintCommandOutput
+  | DeleteProjectCommandOutput
   | DetectDocumentTextCommandOutput
   | GetAdapterCommandOutput
   | GetAdapterVersionCommandOutput
+  | GetBlueprintCommandOutput
   | GetDocumentAnalysisCommandOutput
+  | GetDocumentInsightsCommandOutput
   | GetDocumentTextDetectionCommandOutput
   | GetExpenseAnalysisCommandOutput
   | GetLendingAnalysisCommandOutput
   | GetLendingAnalysisSummaryCommandOutput
+  | GetProjectCommandOutput
   | ListAdapterVersionsCommandOutput
   | ListAdaptersCommandOutput
+  | ListBlueprintsCommandOutput
+  | ListProjectsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartDocumentAnalysisCommandOutput
+  | StartDocumentInsightsCommandOutput
   | StartDocumentTextDetectionCommandOutput
   | StartExpenseAnalysisCommandOutput
   | StartLendingAnalysisCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateAdapterCommandOutput;
+  | UpdateAdapterCommandOutput
+  | UpdateBlueprintCommandOutput
+  | UpdateProjectCommandOutput;
 
 /**
  * @public
