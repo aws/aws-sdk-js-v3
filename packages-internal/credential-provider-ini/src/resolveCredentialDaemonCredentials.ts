@@ -7,7 +7,7 @@ import type { FromIniInit } from "./fromIni";
  * @internal
  */
 export interface CredentialDaemonProfile extends Profile {
-  daemon_credential: string;
+  credential_daemon: string;
 }
 
 /**
@@ -15,14 +15,14 @@ export interface CredentialDaemonProfile extends Profile {
  * @internal
  */
 export const isCredentialDaemonProfile = (arg: any): arg is CredentialDaemonProfile =>
-  Boolean(arg) && typeof arg === "object" && typeof arg.daemon_credential === "string";
+  Boolean(arg) && typeof arg === "object" && typeof arg.credential_daemon === "string";
 
 const hasSsoStartSettings = (profile: IniSection) =>
   typeof profile.sso_session === "string" || typeof profile.sso_start_url === "string";
 
 /**
- * An SSO profile with daemon_credential but neither sso_account_id nor sso_role_name
- * resolves as if it had no daemon_credential.
+ * An SSO profile with credential_daemon but neither sso_account_id nor sso_role_name
+ * resolves as if it had no credential_daemon.
  * @internal
  */
 export const isSsoProfileWithoutAccountOrRole = (profile: IniSection): boolean =>
@@ -53,7 +53,7 @@ export const resolveCredentialDaemonCredentials = async (
   if (profile.web_identity_token_file !== undefined) {
     // checked before role_arn, because a web identity profile usually sets both.
     throw new CredentialDaemonProviderError(
-      `Profile ${profileName} has two credential sources, daemon_credential and web_identity_token_file. ` +
+      `Profile ${profileName} has two credential sources, credential_daemon and web_identity_token_file. ` +
         `Remove one of them.`,
       "INVALID_CONFIG",
       { logger }
@@ -61,7 +61,7 @@ export const resolveCredentialDaemonCredentials = async (
   }
   if (profile.role_arn !== undefined) {
     throw new CredentialDaemonProviderError(
-      `Profile ${profileName} sets both daemon_credential and role_arn. Move the role to its own profile ` +
+      `Profile ${profileName} sets both credential_daemon and role_arn. Move the role to its own profile ` +
         `that uses source_profile = ${profileName}.`,
       "INVALID_CONFIG",
       { logger }
@@ -69,9 +69,10 @@ export const resolveCredentialDaemonCredentials = async (
   }
 
   return fromCredentialDaemon({
-    credential: profile.daemon_credential,
+    credential: profile.credential_daemon,
     logger,
     ...(isSso ? { accountId: profile.sso_account_id, roleName: profile.sso_role_name } : {}),
+    socketPath: options.credentialDaemon?.socketPath,
     connectTimeout: options.credentialDaemon?.connectTimeout,
     timeout: options.credentialDaemon?.timeout,
   })();

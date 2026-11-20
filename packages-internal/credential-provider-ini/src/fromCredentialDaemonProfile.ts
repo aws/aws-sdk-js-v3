@@ -18,7 +18,7 @@ export type FromCredentialDaemonProfileInit = Pick<
 >;
 
 /**
- * Gets credentials from the credential daemon for a profile that sets daemon_credential, with the same
+ * Gets credentials from the credential daemon for a profile that sets credential_daemon, with the same
  * rules as fromIni.
  * @internal
  */
@@ -29,7 +29,7 @@ export const fromCredentialDaemonProfile =
     const profileName = getProfileName({ profile: init.profile ?? callerClientConfig?.profile });
     const profile = (await loadProfiles(init))[profileName];
     // An SSO profile with neither sso_account_id nor sso_role_name resolves as if it had no
-    // daemon_credential, so this provider doesn't apply to it.
+    // credential_daemon, so this provider doesn't apply to it.
     if (!isCredentialDaemonProfile(profile) || isSsoProfileWithoutAccountOrRole(profile)) {
       throw new CredentialsProviderError(`Profile ${profileName} does not use a credential daemon.`, {
         tryNextLink: true,

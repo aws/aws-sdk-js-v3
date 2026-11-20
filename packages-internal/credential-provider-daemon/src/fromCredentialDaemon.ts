@@ -22,7 +22,7 @@ import { resolveSocketPath } from "./resolveSocketPath";
  */
 export interface FromCredentialDaemonInit extends CredentialProviderOptions {
   /**
-   * The name of the credential to get from the credential daemon (daemon_credential).
+   * The name of the credential to get from the credential daemon (credential_daemon).
    */
   credential: string;
   /**
@@ -33,6 +33,11 @@ export interface FromCredentialDaemonInit extends CredentialProviderOptions {
    * The SSO role name to ask for. Sent only together with accountId.
    */
   roleName?: string;
+  /**
+   * Absolute path to the credential daemon socket. When set, it is used before AWS_CREDENTIAL_DAEMON_SOCKET and
+   * $HOME/.aws/credential-daemon.sock. An empty or relative value counts as unset.
+   */
+  socketPath?: string;
   /**
    * Milliseconds to wait for the connection to the credential daemon. Defaults to 1000.
    */
@@ -60,7 +65,7 @@ export const fromCredentialDaemon =
 
     if (typeof credential !== "string" || !CREDENTIAL_NAME_PATTERN.test(credential)) {
       throw new CredentialDaemonProviderError(
-        `daemon_credential '${sanitize(String(credential ?? ""))}' is invalid: use 1-64 ASCII letters, ` +
+        `credential_daemon '${sanitize(String(credential ?? ""))}' is invalid: use 1-64 ASCII letters, ` +
           `digits, '.', '_' or '-', not starting with '.'.`,
         "INVALID_CONFIG",
         { logger }
@@ -75,7 +80,7 @@ export const fromCredentialDaemon =
       );
     }
 
-    const socketPath = await resolveSocketPath(process.env, logger);
+    const socketPath = await resolveSocketPath(process.env, logger, init.socketPath);
     const params = {
       credential,
       ...(accountId && roleName ? { account_id: accountId, role_name: roleName } : {}),

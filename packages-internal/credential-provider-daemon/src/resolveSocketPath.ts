@@ -21,8 +21,9 @@ const getErrorCode = (e: unknown): string | undefined => (e as NodeJS.ErrnoExcep
 
 /**
  * Returns the one socket path to connect to, in order:
- * 1. AWS_CREDENTIAL_DAEMON_SOCKET, when it is an absolute path. An empty or relative value counts as unset.
- * 2. The home path, `$HOME/.aws/credential-daemon.sock`, when anything is there: a socket, a symbolic link, a link
+ * 1. The provider's socketPath setting, when it is an absolute path. An empty or relative value counts as unset.
+ * 2. AWS_CREDENTIAL_DAEMON_SOCKET, when it is an absolute path. An empty or relative value counts as unset.
+ * 3. The home path, `$HOME/.aws/credential-daemon.sock`, when anything is there: a socket, a symbolic link, a link
  *    whose target is missing, or another file. It is checked with lstat, so errors name the link, not its
  *    target. HOME is read from the environment, as the credential daemon does. An unset, empty or relative
  *    HOME is skipped, because a relative path would resolve under the working directory, where another user
@@ -35,8 +36,13 @@ const getErrorCode = (e: unknown): string | undefined => (e as NodeJS.ErrnoExcep
  */
 export const resolveSocketPath = async (
   env: Record<string, string | undefined> = process.env,
-  logger?: Logger
+  logger?: Logger,
+  socketPath?: string
 ): Promise<string> => {
+  if (isAbsolutePath(socketPath)) {
+    return socketPath;
+  }
+
   const fromEnv = env[ENV_CREDENTIAL_DAEMON_SOCKET];
   if (isAbsolutePath(fromEnv)) {
     return fromEnv;

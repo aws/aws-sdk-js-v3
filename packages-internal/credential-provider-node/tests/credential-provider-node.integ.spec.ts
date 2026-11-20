@@ -1823,7 +1823,7 @@ describe("credential-provider-node integration test", () => {
       process.env.AWS_PROFILE = "dev";
       setIniProfileData({
         dev: {
-          daemon_credential: "dev",
+          credential_daemon: "dev",
           aws_access_key_id: "INI_STATIC_ACCESS_KEY",
           aws_secret_access_key: "INI_STATIC_SECRET_KEY",
         },
@@ -1850,7 +1850,7 @@ describe("credential-provider-node integration test", () => {
       process.env.AWS_SECRET_ACCESS_KEY = "ENV_SECRET_KEY";
       setIniProfileData({
         default: {
-          daemon_credential: "default",
+          credential_daemon: "default",
         },
       });
 
@@ -1866,7 +1866,7 @@ describe("credential-provider-node integration test", () => {
       process.env.AWS_PROFILE = "default";
       setIniProfileData({
         default: {
-          daemon_credential: "default",
+          credential_daemon: "default",
         },
       });
 
@@ -1884,7 +1884,7 @@ describe("credential-provider-node integration test", () => {
         process.env.AWS_PROFILE = "dev";
         setIniProfileData({
           dev: {
-            daemon_credential: "dev",
+            credential_daemon: "dev",
           },
         });
 
@@ -1908,7 +1908,7 @@ describe("credential-provider-node integration test", () => {
       process.env.AWS_EC2_METADATA_DISABLED = "true";
       setIniProfileData({
         dev: {
-          daemon_credential: "dev",
+          credential_daemon: "dev",
         },
       });
       const handle = vi.fn();
@@ -1932,7 +1932,7 @@ describe("credential-provider-node integration test", () => {
       process.env.AWS_PROFILE = "dev";
       setIniProfileData({
         dev: {
-          daemon_credential: "dev",
+          credential_daemon: "dev",
         },
       });
       let request: HttpRequest | undefined;
@@ -1956,7 +1956,7 @@ describe("credential-provider-node integration test", () => {
       process.env.AWS_PROFILE = "assume";
       setIniProfileData({
         dev: {
-          daemon_credential: "dev",
+          credential_daemon: "dev",
         },
         assume: {
           region: "us-west-2",
@@ -2054,7 +2054,7 @@ describe("credential-provider-node integration test", () => {
         });
         process.env.AWS_CREDENTIAL_DAEMON_SOCKET = socketPath;
         process.env.AWS_PROFILE = "dev";
-        setIniProfileData({ dev: { daemon_credential: "dev" } });
+        setIniProfileData({ dev: { credential_daemon: "dev" } });
       };
 
       beforeEach(() => {

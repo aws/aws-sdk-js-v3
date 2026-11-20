@@ -1037,7 +1037,7 @@ region = us-east-1
 local credential daemon over a Unix domain socket.
 
 This provider is not typically used in an explicit fashion. The default credential provider chain and `fromIni()` use
-it for a profile that sets `daemon_credential`. Construct it in code to read a specific profile, to name the
+it for a profile that sets `credential_daemon`. Construct it in code to read a specific profile, to name the
 credential directly, or to change the timeouts.
 
 ```javascript
@@ -1046,7 +1046,7 @@ import { fromCredentialDaemon } from "@aws-sdk/credential-providers"; // ES6 imp
 
 const client = new FooClient({
   credentials: fromCredentialDaemon({
-    // Optional. The profile that sets daemon_credential. Defaults to the client's profile if that is set,
+    // Optional. The profile that sets credential_daemon. Defaults to the client's profile if that is set,
     // then the AWS_PROFILE environment variable, then "default".
     profile: "my-profile",
     // Optional. The name of the credential to get from the credential daemon, instead of reading a profile.
@@ -1054,6 +1054,8 @@ const client = new FooClient({
     // Optional, used only with credential. SSO account ID and role name to ask for. Sent only when both are set.
     // accountId: "012345678901",
     // roleName: "SampleRole",
+    // Optional. Absolute path to the credential daemon socket, used before AWS_CREDENTIAL_DAEMON_SOCKET.
+    // socketPath: "/path/to/credential-daemon.sock",
     // Optional. Milliseconds to wait for the connection to the credential daemon. Defaults to 1000.
     connectTimeout: 1000,
     // Optional. Milliseconds to wait for the whole call to the credential daemon. Defaults to 5000.
@@ -1062,20 +1064,26 @@ const client = new FooClient({
 });
 ```
 
-The provider connects to the socket named by the `AWS_CREDENTIAL_DAEMON_SOCKET` environment variable when it is an
-absolute path. Otherwise it connects to `$HOME/.aws/credential-daemon.sock` when anything is at that path, such as a
-socket or a link to the daemon's socket. When neither applies, it fails with `NOT_RUNNING` without connecting.
+The provider connects to the first of these that applies, and never tries another path after a failed connection:
+
+1. The `socketPath` option, when it is an absolute path.
+2. The `AWS_CREDENTIAL_DAEMON_SOCKET` environment variable, when it is an absolute path.
+3. `$HOME/.aws/credential-daemon.sock`, when anything is at that path, such as a socket or a link to the daemon's
+   socket.
+
+An empty or relative `socketPath` or `AWS_CREDENTIAL_DAEMON_SOCKET` counts as unset. When none applies, it fails with
+`NOT_RUNNING` without connecting.
 
 ### Sample Files
 
-`daemon_credential` is read from the config file only. A profile that sets it doesn't use its other credential
+`credential_daemon` is read from the config file only. A profile that sets it doesn't use its other credential
 settings.
 
 #### `~/.aws/config`
 
 ```ini
 [profile dev]
-daemon_credential = dev
+credential_daemon = dev
 region = us-east-1
 
 # An SSO session stored in the credential daemon
@@ -1083,7 +1091,7 @@ region = us-east-1
 sso_session = corp
 sso_account_id = 012345678901
 sso_role_name = ReadOnly
-daemon_credential = corp
+credential_daemon = corp
 
 [sso-session corp]
 sso_start_url = https://d-abc123.awsapps.com/start

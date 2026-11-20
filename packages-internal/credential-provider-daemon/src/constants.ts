@@ -28,7 +28,7 @@ export const DEFAULT_TIMEOUT_MS = 5000;
 export const MAX_REPLY_LINE_BYTES = 64000;
 
 /**
- * Valid values of daemon_credential.
+ * Valid values of credential_daemon.
  * @internal
  */
 export const CREDENTIAL_NAME_PATTERN = /^[A-Za-z0-9_-][A-Za-z0-9._-]{0,63}$/;

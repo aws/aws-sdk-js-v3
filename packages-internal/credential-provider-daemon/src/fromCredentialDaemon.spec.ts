@@ -100,7 +100,38 @@ describe(fromCredentialDaemon.name, () => {
     }
   });
 
-  describe("daemon_credential validation", () => {
+  describe("socketPath", () => {
+    it("connects to socketPath, not AWS_CREDENTIAL_DAEMON_SOCKET", async () => {
+      const envDaemon = await start(sessionReply());
+      const configured = await startFakeDaemon(sessionReply(), dir, "configured.sock");
+      try {
+        await fromCredentialDaemon({ credential: "dev", socketPath: configured.socketPath })();
+        expect(configured.requests).toHaveLength(1);
+        expect(envDaemon.requests).toEqual([]);
+      } finally {
+        await configured.close();
+      }
+    });
+
+    it("gives NOT_RUNNING when nothing listens at socketPath, and does not try AWS_CREDENTIAL_DAEMON_SOCKET", async () => {
+      const envDaemon = await start(sessionReply());
+      const path = join(dir, "missing.sock");
+      await expect(fromCredentialDaemon({ credential: "dev", socketPath: path })()).rejects.toMatchObject({
+        code: "NOT_RUNNING",
+        tryNextLink: false,
+        message: expect.stringContaining(`at ${path}:`),
+      });
+      expect(envDaemon.requests).toEqual([]);
+    });
+
+    it.each(["", "relative/path.sock"])("treats socketPath=%j as unset", async (socketPath) => {
+      const envDaemon = await start(sessionReply());
+      await fromCredentialDaemon({ credential: "dev", socketPath })();
+      expect(envDaemon.requests).toHaveLength(1);
+    });
+  });
+
+  describe("credential_daemon validation", () => {
     it.each([
       ["empty", ""],
       ["65 characters", "a".repeat(65)],
@@ -122,7 +153,7 @@ describe(fromCredentialDaemon.name, () => {
     it("strips control characters from the name in the message", async () => {
       await expect(fromCredentialDaemon({ credential: "a\nb" })()).rejects.toMatchObject({
         code: "INVALID_CONFIG",
-        message: expect.stringContaining("daemon_credential 'ab' is invalid"),
+        message: expect.stringContaining("credential_daemon 'ab' is invalid"),
       });
     });
 

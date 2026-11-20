@@ -104,12 +104,12 @@ describe(fromSso.name, () => {
     describe("when the profile gets its SSO session from the credential daemon", () => {
       const daemonSsoProfile = {
         ...mockSsoProfile,
-        daemon_credential: "dev",
+        credential_daemon: "dev",
         sso_account_id: "123456789012",
         sso_role_name: "Admin",
       };
 
-      it("treats a daemon_credential from the config file as no sso_session", async () => {
+      it("treats a credential_daemon from the config file as no sso_session", async () => {
         vi.mocked(parseKnownFiles as any).mockReturnValue({ [mockProfileName]: daemonSsoProfile });
         vi.mocked(loadSharedConfigFiles).mockResolvedValue({
           configFile: { [mockProfileName]: daemonSsoProfile },
@@ -119,7 +119,7 @@ describe(fromSso.name, () => {
         expect(error).toBeInstanceOf(TokenProviderError);
         expect(error.tryNextLink).toBe(true);
         expect(error.message).toBe(
-          `Profile '${mockProfileName}' gets its SSO session from the credential daemon (daemon_credential), ` +
+          `Profile '${mockProfileName}' gets its SSO session from the credential daemon (credential_daemon), ` +
             `so it has no sso_session for bearer-token authentication. Services that use bearer tokens need an ` +
             `SSO session stored in the shared config and SSO token cache files.`
         );
@@ -128,11 +128,11 @@ describe(fromSso.name, () => {
         expect(getSSOTokenFromFile).not.toHaveBeenCalled();
       });
 
-      it("uses the normal flow when daemon_credential comes only from the credentials file", async () => {
+      it("uses the normal flow when credential_daemon comes only from the credentials file", async () => {
         vi.mocked(parseKnownFiles as any).mockReturnValue({ [mockProfileName]: daemonSsoProfile });
         vi.mocked(loadSharedConfigFiles).mockResolvedValue({
           configFile: { [mockProfileName]: mockSsoProfile },
-          credentialsFile: { [mockProfileName]: { daemon_credential: "dev" } },
+          credentialsFile: { [mockProfileName]: { credential_daemon: "dev" } },
         });
         const expiresAt = new Date(mockDateNow + EXPIRE_WINDOW_MS + 1000).toISOString();
         vi.mocked(getSSOTokenFromFile).mockResolvedValueOnce({ ...mockSsoToken, expiresAt });

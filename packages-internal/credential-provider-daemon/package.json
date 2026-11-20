@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/credential-provider-daemon",
   "version": "3.972.0",
-  "description": "AWS credential provider that sources credentials from a local credential daemon named by daemon_credential in ~/.aws/config",
+  "description": "AWS credential provider that sources credentials from a local credential daemon named by credential_daemon in ~/.aws/config",
   "keywords": [
     "aws",
     "credential daemon",

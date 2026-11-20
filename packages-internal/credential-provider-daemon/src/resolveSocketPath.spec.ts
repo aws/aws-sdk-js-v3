@@ -45,6 +45,18 @@ describe(resolveSocketPath.name, () => {
     expect(await resolveSocketPath(env)).toBe(path);
   });
 
+  it("uses an absolute socketPath before AWS_CREDENTIAL_DAEMON_SOCKET and the home path", async () => {
+    const { env } = await setUp("env");
+    await startFakeDaemon("", join(env.HOME, ".aws"), "credential-daemon.sock").then((d) => daemons.push(d));
+    const configured = join(dir, "configured.sock");
+    expect(await resolveSocketPath(env, undefined, configured)).toBe(configured);
+  });
+
+  it.each(["", "relative/path.sock"])("treats socketPath=%j as unset", async (value) => {
+    const { env, path } = await setUp("env");
+    expect(await resolveSocketPath(env, undefined, value)).toBe(path);
+  });
+
   it("env-file: returns AWS_CREDENTIAL_DAEMON_SOCKET even when it names a regular file", async () => {
     const { env, path } = await setUp("env-file");
     expect(await resolveSocketPath(env)).toBe(path);
